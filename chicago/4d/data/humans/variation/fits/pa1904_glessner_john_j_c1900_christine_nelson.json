@@ -1,0 +1,149 @@
+{
+ "format": "chicago4d_human_face_fit_v1",
+ "ticket": "T-3413",
+ "person_id": "pa1904_glessner_john_j_c1900_christine_nelson",
+ "scene": "1904",
+ "generated_by": "tools/fit_portrait_face.py",
+ "_doc": "Regenerate with tools/fit_portrait_face.py from the portrait record; never edit by hand.",
+ "grade": "reconstructed",
+ "sources": [
+  "bhm_umfa53226_1855_hembitrade_anna_akerman"
+ ],
+ "portrait": "data/humans/variation/portraits/pa1904_glessner_john_j_c1900_christine_nelson.json",
+ "basis": "No photograph of Christine Nelson is known. Her face's proportions are fitted to a stand-in: Anna \u00c5kerman, a Swedish housemaid born in 1863, in a cabinet card of 1890-1895 (Bohusl\u00e4ns museum, UMFA53226:1855), a Swedish woman in domestic service of about her age. It is not her: what the face shows is that kind of woman, not Christine Nelson, so the face is reconstructed.",
+ "liberty": "L-human-variation-3412",
+ "values": {
+  "nose_length": -0.085,
+  "nose_width": -0.25,
+  "nose_depth": 0.224,
+  "nose_hump": -0.2,
+  "nose_curve": 0.0,
+  "nose_tip": -0.206,
+  "nose_tip_width": 0.0,
+  "nostrils": -0.2,
+  "nose_height": 0.17,
+  "mouth_width": -0.12,
+  "lip_upper": 0.12,
+  "lip_lower": 0.048,
+  "mouth_height": -0.033,
+  "chin_prominence": -0.115,
+  "chin_width": -0.151,
+  "chin_height": 0.051,
+  "jaw": -0.46,
+  "prognathism": -0.07,
+  "cheekbones": 0.2,
+  "cheek_volume": 0.15,
+  "cheek_inner": 0.0,
+  "brow_height": -0.029,
+  "brow_angle": 0.318,
+  "brow_ridge": -0.25,
+  "forehead_slope": 0.0,
+  "temples": 0.0,
+  "ear_size": -0.612,
+  "ear_flap": -0.042,
+  "ear_lobe": -0.371,
+  "jowls": -0.25,
+  "head_shape": 0.008,
+  "forehead_height": 0.0,
+  "head_shape.option": 6
+ },
+ "read_from_picture": [
+  "chin_height",
+  "ear_size",
+  "mouth_height",
+  "nose_length",
+  "nose_tip"
+ ],
+ "mostly_prior": [
+  "brow_angle",
+  "brow_height",
+  "brow_ridge",
+  "cheek_inner",
+  "cheek_volume",
+  "cheekbones",
+  "chin_prominence",
+  "chin_width",
+  "ear_flap",
+  "ear_lobe",
+  "forehead_height",
+  "forehead_slope",
+  "head_shape",
+  "jaw",
+  "jowls",
+  "lip_lower",
+  "lip_upper",
+  "mouth_width",
+  "nose_curve",
+  "nose_depth",
+  "nose_height",
+  "nose_hump",
+  "nose_tip_width",
+  "nose_width",
+  "nostrils",
+  "prognathism",
+  "temples"
+ ],
+ "fit": {
+  "rms_px": 2.88,
+  "per_mark_px": {
+   "pupil_r": 1.1,
+   "pupil_l": 1.1,
+   "eye_outer_r": 1.7,
+   "eye_inner_r": 1.5,
+   "eye_inner_l": 0.6,
+   "eye_outer_l": 3.4,
+   "nasion": 6.3,
+   "nose_tip": 3.9,
+   "subnasale": 1.5,
+   "stomion": 2.1,
+   "menton": 1.9,
+   "ear_top_l": 2.8,
+   "ear_lobe_l": 3.8
+  },
+  "camera": {
+   "yaw_deg": -25.7,
+   "pitch_deg": 6.4,
+   "roll_deg": 0.1,
+   "px_per_m": 752.0,
+   "shift_px": [
+    56.6,
+    90.9
+   ]
+  },
+  "landmark_vertices": {
+   "pupil_r": [
+    4868,
+    17
+   ],
+   "pupil_l": [
+    11486,
+    6801
+   ],
+   "eye_outer_r": 17,
+   "eye_inner_r": 4868,
+   "eye_inner_l": 11486,
+   "eye_outer_l": 6801,
+   "nasion": 132,
+   "nose_tip": 297,
+   "subnasale": 5072,
+   "stomion": 523,
+   "menton": 5225,
+   "ear_top_l": 12012,
+   "ear_lobe_l": 12329
+  }
+ },
+ "not_modelled": [
+  "her own face (no photograph of her is known; this is a stand-in's)",
+  "the colouring (the photograph is monochrome)",
+  "her hair (the stand-in's is light, centre-parted and drawn back; the model wears the town's bun under a hat)"
+ ],
+ "card": {
+  "source_citation": "Cabinet-card portrait of Anna \u00c5kerman, Uddevalla; text on the back of the card: 'Hembitr\u00e4de Anna \u00c5kerman, Uddevalla. F\u00f6dd 1863' ('Housemaid Anna \u00c5kerman, Uddevalla. Born 1863'). Photographer Ossian Berggren, Uddevalla, 1890-1895. Bohusl\u00e4ns museum, UMFA53226:1855.",
+  "source_url": "https://digitaltmuseum.se/011014307649",
+  "rms_mm": 3.8,
+  "marks": 13,
+  "portrait": "humans/web/portraits/pa1904_glessner_john_j_c1900_christine_nelson_portrait.jpg",
+  "model": "humans/web/portraits/pa1904_glessner_john_j_c1900_christine_nelson_model.jpg",
+  "stand_in": "No photograph of Christine Nelson is known. This is a stand-in: Anna \u00c5kerman, a Swedish housemaid photographed in Uddevalla about 1890-1895 at about thirty, close to Christine Nelson's age, country and work. Her face is the model's guide; it is not Christine Nelson."
+ }
+}

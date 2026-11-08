@@ -1,0 +1,317 @@
+{
+  "version": 1,
+  "license": "CC0-1.0",
+  "liberty": "L418",
+  "height_scale": 1.0,
+  "lod_ratios": [
+    1.0,
+    0.6,
+    0.28,
+    0.12
+  ],
+  "skin_texture": {
+    "path": "assets/authored/humans/skin_mh_old_lightskinned_male/old_lightskinned_male_bald_crown.png",
+    "sha256": "d97a3f236a1a4fd7cb846e5f8575a219c86e5947e1bbcf9c4d444ab293e344d8",
+    "license": "CC0-1.0",
+    "color_space": "sRGB",
+    "base_color_factor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "roughness": 0.66,
+    "roughness_basis": "Reconstructed engineering value, not measured from a period person or calibrated capture.",
+    "identity_basis": "MakeHuman's own CC0 older light-skinned male system atlas (the 1904 gentleman's), for a man of 56; not a likeness or an attested complexion.",
+    "uv_status": "hm08 base-mesh UV layout, as the toigo atlases; checked on the built figure.",
+    "source_manifest_path": "assets/authored/humans/skin_mh_old_lightskinned_male/SOURCE.json"
+  },
+  "hair_component": {
+    "directory": "assets/authored/humans/hair_short04",
+    "texture": "short04_diffuse_periodic_pad_draft.png",
+    "uv_transform": {
+      "source_height": 2048,
+      "top_rows": 8,
+      "bottom_rows": 1
+    },
+    "roughness": 0.65,
+    "alpha_cutoff": 0.4,
+    "appearance_basis": "Shared cleared CC0 short04 cap, kept as the skull surface the strand hair grows from; no hairstyle or likeness is asserted by the cap.",
+    "source_manifest_sha256": "68a02130cd50dd0d727f31f8f53702fe91bd9ecb9aa98309a7814191abf89e99"
+  },
+  "eye_components": {
+    "radius_m": 0.012,
+    "iris_radius_m": 0.0055,
+    "pupil_radius_m": 0.0022,
+    "corneal_bulge_m": 0,
+    "cornea_enabled": false,
+    "source_basis": "Actual helper centers/axes; original opaque sclera/iris/pupil, reconstructed dimensions and brown color, not resident facts",
+    "status": "No actual BPy/export/blink fit/photographic acceptance"
+  },
+  "label": "Reconstructed 1904 coachman's standing livery (double-breasted livery coat to the knee with two rows of white-metal buttons, white stock, white gloves, white breeches, black top boots, silk top hat) on the shared portable male rig",
+  "scene_date": "1904-07-01",
+  "grade": "reconstructed",
+  "sources": [
+    "seely_1902_coachman_livery_plates",
+    "loc_griffith_1905_roosevelt_escort_coachmen_stereograph",
+    "loc_rau_1902_roosevelt_carriage_coachman_stereograph",
+    "loc_penfield_coachman_brougham_drawing"
+  ],
+  "basis": "Original livery-coat shells offset from the cleared adult body's own surface, its skirt lofted round its sections, buttons laid on the coat, a stock lofted round the neck, gloves offset from the hands, breeches from the legs, boot shafts lofted round the calves, a top hat seated round the skull and closed shoes round the feet, cut after the coachman's livery the reference pictures show (T-3483). Seams, ease, lengths and colours are reconstructed. Complete source anatomy remains unchanged beneath clothing.",
+  "source_scope": "The 'Coachman' plate of Mrs. Seely's Cook Book (New York, 1902) shows a private coachman standing full length in his livery: a double-breasted coat buttoned to the throat and falling to the knee, two rows of six bright buttons, a white stock, white gloves, white breeches showing above black top boots, a silk hat; its mourning plate the same coat on an older man. The Griffith (1905) and Rau (1902) stereographs show coachmen of the decade in double-breasted coats with bright buttons, stand collars, white stocks and silk hats; Penfield's drawing shows a brougham coachman's livery in colour (a light coat, light breeches and top boots), so livery was coloured, not only black. None is of Chicago or of Nelson; all the photographs are monochrome; no pixels or traced shapes enter the asset.",
+  "colors_linear_rgba": {
+    "skin": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "eyes": [
+      0.12,
+      0.09,
+      0.06,
+      1.0
+    ],
+    "garment_outer__livery_coat_green_1904": [
+      0.014,
+      0.026,
+      0.019,
+      1
+    ],
+    "accessory__white_metal_livery_buttons": [
+      0.62,
+      0.62,
+      0.6,
+      1
+    ],
+    "garment_upper__white_stock_1904": [
+      0.8,
+      0.8,
+      0.78,
+      1
+    ],
+    "accessory__white_cotton_gloves": [
+      0.72,
+      0.71,
+      0.68,
+      1
+    ],
+    "garment_lower__breeches_white_1904": [
+      0.66,
+      0.64,
+      0.58,
+      1
+    ],
+    "footwear__black_top_boots": [
+      0.01,
+      0.01,
+      0.01,
+      1
+    ],
+    "headwear__silk_top_hat_1904": [
+      0.014,
+      0.014,
+      0.016,
+      1
+    ]
+  },
+  "workwear_coverage": {
+    "shoe_clearance_m": 0.004
+  },
+  "proof_variants": [
+    {
+      "id": "nelson_charles_1904_coachman",
+      "component_assembly": "coachman_livery_1904_v1",
+      "person_reference_id": "pa1904_glessner_john_j_c1900_charles_nelson",
+      "person_reference_scene": "1904",
+      "person_reference_grade": "inferred",
+      "person_reference_record": "data/residents_1904/households/hh_glessner_john_j.json",
+      "reference_summary": {
+        "name": "Charles Nelson",
+        "occupation": "coachman",
+        "household": "hh_glessner_john_j",
+        "presence": "present"
+      },
+      "body_input": "assets/authored/humans/makehuman_hm08/prepared_adult_35.json",
+      "body_parameters": {
+        "chosen_height_m": 1.75,
+        "height_basis": "The shared engineering body; the variation kit draws height and build at runtime. Not a recorded height.",
+        "engineering_age_years": 35,
+        "age_basis": "Engineering body at the kit base age 35; human-variation.js ages him from his record (born June 1848, 56 in July 1904).",
+        "shape_basis": "CC0 male macro targets; equal software-category blend is engineering only, not inferred ancestry or a portrait."
+      },
+      "body_basis": "CC0 adult-male graphical body and the older light-skinned generic skin of the 1904 gentleman are reconstructed authoring choices. Charles Nelson is an inferred person (the 1900 census enumerates him as the Glessners' coachman in the rear building); no picture of him is known, and no complexion, height, face or outfit of his is asserted.",
+      "recipe_path": "data/humans/recipes/coachman_livery_1904.json"
+    }
+  ],
+  "coachman_components": {
+    "version": 1,
+    "generator": "tools/human_coachman_1904.py",
+    "liberty": "L-human-modular-dress-1789",
+    "body_sha256": "ef5eb3ca282b29c482a67af4e3e50d1ed29a8055eed0230ee2a58ec36dddbba9",
+    "standing_source_only": false,
+    "production_eligible": false,
+    "photo_accepted": false,
+    "evidence_choice": "The brief asked for a coachman standing at his own stable in a livery distinct from Hans Johnson's box coat and cape. The Seely plate is the one picture read of a private coachman standing in livery in these years, and every piece is taken from it: the double-breasted coat to the knee, two rows of buttons, stock, white gloves, breeches, top boots and silk hat. No cape and no box coat (those are for the box); bottle green and white metal instead of Hans's dark blue and brass.",
+    "tailoring": {
+      "coat": {
+        "ease": 0.026,
+        "armpit_extra": 0.022,
+        "sleeve_short_of_wrist": 0.026,
+        "collar_above_neck": 0.03,
+        "waist_below_spine02": 0.02,
+        "roll_above_spine02": 0.345,
+        "v_half_width_top": 0.03
+      },
+      "skirt": {
+        "hem_y": 0.5,
+        "ease": 0.036,
+        "front_gap_deg": 0.5,
+        "segments": 72,
+        "rows": 14
+      },
+      "buttons": {
+        "radius": 0.0095,
+        "count": 6,
+        "top_above_spine02": 0.3,
+        "bottom_above_spine02": 0.02,
+        "x_top": 0.088,
+        "x_bottom": 0.064,
+        "standoff": 0.003,
+        "sides": 10
+      },
+      "stock": {
+        "ease": 0.006,
+        "bottom_below_neck": 0.03,
+        "back_bottom_below_neck": 0.004,
+        "back_above_neck": 0.05,
+        "jaw_clearance": 0.006,
+        "segments": 40,
+        "rows": 6
+      },
+      "gloves": {
+        "ease": 0.0022,
+        "above_wrist": 0.03
+      },
+      "breeches": {
+        "ease": 0.01,
+        "waist_height_fraction": 0.585,
+        "bottom_y": 0.4,
+        "thigh_fullness": 0.014,
+        "smoothing": 20
+      },
+      "boots": {
+        "bottom_y": 0.08,
+        "top_y": 0.43,
+        "ease_bottom": 0.006,
+        "ease_top": 0.018,
+        "segments": 28,
+        "rows": 12
+      },
+      "top_hat": {
+        "seat_below_top": 0.084,
+        "ease": 0.007,
+        "crown_height": 0.165,
+        "crown_flare": 1.05,
+        "brim_side": 0.036,
+        "brim_fore": 0.05,
+        "brim_curl": 0.02,
+        "thickness": 0.004
+      }
+    },
+    "garments": [
+      {
+        "id": "livery_coat",
+        "material": "garment_outer__livery_coat_green_1904",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "seely_1902_coachman_livery_plates",
+            "loc_griffith_1905_roosevelt_escort_coachmen_stereograph"
+          ],
+          "source_scope": "The Seely coachman (1902) wears a double-breasted coat buttoned to the throat with a low collar, falling straight to the knee; the Griffith coachmen (1905) wear double-breasted coats with stand collars. That Nelson wore such a coat is not recorded; its dark bottle green is reconstructed (the photographs are monochrome; Penfield's coloured livery shows that a household's livery had its own colour), chosen to differ from Hans Johnson's dark blue.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "livery_buttons",
+        "material": "accessory__white_metal_livery_buttons",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "seely_1902_coachman_livery_plates",
+            "loc_griffith_1905_roosevelt_escort_coachmen_stereograph"
+          ],
+          "source_scope": "Two rows of six bright buttons from the chest to the waist, the rows a little wider apart at the top, as the Seely plate shows; the Griffith coachmen's buttons read bright too. White metal (not brass) is reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "white_stock",
+        "material": "garment_upper__white_stock_1904",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "seely_1902_coachman_livery_plates",
+            "loc_rau_1902_roosevelt_carriage_coachman_stereograph"
+          ],
+          "source_scope": "A white stock standing above the coat's collar, as on the Seely and Rau coachmen; its height and linen are reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "white_gloves",
+        "material": "accessory__white_cotton_gloves",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "seely_1902_coachman_livery_plates",
+            "loc_griffith_1905_roosevelt_escort_coachmen_stereograph"
+          ],
+          "source_scope": "White gloves, as the Seely coachman and the Griffith coachmen wear; cotton is reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "white_breeches",
+        "material": "garment_lower__breeches_white_1904",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "seely_1902_coachman_livery_plates",
+            "loc_penfield_coachman_brougham_drawing"
+          ],
+          "source_scope": "White breeches showing a hand's breadth between the coat's hem and the boot tops (Seely; Penfield draws light breeches); their fullness over the thigh is reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "top_boots",
+        "material": "footwear__black_top_boots",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "seely_1902_coachman_livery_plates",
+            "loc_penfield_coachman_brougham_drawing"
+          ],
+          "source_scope": "Plain black boots to just below the knee (Seely; Penfield's top boots); their stiffness and fit are reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "silk_top_hat",
+        "material": "headwear__silk_top_hat_1904",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "seely_1902_coachman_livery_plates",
+            "loc_griffith_1905_roosevelt_escort_coachmen_stereograph",
+            "loc_rau_1902_roosevelt_carriage_coachman_stereograph"
+          ],
+          "source_scope": "A tall silk hat with a narrow curled brim, as every coachman of the set wears; its exact crown and brim are reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      }
+    ]
+  }
+}

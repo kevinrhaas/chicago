@@ -1,0 +1,47 @@
+{
+  "id": "hi_pa1904_glessner_john_j_c1900_august_billings_1904",
+  "contract_version": 1,
+  "scene": "1904",
+  "person_id": "pa1904_glessner_john_j_c1900_august_billings",
+  "appearance": {
+    "asset_id": "billings_august_1904_stable_helper"
+  },
+  "placement": {
+    "local_e": 1342.1,
+    "local_n": -3237.0,
+    "heading_deg": 80,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "idle",
+    "loop": true,
+    "phase": 0.3
+  },
+  "behaviour": {
+    "state": "standing"
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 3,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": false,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "Reconstructed standing depiction of August Billings, helper in the Glessner household (inferred: the 1900 census enumerates him as a helper in the rear building behind the house, born January 1875 in Sweden, single; no source read says he was still there on 1 July 1904), standing in the stable yard at the alley end of the court, on the carriage drive just inside the courtyard gates and about a metre off the stable's south wall, facing east into the court. The gates, the drive and the coach house are the house's own (HABS sheets 2-3; Glessner's The Story of a House, 1923). A helper's work in a private stable (cleaning and harnessing the horses, the stable and the carriages) is read from Mrs. Seely's Cook Book (1902); his working dress, a striped shirt in shirt sleeves with braces and a belt, dark trousers and a light felt hat, is built after Frances Benjamin Johnston's groom of about 1902 (T-3484). Where he stands and when, his face, hair and complexion are reconstructed: no picture of him is known.",
+    "sources": [
+      "census_1900_chicago_t623_roll245",
+      "glessner_story_of_a_house_1923",
+      "habs_glessner_house_il_1015_drawings",
+      "seely_1902_coachman_livery_plates",
+      "loc_johnston_1902_tuskegee_horse_and_groom"
+    ],
+    "liberty": "L418",
+    "seed": "pa1904_glessner_john_j_c1900_august_billings:1904:stable-yard-standing:20261107",
+    "replaceable_by": "A photograph of August Billings or of the Glessner stable staff, or a record that he was or was not working at 1800 Prairie in 1904; his place in the stable yard and his standing have no documentary claim."
+  }
+}

@@ -1,0 +1,28 @@
+{
+ "id": "vbg_vmvp3391_nordstrom_kusk_1903",
+ "type": "photograph",
+ "citation": "'Nordström, Kusk, Vänersborg' ('Nordström, coachman, Vänersborg'). Glass negative by K & A Vikner, Vänersborg, 1903. Vänersborgs museum, VMVP3391.",
+ "author": "K & A Vikner (photographers, Vänersborg)",
+ "date": "1903",
+ "describes_date": "1903",
+ "repository": "Vänersborgs museum, Vänersborg, Sweden, VMVP3391 (K-samsök http://kulturarvsdata.se/vbg/photo/VMVP3391; DigitaltMuseum 021015684767). Image server copy 1515 x 2362 px (WebP), saved here as JPEG at the same size.",
+ "url": "https://digitaltmuseum.se/021015684767",
+ "locator": "The whole negative; a full-length standing portrait. His face, frontal, is at x 635-820, y 520-700 (about 180 px across, cap brim to chin).",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "asset_use": "geometry",
+ "verified": true,
+ "rights_note": "K-samsök (the Swedish heritage aggregator, record built 2026-11) gives the image licence as Public Domain Mark 1.0 ('pdmark'). Europeana's older copy of the record gives CC BY-SA 4.0 instead; the museum's current feed is taken as authoritative here, and the conflict is recorded. A studio photograph made in 1903 is out of protection under Swedish law (simple photographic pictures made before 1969).",
+ "access_notes": "Found 2026-11-07 through the K-samsök search API (text=kusk), which gives the year 1903 and the studio. Image fetched from ems.dimu.org at dimension=4000x4000, which returned 1515 x 2362. digitaltmuseum.se answered 403. The same studio's 'Andersson, Kusk, Vänersborg' (VMVP01061, undated) shows a younger man in a cap and work jacket. A sharper but undated alternative: 'Kusken Karlsson', Ernst Blom, Västmanlands läns museum Vlm-Blom P 158 (2097 x 3000; face about 190 px), a young coachman with a whip.",
+ "note": "THIS IS NOT AUGUST BILLINGS. No photograph of August Billings was found. Nordström stands in for him because he was a Swedish coachman (the record's title says so) photographed in 1903, the year before the scene, and by appearance a young man of about August Billings's age in 1904 (29; born January 1875 in Sweden, came to the US 1892; enumerated as 'Helper' in the Glessners' rear building, 1900 census). The record gives no first name and no age: the age is a reading of the picture. He is a coachman in livery, a step above a stable helper. A studio glass-negative portrait of a man standing before a painted lakeside backdrop in a long pale double-breasted livery greatcoat with dark collar and cuffs, a peaked cap with a pale band and an embroidered monogram badge, hands behind his back. His face is frontal and sharp: dark eyes, straight brows, a broad straight nose, a neat dark moustache turned up at the ends, a short square chin, prominent ears. Spots and emulsion loss at the corners of the plate, none on the face.",
+ "what_it_supplies": [
+  "the proportions of a young Swedish man's face in the scene's own year, frontal and sharp",
+  "a Swedish coachman's livery greatcoat and cap of 1903"
+ ],
+ "what_it_does_not_supply": [
+  "August Billings's face, his colouring, or anything about him",
+  "the sitter's age",
+  "a stable helper's working clothes",
+  "the face's depth (one view only)"
+ ]
+}

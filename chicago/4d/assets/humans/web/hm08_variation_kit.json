@@ -11,7 +11,7 @@
  "bin": "hm08_variation_kit.bin",
  "bin_bytes": 927482,
  "bin_sha256": "6eaa8ea253b2e7f63e0974318ef4f67a7558da4c985e33cd9c8264930782780b",
- "axes_sha256": "8b71ce7ae1614a3dd321bc2ae318bdf54800c900974ff431a06563091eac61f0",
+ "axes_sha256": "e5753f7c8adfd2c8f768ec36374e88a6d67e3bc428669ddeb240215b6ca52762",
  "manifest_sha256": "80087621bf4d5b3185430dda3d8a08ed8c81a9286c91d4ad92a84d6a8d2847d1",
  "limit": 0.6,
  "height": {
@@ -183,6 +183,82 @@
   "private_first_infantry_1812": {
    "base_age_years": 25,
    "sex": "male"
+  },
+  "nelson_charles_1904_coachman": {
+   "base_age_years": 35,
+   "sex": "male"
+  },
+  "billings_august_1904_stable_helper": {
+   "base_age_years": 35,
+   "sex": "male"
+  },
+  "ryan_kate_1904_cook": {
+   "base_age_years": 25,
+   "sex": "female",
+   "one_of_allow": {
+    "head_shape": [
+     0,
+     1,
+     5,
+     6
+    ]
+   },
+   "face_draw_scale": 0.5,
+   "face_bias": {
+    "jaw": -0.45,
+    "chin_height": -0.15,
+    "chin_width": -0.15,
+    "double_chin": -0.3,
+    "jowls": -0.25,
+    "brow_ridge": -0.25,
+    "brow_angle": 0.2,
+    "cheek_volume": 0.15,
+    "lip_upper": 0.12,
+    "lip_lower": 0.08,
+    "mouth_width": -0.12,
+    "prognathism": -0.1,
+    "mouth_corners": 0.35,
+    "nose_width": -0.25,
+    "nose_length": -0.15,
+    "nose_hump": -0.2,
+    "nose_tip": 0.15,
+    "nostrils": -0.2,
+    "cheekbones": 0.2
+   }
+  },
+  "nelson_christine_1904_errand": {
+   "base_age_years": 25,
+   "sex": "female",
+   "one_of_allow": {
+    "head_shape": [
+     0,
+     1,
+     5,
+     6
+    ]
+   },
+   "face_draw_scale": 0.5,
+   "face_bias": {
+    "jaw": -0.45,
+    "chin_height": -0.15,
+    "chin_width": -0.15,
+    "double_chin": -0.3,
+    "jowls": -0.25,
+    "brow_ridge": -0.25,
+    "brow_angle": 0.2,
+    "cheek_volume": 0.15,
+    "lip_upper": 0.12,
+    "lip_lower": 0.08,
+    "mouth_width": -0.12,
+    "prognathism": -0.1,
+    "mouth_corners": 0.35,
+    "nose_width": -0.25,
+    "nose_length": -0.15,
+    "nose_hump": -0.2,
+    "nose_tip": 0.15,
+    "nostrils": -0.2,
+    "cheekbones": 0.2
+   }
   }
  },
  "refs": {

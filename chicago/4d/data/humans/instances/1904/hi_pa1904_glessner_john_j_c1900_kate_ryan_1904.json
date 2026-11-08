@@ -1,0 +1,48 @@
+{
+  "id": "hi_pa1904_glessner_john_j_c1900_kate_ryan_1904",
+  "contract_version": 1,
+  "scene": "1904",
+  "person_id": "pa1904_glessner_john_j_c1900_kate_ryan",
+  "appearance": {
+    "asset_id": "ryan_kate_1904_cook"
+  },
+  "placement": {
+    "local_e": 1352.89,
+    "local_n": -3231.17,
+    "heading_deg": 105,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "idle",
+    "loop": true,
+    "phase": 0.4
+  },
+  "behaviour": {
+    "state": "standing"
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 3,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": false,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "Reconstructed standing depiction of Kate Ryan, cook in the Glessner household (inferred: the 1900 census enumerates her in the house as a servant, \"Cook\", born April 1850 in Ireland, single; no source read says she was still there on 1 July 1904), standing in the courtyard at the foot of the service stair, on the paved walk that leads from it to the service way, a little west of the flight and clear of its foot, turned east across the court. The stair climbs from the court to the north range's service door (\"service entrance into the courtyard, with stone threshold\", as the house's reconstruction reads the HABS sheets), in the west end of that range, its service block; where in the block the kitchen was is not read here; Glessner's own account (The Story of a House, 1923) names the staff's way in, through the great arch on Eighteenth Street into the court; so she stands at the staff's own door and never at the family's on Prairie Avenue. Her dark print work dress with its sleeves rolled up, the broad checked apron with its bib and the cloth bound over her hair are built after the 1903 Wasson and 1901 Underwood cooks (T-3479). Where she stands and when, her face, hair and complexion are reconstructed: no picture of her is known.",
+    "sources": [
+      "census_1900_chicago_t623_roll245",
+      "glessner_story_of_a_house_1923",
+      "habs_glessner_house_il_1015_drawings",
+      "loc_wasson_1903_new_french_cook_stereograph",
+      "loc_underwood_1901_begorrah_bridget_stereograph",
+      "loc_wasson_1903_new_french_cook_mr_mrs_stereograph"
+    ],
+    "liberty": "L418",
+    "seed": "pa1904_glessner_john_j_c1900_kate_ryan:1904:service-stair-standing:20261107",
+    "replaceable_by": "A photograph of Kate Ryan or of the Glessner staff, or a record that she was or was not in the house in 1904; her place at the service stair and her standing have no documentary claim."
+  }
+}

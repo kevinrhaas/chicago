@@ -1,0 +1,149 @@
+{
+ "format": "chicago4d_human_face_fit_v1",
+ "ticket": "T-3413",
+ "person_id": "pa1904_glessner_john_j_c1900_charles_nelson",
+ "scene": "1904",
+ "generated_by": "tools/fit_portrait_face.py",
+ "_doc": "Regenerate with tools/fit_portrait_face.py from the portrait record; never edit by hand.",
+ "grade": "reconstructed",
+ "sources": [
+  "vlm_blom_p157_kusken_kalen"
+ ],
+ "portrait": "data/humans/variation/portraits/pa1904_glessner_john_j_c1900_charles_nelson.json",
+ "basis": "No photograph of Charles Nelson is known. His face's proportions are fitted to a stand-in: Kal\u00e9n, a Swedish coachman in livery, in an undated glass negative by Ernst Blom (V\u00e4stmanlands l\u00e4ns museum, Vlm-Blom P 157), a Swedish coachman of middle age. It is not him: what the face shows is that kind of man, not Charles Nelson, so the face is reconstructed.",
+ "liberty": "L-human-variation-3412",
+ "values": {
+  "nose_length": -0.1,
+  "nose_width": 0.0,
+  "nose_depth": -0.114,
+  "nose_hump": 0.0,
+  "nose_curve": -0.019,
+  "nose_tip": 0.04,
+  "nose_tip_width": 0.0,
+  "nostrils": 0.0,
+  "nose_height": 0.082,
+  "mouth_width": 0.0,
+  "lip_upper": 0.0,
+  "lip_lower": -0.013,
+  "mouth_height": -0.131,
+  "chin_prominence": -0.056,
+  "chin_width": -0.003,
+  "chin_height": 0.433,
+  "jaw": -0.008,
+  "prognathism": -0.062,
+  "cheekbones": 0.0,
+  "cheek_volume": 0.0,
+  "cheek_inner": 0.0,
+  "brow_height": -0.005,
+  "brow_angle": -0.038,
+  "brow_ridge": 0.004,
+  "forehead_slope": 0.0,
+  "temples": 0.0,
+  "ear_size": 0.038,
+  "ear_flap": 0.142,
+  "ear_lobe": 0.006,
+  "jowls": 0.0,
+  "head_shape": 0.171,
+  "forehead_height": 0.0,
+  "head_shape.option": 5
+ },
+ "read_from_picture": [
+  "chin_height",
+  "ear_size"
+ ],
+ "mostly_prior": [
+  "brow_angle",
+  "brow_height",
+  "brow_ridge",
+  "cheek_inner",
+  "cheek_volume",
+  "cheekbones",
+  "chin_prominence",
+  "chin_width",
+  "ear_flap",
+  "ear_lobe",
+  "forehead_height",
+  "forehead_slope",
+  "head_shape",
+  "jaw",
+  "jowls",
+  "lip_lower",
+  "lip_upper",
+  "mouth_height",
+  "mouth_width",
+  "nose_curve",
+  "nose_depth",
+  "nose_height",
+  "nose_hump",
+  "nose_length",
+  "nose_tip",
+  "nose_tip_width",
+  "nose_width",
+  "nostrils",
+  "prognathism",
+  "temples"
+ ],
+ "fit": {
+  "rms_px": 7.02,
+  "per_mark_px": {
+   "pupil_r": 2.2,
+   "pupil_l": 2.3,
+   "eye_outer_r": 4.8,
+   "eye_inner_r": 1.7,
+   "eye_inner_l": 2.5,
+   "eye_outer_l": 3.1,
+   "nasion": 2.7,
+   "nose_tip": 5.8,
+   "subnasale": 8.5,
+   "stomion": 19.4,
+   "menton": 2.9,
+   "ear_top_r": 9.2,
+   "ear_lobe_r": 2.1
+  },
+  "camera": {
+   "yaw_deg": 10.7,
+   "pitch_deg": -9.8,
+   "roll_deg": 1.0,
+   "px_per_m": 1648.6,
+   "shift_px": [
+    176.8,
+    113.3
+   ]
+  },
+  "landmark_vertices": {
+   "pupil_r": [
+    4868,
+    17
+   ],
+   "pupil_l": [
+    11486,
+    6801
+   ],
+   "eye_outer_r": 17,
+   "eye_inner_r": 4868,
+   "eye_inner_l": 11486,
+   "eye_outer_l": 6801,
+   "nasion": 132,
+   "nose_tip": 297,
+   "subnasale": 5072,
+   "stomion": 523,
+   "menton": 5225,
+   "ear_top_r": 5413,
+   "ear_lobe_r": 5732
+  }
+ },
+ "not_modelled": [
+  "his own face (no photograph of him is known; this is a stand-in's)",
+  "the colouring (the photograph is monochrome)",
+  "his hair (under the stand-in's cap; the model wears the town's short cut)"
+ ],
+ "card": {
+  "source_citation": "'Kusken Kal\u00e9n' ('Kal\u00e9n the coachman'). Glass negative by Ernst Blom. V\u00e4stmanlands l\u00e4ns museum, V\u00e4ster\u00e5s, Vlm-Blom P 157.",
+  "source_url": "https://digitaltmuseum.se/021017894192",
+  "rms_mm": 4.3,
+  "marks": 13,
+  "portrait": "humans/web/portraits/pa1904_glessner_john_j_c1900_charles_nelson_portrait.jpg",
+  "model": "humans/web/portraits/pa1904_glessner_john_j_c1900_charles_nelson_model.jpg",
+  "stand_in": "No photograph of Charles Nelson is known. This is a stand-in: Kal\u00e9n, a Swedish coachman photographed in livery by Ernst Blom, a man of about Charles Nelson's age, country and work. The negative is undated and may be later than 1904. His face is the model's guide; it is not Charles Nelson."
+ }
+}

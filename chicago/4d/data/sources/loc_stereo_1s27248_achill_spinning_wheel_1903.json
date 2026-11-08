@@ -1,0 +1,27 @@
+{
+ "id": "loc_stereo_1s27248_achill_spinning_wheel_1903",
+ "type": "photograph",
+ "citation": "At the spinning wheel \"a home scene typical of Old Ireland\", Achill Island. Stereograph, No. 5526, copyright 1903 by William H. Rau. Library of Congress Prints and Photographs Division, STEREO FOREIGN GEOG FILE - Ireland--Achill Island; LC-DIG-stereo-1s27248.",
+ "author": "William H. Rau (copyright claimant; the record names no photographer)",
+ "date": "c1903",
+ "describes_date": "1903",
+ "repository": "Library of Congress Prints and Photographs Division, item 2005694760. The file here is the LEFT half of the stereo card cut from the LC master TIFF (1s27248u.tif, 5905 x 3123 px) at x 560-3020, y 180-2720, saved as JPEG (2460 x 2540 px).",
+ "url": "https://www.loc.gov/item/2005694760/",
+ "locator": "Left frame of the stereo pair; the woman seated at the spinning wheel, right of centre. Her face, frontal, is at x 1325-1505, y 1070-1285 of the cropped file (x 1885-2065, y 1250-1465 of the master TIFF): about 175 px across.",
+ "tier": 1,
+ "rights_status": "no_known_restrictions",
+ "asset_use": "geometry",
+ "verified": true,
+ "rights_note": "The Library of Congress states 'No known restrictions on publication.' A stereograph copyrighted in 1903 is in the public domain in the United States.",
+ "access_notes": "Found and read 2026-11-07 through loc.gov's JSON item record (2005694760) and downloaded from tile.loc.gov (master TIFF, 55.5 MB). Wikimedia Commons (API rate-limited), the National Library of Ireland's own catalogue (403) and its Flickr Commons images (static host answered 'Rate limited - CIDR range blocked') could not be used from this container, so no NLI Poole studio portrait could be fetched. NYPL Digital Collections showed a bot check and was not used.",
+ "note": "THIS IS NOT KATE RYAN. No photograph of Kate Ryan was found. She stands in for her because she is an Irish woman photographed in Ireland in 1903, the year before the scene, and by appearance of about the same age as Kate Ryan in 1904 (54; born April 1850 in Ireland, 1900 census). The woman is not named and her age is not recorded: the age is a reading of the picture, not a fact from the record. She is a rural Achill Island woman at a spinning wheel, not a cook in a city house. The LC caption card's tracings include 'Husband & wife', which is all the record says about who the two sitters are. A stereograph of a thatched stone cottage on Achill Island, Co. Mayo: an older bearded man in a hat and waistcoat stands at left; a woman sits at a spinning wheel at right, facing the camera. Her face is frontal and evenly lit: hair parted in the centre and drawn back, a broad forehead with lines, deep-set eyes, a straight nose, a wide mouth, a firm chin; she wears a dark buttoned bodice with a pale apron over her lap. At about 175 px across the face is soft (a small stereo print scanned large) but the structure reads.",
+ "what_it_supplies": [
+  "the proportions of an Irish countrywoman's face of about the right age, frontal, in the scene's own decade",
+  "the plain dark bodice and drawn-back hair of a working woman in 1903"
+ ],
+ "what_it_does_not_supply": [
+  "Kate Ryan's face, her age, her colouring, or anything about her",
+  "a cook's working dress or a city servant's appearance",
+  "the face's depth (one view only); fine skin detail (soft at this scale)"
+ ]
+}

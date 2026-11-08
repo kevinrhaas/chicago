@@ -21,11 +21,15 @@ const actorSource = slice('export function chooseHumanLod(', '\nconst verbOf') +
   + slice('const PROXY_GEOMETRY', '\n/**\n * THE ENGINE.');
 const stubLife = () => ({ bound: true, bind() { return true; }, apply() {}, nod() {} });
 const stubActions = () => ({ bound: true, bind() { return true; }, apply() {}, takeNod() { return false; } });
+// T-3493: an older face's lids rest lower (human-skin.js restingLid); lift the real one.
+const skin = fs.readFileSync(new URL('../renderers/web/js/human-skin.js', import.meta.url), 'utf8');
+const lidSource = skin.match(/export const AGE = [^;]+;/)[0] + '\n' + skin.match(/export function restingLid\([\s\S]*?\n\}/)[0];
+const restingLid = new Function(`${lidSource.replace(/^export /gm, '')}\nreturn restingLid;`)();
 const stubGait = () => ({ bound: true, bind() { return true; }, apply() {}, speed: 1.3, pace: 1 });
 const stubSkirt = () => null;
-const HumanActor = new Function('THREE', 'createHumanLife', 'createHumanActions', 'createHumanGait', 'createHumanSkirt', 'enuToWorld',
+const HumanActor = new Function('THREE', 'createHumanLife', 'createHumanActions', 'createHumanGait', 'createHumanSkirt', 'enuToWorld', 'restingLid',
   `${constants}\n${actorSource}\nreturn HumanActor;`)(THREE, stubLife, stubActions, stubGait, stubSkirt,
-  (e, n, h, out) => out.set(e, h, -n));
+  (e, n, h, out) => out.set(e, h, -n), restingLid);
 
 // The asset store, counting what is parsed and let go.
 const acquired = [], released = [];

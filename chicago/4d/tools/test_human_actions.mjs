@@ -5,7 +5,8 @@
 // hands on the hips and clasped behind the back where the poses say (two-bone IK, the
 // hands outside the body); greet a visitor in front with a hand to the brow and a nod;
 // swing the arms opposite the legs on the walk clip, as far as the stride; leave the
-// legs and feet alone; hold a held frame; keep its state across a LOD swap; deterministic.
+// legs and feet alone; hold a held frame; keep its state across a LOD swap; deterministic;
+// hold a carrying hand where the dress says, its basket clear of the skirt (T-3481).
 // On the gait layer's walk (a stand-in `gait`): swing from its phase, opposite the leg, as far
 // as the speed, elbow bent more in front, less in a skirt and clear of it, blended by its
 // weight; and standing with no gait, exactly as before.
@@ -187,6 +188,51 @@ for (const [asset, lod, clip] of [['bardwell_otis_1835', 0, 'idle_natural_v1'], 
     }
     assert(worst > -0.012, `${name}: ${at} is ${(-worst * 100).toFixed(1)} cm inside the skirt`);
     console.log(`skirt pose ${name}: hands outside the skirt (closest ${Number.isFinite(worst) ? (worst * 100).toFixed(1) + ' cm' : 'clear'}): PASS`);
+  }
+}
+
+// T-3481: a woman carrying a market basket by the hand. The dress names the hold in the GLB's
+// extras; that arm is held there walking and standing (no swing, no pose), the fingers round the
+// handle, the basket clear of her skirt and off the ground, and the other arm still swings.
+{
+  const asset = 'nelson_christine_1904_errand';
+  const bytes = await fs.readFile(new URL(`assets/humans/web/${asset}.lod0.glb`, here));
+  const n = bytes.readUInt32LE(12), extras = JSON.parse(bytes.subarray(20, 20 + n)).scenes[0].extras.chicago4d_human;
+  const carry = JSON.parse(extras.wardrobe_assembly_json).carry;
+  assert(carry && carry.side === 'l', `${asset}: the dress names the carrying hand`);
+  for (const state of ['walking', 'standing']) {
+    const r = await rig(asset, 0, state === 'walking' ? 'walk' : 'idle');
+    const life = createHumanLife({ id: 'carry', scene: r.scene }), acts = createHumanActions({ id: 'carry', scene: r.scene, greeting: 'nod', skirt: true, carry });
+    assert(acts && acts.snapshot().carrying === 'l', `${asset}: carries in the left hand`);
+    const basket = [], skirt = [];
+    r.scene.traverse(o => { if (o.isSkinnedMesh && /^accessory__/.test(o.material?.name ?? '')) basket.push(o); if (o.isSkinnedMesh && /^garment_lower/.test(o.material?.name ?? '')) skirt.push(o); });
+    assert(basket.length >= 1 && skirt.length === 1, `${asset}: the basket and the skirt are found`);
+    const verts = (ms) => { const out = []; for (const m of ms) { const pos = m.geometry.attributes.position, v = new THREE.Vector3(); for (let i = 0; i < pos.count; i++) { m.getVertexPosition(i, v); out.push(figure(r, v.clone().applyMatrix4(m.matrixWorld))); } } return out; };
+    let worstHold = 0, worstGap = Infinity, lowest = Infinity, grip = 0, rMin = 9, rMax = -9;
+    for (let i = 0; i < 150; i++) {
+      step(r, life, acts, 1 / 30, { state, root: r.root });
+      if (i < 45 || i % 15) continue;
+      const want = figure(r, world(r.bone('upperarm_l'))).add(new THREE.Vector3(...carry.wrist_from_shoulder));
+      worstHold = Math.max(worstHold, figure(r, world(r.bone('hand_l'))).distanceTo(want));
+      const b = verts(basket), sk = verts(skirt);
+      lowest = Math.min(lowest, ...b.map(p => p.y));
+      // Each basket point at the skirt's height is outside (further left than) the skirt there.
+      for (const p of b) {
+        let edge = -Infinity;
+        for (const q of sk) if (Math.abs(q.y - p.y) < 0.03 && Math.abs(q.z - p.z) < 0.05 && q.x > 0) edge = Math.max(edge, q.x);
+        if (edge > -Infinity) worstGap = Math.min(worstGap, p.x - edge);
+      }
+      // The fingers are round the handle: the middle finger's middle joint is at the basket's mesh.
+      const knuckle = figure(r, world(r.bone('middle_02_l')));
+      grip = Math.max(grip, Math.min(...b.map(p => p.distanceTo(knuckle))));
+      const hz = figure(r, world(r.bone('hand_r'))).z; rMin = Math.min(rMin, hz); rMax = Math.max(rMax, hz);
+    }
+    assert(worstHold < 0.03, `${state}: the left wrist is held at the carry (${(worstHold * 100).toFixed(1)} cm off)`);
+    assert(worstGap > 0.005, `${state}: the basket is clear of the skirt (${Number.isFinite(worstGap) ? (worstGap * 100).toFixed(1) + ' cm' : 'never level with it'})`);
+    assert(lowest > 0.25, `${state}: the basket is off the ground (lowest ${lowest.toFixed(3)} m)`);
+    assert(grip < 0.035, `${state}: the fingers are round the handle (${(grip * 100).toFixed(1)} cm)`);
+    if (state === 'walking') assert(rMax - rMin > 0.1, `walking: the free right arm still swings (${(rMax - rMin).toFixed(3)} m)`);
+    console.log(`${asset} ${state}: wrist ${(worstHold * 100).toFixed(1)} cm from the hold, basket ${(worstGap * 100).toFixed(1)} cm clear of the skirt, lowest ${lowest.toFixed(2)} m, grip ${(grip * 100).toFixed(1)} cm: PASS`);
   }
 }
 
