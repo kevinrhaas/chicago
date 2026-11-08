@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2823, ts: '2026-11-08T06:29:49.460Z', date: 'Nov 8, 2026, 12:29 AM CT', title: '1812: the company\'s cornfield at the forks is planted', kind: 'feature',
+    items: [
+      'The eight acres the draught letters \'Company Garden & public Cornfield\' stand in Indian corn: some 24,000 hills, tasselled and in the ear, pumpkins between.',
+      'The company garden is the field\'s north-east acre, by the path to the fort: mess strips of potatoes, cabbages, beans, onions and new-sown turnips.',
+      'A field this size draws cheaply: stands are grown whole only near you and are painted cards far off. The corn follows Settings > Season.',
+      'Liberty L-t3498 records what the sources say and what is ours.',
+    ] },
   { v: 2822, ts: '2026-11-08T06:15:37.273Z', date: 'Nov 8, 2026, 12:15 AM CT', title: 'Pullman\'s house signed off against its six photographs', kind: 'chore',
     items: [
       'The house itself is unchanged: 1729 Prairie was checked once more against every picture of it.',
