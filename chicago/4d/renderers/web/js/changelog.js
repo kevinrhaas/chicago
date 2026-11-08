@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2806, ts: '2026-11-08T00:14:10.233Z', date: 'Nov 7, 2026, 6:14 PM CT', title: 'Pullman house: From this spot stands where the c. 1900 photographer stood', kind: 'fix',
+    items: [
+      'On the Pullman house\'s Photos tab, From this spot for the Detroit Publishing photograph of about 1900 used to put you in the middle of 18th Street, level with the stable. It now stands you on Calumet Avenue, about 30 m south of 18th Street, looking north-west across the crossing, which is where the picture was taken. The house\'s flank and its carriage porch now line up with the photograph from there.',
+      'Nothing in the house itself changes. Seen from the right spot, the photograph shows the house\'s upper parts about 10 % taller than they are drawn, and the carriage porch\'s east arch a little wider. Both are noted for the next pass.',
+    ] },
   { v: 2805, ts: '2026-11-08T00:12:49.887Z', date: 'Nov 7, 2026, 6:12 PM CT', title: 'Every 1835 dooryard garden is its own, and planted', kind: 'improvement',
     items: [
       'The town\'s 97 house gardens differ in size, place, beds and fence, sized to the house and its household.',
