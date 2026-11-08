@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 2826, ts: '2026-11-08T11:01:43.213Z', date: 'Nov 8, 2026, 5:01 AM CT', title: 'Everyone of 1812 Chicago is in the town, living their day', kind: 'feature',
+    items: [
+      'The rest of 1812 Chicago now stands in the town beside the garrison: the Kinzies and their household, the officers and their wives, the soldiers\' families and children, the Burns and Lee households, the Ouilmettes, the Chicago militia, Wells and his Miami escort, and the Potawatomi families of the camp by the creek. That is 112 more people, each in their own face, colouring, height and dress.',
+      'Each person keeps a day by the hour on the scene\'s own date. Some are indoors, others out at their work: washing, cooking, mending canoes, trading at the factory, talking on the bank. Change the season in Settings and the town changes with it. Jean Lalime and Matthew Irwin are there in winter and spring and gone by August; the Potawatomi come in to trade only on some days before the August gathering.',
+      'Walk up to a door and ask for anyone inside. Every house, barracks and lodge door lists who is in. The one you ask for comes out, walks over and greets you, then goes back to what they were doing once you leave.',
+      'Thirteen new period dresses: an officer, a trader, a settler, an engagé, a lady, a working woman, town boys, girls and toddlers, and a Potawatomi man, woman, boy and girl. Children have bodies of their own.',
+      '47 new person cards: Lalime, Irwin, the Mirandeaus, Liberty White and Cardin at Lee\'s Place, Kinzie\'s engagés, and the camp families and Miami escort, whom no source names, drawn as unnamed figures.',
+      'On a phone, figures are drawn out to 60 m, so the town stays light enough to open.',
+    ] },
   { v: 2825, ts: '2026-11-08T08:08:20.580Z', date: 'Nov 8, 2026, 2:08 AM CT', title: 'Pullman\'s estate signed off; a planted bed in the stable court', kind: 'feature',
     items: [
       'A small bed now grows inside the stable court\'s gateway on 18th Street, by the stable\'s corner bay, as an 1890s photograph shows it: a dark clipped evergreen, a low flowering shrub and a little clipped cone.',
