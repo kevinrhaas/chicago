@@ -86,7 +86,7 @@ import { createWorkingBank } from './working-bank.js';
 import { createBoats } from './boats.js';
 import { mountHumans } from './humans.js';
 import { createHumanDuties } from './human-duties.js';
-import { createHumanDays } from './human-days.js';
+import { createHumanDays, clearWayOf } from './human-days.js';
 import { createHumanSpacing } from './human-spacing.js';
 import { createInteractions, createInteractKey } from './interact.js';
 import { createFollow } from './follow.js';
@@ -3853,6 +3853,8 @@ async function boot() {
       // The router's grid is hundreds of MB and is built on its first plan: a day's walk takes
       // its ways only once something else (Go to) has built it, else walks straight.
       router: { plan: (...args) => (api.router?.built ? api.router.plan(...args) : null) },
+      // T-3505: a job's places between gatherings are clear of the buildings and the fort's walls.
+      clear: clearWayOf(footprints),
       problems: layerProblems('humans') });
   }
   // T-3504 (owner, 2026-11-08: "two people occupying the same space? Prevent that"): every year's
