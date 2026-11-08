@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2832, ts: '2026-11-08T19:20:39.214Z', date: 'Nov 8, 2026, 1:20 PM CT', title: 'Tipping the hat: the hand meets the brim, never goes through it', kind: 'fix',
+    items: [
+      'A man who greets you touches his hat\'s brim from outside and below it; before, his fingers sank through the crown.',
+      'It holds for every hat in every year: Glessner\'s derby, the coachman\'s silk hat over his glove, felt and slouch hats, round hats, the tuque, the infantry cap, and the officers\' cocked hats with their plumes.',
+      'The brim is read off the hat he is wearing, so the hand finds it whether he is standing or walking, nodding or not.',
+      'Arms now reach exactly as far as each person\'s own height draws them.',
+    ] },
   { v: 2831, ts: '2026-11-08T18:41:19.627Z', date: 'Nov 8, 2026, 12:41 PM CT', title: '1812 people keep busy: talks come and go, jobs between, breaks indoors', kind: 'improvement',
     items: [
       'A conversation in 1812 now gathers every minute or two and breaks up again, rather than lasting all day; who comes to each one changes from time to time.',
