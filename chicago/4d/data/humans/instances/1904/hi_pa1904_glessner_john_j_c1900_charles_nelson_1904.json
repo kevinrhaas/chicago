@@ -18,7 +18,61 @@
     "phase": 0.55
   },
   "behaviour": {
-    "state": "standing"
+    "state": "standing",
+    "day": [
+      {
+        "note": "Reconstructed day (L-t3516-days, T-3516): docs/RESEARCH/people-days-1835-1904/days.py.",
+        "spans": [
+          {
+            "from": 0,
+            "to": 6,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "asleep"
+          },
+          {
+            "from": 6,
+            "to": 12.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1341.6,
+              "local_n": -3216.95,
+              "heading_deg": 35
+            },
+            "activity": "talk",
+            "doing": "at the stable doors: the horses, the carriage made ready",
+            "knot": "glessner_18th"
+          },
+          {
+            "from": 12.5,
+            "to": 13.5,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "dinner"
+          },
+          {
+            "from": 13.5,
+            "to": 19,
+            "indoors": false,
+            "at": {
+              "local_e": 1341.6,
+              "local_n": -3216.95,
+              "heading_deg": 35
+            },
+            "activity": "talk",
+            "doing": "at the stable doors: the horses, the carriage made ready",
+            "knot": "glessner_18th"
+          },
+          {
+            "from": 19,
+            "to": 24,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "supper; asleep"
+          }
+        ]
+      }
+    ]
   },
   "interaction": {
     "selectable": true,

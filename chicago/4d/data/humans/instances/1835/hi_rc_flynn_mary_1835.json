@@ -18,7 +18,59 @@
     "phase": 0
   },
   "behaviour": {
-    "state": "standing"
+    "state": "standing",
+    "day": [
+      {
+        "note": "Reconstructed day (L-t3516-days, T-3516): docs/RESEARCH/people-days-1835-1904/days.py.",
+        "spans": [
+          {
+            "from": 0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "recon_1835_blk_south_water_lasalle_d1_04",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.5,
+            "to": 11,
+            "indoors": false,
+            "at": {
+              "local_e": 522.3,
+              "local_n": -3.6,
+              "heading_deg": 20
+            },
+            "activity": "stand",
+            "doing": "at her dooryard: water and wood, the washing, the garden"
+          },
+          {
+            "from": 11,
+            "to": 12,
+            "indoors": true,
+            "where": "recon_1835_blk_south_water_lasalle_d1_04",
+            "doing": "dinner"
+          },
+          {
+            "from": 12,
+            "to": 17.5,
+            "indoors": false,
+            "at": {
+              "local_e": 522.3,
+              "local_n": -3.6,
+              "heading_deg": 20
+            },
+            "activity": "stand",
+            "doing": "at her dooryard: the washing, mending, the garden"
+          },
+          {
+            "from": 17.5,
+            "to": 24,
+            "indoors": true,
+            "where": "recon_1835_blk_south_water_lasalle_d1_04",
+            "doing": "supper, asleep"
+          }
+        ]
+      }
+    ]
   },
   "interaction": {
     "selectable": true,

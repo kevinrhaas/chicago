@@ -73,6 +73,12 @@
  * A figure the visitor can see but who is beyond NEAR_M keeps their round where it is (no jump
  * from a job to a ring in plain view); within it they walk from one to the next.
  *
+ * EVERY YEAR (T-3516): main.js plays 1835's and 1904's people's days too, each by its own
+ * data/humans/doors_<year>.json (tools/derive_doors_scene.py); their days are written by
+ * docs/RESEARCH/people-days-1835-1904/days.py. A talk whose people stand further apart than
+ * GATHER.spread_m (the Glessner court's cook, cook and stable helper) gathers in a ring about the
+ * one of them nearest their middle; each keeps a job about their own place between.
+ *
  * Between spans a person walks: out of the door of the building they were in, to the next
  * span's place, or from where they are to the door and in. The way is the router's (route.js)
  * when there is one, else straight. Far from the visitor (beyond NEAR_M), no one walks: they
@@ -146,8 +152,9 @@ export const POTTER = Object.freeze({ off_m: [1.4, 3.0], spots: 2 });
 /** What a post is: the span's own words say the person keeps a watch there. */
 export const POST_RE = /\b(sentry|sentinel|sentries|guard|watch|post|picket|lookout)\b/i;
 /** T-3505: a gathering's beat (each knot its own, seconds), how long it lasts, the chance each of
- *  its people comes to it; people further apart than spread_m gather at their own places. */
-export const GATHER = Object.freeze({ every_s: [75, 150], for_s: [24, 52], join_p: 0.75, spread_m: 6 });
+ *  its people comes to it. T-3516: people further apart than spread_m gather in a ring about the
+ *  one of them nearest their middle, those within reach_m of that one. */
+export const GATHER = Object.freeze({ every_s: [75, 150], for_s: [24, 52], join_p: 0.75, spread_m: 6, reach_m: 30 });
 /** T-3505: one's own job between gatherings: out_m from the ring, its two more spots off_m about it. */
 export const OWN = Object.freeze({ out_m: [1.8, 3.4], off_m: [1.2, 2.6], spots: 2, tries: 6 });
 /** T-3505: a child's play between gatherings: three places this far about where they stood. */
@@ -430,14 +437,48 @@ export function planDay(people, date, { clear = () => true } = {}) {
   }
   // T-3505: every talk a gathering that comes and goes, with each one's own job (a child's play)
   // between; a talk with no one else in it, a job.
-  const centres = new Map();
+  const centres = new Map(), hosts = new Map(), hostAt = new Map();
+  const middle = (ats) => ({ e: ats.reduce((t, p) => t + p.e, 0) / ats.length, n: ats.reduce((t, p) => t + p.n, 0) / ats.length });
   for (const [knot, members] of knots) {
     if (members.size < 2) continue;
     const ats = [...members.values()].map((spans) => atOf(out.get(spans[0]) ?? spans[0]));
     let far = 0;
     for (let i = 0; i < ats.length; i++) for (let j = i + 1; j < ats.length; j++) far = Math.max(far, dist(ats[i], ats[j]));
-    centres.set(knot, far <= GATHER.spread_m
-      ? { e: ats.reduce((t, p) => t + p.e, 0) / ats.length, n: ats.reduce((t, p) => t + p.n, 0) / ats.length } : null);
+    if (far <= GATHER.spread_m) { centres.set(knot, middle(ats)); continue; }
+    // T-3516: standing far apart (the Glessner court's cook, maid and stable helper), they come
+    // together about the one of them nearest their middle, each to a place of a ring about that
+    // one's own; those further than reach_m from it keep to their jobs.
+    const keys = [...members.keys()].sort();
+    const written = keys.map((k) => atOf(members.get(k)[0]));
+    const mid = middle(written);
+    let h = 0;
+    written.forEach((q, i) => { if (dist(q, mid) < dist(written[h], mid)) h = i; });
+    const host = written[h];
+    const near = keys.filter((_, i) => dist(written[i], host) <= GATHER.reach_m);
+    if (near.length < 2) continue;
+    // Turned (seeded) so that none of its places is another's talk place at the same time.
+    const others = [];
+    for (const x of outs) {
+      const q = out.get(x.span) ?? x.span;
+      if (q.activity === 'talk' && q.knot !== knot) others.push({ key: x.key, span: x.span, at: atOf(q) });
+    }
+    for (const [hk, sp] of hostAt) if (hk !== knot) others.push(...sp);
+    const clashes = (k, q) => others.some((o) => o.key !== k && dist(o.at, q) < 0.65 && overlaps(o.span, members.get(k)[0]));
+    let best = null;
+    for (let turn = 0; turn < 8; turn++) {
+      const ring = ringAbout(host, near, turn ? `${knot}:${turn}` : knot);
+      const spots = new Map();
+      near.forEach((k, i) => { if (clear(host, ring[i])) spots.set(k, ring[i]); });
+      const clash = [...spots].filter(([k, q]) => clashes(k, q)).length;
+      if (!best || clash < best.clash) best = { spots, clash };
+      if (!clash) break;
+    }
+    // Whoever's place is still another's keeps to their job.
+    for (const [k, q] of [...best.spots]) if (clashes(k, q)) best.spots.delete(k);
+    if (best.spots.size >= 2) {
+      hosts.set(knot, best.spots);
+      hostAt.set(knot, [...best.spots].map(([k, q]) => ({ key: k, span: members.get(k)[0], at: q })));
+    }
   }
   const children = new Set(people.filter((q) => q.child).map((q) => q.key));
   for (const x of outs) {
@@ -445,10 +486,23 @@ export function planDay(people, date, { clear = () => true } = {}) {
     if (s.activity !== 'talk') continue;
     const rand = seededRandom(`own:${x.key}:${x.span.from}`);
     const at = atOf(s), face0 = Number.isFinite(s.at.heading_deg) ? s.at.heading_deg : rand() * 360;
-    if (!s.knot || (knots.get(s.knot)?.size ?? 0) < 2) {
+    const spots = hosts.get(s.knot);
+    if (!s.knot || (knots.get(s.knot)?.size ?? 0) < 2 || (!centres.has(s.knot) && !spots?.has(x.key))) {
       const job = jobAbout(at, face0, rand, clear);
       const p = play(x.span);
       p.activity = 'work'; p.spots = job.spots.map((q) => local(q)); delete p.knot;
+      continue;
+    }
+    if (spots) {
+      // T-3516: a job about their own place; to the gathering, a place in the ring about the host.
+      const own0 = atOf(x.span), child = children.has(x.key);
+      const job = jobAbout(own0, face0, rand, clear, { off: child ? PLAY.off_m : POTTER.off_m, n: child ? PLAY.spots : POTTER.spots });
+      const own = { from: s.from, to: s.to, indoors: false, doing: s.doing, at: local(job.anchor, job.face) };
+      if (child && job.spots.length) Object.assign(own, { activity: 'walk', to_point: local(job.spots.at(-1)) });
+      else Object.assign(own, { activity: 'work', spots: job.spots.map((q) => local(q)) });
+      const p = play(x.span), r = spots.get(x.key);
+      p.at = local(r, r.heading_deg);
+      p.round = { knot: s.knot, own };
       continue;
     }
     const centre = centres.get(s.knot);
