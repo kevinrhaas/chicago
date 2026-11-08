@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2827, ts: '2026-11-08T13:20:27.077Z', date: 'Nov 8, 2026, 7:20 AM CT', title: 'Content builds wait out a flaky texture-tool download', kind: 'fix',
+    items: [
+      'The pinned KTX-Software 4.3.2 package that compresses every texture is now kept in the build cache, checked against its pinned fingerprint, and fetched with patient retries, so a passing gateway timeout from github.com no longer throws away a whole content build. On 8 November three builds in a row were lost that way with nothing wrong in the change; the fallback fetch inside tools/ktx2_sheets.py now retries too, and a self-test in the gate proves it waits out a 504 but refuses a missing file or a wrong fingerprint at once.',
+    ] },
   { v: 2826, ts: '2026-11-08T11:01:43.213Z', date: 'Nov 8, 2026, 5:01 AM CT', title: 'Everyone of 1812 Chicago is in the town, living their day', kind: 'feature',
     items: [
       'The rest of 1812 Chicago now stands in the town beside the garrison: the Kinzies and their household, the officers and their wives, the soldiers\' families and children, the Burns and Lee households, the Ouilmettes, the Chicago militia, Wells and his Miami escort, and the Potawatomi families of the camp by the creek. That is 112 more people, each in their own face, colouring, height and dress.',
