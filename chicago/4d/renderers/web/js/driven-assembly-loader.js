@@ -5,7 +5,8 @@ import { clone as cloneSkinned } from 'three/addons/utils/SkeletonUtils.js';
 import { HumanActor } from './humans.js';
 import { resolveHumanIdentity } from './human-identity.js';
 import { disposeLoadedAsset } from './scene-loader.js';
-import { createDrivenAssembly } from './town-transport.js';
+import { createDrivenAssembly, createTeamsterAssembly } from './town-transport.js';
+import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
 import { fitHorseSupport } from './transport-support.js';
 import { createDriverLife } from './driver-life.js';
 import { clothHuman } from './fabric.js';
@@ -14,7 +15,7 @@ import { loadLivery, dressInLivery } from './driver-livery.js';
 /** Actual portable assets, never an identity/wardrobe or idle-only fallback. */
 export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], humanAssets,
   confidence, heightAt, horseSpec, horseSupportDomain, makeHitch, adoptPerson = () => () => {},
-  moduleBase = new URL('../', import.meta.url), driverLod = 0 }) {
+  moduleBase = new URL('../', import.meta.url), driverLod = 0, createWalker = null }) {
   if (!humanAssets || typeof makeHitch !== 'function') throw Error('driven assembly: portable humans and actual visible hitch loader required');
   const horseSpecCopy = { ...horseSpec };
   if (!Number.isFinite(horseSpecCopy.stride_m) || horseSpecCopy.stride_m <= 0 || !horseSpecCopy.walk_clip) throw Error('driven assembly: explicit in-place WALK travel contract required');
@@ -25,7 +26,8 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
     throw Error('driven assembly: same validated support domain as route preflight required');
   }
   let horseAsset = null, horseLeases = 0;
-  const loader = new GLTFLoader();
+  // T-3497: the photographic farm wagon ships meshopt-compressed (EXPORT-RECEIPT.json).
+  const loader = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
   const assetURL = file => new URL(file, moduleBase).href;
   const acquireHorse = async () => {
     if (!horseAsset) horseAsset = (async () => {
@@ -70,8 +72,158 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
     horseLeases--;
     if (horseLeases === 0) { disposeLoadedAsset(template); horseAsset = null; }
   };
+  // The two-horse team, its distance-driven walk and its support on the ground (T-2803).
+  const makeTeam = (row, template, walk) => {
+    const group = new THREE.Group(); group.name = `team:${row.id}`;
+    const horses = [-1, 1].map(side => {
+      const root = cloneSkinned(template.scene);
+      root.traverse(node => {
+        if (!node.isMesh) return;
+        node.frustumCulled = false;
+        if (horseSpecCopy.material_variant === 'organic_dielectric_v1') node.material.metalness = 0;
+      });
+      root.position.set(side * row.team_half_spacing_m, 0, 0);
+      group.add(root);
+      const mixer = new THREE.AnimationMixer(root);
+      const action = mixer.clipAction(walk).setLoop(THREE.LoopRepeat, Infinity).play();
+      action.paused = true; mixer.setTime(0);
+      const savedHorse = row.initial_assembly_state?.horse?.[side === -1 ? 0 : 1];
+      return { root, mixer, action, distance: savedHorse?.distance_m ?? 0, prior: null, x: root.position.x };
+    });
+    let teamDisposed = false;
+    return {
+      root: group, horses,
+      poseVehicle(pose) {
+        if (teamDisposed) return;
+        for (const horse of horses) {
+          const lead = pose.rootAhead + row.horse_offset_m[2];
+          horse.root.rotation.y = Math.atan2(pose.curvature * lead, 1 - pose.curvature * horse.x);
+          group.updateWorldMatrix(true, true);
+          const current = horse.root.getWorldPosition(new THREE.Vector3());
+          const localYaw = horse.root.rotation.y;
+          const support = fitHorseSupport({ e: current.x, n: -current.z,
+            yaw: pose.yaw + localYaw, heightAt, ...horseSupportDomain });
+          horse.root.position.y = support.height_m - pose.height;
+          const tilt = new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0),
+            new THREE.Vector3().fromArray(support.normal_local_xyz));
+          horse.root.quaternion.setFromAxisAngle(new THREE.Vector3(0, 1, 0), localYaw).multiply(tilt);
+          horse.support = support;
+          group.updateWorldMatrix(true, true);
+          horse.root.getWorldPosition(current);
+          if (horse.prior) horse.distance += current.distanceTo(horse.prior);
+          horse.prior = current;
+          horse.action.paused = false;
+          horse.mixer.setTime((horse.distance / horseSpecCopy.stride_m % 1) * walk.duration);
+          horse.action.paused = true;
+        }
+      },
+      stop() {}, // Distance-driven mixers freeze at the existing phase, never snap to idle.
+      snapshot() { return horses.map(horse => ({ distance_m: horse.distance, support: horse.support })); },
+      dispose() {
+        if (teamDisposed) return;
+        teamDisposed = true;
+        for (const horse of horses) {
+          horse.mixer.stopAllAction(); horse.mixer.uncacheRoot(horse.root);
+          const skeletons = new Set(); horse.root.traverse(node => { if (node.isSkinnedMesh) skeletons.add(node.skeleton); });
+          for (const skeleton of skeletons) skeleton.dispose();
+          horse.root.removeFromParent();
+        }
+        releaseHorse(template);
+      },
+    };
+  };
+  // T-3497: a team led by a teamster on foot (an 1812 army wagon). The vehicle and team are
+  // loaded exactly as a driven row's; the teamster is the scene's own figure of that person,
+  // made by the humans layer (his looks, his walk), towed beside the near horse's head.
+  const makeTeamster = async row => {
+    if (typeof createWalker !== 'function') throw Error('driven assembly: a teamster on foot needs the scene humans layer');
+    if (!Array.isArray(row.driver_local_m) || row.driver_local_m.length !== 3 || !row.driver_local_m.every(Number.isFinite)) throw Error('driven assembly: teamster place beside the team required');
+    const instance = { ...row.driver_instance,
+      id: row.replace_human_instance ?? `hi_driver_${row.id}`, contract_version: 1, display: 'shown', scene: sceneId,
+      placement: { local_e: 0, local_n: 0, heading_deg: 180, anchor: 'terrain' },
+      appearance: { asset_id: row.driver_asset }, behaviour: { state: 'standing' },
+      animation: { clip: 'idle', loop: true, phase: 0 }, lod: { policy: 'auto' },
+    };
+    const identity = resolveHumanIdentity(instance, { sceneId, people, profiles });
+    let vehicle = null, walker = null, template = null, team = null, hitch = null, restore = null;
+    try {
+      const acquired = await Promise.allSettled([
+        (async () => {
+          const response = await fetch(assetURL(row.vehicle_file));
+          if (!response.ok) throw Error(`driven assembly: vehicle HTTP${response.status}`);
+          const bytes = await response.arrayBuffer();
+          const sha256 = [...new Uint8Array(await crypto.subtle.digest('SHA-256', bytes))].map(n => n.toString(16).padStart(2, '0')).join('');
+          if (sha256 !== row.vehicle_glb_sha256) throw Error('driven assembly: actual vehicle differs from its row');
+          return loader.parseAsync(bytes, new URL('.', assetURL(row.vehicle_file)).href);
+        })(),
+        acquireHorse(),
+      ]);
+      if (acquired[0].status === 'fulfilled') vehicle = acquired[0].value;
+      if (acquired[1].status === 'fulfilled') template = acquired[1].value;
+      const failed = acquired.find(result => result.status === 'rejected');
+      if (failed) throw failed.reason;
+      walker = createWalker(instance, identity);
+      if (!walker?.root || walker.personId !== instance.person_id) throw Error('driven assembly: teamster identity differs');
+      const walk = horseSpecCopy.walk_clip_file ? await acquireWalkClip()
+        : template.animations.find(a => a.name === horseSpecCopy.walk_clip);
+      if (!walk) throw Error('driven assembly: selected in-place WALK is missing');
+      team = makeTeam(row, template, walk);
+      // His lead runs from his right hand (the inside one, toward the horse) to the near
+      // horse's bit; the hand is read off his bones each frame, after he has walked.
+      const hitchRow = { ...row };
+      const hand = () => {
+        let bone = null;
+        walker.body?.scene?.traverse(node => { if (!bone && node.isBone && node.name === 'hand_r') bone = node; });
+        return bone;
+      };
+      hitchRow.driver_palm_points_m = { l: [0, 1, 0], r: [0, 1, 0] };
+      const lead = { root: walker.root };
+      hitch = await makeHitch({ row: hitchRow, vehicle: vehicle.scene, driver: lead, horses: team.horses });
+      if (!hitch?.root || typeof hitch.update !== 'function' || typeof hitch.dispose !== 'function') throw Error('driven assembly: visible fitted hitch required');
+      const updateHitch = hitch.update.bind(hitch);
+      hitch.update = pose => {
+        const bone = hand();
+        if (bone) {
+          walker.root.updateWorldMatrix(true, true);
+          const p = walker.root.worldToLocal(bone.getWorldPosition(new THREE.Vector3())).toArray();
+          hitchRow.driver_palm_points_m = { l: p, r: p };
+        }
+        return updateHitch(pose);
+      };
+      vehicle.scene.add(hitch.root);
+      for (const part of [vehicle.scene, team.root]) part.traverse(node => {
+        if (!node.isMesh || node.material?.visible === false) return;
+        const geometry = node.geometry;
+        if (!geometry.hasAttribute('_confidence')) geometry.setAttribute('_confidence',
+          new THREE.Float32BufferAttribute(new Float32Array(geometry.getAttribute('position').count).fill(1), 1));
+      });
+      const assembly = createTeamsterAssembly({ root: new THREE.Group(), vehicle: vehicle.scene, walker, horse: team, hitch,
+        confidence, walkerLocal_m: row.driver_local_m, horseOffset_m: row.horse_offset_m,
+        disposeVehicle: () => disposeLoadedAsset(vehicle) });
+      restore = adoptPerson(instance, walker);
+      const dispose = assembly.dispose;
+      assembly.dispose = () => { dispose(); walker.dispose(); if (restore) { restore(); restore = null; } };
+      const ray = new THREE.Raycaster();
+      assembly.pickDriverAt = (ndc, camera) => {
+        if (walker.disposed || !walker.body) return null;
+        for (let node = walker.root; node; node = node.parent) if (!node.visible) return null;
+        walker.root.updateWorldMatrix(true, true); ray.setFromCamera(ndc ?? new THREE.Vector2(), camera);
+        const hit = ray.intersectObject(walker.proxy, false)[0];
+        return hit ? { actor: walker, personId: walker.personId, instanceId: walker.id, state: walker.state,
+          identityKind: walker.identity.kind, person: walker.person, opens: 'resident_card',
+          distance: hit.distance, point: hit.point.clone() } : null;
+      };
+      return assembly;
+    } catch (error) {
+      hitch?.dispose(); team?.dispose(); walker?.dispose();
+      if (template && !team) releaseHorse(template);
+      if (vehicle) disposeLoadedAsset(vehicle);
+      restore?.(); throw error;
+    }
+  };
   return async row => {
     if (row.scene !== sceneId) throw Error('driven assembly: wrong scene');
+    if (row.driver_mode === 'on_foot') return makeTeamster(row);
     const driverClip = row.driver_clip ?? 'sit_drive';
     if (!['sit_drive', 'sit_drive_look_v2'].includes(driverClip)) throw Error('driven assembly: explicit qualified seated driver clip required');
     const instance = { ...row.driver_instance,
@@ -137,63 +289,7 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
         || travel.intendedCycleDistanceM !== horseSpecCopy.stride_m
         || travel.rootZInClipM?.join(',') !== '0,0'
         || Math.abs(travel.serializedClipDurationSeconds - walk.duration) > 1e-12)) throw Error('driven assembly: actual horse clip lacks the exact external-travel-once contract');
-      const group = new THREE.Group(); group.name = `team:${row.id}`;
-      const horses = [-1, 1].map(side => {
-        const root = cloneSkinned(template.scene);
-        root.traverse(node => {
-          if (!node.isMesh) return;
-          node.frustumCulled = false;
-          if (horseSpecCopy.material_variant === 'organic_dielectric_v1') node.material.metalness = 0;
-        });
-        root.position.set(side * row.team_half_spacing_m, 0, 0);
-        group.add(root);
-        const mixer = new THREE.AnimationMixer(root);
-        const action = mixer.clipAction(walk).setLoop(THREE.LoopRepeat, Infinity).play();
-        action.paused = true; mixer.setTime(0);
-        const savedHorse = row.initial_assembly_state?.horse?.[side === -1 ? 0 : 1];
-        return { root, mixer, action, distance: savedHorse?.distance_m ?? 0, prior: null, x: root.position.x };
-      });
-      let teamDisposed = false;
-      team = {
-        root: group, horses,
-        poseVehicle(pose) {
-          if (teamDisposed) return;
-          for (const horse of horses) {
-            const lead = pose.rootAhead + row.horse_offset_m[2];
-            horse.root.rotation.y = Math.atan2(pose.curvature * lead, 1 - pose.curvature * horse.x);
-            group.updateWorldMatrix(true, true);
-            const current = horse.root.getWorldPosition(new THREE.Vector3());
-            const localYaw = horse.root.rotation.y;
-            const support = fitHorseSupport({ e: current.x, n: -current.z,
-              yaw: pose.yaw + localYaw, heightAt, ...horseSupportDomain });
-            horse.root.position.y = support.height_m - pose.height;
-            const tilt = new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0),
-              new THREE.Vector3().fromArray(support.normal_local_xyz));
-            horse.root.quaternion.setFromAxisAngle(new THREE.Vector3(0, 1, 0), localYaw).multiply(tilt);
-            horse.support = support;
-            group.updateWorldMatrix(true, true);
-            horse.root.getWorldPosition(current);
-            if (horse.prior) horse.distance += current.distanceTo(horse.prior);
-            horse.prior = current;
-            horse.action.paused = false;
-            horse.mixer.setTime((horse.distance / horseSpecCopy.stride_m % 1) * walk.duration);
-            horse.action.paused = true;
-          }
-        },
-        stop() {}, // Distance-driven mixers freeze at the existing phase, never snap to idle.
-        snapshot() { return horses.map(horse => ({ distance_m: horse.distance, support: horse.support })); },
-        dispose() {
-          if (teamDisposed) return;
-          teamDisposed = true;
-          for (const horse of horses) {
-            horse.mixer.stopAllAction(); horse.mixer.uncacheRoot(horse.root);
-            const skeletons = new Set(); horse.root.traverse(node => { if (node.isSkinnedMesh) skeletons.add(node.skeleton); });
-            for (const skeleton of skeletons) skeleton.dispose();
-            horse.root.removeFromParent();
-          }
-          releaseHorse(template);
-        },
-      };
+      team = makeTeam(row, template, walk);
       if (Number.isFinite(row.initial_assembly_state?.driver?.time_s)) actor.body.mixer.setTime(row.initial_assembly_state.driver.time_s);
       // T-3398/T-3409: the driver's loose garments, skinned to his own bones; their spring
       // tails swing each frame after the clip and the driver-life layer have moved him.
@@ -235,7 +331,7 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
         hitchRow.driver_palm_points_m = points;
       };
       updatePalms();
-      hitch = await makeHitch({ row: hitchRow, vehicle: vehicle.scene, driver: actor, horses });
+      hitch = await makeHitch({ row: hitchRow, vehicle: vehicle.scene, driver: actor, horses: team.horses });
       if (!hitch?.root || typeof hitch.update !== 'function' || typeof hitch.dispose !== 'function') throw Error('driven assembly: visible fitted hitch required');
       const updateHitch = hitch.update.bind(hitch);
       hitch.update = pose => { updatePalms(); return updateHitch(pose); };

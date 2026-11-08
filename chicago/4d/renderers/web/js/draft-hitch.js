@@ -175,7 +175,13 @@ export function createDraftHitchFactory({ loadGLTF, loadJSON, confidence = null 
             }
           }
           const palms = palmPoints();
-          for (const h of horseState) for (const [side, key] of [['left', 'l'], ['right', 'r']]) {
+          if (row.driver_mode === 'on_foot') {
+            // T-3497: a teamster on foot leads the near (left, +x) horse by a line to its bit,
+            // from his hand to the nearer ring of its noseband.
+            const palm = driver.root.localToWorld(new THREE.Vector3(...palms.r));
+            const near = horseState[1], rings = ['left', 'right'].map(side => bandPoint(near, 'noseband', side));
+            segment('unit_rein', palm, rings[0].distanceTo(palm) <= rings[1].distanceTo(palm) ? rings[0] : rings[1]);
+          } else for (const h of horseState) for (const [side, key] of [['left', 'l'], ['right', 'r']]) {
             const palm = driver.root.localToWorld(new THREE.Vector3(...palms[key]));
             segment('unit_rein', palm, bandPoint(h, 'noseband', side));
           }
