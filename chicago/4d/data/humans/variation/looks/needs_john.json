@@ -1,0 +1,51 @@
+{
+ "format": "chicago4d_human_looks_v1",
+ "ticket": "T-3491",
+ "person_id": "needs_john",
+ "scene": "1812",
+ "generated_by": "docs/RESEARCH/people-1812-3491/looks.py",
+ "heritage": {
+  "origin": "English",
+  "family": "english",
+  "source_title": "Internet Surname Database: Needs",
+  "url": "https://www.surnamedb.com/Surname/Needs"
+ },
+ "complexion": {
+  "value": "dark",
+  "drawn": "dark",
+  "grade": "reconstructed"
+ },
+ "hair": {
+  "value": "fair",
+  "drawn": "fair",
+  "cut": "cropped_1812",
+  "facial": [
+   "side_whiskers_short"
+  ],
+  "grade": "reconstructed"
+ },
+ "eyes": {
+  "value": "blue",
+  "drawn": "blue",
+  "grade": "reconstructed"
+ },
+ "stature": {
+  "inches": 68.6,
+  "grade": "reconstructed",
+  "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+ },
+ "height_scale": 0.9956,
+ "basis": "His complexion (dark), hair (fair) and eyes (blue) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+ "reference": {
+  "title": "Henry Rice",
+  "artist": "Gilbert Stuart",
+  "date": "ca. 1815",
+  "page_url": "https://www.metmuseum.org/art/collection/search/12666",
+  "image": "humans/web/portraits/ref_1812_97_39.jpg",
+  "licence": "The Met Open Access, public domain",
+  "why": "A stand-in: a period face of like colouring (auburn / red-brown, short and tousled, long sideburns; fair skin with strongly ruddy cheeks), not his likeness."
+ },
+ "grade": "reconstructed",
+ "liberty": "L-1812-garrison-looks-3491",
+ "replaceable_by": "His entry in the Register of Enlistments (NARA M233), which gives his height, complexion, eyes and hair."
+}

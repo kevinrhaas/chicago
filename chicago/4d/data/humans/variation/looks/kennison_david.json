@@ -1,0 +1,55 @@
+{
+ "format": "chicago4d_human_looks_v1",
+ "ticket": "T-3491",
+ "person_id": "kennison_david",
+ "scene": "1812",
+ "generated_by": "docs/RESEARCH/people-1812-3491/looks.py",
+ "heritage": {
+  "origin": "English (probably; New England family) — standard reference not reached",
+  "family": "english",
+  "source_title": "none reached (forebears blocked; surnamedb has no entry)",
+  "url": null
+ },
+ "complexion": {
+  "value": "light",
+  "drawn": "light",
+  "grade": "reconstructed"
+ },
+ "hair": {
+  "value": "brown",
+  "drawn": "mid_brown",
+  "cut": "cropped_1812",
+  "facial": [],
+  "grade": "reconstructed"
+ },
+ "eyes": {
+  "value": "dark",
+  "drawn": "dark_brown",
+  "grade": "reconstructed"
+ },
+ "stature": {
+  "inches": 70.0,
+  "grade": "inferred",
+  "basis": "Lossing, who met him about 1848, gives him \"about five feet ten inches\" with \"an expansive chest and broad shoulders\" — a measure of his old age, taken here for 1812."
+ },
+ "height_scale": 1.016,
+ "basis": "His complexion (light), hair (brown) and eyes (dark) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+ "reference": {
+  "title": "Self-portrait",
+  "artist": "Joseph Wood (1778-1830)",
+  "date": "ca. 1810",
+  "page_url": "https://www.metmuseum.org/art/collection/search/15307",
+  "image": "humans/web/portraits/ref_1812_1993_283.jpg",
+  "licence": "The Met Open Access, public domain",
+  "why": "A stand-in: a period face of like colouring (mid-brown, curly, side-whiskers; pale/fair), not his likeness."
+ },
+ "grade": "reconstructed",
+ "liberty": "L-1812-garrison-looks-3491",
+ "replaceable_by": "His entry in the Register of Enlistments (NARA M233), which gives his height, complexion, eyes and hair.",
+ "build": {
+  "weight": 0.15,
+  "muscle": 0.3,
+  "grade": "inferred",
+  "basis": "Broad-shouldered and deep-chested, as Lossing describes him."
+ }
+}

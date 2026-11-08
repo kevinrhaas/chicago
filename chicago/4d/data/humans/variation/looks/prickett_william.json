@@ -1,0 +1,51 @@
+{
+ "format": "chicago4d_human_looks_v1",
+ "ticket": "T-3491",
+ "person_id": "prickett_william",
+ "scene": "1812",
+ "generated_by": "docs/RESEARCH/people-1812-3491/looks.py",
+ "heritage": {
+  "origin": "English / Welsh",
+  "family": "english",
+  "source_title": "A Dictionary of English and Welsh Surnames (Bardsley 1896); Surnames of the United Kingdom (Harrison 1912) — as quoted on forebears.io",
+  "url": "https://forebears.io/surnames/prickett"
+ },
+ "complexion": {
+  "value": "fair",
+  "drawn": "fair",
+  "grade": "reconstructed"
+ },
+ "hair": {
+  "value": "fair",
+  "drawn": "fair",
+  "cut": "cropped_1812",
+  "facial": [
+   "side_whiskers_short"
+  ],
+  "grade": "reconstructed"
+ },
+ "eyes": {
+  "value": "blue",
+  "drawn": "blue",
+  "grade": "reconstructed"
+ },
+ "stature": {
+  "inches": 68.4,
+  "grade": "reconstructed",
+  "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+ },
+ "height_scale": 0.9927,
+ "basis": "His complexion (fair), hair (fair) and eyes (blue) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+ "reference": {
+  "title": "Portrait of the Artist",
+  "artist": "Thomas Sully (born Horncastle, Lincolnshire, 1783)",
+  "date": "1821",
+  "page_url": "https://www.metmuseum.org/art/collection/search/12701",
+  "image": "humans/web/portraits/ref_1812_94_23_3.jpg",
+  "licence": "The Met Open Access, public domain",
+  "why": "A stand-in: a period face of like colouring (dark auburn-brown, curly; fair, rosy, with strong warm light), not his likeness."
+ },
+ "grade": "reconstructed",
+ "liberty": "L-1812-garrison-looks-3491",
+ "replaceable_by": "His entry in the Register of Enlistments (NARA M233), which gives his height, complexion, eyes and hair."
+}

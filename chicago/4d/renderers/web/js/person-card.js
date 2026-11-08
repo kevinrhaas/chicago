@@ -110,10 +110,32 @@ export function likenessOf(face, assetBase = null) {
 }
 
 /**
+ * T-3491: how a drawn man looks — complexion, hair, eyes, stature — each in the register's own
+ * word and graded, and the stand-in portrait his colouring was matched to, labelled as a
+ * stand-in (data/humans/variation/looks/, carried in hm08_variation_persons.json `looks`).
+ */
+export function looksOf(looks, assetBase = null) {
+  if (!looks?.complexion || !looks?.hair) return null;
+  const url = (p) => { try { return assetBase ? new URL(p, assetBase).href : p; } catch { return p; } };
+  const inches = Number(looks.stature?.inches);
+  const feet = Number.isFinite(inches) ? `${Math.floor(inches / 12)} ft ${Math.round(inches % 12)} in` : '';
+  const ref = looks.reference ?? null;
+  return {
+    grade: looks.grade ?? 'reconstructed',
+    rows: [['Complexion', looks.complexion.value], ['Hair', `${looks.hair.value}${(looks.hair.facial ?? []).length ? ', short side whiskers' : ''}`],
+      ['Eyes', looks.eyes?.value ?? ''], ['Height', feet ? `about ${feet}` : '']].filter(([, v]) => v),
+    stature: looks.stature ?? null,
+    heritage: looks.heritage?.origin && looks.heritage.origin !== 'not found' ? `${looks.heritage.origin.split(' (')[0]} name` : '',
+    basis: looks.basis ?? '',
+    reference: ref?.image ? { image: url(ref.image), caption: `${ref.title}, ${ref.artist}, ${ref.date}`, url: ref.page_url ?? '', why: ref.why ?? '' } : null,
+  };
+}
+
+/**
  * The card, from the directory's row and (once it is read) the household record's own entry
  * for this person and the scene's citation join. Every part is optional but the row.
  */
-export function personModel({ row, person = null, household = null, citations = null, sceneYear = null, face = null, assetBase = null } = {}) {
+export function personModel({ row, person = null, household = null, citations = null, sceneYear = null, face = null, looks = null, assetBase = null } = {}) {
   const p = person ?? {};
   const grade = p.grade ?? row?.grade ?? null;
   const relationship = p.relationship ?? row?.relationship ?? '';
@@ -215,6 +237,7 @@ export function personModel({ row, person = null, household = null, citations = 
     sources,
     ownCard,
     likeness: likenessOf(face, assetBase),
+    looks: looksOf(looks, assetBase),
     away: lived?.on_scene_date === 'no',
     read: !!person,
   };
@@ -395,6 +418,41 @@ export function renderPersonCard(doc, m, { dot = () => doc.createTextNode(''), o
       if (L.sourceUrl) { const a = el(doc, 'a', null, L.sourceTitle); a.href = L.sourceUrl; a.target = '_blank'; a.rel = 'noopener'; p.append(a); }
       else p.append(L.sourceTitle);
       sec.append(p);
+    }
+    card.append(sec);
+  }
+
+  if (m.looks) {
+    const L = m.looks;
+    const sec = el(doc, 'section', 'insp-sec insp-person-looks');
+    sec.dataset.grade = L.grade;
+    sec.append(el(doc, 'h3', 'insp-h', 'Looks'));
+    const dl = el(doc, 'dl', 'insp-key');
+    for (const [k, v] of L.rows) {
+      const row = el(doc, 'div', 'insp-key-row');
+      row.append(el(doc, 'dt', null, k), el(doc, 'dd', null, v));
+      dl.append(row);
+    }
+    sec.append(dl);
+    const g = el(doc, 'p', 'insp-person-why-title', `${GRADE_WORD[L.grade] ?? L.grade}${L.heritage ? ` \u00b7 ${L.heritage}` : ''}`);
+    g.prepend(dot(doc, L.grade));
+    sec.append(g);
+    if (L.basis) sec.append(el(doc, 'p', 'insp-person-note', L.basis));
+    if (L.stature?.basis) {
+      const s = el(doc, 'p', 'insp-person-note', `Height: ${L.stature.basis}`);
+      if (L.stature.grade && L.stature.grade !== L.grade) s.prepend(dot(doc, L.stature.grade));
+      sec.append(s);
+    }
+    if (L.reference) {
+      const fig = el(doc, 'figure', 'insp-person-face insp-person-standin');
+      const img = el(doc, 'img');
+      img.src = L.reference.image; img.alt = `Stand-in portrait: ${L.reference.caption}`; img.loading = 'lazy'; img.decoding = 'async'; img.width = 360; img.height = 480;
+      const cap = el(doc, 'figcaption', 'nav-k');
+      if (L.reference.url) { const a = el(doc, 'a', null, `Stand-in: ${L.reference.caption}`); a.href = L.reference.url; a.target = '_blank'; a.rel = 'noopener'; cap.append(a); }
+      else cap.append(`Stand-in: ${L.reference.caption}`);
+      fig.append(img, cap);
+      sec.append(fig);
+      if (L.reference.why) sec.append(el(doc, 'p', 'insp-person-note', L.reference.why));
     }
     card.append(sec);
   }

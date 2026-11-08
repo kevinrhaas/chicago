@@ -1,0 +1,55 @@
+{
+ "format": "chicago4d_human_looks_v1",
+ "ticket": "T-3491",
+ "person_id": "grummo_paul",
+ "scene": "1812",
+ "generated_by": "docs/RESEARCH/people-1812-3491/looks.py",
+ "heritage": {
+  "origin": "French origin via colonial New York (De Garmo family of Albany)",
+  "family": "french",
+  "source_title": "Quaife 1913 p.239 (identifies Grummo with \"De Garmo\"); Colonial Albany Social History Project, \"De Garmo\" (Stefan Bielinski)",
+  "url": "https://exhibitions.nysm.nysed.gov/albany/bios/d/degarmo.html"
+ },
+ "complexion": {
+  "value": "dark",
+  "drawn": "dark",
+  "grade": "reconstructed"
+ },
+ "hair": {
+  "value": "black",
+  "drawn": "black",
+  "cut": "cropped_1812",
+  "facial": [],
+  "grade": "reconstructed"
+ },
+ "eyes": {
+  "value": "grey",
+  "drawn": "grey",
+  "grade": "reconstructed"
+ },
+ "stature": {
+  "inches": 73.1,
+  "grade": "inferred",
+  "basis": "A neighbour remembered him as \"a tall, well-built man\" (Quaife 1913, p. 239); how tall is our choice, a little over the period's tall."
+ },
+ "height_scale": 1.061,
+ "basis": "His complexion (dark), hair (black) and eyes (grey) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14, with the lean we give a French name; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+ "reference": {
+  "title": "Alexander Anderson",
+  "artist": "John Wesley Jarvis",
+  "date": "1815",
+  "page_url": "https://www.metmuseum.org/art/collection/search/11240",
+  "image": "humans/web/portraits/ref_1812_81_16.jpg",
+  "licence": "The Met Open Access, public domain",
+  "why": "A stand-in: a period face of like colouring (very dark brown to black, short, with sideburns; light olive-warm skin, rosy cheeks, dark brows; stubble shadow), not his likeness."
+ },
+ "grade": "reconstructed",
+ "liberty": "L-1812-garrison-looks-3491",
+ "replaceable_by": "His entry in the Register of Enlistments (NARA M233), which gives his height, complexion, eyes and hair.",
+ "build": {
+  "weight": 0.35,
+  "muscle": 0.35,
+  "grade": "inferred",
+  "basis": "Well-built, as the same neighbour remembered him."
+ }
+}

@@ -3777,6 +3777,12 @@ async function boot() {
   // (data/humans/contract.json § l1), so this mounts an empty layer, fetches nothing and
   // draws nobody — the scene-year gate. A record that is drawn later is bound to a person
   // in the directory above and opens that person's own card.
+  // T-3491 (the owner, of the 1812 soldiers: "their feet are sinked"): a figure stands on
+  // the ground as drawn: a deck where there is one, else the heightfield plus the couple of
+  // centimetres a yard's laid earth or a worn trail is draped above it (yards.js), which
+  // otherwise swallow a shoe whose trousers come down over it.
+  const figureGround = (e, n) => Math.max(deckGroundHeight(terrain, decks, e, n),
+    terrain.surfaceHeight(e, n) + (yards.groundLiftAt?.(e, n) ?? 0));
   api.humans = await mountHumans({
     dataBase: layerBase('humans'), assetBase: bases.assetBase, sceneId: loaded.scene.id ?? YEAR,
     people, terrain, tier: detailLevel, problems: layerProblems('humans'),
@@ -3789,7 +3795,7 @@ async function boot() {
     },
     // T-3456: a figure stands on the decks the walker climbs (a front walk's paving, a door's
     // threshold), not on the heightfield under them.
-    groundHeight: (e, n) => deckGroundHeight(terrain, decks, e, n),
+    groundHeight: (e, n) => figureGround(e, n),
     // T-3439: a figure's new distance level is compiled off the frame (parallel compile)
     // before it is drawn, so walking up to someone is not a stall on her skin's programs.
     prepare: (object) => renderer.compileAsync(object, camera, scene3d),
@@ -3846,7 +3852,7 @@ async function boot() {
       if (on) api.follow?.start(actor.personId, { name: actor.person?.name ?? null });
       else if (api.follow?.personId === actor.personId) api.follow.stop('arrived');
     },
-    groundAt: (e, n) => deckGroundHeight(terrain, decks, e, n), problems: layerProblems('humans') });
+    groundAt: (e, n) => figureGround(e, n), problems: layerProblems('humans') });
   // Read only the small route table at boot. Actual occupied assets and full
   // rendered-ground/collision readings begin after the visitor approaches a circuit.
   api.townTransport = null;
@@ -5298,7 +5304,8 @@ async function boot() {
     humanPersons ??= fetch(new URL('humans/web/hm08_variation_persons.json', base), { cache: 'no-cache' })
       .then((res) => (res.ok ? res.json() : null))
       .catch(() => { humanPersons = null; return null; });
-    return humanPersons.then((d) => { const face = d?.persons?.[id]?.face; return face ? { face, base: String(base) } : null; });
+    // T-3491: and how he looks (`looks`), for the card's Looks section.
+    return humanPersons.then((d) => { const r = d?.persons?.[id]; return r?.face || r?.looks ? { face: r.face ?? null, looks: r.looks ?? null, base: String(base) } : null; });
   }
   // A nearby occupied driver can be inspected as soon as its model is ready.
   // Warm only the existing card code/metadata; never open Navigator or acquire a model.

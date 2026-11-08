@@ -1057,6 +1057,7 @@ export async function createFencedGround({
     blocksTrees: () => false,
     treatmentAt: () => null,
     drawnBaseHeightAt: () => null,
+    groundLiftAt: () => 0,
     staticSupport: { regions: 0, triangles: 0, bytes: 0, disposed: false },
     dispose: () => {},
     /** T-2711: whether the surfaces came prebuilt, and if not, why not. */
@@ -1196,6 +1197,11 @@ export async function createFencedGround({
     }
     return null;
   };
+
+  /** T-3491 (the owner: "their feet are sinked"): how far the drawn ground here stands above the heightfield: a yard's
+   *  laid earth or a worn trail is draped a couple of centimetres up (LIFT_M,
+   *  TRAIL_LIFT_M), and a figure stood on the heightfield sinks his soles into it. */
+  out.groundLiftAt = (e, n) => (out.treatmentAt(e, n) ? LIFT_M.base : out.trailCover(e, n) > 0 ? TRAIL_LIFT_M : 0);
 
   // T-2711: the five surfaces, prebuilt at publish, stand in for laying and
   // cutting them when they were built from exactly what this page read (THE

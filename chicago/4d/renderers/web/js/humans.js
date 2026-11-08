@@ -45,6 +45,8 @@ import { loadMeshoptDecoder, disposeLoadedAsset } from './scene-loader.js';
 import { enuToWorld } from './terrain.js';
 import { dressSkin, restingLid } from './human-skin.js';
 import { dressHair } from './human-hair.js';
+import { hairFor } from './human-hair-styles.js';
+import { dressLooks, looksHairStyle } from './human-looks.js';
 import { dressSpectacles } from './human-spectacles.js';
 
 /** § 8: the LODs each scene-detail tier may draw. `light` stays the floor. */
@@ -388,6 +390,12 @@ export class HumanActor {
       meshes.push(o);
       o.frustumCulled = false;    // a skinned bound is the rest pose's, not the walk's
     });
+    // T-3491: his own complexion and eye colour (human-looks.js), on clones of the shared
+    // skin and iris, before dressSkin patches them.
+    const looks = variation?.persons?.[this.personId]?.looks ?? null;
+    const looked = looks ? dressLooks(scene, looks) : [];
+    // ...and his own hair colour and cut, for the hair layer below.
+    const style = looks ? looksHairStyle(looks, hairFor(this.personId ?? null, Number(this.instance.scene) || null)) : null;
     // T-3400: skin with pores, blood and a glow, hair with a strand sheen, wet eyes, on
     // every person (human-skin.js; a shader patch, no texture). Bound to the rest pose.
     // T-3493: with the person's age and brows, for the lines and shade of their face.
@@ -398,7 +406,8 @@ export class HumanActor {
     this.proxy.scale.y = height > 0.3 ? height : 1.7;
     // T-3414: at the near levels, strand-card hair, beard and whiskers grown from this body's
     // own scalp and face, by the person's cut (human-hair-styles.js). Not counted in its height.
-    const hair = dressHair(scene, { lod, person: this.personId ?? null, year: Number(this.instance.scene) || null });
+    const year = Number(this.instance.scene) || null;
+    const hair = dressHair(scene, { lod, person: this.personId ?? null, year, style });
     // T-3440: spectacles, for a person whose portrait shows them (human-spectacles.js).
     this.spectacles = dressSpectacles(scene, { lod, person: this.personId ?? null });
     const clips = new Map();
@@ -410,7 +419,7 @@ export class HumanActor {
     if (hair?.face?.morphTargetDictionary && Object.keys(hair.face.morphTargetDictionary).length) faces.push(hair.face);
     const mixer = new THREE.AnimationMixer(scene);
     mixer.addEventListener('finished', (ev) => { if (ev.action === this.body?.oneShot) this.endGesture(); });
-    return { lod, scene, meshes, faces, mixer, clips, hair, action: null, oneShot: null, assetId: this.instance.appearance.asset_id };
+    return { lod, scene, meshes, faces, mixer, clips, hair, looked, action: null, oneShot: null, assetId: this.instance.appearance.asset_id };
   }
 
   teardown(body) {
@@ -419,6 +428,8 @@ export class HumanActor {
     body.scene.removeFromParent();
     const skeletons = new Set(body.meshes.map((m) => m.skeleton).filter(Boolean));
     for (const s of skeletons) s.dispose();
+    // T-3491: his own skin and iris clones (human-looks.js) go with the level.
+    for (const m of body.looked ?? []) m.dispose();
     this.assets.release(body.assetId, body.lod);
   }
 
