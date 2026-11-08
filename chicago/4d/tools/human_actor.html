@@ -101,8 +101,10 @@ try {
   // 1. The LOD rule, as a table.
   const table = [];
   for (const tier of ['full', 'balanced', 'light']) for (const d of [2, 10, 30, 60, 200]) table.push(chooseHumanLod(d, tier));
+  // T-3463: the light tier (phones) has its own nearer bands, LOD_BANDS_BY_TIER.light = [8, 20, 25],
+  // and draws to 60 m, so at 30 m it is already on the farthest LOD.
   check('chooseHumanLod: bands by distance, clamped to the tier, -1 beyond DRAW_M',
-    JSON.stringify(table) === JSON.stringify([0, 1, 2, 3, -1, 1, 1, 2, 3, -1, 2, 2, 2, 3, -1]), table);
+    JSON.stringify(table) === JSON.stringify([0, 1, 2, 3, -1, 1, 1, 2, 3, -1, 2, 2, 3, 3, -1]), table);
   const edge = LOD_BANDS_M[0];
   const hold = [chooseHumanLod(edge * (1 + LOD_HYSTERESIS / 2), 'full', 0), chooseHumanLod(edge * (1 + LOD_HYSTERESIS * 2), 'full', 0),
     chooseHumanLod(edge * (1 - LOD_HYSTERESIS / 2), 'full', 1), chooseHumanLod(edge * (1 - LOD_HYSTERESIS * 2), 'full', 1)];
