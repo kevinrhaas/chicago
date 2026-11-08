@@ -85,5 +85,7 @@ assert.equal(looksOf(null), null, 'no looks, no section');
 const mainJs = await fs.readFile(new URL('renderers/web/js/main.js', here), 'utf8');
 const yardsJs = await fs.readFile(new URL('renderers/web/js/yards.js', here), 'utf8');
 assert(/const figureGround = [^;]*yards\.groundLiftAt/s.test(mainJs) && /groundHeight: \(e, n\) => figureGround\(e, n\)/.test(mainJs), 'figures stand on the drawn yard ground');
-assert(/out\.groundLiftAt = \(e, n\) => \(out\.treatmentAt\(e, n\) \? LIFT_M\.base : out\.trailCover\(e, n\) > 0 \? TRAIL_LIFT_M : 0\)/.test(yardsJs), 'yards say how far their earth is lifted');
+// T-3504: the highest of the yard's base, a worn trail and a laid bed or walk under the point.
+assert(/out\.groundLiftAt = \(e, n\) => \{\s*let lift = out\.treatmentAt\(e, n\) \? LIFT_M\.base : 0;\s*if \(lift < TRAIL_LIFT_M && out\.trailCover\(e, n\) > 0\) lift = TRAIL_LIFT_M;[^}]*raised/s.test(yardsJs)
+  && /raise\(bed, LIFT_M\.bed\)/.test(yardsJs) && /raise\(path, LIFT_M\.path\)/.test(yardsJs), 'yards say how far their earth is lifted');
 console.log(`human looks: ${privates.length} men, ${combos.size} colourings (commonest ${most}), heights ${mean.toFixed(1)} ± ${sd.toFixed(1)} in, Grummo ${persons.grummo_paul.looks.stature.inches} in: PASS`);

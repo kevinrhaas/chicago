@@ -28,6 +28,11 @@
  * met), and the duty goes on without him. The guard at the gate and the magazine's sentry carry
  * no hours, so they stand and walk their posts all night.
  *
+ * CHORES (T-3504). The owner, 2026-11-08: *"give everyone a purpose or task so they are all not
+ * standing around idly"*. A man with `hours` and no duty, standing at his station, is at a chore
+ * there: he goes between his station and two spots a few metres off it (CHORE), a while at each,
+ * as a man at a woodpile or a store door goes. A man with no hours (the guard) still stands his post.
+ *
  * L1 holds (data/humans/contract.json § l1): nothing is said. The talk is a moving hand and
  * turned heads, never words, and no event of the day is acted out. Every timing is seeded by
  * the duty's id, so a harness sees the same afternoon on every load. A man far outside the
@@ -64,6 +69,8 @@ export const RANK = Object.freeze({ speak_s: [3, 7.5], quiet_s: [2.5, 7] });
 /** Where a head is, over the feet, for a look (metres; the life layer only needs a point). */
 const HEAD_M = 1.6;
 export const DUTY_KINDS = Object.freeze(['knot', 'beat', 'rank']);
+/** T-3504: a chore's two spots (metres off the station) and the seconds at each place. */
+export const CHORE = Object.freeze({ off_m: [1.6, 3.4], pause_s: [8, 22] });
 
 const bearing = (de, dn) => ((Math.atan2(de, dn) * 180) / Math.PI + 360) % 360;
 const pt = (p) => ({ e: p.local_e ?? p.e, n: p.local_n ?? p.n });
@@ -120,6 +127,12 @@ export function createHumanDuties({ humans, three = null, hour = () => null, hel
       if (!byKey.has(key)) byKey.set(key, { key, kind: d.kind, id: d.id ?? a.id, members: [] });
       byKey.get(key).members.push({ actor: a, duty: d });
     }
+    // T-3504: a man out by the hours with no duty, standing at his station, is at a chore.
+    for (const a of humans.actors) {
+      const b = a.instance?.behaviour;
+      if (!b || b.duty || Array.isArray(b.day) || !Array.isArray(b.hours) || (b.state ?? 'standing') !== 'standing' || b.route) continue;
+      byKey.set(`chore:${a.id}`, { key: `chore:${a.id}`, kind: 'chore', id: a.id, members: [{ actor: a, duty: { kind: 'chore' } }] });
+    }
     groups = [...byKey.values()].map(start);
     timed = humans.actors.filter((a) => Array.isArray(a.instance?.behaviour?.hours));
     seen = humans.actors.length;
@@ -146,6 +159,15 @@ export function createHumanDuties({ humans, three = null, hour = () => null, hel
       m.face = Number.isFinite(m.duty.face_deg) ? m.duty.face_deg : m.home.h;
       m.pause = m.duty.pause_s ?? BEAT.pause_s;
       m.at = 0; m.mode = 'pause'; m.until = between(m.pause);
+    } else if (g.kind === 'chore') {
+      const m = g.members[0];
+      const h = Number.isFinite(m.home.h) ? m.home.h : 0;
+      m.ends = [{ e: m.home.e, n: m.home.n, h }];
+      for (const side of [-1, 1]) {
+        const b = h + side * (35 + rand() * 90), r = between(CHORE.off_m), rad = (b * Math.PI) / 180;
+        m.ends.push({ e: m.home.e + r * Math.sin(rad), n: m.home.n + r * Math.cos(rad), h: (b + side * 90 + 360) % 360 });
+      }
+      m.at = 0; m.mode = 'pause'; m.until = between(CHORE.pause_s);
     } else if (g.kind === 'rank') {
       g.lead = g.members.find((m) => m.duty.lead) ?? null;
       g.speaking = false; g.until = between(RANK.quiet_s);
@@ -204,6 +226,15 @@ export function createHumanDuties({ humans, three = null, hour = () => null, hel
     go(m.actor, [to], m.face, () => { m.at = next; m.mode = 'pause'; m.until = g.t + g.between(m.pause); });
   }
 
+  function stepChore(g) {
+    const m = g.members[0];
+    if (m.mode !== 'pause' || g.t < m.until || m.actor.tow || m.actor.indoors) return;
+    m.mode = 'walk';
+    // Back to the station between each of the others.
+    const next = m.at === 0 ? 1 + Math.floor(g.rand() * (m.ends.length - 1)) : 0, to = m.ends[next];
+    go(m.actor, [to], to.h, () => { m.at = next; m.mode = 'pause'; m.until = g.t + g.between(CHORE.pause_s); m.actor.setState?.('working'); });
+  }
+
   function stepRank(g) {
     if (!g.lead || g.t < g.until) return;
     g.speaking = !g.speaking;
@@ -236,6 +267,7 @@ export function createHumanDuties({ humans, three = null, hour = () => null, hel
         if (g.kind === 'rank') for (const m of g.members) if (m !== g.lead && m.actor.actions && m.actor.actions.held !== 'rest') m.actor.actions.hold?.('rest');
         if (g.kind === 'knot') stepKnot(g, dt);
         else if (g.kind === 'beat') stepBeat(g);
+        else if (g.kind === 'chore') stepChore(g);
         else stepRank(g);
       }
     },
