@@ -22,7 +22,13 @@ average instead of wandering). The person's age at the picture drives the ageing
 does in the renderer, so the fitted values are the face's shape, not its years. A record naming
 `base_body` (T-3473, a woman's portrait) fits against that body's own rest face (its unoptimised
 GLB under assets/humans/, in the kit's vertex order), at its base age, and centres each prior on
-the body's face_bias, which a fitted value replaces in the renderer. The one_of
+the body's face_bias, which a fitted value replaces in the renderer. A record with `stand_in`
+(T-3478: no photograph of the person is known) is fitted to a stand-in's photograph, someone of
+their sex, age, heritage and work: it must be graded reconstructed, and its `card_note` goes on
+the card (tools/cut_portrait.py burns its `label` on the picture). A record's `read_by_eye`
+(T-3493) gives values a reader sees in the picture on axes no mark measures (a full cheek, a
+jowl, a broad jaw), with its own `basis`: each centres that axis's prior instead of the body's
+face_bias, and the fit lists them as read_by_eye. The one_of
 head outline is tried option by option and the best kept.
 
 What it writes. The fitted values for every face axis the portrait can move (and the head
@@ -140,6 +146,10 @@ def landmarks():
     lobe = np.array([i for i, d in moved.items() if d > 0.5 * max(moved.values())])
     out['ear_lobe_r'] = int(lobe[np.argmin(V[lobe, 1])])
     out['vertex'] = int(head[np.argmax(P[:, 1])])
+    # The left ear, for a face turned the other way (T-3486): the right ear's points mirrored
+    # across the midline (base.obj is symmetric), each the nearest skin vertex to its mirror.
+    for k in ('ear_top', 'ear_lobe'):
+        out[f'{k}_l'] = nearest(V[out[f'{k}_r']] * np.array([-1.0, 1.0, 1.0]))
     return out
 
 
@@ -235,6 +245,14 @@ def fit(person):
         else:
             base += W @ delta_at(axes[a['id']], v, 0, rows)
     fitted = [a['id'] for a in header['axes'] if not a.get('drive') and a['id'] in portrait['axes']]
+    # What a reader sees in the picture that no mark measures (T-3493: Frances Glessner's full
+    # cheeks, jowls and broad jaw): `read_by_eye.values` replaces the body's face_bias as the
+    # prior on those axes, so a flat axis rests at what the picture shows, not at the body's lean.
+    eye = (portrait.get('read_by_eye') or {}).get('values', {})
+    for k in eye:
+        if k not in fitted:
+            sys.exit(f"{person}: read_by_eye names {k}, which is not one of the record's fitted axes")
+    prior = {**body.get('face_bias', {}), **eye}
     for k, b in body.get('face_bias', {}).items():
         if k not in fitted and k in axes:
             base += W @ delta_at(axes[k], max(-header['limit'], min(header['limit'], b)), 0, rows)
@@ -246,11 +264,13 @@ def fit(person):
             halves[aid] = [W @ delta_at(a, 1.0, o, rows) for o in range(len(a['opts_d']))]
         else:
             halves[aid] = (W @ delta_at(a, 1.0, 0, rows), W @ delta_at(a, -1.0, 0, rows))
-    spreads = np.array([spec[aid]['spread'] for aid in fitted]) * PRIOR_WIDEN
+    # A rest axis (never drawn, spread 0: the mouth's resting set) is fitted only where it is
+    # read by eye, held there as tightly as the narrowest drawn axis.
+    spreads = np.array([spec[aid]['spread'] or 0.1 for aid in fitted]) * PRIOR_WIDEN
     # A fitted value replaces the body's face_bias in the renderer, so an axis the picture says
     # little about is held towards the body's own lean (a woman's jaw), not towards the men's zero.
     lim = header.get('limit', 1.0)
-    centre = np.array([max(-lim, min(lim, body.get('face_bias', {}).get(aid, 0.0))) for aid in fitted])
+    centre = np.array([max(-lim, min(lim, prior.get(aid, 0.0))) for aid in fitted])
     limit = 1.0
 
     def shape(v, option):
@@ -301,12 +321,14 @@ def fit(person):
     J = r.jac[:2 * len(names), 6:]
     info = (J ** 2).sum(0)
     constrained = {aid: bool(info[k] > 1 / spreads[k] ** 2) for k, aid in enumerate(fitted)}
+    # The same reading as a ratio (1 is the line); --check lets an axis near it change sides.
+    info_ratio = {aid: float(info[k] * spreads[k] ** 2) for k, aid in enumerate(fitted)}
     values = {aid: round(float(v[k]), 3) + 0.0 for k, aid in enumerate(fitted)}   # + 0.0: no -0.0
     if 'head_shape' in fitted:
         values['head_shape.option'] = int(option)
     per_mark = {n: round(float(np.hypot(*pix[i])), 1) for i, n in enumerate(names)}
     return {
-        'portrait': portrait, 'values': values, 'constrained': constrained,
+        'portrait': portrait, 'values': values, 'constrained': constrained, 'info_ratio': info_ratio,
         'camera': {'yaw_deg': round(float(np.degrees(cam[0])), 1), 'pitch_deg': round(float(np.degrees(cam[1])), 1),
                    'roll_deg': round(float(np.degrees(cam[2])), 1), 'px_per_m': round(float(cam[3]), 1),
                    'shift_px': [round(float(cam[4]), 1), round(float(cam[5]), 1)]},
@@ -321,6 +343,8 @@ def fit(person):
 
 def record(person, f):
     p = f['portrait']
+    if p.get('stand_in') and p['grade'] != 'reconstructed':
+        sys.exit(f"{person}: a face fitted to a stand-in's photograph is reconstructed, not {p['grade']}")
     src = json.loads((ROOT / 'data/sources' / f"{p['source']}.json").read_text())
     return {
         'format': 'chicago4d_human_face_fit_v1',
@@ -339,6 +363,7 @@ def record(person, f):
         # prior: the value moved from the average only as far as weak evidence allows.
         'read_from_picture': sorted(k for k, c in f['constrained'].items() if c),
         'mostly_prior': sorted(k for k, c in f['constrained'].items() if not c),
+        **({'read_by_eye': sorted((p.get('read_by_eye') or {}).get('values', {}))} if p.get('read_by_eye') else {}),
         'fit': {'rms_px': f['rms_px'], 'per_mark_px': f['per_mark_px'], 'camera': f['camera'],
                 'landmark_vertices': f['landmarks']},
         'not_modelled': p['not_modelled'],
@@ -351,6 +376,8 @@ def record(person, f):
             'marks': len(f['names']),
             'portrait': p['card']['portrait'].replace('assets/humans/web/', 'humans/web/'),
             'model': p['card']['model'].replace('assets/humans/web/', 'humans/web/'),
+            # T-3478: a stand-in's photograph (no picture of the person is known) says so on the card.
+            **({'stand_in': p['stand_in']['card_note']} if p.get('stand_in') else {}),
         } if p.get('card') else None,
     }
 
@@ -382,6 +409,20 @@ FIT_TOLERANCE = (
 # solver stops in it follows the build (CI landed brow_ridge at 0.0 where a local run had 0.014).
 # Its tolerance is the width it was never pinned to, still far inside its prior's spread.
 LOOSE_AXIS_TOLERANCE = 0.05
+# Whether the picture decides an axis is its data information against the prior's (a ratio, 1 the
+# line). An axis whose ratio is within this band of the line can read either way on another build
+# (CI moved one of Mary Reynolds' axes across it, T-3486), so --check lets such an axis sit in
+# either `read_from_picture` or `mostly_prior`, and holds its value to LOOSE_AXIS_TOLERANCE.
+BORDERLINE_RATIO = (0.5, 2.0)
+
+
+def sides(rec, borderline):
+    """The record with its borderline axes taken out of both reading lists, for comparison only."""
+    out = dict(rec)
+    for key in ('read_from_picture', 'mostly_prior'):
+        if isinstance(out.get(key), list):
+            out[key] = [a for a in out[key] if a not in borderline]
+    return out
 
 
 def differences(want, got, path='', loose=frozenset()):
@@ -420,14 +461,18 @@ def main():
     bad = []
     for path in sorted(PORTRAITS.glob('*.json')):
         person = path.stem
-        rec = record(person, fit(person))
+        f = fit(person)
+        rec = record(person, f)
         text = json.dumps(rec, indent=1) + '\n'
         out = FITS / f'{person}.json'
         if args.check:
             # The optimiser's last digits follow the numpy/scipy/BLAS build, so a refit is held to
             # the committed fit within FIT_TOLERANCE, not byte for byte (CI and a local run differ).
             committed = out.read_text() if out.exists() else None
-            drift = [] if committed is None else differences(json.loads(committed), rec, loose=set(rec.get('mostly_prior', [])))
+            borderline = {a for a, r in f['info_ratio'].items() if BORDERLINE_RATIO[0] < r < BORDERLINE_RATIO[1]}
+            drift = [] if committed is None else differences(
+                *(sides(x, borderline) for x in (json.loads(committed), rec)),
+                loose=set(rec.get('mostly_prior', [])) | borderline)
             if committed is None or drift:
                 bad.append(f"{out.relative_to(ROOT)}{' (' + '; '.join(drift[:6]) + ')' if drift else ''}")
             card = json.loads(path.read_text()).get('card')

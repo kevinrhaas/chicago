@@ -29,6 +29,9 @@
  *
  * Sweeping and carrying need props, and the
  * coat-tail sway needs coats: they follow with the wardrobe kit and the next people.
+ * T-3481: carrying by the hand. A dress that carries something (a market basket) names
+ * the hand and its hold in the GLB's wardrobe extras (`carry`): that arm is held there,
+ * a little out from the skirt, in every state, and does not swing or take a pose.
  *
  * Deterministic (seeded from the person id), additive over the clip, rebuilt each frame.
  * Reconstructed motion: liberty L-human-actions-3415.
@@ -76,13 +79,19 @@ export const ARM_SWING = Object.freeze({
 });
 const fin = (x, d = 0) => (Number.isFinite(x) ? x : d);
 
-export function createHumanActions({ id = 'human', scene = null, greeting = 'brow', skirt = false } = {}) {
+export function createHumanActions({ id = 'human', scene = null, greeting = 'brow', skirt = false, carry = null } = {}) {
   const rand = seededRandom(`actions:${id}`);
   const between = (a, b) => a + (b - a) * rand();
   let bones = {}, held = {}, bound = false, root = null, body = null;
   const L = {}; // landmarks and lengths, figure frame, from the bind pose
   const local = {}; // per-bone local axes: along the bone, and the palm's normal for hands
   const fig = { up: new THREE.Vector3(0, 1, 0), fwd: new THREE.Vector3(0, 0, 1), left: new THREE.Vector3(1, 0, 0) };
+  // T-3481: the carrying hand's hold, figure frame (the dress module drew the thing it holds there).
+  const vec = (a) => (Array.isArray(a) && a.length === 3 && a.every(Number.isFinite) ? new THREE.Vector3(...a) : null);
+  const hold = carry && SIDES.includes(carry.side) && vec(carry.wrist_from_shoulder) && vec(carry.fingers) && vec(carry.palm)
+    ? { side: carry.side, offset: vec(carry.wrist_from_shoulder), pole: vec(carry.elbow_pole) ?? new THREE.Vector3(0.7, -0.1, -0.7),
+      fingers: vec(carry.fingers), palm: vec(carry.palm), curl: Number.isFinite(carry.curl) ? carry.curl : 0.7, wrist: null }
+    : null;
 
   function bind(next) {
     const found = {};
@@ -140,6 +149,7 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
     L.backZ = Math.min(at('pelvis').z, at('spine_03').z) - 0.13; // the small of the back's surface, roughly
     L.frontZ = Math.max(at('pelvis').z, at('spine_03').z) + 0.19; // the front of a skirt and apron at the waist, roughly
     L.waistY = (at('pelvis').y + at('spine_03').y) / 2;
+    if (hold) hold.wrist = at(`upperarm_${hold.side}`).add(hold.offset);
     held = {};
     for (const s of SIDES) for (const n of ARM(s)) if (found[n]) held[n] = { base: found[n].quaternion.clone(), out: new THREE.Quaternion(NaN, NaN, NaN, NaN) };
     bones = found;
@@ -300,6 +310,7 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
 
       // The arms hang in by the sides, elbows soft: the base every pose starts from.
       for (const s of SIDES) {
+        if (s === hold?.side) continue;
         const sx = s === 'l' ? 1 : -1;
         const inward = toWorldDir(fig.up.clone().multiplyScalar(-1).addScaledVector(fig.left, sx * (skirt ? 0.16 : 0.075))
           .addScaledVector(fig.fwd, 0.04));
@@ -324,6 +335,7 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
         const fL = bones.foot_l.getWorldPosition(new THREE.Vector3()), fR = bones.foot_r.getWorldPosition(new THREE.Vector3());
         const d = fL.sub(fR).dot(toWorldDir(fig.fwd)); // + when the left foot leads (last frame's pose)
         for (const s of SIDES) {
+          if (s === hold?.side) { swing[s] = 0; continue; }
           const target = clamp((s === 'l' ? -d : d) * 0.6, -0.3, 0.3); // radians of swing, forward +
           swing[s] += (target - swing[s]) * (1 - Math.exp(-14 * dt));
           const amt = swing[s] * keep;
@@ -353,6 +365,7 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
         const f = clamp(fin(gait.speed, A.nominal_m_s) / A.nominal_m_s, 0.3, 1.5) * sk;
         const abd = skirt ? 0.16 : 0.075, carry = skirt ? 0.12 : 0.03, inK = skirt ? A.skirt.inward : A.inward;
         for (const s of SIDES) {
+          if (s === hold?.side) { gaitArm[s] = 0; continue; } // T-3481: the carrying arm is held, not swung
           const sx = s === 'l' ? 1 : -1;
           // The left arm comes forward with the right leg, whose heel strikes at phase 0.5.
           const peak = (s === 'l' ? 0.5 : 0) + A.lag;
@@ -392,7 +405,7 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
         poseW = Math.min(1, poseW + dt / 0.9);
         const wIn = smooth(poseW), wOut = 1 - wIn;
         for (const s of SIDES) {
-          if (greet >= 0 && s === 'r') continue;
+          if ((greet >= 0 && s === 'r') || s === hold?.side) continue;
           for (const [name, w] of [[prevPose, wOut], [pose, wIn]]) {
             const t = poseTargets(name, s);
             if (!t || !(w > 1e-3)) continue;
@@ -443,10 +456,18 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
         // The rest of the right arm comes back from wherever its pose had it.
         if (greet >= T) greet = -1;
       }
+      // T-3481: the carrying arm, held out a little from the skirt with what it carries.
+      if (hold) {
+        const s = hold.side;
+        reach(s, toWorldPos(hold.wrist), toWorldDir(hold.pole), 1);
+        bones[`lowerarm_${s}`].updateMatrixWorld(true);
+        orientHand(s, toWorldDir(hold.fingers), toWorldDir(hold.palm), 1);
+        curl(s, hold.curl);
+      }
       settle();
     },
     snapshot() {
-      return { pose, blend: +poseW.toFixed(3), greeting: greet >= 0, held: heldPose, talking, talk_w: +talkW.toFixed(3), swing_l_deg: +(swing.l / DEG).toFixed(2), swing_r_deg: +(swing.r / DEG).toFixed(2),
+      return { pose, blend: +poseW.toFixed(3), greeting: greet >= 0, carrying: hold?.side ?? null, held: heldPose, talking, talk_w: +talkW.toFixed(3), swing_l_deg: +(swing.l / DEG).toFixed(2), swing_r_deg: +(swing.r / DEG).toFixed(2),
         gait_l_deg: +(gaitArm.l / DEG).toFixed(2), gait_r_deg: +(gaitArm.r / DEG).toFixed(2) };
     },
   };

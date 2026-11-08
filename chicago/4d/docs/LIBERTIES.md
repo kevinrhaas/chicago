@@ -31573,6 +31573,10 @@ Actual pinned exporter source statically recognizes the proposed 1-(Alpha<.4) no
 
 **The parade private named (2026-11-07, T-3468):** the owner asked that the 1812 figure be a reconstructed or documented person of 1812, not an anonymous role. `hi_heald_company_private_1812` now names `grummo_paul`, Private Paul Grummo, carded in `data/residents_1812/households/hh_heald_company_1812.json` from Heald's muster-roll of 31 May 1812 (`quaife_1913`, Appendix VIII, p. 426: enlisted 1 October 1810, present) and Quaife's account of the nine men who came back from captivity in 1814 and of Grummo's later telling (pp. 238-40). He was chosen over the other eight because his is the one story the record keeps, and over David Kennison, whose own claim to have been born in 1736 would make him 76 in a dress made for a young private. Graded inferred: his presence on 14 August is read from the May roll and his return, not a roll of that day; the scouting, adoption and journey are his own telling, which Quaife calls untrustworthy, and the card says so. Reconstructed, and still this liberty's: his place on the parade, his standing, his face, build and age (no likeness or birth year is known), and his home in the west soldiers' barracks (Whistler's plan has two; which he slept in is not recorded). The dress asset stays anonymous; only the figure wearing it is named. The role profile `anonymous_adult_1812` now has no instance.
 
+**Two men of the Glessner stable placed (2026-11-07, T-3483, T-3484):** both inferred people, each enumerated in the 1900 census in the rear building behind 1800 Prairie Avenue (`census_1900_chicago_t623_roll245`, ED 40, sheet 5B), and no source read says either was still there on 1 July 1904. **Charles Nelson** (`hi_pa1904_glessner_john_j_c1900_charles_nelson_1904`, E 1341.6, N -3216.95, facing 35), the coachman, stands on the Eighteenth Street walk just west of his stable's carriage doors and about 0.9 m out from the wall, clear of the utility pole 2.9 m in front of him and the parkway elm 6 m to the east, turned toward the street and Prairie Avenue. The doorway and the coach house are the house's own (HABS sheets 2-3; `glessner_story_of_a_house_1923`: 'the carriage house and stables'); that he waits at them is ours. **August Billings** (`hi_pa1904_glessner_john_j_c1900_august_billings_1904`, E 1342.1, N -3237.0, facing 80), the helper, stands in the stable yard: on the carriage drive at the alley end of the court, 3.4 m inside the courtyard gates and about a metre off the stable's south wall, facing into the court. Their liveries and work clothes are T-3483's and T-3484's (L-human-modular-dress-1789); their hair rows are choices (Nelson clean-shaven as the liveried coachmen of the Seely plates are, his hair going grey at 56; Billings ash fair with a moustache at 29), and their faces, builds and complexions are the variation kit's seeded draws, aged from their census birth years, not theirs. No picture of either man is known.
+
+**Two women of the Glessner kitchen and parlour placed (2026-11-07, T-3479, T-3481):** both inferred people, each enumerated in the 1900 census in the house at 1800 Prairie Avenue (`census_1900_chicago_t623_roll245`) and not read in any record of 1904; their presence on 1 July 1904 is ours, and so is everything below. **Kate Ryan** (`hi_pa1904_glessner_john_j_c1900_kate_ryan_1904`, E 1352.89, N -3231.17, facing 105), the household's cook in the census (born April 1850, Ireland), stands in the courtyard on the paved walk at the foot of the north range's service stair, which climbs to the service door of the range's west end, its service block (the house's reconstruction of the HABS sheets); she is a little west of the flight, 0.6 m clear of its west pier, so the stair stays free, turned east across the court toward Frances M. Glessner (6.6 m off). Glessner's own account (`glessner_story_of_a_house_1923`) gives only that the staff came in through the great arch into the court; that a cook would stand at the foot of her own stair, and that the kitchen was behind that door, are not read. The museum's account names Martha L. (Mattie) Williamson as the Glessners' cook from 1892 to 1912; that the census calls Kate Ryan the cook in 1900 is not reconciled here, and both are drawn. **Christine Nelson** (`hi_pa1904_glessner_john_j_c1900_christine_nelson_1904`, starting at E 1393.61, N -3250.0 and walking), the parlor maid in the census (born March 1873, Sweden, came 1892), walks round the Glessner block, Indiana to Prairie and Eighteenth to Twentieth, on its own sidewalks, as if back from market with a basket (the owner's brief): north up Prairie Avenue past the house's front, west along Eighteenth Street past the great arch and the stable doors, south down Indiana Avenue, east along Twentieth Street and north again, a loop of 13 points and 728 m, about twenty minutes at the walk clip's 0.6 m a second, and round again. She walks the middle of each walk, cutting each corner 1.1 m from the meeting of the walks' middle lines, and on Eighteenth Street steps out to four-fifths of the way to the kerb from E 1363 to E 1336 to pass Mary Reynolds (0.81 m off) and Charles Nelson (0.89 m off), who stand there, coming back to the middle 3.5 m short of the lamp west of them. Every point of the loop, sampled every 0.2 m, lies inside the block's walk bands and outside every building shape `tools/check_structure_clearance.py` builds (nearest 1.22 m, the house's north wall); the street lamps stand 1.30 m or more from her line, the trees 1.59 m and the utility pole 2.0 m. She keeps walking when no one is near to see her (`humans.js`, a looped route now advances out of range), so the loop goes on round whether or not the visitor is there. Her pace, her line, the market, the basket and the hour are reconstructed. **How to resolve:** a photograph or record that puts either woman somewhere on the day, or that she had left the house by 1904, replaces her place; a record of where the household bought its food replaces the walk.
+
 
 ## T-2793 — W01 original wheel/edge refinement (2026-10-19)
 
@@ -36752,6 +36756,15 @@ her own female body's face rather than the men's base; what the one three-quarte
 settle stays at her body's own lean. Her hair as she wore it (drawn up to a crown of braids in
 Hartley's 1897 multigraph) and her colouring are still chosen: the town's bun and the shared skin.
 
+**Her years, 2026-11-07 (T-3493):** the owner found her too young beside the photograph. Where the
+marks cannot measure from one three-quarter view, the face is now read by eye from the same photograph
+(`read_by_eye` in her portrait record): full cheeks below the cheekbones, the start of a jowl, a heavier
+jaw, a nose broad at its wings, the eyes under a fuller brow, and the mouth's corners level at rest. These
+replace her female body's own young lean (narrow jaw, high cheekbones, no jowl, a resting smile) as the
+prior on those axes; the marks still move them where they can. The values are a reader's judgement of
+one photograph at 44, not measurements; the age lines and resting lids of her 56 years are the town's
+(L-human-variation-3412).
+
 **The 1904 house maid supplement, 2026-11-07 (T-3448):** a house maid's working dress on the same
 component path, `tools/human_maid_1904.py` with `data/humans/recipes/maid_1904.json`, built as the asset
 `reynolds_mary_1904_maid` on the shared female body and first worn by Mary Reynolds, house maid in the
@@ -36878,6 +36891,99 @@ backwards; the white of the belts follows Ogden (Krimmel's are dark); the feathe
 metal and the overalls' white linen are chosen. **Skin and hair:** the shared young light-skinned generic skin
 and short04 hair of the period studies; no hair row (1812 has no era default). Every amount is chosen by eye;
 none is measured, and none says what the garrison wore.
+
+**The 1904 coachman's livery supplement, 2026-11-07 (T-3483):** a coachman's standing livery on the same
+component path, `tools/human_coachman_1904.py` with `data/humans/recipes/coachman_livery_1904.json`, built as the
+asset `nelson_charles_1904_coachman` on the shared male body and first worn by Charles Nelson (inferred; the
+Glessners' coachman in the 1900 census). **Choice of dress:** the piece of work asked for a livery of his own,
+distinct from Hans Johnson's box coat, cape and top hat, which are for the box. The one picture read of a private
+coachman standing in livery in these years is the 'Coachman' plate of Mrs. Seely's Cook Book (New York, 1902;
+`seely_1902_coachman_livery_plates`), and every piece follows it: a double-breasted coat buttoned to the throat and
+falling straight to the knee, two rows of six bright buttons, a white stock, white gloves, white breeches, black
+top boots to below the knee and a silk hat; the Griffith (1905) and Rau (1902) coachmen
+(`loc_griffith_1905_roosevelt_escort_coachmen_stereograph`, `loc_rau_1902_roosevelt_carriage_coachman_stereograph`)
+wear the same coats, stocks and hats on the box. None is of Chicago or of Nelson. **Cut:** the gentleman's coat
+body offset 2.6 cm and smoothed, closed to 34.5 cm above spine_02 with a V only 3 cm each side at the collar,
+which stands 3 cm above the neck joint; its skirt lofted round the body's sections to 0.50 m, 3.6 cm off the body
+so the breeches clear it, closed in front; twelve buttons 1.9 cm across in two rows from 30 cm to 2 cm above
+spine_02, 8.8 cm off the centre line at the top and 6.4 cm at the waist; the merchant's stock loft cut lower, in
+white linen; gloves a 2.2 mm shell over the hands and 3 cm of the wrist, skinned as the hand; breeches a 1 cm
+shell of the legs and seat from the trousers' waist to 0.40 m, smoothed over the fork and standing up to 1.4 cm
+further off the thigh; boot shafts lofted round each calf's own sections from 8 to 43 cm, 6 mm off the leg at the
+ankle and 18 mm at the top, never narrowing more than 8 per cent a ring, skinned as the nearest point of the leg;
+the merchant's top hat a little taller (16.5 cm) and less flared. Not modelled: pocket flaps, cuffs, a cockade,
+the whip. **Colour:** the plates are monochrome. A dark bottle green and white-metal buttons are chosen so his
+livery is not Hans's dark blue and brass (Penfield's coloured drawing, `loc_penfield_coachman_brougham_drawing`,
+shows that a household's livery had its own colour); the whites, the black boots and hat follow the plate's
+tones. **Skin and hair:** the 1904 gentleman's older light-skinned atlas and short04 hair, aged at runtime to 56
+from his record; his hair row (clean-shaven, brown going grey) is a choice. Every amount is chosen by eye against
+the plate; none is measured, and none says what he wore.
+
+**The 1904 stable helper supplement, 2026-11-07 (T-3484):** a stable hand's working dress on the same component
+path, `tools/human_stable_helper_1904.py` with `data/humans/recipes/stable_helper_1904.json`, built as the asset
+`billings_august_1904_stable_helper` on the shared male body and first worn by August Billings (inferred; a
+helper in the rear building behind the Glessner house in the 1900 census). **Choice of dress:** the piece of work
+allowed shirt sleeves, a waistcoat, work trousers and a cap, whatever the references support. The one photograph
+read of a groom at work in these years, Frances Benjamin Johnston's at Tuskegee about 1902
+(`loc_johnston_1902_tuskegee_horse_and_groom`, LOC, no known restrictions), shows him without coat or waistcoat,
+in a striped shirt with its collar closed, braces and a belt, dark trousers and a light felt hat with a creased
+crown, not a cap, and every piece follows it. Mrs. Seely's Cook Book (1902) gives a helper's work, not his dress.
+It is not of Chicago or of Billings. **Cut:** the 1835 labourer's shirt shell offset 7 mm, its collar 2.4 cm
+above the neck joint with an opening only 4 cm deep and 1 cm wide under it, the sleeves 1.6 cm fuller over the
+arm and gathered to the cuff; braces 2.6 cm wide, an H at the back; trousers on the shared workwear shell to the
+instep; a belt 3.2 cm deep lofted round the trousers 6 mm off them, under their top edge; a felt hat seated round
+the skull, its crown 11 cm high and tapering, the top creased 3 cm down along the front-back line and pinched in
+at the front, a 4.8 cm brim dipping 1 cm before and behind. Not modelled: the shirt's stripe, buttons, the belt's
+buckle. **Colour:** the photograph is monochrome; the shirt's pale blue-grey stands for its fine stripe, and the
+near-black trousers, black braces, brown belt and boots and light fawn hat are chosen. **Skin and hair:** the 1835
+studies' young light-skinned atlas and short04 hair, aged at runtime to 29 from his record; his hair row (ash
+fair, a moustache) is a choice. Every amount is chosen by eye against the photograph; none is measured, and none
+says what he wore.
+
+**The 1904 cook supplement, 2026-11-07 (T-3479):** a cook's working dress on the same component path,
+`tools/human_cook_1904.py` with `data/humans/recipes/cook_1904.json`, built as the asset `ryan_kate_1904_cook` on
+the shared female body and worn by Kate Ryan, cook in the Glessner household in the 1900 census (inferred).
+**Choice of dress:** the owner asked for each of the household in unique period clothing matched to photographs.
+C. L. Wasson's 1903 stereograph of an older cook at the kitchen table (`loc_wasson_1903_new_french_cook_stereograph`)
+shows a dark long-sleeved blouse, a checked bib apron, a dark spotted skirt to the floor and a cloth bound over the
+hair; Underwood & Underwood's 1901 "Bridget" (`loc_underwood_1901_begorrah_bridget_stereograph`, a caricature of an
+Irish cook) a long figured print dress with a broad checked apron wrapping round the skirt; Wasson's 1903 young woman
+at the same table (`loc_wasson_1903_new_french_cook_mr_mrs_stereograph`) the sleeves pushed up the forearm. The 1903
+cook's dark dress and head cloth are chosen over the 1901 light print; all three are staged scenes, none of Chicago.
+**Cut, her own and not the maid's:** the T-3423 bodice offset 1.8 cm with a 1.6 cm pouch and a narrow band at the neck;
+the sleeves cut back to 8.5 cm past the elbow and finished with a rolled band 5 cm wide standing 7.5 mm proud; the
+T-3423 gathered skirt to 4.2 cm above the ground; a broad apron laid 9 mm out on the skirt across 55 of its 96
+columns (round past the hips), from the waist to two rows above the hem; a square bib 22 by 26 cm with no straps,
+pinned on across the chest; a waistband 3.4 cm deep and ties knotted at the back with two 30 cm tails; a cloth bound
+over the fitted bun hair from 5.2 cm above the brow to 1.2 cm below the bun, 6 mm out from the hair, knotted at the
+nape, rigid on the head bone. The print, the check and the cloth's hem are not modelled. **Colour:** the photographs
+are monochrome; the print is drawn as its mean, a dark blue-black; the check as a mean grey; the cloth a faded madder
+red, so it reads as cloth over the hair, all chosen. **Body:** the shared female base, aged at runtime to 54 from her record; no picture of Kate Ryan is
+known, and none of the pictures says how she dressed.
+
+**The 1904 parlor maid's errand supplement, 2026-11-07 (T-3481):** a parlor maid's street dress on the same
+component path, `tools/human_errand_1904.py` with `data/humans/recipes/errand_1904.json`, built as the asset
+`nelson_christine_1904_errand` on the shared female body and worn by Christine Nelson, parlor maid in the Glessner
+household in the 1900 census (inferred). **Choice of dress:** out of the house on an errand a maid wore not her
+apron and cap but the street dress of any young working woman of the decade. The Met's American cotton shirtwaist of
+about 1900 (`met_ci_1900_cotton_shirtwaist`, in colour) gives the white, the tall standing collar, the full sleeves, the
+narrow cuffs and the front pouched over the belt; George Grantham Bain's 1909 photographs of New York shirtwaist
+strikers (`loc_bain_1909_shirtwaist_strikers_group`) young working women's own clothes, a dark skirt to the ankle, a
+belt and a bow at the collar; Florence Scovel Shinn's 1904 drawing (`loc_shinn_1904_misfit_sailor_hats_drawing`) the
+flat sailor hat set level on drawn-up hair, and the Met's American boater (`met_ci_1890_straw_boater`) its straw and
+black ribbon. None is of Chicago or of her; the 1909 pictures are five years after the scene. **Cut:** the shirtwaist
+offset 1.2 cm with a 2.4 cm pouch over 9 cm above the belt and a standing collar 4.2 cm high; cuffs 5 cm long; a small
+bow of two loops and short tails at the collar front, rigid on the neck; a belt 2.8 cm deep; a walking skirt of seven
+gores close over the hips and flaring from 0.62 m to a hem 7.5 cm off the ground (narrower and shorter than the
+lady's), 2 cm off the body above the flare and skinned to the legs only from 6 cm below the belt, in place
+of cloth; a straw sailor hat with a 7.2 cm crown and a 6.8 cm brim and a 2.8 cm
+ribbon, seated 5.2 cm below the top of the fitted bun, rigid on the head bone. The shirtwaist's tucked or ruffled
+front and the belt's buckle are not modelled. **The basket is reconstructed:** a willow market basket 34 by 21 cm and
+12 cm deep with a round handle and a cloth over it, rigid on the left hand bone, held a little out from the skirt by
+the left arm (the dress's `carry` hold, read by `human-actions.js`: the wrist 20.5 cm out, 39 cm down and 5 cm forward
+of the shoulder, the fingers round the handle; that arm does not swing). No source read shows such a basket, or her at
+market. **Colour:** the white, the straw and the black ribbon are the Met objects'; the navy of the skirt is chosen.
+**Body:** the shared female base, aged at runtime to 31 from her record; no picture of Christine Nelson is known.
 
 ### L-tremont-gale-envelope-2385 — two-storey default and picture alternative
 
@@ -41652,6 +41758,25 @@ of its person replaces the drawn face and carries the picture's grade instead.
 record of their height or build.
 **Ticket:** T-3412.
 **Recorded:** 2026-11-06 (T-3412).
+
+**A face's years and its blink, 2026-11-07 (T-3493):** the owner, of Frances Glessner beside her
+1892 photograph: "frances looks young to me compared to the photo and her eyelashes and eyebrows look
+like they are double eyebrows ... her eyelashes dont move". **Age in the skin.** From the age the town
+already draws, a face now carries folds beside the nose and on from the mouth's corners, a crease and
+hollow under each eye, a sunk fold under the brow, crow's feet, three forehead lines, and skin a little
+sallower and less even (`human-skin.js`, none before 28, full at 75); and the upper lids rest a little
+lower after 40 (`restingLid`, under a third shut by 75). Where each line lies is placed in the face's
+own frame from its eyes and the midline under its nose; how deep and dark each is, and the ages, are
+chosen by eye against period photographs of older faces, not measured from any person. **The blink.**
+Every export's eyeBlink target squashed a box round each eye flat to its centre's height, brow and
+cheek with it, and a face that blinked pinched its forehead into its nose; the renderer now turns each
+eye's lids about the eye's own centre to meet a third of the way up the opening, from the lid edges it
+finds in the skin, and leaves the rest of the face still. **Brows and lashes.** Lashes grow from the
+upper lid's front rim, standing out from it and curling up, and shut with it; fine brows are sparser
+and lie flatter, a soft shade of the brow's colour beneath them; Frances Glessner's brows are drawn a
+light brown, as her photograph shows them light. Every amount is a reconstructed rendering choice.
+**How to resolve:** a measured study of facial ageing in period photographs (fold depth and
+placement by decade); a person's own photograph for the lines of their face.
 
 ### L-pullman-gate-stone-3273 — The Pullman glasshouse's 18th Street gate drawn in a dark stone of its own
 **Recorded:** 2026-11-06.

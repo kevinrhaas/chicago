@@ -7,12 +7,14 @@
 // body's bind pose in metres however it was quantised; and be wired into humans.js's build.
 import fs from 'node:fs/promises';
 import assert from 'node:assert/strict';
+import { registerHooks } from 'node:module';
 const here = new URL('../', import.meta.url);
 const threeURL = new URL('renderers/web/vendor/three-0.185.1/three.module.js', here).href;
+// human-skin.js imports its sibling human-hair-styles.js (T-3493), so it is loaded from its own
+// file with 'three' resolved to the vendored copy, not from a data: URL.
+registerHooks({ resolve: (specifier, context, next) => (specifier === 'three' ? { url: threeURL, shortCircuit: true } : next(specifier, context)) });
 const THREE = await import(threeURL);
-const data = text => `data:text/javascript;base64,${Buffer.from(text).toString('base64')}`;
-const source = (await fs.readFile(new URL('renderers/web/js/human-skin.js', here), 'utf8')).replace("from 'three'", `from '${threeURL}'`);
-const { surfaceFor, dressSkin, restMatrix, SKIN, EYES } = await import(data(source));
+const { surfaceFor, dressSkin, restMatrix, SKIN, EYES, AGE, restingLid } = await import(new URL('renderers/web/js/human-skin.js', here));
 
 const materialNames = async asset => {
   const bytes = await fs.readFile(new URL(`assets/humans/web/${asset}.glb`, here));
@@ -92,7 +94,14 @@ for (const marker of ['chiSkinH = - chiSkin.x * pore', 'roughnessFactor = clamp(
 // The wrapper must follow three's own definition, and the normal step the begin step.
 assert(s.fragmentShader.indexOf('#include <lights_physical_pars_fragment>') < s.fragmentShader.indexOf('void chiSkinDirect('));
 assert(s.vertexShader.includes('vChiSkinP = ( chiSkinRest * vec4( position, 1.0 ) ).xyz;'));
-assert.deepEqual(Object.keys(s.uniforms).sort(), ['chiSkin', 'chiSkinRest', 'chiSkinSheen']);
+assert.deepEqual(Object.keys(s.uniforms).sort(), ['chiBrowTint', 'chiFace', 'chiFaceLook', 'chiFaceMarks', 'chiSkin', 'chiSkinRest', 'chiSkinSheen']);
+// T-3493: a face's look is uniforms; a body with no face frame draws no age and no brow shade.
+assert.deepEqual(s.uniforms.chiFaceLook.value.toArray(), [0, 0, 0, 0]);
+for (const marker of ['float ageH = 0.0;', 'c = mix( c, c * chiBrowTint,', 'chiSkinH = - chiSkin.x * pore * 0.000035 - chiSkin.y * lines * 0.00002 + grain * 0.00007 + ageH;'])
+  assert.equal(s.fragmentShader.split(marker).length, 2, `face look spliced once: ${marker}`);
+assert.equal(restingLid(null), 0);
+assert.equal(restingLid(AGE.lid_from), 0, 'no resting lid before its age');
+assert(Math.abs(restingLid(AGE.lid_full) - AGE.lid_most) < 1e-9 && restingLid(99) === AGE.lid_most, 'full by its age, no further');
 assert.deepEqual(s.uniforms.chiSkin.value.toArray(), [SKIN.pores, SKIN.lines, SKIN.mottle, SKIN.scatter]);
 assert.equal(skin.customProgramCacheKey(), 'chicago4d-confidence|chicago-skin-v1', 'the key names the chain');
 assert.equal(skin.map ?? null, null, 'no texture added');
@@ -113,8 +122,11 @@ assert.equal(a.vertexShader + a.fragmentShader, b.vertexShader + b.fragmentShade
 
 // Every person, not only drivers: humans.js dresses each body it builds.
 const humans = await fs.readFile(new URL('renderers/web/js/humans.js', here), 'utf8');
-assert(/import \{ dressSkin \} from '\.\/human-skin\.js';/.test(humans), 'humans.js imports dressSkin');
+assert(/import \{ dressSkin(, restingLid)? \} from '\.\/human-skin\.js';/.test(humans), 'humans.js imports dressSkin');
 // T-3412 put per-person variation between the clone and the dressing, so the window
 // allows build()'s whole preamble, not just the lines that were there first.
-assert(/const scene = cloneSkinned\(gltf\.scene\);[\s\S]{0,1500}dressSkin\(scene\);/.test(humans), 'build() dresses the clone');
+assert(/const scene = cloneSkinned\(gltf\.scene\);[\s\S]{0,1700}dressSkin\(scene[,)]/.test(humans), 'build() dresses the clone');
+// T-3493: the person's age reaches the skin, and the face's cards join the face's morphs.
+assert(/dressSkin\(scene, \{ age: this\.variation\?\.age/.test(humans), 'build() passes the person\'s age');
+assert(/faces\.push\(hair\.face\)/.test(humans), 'brows and lashes move with the face');
 console.log('human-skin: skin, hair and eyes only, no texture, spliced at every anchor, chained key, rest pose in metres, every body: PASS');

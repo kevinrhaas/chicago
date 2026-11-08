@@ -250,6 +250,13 @@ assert.equal(hairFor(null, 1812), null, 'the 1812 private grows no strand hair u
   assert(mattie === null || mattie.grown.scalp === 0, `no scalp cards over her bun: ${mattie?.grown.scalp}`);
   assert.equal(cap.material.alphaTest, before, 'her cap keeps its own alpha cut');
   assert(FACIAL_HAIR.lashes_upper && hairFor('rc_flynn_mary', 1835).facial.includes('lashes_upper'), 'both women grow lashes');
+  // T-3493 (owner: lashes read "like they are double eyebrows ... her eyelashes dont move"):
+  // lashes root on the upper lid's own edge, free of the skin, and a brow colour of a row's own
+  // names a colour of the table.
+  const lash = FACIAL_HAIR.lashes_upper;
+  assert(lash.lid === 'upper' && lash.per_cm > 0 && lash.rise > 0 && !lash.region_cm, 'lashes grow on the lid edge, not combed over a region');
+  for (const [id, row] of Object.entries(PEOPLE_HAIR)) if (row.brow_colour) assert(HAIR_COLOURS[row.brow_colour], `${id}: brow colour ${row.brow_colour}`);
+  assert.equal(hairFor('glessner_frances_m', 1904).brow_colour, 'light_brown', 'Frances\'s brows are lighter than her hair');
   // T-3456 (owner: brows "super clumpy bunchy"): the fine brow is rooted point by point and
   // evenly spaced, its hairs rising at the nose and falling at the tail.
   const brow = FACIAL_HAIR.brows_fine;

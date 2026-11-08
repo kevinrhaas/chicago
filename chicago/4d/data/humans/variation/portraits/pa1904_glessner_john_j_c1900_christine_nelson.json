@@ -1,0 +1,169 @@
+{
+ "format": "chicago4d_human_portrait_marks_v1",
+ "ticket": "T-3481",
+ "person_id": "pa1904_glessner_john_j_c1900_christine_nelson",
+ "scene": "1904",
+ "source": "bhm_umfa53226_1855_hembitrade_anna_akerman",
+ "scan": "kevinrhaas/chicago-evidence: evidence/people-portraits-2026-11-07/pa1904_glessner_john_j_c1900_christine_nelson/bhm_umfa53226_1855_anna_akerman.jpg (the museum's copy, 322 x 550)",
+ "scan_size_px": [
+  322,
+  550
+ ],
+ "crop_px": [
+  95,
+  95,
+  245,
+  275
+ ],
+ "_doc": "Where a reader marked the STAND-IN's facial landmarks (Anna Åkerman, a Swedish housemaid born in 1863, in a cabinet card of 1890-1895 (Bohusläns museum, UMFA53226:1855); not Christine Nelson), in pixels of the crop `crop_px` of the copy named in `scan`. Her face is turned three-quarters to her right, so her LEFT ear (the reader's right) is marked. The copy is small (her face is about 40 px across), so every mark carries a wide uncertainty. `base_body` fits against Christine Nelson's own body's rest face.",
+ "base_body": "nelson_christine_1904_errand",
+ "sex": "female",
+ "age_at_picture_years": 30,
+ "age_note": "Born 1863 by the card and photographed in 1890-1895, she was 27 to 32; 30 is the middle. The renderer's ageing pair takes the face to Christine Nelson's own 31 at the scene date.",
+ "grade": "reconstructed",
+ "basis": "No photograph of Christine Nelson is known. Her face's proportions are fitted to a stand-in: Anna Åkerman, a Swedish housemaid born in 1863, in a cabinet card of 1890-1895 (Bohusläns museum, UMFA53226:1855), a Swedish woman in domestic service of about her age. It is not her: what the face shows is that kind of woman, not Christine Nelson, so the face is reconstructed.",
+ "not_modelled": [
+  "her own face (no photograph of her is known; this is a stand-in's)",
+  "the colouring (the photograph is monochrome)",
+  "her hair (the stand-in's is light, centre-parted and drawn back; the model wears the town's bun under a hat)"
+ ],
+ "axes": [
+  "nose_length",
+  "nose_width",
+  "nose_depth",
+  "nose_hump",
+  "nose_curve",
+  "nose_tip",
+  "nose_tip_width",
+  "nostrils",
+  "nose_height",
+  "mouth_width",
+  "lip_upper",
+  "lip_lower",
+  "mouth_height",
+  "chin_prominence",
+  "chin_width",
+  "chin_height",
+  "jaw",
+  "prognathism",
+  "cheekbones",
+  "cheek_volume",
+  "cheek_inner",
+  "brow_height",
+  "brow_angle",
+  "brow_ridge",
+  "forehead_slope",
+  "temples",
+  "ear_size",
+  "ear_flap",
+  "ear_lobe",
+  "jowls",
+  "head_shape",
+  "forehead_height"
+ ],
+ "marks": [
+  {
+   "landmark": "pupil_r",
+   "x": 26,
+   "y": 74,
+   "sigma_px": 1.5
+  },
+  {
+   "landmark": "pupil_l",
+   "x": 66,
+   "y": 75,
+   "sigma_px": 1.2
+  },
+  {
+   "landmark": "eye_outer_r",
+   "x": 19,
+   "y": 73,
+   "sigma_px": 2.5
+  },
+  {
+   "landmark": "eye_inner_r",
+   "x": 37,
+   "y": 75,
+   "sigma_px": 2
+  },
+  {
+   "landmark": "eye_inner_l",
+   "x": 57,
+   "y": 75.6,
+   "sigma_px": 1.8
+  },
+  {
+   "landmark": "eye_outer_l",
+   "x": 80,
+   "y": 76,
+   "sigma_px": 1.8
+  },
+  {
+   "landmark": "nasion",
+   "x": 48,
+   "y": 70,
+   "sigma_px": 2.5
+  },
+  {
+   "landmark": "nose_tip",
+   "x": 32,
+   "y": 104,
+   "sigma_px": 2
+  },
+  {
+   "landmark": "subnasale",
+   "x": 41,
+   "y": 110,
+   "sigma_px": 2.5
+  },
+  {
+   "landmark": "stomion",
+   "x": 40,
+   "y": 125,
+   "sigma_px": 2.5
+  },
+  {
+   "landmark": "menton",
+   "x": 48,
+   "y": 152,
+   "sigma_px": 3
+  },
+  {
+   "landmark": "ear_top_l",
+   "x": 125,
+   "y": 73,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "ear_lobe_l",
+   "x": 119,
+   "y": 97,
+   "sigma_px": 3
+  }
+ ],
+ "stand_in": {
+  "label": "STAND-IN, NOT CHRISTINE NELSON",
+  "card_note": "No photograph of Christine Nelson is known. This is a stand-in: Anna Åkerman, a Swedish housemaid photographed in Uddevalla about 1890-1895 at about thirty, close to Christine Nelson's age, country and work. Her face is the model's guide; it is not Christine Nelson."
+ },
+ "card": {
+  "_doc": "What the person's card shows (T-3413, T-3478): `portrait` is cut from the copy at `portrait_from_scan_px` and scaled to `size_px` by tools/cut_portrait.py (a stand-in's label burned on it); `model` is tools/portrait_still.mjs's render of the fitted face on `body`, turned to the fit's yaw, dressed as humans.js dresses the person in town.",
+  "portrait": "assets/humans/web/portraits/pa1904_glessner_john_j_c1900_christine_nelson_portrait.jpg",
+  "portrait_from_scan_px": [
+   34,
+   45,
+   248,
+   330
+  ],
+  "model": "assets/humans/web/portraits/pa1904_glessner_john_j_c1900_christine_nelson_model.jpg",
+  "size_px": [
+   360,
+   480
+  ],
+  "body": "nelson_christine_1904_errand",
+  "background": "#1c1b18",
+  "distance_m": 0.9,
+  "aim_above_head_m": 0.0,
+  "dress": true,
+  "hide": "^headwear|hat_plumes"
+ }
+}

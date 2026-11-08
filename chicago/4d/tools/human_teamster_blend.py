@@ -161,7 +161,11 @@ def resolve_dress_reference_1904(variant, root=ROOT):
            (('adult_dress_v1','data/humans/recipes/adult_dress_1904.json'),
             ('gentleman_1904_v1','data/humans/recipes/gentleman_1904.json'),  # T-3441
             ('lady_1904_v1','data/humans/recipes/lady_1904.json'),  # T-3447
-            ('maid_1904_v1','data/humans/recipes/maid_1904.json')))  # T-3448
+            ('maid_1904_v1','data/humans/recipes/maid_1904.json'),  # T-3448
+            ('cook_1904_v1','data/humans/recipes/cook_1904.json'),  # T-3479
+            ('errand_1904_v1','data/humans/recipes/errand_1904.json'),  # T-3481
+            ('coachman_livery_1904_v1','data/humans/recipes/coachman_livery_1904.json'),  # T-3483
+            ('stable_helper_1904_v1','data/humans/recipes/stable_helper_1904.json')))  # T-3484
     if not bound:
         raise ValueError('only the bound 1904 dress or gentleman study may reference a 1904 person')
     pid=variant['person_reference_id']
@@ -235,6 +239,14 @@ def build(args):
         # T-3448: a 1904 house maid's dress; generic garment meshes through the dress path.
         from human_maid_1904 import prepare_maid_assembly
         dress = prepare_maid_assembly(ROOT, recipe, variant, body)
+    elif variant.get('component_assembly')=='cook_1904_v1':
+        # T-3479: a 1904 cook's working dress; generic garment meshes through the dress path.
+        from human_cook_1904 import prepare_cook_assembly
+        dress = prepare_cook_assembly(ROOT, recipe, variant, body)
+    elif variant.get('component_assembly')=='errand_1904_v1':
+        # T-3481: a 1904 parlor maid's street dress, a basket carried in her left hand.
+        from human_errand_1904 import prepare_errand_assembly
+        dress = prepare_errand_assembly(ROOT, recipe, variant, body)
     elif variant.get('component_assembly')=='merchant_1835_v1':
         # T-3449: an 1835 merchant's day dress; generic garment meshes through the dress path.
         from human_merchant_1835 import prepare_merchant_assembly
@@ -243,6 +255,14 @@ def build(args):
         # T-3450: an 1835 labourer's working dress; generic garment meshes through the dress path.
         from human_labourer_1835 import prepare_labourer_assembly
         dress = prepare_labourer_assembly(ROOT, recipe, variant, body)
+    elif variant.get('component_assembly')=='coachman_livery_1904_v1':
+        # T-3483: a 1904 coachman's standing livery; generic garment meshes through the dress path.
+        from human_coachman_1904 import prepare_coachman_assembly
+        dress = prepare_coachman_assembly(ROOT, recipe, variant, body)
+    elif variant.get('component_assembly')=='stable_helper_1904_v1':
+        # T-3484: a 1904 stable helper's working dress; generic garment meshes through the dress path.
+        from human_stable_helper_1904 import prepare_stable_helper_assembly
+        dress = prepare_stable_helper_assembly(ROOT, recipe, variant, body)
     elif variant.get('component_assembly')=='soldier_1812_v1':
         # T-3451: an 1812 private of the First Infantry; generic garment meshes through the dress path.
         from human_soldier_1812 import prepare_soldier_assembly
@@ -651,7 +671,11 @@ def build(args):
         if dress.get('assembly') in ('lady_1904_v1','maid_1904_v1'):
             # T-3447: a woman's assembly in a full skirt (humans.js reads `skirt`: the nod, the clasped hands).
             scene['chicago4d_human']['wardrobe_assembly_json']=json.dumps({'assembly':dress['assembly'],'liberty':dress['liberty'],'production_eligible':False,'qualified_roles':['standing','walking'],'skirt':True,'standing_source_only':False,'walking_seated_and_photo_accepted':False,'body_and_identity_unchanged':True,'garments':dress['garments']},sort_keys=True)
-        elif dress.get('assembly') in ('gentleman_1904_v1','merchant_1835_v1','labourer_1835_v1','soldier_1812_v1'):
+        elif dress.get('assembly') in ('cook_1904_v1','errand_1904_v1'):
+            # T-3479/T-3481: women in skirts; the errand dress also names the hand that carries her basket (humans.js reads `carry`).
+            extra={'carry':dress['carry']} if dress.get('carry') else {}
+            scene['chicago4d_human']['wardrobe_assembly_json']=json.dumps({'assembly':dress['assembly'],'liberty':dress['liberty'],'production_eligible':False,'qualified_roles':['standing','walking'],'skirt':True,'standing_source_only':False,'walking_seated_and_photo_accepted':False,'body_and_identity_unchanged':True,'garments':dress['garments'],**extra},sort_keys=True)
+        elif dress.get('assembly') in ('gentleman_1904_v1','merchant_1835_v1','labourer_1835_v1','soldier_1812_v1','coachman_livery_1904_v1','stable_helper_1904_v1'):
             scene['chicago4d_human']['wardrobe_assembly_json']=json.dumps({'assembly':dress['assembly'],'liberty':dress['liberty'],'production_eligible':False,'qualified_roles':['standing','walking'],'standing_source_only':False,'walking_seated_and_photo_accepted':False,'body_and_identity_unchanged':True,'garments':dress['garments']},sort_keys=True)
         else:scene['chicago4d_human']['wardrobe_assembly_json']=json.dumps({'assembly':'adult_dress_v1','liberty':dress['liberty'],'production_eligible':False,'qualified_roles':[],'standing_source_only':True,'walking_seated_and_photo_accepted':False,'body_and_identity_unchanged':True},sort_keys=True)
     scene['authoring_status']='UNVERIFIED: fitting, anatomy, facial targets, UV density, grounded animation and all export/render gates remain open until Blender/CI runs'

@@ -98,6 +98,7 @@ for (const r of dir.people) {
     const rel = face.card[k];
     if (!L[k].startsWith('https://example.test/4d/data/humans/web/') || !fs.existsSync(path.join(ROOT, 'assets', rel))) fail(`${r.id}: ${k} picture ${rel} is not where publish.sh serves it`);
   }
+  if (face.card.stand_in && (L.grade !== 'reconstructed' || !L.standIn)) fail(`${r.id}: a stand-in's photograph must read as one, graded reconstructed (T-3478)`);
   if (L.grade !== face.grade || !L.sourceTitle || !/^https:/.test(L.sourceUrl) || !L.notModelled.length || !/\d+ mm/.test(L.fit)) fail(`${r.id}: Likeness lacks its grade, source, fit or what is not modelled`);
 }
 if (likenesses < 1) fail('no fitted face reached a card (Glessner\'s, T-3413)');
