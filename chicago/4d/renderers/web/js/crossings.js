@@ -55,6 +55,14 @@ const DRAW_M = { full: 650, balanced: 500, light: 320 };
 const LANDING_PAD_M = 1.2;
 const LANDING_SIDE_M = 1.6;
 const CLUSTER_M = 220;
+/** How far under the inner gunwale the water lid lies. */
+const MASK_UNDER_RIM_M = 0.004;
+/**
+ * Between the opaque scene (renderOrder 0: ground, hulls, people) and the river
+ * (terrain.js draws its water at renderOrder 1), so the lid's depth is in place
+ * before the water is tested against it, and after everything it must not hide.
+ */
+const MASK_ORDER = 0.5;
 /** attested · inferred · reconstructed, as the confidence view reads them. A boat whose
  *  existence a source states but no picture shows is graded inferred (AGENTS.md rule 12). */
 const GRADE = { attested: 0.5, inferred: 0.5, reconstructed: 1 };
@@ -330,7 +338,8 @@ export function buildBoat(boat, { tileWood = 4.08, tileBark = 1.2, coarse = fals
       const cb = hb * lines.chine;
       const au = Math.abs(u), su = Math.sign(u);
       if (au <= 0.45 * Math.PI) { z = su * cb * (au / (0.45 * Math.PI)); y = yk; } else {
-        const f = (au - 0.45 * Math.PI) / (0.55 * Math.PI);
+        // The floor runs to |u| = 0.45 pi and the flared side takes the last 0.05 pi to the gunwale.
+        const f = (au - 0.45 * Math.PI) / (0.05 * Math.PI);
         z = su * lerp(cb, hb, f); y = lerp(yk, yg, f);
       }
     } else {
@@ -504,8 +513,19 @@ export function buildBoat(boat, { tileWood = 4.08, tileBark = 1.2, coarse = fals
     appendTransformed(buf, paddle, m);
   };
 
+  // The water lid: the hollow's floor lies below the waterline, and the river is drawn as
+  // one plane at Z = 0, so it would show inside the boat. A depth-only sheet across the
+  // opening, a few millimetres under the inner gunwale, keeps it out (waterMask below).
+  const mask = [];
+  for (let i = 0; i < innerT.length - 1; i++) {
+    const [a, b] = [-1, 1].map((sd) => gunInner(innerT[i], sd));
+    const [c, d] = [-1, 1].map((sd) => gunInner(innerT[i + 1], sd));
+    for (const p of [a, b, c, d]) p[1] -= MASK_UNDER_RIM_M;
+    mask.push(...a, ...c, ...b, ...b, ...c, ...d);
+  }
+
   return {
-    wood, bark: outerBuf, paddle, restPaddle,
+    wood, bark: outerBuf, paddle, restPaddle, mask: Float32Array.from(mask),
     seat: [seatX, floorAtSeat + (SEAT_EYE_M[kind] - 0.05), 0],
     lines,
     extent: { L, B: lines.B, keelUnder: 0 },
@@ -599,6 +619,25 @@ export function buildWharfDeck(wharf, { tileWood = 4.08, coarse = false } = {}) 
     k += 1;
   }
   return buf;
+}
+
+/** Writes depth and no colour: the river behind it fails its depth test. */
+function waterMaskMaterial() {
+  const mat = new THREE.MeshBasicMaterial({ colorWrite: false, depthWrite: true, side: THREE.DoubleSide });
+  mat.name = 'crossing-boat-water-lid';
+  return mat;
+}
+
+function maskMesh(positions, mat) {
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+  geo.computeBoundingSphere();
+  const mesh = new THREE.Mesh(geo, mat);
+  mesh.name = 'crossings-water-lid';
+  mesh.renderOrder = MASK_ORDER;
+  mesh.castShadow = false;
+  mesh.receiveShadow = false;
+  return mesh;
 }
 
 function woodMaterial(relief, confidence, coarse) {
@@ -836,6 +875,7 @@ export async function createCrossings({
   const barkSheet = campSheet('camp_elm_bark');
   const woodMat = woodMaterial(relief, confidence, coarse);
   const barkMat = barkMaterial(barkSheet, confidence);
+  const lidMat = waterMaskMaterial();
   const tileWood = relief?.tileM ?? 4.08;
   const tileBark = barkSheet?.spanM ?? 1.2;
   const speed = Number(doc.speed_m_s) || 1.6;
@@ -864,6 +904,7 @@ export async function createCrossings({
     for (const c of clusters) {
       group.remove(c.group);
       c.meshes.forEach((m) => m.geometry.dispose());
+      c.lid?.geometry.dispose();
     }
     clusters.length = 0;
     for (const entry of out.boats) {
@@ -875,6 +916,8 @@ export async function createCrossings({
     }
     for (const c of clusters) {
       const wood = buffer(), bark = buffer();
+      const lids = [];
+      const lv = new THREE.Vector3();
       c.spans = [];
       for (const entry of c.members) {
         matrixFor(entry.pose, m4);
@@ -884,6 +927,11 @@ export async function createCrossings({
         entry.built.restPaddle(lying);
         appendTransformed(wood, lying, m4);
         if (entry.built.bark) appendTransformed(bark, entry.built.bark, m4);
+        const lid = entry.built.mask;
+        for (let k = 0; k < lid.length; k += 3) {
+          lv.set(lid[k], lid[k + 1], lid[k + 2]).applyMatrix4(m4);
+          lids.push(lv.x, lv.y, lv.z);
+        }
         c.spans.push({ entry, wood: [w0, wood.pos.length / 9], bark: [b0, bark.pos.length / 9] });
       }
       c.group = new THREE.Group();
@@ -900,6 +948,11 @@ export async function createCrossings({
       };
       add(wood, woodMat, 'crossings-wood');
       add(bark, barkMat, 'crossings-bark');
+      // Not in c.meshes: the lid is never picked, and drawn by its own order.
+      if (lids.length) {
+        c.lid = maskMesh(Float32Array.from(lids), lidMat);
+        c.group.add(c.lid);
+      }
       group.add(c.group);
     }
   }
@@ -950,6 +1003,7 @@ export async function createCrossings({
     };
     add(entry.built.wood, woodMat, false);
     add(entry.built.bark, barkMat, false);
+    if (entry.built.mask.length) g.add(maskMesh(entry.built.mask, lidMat));
     const tools = [];
     const pg = geometryOf(entry.built.paddle, false);
     const count = entry.boat.kind === 'skiff' ? 2 : 1;
@@ -1300,9 +1354,13 @@ export async function createCrossings({
   };
 
   out.dispose = () => {
-    for (const c of clusters) c.meshes.forEach((m) => m.geometry.dispose());
+    for (const c of clusters) {
+      c.meshes.forEach((m) => m.geometry.dispose());
+      c.lid?.geometry.dispose();
+    }
     woodMat.dispose();
     barkMat.dispose();
+    lidMat.dispose();
   };
   group.userData.census = out.census;
   return out;
