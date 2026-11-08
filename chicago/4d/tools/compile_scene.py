@@ -697,6 +697,8 @@ GROUND_GROUPS = [
     ("battle_bank_1812", "the high sand bank of the battle"),
     ("heald_small_elevation_1812", "Heald's small elevation"),
     ("tenth_street_rise_1812", "a low rise near the later Tenth Street"),
+    ("state_slough_1812", "the State Street slough, holding water"),
+    ("north_side_slough_1812", "the north-side slough, holding water"),
 ]
 
 

@@ -7,7 +7,7 @@
   "context": [
     {
       "label": "Measured relief",
-      "text": "Land in the modelled box runs -3.556 to 20.0 ft above the water surface, and the channel floor reaches -17.409 ft below it. Measured from the committed heightfield, not asserted."
+      "text": "Land in the modelled box runs -1.898 to 20.0 ft above the water surface, and the channel floor reaches -17.409 ft below it. Measured from the committed heightfield, not asserted."
     }
   ],
   "claims": [
@@ -1154,6 +1154,190 @@
       "work_refs": [
         "T-3403",
         "T-3469"
+      ]
+    },
+    {
+      "id": "state_slough_1812",
+      "group": "the State Street slough, holding water",
+      "label": "The State Street slough, holding water",
+      "confidence": "reconstructed",
+      "confidence_key": "confidence",
+      "fields": [
+        {
+          "key": "fixed_tail_m",
+          "value": 100.0
+        },
+        {
+          "key": "notch_hold_m",
+          "value": 35.0
+        },
+        {
+          "key": "meander_m",
+          "value": 6.0
+        },
+        {
+          "key": "meander_wavelengths_m",
+          "value": [
+            74.0,
+            31.0
+          ]
+        },
+        {
+          "key": "vary",
+          "value": 0.3
+        },
+        {
+          "key": "margin_rise_ft",
+          "value": 0.8
+        },
+        {
+          "key": "bank_ft_per_m",
+          "value": 1.2
+        },
+        {
+          "key": "seed",
+          "value": 3517
+        },
+        {
+          "key": "dossier_zone",
+          "value": 14,
+          "mesh": "record_only"
+        }
+      ],
+      "sources": [
+        "chicagology_prefire273",
+        "conley_stelzer_1933",
+        "wright_1834"
+      ],
+      "citations": [
+        {
+          "source_id": "chicagology_prefire273",
+          "citation": "\"Wolf's Point and the Town of Chicago.\" Chicagology. Transcribing the Chicago Magazine of 15 May 1857 — the account of the Wolf's Point settlement built on George Davis's 1832 drawing and on Gurdon S. Hubbard's own description of the place as he found it in 1818 — with A. T. Andreas and modern editorial matter around it.",
+          "url": "https://chicagology.com/prefire/prefire273/",
+          "archived_url": "https://web.archive.org/web/20260217122628/https://chicagology.com/prefire/prefire273/",
+          "tier": 2,
+          "tier_label": "near-primary recollection",
+          "transcribes": [
+            {
+              "work": "Chicago Magazine, 'Wolf's Point' — the account of the settlement at the forks, engraved from George Davis's 1832 drawing and incorporating Gurdon S. Hubbard's description of Chicago as he first saw it in 1818",
+              "date": "1857-05-15",
+              "tier": 2,
+              "note": "Carries the Miller House's log construction ('a log structure partly sided') and the Wolf Point Tavern's ('partly log and partly frame'), the fact of a frame element on each, and — through Hubbard — the marshy river-shore strip that grades the south division's marsh surface in terrain_spec.json. Twenty-five years after the fact, from a resident's drawing and a named witness speaking to the writer: rung 2."
+            }
+          ]
+        },
+        {
+          "source_id": "conley_stelzer_1933",
+          "citation": "Conley, Walter H. (copyright holder) and O. E. Stelzer (artist), with Caroline M. McIlvaine (historical adviser). A map of Chicago: incorporated as a town August 5, 1833. 1933.",
+          "url": "https://collections.leventhalmap.org/search/commonwealth:0r96fm830",
+          "archived_url": "",
+          "tier": 5,
+          "tier_label": "modern retrospective illustration/reconstruction"
+        },
+        {
+          "source_id": "wright_1834",
+          "citation": "Wright, J. S. Chicago, drawn by J. S. Wright according to survey. New York: P. A. Mesier's Lith., 1834.",
+          "url": "https://collections.leventhalmap.org/search/commonwealth:js9577436",
+          "archived_url": "",
+          "tier": 1,
+          "tier_label": "period/eyewitness",
+          "what_it_supplies": [
+            "street geometry",
+            "block and lot subdivision",
+            "shoreline",
+            "river channel and the 1834 cut",
+            "survey-date colouring"
+          ],
+          "what_it_does_not_supply": [
+            "building footprints",
+            "building locations"
+          ]
+        }
+      ],
+      "notes": [
+        "Other work, on the owner's ruling of 2026-11-08, flying the Potawatomi camps from the air: 'There would be more water in that slough they are gathering around can you make sure though sloughs are carved correctly and naturally with the right water there'. THE ROUTE IS THE 1835 ONE: the same documented course (\"Wolf's Point and the Town of Chicago.\" Chicagology: it drained the public-square pond and the Wells Street marsh, 'passed over the site of the Tremont House and entered the river at the end of State Street'; Conley/Stelzer 1933's winding line; Wright 1834's traced notch for the mouth), the 1834 spec's state slough course and state slough mouth vertices joined into one line. THE WATER IS THE OWNER'S, NOT A SOURCE'S: zone 14 reads the bed +0.5 to +1.5 ft above the 1835 water, a damp drain in July 1835, and that reading stays on the 1835 ground. No 1812 stage or depth is recorded (lake stage 1812). For 1812 the bed is carved below the water plane from about 75 m below the head to the river, so the slough holds open water through the camps: pools to about -1.8 ft and narrows (never below -1.95 ft: a slough stays shallower than the -0.60 m the flora's divisions take for river channel, the walkthrough's trees code channel y), a profile of [along (m), bed (ft), water half (m), margin (m)] knots, each modulated +/-30% by seeded noise so no two reaches match. CARVED AS A WATERCOURSE, NOT A DITCH: the centreline winds up to 6 m off the documented line (inside Conley's 20-30 m reading tolerance), never in the last 100 m, which keep Wright's notch; water edge, then a wet margin rising 0.8 ft (3-3.5 m wide through the camps, under a metre where the mouth cuts the State Street ridge toe to Wright's notch), then the bank at 1.2 ft per metre into the plain, the ground only ever lowered. The head stays a damp hollow above the water and feathers out east of Clark. Where the water would reach a camp's site outline the line bends round it (never in the last 35 m, Wright's notch), and the bank may lower a site's ground by no more than 0.4 ft; the carve may not touch the ground under any lodge, hearth, arbor or picket of the camps (terrain gen e1830 state slough, which refuses). Recorded in the liberties register (L-other work-state-slough-1812)."
+      ],
+      "work_refs": [
+        "T-3517"
+      ]
+    },
+    {
+      "id": "north_side_slough_1812",
+      "group": "the north-side slough, holding water",
+      "label": "The north-side slough, a backwater off the river",
+      "confidence": "reconstructed",
+      "confidence_key": "confidence",
+      "fields": [
+        {
+          "key": "line_from",
+          "value": "north side slough"
+        },
+        {
+          "key": "fixed_tail_m",
+          "value": 0.0
+        },
+        {
+          "key": "meander_m",
+          "value": 0.0
+        },
+        {
+          "key": "meander_wavelengths_m",
+          "value": [
+            60.0
+          ]
+        },
+        {
+          "key": "vary",
+          "value": 0.3
+        },
+        {
+          "key": "margin_rise_ft",
+          "value": 0.8
+        },
+        {
+          "key": "bank_ft_per_m",
+          "value": 1.2
+        },
+        {
+          "key": "seed",
+          "value": 35171
+        },
+        {
+          "key": "dossier_zone",
+          "value": 19,
+          "mesh": "record_only"
+        }
+      ],
+      "sources": [
+        "wright_1834"
+      ],
+      "citations": [
+        {
+          "source_id": "wright_1834",
+          "citation": "Wright, J. S. Chicago, drawn by J. S. Wright according to survey. New York: P. A. Mesier's Lith., 1834.",
+          "url": "https://collections.leventhalmap.org/search/commonwealth:js9577436",
+          "archived_url": "",
+          "tier": 1,
+          "tier_label": "period/eyewitness",
+          "what_it_supplies": [
+            "street geometry",
+            "block and lot subdivision",
+            "shoreline",
+            "river channel and the 1834 cut",
+            "survey-date colouring"
+          ],
+          "what_it_does_not_supply": [
+            "building footprints",
+            "building locations"
+          ]
+        }
+      ],
+      "notes": [
+        "Other work, on the owner's ruling of 2026-11-08 ('make sure those sloughs are carved correctly and naturally with the right water there'). THE COURSE IS WRIGHT'S: the centreline is hydrology.geojson's north side slough, read whole off the NA/HUP sheet by other work to 1.78 m median, so it does not wind off its trace (meander 0). WHAT CHANGES FOR 1812 is the section. The 1834 watercourses entry floods a constant 7.1 m band to -1.0 ft and stops square at its head. Here the slough is a still backwater ('marshy, wet areas with little current', the form the 1834 record cites): water from about 25 m below the head to the river, its half-width read round other work's stroke separation (13.0 m median, 7-23 m) at 2 to 5.5 m, varied +/-30% into pools and narrows, a bed of -0.5 to about -1.7 ft, never below -1.95 ft (the walkthrough's trees code channel y) (the 1834 entry's -1.0 is invented too), a wet margin rising 0.8 ft, then the bank at 1.2 ft per metre; the head a damp hollow that feathers into the plain. Every depth and width here is reconstructed. Recorded in the liberties register (L-other work-state-slough-1812). Cited to zone 19, the North Division ground it is cut into: the dossier gives the slough no row of its own."
+      ],
+      "work_refs": [
+        "T-3517",
+        "T-0795"
       ]
     },
     {

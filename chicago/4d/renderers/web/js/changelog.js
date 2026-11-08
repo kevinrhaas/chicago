@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2839, ts: '2026-11-08T21:52:41.956Z', date: 'Nov 8, 2026, 3:52 PM CT', title: '1812: the sloughs hold water', kind: 'improvement',
+    items: [
+      'The State Street slough the Potawatomi camps sit around now holds open water from the river up through the camps, winding, in pools and narrows with reeds, to a damp hollow at its head. It used to be a dry ditch.',
+      'The north-side slough is a backwater of natural width on Wright\'s 1834 line, not a canal of one width that stops square.',
+      'Each camp\'s path to water now goes to the slough on its own side. No lodge stands in water.',
+      'The water is the owner\'s call: the 1835 sources read the State Street slough as a damp drain in July, and 1835 keeps that. Recorded as a liberty.',
+    ] },
   { v: 2838, ts: '2026-11-08T21:22:50.544Z', date: 'Nov 8, 2026, 3:22 PM CT', title: '1801 Prairie\'s south front now reads as one front, as photographed', kind: 'improvement',
     items: [
       'The Kimball house\'s round bay, gabled face and second bay now stand as one front, the face flush with the bay beside it and the cornice running across all three.',

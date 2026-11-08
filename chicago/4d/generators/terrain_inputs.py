@@ -191,6 +191,13 @@ CONSUMED = {
     # T-3469: the T-3403 rise kept as ground when Heald's elevation moved south.
     "tenth_street_rise_1812": frozenset({"centre_e", "centre_n", "rise_ft",
                                          "flat_radius_m", "skirt_m", "aspect"}),
+    # T-3517: the State Street slough carved as water in 1812, by the owner's ruling.
+    "state_slough_1812": frozenset({"line", "fixed_tail_m", "notch_hold_m", "meander_m",
+                                    "meander_wavelengths_m", "profile", "vary", "margin_rise_ft",
+                                    "bank_ft_per_m", "seed"}),
+    "north_side_slough_1812": frozenset({"line_from", "fixed_tail_m", "meander_m",
+                                         "meander_wavelengths_m", "profile", "vary",
+                                         "margin_rise_ft", "bank_ft_per_m", "seed"}),
 }
 
 

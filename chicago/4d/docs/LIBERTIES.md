@@ -42669,6 +42669,38 @@ This supersedes, for the Native cards, L-1812-gathering-people-3500's *"No card 
 **Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg` and its match record.
 **Recorded:** 2026-11-08 (T-1890).
 
+### L-t3517-state-slough-1812 — The 1812 sloughs hold water: the State Street slough through the camps and the north-side slough, carved as winding watercourses
+
+**Decision:** two blocks of `data/terrain/epochs/e1830_natural/terrain_spec.json`, read by
+`generators/terrain_gen_e1830.py` after the 1812 field is built, in place of the 1834 entries the 1812 ground used to
+carry. `state_slough_1812`: the State Street slough (dossier zone 14) on its documented line, the 1834 spec's
+`state_slough_course` and `state_slough_mouth` vertices joined, winding up to 6 m off it (never in the last 100 m,
+which keep Wright's notch), holding open water from about 75 m below its head east of Clark to the river: a bed of
+-0.5 to about -1.8 ft and a water half-width of 2.4 to 5 m, each varied +/-30% by seeded noise into pools and narrows,
+a wet margin rising 0.8 ft, the bank at 1.2 ft per metre into the plain; the head a damp hollow above the water.
+`north_side_slough_1812`: the north-side slough on Wright's traced centreline (no winding), water from about 25 m
+below its head, half-width 2 to 5.5 m round the stroke separation T-0795 measured, a bed of -0.5 to about -1.7 ft,
+in place of the 1834 entry's constant 7.1 m band at -1.0 ft that stops square. Neither bed goes below -1.95 ft, where
+the flora would read river channel. The carve only lowers the ground, and refuses to touch any lodge, hearth, arbor
+or picket of the Potawatomi camps. The 1835 ground keeps both 1834 entries unchanged.
+**Why:** the owner, 2026-11-08, flying the 1812 camps: *"There would be more water in that slough they are
+gathering around can you make sure though sloughs are carved correctly and naturally with the right water there"*.
+Carried from 1835, the State Street slough was a 10 m swale 2.2 ft deep with its bed above the water, open water
+only in its last 20 m; the north-side slough a canal of one width.
+**What is read.** The State Street slough's route: it drained the public-square pond and the Wells Street marsh,
+*"passed over the site of the Tremont House and entered the river at the end of State Street"* (chicagology
+prefire273); Conley/Stelzer 1933's winding course; Wright 1834's notch for its mouth. The north-side slough's line:
+Wright 1834, re-read whole by T-0795. The dossier's zone 14 width, 15-40 ft.
+**What is invented.** That either slough held open water on 15 August 1812: zone 14 reads the State Street
+slough's thalweg 0.5 to 1.5 ft ABOVE the 1835 water, a damp drain in July 1835, and no 1812 stage or depth is
+recorded (`lake_stage_1812`); the water is the owner's ruling. Every depth, width, pool and narrow; the winding
+off the documented line; the margins and banks.
+**How to resolve:** an account of either slough before 1830 (a crossing, a canoe landing, a description of the
+ground behind the fort), or a reconstruction of the lake stage in the 1810s.
+**Covers:** `terrain.e1830_natural.state_slough_1812`, `terrain.e1830_natural.north_side_slough_1812`
+**Ticket:** T-3517.
+**Recorded:** 2026-11-08 (T-3517).
+
 ### L-1812-children-dress-3520 — Each 1812 town child dressed and wearing their hair as their own, walking as a child walks, mostly indoors or by their own door; nobody stands in a lodge's wall
 
 **Decision:** the owner, 2026-11-08, of the children in the fort yard: *"they have a very odd walk that does not make sense at all, and they all look identical and there are a lot of them in the yard i would think not so many kids out ... when so many kids and no parents they should leave and come out of the door"*, *"i am ok with the idea that occasionally there are kids together playing but it seems like its such a centerpiece, the kids should not be all over the place"*, *"their hair is short they all look like boys"*, and of the camps, *"people can stand and break the wall of the mat walls"*. Five things are ours. (1) **Cloth.** The town's nineteen children wore three dressed bodies (`child_toddler_1812`, `child_girl_1812`, `child_boy_1812`) in one colour each. `docs/RESEARCH/children-1812-3520/children.py` writes `data/humans/variation/dress_1812_children.json`, recolouring each child's own pieces from the period's range: the little ones' frocks two in eight white muslin, the rest unbleached, check or sprigged prints; the girls' frocks rose, madder, indigo, blue, green, buff, lilac or a brown check, a white or unbleached pinafore over most; the boys' skeleton suits blue, brown, green, grey, plum, or a dark jacket over nankeen; seeded so no two of a kind share a colour. (2) **Hair.** Girls' hair longer than a boy's and parted in the middle: most worn loose and curling to the shoulders, the rest plaited down the back (15-30 cm); the little girls' loose to the neck; boys cropped, about half cut straight across the brow. The city fashion of a girl's short curls in the eastern portraits (Joshua Johnson's children, about 1805) is not followed; the longer hair for a soldier's or trader's daughter is our choice. (3) **The walk.** A child walks at a child's pace, stride and cadence by age (Sutherland, Olshen, Cooper and Woo 1980: about 0.64 m/s at 176 steps a minute at one, 1.14 m/s at 143 at seven, an adult's by fifteen), hips over the knees, never on its knees (`renderers/web/js/human-gait.js` `childGait`). (4) **Fewer out.** A child goes in at its own door for 100-220 s in about nine of every ten 130-260 s, and when out plays within 1.4-3.6 m of that door; a knot of children only plays together for 35-80 s in every 320-640 s (`renderers/web/js/human-days.js` `CHILD`); near the visitor under two in five are out at any hour, never more than five together without a grown-up for every two. (5) **Lodge walls.** The cattail-mat and elm-bark walls of every lodge (their foot traced off the camp models, `tools/derive_doors_1812.py`) are kept clear: anyone whose place or spacing would stand them in a wall is moved just outside it, never into another (`renderers/web/js/human-spacing.js` `keepOutOf`).

@@ -16,68 +16,106 @@
   "ceilings": {
     "1812": {
       "desktop": {
-        "total_bytes": 734003200,
-        "reading_bytes": 644507815,
+        "total_bytes": 917504000,
+        "reading_bytes": 825448876,
         "tier": "full",
         "reading_mb": {
-          "total": 614.7,
-          "js_heap": 34.4,
-          "arraybuffers": 248.3,
-          "gpu_buffers": 142.3,
-          "gpu_textures": 189.7
+          "total": 787.2,
+          "js_heap": 96.2,
+          "arraybuffers": 306.2,
+          "gpu_buffers": 151.6,
+          "gpu_textures": 233.2
         },
         "raised_by": {
-          "ticket": "T-2784",
-          "on": "2026-10-19T18:21:54.779Z",
-          "build": "37df92b9+T-2784",
-          "reading": "docs/measurements/T-2784-memory.json",
-          "note": "the open plain's woody plants, about 8,000 more grown stems in 1812 (shrubs, slough-edge willows, lone trees). The same machine read the base 37df92b9 at 600.4 MB, already over the 600 MiB line before this parcel (the T-2807 to T-2810 woods had grown it from 541.1), and this tree at 614.7 MB: +14.3 MB, of which the trees layer's geometry 3.2 on the GPU and 3.2 kept on the CPU, the batches' instance textures 2.1, the stem records 3.5 of JS heap. The phone's rows are inside their ceilings (1812 mobile 202.6 MB of 225, 1835 mobile 504.6 of 550; 1835 desktop 1247.3 of 1325). 614.7 MB x 1.1 rounded up to 25 MiB = 700 MiB.",
-          "before": 629145600
-        },
-        "lowered_by": {
-          "ticket": "T-2786",
-          "on": "2026-10-18T16:43:05.218Z",
-          "build": "a71a7a3e+T-2786",
-          "reading": "docs/measurements/T-2786-memory.json",
-          "note": "the buildings' source geometries let go once batched, and (1904) the railway's strip scratch emptied once laid; one invocation, all six rows. 626.8 -> 541.1 MB; x 1.1 rounded up to 25 MiB = 600 MiB.",
-          "before": null
-        }
-      },
-      "mobile": {
-        "total_bytes": 262144000,
-        "reading_bytes": 219401421,
-        "tier": "light",
-        "reading_mb": {
-          "total": 209.2,
-          "js_heap": 31.0,
-          "arraybuffers": 80.4,
-          "gpu_buffers": 55.5,
-          "gpu_textures": 42.3
-        },
-        "raised_by": {
-          "ticket": "T-3452",
-          "on": "2026-11-07T14:44:11.557Z",
-          "build": "70ef8216d+T-3452",
-          "reading": "docs/measurements/T-3452-memory-1812.json",
-          "note": "1812's first drawn person: one anonymous private of Heald's company at ease on the parade (Kevin, 2026-11-07: \"Place all of them\"). Before it 1812 loaded no human layer; now its spawn pays for the layer's code and clips (js heap and ArrayBuffers) and the private at the light tier's LOD3 (0.2 MB of geometry, 1.2 MB of four textures). CI read the branch before the figure (3d4a760) at 224.0 MB against 225 and this build (70ef821) at 230.2: +6.2 MB, of which js heap 2.8, arraybuffers 2.1, the human layer 1.4. This machine reads 209.2 MB (CI reads this row about 21 MB higher, in ArrayBuffers: 101.6 against 80.4). 209.2 x 1.1 rounded up to 25 MiB = 250 MiB; a 1904 phone runs at 400 MiB.",
+          "ticket": "T-3519",
+          "on": "2026-11-08T20:15:12.838Z",
+          "build": "a0786cb40",
+          "reading": "docs/measurements/T-3519-memory-1812.json",
+          "note": "the same 1812 people work on a desktop (T-3461..T-3516). Clean dev a0786cb40 read 787.2 MB here and 807.3 on CI (run 42518897341), against 700 set on the T-2784 woods (614.7): js heap 34.4 -> 96.2, gpu textures 189.7 -> 233.2 (humans 33.9 at the full tier's LODs), arraybuffers 248.3 -> 306.2, gpu buffers 142.3 -> 151.6. A desktop is not the device that kills tabs, and nothing on it is cut. 787.2 x 1.1 rounded up to 25 MiB = 875 MiB.",
           "before": {
-            "total_bytes": 235929600,
-            "reading_bytes": 201028180,
-            "tier": "light",
+            "total_bytes": 734003200,
+            "reading_bytes": 644507815,
+            "tier": "full",
             "reading_mb": {
-              "total": 191.7,
-              "js_heap": 26.5,
-              "arraybuffers": 92.4,
-              "gpu_buffers": 37.0,
-              "gpu_textures": 35.8
+              "total": 614.7,
+              "js_heap": 34.4,
+              "arraybuffers": 248.3,
+              "gpu_buffers": 142.3,
+              "gpu_textures": 189.7
+            },
+            "raised_by": {
+              "ticket": "T-2784",
+              "on": "2026-10-19T18:21:54.779Z",
+              "build": "37df92b9+T-2784",
+              "reading": "docs/measurements/T-2784-memory.json",
+              "note": "the open plain's woody plants, about 8,000 more grown stems in 1812 (shrubs, slough-edge willows, lone trees). The same machine read the base 37df92b9 at 600.4 MB, already over the 600 MiB line before this parcel (the T-2807 to T-2810 woods had grown it from 541.1), and this tree at 614.7 MB: +14.3 MB, of which the trees layer's geometry 3.2 on the GPU and 3.2 kept on the CPU, the batches' instance textures 2.1, the stem records 3.5 of JS heap. The phone's rows are inside their ceilings (1812 mobile 202.6 MB of 225, 1835 mobile 504.6 of 550; 1835 desktop 1247.3 of 1325). 614.7 MB x 1.1 rounded up to 25 MiB = 700 MiB.",
+              "before": 629145600
             },
             "lowered_by": {
               "ticket": "T-2786",
               "on": "2026-10-18T16:43:05.218Z",
               "build": "a71a7a3e+T-2786",
               "reading": "docs/measurements/T-2786-memory.json",
-              "note": "the buildings' source geometries let go once batched, and (1904) the railway's strip scratch emptied once laid; one invocation, all six rows. 245.7 -> 191.7 MB; x 1.1 rounded up to 25 MiB = 225 MiB.",
+              "note": "the buildings' source geometries let go once batched, and (1904) the railway's strip scratch emptied once laid; one invocation, all six rows. 626.8 -> 541.1 MB; x 1.1 rounded up to 25 MiB = 600 MiB.",
               "before": null
+            }
+          }
+        }
+      },
+      "mobile": {
+        "total_bytes": 367001600,
+        "reading_bytes": 311396861,
+        "tier": "light",
+        "reading_mb": {
+          "total": 297.0,
+          "js_heap": 64.8,
+          "arraybuffers": 103.9,
+          "gpu_buffers": 62.5,
+          "gpu_textures": 65.8
+        },
+        "raised_by": {
+          "ticket": "T-3519",
+          "on": "2026-11-08T20:15:12.838Z",
+          "build": "a0786cb40",
+          "reading": "docs/measurements/T-3519-memory-1812.json",
+          "note": "the 1812 town's people, camps, wagons, boats and landscape (T-3461..T-3516, 7-8 Nov 2026), argued rather than cut (owner, 2026-11-08: 'if its reasonable to boost limit do that'). Clean dev a0786cb40 read 297.0 MB here and 318.1 on CI (run 42518897341; CI's ArrayBuffers again read ~22 MB higher), against 250 set on one private (209.2). The growth is spread, not one leak: js heap 31.0 -> 64.8 (the people's records, rigs, mixers and day plans: 992 skinned meshes, 4,248 bones; script source and code 31 MB of it), gpu textures 42.3 -> 65.8 (structures' wood atlas 3.7 -> 15.7, humans 1.2 -> 11.0 at the light tier's LOD3, already cut to 60 m and an early LOD3 by T-3463), arraybuffers 80.4 -> 103.9 (terrain 27.3 and the meshopt decoder's 15.3 as before; humans 4.5, crossings 2.2), gpu buffers 55.5 -> 62.5. No single phone-only cut wins back the 47 MB without taking people or their dress off the phone. The same phone opens /1835/ at 491 MB (ceiling 550) and /1904/ at ~400, so 1812 stays the lightest year by a wide margin. 297.0 x 1.1 rounded up to 25 MiB = 350 MiB; CI's 318.1 has 32 MiB under it.",
+          "before": {
+            "total_bytes": 262144000,
+            "reading_bytes": 219401421,
+            "tier": "light",
+            "reading_mb": {
+              "total": 209.2,
+              "js_heap": 31.0,
+              "arraybuffers": 80.4,
+              "gpu_buffers": 55.5,
+              "gpu_textures": 42.3
+            },
+            "raised_by": {
+              "ticket": "T-3452",
+              "on": "2026-11-07T14:44:11.557Z",
+              "build": "70ef8216d+T-3452",
+              "reading": "docs/measurements/T-3452-memory-1812.json",
+              "note": "1812's first drawn person: one anonymous private of Heald's company at ease on the parade (Kevin, 2026-11-07: \"Place all of them\"). Before it 1812 loaded no human layer; now its spawn pays for the layer's code and clips (js heap and ArrayBuffers) and the private at the light tier's LOD3 (0.2 MB of geometry, 1.2 MB of four textures). CI read the branch before the figure (3d4a760) at 224.0 MB against 225 and this build (70ef821) at 230.2: +6.2 MB, of which js heap 2.8, arraybuffers 2.1, the human layer 1.4. This machine reads 209.2 MB (CI reads this row about 21 MB higher, in ArrayBuffers: 101.6 against 80.4). 209.2 x 1.1 rounded up to 25 MiB = 250 MiB; a 1904 phone runs at 400 MiB.",
+              "before": {
+                "total_bytes": 235929600,
+                "reading_bytes": 201028180,
+                "tier": "light",
+                "reading_mb": {
+                  "total": 191.7,
+                  "js_heap": 26.5,
+                  "arraybuffers": 92.4,
+                  "gpu_buffers": 37.0,
+                  "gpu_textures": 35.8
+                },
+                "lowered_by": {
+                  "ticket": "T-2786",
+                  "on": "2026-10-18T16:43:05.218Z",
+                  "build": "a71a7a3e+T-2786",
+                  "reading": "docs/measurements/T-2786-memory.json",
+                  "note": "the buildings' source geometries let go once batched, and (1904) the railway's strip scratch emptied once laid; one invocation, all six rows. 245.7 -> 191.7 MB; x 1.1 rounded up to 25 MiB = 225 MiB.",
+                  "before": null
+                }
+              }
             }
           }
         }
