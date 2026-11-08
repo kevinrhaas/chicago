@@ -771,7 +771,7 @@ def lay_lot(p, laundry, disks):
             hw, hd = dw * frac / 2, dd_ * frac / 2
             ok = dist_in >= min(hw, hd)
             idx = np.argwhere(ok)
-            for r, c in idx[np.argsort(-dist_in[ok])][:200]:
+            for r, c in idx[np.argsort(-dist_in[ok], kind="stable")][:200]:
                 s, d = float(L.S[r, c]), float(L.D[r, c])
                 rect = (s - hw, s + hw, d - hd, d + hd)
                 if L.fits(*rect, extra=ndimage.binary_dilation(taken, iterations=1) | L.paved):
@@ -803,9 +803,9 @@ def lay_lot(p, laundry, disks):
         bw, bd = rng.uniform(2.4, 3.6), rng.uniform(3.0, 4.5)
         dist_in = ndimage.distance_transform_edt(free) * RES
         best = None
-        order_s = np.argsort(-L.S[0] * north)
+        order_s = np.argsort(-L.S[0] * north, kind="stable")
         for c in order_s:
-            for r in np.argsort(L.D[:, c]):
+            for r in np.argsort(L.D[:, c], kind="stable"):
                 if dist_in[r, c] < 0.3:
                     continue
                 s, d = float(L.S[r, c]), float(L.D[r, c])
@@ -1053,8 +1053,26 @@ def self_test() -> int:
         ok = bool(got)
         print(f"   self-test | {'ok  ' if ok else 'FAIL'} {name}: {got[:1] if got else 'not refused'}")
         fails += 0 if ok else 1
+    # numpy's default sort puts equal values in an order its build and the CPU choose; the
+    # layout takes the first spot that fits in sorted order, so that order is the output
+    # (CI's runners disagreed on it, T-3488). Every numpy sort here is a stable one.
+    own = unstable_sorts(Path(__file__).read_text())
+    planted = unstable_sorts("for r in np." + "argsort(-dist[ok])[:200]:\n")
+    print(f"   self-test | {'ok  ' if planted else 'FAIL'} an unstable numpy sort is refused: "
+          f"{planted[:1] if planted else 'not refused'}")
+    fails += 0 if planted else 1
+    if own:
+        print("self-test: the tool's own numpy sorts are not stable:", own[:3])
+        fails += 1
     print("self-test: " + ("PASS" if not fails else f"FAIL ({fails})"))
     return 1 if fails else 0
+
+
+def unstable_sorts(src: str) -> list[str]:
+    """Lines calling np.argsort / np.sort without kind="stable"."""
+    return [f"line {i}: {line.strip()}" for i, line in enumerate(src.splitlines(), 1)
+            if re.search(r"np\.(arg)?sort\(", line) and 'kind="stable"' not in line
+            and not line.lstrip().startswith("#") and "re.search" not in line]
 
 
 def main():
@@ -1075,6 +1093,13 @@ def main():
         bad = collisions(data)
         if not OUT.exists() or OUT.read_text() != text:
             print("back yards: data/back_yards/1904.json is not what the tool writes; re-run it")
+            # name what moved, so a red on another machine can be read from its log
+            if OUT.exists():
+                import difflib
+                diff = list(difflib.unified_diff(OUT.read_text().splitlines(), text.splitlines(),
+                                                 "committed", "this run", n=1, lineterm=""))
+                print(f"  {len(diff)} diff lines; the first 40:")
+                print("\n".join("  " + line for line in diff[:40]))
             return 1
         if bad:
             print("back yards: " + "\n  ".join(bad))
