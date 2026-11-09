@@ -42829,3 +42829,17 @@ hip's level cut is kept.
 and the rail's west end; a sharper copy of the plate would settle whether the stage's openings pass through.
 **Ticket:** T-3370 (piece 2 of T-3367).
 **Recorded:** 2026-11-08 (T-3370).
+
+
+### L-first-fort-west-wicket-3041 — A reconstructed west wicket beside the northwest blockhouse
+
+**Decision:** open a small west gateway through both existing picket rows just south of the northwest blockhouse and north of the west officers' range. Currey's retrospective birdseye labels western gateway 3 in that relationship, and Quaife places a wicket near the northwestern blockhouse. Whistler's register did not locate it on the draught. The source supports the gateway and its neighbors, not a measured position, width, exact construction or completion date.
+
+The 1.50 m cuts are aligned in the current model's existing clearance without moving the stockades, blockhouse or range. Their positions within that clearance, their two posts, single pale-and-rail leaves, 1.18 m clear spans, inward swings and use of the existing reconstructed stockade height are liberties. The generic wicket kit supplies the make; it is not evidence that this military wicket was a garden gate. Both south gates retain their measured passage, width and occurrence grades. The existing component date ranges remain qualified; this trial establishes no new historical day.
+
+**How to resolve:** an independently legible contemporary plan or picture locating and showing this wicket would replace the model's chosen positions and make. Native output, picture comparison and walking inspection remain pending; this source change alone is not an image-match verdict.
+
+**Sources:** `currey_1912_first_fort_birdseye`, a verified public-domain retrospective illustration; `quaife_1913`, for the northwest-blockhouse adjacency.
+**Covers:** `first_fort_dearborn_pickets_inner.first_fort_1803.form.gate_overrides`, `first_fort_dearborn_pickets_outer.first_fort_1803.form.gate_overrides`.
+**Ticket:** T-3041 (remaining work on T-2387).
+**Recorded:** 2026-11-09.

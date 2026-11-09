@@ -6392,3 +6392,8 @@ The shadow counterfactual uses its existing declared lake_market calibration vie
 ### Driver delivery checkpoint and reviewed DEV reconciliation — 2026-11-04
 
 Public `967b427e` passed all four original native parts (1,165 checks/402 self-tests) on its exact committed tree, then HEAD QA and publication/check. Its current E803-based reconciliation retains all new DEV content and awaits a fresh integrated gate, current frame/memory CI and full smoke. Earlier evidence remains source-scoped; no DEV merge, global Light pass or photographic/boarding/riding acceptance is claimed.
+
+
+### T-3041 / T-2387 — bounded west-wicket trial, 2026-11-09
+
+Source implementation adds the missing west gateway beside the northwest blockhouse to both first-fort picket rows, with reconstructed width, precise location and make. The existing main south passage and surveyed fort frame are preserved. Targeted params/producer and actual walking/ride tests pass; no image acceptance is claimed. Next: one palisade-family native bake (15 defaults: two changes, thirteen controls), verify unrelated registry preservation, compare the fixed Currey composition, pass the full gate and published desktop/phone smoke, then adjudicate the existing single open west-gateway discrepancy under the finite visitor bar. No new photo ticket or camera refit is needed.

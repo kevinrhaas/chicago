@@ -90,6 +90,8 @@ step "The image gate refuses to close a building that does not match its picture
   node tools/image_gate.mjs --test
 step "Native palisade heads retain total height, outward normals, open gates and every legacy flat fence (T-2380)" \
   node tools/test_enclosure_points.mjs
+step "Per-side fort gates preserve legacy constructors, south settings and independent west cut/frame controls (T-3041)" \
+  python3 tools/test_palisade_side_gates.py
 step "Picture comparisons bind selected native fences, renderer code and anchor placement (T-2380)" \
   node tools/test_photo_match_enclosures.mjs
 step "Picture comparisons bind the planting drawn, its grown-plant renderers and anchor placement (T-1881)" \
