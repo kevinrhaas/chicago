@@ -2620,6 +2620,8 @@ class Assembly:
 
     # -- k01.wall.front_pier (T-3112) ---------------------------------------------------
     PIER_LIP_M = 0.03   # the weathering's slate stands this far over the cap at its front edge
+    PIER_HIP_DEG = 75.0   # T-1890 (2026-11-09): the face the cut over the pier stops at, upright
+    PIER_HIP_BACK_M = 0.6   # ...and how far behind the weathering's meeting with the north eave it dies out
 
     def pier_slope(self):
         """T-3112: the weathering's top over the pier, as y(u): from the cap's front edge,
@@ -4622,8 +4624,34 @@ class Assembly:
         P = k5.frame("z")
         top = p.ridge_m + 10.0
         u_far = D + cp - (top - yt) / tp
-        cut = k5.extrude([(u_far, top), (D + cp, yt + self.PIER_LIP_M - 0.002), (D + 3.0, yt + self.PIER_LIP_M - 0.002),
-                          (D + 3.0, top)], -to, 3.0, P, k5.by_edge("hidden", "covering", "hidden"), "cheek", "hidden")
+        y0 = yt + self.PIER_LIP_M - 0.002
+        cut = k5.extrude([(u_far, top), (D + cp, y0), (D + 3.0, y0), (D + 3.0, top)], -to - 6.0, 3.0, P,
+                         k5.by_edge("hidden", "covering", "hidden"), "cheek", "hidden")
+        # T-1890 (2026-11-09): its south side no longer a sheer cheek along the pier's inner edge.
+        # That cheek stood 3 m high at the front and ran 3.4 m back along the north eave, which
+        # read from the north-west as a slot cut into the hip (the owner's phone shot); no
+        # picture shows the roof from the north. The face (slated, as the cheek was) now runs on
+        # a diagonal from the pier's inner corner on the weathering (A) to PIER_HIP_BACK_M behind
+        # where the weathering's slope meets the north eave (B), leaning PIER_HIP_DEG, so the cut
+        # is widest over the pier and dies out at the eave; from the street (the plate and both
+        # photographs) the pier keeps its sky
+        A = (D + cp, y0, -to)
+        uB = D + cp - (p.eave_m - y0) / tp - self.PIER_HIP_BACK_M
+        B = (uB, y0 + (D + cp - uB) * tp, 0.0)
+        C = (D + cp, y0 + 1.0, -to - 1.0 / math.tan(math.radians(self.PIER_HIP_DEG)))
+        sub = lambda a, b: tuple(x - y for x, y in zip(a, b))
+        crs = lambda a, b: (a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0])
+        unit = lambda a: tuple(x / math.sqrt(math.fsum(y * y for y in a)) for x in a)
+        n = unit(crs(sub(B, A), sub(C, A)))
+        if n[1] < 0.0:
+            n = tuple(-x for x in n)
+        e1 = unit(sub(B, A))
+        e2 = crs(n, e1)
+        F = lambda a, b, c: tuple(A[j] + a * e2[j] + b * n[j] + c * e1[j] for j in range(3))
+        keep = k5.extrude([(-60.0, -60.0), (60.0, -60.0), (60.0, 0.0), (-60.0, 0.0)], -60.0, 60.0, F,
+                          lambda i, q0, q1: "cheek" if abs(q0[1]) < 1e-9 and abs(q1[1]) < 1e-9 else "hidden",
+                          "hidden", "hidden")
+        cut = k5.subtract(k5._snap([cut])[0], k5._snap([keep])[0])
         back = D + cp - (yf + 0.05 - yt - self.PIER_LIP_M) / tp
         hood = k5.extrude([(D + cp, yt), (back, yt), (back, L(back)), (D + cp, yt + self.PIER_LIP_M)],
                           -to, cp, P, lambda i, a, b: (("fascia" if a[0] > back + 1e-6 else "return")
@@ -4636,7 +4664,7 @@ class Assembly:
         side = k5.extrude([(u_e, yt), (D + 3.0, yt), (D + 3.0, top), (u_e, top)], cp, 3.0, P,
                           lambda i, a, b: "return" if abs(a[0] - u_e) < 1e-9 and abs(b[0] - u_e) < 1e-9 else "hidden",
                           "return", "hidden")
-        return k5.union(k5._snap([cut])[0], k5._snap([side])[0]), hood
+        return k5.union(cut, k5._snap([side])[0]), hood
 
     THROUGH_EAVE_INSET_M = 0.05   # T-2778: the eave runs this far into the oriel's walls
 
