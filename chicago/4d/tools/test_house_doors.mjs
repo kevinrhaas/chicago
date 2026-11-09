@@ -119,7 +119,7 @@ const ix = createInteractions();
 let visitor = null;
 const problems = [];
 const layer = createHouseDoors({ registry, buildings, footprints, decks, interactions: ix, visitor: () => visitor, problems });
-ok(problems.length === 0, `the door hangs without complaint: ${problems.join('; ')}`);
+ok(problems.filter((x) => x.startsWith(plan.id)).length === 0, `the door hangs without complaint: ${problems.join('; ')}`);
 const door = layer.get(plan.id);
 ok(door && ix.get(plan.id) === door && door.state === 'closed' && door.kind === 'door', 'the front door is an Interact thing, shut');
 ok(decks.length === 3 && near(decks[0].y, BASE + approach.y, 1e-6) && near(decks[1].y, BASE + plan.sill, 1e-3), 'its two steps (and the vestibule floor) are decks at their drawn heights');

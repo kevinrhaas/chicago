@@ -3849,6 +3849,10 @@ async function boot() {
   // door and ask for any person inside"): each person's day by the scene's date and hour,
   // and every 1812 door that has someone behind it offers Ask for them (human-days.js).
   api.days = null;
+  // T-3520 (owner, 2026-11-08: "people can stand and break the wall of the mat walls"): each
+  // camp lodge's walls where they meet the ground (doors_1812.json `walls`, read off the camp's
+  // model), kept clear by a day's job places and by the spacing pass below.
+  let lodgeWalls = [];
   // T-3516 (owner, 2026-11-08: "This is for all years starting with 1812, give all people a
   // purpose and something to do"): every year's people keep a day, by its own doors file.
   const daysScene = String(loaded.scene.id ?? YEAR);
@@ -3857,6 +3861,7 @@ async function boot() {
       .then((r) => (r.ok ? r.json() : null)).catch(() => null);
     const [doors, inside] = await Promise.all([getOptional(`humans/doors_${daysScene}.json`),
       daysScene === '1812' ? getOptional('humans/inside_1812.json') : null]);
+    lodgeWalls = (doors?.structures ?? []).flatMap((row) => (row.walls ?? []).map((ring, i) => ({ id: `${row.structure}:walls${i + 1}`, pts: ring })));
     // The gathering's people who are carded and not drawn (inside_1812.json): a figure is
     // built for one only when they are asked for at their lodge's door, from the dress their
     // entry names, and taken away once they are back in.
@@ -3881,7 +3886,9 @@ async function boot() {
       // its ways only once something else (Go to) has built it, else walks straight.
       router: { plan: (...args) => (api.router?.built ? api.router.plan(...args) : null) },
       // T-3505: a job's places between gatherings are clear of the buildings and the fort's walls.
-      clear: clearWayOf(footprints),
+      clear: clearWayOf(footprints.concat(lodgeWalls)),
+      // T-3524: Glessner's court and side doors open as people pass, up and down their stairs.
+      passages: api.houseDoors ?? null,
       problems: layerProblems('humans') });
   }
   // T-3504 (owner, 2026-11-08: "two people occupying the same space? Prevent that"): every year's
@@ -3889,7 +3896,8 @@ async function boot() {
   // never into a building, by the router's grid once something has built it.
   api.spacing = createHumanSpacing({ humans: api.humans,
     visitor: () => ({ e: walker.state.e, n: walker.state.n }),
-    blockedAt: (e, n) => (api.router?.built ? api.router.blockedAt(e, n) : false) });
+    blockedAt: (e, n) => (api.router?.built ? api.router.blockedAt(e, n) : false),
+    keepOut: lodgeWalls });
   /**
    * T-3439 (owner, 2026-11-07): Settings › Show › People and › Carriages and horses. A
    * viewing choice, like Street trees: hidden, a layer is neither drawn nor advanced nor
@@ -5408,7 +5416,8 @@ async function boot() {
       .catch(() => { humanPersons = null; return null; });
     // T-3491: and how he looks (`looks`), for the card's Looks section.
     // T-3508: the base goes back even with no face, for a card's own portrait (Shabbona's).
-    return humanPersons.then((d) => { const r = d?.persons?.[id]; return { face: r?.face ?? null, looks: r?.looks ?? null, base: String(base) }; });
+    // T-3522: and what they wear today (`dress.worn`), a row of that section.
+    return humanPersons.then((d) => { const r = d?.persons?.[id]; return { face: r?.face ?? null, looks: r?.looks ? { ...r.looks, worn: r?.dress?.worn ?? '' } : null, base: String(base) }; });
   }
   // A nearby occupied driver can be inspected as soon as its model is ready.
   // Warm only the existing card code/metadata; never open Navigator or acquire a model.
@@ -5680,6 +5689,8 @@ async function boot() {
   const transportReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   transportReducedMotion.addEventListener('change', resetVisualClock);
   let interactPaintAt = 0;
+  /** T-3527: the date and the buildings the dated structures were last drawn for. */
+  const datedFor = { date: undefined, buildings: null };
   let interactHinted = false;
   window.addEventListener('pagehide', event => {
     if (event.persisted) return;
@@ -6159,7 +6170,18 @@ async function boot() {
     // A 0.05 s visual-effects step made human clips/routes crawl on slow devices.
     api.humans?.update(frameDt, camera, walker.state, visualDt);
     api.duties?.update(frameDt);
+    // T-3527: the 1812 gathering's camps, their worn ground and paths come and go with
+    // the date the Season or a jaunt sets (buildings.js / yards.js setDate).
+    if (world.sunDate !== datedFor.date || buildings !== datedFor.buildings) {
+      datedFor.date = world.sunDate;
+      datedFor.buildings = buildings;
+      buildings?.setDate?.(world.sunDate);
+      api.yards?.setDate?.(world.sunDate);
+      gateFrame.invalidate?.();
+    }
     api.days?.update(frameDt);
+    // T-3524: the doors people hold open swing toward open, or shut behind them.
+    api.houseDoors?.update?.(frameDt);
     // T-3504: and then nobody stands in anybody else (human-spacing.js).
     api.spacing?.update(frameDt);
 
