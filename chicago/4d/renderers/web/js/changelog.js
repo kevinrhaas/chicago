@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2851, ts: '2026-11-09T04:41:57.867Z', date: 'Nov 8, 2026, 10:41 PM CT', title: '1812: a Potawatomi family lives at the lodges by the river', kind: 'feature',
+    items: [
+      'Seven people now live at the lodges by the river on every date of 1812: a man and his wife, her mother, and four children from five to sixteen. Each has a researched, reconstructed name, gens and history on their card.',
+      'In the warm months they fish, mend canoes, pound corn, scrape hides and cook at the fire, and now and then take furs and maple sugar to the government factory. In winter they keep to the lodges, and the man and his son go out hunting. Ask for any of them at the lodge door.',
+      'The children of the August camps now play by their own lodge door and go in now and then, instead of wandering about all afternoon.',
+    ] },
   { v: 2850, ts: '2026-11-09T04:18:16.413Z', date: 'Nov 8, 2026, 10:18 PM CT', title: '1812: Potawatomi lodges by the river all year', kind: 'feature',
     items: [
       'A small Potawatomi camp now stands on the river\'s south bank just west of the creek mouth on every day of 1812: two mat lodges, an elm-bark house, two fires, a drying rack and two canoes drawn up by the water.',
