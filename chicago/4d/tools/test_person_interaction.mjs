@@ -353,7 +353,15 @@ const angleOff = (a, b) => Math.abs(((a - b + 540) % 360) - 180);
   const btn = yes.find((n) => n.className?.includes('insp-person-follow'));
   assert(btn, 'Follow offered'); let stopped = false; btn.listeners.click({ stopPropagation() { stopped = true; } }); assert.equal(followed, 'hans'); assert(stopped, 'the click is not let up to the pane, which would reopen the card');
   const no = all(renderPersonCard(mkDoc(), m, { onFind() {}, onFollow() {}, inTown: () => false }));
-  assert(!no.some((n) => n.className?.includes('insp-person-follow')), 'not in town: no Follow');
-  console.log('person card: Follow only for someone placed in town PASS');
+  // T-3531: someone not in town keeps Find and Follow, greyed, with no click, and the reason under them.
+  const off = no.filter((n) => /insp-person-(follow|find)/.test(n.className ?? ''));
+  assert.equal(off.length, 2, 'not in town: Find and Follow still shown');
+  assert(off.every((n) => n.disabled && !n.listeners.click), 'not in town: Find and Follow greyed, no click');
+  assert(no.some((n) => (n.className ?? '').includes('insp-person-unfound') && /Not out in town/.test(n.textContent)), 'not in town: the reason is said');
+  const sau = personModel({ row: { id: 'caldwell_billy', name: 'Billy Caldwell (Sauganash)', grade: 'attested', present: 'absent',
+    household_name: 'Billy Caldwell (Sauganash), who came to Chicago on 16 August 1812' }, sceneYear: 1812 });
+  const gone = all(renderPersonCard(mkDoc(), sau, { onFind() {}, onFollow() {}, inTown: () => false }));
+  assert(gone.some((n) => /came to Chicago on 16 August 1812/.test(n.textContent ?? '')), 'absent: says when they came');
+  console.log('person card: Find and Follow live only for someone placed in town, greyed with the reason otherwise PASS');
 }
 console.log('ok person interaction (T-3404)');

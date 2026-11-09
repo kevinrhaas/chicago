@@ -743,7 +743,15 @@ export async function mountPeople({
 
   /** T-3404: a person placed in town now can be found where they are, and followed. */
   function townHtml(r) {
-    if (typeof inTown !== 'function' || !inTown(r.id)) return '';
+    if (typeof inTown !== 'function') return '';
+    // T-3531 (the owner, 2026-11-09: "where those buttons are you should know they cant be
+    // found or followed because they are not in the area"): someone not out in town keeps
+    // both keys, greyed, with the reason, as on the 1812 and 1904 cards.
+    if (!inTown(r.id)) {
+      const follow = typeof onFollow === 'function'
+        ? '<button type="button" class="people-go people-follow" disabled aria-disabled="true"><span class="people-go-verb">Follow</span></button>' : '';
+      return `<button type="button" class="people-go people-find" disabled aria-disabled="true"><span class="people-go-verb">Find this person</span><span class="people-go-title">Not out in town at this hour or season</span></button>${follow}`;
+    }
     const follow = typeof onFollow === 'function'
       ? '<button type="button" class="people-go people-follow" data-follow=""><span class="people-go-verb">Follow</span><span class="people-go-title">Walk alongside them</span></button>' : '';
     return `<button type="button" class="people-go people-find" data-go="town"><span class="people-go-verb">Find this person</span><span class="people-go-title">Where they are in town now</span></button>${follow}`;

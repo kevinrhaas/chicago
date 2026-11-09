@@ -157,6 +157,10 @@ export function createTravel({
   // as it comes up to it and waits while it swings. `tickWorld(dt)` moves the world's
   // own clocks (the swing) inside simulate(), which has no frame loop to do it.
   gates = null, tickWorld = null,
+  // T-3531: a river crossing by boat for a ground ride no street reaches,
+  // `boatway(from, to, { speed, plan })` -> { name, stand: [e, n], cross(done) } or null
+  // (main.js, from crossings.js); null, or none, and the ride flies as before.
+  boatway = null,
 } = {}) {
   let mode = 'instantly';
   let headBob = settings.headBob !== false;
@@ -628,6 +632,20 @@ export function createTravel({
       // when i click find or his house"): 1812 has no bridge, so no walk reaches the north
       // bank, and Find and Go to house refused for everyone across the river. A place no
       // street reaches is flown to instead, and lands there like any flight.
+      // T-3531 (the owner, 2026-11-09: "instead of flying if someone is across the river could
+      // we by default take the nearest boat? ... keep [flying] as an option if taking a boat is
+      // not possible or would take more than say 30 seconds"): the nearest boat this side of
+      // the water is walked to, paddled across, and the ride goes on from the far landing.
+      // The Fly travel mode still flies (above); no boat, or none near enough, flies.
+      // On foot only: a carriage or a horse does not go in a canoe.
+      if (!walker.state.flying && typeof boatway === 'function' && (mode === 'walk' || mode === 'run')) {
+        const pace = PACES[mode] ?? PACES.walk;
+        const way = boatway({ e: s.e, n: s.n }, to, {
+          speed: paceSpeed(pace, settings) ?? PACES.walk.defaultSpeed,
+          plan: (a, b) => router?.plan?.(a, b, { mode }) ?? null,
+        });
+        if (way) return byBoat(target, callbacks, way);
+      }
       if (!walker.state.flying && typeof setFly === 'function') {
         hud?.say?.('No way there on foot. Flying instead.');
         return flight();
@@ -643,6 +661,22 @@ export function createTravel({
     applyPace();   // the ride's pace and seat, restored by finish()
     paintBanner();
     return true;
+  }
+
+  /** T-3531: walk to the boat, cross in it, and take up the ride again from the far bank. */
+  function byBoat(target, callbacks, way) {
+    hud?.say?.(`No way there on foot. Taking the boat at ${way.name}.`);
+    const token = callbacks?.token ?? {};
+    const leg = { kind: 'point', local_e: way.stand[0], local_n: way.stand[1], label: `the boat at ${way.name}` };
+    return go(leg, {
+      token,
+      onRoute: callbacks?.onRoute ? (r) => callbacks.onRoute({ ...r, target }) : undefined,
+      onArrive: () => way.cross((ok) => {
+        if (ok) go(target, callbacks);
+        else callbacks?.onStop?.({ ...token, reason: 'unreachable' });
+      }),
+      onStop: (r) => callbacks?.onStop?.({ ...token, reason: r?.reason ?? 'stopped' }),
+    });
   }
 
   const now = () => (typeof performance !== 'undefined' ? performance.now() : Date.now());

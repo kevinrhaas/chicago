@@ -1118,6 +1118,11 @@ export async function createCrossings({
   /** The eye's place while a step runs (null: the walker has it). */
   let eye = null;     // { e, n, y, yaw? }
 
+  /** T-3531: the whole crossing, stepping in to stepping out, in seconds. */
+  out.crossingSeconds = (entry) => Math.max(8, entry.boat.crossing.seconds ?? (entry.boat.crossing.path_m / speed))
+    + STEP_S.in + STEP_S.off + STEP_S.ashore + STEP_S.out;
+  out.thingOf = (entry) => thingOf(entry);
+
   function crossAction(entry, from, to) {
     const boat = entry.boat;
     const verb = boat.kind === 'skiff' ? 'Rowing' : 'Paddling';

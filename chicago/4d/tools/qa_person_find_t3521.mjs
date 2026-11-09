@@ -53,7 +53,8 @@ try {
       if (!a.welcome.enter('spawn')) throw Error('welcome entry failed');
       document.exitPointerLock?.();
       document.getElementById('control-help-gotit')?.click();
-      await a.setDetail('balanced');
+      // 1904's detail switch can outlast a run; the asks need the town, not the detail.
+      await Promise.race([a.setDetail('balanced'), new Promise((r) => setTimeout(r, 60000))]);
     });
     await page.waitForFunction(() => document.getElementById('gate').hidden);
     // Let the people load and take their places.
@@ -84,8 +85,9 @@ try {
         const row = { id: r.id, name: r.name, house, named: r.lives_at ?? r.works_at ?? null };
         row.go = house ? await ask(() => a.goToTarget({ kind: 'structure', id: house })) : { ok: false, why: 'no house in this scene' };
         row.placed = typeof a.placedInTown === 'function' ? a.placedInTown(r.id) : null;
-        // Find is on every card with someone placed in town or a house to find them at.
-        if (row.placed || house) row.find = await ask(() => a.findPerson(r.id));
+        // Find is live on the card of someone placed in town now; anyone else's card greys it
+        // and says why (T-3531), so it is asked only of them.
+        if (row.placed) row.find = await ask(() => a.findPerson(r.id));
         rows.push(row);
       }
       return { scene, count: rows.length, rows };

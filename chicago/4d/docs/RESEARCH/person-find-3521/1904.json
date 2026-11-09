@@ -1,0 +1,10996 @@
+{
+ "scene": "1904",
+ "count": 440,
+ "rows": [
+  {
+   "id": "pa1904_roloson_robert_w_c1900_frank_allen",
+   "name": "Frank Allen",
+   "house": "roloson_house_2109_prairie",
+   "named": "roloson_house_2109_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Frank Allen: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_keith_edson_jr_c1900_annie_allman",
+   "name": "Annie Allman",
+   "house": "rees_house_2110_prairie",
+   "named": "rees_house_2110_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Annie Allman: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_buckingham_e_c1900_anna_anderson",
+   "name": "Anna Anderson",
+   "house": "buckingham_house_2036_prairie",
+   "named": "buckingham_house_2036_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Anna Anderson: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_corwith_mrs_henry_c1900_minnie_anderson",
+   "name": "Minnie Anderson",
+   "house": "armour_corwith_house_1945_prairie",
+   "named": "armour_corwith_house_1945_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Minnie Anderson: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_armour_john_o",
+   "name": "John O. Armour",
+   "house": "armour_house_2115_prairie",
+   "named": "armour_house_2115_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "John O. Armour: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_armour_mrs_philip_d",
+   "name": "Mrs. Philip D. Armour",
+   "house": "armour_house_2115_prairie",
+   "named": "armour_house_2115_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. Philip D. Armour: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_armour_philip_d_jr",
+   "name": "Philip D. Armour jr.",
+   "house": "armour_house_2115_prairie",
+   "named": "armour_house_2115_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Philip D. Armour jr.: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_lowden_frank_orren_c1900_kate_arnold",
+   "name": "Kate Arnold",
+   "house": "moulton_lowden_house_1912_prairie",
+   "named": "moulton_lowden_house_1912_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Kate Arnold: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_ream_norman_b_c1900_ashmore",
+   "name": "Ashmore",
+   "house": "ream_house_1901_prairie",
+   "named": "ream_house_1901_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Ashmore: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_otis_mrs_joseph_e_c1900_john_bailey",
+   "name": "John Bailey",
+   "house": "house_1730_prairie",
+   "named": "house_1730_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "John Bailey: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_hibbard_mrs_william_gold_c1900_daniel_bain",
+   "name": "Daniel Bain",
+   "house": "hibbard_house_1701_prairie",
+   "named": "hibbard_house_1701_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Daniel Bain: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_kimball_william_w_c1900_robert_bain",
+   "name": "Robert Bain",
+   "house": "kimball_house_1801_prairie",
+   "named": "kimball_house_1801_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Robert Bain: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_bellas_mrs_t_h",
+   "name": "Mrs. T. H. Bellas",
+   "house": "house_1634_prairie",
+   "named": "house_1634_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. T. H. Bellas: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_bellas_t_h",
+   "name": "T. H. Bellas",
+   "house": "house_1634_prairie",
+   "named": "house_1634_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "T. H. Bellas: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_bellas_daughters",
+   "name": "The Misses Bellas",
+   "house": "house_1634_prairie",
+   "named": "house_1634_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "The Misses Bellas: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_keith_elbridge_g_c1900_peter_benson",
+   "name": "Peter Benson",
+   "house": "elbridge_keith_house_1900_prairie",
+   "named": "elbridge_keith_house_1900_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Peter Benson: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_field_marshall_c1900_thomas_benson",
+   "name": "Thomas Benson",
+   "house": "marshall_field_house_1905_prairie",
+   "named": "marshall_field_house_1905_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Thomas Benson: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_einstein_m_c1900_katy_bergin",
+   "name": "Katy Bergin",
+   "house": "house_1628_prairie",
+   "named": "house_1628_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Katy Bergin: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_frank_henry_l_c1900_maggie_biehl",
+   "name": "Maggie Biehl",
+   "house": "house_1608_prairie",
+   "named": "house_1608_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Maggie Biehl: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_einstein_emma_biers",
+   "name": "Emma Biers",
+   "house": "house_1628_prairie",
+   "named": "house_1628_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Emma Biers: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_glessner_john_j_c1900_august_billings",
+   "name": "August Billings",
+   "house": "glessner_house",
+   "named": "glessner_house",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": true,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   }
+  },
+  {
+   "id": "pa1904_corwith_mrs_henry_c1900_hannah_bolin",
+   "name": "Hannah Bolin",
+   "house": "armour_corwith_house_1945_prairie",
+   "named": "armour_corwith_house_1945_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Hannah Bolin: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_borland_bruce",
+   "name": "Bruce Borland",
+   "house": "house_2027_prairie",
+   "named": "house_2027_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Bruce Borland: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_borland_chauncey_blair",
+   "name": "Chauncey Blair Borland",
+   "house": "house_2027_prairie",
+   "named": "house_2027_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Chauncey Blair Borland: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_borland_mrs_j_j",
+   "name": "Mrs. J. J. Borland",
+   "house": "house_2027_prairie",
+   "named": "house_2027_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. J. J. Borland: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_bellas_t_h_c1900_emelia_brandt",
+   "name": "Emelia Brandt",
+   "house": "house_1634_prairie",
+   "named": "house_1634_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Emelia Brandt: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_longini_a_c1900_maggie_breen",
+   "name": "Maggie Breen",
+   "house": "house_1626_prairie",
+   "named": "house_1626_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Maggie Breen: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_brown_charles_edward",
+   "name": "Charles Edward Brown",
+   "house": "goodman_house_1612_prairie",
+   "named": "goodman_house_1612_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Charles Edward Brown: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_brown_george_f",
+   "name": "George F. Brown",
+   "house": "goodman_house_1612_prairie",
+   "named": "goodman_house_1612_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "George F. Brown: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_brown_george_f_jr",
+   "name": "George F. Brown jr.",
+   "house": "goodman_house_1612_prairie",
+   "named": "goodman_house_1612_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "George F. Brown jr.: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_buckingham_clarence",
+   "name": "Clarence Buckingham",
+   "house": "buckingham_house_2036_prairie",
+   "named": "buckingham_house_2036_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Clarence Buckingham: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_buckingham_e",
+   "name": "E. Buckingham",
+   "house": "buckingham_house_2036_prairie",
+   "named": "buckingham_house_2036_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "E. Buckingham: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_buckingham_daughters",
+   "name": "The Misses Buckingham",
+   "house": "buckingham_house_2036_prairie",
+   "named": "buckingham_house_2036_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "The Misses Buckingham: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_roloson_robert_w_c1900_mary_burns",
+   "name": "Mary Burns",
+   "house": "roloson_house_2109_prairie",
+   "named": "roloson_house_2109_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mary Burns: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_mcbirney_hugh_j_c1900_mary_cainey",
+   "name": "Mary Cainey",
+   "house": "house_1625_prairie",
+   "named": "house_1625_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mary Cainey: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_otis_f_r_c1900_agnes_campbell",
+   "name": "Agnes Campbell",
+   "house": "otis_house_2033_prairie",
+   "named": "otis_house_2033_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Agnes Campbell: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_bellas_t_h_c1900_anna_carlson",
+   "name": "Anna Carlson",
+   "house": "house_1634_prairie",
+   "named": "house_1634_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Anna Carlson: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_ream_norman_b_c1900_axel_carlson",
+   "name": "Axel Carlson",
+   "house": "ream_house_1901_prairie",
+   "named": "ream_house_1901_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Axel Carlson: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_rothschild_mrs_m_m_c1900_charlotte_carlson",
+   "name": "Charlotte Carlson",
+   "house": "rothschild_house_2112_prairie",
+   "named": "rothschild_house_2112_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Charlotte Carlson: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_shipman_daniel_b_c1900_edward_carlson",
+   "name": "Edward Carlson",
+   "house": "house_1828_prairie",
+   "named": "house_1828_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Edward Carlson: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_meyer_mrs_m_a_c1900_fannie_carlson",
+   "name": "Fannie Carlson",
+   "house": "mayer_house_2009_prairie",
+   "named": "mayer_house_2009_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Fannie Carlson: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_meyer_mrs_m_a_c1900_frieda_carlson",
+   "name": "Frieda Carlson",
+   "house": "mayer_house_2009_prairie",
+   "named": "mayer_house_2009_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Frieda Carlson: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_carpenter_a_a_jr",
+   "name": "A. A. Carpenter jr.",
+   "house": "house_1708_prairie",
+   "named": "house_1708_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "A. A. Carpenter jr.: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_carpenter_mrs_a_a_jr",
+   "name": "Mrs. A. A. Carpenter jr.",
+   "house": "house_1708_prairie",
+   "named": "house_1708_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. A. A. Carpenter jr.: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_clark_bruce",
+   "name": "Bruce Clark",
+   "house": "house_2000_prairie",
+   "named": "house_2000_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Bruce Clark: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_clark_john_m",
+   "name": "John M. Clark",
+   "house": "house_2000_prairie",
+   "named": "house_2000_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "John M. Clark: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_clark_mrs_john_m",
+   "name": "Mrs. John M. Clark",
+   "house": "house_2000_prairie",
+   "named": "house_2000_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. John M. Clark: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_walker_james_r_c1900_john_clarke",
+   "name": "John Clarke",
+   "house": "house_1726_prairie",
+   "named": "house_1726_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "John Clarke: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_lowden_frank_orren_c1900_clarence_clough",
+   "name": "Clarence Clough",
+   "house": "moulton_lowden_house_1912_prairie",
+   "named": "moulton_lowden_house_1912_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Clarence Clough: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_grey_w_l_c1900_ophelia_clougher",
+   "name": "Ophelia Clougher",
+   "house": "house_2010_prairie",
+   "named": "house_2010_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Ophelia Clougher: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_young_lawrence_a_c1900_rose_annie_colwell",
+   "name": "Rose Annie Colwell",
+   "house": "wheeler_house_1812_prairie",
+   "named": "wheeler_house_1812_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Rose Annie Colwell: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_mcbirney_hugh_c1900_minnie_corkin",
+   "name": "Minnie Corkin",
+   "house": "house_1736_prairie",
+   "named": "house_1736_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Minnie Corkin: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_corwith_charles_r",
+   "name": "Charles R. Corwith",
+   "house": "armour_corwith_house_1945_prairie",
+   "named": "armour_corwith_house_1945_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Charles R. Corwith: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_corwith_frank",
+   "name": "Frank Corwith",
+   "house": "armour_corwith_house_1945_prairie",
+   "named": "armour_corwith_house_1945_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Frank Corwith: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_corwith_john_w",
+   "name": "John W. Corwith",
+   "house": "armour_corwith_house_1945_prairie",
+   "named": "armour_corwith_house_1945_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "John W. Corwith: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_corwith_mrs_henry",
+   "name": "Mrs. Henry Corwith",
+   "house": "armour_corwith_house_1945_prairie",
+   "named": "armour_corwith_house_1945_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. Henry Corwith: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_cunningham_elizabeth_s",
+   "name": "Elizabeth S. Cunningham",
+   "house": "marsh_house_1824_prairie",
+   "named": "marsh_house_1824_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Elizabeth S. Cunningham: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_cunningham_mrs_secor",
+   "name": "Mrs. Secor Cunningham",
+   "house": "marsh_house_1824_prairie",
+   "named": "marsh_house_1824_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. Secor Cunningham: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_cunningham_secor",
+   "name": "Secor Cunningham",
+   "house": "marsh_house_1824_prairie",
+   "named": "marsh_house_1824_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Secor Cunningham: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_cunningham_secor_jr",
+   "name": "Secor Cunningham jr.",
+   "house": "marsh_house_1824_prairie",
+   "named": "marsh_house_1824_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Secor Cunningham jr.: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_mcbean_a_j_c1900_louise_dane",
+   "name": "Louise Dane",
+   "house": "house_2017_prairie",
+   "named": "house_2017_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Louise Dane: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_armour_mrs_philip_d_c1900_joseph_daniels",
+   "name": "Joseph Daniels",
+   "house": "armour_house_2115_prairie",
+   "named": "armour_house_2115_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Joseph Daniels: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_de_teresa_isabel",
+   "name": "Isabel de Teresa",
+   "house": "house_2018_prairie",
+   "named": "house_2018_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Isabel de Teresa: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_de_teresa_mrs_nicolas",
+   "name": "Mrs. Nicolas de Teresa",
+   "house": "house_2018_prairie",
+   "named": "house_2018_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. Nicolas de Teresa: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_hamline_john_h_c1900_grace_delashmutt",
+   "name": "Grace Delashmutt",
+   "house": "house_1621_prairie",
+   "named": "house_1621_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Grace Delashmutt: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_armour_mrs_philip_d_c1900_henry_deneke",
+   "name": "Henry Deneke",
+   "house": "armour_house_2115_prairie",
+   "named": "armour_house_2115_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Henry Deneke: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_dent_mrs_thomas",
+   "name": "Mrs. Thomas Dent",
+   "house": "dent_house_1823_prairie",
+   "named": "dent_house_1823_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. Thomas Dent: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_dent_thomas",
+   "name": "Thomas Dent",
+   "house": "dent_house_1823_prairie",
+   "named": "dent_house_1823_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Thomas Dent: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_rothschild_mrs_m_m_c1900_may_dick",
+   "name": "May Dick",
+   "house": "rothschild_house_2112_prairie",
+   "named": "rothschild_house_2112_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "May Dick: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_shipman_daniel_b_c1900_annie_doherty",
+   "name": "Annie Doherty",
+   "house": "house_1828_prairie",
+   "named": "house_1828_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Annie Doherty: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_shortall_john_l_c1900_ellen_downey",
+   "name": "Ellen Downey",
+   "house": "house_1604_prairie",
+   "named": "house_1604_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Ellen Downey: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_mckinlock_george_a_c1900_alex_dumas_jr",
+   "name": "Alex. Dumas Jr.",
+   "house": "house_1712_prairie",
+   "named": "house_1712_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Alex. Dumas Jr.: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_field_marshall_c1900_john_dunford",
+   "name": "John Dunford",
+   "house": "marshall_field_house_1905_prairie",
+   "named": "marshall_field_house_1905_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "John Dunford: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_walker_james_r_c1900_eva_durkee",
+   "name": "Eva Durkee",
+   "house": "house_1726_prairie",
+   "named": "house_1726_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Eva Durkee: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_einstein_arthur",
+   "name": "Arthur Einstein",
+   "house": "house_1628_prairie",
+   "named": "house_1628_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Arthur Einstein: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_einstein_benjamin",
+   "name": "Benjamin Einstein",
+   "house": "house_1628_prairie",
+   "named": "house_1628_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Benjamin Einstein: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_einstein_m",
+   "name": "M. Einstein",
+   "house": "house_1628_prairie",
+   "named": "house_1628_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "M. Einstein: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_einstein_daughter",
+   "name": "Miss Einstein",
+   "house": "house_1628_prairie",
+   "named": "house_1628_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Miss Einstein: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_einstein_mrs_m",
+   "name": "Mrs. M. Einstein",
+   "house": "house_1628_prairie",
+   "named": "house_1628_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. M. Einstein: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_johnston_mrs_h_morris_c1900_kate_ennis",
+   "name": "Kate Ennis",
+   "house": "house_1636_prairie",
+   "named": "house_1636_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Kate Ennis: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_grey_w_l_c1900_mary_falkner",
+   "name": "Mary Falkner",
+   "house": "house_2010_prairie",
+   "named": "house_2010_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mary Falkner: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_perry_howard_e_c1900_ella_feeney",
+   "name": "Ella Feeney",
+   "house": "house_1619_prairie",
+   "named": "house_1619_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Ella Feeney: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_field_mrs_marshall_jr",
+   "name": "Albertine Huck Field",
+   "house": "marshall_field_jr_house_1919_prairie",
+   "named": "marshall_field_jr_house_1919_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Albertine Huck Field: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_field_ethel",
+   "name": "Ethel Field",
+   "house": "marshall_field_house_1905_prairie",
+   "named": "marshall_field_house_1905_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Ethel Field: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_field_gwendolyn",
+   "name": "Gwendolyn Field",
+   "house": "marshall_field_jr_house_1919_prairie",
+   "named": "marshall_field_jr_house_1919_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Gwendolyn Field: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_field_henry",
+   "name": "Henry Field",
+   "house": "marshall_field_jr_house_1919_prairie",
+   "named": "marshall_field_jr_house_1919_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Henry Field: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_field_marshall",
+   "name": "Marshall Field",
+   "house": "marshall_field_house_1905_prairie",
+   "named": "marshall_field_house_1905_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Marshall Field: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_field_marshall_jr",
+   "name": "Marshall Field jr.",
+   "house": "marshall_field_jr_house_1919_prairie",
+   "named": "marshall_field_jr_house_1919_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Marshall Field jr.: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_field_marshall_jr_at_1905",
+   "name": "Marshall Field jr.",
+   "house": "marshall_field_house_1905_prairie",
+   "named": "marshall_field_house_1905_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Marshall Field jr.: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_field_mrs_stanley",
+   "name": "Mrs. Stanley Field",
+   "house": "keith_house_1808_prairie",
+   "named": "keith_house_1808_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. Stanley Field: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_field_stanley",
+   "name": "Stanley Field",
+   "house": "keith_house_1808_prairie",
+   "named": "keith_house_1808_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Stanley Field: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_lowden_frank_orren_c1900_hugh_fields",
+   "name": "Hugh Fields",
+   "house": "moulton_lowden_house_1912_prairie",
+   "named": "moulton_lowden_house_1912_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Hugh Fields: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_meyer_mrs_m_a_c1900_margaret_fitzgerald",
+   "name": "Margaret Fitzgerald",
+   "house": "mayer_house_2009_prairie",
+   "named": "mayer_house_2009_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Margaret Fitzgerald: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_field_marshall_c1900_maggie_fitzsimmons",
+   "name": "Maggie Fitzsimmons",
+   "house": "marshall_field_house_1905_prairie",
+   "named": "marshall_field_house_1905_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Maggie Fitzsimmons: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_young_lawrence_a_c1900_margaret_flaherty",
+   "name": "Margaret Flaherty",
+   "house": "wheeler_house_1812_prairie",
+   "named": "wheeler_house_1812_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Margaret Flaherty: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_spalding_jesse_c1900_mary_flinn",
+   "name": "Mary Flinn",
+   "house": "kellogg_house_1709_prairie",
+   "named": "kellogg_house_1709_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mary Flinn: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_kimball_william_w_c1900_minnie_flum",
+   "name": "Minnie Flum",
+   "house": "kimball_house_1801_prairie",
+   "named": "kimball_house_1801_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Minnie Flum: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_corwith_mrs_henry_c1900_lizzie_foley",
+   "name": "Lizzie Foley",
+   "house": "armour_corwith_house_1945_prairie",
+   "named": "armour_corwith_house_1945_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Lizzie Foley: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_foote_erastus",
+   "name": "Erastus Foote",
+   "house": "house_1634_prairie",
+   "named": "house_1634_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Erastus Foote: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_frank_henry_l",
+   "name": "Henry L. Frank",
+   "house": "house_1608_prairie",
+   "named": "house_1608_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Henry L. Frank: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_frank_mrs_henry_l",
+   "name": "Mrs. Henry L. Frank",
+   "house": "house_1608_prairie",
+   "named": "house_1608_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. Henry L. Frank: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_free_mrs_w_c",
+   "name": "Mrs. W. C. Free",
+   "house": "house_2001_prairie",
+   "named": "house_2001_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. W. C. Free: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_free_w_c",
+   "name": "W. C. Free",
+   "house": "house_2001_prairie",
+   "named": "house_2001_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "W. C. Free: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_hamline_john_h_c1900_amelia_frick",
+   "name": "Amelia Frick",
+   "house": "house_1621_prairie",
+   "named": "house_1621_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Amelia Frick: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_mcbean_a_j_c1900_may_gentz",
+   "name": "May Gentz",
+   "house": "house_2017_prairie",
+   "named": "house_2017_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "May Gentz: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_keith_edson_jr_c1900_katie_gerth",
+   "name": "Katie Gerth",
+   "house": "rees_house_2110_prairie",
+   "named": "rees_house_2110_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Katie Gerth: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_glessner_alice_hamlin",
+   "name": "Alice Hamlin Glessner",
+   "house": "george_glessner_house_1706_prairie",
+   "named": "george_glessner_house_1706_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Alice Hamlin Glessner: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_glessner_elizabeth",
+   "name": "Elizabeth Glessner",
+   "house": "george_glessner_house_1706_prairie",
+   "named": "george_glessner_house_1706_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Elizabeth Glessner: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_glessner_emily",
+   "name": "Emily Glessner",
+   "house": "george_glessner_house_1706_prairie",
+   "named": "george_glessner_house_1706_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Emily Glessner: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_glessner_frances",
+   "name": "Frances Glessner",
+   "house": "george_glessner_house_1706_prairie",
+   "named": "george_glessner_house_1706_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Frances Glessner: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_glessner_frances_at_1800",
+   "name": "Frances Glessner",
+   "house": "glessner_house",
+   "named": "glessner_house",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Frances Glessner: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "glessner_frances_m",
+   "name": "Frances M. Glessner",
+   "house": "glessner_house",
+   "named": "glessner_house",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": true,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   }
+  },
+  {
+   "id": "pa1904_glessner_george_m",
+   "name": "George M. Glessner",
+   "house": "george_glessner_house_1706_prairie",
+   "named": "george_glessner_house_1706_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "George M. Glessner: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_glessner_george_m_at_1800",
+   "name": "George M. Glessner",
+   "house": "glessner_house",
+   "named": "glessner_house",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "George M. Glessner: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_glessner_john",
+   "name": "John Glessner",
+   "house": "george_glessner_house_1706_prairie",
+   "named": "george_glessner_house_1706_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "John Glessner: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "glessner_john_j",
+   "name": "John J. Glessner",
+   "house": "glessner_house",
+   "named": "glessner_house",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": true,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   }
+  },
+  {
+   "id": "pa1904_young_lawrence_a_c1900_thomas_goodwin",
+   "name": "Thomas Goodwin",
+   "house": "wheeler_house_1812_prairie",
+   "named": "wheeler_house_1812_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Thomas Goodwin: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_mcbirney_hugh_j_c1900_mary_gordon",
+   "name": "Mary Gordon",
+   "house": "house_1625_prairie",
+   "named": "house_1625_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mary Gordon: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_gorton_frank_s",
+   "name": "Frank S. Gorton",
+   "house": "house_2120_prairie",
+   "named": "house_2120_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Frank S. Gorton: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_gorton_mrs_frank_s",
+   "name": "Mrs. Frank S. Gorton",
+   "house": "house_2120_prairie",
+   "named": "house_2120_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. Frank S. Gorton: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_stone_mrs_h_o_c1900_alice_green",
+   "name": "Alice Green",
+   "house": "stone_house_2035_prairie",
+   "named": "stone_house_2035_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Alice Green: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_gregory_eleanor",
+   "name": "Eleanor Gregory",
+   "house": "shortall_gregory_house_1638_prairie_front",
+   "named": "shortall_gregory_house_1638_prairie_front",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Eleanor Gregory: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_gregory_robert_b_c1900_grace_e_gregory",
+   "name": "Grace E. Gregory",
+   "house": "shortall_gregory_house_1638_prairie_front",
+   "named": "shortall_gregory_house_1638_prairie_front",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Grace E. Gregory: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_gregory_mrs_elizabeth",
+   "name": "Mrs. Elizabeth Gregory",
+   "house": "shortall_gregory_house_1638_prairie_front",
+   "named": "shortall_gregory_house_1638_prairie_front",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. Elizabeth Gregory: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_gregory_mrs_robert_b",
+   "name": "Mrs. Robert B. Gregory",
+   "house": "shortall_gregory_house_1638_prairie_front",
+   "named": "shortall_gregory_house_1638_prairie_front",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. Robert B. Gregory: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_gregory_robert_b",
+   "name": "Robert B. Gregory",
+   "house": "shortall_gregory_house_1638_prairie_front",
+   "named": "shortall_gregory_house_1638_prairie_front",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Robert B. Gregory: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_gregory_robert_b_c1900_ruth_gregory",
+   "name": "Ruth Gregory",
+   "house": "shortall_gregory_house_1638_prairie_front",
+   "named": "shortall_gregory_house_1638_prairie_front",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Ruth Gregory: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_grey_charles_g",
+   "name": "Charles G. Grey",
+   "house": "house_2010_prairie",
+   "named": "house_2010_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Charles G. Grey: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_grey_elizabeth_w",
+   "name": "Elizabeth W. Grey",
+   "house": "house_2010_prairie",
+   "named": "house_2010_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Elizabeth W. Grey: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_grey_florence",
+   "name": "Florence Grey",
+   "house": "house_2010_prairie",
+   "named": "house_2010_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Florence Grey: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_grey_daughter",
+   "name": "Miss Grey",
+   "house": "house_2010_prairie",
+   "named": "house_2010_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Miss Grey: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_grey_mrs_w_l",
+   "name": "Mrs. W. L. Grey",
+   "house": "house_2010_prairie",
+   "named": "house_2010_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. W. L. Grey: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_grey_w_l",
+   "name": "W. L. Grey",
+   "house": "house_2010_prairie",
+   "named": "house_2010_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "W. L. Grey: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_grey_walter_c",
+   "name": "Walter C. Grey",
+   "house": "house_2010_prairie",
+   "named": "house_2010_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Walter C. Grey: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_lowden_frank_orren_c1900_robert_grimmond",
+   "name": "Robert Grimmond",
+   "house": "moulton_lowden_house_1912_prairie",
+   "named": "moulton_lowden_house_1912_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Robert Grimmond: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_young_lawrence_a_c1900_lizzie_hale",
+   "name": "Lizzie Hale",
+   "house": "wheeler_house_1812_prairie",
+   "named": "wheeler_house_1812_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Lizzie Hale: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_field_marshall_c1900_karolina_hall",
+   "name": "Karolina Hall",
+   "house": "marshall_field_house_1905_prairie",
+   "named": "marshall_field_house_1905_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Karolina Hall: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_hibbard_mrs_william_gold_c1900_james_halligan",
+   "name": "James Halligan",
+   "house": "hibbard_house_1701_prairie",
+   "named": "hibbard_house_1701_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "James Halligan: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_lowden_frank_orren_c1900_john_halloran",
+   "name": "John Halloran",
+   "house": "moulton_lowden_house_1912_prairie",
+   "named": "moulton_lowden_house_1912_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "John Halloran: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_shortall_john_l_c1900_harriet_hamilton",
+   "name": "Harriet Hamilton",
+   "house": "house_1604_prairie",
+   "named": "house_1604_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Harriet Hamilton: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_hamlin_mrs_e_f",
+   "name": "Mrs. E. F. Hamlin",
+   "house": "george_glessner_house_1706_prairie",
+   "named": "george_glessner_house_1706_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. E. F. Hamlin: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_hamline_john_h",
+   "name": "John H. Hamline",
+   "house": "house_1621_prairie",
+   "named": "house_1621_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "John H. Hamline: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_hamline_john_h_c1900_john_h_hamline",
+   "name": "John H. Hamline",
+   "house": "house_1621_prairie",
+   "named": "house_1621_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "John H. Hamline: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_hamline_john_h_c1900_josephine_hamline",
+   "name": "Josephine Hamline",
+   "house": "house_1621_prairie",
+   "named": "house_1621_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Josephine Hamline: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_hamline_mrs_john_h",
+   "name": "Mrs. John H. Hamline",
+   "house": "house_1621_prairie",
+   "named": "house_1621_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. John H. Hamline: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_keith_edson_jr_c1900_george_hauser",
+   "name": "George Hauser",
+   "house": "rees_house_2110_prairie",
+   "named": "rees_house_2110_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "George Hauser: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_henderson_mrs_charles_m",
+   "name": "Mrs. Charles M. Henderson",
+   "house": "henderson_house_1816_prairie",
+   "named": "henderson_house_1816_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. Charles M. Henderson: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_herrick_e_walter",
+   "name": "E. Walter Herrick",
+   "house": "house_2018_prairie",
+   "named": "house_2018_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "E. Walter Herrick: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_herrick_louise",
+   "name": "Louise Herrick",
+   "house": "house_2018_prairie",
+   "named": "house_2018_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Louise Herrick: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_herrick_mrs_l_a",
+   "name": "Mrs. L. A. Herrick",
+   "house": "house_2018_prairie",
+   "named": "house_2018_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. L. A. Herrick: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_hibbard_f_v_s_at_1701",
+   "name": "F. V. S. Hibbard",
+   "house": "hibbard_house_1701_prairie",
+   "named": "hibbard_house_1701_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "F. V. S. Hibbard: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_hibbard_f_vans",
+   "name": "F. VanS. Hibbard",
+   "house": "law_house_1620_prairie",
+   "named": "law_house_1620_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "F. VanS. Hibbard: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_hibbard_frank",
+   "name": "Frank Hibbard",
+   "house": "hibbard_house_1701_prairie",
+   "named": "hibbard_house_1701_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Frank Hibbard: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_hibbard_lilian_b",
+   "name": "Lilian B. Hibbard",
+   "house": "hibbard_house_1701_prairie",
+   "named": "hibbard_house_1701_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Lilian B. Hibbard: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_hibbard_mrs_f_vans",
+   "name": "Mrs. F. VanS. Hibbard",
+   "house": "law_house_1620_prairie",
+   "named": "law_house_1620_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. F. VanS. Hibbard: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_hibbard_mrs_william_gold",
+   "name": "Mrs. William Gold Hibbard",
+   "house": "hibbard_house_1701_prairie",
+   "named": "hibbard_house_1701_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. William Gold Hibbard: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_hibbard_mrs_william_gold_jr",
+   "name": "Mrs. William Gold Hibbard jr.",
+   "house": "spalding_house_1637_prairie",
+   "named": "spalding_house_1637_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. William Gold Hibbard jr.: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_hibbard_william_g_jr_at_1701",
+   "name": "William G. Hibbard jr.",
+   "house": "hibbard_house_1701_prairie",
+   "named": "hibbard_house_1701_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "William G. Hibbard jr.: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_hibbard_william_gold_jr",
+   "name": "William Gold Hibbard jr.",
+   "house": "spalding_house_1637_prairie",
+   "named": "spalding_house_1637_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "William Gold Hibbard jr.: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_high_daughter",
+   "name": "Miss High",
+   "house": "high_house_2021_prairie",
+   "named": "high_house_2021_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Miss High: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_high_mrs_james_l",
+   "name": "Mrs. James L. High",
+   "house": "high_house_2021_prairie",
+   "named": "high_house_2021_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. James L. High: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_high_shirley_t",
+   "name": "Shirley T. High",
+   "house": "high_house_2021_prairie",
+   "named": "high_house_2021_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Shirley T. High: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_kimball_william_w_c1900_marie_annie_hoff",
+   "name": "Marie Annie Hoff",
+   "house": "kimball_house_1801_prairie",
+   "named": "kimball_house_1801_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Marie Annie Hoff: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_mcbirney_hugh_c1900_may_hogan",
+   "name": "May Hogan",
+   "house": "house_1736_prairie",
+   "named": "house_1736_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "May Hogan: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_shipman_daniel_b_c1900_may_howe",
+   "name": "May Howe",
+   "house": "house_1828_prairie",
+   "named": "house_1828_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "May Howe: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_hoyt_daughter",
+   "name": "Miss Hoyt",
+   "house": "house_2003_prairie",
+   "named": "house_2003_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Miss Hoyt: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_hoyt_mrs_h_w",
+   "name": "Mrs. H. W. Hoyt",
+   "house": "house_2003_prairie",
+   "named": "house_2003_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. H. W. Hoyt: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_pike_eugene_s_c1900_annie_hughes",
+   "name": "Annie Hughes",
+   "house": "house_2101_prairie",
+   "named": "house_2101_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Annie Hughes: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_hulbert_thomas_h",
+   "name": "Thomas H. Hulbert",
+   "house": "house_2123_prairie",
+   "named": "house_2123_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Thomas H. Hulbert: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_lowden_frank_orren_c1900_kate_hurley",
+   "name": "Kate Hurley",
+   "house": "moulton_lowden_house_1912_prairie",
+   "named": "moulton_lowden_house_1912_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Kate Hurley: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_stone_mrs_h_o_c1900_margaret_hurley",
+   "name": "Margaret Hurley",
+   "house": "stone_house_2035_prairie",
+   "named": "stone_house_2035_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Margaret Hurley: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_field_marshall_iii",
+   "name": "Marshall Field III",
+   "house": "marshall_field_jr_house_1919_prairie",
+   "named": "marshall_field_jr_house_1919_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Marshall Field III: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_jenkins_john_e",
+   "name": "John E. Jenkins",
+   "house": "house_1730_prairie",
+   "named": "house_1730_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "John E. Jenkins: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_jenkins_mrs_john_e",
+   "name": "Mrs. John E. Jenkins",
+   "house": "house_1730_prairie",
+   "named": "house_1730_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. John E. Jenkins: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_meyer_mrs_m_a_c1900_alfred_johnson",
+   "name": "Alfred Johnson",
+   "house": "mayer_house_2009_prairie",
+   "named": "mayer_house_2009_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Alfred Johnson: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_rothschild_mrs_m_m_c1900_augusta_johnson",
+   "name": "Augusta Johnson",
+   "house": "rothschild_house_2112_prairie",
+   "named": "rothschild_house_2112_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Augusta Johnson: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_pike_eugene_s_c1900_chris_johnson",
+   "name": "Chris Johnson",
+   "house": "house_2101_prairie",
+   "named": "house_2101_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Chris Johnson: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_spalding_jesse_c1900_hannah_johnson",
+   "name": "Hannah Johnson",
+   "house": "kellogg_house_1709_prairie",
+   "named": "kellogg_house_1709_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Hannah Johnson: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_otis_f_r_c1900_hans_johnson",
+   "name": "Hans Johnson",
+   "house": "otis_house_2033_prairie",
+   "named": "otis_house_2033_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": true,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   }
+  },
+  {
+   "id": "pa1904_keith_mrs_edson_c1900_hilda_johnson",
+   "name": "Hilda Johnson",
+   "house": "edson_keith_house_1906_prairie",
+   "named": "edson_keith_house_1906_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Hilda Johnson: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_lamb_augustus_d_c1900_ida_johnson",
+   "name": "Ida Johnson",
+   "house": "house_2011_prairie",
+   "named": "house_2011_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Ida Johnson: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_walker_mrs_james_m_c1900_winnifred_johnson",
+   "name": "Winnifred Johnson",
+   "house": "walker_house_1720_prairie",
+   "named": "walker_house_1720_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Winnifred Johnson: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_johnston_h_mcb",
+   "name": "H. McB. Johnston",
+   "house": "house_1636_prairie",
+   "named": "house_1636_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "H. McB. Johnston: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_johnston_morris_l",
+   "name": "Morris L. Johnston",
+   "house": "house_1636_prairie",
+   "named": "house_1636_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Morris L. Johnston: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_johnston_mrs_h_morris",
+   "name": "Mrs. H. Morris Johnston",
+   "house": "house_1636_prairie",
+   "named": "house_1636_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. H. Morris Johnston: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_jones_fernando",
+   "name": "Fernando Jones",
+   "house": "jones_house_1834_prairie",
+   "named": "jones_house_1834_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Fernando Jones: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_jones_graham",
+   "name": "Graham Jones",
+   "house": "jones_house_1834_prairie",
+   "named": "jones_house_1834_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Graham Jones: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_jones_mrs_fernando",
+   "name": "Mrs. Fernando Jones",
+   "house": "jones_house_1834_prairie",
+   "named": "jones_house_1834_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. Fernando Jones: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_armour_mrs_philip_d_c1900_frances_jordan",
+   "name": "Frances Jordan",
+   "house": "armour_house_2115_prairie",
+   "named": "armour_house_2115_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Frances Jordan: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_rothschild_mrs_m_m_c1900_christ_jorgensen",
+   "name": "Christ Jorgensen",
+   "house": "rothschild_house_2112_prairie",
+   "named": "rothschild_house_2112_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Christ Jorgensen: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_keith_elbridge_g_c1900_christine_kaecher",
+   "name": "Christine Kaecher",
+   "house": "elbridge_keith_house_1900_prairie",
+   "named": "elbridge_keith_house_1900_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Christine Kaecher: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_keith_carl",
+   "name": "Carl Keith",
+   "house": "elbridge_keith_house_1900_prairie",
+   "named": "elbridge_keith_house_1900_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Carl Keith: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_keith_edson_jr",
+   "name": "Edson Keith jr.",
+   "house": "rees_house_2110_prairie",
+   "named": "rees_house_2110_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Edson Keith jr.: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_keith_edson_jr_at_1906",
+   "name": "Edson Keith jr.",
+   "house": "edson_keith_house_1906_prairie",
+   "named": "edson_keith_house_1906_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Edson Keith jr.: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_keith_elbridge_b",
+   "name": "Elbridge B. Keith",
+   "house": "elbridge_keith_house_1900_prairie",
+   "named": "elbridge_keith_house_1900_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Elbridge B. Keith: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_keith_elbridge_g",
+   "name": "Elbridge G. Keith",
+   "house": "elbridge_keith_house_1900_prairie",
+   "named": "elbridge_keith_house_1900_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Elbridge G. Keith: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_keith_edson_jr_c1900_frederick_keith",
+   "name": "Frederick Keith",
+   "house": "rees_house_2110_prairie",
+   "named": "rees_house_2110_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Frederick Keith: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_keith_harold",
+   "name": "Harold Keith",
+   "house": "elbridge_keith_house_1900_prairie",
+   "named": "elbridge_keith_house_1900_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Harold Keith: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_keith_edson_jr_c1900_katharine_keith",
+   "name": "Katharine Keith",
+   "house": "rees_house_2110_prairie",
+   "named": "rees_house_2110_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Katharine Keith: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_keith_daughter",
+   "name": "Miss Keith",
+   "house": "elbridge_keith_house_1900_prairie",
+   "named": "elbridge_keith_house_1900_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Miss Keith: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_keith_mrs_edson",
+   "name": "Mrs. Edson Keith",
+   "house": "edson_keith_house_1906_prairie",
+   "named": "edson_keith_house_1906_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. Edson Keith: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_keith_mrs_edson_jr",
+   "name": "Mrs. Edson Keith jr.",
+   "house": "rees_house_2110_prairie",
+   "named": "rees_house_2110_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. Edson Keith jr.: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_keith_mrs_elbridge_g",
+   "name": "Mrs. Elbridge G. Keith",
+   "house": "elbridge_keith_house_1900_prairie",
+   "named": "elbridge_keith_house_1900_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. Elbridge G. Keith: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_keith_stanley",
+   "name": "Stanley Keith",
+   "house": "elbridge_keith_house_1900_prairie",
+   "named": "elbridge_keith_house_1900_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Stanley Keith: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_keith_walter_w",
+   "name": "Walter W. Keith",
+   "house": "edson_keith_house_1906_prairie",
+   "named": "edson_keith_house_1906_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Walter W. Keith: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_kellogg_mrs_c_p",
+   "name": "Mrs. C. P. Kellogg",
+   "house": "kellogg_house_1923_prairie",
+   "named": "kellogg_house_1923_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. C. P. Kellogg: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_kellogg_mrs_lois",
+   "name": "Mrs. Lois Kellogg",
+   "house": "kellogg_house_1923_prairie",
+   "named": "kellogg_house_1923_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. Lois Kellogg: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_johnston_mrs_h_morris_c1900_kate_kennedy",
+   "name": "Kate Kennedy",
+   "house": "house_1636_prairie",
+   "named": "house_1636_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Kate Kennedy: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_dent_thomas_c1900_bridget_kevin",
+   "name": "Bridget Kevin",
+   "house": "dent_house_1823_prairie",
+   "named": "dent_house_1823_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Bridget Kevin: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_kimball_mrs_william_w",
+   "name": "Evalyne M. Kimball",
+   "house": "kimball_house_1801_prairie",
+   "named": "kimball_house_1801_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Evalyne M. Kimball: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_kimball_william_w",
+   "name": "William W. Kimball",
+   "house": "kimball_house_1801_prairie",
+   "named": "kimball_house_1801_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "William W. Kimball: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_armour_mrs_philip_d_c1900_delia_king",
+   "name": "Delia King",
+   "house": "armour_house_2115_prairie",
+   "named": "armour_house_2115_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Delia King: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_lamb_augustus_d_c1900_hulda_koch",
+   "name": "Hulda Koch",
+   "house": "house_2011_prairie",
+   "named": "house_2011_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Hulda Koch: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_clark_john_m_c1900_kate_lacey",
+   "name": "Kate Lacey",
+   "house": "house_2000_prairie",
+   "named": "house_2000_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Kate Lacey: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_lamb_augustus_d",
+   "name": "Augustus D. Lamb",
+   "house": "house_2011_prairie",
+   "named": "house_2011_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Augustus D. Lamb: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_lamb_benjamin_b",
+   "name": "Benjamin B. Lamb",
+   "house": "house_2011_prairie",
+   "named": "house_2011_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Benjamin B. Lamb: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_otis_f_r_c1900_sarah_lanigan",
+   "name": "Sarah Lanigan",
+   "house": "otis_house_2033_prairie",
+   "named": "otis_house_2033_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Sarah Lanigan: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_stone_mrs_h_o_c1900_margaret_lannes",
+   "name": "Margaret Lannes",
+   "house": "stone_house_2035_prairie",
+   "named": "stone_house_2035_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Margaret Lannes: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_perry_howard_e_c1900_nora_leahy",
+   "name": "Nora Leahy",
+   "house": "house_1619_prairie",
+   "named": "house_1619_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Nora Leahy: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_lee_blewett",
+   "name": "Blewett Lee",
+   "house": "glessner_lee_house_1700_prairie",
+   "named": "glessner_lee_house_1700_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Blewett Lee: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_lee_frances_glessner",
+   "name": "Frances Glessner Lee",
+   "house": "glessner_lee_house_1700_prairie",
+   "named": "glessner_lee_house_1700_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Frances Glessner Lee: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_lee_frances",
+   "name": "Frances Lee",
+   "house": "glessner_lee_house_1700_prairie",
+   "named": "glessner_lee_house_1700_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Frances Lee: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_lee_john_glessner",
+   "name": "John Glessner Lee",
+   "house": "glessner_lee_house_1700_prairie",
+   "named": "glessner_lee_house_1700_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "John Glessner Lee: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_lee_martha",
+   "name": "Martha Lee",
+   "house": "glessner_lee_house_1700_prairie",
+   "named": "glessner_lee_house_1700_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Martha Lee: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_lowden_frank_orren_c1900_leonie",
+   "name": "Leonie",
+   "house": "moulton_lowden_house_1912_prairie",
+   "named": "moulton_lowden_house_1912_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Leonie: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_mckinlock_george_a_c1900_alice_liddell",
+   "name": "Alice Liddell",
+   "house": "house_1712_prairie",
+   "named": "house_1712_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Alice Liddell: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_keith_mrs_edson_c1900_greta_lindine",
+   "name": "Greta Lindine",
+   "house": "edson_keith_house_1906_prairie",
+   "named": "edson_keith_house_1906_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Greta Lindine: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_kimball_william_w_c1900_charles_lingquist",
+   "name": "Charles Lingquist",
+   "house": "kimball_house_1801_prairie",
+   "named": "kimball_house_1801_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Charles Lingquist: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_pike_eugene_s_c1900_janet_lippitt",
+   "name": "Janet Lippitt",
+   "house": "house_2101_prairie",
+   "named": "house_2101_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Janet Lippitt: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_longini_a",
+   "name": "A. Longini",
+   "house": "house_1626_prairie",
+   "named": "house_1626_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "A. Longini: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_longini_a_c1900_jerome_b_longini",
+   "name": "Jerome B. Longini",
+   "house": "house_1626_prairie",
+   "named": "house_1626_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Jerome B. Longini: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_longini_a_c1900_marcel_longini",
+   "name": "Marcel Longini",
+   "house": "house_1626_prairie",
+   "named": "house_1626_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Marcel Longini: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_longini_daughter",
+   "name": "Miss Longini",
+   "house": "house_1626_prairie",
+   "named": "house_1626_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Miss Longini: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_longini_mrs_a",
+   "name": "Mrs. A. Longini",
+   "house": "house_1626_prairie",
+   "named": "house_1626_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. A. Longini: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_ream_norman_b_c1900_carrie_louis",
+   "name": "Carrie Louis",
+   "house": "ream_house_1901_prairie",
+   "named": "ream_house_1901_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Carrie Louis: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_lowden_frank_orren_c1900_florence_lowden",
+   "name": "Florence Lowden",
+   "house": "moulton_lowden_house_1912_prairie",
+   "named": "moulton_lowden_house_1912_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Florence Lowden: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_lowden_mrs_frank_orren",
+   "name": "Florence Pullman Lowden",
+   "house": "moulton_lowden_house_1912_prairie",
+   "named": "moulton_lowden_house_1912_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Florence Pullman Lowden: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_lowden_frank_orren",
+   "name": "Frank Orren Lowden",
+   "house": "moulton_lowden_house_1912_prairie",
+   "named": "moulton_lowden_house_1912_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Frank Orren Lowden: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_lowden_frank_orren_c1900_pullman_lowden",
+   "name": "Pullman Lowden",
+   "house": "moulton_lowden_house_1912_prairie",
+   "named": "moulton_lowden_house_1912_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Pullman Lowden: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_young_lawrence_a_c1900_katie_lyden",
+   "name": "Katie Lyden",
+   "house": "wheeler_house_1812_prairie",
+   "named": "wheeler_house_1812_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Katie Lyden: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_spalding_jesse_c1900_frank_manda",
+   "name": "Frank Manda",
+   "house": "kellogg_house_1709_prairie",
+   "named": "kellogg_house_1709_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Frank Manda: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_walker_james_r_c1900_elizabeth_martinson",
+   "name": "Elizabeth Martinson",
+   "house": "house_1726_prairie",
+   "named": "house_1726_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Elizabeth Martinson: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_grey_w_l_c1900_james_mason",
+   "name": "James Mason",
+   "house": "house_2010_prairie",
+   "named": "house_2010_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "James Mason: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_mcbean_a_j_f",
+   "name": "A. J. F. McBean",
+   "house": "house_2017_prairie",
+   "named": "house_2017_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "A. J. F. McBean: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_mcbean_a_j",
+   "name": "A. J. McBean",
+   "house": "house_2017_prairie",
+   "named": "house_2017_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "A. J. McBean: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_mcbean_george_b",
+   "name": "George B. McBean",
+   "house": "house_2017_prairie",
+   "named": "house_2017_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "George B. McBean: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_mcbean_mrs_a_j_f",
+   "name": "Mrs. A. J. F. McBean",
+   "house": "house_2017_prairie",
+   "named": "house_2017_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. A. J. F. McBean: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_mcbean_mrs_a_j",
+   "name": "Mrs. A. J. McBean",
+   "house": "house_2017_prairie",
+   "named": "house_2017_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. A. J. McBean: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_mcbirney_hugh_j_c1900_annie_l_mcbirney",
+   "name": "Annie L. McBirney",
+   "house": "house_1625_prairie",
+   "named": "house_1625_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Annie L. McBirney: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_mcbirney_day",
+   "name": "Day McBirney",
+   "house": "house_1736_prairie",
+   "named": "house_1736_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Day McBirney: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_mcbirney_george_d",
+   "name": "George D. McBirney",
+   "house": "house_1736_prairie",
+   "named": "house_1736_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "George D. McBirney: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_mcbirney_hugh_j",
+   "name": "Hugh J. McBirney",
+   "house": "house_1625_prairie",
+   "named": "house_1625_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Hugh J. McBirney: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_mcbirney_hugh",
+   "name": "Hugh McBirney",
+   "house": "house_1736_prairie",
+   "named": "house_1736_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Hugh McBirney: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_mcbirney_hugh_j_c1900_isabelle_mcbirney",
+   "name": "Isabelle McBirney",
+   "house": "house_1625_prairie",
+   "named": "house_1625_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Isabelle McBirney: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_mcbirney_mrs_hugh_j",
+   "name": "Mrs. Hugh J. McBirney",
+   "house": "house_1625_prairie",
+   "named": "house_1625_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. Hugh J. McBirney: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_mcbirney_mrs_hugh",
+   "name": "Mrs. Hugh McBirney",
+   "house": "house_1736_prairie",
+   "named": "house_1736_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. Hugh McBirney: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_pike_eugene_s_c1900_catherine_mcbride",
+   "name": "Catherine McBride",
+   "house": "house_2101_prairie",
+   "named": "house_2101_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Catherine McBride: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_otis_f_r_c1900_anna_mcfadden",
+   "name": "Anna McFadden",
+   "house": "otis_house_2033_prairie",
+   "named": "otis_house_2033_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Anna McFadden: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_young_lawrence_a_c1900_elizabeth_mcgregor",
+   "name": "Elizabeth McGregor",
+   "house": "wheeler_house_1812_prairie",
+   "named": "wheeler_house_1812_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Elizabeth McGregor: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_shortall_john_g_c1900_jessie_mckay",
+   "name": "Jessie McKay",
+   "house": "house_1600_prairie",
+   "named": "house_1600_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Jessie McKay: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_mcbirney_hugh_j_c1900_alice_mckelvey",
+   "name": "Alice McKelvey",
+   "house": "house_1625_prairie",
+   "named": "house_1625_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Alice McKelvey: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_mckinlock_george_a",
+   "name": "George A. McKinlock",
+   "house": "house_1712_prairie",
+   "named": "house_1712_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "George A. McKinlock: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_mckinlock_mrs_george_a",
+   "name": "Mrs. George A. McKinlock",
+   "house": "house_1712_prairie",
+   "named": "house_1712_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. George A. McKinlock: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_armour_mrs_philip_d_c1900_helen_mcshane",
+   "name": "Helen McShane",
+   "house": "armour_house_2115_prairie",
+   "named": "armour_house_2115_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Helen McShane: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_mead_george_a",
+   "name": "George A. Mead",
+   "house": "house_1621_prairie",
+   "named": "house_1621_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "George A. Mead: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_meeker_arthur",
+   "name": "Arthur Meeker",
+   "house": "sears_meeker_house_1815_prairie",
+   "named": "sears_meeker_house_1815_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Arthur Meeker: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_meeker_arthur_jr",
+   "name": "Arthur Meeker jr.",
+   "house": "sears_meeker_house_1815_prairie",
+   "named": "sears_meeker_house_1815_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Arthur Meeker jr.: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_meeker_grace",
+   "name": "Grace Meeker",
+   "house": "sears_meeker_house_1815_prairie",
+   "named": "sears_meeker_house_1815_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Grace Meeker: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_meeker_mrs_arthur",
+   "name": "Grace Murray Meeker",
+   "house": "sears_meeker_house_1815_prairie",
+   "named": "sears_meeker_house_1815_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Grace Murray Meeker: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_meeker_katherine",
+   "name": "Katherine Meeker",
+   "house": "sears_meeker_house_1815_prairie",
+   "named": "sears_meeker_house_1815_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Katherine Meeker: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_meeker_mary",
+   "name": "Mary Meeker",
+   "house": "sears_meeker_house_1815_prairie",
+   "named": "sears_meeker_house_1815_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mary Meeker: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_meyer_abraham",
+   "name": "Abraham Meyer",
+   "house": "mayer_house_2009_prairie",
+   "named": "mayer_house_2009_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Abraham Meyer: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_meyer_albert",
+   "name": "Albert Meyer",
+   "house": "mayer_house_2009_prairie",
+   "named": "mayer_house_2009_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Albert Meyer: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_meyer_carl",
+   "name": "Carl Meyer",
+   "house": "mayer_house_2009_prairie",
+   "named": "mayer_house_2009_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Carl Meyer: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_meyer_e_f",
+   "name": "E. F. Meyer",
+   "house": "mayer_house_2009_prairie",
+   "named": "mayer_house_2009_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "E. F. Meyer: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_meyer_daughter",
+   "name": "Miss Meyer",
+   "house": "mayer_house_2009_prairie",
+   "named": "mayer_house_2009_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Miss Meyer: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_meyer_mrs_m_a",
+   "name": "Mrs. M. A. Meyer",
+   "house": "mayer_house_2009_prairie",
+   "named": "mayer_house_2009_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. M. A. Meyer: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_frank_henry_l_c1900_jennie_mickel",
+   "name": "Jennie Mickel",
+   "house": "house_1608_prairie",
+   "named": "house_1608_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Jennie Mickel: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_hamline_john_h_c1900_agnes_murphy",
+   "name": "Agnes Murphy",
+   "house": "house_1621_prairie",
+   "named": "house_1621_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Agnes Murphy: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_pike_eugene_s_c1900_margaret_murphy",
+   "name": "Margaret Murphy",
+   "house": "house_2101_prairie",
+   "named": "house_2101_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Margaret Murphy: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_glessner_john_j_c1900_charles_nelson",
+   "name": "Charles Nelson",
+   "house": "glessner_house",
+   "named": "glessner_house",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": true,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   }
+  },
+  {
+   "id": "pa1904_glessner_john_j_c1900_christine_nelson",
+   "name": "Christine Nelson",
+   "house": "glessner_house",
+   "named": "glessner_house",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": true,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   }
+  },
+  {
+   "id": "pa1904_corwith_mrs_henry_c1900_elsie_nelson",
+   "name": "Elsie Nelson",
+   "house": "armour_corwith_house_1945_prairie",
+   "named": "armour_corwith_house_1945_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Elsie Nelson: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_ream_norman_b_c1900_emma_nelson",
+   "name": "Emma Nelson",
+   "house": "ream_house_1901_prairie",
+   "named": "ream_house_1901_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Emma Nelson: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_tolman_samuel_a_c1900_ida_nelson",
+   "name": "Ida Nelson",
+   "house": "tolman_house_2031_prairie",
+   "named": "tolman_house_2031_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Ida Nelson: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_kellogg_mrs_c_p_c1900_thomas_nelson",
+   "name": "Thomas Nelson",
+   "house": "kellogg_house_1923_prairie",
+   "named": "kellogg_house_1923_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Thomas Nelson: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_keith_edson_jr_c1900_tillie_nelson",
+   "name": "Tillie Nelson",
+   "house": "rees_house_2110_prairie",
+   "named": "rees_house_2110_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Tillie Nelson: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_jones_fernando_c1900_valentine_nier",
+   "name": "Valentine Nier",
+   "house": "jones_house_1834_prairie",
+   "named": "jones_house_1834_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Valentine Nier: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_hamline_john_h_c1900_bridget_o_brien",
+   "name": "Bridget O'Brien",
+   "house": "house_1621_prairie",
+   "named": "house_1621_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Bridget O'Brien: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_shipman_daniel_b_c1900_julia_o_brien",
+   "name": "Julia O'Brien",
+   "house": "house_1828_prairie",
+   "named": "house_1828_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Julia O'Brien: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_clark_john_m_c1900_mary_o_connell",
+   "name": "Mary O'Connell",
+   "house": "house_2000_prairie",
+   "named": "house_2000_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mary O'Connell: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_perry_howard_e_c1900_mary_o_donnell",
+   "name": "Mary O'Donnell",
+   "house": "house_1619_prairie",
+   "named": "house_1619_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mary O'Donnell: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_lamb_augustus_d_c1900_james_o_keith",
+   "name": "James O'Keith",
+   "house": "house_2011_prairie",
+   "named": "house_2011_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "James O'Keith: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_mcbean_a_j_c1900_hilda_olson",
+   "name": "Hilda Olson",
+   "house": "house_2017_prairie",
+   "named": "house_2017_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Hilda Olson: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_jones_fernando_c1900_john_olson",
+   "name": "John Olson",
+   "house": "jones_house_1834_prairie",
+   "named": "jones_house_1834_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "John Olson: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_lowden_frank_orren_c1900_sophie_olson",
+   "name": "Sophie Olson",
+   "house": "moulton_lowden_house_1912_prairie",
+   "named": "moulton_lowden_house_1912_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Sophie Olson: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_mcbirney_hugh_j_c1900_julia_orosz",
+   "name": "Julia Orosz",
+   "house": "house_1625_prairie",
+   "named": "house_1625_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Julia Orosz: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_otis_charles_t",
+   "name": "Charles T. Otis",
+   "house": "otis_house_2033_prairie",
+   "named": "otis_house_2033_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Charles T. Otis: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_otis_f_r",
+   "name": "F. R. Otis",
+   "house": "otis_house_2033_prairie",
+   "named": "otis_house_2033_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "F. R. Otis: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_otis_joseph_e_jr",
+   "name": "Joseph E. Otis jr.",
+   "house": "house_1730_prairie",
+   "named": "house_1730_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Joseph E. Otis jr.: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_otis_lucius_j",
+   "name": "Lucius J. Otis",
+   "house": "otis_house_2033_prairie",
+   "named": "otis_house_2033_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Lucius J. Otis: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_otis_daughter",
+   "name": "Miss Otis",
+   "house": "otis_house_2033_prairie",
+   "named": "otis_house_2033_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Miss Otis: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_otis_mrs_f_r",
+   "name": "Mrs. F. R. Otis",
+   "house": "otis_house_2033_prairie",
+   "named": "otis_house_2033_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. F. R. Otis: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_otis_mrs_joseph_e",
+   "name": "Mrs. Joseph E. Otis",
+   "house": "house_1730_prairie",
+   "named": "house_1730_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. Joseph E. Otis: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_otis_ralph_c",
+   "name": "Ralph C. Otis",
+   "house": "house_1730_prairie",
+   "named": "house_1730_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Ralph C. Otis: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_henderson_mrs_charles_m_c1900_arthur_george_parker",
+   "name": "Arthur George Parker",
+   "house": "henderson_house_1816_prairie",
+   "named": "henderson_house_1816_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Arthur George Parker: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_mcbean_a_j_c1900_bertha_parson",
+   "name": "Bertha Parson",
+   "house": "house_2017_prairie",
+   "named": "house_2017_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Bertha Parson: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_otis_mrs_joseph_e_c1900_annie_paulson",
+   "name": "Annie Paulson",
+   "house": "house_1730_prairie",
+   "named": "house_1730_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Annie Paulson: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_perry_howard_e",
+   "name": "Howard E. Perry",
+   "house": "house_1619_prairie",
+   "named": "house_1619_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Howard E. Perry: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_perry_mrs_howard_e",
+   "name": "Mrs. Howard E. Perry",
+   "house": "house_1619_prairie",
+   "named": "house_1619_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. Howard E. Perry: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_lowden_frank_orren_c1900_anna_peterson",
+   "name": "Anna Peterson",
+   "house": "moulton_lowden_house_1912_prairie",
+   "named": "moulton_lowden_house_1912_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Anna Peterson: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_kimball_william_w_c1900_mary_peterson",
+   "name": "Mary Peterson",
+   "house": "kimball_house_1801_prairie",
+   "named": "kimball_house_1801_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mary Peterson: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_corwith_mrs_henry_c1900_selma_peterson",
+   "name": "Selma Peterson",
+   "house": "armour_corwith_house_1945_prairie",
+   "named": "armour_corwith_house_1945_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Selma Peterson: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_field_marshall_c1900_sophia_peterson",
+   "name": "Sophia Peterson",
+   "house": "marshall_field_house_1905_prairie",
+   "named": "marshall_field_house_1905_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Sophia Peterson: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_pike_charles_b",
+   "name": "Charles B. Pike",
+   "house": "house_2101_prairie",
+   "named": "house_2101_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Charles B. Pike: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_pike_eugene_r",
+   "name": "Eugene R. Pike",
+   "house": "house_2101_prairie",
+   "named": "house_2101_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Eugene R. Pike: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_pike_eugene_s",
+   "name": "Eugene S. Pike",
+   "house": "house_2101_prairie",
+   "named": "house_2101_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Eugene S. Pike: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_pike_mrs_eugene_r",
+   "name": "Mrs. Eugene R. Pike",
+   "house": "house_2101_prairie",
+   "named": "house_2101_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. Eugene R. Pike: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_pike_mrs_eugene_s",
+   "name": "Mrs. Eugene S. Pike",
+   "house": "house_2101_prairie",
+   "named": "house_2101_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. Eugene S. Pike: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_pike_william_wallace",
+   "name": "William Wallace Pike",
+   "house": "house_2101_prairie",
+   "named": "house_2101_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "William Wallace Pike: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_pike_eugene_s_c1900_mary_pitman",
+   "name": "Mary Pitman",
+   "house": "house_2101_prairie",
+   "named": "house_2101_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mary Pitman: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_buckingham_e_c1900_b_f_plummer",
+   "name": "B. F. Plummer",
+   "house": "buckingham_house_2036_prairie",
+   "named": "buckingham_house_2036_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "B. F. Plummer: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_walker_james_r_c1900_mary_poberty",
+   "name": "Mary Poberty",
+   "house": "house_1726_prairie",
+   "named": "house_1726_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mary Poberty: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_lowden_frank_orren_c1900_may_proot",
+   "name": "May Proot",
+   "house": "moulton_lowden_house_1912_prairie",
+   "named": "moulton_lowden_house_1912_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "May Proot: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_pullman_florence_at_1729",
+   "name": "Florence Pullman",
+   "house": "pullman_house_1729_prairie",
+   "named": "pullman_house_1729_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Florence Pullman: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_pullman_george_m_jr",
+   "name": "George M. Pullman jr.",
+   "house": "pullman_house_1729_prairie",
+   "named": "pullman_house_1729_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "George M. Pullman jr.: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_pullman_harriett",
+   "name": "Harriett Pullman",
+   "house": "pullman_house_1729_prairie",
+   "named": "pullman_house_1729_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Harriett Pullman: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_pullman_mrs_george_m",
+   "name": "Mrs. George M. Pullman",
+   "house": "pullman_house_1729_prairie",
+   "named": "pullman_house_1729_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. George M. Pullman: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_pullman_w_sanger",
+   "name": "W. Sanger Pullman",
+   "house": "pullman_house_1729_prairie",
+   "named": "pullman_house_1729_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "W. Sanger Pullman: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_clark_john_m_c1900_nellie_quinn",
+   "name": "Nellie Quinn",
+   "house": "house_2000_prairie",
+   "named": "house_2000_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Nellie Quinn: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_buckingham_e_c1900_bertha_rammer",
+   "name": "Bertha Rammer",
+   "house": "buckingham_house_2036_prairie",
+   "named": "buckingham_house_2036_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Bertha Rammer: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_buckingham_e_c1900_may_rammer",
+   "name": "May Rammer",
+   "house": "buckingham_house_2036_prairie",
+   "named": "buckingham_house_2036_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "May Rammer: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_spalding_jesse_c1900_mary_range",
+   "name": "Mary Range",
+   "house": "kellogg_house_1709_prairie",
+   "named": "kellogg_house_1709_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mary Range: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_keith_mrs_edson_c1900_paul_rasmussen",
+   "name": "Paul Rasmussen",
+   "house": "edson_keith_house_1906_prairie",
+   "named": "edson_keith_house_1906_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Paul Rasmussen: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_ream_mrs_norman_b",
+   "name": "Caroline Putnam Ream",
+   "house": "ream_house_1901_prairie",
+   "named": "ream_house_1901_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Caroline Putnam Ream: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_ream_norman_b_c1900_edward_k_ream",
+   "name": "Edward K. Ream",
+   "house": "ream_house_1901_prairie",
+   "named": "ream_house_1901_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Edward K. Ream: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_ream_norman_b_c1900_louis_m_ream",
+   "name": "Louis M. Ream",
+   "house": "ream_house_1901_prairie",
+   "named": "ream_house_1901_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Louis M. Ream: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_ream_norman_b",
+   "name": "Norman B. Ream",
+   "house": "ream_house_1901_prairie",
+   "named": "ream_house_1901_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Norman B. Ream: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_ream_daughters",
+   "name": "The Misses Ream",
+   "house": "ream_house_1901_prairie",
+   "named": "ream_house_1901_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "The Misses Ream: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_reid_mrs_william_h",
+   "name": "Mrs. William H. Reid",
+   "house": "reid_house_2013_prairie",
+   "named": "reid_house_2013_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. William H. Reid: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_reid_william_h",
+   "name": "William H. Reid",
+   "house": "reid_house_2013_prairie",
+   "named": "reid_house_2013_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "William H. Reid: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_glessner_john_j_c1900_mary_reynolds",
+   "name": "Mary Reynolds",
+   "house": "glessner_house",
+   "named": "glessner_house",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": true,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   }
+  },
+  {
+   "id": "pa1904_clark_john_m_c1900_berthe_riches",
+   "name": "Berthe Riches",
+   "house": "house_2000_prairie",
+   "named": "house_2000_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Berthe Riches: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_reid_william_h_c1900_jane_riley",
+   "name": "Jane Riley",
+   "house": "reid_house_2013_prairie",
+   "named": "reid_house_2013_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Jane Riley: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_walker_james_r_c1900_francis_rinand",
+   "name": "Francis Rinand",
+   "house": "house_1726_prairie",
+   "named": "house_1726_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Francis Rinand: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_robbins_edward_f",
+   "name": "Edward F. Robbins",
+   "house": "robbins_house_2126_prairie",
+   "named": "robbins_house_2126_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Edward F. Robbins: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_robbins_mrs_edward_f",
+   "name": "Mrs. Edward F. Robbins",
+   "house": "robbins_house_2126_prairie",
+   "named": "robbins_house_2126_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. Edward F. Robbins: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_walker_james_r_c1900_james_robertson",
+   "name": "James Robertson",
+   "house": "house_1726_prairie",
+   "named": "house_1726_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "James Robertson: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_robinson_miss_r_s",
+   "name": "Miss R. S. Robinson",
+   "house": "pullman_house_1729_prairie",
+   "named": "pullman_house_1729_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Miss R. S. Robinson: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_stettauer_mrs_d_c1900_charles_rolde",
+   "name": "Charles Rolde",
+   "house": "house_2026_prairie",
+   "named": "house_2026_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Charles Rolde: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_roloson_robert_w_c1900_robert_roloson",
+   "name": "Robert Roloson",
+   "house": "roloson_house_2109_prairie",
+   "named": "roloson_house_2109_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Robert Roloson: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_roloson_robert_w",
+   "name": "Robert W. Roloson",
+   "house": "roloson_house_2109_prairie",
+   "named": "roloson_house_2109_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Robert W. Roloson: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_armour_mrs_philip_d_c1900_maggie_ronan",
+   "name": "Maggie Ronan",
+   "house": "armour_house_2115_prairie",
+   "named": "armour_house_2115_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Maggie Ronan: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_rothschild_mrs_m_m_c1900_emma_rothschild",
+   "name": "Emma Rothschild",
+   "house": "rothschild_house_2112_prairie",
+   "named": "rothschild_house_2112_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Emma Rothschild: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_rothschild_mrs_m_m_c1900_gertrude_rothschild",
+   "name": "Gertrude Rothschild",
+   "house": "rothschild_house_2112_prairie",
+   "named": "rothschild_house_2112_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Gertrude Rothschild: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_rothschild_jesse",
+   "name": "Jesse Rothschild",
+   "house": "rothschild_house_2112_prairie",
+   "named": "rothschild_house_2112_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Jesse Rothschild: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_rothschild_mamie_f",
+   "name": "Mamie F. Rothschild",
+   "house": "rothschild_house_2112_prairie",
+   "named": "rothschild_house_2112_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mamie F. Rothschild: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_rothschild_daughter",
+   "name": "Miss Rothschild",
+   "house": "rothschild_house_2112_prairie",
+   "named": "rothschild_house_2112_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Miss Rothschild: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_rothschild_monroe_r",
+   "name": "Monroe R. Rothschild",
+   "house": "rothschild_house_2112_prairie",
+   "named": "rothschild_house_2112_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Monroe R. Rothschild: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_rothschild_mrs_m_m",
+   "name": "Mrs. M. M. Rothschild",
+   "house": "rothschild_house_2112_prairie",
+   "named": "rothschild_house_2112_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. M. M. Rothschild: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_grey_w_l_c1900_margaret_rourke",
+   "name": "Margaret Rourke",
+   "house": "house_2010_prairie",
+   "named": "house_2010_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Margaret Rourke: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_reid_william_h_c1900_martha_rourke",
+   "name": "Martha Rourke",
+   "house": "reid_house_2013_prairie",
+   "named": "reid_house_2013_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Martha Rourke: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_glessner_john_j_c1900_kate_ryan",
+   "name": "Kate Ryan",
+   "house": "glessner_house",
+   "named": "glessner_house",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": true,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   }
+  },
+  {
+   "id": "pa1904_armour_mrs_philip_d_c1900_lizzie_ryan",
+   "name": "Lizzie Ryan",
+   "house": "armour_house_2115_prairie",
+   "named": "armour_house_2115_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Lizzie Ryan: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_lowden_frank_orren_c1900_nora_ryan",
+   "name": "Nora Ryan",
+   "house": "moulton_lowden_house_1912_prairie",
+   "named": "moulton_lowden_house_1912_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Nora Ryan: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_otis_mrs_joseph_e_c1900_amelia_sanz",
+   "name": "Amelia Sanz",
+   "house": "house_1730_prairie",
+   "named": "house_1730_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Amelia Sanz: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_pullman_mrs_george_m_c1900_emma_scott",
+   "name": "Emma Scott",
+   "house": "pullman_house_1729_prairie",
+   "named": "pullman_house_1729_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Emma Scott: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_einstein_jennie_shafner",
+   "name": "Jennie E. Shafner",
+   "house": "house_1628_prairie",
+   "named": "house_1628_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Jennie E. Shafner: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_shipman_daniel_b",
+   "name": "Daniel B. Shipman",
+   "house": "house_1828_prairie",
+   "named": "house_1828_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Daniel B. Shipman: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_shortall_john_l_c1900_catherine_shortall",
+   "name": "Catherine Shortall",
+   "house": "house_1604_prairie",
+   "named": "house_1604_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Catherine Shortall: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_shortall_john_l_c1900_harrington_shortall",
+   "name": "Harrington Shortall",
+   "house": "house_1604_prairie",
+   "named": "house_1604_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Harrington Shortall: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_shortall_john_l_c1900_helen_shortall",
+   "name": "Helen Shortall",
+   "house": "house_1604_prairie",
+   "named": "house_1604_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Helen Shortall: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_shortall_john_g",
+   "name": "John G. Shortall",
+   "house": "house_1600_prairie",
+   "named": "house_1600_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "John G. Shortall: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_shortall_john_g_son_john_l",
+   "name": "John L. Shortall",
+   "house": "house_1600_prairie",
+   "named": "house_1600_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "John L. Shortall: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_shortall_john_l",
+   "name": "John L. Shortall",
+   "house": "house_1604_prairie",
+   "named": "house_1604_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "John L. Shortall: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_shortall_john_l_c1900_margaret_shortall",
+   "name": "Margaret Shortall",
+   "house": "house_1604_prairie",
+   "named": "house_1604_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Margaret Shortall: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_shortall_mrs_john_l",
+   "name": "Mrs. John L. Shortall",
+   "house": "house_1604_prairie",
+   "named": "house_1604_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. John L. Shortall: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_kimball_william_w_c1900_ernest_sibbald",
+   "name": "Ernest Sibbald",
+   "house": "kimball_house_1801_prairie",
+   "named": "kimball_house_1801_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Ernest Sibbald: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_roloson_robert_w_c1900_annie_smith",
+   "name": "Annie Smith",
+   "house": "roloson_house_2109_prairie",
+   "named": "roloson_house_2109_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Annie Smith: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_smith_bruce_d",
+   "name": "Bruce D. Smith",
+   "house": "tucker_smith_house_2140_prairie",
+   "named": "tucker_smith_house_2140_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Bruce D. Smith: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_smith_byron_l",
+   "name": "Byron L. Smith",
+   "house": "tucker_smith_house_2140_prairie",
+   "named": "tucker_smith_house_2140_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Byron L. Smith: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_smith_harold_c",
+   "name": "Harold C. Smith",
+   "house": "tucker_smith_house_2140_prairie",
+   "named": "tucker_smith_house_2140_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Harold C. Smith: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_jones_fernando_c1900_jennie_smith",
+   "name": "Jennie Smith",
+   "house": "jones_house_1834_prairie",
+   "named": "jones_house_1834_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Jennie Smith: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_bellas_t_h_c1900_margaret_m_smith",
+   "name": "Margaret M. Smith",
+   "house": "house_1634_prairie",
+   "named": "house_1634_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Margaret M. Smith: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_smith_mrs_byron_l",
+   "name": "Mrs. Byron L. Smith",
+   "house": "tucker_smith_house_2140_prairie",
+   "named": "tucker_smith_house_2140_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. Byron L. Smith: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_smith_walter_b",
+   "name": "Walter B. Smith",
+   "house": "tucker_smith_house_2140_prairie",
+   "named": "tucker_smith_house_2140_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Walter B. Smith: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_spalding_jesse",
+   "name": "Jesse Spalding",
+   "house": "kellogg_house_1709_prairie",
+   "named": "kellogg_house_1709_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Jesse Spalding: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_spalding_mrs_jesse",
+   "name": "Mrs. Jesse Spalding",
+   "house": "kellogg_house_1709_prairie",
+   "named": "kellogg_house_1709_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. Jesse Spalding: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_stirling_william_r_c1900_alice_m_sterling",
+   "name": "Alice M. Sterling",
+   "house": "house_1616_prairie",
+   "named": "house_1616_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Alice M. Sterling: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_stirling_william_r_c1900_dorothy_sterling",
+   "name": "Dorothy Sterling",
+   "house": "house_1616_prairie",
+   "named": "house_1616_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Dorothy Sterling: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_stirling_william_r_c1900_jean_w_sterling",
+   "name": "Jean W. Sterling",
+   "house": "house_1616_prairie",
+   "named": "house_1616_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Jean W. Sterling: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_stettauer_charles_s",
+   "name": "Charles S. Stettauer",
+   "house": "house_2026_prairie",
+   "named": "house_2026_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Charles S. Stettauer: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_stettauer_james",
+   "name": "James Stettauer",
+   "house": "house_2026_prairie",
+   "named": "house_2026_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "James Stettauer: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_stettauer_daughter",
+   "name": "Miss Stettauer",
+   "house": "house_2026_prairie",
+   "named": "house_2026_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Miss Stettauer: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_stettauer_mrs_d",
+   "name": "Mrs. D. Stettauer",
+   "house": "house_2026_prairie",
+   "named": "house_2026_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. D. Stettauer: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_stirling_mrs_william_r",
+   "name": "Mrs. William R. Stirling",
+   "house": "house_1616_prairie",
+   "named": "house_1616_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. William R. Stirling: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_stirling_william_r",
+   "name": "William R. Stirling",
+   "house": "house_1616_prairie",
+   "named": "house_1616_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "William R. Stirling: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_stone_mrs_h_o",
+   "name": "Mrs. H. O. Stone",
+   "house": "stone_house_2035_prairie",
+   "named": "stone_house_2035_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. H. O. Stone: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_cunningham_secor_c1900_fred_stump",
+   "name": "Fred Stump",
+   "house": "marsh_house_1824_prairie",
+   "named": "marsh_house_1824_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Fred Stump: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_cunningham_secor_c1900_hulda_swanson",
+   "name": "Hulda Swanson",
+   "house": "marsh_house_1824_prairie",
+   "named": "marsh_house_1824_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Hulda Swanson: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_rothschild_mrs_m_m_c1900_may_swanson",
+   "name": "May Swanson",
+   "house": "rothschild_house_2112_prairie",
+   "named": "rothschild_house_2112_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "May Swanson: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_tolman_samuel_a_c1900_wm_taylor",
+   "name": "Wm. Taylor",
+   "house": "tolman_house_2031_prairie",
+   "named": "tolman_house_2031_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Wm. Taylor: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_tolman_mrs_samuel_a",
+   "name": "Mrs. Samuel A. Tolman",
+   "house": "tolman_house_2031_prairie",
+   "named": "tolman_house_2031_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. Samuel A. Tolman: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_tolman_samuel_a",
+   "name": "Samuel A. Tolman",
+   "house": "tolman_house_2031_prairie",
+   "named": "tolman_house_2031_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Samuel A. Tolman: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_buckingham_e_c1900_lizzie_valentine",
+   "name": "Lizzie Valentine",
+   "house": "buckingham_house_2036_prairie",
+   "named": "buckingham_house_2036_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Lizzie Valentine: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_meyer_mrs_m_a_c1900_frances_wachtel",
+   "name": "Frances Wachtel",
+   "house": "mayer_house_2009_prairie",
+   "named": "mayer_house_2009_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Frances Wachtel: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_hamline_john_h_c1900_kate_wagener",
+   "name": "Kate Wagener",
+   "house": "house_1621_prairie",
+   "named": "house_1621_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Kate Wagener: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_keith_elbridge_g_c1900_kate_wagner",
+   "name": "Kate Wagner",
+   "house": "elbridge_keith_house_1900_prairie",
+   "named": "elbridge_keith_house_1900_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Kate Wagner: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_keith_elbridge_g_c1900_susie_wagner",
+   "name": "Susie Wagner",
+   "house": "elbridge_keith_house_1900_prairie",
+   "named": "elbridge_keith_house_1900_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Susie Wagner: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_pike_eugene_s_c1900_kate_waldron",
+   "name": "Kate Waldron",
+   "house": "house_2101_prairie",
+   "named": "house_2101_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Kate Waldron: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_walker_james_r_c1900_arthur_m_walker",
+   "name": "Arthur M. Walker",
+   "house": "house_1726_prairie",
+   "named": "house_1726_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Arthur M. Walker: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_walker_james_r_c1900_dexter_walker",
+   "name": "Dexter Walker",
+   "house": "house_1726_prairie",
+   "named": "house_1726_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Dexter Walker: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_ream_norman_b_c1900_harry_walker",
+   "name": "Harry Walker",
+   "house": "ream_house_1901_prairie",
+   "named": "ream_house_1901_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Harry Walker: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_walker_henry_h",
+   "name": "Henry H. Walker",
+   "house": "dexter_house_1721_prairie",
+   "named": "dexter_house_1721_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Henry H. Walker: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_walker_henry_h_at_1720",
+   "name": "Henry H. Walker",
+   "house": "walker_house_1720_prairie",
+   "named": "walker_house_1720_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Henry H. Walker: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_walker_james_r_c1900_james_m_walker",
+   "name": "James M. Walker",
+   "house": "house_1726_prairie",
+   "named": "house_1726_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "James M. Walker: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_walker_james_r",
+   "name": "James R. Walker",
+   "house": "house_1726_prairie",
+   "named": "house_1726_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "James R. Walker: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_lowden_frank_orren_c1900_jennie_walker",
+   "name": "Jennie Walker",
+   "house": "moulton_lowden_house_1912_prairie",
+   "named": "moulton_lowden_house_1912_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Jennie Walker: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_walker_mrs_henry_h",
+   "name": "Mrs. Henry H. Walker",
+   "house": "dexter_house_1721_prairie",
+   "named": "dexter_house_1721_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. Henry H. Walker: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_walker_mrs_james_m",
+   "name": "Mrs. James M. Walker",
+   "house": "walker_house_1720_prairie",
+   "named": "walker_house_1720_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. James M. Walker: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_walker_mrs_james_r",
+   "name": "Mrs. James R. Walker",
+   "house": "house_1726_prairie",
+   "named": "house_1726_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. James R. Walker: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_walker_wirt_d",
+   "name": "Wirt D. Walker",
+   "house": "walker_house_1720_prairie",
+   "named": "walker_house_1720_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Wirt D. Walker: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_stone_mrs_h_o_c1900_mary_ward",
+   "name": "Mary Ward",
+   "house": "stone_house_2035_prairie",
+   "named": "stone_house_2035_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mary Ward: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_ward_mrs_o_van_schaack",
+   "name": "Mrs. O. Van Schaack Ward",
+   "house": "hibbard_house_1701_prairie",
+   "named": "hibbard_house_1701_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. O. Van Schaack Ward: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_young_lawrence_a_c1900_william_wellington",
+   "name": "William Wellington",
+   "house": "wheeler_house_1812_prairie",
+   "named": "wheeler_house_1812_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "William Wellington: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_corwith_mrs_henry_c1900_lottie_wenzel",
+   "name": "Lottie Wenzel",
+   "house": "armour_corwith_house_1945_prairie",
+   "named": "armour_corwith_house_1945_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Lottie Wenzel: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_pullman_mrs_george_m_c1900_samuel_whatter_jr",
+   "name": "Samuel Whatter Jr.",
+   "house": "pullman_house_1729_prairie",
+   "named": "pullman_house_1729_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Samuel Whatter Jr.: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_reid_william_h_c1900_roy_williams",
+   "name": "Roy Williams",
+   "house": "reid_house_2013_prairie",
+   "named": "reid_house_2013_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Roy Williams: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "glessner_williamson_martha_l",
+   "name": "Martha L. (Mattie) Williamson",
+   "house": "glessner_house",
+   "named": "glessner_house",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": true,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   }
+  },
+  {
+   "id": "pa1904_spalding_jesse_c1900_peter_wilson",
+   "name": "Peter Wilson",
+   "house": "kellogg_house_1709_prairie",
+   "named": "kellogg_house_1709_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Peter Wilson: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_pullman_mrs_george_m_c1900_henry_windish",
+   "name": "Henry Windish",
+   "house": "pullman_house_1729_prairie",
+   "named": "pullman_house_1729_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Henry Windish: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_wood_casey_a",
+   "name": "Casey A. Wood",
+   "house": "house_2005_prairie",
+   "named": "house_2005_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Casey A. Wood: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_wood_mrs_casey_a",
+   "name": "Mrs. Casey A. Wood",
+   "house": "house_2005_prairie",
+   "named": "house_2005_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. Casey A. Wood: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_young_lawrence_a_c1900_alice_young",
+   "name": "Alice Young",
+   "house": "wheeler_house_1812_prairie",
+   "named": "wheeler_house_1812_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Alice Young: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_young_lawrence_a_c1900_henry_w_young",
+   "name": "Henry W. Young",
+   "house": "wheeler_house_1812_prairie",
+   "named": "wheeler_house_1812_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Henry W. Young: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_young_lawrence_a",
+   "name": "Lawrence A. Young",
+   "house": "wheeler_house_1812_prairie",
+   "named": "wheeler_house_1812_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Lawrence A. Young: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_young_lawrence_r",
+   "name": "Lawrence R. Young",
+   "house": "wheeler_house_1812_prairie",
+   "named": "wheeler_house_1812_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Lawrence R. Young: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_young_mrs_lawrence_a",
+   "name": "Mrs. Lawrence A. Young",
+   "house": "wheeler_house_1812_prairie",
+   "named": "wheeler_house_1812_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Mrs. Lawrence A. Young: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_mcbirney_hugh_c1900_terry_young",
+   "name": "Terry Young",
+   "house": "house_1736_prairie",
+   "named": "house_1736_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Terry Young: indoors now"
+    ]
+   }
+  },
+  {
+   "id": "pa1904_kimball_william_w_c1900_lillie_zillieber",
+   "name": "Lillie Zillieber",
+   "house": "kimball_house_1801_prairie",
+   "named": "kimball_house_1801_prairie",
+   "go": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": []
+   },
+   "placed": false,
+   "find": {
+    "ok": true,
+    "value": "true",
+    "rides": [
+     true
+    ],
+    "said": [
+     "Lillie Zillieber: indoors now"
+    ]
+   }
+  }
+ ],
+ "errors": [],
+ "summary": {
+  "people": 440,
+  "placed": 9,
+  "goFails": 0,
+  "findFails": 0,
+  "noHouse": 0
+ }
+}

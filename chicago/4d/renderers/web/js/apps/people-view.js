@@ -343,9 +343,9 @@ async function drawPerson(st, id) {
   const h = householdOf(st.model, id);
   const placed = (pid) => typeof a.inTown === 'function' && !!a.inTown(pid);
   const render = (m) => {
-    // Find goes to someone placed in town, else to the house they are in (T-3521: the owner,
-    // 2026-11-08, "a lot of people you cant click find this person and go to them").
-    const card = renderPersonCard(doc, m, { dot, onFind: placed(id) || row.lives_at || row.works_at ? a.findPerson ?? null : null,
+    // Find and Follow are live for someone placed in town now, greyed with the reason for
+    // anyone else (T-3531); Go to house is the way to where they live.
+    const card = renderPersonCard(doc, m, { dot, onFind: a.findPerson ?? null,
       onFollow: a.followPerson ?? null, inTown: a.inTown ?? null });
     const b = card.querySelector('[data-person-back]');
     if (b) b.replaceWith(backButton(doc, backLabel(st)));

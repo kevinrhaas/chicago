@@ -290,8 +290,19 @@ export function personModel({ row, person = null, household = null, citations = 
     nameBasis,
     portrait,
     away: lived?.on_scene_date === 'no',
+    // T-3531: whether the record has them in town on the scene's day at all ('absent' for
+    // Sauganash, who came to Chicago on 16 August 1812), and the day they came if it says.
+    present: row?.present ?? null,
+    came: String(row?.household_name ?? household?.name ?? '').match(/\bwho came to Chicago on (\d{1,2} [A-Z][a-z]+ \d{4})/)?.[1] ?? null,
     read: !!person,
   };
+}
+
+/** T-3531: why Find and Follow are greyed on this card: said from the record, never a guess. */
+export function notFoundWhy(m) {
+  if (m.present === 'absent') return m.came ? `Not in town today: came to Chicago on ${m.came}` : 'Not in town today';
+  if (m.present === 'uncertain') return 'Not in town now: where they were that day is not known';
+  return 'Not out in town at this hour or season';
 }
 
 /**
@@ -418,17 +429,31 @@ export function renderPersonCard(doc, m, { dot = () => doc.createTextNode(''), o
   head.append(chips);
   if (m.household) head.append(el(doc, 'p', 'insp-address insp-person-hh', m.household));
   card.append(head);
-  if (typeof onFind === 'function' && !m.away) {   // T-3382: nobody to find who was not here
-    const find = el(doc, 'button', 'nav-tile insp-person-find', 'Find this person');
-    find.type = 'button'; find.dataset.personFind = m.id;
-    find.addEventListener('click', () => onFind(m.id)); card.append(find);
-  }
-  // T-3404: someone placed in town now (Hans Johnson on his round) can be walked alongside.
-  if (typeof onFollow === 'function' && !m.away && typeof inTown === 'function' && inTown(m.id)) {
-    const follow = el(doc, 'button', 'nav-tile insp-person-follow', 'Follow');
-    follow.type = 'button'; follow.dataset.personFollow = m.id;
-    // Its own: Inspect's pane carries data-person, and a click let up to it reopens the card.
-    follow.addEventListener('click', (e) => { e?.stopPropagation?.(); onFollow(m.id); }); card.append(follow);
+  // T-3531 (the owner, 2026-11-09: "if somebody is looked for and you try to find them and
+  // they cant be found because they are not in the area you should not be able to select the
+  // find this person or follow and where those buttons are you should know they cant be found
+  // or followed"): Find and Follow are live only for someone placed in town now. Anyone else
+  // keeps both keys, greyed, with the reason under them.
+  const canFind = typeof onFind === 'function', canFollow = typeof onFollow === 'function';
+  if ((canFind || canFollow) && !m.away) {
+    const here = typeof inTown === 'function' ? !!inTown(m.id) : canFind;
+    if (canFind) {
+      const find = el(doc, 'button', 'nav-tile insp-person-find', 'Find this person');
+      find.type = 'button'; find.dataset.personFind = m.id;
+      if (here) find.addEventListener('click', () => onFind(m.id));
+      else { find.disabled = true; find.setAttribute?.('aria-disabled', 'true'); }
+      card.append(find);
+    }
+    // T-3404: someone placed in town now (Hans Johnson on his round) can be walked alongside.
+    if (canFollow && typeof inTown === 'function') {
+      const follow = el(doc, 'button', 'nav-tile insp-person-follow', 'Follow');
+      follow.type = 'button'; follow.dataset.personFollow = m.id;
+      // Its own: Inspect's pane carries data-person, and a click let up to it reopens the card.
+      if (here) follow.addEventListener('click', (e) => { e?.stopPropagation?.(); onFollow(m.id); });
+      else { follow.disabled = true; follow.setAttribute?.('aria-disabled', 'true'); }
+      card.append(follow);
+    }
+    if (!here) card.append(el(doc, 'p', 'nav-k insp-person-unfound', notFoundWhy(m)));
   }
   if (m.ownCard) {
     // T-3382: a grown child with a house of their own in the scene year has a card there too.
