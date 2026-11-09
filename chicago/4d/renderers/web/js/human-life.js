@@ -312,8 +312,11 @@ export function createHumanLife({ id = 'human', scene = null } = {}) {
       // free side (weight right: right hip up, a negative roll). The legs are children of
       // the pelvis, so each thigh takes the roll back out and leans to keep its foot where
       // it was, and the pelvis drops by what the loaded hip rose: that leg stays planted.
-      const tip = -side * 3 * DEG;
-      const shift = side * 0.03, lean = Math.asin(clamp(shift / legLen, -0.2, 0.2));
+      // T-3520: a small child's hips are wide for its short legs; a grown-up's 3 degree tip
+      // and 3 cm shift folded a toddler's free knee past 30 degrees, which read as kneeling.
+      const small = clamp(legLen / 0.8, 0.4, 1);
+      const tip = -side * 3 * small * DEG;
+      const shift = side * 0.03 * small, lean = Math.asin(clamp(shift / legLen, -0.2, 0.2));
       turn('pelvis', wYaw, 0, tip);
       if (bones.thigh_l && bones.thigh_r) {
         const p = bones.pelvis.position, rise = hipHalf * Math.abs(Math.sin(tip)) + legLen * (1 - Math.cos(lean));

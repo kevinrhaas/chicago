@@ -27,9 +27,11 @@ const lidSource = skin.match(/export const AGE = [^;]+;/)[0] + '\n' + skin.match
 const restingLid = new Function(`${lidSource.replace(/^export /gm, '')}\nreturn restingLid;`)();
 const stubGait = () => ({ bound: true, bind() { return true; }, apply() {}, speed: 1.3, pace: 1 });
 const stubSkirt = () => null;
-const HumanActor = new Function('THREE', 'createHumanLife', 'createHumanActions', 'createHumanGait', 'createHumanSkirt', 'enuToWorld', 'restingLid',
+// T-3523: a soldier's musket hand (human-garrison.js); these figures carry nothing.
+const stubGarrisonCarry = () => null;
+const HumanActor = new Function('THREE', 'createHumanLife', 'createHumanActions', 'createHumanGait', 'createHumanSkirt', 'enuToWorld', 'restingLid', 'garrisonCarry',
   `${constants}\n${actorSource}\nreturn HumanActor;`)(THREE, stubLife, stubActions, stubGait, stubSkirt,
-  (e, n, h, out) => out.set(e, h, -n), restingLid);
+  (e, n, h, out) => out.set(e, h, -n), restingLid, stubGarrisonCarry);
 
 // The asset store, counting what is parsed and let go.
 const acquired = [], released = [];

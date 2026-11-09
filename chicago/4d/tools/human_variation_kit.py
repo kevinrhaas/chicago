@@ -317,7 +317,7 @@ def persons():
         dress = dresses().get(pid)
         if dress:
             # T-3506: their own cloth colours and pieces worn, and their hair's tie and colour.
-            rec['dress'] = {k: dress[k] for k in ('colours', 'hide', 'pieces', 'hat', 'worn') if dress.get(k)}
+            rec['dress'] = {k: dress[k] for k in ('colours', 'hide', 'pieces', 'hat', 'worn', 'garrison') if dress.get(k)}
             rec['dress']['grade'] = 'reconstructed'
             # T-3522: a townsperson's handkerchief round the head is their dress's, not their hair's.
             if isinstance(dress.get('headcloth'), list):

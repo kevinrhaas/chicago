@@ -659,7 +659,7 @@ step "Every 1812 settler, trader, engagé and townswoman is dressed as their own
   python3 docs/RESEARCH/town-dress-1812-3522/dress.py --check
 step "No two 1812 townspeople dressed alike; each hat made for its wearer's head, above the brow, rigid on the head bone, its crown and brim the wearer's own; on their card (T-3522)" \
   node tools/test_human_town_dress.mjs
-step "People on foot walk heel to toe at a real pace and stride, the stance foot planted, the pelvis turning and rising over it, deterministic across LOD swaps; a child at a child's pace and stride, never on its knees (T-3472, T-3520)" \
+step "People on foot walk heel to toe at a real pace and stride, the stance foot planted, the pelvis turning and rising over it, deterministic across LOD swaps; a child at a child's pace and stride, never on its knees, even nudged aside (T-3472, T-3520, T-3529)" \
   node tools/test_human_gait.mjs
 step "A woman's skirt swings off her legs as she walks and never parts between them, the rest pose exact (T-3472)" \
   node tools/test_human_skirt.mjs
@@ -667,6 +667,8 @@ step "Each man of the 1812 garrison has his own complexion, hair, eyes and heigh
   node tools/test_human_looks.mjs
 step "The 1812 garrison's looks files are what looks.py writes (T-3491)" \
   python3 docs/RESEARCH/people-1812-3491/looks.py --check
+step "The 1812 garrison is dressed by rank and duty: NCOs' epaulettes on the shoulder, musicians' coats, drum and fife case, officers' sashes, men at work in fatigue clothes, sentries' muskets in the hand and the cornfield party's arms piled (T-3523)" \
+  node tools/test_human_garrison.mjs
 step "The driven team's generated walk and its hoof-support domain reproduce byte for byte, hooves planted without slide (T-2803)" \
   node tools/horse_walk_v2.mjs --check
 step "A driver's plain garments read as cloth: weave, heather and sheen by shader patch, no texture, one program (T-2804)" \
