@@ -210,8 +210,13 @@ def build(params: FrameTavernParams, name: str):
         inset = 0.6
         spots = ([(inset, d / 2), (w - inset, d / 2)] if w >= d
                  else [(w / 2, inset), (w / 2, d - inset)])
+        half = 0.45
+        if params.ridge_end_chimney_section_m is not None:
+            half = params.ridge_end_chimney_section_m / 2
+            c_ch = params.worst_conf(*ch_attrs, "chimney_placement",
+                                     "ridge_end_chimney_section_m")
         for cx, cy in spots:
-            b.add_box(cx - 0.45, cy - 0.45, wall_z, cx + 0.45, cy + 0.45,
+            b.add_box(cx - half, cy - half, wall_z, cx + half, cy + half,
                       ridge_z + 0.55, c_ch, m_ch, skip=("bottom",))
     else:
         c_ch = params.worst_conf(*ch_attrs) if len(ch_attrs) > 1 else params.conf("chimneys")
@@ -918,7 +923,15 @@ def _cross_wing(b: MeshBuilder, params: FrameTavernParams, w: float, d: float,
 
     # its own gable, ridge along the deep axis. The span is d, so this returns the
     # main block's own ridge height and the two meet at the apex the plate draws.
-    ridge_z = b.add_gable_roof(x0, -p, x1, 0, wall_z, params.roof_pitch_deg,
+    roof_end = 0.0
+    if params.cross_wing_shared_ridge_join:
+        # add_gable_roof pads the longitudinal end by ROOF_OVERHANG.
+        # End its actual crest at the main roof's centre, not 0.25 m beyond it.
+        # Walls and the unmeasured outer wing length stay exactly as selected.
+        roof_end = d / 2 - ROOF_OVERHANG
+        c_roof = params.worst_conf("cross_wing", "roof_type", "roof_pitch_deg",
+                                   "cross_wing_shared_ridge_join")
+    ridge_z = b.add_gable_roof(x0, -p, x1, roof_end, wall_z, params.roof_pitch_deg,
                                c_roof, M_ROOF, ridge_along_x=False)
     if abs(ridge_z - main_ridge_z) > 0.01:
         raise ValueError(
