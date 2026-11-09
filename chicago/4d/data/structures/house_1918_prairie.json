@@ -276,14 +276,15 @@
        "coping_m": 0.1,
        "thickness_m": 0.12,
        "roundel_m": 0.36,
-       "pitch_m": 0.5
+       "pitch_m": 0.5,
+       "from_u_m": 8.3
       }
      },
      "confidence": "inferred",
      "sources": [
       "chicagology_1936_prairie_exterior_photo"
      ],
-     "note": "The hip cut off at a deck with a rail round it, in the photograph (y 260-300 px over the south-east corner, about 2.5 m over the cornice's top through the camera); K01's hip deck with 1906's pierced rail. Raised with the main cornice by T-3330, 15.0 to 16.22 m. T-3370 reads it on the photograph's re-solved camera (data/reference_views/house_1918_prairie/chicagology_photo.json): the rail's top over the deck's south-east corner (x 1345, y 257 px) stands at about 17.0 m, where the build's (16.22 m deck, 0.8 m rail) stands, so its height is kept; its corner reads about 0.5-1 m west and south of the build's."
+     "note": "The hip cut off at a deck with a rail round it, in the photograph (y 260-300 px over the south-east corner, about 2.5 m over the cornice's top through the camera); K01's hip deck with 1906's pierced rail. Raised with the main cornice by T-3330, 15.0 to 16.22 m. T-3370 reads it on the photograph's re-solved camera (data/reference_views/house_1918_prairie/chicagology_photo.json): the rail's top over the deck's south-east corner (x 1345, y 257 px) stands at about 17.0 m, where the build's (16.22 m deck, 0.8 m rail) stands, so its height is kept; its corner reads about 0.5-1 m west and south of the build's. T-3370 (fourth pass): the photograph's rail runs from the deck's south-east corner (x 1345, y 257 px) west along the south side and passes behind the right stack (x 1228-1285), and does not come out west of it: there (x 1150-1225) the hip's pale slope rises to the stack with no rail on it. So the rail ends at u 8.3 (rail.from_u_m), where the south rail's line passes behind the stack through the camera (x 1255 px), closed by a cross-run that the camera puts behind the south rail's own panel; west of it the deck's edge is a curb, the rail's plinth. Where the deck itself ends west of the rail the photograph cannot say (it sees no deck surface from the street), so the hip's level cut is kept; liberty L-k01-1936-allerton-stage-3370."
     },
     "window_kit": {
      "value": {
@@ -424,8 +425,22 @@
         "panelled": false
        },
        {
-        "u_m": 11.7,
-        "v_m": 0.9
+        "u_m": 12.3,
+        "v_m": 0.9,
+        "panel_under_head_m": 0.38,
+        "stage": {
+         "height_m": 0.58,
+         "inset_m": 0.05,
+         "cap": {
+          "thickness_m": 0.34,
+          "projection_m": 0.1
+         },
+         "vent": {
+          "width_m": 0.36,
+          "height_m": 0.36,
+          "depth_m": 0.15
+         }
+        }
        },
        {
         "u_m": 9.0,
@@ -471,7 +486,7 @@
      "sources": [
       "chicagology_1936_prairie_exterior_photo"
      ],
-     "note": "Tall corniced stacks over the roof in the photograph: one over the south flank's rear part (x 905-995 px) and one over its front part (x 1215-1290 px); the third, on the north side, is reconstructed. T-3370 places the two south stacks on the photograph's re-solved camera (data/reference_views/house_1918_prairie/chicagology_photo.json): held on the line v 0.9 the photograph's left stack (x 905-995 px) stands at u 1.7, over the flank's west end, not u 6.0 (about 125 px east of it in the photograph), and the right one (x 1215-1300 px) at u 11.7 (from 12.5; the final fit reads it at 12.3, the two fits' spread). Their tops read about 17.4 and 18.2 m on that line, the build's within about 0.9 m and 0.1 m; the stack right of the tower in the photograph (x 1820-1860 px) stands, through that camera, in front of the house's line, so it is the neighbour's, not this house's north stack. T-3370 (second pass) reads the two stacks' heights and heads through the same camera, at about 39 px a metre on the left one and 42 on the right: the left one's top stands at y 270 px, 17.33 m (built 18.22, so about 35 px high), so it stands at its own 17.35 m (a hip's stack read off a picture may, as a mansard's does, clearing the hip's covering under it by 0.6 m); the right one's top at y 185 px, 18.26 m, the build's 18.22. Each carries a heavy moulded head over a stone band: the left one's head y 270-305 px (16.43-17.33 m, about 0.9 m) standing about 12 px (0.3 m) out each side of its 65 px shaft, its band at y 318 (16.09 m, 1.7 m over the roof under it); the right one's band at y 267 (16.29 m), under it a sunk panel to y 303 (15.43 m) on its east face. So the three are dressed from the K15 kit's panelled form (chimneys.k15, k15.stack.sherman, without its corbel blocks, which the print does not resolve): its two stone bands 0.55 and 1.75 m over the roof under each stack, a sunk panel 0.45 m wide on the street and rear faces from 1.0 m over that roof to 1.08 m under the head (the right one's 15.37-16.29 m, the photograph's 15.43-16.29), the left one plain (its shaft under the head is too short for one and the print shows none), and a head of three corbelled courses (0.15, 0.15 and 0.2 m, out 0.06, 0.13 and 0.2 m) under a stone cap 0.35 m thick and 0.28 m out, 0.85 m in all, for the print's 0.9 m and 0.3 m. Courses and cap are read at the print's scale, not measured, so reconstructed (liberty L-k01-1936-allerton-1901). Still open: the right one's head is two-staged in the print, a broad moulded cap at 16.75-17.3 m with a narrower stage on it to the top at 18.26 m, where the build's one 0.85 m head stands at its top; and the left one's shaft reads about 65 px across where the build's 1.1 by 0.8 m stack spans 52 px, about 0.25 m broader, within the print's blur."
+     "note": "Tall corniced stacks over the roof in the photograph: one over the south flank's rear part (x 905-995 px) and one over its front part (x 1215-1290 px); the third, on the north side, is reconstructed. T-3370 places the two south stacks on the photograph's re-solved camera (data/reference_views/house_1918_prairie/chicagology_photo.json): held on the line v 0.9 the photograph's left stack (x 905-995 px) stands at u 1.7, over the flank's west end, not u 6.0 (about 125 px east of it in the photograph), and the right one (x 1215-1300 px) at u 11.7 (from 12.5; the final fit reads it at 12.3, the two fits' spread). Their tops read about 17.4 and 18.2 m on that line, the build's within about 0.9 m and 0.1 m; the stack right of the tower in the photograph (x 1820-1860 px) stands, through that camera, in front of the house's line, so it is the neighbour's, not this house's north stack. T-3370 (second pass) reads the two stacks' heights and heads through the same camera, at about 39 px a metre on the left one and 42 on the right: the left one's top stands at y 270 px, 17.33 m (built 18.22, so about 35 px high), so it stands at its own 17.35 m (a hip's stack read off a picture may, as a mansard's does, clearing the hip's covering under it by 0.6 m); the right one's top at y 185 px, 18.26 m, the build's 18.22. Each carries a heavy moulded head over a stone band: the left one's head y 270-305 px (16.43-17.33 m, about 0.9 m) standing about 12 px (0.3 m) out each side of its 65 px shaft, its band at y 318 (16.09 m, 1.7 m over the roof under it); the right one's band at y 267 (16.29 m), under it a sunk panel to y 303 (15.43 m) on its east face. So the three are dressed from the K15 kit's panelled form (chimneys.k15, k15.stack.sherman, without its corbel blocks, which the print does not resolve): its two stone bands 0.55 and 1.75 m over the roof under each stack, a sunk panel 0.45 m wide on the street and rear faces from 1.0 m over that roof to 1.08 m under the head (the right one's 15.37-16.29 m, the photograph's 15.43-16.29), the left one plain (its shaft under the head is too short for one and the print shows none), and a head of three corbelled courses (0.15, 0.15 and 0.2 m, out 0.06, 0.13 and 0.2 m) under a stone cap 0.35 m thick and 0.28 m out, 0.85 m in all, for the print's 0.9 m and 0.3 m. Courses and cap are read at the print's scale, not measured, so reconstructed (liberty L-k01-1936-allerton-1901). Still open: the right one's head is two-staged in the print, a broad moulded cap at 16.75-17.3 m with a narrower stage on it to the top at 18.26 m, where the build's one 0.85 m head stands at its top; and the left one's shaft reads about 65 px across where the build's 1.1 by 0.8 m stack spans 52 px, about 0.25 m broader, within the print's blur. T-3370 (fourth pass) builds the right stack's head as the print draws it (x 1215-1302, y 185-260 px, about 42 px a metre): the K15 head's corbels and broad cap stand lower, to 17.30 m (the print's broad moulded cap, y 225-248, 16.75-17.30 m), and on the cap a narrower stage (k15 stage) to the top at 18.22 m (the print's 18.26): a brick block 0.58 m high about the shaft's own width (x 1232-1285 against the shaft's 1228-1285, so 0.05 m in) under its own 0.34 m stone cap 0.1 m out (y 185-200), with the dark opening the print shows in its east face (x 1267-1282, y 203-215: about 0.36 m square) sunk 0.15 m into each broad face; its sunk panel stands 0.38 m under the lowered head (panel_under_head_m), so it runs from 1.0 m over the roof to just under the upper band, where the print draws it (to y 303, 15.43 m, under the band at y 267). The stack is moved to u 12.3, this camera's own reading of it (the committed fit; u 11.7 was the first fit's), which puts its shaft at x 1226-1283 for the print's 1228-1285. The stage's and vent's sizes are read off a blurred print and its sunk vent on the rear face is the street face's mirrored; liberty L-k01-1936-allerton-stage-3370."
     },
     "rainwater": {
      "value": {

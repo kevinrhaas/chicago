@@ -34722,7 +34722,7 @@ For the 1812 scene's Light tier alone, multiply the existing uniform woody accep
 
 ### L-k01-1811-north-pier-3112 — 1811 Prairie's north pier capped under the bay's cornice, its slate weathering and the eave cut back over it
 
-**Decision:** The front's north end at 1811 Prairie (K01's low-s end, v 0 to 0.93) is built as a pier capped below the bay's cornice (T-3112, `form.front_pier`): its rock-faced courses unbroken from the base course to a dressed band at 7.10-7.22 m, one rock-faced course, and a moulded cap at 7.52-7.72 m, the band 0.05 m and the cap 0.12 m proud. The band, the cap and the slate top over them are read off the Chicagology photograph through T-3052's camera, and checked on the 1888 plate through T-2541's camera, so the record grades them `inferred`. Four things about it are invented. (1) No picture sees the weathering's pitch behind its front edge. It is slated at 42 degrees from the cap's front edge, which is the pitch whose render meets the print's slate at the bay's cornice. (2) No picture sees how the hipped roof meets the pier. So the front's wall head, the moulded cornice and the roof's street and side eaves are cut back over the pier's width to the weathering's slope, the side wall under it is stepped down below that slope, and the cut's face against the rest of the roof is slated like a dormer's cheek. From every camera that sees the pier this reads as the pictures do: sky over the cap. From the north it reads as the hip coming down to the pier. (3) The band and the cap are returned along the north side wall only as far back as the weathering over them stands under the soffit (about 0.6 m). The side wall stays brick. (4) The cap's moulding is two dressed boxes, a fillet over a narrower member, not the print's ogee and cove. The new downpipe at the pier's junction with the cheek takes its head, straps and shoe from K04, like the other two.
+**Decision:** The front's north end at 1811 Prairie (K01's low-s end, v 0 to 0.93) is built as a pier capped below the bay's cornice (T-3112, `form.front_pier`): its rock-faced courses unbroken from the base course to a dressed band at 7.10-7.22 m, one rock-faced course, and a moulded cap at 7.52-7.72 m, the band 0.05 m and the cap 0.12 m proud. The band, the cap and the slate top over them are read off the Chicagology photograph through T-3052's camera, and checked on the 1888 plate through T-2541's camera, so the record grades them `inferred`. Four things about it are invented. (1) No picture sees the weathering's pitch behind its front edge. It is slated at 42 degrees from the cap's front edge, which is the pitch whose render meets the print's slate at the bay's cornice. (2) No picture sees how the hipped roof meets the pier. So the front's wall head, the moulded cornice and the roof's street and side eaves are cut back over the pier's width to the weathering's slope, the side wall under it is stepped down below that slope, and the cut's face against the rest of the roof is slated. T-1890 (2026-11-09, the owner's phone shot from the north-west: "see the big gash in it"): that face no longer stands upright along the pier's inner edge for 3.4 m back along the north eave, which read as a slot cut into the hip. It runs on a diagonal from the pier's inner corner on the weathering back to 0.6 m behind where the weathering meets the north eave, leaning 75 degrees, so the cut is widest over the pier and dies out at the eave. The diagonal, the lean and the 0.6 m are ours, set so that every camera that sees the pier still shows sky over the cap. From the north it reads as the hip coming down to the pier. (3) The band and the cap are returned along the north side wall only as far back as the weathering over them stands under the soffit (about 0.6 m). The side wall stays brick. (4) The cap's moulding is two dressed boxes, a fillet over a narrower member, not the print's ogee and cove. The new downpipe at the pier's junction with the cheek takes its head, straps and shoe from K04, like the other two.
 
 **Re-opens on:** a photograph of the north side, or a drawing of the roof at the north corner.
 **Ticket:** T-3112.
@@ -42803,3 +42803,29 @@ taken off the walk.
 **Re-opens on:** a source that names a Potawatomi family living by the post at Chicago before 1812, or says where families wintered in these years; the judgement of Native scholars or community organisations, which may change who is drawn here, or whether.
 **Ticket:** T-3530.
 **Recorded:** 2026-11-09.
+
+### L-k01-1936-allerton-stage-3370 — 1936 Prairie's right stack built with its photograph's stage on a lowered head, and the roof deck's rail stopped behind it
+
+**Decision:** the Chicagology photograph (`chicagology_1936_prairie_exterior_photo`) draws the right-hand
+stack over the south flank with a two-staged head: a broad moulded cap at about 16.75-17.30 m and on it a
+narrower stage to the top at about 18.26 m, with a dark opening in its east face. The K15 kit gains a stage on
+a stack's cap (`chimneys.stacks[].stage`: a brick block in from the shaft's faces under its own stone cap,
+an optional dark vent sunk into each broad face), and the stack's head is laid lower, to 17.30 m, with its
+sunk panel moved up under the upper band (`panel_under_head_m`). The stack stands at u 12.3, the committed
+camera's own reading of it. The same photograph shows the deck's rail running from the deck's south-east
+corner west behind that stack and not out again on its west side, where the hip's slope rises to the stack
+bare: the hip deck's rail gains a west end (`hip_deck.rail.from_u_m`, 8.3 m), closed by a cross-run, the
+deck's edge west of it a curb at the rail's plinth.
+**What is read, not invented.** The stage's height and its cap's (0.58 and 0.34 m, the print's y 200-225 and
+185-200 px at about 42 px a metre), its width (about the shaft's), the vent's place and size on the east face
+(about 0.36 m square), the broad cap's height, the stack's place (its shaft at x 1226-1283 px through the
+camera, the print's 1228-1285), and that no rail shows west of the stack.
+**What is invented.** The vent's depth (0.15 m) and its twin on the rear face, the stage cap's projection to
+about 0.02 m, the rail's end at u 8.3 (anywhere the camera hides it behind the stack would do; 8.3 is the
+middle), the cross-run closing it (hidden behind the south rail's panel from the street) and the curb west of
+it. Where the deck itself ends the photograph cannot say: no deck surface is seen from the street, so the
+hip's level cut is kept.
+**How to resolve:** a picture of the roof from another side, or from above, would show the deck's extent
+and the rail's west end; a sharper copy of the plate would settle whether the stage's openings pass through.
+**Ticket:** T-3370 (piece 2 of T-3367).
+**Recorded:** 2026-11-08 (T-3370).
