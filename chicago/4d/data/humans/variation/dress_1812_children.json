@@ -1,0 +1,462 @@
+{
+ "format": "chicago4d_human_dress_v1",
+ "ticket": "T-3520",
+ "scene": "1812",
+ "generated_by": "docs/RESEARCH/children-1812-3520/children.py",
+ "liberty": "L-1812-children-dress-3520",
+ "sources": [
+  "met_johnson_1805_rutter_children",
+  "met_johnson_1805_emma_van_name",
+  "met_ci_1813_beecher_child_dress",
+  "kinzie_waubun_1856",
+  "quaife_1913"
+ ],
+ "_doc": "Each 1812 town child's own cloth colours, pinafore and hair (T-3520). Read by tools/human_variation_kit.py into the persons table beside dress_1812_native.json. The range of cloths and cuts is inferred from the eastern portraits and dress of about 1805-1815 named in the sources; which child wears which, and every girl's plait, is reconstructed (see the liberty). Regenerate; never edit by hand.",
+ "persons": {
+  "burns_child_a": {
+   "asset": "child_boy_1812",
+   "colours": {
+    "garment_upper__skeleton_jacket_blue_1812": [
+     0.11,
+     0.065,
+     0.04
+    ],
+    "garment_lower__skeleton_trousers_blue_1812": [
+     0.11,
+     0.065,
+     0.04
+    ]
+   },
+   "hide": [],
+   "hair": {
+    "cut": "cropped_1812"
+   },
+   "worn": "a skeleton suit, brown; hair cropped"
+  },
+  "burns_child_b": {
+   "asset": "child_toddler_1812",
+   "colours": {
+    "garment_upper__toddler_frock_white_1812": [
+     0.58,
+     0.52,
+     0.4
+    ],
+    "garment_lower__toddler_frock_white_1812": [
+     0.58,
+     0.52,
+     0.4
+    ],
+    "footwear__toddler_shoes_red_1812": [
+     0.02,
+     0.019,
+     0.018
+    ]
+   },
+   "hide": [],
+   "hair": {
+    "cut": "toddler_curls_1812"
+   },
+   "worn": "a frock of unbleached cotton, black shoes; hair loose to the neck"
+  },
+  "cooper_isabella": {
+   "asset": "child_girl_1812",
+   "colours": {
+    "garment_upper__frock_bodice_rose_1812": [
+     0.44,
+     0.32,
+     0.15
+    ],
+    "garment_lower__frock_skirt_rose_1812": [
+     0.44,
+     0.32,
+     0.15
+    ]
+   },
+   "hide": [
+    "pinafore_apron",
+    "pinafore_bib"
+   ],
+   "hair": {
+    "cut": "girl_curls_1812"
+   },
+   "worn": "a frock of buff-and-yellow calico, no pinafore; hair worn loose to the shoulders"
+  },
+  "garrison_child_unnamed_1": {
+   "asset": "child_boy_1812",
+   "colours": {
+    "garment_upper__skeleton_jacket_blue_1812": [
+     0.03,
+     0.075,
+     0.045
+    ],
+    "garment_lower__skeleton_trousers_blue_1812": [
+     0.03,
+     0.075,
+     0.045
+    ]
+   },
+   "hide": [],
+   "hair": {
+    "cut": "cropped_1812"
+   },
+   "worn": "a skeleton suit, bottle green; hair cropped"
+  },
+  "garrison_child_unnamed_2": {
+   "asset": "child_girl_1812",
+   "colours": {
+    "garment_upper__frock_bodice_rose_1812": [
+     0.4,
+     0.22,
+     0.2
+    ],
+    "garment_lower__frock_skirt_rose_1812": [
+     0.4,
+     0.22,
+     0.2
+    ],
+    "garment_outer__pinafore_linen_1812": [
+     0.7,
+     0.69,
+     0.63
+    ]
+   },
+   "hide": [],
+   "hair": {
+    "cut": "girl_curls_1812"
+   },
+   "worn": "a frock of faded rose print, a white linen pinafore; hair worn loose to the shoulders"
+  },
+  "garrison_child_unnamed_3": {
+   "asset": "child_girl_1812",
+   "colours": {
+    "garment_upper__frock_bodice_rose_1812": [
+     0.07,
+     0.1,
+     0.2
+    ],
+    "garment_lower__frock_skirt_rose_1812": [
+     0.07,
+     0.1,
+     0.2
+    ],
+    "garment_outer__pinafore_linen_1812": [
+     0.56,
+     0.49,
+     0.37
+    ]
+   },
+   "hide": [],
+   "hair": {
+    "cut": "girl_curls_1812"
+   },
+   "worn": "a frock of indigo-ground print, an unbleached linen pinafore; hair worn loose to the shoulders"
+  },
+  "garrison_child_unnamed_4": {
+   "asset": "child_boy_1812",
+   "colours": {
+    "garment_upper__skeleton_jacket_blue_1812": [
+     0.03,
+     0.04,
+     0.095
+    ],
+    "garment_lower__skeleton_trousers_blue_1812": [
+     0.03,
+     0.04,
+     0.095
+    ]
+   },
+   "hide": [],
+   "hair": {
+    "cut": "boy_fringe_1812"
+   },
+   "worn": "a skeleton suit, dark blue; hair cut straight across the brow"
+  },
+  "garrison_child_unnamed_5": {
+   "asset": "child_girl_1812",
+   "colours": {
+    "garment_upper__frock_bodice_rose_1812": [
+     0.09,
+     0.15,
+     0.08
+    ],
+    "garment_lower__frock_skirt_rose_1812": [
+     0.09,
+     0.15,
+     0.08
+    ]
+   },
+   "hide": [
+    "pinafore_apron",
+    "pinafore_bib"
+   ],
+   "hair": {
+    "cut": "girl_plait_1812",
+    "tail_cm": 28.4
+   },
+   "worn": "a frock of green print, no pinafore; hair plaited down the back, 28 cm"
+  },
+  "garrison_child_unnamed_6": {
+   "asset": "child_toddler_1812",
+   "colours": {
+    "garment_upper__toddler_frock_white_1812": [
+     0.52,
+     0.3,
+     0.29
+    ],
+    "garment_lower__toddler_frock_white_1812": [
+     0.52,
+     0.3,
+     0.29
+    ],
+    "footwear__toddler_shoes_red_1812": [
+     0.02,
+     0.019,
+     0.018
+    ]
+   },
+   "hide": [],
+   "hair": {
+    "cut": "cropped_1812"
+   },
+   "worn": "a frock of pink sprigged cotton, black shoes; hair cropped"
+  },
+  "garrison_child_unnamed_7": {
+   "asset": "child_toddler_1812",
+   "colours": {
+    "garment_upper__toddler_frock_white_1812": [
+     0.47,
+     0.36,
+     0.2
+    ],
+    "garment_lower__toddler_frock_white_1812": [
+     0.47,
+     0.36,
+     0.2
+    ],
+    "footwear__toddler_shoes_red_1812": [
+     0.3,
+     0.045,
+     0.035
+    ]
+   },
+   "hide": [],
+   "hair": {
+    "cut": "toddler_curls_1812"
+   },
+   "worn": "a frock of buff calico, red shoes; hair loose to the neck"
+  },
+  "holt_child": {
+   "asset": "child_toddler_1812",
+   "colours": {
+    "garment_upper__toddler_frock_white_1812": [
+     0.6,
+     0.58,
+     0.52
+    ],
+    "garment_lower__toddler_frock_white_1812": [
+     0.6,
+     0.58,
+     0.52
+    ],
+    "footwear__toddler_shoes_red_1812": [
+     0.02,
+     0.019,
+     0.018
+    ]
+   },
+   "hide": [],
+   "hair": {
+    "cut": "toddler_curls_1812"
+   },
+   "worn": "a frock of white muslin, washed grey, black shoes; hair loose to the neck"
+  },
+  "kinzie_ellen_marion": {
+   "asset": "child_girl_1812",
+   "colours": {
+    "garment_upper__frock_bodice_rose_1812": [
+     0.24,
+     0.07,
+     0.05
+    ],
+    "garment_lower__frock_skirt_rose_1812": [
+     0.24,
+     0.07,
+     0.05
+    ]
+   },
+   "hide": [
+    "pinafore_apron",
+    "pinafore_bib"
+   ],
+   "hair": {
+    "cut": "girl_curls_1812"
+   },
+   "worn": "a frock of madder-red calico, no pinafore; hair worn loose to the shoulders"
+  },
+  "kinzie_john_h_1812": {
+   "asset": "child_boy_1812",
+   "colours": {
+    "garment_upper__skeleton_jacket_blue_1812": [
+     0.07,
+     0.06,
+     0.05
+    ],
+    "garment_lower__skeleton_trousers_blue_1812": [
+     0.48,
+     0.37,
+     0.2
+    ]
+   },
+   "hide": [],
+   "hair": {
+    "cut": "boy_fringe_1812"
+   },
+   "worn": "a skeleton suit, a dark jacket over nankeen trousers; hair cut straight across the brow"
+  },
+  "kinzie_maria_indiana": {
+   "asset": "child_toddler_1812",
+   "colours": {
+    "garment_upper__toddler_frock_white_1812": [
+     0.66,
+     0.65,
+     0.61
+    ],
+    "garment_lower__toddler_frock_white_1812": [
+     0.66,
+     0.65,
+     0.61
+    ],
+    "footwear__toddler_shoes_red_1812": [
+     0.09,
+     0.05,
+     0.03
+    ]
+   },
+   "hide": [],
+   "hair": {
+    "cut": "toddler_curls_1812"
+   },
+   "worn": "a frock of white muslin, brown shoes; hair loose to the neck"
+  },
+  "kinzie_robert_allen": {
+   "asset": "child_toddler_1812",
+   "colours": {
+    "garment_upper__toddler_frock_white_1812": [
+     0.3,
+     0.36,
+     0.46
+    ],
+    "garment_lower__toddler_frock_white_1812": [
+     0.3,
+     0.36,
+     0.46
+    ],
+    "footwear__toddler_shoes_red_1812": [
+     0.3,
+     0.045,
+     0.035
+    ]
+   },
+   "hide": [],
+   "hair": {
+    "cut": "cropped_1812"
+   },
+   "worn": "a frock of blue-and-white check, red shoes; hair cropped"
+  },
+  "mirandeau_victoire_1812": {
+   "asset": "child_girl_1812",
+   "colours": {
+    "garment_upper__frock_bodice_rose_1812": [
+     0.21,
+     0.28,
+     0.4
+    ],
+    "garment_lower__frock_skirt_rose_1812": [
+     0.21,
+     0.28,
+     0.4
+    ],
+    "garment_outer__pinafore_linen_1812": [
+     0.7,
+     0.69,
+     0.63
+    ]
+   },
+   "hide": [],
+   "hair": {
+    "cut": "girl_curls_1812"
+   },
+   "worn": "a frock of faded blue cotton, a white linen pinafore; hair worn loose to the shoulders"
+  },
+  "needs_child": {
+   "asset": "child_toddler_1812",
+   "colours": {
+    "garment_upper__toddler_frock_white_1812": [
+     0.38,
+     0.3,
+     0.42
+    ],
+    "garment_lower__toddler_frock_white_1812": [
+     0.38,
+     0.3,
+     0.42
+    ],
+    "footwear__toddler_shoes_red_1812": [
+     0.09,
+     0.05,
+     0.03
+    ]
+   },
+   "hide": [],
+   "hair": {
+    "cut": "cropped_1812"
+   },
+   "worn": "a frock of lilac print, brown shoes; hair cropped"
+  },
+  "ouilmette_children": {
+   "asset": "child_boy_1812",
+   "colours": {
+    "garment_upper__skeleton_jacket_blue_1812": [
+     0.15,
+     0.15,
+     0.14
+    ],
+    "garment_lower__skeleton_trousers_blue_1812": [
+     0.15,
+     0.15,
+     0.14
+    ]
+   },
+   "hide": [],
+   "hair": {
+    "cut": "boy_fringe_1812"
+   },
+   "worn": "a skeleton suit, grey; hair cut straight across the brow"
+  },
+  "simmons_david": {
+   "asset": "child_toddler_1812",
+   "colours": {
+    "garment_upper__toddler_frock_white_1812": [
+     0.27,
+     0.34,
+     0.21
+    ],
+    "garment_lower__toddler_frock_white_1812": [
+     0.27,
+     0.34,
+     0.21
+    ],
+    "footwear__toddler_shoes_red_1812": [
+     0.02,
+     0.019,
+     0.018
+    ]
+   },
+   "hide": [],
+   "hair": {
+    "cut": "cropped_1812"
+   },
+   "worn": "a frock of green sprigged cotton, black shoes; hair cropped"
+  }
+ }
+}

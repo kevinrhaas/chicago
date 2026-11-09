@@ -94,6 +94,21 @@
  * door if that is indoors. A soldier in quarters (human-duties.js `behaviour.hours`, with
  * `behaviour.quarters` naming the building) is asked for the same way.
  *
+ * DOORS THAT OPEN, STAIRS THAT ARE CLIMBED (T-3524). The owner, 2026-11-08, of the Glessner
+ * court: *"when people enter the glessner house from the rear they just kind of disappear at the
+ * staircase i think the door should work and the stairs and they should come up and down the
+ * stairs"*. A door the caller's `passages` knows by its id (house-doors.js § passages: Glessner's
+ * court service entrance and its Eighteenth Street side door) is walked through, not vanished
+ * at: going in, a person walks to the foot of its way, up every tread to the door, which opens
+ * before them (it starts to as they come within OPEN_AHEAD_M; they wait at it till it is open),
+ * through it, and only then are they indoors, and it shuts behind them; coming out, it opens,
+ * they step out of the dark behind it, it shuts once they are PASSAGE.shut_past_m past it, and
+ * they walk down to the ground. A person called to the door comes down it to the visitor and
+ * goes back up it. While anyone is on the way they finish it (no new hour, round or call
+ * turns them on a stair); the way is used one direction at a time, a follower PASSAGE.follow_s
+ * behind whoever went before, so nobody meets anybody on a tread; the door stays open while
+ * anyone holds it. Far from the visitor (beyond NEAR_M), as before, they are put in or out.
+ *
  * INSIDE ONLY: people carded but not drawn (the gathering's lodges) come in an `inside` list,
  * { people: [{ person, name, home, door?, presence?, ask_order? }] }. On their dates they are in
  * `home` and offered at its doors (at `door` if given, else at one of its doors picked by their
@@ -159,8 +174,24 @@ export const GATHER = Object.freeze({ every_s: [75, 150], for_s: [24, 52], join_
 export const OWN = Object.freeze({ out_m: [1.8, 3.4], off_m: [1.2, 2.6], spots: 2, tries: 6 });
 /** T-3505: a child's play between gatherings: three places this far about where they stood. */
 export const PLAY = Object.freeze({ off_m: [2.5, 6], spots: 2 });
+/** T-3524: a passage (a door drawn people open, up its stair): it starts to open this far ahead
+ *  of them; they wait at it at most open_wait_s; it shuts once they are shut_past_m beyond it;
+ *  a follower starts up follow_s after the last one; one waits for a way in use at most busy_s;
+ *  a passage taking longer than stuck_s is let go. */
+export const PASSAGE = Object.freeze({ open_ahead_m: 2.2, open_wait_s: 5, shut_past_m: 1.3, follow_s: 3, busy_s: 25, stuck_s: 60 });
 /** T-3505: a break indoors: a door this near; a beat of every_s, the break for_s, in p of beats. */
 export const BREAK = Object.freeze({ reach_m: 45, every_s: [150, 330], for_s: [28, 75], p: 0.55 });
+/**
+ * T-3520: children (the owner, 2026-11-08, of the 1812 fort yard: "the kids should not be all
+ * over the place", "occasionally there are kids together playing" but not "such a centerpiece";
+ * "when so many kids and no parents they should leave and come out of the door"). A child goes
+ * in for a door within reach_m (a household's own house is further off than a man's workplace);
+ * spends p of its beats of every_s indoors for for_s; when out on its own plays by its own door,
+ * door_m out from the step, rather than about the parade; and a gathering of children only
+ * comes together on a slower beat (play_every_s) and for a while (play_for_s).
+ */
+export const CHILD = Object.freeze({ reach_m: 150, every_s: [130, 260], for_s: [100, 220], p: 0.9,
+  play_every_s: [320, 640], play_for_s: [35, 80], door_m: [1.4, 3.6] });
 /** What a child is, by the dress drawn. */
 export const CHILD_RE = /(^|_)(child|boy|girl|toddler)(_|$)/;
 const lerp = ([lo, hi], t) => lo + (hi - lo) * t;
@@ -539,7 +570,7 @@ export function planDay(people, date, { clear = () => true } = {}) {
  */
 export function createHumanDays({ humans, three = null, hour = () => null, date = () => null, doors = null,
   interactions = null, visitor = () => null, eye = () => null, router = null, problems = [],
-  inside = null, spawn = null, despawn = null, clear = () => true } = {}) {
+  inside = null, spawn = null, despawn = null, clear = () => true, passages = null } = {}) {
   const Vec = three?.Vector3;
   let people = [];
   let seen = -1;
@@ -609,6 +640,123 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
     return best?.d ?? null;
   }
 
+  // ── T-3524: passages ──────────────────────────────────────────────────────────────
+  /** The passage a door is (house-doors.js), or null for a door that is only stood at. */
+  const passageOf = (door) => (door?.id ? passages?.passage?.(door.id) ?? null : null);
+  /** Who is on each passage's way now: id -> [{ p, dir, at }]. */
+  const onWays = new Map();
+  /** Things waited on: [{ p, token, until, then, deadline }], looked at once a frame. */
+  let waits = [];
+  function waitFor(p, until, then, seconds) {
+    if (until()) { then(); return; }
+    waits.push({ p, token: p.token, until, then, deadline: clock + seconds });
+  }
+  function stepWaits() {
+    if (!waits.length) return;
+    const now = waits;
+    waits = [];
+    for (const w of now) {
+      if (w.p.token !== w.token || w.p.actor.disposed) continue;
+      if (w.until() || clock >= w.deadline) w.then();
+      else waits.push(w);
+    }
+  }
+  /** Whether `dir` ('in' | 'out') may start on the way now: nobody the other way, the last one
+   *  going this way far enough ahead. */
+  function wayFree(pass, dir) {
+    const on = onWays.get(pass.id) ?? [];
+    return on.every((u) => u.dir === dir && clock - u.at >= PASSAGE.follow_s);
+  }
+  function onWay(p, pass, dir) {
+    const on = onWays.get(pass.id) ?? [];
+    on.push({ p, dir, at: clock });
+    onWays.set(pass.id, on);
+    p.passing = { door: pass, since: clock };
+  }
+  /** Off the way and no longer holding its door (done, or let go). */
+  function offWay(p) {
+    if (!p.passing) return;
+    const pass = p.passing.door;
+    pass.release(p);
+    const on = (onWays.get(pass.id) ?? []).filter((u) => u.p !== p);
+    if (on.length) onWays.set(pass.id, on); else onWays.delete(pass.id);
+    p.passing = null;
+  }
+  /** The way through, outside to in, with the ground filled in where it is open ground. */
+  function wayOf(p, pass) {
+    const raw = pass.way();
+    const a = p.actor;
+    const out = raw.map((q) => ({ e: q.e, n: q.n, y: Number.isFinite(q.y) ? q.y : (a.heightAt?.(q.e, q.n) ?? null) }));
+    out.door = raw.door;
+    out.leaf = raw.leaf;
+    return out;
+  }
+  /** Walk `p` in by `door` and call `inside()` once they are in. */
+  function enterBy(p, door, inside) {
+    const a = p.actor;
+    const pass = passageOf(door);
+    if (!pass) {
+      const step = pt(door.step), leaf = pt(door.leaf);
+      go(p, step, (door.outward_deg + 180) % 360, () => {
+        const t = ++p.token;
+        if (!a.walkPath?.([step, leaf], { onArrive: () => { if (p.token === t) inside(); } })) inside();
+      });
+      return;
+    }
+    const w = wayOf(p, pass);
+    const k = w.door;
+    go(p, w[0], bearing(w[1].e - w[0].e, w[1].n - w[0].n), () => {
+      waitFor(p, () => wayFree(pass, 'in'), () => {
+        onWay(p, pass, 'in');
+        const t = ++p.token;
+        const done = () => { offWay(p); inside(); };
+        const atDoor = () => {
+          if (p.token !== t) return;
+          pass.hold(p);
+          waitFor(p, () => pass.isOpen(), () => {
+            const t2 = ++p.token;
+            if (!a.walkPath(w.slice(k), { onArrive: () => { if (p.token === t2) done(); } })) done();
+          }, PASSAGE.open_wait_s);
+        };
+        if (!a.walkPath?.(w.slice(0, k + 1), { onArrive: atDoor })) { done(); return; }
+        // The door starts to open as they come up to it.
+        waitFor(p, () => dist(a, w[k]) < PASSAGE.open_ahead_m, () => pass.hold(p), PASSAGE.stuck_s);
+      }, PASSAGE.busy_s);
+    });
+  }
+  /** Bring `p` (indoors) out by `door` and call `out(from)` where they stand outside. */
+  function exitBy(p, door, out) {
+    const a = p.actor;
+    const pass = passageOf(door);
+    const step = pt(door.step);
+    if (!pass || !near(step.e, step.n)) {
+      a.e = step.e; a.n = step.n; a.standY = null; a.heading = door.outward_deg;
+      a.setIndoors?.(false);
+      a.place?.();
+      out(step);
+      return;
+    }
+    const w = wayOf(p, pass);
+    const back = [...w].reverse();
+    waitFor(p, () => wayFree(pass, 'out'), () => {
+      onWay(p, pass, 'out');
+      a.path = null;
+      a.e = back[0].e; a.n = back[0].n; a.standY = back[0].y;
+      a.heading = bearing(back[1].e - back[0].e, back[1].n - back[0].n);
+      a.setIndoors?.(false);
+      a.place?.();
+      pass.hold(p);
+      ++p.token;
+      waitFor(p, () => pass.isOpen(), () => {
+        const t2 = ++p.token;
+        const done = () => { offWay(p); out(back.at(-1)); };
+        if (!a.walkPath?.(back, { onArrive: () => { if (p.token === t2) done(); } })) { done(); return; }
+        // Once they are clear of its swing, it shuts behind them.
+        waitFor(p, () => dist(a, w.leaf) > PASSAGE.shut_past_m || !a.path, () => pass.release(p), PASSAGE.stuck_s);
+      }, PASSAGE.open_wait_s);
+    }, PASSAGE.busy_s);
+  }
+
   function collect() {
     people = [];
     for (const actor of humans.actors) {
@@ -619,6 +767,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
         actor, b, id: actor.id, rand: seededRandom(`day:${actor.id}`), span: null, inside: null,
         mode: actor.indoors ? 'in' : 'out', absent: false, called: null, job: null,
         soldier: Array.isArray(b.hours) && !Array.isArray(b.day),
+        child: CHILD_RE.test(actor.instance?.appearance?.asset_id ?? ''),
       });
     }
     people.push(...spawned);
@@ -655,6 +804,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
   }
   /** Back in: the figure goes. */
   function retire(p) {
+    offWay(p);
     const k = spawned.indexOf(p);
     if (k >= 0) spawned.splice(k, 1);
     const i = people.indexOf(p);
@@ -670,30 +820,28 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
     const door = doorNear(structure, a.e, a.n);
     if (!door || !near(a.e, a.n)) { a.path = null; a.setIndoors?.(true); p.mode = 'in'; return; }
     p.mode = 'going_in';
-    const step = pt(door.step), leaf = pt(door.leaf);
-    go(p, step, (door.outward_deg + 180) % 360, () => {
-      const t = ++p.token;
-      if (!a.walkPath?.([step, leaf], { onArrive: () => { if (p.token === t) { a.setIndoors?.(true); p.mode = 'in'; } } })) {
-        a.setIndoors?.(true); p.mode = 'in';
-      }
-    });
+    enterBy(p, door, () => { a.setIndoors?.(true); p.mode = 'in'; });
   }
 
   function comeOut(p, span) {
     const a = p.actor;
     const to = pt(span.at);
-    let from = null;
+    const onward = (from) => {
+      p.inside = null;
+      p.mode = 'going_out';
+      go(p, to, span.at.heading_deg, () => { p.mode = 'out'; startActivity(p, span); }, { from });
+    };
     if (a.indoors) {
       const door = p.inside ? doorNear(p.inside, to.e, to.n) : null;
-      from = door ? pt(door.step) : to;
-      a.e = from.e; a.n = from.n; a.standY = null;
-      a.heading = door ? door.outward_deg : (span.at.heading_deg ?? a.heading);
+      if (door) { p.mode = 'going_out'; exitBy(p, door, onward); return; }
+      a.e = to.e; a.n = to.n; a.standY = null;
+      a.heading = span.at.heading_deg ?? a.heading;
       a.setIndoors?.(false);
       a.place?.();
+      onward(to);
+      return;
     }
-    p.inside = null;
-    p.mode = 'going_out';
-    go(p, to, span.at.heading_deg, () => { p.mode = 'out'; startActivity(p, span); }, { from });
+    onward(null);
   }
 
   function startActivity(p, span) {
@@ -757,6 +905,8 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
     const act = span.activity ?? 'stand';
     if (span.round || act === 'work') {
       p.round = { knot: span.round?.knot ?? null, talk: span, own: span.round?.own ?? span, home: homeOf(p, span) };
+      // T-3520: a child out on its own plays by its own door, not about the yard.
+      if (p.child && p.round.home) p.round.own = byTheDoor(p, p.round.home, span) ?? p.round.own;
       phaseTo(p, want(p));
       return;
     }
@@ -773,9 +923,22 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
     for (const where of new Set((day?.spans ?? []).filter((s) => s.indoors && !s.away && s.where).map((s) => s.where))) {
       const d = doorNear(where, at.e, at.n);
       const k = d ? dist(pt(d.step), at) : Infinity;
-      if (k <= BREAK.reach_m && (!best || k < best.k)) best = { k, where };
+      if (k <= (p.child ? CHILD.reach_m : BREAK.reach_m) && (!best || k < best.k)) best = { k, where };
     }
     return best?.where ?? null;
+  }
+  /** T-3520: a child's play by its own door: out from the step a little way and back. */
+  function byTheDoor(p, where, span) {
+    const d = doorNear(where, pt(span.at).e, pt(span.at).n);
+    if (!d) return null;
+    const r = seededRandom(`door-play:${keyOf(p)}:${where}`);
+    const s = pt(d.step), out = (Number(d.outward_deg) || 0) + (r() - 0.5) * 70;
+    const far = lerp(CHILD.door_m, r()), near0 = Math.min(far - 0.8, 1.1);
+    const at = (m, deg) => ({ e: s.e + Math.sin(deg * Math.PI / 180) * m, n: s.n + Math.cos(deg * Math.PI / 180) * m });
+    const a = at(near0, out), b = at(far, out + (r() - 0.5) * 60);
+    if (!clear(s, a) || !clear(a, b)) return null;
+    return { ...span, activity: 'walk', at: local(a, (out + 180) % 360), to_point: local(b), via: [], once: false, round: undefined,
+      doing: 'playing by the door' };
   }
   /** The knots' gatherings, worked out once a frame: { on, cycle, joined: Set of people }. */
   const gathers = new Map();
@@ -783,16 +946,20 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
   let byKnot = new Map();
   function gathering(knot) {
     let g = gathers.get(knot);
-    if (!g) {
+    const members = byKnot.get(knot) ?? [];
+    // (Made again once its people are known: before the first frame it has none.)
+    if (!g || (g.kids === null && members.length)) {
       const r = seededRandom(`gather:${knot}`);
-      const every = lerp(GATHER.every_s, r());
-      g = { every, off: r() * every, cycle: null, on: false, joined: new Set(), order: new Map(), frame: -1 };
+      // T-3520: children at play together only now and then.
+      const kids = members.length ? members.every((q) => q.child) : null;
+      const every = lerp(kids ? CHILD.play_every_s : GATHER.every_s, r());
+      g = { every, off: r() * every, cycle: null, on: false, joined: new Set(), order: new Map(), frame: -1, kids };
       gathers.set(knot, g);
     }
     if (g.frame === frame) return g;
     g.frame = frame;
     const t = clock + g.off, c = Math.floor(t / g.every);
-    if (c !== g.cycle) { g.cycle = c; g.joined.clear(); g.order.clear(); g.len = lerp(GATHER.for_s, seededRandom(`gather:${knot}:${c}`)()); }
+    if (c !== g.cycle) { g.cycle = c; g.joined.clear(); g.order.clear(); g.len = lerp(g.kids ? CHILD.play_for_s : GATHER.for_s, seededRandom(`gather:${knot}:${c}`)()); }
     g.on = t - c * g.every < g.len;
     if (!g.on) { g.joined.clear(); return g; }
     const here = (byKnot.get(knot) ?? []).filter((q) => !q.called && !q.absent && q.phase !== 'in');
@@ -808,20 +975,24 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
   }
   /** Whether it is a while indoors for `p` now (their own beat). */
   function breakOn(p) {
+    const B = p.child ? CHILD : BREAK;   // T-3520: a child is in more than out
     if (!p.brk) {
       const r = seededRandom(`break:${keyOf(p)}`);
-      const every = lerp(BREAK.every_s, r());
+      const every = lerp(B.every_s, r());
       p.brk = { every, off: r() * every };
     }
     const t = clock + p.brk.off, c = Math.floor(t / p.brk.every);
     const r = seededRandom(`break:${keyOf(p)}:${c}`);
-    return r() < BREAK.p && t - c * p.brk.every < lerp(BREAK.for_s, r());
+    return r() < B.p && t - c * p.brk.every < lerp(B.for_s, r());
   }
   /** What the round has `p` at now: 'talk', 'in' (a break) or 'own'. */
   function want(p) {
     const r = p.round;
     if (r.knot && gathering(r.knot).joined.has(p)) return 'talk';
-    if (r.home && breakOn(p) && (p.phase === 'in' || near(p.actor.e, p.actor.n))) return 'in';
+    // T-3520: one out of sight goes in on their beat too (else everyone the visitor comes upon
+    // is out of doors, the children of a whole yard among them); one far off but in sight keeps
+    // to what they are at (stepRound).
+    if (r.home && breakOn(p) && (p.phase === 'in' || near(p.actor.e, p.actor.n) || !p.actor.root?.visible)) return 'in';
     return 'own';
   }
   function phaseTo(p, phase) {
@@ -887,15 +1058,15 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
   const nameOf = (p) => p.entry?.name ?? p.actor.person?.name ?? p.actor.identity?.person?.name ?? p.actor.instance?.display_name ?? p.actor.personId ?? p.actor.id;
 
   function callOut(p, door) {
-    const a = p.actor;
-    const step = pt(door.step);
     p.called = { door, since: clock, off: 0 };
     p.job = null;
     p.token = (p.token ?? 0) + 1;
-    a.e = step.e; a.n = step.n; a.standY = null; a.heading = door.outward_deg;
-    a.setIndoors?.(false);
-    a.place?.();
     p.mode = 'called';
+    // Out of the door (down its stair, T-3524), then up to the visitor.
+    exitBy(p, door, (from) => meet(p, from));
+  }
+  function meet(p, step) {
+    const a = p.actor;
     const v = visitor();
     if (!v) return;
     const d = dist(step, v);
@@ -916,6 +1087,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
 
   function stepCalled(p, dt) {
     const c = p.called;
+    if (p.passing) return;       // on the stair to the door: they finish it first
     const v = visitor();
     const off = !v || Math.hypot(v.e - p.actor.e, v.n - p.actor.n) > STAY_M;
     c.off = off ? c.off + dt : 0;
@@ -926,12 +1098,8 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
       const back = c.door;
       p.inside = p.entry ? back.structure : p.b.quarters;
       p.mode = 'going_in';
-      const step = pt(back.step), leaf = pt(back.leaf);
       const inAgain = () => { p.actor.setIndoors?.(true); p.mode = 'in'; if (p.entry) retire(p); };
-      go(p, step, (back.outward_deg + 180) % 360, () => {
-        const t = ++p.token;
-        if (!p.actor.walkPath?.([step, leaf], { onArrive: () => { if (p.token === t) inAgain(); } })) inAgain();
-      });
+      enterBy(p, back, inAgain);
       return;
     }
     p.inside = c.door.structure;
@@ -1020,11 +1188,13 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
         // jaunt's), nowhere.
         const present = onDate(today, p.b.presence) && (!Array.isArray(p.b.day) || !!dayOn(p.b, today, p.actor.personId ?? p.id));
         if (!present) {
-          if (!p.absent) { p.absent = true; p.called = null; p.span = null; p.job = null; a.path = null; a.setIndoors?.(true); p.mode = 'in'; p.inside = null; }
+          if (!p.absent) { offWay(p); p.absent = true; p.called = null; p.span = null; p.job = null; a.path = null; a.setIndoors?.(true); p.mode = 'in'; p.inside = null; }
           continue;
         }
         if (p.absent) { p.absent = false; if (p.soldier) a.setIndoors?.(false); }
         if (p.hosted) continue;   // T-3525: a jaunt's host, at their mark until let go
+        // T-3524: on a passage's stair or in its doorway, they finish it before anything else.
+        if (p.passing) { if (clock - p.passing.since > PASSAGE.stuck_s) offWay(p); continue; }
         if (p.called) { stepCalled(p, dt); continue; }
         if (p.soldier) continue;   // his hours are human-duties.js's
         const span = spanAt(dayOn(p.b, today, p.actor.personId ?? p.id), h);
@@ -1033,6 +1203,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
         else if (p.round) stepRound(p);
         else if (p.mode === 'out') stepJob(p);
       }
+      stepWaits();
       stepTalks(dt);
     },
     /** Ask for someone at their door now, as the door's Ask for does: { ok, why }. */
@@ -1076,20 +1247,26 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
       p.job = null; p.round = null; p.phase = null; p.cur = null;
       p.token = (p.token ?? 0) + 1;
       talk(a, false);
-      let from = null;
-      if (a.indoors) {
-        const structure = p.inside ?? p.span?.where ?? null;
-        const door = structure ? doorNear(structure, to.e, to.n) : null;
-        from = door ? pt(door.step) : to;
-        a.e = from.e; a.n = from.n; a.standY = null;
-        a.heading = door ? door.outward_deg : (Number.isFinite(heading) ? heading : a.heading);
-        a.setIndoors?.(false);
-        a.place?.();
-      }
+      offWay(p);                // off any stair they were on (T-3524), and its door let go
+      const arrive = () => { if (p.hosted) onArrive?.(a); };
+      const structure = a.indoors ? (p.inside ?? p.span?.where ?? null) : null;
+      const door = structure ? doorNear(structure, to.e, to.n) : null;
       p.inside = null;
       p.mode = 'hosted';
       a.setState?.('standing');
-      go(p, to, heading, () => { if (p.hosted) onArrive?.(a); }, { from });
+      if (door) {
+        // Out by that door: up or down its stair, the door opening and shutting (T-3524), then on.
+        const t = p.token;
+        exitBy(p, door, (from) => { if (p.hosted && p.token >= t) go(p, to, heading, arrive, { from }); });
+        return { ok: true };
+      }
+      if (a.indoors) {
+        a.e = to.e; a.n = to.n; a.standY = null;
+        if (Number.isFinite(heading)) a.heading = heading;
+        a.setIndoors?.(false);
+        a.place?.();
+      }
+      go(p, to, heading, arrive);
       return { ok: true };
     },
     /** T-3525: let a jaunt's host go back to their day. */
@@ -1098,6 +1275,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
       if (!p?.hosted) return false;
       p.hosted = null;
       p.token = (p.token ?? 0) + 1;
+      offWay(p);
       p.span = null;            // the next frame enters the hour's span from where they stand
       p.mode = p.actor.indoors ? 'in' : 'out';
       return true;
@@ -1117,6 +1295,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
           activity: p.span.indoors || p.phase === 'in' ? 'indoors' : ((p.round ? p.cur : null) ?? p.play ?? p.span).activity ?? 'stand' } : null,
         phase: p.phase ?? null, home: p.round?.home ?? null,
         called: !!p.called, e: +p.actor.e.toFixed(2), n: +p.actor.n.toFixed(2),
+        on_way: p.passing?.door.id ?? null,
       }));
     },
   };

@@ -349,7 +349,7 @@ assert.equal(hairFor(null, 1812), null, 'the 1812 private grows no strand hair u
 const humans = await fs.readFile(new URL('renderers/web/js/humans.js', here), 'utf8');
 assert(/import \{ dressHair(, dressHeadcloth)? \} from '\.\/human-hair\.js';/.test(humans));
 assert(/this\.proxy\.scale\.y = [^\n]*\n[\s\S]{0,400}dressHair\(scene, \{ lod,/.test(humans), 'build() grows the hair, after the height is measured');
-assert(/dressHair\(scene[^\n]*\n[\s\S]{0,500}dressSpectacles\(scene, \{ lod,/.test(humans), 'build() puts on spectacles after the hair (T-3440)');
+assert(/dressHair\(scene[^\n]*\n[\s\S]{0,800}dressSpectacles\(scene, \{ lod,/.test(humans), 'build() puts on spectacles after the hair (T-3440)');
 // Liberty: the hair supplement under L418 names this ticket.
 const liberties = await fs.readFile(new URL('docs/LIBERTIES.md', here), 'utf8');
 assert(/\*\*Strand hair, beards and eyes \(2026-11-06, T-3414\):\*\*/.test(liberties), 'L418 carries the hair supplement');

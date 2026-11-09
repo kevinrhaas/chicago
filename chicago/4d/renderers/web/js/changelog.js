@@ -1,4 +1,44 @@
 export const CHANGELOG = [ // newest first
+  { v: 2845, ts: '2026-11-09T01:43:32.042Z', date: 'Nov 8, 2026, 7:43 PM CT', title: 'Glessner\'s back doors open and the household climbs the stairs', kind: 'feature',
+    items: [
+      'The court service door opens as someone climbs the stair to it and shuts behind them; nobody vanishes at the foot any more.',
+      'Coming out, the door swings open, they step out on the landing and walk down every tread to the court.',
+      'The servants\' side door in the 18th Street alcove works the same way, up its front steps and inner stair.',
+      'Ask for someone at either door and they come down the stair to you.',
+      'Two people take the stair one behind the other, and the door stays open until the last is through.',
+    ] },
+  { v: 2844, ts: '2026-11-09T01:31:37.044Z', date: 'Nov 8, 2026, 7:31 PM CT', title: '1812: the gathering\'s camps come and go with the date', kind: 'feature',
+    items: [
+      'The Potawatomi and Miami camps by the fort now stand only on the days of the August 1812 gathering (12 to 16 August). On any other date their lodges, their bare camp ground and the paths between them are gone, and that ground is open prairie again.',
+      'Set Season to Summer, or follow a jaunt dated in mid-August, to see the camps with their people. The old trails along the banks and the lake shore are there every day of the year.',
+    ] },
+  { v: 2843, ts: '2026-11-09T01:02:00.695Z', date: 'Nov 8, 2026, 7:02 PM CT', title: '1812 children walk like children and dress as their own', kind: 'fix',
+    items: [
+      'The 1812 children walk upright at a child\'s pace and stride, no more kneeling slide.',
+      'Every child dressed in their own colours; girls wear their hair long, loose or plaited.',
+      'Fewer children about: most are indoors or playing by their own door, a play group only now and then.',
+      'Nobody stands inside a mat or bark lodge wall in the camps.',
+    ] },
+  { v: 2842, ts: '2026-11-09T00:31:51.577Z', date: 'Nov 8, 2026, 6:31 PM CT', title: 'Every person has a real story, and Find reaches them', kind: 'fix',
+    items: [
+      'Find this person and Go to house now work for everyone in 1812 and 1904. Where no road reaches, such as the Kinzie house across the river, you fly there.',
+      'When someone is indoors or out of town, Find takes you to their house.',
+      'Every 1812 person and every Prairie Avenue family member has a new story, told as a story. The research notes are folded under How we know.',
+      'Someone you pick in the Navigator stays there until you close the card or pick someone else.',
+      'Review notes and the notes on how a person\'s look was drawn fold under a small mark.',
+    ] },
+  { v: 2841, ts: '2026-11-09T00:27:31.330Z', date: 'Nov 8, 2026, 6:27 PM CT', title: '1812: camp lodges stand on the ground from any distance', kind: 'fix',
+    items: [
+      'From 50 m and more, every lodge in the camp seemed to hover over a strip of blue. The bare earth of the camp grounds was drawing over the bottom of each lodge and showing the shaded ground beneath it.',
+      'The camp grounds now leave their earth out from under every lodge and bark house, so the mats meet the ground at every range and from the air.',
+    ] },
+  { v: 2840, ts: '2026-11-09T00:10:24.723Z', date: 'Nov 8, 2026, 6:10 PM CT', title: 'The 1812 townspeople each dress as their own person', kind: 'improvement',
+    items: [
+      'Settlers, traders, engagés and the town\'s women no longer share one outfit per trade: each wears their own colours, with or without a waistcoat, neckerchief, sash or apron.',
+      'Hats differ in shape, not only colour: tall and low felt round hats, soft or rolled brims, straw hats, knitted caps and tuques, and some bare heads.',
+      'The women of the country wear a blue handkerchief round the head and moccasins; some laundresses tie a handkerchief in place of the cap.',
+      'A person\'s card now says what they wear on 14 August, marked as a reconstruction.',
+    ] },
   { v: 2839, ts: '2026-11-08T21:52:41.956Z', date: 'Nov 8, 2026, 3:52 PM CT', title: '1812: the sloughs hold water', kind: 'improvement',
     items: [
       'The State Street slough the Potawatomi camps sit around now holds open water from the river up through the camps, winding, in pools and narrows with reeds, to a damp hollow at its head. It used to be a dry ditch.',

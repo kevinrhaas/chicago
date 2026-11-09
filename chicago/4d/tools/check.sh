@@ -421,6 +421,8 @@ step "Glessner's front door swings open, and a visitor and a drawn person walk u
   node tools/test_house_doors.mjs
 step "John J. Glessner on his front walk is greeted, and goes home up his steps, through his door and in (T-3443)" \
   node tools/test_house_errands.mjs
+step "Glessner's court and side doors open and shut as people pass, up and down their stairs (T-3524)" \
+  node tools/test_house_passages.mjs
 step "Loaded parade ground delegates to its native owner; failed assets and sundial geometry remain required (T-3041)" \
   node tools/test_parade_presence.mjs
 step "Jaunt daybook: idempotent keepsakes, data ranks, honest recovery (T-1258)" \
@@ -516,6 +518,9 @@ step "Catalogue Brougham preserves physical masters, exact optical delivery, lam
 
 step "A person's own card from a building's People tab: their story, why attested or inferred, the census line, Back to the household (T-3265)" \
   node tools/test_person_card.mjs
+
+step "Every 1812 and 1904 person has a story told for a visitor, with no research notes in it (T-3521)" \
+  node tools/test_person_stories.mjs
 
 step "People screen as a directory: households and people, search, a household's own card, Go to house (T-3430)" \
   node tools/test_people_directory.mjs
@@ -632,9 +637,9 @@ step "Each 1812 building's doors are where its model draws the leaf, and where o
   python3 tools/derive_doors_1812.py --check
 step "1812 people keep their day: off their dates nowhere (Lalime gone by 14 August, there in February), indoors or out by the hour, talking, at work, walking; a door offers Ask for whoever is inside, soldiers in quarters too, and the one asked for comes out to the visitor and goes back in (T-3463..T-3467)" \
   node tools/test_human_days.mjs
-step "Nobody stands in anybody else's place: a talk in a ring, people standing together talk, one alone is at a job, and every year's figures kept a body's width apart through the day (T-3504)" \
+step "Nobody stands in anybody else's place: a talk in a ring, people standing together talk, one alone is at a job, and every year's figures kept a body's width apart through the day, and nobody stands in a mat or bark lodge wall (T-3504, T-3520)" \
   node tools/test_human_spacing.mjs
-step "People keep busy all day: a talk gathers and parts again, each of its people at a job of their own or at play between, breaks indoors at their door and asked for there, every job's places clear of the buildings, the same round on every load; 1835 and 1904 too (T-3505, T-3516)" \
+step "People keep busy all day: a talk gathers and parts again, each of its people at a job of their own or at play between, breaks indoors at their door and asked for there, every job's places clear of the buildings, the same round on every load; 1835 and 1904 too; most children indoors or by their own door, never a crowd of them without grown-ups (T-3505, T-3516, T-3520)" \
   node tools/test_human_rounds.mjs
 step "1835's and 1904's drawn people's days are what days.py writes (T-3516)" \
   python3 docs/RESEARCH/people-days-1835-1904/days.py --check
@@ -650,7 +655,13 @@ step "Shabbona, Billy Caldwell and Alexander Robinson have the cards native_card
   python3 tools/native_cards_1812.py --check
 step "Every 1812 Potawatomi and Miami person is dressed as their own, as dress.py writes it (T-3506)" \
   python3 docs/RESEARCH/native-dress-1812-3506/dress.py --check
-step "People on foot walk heel to toe at a real pace and stride, the stance foot planted, the pelvis turning and rising over it, deterministic across LOD swaps (T-3472)" \
+step "Every 1812 town child is dressed as their own, the girls' hair longer than the boys', as children.py writes it (T-3520)" \
+  python3 docs/RESEARCH/children-1812-3520/children.py --check
+step "Every 1812 settler, trader, engagé and townswoman is dressed as their own, as dress.py writes it (T-3522)" \
+  python3 docs/RESEARCH/town-dress-1812-3522/dress.py --check
+step "No two 1812 townspeople dressed alike; each hat made for its wearer's head, above the brow, rigid on the head bone, its crown and brim the wearer's own; on their card (T-3522)" \
+  node tools/test_human_town_dress.mjs
+step "People on foot walk heel to toe at a real pace and stride, the stance foot planted, the pelvis turning and rising over it, deterministic across LOD swaps; a child at a child's pace and stride, never on its knees (T-3472, T-3520)" \
   node tools/test_human_gait.mjs
 step "A woman's skirt swings off her legs as she walks and never parts between them, the rest pose exact (T-3472)" \
   node tools/test_human_skirt.mjs
@@ -3049,6 +3060,17 @@ step "the forts' parade grounds re-derive from their parade records" \
 # lodge_camp footprint, derived from the camp's sidecars and listed in the 1812 manifest.
 step "the 1812 camp's worn ground re-derives from its camp records (T-3342)" \
   python3 tools/generate_camp_ground_1812.py --check
+# T-3526: and that ground states every lodge and bark house standing on it, so yards.js
+# leaves its earth out from under them: the cut is inside every foot, the mask uploads, and
+# a scene with no dwellings compiles no cut (the lodges "floated" over a navy band from afar).
+step "no yard earth under the 1812 camp's lodges, so their feet stand on the ground at any range (T-3526)" \
+  node tools/test_yard_dwelling_cut.mjs
+# T-3527: and the gathering's camps come and go with the date (the owner's pick, 2026-11-08,
+# after walking them empty in April): the camp records say `drawn_only_within`, the camp
+# ground and camp paths carry the same days, yards.js cuts that ground on any other day while
+# the every-day trails keep theirs, and buildings.js and main.js hand the date to both.
+step "the 1812 gathering's camps and their worn ground stand only on its August days (T-3527)" \
+  node tools/test_yard_dated_cut.mjs
 
 # And the ground BETWEEN the 1812 buildings (T-3339): the worn trails (the beaten lake-shore
 # trail, the Vincennes trace, the cart road south from the gate, the paths along both banks)

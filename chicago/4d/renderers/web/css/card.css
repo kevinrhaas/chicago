@@ -134,6 +134,18 @@
   line-height: 1.4;
 }
 .pop-held-foot .pop-held-why { margin-top: 3px; font-size: 10px; }
+/* T-3521: folded under a small mark; a tap opens the standing text and the record's reason. */
+.pop-held-fold { margin-top: 14px; }
+.pop-held-mark {
+  display: inline-flex; align-items: center; gap: 6px;
+  cursor: pointer; list-style: none;
+  color: var(--ink-dim); font-size: 10.5px; letter-spacing: .06em; text-transform: uppercase;
+}
+.pop-held-mark::-webkit-details-marker { display: none; }
+.pop-held-mark::after { content: '\203a'; font-size: 13px; line-height: 1; transition: transform .15s; }
+.pop-held-fold[open] > .pop-held-mark::after { transform: rotate(90deg); }
+.pop-held-dot { width: 7px; height: 7px; border-radius: 50%; border: 1.5px solid currentColor; }
+.pop-held-fold[open] > .pop-flag-held { display: block; margin-top: 6px; }
 
 /* The record's own sentence for holding it. Italic and one step down, because it is
    a quotation from the dossier sitting under the project's standing text, and the

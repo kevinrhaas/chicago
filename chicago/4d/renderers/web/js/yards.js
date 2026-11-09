@@ -85,6 +85,9 @@ const CELL_M = 1.0;
  *  millimetres over it so the three cannot fight for the same depth. */
 const LIFT_M = { base: 0.022, bed: 0.028, path: 0.034 };
 
+/** T-3527: the most distinct day windows one scene's dated grounds may carry. */
+export const DATED_MAX = 8;
+
 /** How wide the trampled-grass fringe reaches in from a working yard's fence,
  *  and how far in a garden's mown border runs. Both are the same kind of
  *  invention as the treatment itself and are drawn in the vertex colour rather
@@ -725,6 +728,15 @@ uniform vec3 uDirtRest;
 uniform sampler2D uSward;
 uniform float uSwardM;
 uniform float uSwardMean;
+#ifdef YARD_DWELLINGS
+uniform sampler2D uDwell;
+uniform vec4 uDwellBox;
+#endif
+#ifdef YARD_DATED
+uniform sampler2D uDated;
+uniform vec4 uDatedBox;
+uniform float uDatedAway[${DATED_MAX}];
+#endif
 float yardHash(vec2 p) {
   vec3 q = fract(vec3(p.xyx) * 0.1031);
   q += dot(q, q.yzx + 33.33);
@@ -815,11 +827,268 @@ const YARD_TONES = {
   dooryard_green: { lane: [104, 132, 66], rest: [92, 112, 58] },
 };
 
+/**
+ * T-3526 — NO YARD EARTH UNDER A DWELLING. The owner, 2026-11-08, walking the 1812
+ * camp: "the mat lodges seem to float above the ground from far away". They did not
+ * float; the earth did. Every yard surface is drawn after the town's opaques with
+ * `polygonOffset -8/-32` (below), and the factor scales with the depth slope, which at
+ * the grazing angle a camp is seen at from 50 m is enormous, so the camp's worn earth
+ * won the depth test against the bottom of every lodge stood on it and painted the
+ * ground UNDER the lodge, in the lodge's own shade, over its foot: a band of sky-lit
+ * navy where the mats meet the ground, which reads as daylight under the dome. The
+ * band grew with distance because the offset does. Read in the browser at 46 m (14
+ * August, 13:00): the band was 8 px tall and went with the yard layer hidden, with the
+ * sun's shadows off, and with the offset dropped to its units alone; but the offset
+ * cannot drop, because without the slope term the terrain shows through the earth in
+ * patches from the air (T-1805 met the same choice for the back yards and could take
+ * the other side of it only because nothing stands on those lawns).
+ *
+ * So a ground that knows what stands on it says so (`ground.dwellings_local_enu_m`,
+ * tools/generate_camp_ground_1812.py), and every yard surface drops its fragments
+ * under those plans. What is left of the earth under a lodge is the rim inside its foot
+ * (KEEP), so there is nothing behind the foot near enough to win, and the terrain under
+ * the dome is the opaque ground it always was. The plans are drawn into one signed-
+ * distance mask over the grounds that carry them, metres from the cut's edge clamped to
+ * +/-RANGE, so bilinear filtering puts the edge within a few centimetres at a 0.5 m
+ * texel. A scene with no dwellings builds no mask and compiles no cut.
+ */
+/** The share of a dwelling's plan radius inside which no earth is drawn: inside the
+ *  foot by more than a dome's wobble (lodge_camp _Dome, up to ~6 % at the foot). */
+export const DWELLING_KEEP = 0.88;
+const DWELLING_TEXEL_M = 0.5;
+const DWELLING_RANGE_M = 2.0;
+const DWELLING_MAX_PX = 2048;
+const DWELLING_CUT = /* glsl */`
+#ifdef YARD_DWELLINGS
+  {
+    vec2 yardDw = (vec2(vYardWorld.x, -vYardWorld.z) - uDwellBox.xy) * uDwellBox.zw;
+    if (yardDw.x > 0.0 && yardDw.y > 0.0 && yardDw.x < 1.0 && yardDw.y < 1.0
+        && texture2D(uDwell, yardDw).r < 0.5) discard;
+  }
+#endif
+`;
+
+/** The dwellings every record's ground states, as [e, n, half_x, half_y, axis_deg, p]. */
+export function dwellingsOf(records = []) {
+  const out = [];
+  for (const record of records) {
+    for (const d of record?.ground?.dwellings_local_enu_m ?? []) {
+      if (Array.isArray(d) && d.length >= 6 && d.every(Number.isFinite) && d[2] > 0 && d[3] > 0) out.push(d);
+    }
+  }
+  return out;
+}
+
+/** Signed metres from the cut's edge (negative inside) of one dwelling at (e, n). */
+export function dwellingDistance([ce, cn, hx, hy, axisDeg, p], e, n, keep = DWELLING_KEEP) {
+  const th = (axisDeg * Math.PI) / 180;
+  const c = Math.cos(th);
+  const s = Math.sin(th);
+  const de = e - ce;
+  const dn = n - cn;
+  const lx = de * c + dn * s;
+  const ly = -de * s + dn * c;
+  const r = (Math.abs(lx / hx) ** p + Math.abs(ly / hy) ** p) ** (1 / p);
+  if (r < 1e-6) return -keep * Math.min(hx, hy);
+  return Math.hypot(lx, ly) * (1 - keep / r);
+}
+
+/** The mask the cut reads: { texture, box (e0, n0, 1/width_m, 1/depth_m), count, width,
+ *  height, texelM }, or null where no ground states a dwelling. */
+export function dwellingMask(records = []) {
+  const list = dwellingsOf(records);
+  if (!list.length) return null;
+  let e0 = Infinity; let n0 = Infinity; let e1 = -Infinity; let n1 = -Infinity;
+  for (const [e, n, hx, hy] of list) {
+    const r = Math.max(hx, hy) + DWELLING_RANGE_M;
+    e0 = Math.min(e0, e - r); n0 = Math.min(n0, n - r);
+    e1 = Math.max(e1, e + r); n1 = Math.max(n1, n + r);
+  }
+  const texelM = Math.max(DWELLING_TEXEL_M, Math.max(e1 - e0, n1 - n0) / DWELLING_MAX_PX);
+  const width = Math.ceil((e1 - e0) / texelM);
+  const height = Math.ceil((n1 - n0) / texelM);
+  const data = new Uint8Array(width * height).fill(255);
+  for (const d of list) {
+    const r = Math.max(d[2], d[3]) + DWELLING_RANGE_M;
+    const i0 = Math.max(0, Math.floor((d[0] - r - e0) / texelM));
+    const i1 = Math.min(width - 1, Math.ceil((d[0] + r - e0) / texelM));
+    const j0 = Math.max(0, Math.floor((d[1] - r - n0) / texelM));
+    const j1 = Math.min(height - 1, Math.ceil((d[1] + r - n0) / texelM));
+    for (let j = j0; j <= j1; j += 1) {
+      const n = n0 + (j + 0.5) * texelM;
+      for (let i = i0; i <= i1; i += 1) {
+        const e = e0 + (i + 0.5) * texelM;
+        const v = Math.max(0, Math.min(255, Math.round(128 + dwellingDistance(d, e, n) * (127 / DWELLING_RANGE_M))));
+        const k = j * width + i;
+        if (v < data[k]) data[k] = v;
+      }
+    }
+  }
+  const texture = new THREE.DataTexture(data, width, height, THREE.RedFormat, THREE.UnsignedByteType);
+  texture.magFilter = THREE.LinearFilter;
+  texture.minFilter = THREE.LinearFilter;
+  texture.generateMipmaps = false;
+  // One byte a texel and rows of any width: the default 4-byte row alignment would read
+  // past the buffer and the upload would fail black, which cuts every yard in the box.
+  texture.unpackAlignment = 1;
+  texture.wrapS = texture.wrapT = THREE.ClampToEdgeWrapping;
+  texture.name = 'yard-dwelling-cut';
+  texture.needsUpdate = true;
+  const box = new THREE.Vector4(e0, n0, 1 / (width * texelM), 1 / (height * texelM));
+  return { texture, box, count: list.length, width, height, texelM };
+}
+
+/**
+ * T-3527 — GROUND DRAWN ON ITS DAYS ONLY. The owner, 2026-11-08, of the 1812 camp seen
+ * in mid-April with nobody in it, chose that the gathering's camps come and go with the
+ * date: buildings.js hides a structure whose range says `drawn_only_within` on any other
+ * day, and the ground its people wore goes with it. A camp ground record states the days
+ * of each ring (`ground.interior_drawn_within`, parallel to its rings, null for every
+ * day) and a trail its own (`drawn_within`). Those pieces are laid into the shared
+ * surfaces like any other, so they cannot be hidden as meshes: each is drawn into one
+ * index mask over the scene (1 m texels, nearest), its window's number in the byte, and
+ * every yard surface drops its fragments where the mask names a window the date is
+ * outside. A ring takes its feather with it; a trail its fringe and a little more. Where
+ * an every-day trail runs through a dated piece the every-day trail keeps its ground, so
+ * the south-bank path survives the camp path that joins it. No dated piece, no mask and
+ * no cut compiled.
+ */
+const DATED_TEXEL_M = 1.0;
+const DATED_TRAIL_MARGIN_M = 0.75;
+const DATED_RING_MARGIN_M = 0.5;
+
+const DATED_CUT = /* glsl */`
+#ifdef YARD_DATED
+  {
+    vec2 yardDt = (vec2(vYardWorld.x, -vYardWorld.z) - uDatedBox.xy) * uDatedBox.zw;
+    if (yardDt.x > 0.0 && yardDt.y > 0.0 && yardDt.x < 1.0 && yardDt.y < 1.0) {
+      int yardWin = int(texture2D(uDated, yardDt).r * 255.0 + 0.5);
+      if (yardWin > 0 && uDatedAway[yardWin - 1] > 0.5) discard;
+    }
+  }
+#endif
+`;
+
+/** Whether `date` ('YYYY-MM-DD') falls in a window {from, to}; true for no date. */
+export function onWindow(date, w) {
+  if (!date || !w) return true;
+  const d = String(date).slice(0, 10);
+  return (!w.from || d >= w.from) && (!w.to || d <= w.to);
+}
+
+/** Every dated piece the records state: rings (with their feather) and trails. */
+export function datedPiecesOf(records = []) {
+  const out = [];
+  for (const record of records) {
+    const g = record?.ground ?? {};
+    const rings = Array.isArray(g.interior_local_enu_m) ? g.interior_local_enu_m : [];
+    const wins = Array.isArray(g.interior_drawn_within) ? g.interior_drawn_within : [];
+    rings.forEach((ring, i) => {
+      const w = wins[i];
+      if (w && Array.isArray(ring) && ring.length >= 3) {
+        out.push({ kind: 'ring', record: record.id, ring, reach: (g.feather_m ?? 0) + DATED_RING_MARGIN_M, window: w });
+      }
+    });
+    for (const t of Array.isArray(g.trails) ? g.trails : []) {
+      if (!Array.isArray(t.line_local_enu_m) || t.line_local_enu_m.length < 2) continue;
+      const reach = trailProfile(t.form ?? 'tread', t.width_m ?? 0.8).offsets.at(-1);
+      out.push({ kind: 'trail', record: record.id, id: t.id, line: t.line_local_enu_m,
+        reach: reach + (t.drawn_within ? DATED_TRAIL_MARGIN_M : 0), window: t.drawn_within ?? null });
+    }
+  }
+  return out;
+}
+
+function segDistance(e, n, a, b) {
+  const dx = b[0] - a[0]; const dn = b[1] - a[1];
+  const L2 = dx * dx + dn * dn;
+  const t = L2 > 0 ? Math.max(0, Math.min(1, ((e - a[0]) * dx + (n - a[1]) * dn) / L2)) : 0;
+  return Math.hypot(e - a[0] - t * dx, n - a[1] - t * dn);
+}
+
+/** The mask the dated cut reads: { texture, box, windows, away (Float32Array), count,
+ *  width, height }, or null where nothing is dated. */
+export function datedMask(records = [], problems = []) {
+  const pieces = datedPiecesOf(records);
+  const dated = pieces.filter((p) => p.window);
+  if (!dated.length) return null;
+  const keyOf = (w) => `${w.from ?? ''}|${w.to ?? ''}`;
+  const windows = [];
+  for (const p of dated) {
+    const k = keyOf(p.window);
+    if (!windows.some((w) => keyOf(w) === k)) windows.push({ from: p.window.from ?? '', to: p.window.to ?? '' });
+  }
+  if (windows.length > DATED_MAX) {
+    problems.push(`yards: ${windows.length} dated windows, this layer draws ${DATED_MAX}; the rest are drawn every day`);
+    windows.length = DATED_MAX;
+  }
+  const bboxOfPiece = (p) => {
+    const pts = p.kind === 'ring' ? p.ring : p.line;
+    let e0 = Infinity; let n0 = Infinity; let e1 = -Infinity; let n1 = -Infinity;
+    for (const [e, n] of pts) { e0 = Math.min(e0, e); n0 = Math.min(n0, n); e1 = Math.max(e1, e); n1 = Math.max(n1, n); }
+    return [e0 - p.reach, n0 - p.reach, e1 + p.reach, n1 + p.reach];
+  };
+  let E0 = Infinity; let N0 = Infinity; let E1 = -Infinity; let N1 = -Infinity;
+  for (const p of dated) {
+    const [a, b, c, d] = bboxOfPiece(p);
+    E0 = Math.min(E0, a); N0 = Math.min(N0, b); E1 = Math.max(E1, c); N1 = Math.max(N1, d);
+  }
+  E0 = Math.floor(E0) - 1; N0 = Math.floor(N0) - 1;
+  const width = Math.ceil((E1 - E0) / DATED_TEXEL_M) + 2;
+  const height = Math.ceil((N1 - N0) / DATED_TEXEL_M) + 2;
+  const data = new Uint8Array(width * height);
+  const covers = (p, e, n) => {
+    if (p.kind === 'ring') {
+      return pointInPolygon(p.ring, e, n) || edgeDistance(p.ring, e, n) <= p.reach;
+    }
+    for (let i = 0; i + 1 < p.line.length; i += 1) if (segDistance(e, n, p.line[i], p.line[i + 1]) <= p.reach) return true;
+    return false;
+  };
+  const visit = (p, fn) => {
+    const [a, b, c, d] = bboxOfPiece(p);
+    const i0 = Math.max(0, Math.floor((a - E0) / DATED_TEXEL_M)); const i1 = Math.min(width - 1, Math.ceil((c - E0) / DATED_TEXEL_M));
+    const j0 = Math.max(0, Math.floor((b - N0) / DATED_TEXEL_M)); const j1 = Math.min(height - 1, Math.ceil((d - N0) / DATED_TEXEL_M));
+    for (let j = j0; j <= j1; j += 1) {
+      const n = N0 + (j + 0.5) * DATED_TEXEL_M;
+      for (let i = i0; i <= i1; i += 1) {
+        const e = E0 + (i + 0.5) * DATED_TEXEL_M;
+        if (covers(p, e, n)) fn(j * width + i);
+      }
+    }
+  };
+  for (const p of dated) {
+    const k = windows.findIndex((w) => keyOf(w) === keyOf(p.window));
+    if (k < 0) continue;
+    visit(p, (idx) => { data[idx] = k + 1; });
+  }
+  // Every-day trails keep their ground where a dated piece runs over them.
+  const keep = pieces.filter((p) => p.kind === 'trail' && !p.window);
+  for (const p of keep) {
+    const [a, b, c, d] = bboxOfPiece(p);
+    if (c < E0 || a > E1 || d < N0 || b > N1) continue;
+    visit(p, (idx) => { data[idx] = 0; });
+  }
+  const texture = new THREE.DataTexture(data, width, height, THREE.RedFormat, THREE.UnsignedByteType);
+  texture.magFilter = THREE.NearestFilter;
+  texture.minFilter = THREE.NearestFilter;
+  texture.generateMipmaps = false;
+  texture.unpackAlignment = 1;
+  texture.wrapS = texture.wrapT = THREE.ClampToEdgeWrapping;
+  texture.name = 'yard-dated-cut';
+  texture.needsUpdate = true;
+  const box = new THREE.Vector4(E0, N0, 1 / (width * DATED_TEXEL_M), 1 / (height * DATED_TEXEL_M));
+  return { texture, box, windows, away: new Float32Array(DATED_MAX), count: dated.length, width, height, data };
+}
+
 /** A yard surface's material on the shared tiles (T-2013, T-2090). Set before
  *  `confidence.patch()`, which chains whatever `onBeforeCompile` it finds. */
-function yardGround(mat, surface, tiles) {
+function yardGround(mat, surface, tiles, dwell = null, dated = null) {
   const tones = YARD_TONES[surface];
+  if (dwell) mat.defines = { ...(mat.defines ?? {}), YARD_DWELLINGS: '' };
+  if (dated) mat.defines = { ...(mat.defines ?? {}), YARD_DATED: '' };
   mat.onBeforeCompile = (shader) => {
+    if (dwell) Object.assign(shader.uniforms, { uDwell: { value: dwell.texture }, uDwellBox: { value: dwell.box } });
+    if (dated) Object.assign(shader.uniforms, dated.uniforms);
     Object.assign(shader.uniforms, {
       uGrit: { value: tiles.grit.texture },
       uGritM: { value: GRIT_TILE_M },
@@ -832,6 +1101,7 @@ function yardGround(mat, surface, tiles) {
       '#include <begin_vertex>',
       '#include <begin_vertex>\n  vYardWorld = (modelMatrix * vec4(transformed, 1.0)).xyz;\n  vYardUv = uv;');
     shader.fragmentShader = `${YARD_HEAD}\n${shader.fragmentShader}`
+      .replace('#include <clipping_planes_fragment>', `#include <clipping_planes_fragment>\n${DWELLING_CUT}\n${DATED_CUT}`)
       .replace('#include <map_fragment>', YARD_FRAGMENT[surface])
       .replace('#include <normal_fragment_maps>', YARD_NORMAL);
   };
@@ -1058,6 +1328,7 @@ export async function createFencedGround({
     treatmentAt: () => null,
     drawnBaseHeightAt: () => null,
     groundLiftAt: () => 0,
+    setDate: () => 0,
     staticSupport: { regions: 0, triangles: 0, bytes: 0, disposed: false },
     dispose: () => {},
     /** T-2711: whether the surfaces came prebuilt, and if not, why not. */
@@ -1399,6 +1670,29 @@ export async function createFencedGround({
   // earths and the bed, the grass grain for the green.
   const tiles = { grit: roadGrit(), sward: swardTexture() };
   const disposables = [tiles.grit.texture, tiles.sward];
+  // T-3526: the earth is left out from under every dwelling a ground states.
+  const dwell = dwellingMask(records);
+  if (dwell) disposables.push(dwell.texture);
+  out.census.dwellings = dwell
+    ? { count: dwell.count, width: dwell.width, height: dwell.height, texelM: dwell.texelM }
+    : null;
+  out.dwellingCut = dwell;
+  // T-3527: the ground drawn on its days only, and the date that says which.
+  const dated = datedMask(records, problems);
+  if (dated) {
+    disposables.push(dated.texture);
+    dated.uniforms = { uDated: { value: dated.texture }, uDatedBox: { value: dated.box }, uDatedAway: { value: dated.away } };
+  }
+  out.census.dated = dated ? { pieces: dated.count, windows: dated.windows.length, width: dated.width, height: dated.height } : null;
+  out.datedCut = dated;
+  /** Draw the dated ground for `date` ('YYYY-MM-DD'): returns how many windows are away. */
+  out.setDate = (date) => {
+    if (!dated) return 0;
+    let away = 0;
+    dated.windows.forEach((w, k) => { const a = onWindow(date, w) ? 0 : 1; dated.away[k] = a; away += a; });
+    out.census.dated.away = away;
+    return away;
+  };
   const laid = [];
   for (const [surface, buf] of buffers) {
     if (!buf.pos.length) continue;
@@ -1414,7 +1708,7 @@ export async function createFencedGround({
     buf.pos = buf.uv = buf.col = buf.conf = null;
     geo.computeVertexNormals();
     geo.computeBoundingSphere();
-    const { mat, map } = surfaceMaterial(surface, tiles, confidence);
+    const { mat, map } = surfaceMaterial(surface, tiles, confidence, dwell, dated);
     laid.push({ surface, geo, mat, map, mesh: spatialBatchAsync(geo, mat) });
   }
   if (replay) {
@@ -1422,7 +1716,7 @@ export async function createFencedGround({
     // batches the page's own (byte-equal: prebuild_layers.mjs --layer yards).
     for (const s of replay.index.surfaces) {
       const surface = s.name.replace(/^yard-/, '');
-      const { mat, map } = surfaceMaterial(surface, tiles, confidence);
+      const { mat, map } = surfaceMaterial(surface, tiles, confidence, dwell, dated);
       laid.push({ surface, geo: null, mat, map, mesh: batchPieces(prebuiltPieces(s, replay.bin), mat) });
     }
     Object.assign(out.prebuilt, { used: true, why: null, build: replay.index.build, bytes: replay.index.bytes,
@@ -1586,7 +1880,7 @@ function prebuiltPieces(surface, bin) {
 /** One surface's material: the shared tiles, the bed's drills, the confidence
  *  patch and this layer's own program. The same whether the surface was laid
  *  here or came prebuilt (T-2711). */
-function surfaceMaterial(surface, tiles, confidence) {
+function surfaceMaterial(surface, tiles, confidence, dwell = null, dated = null) {
   // Every surface draws the shared tiles (T-2013, T-2090); only the bed keeps
   // a canvas, for its drills.
   const map = surface === 'garden_bed' ? bedTexture() : null;
@@ -1607,14 +1901,14 @@ function surfaceMaterial(surface, tiles, confidence) {
     polygonOffsetUnits: -32,
   });
   mat.name = `yard-${surface}`;
-  yardGround(mat, surface, tiles);
+  yardGround(mat, surface, tiles, dwell, dated);
   confidence?.patch(mat);
   // This layer's own program, for the reason enclosures.js records at length:
   // `customProgramCacheKey` defaults to the SOURCE TEXT of `onBeforeCompile`,
   // which every material `confidence.patch()` touches shares, so two patched
   // materials that agree on their other program parameters share a compiled
   // program and one of them is drawn by the other's shader.
-  mat.customProgramCacheKey = () => `chicago4d-yard-${surface}`;
+  mat.customProgramCacheKey = () => `chicago4d-yard-${surface}${dwell ? '-dwellings' : ''}${dated ? '-dated' : ''}`;
   return { mat, map };
 }
 

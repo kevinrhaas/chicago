@@ -21,7 +21,10 @@ import { clone as cloneSkinned } from 'three/addons/utils/SkeletonUtils.js';
 import { loadMeshoptDecoder } from '../renderers/web/js/scene-loader.js';
 import { loadVariationKit, personVariation, applyVariation } from '../renderers/web/js/human-variation.js';
 import { dressSkin, restingLid } from '../renderers/web/js/human-skin.js';
-import { dressHair } from '../renderers/web/js/human-hair.js';
+import { dressHair, dressHeadcloth } from '../renderers/web/js/human-hair.js';
+import { dressLooks, dressCloth, looksHairStyle } from '../renderers/web/js/human-looks.js';
+import { dressHat } from '../renderers/web/js/human-hats.js';
+import { hairFor } from '../renderers/web/js/human-hair-styles.js';
 import { dressSpectacles } from '../renderers/web/js/human-spectacles.js';
 
 const q = new URLSearchParams(location.search);
@@ -56,24 +59,44 @@ if (q.get('dress') === '1') {
   const sun = new THREE.DirectionalLight(0xfff4e2, 2.4); sun.position.set(2, 4, 5); scene.add(sun);
 }
 const loader = new GLTFLoader().setMeshoptDecoder(await loadMeshoptDecoder());
-const gltf = await loader.loadAsync(`../assets/humans/web/${asset}.lod${lod}.glb`);
+// &asset=auto (T-3522): each key in the body its drawn instance wears.
+const assetOf = async (key) => {
+  if (asset !== 'auto') return asset;
+  const inst = persons[key]?.drawn_as?.[0];
+  return inst ? (await fetch(`../${inst}`).then((r) => r.json())).appearance.asset_id : 'settler_1812';
+};
+const gltfs = new Map();
+const gltfFor = async (a) => { if (!gltfs.has(a)) gltfs.set(a, await loader.loadAsync(`../assets/humans/web/${a}.lod${lod}.glb`)); return gltfs.get(a); };
+const bodyOf = new Map();
+for (const key of keys) bodyOf.set(key, await assetOf(key));
+const gltf = await gltfFor(bodyOf.get(keys[0]));
+for (const key of keys) await gltfFor(bodyOf.get(key));
 const clipName = q.get('clip') ?? (gltf.animations.find((a) => /idle/.test(a.name)) ?? gltf.animations[0])?.name;
 const gap = view === 'faces' ? 0.36 : 0.75;
 const labels = document.getElementById('labels');
 const mixers = [];
 keys.forEach((key, i) => {
-  const fig = cloneSkinned(gltf.scene);
+  const own = gltfs.get(bodyOf.get(key));
+  const fig = cloneSkinned(own.scene);
   const record = key === 'base' ? null : persons[key] ?? null;
   if (key !== 'base') {
-    const v = personVariation({ kit, key, record, assetId: asset });
+    const v = personVariation({ kit, key, record, assetId: bodyOf.get(key), sceneYear: Number(record?.scene) || null });
     const r = applyVariation(fig, kit, v, { scope });
     window.__variations = [...(window.__variations ?? []), { key, ...v, applied: r }];
   }
   // &dress=1 (T-3440): dressed as humans.js dresses a person in town: the skin, the person's
   // own hair and facial hair (human-hair-styles.js) and spectacles where they wear them.
   if (q.get('dress') === '1') {
-    dressSkin(fig, { age: window.__variations?.find((x) => x.key === key)?.age ?? null, person: key === 'base' ? null : key, year: Number(q.get('year') ?? 1904) });
-    const hair = dressHair(fig, { lod, person: key === 'base' ? null : key, year: Number(q.get('year') ?? 1904) });
+    // T-3522: their looks, cloth, hat and headcloth, as humans.js build() puts them on.
+    const rec = key === 'base' ? null : persons[key] ?? null, year = Number(q.get('year') ?? rec?.scene ?? 1904);
+    if (rec?.looks) dressLooks(fig, rec.looks);
+    if (rec?.dress) dressCloth(fig, rec.dress);
+    dressSkin(fig, { age: window.__variations?.find((x) => x.key === key)?.age ?? null, person: key === 'base' ? null : key, year });
+    const style = rec?.looks ? looksHairStyle(rec.looks, hairFor(key, year)) : null;
+    if (style && rec?.dress?.tail_cm) style.tail_cm = rec.dress.tail_cm;
+    const hair = dressHair(fig, { lod, person: key === 'base' ? null : key, year, style });
+    if (rec?.dress?.headcloth) dressHeadcloth(fig, rec.dress.headcloth, { person: key });
+    if (rec?.dress?.hat) dressHat(fig, rec.dress.hat, { person: key, lod });
     const specs = dressSpectacles(fig, { lod, person: key === 'base' ? null : key });
     window.__dressed = [...(window.__dressed ?? []), { key, hair: hair ? { cut: hair.style.cut, grown: hair.grown } : null, spectacles: !!specs }];
   }
@@ -86,7 +109,7 @@ keys.forEach((key, i) => {
   const holder = new THREE.Group(); holder.add(fig);
   holder.position.x = (i - (keys.length - 1) / 2) * gap;
   scene.add(holder);
-  const clip = gltf.animations.find((a) => a.name === clipName);
+  const clip = own.animations.find((a) => a.name === clipName) ?? own.animations.find((a) => /idle/.test(a.name));
   if (clip) { const m = new THREE.AnimationMixer(fig); m.clipAction(clip).play(); m.setTime(Number(q.get('t') ?? 1)); mixers.push(m); }
   const label = document.createElement('div'); label.textContent = key; labels.appendChild(label);
 });

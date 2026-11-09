@@ -117,4 +117,30 @@ console.log('PASS a host with no day walks to the mark, greets once there, and g
   assert.equal(days.isHosted(kate), false);
 }
 console.log('PASS human-days takes a host out of her day, out by the nearest door, and gives her back');
+
+// ---- by a T-3524 passage door: she comes down its stair, the door opening, then on to the mark.
+{
+  const kate = figure('kate', { instance: { behaviour: { day: [{ spans: [
+    { from: 0, to: 24, indoors: true, where: 'house', doing: 'the kitchen' }] }] } } });
+  kate.indoors = true;
+  const humans = { actors: [kate], isHeld: () => false };
+  const doors = { structures: [{ structure: 'house', name: 'House', doors: [
+    { id: 'house:stair', step: { local_e: 10, local_n: 0 }, leaf: { local_e: 10, local_n: -1 }, outward_deg: 0 }] }] };
+  const held = new Set();
+  const way = Object.assign([{ e: 10, n: 2 }, { e: 10, n: 0 }, { e: 10, n: -1 }, { e: 10, n: -2 }], { door: 2, leaf: { e: 10, n: -1 } });
+  const pass = { id: 'house:stair', way: () => way, hold: (p) => held.add(p), release: (p) => held.delete(p), isOpen: () => held.size > 0 };
+  const passages = { passage: (id) => (id === pass.id ? pass : null) };
+  const days = createHumanDays({ humans, hour: () => 10, date: () => '1904-04-15', doors, passages, visitor: () => ({ e: 9, n: 8 }) });
+  days.update(0.1);
+  assert.equal(days.host('kate', { e: 9, n: 5 }, { heading: 0, onArrive: () => { kate.met2 = true; } }).ok, true);
+  assert.equal(kate.indoors, false, 'she comes out on the stair');
+  assert.ok(held.size === 1, 'the door is held open for her');
+  assert.deepEqual([kate.path.pts[0].e, kate.path.pts[0].n], [10, -2], 'from the top of the way, inside');
+  kate.arrive();
+  assert.equal(held.size, 0, 'down and through, the door is let go');
+  assert.ok(kate.path && kate.path.pts.at(-1).e === 9, 'and on to her mark');
+  kate.arrive();
+  assert.ok(kate.met2 && kate.e === 9 && kate.n === 5, 'where she stands');
+}
+console.log('PASS a host whose door is a passage comes out by its stair and door, then to the mark');
 console.log('JAUNT HOSTS PASS');

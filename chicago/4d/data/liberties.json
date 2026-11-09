@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1061,
+  "count": 1064,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -71700,6 +71700,36 @@
       ]
     },
     {
+      "id": "L-1812-town-dress-3522",
+      "title": "Each 1812 settler, trader, engagé and townswoman dressed as their own, with a hat of their own",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-08",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-08, with a still of three townsmen on the prairie in the same black round hat, dark waistcoat and grey trousers: *\"you need to vary the clothing more so everyone is their unique person in 1812 all of these guys wear the same hat and clothing so do that across the board\"*. The town wore five dressed bodies (settler 1812, trader 1812, engage 1812, woman working 1812, lady 1812), one set of colours and one hat each. No new body is made (1812's phone memory sits under its ceiling); the research notes on town dress 1812 writes the dress 1812 town data for the 40 townspeople who are not soldiers or children, and the walkthrough's human hats code makes each hat for the head it sits on. Five things are ours. (1) **Colours**, inside the readings' own ranges by trade (people-1812-3466 `dress`: the settler's tow, white or checked shirt, natural, tan or blue trousers, brown, red or striped waistcoat; the trader's dark green, blue or brown-black coat, yellow, buff or white waistcoat, black or buff breeches; the engagé's printed or striped calico, red sash with blue, green and yellow, natural or blue trousers; people-1812-3464 `dress`: the laundress's printed or striped short gown, striped, blue, brown or madder petticoat, white, natural or blue-checked apron; the woman of the country's red, blue or brown print and dark stroud; the officers' wives' white, cream or small-print gowns, the matron's dark), each cloth its own dye lot, older people's more worn. (2) **What is worn**: a waistcoat (drawn in the shirt's cloth for a man in his shirt sleeves, since the trousers under it are cut for one), neckerchief, sash, apron or neck kerchief left off by some; Wau-Bun's *\"suit of deer-skin, with belt, moccasins\"* on about one engagé in three; moccasins on some settlers. (3) **Hats**: felt round hats of the wearer's own crown (8.5-16 cm), taper and brim (4.5-10 cm), rolled or gone soft, black, rusty, brown, drab or grey; natural or weathered straw with or without a band; the red tuque, or a knitted cap in red, blue, brown or undyed with a long or short fall; some bare heads. The trader's hats are the tall town ones of Krimmel's men, the frontier ones lower. (4) **The women of the country** (Archange Ouilmette, Mrs Bisson, Josette LaFramboise, Madeline Mirandeau) wear Wau-Bun's blue cotton handkerchief round the head and moccasins; some laundresses a handkerchief in place of the cap, as the reading allows; Cicely the head-wrap of the reading for a woman in her place. (5) **The mix**: who wears which is seeded, rerolled until each person differs from everyone of their body in at least two of headwear, upper, middle and lower garment; no two alike (the human town dress test)."
+        },
+        {
+          "label": "Not invented",
+          "text": "the pieces and colour ranges of the readings above, which grade them (inferred for the engagé and the woman of the country, reconstructed for the settler and the trader) and cite Wau-Bun, Lambert (1810), Heriot (1807), Krimmel's Philadelphia pictures (1811-13), the Pixler family (c.1815) and the Met's garments of 1810-20. Nothing about any one of these people's clothes is recorded, save Wells's queue and round felt hat (people-1812-3463)."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "a description, inventory or picture of any of these people's clothes, which replaces their row."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-08."
+        }
+      ],
+      "work_refs": [
+        "T-3522"
+      ]
+    },
+    {
       "id": "L-1812-native-cards-3507",
       "title": "Names, histories and the part on 15 August for every Potawatomi and Miami card of 1812, and three named men who came after the 14th",
       "section": "per_subject",
@@ -71811,6 +71841,72 @@
       "work_refs": [
         "T-0795",
         "T-3517"
+      ]
+    },
+    {
+      "id": "L-1812-children-dress-3520",
+      "title": "Each 1812 town child dressed and wearing their hair as their own, walking as a child walks, mostly indoors or by their own door; nobody stands in a lodge's wall",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-08",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-08, of the children in the fort yard: *\"they have a very odd walk that does not make sense at all, and they all look identical and there are a lot of them in the yard i would think not so many kids out... when so many kids and no parents they should leave and come out of the door\"*, *\"i am ok with the idea that occasionally there are kids together playing but it seems like its such a centerpiece, the kids should not be all over the place\"*, *\"their hair is short they all look like boys\"*, and of the camps, *\"people can stand and break the wall of the mat walls\"*. Five things are ours. (1) **Cloth.** The town's nineteen children wore three dressed bodies (child toddler 1812, child girl 1812, child boy 1812) in one colour each. the research notes on children 1812 writes the dress 1812 children data, recolouring each child's own pieces from the period's range: the little ones' frocks two in eight white muslin, the rest unbleached, check or sprigged prints; the girls' frocks rose, madder, indigo, blue, green, buff, lilac or a brown check, a white or unbleached pinafore over most; the boys' skeleton suits blue, brown, green, grey, plum, or a dark jacket over nankeen; seeded so no two of a kind share a colour. (2) **Hair.** Girls' hair longer than a boy's and parted in the middle: most worn loose and curling to the shoulders, the rest plaited down the back (15-30 cm); the little girls' loose to the neck; boys cropped, about half cut straight across the brow. The city fashion of a girl's short curls in the eastern portraits (Joshua Johnson's children, about 1805) is not followed; the longer hair for a soldier's or trader's daughter is our choice. (3) **The walk.** A child walks at a child's pace, stride and cadence by age (Sutherland, Olshen, Cooper and Woo 1980: about 0.64 m/s at 176 steps a minute at one, 1.14 m/s at 143 at seven, an adult's by fifteen), hips over the knees, never on its knees (the walkthrough's human gait code `childGait`). (4) **Fewer out.** A child goes in at its own door for 100-220 s in about nine of every ten 130-260 s, and when out plays within 1.4-3.6 m of that door; a knot of children only plays together for 35-80 s in every 320-640 s (the walkthrough's human days code `CHILD`); near the visitor under two in five are out at any hour, never more than five together without a grown-up for every two. (5) **Lodge walls.** The cattail-mat and elm-bark walls of every lodge (their foot traced off the camp models, the derive doors 1812 tool) are kept clear: anyone whose place or spacing would stand them in a wall is moved just outside it, never into another (the walkthrough's human spacing code `keepOutOf`)."
+        },
+        {
+          "label": "Not invented",
+          "text": "who the children are, their sex, age, household and door, as their cards have them; the cloths and cuts of the period's pictures (Joshua Johnson, Edward and Sarah Rutter, ca. 1805, Joshua Johnson, Emma Van Name, ca. 1805, Dress (child's), cotton, ca. 1813. The Metropolitan Museum of Art, 2009.300.682.) and the frontier's trade goods (Wau-Bun, Quaife 1913). Which child wears which, and every child's hours, are ours."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "a description or picture of any child at Chicago before 1812, or of how the post's children were dressed."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-08."
+        }
+      ],
+      "work_refs": [
+        "T-3520"
+      ]
+    },
+    {
+      "id": "L-glessner-passages-3524",
+      "title": "Glessner's court service door and Eighteenth Street side door open and shut as the household passes, up and down the stairs to them",
+      "section": "per_subject",
+      "subjects": [
+        "glessner_house"
+      ],
+      "covers": [],
+      "recorded": "2026-11-08",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "two more of the John J. Glessner House doors are hung to swing, for the people drawn in its court and on Eighteenth Street rather than for the visitor (the walkthrough's house doors code § passages): the court's service entrance at the head of the north court service stair (openings court north \"service entrance into the courtyard\") and the servants' side door up the stair inside the Eighteenth Street alcove (v4 detail north entry alcove). Each leaf is the baked oak one with its iron latch, lifted out of the house's batch at load and hung on the jamb away from its latch (the court door on its west jamb, the side door on its south), swinging inward through 90 degrees in 1.2 s into a dark vestibule like the front door's. Someone whose day takes them in (the walkthrough's human days code) walks to the foot of the stair, up the middle of every tread to the door, which starts to open as they come within 2.2 m and which they wait at till it is open, through it, and is indoors only 0.6 m past the leaf; the door shuts behind them. Coming out, it opens, they step out of the dark behind it, it shuts once they are 1.3 m from it, and they come down to the ground. A person asked for at either door comes down the stair to the visitor. The way is used one direction at a time, a follower 3 s behind whoever went before, and the door stays open while anyone holds it. The owner, 2026-11-08: *\"when people enter the glessner house from the rear they just kind of disappear at the staircase i think the door should work and the stairs and they should come up and down the stairs\"*."
+        },
+        {
+          "label": "What it stands on",
+          "text": "the doorways, leaves, latches, treads and landings are the record's, read as the masonry house params tool frames them and the masonry house v4 service tool build stair and the masonry house v4 detail tool north entry lay them: the court flight's ten treads (W 108.2-112.1, S 41.1 to 32.2), each a tenth of the landing's 6 ft, and the landing (W 98.7-112.9, S 26.83-32.2); the alcove's three front steps out over the walk up to its 1.5 ft landing and its eight treads east up to the 6.0 ft threshold. The hinge side of each is INFERRED from its latch, which the generator puts at one end of the leaf: a latch is on the free edge."
+        },
+        {
+          "label": "What is invented",
+          "text": "that either door swings inward, how far and how fast; the vestibules behind them (as “Glessner's front door hung on its north jamb, swinging inward into a dark vestibule, and its steps walkable”'s); the line walked up each stair (its middle), where a person waits and how far ahead a door begins to open; one way at a time and the follower's gap; the riser ease of the walked way (0.12 m each side of a riser)."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a photograph of either door open, the HABS first-floor plan read for what lies behind each, and any account of the household's comings and goings by the court."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-08 (T-3524)."
+        }
+      ],
+      "work_refs": [
+        "T-3524"
       ]
     },
     {
