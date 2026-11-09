@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2843, ts: '2026-11-09T01:02:00.695Z', date: 'Nov 8, 2026, 7:02 PM CT', title: '1812 children walk like children and dress as their own', kind: 'fix',
+    items: [
+      'The 1812 children walk upright at a child\'s pace and stride, no more kneeling slide.',
+      'Every child dressed in their own colours; girls wear their hair long, loose or plaited.',
+      'Fewer children about: most are indoors or playing by their own door, a play group only now and then.',
+      'Nobody stands inside a mat or bark lodge wall in the camps.',
+    ] },
   { v: 2842, ts: '2026-11-09T00:31:51.577Z', date: 'Nov 8, 2026, 6:31 PM CT', title: 'Every person has a real story, and Find reaches them', kind: 'fix',
     items: [
       'Find this person and Go to house now work for everyone in 1812 and 1904. Where no road reaches, such as the Kinzie house across the river, you fly there.',
