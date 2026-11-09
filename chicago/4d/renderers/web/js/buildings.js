@@ -1599,6 +1599,47 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
   }
   bodySamples.clear();
   let weathering = 1;
+  /**
+   * T-3527 — A STRUCTURE DRAWN ON ITS DAYS ONLY. The owner, 2026-11-08, chose that the
+   * 1812 gathering's camps come and go with the date: a sidecar whose documented_range
+   * says `drawn_only_within` is drawn only while the date the Season or a jaunt sets is
+   * inside that range. Its instances are collapsed to a zero matrix rather than hidden,
+   * because the far-relief, far-shadow, far-colour and sub-pixel hooks toggle visibility
+   * in every pass and restore it after; a zero matrix draws nothing in any pass, casts
+   * nothing, picks nothing, and gives the hooks nothing to swap. Its own matrix comes
+   * back when the date does. Returns the ids hidden.
+   */
+  const datedIds = new Set([...registry.values()]
+    .filter((r) => r.sidecar?.documented_range?.drawn_only_within === true).map((r) => r.id));
+  let datedInstances = null;
+  const datedHidden = new Set();
+  const ZERO_MATRIX = new THREE.Matrix4().makeScale(0, 0, 0);
+  function onRange(date, rng) {
+    if (!date) return true;
+    const d = String(date).slice(0, 10);
+    return (!rng?.from || d >= rng.from) && (!rng?.to || d <= rng.to);
+  }
+  function setDate(date) {
+    if (!datedIds.size) return [];
+    if (!datedInstances) {
+      datedInstances = new Map();
+      for (const batch of batches) {
+        (batch.userData.batchIndex ?? []).forEach((id, i) => {
+          if (!datedIds.has(id)) return;
+          if (!datedInstances.has(id)) datedInstances.set(id, []);
+          datedInstances.get(id).push({ batch, i, matrix: batch.getMatrixAt(i, new THREE.Matrix4()) });
+        });
+      }
+    }
+    for (const id of datedIds) {
+      const show = onRange(date, registry.get(id)?.sidecar?.documented_range);
+      if (show === !datedHidden.has(id)) continue;
+      for (const { batch, i, matrix } of datedInstances.get(id) ?? []) batch.setMatrixAt(i, show ? matrix : ZERO_MATRIX);
+      if (show) datedHidden.delete(id); else datedHidden.add(id);
+    }
+    return [...datedHidden];
+  }
+
   function setWeathering(value) {
     const t = Math.max(0, Math.min(1, Number(value)));
     if (!Number.isFinite(t) || t === weathering) return weathering;
@@ -1787,6 +1828,10 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
      *  back on its archetype's flat colour. */
     setWeathering,
     get weathering() { return weathering; },
+    /** T-3527: draw the structures dated `drawn_only_within` for `date`; the ids hidden. */
+    setDate,
+    get datedIds() { return [...datedIds]; },
+    get datedHidden() { return [...datedHidden]; },
 
     /**
      * What tone each structure was given and what its vertices were actually

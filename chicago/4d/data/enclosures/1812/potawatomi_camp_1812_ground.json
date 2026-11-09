@@ -4140,6 +4140,65 @@
         ]
       ]
     ],
+    "interior_drawn_within": [
+      {
+        "from": "1812-08-12",
+        "to": "1812-08-15"
+      },
+      {
+        "from": "1812-08-12",
+        "to": "1812-08-16"
+      },
+      {
+        "from": "1812-08-12",
+        "to": "1812-08-16"
+      },
+      {
+        "from": "1812-08-12",
+        "to": "1812-08-16"
+      },
+      {
+        "from": "1812-08-12",
+        "to": "1812-08-16"
+      },
+      {
+        "from": "1812-08-12",
+        "to": "1812-08-16"
+      },
+      {
+        "from": "1812-08-12",
+        "to": "1812-08-16"
+      },
+      {
+        "from": "1812-08-12",
+        "to": "1812-08-16"
+      },
+      {
+        "from": "1812-08-12",
+        "to": "1812-08-16"
+      },
+      {
+        "from": "1812-08-12",
+        "to": "1812-08-16"
+      },
+      {
+        "from": "1812-08-12",
+        "to": "1812-08-16"
+      },
+      {
+        "from": "1812-08-12",
+        "to": "1812-08-16"
+      },
+      {
+        "from": "1812-08-12",
+        "to": "1812-08-16"
+      },
+      {
+        "from": "1812-08-12",
+        "to": "1812-08-16"
+      }
+    ],
+    "interior_drawn_within_note": "T-3527: one entry to each ring above, in the same order: the days its camp stands, from that camp's record (documented_range with drawn_only_within), or null for a ground drawn every day. yards.js draws a ring's earth only on its days, as buildings.js draws the camp; on any other date the Season or a jaunt sets, the ground is the prairie's (the owner, 2026-11-08, chose that the camps come and go with the date).",
     "dwellings_local_enu_m": [
       [
         1068.83,

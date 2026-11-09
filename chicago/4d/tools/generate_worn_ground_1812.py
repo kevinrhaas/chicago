@@ -1026,6 +1026,14 @@ def camp_paths(existing):
         "alignment": f"reconstructed: the least-cost route from the nearest group ({short(hub).replace('_', ' ')}) toward the agent's house door, beside the factory, ending where it meets the south-bank path that runs on to it",
         "line_local_enu_m": shape(raw, "tread", 3.3, step=2.5),
     })
+    # T-3527: the gathering wore these paths, so they are drawn on the gathering's days only,
+    # as its camps are (each camp record's documented_range with drawn_only_within)
+    import generate_camp_ground_1812 as cg
+    wins = [cg.window(sc) for sc in cg.camps() if sc["id"].startswith("potawatomi_camp")]
+    if wins and all(wins):
+        days = {"from": min(w["from"] for w in wins), "to": max(w["to"] for w in wins)}
+        for p in out:
+            p["drawn_within"] = dict(days)
     return out
 
 
