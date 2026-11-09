@@ -42719,6 +42719,37 @@ ground behind the fort), or a reconstruction of the lake stage in the 1810s.
 **Ticket:** T-3520.
 **Recorded:** 2026-11-08.
 
+### L-glessner-passages-3524 — Glessner's court service door and Eighteenth Street side door open and shut as the household passes, up and down the stairs to them
+
+**Decision:** two more of the `glessner_house` doors are hung to swing, for the people drawn in its court and on
+Eighteenth Street rather than for the visitor (`renderers/web/js/house-doors.js` § passages): the court's service
+entrance at the head of the north court service stair (`openings_court_north` "service entrance into the courtyard")
+and the servants' side door up the stair inside the Eighteenth Street alcove (`v4_detail.north_entry_alcove`). Each
+leaf is the baked oak one with its iron latch, lifted out of the house's batch at load and hung on the jamb away
+from its latch (the court door on its west jamb, the side door on its south), swinging inward through 90 degrees in
+1.2 s into a dark vestibule like the front door's. Someone whose day takes them in (`renderers/web/js/human-days.js`)
+walks to the foot of the stair, up the middle of every tread to the door, which starts to open as they come within
+2.2 m and which they wait at till it is open, through it, and is indoors only 0.6 m past the leaf; the door shuts
+behind them. Coming out, it opens, they step out of the dark behind it, it shuts once they are 1.3 m from it, and
+they come down to the ground. A person asked for at either door comes down the stair to the visitor. The way is
+used one direction at a time, a follower 3 s behind whoever went before, and the door stays open while anyone holds
+it. The owner, 2026-11-08: *"when people enter the glessner house from the rear they just kind of disappear at the
+staircase i think the door should work and the stairs and they should come up and down the stairs"*.
+**What it stands on:** the doorways, leaves, latches, treads and landings are the record's, read as
+`masonry_house_params.py` frames them and `masonry_house_v4_service.py` `build_stair` and
+`masonry_house_v4_detail.py` `north_entry` lay them: the court flight's ten treads (W 108.2-112.1, S 41.1 to 32.2),
+each a tenth of the landing's 6 ft, and the landing (W 98.7-112.9, S 26.83-32.2); the alcove's three front steps
+out over the walk up to its 1.5 ft landing and its eight treads east up to the 6.0 ft threshold. The hinge side of
+each is INFERRED from its latch, which the generator puts at one end of the leaf: a latch is on the free edge.
+**What is invented:** that either door swings inward, how far and how fast; the vestibules behind them (as
+L-glessner-front-door-swing-3442's); the line walked up each stair (its middle), where a person waits and how far
+ahead a door begins to open; one way at a time and the follower's gap; the riser ease of the walked way (0.12 m each
+side of a riser).
+**How to resolve:** a photograph of either door open, the HABS first-floor plan read for what lies behind each, and
+any account of the household's comings and goings by the court.
+**Ticket:** T-3524.
+**Recorded:** 2026-11-08 (T-3524).
+
 ### L-1812-garrison-dress-3523 — The 1812 garrison dressed by rank and duty, and its muskets carried by duty
 
 **Decision:** the owner, 2026-11-08, beside an Ogden-style plate of the army about 1812: *"and all the men soldiers have the same hats? Dont the soldiers have different appearance based on rank? and none of them appear to have firearms?"* Every enlisted man of Heald's company stood in the one private's dress and nobody carried a musket. No new figure is made (the published site's 432 MB budget, the 1812 phone's 350 MB): `docs/RESEARCH/people-1812-3462/garrison_dress.py` (run by `place.py`) writes `data/humans/variation/dress_1812_garrison.json`, which recolours and hides pieces of the figures already drawn and names what `renderers/web/js/human-garrison.js` draws on each man's own bones at load. Six things are ours. (1) **Rank marks**: a sergeant's two white worsted epaulettes and a corporal's one on the right shoulder, read by analogy from the light dragoons' rule printed in 1814; the worsted's white and the epaulettes' size and fringe. (2) **Musicians**: the drummers' and fifers' coats red faced blue, read from Krimmel's volunteer drummer for the regulars; the drum's blue shell, red hoops and white cords; a fifer's fife case at the hip in place of the cartridge box. (3) **Officers**: the lieutenant's and the ensign's silver epaulette on the left shoulder (the ensign's is not recorded; he is given the lieutenant's), a crimson sash round the waist for the three line officers on the 14th as on a tour of duty, the surgeon's mate's black collar, cuffs and plume. (4) **Fatigue**: the men at their work (the gardens, the bake house, the armourer's, the wharf, the cornfield at the forks) in the issued fatigue clothes, drawn on the 1812 settler's working body recoloured to unbleached linen: a shirt, a white waistcoat on three in four, a black stock, loose linen trousers, a round hat of his own on one in three and the rest bareheaded; the frock itself is not drawn, and no fatigue cap (none was issued). The fatigue party drawn up on the parade to be told off stands in its coats. (5) **Arms and how they are carried**: a musket of the 1795 Springfield / Charleville pattern with its bayonet fixed, its stock, lock, bands and sling shaped by us to the arm's regulation length; sentries walking their posts and men walking out from the pickets at the shoulder (the butt in the left hand, the lock turned out), the guard's sergeant and corporal and the sentry by the south-east blockhouse at the order; men at chores without; the cornfield party's three muskets piled at the field's edge, the man walking back to the fort leaving his there. (6) **Who**: which man wears what follows his rank on the muster-roll and the station T-3462 gave him.

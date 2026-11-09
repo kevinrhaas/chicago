@@ -25,21 +25,23 @@
      },
      "outward_deg": 179.3,
      "width_m": 1.19,
-     "reconstructed": "in at the foot of the north court service stair; the climb to the landing door (service entrance into the courtyard, with stone threshold) is not walked"
+     "passage": true,
+     "reconstructed": "up the north court service stair and its landing to the door (service entrance into the courtyard, with stone threshold), which opens and shuts as they pass (house-doors.js passages, T-3524); the line walked is the flight's middle"
     },
     {
      "id": "glessner_house:north_entry",
      "leaf": {
-      "local_e": 1356.34,
-      "local_n": -3218.57
+      "local_e": 1355.43,
+      "local_n": -3218.58
      },
      "step": {
-      "local_e": 1356.32,
-      "local_n": -3216.96
+      "local_e": 1355.4,
+      "local_n": -3215.96
      },
      "outward_deg": 359.3,
      "width_m": 3.66,
-     "reconstructed": "in at the alcove's opening, where its stair runs up to the door"
+     "passage": true,
+     "reconstructed": "up the alcove's front steps and the stair inside it to its side door, which opens and shuts as they pass (house-doors.js passages, T-3524); the line walked is the steps' middle"
     },
     {
      "id": "glessner_house:stable",
