@@ -151,14 +151,240 @@ export function glessnerFrontPlan(sidecar) {
   };
 }
 
+// ---------------------------------------------------------------- passages (T-3524)
+//
+// The owner, 2026-11-08: *"when people enter the glessner house from the rear they just kind
+// of disappear at the staircase i think the door should work and the stairs and they should
+// come up and down the stairs"*. Two more of Glessner's doors are hung, for the household
+// rather than the visitor: the court's service entrance at the head of the north court
+// service stair, and the servants' side door up the stair inside the Eighteenth Street
+// alcove. A PASSAGE is a door a drawn person opens: its baked leaf lifted and hung as the
+// front door's is, a dark vestibule behind it, and the way up its steps — every tread the
+// generator lays, at its own height — from the ground outside to just inside the leaf.
+// human-days.js walks people along it (`passage(id).way()`), holding the door open while
+// they pass (`hold`/`release`); this layer swings it (`update`). It is not an Interact
+// thing: the doors file's own Ask for stands at the foot of each, and the visitor is not
+// walked up these stairs.
+//
+// WHAT IS THE RECORD'S, read as masonry_house_params.py frames it and the generator builds it:
+//   - the court door, `openings_court_north` "service entrance into the courtyard", W 100-104
+//     at S 26.83, 6.0-14.5 ft over north grade; its leaf is the generic door of
+//     masonry_house_v4_detail.py `opening` (a slab 0.24-0.29 m behind the face, stiles to
+//     0.18 m, its iron latch to 0.15 m, the latch at the opening's east end);
+//   - the stair to it, `v4_detail.north_court_service_stair` as masonry_house_v4_service.py
+//     `build_stair` lays it: ten treads up the flight (W 108.2-112.1, S 41.1 to 32.2), each
+//     a tenth of the landing's 6 ft, onto the landing (W 98.7-112.9, S 32.2-26.83);
+//   - the side door, `v4_detail.north_entry_alcove` as `north_entry` lays it: three front
+//     steps out over the walk up to the alcove's landing (1.5 ft), eight treads east up to the
+//     threshold (6.0 ft), and the door on the alcove's east wall (W 93.5, S 1.8-5.2), its
+//     latch at the north end.
+// WHAT IS OURS, docs/LIBERTIES.md L-glessner-passages-3524: the hinge on the jamb away from
+// each latch (inferred, as the front door's); the inward swing through PASSAGE_OPEN_DEG in
+// PASSAGE_SWING_S; the vestibule behind; and the line walked up each stair (its middle).
+
+/** How far a passage door swings, and how long it takes (ours, the header). */
+export const PASSAGE_OPEN_DEG = 90;
+export const PASSAGE_SWING_S = 1.2;
+/** A way starts this far out from the foot of the first step (derive_doors_scene.py STEP_M). */
+const PASSAGE_STEP_M = 0.7;
+/** The point a person stops at before the leaf, out from the wall face, and how far in they
+ *  are when they are indoors. */
+const PASSAGE_BEFORE_M = 0.45;
+const PASSAGE_IN_M = 0.6;
+// masonry_house_v4_detail.py `opening` for a plain door: the slab's back, the latch's face.
+const PLAIN_LEAF_BACK_M = 0.29;
+const PLAIN_LEAF_FRONT_M = 0.15;
+
+/** The record's frame, as house-doors' front plan and masonry_house_params.py read it. */
+function frameOf(sidecar) {
+  const frame = val(sidecar, 'frame_ft');
+  if (!frame) return null;
+  const L = Number(frame['length_ft']), D = Number(frame['depth_ft']);
+  const datums = { door: Number(frame['door_datum_above_grade_ft'] ?? 0),
+    ng: Number(val(sidecar, 'grade_datum', {})?.['north_grade_above_grade_ft'] ?? 0) };
+  return {
+    x: (w) => (L - Number(w)) * FT,
+    y: (s) => (D - Number(s)) * FT,
+    z: (spec) => (Array.isArray(spec) ? (Number(spec[0]) + datums[spec[1] ?? 'ng']) : (Number(spec) + datums.ng)) * FT,
+  };
+}
+const span2 = (a, b) => [Math.min(a, b), Math.max(a, b)];
+const box2 = (u, v, y) => ({ u: span2(...u), v: span2(...v), y });
+
+/** A plain-door leaf's numbers in a plan whose jambs are known (the header). */
+function plainLeaf(plan, latchAtHighS) {
+  plan.leaf = { front: -PLAIN_LEAF_FRONT_M, back: -PLAIN_LEAF_BACK_M, s: [plan.jambs[0] + 0.04, plan.jambs[1] - 0.04],
+    foot: plan.sill + 0.02, top: plan.head - 0.04 };
+  plan.hinge = latchAtHighS ? 'left' : 'right';
+  plan.openDeg = PASSAGE_OPEN_DEG;
+  plan.revealBack = plan.leaf.back - 0.01;
+  // Only the leaf is lifted: nothing deeper than its back is in the box.
+  plan.leafBoxBack = plan.leaf.back - 0.03;
+  plan.leafMaterials = ['oak', 'iron'];
+  return plan;
+}
+
+/**
+ * The court's service entrance and the way up the north court service stair to it, in the
+ * structure frame (as glessnerFrontPlan). Null when the record does not carry them.
+ */
+export function glessnerCourtPlan(sidecar) {
+  const f = frameOf(sidecar);
+  const stair = val(sidecar, 'v4_detail', {})?.['north_court_service_stair'];
+  const court = val(sidecar, 'openings_court_north', {});
+  const door = (court?.['items'] ?? []).find((o) => o?.['kind'] === 'door');
+  if (!f || !stair || !door) return null;
+  const face = f.y(court['at']);
+  // d out of the wall into the court (south, -v); s along it, to the right of one outside
+  // facing the door (east, +u).
+  const plan = {
+    id: 'glessner_house:service_stair', structureId: sidecar.id, name: 'Service entrance', passage: true,
+    origin: [0, face], outward: [0, -1], along: [1, 0],
+    jambs: span2(f.x(door['at'][0]), f.x(door['at'][1])),
+    sill: f.z([door['z'][0], court['datum'] ?? 'ng']), head: f.z([door['z'][1], court['datum'] ?? 'ng']),
+    grades: { leaf: 'attested', hinge: 'inferred', swing: 'reconstructed', vestibule: 'reconstructed', treads: 'attested' },
+  };
+  // The latch is at the opening's high-u end (east); s is u here.
+  plainLeaf(plan, true);
+  const landingZ = f.z(stair['landing_z']);
+  const n = Number(stair['steps']);
+  const fu = span2(...stair['flight_W'].map(f.x)), fv = span2(...stair['flight_S'].map(f.y));
+  const lu = span2(...stair['landing_W'].map(f.x)), lv = span2(...stair['landing_S'].map(f.y));
+  const run = (fv[1] - fv[0]) / n;
+  const treads = [];
+  // masonry_house_v4_service.py build_stair: tread i from the foot, its top a tenth higher.
+  for (let i = 0; i < n; i += 1) treads.push({ id: `flight_${i + 1}`, ...box2(fu, [fv[0] + run * i, fv[0] + run * (i + 1)], landingZ * (i + 1) / n) });
+  treads.push({ id: 'landing', ...box2(lu, lv, landingZ) });
+  const mid = (plan.jambs[0] + plan.jambs[1]) / 2;
+  const fuMid = (fu[0] + fu[1]) / 2;
+  const onLanding = (lv[0] + lv[1]) / 2;
+  plan.treads = treads;
+  plan.route = [
+    [fuMid, fv[0] - PASSAGE_STEP_M],         // in the court, before the first step
+    [fuMid, onLanding],                       // up the flight onto the landing
+    [mid, onLanding],                         // along the landing to the door
+    [mid, face - PASSAGE_BEFORE_M],           // before the leaf
+  ];
+  return plan;
+}
+
+/**
+ * The servants' side door off Eighteenth Street and the way up the alcove's steps and stair
+ * to it, in the structure frame. Null when the record does not carry them.
+ */
+export function glessnerNorthEntryPlan(sidecar) {
+  const f = frameOf(sidecar);
+  const a = val(sidecar, 'v4_detail', {})?.['north_entry_alcove'];
+  if (!f || !a) return null;
+  const east = f.x(a['inner_east_W']);
+  // d out of the east wall into the alcove (west, -u); s along it, to the right of one in
+  // the alcove facing the door (south, -v).
+  const doorV = span2(...a['door_S'].map(f.y));
+  const plan = {
+    id: 'glessner_house:north_entry', structureId: sidecar.id, name: 'North entry door', passage: true,
+    origin: [east, 0], outward: [-1, 0], along: [0, -1],
+    jambs: [-doorV[1], -doorV[0]],
+    sill: f.z(a['threshold_z']), head: f.z(a['door_top']),
+    grades: { leaf: 'attested', hinge: 'inferred', swing: 'reconstructed', vestibule: 'reconstructed', treads: 'attested' },
+  };
+  // The latch is at the opening's north end (high v), which is low s here.
+  plainLeaf(plan, false);
+  const landing = f.z(a['landing_z']), threshold = plan.sill;
+  const ou = span2(...a['opening_W'].map(f.x));
+  const yf = f.y(0), yb = f.y(a['back_S']);
+  const cheek = span2(...a['cheek_W'].map(f.x));
+  const nf = Number(a['front_steps']), frontRun = Number(a['front_run_ft']) * FT / nf;
+  const ns = Number(a['stair_steps']);
+  const su = span2(...a['stair_W'].map(f.x)), sv = span2(...a['stair_S'].map(f.y));
+  const run = (su[1] - su[0]) / ns;
+  const treads = [];
+  // masonry_house_v4_detail.py north_entry: the front steps out over the walk, outermost
+  // lowest, on the arch's west half; the alcove's floor at the landing; the stair rising east.
+  const stepU = [ou[0] - 0.12, cheek[0] + 0.05];
+  for (let i = 0; i < nf; i += 1) {
+    treads.push({ id: `front_${i + 1}`, ...box2(stepU, [yf + frontRun * (nf - i - 1), yf + frontRun * (nf - i)], landing * (i + 1) / nf) });
+  }
+  treads.push({ id: 'landing', ...box2([ou[0], east], [yb, yf], landing) });
+  for (let i = 0; i < ns; i += 1) {
+    treads.push({ id: `stair_${i + 1}`, ...box2([su[0] + run * i, su[0] + run * (i + 1)], sv, landing + (threshold - landing) * (i + 1) / ns) });
+  }
+  const stepMid = (stepU[0] + stepU[1]) / 2;
+  const mid = -(plan.jambs[0] + plan.jambs[1]) / 2;   // the door's middle, in v
+  plan.treads = treads;
+  plan.route = [
+    [stepMid, yf + frontRun * nf + PASSAGE_STEP_M],   // on the walk, before the front steps
+    [stepMid, mid],                                    // up them into the alcove, to the stair's line
+    [east - Math.min(PASSAGE_BEFORE_M, run / 2), mid], // up the stair onto its top tread, before the leaf
+  ];
+  return plan;
+}
+
 /** The door plans a record carries (none for any record not in HOUSE_DOORS). */
 export function doorPlansOf(record) {
   if (!record?.sidecar || !HOUSE_DOORS[record.id]) return [];
   if (record.id === 'glessner_house') {
-    const plan = glessnerFrontPlan(record.sidecar);
-    return plan ? [plan] : [];
+    return [glessnerFrontPlan(record.sidecar), glessnerCourtPlan(record.sidecar), glessnerNorthEntryPlan(record.sidecar)]
+      .filter(Boolean);
   }
   return [];
+}
+
+/**
+ * The way through a passage, in the structure frame: [{ u, v, y }] from the ground outside
+ * (y null: the caller's ground) up every tread, through the leaf, to PASSAGE_IN_M inside it;
+ * `door` is the index of the point before the leaf. At each riser the height changes over
+ * RISER_EASE_M each side of it, so the figure steps up rather than gliding (doorPathPlan).
+ */
+export function passagePlan(plan) {
+  const inner = planPoint(plan, plan.leaf.back - PASSAGE_IN_M, (plan.jambs[0] + plan.jambs[1]) / 2);
+  const route = [...plan.route, planPoint(plan, 0, (plan.jambs[0] + plan.jambs[1]) / 2), inner];
+  const doorAt = plan.route.length - 1;
+  const reveal = (u, v) => {
+    const [ox, oy] = plan.origin;
+    const d = (u - ox) * plan.outward[0] + (v - oy) * plan.outward[1];
+    const s = (u - ox) * plan.along[0] + (v - oy) * plan.along[1];
+    return d <= 1e-6 && s >= plan.jambs[0] - 0.05 && s <= plan.jambs[1] + 0.05;
+  };
+  const heightAt = (u, v) => {
+    if (reveal(u, v)) return plan.sill;
+    let y = null;
+    for (const t of plan.treads) {
+      if (u >= t.u[0] - 1e-6 && u <= t.u[1] + 1e-6 && v >= t.v[0] - 1e-6 && v <= t.v[1] + 1e-6) y = y === null ? t.y : Math.max(y, t.y);
+    }
+    return y;
+  };
+  const out = [];
+  const push = (u, v, y) => {
+    const last = out.at(-1);
+    if (last && Math.hypot(last.u - u, last.v - v) < 1e-4) return;
+    out.push({ u, v, y });
+  };
+  let door = 0;
+  for (let i = 0; i < route.length - 1; i += 1) {
+    const [u0, v0] = route[i], [u1, v1] = route[i + 1];
+    const len = Math.hypot(u1 - u0, v1 - v0);
+    push(u0, v0, heightAt(u0, v0));
+    if (i === doorAt) door = out.length - 1;
+    // Each change of height along the leg, found to a centimetre, eased either side.
+    const steps = Math.max(1, Math.ceil(len / 0.01));
+    let prev = heightAt(u0, v0);
+    for (let k = 1; k <= steps; k += 1) {
+      const t = k / steps;
+      const y = heightAt(u0 + (u1 - u0) * t, v0 + (v1 - v0) * t);
+      if (y === prev || (y !== null && prev !== null && Math.abs(y - prev) < 1e-4)) continue;
+      const at = len * (k - 0.5) / steps;
+      const ease = Math.max(0, Math.min(RISER_EASE_M, at - 0.02, len - at - 0.02));
+      for (const [dd, yy] of [[-ease, prev], [ease, y]]) {
+        const tt = (at + dd) / len;
+        push(u0 + (u1 - u0) * tt, v0 + (v1 - v0) * tt, yy);
+      }
+      prev = y;
+    }
+  }
+  const [ue, ve] = route.at(-1);
+  push(ue, ve, heightAt(ue, ve));
+  out.door = door;
+  return out;
 }
 
 /** A plan point at (d out from the face, s along it) to the structure frame's [u, v]. */
@@ -180,7 +406,7 @@ function hingeOf(plan) {
  */
 export function leafPose(plan, t) {
   const h = hingeOf(plan);
-  const a = (DOOR_OPEN_DEG * Math.PI / 180) * Math.max(0, Math.min(1, t));
+  const a = ((plan.openDeg ?? DOOR_OPEN_DEG) * Math.PI / 180) * Math.max(0, Math.min(1, t));
   // Shut the free edge lies along s (toFree); it turns toward -d (into the house).
   const dir = [-Math.sin(a), h.toFree * Math.cos(a)];
   const face = [Math.cos(a), h.toFree * Math.sin(a)];
@@ -192,7 +418,7 @@ export function leafPose(plan, t) {
  * behind it the pane's backing reaches. buildings.js lifts what lies inside.
  */
 export function leafBox(plan) {
-  const p0 = planPoint(plan, plan.leaf.back - 0.7, plan.jambs[0] + 0.004);
+  const p0 = planPoint(plan, plan.leafBoxBack ?? plan.leaf.back - 0.7, plan.jambs[0] + 0.004);
   const p1 = planPoint(plan, plan.leaf.front + 0.07, plan.jambs[1] - 0.004);
   return {
     x: [Math.min(p0[0], p1[0]), Math.max(p0[0], p1[0])],
@@ -232,6 +458,7 @@ export function takeDoorLeaf(record, mesh, matrix) {
   const out = [];
   const lifted = new Uint8Array(count / 3);
   for (const plan of plans) {
+    if (plan.leafMaterials && !plan.leafMaterials.includes(material?.name)) continue;
     const box = leafBox(plan);
     const inBox = (k) => world[3 * k] >= box.x[0] && world[3 * k] <= box.x[1]
       && world[3 * k + 1] >= box.y[0] && world[3 * k + 1] <= box.y[1]
@@ -490,10 +717,81 @@ export function createHouseDoors({ registry, buildings, footprints = [], decks =
     return pieces.length;
   }
 
+  const passages = [];
+  /** T-3524: a door a drawn person opens — hung, with its vestibule and its way (the header). */
+  function hangPassage(plan, record) {
+    const id = record.id;
+    const m = buildings?.matrixOf?.(id);
+    const pieces = buildings?.doorLeaves?.get(plan.id) ?? [];
+    if (!m || !pieces.length) {
+      if (!pieces.length && record.version && record.version.label !== 'v4') return;
+      problems.push(`${plan.id}: a door to hang, but ${!m ? 'its house was not drawn' : 'its baked leaf was not found in the mesh'} — the door stays shut`);
+      return;
+    }
+    const holder = new THREE.Group();
+    holder.name = `house-door:${plan.id}`;
+    holder.matrixAutoUpdate = false;
+    holder.matrix.copy(m);
+    group.add(holder);
+    const h = hingeOf(plan);
+    const [hu, hv] = planPoint(plan, h.d, h.s);
+    const pivot = new THREE.Object3D();
+    pivot.position.set(hu, 0, -hv);
+    holder.add(pivot);
+    const vestibule = new THREE.Mesh(vestibuleGeometry(plan), vestibuleMaterial);
+    vestibule.name = `house-door-vestibule:${plan.id}`;
+    vestibule.userData.structure_id = id;
+    holder.add(vestibule);
+    const entry = { plan, holder, pivot, matrix: m.clone() };
+    hangLeaf(entry, buildings);
+    const v3 = new THREE.Vector3();
+    const enu = (u, v, y = 0) => { v3.set(u, y, -v).applyMatrix4(entry.matrix); return { e: v3.x, n: -v3.z, y: v3.y }; };
+    const holders = new Set();
+    const passage = {
+      id: plan.id, structureId: id, name: plan.name, kind: 'passage', plan, swing: 0, holders,
+      /** Shut, opening, open or shutting, as it swings now. */
+      get state() { return this.swing <= 0 ? 'closed' : this.swing >= 1 ? 'open' : holders.size ? 'opening' : 'closing'; },
+      /** Open wide enough to walk through. */
+      isOpen() { return this.swing >= 0.9; },
+      /** Someone (any key) wants it open; it shuts once nobody does. */
+      hold(key) { holders.add(key); return this; },
+      release(key) { holders.delete(key); return this; },
+      /** The way through, outside to in: [{ e, n, y }] local ENU and world height (y null on
+       *  open ground: the caller's ground); `door` the index of the point before the leaf,
+       *  `leaf` where the leaf hangs (ENU), `inward` the bearing walked through it. */
+      way() {
+        const pts = passagePlan(plan);
+        const out = pts.map((p) => { const w = enu(p.u, p.v, p.y ?? 0); return { e: w.e, n: w.n, y: p.y === null ? null : w.y }; });
+        out.door = pts.door;
+        const at = enu(...planPoint(plan, plan.leaf.back, (plan.jambs[0] + plan.jambs[1]) / 2));
+        out.leaf = { e: at.e, n: at.n };
+        const i0 = enu(...planPoint(plan, 1, 0)), i1 = enu(...planPoint(plan, 0, 0));
+        out.inward = (Math.atan2(i1.e - i0.e, i1.n - i0.n) * 180 / Math.PI + 360) % 360;
+        return out;
+      },
+    };
+    passage.setSwing = (t) => {
+      passage.swing = t;
+      const eased = t * t * (3 - 2 * t);
+      const pose = leafPose(plan, eased);
+      const du = plan.outward[0] * pose.dir[0] + plan.along[0] * pose.dir[1];
+      const dv = plan.outward[1] * pose.dir[0] + plan.along[1] * pose.dir[1];
+      const shut0 = leafPose(plan, 0).dir;
+      const su = plan.outward[0] * shut0[0] + plan.along[0] * shut0[1], sv = plan.outward[1] * shut0[0] + plan.along[1] * shut0[1];
+      pivot.rotation.y = Math.atan2(dv, du) - Math.atan2(sv, su);
+      holder.updateMatrixWorld(true);
+    };
+    passage.setSwing(0);
+    entry.thing = passage;
+    hung.set(plan.id, entry);
+    passages.push(passage);
+  }
+
   for (const [id, sides] of Object.entries(HOUSE_DOORS)) {
     const record = registry.get(id);
     if (!record) continue;                            // not in this year's scene
     for (const plan of doorPlansOf(record)) {
+      if (plan.passage) { hangPassage(plan, record); continue; }
       const m = buildings?.matrixOf?.(id);
       const fp = footprints.find((f) => f.id === id);
       const pieces = buildings?.doorLeaves?.get(plan.id) ?? [];
@@ -632,6 +930,19 @@ export function createHouseDoors({ registry, buildings, footprints = [], decks =
     group,
     doors,
     get,
+    /** T-3524: the doors drawn people open (the header): by id, and all of them. */
+    passages,
+    passage: (id) => passages.find((x) => x.id === id) ?? null,
+    /** One frame: each passage swings toward open while anyone holds it, else shut. */
+    update(dt) {
+      if (!(dt > 0)) return;
+      for (const x of passages) {
+        const want = x.holders.size ? 1 : 0;
+        if (x.swing === want) continue;
+        const step = dt / PASSAGE_SWING_S;
+        x.setSwing(want > x.swing ? Math.min(1, x.swing + step) : Math.max(0, x.swing - step));
+      }
+    },
     open: (id) => act(id, 'open'),
     close: (id) => act(id, 'close'),
     /** The walk up to a door: [{ e, n, y }] (house-doors.js header). */
