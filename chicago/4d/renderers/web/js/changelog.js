@@ -1,4 +1,24 @@
 export const CHANGELOG = [ // newest first
+  { v: 2845, ts: '2026-11-09T01:43:32.042Z', date: 'Nov 8, 2026, 7:43 PM CT', title: 'Glessner\'s back doors open and the household climbs the stairs', kind: 'feature',
+    items: [
+      'The court service door opens as someone climbs the stair to it and shuts behind them; nobody vanishes at the foot any more.',
+      'Coming out, the door swings open, they step out on the landing and walk down every tread to the court.',
+      'The servants\' side door in the 18th Street alcove works the same way, up its front steps and inner stair.',
+      'Ask for someone at either door and they come down the stair to you.',
+      'Two people take the stair one behind the other, and the door stays open until the last is through.',
+    ] },
+  { v: 2844, ts: '2026-11-09T01:31:37.044Z', date: 'Nov 8, 2026, 7:31 PM CT', title: '1812: the gathering\'s camps come and go with the date', kind: 'feature',
+    items: [
+      'The Potawatomi and Miami camps by the fort now stand only on the days of the August 1812 gathering (12 to 16 August). On any other date their lodges, their bare camp ground and the paths between them are gone, and that ground is open prairie again.',
+      'Set Season to Summer, or follow a jaunt dated in mid-August, to see the camps with their people. The old trails along the banks and the lake shore are there every day of the year.',
+    ] },
+  { v: 2843, ts: '2026-11-09T01:02:00.695Z', date: 'Nov 8, 2026, 7:02 PM CT', title: '1812 children walk like children and dress as their own', kind: 'fix',
+    items: [
+      'The 1812 children walk upright at a child\'s pace and stride, no more kneeling slide.',
+      'Every child dressed in their own colours; girls wear their hair long, loose or plaited.',
+      'Fewer children about: most are indoors or playing by their own door, a play group only now and then.',
+      'Nobody stands inside a mat or bark lodge wall in the camps.',
+    ] },
   { v: 2842, ts: '2026-11-09T00:31:51.577Z', date: 'Nov 8, 2026, 6:31 PM CT', title: 'Every person has a real story, and Find reaches them', kind: 'fix',
     items: [
       'Find this person and Go to house now work for everyone in 1812 and 1904. Where no road reaches, such as the Kinzie house across the river, you fly there.',

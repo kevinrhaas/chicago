@@ -3161,6 +3161,11 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
                 # sighting — carried only where the record says, so a card never prints a
                 # bound the record chose (the scene's own year, most often) as a date.
                 **{k: rng[k] for k in ("from_is", "to_is") if k in rng},
+                # T-3527: a structure drawn only while its range holds (the 1812 gathering's
+                # camps, 12-16 August): the renderer hides it on any other day the Season or
+                # a jaunt sets (buildings.js setDate). Without the flag a range is a claim on
+                # a card and nothing hides.
+                **({"drawn_only_within": True} if rng.get("drawn_only_within") is True else {}),
             },
             # What this phase IS, in the record's own words. Written for a reader
             # and read by nobody: it is where a record says that a building holding

@@ -133,7 +133,7 @@ assert.ok(width * height < 1.2e6, `mask ${width} x ${height} is over its budget`
 const src = fs.readFileSync(new URL('renderers/web/js/yards.js', root), 'utf8');
 assert.match(src, /#ifdef YARD_DWELLINGS\s*\nuniform sampler2D uDwell;\s*\nuniform vec4 uDwellBox;\s*\n#endif/,
   'YARD_HEAD declares the cut\'s uniforms under its define');
-assert.match(src, /replace\('#include <clipping_planes_fragment>', `#include <clipping_planes_fragment>\\n\$\{DWELLING_CUT\}`\)/,
+assert.match(src, /replace\('#include <clipping_planes_fragment>', `#include <clipping_planes_fragment>\\n\$\{DWELLING_CUT\}[`\\]/,
   'the cut is spliced at the clipping planes');
 assert.match(src, /if \(dwell\) mat\.defines = \{ \.\.\.\(mat\.defines \?\? \{\}\), YARD_DWELLINGS: '' \}/);
 assert.equal(dwellingMask([]), null);

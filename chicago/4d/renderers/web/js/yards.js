@@ -85,6 +85,9 @@ const CELL_M = 1.0;
  *  millimetres over it so the three cannot fight for the same depth. */
 const LIFT_M = { base: 0.022, bed: 0.028, path: 0.034 };
 
+/** T-3527: the most distinct day windows one scene's dated grounds may carry. */
+export const DATED_MAX = 8;
+
 /** How wide the trampled-grass fringe reaches in from a working yard's fence,
  *  and how far in a garden's mown border runs. Both are the same kind of
  *  invention as the treatment itself and are drawn in the vertex colour rather
@@ -729,6 +732,11 @@ uniform float uSwardMean;
 uniform sampler2D uDwell;
 uniform vec4 uDwellBox;
 #endif
+#ifdef YARD_DATED
+uniform sampler2D uDated;
+uniform vec4 uDatedBox;
+uniform float uDatedAway[${DATED_MAX}];
+#endif
 float yardHash(vec2 p) {
   vec3 q = fract(vec3(p.xyx) * 0.1031);
   q += dot(q, q.yzx + 33.33);
@@ -930,13 +938,157 @@ export function dwellingMask(records = []) {
   return { texture, box, count: list.length, width, height, texelM };
 }
 
+/**
+ * T-3527 — GROUND DRAWN ON ITS DAYS ONLY. The owner, 2026-11-08, of the 1812 camp seen
+ * in mid-April with nobody in it, chose that the gathering's camps come and go with the
+ * date: buildings.js hides a structure whose range says `drawn_only_within` on any other
+ * day, and the ground its people wore goes with it. A camp ground record states the days
+ * of each ring (`ground.interior_drawn_within`, parallel to its rings, null for every
+ * day) and a trail its own (`drawn_within`). Those pieces are laid into the shared
+ * surfaces like any other, so they cannot be hidden as meshes: each is drawn into one
+ * index mask over the scene (1 m texels, nearest), its window's number in the byte, and
+ * every yard surface drops its fragments where the mask names a window the date is
+ * outside. A ring takes its feather with it; a trail its fringe and a little more. Where
+ * an every-day trail runs through a dated piece the every-day trail keeps its ground, so
+ * the south-bank path survives the camp path that joins it. No dated piece, no mask and
+ * no cut compiled.
+ */
+const DATED_TEXEL_M = 1.0;
+const DATED_TRAIL_MARGIN_M = 0.75;
+const DATED_RING_MARGIN_M = 0.5;
+
+const DATED_CUT = /* glsl */`
+#ifdef YARD_DATED
+  {
+    vec2 yardDt = (vec2(vYardWorld.x, -vYardWorld.z) - uDatedBox.xy) * uDatedBox.zw;
+    if (yardDt.x > 0.0 && yardDt.y > 0.0 && yardDt.x < 1.0 && yardDt.y < 1.0) {
+      int yardWin = int(texture2D(uDated, yardDt).r * 255.0 + 0.5);
+      if (yardWin > 0 && uDatedAway[yardWin - 1] > 0.5) discard;
+    }
+  }
+#endif
+`;
+
+/** Whether `date` ('YYYY-MM-DD') falls in a window {from, to}; true for no date. */
+export function onWindow(date, w) {
+  if (!date || !w) return true;
+  const d = String(date).slice(0, 10);
+  return (!w.from || d >= w.from) && (!w.to || d <= w.to);
+}
+
+/** Every dated piece the records state: rings (with their feather) and trails. */
+export function datedPiecesOf(records = []) {
+  const out = [];
+  for (const record of records) {
+    const g = record?.ground ?? {};
+    const rings = Array.isArray(g.interior_local_enu_m) ? g.interior_local_enu_m : [];
+    const wins = Array.isArray(g.interior_drawn_within) ? g.interior_drawn_within : [];
+    rings.forEach((ring, i) => {
+      const w = wins[i];
+      if (w && Array.isArray(ring) && ring.length >= 3) {
+        out.push({ kind: 'ring', record: record.id, ring, reach: (g.feather_m ?? 0) + DATED_RING_MARGIN_M, window: w });
+      }
+    });
+    for (const t of Array.isArray(g.trails) ? g.trails : []) {
+      if (!Array.isArray(t.line_local_enu_m) || t.line_local_enu_m.length < 2) continue;
+      const reach = trailProfile(t.form ?? 'tread', t.width_m ?? 0.8).offsets.at(-1);
+      out.push({ kind: 'trail', record: record.id, id: t.id, line: t.line_local_enu_m,
+        reach: reach + (t.drawn_within ? DATED_TRAIL_MARGIN_M : 0), window: t.drawn_within ?? null });
+    }
+  }
+  return out;
+}
+
+function segDistance(e, n, a, b) {
+  const dx = b[0] - a[0]; const dn = b[1] - a[1];
+  const L2 = dx * dx + dn * dn;
+  const t = L2 > 0 ? Math.max(0, Math.min(1, ((e - a[0]) * dx + (n - a[1]) * dn) / L2)) : 0;
+  return Math.hypot(e - a[0] - t * dx, n - a[1] - t * dn);
+}
+
+/** The mask the dated cut reads: { texture, box, windows, away (Float32Array), count,
+ *  width, height }, or null where nothing is dated. */
+export function datedMask(records = [], problems = []) {
+  const pieces = datedPiecesOf(records);
+  const dated = pieces.filter((p) => p.window);
+  if (!dated.length) return null;
+  const keyOf = (w) => `${w.from ?? ''}|${w.to ?? ''}`;
+  const windows = [];
+  for (const p of dated) {
+    const k = keyOf(p.window);
+    if (!windows.some((w) => keyOf(w) === k)) windows.push({ from: p.window.from ?? '', to: p.window.to ?? '' });
+  }
+  if (windows.length > DATED_MAX) {
+    problems.push(`yards: ${windows.length} dated windows, this layer draws ${DATED_MAX}; the rest are drawn every day`);
+    windows.length = DATED_MAX;
+  }
+  const bboxOfPiece = (p) => {
+    const pts = p.kind === 'ring' ? p.ring : p.line;
+    let e0 = Infinity; let n0 = Infinity; let e1 = -Infinity; let n1 = -Infinity;
+    for (const [e, n] of pts) { e0 = Math.min(e0, e); n0 = Math.min(n0, n); e1 = Math.max(e1, e); n1 = Math.max(n1, n); }
+    return [e0 - p.reach, n0 - p.reach, e1 + p.reach, n1 + p.reach];
+  };
+  let E0 = Infinity; let N0 = Infinity; let E1 = -Infinity; let N1 = -Infinity;
+  for (const p of dated) {
+    const [a, b, c, d] = bboxOfPiece(p);
+    E0 = Math.min(E0, a); N0 = Math.min(N0, b); E1 = Math.max(E1, c); N1 = Math.max(N1, d);
+  }
+  E0 = Math.floor(E0) - 1; N0 = Math.floor(N0) - 1;
+  const width = Math.ceil((E1 - E0) / DATED_TEXEL_M) + 2;
+  const height = Math.ceil((N1 - N0) / DATED_TEXEL_M) + 2;
+  const data = new Uint8Array(width * height);
+  const covers = (p, e, n) => {
+    if (p.kind === 'ring') {
+      return pointInPolygon(p.ring, e, n) || edgeDistance(p.ring, e, n) <= p.reach;
+    }
+    for (let i = 0; i + 1 < p.line.length; i += 1) if (segDistance(e, n, p.line[i], p.line[i + 1]) <= p.reach) return true;
+    return false;
+  };
+  const visit = (p, fn) => {
+    const [a, b, c, d] = bboxOfPiece(p);
+    const i0 = Math.max(0, Math.floor((a - E0) / DATED_TEXEL_M)); const i1 = Math.min(width - 1, Math.ceil((c - E0) / DATED_TEXEL_M));
+    const j0 = Math.max(0, Math.floor((b - N0) / DATED_TEXEL_M)); const j1 = Math.min(height - 1, Math.ceil((d - N0) / DATED_TEXEL_M));
+    for (let j = j0; j <= j1; j += 1) {
+      const n = N0 + (j + 0.5) * DATED_TEXEL_M;
+      for (let i = i0; i <= i1; i += 1) {
+        const e = E0 + (i + 0.5) * DATED_TEXEL_M;
+        if (covers(p, e, n)) fn(j * width + i);
+      }
+    }
+  };
+  for (const p of dated) {
+    const k = windows.findIndex((w) => keyOf(w) === keyOf(p.window));
+    if (k < 0) continue;
+    visit(p, (idx) => { data[idx] = k + 1; });
+  }
+  // Every-day trails keep their ground where a dated piece runs over them.
+  const keep = pieces.filter((p) => p.kind === 'trail' && !p.window);
+  for (const p of keep) {
+    const [a, b, c, d] = bboxOfPiece(p);
+    if (c < E0 || a > E1 || d < N0 || b > N1) continue;
+    visit(p, (idx) => { data[idx] = 0; });
+  }
+  const texture = new THREE.DataTexture(data, width, height, THREE.RedFormat, THREE.UnsignedByteType);
+  texture.magFilter = THREE.NearestFilter;
+  texture.minFilter = THREE.NearestFilter;
+  texture.generateMipmaps = false;
+  texture.unpackAlignment = 1;
+  texture.wrapS = texture.wrapT = THREE.ClampToEdgeWrapping;
+  texture.name = 'yard-dated-cut';
+  texture.needsUpdate = true;
+  const box = new THREE.Vector4(E0, N0, 1 / (width * DATED_TEXEL_M), 1 / (height * DATED_TEXEL_M));
+  return { texture, box, windows, away: new Float32Array(DATED_MAX), count: dated.length, width, height, data };
+}
+
 /** A yard surface's material on the shared tiles (T-2013, T-2090). Set before
  *  `confidence.patch()`, which chains whatever `onBeforeCompile` it finds. */
-function yardGround(mat, surface, tiles, dwell = null) {
+function yardGround(mat, surface, tiles, dwell = null, dated = null) {
   const tones = YARD_TONES[surface];
   if (dwell) mat.defines = { ...(mat.defines ?? {}), YARD_DWELLINGS: '' };
+  if (dated) mat.defines = { ...(mat.defines ?? {}), YARD_DATED: '' };
   mat.onBeforeCompile = (shader) => {
     if (dwell) Object.assign(shader.uniforms, { uDwell: { value: dwell.texture }, uDwellBox: { value: dwell.box } });
+    if (dated) Object.assign(shader.uniforms, dated.uniforms);
     Object.assign(shader.uniforms, {
       uGrit: { value: tiles.grit.texture },
       uGritM: { value: GRIT_TILE_M },
@@ -949,7 +1101,7 @@ function yardGround(mat, surface, tiles, dwell = null) {
       '#include <begin_vertex>',
       '#include <begin_vertex>\n  vYardWorld = (modelMatrix * vec4(transformed, 1.0)).xyz;\n  vYardUv = uv;');
     shader.fragmentShader = `${YARD_HEAD}\n${shader.fragmentShader}`
-      .replace('#include <clipping_planes_fragment>', `#include <clipping_planes_fragment>\n${DWELLING_CUT}`)
+      .replace('#include <clipping_planes_fragment>', `#include <clipping_planes_fragment>\n${DWELLING_CUT}\n${DATED_CUT}`)
       .replace('#include <map_fragment>', YARD_FRAGMENT[surface])
       .replace('#include <normal_fragment_maps>', YARD_NORMAL);
   };
@@ -1176,6 +1328,7 @@ export async function createFencedGround({
     treatmentAt: () => null,
     drawnBaseHeightAt: () => null,
     groundLiftAt: () => 0,
+    setDate: () => 0,
     staticSupport: { regions: 0, triangles: 0, bytes: 0, disposed: false },
     dispose: () => {},
     /** T-2711: whether the surfaces came prebuilt, and if not, why not. */
@@ -1524,6 +1677,22 @@ export async function createFencedGround({
     ? { count: dwell.count, width: dwell.width, height: dwell.height, texelM: dwell.texelM }
     : null;
   out.dwellingCut = dwell;
+  // T-3527: the ground drawn on its days only, and the date that says which.
+  const dated = datedMask(records, problems);
+  if (dated) {
+    disposables.push(dated.texture);
+    dated.uniforms = { uDated: { value: dated.texture }, uDatedBox: { value: dated.box }, uDatedAway: { value: dated.away } };
+  }
+  out.census.dated = dated ? { pieces: dated.count, windows: dated.windows.length, width: dated.width, height: dated.height } : null;
+  out.datedCut = dated;
+  /** Draw the dated ground for `date` ('YYYY-MM-DD'): returns how many windows are away. */
+  out.setDate = (date) => {
+    if (!dated) return 0;
+    let away = 0;
+    dated.windows.forEach((w, k) => { const a = onWindow(date, w) ? 0 : 1; dated.away[k] = a; away += a; });
+    out.census.dated.away = away;
+    return away;
+  };
   const laid = [];
   for (const [surface, buf] of buffers) {
     if (!buf.pos.length) continue;
@@ -1539,7 +1708,7 @@ export async function createFencedGround({
     buf.pos = buf.uv = buf.col = buf.conf = null;
     geo.computeVertexNormals();
     geo.computeBoundingSphere();
-    const { mat, map } = surfaceMaterial(surface, tiles, confidence, dwell);
+    const { mat, map } = surfaceMaterial(surface, tiles, confidence, dwell, dated);
     laid.push({ surface, geo, mat, map, mesh: spatialBatchAsync(geo, mat) });
   }
   if (replay) {
@@ -1547,7 +1716,7 @@ export async function createFencedGround({
     // batches the page's own (byte-equal: prebuild_layers.mjs --layer yards).
     for (const s of replay.index.surfaces) {
       const surface = s.name.replace(/^yard-/, '');
-      const { mat, map } = surfaceMaterial(surface, tiles, confidence, dwell);
+      const { mat, map } = surfaceMaterial(surface, tiles, confidence, dwell, dated);
       laid.push({ surface, geo: null, mat, map, mesh: batchPieces(prebuiltPieces(s, replay.bin), mat) });
     }
     Object.assign(out.prebuilt, { used: true, why: null, build: replay.index.build, bytes: replay.index.bytes,
@@ -1711,7 +1880,7 @@ function prebuiltPieces(surface, bin) {
 /** One surface's material: the shared tiles, the bed's drills, the confidence
  *  patch and this layer's own program. The same whether the surface was laid
  *  here or came prebuilt (T-2711). */
-function surfaceMaterial(surface, tiles, confidence, dwell = null) {
+function surfaceMaterial(surface, tiles, confidence, dwell = null, dated = null) {
   // Every surface draws the shared tiles (T-2013, T-2090); only the bed keeps
   // a canvas, for its drills.
   const map = surface === 'garden_bed' ? bedTexture() : null;
@@ -1732,14 +1901,14 @@ function surfaceMaterial(surface, tiles, confidence, dwell = null) {
     polygonOffsetUnits: -32,
   });
   mat.name = `yard-${surface}`;
-  yardGround(mat, surface, tiles, dwell);
+  yardGround(mat, surface, tiles, dwell, dated);
   confidence?.patch(mat);
   // This layer's own program, for the reason enclosures.js records at length:
   // `customProgramCacheKey` defaults to the SOURCE TEXT of `onBeforeCompile`,
   // which every material `confidence.patch()` touches shares, so two patched
   // materials that agree on their other program parameters share a compiled
   // program and one of them is drawn by the other's shader.
-  mat.customProgramCacheKey = () => `chicago4d-yard-${surface}${dwell ? '-dwellings' : ''}`;
+  mat.customProgramCacheKey = () => `chicago4d-yard-${surface}${dwell ? '-dwellings' : ''}${dated ? '-dated' : ''}`;
   return { mat, map };
 }
 

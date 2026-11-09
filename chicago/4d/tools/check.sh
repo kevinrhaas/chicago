@@ -419,6 +419,8 @@ step "Glessner's front door swings open, and a visitor and a drawn person walk u
   node tools/test_house_doors.mjs
 step "John J. Glessner on his front walk is greeted, and goes home up his steps, through his door and in (T-3443)" \
   node tools/test_house_errands.mjs
+step "Glessner's court and side doors open and shut as people pass, up and down their stairs (T-3524)" \
+  node tools/test_house_passages.mjs
 step "Loaded parade ground delegates to its native owner; failed assets and sundial geometry remain required (T-3041)" \
   node tools/test_parade_presence.mjs
 step "Jaunt daybook: idempotent keepsakes, data ranks, honest recovery (T-1258)" \
@@ -3061,6 +3063,12 @@ step "the 1812 camp's worn ground re-derives from its camp records (T-3342)" \
 # a scene with no dwellings compiles no cut (the lodges "floated" over a navy band from afar).
 step "no yard earth under the 1812 camp's lodges, so their feet stand on the ground at any range (T-3526)" \
   node tools/test_yard_dwelling_cut.mjs
+# T-3527: and the gathering's camps come and go with the date (the owner's pick, 2026-11-08,
+# after walking them empty in April): the camp records say `drawn_only_within`, the camp
+# ground and camp paths carry the same days, yards.js cuts that ground on any other day while
+# the every-day trails keep theirs, and buildings.js and main.js hand the date to both.
+step "the 1812 gathering's camps and their worn ground stand only on its August days (T-3527)" \
+  node tools/test_yard_dated_cut.mjs
 
 # And the ground BETWEEN the 1812 buildings (T-3339): the worn trails (the beaten lake-shore
 # trail, the Vincennes trace, the cart road south from the gate, the paths along both banks)
