@@ -515,6 +515,9 @@ step "Catalogue Brougham preserves physical masters, exact optical delivery, lam
 step "A person's own card from a building's People tab: their story, why attested or inferred, the census line, Back to the household (T-3265)" \
   node tools/test_person_card.mjs
 
+step "Every 1812 and 1904 person has a story told for a visitor, with no research notes in it (T-3521)" \
+  node tools/test_person_stories.mjs
+
 step "People screen as a directory: households and people, search, a household's own card, Go to house (T-3430)" \
   node tools/test_people_directory.mjs
 

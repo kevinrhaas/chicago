@@ -899,9 +899,15 @@ function heldFlagHtml(s) {
       }</span>`;
 }
 
-/** The review note at the foot of a card or a tab: small, last, still the record's words. */
+/** The review note at the foot of a card or a tab: small, last, still the record's words.
+ *  T-3521: folded under a small "Under review" mark (the owner, 2026-11-08, of this note on
+ *  the 1812 gathering's People tab: "move and collapse these, like hide them under the
+ *  reconstructed indicator or something", and of every card: "yes do that for all of them").
+ *  The mark says the record is held; a tap opens the reason, still verbatim. */
 function heldFootHtml(s) {
-  return s?.review_required === true ? `<div class="pop-flags pop-held-foot">${heldFlagHtml(s)}</div>` : '';
+  return s?.review_required === true ? `<details class="pop-flags pop-held-foot pop-held-fold">
+      <summary class="pop-held-mark"><i class="pop-held-dot" aria-hidden="true"></i>Under review</summary>
+      ${heldFlagHtml(s)}</details>` : '';
 }
 
 function headHtml(s, record, called, p, place, { titleRow = true } = {}) {
@@ -971,8 +977,9 @@ function headHtml(s, record, called, p, place, { titleRow = true } = {}) {
   //
   // T-3518: owner, 2026-11-08, of this note at the head of a card: "you can hide or make
   // it an indicator collapsible or make much smaller or move way down on the card". It is
-  // moved to the foot of the card (heldFootHtml) and set small; it is not folded, because
-  // a reason behind a disclosure is the state T-0268 was opened about.
+  // moved to the foot of the card (heldFootHtml) and set small. T-3521: the owner then asked
+  // for it folded under a small mark on every card ("yes do that for all of them"), so the
+  // reason sits behind "Under review", which T-0268 had refused before that ruling.
   const flagBlock = flags.length ? `<div class="pop-flags">${flags.join('')}</div>` : '';
 
   // The title row sits outside .pop-head so it can stay pinned for the card's whole

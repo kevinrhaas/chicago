@@ -1,0 +1,724 @@
+{
+ "_doc": "Their story, for each Prairie Avenue family member of the 1904 scene: plain prose written for a visitor from the household records (Blue Book listings, census lines, the museum and other sources they cite). The records' own notes stay in the household files and show under How we know. Census servants keep the lead said from their census line. Keyed by person id; a list of paragraphs.",
+ "stories": {
+  "pa1904_armour_mrs_philip_d": [
+   "Belle Ogden Armour, born in Ohio in the spring of 1843, was the widow of Philip D. Armour, the meat-packer whose stockyards and packing houses made Armour and Company one of the giants of Chicago. He died in 1901, and she stayed on in the big house at 2115 Prairie Avenue.",
+   "The family lived here for nearly fifty years, and she died in the house in 1927. In the summer of 1904 she was sixty-one, with a ladies' maid, a parlor maid, a cook, a laundress, a valet and a coachman to keep the place running."
+  ],
+  "pa1904_armour_john_o": [
+   "J. Ogden Armour, the meat-packer's son, lived here with his parents in the early 1890s. When his father died he took the head of Armour and Company, and by 1904 he had his own household elsewhere in the city."
+  ],
+  "pa1904_armour_philip_d_jr": [
+   "Philip D. Armour jr. grew up in this house and was still living here with his parents in 1890, the younger of the two Armour sons. He had left the family home long before 1904."
+  ],
+  "pa1904_bellas_t_h": [
+   "Thomas H. Bellas was born in Ireland in 1846 and came to America at thirty, in 1876. He made his money as a commission merchant in grain, the trade that filled Chicago's elevators, and settled his family at 1634 Prairie Avenue.",
+   "He was here with his wife, his three daughters and his brother-in-law in 1900. By the next spring the Blue Book listed Mrs. Bellas and her daughters without him."
+  ],
+  "pa1904_bellas_mrs_t_h": [
+   "Emma Bellas, born in Illinois in 1851, kept the house at 1634 for her husband Thomas, their three daughters and her brother Erastus Foote, with a governess, a cook and a waitress to help.",
+   "She outlived her husband, and in 1910 she was still at home on the avenue, now in her brother's household, with two of her girls beside her."
+  ],
+  "pa1904_bellas_daughters": [
+   "The Misses Bellas were the daughters of the house: Emeline, Helen and Edith, born in 1881, 1884 and 1887. In the summer of 1904 they were young women of the avenue, which meant calls, dances, and the summer season out of town.",
+   "Helen and Edith were still at home with their widowed mother and their uncle Erastus in 1910."
+  ],
+  "pa1904_foote_erastus": [
+   "Erastus Foote came from Maine, born in 1850, and was president of an iron works. A bachelor, he lived with his sister Emma Bellas and her family at 1634, and in time the household was his: in 1910 the census taker wrote him down as its head."
+  ],
+  "pa1904_borland_mrs_j_j": [
+   "Mrs. J. J. Borland was a widow of the avenue who kept the house at 2027 Prairie Avenue with her grown sons, Chauncey Blair and Bruce."
+  ],
+  "pa1904_borland_chauncey_blair": [
+   "Chauncey Blair Borland lived at home with his mother at 2027 Prairie Avenue in 1904, with his brother Bruce."
+  ],
+  "pa1904_borland_bruce": [
+   "Bruce Borland lived at home at 2027 Prairie Avenue in 1904, with his mother and his brother Chauncey Blair."
+  ],
+  "pa1904_brown_george_f": [
+   "George F. Brown kept the house at 1612 Prairie Avenue, near the north end of the street, with George jr. and Charles Edward Brown. By the following year the Blue Book listed only the two younger men there."
+  ],
+  "pa1904_brown_george_f_jr": [
+   "George F. Brown jr. lived at 1612 Prairie Avenue with his father and Charles Edward Brown, and was still in the house after the older man was gone."
+  ],
+  "pa1904_brown_charles_edward": [
+   "Charles Edward Brown was one of the Browns at 1612 Prairie Avenue in 1904, and he stayed on in the house the next year with George jr."
+  ],
+  "pa1904_buckingham_e": [
+   "Ebenezer Buckingham came from Ohio, born in 1829, and was a banker, president of his own bank by 1900. The Buckinghams were a grain family too: their elevators stood along the river. A widower, he lived at 2036 Prairie Avenue with his son and two unmarried daughters."
+  ],
+  "pa1904_buckingham_daughters": [
+   "The Misses Buckingham were Kate and Lucy, the banker's daughters, born in 1859 and 1862. Neither married; they kept house with their father and then with their brother Clarence.",
+   "Kate became one of Chicago's great givers. In 1927 she gave the city Buckingham Fountain in Grant Park, in memory of Clarence."
+  ],
+  "pa1904_buckingham_clarence": [
+   "Clarence Buckingham was born in Ohio in 1854 and worked as a broker. He never married, and he lived here at home with his father and sisters, collecting Japanese prints and old master drawings.",
+   "He died in 1913, and his sister Kate gave Chicago the great fountain in Grant Park that bears his name."
+  ],
+  "pa1904_carpenter_a_a_jr": [
+   "A. A. Carpenter jr. kept house with his wife at 1708 Prairie Avenue, a few steps from the twin townhouses the Glessners built for their children."
+  ],
+  "pa1904_carpenter_mrs_a_a_jr": [
+   "Mrs. A. A. Carpenter jr. kept house with her husband at 1708 Prairie Avenue in 1904, just south of the Glessner children's townhouses."
+  ],
+  "pa1904_clark_john_m": [
+   "John M. Clark was born in 1837 and came down from Canada to make his way in Chicago, where by 1900 he was president of a company. He lived at 2000 Prairie Avenue with his wife Louise and a staff of four."
+  ],
+  "pa1904_clark_mrs_john_m": [
+   "Louise Clark was a New Yorker, born in 1850, and kept the Clark house at 2000 Prairie Avenue with a ladies' maid, a parlor maid, a laundress and a cook."
+  ],
+  "pa1904_clark_bruce": [
+   "Bruce Clark was living with John and Louise Clark at 2000 Prairie Avenue in 1895, most likely their son, and he had moved on by 1904."
+  ],
+  "pa1904_corwith_mrs_henry": [
+   "Alma Corwith, born in 1834, was the widow of Henry Corwith and the mother of a household of grown sons. She ran a big house at 1945 Prairie Avenue, with six maids, cooks and waitresses on the census list in 1900."
+  ],
+  "pa1904_corwith_charles_r": [
+   "Charles R. Corwith was born in Illinois in 1866 and dealt in real estate. Still a bachelor at thirty-four, he lived at home with his widowed mother at 1945."
+  ],
+  "pa1904_corwith_john_w": [
+   "John W. Corwith lived at 1945 Prairie Avenue with his mother and his brother Charles from 1892 to 1902, and then left the family home."
+  ],
+  "pa1904_corwith_frank": [
+   "Frank Corwith lived at his mother's house at 1945 Prairie Avenue in 1892 and 1893, when a daughter of the house was at home too."
+  ],
+  "pa1904_cunningham_secor": [
+   "Secor Cunningham and his wife made their home at 1824 Prairie Avenue from 1898, and raised their two children there."
+  ],
+  "pa1904_cunningham_mrs_secor": [
+   "Mrs. Secor Cunningham raised her two children, Elizabeth and Secor jr., at 1824 Prairie Avenue, where the family lived from 1898 into the 1910s."
+  ],
+  "pa1904_cunningham_elizabeth_s": [
+   "Elizabeth Cunningham was about fifteen in the summer of 1904 and had grown up in the house at 1824, where the family had lived since she was nine. She was still at home with her brother in 1910."
+  ],
+  "pa1904_cunningham_secor_jr": [
+   "Secor Cunningham jr. was about twelve in 1904, a boy of the avenue with a big sister and a coachman to show him the horses. In 1910 he was eighteen and still at home."
+  ],
+  "pa1904_dent_thomas": [
+   "Thomas Dent was a lawyer, born in Illinois in 1842, who lived at 1823 Prairie Avenue with his wife Susan and a single cook."
+  ],
+  "pa1904_dent_mrs_thomas": [
+   "Susan Dent was born in Illinois in 1847 and kept the Dent house at 1823 Prairie Avenue, a quieter house than most on the street, with one cook."
+  ],
+  "pa1904_einstein_m": [
+   "Morris Einstein was born in Germany in 1827 and crossed to America at sixteen, in 1843. He made a fortune and by 1900 called himself a capitalist, living at 1628 Prairie Avenue with his wife Julia.",
+   "They raised seven children, and at seventy-seven, in 1904, he was one of the oldest men on the street."
+  ],
+  "pa1904_einstein_mrs_m": [
+   "Julia Einstein was born in Germany in 1831 and was the mother of seven. The house at 1628 kept filling with her children: unmarried Anna lived at home, and two married daughters came back to it."
+  ],
+  "pa1904_einstein_daughter": [
+   "Anna Einstein, born in 1868, was the unmarried daughter at home at 1628, the one the Blue Book calls Miss Einstein. She lived with her parents for decades and was still there in 1910."
+  ],
+  "pa1904_einstein_benjamin": [
+   "Benjamin Einstein lived with Morris and Julia Einstein at 1628 Prairie Avenue through the 1890s, most likely one of their seven children, and left the house around 1902."
+  ],
+  "pa1904_einstein_arthur": [
+   "Arthur Einstein was living at his parents' house at 1628 in 1890 and had left soon after."
+  ],
+  "pa1904_einstein_jennie_shafner": [
+   "Jennie Shafner was a daughter of Morris and Julia Einstein, born in West Virginia about 1854. Divorced, she came home to 1628 more than once: she was here in 1902, and again from 1910."
+  ],
+  "pa1904_einstein_emma_biers": [
+   "Emma Biers, born in California about 1856, was an Einstein daughter and later a widow. She was living at her parents' house in 1895, and by 1910 she had come home to it again."
+  ],
+  "pa1904_field_marshall": [
+   "Marshall Field was born in Massachusetts in 1834 and came to Chicago as a young dry goods clerk. By 1904 his store on State Street was the city's greatest, and he was the richest man in Chicago.",
+   "His house at 1905 Prairie Avenue, designed by Richard Morris Hunt, was said to be the first house in Chicago lit by electricity. His wife Nannie had died in 1896, and he lived here a widower with a butler, a cook, a laundress, a maid and a coachman."
+  ],
+  "pa1904_field_marshall_jr_at_1905": [
+   "Marshall Field jr., the merchant's only surviving son, grew up in this house. He was seventeen at the children's party his parents gave here on New Year's Day 1886.",
+   "He married Albertine Huck, and by 1892 the couple had their own house a few doors south, at 1919."
+  ],
+  "pa1904_field_ethel": [
+   "Ethel Field, Marshall Field's daughter, was twelve at the New Year's party of 1886 in this house. Five years later to the day, on 1 January 1891, she was married here to Arthur Tree.",
+   "She left for England and later married David Beatty, the admiral, becoming Countess Beatty."
+  ],
+  "pa1904_field_marshall_jr": [
+   "Marshall Field jr. was the heir to the greatest fortune in Chicago, and he lived a few doors south of his father at 1919 Prairie Avenue with his wife Albertine and their three children.",
+   "In November 1905 he died of a gunshot wound, and his children were raised mostly in England."
+  ],
+  "pa1904_field_mrs_marshall_jr": [
+   "Albertine Huck Field, the daughter of Louis Carl Huck, married Marshall Field jr. and kept house with him at 1919 Prairie Avenue, raising three children. After her husband's death in 1905 she took them abroad."
+  ],
+  "pa1904_field_marshall_iii": [
+   "Marshall Field III was born in Chicago on 28 September 1893 and was ten in the summer of 1904, a grandson of the richest man in the city.",
+   "After his father's death in 1905 he grew up mostly in England. As a grown man he came back to America, and in 1941 he founded the Chicago Sun."
+  ],
+  "pa1904_field_henry": [
+   "Henry Field was about nine in 1904, the younger son at 1919. He died young, in 1917."
+  ],
+  "pa1904_field_gwendolyn": [
+   "Gwendolyn Field was the daughter of Marshall Field jr. and Albertine, a little girl at 1919 with her two older brothers in 1904."
+  ],
+  "pa1904_field_stanley": [
+   "Stanley Field was Marshall Field's nephew and worked in his uncle's business. He would spend more than fifty years as president of the Field Museum, which his uncle's money founded."
+  ],
+  "pa1904_field_mrs_stanley": [
+   "Mrs. Stanley Field kept house with her husband at 1808 Prairie Avenue in 1904, on the same street as his uncle Marshall Field."
+  ],
+  "pa1904_frank_henry_l": [
+   "Henry L. Frank was born in Germany in 1839 and came to America at thirteen, in 1852. He made his living in Chicago real estate and lived at 1608 Prairie Avenue with his wife Henriette."
+  ],
+  "pa1904_frank_mrs_henry_l": [
+   "Henriette Frank, born in Illinois in 1854, kept the Frank house at 1608 Prairie Avenue with a cook and a waitress."
+  ],
+  "pa1904_free_w_c": [
+   "W. C. Free and his wife lived at 2001 Prairie Avenue in 1904, at the south end of the avenue's grand houses."
+  ],
+  "pa1904_free_mrs_w_c": [
+   "Mrs. W. C. Free kept house with her husband at 2001 Prairie Avenue in 1904."
+  ],
+  "pa1904_glessner_george_m": [
+   "George Glessner, the son of John and Frances Glessner, was born in 1871 and grew up in the great stone house at 1800. In 1904 he lived a block north at 1706, one of the twin townhouses his parents built for their children, with his wife Alice and a houseful of little ones.",
+   "In 1915 he moved his family for good to New Hampshire, near The Rocks, the Glessners' summer estate."
+  ],
+  "pa1904_glessner_alice_hamlin": [
+   "Alice Hamlin married George Glessner in June 1898. By the summer of 1904 she was raising four small children at 1706, in the townhouse her in-laws built."
+  ],
+  "pa1904_glessner_elizabeth": [
+   "Elizabeth Glessner, born in 1899, was about five in 1904, the eldest of George and Alice's children and a granddaughter of the house at 1800."
+  ],
+  "pa1904_glessner_frances": [
+   "Frances Glessner, George and Alice's second girl, was born in 1900 and named for her grandmother. Her aunt, Frances Glessner Lee, lived next door at 1700."
+  ],
+  "pa1904_glessner_john": [
+   "John Glessner, born in 1902, was about two in the summer of 1904, named for his grandfather in the big house down the block."
+  ],
+  "pa1904_glessner_emily": [
+   "Emily Glessner was born in 1904, the youngest of George and Alice's four children."
+  ],
+  "pa1904_hamlin_mrs_e_f": [
+   "Mrs. E. F. Hamlin came to live at 1706, the home of George and Alice Hamlin Glessner, by the autumn of 1904. She was most likely of Alice's family."
+  ],
+  "glessner_john_j": [
+   "John J. Glessner was born in Zanesville, Ohio, in 1843 and made his fortune in farm machinery as a partner in Warder, Bushnell and Glessner. In 1902 the firm joined the new International Harvester Company, where he was a vice president and chaired the executive committee.",
+   "In 1885 he asked H. H. Richardson for a house, and the granite fortress at the corner of Eighteenth Street was the result: a blank face to the street and a sunny court within. The family slept here first on 1 December 1887. He lived in it until his death in 1936, a week before his ninety-third birthday."
+  ],
+  "glessner_frances_m": [
+   "Frances Glessner was born Sarah Frances Macbeth in Urbana, Ohio, on New Year's Day 1848, and married John Glessner in 1870. For forty years from 1879 she kept a journal of the household, its dinners, its guests and its servants, and it is why we know this house so well.",
+   "From 1893 she held her Monday Morning Reading Class in the library. She kept bees, and in 1904 she set up a silversmith's workbench in the basement and began making silver of her own."
+  ],
+  "pa1904_glessner_george_m_at_1800": [
+   "George Glessner was sixteen when he slept his first night in this house on 1 December 1887, and he grew up here.",
+   "He married Alice Hamlin in 1898 and moved a block north to 1706, into one of the two townhouses his parents built for their children."
+  ],
+  "pa1904_glessner_frances_at_1800": [
+   "Frances Glessner was nine when the family moved in on 1 December 1887, and she grew up here. She married Blewett Lee in February 1898, and within a few years lived a block north at 1700.",
+   "As Frances Glessner Lee she later built the Nutshell Studies of Unexplained Death, tiny crime scenes for training detectives."
+  ],
+  "glessner_williamson_martha_l": [
+   "Mattie Williamson was born in Inverness, Quebec, on 23 October 1859, to Irish parents. She came to the Glessners as a maid, and in February 1892 she became their cook, feeding the family and the live-in staff of eight.",
+   "Apart from one year away, she kept the kitchen until December 1912, when she left to marry William Prescott in Los Angeles. Her brother Alex and his wife ran The Rocks, the Glessners' New Hampshire farm."
+  ],
+  "pa1904_gorton_frank_s": [
+   "Frank S. Gorton and his wife lived at 2120 Prairie Avenue in 1904, down toward the south end of the street, where the newer houses stood."
+  ],
+  "pa1904_gorton_mrs_frank_s": [
+   "Mrs. Frank S. Gorton kept house with her husband at 2120 Prairie Avenue in 1904."
+  ],
+  "pa1904_gregory_robert_b": [
+   "Robert Gregory was born in Michigan in 1849 and dealt in musical instruments, in a city that bought pianos by the thousand. He lived at 1638 Prairie Avenue with his wife Ida, his old mother, and his daughters."
+  ],
+  "pa1904_gregory_mrs_robert_b": [
+   "Ida Gregory, born in Illinois in 1857, kept the Gregory house at 1638, raising three daughters, Eleanor, Grace and Ruth, under the same roof as her husband's mother."
+  ],
+  "pa1904_gregory_mrs_elizabeth": [
+   "Elizabeth Gregory was born in Michigan in 1820, the year the Potawatomi still ruled the country around Chicago. A widow, she lived with her son Robert's family at 1638, and at eighty-four in 1904 she was one of the oldest people on the avenue."
+  ],
+  "pa1904_gregory_eleanor": [
+   "Eleanor Gregory was born in Illinois in 1882, the eldest of Robert and Ida Gregory's daughters. At twenty-two in 1904 she was the Miss Gregory of the house, out in society."
+  ],
+  "pa1904_grey_w_l": [
+   "William L. Grey was born in Illinois in 1840 and went into the commission trade. He and his wife Sarah raised a big family at 2010 Prairie Avenue and lived there for decades."
+  ],
+  "pa1904_grey_mrs_w_l": [
+   "Sarah Grey was born in Illinois in 1850 and raised her children at 2010 Prairie Avenue, where the family stayed into the 1910s."
+  ],
+  "pa1904_grey_daughter": [
+   "Miss Grey was the daughter at home at 2010 in 1904: Jessie, born in 1875, or Florence, born in 1880. Both had been living with their parents in 1900."
+  ],
+  "pa1904_grey_walter_c": [
+   "Walter Grey grew up at 2010 Prairie Avenue and lived there with his parents through the 1890s. He was away for some years after 1901 and was back home by 1909."
+  ],
+  "pa1904_grey_elizabeth_w": [
+   "Elizabeth Grey, a daughter of William Grey, was living at home at 2010 in 1910, called Miss Grey in the society pages by then. She may already have been the daughter at home in 1904."
+  ],
+  "pa1904_grey_florence": [
+   "Florence Grey was born in December 1880 and lived at home at 2010 with her parents; she was the Miss Grey of the house in 1907 and 1908, and very possibly in 1904 as well."
+  ],
+  "pa1904_grey_charles_g": [
+   "Charles Grey, a son of William and Sarah Grey, was living at home at 2010 by 1910."
+  ],
+  "pa1904_hamline_john_h": [
+   "John H. Hamline was a lawyer, born in New York in 1856, who lived at 1621 Prairie Avenue with his wife Josephine, their two children and her brother George Mead. By the next year the Blue Book listed Mrs. Hamline alone."
+  ],
+  "pa1904_hamline_mrs_john_h": [
+   "Josephine Hamline was born in New York in 1859. She ran a lively house at 1621, with two children, a nurse, a waitress, a chambermaid, a laundress and a cook, and her brother George living with them."
+  ],
+  "pa1904_mead_george_a": [
+   "George Mead, born in New York in 1864, was Josephine Hamline's brother, a bachelor in the dry goods business. He made his home with his sister's family at 1621."
+  ],
+  "pa1904_henderson_mrs_charles_m": [
+   "Mrs. Charles M. Henderson was a widow who kept the house at 1816 Prairie Avenue, a few doors south of the Glessners, with her coachman Arthur Parker to drive her."
+  ],
+  "pa1904_herrick_mrs_l_a": [
+   "Mrs. L. A. Herrick was the senior lady of a mixed household at 2018 Prairie Avenue, which in 1904 held two Herricks and the de Teresas, a mother and daughter with a Spanish name."
+  ],
+  "pa1904_herrick_e_walter": [
+   "E. Walter Herrick lived with Mrs. Herrick at 2018 Prairie Avenue in 1904, and had moved on by the next year."
+  ],
+  "pa1904_herrick_louise": [
+   "Louise Herrick was the Miss Herrick of 2018 Prairie Avenue, living with Mrs. L. A. Herrick in 1904."
+  ],
+  "pa1904_de_teresa_mrs_nicolas": [
+   "Mrs. Nicolas de Teresa shared the house at 2018 Prairie Avenue with the Herricks, with her daughter Isabel. How the two families were joined, the Blue Book never says."
+  ],
+  "pa1904_de_teresa_isabel": [
+   "Isabel de Teresa (Ysabel in some listings) lived with her mother, Mrs. Nicolas de Teresa, in the Herrick house at 2018."
+  ],
+  "pa1904_hibbard_f_vans": [
+   "Frank Hibbard, printed F. VanS. Hibbard in the Blue Book, was a son of William Gold Hibbard, the hardware merchant, and grew up across the street at 1701. In 1904 he and his wife kept their own house at 1620."
+  ],
+  "pa1904_hibbard_mrs_f_vans": [
+   "Mrs. F. VanS. Hibbard kept house with her husband at 1620 Prairie Avenue, across the street from his mother at 1701."
+  ],
+  "pa1904_hibbard_mrs_william_gold": [
+   "Mrs. William Gold Hibbard was the widow of the hardware merchant whose firm, Hibbard, Spencer, Bartlett and Company, was one of the great hardware houses of the West. She kept the family house at 1701, and two of her sons lived within sight of it."
+  ],
+  "pa1904_hibbard_lilian_b": [
+   "Lilian Hibbard was living with William and Mrs. Hibbard at 1701 Prairie Avenue in 1890, the Miss Hibbard of the house, and had left it soon after."
+  ],
+  "pa1904_hibbard_f_v_s_at_1701": [
+   "Frank Hibbard grew up in this house and was living here with his parents in the mid-1890s. By 1904 he and his wife had their own house just up the street at 1620."
+  ],
+  "pa1904_hibbard_william_g_jr_at_1701": [
+   "William G. Hibbard jr. lived at home here with his parents from 1894 to 1899. From 1901 he and his wife lived across the street at 1637."
+  ],
+  "pa1904_ward_mrs_o_van_schaack": [
+   "Mrs. O. Van Schaack Ward lived with Mrs. Hibbard at 1701 Prairie Avenue. The Blue Book does not say what she was to the family."
+  ],
+  "pa1904_hibbard_frank": [
+   "Frank Hibbard was living at his mother's house at 1701 by the autumn of 1904, most likely the same Frank who had grown up there."
+  ],
+  "pa1904_hibbard_william_gold_jr": [
+   "William Gold Hibbard jr., the hardware merchant's son, lived at 1637 Prairie Avenue with his wife, across the street from his widowed mother."
+  ],
+  "pa1904_hibbard_mrs_william_gold_jr": [
+   "Mrs. William Gold Hibbard jr. kept house with her husband at 1637 Prairie Avenue, across from her mother-in-law at 1701."
+  ],
+  "pa1904_high_mrs_james_l": [
+   "Mrs. James L. High was a widow who kept the house at 2021 Prairie Avenue with her unmarried daughter in 1904."
+  ],
+  "pa1904_high_daughter": [
+   "Miss High was the unmarried daughter at home with her mother at 2021 Prairie Avenue in 1904."
+  ],
+  "pa1904_high_shirley_t": [
+   "Shirley T. High, born about 1874, grew up at 2021 and lived there with his parents in the late 1890s. He was away in 1904, and by 1909 he was back as the head of the house, with his wife Helen and their sons James and Raymond."
+  ],
+  "pa1904_hoyt_mrs_h_w": [
+   "Mrs. H. W. Hoyt was a widow who kept the house at 2003 Prairie Avenue with her unmarried daughter in 1904."
+  ],
+  "pa1904_hoyt_daughter": [
+   "Miss Hoyt was the unmarried daughter at home with her mother at 2003 Prairie Avenue in 1904."
+  ],
+  "pa1904_hulbert_thomas_h": [
+   "Thomas H. Hulbert lived at 2123 Prairie Avenue in 1904, near the south end of the street."
+  ],
+  "pa1904_johnston_mrs_h_morris": [
+   "Mary Johnston was born in Ohio in 1841, the widow of H. Morris Johnston. She lived at 1636 Prairie Avenue with her two bachelor sons, Hugh and Morris, and a housemaid and a cook."
+  ],
+  "pa1904_johnston_h_mcb": [
+   "Hugh McB. Johnston was born in Ohio in 1869 and sold fire insurance, a good business in a city that remembered 1871. He lived at home at 1636 with his mother and his brother Morris."
+  ],
+  "pa1904_johnston_morris_l": [
+   "Morris L. Johnston was born in Ohio in 1871 and practised law. He lived at home at 1636 with his mother and brother, and by the next year had brought a wife there too."
+  ],
+  "pa1904_jones_fernando": [
+   "Fernando Jones came to Chicago in 1835 as a boy of fifteen, when it was a raw town of a few thousand around a muddy river. He grew up with the city, and in 1904 he was one of the last men alive who remembered it so.",
+   "He made his name in land titles, and he lived at 1834 Prairie Avenue with his wife."
+  ],
+  "pa1904_jones_mrs_fernando": [
+   "Mrs. Fernando Jones kept house at 1834 Prairie Avenue with her husband, one of the city's oldest settlers, with a house maid, a butler and a horseman."
+  ],
+  "pa1904_jones_graham": [
+   "Graham Jones grew up at 1834 Prairie Avenue and brought his own wife home there in 1897. They had moved away by 1901, and came back to the house in 1907."
+  ],
+  "pa1904_keith_edson_jr": [
+   "Edson Keith jr. was born in Illinois in 1865, the son of Edson Keith of 1906, and went into the dry goods and millinery trade. He grew up at 1906 and in 1904 lived at 2110 with his wife Nettie and their children."
+  ],
+  "pa1904_keith_mrs_edson_jr": [
+   "Nettie Keith, born in Ohio in 1870, kept the house at 2110 Prairie Avenue and raised Katharine and Frederick with a nurse to help."
+  ],
+  "pa1904_keith_elbridge_g": [
+   "Elbridge G. Keith was born in Vermont in 1840 and came west to Chicago, where he rose to be a bank president. He and his wife Harriet raised six children at 1900 Prairie Avenue."
+  ],
+  "pa1904_keith_mrs_elbridge_g": [
+   "Harriet Keith, born in Illinois in 1843, was the mother of six. She ran the house at 1900 Prairie Avenue with a waitress, a cook, a laundress and a coachman."
+  ],
+  "pa1904_keith_daughter": [
+   "Bessie Keith, born in 1878, was the daughter at home at 1900 in 1904, the Miss Keith of the house."
+  ],
+  "pa1904_keith_stanley": [
+   "Stanley Keith was born in Illinois in 1879, a son of the banker Elbridge Keith, and lived at home at 1900 Prairie Avenue."
+  ],
+  "pa1904_keith_harold": [
+   "Harold Keith was born in 1881, the banker's younger son, and was still at school in 1900. He lived at home at 1900 Prairie Avenue."
+  ],
+  "pa1904_keith_elbridge_b": [
+   "Elbridge B. Keith lived with Elbridge and Harriet Keith at 1900 Prairie Avenue from 1892 to 1895, most likely their son, and left soon after."
+  ],
+  "pa1904_keith_carl": [
+   "Carl Keith lived at his parents' house at 1900 Prairie Avenue around the turn of the century, from 1897 to 1901."
+  ],
+  "pa1904_keith_mrs_edson": [
+   "Mrs. Edson Keith, born in Illinois in 1839, was the widow of Edson Keith. She kept the family house at 1906 Prairie Avenue, and her two sons settled close by."
+  ],
+  "pa1904_keith_edson_jr_at_1906": [
+   "Edson Keith jr. grew up here at 1906 and brought his bride home in 1892. Two years later he moved down the street to 2110."
+  ],
+  "pa1904_keith_walter_w": [
+   "Walter W. Keith grew up at 1906 Prairie Avenue and was still living there with his own wife in 1897. By 1910 he lived next door at 1904 with his wife Frances and their son Winchester."
+  ],
+  "pa1904_kellogg_mrs_c_p": [
+   "Sarah Kellogg, Mrs. C. P. Kellogg, kept the house at 1923 Prairie Avenue with her daughter Lois and a coachman, Thomas Nelson."
+  ],
+  "pa1904_kellogg_mrs_lois": [
+   "Lois Kellogg was Sarah Kellogg's daughter, born about 1867. Divorced, she lived at home with her mother at 1923."
+  ],
+  "pa1904_kimball_william_w": [
+   "William Wallace Kimball was born in Maine in 1828 and came to Chicago in 1857 to sell pianos. The W. W. Kimball Company grew into one of the biggest makers of pianos and reed organs in the world.",
+   "His house at 1801, built like a French château in grey stone, stood across the avenue from the Glessners. He died there on 16 December 1904, five months after this summer day."
+  ],
+  "pa1904_kimball_mrs_william_w": [
+   "Evalyne Kimball, born Evalyne Cove, married William Kimball in 1865. They had no children, and she filled the château at 1801 with paintings instead, with a steward, a cook, a laundress and two maids to keep it."
+  ],
+  "pa1904_lamb_augustus_d": [
+   "Augustus D. Lamb was born in Pennsylvania in 1825, a widower who lived out his old age at 2011 Prairie Avenue with his son Benjamin."
+  ],
+  "pa1904_lamb_benjamin_b": [
+   "Benjamin Lamb, born in Illinois in 1860, was the head of the house at 2011, a bachelor living with his widowed father, a waitress, a cook and a coachman."
+  ],
+  "pa1904_lee_blewett": [
+   "Blewett Lee was a lawyer who married Frances Glessner in February 1898. Within a few years the couple were living at 1700, one of the twin townhouses her parents built a block north of their own house.",
+   "The marriage ended in divorce in 1914."
+  ],
+  "pa1904_lee_frances_glessner": [
+   "Frances Glessner Lee grew up in the great house at 1800 and in 1904 lived a block north at 1700, raising her children in the townhouse her parents built.",
+   "Long after, she built the Nutshell Studies of Unexplained Death, tiny, perfect crime scenes that taught detectives to see, and came to be called the mother of forensic science."
+  ],
+  "pa1904_lee_john_glessner": [
+   "John Glessner Lee, born in 1898, was about six in the summer of 1904, the eldest of the Lee children at 1700 and a grandson of the house at 1800."
+  ],
+  "pa1904_lee_frances": [
+   "Frances Lee was born in 1903, a baby in the house at 1700 in 1904, named for her mother and grandmother."
+  ],
+  "pa1904_lee_martha": [
+   "Martha Lee, the youngest of Frances Glessner Lee's three children, was born about 1906, after this summer. She was growing up at 1700 with her mother, brother and sister in 1910."
+  ],
+  "pa1904_longini_a": [
+   "Abraham Longini was born in France in 1847 and came to America at eighteen, in 1865. He built a wholesale clothing business in Chicago and lived at 1626 Prairie Avenue with his wife Rose and their children."
+  ],
+  "pa1904_longini_mrs_a": [
+   "Rose Longini, born in Illinois in 1860, raised three children at 1626, Adele, Jerome and Marcel, and was still in the house as a widow in 1910."
+  ],
+  "pa1904_longini_daughter": [
+   "Adele Longini, born in 1880, was the daughter at home at 1626 in 1904. Soon after she married Solomon Stix, and by 1910 she was back in her mother's house with him."
+  ],
+  "pa1904_lowden_frank_orren": [
+   "Frank Orren Lowden grew up on an Iowa farm, taught school, and worked his way through law. He practised law in Chicago for about twenty years, married George Pullman's daughter Florence in 1896, and lived at 1912, across the avenue from her mother.",
+   "In 1904 he joined the Republican National Committee, and in 1917 he became governor of Illinois."
+  ],
+  "pa1904_lowden_mrs_frank_orren": [
+   "Florence Pullman Lowden was George Pullman's elder daughter, born in 1868, and grew up across the street at 1729. She was married in that house in 1896, and in 1904 she ran her own at 1912, a house that in 1900 already held two small children and a staff of twelve."
+  ],
+  "pa1904_mcbean_a_j": [
+   "A. J. McBean was born in Scotland in 1835 and came to America at fifteen, in 1850. He made his fortune manufacturing cement, the stuff of a city rebuilding itself in stone, and lived at 2017 Prairie Avenue with his wife, his sons and a daughter-in-law."
+  ],
+  "pa1904_mcbean_mrs_a_j": [
+   "Georgina McBean was born in Scotland in 1852 and kept a three-generation house at 2017, with her husband, her sons George and Archibald, and Archibald's wife Almira."
+  ],
+  "pa1904_mcbean_george_b": [
+   "George McBean was born in Illinois in 1876, the younger son, and lived at home at 2017. He was still there with his widowed mother in 1910."
+  ],
+  "pa1904_mcbean_a_j_f": [
+   "Archibald McBean, the elder son, was born in Illinois in 1870 and practised law. He and his wife Almira made their home in his parents' house at 2017, and were still there in 1910."
+  ],
+  "pa1904_mcbean_mrs_a_j_f": [
+   "Almira McBean, born in Illinois in 1869, married Archibald McBean and came to live with his parents at 2017 Prairie Avenue."
+  ],
+  "pa1904_mcbirney_hugh": [
+   "Hugh McBirney was born in Ireland in 1824 and came to America at twenty, in 1844. He went into the wholesale crockery trade and did well. At eighty in the summer of 1904 he was one of the elders of the avenue."
+  ],
+  "pa1904_mcbirney_mrs_hugh": [
+   "Isabella McBirney, born in Maryland about 1830, kept the house at 1736 with her husband Hugh. She bore five children and outlived all but one."
+  ],
+  "pa1904_mcbirney_george_d": [
+   "George McBirney was Hugh and Isabella McBirney's son, the only one of their five children still living by 1910. He lived at home in 1897, and divorced, he was home again in 1910."
+  ],
+  "pa1904_mcbirney_day": [
+   "Day McBirney was living with the McBirneys at 1736 by the autumn of 1904, one of the family."
+  ],
+  "pa1904_mcbirney_hugh_j": [
+   "Hugh J. McBirney was born in Ohio in 1853 and lived at 1625 Prairie Avenue with his wife Mary and their daughters Annie and Isabelle."
+  ],
+  "pa1904_mcbirney_mrs_hugh_j": [
+   "Mary McBirney, born in Illinois in 1858, raised two girls at 1625, with a nurse, a waitress, a cook and a laundress to help."
+  ],
+  "pa1904_mckinlock_george_a": [
+   "George A. McKinlock and his wife lived at 1712 Prairie Avenue, close by the Glessner townhouses, with a butler and a ladies' maid in 1900."
+  ],
+  "pa1904_mckinlock_mrs_george_a": [
+   "Mrs. George A. McKinlock kept house with her husband at 1712 Prairie Avenue in 1904."
+  ],
+  "pa1904_meeker_arthur": [
+   "Arthur Meeker was an executive of Armour and Company, the meat-packing house, and lived at 1815 Prairie Avenue with his wife Grace and their four children."
+  ],
+  "pa1904_meeker_mrs_arthur": [
+   "Grace Murray Meeker kept the house at 1815 Prairie Avenue and raised four children there: Katherine, Grace, Arthur and baby Mary."
+  ],
+  "pa1904_meeker_arthur_jr": [
+   "Arthur Meeker jr. was born in Chicago on 3 November 1902, so in the summer of 1904 he was a toddler of twenty months, the only boy among four children.",
+   "He grew up to be a novelist, and in 1949 he wrote Prairie Avenue, a novel of the street he was born on."
+  ],
+  "pa1904_meeker_katherine": [
+   "Katherine Meeker, born about 1894, was the eldest of the Meeker children and about ten in 1904. She was still at home at 1815 with her sisters and brother in 1910."
+  ],
+  "pa1904_meeker_grace": [
+   "Grace Meeker, named for her mother, was about nine in 1904, the second of the Meeker girls at 1815."
+  ],
+  "pa1904_meeker_mary": [
+   "Mary Meeker was the youngest Meeker, born between the spring of 1903 and the spring of 1904, so in July 1904 she was a baby in the nursery at 1815."
+  ],
+  "pa1904_meyer_mrs_m_a": [
+   "Sarah Meyer was born in Germany in 1842 and came to America at ten, in 1852. A widow, she kept the house at 2009 Prairie Avenue full of grown children: four bachelor sons and a daughter."
+  ],
+  "pa1904_meyer_daughter": [
+   "Louise Meyer, born in 1880, was the daughter at home at 2009, still at school in 1900. By the following year she was no longer listed there."
+  ],
+  "pa1904_meyer_e_f": [
+   "Edwin Meyer was born in Illinois in 1865, the eldest son, and ran his own business. He lived at home with his mother at 2009."
+  ],
+  "pa1904_meyer_albert": [
+   "Albert Meyer was born in Illinois in 1867 and lived at home with his mother and brothers at 2009 Prairie Avenue."
+  ],
+  "pa1904_meyer_carl": [
+   "Carl Meyer was born in Illinois in 1869 and became a lawyer, like his younger brother Abraham. He lived at home at 2009."
+  ],
+  "pa1904_meyer_abraham": [
+   "Abraham Meyer was born in Illinois in 1871, the youngest son, and practised law. He lived at home with his mother at 2009."
+  ],
+  "pa1904_otis_f_r": [
+   "F. R. Otis was born in Ohio in 1825 and lived at 2033 Prairie Avenue with his wife Emeline and three grown children. At seventy-nine in 1904 he was one of the oldest men on the street, and by the next year his wife was listed alone."
+  ],
+  "pa1904_otis_mrs_f_r": [
+   "Emeline Otis was born in Ohio about 1830 and kept the house at 2033 for her husband and their grown children, with a cook, a waitress, a second maid and a coachman."
+  ],
+  "pa1904_otis_daughter": [
+   "Marguerite Otis, born in Ohio about 1864, was the unmarried daughter at home at 2033."
+  ],
+  "pa1904_otis_charles_t": [
+   "Charles T. Otis was born in Ohio in 1852 and sold real estate with his brother Lucius. Both lived at home at 2033."
+  ],
+  "pa1904_otis_lucius_j": [
+   "Lucius J. Otis, born in Ohio about 1859, was a real estate agent like his brother Charles, and lived at home at 2033."
+  ],
+  "pa1904_otis_mrs_joseph_e": [
+   "Marie Otis was born about 1837 and kept the house at 1730 Prairie Avenue. She bore eight children and lost four; her daughter Lillian came home to live with her."
+  ],
+  "pa1904_otis_joseph_e_jr": [
+   "Joseph E. Otis jr. lived at home at 1730 in 1890 and 1891, the son of the house, and then left to make his own way."
+  ],
+  "pa1904_otis_ralph_c": [
+   "Ralph C. Otis was born about 1870 and grew up at 1730. He brought his wife home there in 1901, moved away, and by 1910 the two of them were living with his mother again."
+  ],
+  "pa1904_jenkins_john_e": [
+   "John E. Jenkins came to live at 1730 by the autumn of 1904, with his wife Lillian, Mrs. Otis's daughter, and their son Elliott."
+  ],
+  "pa1904_jenkins_mrs_john_e": [
+   "Lillian Jenkins, born about 1861, was Marie Otis's daughter. By the autumn of 1904 she and her husband John had come to live in her mother's house at 1730, with their son Elliott."
+  ],
+  "pa1904_perry_howard_e": [
+   "Howard E. Perry was born in Ohio in 1860 and worked as a clerk in the wholesale trade. He lived at 1619 Prairie Avenue with his wife Grace."
+  ],
+  "pa1904_perry_mrs_howard_e": [
+   "Grace Perry, born in 1865, kept the house at 1619 Prairie Avenue with a waitress, a cook and a laundress."
+  ],
+  "pa1904_pike_eugene_s": [
+   "Eugene S. Pike was born in Ohio in 1835 and lived at 2101 Prairie Avenue with his wife Mary and their grown sons, one of whom ran a cemetery company."
+  ],
+  "pa1904_pike_mrs_eugene_s": [
+   "Mary Pike was born in Ohio in 1838. Her house at 2101 held her husband, her sons and a daughter-in-law, and seven servants, two of them ladies' maids."
+  ],
+  "pa1904_pike_eugene_r": [
+   "Eugene R. Pike lived at his parents' house at 2101 with his wife."
+  ],
+  "pa1904_pike_mrs_eugene_r": [
+   "Mrs. Eugene R. Pike lived with her husband in his parents' house at 2101 Prairie Avenue in 1904."
+  ],
+  "pa1904_pike_william_wallace": [
+   "William Wallace Pike was born in Illinois in 1872, and before he was thirty he was president of a cemetery company. He lived at home at 2101."
+  ],
+  "pa1904_pike_charles_b": [
+   "Charles B. Pike lived at 2101 with his parents and brothers from 1892 to 1899, and then moved out on his own."
+  ],
+  "pa1904_pullman_mrs_george_m": [
+   "Harriett Sanger Pullman was the widow of George Pullman, the sleeping-car king, who built the town of Pullman for his workers and died in 1897, three years after the great strike there.",
+   "She kept the vast house at 1729 Prairie Avenue. Her daughter Florence lived just across the street, and her two sons were gone: one dead, one in California."
+  ],
+  "pa1904_pullman_florence_at_1729": [
+   "Florence Pullman, born in 1868, was the Pullmans' elder daughter and grew up in this house. She was married here in 1896 to Frank Lowden, with two of her father's brothers taking the service.",
+   "In 1904 she lived across the street at 1912 with her husband and children."
+  ],
+  "pa1904_pullman_harriett": [
+   "Harriett Pullman, born in 1869, was the younger daughter and grew up in this house. In the early 1890s she married Frank Carolan of San Francisco and went west."
+  ],
+  "pa1904_pullman_george_m_jr": [
+   "George Pullman jr. was one of twin boys born in 1875, schooled at home here on Prairie Avenue with his brother Sanger. He married in Nevada in 1899 and died at Menlo Park, California, in November 1901, at twenty-six."
+  ],
+  "pa1904_pullman_w_sanger": [
+   "Walter Sanger Pullman, called Sanger, was George jr.'s twin and grew up here. Like his brother he made his home in California, and he died there, at Belmont, on 14 August 1905."
+  ],
+  "pa1904_robinson_miss_r_s": [
+   "Miss R. S. Robinson came to live with Mrs. Pullman at 1729 by the autumn of 1904, perhaps as a companion, perhaps as kin."
+  ],
+  "pa1904_ream_norman_b": [
+   "Norman B. Ream was born in Pennsylvania in 1844, came to Chicago and made a fortune on the Board of Trade and in railroads and stocks. He lived at 1901 Prairie Avenue, a few steps from Marshall Field's house at 1905."
+  ],
+  "pa1904_ream_mrs_norman_b": [
+   "Caroline Putnam Ream, born in New York in 1852, married Norman Ream in 1876 and raised their sons and daughters at 1901 Prairie Avenue."
+  ],
+  "pa1904_ream_daughters": [
+   "The Misses Ream were the unmarried daughters at home at 1901. The Reams had three daughters, among them Frances and Marion, and by the autumn the Blue Book counted only one still at home."
+  ],
+  "pa1904_reid_william_h": [
+   "William H. Reid was born in Ohio in 1845 and was president of a company by 1900. He lived at 2013 Prairie Avenue with his wife Caroline and a boy, Roy."
+  ],
+  "pa1904_reid_mrs_william_h": [
+   "Caroline Reid, born in Connecticut in 1862, kept the house at 2013 with a parlor maid and a cook."
+  ],
+  "pa1904_robbins_edward_f": [
+   "Edward F. Robbins and his wife lived at 2126 Prairie Avenue in 1904, near the south end of the street."
+  ],
+  "pa1904_robbins_mrs_edward_f": [
+   "Mrs. Edward F. Robbins kept house with her husband at 2126 Prairie Avenue in 1904."
+  ],
+  "pa1904_roloson_robert_w": [
+   "Robert W. Roloson was born in 1840 and traded on the Board of Trade, where Chicago's grain was bought and sold. A widower, he lived at 2109 Prairie Avenue with his son Robert."
+  ],
+  "pa1904_rothschild_mrs_m_m": [
+   "Rose Rothschild was born in Illinois in 1860, the widow of M. M. Rothschild, and raised five children at 2112 Prairie Avenue."
+  ],
+  "pa1904_rothschild_daughter": [
+   "Jeannie Rothschild, born about 1878, was the unmarried daughter at home at 2112 in 1904."
+  ],
+  "pa1904_rothschild_jesse": [
+   "Jesse Rothschild, born about 1886, was the youngest son of the house, still at school in 1900, and lived at home at 2112."
+  ],
+  "pa1904_rothschild_monroe_r": [
+   "Monroe R. Rothschild lived with his mother at 2112 from 1897 to 1901, one of her five children."
+  ],
+  "pa1904_rothschild_mamie_f": [
+   "Mamie Rothschild grew up at 2112 and married Alfred S. Austrian. By 1908 she was back in her mother's house, with her husband and their daughter Margaret."
+  ],
+  "pa1904_shipman_daniel_b": [
+   "Daniel B. Shipman was born in Connecticut in 1830, a wholesale merchant who lived at 1828 Prairie Avenue, a few doors south of the Glessners, with a ladies' maid, a waitress, a cook and a coachman."
+  ],
+  "pa1904_shortall_john_g": [
+   "John G. Shortall was born in England in 1839 and came to America in 1860. He made his name in Chicago's land title business, and by 1900, a widower, he called himself a capitalist. His house at 1600 stood at the north end of the avenue."
+  ],
+  "pa1904_shortall_john_g_son_john_l": [
+   "John L. Shortall lived with his father at 1600 in 1893 and 1894, and then moved next door to 1604 with his wife."
+  ],
+  "pa1904_shortall_john_l": [
+   "John L. Shortall was born in Illinois in 1865 and practised law. He lived at 1604, next door to his father, with his wife Mary and their four children."
+  ],
+  "pa1904_shortall_mrs_john_l": [
+   "Mary Shortall was born in Massachusetts in 1867 and raised four children at 1604, Catherine, Helen, Harrington and Margaret, with a nurse and a housemaid."
+  ],
+  "pa1904_smith_byron_l": [
+   "Byron L. Smith was a banker, the founder in 1889 of the Northern Trust Company, and lived at 2140 Prairie Avenue with his wife and their sons."
+  ],
+  "pa1904_smith_mrs_byron_l": [
+   "Mrs. Byron L. Smith kept the house at 2140 Prairie Avenue, where her sons Walter, Harold and Bruce lived at home."
+  ],
+  "pa1904_smith_walter_b": [
+   "Walter B. Smith, a son of the banker Byron L. Smith, lived at home at 2140 Prairie Avenue in 1904."
+  ],
+  "pa1904_smith_harold_c": [
+   "Harold C. Smith, a son of the banker Byron L. Smith, lived at home at 2140 Prairie Avenue in 1904."
+  ],
+  "pa1904_smith_bruce_d": [
+   "Bruce D. Smith, a son of the banker Byron L. Smith, lived at home at 2140 Prairie Avenue in 1904."
+  ],
+  "pa1904_spalding_jesse": [
+   "Jesse Spalding was born in 1830 and made his fortune in lumber, the trade that floated whole forests across Lake Michigan to Chicago's yards. He lived at 1709 Prairie Avenue with his wife Adelia."
+  ],
+  "pa1904_spalding_mrs_jesse": [
+   "Adelia Spalding was born in 1830, the same year as her husband Jesse, and kept the house at 1709 with a cook, a ladies' maid, a parlor maid, a coachman and a groom."
+  ],
+  "pa1904_stettauer_mrs_d": [
+   "Mrs. D. Stettauer was a widow who kept the house at 2026 Prairie Avenue with her son Charles and an unmarried daughter."
+  ],
+  "pa1904_stettauer_daughter": [
+   "Miss Stettauer was the unmarried daughter at home with her mother at 2026 Prairie Avenue in 1904."
+  ],
+  "pa1904_stettauer_charles_s": [
+   "Charles S. Stettauer was a son of the house at 2026. When the census taker called in June 1900, he was away in Europe."
+  ],
+  "pa1904_stettauer_james": [
+   "James Stettauer lived at 2026 with D. Stettauer and his wife from 1890 to 1895, beside his brother Charles, and then moved on."
+  ],
+  "pa1904_stirling_william_r": [
+   "William R. Stirling was born in Scotland in 1850 and came to America in 1878. He made chain, and lived at 1616 Prairie Avenue with his wife Alice and their three daughters."
+  ],
+  "pa1904_stirling_mrs_william_r": [
+   "Alice Stirling, born in Illinois in 1862, raised three girls at 1616, Alice, Dorothy and Jean."
+  ],
+  "pa1904_stone_mrs_h_o": [
+   "Mrs. H. O. Stone was born in New York about 1845, a widow who kept the house at 2035 Prairie Avenue with a housekeeper, a ladies' maid and two maids for the kitchen and the table."
+  ],
+  "pa1904_tolman_samuel_a": [
+   "Samuel A. Tolman was born in Maine in 1837 and dealt in grain at wholesale. He lived at 2031 Prairie Avenue with his wife Bessie."
+  ],
+  "pa1904_tolman_mrs_samuel_a": [
+   "Bessie Tolman was born in New Hampshire about 1849 and kept the house at 2031 with a house maid and a coachman."
+  ],
+  "pa1904_walker_henry_h": [
+   "Henry H. Walker grew up next door at 1720, where he brought his wife home in 1902. The following year the couple moved into 1721, beside his mother."
+  ],
+  "pa1904_walker_mrs_henry_h": [
+   "Mrs. Henry H. Walker kept house with her husband at 1721 Prairie Avenue, next door to his mother."
+  ],
+  "pa1904_walker_james_r": [
+   "James R. Walker was born in Illinois in 1864 and dealt in real estate. He lived at 1726 Prairie Avenue with his wife Louise and three boys, James, Arthur and Dexter."
+  ],
+  "pa1904_walker_mrs_james_r": [
+   "Louise Walker, born in Illinois in 1864, ran a busy house at 1726: three boys, a nurse, a cook, a waitress, a laundress, a coachman and a groom."
+  ],
+  "pa1904_walker_mrs_james_m": [
+   "Mrs. James M. Walker was the widow at 1720 Prairie Avenue, whose sons grew up in the house. One of them, Henry, lived next door at 1721 in 1904."
+  ],
+  "pa1904_walker_wirt_d": [
+   "Wirt D. Walker grew up at 1720 and lived there with his mother through the early 1890s. His wife was living in the house in 1901."
+  ],
+  "pa1904_walker_henry_h_at_1720": [
+   "Henry H. Walker lived here at 1720 with his wife in 1902, and from 1903 next door at 1721."
+  ],
+  "pa1904_wood_casey_a": [
+   "Dr. Casey A. Wood was a physician who lived at 2005 Prairie Avenue with his wife in 1904."
+  ],
+  "pa1904_wood_mrs_casey_a": [
+   "Mrs. Casey A. Wood kept house with her husband, the doctor, at 2005 Prairie Avenue in 1904."
+  ],
+  "pa1904_young_lawrence_a": [
+   "Lawrence A. Young was born in Kentucky in 1870 and came to Chicago to practise law. He and his wife Mattie lived at 1812 Prairie Avenue, a few doors south of the Glessners, from 1897, and raised three children there."
+  ],
+  "pa1904_young_mrs_lawrence_a": [
+   "Mattie Young, born in Illinois in 1873, raised three children at 1812: Henry, Alice and baby Lawrence."
+  ],
+  "pa1904_young_lawrence_r": [
+   "Lawrence R. Young was born about 1903, the third of the Young children, so in the summer of 1904 he was a baby in the nursery. He was seven and still at 1812 in 1910."
+  ]
+ }
+}
