@@ -59,6 +59,17 @@
     "grade": "reconstructed",
     "liberty": "L-1812-garrison-looks-3491",
     "file": "data/humans/variation/looks/adams_george.json"
+   },
+   "dress": {
+    "worn": "the company's blue coat faced red, the tall felt cap with its white feather, white crossbelts and linen overalls; his musket with the bayonet fixed, at the shoulder",
+    "garrison": {
+     "rank": "private",
+     "station": "gate_east",
+     "arms": "shoulder",
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "allin_john": {
@@ -118,6 +129,17 @@
     "grade": "reconstructed",
     "liberty": "L-1812-garrison-looks-3491",
     "file": "data/humans/variation/looks/allin_john.json"
+   },
+   "dress": {
+    "worn": "the company's blue coat faced red, the tall felt cap with its white feather, white crossbelts and linen overalls; his musket with the bayonet fixed, at the shoulder",
+    "garrison": {
+     "rank": "private",
+     "station": "gate_west",
+     "arms": "shoulder",
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "andrews_prestly": {
@@ -175,6 +197,17 @@
     "grade": "reconstructed",
     "liberty": "L-1812-garrison-looks-3491",
     "file": "data/humans/variation/looks/andrews_prestly.json"
+   },
+   "dress": {
+    "worn": "the company's blue coat faced red, the tall felt cap with its white feather, white crossbelts and linen overalls; his musket with the bayonet fixed, at the shoulder",
+    "garrison": {
+     "rank": "private",
+     "station": "magazine",
+     "arms": "shoulder",
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "bisson_mrs": {
@@ -495,6 +528,19 @@
     "grade": "reconstructed",
     "liberty": "L-1812-garrison-looks-3491",
     "file": "data/humans/variation/looks/bowen_joseph.json"
+   },
+   "dress": {
+    "worn": "the company's blue coat faced red, the tall felt cap with its white feather, white crossbelts and linen overalls; a corporal's white worsted epaulette on the right shoulder",
+    "garrison": {
+     "rank": "corporal",
+     "station": "sw_knot_b",
+     "marks": [
+      "epaulette_worsted_r"
+     ],
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "burnett_george": {
@@ -554,6 +600,32 @@
     "grade": "reconstructed",
     "liberty": "L-1812-garrison-looks-3491",
     "file": "data/humans/variation/looks/burnett_george.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__coat_blue_1812": [
+      0.36,
+      0.028,
+      0.022
+     ],
+     "garment_upper__facings_red_1812": [
+      0.014,
+      0.019,
+      0.055
+     ]
+    },
+    "hide": [
+     "cartridge_box_and_scabbard"
+    ],
+    "worn": "a musician's red coat faced blue, the felt cap, white overalls, his fife case at his hip",
+    "garrison": {
+     "rank": "fifer",
+     "station": "se_knot_c",
+     "carry": "fife",
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "burns_child_a": {
@@ -773,6 +845,16 @@
     "grade": "reconstructed",
     "liberty": "L-1812-garrison-looks-3491",
     "file": "data/humans/variation/looks/campbell_asa.json"
+   },
+   "dress": {
+    "worn": "the company's blue coat faced red, the tall felt cap with its white feather, white crossbelts and linen overalls",
+    "garrison": {
+     "rank": "private",
+     "station": "fatigue_1",
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "cardin_john_b": {
@@ -1274,6 +1356,16 @@
     "grade": "reconstructed",
     "liberty": "L-1812-garrison-looks-3491",
     "file": "data/humans/variation/looks/corbin_fielding.json"
+   },
+   "dress": {
+    "worn": "the company's blue coat faced red, the tall felt cap with its white feather, white crossbelts and linen overalls",
+    "garrison": {
+     "rank": "private",
+     "station": "sw_knot_a",
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "corbin_james": {
@@ -1331,6 +1423,16 @@
     "grade": "reconstructed",
     "liberty": "L-1812-garrison-looks-3491",
     "file": "data/humans/variation/looks/corbin_james.json"
+   },
+   "dress": {
+    "worn": "the company's blue coat faced red, the tall felt cap with its white feather, white crossbelts and linen overalls",
+    "garrison": {
+     "rank": "private",
+     "station": "fatigue_0",
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "corbin_mrs": {
@@ -1430,6 +1532,20 @@
     "grade": "reconstructed",
     "liberty": "L-1812-garrison-looks-3491",
     "file": "data/humans/variation/looks/crozier_john.json"
+   },
+   "dress": {
+    "worn": "the company's blue coat faced red, the tall felt cap with its white feather, white crossbelts and linen overalls; a sergeant's two white worsted epaulettes",
+    "garrison": {
+     "rank": "sergeant",
+     "station": "nr_knot_b",
+     "marks": [
+      "epaulette_worsted_l",
+      "epaulette_worsted_r"
+     ],
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "daugherty_daniel": {
@@ -1487,6 +1603,16 @@
     "grade": "reconstructed",
     "liberty": "L-1812-garrison-looks-3491",
     "file": "data/humans/variation/looks/daugherty_daniel.json"
+   },
+   "dress": {
+    "worn": "the company's blue coat faced red, the tall felt cap with its white feather, white crossbelts and linen overalls",
+    "garrison": {
+     "rank": "private",
+     "station": "fatigue_5",
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "denison_micajah": {
@@ -1546,6 +1672,16 @@
     "grade": "reconstructed",
     "liberty": "L-1812-garrison-looks-3491",
     "file": "data/humans/variation/looks/denison_micajah.json"
+   },
+   "dress": {
+    "worn": "the company's blue coat faced red, the tall felt cap with its white feather, white crossbelts and linen overalls",
+    "garrison": {
+     "rank": "private",
+     "station": "se_knot_d",
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "draper_stephen": {
@@ -1603,6 +1739,16 @@
     "grade": "reconstructed",
     "liberty": "L-1812-garrison-looks-3491",
     "file": "data/humans/variation/looks/draper_stephen.json"
+   },
+   "dress": {
+    "worn": "the company's blue coat faced red, the tall felt cap with its white feather, white crossbelts and linen overalls",
+    "garrison": {
+     "rank": "private",
+     "station": "fatigue_4",
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "dyer_dyson": {
@@ -1662,6 +1808,16 @@
     "grade": "reconstructed",
     "liberty": "L-1812-garrison-looks-3491",
     "file": "data/humans/variation/looks/dyer_dyson.json"
+   },
+   "dress": {
+    "worn": "the company's blue coat faced red, the tall felt cap with its white feather, white crossbelts and linen overalls",
+    "garrison": {
+     "rank": "private",
+     "station": "fatigue_3",
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "edson_nathan": {
@@ -1721,6 +1877,16 @@
     "grade": "reconstructed",
     "liberty": "L-1812-garrison-looks-3491",
     "file": "data/humans/variation/looks/edson_nathan.json"
+   },
+   "dress": {
+    "worn": "the company's blue coat faced red, the tall felt cap with its white feather, white crossbelts and linen overalls",
+    "garrison": {
+     "rank": "private",
+     "station": "wp_knot_a",
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "fettle_louis": {
@@ -1821,6 +1987,20 @@
     "grade": "reconstructed",
     "liberty": "L-1812-garrison-looks-3491",
     "file": "data/humans/variation/looks/forth_thomas.json"
+   },
+   "dress": {
+    "worn": "the company's blue coat faced red, the tall felt cap with its white feather, white crossbelts and linen overalls; a corporal's white worsted epaulette on the right shoulder; his musket with the bayonet fixed, at the order",
+    "garrison": {
+     "rank": "corporal",
+     "station": "gate_corporal",
+     "marks": [
+      "epaulette_worsted_r"
+     ],
+     "arms": "order",
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "fury_john": {
@@ -1880,6 +2060,16 @@
     "grade": "reconstructed",
     "liberty": "L-1812-garrison-looks-3491",
     "file": "data/humans/variation/looks/fury_john.json"
+   },
+   "dress": {
+    "worn": "the company's blue coat faced red, the tall felt cap with its white feather, white crossbelts and linen overalls",
+    "garrison": {
+     "rank": "private",
+     "station": "wp_knot_b",
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "garner_richard": {
@@ -1937,6 +2127,16 @@
     "grade": "reconstructed",
     "liberty": "L-1812-garrison-looks-3491",
     "file": "data/humans/variation/looks/garner_richard.json"
+   },
+   "dress": {
+    "worn": "the company's blue coat faced red, the tall felt cap with its white feather, white crossbelts and linen overalls",
+    "garrison": {
+     "rank": "private",
+     "station": "wp_knot_c",
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "garrison_child_unnamed_1": {
@@ -54740,6 +54940,20 @@
     "grade": "reconstructed",
     "liberty": "L-1812-garrison-looks-3491",
     "file": "data/humans/variation/looks/griffith_william.json"
+   },
+   "dress": {
+    "worn": "the company's blue coat faced red, the tall felt cap with its white feather, white crossbelts and linen overalls; a sergeant's two white worsted epaulettes",
+    "garrison": {
+     "rank": "sergeant",
+     "station": "fatigue_lead",
+     "marks": [
+      "epaulette_worsted_l",
+      "epaulette_worsted_r"
+     ],
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "grummo_paul": {
@@ -54803,6 +55017,16 @@
     "grade": "reconstructed",
     "liberty": "L-1812-garrison-looks-3491",
     "file": "data/humans/variation/looks/grummo_paul.json"
+   },
+   "dress": {
+    "worn": "the company's blue coat faced red, the tall felt cap with its white feather, white crossbelts and linen overalls",
+    "garrison": {
+     "rank": "private",
+     "station": "fatigue_2",
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "hamilton_john": {
@@ -54860,6 +55084,32 @@
     "grade": "reconstructed",
     "liberty": "L-1812-garrison-looks-3491",
     "file": "data/humans/variation/looks/hamilton_john.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__coat_blue_1812": [
+      0.36,
+      0.028,
+      0.022
+     ],
+     "garment_upper__facings_red_1812": [
+      0.014,
+      0.019,
+      0.055
+     ]
+    },
+    "hide": [
+     "cartridge_box_and_scabbard"
+    ],
+    "worn": "a musician's red coat faced blue, the felt cap, white overalls, his drum on its carriage",
+    "garrison": {
+     "rank": "drummer",
+     "station": "nr_knot_c",
+     "carry": "drum",
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "hays_otho": {
@@ -54917,6 +55167,20 @@
     "grade": "reconstructed",
     "liberty": "L-1812-garrison-looks-3491",
     "file": "data/humans/variation/looks/hays_otho.json"
+   },
+   "dress": {
+    "worn": "the company's blue coat faced red, the tall felt cap with its white feather, white crossbelts and linen overalls; a sergeant's two white worsted epaulettes",
+    "garrison": {
+     "rank": "sergeant",
+     "station": "sw_knot_c",
+     "marks": [
+      "epaulette_worsted_l",
+      "epaulette_worsted_r"
+     ],
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "heald_nathan": {
@@ -54965,6 +55229,19 @@
     "grade": "reconstructed",
     "liberty": "L-1812-town-days-3463",
     "file": "data/humans/variation/looks/heald_nathan.json"
+   },
+   "dress": {
+    "worn": "the captain's coat and chapeau, his silver epaulette on the right shoulder, a crimson sash round the waist (on duty) and his sword",
+    "garrison": {
+     "rank": "captain",
+     "station": "officer",
+     "marks": [
+      "sash_crimson"
+     ],
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "heald_rebekah": {
@@ -55055,6 +55332,23 @@
     "grade": "reconstructed",
     "liberty": "L-1812-town-days-3463",
     "file": "data/humans/variation/looks/helm_linai.json"
+   },
+   "dress": {
+    "hide": [
+     "epaulette_right"
+    ],
+    "worn": "the officer's coat and chapeau, a lieutenant's silver epaulette on the left shoulder, a crimson sash round the waist (on duty) and his sword",
+    "garrison": {
+     "rank": "second lieutenant",
+     "station": "officer",
+     "marks": [
+      "epaulette_bullion_l",
+      "sash_crimson"
+     ],
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "helm_margaret": {
@@ -55196,6 +55490,21 @@
     "grade": "reconstructed",
     "liberty": "L-1812-garrison-looks-3491",
     "file": "data/humans/variation/looks/holt_isaac.json"
+   },
+   "dress": {
+    "worn": "the company's blue coat faced red, the tall felt cap with its white feather, white crossbelts and linen overalls; a sergeant's two white worsted epaulettes; his musket with the bayonet fixed, at the order",
+    "garrison": {
+     "rank": "sergeant",
+     "station": "gate_sergeant",
+     "marks": [
+      "epaulette_worsted_l",
+      "epaulette_worsted_r"
+     ],
+     "arms": "order",
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "holt_mrs": {
@@ -55295,6 +55604,16 @@
     "grade": "reconstructed",
     "liberty": "L-1812-garrison-looks-3491",
     "file": "data/humans/variation/looks/hunt_william_n.json"
+   },
+   "dress": {
+    "worn": "the company's blue coat faced red, the tall felt cap with its white feather, white crossbelts and linen overalls",
+    "garrison": {
+     "rank": "private",
+     "station": "orderly",
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "hurtt_nathan_a": {
@@ -55352,6 +55671,16 @@
     "grade": "reconstructed",
     "liberty": "L-1812-garrison-looks-3491",
     "file": "data/humans/variation/looks/hurtt_nathan_a.json"
+   },
+   "dress": {
+    "worn": "the company's blue coat faced red, the tall felt cap with its white feather, white crossbelts and linen overalls",
+    "garrison": {
+     "rank": "private",
+     "station": "storehouse",
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "irwin_matthew": {
@@ -55451,6 +55780,17 @@
     "grade": "reconstructed",
     "liberty": "L-1812-garrison-looks-3491",
     "file": "data/humans/variation/looks/jones_rodias.json"
+   },
+   "dress": {
+    "worn": "the company's blue coat faced red, the tall felt cap with its white feather, white crossbelts and linen overalls; his musket with the bayonet fixed, at the order",
+    "garrison": {
+     "rank": "private",
+     "station": "blockhouse_se",
+     "arms": "order",
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "keepotah": {
@@ -55596,6 +55936,16 @@
     "grade": "reconstructed",
     "liberty": "L-1812-garrison-looks-3491",
     "file": "data/humans/variation/looks/kelso_john.json"
+   },
+   "dress": {
+    "worn": "the company's blue coat faced red, the tall felt cap with its white feather, white crossbelts and linen overalls",
+    "garrison": {
+     "rank": "private",
+     "station": "rb_knot_c",
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "kennison_david": {
@@ -55659,6 +56009,16 @@
     "grade": "reconstructed",
     "liberty": "L-1812-garrison-looks-3491",
     "file": "data/humans/variation/looks/kennison_david.json"
+   },
+   "dress": {
+    "worn": "the company's blue coat faced red, the tall felt cap with its white feather, white crossbelts and linen overalls",
+    "garrison": {
+     "rank": "private",
+     "station": "rb_knot_a",
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "kilpatrick_samuel": {
@@ -55718,6 +56078,16 @@
     "grade": "reconstructed",
     "liberty": "L-1812-garrison-looks-3491",
     "file": "data/humans/variation/looks/kilpatrick_samuel.json"
+   },
+   "dress": {
+    "worn": "the company's blue coat faced red, the tall felt cap with its white feather, white crossbelts and linen overalls",
+    "garrison": {
+     "rank": "private",
+     "station": "rb_knot_b",
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "kinzie_boatman_1812": {
@@ -56283,6 +56653,16 @@
     "grade": "reconstructed",
     "liberty": "L-1812-garrison-looks-3491",
     "file": "data/humans/variation/looks/landon_jacob.json"
+   },
+   "dress": {
+    "worn": "the company's blue coat faced red, the tall felt cap with its white feather, white crossbelts and linen overalls",
+    "garrison": {
+     "rank": "private",
+     "station": "rb_knot_d",
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "latta_james": {
@@ -56342,6 +56722,52 @@
     "grade": "reconstructed",
     "liberty": "L-1812-garrison-looks-3491",
     "file": "data/humans/variation/looks/latta_james.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__shirt_tow_linen_1810": [
+      0.62,
+      0.58,
+      0.49
+     ],
+     "accessory__neckerchief_blue_1810": [
+      0.01,
+      0.01,
+      0.011
+     ],
+     "garment_outer__waistcoat_brown_1810": [
+      0.7,
+      0.69,
+      0.64
+     ],
+     "garment_lower__trousers_linen_1810": [
+      0.56,
+      0.52,
+      0.43
+     ],
+     "headwear__round_hat_black_1810": [
+      0.014,
+      0.013,
+      0.012
+     ],
+     "footwear__shoes_dark_1810": [
+      0.012,
+      0.011,
+      0.011
+     ]
+    },
+    "hide": [
+     "headwear_round_hat",
+     "waistcoat_brown"
+    ],
+    "worn": "his fatigue clothes: an unbleached linen shirt in his sleeves, a black stock and loose linen trousers, bareheaded, without coat, cap or belts; no musket at his work",
+    "garrison": {
+     "rank": "private",
+     "station": "wharf_a",
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "leclerc_pierre": {
@@ -56600,6 +57026,51 @@
     "grade": "reconstructed",
     "liberty": "L-1812-garrison-looks-3491",
     "file": "data/humans/variation/looks/locker_frederick.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__shirt_tow_linen_1810": [
+      0.62,
+      0.58,
+      0.49
+     ],
+     "accessory__neckerchief_blue_1810": [
+      0.01,
+      0.01,
+      0.011
+     ],
+     "garment_outer__waistcoat_brown_1810": [
+      0.7,
+      0.69,
+      0.64
+     ],
+     "garment_lower__trousers_linen_1810": [
+      0.56,
+      0.52,
+      0.43
+     ],
+     "headwear__round_hat_black_1810": [
+      0.014,
+      0.013,
+      0.012
+     ],
+     "footwear__shoes_dark_1810": [
+      0.012,
+      0.011,
+      0.011
+     ]
+    },
+    "hide": [
+     "headwear_round_hat"
+    ],
+    "worn": "his fatigue clothes: an unbleached linen shirt and white waistcoat, a black stock and loose linen trousers, bareheaded, without coat, cap or belts; no musket at his work",
+    "garrison": {
+     "rank": "private",
+     "station": "garden_b",
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "logan_hugh": {
@@ -56657,6 +57128,51 @@
     "grade": "reconstructed",
     "liberty": "L-1812-garrison-looks-3491",
     "file": "data/humans/variation/looks/logan_hugh.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__shirt_tow_linen_1810": [
+      0.62,
+      0.58,
+      0.49
+     ],
+     "accessory__neckerchief_blue_1810": [
+      0.01,
+      0.01,
+      0.011
+     ],
+     "garment_outer__waistcoat_brown_1810": [
+      0.7,
+      0.69,
+      0.64
+     ],
+     "garment_lower__trousers_linen_1810": [
+      0.56,
+      0.52,
+      0.43
+     ],
+     "headwear__round_hat_black_1810": [
+      0.014,
+      0.013,
+      0.012
+     ],
+     "footwear__shoes_dark_1810": [
+      0.012,
+      0.011,
+      0.011
+     ]
+    },
+    "hide": [
+     "headwear_round_hat"
+    ],
+    "worn": "his fatigue clothes: an unbleached linen shirt and white waistcoat, a black stock and loose linen trousers, bareheaded, without coat, cap or belts; no musket at his work",
+    "garrison": {
+     "rank": "private",
+     "station": "garden_a",
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "lynch_michael": {
@@ -56714,6 +57230,51 @@
     "grade": "reconstructed",
     "liberty": "L-1812-garrison-looks-3491",
     "file": "data/humans/variation/looks/lynch_michael.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__shirt_tow_linen_1810": [
+      0.62,
+      0.58,
+      0.49
+     ],
+     "accessory__neckerchief_blue_1810": [
+      0.01,
+      0.01,
+      0.011
+     ],
+     "garment_outer__waistcoat_brown_1810": [
+      0.7,
+      0.69,
+      0.64
+     ],
+     "garment_lower__trousers_linen_1810": [
+      0.56,
+      0.52,
+      0.43
+     ],
+     "headwear__round_hat_black_1810": [
+      0.014,
+      0.013,
+      0.012
+     ],
+     "footwear__shoes_dark_1810": [
+      0.012,
+      0.011,
+      0.011
+     ]
+    },
+    "hide": [
+     "headwear_round_hat"
+    ],
+    "worn": "his fatigue clothes: an unbleached linen shirt and white waistcoat, a black stock and loose linen trousers, bareheaded, without coat, cap or belts; no musket at his work",
+    "garrison": {
+     "rank": "private",
+     "station": "wharf_b",
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "main_poc_runner": {
@@ -56850,6 +57411,51 @@
     "grade": "reconstructed",
     "liberty": "L-1812-garrison-looks-3491",
     "file": "data/humans/variation/looks/mccarty_duncan.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__shirt_tow_linen_1810": [
+      0.62,
+      0.58,
+      0.49
+     ],
+     "accessory__neckerchief_blue_1810": [
+      0.01,
+      0.01,
+      0.011
+     ],
+     "garment_outer__waistcoat_brown_1810": [
+      0.7,
+      0.69,
+      0.64
+     ],
+     "garment_lower__trousers_linen_1810": [
+      0.56,
+      0.52,
+      0.43
+     ],
+     "headwear__round_hat_black_1810": [
+      0.014,
+      0.013,
+      0.012
+     ],
+     "footwear__shoes_dark_1810": [
+      0.012,
+      0.011,
+      0.011
+     ]
+    },
+    "hide": [
+     "headwear_round_hat"
+    ],
+    "worn": "his fatigue clothes: an unbleached linen shirt and white waistcoat, a black stock and loose linen trousers, bareheaded, without coat, cap or belts; no musket at his work",
+    "garrison": {
+     "rank": "private",
+     "station": "bake_house",
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "mcpherson_hugh": {
@@ -56907,6 +57513,32 @@
     "grade": "reconstructed",
     "liberty": "L-1812-garrison-looks-3491",
     "file": "data/humans/variation/looks/mcpherson_hugh.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__coat_blue_1812": [
+      0.36,
+      0.028,
+      0.022
+     ],
+     "garment_upper__facings_red_1812": [
+      0.014,
+      0.019,
+      0.055
+     ]
+    },
+    "hide": [
+     "cartridge_box_and_scabbard"
+    ],
+    "worn": "a musician's red coat faced blue, the felt cap, white overalls, his drum on its carriage",
+    "garrison": {
+     "rank": "drummer",
+     "station": "se_knot_b",
+     "carry": "drum",
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "miami_escort_1812_01": {
@@ -59418,6 +60050,48 @@
     "grade": "reconstructed",
     "liberty": "L-1812-garrison-looks-3491",
     "file": "data/humans/variation/looks/miller_peter.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__shirt_tow_linen_1810": [
+      0.62,
+      0.58,
+      0.49
+     ],
+     "accessory__neckerchief_blue_1810": [
+      0.01,
+      0.01,
+      0.011
+     ],
+     "garment_outer__waistcoat_brown_1810": [
+      0.7,
+      0.69,
+      0.64
+     ],
+     "garment_lower__trousers_linen_1810": [
+      0.56,
+      0.52,
+      0.43
+     ],
+     "headwear__round_hat_black_1810": [
+      0.014,
+      0.013,
+      0.012
+     ],
+     "footwear__shoes_dark_1810": [
+      0.012,
+      0.011,
+      0.011
+     ]
+    },
+    "worn": "his fatigue clothes: an unbleached linen shirt and white waistcoat, a black stock and loose linen trousers, a round hat of his own, without coat, cap or belts; no musket at his work",
+    "garrison": {
+     "rank": "private",
+     "station": "garden_d",
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "mills_elias": {
@@ -59743,6 +60417,48 @@
     "grade": "reconstructed",
     "liberty": "L-1812-garrison-looks-3491",
     "file": "data/humans/variation/looks/mortt_august.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__shirt_tow_linen_1810": [
+      0.62,
+      0.58,
+      0.49
+     ],
+     "accessory__neckerchief_blue_1810": [
+      0.01,
+      0.01,
+      0.011
+     ],
+     "garment_outer__waistcoat_brown_1810": [
+      0.7,
+      0.69,
+      0.64
+     ],
+     "garment_lower__trousers_linen_1810": [
+      0.56,
+      0.52,
+      0.43
+     ],
+     "headwear__round_hat_black_1810": [
+      0.014,
+      0.013,
+      0.012
+     ],
+     "footwear__shoes_dark_1810": [
+      0.012,
+      0.011,
+      0.011
+     ]
+    },
+    "worn": "his fatigue clothes: an unbleached linen shirt and white waistcoat, a black stock and loose linen trousers, a round hat of his own, without coat, cap or belts; no musket at his work",
+    "garrison": {
+     "rank": "private",
+     "station": "garden_c",
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "naunongee": {
@@ -59927,6 +60643,16 @@
     "grade": "reconstructed",
     "liberty": "L-1812-garrison-looks-3491",
     "file": "data/humans/variation/looks/needs_john.json"
+   },
+   "dress": {
+    "worn": "the company's blue coat faced red, the tall felt cap with its white feather, white crossbelts and linen overalls",
+    "garrison": {
+     "rank": "private",
+     "station": "se_knot_a",
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "needs_mrs": {
@@ -60026,6 +60752,52 @@
     "grade": "reconstructed",
     "liberty": "L-1812-garrison-looks-3491",
     "file": "data/humans/variation/looks/noles_joseph.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__shirt_tow_linen_1810": [
+      0.62,
+      0.58,
+      0.49
+     ],
+     "accessory__neckerchief_blue_1810": [
+      0.01,
+      0.01,
+      0.011
+     ],
+     "garment_outer__waistcoat_brown_1810": [
+      0.7,
+      0.69,
+      0.64
+     ],
+     "garment_lower__trousers_linen_1810": [
+      0.56,
+      0.52,
+      0.43
+     ],
+     "headwear__round_hat_black_1810": [
+      0.014,
+      0.013,
+      0.012
+     ],
+     "footwear__shoes_dark_1810": [
+      0.012,
+      0.011,
+      0.011
+     ]
+    },
+    "hide": [
+     "headwear_round_hat",
+     "waistcoat_brown"
+    ],
+    "worn": "his fatigue clothes: an unbleached linen shirt in his sleeves, a black stock and loose linen trousers, bareheaded, without coat, cap or belts; no musket at his work",
+    "garrison": {
+     "rank": "private",
+     "station": "armourer",
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "nuscotnemeg": {
@@ -60757,6 +61529,17 @@
     "grade": "reconstructed",
     "liberty": "L-1812-garrison-looks-3491",
     "file": "data/humans/variation/looks/peterson_frederick.json"
+   },
+   "dress": {
+    "worn": "the company's blue coat faced red, the tall felt cap with its white feather, white crossbelts and linen overalls; his musket with the bayonet fixed, at the shoulder",
+    "garrison": {
+     "rank": "private",
+     "station": "road_walk",
+     "arms": "shoulder",
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "poindexter_thomas": {
@@ -60816,6 +61599,16 @@
     "grade": "reconstructed",
     "liberty": "L-1812-garrison-looks-3491",
     "file": "data/humans/variation/looks/poindexter_thomas.json"
+   },
+   "dress": {
+    "worn": "the company's blue coat faced red, the tall felt cap with its white feather, white crossbelts and linen overalls",
+    "garrison": {
+     "rank": "private",
+     "station": "merchant_shop",
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "potawatomi_1812_horse_ground_boy_12": {
@@ -63489,6 +64282,48 @@
     "grade": "reconstructed",
     "liberty": "L-1812-garrison-looks-3491",
     "file": "data/humans/variation/looks/prickett_william.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__shirt_tow_linen_1810": [
+      0.62,
+      0.58,
+      0.49
+     ],
+     "accessory__neckerchief_blue_1810": [
+      0.01,
+      0.01,
+      0.011
+     ],
+     "garment_outer__waistcoat_brown_1810": [
+      0.7,
+      0.69,
+      0.64
+     ],
+     "garment_lower__trousers_linen_1810": [
+      0.56,
+      0.52,
+      0.43
+     ],
+     "headwear__round_hat_black_1810": [
+      0.014,
+      0.013,
+      0.012
+     ],
+     "footwear__shoes_dark_1810": [
+      0.012,
+      0.011,
+      0.011
+     ]
+    },
+    "worn": "his fatigue clothes: an unbleached linen shirt and white waistcoat, a black stock and loose linen trousers, a round hat of his own, without coat, cap or belts; no musket at his work",
+    "garrison": {
+     "rank": "private",
+     "station": "sutler_garden",
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "rc_bardwell_otis": {
@@ -63578,6 +64413,23 @@
     "grade": "reconstructed",
     "liberty": "L-1812-town-days-3463",
     "file": "data/humans/variation/looks/ronan_george.json"
+   },
+   "dress": {
+    "hide": [
+     "epaulette_right"
+    ],
+    "worn": "the officer's coat and chapeau, a silver epaulette on the left shoulder as a lieutenant wears it (an ensign's is not recorded), a crimson sash round the waist (on duty) and his sword",
+    "garrison": {
+     "rank": "ensign",
+     "station": "officer",
+     "marks": [
+      "epaulette_bullion_l",
+      "sash_crimson"
+     ],
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "sherror_david": {
@@ -63637,6 +64489,51 @@
     "grade": "reconstructed",
     "liberty": "L-1812-garrison-looks-3491",
     "file": "data/humans/variation/looks/sherror_david.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__shirt_tow_linen_1810": [
+      0.62,
+      0.58,
+      0.49
+     ],
+     "accessory__neckerchief_blue_1810": [
+      0.01,
+      0.01,
+      0.011
+     ],
+     "garment_outer__waistcoat_brown_1810": [
+      0.7,
+      0.69,
+      0.64
+     ],
+     "garment_lower__trousers_linen_1810": [
+      0.56,
+      0.52,
+      0.43
+     ],
+     "headwear__round_hat_black_1810": [
+      0.014,
+      0.013,
+      0.012
+     ],
+     "footwear__shoes_dark_1810": [
+      0.012,
+      0.011,
+      0.011
+     ]
+    },
+    "hide": [
+     "headwear_round_hat"
+    ],
+    "worn": "his fatigue clothes: an unbleached linen shirt and white waistcoat, a black stock and loose linen trousers, bareheaded, without coat, cap or belts; no musket at his work",
+    "garrison": {
+     "rank": "private",
+     "station": "road_walk_b",
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "simmons_david": {
@@ -63733,6 +64630,16 @@
     "grade": "reconstructed",
     "liberty": "L-1812-garrison-looks-3491",
     "file": "data/humans/variation/looks/simmons_john.json"
+   },
+   "dress": {
+    "worn": "the company's blue coat faced red, the tall felt cap with its white feather, white crossbelts and linen overalls",
+    "garrison": {
+     "rank": "private",
+     "station": "nr_knot_a",
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "simmons_susan_millhouse": {
@@ -63832,6 +64739,32 @@
     "grade": "reconstructed",
     "liberty": "L-1812-garrison-looks-3491",
     "file": "data/humans/variation/looks/smith_john_jr.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__coat_blue_1812": [
+      0.36,
+      0.028,
+      0.022
+     ],
+     "garment_upper__facings_red_1812": [
+      0.014,
+      0.019,
+      0.055
+     ]
+    },
+    "hide": [
+     "cartridge_box_and_scabbard"
+    ],
+    "worn": "a musician's red coat faced blue, the felt cap, white overalls, his fife case at his hip",
+    "garrison": {
+     "rank": "fifer",
+     "station": "nr_knot_d",
+     "carry": "fife",
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "smith_john_sr": {
@@ -63889,6 +64822,58 @@
     "grade": "reconstructed",
     "liberty": "L-1812-garrison-looks-3491",
     "file": "data/humans/variation/looks/smith_john_sr.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__shirt_tow_linen_1810": [
+      0.62,
+      0.58,
+      0.49
+     ],
+     "accessory__neckerchief_blue_1810": [
+      0.01,
+      0.01,
+      0.011
+     ],
+     "garment_outer__waistcoat_brown_1810": [
+      0.7,
+      0.69,
+      0.64
+     ],
+     "garment_lower__trousers_linen_1810": [
+      0.56,
+      0.52,
+      0.43
+     ],
+     "headwear__round_hat_black_1810": [
+      0.014,
+      0.013,
+      0.012
+     ],
+     "footwear__shoes_dark_1810": [
+      0.012,
+      0.011,
+      0.011
+     ]
+    },
+    "hide": [
+     "headwear_round_hat"
+    ],
+    "worn": "his fatigue clothes: an unbleached linen shirt and white waistcoat, a black stock and loose linen trousers, bareheaded, without coat, cap or belts; no musket at his work (the party's arms stand piled at the field's edge)",
+    "garrison": {
+     "rank": "private",
+     "station": "forks_cornfield_a",
+     "pile": {
+      "local_e": 140.3,
+      "local_n": -238.6,
+      "heading_deg": 20,
+      "count": 3,
+      "scene": "1812"
+     },
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "starr_james": {
@@ -63946,6 +64931,48 @@
     "grade": "reconstructed",
     "liberty": "L-1812-garrison-looks-3491",
     "file": "data/humans/variation/looks/starr_james.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__shirt_tow_linen_1810": [
+      0.62,
+      0.58,
+      0.49
+     ],
+     "accessory__neckerchief_blue_1810": [
+      0.01,
+      0.01,
+      0.011
+     ],
+     "garment_outer__waistcoat_brown_1810": [
+      0.7,
+      0.69,
+      0.64
+     ],
+     "garment_lower__trousers_linen_1810": [
+      0.56,
+      0.52,
+      0.43
+     ],
+     "headwear__round_hat_black_1810": [
+      0.014,
+      0.013,
+      0.012
+     ],
+     "footwear__shoes_dark_1810": [
+      0.012,
+      0.011,
+      0.011
+     ]
+    },
+    "worn": "his fatigue clothes: an unbleached linen shirt and white waistcoat, a black stock and loose linen trousers, a round hat of his own, without coat, cap or belts; no musket at his work (the party's arms stand piled at the field's edge)",
+    "garrison": {
+     "rank": "private",
+     "station": "forks_cornfield_b",
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "suttenfield_john": {
@@ -64003,6 +65030,17 @@
     "grade": "reconstructed",
     "liberty": "L-1812-garrison-looks-3491",
     "file": "data/humans/variation/looks/suttenfield_john.json"
+   },
+   "dress": {
+    "worn": "the company's blue coat faced red, the tall felt cap with its white feather, white crossbelts and linen overalls; his musket with the bayonet fixed, at the shoulder",
+    "garrison": {
+     "rank": "private",
+     "station": "river_walk",
+     "arms": "shoulder",
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "topenebe": {
@@ -64140,6 +65178,28 @@
     "grade": "reconstructed",
     "liberty": "L-1812-town-days-3463",
     "file": "data/humans/variation/looks/van_voorhis_isaac.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__facings_scarlet_1812": [
+      0.008,
+      0.008,
+      0.009
+     ],
+     "headwear__plume_white_1812": [
+      0.012,
+      0.012,
+      0.013
+     ]
+    },
+    "worn": "the officer's coat with the medical staff's black velvet collar and cuffs, a chapeau with a black plume, no sash, and his sword",
+    "garrison": {
+     "rank": "surgeon's mate",
+     "station": "officer",
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "vanhorn_james": {
@@ -64197,6 +65257,51 @@
     "grade": "reconstructed",
     "liberty": "L-1812-garrison-looks-3491",
     "file": "data/humans/variation/looks/vanhorn_james.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__shirt_tow_linen_1810": [
+      0.62,
+      0.58,
+      0.49
+     ],
+     "accessory__neckerchief_blue_1810": [
+      0.01,
+      0.01,
+      0.011
+     ],
+     "garment_outer__waistcoat_brown_1810": [
+      0.7,
+      0.69,
+      0.64
+     ],
+     "garment_lower__trousers_linen_1810": [
+      0.56,
+      0.52,
+      0.43
+     ],
+     "headwear__round_hat_black_1810": [
+      0.014,
+      0.013,
+      0.012
+     ],
+     "footwear__shoes_dark_1810": [
+      0.012,
+      0.011,
+      0.011
+     ]
+    },
+    "hide": [
+     "headwear_round_hat"
+    ],
+    "worn": "his fatigue clothes: an unbleached linen shirt and white waistcoat, a black stock and loose linen trousers, bareheaded, without coat, cap or belts; no musket at his work (the party's arms stand piled at the field's edge)",
+    "garrison": {
+     "rank": "private",
+     "station": "forks_walk",
+     "grade": "reconstructed",
+     "liberty": "L-1812-garrison-dress-3523"
+    },
+    "grade": "reconstructed"
    }
   },
   "waubansee": {

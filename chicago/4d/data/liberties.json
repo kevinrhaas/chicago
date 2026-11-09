@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1060,
+  "count": 1061,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -71811,6 +71811,37 @@
       "work_refs": [
         "T-0795",
         "T-3517"
+      ]
+    },
+    {
+      "id": "L-1812-garrison-dress-3523",
+      "title": "The 1812 garrison dressed by rank and duty, and its muskets carried by duty",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-08",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-08, beside an Ogden-style plate of the army about 1812: *\"and all the men soldiers have the same hats? Dont the soldiers have different appearance based on rank? and none of them appear to have firearms?\"* Every enlisted man of Heald's company stood in the one private's dress and nobody carried a musket. No new figure is made (the published site's 432 MB budget, the 1812 phone's 350 MB): the research notes on people 1812 (run by the place tool) writes the dress 1812 garrison data, which recolours and hides pieces of the figures already drawn and names what the walkthrough's human garrison code draws on each man's own bones at load. Six things are ours. (1) **Rank marks**: a sergeant's two white worsted epaulettes and a corporal's one on the right shoulder, read by analogy from the light dragoons' rule printed in 1814; the worsted's white and the epaulettes' size and fringe. (2) **Musicians**: the drummers' and fifers' coats red faced blue, read from Krimmel's volunteer drummer for the regulars; the drum's blue shell, red hoops and white cords; a fifer's fife case at the hip in place of the cartridge box. (3) **Officers**: the lieutenant's and the ensign's silver epaulette on the left shoulder (the ensign's is not recorded; he is given the lieutenant's), a crimson sash round the waist for the three line officers on the 14th as on a tour of duty, the surgeon's mate's black collar, cuffs and plume. (4) **Fatigue**: the men at their work (the gardens, the bake house, the armourer's, the wharf, the cornfield at the forks) in the issued fatigue clothes, drawn on the 1812 settler's working body recoloured to unbleached linen: a shirt, a white waistcoat on three in four, a black stock, loose linen trousers, a round hat of his own on one in three and the rest bareheaded; the frock itself is not drawn, and no fatigue cap (none was issued). The fatigue party drawn up on the parade to be told off stands in its coats. (5) **Arms and how they are carried**: a musket of the 1795 Springfield / Charleville pattern with its bayonet fixed, its stock, lock, bands and sling shaped by us to the arm's regulation length; sentries walking their posts and men walking out from the pickets at the shoulder (the butt in the left hand, the lock turned out), the guard's sergeant and corporal and the sentry by the south-east blockhouse at the order; men at chores without; the cornfield party's three muskets piled at the field's edge, the man walking back to the fort leaving his there. (6) **Who**: which man wears what follows his rank on the muster-roll and the station earlier work gave him."
+        },
+        {
+          "label": "Not invented",
+          "text": "the ranks of every man (Heald's company's muster-roll, Quaife 1913 App. VIII); the private's yearly issue, the NCOs' and musicians' drawing the same clothing, and *\"one coarse linen frock and trowsers for fatigue clothing\"* (the 1802 act, again in January 1812); the 1813 change, read backwards for the red facings and felt cap; the staff and artillery officers' sashes *\"to be worn only on a tour of duty, and round the waist\"*, epaulettes by grade and the surgeons' black velvet cape and black plume (the 1814 printing); that the men kept their muskets on the 14th, *\"the surplus arms and ammunition\"* alone being destroyed (Heald's report, Quaife 1913)."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "an reconstruction plan, guard report or inventory of the post for 1812; a description of the First Infantry's NCO marks or musicians' coats before 1813; Ogden's plate of 1810-1813 opened and read."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-08 (T-3523)."
+        }
+      ],
+      "work_refs": [
+        "T-3462",
+        "T-3523"
       ]
     },
     {

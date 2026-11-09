@@ -271,6 +271,13 @@ def dresses():
     global _DRESSES
     if _DRESSES is None:
         _DRESSES = json.loads(DRESS.read_text())['persons'] if DRESS.exists() else {}
+        # T-3523: the 1812 garrison's dress by rank and duty.
+        garrison = ROOT / 'data/humans/variation/dress_1812_garrison.json'
+        if garrison.exists():
+            for pid, d in json.loads(garrison.read_text())['persons'].items():
+                if pid in _DRESSES:
+                    raise SystemExit(f'{pid} is dressed by two dress files')
+                _DRESSES[pid] = d
     return _DRESSES
 
 
@@ -310,7 +317,7 @@ def persons():
         dress = dresses().get(pid)
         if dress:
             # T-3506: their own cloth colours and pieces worn, and their hair's tie and colour.
-            rec['dress'] = {k: dress[k] for k in ('colours', 'hide', 'worn') if dress.get(k)}
+            rec['dress'] = {k: dress[k] for k in ('colours', 'hide', 'worn', 'garrison') if dress.get(k)}
             rec['dress']['grade'] = 'reconstructed'
             hair = dress.get('hair') or {}
             if hair.get('tail_cm'):
