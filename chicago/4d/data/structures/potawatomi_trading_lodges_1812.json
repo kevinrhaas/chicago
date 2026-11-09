@@ -19,15 +19,15 @@
         "note": "THE RANGE IS THE SCENE'S YEAR, NOT A DATE FOR THESE LODGES. Currey (ch. II, Gutenberg #52346 plain text lines 1360-1369) describes the Potawatomi coming and going to camp by the river in the years before the war, with no date for any lodge; the record stands for that habit, so it is drawn every day of 1812, whatever date the Season or a jaunt sets, beside the gathering's camps in August. Its bounds are this project's. Nothing of 1835 can draw it. L-1812-trading-lodges-3528."
       },
       "position": {
-        "utm_e": 447774.7,
-        "utm_n": 4637363.8,
+        "utm_e": 447770.7,
+        "utm_n": 4637361.8,
         "rotation_deg": 0.0,
-        "symbolic_location": "On the river's south bank a little west of the creek's mouth: local E +702..+724, N -32..-16.",
+        "symbolic_location": "On the river's south bank a little west of the creek's mouth: local E +698..+724, N -34..-16.",
         "confidence": "reconstructed",
         "sources": [
           "currey_1912_old_fort_dearborn"
         ],
-        "note": "THE PLACE IS CURREY'S, THIS GROUND IS OURS (T-3528). Currey puts the Potawatomi's favourite camping place 'on the south bank near the present State Street bridge', where the creek opened into the river (ch. II, Gutenberg #52346 plain text lines 1360-1369). The creek's mouth itself is the August gathering's landing group (potawatomi_camp_1812_mouth), so this ground stands on the same bank a little west of it, between the river and the north-flat group: local E +702..+724, N -32..-16. Chosen by a search on the committed e1830_natural heightfield (docs/RESEARCH/trading-lodges-1812-3528/sites.py): its outline lies between -0.02 and +0.00 m of the origin's 0.77 m, every point 6 m outside it stands above 0.6 m (off the cut of the river and the creek), and it keeps 10 m from the camp grounds, 15 m from every other 1812 footprint, 6 m from every worn trail and 4 m from the 1835 inferred households' footprints. The point recorded is the ground's south-west corner, the footprint's origin at rotation 0. L-1812-trading-lodges-3528. THE PLATTED STREET IS REFUSED IN WRITING (T-3528): the ground laps the corridor of Dearborn Street, which Thompson's plat of 4 August 1830 (thompson_plat_1830) laid out eighteen years after this camp's one phase, so the camp and the street never stand in one scene; tools/corridor_intrusion_baseline.json carries the refusal, as it does T-3499's north-flat ground and T-3342's horse ground.",
+        "note": "THE PLACE IS CURREY'S, THIS GROUND IS OURS (T-3528). Currey puts the Potawatomi's favourite camping place 'on the south bank near the present State Street bridge', where the creek opened into the river (ch. II, Gutenberg #52346 plain text lines 1360-1369). The creek's mouth itself is the August gathering's landing group (potawatomi_camp_1812_mouth), so this ground stands on the same bank a little west of it, between the river and the north-flat group: local E +698..+724, N -34..-16. Chosen by a search on the committed e1830_natural heightfield (docs/RESEARCH/trading-lodges-1812-3528/sites.py): its outline lies between -0.02 and +0.00 m of the origin's 0.77 m, every point 6 m outside it stands above 0.6 m (off the cut of the river and the creek), and it keeps 10 m from the camp grounds, 15 m from every other 1812 footprint, 6 m from every worn trail and 4 m from the 1835 inferred households' footprints. The point recorded is the ground's south-west corner, the footprint's origin at rotation 0. L-1812-trading-lodges-3528. THE PLATTED STREET IS REFUSED IN WRITING (T-3528): the ground laps the corridor of Dearborn Street, which Thompson's plat of 4 August 1830 (thompson_plat_1830) laid out eighteen years after this camp's one phase, so the camp and the street never stand in one scene; tools/corridor_intrusion_baseline.json carries the refusal, as it does T-3499's north-flat ground and T-3342's horse ground.",
         "derivation": {
           "method": "not_derivable",
           "reason": "A ground chosen by a search over the e1830_natural heightfield and the committed 1812 footprints and trails, not a street line or a traced waterline validate.py can re-derive a coordinate from; the search is docs/RESEARCH/trading-lodges-1812-3528/sites.py."
@@ -40,20 +40,20 @@
             0
           ],
           [
-            22.0,
+            26.0,
             0
           ],
           [
-            22.0,
-            16.0
+            26.0,
+            18.0
           ],
           [
             0,
-            16.0
+            18.0
           ]
         ],
         "confidence": "reconstructed",
-        "note": "The ground, 22.0 x 16.0 m, inside which the archetype lays its lodges, yard and gear out. INVENTED in its extent. L-1812-trading-lodges-3528."
+        "note": "The ground, 26.0 x 18.0 m, inside which the archetype lays its lodges, yard and gear out. INVENTED in its extent. L-1812-trading-lodges-3528."
       },
       "form": {
         "mat_lodges": {

@@ -18,7 +18,7 @@ small camp of one or two families, drawn every day of 1812.
 
 THE PLACE, chosen by this project: the creek's mouth itself is the August landing group's
 (potawatomi_camp_1812_mouth), so this ground stands on the same south bank a little west of
-it, between the river and the gathering's north-flat group. It is the nearest 22 x 16 m
+it, between the river and the gathering's north-flat group. It is the nearest 26 x 18 m (the least in which the archetype lays every piece)
 rectangle to the mouth group that is level on the e1830_natural heightfield (spread at most
 0.2 m), at least 0.6 m with every point 6 m out of it above 0.6 m (off the creek's and river's
 cut), 10 m from the camp grounds, 15 m from every other 1812 footprint, 6 m from every worn
@@ -42,8 +42,8 @@ ORIGIN_E, ORIGIN_N = 447072.7, 4637395.8   # data/datum.json origin_utm_e / _n
 TEMPLATE = DATA / "structures" / "potawatomi_camp_1812_mouth.json"
 RID = "potawatomi_trading_lodges_1812"
 LIB = "L-1812-trading-lodges-3528"
-SW = (702, -32)
-SIZE = (22, 16)
+SW = (698, -34)
+SIZE = (26, 18)
 COUNTS = dict(mat_lodges=2, bark_houses=1, hearths=2, drying_racks=1, scaffolds=1,
               hide_frames=1, woodpiles=1, mortars=1, canoes=2)
 COUNT_KEYS = ("mat_lodges", "long_lodges", "bark_roofed_lodges", "bark_houses", "arbors",

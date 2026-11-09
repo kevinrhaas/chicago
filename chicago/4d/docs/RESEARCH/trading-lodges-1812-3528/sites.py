@@ -1,3 +1,17 @@
+#!/usr/bin/env python3
+"""The search that chose T-3528's ground, the Potawatomi lodges by the river (run from chicago/4d).
+
+    python3 docs/RESEARCH/trading-lodges-1812-3528/sites.py
+
+A 26 x 18 m ground qualifies when, on the committed e1830_natural heightfield, every 2 m sample
+of it stands at or above 0.6 m with a spread of at most 0.2 m, every point 6 m outside it also
+stands at or above 0.6 m (off the cut of the river and the creek), and it keeps 10 m from the
+camp grounds, 15 m from every other 1812 footprint, 6 m from every worn trail (the August camp
+paths too) and 4 m from the 1835 inferred households' footprints and reserved slots. Candidates
+are listed nearest first to the centre of the gathering's mouth group; the record takes
+(698, -34). The record itself is left out of the obstacles so the search reproduces after it
+exists. The printed `pass` line is where camp paths were once skipped; they are kept.
+"""
 import json, math, sys
 from pathlib import Path
 sys.path.insert(0, "tools")
@@ -38,7 +52,7 @@ def ok(e0,n0,L,D,ms):
     return max(hs)-min(hs)
 mouth=[b for i,b in boxes if i=="potawatomi_camp_1812_mouth"][0]
 print("mouth box", mouth)
-L,D=22,16
+L,D=26,18
 mx,my=(mouth[0]+mouth[2])/2,(mouth[1]+mouth[3])/2
 c=[]
 for e0 in range(600,1000,2):

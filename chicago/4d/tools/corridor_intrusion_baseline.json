@@ -401,11 +401,11 @@
       "anchor_in": [
         "dearborn"
       ],
-      "anchor_offset_m": 3.31,
-      "body_toward_street": false,
+      "anchor_offset_m": 0.68,
+      "body_toward_street": true,
       "category": "building",
       "centroid_in": [],
-      "depth_m": 8.98,
+      "depth_m": 12.02,
       "layer": "research",
       "phase": "camp_1812",
       "position_confidence": "reconstructed",
@@ -647,7 +647,7 @@
       "why": "T-3342. A CAMP OF AUGUST 1812 ON GROUND THE 1830 PLAT LATER CUT INTO STREETS. The corridor is the platted Dearborn Street, and no plat of Chicago existed before James Thompson's of 4 August 1830 (thompson_plat_1830); the camp's one phase is August 1812, so the ground and the street never stand in one scene. The camp's grounds are laid between the fort and the creek Currey names as the Potawatomi's camping place, and clearing an eighteen-years-later street (14.4 m along its own front) would walk a ground away from that place to satisfy a road that did not exist. Refused rather than repaired, as the first fort's cornfield and wharf are (T-2512, T-2508); argued in the record's own position.note."
     },
     "potawatomi_trading_lodges_1812:camp_1812": {
-      "depth_m": 8.98,
+      "depth_m": 12.02,
       "on": "2026-11-09",
       "street": "dearborn",
       "ticket": "T-3528",
