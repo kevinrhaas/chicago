@@ -2,7 +2,7 @@
   "structure_id": "coleman_ames_house_1811_prairie",
   "view": "habs_1965",
   "glb": "assets/gltf/coleman_ames_house_1811_prairie__as_mapped_1904.glb",
-  "glb_sha256": "e936066f02a9c14c7948140aebfbf125cf99f5c255fbba1a2a29ab5becd7a1a3",
+  "glb_sha256": "28c23dba0d52328a638d3fc58cfdad5505b8365e09d5edcd522a65224efb7135",
   "camera_sha256": "1cd3bf150e1c86a593fc2572230fc9c98ea543c39bf5f82d55056b8d841bf8be",
   "photo_sha256": "7ace480beb382d33473f7870395255bbfce13ab703b6df4b0b8506c08df50254",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "e936066f02a9c14c7948140aebfbf125cf99f5c255fbba1a2a29ab5becd7a1a3"
+      "glb_sha256": "28c23dba0d52328a638d3fc58cfdad5505b8365e09d5edcd522a65224efb7135"
     },
     {
       "structure_id": "kimball_house_1801_prairie",
@@ -42,10 +42,10 @@
         25.190899205620163
       ],
       "rotation_y": -0.0001745329251997703,
-      "glb_sha256": "83279e0ab106ef921c58bc13e91573a7d8c88ceb18cc1b338f145fc84a946608"
+      "glb_sha256": "b93b8278faf4c7a2a0397201ad8c59c808d55c14244d03277bdcb84aab7bb3cd"
     }
   ],
-  "group_sha256": "749c64b2a6f032782f1622e4fd08fc620f6fc5ae24776e8fffc67a61f575b657",
+  "group_sha256": "2a060cf826469fe26a23db450e4bf8466f9fa2321151f82717a611688ae5920f",
   "side_by_side": "docs/RESEARCH/photo-match/coleman_ames_house_1811_prairie/habs_1965-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
@@ -89,7 +89,12 @@
       "what": "the coping and walk T-3206 lays for 1904",
       "status": "not shown",
       "how": "by 1965 an iron fence stands on the lot line; the 1904 coping is read off the earlier prints"
+    },
+    {
+      "what": "the hip over the north pier: no slot cut into the roof from the north (the owner's phone shot, 2026-11-09)",
+      "status": "fixed",
+      "how": "the cut over the pier now dies out on a diagonal toward the north eave (T-1890, 2026-11-09); the house stands at this picture's edge and its north corner reads as before"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }
