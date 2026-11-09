@@ -1,0 +1,67 @@
+{
+  "id": "hi_sherror_david_1812",
+  "contract_version": 1,
+  "scene": "1812",
+  "person_id": "sherror_david",
+  "appearance": {
+    "asset_id": "settler_1812"
+  },
+  "placement": {
+    "local_e": 1153.0,
+    "local_n": 197.5,
+    "heading_deg": 0,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "walk",
+    "loop": true,
+    "phase": 0.309
+  },
+  "behaviour": {
+    "state": "walking",
+    "route": [
+      {
+        "local_e": 1150.0,
+        "local_n": 160.0
+      },
+      {
+        "local_e": 1146.0,
+        "local_n": 144.5
+      },
+      {
+        "local_e": 1151.0,
+        "local_n": 160.0
+      }
+    ],
+    "hours": [
+      5.5,
+      21.0
+    ],
+    "quarters": "first_fort_dearborn_soldiers_barracks_sw"
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 3,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": false,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "Reconstructed figure of David Sherror, private of Captain Nathan Heald's company of the First Infantry (on the company's muster-roll to 31 May 1812, Quaife 1913 App. VIII), walking down to the garden, on the afternoon of 14 August 1812. Where he stands and what he is doing are ours (liberty L-1812-garrison-stations-3462): no guard report or order book of the post survives for that day, and nothing of it is acted out. He wears his fatigue clothes: an unbleached linen shirt and white waistcoat, a black stock and loose linen trousers, bareheaded, without coat, cap or belts; no musket at his work (T-3523; who wears what, and how his musket is carried, are ours, liberty L-1812-garrison-dress-3523). His face, height and build are seeded from his own name; no picture of him is known.",
+    "sources": [
+      "loc_ogden_1888_infantry_artillery_1802_1810",
+      "met_krimmel_1813_philadelphia_soldiery",
+      "quaife_1913",
+      "us_1812_rules_and_articles_albany",
+      "us_1814_military_laws_and_regulations",
+      "whistler_1808_fort_dearborn_draught"
+    ],
+    "liberty": "L418",
+    "seed": "sherror_david:1812:road_walk_b:20261107",
+    "replaceable_by": "A guard report, order book or morning report of the post for August 1812, which would put him at his own duty."
+  }
+}

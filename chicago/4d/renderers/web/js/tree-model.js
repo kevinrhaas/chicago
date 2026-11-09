@@ -2069,6 +2069,8 @@ function deadSkeleton(sk, kind, rnd) {
 const VINE_LOD = { near: [1, 1.5], mid: [2, 2.6], far: [4, 4.6], distant: [8, 8.6] };
 /** T-3223: the wall ivy's leaf spacing at each level, metres. */
 const VINE_SPACING = { near: 0.16, mid: 0.26, far: 0.5, distant: 1.0 };
+/** T-1881: a `mantle_ring` strip's largest spray, as a fraction of the strip's width. */
+const RING_LEAF_FRAC = 0.8;
 
 /**
  * T-2810 — A VINE ON AN EDGE TREE, built in the tree's frame with its open
@@ -2223,7 +2225,15 @@ export function buildWallVineTemplate(spec, seed, lod = 'near', { conf = 0.5, le
     ? [{ step: sp * 1.7, size: sp * 3.2, off: [0.02, 0.05], tile: clumpTile, lit: [0.05, 0.3], keep: 1 },
       { step: sp, size: sp * 2.3, off: [0.06, 0.16], tile: sunTile, lit: [0.3, 0.75], keep: 0.9 }]
     : [{ step: sp, size: sp * 2.6, off: [0.04, 0.12], tile: clumpTile, lit: [0.15, 0.6], keep: 1 }];
-  for (const L of layers) {
+  // T-1881: a `mantle_ring` strip is half a metre wide, but the wall's sprays (0.4-0.8 m,
+  // turned any way up) reached up to a metre past it, so the strips over Pullman's east arch
+  // grew down into its mouth and closed half of it (the Detroit print det 4a08066 shows the
+  // mouth dark and clear under the leaves). A ring strip keeps every leaf inside itself:
+  // sprays no bigger than RING_LEAF_FRAC of its width, set more closely to make up the cover,
+  // held in from its sides and off its foot, and always turned up the wall, never hanging.
+  const ring = spec.arch === 'mantle_ring';
+  for (const L0 of layers) {
+    const L = ring ? { ...L0, size: Math.min(L0.size, W * RING_LEAF_FRAC), step: Math.min(L0.step, W * RING_LEAF_FRAC * 0.6) } : L0;
     const cols = Math.max(2, Math.round(W / L.step));
     const rows = Math.max(2, Math.round(H / L.step));
     for (let c = 0; c <= cols; c++) {
@@ -2237,12 +2247,15 @@ export function buildWallVineTemplate(spec, seed, lod = 'near', { conf = 0.5, le
         // Thinner toward the ragged top and the loose side edges.
         const fringe = Math.min(1, (yTop - y) / (L.step * 2.5));
         if (lrnd() > L.keep * (0.35 + 0.65 * fringe) * (0.5 + 0.5 * edge) * leafCover) continue;
-        const at = [lerp(L.off[0], L.off[1], lrnd()), y, u * W * 0.5];
+        const at = ring
+          ? [lerp(L.off[0], L.off[1], lrnd()), Math.max(y, L.size * 0.3), u * Math.max(0, W * 0.5 - L.size * 0.7)]
+          : [lerp(L.off[0], L.off[1], lrnd()), y, u * W * 0.5];
         const lit = clamp01(lerp(L.lit[0], L.lit[1], lrnd()) + 0.15 * up);
         const tint = 0.86 + lrnd() * 0.28;
         const colour = dark.map((v, j) => lerp(v, light[j], 0.15 + lit * 0.75) * lerp(0.7, 1, lit) * tint * LEAF_GAIN);
-        // A leaf's stalk is below its blade; each turned its own way in the wall's plane.
-        const th = (lrnd() - 0.5) * Math.PI * 1.4;
+        // A leaf's stalk is below its blade; each turned its own way in the wall's plane
+        // (a ring strip's within a fifth of a turn of upright, so none hangs below its foot).
+        const th = (lrnd() - 0.5) * Math.PI * (ring ? 0.42 : 1.4);
         const facing = norm([1, (lrnd() - 0.3) * 0.5, (lrnd() - 0.5) * 0.5]);
         card(leaves, at, [0.25, Math.cos(th), Math.sin(th)], L.size * (0.85 + lrnd() * 0.35), L.tile, colour,
           [1, 0.15, 0], 0.12 + 0.2 * up, lrnd, facing);

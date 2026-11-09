@@ -559,6 +559,201 @@ def small_elevation(E, N, water, h_ft, el):
     return np.where(mask, h_ft + lift, h_ft), mask
 
 
+# T-3517: the 1812 sloughs carved as water, in the order they are cut
+SLOUGHS_1812 = ("state_slough_1812", "north_side_slough_1812")
+# A slough is still water, not channel: renderers/web/js/trees.js CHANNEL_Y (-0.60 m) is where
+# the flora's land divisions take the ground for river, so no slough bed goes below it.
+SLOUGH_FLOOR_FT = -0.59 / FT
+# Inside a camp's site outline (and KEEP_PAD_M round it) a slough's bank lowers the ground by
+# no more than this: the outline then stands within the walker's 0.35 m step of its centre.
+KEEP_CUT_FT = 0.4
+KEEP_PAD_M = 3.0
+GIVE_SPREAD_M = 12.0
+
+
+def _wave(s, wavelengths, seed):
+    """A slow, seeded, zero-mean wave along a line's arc length: one sine per wavelength,
+    the longer ones stronger, phases off the seed. Range about -1..1."""
+    out = np.zeros_like(s, dtype=float)
+    tot = 0.0
+    for k, wl in enumerate(wavelengths):
+        ph = ((seed * 2654435761 + 97 * k) % 6283) / 1000.0
+        amp = 1.0 / (k + 1)
+        out += amp * np.sin(2.0 * math.pi * s / float(wl) + ph)
+        tot += amp
+    return out / max(tot, 1e-9)
+
+
+def slough_line(sl, keep=()):
+    """state_slough_1812's winding centreline: the documented line resampled at 1 m and
+    pushed sideways by a seeded wave, tapered to nothing at the head and over the fixed tail
+    (Wright's notch). Returns (points, arc length of each point along the DOCUMENTED line)."""
+    pts = [tuple(map(float, p)) for p in sl["line"]]
+    seg = [math.dist(a, b) for a, b in zip(pts, pts[1:])]
+    total = sum(seg)
+    s = np.arange(0.0, total, 1.0)
+    s = np.append(s, total)
+    acc = np.concatenate([[0.0], np.cumsum(seg)])
+    x = np.interp(s, acc, [p[0] for p in pts])
+    y = np.interp(s, acc, [p[1] for p in pts])
+    # the normal of the documented line, smoothed over a few metres so a vertex does not kink it
+    dx, dy = np.gradient(x), np.gradient(y)
+    k = 9
+    ker = np.ones(k) / k
+    dx = np.convolve(np.pad(dx, k // 2, mode="edge"), ker, mode="valid")
+    dy = np.convolve(np.pad(dy, k // 2, mode="edge"), ker, mode="valid")
+    L = np.hypot(dx, dy)
+    nx, ny = -dy / L, dx / L
+    tail = float(sl["fixed_tail_m"])
+    taper = (tg.smoothstep(np.clip(s / 40.0, 0.0, 1.0))
+             * tg.smoothstep(np.clip((total - tail - s) / 40.0, 0.0, 1.0)))
+    off = float(sl["meander_m"]) * taper * _wave(s, sl["meander_wavelengths_m"], int(sl["seed"]))
+    # The line gives way round a camp's site: where the water (at its widest variation) and
+    # KEEP_PAD_M would reach a site's outline, the line bends off it, the bend spread over
+    # GIVE_SPREAD_M either side so the slough swings round the site rather than kinking.
+    # Never in the last `notch_hold_m`, which is Wright's traced notch.
+    if keep:
+        _bed, half, _m = slough_profile(sl, s)
+        need = half * (1.0 + float(sl["vary"])) + KEEP_PAD_M + 0.5
+        hold = tg.smoothstep(np.clip((total - s - float(sl.get("notch_hold_m", 0.0))) / 20.0, 0.0, 1.0))
+        for _ in range(12):
+            px, py = x + off * nx, y + off * ny
+            push = np.zeros_like(s)
+            for ring in keep:
+                closed = list(ring) + [ring[0]]
+                d = np.full(s.shape, np.inf)
+                qx, qy = np.zeros_like(s), np.zeros_like(s)
+                for (ax, ay), (bx, by) in zip(closed, closed[1:]):
+                    ex, ey = bx - ax, by - ay
+                    tt = np.clip(((px - ax) * ex + (py - ay) * ey) / (ex * ex + ey * ey), 0.0, 1.0)
+                    cx, cy = ax + tt * ex, ay + tt * ey
+                    dd = np.hypot(px - cx, py - cy)
+                    closer = dd < d
+                    d, qx, qy = np.where(closer, dd, d), np.where(closer, cx, qx), np.where(closer, cy, qy)
+                side = np.sign((px - qx) * nx + (py - qy) * ny)
+                side = np.where(side == 0, 1.0, side)
+                push += np.where(d < need, side * (need - d), 0.0)
+            if not np.any(push != 0.0):
+                break
+            # spread over the neighbourhood (a normalised Gaussian, times a gain so each
+            # pass closes most of the gap), and go round again until nothing is in reach
+            sig = GIVE_SPREAD_M
+            ker = np.exp(-0.5 * (np.arange(-3 * sig, 3 * sig + 1) / sig) ** 2)
+            ker /= ker.sum()
+            spread = np.convolve(np.pad(push, len(ker) // 2, mode="edge"), ker, mode="valid")
+            off = off + hold * spread * 4.0
+    return list(zip((x + off * nx).tolist(), (y + off * ny).tolist())), s
+
+
+def slough_profile(sl, s):
+    """(bed_ft, water_half_m, margin_m) at arc length s: the authored knots, bed and width
+    each varied by its own seeded wave so the slough runs in pools and narrows. A bed above
+    the water (the head) is not deepened by the variation, only a bed below it."""
+    kn = sl["profile"]
+    ks = [float(k[0]) for k in kn]
+    bed = np.interp(s, ks, [float(k[1]) for k in kn])
+    half = np.interp(s, ks, [float(k[2]) for k in kn])
+    margin = np.interp(s, ks, [float(k[3]) for k in kn])
+    v = float(sl["vary"])
+    seed = int(sl["seed"])
+    bed = np.where(bed < 0.0, bed * (1.0 + v * _wave(s, (57.0, 23.0), seed + 1)), bed)
+    half = half * (1.0 + v * _wave(s, (43.0, 17.0), seed + 2))
+    return bed, half, margin
+
+
+def state_slough(E, N, water, h_ft, sl, guard=(), keep=()):
+    """An 1812 slough (T-3517: state_slough_1812, north_side_slough_1812) carved as a
+    watercourse holding water, by the owner's ruling. Cross-section at distance d from the winding centreline:
+    a bowl from the bed up to the water plane at the water's half-width, a wet margin rising
+    `margin_rise_ft` across the profile's margin width, then the bank at `bank_ft_per_m` into the plain. The
+    ground is only ever lowered. `guard` is (e, n, r) discs the carve may not touch - the
+    camps' lodges and yards - and it refuses if it would; `keep` is the camps' site outlines,
+    which the bank may lower by no more than KEEP_CUT_FT and the water may not enter. Returns the ground and the mask of
+    cells it moved."""
+    pts, s_doc = slough_line(sl, keep)
+    xs, ys = [p[0] for p in pts], [p[1] for p in pts]
+    pad = 30.0
+    rows = np.where((N[:, 0] >= min(ys) - pad) & (N[:, 0] <= max(ys) + pad))[0]
+    cols = np.where((E[0] >= min(xs) - pad) & (E[0] <= max(xs) + pad))[0]
+    r0, r1, c0, c1 = rows.min(), rows.max() + 1, cols.min(), cols.max() + 1
+    sE, sN = E[r0:r1, c0:c1], N[r0:r1, c0:c1]
+    d, along = tg.seg_distance_along(sE, sN, pts)
+    # arc length along the WINDING line, read back onto the documented line's knots
+    wind = np.concatenate([[0.0], np.cumsum([math.dist(a, b) for a, b in zip(pts, pts[1:])])])
+    s = np.interp(along, wind, s_doc)
+    bed, half, m = slough_profile(sl, s)
+    if float(bed.min()) < SLOUGH_FLOOR_FT:
+        raise SystemExit(f"REFUSING: {sl.get('id')} cuts its bed to {bed.min():.2f} ft, below "
+                         f"{SLOUGH_FLOOR_FT} ft: deeper than that the flora reads it as river channel "
+                         f"(renderers/web/js/trees.js CHANNEL_Y) and splits the land divisions at it")
+    wet = np.maximum(bed, 0.0)            # the water's edge: the plane, or a damp bed above it
+    t = np.clip(d / half, 0.0, 1.0)
+    bowl = bed + (wet - bed) * t * t
+    rise, slope = float(sl["margin_rise_ft"]), float(sl["bank_ft_per_m"])
+    beyond = np.maximum(d - half, 0.0)
+    marg = wet + rise * np.minimum(beyond / m, 1.0)
+    bank = wet + rise + slope * np.maximum(beyond - m, 0.0)
+    prof = np.where(d < half, bowl, np.where(beyond < m, marg, bank))
+    old = h_ft[r0:r1, c0:c1]
+    new = np.where(water[r0:r1, c0:c1], old, np.minimum(old, prof))
+    # a camp's site outline (its footprint) stands on the ground its centre does, within the
+    # walker's step (tools/validate.py ground contact): the slough's bank may graze a site
+    # but not cut into it, and its water may not enter one
+    for ring in keep:
+        near = tg.point_in_ring(sE, sN, ring) | (tg.seg_distance(sE, sN, ring + ring[:1]) < KEEP_PAD_M)
+        if (near & (new < 0.0) & (old >= 0.0)).any():
+            raise SystemExit(f"REFUSING: {sl.get('id')} would put water inside a camp's site near "
+                             f"E {ring[0][0]:+.1f} N {ring[0][1]:+.1f}; move the slough's line or "
+                             f"narrow it there, never the camp")
+        new = np.where(near, np.maximum(new, old - KEEP_CUT_FT), new)
+    moved_sub = new < old - 1e-6
+    for (ge, gn, gr) in guard:
+        hit = moved_sub & (np.hypot(sE - ge, sN - gn) < gr)
+        if hit.any():
+            raise SystemExit(f"REFUSING: {sl.get('id')} would lower the ground under a camp item at "
+                             f"E {ge:+.1f} N {gn:+.1f} (r {gr:.1f} m); move the slough's line or narrow it "
+                             f"there, never the lodge")
+    out = h_ft.copy()
+    out[r0:r1, c0:c1] = new
+    moved = np.zeros(E.shape, bool)
+    moved[r0:r1, c0:c1] = moved_sub
+    return out, moved
+
+
+def camp_sites():
+    """Each 1812 camp's site outline (its footprint polygon, in local ENU metres), placed as
+    tools/validate.py places it for the ground-contact measurement."""
+    import generate_camp_ground_1812 as cg  # noqa: PLC0415
+    datum = load(ROOT / "data" / "datum.json")
+    o_e, o_n = datum["origin_utm_e"], datum["origin_utm_n"]
+    out = []
+    for sc in cg.camps():
+        rec = json.loads((ROOT / "data" / "structures" / f"{sc['id']}.json").read_text(encoding="utf-8"))
+        for ph in rec["phases"]:
+            pos, poly = ph.get("position") or {}, (ph.get("footprint") or {}).get("polygon")
+            if not poly or pos.get("utm_e") is None:
+                continue
+            e0, n0 = float(pos["utm_e"]) - o_e, float(pos["utm_n"]) - o_n
+            th = math.radians(float(pos.get("rotation_deg") or 0.0))
+            out.append([(e0 + u * math.cos(th) + v * math.sin(th), n0 - u * math.sin(th) + v * math.cos(th))
+                        for u, v in poly])
+    return out
+
+
+def camp_guard():
+    """Every lodge, hearth, arbor, picket and rack the 1812 camps lay, as (e, n, r) discs:
+    the item's own half-size plus a metre. Read from the same layout the camps are built
+    from (generators/archetypes/lodge_camp.py), so a camp moved onto the slough refuses."""
+    import generate_camp_ground_1812 as cg  # noqa: PLC0415  (tools/, on sys.path above)
+    out = []
+    for sc in cg.camps():
+        place = sc.get("placement") or sc
+        for kind, x, y, reach in cg._items(sc):
+            e, n = cg._to_enu(x, y, place)
+            out.append((e, n, reach - cg.REACH_M.get(kind, 1.2) + 1.0))
+    return out
+
+
 def build(spec, base):
     datum = load(ROOT / "data" / "datum.json")
     origin = (datum["origin_utm_e"], datum["origin_utm_n"])
@@ -586,7 +781,13 @@ def build(spec, base):
 
     eff = resolve(spec, base)
     fs = field_spec(spec, base, eff)
-    h_m, conf, water, meta, geom = tg.build_field(fs, feats, origin, None)
+    # build_field floods any watercourse whose feature it is handed; one the 1812 table
+    # drops (T-3517: the north-side slough, carved below as north_side_slough_1812) is kept
+    # out of its hands and stays in `feats` for the carve to read its line from
+    carried_wc = {w["id"] for w in fs.get("watercourses", [])}
+    dropped_wc = {w["id"] for w in base.get("watercourses", [])} - carried_wc
+    h_m, conf, water, meta, geom = tg.build_field(
+        fs, {k: v for k, v in feats.items() if k not in dropped_wc}, origin, None)
     E, N = geom["E"], geom["N"]
 
     # the spit and the neck, at the spit's crest across the spit's face
@@ -642,11 +843,27 @@ def build(spec, base):
         h_ft, moved = battle_bank(E, N, water, h_ft, bank)
         conf = np.where(moved, tg.CONF_CONJECTURAL, conf)
         geom["bands"]["battle_bank_1812"] = moved
-    rise = spec.get("heald_small_elevation_1812")
-    if rise:
-        h_ft, lifted = small_elevation(E, N, water, h_ft, rise)
-        conf = np.where(lifted, tg.CONF_CONJECTURAL, conf)
-        geom["bands"]["heald_small_elevation_1812"] = lifted
+    # T-3469: Heald's rise moved south; the rise T-3403 built at his mile and a half is
+    # kept as ground by the owner's ruling, under its own block
+    for key in ("heald_small_elevation_1812", "tenth_street_rise_1812"):
+        rise = spec.get(key)
+        if rise:
+            h_ft, lifted = small_elevation(E, N, water, h_ft, rise)
+            conf = np.where(lifted, tg.CONF_CONJECTURAL, conf)
+            geom["bands"][key] = lifted
+    # T-3517: the sloughs hold water in 1812, carved as watercourses, by the owner's ruling
+    guard = None
+    for key in SLOUGHS_1812:
+        sl = spec.get(key)
+        if not sl:
+            continue
+        if "line_from" in sl:
+            sl = dict(sl, line=to_local(feats[sl["line_from"]]["geometry"]["coordinates"], origin))
+        if guard is None:
+            guard, sites = camp_guard(), camp_sites()
+        h_ft, carved = state_slough(E, N, water, h_ft, sl, guard, sites)
+        conf = np.where(carved, tg.CONF_CONJECTURAL, conf)
+        geom["bands"][key] = carved
 
     h_m = h_ft * FT
     meta.update({

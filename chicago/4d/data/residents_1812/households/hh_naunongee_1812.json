@@ -1,0 +1,113 @@
+{
+  "id": "hh_naunongee_1812",
+  "scene": "1812",
+  "name": "Nau-non-gee, at the gathering of August 1812",
+  "head": "naunongee",
+  "division": "camp",
+  "review_required": true,
+  "touches_removal": true,
+  "review_note": "review_required: a Potawatomi person of the gathering at Chicago in August 1812, the eve of the battle in which the garrison and its families were attacked. The card states only what the named sources say, says where a story is Kinzie family tradition rather than a contemporary account, and stages no speech or ceremony.",
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1",
+      "kinzie_waubun_1856",
+      "quaife_1913"
+    ],
+    "note": "Each person's own card says how their presence on 14 August is known."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "potawatomi_camp_1812_middle",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "reconstructed",
+      "source_id": "kinzie_waubun_1856",
+      "also_sources": [],
+      "note": "No source places his lodge in the camp; the card is put at one of the camp's grounds on the creek (the 1812 camp records) so it can be found, a reconstructed choice (liberty L-1812-people-3461)."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "No source names his family or places his lodge in the camp.",
+    "sources": [
+      "andreas_1884_v1",
+      "kinzie_waubun_1856",
+      "quaife_1913"
+    ]
+  },
+  "persons": [
+    {
+      "id": "naunongee",
+      "name": "Nau-non-gee",
+      "relationship": "head",
+      "grade": "attested",
+      "sources": [
+        "andreas_1884_v1",
+        "kinzie_waubun_1856",
+        "quaife_1913"
+      ],
+      "present_on_scene_date": {
+        "value": "probably present",
+        "confidence": "inferred",
+        "note": "Fought on the 15th (Wau-Bun). No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "also_written": [
+        "Naunongee",
+        "possibly the 'Mau-nun-gai' (OCR 'Mau-mm-gai') named second chief of the Little Calumet village in May 1812 (Andreas p. 79) - identity NOT asserted"
+      ],
+      "note": "One of the chiefs of the Calumet village. Potawatomi, Calumet village. 15 and 16 August: Killed Sgt Hays and was mortally wounded by Hays's bayonet; died days later at the Calumet village (Wau-Bun). Schoolcraft 1820 (via Quaife) tells the same duel with the Indian unnamed. Afterwards: Died of the wound some days after 15 Aug.",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a Potawatomi person of the gathering at Chicago in August 1812, the eve of the battle in which the garrison and its families were attacked. The card states only what the named sources say, says where a story is Kinzie family tradition rather than a contemporary account, and stages no speech or ceremony.",
+      "evidence": [
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XVIII, lines 5112-5114",
+          "quote": "one of them, Nau-non-gee, remarked, \"The white chiefs' wives are amusing themselves very much",
+          "claim": "Spring 1812 remark at the fort",
+          "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XIX, lines 6140-6141 and 6155-6156",
+          "quote": "The fate of Nau-non-gee, one of the chiefs of the Calumet village",
+          "claim": "Death",
+          "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "ch. X, lines 9253-9254 (fn 597, Schoolcraft 1820, 392)",
+          "quote": "Before the warrior could strike Hayes ran his bayonet into his breast up to the socket",
+          "claim": "Unnamed in the 1820 version",
+          "tier": "later witness (Schoolcraft 1820, from Kinzie) via Quaife"
+        },
+        {
+          "source_id": "andreas_1884_v1",
+          "locator": "pp. 79-80, local OCR lines 20714-20721",
+          "quote": "Old Campignan is their chief.",
+          "claim": "May 1812: Little Calumet village chiefs",
+          "tier": "contemporary document (May 1812) as printed by Andreas [OCR normalised; the village size figure is illegible in the OCR]"
+        }
+      ],
+      "on_15_august": {
+        "value": "Among the attackers; killed Sergeant Hays and was mortally wounded by his bayonet",
+        "grade": "inferred",
+        "note": "Wau-Bun (family tradition); Schoolcraft (1820, via Quaife) tells the same with the man unnamed.",
+        "sources": [
+          "kinzie_waubun_1856",
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
+        {
+          "label": "On 15 August",
+          "value": "Among the attackers; killed Sergeant Hays and was mortally wounded by his bayonet",
+          "grade": "inferred"
+        }
+      ]
+    }
+  ]
+}

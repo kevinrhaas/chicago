@@ -43,8 +43,9 @@ LIBRARY = HERE.parent / "assets" / "textures" / "chicago_1835_pbr"
 # The maps the renderer binds and tools/publish.sh ships, by library sheet. Each
 # row names its reader; a map is here because a module asks for its .webp.
 SHIPPED: dict[str, tuple[str, ...]] = {
-    # renderers/web/js/roof-relief.js (T-1488)
-    "roofs/wood_shingles_weathered": ("normal_gl", "orm"),
+    # renderers/web/js/roof-relief.js (T-1488); the shingle's basecolor since T-3041,
+    # which the page packs into an albedo ratio where KTX2 does not serve
+    "roofs/wood_shingles_weathered": ("normal_gl", "orm", "basecolor"),
     "roofs/roof_boards_weathered": ("normal_gl", "orm"),
     # renderers/web/js/frontage.js (T-1815) and wall-relief.js (T-1963)
     "walls/clapboard_board_face": ("normal_gl", "orm", "basecolor"),

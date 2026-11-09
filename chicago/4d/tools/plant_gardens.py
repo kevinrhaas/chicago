@@ -21,6 +21,11 @@ every way, water-melons nine or ten, pumpkins and squashes ten, running beans on
 drills four or five feet asunder, garden Indian corn in drills six feet apart with hills two
 and a half feet asunder. docs/LIBERTIES.md L-t3407-officers-garden.
 
+THE OTHER 1812 GARDENS (T-3477): Kinzie's, Ouilmette's, Lee's, the sutler's, Coursoll's field,
+the house gardens at La Lime's, Burns's, Clark's and the soldier's, the factory's and the
+agency's yards, and the weeds at Lee's Place, each laid out for its household by
+tools/plant_gardens_1812.py and written into the same file after the officer's.
+
 WRITES data/gardens/<scene>.json, drawn by renderers/web/js/gardens.js. Local ENU metres of
 data/datum.json. A plant is [e, n, yaw_deg, scale, variant].
 
@@ -364,6 +369,21 @@ def build(scene: str = "1812") -> dict:
     }
 
 
+def build_1812() -> dict:
+    """The officer's garden (T-3407) and the scene's other gardens and fields (T-3477)."""
+    import plant_gardens_1812 as G
+    doc = build()
+    more, crops = G.build(grid, inside, edge_dist)
+    doc["gardens"].extend(more)
+    doc["crops"].update(crops)
+    doc["tickets"] = [TICKET, G.TICKET]
+    doc["liberties"] = [LIBERTY, G.LIBERTY]
+    doc["layout_note"] += (" The scene's other gardens (T-3477) are laid out for their households by "
+                           "tools/plant_gardens_1812.py: reconstructed, each garden's own grade saying whether the "
+                           "garden itself is attested.")
+    return doc
+
+
 def dump(doc: dict) -> str:
     """Compact enough to ship: one plant per line, the rest indented."""
     text = json.dumps(doc, indent=1, ensure_ascii=False)
@@ -394,6 +414,8 @@ def problems(doc: dict) -> list[str]:
                 if not any(inside(p, u, v) for p in polys):
                     out.append(f"{g['id']}: a {kind} at ({e}, {n}) stands outside every bed")
         # the walk in from the gate stays clear: nothing between the border beds
+        if g["id"] != "first_fort_outer_officers_garden":
+            continue
         x0, _, x1, _ = BOX_PX
         wu0, _ = px_to_plan(g["size_m"], DRAUGHT_PX["walk_x"][0], 0)
         wu1, _ = px_to_plan(g["size_m"], DRAUGHT_PX["walk_x"][1], 0)
@@ -411,10 +433,46 @@ def main() -> int:
     ap.add_argument("--check", action="store_true")
     ap.add_argument("--self-test", action="store_true")
     a = ap.parse_args()
-    doc = build()
-    text = dump(doc)
-    path = OUT / "1812.json"
+    if not a.self_test:
+        # T-3476: the 1835 town's dooryard gardens, written and checked beside 1812's
+        import plant_dooryards_1835
+        town = plant_dooryards_1835.build(grid, inside, edge_dist)
+        rc = finish(town, OUT / "1835.json", a.check)
+        if rc:
+            return rc
     if a.self_test:
+        rc = finish(build(), OUT / "1812.json", False, True)
+        return rc or clearance_self_test()
+    return finish(build_1812(), OUT / "1812.json", a.check)
+
+
+def clearance_self_test() -> int:
+    """T-3477: the other gardens' clearance refuses a garden stood on a house, on a trail and in the
+    river."""
+    import copy
+    import plant_gardens_1812 as G
+    doc = build_1812()
+    want = {"ouilmette_garden_1812": ((1114.0, 343.0), "runs into ouilmette_house_1812"),
+            "burns_garden_1812": ((798.0, 110.0), "on the trail"),
+            "clark_garden_1812": ((125.0, -25.0), "wet ground")}
+    bad = copy.deepcopy(doc)
+    for g in bad["gardens"]:
+        if g["id"] in want:
+            g["frame"]["origin"] = list(want[g["id"]][0])
+    found = G.clearance(bad)
+    missing = [w for _, (_, w) in want.items() if not any(w in f for f in found)]
+    for f in found[:6]:
+        print(f"   self-test | refused: {f}")
+    if missing or G.clearance(doc):
+        print(f"plant_gardens clearance self-test: FAIL — not refused: {missing}")
+        return 1
+    print("plant_gardens clearance self-test: PASS (a garden on a house, on a trail and in the river is refused)")
+    return 0
+
+
+def finish(doc: dict, path: Path, check: bool, self_test: bool = False) -> int:
+    text = dump(doc)
+    if self_test:
         bad = json.loads(text)
         g = bad["gardens"][0]
         g["plants"]["cabbage"][0][0] -= 40.0
@@ -431,7 +489,10 @@ def main() -> int:
         print("plant_gardens self-test: PASS (a plant off its bed, a bed past the paling and an unknown crop are refused)")
         return 0
     errs = problems(doc)
-    if a.check:
+    if doc["scene"] == "1812":
+        import plant_gardens_1812
+        errs += plant_gardens_1812.clearance(doc)
+    if check:
         if not path.exists() or path.read_text() != text:
             errs.append(f"{path.relative_to(ROOT)} is not what tools/plant_gardens.py writes — re-run it")
         for e in errs:
@@ -439,7 +500,7 @@ def main() -> int:
         if errs:
             return 1
         n = sum(len(v) for g in doc["gardens"] for v in g["plants"].values())
-        print(f"plant_gardens: OK — {len(doc['gardens'])} garden, "
+        print(f"plant_gardens: OK — {doc['scene']}: {len(doc['gardens'])} garden(s), "
               f"{sum(len(g['beds']) for g in doc['gardens'])} beds, {n} plants, re-derived byte for byte")
         return 0
     if errs:
@@ -448,7 +509,10 @@ def main() -> int:
         return 1
     OUT.mkdir(parents=True, exist_ok=True)
     path.write_text(text)
-    counts = {k: len(v) for g in doc["gardens"] for k, v in g["plants"].items()}
+    counts: dict[str, int] = {}
+    for g in doc["gardens"]:
+        for k, v in g["plants"].items():
+            counts[k] = counts.get(k, 0) + len(v)
     print(f"wrote {path.relative_to(ROOT)} — {sum(counts.values())} plants: {counts}")
     return 0
 

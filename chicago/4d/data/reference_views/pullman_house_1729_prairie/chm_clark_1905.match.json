@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "chm_clark_1905",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "d9d4b45c8ab5da47cc304d1945f2ee3c1865d1f2f9b261fcd3190704d86304b7",
+  "glb_sha256": "968ac3f1a0a55b4c5a44645336d4ce0b08a24dc1971398cb7d6a4181d557528b",
   "camera_sha256": "aff196c66dbbceed8e5d7703d25104fb936052941fcd6a870030e252f4dffb7b",
   "photo_sha256": "fede674ee5cffe692cc4c096d33e28b01d23a13fecb26d1bcc10decf01614314",
   "rendered_flora": {
@@ -10,10 +10,10 @@
     "lots": [
       {
         "parcel": "prairie_1729",
-        "shrubs": 26,
+        "shrubs": 29,
         "trees": 3,
         "beds": 0,
-        "creeper": 53
+        "creeper": 54
       }
     ],
     "street_trees": 36,
@@ -51,7 +51,7 @@
     },
     {
       "file": "renderers/web/js/front-yards.js",
-      "sha256": "7f4ba235f07a51d60ba052a507137919c58c6a0bfeeb45a6a9696e112ab092b3"
+      "sha256": "1d76c4415a93713c9e01d4b8400d4dbb0175f88a8eadb3414a66b7666f3be2ff"
     },
     {
       "file": "renderers/web/js/street-trees.js",
@@ -63,7 +63,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "5225613ca5dd36a0e7577b2f0aed62e1a9cf15f4af2a39cd233b8d1cf97d40d2"
+      "sha256": "1ec46dc2bfb15d13dab2260c022b31d4ee88b7302aab5be62069b2eaf5e198e2"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -75,14 +75,14 @@
     },
     {
       "file": "renderers/web/js/trees.js",
-      "sha256": "bd022919ca052610595908f83128dfceea976790c5bf2eff63f381abaa3b89b5"
+      "sha256": "83513a6667d725328ce9e0c5ed00c0a69ab3b61e5f4dbc9dfaccf6e6122def73"
     },
     {
       "file": "renderers/web/js/street-furniture.js",
       "sha256": "b838523b13e22a6c73a887a81abebcb7dd1bf7e827647117784c29505423fa59"
     }
   ],
-  "flora_sha256": "a0b95d753f57821f3a594a9c34b7af50a01c699a7daea63bc0086c1588cf1399",
+  "flora_sha256": "383c7c7487d5f324b0eac4720daa99db8c5f57a6197c5a8d6b0ecf53289f1e96",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/chm_clark_1905-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
@@ -139,6 +139,15 @@
     {
       "what": "the Prairie front's third part, on the main wall south of the entry (v 8.8 to the south-west corner pier, v 16.8-17.93): the owner, 2026-11-06, his crop of the Detroit print beside the build: \"you have two windows at every level for this third part of the face, but in the image there is one window at every level, line and size them up correctly with the house\". Built (T-1881) with ONE column, the 1.2 x 3.25 m principal light, the 1.45 x 2.65 m second-storey light and the 1.1 x 1.9 m pedimented dormer, centred on the wall between the banded pier at v 8.8-9.41 and the corner pier, at v 13.1; the narrow column (v 15.45, its dormer at v 14.85) is taken off. On the Library of Congress master scan (det 4a08065u) the big light stands midway between the entry's banded corner and the next banded pier, at which the cornice turns and falls away with the flank, so the narrow light and smaller dormer beyond it are the 18th Street flank's first column (north_bays s 1.4), as Taylor's no. 1445 shows them. Through this camera (its corner fitted at x 210) the column renders south of the print's x 166-168, the same corner disagreement the Detroit camera has.",
       "status": "owner ruling"
+    },
+    {
+      "what": "[T-1881, 2026-11-07] re-rendered after 18th Street's parkway tree at 58.8 m (before the house's south-east corner) was regrown from the grown elm's forked fountain to a straight leader under a narrow head (form high_head, scale 0.65), off Taylor's 16554 and the Detroit print det 4a08066; the other high_head trees keep their places and habit, their crowns re-dealt. The 58.8 m tree is out of this view; the Prairie parkway trees stand where they did, on the same habit, so the verdict stands.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "[T-1934, 2026-11-08 (the 16555 sign-off)] re-rendered after data/front_yards/1904.json was regenerated: the court bed's three plants added, and the 18th Street flank's ivy re-laid on the rebaked house (the committed file was behind the models); against the previous render nothing in the render changes",
+      "status": "within tolerance",
+      "how": "compared render against render at full size; nothing over the bar moved"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

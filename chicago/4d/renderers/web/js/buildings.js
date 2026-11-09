@@ -59,6 +59,7 @@ import { loadWallRelief } from './wall-relief.js';
 import { loadCampSurfaces } from './camp-surfaces.js';
 import { applyBrickBond, brickBondFromSearch } from './brick-bond.js';
 import { addFeet, feetPoints, packFeet } from './building-feet.js';
+import { buildUnderpinnings, groundInFrame, underpinnedHeight } from './underpinning.js';
 import { buildingBodyBounds } from './building-body-bounds.js';
 import { drawsLeaves as leavesHungElsewhere, paradeLaidAsGround, paradeGroundOwner } from './fort-gates.js';
 import { takeDoorLeaf, doorLeafMaterial } from './house-doors.js';
@@ -586,7 +587,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
    * town's untextured one. A load that fails degrades to today's flat roofs and
    * reports itself; see roof-relief.js.
    */
-  const relief = await loadRoofRelief();
+  const relief = await loadRoofRelief({ lowSpec });
   if (relief.problem) problems.push(relief.problem);
   /**
    * The walls' relief (T-1963): clapboard and laid logs, by the record's own
@@ -972,6 +973,28 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     return Number.isFinite(lowest) ? lowest : terrain.surfaceHeight(e, n);
   }
 
+  /**
+   * T-3492: the HIGHEST ground under the walls' feet, read on the same feet and in
+   * the same frame as `groundUnder`, for a structure whose sill is carried level on
+   * an underpinning (underpinning.js) rather than bedded at its lowest corner.
+   */
+  function groundOverUnder(record, e, n, rotationDeg) {
+    if (!terrain) return 0;
+    const th = bearingToYaw(rotationDeg);
+    const cos = Math.cos(th);
+    const sin = Math.sin(th);
+    let highest = terrain.surfaceHeight(e, n);
+    for (const [lx, lz] of feetPoints(localFeet.get(record.id))) {
+      highest = Math.max(highest, terrain.surfaceHeight(e + lx * cos + lz * sin, n + lx * sin - lz * cos));
+    }
+    for (const [u, v] of record.sidecar?.footprint?.polygon ?? []) {
+      highest = Math.max(highest, terrain.surfaceHeight(e + u * cos - v * sin, n + u * sin + v * cos));
+    }
+    return Number.isFinite(highest) ? highest : terrain.surfaceHeight(e, n);
+  }
+  /** id -> what underpinning.js needs to build under it, and the sill's lift. */
+  const underpinned = new Map();
+
   // Placement matrix per structure, from the sidecar and nothing else.
   const placements = new Map();
   for (const record of registry.values()) {
@@ -986,7 +1009,15 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     // the bed, so a bridge left on the terrain anchor does not sink — it hangs
     // four metres above the river, which is the harder failure to read.
     const onWater = p.vertical_anchor === 'water';
-    const y = onWater ? 0 : groundUnder(record, e, n, p.rotation_deg ?? 0);
+    let y = onWater ? 0 : groundUnder(record, e, n, p.rotation_deg ?? 0);
+    // T-3492: a sill carried clear of the highest ground under the walls, on stone.
+    const under = !onWater && terrain ? p.underpinning : null;
+    if (under) {
+      const lo = y;
+      const hi = groundOverUnder(record, e, n, p.rotation_deg ?? 0);
+      y = underpinnedHeight(lo, hi, Number(under.sill_clear_m) || 0.2);
+      underpinned.set(record.id, { e, n, rot: p.rotation_deg ?? 0, y, lo, hi, under });
+    }
     placements.set(record.id, new THREE.Matrix4().compose(
       enuToWorld(e, n, y),
       new THREE.Quaternion().setFromEuler(
@@ -999,6 +1030,35 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
     }
   }
   for (const [id, feet] of localFeet) localFeet.set(id, packFeet(feet));
+
+  // T-3492: the stone under every underpinned sill, one mesh for the scene.
+  const underpinnings = { mesh: null, census: { buildings: 0, boxes: 0, steps: 0, sheet: null, ids: [] } };
+  if (underpinned.size) {
+    const entries = [];
+    for (const [id, u] of underpinned) {
+      const record = registry.get(id);
+      entries.push({
+        id,
+        matrix: placements.get(id),
+        polygon: record.sidecar?.footprint?.polygon ?? [],
+        feet: feetPoints(localFeet.get(id)),
+        doors: Array.isArray(u.under.doors) ? u.under.doors : [],
+        frontV: Number.isFinite(u.under.front_v_m) ? u.under.front_v_m : null,
+        ground: groundInFrame(terrain, u.e, u.n, u.rot, u.y),
+      });
+    }
+    try {
+      const built = await buildUnderpinnings(entries);
+      problems.push(...built.problems);
+      underpinnings.census = built.census;
+      if (built.mesh) {
+        underpinnings.mesh = built.mesh;
+        group.add(built.mesh);
+      }
+    } catch (err) {
+      problems.push(`underpinnings not built — ${err.message}`);
+    }
+  }
 
   // Shadows have to agree with the view: a wall you can see through should not
   // cast a solid shadow. The same patch on a depth material dithers the shadow
@@ -1539,6 +1599,47 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
   }
   bodySamples.clear();
   let weathering = 1;
+  /**
+   * T-3527 — A STRUCTURE DRAWN ON ITS DAYS ONLY. The owner, 2026-11-08, chose that the
+   * 1812 gathering's camps come and go with the date: a sidecar whose documented_range
+   * says `drawn_only_within` is drawn only while the date the Season or a jaunt sets is
+   * inside that range. Its instances are collapsed to a zero matrix rather than hidden,
+   * because the far-relief, far-shadow, far-colour and sub-pixel hooks toggle visibility
+   * in every pass and restore it after; a zero matrix draws nothing in any pass, casts
+   * nothing, picks nothing, and gives the hooks nothing to swap. Its own matrix comes
+   * back when the date does. Returns the ids hidden.
+   */
+  const datedIds = new Set([...registry.values()]
+    .filter((r) => r.sidecar?.documented_range?.drawn_only_within === true).map((r) => r.id));
+  let datedInstances = null;
+  const datedHidden = new Set();
+  const ZERO_MATRIX = new THREE.Matrix4().makeScale(0, 0, 0);
+  function onRange(date, rng) {
+    if (!date) return true;
+    const d = String(date).slice(0, 10);
+    return (!rng?.from || d >= rng.from) && (!rng?.to || d <= rng.to);
+  }
+  function setDate(date) {
+    if (!datedIds.size) return [];
+    if (!datedInstances) {
+      datedInstances = new Map();
+      for (const batch of batches) {
+        (batch.userData.batchIndex ?? []).forEach((id, i) => {
+          if (!datedIds.has(id)) return;
+          if (!datedInstances.has(id)) datedInstances.set(id, []);
+          datedInstances.get(id).push({ batch, i, matrix: batch.getMatrixAt(i, new THREE.Matrix4()) });
+        });
+      }
+    }
+    for (const id of datedIds) {
+      const show = onRange(date, registry.get(id)?.sidecar?.documented_range);
+      if (show === !datedHidden.has(id)) continue;
+      for (const { batch, i, matrix } of datedInstances.get(id) ?? []) batch.setMatrixAt(i, show ? matrix : ZERO_MATRIX);
+      if (show) datedHidden.delete(id); else datedHidden.add(id);
+    }
+    return [...datedHidden];
+  }
+
   function setWeathering(value) {
     const t = Math.max(0, Math.min(1, Number(value)));
     if (!Number.isFinite(t) || t === weathering) return weathering;
@@ -1727,6 +1828,10 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
      *  back on its archetype's flat colour. */
     setWeathering,
     get weathering() { return weathering; },
+    /** T-3527: draw the structures dated `drawn_only_within` for `date`; the ids hidden. */
+    setDate,
+    get datedIds() { return [...datedIds]; },
+    get datedHidden() { return [...datedHidden]; },
 
     /**
      * What tone each structure was given and what its vertices were actually
@@ -1821,6 +1926,14 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
      *  uniform dequantize scale; a point in the structure's frame goes through
      *  this one, a stored batch position through the instance matrix. */
     matrixOf(id) { return placements.get(id) ?? null; },
+    /** T-3492: how a structure carried on an underpinning was stood — `lo`/`hi` the
+     *  lowest and highest ground under its feet, `y` its sill — or null. */
+    underpinningOf(id) {
+      const u = underpinned.get(id);
+      return u ? { lo: u.lo, hi: u.hi, y: u.y, sill_clear_m: Number(u.under.sill_clear_m) || 0.2 } : null;
+    },
+    /** T-3492: the underpinnings layer's census: buildings, boxes, steps, sheet, ids. */
+    get underpinnings() { return underpinnings.census; },
 
     /** T-3442: each hung door's baked leaf, lifted out of its batch as the house loaded:
      *  [{ doorId, geometry, material }] in the structure's frame. This layer owns them. */

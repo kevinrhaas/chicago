@@ -1,0 +1,375 @@
+{
+  "version": 1,
+  "license": "CC0-1.0",
+  "liberty": "L418",
+  "height_scale": 1.0,
+  "lod_ratios": [
+    1.0,
+    0.6,
+    0.28,
+    0.12
+  ],
+  "skin_texture": {
+    "path": "assets/authored/humans/skin_toigo_bronze/young_lightskinned_male_diffuse_Bronze.png",
+    "sha256": "5a53213f061bfa97ee0afd6b40650ffbc089a479c144e63f3c39acceca5853c0",
+    "license": "CC0-1.0",
+    "color_space": "sRGB",
+    "base_color_factor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "roughness": 0.68,
+    "roughness_basis": "Reconstructed engineering value, not measured from a period person or calibrated capture.",
+    "identity_basis": "Cleared reusable generic skin atlas; not a likeness, attested complexion, or source identifying any named/reconstructed resident.",
+    "uv_status": "Source atlas and UV registration viewed in source diagnostics; final Blender export/LOD render validation remains outstanding."
+  },
+  "hair_component": {
+    "directory": "assets/authored/humans/hair_short04",
+    "texture": "short04_diffuse_periodic_pad_draft.png",
+    "uv_transform": {
+      "source_height": 2048,
+      "top_rows": 8,
+      "bottom_rows": 1
+    },
+    "roughness": 0.65,
+    "alpha_cutoff": 0.4,
+    "appearance_basis": "Shared cleared CC0 short04 source fitted to existing Otis/Joseph/Martin bodies; hair/part/color are reconstructed choices, no period hairstyle attestation or individual likeness.",
+    "source_manifest_sha256": "68a02130cd50dd0d727f31f8f53702fe91bd9ecb9aa98309a7814191abf89e99"
+  },
+  "eye_components": {
+    "radius_m": 0.012,
+    "iris_radius_m": 0.0055,
+    "pupil_radius_m": 0.0022,
+    "corneal_bulge_m": 0,
+    "cornea_enabled": false,
+    "source_basis": "Actual helper centers/axes; original opaque sclera/iris/pupil, reconstructed dimensions and brown color, not resident facts",
+    "status": "No actual BPy/export/blink fit/photographic acceptance"
+  },
+  "label": "Reconstructed prosperous trader about 1810 (dark green tailcoat cut square at the waist, yellow waistcoat, white neckcloth and shirt collar points, buff breeches, top boots with tan tops, a black round hat) on the shared portable male rig",
+  "scene_date": "1812-08-14",
+  "grade": "reconstructed",
+  "sources": [
+    "met_peale_1811_anthony_wayne_robinson",
+    "met_krimmel_1811_chimney_sweeps_christ_church",
+    "met_ci_1810_1820_coutts_coat_and_breeches",
+    "met_ci_1815_tailcoat",
+    "met_pixler_family_c1815",
+    "kinzie_waubun_1856"
+  ],
+  "basis": "Original shells offset from the cleared adult body's own surface and lofts round its own sections (the 1835 merchant's shirt, stock, collar points, waistcoat, tailcoat, lapels, tails and buttons, re-measured for 1810; the 1904 coachman's breeches and boot shafts), a neckcloth knot and a round hat rigid on the head, after the period pictures and garments of 1810-1815 in the recipe. Seams, ease, lengths and colours are reconstructed. Complete source anatomy remains unchanged beneath clothing.",
+  "source_scope": "Peale's miniature of Anthony Wayne Robinson (1811) gives an American man's green coat, yellow waistcoat and white neckcloth; Krimmel's Philadelphia street scene (1811-13) a man in a green tailcoat, buff waistcoat and breeches, top boots and a tall hat; the Coutts coat and breeches (1810-20) and the Met's tailcoat of about 1815 (both British) the cut; the Pixler father (about 1815) a rural American's yellow waistcoat; Wau-Bun the Kinzie household. No picture or inventory of Kinzie's or any Chicago man's clothes is known; no pixels or traced shapes enter the asset.",
+  "colors_linear_rgba": {
+    "skin": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "eyes": [
+      0.12,
+      0.09,
+      0.06,
+      1.0
+    ],
+    "garment_upper__shirt_linen_1810": [
+      0.8,
+      0.8,
+      0.78,
+      1
+    ],
+    "garment_outer__tailcoat_green_1810": [
+      0.018,
+      0.034,
+      0.022,
+      1
+    ],
+    "garment_outer__waistcoat_yellow_1810": [
+      0.52,
+      0.4,
+      0.14,
+      1
+    ],
+    "garment_lower__breeches_buff_1810": [
+      0.5,
+      0.4,
+      0.25,
+      1
+    ],
+    "accessory__gilt_buttons_1810": [
+      0.45,
+      0.32,
+      0.11,
+      1
+    ],
+    "footwear__black_top_boots_1810": [
+      0.011,
+      0.01,
+      0.01,
+      1
+    ],
+    "footwear__boot_tops_tan_1810": [
+      0.3,
+      0.18,
+      0.08,
+      1
+    ],
+    "headwear__round_hat_black_1810": [
+      0.014,
+      0.013,
+      0.013,
+      1
+    ]
+  },
+  "workwear_coverage": {
+    "shoe_clearance_m": 0.004
+  },
+  "role_1812": {
+    "module": "human_trader_1812",
+    "prepare": "prepare_trader_assembly",
+    "assembly": "trader_1812_v1"
+  },
+  "proof_variants": [
+    {
+      "id": "trader_1812",
+      "component_assembly": "trader_1812_v1",
+      "person_reference_id": "anonymous_trader_1812",
+      "person_reference_scene": "1812",
+      "person_reference_grade": "reconstructed",
+      "person_reference_record": "data/sources/kinzie_waubun_1856.json",
+      "reference_summary": {
+        "name": "a prosperous trader or settled civilian man of Chicago, about 1810",
+        "named": false,
+        "role": "trader",
+        "presence": "resident"
+      },
+      "body_input": "assets/authored/humans/makehuman_hm08/prepared_adult_35.json",
+      "body_parameters": {
+        "chosen_height_m": 1.75,
+        "height_basis": "The shared engineering body; not a recorded height.",
+        "engineering_age_years": 35,
+        "age_basis": "Engineering body at age 35: the men who wear the role were 30 to 50 (Kinzie 49, Wells 42); the variation kit ages each face. No age is read for the role.",
+        "shape_basis": "CC0 male macro targets; equal software-category blend is engineering only, not inferred ancestry or a portrait."
+      },
+      "body_basis": "CC0 adult-male graphical body and the shared generic skin of the period studies are reconstructed authoring choices. The figure is anonymous: a trader of the type, not Kinzie or any man of the town; no complexion, height, face or outfit of anyone is asserted.",
+      "recipe_path": "data/humans/recipes/trader_1812.json"
+    }
+  ],
+  "trader_components": {
+    "version": 1,
+    "generator": "tools/human_trader_1812.py",
+    "liberty": "L-human-modular-dress-1789",
+    "body_sha256": "ef5eb3ca282b29c482a67af4e3e50d1ed29a8055eed0230ee2a58ec36dddbba9",
+    "standing_source_only": false,
+    "production_eligible": false,
+    "photo_accepted": false,
+    "evidence_choice": "The brief asked for dress.json's prosperous trader about 1810: a dark tailcoat, a waistcoat, a white neckcloth with collar points, breeches with boots and a round hat. Green is chosen for the coat because the two American pictures of 1811 (Robinson; Krimmel's man) wear green, which also parts the trader from the officers' and the 1835 merchant's blue; yellow for the waistcoat (Robinson, Pixler); buff breeches and top boots (Krimmel). The hat is the 1810 round hat the evidence names (\"tall round hat with a moderate brim\"), kept lower and tapered so it does not read as the 1835 top hat. The people-1812-3466 variants (Kinzie at the bench in a round jacket, the clerk Chandonnai in a calico shirt and sash, the officials) are not built: one asset, as the coordinator asked.",
+    "tailoring": {
+      "shirt": {
+        "ease": 0.006,
+        "waist_below_spine02": 0.115,
+        "top_below_neck": 0.036,
+        "cuff_beyond_coat": 0.012
+      },
+      "neckcloth": {
+        "ease": 0.012,
+        "bottom_below_neck": 0.04,
+        "back_bottom_below_neck": 0.004,
+        "back_above_neck": 0.04,
+        "jaw_clearance": 0.005,
+        "segments": 40,
+        "rows": 7
+      },
+      "knot": {
+        "width": 0.058,
+        "height": 0.032,
+        "depth": 0.018,
+        "below_top": 0.02,
+        "standoff": 0.004
+      },
+      "collar_points": {
+        "inner_deg": 20.0,
+        "outer_deg": 50.0,
+        "rise": 0.036,
+        "tip_out": 0.012,
+        "standoff": 0.006
+      },
+      "waistcoat": {
+        "ease": 0.016,
+        "armpit_extra": 0.008,
+        "hem_below_spine02": 0.088,
+        "top_below_neck": 0.016,
+        "v_bottom_above_spine02": 0.275,
+        "v_half_width_top": 0.04,
+        "roll_width": 0.018,
+        "roll_notch": 0.85,
+        "front_only_x": 0.16
+      },
+      "coat": {
+        "ease": 0.022,
+        "armpit_extra": 0.022,
+        "sleeve_short_of_wrist": 0.022,
+        "collar_above_neck": 0.048,
+        "waist_below_spine02": -0.008,
+        "roll_above_spine02": 0.15,
+        "v_half_width_top": 0.082,
+        "lapel_width": 0.056,
+        "lapel_notch": 0.78,
+        "lapel_top_above_neck": -0.024
+      },
+      "tails": {
+        "hem_y": 0.52,
+        "ease": 0.02,
+        "edge_top_deg": 76.0,
+        "edge_hem_deg": 124.0,
+        "vent_deg": 3.0,
+        "segments": 22,
+        "rows": 13
+      },
+      "buttons": {
+        "radius": 0.009,
+        "rows": 3,
+        "spacing": 0.042,
+        "x": 0.07,
+        "below_roll": 0.016,
+        "standoff": 0.0025,
+        "sides": 10
+      },
+      "breeches": {
+        "ease": 0.012,
+        "waist_height_fraction": 0.585,
+        "bottom_y": 0.4,
+        "thigh_fullness": 0.014,
+        "smoothing": 60
+      },
+      "boots": {
+        "bottom_y": 0.08,
+        "top_y": 0.43,
+        "ease_bottom": 0.006,
+        "ease_top": 0.018,
+        "segments": 28,
+        "rows": 9
+      },
+      "boot_tops": {
+        "rows": 2,
+        "extra_ease": 0.004
+      },
+      "round_hat": {
+        "seat_below_top": 0.084,
+        "ease": 0.007,
+        "crown_height": 0.125,
+        "crown_flare": 0.85,
+        "brim_side": 0.05,
+        "brim_fore": 0.06,
+        "brim_curl": 0.02,
+        "thickness": 0.004
+      }
+    },
+    "garments": [
+      {
+        "id": "tailcoat_dark_green",
+        "material": "garment_outer__tailcoat_green_1810",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "met_peale_1811_anthony_wayne_robinson",
+            "met_krimmel_1811_chimney_sweeps_christ_church",
+            "met_ci_1810_1820_coutts_coat_and_breeches",
+            "met_ci_1815_tailcoat"
+          ],
+          "source_scope": "A dark green tailcoat: Peale's Robinson (1811) and Krimmel's man before Christ Church (1811-13) wear green; double-breasted, cut square across the waist with lapels, a high collar and tails to the knee after the Coutts coat (1810-20) and the Met's coat of about 1815, both British. Nothing describes Kinzie's own coat and he has no portrait: the type is inferred, the man's is reconstructed. The merchant's 1835 cut is re-measured for a higher waist and a shorter front; lengths and ease reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "waistcoat_yellow",
+        "material": "garment_outer__waistcoat_yellow_1810",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "met_peale_1811_anthony_wayne_robinson",
+            "met_pixler_family_c1815"
+          ],
+          "source_scope": "A yellow waistcoat (Robinson 1811; the Pixler father about 1815), single-breasted, straight at the waist, a turned collar; showing below the square-cut coat. Shade and cut reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "shirt_and_neckcloth_white",
+        "material": "garment_upper__shirt_linen_1810",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "met_peale_1811_anthony_wayne_robinson",
+            "met_krimmel_1811_chimney_sweeps_christ_church"
+          ],
+          "source_scope": "A white neckcloth tied high (Robinson 1811) over a white shirt whose collar points stand at the cheeks; the knot's shape, the height and the lack of a shirt frill (the Pixler father wears one) are reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "buttons_gilt",
+        "material": "accessory__gilt_buttons_1810",
+        "provenance": {
+          "grade": "reconstructed",
+          "source_ids": [
+            "met_ci_1815_tailcoat"
+          ],
+          "source_scope": "Two rows of three gilt buttons; the Coutts coat has covered buttons, so metal is a choice. Size and count reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "breeches_buff",
+        "material": "garment_lower__breeches_buff_1810",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "met_krimmel_1811_chimney_sweeps_christ_church",
+            "met_ci_1810_1820_coutts_coat_and_breeches"
+          ],
+          "source_scope": "Buff breeches to below the knee into top boots, as Krimmel's man wears them (the Coutts breeches are black wool with knee bands). Knee bands under the boots are not modelled.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "top_boots",
+        "material": "footwear__black_top_boots_1810",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "met_krimmel_1811_chimney_sweeps_christ_church"
+          ],
+          "source_scope": "Top boots (Krimmel); black to below the knee on the shared closed boot foot, reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "top_boot_tops_tan",
+        "material": "footwear__boot_tops_tan_1810",
+        "provenance": {
+          "grade": "reconstructed",
+          "source_ids": [
+            "met_krimmel_1811_chimney_sweeps_christ_church"
+          ],
+          "source_scope": "The turned-down tops of lighter leather are what makes a top boot; their tan and depth are reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "round_hat",
+        "material": "headwear__round_hat_black_1810",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "met_krimmel_1811_chimney_sweeps_christ_church",
+            "kinzie_waubun_1856"
+          ],
+          "source_scope": "A tall round hat with a moderate brim (Krimmel's man; dress.json); black felt, the crown tapering a little to a flat top and lower than the 1835 top hat. Height, taper and brim are reconstructed. All the men carry a hat outdoors (people-1812-3466).",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      }
+    ]
+  }
+}

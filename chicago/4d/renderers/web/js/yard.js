@@ -100,6 +100,7 @@ import * as THREE from 'three';
 import { resolveBases } from './scene-loader.js';
 import { loadTimberRelief } from './frontage.js';
 import { layerPick } from './gpu-pick.js';
+import { ktx2Beside, loadSheet } from './ktx2.js';
 import { compactStreams, COLOR_LANE_CONFIDENCE } from './compact-streams.js';
 
 const {
@@ -2550,6 +2551,147 @@ function woodCells() {
 }
 
 /**
+ * THE WOOD ITSELF (T-3474). The painted cells above read as a drawing of wood: flat, one
+ * colour per stick, no light in them. The owner's word on the 1812 piles was "make the
+ * next round of them photographic, improve the surface textures", so where it loads, the
+ * woodpile mesh wears a physically scaled PBR atlas instead —
+ * `assets/textures/yard_wood_pbr/woodpile_atlas/`, six cells of `WOOD_CELL_M` of wood each:
+ * two rick faces of split billet ends, the sticks along their length, a sawn round's end,
+ * log bark and a split face — base colour, OpenGL normal and packed ORM, on the mesh's
+ * own `uv`. Each face samples a window of its cell exactly as it sampled a painted one,
+ * so the geometry, the windows and the draw calls are what they were.
+ *
+ * Its OWN material, because the goods' material carries the mark atlas in `map` and the
+ * walk's board face on `uv1`, and this needs a base colour, a normal and an ORM of its
+ * own on `uv`. The woodpiles were already their own mesh (T-1959), so it costs no call.
+ *
+ * Where the atlas does not load — no network, a refused sheet — the painted cells come
+ * back exactly as they were: the degradation is the old look, never white or flat.
+ */
+const WOOD_LIBRARY = 'textures/yard_wood_pbr/woodpile_atlas/';
+/**
+ * The light tier's line (T-3474): a town whose woodpiles are no more lots than this draws
+ * them at `light` too. T-1959 kept them off `light` because 1835's are 399 lots, one mesh
+ * for the whole town, about 35,000 triangles at every stand; 1812's are 17, about 2,000,
+ * and a phone that hid them showed none of the yards the owner asked for.
+ */
+export const WOOD_LIGHT_MAX_LOTS = 60;
+
+async function loadWoodSurfaces(assetBase) {
+  const here = new URL(WOOD_LIBRARY, assetBase);
+  const res = await fetch(new URL('material.json', here), { cache: 'no-cache' });
+  if (!res.ok) throw new Error(`${res.status} — ${new URL('material.json', here)}`);
+  const doc = await res.json();
+  const [W, H] = doc.web_resolution_px ?? doc.resolution_px;
+  const loader = new THREE.TextureLoader();
+  const sheet = async (k, srgb) => {
+    const url = new URL(doc.web[k], here).href;
+    const tex = await loadSheet(ktx2Beside(url), url, loader, { srgb });
+    tex.wrapS = THREE.ClampToEdgeWrapping;
+    tex.wrapT = THREE.ClampToEdgeWrapping;
+    tex.colorSpace = srgb ? THREE.SRGBColorSpace : THREE.NoColorSpace;
+    tex.anisotropy = 8;
+    return tex;
+  };
+  const [map, normalMap, orm] = await Promise.all([
+    sheet('basecolor', true), sheet('normal_gl', false), sheet('orm', false),
+  ]);
+  // Image rows run down and uv v runs up (the KTX2 is written bottom row first to match
+  // the flipped image, tools/ktx2_sheets.py ROWS), so a cell's top edge is its v1.
+  const rect = (name) => {
+    const [x, y, w, h] = doc.cells[name];
+    return { u0: x / W, u1: (x + w) / W, v0: 1 - (y + h) / H, v1: 1 - y / H };
+  };
+  return {
+    map, normalMap, orm,
+    meanRough: doc.mean_roughness ?? 0.9,
+    rects: {
+      pbr: true,
+      end: [rect('rick_ends_a'), rect('rick_ends_b')],
+      sides: rect('rick_sides'),
+      round: rect('round_end'),
+      bark: rect('log_bark'),
+      split: rect('split_face'),
+    },
+    dispose() { map.dispose(); normalMap.dispose(); orm.dispose(); },
+  };
+}
+
+/**
+ * `pushBox` for a stick, stake, skid or slab in the wood atlas (T-3474): the same box and
+ * faces, each face a window of its cell — the long faces of `cells.long`, the two the
+ * grain runs into of `cells.end` — and no board-face grain (the woodpile mesh has none).
+ * Its own function because `pushBox` is the wagons' too, and theirs is held to its bytes
+ * (data/transport/studies/farm-box-protected.json).
+ */
+const BOX_SIGNS = [[-1, -1, -1], [1, -1, -1], [1, 1, -1], [-1, 1, -1],
+  [-1, -1, 1], [1, -1, 1], [1, 1, 1], [-1, 1, 1]];
+function pushWoodBox(buf, cx, cy, cz, ux, uz, halfLen, halfW, halfH, level, cells, open = false) {
+  const vx = -uz;
+  const vz = ux;
+  const ext = [halfLen, halfW, halfH];
+  const p = BOX_SIGNS.map(([a, b, c]) => [
+    cx + ux * a * halfLen + vx * b * halfW, cy + c * halfH, cz + uz * a * halfLen + vz * b * halfW]);
+  const faces = [
+    [[1, 5, 6], [1, 6, 2], [ux, 0, uz], 0],
+    [[4, 0, 3], [4, 3, 7], [-ux, 0, -uz], 0],
+    [[3, 2, 6], [3, 6, 7], [vx, 0, vz], 1],
+    [[0, 4, 5], [0, 5, 1], [-vx, 0, -vz], 1],
+    [[4, 7, 6], [4, 6, 5], [0, 1, 0], 2],
+    [[0, 1, 2], [0, 2, 3], [0, -1, 0], 2],
+  ];
+  const along = ext[0] >= ext[1] && ext[0] >= ext[2] ? 0 : (ext[1] >= ext[2] ? 1 : 2);
+  faces.forEach(([t1, t2, n, axis], fi) => {
+    if (open && fi === 5) return;
+    const others = [0, 1, 2].filter((k) => k !== axis);
+    const sAx = others.includes(along) ? along : others[0];
+    const tAx = others[0] === sAx ? others[1] : others[0];
+    const win = windowAt(axis === along ? cells.end : cells.long,
+      (2 * ext[sAx]) / WOOD_CELL_M, (2 * ext[tAx]) / WOOD_CELL_M, cells.rng);
+    for (const t of [t1, t2]) {
+      for (const i of t) {
+        emitV(buf, p[i], n, level, win((BOX_SIGNS[i][sAx] + 1) / 2, (BOX_SIGNS[i][tAx] + 1) / 2), null, 1);
+      }
+    }
+  });
+}
+
+/** A wood builder's box: in the atlas while `buf.boxCells` is set, else `pushBox`'s own. */
+function woodBox(buf, cx, cy, cz, ux, uz, halfLen, halfW, halfH, level, markRect = null, open = false) {
+  if (buf.boxCells) {
+    pushWoodBox(buf, cx, cy, cz, ux, uz, halfLen, halfW, halfH, level, buf.boxCells, open);
+  } else {
+    pushBox(buf, cx, cy, cz, ux, uz, halfLen, halfW, halfH, level, markRect, open);
+  }
+}
+
+/** The wood's material: white, the colour off the atlas and the vertex tone. */
+function woodMaterial(wood) {
+  const mat = new THREE.MeshStandardMaterial({
+    color: 0xffffff, vertexColors: true, roughness: 1, metalness: 0.0,
+    map: wood.map, normalMap: wood.normalMap, roughnessMap: wood.orm, aoMap: wood.orm,
+  });
+  // The atlas bakes a little of its occlusion into the colour already, as a photograph
+  // shows it; the ORM's own R adds the rest in the ambient light only.
+  mat.aoMapIntensity = 0.7;
+  mat.name = 'yard-woodpile-wood';
+  return mat;
+}
+
+/**
+ * A window of `rect` for a face `su` x `sv` cells across, with the four uvs for the
+ * corners at (s, t) in {0, 1}² — for the faces `cellWindow`'s corner order does not fit.
+ */
+function windowAt(rect, su, sv, rng) {
+  const fu = Math.min(1, su);
+  const fv = Math.min(1, sv);
+  const u0 = (1 - fu) * rng();
+  const v0 = (1 - fv) * rng();
+  return (s, t) => [rect.u0 + (u0 + s * fu) * (rect.u1 - rect.u0),
+    rect.v0 + (v0 + t * fv) * (rect.v1 - rect.v0)];
+}
+
+/**
  * A quad, a → b → c → d round its edge, with uvs from a cell window. The winding is
  * put right against the normal here, so a caller lists corners in whatever order the
  * face is easiest to think about.
@@ -2628,10 +2770,38 @@ function pushRound(buf, c, axis, len, r, sides, level, rng, endRect, capLow = tr
   const h = len / 2;
   const tint = buf.tint;
   buf.tint = buf.bark;
+  // T-3474: in the wood atlas the bark wraps the round, its fissures along the axis — a
+  // log longer than a cell stretches its window along the grain, where bark is long anyway.
+  const bark = buf.wood?.pbr
+    ? windowAt(buf.wood.bark, len / WOOD_CELL_M, (2 * Math.PI * r) / WOOD_CELL_M, rng) : null;
   for (let i = 0; i < sides; i += 1) {
     const k = ((i + 0.5) / sides) * Math.PI * 2;
     const n = [rx * Math.cos(k) + sx * Math.sin(k), ry * Math.cos(k) + sy * Math.sin(k),
       rz * Math.cos(k) + sz * Math.sin(k)];
+    if (bark) {
+      // smooth-shaded: each corner takes the round's own radial normal, so a log reads
+      // as a log and not as a seven-sided beam
+      const nv = (j) => {
+        const kk = (j / sides) * Math.PI * 2;
+        return [rx * Math.cos(kk) + sx * Math.sin(kk), ry * Math.cos(kk) + sy * Math.sin(kk),
+          rz * Math.cos(kk) + sz * Math.sin(kk)];
+      };
+      const A = at(-h, i); const B = at(-h, i + 1); const C = at(h, i + 1); const D = at(h, i);
+      const uA = bark(0, i / sides); const uB = bark(0, (i + 1) / sides);
+      const uC = bark(1, (i + 1) / sides); const uD = bark(1, i / sides);
+      const e1 = [B[0] - A[0], B[1] - A[1], B[2] - A[2]];
+      const e2 = [C[0] - A[0], C[1] - A[1], C[2] - A[2]];
+      const out = dot3(cross3(e1, e2), n) >= 0;
+      const NA = nv(i); const NB = nv(i + 1);
+      if (out) {
+        tri(buf, A, B, C, [NA, NB, NB], level, [uA, uB, uC]);
+        tri(buf, A, C, D, [NA, NB, NA], level, [uA, uC, uD]);
+      } else {
+        tri(buf, A, C, B, [NA, NB, NB], level, [uA, uC, uB]);
+        tri(buf, A, D, C, [NA, NA, NB], level, [uA, uD, uC]);
+      }
+      continue;
+    }
     pushQuad(buf, at(-h, i), at(-h, i + 1), at(h, i + 1), at(h, i), n, level);
   }
   buf.tint = buf.white;
@@ -2692,6 +2862,12 @@ function pushRick(buf, x, z, base, wx, wz, L, D, H, level, rng, wood) {
   const across = Math.max(1, Math.ceil(D / WOOD_CELL_M));
   const dw = D / across;
   buf.tint = buf.white;
+  if (wood?.pbr) {
+    // T-3474: each rick its own light and age — a little darker, warmer or greyer
+    const k = 0.86 + rng() * 0.2;
+    const g = rng() * 0.06;
+    buf.tint = [k, k * (1 - g * 0.3), k * (1 - g)];
+  }
   for (let i = 0; i < cols; i += 1) {
     const a0 = -L / 2 + i * cw;
     const a1 = a0 + cw;
@@ -2745,14 +2921,17 @@ function pushRick(buf, x, z, base, wx, wz, L, D, H, level, rng, wood) {
   }
   // A stake driven at each end, on the outward side, standing a hand over the wood.
   buf.tint = buf.bark;
+  const keepCells = buf.boxCells;
+  buf.boxCells = wood?.pbr ? { long: wood.bark, end: wood.round, rng } : null;
   for (const [al, top] of [[-L / 2 - STAKE_M / 2, tops[0]], [L / 2 + STAKE_M / 2, tops[cols - 1]]]) {
     const ac = D / 2 - STAKE_M / 2;
     const h = top - base + 0.12 + 0.15;
-    pushBox(buf, x + wx * al + vx * ac, base - 0.15 + h / 2, z + wz * al + vz * ac,
+    woodBox(buf, x + wx * al + vx * ac, base - 0.15 + h / 2, z + wz * al + vz * ac,
       wx, wz, STAKE_M / 2, STAKE_M / 2, h / 2, level, null, true);
   }
   // And a stick or two thrown across the top, not yet racked.
   buf.tint = buf.split;
+  if (wood?.pbr) buf.boxCells = { long: wood.split, end: wood.round, rng };
   const loose = rng() < 0.45 ? 1 : 0;
   for (let k = 0; k < loose; k += 1) {
     const i = Math.floor(rng() * cols);
@@ -2760,9 +2939,10 @@ function pushRick(buf, x, z, base, wx, wz, L, D, H, level, rng, wood) {
     const yaw = (rng() - 0.5) * 0.5;
     const ux = vx * Math.cos(yaw) + wx * Math.sin(yaw);
     const uz = vz * Math.cos(yaw) + wz * Math.sin(yaw);
-    pushBox(buf, x + wx * al, tops[i] + 0.05, z + wz * al, ux, uz,
+    woodBox(buf, x + wx * al, tops[i] + 0.05, z + wz * al, ux, uz,
       Math.min(D, 0.61) / 2, 0.06, 0.05, level, null, true);
   }
+  buf.boxCells = keepCells;
   buf.tint = tint;
 }
 
@@ -2785,6 +2965,9 @@ function buildWood(buf, item, form, terrain, level, problems, who) {
   const EN = (al, ac) => [at[0] + wx * al + vx * ac, at[1] - (wz * al + vz * ac)];
   const rng = woodRng(item.seed ?? 1);
   const wood = buf.wood;
+  // T-3474: the atlas cell a box's long faces take, or null where the cells are painted
+  const cellsFor = (long) => (wood?.pbr ? { long: wood[long], end: wood.round, rng } : null);
+  const keepCells = buf.boxCells;
   const none = () => {
     problems.push(`yard: ${who} has no ground under its ${item.kind} — it is not drawn`);
     return false;
@@ -2810,10 +2993,11 @@ function buildWood(buf, item, form, terrain, level, problems, who) {
     if (base === null) return none();
     const tint = buf.tint;
     buf.tint = buf.bark;
+    buf.boxCells = cellsFor('bark');
     // two cross skids the logs were rolled onto
     for (const s of [-1, 1]) {
       const al = s * len * 0.3;
-      pushBox(buf, x + wx * al, base + 0.06, z + wz * al, vx, vz, depth / 2, 0.07, 0.06, level,
+      woodBox(buf, x + wx * al, base + 0.06, z + wz * al, vx, vz, depth / 2, 0.07, 0.06, level,
         null, true);
     }
     const lower = Math.max(1, Math.ceil(n * 0.6));
@@ -2829,6 +3013,7 @@ function buildWood(buf, item, form, terrain, level, problems, who) {
       pushRound(buf, [x + wx * al + vx * ac, y, z + wz * al + vz * ac], [wx, 0, wz], l, r,
         LOG_SIDES, level, rng, wood?.round ?? null);
     }
+    buf.boxCells = keepCells;
     buf.tint = tint;
     return true;
   }
@@ -2848,11 +3033,14 @@ function buildWood(buf, item, form, terrain, level, problems, who) {
       // a slab lies on whatever is under its middle already
       const under = laid.filter((p) => Math.hypot(p[0] - al, p[1] - ac) < 0.35).length;
       laid.push([al, ac]);
-      buf.tint = rng() < 0.5 ? buf.bark : buf.split;
-      pushBox(buf, x + wx * al + vx * ac, base + st / 2 + under * st, z + wz * al + vz * ac,
+      const barkUp = rng() < 0.5;
+      buf.tint = barkUp ? buf.bark : buf.split;
+      buf.boxCells = cellsFor(barkUp ? 'bark' : 'split');
+      woodBox(buf, x + wx * al + vx * ac, base + st / 2 + under * st, z + wz * al + vz * ac,
         Math.cos(yaw), Math.sin(yaw), (sl / 2) * (0.75 + rng() * 0.25), sw / 2, st / 2, level,
         null, true);
     }
+    buf.boxCells = keepCells;
     buf.tint = tint;
     return true;
   }
@@ -2866,6 +3054,7 @@ function buildWood(buf, item, form, terrain, level, problems, who) {
     // the split sticks lying where they fell, and on some a stick stood on the block
     const tint = buf.tint;
     buf.tint = buf.split;
+    buf.boxCells = cellsFor('split');
     const k = Math.max(0, item.billets ?? 3);
     for (let i = 0; i < k; i += 1) {
       const a = rng() * Math.PI * 2;
@@ -2875,12 +3064,13 @@ function buildWood(buf, item, form, terrain, level, problems, who) {
       const g = groundAt(terrain, ex, en);
       if (g === null) continue;
       const yaw = rng() * Math.PI * 2;
-      pushBox(buf, ex, g + 0.04, -en, Math.cos(yaw), Math.sin(yaw), 0.3, 0.05, 0.04, level,
+      woodBox(buf, ex, g + 0.04, -en, Math.cos(yaw), Math.sin(yaw), 0.3, 0.05, 0.04, level,
         null, true);
     }
     if (rng() < 0.5) {
-      pushBox(buf, x, base + bh + 0.15, z, wx, wz, 0.05, 0.05, 0.15, level, null, true);
+      woodBox(buf, x, base + bh + 0.15, z, wx, wz, 0.05, 0.05, 0.15, level, null, true);
     }
+    buf.boxCells = keepCells;
     buf.tint = tint;
     return true;
   }
@@ -3038,6 +3228,9 @@ export async function createYardGoods({
   lowSpec = false,
   /** Authored near replacements keep their exact old vehicle as a light/far/load-failure fallback. */
   replacementIds = new Set(),
+  /** T-3458: the folder under data/ the manifest and its records are read from. A scene whose
+   *  yard is not 1835's names its own (`yard_dir` in data/scenes/1812.json: `yard/1812/`). */
+  dir = 'yard/',
 } = {}) {
   const group = new THREE.Group();
   group.name = 'yard';
@@ -3054,7 +3247,7 @@ export async function createYardGoods({
     census: { records: 0, frontages: 0, objects: 0, barrels: 0, crates: 0, wagons: 0,
       byKind: {}, benches: 0, sheds: 0, outbuildings: 0, byOutbuilding: {}, refused: 0, wagonsRefused: 0, chunks: 0,
       marked: 0, markCells: 0, lots: 0, piles: 0, orphaned: 0, byMaterial: {},
-      woodpiles: 0, woodByKind: {}, woodChunks: 0, relief: null },
+      woodpiles: 0, woodByKind: {}, woodChunks: 0, woodSurface: null, relief: null },
     pickAt: () => null,
     dispose: () => {},
     setReplacementVisible: () => {},
@@ -3066,7 +3259,7 @@ export async function createYardGoods({
   }
   let index;
   try {
-    index = await getJSON(new URL('yard/index.json', dataBase));
+    index = await getJSON(new URL(`${dir}index.json`, dataBase));
   } catch (err) {
     // Degrade to NOTHING drawn plus a recorded problem, never to an invented
     // barrel: the same contract the enclosure, signage and vegetation layers keep.
@@ -3080,7 +3273,7 @@ export async function createYardGoods({
   const loaded = await Promise.all(wanted.map(async (y) => {
     if (!y.file) return [y.id, null, 'the manifest gave no file'];
     try {
-      return [y.id, await getJSON(new URL(`yard/${y.file}`, dataBase)), null];
+      return [y.id, await getJSON(new URL(`${dir}${y.file}`, dataBase)), null];
     } catch (err) { return [y.id, null, err.message]; }
   }));
 
@@ -3122,15 +3315,28 @@ export async function createYardGoods({
   }
   // T-1959. The woodpiles' sticks are painted on cells of this same atlas, so they
   // cost the layer no material and no texture it did not already have.
-  const hasWood = loaded.some(([, r]) => (r?.lots ?? []).some(
-    (lot) => (lot.items ?? []).some((it) => WOOD_KINDS.has(it.kind))));
-  if (hasWood) for (const [key, cell] of woodCells()) markCells.set(key, cell);
+  const woodLots = loaded.reduce((n, [, r]) => n + (r?.lots ?? []).filter(
+    (lot) => (lot.items ?? []).some((it) => WOOD_KINDS.has(it.kind))).length, 0);
+  const hasWood = woodLots > 0;
+  // T-3474: the wood atlas, where the woodpiles will be drawn — every tier but `light`,
+  // and `light` too where they are few enough to draw there (WOOD_LIGHT_MAX_LOTS).
+  const woodLight = woodLots <= WOOD_LIGHT_MAX_LOTS;
+  let woodSheets = null;
+  if (hasWood && (!lowSpec || woodLight)) {
+    try {
+      woodSheets = await loadWoodSurfaces(resolveBases().assetBase);
+    } catch (err) {
+      problems.push(`yard: the wood atlas did not load (${err.message}) — the woodpiles are painted`);
+    }
+  }
+  out.census.woodSurface = woodSheets ? 'pbr' : (hasWood ? 'painted' : null);
+  if (hasWood && !woodSheets) for (const [key, cell] of woodCells()) markCells.set(key, cell);
   const atlas = markCells.size ? buildMarkAtlas(markCells, lowSpec) : null;
-  const woodRects = atlas && hasWood ? {
+  const woodRects = woodSheets ? woodSheets.rects : (atlas && hasWood ? {
     end: ENDGRAIN.map((_, i) => atlas.rects.get(`wood|end|${i}`)).filter(Boolean),
     sides: atlas.rects.get('wood|sides') ?? null,
     round: atlas.rects.get('wood|round') ?? null,
-  } : null;
+  } : null);
   if (markCells.size && !atlas) {
     // No document, or a context refused: the goods stand exactly as T-0040
     // shipped them, unmarked. A degradation with a name, not a silent one.
@@ -3236,7 +3442,14 @@ export async function createYardGoods({
         // board-face grain over that.
         buf: { pos: [], nrm: [], conf: [], col: [], uv: [], uv1: [], ...tones,
           tint: tones.timber, blank: atlas ? atlas.blank : [0, 0], wood: woodRects,
-          grainOn: false },
+          grainOn: false,
+          // T-3474: in the wood atlas every colour is the atlas's, so the tones are white
+          // and anything drawn with no window samples the middle of the split face.
+          ...(woodSheets ? {
+            white: [1, 1, 1], bark: [1, 1, 1], split: [1, 1, 1],
+            blank: [(woodRects.split.u0 + woodRects.split.u1) / 2,
+              (woodRects.split.v0 + woodRects.split.v1) / 2],
+          } : {}) },
         spans: [],
         lotItemSpans: [],
         objectSpans: [],
@@ -3315,10 +3528,17 @@ export async function createYardGoods({
       // building material: it goes in the woodpile mesh and is counted on its own, so
       // `lots`, `piles` and `byMaterial` still mean what Ordinance 9's half says.
       const woodpile = (lot.items ?? []).some((it) => WOOD_KINDS.has(it.kind));
-      const chunk = woodpile ? woodChunkAt() : chunkAt(anchor[0], anchor[1]);
+      // T-3474: in a woodpile lot only the wood goes in the woodpile mesh. A cask or a
+      // case standing in the same yard (1812's water casks, the factory's trade goods)
+      // is timber goods and goes in the goods' chunk, where it wears the board face's
+      // grain the town's other casks wear; both chunks bank the lot's span.
+      const goodsChunk = chunkAt(anchor[0], anchor[1]);
+      const chunkOf = (item) => (woodpile && WOOD_KINDS.has(item.kind) ? woodChunkAt() : goodsChunk);
+      const froms = new Map();
       let drew = 0;
-      const from = chunk.buf.pos.length / 9;
       for (const item of lot.items ?? []) {
+        const chunk = chunkOf(item);
+        if (!froms.has(chunk)) froms.set(chunk, chunk.buf.pos.length / 9);
         // T-1961: a cooper's or a packer's casks stand on a lot as a rank, so a
         // lot can hold barrels as well as piles; the frontage's own builder draws
         // them, unmarked. A woodpile's kinds (T-1959) go to `buildStack` too, which
@@ -3340,8 +3560,11 @@ export async function createYardGoods({
         if (!woodpile) out.census.piles += 1;
       }
       if (!drew) continue;
-      chunk.spans.push({ id: lot.structure_id, from,
-        to: chunk.buf.pos.length / 9 });
+      for (const [chunk, from] of froms) {
+        if (chunk.buf.pos.length / 9 > from) {
+          chunk.spans.push({ id: lot.structure_id, from, to: chunk.buf.pos.length / 9 });
+        }
+      }
       if (woodpile) {
         out.woodpiles.push(lot);
         out.census.woodpiles += 1;
@@ -3478,6 +3701,18 @@ export async function createYardGoods({
    */
   const boxes = createBoxTable();
   patchBoxTable(mat, boxes);
+  /**
+   * T-3474: the woodpiles' own material where the wood atlas loaded — the same grade
+   * lane, its own program key (the T-0053 trap above, again), and the same box table,
+   * because the woodpile chunk is the one that is boxed.
+   */
+  let woodMat = null;
+  if (woodSheets) {
+    woodMat = woodMaterial(woodSheets);
+    confidence?.patch(woodMat, { packed: COLOR_LANE_CONFIDENCE });
+    woodMat.customProgramCacheKey = () => 'chicago4d-yard-woodpile-wood';
+    patchBoxTable(woodMat, boxes);
+  }
 
   const meshes = [];
   const replacementMeshes = new Map();
@@ -3502,8 +3737,9 @@ export async function createYardGoods({
     // the grain's `uv1` is metres and stays float32.
     geo.setAttribute('normal', compactNormals(chunk.buf.nrm));
     setColorsAndConfidence(geo, chunk.buf.col, chunk.buf.conf);
-    if (atlas) geo.setAttribute('uv', compactUnitUvs(chunk.buf.uv));
-    if (!grain.problem) {
+    const inWood = !!woodMat && woodChunks.has(chunk.key);
+    if (atlas || inWood) geo.setAttribute('uv', compactUnitUvs(chunk.buf.uv));
+    if (!grain.problem && !inWood) {
       geo.setAttribute('uv1', new THREE.Float32BufferAttribute(chunk.buf.uv1, 2));
     }
     // The whole point of the chunk: its own bounding sphere, around its own
@@ -3514,7 +3750,7 @@ export async function createYardGoods({
     // page (T-2063 — what got the 1835 tab killed on an iPhone).
     chunk.buf.pos = chunk.buf.nrm = chunk.buf.conf = chunk.buf.col = chunk.buf.uv = null;
     chunk.buf.uv1 = null;
-    const mesh = new THREE.Mesh(geo, mat);
+    const mesh = new THREE.Mesh(geo, inWood ? woodMat : mat);
     // Int16 x 4 positions relative to the chunk, its box in the mesh's matrix,
     // where that keeps the millimetre (T-2687, compact-streams.js); boxed piece
     // by piece on the material's table where it does not (T-2701).
@@ -3537,6 +3773,8 @@ export async function createYardGoods({
     meshes.push(mesh);
     if (chunk.fallbackId) replacementMeshes.set(chunk.fallbackId, mesh);
   }
+  // T-3474: few enough piles to draw at `light` too (main.js reads it beside `woodpiles`)
+  woodGroup.userData.woodpilesLight = woodLight;
   if (woodGroup.children.length) group.add(woodGroup);
   out.census.woodChunks = woodGroup.children.length;
   out.census.chunks = meshes.length - out.census.woodChunks;
@@ -3566,6 +3804,8 @@ export async function createYardGoods({
     for (const m of meshes) m.geometry.dispose();
     atlas?.texture?.dispose();
     mat.dispose();
+    woodMat?.dispose();
+    woodSheets?.dispose();
     grain.dispose?.();
     for (const t of grainMaps) t.dispose();
   };

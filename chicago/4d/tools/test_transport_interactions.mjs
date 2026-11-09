@@ -58,6 +58,13 @@ assert.equal(motion, 'stopped');
 assert.equal(handle.thing.state, 'stopped');
 assert.equal(calls.length, 2);
 assert.equal(button.words.textContent, 'Step back to let the wagon pass');
+// T-3475: without the scene's half, Step back says why rather than silently doing nothing.
+{
+  const res = key.press();
+  assert.equal(res.ok, false); assert.equal(res.refused, true);
+  assert.equal(said.at(-1), 'No room to step aside here');
+  assert.equal(calls.length, 2);
+}
 clear = true; key.refresh();
 assert.equal(button.words.textContent, 'Continue journey');
 
@@ -86,6 +93,41 @@ const replacement = registerTransportInteraction(interactions, actor);
 assert.equal(interactions.get(handle.thing.id), replacement.thing, 'a released actor can be remounted');
 replacement.dispose();
 key.dispose();
+
+// T-3475 (Kevin: "the step back and let the wagon pass interaction did not work"): the
+// press walks the visitor to the scene's clear stand, then the team goes on.
+{
+  const placed = [], planned = [], heard = [];
+  let me = { e: 1, n: 0 }, room = true;
+  motion = 'stopped'; clear = false; at = [3, 0]; visible = true; calls.length = 0;
+  const engine = createInteractions();
+  const giveRoom = {
+    plan(a) { planned.push(a.id); return room ? { from: { ...me }, to: { e: 1, n: 3 } } : null; },
+    place(e, n) { placed.push([e, n]); me = { e, n }; if (n >= 3) clear = true; },
+  };
+  const h = registerTransportInteraction(engine, actor, { giveRoom, vehicle: 'carriage' });
+  const k = createInteractKey({ interactions: engine, keyEl: new Key(), where: () => ({ ...me, bearing: 90, flying: false }),
+    say: text => heard.push(text) });
+  k.refresh();
+  assert.equal(h.thing.actions.stopped[0].label, 'Step back to let the carriage pass');
+  room = false;
+  assert.equal(k.press().refused, true, 'no clear stand: nothing moves');
+  assert.deepEqual(placed, []); assert.equal(heard.at(-1), 'No room to step aside here');
+  room = true;
+  assert.equal(k.press().ok, true);
+  assert.equal(motion, 'stopped', 'the team waits while the visitor steps aside');
+  for (let i = 0; i < 10; i++) engine.update(.1);
+  assert(placed.length >= 2, 'the visitor walks, not jumps');
+  assert.deepEqual(placed.at(-1), [1, 3], 'and ends on the clear stand');
+  for (let i = 1; i < placed.length; i++) assert(placed[i][1] >= placed[i - 1][1], 'steadily');
+  assert.equal(motion, 'moving', 'then the carriage goes on');
+  assert.deepEqual(calls, [['resume']]);
+  assert.equal(heard.at(-1), 'The carriage goes on');
+  assert.equal(h.thing.running, null);
+  assert.equal(h.thing.state, 'moving');
+  assert.throws(() => registerTransportInteraction(createInteractions(), actor, { giveRoom: { plan() {} } }));
+  k.dispose(); h.dispose();
+}
 console.log('transport interactions: keyboard/touch stop-resume, moving reach, clearance, hidden/disposed and input guards PASS');
 
 // A cold Find/Go to reads the real configured route/seat without importing a GLB.

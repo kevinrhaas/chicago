@@ -1,0 +1,62 @@
+{
+ "format": "c4d-doors-scene/1",
+ "ticket": "T-3516",
+ "generated_by": "tools/derive_doors_scene.py",
+ "note": "Where each 1904 building a drawn person's day goes into is entered, and where one who answers stands. Asking at a door, going in and out: renderers/web/js/human-days.js.",
+ "structures": [
+  {
+   "structure": "glessner_house",
+   "name": "John J. Glessner House",
+   "placement": {
+    "local_e": 1338.69,
+    "local_n": -3240.42,
+    "rotation_deg": -0.669
+   },
+   "doors": [
+    {
+     "id": "glessner_house:service_stair",
+     "leaf": {
+      "local_e": 1354.15,
+      "local_n": -3230.21
+     },
+     "step": {
+      "local_e": 1354.16,
+      "local_n": -3230.91
+     },
+     "outward_deg": 179.3,
+     "width_m": 1.19,
+     "passage": true,
+     "reconstructed": "up the north court service stair and its landing to the door (service entrance into the courtyard, with stone threshold), which opens and shuts as they pass (house-doors.js passages, T-3524); the line walked is the flight's middle"
+    },
+    {
+     "id": "glessner_house:north_entry",
+     "leaf": {
+      "local_e": 1355.43,
+      "local_n": -3218.58
+     },
+     "step": {
+      "local_e": 1355.4,
+      "local_n": -3215.96
+     },
+     "outward_deg": 359.3,
+     "width_m": 3.66,
+     "passage": true,
+     "reconstructed": "up the alcove's front steps and the stair inside it to its side door, which opens and shuts as they pass (house-doors.js passages, T-3524); the line walked is the steps' middle"
+    },
+    {
+     "id": "glessner_house:stable",
+     "leaf": {
+      "local_e": 1344.61,
+      "local_n": -3217.79
+     },
+     "step": {
+      "local_e": 1344.61,
+      "local_n": -3217.09
+     },
+     "outward_deg": 359.3,
+     "width_m": 3.69
+    }
+   ]
+  }
+ ]
+}

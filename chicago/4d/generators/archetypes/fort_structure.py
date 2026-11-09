@@ -44,6 +44,7 @@ from common.mesh import MeshBuilder, ROOF_RGBA, simple_material  # noqa: E402
 from archetypes.fort_structure_params import (
     BARREL_EAVE_M,  # noqa: E402
     CUPOLA_CAP_PITCH_DEG, CUPOLA_EAVE_M, CUPOLA_HEIGHT_M, CUPOLA_SEAT_M,
+    CUPOLA_PORT_W_M, CUPOLA_PORT_H_M, CUPOLA_PORT_IN_M,
     CUPOLA_SIDE_M, FortStructureParams, tower_opening_layout, wall_openings,
 )
 
@@ -961,13 +962,81 @@ def _cupola(b: MeshBuilder, p: FortStructureParams, ridge_z: float,
     # whichever of the two slopes governs there is the one that has fallen further.
     fall = rise * max(half / half_w, half / half_d)
     base_z = ridge_z - fall - CUPOLA_SEAT_M
-    eave_z = base_z + CUPOLA_HEIGHT_M
-    # Plain boarded sides, in the building's own wall fabric. The bottom face is
-    # inside the roof cone and is skipped; the top is covered by the cap above it.
-    b.add_box(cx - half, cy - half, base_z, cx + half, cy + half, eave_z,
-              conf, M_WALL, skip=("bottom",))
+    height = CUPOLA_HEIGHT_M if p.cupola_height_m is None else float(p.cupola_height_m)
+    eave_z = base_z + height
+    if p.cupola_construction == "log":
+        # T-3041: the body laid in the blockhouse's own coursed, notched log, its
+        # course grid starting at the body's seat. The top is closed by a plain lid
+        # under the cap so no course end looks into the roof space.
+        _log_wall(b, b.name + ":cupola", cx - half, cy - half, cx + half, cy + half,
+                  base_z, eave_z, conf)
+        b.add_box(cx - half, cy - half, eave_z - 0.02, cx + half, cy + half, eave_z,
+                  conf, M_WALL, skip=("bottom",))
+    else:
+        # Plain boarded sides, in the building's own wall fabric. The bottom face is
+        # inside the roof cone and is skipped; the top is covered by the cap above it.
+        b.add_box(cx - half, cy - half, base_z, cx + half, cy + half, eave_z,
+                  conf, M_WALL, skip=("bottom",))
     _hip_roof(b, cx - half, cy - half, cx + half, cy + half, eave_z,
               CUPOLA_CAP_PITCH_DEG, conf, pyramid=True, overhang=CUPOLA_EAVE_M)
+    if p.cupola_ports:
+        _cupola_ports(b, cx, cy, half, eave_z, p.conf("cupola_ports", "inferred"))
+
+
+#: How steeply a lookout port's little hood falls back to the cap (RECONSTRUCTED).
+PORT_HOOD_PITCH_DEG = 14.0
+
+
+def _cupola_ports(b: MeshBuilder, cx: float, cy: float, half: float, eave_z: float,
+                  conf: float) -> None:
+    """A small lookout port in each of the cupola cap's four faces (T-3041).
+
+    Currey's 1912 bird's-eye draws a dark opening in each visible face of both
+    first-fort cupola caps. Each is built as the smallest thing that reads as an
+    opening in a sloping cap: a vertical framed face standing up out of the slope,
+    a dark opening in it, two triangular cheeks back to the slope, and a shed hood
+    falling gently back until it meets the cap. All four faces get one (the drawing
+    shows two faces; the other two are the same building turned). Sizes are
+    fort_structure_params' CUPOLA_PORT_* constants, RECONSTRUCTED.
+    """
+    ov = CUPOLA_EAVE_M
+    t = math.tan(math.radians(CUPOLA_CAP_PITCH_DEG))
+    reach = half + ov                       # centre to the cap's eave line
+    cap_eave = eave_z - ov * t              # `_hip_roof` drops its eave by this
+
+    def plane_z(d: float) -> float:         # the cap surface, d in from its eave
+        return cap_eave + d * t
+
+    hw = CUPOLA_PORT_W_M / 2.0
+    d_f = CUPOLA_PORT_IN_M
+    z_b = plane_z(d_f)
+    z_t = z_b + CUPOLA_PORT_H_M
+    th = math.tan(math.radians(PORT_HOOD_PITCH_DEG))
+    # The hood leaves the face's head and falls back at its own pitch until the
+    # (steeper) cap rises to meet it.
+    d_h = (z_t + d_f * th - cap_eave) / (t + th)
+    z_h = plane_z(d_h)
+    lip = 0.05
+    frames = [((0.0, -1.0), (1.0, 0.0)), ((1.0, 0.0), (0.0, 1.0)),
+              ((0.0, 1.0), (-1.0, 0.0)), ((-1.0, 0.0), (0.0, -1.0))]
+    for (nx, ny), (tx, ty) in frames:
+        def P(u, d, z):
+            r = reach - d
+            return (cx + nx * r + tx * u, cy + ny * r + ty * u, z)
+        # the framed face, and the dark opening proud of it by a centimetre
+        b.add_poly([P(-hw, d_f, z_b), P(hw, d_f, z_b), P(hw, d_f, z_t), P(-hw, d_f, z_t)],
+                   conf, M_TRIM)
+        i = 0.045
+        b.add_poly([P(-hw + i, d_f - 0.01, z_b + i), P(hw - i, d_f - 0.01, z_b + i),
+                    P(hw - i, d_f - 0.01, z_t - i), P(-hw + i, d_f - 0.01, z_t - i)],
+                   conf, M_DARK)
+        # cheeks, from the face back to where the hood meets the cap
+        for u in (-hw, hw):
+            b.add_poly([P(u, d_f, z_b), P(u, d_h, z_h), P(u, d_f, z_t)], conf, M_WALL)
+        # the hood, lipped forward and to each side
+        z_lip = z_t - lip * th
+        b.add_poly([P(-hw - lip, d_f - lip, z_lip), P(hw + lip, d_f - lip, z_lip),
+                    P(hw + lip, d_h, z_h), P(-hw - lip, d_h, z_h)], conf, M_ROOF)
 
 
 # ------------------------------------------------------------ ground furniture

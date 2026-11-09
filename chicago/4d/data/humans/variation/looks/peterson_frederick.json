@@ -1,0 +1,49 @@
+{
+ "format": "chicago4d_human_looks_v1",
+ "ticket": "T-3491",
+ "person_id": "peterson_frederick",
+ "scene": "1812",
+ "generated_by": "docs/RESEARCH/people-1812-3491/looks.py",
+ "heritage": {
+  "origin": "Scandinavian, English/Welsh or Scottish (ambiguous); forename Frederick hints German/Scandinavian",
+  "family": "gaelic",
+  "source_title": "Dictionary of American Family Names (Elsdon C. Smith 1956); The Surnames of Scotland (Black 1946) — as quoted on forebears.io",
+  "url": "https://forebears.io/surnames/peterson"
+ },
+ "complexion": {
+  "value": "fair",
+  "drawn": "fair",
+  "grade": "reconstructed"
+ },
+ "hair": {
+  "value": "black",
+  "drawn": "black",
+  "cut": "cropped_1812",
+  "facial": [],
+  "grade": "reconstructed"
+ },
+ "eyes": {
+  "value": "black",
+  "drawn": "dark_brown",
+  "grade": "reconstructed"
+ },
+ "stature": {
+  "inches": 69.9,
+  "grade": "reconstructed",
+  "basis": "Drawn from the stature of US Army recruits of 1815-20, 68.1 in on average (Sokoloff 1984), with the 2.5 in spread of the period's registers; no measure of him is known."
+ },
+ "height_scale": 1.0145,
+ "basis": "His complexion (fair), hair (black) and eyes (black) are drawn in the register's own words from what the Register of Enlistments wrote of 199 men of the 22nd US Infantry, 1812-14, with the lean we give a Scottish, Ulster or Irish name; his own entry has not been read. The short crop is our choice for a soldier of the time.",
+ "reference": {
+  "title": "Henry La Tourette de Groot",
+  "artist": "Samuel Lovett Waldo",
+  "date": "1825-30",
+  "page_url": "https://www.metmuseum.org/art/collection/search/13094",
+  "image": "humans/web/portraits/ref_1812_36_114.jpg",
+  "licence": "The Met Open Access, public domain",
+  "why": "A stand-in: a period face of like colouring (very dark brown/black, curly; fair with pink cheeks; dark brows), not his likeness."
+ },
+ "grade": "reconstructed",
+ "liberty": "L-1812-garrison-looks-3491",
+ "replaceable_by": "His entry in the Register of Enlistments (NARA M233), which gives his height, complexion, eyes and hair."
+}

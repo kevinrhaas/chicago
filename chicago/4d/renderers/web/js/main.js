@@ -84,7 +84,12 @@ import { createBlackbox, wasCut, summary as blackboxSummary, report as blackboxR
 import { createWharves } from './wharves.js';
 import { createWorkingBank } from './working-bank.js';
 import { createBoats } from './boats.js';
+import { createCrossings } from './crossings.js';
 import { mountHumans } from './humans.js';
+import { createHumanDuties } from './human-duties.js';
+import { createHumanDays, clearWayOf } from './human-days.js';
+import { createJauntHosts } from './jaunt-hosts.js';
+import { createHumanSpacing } from './human-spacing.js';
 import { createInteractions, createInteractKey } from './interact.js';
 import { createFollow } from './follow.js';
 import { createPeopleLook } from './people-look.js';
@@ -105,6 +110,7 @@ import { jobsState } from './jobs/pool.js';
 import { createStreetTrees } from './street-trees.js';
 import { createStreetFurniture } from './street-furniture.js';
 import { createFrontYards } from './front-yards.js';
+import { createBackYards } from './back-yards.js';
 import { createGardens } from './gardens.js';
 import { TIME_NAMES, isTimeValue, minutesOf } from './time-of-day.js';
 import { SEASONS, SEASON_TREE_MODE, SEASON_CROWN, FOLIAGE, seasonDate, applySeasonLook, patchSeason, patchFoliage }
@@ -2207,7 +2213,7 @@ async function boot() {
     layer.updateWorldMatrix(true, true);
     uploadLayerNow(renderer, scene3d, camera, layer, {
       hide: (o) => (want.crossStreetWalks === false && !!o.userData.crossStreet)
-        || (want.woodpiles === false && !!o.userData.woodpiles) || beyond(o),
+        || (want.woodpiles === false && !!o.userData.woodpiles && !o.userData.woodpilesLight) || beyond(o),
     });
   };
   // T-1154 — the ground's reach, set from the fog the world just made rather
@@ -2403,6 +2409,30 @@ async function boot() {
   });
   scene3d.add(streetFurniture.group);
   api.streetFurniture = streetFurniture;
+  // T-3488 — the house lots' back and side yards (data/back_yards/<scene>.json): the paved
+  // terraces by the rear doors, the walks to the coach houses and round to the front steps,
+  // the gangways, drying yards and kitchen gardens, as textured ground decals on the
+  // street library's maps (the walk and alley maps the street grid already holds are shared),
+  // and the back doors' leaves and stoops, each sill over its house's own bed. Its shrubs,
+  // trees, creeper and beds grow with the front yards' (below). Only a scene listing it.
+  const sharedPbr = new Map();
+  streetGrid.group.traverse((o) => {
+    const key = o.isMesh ? o.userData?.material : null;
+    const texture = key ? streetGrid.surfaces?.materials?.[key]?.texture : null;
+    if (texture && o.material?.map && !sharedPbr.has(texture)) {
+      sharedPbr.set(texture, { map: o.material.map, normalMap: o.material.normalMap ?? null, orm: o.material.roughnessMap ?? null });
+    }
+  });
+  const backYards = await createBackYards({
+    dataBase: layerBase('back_yards'), assetBase: bases.assetBase, sceneId: loaded.scene.id ?? YEAR, terrain,
+    confidence, problems: layerProblems('back_yards'), levelAt: streetGrid.offsetAt ?? null, ...detailOpts(),
+    lowSpec: coarse, season: seasonPref.season, sharedMaps: sharedPbr, checkpoint: bootCheckpoint,
+    bedOf: (id) => buildings.positionOf?.(id)?.y ?? null,
+    // A phone grows the kitchen rows only once they come into view; their arrays then go.
+    onGeometry: coarse ? (group) => releaseAfterUpload(group) : null,
+  });
+  scene3d.add(backYards.group);
+  api.backYards = backYards;
   // T-3203 — the house lots' front yards (data/front_yards/<scene>.json): a mown lawn to each
   // house, foundation shrubs along it, low beds, and ivy where a picture shows it; laid clear
   // of every stoop, walk, fence and door's way the houses' own models draw.
@@ -2412,6 +2442,8 @@ async function boot() {
     // T-3223: grown as the parkway elms are, on their leaf and bark atlases, in the Season.
     grownMaterials: streetTrees.materials ?? null, lowSpec: coarse, checkpoint: bootCheckpoint,
     mode: SEASON_TREE_MODE[seasonPref.season] ?? 'summer',
+    // T-3488: the back yards' shrubs, trees, creeper and beds, grown here with the front yards'.
+    back: backYards.doc ?? null,
   });
   scene3d.add(frontYards.group);
   api.frontYards = frontYards;
@@ -2648,6 +2680,8 @@ async function boot() {
     contextCity.setSeason?.(s);
     // T-3460: the kitchen garden's crops and its snow.
     gardens.setSeason?.(s);
+    // T-3488: the back yards' kitchen rows replanted for the day (their paving's snow is a uniform).
+    backYards.setSeason?.(s);
     await seasonPlants(s);
     await frontYards.setSeason?.(SEASON_TREE_MODE[s] ?? 'summer');
     return streetTrees.setMode(streetTreeMode(s, seasonState.treesShown));
@@ -2775,6 +2809,8 @@ async function boot() {
     dataBase: layerBase('yard_goods'), terrain, confidence, problems: layerProblems('yard_goods'), hostMissing,
     lowSpec: coarse,
     replacementIds: parkedTransport.replacementIds,
+    // T-3458: 1812 reads its own folder (the settlement's wood, casks and carts).
+    dir: loaded.scene.yard_dir ?? 'yard/',
   });
   scene3d.add(yard.group);
   settleOnGpu(yard.group);
@@ -2887,6 +2923,23 @@ async function boot() {
   scene3d.add(fortGates.group);
   for (const thing of fortGates.gates) interactions.add(thing);
   api.fortGates = fortGates;
+  // T-3510: the 1812 river has no bridge, so boats lie drawn up at its crossings — the
+  // Kinzies' two old pirogues, the canoes at Lee's Place, a skiff at the fort's wharf and
+  // more up and down the river (data/boats/crossings_1812.json). Each is an Interact thing:
+  // Cross steps in, paddles or rows over and steps out, and the boat stays on that bank.
+  // Built after the buildings, whose log walls' hewn-wood sheets the hulls wear.
+  const crossings = await createCrossings({
+    dataBase: layerBase('crossings'), terrain, confidence, problems: layerProblems('crossings'),
+    detail: detailLevel, coarse, lowSpec: coarse, walkEye: () => WALK.eyeHeight,
+    onRide: (boat, on) => {
+      if (!on) return;
+      api.travel?.stop?.('crossing');
+      if (api.follow?.active) api.follow.stop('crossing');
+    },
+  });
+  scene3d.add(crossings.group);
+  for (const thing of crossings.things) interactions.add(thing);
+  api.crossings = crossings;
   // T-3332 — the town by night: lit windows (buildings.js patches the glass) and the
   // lamps outside, from data/night_lights/<scene>.json. Hidden, and free, by day.
   const nightLights = await createNightLights({
@@ -2907,7 +2960,7 @@ async function boot() {
    * building itself.
    */
   const planting = footprints.concat(
-    wharves.keepOut, boats.keepOut, wells.keepOut,
+    wharves.keepOut, boats.keepOut, wells.keepOut, crossings.keepOut,
     // The plank walks and crossings (T-0085/T-0124): a sidewalk is as much a
     // floor as a wharf deck, and the sward was rooting straight through it.
     frontage.keepOut,
@@ -2922,6 +2975,8 @@ async function boot() {
     // a bush rooting between the tents, or a tree through a wall tent, was the
     // first thing the bank showed once the canvas stood on it.
     footprintsFrom(loaded.registry, { camps: true }),
+    // T-3477: 1812's house gardens on open ground, which the sward does not grow through
+    gardens.keepOut ?? [],
   );
 
   // …AND THE WHARF PLANKS BECOME FLOORS — after `planting` has been taken and
@@ -3114,7 +3169,8 @@ async function boot() {
     // T-1959: the woodpiles' group is shown or hidden by the tier, BEFORE the
     // furniture is banked, so a hidden one is never banked (see `light.woodpiles`).
     scene3d.getObjectByName('yard')?.traverse((o) => {
-      if (o.userData.woodpiles) o.visible = want.woodpiles !== false;
+      // T-3474: a town with few enough piles (1812's 17) draws them at `light` too.
+      if (o.userData.woodpiles) o.visible = want.woodpiles !== false || !!o.userData.woodpilesLight;
     });
     // T-0192: the cross streets' plank walks, by the same mechanism and for the
     // same reason — hidden BEFORE the furniture is banked, so the reach and the
@@ -3447,6 +3503,7 @@ async function boot() {
       void streetTrees.setDetail(level);
       streetFurniture.setDetail(level);
       frontYards.setDetail(level);
+      backYards.setDetail(level);
       gardens.setDetail(level);
       railway.setDetail(level);
       refreshGlessnerOcclusion();
@@ -3501,6 +3558,7 @@ async function boot() {
     void streetTrees.setDetail(level);
     streetFurniture.setDetail(level);
     frontYards.setDetail(level);
+    backYards.setDetail(level);
     gardens.setDetail(level);
     // The road's: `light` keeps the refined grids, the two tiers above it lay
     // the panels that sag on the ground's ridge (streets.js, THE RIDGE DRAPE).
@@ -3740,6 +3798,12 @@ async function boot() {
   // (data/humans/contract.json § l1), so this mounts an empty layer, fetches nothing and
   // draws nobody — the scene-year gate. A record that is drawn later is bound to a person
   // in the directory above and opens that person's own card.
+  // T-3491 (the owner, of the 1812 soldiers: "their feet are sinked"): a figure stands on
+  // the ground as drawn: a deck where there is one, else the heightfield plus the couple of
+  // centimetres a yard's laid earth or a worn trail is draped above it (yards.js), which
+  // otherwise swallow a shoe whose trousers come down over it.
+  const figureGround = (e, n) => Math.max(deckGroundHeight(terrain, decks, e, n),
+    terrain.surfaceHeight(e, n) + (yards.groundLiftAt?.(e, n) ?? 0));
   api.humans = await mountHumans({
     dataBase: layerBase('humans'), assetBase: bases.assetBase, sceneId: loaded.scene.id ?? YEAR,
     people, terrain, tier: detailLevel, problems: layerProblems('humans'),
@@ -3752,13 +3816,18 @@ async function boot() {
     },
     // T-3456: a figure stands on the decks the walker climbs (a front walk's paving, a door's
     // threshold), not on the heightfield under them.
-    groundHeight: (e, n) => deckGroundHeight(terrain, decks, e, n),
+    groundHeight: (e, n) => figureGround(e, n),
     // T-3439: a figure's new distance level is compiled off the frame (parallel compile)
     // before it is drawn, so walking up to someone is not a stall on her skin's programs.
     prepare: (object) => renderer.compileAsync(object, camera, scene3d),
   });
-  api.humans.on('open', ({ personId }) => {
+  api.humans.on('open', ({ personId, approach }) => {
     if (!api.people) return;
+    // T-3521 (the owner, 2026-11-08: "when you click and select someone i think that person
+    // should stay up in the navigator, it curently always changes when someone walks in your
+    // field of view"): a person card already open stays until the visitor closes it or picks
+    // someone else; only walking up to someone with no person card open opens theirs.
+    if (approach && personCardOpen()) return;
     if (!draws('residents')) { void openPersonCard(personId); return; }
     hud.setPanel(true); hud.selectTab('people'); api.people.open?.(personId);
   });
@@ -3770,6 +3839,66 @@ async function boot() {
     a?.life?.attend?.(camera.getWorldPosition(new THREE.Vector3()), 4);
   });
   scene3d.add(api.humans.group);
+  // T-3490: men at a shared duty — a knot talking, a sentry's beat, a rank (human-duties.js).
+  // Out by day, in quarters by night but for the guard (`behaviour.hours`, by the sun's clock).
+  const sunHour = () => { const [h, m] = String(world.sunTime ?? '').split(':').map(Number); return Number.isFinite(h) ? h + (m || 0) / 60 : null; };
+  api.duties = createHumanDuties({ humans: api.humans, three: THREE, hour: sunHour,
+    // T-3463: a man asked for at his quarters' door is out of his duty till he goes back in.
+    held: (actor) => api.days?.isCalled(actor) ?? false });
+  // T-3463..T-3467 (owner, 2026-11-08: "some inside and others active and doing what they
+  // would be doing as normal activities per time of day", "If they are inside I can walk to
+  // door and ask for any person inside"): each person's day by the scene's date and hour,
+  // and every 1812 door that has someone behind it offers Ask for them (human-days.js).
+  api.days = null;
+  // T-3520 (owner, 2026-11-08: "people can stand and break the wall of the mat walls"): each
+  // camp lodge's walls where they meet the ground (doors_1812.json `walls`, read off the camp's
+  // model), kept clear by a day's job places and by the spacing pass below.
+  let lodgeWalls = [];
+  // T-3516 (owner, 2026-11-08: "This is for all years starting with 1812, give all people a
+  // purpose and something to do"): every year's people keep a day, by its own doors file.
+  const daysScene = String(loaded.scene.id ?? YEAR);
+  if (['1812', '1835', '1904'].includes(daysScene)) {
+    const getOptional = (rel) => fetch(new URL(rel, bases.dataBase), { cache: 'no-cache' })
+      .then((r) => (r.ok ? r.json() : null)).catch(() => null);
+    const [doors, inside] = await Promise.all([getOptional(`humans/doors_${daysScene}.json`),
+      daysScene === '1812' ? getOptional('humans/inside_1812.json') : null]);
+    lodgeWalls = (doors?.structures ?? []).flatMap((row) => (row.walls ?? []).map((ring, i) => ({ id: `${row.structure}:walls${i + 1}`, pts: ring })));
+    // The gathering's people who are carded and not drawn (inside_1812.json): a figure is
+    // built for one only when they are asked for at their lodge's door, from the dress their
+    // entry names, and taken away once they are back in.
+    const byPerson = new Map((people?.people ?? []).map((row) => [row.id, row]));
+    const spawn = (entry, door) => {
+      if (!entry.asset_id || !api.humans?.add) return null;
+      const rec = {
+        id: `hi_inside_${entry.person}`, contract_version: 1, scene: daysScene, person_id: entry.person,
+        appearance: { asset_id: entry.asset_id },
+        placement: { local_e: door.leaf.local_e, local_n: door.leaf.local_n, heading_deg: door.outward_deg, anchor: 'terrain' },
+        animation: { clip: 'idle', loop: true, phase: 0 }, behaviour: { state: 'standing' },
+        interaction: { selectable: true, radius_m: 3, opens: 'resident_card' }, lod: { policy: 'auto' },
+        display: 'shown', review_required: true, provenance: entry.provenance ?? null,
+      };
+      return api.humans.add(rec, { person: byPerson.get(entry.person) ?? { id: entry.person, name: entry.name } });
+    };
+    api.days = createHumanDays({ humans: api.humans, three: THREE, hour: sunHour, date: () => world.sunDate ?? null,
+      doors, interactions, inside, spawn, despawn: (actor) => api.humans?.remove?.(actor.id),
+      visitor: () => (walker.state.flying ? null : { e: walker.state.e, n: walker.state.n }),
+      eye: () => camera.getWorldPosition(new THREE.Vector3()),
+      // The router's grid is hundreds of MB and is built on its first plan: a day's walk takes
+      // its ways only once something else (Go to) has built it, else walks straight.
+      router: { plan: (...args) => (api.router?.built ? api.router.plan(...args) : null) },
+      // T-3505: a job's places between gatherings are clear of the buildings and the fort's walls.
+      clear: clearWayOf(footprints.concat(lodgeWalls)),
+      // T-3524: Glessner's court and side doors open as people pass, up and down their stairs.
+      passages: api.houseDoors ?? null,
+      problems: layerProblems('humans') });
+  }
+  // T-3504 (owner, 2026-11-08: "two people occupying the same space? Prevent that"): every year's
+  // figures kept a body's width apart, standing or walking, after the layers above move them;
+  // never into a building, by the router's grid once something has built it.
+  api.spacing = createHumanSpacing({ humans: api.humans,
+    visitor: () => ({ e: walker.state.e, n: walker.state.n }),
+    blockedAt: (e, n) => (api.router?.built ? api.router.blockedAt(e, n) : false),
+    keepOut: lodgeWalls });
   /**
    * T-3439 (owner, 2026-11-07): Settings › Show › People and › Carriages and horses. A
    * viewing choice, like Street trees: hidden, a layer is neither drawn nor advanced nor
@@ -3805,22 +3934,31 @@ async function boot() {
       if (on) api.follow?.start(actor.personId, { name: actor.person?.name ?? null });
       else if (api.follow?.personId === actor.personId) api.follow.stop('arrived');
     },
-    groundAt: (e, n) => deckGroundHeight(terrain, decks, e, n), problems: layerProblems('humans') });
+    groundAt: (e, n) => figureGround(e, n), problems: layerProblems('humans') });
   // Read only the small route table at boot. Actual occupied assets and full
   // rendered-ground/collision readings begin after the visitor approaches a circuit.
   api.townTransport = null;
   if (supportsTownTransport(YEAR)) {
     try {
       const { mountTownTransport } = await import('./town-transport-scene.js');
+      // T-3497: 1812's natural ground is read smoothed for wheels and hooves (transport-ground.js).
+      const smoothGround = String(YEAR) === '1812'
+        ? (await import('./transport-ground.js')).createSmoothedGround({
+          sample: (e, n) => profiledGroundHeight(terrain, decks, e, n), grid: terrain.grid })
+        : null;
       api.townTransport = await mountTownTransport({
         sceneId: YEAR, dataBase: bases.dataBase, people, getPeople: () => peopleDirectory.load(),
         preparePersonCard: !draws('residents') ? prepareSceneDirectoryPerson : null,
         humans: api.humans, confidence,
         heightAt: String(YEAR) === '1904'
           ? (e, n) => streetGrid.carriagewayHeight(e, n)
-          : (e, n) => profiledGroundHeight(terrain, decks, e, n),
+          : smoothGround ?? ((e, n) => profiledGroundHeight(terrain, decks, e, n)),
         footprints: () => footprints, visitor: () => walker.state,
         interactions, detail: detailLevel, coarse, problems,
+        // T-3475: Step back to let it pass walks the visitor to a clear stand, looking where they looked.
+        blockedAt: (e, n) => api.router?.blockedAt(e, n) ?? false,
+        placeVisitor: (e, n) => { if (!walker.state.flying) walker.teleport({ local_e: e, local_n: n,
+          yaw_deg: walker.bearingDeg, pitch_deg: walker.state.pitch / DEG }); },
       });
       if (api.townTransport) scene3d.add(api.townTransport.group);
     } catch (error) { problems.push(`town transport: ${error.message}`); }
@@ -4336,6 +4474,54 @@ async function boot() {
   // The travel controller: instantly, on foot, by wagon, on horseback, or flying.
   // It writes the shared intent the way a backend does, so the walker keeps its
   // collision and terrain honesty whoever is steering — see travel.js.
+  /**
+   * T-3531 (the owner, 2026-11-09: "instead of flying if someone is across the river could we
+   * by default take the nearest boat? ... if taking a boat is not possible or would take more
+   * than say 30 seconds", fly instead): of the boats drawn up on the visitor's side, the one
+   * whose walk to it, crossing and walk on from the far landing is quickest, taken only when
+   * the walk to it is no more than BOAT_WALK_S at the ride's pace (a boat a short walk away is
+   * taken, one far up the river is not, and the ride flies).
+   */
+  const BOAT_WALK_S = 30;
+  function boatway(from, to, { speed = 1.8, plan } = {}) {
+    if (!crossings?.boats?.length || crossings.riding || typeof plan !== 'function') return null;
+    const len = (a, pts) => { let d = 0, pe = a.e, pn = a.n; for (const [e, n] of pts) { d += Math.hypot(e - pe, n - pn); pe = e; pn = n; } return d; };
+    const near = crossings.boats
+      .map((entry) => ({ entry, side: entry.boat.banks[entry.bank], far: entry.boat.banks[entry.bank === 'a' ? 'b' : 'a'] }))
+      .filter((c) => c.side?.stand && c.far?.stand)
+      .map((c) => ({ ...c, d: Math.hypot(c.side.stand[0] - from.e, c.side.stand[1] - from.n) }))
+      .filter((c) => c.d / speed <= BOAT_WALK_S * 1.6)
+      .sort((x, y) => x.d - y.d).slice(0, 4);
+    let best = null;
+    for (const c of near) {
+      const stand = { e: c.side.stand[0], n: c.side.stand[1] };
+      const a = plan(from, stand);
+      if (!a?.points?.length) continue;
+      const walkA = len(from, a.points) / speed;
+      if (walkA > BOAT_WALK_S) continue;
+      const b = plan({ e: c.far.stand[0], n: c.far.stand[1] }, to);
+      if (!b?.points?.length) continue;
+      const total = walkA + crossings.crossingSeconds(c.entry) + len({ e: c.far.stand[0], n: c.far.stand[1] }, b.points) / speed;
+      if (!best || total < best.total) best = { ...c, total };
+    }
+    if (!best) return null;
+    const thing = crossings.thingOf(best.entry);
+    return {
+      name: best.side.name,
+      stand: best.side.stand,
+      seconds: best.total,
+      cross(done) {
+        const started = interactions.act(thing, 'cross');
+        if (!started?.ok) { hud.say(started?.why ?? 'The boat cannot cross now'); done(false); return; }
+        const off = interactions.on((t, event) => {
+          if (t !== thing || (event !== 'done' && event !== 'refused')) return;
+          off();
+          // The landing is put down on the next frame (crossings.holdVisitor); go on after it.
+          setTimeout(() => done(event === 'done'), 120);
+        });
+      },
+    };
+  }
   travel = createTravel({
     walker, intent, hud, settings: hud.settings, router, terrain, footprints,
     focusPoint, structurePosition,
@@ -4355,6 +4541,8 @@ async function boot() {
       open: () => { if (g.state !== 'open' && !g.running) interactions.act(g, 'open'); },
     })) },
     tickWorld: (dt) => interactions.update(dt),
+    // T-3531: across water no street crosses (1812's river), the nearest boat this side.
+    boatway: (from, to, opts) => boatway(from, to, opts),
     // Arriving is what opens the card: the menu closes, the building's card opens.
     onArrive: (id) => { hud.setPanel(false); openBuilding(id); lastArrival = { id, e: walker.state.e, n: walker.state.n }; },
   });
@@ -4523,6 +4711,9 @@ async function boot() {
     if (boat && boat.record && (!hit || boat.distance < hit.distance)) {
       hit = { ...boat };
     }
+    // T-3510: and so can a crossing boat, with its own card the same way.
+    const crossingBoat = crossings.pickAt(ndc, camera);
+    if (crossingBoat?.record && (!hit || crossingBoat.distance < hit.distance)) hit = { ...crossingBoat };
     const vehicle = parkedTransport.pickAt(ndc, camera);
     if (vehicle?.record && (!hit || vehicle.distance < hit.distance)) hit = vehicle;
     const horse = standingHorses.pickAt(ndc, camera);
@@ -4562,6 +4753,11 @@ async function boot() {
     const yardHit = frontYards.pickAt(ndc, camera);
     if (yardHit && yardHit.record && (!hit || yardHit.distance < hit.distance)) {
       hit = { ...yardHit };
+    }
+    // And a back yard's paving, back door and steps, clothes post or crop row (T-3488).
+    const backHit = backYards.pickAt(ndc, camera);
+    if (backHit && backHit.record && (!hit || backHit.distance < hit.distance)) {
+      hit = { ...backHit };
     }
     // And a kitchen garden's bed (T-3407): what grows in it and what that rests on.
     const gardenHit = gardens.pickAt(ndc, camera);
@@ -4904,7 +5100,11 @@ async function boot() {
     if (figure && !figure.disposed && figure.root?.parent && !api.humans.external?.(target.id)) {
       const { e: fe, n: fn } = figure.position;
       const b = (figure.heading ?? 0) * Math.PI / 180;
-      for (const [ahead, side] of [[2.5, 0], [0, 2.5], [0, -2.5], [-2.5, 0]]) {
+      // T-3521: in front first, then round them, then further out: someone in a lodge's
+      // doorway or between a cart and a wall had no clear stand at 2.5 m on four sides.
+      const stands = [[2.5, 0], [0, 2.5], [0, -2.5], [-2.5, 0]];
+      for (const r of [2.5, 4, 6, 9]) for (let k = 0; k < 12; k++) stands.push([Math.cos(k * Math.PI / 6) * r, Math.sin(k * Math.PI / 6) * r]);
+      for (const [ahead, side] of stands) {
         const e = fe + Math.sin(b) * ahead + Math.cos(b) * side;
         const n = fn + Math.cos(b) * ahead - Math.sin(b) * side;
         if (router.blockedAt(e, n)) continue;
@@ -4913,7 +5113,13 @@ async function boot() {
           label: target.label ?? figure.person?.name ?? 'Person' },
         { onArrive: () => target.then?.() });
       }
-      hud.say('No clear place beside this person'); return false;
+      if (!target.home) { hud.say('No clear place beside this person'); return false; }
+    }
+    // T-3521: someone not out in town now (indoors, or not drawn at this detail) is found at
+    // their door: the card's Find goes to the house they are in, and says so.
+    if (findInTown && target.home && loaded.registry.has(target.home)) {
+      hud.say(`${target.label ?? 'They'}: at home now`);
+      return goToTarget({ kind: 'structure', id: target.home });
     }
     const resolved = destinations.resolve(target);
     if (!resolved) {
@@ -5126,6 +5332,27 @@ async function boot() {
         hour: api.timeOfDay,
         // T-3377: a jaunt's own season, held for the outing and given back after.
         season: api.season,
+        // T-3495: the everyday people held out while a jaunt is on, but for those its stop
+        // calls for; Settings › Show › People hidden stays hidden either way.
+        crowd: {
+          hold: (ids) => { api.humans?.holdCrowd?.(ids); gateFrame.invalidate(); },
+          restore: () => { api.humans?.releaseCrowd?.(); gateFrame.invalidate(); },
+        },
+        // T-3525: the people who tell a stop come to their marks, turned to its stand.
+        hosts: {
+          sync: (stop, { arrived }) => {
+            if (!api.humans) return;
+            api.jauntHosts ??= createJauntHosts({ humans: api.humans, days: api.days ?? null,
+              router: { plan: (...args) => (api.router?.built ? api.router.plan(...args) : null) },
+              visitor: () => ({ e: walker.state.e, n: walker.state.n }),
+              eye: () => camera.getWorldPosition(new THREE.Vector3()) });
+            const target = stop ? resolveJaunt(stop.destination) : null;
+            const stand = target ? travel.destinationOf(target, { mode: 'walk', card: false }) : null;
+            api.jauntHosts.sync(stop?.hosts ?? [], { stand: stand && Number.isFinite(stand.e) ? stand : null, arrived });
+            gateFrame.invalidate();
+          },
+          release: () => { api.jauntHosts?.release(); gateFrame.invalidate(); },
+        },
         showMenu({ returnId }) { jauntReturnId = returnId; api.welcome.show({ focus: false }); api.welcome.enter('jaunts'); },
         closeDetail: jauntCards.close,
         openDetail: jauntCards.open, onError: jauntError,
@@ -5233,6 +5460,17 @@ async function boot() {
     }
     return householdRecords.get(file);
   }
+  // T-3521: a person's story as written for a reader (data/residents_<scene>/stories.json,
+  // beside the households), read once, the first time a card asks. No file is no stories:
+  // the card then tells what the record has.
+  let personStories = null;
+  async function personStory(id) {
+    const root = String((await peopleDirectory.load())?.residents_root ?? '').replace(/^data\//, '');
+    if (!root || !id) return null;
+    personStories ??= fetch(new URL(`${root}/stories.json`, resolveBases().dataBase), { cache: 'no-cache' })
+      .then((res) => (res.ok ? res.json() : null)).then((doc) => doc?.stories ?? {}).catch(() => ({}));
+    return (await personStories)?.[id] ?? null;
+  }
   // T-3413: a face fitted to a portrait of the person, for their card's Likeness section. The
   // file is the one the humans layer reads (assets/humans/web/hm08_variation_persons.json), read once.
   let humanPersons = null;
@@ -5242,7 +5480,10 @@ async function boot() {
     humanPersons ??= fetch(new URL('humans/web/hm08_variation_persons.json', base), { cache: 'no-cache' })
       .then((res) => (res.ok ? res.json() : null))
       .catch(() => { humanPersons = null; return null; });
-    return humanPersons.then((d) => { const face = d?.persons?.[id]?.face; return face ? { face, base: String(base) } : null; });
+    // T-3491: and how he looks (`looks`), for the card's Looks section.
+    // T-3508: the base goes back even with no face, for a card's own portrait (Shabbona's).
+    // T-3522: and what they wear today (`dress.worn`), a row of that section.
+    return humanPersons.then((d) => { const r = d?.persons?.[id]; return { face: r?.face ?? null, looks: r?.looks ? { ...r.looks, worn: r?.dress?.worn ?? '' } : null, base: String(base) }; });
   }
   // A nearby occupied driver can be inspected as soon as its model is ready.
   // Warm only the existing card code/metadata; never open Navigator or acquire a model.
@@ -5273,10 +5514,21 @@ async function boot() {
   async function findSceneDirectoryPerson(id) {
     const row = (await peopleDirectory.load().catch(() => null))?.people?.find(r => r.id === id);
     if (!row) return false;
-    // T-3404: a driver on their round, or a figure standing or walking in town.
-    if (api.townTransport?.driverAnchorForPerson(id) || api.humans?.get?.(id)) return goToTarget({ kind: 'person', id });
-    const at = [row.lives_at, row.works_at].find(s => s && loaded.registry.has(s));
-    return at ? goToTarget({ kind: 'structure', id: at }) : false;
+    const at = [row.lives_at, row.works_at].find(s => s && loaded.registry.has(s)) ?? null;
+    // T-3404: a driver on their round, or a figure standing or walking in town; T-3521: else
+    // (and wherever no clear stand beside them is found) at the house they live or work in.
+    if (api.townTransport?.driverAnchorForPerson(id) || personInTown(id)) {
+      return goToTarget({ kind: 'person', id, label: row.name, home: at });
+    }
+    // T-3531: nobody in town to find (the card greys Find and says why); Go to house is the
+    // way to where they live, not Find (the owner: Find "landed me at his house and i never
+    // saw him").
+    hud.say(`${row.name}: not out in town now`);
+    return false;
+  }
+  /** T-3521: a person's card is showing (Inspect's People tab, the People screen, the drawer). */
+  function personCardOpen() {
+    return [...document.querySelectorAll('.insp-person-card, .people-card-name')].some((n) => n.checkVisibility?.() ?? n.offsetParent !== null);
   }
   async function openPersonCard(id) {
     if (api.people && !document.querySelector('.panel-tab[data-tab="people"]')?.hidden) {
@@ -5462,12 +5714,16 @@ async function boot() {
   });
   targetTag.setEnabled(!gateOpen);
   api.targetTag = targetTag;
-  // T-3404: Follow — the visitor walks alongside a person in town (follow.js). The key in
-  // the quick column names who and stops it; the visitor's own movement stops it too.
+  // T-3404: Follow — the visitor walks with a person in town, right behind them since
+  // T-3471 (follow.js). The key in the quick column names who and stops it; the visitor's
+  // own movement stops it too.
   const followKey = document.getElementById('btn-follow');
   const follow = createFollow({
     walker, walk: WALK, locate: personInTown,
     blockedAt: (e, n) => router.blockedAt(e, n),
+    // T-3471: the stand right behind them is pulled in short of any wall in the line, by
+    // the same capsule test the walker's own steps meet (houses, enclosure walls, steps).
+    clearBetween: (ae, an, be, bn) => router.clearSegment(ae, an, be, bn),
     busy: () => (travel?.state?.phase ?? 'idle') !== 'idle',
     onChange: (state, why, was) => {
       if (followKey) {
@@ -5488,6 +5744,9 @@ async function boot() {
   api.follow = follow;
   api.followPerson = followPerson;
   api.personInTown = personInTown;
+  api.placedInTown = placedInTown;
+  // T-3521: a card's Find this person, by id (the harness tests it for everyone).
+  api.findPerson = (id) => findSceneDirectoryPerson(id);
   const interactKey = createInteractKey({ interactions,
     keyEl: document.getElementById('btn-interact'),
     moreEl: document.getElementById('interact-more'),
@@ -5498,6 +5757,8 @@ async function boot() {
   const transportReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   transportReducedMotion.addEventListener('change', resetVisualClock);
   let interactPaintAt = 0;
+  /** T-3527: the date and the buildings the dated structures were last drawn for. */
+  const datedFor = { date: undefined, buildings: null };
   let interactHinted = false;
   window.addEventListener('pagehide', event => {
     if (event.persisted) return;
@@ -5689,6 +5950,7 @@ async function boot() {
         householdRecord: (file) => householdRecord(file),
         residentCitations: () => ensureResidentCitations(),
         personFace: (id) => personFace(id),
+        personStory: (id) => personStory(id),
         openPicture: (id, i) => openPictureViewer(popup.picturesDoc, id, i),
         holdInspect: (id) => { inspectHold = id ?? null; },
         closeCard: () => popup.close(),
@@ -5921,6 +6183,8 @@ async function boot() {
       follow.afterWalk(intent);
       travel.afterWalk(intent, walkDt);
     }
+    // T-3510: while a crossing runs, the visitor sits in the boat whatever the walk did.
+    crossings.holdVisitor(walker, WALK);
     // Before the render, after the walker: the near plane is a function of where
     // the eye ended up this frame (R-BUG1, and the NEAR block above).
     setNearFor(walker.state.altitude);
@@ -5943,9 +6207,11 @@ async function boot() {
     streetTrees.update(dt, camera);
     streetFurniture.update(dt, camera);
     frontYards.update(dt, camera);
+    backYards.update(dt, camera);
     gardens.update(dt, camera);
     railway.update(camera);
     flags.update(dt);
+    crossings.update(dt, camera);
     parkedTransport.update(camera);
     // T-3439: Settings › Show › Carriages and horses, hidden: nothing driven is fetched,
     // and a team already on its round is hidden the way the Confidence view hides it.
@@ -5958,6 +6224,8 @@ async function boot() {
       reducedMotion: transportReducedMotion.matches,
       hidden: confidence.hidden.reconstructed || !shownLayers.vehicles,
       visualDt,
+      // T-3497: a team keeps its teamster's hours, by the same sun clock as his duty's.
+      hour: (() => { const [h, m] = String(world.sunTime ?? '').split(':').map(Number); return Number.isFinite(h) ? h + (m || 0) / 60 : null; })(),
     });
     api.townTransport?.refreshInteractions();
     // T-3445: the first time the key offers something, once per device, what it is.
@@ -5969,6 +6237,21 @@ async function boot() {
     // Consume the same real elapsed interval as walking and the standing horse.
     // A 0.05 s visual-effects step made human clips/routes crawl on slow devices.
     api.humans?.update(frameDt, camera, walker.state, visualDt);
+    api.duties?.update(frameDt);
+    // T-3527: the 1812 gathering's camps, their worn ground and paths come and go with
+    // the date the Season or a jaunt sets (buildings.js / yards.js setDate).
+    if (world.sunDate !== datedFor.date || buildings !== datedFor.buildings) {
+      datedFor.date = world.sunDate;
+      datedFor.buildings = buildings;
+      buildings?.setDate?.(world.sunDate);
+      api.yards?.setDate?.(world.sunDate);
+      gateFrame.invalidate?.();
+    }
+    api.days?.update(frameDt);
+    // T-3524: the doors people hold open swing toward open, or shut behind them.
+    api.houseDoors?.update?.(frameDt);
+    // T-3504: and then nobody stands in anybody else (human-spacing.js).
+    api.spacing?.update(frameDt);
 
     // T-2113. Under the gate, draw only a frame that differs from the last one
     // drawn: the first, one a capture or a test asked for, or one in which

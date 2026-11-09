@@ -685,6 +685,45 @@
             "additionalProperties": false
           }
         },
+        "people": {
+          "description": "T-3495: the people this stop calls for, by person id of the scene. While a jaunt is under way the everyday figures are held out of the scene; a stop's `people`, and the people its person links name, are the ones drawn at it.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]*$",
+            "maxLength": 90
+          },
+          "maxItems": 24,
+          "uniqueItems": true
+        },
+        "hosts": {
+          "description": "T-3525: the people who tell this stop, each at the mark they stand at (local ENU metres) while the visitor is here, turned to the stop's stand; a host the scene has indoors comes out of the house by its nearest door. Hosts are kept in the scene like the stop's `people`, and go back about their day when the visitor walks on (renderers/web/js/jaunt-hosts.js).",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "person": {
+                "type": "string",
+                "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]*$",
+                "maxLength": 90
+              },
+              "local_e": {
+                "type": "number"
+              },
+              "local_n": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "person",
+              "local_e",
+              "local_n"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1,
+          "maxItems": 4
+        },
         "next": {
           "anyOf": [
             {

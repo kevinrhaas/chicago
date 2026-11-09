@@ -1,0 +1,167 @@
+{
+  "id": "hh_waubeeneemah_1812",
+  "scene": "1812",
+  "name": "Wau-bee-nee-mah's lodge by the creek",
+  "head": "waubeeneemah",
+  "division": "camp",
+  "review_required": true,
+  "touches_removal": true,
+  "review_note": "review_required: a Potawatomi person of the gathering at Chicago in August 1812, the eve of the battle in which the garrison and its families were attacked. The card states only what the named sources say, says where a story is Kinzie family tradition rather than a contemporary account, and stages no speech or ceremony.",
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "inferred",
+    "sources": [
+      "kinzie_waubun_1856"
+    ],
+    "note": "Each person's own card says how their presence on 14 August is known."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "potawatomi_camp_1812_mouth",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "inferred",
+      "source_id": "kinzie_waubun_1856",
+      "also_sources": [],
+      "note": "Wau-Bun puts his wigwam beside the stream 'along the present State Street', the creek the camp records follow; which lodge is not said."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "Everyone the T-3461 sweep found in this household on 14 August is on the card.",
+    "sources": [
+      "kinzie_waubun_1856"
+    ]
+  },
+  "persons": [
+    {
+      "id": "waubeeneemah",
+      "name": "Wau-bee-nee-mah",
+      "relationship": "head",
+      "grade": "attested",
+      "sources": [
+        "kinzie_waubun_1856"
+      ],
+      "present_on_scene_date": {
+        "value": "probably present",
+        "confidence": "inferred",
+        "note": "His family's wigwam stood in the encampment on the 15th, beside the creek (Wau-Bun, Mrs Helm); a lodge standing on the 15th was very likely pitched by the 14th. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "also_written": [
+        "Wah-bee-nee-mah (Kirkland's reprint)"
+      ],
+      "note": "Chief, with a wigwam in the camp by the creek. Potawatomi, Illinois River. 15 and 16 August: Stretched a mat across two poles to screen Mrs Helm from the killing of a wounded prisoner. Afterwards: Unknown.",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a Potawatomi person of the gathering at Chicago in August 1812, the eve of the battle in which the garrison and its families were attacked. The card states only what the named sources say, says where a story is Kinzie family tradition rather than a contemporary account, and stages no speech or ceremony.",
+      "evidence": [
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XIX, lines 5652-5654 and fn 36 (line 12680)",
+          "quote": "The wife of Wau-bee-nee-mah, a chief from the Illinois River, was standing near",
+          "claim": "Chief from the Illinois River; his wife's kettle and the creek",
+          "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XIX, lines 5690-5691",
+          "quote": "Wau-bee-nee-mah stretched a mat across two poles, between me and this dreadful scene.",
+          "claim": "The mat screen",
+          "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+        }
+      ],
+      "on_15_august": {
+        "value": "At the camp: screened Mrs Helm with a mat from the killing of a wounded prisoner",
+        "grade": "inferred",
+        "note": "Wau-Bun (Mrs Helm's story).",
+        "sources": [
+          "kinzie_waubun_1856"
+        ]
+      },
+      "card_facts": [
+        {
+          "label": "On 15 August",
+          "value": "At the camp: screened Mrs Helm with a mat from the killing of a wounded prisoner",
+          "grade": "inferred"
+        }
+      ]
+    },
+    {
+      "id": "waubeeneemah_wife",
+      "name": "Rain After Thunder",
+      "relationship": "wife",
+      "grade": "attested",
+      "sources": [
+        "kinzie_waubun_1856",
+        "morgan_1877_ancient_society"
+      ],
+      "present_on_scene_date": {
+        "value": "probably present",
+        "confidence": "inferred",
+        "note": "At her wigwam by the creek on the 15th. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "Wau-Bun gives her no name of her own. Woman of the camp; gave Mrs Helm maple-sugar water. Potawatomi, Illinois River. 15 and 16 August: Dipped water from the stream, stirred in maple sugar with her hand and gave it to Mrs Helm. Afterwards: Unknown.",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a Potawatomi person of the gathering at Chicago in August 1812, the eve of the battle in which the garrison and its families were attacked. The card states only what the named sources say, says where a story is Kinzie family tradition rather than a contemporary account, and stages no speech or ceremony.",
+      "evidence": [
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XIX, lines 5653-5656",
+          "quote": "she seized a kettle, dipped up some water from a stream that flowed near,[36] threw into it some maple-sugar",
+          "claim": "The act of kindness",
+          "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "fn 36, line 12680",
+          "quote": "Along the present State Street.",
+          "claim": "The stream located",
+          "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+        }
+      ],
+      "also_written": [
+        "The wife of Wau-bee-nee-mah"
+      ],
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names her. A name of our making, given in English as the treaty clerks of 1815-16 wrote many names of these bands, and made as Morgan says names were: a gens owned its names, and a name spoke of it. This one speaks of the Thunder (Che′-kwa)."
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Thunder (Che′-kwa)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "At the camp: gave Mrs Helm water with maple sugar stirred in",
+          "grade": "inferred"
+        }
+      ],
+      "reconstruction": {
+        "name": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
+      },
+      "on_15_august": {
+        "value": "At the camp: gave Mrs Helm water with maple sugar stirred in",
+        "grade": "inferred",
+        "note": "Wau-Bun (Mrs Helm's story).",
+        "sources": [
+          "kinzie_waubun_1856"
+        ]
+      }
+    }
+  ]
+}

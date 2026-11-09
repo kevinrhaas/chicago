@@ -1,0 +1,42 @@
+{
+ "format": "chicago4d_human_looks_v1",
+ "ticket": "T-3464",
+ "person_id": "kinzie_eleanor",
+ "scene": "1812",
+ "generated_by": "docs/RESEARCH/people-1812-town/looks.py",
+ "heritage": {
+  "origin": "not recorded (see the basis)",
+  "family": "reading"
+ },
+ "complexion": {
+  "value": "fair (reconstructed)",
+  "drawn": "fair",
+  "grade": "reconstructed"
+ },
+ "hair": {
+  "value": "dark brown greying (reconstructed)",
+  "drawn": "grey_brown",
+  "cut": "centre_part_knot_1835",
+  "facial": [
+   "brows_fine",
+   "lashes_upper"
+  ],
+  "grade": "reconstructed"
+ },
+ "eyes": {
+  "value": "not recorded",
+  "drawn": "brown",
+  "grade": "reconstructed"
+ },
+ "stature": {
+  "inches": 63,
+  "grade": "reconstructed",
+  "basis": "No likeness found in the works read. Gordon calls her in 1798 \"the handsome young widow\"; Wau-Bun \"a woman of uncommon energy and strength of character\". Colouring by Pennsylvania Ulster-Scots/Irish heritage (Lytle); grey at forty-one is a choice."
+ },
+ "height_scale": 0.9698,
+ "basis": "Drawn in the words of the day reading for T-3464 (docs/RESEARCH/people-1812-3464/day.json): No likeness found in the works read. Gordon calls her in 1798 \"the handsome young widow\"; Wau-Bun \"a woman of uncommon energy and strength of character\". Colouring by Pennsylvania Ulster-Scots/Irish heritage (Lytle); grey at forty-one is a choice. The drawn colours, cut and scale are a reconstructed rendering of those words (liberty L-1812-town-days-3463).",
+ "grade": "reconstructed",
+ "liberty": "L-1812-town-days-3463",
+ "replaceable_by": "A portrait or a description of them written in their lifetime.",
+ "build_words": "medium"
+}

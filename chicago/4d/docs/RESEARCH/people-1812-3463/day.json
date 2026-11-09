@@ -1,0 +1,3926 @@
+{
+ "meta": {
+  "ticket": "T-3463",
+  "group": "The officers of the first Fort Dearborn on 14 August 1812: Captain Nathan Heald, Lieutenant Linai T. Helm, Ensign George Ronan, surgeon's mate Isaac Van Voorhis; and Captain William Wells, come from Fort Wayne (his Miami escort is T-3467's).",
+  "written": "2026-11-08",
+  "read": [
+   "AGENTS.md (hard rules, standing constraint), the T-3461 readings (README, garrison.json, native.json, dress.json), the officers' and Wells's household cards, T-3462 place.py (stations, clock) and the 1812 sidecars, doors_1812.json and human-days.js (the span format this file follows: stand/talk/work/walk, knot, spots, to_point).",
+   "Quaife 1913 (Gutenberg #69274): ch. VII, ch. X, ch. XI, ch. XIII; App. III (Heald's Journal), IV (Heald's report), V (Darius Heald to Draper, 1868), VI (Helm's narrative and letter).",
+   "Wau-Bun (PG 51737, the 1856 text): ch. XVIII and XIX.",
+   "Kirkland 1893 (Gutenberg #59624): Part I (Mrs. Heald), Part II ch. III, the Wells scene before p. 94, the plates of Wells (p. 94) and of Darius Heald with the sword (p. 179), App. E.",
+   "Currey 1912 (Gutenberg #52346): ch. III on 13-15 August; the plates of Rebekah Heald and Captain William Wells (facing p. 58).",
+   "Andreas 1884 vol. I (Internet Archive OCR) p. 82 on 12-15 August.",
+   "Van Voorhis 1881, Notes on the Ancestry of Wm. Roe Van Voorhis (Internet Archive OCR) pp. 143-144.",
+   "The 1814 War Department printing of the uniform rules (pp. 262-268) and the 1812 Albany compilation of the Act of 1802 (Sec. 5-6, rations), the local OCR texts T-3461 used.",
+   "Looked for a Heald portrait: Wikipedia (none), Wikimedia Commons (rate-limited, not searched), the four books' plate lists (none), a web search (none). Looked for Helm's birth: none found. Hutton 1978 on Wells (Indiana Magazine of History) would not open."
+  ],
+  "method": "Each person carries a presence block (dates in the scene) and `days`: a plain day of 1812 at the post (summer hours, from 1 Jan), for Heald, Helm and Ronan a 13 August evening (Wells comes; the destruction), 14 August, and 15 August until the march at nine. Spans follow renderers/web/js/human-days.js: indoors -> `where` is a structure id (the visitor asks at its door); outdoors -> `at`, `activity` stand|talk|work|walk, with `knot` (talk), `spots` (work) or `to_point` (walk). `with` names other people (other groups' ids: heald_rebekah, helm_margaret, kinzie_john_elder, kinzie_eleanor, black_partridge). `offscene: true` spans are times the person is not in the town at all. Knot ids shared across groups: morning_report, retreat, hired_horses, factory_distribution, second_council_14aug, wagons_14aug, well_destruction, miami_escort; other readers may add their people to them. Every outdoor point was checked to lie outside every 1812 footprint, and away from T-3462's soldier stations.",
+  "disagreements_carried": [
+   "Wells arrived 12 Aug (Helm), 13 Aug (Heald, Quaife, Andreas), 14 Aug (Wau-Bun, Currey). Heald followed, as the cards do. The battle jaunt's stop \"the-gate\" has Wells ride in at sunset on the 14th (Wau-Bun's date); the 14 August scene here has him in the fort since the 13th.",
+   "Factory goods given out on the 14th (Heald, Quaife) or the 13th (Wau-Bun, the battle jaunt). Heald followed.",
+   "Arms, powder and liquor destroyed the night of the 13th (Helm, Wau-Bun, Andreas); Heald's report does not date it. The tail of the work is put past midnight into the 14th.",
+   "First council 12th (Wau-Bun) or probably 13th (Quaife); a second on the afternoon of the 14th (Wau-Bun, Currey). Helm makes Wells the leader of a council; Quaife thinks Heald.",
+   "Black Partridge: 'evening' (Wau-Bun, Andreas) or 'night' (Helm) of the 14th; to the commander's quarters (Wau-Bun, Andreas) or 'the officers' quarters' (Currey); the interpreter unnamed (Helm) or Kinzie (Currey).",
+   "Van Voorhis born 22 Feb 1790 (genealogy, 1881) vs 'born 1789' on his card (from Quaife's 'twenty-two' in Oct 1811). The genealogy is taken.",
+   "Heald 36 (his Journal) vs 37 (Currey). Journal taken.",
+   "Wau-Bun's officers' 'unanimous advice' against leaving and its feud between Heald and Ronan; Mrs. Heald (via Darius, Kirkland) denied both. Neither acted out; the officers are given their work, not a quarrel.",
+   "Provisions: Wau-Bun's Heald says he has 'no salt' to keep the beef; Helm counts '27 barrels of Salt' and 200 head of cattle. Not needed for the day; noted."
+  ],
+  "liberty": "Proposed liberty L-1812-officers-day-3463: every hour, place and companion in the officers' days is reconstructed unless a span is graded otherwise; the second council's blockhouse arrangement repeats Wau-Bun's 12th; Wells's escort point is a fallback; the ensign's epaulette and the Wells dress are ours. Nothing of the day is acted out beyond where people stand and what they are at (L1)."
+ },
+ "people": [
+  {
+   "person_id": "heald_nathan",
+   "name": "Nathan Heald",
+   "role": "Captain, First Infantry, commanding the post",
+   "present": {
+    "status": "present",
+    "grade": "attested",
+    "basis": "His own report of 23 Oct 1812 tells what he did on the 14th."
+   },
+   "presence": {
+    "from": "1810-06-01",
+    "to": "1812-08-15",
+    "grade": "attested",
+    "basis": "Journal: to Chicago 'In June 1810'; on furlough from the fall of 1810, back 'in June' 1811 with his wife; marched out on 15 August 1812. Day of the month ours.",
+    "gaps": [
+     {
+      "from": "1810-10-01",
+      "to": "1811-06-15",
+      "grade": "reconstructed",
+      "basis": "Furlough 'in the fall' of 1810 to June 1811 (Journal); the days are ours."
+     }
+    ]
+   },
+   "sex": "m",
+   "age_1812": {
+    "value": 36,
+    "grade": "attested",
+    "basis": "Born 24 September 1775 (his Journal); 36 on 14 August 1812. Currey says 37."
+   },
+   "home": {
+    "where": "first_fort_dearborn_commanding_officers_barracks",
+    "grade": "inferred",
+    "basis": "The commanding officer's quarters on the east side (Whistler's index; Quaife); Wau-Bun, Helm, Andreas and Currey all put Black Partridge's visit there."
+   },
+   "dress_role": "officer_first_infantry_1812",
+   "rank_marks": "captain: one epaulette, right shoulder",
+   "looks": {
+    "complexion": "fair, weathered",
+    "hair": "brown, cut short",
+    "eyes": "grey-blue",
+    "height_in": 69,
+    "build": "medium, upright",
+    "facial_hair": "clean-shaven",
+    "grade": "reconstructed",
+    "basis": "No likeness of him exists: his son told Draper in 1868 'There is no likeness extant of Maj. Heald.' None is in Kirkland (1893), Currey (1912), Quaife (1913) or Andreas (1884), and none was found on Wikipedia or Commons (2026-11-08). So his colouring is from his New Hampshire family of English descent and his height near the period's mean (68.1 in, T-3491). The 1893 photograph of his son Darius with the relics shows the son, not him.",
+    "portrait": null,
+    "portrait_note": "The brief expected a Heald portrait; none exists that the sources know of. Rebekah Heald's daguerreotype (Quaife plate; Currey plate) is hers, in later life."
+   },
+   "days": [
+    {
+     "from_date": "1812-01-01",
+     "to_date": "1812-08-12",
+     "label": "a plain day of 1812 at the post (summer hours)",
+     "day": [
+      {
+       "from": 0,
+       "to": 5.2,
+       "indoors": true,
+       "where": "first_fort_dearborn_commanding_officers_barracks",
+       "doing": "asleep",
+       "grade": "reconstructed",
+       "basis": "Night in quarters; no source says when anyone slept. Reveille at 5:30 and tattoo at 21:00 are the garrison clock T-3462 uses for the men."
+      },
+      {
+       "from": 5.2,
+       "to": 5.5,
+       "indoors": true,
+       "where": "first_fort_dearborn_commanding_officers_barracks",
+       "doing": "rising and dressing",
+       "grade": "reconstructed",
+       "basis": "Night in quarters; no source says when anyone slept. Reveille at 5:30 and tattoo at 21:00 are the garrison clock T-3462 uses for the men."
+      },
+      {
+       "from": 5.5,
+       "to": 6.0,
+       "indoors": false,
+       "where": "outdoors on the parade before his own door",
+       "at": {
+        "local_e": 1156.0,
+        "local_n": 221.0,
+        "heading_deg": 270
+       },
+       "doing": "taking the morning report from his lieutenant and ensign",
+       "activity": "talk",
+       "grade": "reconstructed",
+       "basis": "Reveille and the morning report: at any post the subalterns reported the company to the commander after roll call. Here they stand before his door on the parade. Period routine, not a record of the day.",
+       "knot": "morning_report",
+       "with": [
+        "helm_linai",
+        "ronan_george"
+       ]
+      },
+      {
+       "from": 6.0,
+       "to": 7.5,
+       "indoors": true,
+       "where": "first_fort_dearborn_commanding_officers_barracks",
+       "doing": "at his desk: orders, the company books and returns",
+       "grade": "reconstructed",
+       "basis": "A commander's paperwork; the Heald Papers (Draper Coll.) are the post's returns and letters. Period routine."
+      },
+      {
+       "from": 7.5,
+       "to": 8.2,
+       "indoors": true,
+       "where": "first_fort_dearborn_commanding_officers_barracks",
+       "doing": "breakfast with his wife",
+       "grade": "reconstructed",
+       "basis": "Officers drew rations by rank (Act of 1802, in force 1812) and ate in their quarters; the hour is the period's breakfast, midday dinner and evening supper, not a source's.",
+       "with": [
+        "heald_rebekah"
+       ]
+      },
+      {
+       "from": 8.2,
+       "to": 8.7,
+       "indoors": false,
+       "where": "outdoors on the parade",
+       "at": {
+        "local_e": 1152.0,
+        "local_n": 216.8,
+        "heading_deg": 180
+       },
+       "doing": "watching the new guard mounted",
+       "activity": "stand",
+       "grade": "reconstructed",
+       "basis": "Guard mounting each morning; period routine."
+      },
+      {
+       "from": 8.7,
+       "to": 10.5,
+       "indoors": false,
+       "where": "outdoors, going round the post",
+       "at": {
+        "local_e": 1156.0,
+        "local_n": 218.6,
+        "heading_deg": 0
+       },
+       "doing": "going round the barracks, the store and the magazine",
+       "activity": "walk",
+       "grade": "reconstructed",
+       "basis": "A commander's daily inspection; period routine. The way runs up the east side of the parade.",
+       "to_point": {
+        "local_e": 1156.0,
+        "local_n": 224.4
+       }
+      },
+      {
+       "from": 10.5,
+       "to": 12.5,
+       "indoors": true,
+       "where": "first_fort_dearborn_commanding_officers_barracks",
+       "doing": "in his parlor, seeing visitors to the commanding officer, among them Potawatomi callers",
+       "grade": "reconstructed",
+       "basis": "Wau-Bun has two Calumet-band men come 'on a visit to the Commanding Officer' in the spring of 1812 and pass through the quarters. Hours ours."
+      },
+      {
+       "from": 12.5,
+       "to": 14.0,
+       "indoors": true,
+       "where": "first_fort_dearborn_commanding_officers_barracks",
+       "doing": "dinner",
+       "grade": "reconstructed",
+       "basis": "Officers drew rations by rank (Act of 1802, in force 1812) and ate in their quarters; the hour is the period's breakfast, midday dinner and evening supper, not a source's.",
+       "with": [
+        "heald_rebekah"
+       ]
+      },
+      {
+       "from": 14.0,
+       "to": 16.0,
+       "indoors": false,
+       "where": "outdoors in the commanding officer's garden south of the fort",
+       "at": {
+        "local_e": 1147.5,
+        "local_n": 139.5,
+        "heading_deg": 180
+       },
+       "doing": "walking his garden and looking over the soldiers at work in it",
+       "activity": "walk",
+       "grade": "reconstructed",
+       "basis": "The officers' garden is on Whistler's draught (first_fort_outer_officers_garden); T-3462 puts men at work there. That the commander walked it in the afternoon is ours.",
+       "to_point": {
+        "local_e": 1147.5,
+        "local_n": 126.0
+       }
+      },
+      {
+       "from": 16.0,
+       "to": 18.7,
+       "indoors": true,
+       "where": "first_fort_dearborn_commanding_officers_barracks",
+       "doing": "letters and accounts at his desk",
+       "grade": "reconstructed",
+       "basis": "Period routine."
+      },
+      {
+       "from": 18.7,
+       "to": 19.2,
+       "indoors": false,
+       "where": "outdoors on the parade before his own door",
+       "at": {
+        "local_e": 1156.0,
+        "local_n": 221.0,
+        "heading_deg": 270
+       },
+       "doing": "at retreat, the gates shut",
+       "activity": "talk",
+       "grade": "reconstructed",
+       "basis": "Retreat at sunset (about 19:00 local time in mid-August), when the gates were shut; Victoire Porthier's 'when they used to shut the gates of the fort' (the Lalime jaunt). The officers stand to it before the commander's door.",
+       "knot": "retreat",
+       "with": [
+        "helm_linai",
+        "ronan_george"
+       ]
+      },
+      {
+       "from": 19.2,
+       "to": 20.2,
+       "indoors": true,
+       "where": "first_fort_dearborn_commanding_officers_barracks",
+       "doing": "supper and tea",
+       "grade": "reconstructed",
+       "basis": "Officers drew rations by rank (Act of 1802, in force 1812) and ate in their quarters; the hour is the period's breakfast, midday dinner and evening supper, not a source's.",
+       "with": [
+        "heald_rebekah"
+       ]
+      },
+      {
+       "from": 20.2,
+       "to": 21.6,
+       "indoors": true,
+       "where": "first_fort_dearborn_commanding_officers_barracks",
+       "doing": "the evening at home with his wife",
+       "grade": "reconstructed",
+       "basis": "Wau-Bun has Mrs. Heald and Mrs. Helm at battledore in the quarters in the spring of 1812; how the Healds spent an evening is ours.",
+       "with": [
+        "heald_rebekah"
+       ]
+      },
+      {
+       "from": 21.6,
+       "to": 24.0,
+       "indoors": true,
+       "where": "first_fort_dearborn_commanding_officers_barracks",
+       "doing": "asleep",
+       "grade": "reconstructed",
+       "basis": "Night in quarters; no source says when anyone slept. Reveille at 5:30 and tattoo at 21:00 are the garrison clock T-3462 uses for the men."
+      }
+     ]
+    },
+    {
+     "from_date": "1812-08-13",
+     "to_date": "1812-08-13",
+     "label": "13 August 1812: the plain day until supper, then Wells, and the destruction at night",
+     "day": [
+      {
+       "from": 0,
+       "to": 5.2,
+       "indoors": true,
+       "where": "first_fort_dearborn_commanding_officers_barracks",
+       "doing": "asleep",
+       "grade": "reconstructed",
+       "basis": "Night in quarters; no source says when anyone slept. Reveille at 5:30 and tattoo at 21:00 are the garrison clock T-3462 uses for the men."
+      },
+      {
+       "from": 5.2,
+       "to": 5.5,
+       "indoors": true,
+       "where": "first_fort_dearborn_commanding_officers_barracks",
+       "doing": "rising and dressing",
+       "grade": "reconstructed",
+       "basis": "Night in quarters; no source says when anyone slept. Reveille at 5:30 and tattoo at 21:00 are the garrison clock T-3462 uses for the men."
+      },
+      {
+       "from": 5.5,
+       "to": 6.0,
+       "indoors": false,
+       "where": "outdoors on the parade before his own door",
+       "at": {
+        "local_e": 1156.0,
+        "local_n": 221.0,
+        "heading_deg": 270
+       },
+       "doing": "taking the morning report from his lieutenant and ensign",
+       "activity": "talk",
+       "grade": "reconstructed",
+       "basis": "Reveille and the morning report: at any post the subalterns reported the company to the commander after roll call. Here they stand before his door on the parade. Period routine, not a record of the day.",
+       "knot": "morning_report",
+       "with": [
+        "helm_linai",
+        "ronan_george"
+       ]
+      },
+      {
+       "from": 6.0,
+       "to": 7.5,
+       "indoors": true,
+       "where": "first_fort_dearborn_commanding_officers_barracks",
+       "doing": "at his desk: orders, the company books and returns",
+       "grade": "reconstructed",
+       "basis": "A commander's paperwork; the Heald Papers (Draper Coll.) are the post's returns and letters. Period routine."
+      },
+      {
+       "from": 7.5,
+       "to": 8.2,
+       "indoors": true,
+       "where": "first_fort_dearborn_commanding_officers_barracks",
+       "doing": "breakfast with his wife",
+       "grade": "reconstructed",
+       "basis": "Officers drew rations by rank (Act of 1802, in force 1812) and ate in their quarters; the hour is the period's breakfast, midday dinner and evening supper, not a source's.",
+       "with": [
+        "heald_rebekah"
+       ]
+      },
+      {
+       "from": 8.2,
+       "to": 8.7,
+       "indoors": false,
+       "where": "outdoors on the parade",
+       "at": {
+        "local_e": 1152.0,
+        "local_n": 216.8,
+        "heading_deg": 180
+       },
+       "doing": "watching the new guard mounted",
+       "activity": "stand",
+       "grade": "reconstructed",
+       "basis": "Guard mounting each morning; period routine."
+      },
+      {
+       "from": 8.7,
+       "to": 10.5,
+       "indoors": false,
+       "where": "outdoors, going round the post",
+       "at": {
+        "local_e": 1156.0,
+        "local_n": 218.6,
+        "heading_deg": 0
+       },
+       "doing": "going round the barracks, the store and the magazine",
+       "activity": "walk",
+       "grade": "reconstructed",
+       "basis": "A commander's daily inspection; period routine. The way runs up the east side of the parade.",
+       "to_point": {
+        "local_e": 1156.0,
+        "local_n": 224.4
+       }
+      },
+      {
+       "from": 10.5,
+       "to": 12.5,
+       "indoors": true,
+       "where": "first_fort_dearborn_commanding_officers_barracks",
+       "doing": "in his parlor, seeing visitors to the commanding officer, among them Potawatomi callers",
+       "grade": "reconstructed",
+       "basis": "Wau-Bun has two Calumet-band men come 'on a visit to the Commanding Officer' in the spring of 1812 and pass through the quarters. Hours ours."
+      },
+      {
+       "from": 12.5,
+       "to": 14.0,
+       "indoors": true,
+       "where": "first_fort_dearborn_commanding_officers_barracks",
+       "doing": "dinner",
+       "grade": "reconstructed",
+       "basis": "Officers drew rations by rank (Act of 1802, in force 1812) and ate in their quarters; the hour is the period's breakfast, midday dinner and evening supper, not a source's.",
+       "with": [
+        "heald_rebekah"
+       ]
+      },
+      {
+       "from": 14.0,
+       "to": 16.0,
+       "indoors": false,
+       "where": "outdoors in the commanding officer's garden south of the fort",
+       "at": {
+        "local_e": 1147.5,
+        "local_n": 139.5,
+        "heading_deg": 180
+       },
+       "doing": "walking his garden and looking over the soldiers at work in it",
+       "activity": "walk",
+       "grade": "reconstructed",
+       "basis": "The officers' garden is on Whistler's draught (first_fort_outer_officers_garden); T-3462 puts men at work there. That the commander walked it in the afternoon is ours.",
+       "to_point": {
+        "local_e": 1147.5,
+        "local_n": 126.0
+       }
+      },
+      {
+       "from": 16.0,
+       "to": 18.7,
+       "indoors": true,
+       "where": "first_fort_dearborn_commanding_officers_barracks",
+       "doing": "letters and accounts at his desk",
+       "grade": "reconstructed",
+       "basis": "Period routine."
+      },
+      {
+       "from": 18.7,
+       "to": 19.2,
+       "indoors": false,
+       "where": "outdoors on the parade before his own door",
+       "at": {
+        "local_e": 1156.0,
+        "local_n": 221.0,
+        "heading_deg": 270
+       },
+       "doing": "at retreat, the gates shut",
+       "activity": "talk",
+       "grade": "reconstructed",
+       "basis": "Retreat at sunset (about 19:00 local time in mid-August), when the gates were shut; Victoire Porthier's 'when they used to shut the gates of the fort' (the Lalime jaunt). The officers stand to it before the commander's door.",
+       "knot": "retreat",
+       "with": [
+        "helm_linai",
+        "ronan_george"
+       ]
+      },
+      {
+       "from": 19.2,
+       "to": 19.8,
+       "indoors": true,
+       "where": "first_fort_dearborn_commanding_officers_barracks",
+       "doing": "supper with his wife and her uncle, just come",
+       "grade": "reconstructed",
+       "basis": "Officers drew rations by rank (Act of 1802, in force 1812) and ate in their quarters; the hour is the period's breakfast, midday dinner and evening supper, not a source's.",
+       "with": [
+        "heald_rebekah",
+        "wells_william"
+       ]
+      },
+      {
+       "from": 19.8,
+       "to": 21.0,
+       "indoors": true,
+       "where": "first_fort_dearborn_commanding_officers_barracks",
+       "doing": "Wells, Kinzie and Helm press him to destroy the arms, powder and liquor; he agrees",
+       "grade": "inferred",
+       "basis": "13 August, evening: Wells has come (Heald's date). Helm: Kinzie and Helm called on Wells, who pressed Heald to destroy the arms; the destruction was that night (Helm, Wau-Bun, Andreas). Who was where, and the hours, are ours.",
+       "with": [
+        "wells_william",
+        "kinzie_john_elder",
+        "helm_linai"
+       ]
+      },
+      {
+       "from": 21.0,
+       "to": 24.0,
+       "indoors": false,
+       "where": "outdoors at the well in the sally-port",
+       "at": {
+        "local_e": 1162.0,
+        "local_n": 229.4,
+        "heading_deg": 20
+       },
+       "doing": "overseeing the ammunition and broken muskets going down the well",
+       "activity": "talk",
+       "grade": "inferred",
+       "basis": "13 August, evening: Wells has come (Heald's date). Helm: Kinzie and Helm called on Wells, who pressed Heald to destroy the arms; the destruction was that night (Helm, Wau-Bun, Andreas). Who was where, and the hours, are ours.",
+       "knot": "well_destruction",
+       "with": [
+        "wells_william",
+        "ronan_george"
+       ]
+      }
+     ]
+    },
+    {
+     "from_date": "1812-08-14",
+     "to_date": "1812-08-14",
+     "label": "14 August 1812, the last full day",
+     "day": [
+      {
+       "from": 0.0,
+       "to": 1.0,
+       "indoors": false,
+       "where": "outdoors at the well in the sally-port, north-east corner of the parade",
+       "at": {
+        "local_e": 1162.0,
+        "local_n": 229.4,
+        "heading_deg": 20
+       },
+       "doing": "seeing the last of the muskets, shot and flints thrown down the well",
+       "activity": "talk",
+       "grade": "reconstructed",
+       "basis": "The destruction was on the night of the 13th (Helm, an officer present; Wau-Bun; Andreas). Who supervised which part is not recorded; we have it run past midnight and give each officer a share of the work.",
+       "knot": "well_destruction",
+       "with": [
+        "ronan_george",
+        "wells_william"
+       ]
+      },
+      {
+       "from": 1.0,
+       "to": 5.2,
+       "indoors": true,
+       "where": "first_fort_dearborn_commanding_officers_barracks",
+       "doing": "asleep",
+       "grade": "reconstructed",
+       "basis": "Night in quarters; no source says when anyone slept. Reveille at 5:30 and tattoo at 21:00 are the garrison clock T-3462 uses for the men."
+      },
+      {
+       "from": 5.2,
+       "to": 5.5,
+       "indoors": true,
+       "where": "first_fort_dearborn_commanding_officers_barracks",
+       "doing": "rising and dressing",
+       "grade": "reconstructed",
+       "basis": "Night in quarters; no source says when anyone slept. Reveille at 5:30 and tattoo at 21:00 are the garrison clock T-3462 uses for the men."
+      },
+      {
+       "from": 5.5,
+       "to": 6.0,
+       "indoors": false,
+       "where": "outdoors on the parade before his own door",
+       "at": {
+        "local_e": 1156.0,
+        "local_n": 221.0,
+        "heading_deg": 270
+       },
+       "doing": "taking the morning report",
+       "activity": "talk",
+       "grade": "reconstructed",
+       "basis": "Reveille and the morning report: at any post the subalterns reported the company to the commander after roll call. Here they stand before his door on the parade. Period routine, not a record of the day.",
+       "knot": "morning_report",
+       "with": [
+        "helm_linai",
+        "ronan_george"
+       ]
+      },
+      {
+       "from": 6.0,
+       "to": 7.0,
+       "indoors": false,
+       "where": "outdoors at the stables west of the fort",
+       "at": {
+        "local_e": 1066.6,
+        "local_n": 140.2,
+        "heading_deg": 250
+       },
+       "doing": "looking over the horses and mules hired from Kinzie and Forsyth for the march",
+       "activity": "talk",
+       "grade": "inferred",
+       "basis": "Heald's 1817 affidavit (via Quaife ch. X) says he hired Kinzie and Forsyth's horses and mules to carry the provisions; the hour and the place (the post's stables, first_fort_outer_stable_north) are ours.",
+       "knot": "hired_horses",
+       "with": [
+        "helm_linai",
+        "kinzie_john_elder"
+       ]
+      },
+      {
+       "from": 7.0,
+       "to": 7.8,
+       "indoors": true,
+       "where": "first_fort_dearborn_commanding_officers_barracks",
+       "doing": "breakfast with his wife and her uncle",
+       "grade": "reconstructed",
+       "basis": "Officers drew rations by rank (Act of 1802, in force 1812) and ate in their quarters; the hour is the period's breakfast, midday dinner and evening supper, not a source's.",
+       "with": [
+        "heald_rebekah",
+        "wells_william"
+       ]
+      },
+      {
+       "from": 7.8,
+       "to": 8.4,
+       "indoors": false,
+       "where": "outdoors on the parade",
+       "at": {
+        "local_e": 1152.0,
+        "local_n": 216.8,
+        "heading_deg": 180
+       },
+       "doing": "giving orders for the day at guard mounting",
+       "activity": "stand",
+       "grade": "reconstructed",
+       "basis": "Period routine."
+      },
+      {
+       "from": 8.4,
+       "to": 12.0,
+       "indoors": false,
+       "where": "outdoors before the door of the factory, west of the fort",
+       "at": {
+        "local_e": 1073.6,
+        "local_n": 219.0,
+        "heading_deg": 60
+       },
+       "doing": "giving out the goods of the factory store to the Potawatomi",
+       "activity": "talk",
+       "grade": "attested",
+       "basis": "Heald's report: 'On the 14th, I delivered the Indians all the goods in the factory store' (Wau-Bun says the 13th). The hours and who stood with him are ours.",
+       "knot": "factory_distribution",
+       "with": [
+        "wells_william",
+        "helm_linai",
+        "van_voorhis_isaac",
+        "kinzie_john_elder"
+       ]
+      },
+      {
+       "from": 12.0,
+       "to": 13.5,
+       "indoors": true,
+       "where": "first_fort_dearborn_commanding_officers_barracks",
+       "doing": "dinner",
+       "grade": "reconstructed",
+       "basis": "Officers drew rations by rank (Act of 1802, in force 1812) and ate in their quarters; the hour is the period's breakfast, midday dinner and evening supper, not a source's.",
+       "with": [
+        "heald_rebekah",
+        "wells_william"
+       ]
+      },
+      {
+       "from": 13.5,
+       "to": 14.0,
+       "indoors": true,
+       "where": "first_fort_dearborn_commanding_officers_barracks",
+       "doing": "with his lieutenant over the order of march",
+       "grade": "reconstructed",
+       "basis": "Ours.",
+       "with": [
+        "helm_linai"
+       ]
+      },
+      {
+       "from": 14.0,
+       "to": 16.5,
+       "indoors": false,
+       "where": "outdoors on the esplanade west of the fort",
+       "at": {
+        "local_e": 1104.0,
+        "local_n": 222.0,
+        "heading_deg": 270
+       },
+       "doing": "in council with the Potawatomi leaders",
+       "activity": "talk",
+       "grade": "attested",
+       "basis": "Wau-Bun: 'On the afternoon of the same day [the 14th], a second council was held'; Currey has 'another council' that day. The place is the first council's (Wau-Bun: the esplanade under the blockhouses); Kinzie interpreting is Currey's word for the evening.",
+       "knot": "second_council_14aug",
+       "with": [
+        "wells_william",
+        "kinzie_john_elder"
+       ]
+      },
+      {
+       "from": 16.5,
+       "to": 18.7,
+       "indoors": false,
+       "where": "outdoors by the baggage wagons outside the main gate",
+       "at": {
+        "local_e": 1157.0,
+        "local_n": 196.0,
+        "heading_deg": 160
+       },
+       "doing": "seeing the wagons loaded and the pack-horses assigned",
+       "activity": "talk",
+       "grade": "reconstructed",
+       "basis": "Getting the wagons and pack-horses ready for the 9 o'clock march. Heald hired Kinzie and Forsyth's horses and mules (his 1817 affidavit), and Wau-Bun puts the reserved cartridges in the baggage-wagons. Where the wagons stood is ours: on the open ground outside the main gate, clear of the guard.",
+       "knot": "wagons_14aug",
+       "with": [
+        "helm_linai",
+        "ronan_george"
+       ]
+      },
+      {
+       "from": 18.7,
+       "to": 19.2,
+       "indoors": false,
+       "where": "outdoors on the parade before his own door",
+       "at": {
+        "local_e": 1156.0,
+        "local_n": 221.0,
+        "heading_deg": 270
+       },
+       "doing": "at retreat, the gates shut for the last time",
+       "activity": "talk",
+       "grade": "reconstructed",
+       "basis": "Retreat at sunset (about 19:00 local time in mid-August), when the gates were shut; Victoire Porthier's 'when they used to shut the gates of the fort' (the Lalime jaunt). The officers stand to it before the commander's door.",
+       "knot": "retreat",
+       "with": [
+        "helm_linai",
+        "ronan_george"
+       ]
+      },
+      {
+       "from": 19.2,
+       "to": 19.8,
+       "indoors": true,
+       "where": "first_fort_dearborn_commanding_officers_barracks",
+       "doing": "supper",
+       "grade": "reconstructed",
+       "basis": "Officers drew rations by rank (Act of 1802, in force 1812) and ate in their quarters; the hour is the period's breakfast, midday dinner and evening supper, not a source's.",
+       "with": [
+        "heald_rebekah",
+        "wells_william"
+       ]
+      },
+      {
+       "from": 19.8,
+       "to": 21.5,
+       "indoors": true,
+       "where": "first_fort_dearborn_commanding_officers_barracks",
+       "doing": "Black Partridge and the interpreter come to his quarters; Black Partridge gives up his medal",
+       "grade": "attested",
+       "basis": "Helm: 'The night of the 14th the Interpreter and a Chief black patredge waited on Capt Heald' and only Wells knew of it; Wau-Bun and Andreas: the evening of the 14th, in the commanding officer's quarters. Currey names Kinzie as the interpreter. The hour is ours. Wau-Bun's speech is not acted out (L1).",
+       "with": [
+        "wells_william",
+        "black_partridge",
+        "kinzie_john_elder"
+       ]
+      },
+      {
+       "from": 21.5,
+       "to": 22.5,
+       "indoors": true,
+       "where": "first_fort_dearborn_commanding_officers_barracks",
+       "doing": "at his desk, settling the post's papers",
+       "grade": "reconstructed",
+       "basis": "Ours."
+      },
+      {
+       "from": 22.5,
+       "to": 24.0,
+       "indoors": true,
+       "where": "first_fort_dearborn_commanding_officers_barracks",
+       "doing": "asleep",
+       "grade": "reconstructed",
+       "basis": "Night in quarters; no source says when anyone slept. Reveille at 5:30 and tattoo at 21:00 are the garrison clock T-3462 uses for the men."
+      }
+     ]
+    },
+    {
+     "from_date": "1812-08-15",
+     "to_date": "1812-08-15",
+     "label": "15 August 1812, until the march at nine",
+     "day": [
+      {
+       "from": 0,
+       "to": 4.5,
+       "indoors": true,
+       "where": "first_fort_dearborn_commanding_officers_barracks",
+       "doing": "asleep",
+       "grade": "reconstructed",
+       "basis": "Night in quarters; no source says when anyone slept. Reveille at 5:30 and tattoo at 21:00 are the garrison clock T-3462 uses for the men."
+      },
+      {
+       "from": 4.5,
+       "to": 8.5,
+       "indoors": true,
+       "where": "first_fort_dearborn_commanding_officers_barracks",
+       "doing": "packing his last things; dressing for the march",
+       "grade": "reconstructed",
+       "basis": "15 August: the march began at nine (Heald). What each officer did before it is not recorded. After nine they leave the town scene; the battle-of-fort-dearborn jaunt stages the march and the battle."
+      },
+      {
+       "from": 8.5,
+       "to": 9.0,
+       "indoors": false,
+       "where": "outdoors on the parade",
+       "at": {
+        "local_e": 1155.0,
+        "local_n": 223.0,
+        "heading_deg": 180
+       },
+       "doing": "forming the company to march out",
+       "activity": "stand",
+       "grade": "inferred",
+       "basis": "15 August: the march began at nine (Heald). What each officer did before it is not recorded. After nine they leave the town scene; the battle-of-fort-dearborn jaunt stages the march and the battle."
+      },
+      {
+       "from": 9.0,
+       "to": 24.0,
+       "indoors": null,
+       "offscene": true,
+       "where": null,
+       "doing": "gone out of the gate with the column (the battle jaunt has the march, the battle and its end)",
+       "grade": "attested",
+       "basis": "Heald: \"we commenced our march\" at nine. Wounded and taken prisoner; the next day taken to St Joseph."
+      }
+     ]
+    }
+   ],
+   "facts": [
+    {
+     "claim": "Heald born 24 September 1775.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16070-16072; Appendix III, 'Nathan Heald's Journal' (begins p. 402)",
+     "quote": "was born in New Ipswich in the state of New Hampshire the 24th of September 1775,"
+    },
+    {
+     "claim": "Heald took command at Chicago in June 1810.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16111-16111; Appendix III, Heald's Journal (begins p. 402)",
+     "quote": "In June 1810 left Fort Wayne & went to Chicago to Command that Post,"
+    },
+    {
+     "claim": "Away on furlough from the fall of 1810.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16112-16112; Appendix III, Heald's Journal (begins p. 402)",
+     "quote": "went on furlough to Massachusetts in the fall of the same year"
+    },
+    {
+     "claim": "Back at Chicago with his wife in June 1811.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16115-16115; Appendix III, Heald's Journal (begins p. 402)",
+     "quote": "arrived at Chicago in June with Mrs. Heald."
+    },
+    {
+     "claim": "The garrison turned out for the Healds' arrival, June 1811.",
+     "source": "kirkland_1893_chicago_massacre",
+     "locator": "Gutenberg #59624 plain text (pg59624.txt), line 2183-2184; Part II, ch. III (Mrs. Heald via Darius Heald)",
+     "quote": "the garrison turned out to receive them with all the honors of war,"
+    },
+    {
+     "claim": "Hull's order reached him on 9 August.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16120-16121; Appendix III, Heald's Journal (begins p. 402)",
+     "quote": "On the 9th of Augt, 1812, rec'd orders from Genl Wm. Hull to evacuate the Post of Chicago"
+    },
+    {
+     "claim": "The order was read on parade.",
+     "source": "kinzie_waubun_1856",
+     "locator": "PG 51737 lines 5870-5870 (1856 text as reprinted in the 1901 Caxton Club edition); ch. XVIII",
+     "quote": "The order for evacuating the post was read next morning upon parade."
+    },
+    {
+     "claim": "At the first council (12th) Heald alone attended for the military.",
+     "source": "kinzie_waubun_1856",
+     "locator": "PG 51737 lines 5963-5965 (1856 text as reprinted in the 1901 Caxton Club edition); ch. XVIII",
+     "quote": "Captain Heald only, attended on the part of the military. He requested his officers to accompany him, but they declined."
+    },
+    {
+     "claim": "Quaife puts the first council probably on the 13th.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 8910-8912; ch. X (begins p. 211)",
+     "quote": "Probably on this day a council was held with the Indians at which Heald announced his intention"
+    },
+    {
+     "claim": "Heald hired Kinzie and Forsyth's horses and mules to carry the troops' provisions (his 1817 affidavit, via Quaife).",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 8906-8907; ch. X 'The Battle and Defeat' (begins p. 211)",
+     "quote": "he employed sundry horses and mules, with saddles, bridles, and other equipment, the property of Kinzie and Forsyth,"
+    },
+    {
+     "claim": "Heald dates the giving out of the factory goods and spare provisions to the 14th.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16231-16233; Appendix IV, Heald's report (begins p. 406)",
+     "quote": "On the 14th, I delivered the Indians all the goods in the factory store, and a considerable quantity of provisions"
+    },
+    {
+     "claim": "Quaife, following Heald: goods and provisions given out on the 14th, liquor and spare arms destroyed.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 8913-8914; ch. X (begins p. 211)",
+     "quote": "On the fourteenth the goods in the factory were delivered to the Indians,"
+    },
+    {
+     "claim": "Wau-Bun dates the goods to the 13th.",
+     "source": "kinzie_waubun_1856",
+     "locator": "PG 51737 lines 6013-6014 (1856 text as reprinted in the 1901 Caxton Club edition); ch. XVIII",
+     "quote": "On the 13th the goods, consisting of blankets, broadcloths, calicoes, paints, etc., were distributed, as stipulated."
+    },
+    {
+     "claim": "Heald destroyed the surplus arms and ammunition.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16233-16235; Appendix IV, Heald's report (begins p. 406)",
+     "quote": "The surplus arms and ammunition I thought proper to destroy, fearing they would make bad use of it if put in their possession."
+    },
+    {
+     "claim": "And the liquor.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16235-16236; Appendix IV, Heald's report (begins p. 406)",
+     "quote": "I also destroyed all the liquor on hand after they began to collect."
+    },
+    {
+     "claim": "Helm, an officer present, dates the destruction to the night of the 13th.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16659-16660; Appendix VI, 'Lieutenant Helm's Account of the Massacre' (begins p. 415)",
+     "quote": "The ammunition & Muskets were all destroyed the night of the 13th,"
+    },
+    {
+     "claim": "Andreas: destruction on the night of the 13th.",
+     "source": "andreas_1884_v1",
+     "locator": "Internet Archive historyofchicago01andr OCR text (historyofchicago01andr_djvu.txt), line 21075-21076; vol. I, p. 82",
+     "quote": "Captain Heald yielded, and on the night of the 13th destroyed all the ammunition and muskets"
+    },
+    {
+     "claim": "The same evening (13th) ammunition and liquor went into the sally-port well.",
+     "source": "kinzie_waubun_1856",
+     "locator": "PG 51737 lines 6014-6016 (1856 text as reprinted in the 1901 Caxton Club edition); ch. XVIII",
+     "quote": "The same evening the ammunition and liquor were carried, part into the sally-port, and thrown into a well"
+    },
+    {
+     "claim": "The rest went out by the northern gate into the river.",
+     "source": "kinzie_waubun_1856",
+     "locator": "PG 51737 lines 6017-6019 (1856 text as reprinted in the 1901 Caxton Club edition); ch. XVIII",
+     "quote": "the remainder was transported as secretly as possible through the northern gate, the heads of the barrels knocked in,"
+    },
+    {
+     "claim": "A guard kept watch over the work.",
+     "source": "kinzie_waubun_1856",
+     "locator": "PG 51737 lines 6026-6027 (1856 text as reprinted in the 1901 Caxton Club edition); ch. XVIII",
+     "quote": "a vigilant watch was kept up, and no one was suffered to approach but those engaged in the affair."
+    },
+    {
+     "claim": "Every preparation was made for the march next morning.",
+     "source": "kinzie_waubun_1856",
+     "locator": "PG 51737 lines 6054-6055 (1856 text as reprinted in the 1901 Caxton Club edition); ch. XVIII",
+     "quote": "every preparation was made for the march of the troops on the following morning."
+    },
+    {
+     "claim": "A second council was held on the afternoon of the 14th.",
+     "source": "kinzie_waubun_1856",
+     "locator": "PG 51737 lines 6057-6058 (1856 text as reprinted in the 1901 Caxton Club edition); ch. XVIII",
+     "quote": "On the afternoon of the same day, a second council was held with the Indians."
+    },
+    {
+     "claim": "Currey: another council during the day, the Indians angry at the destruction.",
+     "source": "currey_1912_story_of_old_fort_dearborn",
+     "locator": "Gutenberg #52346 plain text (pg52346.txt), line 2213-2214; ch. III (begins p. 95)",
+     "quote": "During the day another council with the Indians was held, and on this occasion the savages were found to be in an angry mood."
+    },
+    {
+     "claim": "Black Partridge came to the commanding officer's quarters that evening.",
+     "source": "kinzie_waubun_1856",
+     "locator": "PG 51737 lines 6078-6079 (1856 text as reprinted in the 1901 Caxton Club edition); ch. XVIII",
+     "quote": "On the evening succeeding the council _Black Partridge_, a conspicuous chief, entered the quarters of the Commanding Officer."
+    },
+    {
+     "claim": "Andreas: Black Partridge in Heald's quarters on the evening of the 14th.",
+     "source": "andreas_1884_v1",
+     "locator": "Internet Archive historyofchicago01andr OCR text (historyofchicago01andr_djvu.txt), line 21083-21085; vol. I, 'History of Early Chicago', p. 82",
+     "quote": "On the evening of the 14th he came to the fort and entered Captain Heald's quarters."
+    },
+    {
+     "claim": "Currey: Black Partridge came to the officers' quarters on the last evening.",
+     "source": "currey_1912_story_of_old_fort_dearborn",
+     "locator": "Gutenberg #52346 plain text (pg52346.txt), line 2224-2225; ch. III (begins p. 95)",
+     "quote": "The evening of the last day at the fort, Black Partridge, a prominent chief of the Potawatamis,"
+    },
+    {
+     "claim": "Currey: Kinzie interpreted.",
+     "source": "currey_1912_story_of_old_fort_dearborn",
+     "locator": "Gutenberg #52346 plain text (pg52346.txt), line 2235-2236; ch. III (begins p. 95)",
+     "quote": "the speech was translated by the interpreter, who at that time was John Kinzie."
+    },
+    {
+     "claim": "Helm: on the night of the 14th Black Partridge and the interpreter came to Heald and gave up the medal.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16755-16757; Appendix VI, Helm's account (begins p. 415)",
+     "quote": "The night of the 14th the Interpreter and a Chief black patredge waited on Capt Heald the Indian gave up his medal"
+    },
+    {
+     "claim": "Helm: Heald told none of his officers; only Wells knew.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16758-16759; Appendix VI, Helm's account (begins p. 415)",
+     "quote": "this Heald never communicated to one of his officers there was but Capt Wells that was acquainted with it"
+    },
+    {
+     "claim": "The ammunition kept back was packed in the baggage-wagons.",
+     "source": "kinzie_waubun_1856",
+     "locator": "PG 51737 lines 6095-6096 (1856 text as reprinted in the 1901 Caxton Club edition); ch. XVIII",
+     "quote": "Of the ammunition there had been reserved but twenty-five rounds, beside one box of cartridges, contained in the baggage-wagons."
+    },
+    {
+     "claim": "The march began at nine on the 15th.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16238-16239; Appendix IV, Heald's report (begins p. 406)",
+     "quote": "On the 15th, at 9 o'clock in the morning, we commenced our march:"
+    },
+    {
+     "claim": "Heald wore it under his uniform.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16507-16508; Appendix V, Darius Heald's narrative (begins p. 409)",
+     "quote": "This garment Maj. Heald wore under his regular military suit,"
+    },
+    {
+     "claim": "Rebekah Heald sewed money into a wamus before the evacuation.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16504-16505; Appendix V, Darius Heald's narrative, told to Draper 1868 (begins p. 409)",
+     "quote": "Mrs. Heald had sewed into a wamus, or roundabout, several hundred dollars in paper money,"
+    },
+    {
+     "claim": "Heald's sword survived with the family.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 9834-9836; ch. XI 'The Fate of the Survivors' (begins p. 232)",
+     "quote": "including Heald's sword, a comb, finger ring, brooch, and table spoons of Mrs. Heald, are still in the possession of her descendants."
+    },
+    {
+     "claim": "No likeness of Nathan Heald existed in 1868.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16532-16532; Appendix V, Darius Heald's narrative (begins p. 409)",
+     "quote": "There is no likeness extant of Maj. Heald."
+    },
+    {
+     "claim": "Currey makes Heald 37.",
+     "source": "currey_1912_story_of_old_fort_dearborn",
+     "locator": "Gutenberg #52346 plain text (pg52346.txt), line 1899-1900; ch. III (begins p. 95)",
+     "quote": "Captain Heald was at that time thirty-seven years old"
+    },
+    {
+     "claim": "Officers' daily rations: captain three, lieutenant two; an ensign two as well (the next words, broken across a line in the OCR) (Act of 1802, in force 1812).",
+     "source": "us_1812_rules_and_articles_albany",
+     "locator": "Internet Archive actestablishingr00unitrich OCR text, line 3230-3231; Act of 16 March 1802, Sec. 5, p. 52",
+     "quote": "a captain, three rations ; a lieutenant, two rations ;"
+    },
+    {
+     "claim": "An extra ration for an officer who kept a servant not a soldier.",
+     "source": "us_1812_rules_and_articles_albany",
+     "locator": "Internet Archive actestablishingr00unitrich OCR text, line 3249-3250; Act of 16 March 1802, Sec. 5, p. 52",
+     "quote": "to every commissioned officer who shall keep one servant, not a soldier of the line, one additional ration."
+    },
+    {
+     "claim": "What a ration was.",
+     "source": "us_1812_rules_and_articles_albany",
+     "locator": "Internet Archive actestablishingr00unitrich OCR text, line 3253-3255; Act of 16 March 1802, Sec. 6, pp. 52-53",
+     "quote": "one pound and a quarter of beef, or three quarters of a pound of pork, eighteen ounces of bread or flour,"
+    }
+   ]
+  },
+  {
+   "person_id": "helm_linai",
+   "name": "Linai T. Helm",
+   "role": "Second Lieutenant, First Infantry; husband of Margaret Helm, son-in-law of John Kinzie",
+   "present": {
+    "status": "present",
+    "grade": "attested",
+    "basis": "His own 1814 narrative of the evacuation (Quaife App. VI)."
+   },
+   "presence": {
+    "from": "1811-06-01",
+    "to": "1812-08-15",
+    "grade": "inferred",
+    "basis": "Quaife: transferred from Detroit 'Three months later' than March 1811; the day is ours. Marched out 15 August."
+   },
+   "sex": "m",
+   "age_1812": {
+    "value": 24,
+    "grade": "reconstructed",
+    "basis": "No birth date found. Second lieutenant from 15 Dec 1808 (roll); Wau-Bun: Helm and Ronan 'were very young men'. 24 is ours."
+   },
+   "home": {
+    "where": "first_fort_dearborn_officers_barracks",
+    "grade": "reconstructed",
+    "basis": "The subordinate officers' quarters on the west side (Quaife); which room is not recorded. One door on the parade (doors_1812.json), so a visitor asks for him there."
+   },
+   "dress_role": "officer_first_infantry_1812",
+   "rank_marks": "second lieutenant: one epaulette, left shoulder",
+   "looks": {
+    "complexion": "fair",
+    "hair": "light brown, cut short",
+    "eyes": "grey",
+    "height_in": 68,
+    "build": "slight to medium",
+    "facial_hair": "clean-shaven",
+    "grade": "reconstructed",
+    "basis": "No likeness or description found (Gordon's 1912 edition of his narrative has none; T-3461 found none). Colouring from an English-descended family (his father's home was in New York, Quaife ch. XI; his middle name Taliaferro is a Virginia family's); height the period mean.",
+    "portrait": null
+   },
+   "days": [
+    {
+     "from_date": "1812-01-01",
+     "to_date": "1812-08-12",
+     "label": "a plain day of 1812 at the post (summer hours)",
+     "day": [
+      {
+       "from": 0,
+       "to": 5.2,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "asleep",
+       "grade": "reconstructed",
+       "basis": "Night in quarters; no source says when anyone slept. Reveille at 5:30 and tattoo at 21:00 are the garrison clock T-3462 uses for the men.",
+       "with": [
+        "helm_margaret"
+       ]
+      },
+      {
+       "from": 5.2,
+       "to": 5.5,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "rising and dressing",
+       "grade": "reconstructed",
+       "basis": "Night in quarters; no source says when anyone slept. Reveille at 5:30 and tattoo at 21:00 are the garrison clock T-3462 uses for the men."
+      },
+      {
+       "from": 5.5,
+       "to": 6.0,
+       "indoors": false,
+       "where": "outdoors on the parade before the commander's door",
+       "at": {
+        "local_e": 1154.2,
+        "local_n": 221.7,
+        "heading_deg": 110
+       },
+       "doing": "reporting the company at morning roll call",
+       "activity": "talk",
+       "grade": "reconstructed",
+       "basis": "Reveille and the morning report: at any post the subalterns reported the company to the commander after roll call. Here they stand before his door on the parade. Period routine, not a record of the day.",
+       "knot": "morning_report",
+       "with": [
+        "heald_nathan",
+        "ronan_george"
+       ]
+      },
+      {
+       "from": 6.0,
+       "to": 7.2,
+       "indoors": false,
+       "where": "outdoors on the parade",
+       "at": {
+        "local_e": 1150.6,
+        "local_n": 218.6,
+        "heading_deg": 270
+       },
+       "doing": "drilling a squad on the parade",
+       "activity": "stand",
+       "grade": "reconstructed",
+       "basis": "Morning drill; period routine. Stands before the rank T-3462 draws up on the parade."
+      },
+      {
+       "from": 7.2,
+       "to": 8.0,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "breakfast with his wife",
+       "grade": "reconstructed",
+       "basis": "Officers drew rations by rank (Act of 1802, in force 1812) and ate in their quarters; the hour is the period's breakfast, midday dinner and evening supper, not a source's.",
+       "with": [
+        "helm_margaret"
+       ]
+      },
+      {
+       "from": 8.0,
+       "to": 12.0,
+       "indoors": false,
+       "where": "outdoors, officer of the day on alternate days, going the rounds of the sentries",
+       "at": {
+        "local_e": 1150.8,
+        "local_n": 214.2,
+        "heading_deg": 0
+       },
+       "doing": "going the rounds of the sentries",
+       "activity": "walk",
+       "grade": "reconstructed",
+       "basis": "A post of two line subalterns kept officer of the day turn about; the plain day shows him on duty. Ours.",
+       "to_point": {
+        "local_e": 1150.8,
+        "local_n": 228.4
+       }
+      },
+      {
+       "from": 12.0,
+       "to": 13.5,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "dinner",
+       "grade": "reconstructed",
+       "basis": "Officers drew rations by rank (Act of 1802, in force 1812) and ate in their quarters; the hour is the period's breakfast, midday dinner and evening supper, not a source's.",
+       "with": [
+        "helm_margaret"
+       ]
+      },
+      {
+       "from": 13.5,
+       "to": 16.0,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "the company's books",
+       "grade": "reconstructed",
+       "basis": "Quaife ch. VII: Helm often sat on garrison courts-martial; papers in his room are ours."
+      },
+      {
+       "from": 16.0,
+       "to": 17.5,
+       "indoors": false,
+       "where": "outdoors at the bake house west of the fort",
+       "at": {
+        "local_e": 1068.6,
+        "local_n": 183.2,
+        "heading_deg": 270
+       },
+       "doing": "seeing the company's bread",
+       "activity": "stand",
+       "grade": "reconstructed",
+       "basis": "The post's bake house is on Whistler's draught; an officer looking in on the bread is ours."
+      },
+      {
+       "from": 17.5,
+       "to": 18.7,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "with his wife",
+       "grade": "reconstructed",
+       "basis": "Ours.",
+       "with": [
+        "helm_margaret"
+       ]
+      },
+      {
+       "from": 18.7,
+       "to": 19.2,
+       "indoors": false,
+       "where": "outdoors on the parade before the commander's door",
+       "at": {
+        "local_e": 1154.2,
+        "local_n": 221.7,
+        "heading_deg": 110
+       },
+       "doing": "at retreat",
+       "activity": "talk",
+       "grade": "reconstructed",
+       "basis": "Retreat at sunset (about 19:00 local time in mid-August), when the gates were shut; Victoire Porthier's 'when they used to shut the gates of the fort' (the Lalime jaunt). The officers stand to it before the commander's door.",
+       "knot": "retreat",
+       "with": [
+        "heald_nathan",
+        "ronan_george"
+       ]
+      },
+      {
+       "from": 19.2,
+       "to": 20.2,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "supper",
+       "grade": "reconstructed",
+       "basis": "Officers drew rations by rank (Act of 1802, in force 1812) and ate in their quarters; the hour is the period's breakfast, midday dinner and evening supper, not a source's.",
+       "with": [
+        "helm_margaret"
+       ]
+      },
+      {
+       "from": 20.2,
+       "to": 22.0,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "the evening at home; the bachelor officers come in",
+       "grade": "reconstructed",
+       "basis": "Ours.",
+       "with": [
+        "helm_margaret",
+        "ronan_george",
+        "van_voorhis_isaac"
+       ]
+      },
+      {
+       "from": 22.0,
+       "to": 24.0,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "asleep",
+       "grade": "reconstructed",
+       "basis": "Night in quarters; no source says when anyone slept. Reveille at 5:30 and tattoo at 21:00 are the garrison clock T-3462 uses for the men.",
+       "with": [
+        "helm_margaret"
+       ]
+      }
+     ]
+    },
+    {
+     "from_date": "1812-08-13",
+     "to_date": "1812-08-13",
+     "label": "13 August 1812: the plain day until supper, then Wells, and the destruction at night",
+     "day": [
+      {
+       "from": 0,
+       "to": 5.2,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "asleep",
+       "grade": "reconstructed",
+       "basis": "Night in quarters; no source says when anyone slept. Reveille at 5:30 and tattoo at 21:00 are the garrison clock T-3462 uses for the men.",
+       "with": [
+        "helm_margaret"
+       ]
+      },
+      {
+       "from": 5.2,
+       "to": 5.5,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "rising and dressing",
+       "grade": "reconstructed",
+       "basis": "Night in quarters; no source says when anyone slept. Reveille at 5:30 and tattoo at 21:00 are the garrison clock T-3462 uses for the men."
+      },
+      {
+       "from": 5.5,
+       "to": 6.0,
+       "indoors": false,
+       "where": "outdoors on the parade before the commander's door",
+       "at": {
+        "local_e": 1154.2,
+        "local_n": 221.7,
+        "heading_deg": 110
+       },
+       "doing": "reporting the company at morning roll call",
+       "activity": "talk",
+       "grade": "reconstructed",
+       "basis": "Reveille and the morning report: at any post the subalterns reported the company to the commander after roll call. Here they stand before his door on the parade. Period routine, not a record of the day.",
+       "knot": "morning_report",
+       "with": [
+        "heald_nathan",
+        "ronan_george"
+       ]
+      },
+      {
+       "from": 6.0,
+       "to": 7.2,
+       "indoors": false,
+       "where": "outdoors on the parade",
+       "at": {
+        "local_e": 1150.6,
+        "local_n": 218.6,
+        "heading_deg": 270
+       },
+       "doing": "drilling a squad on the parade",
+       "activity": "stand",
+       "grade": "reconstructed",
+       "basis": "Morning drill; period routine. Stands before the rank T-3462 draws up on the parade."
+      },
+      {
+       "from": 7.2,
+       "to": 8.0,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "breakfast with his wife",
+       "grade": "reconstructed",
+       "basis": "Officers drew rations by rank (Act of 1802, in force 1812) and ate in their quarters; the hour is the period's breakfast, midday dinner and evening supper, not a source's.",
+       "with": [
+        "helm_margaret"
+       ]
+      },
+      {
+       "from": 8.0,
+       "to": 12.0,
+       "indoors": false,
+       "where": "outdoors, officer of the day on alternate days, going the rounds of the sentries",
+       "at": {
+        "local_e": 1150.8,
+        "local_n": 214.2,
+        "heading_deg": 0
+       },
+       "doing": "going the rounds of the sentries",
+       "activity": "walk",
+       "grade": "reconstructed",
+       "basis": "A post of two line subalterns kept officer of the day turn about; the plain day shows him on duty. Ours.",
+       "to_point": {
+        "local_e": 1150.8,
+        "local_n": 228.4
+       }
+      },
+      {
+       "from": 12.0,
+       "to": 13.5,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "dinner",
+       "grade": "reconstructed",
+       "basis": "Officers drew rations by rank (Act of 1802, in force 1812) and ate in their quarters; the hour is the period's breakfast, midday dinner and evening supper, not a source's.",
+       "with": [
+        "helm_margaret"
+       ]
+      },
+      {
+       "from": 13.5,
+       "to": 16.0,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "the company's books",
+       "grade": "reconstructed",
+       "basis": "Quaife ch. VII: Helm often sat on garrison courts-martial; papers in his room are ours."
+      },
+      {
+       "from": 16.0,
+       "to": 17.5,
+       "indoors": false,
+       "where": "outdoors at the bake house west of the fort",
+       "at": {
+        "local_e": 1068.6,
+        "local_n": 183.2,
+        "heading_deg": 270
+       },
+       "doing": "seeing the company's bread",
+       "activity": "stand",
+       "grade": "reconstructed",
+       "basis": "The post's bake house is on Whistler's draught; an officer looking in on the bread is ours."
+      },
+      {
+       "from": 17.5,
+       "to": 18.7,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "with his wife",
+       "grade": "reconstructed",
+       "basis": "Ours.",
+       "with": [
+        "helm_margaret"
+       ]
+      },
+      {
+       "from": 18.7,
+       "to": 19.2,
+       "indoors": false,
+       "where": "outdoors on the parade before the commander's door",
+       "at": {
+        "local_e": 1154.2,
+        "local_n": 221.7,
+        "heading_deg": 110
+       },
+       "doing": "at retreat",
+       "activity": "talk",
+       "grade": "reconstructed",
+       "basis": "Retreat at sunset (about 19:00 local time in mid-August), when the gates were shut; Victoire Porthier's 'when they used to shut the gates of the fort' (the Lalime jaunt). The officers stand to it before the commander's door.",
+       "knot": "retreat",
+       "with": [
+        "heald_nathan",
+        "ronan_george"
+       ]
+      },
+      {
+       "from": 19.2,
+       "to": 19.8,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "supper",
+       "grade": "reconstructed",
+       "basis": "Officers drew rations by rank (Act of 1802, in force 1812) and ate in their quarters; the hour is the period's breakfast, midday dinner and evening supper, not a source's.",
+       "with": [
+        "helm_margaret"
+       ]
+      },
+      {
+       "from": 19.8,
+       "to": 21.0,
+       "indoors": true,
+       "where": "first_fort_dearborn_commanding_officers_barracks",
+       "doing": "with Kinzie, calling on Wells and the captain about the arms",
+       "grade": "inferred",
+       "basis": "13 August, evening: Wells has come (Heald's date). Helm: Kinzie and Helm called on Wells, who pressed Heald to destroy the arms; the destruction was that night (Helm, Wau-Bun, Andreas). Who was where, and the hours, are ours.",
+       "with": [
+        "wells_william",
+        "kinzie_john_elder",
+        "heald_nathan"
+       ]
+      },
+      {
+       "from": 21.0,
+       "to": 24.0,
+       "indoors": false,
+       "where": "outdoors on the river bank below the north gate",
+       "at": {
+        "local_e": 1142.6,
+        "local_n": 241.2,
+        "heading_deg": 0
+       },
+       "doing": "over the men knocking in the liquor barrels and pouring them into the river",
+       "activity": "work",
+       "grade": "inferred",
+       "basis": "13 August, evening: Wells has come (Heald's date). Helm: Kinzie and Helm called on Wells, who pressed Heald to destroy the arms; the destruction was that night (Helm, Wau-Bun, Andreas). Who was where, and the hours, are ours.",
+       "spots": [
+        {
+         "local_e": 1141.0,
+         "local_n": 242.3
+        },
+        {
+         "local_e": 1144.0,
+         "local_n": 242.5
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "from_date": "1812-08-14",
+     "to_date": "1812-08-14",
+     "label": "14 August 1812, the last full day",
+     "day": [
+      {
+       "from": 0.0,
+       "to": 1.0,
+       "indoors": false,
+       "where": "outdoors on the river bank below the north gate",
+       "at": {
+        "local_e": 1142.6,
+        "local_n": 241.2,
+        "heading_deg": 0
+       },
+       "doing": "seeing the last liquor barrels stove in and poured into the river",
+       "activity": "work",
+       "grade": "reconstructed",
+       "basis": "The destruction was on the night of the 13th (Helm, an officer present; Wau-Bun; Andreas). Who supervised which part is not recorded; we have it run past midnight and give each officer a share of the work.",
+       "spots": [
+        {
+         "local_e": 1141.0,
+         "local_n": 242.3
+        },
+        {
+         "local_e": 1144.0,
+         "local_n": 242.5
+        }
+       ]
+      },
+      {
+       "from": 1.0,
+       "to": 5.2,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "asleep",
+       "grade": "reconstructed",
+       "basis": "Night in quarters; no source says when anyone slept. Reveille at 5:30 and tattoo at 21:00 are the garrison clock T-3462 uses for the men.",
+       "with": [
+        "helm_margaret"
+       ]
+      },
+      {
+       "from": 5.2,
+       "to": 5.5,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "rising and dressing",
+       "grade": "reconstructed",
+       "basis": "Night in quarters; no source says when anyone slept. Reveille at 5:30 and tattoo at 21:00 are the garrison clock T-3462 uses for the men."
+      },
+      {
+       "from": 5.5,
+       "to": 6.0,
+       "indoors": false,
+       "where": "outdoors on the parade before the commander's door",
+       "at": {
+        "local_e": 1154.2,
+        "local_n": 221.7,
+        "heading_deg": 110
+       },
+       "doing": "reporting the company",
+       "activity": "talk",
+       "grade": "reconstructed",
+       "basis": "Reveille and the morning report: at any post the subalterns reported the company to the commander after roll call. Here they stand before his door on the parade. Period routine, not a record of the day.",
+       "knot": "morning_report",
+       "with": [
+        "heald_nathan",
+        "ronan_george"
+       ]
+      },
+      {
+       "from": 6.0,
+       "to": 7.5,
+       "indoors": false,
+       "where": "outdoors at the stables west of the fort",
+       "at": {
+        "local_e": 1066.2,
+        "local_n": 138.4,
+        "heading_deg": 300
+       },
+       "doing": "with his father-in-law Kinzie over the hired horses and mules",
+       "activity": "talk",
+       "grade": "reconstructed",
+       "basis": "Helm narrates himself going with Kinzie to Wells on the arms (Quaife App. VI); the horses were Kinzie and Forsyth's (Heald's affidavit). Helm at the stables with them on the 14th is ours.",
+       "knot": "hired_horses",
+       "with": [
+        "heald_nathan",
+        "kinzie_john_elder"
+       ]
+      },
+      {
+       "from": 7.5,
+       "to": 8.2,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "breakfast with his wife",
+       "grade": "reconstructed",
+       "basis": "Officers drew rations by rank (Act of 1802, in force 1812) and ate in their quarters; the hour is the period's breakfast, midday dinner and evening supper, not a source's.",
+       "with": [
+        "helm_margaret"
+       ]
+      },
+      {
+       "from": 8.2,
+       "to": 10.0,
+       "indoors": true,
+       "where": "first_fort_dearborn_north_range",
+       "doing": "in the contractor's store, making up the provisions for the march",
+       "grade": "reconstructed",
+       "basis": "The north range's west room was the contractor's store (Whistler's index). Heald gave away the provisions he could not carry (report); someone had to sort them. Ours."
+      },
+      {
+       "from": 10.0,
+       "to": 12.0,
+       "indoors": false,
+       "where": "outdoors before the door of the factory",
+       "at": {
+        "local_e": 1075.2,
+        "local_n": 218.6,
+        "heading_deg": 300
+       },
+       "doing": "with the commander while the factory goods are given out",
+       "activity": "talk",
+       "grade": "reconstructed",
+       "basis": "The giving out is attested for the 14th (Heald); Helm at it is ours.",
+       "knot": "factory_distribution",
+       "with": [
+        "heald_nathan",
+        "wells_william",
+        "van_voorhis_isaac"
+       ]
+      },
+      {
+       "from": 12.0,
+       "to": 13.5,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "dinner",
+       "grade": "reconstructed",
+       "basis": "Officers drew rations by rank (Act of 1802, in force 1812) and ate in their quarters; the hour is the period's breakfast, midday dinner and evening supper, not a source's.",
+       "with": [
+        "helm_margaret"
+       ]
+      },
+      {
+       "from": 13.5,
+       "to": 14.0,
+       "indoors": true,
+       "where": "first_fort_dearborn_commanding_officers_barracks",
+       "doing": "with Heald over the order of march",
+       "grade": "reconstructed",
+       "basis": "Ours.",
+       "with": [
+        "heald_nathan"
+       ]
+      },
+      {
+       "from": 14.0,
+       "to": 16.5,
+       "indoors": true,
+       "where": "first_fort_dearborn_blockhouse_se",
+       "doing": "in the south-east blockhouse with the gun crew, port-holes open, while the council sits",
+       "grade": "reconstructed",
+       "basis": "Wau-Bun says the officers would not go to the council of the 12th and manned the blockhouses over the esplanade instead. It says nothing of where they were during the second council on the 14th; we repeat the 12th's arrangement."
+      },
+      {
+       "from": 16.5,
+       "to": 18.7,
+       "indoors": false,
+       "where": "outdoors by the baggage wagons outside the main gate",
+       "at": {
+        "local_e": 1158.6,
+        "local_n": 196.4,
+        "heading_deg": 220
+       },
+       "doing": "placing the wagons for the women, children and sick",
+       "activity": "talk",
+       "grade": "reconstructed",
+       "basis": "Getting the wagons and pack-horses ready for the 9 o'clock march. Heald hired Kinzie and Forsyth's horses and mules (his 1817 affidavit), and Wau-Bun puts the reserved cartridges in the baggage-wagons. Where the wagons stood is ours: on the open ground outside the main gate, clear of the guard. Quaife: most of the children rode in one of the wagons.",
+       "knot": "wagons_14aug",
+       "with": [
+        "heald_nathan",
+        "ronan_george"
+       ]
+      },
+      {
+       "from": 18.7,
+       "to": 19.2,
+       "indoors": false,
+       "where": "outdoors on the parade before the commander's door",
+       "at": {
+        "local_e": 1154.2,
+        "local_n": 221.7,
+        "heading_deg": 110
+       },
+       "doing": "at retreat",
+       "activity": "talk",
+       "grade": "reconstructed",
+       "basis": "Retreat at sunset (about 19:00 local time in mid-August), when the gates were shut; Victoire Porthier's 'when they used to shut the gates of the fort' (the Lalime jaunt). The officers stand to it before the commander's door.",
+       "knot": "retreat",
+       "with": [
+        "heald_nathan",
+        "ronan_george"
+       ]
+      },
+      {
+       "from": 19.2,
+       "to": 20.0,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "supper",
+       "grade": "reconstructed",
+       "basis": "Officers drew rations by rank (Act of 1802, in force 1812) and ate in their quarters; the hour is the period's breakfast, midday dinner and evening supper, not a source's.",
+       "with": [
+        "helm_margaret"
+       ]
+      },
+      {
+       "from": 20.0,
+       "to": 22.0,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "with his wife and her family, the Kinzies, who are lodging in the fort",
+       "grade": "reconstructed",
+       "basis": "Wau-Bun: Kinzie 'had taken up his residence in the fort'. Where he lodged is not recorded; with his step-daughter's husband is T-3461's inference, kept here as reconstructed.",
+       "with": [
+        "helm_margaret",
+        "kinzie_john_elder",
+        "kinzie_eleanor"
+       ]
+      },
+      {
+       "from": 22.0,
+       "to": 24.0,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "asleep",
+       "grade": "reconstructed",
+       "basis": "Night in quarters; no source says when anyone slept. Reveille at 5:30 and tattoo at 21:00 are the garrison clock T-3462 uses for the men.",
+       "with": [
+        "helm_margaret"
+       ]
+      }
+     ]
+    },
+    {
+     "from_date": "1812-08-15",
+     "to_date": "1812-08-15",
+     "label": "15 August 1812, until the march at nine",
+     "day": [
+      {
+       "from": 0,
+       "to": 4.5,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "asleep",
+       "grade": "reconstructed",
+       "basis": "Night in quarters; no source says when anyone slept. Reveille at 5:30 and tattoo at 21:00 are the garrison clock T-3462 uses for the men."
+      },
+      {
+       "from": 4.5,
+       "to": 8.5,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "packing his last things; dressing for the march",
+       "grade": "reconstructed",
+       "basis": "15 August: the march began at nine (Heald). What each officer did before it is not recorded. After nine they leave the town scene; the battle-of-fort-dearborn jaunt stages the march and the battle."
+      },
+      {
+       "from": 8.5,
+       "to": 9.0,
+       "indoors": false,
+       "where": "outdoors on the parade",
+       "at": {
+        "local_e": 1155.0,
+        "local_n": 223.0,
+        "heading_deg": 180
+       },
+       "doing": "forming the company to march out",
+       "activity": "stand",
+       "grade": "inferred",
+       "basis": "15 August: the march began at nine (Heald). What each officer did before it is not recorded. After nine they leave the town scene; the battle-of-fort-dearborn jaunt stages the march and the battle."
+      },
+      {
+       "from": 9.0,
+       "to": 24.0,
+       "indoors": null,
+       "offscene": true,
+       "where": null,
+       "doing": "gone out of the gate with the column (the battle jaunt has the march, the battle and its end)",
+       "grade": "attested",
+       "basis": "Heald: \"we commenced our march\" at nine. Wounded and taken prisoner."
+      }
+     ]
+    }
+   ],
+   "facts": [
+    {
+     "claim": "Helm transferred from Detroit three months after March 1811.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 7205-7207; ch. VII 'Nine Years of Garrison Life' (begins p. 153)",
+     "quote": "Three months later his place was filled by the transfer of Lieutenant Linai T. Helm from Detroit to Fort Dearborn."
+    },
+    {
+     "claim": "Helm and Ronan were very young men.",
+     "source": "kinzie_waubun_1856",
+     "locator": "PG 51737 lines 5652-5653 (1856 text as reprinted in the 1901 Caxton Club edition); ch. XVIII",
+     "quote": "Lieut. Helm, the son-in-law of Mr. Kinzie, and Ensign Ronan--the two last were very young men--and the surgeon."
+    },
+    {
+     "claim": "Helm dates Wells to the 12th, with 27 Miamis.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16634-16635; Appendix VI, Helm's account (begins p. 415)",
+     "quote": "Capt. William Wells arrived from Fort Wayne on the 12th August with 27 Miamis"
+    },
+    {
+     "claim": "Kinzie and Helm went to Wells to get the arms and ammunition destroyed.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16647-16648; Appendix VI, Helm's account (begins p. 415)",
+     "quote": "Kenzie then with Lt. Helm cald on Wells and requested him to call on Capt Heald and cause the ammunition & arms to be destroyed"
+    },
+    {
+     "claim": "Helm with Kinzie protested until Heald said he would evacuate regardless.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16760-16762; Appendix VI, Helm's account (begins p. 415)",
+     "quote": "I did with Kenzie protest against Dest[_r_]oying the arms ammunition and Provisions untill that Heald told me positively that he would evacuate at all Hasards"
+    },
+    {
+     "claim": "Helm, an officer present, dates the destruction to the night of the 13th.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16659-16660; Appendix VI, 'Lieutenant Helm's Account of the Massacre' (begins p. 415)",
+     "quote": "The ammunition & Muskets were all destroyed the night of the 13th,"
+    },
+    {
+     "claim": "Helm: on the night of the 14th Black Partridge and the interpreter came to Heald and gave up the medal.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16755-16757; Appendix VI, Helm's account (begins p. 415)",
+     "quote": "The night of the 14th the Interpreter and a Chief black patredge waited on Capt Heald the Indian gave up his medal"
+    },
+    {
+     "claim": "Helm: Heald told none of his officers; only Wells knew.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16758-16759; Appendix VI, Helm's account (begins p. 415)",
+     "quote": "this Heald never communicated to one of his officers there was but Capt Wells that was acquainted with it"
+    },
+    {
+     "claim": "Kinzie was living in the fort in August.",
+     "source": "kinzie_waubun_1856",
+     "locator": "PG 51737 lines 5843-5844 (1856 text as reprinted in the 1901 Caxton Club edition); ch. XVIII",
+     "quote": "Mr. Kinzie, who had taken up his residence in the fort."
+    },
+    {
+     "claim": "At the first council (12th) Heald alone attended for the military.",
+     "source": "kinzie_waubun_1856",
+     "locator": "PG 51737 lines 5963-5965 (1856 text as reprinted in the 1901 Caxton Club edition); ch. XVIII",
+     "quote": "Captain Heald only, attended on the part of the military. He requested his officers to accompany him, but they declined."
+    },
+    {
+     "claim": "The officers instead manned the blockhouses over the council ground.",
+     "source": "kinzie_waubun_1856",
+     "locator": "PG 51737 lines 5969-5971 (1856 text as reprinted in the 1901 Caxton Club edition); ch. XVIII",
+     "quote": "they took command of the block-houses which overlooked the esplanade on which the council was held, opened the port-holes,"
+    },
+    {
+     "claim": "On the march the two officers' wives rode beside their husbands.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 9133-9134; ch. X (begins p. 211)",
+     "quote": "Mrs. Heald and Mrs. Helm were mounted and near or with their husbands"
+    },
+    {
+     "claim": "Helm wore a lined coat with pockets and carried a gun on the 15th.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16672-16673; Appendix VI, Helm's account (begins p. 415)",
+     "quote": "I received a ball through my coat pocket which struck the barrel of my gun and fell in the lineing of my coat"
+    },
+    {
+     "claim": "Officers' daily rations: captain three, lieutenant two; an ensign two as well (the next words, broken across a line in the OCR) (Act of 1802, in force 1812).",
+     "source": "us_1812_rules_and_articles_albany",
+     "locator": "Internet Archive actestablishingr00unitrich OCR text, line 3230-3231; Act of 16 March 1802, Sec. 5, p. 52",
+     "quote": "a captain, three rations ; a lieutenant, two rations ;"
+    }
+   ]
+  },
+  {
+   "person_id": "ronan_george",
+   "name": "George Ronan",
+   "role": "Ensign, First Infantry",
+   "present": {
+    "status": "present",
+    "grade": "attested",
+    "basis": "Heald's report names him among the dead of the 15th."
+   },
+   "presence": {
+    "from": "1811-05-01",
+    "to": "1812-08-15",
+    "grade": "reconstructed",
+    "basis": "Ordered to Fort Dearborn in March 1811 (Quaife ch. VII, Nicoll to Ronan 27 March 1811); the day he arrived is not recorded, so 1 May 1811 is ours."
+   },
+   "sex": "m",
+   "age_1812": {
+    "value": 21,
+    "grade": "reconstructed",
+    "basis": "'a young cadet direct from West Point' in March 1811 (Quaife); 'very young' (Wau-Bun). 21 is ours."
+   },
+   "home": {
+    "where": "first_fort_dearborn_officers_barracks",
+    "grade": "reconstructed",
+    "basis": "Subordinate officers' quarters (Quaife); unmarried; room not recorded."
+   },
+   "dress_role": "officer_first_infantry_1812",
+   "rank_marks": "ensign: one epaulette, left shoulder (ours; no ensign's rule found)",
+   "looks": {
+    "complexion": "fair, ruddy",
+    "hair": "dark brown, cut short",
+    "eyes": "blue",
+    "height_in": 70,
+    "build": "tall and well made",
+    "facial_hair": "clean-shaven",
+    "grade": "reconstructed",
+    "basis": "Mrs. Heald saw 'a young, fine-looking officer' fall, 'probably' Ronan in Kirkland's bracket: so young and handsome, inferred. Colouring ours, from his Irish surname; a little above the period mean height to fit 'fine-looking' and the skater.",
+    "portrait": null,
+    "portrait_note": "Only his signature survives (Kirkland App. B facsimile, 'G Ronan')."
+   },
+   "days": [
+    {
+     "from_date": "1812-01-01",
+     "to_date": "1812-08-12",
+     "label": "a plain day of 1812 at the post (summer hours)",
+     "day": [
+      {
+       "from": 0,
+       "to": 5.2,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "asleep",
+       "grade": "reconstructed",
+       "basis": "Night in quarters; no source says when anyone slept. Reveille at 5:30 and tattoo at 21:00 are the garrison clock T-3462 uses for the men."
+      },
+      {
+       "from": 5.2,
+       "to": 5.5,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "rising and dressing",
+       "grade": "reconstructed",
+       "basis": "Night in quarters; no source says when anyone slept. Reveille at 5:30 and tattoo at 21:00 are the garrison clock T-3462 uses for the men."
+      },
+      {
+       "from": 5.5,
+       "to": 6.0,
+       "indoors": false,
+       "where": "outdoors on the parade before the commander's door",
+       "at": {
+        "local_e": 1154.2,
+        "local_n": 220.3,
+        "heading_deg": 70
+       },
+       "doing": "at the morning report",
+       "activity": "talk",
+       "grade": "reconstructed",
+       "basis": "Reveille and the morning report: at any post the subalterns reported the company to the commander after roll call. Here they stand before his door on the parade. Period routine, not a record of the day.",
+       "knot": "morning_report",
+       "with": [
+        "heald_nathan",
+        "helm_linai"
+       ]
+      },
+      {
+       "from": 6.0,
+       "to": 7.2,
+       "indoors": false,
+       "where": "outdoors on the parade",
+       "at": {
+        "local_e": 1150.6,
+        "local_n": 217.2,
+        "heading_deg": 270
+       },
+       "doing": "drilling the fatigue party in its rank",
+       "activity": "stand",
+       "grade": "reconstructed",
+       "basis": "Morning drill; period routine."
+      },
+      {
+       "from": 7.2,
+       "to": 8.0,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "breakfast with the surgeon's mate",
+       "grade": "reconstructed",
+       "basis": "Officers drew rations by rank (Act of 1802, in force 1812) and ate in their quarters; the hour is the period's breakfast, midday dinner and evening supper, not a source's. The two bachelors messing together is ours.",
+       "with": [
+        "van_voorhis_isaac"
+       ]
+      },
+      {
+       "from": 8.0,
+       "to": 12.0,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "reading in his room, off duty (the officer of the day is Helm on the plain day)",
+       "grade": "reconstructed",
+       "basis": "Off duty turn about with Helm; Mrs. Heald says Ronan gave the captain a big book, a dictionary. Ours."
+      },
+      {
+       "from": 12.0,
+       "to": 13.2,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "dinner",
+       "grade": "reconstructed",
+       "basis": "Officers drew rations by rank (Act of 1802, in force 1812) and ate in their quarters; the hour is the period's breakfast, midday dinner and evening supper, not a source's.",
+       "with": [
+        "van_voorhis_isaac"
+       ]
+      },
+      {
+       "from": 13.2,
+       "to": 17.0,
+       "indoors": false,
+       "where": "outdoors in the commanding officer's garden",
+       "at": {
+        "local_e": 1141.0,
+        "local_n": 133.5,
+        "heading_deg": 180
+       },
+       "doing": "in charge of the garden fatigue",
+       "activity": "work",
+       "grade": "reconstructed",
+       "basis": "T-3462 puts men at work in the garden; an officer over them is period routine. In haying time Mrs. Heald remembered men 'some distance away cutting hay', off this map.",
+       "spots": [
+        {
+         "local_e": 1139.0,
+         "local_n": 131.5
+        },
+        {
+         "local_e": 1143.0,
+         "local_n": 131.8
+        }
+       ]
+      },
+      {
+       "from": 17.0,
+       "to": 18.7,
+       "indoors": false,
+       "where": "outdoors on the river bank north-west of the fort",
+       "at": {
+        "local_e": 1126.0,
+        "local_n": 240.6,
+        "heading_deg": 0
+       },
+       "doing": "idling on the river bank",
+       "activity": "stand",
+       "grade": "reconstructed",
+       "basis": "Ours. In April Ronan took men upriver by boat (the battle jaunt); in winter he skated on the river (Kirkland)."
+      },
+      {
+       "from": 18.7,
+       "to": 19.2,
+       "indoors": false,
+       "where": "outdoors on the parade before the commander's door",
+       "at": {
+        "local_e": 1154.2,
+        "local_n": 220.3,
+        "heading_deg": 70
+       },
+       "doing": "at retreat",
+       "activity": "talk",
+       "grade": "reconstructed",
+       "basis": "Retreat at sunset (about 19:00 local time in mid-August), when the gates were shut; Victoire Porthier's 'when they used to shut the gates of the fort' (the Lalime jaunt). The officers stand to it before the commander's door.",
+       "knot": "retreat",
+       "with": [
+        "heald_nathan",
+        "helm_linai"
+       ]
+      },
+      {
+       "from": 19.2,
+       "to": 20.2,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "supper",
+       "grade": "reconstructed",
+       "basis": "Officers drew rations by rank (Act of 1802, in force 1812) and ate in their quarters; the hour is the period's breakfast, midday dinner and evening supper, not a source's.",
+       "with": [
+        "van_voorhis_isaac"
+       ]
+      },
+      {
+       "from": 20.2,
+       "to": 21.0,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "the evening in the Helms' room",
+       "grade": "reconstructed",
+       "basis": "Ours.",
+       "with": [
+        "helm_linai",
+        "helm_margaret",
+        "van_voorhis_isaac"
+       ]
+      },
+      {
+       "from": 21.0,
+       "to": 21.3,
+       "indoors": false,
+       "where": "outdoors on the parade",
+       "at": {
+        "local_e": 1150.0,
+        "local_n": 213.6,
+        "heading_deg": 180
+       },
+       "doing": "at tattoo, the last roll call",
+       "activity": "stand",
+       "grade": "reconstructed",
+       "basis": "Tattoo at 21:00, as T-3462."
+      },
+      {
+       "from": 21.3,
+       "to": 24.0,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "asleep",
+       "grade": "reconstructed",
+       "basis": "Night in quarters; no source says when anyone slept. Reveille at 5:30 and tattoo at 21:00 are the garrison clock T-3462 uses for the men."
+      }
+     ]
+    },
+    {
+     "from_date": "1812-08-13",
+     "to_date": "1812-08-13",
+     "label": "13 August 1812: the plain day until supper, then Wells, and the destruction at night",
+     "day": [
+      {
+       "from": 0,
+       "to": 5.2,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "asleep",
+       "grade": "reconstructed",
+       "basis": "Night in quarters; no source says when anyone slept. Reveille at 5:30 and tattoo at 21:00 are the garrison clock T-3462 uses for the men."
+      },
+      {
+       "from": 5.2,
+       "to": 5.5,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "rising and dressing",
+       "grade": "reconstructed",
+       "basis": "Night in quarters; no source says when anyone slept. Reveille at 5:30 and tattoo at 21:00 are the garrison clock T-3462 uses for the men."
+      },
+      {
+       "from": 5.5,
+       "to": 6.0,
+       "indoors": false,
+       "where": "outdoors on the parade before the commander's door",
+       "at": {
+        "local_e": 1154.2,
+        "local_n": 220.3,
+        "heading_deg": 70
+       },
+       "doing": "at the morning report",
+       "activity": "talk",
+       "grade": "reconstructed",
+       "basis": "Reveille and the morning report: at any post the subalterns reported the company to the commander after roll call. Here they stand before his door on the parade. Period routine, not a record of the day.",
+       "knot": "morning_report",
+       "with": [
+        "heald_nathan",
+        "helm_linai"
+       ]
+      },
+      {
+       "from": 6.0,
+       "to": 7.2,
+       "indoors": false,
+       "where": "outdoors on the parade",
+       "at": {
+        "local_e": 1150.6,
+        "local_n": 217.2,
+        "heading_deg": 270
+       },
+       "doing": "drilling the fatigue party in its rank",
+       "activity": "stand",
+       "grade": "reconstructed",
+       "basis": "Morning drill; period routine."
+      },
+      {
+       "from": 7.2,
+       "to": 8.0,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "breakfast with the surgeon's mate",
+       "grade": "reconstructed",
+       "basis": "Officers drew rations by rank (Act of 1802, in force 1812) and ate in their quarters; the hour is the period's breakfast, midday dinner and evening supper, not a source's. The two bachelors messing together is ours.",
+       "with": [
+        "van_voorhis_isaac"
+       ]
+      },
+      {
+       "from": 8.0,
+       "to": 12.0,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "reading in his room, off duty (the officer of the day is Helm on the plain day)",
+       "grade": "reconstructed",
+       "basis": "Off duty turn about with Helm; Mrs. Heald says Ronan gave the captain a big book, a dictionary. Ours."
+      },
+      {
+       "from": 12.0,
+       "to": 13.2,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "dinner",
+       "grade": "reconstructed",
+       "basis": "Officers drew rations by rank (Act of 1802, in force 1812) and ate in their quarters; the hour is the period's breakfast, midday dinner and evening supper, not a source's.",
+       "with": [
+        "van_voorhis_isaac"
+       ]
+      },
+      {
+       "from": 13.2,
+       "to": 17.0,
+       "indoors": false,
+       "where": "outdoors in the commanding officer's garden",
+       "at": {
+        "local_e": 1141.0,
+        "local_n": 133.5,
+        "heading_deg": 180
+       },
+       "doing": "in charge of the garden fatigue",
+       "activity": "work",
+       "grade": "reconstructed",
+       "basis": "T-3462 puts men at work in the garden; an officer over them is period routine. In haying time Mrs. Heald remembered men 'some distance away cutting hay', off this map.",
+       "spots": [
+        {
+         "local_e": 1139.0,
+         "local_n": 131.5
+        },
+        {
+         "local_e": 1143.0,
+         "local_n": 131.8
+        }
+       ]
+      },
+      {
+       "from": 17.0,
+       "to": 18.7,
+       "indoors": false,
+       "where": "outdoors on the river bank north-west of the fort",
+       "at": {
+        "local_e": 1126.0,
+        "local_n": 240.6,
+        "heading_deg": 0
+       },
+       "doing": "idling on the river bank",
+       "activity": "stand",
+       "grade": "reconstructed",
+       "basis": "Ours. In April Ronan took men upriver by boat (the battle jaunt); in winter he skated on the river (Kirkland)."
+      },
+      {
+       "from": 18.7,
+       "to": 19.2,
+       "indoors": false,
+       "where": "outdoors on the parade before the commander's door",
+       "at": {
+        "local_e": 1154.2,
+        "local_n": 220.3,
+        "heading_deg": 70
+       },
+       "doing": "at retreat",
+       "activity": "talk",
+       "grade": "reconstructed",
+       "basis": "Retreat at sunset (about 19:00 local time in mid-August), when the gates were shut; Victoire Porthier's 'when they used to shut the gates of the fort' (the Lalime jaunt). The officers stand to it before the commander's door.",
+       "knot": "retreat",
+       "with": [
+        "heald_nathan",
+        "helm_linai"
+       ]
+      },
+      {
+       "from": 19.2,
+       "to": 20.2,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "supper",
+       "grade": "reconstructed",
+       "basis": "Officers drew rations by rank (Act of 1802, in force 1812) and ate in their quarters; the hour is the period's breakfast, midday dinner and evening supper, not a source's.",
+       "with": [
+        "van_voorhis_isaac"
+       ]
+      },
+      {
+       "from": 20.2,
+       "to": 21.0,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "waiting for the order",
+       "grade": "reconstructed",
+       "basis": "13 August, evening: Wells has come (Heald's date). Helm: Kinzie and Helm called on Wells, who pressed Heald to destroy the arms; the destruction was that night (Helm, Wau-Bun, Andreas). Who was where, and the hours, are ours."
+      },
+      {
+       "from": 21.0,
+       "to": 24.0,
+       "indoors": false,
+       "where": "outdoors at the well in the sally-port",
+       "at": {
+        "local_e": 1160.6,
+        "local_n": 229.9,
+        "heading_deg": 60
+       },
+       "doing": "over the party breaking up muskets and throwing them down the well with the shot and flints",
+       "activity": "talk",
+       "grade": "inferred",
+       "basis": "13 August, evening: Wells has come (Heald's date). Helm: Kinzie and Helm called on Wells, who pressed Heald to destroy the arms; the destruction was that night (Helm, Wau-Bun, Andreas). Who was where, and the hours, are ours.",
+       "knot": "well_destruction",
+       "with": [
+        "heald_nathan",
+        "wells_william"
+       ]
+      }
+     ]
+    },
+    {
+     "from_date": "1812-08-14",
+     "to_date": "1812-08-14",
+     "label": "14 August 1812, the last full day",
+     "day": [
+      {
+       "from": 0.0,
+       "to": 1.0,
+       "indoors": false,
+       "where": "outdoors at the well in the sally-port, north-east corner of the parade",
+       "at": {
+        "local_e": 1160.6,
+        "local_n": 229.9,
+        "heading_deg": 60
+       },
+       "doing": "over the party breaking muskets and throwing them down the well",
+       "activity": "talk",
+       "grade": "reconstructed",
+       "basis": "The destruction was on the night of the 13th (Helm, an officer present; Wau-Bun; Andreas). Who supervised which part is not recorded; we have it run past midnight and give each officer a share of the work.",
+       "knot": "well_destruction",
+       "with": [
+        "heald_nathan",
+        "wells_william"
+       ]
+      },
+      {
+       "from": 1.0,
+       "to": 5.2,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "asleep",
+       "grade": "reconstructed",
+       "basis": "Night in quarters; no source says when anyone slept. Reveille at 5:30 and tattoo at 21:00 are the garrison clock T-3462 uses for the men."
+      },
+      {
+       "from": 5.2,
+       "to": 5.5,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "rising and dressing",
+       "grade": "reconstructed",
+       "basis": "Night in quarters; no source says when anyone slept. Reveille at 5:30 and tattoo at 21:00 are the garrison clock T-3462 uses for the men."
+      },
+      {
+       "from": 5.5,
+       "to": 6.0,
+       "indoors": false,
+       "where": "outdoors on the parade before the commander's door",
+       "at": {
+        "local_e": 1154.2,
+        "local_n": 220.3,
+        "heading_deg": 70
+       },
+       "doing": "at the morning report",
+       "activity": "talk",
+       "grade": "reconstructed",
+       "basis": "Reveille and the morning report: at any post the subalterns reported the company to the commander after roll call. Here they stand before his door on the parade. Period routine, not a record of the day.",
+       "knot": "morning_report",
+       "with": [
+        "heald_nathan",
+        "helm_linai"
+       ]
+      },
+      {
+       "from": 6.0,
+       "to": 8.0,
+       "indoors": false,
+       "where": "outdoors on the parade",
+       "at": {
+        "local_e": 1152.6,
+        "local_n": 229.6,
+        "heading_deg": 190
+       },
+       "doing": "over the men carrying the company's baggage from the store toward the gate",
+       "activity": "walk",
+       "grade": "reconstructed",
+       "basis": "Wau-Bun: every preparation was made for the march. Ours as to the work and the man.",
+       "to_point": {
+        "local_e": 1149.6,
+        "local_n": 213.0
+       }
+      },
+      {
+       "from": 8.0,
+       "to": 8.6,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "breakfast",
+       "grade": "reconstructed",
+       "basis": "Officers drew rations by rank (Act of 1802, in force 1812) and ate in their quarters; the hour is the period's breakfast, midday dinner and evening supper, not a source's.",
+       "with": [
+        "van_voorhis_isaac"
+       ]
+      },
+      {
+       "from": 8.6,
+       "to": 12.0,
+       "indoors": false,
+       "where": "outdoors, officer of the day, going the rounds of the sentries",
+       "at": {
+        "local_e": 1150.8,
+        "local_n": 214.2,
+        "heading_deg": 0
+       },
+       "doing": "going the rounds; keeping the gate and the quarters clear of the crowd",
+       "activity": "walk",
+       "grade": "reconstructed",
+       "basis": "Ours: we give him the day's duty (sash on). Wau-Bun has Indians entering the fort 'in defiance of the sentinels' in these days; Mrs. Heald (via Darius) denied that they crowded in.",
+       "to_point": {
+        "local_e": 1150.8,
+        "local_n": 228.4
+       }
+      },
+      {
+       "from": 12.0,
+       "to": 13.0,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "dinner",
+       "grade": "reconstructed",
+       "basis": "Officers drew rations by rank (Act of 1802, in force 1812) and ate in their quarters; the hour is the period's breakfast, midday dinner and evening supper, not a source's.",
+       "with": [
+        "van_voorhis_isaac"
+       ]
+      },
+      {
+       "from": 13.0,
+       "to": 13.8,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "writing a letter home",
+       "grade": "reconstructed",
+       "basis": "Ours."
+      },
+      {
+       "from": 13.8,
+       "to": 16.5,
+       "indoors": true,
+       "where": "first_fort_dearborn_blockhouse_nw",
+       "doing": "in the north-west blockhouse with the gun crew, port-holes open over the esplanade while the council sits",
+       "grade": "reconstructed",
+       "basis": "Wau-Bun says the officers would not go to the council of the 12th and manned the blockhouses over the esplanade instead. It says nothing of where they were during the second council on the 14th; we repeat the 12th's arrangement."
+      },
+      {
+       "from": 16.5,
+       "to": 18.7,
+       "indoors": false,
+       "where": "outdoors by the baggage wagons outside the main gate",
+       "at": {
+        "local_e": 1159.6,
+        "local_n": 194.6,
+        "heading_deg": 200
+       },
+       "doing": "seeing the box of cartridges and the reserved rounds stowed in the wagons",
+       "activity": "work",
+       "grade": "reconstructed",
+       "basis": "Getting the wagons and pack-horses ready for the 9 o'clock march. Heald hired Kinzie and Forsyth's horses and mules (his 1817 affidavit), and Wau-Bun puts the reserved cartridges in the baggage-wagons. Where the wagons stood is ours: on the open ground outside the main gate, clear of the guard. Ronan at it because he guarded the wagons on the 15th (Quaife).",
+       "spots": [
+        {
+         "local_e": 1160.8,
+         "local_n": 193.6
+        },
+        {
+         "local_e": 1158.4,
+         "local_n": 193.2
+        }
+       ],
+       "with": [
+        "heald_nathan",
+        "helm_linai"
+       ]
+      },
+      {
+       "from": 18.7,
+       "to": 19.2,
+       "indoors": false,
+       "where": "outdoors on the parade before the commander's door",
+       "at": {
+        "local_e": 1154.2,
+        "local_n": 220.3,
+        "heading_deg": 70
+       },
+       "doing": "at retreat",
+       "activity": "talk",
+       "grade": "reconstructed",
+       "basis": "Retreat at sunset (about 19:00 local time in mid-August), when the gates were shut; Victoire Porthier's 'when they used to shut the gates of the fort' (the Lalime jaunt). The officers stand to it before the commander's door.",
+       "knot": "retreat",
+       "with": [
+        "heald_nathan",
+        "helm_linai"
+       ]
+      },
+      {
+       "from": 19.2,
+       "to": 20.0,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "supper",
+       "grade": "reconstructed",
+       "basis": "Officers drew rations by rank (Act of 1802, in force 1812) and ate in their quarters; the hour is the period's breakfast, midday dinner and evening supper, not a source's.",
+       "with": [
+        "van_voorhis_isaac"
+       ]
+      },
+      {
+       "from": 20.0,
+       "to": 21.0,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "putting his affairs in order",
+       "grade": "reconstructed",
+       "basis": "Ours."
+      },
+      {
+       "from": 21.0,
+       "to": 21.3,
+       "indoors": false,
+       "where": "outdoors just inside the main gate",
+       "at": {
+        "local_e": 1150.0,
+        "local_n": 213.6,
+        "heading_deg": 180
+       },
+       "doing": "at tattoo; officer of the day sees the guard set for the night",
+       "activity": "stand",
+       "grade": "reconstructed",
+       "basis": "Tattoo at 21:00, as T-3462."
+      },
+      {
+       "from": 21.3,
+       "to": 24.0,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "asleep",
+       "grade": "reconstructed",
+       "basis": "Night in quarters; no source says when anyone slept. Reveille at 5:30 and tattoo at 21:00 are the garrison clock T-3462 uses for the men."
+      }
+     ]
+    },
+    {
+     "from_date": "1812-08-15",
+     "to_date": "1812-08-15",
+     "label": "15 August 1812, until the march at nine",
+     "day": [
+      {
+       "from": 0,
+       "to": 4.5,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "asleep",
+       "grade": "reconstructed",
+       "basis": "Night in quarters; no source says when anyone slept. Reveille at 5:30 and tattoo at 21:00 are the garrison clock T-3462 uses for the men."
+      },
+      {
+       "from": 4.5,
+       "to": 8.5,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "packing his last things; dressing for the march",
+       "grade": "reconstructed",
+       "basis": "15 August: the march began at nine (Heald). What each officer did before it is not recorded. After nine they leave the town scene; the battle-of-fort-dearborn jaunt stages the march and the battle."
+      },
+      {
+       "from": 8.5,
+       "to": 9.0,
+       "indoors": false,
+       "where": "outdoors on the parade",
+       "at": {
+        "local_e": 1155.0,
+        "local_n": 223.0,
+        "heading_deg": 180
+       },
+       "doing": "forming the company to march out",
+       "activity": "stand",
+       "grade": "inferred",
+       "basis": "15 August: the march began at nine (Heald). What each officer did before it is not recorded. After nine they leave the town scene; the battle-of-fort-dearborn jaunt stages the march and the battle."
+      },
+      {
+       "from": 9.0,
+       "to": 24.0,
+       "indoors": null,
+       "offscene": true,
+       "where": null,
+       "doing": "gone out of the gate with the column (the battle jaunt has the march, the battle and its end)",
+       "grade": "attested",
+       "basis": "Heald: \"we commenced our march\" at nine. Killed near the baggage wagons."
+      }
+     ]
+    }
+   ],
+   "facts": [
+    {
+     "claim": "Ronan, from West Point, ordered to the post in March 1811.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 7201-7202; ch. VII (begins p. 153)",
+     "quote": "In March, 1811, George Ronan, a young cadet direct from West Point, was given the rank of ensign"
+    },
+    {
+     "claim": "Helm and Ronan were very young men.",
+     "source": "kinzie_waubun_1856",
+     "locator": "PG 51737 lines 5652-5653 (1856 text as reprinted in the 1901 Caxton Club edition); ch. XVIII",
+     "quote": "Lieut. Helm, the son-in-law of Mr. Kinzie, and Ensign Ronan--the two last were very young men--and the surgeon."
+    },
+    {
+     "claim": "Wau-Bun's character of Ronan.",
+     "source": "kinzie_waubun_1856",
+     "locator": "PG 51737 lines 5874-5876 (1856 text as reprinted in the 1901 Caxton Club edition); ch. XVIII",
+     "quote": "Ensign Ronan, a high-spirited and somewhat overbearing, but brave and generous young man."
+    },
+    {
+     "claim": "Ronan gave Heald a dictionary with both their names in it.",
+     "source": "kirkland_1893_chicago_massacre",
+     "locator": "Gutenberg #59624 plain text (pg59624.txt), line 2555-2556; Part II, ch. III (begins p. 77)",
+     "quote": "The ensign thought the world of the captain, and gave him a big book with their two names written it."
+    },
+    {
+     "claim": "Ronan skated on the frozen river in winter.",
+     "source": "kirkland_1893_chicago_massacre",
+     "locator": "Gutenberg #59624 plain text (pg59624.txt), line 2192-2192; Part II, ch. III (Mrs. Heald via Darius Heald)",
+     "quote": "Ensign Ronan was a famous skater."
+    },
+    {
+     "claim": "Mrs. Heald saw 'a young, fine-looking officer' fall, probably Ronan (Kirkland's bracket).",
+     "source": "kirkland_1893_chicago_massacre",
+     "locator": "Gutenberg #59624 plain text (pg59624.txt), line 1028-1029; Part I (Mrs. Heald via Darius Heald)",
+     "quote": "She saw a young, fine-looking officer fall [probably Lieutenant Ronan]"
+    },
+    {
+     "claim": "On the 15th Ronan and Van Voorhis guarded the baggage wagons.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 9136-9137; ch. X (begins p. 211)",
+     "quote": "the baggage wagons, which were guarded by Ensign Ronan, Surgeon Van Voorhis, the soldiers who had families,"
+    },
+    {
+     "claim": "The officers instead manned the blockhouses over the council ground.",
+     "source": "kinzie_waubun_1856",
+     "locator": "PG 51737 lines 5969-5971 (1856 text as reprinted in the 1901 Caxton Club edition); ch. XVIII",
+     "quote": "they took command of the block-houses which overlooked the esplanade on which the council was held, opened the port-holes,"
+    },
+    {
+     "claim": "Officers' daily rations: captain three, lieutenant two; an ensign two as well (the next words, broken across a line in the OCR) (Act of 1802, in force 1812).",
+     "source": "us_1812_rules_and_articles_albany",
+     "locator": "Internet Archive actestablishingr00unitrich OCR text, line 3230-3231; Act of 16 March 1802, Sec. 5, p. 52",
+     "quote": "a captain, three rations ; a lieutenant, two rations ;"
+    }
+   ]
+  },
+  {
+   "person_id": "van_voorhis_isaac",
+   "name": "Isaac Van Voorhis",
+   "role": "Surgeon's mate, First Infantry, the post's doctor; keeper of the factory keys from 5 July 1812",
+   "present": {
+    "status": "present",
+    "grade": "attested",
+    "basis": "Heald's report names him among the dead of the 15th."
+   },
+   "presence": {
+    "from": "1811-08-01",
+    "to": "1812-08-15",
+    "grade": "reconstructed",
+    "basis": "Appointed 'During the summer' of 1811 (Quaife); writing from the post in October 1811. The day is ours."
+   },
+   "sex": "m",
+   "age_1812": {
+    "value": 22,
+    "grade": "attested",
+    "basis": "Born 22 February 1790 (family genealogy, 1881), so 22 on 14 August 1812. The card's 'born 1789' came from Quaife's 'twenty-two' in October 1811; the genealogy makes him 21 then."
+   },
+   "home": {
+    "where": "first_fort_dearborn_officers_barracks",
+    "grade": "reconstructed",
+    "basis": "Subordinate officers' quarters (Quaife); room not recorded."
+   },
+   "dress_role": "surgeons_mate_1812",
+   "looks": {
+    "complexion": "fair",
+    "hair": "light brown, cut short",
+    "eyes": "blue",
+    "height_in": 68,
+    "build": "slight",
+    "facial_hair": "clean-shaven",
+    "grade": "reconstructed",
+    "basis": "No likeness or description. His family were Dutch-descended Van Voorhises of Fishkill, New York, his mother a Vail (genealogy, 1881): a Dutch name leans fair as T-3491 reads it. Height the period mean; slight for a young scholar is ours.",
+    "portrait": null
+   },
+   "days": [
+    {
+     "from_date": "1812-01-01",
+     "to_date": "1812-08-13",
+     "label": "a plain day of 1812 at the post (summer hours)",
+     "day": [
+      {
+       "from": 0,
+       "to": 5.2,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "asleep",
+       "grade": "reconstructed",
+       "basis": "Night in quarters; no source says when anyone slept. Reveille at 5:30 and tattoo at 21:00 are the garrison clock T-3462 uses for the men."
+      },
+      {
+       "from": 5.2,
+       "to": 6.0,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "rising and dressing",
+       "grade": "reconstructed",
+       "basis": "Night in quarters; no source says when anyone slept. Reveille at 5:30 and tattoo at 21:00 are the garrison clock T-3462 uses for the men."
+      },
+      {
+       "from": 6.0,
+       "to": 7.0,
+       "indoors": true,
+       "where": "first_fort_dearborn_soldiers_barracks_sw",
+       "doing": "sick call: seeing the sick in the soldiers' barracks",
+       "grade": "reconstructed",
+       "basis": "Morning sick call; period routine. Wau-Bun calls some of the soldiers 'invalid'. No hospital is identified among the post's buildings, so the sick are seen in the barracks."
+      },
+      {
+       "from": 7.0,
+       "to": 7.8,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "breakfast",
+       "grade": "reconstructed",
+       "basis": "Officers drew rations by rank (Act of 1802, in force 1812) and ate in their quarters; the hour is the period's breakfast, midday dinner and evening supper, not a source's.",
+       "with": [
+        "ronan_george"
+       ]
+      },
+      {
+       "from": 7.8,
+       "to": 11.5,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "in his room, which serves as the surgery: making up medicines, reading",
+       "grade": "reconstructed",
+       "basis": "Ours. His obituary (1812): 'an enterprizing and cultivated mind'."
+      },
+      {
+       "from": 11.5,
+       "to": 12.0,
+       "indoors": true,
+       "where": "first_fort_dearborn_soldiers_barracks_sw",
+       "doing": "looking in on the sick again",
+       "grade": "reconstructed",
+       "basis": "Ours."
+      },
+      {
+       "from": 12.0,
+       "to": 13.2,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "dinner",
+       "grade": "reconstructed",
+       "basis": "Officers drew rations by rank (Act of 1802, in force 1812) and ate in their quarters; the hour is the period's breakfast, midday dinner and evening supper, not a source's.",
+       "with": [
+        "ronan_george"
+       ]
+      },
+      {
+       "from": 13.2,
+       "to": 15.0,
+       "indoors": true,
+       "where": "first_fort_outer_factory",
+       "doing": "at the factory (with the factor, Matthew Irwin, until 5 July; after that, holding its keys)",
+       "grade": "reconstructed",
+       "basis": "Van Voorhis sided with the factor in the sutler quarrel (the Lalime jaunt) and Irwin left him the keys on 5 July (Quaife ch. XIII). Time spent there is ours."
+      },
+      {
+       "from": 15.0,
+       "to": 17.0,
+       "indoors": false,
+       "where": "outdoors on the river bank west of the fort",
+       "at": {
+        "local_e": 1118.0,
+        "local_n": 240.6,
+        "heading_deg": 90
+       },
+       "doing": "a solitary walk along the river",
+       "activity": "walk",
+       "grade": "inferred",
+       "basis": "His own letter of October 1811: 'In my solitary walks I contemplate...' The hour and the path are ours.",
+       "to_point": {
+        "local_e": 1131.0,
+        "local_n": 240.6
+       }
+      },
+      {
+       "from": 17.0,
+       "to": 18.7,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "writing letters",
+       "grade": "reconstructed",
+       "basis": "He wrote to friends at home (letter of Oct 1811); ours as to the hour."
+      },
+      {
+       "from": 18.7,
+       "to": 19.2,
+       "indoors": false,
+       "where": "outdoors on the parade",
+       "at": {
+        "local_e": 1155.6,
+        "local_n": 223.8,
+        "heading_deg": 250
+       },
+       "doing": "at retreat",
+       "activity": "stand",
+       "grade": "reconstructed",
+       "basis": "Retreat at sunset (about 19:00 local time in mid-August), when the gates were shut; Victoire Porthier's 'when they used to shut the gates of the fort' (the Lalime jaunt). The officers stand to it before the commander's door."
+      },
+      {
+       "from": 19.2,
+       "to": 20.2,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "supper",
+       "grade": "reconstructed",
+       "basis": "Officers drew rations by rank (Act of 1802, in force 1812) and ate in their quarters; the hour is the period's breakfast, midday dinner and evening supper, not a source's.",
+       "with": [
+        "ronan_george"
+       ]
+      },
+      {
+       "from": 20.2,
+       "to": 21.5,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "the evening in the Helms' room",
+       "grade": "reconstructed",
+       "basis": "Ours.",
+       "with": [
+        "helm_linai",
+        "helm_margaret",
+        "ronan_george"
+       ]
+      },
+      {
+       "from": 21.5,
+       "to": 24.0,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "asleep",
+       "grade": "reconstructed",
+       "basis": "Night in quarters; no source says when anyone slept. Reveille at 5:30 and tattoo at 21:00 are the garrison clock T-3462 uses for the men."
+      }
+     ]
+    },
+    {
+     "from_date": "1812-08-14",
+     "to_date": "1812-08-14",
+     "label": "14 August 1812, the last full day",
+     "day": [
+      {
+       "from": 0,
+       "to": 5.2,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "asleep",
+       "grade": "reconstructed",
+       "basis": "Night in quarters; no source says when anyone slept. Reveille at 5:30 and tattoo at 21:00 are the garrison clock T-3462 uses for the men. The surgeon has no part in the night's destruction that a source names."
+      },
+      {
+       "from": 5.2,
+       "to": 6.0,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "rising and dressing",
+       "grade": "reconstructed",
+       "basis": "Night in quarters; no source says when anyone slept. Reveille at 5:30 and tattoo at 21:00 are the garrison clock T-3462 uses for the men."
+      },
+      {
+       "from": 6.0,
+       "to": 7.0,
+       "indoors": true,
+       "where": "first_fort_dearborn_soldiers_barracks_sw",
+       "doing": "sick call; deciding who of the sick must ride in the wagons",
+       "grade": "reconstructed",
+       "basis": "Sick call is routine; Wau-Bun's Sergeant Griffith had 'for a long time' been on the sick report and was given the baggage. Ours as to the hour."
+      },
+      {
+       "from": 7.0,
+       "to": 7.6,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "breakfast",
+       "grade": "reconstructed",
+       "basis": "Officers drew rations by rank (Act of 1802, in force 1812) and ate in their quarters; the hour is the period's breakfast, midday dinner and evening supper, not a source's.",
+       "with": [
+        "ronan_george"
+       ]
+      },
+      {
+       "from": 7.6,
+       "to": 8.4,
+       "indoors": true,
+       "where": "first_fort_outer_factory",
+       "doing": "unlocking the factory and setting out what is left in it",
+       "grade": "inferred",
+       "basis": "He had held the factory's keys since the factor left on 5 July (Quaife ch. XIII), and the goods went out on the 14th (Heald)."
+      },
+      {
+       "from": 8.4,
+       "to": 12.0,
+       "indoors": false,
+       "where": "outdoors before the door of the factory",
+       "at": {
+        "local_e": 1072.6,
+        "local_n": 216.0,
+        "heading_deg": 80
+       },
+       "doing": "bringing the goods out of the factory door",
+       "activity": "work",
+       "grade": "inferred",
+       "basis": "As above: his keys, the 14th, the factory.",
+       "spots": [
+        {
+         "local_e": 1071.9,
+         "local_n": 217.4
+        },
+        {
+         "local_e": 1073.8,
+         "local_n": 214.9
+        }
+       ],
+       "with": [
+        "heald_nathan",
+        "wells_william",
+        "helm_linai"
+       ]
+      },
+      {
+       "from": 12.0,
+       "to": 13.0,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "dinner",
+       "grade": "reconstructed",
+       "basis": "Officers drew rations by rank (Act of 1802, in force 1812) and ate in their quarters; the hour is the period's breakfast, midday dinner and evening supper, not a source's.",
+       "with": [
+        "ronan_george"
+       ]
+      },
+      {
+       "from": 13.0,
+       "to": 16.5,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "packing his instruments and the medicines into the panniers for his baggage horses",
+       "grade": "inferred",
+       "basis": "Wau-Bun: the surgeon's baggage-horses' 'packs contained part of the surgeon's apparatus, and the medicines for the march'. Packing them the day before is ours."
+      },
+      {
+       "from": 16.5,
+       "to": 17.5,
+       "indoors": false,
+       "where": "outdoors at the south stable west of the fort",
+       "at": {
+        "local_e": 1064.8,
+        "local_n": 108.8,
+        "heading_deg": 270
+       },
+       "doing": "seeing to his baggage horses and his own horse",
+       "activity": "work",
+       "grade": "reconstructed",
+       "basis": "He rode on the 15th ('His horse had been shot under him', Wau-Bun) and had baggage horses; which stable is ours.",
+       "spots": [
+        {
+         "local_e": 1063.5,
+         "local_n": 110.0
+        },
+        {
+         "local_e": 1065.2,
+         "local_n": 106.9
+        }
+       ]
+      },
+      {
+       "from": 17.5,
+       "to": 18.6,
+       "indoors": false,
+       "where": "outdoors on the river bank west of the fort",
+       "at": {
+        "local_e": 1118.0,
+        "local_n": 240.6,
+        "heading_deg": 90
+       },
+       "doing": "a last walk along the river",
+       "activity": "walk",
+       "grade": "reconstructed",
+       "basis": "His 'solitary walks' (letter, 1811). Ours.",
+       "to_point": {
+        "local_e": 1131.0,
+        "local_n": 240.6
+       }
+      },
+      {
+       "from": 18.6,
+       "to": 19.2,
+       "indoors": false,
+       "where": "outdoors on the parade",
+       "at": {
+        "local_e": 1155.6,
+        "local_n": 223.8,
+        "heading_deg": 250
+       },
+       "doing": "at retreat",
+       "activity": "stand",
+       "grade": "reconstructed",
+       "basis": "Retreat at sunset (about 19:00 local time in mid-August), when the gates were shut; Victoire Porthier's 'when they used to shut the gates of the fort' (the Lalime jaunt). The officers stand to it before the commander's door."
+      },
+      {
+       "from": 19.2,
+       "to": 20.0,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "supper",
+       "grade": "reconstructed",
+       "basis": "Officers drew rations by rank (Act of 1802, in force 1812) and ate in their quarters; the hour is the period's breakfast, midday dinner and evening supper, not a source's.",
+       "with": [
+        "ronan_george"
+       ]
+      },
+      {
+       "from": 20.0,
+       "to": 22.5,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "writing letters home",
+       "grade": "reconstructed",
+       "basis": "Ours; he was a letter-writer (Oct 1811)."
+      },
+      {
+       "from": 22.5,
+       "to": 24.0,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "asleep",
+       "grade": "reconstructed",
+       "basis": "Night in quarters; no source says when anyone slept. Reveille at 5:30 and tattoo at 21:00 are the garrison clock T-3462 uses for the men."
+      }
+     ]
+    },
+    {
+     "from_date": "1812-08-15",
+     "to_date": "1812-08-15",
+     "label": "15 August 1812, until the march at nine",
+     "day": [
+      {
+       "from": 0,
+       "to": 4.5,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "asleep",
+       "grade": "reconstructed",
+       "basis": "Night in quarters; no source says when anyone slept. Reveille at 5:30 and tattoo at 21:00 are the garrison clock T-3462 uses for the men."
+      },
+      {
+       "from": 4.5,
+       "to": 8.5,
+       "indoors": true,
+       "where": "first_fort_dearborn_officers_barracks",
+       "doing": "packing his last things; dressing for the march",
+       "grade": "reconstructed",
+       "basis": "15 August: the march began at nine (Heald). What each officer did before it is not recorded. After nine they leave the town scene; the battle-of-fort-dearborn jaunt stages the march and the battle."
+      },
+      {
+       "from": 8.5,
+       "to": 9.0,
+       "indoors": false,
+       "where": "outdoors on the parade",
+       "at": {
+        "local_e": 1155.0,
+        "local_n": 223.0,
+        "heading_deg": 180
+       },
+       "doing": "forming the company to march out",
+       "activity": "stand",
+       "grade": "inferred",
+       "basis": "15 August: the march began at nine (Heald). What each officer did before it is not recorded. After nine they leave the town scene; the battle-of-fort-dearborn jaunt stages the march and the battle."
+      },
+      {
+       "from": 9.0,
+       "to": 24.0,
+       "indoors": null,
+       "offscene": true,
+       "where": null,
+       "doing": "gone out of the gate with the column (the battle jaunt has the march, the battle and its end)",
+       "grade": "attested",
+       "basis": "Heald: \"we commenced our march\" at nine. Killed near the baggage wagons."
+      }
+     ]
+    }
+   ],
+   "facts": [
+    {
+     "claim": "Isaac Van Voorhis born 22 February 1790, unmarried.",
+     "source": "van_voorhis_1881_notes_on_ancestry",
+     "locator": "Internet Archive notesonancestryo00vanv OCR text (notesonancestryo00vanv_djvu.txt), line 7865-7866; p. 143, eighth generation",
+     "quote": "Dr. Isaac Van Voorhis, b. Feb. 22, 1790; killed at the massacre of Fort Dearborn,"
+    },
+    {
+     "claim": "Van Voorhis appointed during the summer of 1811.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 7210-7212; ch. VII (begins p. 153)",
+     "quote": "During the summer the place made vacant by Doctor Cooper's resignation was filled by the appointment of Isaac Van Voorhis,"
+    },
+    {
+     "claim": "His own letter of October 1811: solitary walks.",
+     "source": "van_voorhis_1881_notes_on_ancestry",
+     "locator": "Internet Archive notesonancestryo00vanv OCR text (notesonancestryo00vanv_djvu.txt), line 7925-7926; p. 144, Newburgh 'Political Index' obituary, 17 Nov 1812, quoting his letter of Oct 1811",
+     "quote": "In my solitary walks I contemplate what a great and powerful republic will yet arise in this new world."
+    },
+    {
+     "claim": "An enterprising and cultivated mind; schooled at the Newburgh academy.",
+     "source": "van_voorhis_1881_notes_on_ancestry",
+     "locator": "Internet Archive notesonancestryo00vanv OCR text (notesonancestryo00vanv_djvu.txt), line 7917-7917; p. 144, the 1812 obituary",
+     "quote": "He possessed an enterprizing and cultivated mind,"
+    },
+    {
+     "claim": "The factor left on 5 July and gave the keys to Van Voorhis.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 12031-12032; ch. XIII 'The Indian Trade' (begins p. 285)",
+     "quote": "On July 5 Irwin left Chicago, having closed the storehouse and delivered the keys to Doctor Van Voorhis."
+    },
+    {
+     "claim": "The surgeon's baggage horses carried his apparatus and medicines.",
+     "source": "kinzie_waubun_1856",
+     "locator": "PG 51737 lines 6576-6577 (1856 text as reprinted in the 1901 Caxton Club edition); ch. XIX",
+     "quote": "their packs contained part of the surgeon's apparatus, and the medicines for the march."
+    },
+    {
+     "claim": "Van Voorhis rode a horse on the 15th.",
+     "source": "kinzie_waubun_1856",
+     "locator": "PG 51737 lines 6191-6192 (1856 text as reprinted in the 1901 Caxton Club edition); ch. XIX",
+     "quote": "His horse had been shot under him, and he had received a ball in his leg."
+    },
+    {
+     "claim": "Some of the soldiers were invalids.",
+     "source": "kinzie_waubun_1856",
+     "locator": "PG 51737 lines 5895-5896 (1856 text as reprinted in the 1901 Caxton Club edition); ch. XVIII",
+     "quote": "some of the soldiers were superannuated, others invalid;"
+    },
+    {
+     "claim": "On the 15th Ronan and Van Voorhis guarded the baggage wagons.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 9136-9137; ch. X (begins p. 211)",
+     "quote": "the baggage wagons, which were guarded by Ensign Ronan, Surgeon Van Voorhis, the soldiers who had families,"
+    },
+    {
+     "claim": "A surgeon's mate, two.",
+     "source": "us_1812_rules_and_articles_albany",
+     "locator": "Internet Archive actestablishingr00unitrich OCR text, line 3232-3233; Act of 16 March 1802, Sec. 5, p. 52",
+     "quote": "a surgeon's mate, two rations ;"
+    }
+   ]
+  },
+  {
+   "person_id": "wells_william",
+   "name": "William Wells",
+   "role": "Indian Department captain from Fort Wayne, come to escort the garrison; Rebekah Heald's uncle",
+   "present": {
+    "status": "present",
+    "grade": "attested",
+    "basis": "Every account has him at the post for the evacuation; the day he came differs (12th Helm, 13th Heald, 14th Wau-Bun and Currey)."
+   },
+   "presence": {
+    "from": "1812-08-13",
+    "to": "1812-08-15",
+    "grade": "attested",
+    "basis": "Heald's report (written Oct 1812) gives the 13th; Quaife and Andreas follow it. Helm says the 12th; Wau-Bun and Currey the 14th; Darius Heald 'three or four days before the evacuation'."
+   },
+   "sex": "m",
+   "age_1812": {
+    "value": 42,
+    "grade": "inferred",
+    "basis": "Currey: 'a man about forty years of age'; the Miami Center's people index gives 'Abt 1770' (read 2026-11-08, not cited as a source). 42 is ours within that."
+   },
+   "home": {
+    "where": "first_fort_dearborn_commanding_officers_barracks",
+    "grade": "reconstructed",
+    "basis": "Where he slept is not recorded; T-3461 lodges him with his niece and Heald in the commander's quarters."
+   },
+   "dress_role": "wells_frontier_agent_1812",
+   "looks": {
+    "complexion": "weathered, sunburnt",
+    "hair": "dark brown, long, in a queue tied with black ribbon",
+    "eyes": "grey",
+    "height_in": 68,
+    "build": "medium, hard",
+    "facial_hair": "clean-shaven",
+    "grade": "inferred",
+    "basis": "The queue and black ribbon are attested (Wau-Bun, Mrs. Helm on his scalp, the 15th). Clean-shaven, broad-faced, dark-haired from the captioned engraving (unverified likeness, below). Eye colour, height and build ours. A modern account reads his Miami name as 'carrot', perhaps for red hair; that was not verified in a source read here (lead: P. A. Hutton, Indiana Magazine of History 74, 1978; the site would not open), so the engraving's dark hair is kept and the owner may choose.",
+    "portrait": {
+     "title": "William Wells (Kirkland); Captain William Wells (Currey)",
+     "artist": "not stated (an engraving; the original it copies is not named in either book)",
+     "date": "printed 1893 (Kirkland, p. 94) and 1912 (Currey, facing p. 58); original undated",
+     "page_url": "https://www.gutenberg.org/ebooks/52346",
+     "image_url": "https://www.gutenberg.org/cache/epub/52346/images/cpt_wm_wells.png",
+     "also": "https://www.gutenberg.org/cache/epub/59624/images/page94.png (Kirkland, the same picture without the signature)",
+     "licence": "public domain in the United States: both books were published there in 1893 and 1912, before 1929",
+     "is_likeness": null,
+     "likeness_status": "captioned as Wells by Kirkland and Currey, with a facsimile signature in Currey; source and date of the original not given; unverified",
+     "description": "Bust, three-quarter to the viewer's left: a clean-shaven man with a broad face and dark hair brushed forward, in a dark coat with a high standing collar edged with lace, a ruffled shirt front and black stock, one fringed epaulette on his left shoulder; the facsimile signature 'William Wells' below (Currey). Looked at 2026-11-08 in the Gutenberg images of both books."
+    }
+   },
+   "days": [
+    {
+     "from_date": "1812-08-13",
+     "to_date": "1812-08-13",
+     "label": "13 August 1812: arrival (Heald's date)",
+     "day": [
+      {
+       "from": 0.0,
+       "to": 16.0,
+       "indoors": null,
+       "offscene": true,
+       "where": null,
+       "doing": "on the road from Fort Wayne with his Miami escort",
+       "grade": "reconstructed",
+       "basis": "Heald: 'On the 13th, Captain Wells ... arrived'. The hour is not recorded; we bring him in late in the afternoon. Kirkland has him come by 'the lake-shore trail'."
+      },
+      {
+       "from": 16.0,
+       "to": 16.5,
+       "indoors": false,
+       "where": "outdoors before the main gate",
+       "at": {
+        "local_e": 1146.2,
+        "local_n": 196.4,
+        "heading_deg": 0
+       },
+       "doing": "riding in at the head of his Miamis",
+       "activity": "stand",
+       "grade": "reconstructed",
+       "basis": "Arrival on the 13th (Heald); hour ours. Drawn standing by his horse."
+      },
+      {
+       "from": 16.5,
+       "to": 18.5,
+       "indoors": true,
+       "where": "first_fort_dearborn_commanding_officers_barracks",
+       "doing": "with his niece and Captain Heald",
+       "grade": "reconstructed",
+       "basis": "He is Rebekah Heald's uncle; T-3461 lodges him in the commander's quarters (reconstructed).",
+       "with": [
+        "heald_nathan",
+        "heald_rebekah"
+       ]
+      },
+      {
+       "from": 18.5,
+       "to": 19.2,
+       "indoors": true,
+       "where": "first_fort_dearborn_commanding_officers_barracks",
+       "doing": "supper",
+       "grade": "reconstructed",
+       "basis": "Officers drew rations by rank (Act of 1802, in force 1812) and ate in their quarters; the hour is the period's breakfast, midday dinner and evening supper, not a source's.",
+       "with": [
+        "heald_nathan",
+        "heald_rebekah"
+       ]
+      },
+      {
+       "from": 19.2,
+       "to": 21.0,
+       "indoors": true,
+       "where": "first_fort_dearborn_commanding_officers_barracks",
+       "doing": "Kinzie and Helm call on him and urge that the arms and ammunition be destroyed; he presses Heald",
+       "grade": "inferred",
+       "basis": "Helm: 'Kenzie then with Lt. Helm cald on Wells' and Wells then pressed Heald. Helm dates Wells's arrival to the 12th; set on the evening of the 13th under Heald's dating.",
+       "with": [
+        "kinzie_john_elder",
+        "helm_linai",
+        "heald_nathan"
+       ]
+      },
+      {
+       "from": 21.0,
+       "to": 24.0,
+       "indoors": false,
+       "where": "outdoors at the well in the sally-port",
+       "at": {
+        "local_e": 1161.4,
+        "local_n": 228.4,
+        "heading_deg": 0
+       },
+       "doing": "watching the ammunition and muskets go down the well",
+       "activity": "talk",
+       "grade": "inferred",
+       "basis": "Darius Heald: 'the secreting the ammunition in the well was after he came'. The destruction was on the night of the 13th (Helm, an officer present; Wau-Bun; Andreas). Who supervised which part is not recorded; we have it run past midnight and give each officer a share of the work.",
+       "knot": "well_destruction",
+       "with": [
+        "heald_nathan",
+        "ronan_george"
+       ]
+      }
+     ]
+    },
+    {
+     "from_date": "1812-08-14",
+     "to_date": "1812-08-14",
+     "label": "14 August 1812",
+     "day": [
+      {
+       "from": 0.0,
+       "to": 1.0,
+       "indoors": false,
+       "where": "outdoors at the well in the sally-port",
+       "at": {
+        "local_e": 1161.4,
+        "local_n": 228.4,
+        "heading_deg": 0
+       },
+       "doing": "the last of the destruction",
+       "activity": "talk",
+       "grade": "reconstructed",
+       "basis": "The destruction was on the night of the 13th (Helm, an officer present; Wau-Bun; Andreas). Who supervised which part is not recorded; we have it run past midnight and give each officer a share of the work.",
+       "knot": "well_destruction",
+       "with": [
+        "heald_nathan",
+        "ronan_george"
+       ]
+      },
+      {
+       "from": 1.0,
+       "to": 5.3,
+       "indoors": true,
+       "where": "first_fort_dearborn_commanding_officers_barracks",
+       "doing": "asleep",
+       "grade": "reconstructed",
+       "basis": "Night in quarters; no source says when anyone slept. Reveille at 5:30 and tattoo at 21:00 are the garrison clock T-3462 uses for the men. Lodged with the Healds (T-3461's reconstructed choice)."
+      },
+      {
+       "from": 5.3,
+       "to": 6.6,
+       "indoors": false,
+       "where": "outdoors on the esplanade south-west of the fort, with his Miami escort",
+       "at": {
+        "local_e": 1100.0,
+        "local_n": 200.0,
+        "heading_deg": 250
+       },
+       "doing": "with his Miamis at their horses",
+       "activity": "talk",
+       "grade": "reconstructed",
+       "basis": "His escort came with him; where they camped no source says (T-3467 places them). This point is a fallback.",
+       "knot": "miami_escort"
+      },
+      {
+       "from": 6.6,
+       "to": 7.8,
+       "indoors": true,
+       "where": "first_fort_dearborn_commanding_officers_barracks",
+       "doing": "breakfast with the Healds",
+       "grade": "reconstructed",
+       "basis": "Officers drew rations by rank (Act of 1802, in force 1812) and ate in their quarters; the hour is the period's breakfast, midday dinner and evening supper, not a source's.",
+       "with": [
+        "heald_nathan",
+        "heald_rebekah"
+       ]
+      },
+      {
+       "from": 7.8,
+       "to": 8.4,
+       "indoors": false,
+       "where": "outdoors on the parade",
+       "at": {
+        "local_e": 1154.0,
+        "local_n": 224.6,
+        "heading_deg": 120
+       },
+       "doing": "looking over the arms and stores left to the command",
+       "activity": "stand",
+       "grade": "reconstructed",
+       "basis": "Helm: Wells 'enquered into the State of the arms, ammunition & Provisions' (dated by Helm to the 12th). Ours here."
+      },
+      {
+       "from": 8.4,
+       "to": 12.0,
+       "indoors": false,
+       "where": "outdoors before the door of the factory",
+       "at": {
+        "local_e": 1075.3,
+        "local_n": 220.3,
+        "heading_deg": 230
+       },
+       "doing": "beside Heald while the goods are given out, speaking to the chiefs",
+       "activity": "talk",
+       "grade": "reconstructed",
+       "basis": "The giving out is attested for the 14th (Heald); Wells at it is ours.",
+       "knot": "factory_distribution",
+       "with": [
+        "heald_nathan",
+        "helm_linai",
+        "van_voorhis_isaac"
+       ]
+      },
+      {
+       "from": 12.0,
+       "to": 13.5,
+       "indoors": true,
+       "where": "first_fort_dearborn_commanding_officers_barracks",
+       "doing": "dinner with the Healds",
+       "grade": "reconstructed",
+       "basis": "Officers drew rations by rank (Act of 1802, in force 1812) and ate in their quarters; the hour is the period's breakfast, midday dinner and evening supper, not a source's.",
+       "with": [
+        "heald_nathan",
+        "heald_rebekah"
+       ]
+      },
+      {
+       "from": 13.5,
+       "to": 14.0,
+       "indoors": true,
+       "where": "first_fort_dearborn_commanding_officers_barracks",
+       "doing": "resting",
+       "grade": "reconstructed",
+       "basis": "Ours."
+      },
+      {
+       "from": 14.0,
+       "to": 16.5,
+       "indoors": false,
+       "where": "outdoors on the esplanade west of the fort",
+       "at": {
+        "local_e": 1104.2,
+        "local_n": 223.5,
+        "heading_deg": 265
+       },
+       "doing": "at the council with Heald",
+       "activity": "talk",
+       "grade": "inferred",
+       "basis": "Wau-Bun and Currey: a second council on the 14th. Helm makes Wells the one who held a council and found the warriors hostile; Quaife thinks Heald, not Wells, led it. Wells there beside Heald.",
+       "knot": "second_council_14aug",
+       "with": [
+        "heald_nathan",
+        "kinzie_john_elder"
+       ]
+      },
+      {
+       "from": 16.5,
+       "to": 17.4,
+       "indoors": true,
+       "where": "first_fort_dearborn_blockhouse_nw",
+       "doing": "up in the north-west blockhouse, looking out over the river, the camps and the lake shore",
+       "grade": "reconstructed",
+       "basis": "Kirkland imagines exactly this ('Suppose the veteran, Wells ... mounted on the roof of the block-house at the northwest corner'). His conjecture, kept as ours."
+      },
+      {
+       "from": 17.4,
+       "to": 18.8,
+       "indoors": false,
+       "where": "outdoors on the esplanade with his Miami escort",
+       "at": {
+        "local_e": 1100.0,
+        "local_n": 200.0,
+        "heading_deg": 250
+       },
+       "doing": "settling with his Miamis the order of march: half ahead, half behind",
+       "activity": "talk",
+       "grade": "inferred",
+       "basis": "Heald's report: on the 15th 'a part of the Miamies were detached in front, and the remainder in our rear ... under the direction of Captain Wells'. Arranging it the evening before is ours.",
+       "knot": "miami_escort"
+      },
+      {
+       "from": 18.8,
+       "to": 19.8,
+       "indoors": true,
+       "where": "first_fort_dearborn_commanding_officers_barracks",
+       "doing": "supper",
+       "grade": "reconstructed",
+       "basis": "Officers drew rations by rank (Act of 1802, in force 1812) and ate in their quarters; the hour is the period's breakfast, midday dinner and evening supper, not a source's.",
+       "with": [
+        "heald_nathan",
+        "heald_rebekah"
+       ]
+      },
+      {
+       "from": 19.8,
+       "to": 21.5,
+       "indoors": true,
+       "where": "first_fort_dearborn_commanding_officers_barracks",
+       "doing": "with Heald when Black Partridge gives up his medal",
+       "grade": "attested",
+       "basis": "Helm: of Black Partridge's warning 'there was but Capt Wells that was acquainted with it'. The hour is ours.",
+       "with": [
+        "heald_nathan",
+        "black_partridge",
+        "kinzie_john_elder"
+       ]
+      },
+      {
+       "from": 21.5,
+       "to": 24.0,
+       "indoors": true,
+       "where": "first_fort_dearborn_commanding_officers_barracks",
+       "doing": "asleep",
+       "grade": "reconstructed",
+       "basis": "Night in quarters; no source says when anyone slept. Reveille at 5:30 and tattoo at 21:00 are the garrison clock T-3462 uses for the men."
+      }
+     ]
+    },
+    {
+     "from_date": "1812-08-15",
+     "to_date": "1812-08-15",
+     "label": "15 August 1812, until the march at nine",
+     "day": [
+      {
+       "from": 0,
+       "to": 4.5,
+       "indoors": true,
+       "where": "first_fort_dearborn_commanding_officers_barracks",
+       "doing": "asleep",
+       "grade": "reconstructed",
+       "basis": "Night in quarters; no source says when anyone slept. Reveille at 5:30 and tattoo at 21:00 are the garrison clock T-3462 uses for the men."
+      },
+      {
+       "from": 4.5,
+       "to": 8.0,
+       "indoors": true,
+       "where": "first_fort_dearborn_commanding_officers_barracks",
+       "doing": "making ready",
+       "grade": "reconstructed",
+       "basis": "15 August: the march began at nine (Heald). What each officer did before it is not recorded. After nine they leave the town scene; the battle-of-fort-dearborn jaunt stages the march and the battle."
+      },
+      {
+       "from": 8.0,
+       "to": 8.5,
+       "indoors": true,
+       "where": "first_fort_dearborn_commanding_officers_barracks",
+       "doing": "blackening his face",
+       "grade": "attested",
+       "basis": "Wau-Bun: 'He had blackened his face before leaving the garrison'. The hour is ours."
+      },
+      {
+       "from": 8.5,
+       "to": 9.0,
+       "indoors": false,
+       "where": "outdoors on the esplanade at the head of his Miamis",
+       "at": {
+        "local_e": 1100.0,
+        "local_n": 200.0,
+        "heading_deg": 250
+       },
+       "doing": "mounted, waiting for the gate to open",
+       "activity": "stand",
+       "grade": "reconstructed",
+       "basis": "15 August: the march began at nine (Heald). What each officer did before it is not recorded. After nine they leave the town scene; the battle-of-fort-dearborn jaunt stages the march and the battle."
+      },
+      {
+       "from": 9.0,
+       "to": 24.0,
+       "indoors": null,
+       "offscene": true,
+       "where": null,
+       "doing": "leading the column out (the battle jaunt has the march and his death)",
+       "grade": "attested",
+       "basis": "Heald's report: Wells led the Miamis; he was killed."
+      }
+     ]
+    }
+   ],
+   "facts": [
+    {
+     "claim": "Wells arrived on the 13th (Heald's own report, 1812).",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16229-16230; Appendix IV, 'Captain Heald's Official Report of the Evacuation of Fort Dearborn' (begins p. 406)",
+     "quote": "On the 13th, Captain Wells, of Fort Wayne, arrived with about 30 Miamies,"
+    },
+    {
+     "claim": "Quaife takes the 13th.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 9121-9122; ch. X (begins p. 211)",
+     "quote": "His arrival at Fort Dearborn on the thirteenth must have afforded the only ray of cheer"
+    },
+    {
+     "claim": "Andreas: Wells arrived on the 13th.",
+     "source": "andreas_1884_v1",
+     "locator": "Internet Archive historyofchicago01andr OCR text (historyofchicago01andr_djvu.txt), line 21062-21063; vol. I, p. 82",
+     "quote": "He arrived at the fort on the 13th of August, too late,"
+    },
+    {
+     "claim": "Helm dates Wells to the 12th, with 27 Miamis.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16634-16635; Appendix VI, Helm's account (begins p. 415)",
+     "quote": "Capt. William Wells arrived from Fort Wayne on the 12th August with 27 Miamis"
+    },
+    {
+     "claim": "Wau-Bun dates Wells to the 14th, with fifteen Miamis.",
+     "source": "kinzie_waubun_1856",
+     "locator": "PG 51737 lines 6032-6034 (1856 text as reprinted in the 1901 Caxton Club edition); ch. XVIII",
+     "quote": "the arrival, on the 14th of August, of Captain Wells[AE] with fifteen friendly Miamis."
+    },
+    {
+     "claim": "Currey: Wells on the 14th, about thirty Miamis on ponies.",
+     "source": "currey_1912_story_of_old_fort_dearborn",
+     "locator": "Gutenberg #52346 plain text (pg52346.txt), line 2180-2181; ch. III 'The Tragedy' (begins p. 95)",
+     "quote": "the arrival of Captain William Wells from Fort Wayne at the head of a band of about thirty friendly"
+    },
+    {
+     "claim": "Mrs. Heald's son: Wells came three or four days before the evacuation.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16353-16354; Appendix V, Darius Heald's narrative (begins p. 409)",
+     "quote": "Capt. Wm. Wells got there perhaps three or four days before the evacuation,"
+    },
+    {
+     "claim": "Stickney sent Wells from Fort Wayne.",
+     "source": "currey_1912_story_of_old_fort_dearborn",
+     "locator": "Gutenberg #52346 plain text (pg52346.txt), line 2192-2193; ch. III (begins p. 95)",
+     "quote": "Major Stickney had promptly despatched Captain Wells with a party of Miami warriors."
+    },
+    {
+     "claim": "Wells lived at Fort Wayne.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 9112-9113; ch. X (begins p. 211)",
+     "quote": "Fort Wayne remained his place of residence for the remainder of his life"
+    },
+    {
+     "claim": "Kirkland has Wells come in by the lake-shore trail.",
+     "source": "kirkland_1893_chicago_massacre",
+     "locator": "Gutenberg #59624 plain text (pg59624.txt), line 2922-2923; Part II (p. 94)",
+     "quote": "the lake-shore trail which he himself came over,"
+    },
+    {
+     "claim": "Wells looked into the fort's arms, ammunition and provisions.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16638-16639; Appendix VI, Helm's account (begins p. 415)",
+     "quote": "Capt. Wells enquered into the State of the arms, ammunition & Provisions"
+    },
+    {
+     "claim": "Wells, after a council, judged the assembled warriors hostile.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16637-16638; Appendix VI, Helm's account (begins p. 415)",
+     "quote": "after council declared them Hostile & that his opinion was that they would interupt us on our route."
+    },
+    {
+     "claim": "Kinzie and Helm went to Wells to get the arms and ammunition destroyed.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16647-16648; Appendix VI, Helm's account (begins p. 415)",
+     "quote": "Kenzie then with Lt. Helm cald on Wells and requested him to call on Capt Heald and cause the ammunition & arms to be destroyed"
+    },
+    {
+     "claim": "The ammunition went into the well after Wells came.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16354-16355; Appendix V, Darius Heald's narrative (begins p. 409)",
+     "quote": "the secreting the ammunition in the well was after he came,"
+    },
+    {
+     "claim": "Helm: Heald told none of his officers; only Wells knew.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16758-16759; Appendix VI, Helm's account (begins p. 415)",
+     "quote": "this Heald never communicated to one of his officers there was but Capt Wells that was acquainted with it"
+    },
+    {
+     "claim": "Kirkland imagines Wells on the north-west blockhouse looking out (his own 'Suppose').",
+     "source": "kirkland_1893_chicago_massacre",
+     "locator": "Gutenberg #59624 plain text (pg59624.txt), line 2887-2888; Part II (the scene before the plate WILLIAM WELLS, p. 94)",
+     "quote": "Suppose the veteran, Wells, tired with the tramping, the trifling and the turmoil, mounted on the roof of the block-house"
+    },
+    {
+     "claim": "Wells about forty.",
+     "source": "currey_1912_story_of_old_fort_dearborn",
+     "locator": "Gutenberg #52346 plain text (pg52346.txt), line 2184-2184; ch. III 'The Tragedy' (begins p. 95)",
+     "quote": "a man about forty years of age,"
+    },
+    {
+     "claim": "Wells wore his hair in a queue tied with black ribbon.",
+     "source": "kinzie_waubun_1856",
+     "locator": "PG 51737 lines 6249-6250 (1856 text as reprinted in the 1901 Caxton Club edition); ch. XIX",
+     "quote": "by the black ribbon around the queue I recognized as that of Capt. Wells,"
+    },
+    {
+     "claim": "On the 15th Wells rode a pony and wore a hat.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16366-16367; Appendix V, Darius Heald's narrative (begins p. 409)",
+     "quote": "Wells & party yet some distance off, mounted on ponies, waving his hat,"
+    },
+    {
+     "claim": "He carried a rifle and a pistol.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16391-16391; Appendix V, Darius Heald's narrative (begins p. 409)",
+     "quote": "shot as he lay, with his rifle & then with his pistol,"
+    },
+    {
+     "claim": "And a dirk.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16338-16339; Appendix V, the account Quaife prints before Darius Heald's narrative (begins p. 409)",
+     "quote": "two with his rifle & the third with his dirk."
+    },
+    {
+     "claim": "On the 15th he was painted black and dressed like an Indian.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16396-16397; Appendix V, Darius Heald's narrative (begins p. 409)",
+     "quote": "readily recognized him, though painted black & dressed like an Indian,"
+    },
+    {
+     "claim": "Wells blackened his face before leaving on the 15th.",
+     "source": "kinzie_waubun_1856",
+     "locator": "PG 51737 lines 6151-6152 (1856 text as reprinted in the 1901 Caxton Club edition); ch. XIX",
+     "quote": "He had blackened his face before leaving the garrison, in token of his impending fate."
+    },
+    {
+     "claim": "Kirkland prints a portrait captioned William Wells.",
+     "source": "kirkland_1893_chicago_massacre",
+     "locator": "Gutenberg #59624 plain text (pg59624.txt), line 2892-2892; Part II; list of illustrations: William Wells, p. 94",
+     "quote": "[Illustration: WILLIAM WELLS.]"
+    },
+    {
+     "claim": "Currey's plate captioned Captain William Wells.",
+     "source": "currey_1912_story_of_old_fort_dearborn",
+     "locator": "Gutenberg #52346 plain text (pg52346.txt), line 1191-1191; plate facing p. 58 (list of illustrations), in ch. II 'Fortifying the Frontier'",
+     "quote": "_Captain William Wells, the hero of the Fort Dearborn massacre._"
+    }
+   ]
+  }
+ ],
+ "dress": {
+  "officer_first_infantry_1812": {
+   "builds_on": "dress.json (T-3461) role 'U.S. infantry company officer (captain, lieutenant, ensign) and surgeon's mate, August 1812'; this fixes what it left open for these three men.",
+   "pieces": "Coat of dark blue superfine cloth, single-breasted, skirts to the bend of the knee, white turnbacks; standing collar to the ear and cuffs of scarlet, with silver lace loops on the collar; white-metal (silver) buttons. One silver bullion epaulette: Heald (captain) on the RIGHT shoulder; Helm (second lieutenant) on the LEFT; Ronan (ensign) on the LEFT as a lieutenant (no source for an ensign's; ours). White waistcoat; white linen pantaloons or breeches (summer); black stock; boots to the knee. Black felt chapeau bras worn fore and aft, black cockade with an eagle, white feather. Sword on a white leather waist belt: Heald's is the curved, stirrup-hilted sword with a knot that Darius Heald holds in Kirkland's 1893 photograph (the 'Heald's sword' Quaife says the family kept); Helm's and Ronan's straight, brass-mounted (by analogy). Crimson silk sash round the waist ONLY on a tour of duty (officer of the day, a council, the march).",
+   "states": {
+    "duty": "Coat buttoned, chapeau, sword, sash. Heald at the factory, the council and in the evening when Black Partridge comes; Ronan all day on 14 August (officer of the day); everyone at the morning report, retreat and on the 15th.",
+    "undress": "Coat worn open over the waistcoat, no sash; chapeau or a round hat; sword left in quarters. Helm and Van Voorhis at work about the post, and everyone on the plain day off duty.",
+    "march_15": "Heald wears the 'regular military suit' with a wamus (a short jacket) under it, holding money Rebekah sewed into it (Darius Heald). Helm carries a gun ('the barrel of my gun') and wears a lined coat with pockets (his 1814 narrative)."
+   },
+   "colours": "coat indigo blue; collar and cuffs scarlet; lace, buttons and epaulette silver; waistcoat and pantaloons white; stock, chapeau and boots black; sash crimson; Heald's sword hilt and scabbard mounts brass.",
+   "sources": [
+    "us_1814_military_laws_and_regulations",
+    "met_krimmel_1813_philadelphia_soldiery",
+    "inde_peale_1808_zebulon_pike (proposed by T-3461 dress.json)",
+    "kirkland_1893_chicago_massacre (plate p. 179: Darius Heald with the sword)",
+    "quaife_1913 (App. V, App. VI, ch. XI)"
+   ],
+   "grade": "inferred",
+   "grade_note": "The coat, epaulette rule, sash and chapeau rest on the 1814 printing of the artillery and staff rules and on Krimmel's and Peale's pictures, by analogy (T-3461). What is Chicago's own: Heald's 'regular military suit' and wamus on the 15th, Helm's lined coat and gun, and the surviving Heald sword. The ensign's epaulette is ours.",
+   "facts": [
+    {
+     "claim": "The 1813 change took away red collars, cuffs and lace, so they were worn before it.",
+     "source": "us_1814_military_laws_and_regulations",
+     "locator": "Internet Archive 0215605.nlm.nih.gov OCR text, line 11941-11944; p. 262, 'Changes in the Uniform of the Army of the United States'",
+     "quote": "The coat of the infantry and artillery shall be uniformly blue, no red collars or cuffs: and no lace shall be worn by any grade,"
+    },
+    {
+     "claim": "Sashes on a tour of duty only, round the waist (artillery officers, printed 1814).",
+     "source": "us_1814_military_laws_and_regulations",
+     "locator": "Internet Archive 0215605.nlm.nih.gov OCR text, line 12161-12162; p. 268",
+     "quote": "Sashes.. ..to be worn only on a tour of duty, and round the waist."
+    },
+    {
+     "claim": "An undress rule existed (dispensed with in 1813).",
+     "source": "us_1814_military_laws_and_regulations",
+     "locator": "Internet Archive 0215605.nlm.nih.gov OCR text, line 11978-11980; p. 263",
+     "quote": "The rules with respect to undress, are dispensed with, excepting that cockades must always be worn."
+    },
+    {
+     "claim": "A white feather rising eight inches on the chapeau (artillery officers).",
+     "source": "us_1814_military_laws_and_regulations",
+     "locator": "Internet Archive 0215605.nlm.nih.gov OCR text, line 12149-12150; p. 267",
+     "quote": "A white feather to rise eight inches;"
+    },
+    {
+     "claim": "Heald wore it under his uniform.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16507-16508; Appendix V, Darius Heald's narrative (begins p. 409)",
+     "quote": "This garment Maj. Heald wore under his regular military suit,"
+    },
+    {
+     "claim": "Rebekah Heald sewed money into a wamus before the evacuation.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16504-16505; Appendix V, Darius Heald's narrative, told to Draper 1868 (begins p. 409)",
+     "quote": "Mrs. Heald had sewed into a wamus, or roundabout, several hundred dollars in paper money,"
+    },
+    {
+     "claim": "Helm wore a lined coat with pockets and carried a gun on the 15th.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16672-16673; Appendix VI, Helm's account (begins p. 415)",
+     "quote": "I received a ball through my coat pocket which struck the barrel of my gun and fell in the lineing of my coat"
+    },
+    {
+     "claim": "Heald's sword survived with the family.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 9834-9836; ch. XI 'The Fate of the Survivors' (begins p. 232)",
+     "quote": "including Heald's sword, a comb, finger ring, brooch, and table spoons of Mrs. Heald, are still in the possession of her descendants."
+    }
+   ]
+  },
+  "surgeons_mate_1812": {
+   "builds_on": "dress.json (T-3461), the surgeon's mate clause of the officer role.",
+   "pieces": "The officers' blue coat and white waistcoat and pantaloons, but the collar ('cape') of black velvet and a black plume in the chapeau; no epaulette (his is a staff appointment; ours), no sash; a small sword or none. Boots; he rode. At work in his room or at sick call, coat off, shirt-sleeves and waistcoat, or a linen frock (ours).",
+   "colours": "coat indigo blue with black velvet collar; buttons silver; waistcoat and pantaloons white; stock, chapeau, plume and boots black.",
+   "sources": [
+    "us_1814_military_laws_and_regulations",
+    "kinzie_waubun_1856 (his horse, his baggage horses)"
+   ],
+   "grade": "inferred",
+   "grade_note": "The black velvet cape and plume are the 1814 printing's rule for surgeons and mates (artillery section), by analogy; the transcription T-3461 could not verify says 'blue collars and cuffs' for medical staff. He may as well have worn plain civilian black. Recorded as a liberty.",
+   "facts": [
+    {
+     "claim": "Surgeons and mates: the regiment's uniform with a black velvet cape and black plume (printed 1814).",
+     "source": "us_1814_military_laws_and_regulations",
+     "locator": "Internet Archive 0215605.nlm.nih.gov OCR text, line 12170-12172; p. 268",
+     "quote": "will wear the same uniform except the cape, which is of black velvet; the plume black."
+    }
+   ]
+  },
+  "wells_frontier_agent_1812": {
+   "builds_on": "nothing in dress.json (it leaves Native dress to native.json and has no frontier agent). New role.",
+   "pieces": "A man of the frontier who had lived among the Miami from boyhood. Hair long, in a queue tied with black ribbon (Wau-Bun, of his scalp on the 15th). A round felt hat (he waved his hat, Darius Heald). Linen or calico shirt; a hunting frock or a short blue cloth coat; breechcloth, cloth leggings and moccasins (he was 'dressed like an Indian' on the 15th, Darius Heald; on the 14th the same dress is ours, as the man who rode with the Miami across the country). Belt with a dirk; a pistol; a rifle (all three in the accounts of the 15th). Rides a pony. On the 15th only: face blackened (Wau-Bun, Darius Heald, Currey).",
+   "alternative": "The plates captioned 'William Wells' in Kirkland (1893) and Currey (1912) show a man in an officer's coat with a high laced collar, one epaulette, a ruffled shirt and black stock, which would be his dress as a captain of scouts under Wayne in the 1790s if the picture is his. Its origin is not given. Owner to choose (see summary); we recommend the frontier dress for August 1812.",
+   "colours": "hat black or brown felt; shirt white or printed calico; frock or coat blue; leggings blue or red stroud; moccasins smoked brown; queue ribbon black.",
+   "sources": [
+    "quaife_1913 (App. V)",
+    "kinzie_waubun_1856 (ch. XIX)",
+    "currey_1912_story_of_old_fort_dearborn",
+    "kirkland_1893_chicago_massacre"
+   ],
+   "grade": "reconstructed",
+   "grade_note": "The queue, the hat, the weapons and the blackened face of the 15th are attested; the cut and colours of the clothes are ours.",
+   "facts": [
+    {
+     "claim": "Wells wore his hair in a queue tied with black ribbon.",
+     "source": "kinzie_waubun_1856",
+     "locator": "PG 51737 lines 6249-6250 (1856 text as reprinted in the 1901 Caxton Club edition); ch. XIX",
+     "quote": "by the black ribbon around the queue I recognized as that of Capt. Wells,"
+    },
+    {
+     "claim": "On the 15th Wells rode a pony and wore a hat.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16366-16367; Appendix V, Darius Heald's narrative (begins p. 409)",
+     "quote": "Wells & party yet some distance off, mounted on ponies, waving his hat,"
+    },
+    {
+     "claim": "He carried a rifle and a pistol.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16391-16391; Appendix V, Darius Heald's narrative (begins p. 409)",
+     "quote": "shot as he lay, with his rifle & then with his pistol,"
+    },
+    {
+     "claim": "And a dirk.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16338-16339; Appendix V, the account Quaife prints before Darius Heald's narrative (begins p. 409)",
+     "quote": "two with his rifle & the third with his dirk."
+    },
+    {
+     "claim": "On the 15th he was painted black and dressed like an Indian.",
+     "source": "quaife_1913",
+     "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16396-16397; Appendix V, Darius Heald's narrative (begins p. 409)",
+     "quote": "readily recognized him, though painted black & dressed like an Indian,"
+    },
+    {
+     "claim": "Wells blackened his face before leaving on the 15th.",
+     "source": "kinzie_waubun_1856",
+     "locator": "PG 51737 lines 6151-6152 (1856 text as reprinted in the 1901 Caxton Club edition); ch. XIX",
+     "quote": "He had blackened his face before leaving the garrison, in token of his impending fate."
+    }
+   ]
+  }
+ },
+ "not_placed": [
+  {
+   "name": "Jean Lalime",
+   "why": "Killed by John Kinzie outside the fort on 17 June 1812 (the Lalime jaunt; Kirkland App. F). Not an officer; listed here only because the brief asks every researcher to. His widow belongs to the civilian reading."
+  },
+  {
+   "name": "Dr. John Cooper",
+   "why": "Surgeon's mate before Van Voorhis; resigned and left in 1811 (Quaife ch. VII; the 1881 genealogy quoting Lossing). Not at the post in 1812."
+  },
+  {
+   "name": "Lieutenant Seth Thompson",
+   "why": "Died 4 March 1811 (Quaife ch. VII); Helm took his place."
+  },
+  {
+   "name": "Matthew Irwin (factor)",
+   "why": "A civil officer, not military; left Chicago on 5 July 1812 (Quaife ch. XIII). Appears only as the reason Van Voorhis held the factory keys."
+  },
+  {
+   "name": "The interpreter of 14 August",
+   "why": "Helm says 'the Interpreter' came with Black Partridge; Currey names John Kinzie (civilian reading). No separate person placed."
+  }
+ ],
+ "new_sources": [
+  {
+   "id": "van_voorhis_1881_notes_on_ancestry",
+   "type": "book",
+   "citation": "Van Voorhis, Elias W. Notes on the Ancestry of Major Wm. Roe Van Voorhis, of Fishkill, Duchess County, New York. New York: printed for the author, 1881.",
+   "author": "Elias William Van Voorhis",
+   "date": "1881",
+   "describes_date": "1660-1881",
+   "url": "https://archive.org/details/notesonancestryo00vanv",
+   "repository": "Internet Archive notesonancestryo00vanv; OCR text https://archive.org/download/notesonancestryo00vanv/notesonancestryo00vanv_djvu.txt (read 2026-11-08; line numbers cited are of that OCR file, printed pages as running heads)",
+   "tier": 3,
+   "rights_status": "public_domain",
+   "asset_use": "text_only",
+   "verified": true,
+   "note": "The family genealogy Quaife cites (ch. VII fn 457, as 'Notes on the Ancestry of Wm. Roe Van Voorhis, 143'). pp. 143-144: Dr. Isaac Van Voorhis born 22 Feb 1790, unmarried, killed 15 Aug 1812; Lossing's Field-Book extract; the Newburgh Political Index obituary of 17 Nov 1812 quoting his letter of Oct 1811 ('In my solitary walks...'). His grandfather Isaac Vail's will (1808) names a grandson 'Isaac Vail Van Voorhis' (line ~7793), which would explain Heald's 'Isaac V Van Voorhis'; the roll reads 'Isaac N.' (Quaife). Not resolved here."
+  }
+ ]
+}

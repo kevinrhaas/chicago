@@ -1,0 +1,46 @@
+{
+  "id": "yard_brick_herringbone",
+  "directional": true,
+  "group": "yard",
+  "span_m": 1.782,
+  "kind": "herringbone",
+  "mean_roughness": 0.8,
+  "colors": [
+    [
+      138,
+      86,
+      68
+    ],
+    [
+      90,
+      60,
+      50
+    ]
+  ],
+  "note": "Hard-burned common brick laid flat in a 45-degree herringbone on sand, as in Chicago yards about 1900: a 4 x 8 in brick with its joint (0.105 x 0.21 m), red-brown with a few burnt and a few salmon bricks, sand joints sunk and gone to dirt and a little moss, a walked polish, a chipped corner and a cracked brick here and there. The brick, the bond and the wear are reconstructed (T-3488).",
+  "ticket": "T-3488",
+  "span_along_m": 1.782,
+  "span_across_m": 1.782,
+  "resolution_px": 512,
+  "px_per_m": 287.32,
+  "confidence": "reconstructed appearance; which yard surface carries it is the yard layout's to say, never this map's",
+  "orientation": "image x = along the path or court the yard layout lays it on (renderer u); image y = across it (v)",
+  "color_space": {
+    "basecolor": "sRGB",
+    "normal_gl": "linear",
+    "normal_dx": "linear",
+    "roughness": "linear",
+    "height16": "linear 16-bit",
+    "ao": "linear",
+    "metallic": "linear",
+    "orm": "linear; R=AO G=Roughness B=Metallic"
+  },
+  "web": {
+    "basecolor": "yard_brick_herringbone_basecolor_web.jpg",
+    "normal_gl": "yard_brick_herringbone_normal_gl_web.jpg",
+    "orm": "yard_brick_herringbone_orm_web.jpg"
+  },
+  "seamless": true,
+  "generator_seed": 19041408,
+  "generation_method": "deterministic procedural synthesis (tools/generate_prairie_1904_pbr.py); no photograph sampled"
+}

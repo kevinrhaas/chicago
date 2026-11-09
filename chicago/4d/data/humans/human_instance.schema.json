@@ -161,6 +161,438 @@
               }
             }
           }
+        },
+        "duty": {
+          "type": "object",
+          "required": [
+            "kind"
+          ],
+          "additionalProperties": false,
+          "description": "T-3490: a duty shared with others, played by renderers/web/js/human-duties.js. `knot`: men of one `id` standing together talking (placement is his place in it, facing in), who now and then each walk to `away`, stand a while and come back. `beat`: a sentry walking between his placement and `to`, pausing at each end facing `face_deg`. `rank`: men of one `id` drawn up still, hands at their sides, looking at the one marked `lead`, who speaks to them now and then. No words are said (L1).",
+          "properties": {
+            "kind": {
+              "enum": [
+                "knot",
+                "beat",
+                "rank"
+              ]
+            },
+            "id": {
+              "type": "string",
+              "pattern": "^[a-z0-9_]+$"
+            },
+            "lead": {
+              "type": "boolean"
+            },
+            "away": {
+              "type": "object",
+              "required": [
+                "local_e",
+                "local_n",
+                "heading_deg"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "local_e": {
+                  "type": "number"
+                },
+                "local_n": {
+                  "type": "number"
+                },
+                "heading_deg": {
+                  "type": "number",
+                  "minimum": 0,
+                  "exclusiveMaximum": 360
+                },
+                "via": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "local_e",
+                      "local_n"
+                    ],
+                    "additionalProperties": false,
+                    "properties": {
+                      "local_e": {
+                        "type": "number"
+                      },
+                      "local_n": {
+                        "type": "number"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "to": {
+              "type": "object",
+              "required": [
+                "local_e",
+                "local_n"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "local_e": {
+                  "type": "number"
+                },
+                "local_n": {
+                  "type": "number"
+                }
+              }
+            },
+            "face_deg": {
+              "type": "number",
+              "minimum": 0,
+              "exclusiveMaximum": 360
+            },
+            "pause_s": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "minimum": 0
+              },
+              "minItems": 2,
+              "maxItems": 2
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "kind": {
+                    "const": "beat"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "to"
+                ]
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "kind": {
+                    "enum": [
+                      "knot",
+                      "rank"
+                    ]
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "id"
+                ]
+              }
+            }
+          ]
+        },
+        "hours": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 24
+          },
+          "description": "T-3490: local solar hours [from, to) the person is out (`to` may pass midnight); outside them they are in quarters, not drawn (renderers/web/js/human-duties.js). Absent: always out."
+        },
+        "presence": {
+          "type": "object",
+          "additionalProperties": false,
+          "minProperties": 1,
+          "properties": {
+            "from": {
+              "type": "string",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+            },
+            "to": {
+              "type": "string",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+            }
+          },
+          "description": "T-3463: the ISO dates (inclusive; either may be left out) the person is in the scene at all; off them they are nowhere (renderers/web/js/human-days.js). Jean Lalime is until 1812-06-17."
+        },
+        "day": {
+          "type": "array",
+          "minItems": 1,
+          "description": "T-3463: the person's day, played by renderers/web/js/human-days.js: the first variant whose `dates` hold the scene's date (or that has none). Its spans cover 0-24 local solar hours: indoors in `where` (not drawn; its door offers Ask for them) or out at `at` doing `activity`. A variant with `chance` comes only so often (seeded by the person and the date; on the other dates they are away); `dates` may add `months` and `years` (a run of years the months recur in).",
+          "items": {
+            "type": "object",
+            "required": [
+              "spans"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "dates": {
+                "type": "object",
+                "additionalProperties": false,
+                "minProperties": 1,
+                "properties": {
+                  "from": {
+                    "type": "string",
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                  },
+                  "to": {
+                    "type": "string",
+                    "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                  },
+                  "months": {
+                    "type": "array",
+                    "minItems": 1,
+                    "uniqueItems": true,
+                    "items": {
+                      "type": "integer",
+                      "minimum": 1,
+                      "maximum": 12
+                    }
+                  },
+                  "years": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "minProperties": 1,
+                    "properties": {
+                      "from": {
+                        "type": "integer"
+                      },
+                      "to": {
+                        "type": "integer"
+                      }
+                    }
+                  }
+                }
+              },
+              "note": {
+                "type": "string"
+              },
+              "spans": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "from",
+                    "to",
+                    "indoors"
+                  ],
+                  "additionalProperties": false,
+                  "properties": {
+                    "from": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 24
+                    },
+                    "to": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 24
+                    },
+                    "indoors": {
+                      "type": "boolean"
+                    },
+                    "where": {
+                      "type": "string",
+                      "pattern": "^[a-z0-9_]+$",
+                      "description": "The structure they are in (indoors) or at."
+                    },
+                    "at": {
+                      "type": "object",
+                      "required": [
+                        "local_e",
+                        "local_n",
+                        "heading_deg"
+                      ],
+                      "additionalProperties": false,
+                      "properties": {
+                        "local_e": {
+                          "type": "number"
+                        },
+                        "local_n": {
+                          "type": "number"
+                        },
+                        "heading_deg": {
+                          "type": "number",
+                          "minimum": 0,
+                          "exclusiveMaximum": 360
+                        }
+                      }
+                    },
+                    "activity": {
+                      "enum": [
+                        "stand",
+                        "talk",
+                        "work",
+                        "walk"
+                      ]
+                    },
+                    "knot": {
+                      "type": "string",
+                      "pattern": "^[a-z0-9_]+$"
+                    },
+                    "spots": {
+                      "type": "array",
+                      "maxItems": 6,
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "local_e",
+                          "local_n"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                          "local_e": {
+                            "type": "number"
+                          },
+                          "local_n": {
+                            "type": "number"
+                          }
+                        }
+                      }
+                    },
+                    "to_point": {
+                      "type": "object",
+                      "required": [
+                        "local_e",
+                        "local_n"
+                      ],
+                      "additionalProperties": false,
+                      "properties": {
+                        "local_e": {
+                          "type": "number"
+                        },
+                        "local_n": {
+                          "type": "number"
+                        }
+                      }
+                    },
+                    "doing": {
+                      "type": "string",
+                      "description": "A short plain phrase of what they are about, for the card and the harness."
+                    },
+                    "away": {
+                      "type": "boolean",
+                      "description": "Off the scene for the span (gone out with the column, away at Milwaukee): not drawn, not asked for."
+                    },
+                    "via": {
+                      "type": "array",
+                      "maxItems": 24,
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "local_e",
+                          "local_n"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                          "local_e": {
+                            "type": "number"
+                          },
+                          "local_n": {
+                            "type": "number"
+                          }
+                        }
+                      },
+                      "description": "A walk's way from `at` to `to_point`, point by point (a path the reading draws)."
+                    },
+                    "once": {
+                      "type": "boolean",
+                      "description": "A walk made once, from `at` by `via` to `to_point`, where they then stand."
+                    }
+                  },
+                  "allOf": [
+                    {
+                      "if": {
+                        "properties": {
+                          "indoors": {
+                            "const": true
+                          },
+                          "away": {
+                            "not": {
+                              "const": true
+                            }
+                          }
+                        }
+                      },
+                      "then": {
+                        "required": [
+                          "where"
+                        ]
+                      }
+                    },
+                    {
+                      "if": {
+                        "properties": {
+                          "indoors": {
+                            "const": false
+                          }
+                        }
+                      },
+                      "then": {
+                        "required": [
+                          "at"
+                        ]
+                      }
+                    },
+                    {
+                      "if": {
+                        "properties": {
+                          "activity": {
+                            "const": "talk"
+                          }
+                        },
+                        "required": [
+                          "activity"
+                        ]
+                      },
+                      "then": {
+                        "required": [
+                          "knot"
+                        ]
+                      }
+                    },
+                    {
+                      "if": {
+                        "properties": {
+                          "activity": {
+                            "const": "walk"
+                          }
+                        },
+                        "required": [
+                          "activity"
+                        ]
+                      },
+                      "then": {
+                        "required": [
+                          "to_point"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              "chance": {
+                "type": "number",
+                "exclusiveMinimum": 0,
+                "maximum": 1,
+                "description": "The share of the dates in `dates` on which this day comes (\"about one day in five\" = 0.2); seeded, the same on every load."
+              }
+            }
+          }
+        },
+        "quarters": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$",
+          "description": "T-3463: the building a man with `hours` is in outside them; its door offers Ask for him then."
+        },
+        "ask_order": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 99,
+          "description": "T-3463: where in a door's Ask for list the person comes (lower first; 50 when unsaid)."
         }
       }
     },

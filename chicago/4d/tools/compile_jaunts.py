@@ -149,6 +149,9 @@ def leg_mode(doc, i):
             return {'leg_mode': leg['mode']}
     return {}
 
+# T-3525: how far from a stop's stand its host may stand: near enough to meet, clear of the visitor.
+HOST_REACH_M = 12
+
 def unique(rows, label):
     result = {r['id']: r for r in rows}
     require(len(result) == len(rows), f'duplicate {label} id')
@@ -270,6 +273,20 @@ class Compiler:
             reason = self.resolve(stop['destination'], True)
             if reason: reasons.append(reason)
             for link in stop.get('links', []): self.resolve(link)
+            # T-3495: the people a stop calls for are people of this scene.
+            for pid in stop.get('people', []): self.resolve({'kind': 'person', 'id': pid})
+            # T-3525: a stop's hosts are people of this scene, each once, standing where the
+            # visitor at the stop can meet them: within HOST_REACH_M of an anchor's stand.
+            hosts = stop.get('hosts', [])
+            unique([{'id': h['person']} for h in hosts], f'{stop["id"]} host')
+            for h in hosts:
+                self.resolve({'kind': 'person', 'id': h['person']})
+                d = stop['destination']
+                if d['kind'] == 'anchor':
+                    a = self.refs['anchor'][d['id']]
+                    far = math.hypot(h['local_e'] - a['local_e'], h['local_n'] - a['local_n'])
+                    require(0.8 <= far <= HOST_REACH_M, f'{stop["id"]}: host {h["person"]} stands {far:.1f} m from the stand; '
+                            f'a host stands 0.8-{HOST_REACH_M:g} m from it')
             choices = stop.get('choices', [])
             unique(choices, 'choice')
             transitions = list(choices) + ([{'next': stop['next']}] if 'next' in stop else [])

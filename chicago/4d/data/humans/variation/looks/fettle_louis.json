@@ -1,0 +1,32 @@
+{
+ "format": "chicago4d_human_looks_v1",
+ "ticket": "T-3500",
+ "person_id": "fettle_louis",
+ "scene": "1812",
+ "generated_by": "docs/RESEARCH/gathering-people-1812-3500/build.py",
+ "heritage": {
+  "origin": "French-Canadian",
+  "family": "reading"
+ },
+ "complexion": {
+  "value": "fair, weathered",
+  "drawn": "ruddy",
+  "grade": "reconstructed"
+ },
+ "hair": {
+  "value": "dark brown greying, tied behind",
+  "drawn": "grey_brown",
+  "cut": "clubbed_behind_1812",
+  "facial": [],
+  "grade": "reconstructed"
+ },
+ "eyes": {
+  "value": "brown",
+  "drawn": "brown",
+  "grade": "reconstructed"
+ },
+ "height_scale": 0.9579,
+ "basis": "Heritage only: \"a French-Canadian\" (Quaife). No likeness. The T-3466 day reading's words, drawn.",
+ "grade": "reconstructed",
+ "liberty": "L-1812-gathering-people-3500"
+}

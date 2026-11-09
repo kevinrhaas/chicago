@@ -1,0 +1,281 @@
+{
+  "version": 1,
+  "license": "CC0-1.0",
+  "liberty": "L418",
+  "height_scale": 1.0,
+  "lod_ratios": [
+    1.0,
+    0.6,
+    0.28,
+    0.12
+  ],
+  "skin_texture": {
+    "path": "assets/authored/humans/skin_toigo_bronze/young_lightskinned_male_diffuse_Bronze.png",
+    "sha256": "5a53213f061bfa97ee0afd6b40650ffbc089a479c144e63f3c39acceca5853c0",
+    "license": "CC0-1.0",
+    "color_space": "sRGB",
+    "base_color_factor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "roughness": 0.68,
+    "roughness_basis": "Reconstructed engineering value, not measured from a period person or calibrated capture.",
+    "identity_basis": "Cleared reusable generic skin atlas; not a likeness, attested complexion, or source identifying any named/reconstructed resident.",
+    "uv_status": "Source atlas and UV registration viewed in source diagnostics; final Blender export/LOD render validation remains outstanding."
+  },
+  "hair_component": {
+    "directory": "assets/authored/humans/hair_short04",
+    "texture": "short04_diffuse_periodic_pad_draft.png",
+    "uv_transform": {
+      "source_height": 2048,
+      "top_rows": 8,
+      "bottom_rows": 1
+    },
+    "roughness": 0.65,
+    "alpha_cutoff": 0.4,
+    "appearance_basis": "Shared cleared CC0 short04 source fitted to existing Otis/Joseph/Martin bodies; hair/part/color are reconstructed choices, no period hairstyle attestation or individual likeness.",
+    "source_manifest_sha256": "68a02130cd50dd0d727f31f8f53702fe91bd9ecb9aa98309a7814191abf89e99"
+  },
+  "eye_components": {
+    "radius_m": 0.012,
+    "iris_radius_m": 0.0055,
+    "pupil_radius_m": 0.0022,
+    "corneal_bulge_m": 0,
+    "cornea_enabled": false,
+    "source_basis": "Actual helper centers/axes; original opaque sclera/iris/pupil, reconstructed dimensions and brown color, not resident facts",
+    "status": "No actual BPy/export/blink fit/photographic acceptance"
+  },
+  "label": "Reconstructed settler's working dress about 1810 (coarse unbleached shirt, blue neckerchief, brown waistcoat, loose linen trousers, shoes, a black round hat) on the shared portable male rig",
+  "scene_date": "1812-08-14",
+  "grade": "reconstructed",
+  "sources": [
+    "met_krimmel_1811_black_sawyers_bank_of_pennsylvania",
+    "met_krimmel_1811_merrymaking_wayside_inn",
+    "met_pixler_family_c1815",
+    "quaife_1913"
+  ],
+  "basis": "Original shells offset from the cleared adult body's own surface (the 1835 labourer's shirt, waistcoat and trousers, re-measured), a neckerchief lofted round its neck and a round hat rigid on the head, after the rural and working dress of 1811-15 in the recipe's pictures. Seams, ease, lengths and colours are reconstructed. Complete source anatomy remains unchanged beneath clothing.",
+  "source_scope": "Krimmel's Black sawyers before the Bank of Pennsylvania (1811-13) show working men in shirt-sleeves, waistcoats, trousers and black round hats; his country inn (1811-13) rural men's dress; the Pixler family (about 1815) a rural American father's; Quaife (1913) that the settlers were armed as militia from the garrison store in their own clothes. No source describes any Chicago settler's or Black Jim's clothes in 1812; no pixels or traced shapes enter the asset.",
+  "colors_linear_rgba": {
+    "skin": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "eyes": [
+      0.12,
+      0.09,
+      0.06,
+      1.0
+    ],
+    "garment_upper__shirt_tow_linen_1810": [
+      0.6,
+      0.56,
+      0.46,
+      1
+    ],
+    "garment_outer__waistcoat_brown_1810": [
+      0.085,
+      0.052,
+      0.03,
+      1
+    ],
+    "garment_lower__trousers_linen_1810": [
+      0.46,
+      0.41,
+      0.31,
+      1
+    ],
+    "accessory__neckerchief_blue_1810": [
+      0.04,
+      0.07,
+      0.17,
+      1
+    ],
+    "headwear__round_hat_black_1810": [
+      0.016,
+      0.015,
+      0.014,
+      1
+    ],
+    "footwear__shoes_dark_1810": [
+      0.028,
+      0.019,
+      0.012,
+      1
+    ]
+  },
+  "workwear_coverage": {
+    "shoe_clearance_m": 0.004
+  },
+  "role_1812": {
+    "module": "human_settler_1812",
+    "prepare": "prepare_settler_assembly",
+    "assembly": "settler_1812_v1"
+  },
+  "proof_variants": [
+    {
+      "id": "settler_1812",
+      "component_assembly": "settler_1812_v1",
+      "person_reference_id": "anonymous_settler_1812",
+      "person_reference_scene": "1812",
+      "person_reference_grade": "reconstructed",
+      "person_reference_record": "data/sources/quaife_1913.json",
+      "reference_summary": {
+        "name": "a settler or working man of Chicago, about 1810",
+        "named": false,
+        "role": "settler",
+        "presence": "resident"
+      },
+      "body_input": "assets/authored/humans/makehuman_hm08/prepared_adult_35.json",
+      "body_parameters": {
+        "chosen_height_m": 1.75,
+        "height_basis": "The shared engineering body; not a recorded height.",
+        "engineering_age_years": 35,
+        "age_basis": "Engineering body at age 35; the men who wear the role range from Lee's grown son to Burns, an old soldier; the variation kit ages each face. No age is read for the role.",
+        "shape_basis": "CC0 male macro targets; equal software-category blend is engineering only, not inferred ancestry or a portrait."
+      },
+      "body_basis": "CC0 adult-male graphical body and the shared generic skin of the period studies are reconstructed authoring choices. The figure is anonymous: a working man of the type, not any man of the town; no complexion, height, face or outfit of anyone is asserted.",
+      "recipe_path": "data/humans/recipes/settler_1812.json"
+    }
+  ],
+  "settler_components": {
+    "version": 1,
+    "generator": "tools/human_settler_1812.py",
+    "liberty": "L-human-modular-dress-1789",
+    "body_sha256": "ef5eb3ca282b29c482a67af4e3e50d1ed29a8055eed0230ee2a58ec36dddbba9",
+    "standing_source_only": false,
+    "production_eligible": false,
+    "photo_accepted": false,
+    "evidence_choice": "The coordinator asked for people-1812-3466's settler_1812: plain farm clothes of about 1810 (shirt, waistcoat, trousers, neckerchief, a round or slouch hat, shoes), light on geometry, on the 1835 labourer as the near model. The labourer's braces are left out (one draw and 2,200 triangles fewer); the waistcoat is closed to the chest rather than open; the hat is the round black hat the Philadelphia sawyers wear. The same dress serves Black Jim (black_servant_1812: shirt, waistcoat, linen trousers, round black hat; no livery). The militia's musket and belts are carried things, not the dress.",
+    "tailoring": {
+      "shirt": {
+        "ease": 0.008,
+        "waist_below_spine02": 0.14,
+        "collar_above_neck": 0.014,
+        "throat_v_below_neck": 0.1,
+        "throat_v_half_width": 0.034,
+        "cuff_short_of_wrist": 0.014,
+        "sleeve_fullness": 0.018,
+        "smoothing": 90,
+        "sleeve_gather": 0.06,
+        "armpit_extra": 0.004
+      },
+      "neckerchief": {
+        "ease": 0.014,
+        "bottom_below_neck": 0.03,
+        "back_bottom_below_neck": 0.004,
+        "height": 0.034,
+        "segments": 36,
+        "rows": 4
+      },
+      "waistcoat": {
+        "ease": 0.021,
+        "armpit_extra": 0.008,
+        "hem_below_spine02": 0.095,
+        "top_below_neck": 0.02,
+        "opening_half_width_hem": 0.006,
+        "opening_half_width_top": 0.05
+      },
+      "trousers": {
+        "ease": 0.016,
+        "waist_height_fraction": 0.585,
+        "cuff_radius_ratio": 0.95,
+        "added_section_ease": 0.016,
+        "thigh_transition_fraction": 0.65,
+        "hem_front_y": 0.066,
+        "hem_back_y": 0.034
+      },
+      "round_hat": {
+        "seat_below_top": 0.074,
+        "ease": 0.008,
+        "crown_height": 0.1,
+        "brim": 0.074,
+        "droop": 0.022,
+        "side_lift": 0.004,
+        "thickness": 0.005
+      }
+    },
+    "garments": [
+      {
+        "id": "shirt_tow_linen",
+        "material": "garment_upper__shirt_tow_linen_1810",
+        "provenance": {
+          "grade": "reconstructed",
+          "source_ids": [
+            "met_krimmel_1811_black_sawyers_bank_of_pennsylvania",
+            "met_krimmel_1811_merrymaking_wayside_inn",
+            "met_pixler_family_c1815"
+          ],
+          "source_scope": "A coarse unbleached shirt with full sleeves, worn without a coat in August: Krimmel's sawyers (1811-13) work in shirt-sleeves; the colour (unbleached tow or linen) and cut (the 1835 labourer's) are reconstructed. No source describes a Chicago settler's clothes.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "neckerchief_blue",
+        "material": "accessory__neckerchief_blue_1810",
+        "provenance": {
+          "grade": "reconstructed",
+          "source_ids": [
+            "met_krimmel_1811_merrymaking_wayside_inn"
+          ],
+          "source_scope": "A kerchief at the neck (people-1812-3466: \"open at the neck or with a kerchief\"); blue cotton is our choice among the checks and colours of the period pictures.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "waistcoat_brown",
+        "material": "garment_outer__waistcoat_brown_1810",
+        "provenance": {
+          "grade": "reconstructed",
+          "source_ids": [
+            "met_krimmel_1811_black_sawyers_bank_of_pennsylvania",
+            "met_pixler_family_c1815"
+          ],
+          "source_scope": "A waistcoat over the shirt (the sawyers wear striped and green ones; the Pixler father a yellow one); brown wool, closed to the chest, is reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "trousers_linen",
+        "material": "garment_lower__trousers_linen_1810",
+        "provenance": {
+          "grade": "reconstructed",
+          "source_ids": [
+            "met_krimmel_1811_black_sawyers_bank_of_pennsylvania",
+            "met_krimmel_1811_merrymaking_wayside_inn"
+          ],
+          "source_scope": "Loose linen or tow trousers to the instep (the sawyers' trousers; people-1812-3466); natural colour and cut reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "round_hat_black",
+        "material": "headwear__round_hat_black_1810",
+        "provenance": {
+          "grade": "reconstructed",
+          "source_ids": [
+            "met_krimmel_1811_black_sawyers_bank_of_pennsylvania"
+          ],
+          "source_scope": "A black round hat (the sawyers wear \"black round hats\"); a low round crown and a soft brim dipping a little fore and aft (the 1835 labourer's hat re-measured), reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "shoes_dark",
+        "material": "footwear__shoes_dark_1810",
+        "provenance": {
+          "grade": "reconstructed",
+          "source_ids": [
+            "met_krimmel_1811_merrymaking_wayside_inn"
+          ],
+          "source_scope": "Shoes on the shared closed shoe; moccasins or bare feet in summer are equally likely and are not modelled.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      }
+    ]
+  }
+}

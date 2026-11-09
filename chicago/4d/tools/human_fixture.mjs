@@ -115,7 +115,9 @@ const viewports = { desktop: { width: 1280, height: 800 }, mobile: { width: 390,
 const runs = {};
 const errors = [];
 try {
-  for (const [vp, size] of Object.entries(viewports)) {
+  // T-3463: both viewports at once. The 1812 town doubled the figures (248 GLBs), and one
+  // after the other they outran the workflow's 20 minutes; only timings are read per page.
+  await Promise.all(Object.entries(viewports).map(async ([vp, size]) => {
     const page = await browser.newPage({ viewport: size });
     page.on('pageerror', (e) => errors.push(`${vp}: pageerror ${e.message}`));
     page.on('console', (msg) => { if (msg.type() === 'error') errors.push(`${vp}: console.error ${msg.text()}`); });
@@ -124,7 +126,7 @@ try {
       .catch((e) => errors.push(`${vp}: never ready (${e.message.split('\n')[0]})`));
     runs[vp] = (await page.evaluate(() => window.__fixture?.results)) || [];
     await page.close();
-  }
+  }));
 } finally {
   await browser.close();
   server.close();

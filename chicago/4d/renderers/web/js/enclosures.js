@@ -463,9 +463,11 @@ function fits(chunk, ...feet) {
   return Math.hypot(maxE - minE, maxN - minN) <= CHUNK_M;
 }
 
-/** The construction one record's `form` block states, read once for the record. */
-function formOf(record) {
-  const form = record.form ?? {};
+/** The construction one record's `form` block states, read once for the record.
+ *  T-3476: a run may carry its own `form` (the 1835 dooryard gardens' fences, which
+ *  differ house by house); its fields override the record's, field by field. */
+function formOf(record, runForm = null) {
+  const form = runForm ? { ...(record.form ?? {}), ...runForm } : (record.form ?? {});
   const height = form.height_m?.value ?? 1.37;
   const courses = Math.max(1, Math.round(form.rail_courses?.value ?? 3));
   const spacing = Math.max(1, form.post_spacing_m?.value ?? 2.9);
@@ -716,10 +718,11 @@ function emitRun(task, terrain, ch, tally, plankPales) {
 function orderRuns(records) {
   const tasks = [];
   for (const record of records) {
-    const form = formOf(record);
+    const recordForm = formOf(record);
     for (const run of record.runs ?? []) {
       const path = run.path_local_enu_m;
       if (!Array.isArray(path) || path.length < 2) continue;
+      const form = run.form ? formOf(record, run.form) : recordForm;
       let e = 0;
       let n = 0;
       for (const p of path) { e += p[0]; n += p[1]; }

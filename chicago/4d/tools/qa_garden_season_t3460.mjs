@@ -1,5 +1,7 @@
 #!/usr/bin/env node
-// T-3460 — the 1812 commanding officer's garden in each Season. Boots the published
+// T-3460 — the 1812 commanding officer's garden in each Season. T-3476: QA_YEAR=1835 and
+// QA_GARDENS=<run id>,... shoot the 1835 town's dooryard gardens instead, each from its gate
+// (looking in from the house side) and from above behind the house. Boots the published
 // /1812/, then for each season (summer, spring, fall, winter) sets it by hand and shoots
 // the garden from four stands: inside the paling looking north-west over the squash to
 // the corn (the owner's view of 2026-11-07), on the north walk over the cabbages and the
@@ -25,6 +27,22 @@ const STANDS = {
   gate: { anchor: 'first_fort_gardens' },
   above: { local_e: 1104, local_n: 96, yaw_deg: 52, altitude_m: 16, pitch_deg: -24 },
 };
+const YEAR = process.env.QA_YEAR || '1812';
+if (YEAR === '1835') {
+  // the stands are read off the dooryard record: each garden's frame, v back from the house
+  for (const k of Object.keys(STANDS)) delete STANDS[k];
+  const rec = JSON.parse(fs.readFileSync(path.join(root, 'data/enclosures/town_dooryard_pickets.json'), 'utf8'));
+  const want = (process.env.QA_GARDENS || 'blk_randolph_franklin_lot2').split(',');
+  for (const run of rec.runs.filter((r) => want.includes(r.id))) {
+    const g = run.garden, [oe, on] = g.frame.origin, [ue, un] = g.frame.u, [ve, vn] = g.frame.v, [W, D] = g.size_m;
+    const at = (u, v) => [oe + ue * u + ve * v, on + un * u + vn * v];
+    const brg = ((Math.atan2(ve, vn) * 180) / Math.PI + 360) % 360;
+    const [ge, gn] = at(W * 0.35, -2.2);
+    STANDS[`${run.id}-gate`] = { local_e: ge, local_n: gn, yaw_deg: brg + 12 };
+    const [ae, an] = at(W * 0.5, -Math.max(6, D * 0.55));
+    STANDS[`${run.id}-above`] = { local_e: ae, local_n: an, yaw_deg: brg, altitude_m: Math.max(9, D * 0.9), pitch_deg: -38 };
+  }
+}
 const stands = (process.env.QA_STANDS || Object.keys(STANDS).join(',')).split(',');
 const types = { '.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/javascript', '.css': 'text/css', '.json': 'application/json',
   '.png': 'image/png', '.jpg': 'image/jpeg', '.glb': 'model/gltf-binary', '.svg': 'image/svg+xml', '.wasm': 'application/wasm', '.ktx2': 'image/ktx2' };
@@ -45,7 +63,7 @@ const errors = []; page.on('pageerror', (e) => errors.push(String(e)));
 const tag = phone ? 'phone' : 'desktop';
 const rows = [];
 try {
-  await page.goto(`http://127.0.0.1:${server.address().port}/1812/`, { waitUntil: 'domcontentloaded' });
+  await page.goto(`http://127.0.0.1:${server.address().port}/${YEAR}/`, { waitUntil: 'domcontentloaded' });
   await page.waitForFunction(() => window.__chicago4d?.ready || window.__chicago4d?.error, null, { timeout: BOOT_MS, polling: 500 });
   await page.waitForFunction(() => window.__chicago4d?.welcome.state === 'welcome', null, { timeout: BOOT_MS, polling: 1000 });
   await page.evaluate(() => { const a = __chicago4d; a.welcome.enter('spawn'); document.exitPointerLock?.(); document.getElementById('control-help-gotit')?.click(); });
@@ -70,6 +88,18 @@ try {
       const g = await page.evaluate(() => ({ ...window.__chicago4d.gardens.stats }));
       const file = `${tag}-${name}-${season}.jpg`;
       await page.screenshot({ path: path.join(out, file), type: 'jpeg', quality: 84, timeout: 240000 });
+      if (process.env.QA_NOYARDS) {
+        // diagnostic: the same view with the yards' ground hidden
+        const info = await page.evaluate(() => {
+          const hits = [];
+          window.__chicago4d.gardens.group.parent?.traverse?.((o) => { if (o.name === 'yard-ground') { o.visible = false; hits.push(o.name); } });
+          const beds = window.__chicago4d.gardens.group.children.map((c) => `${c.name}:${c.geometry?.attributes?.position?.count ?? '-'}`);
+          return { hits, beds };
+        });
+        console.log(JSON.stringify(info));
+        await page.waitForTimeout(1500);
+        await page.screenshot({ path: path.join(out, `noyards-${file}`), type: 'jpeg', quality: 84, timeout: 240000 });
+      }
       rows.push({ season, stand: name, file, garden: g });
       console.log(season, name, JSON.stringify(g));
     }

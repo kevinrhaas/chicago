@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "taylor_16554_from_south",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "d9d4b45c8ab5da47cc304d1945f2ee3c1865d1f2f9b261fcd3190704d86304b7",
+  "glb_sha256": "968ac3f1a0a55b4c5a44645336d4ce0b08a24dc1971398cb7d6a4181d557528b",
   "camera_sha256": "568a603acd37c9549b21b76a5f24b692670a1c74a4abc57c3eaf1aaa48334598",
   "photo_sha256": "f1099e538ca42a2bf75bc3db892a8e73c172c22f866862b71fa38c27c464dbfa",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "d9d4b45c8ab5da47cc304d1945f2ee3c1865d1f2f9b261fcd3190704d86304b7"
+      "glb_sha256": "968ac3f1a0a55b4c5a44645336d4ce0b08a24dc1971398cb7d6a4181d557528b"
     },
     {
       "structure_id": "pullman_house_1729_prairie_ranges",
@@ -64,16 +64,16 @@
       "glb_sha256": "33753cacaa38e5035e8d72e0f568c4efa6c9770272b67ef2f03738313beeb916"
     }
   ],
-  "group_sha256": "a78a478ff5e09bafd1a3213344cbb2e73136c111894887327738739f740bffbd",
+  "group_sha256": "97c44220255143b754cab98d3e79e8ab4042c862d8d7d36e56aac879df911ed3",
   "rendered_flora": {
     "season": "winter",
     "lots": [
       {
         "parcel": "prairie_1729",
-        "shrubs": 26,
+        "shrubs": 29,
         "trees": 3,
         "beds": 0,
-        "creeper": 53
+        "creeper": 54
       }
     ],
     "street_trees": 36,
@@ -111,7 +111,7 @@
     },
     {
       "file": "renderers/web/js/front-yards.js",
-      "sha256": "7f4ba235f07a51d60ba052a507137919c58c6a0bfeeb45a6a9696e112ab092b3"
+      "sha256": "1d76c4415a93713c9e01d4b8400d4dbb0175f88a8eadb3414a66b7666f3be2ff"
     },
     {
       "file": "renderers/web/js/street-trees.js",
@@ -123,7 +123,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "5225613ca5dd36a0e7577b2f0aed62e1a9cf15f4af2a39cd233b8d1cf97d40d2"
+      "sha256": "1ec46dc2bfb15d13dab2260c022b31d4ee88b7302aab5be62069b2eaf5e198e2"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -135,16 +135,16 @@
     },
     {
       "file": "renderers/web/js/trees.js",
-      "sha256": "bd022919ca052610595908f83128dfceea976790c5bf2eff63f381abaa3b89b5"
+      "sha256": "83513a6667d725328ce9e0c5ed00c0a69ab3b61e5f4dbc9dfaccf6e6122def73"
     },
     {
       "file": "renderers/web/js/street-furniture.js",
       "sha256": "b838523b13e22a6c73a887a81abebcb7dd1bf7e827647117784c29505423fa59"
     }
   ],
-  "flora_sha256": "663f54afb48b5d3c9da8a234e4746c64c4ccc8c98bc5c4cbca0e852e979a816b",
+  "flora_sha256": "60c4a26b31cc11f56ba068bca046432ab275ca7b8d390923088228c1aa3ef516",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_16554_from_south-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "the camera: re-anchored from the conservatory's (fitted on the ground, the stable and the drum), it draws the house about 7% larger than the print (the 18th Street face's two corners 321 px apart against the print's 301, x 131 and 432) and 10-20 px east; the readings below are made at the scale those two corners give. A gap two camera fits disagree about (T-3153)",
@@ -168,12 +168,12 @@
       "how": "T-1881 (2026-11-06), read by projecting the build's porte_cochere through this camera and by two diagnostic renders (no flora, sun): the block stands 5.97 m out from the flank in the GLB (a render from u -5, v 42 shows it whole, its balustraded top, its east arch and its front arch). From this eye, south-east of it, the block's EAST END faces the camera more squarely than its front: the east arch's centre projects to x 237, y 511, inside the print's dark arch (x 206-252), and the render's ring at x 215-250 is that arch; the ring at x 143-214 the record compared before is the front arch, foreshortened (its centre at x 176). So the arch the print draws is where the build has it, within about 8 px. What differs is tone: the print's block and its arch read dark, and the review render draws the block's faces, its opening and the flank behind it in one stone under the overcast key with no occlusion, so the block's returns do not separate from the flank. The house's heights through this camera run about 20-40 px off the print's (the cornice at the corner projects at y 382 where the print's is about 420), as the solve says (fitted on the ground and the stable, the house's corner 28 px off), so the block's heights are carried by Taylor's no. 1445, which sees its west arch square at 18-20 px a metre through a camera fitted on the house, and matches there."
     },
     {
-      "what": "the parkway and lawn trees: the print's are slender trees with fine crowns; the render draws the app's winter trees as a few coarse limbs, thicker, and not at the print's places. As in the house's other three views [T-1881, 2026-11-03: the house's own 18th Street trees west of this stretch (3.7, 14.25 and 24.65 m) now grow on `high_head`, a tall leader under a narrow head off the Detroit print and Taylor's no. 1445; through this camera they stand beside the house's flank as straight boles with their heads from about the second storey, nearer the print's slender trees than the forked crowns they replace; the print's trees still stand at other places, so this stays open]",
-      "status": "open"
+      "what": "the parkway and lawn trees: the print's are slender trees with fine crowns; the render draws the app's winter trees as a few coarse limbs, thicker, and not at the print's places. As in the house's other three views [T-1881, 2026-11-03: the house's own 18th Street trees west of this stretch (3.7, 14.25 and 24.65 m) now grow on `high_head`, a tall leader under a narrow head off the Detroit print and Taylor's no. 1445; through this camera they stand beside the house's flank as straight boles with their heads from about the second storey, nearer the print's slender trees than the forked crowns they replace; the print's trees still stand at other places, so this stays open] [T-1881, 2026-11-07, re-read on a fresh render with the print at 2x: (1) FORM. The one coarse grown elm left on the parkway before the house, 18th Street's tree at 58.8 m, which drew a forked fountain about 6 m across over the house's south-east corner (render x 463), now grows as the print's stout trunk at x 417 does: a straight leader forking about 8 m up into a narrow, sparse head about 3 m across, 13 m to its top (high_head, scale 0.65). The rest already stood on slender leaders (high_head, broad_head, limbed_head). (2) PLACES. Paired trunk by trunk, the print's 187, 290, 385, 417 and 537-550 px stand 33, 45, 36, 46 and 15-28 px west of the render's 220, 335, 349, 463 and 565 (the trees at 43.7, 51.3 m, the south parkway's at 3.0 m, 58.8 and 64.1 m on their faces): one offset, 2.3-2.8 m along the parkway at 50-60 m, the same way for every tree. That is this camera's, which was fitted on the ground and the stable with the house only by its south-west corner (28 px), so the trees' places, read off Taylor's no. 1445, the Detroit print and the 1894 plate, are a camera-fit disagreement and within tolerance. (3) TWIGS. The print's crowns are finer twig masses than the render's bare wood at 50-60 m; the habit, height and count agree, so that is within tolerance.]",
+      "status": "within tolerance"
     },
     {
-      "what": "the 18th Street boundary in the foreground (x 100-560): the print, of the early 1890s, shows the earlier wall with its piers and urns and the low walls sweeping between them; the build is the wall as the Detroit view of about 1900 shows it, nearest 1 July 1904 (the boundary's note, L-pullman-18th-street-wall-c1900-1934), so this print cannot show the 1904 wall",
-      "status": "not shown"
+      "what": "the 18th Street boundary in the foreground (x 100-560): the print, of the early 1890s, shows the earlier wall with its piers and urns and the low walls sweeping between them; the build is the wall as the Detroit view of about 1900 shows it, nearest 1 July 1904 (the boundary's note, L-pullman-18th-street-wall-c1900-1934), so this print cannot show the 1904 wall [T-1881, 2026-11-08: the earlier wall this print shows is the 1904 wall again (the Detroit view of c. 1900, read through its solved camera, shows it still standing; L-pullman-18th-street-wall-c1900-1934 resolved): the render now draws its piers, the low wall dipping and sweeping up between them and the fifth pier's urn, up to about 40 px off the print's through this camera, which puts the walk's ground about 45 px higher than the print does (its lamp item); the 1894 plate's camera, fitted on these piers' bases, places them within about 30 px.]",
+      "status": "within tolerance"
     },
     {
       "what": "colour and the ivy: the print is monochrome and of winter, with no leaf on the walls",
@@ -204,6 +204,15 @@
     {
       "what": "the 18th Street flank's ground-storey lights east of the porte-cochere: this winter print, of the early 1890s, draws narrow round-headed lights under the pavilion's triple and in the east section, where the build now has two broad square-headed windows under transoms, read off the Detroit print det 4a08066 of c. 1900 (T-1881, 2026-11-07); two dated pictures disagree and the later one governs a 1904 build, so the earlier lights are read as altered before c. 1900",
       "status": "within tolerance"
+    },
+    {
+      "what": "[T-1881, 2026-11-08] the flank's east section's window and second-storey pair moved from s 22.95 to 23.5 (off the Detroit print det 4a08066): in this print they move about 7 px east (the side-by-side's render x 363-404, y 389-545), the pair now a little east of the narrow lights this winter print draws; the three pictures place the pair between s 23.35 and 24.2, a gap pictures disagree about (T-3153), and the ground-storey lights stay as ruled above; the rest of the render is pixel-identical",
+      "status": "within tolerance"
+    },
+    {
+      "what": "[T-1934, 2026-11-08 (the 16555 sign-off)] re-rendered after data/front_yards/1904.json was regenerated: the court bed's three plants added, and the 18th Street flank's ivy re-laid on the rebaked house (the committed file was behind the models); against the previous render nothing in the render changes",
+      "status": "within tolerance",
+      "how": "compared render against render at full size; nothing over the bar moved"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

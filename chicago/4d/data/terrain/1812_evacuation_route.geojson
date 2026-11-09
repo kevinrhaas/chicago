@@ -797,6 +797,82 @@
   },
   {
    "type": "Feature",
+   "id": "station_heald_journal",
+   "properties": {
+    "kind": "station",
+    "name": "Two miles (Heald's journal)",
+    "along_m": 3218.7,
+    "straight_m": 2853.3,
+    "local": [
+     1399.19,
+     -2582.94
+    ],
+    "confidence": "inferred",
+    "note": "The commander's own second figure (T-3469). It disagrees with his report's mile and a half, so neither of his figures is a fixed point; measured in a straight line from the fort it falls near the later Seventeenth Street, beside the place readings. Kept as a station, not adopted, so the route's stations stay derived from one adopted distance.",
+    "sources": [
+     "quaife_1913"
+    ],
+    "provenance": {
+     "derived_by": "tools/derive_evacuation_1812.py",
+     "readings": "data/terrain/1812_evacuation_readings.json",
+     "lines": [
+      "data/terrain/epochs/e1830_natural/shoreline.geojson",
+      "data/terrain/epochs/e1834_harbor_cut/lake_shore_below_twelfth.geojson",
+      "data/traces/south_anchor_control.json"
+     ],
+     "rule": "generated — do not hand-edit; tools/derive_evacuation_1812.py --check re-derives this file"
+    },
+    "reading": "heald_journal",
+    "role": "alternative_not_adopted"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     448471.89,
+     4634812.86
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "id": "station_helm_1814_narrative",
+   "properties": {
+    "kind": "station",
+    "name": "About one and a half mile (Helm)",
+    "along_m": 2414.0,
+    "straight_m": 2118.6,
+    "local": [
+     1318.04,
+     -1852.71
+    ],
+    "confidence": "inferred",
+    "note": "A second participant's figure, written apart from Heald's (the two officers' accounts disagree on much else), giving the same mile and a half and the hour, about ten o'clock. Quaife's '[a]' is his editorial insertion. T-3469.",
+    "sources": [
+     "quaife_1913"
+    ],
+    "provenance": {
+     "derived_by": "tools/derive_evacuation_1812.py",
+     "readings": "data/terrain/1812_evacuation_readings.json",
+     "lines": [
+      "data/terrain/epochs/e1830_natural/shoreline.geojson",
+      "data/terrain/epochs/e1834_harbor_cut/lake_shore_below_twelfth.geojson",
+      "data/traces/south_anchor_control.json"
+     ],
+     "rule": "generated — do not hand-edit; tools/derive_evacuation_1812.py --check re-derives this file"
+    },
+    "reading": "helm_1814_narrative",
+    "role": "corroborating_independent"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     448390.74,
+     4635543.09
+    ]
+   }
+  },
+  {
+   "type": "Feature",
    "id": "station_eighteenth_street_row",
    "properties": {
     "kind": "station",
@@ -842,7 +918,7 @@
     "name": "The Eighteenth Street cottonwoods (tradition)",
     "length_m": 143.0,
     "confidence": "conjectural",
-    "note": "Eighteenth Street's row, east of Prairie Avenue to the shore. Arnold names the street ('leading from Michigan avenue to the lake') and puts the tree 'not very far from the track of the Illinois Central', which ran along the lake end; Prairie's committed crossing is taken as the locus's west limit for that reason. No easting is stated for either tree, so the locus is a line along the street and not a point. Drawn along the row's northing; the street's small departure from due east is not modelled. A tradition, recorded in the 1880s and 1890s, carried by the Kinzie family and by one unnamed Potawatomi witness relayed second-hand. Juliette Kinzie's 'saplings at the time' is a statement about the trees, not about the battle. It is the one reading that names a place, and it lies further south than the distance reading allows - see the derived file's disagreement - so it is kept beside the distance and neither is preferred.",
+    "note": "Eighteenth Street's row, east of Prairie Avenue to the shore. Arnold names the street ('leading from Michigan avenue to the lake') and puts the tree 'not very far from the track of the Illinois Central', which ran along the lake end; Prairie's committed crossing is taken as the locus's west limit for that reason. No easting is stated for either tree, so the locus is a line along the street and not a point. Drawn along the row's northing; the street's small departure from due east is not modelled. A tradition, recorded in the 1880s and 1890s, carried by the Kinzie family and by one unnamed Potawatomi witness relayed second-hand. Juliette Kinzie's 'saplings at the time' is a statement about the trees, not about the battle. It is the one reading that names a place, and it lies further south than the distance reading allows - see the derived file's disagreement - so it is kept beside the distance and neither is preferred. T-3469 (owner's choice, 2026-11-07): the battle jaunt's stands now follow the place readings, this one, Arnold's, Jones's and Harpell's, because Heald's own journal (heald_journal) gives two miles and every reading that names a place lands between Sixteenth and Twenty-first Streets. This file still adopts one distance for its stations and claims no point.",
     "sources": [
      "moses_kirkland_history_of_chicago_v1",
      "osm_streets_2026"

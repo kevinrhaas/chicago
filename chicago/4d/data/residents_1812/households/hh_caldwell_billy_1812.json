@@ -1,0 +1,110 @@
+{
+ "id": "hh_caldwell_billy_1812",
+ "scene": "1812",
+ "name": "Billy Caldwell (Sauganash), who came to Chicago on 16 August 1812",
+ "head": "caldwell_billy",
+ "division": "camp",
+ "review_required": true,
+ "touches_removal": true,
+ "review_note": "review_required: a named Native man of the Chicago country in August 1812, the eve of the attack on the garrison and its families. touches_removal: his people were removed from Illinois after 1833. The card states what its sources say, with their tier, and stages no speech, ceremony or act of war.",
+ "present_on_scene_date": {
+  "value": "absent",
+  "confidence": "inferred",
+  "sources": [
+   "andreas_1884_v1",
+   "kinzie_waubun_1856",
+   "quaife_1913"
+  ],
+  "note": "His card says how his presence is known."
+ },
+ "associated_with": [
+  {
+   "kind": "home",
+   "place_or_structure_id": "kinzie_house_1812",
+   "resolves_to": "structure",
+   "from": null,
+   "to": null,
+   "tier": "reconstructed",
+   "source_id": "kinzie_waubun_1856",
+   "also_sources": [],
+   "note": "Not his home: Wau-Bun brings him to the Kinzie house on the 16th, where he turned the Wabash party away. His card is found there."
+  }
+ ],
+ "not_in_this_household": {
+  "note": "Not drawn in the scene: he was not, or may not have been, at Chicago on the 14th.",
+  "sources": [
+   "andreas_1884_v1"
+  ]
+ },
+ "persons": [
+  {
+   "id": "caldwell_billy",
+   "name": "Billy Caldwell (Sauganash)",
+   "relationship": "head",
+   "grade": "attested",
+   "sources": [
+    "andreas_1884_v1",
+    "kinzie_waubun_1856",
+    "quaife_1913"
+   ],
+   "sex": "male",
+   "present_on_scene_date": {
+    "value": "absent",
+    "confidence": "inferred",
+    "note": "Not at Chicago on the 14th (Andreas; Currey); Wau-Bun brings him on the 16th."
+   },
+   "also_written": [
+    "Sauganash (\"the Englishman\")",
+    "Straight Tree (his first Indian name, Andreas)"
+   ],
+   "note": "Son of a Potawatomi mother and an Irish-born British officer, born about 1780; in 1812 with Tecumseh and the British. Andreas and Currey say he was not at the evacuation. Wau-Bun brings him across the river by canoe on the 16th, when he talked the Wabash party out of harming the Kinzies; Quaife allows the story a 'kernel of fact' at most. He later led the united bands at the 1833 treaty, went west with them in 1836, and died at Council Bluffs on 28 September 1841.",
+   "review_required": true,
+   "touches_removal": true,
+   "review_note": "review_required: a named Native man of the Chicago country in August 1812, the eve of the attack on the garrison and its families. touches_removal: his people were removed from Illinois after 1833. The card states what its sources say, with their tier, and stages no speech, ceremony or act of war.",
+   "reconstruction": {
+    "stage": "named_after_the_14th",
+    "ticket": "T-3508",
+    "liberty": "L-1812-native-cards-3507"
+   },
+   "evidence": [
+    {
+     "source_id": "andreas_1884_v1",
+     "locator": "pp. 108-110",
+     "quote": "do not appear to have been present",
+     "claim": "not at the attack"
+    }
+   ],
+   "card_facts": [
+    {
+     "label": "People",
+     "value": "Potawatomi (mother); his father a British officer",
+     "grade": "attested"
+    },
+    {
+     "label": "Born",
+     "value": "About 1780",
+     "grade": "inferred"
+    },
+    {
+     "label": "On 14 August",
+     "value": "Not yet at Chicago",
+     "grade": "inferred"
+    },
+    {
+     "label": "On 15 August",
+     "value": "Not at Chicago; came on the 16th (Wau-Bun)",
+     "grade": "inferred"
+    }
+   ],
+   "on_15_august": {
+    "value": "Not at Chicago; came on the 16th (Wau-Bun)",
+    "grade": "inferred",
+    "note": "Wau-Bun's account; Quaife doubts it.",
+    "sources": [
+     "kinzie_waubun_1856",
+     "quaife_1913"
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,127 @@
+{
+  "id": "hh_winnemeg_1812",
+  "scene": "1812",
+  "name": "Winnemeg, at the gathering of August 1812",
+  "head": "winnemeg",
+  "division": "camp",
+  "review_required": true,
+  "touches_removal": true,
+  "review_note": "review_required: a Potawatomi person of the gathering at Chicago in August 1812, the eve of the battle in which the garrison and its families were attacked. The card states only what the named sources say, says where a story is Kinzie family tradition rather than a contemporary account, and stages no speech or ceremony.",
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1",
+      "kinzie_waubun_1856",
+      "quaife_1913"
+    ],
+    "note": "Each person's own card says how their presence on 14 August is known."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "potawatomi_camp_1812_upper",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "reconstructed",
+      "source_id": "kinzie_waubun_1856",
+      "also_sources": [],
+      "note": "No source places his lodge in the camp; the card is put at one of the camp's grounds on the creek (the 1812 camp records) so it can be found, a reconstructed choice (liberty L-1812-people-3461)."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "No source names his family or places his lodge in the camp.",
+    "sources": [
+      "andreas_1884_v1",
+      "kinzie_waubun_1856",
+      "quaife_1913"
+    ]
+  },
+  "persons": [
+    {
+      "id": "winnemeg",
+      "name": "Winnemeg",
+      "relationship": "head",
+      "grade": "attested",
+      "sources": [
+        "andreas_1884_v1",
+        "kinzie_waubun_1856",
+        "quaife_1913"
+      ],
+      "present_on_scene_date": {
+        "value": "probably present",
+        "confidence": "inferred",
+        "note": "Arrived 7, 8 or 9 Aug with the order (sources differ); Wau-Bun (Mrs Helm, hearsay) places him on the field on the 15th. No source names him on the 14th. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "also_written": [
+        "Catfish",
+        "Winamac",
+        "Winnemac"
+      ],
+      "note": "Chief; courier who carried Hull's evacuation order to Heald. Potawatomi, St Joseph River (Andreas p. 79).  Afterwards: Not established from sources read here.",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a Potawatomi person of the gathering at Chicago in August 1812, the eve of the battle in which the garrison and its families were attacked. The card states only what the named sources say, says where a story is Kinzie family tradition rather than a contemporary account, and stages no speech or ceremony.",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Appendix VI, Helm (1814), lines 16629-16631",
+          "quote": "This Letter was brot by a Potowautemie Chief Winnemeg & he informed Capt. Heald through Kenzie to evacuate immediately",
+          "claim": "Brought the letter; advised immediate evacuation",
+          "tier": "contemporary (written 1812-1815 by a participant or from participants)"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "ch. X, lines 8811-8812",
+          "quote": "The next day the Indian runner. Winnemac, delivered to Captain Heald at Fort Dearborn his order for the evacuation.",
+          "claim": "Quaife dates delivery to 9 Aug",
+          "tier": "secondary history (1884-1913), cite as compiler's statement"
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XVIII, lines 5251-5253",
+          "quote": "On the afternoon of the 7th of August, Winnemeg, or _Catfish_, a Pottowattamie chief, arrived at the post, bringing despatches from General Hull.",
+          "claim": "Wau-Bun dates his arrival 7 Aug and glosses the name",
+          "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XIX, lines 5726-5728",
+          "quote": "he was met by _Winnemeg_ and _Wau-ban-see_, who endeavored to save him from the savages who had now overtaken him.",
+          "claim": "15 Aug, with Waubansee, at Wells's death (Mrs Helm's story)",
+          "tier": "Kinzie family tradition (Wau-Bun; pamphlet 1836/1844, book 1856; Quaife App. II judges its speeches and dialogue invented)"
+        },
+        {
+          "source_id": "andreas_1884_v1",
+          "locator": "p. 79, local OCR lines 20731-20732",
+          "quote": "Topenebe and Winnemeg were on the St. Joseph River.",
+          "claim": "Village",
+          "tier": "secondary history (1884-1913), cite as compiler's statement [OCR normalised]"
+        },
+        {
+          "source_id": "andreas_1884_v1",
+          "locator": "p. 79, local OCR lines 20885-20887",
+          "quote": "through the influence of Winnemeg, the Pottawatomies did not join.",
+          "claim": "1810: kept the Potawatomi out of the confederacy at St Joseph council",
+          "tier": "secondary history (1884-1913), cite as compiler's statement [OCR normalised]"
+        }
+      ],
+      "on_15_august": {
+        "value": "With Waubansee, said to have tried to save the wounded Wells",
+        "grade": "inferred",
+        "note": "Wau-Bun (hearsay); Kirkland doubts it.",
+        "sources": [
+          "kinzie_waubun_1856"
+        ]
+      },
+      "card_facts": [
+        {
+          "label": "On 15 August",
+          "value": "With Waubansee, said to have tried to save the wounded Wells",
+          "grade": "inferred"
+        }
+      ]
+    }
+  ]
+}

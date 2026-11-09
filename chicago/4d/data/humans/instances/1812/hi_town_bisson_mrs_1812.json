@@ -1,0 +1,347 @@
+{
+  "id": "hi_town_bisson_mrs_1812",
+  "contract_version": 1,
+  "scene": "1812",
+  "person_id": "bisson_mrs",
+  "appearance": {
+    "asset_id": "woman_working_1812"
+  },
+  "placement": {
+    "local_e": 1121.6,
+    "local_n": 354.4,
+    "heading_deg": 20.0,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "idle",
+    "loop": true,
+    "phase": 0.986
+  },
+  "behaviour": {
+    "state": "standing",
+    "day": [
+      {
+        "dates": {
+          "from": "1812-01-01",
+          "to": "1812-08-13"
+        },
+        "note": "A plain summer day; the same house all year.",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.0,
+            "indoors": true,
+            "where": "ouilmette_house_1812",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.0,
+            "to": 7.0,
+            "indoors": true,
+            "where": "ouilmette_house_1812",
+            "doing": "fire, breakfast, the children"
+          },
+          {
+            "from": 7.0,
+            "to": 10.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1121.6,
+              "local_n": 354.4,
+              "heading_deg": 20.0
+            },
+            "doing": "working in the garden behind the house",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1122.92,
+                "local_n": 353.92
+              },
+              {
+                "local_e": 1120.28,
+                "local_n": 354.88
+              }
+            ]
+          },
+          {
+            "from": 10.0,
+            "to": 12.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1121.4,
+              "local_n": 342.9,
+              "heading_deg": 200.0
+            },
+            "doing": "sewing moccasins and clothes before the house",
+            "activity": "talk",
+            "knot": "talk_3de4ba98"
+          },
+          {
+            "from": 12.0,
+            "to": 13.5,
+            "indoors": true,
+            "where": "ouilmette_house_1812",
+            "doing": "dinner"
+          },
+          {
+            "from": 13.5,
+            "to": 16.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1121.4,
+              "local_n": 342.9,
+              "heading_deg": 200.0
+            },
+            "doing": "sewing before the house",
+            "activity": "talk",
+            "knot": "talk_c228187b"
+          },
+          {
+            "from": 16.5,
+            "to": 18.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1121.6,
+              "local_n": 354.4,
+              "heading_deg": 20.0
+            },
+            "doing": "gathering from the garden for supper",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1122.92,
+                "local_n": 353.92
+              },
+              {
+                "local_e": 1120.28,
+                "local_n": 354.88
+              }
+            ]
+          },
+          {
+            "from": 18.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "ouilmette_house_1812",
+            "doing": "supper; the evening; asleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-14",
+          "to": "1812-08-14"
+        },
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.0,
+            "indoors": true,
+            "where": "ouilmette_house_1812",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.0,
+            "to": 7.0,
+            "indoors": true,
+            "where": "ouilmette_house_1812",
+            "doing": "fire, breakfast"
+          },
+          {
+            "from": 7.0,
+            "to": 9.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1121.6,
+              "local_n": 354.4,
+              "heading_deg": 20.0
+            },
+            "doing": "in the garden",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1122.92,
+                "local_n": 353.92
+              },
+              {
+                "local_e": 1120.28,
+                "local_n": 354.88
+              }
+            ]
+          },
+          {
+            "from": 9.5,
+            "to": 12.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1121.4,
+              "local_n": 342.9,
+              "heading_deg": 200.0
+            },
+            "doing": "before the house, watching the crowd across the river at the factory",
+            "activity": "stand"
+          },
+          {
+            "from": 12.0,
+            "to": 13.5,
+            "indoors": true,
+            "where": "ouilmette_house_1812",
+            "doing": "dinner"
+          },
+          {
+            "from": 13.5,
+            "to": 17.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1121.4,
+              "local_n": 342.9,
+              "heading_deg": 200.0
+            },
+            "doing": "sewing before the house",
+            "activity": "talk",
+            "knot": "talk_c228187b"
+          },
+          {
+            "from": 17.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "ouilmette_house_1812",
+            "doing": "supper; indoors early with the camp unsettled; asleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-16",
+          "to": "1812-12-31"
+        },
+        "note": "The household stayed after the evacuation; the 16 August hiding of Mrs. Helm is the battle jaunt's. The plain day serves.",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.0,
+            "indoors": true,
+            "where": "ouilmette_house_1812",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.0,
+            "to": 7.0,
+            "indoors": true,
+            "where": "ouilmette_house_1812",
+            "doing": "fire, breakfast, the children"
+          },
+          {
+            "from": 7.0,
+            "to": 10.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1121.6,
+              "local_n": 354.4,
+              "heading_deg": 20.0
+            },
+            "doing": "working in the garden behind the house",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1122.92,
+                "local_n": 353.92
+              },
+              {
+                "local_e": 1120.28,
+                "local_n": 354.88
+              }
+            ]
+          },
+          {
+            "from": 10.0,
+            "to": 12.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1121.4,
+              "local_n": 342.9,
+              "heading_deg": 200.0
+            },
+            "doing": "sewing moccasins and clothes before the house",
+            "activity": "talk",
+            "knot": "talk_3de4ba98"
+          },
+          {
+            "from": 12.0,
+            "to": 13.5,
+            "indoors": true,
+            "where": "ouilmette_house_1812",
+            "doing": "dinner"
+          },
+          {
+            "from": 13.5,
+            "to": 16.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1121.4,
+              "local_n": 342.9,
+              "heading_deg": 200.0
+            },
+            "doing": "sewing before the house",
+            "activity": "talk",
+            "knot": "talk_c228187b"
+          },
+          {
+            "from": 16.5,
+            "to": 18.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1121.6,
+              "local_n": 354.4,
+              "heading_deg": 20.0
+            },
+            "doing": "gathering from the garden for supper",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1122.92,
+                "local_n": 353.92
+              },
+              {
+                "local_e": 1120.28,
+                "local_n": 354.88
+              }
+            ]
+          },
+          {
+            "from": 18.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "ouilmette_house_1812",
+            "doing": "supper; the evening; asleep"
+          }
+        ]
+      }
+    ],
+    "presence": {
+      "from": "1812-01-01",
+      "to": "1812-12-31"
+    }
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 3,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": false,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "Reconstructed figure of Mrs. Bisson (given name not recorded) in the 1812 town, at each hour of each run of dates where the reading for T-3464 (docs/RESEARCH/people-1812-3464/day.json) puts them: indoors (asked for at the door) or out at their work, with the people they would be with. The hours, the places and the companions are ours (liberty L-1812-town-days-3463), each span graded with its own basis in the reading; what a source says of them is on their card. They wear the woman working 1812 role dress, with their own face, height, build and colouring.",
+    "sources": [
+      "currey_1912_story_of_old_fort_dearborn",
+      "kinzie_waubun_1856"
+    ],
+    "liberty": "L418",
+    "seed": "bisson_mrs:1812:days:20261108",
+    "replaceable_by": "A diary, letter or order book of the post that says where they were and what they did on the day."
+  }
+}

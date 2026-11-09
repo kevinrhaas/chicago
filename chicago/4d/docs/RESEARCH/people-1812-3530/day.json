@@ -1,0 +1,2729 @@
+{
+ "meta": {
+  "ticket": "T-3530",
+  "group": "A Potawatomi family living at the lodges by the river, all 1812",
+  "written": "2026-11-09",
+  "liberty": "L-1812-river-family-3530",
+  "read": [
+   "Currey 1912 (Gutenberg #52346) ch. II lines 1360-1373",
+   "Wau-Bun (Gutenberg #12183) ch. XV lines 4138-4140",
+   "docs/RESEARCH/people-1812-3467/day.json (the gathering's readings: shape, points of the factory)",
+   "data/structures/potawatomi_trading_lodges_1812.json and its lodge_camp layout"
+  ]
+ },
+ "bases": {
+  "lodge": "Indoors in the lodges by the river (T-3528's record, which gives no lodge to a family). Which lodge each sleeps in, and the hours, are this reading's.",
+  "lodge_work": "Ordinary work of a family camp at the yard the record draws (hearths, rack, mortar, woodpile, scaffold, hide frame, canoes). The tasks and hours are this reading's; no source gives them.",
+  "meal": "Cooking and eating at the hearth out of doors in the warm months; the hours are this reading's.",
+  "river_round": "Fishing the river from the bank below the lodges; ordinary work in the warm months, not recorded for any day.",
+  "child": "A child near the lodges, playing or helping; the hours are this reading's.",
+  "winter": "The cold months, November to March: more of the day indoors by the fire, the men out hunting through the middle of it. That this family winters here at all is the owner's choice (2026-11-09) and reconstructed; Wau-Bun has most families go to their wintering grounds (fact wintering).",
+  "away": "Off the scene for the span.",
+  "trade": "A trading morning at the government factory outside the fort, which Matthew Irwin kept until he left on 5 July 1812: furs and maple sugar for cloth, kettles and powder (facts traders, sugar). The canoe trip is off the scene; the day and hours are this reading's.",
+  "aug15": "15 August 1812. Heald counts 'between four and five hundred' warriors in the attack, of the 500 Helm counted; which men fought no source records, and that these two were among them is reconstructed (as native_cards_1812.py grades every man of 16 to 55 of the gathering). Nothing of the fighting is drawn."
+ },
+ "people": [
+  {
+   "person_id": "new:river_lodges_man_1812",
+   "name": "The man of the lodges by the river (name not recorded)",
+   "present": {
+    "status": "present",
+    "grade": "reconstructed",
+    "basis": "Put at the lodges by the river through all of 1812, the owner's choice (2026-11-09); no source names or counts this family."
+   },
+   "presence": {
+    "from": "1812-01-01",
+    "to": "1812-12-31",
+    "grade": "reconstructed",
+    "basis": "All year at the lodges by the river: the warm months at the yard, the cold months more indoors, a trading morning at the factory now and then until it closed (see days)."
+   },
+   "sex": "m",
+   "age_1812": {
+    "value": 38,
+    "grade": "reconstructed",
+    "basis": "Chosen for a family of three generations; not recorded."
+   },
+   "dress_role": "potawatomi_man_1812",
+   "looks": {
+    "complexion": "brown, a warm medium-to-deep tone weathered by sun",
+    "hair": "black, straight",
+    "eyes": "dark brown",
+    "height_in": 68,
+    "build": "lean",
+    "grade": "reconstructed",
+    "basis": "Heritage, not a description: no source read describes this person's face, colouring or stature. Drawn from the variation kit with the same care and range as everyone else in the town, with no exaggerated features."
+   },
+   "card": {
+    "household": "hh_potawatomi_lodges_1812",
+    "name": "The man of the lodges by the river (name not recorded)",
+    "relationship": "head",
+    "grade": "reconstructed",
+    "sex": "m",
+    "age": 38,
+    "home": {
+     "place_or_structure_id": "potawatomi_trading_lodges_1812",
+     "tier": "reconstructed"
+    },
+    "review_required": true,
+    "touches_removal": true,
+    "touches_native_history": true,
+    "note": "A family put at the lodges by the river through 1812, standing for the families Currey says came and went to trade and camped by the creek's mouth. No source names or counts them; their names, ages, history and days are reconstructed."
+   },
+   "facts": [
+    {
+     "claim": "Before 1812 the Potawatomi came and went at Chicago as a habit.",
+     "source": "currey_1912_old_fort_dearborn",
+     "locator": "ch. II, Gutenberg #52346 lines 1360-1361",
+     "quote": "The Indians continued to come and go on their nomadic excursions according to their habit",
+     "tier": "compiled secondary (Currey 1912)"
+    },
+    {
+     "claim": "Their usual camping place was the State Street creek on the south bank.",
+     "source": "currey_1912_old_fort_dearborn",
+     "locator": "ch. II, Gutenberg #52346 lines 1361-1363",
+     "quote": "while in this vicinity they lived in their wigwams near the river, their favorite camping place being at a point on the south bank",
+     "tier": "compiled secondary (Currey 1912)"
+    },
+    {
+     "claim": "The traders wanted their furs.",
+     "source": "currey_1912_old_fort_dearborn",
+     "locator": "ch. II, Gutenberg #52346 lines 1366-1368",
+     "quote": "who were anxious to sell them supplies in exchange for the furs brought in by them",
+     "tier": "compiled secondary (Currey 1912)"
+    },
+    {
+     "claim": "Furs and maple sugar brought in for trade.",
+     "source": "currey_1912_old_fort_dearborn",
+     "locator": "ch. II, Gutenberg #52346 lines 1372-1373",
+     "quote": "the Indians also brought in quantities of maple sugar put up in birch-bark packages",
+     "tier": "compiled secondary (Currey 1912)"
+    },
+    {
+     "claim": "Most families left for winter hunting grounds and came back in spring (Juliette Kinzie's own observation, March 1831); this family is put as staying, which is ours.",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XV, Gutenberg #12183 lines 4138-4140",
+     "quote": "carried with them to their wintering-grounds, to be brought back in the spring, when they returned to make their corn-fields",
+     "tier": "Juliette Kinzie's own observation (1831), Wau-Bun 1856"
+    }
+   ],
+   "day": [
+    {
+     "from": 0,
+     "to": 5.0,
+     "indoors": true,
+     "where": "potawatomi_trading_lodges_1812",
+     "doing": "asleep in the lodge",
+     "grade": "reconstructed",
+     "basis": "@lodge"
+    },
+    {
+     "from": 5.0,
+     "to": 6.0,
+     "indoors": false,
+     "where": "outdoors at the lodges by the river",
+     "doing": "at the fire in the morning",
+     "at": {
+      "local_e": 701.9,
+      "local_n": -26.0,
+      "heading_deg": 200
+     },
+     "activity": "sit",
+     "grade": "reconstructed",
+     "basis": "@lodge_work"
+    },
+    {
+     "from": 6.0,
+     "to": 9.5,
+     "indoors": false,
+     "where": "outdoors on the river bank",
+     "doing": "fishing from the bank below the lodges",
+     "at": {
+      "local_e": 711.0,
+      "local_n": -11.5,
+      "heading_deg": 0
+     },
+     "activity": "work",
+     "grade": "reconstructed",
+     "basis": "@river_round"
+    },
+    {
+     "from": 9.5,
+     "to": 10.5,
+     "indoors": false,
+     "where": "outdoors at the lodges by the river",
+     "doing": "eating at the fire with the household",
+     "at": {
+      "local_e": 702.7,
+      "local_n": -26.0,
+      "heading_deg": 200
+     },
+     "activity": "sit",
+     "grade": "reconstructed",
+     "basis": "@meal"
+    },
+    {
+     "from": 10.5,
+     "to": 13.0,
+     "indoors": false,
+     "where": "outdoors at the lodges by the river",
+     "doing": "mending a canoe drawn up on the bank",
+     "at": {
+      "local_e": 707.6,
+      "local_n": -16.6,
+      "heading_deg": 20
+     },
+     "activity": "work",
+     "grade": "reconstructed",
+     "basis": "@lodge_work"
+    },
+    {
+     "from": 13.0,
+     "to": 16.0,
+     "indoors": false,
+     "where": "outdoors at the lodges by the river",
+     "doing": "resting by the lodge",
+     "at": {
+      "local_e": 711.0,
+      "local_n": -26.5,
+      "heading_deg": 0
+     },
+     "activity": "sit",
+     "grade": "reconstructed",
+     "basis": "@lodge_work"
+    },
+    {
+     "from": 16.0,
+     "to": 18.0,
+     "indoors": false,
+     "where": "outdoors at the lodges by the river",
+     "doing": "cleaning the fish and setting them on the rack",
+     "at": {
+      "local_e": 720.0,
+      "local_n": -21.0,
+      "heading_deg": 160
+     },
+     "activity": "work",
+     "grade": "reconstructed",
+     "basis": "@lodge_work"
+    },
+    {
+     "from": 18.0,
+     "to": 19.5,
+     "indoors": false,
+     "where": "outdoors at the lodges by the river",
+     "doing": "eating at the fire with the household",
+     "at": {
+      "local_e": 702.7,
+      "local_n": -26.0,
+      "heading_deg": 200
+     },
+     "activity": "sit",
+     "grade": "reconstructed",
+     "basis": "@meal"
+    },
+    {
+     "from": 19.5,
+     "to": 21.0,
+     "indoors": false,
+     "where": "outdoors at the lodges by the river",
+     "doing": "evening at the fire",
+     "at": {
+      "local_e": 702.7,
+      "local_n": -26.0,
+      "heading_deg": 200
+     },
+     "activity": "sit",
+     "grade": "reconstructed",
+     "basis": "@lodge_work"
+    },
+    {
+     "from": 21.0,
+     "to": 24,
+     "indoors": true,
+     "where": "potawatomi_trading_lodges_1812",
+     "doing": "asleep in the lodge",
+     "grade": "reconstructed",
+     "basis": "@lodge"
+    }
+   ],
+   "days": [
+    {
+     "from_date": "1812-08-15",
+     "to_date": "1812-08-15",
+     "label": "15 August",
+     "day": [
+      {
+       "from": 0,
+       "to": 5.0,
+       "indoors": true,
+       "where": "potawatomi_trading_lodges_1812",
+       "doing": "asleep in the lodge",
+       "grade": "reconstructed",
+       "basis": "@lodge"
+      },
+      {
+       "from": 5.0,
+       "to": 21.0,
+       "indoors": false,
+       "where": "away (not drawn)",
+       "doing": "away with the warriors",
+       "grade": "reconstructed",
+       "basis": "@aug15"
+      },
+      {
+       "from": 21.0,
+       "to": 24,
+       "indoors": true,
+       "where": "potawatomi_trading_lodges_1812",
+       "doing": "asleep in the lodge",
+       "grade": "reconstructed",
+       "basis": "@lodge"
+      }
+     ]
+    },
+    {
+     "from_date": "1812-11-01",
+     "to_date": "1812-12-31",
+     "label": "the cold months",
+     "day": [
+      {
+       "from": 0,
+       "to": 6.5,
+       "indoors": true,
+       "where": "potawatomi_trading_lodges_1812",
+       "doing": "asleep in the lodge",
+       "grade": "reconstructed",
+       "basis": "@lodge"
+      },
+      {
+       "from": 6.5,
+       "to": 7.5,
+       "indoors": false,
+       "where": "outdoors at the lodges by the river",
+       "doing": "splitting wood at the pile",
+       "at": {
+        "local_e": 712.0,
+        "local_n": -31.6,
+        "heading_deg": 95
+       },
+       "activity": "work",
+       "grade": "reconstructed",
+       "basis": "@winter"
+      },
+      {
+       "from": 7.5,
+       "to": 16.0,
+       "indoors": false,
+       "where": "away (not drawn)",
+       "doing": "hunting in the timber along the river and the South Branch",
+       "grade": "reconstructed",
+       "basis": "@winter"
+      },
+      {
+       "from": 16.0,
+       "to": 17.0,
+       "indoors": false,
+       "where": "outdoors at the lodges by the river",
+       "doing": "hanging the day's game on the scaffold",
+       "at": {
+        "local_e": 720.0,
+        "local_n": -28.4,
+        "heading_deg": 70
+       },
+       "activity": "work",
+       "grade": "reconstructed",
+       "basis": "@winter"
+      },
+      {
+       "from": 17.0,
+       "to": 24,
+       "indoors": true,
+       "where": "potawatomi_trading_lodges_1812",
+       "doing": "by the fire in the lodge, and asleep",
+       "grade": "reconstructed",
+       "basis": "@winter"
+      }
+     ]
+    },
+    {
+     "from_date": "1812-01-01",
+     "to_date": "1812-03-31",
+     "label": "the cold months",
+     "day": [
+      {
+       "from": 0,
+       "to": 6.5,
+       "indoors": true,
+       "where": "potawatomi_trading_lodges_1812",
+       "doing": "asleep in the lodge",
+       "grade": "reconstructed",
+       "basis": "@lodge"
+      },
+      {
+       "from": 6.5,
+       "to": 7.5,
+       "indoors": false,
+       "where": "outdoors at the lodges by the river",
+       "doing": "splitting wood at the pile",
+       "at": {
+        "local_e": 712.0,
+        "local_n": -31.6,
+        "heading_deg": 95
+       },
+       "activity": "work",
+       "grade": "reconstructed",
+       "basis": "@winter"
+      },
+      {
+       "from": 7.5,
+       "to": 16.0,
+       "indoors": false,
+       "where": "away (not drawn)",
+       "doing": "hunting in the timber along the river and the South Branch",
+       "grade": "reconstructed",
+       "basis": "@winter"
+      },
+      {
+       "from": 16.0,
+       "to": 17.0,
+       "indoors": false,
+       "where": "outdoors at the lodges by the river",
+       "doing": "hanging the day's game on the scaffold",
+       "at": {
+        "local_e": 720.0,
+        "local_n": -28.4,
+        "heading_deg": 70
+       },
+       "activity": "work",
+       "grade": "reconstructed",
+       "basis": "@winter"
+      },
+      {
+       "from": 17.0,
+       "to": 24,
+       "indoors": true,
+       "where": "potawatomi_trading_lodges_1812",
+       "doing": "by the fire in the lodge, and asleep",
+       "grade": "reconstructed",
+       "basis": "@winter"
+      }
+     ]
+    },
+    {
+     "from_date": "1812-04-01",
+     "to_date": "1812-07-04",
+     "frequency": "about one day in six",
+     "label": "a trading morning at the factory",
+     "day": [
+      {
+       "from": 0,
+       "to": 5.0,
+       "indoors": true,
+       "where": "potawatomi_trading_lodges_1812",
+       "doing": "asleep in the lodge",
+       "grade": "reconstructed",
+       "basis": "@lodge"
+      },
+      {
+       "from": 5.0,
+       "to": 8.0,
+       "indoors": false,
+       "where": "outdoors at the lodges by the river",
+       "doing": "loading the canoe with packs of furs",
+       "at": {
+        "local_e": 707.6,
+        "local_n": -16.6,
+        "heading_deg": 20
+       },
+       "activity": "work",
+       "grade": "reconstructed",
+       "basis": "@trade"
+      },
+      {
+       "from": 8.0,
+       "to": 9.0,
+       "indoors": false,
+       "where": "away (not drawn)",
+       "doing": "paddling down the river to the fort",
+       "grade": "reconstructed",
+       "basis": "@trade"
+      },
+      {
+       "from": 9.0,
+       "to": 11.5,
+       "indoors": false,
+       "where": "outdoors before first_fort_outer_factory",
+       "doing": "trading furs at the government factory",
+       "at": {
+        "local_e": 1078.6,
+        "local_n": 217.6,
+        "heading_deg": 275
+       },
+       "activity": "stand",
+       "with": [
+        "new:river_lodges_woman_1812",
+        "new:river_lodges_daughter_1812"
+       ],
+       "grade": "reconstructed",
+       "basis": "@trade"
+      },
+      {
+       "from": 11.5,
+       "to": 12.5,
+       "indoors": false,
+       "where": "away (not drawn)",
+       "doing": "paddling home up the river",
+       "grade": "reconstructed",
+       "basis": "@trade"
+      },
+      {
+       "from": 12.5,
+       "to": 16.0,
+       "indoors": false,
+       "where": "outdoors at the lodges by the river",
+       "doing": "resting by the lodge after the trip",
+       "at": {
+        "local_e": 711.0,
+        "local_n": -26.5,
+        "heading_deg": 0
+       },
+       "activity": "sit",
+       "grade": "reconstructed",
+       "basis": "@trade"
+      },
+      {
+       "from": 16.0,
+       "to": 18.0,
+       "indoors": false,
+       "where": "outdoors at the lodges by the river",
+       "doing": "cleaning the fish and setting them on the rack",
+       "at": {
+        "local_e": 720.0,
+        "local_n": -21.0,
+        "heading_deg": 160
+       },
+       "activity": "work",
+       "grade": "reconstructed",
+       "basis": "@lodge_work"
+      },
+      {
+       "from": 18.0,
+       "to": 19.5,
+       "indoors": false,
+       "where": "outdoors at the lodges by the river",
+       "doing": "eating at the fire with the household",
+       "at": {
+        "local_e": 702.7,
+        "local_n": -26.0,
+        "heading_deg": 200
+       },
+       "activity": "sit",
+       "grade": "reconstructed",
+       "basis": "@meal"
+      },
+      {
+       "from": 19.5,
+       "to": 21.0,
+       "indoors": false,
+       "where": "outdoors at the lodges by the river",
+       "doing": "evening at the fire",
+       "at": {
+        "local_e": 702.7,
+        "local_n": -26.0,
+        "heading_deg": 200
+       },
+       "activity": "sit",
+       "grade": "reconstructed",
+       "basis": "@lodge_work"
+      },
+      {
+       "from": 21.0,
+       "to": 24,
+       "indoors": true,
+       "where": "potawatomi_trading_lodges_1812",
+       "doing": "asleep in the lodge",
+       "grade": "reconstructed",
+       "basis": "@lodge"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "person_id": "new:river_lodges_woman_1812",
+   "name": "His wife (name not recorded)",
+   "present": {
+    "status": "present",
+    "grade": "reconstructed",
+    "basis": "Put at the lodges by the river through all of 1812, the owner's choice (2026-11-09); no source names or counts this family."
+   },
+   "presence": {
+    "from": "1812-01-01",
+    "to": "1812-12-31",
+    "grade": "reconstructed",
+    "basis": "All year at the lodges by the river: the warm months at the yard, the cold months more indoors, a trading morning at the factory now and then until it closed (see days)."
+   },
+   "sex": "f",
+   "age_1812": {
+    "value": 33,
+    "grade": "reconstructed",
+    "basis": "Chosen for a family of three generations; not recorded."
+   },
+   "dress_role": "potawatomi_woman_1812",
+   "looks": {
+    "complexion": "brown, a warm medium-to-deep tone weathered by sun",
+    "hair": "black, straight",
+    "eyes": "dark brown",
+    "height_in": 62,
+    "build": "medium",
+    "grade": "reconstructed",
+    "basis": "Heritage, not a description: no source read describes this person's face, colouring or stature. Drawn from the variation kit with the same care and range as everyone else in the town, with no exaggerated features."
+   },
+   "card": {
+    "household": "hh_potawatomi_lodges_1812",
+    "name": "His wife (name not recorded)",
+    "relationship": "wife",
+    "grade": "reconstructed",
+    "sex": "f",
+    "age": 33,
+    "home": {
+     "place_or_structure_id": "potawatomi_trading_lodges_1812",
+     "tier": "reconstructed"
+    },
+    "review_required": true,
+    "touches_removal": true,
+    "touches_native_history": true,
+    "note": "A family put at the lodges by the river through 1812, standing for the families Currey says came and went to trade and camped by the creek's mouth. No source names or counts them; their names, ages, history and days are reconstructed."
+   },
+   "facts": [
+    {
+     "claim": "Before 1812 the Potawatomi came and went at Chicago as a habit.",
+     "source": "currey_1912_old_fort_dearborn",
+     "locator": "ch. II, Gutenberg #52346 lines 1360-1361",
+     "quote": "The Indians continued to come and go on their nomadic excursions according to their habit",
+     "tier": "compiled secondary (Currey 1912)"
+    },
+    {
+     "claim": "Their usual camping place was the State Street creek on the south bank.",
+     "source": "currey_1912_old_fort_dearborn",
+     "locator": "ch. II, Gutenberg #52346 lines 1361-1363",
+     "quote": "while in this vicinity they lived in their wigwams near the river, their favorite camping place being at a point on the south bank",
+     "tier": "compiled secondary (Currey 1912)"
+    },
+    {
+     "claim": "The traders wanted their furs.",
+     "source": "currey_1912_old_fort_dearborn",
+     "locator": "ch. II, Gutenberg #52346 lines 1366-1368",
+     "quote": "who were anxious to sell them supplies in exchange for the furs brought in by them",
+     "tier": "compiled secondary (Currey 1912)"
+    },
+    {
+     "claim": "Furs and maple sugar brought in for trade.",
+     "source": "currey_1912_old_fort_dearborn",
+     "locator": "ch. II, Gutenberg #52346 lines 1372-1373",
+     "quote": "the Indians also brought in quantities of maple sugar put up in birch-bark packages",
+     "tier": "compiled secondary (Currey 1912)"
+    },
+    {
+     "claim": "Most families left for winter hunting grounds and came back in spring (Juliette Kinzie's own observation, March 1831); this family is put as staying, which is ours.",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XV, Gutenberg #12183 lines 4138-4140",
+     "quote": "carried with them to their wintering-grounds, to be brought back in the spring, when they returned to make their corn-fields",
+     "tier": "Juliette Kinzie's own observation (1831), Wau-Bun 1856"
+    }
+   ],
+   "day": [
+    {
+     "from": 0,
+     "to": 5.0,
+     "indoors": true,
+     "where": "potawatomi_trading_lodges_1812",
+     "doing": "asleep in the lodge",
+     "grade": "reconstructed",
+     "basis": "@lodge"
+    },
+    {
+     "from": 5.0,
+     "to": 6.5,
+     "indoors": false,
+     "where": "outdoors at the lodges by the river",
+     "doing": "lighting the fire and putting the kettle on",
+     "at": {
+      "local_e": 701.9,
+      "local_n": -26.0,
+      "heading_deg": 200
+     },
+     "activity": "work",
+     "grade": "reconstructed",
+     "basis": "@lodge_work"
+    },
+    {
+     "from": 6.5,
+     "to": 9.5,
+     "indoors": false,
+     "where": "outdoors at the lodges by the river",
+     "doing": "pounding corn at the mortar",
+     "at": {
+      "local_e": 709.9,
+      "local_n": -20.2,
+      "heading_deg": 200
+     },
+     "activity": "work",
+     "grade": "reconstructed",
+     "basis": "@lodge_work"
+    },
+    {
+     "from": 9.5,
+     "to": 10.5,
+     "indoors": false,
+     "where": "outdoors at the lodges by the river",
+     "doing": "eating at the fire with the household",
+     "at": {
+      "local_e": 701.9,
+      "local_n": -25.1,
+      "heading_deg": 200
+     },
+     "activity": "sit",
+     "grade": "reconstructed",
+     "basis": "@meal"
+    },
+    {
+     "from": 10.5,
+     "to": 13.5,
+     "indoors": false,
+     "where": "outdoors at the lodges by the river",
+     "doing": "scraping a deerskin on the frame",
+     "at": {
+      "local_e": 705.0,
+      "local_n": -31.4,
+      "heading_deg": 230
+     },
+     "activity": "work",
+     "grade": "reconstructed",
+     "basis": "@lodge_work"
+    },
+    {
+     "from": 13.5,
+     "to": 16.0,
+     "indoors": false,
+     "where": "outdoors at the lodges by the river",
+     "doing": "sewing moccasins in the shade of the lodge",
+     "at": {
+      "local_e": 712.4,
+      "local_n": -26.5,
+      "heading_deg": 0
+     },
+     "activity": "sit",
+     "grade": "reconstructed",
+     "basis": "@lodge_work"
+    },
+    {
+     "from": 16.0,
+     "to": 18.0,
+     "indoors": false,
+     "where": "outdoors at the lodges by the river",
+     "doing": "cooking at the east fire",
+     "at": {
+      "local_e": 716.9,
+      "local_n": -27.0,
+      "heading_deg": 190
+     },
+     "activity": "work",
+     "grade": "reconstructed",
+     "basis": "@lodge_work"
+    },
+    {
+     "from": 18.0,
+     "to": 19.5,
+     "indoors": false,
+     "where": "outdoors at the lodges by the river",
+     "doing": "eating at the fire with the household",
+     "at": {
+      "local_e": 701.9,
+      "local_n": -25.1,
+      "heading_deg": 200
+     },
+     "activity": "sit",
+     "grade": "reconstructed",
+     "basis": "@meal"
+    },
+    {
+     "from": 19.5,
+     "to": 21.0,
+     "indoors": false,
+     "where": "outdoors at the lodges by the river",
+     "doing": "evening at the fire",
+     "at": {
+      "local_e": 701.9,
+      "local_n": -25.1,
+      "heading_deg": 200
+     },
+     "activity": "sit",
+     "grade": "reconstructed",
+     "basis": "@lodge_work"
+    },
+    {
+     "from": 21.0,
+     "to": 24,
+     "indoors": true,
+     "where": "potawatomi_trading_lodges_1812",
+     "doing": "asleep in the lodge",
+     "grade": "reconstructed",
+     "basis": "@lodge"
+    }
+   ],
+   "days": [
+    {
+     "from_date": "1812-11-01",
+     "to_date": "1812-12-31",
+     "label": "the cold months",
+     "day": [
+      {
+       "from": 0,
+       "to": 7.0,
+       "indoors": true,
+       "where": "potawatomi_trading_lodges_1812",
+       "doing": "asleep in the lodge",
+       "grade": "reconstructed",
+       "basis": "@lodge"
+      },
+      {
+       "from": 7.0,
+       "to": 8.0,
+       "indoors": false,
+       "where": "outdoors at the lodges by the river",
+       "doing": "bringing in wood from the pile",
+       "at": {
+        "local_e": 713.0,
+        "local_n": -31.6,
+        "heading_deg": 95
+       },
+       "activity": "work",
+       "grade": "reconstructed",
+       "basis": "@winter"
+      },
+      {
+       "from": 8.0,
+       "to": 11.0,
+       "indoors": true,
+       "where": "potawatomi_trading_lodges_1812",
+       "doing": "sewing by the fire in the lodge",
+       "grade": "reconstructed",
+       "basis": "@winter"
+      },
+      {
+       "from": 11.0,
+       "to": 13.0,
+       "indoors": false,
+       "where": "outdoors at the lodges by the river",
+       "doing": "scraping a winter hide on the frame",
+       "at": {
+        "local_e": 705.0,
+        "local_n": -31.4,
+        "heading_deg": 230
+       },
+       "activity": "work",
+       "grade": "reconstructed",
+       "basis": "@winter"
+      },
+      {
+       "from": 13.0,
+       "to": 24,
+       "indoors": true,
+       "where": "potawatomi_trading_lodges_1812",
+       "doing": "cooking and sewing by the fire in the lodge, and asleep",
+       "grade": "reconstructed",
+       "basis": "@winter"
+      }
+     ]
+    },
+    {
+     "from_date": "1812-01-01",
+     "to_date": "1812-03-31",
+     "label": "the cold months",
+     "day": [
+      {
+       "from": 0,
+       "to": 7.0,
+       "indoors": true,
+       "where": "potawatomi_trading_lodges_1812",
+       "doing": "asleep in the lodge",
+       "grade": "reconstructed",
+       "basis": "@lodge"
+      },
+      {
+       "from": 7.0,
+       "to": 8.0,
+       "indoors": false,
+       "where": "outdoors at the lodges by the river",
+       "doing": "bringing in wood from the pile",
+       "at": {
+        "local_e": 713.0,
+        "local_n": -31.6,
+        "heading_deg": 95
+       },
+       "activity": "work",
+       "grade": "reconstructed",
+       "basis": "@winter"
+      },
+      {
+       "from": 8.0,
+       "to": 11.0,
+       "indoors": true,
+       "where": "potawatomi_trading_lodges_1812",
+       "doing": "sewing by the fire in the lodge",
+       "grade": "reconstructed",
+       "basis": "@winter"
+      },
+      {
+       "from": 11.0,
+       "to": 13.0,
+       "indoors": false,
+       "where": "outdoors at the lodges by the river",
+       "doing": "scraping a winter hide on the frame",
+       "at": {
+        "local_e": 705.0,
+        "local_n": -31.4,
+        "heading_deg": 230
+       },
+       "activity": "work",
+       "grade": "reconstructed",
+       "basis": "@winter"
+      },
+      {
+       "from": 13.0,
+       "to": 24,
+       "indoors": true,
+       "where": "potawatomi_trading_lodges_1812",
+       "doing": "cooking and sewing by the fire in the lodge, and asleep",
+       "grade": "reconstructed",
+       "basis": "@winter"
+      }
+     ]
+    },
+    {
+     "from_date": "1812-04-01",
+     "to_date": "1812-07-04",
+     "frequency": "about one day in six",
+     "label": "a trading morning at the factory",
+     "day": [
+      {
+       "from": 0,
+       "to": 5.0,
+       "indoors": true,
+       "where": "potawatomi_trading_lodges_1812",
+       "doing": "asleep in the lodge",
+       "grade": "reconstructed",
+       "basis": "@lodge"
+      },
+      {
+       "from": 5.0,
+       "to": 8.0,
+       "indoors": false,
+       "where": "outdoors at the lodges by the river",
+       "doing": "packing maple sugar in bark boxes for trade",
+       "at": {
+        "local_e": 712.0,
+        "local_n": -26.5,
+        "heading_deg": 0
+       },
+       "activity": "work",
+       "grade": "reconstructed",
+       "basis": "@trade"
+      },
+      {
+       "from": 8.0,
+       "to": 9.0,
+       "indoors": false,
+       "where": "away (not drawn)",
+       "doing": "paddling down the river to the fort",
+       "grade": "reconstructed",
+       "basis": "@trade"
+      },
+      {
+       "from": 9.0,
+       "to": 11.5,
+       "indoors": false,
+       "where": "outdoors before first_fort_outer_factory",
+       "doing": "trading maple sugar at the government factory",
+       "at": {
+        "local_e": 1079.2,
+        "local_n": 214.2,
+        "heading_deg": 275
+       },
+       "activity": "stand",
+       "with": [
+        "new:river_lodges_man_1812",
+        "new:river_lodges_daughter_1812"
+       ],
+       "grade": "reconstructed",
+       "basis": "@trade"
+      },
+      {
+       "from": 11.5,
+       "to": 12.5,
+       "indoors": false,
+       "where": "away (not drawn)",
+       "doing": "paddling home up the river",
+       "grade": "reconstructed",
+       "basis": "@trade"
+      },
+      {
+       "from": 12.5,
+       "to": 16.0,
+       "indoors": false,
+       "where": "outdoors at the lodges by the river",
+       "doing": "putting away the cloth and kettles traded for",
+       "at": {
+        "local_e": 712.4,
+        "local_n": -26.5,
+        "heading_deg": 0
+       },
+       "activity": "sit",
+       "grade": "reconstructed",
+       "basis": "@trade"
+      },
+      {
+       "from": 16.0,
+       "to": 18.0,
+       "indoors": false,
+       "where": "outdoors at the lodges by the river",
+       "doing": "cooking at the east fire",
+       "at": {
+        "local_e": 716.9,
+        "local_n": -27.0,
+        "heading_deg": 190
+       },
+       "activity": "work",
+       "grade": "reconstructed",
+       "basis": "@lodge_work"
+      },
+      {
+       "from": 18.0,
+       "to": 19.5,
+       "indoors": false,
+       "where": "outdoors at the lodges by the river",
+       "doing": "eating at the fire with the household",
+       "at": {
+        "local_e": 701.9,
+        "local_n": -25.1,
+        "heading_deg": 200
+       },
+       "activity": "sit",
+       "grade": "reconstructed",
+       "basis": "@meal"
+      },
+      {
+       "from": 19.5,
+       "to": 21.0,
+       "indoors": false,
+       "where": "outdoors at the lodges by the river",
+       "doing": "evening at the fire",
+       "at": {
+        "local_e": 701.9,
+        "local_n": -25.1,
+        "heading_deg": 200
+       },
+       "activity": "sit",
+       "grade": "reconstructed",
+       "basis": "@lodge_work"
+      },
+      {
+       "from": 21.0,
+       "to": 24,
+       "indoors": true,
+       "where": "potawatomi_trading_lodges_1812",
+       "doing": "asleep in the lodge",
+       "grade": "reconstructed",
+       "basis": "@lodge"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "person_id": "new:river_lodges_grandmother_1812",
+   "name": "The wife's mother (name not recorded)",
+   "present": {
+    "status": "present",
+    "grade": "reconstructed",
+    "basis": "Put at the lodges by the river through all of 1812, the owner's choice (2026-11-09); no source names or counts this family."
+   },
+   "presence": {
+    "from": "1812-01-01",
+    "to": "1812-12-31",
+    "grade": "reconstructed",
+    "basis": "All year at the lodges by the river: the warm months at the yard, the cold months more indoors, a trading morning at the factory now and then until it closed (see days)."
+   },
+   "sex": "f",
+   "age_1812": {
+    "value": 57,
+    "grade": "reconstructed",
+    "basis": "Chosen for a family of three generations; not recorded."
+   },
+   "dress_role": "potawatomi_elder_woman_1812",
+   "looks": {
+    "complexion": "brown, a warm medium-to-deep tone weathered by sun",
+    "hair": "grey streaked black, straight",
+    "eyes": "dark brown",
+    "height_in": 61,
+    "build": "slight",
+    "grade": "reconstructed",
+    "basis": "Heritage, not a description: no source read describes this person's face, colouring or stature. Drawn from the variation kit with the same care and range as everyone else in the town, with no exaggerated features. Age shown in grey hair."
+   },
+   "card": {
+    "household": "hh_potawatomi_lodges_1812",
+    "name": "The wife's mother (name not recorded)",
+    "relationship": "mother-in-law",
+    "grade": "reconstructed",
+    "sex": "f",
+    "age": 57,
+    "home": {
+     "place_or_structure_id": "potawatomi_trading_lodges_1812",
+     "tier": "reconstructed"
+    },
+    "review_required": true,
+    "touches_removal": true,
+    "touches_native_history": true,
+    "note": "A family put at the lodges by the river through 1812, standing for the families Currey says came and went to trade and camped by the creek's mouth. No source names or counts them; their names, ages, history and days are reconstructed."
+   },
+   "facts": [
+    {
+     "claim": "Before 1812 the Potawatomi came and went at Chicago as a habit.",
+     "source": "currey_1912_old_fort_dearborn",
+     "locator": "ch. II, Gutenberg #52346 lines 1360-1361",
+     "quote": "The Indians continued to come and go on their nomadic excursions according to their habit",
+     "tier": "compiled secondary (Currey 1912)"
+    },
+    {
+     "claim": "Their usual camping place was the State Street creek on the south bank.",
+     "source": "currey_1912_old_fort_dearborn",
+     "locator": "ch. II, Gutenberg #52346 lines 1361-1363",
+     "quote": "while in this vicinity they lived in their wigwams near the river, their favorite camping place being at a point on the south bank",
+     "tier": "compiled secondary (Currey 1912)"
+    },
+    {
+     "claim": "The traders wanted their furs.",
+     "source": "currey_1912_old_fort_dearborn",
+     "locator": "ch. II, Gutenberg #52346 lines 1366-1368",
+     "quote": "who were anxious to sell them supplies in exchange for the furs brought in by them",
+     "tier": "compiled secondary (Currey 1912)"
+    },
+    {
+     "claim": "Furs and maple sugar brought in for trade.",
+     "source": "currey_1912_old_fort_dearborn",
+     "locator": "ch. II, Gutenberg #52346 lines 1372-1373",
+     "quote": "the Indians also brought in quantities of maple sugar put up in birch-bark packages",
+     "tier": "compiled secondary (Currey 1912)"
+    },
+    {
+     "claim": "Most families left for winter hunting grounds and came back in spring (Juliette Kinzie's own observation, March 1831); this family is put as staying, which is ours.",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XV, Gutenberg #12183 lines 4138-4140",
+     "quote": "carried with them to their wintering-grounds, to be brought back in the spring, when they returned to make their corn-fields",
+     "tier": "Juliette Kinzie's own observation (1831), Wau-Bun 1856"
+    }
+   ],
+   "day": [
+    {
+     "from": 0,
+     "to": 6.0,
+     "indoors": true,
+     "where": "potawatomi_trading_lodges_1812",
+     "doing": "asleep in the bark house",
+     "grade": "reconstructed",
+     "basis": "@lodge"
+    },
+    {
+     "from": 6.0,
+     "to": 9.5,
+     "indoors": false,
+     "where": "outdoors at the lodges by the river",
+     "doing": "tending the east fire",
+     "at": {
+      "local_e": 716.9,
+      "local_n": -27.0,
+      "heading_deg": 190
+     },
+     "activity": "work",
+     "grade": "reconstructed",
+     "basis": "@lodge_work"
+    },
+    {
+     "from": 9.5,
+     "to": 10.5,
+     "indoors": false,
+     "where": "outdoors at the lodges by the river",
+     "doing": "eating at the fire with the household",
+     "at": {
+      "local_e": 701.0,
+      "local_n": -26.0,
+      "heading_deg": 200
+     },
+     "activity": "sit",
+     "grade": "reconstructed",
+     "basis": "@meal"
+    },
+    {
+     "from": 10.5,
+     "to": 13.0,
+     "indoors": false,
+     "where": "outdoors at the lodges by the river",
+     "doing": "weaving a rush mat in the shade",
+     "at": {
+      "local_e": 713.2,
+      "local_n": -25.9,
+      "heading_deg": 0
+     },
+     "activity": "sit",
+     "grade": "reconstructed",
+     "basis": "@lodge_work"
+    },
+    {
+     "from": 13.0,
+     "to": 15.5,
+     "indoors": true,
+     "where": "potawatomi_trading_lodges_1812",
+     "doing": "resting in the bark house",
+     "grade": "reconstructed",
+     "basis": "@lodge"
+    },
+    {
+     "from": 15.5,
+     "to": 18.0,
+     "indoors": false,
+     "where": "outdoors at the lodges by the river",
+     "doing": "turning the fish on the rack",
+     "at": {
+      "local_e": 719.2,
+      "local_n": -21.0,
+      "heading_deg": 160
+     },
+     "activity": "work",
+     "grade": "reconstructed",
+     "basis": "@lodge_work"
+    },
+    {
+     "from": 18.0,
+     "to": 19.5,
+     "indoors": false,
+     "where": "outdoors at the lodges by the river",
+     "doing": "eating at the fire with the household",
+     "at": {
+      "local_e": 701.0,
+      "local_n": -26.0,
+      "heading_deg": 200
+     },
+     "activity": "sit",
+     "grade": "reconstructed",
+     "basis": "@meal"
+    },
+    {
+     "from": 19.5,
+     "to": 24,
+     "indoors": true,
+     "where": "potawatomi_trading_lodges_1812",
+     "doing": "asleep in the bark house",
+     "grade": "reconstructed",
+     "basis": "@lodge"
+    }
+   ],
+   "days": [
+    {
+     "from_date": "1812-11-01",
+     "to_date": "1812-12-31",
+     "label": "the cold months",
+     "day": [
+      {
+       "from": 0,
+       "to": 10.5,
+       "indoors": true,
+       "where": "potawatomi_trading_lodges_1812",
+       "doing": "by the fire in the bark house",
+       "grade": "reconstructed",
+       "basis": "@winter"
+      },
+      {
+       "from": 10.5,
+       "to": 12.0,
+       "indoors": false,
+       "where": "outdoors at the lodges by the river",
+       "doing": "feeding the east fire",
+       "at": {
+        "local_e": 716.9,
+        "local_n": -27.0,
+        "heading_deg": 190
+       },
+       "activity": "work",
+       "grade": "reconstructed",
+       "basis": "@winter"
+      },
+      {
+       "from": 12.0,
+       "to": 24,
+       "indoors": true,
+       "where": "potawatomi_trading_lodges_1812",
+       "doing": "by the fire in the bark house, and asleep",
+       "grade": "reconstructed",
+       "basis": "@winter"
+      }
+     ]
+    },
+    {
+     "from_date": "1812-01-01",
+     "to_date": "1812-03-31",
+     "label": "the cold months",
+     "day": [
+      {
+       "from": 0,
+       "to": 10.5,
+       "indoors": true,
+       "where": "potawatomi_trading_lodges_1812",
+       "doing": "by the fire in the bark house",
+       "grade": "reconstructed",
+       "basis": "@winter"
+      },
+      {
+       "from": 10.5,
+       "to": 12.0,
+       "indoors": false,
+       "where": "outdoors at the lodges by the river",
+       "doing": "feeding the east fire",
+       "at": {
+        "local_e": 716.9,
+        "local_n": -27.0,
+        "heading_deg": 190
+       },
+       "activity": "work",
+       "grade": "reconstructed",
+       "basis": "@winter"
+      },
+      {
+       "from": 12.0,
+       "to": 24,
+       "indoors": true,
+       "where": "potawatomi_trading_lodges_1812",
+       "doing": "by the fire in the bark house, and asleep",
+       "grade": "reconstructed",
+       "basis": "@winter"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "person_id": "new:river_lodges_son_1812",
+   "name": "Their son (name not recorded)",
+   "present": {
+    "status": "present",
+    "grade": "reconstructed",
+    "basis": "Put at the lodges by the river through all of 1812, the owner's choice (2026-11-09); no source names or counts this family."
+   },
+   "presence": {
+    "from": "1812-01-01",
+    "to": "1812-12-31",
+    "grade": "reconstructed",
+    "basis": "All year at the lodges by the river: the warm months at the yard, the cold months more indoors, a trading morning at the factory now and then until it closed (see days)."
+   },
+   "sex": "m",
+   "age_1812": {
+    "value": 16,
+    "grade": "reconstructed",
+    "basis": "Chosen for a family of three generations; not recorded."
+   },
+   "dress_role": "potawatomi_child_1812",
+   "looks": {
+    "complexion": "brown, a warm medium-to-deep tone weathered by sun",
+    "hair": "black, straight",
+    "eyes": "dark brown",
+    "height_in": 66,
+    "build": "lean",
+    "grade": "reconstructed",
+    "basis": "Heritage, not a description: no source read describes this person's face, colouring or stature. Drawn from the variation kit with the same care and range as everyone else in the town, with no exaggerated features."
+   },
+   "card": {
+    "household": "hh_potawatomi_lodges_1812",
+    "name": "Their son (name not recorded)",
+    "relationship": "son",
+    "grade": "reconstructed",
+    "sex": "m",
+    "age": 16,
+    "home": {
+     "place_or_structure_id": "potawatomi_trading_lodges_1812",
+     "tier": "reconstructed"
+    },
+    "review_required": true,
+    "touches_removal": true,
+    "touches_native_history": true,
+    "note": "A family put at the lodges by the river through 1812, standing for the families Currey says came and went to trade and camped by the creek's mouth. No source names or counts them; their names, ages, history and days are reconstructed."
+   },
+   "facts": [
+    {
+     "claim": "Before 1812 the Potawatomi came and went at Chicago as a habit.",
+     "source": "currey_1912_old_fort_dearborn",
+     "locator": "ch. II, Gutenberg #52346 lines 1360-1361",
+     "quote": "The Indians continued to come and go on their nomadic excursions according to their habit",
+     "tier": "compiled secondary (Currey 1912)"
+    },
+    {
+     "claim": "Their usual camping place was the State Street creek on the south bank.",
+     "source": "currey_1912_old_fort_dearborn",
+     "locator": "ch. II, Gutenberg #52346 lines 1361-1363",
+     "quote": "while in this vicinity they lived in their wigwams near the river, their favorite camping place being at a point on the south bank",
+     "tier": "compiled secondary (Currey 1912)"
+    },
+    {
+     "claim": "The traders wanted their furs.",
+     "source": "currey_1912_old_fort_dearborn",
+     "locator": "ch. II, Gutenberg #52346 lines 1366-1368",
+     "quote": "who were anxious to sell them supplies in exchange for the furs brought in by them",
+     "tier": "compiled secondary (Currey 1912)"
+    },
+    {
+     "claim": "Furs and maple sugar brought in for trade.",
+     "source": "currey_1912_old_fort_dearborn",
+     "locator": "ch. II, Gutenberg #52346 lines 1372-1373",
+     "quote": "the Indians also brought in quantities of maple sugar put up in birch-bark packages",
+     "tier": "compiled secondary (Currey 1912)"
+    },
+    {
+     "claim": "Most families left for winter hunting grounds and came back in spring (Juliette Kinzie's own observation, March 1831); this family is put as staying, which is ours.",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XV, Gutenberg #12183 lines 4138-4140",
+     "quote": "carried with them to their wintering-grounds, to be brought back in the spring, when they returned to make their corn-fields",
+     "tier": "Juliette Kinzie's own observation (1831), Wau-Bun 1856"
+    }
+   ],
+   "day": [
+    {
+     "from": 0,
+     "to": 5.5,
+     "indoors": true,
+     "where": "potawatomi_trading_lodges_1812",
+     "doing": "asleep in the lodge",
+     "grade": "reconstructed",
+     "basis": "@lodge"
+    },
+    {
+     "from": 5.5,
+     "to": 9.5,
+     "indoors": false,
+     "where": "outdoors on the river bank",
+     "doing": "fishing with his father",
+     "at": {
+      "local_e": 712.6,
+      "local_n": -11.5,
+      "heading_deg": 0
+     },
+     "activity": "work",
+     "grade": "reconstructed",
+     "basis": "@river_round"
+    },
+    {
+     "from": 9.5,
+     "to": 10.5,
+     "indoors": false,
+     "where": "outdoors at the lodges by the river",
+     "doing": "eating at the fire with the household",
+     "at": {
+      "local_e": 701.9,
+      "local_n": -26.9,
+      "heading_deg": 200
+     },
+     "activity": "sit",
+     "grade": "reconstructed",
+     "basis": "@meal"
+    },
+    {
+     "from": 10.5,
+     "to": 13.0,
+     "indoors": false,
+     "where": "outdoors at the lodges by the river",
+     "doing": "cutting and carrying firewood to the pile",
+     "at": {
+      "local_e": 712.0,
+      "local_n": -31.6,
+      "heading_deg": 95
+     },
+     "activity": "work",
+     "grade": "reconstructed",
+     "basis": "@lodge_work"
+    },
+    {
+     "from": 13.0,
+     "to": 16.0,
+     "indoors": false,
+     "where": "outdoors at the lodges by the river",
+     "doing": "helping mend the canoe",
+     "at": {
+      "local_e": 708.8,
+      "local_n": -16.6,
+      "heading_deg": 20
+     },
+     "activity": "work",
+     "grade": "reconstructed",
+     "basis": "@lodge_work"
+    },
+    {
+     "from": 16.0,
+     "to": 18.0,
+     "indoors": false,
+     "where": "outdoors at the lodges by the river",
+     "doing": "carrying water up from the river",
+     "at": {
+      "local_e": 716.3,
+      "local_n": -16.6,
+      "heading_deg": 340
+     },
+     "activity": "work",
+     "grade": "reconstructed",
+     "basis": "@lodge_work"
+    },
+    {
+     "from": 18.0,
+     "to": 19.5,
+     "indoors": false,
+     "where": "outdoors at the lodges by the river",
+     "doing": "eating at the fire with the household",
+     "at": {
+      "local_e": 701.9,
+      "local_n": -26.9,
+      "heading_deg": 200
+     },
+     "activity": "sit",
+     "grade": "reconstructed",
+     "basis": "@meal"
+    },
+    {
+     "from": 19.5,
+     "to": 21.0,
+     "indoors": false,
+     "where": "outdoors at the lodges by the river",
+     "doing": "evening at the fire",
+     "at": {
+      "local_e": 701.9,
+      "local_n": -26.9,
+      "heading_deg": 200
+     },
+     "activity": "sit",
+     "grade": "reconstructed",
+     "basis": "@lodge_work"
+    },
+    {
+     "from": 21.0,
+     "to": 24,
+     "indoors": true,
+     "where": "potawatomi_trading_lodges_1812",
+     "doing": "asleep in the lodge",
+     "grade": "reconstructed",
+     "basis": "@lodge"
+    }
+   ],
+   "days": [
+    {
+     "from_date": "1812-08-15",
+     "to_date": "1812-08-15",
+     "label": "15 August",
+     "day": [
+      {
+       "from": 0,
+       "to": 5.0,
+       "indoors": true,
+       "where": "potawatomi_trading_lodges_1812",
+       "doing": "asleep in the lodge",
+       "grade": "reconstructed",
+       "basis": "@lodge"
+      },
+      {
+       "from": 5.0,
+       "to": 21.0,
+       "indoors": false,
+       "where": "away (not drawn)",
+       "doing": "away with the warriors",
+       "grade": "reconstructed",
+       "basis": "@aug15"
+      },
+      {
+       "from": 21.0,
+       "to": 24,
+       "indoors": true,
+       "where": "potawatomi_trading_lodges_1812",
+       "doing": "asleep in the lodge",
+       "grade": "reconstructed",
+       "basis": "@lodge"
+      }
+     ]
+    },
+    {
+     "from_date": "1812-11-01",
+     "to_date": "1812-12-31",
+     "label": "the cold months",
+     "day": [
+      {
+       "from": 0,
+       "to": 6.5,
+       "indoors": true,
+       "where": "potawatomi_trading_lodges_1812",
+       "doing": "asleep in the lodge",
+       "grade": "reconstructed",
+       "basis": "@lodge"
+      },
+      {
+       "from": 6.5,
+       "to": 7.5,
+       "indoors": false,
+       "where": "outdoors at the lodges by the river",
+       "doing": "carrying wood with his father",
+       "at": {
+        "local_e": 710.8,
+        "local_n": -31.6,
+        "heading_deg": 95
+       },
+       "activity": "work",
+       "grade": "reconstructed",
+       "basis": "@winter"
+      },
+      {
+       "from": 7.5,
+       "to": 16.0,
+       "indoors": false,
+       "where": "away (not drawn)",
+       "doing": "hunting with his father",
+       "grade": "reconstructed",
+       "basis": "@winter"
+      },
+      {
+       "from": 16.0,
+       "to": 17.0,
+       "indoors": false,
+       "where": "outdoors at the lodges by the river",
+       "doing": "helping hang the game",
+       "at": {
+        "local_e": 718.8,
+        "local_n": -28.4,
+        "heading_deg": 70
+       },
+       "activity": "work",
+       "grade": "reconstructed",
+       "basis": "@winter"
+      },
+      {
+       "from": 17.0,
+       "to": 24,
+       "indoors": true,
+       "where": "potawatomi_trading_lodges_1812",
+       "doing": "by the fire in the lodge, and asleep",
+       "grade": "reconstructed",
+       "basis": "@winter"
+      }
+     ]
+    },
+    {
+     "from_date": "1812-01-01",
+     "to_date": "1812-03-31",
+     "label": "the cold months",
+     "day": [
+      {
+       "from": 0,
+       "to": 6.5,
+       "indoors": true,
+       "where": "potawatomi_trading_lodges_1812",
+       "doing": "asleep in the lodge",
+       "grade": "reconstructed",
+       "basis": "@lodge"
+      },
+      {
+       "from": 6.5,
+       "to": 7.5,
+       "indoors": false,
+       "where": "outdoors at the lodges by the river",
+       "doing": "carrying wood with his father",
+       "at": {
+        "local_e": 710.8,
+        "local_n": -31.6,
+        "heading_deg": 95
+       },
+       "activity": "work",
+       "grade": "reconstructed",
+       "basis": "@winter"
+      },
+      {
+       "from": 7.5,
+       "to": 16.0,
+       "indoors": false,
+       "where": "away (not drawn)",
+       "doing": "hunting with his father",
+       "grade": "reconstructed",
+       "basis": "@winter"
+      },
+      {
+       "from": 16.0,
+       "to": 17.0,
+       "indoors": false,
+       "where": "outdoors at the lodges by the river",
+       "doing": "helping hang the game",
+       "at": {
+        "local_e": 718.8,
+        "local_n": -28.4,
+        "heading_deg": 70
+       },
+       "activity": "work",
+       "grade": "reconstructed",
+       "basis": "@winter"
+      },
+      {
+       "from": 17.0,
+       "to": 24,
+       "indoors": true,
+       "where": "potawatomi_trading_lodges_1812",
+       "doing": "by the fire in the lodge, and asleep",
+       "grade": "reconstructed",
+       "basis": "@winter"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "person_id": "new:river_lodges_daughter_1812",
+   "name": "Their elder daughter (name not recorded)",
+   "present": {
+    "status": "present",
+    "grade": "reconstructed",
+    "basis": "Put at the lodges by the river through all of 1812, the owner's choice (2026-11-09); no source names or counts this family."
+   },
+   "presence": {
+    "from": "1812-01-01",
+    "to": "1812-12-31",
+    "grade": "reconstructed",
+    "basis": "All year at the lodges by the river: the warm months at the yard, the cold months more indoors, a trading morning at the factory now and then until it closed (see days)."
+   },
+   "sex": "f",
+   "age_1812": {
+    "value": 12,
+    "grade": "reconstructed",
+    "basis": "Chosen for a family of three generations; not recorded."
+   },
+   "dress_role": "potawatomi_child_1812",
+   "looks": {
+    "complexion": "brown, a warm medium-to-deep tone weathered by sun",
+    "hair": "black, straight",
+    "eyes": "dark brown",
+    "height_in": 58,
+    "build": "slight",
+    "grade": "reconstructed",
+    "basis": "Heritage, not a description: no source read describes this person's face, colouring or stature. Drawn from the variation kit with the same care and range as everyone else in the town, with no exaggerated features."
+   },
+   "card": {
+    "household": "hh_potawatomi_lodges_1812",
+    "name": "Their elder daughter (name not recorded)",
+    "relationship": "daughter",
+    "grade": "reconstructed",
+    "sex": "f",
+    "age": 12,
+    "home": {
+     "place_or_structure_id": "potawatomi_trading_lodges_1812",
+     "tier": "reconstructed"
+    },
+    "review_required": true,
+    "touches_removal": true,
+    "touches_native_history": true,
+    "note": "A family put at the lodges by the river through 1812, standing for the families Currey says came and went to trade and camped by the creek's mouth. No source names or counts them; their names, ages, history and days are reconstructed."
+   },
+   "facts": [
+    {
+     "claim": "Before 1812 the Potawatomi came and went at Chicago as a habit.",
+     "source": "currey_1912_old_fort_dearborn",
+     "locator": "ch. II, Gutenberg #52346 lines 1360-1361",
+     "quote": "The Indians continued to come and go on their nomadic excursions according to their habit",
+     "tier": "compiled secondary (Currey 1912)"
+    },
+    {
+     "claim": "Their usual camping place was the State Street creek on the south bank.",
+     "source": "currey_1912_old_fort_dearborn",
+     "locator": "ch. II, Gutenberg #52346 lines 1361-1363",
+     "quote": "while in this vicinity they lived in their wigwams near the river, their favorite camping place being at a point on the south bank",
+     "tier": "compiled secondary (Currey 1912)"
+    },
+    {
+     "claim": "The traders wanted their furs.",
+     "source": "currey_1912_old_fort_dearborn",
+     "locator": "ch. II, Gutenberg #52346 lines 1366-1368",
+     "quote": "who were anxious to sell them supplies in exchange for the furs brought in by them",
+     "tier": "compiled secondary (Currey 1912)"
+    },
+    {
+     "claim": "Furs and maple sugar brought in for trade.",
+     "source": "currey_1912_old_fort_dearborn",
+     "locator": "ch. II, Gutenberg #52346 lines 1372-1373",
+     "quote": "the Indians also brought in quantities of maple sugar put up in birch-bark packages",
+     "tier": "compiled secondary (Currey 1912)"
+    },
+    {
+     "claim": "Most families left for winter hunting grounds and came back in spring (Juliette Kinzie's own observation, March 1831); this family is put as staying, which is ours.",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XV, Gutenberg #12183 lines 4138-4140",
+     "quote": "carried with them to their wintering-grounds, to be brought back in the spring, when they returned to make their corn-fields",
+     "tier": "Juliette Kinzie's own observation (1831), Wau-Bun 1856"
+    }
+   ],
+   "day": [
+    {
+     "from": 0,
+     "to": 5.5,
+     "indoors": true,
+     "where": "potawatomi_trading_lodges_1812",
+     "doing": "asleep in the lodge",
+     "grade": "reconstructed",
+     "basis": "@lodge"
+    },
+    {
+     "from": 5.5,
+     "to": 6.5,
+     "indoors": false,
+     "where": "outdoors at the lodges by the river",
+     "doing": "carrying water from the river for the kettle",
+     "at": {
+      "local_e": 716.3,
+      "local_n": -16.6,
+      "heading_deg": 340
+     },
+     "activity": "work",
+     "grade": "reconstructed",
+     "basis": "@lodge_work"
+    },
+    {
+     "from": 6.5,
+     "to": 9.5,
+     "indoors": false,
+     "where": "outdoors at the lodges by the river",
+     "doing": "pounding corn with her mother",
+     "at": {
+      "local_e": 710.9,
+      "local_n": -20.2,
+      "heading_deg": 200
+     },
+     "activity": "work",
+     "grade": "reconstructed",
+     "basis": "@lodge_work"
+    },
+    {
+     "from": 9.5,
+     "to": 10.5,
+     "indoors": false,
+     "where": "outdoors at the lodges by the river",
+     "doing": "eating at the fire with the household",
+     "at": {
+      "local_e": 702.8,
+      "local_n": -25.1,
+      "heading_deg": 200
+     },
+     "activity": "sit",
+     "grade": "reconstructed",
+     "basis": "@meal"
+    },
+    {
+     "from": 10.5,
+     "to": 13.5,
+     "indoors": false,
+     "where": "outdoors at the lodges by the river",
+     "doing": "gathering rushes for mats by the river",
+     "at": {
+      "local_e": 708.5,
+      "local_n": -11.5,
+      "heading_deg": 0
+     },
+     "activity": "work",
+     "grade": "reconstructed",
+     "basis": "@lodge_work"
+    },
+    {
+     "from": 13.5,
+     "to": 16.0,
+     "indoors": false,
+     "where": "outdoors at the lodges by the river",
+     "doing": "weaving with her grandmother",
+     "at": {
+      "local_e": 713.8,
+      "local_n": -25.9,
+      "heading_deg": 0
+     },
+     "activity": "work",
+     "grade": "reconstructed",
+     "basis": "@lodge_work"
+    },
+    {
+     "from": 16.0,
+     "to": 18.0,
+     "indoors": false,
+     "where": "outdoors at the lodges by the river",
+     "doing": "helping at the east fire",
+     "at": {
+      "local_e": 717.7,
+      "local_n": -27.0,
+      "heading_deg": 190
+     },
+     "activity": "work",
+     "grade": "reconstructed",
+     "basis": "@lodge_work"
+    },
+    {
+     "from": 18.0,
+     "to": 19.5,
+     "indoors": false,
+     "where": "outdoors at the lodges by the river",
+     "doing": "eating at the fire with the household",
+     "at": {
+      "local_e": 702.8,
+      "local_n": -25.1,
+      "heading_deg": 200
+     },
+     "activity": "sit",
+     "grade": "reconstructed",
+     "basis": "@meal"
+    },
+    {
+     "from": 19.5,
+     "to": 21.0,
+     "indoors": false,
+     "where": "outdoors at the lodges by the river",
+     "doing": "evening at the fire",
+     "at": {
+      "local_e": 702.8,
+      "local_n": -25.1,
+      "heading_deg": 200
+     },
+     "activity": "sit",
+     "grade": "reconstructed",
+     "basis": "@lodge_work"
+    },
+    {
+     "from": 21.0,
+     "to": 24,
+     "indoors": true,
+     "where": "potawatomi_trading_lodges_1812",
+     "doing": "asleep in the lodge",
+     "grade": "reconstructed",
+     "basis": "@lodge"
+    }
+   ],
+   "days": [
+    {
+     "from_date": "1812-11-01",
+     "to_date": "1812-12-31",
+     "label": "the cold months",
+     "day": [
+      {
+       "from": 0,
+       "to": 7.0,
+       "indoors": true,
+       "where": "potawatomi_trading_lodges_1812",
+       "doing": "asleep in the lodge",
+       "grade": "reconstructed",
+       "basis": "@lodge"
+      },
+      {
+       "from": 7.0,
+       "to": 8.0,
+       "indoors": false,
+       "where": "outdoors at the lodges by the river",
+       "doing": "breaking the ice for water at the river",
+       "at": {
+        "local_e": 716.3,
+        "local_n": -16.6,
+        "heading_deg": 340
+       },
+       "activity": "work",
+       "grade": "reconstructed",
+       "basis": "@winter"
+      },
+      {
+       "from": 8.0,
+       "to": 11.0,
+       "indoors": true,
+       "where": "potawatomi_trading_lodges_1812",
+       "doing": "working quills by the fire",
+       "grade": "reconstructed",
+       "basis": "@winter"
+      },
+      {
+       "from": 11.0,
+       "to": 13.0,
+       "indoors": false,
+       "where": "outdoors at the lodges by the river",
+       "doing": "bringing in wood from the pile",
+       "at": {
+        "local_e": 713.2,
+        "local_n": -31.6,
+        "heading_deg": 95
+       },
+       "activity": "work",
+       "grade": "reconstructed",
+       "basis": "@winter"
+      },
+      {
+       "from": 13.0,
+       "to": 24,
+       "indoors": true,
+       "where": "potawatomi_trading_lodges_1812",
+       "doing": "by the fire in the lodge, and asleep",
+       "grade": "reconstructed",
+       "basis": "@winter"
+      }
+     ]
+    },
+    {
+     "from_date": "1812-01-01",
+     "to_date": "1812-03-31",
+     "label": "the cold months",
+     "day": [
+      {
+       "from": 0,
+       "to": 7.0,
+       "indoors": true,
+       "where": "potawatomi_trading_lodges_1812",
+       "doing": "asleep in the lodge",
+       "grade": "reconstructed",
+       "basis": "@lodge"
+      },
+      {
+       "from": 7.0,
+       "to": 8.0,
+       "indoors": false,
+       "where": "outdoors at the lodges by the river",
+       "doing": "breaking the ice for water at the river",
+       "at": {
+        "local_e": 716.3,
+        "local_n": -16.6,
+        "heading_deg": 340
+       },
+       "activity": "work",
+       "grade": "reconstructed",
+       "basis": "@winter"
+      },
+      {
+       "from": 8.0,
+       "to": 11.0,
+       "indoors": true,
+       "where": "potawatomi_trading_lodges_1812",
+       "doing": "working quills by the fire",
+       "grade": "reconstructed",
+       "basis": "@winter"
+      },
+      {
+       "from": 11.0,
+       "to": 13.0,
+       "indoors": false,
+       "where": "outdoors at the lodges by the river",
+       "doing": "bringing in wood from the pile",
+       "at": {
+        "local_e": 713.2,
+        "local_n": -31.6,
+        "heading_deg": 95
+       },
+       "activity": "work",
+       "grade": "reconstructed",
+       "basis": "@winter"
+      },
+      {
+       "from": 13.0,
+       "to": 24,
+       "indoors": true,
+       "where": "potawatomi_trading_lodges_1812",
+       "doing": "by the fire in the lodge, and asleep",
+       "grade": "reconstructed",
+       "basis": "@winter"
+      }
+     ]
+    },
+    {
+     "from_date": "1812-04-01",
+     "to_date": "1812-07-04",
+     "frequency": "about one day in six",
+     "label": "a trading morning at the factory",
+     "day": [
+      {
+       "from": 0,
+       "to": 5.5,
+       "indoors": true,
+       "where": "potawatomi_trading_lodges_1812",
+       "doing": "asleep in the lodge",
+       "grade": "reconstructed",
+       "basis": "@lodge"
+      },
+      {
+       "from": 5.5,
+       "to": 8.0,
+       "indoors": false,
+       "where": "outdoors at the lodges by the river",
+       "doing": "helping her mother pack the sugar",
+       "at": {
+        "local_e": 713.0,
+        "local_n": -26.5,
+        "heading_deg": 0
+       },
+       "activity": "work",
+       "grade": "reconstructed",
+       "basis": "@trade"
+      },
+      {
+       "from": 8.0,
+       "to": 9.0,
+       "indoors": false,
+       "where": "away (not drawn)",
+       "doing": "in the canoe to the fort",
+       "grade": "reconstructed",
+       "basis": "@trade"
+      },
+      {
+       "from": 9.0,
+       "to": 11.5,
+       "indoors": false,
+       "where": "outdoors before first_fort_outer_factory",
+       "doing": "with her parents at the factory",
+       "at": {
+        "local_e": 1081.6,
+        "local_n": 218.4,
+        "heading_deg": 275
+       },
+       "activity": "stand",
+       "with": [
+        "new:river_lodges_man_1812",
+        "new:river_lodges_woman_1812"
+       ],
+       "grade": "reconstructed",
+       "basis": "@trade"
+      },
+      {
+       "from": 11.5,
+       "to": 12.5,
+       "indoors": false,
+       "where": "away (not drawn)",
+       "doing": "in the canoe home",
+       "grade": "reconstructed",
+       "basis": "@trade"
+      },
+      {
+       "from": 12.5,
+       "to": 16.0,
+       "indoors": false,
+       "where": "outdoors at the lodges by the river",
+       "doing": "weaving with her grandmother",
+       "at": {
+        "local_e": 713.8,
+        "local_n": -25.9,
+        "heading_deg": 0
+       },
+       "activity": "work",
+       "grade": "reconstructed",
+       "basis": "@lodge_work"
+      },
+      {
+       "from": 16.0,
+       "to": 18.0,
+       "indoors": false,
+       "where": "outdoors at the lodges by the river",
+       "doing": "helping at the east fire",
+       "at": {
+        "local_e": 717.7,
+        "local_n": -27.0,
+        "heading_deg": 190
+       },
+       "activity": "work",
+       "grade": "reconstructed",
+       "basis": "@lodge_work"
+      },
+      {
+       "from": 18.0,
+       "to": 19.5,
+       "indoors": false,
+       "where": "outdoors at the lodges by the river",
+       "doing": "eating at the fire with the household",
+       "at": {
+        "local_e": 702.8,
+        "local_n": -25.1,
+        "heading_deg": 200
+       },
+       "activity": "sit",
+       "grade": "reconstructed",
+       "basis": "@meal"
+      },
+      {
+       "from": 19.5,
+       "to": 21.0,
+       "indoors": false,
+       "where": "outdoors at the lodges by the river",
+       "doing": "evening at the fire",
+       "at": {
+        "local_e": 702.8,
+        "local_n": -25.1,
+        "heading_deg": 200
+       },
+       "activity": "sit",
+       "grade": "reconstructed",
+       "basis": "@lodge_work"
+      },
+      {
+       "from": 21.0,
+       "to": 24,
+       "indoors": true,
+       "where": "potawatomi_trading_lodges_1812",
+       "doing": "asleep in the lodge",
+       "grade": "reconstructed",
+       "basis": "@lodge"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "person_id": "new:river_lodges_boy_1812",
+   "name": "Their younger son (name not recorded)",
+   "present": {
+    "status": "present",
+    "grade": "reconstructed",
+    "basis": "Put at the lodges by the river through all of 1812, the owner's choice (2026-11-09); no source names or counts this family."
+   },
+   "presence": {
+    "from": "1812-01-01",
+    "to": "1812-12-31",
+    "grade": "reconstructed",
+    "basis": "All year at the lodges by the river: the warm months at the yard, the cold months more indoors, a trading morning at the factory now and then until it closed (see days)."
+   },
+   "sex": "m",
+   "age_1812": {
+    "value": 8,
+    "grade": "reconstructed",
+    "basis": "Chosen for a family of three generations; not recorded."
+   },
+   "dress_role": "potawatomi_child_1812",
+   "looks": {
+    "complexion": "brown, a warm medium-to-deep tone weathered by sun",
+    "hair": "black, straight",
+    "eyes": "dark brown",
+    "height_in": 49,
+    "build": "a child's",
+    "grade": "reconstructed",
+    "basis": "Heritage, not a description: no source read describes this person's face, colouring or stature. Drawn from the variation kit with the same care and range as everyone else in the town, with no exaggerated features."
+   },
+   "card": {
+    "household": "hh_potawatomi_lodges_1812",
+    "name": "Their younger son (name not recorded)",
+    "relationship": "son",
+    "grade": "reconstructed",
+    "sex": "m",
+    "age": 8,
+    "home": {
+     "place_or_structure_id": "potawatomi_trading_lodges_1812",
+     "tier": "reconstructed"
+    },
+    "review_required": true,
+    "touches_removal": true,
+    "touches_native_history": true,
+    "note": "A family put at the lodges by the river through 1812, standing for the families Currey says came and went to trade and camped by the creek's mouth. No source names or counts them; their names, ages, history and days are reconstructed."
+   },
+   "facts": [
+    {
+     "claim": "Before 1812 the Potawatomi came and went at Chicago as a habit.",
+     "source": "currey_1912_old_fort_dearborn",
+     "locator": "ch. II, Gutenberg #52346 lines 1360-1361",
+     "quote": "The Indians continued to come and go on their nomadic excursions according to their habit",
+     "tier": "compiled secondary (Currey 1912)"
+    },
+    {
+     "claim": "Their usual camping place was the State Street creek on the south bank.",
+     "source": "currey_1912_old_fort_dearborn",
+     "locator": "ch. II, Gutenberg #52346 lines 1361-1363",
+     "quote": "while in this vicinity they lived in their wigwams near the river, their favorite camping place being at a point on the south bank",
+     "tier": "compiled secondary (Currey 1912)"
+    },
+    {
+     "claim": "The traders wanted their furs.",
+     "source": "currey_1912_old_fort_dearborn",
+     "locator": "ch. II, Gutenberg #52346 lines 1366-1368",
+     "quote": "who were anxious to sell them supplies in exchange for the furs brought in by them",
+     "tier": "compiled secondary (Currey 1912)"
+    },
+    {
+     "claim": "Furs and maple sugar brought in for trade.",
+     "source": "currey_1912_old_fort_dearborn",
+     "locator": "ch. II, Gutenberg #52346 lines 1372-1373",
+     "quote": "the Indians also brought in quantities of maple sugar put up in birch-bark packages",
+     "tier": "compiled secondary (Currey 1912)"
+    },
+    {
+     "claim": "Most families left for winter hunting grounds and came back in spring (Juliette Kinzie's own observation, March 1831); this family is put as staying, which is ours.",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XV, Gutenberg #12183 lines 4138-4140",
+     "quote": "carried with them to their wintering-grounds, to be brought back in the spring, when they returned to make their corn-fields",
+     "tier": "Juliette Kinzie's own observation (1831), Wau-Bun 1856"
+    }
+   ],
+   "day": [
+    {
+     "from": 0,
+     "to": 6.0,
+     "indoors": true,
+     "where": "potawatomi_trading_lodges_1812",
+     "doing": "asleep in the lodge",
+     "grade": "reconstructed",
+     "basis": "@lodge"
+    },
+    {
+     "from": 6.0,
+     "to": 9.5,
+     "indoors": false,
+     "where": "outdoors at the lodges by the river",
+     "doing": "playing on the bank by the canoes",
+     "at": {
+      "local_e": 711.0,
+      "local_n": -15.0,
+      "heading_deg": 30
+     },
+     "activity": "work",
+     "grade": "reconstructed",
+     "basis": "@child"
+    },
+    {
+     "from": 9.5,
+     "to": 10.5,
+     "indoors": false,
+     "where": "outdoors at the lodges by the river",
+     "doing": "eating at the fire with the household",
+     "at": {
+      "local_e": 701.1,
+      "local_n": -26.8,
+      "heading_deg": 200
+     },
+     "activity": "sit",
+     "grade": "reconstructed",
+     "basis": "@meal"
+    },
+    {
+     "from": 10.5,
+     "to": 13.0,
+     "indoors": false,
+     "where": "outdoors at the lodges by the river",
+     "doing": "carrying sticks to the woodpile",
+     "at": {
+      "local_e": 711.0,
+      "local_n": -31.6,
+      "heading_deg": 95
+     },
+     "activity": "work",
+     "grade": "reconstructed",
+     "basis": "@child"
+    },
+    {
+     "from": 13.0,
+     "to": 16.0,
+     "indoors": false,
+     "where": "outdoors at the lodges by the river",
+     "doing": "playing on the bank by the canoes",
+     "at": {
+      "local_e": 712.4,
+      "local_n": -15.0,
+      "heading_deg": 30
+     },
+     "activity": "work",
+     "grade": "reconstructed",
+     "basis": "@child"
+    },
+    {
+     "from": 16.0,
+     "to": 18.0,
+     "indoors": false,
+     "where": "outdoors at the lodges by the river",
+     "doing": "watching the fish set on the rack",
+     "at": {
+      "local_e": 720.0,
+      "local_n": -22.2,
+      "heading_deg": 160
+     },
+     "activity": "work",
+     "grade": "reconstructed",
+     "basis": "@child"
+    },
+    {
+     "from": 18.0,
+     "to": 19.5,
+     "indoors": false,
+     "where": "outdoors at the lodges by the river",
+     "doing": "eating at the fire with the household",
+     "at": {
+      "local_e": 701.1,
+      "local_n": -26.8,
+      "heading_deg": 200
+     },
+     "activity": "sit",
+     "grade": "reconstructed",
+     "basis": "@meal"
+    },
+    {
+     "from": 19.5,
+     "to": 24,
+     "indoors": true,
+     "where": "potawatomi_trading_lodges_1812",
+     "doing": "asleep in the lodge",
+     "grade": "reconstructed",
+     "basis": "@lodge"
+    }
+   ],
+   "days": [
+    {
+     "from_date": "1812-11-01",
+     "to_date": "1812-12-31",
+     "label": "the cold months",
+     "day": [
+      {
+       "from": 0,
+       "to": 11.5,
+       "indoors": true,
+       "where": "potawatomi_trading_lodges_1812",
+       "doing": "by the fire in the lodge",
+       "grade": "reconstructed",
+       "basis": "@winter"
+      },
+      {
+       "from": 11.5,
+       "to": 13.5,
+       "indoors": false,
+       "where": "outdoors at the lodges by the river",
+       "doing": "playing in the snow between the lodges",
+       "at": {
+        "local_e": 712.0,
+        "local_n": -25.1,
+        "heading_deg": 0
+       },
+       "activity": "stand",
+       "grade": "reconstructed",
+       "basis": "@winter"
+      },
+      {
+       "from": 13.5,
+       "to": 24,
+       "indoors": true,
+       "where": "potawatomi_trading_lodges_1812",
+       "doing": "by the fire in the lodge, and asleep",
+       "grade": "reconstructed",
+       "basis": "@winter"
+      }
+     ]
+    },
+    {
+     "from_date": "1812-01-01",
+     "to_date": "1812-03-31",
+     "label": "the cold months",
+     "day": [
+      {
+       "from": 0,
+       "to": 11.5,
+       "indoors": true,
+       "where": "potawatomi_trading_lodges_1812",
+       "doing": "by the fire in the lodge",
+       "grade": "reconstructed",
+       "basis": "@winter"
+      },
+      {
+       "from": 11.5,
+       "to": 13.5,
+       "indoors": false,
+       "where": "outdoors at the lodges by the river",
+       "doing": "playing in the snow between the lodges",
+       "at": {
+        "local_e": 712.0,
+        "local_n": -25.1,
+        "heading_deg": 0
+       },
+       "activity": "stand",
+       "grade": "reconstructed",
+       "basis": "@winter"
+      },
+      {
+       "from": 13.5,
+       "to": 24,
+       "indoors": true,
+       "where": "potawatomi_trading_lodges_1812",
+       "doing": "by the fire in the lodge, and asleep",
+       "grade": "reconstructed",
+       "basis": "@winter"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "person_id": "new:river_lodges_girl_1812",
+   "name": "Their younger daughter (name not recorded)",
+   "present": {
+    "status": "present",
+    "grade": "reconstructed",
+    "basis": "Put at the lodges by the river through all of 1812, the owner's choice (2026-11-09); no source names or counts this family."
+   },
+   "presence": {
+    "from": "1812-01-01",
+    "to": "1812-12-31",
+    "grade": "reconstructed",
+    "basis": "All year at the lodges by the river: the warm months at the yard, the cold months more indoors, a trading morning at the factory now and then until it closed (see days)."
+   },
+   "sex": "f",
+   "age_1812": {
+    "value": 5,
+    "grade": "reconstructed",
+    "basis": "Chosen for a family of three generations; not recorded."
+   },
+   "dress_role": "potawatomi_child_1812",
+   "looks": {
+    "complexion": "brown, a warm medium-to-deep tone weathered by sun",
+    "hair": "black, straight",
+    "eyes": "dark brown",
+    "height_in": 42,
+    "build": "a child's",
+    "grade": "reconstructed",
+    "basis": "Heritage, not a description: no source read describes this person's face, colouring or stature. Drawn from the variation kit with the same care and range as everyone else in the town, with no exaggerated features."
+   },
+   "card": {
+    "household": "hh_potawatomi_lodges_1812",
+    "name": "Their younger daughter (name not recorded)",
+    "relationship": "daughter",
+    "grade": "reconstructed",
+    "sex": "f",
+    "age": 5,
+    "home": {
+     "place_or_structure_id": "potawatomi_trading_lodges_1812",
+     "tier": "reconstructed"
+    },
+    "review_required": true,
+    "touches_removal": true,
+    "touches_native_history": true,
+    "note": "A family put at the lodges by the river through 1812, standing for the families Currey says came and went to trade and camped by the creek's mouth. No source names or counts them; their names, ages, history and days are reconstructed."
+   },
+   "facts": [
+    {
+     "claim": "Before 1812 the Potawatomi came and went at Chicago as a habit.",
+     "source": "currey_1912_old_fort_dearborn",
+     "locator": "ch. II, Gutenberg #52346 lines 1360-1361",
+     "quote": "The Indians continued to come and go on their nomadic excursions according to their habit",
+     "tier": "compiled secondary (Currey 1912)"
+    },
+    {
+     "claim": "Their usual camping place was the State Street creek on the south bank.",
+     "source": "currey_1912_old_fort_dearborn",
+     "locator": "ch. II, Gutenberg #52346 lines 1361-1363",
+     "quote": "while in this vicinity they lived in their wigwams near the river, their favorite camping place being at a point on the south bank",
+     "tier": "compiled secondary (Currey 1912)"
+    },
+    {
+     "claim": "The traders wanted their furs.",
+     "source": "currey_1912_old_fort_dearborn",
+     "locator": "ch. II, Gutenberg #52346 lines 1366-1368",
+     "quote": "who were anxious to sell them supplies in exchange for the furs brought in by them",
+     "tier": "compiled secondary (Currey 1912)"
+    },
+    {
+     "claim": "Furs and maple sugar brought in for trade.",
+     "source": "currey_1912_old_fort_dearborn",
+     "locator": "ch. II, Gutenberg #52346 lines 1372-1373",
+     "quote": "the Indians also brought in quantities of maple sugar put up in birch-bark packages",
+     "tier": "compiled secondary (Currey 1912)"
+    },
+    {
+     "claim": "Most families left for winter hunting grounds and came back in spring (Juliette Kinzie's own observation, March 1831); this family is put as staying, which is ours.",
+     "source": "kinzie_waubun_1856",
+     "locator": "ch. XV, Gutenberg #12183 lines 4138-4140",
+     "quote": "carried with them to their wintering-grounds, to be brought back in the spring, when they returned to make their corn-fields",
+     "tier": "Juliette Kinzie's own observation (1831), Wau-Bun 1856"
+    }
+   ],
+   "day": [
+    {
+     "from": 0,
+     "to": 6.5,
+     "indoors": true,
+     "where": "potawatomi_trading_lodges_1812",
+     "doing": "asleep in the lodge",
+     "grade": "reconstructed",
+     "basis": "@lodge"
+    },
+    {
+     "from": 6.5,
+     "to": 9.5,
+     "indoors": false,
+     "where": "outdoors at the lodges by the river",
+     "doing": "beside her mother at the mortar",
+     "at": {
+      "local_e": 709.9,
+      "local_n": -19.2,
+      "heading_deg": 200
+     },
+     "activity": "work",
+     "grade": "reconstructed",
+     "basis": "@child"
+    },
+    {
+     "from": 9.5,
+     "to": 10.5,
+     "indoors": false,
+     "where": "outdoors at the lodges by the river",
+     "doing": "eating at the fire with the household",
+     "at": {
+      "local_e": 702.5,
+      "local_n": -26.8,
+      "heading_deg": 200
+     },
+     "activity": "sit",
+     "grade": "reconstructed",
+     "basis": "@meal"
+    },
+    {
+     "from": 10.5,
+     "to": 13.0,
+     "indoors": false,
+     "where": "outdoors at the lodges by the river",
+     "doing": "playing on the bank by the canoes",
+     "at": {
+      "local_e": 709.8,
+      "local_n": -15.0,
+      "heading_deg": 30
+     },
+     "activity": "work",
+     "grade": "reconstructed",
+     "basis": "@child"
+    },
+    {
+     "from": 13.0,
+     "to": 15.0,
+     "indoors": true,
+     "where": "potawatomi_trading_lodges_1812",
+     "doing": "asleep in the heat of the day",
+     "grade": "reconstructed",
+     "basis": "@lodge"
+    },
+    {
+     "from": 15.0,
+     "to": 18.0,
+     "indoors": false,
+     "where": "outdoors at the lodges by the river",
+     "doing": "with her grandmother at the rack",
+     "at": {
+      "local_e": 718.4,
+      "local_n": -21.0,
+      "heading_deg": 160
+     },
+     "activity": "work",
+     "grade": "reconstructed",
+     "basis": "@child"
+    },
+    {
+     "from": 18.0,
+     "to": 19.5,
+     "indoors": false,
+     "where": "outdoors at the lodges by the river",
+     "doing": "eating at the fire with the household",
+     "at": {
+      "local_e": 702.5,
+      "local_n": -26.8,
+      "heading_deg": 200
+     },
+     "activity": "sit",
+     "grade": "reconstructed",
+     "basis": "@meal"
+    },
+    {
+     "from": 19.5,
+     "to": 24,
+     "indoors": true,
+     "where": "potawatomi_trading_lodges_1812",
+     "doing": "asleep in the lodge",
+     "grade": "reconstructed",
+     "basis": "@lodge"
+    }
+   ],
+   "days": [
+    {
+     "from_date": "1812-11-01",
+     "to_date": "1812-12-31",
+     "label": "the cold months",
+     "day": [
+      {
+       "from": 0,
+       "to": 11.5,
+       "indoors": true,
+       "where": "potawatomi_trading_lodges_1812",
+       "doing": "by the fire in the lodge",
+       "grade": "reconstructed",
+       "basis": "@winter"
+      },
+      {
+       "from": 11.5,
+       "to": 13.0,
+       "indoors": false,
+       "where": "outdoors at the lodges by the river",
+       "doing": "playing in the snow by her brother",
+       "at": {
+        "local_e": 713.4,
+        "local_n": -25.1,
+        "heading_deg": 0
+       },
+       "activity": "stand",
+       "grade": "reconstructed",
+       "basis": "@winter"
+      },
+      {
+       "from": 13.0,
+       "to": 24,
+       "indoors": true,
+       "where": "potawatomi_trading_lodges_1812",
+       "doing": "by the fire in the lodge, and asleep",
+       "grade": "reconstructed",
+       "basis": "@winter"
+      }
+     ]
+    },
+    {
+     "from_date": "1812-01-01",
+     "to_date": "1812-03-31",
+     "label": "the cold months",
+     "day": [
+      {
+       "from": 0,
+       "to": 11.5,
+       "indoors": true,
+       "where": "potawatomi_trading_lodges_1812",
+       "doing": "by the fire in the lodge",
+       "grade": "reconstructed",
+       "basis": "@winter"
+      },
+      {
+       "from": 11.5,
+       "to": 13.0,
+       "indoors": false,
+       "where": "outdoors at the lodges by the river",
+       "doing": "playing in the snow by her brother",
+       "at": {
+        "local_e": 713.4,
+        "local_n": -25.1,
+        "heading_deg": 0
+       },
+       "activity": "stand",
+       "grade": "reconstructed",
+       "basis": "@winter"
+      },
+      {
+       "from": 13.0,
+       "to": 24,
+       "indoors": true,
+       "where": "potawatomi_trading_lodges_1812",
+       "doing": "by the fire in the lodge, and asleep",
+       "grade": "reconstructed",
+       "basis": "@winter"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "dress": {},
+ "not_placed": [],
+ "new_sources": []
+}

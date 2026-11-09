@@ -1,0 +1,25 @@
+{
+ "id": "met_krimmel_1811_black_sawyers_bank_of_pennsylvania",
+ "type": "illustration",
+ "citation": "John Lewis Krimmel, Black Sawyers Working in front of the Bank of Pennsylvania, Philadelphia, 1811-ca. 1813. The Metropolitan Museum of Art, 42.95.16.",
+ "author": "John Lewis Krimmel",
+ "date": "1811-ca. 1813",
+ "describes_date": "1811-1813",
+ "repository": "The Metropolitan Museum of Art; object 12734 in the museum's collection API (isPublicDomain: true), image DT1805 at images.metmuseum.org.",
+ "url": "https://www.metmuseum.org/art/collection/search/12734",
+ "locator": "Open-access image DT1805: the four sawyers and the woman holding a child, foreground.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "The Met's Open Access images of public-domain works are released CC0. Proposed for use only as a reference picture the 1812 figures are judged against; nothing traced or sampled.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Viewed 2026-11-07 (dress research for the 1812 scene). Watercolour drawn in the war years. Black working men sawing cordwood in shirtsleeves: white shirts, one red shirt, striped and green waistcoats, blue and mustard trousers, black round hats, one white head-wrap; a Black woman in a head-wrap, white bodice or short gown and a pink-striped petticoat carries a small child in a white frock with an orange wrap.",
+ "note": "Proposed for the 1812 dress reference sets; not a Chicago or Fort Dearborn record. Added for the 1812 women's dress (T-3464 dress build, tools/human_women_1812.py) from docs/RESEARCH/people-1812-3461/dress.json.",
+ "what_it_supplies": [
+  "working dress of free Black men and a woman in an American city 1811-1813, drawn at the time: shirtsleeves, waistcoats, round hats, head-wraps, short gown and striped petticoat, a child's frock"
+ ],
+ "what_it_does_not_supply": [
+  "the Old Northwest: this is Philadelphia",
+  "any enslaved or free person at Chicago"
+ ]
+}

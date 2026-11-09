@@ -1,0 +1,255 @@
+{
+  "id": "hi_town_holt_child_1812",
+  "contract_version": 1,
+  "scene": "1812",
+  "person_id": "holt_child",
+  "appearance": {
+    "asset_id": "child_toddler_1812"
+  },
+  "placement": {
+    "local_e": 1151.2,
+    "local_n": 216.4,
+    "heading_deg": 0.0,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "idle",
+    "loop": true,
+    "phase": 0.122
+  },
+  "behaviour": {
+    "state": "standing",
+    "day": [
+      {
+        "dates": {
+          "from": "1812-01-01",
+          "to": "1812-08-13"
+        },
+        "note": "The household card's home is the small house in the SW corner (reconstructed). That box is 5.5 x 7.7 ft on Whistler's draught, too small for a family; the owner may prefer the SW soldiers' barracks.",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_small_house_sw",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.5,
+            "to": 7.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_small_house_sw",
+            "doing": "up, washed and dressed; breakfast with the family"
+          },
+          {
+            "from": 7.5,
+            "to": 10.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_small_house_sw",
+            "doing": "playing on the floor by his mother"
+          },
+          {
+            "from": 10.0,
+            "to": 11.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1146.6,
+              "local_n": 212.3,
+              "heading_deg": 0.0
+            },
+            "doing": "toddling about the doorstep within reach of his mother",
+            "activity": "stand"
+          },
+          {
+            "from": 11.5,
+            "to": 12.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_small_house_sw",
+            "doing": "indoors"
+          },
+          {
+            "from": 12.0,
+            "to": 13.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_small_house_sw",
+            "doing": "dinner with the family"
+          },
+          {
+            "from": 13.0,
+            "to": 15.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_small_house_sw",
+            "doing": "asleep in the heat of the day"
+          },
+          {
+            "from": 15.0,
+            "to": 17.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1151.2,
+              "local_n": 216.4,
+              "heading_deg": 0.0
+            },
+            "doing": "playing about the parade with the other children",
+            "activity": "talk",
+            "knot": "talk_440dd700"
+          },
+          {
+            "from": 17.0,
+            "to": 18.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_small_house_sw",
+            "doing": "supper"
+          },
+          {
+            "from": 18.0,
+            "to": 19.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_small_house_sw",
+            "doing": "evening with the family; prayers"
+          },
+          {
+            "from": 19.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_small_house_sw",
+            "doing": "asleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-14",
+          "to": "1812-08-14"
+        },
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_small_house_sw",
+            "doing": "asleep; the night was broken by barrels being knocked in at the river and the sally-port"
+          },
+          {
+            "from": 5.5,
+            "to": 7.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_small_house_sw",
+            "doing": "up and fed; the household is packing"
+          },
+          {
+            "from": 7.5,
+            "to": 9.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_small_house_sw",
+            "doing": "kept indoors by the mother while she packs"
+          },
+          {
+            "from": 9.5,
+            "to": 11.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1151.2,
+              "local_n": 216.4,
+              "heading_deg": 0.0
+            },
+            "doing": "a short time out, playing near the door",
+            "activity": "talk",
+            "knot": "talk_0af4d7b0"
+          },
+          {
+            "from": 11.0,
+            "to": 12.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_small_house_sw",
+            "doing": "indoors"
+          },
+          {
+            "from": 12.0,
+            "to": 13.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_small_house_sw",
+            "doing": "dinner"
+          },
+          {
+            "from": 13.0,
+            "to": 15.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_small_house_sw",
+            "doing": "indoors while the council sits outside the fort"
+          },
+          {
+            "from": 15.0,
+            "to": 17.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1151.2,
+              "local_n": 216.4,
+              "heading_deg": 0.0
+            },
+            "doing": "out again by the door, watching the soldiers at the stores",
+            "activity": "talk",
+            "knot": "talk_440dd700"
+          },
+          {
+            "from": 17.0,
+            "to": 18.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_small_house_sw",
+            "doing": "supper"
+          },
+          {
+            "from": 18.0,
+            "to": 19.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1151.6,
+              "local_n": 214.4,
+              "heading_deg": 180.0
+            },
+            "doing": "watching the wagons loaded for the march",
+            "activity": "stand"
+          },
+          {
+            "from": 19.0,
+            "to": 19.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_small_house_sw",
+            "doing": "prayers on the mother's lap; to bed"
+          },
+          {
+            "from": 19.5,
+            "to": 24.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_small_house_sw",
+            "doing": "asleep; the march is set for nine next morning"
+          }
+        ]
+      }
+    ],
+    "presence": {
+      "from": "1812-01-01",
+      "to": "1812-08-15"
+    }
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 3,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": false,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "Reconstructed figure of The Holt child (name and sex not recorded) in the 1812 town, at each hour of each run of dates where the reading for T-3465 (docs/RESEARCH/people-1812-3465/day.json) puts them: indoors (asked for at the door) or out at their work, with the people they would be with. The hours, the places and the companions are ours (liberty L-1812-town-days-3463), each span graded with its own basis in the reading; what a source says of them is on their card. They wear the child toddler 1812 role dress, with their own face, height, build and colouring.",
+    "sources": [
+      "quaife_1913"
+    ],
+    "liberty": "L418",
+    "seed": "holt_child:1812:days:20261108",
+    "replaceable_by": "A diary, letter or order book of the post that says where they were and what they did on the day."
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "id": "hi_poindexter_thomas_1812",
+  "contract_version": 1,
+  "scene": "1812",
+  "person_id": "poindexter_thomas",
+  "appearance": {
+    "asset_id": "private_first_infantry_1812"
+  },
+  "placement": {
+    "local_e": 1205.6,
+    "local_n": 150.0,
+    "heading_deg": 90,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "idle",
+    "loop": true,
+    "phase": 0.938
+  },
+  "behaviour": {
+    "state": "standing",
+    "hours": [
+      5.5,
+      21.0
+    ],
+    "quarters": "first_fort_dearborn_soldiers_barracks_sw"
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 3,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": false,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "Reconstructed figure of Thos. Poindexter, private of Captain Nathan Heald's company of the First Infantry (on the company's muster-roll to 31 May 1812, Quaife 1913 App. VIII), by the merchant's shop, on the afternoon of 14 August 1812. Where he stands and what he is doing are ours (liberty L-1812-garrison-stations-3462): no guard report or order book of the post survives for that day, and nothing of it is acted out. He wears the company's blue coat faced red, the tall felt cap with its white feather, white crossbelts and linen overalls (T-3523; who wears what, and how his musket is carried, are ours, liberty L-1812-garrison-dress-3523). His face, height and build are seeded from his own name; no picture of him is known.",
+    "sources": [
+      "loc_ogden_1888_infantry_artillery_1802_1810",
+      "met_krimmel_1813_philadelphia_soldiery",
+      "quaife_1913",
+      "us_1812_rules_and_articles_albany",
+      "us_1814_military_laws_and_regulations",
+      "whistler_1808_fort_dearborn_draught"
+    ],
+    "liberty": "L418",
+    "seed": "poindexter_thomas:1812:merchant_shop:20261107",
+    "replaceable_by": "A guard report, order book or morning report of the post for August 1812, which would put him at his own duty."
+  }
+}

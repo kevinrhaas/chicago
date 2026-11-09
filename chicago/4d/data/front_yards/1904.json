@@ -153,11 +153,11 @@
  },
  "summary": {
   "lots": 149,
-  "shrubs": 150,
+  "shrubs": 153,
   "trees": 14,
   "beds": 11,
-  "creeper_patches": 54,
-  "attested_plants": 35,
+  "creeper_patches": 55,
+  "attested_plants": 38,
   "lots_with_a_door": 112,
   "schemes": {
    "corners": 77,
@@ -4576,6 +4576,36 @@
      0.0
     ],
     [
+     1476.4,
+     -3189.67,
+     "arborvitae",
+     1.95,
+     0.75,
+     "inferred",
+     0.0,
+     0.0
+    ],
+    [
+     1476.34,
+     -3190.73,
+     "hydrangea",
+     0.38,
+     0.94,
+     "inferred",
+     0.0,
+     0.0
+    ],
+    [
+     1476.87,
+     -3193.84,
+     "arborvitae",
+     1.06,
+     0.4,
+     "inferred",
+     0.0,
+     0.0
+    ],
+    [
      1457.43,
      -3193.59,
      "spiraea",
@@ -4770,31 +4800,39 @@
      "mantle"
     ],
     [
-     1453.93,
+     1450.18,
      -3186.59,
      179.29,
-     1.05,
+     1.01,
      5.05,
      "mantle"
     ],
     [
-     1454.68,
+     1454.43,
      -3186.34,
      179.29,
-     1.7,
+     0.81,
      5.06,
      "mantle"
     ],
     [
-     1455.43,
+     1454.93,
      -3186.59,
      179.29,
-     1.05,
+     1.63,
      5.43,
      "mantle"
     ],
     [
-     1451.68,
+     1455.68,
+     -3186.59,
+     179.29,
+     0.81,
+     5.18,
+     "mantle"
+    ],
+    [
+     1452.18,
      -3186.59,
      179.29,
      3.8,
@@ -5105,7 +5143,7 @@
     },
     "tubs": {
      "grade": "inferred",
-     "note": "Clipped evergreens in tubs on and before the palm house's terrace and before the stable's arcade, as the 1894 Inland Architect plate shows them in summer (a ball on its tub, a ball on a clear stem, and a slim clipped column by the 18th Street wall's east pier, which Taylor's photograph 16555 shows too), with the cone by the wing's arched door and the palm set out before the drum that Taylor's photograph shows. Inferred for 1 July 1904: tub plants were wintered under glass and set out again each summer, and no picture nearer 1904 shows the terrace. Four slim clipped columns are planted in the terrace itself, not tubbed (a pair before the wing's arched windows and two at the drum's west side): Taylor's winter photograph 16554 shows all four and his summer 16555 three of them (the fourth behind the house's porch), so they stood the year round. Behind the 18th Street coping before the stable, a row of sheared balls and cones, a clipped column and a dense mass at its east end, as Taylor's winter 16554 shows them over the coping; the earlier 16555 (1892-94) shows the taller of them there in leaf and the low balls not yet planted."
+     "note": "Clipped evergreens in tubs on and before the palm house's terrace and before the stable's arcade, as the 1894 Inland Architect plate shows them in summer (a ball on its tub, a ball on a clear stem, and a slim clipped column by the 18th Street wall's east pier, which Taylor's photograph 16555 shows too), with the cone by the wing's arched door and the palm set out before the drum that Taylor's photograph shows. Inferred for 1 July 1904: tub plants were wintered under glass and set out again each summer, and no picture nearer 1904 shows the terrace. Four slim clipped columns are planted in the terrace itself, not tubbed (a pair before the wing's arched windows and two at the drum's west side): Taylor's winter photograph 16554 shows all four and his summer 16555 three of them (the fourth behind the house's porch), so they stood the year round. Behind the 18th Street coping before the stable, a row of sheared balls and cones, a clipped column and a dense mass at its east end, as Taylor's winter 16554 shows them over the coping; the earlier 16555 (1892-94) shows the taller of them there in leaf and the low balls not yet planted. Inside the court's carriage mouth, the bed Taylor's 16555 shows before the stable's corner bay: a dark clipped evergreen (the 1894 plate's too), a low flowering mass and a small clipped cone."
     }
    }
   },

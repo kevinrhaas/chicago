@@ -135,9 +135,10 @@ console.log(`parked transport empty scenes: ${checks} checks pass — 1812, 1880
   const { supportsTownTransport } = await import('../renderers/web/js/transport-scenes.js');
   const legacy = await import('../renderers/web/js/transport-loop.js');
   assert.equal(legacy.supportsTownTransport, supportsTownTransport, 'old export is the same tiny guard');
-  for (const value of ['1835', '1904', 1835, 1904, new String('1835'), { toString: () => '1904' }])
+  // T-3497: 1812 has its fort wagons.
+  for (const value of ['1812', '1835', '1904', 1812, 1835, 1904, new String('1835'), { toString: () => '1904' }])
     assert.equal(supportsTownTransport(value), true);
-  for (const value of ['1812', '1880', '1905', null, undefined, false, {}, Symbol('1835')])
+  for (const value of ['1880', '1905', null, undefined, false, {}, Symbol('1835')])
     assert.equal(supportsTownTransport(value), false);
   const coercionError = new Error('coercion');
   assert.throws(() => supportsTownTransport({ toString() { throw coercionError; } }), (e) => e === coercionError);
@@ -153,15 +154,15 @@ console.log(`parked transport empty scenes: ${checks} checks pass — 1812, 1880
   const AsyncFunction = Object.getPrototypeOf(async function () {}).constructor;
   const boot = new AsyncFunction('YEAR', 'api', 'bases', 'people', 'peopleDirectory', 'confidence', 'streetGrid',
     'profiledGroundHeight', 'terrain', 'decks', 'footprints', 'walker', 'interactions', 'detailLevel', 'coarse',
-    'problems', 'scene3d', 'supportsTownTransport', 'importTown', 'draws', 'prepareSceneDirectoryPerson',
-    block.replace("import('./town-transport-scene.js')", 'importTown()'));
+    'problems', 'scene3d', 'supportsTownTransport', 'importTown', 'draws', 'prepareSceneDirectoryPerson', 'importGround',
+    block.replace("import('./town-transport-scene.js')", 'importTown()').replace("import('./transport-ground.js')", 'importGround()'));
   const previousFetch = globalThis.fetch;
   let configFetches = 0;
   globalThis.fetch = async () => { configFetches++; throw Error('Unexpected town config fetch'); };
   try {
     for (const year of ['1812', '1880', '1835', '1904']) {
       for (const failure of [null, 'import', 'mount', 'empty']) {
-        const api = { humans: {} }, people = {}, directory = {}, confidence = {}, terrain = {}, decks = {},
+        const api = { humans: {} }, people = {}, directory = {}, confidence = {}, terrain = { grid: {} }, decks = {},
           footprints = [], walker = { state: {} }, interactions = {}, bases = { dataBase: new URL('http://127.0.0.1/data/') };
         const problems = [], added = [], group = {}, calls = [];
         let imports = 0, directoryCalls = 0, cardPreparations = 0;
@@ -176,7 +177,9 @@ console.log(`parked transport empty scenes: ${checks} checks pass — 1812, 1880
           streetGrid, ground, terrain, decks, footprints, walker, interactions, 'balanced', false, problems,
           { add: (g) => added.push(g) }, supportsTownTransport,
           async () => { imports++; if (failure === 'import') throw Error('import failure'); return { mountTownTransport }; },
-          draws, prepareSceneDirectoryPerson);
+          draws, prepareSceneDirectoryPerson,
+          // T-3497: 1812's wheels and hooves read the same ground through its smoothing.
+          async () => ({ createSmoothedGround: ({ sample, grid }) => { assert.equal(grid, terrain.grid); return (e, n) => ['smooth', ...sample(e, n)]; } }));
         const supported = supportsTownTransport(year);
         assert.equal(imports, supported ? 1 : 0);
         assert.equal(configFetches, 0, 'no imported/fetched town configuration on unsupported boot');
@@ -190,7 +193,10 @@ console.log(`parked transport empty scenes: ${checks} checks pass — 1812, 1880
         if (failure === 'import') continue;
         assert.equal(calls.length, 1); const options = calls[0];
         assert.deepEqual(Object.keys(options).sort(), ['sceneId', 'dataBase', 'people', 'getPeople', 'preparePersonCard', 'humans', 'confidence',
-          'heightAt', 'footprints', 'visitor', 'interactions', 'detail', 'coarse', 'problems'].sort());
+          'heightAt', 'footprints', 'visitor', 'interactions', 'detail', 'coarse', 'problems',
+          'blockedAt', 'placeVisitor'].sort());
+        // T-3475: Step back reads the router's walkable grid (none yet: nothing blocks) and moves the walker.
+        assert.equal(typeof options.placeVisitor, 'function'); assert.equal(options.blockedAt(0, 0), false);
         assert.equal(options.preparePersonCard, year === '1835' ? null : prepareSceneDirectoryPerson,
           'the actual1835 resident layer keeps its existing cards;1904 gets optional preparation');
         assert.equal(options.sceneId, year); assert.equal(options.dataBase, bases.dataBase); assert.equal(options.people, people);
@@ -198,7 +204,7 @@ console.log(`parked transport empty scenes: ${checks} checks pass — 1812, 1880
         assert.equal(options.interactions, interactions); assert.equal(options.detail, 'balanced'); assert.equal(options.coarse, false);
         assert.equal(options.problems, problems); assert.equal(options.footprints(), footprints); assert.equal(options.visitor(), walker.state);
         assert.equal(options.getPeople(), directory); assert.equal(directoryCalls, 1);
-        assert.deepEqual(options.heightAt(2, 3), [year === '1904' ? 'road' : 'ground', 2, 3]);
+        assert.deepEqual(options.heightAt(2, 3), year === '1904' ? ['road', 2, 3] : year === '1812' ? ['smooth', 'ground', 2, 3] : ['ground', 2, 3]);
       }
     }
   } finally { globalThis.fetch = previousFetch; }

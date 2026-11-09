@@ -1,0 +1,39 @@
+{
+ "format": "chicago4d_human_looks_v1",
+ "ticket": "T-3466",
+ "person_id": "chicago_militia_unnamed_2",
+ "scene": "1812",
+ "generated_by": "docs/RESEARCH/people-1812-town/looks.py",
+ "heritage": {
+  "origin": "not recorded (see the basis)",
+  "family": "reading"
+ },
+ "complexion": {
+  "value": "fair",
+  "drawn": "fair",
+  "grade": "reconstructed"
+ },
+ "hair": {
+  "value": "sandy",
+  "drawn": "sandy",
+  "cut": "cropped_1812",
+  "facial": [],
+  "grade": "reconstructed"
+ },
+ "eyes": {
+  "value": "blue",
+  "drawn": "blue",
+  "grade": "reconstructed"
+ },
+ "stature": {
+  "inches": 70,
+  "grade": "reconstructed",
+  "basis": "Drawn as an Anglo-American discharged soldier: Wau-Bun says the people outside the fort were \"a few discharged soldiers and some families of half-breeds\", and the three deserters were \"two half-breeds and a Frenchman\" (Quaife). Which of the six was which is ours."
+ },
+ "height_scale": 1.016,
+ "basis": "Drawn in the words of the day reading for T-3466 (docs/RESEARCH/people-1812-3466/day.json): Drawn as an Anglo-American discharged soldier: Wau-Bun says the people outside the fort were \"a few discharged soldiers and some families of half-breeds\", and the three deserters were \"two half-breeds and a Frenchman\" (Quaife). Which of the six was which is ours. The drawn colours, cut and scale are a reconstructed rendering of those words (liberty L-1812-town-days-3463).",
+ "grade": "reconstructed",
+ "liberty": "L-1812-town-days-3463",
+ "replaceable_by": "A portrait or a description of them written in their lifetime.",
+ "build_words": "tall, lean"
+}

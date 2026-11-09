@@ -293,6 +293,48 @@ def walk_surface_profile(structure: dict, phase: dict):
         return None
     return reader(mod.from_phase(phase, structure))
 
+def underpinning(structure: dict, phase: dict):
+    """T-3492: the phase's underpinning, with the front doors the renderer steps up to.
+
+    The record says THAT a building stands on an underpinning and how far its sill
+    clears the highest ground under its walls (`phase.underpinning`); the renderer
+    (renderers/web/js/underpinning.js) measures the ground and builds it. What the
+    renderer cannot see is where the doors are, because a GLB is triangles, so they are
+    read here off the resolved parameter object, the same way `walk_passages` reads a
+    passage: `front_wall(params)` is the set-out the mesh itself cuts its openings from,
+    so the step and the door it serves are one set of numbers. `front_v_m` is the front
+    wall's plane, the footprint's max-v edge, in the footprint's own (u, v) frame.
+
+    `None` when the phase states no underpinning. A stated one on an archetype with no
+    `front_wall` keeps its underpinning and gets no step.
+    """
+    block = phase.get("underpinning")
+    if not isinstance(block, dict):
+        return None
+    out = {
+        "kind": block.get("kind", "fieldstone"),
+        "sill_clear_m": float(block.get("sill_clear_m", 0.2)),
+        "confidence": block.get("confidence", "reconstructed"),
+        "note": block.get("note", ""),
+        "doors": [],
+    }
+    arch = structure.get("archetype")
+    gen = str(ROOT / "generators")
+    if gen not in sys.path:
+        sys.path.insert(0, gen)
+    try:
+        mod = __import__(f"archetypes.{arch}_params", fromlist=["from_phase"])
+        params = mod.from_phase(phase, structure)
+        wall = mod.front_wall(params)
+        front_v = max(float(pt[1]) for pt in phase.get("footprint", {}).get("polygon", []))
+    except Exception:  # noqa: BLE001
+        return out
+    out["front_v_m"] = round(front_v, 4)
+    out["doors"] = [[round(float(o["u0"]), 4), round(float(o["u1"]), 4)]
+                    for o in wall.get("openings", []) if o.get("kind") == "door"]
+    return out
+
+
 def walk_passages(structure: dict, phase: dict):
     """T-2943: the passages a visitor may walk THROUGH a building's footprint, or `None`.
 
@@ -654,6 +696,9 @@ GROUND_GROUPS = [
     ("twelfth_street_shore_join_1812", "the lake shore at Twelfth Street"),
     ("battle_bank_1812", "the high sand bank of the battle"),
     ("heald_small_elevation_1812", "Heald's small elevation"),
+    ("tenth_street_rise_1812", "a low rise near the later Tenth Street"),
+    ("state_slough_1812", "the State Street slough, holding water"),
+    ("north_side_slough_1812", "the north-side slough, holding water"),
 ]
 
 
@@ -3116,6 +3161,11 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
                 # sighting — carried only where the record says, so a card never prints a
                 # bound the record chose (the scene's own year, most often) as a date.
                 **{k: rng[k] for k in ("from_is", "to_is") if k in rng},
+                # T-3527: a structure drawn only while its range holds (the 1812 gathering's
+                # camps, 12-16 August): the renderer hides it on any other day the Season or
+                # a jaunt sets (buildings.js setDate). Without the flag a range is a claim on
+                # a card and nothing hides.
+                **({"drawn_only_within": True} if rng.get("drawn_only_within") is True else {}),
             },
             # What this phase IS, in the record's own words. Written for a reader
             # and read by nobody: it is where a record says that a building holding
@@ -3143,6 +3193,9 @@ def compile_scene(scene_id: str, sources: dict, exclusions: dict) -> int:
                 "walk_surface_m": walk_surface_m(st, phase),
                 **({"walk_surface_profile": profile}
                    if (profile := walk_surface_profile(st, phase)) is not None else {}),
+                # T-3492: a sill carried clear of sloping ground, and the doors to step up to.
+                **({"underpinning": under}
+                   if (under := underpinning(st, phase)) is not None else {}),
             },
             # Carry the footprint's own confidence, not just its geometry — a bare
             # polygon loses precisely the thing the confidence view exists to show.

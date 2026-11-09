@@ -155,8 +155,11 @@ async function compressedPair(here, id) {
   return { normal, orl, meanRough };
 }
 
-/** One substrate's pair: `{ normal, orl, tileM, meanRough }`. */
-async function loadSubstrate(base, dir, lowSpec) {
+/**
+ * One substrate's pair: `{ normal, orl, tileM, meanRough }`. Exported for
+ * roof-relief.js, whose riven shingle (T-3041) takes the same pair by the same recipe.
+ */
+export async function loadSubstrate(base, dir, lowSpec) {
   const here = new URL(`${dir}/`, base);
   const res = await fetch(new URL('material.json', here), { cache: 'no-cache' });
   if (!res.ok) throw new Error(`${res.status} — ${new URL('material.json', here)}`);
@@ -266,6 +269,23 @@ const cache = new Map();
  * the clone it was patched when it is not.
  */
 const patched = new WeakSet();
+
+/**
+ * T-3510: the pair a substrate was ALREADY loaded with for this page and tier, or null —
+ * never a load. The 1812 crossing boats (crossings.js) wear the hewn-log face the town's
+ * log walls already hold, so they add no texture to a phone; where the walls were not
+ * bound (`?walls=flat`, a failed sheet) the boats fall back to their own flat colour.
+ */
+export async function loadedSubstrate(substrate, { assetBase = resolveBases().assetBase, lowSpec = false } = {}) {
+  const pending = cache.get(`${assetBase}|${lowSpec ? 'light' : 'full'}`);
+  if (!pending) return null;
+  try {
+    const set = (await pending).get(substrate);
+    return set ? { normal: set.normal, orl: set.orl, tileM: set.tileM, meanRough: set.meanRough } : null;
+  } catch {
+    return null;
+  }
+}
 
 /**
  * Load both substrates. Resolves to `{ problem, apply(material, sidecar) }`;

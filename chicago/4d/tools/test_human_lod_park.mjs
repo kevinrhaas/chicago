@@ -21,9 +21,17 @@ const actorSource = slice('export function chooseHumanLod(', '\nconst verbOf') +
   + slice('const PROXY_GEOMETRY', '\n/**\n * THE ENGINE.');
 const stubLife = () => ({ bound: true, bind() { return true; }, apply() {}, nod() {} });
 const stubActions = () => ({ bound: true, bind() { return true; }, apply() {}, takeNod() { return false; } });
-const HumanActor = new Function('THREE', 'createHumanLife', 'createHumanActions', 'enuToWorld',
-  `${constants}\n${actorSource}\nreturn HumanActor;`)(THREE, stubLife, stubActions,
-  (e, n, h, out) => out.set(e, h, -n));
+// T-3493: an older face's lids rest lower (human-skin.js restingLid); lift the real one.
+const skin = fs.readFileSync(new URL('../renderers/web/js/human-skin.js', import.meta.url), 'utf8');
+const lidSource = skin.match(/export const AGE = [^;]+;/)[0] + '\n' + skin.match(/export function restingLid\([\s\S]*?\n\}/)[0];
+const restingLid = new Function(`${lidSource.replace(/^export /gm, '')}\nreturn restingLid;`)();
+const stubGait = () => ({ bound: true, bind() { return true; }, apply() {}, speed: 1.3, pace: 1 });
+const stubSkirt = () => null;
+// T-3523: a soldier's musket hand (human-garrison.js); these figures carry nothing.
+const stubGarrisonCarry = () => null;
+const HumanActor = new Function('THREE', 'createHumanLife', 'createHumanActions', 'createHumanGait', 'createHumanSkirt', 'enuToWorld', 'restingLid', 'garrisonCarry',
+  `${constants}\n${actorSource}\nreturn HumanActor;`)(THREE, stubLife, stubActions, stubGait, stubSkirt,
+  (e, n, h, out) => out.set(e, h, -n), restingLid, stubGarrisonCarry);
 
 // The asset store, counting what is parsed and let go.
 const acquired = [], released = [];
@@ -74,7 +82,7 @@ assert.deepEqual(released, []);
 
 // A tier that no longer allows a level lets it go (Light draws 2 and 3 only).
 actor.tier = 'light';
-actor.update(.05, new THREE.Vector3(0, 0, 30));
+actor.update(.05, new THREE.Vector3(0, 0, 22));   // light's LOD2 band ends at 25 m (T-3463)
 assert.equal(actor.parked.size, 0, 'Light lets go of parked levels 0 and 1');
 assert.deepEqual(released.slice().sort(), [0, 1]);
 actor.tier = 'full';

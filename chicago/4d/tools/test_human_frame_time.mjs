@@ -74,7 +74,11 @@ const constants = required(engine.match(/export const HUMAN_TIERS[\s\S]*?export 
 const choose = required(engine.match(/export function chooseHumanLod\([\s\S]*?\n\}/), 'native human LOD selector')[0].replace(/^export /,'');
 const update = required(engine.match(/\n  update\(dt, cameraPosition, visualDt = dt\) \{([\s\S]*?)\n  \}\n\n  dispose/), 'human update')[1];
 const dispose = required(engine.match(/\n  dispose\(\) \{([\s\S]*?)\n  \}\n\}/), 'human disposal')[1];
-const actorUpdate = new Function('dt','cameraPosition','visualDt = dt',`${constants}\n${choose}\n${update}`);
+// T-3493: update() rests older faces' lids via human-skin.js restingLid; lift the real one.
+const skin = await readFile(new URL('../renderers/web/js/human-skin.js', import.meta.url), 'utf8');
+const lid = required(skin.match(/export const AGE = [^;]+;/), 'face age constants')[0].replace(/^export /,'')
+  + '\n' + required(skin.match(/export function restingLid\([\s\S]*?\n\}/), 'resting lid')[0].replace(/^export /,'');
+const actorUpdate = new Function('dt','cameraPosition','visualDt = dt',`${constants}\n${lid}\n${choose}\n${update}`);
 const actorDispose = new Function(dispose);
 function body() { const values = []; return {values,faces:[{}],mixer:{update(dt) { values.push(dt); }}}; }
 function actor() {
@@ -103,13 +107,23 @@ a.step(.05,.2); a.parked.set(1,body()); a.distanceForTest=200; a.step(.05,50); a
 assert.equal(a.parked.size,0,'Leaving draw range lets go of every parked level'); assert.equal(a.pruned.at(-1),true);
 a.distanceForTest=2; a.step(.25,50); a.step(.25,50); assert.equal(a.body.values.at(-1),0,'Draw-range re-entry starts without catchup');
 a.step(0,0); assert.equal(a.body.values.at(-1),0,'A held visual tick advances no idle');
+// T-3481: a figure on a looped route walks on while out of range (so she comes round again), and
+// walks once a frame, not twice, on the frame she comes back into range.
+{ const w = actor(); w.route = [{}, {}];
+  w.distanceForTest = 500; w.step(.05,.05); assert.equal(w.walks.length, 0, 'the frame it leaves range it is not walked twice');
+  w.step(.05,.05); assert.deepEqual(w.walks, [.05], 'out of range, a route walker still walks');
+  w.recheck = 0; w.distanceForTest = 2; w.step(.05,.05); assert.equal(w.walks.length, 2, 'back in range: one walk that frame');
+  w.step(.05,.05); assert.equal(w.walks.length, 3);
+  const still = actor(); still.distanceForTest = 500; still.step(.05,.05); still.step(.05,.05); assert.equal(still.walks.length, 0, 'a figure with no route does nothing out of range'); }
 actorDispose.call(a); const disposedCount=a.body; assert.equal(a.step(.05,50),false); assert.equal(a.body,disposedCount);
 const layerUpdate = required(engine.match(/\n    update\(dt, camera, visitor = null, visualDt = dt\) \{([\s\S]*?)\n    \},\n\n    \/\*\* The selectable/), 'human layer update')[1];
-const layerOf = (shown) => new Function('actors','near','emit','THREE','shown',`return function(dt,camera,visitor=null,visualDt=dt){${layerUpdate}}`)(new Map([['one',{inRange:true,instance:{},update(...args){forwarded.push(args);}}]]),new Set(),()=>{},{},shown);
+// T-3495: `kept` is the jaunt's hold on the everyday people; a held figure is not updated either.
+const layerOf = (shown, kept = () => true) => new Function('actors','near','emit','THREE','shown','kept',`return function(dt,camera,visitor=null,visualDt=dt){${layerUpdate}}`)(new Map([['one',{inRange:true,instance:{},update(...args){forwarded.push(args);}}]]),new Set(),()=>{},{},shown,kept);
 const forwarded=[]; const layer = layerOf(true);
 const eye={}; layer(.05,{position:eye},{e:1,n:2},3); assert.deepEqual(forwarded.at(-1),[.05,eye,3]);
 layer(.05,{position:eye}); assert.deepEqual(forwarded.at(-1),[.05,eye,.05],'Optional visual argument retains existing callers');
 const beforeHidden = forwarded.length; layerOf(false)(.05,{position:eye}); assert.equal(forwarded.length,beforeHidden,'People hidden (T-3439): no figure is updated or loaded');
+layerOf(true, () => false)(.05,{position:eye}); assert.equal(forwarded.length,beforeHidden,'Held by a jaunt (T-3495): the figure is not updated or loaded');
 
 // Actual shared horse-layer activation: reduced motion, ancestor/range visibility and tier changes cannot bank unseen time.
 const horseUpdate = required(standing.match(/    update\(camera, dt = 0, ([\s\S]*?)\n    \},\n    async setTier/), 'horse update');

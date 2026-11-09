@@ -91,6 +91,7 @@ TRAILS_ID = "worn_trails_1812"
 TRAILS_FILE = f"{TRAILS_ID}.json"
 
 GRID_M = 5.0          # the route grid; fine enough for a footpath on a plain this flat
+JOIN_COST = 0.4       # walking an already-worn line costs this share of open grass (T-3512)
 WET_Y = 0.75          # ground under this height above the lake is the low wet prairie
 WATER_Y = -0.10       # terrain.js SHORE_Y: below it the renderer calls the ground water
 
@@ -275,8 +276,13 @@ def _water_distance(water: np.ndarray, cap_cells: int) -> np.ndarray:
     return dist
 
 
-def route(a, b, *, bank_m=None, ford=True, margin_m=260.0, allow=(), via_box=None):
-    """The least-cost route from a to b on the GRID_M lattice (A*), as local ENU points."""
+def route(a, b, *, bank_m=None, ford=True, margin_m=260.0, allow=(), via_box=None, extra=(),
+          join=()):
+    """The least-cost route from a to b on the GRID_M lattice (A*), as local ENU points.
+    `extra` is more (sid, ring, bbox) obstacles for this route alone (T-3512: the camp
+    grounds a camp path is not bound for). `join` is lines already worn: walking on one is
+    cheaper (JOIN_COST), and the route ENDS where it first reaches one, so a new path runs
+    into an old one the way a desire line does instead of being drawn beside it."""
     e0 = min(a[0], b[0]) - margin_m
     e1 = max(a[0], b[0]) + margin_m
     n0 = min(a[1], b[1]) - margin_m
@@ -300,7 +306,7 @@ def route(a, b, *, bank_m=None, ford=True, margin_m=260.0, allow=(), via_box=Non
         cost += 2.2 * dev * dev
     cost[water] = 45.0 if ford else np.inf
     cost[off] = np.inf
-    for sid, ring, (x0, x1, y0, y1) in ROUTE_OBSTACLES:
+    for sid, ring, (x0, x1, y0, y1) in list(ROUTE_OBSTACLES) + list(extra):
         if sid in allow or x1 < e0 or x0 > e1 or y1 < n0 or y0 > n1:
             continue
         c0 = max(0, int((x0 - e0) / GRID_M) - 1)
@@ -320,6 +326,15 @@ def route(a, b, *, bank_m=None, ford=True, margin_m=260.0, allow=(), via_box=Non
 
     def cell(p):
         return (int(round((p[1] - n0) / GRID_M)), int(round((p[0] - e0) / GRID_M)))
+
+    on_join = np.zeros((rows, cols), dtype=bool)
+    for line in join:
+        for (x0_, y0_), (x1_, y1_) in zip(line[:-1], line[1:]):
+            k = max(1, int(math.hypot(x1_ - x0_, y1_ - y0_) / 1.5))
+            for j in range(k + 1):
+                r_, c_ = cell((x0_ + (x1_ - x0_) * j / k, y0_ + (y1_ - y0_) * j / k))
+                on_join[max(0, r_ - 1):max(0, r_ + 2), max(0, c_ - 1):max(0, c_ + 2)] = True
+    cost[on_join & np.isfinite(cost)] *= JOIN_COST
 
     start, goal = cell(a), cell(b)
     cost[start] = min(cost[start], 1.0) if np.isfinite(cost[start]) else 1.0
@@ -362,6 +377,13 @@ def route(a, b, *, bank_m=None, ford=True, margin_m=260.0, allow=(), via_box=Non
         k = came[cur]
         cur = (int(k // cols), int(k % cols))
     path.reverse()
+    if join:
+        # end at the first cell on a worn line, past the route's first few metres
+        for i in range(2, len(path)):
+            if on_join[cell(path[i])]:
+                end = path[i]
+                line = min(join, key=lambda L: math.dist(nearest_on(L, end), end))
+                return [list(a)] + [list(p) for p in path[1:i]] + [nearest_on(line, end)]
     pts = [list(a)] + [list(p) for p in path[1:-1]] + [list(b)]
     return pts
 
@@ -806,7 +828,218 @@ def paths():
         "alignment": "reconstructed: from the front door straight down to the bank opposite the fort",
         "line_local_enu_m": kl,
     })
+    out.extend(camp_paths(out))
     return out
+
+
+# --------------------------------------------------------------------------------------------
+# T-3512: the camp's own paths
+# --------------------------------------------------------------------------------------------
+#
+# The owner, 2026-11-08: *"The camps are also missing natural worn paths to each other and the
+# river and maybe even to the fort or factor house or important paths, make them natural."*
+# A gathering of some seven hundred people camped for days in groups a few dozen metres apart
+# wore its own lines across the grass: between the groups, down to the water every lodge drew
+# from (Wau-Bun ch. XIX: water dipped "from a stream that flowed near"), and to the factory and
+# the agency the gathering had come to trade at and be counselled by (Heald: they came "from all
+# quarters" for the factory's goods). Currey makes the creek their "favorite camping place", so
+# these lines were older than the August camp. No source draws one; every line, width and wear
+# is reconstructed under the same least-cost rule as the rest of this file, liberty
+# L-t3339-worn-ground-1812 (extended by T-3512).
+#
+# THE RULE: the camp grounds (tools/generate_camp_ground_1812.py's worn patches) are joined by
+# their minimum spanning tree plus every other link shorter than CAMP_LOOP_M that the tree left
+# out (people walk the short way, so a camp has loops); each ground whose worn edge is within
+# CAMP_WATER_M of open water has a path down to the bank, nearest first, a later one ending
+# where it meets one already worn and sharing a landing within CAMP_LANDING_M; and the ground
+# nearest the factory has a path toward the agency's door, which ends where it meets the
+# south-bank path that runs on there. A path starts on its camp's worn edge and steers round
+# every other camp ground.
+
+CAMP_LOOP_M = 75.0     # a link the tree left out is walked too if it is shorter than this
+CAMP_WATER_M = 170.0   # a camp this near open water wears its own path down to it
+CAMP_BANK_M = 3.0      # the water path ends this far up from the waterline
+CAMP_LANDING_M = 70.0  # a group's landing this near one already worn is that one
+
+
+def _camp_patches():
+    """Each camp ground's id and worn ring, as tools/generate_camp_ground_1812.py derives it."""
+    import generate_camp_ground_1812 as cg
+    return [(sc["id"], cg.blob(sc)) for sc in cg.camps()]
+
+
+def _ring_toward(ring, target, out_m=0.0):
+    """Where a ray from the ring's middle toward `target` leaves the ring, `out_m` beyond it."""
+    cx, cy = centre(ring)
+    dx, dy = target[0] - cx, target[1] - cy
+    L = math.hypot(dx, dy) or 1.0
+    ux, uy = dx / L, dy / L
+    best = 0.0
+    for a, b in zip(ring, ring[1:] + ring[:1]):
+        ex, ey = b[0] - a[0], b[1] - a[1]
+        den = ux * ey - uy * ex
+        if abs(den) < 1e-12:
+            continue
+        t = ((a[0] - cx) * ey - (a[1] - cy) * ex) / den
+        s = ((a[0] - cx) * uy - (a[1] - cy) * ux) / den
+        if t > 0 and 0 <= s <= 1:
+            best = max(best, t)
+    return [cx + ux * (best + out_m), cy + uy * (best + out_m)]
+
+
+def _dry_between(a, b, step=1.0):
+    """True when the straight line a-b crosses no open water."""
+    n = max(2, int(math.dist(a, b) / step))
+    return all(height(a[0] + (b[0] - a[0]) * i / n, a[1] + (b[1] - a[1]) * i / n) >= WATER_Y
+               for i in range(n + 1))
+
+
+def _nearest_dry_bank(p, reach):
+    """The dry point CAMP_BANK_M up from the open water nearest `p`, within `reach`, or None."""
+    step = 2.5
+    n = int(reach / step)
+    ee = p[0] + (np.arange(-n, n + 1) * step)
+    nn = p[1] + (np.arange(-n, n + 1) * step)
+    E, N = np.meshgrid(ee, nn)
+    H = height(E.ravel(), N.ravel()).reshape(E.shape)
+    wet = np.nan_to_num(H, nan=9.0) < WATER_Y
+    if not wet.any():
+        return None
+    d = np.hypot(E - p[0], N - p[1])
+    d[~wet] = np.inf
+    k = np.unravel_index(np.argmin(d), d.shape)
+    if not np.isfinite(d[k]) or d[k] > reach:
+        return None
+    we, wn = E[k], N[k]
+    ux, uy = p[0] - we, p[1] - wn
+    L = math.hypot(ux, uy) or 1.0
+    ux, uy = ux / L, uy / L
+    t = 0.0
+    while height(we + ux * t, wn + uy * t) < 0.15 and t < 40:
+        t += 0.5
+    return [float(we + ux * (t + CAMP_BANK_M)), float(wn + uy * (t + CAMP_BANK_M))]
+
+
+def camp_paths(existing):
+    # the Potawatomi groups only: Wells's Miami escort camped apart, by the fort, and came in
+    # on the 13th (it keeps its own worn ground and needs no path across the gathering's)
+    patches = [(sid, r) for sid, r in _camp_patches() if sid.startswith("potawatomi_camp")]
+    if not patches:
+        return []
+    camp_obs = {sid: (sid, _grow(ring, 2.0) if False else ring, _bbox(ring)) for sid, ring in patches}
+    # every other camp ground, grown 2.5 m, is an obstacle to a camp path not bound for it
+    grown = {}
+    for sid, ring in patches:
+        cx, cy = centre(ring)
+        g = [[cx + (x - cx) * (1 + 2.5 / max(1.0, math.hypot(x - cx, y - cy))),
+              cy + (y - cy) * (1 + 2.5 / max(1.0, math.hypot(x - cx, y - cy)))] for x, y in ring]
+        grown[sid] = (sid, g, _bbox(g))
+    del camp_obs
+
+    def others(*keep):
+        return [v for k, v in grown.items() if k not in keep]
+
+    cen = {sid: centre(ring) for sid, ring in patches}
+    rings = dict(patches)
+    ids = [sid for sid, _r in patches]
+    # the spanning tree (Prim) and the loops it left out
+    edges = sorted((math.dist(cen[a], cen[b]), a, b) for i, a in enumerate(ids) for b in ids[i + 1:])
+    inn = {ids[0]}
+    tree = []
+    while len(inn) < len(ids):
+        d, a, b = min((d, a, b) for d, a, b in edges if (a in inn) != (b in inn))
+        tree.append((d, a, b))
+        inn |= {a, b}
+    tree_set = {(a, b) for _d, a, b in tree}
+    links = list(tree) + [(d, a, b) for d, a, b in edges if (a, b) not in tree_set and d < CAMP_LOOP_M]
+    out = []
+    short = lambda sid: sid.replace("potawatomi_camp_1812_", "").replace("_camp_1812", "")
+    for d, a, b in sorted(links, key=lambda x: (x[1], x[2])):
+        pa = _ring_toward(rings[a], cen[b], -1.0)
+        pb = _ring_toward(rings[b], cen[a], -1.0)
+        raw = route(pa, pb, ford=True, margin_m=60, extra=others(a, b))
+        seed = (zlib_crc(a + b) % 997) / 97.0
+        line = shape(raw, "tread", seed, step=2.5)
+        loop = (a, b) not in tree_set
+        out.append({
+            "id": f"camp_path_{short(a)}_to_{short(b)}_1812",
+            "name": f"A camp path between the {short(a).replace('_', ' ')} and {short(b).replace('_', ' ')} groups",
+            "form": "tread", "width_m": 0.8 if loop else 1.0, "wear": 0.4 if loop else 0.55,
+            "treatment": "trodden_earth", "fords": True,
+            "existence": {"confidence": "reconstructed", "sources": [SRC["currey"], SRC["waubun"]],
+                          "note": "Currey (1912): 'groups of Indian wigwams clustered along the creek', the Potawatomi's 'favorite camping place'. That the groups wore paths between them is this project's reading of a camp of some seven hundred people a few dozen metres apart."},
+            "alignment": "reconstructed: the least-cost route between the two groups' worn edges, round every other group" + ("; a short link the spanning tree left out" if loop else ""),
+            "line_local_enu_m": line,
+        })
+    # to the water: nearest first, each joining a water path already worn if it meets one,
+    # and a landing within CAMP_LANDING_M of one already used is shared (a bank is walked to
+    # where it is easy to dip from, and the next group finds the path there)
+    wanted = []
+    for sid in ids:
+        bank = _nearest_dry_bank(cen[sid], CAMP_WATER_M + 25.0)
+        if bank is not None:
+            wanted.append((math.dist(cen[sid], bank), sid, bank))
+    landings, water_lines = [], []
+    for _d, sid, bank in sorted(wanted):
+        ring = rings[sid]
+        # shared only on this side of the water: a landing across the slough (T-3517) is
+        # another group's, and walking round the slough's head to it is no path to water
+        shared = next((q for q in landings if math.dist(q, bank) < CAMP_LANDING_M
+                       and _dry_between(q, bank)), None)
+        bank = shared or bank
+        start = _ring_toward(ring, bank, -1.0)
+        if math.dist(start, bank) < 6.0 or math.dist(start, bank) > CAMP_WATER_M:
+            continue
+        try:
+            raw = route(start, bank, ford=False, margin_m=40, extra=others(sid), join=water_lines)
+        except SystemExit:
+            continue   # no dry way down (the bank is built on): the group draws elsewhere
+        line = shape(raw, "tread", (zlib_crc(sid) % 991) / 89.0, step=2.0)
+        if not shared:
+            landings.append(bank)
+        water_lines.append(line)
+        out.append({
+            "id": f"camp_water_path_{short(sid)}_1812",
+            "name": f"The {short(sid).replace('_', ' ')} group's path down to the water",
+            "form": "tread", "width_m": 1.0, "wear": 0.6, "treatment": "trodden_earth",
+            "existence": {"confidence": "reconstructed", "sources": [SRC["waubun"]],
+                          "note": "Wau-Bun ch. XIX: at the wigwam Mrs. Helm was led to, water was dipped 'from a stream that flowed near'. Every lodge carried its water, every day, so each group wore a path to the bank, and the groups behind ran theirs into it."},
+            "alignment": "reconstructed: the least-cost route from the group's worn edge to the dry bank above the nearest open water, ending where it meets a water path already worn",
+            "line_local_enu_m": line,
+        })
+    # to the factory and the agency, from the ground nearest them: the line ends at the agent's
+    # house door, where the fort's own path to the agency and the factory already runs
+    fac_c = centre(FOOTPRINTS["first_fort_outer_factory"])
+    hub = min(ids, key=lambda s: math.dist(cen[s], fac_c))
+    b = door("first_fort_outer_agents_house", cen[hub], out_m=1.2)
+    a = _ring_toward(rings[hub], b, -1.0)
+    sbl = [t["line_local_enu_m"] for t in existing if t["id"] == "south_bank_path_1812"]
+    raw = route(a, b, ford=True, margin_m=120, extra=others(hub),
+                allow=("first_fort_outer_agents_house",), join=sbl)
+    CROSSES["camp_path_to_factory_1812"] = ("first_fort_outer_agents_house",)
+    out.append({
+        "id": "camp_path_to_factory_1812",
+        "name": "The camp's path to the agency and the factory",
+        "form": "tread", "width_m": 1.1, "wear": 0.65, "treatment": "trodden_earth", "fords": True,
+        "existence": {"confidence": "inferred", "sources": [SRC["waubun"], SRC["currey"]],
+                      "note": "The gathering had come for the factory's goods and the agent's council (Wau-Bun ch. XVIII: the council 'on the afternoon of the 12th'; the goods given out on the 14th). The traffic between the camp and the agency would have worn the camp's busiest line."},
+        "alignment": f"reconstructed: the least-cost route from the nearest group ({short(hub).replace('_', ' ')}) toward the agent's house door, beside the factory, ending where it meets the south-bank path that runs on to it",
+        "line_local_enu_m": shape(raw, "tread", 3.3, step=2.5),
+    })
+    # T-3527: the gathering wore these paths, so they are drawn on the gathering's days only,
+    # as its camps are (each camp record's documented_range with drawn_only_within)
+    import generate_camp_ground_1812 as cg
+    wins = [cg.window(sc) for sc in cg.camps() if sc["id"].startswith("potawatomi_camp")]
+    if wins and all(wins):
+        days = {"from": min(w["from"] for w in wins), "to": max(w["to"] for w in wins)}
+        for p in out:
+            p["drawn_within"] = dict(days)
+    return out
+
+
+def zlib_crc(text):
+    import zlib
+    return zlib.crc32(text.encode("utf-8"))
 
 
 # --------------------------------------------------------------------------------------------
@@ -980,7 +1213,7 @@ def trails_record():
         wet = int(np.sum(hs < WATER_Y))
         p["length_m"] = round(length(line), 1)
         p["wet_vertices"] = wet
-        if wet and p["id"] not in ("south_bank_path_1812", "north_bank_path_1812"):
+        if wet and p["id"] not in ("south_bank_path_1812", "north_bank_path_1812") and not p.get("fords"):
             bad_water.append(f"{p['id']}: {wet}")
         allow = ("first_fort_dearborn_pickets_outer", "first_fort_wharf") + CROSSES.get(p["id"], ())
         hits = sorted({blocked(q[0], q[1], allow=allow) for q in line} - {None})
@@ -1025,7 +1258,7 @@ def trails_record():
         "census": {"trails": len(ps), "metres": total},
         "assertions": [
             {"id": "no_trail_on_water",
-             "claim": "no vertex of any trail lies on water, except where the two bank paths ford a creek (the renderer leaves the ford's wet ground undrawn)",
+             "claim": "no vertex of any trail lies on water, except where the two bank paths and the camp paths marked `fords` cross a creek (the renderer leaves the ford's wet ground undrawn)",
              "found": bad_water, "holds": not bad_water},
             {"id": "no_trail_through_a_building",
              "claim": "no vertex of any trail lies on a structure's footprint (grown 1.2 m) other than the picket row its gate opens in and the wharf it ends at",

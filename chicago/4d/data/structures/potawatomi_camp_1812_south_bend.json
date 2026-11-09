@@ -1,0 +1,163 @@
+{
+  "id": "potawatomi_camp_1812_south_bend",
+  "name": "The Potawatomi camp of August 1812: the family lodges below the bend",
+  "aka": [
+    "the Pottowattamie encampment (Wau-Bun)",
+    "the Indian camp near the fort"
+  ],
+  "archetype": "lodge_camp",
+  "phases": [
+    {
+      "id": "camp_1812",
+      "documented_range": {
+        "drawn_only_within": true,
+        "from": "1812-08-12",
+        "to": "1812-08-16",
+        "confidence": "inferred",
+        "sources": [
+          "kinzie_waubun_1856",
+          "currey_1912_old_fort_dearborn"
+        ],
+        "note": "THE CAMP OF THE AUGUST GATHERING, DATED BY TWO EVENTS AND NOT BY A DAY IT WAS PITCHED. It opens on 12 August 1812: 'The Indians being assembled from the neighboring villages, a council was held with them on the afternoon of the 12th' (Wau-Bun ch. XVIII), so the gathering was camped by then; Heald's letter has them coming 'from all quarters' for the factory's goods, and nothing dates the first lodge, so the camp may be older than its range. It stood on the 14th, the scene date (Currey 1912 ch. III (lines 2239-2248), the view from the fort's walls on the evening of the last day, 14 August 1812: 'Toward the west was the Agency House, standing near the bank of the river, beyond which were the groups of Indian wigwams clustered along the creek that formerly flowed into the main stream at the present State Street.'), and on the 15th (Wau-Bun ch. XIX, Mrs. Helm's narrative of 15 August: led 'back towards the Chicago River, along the southern bank of which was the Pottowattamie encampment', to 'one of the wigwams', where water was dipped 'from a stream that flowed near' (Kinzie's footnote 36: 'Along the present State Street').). It closes on 16 August, the morning the fort was burned (Wau-Bun ch. XIX); when the gathering broke up after that no source read here says, and the 16th is the bound this project chose. Nothing of 1835 can draw it. T-2515; the groups rebuilt by T-3342."
+      },
+      "position": {
+        "utm_e": 447808.7,
+        "utm_n": 4637163.8,
+        "rotation_deg": 0.0,
+        "symbolic_location": "On the level ground south of the middle group, east of the south reach: local E +736..+772, N -232..-204.",
+        "confidence": "reconstructed",
+        "sources": [
+          "currey_1912_old_fort_dearborn",
+          "kinzie_waubun_1856"
+        ],
+        "note": "THE CAMP'S PLACE IS THE SOURCES', THIS GROUND IS OURS (T-3499). Currey puts the gathering's lodges 'clustered along the creek' at the later State Street on 14 August (1912 ch. III) and Wau-Bun the encampment on the river's south bank with a stream beside it (ch. XIX); T-3342's six grounds stand there. Helm's count of 679 people needs more roofs than those six give, so this ground is added to the cluster. On the level ground south of the middle group, east of the south reach: local E +736..+772, N -232..-204. Chosen by a search on the committed e1830_natural heightfield (docs/RESEARCH/gathering-camp-1812-3499/sites.py): its outline lies between -0.02 and +0.00 m of the origin's 0.86 m, every point 6 m outside it stands above 0.6 m (off the creek's cut), and it keeps 10 m from the other camp grounds, 15 m from every other 1812 footprint, 6 m from every worn trail and 4 m from the 1835 inferred households' footprints. The point recorded is the ground's south-west corner, the footprint's origin at rotation 0. L-1812-gathering-lodges-3499.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "A ground chosen on the bank of the committed state_slough swales against the e1830_natural heightfield, not a street line or a traced waterline validate.py can re-derive a coordinate from; the clearances and the outline's height spread are stated in the note."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            36.0,
+            0
+          ],
+          [
+            36.0,
+            28.0
+          ],
+          [
+            0,
+            28.0
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "The group's ground, 36.0 x 28.0 m, inside which the archetype lays its lodges, yards and gear out. INVENTED in its extent. L-1812-gathering-lodges-3499."
+      },
+      "form": {
+        "mat_lodges": {
+          "value": 4,
+          "confidence": "reconstructed",
+          "note": "4 in this group, sleeping 8 each by this project's rule. A family ground: the gear of a camp of families. L-1812-gathering-lodges-3499."
+        },
+        "long_lodges": {
+          "value": 1,
+          "confidence": "reconstructed",
+          "note": "1 in this group, sleeping 20 each by this project's rule. A family ground: the gear of a camp of families. L-1812-gathering-lodges-3499."
+        },
+        "bark_roofed_lodges": {
+          "value": 1,
+          "confidence": "reconstructed",
+          "note": "1 in this group, sleeping 8 each by this project's rule. A family ground: the gear of a camp of families. L-1812-gathering-lodges-3499."
+        },
+        "bark_houses": {
+          "value": 0,
+          "confidence": "reconstructed",
+          "note": "None in this group. A family ground: the gear of a camp of families. L-1812-gathering-lodges-3499."
+        },
+        "arbors": {
+          "value": 1,
+          "confidence": "reconstructed",
+          "note": "1 in this group. A family ground: the gear of a camp of families. L-1812-gathering-lodges-3499."
+        },
+        "hearths": {
+          "value": 2,
+          "confidence": "reconstructed",
+          "note": "2 in this group. A family ground: the gear of a camp of families. L-1812-gathering-lodges-3499."
+        },
+        "drying_racks": {
+          "value": 2,
+          "confidence": "reconstructed",
+          "note": "2 in this group. A family ground: the gear of a camp of families. L-1812-gathering-lodges-3499."
+        },
+        "scaffolds": {
+          "value": 1,
+          "confidence": "reconstructed",
+          "note": "1 in this group. A family ground: the gear of a camp of families. L-1812-gathering-lodges-3499."
+        },
+        "hide_frames": {
+          "value": 1,
+          "confidence": "reconstructed",
+          "note": "1 in this group. A family ground: the gear of a camp of families. L-1812-gathering-lodges-3499."
+        },
+        "woodpiles": {
+          "value": 1,
+          "confidence": "reconstructed",
+          "note": "1 in this group. A family ground: the gear of a camp of families. L-1812-gathering-lodges-3499."
+        },
+        "mortars": {
+          "value": 1,
+          "confidence": "reconstructed",
+          "note": "1 in this group. A family ground: the gear of a camp of families. L-1812-gathering-lodges-3499."
+        },
+        "canoes": {
+          "value": 0,
+          "confidence": "reconstructed",
+          "note": "None in this group. A family ground: the gear of a camp of families. L-1812-gathering-lodges-3499."
+        },
+        "horse_pickets": {
+          "value": 0,
+          "confidence": "reconstructed",
+          "note": "None in this group. A family ground: the gear of a camp of families. L-1812-gathering-lodges-3499."
+        },
+        "pack_saddles": {
+          "value": 0,
+          "confidence": "reconstructed",
+          "note": "None in this group. A family ground: the gear of a camp of families. L-1812-gathering-lodges-3499."
+        },
+        "canoe_edge": {
+          "value": "none",
+          "confidence": "reconstructed",
+          "note": "No canoes in this group. L-1812-gathering-lodges-3499."
+        },
+        "mat_condition": {
+          "value": "new",
+          "confidence": "reconstructed",
+          "note": "The mats' condition; which group has which is this project's. L-1812-gathering-lodges-3499."
+        }
+      },
+      "change_note": "A ground of the Potawatomi camp of the August 1812 gathering on the State Street creek: the family lodges below the bend. Added by T-3499 so the camp roofs Helm's count of the gathering; flagged for review."
+    }
+  ],
+  "function": {
+    "value": "gathering_camp",
+    "confidence": "attested",
+    "sources": [
+      "kinzie_waubun_1856",
+      "currey_1912_old_fort_dearborn"
+    ],
+    "note": "The camp of the Potawatomi gathered at Chicago in August 1812, before the evacuation of the fort: Wau-Bun's 'Pottowattamie encampment' on the river's south bank (ch. XIX) and Currey's 'groups of Indian wigwams clustered along the creek' on 14 August (ch. III). Heald's letter says they came in for the goods of the factory store; Wau-Bun's council of the 12th was held with them. Whose lodges these were the sources do not say lodge by lodge — Wau-Bun names the wife of Wau-bee-nee-mah, 'a chief from the Illinois River', standing at one wigwam — and no lodge here is given to a family, a band or a person."
+  },
+  "occupants": {
+    "value": "Sleeps 60 by this project's occupancy rule (a mat or bark-roofed lodge 8, a long lodge 20, a bark house 14). Who sleeps here is the gathering's households' to say (T-3500); no lodge is given to a named family or band by any source.",
+    "confidence": "reconstructed",
+    "note": "Helm counts the gathering, not its lodges: Helm's narrative (Quaife 1913, Appendix VI): 'Capt. William Wells arrived from Fort Wayne on the 12th August with 27 Miamis and after a council being held by him with the tribes there assembled to amount of 500 warriors 179 women & children'. L-1812-gathering-lodges-3499."
+  },
+  "research_note": "THIS RECORD IS FLAGGED review_required, AND touches_removal, because it builds the camp of the Potawatomi gathered at Chicago on the eve of 15 August 1812 — the people whose land this was and who were removed from it in 1835 — from accounts written by the garrison's side, settler historians and an agent among their neighbours. The owner's rulings of 2026-10-16 (AGENTS.md § Standing constraint) trust this project to draw Native depictions on fair and reasonable judgement and lift the hold the flags once put on the scene's release; the flags stay, and say why here. WHAT IS DRAWN (T-3499, beside T-3342's six grounds and in the same archetype): a family ground of mat lodges, a long lodge and their yards, racks, hide frame and mortar. WHY IT IS HERE: Helm's narrative (Quaife 1913, Appendix VI): 'Capt. William Wells arrived from Fort Wayne on the 12th August with 27 Miamis and after a council being held by him with the tribes there assembled to amount of 500 warriors 179 women & children'. The six T-3342 grounds sleep 270 at this project's occupancy rule and the gathering was 679, so seven grounds are added, sleeping 440. NOTHING IS STAGED, as in the six: no ceremony, council, dialogue or sacred lodge, and no lodge is given to a family, band or person by any source. WHAT WOULD REPLACE THIS: a source that counts or maps the lodges of August 1812, or places the camp more exactly. L-1812-gathering-lodges-3499.",
+  "review_required": true,
+  "touches_removal": true
+}

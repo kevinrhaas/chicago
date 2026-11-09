@@ -401,6 +401,10 @@ step "Jaunt flies to its start, welcome, final stop and readable road notes (T-3
   node tools/test_jaunt_start_finish.mjs
 step "Jaunt resources, Revise, endings and saved-session replay (T-1256)" \
   node tools/test_jaunt_mechanics.mjs
+step "Jaunts hold the everyday people out but for those each stop calls for, and give them back (T-3495)" \
+  node tools/test_jaunt_crowd.mjs
+step "A stop's hosts come to their marks, greet the visitor and go back about their day (T-3525)" \
+  node tools/test_jaunt_hosts.mjs
 step "Jaunt route and pace estimates (T-1280)" \
   node tools/test_travel_estimate.mjs
 step "Street travel keeps each pace on its surface and clears buildings (T-2496)" \
@@ -417,6 +421,8 @@ step "Glessner's front door swings open, and a visitor and a drawn person walk u
   node tools/test_house_doors.mjs
 step "John J. Glessner on his front walk is greeted, and goes home up his steps, through his door and in (T-3443)" \
   node tools/test_house_errands.mjs
+step "Glessner's court and side doors open and shut as people pass, up and down their stairs (T-3524)" \
+  node tools/test_house_passages.mjs
 step "Loaded parade ground delegates to its native owner; failed assets and sundial geometry remain required (T-3041)" \
   node tools/test_parade_presence.mjs
 step "Jaunt daybook: idempotent keepsakes, data ranks, honest recovery (T-1258)" \
@@ -455,6 +461,28 @@ step "An 1835 labourer's working dress is sourced, layered and skinned on the sh
   python3 tools/test_human_labourer_1835.py
 step "An 1812 First Infantry private's dress is sourced, dated, layered and skinned on the shared rig (T-3451)" \
   python3 tools/test_human_soldier_1812.py
+step "The 1812 women's dress (lady, working woman, woman of the country, Potawatomi woman) is sourced, layered, skinned and the Potawatomi figure held for review on the shared rig (T-3464)" \
+  python3 tools/test_human_women_1812.py
+step "The 1812 children's dress (town boy, girl and toddler; Potawatomi boy and girl) is sourced, layered and skinned on child bodies of the shared rig (T-3465)" \
+  python3 tools/test_human_child_1812.py
+step "An 1812 engagé's working dress is sourced, layered and skinned on the shared rig" \
+  python3 tools/test_human_engage_1812.py
+step "An 1812 Potawatomi man's everyday dress is sourced, layered, skinned and held for review on the shared rig" \
+  python3 tools/test_human_potawatomi_man_1812.py
+step "An 1812 First Infantry officer's dress (captain, lieutenant, surgeon's mate) is sourced, layered and skinned on the shared rig" \
+  python3 tools/test_human_officer_1812.py
+step "An 1812 trader's dress is sourced, layered and skinned on the shared rig" \
+  python3 tools/test_human_trader_1812.py
+step "An 1812 settler's working dress is sourced, layered and skinned on the shared rig" \
+  python3 tools/test_human_settler_1812.py
+step "A 1904 coachman's standing livery (Charles Nelson) is sourced, layered and skinned on the shared rig (T-3483)" \
+  python3 tools/test_human_coachman_1904.py
+step "A 1904 stable helper's working dress (August Billings) is sourced, layered and skinned on the shared rig (T-3484)" \
+  python3 tools/test_human_stable_helper_1904.py
+step "A 1904 cook's working dress (Kate Ryan) is sourced, layered and skinned on the shared rig, at the service stair (T-3479)" \
+  python3 tools/test_human_cook_1904.py
+step "A 1904 parlor maid's street dress and basket (Christine Nelson) are sourced and skinned, her loop on the block's walks (T-3481)" \
+  python3 tools/test_human_errand_1904.py
 
 step "Resident body normals share exact source seams without welding geometry or UVs (T-1789)" \
   python3 tools/test_human_source_normals.py
@@ -490,6 +518,9 @@ step "Catalogue Brougham preserves physical masters, exact optical delivery, lam
 
 step "A person's own card from a building's People tab: their story, why attested or inferred, the census line, Back to the household (T-3265)" \
   node tools/test_person_card.mjs
+
+step "Every 1812 and 1904 person has a story told for a visitor, with no research notes in it (T-3521)" \
+  node tools/test_person_stories.mjs
 
 step "People screen as a directory: households and people, search, a household's own card, Go to house (T-3430)" \
   node tools/test_people_directory.mjs
@@ -586,12 +617,64 @@ step "Current in-place horse travel keeps route, wheel, stop and culled-motion c
   node tools/test_transport_loop.mjs
 step "Driven assembly retains named drivers, vehicle ownership and exact current horse travel (T-2804)" \
   node tools/test_driven_assembly.mjs
+step "The 1812 fort wagons' rows are what their layer writes: roads, stops and hours (T-3497)" \
+  node tools/lay_driven_wagons_1812.mjs --check
+step "The 1812 crossing boats are what their layer writes: on dry banks, afloat at the stern, a path deep enough to float them over (T-3510)" \
+  python3 tools/lay_crossing_boats_1812.py --check
+step "Every 1812 boat builds, rests bow up the bank, and carries a visitor across and back with no jump, and the wharf's deck sits on its crib (T-3510)" \
+  node tools/test_crossings.mjs
 step "A seated driver breathes, looks round and holds his reins, bounded and deterministic, on the real 1904 driver (T-1790)" \
   node tools/test_driver_life.mjs
 step "People on foot breathe, shift weight with feet planted, look at a close visitor and blink irregularly, bounded and deterministic (T-3402)" \
   node tools/test_human_life.mjs
 step "People on foot rest their hands in, change stance, touch the hat brim to a close visitor and swing their arms against their feet, deterministic (T-3419)" \
   node tools/test_human_actions.mjs
+step "The 1812 garrison is at its duties: knots that talk, break up and come back together, sentries walking their posts, a rank before its sergeant, nobody standing loose on the parade, deterministic (T-3490)" \
+  node tools/test_human_duties.mjs
+step "The 1812 garrison's instance records are what place.py writes (T-3462, T-3490)" \
+  python3 docs/RESEARCH/people-1812-3462/place.py --check
+step "Each 1812 building's doors are where its model draws the leaf, and where one who answers stands (T-3463)" \
+  python3 tools/derive_doors_1812.py --check
+step "1812 people keep their day: off their dates nowhere (Lalime gone by 14 August, there in February), indoors or out by the hour, talking, at work, walking; a door offers Ask for whoever is inside, soldiers in quarters too, and the one asked for comes out to the visitor and goes back in (T-3463..T-3467)" \
+  node tools/test_human_days.mjs
+step "Nobody stands in anybody else's place: a talk in a ring, people standing together talk, one alone is at a job, and every year's figures kept a body's width apart through the day, and nobody stands in a mat or bark lodge wall (T-3504, T-3520)" \
+  node tools/test_human_spacing.mjs
+step "People keep busy all day: a talk gathers and parts again, each of its people at a job of their own or at play between, breaks indoors at their door and asked for there, every job's places clear of the buildings, the same round on every load; 1835 and 1904 too; most children indoors or by their own door, never a crowd of them without grown-ups (T-3505, T-3516, T-3520)" \
+  node tools/test_human_rounds.mjs
+step "1835's and 1904's drawn people's days are what days.py writes (T-3516)" \
+  python3 docs/RESEARCH/people-days-1835-1904/days.py --check
+step "The 1835 and 1904 buildings a day goes into are entered where the models and Glessner's record say (T-3516)" \
+  python3 tools/derive_doors_scene.py --check
+step "The 1812 town's people (Kinzie, Lalime, the officers, women, children, Potawatomi and Miami) are what place_town.py writes from their day readings, every indoor span at a building with a door (T-3463..T-3467)" \
+  python3 docs/RESEARCH/people-1812-town/place_town.py --check
+step "The cards of the 1812 town's people the 14 August sweep left out (Lalime, Irwin, the Mirandeaus, the camp families, the Miami escort) are what cards.py writes (T-3463..T-3467)" \
+  python3 docs/RESEARCH/people-1812-town/cards.py --check
+step "The 1812 town's looks files are what looks.py writes from the readings' own words (T-3463..T-3467)" \
+  python3 docs/RESEARCH/people-1812-town/looks.py --check
+# T-3530: the family the owner chose (2026-11-09) to live at the lodges by the river all 1812:
+# their day reading is what gen_day.py writes, so the cards, places and looks above read it.
+step "The family at the 1812 lodges by the river have the day reading gen_day.py writes: warm months, winter, trading mornings, 15 August (T-3530)" \
+  python3 docs/RESEARCH/people-1812-3530/gen_day.py --check
+step "Shabbona, Billy Caldwell and Alexander Robinson have the cards native_cards_1812.py writes, each placed where his sources tie him in August 1812 (T-3508)" \
+  python3 tools/native_cards_1812.py --check
+step "Every 1812 Potawatomi and Miami person is dressed as their own, as dress.py writes it (T-3506)" \
+  python3 docs/RESEARCH/native-dress-1812-3506/dress.py --check
+step "Every 1812 town child is dressed as their own, the girls' hair longer than the boys', as children.py writes it (T-3520)" \
+  python3 docs/RESEARCH/children-1812-3520/children.py --check
+step "Every 1812 settler, trader, engagé and townswoman is dressed as their own, as dress.py writes it (T-3522)" \
+  python3 docs/RESEARCH/town-dress-1812-3522/dress.py --check
+step "No two 1812 townspeople dressed alike; each hat made for its wearer's head, above the brow, rigid on the head bone, its crown and brim the wearer's own; on their card (T-3522)" \
+  node tools/test_human_town_dress.mjs
+step "People on foot walk heel to toe at a real pace and stride, the stance foot planted, the pelvis turning and rising over it, deterministic across LOD swaps; a child at a child's pace and stride, never on its knees, even nudged aside (T-3472, T-3520, T-3529)" \
+  node tools/test_human_gait.mjs
+step "A woman's skirt swings off her legs as she walks and never parts between them, the rest pose exact (T-3472)" \
+  node tools/test_human_skirt.mjs
+step "Each man of the 1812 garrison has his own complexion, hair, eyes and height from the period's registers, drawn on clones, on his card with a stand-in portrait (T-3491)" \
+  node tools/test_human_looks.mjs
+step "The 1812 garrison's looks files are what looks.py writes (T-3491)" \
+  python3 docs/RESEARCH/people-1812-3491/looks.py --check
+step "The 1812 garrison is dressed by rank and duty: NCOs' epaulettes on the shoulder, musicians' coats, drum and fife case, officers' sashes, men at work in fatigue clothes, sentries' muskets in the hand and the cornfield party's arms piled (T-3523)" \
+  node tools/test_human_garrison.mjs
 step "The driven team's generated walk and its hoof-support domain reproduce byte for byte, hooves planted without slide (T-2803)" \
   node tools/horse_walk_v2.mjs --check
 step "A driver's plain garments read as cloth: weave, heather and sheen by shader patch, no texture, one program (T-2804)" \
@@ -1087,6 +1170,15 @@ step "the 1904 front yards stand clear of every house, stoop, walk and door (T-3
 selftest "the front-yard check refuses a shrub on a door's way, beside a door and in a house, and ivy beside a door (T-3223, T-3227)" \
   python3 tools/plant_prairie_1904_front_yards.py --self-test
 
+# T-3488. ...and the back and side yards behind them: a back door and its steps on each house's
+# rear wall, a paved terrace at their foot, walks to the coach house, the alley and the front, drying
+# yards, kitchen gardens and side-lawn planting. Nothing it lays may stand in a building, a fence or a
+# stoop, or leave its lot, on the models as they stand now; then the file is what the tool writes.
+step "the 1904 back yards lie clear of every building, fence and stoop, inside their lots (T-3488)" \
+  python3 tools/lay_prairie_1904_back_yards.py --check
+selftest "the back-yard check refuses a terrace in a house, a walk in the next lot, a material and a door's structure it does not know (T-3488)" \
+  python3 tools/lay_prairie_1904_back_yards.py --self-test
+
 # T-3407. The 1812 commanding officer's garden: Whistler's beds and walks inside the paling,
 # and every plant inside a bed, re-derived byte for byte from the record and the draught.
 step "the 1812 officers' garden is laid in the draught's beds and planted inside them (T-3407)" \
@@ -1095,6 +1187,13 @@ selftest "the garden check refuses a plant off its bed, a bed past the paling an
   python3 tools/plant_gardens.py --self-test
 step "the 1812 officers' garden grows every crop it plants, near to far, inside a phone's budget (T-3407)" \
   node tools/test_gardens.mjs
+
+# T-3488. The 1904 back yards' renderer, headless on a fixture (under a second): paving lies on the
+# field cut on its lattice as a ground decal under the roadways, merged per material and chunk,
+# stoops step from the ground to their sills, missing maps fall back to flat tones, the Season
+# snows them and replants the kitchen rows, and a pick names lot, kind, material, grade, liberty.
+step "the 1904 back yards drape as decals under the roads, step to their sills and say what they are (T-3488)" \
+  node tools/test_back_yards.mjs
 
 # T-1840. ...and what stands on that grid's sheet 20 lots in 1904: the sheet census
 # (prairie_1904_v1/data/sheet_census/sheet-20.json) assigns every 1911 frontage row and
@@ -1761,6 +1860,12 @@ selftest "…and a missing, lossy, resized, mislabelled or orphaned derivative s
 # light tier drops the top of, and no .ktx2 sits in the library that no sheet names.
 step "every drop-in library sheet carries its KTX2: its web map's size, a full mip chain, no orphans (T-2582)" \
   python3 tools/ktx2_sheets.py --check
+
+# T-3501. ...and the pinned `ktx` those sheets (and every textured GLB) are encoded with
+# survives the release asset's 504s: a transient answer is waited out, a 404 and a .deb
+# whose sha256 is not the pin are refused at once. Against a local server, with no sleeps.
+selftest "…and the pinned KTX-Software fetch waits out a 5xx but refuses a 404 or a wrong sha256 (T-3501)" \
+  python3 tools/ktx2_sheets.py --self-test
 
 # T-2299. ...and the relief in them points the way its name says. The 1835 library's
 # generator wrote green as -dh/drow, the DirectX sign, into every `normal_gl` and filed
@@ -2961,6 +3066,17 @@ step "the forts' parade grounds re-derive from their parade records" \
 # lodge_camp footprint, derived from the camp's sidecars and listed in the 1812 manifest.
 step "the 1812 camp's worn ground re-derives from its camp records (T-3342)" \
   python3 tools/generate_camp_ground_1812.py --check
+# T-3526: and that ground states every lodge and bark house standing on it, so yards.js
+# leaves its earth out from under them: the cut is inside every foot, the mask uploads, and
+# a scene with no dwellings compiles no cut (the lodges "floated" over a navy band from afar).
+step "no yard earth under the 1812 camp's lodges, so their feet stand on the ground at any range (T-3526)" \
+  node tools/test_yard_dwelling_cut.mjs
+# T-3527: and the gathering's camps come and go with the date (the owner's pick, 2026-11-08,
+# after walking them empty in April): the camp records say `drawn_only_within`, the camp
+# ground and camp paths carry the same days, yards.js cuts that ground on any other day while
+# the every-day trails keep theirs, and buildings.js and main.js hand the date to both.
+step "the 1812 gathering's camps and their worn ground stand only on its August days (T-3527)" \
+  node tools/test_yard_dated_cut.mjs
 
 # And the ground BETWEEN the 1812 buildings (T-3339): the worn trails (the beaten lake-shore
 # trail, the Vincennes trace, the cart road south from the gate, the paths along both banks)
@@ -2969,6 +3085,23 @@ step "the 1812 camp's worn ground re-derives from its camp records (T-3342)" \
 # water, none through a building or a garden, every yard on dry ground.
 step "the 1812 worn trails and yards re-derive from the terrain and the footprints" \
   python3 tools/generate_worn_ground_1812.py --check
+
+# And what stands on that ground (T-3458): the woodpiles, chopping blocks, casks, cases and carts
+# round the 1812 houses, each placed by a fixed rule off its building's own walls and refused in
+# writing where the ground is wet, taken, fenced, on a trail or under a planted stem.
+step "the 1812 yard goods re-derive from the houses, fences, worn yards and trails (T-3458)" \
+  python3 tools/generate_yard_goods_1812.py --check
+
+# And the buildings themselves on that ground (T-3492): the renderer beds a building at the
+# lowest ground under its walls, which on the river bank put the factory's front door half in
+# the ground. A walled 1812 building on more than about a foot of fall carries its sill on an
+# underpinning (renderers/web/js/underpinning.js), and one on level ground may not.
+step "no 1812 building stands in the ground: a sill on sloping ground is carried on stone (T-3492)" \
+  python3 tools/check_sunken_sills.py
+selftest "…and the factory stripped of its underpinning, a level house given one, and a house moved onto the bank are each refused" \
+  python3 tools/check_sunken_sills.py --self-test
+step "the underpinning's pieces: outward faces, below the ground to the sill, a pier per stack, even doorsteps (T-3492)" \
+  node tools/test_underpinning.mjs
 
 # And the layer above that ground: the wood p4_0 draws outside the same walls (T-0098). Same
 # shape again — the plate attests a tree mass and places nothing, so which ground carries a

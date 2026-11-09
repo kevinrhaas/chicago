@@ -1,0 +1,603 @@
+{
+  "version": 1,
+  "license": "CC0-1.0",
+  "liberty": "L418",
+  "height_scale": 1.0,
+  "lod_ratios": [
+    1.0,
+    0.6,
+    0.28,
+    0.12
+  ],
+  "skin_texture": {
+    "path": "assets/authored/humans/skin_toigo_bronze/young_lightskinned_male_diffuse_Bronze.png",
+    "sha256": "5a53213f061bfa97ee0afd6b40650ffbc089a479c144e63f3c39acceca5853c0",
+    "license": "CC0-1.0",
+    "color_space": "sRGB",
+    "base_color_factor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "roughness": 0.68,
+    "roughness_basis": "Reconstructed engineering value, not measured from a period person or calibrated capture.",
+    "identity_basis": "Cleared reusable generic skin atlas; not a likeness, attested complexion, or source identifying any named/reconstructed resident.",
+    "uv_status": "Source atlas and UV registration viewed in source diagnostics; final Blender export/LOD render validation remains outstanding."
+  },
+  "hair_component": {
+    "directory": "assets/authored/humans/hair_short04",
+    "texture": "short04_diffuse_periodic_pad_draft.png",
+    "uv_transform": {
+      "source_height": 2048,
+      "top_rows": 8,
+      "bottom_rows": 1
+    },
+    "roughness": 0.65,
+    "alpha_cutoff": 0.4,
+    "appearance_basis": "Shared cleared CC0 short04 source fitted to existing Otis/Joseph/Martin bodies; hair/part/color are reconstructed choices, no period hairstyle attestation or individual likeness.",
+    "source_manifest_sha256": "68a02130cd50dd0d727f31f8f53702fe91bd9ecb9aa98309a7814191abf89e99"
+  },
+  "eye_components": {
+    "radius_m": 0.012,
+    "iris_radius_m": 0.0055,
+    "pupil_radius_m": 0.0022,
+    "corneal_bulge_m": 0,
+    "cornea_enabled": false,
+    "source_basis": "Actual helper centers/axes; original opaque sclera/iris/pupil, reconstructed dimensions and brown color, not resident facts",
+    "status": "No actual BPy/export/blink fit/photographic acceptance"
+  },
+  "label": "Reconstructed 1812 company officer of the First Infantry (long-skirted blue coat with a scarlet standing collar and cuffs, white turnbacks, silver buttons, lace and one epaulette, black stock, white waistcoat and pantaloons, boots to the knee, a sword on a white waist belt, a black chapeau bras worn fore-and-aft with a cockade and feather) on the shared portable male rig",
+  "scene_date": "1812-08-14",
+  "grade": "reconstructed",
+  "sources": [
+    "us_1814_military_laws_and_regulations",
+    "met_krimmel_1813_philadelphia_soldiery",
+    "us_1812_rules_and_articles_albany",
+    "loc_ogden_1888_infantry_artillery_1802_1810",
+    "quaife_1913",
+    "kirkland_1893_chicago_massacre"
+  ],
+  "basis": "Original coat shell offset from the cleared adult body's own surface (the 1812 private's), long skirts lofted round its sections with white turnbacks cut from their own surface, a stock and standing collar lofted round its neck with silver lace, an epaulette cut from the coat's shoulder, a belt lofted round the coat, a sword rigid on the pelvis, a waistcoat band and pantaloons on the body's own surface, boot shafts lofted round the legs and a chapeau seated round the skull, after the 1814 printing of the staff and artillery rules, the 1813 change read backwards, Krimmel's officer and the Heald sword. Seams, ease, lengths and colours are reconstructed. Complete source anatomy remains unchanged beneath clothing.",
+  "source_scope": "The 1814 Military Laws and Rules and Regulations print the uniform change of 1813 (no red collars or cuffs, no lace) and the staff and artillery officers' dress (chapeau, cockade, white feather, white waist belts, sashes on duty only, epaulettes by rank, surgeons' black velvet cape and plume), read here by analogy for the infantry; the 1802 act (in an 1812 compilation) issues the stock; Krimmel's Philadelphia soldiery of 1811-13 shows an officer in a long-skirted coat, chapeau fore-and-aft, sash and high boots; Ogden's 1888 plate of 1802-1810 the older long coat; Quaife (1913) prints the company's officers and the survival of Heald's sword, and Kirkland (1893) the plate of it. None shows the Fort Dearborn officers; no pixels or traced shapes enter the asset.",
+  "colors_linear_rgba": {
+    "skin": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "eyes": [
+      0.12,
+      0.09,
+      0.06,
+      1.0
+    ],
+    "garment_upper__coat_blue_officer_1812": [
+      0.016,
+      0.021,
+      0.06,
+      1
+    ],
+    "garment_upper__facings_scarlet_1812": [
+      0.42,
+      0.026,
+      0.02,
+      1
+    ],
+    "garment_upper__collar_black_velvet_1812": [
+      0.008,
+      0.008,
+      0.009,
+      1
+    ],
+    "garment_upper__white_1812": [
+      0.72,
+      0.71,
+      0.66,
+      1
+    ],
+    "garment_lower__pantaloons_white_1812": [
+      0.7,
+      0.68,
+      0.62,
+      1
+    ],
+    "accessory__black_leather_1812": [
+      0.01,
+      0.01,
+      0.011,
+      1
+    ],
+    "accessory__silver_1812": [
+      0.4,
+      0.4,
+      0.39,
+      1
+    ],
+    "accessory__brass_1812": [
+      0.46,
+      0.33,
+      0.11,
+      1
+    ],
+    "footwear__black_boots_officer_1812": [
+      0.011,
+      0.01,
+      0.01,
+      1
+    ],
+    "headwear__chapeau_black_1812": [
+      0.013,
+      0.012,
+      0.012,
+      1
+    ],
+    "headwear__plume_white_1812": [
+      0.8,
+      0.79,
+      0.75,
+      1
+    ],
+    "headwear__plume_black_1812": [
+      0.012,
+      0.012,
+      0.012,
+      1
+    ]
+  },
+  "workwear_coverage": {
+    "shoe_clearance_m": 0.004
+  },
+  "role_1812": {
+    "module": "human_officer_1812",
+    "prepare": "prepare_officer_assembly",
+    "assembly": "officer_1812_v1"
+  },
+  "proof_variants": [
+    {
+      "id": "officer_first_infantry_1812",
+      "component_assembly": "officer_1812_v1",
+      "officer_rank": "captain",
+      "person_reference_id": "anonymous_captain_first_infantry_1812",
+      "person_reference_scene": "1812",
+      "person_reference_grade": "reconstructed",
+      "person_reference_record": "data/sources/quaife_1913.json",
+      "reference_summary": {
+        "name": "a captain of the First Infantry at Fort Dearborn",
+        "named": false,
+        "unit": "First Regiment of Infantry",
+        "post": "Fort Dearborn",
+        "presence": "garrison",
+        "rank": "captain",
+        "epaulette": "right shoulder"
+      },
+      "body_input": "assets/authored/humans/makehuman_hm08/prepared_adult_25.json",
+      "body_parameters": {
+        "chosen_height_m": 1.75,
+        "height_basis": "The shared engineering body; not a recorded height.",
+        "engineering_age_years": 25,
+        "age_basis": "Engineering body at age 25: three of the four men who wear the role (Helm, Ronan, Van Voorhis) were in their early twenties; the captain was thirty-seven, and the variation kit ages each face. No age is read for the role.",
+        "shape_basis": "CC0 male macro targets; equal software-category blend is engineering only, not inferred ancestry or a portrait."
+      },
+      "body_basis": "CC0 adult-male graphical body and the shared young light-skinned generic skin of the period studies are reconstructed authoring choices. The figure is anonymous: an officer of the company whose roll Quaife prints, not any man on it; no complexion, height, face or outfit of anyone is asserted.",
+      "recipe_path": "data/humans/recipes/officer_1812.json"
+    },
+    {
+      "id": "officer_first_infantry_1812_lieutenant",
+      "component_assembly": "officer_1812_v1",
+      "officer_rank": "lieutenant",
+      "person_reference_id": "anonymous_lieutenant_first_infantry_1812",
+      "person_reference_scene": "1812",
+      "person_reference_grade": "reconstructed",
+      "person_reference_record": "data/sources/quaife_1913.json",
+      "reference_summary": {
+        "name": "a lieutenant or ensign of the First Infantry at Fort Dearborn",
+        "named": false,
+        "unit": "First Regiment of Infantry",
+        "post": "Fort Dearborn",
+        "presence": "garrison",
+        "rank": "lieutenant",
+        "epaulette": "left shoulder"
+      },
+      "body_input": "assets/authored/humans/makehuman_hm08/prepared_adult_25.json",
+      "body_parameters": {
+        "chosen_height_m": 1.75,
+        "height_basis": "The shared engineering body; not a recorded height.",
+        "engineering_age_years": 25,
+        "age_basis": "Engineering body at age 25: three of the four men who wear the role (Helm, Ronan, Van Voorhis) were in their early twenties; the captain was thirty-seven, and the variation kit ages each face. No age is read for the role.",
+        "shape_basis": "CC0 male macro targets; equal software-category blend is engineering only, not inferred ancestry or a portrait."
+      },
+      "body_basis": "CC0 adult-male graphical body and the shared young light-skinned generic skin of the period studies are reconstructed authoring choices. The figure is anonymous: an officer of the company whose roll Quaife prints, not any man on it; no complexion, height, face or outfit of anyone is asserted.",
+      "recipe_path": "data/humans/recipes/officer_1812.json"
+    },
+    {
+      "id": "surgeons_mate_first_infantry_1812",
+      "component_assembly": "officer_1812_v1",
+      "officer_rank": "surgeons_mate",
+      "person_reference_id": "anonymous_surgeons_mate_first_infantry_1812",
+      "person_reference_scene": "1812",
+      "person_reference_grade": "reconstructed",
+      "person_reference_record": "data/sources/quaife_1913.json",
+      "reference_summary": {
+        "name": "a surgeon's mate of the garrison at Fort Dearborn",
+        "named": false,
+        "unit": "First Regiment of Infantry",
+        "post": "Fort Dearborn",
+        "presence": "garrison",
+        "rank": "surgeon's mate",
+        "epaulette": "none"
+      },
+      "body_input": "assets/authored/humans/makehuman_hm08/prepared_adult_25.json",
+      "body_parameters": {
+        "chosen_height_m": 1.75,
+        "height_basis": "The shared engineering body; not a recorded height.",
+        "engineering_age_years": 25,
+        "age_basis": "Engineering body at age 25: three of the four men who wear the role (Helm, Ronan, Van Voorhis) were in their early twenties; the captain was thirty-seven, and the variation kit ages each face. No age is read for the role.",
+        "shape_basis": "CC0 male macro targets; equal software-category blend is engineering only, not inferred ancestry or a portrait."
+      },
+      "body_basis": "CC0 adult-male graphical body and the shared young light-skinned generic skin of the period studies are reconstructed authoring choices. The figure is anonymous: an officer of the company whose roll Quaife prints, not any man on it; no complexion, height, face or outfit of anyone is asserted.",
+      "recipe_path": "data/humans/recipes/officer_1812.json"
+    }
+  ],
+  "officer_components": {
+    "version": 1,
+    "generator": "tools/human_officer_1812.py",
+    "liberty": "L-human-modular-dress-1789",
+    "body_sha256": "e7b088b88ea18bb309ca990ef6c0cafea9420ac152d42d1351c1a9795daa9269",
+    "standing_source_only": false,
+    "production_eligible": false,
+    "photo_accepted": false,
+    "evidence_choice": "The brief asked for a company officer of the First Infantry in August 1812 as dress.json and the officers' research (people-1812-3463) read him: the long-skirted blue coat with scarlet collar and cuffs and silver lace (what the 1813 change took away), one silver epaulette by rank, white waistcoat and pantaloons, black stock, boots, a sword on a white waist belt and a chapeau worn fore-and-aft with cockade and white feather. No sash: it is worn only on a tour of duty, and this is the everyday figure (Ronan as officer of the day on the 14th and the march of the 15th would add one). Three variants on one geometry: a captain (epaulette right, Heald's curved stirrup-hilted sword), a lieutenant (epaulette left, straight sword; Helm, and Ronan the ensign as a lieutenant), and a surgeon's mate (no epaulette, black velvet collar, black plume, no lace; Van Voorhis).",
+    "tailoring": {
+      "coat": {
+        "ease": 0.02,
+        "armpit_extra": 0.02,
+        "sleeve_short_of_wrist": 0.022,
+        "top_below_neck": 0.008,
+        "waist_below_spine02": 0.022,
+        "cuff_depth": 0.07,
+        "smoothing": 60,
+        "smoothing_min_ease": 0.018
+      },
+      "collar": {
+        "ease": 0.018,
+        "bottom_below_neck": 0.034,
+        "back_above_neck": 0.072,
+        "below_stock_top": 0.004,
+        "front_gap_deg": 20.0,
+        "segments": 40,
+        "rows": 6
+      },
+      "lace": {
+        "from_gap_deg": 3.0,
+        "length_deg": 30.0,
+        "height": 0.012,
+        "centre_above_neck": -0.01,
+        "offset": 0.0022
+      },
+      "tails": {
+        "hem_y": 0.515,
+        "ease": 0.022,
+        "edge_top_deg": 72.0,
+        "edge_hem_deg": 130.0,
+        "vent_deg": 3.0,
+        "segments": 20,
+        "rows": 13
+      },
+      "turnbacks": {
+        "top_deg": 6.0,
+        "hem_deg": 17.0,
+        "offset": 0.0022
+      },
+      "buttons": {
+        "radius": 0.0078,
+        "count": 10,
+        "below_collar": 0.03,
+        "above_waist": 0.02,
+        "standoff": 0.0025,
+        "sides": 10
+      },
+      "epaulette": {
+        "inner_x": 0.08,
+        "outer_x": 0.2,
+        "strap_half": 0.018,
+        "pad_half": 0.04,
+        "pad_from_x": 0.145,
+        "pad_to_x": 0.185,
+        "above_arm": 0.022,
+        "offset": 0.0045,
+        "fringe_to_x": 0.24,
+        "fringe_deg": 100.0,
+        "fringe_offset": 0.008
+      },
+      "waistcoat": {
+        "waist_height_fraction": 0.585,
+        "band_ease": 0.014,
+        "band_below_waist": 0.03,
+        "band_above_coat_seam": 0.016
+      },
+      "pantaloons": {
+        "ease": 0.013,
+        "waist_height_fraction": 0.585,
+        "bottom_y": 0.4,
+        "thigh_fullness": 0.01,
+        "smoothing": 60
+      },
+      "boots": {
+        "bottom_y": 0.08,
+        "top_y": 0.46,
+        "ease_bottom": 0.006,
+        "ease_top": 0.016,
+        "segments": 28,
+        "rows": 9
+      },
+      "belt": {
+        "width": 0.034,
+        "above_seam": 0.003,
+        "offset": 0.0045,
+        "segments": 48
+      },
+      "sword": {
+        "length": 0.8,
+        "width": 0.032,
+        "thickness": 0.014,
+        "off_side": 0.026,
+        "z": -0.01,
+        "below_belt": 0.01,
+        "tilt_deg": 24.0,
+        "curve_deg": 14.0,
+        "segments": 12,
+        "hilt": 0.12,
+        "guard": 0.08,
+        "bow_out": 0.045
+      },
+      "chapeau": {
+        "seat_below_top": 0.066,
+        "ease": 0.012,
+        "length": 0.4,
+        "height": 0.165,
+        "point_lift": 0.03,
+        "point_width": 0.006,
+        "slices": 22,
+        "wall_rows": 7,
+        "wall_power": 1.5,
+        "cockade_radius": 0.054,
+        "cockade_z": 0.05,
+        "cockade_t": 0.42,
+        "loop_width": 0.016,
+        "plume_height": 0.2,
+        "plume_radius": 0.022,
+        "plume_lean": 0.035
+      }
+    },
+    "ranks": {
+      "captain": {
+        "epaulette": "right",
+        "curved": true,
+        "collar": "garment_upper__facings_scarlet_1812",
+        "plume": "headwear__plume_white_1812",
+        "lace": true
+      },
+      "lieutenant": {
+        "epaulette": "left",
+        "curved": false,
+        "collar": "garment_upper__facings_scarlet_1812",
+        "plume": "headwear__plume_white_1812",
+        "lace": true
+      },
+      "surgeons_mate": {
+        "epaulette": null,
+        "curved": false,
+        "collar": "garment_upper__collar_black_velvet_1812",
+        "plume": "headwear__plume_black_1812",
+        "lace": false
+      }
+    },
+    "garments": [
+      {
+        "id": "coat_blue",
+        "material": "garment_upper__coat_blue_officer_1812",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "us_1814_military_laws_and_regulations",
+            "met_krimmel_1813_philadelphia_soldiery"
+          ],
+          "source_scope": "Dark blue, single-breasted and buttoned: the 1813 change made the infantry coat \"uniformly blue; no red collars or cuffs: and no lace shall be worn by any grade\", so the blue coat with red facings and lace came before it; Krimmel draws an officer of 1811-13 in a long-skirted blue coat. The private's body cut, the ease and the closed front (the everyday figure; an undress coat might be worn open) are reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "cuffs_scarlet",
+        "material": "garment_upper__facings_scarlet_1812",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "us_1814_military_laws_and_regulations"
+          ],
+          "source_scope": "Scarlet cuffs, read backwards from the 1813 change; the scarlet a little brighter and cleaner than the private's (officer's superfine) is reconstructed, as is the cuff depth.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "collar_scarlet",
+        "material": "garment_upper__facings_scarlet_1812",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "us_1814_military_laws_and_regulations"
+          ],
+          "source_scope": "A scarlet standing collar to the ear, open at the throat over the stock: the red collar is read backwards from the 1813 change; its height and opening are reconstructed. It shares the cuffs' scarlet; the surgeon's mate's variant gives the same geometry a black velvet material of its own.",
+          "liberty": "L-human-modular-dress-1789"
+        },
+        "ranks": [
+          "captain",
+          "lieutenant"
+        ]
+      },
+      {
+        "id": "collar_black_velvet",
+        "material": "garment_upper__collar_black_velvet_1812",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "us_1814_military_laws_and_regulations"
+          ],
+          "source_scope": "Surgeons and mates \"will wear the same uniform except the cape, which is of black velvet; the plume black\" (the artillery section, printed 1814, by analogy for the infantry). A transcription not verified says medical staff wore blue collars and cuffs, and he may have worn plain civilian dress; recorded in the liberty.",
+          "liberty": "L-human-modular-dress-1789"
+        },
+        "ranks": [
+          "surgeons_mate"
+        ]
+      },
+      {
+        "id": "skirts_to_the_knee",
+        "material": "garment_upper__coat_blue_officer_1812",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "met_krimmel_1813_philadelphia_soldiery",
+            "loc_ogden_1888_infantry_artillery_1802_1810"
+          ],
+          "source_scope": "Long skirts behind to the bend of the knee: Krimmel's officer wears a long-skirted coat and Ogden's 1802-1810 coats reach the knee; the cut-away line, the vent and the length are reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "white_turnbacks_and_waistcoat",
+        "material": "garment_upper__white_1812",
+        "provenance": {
+          "grade": "reconstructed",
+          "source_ids": [
+            "us_1814_military_laws_and_regulations",
+            "met_krimmel_1813_philadelphia_soldiery"
+          ],
+          "source_scope": "White turnbacks on the skirts' front edges and a white waistcoat showing below the coat's front: no 1812 infantry text was read for either; the white follows the staff and artillery texts printed 1814 and the period pictures (dress.json). Widths reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "silver_buttons_lace_epaulette",
+        "material": "accessory__silver_1812",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "us_1814_military_laws_and_regulations"
+          ],
+          "source_scope": "Silver: the 1813 change took the lace away, so lace was worn; one epaulette, \"a captain, one on the right shoulder ... the lieutenants, one on the left\" (the light artillery text, printed 1814, by analogy). The ensign's on the left as a lieutenant's is ours; none for the surgeon's mate (a staff appointment) is ours. Ten buttons, one lace loop each side of the collar, the epaulette's size and the silver loop over the cockade are reconstructed; no lace on the breast (the one picture that shows it, Peale's Pike of 1808, is not cleared for asset use).",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "white_pantaloons",
+        "material": "garment_lower__pantaloons_white_1812",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "us_1814_military_laws_and_regulations",
+            "us_1812_rules_and_articles_albany"
+          ],
+          "source_scope": "White pantaloons (nankeen or linen in summer in the staff text printed 1814; linen overalls in the 1802 act's issue): close, into the boots; the cut is reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "black_leather_stock",
+        "material": "accessory__black_leather_1812",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "us_1814_military_laws_and_regulations",
+            "us_1812_rules_and_articles_albany"
+          ],
+          "source_scope": "A black stock of leather or silk (the general staff text printed 1814; the 1802 act's stock and clasp); the private's height. The scabbard and the sword's grip share the black leather.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "white_leather_waist_belt",
+        "material": "garment_upper__white_1812",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "us_1814_military_laws_and_regulations"
+          ],
+          "source_scope": "White leather waist belts (artillery officers, printed 1814, by analogy); worn over the coat, its width and place are reconstructed. It shares one flat white material with the turnbacks and the waistcoat (one draw fewer).",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "sword_brass_mounts",
+        "material": "accessory__brass_1812",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "quaife_1913",
+            "kirkland_1893_chicago_massacre",
+            "us_1814_military_laws_and_regulations"
+          ],
+          "source_scope": "The captain's sword curved with a stirrup hilt: Heald's sword survived with his family (Quaife ch. XI) and Darius Heald holds a curved, stirrup-hilted sword in Kirkland's 1893 plate (p. 179); the lieutenants' straight and brass-mounted by analogy with the artillery's yellow-mounted sword. Length, curve and hang are reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "boots_to_the_knee",
+        "material": "footwear__black_boots_officer_1812",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "us_1814_military_laws_and_regulations",
+            "met_krimmel_1813_philadelphia_soldiery"
+          ],
+          "source_scope": "High boots (the general staff text printed 1814; Krimmel's officer); plain black to just below the knee on the shared closed boot foot, reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "chapeau_bras_fore_and_aft",
+        "material": "headwear__chapeau_black_1812",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "us_1814_military_laws_and_regulations",
+            "met_krimmel_1813_philadelphia_soldiery"
+          ],
+          "source_scope": "A black chapeau with a black cockade (the staff and artillery texts printed 1814; \"cockades must always be worn\"), worn fore-and-aft as Krimmel's officer wears his. The half-moon's size and the cockade's place are reconstructed; no eagle on the cockade at this scale.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "white_feather",
+        "material": "headwear__plume_white_1812",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "us_1814_military_laws_and_regulations"
+          ],
+          "source_scope": "\"A white feather to rise eight inches\" (artillery officers, printed 1814, by analogy); its shape and lean are reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        },
+        "ranks": [
+          "captain",
+          "lieutenant"
+        ]
+      },
+      {
+        "id": "black_plume",
+        "material": "headwear__plume_black_1812",
+        "provenance": {
+          "grade": "inferred",
+          "source_ids": [
+            "us_1814_military_laws_and_regulations"
+          ],
+          "source_scope": "Surgeons and mates: \"the plume black\" (printed 1814, by analogy).",
+          "liberty": "L-human-modular-dress-1789"
+        },
+        "ranks": [
+          "surgeons_mate"
+        ]
+      }
+    ]
+  }
+}

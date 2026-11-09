@@ -2,7 +2,7 @@
   "structure_id": "pullman_house_1729_prairie",
   "view": "albertype_1890",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
-  "glb_sha256": "d9d4b45c8ab5da47cc304d1945f2ee3c1865d1f2f9b261fcd3190704d86304b7",
+  "glb_sha256": "968ac3f1a0a55b4c5a44645336d4ce0b08a24dc1971398cb7d6a4181d557528b",
   "camera_sha256": "ba9172fcab4191960cd5e108be9a1f82aff81603657b64df2e03511f7a2f1e57",
   "photo_sha256": "c7498f322ab0c1524dc09b963105fe53b0685a82557fb239e7a1217f0f803dca",
   "rendered_flora": {
@@ -10,10 +10,10 @@
     "lots": [
       {
         "parcel": "prairie_1729",
-        "shrubs": 26,
+        "shrubs": 29,
         "trees": 3,
         "beds": 0,
-        "creeper": 53
+        "creeper": 54
       }
     ],
     "street_trees": 36,
@@ -38,7 +38,7 @@
     },
     {
       "file": "renderers/web/js/front-yards.js",
-      "sha256": "7f4ba235f07a51d60ba052a507137919c58c6a0bfeeb45a6a9696e112ab092b3"
+      "sha256": "1d76c4415a93713c9e01d4b8400d4dbb0175f88a8eadb3414a66b7666f3be2ff"
     },
     {
       "file": "renderers/web/js/street-trees.js",
@@ -50,7 +50,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "5225613ca5dd36a0e7577b2f0aed62e1a9cf15f4af2a39cd233b8d1cf97d40d2"
+      "sha256": "1ec46dc2bfb15d13dab2260c022b31d4ee88b7302aab5be62069b2eaf5e198e2"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -62,10 +62,10 @@
     },
     {
       "file": "renderers/web/js/trees.js",
-      "sha256": "bd022919ca052610595908f83128dfceea976790c5bf2eff63f381abaa3b89b5"
+      "sha256": "83513a6667d725328ce9e0c5ed00c0a69ab3b61e5f4dbc9dfaccf6e6122def73"
     }
   ],
-  "flora_sha256": "6b25f19ad0d3569e8ad87c5f05143f2092cd9b74c87a2bb5e21040f9832efb41",
+  "flora_sha256": "33e1a84d99150240542f6a411ee789fbf1941a8ebd50340f2e08ecdcbc02bff2",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/albertype_1890-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
@@ -225,6 +225,15 @@
       "what": "the portico's entablature and deck: the plate runs the entablature from the north block's banded corner pier across to the column south of the door, its balustraded deck over the columns either side of the door",
       "status": "fixed",
       "how": "T-1881 (2026-11-06): the portico now runs v 1.6-8.425, before the north block as well as the entry (L-pullman-1729-three-part-front-1881); aligned on the north-west corner, its two columns either side of the door render within about 3-7 px of the plate's, and its entablature now starts at the corner pier as the plate's does. Its north column stands about 15 px inside the plate's corner pier, which the vignette draws banded: within tolerance at this scale (about 1 px a 10 cm), and the deck's balustrade north of the door, which the vignette's tree and branches cover, is not shown."
+    },
+    {
+      "what": "[T-1881, 2026-11-07] re-rendered after 18th Street's parkway tree at 58.8 m (before the house's south-east corner) was regrown from the grown elm's forked fountain to a straight leader under a narrow head (form high_head, scale 0.65), off Taylor's 16554 and the Detroit print det 4a08066; the other high_head trees keep their places and habit, their crowns re-dealt. The 58.8 m tree is out of this view; the house's own Prairie and 18th Street parkway trees stand where they did, on the same habit, so the verdict stands.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "[T-1934, 2026-11-08 (the 16555 sign-off)] re-rendered after data/front_yards/1904.json was regenerated: the court bed's three plants added, and the 18th Street flank's ivy re-laid on the rebaked house (the committed file was behind the models); against the previous render nothing in the render changes",
+      "status": "within tolerance",
+      "how": "compared render against render at full size; nothing over the bar moved"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

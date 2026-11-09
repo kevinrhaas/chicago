@@ -182,6 +182,27 @@ them, in documented mat or bark forms, never a generic tipi. Every lodge record 
 `review_required` + `touches_removal` and its own reason. The former consultation release block
 is superseded by the 2026-10-16 ruling. No August gathering is backdated into a July scene.
 
+**Owner ruling, 2026-11-08, verbatim** (walking the 1812 camps, T-3506..T-3509): *"all the people
+look identical like all wearing the same clothing and identical hair ... you have permission to
+reconstruct names for each of the natives. Do it in a researched and respectful naming and note
+that in the record. I want the native cards to be equivalent to the settler and population cards
+and note where there were reconstructions and derive a history for that individual as a
+reconstructed history"*; *"If you think or believe that someone you have names of natives you can
+respectfully include them and assign them to a likeness ... if you know of families and natives
+who were in and around the area and would have been at the camps possibly you should include
+them"*; *"Some of those folks will participate in the battle so please assign the likely battle
+participants"*.
+- Every Native person is dressed as their own (`data/humans/variation/dress_1812_native.json`).
+- A Native card no source names gets a **reconstructed name** (English, in the treaty clerks'
+  style, made by the gens practice Morgan records; never a name a source gives anyone of these
+  bands) and a **reconstructed history**, each marked on the card (`name_basis`, `history`,
+  grade `reconstructed`; `tools/native_cards_1812.py`, L-1812-native-cards-3507).
+- Named men of the bands (the 1815 and 1816 treaty signers) may take cards of the unnamed; their
+  names are attested, their presence is reconstructed and the card says so.
+- **Each card carries its part in 15 August 1812** (`on_15_august`), graded: a named person's from
+  his sources, the unnamed as "likely" (reconstructed). This supersedes the rule that no
+  individual is given a part in the fighting. **The fighting is still not staged in any scene.**
+
 The owner's 2026-10-18 transport request includes period-clothed drivers, riders,
 people standing near horses/carriages and walking streets at photographic quality.
 Later steering prioritizes existing attested, inferred or reconstructed people as

@@ -93,6 +93,13 @@ function figure() {
   const near1 = growHair({ hair: cap, root, style: { ...style, facial: [] }, lod: 1, seed: 'a' });
   assert(near1.position.length < g.position.length, 'LOD1 grows less than LOD0');
   assert.equal(growHair({ hair: cap, root, style, lod: 2, seed: 'a' }), null, 'LOD2 grows none');
+  // T-3506: a tied cut with a tail grows the tail at LOD0 and, alone, at LOD2.
+  const tied = { ...style, cut: 'tied_high_1812', facial: [], tail_cm: 20 };
+  const t0 = growHair({ hair: cap, root, style: tied, lod: 0, seed: 'a' });
+  assert(t0.grown.tail > 0 && t0.grown.scalp > 0, 'a tied cut grows its tail beside the scalp');
+  const t2 = growHair({ hair: cap, root, style: tied, lod: 2, seed: 'a' });
+  assert(t2 && t2.grown.tail === CARDS.lods[2].tail && t2.grown.scalp === 0, 'LOD2 grows the tail alone');
+  assert.equal(growHair({ hair: cap, root, style: { ...tied, tail_cm: 0 }, lod: 2, seed: 'a' }), null, 'no tail, nothing at LOD2');
 }
 
 // 2. dressHair: one skinned sibling of the cap, no texture, its card vertices skinned to the
@@ -191,7 +198,11 @@ assert.equal(hairFor(null, 1600), null, 'no era, no hair grown');
     try { index = JSON.parse(await fs.readFile(new URL(`data/humans/instances/${year}/index.json`, here), 'utf8')); } catch { continue; }
     for (const id of index.instances) {
       const rec = JSON.parse(await fs.readFile(new URL(`data/humans/instances/${year}/${id}.json`, here), 'utf8'));
-      if (sexOf[rec.appearance.asset_id]?.sex === 'female') assert(rec.person_id && PEOPLE_HAIR[rec.person_id], `${id}: a woman drawn in the town has her own hair row`);
+      if (sexOf[rec.appearance.asset_id]?.sex !== 'female') continue;
+      // T-3464: or her own looks file (data/humans/variation/looks/), whose hair names her cut and colour.
+      let looks = null;
+      try { looks = JSON.parse(await fs.readFile(new URL(`data/humans/variation/looks/${rec.person_id}.json`, here), 'utf8')); } catch { /* none */ }
+      assert(rec.person_id && (PEOPLE_HAIR[rec.person_id] || (looks?.hair?.cut && looks.hair.drawn)), `${id}: a woman drawn in the town has her own hair row`);
     }
   }
 }
@@ -250,6 +261,13 @@ assert.equal(hairFor(null, 1812), null, 'the 1812 private grows no strand hair u
   assert(mattie === null || mattie.grown.scalp === 0, `no scalp cards over her bun: ${mattie?.grown.scalp}`);
   assert.equal(cap.material.alphaTest, before, 'her cap keeps its own alpha cut');
   assert(FACIAL_HAIR.lashes_upper && hairFor('rc_flynn_mary', 1835).facial.includes('lashes_upper'), 'both women grow lashes');
+  // T-3493 (owner: lashes read "like they are double eyebrows ... her eyelashes dont move"):
+  // lashes root on the upper lid's own edge, free of the skin, and a brow colour of a row's own
+  // names a colour of the table.
+  const lash = FACIAL_HAIR.lashes_upper;
+  assert(lash.lid === 'upper' && lash.per_cm > 0 && lash.rise > 0 && !lash.region_cm, 'lashes grow on the lid edge, not combed over a region');
+  for (const [id, row] of Object.entries(PEOPLE_HAIR)) if (row.brow_colour) assert(HAIR_COLOURS[row.brow_colour], `${id}: brow colour ${row.brow_colour}`);
+  assert.equal(hairFor('glessner_frances_m', 1904).brow_colour, 'light_brown', 'Frances\'s brows are lighter than her hair');
   // T-3456 (owner: brows "super clumpy bunchy"): the fine brow is rooted point by point and
   // evenly spaced, its hairs rising at the nose and falling at the tail.
   const brow = FACIAL_HAIR.brows_fine;
@@ -329,9 +347,9 @@ assert.equal(hairFor(null, 1812), null, 'the 1812 private grows no strand hair u
 
 // 5. Every person: humans.js grows each near body's hair after it measures its height.
 const humans = await fs.readFile(new URL('renderers/web/js/humans.js', here), 'utf8');
-assert(/import \{ dressHair \} from '\.\/human-hair\.js';/.test(humans));
+assert(/import \{ dressHair(, dressHeadcloth)? \} from '\.\/human-hair\.js';/.test(humans));
 assert(/this\.proxy\.scale\.y = [^\n]*\n[\s\S]{0,400}dressHair\(scene, \{ lod,/.test(humans), 'build() grows the hair, after the height is measured');
-assert(/dressHair\(scene[^\n]*\n[\s\S]{0,200}dressSpectacles\(scene, \{ lod,/.test(humans), 'build() puts on spectacles after the hair (T-3440)');
+assert(/dressHair\(scene[^\n]*\n[\s\S]{0,800}dressSpectacles\(scene, \{ lod,/.test(humans), 'build() puts on spectacles after the hair (T-3440)');
 // Liberty: the hair supplement under L418 names this ticket.
 const liberties = await fs.readFile(new URL('docs/LIBERTIES.md', here), 'utf8');
 assert(/\*\*Strand hair, beards and eyes \(2026-11-06, T-3414\):\*\*/.test(liberties), 'L418 carries the hair supplement');

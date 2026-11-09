@@ -1,0 +1,1240 @@
+{
+  "id": "hi_town_kinzie_john_elder_1812",
+  "contract_version": 1,
+  "scene": "1812",
+  "person_id": "kinzie_john_elder",
+  "appearance": {
+    "asset_id": "trader_1812"
+  },
+  "placement": {
+    "local_e": 1179.0,
+    "local_n": 347.0,
+    "heading_deg": 350.0,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "idle",
+    "loop": true,
+    "phase": 0.403
+  },
+  "behaviour": {
+    "state": "standing",
+    "day": [
+      {
+        "dates": {
+          "from": "1804-05-01",
+          "to": "1812-04-05"
+        },
+        "note": "at home across the river: the trader's ordinary day",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.5,
+            "to": 6.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1179.0,
+              "local_n": 347.0,
+              "heading_deg": 350.0
+            },
+            "doing": "at the stable door with his servant, seeing the horses watered and fed",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1180.38,
+                "local_n": 347.24
+              },
+              {
+                "local_e": 1177.62,
+                "local_n": 346.76
+              }
+            ]
+          },
+          {
+            "from": 6.5,
+            "to": 7.5,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "breakfast"
+          },
+          {
+            "from": 7.5,
+            "to": 11.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "in the store room: furs and skins in, blankets, cloth and silver out, every bargain into the account book"
+          },
+          {
+            "from": 11.0,
+            "to": 12.5,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "at his bench, beating and punching silver brooches and arm-bands"
+          },
+          {
+            "from": 12.5,
+            "to": 13.5,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "dinner"
+          },
+          {
+            "from": 13.5,
+            "to": 13.8,
+            "indoors": true,
+            "away": true,
+            "doing": "paddling a pirogue across to the fort"
+          },
+          {
+            "from": 13.8,
+            "to": 16.5,
+            "indoors": true,
+            "where": "first_fort_outer_merchants_shop",
+            "doing": "at the sutler's counter: soldiers' tobacco, whiskey, thread and shoes on credit, and the accounts"
+          },
+          {
+            "from": 16.5,
+            "to": 16.8,
+            "indoors": true,
+            "away": true,
+            "doing": "paddling home"
+          },
+          {
+            "from": 16.8,
+            "to": 18.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1166.5,
+              "local_n": 354.0,
+              "heading_deg": 90.0
+            },
+            "doing": "at the lodging house, giving the Frenchmen their work for the morning",
+            "activity": "stand"
+          },
+          {
+            "from": 18.5,
+            "to": 19.5,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "supper"
+          },
+          {
+            "from": 19.5,
+            "to": 21.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1150.0,
+              "local_n": 334.8,
+              "heading_deg": 180.0
+            },
+            "doing": "on the piazza with his fiddle",
+            "activity": "stand"
+          },
+          {
+            "from": 21.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "asleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-04-06",
+          "to": "1812-04-06"
+        },
+        "note": "the evening of the Lee's Place alarm",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.5,
+            "to": 6.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1179.0,
+              "local_n": 347.0,
+              "heading_deg": 350.0
+            },
+            "doing": "at the stable door with his servant, seeing the horses watered and fed",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1180.38,
+                "local_n": 347.24
+              },
+              {
+                "local_e": 1177.62,
+                "local_n": 346.76
+              }
+            ]
+          },
+          {
+            "from": 6.5,
+            "to": 7.5,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "breakfast"
+          },
+          {
+            "from": 7.5,
+            "to": 11.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "in the store room: furs and skins in, blankets, cloth and silver out, every bargain into the account book"
+          },
+          {
+            "from": 11.0,
+            "to": 12.5,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "at his bench, beating and punching silver brooches and arm-bands"
+          },
+          {
+            "from": 12.5,
+            "to": 13.5,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "dinner"
+          },
+          {
+            "from": 13.5,
+            "to": 13.8,
+            "indoors": true,
+            "away": true,
+            "doing": "paddling a pirogue across to the fort"
+          },
+          {
+            "from": 13.8,
+            "to": 16.5,
+            "indoors": true,
+            "where": "first_fort_outer_merchants_shop",
+            "doing": "at the sutler's counter: soldiers' tobacco, whiskey, thread and shoes on credit, and the accounts"
+          },
+          {
+            "from": 16.5,
+            "to": 16.8,
+            "indoors": true,
+            "away": true,
+            "doing": "paddling home"
+          },
+          {
+            "from": 16.8,
+            "to": 18.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1166.5,
+              "local_n": 354.0,
+              "heading_deg": 90.0
+            },
+            "doing": "at the lodging house with the Frenchmen",
+            "activity": "stand"
+          },
+          {
+            "from": 18.0,
+            "to": 19.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "by the fire playing his fiddle while the children dance; the tea-table spread for his wife's return"
+          },
+          {
+            "from": 19.0,
+            "to": 19.4,
+            "indoors": true,
+            "away": true,
+            "doing": "paddling the family across in the two old pirogues to take refuge in the fort"
+          },
+          {
+            "from": 19.4,
+            "to": 24.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "in the fort with his family; the night of the alarm"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-04-07",
+          "to": "1812-05-31"
+        },
+        "note": "nights in the fort after the April murders",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.5,
+            "to": 5.8,
+            "indoors": true,
+            "away": true,
+            "doing": "paddling across to the house at first light"
+          },
+          {
+            "from": 5.8,
+            "to": 7.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1179.0,
+              "local_n": 347.0,
+              "heading_deg": 350.0
+            },
+            "doing": "at the stable, seeing to the horses",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1180.38,
+                "local_n": 347.24
+              },
+              {
+                "local_e": 1177.62,
+                "local_n": 346.76
+              }
+            ]
+          },
+          {
+            "from": 7.0,
+            "to": 7.5,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "breakfast"
+          },
+          {
+            "from": 7.5,
+            "to": 11.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "at the accounts: the Indians are forbidden the place, so little trade comes in"
+          },
+          {
+            "from": 11.0,
+            "to": 12.5,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "at his silversmith's bench"
+          },
+          {
+            "from": 12.5,
+            "to": 12.8,
+            "indoors": true,
+            "away": true,
+            "doing": "paddling back to the fort for dinner"
+          },
+          {
+            "from": 12.8,
+            "to": 13.8,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "dinner with his family"
+          },
+          {
+            "from": 13.8,
+            "to": 17.0,
+            "indoors": true,
+            "where": "first_fort_outer_merchants_shop",
+            "doing": "at the sutler's counter"
+          },
+          {
+            "from": 17.0,
+            "to": 18.3,
+            "indoors": false,
+            "at": {
+              "local_e": 1166.5,
+              "local_n": 354.0,
+              "heading_deg": 90.0
+            },
+            "doing": "back across the river at the lodging house: the men's work for the morning, the house shut up for the night",
+            "activity": "stand"
+          },
+          {
+            "from": 18.3,
+            "to": 18.6,
+            "indoors": true,
+            "away": true,
+            "doing": "paddling back to the fort before the gates shut at sunset"
+          },
+          {
+            "from": 18.6,
+            "to": 24.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "supper and the night in the fort with his family"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-06-01",
+          "to": "1812-06-16"
+        },
+        "note": "home again across the river (the start of this span is ours)",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.5,
+            "to": 6.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1179.0,
+              "local_n": 347.0,
+              "heading_deg": 350.0
+            },
+            "doing": "at the stable door with his servant, seeing the horses watered and fed",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1180.38,
+                "local_n": 347.24
+              },
+              {
+                "local_e": 1177.62,
+                "local_n": 346.76
+              }
+            ]
+          },
+          {
+            "from": 6.5,
+            "to": 7.5,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "breakfast"
+          },
+          {
+            "from": 7.5,
+            "to": 11.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "in the store room: furs and skins in, blankets, cloth and silver out, every bargain into the account book"
+          },
+          {
+            "from": 11.0,
+            "to": 12.5,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "at his bench, beating and punching silver brooches and arm-bands"
+          },
+          {
+            "from": 12.5,
+            "to": 13.5,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "dinner"
+          },
+          {
+            "from": 13.5,
+            "to": 13.8,
+            "indoors": true,
+            "away": true,
+            "doing": "paddling a pirogue across to the fort"
+          },
+          {
+            "from": 13.8,
+            "to": 16.5,
+            "indoors": true,
+            "where": "first_fort_outer_merchants_shop",
+            "doing": "at the sutler's counter: soldiers' tobacco, whiskey, thread and shoes on credit, and the accounts"
+          },
+          {
+            "from": 16.5,
+            "to": 16.8,
+            "indoors": true,
+            "away": true,
+            "doing": "paddling home"
+          },
+          {
+            "from": 16.8,
+            "to": 18.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1166.5,
+              "local_n": 354.0,
+              "heading_deg": 90.0
+            },
+            "doing": "at the lodging house, giving the Frenchmen their work for the morning",
+            "activity": "stand"
+          },
+          {
+            "from": 18.5,
+            "to": 19.5,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "supper"
+          },
+          {
+            "from": 19.5,
+            "to": 21.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1150.0,
+              "local_n": 334.8,
+              "heading_deg": 180.0
+            },
+            "doing": "on the piazza with his fiddle",
+            "activity": "stand"
+          },
+          {
+            "from": 21.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "asleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-06-17",
+          "to": "1812-06-17"
+        },
+        "note": "the killing of Jean Lalime",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.5,
+            "to": 6.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1179.0,
+              "local_n": 347.0,
+              "heading_deg": 350.0
+            },
+            "doing": "at the stable door with his servant, seeing the horses watered and fed",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1180.38,
+                "local_n": 347.24
+              },
+              {
+                "local_e": 1177.62,
+                "local_n": 346.76
+              }
+            ]
+          },
+          {
+            "from": 6.5,
+            "to": 7.5,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "breakfast"
+          },
+          {
+            "from": 7.5,
+            "to": 11.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "in the store room: furs and skins in, blankets, cloth and silver out, every bargain into the account book"
+          },
+          {
+            "from": 11.0,
+            "to": 12.5,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "at his bench, beating and punching silver brooches and arm-bands"
+          },
+          {
+            "from": 12.5,
+            "to": 13.5,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "dinner"
+          },
+          {
+            "from": 13.5,
+            "to": 17.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "at the books and the bench"
+          },
+          {
+            "from": 17.0,
+            "to": 17.3,
+            "indoors": true,
+            "away": true,
+            "doing": "crossing alone in a canoe to the fort, unarmed, on an errand"
+          },
+          {
+            "from": 17.3,
+            "to": 18.0,
+            "indoors": true,
+            "where": "first_fort_outer_merchants_shop",
+            "doing": "about his errand at the sutler's counter"
+          },
+          {
+            "from": 18.0,
+            "to": 19.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1156.5,
+              "local_n": 221.5,
+              "heading_deg": 270.0
+            },
+            "doing": "on the parade beside his son-in-law, as Helm rails against the factory and Lalime defends it",
+            "activity": "stand"
+          },
+          {
+            "from": 19.5,
+            "to": 19.6,
+            "indoors": false,
+            "at": {
+              "local_e": 1146.0,
+              "local_n": 196.0,
+              "heading_deg": 180.0
+            },
+            "doing": "walking out of the main gate as it is shut for the night, Lalime behind him",
+            "activity": "walk",
+            "to_point": {
+              "local_e": 1146.0,
+              "local_n": 189.0
+            }
+          },
+          {
+            "from": 19.6,
+            "to": 19.7,
+            "indoors": false,
+            "at": {
+              "local_e": 1146.0,
+              "local_n": 196.0,
+              "heading_deg": 180.0
+            },
+            "doing": "the fight outside the gate: Lalime's pistol, the struggle, Lalime stabbed",
+            "activity": "stand"
+          },
+          {
+            "from": 19.7,
+            "to": 23.3,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "hidden in the garrison, wounded in the neck or shoulder"
+          },
+          {
+            "from": 23.3,
+            "to": 23.5,
+            "indoors": true,
+            "away": true,
+            "doing": "walked to the river's edge by Helm, then across in the dark"
+          },
+          {
+            "from": 23.5,
+            "to": 24.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "at home in the night, packing up some things to go"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-06-18",
+          "to": "1812-08-06"
+        },
+        "note": "gone: at Milwaukee, or hidden in the woods, until the officers cleared him",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 24.0,
+            "indoors": true,
+            "away": true,
+            "doing": "gone: at Milwaukee, or hidden in the woods, until the officers cleared him"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-07",
+          "to": "1812-08-11"
+        },
+        "note": "the order to evacuate: Winnemeg's despatches (7th), the order read on parade (10th)",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.5,
+            "to": 5.8,
+            "indoors": true,
+            "away": true,
+            "doing": "across to the house at first light"
+          },
+          {
+            "from": 5.8,
+            "to": 7.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1179.0,
+              "local_n": 347.0,
+              "heading_deg": 350.0
+            },
+            "doing": "at the stable, choosing the horses and mules Heald has hired of him and seeing the pack-saddles mended",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1180.38,
+                "local_n": 347.24
+              },
+              {
+                "local_e": 1177.62,
+                "local_n": 346.76
+              }
+            ]
+          },
+          {
+            "from": 7.0,
+            "to": 7.5,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "breakfast"
+          },
+          {
+            "from": 7.5,
+            "to": 12.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "packing: the account books, the silver, the trade goods that can go by boat"
+          },
+          {
+            "from": 12.0,
+            "to": 12.3,
+            "indoors": true,
+            "away": true,
+            "doing": "back to the fort"
+          },
+          {
+            "from": 12.3,
+            "to": 13.3,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "dinner with his family"
+          },
+          {
+            "from": 13.3,
+            "to": 17.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "with Captain Heald in his quarters, arguing against giving the Indians the powder and the whiskey"
+          },
+          {
+            "from": 17.5,
+            "to": 18.5,
+            "indoors": true,
+            "where": "first_fort_outer_merchants_shop",
+            "doing": "at the sutler's counter, closing the soldiers' accounts"
+          },
+          {
+            "from": 18.5,
+            "to": 24.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "supper and the night in the fort"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-12",
+          "to": "1812-08-12"
+        },
+        "note": "the first council",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.5,
+            "to": 5.8,
+            "indoors": true,
+            "away": true,
+            "doing": "across to the house at first light"
+          },
+          {
+            "from": 5.8,
+            "to": 7.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1179.0,
+              "local_n": 347.0,
+              "heading_deg": 350.0
+            },
+            "doing": "at the stable, choosing the horses and mules Heald has hired of him and seeing the pack-saddles mended",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1180.38,
+                "local_n": 347.24
+              },
+              {
+                "local_e": 1177.62,
+                "local_n": 346.76
+              }
+            ]
+          },
+          {
+            "from": 7.0,
+            "to": 7.5,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "breakfast"
+          },
+          {
+            "from": 7.5,
+            "to": 12.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "packing: the account books, the silver, the trade goods that can go by boat"
+          },
+          {
+            "from": 12.0,
+            "to": 12.3,
+            "indoors": true,
+            "away": true,
+            "doing": "back to the fort"
+          },
+          {
+            "from": 12.3,
+            "to": 13.3,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "dinner with his family"
+          },
+          {
+            "from": 13.3,
+            "to": 14.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "with Captain Heald before the council"
+          },
+          {
+            "from": 14.0,
+            "to": 17.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1108.0,
+              "local_n": 222.0,
+              "heading_deg": 270.0
+            },
+            "doing": "at the council on the esplanade beside Heald, the only white men there; the officers at the blockhouse cannon",
+            "activity": "stand"
+          },
+          {
+            "from": 17.0,
+            "to": 19.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "the long interview after the council: he warns Heald not to arm the Indians"
+          },
+          {
+            "from": 19.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "supper and the night in the fort"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-13",
+          "to": "1812-08-13"
+        },
+        "note": "the goods given out; the liquor and powder destroyed at night",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.5,
+            "to": 5.8,
+            "indoors": true,
+            "away": true,
+            "doing": "across to the house at first light"
+          },
+          {
+            "from": 5.8,
+            "to": 7.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1179.0,
+              "local_n": 347.0,
+              "heading_deg": 350.0
+            },
+            "doing": "at the stable, choosing the horses and mules Heald has hired of him and seeing the pack-saddles mended",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1180.38,
+                "local_n": 347.24
+              },
+              {
+                "local_e": 1177.62,
+                "local_n": 346.76
+              }
+            ]
+          },
+          {
+            "from": 7.0,
+            "to": 7.5,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "breakfast"
+          },
+          {
+            "from": 7.5,
+            "to": 12.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "packing: the account books, the silver, the trade goods that can go by boat"
+          },
+          {
+            "from": 12.0,
+            "to": 12.3,
+            "indoors": true,
+            "away": true,
+            "doing": "back to the fort"
+          },
+          {
+            "from": 12.3,
+            "to": 13.3,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "dinner with his family"
+          },
+          {
+            "from": 13.3,
+            "to": 17.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "with Captain Heald in his quarters, arguing against giving the Indians the powder and the whiskey"
+          },
+          {
+            "from": 17.5,
+            "to": 19.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "supper with his family"
+          },
+          {
+            "from": 19.0,
+            "to": 21.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1175.5,
+              "local_n": 346.5,
+              "heading_deg": 45.0
+            },
+            "doing": "across the river at his warehouse, seeing his own alcohol staved and poured into the river",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1176.49,
+                "local_n": 345.51
+              },
+              {
+                "local_e": 1174.51,
+                "local_n": 347.49
+              }
+            ]
+          },
+          {
+            "from": 21.0,
+            "to": 21.3,
+            "indoors": true,
+            "away": true,
+            "doing": "back to the fort in the dark"
+          },
+          {
+            "from": 21.3,
+            "to": 24.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "in the fort; the ammunition and muskets going down the well through the night"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-14",
+          "to": "1812-08-14"
+        },
+        "note": "the last day before the evacuation",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.0,
+            "to": 5.3,
+            "indoors": true,
+            "away": true,
+            "doing": "across to the house at first light"
+          },
+          {
+            "from": 5.3,
+            "to": 7.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1179.0,
+              "local_n": 347.0,
+              "heading_deg": 350.0
+            },
+            "doing": "at the stable: the hired horses and mules saddled and led out for the provisions",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1180.38,
+                "local_n": 347.24
+              },
+              {
+                "local_e": 1177.62,
+                "local_n": 346.76
+              }
+            ]
+          },
+          {
+            "from": 7.0,
+            "to": 7.5,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "breakfast"
+          },
+          {
+            "from": 7.5,
+            "to": 9.5,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "packing the account books, the silver and his silversmith's tools for the boat"
+          },
+          {
+            "from": 9.5,
+            "to": 9.8,
+            "indoors": true,
+            "away": true,
+            "doing": "back across to the fort"
+          },
+          {
+            "from": 9.8,
+            "to": 12.0,
+            "indoors": true,
+            "where": "first_fort_outer_merchants_shop",
+            "doing": "at the sutler's counter, settling the soldiers' last accounts before the march"
+          },
+          {
+            "from": 12.0,
+            "to": 13.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "dinner with his family"
+          },
+          {
+            "from": 13.0,
+            "to": 14.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "with Captain Heald and Captain Wells, newly come with his Miami"
+          },
+          {
+            "from": 14.0,
+            "to": 16.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1108.0,
+              "local_n": 222.0,
+              "heading_deg": 270.0
+            },
+            "doing": "at the second council, beside Heald: anger at the spoiled powder and whiskey",
+            "activity": "stand"
+          },
+          {
+            "from": 16.5,
+            "to": 16.8,
+            "indoors": true,
+            "away": true,
+            "doing": "across to the house"
+          },
+          {
+            "from": 16.8,
+            "to": 18.3,
+            "indoors": false,
+            "at": {
+              "local_e": 1150.0,
+              "local_n": 308.0,
+              "heading_deg": 180.0
+            },
+            "doing": "at the landing below the house, seeing the family's boat loaded for the morning",
+            "activity": "stand"
+          },
+          {
+            "from": 18.3,
+            "to": 18.6,
+            "indoors": true,
+            "away": true,
+            "doing": "back to the fort before the gates shut"
+          },
+          {
+            "from": 18.6,
+            "to": 19.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "supper with his family"
+          },
+          {
+            "from": 19.5,
+            "to": 21.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "in the commanding officer's quarters in the evening, when Black Partridge comes to give back his medal"
+          },
+          {
+            "from": 21.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "with his family in the fort; tomorrow he will march with the troops and they will go by boat"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-15",
+          "to": "1812-08-15"
+        },
+        "note": "the evacuation and the battle",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.0,
+            "to": 8.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1104.0,
+              "local_n": 243.0,
+              "heading_deg": 0.0
+            },
+            "doing": "at the wharf, putting his wife and children into the boat; To-pee-nee-bee's warning comes",
+            "activity": "stand"
+          },
+          {
+            "from": 8.5,
+            "to": 9.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1147.5,
+              "local_n": 197.0,
+              "heading_deg": 200.0
+            },
+            "doing": "at the gate with the column",
+            "activity": "stand"
+          },
+          {
+            "from": 9.0,
+            "to": 17.0,
+            "indoors": true,
+            "away": true,
+            "doing": "not drawn: the battle-of-fort-dearborn jaunt tells this"
+          },
+          {
+            "from": 17.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "at home under the guard of his Indian friends; he takes the ball from Mrs. Heald's arm with his penknife"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-16",
+          "to": "1812-08-17"
+        },
+        "note": "at home under guard after the battle",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "at home with his family, guarded by Black Partridge, Waubansee and Kee-po-tah on the porch"
+          }
+        ]
+      }
+    ],
+    "presence": {
+      "from": "1804-05-01",
+      "to": "1812-08-18"
+    }
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 3,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": false,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "Reconstructed figure of John Kinzie in the 1812 town, at each hour of each run of dates where the reading for T-3466 (docs/RESEARCH/people-1812-3466/day.json) puts them: indoors (asked for at the door) or out at their work, with the people they would be with. The hours, the places and the companions are ours (liberty L-1812-town-days-3463), each span graded with its own basis in the reading; what a source says of them is on their card. They wear the trader 1812 role dress, with their own face, height, build and colouring.",
+    "sources": [
+      "andreas_1884_v1",
+      "currey_1912_story_of_old_fort_dearborn",
+      "dailing_2018_chicago_reader_lalime",
+      "kinzie_waubun_1856",
+      "kirkland_1893_chicago_massacre",
+      "quaife_1913"
+    ],
+    "liberty": "L418",
+    "seed": "kinzie_john_elder:1812:days:20261108",
+    "replaceable_by": "A diary, letter or order book of the post that says where they were and what they did on the day."
+  }
+}

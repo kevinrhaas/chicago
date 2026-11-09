@@ -138,12 +138,19 @@
         "why": "Natural margin marsh (zone 11)."
       },
       "swales": {
-        "take": "carry",
-        "why": "Natural sloughs (zone 14) drawn off Wright 1834; nothing dug them."
+        "take": "carry_except",
+        "drop": [
+          "state_slough_course",
+          "state_slough_mouth"
+        ],
+        "why": "Natural sloughs (zone 14) drawn off Wright 1834; nothing dug them. The State Street slough is the 1835 town's damp July drain, carved as two dry swales; in 1812 it is carved as water by state_slough_1812, on the owner's ruling (T-3517)."
       },
       "watercourses": {
-        "take": "carry",
-        "why": "The north-side slough is a natural backwater."
+        "take": "carry_except",
+        "drop": [
+          "north_side_slough"
+        ],
+        "why": "The north-side slough is a natural backwater, and in 1812 it is carved as one by north_side_slough_1812 (T-3517): the same traced centreline, a natural width and bed in place of the 1834 entry's constant 7.1 m band."
       },
       "approaches_note": {
         "take": "drop",
@@ -338,9 +345,9 @@
   },
   "battle_bank_1812": {
     "id": "battle_bank_1812",
-    "label": "The beach, the high sand bank and the ravine behind it, along Heald's mile and a half",
+    "label": "The beach, the high sand bank and the ravine behind it, from Heald's mile and a half south to Eighteenth Street",
     "n_range": [
-      -2700.0,
+      -3650.0,
       -1300.0
     ],
     "end_fade_m": 220.0,
@@ -493,13 +500,13 @@
       "dossier_zone": "record_only",
       "readings": "record_only"
     },
-    "note": "T-3403, on the owner's report (2026-11-06) that the bank the accounts describe 'does not really seem to show here from the land' and should be 'much more significant and accurate'. T-2066's sand hills south of Twelfth and the carried 1834 dunes north of it stood +2 to +9 ft on the 9 ft plain, broken into hummocks, behind a 20 m ramp from the water: from the beach, nothing to charge up. Heald's report gives the shape and the distance: the column took 'the beach, with the lake on our left, and a high sand bank on our right, at about 100 yards distance', the attackers waited 'behind the bank', and his men 'marched up ... to the top of the bank'. Wau-Bun has 'a range of sand-hills intervening between the prairie and the beach', 'charged up the bank', and behind it 'a sort of ravine, intervening between the sand-banks and the prairie' in which the attackers 'had concealed themselves'; Mrs. Helm was led 'up the sand-banks' through deep sand; Wentworth's Heald family account has a 'bluff'. Moses & Kirkland give the height: the bank's surface 'a hundred feet or more back from the water' and 'ten to twenty feet' above it. Quaife, from Heald, puts 'a row of sand hills, or ridges' 'about one hundred yards' from the beach. So the ground along Heald's band is laid as one profile measured inland from the lake's edge, row by row: a beach of 26 m rising to 2.6 ft, the column's road and wide enough for its wagons; the bank's near face, climbing from 2.6 ft at 26 m to 13 ft at 38 m, about 25 degrees, under the angle at which dry sand stands, so the bank's surface stands 14.5 ft high from 44 m (M&K's 'a hundred feet or more' is 30.5 m); the sand hills rising behind it to Heald's high bank, a crest of 19 ft at 96 m, his hundred yards being 91.44 m; their back falling through 12.5 ft at 120 m into the ravine, 4.6 ft at 144 m, four feet under the prairie it opens onto; and the plain's own 8.5 ft by 200 m, where the ground already there takes over across 185-215 m. Hummocks of up to 3 ft play across the hills only (32-124 m), clipped at M&K's 20 ft, so the tops range across their ten to twenty and the troughs between them let the line down ('not continuous'). The block runs N -1300 to -2700 with 220 m fades, covering Heald's band (data/terrain/1812_evacuation_route.geojson, N -1456 to -2192 along the shore) and the reach where the accounts' sand hills begin, and replaces the hummock fields of south_lake_dunes and south_lake_sand_hills_1812 where it stands. WHAT IS RECONSTRUCTED: every width, height and place in the profile, the hummocks, and the ravine's depth; the readings fix that a beach, a high bank of sand hills and a ravine stood in that order, how far back and how high the bank stood, and nothing places one hill. Where the sand hills BEGAN is still disagreed (Quaife: at the river mouth; M&K: about Twelfth Street) and this block does not settle it. Admitted in docs/LIBERTIES.md L-t3403-battle-shore-1812."
+    "note": "T-3403, on the owner's report (2026-11-06) that the bank the accounts describe 'does not really seem to show here from the land' and should be 'much more significant and accurate'. T-2066's sand hills south of Twelfth and the carried 1834 dunes north of it stood +2 to +9 ft on the 9 ft plain, broken into hummocks, behind a 20 m ramp from the water: from the beach, nothing to charge up. Heald's report gives the shape and the distance: the column took 'the beach, with the lake on our left, and a high sand bank on our right, at about 100 yards distance', the attackers waited 'behind the bank', and his men 'marched up ... to the top of the bank'. Wau-Bun has 'a range of sand-hills intervening between the prairie and the beach', 'charged up the bank', and behind it 'a sort of ravine, intervening between the sand-banks and the prairie' in which the attackers 'had concealed themselves'; Mrs. Helm was led 'up the sand-banks' through deep sand; Wentworth's Heald family account has a 'bluff'. Moses & Kirkland give the height: the bank's surface 'a hundred feet or more back from the water' and 'ten to twenty feet' above it. Quaife, from Heald, puts 'a row of sand hills, or ridges' 'about one hundred yards' from the beach. So the ground along Heald's band is laid as one profile measured inland from the lake's edge, row by row: a beach of 26 m rising to 2.6 ft, the column's road and wide enough for its wagons; the bank's near face, climbing from 2.6 ft at 26 m to 13 ft at 38 m, about 25 degrees, under the angle at which dry sand stands, so the bank's surface stands 14.5 ft high from 44 m (M&K's 'a hundred feet or more' is 30.5 m); the sand hills rising behind it to Heald's high bank, a crest of 19 ft at 96 m, his hundred yards being 91.44 m; their back falling through 12.5 ft at 120 m into the ravine, 4.6 ft at 144 m, four feet under the prairie it opens onto; and the plain's own 8.5 ft by 200 m, where the ground already there takes over across 185-215 m. Hummocks of up to 3 ft play across the hills only (32-124 m), clipped at M&K's 20 ft, so the tops range across their ten to twenty and the troughs between them let the line down ('not continuous'). The block runs N -1300 to -2700 with 220 m fades, covering Heald's band (data/terrain/1812_evacuation_route.geojson, N -1456 to -2192 along the shore) and the reach where the accounts' sand hills begin, and replaces the hummock fields of south_lake_dunes and south_lake_sand_hills_1812 where it stands. WHAT IS RECONSTRUCTED: every width, height and place in the profile, the hummocks, and the ravine's depth; the readings fix that a beach, a high bank of sand hills and a ravine stood in that order, how far back and how high the bank stood, and nothing places one hill. Where the sand hills BEGAN is still disagreed (Quaife: at the river mouth; M&K: about Twelfth Street) and this block does not settle it. Admitted in docs/LIBERTIES.md L-t3403-battle-shore-1812. T-3469 (owner, 2026-11-07, after the battle-site research): the block now runs N -3650 to -1300, so the same beach, bank, ridges and ravine carry on south past Eighteenth Street (N -3207) to about Twentieth, where the accounts that name a place put the fight: the Kinzie family's two cottonwoods in Eighteenth Street and Arnold's 'near the place where the attack began' (Andreas 1884 p. 31), Fernando Jones's burial ground at Seventeenth and Prairie and the grave with U.S. buttons at Twenty-first and Indiana (Kirkland 1893), and Heald's own journal, 'two miles from the Fort' (Quaife 1913 App. III). North of N -2480 nothing moves: the profile, the hummock and wander noise are seeded on absolute coordinates, so the ground T-3403 laid along Heald's mile and a half is kept as built, by the owner's ruling ('keep that beachy sandy shore and elevations and ridges along there that you already built'). Only the old south fade (N -2700 to -2480) becomes full bank. Admitted in docs/LIBERTIES.md L-t3403-battle-shore-1812 (revised T-3469)."
   },
   "heald_small_elevation_1812": {
     "id": "heald_small_elevation_1812",
     "label": "Heald's 'small elevation in the open prarie'",
-    "centre_e": 960.0,
-    "centre_n": -1853.0,
+    "centre_e": 1215.0,
+    "centre_n": -3420.0,
     "rise_ft": 8.0,
     "flat_radius_m": 18.0,
     "skirt_m": 34.0,
@@ -508,7 +515,9 @@
     "sources": [
       "moses_kirkland_history_of_chicago_v1",
       "kinzie_waubun_1856",
-      "quaife_1913"
+      "quaife_1913",
+      "andreas_1884_v1",
+      "kirkland_1893_chicago_massacre"
     ],
     "readings": [
       {
@@ -530,13 +539,252 @@
         "source_id": "quaife_1913",
         "locator": "ch. on the massacre",
         "quote": "a slight elevation on the open prairie, out of shot of the bank or any other cover"
+      },
+      {
+        "source_id": "andreas_1884_v1",
+        "locator": "vol. 1 p. 31, 'Chicago's Historic Tree', Isaac N. Arnold to A. T. Andreas, 25 January 1884",
+        "quote": "This tree was pointed out to me by both Mr. and Mrs. Kinzie, as near the place where the attack began. As the fight continued the combatants moved south and west over considerable space."
+      },
+      {
+        "source_id": "kirkland_1893_chicago_massacre",
+        "locator": "ch. on the massacre's aftermath, Fernando Jones's letter, Project Gutenberg eBook #59624 plain text",
+        "quote": "There was a mound in the prairie southwest of the massacre-ground, that was pointed out as the grave of the vidette, or soldier in advance of the retreating garrison."
       }
     ],
     "mesh": {
       "dossier_zone": "record_only",
       "readings": "record_only"
     },
-    "note": "T-3403, on the owner's question at stop 10 (2026-11-06): 'where on the open prairie is the small elevation? you should attempt to cite it and place it'. Heald names it, in the report written ten weeks after: 'a small elevation in the open prarie, out of shot of the bank or any other cover', with the attackers left 'on the top of the bank' and Heald walking out to them alone. Wau-Bun's account (Mrs. Helm, from memory) has the survivors 'gaining a rising ground, not far from the Oak Woods'; Quaife repeats Heald; Moses & Kirkland read it as 'far inland, out of gun-shot from the bank'. No account gives a distance or a size and none locates the Oak Woods, so it is placed by the three things they do say. (1) Along the march: at Heald's own 'about a mile and a half', the station data/terrain/1812_evacuation_route.geojson derives at E +1318, N -1853, because the withdrawal was out of the fight at the bank and Heald was not followed. (2) Inland, due west of it on the same row, the direction away from the lake. (3) Out of shot: the high bank's crest stands at Heald's hundred yards and its back falls to the ravine by about 125 m from the water (battle_bank_1812), and the rise's centre is put 358 m from the water, about 230 m (250 yards) beyond the back of the bank, past the range at which a smooth-bore musket of 1812 could be aimed at a man; that range is this project's reasoning and cites nothing. Its size is 'small': a top 36 m across, room for the 'few men' left, standing 8 ft over the plain, with a 34 m skirt, so it is a rise on the plain and not a hill. WHAT IS RECONSTRUCTED: its place, its height and its size; its existence is attested by the commander who stood on it. Admitted in docs/LIBERTIES.md L-t3403-battle-shore-1812."
+    "note": "T-3403, on the owner's question at stop 10 (2026-11-06): 'where on the open prairie is the small elevation? you should attempt to cite it and place it'. Heald names it, in the report written ten weeks after: 'a small elevation in the open prarie, out of shot of the bank or any other cover', with the attackers left 'on the top of the bank' and Heald walking out to them alone. Wau-Bun's account (Mrs. Helm, from memory) has the survivors 'gaining a rising ground, not far from the Oak Woods'; Quaife repeats Heald; Moses & Kirkland read it as 'far inland, out of gun-shot from the bank'. No account gives a distance or a size and none locates the Oak Woods, so it is placed by the three things they do say. (1) Along the march: at Heald's own 'about a mile and a half', the station data/terrain/1812_evacuation_route.geojson derives at E +1318, N -1853, because the withdrawal was out of the fight at the bank and Heald was not followed. (2) Inland, due west of it on the same row, the direction away from the lake. (3) Out of shot: the high bank's crest stands at Heald's hundred yards and its back falls to the ravine by about 125 m from the water (battle_bank_1812), and the rise's centre is put 358 m from the water, about 230 m (250 yards) beyond the back of the bank, past the range at which a smooth-bore musket of 1812 could be aimed at a man; that range is this project's reasoning and cites nothing. Its size is 'small': a top 36 m across, room for the 'few men' left, standing 8 ft over the plain, with a 34 m skirt, so it is a rise on the plain and not a hill. WHAT IS RECONSTRUCTED: its place, its height and its size; its existence is attested by the commander who stood on it. Admitted in docs/LIBERTIES.md L-t3403-battle-shore-1812. T-3469 (owner's choice, 2026-11-07, after the battle-site research): MOVED from E +960, N -1853 to E +1215, N -3420, between the later Nineteenth and Twentieth Streets near Indiana Avenue. (1) Along the march: the place readings put the attack at Eighteenth Street (the Kinzie family's cottonwoods; Arnold, from the Kinzies, 'near the place where the attack began'), and Heald's journal gives 'two miles from the Fort'; Heald's report's 'about a mile and a half' is the one figure that falls short of them. (2) Direction: Arnold has the fight moving 'south and west', Wau-Bun has the rising ground 'not far from the Oak Woods', which Kirkland (1893) puts at Hyde Park, to the south, and Fernando Jones's vidette grave at Twenty-first and Indiana lay 'southwest of the massacre-ground'; so it is put south-west of the Eighteenth Street bank, not due west. (3) Out of shot: 377 m from the water on its row (the shore stands at E +1592 there), about 230 m beyond the back of the bank, the same allowance as before. Its height and size are unchanged. The rise T-3403 built at the old place is kept as ground, by the owner's ruling, as tenth_street_rise_1812."
+  },
+  "tenth_street_rise_1812": {
+    "id": "tenth_street_rise_1812",
+    "label": "A low rise on the prairie near the later Tenth Street, kept from T-3403",
+    "centre_e": 960.0,
+    "centre_n": -1853.0,
+    "rise_ft": 8.0,
+    "flat_radius_m": 18.0,
+    "skirt_m": 34.0,
+    "dossier_zone": 8,
+    "confidence": "reconstructed",
+    "sources": [],
+    "readings": [],
+    "mesh": {
+      "dossier_zone": "record_only",
+      "readings": "record_only"
+    },
+    "note": "T-3469. T-3403 raised this rise as Heald's 'small elevation in the open prarie' at his mile and a half; T-3469 moved Heald's elevation south to the ground the place readings name (heald_small_elevation_1812). The owner asked (2026-11-07) that the ground already built here be kept: 'keep that beachy sandy shore and elevations and ridges along there that you already built its nice so dont destroy it'. So the rise stays where and as it was, but it is no longer anyone's elevation and no account names it: it is a swell on the South Division plain, 8 ft over it, its top 36 m across with a 34 m skirt, centred at E +960, N -1853. WHAT IS RECONSTRUCTED: all of it, existence included. Admitted in docs/LIBERTIES.md L-t3403-battle-shore-1812 (revised T-3469)."
+  },
+  "state_slough_1812": {
+    "id": "state_slough_1812",
+    "label": "The State Street slough, holding water",
+    "line": [
+      [
+        596.0,
+        -340.0
+      ],
+      [
+        618.0,
+        -262.0
+      ],
+      [
+        641.0,
+        -235.0
+      ],
+      [
+        666.0,
+        -218.0
+      ],
+      [
+        702.0,
+        -190.0
+      ],
+      [
+        728.0,
+        -172.0
+      ],
+      [
+        752.0,
+        -152.0
+      ],
+      [
+        776.0,
+        -118.0
+      ],
+      [
+        788.0,
+        -84.0
+      ],
+      [
+        795.0,
+        -60.0
+      ],
+      [
+        806.0,
+        -35.0
+      ],
+      [
+        812.0,
+        -20.0
+      ],
+      [
+        819.0,
+        -11.0
+      ],
+      [
+        828.0,
+        -8.0
+      ],
+      [
+        838.0,
+        -3.0
+      ],
+      [
+        846.0,
+        3.0
+      ],
+      [
+        850.5,
+        8.2
+      ],
+      [
+        853.5,
+        14.0
+      ]
+    ],
+    "fixed_tail_m": 100.0,
+    "notch_hold_m": 35.0,
+    "meander_m": 6.0,
+    "meander_wavelengths_m": [
+      74.0,
+      31.0
+    ],
+    "profile": [
+      [
+        0.0,
+        1.2,
+        2.5,
+        3.0
+      ],
+      [
+        40.0,
+        0.4,
+        3.0,
+        3.5
+      ],
+      [
+        75.0,
+        -0.5,
+        3.0,
+        3.5
+      ],
+      [
+        120.0,
+        -1.0,
+        4.0,
+        3.5
+      ],
+      [
+        200.0,
+        -1.3,
+        5.0,
+        3.5
+      ],
+      [
+        300.0,
+        -1.4,
+        5.0,
+        3.0
+      ],
+      [
+        350.0,
+        -1.4,
+        4.0,
+        2.0
+      ],
+      [
+        385.0,
+        -1.4,
+        2.6,
+        0.8
+      ],
+      [
+        456.8,
+        -1.3,
+        2.4,
+        0.8
+      ]
+    ],
+    "vary": 0.3,
+    "margin_rise_ft": 0.8,
+    "bank_ft_per_m": 1.2,
+    "seed": 3517,
+    "dossier_zone": 14,
+    "confidence": "reconstructed",
+    "sources": [
+      "chicagology_prefire273",
+      "conley_stelzer_1933",
+      "wright_1834"
+    ],
+    "mesh": {
+      "dossier_zone": "record_only"
+    },
+    "note": "T-3517, on the owner's ruling of 2026-11-08, flying the Potawatomi camps from the air: 'There would be more water in that slough they are gathering around can you make sure though sloughs are carved correctly and naturally with the right water there'. THE ROUTE IS THE 1835 ONE: the same documented course (chicagology_prefire273: it drained the public-square pond and the Wells Street marsh, 'passed over the site of the Tremont House and entered the river at the end of State Street'; Conley/Stelzer 1933's winding line; Wright 1834's traced notch for the mouth), the 1834 spec's state_slough_course and state_slough_mouth vertices joined into one line. THE WATER IS THE OWNER'S, NOT A SOURCE'S: zone 14 reads the bed +0.5 to +1.5 ft above the 1835 water, a damp drain in July 1835, and that reading stays on the 1835 ground. No 1812 stage or depth is recorded (lake_stage_1812). For 1812 the bed is carved below the water plane from about 75 m below the head to the river, so the slough holds open water through the camps: pools to about -1.8 ft and narrows (never below -1.95 ft: a slough stays shallower than the -0.60 m the flora's divisions take for river channel, renderers/web/js/trees.js CHANNEL_Y), a profile of [along_m, bed_ft, water_half_m, margin_m] knots, each modulated +/-30% by seeded noise so no two reaches match. CARVED AS A WATERCOURSE, NOT A DITCH: the centreline winds up to 6 m off the documented line (inside Conley's 20-30 m reading tolerance), never in the last 100 m, which keep Wright's notch; water edge, then a wet margin rising 0.8 ft (3-3.5 m wide through the camps, under a metre where the mouth cuts the State Street ridge toe to Wright's notch), then the bank at 1.2 ft per metre into the plain, the ground only ever lowered. The head stays a damp hollow above the water and feathers out east of Clark. Where the water would reach a camp's site outline the line bends round it (never in the last 35 m, Wright's notch), and the bank may lower a site's ground by no more than 0.4 ft; the carve may not touch the ground under any lodge, hearth, arbor or picket of the camps (terrain_gen_e1830.state_slough, which refuses). Recorded in docs/LIBERTIES.md (L-t3517-state-slough-1812)."
+  },
+  "north_side_slough_1812": {
+    "id": "north_side_slough_1812",
+    "label": "The north-side slough, a backwater off the river",
+    "line_from": "north_side_slough",
+    "fixed_tail_m": 0.0,
+    "meander_m": 0.0,
+    "meander_wavelengths_m": [
+      60.0
+    ],
+    "profile": [
+      [
+        0.0,
+        0.6,
+        2.0,
+        2.5
+      ],
+      [
+        25.0,
+        -0.5,
+        3.0,
+        3.0
+      ],
+      [
+        60.0,
+        -1.0,
+        4.0,
+        3.0
+      ],
+      [
+        140.0,
+        -1.3,
+        5.0,
+        3.0
+      ],
+      [
+        209.6,
+        -1.2,
+        5.5,
+        2.5
+      ]
+    ],
+    "vary": 0.3,
+    "margin_rise_ft": 0.8,
+    "bank_ft_per_m": 1.2,
+    "seed": 35171,
+    "dossier_zone": 19,
+    "confidence": "reconstructed",
+    "sources": [
+      "wright_1834"
+    ],
+    "mesh": {
+      "dossier_zone": "record_only"
+    },
+    "note": "T-3517, on the owner's ruling of 2026-11-08 ('make sure those sloughs are carved correctly and naturally with the right water there'). THE COURSE IS WRIGHT'S: the centreline is hydrology.geojson's north_side_slough, read whole off the NA/HUP sheet by T-0795 to 1.78 m median, so it does not wind off its trace (meander 0). WHAT CHANGES FOR 1812 is the section. The 1834 watercourses entry floods a constant 7.1 m band to -1.0 ft and stops square at its head. Here the slough is a still backwater ('marshy, wet areas with little current', the form the 1834 record cites): water from about 25 m below the head to the river, its half-width read round T-0795's stroke separation (13.0 m median, 7-23 m) at 2 to 5.5 m, varied +/-30% into pools and narrows, a bed of -0.5 to about -1.7 ft, never below -1.95 ft (trees.js CHANNEL_Y) (the 1834 entry's -1.0 is invented too), a wet margin rising 0.8 ft, then the bank at 1.2 ft per metre; the head a damp hollow that feathers into the plain. Every depth and width here is reconstructed. Recorded in docs/LIBERTIES.md (L-t3517-state-slough-1812). Cited to zone 19, the North Division ground it is cut into: the dossier gives the slough no row of its own."
   },
   "spit_1812": {
     "feature": "baymouth_bar_1812",

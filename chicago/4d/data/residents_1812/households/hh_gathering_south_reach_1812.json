@@ -1,0 +1,3406 @@
+{
+  "id": "hh_gathering_south_reach_1812",
+  "scene": "1812",
+  "name": "The people of the gathering at the south reach (names not recorded)",
+  "head": "gathering_1812_south_reach_001",
+  "division": "camp",
+  "review_required": true,
+  "touches_removal": true,
+  "review_note": "review_required: a person of the Potawatomi gathering at Chicago in August 1812, the eve of the attack on the garrison and its families, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507); the card says which of its facts are ours. touches_removal: these are the people removed from Chicago in 1835. Nothing of the fighting is staged in the scene.",
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "inferred",
+    "sources": [
+      "quaife_1913"
+    ],
+    "note": "Each person's own card says how their presence on 14 August is known."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "potawatomi_camp_1812_south_reach",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "reconstructed",
+      "source_id": "quaife_1913",
+      "also_sources": [
+        "currey_1912_old_fort_dearborn"
+      ],
+      "note": "A ground of the camp of the gathering (T-3342, T-3499); which lodge each family had is not recorded."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "The people already carded at this ground have their own cards; everyone dealt here by docs/RESEARCH/gathering-people-1812-3500/build.py is on this one (liberty L-1812-gathering-people-3500).",
+    "sources": [
+      "quaife_1913"
+    ]
+  },
+  "persons": [
+    {
+      "id": "gathering_1812_south_reach_001",
+      "name": "Great Fish Scale",
+      "relationship": "household_member",
+      "grade": "reconstructed",
+      "sources": [
+        "andreas_1884_v1",
+        "currey_1912_old_fort_dearborn",
+        "morgan_1877_ancient_society",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "56-56",
+        "low": 56,
+        "high": 56,
+        "tier": "reconstructed",
+        "note": "Seeded to give the camp a believable spread of ages; not recorded."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "The gathering stood at the camp from the council of the 12th; no source takes a roll call on the 14th."
+      },
+      "note": "One of the gathering Helm counts on 12 August 1812, 500 warriors and 179 women and children, whom no source names; carded so the count is whole. Sleeps in lodge no. 1 of the ground, with his family. Sex and age follow Helm's split; the age, the lodge and the day are reconstructed (L-1812-gathering-people-3500).",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a person of the Potawatomi gathering at Chicago in August 1812, the eve of the attack on the garrison and its families, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507); the card says which of its facts are ours. touches_removal: these are the people removed from Chicago in 1835. Nothing of the fighting is staged in the scene.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "ticket": "T-3500",
+        "liberty": "L-1812-gathering-people-3500",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
+      },
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Carp gens as Morgan says a name did."
+      },
+      "also_written": [
+        "An old man of the camp at the south reach (name not recorded), 1 of 32"
+      ],
+      "on_15_august": {
+        "value": "Likely stayed at the camp",
+        "grade": "reconstructed",
+        "note": "An older man; no source says who stayed at the camp on the 15th. Heald's prisoners were brought back to the encampment near the fort.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "People",
+          "value": "Potawatomi",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "Pepper's band",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Carp (N′-mă-pe-nă′)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 56",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "Likely stayed at the camp",
+          "grade": "reconstructed"
+        }
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "His family is put with Pepper's band, on the River au Sable, below the Kankakee (about two hundred men, of different nations in May 1812), one of the bands of the Chicago country Governor Edwards described that spring.",
+          "He is of the Carp gens (N′-mă-pe-nă′), and his children are of it after him.",
+          "In lodge no. 1 he lives with his wife Red Crow Wing Woman, his son Young Little Carp (13), his daughter Small Little Carp the Second (3) and his son Morning Little Carp the Second (1).",
+          "He has seen the French and the English traders come and go, and the Americans build the fort in 1803.",
+          "He came in when the bands gathered at Chicago in August, and on the 13th was given cloth and blankets when the goods were handed out."
+        ]
+      }
+    },
+    {
+      "id": "gathering_1812_south_reach_002",
+      "name": "Red Crow Wing Woman",
+      "relationship": "household_member",
+      "grade": "reconstructed",
+      "sources": [
+        "andreas_1884_v1",
+        "currey_1912_old_fort_dearborn",
+        "morgan_1877_ancient_society",
+        "quaife_1913"
+      ],
+      "sex": "female",
+      "age_band": {
+        "value": "43-43",
+        "low": 43,
+        "high": 43,
+        "tier": "reconstructed",
+        "note": "Seeded to give the camp a believable spread of ages; not recorded."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "The gathering stood at the camp from the council of the 12th; no source takes a roll call on the 14th."
+      },
+      "note": "One of the gathering Helm counts on 12 August 1812, 500 warriors and 179 women and children, whom no source names; carded so the count is whole. Sleeps in lodge no. 1 of the ground, with her family. Sex and age follow Helm's split; the age, the lodge and the day are reconstructed (L-1812-gathering-people-3500).",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a person of the Potawatomi gathering at Chicago in August 1812, the eve of the attack on the garrison and its families, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507); the card says which of its facts are ours. touches_removal: these are the people removed from Chicago in 1835. Nothing of the fighting is staged in the scene.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "ticket": "T-3500",
+        "liberty": "L-1812-gathering-people-3500",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
+      },
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names her: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Crow gens as Morgan says a name did."
+      },
+      "also_written": [
+        "A woman of the camp at the south reach (name not recorded), 2 of 32"
+      ],
+      "on_15_august": {
+        "value": "At the camp by the fort",
+        "grade": "inferred",
+        "note": "Heald's prisoners were brought back to \"their encampment near the fort\". What this person saw or did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "People",
+          "value": "Potawatomi",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "Pepper's band",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Crow (Kä-käg′-she)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 43",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "At the camp by the fort",
+          "grade": "inferred"
+        }
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "Her family is put with Pepper's band, on the River au Sable, below the Kankakee (about two hundred men, of different nations in May 1812), one of the bands of the Chicago country Governor Edwards described that spring.",
+          "She is of the Crow gens (Kä-käg′-she); her husband, since no one married within the gens, is of another, and her children are of his.",
+          "In lodge no. 1 she lives with her husband Great Fish Scale, her son Young Little Carp (13), her daughter Small Little Carp the Second (3) and her son Morning Little Carp the Second (1).",
+          "She planted and hoed the village's corn, beans and squash in the spring, and made the rush and cattail mats the lodges here are covered with.",
+          "She came in when the bands gathered at Chicago in August, and on the 13th was given cloth and blankets when the goods were handed out."
+        ]
+      }
+    },
+    {
+      "id": "gathering_1812_south_reach_003",
+      "name": "Young Little Carp",
+      "relationship": "child",
+      "grade": "reconstructed",
+      "sources": [
+        "andreas_1884_v1",
+        "currey_1912_old_fort_dearborn",
+        "morgan_1877_ancient_society",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "13-13",
+        "low": 13,
+        "high": 13,
+        "tier": "reconstructed",
+        "note": "Seeded to give the camp a believable spread of ages; not recorded."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "The gathering stood at the camp from the council of the 12th; no source takes a roll call on the 14th."
+      },
+      "note": "One of the gathering Helm counts on 12 August 1812, 500 warriors and 179 women and children, whom no source names; carded so the count is whole. Sleeps in lodge no. 1 of the ground, with his family. Sex and age follow Helm's split; the age, the lodge and the day are reconstructed (L-1812-gathering-people-3500).",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a person of the Potawatomi gathering at Chicago in August 1812, the eve of the attack on the garrison and its families, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507); the card says which of its facts are ours. touches_removal: these are the people removed from Chicago in 1835. Nothing of the fighting is staged in the scene.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "ticket": "T-3500",
+        "liberty": "L-1812-gathering-people-3500",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
+      },
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Carp gens as Morgan says a name did. A name of childhood."
+      },
+      "also_written": [
+        "A youth of the camp at the south reach (name not recorded), 3 of 32"
+      ],
+      "on_15_august": {
+        "value": "At the camp by the fort",
+        "grade": "inferred",
+        "note": "Heald's prisoners were brought back to \"their encampment near the fort\". What this person saw or did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "People",
+          "value": "Potawatomi",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "Pepper's band",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Carp (N′-mă-pe-nă′)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 13",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "At the camp by the fort",
+          "grade": "inferred"
+        }
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "His family is put with Pepper's band, on the River au Sable, below the Kankakee (about two hundred men, of different nations in May 1812), one of the bands of the Chicago country Governor Edwards described that spring.",
+          "He is of the Carp gens (N′-mă-pe-nă′, as Morgan writes it), his father's, and his name is a name of childhood, to be put aside for another as he grows up.",
+          "In lodge no. 1 he lives with his father Great Fish Scale, his mother Red Crow Wing Woman, his sister Small Little Carp the Second (3) and his brother Morning Little Carp the Second (1).",
+          "This summer is the first time this child has seen the fort, the soldiers and so many lodges in one place."
+        ]
+      }
+    },
+    {
+      "id": "gathering_1812_south_reach_004",
+      "name": "Small Little Carp the Second",
+      "relationship": "child",
+      "grade": "reconstructed",
+      "sources": [
+        "andreas_1884_v1",
+        "currey_1912_old_fort_dearborn",
+        "morgan_1877_ancient_society",
+        "quaife_1913"
+      ],
+      "sex": "female",
+      "age_band": {
+        "value": "3-3",
+        "low": 3,
+        "high": 3,
+        "tier": "reconstructed",
+        "note": "Seeded to give the camp a believable spread of ages; not recorded."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "The gathering stood at the camp from the council of the 12th; no source takes a roll call on the 14th."
+      },
+      "note": "One of the gathering Helm counts on 12 August 1812, 500 warriors and 179 women and children, whom no source names; carded so the count is whole. Sleeps in lodge no. 1 of the ground, with her family. Sex and age follow Helm's split; the age, the lodge and the day are reconstructed (L-1812-gathering-people-3500).",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a person of the Potawatomi gathering at Chicago in August 1812, the eve of the attack on the garrison and its families, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507); the card says which of its facts are ours. touches_removal: these are the people removed from Chicago in 1835. Nothing of the fighting is staged in the scene.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "ticket": "T-3500",
+        "liberty": "L-1812-gathering-people-3500",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
+      },
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names her: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Carp gens as Morgan says a name did. A name of childhood."
+      },
+      "also_written": [
+        "A girl of the camp at the south reach (name not recorded), 4 of 32"
+      ],
+      "on_15_august": {
+        "value": "At the camp by the fort",
+        "grade": "inferred",
+        "note": "Heald's prisoners were brought back to \"their encampment near the fort\". What this person saw or did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "People",
+          "value": "Potawatomi",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "Pepper's band",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Carp (N′-mă-pe-nă′)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 3",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "At the camp by the fort",
+          "grade": "inferred"
+        }
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "Her family is put with Pepper's band, on the River au Sable, below the Kankakee (about two hundred men, of different nations in May 1812), one of the bands of the Chicago country Governor Edwards described that spring.",
+          "She is of the Carp gens (N′-mă-pe-nă′, as Morgan writes it), her father's, and her name is a name of childhood, to be put aside for another as she grows up.",
+          "In lodge no. 1 she lives with her father Great Fish Scale, her mother Red Crow Wing Woman, her brother Young Little Carp (13) and her brother Morning Little Carp the Second (1).",
+          "This summer is the first time this child has seen the fort, the soldiers and so many lodges in one place."
+        ]
+      }
+    },
+    {
+      "id": "gathering_1812_south_reach_005",
+      "name": "Morning Little Carp the Second",
+      "relationship": "child",
+      "grade": "reconstructed",
+      "sources": [
+        "andreas_1884_v1",
+        "currey_1912_old_fort_dearborn",
+        "morgan_1877_ancient_society",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "1-1",
+        "low": 1,
+        "high": 1,
+        "tier": "reconstructed",
+        "note": "Seeded to give the camp a believable spread of ages; not recorded."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "The gathering stood at the camp from the council of the 12th; no source takes a roll call on the 14th."
+      },
+      "note": "One of the gathering Helm counts on 12 August 1812, 500 warriors and 179 women and children, whom no source names; carded so the count is whole. Sleeps in lodge no. 1 of the ground, with his family. Sex and age follow Helm's split; the age, the lodge and the day are reconstructed (L-1812-gathering-people-3500). Carried by the family; not drawn and not called out at the door.",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a person of the Potawatomi gathering at Chicago in August 1812, the eve of the attack on the garrison and its families, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507); the card says which of its facts are ours. touches_removal: these are the people removed from Chicago in 1835. Nothing of the fighting is staged in the scene.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "ticket": "T-3500",
+        "liberty": "L-1812-gathering-people-3500",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
+      },
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Carp gens as Morgan says a name did. A name of childhood."
+      },
+      "also_written": [
+        "A baby of the camp at the south reach (name not recorded), 5 of 32"
+      ],
+      "on_15_august": {
+        "value": "At the camp by the fort",
+        "grade": "inferred",
+        "note": "Heald's prisoners were brought back to \"their encampment near the fort\". What this person saw or did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "People",
+          "value": "Potawatomi",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "Pepper's band",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Carp (N′-mă-pe-nă′)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 1",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "At the camp by the fort",
+          "grade": "inferred"
+        }
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "His family is put with Pepper's band, on the River au Sable, below the Kankakee (about two hundred men, of different nations in May 1812), one of the bands of the Chicago country Governor Edwards described that spring.",
+          "He is of the Carp gens (N′-mă-pe-nă′, as Morgan writes it), his father's, and his name is a name of childhood, to be put aside for another as he grows up.",
+          "In lodge no. 1 he lives with his father Great Fish Scale, his mother Red Crow Wing Woman, his brother Young Little Carp (13) and his sister Small Little Carp the Second (3).",
+          "This summer is the first time this child has seen the fort, the soldiers and so many lodges in one place."
+        ]
+      }
+    },
+    {
+      "id": "gathering_1812_south_reach_006",
+      "name": "Far Crow Wing",
+      "relationship": "household_member",
+      "grade": "reconstructed",
+      "sources": [
+        "andreas_1884_v1",
+        "currey_1912_old_fort_dearborn",
+        "morgan_1877_ancient_society",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "28-28",
+        "low": 28,
+        "high": 28,
+        "tier": "reconstructed",
+        "note": "Seeded to give the camp a believable spread of ages; not recorded."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "The gathering stood at the camp from the council of the 12th; no source takes a roll call on the 14th."
+      },
+      "note": "One of the gathering Helm counts on 12 August 1812, 500 warriors and 179 women and children, whom no source names; carded so the count is whole. Sleeps in lodge no. 2 of the ground, with his family. Sex and age follow Helm's split; the age, the lodge and the day are reconstructed (L-1812-gathering-people-3500).",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a person of the Potawatomi gathering at Chicago in August 1812, the eve of the attack on the garrison and its families, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507); the card says which of its facts are ours. touches_removal: these are the people removed from Chicago in 1835. Nothing of the fighting is staged in the scene.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "ticket": "T-3500",
+        "liberty": "L-1812-gathering-people-3500",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
+      },
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Crow gens as Morgan says a name did."
+      },
+      "also_written": [
+        "A man of the camp at the south reach (name not recorded), 6 of 32"
+      ],
+      "on_15_august": {
+        "value": "Likely among the warriors who attacked the column",
+        "grade": "reconstructed",
+        "note": "Heald: \"between four and five hundred\" attacked, of the 500 at the council. Who fought is not recorded; that he did is our reading.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "People",
+          "value": "Potawatomi",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "Pepper's band",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Crow (Kä-käg′-she)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 28",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "Likely among the warriors who attacked the column",
+          "grade": "reconstructed"
+        }
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "His family is put with Pepper's band, on the River au Sable, below the Kankakee (about two hundred men, of different nations in May 1812), one of the bands of the Chicago country Governor Edwards described that spring.",
+          "He is of the Crow gens (Kä-käg′-she), and his children are of it after him.",
+          "In lodge no. 2 he lives with his wife Morning Loon Woman, his son Young Young Crow (3) and his daughter Little Crow (4).",
+          "He hunts deer in the oak openings, and in the fall goes after ducks and geese in the marshes of the Calumet.",
+          "He came in when the bands gathered at Chicago in August, and on the 13th was given cloth and blankets when the goods were handed out."
+        ]
+      }
+    },
+    {
+      "id": "gathering_1812_south_reach_007",
+      "name": "Morning Loon Woman",
+      "relationship": "household_member",
+      "grade": "reconstructed",
+      "sources": [
+        "andreas_1884_v1",
+        "currey_1912_old_fort_dearborn",
+        "morgan_1877_ancient_society",
+        "quaife_1913"
+      ],
+      "sex": "female",
+      "age_band": {
+        "value": "50-50",
+        "low": 50,
+        "high": 50,
+        "tier": "reconstructed",
+        "note": "Seeded to give the camp a believable spread of ages; not recorded."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "The gathering stood at the camp from the council of the 12th; no source takes a roll call on the 14th."
+      },
+      "note": "One of the gathering Helm counts on 12 August 1812, 500 warriors and 179 women and children, whom no source names; carded so the count is whole. Sleeps in lodge no. 2 of the ground, with her family. Sex and age follow Helm's split; the age, the lodge and the day are reconstructed (L-1812-gathering-people-3500).",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a person of the Potawatomi gathering at Chicago in August 1812, the eve of the attack on the garrison and its families, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507); the card says which of its facts are ours. touches_removal: these are the people removed from Chicago in 1835. Nothing of the fighting is staged in the scene.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "ticket": "T-3500",
+        "liberty": "L-1812-gathering-people-3500",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
+      },
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names her: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Loon gens as Morgan says a name did."
+      },
+      "also_written": [
+        "A woman of the camp at the south reach (name not recorded), 7 of 32"
+      ],
+      "on_15_august": {
+        "value": "At the camp by the fort",
+        "grade": "inferred",
+        "note": "Heald's prisoners were brought back to \"their encampment near the fort\". What this person saw or did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "People",
+          "value": "Potawatomi",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "Pepper's band",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Loon (Maak)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 50",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "At the camp by the fort",
+          "grade": "inferred"
+        }
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "Her family is put with Pepper's band, on the River au Sable, below the Kankakee (about two hundred men, of different nations in May 1812), one of the bands of the Chicago country Governor Edwards described that spring.",
+          "She is of the Loon gens (Maak); her husband, since no one married within the gens, is of another, and her children are of his.",
+          "In lodge no. 2 she lives with her husband Far Crow Wing, her son Young Young Crow (3) and her daughter Little Crow (4).",
+          "She planted and hoed the village's corn, beans and squash in the spring, and made the rush and cattail mats the lodges here are covered with.",
+          "She came in when the bands gathered at Chicago in August, and on the 13th was given cloth and blankets when the goods were handed out."
+        ]
+      }
+    },
+    {
+      "id": "gathering_1812_south_reach_008",
+      "name": "Young Young Crow",
+      "relationship": "child",
+      "grade": "reconstructed",
+      "sources": [
+        "andreas_1884_v1",
+        "currey_1912_old_fort_dearborn",
+        "morgan_1877_ancient_society",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "3-3",
+        "low": 3,
+        "high": 3,
+        "tier": "reconstructed",
+        "note": "Seeded to give the camp a believable spread of ages; not recorded."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "The gathering stood at the camp from the council of the 12th; no source takes a roll call on the 14th."
+      },
+      "note": "One of the gathering Helm counts on 12 August 1812, 500 warriors and 179 women and children, whom no source names; carded so the count is whole. Sleeps in lodge no. 2 of the ground, with his family. Sex and age follow Helm's split; the age, the lodge and the day are reconstructed (L-1812-gathering-people-3500).",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a person of the Potawatomi gathering at Chicago in August 1812, the eve of the attack on the garrison and its families, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507); the card says which of its facts are ours. touches_removal: these are the people removed from Chicago in 1835. Nothing of the fighting is staged in the scene.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "ticket": "T-3500",
+        "liberty": "L-1812-gathering-people-3500",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
+      },
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Crow gens as Morgan says a name did. A name of childhood."
+      },
+      "also_written": [
+        "A boy of the camp at the south reach (name not recorded), 8 of 32"
+      ],
+      "on_15_august": {
+        "value": "At the camp by the fort",
+        "grade": "inferred",
+        "note": "Heald's prisoners were brought back to \"their encampment near the fort\". What this person saw or did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "People",
+          "value": "Potawatomi",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "Pepper's band",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Crow (Kä-käg′-she)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 3",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "At the camp by the fort",
+          "grade": "inferred"
+        }
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "His family is put with Pepper's band, on the River au Sable, below the Kankakee (about two hundred men, of different nations in May 1812), one of the bands of the Chicago country Governor Edwards described that spring.",
+          "He is of the Crow gens (Kä-käg′-she, as Morgan writes it), his father's, and his name is a name of childhood, to be put aside for another as he grows up.",
+          "In lodge no. 2 he lives with his father Far Crow Wing, his mother Morning Loon Woman and his sister Little Crow (4).",
+          "The village's children run between the lodges and the river; the older ones carry wood and water for the kettle."
+        ]
+      }
+    },
+    {
+      "id": "gathering_1812_south_reach_009",
+      "name": "Little Crow",
+      "relationship": "child",
+      "grade": "reconstructed",
+      "sources": [
+        "andreas_1884_v1",
+        "currey_1912_old_fort_dearborn",
+        "morgan_1877_ancient_society",
+        "quaife_1913"
+      ],
+      "sex": "female",
+      "age_band": {
+        "value": "4-4",
+        "low": 4,
+        "high": 4,
+        "tier": "reconstructed",
+        "note": "Seeded to give the camp a believable spread of ages; not recorded."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "The gathering stood at the camp from the council of the 12th; no source takes a roll call on the 14th."
+      },
+      "note": "One of the gathering Helm counts on 12 August 1812, 500 warriors and 179 women and children, whom no source names; carded so the count is whole. Sleeps in lodge no. 2 of the ground, with her family. Sex and age follow Helm's split; the age, the lodge and the day are reconstructed (L-1812-gathering-people-3500).",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a person of the Potawatomi gathering at Chicago in August 1812, the eve of the attack on the garrison and its families, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507); the card says which of its facts are ours. touches_removal: these are the people removed from Chicago in 1835. Nothing of the fighting is staged in the scene.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "ticket": "T-3500",
+        "liberty": "L-1812-gathering-people-3500",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
+      },
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names her: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Crow gens as Morgan says a name did. A name of childhood."
+      },
+      "also_written": [
+        "A girl of the camp at the south reach (name not recorded), 9 of 32"
+      ],
+      "on_15_august": {
+        "value": "At the camp by the fort",
+        "grade": "inferred",
+        "note": "Heald's prisoners were brought back to \"their encampment near the fort\". What this person saw or did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "People",
+          "value": "Potawatomi",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "Pepper's band",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Crow (Kä-käg′-she)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 4",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "At the camp by the fort",
+          "grade": "inferred"
+        }
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "Her family is put with Pepper's band, on the River au Sable, below the Kankakee (about two hundred men, of different nations in May 1812), one of the bands of the Chicago country Governor Edwards described that spring.",
+          "She is of the Crow gens (Kä-käg′-she, as Morgan writes it), her father's, and her name is a name of childhood, to be put aside for another as she grows up.",
+          "In lodge no. 2 she lives with her father Far Crow Wing, her mother Morning Loon Woman and her brother Young Young Crow (3).",
+          "This summer is the first time this child has seen the fort, the soldiers and so many lodges in one place."
+        ]
+      }
+    },
+    {
+      "id": "gathering_1812_south_reach_010",
+      "name": "Black Fox",
+      "relationship": "household_member",
+      "grade": "reconstructed",
+      "sources": [
+        "andreas_1884_v1",
+        "currey_1912_old_fort_dearborn",
+        "morgan_1877_ancient_society",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "36-36",
+        "low": 36,
+        "high": 36,
+        "tier": "reconstructed",
+        "note": "Seeded to give the camp a believable spread of ages; not recorded."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "The gathering stood at the camp from the council of the 12th; no source takes a roll call on the 14th."
+      },
+      "note": "One of the gathering Helm counts on 12 August 1812, 500 warriors and 179 women and children, whom no source names; carded so the count is whole. Sleeps in lodge no. 3 of the ground, with his family. Sex and age follow Helm's split; the age, the lodge and the day are reconstructed (L-1812-gathering-people-3500).",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a person of the Potawatomi gathering at Chicago in August 1812, the eve of the attack on the garrison and its families, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507); the card says which of its facts are ours. touches_removal: these are the people removed from Chicago in 1835. Nothing of the fighting is staged in the scene.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "ticket": "T-3500",
+        "liberty": "L-1812-gathering-people-3500",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
+      },
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Fox gens as Morgan says a name did."
+      },
+      "also_written": [
+        "A man of the camp at the south reach (name not recorded), 10 of 32"
+      ],
+      "on_15_august": {
+        "value": "Likely among the warriors who attacked the column",
+        "grade": "reconstructed",
+        "note": "Heald: \"between four and five hundred\" attacked, of the 500 at the council. Who fought is not recorded; that he did is our reading.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "People",
+          "value": "Potawatomi",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "Pepper's band",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Fox (Wake-shĭ′)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 36",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "Likely among the warriors who attacked the column",
+          "grade": "reconstructed"
+        }
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "His family is put with Pepper's band, on the River au Sable, below the Kankakee (about two hundred men, of different nations in May 1812), one of the bands of the Chicago country Governor Edwards described that spring.",
+          "He is of the Fox gens (Wake-shĭ′), and his children are of it after him.",
+          "In lodge no. 3 he lives with his wife Swift Wolf Track Woman, his daughter Small Fox Kit (10) and his son Winter Fox Kit (15).",
+          "In the spring he helped at the sugar camp, and in summer fished the river and the lake while the corn grew at the village.",
+          "He came in when the bands gathered at Chicago in August, and on the 13th was given cloth and blankets when the goods were handed out."
+        ]
+      }
+    },
+    {
+      "id": "gathering_1812_south_reach_011",
+      "name": "Swift Wolf Track Woman",
+      "relationship": "household_member",
+      "grade": "reconstructed",
+      "sources": [
+        "andreas_1884_v1",
+        "currey_1912_old_fort_dearborn",
+        "morgan_1877_ancient_society",
+        "quaife_1913"
+      ],
+      "sex": "female",
+      "age_band": {
+        "value": "25-25",
+        "low": 25,
+        "high": 25,
+        "tier": "reconstructed",
+        "note": "Seeded to give the camp a believable spread of ages; not recorded."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "The gathering stood at the camp from the council of the 12th; no source takes a roll call on the 14th."
+      },
+      "note": "One of the gathering Helm counts on 12 August 1812, 500 warriors and 179 women and children, whom no source names; carded so the count is whole. Sleeps in lodge no. 3 of the ground, with her family. Sex and age follow Helm's split; the age, the lodge and the day are reconstructed (L-1812-gathering-people-3500).",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a person of the Potawatomi gathering at Chicago in August 1812, the eve of the attack on the garrison and its families, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507); the card says which of its facts are ours. touches_removal: these are the people removed from Chicago in 1835. Nothing of the fighting is staged in the scene.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "ticket": "T-3500",
+        "liberty": "L-1812-gathering-people-3500",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
+      },
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names her: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Wolf gens as Morgan says a name did."
+      },
+      "also_written": [
+        "A woman of the camp at the south reach (name not recorded), 11 of 32"
+      ],
+      "on_15_august": {
+        "value": "At the camp by the fort",
+        "grade": "inferred",
+        "note": "Heald's prisoners were brought back to \"their encampment near the fort\". What this person saw or did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "People",
+          "value": "Potawatomi",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "Pepper's band",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Wolf (Mo-ăh′)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 25",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "At the camp by the fort",
+          "grade": "inferred"
+        }
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "Her family is put with Pepper's band, on the River au Sable, below the Kankakee (about two hundred men, of different nations in May 1812), one of the bands of the Chicago country Governor Edwards described that spring.",
+          "She is of the Wolf gens (Mo-ăh′); her husband, since no one married within the gens, is of another, and her children are of his.",
+          "In lodge no. 3 she lives with her husband Black Fox, her daughter Small Fox Kit (10) and her son Winter Fox Kit (15).",
+          "In March and April she boiled maple sap at the sugar camp and packed the sugar in birch-bark mococks to trade.",
+          "She came in when the bands gathered at Chicago in August, and on the 13th was given cloth and blankets when the goods were handed out."
+        ]
+      }
+    },
+    {
+      "id": "gathering_1812_south_reach_012",
+      "name": "Small Fox Kit",
+      "relationship": "child",
+      "grade": "reconstructed",
+      "sources": [
+        "andreas_1884_v1",
+        "currey_1912_old_fort_dearborn",
+        "morgan_1877_ancient_society",
+        "quaife_1913"
+      ],
+      "sex": "female",
+      "age_band": {
+        "value": "10-10",
+        "low": 10,
+        "high": 10,
+        "tier": "reconstructed",
+        "note": "Seeded to give the camp a believable spread of ages; not recorded."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "The gathering stood at the camp from the council of the 12th; no source takes a roll call on the 14th."
+      },
+      "note": "One of the gathering Helm counts on 12 August 1812, 500 warriors and 179 women and children, whom no source names; carded so the count is whole. Sleeps in lodge no. 3 of the ground, with her family. Sex and age follow Helm's split; the age, the lodge and the day are reconstructed (L-1812-gathering-people-3500).",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a person of the Potawatomi gathering at Chicago in August 1812, the eve of the attack on the garrison and its families, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507); the card says which of its facts are ours. touches_removal: these are the people removed from Chicago in 1835. Nothing of the fighting is staged in the scene.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "ticket": "T-3500",
+        "liberty": "L-1812-gathering-people-3500",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
+      },
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names her: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Fox gens as Morgan says a name did. A name of childhood."
+      },
+      "also_written": [
+        "A girl of the camp at the south reach (name not recorded), 12 of 32"
+      ],
+      "on_15_august": {
+        "value": "At the camp by the fort",
+        "grade": "inferred",
+        "note": "Heald's prisoners were brought back to \"their encampment near the fort\". What this person saw or did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "People",
+          "value": "Potawatomi",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "Pepper's band",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Fox (Wake-shĭ′)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 10",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "At the camp by the fort",
+          "grade": "inferred"
+        }
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "Her family is put with Pepper's band, on the River au Sable, below the Kankakee (about two hundred men, of different nations in May 1812), one of the bands of the Chicago country Governor Edwards described that spring.",
+          "She is of the Fox gens (Wake-shĭ′, as Morgan writes it), her father's, and her name is a name of childhood, to be put aside for another as she grows up.",
+          "In lodge no. 3 she lives with her father Black Fox, her mother Swift Wolf Track Woman and her brother Winter Fox Kit (15).",
+          "This summer is the first time this child has seen the fort, the soldiers and so many lodges in one place."
+        ]
+      }
+    },
+    {
+      "id": "gathering_1812_south_reach_013",
+      "name": "Winter Fox Kit",
+      "relationship": "child",
+      "grade": "reconstructed",
+      "sources": [
+        "andreas_1884_v1",
+        "currey_1912_old_fort_dearborn",
+        "morgan_1877_ancient_society",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "15-15",
+        "low": 15,
+        "high": 15,
+        "tier": "reconstructed",
+        "note": "Seeded to give the camp a believable spread of ages; not recorded."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "The gathering stood at the camp from the council of the 12th; no source takes a roll call on the 14th."
+      },
+      "note": "One of the gathering Helm counts on 12 August 1812, 500 warriors and 179 women and children, whom no source names; carded so the count is whole. Sleeps in lodge no. 3 of the ground, with his family. Sex and age follow Helm's split; the age, the lodge and the day are reconstructed (L-1812-gathering-people-3500).",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a person of the Potawatomi gathering at Chicago in August 1812, the eve of the attack on the garrison and its families, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507); the card says which of its facts are ours. touches_removal: these are the people removed from Chicago in 1835. Nothing of the fighting is staged in the scene.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "ticket": "T-3500",
+        "liberty": "L-1812-gathering-people-3500",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
+      },
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Fox gens as Morgan says a name did. A name of childhood."
+      },
+      "also_written": [
+        "A youth of the camp at the south reach (name not recorded), 13 of 32"
+      ],
+      "on_15_august": {
+        "value": "At the camp by the fort",
+        "grade": "inferred",
+        "note": "Heald's prisoners were brought back to \"their encampment near the fort\". What this person saw or did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "People",
+          "value": "Potawatomi",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "Pepper's band",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Fox (Wake-shĭ′)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 15",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "At the camp by the fort",
+          "grade": "inferred"
+        }
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "His family is put with Pepper's band, on the River au Sable, below the Kankakee (about two hundred men, of different nations in May 1812), one of the bands of the Chicago country Governor Edwards described that spring.",
+          "He is of the Fox gens (Wake-shĭ′, as Morgan writes it), his father's, and his name is a name of childhood, to be put aside for another as he grows up.",
+          "In lodge no. 3 he lives with his father Black Fox, his mother Swift Wolf Track Woman and his sister Small Fox Kit (10).",
+          "The village's children run between the lodges and the river; the older ones carry wood and water for the kettle."
+        ]
+      }
+    },
+    {
+      "id": "gathering_1812_south_reach_014",
+      "name": "White Beaver",
+      "relationship": "household_member",
+      "grade": "reconstructed",
+      "sources": [
+        "andreas_1884_v1",
+        "currey_1912_old_fort_dearborn",
+        "morgan_1877_ancient_society",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "46-46",
+        "low": 46,
+        "high": 46,
+        "tier": "reconstructed",
+        "note": "Seeded to give the camp a believable spread of ages; not recorded."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "The gathering stood at the camp from the council of the 12th; no source takes a roll call on the 14th."
+      },
+      "note": "One of the gathering Helm counts on 12 August 1812, 500 warriors and 179 women and children, whom no source names; carded so the count is whole. Sleeps in lodge no. 4 of the ground, with his family. Sex and age follow Helm's split; the age, the lodge and the day are reconstructed (L-1812-gathering-people-3500).",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a person of the Potawatomi gathering at Chicago in August 1812, the eve of the attack on the garrison and its families, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507); the card says which of its facts are ours. touches_removal: these are the people removed from Chicago in 1835. Nothing of the fighting is staged in the scene.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "ticket": "T-3500",
+        "liberty": "L-1812-gathering-people-3500",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
+      },
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Beaver gens as Morgan says a name did."
+      },
+      "also_written": [
+        "A man of the camp at the south reach (name not recorded), 14 of 32"
+      ],
+      "on_15_august": {
+        "value": "Likely among the warriors who attacked the column",
+        "grade": "reconstructed",
+        "note": "Heald: \"between four and five hundred\" attacked, of the 500 at the council. Who fought is not recorded; that he did is our reading.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "People",
+          "value": "Potawatomi",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "Pepper's band",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Beaver (Muk)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 46",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "Likely among the warriors who attacked the column",
+          "grade": "reconstructed"
+        }
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "His family is put with Pepper's band, on the River au Sable, below the Kankakee (about two hundred men, of different nations in May 1812), one of the bands of the Chicago country Governor Edwards described that spring.",
+          "He is of the Beaver gens (Muk), and his children are of it after him.",
+          "In lodge no. 4 he lives with his wife Swift Crow Woman, his daughter Winter Beaver Kit (1) and his daughter Beaver Kit (12).",
+          "In the spring he helped at the sugar camp, and in summer fished the river and the lake while the corn grew at the village.",
+          "He came in when the bands gathered at Chicago in August, and on the 13th was given cloth and blankets when the goods were handed out."
+        ]
+      }
+    },
+    {
+      "id": "gathering_1812_south_reach_015",
+      "name": "Swift Crow Woman",
+      "relationship": "household_member",
+      "grade": "reconstructed",
+      "sources": [
+        "andreas_1884_v1",
+        "currey_1912_old_fort_dearborn",
+        "morgan_1877_ancient_society",
+        "quaife_1913"
+      ],
+      "sex": "female",
+      "age_band": {
+        "value": "46-46",
+        "low": 46,
+        "high": 46,
+        "tier": "reconstructed",
+        "note": "Seeded to give the camp a believable spread of ages; not recorded."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "The gathering stood at the camp from the council of the 12th; no source takes a roll call on the 14th."
+      },
+      "note": "One of the gathering Helm counts on 12 August 1812, 500 warriors and 179 women and children, whom no source names; carded so the count is whole. Sleeps in lodge no. 4 of the ground, with her family. Sex and age follow Helm's split; the age, the lodge and the day are reconstructed (L-1812-gathering-people-3500).",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a person of the Potawatomi gathering at Chicago in August 1812, the eve of the attack on the garrison and its families, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507); the card says which of its facts are ours. touches_removal: these are the people removed from Chicago in 1835. Nothing of the fighting is staged in the scene.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "ticket": "T-3500",
+        "liberty": "L-1812-gathering-people-3500",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
+      },
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names her: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Crow gens as Morgan says a name did."
+      },
+      "also_written": [
+        "A woman of the camp at the south reach (name not recorded), 15 of 32"
+      ],
+      "on_15_august": {
+        "value": "At the camp by the fort",
+        "grade": "inferred",
+        "note": "Heald's prisoners were brought back to \"their encampment near the fort\". What this person saw or did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "People",
+          "value": "Potawatomi",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "Pepper's band",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Crow (Kä-käg′-she)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 46",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "At the camp by the fort",
+          "grade": "inferred"
+        }
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "Her family is put with Pepper's band, on the River au Sable, below the Kankakee (about two hundred men, of different nations in May 1812), one of the bands of the Chicago country Governor Edwards described that spring.",
+          "She is of the Crow gens (Kä-käg′-she); her husband, since no one married within the gens, is of another, and her children are of his.",
+          "In lodge no. 4 she lives with her husband White Beaver, her daughter Winter Beaver Kit (1) and her daughter Beaver Kit (12).",
+          "She planted and hoed the village's corn, beans and squash in the spring, and made the rush and cattail mats the lodges here are covered with.",
+          "She came in when the bands gathered at Chicago in August, and on the 13th was given cloth and blankets when the goods were handed out."
+        ]
+      }
+    },
+    {
+      "id": "gathering_1812_south_reach_016",
+      "name": "Winter Beaver Kit",
+      "relationship": "child",
+      "grade": "reconstructed",
+      "sources": [
+        "andreas_1884_v1",
+        "currey_1912_old_fort_dearborn",
+        "morgan_1877_ancient_society",
+        "quaife_1913"
+      ],
+      "sex": "female",
+      "age_band": {
+        "value": "1-1",
+        "low": 1,
+        "high": 1,
+        "tier": "reconstructed",
+        "note": "Seeded to give the camp a believable spread of ages; not recorded."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "The gathering stood at the camp from the council of the 12th; no source takes a roll call on the 14th."
+      },
+      "note": "One of the gathering Helm counts on 12 August 1812, 500 warriors and 179 women and children, whom no source names; carded so the count is whole. Sleeps in lodge no. 4 of the ground, with her family. Sex and age follow Helm's split; the age, the lodge and the day are reconstructed (L-1812-gathering-people-3500). Carried by the family; not drawn and not called out at the door.",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a person of the Potawatomi gathering at Chicago in August 1812, the eve of the attack on the garrison and its families, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507); the card says which of its facts are ours. touches_removal: these are the people removed from Chicago in 1835. Nothing of the fighting is staged in the scene.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "ticket": "T-3500",
+        "liberty": "L-1812-gathering-people-3500",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
+      },
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names her: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Beaver gens as Morgan says a name did. A name of childhood."
+      },
+      "also_written": [
+        "A baby of the camp at the south reach (name not recorded), 16 of 32"
+      ],
+      "on_15_august": {
+        "value": "At the camp by the fort",
+        "grade": "inferred",
+        "note": "Heald's prisoners were brought back to \"their encampment near the fort\". What this person saw or did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "People",
+          "value": "Potawatomi",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "Pepper's band",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Beaver (Muk)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 1",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "At the camp by the fort",
+          "grade": "inferred"
+        }
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "Her family is put with Pepper's band, on the River au Sable, below the Kankakee (about two hundred men, of different nations in May 1812), one of the bands of the Chicago country Governor Edwards described that spring.",
+          "She is of the Beaver gens (Muk, as Morgan writes it), her father's, and her name is a name of childhood, to be put aside for another as she grows up.",
+          "In lodge no. 4 she lives with her father White Beaver, her mother Swift Crow Woman and her sister Beaver Kit (12).",
+          "This summer is the first time this child has seen the fort, the soldiers and so many lodges in one place."
+        ]
+      }
+    },
+    {
+      "id": "gathering_1812_south_reach_017",
+      "name": "Beaver Kit",
+      "relationship": "child",
+      "grade": "reconstructed",
+      "sources": [
+        "andreas_1884_v1",
+        "currey_1912_old_fort_dearborn",
+        "morgan_1877_ancient_society",
+        "quaife_1913"
+      ],
+      "sex": "female",
+      "age_band": {
+        "value": "12-12",
+        "low": 12,
+        "high": 12,
+        "tier": "reconstructed",
+        "note": "Seeded to give the camp a believable spread of ages; not recorded."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "The gathering stood at the camp from the council of the 12th; no source takes a roll call on the 14th."
+      },
+      "note": "One of the gathering Helm counts on 12 August 1812, 500 warriors and 179 women and children, whom no source names; carded so the count is whole. Sleeps in lodge no. 4 of the ground, with her family. Sex and age follow Helm's split; the age, the lodge and the day are reconstructed (L-1812-gathering-people-3500).",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a person of the Potawatomi gathering at Chicago in August 1812, the eve of the attack on the garrison and its families, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507); the card says which of its facts are ours. touches_removal: these are the people removed from Chicago in 1835. Nothing of the fighting is staged in the scene.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "ticket": "T-3500",
+        "liberty": "L-1812-gathering-people-3500",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
+      },
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names her: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Beaver gens as Morgan says a name did. A name of childhood."
+      },
+      "also_written": [
+        "A girl of the camp at the south reach (name not recorded), 17 of 32"
+      ],
+      "on_15_august": {
+        "value": "At the camp by the fort",
+        "grade": "inferred",
+        "note": "Heald's prisoners were brought back to \"their encampment near the fort\". What this person saw or did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "People",
+          "value": "Potawatomi",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "Pepper's band",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Beaver (Muk)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 12",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "At the camp by the fort",
+          "grade": "inferred"
+        }
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "Her family is put with Pepper's band, on the River au Sable, below the Kankakee (about two hundred men, of different nations in May 1812), one of the bands of the Chicago country Governor Edwards described that spring.",
+          "She is of the Beaver gens (Muk, as Morgan writes it), her father's, and her name is a name of childhood, to be put aside for another as she grows up.",
+          "In lodge no. 4 she lives with her father White Beaver, her mother Swift Crow Woman and her sister Winter Beaver Kit (1).",
+          "This summer is the first time this child has seen the fort, the soldiers and so many lodges in one place."
+        ]
+      }
+    },
+    {
+      "id": "gathering_1812_south_reach_018",
+      "name": "Cunnepepy",
+      "relationship": "household_member",
+      "grade": "reconstructed",
+      "sources": [
+        "andreas_1884_v1",
+        "currey_1912_old_fort_dearborn",
+        "kappler_1904_treaty_ottawa_etc_1816",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "24-24",
+        "low": 24,
+        "high": 24,
+        "tier": "reconstructed",
+        "note": "Seeded to give the camp a believable spread of ages; not recorded."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "The gathering stood at the camp from the council of the 12th; no source takes a roll call on the 14th."
+      },
+      "note": "One of the gathering Helm counts on 12 August 1812, 500 warriors and 179 women and children, whom no source names; carded so the count is whole. Sleeps in lodge no. 5 of the ground, with his family. Sex and age follow Helm's split; the age, the lodge and the day are reconstructed (L-1812-gathering-people-3500).",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a person of the Potawatomi gathering at Chicago in August 1812, the eve of the attack on the garrison and its families, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507); the card says which of its facts are ours. touches_removal: these are the people removed from Chicago in 1835. Nothing of the fighting is staged in the scene.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "ticket": "T-3500",
+        "liberty": "L-1812-gathering-people-3500",
+        "name": "attested",
+        "history": "reconstructed",
+        "name_ticket": "T-3508",
+        "cards_liberty": "L-1812-native-cards-3507"
+      },
+      "name_basis": {
+        "value": "attested",
+        "grade": "attested",
+        "sources": [
+          "kappler_1904_treaty_ottawa_etc_1816"
+        ],
+        "note": "His name as the treaty of 1816 prints it. That he was at Chicago in August 1812 no source says: he signed for the bands that gathered there, and is put among the men of the gathering (reconstructed)."
+      },
+      "also_written": [
+        "A man of the camp at the south reach (name not recorded), 18 of 32"
+      ],
+      "on_15_august": {
+        "value": "Likely among the warriors who attacked the column",
+        "grade": "reconstructed",
+        "note": "Heald: \"between four and five hundred\" attacked, of the 500 at the council. Who fought is not recorded; that he did is our reading.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Attested: he signed the treaty of 1816",
+          "grade": "attested"
+        },
+        {
+          "label": "At Chicago, August 1812",
+          "value": "Not recorded; put here as a man of the bands",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "People",
+          "value": "Potawatomi",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "Pepper's band",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Bear (M′-ko′)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 24",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "Likely among the warriors who attacked the column",
+          "grade": "reconstructed"
+        }
+      ],
+      "evidence": [
+        {
+          "source_id": "kappler_1904_treaty_ottawa_etc_1816",
+          "locator": "Kappler II, Treaty with the Ottawa, etc., 1816 (St. Louis, 24 August 1816), the signers",
+          "quote": "the chiefs and warriors of the united tribes of Ottawas, Chipawas, and Pottowotomees, residing on the Illinois and Melwakee rivers",
+          "claim": "signed for the Ottawa, Chippewa and Potawatomi of the Illinois and Milwaukee rivers in 1816"
+        }
+      ],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "His family is put with Pepper's band, on the River au Sable, below the Kankakee (about two hundred men, of different nations in May 1812), one of the bands of the Chicago country Governor Edwards described that spring.",
+          "He is of the Bear gens (M′-ko′), and his children are of it after him.",
+          "In lodge no. 5 he lives with his wife Evening Hawk Woman, his daughter Little Bear Track (6) and his son Morning Bear Cub (6).",
+          "He hunts deer in the oak openings, and in the fall goes after ducks and geese in the marshes of the Calumet.",
+          "He came in when the bands gathered at Chicago in August, and on the 13th was given cloth and blankets when the goods were handed out.",
+          "Cunnepepy made his mark on the treaty of St. Louis, 24 August 1816, by which the bands of the Illinois and Milwaukee rivers ceded the land about Chicago: the one record of him we have. Everything else here is reconstructed."
+        ]
+      }
+    },
+    {
+      "id": "gathering_1812_south_reach_019",
+      "name": "Evening Hawk Woman",
+      "relationship": "household_member",
+      "grade": "reconstructed",
+      "sources": [
+        "andreas_1884_v1",
+        "currey_1912_old_fort_dearborn",
+        "morgan_1877_ancient_society",
+        "quaife_1913"
+      ],
+      "sex": "female",
+      "age_band": {
+        "value": "24-24",
+        "low": 24,
+        "high": 24,
+        "tier": "reconstructed",
+        "note": "Seeded to give the camp a believable spread of ages; not recorded."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "The gathering stood at the camp from the council of the 12th; no source takes a roll call on the 14th."
+      },
+      "note": "One of the gathering Helm counts on 12 August 1812, 500 warriors and 179 women and children, whom no source names; carded so the count is whole. Sleeps in lodge no. 5 of the ground, with her family. Sex and age follow Helm's split; the age, the lodge and the day are reconstructed (L-1812-gathering-people-3500).",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a person of the Potawatomi gathering at Chicago in August 1812, the eve of the attack on the garrison and its families, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507); the card says which of its facts are ours. touches_removal: these are the people removed from Chicago in 1835. Nothing of the fighting is staged in the scene.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "ticket": "T-3500",
+        "liberty": "L-1812-gathering-people-3500",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
+      },
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names her: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Black Hawk gens as Morgan says a name did."
+      },
+      "also_written": [
+        "A woman of the camp at the south reach (name not recorded), 19 of 32"
+      ],
+      "on_15_august": {
+        "value": "At the camp by the fort",
+        "grade": "inferred",
+        "note": "Heald's prisoners were brought back to \"their encampment near the fort\". What this person saw or did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "People",
+          "value": "Potawatomi",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "Pepper's band",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Black Hawk (M′-ke-tash′-she-kă-kah′)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 24",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "At the camp by the fort",
+          "grade": "inferred"
+        }
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "Her family is put with Pepper's band, on the River au Sable, below the Kankakee (about two hundred men, of different nations in May 1812), one of the bands of the Chicago country Governor Edwards described that spring.",
+          "She is of the Black Hawk gens (M′-ke-tash′-she-kă-kah′); her husband, since no one married within the gens, is of another, and her children are of his.",
+          "In lodge no. 5 she lives with her husband Cunnepepy, her daughter Little Bear Track (6) and her son Morning Bear Cub (6).",
+          "She gathers wild rice and rushes in the marshes in late summer and dries berries for the winter.",
+          "She came in when the bands gathered at Chicago in August, and on the 13th was given cloth and blankets when the goods were handed out."
+        ]
+      }
+    },
+    {
+      "id": "gathering_1812_south_reach_020",
+      "name": "Little Bear Track",
+      "relationship": "child",
+      "grade": "reconstructed",
+      "sources": [
+        "andreas_1884_v1",
+        "currey_1912_old_fort_dearborn",
+        "morgan_1877_ancient_society",
+        "quaife_1913"
+      ],
+      "sex": "female",
+      "age_band": {
+        "value": "6-6",
+        "low": 6,
+        "high": 6,
+        "tier": "reconstructed",
+        "note": "Seeded to give the camp a believable spread of ages; not recorded."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "The gathering stood at the camp from the council of the 12th; no source takes a roll call on the 14th."
+      },
+      "note": "One of the gathering Helm counts on 12 August 1812, 500 warriors and 179 women and children, whom no source names; carded so the count is whole. Sleeps in lodge no. 5 of the ground, with her family. Sex and age follow Helm's split; the age, the lodge and the day are reconstructed (L-1812-gathering-people-3500).",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a person of the Potawatomi gathering at Chicago in August 1812, the eve of the attack on the garrison and its families, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507); the card says which of its facts are ours. touches_removal: these are the people removed from Chicago in 1835. Nothing of the fighting is staged in the scene.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "ticket": "T-3500",
+        "liberty": "L-1812-gathering-people-3500",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
+      },
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names her: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Bear gens as Morgan says a name did. A name of childhood."
+      },
+      "also_written": [
+        "A girl of the camp at the south reach (name not recorded), 20 of 32"
+      ],
+      "on_15_august": {
+        "value": "At the camp by the fort",
+        "grade": "inferred",
+        "note": "Heald's prisoners were brought back to \"their encampment near the fort\". What this person saw or did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "People",
+          "value": "Potawatomi",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "Pepper's band",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Bear (M′-ko′)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 6",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "At the camp by the fort",
+          "grade": "inferred"
+        }
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "Her family is put with Pepper's band, on the River au Sable, below the Kankakee (about two hundred men, of different nations in May 1812), one of the bands of the Chicago country Governor Edwards described that spring.",
+          "She is of the Bear gens (M′-ko′, as Morgan writes it), her father's, and her name is a name of childhood, to be put aside for another as she grows up.",
+          "In lodge no. 5 she lives with her father Cunnepepy, her mother Evening Hawk Woman and her brother Morning Bear Cub (6).",
+          "This summer is the first time this child has seen the fort, the soldiers and so many lodges in one place."
+        ]
+      }
+    },
+    {
+      "id": "gathering_1812_south_reach_021",
+      "name": "Morning Bear Cub",
+      "relationship": "child",
+      "grade": "reconstructed",
+      "sources": [
+        "andreas_1884_v1",
+        "currey_1912_old_fort_dearborn",
+        "morgan_1877_ancient_society",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "6-6",
+        "low": 6,
+        "high": 6,
+        "tier": "reconstructed",
+        "note": "Seeded to give the camp a believable spread of ages; not recorded."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "The gathering stood at the camp from the council of the 12th; no source takes a roll call on the 14th."
+      },
+      "note": "One of the gathering Helm counts on 12 August 1812, 500 warriors and 179 women and children, whom no source names; carded so the count is whole. Sleeps in lodge no. 5 of the ground, with his family. Sex and age follow Helm's split; the age, the lodge and the day are reconstructed (L-1812-gathering-people-3500).",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a person of the Potawatomi gathering at Chicago in August 1812, the eve of the attack on the garrison and its families, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507); the card says which of its facts are ours. touches_removal: these are the people removed from Chicago in 1835. Nothing of the fighting is staged in the scene.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "ticket": "T-3500",
+        "liberty": "L-1812-gathering-people-3500",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
+      },
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Bear gens as Morgan says a name did. A name of childhood."
+      },
+      "also_written": [
+        "A boy of the camp at the south reach (name not recorded), 21 of 32"
+      ],
+      "on_15_august": {
+        "value": "At the camp by the fort",
+        "grade": "inferred",
+        "note": "Heald's prisoners were brought back to \"their encampment near the fort\". What this person saw or did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "People",
+          "value": "Potawatomi",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "Pepper's band",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Bear (M′-ko′)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 6",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "At the camp by the fort",
+          "grade": "inferred"
+        }
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "His family is put with Pepper's band, on the River au Sable, below the Kankakee (about two hundred men, of different nations in May 1812), one of the bands of the Chicago country Governor Edwards described that spring.",
+          "He is of the Bear gens (M′-ko′, as Morgan writes it), his father's, and his name is a name of childhood, to be put aside for another as he grows up.",
+          "In lodge no. 5 he lives with his father Cunnepepy, his mother Evening Hawk Woman and his sister Little Bear Track (6).",
+          "The village's children run between the lodges and the river; the older ones carry wood and water for the kettle."
+        ]
+      }
+    },
+    {
+      "id": "gathering_1812_south_reach_022",
+      "name": "Gray Hawk Feather",
+      "relationship": "household_member",
+      "grade": "reconstructed",
+      "sources": [
+        "andreas_1884_v1",
+        "currey_1912_old_fort_dearborn",
+        "morgan_1877_ancient_society",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "31-31",
+        "low": 31,
+        "high": 31,
+        "tier": "reconstructed",
+        "note": "Seeded to give the camp a believable spread of ages; not recorded."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "The gathering stood at the camp from the council of the 12th; no source takes a roll call on the 14th."
+      },
+      "note": "One of the gathering Helm counts on 12 August 1812, 500 warriors and 179 women and children, whom no source names; carded so the count is whole. Sleeps in lodge no. 1 of the ground, with his family. Sex and age follow Helm's split; the age, the lodge and the day are reconstructed (L-1812-gathering-people-3500).",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a person of the Potawatomi gathering at Chicago in August 1812, the eve of the attack on the garrison and its families, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507); the card says which of its facts are ours. touches_removal: these are the people removed from Chicago in 1835. Nothing of the fighting is staged in the scene.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "ticket": "T-3500",
+        "liberty": "L-1812-gathering-people-3500",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
+      },
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Black Hawk gens as Morgan says a name did."
+      },
+      "also_written": [
+        "A man of the camp at the south reach (name not recorded), 22 of 32"
+      ],
+      "on_15_august": {
+        "value": "Likely among the warriors who attacked the column",
+        "grade": "reconstructed",
+        "note": "Heald: \"between four and five hundred\" attacked, of the 500 at the council. Who fought is not recorded; that he did is our reading.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "People",
+          "value": "Potawatomi",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "Pepper's band",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Black Hawk (M′-ke-tash′-she-kă-kah′)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 31",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "Likely among the warriors who attacked the column",
+          "grade": "reconstructed"
+        }
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "His family is put with Pepper's band, on the River au Sable, below the Kankakee (about two hundred men, of different nations in May 1812), one of the bands of the Chicago country Governor Edwards described that spring.",
+          "He is of the Black Hawk gens (M′-ke-tash′-she-kă-kah′), and his children are of it after him.",
+          "In lodge no. 1 he lives with his wife Rabbit's Path, his daughter Morning Young Hawk (11) and his daughter Small Young Hawk (6).",
+          "The winter before, he hunted with his family on the Kankakee and traded the skins at Kinzie's for powder, cloth and kettles.",
+          "He came in when the bands gathered at Chicago in August, and on the 13th was given cloth and blankets when the goods were handed out."
+        ]
+      }
+    },
+    {
+      "id": "gathering_1812_south_reach_023",
+      "name": "Rabbit's Path",
+      "relationship": "household_member",
+      "grade": "reconstructed",
+      "sources": [
+        "andreas_1884_v1",
+        "currey_1912_old_fort_dearborn",
+        "morgan_1877_ancient_society",
+        "quaife_1913"
+      ],
+      "sex": "female",
+      "age_band": {
+        "value": "48-48",
+        "low": 48,
+        "high": 48,
+        "tier": "reconstructed",
+        "note": "Seeded to give the camp a believable spread of ages; not recorded."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "The gathering stood at the camp from the council of the 12th; no source takes a roll call on the 14th."
+      },
+      "note": "One of the gathering Helm counts on 12 August 1812, 500 warriors and 179 women and children, whom no source names; carded so the count is whole. Sleeps in lodge no. 1 of the ground, with her family. Sex and age follow Helm's split; the age, the lodge and the day are reconstructed (L-1812-gathering-people-3500).",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a person of the Potawatomi gathering at Chicago in August 1812, the eve of the attack on the garrison and its families, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507); the card says which of its facts are ours. touches_removal: these are the people removed from Chicago in 1835. Nothing of the fighting is staged in the scene.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "ticket": "T-3500",
+        "liberty": "L-1812-gathering-people-3500",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
+      },
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names her: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Rabbit gens as Morgan says a name did."
+      },
+      "also_written": [
+        "A woman of the camp at the south reach (name not recorded), 23 of 32"
+      ],
+      "on_15_august": {
+        "value": "At the camp by the fort",
+        "grade": "inferred",
+        "note": "Heald's prisoners were brought back to \"their encampment near the fort\". What this person saw or did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "People",
+          "value": "Potawatomi",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "Pepper's band",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Rabbit (Wä-bo′-zo)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 48",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "At the camp by the fort",
+          "grade": "inferred"
+        }
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "Her family is put with Pepper's band, on the River au Sable, below the Kankakee (about two hundred men, of different nations in May 1812), one of the bands of the Chicago country Governor Edwards described that spring.",
+          "She is of the Rabbit gens (Wä-bo′-zo); her husband, since no one married within the gens, is of another, and her children are of his.",
+          "In lodge no. 1 she lives with her husband Gray Hawk Feather, her daughter Morning Young Hawk (11) and her daughter Small Young Hawk (6).",
+          "She gathers wild rice and rushes in the marshes in late summer and dries berries for the winter.",
+          "She came in when the bands gathered at Chicago in August, and on the 13th was given cloth and blankets when the goods were handed out."
+        ]
+      }
+    },
+    {
+      "id": "gathering_1812_south_reach_024",
+      "name": "Morning Young Hawk",
+      "relationship": "child",
+      "grade": "reconstructed",
+      "sources": [
+        "andreas_1884_v1",
+        "currey_1912_old_fort_dearborn",
+        "morgan_1877_ancient_society",
+        "quaife_1913"
+      ],
+      "sex": "female",
+      "age_band": {
+        "value": "11-11",
+        "low": 11,
+        "high": 11,
+        "tier": "reconstructed",
+        "note": "Seeded to give the camp a believable spread of ages; not recorded."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "The gathering stood at the camp from the council of the 12th; no source takes a roll call on the 14th."
+      },
+      "note": "One of the gathering Helm counts on 12 August 1812, 500 warriors and 179 women and children, whom no source names; carded so the count is whole. Sleeps in lodge no. 1 of the ground, with her family. Sex and age follow Helm's split; the age, the lodge and the day are reconstructed (L-1812-gathering-people-3500).",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a person of the Potawatomi gathering at Chicago in August 1812, the eve of the attack on the garrison and its families, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507); the card says which of its facts are ours. touches_removal: these are the people removed from Chicago in 1835. Nothing of the fighting is staged in the scene.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "ticket": "T-3500",
+        "liberty": "L-1812-gathering-people-3500",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
+      },
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names her: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Black Hawk gens as Morgan says a name did. A name of childhood."
+      },
+      "also_written": [
+        "A girl of the camp at the south reach (name not recorded), 24 of 32"
+      ],
+      "on_15_august": {
+        "value": "At the camp by the fort",
+        "grade": "inferred",
+        "note": "Heald's prisoners were brought back to \"their encampment near the fort\". What this person saw or did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "People",
+          "value": "Potawatomi",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "Pepper's band",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Black Hawk (M′-ke-tash′-she-kă-kah′)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 11",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "At the camp by the fort",
+          "grade": "inferred"
+        }
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "Her family is put with Pepper's band, on the River au Sable, below the Kankakee (about two hundred men, of different nations in May 1812), one of the bands of the Chicago country Governor Edwards described that spring.",
+          "She is of the Black Hawk gens (M′-ke-tash′-she-kă-kah′, as Morgan writes it), her father's, and her name is a name of childhood, to be put aside for another as she grows up.",
+          "In lodge no. 1 she lives with her father Gray Hawk Feather, her mother Rabbit's Path and her sister Small Young Hawk (6).",
+          "This summer is the first time this child has seen the fort, the soldiers and so many lodges in one place."
+        ]
+      }
+    },
+    {
+      "id": "gathering_1812_south_reach_025",
+      "name": "Small Young Hawk",
+      "relationship": "child",
+      "grade": "reconstructed",
+      "sources": [
+        "andreas_1884_v1",
+        "currey_1912_old_fort_dearborn",
+        "morgan_1877_ancient_society",
+        "quaife_1913"
+      ],
+      "sex": "female",
+      "age_band": {
+        "value": "6-6",
+        "low": 6,
+        "high": 6,
+        "tier": "reconstructed",
+        "note": "Seeded to give the camp a believable spread of ages; not recorded."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "The gathering stood at the camp from the council of the 12th; no source takes a roll call on the 14th."
+      },
+      "note": "One of the gathering Helm counts on 12 August 1812, 500 warriors and 179 women and children, whom no source names; carded so the count is whole. Sleeps in lodge no. 1 of the ground, with her family. Sex and age follow Helm's split; the age, the lodge and the day are reconstructed (L-1812-gathering-people-3500).",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a person of the Potawatomi gathering at Chicago in August 1812, the eve of the attack on the garrison and its families, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507); the card says which of its facts are ours. touches_removal: these are the people removed from Chicago in 1835. Nothing of the fighting is staged in the scene.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "ticket": "T-3500",
+        "liberty": "L-1812-gathering-people-3500",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
+      },
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names her: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Black Hawk gens as Morgan says a name did. A name of childhood."
+      },
+      "also_written": [
+        "A girl of the camp at the south reach (name not recorded), 25 of 32"
+      ],
+      "on_15_august": {
+        "value": "At the camp by the fort",
+        "grade": "inferred",
+        "note": "Heald's prisoners were brought back to \"their encampment near the fort\". What this person saw or did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "People",
+          "value": "Potawatomi",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "Pepper's band",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Black Hawk (M′-ke-tash′-she-kă-kah′)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 6",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "At the camp by the fort",
+          "grade": "inferred"
+        }
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "Her family is put with Pepper's band, on the River au Sable, below the Kankakee (about two hundred men, of different nations in May 1812), one of the bands of the Chicago country Governor Edwards described that spring.",
+          "She is of the Black Hawk gens (M′-ke-tash′-she-kă-kah′, as Morgan writes it), her father's, and her name is a name of childhood, to be put aside for another as she grows up.",
+          "In lodge no. 1 she lives with her father Gray Hawk Feather, her mother Rabbit's Path and her sister Morning Young Hawk (11).",
+          "The village's children run between the lodges and the river; the older ones carry wood and water for the kettle."
+        ]
+      }
+    },
+    {
+      "id": "gathering_1812_south_reach_026",
+      "name": "Yellow Beaver Tail",
+      "relationship": "household_member",
+      "grade": "reconstructed",
+      "sources": [
+        "andreas_1884_v1",
+        "currey_1912_old_fort_dearborn",
+        "morgan_1877_ancient_society",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "24-24",
+        "low": 24,
+        "high": 24,
+        "tier": "reconstructed",
+        "note": "Seeded to give the camp a believable spread of ages; not recorded."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "The gathering stood at the camp from the council of the 12th; no source takes a roll call on the 14th."
+      },
+      "note": "One of the gathering Helm counts on 12 August 1812, 500 warriors and 179 women and children, whom no source names; carded so the count is whole. Sleeps in lodge no. 2 of the ground. Sex and age follow Helm's split; the age, the lodge and the day are reconstructed (L-1812-gathering-people-3500).",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a person of the Potawatomi gathering at Chicago in August 1812, the eve of the attack on the garrison and its families, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507); the card says which of its facts are ours. touches_removal: these are the people removed from Chicago in 1835. Nothing of the fighting is staged in the scene.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "ticket": "T-3500",
+        "liberty": "L-1812-gathering-people-3500",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
+      },
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Beaver gens as Morgan says a name did."
+      },
+      "also_written": [
+        "A man of the camp at the south reach (name not recorded), 26 of 32"
+      ],
+      "on_15_august": {
+        "value": "Likely among the warriors who attacked the column",
+        "grade": "reconstructed",
+        "note": "Heald: \"between four and five hundred\" attacked, of the 500 at the council. Who fought is not recorded; that he did is our reading.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "People",
+          "value": "Potawatomi",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "Pepper's band",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Beaver (Muk)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 24",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "Likely among the warriors who attacked the column",
+          "grade": "reconstructed"
+        }
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "His family is put with Pepper's band, on the River au Sable, below the Kankakee (about two hundred men, of different nations in May 1812), one of the bands of the Chicago country Governor Edwards described that spring.",
+          "He is of the Beaver gens (Muk), and his children are of it after him.",
+          "The winter before, he hunted with his family on the Kankakee and traded the skins at Kinzie's for powder, cloth and kettles.",
+          "He came in when the bands gathered at Chicago in August, and on the 13th was given cloth and blankets when the goods were handed out."
+        ]
+      }
+    },
+    {
+      "id": "gathering_1812_south_reach_027",
+      "name": "Tall Beaver",
+      "relationship": "household_member",
+      "grade": "reconstructed",
+      "sources": [
+        "andreas_1884_v1",
+        "currey_1912_old_fort_dearborn",
+        "morgan_1877_ancient_society",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "49-49",
+        "low": 49,
+        "high": 49,
+        "tier": "reconstructed",
+        "note": "Seeded to give the camp a believable spread of ages; not recorded."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "The gathering stood at the camp from the council of the 12th; no source takes a roll call on the 14th."
+      },
+      "note": "One of the gathering Helm counts on 12 August 1812, 500 warriors and 179 women and children, whom no source names; carded so the count is whole. Sleeps in lodge no. 3 of the ground. Sex and age follow Helm's split; the age, the lodge and the day are reconstructed (L-1812-gathering-people-3500).",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a person of the Potawatomi gathering at Chicago in August 1812, the eve of the attack on the garrison and its families, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507); the card says which of its facts are ours. touches_removal: these are the people removed from Chicago in 1835. Nothing of the fighting is staged in the scene.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "ticket": "T-3500",
+        "liberty": "L-1812-gathering-people-3500",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
+      },
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Beaver gens as Morgan says a name did."
+      },
+      "also_written": [
+        "A man of the camp at the south reach (name not recorded), 27 of 32"
+      ],
+      "on_15_august": {
+        "value": "Likely among the warriors who attacked the column",
+        "grade": "reconstructed",
+        "note": "Heald: \"between four and five hundred\" attacked, of the 500 at the council. Who fought is not recorded; that he did is our reading.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "People",
+          "value": "Potawatomi",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "Pepper's band",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Beaver (Muk)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 49",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "Likely among the warriors who attacked the column",
+          "grade": "reconstructed"
+        }
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "His family is put with Pepper's band, on the River au Sable, below the Kankakee (about two hundred men, of different nations in May 1812), one of the bands of the Chicago country Governor Edwards described that spring.",
+          "He is of the Beaver gens (Muk), and his children are of it after him.",
+          "He knows the portage and the Des Plaines from carrying canoes and packs across it in high water and low.",
+          "He came in when the bands gathered at Chicago in August, and on the 13th was given cloth and blankets when the goods were handed out."
+        ]
+      }
+    },
+    {
+      "id": "gathering_1812_south_reach_028",
+      "name": "Standing Hawk Wing",
+      "relationship": "household_member",
+      "grade": "reconstructed",
+      "sources": [
+        "andreas_1884_v1",
+        "currey_1912_old_fort_dearborn",
+        "morgan_1877_ancient_society",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "23-23",
+        "low": 23,
+        "high": 23,
+        "tier": "reconstructed",
+        "note": "Seeded to give the camp a believable spread of ages; not recorded."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "The gathering stood at the camp from the council of the 12th; no source takes a roll call on the 14th."
+      },
+      "note": "One of the gathering Helm counts on 12 August 1812, 500 warriors and 179 women and children, whom no source names; carded so the count is whole. Sleeps in lodge no. 4 of the ground. Sex and age follow Helm's split; the age, the lodge and the day are reconstructed (L-1812-gathering-people-3500).",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a person of the Potawatomi gathering at Chicago in August 1812, the eve of the attack on the garrison and its families, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507); the card says which of its facts are ours. touches_removal: these are the people removed from Chicago in 1835. Nothing of the fighting is staged in the scene.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "ticket": "T-3500",
+        "liberty": "L-1812-gathering-people-3500",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
+      },
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Black Hawk gens as Morgan says a name did."
+      },
+      "also_written": [
+        "A man of the camp at the south reach (name not recorded), 28 of 32"
+      ],
+      "on_15_august": {
+        "value": "Likely among the warriors who attacked the column",
+        "grade": "reconstructed",
+        "note": "Heald: \"between four and five hundred\" attacked, of the 500 at the council. Who fought is not recorded; that he did is our reading.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "People",
+          "value": "Potawatomi",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "Pepper's band",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Black Hawk (M′-ke-tash′-she-kă-kah′)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 23",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "Likely among the warriors who attacked the column",
+          "grade": "reconstructed"
+        }
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "His family is put with Pepper's band, on the River au Sable, below the Kankakee (about two hundred men, of different nations in May 1812), one of the bands of the Chicago country Governor Edwards described that spring.",
+          "He is of the Black Hawk gens (M′-ke-tash′-she-kă-kah′), and his children are of it after him.",
+          "In the spring he helped at the sugar camp, and in summer fished the river and the lake while the corn grew at the village.",
+          "He came in when the bands gathered at Chicago in August, and on the 13th was given cloth and blankets when the goods were handed out."
+        ]
+      }
+    },
+    {
+      "id": "gathering_1812_south_reach_029",
+      "name": "Standing Eagle Shadow",
+      "relationship": "household_member",
+      "grade": "reconstructed",
+      "sources": [
+        "andreas_1884_v1",
+        "currey_1912_old_fort_dearborn",
+        "morgan_1877_ancient_society",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "26-26",
+        "low": 26,
+        "high": 26,
+        "tier": "reconstructed",
+        "note": "Seeded to give the camp a believable spread of ages; not recorded."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "The gathering stood at the camp from the council of the 12th; no source takes a roll call on the 14th."
+      },
+      "note": "One of the gathering Helm counts on 12 August 1812, 500 warriors and 179 women and children, whom no source names; carded so the count is whole. Sleeps in lodge no. 5 of the ground. Sex and age follow Helm's split; the age, the lodge and the day are reconstructed (L-1812-gathering-people-3500).",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a person of the Potawatomi gathering at Chicago in August 1812, the eve of the attack on the garrison and its families, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507); the card says which of its facts are ours. touches_removal: these are the people removed from Chicago in 1835. Nothing of the fighting is staged in the scene.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "ticket": "T-3500",
+        "liberty": "L-1812-gathering-people-3500",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
+      },
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Bald Eagle gens as Morgan says a name did."
+      },
+      "also_written": [
+        "A man of the camp at the south reach (name not recorded), 29 of 32"
+      ],
+      "on_15_august": {
+        "value": "Likely among the warriors who attacked the column",
+        "grade": "reconstructed",
+        "note": "Heald: \"between four and five hundred\" attacked, of the 500 at the council. Who fought is not recorded; that he did is our reading.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "People",
+          "value": "Potawatomi",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "Pepper's band",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Bald Eagle (M′-ge-ze′-wä)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 26",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "Likely among the warriors who attacked the column",
+          "grade": "reconstructed"
+        }
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "His family is put with Pepper's band, on the River au Sable, below the Kankakee (about two hundred men, of different nations in May 1812), one of the bands of the Chicago country Governor Edwards described that spring.",
+          "He is of the Bald Eagle gens (M′-ge-ze′-wä), and his children are of it after him.",
+          "In the spring he helped at the sugar camp, and in summer fished the river and the lake while the corn grew at the village.",
+          "He came in when the bands gathered at Chicago in August, and on the 13th was given cloth and blankets when the goods were handed out."
+        ]
+      }
+    },
+    {
+      "id": "gathering_1812_south_reach_030",
+      "name": "Morning Elk Track",
+      "relationship": "household_member",
+      "grade": "reconstructed",
+      "sources": [
+        "andreas_1884_v1",
+        "currey_1912_old_fort_dearborn",
+        "morgan_1877_ancient_society",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "47-47",
+        "low": 47,
+        "high": 47,
+        "tier": "reconstructed",
+        "note": "Seeded to give the camp a believable spread of ages; not recorded."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "The gathering stood at the camp from the council of the 12th; no source takes a roll call on the 14th."
+      },
+      "note": "One of the gathering Helm counts on 12 August 1812, 500 warriors and 179 women and children, whom no source names; carded so the count is whole. Sleeps in lodge no. 1 of the ground. Sex and age follow Helm's split; the age, the lodge and the day are reconstructed (L-1812-gathering-people-3500).",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a person of the Potawatomi gathering at Chicago in August 1812, the eve of the attack on the garrison and its families, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507); the card says which of its facts are ours. touches_removal: these are the people removed from Chicago in 1835. Nothing of the fighting is staged in the scene.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "ticket": "T-3500",
+        "liberty": "L-1812-gathering-people-3500",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
+      },
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Elk gens as Morgan says a name did."
+      },
+      "also_written": [
+        "A man of the camp at the south reach (name not recorded), 30 of 32"
+      ],
+      "on_15_august": {
+        "value": "Likely among the warriors who attacked the column",
+        "grade": "reconstructed",
+        "note": "Heald: \"between four and five hundred\" attacked, of the 500 at the council. Who fought is not recorded; that he did is our reading.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "People",
+          "value": "Potawatomi",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "Pepper's band",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Elk (Mis-shă′-wă)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 47",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "Likely among the warriors who attacked the column",
+          "grade": "reconstructed"
+        }
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "His family is put with Pepper's band, on the River au Sable, below the Kankakee (about two hundred men, of different nations in May 1812), one of the bands of the Chicago country Governor Edwards described that spring.",
+          "He is of the Elk gens (Mis-shă′-wă), and his children are of it after him.",
+          "The winter before, he hunted with his family on the Kankakee and traded the skins at Kinzie's for powder, cloth and kettles.",
+          "He came in when the bands gathered at Chicago in August, and on the 13th was given cloth and blankets when the goods were handed out."
+        ]
+      }
+    },
+    {
+      "id": "gathering_1812_south_reach_031",
+      "name": "Far Carp",
+      "relationship": "household_member",
+      "grade": "reconstructed",
+      "sources": [
+        "andreas_1884_v1",
+        "currey_1912_old_fort_dearborn",
+        "morgan_1877_ancient_society",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "29-29",
+        "low": 29,
+        "high": 29,
+        "tier": "reconstructed",
+        "note": "Seeded to give the camp a believable spread of ages; not recorded."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "The gathering stood at the camp from the council of the 12th; no source takes a roll call on the 14th."
+      },
+      "note": "One of the gathering Helm counts on 12 August 1812, 500 warriors and 179 women and children, whom no source names; carded so the count is whole. Sleeps in lodge no. 2 of the ground. Sex and age follow Helm's split; the age, the lodge and the day are reconstructed (L-1812-gathering-people-3500).",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a person of the Potawatomi gathering at Chicago in August 1812, the eve of the attack on the garrison and its families, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507); the card says which of its facts are ours. touches_removal: these are the people removed from Chicago in 1835. Nothing of the fighting is staged in the scene.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "ticket": "T-3500",
+        "liberty": "L-1812-gathering-people-3500",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
+      },
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Carp gens as Morgan says a name did."
+      },
+      "also_written": [
+        "A man of the camp at the south reach (name not recorded), 31 of 32"
+      ],
+      "on_15_august": {
+        "value": "Likely among the warriors who attacked the column",
+        "grade": "reconstructed",
+        "note": "Heald: \"between four and five hundred\" attacked, of the 500 at the council. Who fought is not recorded; that he did is our reading.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "People",
+          "value": "Potawatomi",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "Pepper's band",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Carp (N′-mă-pe-nă′)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 29",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "Likely among the warriors who attacked the column",
+          "grade": "reconstructed"
+        }
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "His family is put with Pepper's band, on the River au Sable, below the Kankakee (about two hundred men, of different nations in May 1812), one of the bands of the Chicago country Governor Edwards described that spring.",
+          "He is of the Carp gens (N′-mă-pe-nă′), and his children are of it after him.",
+          "He knows the portage and the Des Plaines from carrying canoes and packs across it in high water and low.",
+          "He came in when the bands gathered at Chicago in August, and on the 13th was given cloth and blankets when the goods were handed out."
+        ]
+      }
+    },
+    {
+      "id": "gathering_1812_south_reach_032",
+      "name": "Winter Sturgeon the Second",
+      "relationship": "household_member",
+      "grade": "reconstructed",
+      "sources": [
+        "andreas_1884_v1",
+        "currey_1912_old_fort_dearborn",
+        "morgan_1877_ancient_society",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "45-45",
+        "low": 45,
+        "high": 45,
+        "tier": "reconstructed",
+        "note": "Seeded to give the camp a believable spread of ages; not recorded."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "The gathering stood at the camp from the council of the 12th; no source takes a roll call on the 14th."
+      },
+      "note": "One of the gathering Helm counts on 12 August 1812, 500 warriors and 179 women and children, whom no source names; carded so the count is whole. Sleeps in lodge no. 3 of the ground. Sex and age follow Helm's split; the age, the lodge and the day are reconstructed (L-1812-gathering-people-3500).",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a person of the Potawatomi gathering at Chicago in August 1812, the eve of the attack on the garrison and its families, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507); the card says which of its facts are ours. touches_removal: these are the people removed from Chicago in 1835. Nothing of the fighting is staged in the scene.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "ticket": "T-3500",
+        "liberty": "L-1812-gathering-people-3500",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
+      },
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Sturgeon gens as Morgan says a name did."
+      },
+      "also_written": [
+        "A man of the camp at the south reach (name not recorded), 32 of 32"
+      ],
+      "on_15_august": {
+        "value": "Likely among the warriors who attacked the column",
+        "grade": "reconstructed",
+        "note": "Heald: \"between four and five hundred\" attacked, of the 500 at the council. Who fought is not recorded; that he did is our reading.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "People",
+          "value": "Potawatomi",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "Pepper's band",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Sturgeon (N′-mă′)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 45",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "Likely among the warriors who attacked the column",
+          "grade": "reconstructed"
+        }
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "His family is put with Pepper's band, on the River au Sable, below the Kankakee (about two hundred men, of different nations in May 1812), one of the bands of the Chicago country Governor Edwards described that spring.",
+          "He is of the Sturgeon gens (N′-mă′), and his children are of it after him.",
+          "The winter before, he hunted with his family on the Kankakee and traded the skins at Kinzie's for powder, cloth and kettles.",
+          "He came in when the bands gathered at Chicago in August, and on the 13th was given cloth and blankets when the goods were handed out."
+        ]
+      }
+    }
+  ],
+  "card_evidence": [
+    {
+      "source_id": "quaife_1913",
+      "locator": "App. VI, Helm's narrative (1814), Gutenberg #69274 lines 16635-16636",
+      "quote": "the tribes there assembled to amount of 500 warriors 179 women & children",
+      "claim": "Helm's count of the gathering at Wells's council; this card is one of it."
+    },
+    {
+      "source_id": "currey_1912_old_fort_dearborn",
+      "locator": "ch. III, Gutenberg #52346 lines 2246-2247",
+      "quote": "beyond which were the groups of Indian wigwams clustered along the creek",
+      "claim": "The lodges along the creek, seen from the fort."
+    },
+    {
+      "source_id": "morgan_1877_ancient_society",
+      "locator": "pt. II, ch. II (VI, the right of bestowing names) and ch. VI (the gentes, notes 170 and 172)",
+      "quote": "These names either proclaimed by their signification the gens to which they belonged, or were known as such by common reputation.",
+      "claim": "how a reconstructed name is made"
+    },
+    {
+      "source_id": "andreas_1884_v1",
+      "locator": "pp. 78-79 (Edwards, May 1812)",
+      "quote": "Pepper's band at Sand River (River au Sable) ... consisting of about two hundred men, and of different nations",
+      "claim": "Pepper's band, the band these cards are put with (reconstructed)"
+    },
+    {
+      "source_id": "quaife_1913",
+      "locator": "App. VI, Helm (1814), lines 16634-16636",
+      "quote": "the tribes there assembled to amount of 500 warriors 179 women & children",
+      "claim": "Helm's count at the council"
+    },
+    {
+      "source_id": "quaife_1913",
+      "locator": "App. IV, Heald (23 Oct 1812), lines 16267-16269",
+      "quote": "Their number of warriors was between four and five hundred, mostly of the Potawatamie nation",
+      "claim": "the warriors in the attack"
+    },
+    {
+      "source_id": "quaife_1913",
+      "locator": "App. IV, Heald (23 Oct 1812), lines 16264-16266",
+      "quote": "we were taken back to their encampment near the fort, and distributed among the different tribes",
+      "claim": "the prisoners brought back to the camp"
+    }
+  ]
+}

@@ -230,13 +230,15 @@ textures/chicago_1835_pbr/roofs/roof_boards_weathered/roof_boards_weathered_roug
 textures/chicago_1835_pbr/roofs/wood_shingles_weathered/material.json
 textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_ao.png
 textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_basecolor.png
+textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_basecolor.webp
 textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_height16.png
 textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_metallic.png
 textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_normal_dx.png
 textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_normal_gl.ktx2
 textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_normal_gl.png
 textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_normal_gl.webp
-textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_orm.ktx2
+textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_orl.json
+textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_orl.ktx2
 textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_orm.png
 textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_orm.webp
 textures/chicago_1835_pbr/roofs/wood_shingles_weathered/wood_shingles_weathered_roughness.png
@@ -393,10 +395,14 @@ parkways, built by the generator that ships inside it (`tools/generate_prairie_1
 deterministic, seeded per material) in the 1835 library's map-for-map layout at 512 px. Which
 surface wears which material, and on what evidence, is `data/street_surfaces/1904.json`'s to
 say; the look of every map is reconstructed (`docs/LIBERTIES.md` L296).
+T-3488 added a `yard/` group of five back- and side-yard grounds (`yard_brick_herringbone`,
+`bluestone_flags`, `pea_gravel`, `beaten_earth`, `garden_loam`) from the same generator and on the
+same terms; which yard surface wears which is the back-yard layout's to say, and their look is
+reconstructed too.
 
 | item | licence | cleared for | NOT cleared for |
 |---|---|---|---|
-| `textures/prairie_1904_pbr/**` — *Prairie Avenue 1904 street-surface PBR library v1.0.0*, original procedural output generated for this project. Full text at `textures/prairie_1904_pbr/LICENSE.txt` | **Project-permissive, CC0-equivalent**, the 1835 library's terms. No third-party photograph or image is embedded, sampled or traced | **Use, modification and redistribution with the project**, including regenerated maps | **Stripping the confidence labels.** Each `material.json` says its appearance is reconstructed and that the surfaces file, not the map, carries the evidence |
+| `textures/prairie_1904_pbr/**` — *Prairie Avenue 1904 street-surface PBR library v1.1.0*, original procedural output generated for this project. Full text at `textures/prairie_1904_pbr/LICENSE.txt` | **Project-permissive, CC0-equivalent**, the 1835 library's terms. No third-party photograph or image is embedded, sampled or traced | **Use, modification and redistribution with the project**, including regenerated maps | **Stripping the confidence labels.** Each `material.json` says its appearance is reconstructed and that the surfaces file, not the map, carries the evidence |
 
 **Published in part.** `tools/publish.sh` ships each material's `material.json` and its three
 `*_web.jpg` maps to `data/textures/prairie_1904_pbr/`; the PNG masters, the DirectX normal and the
@@ -517,6 +523,81 @@ textures/prairie_1904_pbr/walk/portland_cement_walk/portland_cement_walk_orm.ktx
 textures/prairie_1904_pbr/walk/portland_cement_walk/portland_cement_walk_orm.png
 textures/prairie_1904_pbr/walk/portland_cement_walk/portland_cement_walk_orm_web.jpg
 textures/prairie_1904_pbr/walk/portland_cement_walk/portland_cement_walk_roughness.png
+textures/prairie_1904_pbr/yard/beaten_earth/beaten_earth_ao.png
+textures/prairie_1904_pbr/yard/beaten_earth/beaten_earth_basecolor.ktx2
+textures/prairie_1904_pbr/yard/beaten_earth/beaten_earth_basecolor.png
+textures/prairie_1904_pbr/yard/beaten_earth/beaten_earth_basecolor_web.jpg
+textures/prairie_1904_pbr/yard/beaten_earth/beaten_earth_height16.png
+textures/prairie_1904_pbr/yard/beaten_earth/beaten_earth_metallic.png
+textures/prairie_1904_pbr/yard/beaten_earth/beaten_earth_normal_dx.png
+textures/prairie_1904_pbr/yard/beaten_earth/beaten_earth_normal_gl.ktx2
+textures/prairie_1904_pbr/yard/beaten_earth/beaten_earth_normal_gl.png
+textures/prairie_1904_pbr/yard/beaten_earth/beaten_earth_normal_gl_web.jpg
+textures/prairie_1904_pbr/yard/beaten_earth/beaten_earth_orm.ktx2
+textures/prairie_1904_pbr/yard/beaten_earth/beaten_earth_orm.png
+textures/prairie_1904_pbr/yard/beaten_earth/beaten_earth_orm_web.jpg
+textures/prairie_1904_pbr/yard/beaten_earth/beaten_earth_roughness.png
+textures/prairie_1904_pbr/yard/beaten_earth/material.json
+textures/prairie_1904_pbr/yard/bluestone_flags/bluestone_flags_ao.png
+textures/prairie_1904_pbr/yard/bluestone_flags/bluestone_flags_basecolor.ktx2
+textures/prairie_1904_pbr/yard/bluestone_flags/bluestone_flags_basecolor.png
+textures/prairie_1904_pbr/yard/bluestone_flags/bluestone_flags_basecolor_web.jpg
+textures/prairie_1904_pbr/yard/bluestone_flags/bluestone_flags_height16.png
+textures/prairie_1904_pbr/yard/bluestone_flags/bluestone_flags_metallic.png
+textures/prairie_1904_pbr/yard/bluestone_flags/bluestone_flags_normal_dx.png
+textures/prairie_1904_pbr/yard/bluestone_flags/bluestone_flags_normal_gl.ktx2
+textures/prairie_1904_pbr/yard/bluestone_flags/bluestone_flags_normal_gl.png
+textures/prairie_1904_pbr/yard/bluestone_flags/bluestone_flags_normal_gl_web.jpg
+textures/prairie_1904_pbr/yard/bluestone_flags/bluestone_flags_orm.ktx2
+textures/prairie_1904_pbr/yard/bluestone_flags/bluestone_flags_orm.png
+textures/prairie_1904_pbr/yard/bluestone_flags/bluestone_flags_orm_web.jpg
+textures/prairie_1904_pbr/yard/bluestone_flags/bluestone_flags_roughness.png
+textures/prairie_1904_pbr/yard/bluestone_flags/material.json
+textures/prairie_1904_pbr/yard/garden_loam/garden_loam_ao.png
+textures/prairie_1904_pbr/yard/garden_loam/garden_loam_basecolor.ktx2
+textures/prairie_1904_pbr/yard/garden_loam/garden_loam_basecolor.png
+textures/prairie_1904_pbr/yard/garden_loam/garden_loam_basecolor_web.jpg
+textures/prairie_1904_pbr/yard/garden_loam/garden_loam_height16.png
+textures/prairie_1904_pbr/yard/garden_loam/garden_loam_metallic.png
+textures/prairie_1904_pbr/yard/garden_loam/garden_loam_normal_dx.png
+textures/prairie_1904_pbr/yard/garden_loam/garden_loam_normal_gl.ktx2
+textures/prairie_1904_pbr/yard/garden_loam/garden_loam_normal_gl.png
+textures/prairie_1904_pbr/yard/garden_loam/garden_loam_normal_gl_web.jpg
+textures/prairie_1904_pbr/yard/garden_loam/garden_loam_orm.ktx2
+textures/prairie_1904_pbr/yard/garden_loam/garden_loam_orm.png
+textures/prairie_1904_pbr/yard/garden_loam/garden_loam_orm_web.jpg
+textures/prairie_1904_pbr/yard/garden_loam/garden_loam_roughness.png
+textures/prairie_1904_pbr/yard/garden_loam/material.json
+textures/prairie_1904_pbr/yard/pea_gravel/material.json
+textures/prairie_1904_pbr/yard/pea_gravel/pea_gravel_ao.png
+textures/prairie_1904_pbr/yard/pea_gravel/pea_gravel_basecolor.ktx2
+textures/prairie_1904_pbr/yard/pea_gravel/pea_gravel_basecolor.png
+textures/prairie_1904_pbr/yard/pea_gravel/pea_gravel_basecolor_web.jpg
+textures/prairie_1904_pbr/yard/pea_gravel/pea_gravel_height16.png
+textures/prairie_1904_pbr/yard/pea_gravel/pea_gravel_metallic.png
+textures/prairie_1904_pbr/yard/pea_gravel/pea_gravel_normal_dx.png
+textures/prairie_1904_pbr/yard/pea_gravel/pea_gravel_normal_gl.ktx2
+textures/prairie_1904_pbr/yard/pea_gravel/pea_gravel_normal_gl.png
+textures/prairie_1904_pbr/yard/pea_gravel/pea_gravel_normal_gl_web.jpg
+textures/prairie_1904_pbr/yard/pea_gravel/pea_gravel_orm.ktx2
+textures/prairie_1904_pbr/yard/pea_gravel/pea_gravel_orm.png
+textures/prairie_1904_pbr/yard/pea_gravel/pea_gravel_orm_web.jpg
+textures/prairie_1904_pbr/yard/pea_gravel/pea_gravel_roughness.png
+textures/prairie_1904_pbr/yard/yard_brick_herringbone/material.json
+textures/prairie_1904_pbr/yard/yard_brick_herringbone/yard_brick_herringbone_ao.png
+textures/prairie_1904_pbr/yard/yard_brick_herringbone/yard_brick_herringbone_basecolor.ktx2
+textures/prairie_1904_pbr/yard/yard_brick_herringbone/yard_brick_herringbone_basecolor.png
+textures/prairie_1904_pbr/yard/yard_brick_herringbone/yard_brick_herringbone_basecolor_web.jpg
+textures/prairie_1904_pbr/yard/yard_brick_herringbone/yard_brick_herringbone_height16.png
+textures/prairie_1904_pbr/yard/yard_brick_herringbone/yard_brick_herringbone_metallic.png
+textures/prairie_1904_pbr/yard/yard_brick_herringbone/yard_brick_herringbone_normal_dx.png
+textures/prairie_1904_pbr/yard/yard_brick_herringbone/yard_brick_herringbone_normal_gl.ktx2
+textures/prairie_1904_pbr/yard/yard_brick_herringbone/yard_brick_herringbone_normal_gl.png
+textures/prairie_1904_pbr/yard/yard_brick_herringbone/yard_brick_herringbone_normal_gl_web.jpg
+textures/prairie_1904_pbr/yard/yard_brick_herringbone/yard_brick_herringbone_orm.ktx2
+textures/prairie_1904_pbr/yard/yard_brick_herringbone/yard_brick_herringbone_orm.png
+textures/prairie_1904_pbr/yard/yard_brick_herringbone/yard_brick_herringbone_orm_web.jpg
+textures/prairie_1904_pbr/yard/yard_brick_herringbone/yard_brick_herringbone_roughness.png
 ```
 
 ### The 1812 Potawatomi camp coverings library — `textures/camp_1812_pbr/`
@@ -611,6 +692,42 @@ textures/camp_1812_pbr/hay_weathered/hay_weathered_orm_web.jpg
 textures/camp_1812_pbr/hay_weathered/material.json
 textures/camp_1812_pbr/manifest.json
 textures/camp_1812_pbr/tools/generate_camp_1812_pbr.py
+```
+
+### The yard woodpiles' wood library — `textures/yard_wood_pbr/`
+
+T-3474. One procedural atlas of six wood cells — two rick faces of split billet ends, the sticks
+along their length, a sawn round's end, oak/hickory log bark and a split face — built by the
+generator that ships inside it (`tools/generate_yard_wood_pbr.py`, deterministic, seeded), drawn at
+1024 px a cell and shipped at 512. `renderers/web/js/yard.js` binds it on the woodpile mesh. The
+look of every map is reconstructed (`docs/LIBERTIES.md` L-t3474-yard-wood-surfaces).
+
+| item | licence | cleared for | NOT cleared for |
+|---|---|---|---|
+| `textures/yard_wood_pbr/**` — *Yard woodpile wood PBR library v1.0.0*, original procedural output generated for this project. Full text at `textures/yard_wood_pbr/LICENSE.txt` | **Project-permissive, CC0-equivalent**, the 1835 library's terms. No third-party photograph or image is embedded, sampled or traced | **Use, modification and redistribution with the project**, including regenerated maps | **Stripping the confidence labels.** `material.json` says its appearance is reconstructed |
+
+**Published in part.** `tools/publish.sh` ships the atlas's `material.json`, its three `*_web.jpg`
+maps and their `.ktx2` derivatives to `data/textures/yard_wood_pbr/`; the PNG masters and the
+16-bit height stay in the repository.
+
+Every file, as the checker matches them one by one:
+
+```
+textures/yard_wood_pbr/LICENSE.txt
+textures/yard_wood_pbr/README.md
+textures/yard_wood_pbr/manifest.json
+textures/yard_wood_pbr/tools/generate_yard_wood_pbr.py
+textures/yard_wood_pbr/woodpile_atlas/material.json
+textures/yard_wood_pbr/woodpile_atlas/woodpile_atlas_basecolor.ktx2
+textures/yard_wood_pbr/woodpile_atlas/woodpile_atlas_basecolor.png
+textures/yard_wood_pbr/woodpile_atlas/woodpile_atlas_basecolor_web.jpg
+textures/yard_wood_pbr/woodpile_atlas/woodpile_atlas_height16.png
+textures/yard_wood_pbr/woodpile_atlas/woodpile_atlas_normal_gl.ktx2
+textures/yard_wood_pbr/woodpile_atlas/woodpile_atlas_normal_gl.png
+textures/yard_wood_pbr/woodpile_atlas/woodpile_atlas_normal_gl_web.jpg
+textures/yard_wood_pbr/woodpile_atlas/woodpile_atlas_orm.ktx2
+textures/yard_wood_pbr/woodpile_atlas/woodpile_atlas_orm.png
+textures/yard_wood_pbr/woodpile_atlas/woodpile_atlas_orm_web.jpg
 ```
 
 
@@ -1760,6 +1877,22 @@ Generated bodice, skirt, apron and low-shoe arrays from `tools/human_dress_compo
 | `humans/web/reynolds_mary_1904_maid.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 house maid's components (`tools/human_maid_1904.py`, T-3448); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
 | `humans/reynolds_mary_1904_maid.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 house maid's components (`tools/human_maid_1904.py`, T-3448); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
 | `humans/web/reynolds_mary_1904_maid.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 house maid's components (`tools/human_maid_1904.py`, T-3448); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/ryan_kate_1904_cook.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 cook's working dress (`tools/human_cook_1904.py`, T-3479); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/ryan_kate_1904_cook.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 cook's working dress (`tools/human_cook_1904.py`, T-3479); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/ryan_kate_1904_cook.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 cook's working dress (`tools/human_cook_1904.py`, T-3479); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/ryan_kate_1904_cook.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 cook's working dress (`tools/human_cook_1904.py`, T-3479); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/ryan_kate_1904_cook.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 cook's working dress (`tools/human_cook_1904.py`, T-3479); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/ryan_kate_1904_cook.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 cook's working dress (`tools/human_cook_1904.py`, T-3479); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/ryan_kate_1904_cook.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 cook's working dress (`tools/human_cook_1904.py`, T-3479); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/ryan_kate_1904_cook.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 cook's working dress (`tools/human_cook_1904.py`, T-3479); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/nelson_christine_1904_errand.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 parlor maid's street dress and market basket (`tools/human_errand_1904.py`, T-3481); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/nelson_christine_1904_errand.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 parlor maid's street dress and market basket (`tools/human_errand_1904.py`, T-3481); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/nelson_christine_1904_errand.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 parlor maid's street dress and market basket (`tools/human_errand_1904.py`, T-3481); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/nelson_christine_1904_errand.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 parlor maid's street dress and market basket (`tools/human_errand_1904.py`, T-3481); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/nelson_christine_1904_errand.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 parlor maid's street dress and market basket (`tools/human_errand_1904.py`, T-3481); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/nelson_christine_1904_errand.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 parlor maid's street dress and market basket (`tools/human_errand_1904.py`, T-3481); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/nelson_christine_1904_errand.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 parlor maid's street dress and market basket (`tools/human_errand_1904.py`, T-3481); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/nelson_christine_1904_errand.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1904 parlor maid's street dress and market basket (`tools/human_errand_1904.py`, T-3481); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
 | `humans/peck_philip_1835.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1835 merchant's components (`tools/human_merchant_1835.py`, T-3449); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
 | `humans/web/peck_philip_1835.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1835 merchant's components (`tools/human_merchant_1835.py`, T-3449); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
 | `humans/peck_philip_1835.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1835 merchant's components (`tools/human_merchant_1835.py`, T-3449); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
@@ -1784,6 +1917,110 @@ Generated bodice, skirt, apron and low-shoe arrays from `tools/human_dress_compo
 | `humans/web/private_first_infantry_1812.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 soldier's components (`tools/human_soldier_1812.py`, T-3451); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
 | `humans/private_first_infantry_1812.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 soldier's components (`tools/human_soldier_1812.py`, T-3451); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
 | `humans/web/private_first_infantry_1812.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 soldier's components (`tools/human_soldier_1812.py`, T-3451); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/lady_1812.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1812 lady's day dress (`tools/human_women_1812.py`, T-3464); the shared cleared short04 hair cap and bronze female skin atlas; reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/lady_1812.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1812 lady's day dress (`tools/human_women_1812.py`, T-3464); the shared cleared short04 hair cap and bronze female skin atlas; reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/lady_1812.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1812 lady's day dress (`tools/human_women_1812.py`, T-3464); the shared cleared short04 hair cap and bronze female skin atlas; reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/lady_1812.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1812 lady's day dress (`tools/human_women_1812.py`, T-3464); the shared cleared short04 hair cap and bronze female skin atlas; reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/lady_1812.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1812 lady's day dress (`tools/human_women_1812.py`, T-3464); the shared cleared short04 hair cap and bronze female skin atlas; reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/lady_1812.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1812 lady's day dress (`tools/human_women_1812.py`, T-3464); the shared cleared short04 hair cap and bronze female skin atlas; reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/lady_1812.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1812 lady's day dress (`tools/human_women_1812.py`, T-3464); the shared cleared short04 hair cap and bronze female skin atlas; reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/lady_1812.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1812 lady's day dress (`tools/human_women_1812.py`, T-3464); the shared cleared short04 hair cap and bronze female skin atlas; reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/woman_working_1812.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1812 working woman's dress (`tools/human_women_1812.py`, T-3464); the shared cleared short04 hair cap and bronze female skin atlas; reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/woman_working_1812.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1812 working woman's dress (`tools/human_women_1812.py`, T-3464); the shared cleared short04 hair cap and bronze female skin atlas; reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/woman_working_1812.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1812 working woman's dress (`tools/human_women_1812.py`, T-3464); the shared cleared short04 hair cap and bronze female skin atlas; reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/woman_working_1812.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1812 working woman's dress (`tools/human_women_1812.py`, T-3464); the shared cleared short04 hair cap and bronze female skin atlas; reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/woman_working_1812.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1812 working woman's dress (`tools/human_women_1812.py`, T-3464); the shared cleared short04 hair cap and bronze female skin atlas; reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/woman_working_1812.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1812 working woman's dress (`tools/human_women_1812.py`, T-3464); the shared cleared short04 hair cap and bronze female skin atlas; reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/woman_working_1812.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1812 working woman's dress (`tools/human_women_1812.py`, T-3464); the shared cleared short04 hair cap and bronze female skin atlas; reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/woman_working_1812.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1812 working woman's dress (`tools/human_women_1812.py`, T-3464); the shared cleared short04 hair cap and bronze female skin atlas; reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/woman_country_1812.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1812 woman of the country's dress (`tools/human_women_1812.py`, T-3464); the shared cleared short04 hair cap and bronze female skin atlas; reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/woman_country_1812.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1812 woman of the country's dress (`tools/human_women_1812.py`, T-3464); the shared cleared short04 hair cap and bronze female skin atlas; reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/woman_country_1812.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1812 woman of the country's dress (`tools/human_women_1812.py`, T-3464); the shared cleared short04 hair cap and bronze female skin atlas; reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/woman_country_1812.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1812 woman of the country's dress (`tools/human_women_1812.py`, T-3464); the shared cleared short04 hair cap and bronze female skin atlas; reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/woman_country_1812.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1812 woman of the country's dress (`tools/human_women_1812.py`, T-3464); the shared cleared short04 hair cap and bronze female skin atlas; reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/woman_country_1812.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1812 woman of the country's dress (`tools/human_women_1812.py`, T-3464); the shared cleared short04 hair cap and bronze female skin atlas; reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/woman_country_1812.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1812 woman of the country's dress (`tools/human_women_1812.py`, T-3464); the shared cleared short04 hair cap and bronze female skin atlas; reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/woman_country_1812.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the 1812 woman of the country's dress (`tools/human_women_1812.py`, T-3464); the shared cleared short04 hair cap and bronze female skin atlas; reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/potawatomi_woman_1812.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the everyday dress of a Potawatomi woman of the 1812 camp (`tools/human_women_1812.py`, T-3464; review required, touches removal); the shared cleared short04 hair cap and bronze female skin atlas; reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/potawatomi_woman_1812.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the everyday dress of a Potawatomi woman of the 1812 camp (`tools/human_women_1812.py`, T-3464; review required, touches removal); the shared cleared short04 hair cap and bronze female skin atlas; reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/potawatomi_woman_1812.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the everyday dress of a Potawatomi woman of the 1812 camp (`tools/human_women_1812.py`, T-3464; review required, touches removal); the shared cleared short04 hair cap and bronze female skin atlas; reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/potawatomi_woman_1812.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the everyday dress of a Potawatomi woman of the 1812 camp (`tools/human_women_1812.py`, T-3464; review required, touches removal); the shared cleared short04 hair cap and bronze female skin atlas; reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/potawatomi_woman_1812.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the everyday dress of a Potawatomi woman of the 1812 camp (`tools/human_women_1812.py`, T-3464; review required, touches removal); the shared cleared short04 hair cap and bronze female skin atlas; reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/potawatomi_woman_1812.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the everyday dress of a Potawatomi woman of the 1812 camp (`tools/human_women_1812.py`, T-3464; review required, touches removal); the shared cleared short04 hair cap and bronze female skin atlas; reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/potawatomi_woman_1812.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the everyday dress of a Potawatomi woman of the 1812 camp (`tools/human_women_1812.py`, T-3464; review required, touches removal); the shared cleared short04 hair cap and bronze female skin atlas; reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/potawatomi_woman_1812.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared female base and the everyday dress of a Potawatomi woman of the 1812 camp (`tools/human_women_1812.py`, T-3464; review required, touches removal); the shared cleared short04 hair cap and bronze female skin atlas; reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/engage_1812.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 engagé's components (`tools/human_engage_1812.py`); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/engage_1812.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 engagé's components (`tools/human_engage_1812.py`); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/potawatomi_man_1812.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 Potawatomi man's components (`tools/human_potawatomi_man_1812.py`); reconstructed under L418 and L-human-modular-dress-1789, not a likeness of any person; held for review under the AGENTS.md standing constraint. |
+| `humans/web/potawatomi_man_1812.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 Potawatomi man's components (`tools/human_potawatomi_man_1812.py`); reconstructed under L418 and L-human-modular-dress-1789, not a likeness of any person; held for review under the AGENTS.md standing constraint. |
+| `humans/engage_1812.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 engagé's components (`tools/human_engage_1812.py`); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/engage_1812.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 engagé's components (`tools/human_engage_1812.py`); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/engage_1812.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 engagé's components (`tools/human_engage_1812.py`); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/engage_1812.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 engagé's components (`tools/human_engage_1812.py`); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/engage_1812.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 engagé's components (`tools/human_engage_1812.py`); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/engage_1812.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 engagé's components (`tools/human_engage_1812.py`); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/potawatomi_man_1812.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 Potawatomi man's components (`tools/human_potawatomi_man_1812.py`); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/potawatomi_man_1812.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 Potawatomi man's components (`tools/human_potawatomi_man_1812.py`); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/potawatomi_man_1812.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 Potawatomi man's components (`tools/human_potawatomi_man_1812.py`); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/potawatomi_man_1812.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 Potawatomi man's components (`tools/human_potawatomi_man_1812.py`); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/potawatomi_man_1812.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 Potawatomi man's components (`tools/human_potawatomi_man_1812.py`); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/potawatomi_man_1812.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 Potawatomi man's components (`tools/human_potawatomi_man_1812.py`); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/officer_first_infantry_1812.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 First Infantry officer's components (`tools/human_officer_1812.py`, a captain, 1812 dress build); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/officer_first_infantry_1812.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 First Infantry officer's components (`tools/human_officer_1812.py`, a captain, 1812 dress build); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/officer_first_infantry_1812.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 First Infantry officer's components (`tools/human_officer_1812.py`, a captain, 1812 dress build); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/officer_first_infantry_1812.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 First Infantry officer's components (`tools/human_officer_1812.py`, a captain, 1812 dress build); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/officer_first_infantry_1812.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 First Infantry officer's components (`tools/human_officer_1812.py`, a captain, 1812 dress build); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/officer_first_infantry_1812.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 First Infantry officer's components (`tools/human_officer_1812.py`, a captain, 1812 dress build); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/officer_first_infantry_1812.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 First Infantry officer's components (`tools/human_officer_1812.py`, a captain, 1812 dress build); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/officer_first_infantry_1812.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 First Infantry officer's components (`tools/human_officer_1812.py`, a captain, 1812 dress build); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/officer_first_infantry_1812_lieutenant.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 First Infantry officer's components (`tools/human_officer_1812.py`, a lieutenant, 1812 dress build); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/officer_first_infantry_1812_lieutenant.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 First Infantry officer's components (`tools/human_officer_1812.py`, a lieutenant, 1812 dress build); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/officer_first_infantry_1812_lieutenant.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 First Infantry officer's components (`tools/human_officer_1812.py`, a lieutenant, 1812 dress build); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/officer_first_infantry_1812_lieutenant.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 First Infantry officer's components (`tools/human_officer_1812.py`, a lieutenant, 1812 dress build); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/officer_first_infantry_1812_lieutenant.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 First Infantry officer's components (`tools/human_officer_1812.py`, a lieutenant, 1812 dress build); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/officer_first_infantry_1812_lieutenant.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 First Infantry officer's components (`tools/human_officer_1812.py`, a lieutenant, 1812 dress build); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/officer_first_infantry_1812_lieutenant.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 First Infantry officer's components (`tools/human_officer_1812.py`, a lieutenant, 1812 dress build); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/officer_first_infantry_1812_lieutenant.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 First Infantry officer's components (`tools/human_officer_1812.py`, a lieutenant, 1812 dress build); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/surgeons_mate_first_infantry_1812.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 First Infantry officer's components (`tools/human_officer_1812.py`, a surgeon's mate, 1812 dress build); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/surgeons_mate_first_infantry_1812.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 First Infantry officer's components (`tools/human_officer_1812.py`, a surgeon's mate, 1812 dress build); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/surgeons_mate_first_infantry_1812.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 First Infantry officer's components (`tools/human_officer_1812.py`, a surgeon's mate, 1812 dress build); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/surgeons_mate_first_infantry_1812.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 First Infantry officer's components (`tools/human_officer_1812.py`, a surgeon's mate, 1812 dress build); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/surgeons_mate_first_infantry_1812.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 First Infantry officer's components (`tools/human_officer_1812.py`, a surgeon's mate, 1812 dress build); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/surgeons_mate_first_infantry_1812.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 First Infantry officer's components (`tools/human_officer_1812.py`, a surgeon's mate, 1812 dress build); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/surgeons_mate_first_infantry_1812.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 First Infantry officer's components (`tools/human_officer_1812.py`, a surgeon's mate, 1812 dress build); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/surgeons_mate_first_infantry_1812.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 First Infantry officer's components (`tools/human_officer_1812.py`, a surgeon's mate, 1812 dress build); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/trader_1812.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 trader's components (`tools/human_trader_1812.py`, a trader, 1812 dress build); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/trader_1812.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 trader's components (`tools/human_trader_1812.py`, a trader, 1812 dress build); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/trader_1812.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 trader's components (`tools/human_trader_1812.py`, a trader, 1812 dress build); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/trader_1812.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 trader's components (`tools/human_trader_1812.py`, a trader, 1812 dress build); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/trader_1812.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 trader's components (`tools/human_trader_1812.py`, a trader, 1812 dress build); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/trader_1812.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 trader's components (`tools/human_trader_1812.py`, a trader, 1812 dress build); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/trader_1812.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 trader's components (`tools/human_trader_1812.py`, a trader, 1812 dress build); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/trader_1812.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 trader's components (`tools/human_trader_1812.py`, a trader, 1812 dress build); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/settler_1812.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 settler's components (`tools/human_settler_1812.py`, a settler, 1812 dress build); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/settler_1812.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 settler's components (`tools/human_settler_1812.py`, a settler, 1812 dress build); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/settler_1812.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 settler's components (`tools/human_settler_1812.py`, a settler, 1812 dress build); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/settler_1812.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 settler's components (`tools/human_settler_1812.py`, a settler, 1812 dress build); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/settler_1812.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 settler's components (`tools/human_settler_1812.py`, a settler, 1812 dress build); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/settler_1812.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 settler's components (`tools/human_settler_1812.py`, a settler, 1812 dress build); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/settler_1812.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 settler's components (`tools/human_settler_1812.py`, a settler, 1812 dress build); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/settler_1812.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1812 settler's components (`tools/human_settler_1812.py`, a settler, 1812 dress build); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/nelson_charles_1904_coachman.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1904 coachman's standing livery (`tools/human_coachman_1904.py`, T-3483); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/nelson_charles_1904_coachman.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1904 coachman's standing livery (`tools/human_coachman_1904.py`, T-3483); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/nelson_charles_1904_coachman.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1904 coachman's standing livery (`tools/human_coachman_1904.py`, T-3483); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/nelson_charles_1904_coachman.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1904 coachman's standing livery (`tools/human_coachman_1904.py`, T-3483); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/nelson_charles_1904_coachman.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1904 coachman's standing livery (`tools/human_coachman_1904.py`, T-3483); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/nelson_charles_1904_coachman.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1904 coachman's standing livery (`tools/human_coachman_1904.py`, T-3483); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/nelson_charles_1904_coachman.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1904 coachman's standing livery (`tools/human_coachman_1904.py`, T-3483); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/nelson_charles_1904_coachman.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1904 coachman's standing livery (`tools/human_coachman_1904.py`, T-3483); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/billings_august_1904_stable_helper.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1904 stable helper's working dress (`tools/human_stable_helper_1904.py`, T-3484); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/billings_august_1904_stable_helper.lod0.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1904 stable helper's working dress (`tools/human_stable_helper_1904.py`, T-3484); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/billings_august_1904_stable_helper.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1904 stable helper's working dress (`tools/human_stable_helper_1904.py`, T-3484); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/billings_august_1904_stable_helper.lod1.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1904 stable helper's working dress (`tools/human_stable_helper_1904.py`, T-3484); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/billings_august_1904_stable_helper.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1904 stable helper's working dress (`tools/human_stable_helper_1904.py`, T-3484); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/billings_august_1904_stable_helper.lod2.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1904 stable helper's working dress (`tools/human_stable_helper_1904.py`, T-3484); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/billings_august_1904_stable_helper.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1904 stable helper's working dress (`tools/human_stable_helper_1904.py`, T-3484); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/billings_august_1904_stable_helper.lod3.glb` | Original CC0-1.0 export of the canonical builder over the shared male base and the 1904 stable helper's working dress (`tools/human_stable_helper_1904.py`, T-3484); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
 
 
 ## Licensed Old Cart farm-box development master — T-2793
@@ -1818,6 +2055,76 @@ Exact reconstructed-fit limitation: the retained artist kingbolt axis is 4.994mm
 
 The final farm-box master also includes an actual central90x55mm coupling reach, reconstructed from the same licensed shaft surface/UVs and separately owned in vehicle_reach. Its end connections are geometry-checked against the fixed front bolster and rear axle. The actual original28-triangle kingbolt is separately owned in vehicle_kingbolt; this is a component split, not an empty proxy or a hidden change to source surfaces. Both remain CC BY4.0 derivatives with the same author credit; fit/strength/historic-design limits remain reconstruction.
 
+
+
+### T-3465 child bodies and the 1812 children's dress
+
+`assets/authored/humans/makehuman_hm08/prepared_child_male_8.json`, `prepared_child_female_8.json`, `prepared_child_3.json`, their reports and the three `child_*.recipe.json` are original CC0-1.0 engineering derivatives of the same pinned MakeHuman graphical data (T-3465). The twelve child and baby macro targets preserve their upstream CC0 notices; exact upstream commit, source URLs, bytes and SHA256 are in `SOURCE-child.json`, which repeats every `SOURCE.json` row unchanged. Category names are software provenance, not ancestry.
+
+| Path relative to assets/ | Licence and provenance |
+|---|---|
+| `authored/humans/makehuman_hm08/SOURCE-child.json` | Project-authored CC0-1.0 graphical-source provenance, exact official upstream hashes and notices (T-3465). |
+| `authored/humans/makehuman_hm08/child_male_8.recipe.json` | Original CC0-1.0 graphical blend recipe; reconstructed engineering parameters, no resident ancestry or portrait. |
+| `authored/humans/makehuman_hm08/child_female_8.recipe.json` | Original CC0-1.0 graphical blend recipe; reconstructed engineering parameters, no resident ancestry or portrait. |
+| `authored/humans/makehuman_hm08/child_3.recipe.json` | Original CC0-1.0 graphical blend recipe; reconstructed engineering parameters, no resident ancestry or portrait. |
+| `authored/humans/makehuman_hm08/prepared_child_male_8.json` | CC0-1.0 engineering derivative of verified MakeHuman graphical data; complete anatomy/UV/rig retained. |
+| `authored/humans/makehuman_hm08/prepared_child_male_8.report.json` | Project-authored CC0-1.0 preparation measurements and explicit unqualified limitations. |
+| `authored/humans/makehuman_hm08/prepared_child_female_8.json` | CC0-1.0 engineering derivative of verified MakeHuman graphical data; complete anatomy/UV/rig retained. |
+| `authored/humans/makehuman_hm08/prepared_child_female_8.report.json` | Project-authored CC0-1.0 preparation measurements and explicit unqualified limitations. |
+| `authored/humans/makehuman_hm08/prepared_child_3.json` | CC0-1.0 engineering derivative of verified MakeHuman graphical data; complete anatomy/UV/rig retained. |
+| `authored/humans/makehuman_hm08/prepared_child_3.report.json` | Project-authored CC0-1.0 preparation measurements and explicit unqualified limitations. |
+| `authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/caucasian-male-child.target` | Verbatim MakeHuman graphical asset, CC0-1.0 explicit upstream header; original credit retained, pinned commit/URL/hash in SOURCE-child.json. |
+| `authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/caucasian-male-baby.target` | Verbatim MakeHuman graphical asset, CC0-1.0 explicit upstream header; original credit retained, pinned commit/URL/hash in SOURCE-child.json. |
+| `authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/caucasian-female-child.target` | Verbatim MakeHuman graphical asset, CC0-1.0 explicit upstream header; original credit retained, pinned commit/URL/hash in SOURCE-child.json. |
+| `authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/caucasian-female-baby.target` | Verbatim MakeHuman graphical asset, CC0-1.0 explicit upstream header; original credit retained, pinned commit/URL/hash in SOURCE-child.json. |
+| `authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/asian-male-child.target` | Verbatim MakeHuman graphical asset, CC0-1.0 explicit upstream header; original credit retained, pinned commit/URL/hash in SOURCE-child.json. |
+| `authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/asian-male-baby.target` | Verbatim MakeHuman graphical asset, CC0-1.0 explicit upstream header; original credit retained, pinned commit/URL/hash in SOURCE-child.json. |
+| `authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/asian-female-child.target` | Verbatim MakeHuman graphical asset, CC0-1.0 explicit upstream header; original credit retained, pinned commit/URL/hash in SOURCE-child.json. |
+| `authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/asian-female-baby.target` | Verbatim MakeHuman graphical asset, CC0-1.0 explicit upstream header; original credit retained, pinned commit/URL/hash in SOURCE-child.json. |
+| `authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/african-male-child.target` | Verbatim MakeHuman graphical asset, CC0-1.0 explicit upstream header; original credit retained, pinned commit/URL/hash in SOURCE-child.json. |
+| `authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/african-male-baby.target` | Verbatim MakeHuman graphical asset, CC0-1.0 explicit upstream header; original credit retained, pinned commit/URL/hash in SOURCE-child.json. |
+| `authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/african-female-child.target` | Verbatim MakeHuman graphical asset, CC0-1.0 explicit upstream header; original credit retained, pinned commit/URL/hash in SOURCE-child.json. |
+| `authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/african-female-baby.target` | Verbatim MakeHuman graphical asset, CC0-1.0 explicit upstream header; original credit retained, pinned commit/URL/hash in SOURCE-child.json. |
+| `humans/child_boy_1812.lod0.glb` | Original CC0-1.0 export of the canonical builder over the 8-year male child base and the 1812 children's components (`tools/human_child_1812.py`, T-3465); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/child_boy_1812.lod0.glb` | Original CC0-1.0 export of the canonical builder over the 8-year male child base and the 1812 children's components (`tools/human_child_1812.py`, T-3465); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/child_boy_1812.lod1.glb` | Original CC0-1.0 export of the canonical builder over the 8-year male child base and the 1812 children's components (`tools/human_child_1812.py`, T-3465); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/child_boy_1812.lod1.glb` | Original CC0-1.0 export of the canonical builder over the 8-year male child base and the 1812 children's components (`tools/human_child_1812.py`, T-3465); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/child_boy_1812.lod2.glb` | Original CC0-1.0 export of the canonical builder over the 8-year male child base and the 1812 children's components (`tools/human_child_1812.py`, T-3465); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/child_boy_1812.lod2.glb` | Original CC0-1.0 export of the canonical builder over the 8-year male child base and the 1812 children's components (`tools/human_child_1812.py`, T-3465); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/child_boy_1812.lod3.glb` | Original CC0-1.0 export of the canonical builder over the 8-year male child base and the 1812 children's components (`tools/human_child_1812.py`, T-3465); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/child_boy_1812.lod3.glb` | Original CC0-1.0 export of the canonical builder over the 8-year male child base and the 1812 children's components (`tools/human_child_1812.py`, T-3465); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/child_girl_1812.lod0.glb` | Original CC0-1.0 export of the canonical builder over the 8-year female child base and the 1812 children's components (`tools/human_child_1812.py`, T-3465); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/child_girl_1812.lod0.glb` | Original CC0-1.0 export of the canonical builder over the 8-year female child base and the 1812 children's components (`tools/human_child_1812.py`, T-3465); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/child_girl_1812.lod1.glb` | Original CC0-1.0 export of the canonical builder over the 8-year female child base and the 1812 children's components (`tools/human_child_1812.py`, T-3465); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/child_girl_1812.lod1.glb` | Original CC0-1.0 export of the canonical builder over the 8-year female child base and the 1812 children's components (`tools/human_child_1812.py`, T-3465); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/child_girl_1812.lod2.glb` | Original CC0-1.0 export of the canonical builder over the 8-year female child base and the 1812 children's components (`tools/human_child_1812.py`, T-3465); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/child_girl_1812.lod2.glb` | Original CC0-1.0 export of the canonical builder over the 8-year female child base and the 1812 children's components (`tools/human_child_1812.py`, T-3465); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/child_girl_1812.lod3.glb` | Original CC0-1.0 export of the canonical builder over the 8-year female child base and the 1812 children's components (`tools/human_child_1812.py`, T-3465); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/child_girl_1812.lod3.glb` | Original CC0-1.0 export of the canonical builder over the 8-year female child base and the 1812 children's components (`tools/human_child_1812.py`, T-3465); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/child_toddler_1812.lod0.glb` | Original CC0-1.0 export of the canonical builder over the 3-year child base and the 1812 children's components (`tools/human_child_1812.py`, T-3465); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/child_toddler_1812.lod0.glb` | Original CC0-1.0 export of the canonical builder over the 3-year child base and the 1812 children's components (`tools/human_child_1812.py`, T-3465); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/child_toddler_1812.lod1.glb` | Original CC0-1.0 export of the canonical builder over the 3-year child base and the 1812 children's components (`tools/human_child_1812.py`, T-3465); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/child_toddler_1812.lod1.glb` | Original CC0-1.0 export of the canonical builder over the 3-year child base and the 1812 children's components (`tools/human_child_1812.py`, T-3465); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/child_toddler_1812.lod2.glb` | Original CC0-1.0 export of the canonical builder over the 3-year child base and the 1812 children's components (`tools/human_child_1812.py`, T-3465); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/child_toddler_1812.lod2.glb` | Original CC0-1.0 export of the canonical builder over the 3-year child base and the 1812 children's components (`tools/human_child_1812.py`, T-3465); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/child_toddler_1812.lod3.glb` | Original CC0-1.0 export of the canonical builder over the 3-year child base and the 1812 children's components (`tools/human_child_1812.py`, T-3465); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/web/child_toddler_1812.lod3.glb` | Original CC0-1.0 export of the canonical builder over the 3-year child base and the 1812 children's components (`tools/human_child_1812.py`, T-3465); reconstructed under L418 and L-human-modular-dress-1789, not a likeness. |
+| `humans/potawatomi_boy_1812.lod0.glb` | Original CC0-1.0 export of the canonical builder over the 8-year male child base and the 1812 children's components (`tools/human_child_1812.py`, T-3465); reconstructed under L418 and L-human-modular-dress-1789, not a likeness; review required, touches removal (AGENTS.md standing constraint). |
+| `humans/web/potawatomi_boy_1812.lod0.glb` | Original CC0-1.0 export of the canonical builder over the 8-year male child base and the 1812 children's components (`tools/human_child_1812.py`, T-3465); reconstructed under L418 and L-human-modular-dress-1789, not a likeness; review required, touches removal (AGENTS.md standing constraint). |
+| `humans/potawatomi_boy_1812.lod1.glb` | Original CC0-1.0 export of the canonical builder over the 8-year male child base and the 1812 children's components (`tools/human_child_1812.py`, T-3465); reconstructed under L418 and L-human-modular-dress-1789, not a likeness; review required, touches removal (AGENTS.md standing constraint). |
+| `humans/web/potawatomi_boy_1812.lod1.glb` | Original CC0-1.0 export of the canonical builder over the 8-year male child base and the 1812 children's components (`tools/human_child_1812.py`, T-3465); reconstructed under L418 and L-human-modular-dress-1789, not a likeness; review required, touches removal (AGENTS.md standing constraint). |
+| `humans/potawatomi_boy_1812.lod2.glb` | Original CC0-1.0 export of the canonical builder over the 8-year male child base and the 1812 children's components (`tools/human_child_1812.py`, T-3465); reconstructed under L418 and L-human-modular-dress-1789, not a likeness; review required, touches removal (AGENTS.md standing constraint). |
+| `humans/web/potawatomi_boy_1812.lod2.glb` | Original CC0-1.0 export of the canonical builder over the 8-year male child base and the 1812 children's components (`tools/human_child_1812.py`, T-3465); reconstructed under L418 and L-human-modular-dress-1789, not a likeness; review required, touches removal (AGENTS.md standing constraint). |
+| `humans/potawatomi_boy_1812.lod3.glb` | Original CC0-1.0 export of the canonical builder over the 8-year male child base and the 1812 children's components (`tools/human_child_1812.py`, T-3465); reconstructed under L418 and L-human-modular-dress-1789, not a likeness; review required, touches removal (AGENTS.md standing constraint). |
+| `humans/web/potawatomi_boy_1812.lod3.glb` | Original CC0-1.0 export of the canonical builder over the 8-year male child base and the 1812 children's components (`tools/human_child_1812.py`, T-3465); reconstructed under L418 and L-human-modular-dress-1789, not a likeness; review required, touches removal (AGENTS.md standing constraint). |
+| `humans/potawatomi_girl_1812.lod0.glb` | Original CC0-1.0 export of the canonical builder over the 8-year female child base and the 1812 children's components (`tools/human_child_1812.py`, T-3465); reconstructed under L418 and L-human-modular-dress-1789, not a likeness; review required, touches removal (AGENTS.md standing constraint). |
+| `humans/web/potawatomi_girl_1812.lod0.glb` | Original CC0-1.0 export of the canonical builder over the 8-year female child base and the 1812 children's components (`tools/human_child_1812.py`, T-3465); reconstructed under L418 and L-human-modular-dress-1789, not a likeness; review required, touches removal (AGENTS.md standing constraint). |
+| `humans/potawatomi_girl_1812.lod1.glb` | Original CC0-1.0 export of the canonical builder over the 8-year female child base and the 1812 children's components (`tools/human_child_1812.py`, T-3465); reconstructed under L418 and L-human-modular-dress-1789, not a likeness; review required, touches removal (AGENTS.md standing constraint). |
+| `humans/web/potawatomi_girl_1812.lod1.glb` | Original CC0-1.0 export of the canonical builder over the 8-year female child base and the 1812 children's components (`tools/human_child_1812.py`, T-3465); reconstructed under L418 and L-human-modular-dress-1789, not a likeness; review required, touches removal (AGENTS.md standing constraint). |
+| `humans/potawatomi_girl_1812.lod2.glb` | Original CC0-1.0 export of the canonical builder over the 8-year female child base and the 1812 children's components (`tools/human_child_1812.py`, T-3465); reconstructed under L418 and L-human-modular-dress-1789, not a likeness; review required, touches removal (AGENTS.md standing constraint). |
+| `humans/web/potawatomi_girl_1812.lod2.glb` | Original CC0-1.0 export of the canonical builder over the 8-year female child base and the 1812 children's components (`tools/human_child_1812.py`, T-3465); reconstructed under L418 and L-human-modular-dress-1789, not a likeness; review required, touches removal (AGENTS.md standing constraint). |
+| `humans/potawatomi_girl_1812.lod3.glb` | Original CC0-1.0 export of the canonical builder over the 8-year female child base and the 1812 children's components (`tools/human_child_1812.py`, T-3465); reconstructed under L418 and L-human-modular-dress-1789, not a likeness; review required, touches removal (AGENTS.md standing constraint). |
+| `humans/web/potawatomi_girl_1812.lod3.glb` | Original CC0-1.0 export of the canonical builder over the 8-year female child base and the 1812 children's components (`tools/human_child_1812.py`, T-3465); reconstructed under L418 and L-human-modular-dress-1789, not a likeness; review required, touches removal (AGENTS.md standing constraint). |
 
 ### Log-jail keeper house generated pair — T-2380
 
@@ -2200,4 +2507,118 @@ the CC0 MakeHuman-derived body and the fit in `data/humans/variation/fits/`, and
 humans/web/portraits/glessner_john_j_model.jpg
 humans/web/portraits/glessner_john_j_model.json
 humans/web/portraits/glessner_john_j_portrait.jpg
+```
+
+`glessner_frances_m_portrait.jpg` (T-3473) is cut and scaled from the copy the owner supplied of the
+Chicago History Museum's photograph ICHi-061818 of 4 March 1892 (source record
+`chm_ichi_061818_frances_glessner_conservatory_1892`), which the museum marks "No Copyright - United
+States": **public domain**; credit Chicago History Museum, ICHi-061818. The crop box is recorded in
+`data/humans/variation/portraits/glessner_frances_m.json`. `glessner_frances_m_model.jpg` (and its
+`.json` sidecar) is rendered by `tools/portrait_still.mjs` as above, and is **CC0-1.0**.
+
+```text
+humans/web/portraits/glessner_frances_m_model.jpg
+humans/web/portraits/glessner_frances_m_model.json
+humans/web/portraits/glessner_frances_m_portrait.jpg
+```
+
+`glessner_williamson_martha_l_portrait.jpg` (T-3486) is cut and scaled from the Glessner House Museum's blog copy of Mattie Williamson's 1890s portrait (source record `glessner_blog_mattie_williamson_portrait_1890s`), a photograph made before 1906: **public domain** in the United States; credit Glessner House Museum. The crop box is recorded in
+`data/humans/variation/portraits/glessner_williamson_martha_l.json`. `glessner_williamson_martha_l_model.jpg` (and its `.json` sidecar) is
+rendered by `tools/portrait_still.mjs` as above, and is **CC0-1.0**.
+
+```text
+humans/web/portraits/glessner_williamson_martha_l_model.jpg
+humans/web/portraits/glessner_williamson_martha_l_model.json
+humans/web/portraits/glessner_williamson_martha_l_portrait.jpg
+```
+
+`pa1904_glessner_john_j_c1900_mary_reynolds_portrait.jpg` (T-3486) is cut and scaled from the Library of Congress master of a 1908 General Electric photograph of a house maid (LC-USZ62-67635; source record `loc_cph_3b15107_ge_house_maid_ironing_1908`), a STAND-IN, not Mary Reynolds; the Library states no known restrictions on publication and a 1908 photograph is **public domain** in the United States. The stand-in label is burned on the picture. The crop box is recorded in
+`data/humans/variation/portraits/pa1904_glessner_john_j_c1900_mary_reynolds.json`. `pa1904_glessner_john_j_c1900_mary_reynolds_model.jpg` (and its `.json` sidecar) is
+rendered by `tools/portrait_still.mjs` as above, and is **CC0-1.0**.
+
+```text
+humans/web/portraits/pa1904_glessner_john_j_c1900_mary_reynolds_model.jpg
+humans/web/portraits/pa1904_glessner_john_j_c1900_mary_reynolds_model.json
+humans/web/portraits/pa1904_glessner_john_j_c1900_mary_reynolds_portrait.jpg
+```
+
+`pa1904_glessner_john_j_c1900_kate_ryan_portrait.jpg` (T-3479) is cut and scaled from the left frame of William H. Rau's 1903 Achill Island stereograph (LC-DIG-stereo-1s27248; source record `loc_stereo_1s27248_achill_spinning_wheel_1903`), a STAND-IN, not Kate Ryan; no known restrictions, **public domain** in the United States. The stand-in label is burned on the picture. The crop box is recorded in
+`data/humans/variation/portraits/pa1904_glessner_john_j_c1900_kate_ryan.json`. `pa1904_glessner_john_j_c1900_kate_ryan_model.jpg` (and its `.json` sidecar) is
+rendered by `tools/portrait_still.mjs` as above, and is **CC0-1.0**.
+
+```text
+humans/web/portraits/pa1904_glessner_john_j_c1900_kate_ryan_model.jpg
+humans/web/portraits/pa1904_glessner_john_j_c1900_kate_ryan_model.json
+humans/web/portraits/pa1904_glessner_john_j_c1900_kate_ryan_portrait.jpg
+```
+
+`pa1904_glessner_john_j_c1900_christine_nelson_portrait.jpg` (T-3481) is cut and scaled from Bohusläns museum's copy of Ossian Berggren's cabinet card of the housemaid Anna Åkerman, 1890-1895 (UMFA53226:1855; source record `bhm_umfa53226_1855_hembitrade_anna_akerman`), a STAND-IN, not Christine Nelson; the museum marks it Public Domain Mark 1.0: **public domain**. The stand-in label is burned on the picture. The crop box is recorded in
+`data/humans/variation/portraits/pa1904_glessner_john_j_c1900_christine_nelson.json`. `pa1904_glessner_john_j_c1900_christine_nelson_model.jpg` (and its `.json` sidecar) is
+rendered by `tools/portrait_still.mjs` as above, and is **CC0-1.0**.
+
+```text
+humans/web/portraits/pa1904_glessner_john_j_c1900_christine_nelson_model.jpg
+humans/web/portraits/pa1904_glessner_john_j_c1900_christine_nelson_model.json
+humans/web/portraits/pa1904_glessner_john_j_c1900_christine_nelson_portrait.jpg
+```
+
+`pa1904_glessner_john_j_c1900_charles_nelson_portrait.jpg` (T-3483) is cut and scaled from Västmanlands läns museum's copy of Ernst Blom's glass negative 'Kusken Kalén' (Vlm-Blom P 157; source record `vlm_blom_p157_kusken_kalen`), a STAND-IN, not Charles Nelson; the museum marks it Public Domain Mark 1.0: **public domain**. The stand-in label is burned on the picture. The crop box is recorded in
+`data/humans/variation/portraits/pa1904_glessner_john_j_c1900_charles_nelson.json`. `pa1904_glessner_john_j_c1900_charles_nelson_model.jpg` (and its `.json` sidecar) is
+rendered by `tools/portrait_still.mjs` as above, and is **CC0-1.0**.
+
+```text
+humans/web/portraits/pa1904_glessner_john_j_c1900_charles_nelson_model.jpg
+humans/web/portraits/pa1904_glessner_john_j_c1900_charles_nelson_model.json
+humans/web/portraits/pa1904_glessner_john_j_c1900_charles_nelson_portrait.jpg
+```
+
+`pa1904_glessner_john_j_c1900_august_billings_portrait.jpg` (T-3484) is cut and scaled from Vänersborgs museum's copy of K & A Vikner's 1903 glass negative 'Nordström, Kusk' (VMVP3391; source record `vbg_vmvp3391_nordstrom_kusk_1903`), a STAND-IN, not August Billings; K-samsök gives Public Domain Mark 1.0 (Europeana's older record says CC BY-SA 4.0; the conflict is recorded in the source record): **public domain**. The stand-in label is burned on the picture. The crop box is recorded in
+`data/humans/variation/portraits/pa1904_glessner_john_j_c1900_august_billings.json`. `pa1904_glessner_john_j_c1900_august_billings_model.jpg` (and its `.json` sidecar) is
+rendered by `tools/portrait_still.mjs` as above, and is **CC0-1.0**.
+
+```text
+humans/web/portraits/pa1904_glessner_john_j_c1900_august_billings_model.jpg
+humans/web/portraits/pa1904_glessner_john_j_c1900_august_billings_model.json
+humans/web/portraits/pa1904_glessner_john_j_c1900_august_billings_portrait.jpg
+### Stand-in portraits for the 1812 garrison's looks — `humans/web/portraits/ref_1812_*.jpg` (T-3491)
+
+Seven period portraits of American men of about 1810-1825 from The Metropolitan Museum of Art,
+each marked "Public Domain" under the Met's Open Access policy (isPublicDomain true in the Met
+Collection API): **public domain**. Each is scaled to 360x480 from the Met's image. They are shown
+on a soldier's card as a stand-in for how a man of his sort looked, never as his likeness
+(`data/humans/variation/looks/`, liberty L-1812-garrison-looks-3491).
+
+- `ref_1812_97_39.jpg`: Gilbert Stuart, *Henry Rice*, ca. 1815, accession 97.39 (https://www.metmuseum.org/art/collection/search/12666).
+- `ref_1812_81_16.jpg`: John Wesley Jarvis, *Alexander Anderson*, 1815, accession 81.16 (https://www.metmuseum.org/art/collection/search/11240).
+- `ref_1812_1993_283.jpg`: Joseph Wood, *Self-portrait*, ca. 1810, accession 1993.283 (https://www.metmuseum.org/art/collection/search/15307).
+- `ref_1812_33_73.jpg`: John Wesley Jarvis, *Mr. Cook*, 1810, accession 33.73 (https://www.metmuseum.org/art/collection/search/11244).
+- `ref_1812_22_217_1.jpg`: Samuel Lovett Waldo, *Self-portrait*, ca. 1815, accession 22.217.1 (https://www.metmuseum.org/art/collection/search/13105).
+- `ref_1812_94_23_3.jpg`: Thomas Sully, *Portrait of the Artist*, 1821, accession 94.23.3 (https://www.metmuseum.org/art/collection/search/12701).
+- `ref_1812_36_114.jpg`: Samuel Lovett Waldo, *Henry La Tourette de Groot*, 1825-30, accession 36.114 (https://www.metmuseum.org/art/collection/search/13094).
+
+```text
+humans/web/portraits/ref_1812_1993_283.jpg
+humans/web/portraits/ref_1812_22_217_1.jpg
+humans/web/portraits/ref_1812_33_73.jpg
+humans/web/portraits/ref_1812_36_114.jpg
+humans/web/portraits/ref_1812_81_16.jpg
+humans/web/portraits/ref_1812_94_23_3.jpg
+humans/web/portraits/ref_1812_97_39.jpg
+```
+
+### Two named men's own portraits — `humans/web/portraits/*_kirkland_1893.jpg` (T-3508)
+
+Two wood engravings from Joseph Kirkland, *The Chicago Massacre of 1812* (Chicago: Dibble, 1893),
+as Project Gutenberg eBook #59624 reproduces them (`images/page139.png`, `images/page101.png`):
+published 1893 in the United States, **public domain**. Each is set on white and scaled into
+360x480; nothing else is changed. They are the men's own likenesses, late in life, and are shown
+on their cards as such (`data/residents_1812/households/hh_shabbona_1812.json`,
+`hh_robinson_alexander_1812.json`; liberty L-1812-native-cards-3507).
+
+- `shabbona_kirkland_1893.jpg`: "Shaubena in old age. (About 1856.)", Kirkland p. 139.
+- `robinson_kirkland_1893.jpg`: "Alexander Robinson (in old age). Chief of the Pottowatomies, Chippewas, and others.", Kirkland p. 101.
+
+```text
+humans/web/portraits/robinson_kirkland_1893.jpg
+humans/web/portraits/shabbona_kirkland_1893.jpg
 ```

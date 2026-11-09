@@ -1,0 +1,254 @@
+{
+  "id": "hi_town_kinzie_boatman_1812",
+  "contract_version": 1,
+  "scene": "1812",
+  "person_id": "kinzie_boatman_1812",
+  "appearance": {
+    "asset_id": "engage_1812"
+  },
+  "placement": {
+    "local_e": 1153.0,
+    "local_n": 309.0,
+    "heading_deg": 200.0,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "idle",
+    "loop": true,
+    "phase": 0.142
+  },
+  "behaviour": {
+    "state": "standing",
+    "day": [
+      {
+        "dates": {
+          "from": "1812-05-01",
+          "to": "1812-08-13"
+        },
+        "note": "an engagé's summer at the parent post",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.0,
+            "indoors": true,
+            "where": "kinzie_lodging_house_1812",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "kinzie_lodging_house_1812",
+            "doing": "breakfast of lyed corn and tallow"
+          },
+          {
+            "from": 5.5,
+            "to": 11.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1153.0,
+              "local_n": 309.0,
+              "heading_deg": 200.0
+            },
+            "doing": "at the boats: caulking seams, mending a paddle, carrying goods",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1151.68,
+                "local_n": 309.48
+              },
+              {
+                "local_e": 1154.32,
+                "local_n": 308.52
+              }
+            ]
+          },
+          {
+            "from": 11.5,
+            "to": 12.5,
+            "indoors": true,
+            "where": "kinzie_lodging_house_1812",
+            "doing": "dinner"
+          },
+          {
+            "from": 12.5,
+            "to": 17.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1130.5,
+              "local_n": 345.8,
+              "heading_deg": 330.0
+            },
+            "doing": "at the horse mill grinding corn",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1131.71,
+                "local_n": 346.5
+              },
+              {
+                "local_e": 1129.29,
+                "local_n": 345.1
+              }
+            ]
+          },
+          {
+            "from": 17.5,
+            "to": 19.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1166.5,
+              "local_n": 354.0,
+              "heading_deg": 90.0
+            },
+            "doing": "smoking a pipe before the lodging house",
+            "activity": "talk",
+            "knot": "talk_783fb282"
+          },
+          {
+            "from": 19.0,
+            "to": 19.5,
+            "indoors": true,
+            "where": "kinzie_lodging_house_1812",
+            "doing": "supper"
+          },
+          {
+            "from": 19.5,
+            "to": 24.0,
+            "indoors": true,
+            "where": "kinzie_lodging_house_1812",
+            "doing": "asleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-14",
+          "to": "1812-08-14"
+        },
+        "note": "readying the family's boat",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 4.8,
+            "indoors": true,
+            "where": "kinzie_lodging_house_1812",
+            "doing": "asleep"
+          },
+          {
+            "from": 4.8,
+            "to": 5.2,
+            "indoors": true,
+            "where": "kinzie_lodging_house_1812",
+            "doing": "breakfast"
+          },
+          {
+            "from": 5.2,
+            "to": 12.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1153.0,
+              "local_n": 309.0,
+              "heading_deg": 200.0
+            },
+            "doing": "caulking and loading the family's boat",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1151.68,
+                "local_n": 309.48
+              },
+              {
+                "local_e": 1154.32,
+                "local_n": 308.52
+              }
+            ]
+          },
+          {
+            "from": 12.0,
+            "to": 12.8,
+            "indoors": true,
+            "where": "kinzie_lodging_house_1812",
+            "doing": "dinner"
+          },
+          {
+            "from": 12.8,
+            "to": 18.3,
+            "indoors": false,
+            "at": {
+              "local_e": 1153.0,
+              "local_n": 309.0,
+              "heading_deg": 200.0
+            },
+            "doing": "stowing chests and bedding in the boat",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1151.68,
+                "local_n": 309.48
+              },
+              {
+                "local_e": 1154.32,
+                "local_n": 308.52
+              }
+            ]
+          },
+          {
+            "from": 18.3,
+            "to": 19.0,
+            "indoors": true,
+            "where": "kinzie_lodging_house_1812",
+            "doing": "supper"
+          },
+          {
+            "from": 19.0,
+            "to": 21.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1150.0,
+              "local_n": 308.0,
+              "heading_deg": 180.0
+            },
+            "doing": "sitting by the boat on watch",
+            "activity": "talk",
+            "knot": "talk_4cd8a474"
+          },
+          {
+            "from": 21.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "kinzie_lodging_house_1812",
+            "doing": "asleep"
+          }
+        ]
+      }
+    ],
+    "presence": {
+      "from": "1812-05-01",
+      "to": "1812-08-18"
+    }
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 3,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": false,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "Reconstructed figure of The Kinzie boatman, name not recorded in the 1812 town, at each hour of each run of dates where the reading for T-3466 (docs/RESEARCH/people-1812-3466/day.json) puts them: indoors (asked for at the door) or out at their work, with the people they would be with. The hours, the places and the companions are ours (liberty L-1812-town-days-3463), each span graded with its own basis in the reading; what a source says of them is on their card. They wear the engage 1812 role dress, with their own face, height, build and colouring.",
+    "sources": [
+      "andreas_1884_v1",
+      "currey_1912_story_of_old_fort_dearborn",
+      "kinzie_waubun_1856",
+      "kirkland_1893_chicago_massacre"
+    ],
+    "liberty": "L418",
+    "seed": "kinzie_boatman_1812:1812:days:20261108",
+    "replaceable_by": "A diary, letter or order book of the post that says where they were and what they did on the day."
+  }
+}

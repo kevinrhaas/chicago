@@ -5,7 +5,11 @@
 // hands on the hips and clasped behind the back where the poses say (two-bone IK, the
 // hands outside the body); greet a visitor in front with a hand to the brow and a nod;
 // swing the arms opposite the legs on the walk clip, as far as the stride; leave the
-// legs and feet alone; hold a held frame; keep its state across a LOD swap; deterministic.
+// legs and feet alone; hold a held frame; keep its state across a LOD swap; deterministic;
+// hold a carrying hand where the dress says, its basket clear of the skirt (T-3481).
+// On the gait layer's walk (a stand-in `gait`): swing from its phase, opposite the leg, as far
+// as the speed, elbow bent more in front, less in a skirt and clear of it, blended by its
+// weight; and standing with no gait, exactly as before.
 import fs from 'node:fs/promises';
 import assert from 'node:assert/strict';
 const here = new URL('../', import.meta.url);
@@ -124,6 +128,79 @@ for (const [asset, lod, clip] of [['bardwell_otis_1835', 0, 'idle_natural_v1'], 
   console.log(`${asset} LOD${lod}: arms in ${clipX.toFixed(2)}→${restX.toFixed(2)} m, hips, behind, fingertips ${nearest.toFixed(3)} m from the brow: PASS`);
 }
 
+// T-3515 (owner, 2026-11-08: "when the coachman or glessner greet you their hand goes through
+// their hat ... their hand should not penetrate"): a man in a hat greets with his fingertips
+// at its brim, and no part of his hand goes through the hat at any moment of the greeting: a
+// derby, a silk hat over a glove, and a cocked hat with a plume, each on a figure drawn a
+// little taller than it was made (a person's own height, which the arm's reach must follow).
+{
+  const RH = /^(hand_r|(thumb|index|middle|ring|pinky)_0[123]_r)$/;
+  // World triangles of a skinned mesh whose three corners belong mostly to bones that `pick` takes.
+  const tris = (m, pick) => {
+    const g = m.geometry, p = g.attributes.position, sw = g.attributes.skinWeight, si = g.attributes.skinIndex, ix = g.index;
+    const at = new Array(p.count);
+    for (let i = 0; i < p.count; i++) {
+      let best = 0, bi = 0;
+      for (let k = 0; k < 4; k++) { const w = sw.getComponent(i, k); if (w > best) { best = w; bi = si.getComponent(i, k); } }
+      if (pick(m.skeleton.bones[bi].name)) at[i] = m.getVertexPosition(i, new THREE.Vector3()).applyMatrix4(m.matrixWorld);
+    }
+    const out = [];
+    for (let t = 0, n = ix ? ix.count : p.count; t + 2 < n; t += 3) {
+      const c = [0, 1, 2].map(k => at[ix ? ix.getX(t + k) : t + k]);
+      if (c.every(Boolean)) out.push(c);
+    }
+    return out;
+  };
+  const ray = new THREE.Ray(), hit = new THREE.Vector3();
+  const box = (T) => new THREE.Box3().setFromPoints(T);
+  // How many edges of A's triangles pass through B's.
+  const through = (A, B) => {
+    const boxes = B.map(box);
+    let n = 0;
+    for (const T of A) {
+      const b = box(T);
+      for (let j = 0; j < B.length; j++) {
+        if (!b.intersectsBox(boxes[j])) continue;
+        for (const [p, q] of [[T[0], T[1]], [T[1], T[2]], [T[2], T[0]]]) {
+          const len = p.distanceTo(q);
+          ray.set(p, q.clone().sub(p).normalize());
+          if (ray.intersectTriangle(B[j][0], B[j][1], B[j][2], false, hit) && hit.distanceTo(p) < len) { n++; break; }
+        }
+      }
+    }
+    return n;
+  };
+  for (const asset of ['glessner_john_j_1904', 'nelson_charles_1904_coachman', 'surgeons_mate_first_infantry_1812']) {
+    const r = await rig(asset, 0, 'idle');
+    r.root.scale.setScalar(1.06); r.root.updateMatrixWorld(true);
+    const life = createHumanLife({ id: `hat:${asset}`, scene: r.scene }), acts = createHumanActions({ id: `hat:${asset}`, scene: r.scene });
+    const opts = { state: 'standing', root: r.root };
+    for (let i = 0; i < 45; i++) step(r, life, acts, 1 / 30, opts);
+    const meshes = [];
+    r.scene.traverse(o => { if (o.isSkinnedMesh && o.visible) meshes.push(o); });
+    const hats = meshes.filter(m => /^headwear__/.test(m.material.name));
+    assert(hats.length, `${asset}: wears a hat`);
+    acts.greet();
+    let crossings = 0, frames = 0, touch = 9;
+    for (let i = 0; i < 54; i++) {
+      step(r, life, acts, 1 / 30, opts);
+      if (i % 3) continue;
+      const H = hats.flatMap(m => tris(m, () => true)), hand = meshes.filter(m => !hats.includes(m)).flatMap(m => tris(m, n => RH.test(n)));
+      crossings += through(hand, H) + through(H, hand); frames++;
+      // Held at the brim (from half a second to a second in): how near the hand's skin comes to the hat.
+      if (i >= 18 && i <= 27) {
+        const hv = [...new Set(hand.flat())], Hv = [...new Set(H.flat())];
+        for (const a of hv) for (const b of Hv) touch = Math.min(touch, a.distanceToSquared(b));
+      }
+    }
+    assert(!acts.snapshot().greeting, `${asset}: the greeting ends`);
+    assert(crossings === 0, `${asset}: no part of the right hand goes through the hat in the greeting (${crossings} crossings over ${frames} frames)`);
+    touch = Math.sqrt(touch);
+    assert(touch < 0.015, `${asset}: the fingertips come to the brim (nearest ${(touch * 100).toFixed(1)} cm)`);
+    console.log(`${asset}: hat greeting, the hand ${(touch * 100).toFixed(1)} cm from the hat at nearest, never through it: PASS`);
+  }
+}
+
 // A figure in the dress assembly (T-3423) greets with the nod alone: no hand to the brow.
 {
   const r = await rig('flynn_mary_1835_dress_study', 0, 'idle');
@@ -187,6 +264,80 @@ for (const [asset, lod, clip] of [['bardwell_otis_1835', 0, 'idle_natural_v1'], 
   }
 }
 
+// T-3481: a woman carrying a market basket by the hand. The dress names the hold in the GLB's
+// extras; that arm is held there walking and standing (no swing, no pose), the fingers round the
+// handle, the basket clear of her skirt and off the ground, and the other arm still swings.
+{
+  const asset = 'nelson_christine_1904_errand';
+  const bytes = await fs.readFile(new URL(`assets/humans/web/${asset}.lod0.glb`, here));
+  const n = bytes.readUInt32LE(12), extras = JSON.parse(bytes.subarray(20, 20 + n)).scenes[0].extras.chicago4d_human;
+  const carry = JSON.parse(extras.wardrobe_assembly_json).carry;
+  assert(carry && carry.side === 'l', `${asset}: the dress names the carrying hand`);
+  for (const state of ['walking', 'standing']) {
+    const r = await rig(asset, 0, state === 'walking' ? 'walk' : 'idle');
+    const life = createHumanLife({ id: 'carry', scene: r.scene }), acts = createHumanActions({ id: 'carry', scene: r.scene, greeting: 'nod', skirt: true, carry });
+    assert(acts && acts.snapshot().carrying === 'l', `${asset}: carries in the left hand`);
+    const basket = [], skirt = [];
+    r.scene.traverse(o => { if (o.isSkinnedMesh && /^accessory__/.test(o.material?.name ?? '')) basket.push(o); if (o.isSkinnedMesh && /^garment_lower/.test(o.material?.name ?? '')) skirt.push(o); });
+    assert(basket.length >= 1 && skirt.length === 1, `${asset}: the basket and the skirt are found`);
+    const verts = (ms) => { const out = []; for (const m of ms) { const pos = m.geometry.attributes.position, v = new THREE.Vector3(); for (let i = 0; i < pos.count; i++) { m.getVertexPosition(i, v); out.push(figure(r, v.clone().applyMatrix4(m.matrixWorld))); } } return out; };
+    let worstHold = 0, worstGap = Infinity, lowest = Infinity, grip = 0, rMin = 9, rMax = -9;
+    for (let i = 0; i < 150; i++) {
+      step(r, life, acts, 1 / 30, { state, root: r.root });
+      if (i < 45 || i % 15) continue;
+      const want = figure(r, world(r.bone('upperarm_l'))).add(new THREE.Vector3(...carry.wrist_from_shoulder));
+      worstHold = Math.max(worstHold, figure(r, world(r.bone('hand_l'))).distanceTo(want));
+      const b = verts(basket), sk = verts(skirt);
+      lowest = Math.min(lowest, ...b.map(p => p.y));
+      // Each basket point at the skirt's height is outside (further left than) the skirt there.
+      for (const p of b) {
+        let edge = -Infinity;
+        for (const q of sk) if (Math.abs(q.y - p.y) < 0.03 && Math.abs(q.z - p.z) < 0.05 && q.x > 0) edge = Math.max(edge, q.x);
+        if (edge > -Infinity) worstGap = Math.min(worstGap, p.x - edge);
+      }
+      // The fingers are round the handle: the middle finger's middle joint is at the basket's mesh.
+      const knuckle = figure(r, world(r.bone('middle_02_l')));
+      grip = Math.max(grip, Math.min(...b.map(p => p.distanceTo(knuckle))));
+      const hz = figure(r, world(r.bone('hand_r'))).z; rMin = Math.min(rMin, hz); rMax = Math.max(rMax, hz);
+    }
+    assert(worstHold < 0.03, `${state}: the left wrist is held at the carry (${(worstHold * 100).toFixed(1)} cm off)`);
+    assert(worstGap > 0.005, `${state}: the basket is clear of the skirt (${Number.isFinite(worstGap) ? (worstGap * 100).toFixed(1) + ' cm' : 'never level with it'})`);
+    assert(lowest > 0.25, `${state}: the basket is off the ground (lowest ${lowest.toFixed(3)} m)`);
+    assert(grip < 0.035, `${state}: the fingers are round the handle (${(grip * 100).toFixed(1)} cm)`);
+    if (state === 'walking') assert(rMax - rMin > 0.1, `walking: the free right arm still swings (${(rMax - rMin).toFixed(3)} m)`);
+    console.log(`${asset} ${state}: wrist ${(worstHold * 100).toFixed(1)} cm from the hold, basket ${(worstGap * 100).toFixed(1)} cm clear of the skirt, lowest ${lowest.toFixed(2)} m, grip ${(grip * 100).toFixed(1)} cm: PASS`);
+  }
+}
+
+// T-3490: a duty's hold and talking hand, on the 1812 private. Held at rest, his hands never
+// move to the hips or behind however long he stands (a man in a rank); talking, one forearm
+// comes up before him, the hand ahead of the body above the waist, and moves; quiet, it goes
+// back down to his side.
+{
+  const r = await rig('private_first_infantry_1812', 0, 'idle');
+  const life = createHumanLife({ id: 'talk', scene: r.scene }), acts = createHumanActions({ id: 'talk', scene: r.scene });
+  const opts = { state: 'standing', root: r.root };
+  acts.hold('rest');
+  for (let i = 0; i < 30 * 70; i++) { step(r, life, acts, 1 / 30, opts); assert.equal(acts.pose, 'rest', 'a held pose holds'); }
+  const pelvisY = figure(r, world(r.bone('pelvis'))).y;
+  const quiet = { l: figure(r, world(r.bone('hand_l'))), r: figure(r, world(r.bone('hand_r'))) };
+  acts.setTalk(true);
+  const seen = [];
+  for (let i = 0; i < 90; i++) { step(r, life, acts, 1 / 30, opts); if (i >= 45) seen.push({ l: figure(r, world(r.bone('hand_l'))), r: figure(r, world(r.bone('hand_r'))) }); }
+  const up = ['l', 'r'].find(s => seen.every(p => p[s].z > quiet[s].z + 0.12));
+  assert(up, `a talking hand comes up before him (front z ${seen.at(-1).l.z.toFixed(3)} / ${seen.at(-1).r.z.toFixed(3)})`);
+  const h = seen.at(-1)[up];
+  assert(h.y > pelvisY + 0.05 && h.z > 0.15, `the talking ${up} hand is ahead of the body above the waist (${h.toArray().map(x => x.toFixed(3))})`);
+  const travel = Math.max(...seen.map(p => p[up].distanceTo(seen[0][up])));
+  assert(travel > 0.015, `the talking hand moves with the talk (${travel.toFixed(3)} m)`);
+  acts.setTalk(false);
+  for (let i = 0; i < 75; i++) step(r, life, acts, 1 / 30, opts);
+  assert(figure(r, world(r.bone(`hand_${up}`))).distanceTo(quiet[up]) < 0.05, 'quiet, the hand goes back to his side');
+  acts.hold(null);
+  assert.equal(acts.held, null, 'a hold is let go');
+  console.log(`private_first_infantry_1812 LOD0: rank hold for 70 s; talking ${up} hand up ${(h.z - quiet[up].z).toFixed(2)} m before him, moving ${travel.toFixed(3)} m: PASS`);
+}
+
 // Walking: the arms swing opposite the legs, as far as the stride.
 {
   const r = await rig('bardwell_otis_1835', 1, 'walk');
@@ -202,6 +353,141 @@ for (const [asset, lod, clip] of [['bardwell_otis_1835', 0, 'idle_natural_v1'], 
   assert(corr / n < 0, 'walking: the left hand comes forward as the left foot goes back');
   assert(maxZ - minZ > 0.12 && maxZ - minZ < 0.45, `walking: the hand swings ${(maxZ - minZ).toFixed(3)} m`);
   console.log(`walking: left hand swings ${((maxZ - minZ) * 100).toFixed(1)} cm, opposite the left foot: PASS`);
+}
+
+// The gait layer's walk (human-gait.js passes `gait`): a stand-in gait stepped over cycles,
+// phase 0 the LEFT heel strike and 0.5 the RIGHT. The left leg is forward at 0 and back at
+// 0.5; the left arm must come forward as it goes back (at about 0.55, just after the right
+// heel strike), swing some 20-30 deg at the shoulder, bend its elbow more at the front than
+// at the back, and swing less in a skirt, clear of the skirt's bell.
+const { ARM_SWING } = await import(data((await js('human-actions.js')).replace("from './driver-life.js'", `from '${driverLife}'`)));
+function standInGait({ speed = 1.25, cadence = 1.8, weight = 1 } = {}) {
+  let t = 0;
+  const g = { phase: 0, weight, speed, stride: 2 * speed / cadence, cadence, pelvisYaw: 0, pelvisRoll: 0, bob: 0 };
+  return { g, step(dt) { t += dt; g.phase = (t * cadence / 2) % 1; } };
+}
+/** One arm in the figure's frame: the shoulder's flexion (+ forward) and the elbow's bend, degrees; the wrist. */
+function arm(r, s) {
+  const S = figure(r, world(r.bone(`upperarm_${s}`))), E = figure(r, world(r.bone(`lowerarm_${s}`))), W = figure(r, world(r.bone(`hand_${s}`)));
+  const u = E.clone().sub(S), f = W.clone().sub(E);
+  return { flex: Math.atan2(u.z, -u.y) * 180 / Math.PI, elbow: u.angleTo(f) * 180 / Math.PI, wrist: W };
+}
+async function gaitWalk(asset, { skirt = false, speed = 1.25, clip = 'walk', weight = 1 } = {}) {
+  const r = await rig(asset, 1, clip);
+  const life = createHumanLife({ id: 'g', scene: r.scene }), acts = createHumanActions({ id: 'g', scene: r.scene, skirt, greeting: skirt ? 'nod' : 'brow' });
+  const gait = standInGait({ speed, weight });
+  const opts = { state: 'walking', root: r.root, gait: gait.g };
+  const rows = [];
+  for (let i = 0; i < 240; i++) {
+    gait.step(1 / 60); step(r, life, acts, 1 / 60, opts);
+    if (i >= 120) rows.push({ phase: gait.g.phase, l: arm(r, 'l'), r: arm(r, 'r') });
+  }
+  return { r, life, acts, gait, opts, rows };
+}
+const corr = (a, b) => { const n = a.length, ma = a.reduce((x, y) => x + y) / n, mb = b.reduce((x, y) => x + y) / n; let sab = 0, sa = 0, sb = 0; a.forEach((x, k) => { sab += (x - ma) * (b[k] - mb); sa += (x - ma) ** 2; sb += (b[k] - mb) ** 2; }); return sab / Math.sqrt(sa * sb); };
+const excursion = (rows, s) => { const v = rows.map(x => x[s].flex); return Math.max(...v) - Math.min(...v); };
+{
+  const { rows } = await gaitWalk('bardwell_otis_1835');
+  const legL = rows.map(x => Math.cos(2 * Math.PI * x.phase)); // +1 with the left leg forward
+  for (const s of ['l', 'r']) {
+    const flex = rows.map(x => x[s].flex), sign = s === 'l' ? 1 : -1;
+    const c = corr(flex, legL);
+    assert(sign * c < -0.9, `gait: the ${s} arm swings opposite its own leg (r = ${c.toFixed(2)} with the left leg)`);
+    const peak = rows[flex.indexOf(Math.max(...flex))].phase, want = s === 'l' ? 0.5 : 0;
+    const after = ((peak - want + 1.5) % 1) - 0.5;
+    assert(after > 0.01 && after < 0.1, `gait: the ${s} shoulder's flexion peaks just after the other heel strike (${after.toFixed(3)} of the cycle)`);
+    const ex = excursion(rows, s), mean = (Math.max(...flex) + Math.min(...flex)) / 2;
+    assert(ex > 20 && ex < 30, `gait: the ${s} shoulder swings ${ex.toFixed(1)} deg`);
+    assert(Math.max(...flex) - mean > 8 && Math.max(...flex) - mean < 12.5, `gait: ±${(ex / 2).toFixed(1)} deg about ${mean.toFixed(1)}`);
+    // Mostly behind the body, as measured (Horst 2019: about 19 deg back to 6 forward of the vertical).
+    assert(Math.min(...flex) < -14 && Math.max(...flex) < 9 && mean < -3, `gait: the ${s} arm swings mostly behind the body (${Math.min(...flex).toFixed(1)}..${Math.max(...flex).toFixed(1)} deg)`);
+    const front = rows[flex.indexOf(Math.max(...flex))][s], back = rows[flex.indexOf(Math.min(...flex))][s];
+    assert(front.elbow > back.elbow + 10 && front.elbow > 26 && front.elbow < 48 && back.elbow > 8 && back.elbow < 22,
+      `gait: the ${s} elbow bends more at the front (${back.elbow.toFixed(1)} → ${front.elbow.toFixed(1)} deg)`);
+    // The hand goes further forward than back of where it hangs, and a little inward in front.
+    const hz = rows.map(x => x[s].wrist.z), hx = rows.map(x => Math.abs(x[s].wrist.x));
+    const zMid = (Math.max(...hz) + Math.min(...hz)) / 2;
+    assert(front.wrist.z - zMid > 0.12 && front.wrist.z > 0.12, `gait: the ${s} hand comes forward (${front.wrist.z.toFixed(3)} m)`);
+    assert(Math.abs(front.wrist.x) < Math.abs(back.wrist.x), `gait: the ${s} hand comes in in front (${Math.abs(back.wrist.x).toFixed(3)} → ${Math.abs(front.wrist.x).toFixed(3)} m)`);
+    console.log(`gait: ${s} shoulder ${Math.min(...flex).toFixed(1)}..${Math.max(...flex).toFixed(1)} deg (${ex.toFixed(1)}), peak ${after.toFixed(3)} after the other heel strike, elbow ${back.elbow.toFixed(1)}→${front.elbow.toFixed(1)} deg, hand ${Math.min(...hz).toFixed(2)}..${Math.max(...hz).toFixed(2)} m: PASS`);
+  }
+  // Faster, further; slower, less.
+  const slow = excursion((await gaitWalk('bardwell_otis_1835', { speed: 0.9 })).rows, 'l'), fast = excursion((await gaitWalk('bardwell_otis_1835', { speed: 1.6 })).rows, 'l');
+  assert(slow < excursion(rows, 'l') && fast > excursion(rows, 'l') + 3, `gait: the swing grows with speed (${slow.toFixed(1)} / ${excursion(rows, 'l').toFixed(1)} / ${fast.toFixed(1)} deg)`);
+  console.log(`gait: swing ${slow.toFixed(1)} / ${excursion(rows, 'l').toFixed(1)} / ${fast.toFixed(1)} deg at 0.9 / 1.25 / 1.6 m/s: PASS`);
+  // Blended by the gait's weight: at half, about half the swing (on a clip whose feet are
+  // still, so the feet's own reading adds nothing).
+  const full = excursion((await gaitWalk('bardwell_otis_1835', { clip: 'idle' })).rows, 'l');
+  const half = excursion((await gaitWalk('bardwell_otis_1835', { clip: 'idle', weight: 0.5 })).rows, 'l');
+  assert(half > full * 0.35 && half < full * 0.65, `gait: blended by its weight (${half.toFixed(1)} of ${full.toFixed(1)} deg at 0.5)`);
+  console.log(`gait: at weight 0.5 the swing is ${half.toFixed(1)} of ${full.toFixed(1)} deg: PASS`);
+}
+{
+  // T-3496: a walking hand is curled once, loosely (the hanging hand's curl and the walk's
+  // used to add up to 0.74 of a fist, a claw), its fingers side by side, its knuckles up,
+  // and the thumb laid beside the index rather than stuck out from the hand.
+  const { r } = await gaitWalk('bardwell_otis_1835');
+  for (const s of ['l', 'r']) {
+    const P = n => world(r.bone(`${n}_${s}`));
+    const along = P('middle_01').sub(P('hand')).normalize();
+    const bend = f => along.angleTo(P(`${f}_03`).sub(P(`${f}_02`))) * 180 / Math.PI;
+    const ix = bend('index'), px = bend('pinky');
+    assert(ix > 25 && ix < 55 && px > ix && px < 65, `gait: the ${s} fingers loosely curled, the little one more (index ${ix.toFixed(0)}, little ${px.toFixed(0)} deg)`);
+    // Side by side, not fanned or kinked in at the root (that pinched the skin at the knuckle).
+    const base = P('index_01').distanceTo(P('pinky_01')), tips = P('index_03').distanceTo(P('pinky_03'));
+    assert(Math.abs(tips - base) < 0.008, `gait: the ${s} fingers bend side by side (${(base * 100).toFixed(1)} cm at the knuckles, ${(tips * 100).toFixed(1)} at the last joints)`);
+    const thumb = P('thumb_03').distanceTo(P('index_02'));
+    assert(thumb < 0.05, `gait: the ${s} thumb lies beside the index (${(thumb * 100).toFixed(1)} cm from its middle joint)`);
+    console.log(`gait: ${s} hand curled ${ix.toFixed(0)}..${px.toFixed(0)} deg, fingers ${(base * 100).toFixed(1)} → ${(tips * 100).toFixed(1)} cm, thumb ${(thumb * 100).toFixed(1)} cm from the index: PASS`);
+  }
+}
+{
+  // A woman in a full skirt swings about half as far, and her hands stay out of the bell.
+  const man = excursion((await gaitWalk('bardwell_otis_1835')).rows, 'l');
+  const w = await gaitWalk('williamson_mattie_1904_cook_study', { skirt: true });
+  const her = excursion(w.rows, 'l');
+  assert(Math.abs(her / man - ARM_SWING.skirt.scale) < 0.12, `gait: a skirt swings less (${her.toFixed(1)} vs ${man.toFixed(1)} deg)`);
+  const cloth = [];
+  w.r.scene.traverse(o => { if (o.isSkinnedMesh && /^garment_(lower|outer)/.test(o.material?.name ?? '')) cloth.push(o); });
+  let worst = Infinity, at = '';
+  for (let k = 0; k < 8; k++) {
+    for (let i = 0; i < 8; i++) { w.gait.step(1 / 60); step(w.r, w.life, w.acts, 1 / 60, w.opts); }
+    const axis = world(w.r.bone('pelvis')), pts = [];
+    for (const m of cloth) {
+      const pos = m.geometry.attributes.position, v = new THREE.Vector3();
+      for (let i = 0; i < pos.count; i += 1) { m.getVertexPosition(i, v); pts.push(v.clone().applyMatrix4(m.matrixWorld)); }
+    }
+    for (const s of ['l', 'r']) for (const pr of ['hand', 'index_03', 'middle_03', 'ring_03', 'pinky_03', 'thumb_03']) {
+      const b = w.r.bone(`${pr}_${s}`);
+      if (!b) continue;
+      const p = world(b);
+      let best = null, bd = Infinity;
+      for (const q of pts) { const d = q.distanceToSquared(p); if (d < bd) { bd = d; best = q; } }
+      if (!best || Math.sqrt(bd) > 0.08) continue;
+      const depth = p.clone().sub(best).dot(best.clone().sub(axis).setY(0).normalize());
+      if (depth < worst) { worst = depth; at = `${pr}_${s} at phase ${w.gait.g.phase.toFixed(2)}`; }
+    }
+  }
+  assert(worst > -0.012, `gait: ${at} is ${(-worst * 100).toFixed(1)} cm inside the skirt`);
+  console.log(`gait: a skirt swings ${her.toFixed(1)} deg (${(her / man * 100).toFixed(0)} % of ${man.toFixed(1)}), hands outside the skirt (closest ${Number.isFinite(worst) ? (worst * 100).toFixed(1) + ' cm' : 'clear'}): PASS`);
+}
+{
+  // Standing with no gait, a null gait or one at weight 0, the arms are the same to the bit.
+  const out = [];
+  for (const gait of [undefined, null, { phase: 0.37, weight: 0, speed: 1.3, stride: 1.4, cadence: 1.85, pelvisYaw: 0.05, pelvisRoll: 0.03, bob: 0.01 }]) {
+    const r = await rig('bardwell_otis_1835', 3, 'idle');
+    const life = createHumanLife({ id: 'n', scene: r.scene }), acts = createHumanActions({ id: 'n', scene: r.scene });
+    const fwd = new THREE.Vector3(0, 0, 1).applyAxisAngle(new THREE.Vector3(0, 1, 0), r.root.rotation.y);
+    for (let i = 0; i < 600; i++) {
+      const viewer = i > 300 ? world(r.bone('head')).addScaledVector(fwd, 2.5) : null;
+      step(r, life, acts, 1 / 30, gait === undefined ? { state: 'standing', root: r.root, viewer } : { state: 'standing', root: r.root, viewer, gait });
+    }
+    const q = []; r.scene.traverse(o => { if (o.isBone) q.push(...o.quaternion.toArray(), ...o.position.toArray()); });
+    out.push(q);
+  }
+  assert.deepEqual(out[1], out[0], 'standing: a null gait changes nothing');
+  assert.deepEqual(out[2], out[0], 'standing: a gait at weight 0 changes nothing');
+  console.log('gait: standing with a null gait or one at weight 0 is the same to the bit: PASS');
 }
 
 // Deterministic, and a LOD swap keeps the pose.

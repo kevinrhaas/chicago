@@ -343,8 +343,9 @@ async function drawPerson(st, id) {
   const h = householdOf(st.model, id);
   const placed = (pid) => typeof a.inTown === 'function' && !!a.inTown(pid);
   const render = (m) => {
-    // Find is for someone placed in town; anyone else is found at their house (Go to house).
-    const card = renderPersonCard(doc, m, { dot, onFind: placed(id) ? a.findPerson ?? null : null,
+    // Find and Follow are live for someone placed in town now, greyed with the reason for
+    // anyone else (T-3531); Go to house is the way to where they live.
+    const card = renderPersonCard(doc, m, { dot, onFind: a.findPerson ?? null,
       onFollow: a.followPerson ?? null, inTown: a.inTown ?? null });
     const b = card.querySelector('[data-person-back]');
     if (b) b.replaceWith(backButton(doc, backLabel(st)));
@@ -362,16 +363,17 @@ async function drawPerson(st, id) {
     return card;
   };
   render(personModel({ row, sceneYear: st.sceneYear })).querySelector('[data-ppl-back]')?.focus?.({ preventScroll: true });
-  const [household, citations, likeness] = await Promise.all([
+  const [household, citations, likeness, told] = await Promise.all([
     Promise.resolve(a.householdRecord?.(row.file)).catch(() => null),
     Promise.resolve(a.residentCitations?.()).catch(() => null),
     Promise.resolve(a.personFace?.(id)).catch(() => null),
+    Promise.resolve(a.personStory?.(id)).catch(() => null),   // T-3521
   ]);
   const top = st.stack[st.stack.length - 1];
   if (st !== state || top?.kind !== 'person' || top.id !== id) return;   // moved on meanwhile
   const person = (household?.persons ?? []).find((p) => p.id === id) ?? null;
   const card = render(personModel({ row, person, household, citations, sceneYear: st.sceneYear,
-    face: likeness?.face ?? null, assetBase: likeness?.base ?? null }));
+    face: likeness?.face ?? null, looks: likeness?.looks ?? null, assetBase: likeness?.base ?? null, told }));
   if (!person) card.querySelector('.insp-person-wait')?.replaceWith(el(doc, 'p', 'nav-sub', 'This person’s household record could not be read.'));
   const focus = doc.activeElement;
   if (!focus || focus === doc.body) card.querySelector('[data-ppl-back]')?.focus?.({ preventScroll: true });

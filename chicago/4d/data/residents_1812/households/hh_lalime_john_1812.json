@@ -1,0 +1,156 @@
+{
+  "id": "hh_lalime_john_1812",
+  "scene": "1812",
+  "name": "Jean Lalime at his house by the fort",
+  "head": "lalime_john",
+  "division": "north",
+  "present_on_scene_date": {
+    "value": "absent",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1",
+      "dailing_2018_chicago_reader_lalime",
+      "kirkland_1893_chicago_massacre",
+      "quaife_1913"
+    ],
+    "note": "Dead or gone before 14 August 1812; in the town on the earlier dates their cards give."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "lalime_house_1812",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "inferred",
+      "source_id": "andreas_1884_v1",
+      "also_sources": [
+        "dailing_2018_chicago_reader_lalime",
+        "kirkland_1893_chicago_massacre"
+      ],
+      "note": "The house the 1812 structure record calls Lalime's."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "Everyone the T-3463..T-3467 day readings put in this household is on the card (liberty L-1812-town-days-3463).",
+    "sources": [
+      "andreas_1884_v1",
+      "dailing_2018_chicago_reader_lalime",
+      "kirkland_1893_chicago_massacre"
+    ]
+  },
+  "persons": [
+    {
+      "id": "lalime_john",
+      "name": "Jean (John) Lalime",
+      "relationship": "head",
+      "grade": "attested",
+      "sources": [
+        "andreas_1884_v1",
+        "dailing_2018_chicago_reader_lalime",
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "40-40",
+        "low": 40,
+        "high": 40,
+        "tier": "reconstructed",
+        "note": "No birth date in the sources read; an educated interpreter in the service since before 1808, drawn at about forty. The skeleton Kirkland thought his was of a man of \"complete maturity\" (Dr. Freer)."
+      },
+      "present_on_scene_date": {
+        "value": "absent",
+        "confidence": "inferred",
+        "note": "Dead since 17 June; not in the 14 August scene. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "The government's interpreter at Fort Dearborn, a Frenchman with a house on the north side of the river. He was killed just outside the fort's entrance on the evening of 17 June 1812, in a fight with John Kinzie. In the town from 1803-10-01 to 1812-06-17: He wintered 1803-04 at Chicago with Dr. Smith (Quaife; the month is ours) and was killed at sunset on 17 June 1812 (Van Voorhis and Irwin as the Reader quotes them; Quaife: after 13 April). The Reader reports a deed of 1800 that has him buy du Sable's post, which would put him at Chicago earlier.",
+      "evidence": [
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "app. F, PG 59624 lines 6163-6164",
+          "quote": "For several years before 1812, John Lalime, a Frenchman, had been the government's salaried interpreter at Fort Dearborn.",
+          "claim": "the government's interpreter, a Frenchman"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "ch. VI, PG 69274 lines 5995-5996",
+          "quote": "La Lime was living in one of the four houses on the north side of the river and acting as government Indian interpreter",
+          "claim": "his house on the north side and his post"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "ch. VI, PG 69274 lines 6017",
+          "quote": "described him as \"a very decent man and a good companion.\"",
+          "claim": "Dr. Smith's opinion"
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "app. F, PG 59624 lines 6175-6176",
+          "quote": "An Indian from the Peorias passed here yesterday and has given me information",
+          "claim": "his letter of 26 May 1811"
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "app. F, PG 59624 lines 6216",
+          "quote": "Lalime's letters show that he was a man of ability and education.",
+          "claim": "educated"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "ch. VII, PG 69274 lines 6810-6812",
+          "quote": "three of the long-time residents of Chicago, La Lime, Ouilmette, and Kinzie, were not included in this number",
+          "claim": "not one of the militia"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "ch. VI, fn. 367, PG 69274 lines 6071-6072",
+          "quote": "It could not have been earlier than April 13, however, since on this date he wrote to Captain Wells",
+          "claim": "alive on 13 April"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "ch. VI, PG 69274 lines 6024-6026",
+          "quote": "La Lime was stabbed to death by Kinzie in a personal encounter just outside the entrance to Fort Dearborn.",
+          "claim": "killed just outside the entrance"
+        },
+        {
+          "source_id": "andreas_1884_v1",
+          "locator": "p. 73 (IA historyofchicago01andr full-text OCR lines 19810-19812; quote cleaned of OCR noise, letter match 0.99)",
+          "quote": "Just as he passed the enclosure, and the gate was being shut for the night. Lieutenant Helm, who was officer of the day",
+          "claim": "the eye-witness version"
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "app. F (Hubbard), PG 59624 lines 6243-6244",
+          "quote": "Lalime met him outside the garrison and shot him, the ball cutting the side of his neck",
+          "claim": "Lalime shot first (the family version)"
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "app. F (Hubbard), PG 59624 lines 6257-6259",
+          "quote": "They decided he should be buried near Kinzie's house, in plain view from his front door and piazza.",
+          "claim": "the grave in view of the Kinzie piazza"
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "app. F (Hubbard), PG 59624 lines 6259-6260",
+          "quote": "The grave was enclosed in a picket fence, which Mr. Kinzie, in his lifetime, kept in perfect order.",
+          "claim": "fenced"
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "app. F, PG 59624 lines 6360-6361",
+          "quote": "consider them to be the skeleton of a slender white man, about five feet and four inches in height",
+          "claim": "the skeleton of 1891, if his"
+        },
+        {
+          "source_id": "dailing_2018_chicago_reader_lalime",
+          "locator": "Chicago Reader, 18 October 2018, the paragraph beginning 'Irwin never said anything about the grave' (as the jaunt killing-of-jean-lalime cites it; wording read 2026-11-08 through a page fetch)",
+          "quote": "a file of soldiers headed by Lt. Helm carried it away by force",
+          "claim": "the body carried off by soldiers (Irwin, July 1812, as the Reader quotes him)"
+        }
+      ]
+    }
+  ]
+}

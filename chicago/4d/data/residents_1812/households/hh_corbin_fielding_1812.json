@@ -1,0 +1,155 @@
+{
+  "id": "hh_corbin_fielding_1812",
+  "scene": "1812",
+  "name": "The Corbin family of Heald's company, in the fort",
+  "head": "corbin_fielding",
+  "division": "fort",
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "inferred",
+    "sources": [
+      "kinzie_waubun_1856",
+      "kirkland_1893_chicago_massacre",
+      "quaife_1913"
+    ],
+    "note": "The family's men, women and children are on Helm's and Heald's lists of 1812-1814 (Quaife App. IV, VI)."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "first_fort_dearborn_soldiers_barracks_sw",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "reconstructed",
+      "source_id": "whistler_1808_fort_dearborn_draught",
+      "also_sources": [],
+      "note": "No source says which room of the fort any soldier or soldier's family lived in; the barracks named here is the reconstructed choice (liberty L-1812-people-3461)."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "A child the counts of 18 do not name may have been of this family; those children have their own reconstructed cards (hh_garrison_children_unnamed_1812).",
+    "sources": [
+      "kinzie_waubun_1856",
+      "kirkland_1893_chicago_massacre",
+      "quaife_1913"
+    ]
+  },
+  "persons": [
+    {
+      "id": "corbin_fielding",
+      "name": "Fielding Corbin",
+      "relationship": "head",
+      "grade": "attested",
+      "sources": [
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "20-32",
+        "low": 20,
+        "high": 32,
+        "tier": "reconstructed",
+        "note": "No birth year of his is recorded. A private of a five-year enlistment is drawn as a young man; the band is a reconstructed choice for the figure (L418), not a claim about his age."
+      },
+      "occupation": {
+        "value": "private, Heald's company, First Infantry",
+        "confidence": "attested",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "His rank as the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII) prints it."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "An account of the battle or of its captives names him, so he was with the garrison when it marched. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "also_written": [
+        "Phelim Corbin (Niles 1814; Kirkland)"
+      ],
+      "note": "On the muster-roll of the company to 31 May 1812 (Quaife 1913, Appendix VIII), enlisted 25 Oct 1811 for five years, to 25 Oct 1816. After 14 August: One of the nine who reached Plattsburg in May 1814; his pregnant wife was killed in the battle.",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16976; Appendix VIII, 'Muster-Roll of Captain Nathan Heald's Company' (begins p. 425); Appendix VIII (pp. 425-27), printed from the Heald Papers, Draper Collection",
+          "quote": "Fielding Corbin Private 25 Oct. 1811 25 Oct. 1816 Fielding Corbin",
+          "claim": "On the muster-roll of Heald's company for 20 April-31 May 1812 (row: name, rank, date of enlistment, term to, name in Present column, remark)."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 17376; Appendix IX, 'The Fated Company' (begins p. 428); Appendix IX tabular recapitulation (within pp. 428-38)",
+          "quote": "Fielding Corbin Private Returned to civilization",
+          "claim": "Quaife's concluding table of the fate of each regular on the morning of 15 Aug 1812."
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16805; Appendix VI, 'Lieutenant Helm's Account of the Massacre' (begins p. 415); Helm's tabular list of survivors, Appendix VI (pp. 415-21)",
+          "quote": "Fielding Corbin 27",
+          "claim": "Listed by Lt. Helm among the garrison survivors of the battle (pencil list with his 1814 narrative)."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 3746-3747; Part II, ch. VII (begins p. 113); Part II ch. VII p. 118",
+          "quote": "James Van Horn, Dyson Dyer, Joseph Knowles, Joseph Bowen, Paul Grummond, Nathan Edson, Elias Mills, James Corbin, Phelim Corbin,",
+          "claim": "Niles' Register of 4 June 1814 (reprinting a Plattsburg paper) names nine Fort Dearborn survivors arrived from Quebec."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 4807; Appendix B (begins p. 143); Appendix B, roll on p. 150",
+          "quote": "Fielding Corbin \" 7 Dec. 1805 Time expired 7 Dec. 1810.",
+          "claim": "On the Dec 1810 roll with an earlier enlistment, term expired 7 Dec 1810 (so the 25 Oct 1811 date is a re-enlistment)."
+        }
+      ]
+    },
+    {
+      "id": "corbin_mrs",
+      "name": "Mrs. Corbin",
+      "relationship": "wife",
+      "grade": "attested",
+      "sources": [
+        "kinzie_waubun_1856",
+        "kirkland_1893_chicago_massacre",
+        "quaife_1913"
+      ],
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "Helm lists Mrs. Corbin killed in the action. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "also_written": [
+        "Mrs. Fielding Corbin",
+        "wife of Phelim Corbin (Niles)",
+        "possibly \"Sukey Corbin\" (Callis tradition via Kirkland)"
+      ],
+      "note": "Wife of Private Fielding Corbin. Kirkland prints a later tradition (Mrs. Callis, daughter of agent Jouett, who arrived c.1817) of 'Sukey Corbin (a camp-follower and washerwoman)' whose children were killed; Kirkland himself says 'perhaps the same Mrs. Corbin' and calls it less authentic. Quaife allows Mrs. Corbin may have had no children. Do not treat 'Sukey' as her established name. After 14 August: Killed in the battle, refusing capture; far advanced in pregnancy (Niles).",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "Gutenberg #69274 plain text (pg69274.txt), line 16824; Appendix VI, 'Lieutenant Helm's Account of the Massacre' (begins p. 415); Helm's list, Appendix VI",
+          "quote": "Mrs. Corbin }",
+          "claim": "Helm's 'Killed in the action' list."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 3796-3797; Part II, ch. VII (begins p. 113)",
+          "quote": "Mrs. Corbin, wife of Phelim Corbin, in an advanced stage of pregnancy, was tomahawked, scalped, cut open,",
+          "claim": "Niles 1814."
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "Gutenberg #12183 plain text (pg12183.txt; the 1873 Philadelphia reprint of the 1856 text), line 5733-5734; ch. XIX",
+          "quote": "She was a Mrs. Corbin, and had, from the first, expressed the determination never to fall into the hands of the savages,",
+          "claim": "Wau-Bun."
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "Gutenberg #59624 plain text (pg59624.txt), line 1591-1592; Part I, 'Saturday, August Fifteenth, 1812' (pp. 19-50)",
+          "quote": "the children of Sukey Corbin (a camp-follower and washerwoman)",
+          "claim": "Callis tradition (Kirkland Part I p. 48)."
+        }
+      ]
+    }
+  ]
+}

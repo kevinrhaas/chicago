@@ -1,0 +1,24 @@
+{
+ "id": "met_ci_1815_tailcoat",
+ "type": "photograph",
+ "citation": "Tailcoat, wool, ca. 1815. The Metropolitan Museum of Art, 2014.501.",
+ "author": "Unknown maker",
+ "date": "ca. 1815",
+ "describes_date": "1815",
+ "repository": "The Metropolitan Museum of Art; object 657342 in the museum's collection API (isPublicDomain: true), image 2014.501_F at images.metmuseum.org.",
+ "url": "https://www.metmuseum.org/art/collection/search/657342",
+ "locator": "The coat on its form (image 2014.501_F).",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "The Met's Open Access images of public-domain works are released CC0. Proposed for use only as a reference picture the 1812 figures are judged against; nothing traced or sampled.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Viewed 2026-11-07 (dress research for the 1812 scene). Probably British. A dark blue wool double-breasted tailcoat cut away square at the waist, high rolled collar and lapels, long tails behind.",
+ "note": "Proposed for the 1812 dress reference sets; not a Chicago or Fort Dearborn record. A museum garment: its record is typed by the museum photograph of it, as met_ci_1833_tailcoat_and_trousers is. Recorded by the 1812 dress build (officers-traders group) from the T-3461 dress research (docs/RESEARCH/people-1812-3461/dress.json new_sources).",
+ "what_it_supplies": [
+  "the cut of a dark blue gentleman's tailcoat about 1815"
+ ],
+ "what_it_does_not_supply": [
+  "an American provenance; a date before August 1812"
+ ]
+}

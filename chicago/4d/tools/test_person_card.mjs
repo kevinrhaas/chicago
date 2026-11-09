@@ -98,15 +98,41 @@ for (const r of dir.people) {
     const rel = face.card[k];
     if (!L[k].startsWith('https://example.test/4d/data/humans/web/') || !fs.existsSync(path.join(ROOT, 'assets', rel))) fail(`${r.id}: ${k} picture ${rel} is not where publish.sh serves it`);
   }
+  if (face.card.stand_in && (L.grade !== 'reconstructed' || !L.standIn)) fail(`${r.id}: a stand-in's photograph must read as one, graded reconstructed (T-3478)`);
   if (L.grade !== face.grade || !L.sourceTitle || !/^https:/.test(L.sourceUrl) || !L.notModelled.length || !/\d+ mm/.test(L.fit)) fail(`${r.id}: Likeness lacks its grade, source, fit or what is not modelled`);
 }
 if (likenesses < 1) fail('no fitted face reached a card (Glessner\'s, T-3413)');
 
 if (cards !== dir.people.length || inferredCensus < 150 || leads < 150 || links < 150 || lived < 40) {
-  fail(`too few read: ${cards} cards of ${dir.people.length}, ${inferredCensus} inferred census, ${leads} leads, ${links} page links`);
+  fail(`too few read: ${cards} cards of ${dir.people.length}, ${inferredCensus} inferred census, ${leads} leads, ${links} page links; 1812 Native cards ${native}, ${likely} likely in the attack (T-3507..T-3509)`);
 }
+// T-3507..T-3509: every 1812 Native card has a name with its basis, the 15th graded, and the
+// unnamed a reconstructed history marked as ours; Shabbona's card carries his own portrait.
+let native = 0, histories = 0, likely = 0;
+for (const f of fs.readdirSync(path.join(ROOT, 'data/residents_1812/households'))) {
+  if (!/^hh_(gathering_|potawatomi_camp_|miami_escort)/.test(f)) continue;
+  const hh = json(`data/residents_1812/households/${f}`);
+  for (const person of hh.persons) {
+    const m = personModel({ row: { id: person.id, name: person.name, household_name: hh.name }, person, household: hh, sceneYear: 1812 });
+    native++;
+    if (/name not recorded/.test(m.name)) fail(`${person.id}: still "${m.name}"`);
+    if (!m.nameBasis?.text) fail(`${person.id}: no name basis`);
+    if (!m.fifteenth?.value || !m.facts.some((x) => x.label === 'On 15 August')) fail(`${person.id}: no 15 August`);
+    if (m.fifteenth?.value?.startsWith('Likely among') && m.fifteenth.grade !== 'reconstructed') fail(`${person.id}: a likely part not graded reconstructed`);
+    if (m.fifteenth?.value?.startsWith('Likely among')) likely++;
+    if (m.history) { histories++; if (m.history.grade !== 'reconstructed' || !m.history.caveat) fail(`${person.id}: history not marked as ours`); }
+    else fail(`${person.id}: no history`);
+  }
+}
+{
+  const hh = json('data/residents_1812/households/hh_shabbona_1812.json');
+  const m = personModel({ row: { id: 'shabbona', name: 'Shabbona' }, person: hh.persons[0], household: hh, sceneYear: 1812, assetBase: 'https://x.test/data/' });
+  if (!m.portrait || m.portrait.image !== 'https://x.test/data/humans/web/portraits/shabbona_kirkland_1893.jpg') fail(`Shabbona: portrait ${m.portrait?.image}`);
+  if (!fs.existsSync(path.join(ROOT, 'assets/humans/web/portraits/shabbona_kirkland_1893.jpg'))) fail('Shabbona: portrait file missing');
+}
+if (native < 650 || histories !== native || likely < 400) fail(`1812 Native cards: ${native} read, ${histories} histories, ${likely} likely in the attack`);
 if (failures.length) {
   console.log(`FAIL person cards (T-3265):\n  ${failures.join('\n  ')}`);
   process.exit(1);
 }
-console.log(`ok person cards (T-3265): ${cards} people, ${likenesses} with a portrait-fitted face (T-3413), ${lived} children carded for their years here (T-3382), ${inferredCensus} inferred from the 1900 census, ${leads} census leads, ${links} page links`);
+console.log(`ok person cards (T-3265): ${cards} people, ${likenesses} with a portrait-fitted face (T-3413), ${lived} children carded for their years here (T-3382), ${inferredCensus} inferred from the 1900 census, ${leads} census leads, ${links} page links; 1812 Native cards ${native}, ${likely} likely in the attack (T-3507..T-3509)`);

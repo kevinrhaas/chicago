@@ -1,0 +1,39 @@
+{
+ "format": "chicago4d_human_looks_v1",
+ "ticket": "T-3463",
+ "person_id": "wells_william",
+ "scene": "1812",
+ "generated_by": "docs/RESEARCH/people-1812-town/looks.py",
+ "heritage": {
+  "origin": "not recorded (see the basis)",
+  "family": "reading"
+ },
+ "complexion": {
+  "value": "weathered, sunburnt",
+  "drawn": "ruddy",
+  "grade": "inferred"
+ },
+ "hair": {
+  "value": "dark brown, long, in a queue tied with black ribbon",
+  "drawn": "dark_brown",
+  "cut": "clubbed_behind_1812",
+  "facial": [],
+  "grade": "inferred"
+ },
+ "eyes": {
+  "value": "grey",
+  "drawn": "grey",
+  "grade": "inferred"
+ },
+ "stature": {
+  "inches": 68,
+  "grade": "inferred",
+  "basis": "The queue and black ribbon are attested (Wau-Bun, Mrs. Helm on his scalp, the 15th). Clean-shaven, broad-faced, dark-haired from the captioned engraving (unverified likeness, below). Eye colour, height and build ours. A modern account reads his Miami name as 'carrot', perhaps for red hair; that was not verified in a source read here (lead: P. A. Hutton, Indiana Magazine of History 74, 1978; the site would not open), so the engraving's dark hair is kept and the owner may choose."
+ },
+ "height_scale": 0.987,
+ "basis": "Drawn in the words of the day reading for T-3463 (docs/RESEARCH/people-1812-3463/day.json): The queue and black ribbon are attested (Wau-Bun, Mrs. Helm on his scalp, the 15th). Clean-shaven, broad-faced, dark-haired from the captioned engraving (unverified likeness, below). Eye colour, height and build ours. A modern account reads his Miami name as 'carrot', perhaps for red hair; that was not verified in a source read here (lead: P. A. Hutton, Indiana Magazine of History 74, 1978; the site would not open), so the engraving's dark hair is kept and the owner may choose. The drawn colours, cut and scale are a reconstructed rendering of those words (liberty L-1812-town-days-3463).",
+ "grade": "inferred",
+ "liberty": "L-1812-town-days-3463",
+ "replaceable_by": "A portrait or a description of them written in their lifetime.",
+ "build_words": "medium, hard"
+}

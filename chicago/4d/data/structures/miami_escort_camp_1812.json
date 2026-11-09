@@ -1,0 +1,161 @@
+{
+  "id": "miami_escort_camp_1812",
+  "name": "The Miami escort's camp, August 1812",
+  "aka": [
+    "Wells's Miamis",
+    "the Miami escort"
+  ],
+  "archetype": "lodge_camp",
+  "phases": [
+    {
+      "id": "camp_1812",
+      "documented_range": {
+        "drawn_only_within": true,
+        "from": "1812-08-12",
+        "to": "1812-08-15",
+        "confidence": "inferred",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "Wells arrived on the 12th (Helm), the 13th (Heald) or the 14th (Wau-Bun); the camp opens on Helm's date, the earliest, and closes on the 15th, when the Miamis marched out with the column (Quaife 1913 ch. X). L-1812-gathering-lodges-3499."
+      },
+      "position": {
+        "utm_e": 448132.7,
+        "utm_n": 4637451.8,
+        "rotation_deg": 0.0,
+        "symbolic_location": "On the prairie about 175 m south-west of the fort: local E +1060..+1090, N +56..+80.",
+        "confidence": "reconstructed",
+        "sources": [
+          "quaife_1913"
+        ],
+        "note": "NO SOURCE PLACES THE MIAMIS' CAMP; THIS GROUND IS OURS (T-3499). Heald, Helm and Currey say only that Wells came from Fort Wayne with about thirty Miamis 'mounted on ponies' (Currey 1912) and that they marched out on the 15th, part before the column and part behind it (Heald's report, Quaife 1913 Appendix IV). Mounted men come to march the garrison out would camp by the fort, by its stables and the road south they would take, and apart from the Potawatomi gathering on the creek; so the ground stands on the level prairie about 40 m south of the fort's three stables and 175 m south-west of the outer pickets (the owner, 2026-11-08: build the camps 'where they would most logically have been'): local E +1060..+1090, N +56..+80. Its outline lies between -0.01 and +0.04 m of the origin's 2.49 m on the e1830_natural heightfield; it keeps 15 m from every 1812 footprint, 6 m from every worn trail and 4 m from the wagon roads of T-3497 (the fort's south loop and the shore road). The point recorded is the ground's south-west corner. L-1812-gathering-lodges-3499.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "A ground chosen on the bank of the committed state_slough swales against the e1830_natural heightfield, not a street line or a traced waterline validate.py can re-derive a coordinate from; the clearances and the outline's height spread are stated in the note."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            30.0,
+            0
+          ],
+          [
+            30.0,
+            24.0
+          ],
+          [
+            0,
+            24.0
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "The escort's ground, 30.0 x 24.0 m. INVENTED in its extent. L-1812-gathering-lodges-3499."
+      },
+      "form": {
+        "mat_lodges": {
+          "value": 2,
+          "confidence": "reconstructed",
+          "note": "2 in this group, sleeping 8 each by this project's rule. A travelling camp of mounted men: lodges of carried mats, hearths and the horse lines. L-1812-gathering-lodges-3499."
+        },
+        "long_lodges": {
+          "value": 1,
+          "confidence": "reconstructed",
+          "note": "1 in this group, sleeping 20 each by this project's rule. A travelling camp of mounted men: lodges of carried mats, hearths and the horse lines. L-1812-gathering-lodges-3499."
+        },
+        "bark_roofed_lodges": {
+          "value": 0,
+          "confidence": "reconstructed",
+          "note": "None in this group. A travelling camp of mounted men: lodges of carried mats, hearths and the horse lines. L-1812-gathering-lodges-3499."
+        },
+        "bark_houses": {
+          "value": 0,
+          "confidence": "reconstructed",
+          "note": "None in this group. A travelling camp of mounted men: lodges of carried mats, hearths and the horse lines. L-1812-gathering-lodges-3499."
+        },
+        "arbors": {
+          "value": 0,
+          "confidence": "reconstructed",
+          "note": "None in this group. A travelling camp of mounted men: lodges of carried mats, hearths and the horse lines. L-1812-gathering-lodges-3499."
+        },
+        "hearths": {
+          "value": 2,
+          "confidence": "reconstructed",
+          "note": "2 in this group. A travelling camp of mounted men: lodges of carried mats, hearths and the horse lines. L-1812-gathering-lodges-3499."
+        },
+        "drying_racks": {
+          "value": 0,
+          "confidence": "reconstructed",
+          "note": "None in this group. A travelling camp of mounted men: lodges of carried mats, hearths and the horse lines. L-1812-gathering-lodges-3499."
+        },
+        "scaffolds": {
+          "value": 1,
+          "confidence": "reconstructed",
+          "note": "1 in this group. A travelling camp of mounted men: lodges of carried mats, hearths and the horse lines. L-1812-gathering-lodges-3499."
+        },
+        "hide_frames": {
+          "value": 0,
+          "confidence": "reconstructed",
+          "note": "None in this group. A travelling camp of mounted men: lodges of carried mats, hearths and the horse lines. L-1812-gathering-lodges-3499."
+        },
+        "woodpiles": {
+          "value": 1,
+          "confidence": "reconstructed",
+          "note": "1 in this group. A travelling camp of mounted men: lodges of carried mats, hearths and the horse lines. L-1812-gathering-lodges-3499."
+        },
+        "mortars": {
+          "value": 0,
+          "confidence": "reconstructed",
+          "note": "None in this group. A travelling camp of mounted men: lodges of carried mats, hearths and the horse lines. L-1812-gathering-lodges-3499."
+        },
+        "canoes": {
+          "value": 0,
+          "confidence": "reconstructed",
+          "note": "None in this group. A travelling camp of mounted men: lodges of carried mats, hearths and the horse lines. L-1812-gathering-lodges-3499."
+        },
+        "horse_pickets": {
+          "value": 10,
+          "confidence": "reconstructed",
+          "note": "10 in this group. A travelling camp of mounted men: lodges of carried mats, hearths and the horse lines. L-1812-gathering-lodges-3499."
+        },
+        "pack_saddles": {
+          "value": 4,
+          "confidence": "reconstructed",
+          "note": "4 in this group. A travelling camp of mounted men: lodges of carried mats, hearths and the horse lines. L-1812-gathering-lodges-3499."
+        },
+        "canoe_edge": {
+          "value": "none",
+          "confidence": "reconstructed",
+          "note": "No canoes in this group. L-1812-gathering-lodges-3499."
+        },
+        "mat_condition": {
+          "value": "weathered",
+          "confidence": "reconstructed",
+          "note": "The mats' condition; which group has which is this project's. L-1812-gathering-lodges-3499."
+        }
+      },
+      "change_note": "The camp of the Miami escort Wells brought from Fort Wayne, 12-15 August 1812. Added by T-3499; flagged for review."
+    }
+  ],
+  "function": {
+    "value": "gathering_camp",
+    "confidence": "inferred",
+    "sources": [
+      "quaife_1913",
+      "currey_1912_old_fort_dearborn"
+    ],
+    "note": "Helm's narrative (Quaife 1913, Appendix VI): 'Capt. William Wells arrived from Fort Wayne on the 12th August with 27 Miamis and after a council being held by him with the tribes there assembled to amount of 500 warriors 179 women & children'. Wells came from Fort Wayne to bring the garrison out, and his Miamis marched with the column on the 15th, part in the lead and the rest behind (Quaife 1913 ch. X). Where they camped for the two or three nights before is in no source read; that they stood somewhere near the fort is inferred."
+  },
+  "occupants": {
+    "value": "Sleeps 36 by this project's occupancy rule; Helm's 27 Miamis (the escort's households are T-3500's).",
+    "confidence": "reconstructed",
+    "note": "Helm's narrative (Quaife 1913, Appendix VI): 'Capt. William Wells arrived from Fort Wayne on the 12th August with 27 Miamis and after a council being held by him with the tribes there assembled to amount of 500 warriors 179 women & children'. L-1812-gathering-lodges-3499."
+  },
+  "research_note": "THIS RECORD IS FLAGGED review_required, AND touches_removal, because it draws the camp of Native men at Chicago on the eve of 15 August 1812 from accounts written by the garrison's side; the Miamis, like the Potawatomi, were later removed from their lands. The owner's rulings of 2026-10-16 (AGENTS.md § Standing constraint) trust this project to draw Native depictions on fair and reasonable judgement; the flags stay, and say why here. WHAT IS DRAWN: a small travelling camp in the lodge_camp archetype: two mat lodges and a long lodge of carried mats, two hearths, firewood, a scaffold for saddles and loads, and ten tether stakes for the horses (the Miamis were mounted: Currey 1912, of the battle, 'the mounted Miamis'). The Miamis' own lodge forms are not described at Chicago; the Potawatomi camp's are used as the nearest. NOTHING IS STAGED. WHAT WOULD REPLACE THIS: a source that places or describes the escort's camp. L-1812-gathering-lodges-3499.",
+  "review_required": true,
+  "touches_removal": true
+}

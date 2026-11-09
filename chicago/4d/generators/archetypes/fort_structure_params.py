@@ -85,6 +85,19 @@ CUPOLA_CAP_PITCH_DEG = 36.0
 #: a box started at the apex floats clear of the roof at its corners, which is a
 #: strip of sky and a hidden stack, and neither is an acceptable thing to ship.
 CUPOLA_SEAT_M = 0.12
+#: How a cupola's sides are built (T-3041). "boarded" is the second fort's plain
+#: boarded body and the default; "log" lays the body in the same coursed, notched log
+#: as the blockhouse below it, which is how the owner reads the first fort's pictures
+#: (2026-11-07). A record opts in with `cupola_construction`.
+CUPOLA_CONSTRUCTIONS = ("boarded", "log")
+#: The lookout ports in a cupola cap's four faces (T-3041, opt-in `cupola_ports`).
+#: Currey's 1912 bird's-eye draws a small dark opening in each visible face of both
+#: first-fort cupola caps; the drawing is too small to give their shape or size, so
+#: each is a small framed opening under a shed hood, every number RECONSTRUCTED:
+#: opening width, height, and how far up the face (horizontally, from the cap's eave).
+CUPOLA_PORT_W_M = 0.32
+CUPOLA_PORT_H_M = 0.22
+CUPOLA_PORT_IN_M = 0.40
 
 # The form attributes whose VALUE this archetype reads. See the same set in
 # frame_tavern_params for the argument; the short version is that an attribute
@@ -96,6 +109,8 @@ CONSUMED = frozenset({
     "upper_overhang_m", "lantern", "gallery_storeys", "face_openings",
     "lantern_profile", "tower_diameter_m", "tower_openings", "tower_profile",
     "tower_lantern_detail", "tower_masonry", "cupola",
+    # T-3041: a cupola's own wall fabric and body height, opt-in per record
+    "cupola_construction", "cupola_height_m", "cupola_ports",
     # T-3387: the hand-made period brick a brick wall and the stacks are laid in
     "period_brick",
 })
@@ -171,6 +186,14 @@ class FortStructureParams:
     # cupola was THERE, which is what its pictures can carry, and nothing about how
     # big it was. docs/LIBERTIES.md owns the size.
     cupola: bool = field(default=False, kw_only=True)
+    # T-3041. Both default to the T-2388 cupola exactly, so a record that does not
+    # name them builds the same bytes. `cupola_height_m` replaces CUPOLA_HEIGHT_M for
+    # that record alone (seat to cap eave, RECONSTRUCTED); `cupola_construction` picks
+    # the body's fabric from CUPOLA_CONSTRUCTIONS.
+    cupola_construction: str = field(default="boarded", kw_only=True)
+    cupola_height_m: float | None = field(default=None, kw_only=True)
+    # T-3041: a small lookout port in each of the cap's four faces. Off by default.
+    cupola_ports: bool = field(default=False, kw_only=True)
     gallery_storeys: int = field(default=1, kw_only=True)
     face_openings: list | None = field(default=None, kw_only=True)
 
@@ -392,6 +415,22 @@ class FortStructureParams:
                 raise ParamError("a double gallery requires a two-storey range")
         if not isinstance(self.cupola, bool):
             raise ParamError("cupola is a yes or no, not a count or a size")
+        if self.cupola_construction not in CUPOLA_CONSTRUCTIONS:
+            raise ParamError(f"cupola_construction '{self.cupola_construction}' not in "
+                             f"{CUPOLA_CONSTRUCTIONS}")
+        if self.cupola_height_m is not None:
+            h = self.cupola_height_m
+            if isinstance(h, bool) or not isinstance(h, (int, float)) or not math.isfinite(h):
+                raise ParamError("cupola_height_m must be a finite number of metres")
+            if not 0.6 <= h <= 4.0:
+                raise ParamError("cupola_height_m outside 0.6-4 m")
+        if not isinstance(self.cupola_ports, bool):
+            raise ParamError("cupola_ports is a yes or no")
+        if not self.cupola and (self.cupola_construction != "boarded"
+                                or self.cupola_height_m is not None
+                                or self.cupola_ports):
+            raise ParamError("cupola_construction / cupola_height_m describe a cupola; "
+                             "this record builds none")
         if self.cupola:
             # Only the combination that is actually built. A cupola on anything but a
             # blockhouse's pyramid cap, or over a record that also counts a stack,
@@ -613,6 +652,9 @@ def from_phase(phase: dict, record: dict | None = None) -> FortStructureParams:
         face_openings=val("face_openings", None),
         loopholes=bool(val("loopholes", False)),
         cupola=bool(val("cupola", False)),
+        cupola_construction=str(val("cupola_construction", "boarded")),
+        cupola_height_m=val("cupola_height_m", None),
+        cupola_ports=bool(val("cupola_ports", False)),
         upper_overhang_m=float(val("upper_overhang_m", 0.45)),
         sun_dial=bool(val("sun_dial", False)),
         lantern=bool(val("lantern", False)),

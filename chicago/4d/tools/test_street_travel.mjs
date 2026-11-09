@@ -130,6 +130,38 @@ const failed = createTravel({ walker: { state: { e: 0, n: 0 }, resettle() {} }, 
 failed.setMode('walk');
 assert.equal(failed.go({ kind: 'structure', id: 'missing' }, { onStop: () => stopped = true }), false);
 assert(stopped && !jumped);
+// T-3531: water no street crosses is crossed by the nearest boat this side (boatway), then the
+// ride goes on from the far landing; with no boat, a walk flies; in the Fly mode it flies.
+{
+  const river = { plan: (a, b) => ((a.e < 50) !== (b.e < 50) ? null : { points: [[b.e, b.n]], length_m: Math.hypot(b.e - a.e, b.n - a.n) }) };
+  const camera = new THREE.PerspectiveCamera();
+  const walker = createWalker({ camera, terrain: dry, footprints: [], spawn: { local_e: 0, local_n: 0 } });
+  const intent = createIntent();
+  let crossed = 0, arrivals = 0, flown = 0, asked = null;
+  const boatway = (from, to, opts) => {
+    asked = { from, to, opts };
+    return { name: 'the test landing', stand: [40, 0], cross(done) {
+      crossed++; assert(Math.hypot(walker.state.e - 40, walker.state.n) < 0.5, 'the walk ends at the boat');
+      walker.teleport({ local_e: 60, local_n: 0 }); done(true);
+    } };
+  };
+  const t = createTravel({ walker, intent, router: river, terrain: dry, boatway, setFly: () => { flown++; } });
+  t.setMode('walk');
+  assert(t.go({ kind: 'point', local_e: 90, local_n: 0, label: 'across' }, { onArrive: () => arrivals++ }));
+  for (let i = 0; i < 20000 && (t.state.phase !== 'idle' || !crossed || !arrivals); i++) {
+    t.update(1 / 30, intent); walker.update(1 / 30, intent); t.afterWalk(intent, 1 / 30);
+  }
+  assert.equal(crossed, 1, 'one crossing'); assert.equal(arrivals, 1, 'the ride arrives after it'); assert.equal(flown, 0, 'nothing flies');
+  assert(asked.opts.speed > 0 && typeof asked.opts.plan === 'function', 'boatway is given the pace and the planner');
+  assert(Math.hypot(walker.state.e - 90, walker.state.n) < 0.5, 'the ride ends across the water');
+  // No boat: a walk flies, as before; the Fly mode never asks for a boat.
+  let asks = 0;
+  const w2 = createWalker({ camera, terrain: dry, footprints: [], spawn: { local_e: 0, local_n: 0 } });
+  const none = createTravel({ walker: w2, intent: createIntent(), router: river, terrain: dry, boatway: () => { asks++; return null; }, setFly: () => { flown++; } });
+  none.setMode('walk'); assert(none.go({ kind: 'point', local_e: 90, local_n: 0 })); assert.equal(asks, 1); assert(flown >= 1, 'no boat: it flies');
+  none.stop('test'); none.setMode('fly'); asks = 0; none.go({ kind: 'point', local_e: 90, local_n: 0 }); assert.equal(asks, 0, 'Fly mode does not ask for a boat');
+  console.log('BOAT CROSSING PASS — walk to the nearest boat, cross, ride on; no boat flies; Fly mode flies (T-3531)');
+}
 console.log('STREET TRAVEL PASS — sidewalks, roadways, street bends, thin walls, Glessner frontage, high-speed obstacle-safe movement and no teleport fallback');
 
 // A bridge's walkable deck is not an obstruction footprint. Execute the actual

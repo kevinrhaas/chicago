@@ -61,19 +61,19 @@
         2.430052623233238
       ],
       "rotation_y": 0,
-      "glb_sha256": "4fdacdfa3af6182c21fbe8726defe6c3d271465e6c05346efa3ce90a542abde8"
+      "glb_sha256": "968ac3f1a0a55b4c5a44645336d4ce0b08a24dc1971398cb7d6a4181d557528b"
     }
   ],
-  "group_sha256": "7bd701c5360179cac731c769d7be84cd006523f347e75b97540468e3edfe5777",
+  "group_sha256": "52a69eaad1f244930367845a10a515f9607932f8ff1b899ee1f8e0458fbbc961",
   "rendered_flora": {
     "season": "summer",
     "lots": [
       {
         "parcel": "prairie_1729",
-        "shrubs": 26,
+        "shrubs": 29,
         "trees": 3,
         "beds": 0,
-        "creeper": 53
+        "creeper": 54
       }
     ],
     "street_trees": 38,
@@ -110,7 +110,7 @@
     },
     {
       "file": "renderers/web/js/front-yards.js",
-      "sha256": "7f4ba235f07a51d60ba052a507137919c58c6a0bfeeb45a6a9696e112ab092b3"
+      "sha256": "1d76c4415a93713c9e01d4b8400d4dbb0175f88a8eadb3414a66b7666f3be2ff"
     },
     {
       "file": "renderers/web/js/street-trees.js",
@@ -122,7 +122,7 @@
     },
     {
       "file": "renderers/web/js/tree-model.js",
-      "sha256": "5225613ca5dd36a0e7577b2f0aed62e1a9cf15f4af2a39cd233b8d1cf97d40d2"
+      "sha256": "1ec46dc2bfb15d13dab2260c022b31d4ee88b7302aab5be62069b2eaf5e198e2"
     },
     {
       "file": "renderers/web/js/tree-surface.js",
@@ -134,14 +134,14 @@
     },
     {
       "file": "renderers/web/js/trees.js",
-      "sha256": "bd022919ca052610595908f83128dfceea976790c5bf2eff63f381abaa3b89b5"
+      "sha256": "83513a6667d725328ce9e0c5ed00c0a69ab3b61e5f4dbc9dfaccf6e6122def73"
     },
     {
       "file": "renderers/web/js/street-furniture.js",
       "sha256": "b838523b13e22a6c73a887a81abebcb7dd1bf7e827647117784c29505423fa59"
     }
   ],
-  "flora_sha256": "b22ca7a09c4976cb272084484e1448573a7082eeae2bba75c2700c3b8cbba383",
+  "flora_sha256": "192508028bb52fdf17e1e273624b958dabccb985fbf89cdfc6e292ae1962e126",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie_ranges/inland_1894_plate-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
@@ -211,18 +211,18 @@
       "how": "relief and glazing bars under the bar; the openings' number, place and size agree"
     },
     {
-      "what": "the 18th Street wall across the foreground, its square piers and coping, the curved low walls by the steps, the lamps on the piers, the shrubs and the trees [T-1934, 2026-10-31: east of the third pier this is replaced for 1904 — the Detroit Publishing view of c. 1900 (loc_det_4a08066_pullman_residence), the picture nearest 1 July 1904, shows the wall from the stair's east pier (the third) to the Fort Dearborn monument as one level coping about 0.9 m high with a dense border of shrubs behind it: no pier over its top, no urn, no curved low wall (its x 485-740 px); the Chicago History Museum's ICHi-19208 (circa 1900, a check only) shows the same plain coping at the stable's end; the fourth, fifth and sixth piers, the fifth's urn and the curved low walls are withdrawn (L-pullman-18th-street-wall-c1900-1934).]",
+      "what": "the 18th Street wall across the foreground, its square piers and coping, the curved low walls by the steps, the lamps on the piers, the shrubs and the trees [T-1934, 2026-10-31: east of the third pier this is replaced for 1904 — the Detroit Publishing view of c. 1900 (loc_det_4a08066_pullman_residence), the picture nearest 1 July 1904, shows the wall from the stair's east pier (the third) to the Fort Dearborn monument as one level coping about 0.9 m high with a dense border of shrubs behind it: no pier over its top, no urn, no curved low wall (its x 485-740 px); the Chicago History Museum's ICHi-19208 (circa 1900, a check only) shows the same plain coping at the stable's end; the fourth, fifth and sixth piers, the fifth's urn and the curved low walls are withdrawn (L-pullman-18th-street-wall-c1900-1934).] [T-1881, 2026-11-08: restored for 1904. Read through the Detroit view's solved camera, its c. 1900 print shows this wall east of the stair as the 1894 plate does: the third pier, the coping falling and sweeping back up to the fourth, the doorway slot, the fifth pier with its urn, the carriage mouth and the sixth pier (its x 330-485 px); the withdrawal had read its sixth pier as the third. The fourth, fifth and sixth piers, the fifth's urn and the sweeps stand again as L-pullman-18th-street-wall-1934 built them; L-pullman-18th-street-wall-c1900-1934 is resolved.]",
       "status": "fixed",
       "how": "the 18th Street wall built (T-1934): on the lot line from the house's east end to the stable's east wall, through the plate's camera rays from five pier bases put it, the 0.9 m wall with its chamfered coping, square piers 1.7-1.8 m high, the opening onto the terrace's west flight, the low wall falling steeply from the third pier and curving up again to the fourth, the opening onto the east flight, and the wall on low along the stable's front (pullman_house_1729_prairie form.boundary); its lamps, the planting and the trees are judged in their own lines below"
     },
     {
-      "what": "the 18th Street wall's piers in the plate: the five piers, from x 205 to 1875, within about 30 px of the plate's (0.25 m) after T-1934 carried the plate's readings into the house's frame through the two records' 1904 placements [T-1934, 2026-10-31: three of the five stand for 1904, the first to the third; the fourth and fifth are replaced for 1904, in their own line.]",
+      "what": "the 18th Street wall's piers in the plate: the five piers, from x 205 to 1875, within about 30 px of the plate's (0.25 m) after T-1934 carried the plate's readings into the house's frame through the two records' 1904 placements [T-1934, 2026-10-31: three of the five stand for 1904, the first to the third; the fourth and fifth are replaced for 1904, in their own line.] [T-1881, 2026-11-08: restored for 1904. Read through the Detroit view's solved camera, its c. 1900 print shows this wall east of the stair as the 1894 plate does: the third pier, the coping falling and sweeping back up to the fourth, the doorway slot, the fifth pier with its urn, the carriage mouth and the sixth pier (its x 330-485 px); the withdrawal had read its sixth pier as the third. The fourth, fifth and sixth piers, the fifth's urn and the sweeps stand again as L-pullman-18th-street-wall-1934 built them; L-pullman-18th-street-wall-c1900-1934 is resolved.]",
       "status": "within tolerance",
       "how": "T-1934 render"
     },
     {
-      "what": "the fourth and fifth piers on 18th Street (the plate's x 1605-1710 and 1775-1875 px, the fifth with its squat lidded urn) and the low wall that falls from the third pier and curves up again to the fourth",
-      "status": "not shown",
+      "what": "the fourth and fifth piers on 18th Street (the plate's x 1605-1710 and 1775-1875 px, the fifth with its squat lidded urn) and the low wall that falls from the third pier and curves up again to the fourth [T-1881, 2026-11-08: built again for 1904 — the Detroit view of c. 1900, read through its solved camera, shows the 1894 wall still standing east of the stair (L-pullman-18th-street-wall-c1900-1934 resolved); the fourth, fifth (with its urn) and sixth piers and the sweeps stand where L-pullman-18th-street-wall-1934 put them.]",
+      "status": "fixed",
       "how": "replaced for 1904: the Detroit Publishing view of c. 1900 (loc_det_4a08066_pullman_residence), the picture nearest 1 July 1904, shows the wall from the stair's east pier (the third) to the Fort Dearborn monument as one level coping about 0.9 m high with a dense border of shrubs behind it: no pier over its top, no urn, no curved low wall (its x 485-740 px); the Chicago History Museum's ICHi-19208 (circa 1900, a check only) shows the same plain coping at the stable's end. So the 1904 wall stands level at 0.9 m east of the third pier, its two openings kept (L-pullman-18th-street-wall-c1900-1934)."
     },
     {
@@ -231,7 +231,7 @@
       "how": "under the 0.3 m bar; the pier stands where and as tall as the plate shows it"
     },
     {
-      "what": "the globe lamp on the fifth pier and the urn on the terrace pier behind it are not built [T-1934, 2026-10-31: the fifth pier and its urn are replaced for 1904, in their own line.]",
+      "what": "the globe lamp on the fifth pier and the urn on the terrace pier behind it are not built [T-1934, 2026-10-31: the fifth pier and its urn are replaced for 1904, in their own line.] [T-1881, 2026-11-08: restored for 1904. Read through the Detroit view's solved camera, its c. 1900 print shows this wall east of the stair as the 1894 plate does: the third pier, the coping falling and sweeping back up to the fourth, the doorway slot, the fifth pier with its urn, the carriage mouth and the sixth pier (its x 330-485 px); the withdrawal had read its sixth pier as the third. The fourth, fifth and sixth piers, the fifth's urn and the sweeps stand again as L-pullman-18th-street-wall-1934 built them; L-pullman-18th-street-wall-c1900-1934 is resolved.]",
       "status": "fixed",
       "how": "T-1934: read again at the plate's full size it is one object, not a lamp with an urn behind it: a squat turned urn under a flat lid on the fifth pier's cap (x 1805-1842 px, 52 px high, about 0.4 m by 0.5 m against the cap's 1.06 m); the four piers before it carry plain caps. Built: the K11 kit's urn stretched to 0.4 m by 0.5 m on that cap (data/structures/pullman_house_1729_prairie.json, boundary); the render's urn stands within about 5 px of the plate's in width and height"
     },
@@ -245,7 +245,7 @@
       "how": "replaced for 1904: the c. 1900 Detroit view's border (loc_det_4a08066_pullman_residence) stands where the plate's 1894 planting did; T-1934 render with the scene's street trees and front yards (camera flora)"
     },
     {
-      "what": "the urn's lid: the plate's is flat and broad over the body, the kit's profile rises to a small point about 0.1 m high [T-1934, 2026-10-31: moot for 1904; the urn is withdrawn with its pier.]",
+      "what": "the urn's lid: the plate's is flat and broad over the body, the kit's profile rises to a small point about 0.1 m high [T-1934, 2026-10-31: moot for 1904; the urn is withdrawn with its pier.] [T-1881, 2026-11-08: restored for 1904. Read through the Detroit view's solved camera, its c. 1900 print shows this wall east of the stair as the 1894 plate does: the third pier, the coping falling and sweeping back up to the fourth, the doorway slot, the fifth pier with its urn, the carriage mouth and the sixth pier (its x 330-485 px); the withdrawal had read its sixth pier as the third. The fourth, fifth and sixth piers, the fifth's urn and the sweeps stand again as L-pullman-18th-street-wall-1934 built them; L-pullman-18th-street-wall-c1900-1934 is resolved.]",
       "status": "within tolerance",
       "how": "T-1934: under 0.1 m, the kit's turned profile kept"
     },
@@ -267,6 +267,15 @@
       "what": "the house's raised terrace at its south-east corner, its balustrade and its striped awning (pullman_house_1729_prairie, T-1881), where the build stood a one-storey brick block until now",
       "status": "not shown",
       "how": "T-1881 (2026-10-31): another structure, judged in the house's and the conservatory's records (taylor_16555_west_front, taylor_16554_from_south, inland_1894_plate); this record's verdict on the stable and range is unchanged"
+    },
+    {
+      "what": "[T-1881, 2026-11-07] the 58.8 m tree on 18th Street's north parkway (the plate's living tree) now stands on a straight leader under a narrow head (high_head, scale 0.65), where the build drew the grown elm's low fork, a V about 3 m up: the plate draws a straight leader with its head from about half its height. Its bole draws about 0.3 m across against the plate's stouter trunk (Taylor's 16554 prints it about 0.5 m), within tolerance. Re-read on this render, which also carries the house's rear-step stack as #1828 moved it: no new difference.",
+      "status": "fixed"
+    },
+    {
+      "what": "the dark evergreen behind the fifth pier, in front of the stable corner bay's third arch, with low flowers at its foot (plate x 1690-1740 px, its top at y 845 px)",
+      "status": "fixed",
+      "how": "T-1934, 2026-11-08 (the 16555 sign-off): planted where this plate's pixel column crosses Taylor 16555's (e 1476.02, n -3189.67, stood 0.38 m east off the stable drive), 1.95 m, between this plate's 2.11 m and 16555's 1.82 m; it renders between the piers where the plate shows it, its top about level with the pier's cap as in the plate. A first placing from 16555's ground cast alone (n -3186.9) stood over the wall before the bay's second arch, where this plate shows none, and was withdrawn."
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

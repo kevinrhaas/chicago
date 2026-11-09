@@ -1,0 +1,136 @@
+{
+  "id": "hh_lees_place_1812",
+  "scene": "1812",
+  "name": "The men at Lee's Place on the South Branch",
+  "head": "white_liberty",
+  "division": "south",
+  "present_on_scene_date": {
+    "value": "absent",
+    "confidence": "inferred",
+    "sources": [
+      "currey_1912_story_of_old_fort_dearborn",
+      "kinzie_waubun_1856",
+      "moses_kirkland_history_of_chicago_v1",
+      "quaife_1913"
+    ],
+    "note": "Dead or gone before 14 August 1812; in the town on the earlier dates their cards give."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "lees_place_cabin_1812",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "inferred",
+      "source_id": "currey_1912_story_of_old_fort_dearborn",
+      "also_sources": [
+        "kinzie_waubun_1856",
+        "moses_kirkland_history_of_chicago_v1"
+      ],
+      "note": "Lee's farm, where Liberty White had charge and he and Cardin were killed on 6 April 1812 (Quaife ch. X)."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "Everyone the T-3463..T-3467 day readings put in this household is on the card (liberty L-1812-town-days-3463).",
+    "sources": [
+      "currey_1912_story_of_old_fort_dearborn",
+      "kinzie_waubun_1856",
+      "moses_kirkland_history_of_chicago_v1"
+    ]
+  },
+  "persons": [
+    {
+      "id": "white_liberty",
+      "name": "Liberty White",
+      "relationship": "employee",
+      "grade": "attested",
+      "sources": [
+        "currey_1912_story_of_old_fort_dearborn",
+        "kinzie_waubun_1856",
+        "moses_kirkland_history_of_chicago_v1",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "35-35",
+        "low": 35,
+        "high": 35,
+        "tier": "reconstructed",
+        "note": "Not recorded; a grown man."
+      },
+      "present_on_scene_date": {
+        "value": "absent",
+        "confidence": "inferred",
+        "note": "Dead on 6 April 1812. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "An American who had charge of Lee's farm on the South Branch, killed there on 6 April 1812. In the town from 1811-01-01 to 1812-04-06: He \"had lived at Chicago for some time\" (Quaife, from Kinzie's account books; the start is ours). Killed at Lee's Place a little before sunset on 6 April 1812 (Heald; Wau-Bun the 7th).",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "ch. X, PG 69274 lines 8583-8585",
+          "quote": "The farm was under the immediate superintendence of an American named Liberty White, who had lived at Chicago for some time.",
+          "claim": "an American in charge of the farm"
+        },
+        {
+          "source_id": "moses_kirkland_history_of_chicago_v1",
+          "locator": "p. 43 (Heald, 15 April 1812), data/research/books/text/moses_kirkland_history_of_chicago_v1.txt lines 6884-6887 (machine OCR, read as corrected)",
+          "quote": "where they murdered two men, one by the name of Liberty White, an American",
+          "claim": "killed (Heald's letter)"
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XVIII, PG 51737 (1856 text as reprinted in the 1901 Caxton Club edition) lines 5775-5776",
+          "quote": "The body of Mr. White was found pierced by two balls, and with eleven stabs in the breast.",
+          "claim": "his body found"
+        }
+      ]
+    },
+    {
+      "id": "cardin_john_b",
+      "name": "Jean Baptiste Cardin (Debou in Currey)",
+      "relationship": "employee",
+      "grade": "attested",
+      "sources": [
+        "currey_1912_story_of_old_fort_dearborn",
+        "kinzie_waubun_1856",
+        "moses_kirkland_history_of_chicago_v1",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "28-28",
+        "low": 28,
+        "high": 28,
+        "tier": "reconstructed",
+        "note": "Not recorded; a grown man."
+      },
+      "present_on_scene_date": {
+        "value": "absent",
+        "confidence": "inferred",
+        "note": "Dead on 6 April 1812. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "A Canadian newly come to Chicago (Currey calls him Debou), killed with Liberty White at Lee's Place on 6 April 1812. In the town from 1812-03-01 to 1812-04-06: A Canadian \"who had but recently come to Chicago\" (Quaife): the start is ours. Killed with White on 6 April 1812.",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "ch. X, PG 69274 lines 8588-8589",
+          "quote": "a Canadian Frenchman, John B. Cardin, who had but recently come to Chicago",
+          "claim": "a Canadian newly come"
+        },
+        {
+          "source_id": "currey_1912_story_of_old_fort_dearborn",
+          "locator": "pt. II, PG 52346 lines 1498",
+          "quote": "also a Frenchman named Debou",
+          "claim": "named Debou by Currey"
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XVIII, PG 51737 (1856 text as reprinted in the 1901 Caxton Club edition) lines 5706-5707",
+          "quote": "I know by their dress and paint that they are not Pottowattamies.",
+          "claim": "read the visitors' paint"
+        }
+      ]
+    }
+  ]
+}

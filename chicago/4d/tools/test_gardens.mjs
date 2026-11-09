@@ -34,12 +34,18 @@ register(`data:text/javascript,${encodeURIComponent(`export function resolve(s, 
   if (s.startsWith('three/addons/')) return { url: '${vendor}addons/' + s.slice(13), shortCircuit: true };
   return next(s, c);
 }`)}`, import.meta.url);
-const { growTemplate, KINDS, SEASON_CROPS, seasonLook } = await import('../renderers/web/js/gardens.js');
+const { growTemplate, KINDS, SEASON_CROPS, seasonLook, VARIANTS_OF } = await import('../renderers/web/js/gardens.js');
 
 // Measured 2026-11-06: 64k at far, ~2.3 MB of templates. The ceilings leave room to grow
 // a crop's detail, not to double the garden.
-const FAR_TRIS = 90_000;
-const TEMPLATE_BYTES = 3_500_000;
+// T-3477, 2026-11-07: the bank's other gardens (Kinzie's, the sutler's, Coursoll's field, the
+// factory's and the agency's, Ouilmette's and La Lime's) all stand within the far ring of the
+// officer's: 192k at far with every one of them in view, the officer's own 73k of it. A phone
+// draws its far ring to 280 m, not 450, and its frame holds only part of the bank.
+// T-3498, 2026-11-08: the forks field adds one kind, its stand of four hills (two variants,
+// 0.28 MB, near level 0.24 MB of it, which a phone never builds); 3.51 MB with it.
+const FAR_TRIS = 200_000;
+const TEMPLATE_BYTES = 3_600_000;
 
 const doc = JSON.parse(fs.readFileSync(new URL('../data/gardens/1812.json', import.meta.url), 'utf8'));
 let checks = 0;
@@ -57,7 +63,7 @@ const tris = {};
 for (const k of Object.keys(KINDS)) {
   tris[k] = {};
   for (const lod of LEVELS) {
-    for (const v of [0, 1, 2]) {
+    for (const v of [0, 1, 2].slice(0, VARIANTS_OF[k] ?? 3)) {
       const t = growTemplate(k, v, lod, 1);
       ok(t && t.tris > 0, `${k} ${lod} v${v} grows nothing`);
       for (const part of ['leaves', 'solid']) {
@@ -78,9 +84,29 @@ for (const k of Object.keys(KINDS)) {
     `${k}: a farther level costs more (near ${tris[k].near}, mid ${tris[k].mid}, far ${tris[k].far})`);
 }
 
-let far = 0;
-for (const g of doc.gardens) for (const [k, list] of Object.entries(g.plants)) far += tris[k].far * list.length;
-ok(far <= FAR_TRIS, `the garden at its far level is ${far} triangles, over ${FAR_TRIS}`);
+// T-3477: 1812 plants a dozen gardens a kilometre and more apart (the fort's bank, the forks, Lee's
+// Place four kilometres off), so the ceiling holds what a phone sees at once: every garden within
+// the far ring (450 m, the widest level's) of any one garden, at its far level.
+const centre = (g) => {
+  const [W, D] = g.size_m, [oe, on] = g.frame.origin, [ue, un] = g.frame.u, [ve, vn] = g.frame.v;
+  return [oe + ue * W / 2 + ve * D / 2, on + un * W / 2 + vn * D / 2];
+};
+const REACH_M = 450;
+const inReach = (costOf) => {
+  let worst = 0, where = '';
+  for (const g of doc.gardens) {
+    const [ce, cn] = centre(g);
+    let sum = 0;
+    for (const h of doc.gardens) {
+      const [he, hn] = centre(h);
+      if (Math.hypot(he - ce, hn - cn) <= REACH_M) sum += costOf(h);
+    }
+    if (sum > worst) { worst = sum; where = g.id; }
+  }
+  return [worst, where];
+};
+const [far, farAt] = inReach((g) => Object.entries(g.plants).reduce((a, [k, list]) => a + tris[k].far * list.length, 0));
+ok(far <= FAR_TRIS, `the gardens in reach of ${farAt} at their far level are ${far} triangles, over ${FAR_TRIS}`);
 ok(bytes <= TEMPLATE_BYTES, `the garden's templates hold ${bytes} bytes, over ${TEMPLATE_BYTES}`);
 
 /* ---- T-3460: the seasons ---- */
@@ -118,7 +144,7 @@ for (const season of Object.keys(SEASON_CROPS)) {
     if (!look) { ok(growTemplate(k, 0, 'far', 1, season) === null, `${season}: ${k} has no look but grows`); continue; }
     st[k] = {};
     for (const lod of LEVELS) {
-      for (const v of [0, 1, 2]) {
+      for (const v of [0, 1, 2].slice(0, VARIANTS_OF[k] ?? 3)) {
         const t = growTemplate(k, v, lod, 1, season);
         ok(t && t.tris > 0, `${season}: ${k} ${lod} v${v} grows nothing`);
         for (const part of ['leaves', 'solid']) {
@@ -135,11 +161,27 @@ for (const season of Object.keys(SEASON_CROPS)) {
     ok(st[k].near.tris >= st[k].mid.tris && st[k].mid.tris >= st[k].far.tris, `${season}: ${k}: a farther level costs more`);
     if (season === 'winter') ok(!st[k].near.leaves, `winter: ${k} still carries leaves`);
   }
-  let f = 0;
-  for (const g of doc.gardens) for (const [k, list] of Object.entries(g.plants)) if (st[k]) f += st[k].far.tris * list.length;
+  const [f, fAt] = inReach((g) => Object.entries(g.plants).reduce((a, [k, list]) => a + (st[k] ? st[k].far.tris * list.length : 0), 0));
   seasonFar[season] = f;
-  ok(f <= FAR_TRIS, `${season}: the garden at its far level is ${f} triangles, over ${FAR_TRIS}`);
+  ok(f <= FAR_TRIS, `${season}: the gardens in reach of ${fAt} at their far level are ${f} triangles, over ${FAR_TRIS}`);
   ok(sBytes <= TEMPLATE_BYTES, `${season}: the garden's templates hold ${sBytes} bytes, over ${TEMPLATE_BYTES}`);
+}
+
+// T-3476: the 1835 town's dooryard gardens. Its summer is SEASON_CROPS.july, which must
+// name every kind (a kind missing from a season is not drawn), and every kind it plants is in
+// its crop table, in the beds it states.
+{
+  const town = JSON.parse(fs.readFileSync(new URL('../data/gardens/1835.json', import.meta.url), 'utf8'));
+  ok(town.summer_stage === 'july', '1835 draws its summer as early July');
+  for (const kind of Object.keys(KINDS)) ok(SEASON_CROPS.july[kind], `SEASON_CROPS.july has no row for ${kind}`);
+  ok(town.gardens.length >= 60, `1835 plants ${town.gardens.length} gardens`);
+  const sizes = new Set(town.gardens.map((g) => g.size_m.join('x')));
+  ok(sizes.size === town.gardens.length, `two 1835 gardens share a size (${sizes.size} sizes for ${town.gardens.length})`);
+  for (const g of town.gardens) {
+    ok(g.ground === 'beds', `${g.id} lays its own beds`);
+    for (const kind of Object.keys(g.plants)) ok(town.crops[kind] && KINDS[kind], `${g.id} plants ${kind}, not in the crop table`);
+  }
+  ok(Number.isFinite(town.reach_m) && town.reach_m <= 200, '1835 draws its plants no farther than 200 m');
 }
 
 console.log(`test_gardens: PASS (${checks} checks; far ${far} tris, templates ${(bytes / 1e6).toFixed(2)} MB; `

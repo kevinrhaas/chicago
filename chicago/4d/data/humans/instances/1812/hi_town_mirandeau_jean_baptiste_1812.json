@@ -1,0 +1,245 @@
+{
+  "id": "hi_town_mirandeau_jean_baptiste_1812",
+  "contract_version": 1,
+  "scene": "1812",
+  "person_id": "mirandeau_jean_baptiste",
+  "appearance": {
+    "asset_id": "engage_1812"
+  },
+  "placement": {
+    "local_e": 1220.0,
+    "local_n": 94.0,
+    "heading_deg": 0.0,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "idle",
+    "loop": true,
+    "phase": 0.708
+  },
+  "behaviour": {
+    "state": "standing",
+    "day": [
+      {
+        "dates": {
+          "from": "1811-05-01",
+          "to": "1812-06-16"
+        },
+        "note": "the blacksmith from Milwaukee, working at the fort",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.0,
+            "indoors": true,
+            "where": "ouilmette_house_1812",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "ouilmette_house_1812",
+            "doing": "breakfast"
+          },
+          {
+            "from": 5.5,
+            "to": 5.8,
+            "indoors": true,
+            "away": true,
+            "doing": "crossing to the fort by canoe"
+          },
+          {
+            "from": 5.8,
+            "to": 12.0,
+            "indoors": true,
+            "where": "first_fort_outer_armourers_shop",
+            "doing": "at the forge: mending guns and traps"
+          },
+          {
+            "from": 12.0,
+            "to": 12.8,
+            "indoors": true,
+            "where": "first_fort_outer_armourers_shop",
+            "doing": "dinner at the forge"
+          },
+          {
+            "from": 12.8,
+            "to": 17.0,
+            "indoors": true,
+            "where": "first_fort_outer_armourers_shop",
+            "doing": "at the forge"
+          },
+          {
+            "from": 17.0,
+            "to": 18.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1220.0,
+              "local_n": 94.0,
+              "heading_deg": 0.0
+            },
+            "doing": "before the shop, cooling a piece in the trough",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1221.4,
+                "local_n": 94.0
+              },
+              {
+                "local_e": 1218.6,
+                "local_n": 94.0
+              }
+            ]
+          },
+          {
+            "from": 18.0,
+            "to": 18.3,
+            "indoors": true,
+            "away": true,
+            "doing": "crossing back"
+          },
+          {
+            "from": 18.3,
+            "to": 19.3,
+            "indoors": true,
+            "where": "ouilmette_house_1812",
+            "doing": "supper"
+          },
+          {
+            "from": 19.3,
+            "to": 24.0,
+            "indoors": true,
+            "where": "ouilmette_house_1812",
+            "doing": "asleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-06-17",
+          "to": "1812-06-17"
+        },
+        "note": "the night he took Kinzie away",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.0,
+            "indoors": true,
+            "where": "ouilmette_house_1812",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "ouilmette_house_1812",
+            "doing": "breakfast"
+          },
+          {
+            "from": 5.5,
+            "to": 5.8,
+            "indoors": true,
+            "away": true,
+            "doing": "crossing to the fort by canoe"
+          },
+          {
+            "from": 5.8,
+            "to": 12.0,
+            "indoors": true,
+            "where": "first_fort_outer_armourers_shop",
+            "doing": "at the forge: mending guns and traps"
+          },
+          {
+            "from": 12.0,
+            "to": 12.8,
+            "indoors": true,
+            "where": "first_fort_outer_armourers_shop",
+            "doing": "dinner at the forge"
+          },
+          {
+            "from": 12.8,
+            "to": 17.0,
+            "indoors": true,
+            "where": "first_fort_outer_armourers_shop",
+            "doing": "at the forge"
+          },
+          {
+            "from": 17.0,
+            "to": 18.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1220.0,
+              "local_n": 94.0,
+              "heading_deg": 0.0
+            },
+            "doing": "before the shop, cooling a piece in the trough",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1221.4,
+                "local_n": 94.0
+              },
+              {
+                "local_e": 1218.6,
+                "local_n": 94.0
+              }
+            ]
+          },
+          {
+            "from": 18.0,
+            "to": 18.3,
+            "indoors": true,
+            "away": true,
+            "doing": "crossing back"
+          },
+          {
+            "from": 18.3,
+            "to": 19.3,
+            "indoors": true,
+            "where": "ouilmette_house_1812",
+            "doing": "supper"
+          },
+          {
+            "from": 19.3,
+            "to": 23.5,
+            "indoors": true,
+            "where": "ouilmette_house_1812",
+            "doing": "at Ouilmette's; word of the killing at the gate"
+          },
+          {
+            "from": 23.5,
+            "to": 24.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "at the Kinzie house in the night, to take Kinzie away to Milwaukee"
+          }
+        ]
+      }
+    ],
+    "presence": {
+      "from": "1811-05-01",
+      "to": "1812-06-17"
+    }
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 3,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": false,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "Reconstructed figure of Jean Baptiste Mirandeau (the elder) in the 1812 town, at each hour of each run of dates where the reading for T-3466 (docs/RESEARCH/people-1812-3466/day.json) puts them: indoors (asked for at the door) or out at their work, with the people they would be with. The hours, the places and the companions are ours (liberty L-1812-town-days-3463), each span graded with its own basis in the reading; what a source says of them is on their card. They wear the engage 1812 role dress, with their own face, height, build and colouring.",
+    "sources": [
+      "andreas_1884_v1",
+      "kirkland_1893_chicago_massacre"
+    ],
+    "liberty": "L418",
+    "seed": "mirandeau_jean_baptiste:1812:days:20261108",
+    "replaceable_by": "A diary, letter or order book of the post that says where they were and what they did on the day."
+  }
+}

@@ -117,16 +117,27 @@ export function personVariation({ kit, key, record = null, assetId = null, scene
   }
   const hs = kit.header.height;
   let height = 1 + clip(gauss(rand) * hs.spread, -hs.limit, hs.limit);
-  const ageBand = record?.age?.band ?? kit.header.age.default_band_years;
+  // A child's body (T-3465, `age_drive: false`) is already its age: the kit's age model runs
+  // young (25) to old (90), so it neither ages the body nor draws an adult's default band.
+  const childBody = asset.age_drive === false;
+  const ageBand = record?.age?.band ?? (childBody ? [asset.base_age_years ?? 8, asset.base_age_years ?? 8] : kit.header.age.default_band_years);
   const ageDraw = rand();
   const age = Number.isFinite(record?.age?.years) ? record.age.years : ageBand[0] + ageDraw * (ageBand[1] - ageBand[0]);
   const base = asset.base_age_years ?? 35;
   for (const a of kit.axes) {
     if (a.drive !== 'age') continue;
+    if (childBody) { values[a.id] = 0; continue; }
     // MakeHuman ages its targets between 25 and 90; the face pair is a -1..1 slider over that span.
     values[a.id] = a.kind === 'age_macro' ? clip((age - base) * kit.header.age.per_year, -0.5, 1)
       : clip(age >= base ? (age - base) / (90 - base) : (age - base) / (base - 25), -0.5, 1);
   }
+  // T-3491: a stature the person's looks give (the period's spread, or his own measure) in
+  // place of the seeded one, and the build they name (Grummo's "tall, well-built").
+  const looks = record?.looks;
+  // A body may take a wider stature (T-3465: one child body stands for ages five to fourteen).
+  const [hLo, hHi] = asset.height_clip ?? [0.88, 1.12];
+  if (Number.isFinite(looks?.height_scale)) height = clip(looks.height_scale, hLo, hHi);
+  for (const k of ['weight', 'muscle']) if (Number.isFinite(looks?.build?.[k]) && k in values) values[k] = clip(looks.build[k], -L, L);
   const face = record?.face;
   if (face?.values) {
     for (const [k, v] of Object.entries(face.values)) {
@@ -313,7 +324,7 @@ const variants = new WeakMap();   // source geometry -> Map(variation key -> var
 export function disposeVariants(geometries) {
   for (const g of geometries) {
     const m = variants.get(g); if (!m) continue;
-    for (const v of m.values()) { v.dispose?.(); }
+    for (const v of m.values()) { v?.dispose?.(); }   // null: a variant that moved nothing (remembered so)
     variants.delete(g);
   }
 }

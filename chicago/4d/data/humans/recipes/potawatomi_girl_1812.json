@@ -1,0 +1,270 @@
+{
+  "version": 1,
+  "license": "CC0-1.0",
+  "liberty": "L418",
+  "height_scale": 1.0,
+  "lod_ratios": [
+    1.0,
+    0.6,
+    0.28,
+    0.12
+  ],
+  "skin_texture": {
+    "path": "assets/authored/humans/skin_toigo_bronze_female/young_lightskinned_female_diffuse_Bronze.png",
+    "sha256": "535535f30bacd42111590df4b03cf3b6bcdb7db18f336ce670665ec332ab3e0b",
+    "license": "CC0-1.0",
+    "color_space": "sRGB",
+    "base_color_factor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "roughness": 0.68,
+    "roughness_basis": "Reconstructed engineering value, not measured from a period person or calibrated capture.",
+    "identity_basis": "Cleared reusable generic skin atlas; not a likeness, attested complexion, or source identifying any named/reconstructed resident.",
+    "uv_status": "Source atlas and UV registration viewed in source diagnostics; final Blender export/LOD render validation remains outstanding.",
+    "female_appearance_status": "The same author's female bronze atlas (skins01, CC0), replacing the male one whose beard shadow read as a man's jaw at 3 m (T-3434); photographic qualification remains open."
+  },
+  "hair_component": {
+    "directory": "assets/authored/humans/hair_short04",
+    "texture": "short04_diffuse_periodic_pad_draft.png",
+    "uv_transform": {
+      "source_height": 2048,
+      "top_rows": 8,
+      "bottom_rows": 1
+    },
+    "roughness": 0.65,
+    "alpha_cutoff": 0.4,
+    "appearance_basis": "Shared cleared CC0 short04 source fitted to existing Otis/Joseph/Martin bodies; hair/part/color are reconstructed choices, no period hairstyle attestation or individual likeness.",
+    "source_manifest_sha256": "68a02130cd50dd0d727f31f8f53702fe91bd9ecb9aa98309a7814191abf89e99"
+  },
+  "eye_components": {
+    "radius_m": 0.012,
+    "iris_radius_m": 0.0055,
+    "pupil_radius_m": 0.0022,
+    "corneal_bulge_m": 0,
+    "cornea_enabled": false,
+    "source_basis": "Actual helper centers/axes; original opaque sclera/iris/pupil, reconstructed dimensions and brown color, not resident facts",
+    "status": "No actual BPy/export/blink fit/photographic acceptance"
+  },
+  "label": "Reconstructed Potawatomi girl of the camp by the fort, 1812, about six to ten, dressed as her mother in small: a rose calico over-blouse with elbow sleeves, a dark blue stroud skirt wrapped to mid-calf with its white selvage at the hem, red stroud leggings, smoked deerskin moccasins, bare head, on an 8-year child body of the shared portable rig",
+  "scene_date": "1812-08-14",
+  "grade": "reconstructed",
+  "sources": [
+    "kinzie_waubun_1856",
+    "quaife_1913",
+    "currey_1912_old_fort_dearborn",
+    "keating_1824_narrative_v1"
+  ],
+  "basis": "Original garments on a cleared MakeHuman hm08 child body (T-3465): shells offset from the body's own surface, a skirt lofted round its own sections, pieces cut from a garment's own surface, after the period pictures named in the sources and the Native-dress research (docs/RESEARCH/people-1812-3467/day.json dress.potawatomi_child_1812; docs/RESEARCH/people-1812-3461/native.json). Seams, ease, lengths and colours are reconstructed. Complete source anatomy remains unchanged beneath clothing.",
+  "source_scope": "Text sources only: Wau-Bun (the goods given out on the 13th: blankets, broadcloths, calicoes), Quaife (1913) on the women's blue or printed cottons, Hubbard's calico shirts and leggings (men, 1818 on), Keating (1823) and Currey (1912). The research's one picture of Potawatomi children (George Winter, 1837, Indiana; Tippecanoe County Historical Association, permission required) is reference only and no record is made of it here; nothing of it enters the asset. No Plains or later dress, no paint, feathers, ornament or ceremony.",
+  "colors_linear_rgba": {
+    "skin": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "eyes": [
+      0.12,
+      0.09,
+      0.06,
+      1.0
+    ],
+    "garment_upper__calico_blouse_rose_1812": [
+      0.36,
+      0.11,
+      0.14,
+      1
+    ],
+    "garment_lower__stroud_skirt_blue_1812": [
+      0.022,
+      0.03,
+      0.08,
+      1
+    ],
+    "garment_lower__stroud_selvage_white_1812": [
+      0.58,
+      0.57,
+      0.52,
+      1
+    ],
+    "garment_lower__stroud_leggings_red_1812": [
+      0.28,
+      0.032,
+      0.03,
+      1
+    ],
+    "footwear__moccasins_smoked_1812": [
+      0.17,
+      0.11,
+      0.065,
+      1
+    ]
+  },
+  "workwear_coverage": {
+    "shoe_clearance_m": 0.009
+  },
+  "role_1812": {
+    "module": "human_child_1812",
+    "prepare": "prepare_child_assembly",
+    "assembly": "potawatomi_girl_1812_v1"
+  },
+  "proof_variants": [
+    {
+      "id": "potawatomi_girl_1812",
+      "component_assembly": "potawatomi_girl_1812_v1",
+      "person_reference_id": "anonymous_potawatomi_girl_1812",
+      "person_reference_scene": "1812",
+      "person_reference_grade": "reconstructed",
+      "person_reference_record": "data/sources/quaife_1913.json",
+      "reference_summary": {
+        "name": "a Potawatomi girl of the camp by the fort, about six to ten",
+        "named": false,
+        "dress_role": "potawatomi_child_1812",
+        "ages_years": [
+          5.5,
+          10.5
+        ],
+        "presence": "the camp by the fort, 1812",
+        "research": "docs/RESEARCH/people-1812-3467/day.json"
+      },
+      "review_required": true,
+      "touches_removal": true,
+      "review_reason": "A Native depiction under the AGENTS.md standing constraint: a Potawatomi child of the camp by the fort on 14 August 1812 in everyday dress bounded by the evidence: the calico and stroud trade cloth the sources name (the goods given out on the 13th, Wau-Bun; Quaife's 1833 synthesis) and leggings and moccasins as the research reads them. No paint (that is the 15th), no feathers, no ornament, nothing ceremonial and nothing of the Plains or of later decades. The research's nearest picture of a Potawatomi child (George Winter, 1837, Indiana) is held by the Tippecanoe County Historical Association with permission required: it is read as reference only and nothing is taken from it. Cut, colours and the plain hair are reconstructed and should be reviewed against the Newberry's Indigenous Chicago material and by people with standing to judge.",
+      "touches_removal_reason": "The Potawatomi of the Chicago gathering are the people whose land was ceded at Chicago in 1833 and who were removed west from 1835; every figure in this dress stands in that history, and the children of 1812 were the generation removed, so each card and record built on it carries the flag.",
+      "body_input": "assets/authored/humans/makehuman_hm08/prepared_child_female_8.json",
+      "body_parameters": {
+        "chosen_height_m": 1.205,
+        "height_basis": "The 8-year female child body (CDC 2000 10th centile at 96.5 months, 120.5 cm), as the town's girls. No stature of a Potawatomi child of 1812 is recorded; the kit draws each child at their own height. Not a recorded height.",
+        "engineering_age_years": 8,
+        "age_basis": "Engineering body at 8; no child is named by the asset and no age is read. Stands for girls about 5.5 to 10.5 (the research puts the camp's children at 5 to 14; girls from about seven dressed as their mothers).",
+        "shape_basis": "CC0 female child and baby macro targets; equal software-category blend is engineering only, not inferred ancestry or a portrait."
+      },
+      "body_basis": "CC0 child graphical body and a cleared generic young skin atlas are reconstructed authoring choices. The child is anonymous: a child of the town whose presence Quaife (1913, App. IX) and Wau-Bun record, not any one of them; no complexion, height, face or outfit of anyone is asserted.",
+      "recipe_path": "data/humans/recipes/potawatomi_girl_1812.json"
+    }
+  ],
+  "child_components": {
+    "version": 1,
+    "generator": "tools/human_child_1812.py",
+    "role": "potawatomi_girl_1812",
+    "liberty": "L-human-modular-dress-1789",
+    "body_sha256": "24933040bbb254cbb5c1e81e16ddc797fd82952c12b489ce42f5354ffd666972",
+    "standing_source_only": false,
+    "production_eligible": false,
+    "photo_accepted": false,
+    "ages_years": [
+      5.5,
+      10.5
+    ],
+    "evidence_choice": "The coordinator asked for the Potawatomi children of the camp (5 to 14) if cheap. The research (T-3467) gives small children a calico or linen shirt to the knee; girls from about seven dressed as their mothers in small (skirt, blouse, leggings); boys a breechcloth and shirt, leggings on the older boys; many barefoot, others in moccasins. Two assets follow it on the 8-year bodies: the boy in shirt and leggings (breechcloth hidden), the girl in blouse, wrapped skirt and leggings. Everything is reconstructed.",
+    "tailoring": {
+      "blouse": {
+        "ease": 0.013,
+        "smoothing": 90,
+        "smoothing_min_ease": 0.013,
+        "armpit_extra": 0.01,
+        "sleeve_past_elbow": 0.012,
+        "top_below_neck": 0.006
+      },
+      "peplum": {
+        "hem_below_hip": 0.02,
+        "ease": 0.026,
+        "hem_rx": 0.15,
+        "hem_rz_front": 0.15,
+        "hem_rz_back": 0.085,
+        "flare_power": 1.0,
+        "gathers": 12,
+        "gather": 0.006,
+        "segments": 72,
+        "rows": 6
+      },
+      "skirt": {
+        "hem_from_ankle_to_knee": 0.45,
+        "ease": 0.012,
+        "hem_rx": 0.15,
+        "hem_rz_front": 0.135,
+        "hem_rz_back": 0.105,
+        "flare_power": 2.0,
+        "gathers": 8,
+        "gather": 0.004,
+        "segments": 72,
+        "rows": 16,
+        "selvage": 0.022
+      },
+      "leggings": {
+        "ease": 0.006,
+        "bottom_above_ankle": 0.05,
+        "top_above_knee": -0.03,
+        "leg_share": 0.6
+      }
+    },
+    "garments": [
+      {
+        "id": "calico_over_blouse",
+        "material": "garment_upper__calico_blouse_rose_1812",
+        "provenance": {
+          "grade": "reconstructed",
+          "source_ids": [
+            "kinzie_waubun_1856",
+            "quaife_1913"
+          ],
+          "source_scope": "Girls from about seven dressed as their mothers in small (the research): a loose calico over-blouse to the hips, sleeves to the elbow. Calico among the goods of the 13th (Wau-Bun); Quaife (1913): the women wore blue or printed cotton cloths. The rose is a flat colour for a small print; brooches are not made.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "wrapped_stroud_skirt",
+        "material": "garment_lower__stroud_skirt_blue_1812",
+        "provenance": {
+          "grade": "reconstructed",
+          "source_ids": [
+            "kinzie_waubun_1856",
+            "quaife_1913"
+          ],
+          "source_scope": "A length of dark blue stroud wrapped round the waist to mid-calf (the research's women's dress, cut small), the broadcloths of the 13th (Wau-Bun). The wrap's overlap and tie are not drawn; no ribbonwork (pictured about 1840).",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "stroud_selvage",
+        "material": "garment_lower__stroud_selvage_white_1812",
+        "provenance": {
+          "grade": "reconstructed",
+          "source_ids": [
+            "kinzie_waubun_1856"
+          ],
+          "source_scope": "The white selvage of the stroud at the hem, as the research describes the women's skirts. Its depth is reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "stroud_leggings_red",
+        "material": "garment_lower__stroud_leggings_red_1812",
+        "provenance": {
+          "grade": "reconstructed",
+          "source_ids": [
+            "kinzie_waubun_1856",
+            "currey_1912_old_fort_dearborn"
+          ],
+          "source_scope": "Leggings of red stroud to the knee under the skirt (the research; red and blue strouds among the trade goods). Fit reconstructed.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      },
+      {
+        "id": "moccasins_smoked",
+        "material": "footwear__moccasins_smoked_1812",
+        "provenance": {
+          "grade": "reconstructed",
+          "source_ids": [
+            "keating_1824_narrative_v1"
+          ],
+          "source_scope": "Moccasins of smoked deerskin (the research; many children barefoot in August); the shared closed shoe stands for them.",
+          "liberty": "L-human-modular-dress-1789"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "id": "hh_irwin_matthew_1812",
+  "scene": "1812",
+  "name": "Matthew Irwin, factor, at the government factory",
+  "head": "irwin_matthew",
+  "division": "south",
+  "present_on_scene_date": {
+    "value": "absent",
+    "confidence": "inferred",
+    "sources": [
+      "dailing_2018_chicago_reader_lalime",
+      "quaife_1913"
+    ],
+    "note": "Dead or gone before 14 August 1812; in the town on the earlier dates their cards give."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "first_fort_outer_factory",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "inferred",
+      "source_id": "dailing_2018_chicago_reader_lalime",
+      "also_sources": [
+        "quaife_1913"
+      ],
+      "note": "The United States factory outside the fort, which he kept until he left on 5 July 1812."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "Everyone the T-3463..T-3467 day readings put in this household is on the card (liberty L-1812-town-days-3463).",
+    "sources": [
+      "dailing_2018_chicago_reader_lalime",
+      "quaife_1913"
+    ]
+  },
+  "persons": [
+    {
+      "id": "irwin_matthew",
+      "name": "Matthew Irwin",
+      "relationship": "head",
+      "grade": "attested",
+      "sources": [
+        "dailing_2018_chicago_reader_lalime",
+        "quaife_1913"
+      ],
+      "sex": "male",
+      "present_on_scene_date": {
+        "value": "absent",
+        "confidence": "inferred",
+        "note": "Left Chicago on 5 July 1812 (Quaife). No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "The United States factor at Chicago, who came in 1809 to keep the government factory and left on 5 July 1812. He watched the killing of Lalime. In the town from 1809-06-01 to 1812-07-05: He set out for Chicago in the spring of 1809 (Quaife ch. XIII; the arrival day is ours) and left on 5 July 1812.",
+      "evidence": [
+        {
+          "source_id": "quaife_1913",
+          "locator": "ch. VII, PG 69274 lines 6742-6744",
+          "quote": "A short distance to the southwest were two log houses, one occupied by Matthew Irwin, the United States factor",
+          "claim": "his house"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "ch. XIII, PG 69274 lines 12026-12027",
+          "quote": "In the spring of 1809 he again started for Chicago.",
+          "claim": "came in 1809"
+        },
+        {
+          "source_id": "quaife_1913",
+          "locator": "ch. XIII, PG 69274 lines 12031-12032",
+          "quote": "On July 5 Irwin left Chicago, having closed the storehouse and delivered the keys to Doctor Van Voorhis.",
+          "claim": "left 5 July 1812"
+        },
+        {
+          "source_id": "dailing_2018_chicago_reader_lalime",
+          "locator": "Chicago Reader, 18 October 2018, the paragraph beginning 'A knife came out' (as the jaunt killing-of-jean-lalime cites it; read 2026-11-08 through a page fetch)",
+          "quote": "Kinzie saw that Irwin had seen the whole thing from 20 to 30 yards away",
+          "claim": "watched the killing"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,241 @@
+{
+  "id": "hi_town_corbin_mrs_1812",
+  "contract_version": 1,
+  "scene": "1812",
+  "person_id": "corbin_mrs",
+  "appearance": {
+    "asset_id": "woman_working_1812"
+  },
+  "placement": {
+    "local_e": 1163.4,
+    "local_n": 259.6,
+    "heading_deg": 0.0,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "idle",
+    "loop": true,
+    "phase": 0.214
+  },
+  "behaviour": {
+    "state": "standing",
+    "day": [
+      {
+        "dates": {
+          "from": "1812-01-01",
+          "to": "1812-08-13"
+        },
+        "note": "A plain summer day.",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_soldiers_barracks_sw",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.5,
+            "to": 7.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_soldiers_barracks_sw",
+            "doing": "fire, breakfast for her husband's mess"
+          },
+          {
+            "from": 7.5,
+            "to": 10.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1153.0,
+              "local_n": 254.8,
+              "heading_deg": 0.0
+            },
+            "doing": "sitting on the bank mending while the other women wash",
+            "activity": "stand"
+          },
+          {
+            "from": 10.0,
+            "to": 13.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_soldiers_barracks_sw",
+            "doing": "cooking dinner; dinner"
+          },
+          {
+            "from": 13.0,
+            "to": 15.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1176.8,
+              "local_n": 243.2,
+              "heading_deg": 90.0
+            },
+            "doing": "turning the washing on the grass",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1176.8,
+                "local_n": 241.8
+              },
+              {
+                "local_e": 1176.8,
+                "local_n": 244.6
+              }
+            ]
+          },
+          {
+            "from": 15.5,
+            "to": 19.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_soldiers_barracks_sw",
+            "doing": "mending; supper"
+          },
+          {
+            "from": 19.0,
+            "to": 20.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1176.8,
+              "local_n": 243.2,
+              "heading_deg": 90.0
+            },
+            "doing": "sitting out in the evening air",
+            "activity": "stand"
+          },
+          {
+            "from": 20.5,
+            "to": 24.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_soldiers_barracks_sw",
+            "doing": "asleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-14",
+          "to": "1812-08-14"
+        },
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_soldiers_barracks_sw",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.0,
+            "to": 6.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1163.4,
+              "local_n": 259.6,
+              "heading_deg": 0.0
+            },
+            "doing": "fetching water",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1164.8,
+                "local_n": 259.6
+              },
+              {
+                "local_e": 1162.0,
+                "local_n": 259.6
+              }
+            ]
+          },
+          {
+            "from": 6.0,
+            "to": 8.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_soldiers_barracks_sw",
+            "doing": "breakfast; sorting what the family can carry"
+          },
+          {
+            "from": 8.0,
+            "to": 11.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1153.0,
+              "local_n": 254.8,
+              "heading_deg": 0.0
+            },
+            "doing": "sitting on the bank, mending for the march while the others wash",
+            "activity": "stand"
+          },
+          {
+            "from": 11.5,
+            "to": 13.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_soldiers_barracks_sw",
+            "doing": "dinner"
+          },
+          {
+            "from": 13.0,
+            "to": 15.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1176.8,
+              "local_n": 243.2,
+              "heading_deg": 90.0
+            },
+            "doing": "taking in the dry washing",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1176.8,
+                "local_n": 241.8
+              },
+              {
+                "local_e": 1176.8,
+                "local_n": 244.6
+              }
+            ]
+          },
+          {
+            "from": 15.0,
+            "to": 23.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_soldiers_barracks_sw",
+            "doing": "cooking food for the march; packing late into the night"
+          },
+          {
+            "from": 23.5,
+            "to": 24.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_soldiers_barracks_sw",
+            "doing": "asleep"
+          }
+        ]
+      }
+    ],
+    "presence": {
+      "from": "1812-01-01",
+      "to": "1812-08-15"
+    }
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 3,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": false,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "Reconstructed figure of Mrs. Fielding Corbin (given name not established) in the 1812 town, at each hour of each run of dates where the reading for T-3464 (docs/RESEARCH/people-1812-3464/day.json) puts them: indoors (asked for at the door) or out at their work, with the people they would be with. The hours, the places and the companions are ours (liberty L-1812-town-days-3463), each span graded with its own basis in the reading; what a source says of them is on their card. They wear the woman working 1812 role dress, with their own face, height, build and colouring.",
+    "sources": [
+      "kinzie_waubun_1856",
+      "kirkland_1893_chicago_massacre",
+      "quaife_1913",
+      "simmons_1896_heroes_and_heroines"
+    ],
+    "liberty": "L418",
+    "seed": "corbin_mrs:1812:days:20261108",
+    "replaceable_by": "A diary, letter or order book of the post that says where they were and what they did on the day."
+  }
+}
