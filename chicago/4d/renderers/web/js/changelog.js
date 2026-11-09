@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2849, ts: '2026-11-09T03:56:02.958Z', date: 'Nov 8, 2026, 9:56 PM CT', title: 'Find only when someone is out, and cross the river by boat', kind: 'fix',
+    items: [
+      'Find this person and Follow are greyed out when the person isn\'t out in town right now, and the card says why. Sauganash, for one, doesn\'t reach Chicago until 16 August.',
+      'In 1812, a walk to the far side of the river now takes the nearest boat on your bank and paddles across.',
+      'You fly only when no boat is within about 30 seconds\' walk, or when your travel mode is Fly.',
+    ] },
   { v: 2848, ts: '2026-11-09T03:32:06.539Z', date: 'Nov 8, 2026, 9:32 PM CT', title: 'Meet the Glessner household: the first jaunt with people in it', kind: 'feature',
     items: [
       'New 1904 jaunt, The Glessner Household: eight stops round 1800 Prairie on a spring morning, each told by someone who lives or works there.',
