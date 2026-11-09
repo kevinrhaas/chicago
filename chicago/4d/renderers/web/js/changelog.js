@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 2842, ts: '2026-11-09T00:31:51.577Z', date: 'Nov 8, 2026, 6:31 PM CT', title: 'Every person has a real story, and Find reaches them', kind: 'fix',
+    items: [
+      'Find this person and Go to house now work for everyone in 1812 and 1904. Where no road reaches, such as the Kinzie house across the river, you fly there.',
+      'When someone is indoors or out of town, Find takes you to their house.',
+      'Every 1812 person and every Prairie Avenue family member has a new story, told as a story. The research notes are folded under How we know.',
+      'Someone you pick in the Navigator stays there until you close the card or pick someone else.',
+      'Review notes and the notes on how a person\'s look was drawn fold under a small mark.',
+    ] },
   { v: 2841, ts: '2026-11-09T00:27:31.330Z', date: 'Nov 8, 2026, 6:27 PM CT', title: '1812: camp lodges stand on the ground from any distance', kind: 'fix',
     items: [
       'From 50 m and more, every lodge in the camp seemed to hover over a strip of blue. The bare earth of the camp grounds was drawing over the bottom of each lodge and showing the shaded ground beneath it.',
