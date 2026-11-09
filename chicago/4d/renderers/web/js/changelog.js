@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 2846, ts: '2026-11-09T02:38:42.616Z', date: 'Nov 8, 2026, 8:38 PM CT', title: '1812: the garrison dressed by rank, and armed', kind: 'improvement',
+    items: [
+      'Sergeants wear two white worsted epaulettes and corporals one on the right shoulder. Every enlisted man keeps the same tall felt cap, as the issue of the time gave them.',
+      'The two drummers and two fifers wear the musicians\' red coats faced blue. The drummers carry their drums and the fifers their fife cases.',
+      'Officers by grade: the captain\'s silver epaulette on the right, the lieutenant\'s and ensign\'s on the left, crimson sashes on duty. The surgeon\'s mate has a black collar and plume.',
+      'Men at work in the gardens, the bake house, the armourer\'s, the wharf and the cornfield wear fatigue clothes: linen shirt, waistcoat, trousers, bareheaded or in a round hat.',
+      'Sentries carry muskets with bayonets fixed, at the shoulder as they walk. The guard\'s sergeant and corporal stand at the order. The cornfield party\'s arms stand piled at the field\'s edge.',
+      'Who wears what and how each man carries his musket are reconstructed, and recorded as a liberty.',
+    ] },
   { v: 2845, ts: '2026-11-09T01:43:32.042Z', date: 'Nov 8, 2026, 7:43 PM CT', title: 'Glessner\'s back doors open and the household climbs the stairs', kind: 'feature',
     items: [
       'The court service door opens as someone climbs the stair to it and shuts behind them; nobody vanishes at the foot any more.',
