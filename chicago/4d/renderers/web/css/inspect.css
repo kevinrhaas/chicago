@@ -385,3 +385,7 @@ button.insp-hot-row:focus-visible { outline: 2px solid var(--accent, currentColo
   border-radius: 6px; border: 1px solid var(--edge); background: var(--panel-raised, #1c1b18); }
 .insp-person-likeness .insp-person-why-title { margin-top: 0; }
 .insp-person-card .insp-key { grid-template-columns: repeat(auto-fill, minmax(7rem, 1fr)); }
+
+/* T-3531: Find and Follow for someone not in town now: greyed, with the reason under them. */
+.insp-person-find:disabled, .insp-person-follow:disabled { opacity: .45; cursor: not-allowed; }
+.insp-person-unfound { margin: 2px 0 10px; text-transform: none; letter-spacing: 0; font-size: 0.8125rem; line-height: 1.4; }

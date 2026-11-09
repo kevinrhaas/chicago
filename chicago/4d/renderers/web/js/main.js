@@ -4473,6 +4473,54 @@ async function boot() {
   // The travel controller: instantly, on foot, by wagon, on horseback, or flying.
   // It writes the shared intent the way a backend does, so the walker keeps its
   // collision and terrain honesty whoever is steering — see travel.js.
+  /**
+   * T-3531 (the owner, 2026-11-09: "instead of flying if someone is across the river could we
+   * by default take the nearest boat? ... if taking a boat is not possible or would take more
+   * than say 30 seconds", fly instead): of the boats drawn up on the visitor's side, the one
+   * whose walk to it, crossing and walk on from the far landing is quickest, taken only when
+   * the walk to it is no more than BOAT_WALK_S at the ride's pace (a boat a short walk away is
+   * taken, one far up the river is not, and the ride flies).
+   */
+  const BOAT_WALK_S = 30;
+  function boatway(from, to, { speed = 1.8, plan } = {}) {
+    if (!crossings?.boats?.length || crossings.riding || typeof plan !== 'function') return null;
+    const len = (a, pts) => { let d = 0, pe = a.e, pn = a.n; for (const [e, n] of pts) { d += Math.hypot(e - pe, n - pn); pe = e; pn = n; } return d; };
+    const near = crossings.boats
+      .map((entry) => ({ entry, side: entry.boat.banks[entry.bank], far: entry.boat.banks[entry.bank === 'a' ? 'b' : 'a'] }))
+      .filter((c) => c.side?.stand && c.far?.stand)
+      .map((c) => ({ ...c, d: Math.hypot(c.side.stand[0] - from.e, c.side.stand[1] - from.n) }))
+      .filter((c) => c.d / speed <= BOAT_WALK_S * 1.6)
+      .sort((x, y) => x.d - y.d).slice(0, 4);
+    let best = null;
+    for (const c of near) {
+      const stand = { e: c.side.stand[0], n: c.side.stand[1] };
+      const a = plan(from, stand);
+      if (!a?.points?.length) continue;
+      const walkA = len(from, a.points) / speed;
+      if (walkA > BOAT_WALK_S) continue;
+      const b = plan({ e: c.far.stand[0], n: c.far.stand[1] }, to);
+      if (!b?.points?.length) continue;
+      const total = walkA + crossings.crossingSeconds(c.entry) + len({ e: c.far.stand[0], n: c.far.stand[1] }, b.points) / speed;
+      if (!best || total < best.total) best = { ...c, total };
+    }
+    if (!best) return null;
+    const thing = crossings.thingOf(best.entry);
+    return {
+      name: best.side.name,
+      stand: best.side.stand,
+      seconds: best.total,
+      cross(done) {
+        const started = interactions.act(thing, 'cross');
+        if (!started?.ok) { hud.say(started?.why ?? 'The boat cannot cross now'); done(false); return; }
+        const off = interactions.on((t, event) => {
+          if (t !== thing || (event !== 'done' && event !== 'refused')) return;
+          off();
+          // The landing is put down on the next frame (crossings.holdVisitor); go on after it.
+          setTimeout(() => done(event === 'done'), 120);
+        });
+      },
+    };
+  }
   travel = createTravel({
     walker, intent, hud, settings: hud.settings, router, terrain, footprints,
     focusPoint, structurePosition,
@@ -4492,6 +4540,8 @@ async function boot() {
       open: () => { if (g.state !== 'open' && !g.running) interactions.act(g, 'open'); },
     })) },
     tickWorld: (dt) => interactions.update(dt),
+    // T-3531: across water no street crosses (1812's river), the nearest boat this side.
+    boatway: (from, to, opts) => boatway(from, to, opts),
     // Arriving is what opens the card: the menu closes, the building's card opens.
     onArrive: (id) => { hud.setPanel(false); openBuilding(id); lastArrival = { id, e: walker.state.e, n: walker.state.n }; },
   });
@@ -5454,9 +5504,11 @@ async function boot() {
     if (api.townTransport?.driverAnchorForPerson(id) || personInTown(id)) {
       return goToTarget({ kind: 'person', id, label: row.name, home: at });
     }
-    if (!at) { hud.say(`${row.name}: not in town now`); return false; }
-    hud.say(`${row.name}: indoors now`);
-    return goToTarget({ kind: 'structure', id: at });
+    // T-3531: nobody in town to find (the card greys Find and says why); Go to house is the
+    // way to where they live, not Find (the owner: Find "landed me at his house and i never
+    // saw him").
+    hud.say(`${row.name}: not out in town now`);
+    return false;
   }
   /** T-3521: a person's card is showing (Inspect's People tab, the People screen, the drawer). */
   function personCardOpen() {
