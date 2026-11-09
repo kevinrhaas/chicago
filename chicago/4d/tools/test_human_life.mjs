@@ -208,6 +208,24 @@ function standInGait(r, { speed = 1.25, cadence = 1.8, weight = 1, yaw = 5, roll
 const forwardOf = (r, b) => { r.root.updateMatrixWorld(true); return new THREE.Vector3(0, 0, 1).applyAxisAngle(new THREE.Vector3(0, 1, 0), r.root.rotation.y).applyQuaternion(b.getWorldQuaternion(new THREE.Quaternion()).invert()); };
 const facingOf = (r, b, local) => local.clone().applyQuaternion(b.getWorldQuaternion(new THREE.Quaternion())).applyAxisAngle(new THREE.Vector3(0, 1, 0), -r.root.rotation.y);
 const yawOf = (f) => Math.atan2(f.x, f.z) / DEG, pitchOf = (f) => Math.asin(Math.max(-1, Math.min(1, f.y))) / DEG;
+// T-3520: a toddler shifting its weight softens its free knee as anyone does, never folds it:
+// a grown-up's tip and shift on a three-year-old's short legs bent it past 30 degrees, and
+// under a frock that read as kneeling.
+{
+  const r = await rig('child_toddler_1812', 2, 'idle');
+  const life = createHumanLife({ id: 't3520:toddler', scene: r.scene });
+  const B = n => world(r.bone(n));
+  let most = 0, sides = new Set();
+  for (let i = 0; i < 1800; i++) {
+    r.mixer.update(1 / 30); life.apply(1 / 30, { state: 'standing', root: r.root, viewer: null }); r.root.updateMatrixWorld(true);
+    for (const s of ['l', 'r']) most = Math.max(most, 180 - ang(B('thigh_' + s).sub(B('calf_' + s)), B('foot_' + s).sub(B('calf_' + s))));
+    if (Math.abs(life.snapshot().weight) > 0.4) sides.add(Math.sign(life.snapshot().weight));
+  }
+  assert(sides.size === 2, 'toddler: the weight goes onto each leg');
+  assert(most < 20, `toddler: the free knee bends ${most.toFixed(1)} deg standing (kneeling)`);
+  console.log(`toddler standing: the free knee at most ${most.toFixed(1)} deg: PASS`);
+}
+
 async function gaitRun({ speed = 1.25, move = true, pass = true, weight = 1, frames = 360, lifeOn = true, id = 'gait' } = {}) {
   const r = await rig('bardwell_otis_1835', 1, 'walk');
   const life = lifeOn ? createHumanLife({ id, scene: r.scene }) : null;
