@@ -503,6 +503,12 @@
       "name": "The Potawatomi camp of August 1812: the lodges on the creek's west bank",
       "sidecar": "sidecars/1812/potawatomi_camp_1812_west_bank.json",
       "asset": "gltf/potawatomi_camp_1812_west_bank__camp_1812.glb"
+    },
+    {
+      "id": "potawatomi_trading_lodges_1812",
+      "name": "The Potawatomi lodges by the river, 1812",
+      "sidecar": "sidecars/1812/potawatomi_trading_lodges_1812.json",
+      "asset": "gltf/potawatomi_trading_lodges_1812__camp_1812.glb"
     }
   ],
   "excluded_by_date": [

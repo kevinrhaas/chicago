@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "taylor_c1895_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "8c8be60f77ab5f71ee79c4ca6e4e16a4af35c353ecd8e4a22ac09b7b65fca82c",
+  "glb_sha256": "b93b8278faf4c7a2a0397201ad8c59c808d55c14244d03277bdcb84aab7bb3cd",
   "camera_sha256": "c265b79cad9c28ef67d0c64b0fe0f9f9a0a11d9d207a242a01fdf8c03bcd810e",
   "photo_sha256": "91af36528e241b89c9bb900758c26cbe876741fb8761b7f58b34ae2bbf42de34",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/taylor_c1895_northwest-side-by-side.jpg",
@@ -314,6 +314,29 @@
     {
       "what": "a sliver of sky beside the south pavilion's gable, under its north kneeler (about x 1216-1226, y 395-475; seen by T-1890 when the street face leaned back): the pavilion's return stopped at the wall plane and the cross roof's cheek began at the parapet's back, 0.27 m behind it, and the old steeper street face had hidden the slot between them. Fixed (T-1890 (2026-11-07)): K08 carries the return back in stone from the wall plane to the parapet's back, from the cheek's foot to the wall top",
       "status": "fixed"
+    },
+    {
+      "what": "the main cornice and the bow's balustrade (T-1890 (2026-11-08)): with the second-storey lights within about 10 px, the print's cornice stands about 20-40 px over the render's (about 55 px a metre at the front), at the north-west corner and over the bow, and the bow's balustrade about 30-40 px; the cresting reads high by about as much",
+      "status": "fixed",
+      "how": "T-1890: the eave raised 0.5 m to 9.4 m (storey_heights_m, read with both HABS photographs, which agree); the cornice, balustrade and deck now render within about 10 px. L-kimball-1801-south-front-1890"
+    },
+    {
+      "what": "the hooded dormers on the raised eave (T-1890 (2026-11-08)): carried up with the eave they rendered about 35-40 px over the print's lights",
+      "status": "fixed",
+      "how": "T-1890: their faces set nearer the fascia (street 0.15, 18th Street 0.27 m); both lights now render within about 15 px of the print's"
+    },
+    {
+      "what": "the bow's balustrade's end (T-1890 (2026-11-08)): the print's stops against the south pavilion's pilaster (about x 1240); the build's ran on round the bow's arc in front of the pavilion's third-storey pair",
+      "status": "fixed",
+      "how": "T-1890: balcony.to_frac 0.5 on the bow, its end post against the pilaster"
+    },
+    {
+      "what": "the south pavilion stood out 0.8 m, flush with the bow (T-1890 (2026-11-08), read off HABS photograph 1 and the 1911 sheet): through this camera the face's north and south edges render within about 10 px of the print's pilasters, the pairs as wide as the print's",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the flank section's corbel table (T-1890 (2026-11-08)): the print's third storey stands over the corbel table at about 9.5 m; with the main eave raised to 9.4 m its corner round must stand 0.3 m over the eave (K08), so the storey line is 9.75 m, about 0.25 m over the print's reading, about 12 px here",
+      "status": "within tolerance"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

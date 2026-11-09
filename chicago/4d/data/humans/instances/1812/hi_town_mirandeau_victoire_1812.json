@@ -1,0 +1,329 @@
+{
+  "id": "hi_town_mirandeau_victoire_1812",
+  "contract_version": 1,
+  "scene": "1812",
+  "person_id": "mirandeau_victoire_1812",
+  "appearance": {
+    "asset_id": "child_girl_1812"
+  },
+  "placement": {
+    "local_e": 1119.0,
+    "local_n": 343.5,
+    "heading_deg": 180.0,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "idle",
+    "loop": true,
+    "phase": 0.851
+  },
+  "behaviour": {
+    "state": "standing",
+    "day": [
+      {
+        "dates": {
+          "from": "1812-01-01",
+          "to": "1812-06-16"
+        },
+        "note": "Lodging in the Ouilmette house (Victoire: \"some of us lived in the Ouilmette house\").",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "ouilmette_house_1812",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.5,
+            "to": 7.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1119.0,
+              "local_n": 343.5,
+              "heading_deg": 180.0
+            },
+            "activity": "walk",
+            "to_point": {
+              "local_e": 1119.0,
+              "local_n": 321.5
+            },
+            "once": true,
+            "doing": "carrying water up from the river"
+          },
+          {
+            "from": 7.0,
+            "to": 8.0,
+            "indoors": true,
+            "where": "ouilmette_house_1812",
+            "doing": "breakfast"
+          },
+          {
+            "from": 8.0,
+            "to": 11.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1119.0,
+              "local_n": 352.5,
+              "heading_deg": 0.0
+            },
+            "doing": "weeding and picking in the garden",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1120.4,
+                "local_n": 352.5
+              },
+              {
+                "local_e": 1117.6,
+                "local_n": 352.5
+              }
+            ]
+          },
+          {
+            "from": 11.0,
+            "to": 12.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1119.0,
+              "local_n": 341.5,
+              "heading_deg": 180.0
+            },
+            "doing": "playing before the house",
+            "activity": "talk",
+            "knot": "talk_3de4ba98"
+          },
+          {
+            "from": 12.0,
+            "to": 13.0,
+            "indoors": true,
+            "where": "ouilmette_house_1812",
+            "doing": "dinner"
+          },
+          {
+            "from": 13.0,
+            "to": 15.0,
+            "indoors": true,
+            "where": "ouilmette_house_1812",
+            "doing": "indoors in the heat of the day"
+          },
+          {
+            "from": 15.0,
+            "to": 17.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1119.0,
+              "local_n": 341.5,
+              "heading_deg": 180.0
+            },
+            "doing": "playing by the house, watching the canoes on the river",
+            "activity": "talk",
+            "knot": "talk_c228187b"
+          },
+          {
+            "from": 17.5,
+            "to": 18.5,
+            "indoors": true,
+            "where": "ouilmette_house_1812",
+            "doing": "supper"
+          },
+          {
+            "from": 18.5,
+            "to": 20.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1119.0,
+              "local_n": 341.5,
+              "heading_deg": 180.0
+            },
+            "doing": "sitting out by the door in the evening",
+            "activity": "talk",
+            "knot": "talk_048e1525"
+          },
+          {
+            "from": 20.5,
+            "to": 24.0,
+            "indoors": true,
+            "where": "ouilmette_house_1812",
+            "doing": "asleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-06-17",
+          "to": "1812-06-17"
+        },
+        "note": "The day of the Lalime killing (killing-of-jean-lalime.json, sunset).",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "ouilmette_house_1812",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.5,
+            "to": 7.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1119.0,
+              "local_n": 343.5,
+              "heading_deg": 180.0
+            },
+            "activity": "walk",
+            "to_point": {
+              "local_e": 1119.0,
+              "local_n": 321.5
+            },
+            "once": true,
+            "doing": "carrying water up from the river"
+          },
+          {
+            "from": 7.0,
+            "to": 8.0,
+            "indoors": true,
+            "where": "ouilmette_house_1812",
+            "doing": "breakfast"
+          },
+          {
+            "from": 8.0,
+            "to": 11.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1119.0,
+              "local_n": 352.5,
+              "heading_deg": 0.0
+            },
+            "doing": "weeding and picking in the garden",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1120.4,
+                "local_n": 352.5
+              },
+              {
+                "local_e": 1117.6,
+                "local_n": 352.5
+              }
+            ]
+          },
+          {
+            "from": 11.0,
+            "to": 12.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1119.0,
+              "local_n": 341.5,
+              "heading_deg": 180.0
+            },
+            "doing": "playing before the house",
+            "activity": "talk",
+            "knot": "talk_3de4ba98"
+          },
+          {
+            "from": 12.0,
+            "to": 13.0,
+            "indoors": true,
+            "where": "ouilmette_house_1812",
+            "doing": "dinner"
+          },
+          {
+            "from": 13.0,
+            "to": 15.0,
+            "indoors": true,
+            "where": "ouilmette_house_1812",
+            "doing": "indoors in the heat of the day"
+          },
+          {
+            "from": 15.0,
+            "to": 17.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1119.0,
+              "local_n": 341.5,
+              "heading_deg": 180.0
+            },
+            "doing": "playing by the house, watching the canoes on the river",
+            "activity": "talk",
+            "knot": "talk_c228187b"
+          },
+          {
+            "from": 17.5,
+            "to": 18.5,
+            "indoors": true,
+            "where": "ouilmette_house_1812",
+            "doing": "supper"
+          },
+          {
+            "from": 18.5,
+            "to": 19.25,
+            "indoors": true,
+            "where": "ouilmette_house_1812",
+            "doing": "evening"
+          },
+          {
+            "from": 19.25,
+            "to": 20.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1140.0,
+              "local_n": 197.5,
+              "heading_deg": 90.0
+            },
+            "doing": "with her sister, watching the gate at sunset; they see Kinzie and Lalime fight",
+            "activity": "stand"
+          },
+          {
+            "from": 20.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "ouilmette_house_1812",
+            "doing": "back across the river; asleep. In the night their father leaves with Kinzie for Milwaukee"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-06-18",
+          "to": "1812-06-18"
+        },
+        "note": "Last day placed; reconstructed departure.",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "ouilmette_house_1812",
+            "doing": "packing to follow their father to Milwaukee"
+          }
+        ]
+      }
+    ],
+    "presence": {
+      "from": "1811-06-01",
+      "to": "1812-06-18"
+    }
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 3,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": true,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "Reconstructed figure of Victoire Mirandeau in the 1812 town, at each hour of each run of dates where the reading for T-3465 (docs/RESEARCH/people-1812-3465/day.json) puts them: indoors (asked for at the door) or out at their work, with the people they would be with. The hours, the places and the companions are ours (liberty L-1812-town-days-3463), each span graded with its own basis in the reading; what a source says of them is on their card. They wear the child girl 1812 role dress, with their own face, height, build and colouring.",
+    "sources": [
+      "andreas_1884_v1"
+    ],
+    "liberty": "L418",
+    "seed": "mirandeau_victoire_1812:1812:days:20261108",
+    "replaceable_by": "A diary, letter or order book of the post that says where they were and what they did on the day."
+  }
+}

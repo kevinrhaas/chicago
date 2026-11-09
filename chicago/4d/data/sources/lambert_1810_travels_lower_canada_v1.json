@@ -1,0 +1,27 @@
+{
+ "id": "lambert_1810_travels_lower_canada_v1",
+ "type": "book",
+ "citation": "John Lambert, Travels through Lower Canada, and the United States of North America, in the years 1806, 1807, and 1808. Vol. 1. London: Richard Phillips, 1810.",
+ "author": "John Lambert",
+ "date": "1810",
+ "describes_date": "1806-1808 (Lower Canada)",
+ "repository": "Internet Archive, item travelsthroughlo01lamb (University of Toronto copy); the djvu text was read.",
+ "url": "https://archive.org/details/travelsthroughlo01lamb",
+ "archived_url": "https://archive.org/download/travelsthroughlo01lamb/travelsthroughlo01lamb_djvu.txt",
+ "locator": "pp. 162-163, the habitant's dress ('a long-skirted cloth coat or frock, of a dark grey colour, with a hood ... tied round the waist by a worsted sash of various colours, ornamented with beads ... A pair of moccasins ... His hair is tied in a thick long queue behind ... Upon his head is a bonnet rouge, or in other words, a red night-cap'; 'unless in summer, the long coat is exchanged for a jacket, and the bonnet rouge for a straw hat; but it oftener happens that the dress which I have described is worn the whole year round'; djvu lines 6999-7039); p. 93-94, moccasins 'in general use among the country people, as shoes' (lines 4302-4317); pp. 572-573, Indian dress in Lower Canada, a mantle 'In warm weather, they fasten it round their waist' and men's silver bracelets (lines 16330-16388).",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "Published 1810; public domain. Text only.",
+ "asset_use": "text_only",
+ "verified": true,
+ "access_notes": "djvu text fetched 2026-11-08 (824,399 bytes); quotes checked against it, OCR noise (long s, broken letters) normalised.",
+ "what_it_supplies": [
+  "the French Canadian countryman's dress of 1806-08 as an eyewitness saw it: sash, moccasins, red cap, queue, summer jacket and straw hat",
+  "a mantle worn round the waist in warm weather by the Native peoples of Lower Canada"
+ ],
+ "what_it_does_not_supply": [
+  "the Great Lakes or Chicago",
+  "voyageurs or engages specifically: the habitant is a farmer",
+  "the sash's colours or pattern beyond 'various colours, ornamented with beads'"
+ ]
+}

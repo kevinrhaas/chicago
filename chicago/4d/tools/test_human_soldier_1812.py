@@ -64,8 +64,13 @@ class Soldier(unittest.TestCase):
         # Private Paul Grummo of the May 1812 muster-roll; the dress itself still names no one.
         # Every other enlisted man of Heald's company the 1812 people layer cards stands in the
         # same dress as himself (T-3462).
+        # T-3523: the men at their chores stand in fatigue clothes on the settler's body; the
+        # garrison dress file says who they are.
+        garrison = json.loads((ROOT/'data/humans/variation/dress_1812_garrison.json').read_text())['persons']
+        fatigue = {pid for pid, d in garrison.items() if d['asset'] == 'settler_1812'}
         found = [p for p in (ROOT/'data/humans/instances').rglob('hi_*.json')
-                 if 'private_first_infantry' in p.read_text() or 'soldier_1812' in p.read_text()]
+                 if 'private_first_infantry' in p.read_text() or 'soldier_1812' in p.read_text()
+                 or json.loads(p.read_text()).get('person_id') in fatigue]
         self.assertTrue(all(p.parent.name == '1812' for p in found), 'the 1812 private is worn only in 1812')
         parade = ROOT/'data/humans/instances/1812/hi_heald_company_private_1812.json'
         self.assertIn(parade, found)
@@ -81,8 +86,9 @@ class Soldier(unittest.TestCase):
             rec = json.loads(p.read_text())
             self.assertEqual(rec['scene'], '1812', p.name)
             self.assertIn(rec.get('person_id'), company, p.name)
+            asset = 'settler_1812' if rec['person_id'] in fatigue else v['id']
             self.assertEqual((rec['appearance']['asset_id'], rec['interaction']['opens'], rec['provenance']['grade']),
-                             (v['id'], 'resident_card', 'reconstructed'), p.name)
+                             (asset, 'resident_card', 'reconstructed'), p.name)
             seen.append(rec['person_id'])
         self.assertEqual(len(seen), len(set(seen)), 'each man stands once')
         self.assertGreaterEqual(len(found), 51, 'every enlisted man of the roll stands in the 1812 scene')

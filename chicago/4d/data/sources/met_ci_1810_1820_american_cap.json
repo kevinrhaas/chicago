@@ -1,0 +1,24 @@
+{
+ "id": "met_ci_1810_1820_american_cap",
+ "type": "photograph",
+ "citation": "Cap, cotton, 1810-1820. The Metropolitan Museum of Art, 2009.300.2332.",
+ "author": "Unknown maker",
+ "date": "1810-1820",
+ "describes_date": "1810-1820",
+ "repository": "The Metropolitan Museum of Art; object 157146 in the museum's collection API (isPublicDomain: true), image 35.1240_CP3 at images.metmuseum.org.",
+ "url": "https://www.metmuseum.org/art/collection/search/157146",
+ "locator": "The cap on a head form (image 35.1240_CP3).",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "The Met's Open Access images of public-domain works are released CC0. Proposed for use only as a reference picture the 1812 figures are judged against; nothing traced or sampled.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Viewed 2026-11-07 (dress research for the 1812 scene). An American embroidered fine white cotton cap shaped close to the head with lappets falling past the ears.",
+ "note": "Proposed for the 1812 dress reference sets; not a Chicago or Fort Dearborn record. Added for the 1812 women's dress (T-3464 dress build, tools/human_women_1812.py) from docs/RESEARCH/people-1812-3461/dress.json.",
+ "what_it_supplies": [
+  "an American woman's white cotton day cap of the 1810s"
+ ],
+ "what_it_does_not_supply": [
+  "a working woman's plainer cap"
+ ]
+}

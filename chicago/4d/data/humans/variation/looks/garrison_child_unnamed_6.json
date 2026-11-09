@@ -1,0 +1,39 @@
+{
+ "format": "chicago4d_human_looks_v1",
+ "ticket": "T-3465",
+ "person_id": "garrison_child_unnamed_6",
+ "scene": "1812",
+ "generated_by": "docs/RESEARCH/people-1812-town/looks.py",
+ "heritage": {
+  "origin": "not recorded (see the basis)",
+  "family": "reading"
+ },
+ "complexion": {
+  "value": "fair",
+  "drawn": "fair",
+  "grade": "reconstructed"
+ },
+ "hair": {
+  "value": "fair",
+  "drawn": "fair",
+  "cut": "cropped_1812",
+  "facial": [],
+  "grade": "reconstructed"
+ },
+ "eyes": {
+  "value": "blue",
+  "drawn": "blue",
+  "grade": "reconstructed"
+ },
+ "stature": {
+  "inches": 33.3,
+  "grade": "reconstructed",
+  "basis": "Heritage of the settler and soldier families (British, Irish and German descent); varied so the seven differ. Height for age: the CDC 2000 stature-for-age table at the 5th centile for the age on 14 Aug 1812. Not a measurement. Why that centile: Steckel 1985 finds slave children below the first centile of modern standards and Komlos 2003 puts American apprentices of 14 at the 0.8th, while American adults reached about the 20th-30th; free children of a fed frontier household are set at the 5th, a soldier's or settler's family on rations."
+ },
+ "height_scale": 0.9346,
+ "basis": "Drawn in the words of the day reading for T-3465 (docs/RESEARCH/people-1812-3465/day.json): Heritage of the settler and soldier families (British, Irish and German descent); varied so the seven differ. Height for age: the CDC 2000 stature-for-age table at the 5th centile for the age on 14 Aug 1812. Not a measurement. Why that centile: Steckel 1985 finds slave children below the first centile of modern standards and Komlos 2003 puts American apprentices of 14 at the 0.8th, while American adults reached about the 20th-30th; free children of a fed frontier household are set at the 5th, a soldier's or settler's family on rations. The drawn colours, cut and scale are a reconstructed rendering of those words (liberty L-1812-town-days-3463).",
+ "grade": "reconstructed",
+ "liberty": "L-1812-town-days-3463",
+ "replaceable_by": "A portrait or a description of them written in their lifetime.",
+ "build_words": "slight"
+}

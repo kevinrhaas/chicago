@@ -1,0 +1,507 @@
+{
+  "id": "hi_town_river_lodges_daughter_1812",
+  "contract_version": 1,
+  "scene": "1812",
+  "person_id": "river_lodges_daughter_1812",
+  "appearance": {
+    "asset_id": "potawatomi_woman_1812"
+  },
+  "placement": {
+    "local_e": 716.3,
+    "local_n": -16.6,
+    "heading_deg": 340.0,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "idle",
+    "loop": true,
+    "phase": 0.364
+  },
+  "behaviour": {
+    "state": "standing",
+    "day": [
+      {
+        "dates": {
+          "from": "1812-11-01",
+          "to": "1812-12-31"
+        },
+        "note": "the cold months",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 7.0,
+            "indoors": true,
+            "where": "potawatomi_trading_lodges_1812",
+            "doing": "asleep in the lodge"
+          },
+          {
+            "from": 7.0,
+            "to": 8.0,
+            "indoors": false,
+            "at": {
+              "local_e": 716.3,
+              "local_n": -16.6,
+              "heading_deg": 340.0
+            },
+            "doing": "breaking the ice for water at the river",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 717.62,
+                "local_n": -16.12
+              },
+              {
+                "local_e": 714.98,
+                "local_n": -17.08
+              }
+            ]
+          },
+          {
+            "from": 8.0,
+            "to": 11.0,
+            "indoors": true,
+            "where": "potawatomi_trading_lodges_1812",
+            "doing": "working quills by the fire"
+          },
+          {
+            "from": 11.0,
+            "to": 13.0,
+            "indoors": false,
+            "at": {
+              "local_e": 713.2,
+              "local_n": -31.6,
+              "heading_deg": 95.0
+            },
+            "doing": "bringing in wood from the pile",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 713.08,
+                "local_n": -32.99
+              },
+              {
+                "local_e": 713.32,
+                "local_n": -30.21
+              }
+            ]
+          },
+          {
+            "from": 13.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "potawatomi_trading_lodges_1812",
+            "doing": "by the fire in the lodge, and asleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-01-01",
+          "to": "1812-03-31"
+        },
+        "note": "the cold months",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 7.0,
+            "indoors": true,
+            "where": "potawatomi_trading_lodges_1812",
+            "doing": "asleep in the lodge"
+          },
+          {
+            "from": 7.0,
+            "to": 8.0,
+            "indoors": false,
+            "at": {
+              "local_e": 716.3,
+              "local_n": -16.6,
+              "heading_deg": 340.0
+            },
+            "doing": "breaking the ice for water at the river",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 717.62,
+                "local_n": -16.12
+              },
+              {
+                "local_e": 714.98,
+                "local_n": -17.08
+              }
+            ]
+          },
+          {
+            "from": 8.0,
+            "to": 11.0,
+            "indoors": true,
+            "where": "potawatomi_trading_lodges_1812",
+            "doing": "working quills by the fire"
+          },
+          {
+            "from": 11.0,
+            "to": 13.0,
+            "indoors": false,
+            "at": {
+              "local_e": 713.2,
+              "local_n": -31.6,
+              "heading_deg": 95.0
+            },
+            "doing": "bringing in wood from the pile",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 713.08,
+                "local_n": -32.99
+              },
+              {
+                "local_e": 713.32,
+                "local_n": -30.21
+              }
+            ]
+          },
+          {
+            "from": 13.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "potawatomi_trading_lodges_1812",
+            "doing": "by the fire in the lodge, and asleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-04-01",
+          "to": "1812-07-04"
+        },
+        "chance": 0.167,
+        "note": "a trading morning at the factory",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "potawatomi_trading_lodges_1812",
+            "doing": "asleep in the lodge"
+          },
+          {
+            "from": 5.5,
+            "to": 8.0,
+            "indoors": false,
+            "at": {
+              "local_e": 713.0,
+              "local_n": -26.5,
+              "heading_deg": 0.0
+            },
+            "doing": "helping her mother pack the sugar",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 714.4,
+                "local_n": -26.5
+              },
+              {
+                "local_e": 711.6,
+                "local_n": -26.5
+              }
+            ]
+          },
+          {
+            "from": 8.0,
+            "to": 9.0,
+            "indoors": true,
+            "away": true,
+            "doing": "in the canoe to the fort"
+          },
+          {
+            "from": 9.0,
+            "to": 11.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1081.6,
+              "local_n": 218.4,
+              "heading_deg": 275.0
+            },
+            "doing": "with her parents at the factory",
+            "activity": "stand"
+          },
+          {
+            "from": 11.5,
+            "to": 12.5,
+            "indoors": true,
+            "away": true,
+            "doing": "in the canoe home"
+          },
+          {
+            "from": 12.5,
+            "to": 16.0,
+            "indoors": false,
+            "at": {
+              "local_e": 713.8,
+              "local_n": -25.9,
+              "heading_deg": 0.0
+            },
+            "doing": "weaving with her grandmother",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 715.2,
+                "local_n": -25.9
+              },
+              {
+                "local_e": 712.4,
+                "local_n": -25.9
+              }
+            ]
+          },
+          {
+            "from": 16.0,
+            "to": 18.0,
+            "indoors": false,
+            "at": {
+              "local_e": 717.7,
+              "local_n": -27.0,
+              "heading_deg": 190.0
+            },
+            "doing": "helping at the east fire",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 716.32,
+                "local_n": -26.76
+              },
+              {
+                "local_e": 719.08,
+                "local_n": -27.24
+              }
+            ]
+          },
+          {
+            "from": 18.0,
+            "to": 19.5,
+            "indoors": false,
+            "at": {
+              "local_e": 702.8,
+              "local_n": -25.1,
+              "heading_deg": 200.0
+            },
+            "doing": "eating at the fire with the household",
+            "activity": "talk",
+            "knot": "talk_fe8ee3cd"
+          },
+          {
+            "from": 19.5,
+            "to": 21.0,
+            "indoors": false,
+            "at": {
+              "local_e": 702.8,
+              "local_n": -25.1,
+              "heading_deg": 200.0
+            },
+            "doing": "evening at the fire",
+            "activity": "talk",
+            "knot": "talk_477f1c3e"
+          },
+          {
+            "from": 21.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "potawatomi_trading_lodges_1812",
+            "doing": "asleep in the lodge"
+          }
+        ]
+      },
+      {
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "potawatomi_trading_lodges_1812",
+            "doing": "asleep in the lodge"
+          },
+          {
+            "from": 5.5,
+            "to": 6.5,
+            "indoors": false,
+            "at": {
+              "local_e": 716.3,
+              "local_n": -16.6,
+              "heading_deg": 340.0
+            },
+            "doing": "carrying water from the river for the kettle",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 717.62,
+                "local_n": -16.12
+              },
+              {
+                "local_e": 714.98,
+                "local_n": -17.08
+              }
+            ]
+          },
+          {
+            "from": 6.5,
+            "to": 9.5,
+            "indoors": false,
+            "at": {
+              "local_e": 710.9,
+              "local_n": -20.2,
+              "heading_deg": 200.0
+            },
+            "doing": "pounding corn with her mother",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 709.58,
+                "local_n": -19.72
+              },
+              {
+                "local_e": 712.22,
+                "local_n": -20.68
+              }
+            ]
+          },
+          {
+            "from": 9.5,
+            "to": 10.5,
+            "indoors": false,
+            "at": {
+              "local_e": 702.8,
+              "local_n": -25.1,
+              "heading_deg": 200.0
+            },
+            "doing": "eating at the fire with the household",
+            "activity": "talk",
+            "knot": "talk_b32f4ff9"
+          },
+          {
+            "from": 10.5,
+            "to": 13.5,
+            "indoors": false,
+            "at": {
+              "local_e": 708.5,
+              "local_n": -11.5,
+              "heading_deg": 0.0
+            },
+            "doing": "gathering rushes for mats by the river",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 709.9,
+                "local_n": -11.5
+              },
+              {
+                "local_e": 707.1,
+                "local_n": -11.5
+              }
+            ]
+          },
+          {
+            "from": 13.5,
+            "to": 16.0,
+            "indoors": false,
+            "at": {
+              "local_e": 713.8,
+              "local_n": -25.9,
+              "heading_deg": 0.0
+            },
+            "doing": "weaving with her grandmother",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 715.2,
+                "local_n": -25.9
+              },
+              {
+                "local_e": 712.4,
+                "local_n": -25.9
+              }
+            ]
+          },
+          {
+            "from": 16.0,
+            "to": 18.0,
+            "indoors": false,
+            "at": {
+              "local_e": 717.7,
+              "local_n": -27.0,
+              "heading_deg": 190.0
+            },
+            "doing": "helping at the east fire",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 716.32,
+                "local_n": -26.76
+              },
+              {
+                "local_e": 719.08,
+                "local_n": -27.24
+              }
+            ]
+          },
+          {
+            "from": 18.0,
+            "to": 19.5,
+            "indoors": false,
+            "at": {
+              "local_e": 702.8,
+              "local_n": -25.1,
+              "heading_deg": 200.0
+            },
+            "doing": "eating at the fire with the household",
+            "activity": "talk",
+            "knot": "talk_fe8ee3cd"
+          },
+          {
+            "from": 19.5,
+            "to": 21.0,
+            "indoors": false,
+            "at": {
+              "local_e": 702.8,
+              "local_n": -25.1,
+              "heading_deg": 200.0
+            },
+            "doing": "evening at the fire",
+            "activity": "talk",
+            "knot": "talk_477f1c3e"
+          },
+          {
+            "from": 21.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "potawatomi_trading_lodges_1812",
+            "doing": "asleep in the lodge"
+          }
+        ]
+      }
+    ],
+    "presence": {
+      "from": "1812-01-01",
+      "to": "1812-12-31"
+    }
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 3,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": true,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "Reconstructed figure of Their elder daughter (name not recorded) in the 1812 town, at each hour of each run of dates where the reading for T-3530 (docs/RESEARCH/people-1812-3530/day.json) puts them: indoors (asked for at the door) or out at their work, with the people they would be with. The hours, the places and the companions are ours (liberty L-1812-town-days-3463), each span graded with its own basis in the reading; what a source says of them is on their card. They wear the potawatomi woman 1812 role dress, with their own face, height, build and colouring.",
+    "sources": [
+      "currey_1912_old_fort_dearborn",
+      "kinzie_waubun_1856"
+    ],
+    "liberty": "L418",
+    "seed": "river_lodges_daughter_1812:1812:days:20261108",
+    "replaceable_by": "A diary, letter or order book of the post that says where they were and what they did on the day."
+  }
+}

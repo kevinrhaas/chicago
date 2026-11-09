@@ -1,0 +1,543 @@
+{
+  "id": "hi_town_miami_escort_1812_04_1812",
+  "contract_version": 1,
+  "scene": "1812",
+  "person_id": "miami_escort_1812_04",
+  "appearance": {
+    "asset_id": "potawatomi_man_1812"
+  },
+  "placement": {
+    "local_e": 1073.58,
+    "local_n": 64.18,
+    "heading_deg": 325.0,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "idle",
+    "loop": true,
+    "phase": 0.743
+  },
+  "behaviour": {
+    "state": "standing",
+    "day": [
+      {
+        "dates": {
+          "from": "1812-08-13",
+          "to": "1812-08-13"
+        },
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 16.5,
+            "indoors": true,
+            "away": true,
+            "doing": "not yet arrived"
+          },
+          {
+            "from": 16.5,
+            "to": 17.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1195.0,
+              "local_n": -200.0,
+              "heading_deg": 0.2
+            },
+            "activity": "walk",
+            "to_point": {
+              "local_e": 1076.0,
+              "local_n": 83.0
+            },
+            "via": [
+              {
+                "local_e": 1196.0,
+                "local_n": 95.0
+              },
+              {
+                "local_e": 1196.0,
+                "local_n": 165.0
+              },
+              {
+                "local_e": 1160.0,
+                "local_n": 188.0
+              },
+              {
+                "local_e": 1100.0,
+                "local_n": 165.0
+              }
+            ],
+            "once": true,
+            "doing": "riding in with Captain Wells"
+          },
+          {
+            "from": 17.0,
+            "to": 18.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1069.0,
+              "local_n": 53.5,
+              "heading_deg": 180.0
+            },
+            "doing": "unsaddling and picketing the horses",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1067.6,
+                "local_n": 53.5
+              },
+              {
+                "local_e": 1070.4,
+                "local_n": 53.5
+              }
+            ]
+          },
+          {
+            "from": 18.0,
+            "to": 19.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1073.58,
+              "local_n": 64.18,
+              "heading_deg": 325.0
+            },
+            "doing": "making a fire and cooking",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1074.73,
+                "local_n": 64.98
+              },
+              {
+                "local_e": 1072.43,
+                "local_n": 63.38
+              }
+            ]
+          },
+          {
+            "from": 19.0,
+            "to": 22.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1073.58,
+              "local_n": 64.18,
+              "heading_deg": 325.0
+            },
+            "doing": "sitting at the fire",
+            "activity": "talk",
+            "knot": "talk_d0a87b06"
+          },
+          {
+            "from": 22.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "miami_escort_camp_1812",
+            "doing": "asleep in the lodge"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-15",
+          "to": "1812-08-15"
+        },
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 4.5,
+            "indoors": true,
+            "where": "miami_escort_camp_1812",
+            "doing": "asleep in the lodge"
+          },
+          {
+            "from": 4.5,
+            "to": 6.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1076.0,
+              "local_n": 83.0,
+              "heading_deg": 16.3
+            },
+            "activity": "walk",
+            "to_point": {
+              "local_e": 1076.0,
+              "local_n": 83.0
+            },
+            "via": [
+              {
+                "local_e": 1100.0,
+                "local_n": 165.0
+              },
+              {
+                "local_e": 1085.0,
+                "local_n": 190.0
+              },
+              {
+                "local_e": 1046.0,
+                "local_n": 212.0
+              },
+              {
+                "local_e": 1046.0,
+                "local_n": 212.0
+              },
+              {
+                "local_e": 1085.0,
+                "local_n": 190.0
+              },
+              {
+                "local_e": 1100.0,
+                "local_n": 165.0
+              }
+            ],
+            "once": true,
+            "doing": "watering the horses before the march"
+          },
+          {
+            "from": 6.0,
+            "to": 7.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1073.58,
+              "local_n": 64.18,
+              "heading_deg": 325.0
+            },
+            "doing": "eating by the fire",
+            "activity": "talk",
+            "knot": "talk_8817235a"
+          },
+          {
+            "from": 7.0,
+            "to": 8.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1069.0,
+              "local_n": 53.5,
+              "heading_deg": 180.0
+            },
+            "doing": "saddling and packing for the march",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1067.6,
+                "local_n": 53.5
+              },
+              {
+                "local_e": 1070.4,
+                "local_n": 53.5
+              }
+            ]
+          },
+          {
+            "from": 8.5,
+            "to": 9.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1147.5,
+              "local_n": 186.0,
+              "heading_deg": 180.0
+            },
+            "doing": "mounted, waiting for the column to form",
+            "activity": "walk",
+            "to_point": {
+              "local_e": 1147.5,
+              "local_n": 179.0
+            }
+          },
+          {
+            "from": 9.0,
+            "to": 9.25,
+            "indoors": false,
+            "at": {
+              "local_e": 1149.0,
+              "local_n": 196.0,
+              "heading_deg": 122.4
+            },
+            "activity": "walk",
+            "to_point": {
+              "local_e": 1196.0,
+              "local_n": -300.0
+            },
+            "via": [
+              {
+                "local_e": 1190.0,
+                "local_n": 170.0
+              },
+              {
+                "local_e": 1196.0,
+                "local_n": 95.0
+              }
+            ],
+            "once": true,
+            "doing": "in the van as the column marches out"
+          },
+          {
+            "from": 9.25,
+            "to": 24.0,
+            "indoors": true,
+            "away": true,
+            "doing": "gone"
+          }
+        ]
+      },
+      {
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 4.75,
+            "indoors": true,
+            "where": "miami_escort_camp_1812",
+            "doing": "asleep in the lodge"
+          },
+          {
+            "from": 4.75,
+            "to": 5.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1073.58,
+              "local_n": 64.18,
+              "heading_deg": 325.0
+            },
+            "doing": "up at first light, the fire made up",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1074.73,
+                "local_n": 64.98
+              },
+              {
+                "local_e": 1072.43,
+                "local_n": 63.38
+              }
+            ]
+          },
+          {
+            "from": 5.5,
+            "to": 6.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1076.0,
+              "local_n": 83.0,
+              "heading_deg": 16.3
+            },
+            "activity": "walk",
+            "to_point": {
+              "local_e": 1076.0,
+              "local_n": 83.0
+            },
+            "via": [
+              {
+                "local_e": 1100.0,
+                "local_n": 165.0
+              },
+              {
+                "local_e": 1085.0,
+                "local_n": 190.0
+              },
+              {
+                "local_e": 1046.0,
+                "local_n": 212.0
+              },
+              {
+                "local_e": 1046.0,
+                "local_n": 212.0
+              },
+              {
+                "local_e": 1085.0,
+                "local_n": 190.0
+              },
+              {
+                "local_e": 1100.0,
+                "local_n": 165.0
+              }
+            ],
+            "once": true,
+            "doing": "leading the horses down to the river to drink"
+          },
+          {
+            "from": 6.5,
+            "to": 7.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1073.58,
+              "local_n": 64.18,
+              "heading_deg": 325.0
+            },
+            "doing": "eating by the fire",
+            "activity": "talk",
+            "knot": "talk_8817235a"
+          },
+          {
+            "from": 7.5,
+            "to": 12.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1069.0,
+              "local_n": 53.5,
+              "heading_deg": 180.0
+            },
+            "doing": "rubbing down the horses and looking to their hooves after the hard ride",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1067.6,
+                "local_n": 53.5
+              },
+              {
+                "local_e": 1070.4,
+                "local_n": 53.5
+              }
+            ]
+          },
+          {
+            "from": 12.0,
+            "to": 13.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1073.58,
+              "local_n": 64.18,
+              "heading_deg": 325.0
+            },
+            "doing": "eating by the fire",
+            "activity": "talk",
+            "knot": "talk_e3c5808b"
+          },
+          {
+            "from": 13.0,
+            "to": 14.25,
+            "indoors": false,
+            "at": {
+              "local_e": 1073.58,
+              "local_n": 64.18,
+              "heading_deg": 325.0
+            },
+            "doing": "resting by the fire",
+            "activity": "talk",
+            "knot": "talk_29436b8a"
+          },
+          {
+            "from": 14.25,
+            "to": 16.75,
+            "indoors": false,
+            "at": {
+              "local_e": 1073.58,
+              "local_n": 64.18,
+              "heading_deg": 325.0
+            },
+            "doing": "resting in the shade of his saddle and blanket",
+            "activity": "talk",
+            "knot": "talk_a679449f"
+          },
+          {
+            "from": 16.75,
+            "to": 18.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1076.0,
+              "local_n": 83.0,
+              "heading_deg": 16.3
+            },
+            "activity": "walk",
+            "to_point": {
+              "local_e": 1076.0,
+              "local_n": 83.0
+            },
+            "via": [
+              {
+                "local_e": 1100.0,
+                "local_n": 165.0
+              },
+              {
+                "local_e": 1085.0,
+                "local_n": 190.0
+              },
+              {
+                "local_e": 1046.0,
+                "local_n": 212.0
+              },
+              {
+                "local_e": 1046.0,
+                "local_n": 212.0
+              },
+              {
+                "local_e": 1085.0,
+                "local_n": 190.0
+              },
+              {
+                "local_e": 1100.0,
+                "local_n": 165.0
+              }
+            ],
+            "once": true,
+            "doing": "taking the horses to water again"
+          },
+          {
+            "from": 18.0,
+            "to": 19.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1073.58,
+              "local_n": 64.18,
+              "heading_deg": 325.0
+            },
+            "doing": "cooking and eating the evening meal",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1074.73,
+                "local_n": 64.98
+              },
+              {
+                "local_e": 1072.43,
+                "local_n": 63.38
+              }
+            ]
+          },
+          {
+            "from": 19.0,
+            "to": 22.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1073.58,
+              "local_n": 64.18,
+              "heading_deg": 325.0
+            },
+            "doing": "sitting at the fire in the evening",
+            "activity": "talk",
+            "knot": "talk_d0a87b06"
+          },
+          {
+            "from": 22.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "miami_escort_camp_1812",
+            "doing": "asleep in the lodge"
+          }
+        ]
+      }
+    ],
+    "presence": {
+      "from": "1812-08-13",
+      "to": "1812-08-15"
+    }
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 3,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": true,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "Reconstructed figure of A man of Wells's Miami escort (name not recorded), no. 4 of the 8 drawn in the 1812 town, at each hour of each run of dates where the reading for T-3467 (docs/RESEARCH/people-1812-3467/day.json) puts them: indoors (asked for at the door) or out at their work, with the people they would be with. The hours, the places and the companions are ours (liberty L-1812-town-days-3463), each span graded with its own basis in the reading; what a source says of them is on their card. They wear the potawatomi man 1812 role dress, with their own face, height, build and colouring.",
+    "sources": [
+      "currey_1912_old_fort_dearborn",
+      "kinzie_waubun_1856",
+      "quaife_1913"
+    ],
+    "liberty": "L418",
+    "seed": "miami_escort_1812_04:1812:days:20261108",
+    "replaceable_by": "A diary, letter or order book of the post that says where they were and what they did on the day."
+  }
+}

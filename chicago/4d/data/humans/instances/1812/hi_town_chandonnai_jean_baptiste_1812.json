@@ -1,0 +1,265 @@
+{
+  "id": "hi_town_chandonnai_jean_baptiste_1812",
+  "contract_version": 1,
+  "scene": "1812",
+  "person_id": "chandonnai_jean_baptiste",
+  "appearance": {
+    "asset_id": "trader_1812"
+  },
+  "placement": {
+    "local_e": 1153.0,
+    "local_n": 309.0,
+    "heading_deg": 200.0,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "idle",
+    "loop": true,
+    "phase": 0.637
+  },
+  "behaviour": {
+    "state": "standing",
+    "day": [
+      {
+        "dates": {
+          "from": "1812-01-01",
+          "to": "1812-08-13"
+        },
+        "note": "the clerk's ordinary day",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.5,
+            "to": 7.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "opening the store room, sorting and counting skins"
+          },
+          {
+            "from": 7.0,
+            "to": 7.5,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "breakfast"
+          },
+          {
+            "from": 7.5,
+            "to": 12.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "at the counter and the account book with Kinzie"
+          },
+          {
+            "from": 12.0,
+            "to": 13.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "dinner"
+          },
+          {
+            "from": 13.0,
+            "to": 15.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1183.0,
+              "local_n": 347.0,
+              "heading_deg": 20.0
+            },
+            "doing": "loading pack-horses with goods for an outpost",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1184.32,
+                "local_n": 346.52
+              },
+              {
+                "local_e": 1181.68,
+                "local_n": 347.48
+              }
+            ]
+          },
+          {
+            "from": 15.0,
+            "to": 18.5,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "at the books"
+          },
+          {
+            "from": 18.5,
+            "to": 19.5,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "supper"
+          },
+          {
+            "from": 19.5,
+            "to": 24.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "in the house for the night"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-14",
+          "to": "1812-08-14"
+        },
+        "note": "packing for the boat",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.0,
+            "to": 7.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "packing the account books and the silver into chests"
+          },
+          {
+            "from": 7.0,
+            "to": 7.5,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "breakfast"
+          },
+          {
+            "from": 7.5,
+            "to": 12.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "listing and nailing up the goods that will go by boat; the rest is left"
+          },
+          {
+            "from": 12.0,
+            "to": 12.8,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "dinner"
+          },
+          {
+            "from": 12.8,
+            "to": 16.8,
+            "indoors": false,
+            "at": {
+              "local_e": 1153.0,
+              "local_n": 309.0,
+              "heading_deg": 200.0
+            },
+            "doing": "carrying chests down to the landing below the house and stowing them in the boat",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1151.68,
+                "local_n": 309.48
+              },
+              {
+                "local_e": 1154.32,
+                "local_n": 308.52
+              }
+            ]
+          },
+          {
+            "from": 16.8,
+            "to": 18.3,
+            "indoors": false,
+            "at": {
+              "local_e": 1153.0,
+              "local_n": 309.0,
+              "heading_deg": 200.0
+            },
+            "doing": "at the landing with Kinzie, the boat checked over",
+            "activity": "stand"
+          },
+          {
+            "from": 18.3,
+            "to": 19.3,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "supper"
+          },
+          {
+            "from": 19.3,
+            "to": 24.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "the last night in the house"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-15",
+          "to": "1812-08-15"
+        },
+        "note": "the evacuation",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.0,
+            "to": 9.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1108.0,
+              "local_n": 244.0,
+              "heading_deg": 20.0
+            },
+            "doing": "with the family in the boat at the wharf",
+            "activity": "stand"
+          },
+          {
+            "from": 9.0,
+            "to": 24.0,
+            "indoors": true,
+            "away": true,
+            "doing": "not drawn: he ransoms Mrs. Heald for a mule at the river mouth (jaunt)"
+          }
+        ]
+      }
+    ],
+    "presence": {
+      "from": "1812-01-01",
+      "to": "1812-08-18"
+    }
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 3,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": false,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "Reconstructed figure of Jean Baptiste Chandonnai in the 1812 town, at each hour of each run of dates where the reading for T-3466 (docs/RESEARCH/people-1812-3466/day.json) puts them: indoors (asked for at the door) or out at their work, with the people they would be with. The hours, the places and the companions are ours (liberty L-1812-town-days-3463), each span graded with its own basis in the reading; what a source says of them is on their card. They wear the trader 1812 role dress, with their own face, height, build and colouring.",
+    "sources": [
+      "andreas_1884_v1",
+      "kinzie_waubun_1856",
+      "quaife_1913"
+    ],
+    "liberty": "L418",
+    "seed": "chandonnai_jean_baptiste:1812:days:20261108",
+    "replaceable_by": "A diary, letter or order book of the post that says where they were and what they did on the day."
+  }
+}

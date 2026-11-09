@@ -1,0 +1,381 @@
+{
+  "id": "hi_town_main_poc_runner_1812",
+  "contract_version": 1,
+  "scene": "1812",
+  "person_id": "main_poc_runner",
+  "appearance": {
+    "asset_id": "potawatomi_man_1812"
+  },
+  "placement": {
+    "local_e": 1000.0,
+    "local_n": -400.0,
+    "heading_deg": 335.7,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "idle",
+    "loop": true,
+    "phase": 0.104
+  },
+  "behaviour": {
+    "state": "standing",
+    "day": [
+      {
+        "dates": {
+          "from": "1812-08-15",
+          "to": "1812-08-15"
+        },
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.0,
+            "indoors": true,
+            "where": "potawatomi_camp_1812_mouth",
+            "doing": "asleep in the lodge"
+          },
+          {
+            "from": 5.0,
+            "to": 6.25,
+            "indoors": false,
+            "at": {
+              "local_e": 778.1,
+              "local_n": -36.1,
+              "heading_deg": 172.0
+            },
+            "doing": "early meal at the yard",
+            "activity": "talk",
+            "knot": "talk_051fce82"
+          },
+          {
+            "from": 6.25,
+            "to": 7.5,
+            "indoors": false,
+            "at": {
+              "local_e": 778.9,
+              "local_n": -37.1,
+              "heading_deg": 172.0
+            },
+            "doing": "at the yard",
+            "activity": "stand"
+          },
+          {
+            "from": 7.5,
+            "to": 13.0,
+            "indoors": true,
+            "away": true,
+            "doing": "away from the camp"
+          },
+          {
+            "from": 13.0,
+            "to": 18.0,
+            "indoors": false,
+            "at": {
+              "local_e": 778.1,
+              "local_n": -36.1,
+              "heading_deg": 172.0
+            },
+            "doing": "back at the camp",
+            "activity": "talk",
+            "knot": "talk_50f74631"
+          },
+          {
+            "from": 18.0,
+            "to": 19.25,
+            "indoors": false,
+            "at": {
+              "local_e": 778.1,
+              "local_n": -36.1,
+              "heading_deg": 172.0
+            },
+            "doing": "eating with the household at the arbor",
+            "activity": "talk",
+            "knot": "talk_50f74631"
+          },
+          {
+            "from": 19.25,
+            "to": 21.5,
+            "indoors": false,
+            "at": {
+              "local_e": 778.1,
+              "local_n": -36.1,
+              "heading_deg": 172.0
+            },
+            "doing": "evening at the yard",
+            "activity": "talk",
+            "knot": "talk_50f74631"
+          },
+          {
+            "from": 21.5,
+            "to": 24.0,
+            "indoors": true,
+            "where": "potawatomi_camp_1812_mouth",
+            "doing": "asleep in the lodge"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-16",
+          "to": "1812-08-16"
+        },
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "potawatomi_camp_1812_mouth",
+            "doing": "asleep in the lodge"
+          },
+          {
+            "from": 5.5,
+            "to": 6.5,
+            "indoors": false,
+            "at": {
+              "local_e": 778.1,
+              "local_n": -36.1,
+              "heading_deg": 172.0
+            },
+            "doing": "morning at the yard, the fire made up",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 776.71,
+                "local_n": -36.29
+              },
+              {
+                "local_e": 779.49,
+                "local_n": -35.91
+              }
+            ]
+          },
+          {
+            "from": 6.5,
+            "to": 7.5,
+            "indoors": false,
+            "at": {
+              "local_e": 778.1,
+              "local_n": -36.1,
+              "heading_deg": 172.0
+            },
+            "doing": "eating with the household at the arbor",
+            "activity": "talk",
+            "knot": "talk_2ffa4142"
+          },
+          {
+            "from": 7.5,
+            "to": 12.0,
+            "indoors": false,
+            "at": {
+              "local_e": 778.1,
+              "local_n": -36.1,
+              "heading_deg": 172.0
+            },
+            "doing": "at the yard",
+            "activity": "talk",
+            "knot": "talk_376ac691"
+          },
+          {
+            "from": 12.0,
+            "to": 13.0,
+            "indoors": false,
+            "at": {
+              "local_e": 778.1,
+              "local_n": -36.1,
+              "heading_deg": 172.0
+            },
+            "doing": "eating with the household at the arbor",
+            "activity": "talk",
+            "knot": "talk_7d9fa806"
+          },
+          {
+            "from": 13.0,
+            "to": 17.5,
+            "indoors": false,
+            "at": {
+              "local_e": 778.1,
+              "local_n": -36.1,
+              "heading_deg": 172.0
+            },
+            "doing": "at the yard",
+            "activity": "talk",
+            "knot": "talk_50f74631"
+          },
+          {
+            "from": 17.5,
+            "to": 18.75,
+            "indoors": false,
+            "at": {
+              "local_e": 778.1,
+              "local_n": -36.1,
+              "heading_deg": 172.0
+            },
+            "doing": "eating with the household at the arbor",
+            "activity": "talk",
+            "knot": "talk_50f74631"
+          },
+          {
+            "from": 18.75,
+            "to": 21.5,
+            "indoors": false,
+            "at": {
+              "local_e": 778.1,
+              "local_n": -36.1,
+              "heading_deg": 172.0
+            },
+            "doing": "evening at the yard",
+            "activity": "talk",
+            "knot": "talk_50f74631"
+          },
+          {
+            "from": 21.5,
+            "to": 24.0,
+            "indoors": true,
+            "where": "potawatomi_camp_1812_mouth",
+            "doing": "asleep in the lodge"
+          }
+        ]
+      },
+      {
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 10.5,
+            "indoors": true,
+            "away": true,
+            "doing": "not yet arrived"
+          },
+          {
+            "from": 10.5,
+            "to": 11.25,
+            "indoors": false,
+            "at": {
+              "local_e": 1000.0,
+              "local_n": -400.0,
+              "heading_deg": 335.7
+            },
+            "activity": "walk",
+            "to_point": {
+              "local_e": 797.0,
+              "local_n": -30.0
+            },
+            "via": [
+              {
+                "local_e": 860.0,
+                "local_n": -90.0
+              },
+              {
+                "local_e": 806.0,
+                "local_n": -42.0
+              }
+            ],
+            "once": true,
+            "doing": "walking in from the south toward the camp by the creek mouth"
+          },
+          {
+            "from": 11.25,
+            "to": 12.0,
+            "indoors": false,
+            "at": {
+              "local_e": 778.1,
+              "local_n": -36.1,
+              "heading_deg": 172.0
+            },
+            "doing": "sitting at the arbor, newly come",
+            "activity": "talk",
+            "knot": "talk_376ac691"
+          },
+          {
+            "from": 12.0,
+            "to": 13.0,
+            "indoors": false,
+            "at": {
+              "local_e": 778.1,
+              "local_n": -36.1,
+              "heading_deg": 172.0
+            },
+            "doing": "eating with the household at the arbor",
+            "activity": "talk",
+            "knot": "talk_7d9fa806"
+          },
+          {
+            "from": 13.0,
+            "to": 17.0,
+            "indoors": true,
+            "where": "potawatomi_camp_1812_mouth",
+            "doing": "resting in a lodge after the journey"
+          },
+          {
+            "from": 17.0,
+            "to": 18.0,
+            "indoors": false,
+            "at": {
+              "local_e": 778.9,
+              "local_n": -37.1,
+              "heading_deg": 172.0
+            },
+            "doing": "at the arbor",
+            "activity": "talk",
+            "knot": "talk_50f74631"
+          },
+          {
+            "from": 18.0,
+            "to": 19.0,
+            "indoors": false,
+            "at": {
+              "local_e": 778.1,
+              "local_n": -36.1,
+              "heading_deg": 172.0
+            },
+            "doing": "eating with the household at the arbor",
+            "activity": "talk",
+            "knot": "talk_50f74631"
+          },
+          {
+            "from": 19.0,
+            "to": 21.0,
+            "indoors": false,
+            "at": {
+              "local_e": 780.9,
+              "local_n": -41.3,
+              "heading_deg": 309.0
+            },
+            "doing": "evening at the arbor",
+            "activity": "talk",
+            "knot": "talk_50f74631"
+          },
+          {
+            "from": 21.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "potawatomi_camp_1812_mouth",
+            "doing": "asleep in a lodge of the mouth ground, a guest"
+          }
+        ]
+      }
+    ],
+    "presence": {
+      "from": "1812-08-14",
+      "to": "1812-08-16"
+    }
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 3,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": true,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "Reconstructed figure of A runner from Main Poc (name not recorded) in the 1812 town, at each hour of each run of dates where the reading for T-3467 (docs/RESEARCH/people-1812-3467/day.json) puts them: indoors (asked for at the door) or out at their work, with the people they would be with. The hours, the places and the companions are ours (liberty L-1812-town-days-3463), each span graded with its own basis in the reading; what a source says of them is on their card. They wear the potawatomi man 1812 role dress, with their own face, height, build and colouring.",
+    "sources": [
+      "quaife_1913"
+    ],
+    "liberty": "L418",
+    "seed": "main_poc_runner:1812:days:20261108",
+    "replaceable_by": "A diary, letter or order book of the post that says where they were and what they did on the day."
+  }
+}

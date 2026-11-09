@@ -14,6 +14,13 @@
       "finding": "Reproduces: two bare write runs in a clean isolated Git fixture with exact current modules, numeric structure record and original texture inputs/outputs advance all three target mtimes with identical bytes and clean Git status. All deliberately perturbed outputs are repaired. The fixture is not a claim that the active application tree was clean. See docs/RESEARCH/glessner-finish-T-2226/finish-writer-measurement.json.",
       "placed": "The original flat-brick maps read authored surface_finish and existing committed original clay/mortar maps, before the Blender master and reduced derivative. Generated explicitly before those bakes and checked read-only in check.sh. Eventual manifest placement must follow the original-fabric writer and precede asset baking; this ordering is not appended blindly."
     },
+    "native_cards_1812.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-11-08",
+      "finding": "Reproduces: a bare write run rewrites its three households (hh_shabbona_1812, hh_caldwell_billy_1812, hh_robinson_alexander_1812) byte for byte and changes nothing else. Its other job, names, histories and the 15th on the Native cards, runs inside the three generators that write those cards (gathering-people-1812-3500/build.py, people-1812-town/cards.py, people-1812-3461/build.py), whose own --check covers it (T-3507..T-3509).",
+      "placed": "Reads nothing derived: its three cards are its own research. Gated by its own --check beside cards.py; it can join the manifest's order with the 1812 people writers when those are placed."
+    },
     "generate_glessner_vines.py": {
       "placement": "pending",
       "write_mode": "(bare)",
@@ -366,6 +373,13 @@
       "measured": "2026-10-27",
       "finding": "Reproduces: ran `(bare)` on a clean tree, rewrote data/street_furniture/1904.json byte for byte, changed no committed byte; --check writes nothing in-tree.",
       "placed": "by layer, 2026-10-27 \u2014 a reader of committed originals after tools/trace_prairie_1904_grid.py, whose faces it lays on, tools/lay_prairie_1904_street_section.py, whose carriage walks it keeps clear of, and tools/plant_prairie_1904_street_trees.py, whose elms it keeps clear of (T-3199); see the manifest step"
+    },
+    "lay_crossing_boats_1812.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-11-08",
+      "finding": "Reproduces: ran `(bare)` on a clean tree in under 1s, rewrote data/boats/crossings_1812.json byte for byte, changed no committed byte; --check writes nothing in-tree.",
+      "placed": "not yet: it reads the e1830_natural heightfield and South Branch apron and data/structures (the footprints standing on 1812-08-14 and the first fort wharf's form), so its slot is after the 1812 terrain and structure writers (T-3510)."
     },
     "lay_prairie_1904_back_yards.py": {
       "placement": "pending",
@@ -2316,6 +2330,20 @@
       "measured": "2026-11-06",
       "finding": "Reproduces: a bare write run on the committed tree rewrote data/humans/variation/fits/glessner_john_j.json with identical bytes; git status stayed clean (T-3413). It does not write the card's still; tools/portrait_still.mjs does, and --check refuses a still whose sidecar names another fit.",
       "placed": "not yet \u2014 measured to reproduce. It reads the portrait records, data/sources/, axes.json, the variation kit and base.obj; tools/human_variation_kit.py reads its output (persons.json carries the fitted face), so its slot precedes that tool's, and the manifest's order is its own measured pass, so it is not appended blind (T-3413)."
+    },
+    "derive_doors_1812.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-11-08",
+      "finding": "Reproduces: a bare write run on the committed tree rewrote data/humans/doors_1812.json (69 doors on 38 buildings) with identical bytes (T-3463).",
+      "placed": "not yet \u2014 measured to reproduce. It reads the 1812 sidecars and their GLBs (door leaves off the models) and the lodge camp records; tools/test_human_days.mjs and human-days.js read its output, so it follows the 1812 structure emitters, and the manifest's order is its own measured pass, so it is not appended blind (T-3463)."
+    },
+    "derive_doors_scene.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-11-08",
+      "finding": "Reproduces: a bare write run on the tree rewrote data/humans/doors_1835.json (4 doors on 2 buildings, read off their models) and doors_1904.json (3 doors on Glessner's house, from its record) with identical bytes (T-3516).",
+      "placed": "not yet \u2014 measured to reproduce. It reads the 1835 and 1904 people records' days, the buildings they name (sidecars, and the 1835 GLBs' door leaves as derive_doors_1812.py does); tools/test_human_rounds.mjs and human-days.js read its output, so it follows the structure emitters and the people days, and the manifest's order is its own measured pass, so it is not appended blind (T-3516)."
     }
   }
 }

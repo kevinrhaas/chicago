@@ -1,0 +1,1218 @@
+{
+  "id": "hi_town_potawatomi_1812_mouth_girl_10_1812",
+  "contract_version": 1,
+  "scene": "1812",
+  "person_id": "potawatomi_1812_mouth_girl_10",
+  "appearance": {
+    "asset_id": "potawatomi_girl_1812"
+  },
+  "placement": {
+    "local_e": 1090.8,
+    "local_n": 236.0,
+    "heading_deg": 0.0,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "idle",
+    "loop": true,
+    "phase": 0.455
+  },
+  "behaviour": {
+    "state": "standing",
+    "day": [
+      {
+        "dates": {
+          "from": "1812-01-01",
+          "to": "1812-03-31"
+        },
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 24.0,
+            "indoors": true,
+            "away": true,
+            "doing": "at the winter grounds and the sugar camp"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-04-01",
+          "to": "1812-07-05"
+        },
+        "chance": 0.2,
+        "note": "A visiting day; on other days the card is away (not drawn). After the Lee's Place murders of 6 April people outside the fort were kept close (Wau-Bun); visits are kept but no lodge is drawn.",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 8.75,
+            "indoors": true,
+            "away": true,
+            "doing": "not in town"
+          },
+          {
+            "from": 8.75,
+            "to": 9.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1090.8,
+              "local_n": 236.0,
+              "heading_deg": 0.0
+            },
+            "doing": "drawing the canoe up below the wharf",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1092.2,
+                "local_n": 236.0
+              },
+              {
+                "local_e": 1089.4,
+                "local_n": 236.0
+              }
+            ]
+          },
+          {
+            "from": 9.0,
+            "to": 9.25,
+            "indoors": false,
+            "at": {
+              "local_e": 1088.0,
+              "local_n": 236.0,
+              "heading_deg": 203.2
+            },
+            "activity": "walk",
+            "to_point": {
+              "local_e": 1082.0,
+              "local_n": 222.0
+            },
+            "once": true,
+            "doing": "walking up to the factory with furs and sugar"
+          },
+          {
+            "from": 9.25,
+            "to": 11.75,
+            "indoors": false,
+            "at": {
+              "local_e": 1082.4,
+              "local_n": 216.0,
+              "heading_deg": 274.0
+            },
+            "doing": "trading furs and maple sugar at the government factory",
+            "activity": "stand"
+          },
+          {
+            "from": 11.75,
+            "to": 12.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1082.0,
+              "local_n": 222.0,
+              "heading_deg": 23.2
+            },
+            "activity": "walk",
+            "to_point": {
+              "local_e": 1088.0,
+              "local_n": 236.0
+            },
+            "once": true,
+            "doing": "walking back to the canoe"
+          },
+          {
+            "from": 12.0,
+            "to": 12.5,
+            "indoors": true,
+            "away": true,
+            "doing": "paddling across to the Kinzie landing"
+          },
+          {
+            "from": 12.5,
+            "to": 14.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1152.6,
+              "local_n": 311.0,
+              "heading_deg": 0.0
+            },
+            "doing": "trading at Kinzie's house",
+            "activity": "stand"
+          },
+          {
+            "from": 14.5,
+            "to": 24.0,
+            "indoors": true,
+            "away": true,
+            "doing": "gone home up the river"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-07-06",
+          "to": "1812-08-08"
+        },
+        "chance": 0.1,
+        "note": "The factory is closed (its factor left on 5 July); visits go to the Kinzie house only.",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 12.0,
+            "indoors": true,
+            "away": true,
+            "doing": "not in town"
+          },
+          {
+            "from": 12.0,
+            "to": 12.5,
+            "indoors": true,
+            "away": true,
+            "doing": "paddling across to the Kinzie landing"
+          },
+          {
+            "from": 12.5,
+            "to": 14.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1152.6,
+              "local_n": 311.0,
+              "heading_deg": 0.0
+            },
+            "doing": "trading at Kinzie's house",
+            "activity": "stand"
+          },
+          {
+            "from": 14.5,
+            "to": 24.0,
+            "indoors": true,
+            "away": true,
+            "doing": "gone home up the river"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-09",
+          "to": "1812-08-11"
+        },
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 24.0,
+            "indoors": true,
+            "away": true,
+            "doing": "coming in to the gathering; the camp is not yet drawn"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-17",
+          "to": "1812-12-31"
+        },
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 24.0,
+            "indoors": true,
+            "away": true,
+            "doing": "the gathering has broken up"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "months": [
+            1,
+            2,
+            3,
+            12
+          ],
+          "years": {
+            "from": 1803,
+            "to": 1811
+          }
+        },
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 24.0,
+            "indoors": true,
+            "away": true,
+            "doing": "at the winter grounds and the sugar camp"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "months": [
+            4,
+            5,
+            6,
+            9,
+            10,
+            11
+          ],
+          "years": {
+            "from": 1803,
+            "to": 1811
+          }
+        },
+        "chance": 0.2,
+        "note": "Spring and autumn trading. The factory leg applies only on dates the factory stands in the scene; otherwise drop it as in July-August 1812.",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 8.75,
+            "indoors": true,
+            "away": true,
+            "doing": "not in town"
+          },
+          {
+            "from": 8.75,
+            "to": 9.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1090.8,
+              "local_n": 236.0,
+              "heading_deg": 0.0
+            },
+            "doing": "drawing the canoe up below the wharf",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1092.2,
+                "local_n": 236.0
+              },
+              {
+                "local_e": 1089.4,
+                "local_n": 236.0
+              }
+            ]
+          },
+          {
+            "from": 9.0,
+            "to": 9.25,
+            "indoors": false,
+            "at": {
+              "local_e": 1088.0,
+              "local_n": 236.0,
+              "heading_deg": 203.2
+            },
+            "activity": "walk",
+            "to_point": {
+              "local_e": 1082.0,
+              "local_n": 222.0
+            },
+            "once": true,
+            "doing": "walking up to the factory with furs and sugar"
+          },
+          {
+            "from": 9.25,
+            "to": 11.75,
+            "indoors": false,
+            "at": {
+              "local_e": 1082.4,
+              "local_n": 216.0,
+              "heading_deg": 274.0
+            },
+            "doing": "trading furs and maple sugar at the government factory",
+            "activity": "stand"
+          },
+          {
+            "from": 11.75,
+            "to": 12.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1082.0,
+              "local_n": 222.0,
+              "heading_deg": 23.2
+            },
+            "activity": "walk",
+            "to_point": {
+              "local_e": 1088.0,
+              "local_n": 236.0
+            },
+            "once": true,
+            "doing": "walking back to the canoe"
+          },
+          {
+            "from": 12.0,
+            "to": 12.5,
+            "indoors": true,
+            "away": true,
+            "doing": "paddling across to the Kinzie landing"
+          },
+          {
+            "from": 12.5,
+            "to": 14.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1152.6,
+              "local_n": 311.0,
+              "heading_deg": 0.0
+            },
+            "doing": "trading at Kinzie's house",
+            "activity": "stand"
+          },
+          {
+            "from": 14.5,
+            "to": 24.0,
+            "indoors": true,
+            "away": true,
+            "doing": "gone home up the river"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "months": [
+            7,
+            8
+          ],
+          "years": {
+            "from": 1803,
+            "to": 1811
+          }
+        },
+        "chance": 0.1,
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 8.75,
+            "indoors": true,
+            "away": true,
+            "doing": "not in town"
+          },
+          {
+            "from": 8.75,
+            "to": 9.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1090.8,
+              "local_n": 236.0,
+              "heading_deg": 0.0
+            },
+            "doing": "drawing the canoe up below the wharf",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1092.2,
+                "local_n": 236.0
+              },
+              {
+                "local_e": 1089.4,
+                "local_n": 236.0
+              }
+            ]
+          },
+          {
+            "from": 9.0,
+            "to": 9.25,
+            "indoors": false,
+            "at": {
+              "local_e": 1088.0,
+              "local_n": 236.0,
+              "heading_deg": 203.2
+            },
+            "activity": "walk",
+            "to_point": {
+              "local_e": 1082.0,
+              "local_n": 222.0
+            },
+            "once": true,
+            "doing": "walking up to the factory with furs and sugar"
+          },
+          {
+            "from": 9.25,
+            "to": 11.75,
+            "indoors": false,
+            "at": {
+              "local_e": 1082.4,
+              "local_n": 216.0,
+              "heading_deg": 274.0
+            },
+            "doing": "trading furs and maple sugar at the government factory",
+            "activity": "stand"
+          },
+          {
+            "from": 11.75,
+            "to": 12.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1082.0,
+              "local_n": 222.0,
+              "heading_deg": 23.2
+            },
+            "activity": "walk",
+            "to_point": {
+              "local_e": 1088.0,
+              "local_n": 236.0
+            },
+            "once": true,
+            "doing": "walking back to the canoe"
+          },
+          {
+            "from": 12.0,
+            "to": 12.5,
+            "indoors": true,
+            "away": true,
+            "doing": "paddling across to the Kinzie landing"
+          },
+          {
+            "from": 12.5,
+            "to": 14.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1152.6,
+              "local_n": 311.0,
+              "heading_deg": 0.0
+            },
+            "doing": "trading at Kinzie's house",
+            "activity": "stand"
+          },
+          {
+            "from": 14.5,
+            "to": 24.0,
+            "indoors": true,
+            "away": true,
+            "doing": "gone home up the river"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-12",
+          "to": "1812-08-12"
+        },
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "potawatomi_camp_1812_mouth",
+            "doing": "asleep in the lodge"
+          },
+          {
+            "from": 5.5,
+            "to": 6.5,
+            "indoors": false,
+            "at": {
+              "local_e": 780.1,
+              "local_n": -40.3,
+              "heading_deg": 309.0
+            },
+            "doing": "morning at the yard, the fire made up",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 780.98,
+                "local_n": -39.21
+              },
+              {
+                "local_e": 779.22,
+                "local_n": -41.39
+              }
+            ]
+          },
+          {
+            "from": 6.5,
+            "to": 7.5,
+            "indoors": false,
+            "at": {
+              "local_e": 780.1,
+              "local_n": -40.3,
+              "heading_deg": 309.0
+            },
+            "doing": "eating with the household at the arbor",
+            "activity": "talk",
+            "knot": "talk_2ffa4142"
+          },
+          {
+            "from": 7.5,
+            "to": 12.0,
+            "indoors": false,
+            "at": {
+              "local_e": 780.1,
+              "local_n": -40.3,
+              "heading_deg": 309.0
+            },
+            "doing": "helping her mother at the hearth, carrying water",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 780.98,
+                "local_n": -39.21
+              },
+              {
+                "local_e": 779.22,
+                "local_n": -41.39
+              }
+            ]
+          },
+          {
+            "from": 12.0,
+            "to": 13.0,
+            "indoors": false,
+            "at": {
+              "local_e": 780.1,
+              "local_n": -40.3,
+              "heading_deg": 309.0
+            },
+            "doing": "eating with the household at the arbor",
+            "activity": "talk",
+            "knot": "talk_7d9fa806"
+          },
+          {
+            "from": 13.0,
+            "to": 17.5,
+            "indoors": false,
+            "at": {
+              "local_e": 780.1,
+              "local_n": -40.3,
+              "heading_deg": 309.0
+            },
+            "doing": "helping her mother at the hearth, carrying water",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 780.98,
+                "local_n": -39.21
+              },
+              {
+                "local_e": 779.22,
+                "local_n": -41.39
+              }
+            ]
+          },
+          {
+            "from": 17.5,
+            "to": 18.75,
+            "indoors": false,
+            "at": {
+              "local_e": 780.1,
+              "local_n": -40.3,
+              "heading_deg": 309.0
+            },
+            "doing": "eating with the household at the arbor",
+            "activity": "talk",
+            "knot": "talk_50f74631"
+          },
+          {
+            "from": 18.75,
+            "to": 21.5,
+            "indoors": false,
+            "at": {
+              "local_e": 780.1,
+              "local_n": -40.3,
+              "heading_deg": 309.0
+            },
+            "doing": "evening at the yard",
+            "activity": "talk",
+            "knot": "talk_50f74631"
+          },
+          {
+            "from": 21.5,
+            "to": 24.0,
+            "indoors": true,
+            "where": "potawatomi_camp_1812_mouth",
+            "doing": "asleep in the lodge"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-13",
+          "to": "1812-08-13"
+        },
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "potawatomi_camp_1812_mouth",
+            "doing": "asleep in the lodge"
+          },
+          {
+            "from": 5.5,
+            "to": 6.5,
+            "indoors": false,
+            "at": {
+              "local_e": 780.1,
+              "local_n": -40.3,
+              "heading_deg": 309.0
+            },
+            "doing": "morning at the yard, the fire made up",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 780.98,
+                "local_n": -39.21
+              },
+              {
+                "local_e": 779.22,
+                "local_n": -41.39
+              }
+            ]
+          },
+          {
+            "from": 6.5,
+            "to": 7.5,
+            "indoors": false,
+            "at": {
+              "local_e": 780.1,
+              "local_n": -40.3,
+              "heading_deg": 309.0
+            },
+            "doing": "eating with the household at the arbor",
+            "activity": "talk",
+            "knot": "talk_2ffa4142"
+          },
+          {
+            "from": 7.5,
+            "to": 12.0,
+            "indoors": false,
+            "at": {
+              "local_e": 780.1,
+              "local_n": -40.3,
+              "heading_deg": 309.0
+            },
+            "doing": "helping her mother at the hearth, carrying water",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 780.98,
+                "local_n": -39.21
+              },
+              {
+                "local_e": 779.22,
+                "local_n": -41.39
+              }
+            ]
+          },
+          {
+            "from": 12.0,
+            "to": 13.0,
+            "indoors": false,
+            "at": {
+              "local_e": 780.1,
+              "local_n": -40.3,
+              "heading_deg": 309.0
+            },
+            "doing": "eating with the household at the arbor",
+            "activity": "talk",
+            "knot": "talk_7d9fa806"
+          },
+          {
+            "from": 13.0,
+            "to": 17.5,
+            "indoors": false,
+            "at": {
+              "local_e": 780.1,
+              "local_n": -40.3,
+              "heading_deg": 309.0
+            },
+            "doing": "helping her mother at the hearth, carrying water",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 780.98,
+                "local_n": -39.21
+              },
+              {
+                "local_e": 779.22,
+                "local_n": -41.39
+              }
+            ]
+          },
+          {
+            "from": 17.5,
+            "to": 18.75,
+            "indoors": false,
+            "at": {
+              "local_e": 780.1,
+              "local_n": -40.3,
+              "heading_deg": 309.0
+            },
+            "doing": "eating with the household at the arbor",
+            "activity": "talk",
+            "knot": "talk_50f74631"
+          },
+          {
+            "from": 18.75,
+            "to": 21.5,
+            "indoors": false,
+            "at": {
+              "local_e": 780.1,
+              "local_n": -40.3,
+              "heading_deg": 309.0
+            },
+            "doing": "evening at the yard",
+            "activity": "talk",
+            "knot": "talk_50f74631"
+          },
+          {
+            "from": 21.5,
+            "to": 24.0,
+            "indoors": true,
+            "where": "potawatomi_camp_1812_mouth",
+            "doing": "asleep in the lodge"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-15",
+          "to": "1812-08-15"
+        },
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "potawatomi_camp_1812_mouth",
+            "doing": "asleep in the lodge"
+          },
+          {
+            "from": 5.5,
+            "to": 6.5,
+            "indoors": false,
+            "at": {
+              "local_e": 780.1,
+              "local_n": -40.3,
+              "heading_deg": 309.0
+            },
+            "doing": "morning at the yard, the fire made up",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 780.98,
+                "local_n": -39.21
+              },
+              {
+                "local_e": 779.22,
+                "local_n": -41.39
+              }
+            ]
+          },
+          {
+            "from": 6.5,
+            "to": 7.5,
+            "indoors": false,
+            "at": {
+              "local_e": 780.1,
+              "local_n": -40.3,
+              "heading_deg": 309.0
+            },
+            "doing": "eating with the household at the arbor",
+            "activity": "talk",
+            "knot": "talk_2ffa4142"
+          },
+          {
+            "from": 7.5,
+            "to": 12.0,
+            "indoors": false,
+            "at": {
+              "local_e": 780.1,
+              "local_n": -40.3,
+              "heading_deg": 309.0
+            },
+            "doing": "helping her mother at the hearth, carrying water",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 780.98,
+                "local_n": -39.21
+              },
+              {
+                "local_e": 779.22,
+                "local_n": -41.39
+              }
+            ]
+          },
+          {
+            "from": 12.0,
+            "to": 13.0,
+            "indoors": false,
+            "at": {
+              "local_e": 780.1,
+              "local_n": -40.3,
+              "heading_deg": 309.0
+            },
+            "doing": "eating with the household at the arbor",
+            "activity": "talk",
+            "knot": "talk_7d9fa806"
+          },
+          {
+            "from": 13.0,
+            "to": 17.5,
+            "indoors": false,
+            "at": {
+              "local_e": 780.1,
+              "local_n": -40.3,
+              "heading_deg": 309.0
+            },
+            "doing": "helping her mother at the hearth, carrying water",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 780.98,
+                "local_n": -39.21
+              },
+              {
+                "local_e": 779.22,
+                "local_n": -41.39
+              }
+            ]
+          },
+          {
+            "from": 17.5,
+            "to": 18.75,
+            "indoors": false,
+            "at": {
+              "local_e": 780.1,
+              "local_n": -40.3,
+              "heading_deg": 309.0
+            },
+            "doing": "eating with the household at the arbor",
+            "activity": "talk",
+            "knot": "talk_50f74631"
+          },
+          {
+            "from": 18.75,
+            "to": 21.5,
+            "indoors": false,
+            "at": {
+              "local_e": 780.1,
+              "local_n": -40.3,
+              "heading_deg": 309.0
+            },
+            "doing": "evening at the yard",
+            "activity": "talk",
+            "knot": "talk_50f74631"
+          },
+          {
+            "from": 21.5,
+            "to": 24.0,
+            "indoors": true,
+            "where": "potawatomi_camp_1812_mouth",
+            "doing": "asleep in the lodge"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-16",
+          "to": "1812-08-16"
+        },
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "potawatomi_camp_1812_mouth",
+            "doing": "asleep in the lodge"
+          },
+          {
+            "from": 5.5,
+            "to": 6.5,
+            "indoors": false,
+            "at": {
+              "local_e": 780.1,
+              "local_n": -40.3,
+              "heading_deg": 309.0
+            },
+            "doing": "morning at the yard, the fire made up",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 780.98,
+                "local_n": -39.21
+              },
+              {
+                "local_e": 779.22,
+                "local_n": -41.39
+              }
+            ]
+          },
+          {
+            "from": 6.5,
+            "to": 7.5,
+            "indoors": false,
+            "at": {
+              "local_e": 780.1,
+              "local_n": -40.3,
+              "heading_deg": 309.0
+            },
+            "doing": "eating with the household at the arbor",
+            "activity": "talk",
+            "knot": "talk_2ffa4142"
+          },
+          {
+            "from": 7.5,
+            "to": 12.0,
+            "indoors": false,
+            "at": {
+              "local_e": 780.1,
+              "local_n": -40.3,
+              "heading_deg": 309.0
+            },
+            "doing": "helping her mother at the hearth, carrying water",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 780.98,
+                "local_n": -39.21
+              },
+              {
+                "local_e": 779.22,
+                "local_n": -41.39
+              }
+            ]
+          },
+          {
+            "from": 12.0,
+            "to": 13.0,
+            "indoors": false,
+            "at": {
+              "local_e": 780.1,
+              "local_n": -40.3,
+              "heading_deg": 309.0
+            },
+            "doing": "eating with the household at the arbor",
+            "activity": "talk",
+            "knot": "talk_7d9fa806"
+          },
+          {
+            "from": 13.0,
+            "to": 17.5,
+            "indoors": false,
+            "at": {
+              "local_e": 780.1,
+              "local_n": -40.3,
+              "heading_deg": 309.0
+            },
+            "doing": "helping her mother at the hearth, carrying water",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 780.98,
+                "local_n": -39.21
+              },
+              {
+                "local_e": 779.22,
+                "local_n": -41.39
+              }
+            ]
+          },
+          {
+            "from": 17.5,
+            "to": 18.75,
+            "indoors": false,
+            "at": {
+              "local_e": 780.1,
+              "local_n": -40.3,
+              "heading_deg": 309.0
+            },
+            "doing": "eating with the household at the arbor",
+            "activity": "talk",
+            "knot": "talk_50f74631"
+          },
+          {
+            "from": 18.75,
+            "to": 21.5,
+            "indoors": false,
+            "at": {
+              "local_e": 780.1,
+              "local_n": -40.3,
+              "heading_deg": 309.0
+            },
+            "doing": "evening at the yard",
+            "activity": "talk",
+            "knot": "talk_50f74631"
+          },
+          {
+            "from": 21.5,
+            "to": 24.0,
+            "indoors": true,
+            "where": "potawatomi_camp_1812_mouth",
+            "doing": "asleep in the lodge"
+          }
+        ]
+      },
+      {
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "potawatomi_camp_1812_mouth",
+            "doing": "asleep in the lodge"
+          },
+          {
+            "from": 5.5,
+            "to": 6.5,
+            "indoors": false,
+            "at": {
+              "local_e": 780.1,
+              "local_n": -40.3,
+              "heading_deg": 309.0
+            },
+            "doing": "up with the household at the yard",
+            "activity": "stand"
+          },
+          {
+            "from": 6.5,
+            "to": 7.5,
+            "indoors": false,
+            "at": {
+              "local_e": 780.1,
+              "local_n": -40.3,
+              "heading_deg": 309.0
+            },
+            "doing": "eating with the household at the arbor",
+            "activity": "talk",
+            "knot": "talk_2ffa4142"
+          },
+          {
+            "from": 7.5,
+            "to": 12.0,
+            "indoors": false,
+            "at": {
+              "local_e": 780.1,
+              "local_n": -40.3,
+              "heading_deg": 309.0
+            },
+            "doing": "helping her mother at the hearth, carrying water",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 780.98,
+                "local_n": -39.21
+              },
+              {
+                "local_e": 779.22,
+                "local_n": -41.39
+              }
+            ]
+          },
+          {
+            "from": 12.0,
+            "to": 13.0,
+            "indoors": false,
+            "at": {
+              "local_e": 780.1,
+              "local_n": -40.3,
+              "heading_deg": 309.0
+            },
+            "doing": "eating with the household at the arbor",
+            "activity": "talk",
+            "knot": "talk_7d9fa806"
+          },
+          {
+            "from": 13.0,
+            "to": 15.5,
+            "indoors": false,
+            "at": {
+              "local_e": 780.9,
+              "local_n": -41.3,
+              "heading_deg": 309.0
+            },
+            "doing": "helping her mother at the hearth, carrying water",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 781.78,
+                "local_n": -40.21
+              },
+              {
+                "local_e": 780.02,
+                "local_n": -42.39
+              }
+            ]
+          },
+          {
+            "from": 15.5,
+            "to": 18.0,
+            "indoors": false,
+            "at": {
+              "local_e": 779.9,
+              "local_n": -41.3,
+              "heading_deg": 309.0
+            },
+            "doing": "playing near the lodges",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 780.78,
+                "local_n": -40.21
+              },
+              {
+                "local_e": 779.02,
+                "local_n": -42.39
+              }
+            ]
+          },
+          {
+            "from": 18.0,
+            "to": 19.0,
+            "indoors": false,
+            "at": {
+              "local_e": 780.1,
+              "local_n": -40.3,
+              "heading_deg": 309.0
+            },
+            "doing": "eating with the household at the arbor",
+            "activity": "talk",
+            "knot": "talk_50f74631"
+          },
+          {
+            "from": 19.0,
+            "to": 21.5,
+            "indoors": false,
+            "at": {
+              "local_e": 778.9,
+              "local_n": -41.7,
+              "heading_deg": 309.0
+            },
+            "doing": "evening at the yard",
+            "activity": "talk",
+            "knot": "talk_50f74631"
+          },
+          {
+            "from": 21.5,
+            "to": 24.0,
+            "indoors": true,
+            "where": "potawatomi_camp_1812_mouth",
+            "doing": "asleep in the lodge"
+          }
+        ]
+      }
+    ],
+    "presence": {
+      "from": "1803-07-01",
+      "to": "1812-08-16"
+    }
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 3,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": true,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "Reconstructed figure of A girl of the camp by the creek mouth (name not recorded) in the 1812 town, at each hour of each run of dates where the reading for T-3467 (docs/RESEARCH/people-1812-3467/day.json) puts them: indoors (asked for at the door) or out at their work, with the people they would be with. The hours, the places and the companions are ours (liberty L-1812-town-days-3463), each span graded with its own basis in the reading; what a source says of them is on their card. They wear the potawatomi girl 1812 role dress, with their own face, height, build and colouring.",
+    "sources": [
+      "currey_1912_old_fort_dearborn",
+      "kinzie_waubun_1856",
+      "quaife_1913"
+    ],
+    "liberty": "L418",
+    "seed": "potawatomi_1812_mouth_girl_10:1812:days:20261108",
+    "replaceable_by": "A diary, letter or order book of the post that says where they were and what they did on the day."
+  }
+}

@@ -12,8 +12,8 @@
  *   - at rest, the arms hang in by the sides with the elbows soft;
  *   - standing, a person changes what they do with their hands every so often: hands
  *     on the hips, hands clasped behind the back, or just hanging;
- *   - a visitor who comes up in front is greeted with a hand to the brow (the working
- *     man's touch of the hat brim or forelock) and a small nod;
+ *   - a visitor who comes up in front is greeted with a hand to the hat's brim, from
+ *     outside it (T-3515), or bareheaded to the brow (the forelock), and a small nod;
  *   - walking, the arms swing opposite to the legs. With the gait layer (human-gait.js,
  *     passed in as `gait`) the swing is driven from its phase and speed along measured
  *     arm curves (see ARM_SWING below); without it, read from where the feet are, so the swing follows
@@ -56,6 +56,14 @@ const KNUCKLE = 0.0025;
 // hand, the web at the root of the thumb folds through itself and tears.
 const THUMB_ROOT = 0.55;
 const THUMB = Object.freeze([['01', [0.8, 0.45, 0.4]], ['02', [0.92, 0.32, -0.12]], ['03', [0.85, 0.42, -0.15]]]);
+// The greeting's touch of a worn hat (hatBrim): how far round from straight ahead toward the
+// right hand, and how wide a bearing the brim's edge is looked for in (radians); the lowest
+// share of the hat's height that is its brim; how far every part of the hand stays off the
+// hat, and the fingertips below the brim's underside (metres).
+const BRIM = Object.freeze({ side: 55 * DEG, cone: 10 * DEG, band: 0.35, gap: 0.003, below: 0.002 });
+// The hand at a brim: how much its fingers point up and how much in toward the crown, the
+// palm's tilt down from facing the head, and the fingers' curl.
+const BRIM_HAND = Object.freeze({ up: 0.85, in: 0.25, palmDown: 0.2, curl: 0.18 });
 const ARM = (s) => [`upperarm_${s}`, `lowerarm_${s}`, `hand_${s}`,
   ...FINGERS.flatMap((f) => ['01', '02', '03'].map((k) => `${f}_${k}_${s}`)), `thumb_01_${s}`, `thumb_02_${s}`, `thumb_03_${s}`];
 const NEEDED = ['pelvis', 'spine_03', 'head', 'thigh_l', 'thigh_r', 'foot_l', 'foot_r', 'upperarm_l', 'upperarm_r',
@@ -126,6 +134,13 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
   })();
   const between = (a, b) => a + (b - a) * rand();
   let bones = {}, held = {}, bound = false, root = null, body = null;
+  let brim = null; // the worn hat's brim where the greeting touches it, head bone's frame (hatBrim)
+  // The greeting hand as it is shaped for the greeting, from its wrist in its own axes (metres
+  // along the fingers, toward the palm, and across): its leading fingertip pad and the balls
+  // along its fingers (fingertip, read after each greeting frame, so the next puts the pad, not
+  // the wrist, at the brim). `pads` is where the balls sit on the skin, read once (padOf).
+  let tip = null, pads = null;
+  const headInv = new THREE.Matrix4();
   const L = {}; // landmarks and lengths, figure frame, from the bind pose
   const local = {}; // per-bone local axes: along the bone, and the palm's normal for hands
   const fig = { up: new THREE.Vector3(0, 1, 0), fwd: new THREE.Vector3(0, 0, 1), left: new THREE.Vector3(1, 0, 0) };
@@ -204,6 +219,7 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
     L.pelvisY = at('pelvis').y;
     const eyes = found.eye_l && found.eye_r ? at('eye_l').add(at('eye_r')).multiplyScalar(0.5) : at('head').add(new THREE.Vector3(0, 0.05, 0.09));
     L.brow = eyes.add(new THREE.Vector3(0, 0.055, 0.035));
+    brim = null; tip = null; pads = null;
     L.backZ = Math.min(at('pelvis').z, at('spine_03').z) - 0.13; // the small of the back's surface, roughly
     L.frontZ = Math.max(at('pelvis').z, at('spine_03').z) + 0.19; // the front of a skirt and apron at the waist, roughly
     L.waistY = (at('pelvis').y + at('spine_03').y) / 2;
@@ -225,6 +241,178 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
   const toWorldPos = (v) => v.clone().applyMatrix4(sceneM);
   const qa = new THREE.Quaternion(), qb = new THREE.Quaternion(), va = new THREE.Vector3(), vb = new THREE.Vector3();
 
+  /**
+   * T-3515 (owner, 2026-11-08: "when the coachman or glessner greet you their hand goes
+   * through their hat"): where the greeting's fingertips meet the hat. Read off the worn
+   * hat itself, every headwear piece on the body that shows (a livery hat put on later
+   * counts, one left off does not): the edge of its lowest part (the brim, or a cap's
+   * edge) ahead and to the right, BRIM.side of the way round, at its underside; and the
+   * whole hat's triangles, which the hand keeps clear of (clear). Kept in the head bone's
+   * frame, so it nods and turns with the head; measured once for each hat. Null bareheaded
+   * (the old brow touch).
+   */
+  function hatBrim() {
+    const hats = [];
+    body.traverse((o) => { if (o.isSkinnedMesh && o.visible && /^headwear__/.test(o.material?.name ?? '') && o.geometry?.attributes?.position) hats.push(o); });
+    if (brim && brim.hats.length === hats.length && brim.hats.every((h, i) => h === hats[i])) return brim.touch ? brim : null;
+    brim = { hats, touch: null, out: null, up: null, tris: null, balls: null };
+    if (!hats.length) return null;
+    const head = bones.head;
+    head.updateWorldMatrix(true, true);
+    const toHead = head.matrixWorld.clone().invert(), headQ = head.getWorldQuaternion(new THREE.Quaternion()).invert();
+    const pts = [], v = new THREE.Vector3(), tris = [];
+    for (const m of hats) {
+      m.updateWorldMatrix(true, false);
+      const p = m.geometry.attributes.position, ix = m.geometry.index, at = [];
+      for (let i = 0; i < p.count; i++) at.push(m.getVertexPosition(i, v).applyMatrix4(m.matrixWorld).applyMatrix4(toHead).clone());
+      // Every piece is kept clear of the hand, a plume too ...
+      for (let t = 0, n = ix ? ix.count : p.count; t + 2 < n; t += 3) {
+        tris.push(new THREE.Triangle(at[ix ? ix.getX(t) : t], at[ix ? ix.getX(t + 1) : t + 1], at[ix ? ix.getX(t + 2) : t + 2]));
+      }
+      // ... but a plume stands up off the hat and is no part of its shape.
+      if (!/plume|feather/.test(m.material.name)) pts.push(...at);
+    }
+    if (pts.length < 8) return null;
+    // The hat's frame in the head bone's: up, left and ahead as the body was made (the asset
+    // stands up +Y, faces +Z, its left +X), through the head's bind, so nothing here depends
+    // on how the head is turned or pitched when the hat is measured.
+    const span = (dir) => { let lo = Infinity, hi = -Infinity; for (const q of pts) { const d = q.dot(dir); lo = Math.min(lo, d); hi = Math.max(hi, d); } return [lo, hi]; };
+    const mean = (list) => list.reduce((acc, q) => acc.add(q), new THREE.Vector3()).multiplyScalar(1 / list.length);
+    const k = hats[0].skeleton?.bones.indexOf(head) ?? -1;
+    const toBone = k >= 0 ? new THREE.Matrix4().multiplyMatrices(hats[0].skeleton.boneInverses[k], hats[0].bindMatrix) : null;
+    const axis = (x, y, z, live) => (toBone ? new THREE.Vector3(x, y, z).transformDirection(toBone) : toWorldDir(live).applyQuaternion(headQ).normalize());
+    const up = axis(0, 1, 0, fig.up), left = axis(1, 0, 0, fig.left);
+    left.addScaledVector(up, -left.dot(up)).normalize();
+    const ahead = left.clone().cross(up).normalize(); // left x up = ahead, as +X x +Y = +Z
+    const out = ahead.multiplyScalar(Math.cos(BRIM.side)).addScaledVector(left, -Math.sin(BRIM.side));
+    const [lo, hi] = span(up);
+    const band = pts.filter((q) => q.dot(up) <= lo + BRIM.band * (hi - lo));
+    // The edge is where the hat's lowest part ends along that bearing from its middle, not
+    // whatever reaches furthest that way: a cocked hat worn fore and aft has its front point
+    // far out ahead of the face, and the hand goes to its side, by the temple.
+    const mid = mean(band), across = up.clone().cross(out);
+    const flat = (q) => { const d = q.clone().sub(mid); return d.addScaledVector(up, -d.dot(up)); };
+    let edge = null, reachOut = -Infinity;
+    for (const q of band) {
+      const d = flat(q), along = d.dot(out);
+      if (along > 0 && Math.abs(d.dot(across)) < along * Math.tan(BRIM.cone) && along > reachOut) { reachOut = along; edge = q; }
+    }
+    if (!edge) { edge = band[0]; for (const q of band) if (q.dot(out) > edge.dot(out)) edge = q; }
+    // The underside there: the lowest of the hat right at the edge.
+    let under = edge.dot(up);
+    for (const q of band) {
+      const d = q.clone().sub(edge);
+      if (d.addScaledVector(up, -d.dot(up)).length() < 0.01) under = Math.min(under, q.dot(up));
+    }
+    brim.touch = edge.clone().addScaledVector(up, under - edge.dot(up));
+    brim.out = out;
+    brim.up = up;
+    brim.tris = tris;
+    brim.balls = tris.map((t) => { const c = t.a.clone().add(t.b).add(t.c).multiplyScalar(1 / 3); return { c, r: Math.max(c.distanceTo(t.a), c.distanceTo(t.b), c.distanceTo(t.c)) }; });
+    return brim;
+  }
+
+  /**
+   * The right hand's fingers and thumb as balls along their skin (a glove's, where one is
+   * worn), each kept in its own bone's frame: the last two bones of each, from where its skin
+   * starts to where it ends, the ball at the end being the fingertip's pad; and how thick the
+   * finger is there, so a thick glove stands off a brim as far as a bare finger. Read once,
+   * off the skin as it is drawn (a varied body's fingers included).
+   */
+  function padOf() {
+    pads = [];
+    const meshes = [];
+    // Not the hat, the hair, the eyes or the boots: nothing of those is on a hand.
+    body.traverse((o) => { if (o.isSkinnedMesh && o.visible && !/^(headwear|hair|eyes|footwear)_/.test(o.material?.name ?? '') && o.geometry?.attributes?.skinWeight) meshes.push(o); });
+    // Each vertex goes to the bone that moves it most; one pass over the body for all of them.
+    const want = new Map();
+    for (const g of [...FINGERS, 'thumb']) for (const k of ['02', '03']) if (bones[`${g}_${k}_r`]) want.set(bones[`${g}_${k}_r`], []);
+    for (const m of meshes) {
+      const g = m.geometry, sw = g.attributes.skinWeight, si = g.attributes.skinIndex;
+      const mine = m.skeleton.bones.map((b) => want.get(b) ?? null);
+      if (!mine.some(Boolean)) continue;
+      // The packed arrays where they are plain (the weights' scale is the same within a vertex).
+      const plain = !sw.isInterleavedBufferAttribute && !si.isInterleavedBufferAttribute && sw.itemSize === 4 && si.itemSize === 4;
+      const W = sw.array, I = si.array;
+      for (let i = 0, n = g.attributes.position.count; i < n; i++) {
+        let best = 0, bi = -1;
+        if (plain) { for (let k = 4 * i; k < 4 * i + 4; k++) if (W[k] > best) { best = W[k]; bi = I[k]; } }
+        else for (let k = 0; k < 4; k++) { const w = sw.getComponent(i, k); if (w > best) { best = w; bi = si.getComponent(i, k); } }
+        if (bi >= 0 && mine[bi]) mine[bi].push(m.getVertexPosition(i, new THREE.Vector3()).applyMatrix4(m.matrixWorld));
+      }
+    }
+    const skinOf = (b) => want.get(b) ?? [];
+    const mean = (list) => list.reduce((acc, q) => acc.add(q), new THREE.Vector3()).multiplyScalar(1 / list.length);
+    for (const g of [...FINGERS, 'thumb']) {
+      const b2 = bones[`${g}_02_r`], b3 = bones[`${g}_03_r`];
+      if (!b2 || !b3) continue;
+      const s2 = skinOf(b2), s3 = skinOf(b3);
+      if (s2.length < 4 || s3.length < 4) continue;
+      const along = mean(s3).sub(mean(s2)).normalize();
+      for (const [b, skin, last] of [[b2, s2, false], [b3, s3, true]]) {
+        const mid = mean(skin);
+        let lo = 0, hi = 0;
+        const round = skin.map((q) => { const d = q.clone().sub(mid), a = d.dot(along); lo = Math.min(lo, a); hi = Math.max(hi, a); return d.addScaledVector(along, -a).length(); }).sort((x, y) => x - y);
+        const r = clamp(round[Math.floor(round.length * 0.8)], 0.004, 0.02);
+        // Balls close enough together that no thin brim slips between two of them.
+        const from = Math.min(lo + r, 0), to = Math.max(hi - r, 0);
+        for (let i = 0; i <= 3; i++) {
+          pads.push({ bone: b, at: b.worldToLocal(mid.clone().addScaledVector(along, from + (to - from) * i / 3)), r, tip: last && i === 3 && (g === 'index' || g === 'middle') });
+        }
+      }
+    }
+  }
+
+  /**
+   * Read where the right hand's balls are from its wrist, in its own axes (`tip.probes`),
+   * and which fingertip pad, index or middle, is further up the fingers (`tip`): that one
+   * meets the brim first.
+   */
+  function fingertip() {
+    const h = bones.hand_r;
+    h.updateMatrixWorld(true);
+    if (!pads) padOf();
+    const q = h.getWorldQuaternion(qa), ax = local.hand_r, wrist = h.getWorldPosition(new THREE.Vector3());
+    const f = ax.along.clone().applyQuaternion(q), p = ax.palm.clone().applyQuaternion(q), c = f.clone().cross(p);
+    const probes = pads.map(({ bone, at, r, tip: isTip }) => {
+      const off = bone.localToWorld(at.clone()).sub(wrist);
+      return { at: new THREE.Vector3(off.dot(f), off.dot(p), off.dot(c)), r, isTip };
+    });
+    tip = null;
+    for (const b of probes) if (b.isTip && (!tip || b.at.x > tip.x)) tip = { x: b.at.x, y: b.at.y, z: b.at.z, r: b.r, probes };
+  }
+
+  /**
+   * How far the hand must stand further out (metres, along the brim's own outward bearing)
+   * so that none of its balls (`tip.probes`, placed for a wrist at world `wrist` with the
+   * hand's axes `f`, `p`, `c`) comes within BRIM.gap of the hat: where a brim turns up or a
+   * cocked hat's side flares out above its edge. Worked in the head bone's frame, against
+   * only the hat's triangles near the hand.
+   */
+  function clear(wrist, f, p, c) {
+    if (!tip?.probes?.length || !brim?.tris) return 0;
+    const head = bones.head, k = va.setFromMatrixColumn(head.matrixWorld, 0).length();
+    headInv.copy(head.matrixWorld).invert();
+    const balls = tip.probes.map(({ at, r }) => ({ c: wrist.clone().addScaledVector(f, at.x).addScaledVector(p, at.y).addScaledVector(c, at.z).applyMatrix4(headInv), r: r / k }));
+    const mid = balls.reduce((acc, b) => acc.add(b.c), new THREE.Vector3()).multiplyScalar(1 / balls.length);
+    const room = Math.max(...balls.map((b) => b.c.distanceTo(mid) + b.r)) + 0.05 / k;
+    const near = brim.tris.filter((t, i) => brim.balls[i].c.distanceTo(mid) < room + brim.balls[i].r);
+    const at = new THREE.Vector3();
+    let push = 0;
+    for (let pass = 0; pass < 4 && near.length; pass++) {
+      let need = 0;
+      for (const b of balls) {
+        let d = Infinity;
+        for (const t of near) d = Math.min(d, t.closestPointToPoint(b.c, at).distanceTo(b.c));
+        need = Math.max(need, b.r + BRIM.gap / k - d);
+      }
+      if (need <= 1e-4 / k) break;
+      push += need;
+      for (const b of balls) b.c.addScaledVector(brim.out, need);
+    }
+    return push * k;
+  }
+
   /** Rotate bone `n` (blend `w`) so its `along` axis points along world `dir`. */
   function aim(n, dir, w) {
     const b = bones[n];
@@ -244,7 +432,10 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
     const up = bones[`upperarm_${s}`];
     up.updateWorldMatrix(true, false);
     const S = up.getWorldPosition(new THREE.Vector3());
-    const a = L[`upper_${s}`], b = L[`lower_${s}`];
+    // The lengths are the figure's; a figure drawn larger or smaller than it was made (a
+    // person's own height) reaches as far as its arm is drawn.
+    const k = va.setFromMatrixColumn(sceneM, 0).length();
+    const a = L[`upper_${s}`] * k, b = L[`lower_${s}`] * k;
     const d = T.clone().sub(S);
     const dist = clamp(d.length(), Math.abs(a - b) + 1e-3, a + b - 1e-3);
     d.normalize();
@@ -410,7 +601,7 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
     /** T-3490: talking, one hand comes up before him and moves with what he says (no words: L1). */
     setTalk(on) { talking = !!on; return api; },
     get talking() { return talking; },
-    /** Touch the brow in greeting now (the right hand), unless one is under way. */
+    /** Greet now with the right hand to the hat (or the brow), unless a greeting is under way. */
     // A woman in a dress (T-3423) greets with the nod alone: the touch of the brim or
     // forelock is a man's.
     greet() { if (greeting === 'nod') { nodRequest = 1; return api; } if (greet < 0) { greet = 0; nodRequest = 1; } return api; },
@@ -565,21 +756,46 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
         orientHand(s, toWorldDir(new THREE.Vector3(-sx * 0.25, 0.12 + beat, 1)), toWorldDir(new THREE.Vector3(-sx * 0.55, 0.8, 0)), w * 0.9);
         curl(s, 0.2, w);
       }
-      // The greeting: the right fingertips up to the brow (a touch of the brim or the
-      // forelock), held a beat, and down. The wrist sits a hand's length below and outside
-      // the brow, the fingers pointing up and in to it, the palm toward the face.
+      // The greeting: the right fingertips up to the hat's brim, or the brow bareheaded,
+      // held a beat, and down.
       if (greet >= 0) {
         greet += dt;
         const T = 1.7, w = greet < 0.5 ? smooth(greet / 0.5) : greet < 1.0 ? 1 : smooth((T - greet) / 0.7);
-        // The touch is at the right corner of the brow, beside the eye, so the hand comes
-        // up beside the face, never across it: fingers up and forward to the brim, palm in.
-        const fingers = new THREE.Vector3(0.22, 0.88, 0.42).normalize();
-        const touch = L.brow.clone().add(new THREE.Vector3(-0.072, 0.01, -0.005));
-        const wrist = touch.addScaledVector(fingers, -L.handLen * 0.95);
-        reach('r', toWorldPos(wrist), toWorldDir(new THREE.Vector3(-0.9, -0.35, 0.25)), w);
-        bones.lowerarm_r.updateMatrixWorld(true);
-        orientHand('r', toWorldDir(fingers), toWorldDir(new THREE.Vector3(1, 0.1, -0.3)), w);
-        curl('r', 0.18, w);
+        const hat = hatBrim();
+        if (hat) {
+          // T-3515: a worn hat is touched at its brim from outside and under it: the
+          // fingertips just off the edge, the fingers up and in over toward the crown, the
+          // palm toward the head, so no finger goes into the hat.
+          const head = bones.head;
+          head.updateWorldMatrix(true, false);
+          const out = hat.out.clone().applyQuaternion(head.getWorldQuaternion(qa));
+          const touch = hat.touch.clone().applyMatrix4(head.matrixWorld).addScaledVector(out, (tip?.r ?? 0.009) + BRIM.gap)
+            .addScaledVector(hat.up.clone().applyQuaternion(qa), -BRIM.below);
+          const fingers = toWorldDir(fig.up).multiplyScalar(BRIM_HAND.up).addScaledVector(out, -BRIM_HAND.in).normalize();
+          const palm = out.clone().negate().addScaledVector(toWorldDir(fig.up), -BRIM_HAND.palmDown);
+          palm.addScaledVector(fingers, -palm.dot(fingers)).normalize();
+          const across = fingers.clone().cross(palm);
+          const wrist = tip
+            ? touch.clone().addScaledVector(fingers, -tip.x).addScaledVector(palm, -tip.y).addScaledVector(across, -tip.z)
+            : touch.clone().addScaledVector(fingers, -L.handLen * 0.95);
+          // Where a brim turns up or a cocked hat's side flares, step the hand out from it.
+          wrist.addScaledVector(out, clear(wrist, fingers, palm, across));
+          reach('r', wrist, toWorldDir(new THREE.Vector3(-0.9, -0.35, 0.25)), w);
+          bones.lowerarm_r.updateMatrixWorld(true);
+          orientHand('r', fingers, palm, w);
+          curl('r', BRIM_HAND.curl, w);
+        } else {
+          // Bareheaded, the touch is at the right corner of the brow, beside the eye, so the
+          // hand comes up beside the face, never across it: the wrist a hand's length below
+          // and outside it, fingers up and forward to it, palm in.
+          const fingers = new THREE.Vector3(0.22, 0.88, 0.42).normalize();
+          const touch = L.brow.clone().add(new THREE.Vector3(-0.072, 0.01, -0.005));
+          const wrist = touch.addScaledVector(fingers, -L.handLen * 0.95);
+          reach('r', toWorldPos(wrist), toWorldDir(new THREE.Vector3(-0.9, -0.35, 0.25)), w);
+          bones.lowerarm_r.updateMatrixWorld(true);
+          orientHand('r', toWorldDir(fingers), toWorldDir(new THREE.Vector3(1, 0.1, -0.3)), w);
+          curl('r', 0.18, w);
+        }
         // The rest of the right arm comes back from wherever its pose had it.
         if (greet >= T) greet = -1;
       }
@@ -592,6 +808,7 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
         curl(s, hold.curl);
       }
       for (const s of SIDES) shapeHand(s);
+      if (greet >= 0 && brim?.touch) fingertip();
       settle();
     },
     snapshot() {

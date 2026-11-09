@@ -520,3 +520,6 @@
 .people-firm:hover { background: var(--step); }
 .people-firm:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 .people-firm-go { color: var(--accent); font-size: 17px; line-height: 1; }
+
+/* T-3531: Find and Follow for someone not out in town: greyed, the reason on the key. */
+.people-go:disabled { opacity: .5; cursor: not-allowed; }

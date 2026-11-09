@@ -1,0 +1,550 @@
+{
+  "id": "hi_town_helm_linai_1812",
+  "contract_version": 1,
+  "scene": "1812",
+  "person_id": "helm_linai",
+  "appearance": {
+    "asset_id": "officer_first_infantry_1812"
+  },
+  "placement": {
+    "local_e": 1142.6,
+    "local_n": 241.2,
+    "heading_deg": 0.0,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "idle",
+    "loop": true,
+    "phase": 0.298
+  },
+  "behaviour": {
+    "state": "standing",
+    "day": [
+      {
+        "dates": {
+          "from": "1812-01-01",
+          "to": "1812-08-12"
+        },
+        "note": "a plain day of 1812 at the post (summer hours)",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.2,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.2,
+            "to": 5.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "rising and dressing"
+          },
+          {
+            "from": 5.5,
+            "to": 6.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1154.2,
+              "local_n": 221.7,
+              "heading_deg": 110.0
+            },
+            "doing": "reporting the company at morning roll call",
+            "activity": "talk",
+            "knot": "morning_report"
+          },
+          {
+            "from": 6.0,
+            "to": 7.2,
+            "indoors": false,
+            "at": {
+              "local_e": 1150.6,
+              "local_n": 218.6,
+              "heading_deg": 270.0
+            },
+            "doing": "drilling a squad on the parade",
+            "activity": "stand"
+          },
+          {
+            "from": 7.2,
+            "to": 8.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "breakfast with his wife"
+          },
+          {
+            "from": 8.0,
+            "to": 12.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1150.8,
+              "local_n": 214.2,
+              "heading_deg": 0.0
+            },
+            "doing": "going the rounds of the sentries",
+            "activity": "walk",
+            "to_point": {
+              "local_e": 1150.8,
+              "local_n": 228.4
+            }
+          },
+          {
+            "from": 12.0,
+            "to": 13.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "dinner"
+          },
+          {
+            "from": 13.5,
+            "to": 16.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "the company's books"
+          },
+          {
+            "from": 16.0,
+            "to": 17.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1068.6,
+              "local_n": 183.2,
+              "heading_deg": 270.0
+            },
+            "doing": "seeing the company's bread",
+            "activity": "stand"
+          },
+          {
+            "from": 17.5,
+            "to": 18.7,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "with his wife"
+          },
+          {
+            "from": 18.7,
+            "to": 19.2,
+            "indoors": false,
+            "at": {
+              "local_e": 1154.2,
+              "local_n": 221.7,
+              "heading_deg": 110.0
+            },
+            "doing": "at retreat",
+            "activity": "talk",
+            "knot": "retreat"
+          },
+          {
+            "from": 19.2,
+            "to": 20.2,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "supper"
+          },
+          {
+            "from": 20.2,
+            "to": 22.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "the evening at home; the bachelor officers come in"
+          },
+          {
+            "from": 22.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "asleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-13",
+          "to": "1812-08-13"
+        },
+        "note": "13 August 1812: the plain day until supper, then Wells, and the destruction at night",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.2,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.2,
+            "to": 5.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "rising and dressing"
+          },
+          {
+            "from": 5.5,
+            "to": 6.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1154.2,
+              "local_n": 221.7,
+              "heading_deg": 110.0
+            },
+            "doing": "reporting the company at morning roll call",
+            "activity": "talk",
+            "knot": "morning_report"
+          },
+          {
+            "from": 6.0,
+            "to": 7.2,
+            "indoors": false,
+            "at": {
+              "local_e": 1150.6,
+              "local_n": 218.6,
+              "heading_deg": 270.0
+            },
+            "doing": "drilling a squad on the parade",
+            "activity": "stand"
+          },
+          {
+            "from": 7.2,
+            "to": 8.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "breakfast with his wife"
+          },
+          {
+            "from": 8.0,
+            "to": 12.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1150.8,
+              "local_n": 214.2,
+              "heading_deg": 0.0
+            },
+            "doing": "going the rounds of the sentries",
+            "activity": "walk",
+            "to_point": {
+              "local_e": 1150.8,
+              "local_n": 228.4
+            }
+          },
+          {
+            "from": 12.0,
+            "to": 13.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "dinner"
+          },
+          {
+            "from": 13.5,
+            "to": 16.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "the company's books"
+          },
+          {
+            "from": 16.0,
+            "to": 17.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1068.6,
+              "local_n": 183.2,
+              "heading_deg": 270.0
+            },
+            "doing": "seeing the company's bread",
+            "activity": "stand"
+          },
+          {
+            "from": 17.5,
+            "to": 18.7,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "with his wife"
+          },
+          {
+            "from": 18.7,
+            "to": 19.2,
+            "indoors": false,
+            "at": {
+              "local_e": 1154.2,
+              "local_n": 221.7,
+              "heading_deg": 110.0
+            },
+            "doing": "at retreat",
+            "activity": "talk",
+            "knot": "retreat"
+          },
+          {
+            "from": 19.2,
+            "to": 19.8,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "supper"
+          },
+          {
+            "from": 19.8,
+            "to": 21.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "with Kinzie, calling on Wells and the captain about the arms"
+          },
+          {
+            "from": 21.0,
+            "to": 24.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1142.6,
+              "local_n": 241.2,
+              "heading_deg": 0.0
+            },
+            "doing": "over the men knocking in the liquor barrels and pouring them into the river",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1141.0,
+                "local_n": 242.3
+              },
+              {
+                "local_e": 1144.0,
+                "local_n": 242.5
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-14",
+          "to": "1812-08-14"
+        },
+        "note": "14 August 1812, the last full day",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 1.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1142.6,
+              "local_n": 241.2,
+              "heading_deg": 0.0
+            },
+            "doing": "seeing the last liquor barrels stove in and poured into the river",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1141.0,
+                "local_n": 242.3
+              },
+              {
+                "local_e": 1144.0,
+                "local_n": 242.5
+              }
+            ]
+          },
+          {
+            "from": 1.0,
+            "to": 5.2,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.2,
+            "to": 5.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "rising and dressing"
+          },
+          {
+            "from": 5.5,
+            "to": 6.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1154.2,
+              "local_n": 221.7,
+              "heading_deg": 110.0
+            },
+            "doing": "reporting the company",
+            "activity": "talk",
+            "knot": "morning_report"
+          },
+          {
+            "from": 6.0,
+            "to": 7.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1066.2,
+              "local_n": 138.4,
+              "heading_deg": 300.0
+            },
+            "doing": "with his father-in-law Kinzie over the hired horses and mules",
+            "activity": "talk",
+            "knot": "hired_horses"
+          },
+          {
+            "from": 7.5,
+            "to": 8.2,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "breakfast with his wife"
+          },
+          {
+            "from": 8.2,
+            "to": 10.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_north_range",
+            "doing": "in the contractor's store, making up the provisions for the march"
+          },
+          {
+            "from": 10.0,
+            "to": 12.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1075.2,
+              "local_n": 218.6,
+              "heading_deg": 300.0
+            },
+            "doing": "with the commander while the factory goods are given out",
+            "activity": "talk",
+            "knot": "factory_distribution"
+          },
+          {
+            "from": 12.0,
+            "to": 13.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "dinner"
+          },
+          {
+            "from": 13.5,
+            "to": 14.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "with Heald over the order of march"
+          },
+          {
+            "from": 14.0,
+            "to": 16.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_blockhouse_se",
+            "doing": "in the south-east blockhouse with the gun crew, port-holes open, while the council sits"
+          },
+          {
+            "from": 16.5,
+            "to": 18.7,
+            "indoors": false,
+            "at": {
+              "local_e": 1158.6,
+              "local_n": 196.4,
+              "heading_deg": 220.0
+            },
+            "doing": "placing the wagons for the women, children and sick",
+            "activity": "talk",
+            "knot": "wagons_14aug"
+          },
+          {
+            "from": 18.7,
+            "to": 19.2,
+            "indoors": false,
+            "at": {
+              "local_e": 1154.2,
+              "local_n": 221.7,
+              "heading_deg": 110.0
+            },
+            "doing": "at retreat",
+            "activity": "talk",
+            "knot": "retreat"
+          },
+          {
+            "from": 19.2,
+            "to": 20.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "supper"
+          },
+          {
+            "from": 20.0,
+            "to": 22.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "with his wife and her family, the Kinzies, who are lodging in the fort"
+          },
+          {
+            "from": 22.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "asleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-15",
+          "to": "1812-08-15"
+        },
+        "note": "15 August 1812, until the march at nine",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 4.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "asleep"
+          },
+          {
+            "from": 4.5,
+            "to": 8.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_officers_barracks",
+            "doing": "packing his last things; dressing for the march"
+          },
+          {
+            "from": 8.5,
+            "to": 9.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1155.0,
+              "local_n": 223.0,
+              "heading_deg": 180.0
+            },
+            "doing": "forming the company to march out",
+            "activity": "stand"
+          },
+          {
+            "from": 9.0,
+            "to": 24.0,
+            "indoors": true,
+            "away": true,
+            "doing": "gone out of the gate with the column (the battle jaunt has the march, the battle and its end)"
+          }
+        ]
+      }
+    ],
+    "presence": {
+      "from": "1811-06-01",
+      "to": "1812-08-15"
+    }
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 3,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": false,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "Reconstructed figure of Linai T. Helm in the 1812 town, at each hour of each run of dates where the reading for T-3463 (docs/RESEARCH/people-1812-3463/day.json) puts them: indoors (asked for at the door) or out at their work, with the people they would be with. The hours, the places and the companions are ours (liberty L-1812-town-days-3463), each span graded with its own basis in the reading; what a source says of them is on their card. They wear the officer first infantry 1812 role dress, with their own face, height, build and colouring.",
+    "sources": [
+      "kinzie_waubun_1856",
+      "quaife_1913",
+      "us_1812_rules_and_articles_albany"
+    ],
+    "liberty": "L418",
+    "seed": "helm_linai:1812:days:20261108",
+    "replaceable_by": "A diary, letter or order book of the post that says where they were and what they did on the day."
+  }
+}

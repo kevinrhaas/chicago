@@ -2,7 +2,7 @@
   "structure_id": "coleman_ames_house_1811_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/coleman_ames_house_1811_prairie__as_mapped_1904.glb",
-  "glb_sha256": "e936066f02a9c14c7948140aebfbf125cf99f5c255fbba1a2a29ab5becd7a1a3",
+  "glb_sha256": "28c23dba0d52328a638d3fc58cfdad5505b8365e09d5edcd522a65224efb7135",
   "camera_sha256": "cb362fce20647693405877df9217185fbe854f22b072fdf325c232d8d6a9771c",
   "photo_sha256": "6f5d94e0a9794ccf9f84d0f5cd0cf00c6bd09caa8e57be79d83958572bbc9b0c",
   "side_by_side": "docs/RESEARCH/photo-match/coleman_ames_house_1811_prairie/chicagology_photo-side-by-side.jpg",
@@ -97,7 +97,12 @@
       "what": "where the coping's openings fall along the lot line",
       "status": "within tolerance",
       "how": "registered on the stair, the print's opening and blocks fall within about 0.3 m of where they are laid; the walk's turn behind the coping is the kit's reading of the print's angled walk"
+    },
+    {
+      "what": "the hip over the north pier: no slot cut into the roof from the north (the owner's phone shot, 2026-11-09)",
+      "status": "fixed",
+      "how": "the cut over the pier now dies out on a diagonal toward the north eave (T-1890, 2026-11-09); through this camera the pier still has sky over its cap and the hip's corner stays hidden behind the gable's north pinnacle, as in the print (an upright face had let a sliver of its edge show there; leaning it 75 degrees took it away)"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

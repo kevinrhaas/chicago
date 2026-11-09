@@ -91,6 +91,22 @@
           "claim": "May 1812: Little Calumet village chiefs",
           "tier": "contemporary document (May 1812) as printed by Andreas [OCR normalised; the village size figure is illegible in the OCR]"
         }
+      ],
+      "on_15_august": {
+        "value": "Among the attackers; killed Sergeant Hays and was mortally wounded by his bayonet",
+        "grade": "inferred",
+        "note": "Wau-Bun (family tradition); Schoolcraft (1820, via Quaife) tells the same with the man unnamed.",
+        "sources": [
+          "kinzie_waubun_1856",
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
+        {
+          "label": "On 15 August",
+          "value": "Among the attackers; killed Sergeant Hays and was mortally wounded by his bayonet",
+          "grade": "inferred"
+        }
       ]
     }
   ]

@@ -9,6 +9,7 @@ Write the runtime library sheets as KTX2 (Basis Universal), next to their source
     python3 tools/ktx2_sheets.py --rows     # decode each sheet and say which row it starts
                                             # on (needs `ktx`, so not in check.sh; T-2593)
     python3 tools/ktx2_sheets.py --only walls/   # only the sheets under one directory
+    python3 tools/ktx2_sheets.py --self-test # the pinned fetch waits out a 504 (T-3501)
 
 WHY (T-2551, split to T-2582): a WebP/PNG/JPEG sheet is decoded on the CPU and uploaded as
 uncompressed RGBA8, four bytes a texel plus a third for mips. A Basis Universal KTX2 is
@@ -83,6 +84,8 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import time
+import urllib.error
 import urllib.request
 from pathlib import Path
 
@@ -239,6 +242,53 @@ def luma_record(d: Path, sid: str) -> dict:
                       'luma by it to normalise the grain'}
 
 
+# T-3501. The release asset is served from github.com, which answers a 504 now and then:
+# PR #1873's content build (run 42469167608) failed three times on 2026-11-08, 09:57,
+# 10:06 and 10:21Z, each on a 504 for this .deb, once in the workflow's install step
+# (which warns and goes on) and again here, where a single urlopen FATALed on the first
+# textured mesh with nothing wrong in the diff. So a transient answer (a 5xx, 408, 429,
+# a dropped connection, a timeout) is retried with a widening wait, about seven minutes
+# in all; any other 4xx is the URL being wrong and fails at once, and so does a file
+# whose sha256 is not the pin. The download lands in a `.part` beside the cache and is
+# renamed only once it hashes right, so a half-written .deb can never be mistaken for
+# a cached one. The workflow keeps the verified .deb in actions/cache at KTX_CACHE, the
+# same directory as here, so a build normally never reaches github.com for it at all.
+FETCH_WAITS = (5, 15, 30, 60, 120, 240)  # seconds before each retry, after the first try
+FETCH_TIMEOUT = 120                      # seconds of silence a single try may sit through
+
+
+def transient(e: BaseException) -> bool:
+    """Is this failure one a later try can get past?"""
+    if isinstance(e, urllib.error.HTTPError):
+        return e.code >= 500 or e.code in (408, 429)
+    return isinstance(e, (urllib.error.URLError, TimeoutError, ConnectionError, OSError))
+
+
+def fetch_pinned(url: str, dest: Path, sha256: str, waits=FETCH_WAITS, timeout=FETCH_TIMEOUT,
+                 sleep=time.sleep) -> None:
+    """Download `url` to `dest` and verify it against `sha256`, retrying transient failures."""
+    part = dest.with_name(dest.name + '.part')
+    for n, wait in enumerate((0, *waits), 1):
+        if wait:
+            print(f'  retrying in {wait} s (try {n} of {len(waits) + 1})', file=sys.stderr)
+            sleep(wait)
+        try:
+            with urllib.request.urlopen(url, timeout=timeout) as r, open(part, 'wb') as w:
+                shutil.copyfileobj(r, w)
+        except Exception as e:  # noqa: BLE001 - sorted by transient() below
+            part.unlink(missing_ok=True)
+            if not transient(e) or n == len(waits) + 1:
+                sys.exit(f'{dest.name}: could not fetch {url} after {n} tr{"y" if n == 1 else "ies"}: {e}')
+            print(f'  {url}: {e}', file=sys.stderr)
+            continue
+        got = hashlib.sha256(part.read_bytes()).hexdigest()
+        if got != sha256:
+            part.unlink()
+            sys.exit(f'{dest.name}: sha256 {got} is not the pinned {sha256}')
+        part.replace(dest)
+        return
+
+
 def ktx_binary():
     """A runnable `ktx` 4.3.2 and the environment to run it in."""
     on_path = shutil.which('ktx')
@@ -252,8 +302,7 @@ def ktx_binary():
         deb = CACHE / KTX_DEB
         if not deb.exists():
             print(f'fetching {KTX_URL}', file=sys.stderr)
-            with urllib.request.urlopen(KTX_URL) as r, open(deb, 'wb') as w:
-                shutil.copyfileobj(r, w)
+            fetch_pinned(KTX_URL, deb, KTX_SHA256)
         got = hashlib.sha256(deb.read_bytes()).hexdigest()
         if got != KTX_SHA256:
             deb.unlink()
@@ -478,13 +527,79 @@ def rows_check(todo):
         sys.exit(f'{len(top)} sheet(s) in the wrong row order — run python3 tools/ktx2_sheets.py')
 
 
+def self_test():
+    """fetch_pinned against a local server: 504s are waited out, a 404 and a wrong sha are not."""
+    import http.server
+    import threading
+    body = b'not really a .deb, but pinned all the same\n'
+    pin = hashlib.sha256(body).hexdigest()
+    plan = {}  # path -> the statuses still to answer before the body
+
+    class H(http.server.BaseHTTPRequestHandler):
+        def do_GET(self):
+            todo = plan.setdefault(self.path, [])
+            code = todo.pop(0) if todo else 200
+            if code == 'drop':
+                self.connection.close()
+                return
+            self.send_response(code)
+            self.end_headers()
+            if code == 200:
+                self.wfile.write(body)
+
+        def log_message(self, *a):
+            pass
+
+    srv = http.server.ThreadingHTTPServer(('127.0.0.1', 0), H)
+    threading.Thread(target=srv.serve_forever, daemon=True).start()
+    base = f'http://127.0.0.1:{srv.server_address[1]}'
+    slept, bad = [], 0
+
+    def run(path, statuses, sha=pin, waits=(1, 2, 3)):
+        plan[path] = list(statuses)
+        slept.clear()
+        with tempfile.TemporaryDirectory() as t:
+            dest = Path(t) / 'k.deb'
+            try:
+                fetch_pinned(base + path, dest, sha, waits=waits, timeout=5, sleep=slept.append)
+                ok = dest.read_bytes() == body
+            except SystemExit:
+                ok = False
+            return ok, len(slept), dest.exists() or dest.with_name('k.deb.part').exists()
+
+    cases = [
+        ('two 504s, then the file: fetched on the third try', '/a', [504, 504], pin, (True, 2, True)),
+        ('a 502, a 429 and a dropped connection are all waited out', '/b', [502, 429, 'drop'], pin,
+         (True, 3, True)),
+        ('a 404 is the URL being wrong: refused on the first try, no wait', '/c', [404], pin,
+         (False, 0, False)),
+        ('504 on every try: refused after the last wait, nothing left behind', '/d', [504] * 9, pin,
+         (False, 3, False)),
+        ('the file served but its sha256 is not the pin: refused, nothing kept', '/e', [], '0' * 64,
+         (False, 0, False)),
+    ]
+    for name, path, statuses, sha, want in cases:
+        got = run(path, statuses, sha)
+        ok = got == want
+        bad += not ok
+        print(f'  {"ok  " if ok else "FAIL"} {name}' + ('' if ok else f'  (got {got}, wanted {want})'))
+    srv.shutdown()
+    if bad:
+        sys.exit(f'ktx2_sheets --self-test: {bad} of {len(cases)} case(s) failed')
+    print(f'ktx2_sheets --self-test: {len(cases)} of {len(cases)} cases held')
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split('\n\n')[0])
     ap.add_argument('--check', action='store_true')
     ap.add_argument('--list', action='store_true')
     ap.add_argument('--rows', action='store_true')
     ap.add_argument('--only', help='convert only the sheets whose directory contains this')
+    ap.add_argument('--self-test', action='store_true',
+                    help="prove the pinned fetch's retry rules against a local server (T-3501)")
     a = ap.parse_args()
+    if a.self_test:
+        return self_test()
     todo = sheets()
     if a.check:
         return check(todo)

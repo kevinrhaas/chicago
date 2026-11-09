@@ -29286,8 +29286,21 @@ how they were set out and what each looked like is ours. Every record is `review
 **How to resolve:** a count or a map of the lodges of August 1812; a picture or a description of a
 Potawatomi camp at Chicago in those years; the judgement of Native scholars or community
 organisations, which may change the forms, the number or whether the camp is drawn at all.
-**Ticket:** T-2515 (piece 2 of T-2490; the date move was T-2514); rebuilt by T-3342.
-**Recorded:** 2026-10-15 (T-2515).
+**The worn ground, redrawn (T-3511, 2026-11-08).** The owner, from 715 ft: *"the camps look oddly
+regular, maybe that is the case that they are very round like that, but I would expect more
+variation, but check me on that"*. The rounded patches were ours, and nothing supports them: Currey
+has "groups of Indian wigwams clustered along the creek", and the witnesses of the 1833 treaty
+gathering (Andreas 1884 v1) put the Potawatomi "encamped on all sides on the wide, level prairie
+... beneath the low wood which chequered them, on the sides of the small river" and "in groups in
+their wigwams scattered about on the prairie". No account of a Potawatomi camp at Chicago describes
+rows or a ring. So each group's worn patch is now the ground round its own lodges, fires, racks and
+stakes as the archetype lays them (`tools/generate_camp_ground_1812.py`: a disc round each item,
+sized by what it is, smoothed, frayed by a seeded wobble, held within 1 m of the footprint), and no
+two are alike. The lodges did not move. What is ours: how far round each thing the ground wore (0.9 m
+round a bundle to 2.9 m round an arbor), the fray and the smoothing. The grounds' own places, which
+still sit 40-60 m apart on level ground, are unchanged.
+**Ticket:** T-2515 (piece 2 of T-2490; the date move was T-2514); rebuilt by T-3342, T-3511.
+**Recorded:** 2026-10-15 (T-2515); 2026-11-08 (T-3511).
 **Revised:** 2026-11-03 (T-3342).
 **Covers:** `potawatomi_camp_1812_mouth.occupants`, `potawatomi_camp_1812_mouth.camp_1812.footprint`, `potawatomi_camp_1812_mouth.camp_1812.form.mat_lodges`, `potawatomi_camp_1812_mouth.camp_1812.form.long_lodges`, `potawatomi_camp_1812_mouth.camp_1812.form.bark_roofed_lodges`, `potawatomi_camp_1812_mouth.camp_1812.form.bark_houses`, `potawatomi_camp_1812_mouth.camp_1812.form.arbors`, `potawatomi_camp_1812_mouth.camp_1812.form.hearths`, `potawatomi_camp_1812_mouth.camp_1812.form.drying_racks`, `potawatomi_camp_1812_mouth.camp_1812.form.scaffolds`, `potawatomi_camp_1812_mouth.camp_1812.form.hide_frames`, `potawatomi_camp_1812_mouth.camp_1812.form.woodpiles`, `potawatomi_camp_1812_mouth.camp_1812.form.mortars`, `potawatomi_camp_1812_mouth.camp_1812.form.canoes`, `potawatomi_camp_1812_mouth.camp_1812.form.horse_pickets`, `potawatomi_camp_1812_mouth.camp_1812.form.pack_saddles`, `potawatomi_camp_1812_mouth.camp_1812.form.canoe_edge`, `potawatomi_camp_1812_mouth.camp_1812.form.mat_condition`, `potawatomi_camp_1812_middle.occupants`, `potawatomi_camp_1812_middle.camp_1812.footprint`, `potawatomi_camp_1812_middle.camp_1812.form.mat_lodges`, `potawatomi_camp_1812_middle.camp_1812.form.long_lodges`, `potawatomi_camp_1812_middle.camp_1812.form.bark_roofed_lodges`, `potawatomi_camp_1812_middle.camp_1812.form.bark_houses`, `potawatomi_camp_1812_middle.camp_1812.form.arbors`, `potawatomi_camp_1812_middle.camp_1812.form.hearths`, `potawatomi_camp_1812_middle.camp_1812.form.drying_racks`, `potawatomi_camp_1812_middle.camp_1812.form.scaffolds`, `potawatomi_camp_1812_middle.camp_1812.form.hide_frames`, `potawatomi_camp_1812_middle.camp_1812.form.woodpiles`, `potawatomi_camp_1812_middle.camp_1812.form.mortars`, `potawatomi_camp_1812_middle.camp_1812.form.canoes`, `potawatomi_camp_1812_middle.camp_1812.form.horse_pickets`, `potawatomi_camp_1812_middle.camp_1812.form.pack_saddles`, `potawatomi_camp_1812_middle.camp_1812.form.canoe_edge`, `potawatomi_camp_1812_middle.camp_1812.form.mat_condition`, `potawatomi_camp_1812_west_bank.occupants`, `potawatomi_camp_1812_west_bank.camp_1812.footprint`, `potawatomi_camp_1812_west_bank.camp_1812.form.mat_lodges`, `potawatomi_camp_1812_west_bank.camp_1812.form.long_lodges`, `potawatomi_camp_1812_west_bank.camp_1812.form.bark_roofed_lodges`, `potawatomi_camp_1812_west_bank.camp_1812.form.bark_houses`, `potawatomi_camp_1812_west_bank.camp_1812.form.arbors`, `potawatomi_camp_1812_west_bank.camp_1812.form.hearths`, `potawatomi_camp_1812_west_bank.camp_1812.form.drying_racks`, `potawatomi_camp_1812_west_bank.camp_1812.form.scaffolds`, `potawatomi_camp_1812_west_bank.camp_1812.form.hide_frames`, `potawatomi_camp_1812_west_bank.camp_1812.form.woodpiles`, `potawatomi_camp_1812_west_bank.camp_1812.form.mortars`, `potawatomi_camp_1812_west_bank.camp_1812.form.canoes`, `potawatomi_camp_1812_west_bank.camp_1812.form.horse_pickets`, `potawatomi_camp_1812_west_bank.camp_1812.form.pack_saddles`, `potawatomi_camp_1812_west_bank.camp_1812.form.canoe_edge`, `potawatomi_camp_1812_west_bank.camp_1812.form.mat_condition`, `potawatomi_camp_1812_upper.occupants`, `potawatomi_camp_1812_upper.camp_1812.footprint`, `potawatomi_camp_1812_upper.camp_1812.form.mat_lodges`, `potawatomi_camp_1812_upper.camp_1812.form.long_lodges`, `potawatomi_camp_1812_upper.camp_1812.form.bark_roofed_lodges`, `potawatomi_camp_1812_upper.camp_1812.form.bark_houses`, `potawatomi_camp_1812_upper.camp_1812.form.arbors`, `potawatomi_camp_1812_upper.camp_1812.form.hearths`, `potawatomi_camp_1812_upper.camp_1812.form.drying_racks`, `potawatomi_camp_1812_upper.camp_1812.form.scaffolds`, `potawatomi_camp_1812_upper.camp_1812.form.hide_frames`, `potawatomi_camp_1812_upper.camp_1812.form.woodpiles`, `potawatomi_camp_1812_upper.camp_1812.form.mortars`, `potawatomi_camp_1812_upper.camp_1812.form.canoes`, `potawatomi_camp_1812_upper.camp_1812.form.horse_pickets`, `potawatomi_camp_1812_upper.camp_1812.form.pack_saddles`, `potawatomi_camp_1812_upper.camp_1812.form.canoe_edge`, `potawatomi_camp_1812_upper.camp_1812.form.mat_condition`, `potawatomi_camp_1812_south_reach.occupants`, `potawatomi_camp_1812_south_reach.camp_1812.footprint`, `potawatomi_camp_1812_south_reach.camp_1812.form.mat_lodges`, `potawatomi_camp_1812_south_reach.camp_1812.form.long_lodges`, `potawatomi_camp_1812_south_reach.camp_1812.form.bark_roofed_lodges`, `potawatomi_camp_1812_south_reach.camp_1812.form.bark_houses`, `potawatomi_camp_1812_south_reach.camp_1812.form.arbors`, `potawatomi_camp_1812_south_reach.camp_1812.form.hearths`, `potawatomi_camp_1812_south_reach.camp_1812.form.drying_racks`, `potawatomi_camp_1812_south_reach.camp_1812.form.scaffolds`, `potawatomi_camp_1812_south_reach.camp_1812.form.hide_frames`, `potawatomi_camp_1812_south_reach.camp_1812.form.woodpiles`, `potawatomi_camp_1812_south_reach.camp_1812.form.mortars`, `potawatomi_camp_1812_south_reach.camp_1812.form.canoes`, `potawatomi_camp_1812_south_reach.camp_1812.form.horse_pickets`, `potawatomi_camp_1812_south_reach.camp_1812.form.pack_saddles`, `potawatomi_camp_1812_south_reach.camp_1812.form.canoe_edge`, `potawatomi_camp_1812_south_reach.camp_1812.form.mat_condition`, `potawatomi_camp_1812_horse_ground.occupants`, `potawatomi_camp_1812_horse_ground.camp_1812.footprint`, `potawatomi_camp_1812_horse_ground.camp_1812.form.mat_lodges`, `potawatomi_camp_1812_horse_ground.camp_1812.form.long_lodges`, `potawatomi_camp_1812_horse_ground.camp_1812.form.bark_roofed_lodges`, `potawatomi_camp_1812_horse_ground.camp_1812.form.bark_houses`, `potawatomi_camp_1812_horse_ground.camp_1812.form.arbors`, `potawatomi_camp_1812_horse_ground.camp_1812.form.hearths`, `potawatomi_camp_1812_horse_ground.camp_1812.form.drying_racks`, `potawatomi_camp_1812_horse_ground.camp_1812.form.scaffolds`, `potawatomi_camp_1812_horse_ground.camp_1812.form.hide_frames`, `potawatomi_camp_1812_horse_ground.camp_1812.form.woodpiles`, `potawatomi_camp_1812_horse_ground.camp_1812.form.mortars`, `potawatomi_camp_1812_horse_ground.camp_1812.form.canoes`, `potawatomi_camp_1812_horse_ground.camp_1812.form.horse_pickets`, `potawatomi_camp_1812_horse_ground.camp_1812.form.pack_saddles`, `potawatomi_camp_1812_horse_ground.camp_1812.form.canoe_edge`, `potawatomi_camp_1812_horse_ground.camp_1812.form.mat_condition`
 
@@ -30547,8 +30560,18 @@ record of that spot is reading this pattern. Nothing a record states has moved.
 **How to resolve:** a plant-community record for the 1835 plain (wet prairie, mesic prairie,
 sloughs), such as one read from the federal land survey's field notes, would replace the noise
 with evidence. The map's role is the slot such a record would fill.
-**Ticket:** T-2552.
-**Recorded:** 2026-10-16.
+**From the air (T-3514, 2026-11-08).** The owner, from 715 ft over the 1812 camp: *"from above it looks
+very patchy regular repeating pattern on the ground. While you don't see this while walking you can see how
+regular it looks from above"*. Two repeats were still showing: inside each 22 m band the 11 m tile, and,
+further out, the far sward's grain (T-2783), one small tile that a grazing view compresses into streaks
+but that, looked down on, is a checker to the horizon. So past ~110 m the tile hands up to 0.78 of its say
+to a second read of this same map at a sixth of its scale (3-45 m clumps, a 531 m repeat, turned 57
+degrees off the first), and the far sward's grain hands over to that read as the view steepens (fully
+at 0.34 radian down; every far fragment a walker sees is under 0.12). Both are read over their own
+means, so no albedo moves, and on foot nothing changes. The scale, the angles, the shares and the
+steepness band are ours.
+**Ticket:** T-2552, T-3514.
+**Recorded:** 2026-10-16; 2026-11-08 (T-3514).
 
 
 ### L-k01-1812-wheeler-front-2543 — 1812 Prairie refined from the district draft to a K01 house built from Albert Levy's photograph: its massing, south projection and shaped Flemish gable read through a solved camera, the rest the kits' until T-2544 and T-2545
@@ -31063,8 +31086,12 @@ under L-tree-architecture-2743.
 **How to resolve:** the original township plat's notes on the sand ridges, an early drawing or
 photograph of the lake shore south of Twelfth Street or north of the harbour before the fills, or a
 botanical record of the Chicago dunes before 1860 naming the cedar and the pine.
-**Ticket:** T-2768.
-**Recorded:** 2026-10-18 (T-2768).
+T-3513 (2026-11-08): the scanty reach is read at 8-18 stems a hectare instead of 3-9, in the same
+clumps and the same two species. The owner asked for the battle shore's look along the whole shore;
+Currey's word is still "scanty", so the reach stays thinner than the cedar hills south of it, and
+the cedars stay where Clarke puts the sand hills. The new figure is ours, as the old one was.
+**Ticket:** T-2768, T-3513.
+**Recorded:** 2026-10-18 (T-2768); 2026-11-08 (T-3513).
 
 ### L-woods-structure-2807 — The woods in clumps and openings, young trees in the gaps, and the thicket at the woods' prairie edge
 
@@ -34695,7 +34722,7 @@ For the 1812 scene's Light tier alone, multiply the existing uniform woody accep
 
 ### L-k01-1811-north-pier-3112 — 1811 Prairie's north pier capped under the bay's cornice, its slate weathering and the eave cut back over it
 
-**Decision:** The front's north end at 1811 Prairie (K01's low-s end, v 0 to 0.93) is built as a pier capped below the bay's cornice (T-3112, `form.front_pier`): its rock-faced courses unbroken from the base course to a dressed band at 7.10-7.22 m, one rock-faced course, and a moulded cap at 7.52-7.72 m, the band 0.05 m and the cap 0.12 m proud. The band, the cap and the slate top over them are read off the Chicagology photograph through T-3052's camera, and checked on the 1888 plate through T-2541's camera, so the record grades them `inferred`. Four things about it are invented. (1) No picture sees the weathering's pitch behind its front edge. It is slated at 42 degrees from the cap's front edge, which is the pitch whose render meets the print's slate at the bay's cornice. (2) No picture sees how the hipped roof meets the pier. So the front's wall head, the moulded cornice and the roof's street and side eaves are cut back over the pier's width to the weathering's slope, the side wall under it is stepped down below that slope, and the cut's face against the rest of the roof is slated like a dormer's cheek. From every camera that sees the pier this reads as the pictures do: sky over the cap. From the north it reads as the hip coming down to the pier. (3) The band and the cap are returned along the north side wall only as far back as the weathering over them stands under the soffit (about 0.6 m). The side wall stays brick. (4) The cap's moulding is two dressed boxes, a fillet over a narrower member, not the print's ogee and cove. The new downpipe at the pier's junction with the cheek takes its head, straps and shoe from K04, like the other two.
+**Decision:** The front's north end at 1811 Prairie (K01's low-s end, v 0 to 0.93) is built as a pier capped below the bay's cornice (T-3112, `form.front_pier`): its rock-faced courses unbroken from the base course to a dressed band at 7.10-7.22 m, one rock-faced course, and a moulded cap at 7.52-7.72 m, the band 0.05 m and the cap 0.12 m proud. The band, the cap and the slate top over them are read off the Chicagology photograph through T-3052's camera, and checked on the 1888 plate through T-2541's camera, so the record grades them `inferred`. Four things about it are invented. (1) No picture sees the weathering's pitch behind its front edge. It is slated at 42 degrees from the cap's front edge, which is the pitch whose render meets the print's slate at the bay's cornice. (2) No picture sees how the hipped roof meets the pier. So the front's wall head, the moulded cornice and the roof's street and side eaves are cut back over the pier's width to the weathering's slope, the side wall under it is stepped down below that slope, and the cut's face against the rest of the roof is slated. T-1890 (2026-11-09, the owner's phone shot from the north-west: "see the big gash in it"): that face no longer stands upright along the pier's inner edge for 3.4 m back along the north eave, which read as a slot cut into the hip. It runs on a diagonal from the pier's inner corner on the weathering back to 0.6 m behind where the weathering meets the north eave, leaning 75 degrees, so the cut is widest over the pier and dies out at the eave. The diagonal, the lean and the 0.6 m are ours, set so that every camera that sees the pier still shows sky over the cap. From the north it reads as the hip coming down to the pier. (3) The band and the cap are returned along the north side wall only as far back as the weathering over them stands under the soffit (about 0.6 m). The side wall stays brick. (4) The cap's moulding is two dressed boxes, a fillet over a narrower member, not the print's ogee and cove. The new downpipe at the pier's junction with the cheek takes its head, straps and shoe from K04, like the other two.
 
 **Re-opens on:** a photograph of the north side, or a drawing of the roof at the north corner.
 **Ticket:** T-3112.
@@ -36975,6 +37002,115 @@ backwards; the white of the belts follows Ogden (Krimmel's are dark); the feathe
 metal and the overalls' white linen are chosen. **Skin and hair:** the shared young light-skinned generic skin
 and short04 hair of the period studies; no hair row (1812 has no era default). Every amount is chosen by eye;
 none is measured, and none says what the garrison wore.
+
+**The 1812 women supplement, 2026-11-08 (T-3464):** the modular dress path now dresses the
+women of the 1812 town and camp on the shared female rig, one generator
+(`tools/human_women_1812.py`) and four anonymous role assets: `lady_1812` (an officer's or
+trader's wife's high-waisted day gown of a small blue print, a muslin kerchief and a day cap,
+after the Met's American linen dress and cap of 1810-20 and Krimmel's Philadelphia pictures of
+1811), `woman_working_1812` (Wau-Bun's short gown and petticoat with an apron, kerchief and
+linen cap, after Lambert's country women of 1810 and Krimmel's *Black Sawyers*), its variant
+`woman_country_1812` (the same in a red print and dark stroud with Wau-Bun's "blue cotton
+handkerchief wrapped around her head" and moccasins), and `potawatomi_woman_1812` (a wrapped
+strouding skirt with its selvage at the hem, a calico shirt, cloth leggings, moccasins, a
+trade blanket and three small silver brooches, from the goods distributed to the camp on the
+13th and the presents of the years before, Wau-Bun, Quaife and Hubbard; review required and
+touching removal, under the AGENTS.md standing constraint; no paint, nothing ceremonial). The
+pictures are of Philadelphia and Lower Canada and the garments in museums are of the eastern
+states; no woman at Chicago is pictured in these clothes, and no asset is a likeness of anyone.
+Every cut, ease, length, fold, colour and the Potawatomi selvage are reconstructed; prints are
+drawn as their mean colour; hair is drawn by the looks layer. **How to resolve:** a printed
+cloth texture within the budget, a crossed kerchief with real folds, a blanket that hangs as
+loose wool when the arms come down, a faded variant for the elder woman, the Potawatomi
+woman's beads and ear-bobs if a source of 1812 names them, and a review of the Potawatomi
+figure by people with standing to judge (the Newberry's Indigenous Chicago material and the
+Citizen Potawatomi Nation's own record).
+
+**The 1812 children supplement, 2026-11-08 (T-3465):** the modular dress path now dresses
+children, on two new CC0 engineering bodies blended from the pinned MakeHuman child and baby
+macro targets (an 8-year boy and girl at 120.8 and 120.5 cm, a 3-year child of either sex at
+90.5 cm: CDC 2000 10th centile, the research's centile; ages linear between MakeHuman's baby (1)
+and child (10) anchors). Five anonymous role assets, `tools/human_child_1812.py`:
+`child_boy_1812` (a skeleton suit after Joshua Johnson's Rutter children and the Pixler
+family), `child_girl_1812` (a high-waisted frock after the Rutter girl, Emma Van Name and the
+Beecher frock, with a reconstructed pinafore), `child_toddler_1812` (the unbreeched child's
+white frock), and `potawatomi_boy_1812` and `potawatomi_girl_1812` (calico, stroud and
+moccasins of the camp, after Wau-Bun, Quaife, Hubbard and Keating; review required and touching
+removal, under the AGENTS.md standing constraint). The pictures are of Baltimore and rural
+Pennsylvania children in their best, and George Winter's 1837 picture of Potawatomi children is
+reference only (permission required, nothing taken). Every cut, ease, length, colour and the
+pinafore are reconstructed; no child at Chicago is pictured or described in these clothes, and
+no asset is a likeness of anyone. The baked walk is scaled to the child's leg (a stopgap until
+the builder takes a walk scale). **How to resolve:** a 12-year body for the 11-13-year-olds,
+the frill of the boy's collar, sunbonnets and caps, bare feet in summer, the head kerchief of
+the Potawatomi girls, and a review of the Potawatomi pair by people with standing to judge.
+
+**The 1812 engagé and Potawatomi man supplement, 2026-11-08:** two role dresses on the same
+component path, each anonymous, graded reconstructed and naming no one. **The engagé**
+(`tools/human_engage_1812.py`, `data/humans/recipes/engage_1812.json`, asset `engage_1812`, the
+shared male body at 35): a French Canadian or Métis engagé of a Chicago trading household, after
+Wau-Bun's engagé of 1812 ("a suit of deer-skin, with belt, moccasins", `kinzie_waubun_1856`) and the
+habitant and voyageur dress of Lambert (1810), Heriot (1807) and Hubbard (1818): the 1835 labourer's
+shirt and trouser shells in blue calico and deer-skin, a red worsted sash 8.5 cm deep knotted at the
+left hip with ends of 30 and 23 cm, the shared closed foot loft as smoked moccasins, and a red knitted
+cap seated 8.8 cm below the crown with its top rising 7.5 cm and falling 7.5 cm back, rigid on the
+head. The cap is chosen over the bare head that Hubbard gives for summer because the shared short
+crop beneath would misrepresent hair worn long; the straw hat and a bare head with long hair are
+recorded alternatives. Held for review as a possible Métis depiction; `touches_removal` false.
+**The Potawatomi man** (`tools/human_potawatomi_man_1812.py`, `data/humans/recipes/potawatomi_man_1812.json`,
+asset `potawatomi_man_1812`, the shared male body at 25): everyday dress of 14 August 1812 after
+Keating's Metea (1823, `keating_1824_narrative_v1`) and the goods given out to the camp on the 13th
+(`kinzie_waubun_1856`): the labourer's shirt shell in a blue-and-white check with a hanging skirt to
+0.70 m, a blue broadcloth breechcloth with flaps before and behind to 0.52 and 0.545 m, scarlet
+stroud leggings on the shared trouser shell cut off at 0.78 m with flaps 3.2 cm wide along the outer
+seam and a 9 mm white selvage, dark garters 5 cm below the knee, a white wool blanket with dark
+stripes 5 cm from its ends belted round the waist from 1.04 to 0.505 m and open 30 to 42 degrees
+either side of the front, a dark leather belt, a silver band on each upper arm and three silver
+brooches. The blanket is worn round the waist (Keating; Lambert's warm-weather wrap) because a
+mantle over the lowered arms cannot be built on this rig; the stroud is the T-3467 research's reading
+where Keating's men wore leather. No paint, feathers, arms, medal or gorget, nothing ceremonial and
+nothing of the Plains; the bare head carries the shared short04 cap and the hair is grown per person
+by the looks layer (`clubbed_behind_1812`). The Miami of Wells's escort wear the same dress because
+no source read distinguishes theirs. Held for review and flagged `touches_removal` under the
+AGENTS.md standing constraint. **Colour:** every colour is chosen by eye within the colours the
+sources name; the calico's print and the check are drawn as flat colours. **How to resolve:** a
+dated description or picture of a Chicago engagé or of a Potawatomi or Miami man of 1810-1815, or
+the judgment of people with standing to review the Native depiction, replaces these choices.
+
+**The 1812 officers', trader's and settler's supplement, 2026-11-08 (the 1812 dress build):** three more
+role dresses on the same component path, each anonymous, graded reconstructed and naming no one; the
+person who wears one brings their own face, height and build. **Officer** (`tools/human_officer_1812.py`,
+`data/humans/recipes/officer_1812.json`; assets `officer_first_infantry_1812`,
+`officer_first_infantry_1812_lieutenant`, `surgeons_mate_first_infantry_1812`; the 25 body). This is a
+company officer of the First Infantry in August 1812, read from the 1814 printing of the staff and
+artillery officers' dress by analogy (`us_1814_military_laws_and_regulations`: chapeau, black cockade, "A
+white feather to rise eight inches", white leather waist belts, epaulettes by rank, "Sashes ... to be worn
+only on a tour of duty", surgeons and mates "the cape ... of black velvet; the plume black"), from the 1813
+change read backwards (scarlet collar and cuffs and lace, taken away in 1813, were worn before), from
+Krimmel's officer of 1811-13 (`met_krimmel_1813_philadelphia_soldiery`: long skirts, the chapeau worn
+fore-and-aft, high boots) and from Heald's surviving sword (`quaife_1913` ch. XI; Kirkland 1893's plate).
+Ours: the cut (the private's coat with skirts to the bend of the knee), the white turnbacks and waistcoat,
+the collar's lace loops and their place, ten silver buttons, the epaulette's size, the chapeau's size and
+the cockade's place, the sword's length, curve and hang, and the lieutenant's straight sword. The ensign
+wears the lieutenant's left-shoulder epaulette, and the surgeon's mate none; no source was read for
+either. No sash is drawn (the everyday figure), and no lace on the breast (Peale's Pike of 1808 shows it,
+but its record is `check_required`). The surgeon's mate's black velvet collar is the 1814 artillery rule;
+an unverified transcription gives medical staff blue collars, and he may well have worn civilian dress.
+**Trader** (`tools/human_trader_1812.py`, `trader_1812`; the 35 body). This is a prosperous trader about
+1810 as `docs/RESEARCH/people-1812-3461/dress.json` reads the type: a dark green tailcoat cut square at
+the waist (Peale's Robinson, 1811; Krimmel's man before Christ Church, 1811-13; the cut after the Coutts
+coat and a coat of about 1815, both British), a yellow waistcoat, a white neckcloth with shirt collar
+points, buff breeches and top boots with tan tops, and a tall round hat kept lower and tapering. Nothing
+describes Kinzie's or any Chicago man's clothes, and Kinzie has no portrait. The colours, the cut and the
+hat's height are ours. It also stands for Wells on 14 August in place of his frontier dress, which no
+asset draws. **Settler** (`tools/human_settler_1812.py`, `settler_1812`; the 35 body). This is plain
+working dress about 1810: an unbleached shirt, a neckerchief, a brown waistcoat, loose linen trousers,
+shoes and a black round hat, after Krimmel's Philadelphia sawyers and country inn and the Pixler family.
+No source describes any Chicago settler's clothes in 1812, so every garment is reconstructed. It is also
+worn by Black Jim, with nothing that implies a status the record does not give. **How to resolve:** a
+portrait, inventory or description of any of these men's clothes replaces the role dress for that man;
+an 1812 infantry officer's dress regulation (the War Department's of 1810-12, or the 30 December 1812
+description, verified) replaces the analogies.
 
 **The 1904 coachman's livery supplement, 2026-11-07 (T-3483):** a coachman's standing livery on the same
 component path, `tools/human_coachman_1904.py` with `data/humans/recipes/coachman_livery_1904.json`, built as the
@@ -40521,8 +40657,18 @@ T-3457 (2026-11-07, the owner: "minimize or eliminate the grass in the worn path
 grass off the worn ground harder than the earth shows: inside a yard and on a trail's core about 96 in 100 plants
 go whatever the wear, and round each yard the grass thins out over 1.8 times its earth's feather, never nearer than a
 fifth of that band to the yard, before it frays back to prairie. That share, that reach and that floor are ours.
-**Ticket:** T-3339, T-3401, T-3457.
-**Recorded:** 2026-11-03 (T-3339); the stack yard 2026-11-06 (T-3401); the grass 2026-11-07 (T-3457).
+T-3512 (2026-11-08, the owner: *"The camps are also missing natural worn paths to each other and
+the river and maybe even to the fort or factor house"*) adds the camp's own paths to the same file
+and rule: the Potawatomi grounds joined by their minimum spanning tree plus every link under 75 m
+it left out; from each ground within 170 m of open water a path to the bank, nearest first, a later
+one ending where it meets one already worn and sharing a landing within 70 m (Wau-Bun ch. XIX: water
+dipped "from a stream that flowed near"); and from the ground nearest the factory a path toward the
+agent's door that ends where it meets the south-bank path. A new route walks an already-worn line at
+0.4 of the cost of grass and stops where it reaches it. Every one of those numbers, every line, its
+width (0.8-1.1 m) and its wear (0.4-0.65) is ours; that a gathering of some seven hundred people
+camped for days a few dozen metres apart wore such lines is our reading.
+**Ticket:** T-3339, T-3401, T-3457, T-3512.
+**Recorded:** 2026-11-03 (T-3339); the stack yard 2026-11-06 (T-3401); the grass 2026-11-07 (T-3457); the camp paths 2026-11-08 (T-3512).
 
 ### L-t3492-underpinnings-1812 — the stone under the factory's and the interpreter's sills, and their doorsteps
 
@@ -40612,8 +40758,20 @@ the height band that makes a hollow (fully wet below 0.96 m, none above 1.32 m),
 past the Wells Street line rather than stopping at it. **How to resolve:** the 1821-22 federal
 survey's field notes for the South Branch townships (line trees, "timber" and "prairie" calls along the section
 lines south of the forks), or an early map that draws the timber along the South Branch.
-**Ticket:** T-3340.
-**Recorded:** 2026-11-03 (T-3340).
+**The pockets of low wood (T-3513, 2026-11-08).** The owner: *"from above I think south of the river
+you would have had more trees like pockets of trees scattered"*. A third kind, the **pocket**: on the
+dry plain east of the South Branch (0.82 m and more above the summer water, 70 m and more from it,
+where no wood or dune stands; the sand plain east of Wells included), a coarse field picks the few
+patches that carry a pocket of low wood: bur oak, white oak and cottonwood, grown at 0.52-0.86 of
+their full size. **What is read:** Latrobe at the treaty of 1833, the one account of the plain round
+the town as a whole (Andreas 1884 v1): the Potawatomi "encamped on all sides on the wide, level
+prairie ... beneath the low wood which chequered them"; the oak opening as the lake plain's woody
+community on dry ground (McBride and Bowles, ZONE 7). **What is invented:** which patches (a 150 m
+field cut at 0.70), their density (22-52 a hectare inside a pocket), the species weights, the low
+scale and the caps (1,300 / 800 / 380 stems at full / balanced / light). 1833 is read back to 1812
+because nothing between them cleared the plain.
+**Ticket:** T-3340, T-3513.
+**Recorded:** 2026-11-03 (T-3340); the pockets 2026-11-08 (T-3513).
 
 
 ### L-sauganash-entrance-lower-sash-2383 — Sauganash entrance and four lower sash
@@ -41796,6 +41954,17 @@ the town.
 **Ticket:** T-3419 (a piece of T-3415).
 **Recorded:** 2026-11-06 (T-3419).
 
+**The touch of the hat, 2026-11-08 (T-3515):** the owner, "when the coachman or glessner greet you
+their hand goes through their hat, if people in any time period greet you and tip their hat their hand
+should not penetrate". The greeting had put the fingertips at a fixed point by the brow, inside every
+crown. A man in a hat now takes his brim where it is: the edge of the lowest part of the hat he is
+wearing, read off its own mesh, 55 degrees round from straight ahead toward his right hand, at its
+underside; his fingertip pads come to it from outside and below, the fingers up and a little in, the
+palm toward his head, and every part of the hand (balls laid along the skin of each finger, a glove's
+where he wears one) is kept 3 mm off every triangle of the hat, stepping out where a brim turns up or a
+cocked hat's side flares. A man bareheaded keeps the touch to the brow. The bearing, the clearance and
+the hand's angles are chosen by eye against the gesture, not measured from any person or picture.
+
 ### L-human-variation-3412 — Every person drawn gets their own height, build and face
 
 **Decision:** every figure drawn by `humans.js` takes its own shape from the shared body all figures wear,
@@ -42420,6 +42589,220 @@ it can stand on; they are not surveyed roads. The ground under the wheels and ho
 committed heightfield (`renderers/web/js/transport-ground.js`); the drawn ground is unchanged.
 **How to resolve:** an order book, morning report or quartermaster's return of the post for August 1812 would say what
 wagons and teams it had and who drove them; a drawing of the post's wagons would replace the cart.
+
+### L-1812-town-days-3463 — Everyone of the 1812 town at their own day: where each person is at each hour, indoors or out, on each run of dates
+
+**Decision:** the owner, 2026-11-08, of the 1812 town: *"What about the rest of the 1812 people John Kinzie, Black Partridge, etc"*, *"Right everyone! lalime and everyone"*, *"Follow the same rules for deployment of these people some inside and others active and doing what they would be doing as normal activities per time of day"*, *"If they are inside I can walk to door and ask for any person inside"* and *"if we set to winter lalime would exist and we will need him for the murder jaunt"*. Five day readings (`docs/RESEARCH/people-1812-3463..3467/day.json`: the officers and Wells; the women; the children; the civilian men; the Potawatomi and Miami people) give each person a presence window and, for each run of dates in which it differs, a day of spans, each span graded with its own basis. `docs/RESEARCH/people-1812-town/place_town.py` writes them as instance records (`data/humans/instances/1812/hi_town_<person>_1812.json`) that `renderers/web/js/human-days.js` plays by the scene's own date and sun hour; `tools/derive_doors_1812.py` reads each building's door (and each lodge's) off its model so a door can offer Ask for whoever is inside. Six things are ours. (1) **The hours.** No diary or order book gives any of these people's day; when each rose, ate, worked, visited and went in is reconstructed from the ordinary round of a frontier post, a trader's house and a family camp in each season, and from the events the sources date (the April murders, the 17 June killing, Irwin's leaving on 5 July, the 13 and 14 August distribution and council). (2) **The places and the company.** Where each stands out of doors and with whom is the reading's; spans within 4 m at overlapping hours are one talk. (3) **Who is drawn when.** A presence window ends with a death or a leaving the sources date (Lalime 17 June, Irwin 5 July, White and Cardin 6 April); its start is often ours, and the readings say which. The Potawatomi families' ordinary visits before the August gathering come "about one day in five" or "one day in ten" by the readings' reckoning, seeded by person and date. (4) **What is not drawn.** No canoe, horse, lying-down pose or carried child is drawn yet, so a person paddling, riding with no path, asleep out of doors, carried or afloat is off the scene for that span, as is anyone in a building the town does not draw (Fettle's cabin). (5) **The cards** of the 47 people the 14 August sweep left out (Lalime, Irwin, the Mirandeau father and daughters, White and Cardin, two Kinzie engagés, 30 representative Potawatomi in five camp households, eight of Wells's Miami escort; `docs/RESEARCH/people-1812-town/cards.py`): which household each joins and its home where no source says; the 38 representative people are counted by Helm and Heald, not named, and are given no name, band or story. (6) **The look.** Each person's dress is their role's (officer, trader, settler, engagé, lady, working woman, child, Potawatomi man and woman), with their own face, height, build and colouring (`docs/RESEARCH/people-1812-town/looks.py`): the readings' own words for complexion, hair and eyes drawn by reconstructed tints (adding olive, tan, a warm copper brown and a deep brown), the Potawatomi and Miami men's hair long and drawn back to the nape (Keating 1824, of Metea), the women's parted and tied behind.
+
+**Not invented:** any person's name, kin, home, work or fate where a source gives it, each on their card with its quote; the dates the sources give; Helm's and Heald's counts of the gathering. No speech, council, distribution, paint, ceremony or act of war is staged (L1); the 15th is the battle jaunt's.
+**Re-opens on:** a diary, letter, account book or order book of the post that says where any of these people were on a day of 1811-12; a portrait or description written in their lifetime.
+**Ticket:** T-3463, T-3464, T-3465, T-3466, T-3467.
+**Recorded:** 2026-11-08.
+
+### L-t3504-people-apart — Nobody in anybody else's place, and nobody standing idle out of doors
+
+**Decision:** the owner, 2026-11-08, of two figures on the 1812 parade, one inside the other: *"Seems like her feet are sunken in and there are two people occupying the same space? Prevent that"*, and *"Yes give everyone a purpose or task so the are all not standing around idly you can put people in buildings if you need so it does not have lots of idle people standing around and we can ask for them and they can come out of the building"*. Where and when each person is stays their record's; how the hour is spent there is filled in by the renderer, in every year. (1) **A talk stands in a ring.** The records of one talk all name the knot's one point (seven children on one spot on the parade at 9.30); its people now stand in a ring about that point, neighbours 0.95 m apart and turned in (`renderers/web/js/human-days.js` `planDay`), unless their own places already stand them 0.7 m apart. (2) **Standing together is a talk.** Two or more people standing out of doors within 6 m at the same hour (waiting at the factory, an evening at the yard, a muster) talk as one company, in a ring. (3) **Standing alone is a job.** One person standing alone works about the place, between it and two spots 1.4-3 m off it; a span whose own words name a post (a sentry, a watch, a guard) is still stood. A soldier with hours and no duty is at a chore at his station the same way (`human-duties.js` CHORE); the guard, who keeps no hours, still stands. (4) **A body's width apart.** Whatever is left (two people working one spot, walks that end at one place, two walkers meeting, a figure in another layer's way) is kept 0.62 m apart centre to centre by a step aside of at most 1.4 m, never into a building, a walker taking most of it (`human-spacing.js`). (5) **Feet on the laid ground.** A figure in a yard's garden bed or on its laid walk stands on it (2.8 and 3.4 cm over the heightfield), not on the yard's base under it.
+**Not invented:** anyone's place, company, hours or building; nobody is put indoors who was not.
+**Re-opens on:** a source that says what a person was doing at a given hour, which goes into their day reading and is then played as written.
+**Ticket:** T-3504.
+**Recorded:** 2026-11-08.
+
+### L-t3505-rounds — A talk comes and goes; between, each person is at their own job or at play; breaks indoors
+
+**Decision:** the owner, 2026-11-08: *"I do not want to have everyone standing in groups talking, it's fine if there are conversations that come together and break up, but the whole day of theirs should not be spent talking, they should be doing something their duty or other normal activities. Some if not many can be inside because that might be normal, so please give everyone a purpose and role for every part of the day"*, and *"the people should look natural that they are doing ordinary things on a loop for example. They can take breaks and go in and out of houses and buildings"*. The scene's hour stands still while the visitor looks about, so the renderer plays each span as a round on its own clock (`renderers/web/js/human-days.js`, seeded, the same on every load). (1) **A talk is a gathering that comes and goes.** A talk of two or more (written, or a company of people standing together) gathers every 75-150 s (each knot its own beat) for 24-52 s; each of its people is seeded to come or not each time (three in four; two at least), stands in its ring and talks, and goes back. (2) **Between, a job of one's own.** Each one works 1.8-3.4 m out from the ring, turned from it, between that place and two more 1.2-2.6 m about it; a child plays, walking between three places 2.5-6 m apart. A talk that names no one else is a job. (3) **Breaks indoors.** Someone at a job or a talk whose day has them in a building with a door within 45 m of their place now and then goes in, for 28-75 s in about half of every 150-330 s, and comes out again; while in they are offered at that door as anyone inside is. (4) **One place each.** Two or more people whose jobs name one spot at once (three of the militia) work at places of their own about it, 0.95 m apart. Every place of a job is clear of the buildings and never across the fort's pickets (`clearWayOf`, the walker's footprints).
+**Not invented:** anyone's place, company, hours or building; nobody is put into a building their day does not have them in.
+**Re-opens on:** a source that says what a person was doing at a given hour, which goes into their day reading and is then played as written.
+**Ticket:** T-3505.
+**Recorded:** 2026-11-08.
+
+### L-t3516-days — A working day for each drawn person of 1835 and 1904, with breaks in and out of their own door
+
+**Decision:** the owner, 2026-11-08: *"give everyone a purpose and role for every part of the day. This is for all years starting with 1812"*, and *"They can take breaks and go in and out of houses and buildings"*. Each drawn person of 1835 and 1904 has a day (`docs/RESEARCH/people-days-1835-1904/days.py`), played as 1812's are (`renderers/web/js/human-days.js`, L-t3505-rounds): out at the place the record already stands them, at a job about it, in their building at night and for a meal. (1) **1835.** Philip F. W. Peck in and out of his store (Andreas 1884: he kept it and lived in it), out at its front 7-11.45 and 12.15-18.30; Mary Flynn in and out of her log house, at her dooryard 5.30-11 and 12-17.30; Patrick Mahoney (a labourer, no fixed premises) on the river bank 5.30-18.30 and Otis Bardwell (a teamster) at his wagon in the tavern yard 5.30-19, each off the scene at night, since no record names where they lodged. (2) **1904.** The Glessners' cooks (Mattie Williamson, Kate Ryan) and stable helper (August Billings) out in the court, the maid (Mary Reynolds) at the servants' entry and the coachman (Charles Nelson) at the stable doors on Eighteenth Street, through the morning and the afternoon, in the house at night and for its meals. Each group gathers now and then about the one of them nearest their middle. (3) **Their doors.** Read off the 1835 models (`tools/derive_doors_scene.py`, as 1812's); Glessner's from its record: the court's service entrance, entered at the foot of its service stair (the climb to the landing door is not walked), the north entry's alcove and the stable's carriage doorway. The family (John J. and Frances) keep to the front door's own comings and goings (T-3443, T-3444), and Christine Nelson to her errand route.
+**Not invented:** anyone's place, trade or building; the hours of each day are.
+**Re-opens on:** a source that says what one of them was doing at a given hour, or where Mahoney or Bardwell lodged.
+**Ticket:** T-3516.
+**Recorded:** 2026-11-08.
+
+### L-1812-gathering-people-3500 — A card for everyone of the August 1812 gathering and of Wells's escort, and Louis Fettle: sex, age, lodge, who is drawn and their day
+
+**Decision:** the owner, 2026-11-08, after the spike that counted about 820 people at Chicago on 14 August 1812: *"Card all, draw a sample"*, *"The remainder would be in buildings and I can ask them to come out and meet them"*. Helm's narrative (Quaife 1913, Appendix VI) counts the gathering at Wells's council as *"500 warriors 179 women & children"* and the escort as *"27 Miamis"*; T-3461 and T-3463..T-3467 had carded 42 Potawatomi and 8 Miamis. `docs/RESEARCH/gathering-people-1812-3500/build.py` cards the other 476 men, 50 women and 111 children of the gathering in twelve households, one for each camp ground of T-3342 and T-3499 (`hh_gathering_<ground>_1812`), the other 19 of the escort at its camp (`hh_miami_escort_camp_1812`), and Louis Fettle (`hh_fettle_louis_1812`). Seven things are ours. (1) **Sex and age.** Helm's split is followed to the person; each age is seeded (men 16-60, most about 28; women 16-62; children 0-15), and a child under three is carried: carded, neither drawn nor called out at a door. (2) **Which lodge.** T-3499's four men's grounds take men only, about 57 each; the women and children go to the family grounds in proportion to the room T-3499's occupancy rule leaves there, each woman with two or three children and a man in one lodge, and the rest of the men fill the family grounds. Which family had which lodge is recorded nowhere. (3) **Who is drawn.** About one in five, seeded per person (114): asleep in their lodge at night, out at its door at a camp's ordinary work by day, eating with whoever of their lodge is drawn, the men of a ground talking together in the afternoon; on the 15th the men are away from the camp from 7:30 to 13:00, as the T-3467 people are. Every point stands clear of every lodge, rack and woodpile of the ground's model. (4) **Everyone else** (520) is listed in `data/humans/inside_1812.json` at their own lodge's door, where Ask for calls them out in their dress. (5) **The look.** Heritage, not a description: black hair (grey from 55), dark eyes, a brown complexion drawn copper, a few lighter or darker; stature seeded about the period's means, children's by age; no feature exaggerated. (6) **Wells's escort's camp.** The eight drawn Miamis of T-3467 move from their bivouac by the south stable to `miami_escort_camp_1812` (T-3499): every point of theirs by the bivouac moves the same 28 m west and 99 m south onto clear ground, a night asleep by the fire becomes a night in the lodges, and their walks to the river and the gate run by way of the old bivouac to the camp's north edge. (7) **Louis Fettle's home.** Currey's *"small cabin near the Kinzie house"* is read as one of the four houses of 1808 (`data/exclusions.json` `pettell_cabin_1812`), La Lime's or Le Mai's; La Lime lived in his until 17 June 1812, so Fettle is put in Le Mai's and asked for at its door. Whether he was in the town on 14 August is uncertain, as his card says; his Indian wife (Quaife) is not named and not carded.
+
+**Not invented:** Helm's counts and Heald's date for the escort (*"On the 13th, Captain Wells, of Fort Wayne, arrived with about 30 Miamies"*, Appendix IV), each on every card with its quote; Fettle's years at Chicago, his wife and Quaife's guess that he was one of the twelve militia (Quaife ch. VI and Appendix IX). No card invents a name, band, kin or story; no speech, council, distribution, ceremony or act of war is staged (L1).
+**Re-opens on:** a roll, a letter or an account that names any of the gathering, counts it by band or by ground, or says where Wells's Miamis camped; anything that puts Louis Fettle in a house of 1812.
+**Ticket:** T-3500.
+**Recorded:** 2026-11-08.
+
+### L-1812-crossing-boats-3510 — Twelve boats drawn up at the 1812 river's crossings, each its own shape and weathering, a visitor Crosses in any of them, and the fort wharf's puncheon deck
+
+**Decision:** the owner, 2026-11-08: *"In 1812 there are no bridges so can you in all scenes and areas where we might want to cross like at some of the docks which need to me made photographic wood and at the forks at hardscrabble, at logical places up and down the river provide a small period appropriate boat or canoe that looks photographic correct and allow me to walk up to the boat and interact is board and cross river"*, *"The boats should look a bit different, different wood weathering and slightly different shape"*, and *"Don't add a bunch of docks, in most cases you should board from the bank other than maybe around the fort"*. `tools/lay_crossing_boats_1812.py` lays twelve boats (`data/boats/crossings_1812.json`): six dugout pirogues, four bark canoes and two plank skiffs, each drawn up bow-first on a bank of the 1812 river with a crossing to the far bank, except the garrison's skiff, which lies alongside the fort's wharf. `renderers/web/js/crossings.js` builds each hull at load from its own length, beam, depth, sheer, rocker and fullness, colours it by its own tone, silvering, waterline stain and bilge moss, and lets a visitor on foot Cross: step in, push off, paddle or row over, run ashore and step out; the boat stays on the bank it was taken to. The fort wharf (Whistler's no. 27, L-first-fort-water-2508) gets a deck of split-log puncheons on its crib top and its crib logs the hewn-log relief of the 1812 log houses. No dock, landing stage or texture is added.
+**What is recorded:** that the Kinzie family had boats at the landing below their house: Moses and Kirkland 1895, after Wau-Bun, of the night of the Lee's Place killings in April 1812, *"The family was hurried into two old pirogues [dug-out tree-trunks] that were moored near the house and paddled with all possible haste across the river to take refuge in the fort"*; so the two Kinzie pirogues are graded attested in existence. At Lee's Place on the South Branch near its forks (Moses and Kirkland), Currey 1912 has the discharged soldier, on 6 April 1812, walk *"down the path toward the canoes tied up at the river bank"*, so the farm's canoe and pirogue are graded the same way; that one is of bark and the other a dugout is ours. The wharf is Whistler's.
+**What is ours:** every other boat (the garrison's skiff at the wharf, Burns's skiff, the two bark canoes at the Potawatomi camp by the mouth, the pirogue at the forks, the pirogues below the Lee house and on the South Branch, the bark canoe on the North Branch) and every boat's place, bearing, hull dimensions, timber, colour and wear; which kind stands where (a dugout for the French and Métis households, a bark canoe at the camps, a sawn-plank skiff for the garrison and for a soldier's family); the paddles and oars; the crossing's pace (1.6 m/s) and its steps' durations; the puncheon deck (no source says how the wharf was floored), the split widths and the ragged river ends. Where a boat lies is derived from the 1812 ground: the bow up the bank with 30 % of the hull ashore, the stern afloat at its draft, the visitor's stand on dry ground clear of any building, and a path deep enough to float the boat all the way over. The reeds and grass are kept off a trodden landing round each drawn-up boat (a strip from the stand past the stern), which is ours too.
+**Not invented:** no person rows the visitor; no boat carries a name, owner's mark or cargo. The 1835 scene is untouched: its river (terrain epoch e1834_harbor_cut) has its bridge and ferries.
+**Re-opens on:** an account, inventory or drawing of the post's or the traders' boats in 1808-1812; a description of the wharf's deck; anything that places a ferry or canoe landing on the 1812 river.
+**Ticket:** T-3510.
+**Recorded:** 2026-11-08.
+
+### L-1812-native-dress-3506 — Each Potawatomi and Miami person of 1812 dressed and wearing their hair as their own
+
+**Decision:** the owner, 2026-11-08, walking the camps: *"all the people look identical like all wearing the same clothing and identical hair etc all men look same and all women"*. The 1812 camp had one dressed body per sex and age (`potawatomi_man_1812`, `_woman_1812`, `_boy_1812`, `_girl_1812`). No new body is made (1812's phone memory is at its ceiling); `docs/RESEARCH/native-dress-1812-3506/dress.py` writes `data/humans/variation/dress_1812_native.json`, which recolours each person's own pieces and leaves some off, seeded per person. Five things are ours. (1) **Colours** of the trade cloth: shirts in the calicoes, checks and plain linens of the trade lists (madder, indigo, white, check), blankets white, striped or dark, leggings scarlet, blue or black stroud, garters and belts; older people's cloth more faded. (2) **What is worn**: a blanket, leggings, garters or silver left off by some, chiefs with silver. (3) **Hair**: four men's cuts (clubbed, tied high, clubbed long, a side part tied) and three women's (centre part, clubbed low or tied high), a tied tail 8-28 cm (none on boys), black, blue-black or black-brown, grey from 55; the tail is grown at the middle distance too, where everyone's cap is the same short hair. (4) **Headcloths**: a handkerchief tied round the head on about one man in eight (one in four of the old) and one woman in twelve. (5) **The mix**: no two of the 163 built figures alike (`tools/qa_native_dress_t3506.mjs`).
+
+**Not invented:** the goods given out on 13 August, *"blankets, broadcloths, calicoes, paints, etc."* (Wau-Bun ch. XVIII); the trade-cloth dress of the Great Lakes peoples in the period's portraits already cited for the bodies (Lewis 1835, Catlin 1830). Nothing about any one person's dress is recorded.
+**Re-opens on:** a description or picture of the gathering at Chicago in 1812, or of a band's dress there.
+**Ticket:** T-3506.
+**Recorded:** 2026-11-08.
+
+### L-1812-town-dress-3522 — Each 1812 settler, trader, engagé and townswoman dressed as their own, with a hat of their own
+
+**Decision:** the owner, 2026-11-08, with a still of three townsmen on the prairie in the same black round hat, dark waistcoat and grey trousers: *"you need to vary the clothing more so everyone is their unique person in 1812 all of these guys wear the same hat and clothing so do that across the board"*. The town wore five dressed bodies (`settler_1812`, `trader_1812`, `engage_1812`, `woman_working_1812`, `lady_1812`), one set of colours and one hat each. No new body is made (1812's phone memory sits under its ceiling); `docs/RESEARCH/town-dress-1812-3522/dress.py` writes `data/humans/variation/dress_1812_town.json` for the 40 townspeople who are not soldiers or children, and `renderers/web/js/human-hats.js` makes each hat for the head it sits on. Five things are ours. (1) **Colours**, inside the readings' own ranges by trade (people-1812-3466 `dress`: the settler's tow, white or checked shirt, natural, tan or blue trousers, brown, red or striped waistcoat; the trader's dark green, blue or brown-black coat, yellow, buff or white waistcoat, black or buff breeches; the engagé's printed or striped calico, red sash with blue, green and yellow, natural or blue trousers; people-1812-3464 `dress`: the laundress's printed or striped short gown, striped, blue, brown or madder petticoat, white, natural or blue-checked apron; the woman of the country's red, blue or brown print and dark stroud; the officers' wives' white, cream or small-print gowns, the matron's dark), each cloth its own dye lot, older people's more worn. (2) **What is worn**: a waistcoat (drawn in the shirt's cloth for a man in his shirt sleeves, since the trousers under it are cut for one), neckerchief, sash, apron or neck kerchief left off by some; Wau-Bun's *"suit of deer-skin, with belt, moccasins"* on about one engagé in three; moccasins on some settlers. (3) **Hats**: felt round hats of the wearer's own crown (8.5-16 cm), taper and brim (4.5-10 cm), rolled or gone soft, black, rusty, brown, drab or grey; natural or weathered straw with or without a band; the red tuque, or a knitted cap in red, blue, brown or undyed with a long or short fall; some bare heads. The trader's hats are the tall town ones of Krimmel's men, the frontier ones lower. (4) **The women of the country** (Archange Ouilmette, Mrs Bisson, Josette LaFramboise, Madeline Mirandeau) wear Wau-Bun's blue cotton handkerchief round the head and moccasins; some laundresses a handkerchief in place of the cap, as the reading allows; Cicely the head-wrap of the reading for a woman in her place. (5) **The mix**: who wears which is seeded, rerolled until each person differs from everyone of their body in at least two of headwear, upper, middle and lower garment; no two alike (`tools/test_human_town_dress.mjs`).
+
+**Not invented:** the pieces and colour ranges of the readings above, which grade them (inferred for the engagé and the woman of the country, reconstructed for the settler and the trader) and cite Wau-Bun, Lambert (1810), Heriot (1807), Krimmel's Philadelphia pictures (1811-13), the Pixler family (c.1815) and the Met's garments of 1810-20. Nothing about any one of these people's clothes is recorded, save Wells's queue and round felt hat (people-1812-3463).
+**Re-opens on:** a description, inventory or picture of any of these people's clothes, which replaces their row.
+**Ticket:** T-3522.
+**Recorded:** 2026-11-08.
+
+### L-1812-native-cards-3507 — Names, histories and the part on 15 August for every Potawatomi and Miami card of 1812, and three named men who came after the 14th
+
+**Decision:** the owner, 2026-11-08 (AGENTS.md, standing constraint): permission to reconstruct a researched, respectful name and a history for each Native person, marked as reconstruction; to include named men of the bands who might have been at the camps, with a likeness; and to assign the likely battle participants. `tools/native_cards_1812.py`, called by the three generators that write the cards (`gathering-people-1812-3500/build.py`, `people-1812-town/cards.py`, `people-1812-3461/build.py`), adds to every Native card. Six things are ours. (1) **Names.** 670 people no source names get a name of our making, in English as the 1815-16 treaty clerks wrote many names of these same bands (*Black Partridge*, *White Hair*, *Little Wolf*, *Walker*, *Lake*, *Stout*, *Trader*), made by the practice Morgan records (*Ancient Society*, 1877, pt. II ch. II): a gens owned its names and a name *"proclaimed by [its] signification the gens to which [it] belonged"*, children had names of childhood, descent ran in the male line and no one married within the gens. Each family takes a gens from Morgan's lists (fifteen Potawatomi, nine named Miami), the man's and children's names speak of it, the wife's of another. No Potawatomi word is composed; no name is one a source gives anyone of these bands; no two alike. (2) **Bands.** Each camp ground's families are put with a band of Governor Edwards's description of May 1812 (Andreas pp. 78-79), led by the named man already carded at that ground. (3) **Treaty men.** 26 signers of the 1815 (Portage des Sioux) and 1816 (St. Louis) treaties for the Illinois and Milwaukee river bands take the cards of drawn men of 22-55: their names are attested, their presence at Chicago in August 1812 is not, and each card says so. (4) **Histories**: a band, a gens, a lodge and its family by name, a season's work, the gathering and the goods of the 13th, every particular ours and marked. (5) **15 August.** Heald counts *"between four and five hundred"* warriors in the attack, *"mostly of the Potawatamie nation"*, out of Helm's 500: a man of 16-55 is *likely among the warriors who attacked the column*; older men *likely stayed at the camp* (and are no longer away from it that morning); women and children at the camp, where Heald's prisoners were brought; the Miamis, *"did not assist us"*. Named people's parts are their sources', graded. Nothing of the fighting is staged. (6) **Shabbona, Billy Caldwell, Alexander Robinson**: cards of their own, not placed in the camp (Shabbona by his own account came after the fight, Caldwell on the 16th, Robinson's presence disputed), with Kirkland's (1893) engravings of Shabbona and Robinson in old age as their likenesses.
+
+This supersedes, for the Native cards, L-1812-gathering-people-3500's *"No card invents a name, band, kin or story"*, by the owner's ruling.
+**Not invented:** the treaty names and glosses (Kappler II), Morgan's gentes and naming rules, Edwards's bands, Heald's and Helm's counts, the named people's parts and the three men's lives as their sources give them; every reconstructed fact is graded `reconstructed` on the card beside it.
+**Re-opens on:** any record that names a person of the gathering or puts a band at a ground; a Potawatomi naming authority's guidance on the names.
+**Tickets:** T-3507, T-3508, T-3509.
+**Recorded:** 2026-11-08.
+
+### L-kimball-1801-south-front-1890 — 1801 Prairie's bow, gabled face and round bay built as one south front, its corner's roof line and the main eave raised 0.5 m, read off HABS photograph 1, the Taylor print and HABS photograph 2
+
+**Decision:** the owner, 2026-11-08, on HABS photograph 1 (`habs_kimball_photo_01_sw_1965`): *"you need to bring that curved flat and curved piece all together and match the facade based on the photos like from this south west angle you can see how far off you are from that corner, your roof line there is completely off"*. (1) **One front.** The south pavilion's face stands 0.8 m proud, flush with the bow's crown, where the 1911 sheet's trace (s28fp-1801-b1) bulges the front about 0.8 m from v 5.7 to 9.2; the bow's crown stands at the face's north cheek, its south half inside it, and its balustrade stops at the face's pilaster; the main cornice is carried across the face and round its chamfer to the south wall. (2) **The corner.** The chamfer runs back 1.0 m behind the wall plane (1.8 m behind the face), so the round meets the south wall at about u 19.5, between the sheet's corner (about u 19.9) and the photograph's junction; the round's chord is 1.8 m, rising 0.5 m. (3) **The roof line.** HABS photograph 1 shows the round's balustrade in front of slate and the pavilion's third storey square, with a stone return about 1.4 m deep (its width through the solved camera a return's, not the cant's): the cant stops at 10.1 m behind the balustrade, the front's end is carried up as a stone cheek and the mansard's slate comes down beside it. The small light T-1890 had put on the cant is taken out; the photograph's light in the return is not built (open in the match record). (4) **The eave.** All three pictures put the main cornice about 0.5 m over the build's against the second-storey lights (the Taylor print 20-40 px, HABS photograph 1 30-50 px, HABS photograph 2 about 50 px), and the cresting high by about as much in both north-west views: the second storey is 4.4 m to an eave at 9.4 m, the mansard rising with it; the pavilion's third storey 2.9 m to its unchanged 12.3 m wall top, its pair on a 0.2 m sill over the cornice; the 18th Street section's second storey 4.75 m and its corner round 0.3 m over the eave; the south bay, the south-east wall gable and the pier between the gabled section and the main block 0.5 m taller; the dormers' faces nearer the fascia so their lights stand about 0.2 m lower than before. **What is read.** The face's place and width (the Taylor print's edges within about 10 px; HABS photograph 1 re-solved on it, x 452-618 against 455-620), the round's junction (x 760 against 757), the balustrades' and cornice's heights, the return's depth, the slate's line. **What is invented or held by the kit.** The cant's exact depth between the sheet and the photograph; the 10.1 m stop behind the balustrade; the return's plain stone face; the cornice's section where it breaks out round the face (the kit's moulded stone); the dormers' setbacks, set so their lights keep the Taylor print's heights.
+**How to resolve:** the HABS drawings' west and south elevations, if found, give the face's projection, the cant, the return and its light, and the eave's height.
+**Ticket:** T-1890.
+**Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg` and its match record.
+**Recorded:** 2026-11-08 (T-1890).
+
+### L-t3517-state-slough-1812 — The 1812 sloughs hold water: the State Street slough through the camps and the north-side slough, carved as winding watercourses
+
+**Decision:** two blocks of `data/terrain/epochs/e1830_natural/terrain_spec.json`, read by
+`generators/terrain_gen_e1830.py` after the 1812 field is built, in place of the 1834 entries the 1812 ground used to
+carry. `state_slough_1812`: the State Street slough (dossier zone 14) on its documented line, the 1834 spec's
+`state_slough_course` and `state_slough_mouth` vertices joined, winding up to 6 m off it (never in the last 100 m,
+which keep Wright's notch), holding open water from about 75 m below its head east of Clark to the river: a bed of
+-0.5 to about -1.8 ft and a water half-width of 2.4 to 5 m, each varied +/-30% by seeded noise into pools and narrows,
+a wet margin rising 0.8 ft, the bank at 1.2 ft per metre into the plain; the head a damp hollow above the water.
+`north_side_slough_1812`: the north-side slough on Wright's traced centreline (no winding), water from about 25 m
+below its head, half-width 2 to 5.5 m round the stroke separation T-0795 measured, a bed of -0.5 to about -1.7 ft,
+in place of the 1834 entry's constant 7.1 m band at -1.0 ft that stops square. Neither bed goes below -1.95 ft, where
+the flora would read river channel. The carve only lowers the ground, and refuses to touch any lodge, hearth, arbor
+or picket of the Potawatomi camps. The 1835 ground keeps both 1834 entries unchanged.
+**Why:** the owner, 2026-11-08, flying the 1812 camps: *"There would be more water in that slough they are
+gathering around can you make sure though sloughs are carved correctly and naturally with the right water there"*.
+Carried from 1835, the State Street slough was a 10 m swale 2.2 ft deep with its bed above the water, open water
+only in its last 20 m; the north-side slough a canal of one width.
+**What is read.** The State Street slough's route: it drained the public-square pond and the Wells Street marsh,
+*"passed over the site of the Tremont House and entered the river at the end of State Street"* (chicagology
+prefire273); Conley/Stelzer 1933's winding course; Wright 1834's notch for its mouth. The north-side slough's line:
+Wright 1834, re-read whole by T-0795. The dossier's zone 14 width, 15-40 ft.
+**What is invented.** That either slough held open water on 15 August 1812: zone 14 reads the State Street
+slough's thalweg 0.5 to 1.5 ft ABOVE the 1835 water, a damp drain in July 1835, and no 1812 stage or depth is
+recorded (`lake_stage_1812`); the water is the owner's ruling. Every depth, width, pool and narrow; the winding
+off the documented line; the margins and banks.
+**How to resolve:** an account of either slough before 1830 (a crossing, a canoe landing, a description of the
+ground behind the fort), or a reconstruction of the lake stage in the 1810s.
+**Covers:** `terrain.e1830_natural.state_slough_1812`, `terrain.e1830_natural.north_side_slough_1812`
+**Ticket:** T-3517.
+**Recorded:** 2026-11-08 (T-3517).
+
+### L-1812-children-dress-3520 — Each 1812 town child dressed and wearing their hair as their own, walking as a child walks, mostly indoors or by their own door; nobody stands in a lodge's wall
+
+**Decision:** the owner, 2026-11-08, of the children in the fort yard: *"they have a very odd walk that does not make sense at all, and they all look identical and there are a lot of them in the yard i would think not so many kids out ... when so many kids and no parents they should leave and come out of the door"*, *"i am ok with the idea that occasionally there are kids together playing but it seems like its such a centerpiece, the kids should not be all over the place"*, *"their hair is short they all look like boys"*, and of the camps, *"people can stand and break the wall of the mat walls"*. Five things are ours. (1) **Cloth.** The town's nineteen children wore three dressed bodies (`child_toddler_1812`, `child_girl_1812`, `child_boy_1812`) in one colour each. `docs/RESEARCH/children-1812-3520/children.py` writes `data/humans/variation/dress_1812_children.json`, recolouring each child's own pieces from the period's range: the little ones' frocks two in eight white muslin, the rest unbleached, check or sprigged prints; the girls' frocks rose, madder, indigo, blue, green, buff, lilac or a brown check, a white or unbleached pinafore over most; the boys' skeleton suits blue, brown, green, grey, plum, or a dark jacket over nankeen; seeded so no two of a kind share a colour. (2) **Hair.** Girls' hair longer than a boy's and parted in the middle: most worn loose and curling to the shoulders, the rest plaited down the back (15-30 cm); the little girls' loose to the neck; boys cropped, about half cut straight across the brow. The city fashion of a girl's short curls in the eastern portraits (Joshua Johnson's children, about 1805) is not followed; the longer hair for a soldier's or trader's daughter is our choice. (3) **The walk.** A child walks at a child's pace, stride and cadence by age (Sutherland, Olshen, Cooper and Woo 1980: about 0.64 m/s at 176 steps a minute at one, 1.14 m/s at 143 at seven, an adult's by fifteen), hips over the knees, never on its knees (`renderers/web/js/human-gait.js` `childGait`). (4) **Fewer out.** A child goes in at its own door for 100-220 s in about nine of every ten 130-260 s, and when out plays within 1.4-3.6 m of that door; a knot of children only plays together for 35-80 s in every 320-640 s (`renderers/web/js/human-days.js` `CHILD`); near the visitor under two in five are out at any hour, never more than five together without a grown-up for every two. (5) **Lodge walls.** The cattail-mat and elm-bark walls of every lodge (their foot traced off the camp models, `tools/derive_doors_1812.py`) are kept clear: anyone whose place or spacing would stand them in a wall is moved just outside it, never into another (`renderers/web/js/human-spacing.js` `keepOutOf`).
+
+**Not invented:** who the children are, their sex, age, household and door, as their cards have them; the cloths and cuts of the period's pictures (`met_johnson_1805_rutter_children`, `met_johnson_1805_emma_van_name`, `met_ci_1813_beecher_child_dress`) and the frontier's trade goods (Wau-Bun, Quaife 1913). Which child wears which, and every child's hours, are ours.
+**Re-opens on:** a description or picture of any child at Chicago before 1812, or of how the post's children were dressed.
+**Ticket:** T-3520.
+**Recorded:** 2026-11-08.
+
+### L-glessner-passages-3524 — Glessner's court service door and Eighteenth Street side door open and shut as the household passes, up and down the stairs to them
+
+**Decision:** two more of the `glessner_house` doors are hung to swing, for the people drawn in its court and on
+Eighteenth Street rather than for the visitor (`renderers/web/js/house-doors.js` § passages): the court's service
+entrance at the head of the north court service stair (`openings_court_north` "service entrance into the courtyard")
+and the servants' side door up the stair inside the Eighteenth Street alcove (`v4_detail.north_entry_alcove`). Each
+leaf is the baked oak one with its iron latch, lifted out of the house's batch at load and hung on the jamb away
+from its latch (the court door on its west jamb, the side door on its south), swinging inward through 90 degrees in
+1.2 s into a dark vestibule like the front door's. Someone whose day takes them in (`renderers/web/js/human-days.js`)
+walks to the foot of the stair, up the middle of every tread to the door, which starts to open as they come within
+2.2 m and which they wait at till it is open, through it, and is indoors only 0.6 m past the leaf; the door shuts
+behind them. Coming out, it opens, they step out of the dark behind it, it shuts once they are 1.3 m from it, and
+they come down to the ground. A person asked for at either door comes down the stair to the visitor. The way is
+used one direction at a time, a follower 3 s behind whoever went before, and the door stays open while anyone holds
+it. The owner, 2026-11-08: *"when people enter the glessner house from the rear they just kind of disappear at the
+staircase i think the door should work and the stairs and they should come up and down the stairs"*.
+**What it stands on:** the doorways, leaves, latches, treads and landings are the record's, read as
+`masonry_house_params.py` frames them and `masonry_house_v4_service.py` `build_stair` and
+`masonry_house_v4_detail.py` `north_entry` lay them: the court flight's ten treads (W 108.2-112.1, S 41.1 to 32.2),
+each a tenth of the landing's 6 ft, and the landing (W 98.7-112.9, S 26.83-32.2); the alcove's three front steps
+out over the walk up to its 1.5 ft landing and its eight treads east up to the 6.0 ft threshold. The hinge side of
+each is INFERRED from its latch, which the generator puts at one end of the leaf: a latch is on the free edge.
+**What is invented:** that either door swings inward, how far and how fast; the vestibules behind them (as
+L-glessner-front-door-swing-3442's); the line walked up each stair (its middle), where a person waits and how far
+ahead a door begins to open; one way at a time and the follower's gap; the riser ease of the walked way (0.12 m each
+side of a riser).
+**How to resolve:** a photograph of either door open, the HABS first-floor plan read for what lies behind each, and
+any account of the household's comings and goings by the court.
+**Ticket:** T-3524.
+**Recorded:** 2026-11-08 (T-3524).
+
+### L-1812-garrison-dress-3523 — The 1812 garrison dressed by rank and duty, and its muskets carried by duty
+
+**Decision:** the owner, 2026-11-08, beside an Ogden-style plate of the army about 1812: *"and all the men soldiers have the same hats? Dont the soldiers have different appearance based on rank? and none of them appear to have firearms?"* Every enlisted man of Heald's company stood in the one private's dress and nobody carried a musket. No new figure is made (the published site's 432 MB budget, the 1812 phone's 350 MB): `docs/RESEARCH/people-1812-3462/garrison_dress.py` (run by `place.py`) writes `data/humans/variation/dress_1812_garrison.json`, which recolours and hides pieces of the figures already drawn and names what `renderers/web/js/human-garrison.js` draws on each man's own bones at load. Six things are ours. (1) **Rank marks**: a sergeant's two white worsted epaulettes and a corporal's one on the right shoulder, read by analogy from the light dragoons' rule printed in 1814; the worsted's white and the epaulettes' size and fringe. (2) **Musicians**: the drummers' and fifers' coats red faced blue, read from Krimmel's volunteer drummer for the regulars; the drum's blue shell, red hoops and white cords; a fifer's fife case at the hip in place of the cartridge box. (3) **Officers**: the lieutenant's and the ensign's silver epaulette on the left shoulder (the ensign's is not recorded; he is given the lieutenant's), a crimson sash round the waist for the three line officers on the 14th as on a tour of duty, the surgeon's mate's black collar, cuffs and plume. (4) **Fatigue**: the men at their work (the gardens, the bake house, the armourer's, the wharf, the cornfield at the forks) in the issued fatigue clothes, drawn on the 1812 settler's working body recoloured to unbleached linen: a shirt, a white waistcoat on three in four, a black stock, loose linen trousers, a round hat of his own on one in three and the rest bareheaded; the frock itself is not drawn, and no fatigue cap (none was issued). The fatigue party drawn up on the parade to be told off stands in its coats. (5) **Arms and how they are carried**: a musket of the 1795 Springfield / Charleville pattern with its bayonet fixed, its stock, lock, bands and sling shaped by us to the arm's regulation length; sentries walking their posts and men walking out from the pickets at the shoulder (the butt in the left hand, the lock turned out), the guard's sergeant and corporal and the sentry by the south-east blockhouse at the order; men at chores without; the cornfield party's three muskets piled at the field's edge, the man walking back to the fort leaving his there. (6) **Who**: which man wears what follows his rank on the muster-roll and the station T-3462 gave him.
+**Not invented:** the ranks of every man (Heald's company's muster-roll, Quaife 1913 App. VIII); the private's yearly issue, the NCOs' and musicians' drawing the same clothing, and *"one coarse linen frock and trowsers for fatigue clothing"* (the 1802 act, again in January 1812); the 1813 change, read backwards for the red facings and felt cap; the staff and artillery officers' sashes *"to be worn only on a tour of duty, and round the waist"*, epaulettes by grade and the surgeons' black velvet cape and black plume (the 1814 printing); that the men kept their muskets on the 14th, *"the surplus arms and ammunition"* alone being destroyed (Heald's report, Quaife 1913).
+**Re-opens on:** an order book, guard report or inventory of the post for 1812; a description of the First Infantry's NCO marks or musicians' coats before 1813; Ogden's plate of 1810-1813 opened and read.
+**Ticket:** T-3523.
+**Recorded:** 2026-11-08 (T-3523).
+
+### L-t3525-household-tour — The Glessner household tour: the people's voices, marks and morning
+
+**Decision:** a 1904 walking jaunt, `glessner-household-tour`, eight stops round the outside of 1800 Prairie
+Avenue, each told in the first person by a member of the household standing at a mark near the stop's stand
+(the stop's `hosts`): John and Frances Glessner, Mattie Williamson and Kate Ryan (cooks), Christine Nelson
+(parlor maid), Mary Reynolds (house maid), Charles Nelson (coachman) and August Billings (stable helper). While
+the visitor walks to a stop its host comes to the mark, out of the house by its door when their day has them
+in, turns to the stand and greets the visitor; when the visitor walks on, the host goes back about their day.
+**Why:** the owner, 2026-11-08: *"this will be the first jaunt we will show people here ... do a tour of
+glessner house from the outside by all the people who live there, like have john or frances welcome you and
+have everyone in the house explain their roles in the house ... make it a real intersting lively story with
+great facts particular to the era"*.
+**What is read.** Every fact a person tells: Glessner's The Story of a House (1923) in the HABS transcription,
+the HABS data pages, the house museum's family page and its posts on Mattie Williamson (2020), the Glessners
+and their servants (2012), a servants' Christmas (2012) and a home for servants (2014), and the 1900 census
+(ED 40, sheet 5B) for the six staff it lists.
+**What is invented.** Every word anyone says to the visitor: no conversation is asserted, and the voice,
+the greetings ("Hej", "Hallo"), the choice of facts and the hand-on from one person to the next are ours. That
+all eight are at home on one spring morning (15 April 1904): the census staff are graded inferred, counted four
+years before the scene. Each host's mark. The stable helper's chores (the harness, the carriage, the doves).
+Charles Nelson's unbroken service from 1880 to 1904 (the record has him in 1880, 1894 and 1900).
+**How to resolve:** a record of the staff in 1904 (Frances Glessner's servants' journal, the 1910 census for the
+house), or a photograph of any of them, replaces the matching line; a person found not to be there in 1904 is
+taken off the walk.
+**Applies to:** `data/jaunts/glessner-household-tour.json`; the stop `hosts` field (`renderers/web/js/jaunt-hosts.js`).
+**Ticket:** T-3525.
+**Recorded:** 2026-11-08 (T-3525).
+
+### L-1812-trading-lodges-3528 — Potawatomi lodges by the river all 1812: a small camp on the south bank a little west of the creek's mouth, drawn every day
+
+**Decision:** `potawatomi_trading_lodges_1812` stands on the river's south bank a little west of the State Street creek's mouth (local E +698..+724, N -34..-16) every day of 1812, at the owner's choice of 2026-11-09 that the August gathering's camps stand only on its days (T-3527) "and the rest of the year that ground is open prairie with two or three trading lodges at the river mouth". **The habit is the source's**: Currey 1912 ch. II (Gutenberg #52346 plain text lines 1360-1369) has the Potawatomi "come and go on their nomadic excursions according to their habit, and while in this vicinity they lived in their wigwams near the river, their favorite camping place being at a point on the south bank near the present State Street bridge", the traders "anxious to sell them supplies in exchange for the furs brought in by them". **Everything else is ours.** That lodges stood there on every day of the year, rather than now and then; that they are one or two families' (two mat lodges, Forsyth's winter house, and an elm-bark house, his summer house), with two fires, a drying rack, a scaffold, a hide frame, firewood, a mortar and two canoes on the river side; the ground's place, off the gathering's landing group at the mouth itself and found by a search on the e1830_natural heightfield for level ground off the cut of the river and creek, clear of every other 1812 footprint and worn trail (docs/RESEARCH/trading-lodges-1812-3528/sites.py), and its extent; and its range, the scene's year, not a date any source gives. The lodge forms are T-3342's archetype, and what each rests on is L-1812-potawatomi-camp-2515.
+**Consequence:** in any season a visitor finds a few lodges by the river where the gathering will camp in August; in August they stand beside the gathering's thirteen grounds.
+**How to resolve:** a source that dates, counts or places the lodges by the river in a season of these years; the judgement of Native scholars or community organisations, which may change the number, the forms or whether the camp is drawn at all.
+**Ticket:** T-3528.
+**Recorded:** 2026-11-09 (T-3528).
+**Covers:** `potawatomi_trading_lodges_1812.occupants`, `potawatomi_trading_lodges_1812.camp_1812.position`, `potawatomi_trading_lodges_1812.camp_1812.footprint`, `potawatomi_trading_lodges_1812.camp_1812.form.mat_lodges`, `potawatomi_trading_lodges_1812.camp_1812.form.long_lodges`, `potawatomi_trading_lodges_1812.camp_1812.form.bark_roofed_lodges`, `potawatomi_trading_lodges_1812.camp_1812.form.bark_houses`, `potawatomi_trading_lodges_1812.camp_1812.form.arbors`, `potawatomi_trading_lodges_1812.camp_1812.form.hearths`, `potawatomi_trading_lodges_1812.camp_1812.form.drying_racks`, `potawatomi_trading_lodges_1812.camp_1812.form.scaffolds`, `potawatomi_trading_lodges_1812.camp_1812.form.hide_frames`, `potawatomi_trading_lodges_1812.camp_1812.form.woodpiles`, `potawatomi_trading_lodges_1812.camp_1812.form.mortars`, `potawatomi_trading_lodges_1812.camp_1812.form.canoes`, `potawatomi_trading_lodges_1812.camp_1812.form.horse_pickets`, `potawatomi_trading_lodges_1812.camp_1812.form.pack_saddles`, `potawatomi_trading_lodges_1812.camp_1812.form.canoe_edge`, `potawatomi_trading_lodges_1812.camp_1812.form.mat_condition`
+
+### L-1812-river-family-3530 — A Potawatomi family living at the lodges by the river all 1812: who they are, that they winter there, and their days
+
+**Decision:** the owner, 2026-11-09, on the card asking whether T-3528's year-round lodges by the river should have people living in them, chose *"One family lives there all year"* ("Two or three lodges with a small Potawatomi family of about six to eight, with researched reconstructed names and histories like the gathering's people"). So seven people live at `potawatomi_trading_lodges_1812` on every date of 1812 (household `hh_potawatomi_lodges_1812`): a man of about 38, his wife of 33, her mother of 57, a son of 16, a daughter of 12, a boy of 8 and a girl of 5. Their day reading is `docs/RESEARCH/people-1812-3530/day.json` (written by `gen_day.py` there): the warm months (April to October) at the yard, fishing, mending the canoes, pounding corn, scraping hides, weaving, cooking and eating at the fire; a trading morning at the government factory about one day in six until Matthew Irwin left on 5 July 1812 (the canoe trip off the scene); the cold months (November to March) mostly indoors by the fire, the man and his son out hunting through the middle of the day; and 15 August, when the man and his son are away with the warriors. **That this family winters by the river is the owner's choice and against the run of the evidence**: Juliette Kinzie saw families carry their goods "to their wintering-grounds, to be brought back in the spring" (Wau-Bun ch. XV, 1831), and Currey has the Potawatomi "come and go" by habit (1912 ch. II); the family is put as one that stayed by the post, hunting from it and trading at it. Their names, gentes and histories are made by `tools/native_cards_1812.py` as for every unnamed Native card (L-1812-native-cards-3507), named after every other card so no name repeats, and put with the village "at the camping place of Chicago, three leagues from the fort" (Edwards, May 1812, in Andreas), the band nearest; their dress by `docs/RESEARCH/native-dress-1812-3506/dress.py`, their looks by `docs/RESEARCH/people-1812-town/looks.py`.
+
+**Not invented:** the Potawatomi's habit of coming and going and camping by the river near the creek's mouth, and their trade in furs and maple sugar (Currey 1912 ch. II); the factory and its closing (Irwin left 5 July 1812); Helm's and Heald's counts of the gathering and the attack. No trade, speech, ceremony or act of war is staged.
+**Re-opens on:** a source that names a Potawatomi family living by the post at Chicago before 1812, or says where families wintered in these years; the judgement of Native scholars or community organisations, which may change who is drawn here, or whether.
+**Ticket:** T-3530.
+**Recorded:** 2026-11-09.
 
 ### L-k01-1936-allerton-stage-3370 — 1936 Prairie's right stack built with its photograph's stage on a lowered head, and the roof deck's rail stopped behind it
 

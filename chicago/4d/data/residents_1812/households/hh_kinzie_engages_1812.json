@@ -1,0 +1,196 @@
+{
+  "id": "hh_kinzie_engages_1812",
+  "scene": "1812",
+  "name": "John Kinzie's engagés, at the lodging house by his",
+  "head": "kinzie_boatman_1812",
+  "division": "north",
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "inferred",
+    "sources": [
+      "andreas_1884_v1",
+      "currey_1912_story_of_old_fort_dearborn",
+      "kinzie_waubun_1856",
+      "kirkland_1893_chicago_massacre"
+    ],
+    "note": "Each person's own card says how their presence on 14 August is known."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "kinzie_lodging_house_1812",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "reconstructed",
+      "source_id": "andreas_1884_v1",
+      "also_sources": [
+        "currey_1912_story_of_old_fort_dearborn",
+        "kinzie_waubun_1856"
+      ],
+      "note": "Wau-Bun's lodging house 'for the Frenchmen' beside the Kinzie house; which men slept there is not said."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "Everyone the T-3463..T-3467 day readings put in this household is on the card (liberty L-1812-town-days-3463).",
+    "sources": [
+      "andreas_1884_v1",
+      "currey_1912_story_of_old_fort_dearborn",
+      "kinzie_waubun_1856"
+    ]
+  },
+  "persons": [
+    {
+      "id": "kinzie_boatman_1812",
+      "name": "The Kinzie boatman, name not recorded",
+      "relationship": "employee",
+      "grade": "reconstructed",
+      "sources": [
+        "andreas_1884_v1",
+        "currey_1912_story_of_old_fort_dearborn",
+        "kinzie_waubun_1856",
+        "kirkland_1893_chicago_massacre"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "30-30",
+        "low": 30,
+        "high": 30,
+        "tier": "reconstructed",
+        "note": "Not recorded; working age."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "The boatmen of the 15th (Wau-Bun; Currey). No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "Currey and Kirkland count \"a boatman\" in the boat of 15 August; Wau-Bun says \"the boatmen\". French Canadian or Métis, as the Kinzie engagés were (Andreas p. 73: \"the Canadian voyageurs in the service of Mr. Kinzie\"; Kirkland app. D). No name. In the town from 1812-05-01 to 1812-08-18: In the boat on 15 August and with the family to St Joseph on the 18th. Engagés went out to the wintering grounds in the fall (Wau-Bun ch. XVIII, of 1811) and came in with the furs in spring; so from November to April they are taken to be away at an outpost, and back at Chicago from May. Both dates are ours.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "kinzie_waubun_1856",
+        "ticket": "T-3466",
+        "liberty": "L-1812-town-days-3463"
+      },
+      "evidence": [
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XIX, PG 51737 (1856 text as reprinted in the 1901 Caxton Club edition) lines 6135-6137",
+          "quote": "a clerk of Mr. Kinzie's, two servants and the boatmen, besides the two Indians who acted as their protectors",
+          "claim": "the boat party of 15 August"
+        },
+        {
+          "source_id": "currey_1912_story_of_old_fort_dearborn",
+          "locator": "pt. III, PG 52346 lines 2385-2386",
+          "quote": "two servants, a boatman, and the two Indians who had brought the message from Topenebe",
+          "claim": "one boatman (Currey)"
+        },
+        {
+          "source_id": "andreas_1884_v1",
+          "locator": "p. 73 (IA historyofchicago01andr full-text OCR lines 19780-19782)",
+          "quote": "the Canadian voyageurs in the service of Mr. Kinzie were about the only white men who had occasion to visit Chicago",
+          "claim": "Kinzie's Canadian voyageurs"
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XVII, PG 51737 (1856 text as reprinted in the 1901 Caxton Club edition) lines 5141-5142",
+          "quote": "establishment--dairy, bake-house, lodging-house for the Frenchmen, and stables.",
+          "claim": "the dairy, bake-house, lodging-house for the Frenchmen and stables (as in 1831)"
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "app. D, PG 59624 lines 5472-5474",
+          "quote": "In the out-buildings were accommodated dairy, baking-ovens, stables and rooms for \"the Frenchmen,\" the Canadian engages",
+          "claim": "the outbuildings: dairy, ovens, stables, rooms for the engagés"
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XVII, PG 51737 (1856 text as reprinted in the 1901 Caxton Club edition) lines 5457-5458",
+          "quote": "rations of one quart of lyed corn, and two ounces of tallow per diem",
+          "claim": "the engagé's rations"
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XVII, PG 51737 (1856 text as reprinted in the 1901 Caxton Club edition) lines 5492-5494",
+          "quote": "to toil by day, and laugh, joke, sing, and tell stories when the evening hour brought rest and liberty",
+          "claim": "their evenings"
+        }
+      ]
+    },
+    {
+      "id": "kinzie_engage_1812",
+      "name": "A second Kinzie engagé, name not recorded",
+      "relationship": "employee",
+      "grade": "reconstructed",
+      "sources": [
+        "andreas_1884_v1",
+        "currey_1912_story_of_old_fort_dearborn",
+        "kinzie_waubun_1856",
+        "kirkland_1893_chicago_massacre"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "24-24",
+        "low": 24,
+        "high": 24,
+        "tier": "reconstructed",
+        "note": "Not recorded; working age."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "The boatmen of the 15th (Wau-Bun; Currey). No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "Wau-Bun's plural \"the boatmen\" (Currey and Kirkland say one) and the lodging-house \"for the Frenchmen\" make at least a second. French Canadian or Métis, as the Kinzie engagés were (Andreas p. 73: \"the Canadian voyageurs in the service of Mr. Kinzie\"; Kirkland app. D). No name. In the town from 1812-05-01 to 1812-08-18: In the boat on 15 August and with the family to St Joseph on the 18th. Engagés went out to the wintering grounds in the fall (Wau-Bun ch. XVIII, of 1811) and came in with the furs in spring; so from November to April they are taken to be away at an outpost, and back at Chicago from May. Both dates are ours.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "kinzie_waubun_1856",
+        "ticket": "T-3466",
+        "liberty": "L-1812-town-days-3463"
+      },
+      "evidence": [
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XIX, PG 51737 (1856 text as reprinted in the 1901 Caxton Club edition) lines 6135-6137",
+          "quote": "a clerk of Mr. Kinzie's, two servants and the boatmen, besides the two Indians who acted as their protectors",
+          "claim": "the boat party of 15 August"
+        },
+        {
+          "source_id": "currey_1912_story_of_old_fort_dearborn",
+          "locator": "pt. III, PG 52346 lines 2385-2386",
+          "quote": "two servants, a boatman, and the two Indians who had brought the message from Topenebe",
+          "claim": "one boatman (Currey)"
+        },
+        {
+          "source_id": "andreas_1884_v1",
+          "locator": "p. 73 (IA historyofchicago01andr full-text OCR lines 19780-19782)",
+          "quote": "the Canadian voyageurs in the service of Mr. Kinzie were about the only white men who had occasion to visit Chicago",
+          "claim": "Kinzie's Canadian voyageurs"
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XVII, PG 51737 (1856 text as reprinted in the 1901 Caxton Club edition) lines 5141-5142",
+          "quote": "establishment--dairy, bake-house, lodging-house for the Frenchmen, and stables.",
+          "claim": "the dairy, bake-house, lodging-house for the Frenchmen and stables (as in 1831)"
+        },
+        {
+          "source_id": "kirkland_1893_chicago_massacre",
+          "locator": "app. D, PG 59624 lines 5472-5474",
+          "quote": "In the out-buildings were accommodated dairy, baking-ovens, stables and rooms for \"the Frenchmen,\" the Canadian engages",
+          "claim": "the outbuildings: dairy, ovens, stables, rooms for the engagés"
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XVII, PG 51737 (1856 text as reprinted in the 1901 Caxton Club edition) lines 5457-5458",
+          "quote": "rations of one quart of lyed corn, and two ounces of tallow per diem",
+          "claim": "the engagé's rations"
+        },
+        {
+          "source_id": "kinzie_waubun_1856",
+          "locator": "ch. XVII, PG 51737 (1856 text as reprinted in the 1901 Caxton Club edition) lines 5492-5494",
+          "quote": "to toil by day, and laugh, joke, sing, and tell stories when the evening hour brought rest and liberty",
+          "claim": "their evenings"
+        }
+      ]
+    }
+  ]
+}

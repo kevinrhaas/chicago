@@ -483,6 +483,8 @@ for own in data/residents_*/; do
   rm -rf "$SITE/data/$name"
   mkdir -p "$SITE/data/$name"
   cp -a "$own/households" "$SITE/data/$name/households"
+  # T-3521: each person's story as written for a reader, which the card reads beside them.
+  [ -f "$own/stories.json" ] && cp -a "$own/stories.json" "$SITE/data/$name/stories.json"
 done
 
 # The business layer. 196 firms compiled from the register — and 166 of them
@@ -542,6 +544,10 @@ fi
 mkdir -p "$SITE/data/transport"
 rm -rf "$SITE/data/transport/parked"
 cp -a data/transport/parked "$SITE/data/transport/parked"
+# T-3500: the standing horse's derivation and qualification reports (5.3 MB) are the
+# record of how its model was made and checked; tools/test_standing_horse_*.py read them
+# in the source tree and no page fetches one, so they stay out of the published tree.
+rm -rf "$SITE/data/transport/parked/standing-horse-planted"
 
 # Occupied town circuits and their live hitch bindings use the same data base.
 # Keep runtime inputs explicit; the complete native measurement fixture stays in tools/.
@@ -753,6 +759,24 @@ fi
 rm -rf "$SITE/data/humans"
 mkdir -p "$SITE/data/humans/web"
 cp -a data/humans/. "$SITE/data/humans/"
+# T-3463 (owner, 2026-11-08: the 1812 town under the 432 MB budget): the browser fixture's
+# readings and the dress recipes are build and gate inputs the renderer never fetches.
+rm -rf "$SITE/data/humans/recipes"
+rm -f "$SITE"/data/humans/*.measure.json
+# T-3500: each person's looks file is an input of tools/human_variation_kit.py, which carries
+# it into hm08_variation_persons.json (`looks`), the file the renderer reads; the 1812
+# gathering's 634 are 3 MB the page never fetches.
+rm -rf "$SITE/data/humans/variation/looks"
+# T-3463: the people's instance records ship minified, as the residents do: the 1812 town's
+# 158 records are 0.86 MB of indentation a visitor never reads (humans.js fetches them with
+# response.json()). tools/check_published.mjs holds each to its source, value for value.
+node -e '
+const fs = require("fs"), path = require("path");
+const walk = (d) => fs.readdirSync(d, { withFileTypes: true }).flatMap((e) =>
+  e.isDirectory() ? walk(path.join(d, e.name)) : e.name.endsWith(".json") ? [path.join(d, e.name)] : []);
+for (const f of fs.existsSync(process.argv[1]) ? walk(process.argv[1]) : [])
+  fs.writeFileSync(f, JSON.stringify(JSON.parse(fs.readFileSync(f, "utf8"))));
+' "$SITE/data/humans/instances"
 if [ -d assets/humans/web ]; then
   cp -a assets/humans/web/. "$SITE/data/humans/web/"
   # T-3451: a figure that nothing in the town draws (no instance, pose binding,
@@ -775,7 +799,9 @@ if [ -d assets/humans/web ]; then
   # under data/humans/web/sheets/, and the GLBs name it as an external buffer. The
   # renderer still decodes it once (shared-images.js); check.sh reads every rewrite
   # back to its assets/humans/web source.
-  node tools/share_glb_sheets.mjs "$SITE" --dir data/humans/web --source assets/humans/web
+  # T-3463: and so does every geometry or clip stream two figures carry byte for byte
+  # (--streams), 2 KiB or more: the same bodies, hands and hair under different dress.
+  node tools/share_glb_sheets.mjs "$SITE" --dir data/humans/web --source assets/humans/web --streams
 fi
 
 # The animal layer (ROADMAP K51). Same argument as the residents above, and it

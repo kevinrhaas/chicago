@@ -18,7 +18,68 @@
     "phase": 0.15
   },
   "behaviour": {
-    "state": "standing"
+    "state": "standing",
+    "day": [
+      {
+        "note": "Reconstructed day (L-t3516-days, T-3516): docs/RESEARCH/people-days-1835-1904/days.py.",
+        "spans": [
+          {
+            "from": 0,
+            "to": 6,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "asleep"
+          },
+          {
+            "from": 6,
+            "to": 10,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "the rooms done, breakfast served"
+          },
+          {
+            "from": 10,
+            "to": 12,
+            "indoors": false,
+            "at": {
+              "local_e": 1356.3,
+              "local_n": -3216.7,
+              "heading_deg": 20
+            },
+            "activity": "talk",
+            "doing": "at the servants' entry on Eighteenth Street: the steps swept, errands",
+            "knot": "glessner_18th"
+          },
+          {
+            "from": 12,
+            "to": 15,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "luncheon served, the rooms"
+          },
+          {
+            "from": 15,
+            "to": 16.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1356.3,
+              "local_n": -3216.7,
+              "heading_deg": 20
+            },
+            "activity": "talk",
+            "doing": "at the servants' entry on Eighteenth Street",
+            "knot": "glessner_18th"
+          },
+          {
+            "from": 16.5,
+            "to": 24,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "dinner served; asleep"
+          }
+        ]
+      }
+    ]
   },
   "interaction": {
     "selectable": true,

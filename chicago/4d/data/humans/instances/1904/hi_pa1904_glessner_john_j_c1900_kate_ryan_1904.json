@@ -18,7 +18,68 @@
     "phase": 0.4
   },
   "behaviour": {
-    "state": "standing"
+    "state": "standing",
+    "day": [
+      {
+        "note": "Reconstructed day (L-t3516-days, T-3516): docs/RESEARCH/people-days-1835-1904/days.py.",
+        "spans": [
+          {
+            "from": 0,
+            "to": 6,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "asleep"
+          },
+          {
+            "from": 6,
+            "to": 9.5,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "the kitchen: breakfast for the house"
+          },
+          {
+            "from": 9.5,
+            "to": 12,
+            "indoors": false,
+            "at": {
+              "local_e": 1352.89,
+              "local_n": -3231.17,
+              "heading_deg": 105
+            },
+            "activity": "talk",
+            "doing": "by the service stair in the court: the kitchen's work out of doors",
+            "knot": "glessner_court"
+          },
+          {
+            "from": 12,
+            "to": 15,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "the kitchen: luncheon"
+          },
+          {
+            "from": 15,
+            "to": 17,
+            "indoors": false,
+            "at": {
+              "local_e": 1352.89,
+              "local_n": -3231.17,
+              "heading_deg": 105
+            },
+            "activity": "talk",
+            "doing": "by the service stair in the court",
+            "knot": "glessner_court"
+          },
+          {
+            "from": 17,
+            "to": 24,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "the kitchen: dinner; asleep"
+          }
+        ]
+      }
+    ]
   },
   "interaction": {
     "selectable": true,

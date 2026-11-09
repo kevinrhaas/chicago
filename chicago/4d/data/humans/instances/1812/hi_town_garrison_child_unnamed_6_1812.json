@@ -1,0 +1,310 @@
+{
+  "id": "hi_town_garrison_child_unnamed_6_1812",
+  "contract_version": 1,
+  "scene": "1812",
+  "person_id": "garrison_child_unnamed_6",
+  "appearance": {
+    "asset_id": "child_toddler_1812"
+  },
+  "placement": {
+    "local_e": 1074.6,
+    "local_n": 169.0,
+    "heading_deg": 90.0,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "idle",
+    "loop": true,
+    "phase": 0.219
+  },
+  "behaviour": {
+    "state": "standing",
+    "day": [
+      {
+        "dates": {
+          "from": "1812-01-01",
+          "to": "1812-04-07"
+        },
+        "note": "Before April: with the family the card leans to (Lee for 1, 2, 3, 6; Burns for 4, 5, 7). Reconstructed.",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 6.5,
+            "indoors": true,
+            "where": "lee_house_1812",
+            "doing": "asleep"
+          },
+          {
+            "from": 6.5,
+            "to": 8.0,
+            "indoors": true,
+            "where": "lee_house_1812",
+            "doing": "up; breakfast by the fire"
+          },
+          {
+            "from": 8.0,
+            "to": 11.0,
+            "indoors": true,
+            "where": "lee_house_1812",
+            "doing": "playing indoors by the fire"
+          },
+          {
+            "from": 11.0,
+            "to": 12.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1124.0,
+              "local_n": -437.0,
+              "heading_deg": 270.0
+            },
+            "doing": "out by the door, bundled up, with the nurse or mother",
+            "activity": "talk",
+            "knot": "talk_a32bd827"
+          },
+          {
+            "from": 12.5,
+            "to": 13.5,
+            "indoors": true,
+            "where": "lee_house_1812",
+            "doing": "dinner"
+          },
+          {
+            "from": 13.5,
+            "to": 17.5,
+            "indoors": true,
+            "where": "lee_house_1812",
+            "doing": "indoors: sewing, games, the little ones asleep"
+          },
+          {
+            "from": 17.5,
+            "to": 18.5,
+            "indoors": true,
+            "where": "lee_house_1812",
+            "doing": "supper by candle"
+          },
+          {
+            "from": 18.5,
+            "to": 19.0,
+            "indoors": true,
+            "where": "lee_house_1812",
+            "doing": "evening by the fire"
+          },
+          {
+            "from": 19.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "lee_house_1812",
+            "doing": "asleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-04-08",
+          "to": "1812-08-13"
+        },
+        "note": "The household card's own home for these seven is the Agency House (Quaife's \"fortified themselves\"). Quaife thinks several were Lee children and more were Burns's, both families at that house; any one",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.5,
+            "to": 7.5,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "up; breakfast"
+          },
+          {
+            "from": 7.5,
+            "to": 10.5,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "with the mother at the housework"
+          },
+          {
+            "from": 10.5,
+            "to": 12.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1080.0,
+              "local_n": 166.0,
+              "heading_deg": 90.0
+            },
+            "doing": "playing with the other children of the house",
+            "activity": "talk",
+            "knot": "talk_ec3cac76"
+          },
+          {
+            "from": 12.0,
+            "to": 13.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "dinner"
+          },
+          {
+            "from": 13.0,
+            "to": 15.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "asleep"
+          },
+          {
+            "from": 15.0,
+            "to": 17.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1074.6,
+              "local_n": 169.0,
+              "heading_deg": 90.0
+            },
+            "doing": "playing in the yard by the house",
+            "activity": "talk",
+            "knot": "talk_010b3c2c"
+          },
+          {
+            "from": 17.0,
+            "to": 18.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "supper"
+          },
+          {
+            "from": 18.0,
+            "to": 19.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "evening in the house"
+          },
+          {
+            "from": 19.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "asleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-14",
+          "to": "1812-08-14"
+        },
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "asleep; barrels being broken at the river in the night"
+          },
+          {
+            "from": 5.5,
+            "to": 7.5,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "up; breakfast; the household packing"
+          },
+          {
+            "from": 7.5,
+            "to": 9.5,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "kept in while the mother packs"
+          },
+          {
+            "from": 9.5,
+            "to": 11.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1074.6,
+              "local_n": 169.0,
+              "heading_deg": 90.0
+            },
+            "doing": "out in the yard by the door",
+            "activity": "talk",
+            "knot": "talk_567c5739"
+          },
+          {
+            "from": 11.0,
+            "to": 13.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "indoors; dinner"
+          },
+          {
+            "from": 13.0,
+            "to": 15.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "indoors while the council sits on the esplanade"
+          },
+          {
+            "from": 15.0,
+            "to": 17.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1074.6,
+              "local_n": 169.0,
+              "heading_deg": 90.0
+            },
+            "doing": "out by the door again, watching the bustle",
+            "activity": "talk",
+            "knot": "talk_089b0fbd"
+          },
+          {
+            "from": 17.0,
+            "to": 18.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "supper"
+          },
+          {
+            "from": 18.0,
+            "to": 19.5,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "evening; bundles made up for the wagons"
+          },
+          {
+            "from": 19.5,
+            "to": 24.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "asleep; the march is at nine"
+          }
+        ]
+      }
+    ],
+    "presence": {
+      "from": "1812-01-01",
+      "to": "1812-08-15"
+    }
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 3,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": false,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "Reconstructed figure of A child of the post, name not recorded (6 of 7) in the 1812 town, at each hour of each run of dates where the reading for T-3465 (docs/RESEARCH/people-1812-3465/day.json) puts them: indoors (asked for at the door) or out at their work, with the people they would be with. The hours, the places and the companions are ours (liberty L-1812-town-days-3463), each span graded with its own basis in the reading; what a source says of them is on their card. They wear the child toddler 1812 role dress, with their own face, height, build and colouring.",
+    "sources": [
+      "kinzie_waubun_1856",
+      "quaife_1913",
+      "simmons_1896_heroes_and_heroines"
+    ],
+    "liberty": "L418",
+    "seed": "garrison_child_unnamed_6:1812:days:20261108",
+    "replaceable_by": "A diary, letter or order book of the post that says where they were and what they did on the day."
+  }
+}

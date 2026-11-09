@@ -1,0 +1,393 @@
+{
+  "id": "hi_town_black_jim_1812",
+  "contract_version": 1,
+  "scene": "1812",
+  "person_id": "black_jim",
+  "appearance": {
+    "asset_id": "settler_1812"
+  },
+  "placement": {
+    "local_e": 1155.0,
+    "local_n": 353.0,
+    "heading_deg": 0.0,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "idle",
+    "loop": true,
+    "phase": 0.652
+  },
+  "behaviour": {
+    "state": "standing",
+    "day": [
+      {
+        "dates": {
+          "from": "1812-01-01",
+          "to": "1812-08-13"
+        },
+        "note": "a household servant's day",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.0,
+            "to": 6.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1155.0,
+              "local_n": 353.0,
+              "heading_deg": 0.0
+            },
+            "doing": "milking at the dairy and carrying the pails in",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1156.4,
+                "local_n": 353.0
+              },
+              {
+                "local_e": 1153.6,
+                "local_n": 353.0
+              }
+            ]
+          },
+          {
+            "from": 6.5,
+            "to": 7.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1179.0,
+              "local_n": 347.0,
+              "heading_deg": 350.0
+            },
+            "doing": "feeding the horses",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1180.38,
+                "local_n": 347.24
+              },
+              {
+                "local_e": 1177.62,
+                "local_n": 346.76
+              }
+            ]
+          },
+          {
+            "from": 7.0,
+            "to": 7.5,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "breakfast in the kitchen"
+          },
+          {
+            "from": 7.5,
+            "to": 10.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1150.0,
+              "local_n": 308.0,
+              "heading_deg": 180.0
+            },
+            "doing": "carrying water up from the river and splitting wood",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1148.6,
+                "local_n": 308.0
+              },
+              {
+                "local_e": 1151.4,
+                "local_n": 308.0
+              }
+            ]
+          },
+          {
+            "from": 10.0,
+            "to": 12.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1175.5,
+              "local_n": 346.5,
+              "heading_deg": 45.0
+            },
+            "doing": "at the woodpile between the house and the stable",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1176.49,
+                "local_n": 345.51
+              },
+              {
+                "local_e": 1174.51,
+                "local_n": 347.49
+              }
+            ]
+          },
+          {
+            "from": 12.0,
+            "to": 13.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "dinner in the kitchen"
+          },
+          {
+            "from": 13.0,
+            "to": 13.3,
+            "indoors": true,
+            "away": true,
+            "doing": "paddling a pirogue across with something for the family in the fort"
+          },
+          {
+            "from": 13.3,
+            "to": 13.6,
+            "indoors": true,
+            "away": true,
+            "doing": "paddling back"
+          },
+          {
+            "from": 13.6,
+            "to": 17.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1155.0,
+              "local_n": 367.0,
+              "heading_deg": 90.0
+            },
+            "doing": "at work in the garden",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1155.0,
+                "local_n": 365.6
+              },
+              {
+                "local_e": 1155.0,
+                "local_n": 368.4
+              }
+            ]
+          },
+          {
+            "from": 17.5,
+            "to": 18.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1155.0,
+              "local_n": 353.0,
+              "heading_deg": 0.0
+            },
+            "doing": "the evening milking",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1156.4,
+                "local_n": 353.0
+              },
+              {
+                "local_e": 1153.6,
+                "local_n": 353.0
+              }
+            ]
+          },
+          {
+            "from": 18.5,
+            "to": 19.5,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "supper in the kitchen"
+          },
+          {
+            "from": 19.5,
+            "to": 24.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "asleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-14",
+          "to": "1812-08-14"
+        },
+        "note": "loading for the boat",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.0,
+            "to": 6.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1155.0,
+              "local_n": 353.0,
+              "heading_deg": 0.0
+            },
+            "doing": "milking at the dairy and carrying the pails in",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1156.4,
+                "local_n": 353.0
+              },
+              {
+                "local_e": 1153.6,
+                "local_n": 353.0
+              }
+            ]
+          },
+          {
+            "from": 6.5,
+            "to": 7.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1179.0,
+              "local_n": 347.0,
+              "heading_deg": 350.0
+            },
+            "doing": "feeding the horses",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1180.38,
+                "local_n": 347.24
+              },
+              {
+                "local_e": 1177.62,
+                "local_n": 346.76
+              }
+            ]
+          },
+          {
+            "from": 7.0,
+            "to": 7.5,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "breakfast in the kitchen"
+          },
+          {
+            "from": 7.5,
+            "to": 12.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1179.0,
+              "local_n": 347.0,
+              "heading_deg": 350.0
+            },
+            "doing": "saddling and loading the hired pack-horses",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1180.38,
+                "local_n": 347.24
+              },
+              {
+                "local_e": 1177.62,
+                "local_n": 346.76
+              }
+            ]
+          },
+          {
+            "from": 12.0,
+            "to": 12.8,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "dinner in the kitchen"
+          },
+          {
+            "from": 12.8,
+            "to": 18.3,
+            "indoors": false,
+            "at": {
+              "local_e": 1150.0,
+              "local_n": 308.0,
+              "heading_deg": 180.0
+            },
+            "doing": "carrying chests and the family's bedding down to the boat",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1148.6,
+                "local_n": 308.0
+              },
+              {
+                "local_e": 1151.4,
+                "local_n": 308.0
+              }
+            ]
+          },
+          {
+            "from": 18.3,
+            "to": 19.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1155.0,
+              "local_n": 353.0,
+              "heading_deg": 0.0
+            },
+            "doing": "the last milking",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1156.4,
+                "local_n": 353.0
+              },
+              {
+                "local_e": 1153.6,
+                "local_n": 353.0
+              }
+            ]
+          },
+          {
+            "from": 19.0,
+            "to": 19.5,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "supper in the kitchen"
+          },
+          {
+            "from": 19.5,
+            "to": 24.0,
+            "indoors": true,
+            "where": "kinzie_house_1812",
+            "doing": "asleep"
+          }
+        ]
+      }
+    ],
+    "presence": {
+      "from": "1812-01-01",
+      "to": "1812-08-18"
+    }
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 3,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": false,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "Reconstructed figure of Black Jim in the 1812 town, at each hour of each run of dates where the reading for T-3466 (docs/RESEARCH/people-1812-3466/day.json) puts them: indoors (asked for at the door) or out at their work, with the people they would be with. The hours, the places and the companions are ours (liberty L-1812-town-days-3463), each span graded with its own basis in the reading; what a source says of them is on their card. They wear the settler 1812 role dress, with their own face, height, build and colouring.",
+    "sources": [
+      "kinzie_waubun_1856"
+    ],
+    "liberty": "L418",
+    "seed": "black_jim:1812:days:20261108",
+    "replaceable_by": "A diary, letter or order book of the post that says where they were and what they did on the day."
+  }
+}

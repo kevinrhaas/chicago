@@ -723,6 +723,25 @@
         "the Sarony lithograph itself: the Gutenberg file carries only its caption, so the plate is not read here"
       ]
     },
+    "dailing_2018_chicago_reader_lalime": {
+      "source_id": "dailing_2018_chicago_reader_lalime",
+      "citation": "Paul Dailing, 'The long death of Jean Lalime: A classic tale of Chicago corruption, and also of rabbinical law, frontier justice, and the city's first murder', Chicago Reader, 18 October 2018.",
+      "url": "https://chicagoreader.com/news-politics/the-long-death-of-jean-lalime/",
+      "archived_url": "",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "the Wayne County record of the 1800 sale of du Sable's post to Lalime, with Kinzie as witness, and no record of the next transfer",
+        "Captain Heald's garrison order of 17 January 1812 making 'Messrs. Kinzie & Forsyth' the sutlers",
+        "Irwin's letters of 30 December 1809, 16 April, March 10, July and 12 October 1812, and Van Voorhis's of 30 June 1812, as quoted",
+        "the date 17 June 1812, about six in the evening, and Irwin's watching the killing from twenty to thirty yards",
+        "Heald's letter to Irwin: 'a Citizen who had but a few days previous stabed an other citizen to the heart in your presence'"
+      ],
+      "what_it_does_not_supply": [
+        "the letters themselves, with their own pagination",
+        "where Lalime fell, beyond the fort's entrance"
+      ]
+    },
     "dalton_1840_chicago_census_index": {
       "source_id": "dalton_1840_chicago_census_index",
       "citation": "Dalton Data Bank, Illinois census indexes (Dalton/Dolton/Daulton surname extractions), 1840 block",
@@ -1273,6 +1292,36 @@
       "tier": 4,
       "tier_label": "later scholarship"
     },
+    "kappler_1904_treaty_ottawa_etc_1816": {
+      "source_id": "kappler_1904_treaty_ottawa_etc_1816",
+      "citation": "Treaty with the Ottawa, etc., 1816 (St. Louis, 24 August 1816; 7 Stat. 146), in Charles J. Kappler, ed., Indian Affairs: Laws and Treaties, vol. II, Treaties (Washington: Government Printing Office, 1904).",
+      "url": "https://treaties.okstate.edu/treaties/treaty-with-the-ottawa-etc-1816-0132",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the names of the chiefs and warriors of the united bands of the Illinois and Milwaukee rivers in 1816, several with English glosses"
+      ],
+      "what_it_does_not_supply": [
+        "where any signer was in August 1812",
+        "their families"
+      ]
+    },
+    "kappler_1904_treaty_potawatomi_1815": {
+      "source_id": "kappler_1904_treaty_potawatomi_1815",
+      "citation": "Treaty with the Potawatomi, 1815 (Portage des Sioux, 18 July 1815; 7 Stat. 123), in Charles J. Kappler, ed., Indian Affairs: Laws and Treaties, vol. II, Treaties (Washington: Government Printing Office, 1904).",
+      "url": "https://treaties.okstate.edu/treaties/treaty-with-the-potawatomi-1815-0110",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the names of six chiefs and warriors of the Illinois River Potawatomi in 1815, one with its English gloss"
+      ],
+      "what_it_does_not_supply": [
+        "where any signer was in August 1812",
+        "their families"
+      ]
+    },
     "kendall_history_daniel_platt": {
       "source_id": "kendall_history_daniel_platt",
       "citation": "History of Kendall County, Illinois, Daniel Platt pioneer account",
@@ -1402,6 +1451,24 @@
       "archived_url": "",
       "tier": 4,
       "tier_label": "later scholarship"
+    },
+    "morgan_1877_ancient_society": {
+      "source_id": "morgan_1877_ancient_society",
+      "citation": "Lewis H. Morgan, Ancient Society, or Researches in the Lines of Human Progress from Savagery, through Barbarism to Civilization (New York: Henry Holt and Company, 1877).",
+      "url": "https://www.gutenberg.org/ebooks/45950",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)",
+      "what_it_supplies": [
+        "the fifteen Potawatomi gentes with Morgan's names for them (note 170)",
+        "the Miami gentes (note 172)",
+        "how names were made and given (Part II ch. II, VI)",
+        "example names, Seneca and Omaha, that show the form"
+      ],
+      "what_it_does_not_supply": [
+        "the name of any person at Chicago in 1812",
+        "Potawatomi words beyond the gens names"
+      ]
     },
     "moses_kirkland_history_of_chicago_v1": {
       "source_id": "moses_kirkland_history_of_chicago_v1",

@@ -1,0 +1,369 @@
+{
+  "id": "hi_town_lee_daughter_1812",
+  "contract_version": 1,
+  "scene": "1812",
+  "person_id": "lee_daughter",
+  "appearance": {
+    "asset_id": "woman_working_1812"
+  },
+  "placement": {
+    "local_e": 1074.6,
+    "local_n": 169.0,
+    "heading_deg": 90.0,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "idle",
+    "loop": true,
+    "phase": 0.312
+  },
+  "behaviour": {
+    "state": "standing",
+    "day": [
+      {
+        "dates": {
+          "from": "1812-01-01",
+          "to": "1812-04-07"
+        },
+        "note": "At the Lee house on the lake shore near the fort (Wau-Bun) until the alarm of 7 April; the family's own move to the Agency House is inferred from Wau-Bun's \"inhabitants outside the fort\".",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 6.5,
+            "indoors": true,
+            "where": "lee_house_1812",
+            "doing": "asleep"
+          },
+          {
+            "from": 6.5,
+            "to": 8.0,
+            "indoors": true,
+            "where": "lee_house_1812",
+            "doing": "up; breakfast by the fire"
+          },
+          {
+            "from": 8.0,
+            "to": 9.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1124.0,
+              "local_n": -437.0,
+              "heading_deg": 270.0
+            },
+            "doing": "carrying in firewood",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 1124.0,
+                "local_n": -435.6
+              },
+              {
+                "local_e": 1124.0,
+                "local_n": -438.4
+              }
+            ]
+          },
+          {
+            "from": 9.0,
+            "to": 11.0,
+            "indoors": true,
+            "where": "lee_house_1812",
+            "doing": "helping in the house"
+          },
+          {
+            "from": 11.0,
+            "to": 12.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1124.0,
+              "local_n": -437.0,
+              "heading_deg": 270.0
+            },
+            "doing": "playing out of doors in the middle of the day",
+            "activity": "talk",
+            "knot": "talk_a32bd827"
+          },
+          {
+            "from": 12.5,
+            "to": 13.5,
+            "indoors": true,
+            "where": "lee_house_1812",
+            "doing": "dinner"
+          },
+          {
+            "from": 13.5,
+            "to": 17.5,
+            "indoors": true,
+            "where": "lee_house_1812",
+            "doing": "indoors: sewing, games, the little ones asleep"
+          },
+          {
+            "from": 17.5,
+            "to": 18.5,
+            "indoors": true,
+            "where": "lee_house_1812",
+            "doing": "supper by candle"
+          },
+          {
+            "from": 18.5,
+            "to": 20.0,
+            "indoors": true,
+            "where": "lee_house_1812",
+            "doing": "evening by the fire"
+          },
+          {
+            "from": 20.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "lee_house_1812",
+            "doing": "asleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-04-08",
+          "to": "1812-08-13"
+        },
+        "note": "From April at the Agency House, which the families outside the fort fortified (Wau-Bun; Quaife). That the Burns family was still there in August is inferred; the household card's own home is the Burns",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.5,
+            "to": 7.5,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "up; breakfast"
+          },
+          {
+            "from": 7.5,
+            "to": 8.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1073.0,
+              "local_n": 176.5,
+              "heading_deg": 7.3
+            },
+            "activity": "walk",
+            "to_point": {
+              "local_e": 1097.0,
+              "local_n": 242.2
+            },
+            "via": [
+              {
+                "local_e": 1076.0,
+                "local_n": 200.0
+              },
+              {
+                "local_e": 1080.0,
+                "local_n": 228.0
+              }
+            ],
+            "once": true,
+            "doing": "carrying water up from the river"
+          },
+          {
+            "from": 8.5,
+            "to": 10.5,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "helping her mother: washing, minding the little ones"
+          },
+          {
+            "from": 10.5,
+            "to": 12.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1080.0,
+              "local_n": 166.0,
+              "heading_deg": 90.0
+            },
+            "doing": "playing with the other children of the house",
+            "activity": "talk",
+            "knot": "talk_ec3cac76"
+          },
+          {
+            "from": 12.0,
+            "to": 13.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "dinner"
+          },
+          {
+            "from": 13.0,
+            "to": 15.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "quiet hours indoors"
+          },
+          {
+            "from": 15.0,
+            "to": 17.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1074.6,
+              "local_n": 169.0,
+              "heading_deg": 90.0
+            },
+            "doing": "playing in the yard by the house",
+            "activity": "talk",
+            "knot": "talk_010b3c2c"
+          },
+          {
+            "from": 17.0,
+            "to": 18.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "supper"
+          },
+          {
+            "from": 18.0,
+            "to": 20.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "evening in the house"
+          },
+          {
+            "from": 20.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "asleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-14",
+          "to": "1812-08-14"
+        },
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "asleep; barrels being broken at the river in the night"
+          },
+          {
+            "from": 5.5,
+            "to": 7.5,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "up; breakfast; the household packing"
+          },
+          {
+            "from": 7.5,
+            "to": 9.5,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "helping pack"
+          },
+          {
+            "from": 9.5,
+            "to": 11.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1074.6,
+              "local_n": 169.0,
+              "heading_deg": 90.0
+            },
+            "doing": "out in the yard by the door",
+            "activity": "talk",
+            "knot": "talk_567c5739"
+          },
+          {
+            "from": 11.0,
+            "to": 13.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "indoors; dinner"
+          },
+          {
+            "from": 13.0,
+            "to": 15.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "indoors while the council sits on the esplanade"
+          },
+          {
+            "from": 15.0,
+            "to": 17.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1074.6,
+              "local_n": 169.0,
+              "heading_deg": 90.0
+            },
+            "doing": "out by the door again, watching the bustle",
+            "activity": "talk",
+            "knot": "talk_089b0fbd"
+          },
+          {
+            "from": 17.0,
+            "to": 18.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "supper"
+          },
+          {
+            "from": 18.0,
+            "to": 18.75,
+            "indoors": false,
+            "at": {
+              "local_e": 1066.0,
+              "local_n": 148.0,
+              "heading_deg": 270.0
+            },
+            "doing": "brought to see the horse she is to ride tomorrow",
+            "activity": "stand"
+          },
+          {
+            "from": 18.75,
+            "to": 20.5,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "evening; bundles made up for the wagons"
+          },
+          {
+            "from": 20.5,
+            "to": 24.0,
+            "indoors": true,
+            "where": "first_fort_outer_agents_house",
+            "doing": "asleep; the march is at nine"
+          }
+        ]
+      }
+    ],
+    "presence": {
+      "from": "1812-01-01",
+      "to": "1812-08-15"
+    }
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 3,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": false,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "Reconstructed figure of Mrs. Lee's daughter (name not recorded) in the 1812 town, at each hour of each run of dates where the reading for T-3465 (docs/RESEARCH/people-1812-3465/day.json) puts them: indoors (asked for at the door) or out at their work, with the people they would be with. The hours, the places and the companions are ours (liberty L-1812-town-days-3463), each span graded with its own basis in the reading; what a source says of them is on their card. They wear the woman working 1812 role dress, with their own face, height, build and colouring.",
+    "sources": [
+      "kinzie_waubun_1856"
+    ],
+    "liberty": "L418",
+    "seed": "lee_daughter:1812:days:20261108",
+    "replaceable_by": "A diary, letter or order book of the post that says where they were and what they did on the day."
+  }
+}

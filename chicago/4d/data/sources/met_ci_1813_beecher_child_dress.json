@@ -1,0 +1,25 @@
+{
+ "id": "met_ci_1813_beecher_child_dress",
+ "type": "photograph",
+ "citation": "Dress (child's), cotton, ca. 1813. The Metropolitan Museum of Art, 2009.300.682.",
+ "author": "Unknown maker",
+ "date": "ca. 1813",
+ "describes_date": "1813",
+ "repository": "The Metropolitan Museum of Art; object 159240 in the museum's collection API (isPublicDomain: true), image 48.61.1_CP4 at images.metmuseum.org.",
+ "url": "https://www.metmuseum.org/art/collection/search/159240",
+ "locator": "The dress on its small form (image 48.61.1_CP4).",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "The Met's Open Access images of public-domain works are released CC0. Used only as a reference picture the 1812 children's dress is judged against (T-3465); nothing traced or sampled.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Viewed 2026-11-07 (dress research for the 1812 scene). A small white cotton dress with puffed short sleeves, high waist and embroidered hem; the museum page records that it was 'worn by the brother of Harriet Beecher Stowe', most likely Henry Ward Beecher (born 1813), so a dress worn by an infant boy.",
+ "note": "Entered for the 1812 children's dress (T-3465; docs/RESEARCH/people-1812-dress/children.md) from the dress research of docs/RESEARCH/people-1812-3461/dress.json; not a Chicago or Fort Dearborn record.",
+ "what_it_supplies": [
+  "an American infant's white cotton frock about 1813, worn by a boy: infants of both sexes in frocks"
+ ],
+ "what_it_does_not_supply": [
+  "what a garrison child wore",
+  "the age at which a boy was breeched"
+ ]
+}

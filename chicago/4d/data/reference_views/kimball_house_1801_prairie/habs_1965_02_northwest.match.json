@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "habs_1965_02_northwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "8c8be60f77ab5f71ee79c4ca6e4e16a4af35c353ecd8e4a22ac09b7b65fca82c",
+  "glb_sha256": "b93b8278faf4c7a2a0397201ad8c59c808d55c14244d03277bdcb84aab7bb3cd",
   "camera_sha256": "475749e1e90699915d11ebb50d92b46197e764f7d46d08a73a70e5fe6cdc6593",
   "photo_sha256": "c7398dc2aaa4756b623abf4f559ebd98d609dd89f45bec762ade94a7510ac606",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_02_northwest-side-by-side.jpg",
@@ -167,6 +167,15 @@
     {
       "what": "the curb and the corner hood, re-read on the leaned street face (T-1890 (2026-11-07)): this print's slate top at the north-west corner (x 1203, y 320) and the hood's top (x 1195, y 260) were two of the readings the lean was triangulated from; the hood's top now renders within about 8 px of the print's and the cresting's foot along the front about 15 px under it (about 0.3 m); the finial over the hood stands taller than this 1965 print's, as the Taylor print's does (the 1965 finial is the shorter one already recorded)",
       "status": "within tolerance"
+    },
+    {
+      "what": "the main cornice at the north-west corner (T-1890 (2026-11-08)): the print's stood about 50 px over the render's (y about 540 against 590, x about 1330) with the lights within about 10 px; the eave raised 0.5 m to 9.4 m (with the Taylor print and HABS photograph 1) brings it within about 30 px, and the bow's balustrade within about 10 px (y 575-615 against 575-615)",
+      "status": "within tolerance",
+      "how": "T-1890: L-kimball-1801-south-front-1890. The 30 px left is about 0.5 m at this distance; the Taylor print, the period view, holds the cornice within about 10 px, so the build stops there."
+    },
+    {
+      "what": "the bow's balustrade and the pavilion's return (T-1890 (2026-11-08)): the print's bow balustrade ends at the pavilion's pilaster, and over it the pavilion's third storey shows its north return with a light (x 1430-1480, y 530-570); the build's balustrade now stops there (balcony.to_frac) and its return renders with the wall dormer's light in place",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

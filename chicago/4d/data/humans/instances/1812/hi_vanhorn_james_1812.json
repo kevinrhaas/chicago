@@ -4,7 +4,7 @@
   "scene": "1812",
   "person_id": "vanhorn_james",
   "appearance": {
-    "asset_id": "private_first_infantry_1812"
+    "asset_id": "settler_1812"
   },
   "placement": {
     "local_e": 158.0,
@@ -32,7 +32,8 @@
     "hours": [
       5.5,
       21.0
-    ]
+    ],
+    "quarters": "first_fort_dearborn_soldiers_barracks_sw"
   },
   "interaction": {
     "selectable": true,
@@ -46,7 +47,7 @@
   "review_required": false,
   "provenance": {
     "grade": "reconstructed",
-    "basis": "Reconstructed figure of James Vanhorn, private of Captain Nathan Heald's company of the First Infantry (on the company's muster-roll to 31 May 1812, Quaife 1913 App. VIII), walking back from the cornfield at the forks, on the afternoon of 14 August 1812. Where he stands and what he is doing are ours (liberty L-1812-garrison-stations-3462): no guard report or order book of the post survives for that day, and nothing of it is acted out. He wears the company private's dress (T-3451). His face, height and build are seeded from his own name; no picture of him is known.",
+    "basis": "Reconstructed figure of James Vanhorn, private of Captain Nathan Heald's company of the First Infantry (on the company's muster-roll to 31 May 1812, Quaife 1913 App. VIII), walking back from the cornfield at the forks, on the afternoon of 14 August 1812. Where he stands and what he is doing are ours (liberty L-1812-garrison-stations-3462): no guard report or order book of the post survives for that day, and nothing of it is acted out. He wears his fatigue clothes: an unbleached linen shirt and white waistcoat, a black stock and loose linen trousers, bareheaded, without coat, cap or belts; no musket at his work (the party's arms stand piled at the field's edge) (T-3523; who wears what, and how his musket is carried, are ours, liberty L-1812-garrison-dress-3523). His face, height and build are seeded from his own name; no picture of him is known.",
     "sources": [
       "loc_ogden_1888_infantry_artillery_1802_1810",
       "met_krimmel_1813_philadelphia_soldiery",

@@ -81,6 +81,7 @@ export const GAIT = Object.freeze({
   toeOffDeg: -50,        // and at toe-off, heel up (rolled over the ball, toes flat)
   pelvisTiltDeg: 7,      // the thigh's angle to the vertical is hip flexion less the pelvis's tilt
   toeOutDeg: 8,          // each foot turned out from the line of travel
+  clearToesDeg: 30,      // T-3520: how far a swinging foot may lift its toes to clear the ground before the knee folds more
 });
 
 /**
@@ -94,9 +95,19 @@ export function gaitProfile({ sex = 'male', age = 35, height = 1.72, skirt = fal
   const female = sex === 'female' || skirt;
   const old = clamp((age - 50) / 25, 0, 1); // 0 to 50, 1 by 75
   const jitter = (seed - 0.5) * 0.08;       // two people never walk exactly alike
-  const speed = (female ? 1.25 : 1.35) * (1 - 0.12 * old) * (skirt ? 0.92 : 1) * (1 + jitter * 0.6);
+  let speed = (female ? 1.25 : 1.35) * (1 - 0.12 * old) * (skirt ? 0.92 : 1) * (1 + jitter * 0.6);
   const ratio = (female ? 0.78 : 0.83) * (1 - 0.08 * old) * (skirt ? 0.95 : 1) * (1 + jitter * 0.4);
-  const stride = ratio * height;
+  let stride = ratio * height;
+  // T-3520: a child walks as a child, not as a small adult (the owner, 2026-11-08, of the
+  // 1812 children: "a very odd walk that does not make sense at all"). CHILD_GAIT's speed
+  // and cadence by age, the stride theirs for their own height; from seven on toward the
+  // adult's by fifteen.
+  if (age < 15) {
+    const c = childGait(age, height);
+    const t = clamp((age - 7) / 8, 0, 1);
+    speed = (c.speed + (speed - c.speed) * t) * (1 + jitter * 0.6);
+    stride = c.stride + (stride - c.stride) * t;
+  }
   return {
     speed, stride, cadence: (2 * speed) / stride,
     stepWidth: female ? 0.083 : 0.095,
@@ -105,6 +116,26 @@ export function gaitProfile({ sex = 'male', age = 35, height = 1.72, skirt = fal
     lateral: female ? 0.022 : 0.02,
     female, old,
   };
+}
+
+/**
+ * Children's walking by age (T-3520): the means Sutherland, Olshen, Cooper & Woo 1980 ("The
+ * development of mature gait", J Bone Joint Surg Am 62:336) give at one year (velocity
+ * 0.64 m/s, cadence 176 steps a minute) and at seven (1.14 m/s, 143), straight between them
+ * by age; the stature they are scaled from is a child of that age's usual height (0.76 m
+ * at one, 1.22 m at seven). A child shorter or taller than that takes a step in proportion.
+ */
+export const CHILD_GAIT = Object.freeze({
+  ages: Object.freeze([1, 7]), speed: Object.freeze([0.64, 1.14]), cadence: Object.freeze([176, 143]),
+  height: Object.freeze([0.76, 1.22]),
+});
+export function childGait(age, height) {
+  const t = clamp((age - CHILD_GAIT.ages[0]) / (CHILD_GAIT.ages[1] - CHILD_GAIT.ages[0]), 0, 1);
+  const at = (k) => CHILD_GAIT[k][0] + (CHILD_GAIT[k][1] - CHILD_GAIT[k][0]) * t;
+  const usual = at('height'), speed0 = at('speed'), cadence = at('cadence') / 60;
+  const scale = clamp(height / usual, 0.8, 1.25);
+  const stride = (2 * speed0 / cadence) * scale;
+  return { speed: stride * cadence / 2, stride };
 }
 
 /** A periodic Catmull-Rom through a 21-point table at cycle fraction `c`. */
@@ -232,8 +263,15 @@ export function createHumanGait({ id = 'human', scene = null, profile = {} } = {
     unit = next.getWorldScale(new THREE.Vector3()).y || 1;
     // Stature from the hip joint's height (about 0.53 of it in adults), not the drawn box,
     // which a hat and its plumes would stretch.
-    const drawn = ((rest.thigh_l.p.y + rest.thigh_r.p.y) / 2 - leg.l.shape.sole) / 0.53 * unit;
-    const metres = Number.isFinite(profile.height) && profile.height > 0.8 ? profile.height : drawn > 0.8 ? drawn : 1.7;
+    // T-3520: a child's hips sit lower in their height (about 0.44 of it at two, 0.51 by twelve),
+    // and a small child is well under 0.8 m: read as an adult of 1.7 m, a toddler was given a
+    // man's 1.3 m stride on legs 0.4 m long and walked on its knees.
+    const young = Number.isFinite(profile.age) && profile.age < 15;
+    const hipRatio = young ? 0.44 + 0.07 * clamp((profile.age - 2) / 10, 0, 1) : 0.53;
+    const drawn = ((rest.thigh_l.p.y + rest.thigh_r.p.y) / 2 - leg.l.shape.sole) / hipRatio * unit;
+    const least = young ? 0.5 : 0.8;
+    const metres = Number.isFinite(profile.height) && profile.height > least ? profile.height : drawn > least ? drawn
+      : young ? CHILD_GAIT.height[0] + (CHILD_GAIT.height[1] - CHILD_GAIT.height[0]) * clamp((profile.age - 1) / 6, 0, 1.6) : 1.7;
     P = gaitProfile({ ...profile, height: metres, seed });
     bound = true;
     return true;
@@ -258,6 +296,10 @@ export function createHumanGait({ id = 'human', scene = null, profile = {} } = {
   let mode = 'idle';          // idle | walk | close
   let phase = 0.78, weight = 0, walked = 0;
   let pelvisY = null, pelvisYV = 0, closeT = 0;
+  // T-3520: where the body stood last frame (world), to tell the ground the walk covered from
+  // a nudge (people kept apart, kept out of a wall) that moved the root as well.
+  const lastAt = new THREE.Vector3(), nudge = new THREE.Vector3(), ahead = new THREE.Vector3();
+  let hasLast = false;
   let closing = [];           // the closing steps still to take: side names
   const now = { yaw: 0, roll: 0, bob: 0, lateral: 0 };
   const foot = () => ({ stance: true, plant: new THREE.Vector3(), yaw: 0, e0: new THREE.Vector3(), pitch0: 0, yaw0: 0, toe0: 0, u0: 0, lastC: 0, step: null });
@@ -385,11 +427,24 @@ export function createHumanGait({ id = 'human', scene = null, profile = {} } = {
     const ease = smooth(u / 0.15) * (1 - smooth((u - 0.82) / 0.14));
     if (ease > 0) {
       const yAt = (v, p) => v.y * Math.cos(p) + v.z * Math.sin(p);   // height after pitch p (toes up +)
-      const ballY = yAt(L.toBall, pitch);
-      const tipY = ballY + yAt(v1.copy(L.toToe).sub(L.toBall), pitch + pose.toe);
-      const ballSoleY = yAt(v1.copy(L.toBall).setY(-L.ankleUp), pitch);
-      const lowest = Math.min(yAt(L.toHeel, pitch), tipY, ballSoleY);
-      const floor = L.shape.sole + 0.012 - lowest;
+      const floorAt = (p) => {
+        const ballY = yAt(L.toBall, p);
+        const tipY = ballY + yAt(v1.copy(L.toToe).sub(L.toBall), p + pose.toe);
+        const ballSoleY = yAt(v1.copy(L.toBall).setY(-L.ankleUp), p);
+        return L.shape.sole + 0.012 - Math.min(yAt(L.toHeel, p), tipY, ballSoleY);
+      };
+      // T-3520: a foot long for its leg (a small child's) clears the ground first by lifting
+      // its toes, as a toddler's does, and only then by folding the knee: lifting the ankle
+      // alone folded a three-year-old's knee to 85 degrees and read as walking on its knees.
+      let floor = floorAt(pitch), lift = 0;
+      if (A.y < floor) {
+        for (let d = 3; d <= GAIT.clearToesDeg; d += 3) {
+          const f = floorAt(pitch + d * DEG);
+          if (f < floor - 1e-4) { floor = f; lift = d; } else break;
+          if (A.y >= floor) break;
+        }
+        pose.pitch = pitch + lift * DEG * ease;
+      }
       if (A.y < floor) A.y += (floor - A.y) * ease;
     }
     return pose;
@@ -399,7 +454,9 @@ export function createHumanGait({ id = 'human', scene = null, profile = {} } = {
   function stepPose(s, pose) {
     const st = feet[s].step, t = clamp(st.t / st.T, 0, 1), m = smooth(t);
     pose.A.lerpVectors(st.from, st.to, m);
-    pose.A.y += Math.sin(Math.PI * t) * 0.06;
+    // T-3520: lifted in proportion to the leg (6 cm on a grown leg; on a toddler's it
+    // folded the knee to 75 degrees).
+    pose.A.y += Math.sin(Math.PI * t) * 0.06 * clamp(leg[s].hipHeight * unit / 0.9, 0.4, 1);
     pose.pitch = st.pitch * (1 - m) - Math.sin(Math.PI * t) * 6 * DEG;
     pose.yaw = st.yaw0 * (1 - m) + st.yaw1 * m;
     pose.toe = Math.max(0, -st.pitch) * (1 - smooth(t / 0.4));
@@ -480,6 +537,19 @@ export function createHumanGait({ id = 'human', scene = null, profile = {} } = {
       sceneInv.copy(sceneM).invert();
       body.getWorldQuaternion(sceneQ);
       sceneQInv.copy(sceneQ).invert();
+      // T-3520: a nudge carries the planted feet with it. A foot left where it was planted
+      // while the root is pushed aside pulled the hips down to reach it: a toddler shoved
+      // 0.6 m in a step folded to its knees (a grown leg only bent).
+      nudge.setFromMatrixPosition(sceneM);
+      if (hasLast && mode !== 'idle') {
+        ahead.set(0, 0, 0).add(fwd).applyQuaternion(sceneQ).setY(0);
+        if (ahead.lengthSq() > 1e-9) ahead.normalize();
+        const ds = Math.max(0, Number.isFinite(moved) ? moved : 0);
+        const d = v3.copy(nudge).sub(lastAt).setY(0).addScaledVector(ahead, -ds);
+        // (A closing step's targets are in the body's frame and move with it already.)
+        if (d.lengthSq() > 1e-10 && d.lengthSq() < 4) for (const s of SIDES) if (feet[s].stance) feet[s].plant.add(d);
+      }
+      lastAt.copy(nudge); hasLast = true;
       const walking = state === 'walking';
       let fresh = false;
       if (walking && mode !== 'walk') { mode = 'walk'; phase = 0.78; walked = 0; fresh = true; }
@@ -555,7 +625,8 @@ export function createHumanGait({ id = 'human', scene = null, profile = {} } = {
       const lo = Math.min(...ys);
       for (const y of ys) sum += Math.exp(-(y - lo) / k);
       let target = any ? lo - k * Math.log(sum) : rest.pelvis.p.y;
-      target = clamp(target, rest.pelvis.p.y - 0.12 / unit, rest.pelvis.p.y + 0.004);
+      // Never lower than a grown leg's 12 cm, in proportion to this leg (T-3520).
+      target = clamp(target, rest.pelvis.p.y - Math.min(0.12 / unit, 0.13 * rest.pelvis.p.y), rest.pelvis.p.y + 0.004);
       if (mode === 'close') target += (rest.pelvis.p.y - target) * smooth((closeT - 0.2) / 0.8);
       if (pelvisY === null || !Number.isFinite(pelvisY)) { pelvisY = target; pelvisYV = 0; }
       const om = 28, x = pelvisY - target, e = Math.exp(-om * dt), tmp = (pelvisYV + om * x) * dt;

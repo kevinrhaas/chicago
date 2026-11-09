@@ -1,0 +1,42 @@
+{
+ "format": "chicago4d_human_looks_v1",
+ "ticket": "T-3464",
+ "person_id": "heald_rebekah",
+ "scene": "1812",
+ "generated_by": "docs/RESEARCH/people-1812-town/looks.py",
+ "heritage": {
+  "origin": "not recorded (see the basis)",
+  "family": "reading"
+ },
+ "complexion": {
+  "value": "fair",
+  "drawn": "fair",
+  "grade": "inferred"
+ },
+ "hair": {
+  "value": "dark brown, parted in the centre and drawn smoothly back",
+  "drawn": "dark_brown",
+  "cut": "centre_part_knot_1835",
+  "facial": [
+   "brows_fine",
+   "lashes_upper"
+  ],
+  "grade": "inferred"
+ },
+ "eyes": {
+  "value": "not readable from the halftone",
+  "drawn": "brown",
+  "grade": "inferred"
+ },
+ "stature": {
+  "inches": 64,
+  "grade": "inferred",
+  "basis": "The daguerreotype taken in later life (Quaife plate, p. 300) shows a slender woman with dark hair parted in the centre under a white cap; at 22 her hair would be the same colour. Complexion read from a monochrome halftone, so \"fair\" is inferred. Height is reconstructed (no source); Quaife calls her \"beautiful and spirited\"."
+ },
+ "height_scale": 0.9852,
+ "basis": "Drawn in the words of the day reading for T-3464 (docs/RESEARCH/people-1812-3464/day.json): The daguerreotype taken in later life (Quaife plate, p. 300) shows a slender woman with dark hair parted in the centre under a white cap; at 22 her hair would be the same colour. Complexion read from a monochrome halftone, so \"fair\" is inferred. Height is reconstructed (no source); Quaife calls her \"beautiful and spirited\". The drawn colours, cut and scale are a reconstructed rendering of those words (liberty L-1812-town-days-3463).",
+ "grade": "inferred",
+ "liberty": "L-1812-town-days-3463",
+ "replaceable_by": "A portrait or a description of them written in their lifetime.",
+ "build_words": "slender"
+}

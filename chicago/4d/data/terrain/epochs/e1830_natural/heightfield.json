@@ -25,9 +25,9 @@
  "max_m": 6.096,
  "quantisation_error_m": 0.0025,
  "water_surface_m": 0.0,
- "water_fraction": 0.1598,
+ "water_fraction": 0.1597,
  "relief_ft": {
-  "land_min": -3.556,
+  "land_min": -1.898,
   "land_max": 20.0,
   "channel_min": -17.409
  },
@@ -38,7 +38,7 @@
    62.5
   ],
   "marsh_exclusion_m": 48.0,
-  "plain_cells_audited": 720273,
+  "plain_cells_audited": 722873,
   "carried_frame": {
    "cells": 356650,
    "block_max": 1.836,
@@ -46,14 +46,14 @@
    "note": "the ground carried south of evidence_limit, excluded from the plain audit and measured here instead. The surface is one evidenced row repeated, so north_south_block_max is the micro-relief texture and nothing else (the spec's own +/- 0.10 ft, two octaves), and the east-west figure is that row's own, already audited where it stands."
   },
   "plain_block_max": 0.468,
-  "plain_block_mean": 0.0852,
+  "plain_block_mean": 0.0844,
   "passes": true,
-  "plain_cell_roughness_max": 33.196,
-  "shore_and_swale_cell_max": 224.231,
+  "plain_cell_roughness_max": 56.85,
+  "shore_and_swale_cell_max": 208.433,
   "relief_zones_ft_per_300ft": {
    "bank_face": {
-    "cells": 97832,
-    "cell_max": 224.231
+    "cells": 96795,
+    "cell_max": 188.849
    },
    "battle_bank_1812": {
     "cells": 78972,
@@ -83,6 +83,10 @@
     "cells": 35521,
     "cell_max": 72.232
    },
+   "north_side_slough_1812": {
+    "cells": 684,
+    "cell_max": 89.601
+   },
    "south_sand_ridge": {
     "cells": 315499,
     "cell_max": 188.849
@@ -91,13 +95,17 @@
     "cells": 19274,
     "cell_max": 68.331
    },
+   "state_slough_1812": {
+    "cells": 1302,
+    "cell_max": 109.896
+   },
    "state_street_break": {
     "cells": 75041,
-    "cell_max": 224.231
+    "cell_max": 109.896
    },
    "swales": {
-    "cells": 711,
-    "cell_max": 224.231
+    "cells": 37,
+    "cell_max": 60.836
    },
    "tenth_street_rise_1812": {
     "cells": 1307,
@@ -116,5 +124,5 @@
   "ground": "gltf/terrain__e1830_natural.glb",
   "water": "gltf/water__e1830_natural.glb"
  },
- "inputs_sha256": "2923383c3b0d99c3a3fbc4722cbe98c78262f603c879b7a6a3cc9932eb16a372"
+ "inputs_sha256": "40874f2c31ab4adccfd4aa6bb96b957c16dec4f8bb34a68b8e9f49b59bdb2706"
 }

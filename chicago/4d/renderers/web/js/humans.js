@@ -44,10 +44,12 @@ import { loadVariationKit, personVariation, applyVariation, disposeVariants } fr
 import { loadMeshoptDecoder, disposeLoadedAsset } from './scene-loader.js';
 import { enuToWorld } from './terrain.js';
 import { dressSkin, restingLid } from './human-skin.js';
-import { dressHair } from './human-hair.js';
+import { dressHair, dressHeadcloth } from './human-hair.js';
 import { hairFor } from './human-hair-styles.js';
-import { dressLooks, looksHairStyle } from './human-looks.js';
+import { dressLooks, dressCloth, looksHairStyle } from './human-looks.js';
+import { dressHat } from './human-hats.js';
 import { dressSpectacles } from './human-spectacles.js';
+import { dressGarrison, garrisonCarry, createArmsPiles } from './human-garrison.js';
 
 /** § 8: the LODs each scene-detail tier may draw. `light` stays the floor. */
 export const HUMAN_TIERS = Object.freeze({ full: [0, 1, 2, 3], balanced: [1, 2, 3], light: [2, 3] });
@@ -60,6 +62,14 @@ export const FACE_M = 20;
 export const SHADOW_M = 30;
 export const ANIMATE_M = 70;
 export const DRAW_M = 140;
+/**
+ * T-3463: how far the `light` tier (a phone's) draws a figure. 1812's town put some 160 people
+ * within DRAW_M of the fort, sixteen dresses among them, and a phone held every one of their
+ * bodies and textures (+70 MB at spawn); at this distance it holds those near the visitor.
+ */
+export const DRAW_M_BY_TIER = Object.freeze({ full: DRAW_M, balanced: DRAW_M, light: 60 });
+/** T-3463: and the `light` tier gives LOD2 (its 1024 px dress sheet) way to LOD3 sooner. */
+export const LOD_BANDS_BY_TIER = Object.freeze({ light: Object.freeze([8, 20, 25]) });
 export const RECHECK_S = 0.5;
 /** T-3439: seconds a level drawn before is kept, parked, for a swap back to it. */
 export const PARK_S = 180;
@@ -82,16 +92,17 @@ const BLINK = ['eyeBlinkLeft', 'eyeBlinkRight'];
  * Returns -1 beyond DRAW_M (not drawn).
  */
 export function chooseHumanLod(distance, tier = 'full', current = -1, { policy = 'auto', fixed = 0 } = {}) {
-  if (!(distance <= DRAW_M)) return -1;
+  if (!(distance <= (DRAW_M_BY_TIER[tier] ?? DRAW_M))) return -1;
   const allowed = HUMAN_TIERS[tier] ?? HUMAN_TIERS.full;
   const clamp = (lod) => Math.min(Math.max(lod, allowed[0]), allowed[allowed.length - 1]);
   if (policy === 'fixed') return clamp(fixed);
-  let lod = LOD_BANDS_M.findIndex((band) => distance < band);
-  if (lod < 0) lod = LOD_BANDS_M.length;
+  const bands = LOD_BANDS_BY_TIER[tier] ?? LOD_BANDS_M;
+  let lod = bands.findIndex((band) => distance < band);
+  if (lod < 0) lod = bands.length;
   if (current >= 0 && current !== lod) {
     // Moving out to a coarser LOD needs the distance past the band by the margin; moving
     // back in needs it short of the band by the same margin.
-    const edge = LOD_BANDS_M[Math.min(current, lod)];
+    const edge = bands[Math.min(current, lod)];
     const margin = edge * LOD_HYSTERESIS;
     if (lod > current ? distance < edge + margin : distance > edge - margin) lod = current;
   }
@@ -255,6 +266,9 @@ export class HumanActor {
     this.tow = null;
     // T-3443: gone indoors (house-errands.js): not drawn, not picked, met by nobody.
     this.indoors = false;
+    // T-3504: a step aside from whoever else stands here, local metres (human-spacing.js).
+    this.spaceE = 0;
+    this.spaceN = 0;
     this.place();
   }
 
@@ -266,7 +280,12 @@ export class HumanActor {
 
   place() {
     // T-3442: on a walked path the path says how high each point is (a tread, a sill).
-    enuToWorld(this.e, this.n, this.standY ?? this.heightAt(this.e, this.n), this.root.position);
+    // T-3504: off a walked path, a step aside from whoever else stands here (human-spacing.js).
+    if (this.standY != null) { enuToWorld(this.e, this.n, this.standY, this.root.position); }
+    else {
+      const e = this.e + (this.spaceE ?? 0), n = this.n + (this.spaceN ?? 0);
+      enuToWorld(e, n, this.heightAt(e, n), this.root.position);
+    }
     this.root.rotation.y = headingToYaw(this.heading);
   }
 
@@ -300,7 +319,7 @@ export class HumanActor {
       const next = this.build(gltf, lod, variation);
       if (this.prepare) {
         // Shadows as the level will be drawn, so the programs compiled are the ones it uses.
-        for (const m of next.meshes) { m.castShadow = this.distance < SHADOW_M && lod <= 1; m.receiveShadow = this.distance < SHADOW_M; }
+        for (const m of [...next.meshes, ...next.extras]) { m.castShadow = this.distance < SHADOW_M && lod <= 1; m.receiveShadow = this.distance < SHADOW_M; }
         try { await this.prepare(next.scene); } catch { /* the first draw compiles them instead */ }
         if (this.disposed) { this.teardown(next); return this.body; }
         // Wanted elsewhere meanwhile: keep it for a swap back, as a level drawn before is kept.
@@ -332,6 +351,8 @@ export class HumanActor {
     // T-3481: a dress that carries something by the hand (a basket) names the hold there too.
     let carry = null;
     if (wardrobe.includes('"carry"')) { try { carry = JSON.parse(wardrobe).carry ?? null; } catch { carry = null; } }
+    // T-3523: a soldier's musket is carried in a held hand, as a basket is.
+    carry ??= garrisonCarry(next.garrison);
     if (this.actions) this.actions.bind(next.scene);
     else this.actions = createHumanActions({ id: this.personId ?? this.id, scene: next.scene, greeting: dressed ? 'nod' : 'brow', skirt: dressed, carry });
     if (this.gait) this.gait.bind(next.scene);
@@ -396,8 +417,12 @@ export class HumanActor {
     // skin and iris, before dressSkin patches them.
     const looks = variation?.persons?.[this.personId]?.looks ?? null;
     const looked = looks ? dressLooks(scene, looks) : [];
-    // ...and his own hair colour and cut, for the hair layer below.
+    // T-3506: their own cloth colours and the pieces they wear today (human-looks.js).
+    const dress = variation?.persons?.[this.personId]?.dress ?? null;
+    if (dress) looked.push(...dressCloth(scene, dress));
+    // ...and his own hair colour and cut, for the hair layer below (and any tail below a tie).
     const style = looks ? looksHairStyle(looks, hairFor(this.personId ?? null, Number(this.instance.scene) || null)) : null;
+    if (style && dress?.tail_cm) style.tail_cm = dress.tail_cm;
     // T-3400: skin with pores, blood and a glow, hair with a strand sheen, wet eyes, on
     // every person (human-skin.js; a shader patch, no texture). Bound to the rest pose.
     // T-3493: with the person's age and brows, for the lines and shade of their face.
@@ -410,8 +435,19 @@ export class HumanActor {
     // own scalp and face, by the person's cut (human-hair-styles.js). Not counted in its height.
     const year = Number(this.instance.scene) || null;
     const hair = dressHair(scene, { lod, person: this.personId ?? null, year, style });
+    // T-3506: a handkerchief tied round the head, at every level.
+    if (dress?.headcloth) { const cloth = dressHeadcloth(scene, dress.headcloth, { person: this.personId ?? null }); if (cloth) looked.push(cloth.material); }
+    // T-3522: their own hat (human-hats.js).
+    if (dress?.hat) looked.push(...(dressHat(scene, dress.hat, { person: this.personId, lod })?.materials ?? []));
     // T-3440: spectacles, for a person whose portrait shows them (human-spectacles.js).
     this.spectacles = dressSpectacles(scene, { lod, person: this.personId ?? null });
+    // T-3523: a soldier of the 1812 garrison's rank marks, drum or fife case, and the musket
+    // his duty puts in his hand (human-garrison.js); pieces on his own bones, not counted in
+    // his height. The wearer's own fitted geometries go with the level.
+    const armed = dress?.garrison ? dressGarrison(scene, dress.garrison, { lod }) : null;
+    if (armed) looked.push(...armed.owned);
+    const extras = [];
+    for (const g of armed?.meshes ?? []) g.traverse((o) => { if (o.isMesh) extras.push(o); });
     const clips = new Map();
     for (const c of gltf.animations ?? []) clips.set(c.name, c);
     for (const c of this.libraryClips) if (!clips.has(c.name)) clips.set(c.name, c);
@@ -421,7 +457,7 @@ export class HumanActor {
     if (hair?.face?.morphTargetDictionary && Object.keys(hair.face.morphTargetDictionary).length) faces.push(hair.face);
     const mixer = new THREE.AnimationMixer(scene);
     mixer.addEventListener('finished', (ev) => { if (ev.action === this.body?.oneShot) this.endGesture(); });
-    return { lod, scene, meshes, faces, mixer, clips, hair, looked, action: null, oneShot: null, assetId: this.instance.appearance.asset_id };
+    return { lod, scene, meshes, faces, mixer, clips, hair, looked, extras, garrison: dress?.garrison ?? null, action: null, oneShot: null, assetId: this.instance.appearance.asset_id };
   }
 
   teardown(body) {
@@ -544,7 +580,7 @@ export class HumanActor {
     const key = `${shadow}|${face}`;
     if (key === this.costs) return;
     this.costs = key;
-    for (const m of b.meshes) { m.castShadow = shadow; m.receiveShadow = this.distance < SHADOW_M; }
+    for (const m of [...b.meshes, ...(b.extras ?? [])]) { m.castShadow = shadow; m.receiveShadow = this.distance < SHADOW_M; }
     // A face out of reach holds still: the blink is let go, the set expression kept.
     if (!face) this.applyFace({ ...this.expression, ...Object.fromEntries(BLINK.map((k) => [k, this.expression[k] ?? restingLid(this.variation?.age)])) });
   }
@@ -806,7 +842,7 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
     identityKind: actor.identity.kind, profileId: actor.identity.profile?.id ?? null, role: actor.identity.role,
     roleCard: humanRoleCard(actor.identity, actor.instance),
   });
-  const emit = (type, actor) => events.dispatchEvent(new CustomEvent(type, { detail: detail(actor) }));
+  const emit = (type, actor, extra = null) => events.dispatchEvent(new CustomEvent(type, { detail: extra ? { ...detail(actor), ...extra } : detail(actor) }));
 
   const layer = {
     group,
@@ -957,7 +993,10 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
         if (inside && !near.has(a)) {
           near.add(a);
           emit('approach', a);
-          if (a.instance.interaction?.opens === 'resident_card' && a.identity.kind === 'person') emit('open', a);
+          // T-3521: `approach` marks an open the visitor did not ask for (they walked up, or the
+          // person walked past them), so a card the visitor picked can stay where it is.
+          // T-3525: a jaunt's host is met by the stop's own text; their card waits for its link.
+          if (a.instance.interaction?.opens === 'resident_card' && a.identity.kind === 'person' && !a.jauntHost) emit('open', a, { approach: true });
           if (a.instance.interaction?.opens === 'role_card' && a.identity.kind === 'anonymous') emit('role_open', a);
         } else if (!inside && near.has(a)) {
           near.delete(a);
@@ -1077,6 +1116,14 @@ export async function mountHumans({
     else if (l1) refuse('L1 is in force (data/humans/contract.json § l1): no human figure is drawn');
     else if (layer.get(rec.id) || (rec.person_id && layer.get(rec.person_id))) refuse('instance identity already stands in this scene');
     else layer.add(rec, { person, profile: identity.profile, identity });
+  }
+  // T-3523: the garrison's arms piled where its men are at work out of the fort, from the
+  // records of the men drawn here (human-garrison.js). In the people's group, so Settings ›
+  // Show › People hides them with the men.
+  const drawnIds = out.records.filter((r) => r.display === 'shown' && layer.get(r.id)).map((r) => r.person_id).filter(Boolean);
+  if (drawnIds.length && layer.assets?.variation) {
+    out.piles = layer.assets.variation().then((v) => (layer.disposed ? [] : createArmsPiles({ group: layer.group, persons: v?.persons ?? {},
+      ids: drawnIds, sceneId, toWorld: (e, n, h) => enuToWorld(e, n, h), heightAt }))).catch(() => []);
   }
   return out;
 }

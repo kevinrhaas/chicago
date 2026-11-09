@@ -1,0 +1,24 @@
+{
+ "id": "met_johnson_1805_emma_van_name",
+ "type": "illustration",
+ "citation": "Joshua Johnson, Emma Van Name, ca. 1805. The Metropolitan Museum of Art, 2016.116.",
+ "author": "Joshua Johnson",
+ "date": "ca. 1805",
+ "describes_date": "1805",
+ "repository": "The Metropolitan Museum of Art; object 701989 in the museum's collection API (isPublicDomain: true), image DP-952-001 at images.metmuseum.org.",
+ "url": "https://www.metmuseum.org/art/collection/search/701989",
+ "locator": "Open-access image DP-952-001: the child full length.",
+ "tier": 1,
+ "rights_status": "public_domain",
+ "rights_note": "The Met's Open Access images of public-domain works are released CC0. Used only as a reference picture the 1812 children's dress is judged against (T-3465); nothing traced or sampled.",
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Viewed 2026-11-07 (dress research for the 1812 scene). Oil portrait of a toddler girl in a pink spotted short-sleeved frock with tucks and white trim at the hem, a lace cap, red shoes and a coral necklace with whistle.",
+ "note": "Entered for the 1812 children's dress (T-3465; docs/RESEARCH/people-1812-dress/children.md) from the dress research of docs/RESEARCH/people-1812-3461/dress.json; not a Chicago or Fort Dearborn record.",
+ "what_it_supplies": [
+  "a toddler's frock, cap and shoes about 1805"
+ ],
+ "what_it_does_not_supply": [
+  "anything about a frontier child"
+ ]
+}

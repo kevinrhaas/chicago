@@ -1,0 +1,13177 @@
+{
+ "format": "c4d-doors-1812/2",
+ "ticket": "T-3463",
+ "generated_by": "tools/derive_doors_1812.py",
+ "note": "Where each 1812 building's door leaves are (read off its model) and where one who answers stands. Asking at a door: renderers/web/js/human-days.js.",
+ "structures": [
+  {
+   "structure": "burns_house_1812",
+   "name": "The Burns house, on the north bank at the later foot of State Street",
+   "asset_sha256": "bcd6ab4d57defe4a4525adad7d075e85813e59126b1b5800e4d3a645d3adcfd4",
+   "placement": {
+    "local_e": 793.5,
+    "local_n": 107.2,
+    "rotation_deg": 0.0
+   },
+   "doors": [
+    {
+     "id": "burns_house_1812:front",
+     "leaf": {
+      "local_e": 797.15,
+      "local_n": 112.74
+     },
+     "step": {
+      "local_e": 797.15,
+      "local_n": 113.44
+     },
+     "outward_deg": 0.0,
+     "width_m": 1.26
+    }
+   ]
+  },
+  {
+   "structure": "first_fort_dearborn_blockhouse_nw",
+   "name": "First Fort Dearborn \u2014 north-west blockhouse",
+   "asset_sha256": "2567def5a0c657bc40e051bce905fe3c8b8b66f73d46171fcc57dd73d97913fc",
+   "placement": {
+    "local_e": 1134.99,
+    "local_n": 233.28,
+    "rotation_deg": 0.0
+   },
+   "doors": [
+    {
+     "id": "first_fort_dearborn_blockhouse_nw:front",
+     "leaf": {
+      "local_e": 1137.62,
+      "local_n": 239.11
+     },
+     "step": {
+      "local_e": 1137.62,
+      "local_n": 239.81
+     },
+     "outward_deg": 0.0,
+     "width_m": 1.1
+    }
+   ]
+  },
+  {
+   "structure": "first_fort_dearborn_blockhouse_se",
+   "name": "First Fort Dearborn \u2014 south-east blockhouse",
+   "asset_sha256": "4b52564cd577363639667ed59c38564fb997e5e5496291cfaf3799d0e208352a",
+   "placement": {
+    "local_e": 1164.34,
+    "local_n": 203.08,
+    "rotation_deg": 0.0
+   },
+   "doors": [
+    {
+     "id": "first_fort_dearborn_blockhouse_se:front",
+     "leaf": {
+      "local_e": 1167.26,
+      "local_n": 208.73
+     },
+     "step": {
+      "local_e": 1167.26,
+      "local_n": 209.43
+     },
+     "outward_deg": 0.0,
+     "width_m": 1.1
+    }
+   ]
+  },
+  {
+   "structure": "first_fort_dearborn_commanding_officers_barracks",
+   "name": "First Fort Dearborn \u2014 commanding officer's barracks (east range)",
+   "asset_sha256": "3e83f809c2e82363351f1d953552ac456b64d5af930cd1d9ce347983e4a31be3",
+   "placement": {
+    "local_e": 1165.84,
+    "local_n": 218.23,
+    "rotation_deg": 270.0
+   },
+   "doors": [
+    {
+     "id": "first_fort_dearborn_commanding_officers_barracks:front",
+     "leaf": {
+      "local_e": 1161.75,
+      "local_n": 222.51
+     },
+     "step": {
+      "local_e": 1161.05,
+      "local_n": 222.51
+     },
+     "outward_deg": 270.0,
+     "width_m": 0.72
+    }
+   ]
+  },
+  {
+   "structure": "first_fort_dearborn_magazine",
+   "name": "First Fort Dearborn \u2014 magazine",
+   "asset_sha256": "6ed239cb5eed46fbcf64796369423497e70de6cca0442bd4f2cbb88d3bde39cf",
+   "placement": {
+    "local_e": 1149.32,
+    "local_n": 233.62,
+    "rotation_deg": 180.0
+   },
+   "doors": [
+    {
+     "id": "first_fort_dearborn_magazine:front",
+     "leaf": {
+      "local_e": 1147.07,
+      "local_n": 230.52
+     },
+     "step": {
+      "local_e": 1147.07,
+      "local_n": 229.82
+     },
+     "outward_deg": 180.0,
+     "width_m": 0.9
+    }
+   ]
+  },
+  {
+   "structure": "first_fort_dearborn_north_range",
+   "name": "First Fort Dearborn \u2014 north range (soldiers' barracks and contractor's store)",
+   "asset_sha256": "65189f569d9511791d070e5a019238d523eb7774912bb0f44bc6ec672ebf4797",
+   "placement": {
+    "local_e": 1159.56,
+    "local_n": 234.9,
+    "rotation_deg": 180.0
+   },
+   "doors": [
+    {
+     "id": "first_fort_dearborn_north_range:front",
+     "leaf": {
+      "local_e": 1152.76,
+      "local_n": 231.23
+     },
+     "step": {
+      "local_e": 1152.76,
+      "local_n": 230.53
+     },
+     "outward_deg": 180.0,
+     "width_m": 0.72
+    }
+   ]
+  },
+  {
+   "structure": "first_fort_dearborn_officers_barracks",
+   "name": "First Fort Dearborn \u2014 officers' barracks (west range)",
+   "asset_sha256": "e16d5db907e36ff84eb9acba04165cd33e654f4ccd41e522fd2c44888f33a4c0",
+   "placement": {
+    "local_e": 1138.53,
+    "local_n": 227.0,
+    "rotation_deg": 90.0
+   },
+   "doors": [
+    {
+     "id": "first_fort_dearborn_officers_barracks:front",
+     "leaf": {
+      "local_e": 1142.29,
+      "local_n": 217.66
+     },
+     "step": {
+      "local_e": 1142.99,
+      "local_n": 217.66
+     },
+     "outward_deg": 90.0,
+     "width_m": 0.72
+    }
+   ]
+  },
+  {
+   "structure": "first_fort_dearborn_small_house_ne",
+   "name": "First Fort Dearborn \u2014 small house, north-east corner",
+   "asset_sha256": "1e275240d88cab9f5a9ac4a47d4fd90f7e08204e310cb630a00a003455633c8c",
+   "placement": {
+    "local_e": 1165.84,
+    "local_n": 234.78,
+    "rotation_deg": 180.0
+   },
+   "doors": [
+    {
+     "id": "first_fort_dearborn_small_house_ne:front",
+     "leaf": {
+      "local_e": 1163.98,
+      "local_n": 231.65
+     },
+     "step": {
+      "local_e": 1163.98,
+      "local_n": 230.95
+     },
+     "outward_deg": 180.0,
+     "width_m": 0.84
+    }
+   ]
+  },
+  {
+   "structure": "first_fort_dearborn_small_house_sw",
+   "name": "First Fort Dearborn \u2014 small house, south-west corner",
+   "asset_sha256": "32a70d9d187a619d72b8cd3debf1de60be1700ad5dfebd9a08285beb1be02613",
+   "placement": {
+    "local_e": 1139.72,
+    "local_n": 208.44,
+    "rotation_deg": 0.0
+   },
+   "doors": [
+    {
+     "id": "first_fort_dearborn_small_house_sw:front",
+     "leaf": {
+      "local_e": 1140.56,
+      "local_n": 210.79
+     },
+     "step": {
+      "local_e": 1140.56,
+      "local_n": 211.49
+     },
+     "outward_deg": 0.0,
+     "width_m": null,
+     "reconstructed": "the model draws no door leaf on an edge; put at the middle of the side facing the parade"
+    }
+   ]
+  },
+  {
+   "structure": "first_fort_dearborn_soldiers_barracks_se",
+   "name": "First Fort Dearborn \u2014 soldiers' barracks, east of the main gate",
+   "asset_sha256": "51f3d942ea8871a0be70533a392987a6c05019a0d4cebd7e95f48f665af0fd59",
+   "placement": {
+    "local_e": 1150.51,
+    "local_n": 207.1,
+    "rotation_deg": 0.0
+   },
+   "doors": [
+    {
+     "id": "first_fort_dearborn_soldiers_barracks_se:front",
+     "leaf": {
+      "local_e": 1156.52,
+      "local_n": 211.19
+     },
+     "step": {
+      "local_e": 1156.52,
+      "local_n": 211.89
+     },
+     "outward_deg": 0.0,
+     "width_m": 0.72
+    }
+   ]
+  },
+  {
+   "structure": "first_fort_dearborn_soldiers_barracks_sw",
+   "name": "First Fort Dearborn \u2014 soldiers' barracks, west of the main gate",
+   "asset_sha256": "8e02cd7d24d42dec902435142aee5aad9650ca024af6e59422b16bae6dab9239",
+   "placement": {
+    "local_e": 1141.88,
+    "local_n": 207.1,
+    "rotation_deg": 0.0
+   },
+   "doors": [
+    {
+     "id": "first_fort_dearborn_soldiers_barracks_sw:front",
+     "leaf": {
+      "local_e": 1147.74,
+      "local_n": 211.19
+     },
+     "step": {
+      "local_e": 1147.74,
+      "local_n": 211.89
+     },
+     "outward_deg": 0.0,
+     "width_m": 0.72
+    }
+   ]
+  },
+  {
+   "structure": "first_fort_outer_agents_house",
+   "name": "First Fort Dearborn \u2014 the Indian agent's house",
+   "asset_sha256": "dd794b8bae5923ede6fabf1da05b22afd61ee1b0f07845b565add376985e1b95",
+   "placement": {
+    "local_e": 1060.9,
+    "local_n": 175.71,
+    "rotation_deg": 90.0
+   },
+   "doors": [
+    {
+     "id": "first_fort_outer_agents_house:front",
+     "leaf": {
+      "local_e": 1071.19,
+      "local_n": 168.9
+     },
+     "step": {
+      "local_e": 1071.89,
+      "local_n": 168.9
+     },
+     "outward_deg": 90.0,
+     "width_m": 1.26
+    }
+   ]
+  },
+  {
+   "structure": "first_fort_outer_armourers_shop",
+   "name": "First Fort Dearborn \u2014 the armourer's shop",
+   "asset_sha256": "e2452824844baefb6c5d811fbdfee02deac30de9adf8e26ce4d804cb77b0116a",
+   "placement": {
+    "local_e": 1227.68,
+    "local_n": 82.1,
+    "rotation_deg": 270.0
+   },
+   "doors": [
+    {
+     "id": "first_fort_outer_armourers_shop:front",
+     "leaf": {
+      "local_e": 1221.26,
+      "local_n": 87.16
+     },
+     "step": {
+      "local_e": 1220.56,
+      "local_n": 87.16
+     },
+     "outward_deg": 270.0,
+     "width_m": 0.84
+    }
+   ]
+  },
+  {
+   "structure": "first_fort_outer_bake_house",
+   "name": "First Fort Dearborn \u2014 the bake house",
+   "asset_sha256": "1afe7f55a1552efc49f83718452ba3e090a7a85589155d7ba8fa9cbe53d95a04",
+   "placement": {
+    "local_e": 1061.44,
+    "local_n": 187.99,
+    "rotation_deg": 90.0
+   },
+   "doors": [
+    {
+     "id": "first_fort_outer_bake_house:front",
+     "leaf": {
+      "local_e": 1065.97,
+      "local_n": 185.16
+     },
+     "step": {
+      "local_e": 1066.67,
+      "local_n": 185.16
+     },
+     "outward_deg": 90.0,
+     "width_m": 0.84
+    }
+   ]
+  },
+  {
+   "structure": "first_fort_outer_factory",
+   "name": "First Fort Dearborn \u2014 the United States factory (the factor's house)",
+   "asset_sha256": "90f8de3ddbae5fc253ec4457f36f6ee120801699fecffad23d305f9cc3d0e49a",
+   "placement": {
+    "local_e": 1062.33,
+    "local_n": 224.72,
+    "rotation_deg": 90.0
+   },
+   "doors": [
+    {
+     "id": "first_fort_outer_factory:front",
+     "leaf": {
+      "local_e": 1070.88,
+      "local_n": 217.51
+     },
+     "step": {
+      "local_e": 1071.58,
+      "local_n": 217.51
+     },
+     "outward_deg": 90.0,
+     "width_m": 1.26
+    }
+   ]
+  },
+  {
+   "structure": "first_fort_outer_interpreters_house",
+   "name": "First Fort Dearborn \u2014 the interpreter's house",
+   "asset_sha256": "8786ee5f63adf0efce3fe4bbfdb7eaa6d4d7d52a5cdfe404c58a0f0e12e73a9d",
+   "placement": {
+    "local_e": 1037.55,
+    "local_n": 188.57,
+    "rotation_deg": 148.0
+   },
+   "doors": [
+    {
+     "id": "first_fort_outer_interpreters_house:front",
+     "leaf": {
+      "local_e": 1036.36,
+      "local_n": 180.3
+     },
+     "step": {
+      "local_e": 1036.73,
+      "local_n": 179.7
+     },
+     "outward_deg": 148.0,
+     "width_m": 1.26
+    }
+   ]
+  },
+  {
+   "structure": "first_fort_outer_merchants_shop",
+   "name": "First Fort Dearborn \u2014 the merchant's shop",
+   "asset_sha256": "c9a282db82ed6dca6a981ae68512f0e8e9a7c47ca892e9e90011ed72222af315",
+   "placement": {
+    "local_e": 1211.74,
+    "local_n": 147.45,
+    "rotation_deg": 270.0
+   },
+   "doors": [
+    {
+     "id": "first_fort_outer_merchants_shop:front",
+     "leaf": {
+      "local_e": 1207.36,
+      "local_n": 150.21
+     },
+     "step": {
+      "local_e": 1206.66,
+      "local_n": 150.21
+     },
+     "outward_deg": 270.0,
+     "width_m": 0.84
+    }
+   ]
+  },
+  {
+   "structure": "first_fort_outer_stable_middle",
+   "name": "First Fort Dearborn \u2014 the house in the factor's department",
+   "asset_sha256": "e184c496dcb60574c2c2451780e8129c1b5f10ec5bd05353407f51a21d8430ed",
+   "placement": {
+    "local_e": 1058.67,
+    "local_n": 130.63,
+    "rotation_deg": 90.0
+   },
+   "doors": [
+    {
+     "id": "first_fort_outer_stable_middle:front",
+     "leaf": {
+      "local_e": 1062.92,
+      "local_n": 127.46
+     },
+     "step": {
+      "local_e": 1063.62,
+      "local_n": 127.46
+     },
+     "outward_deg": 90.0,
+     "width_m": 0.84
+    }
+   ]
+  },
+  {
+   "structure": "first_fort_outer_stable_north",
+   "name": "First Fort Dearborn \u2014 stable, north of three",
+   "asset_sha256": "e208e30d977b06aa6d31713c7264ce01d7d5d522acfc40bf248dbd8a0bf2113e",
+   "placement": {
+    "local_e": 1058.7,
+    "local_n": 145.14,
+    "rotation_deg": 90.0
+   },
+   "doors": [
+    {
+     "id": "first_fort_outer_stable_north:front",
+     "leaf": {
+      "local_e": 1063.11,
+      "local_n": 142.24
+     },
+     "step": {
+      "local_e": 1063.81,
+      "local_n": 142.24
+     },
+     "outward_deg": 90.0,
+     "width_m": 0.84
+    }
+   ]
+  },
+  {
+   "structure": "first_fort_outer_stable_south",
+   "name": "First Fort Dearborn \u2014 stable, south of three",
+   "asset_sha256": "fb223fb9e3d385d70087bbdb0be5e7b2583cd458f9886b4a7e2624a9ce40b558",
+   "placement": {
+    "local_e": 1058.43,
+    "local_n": 111.18,
+    "rotation_deg": 90.0
+   },
+   "doors": [
+    {
+     "id": "first_fort_outer_stable_south:front",
+     "leaf": {
+      "local_e": 1062.01,
+      "local_n": 108.42
+     },
+     "step": {
+      "local_e": 1062.71,
+      "local_n": 108.42
+     },
+     "outward_deg": 90.0,
+     "width_m": 0.84
+    }
+   ]
+  },
+  {
+   "structure": "forks_house_clark_1812",
+   "name": "Clark's house at the forks, 1812",
+   "asset_sha256": "7b5116cb4c17435431792d1a8a0fe6049c99d8a7c80f905b7241938d7a1a6b52",
+   "placement": {
+    "local_e": 127.6,
+    "local_n": -92.4,
+    "rotation_deg": 0.0
+   },
+   "doors": [
+    {
+     "id": "forks_house_clark_1812:front",
+     "leaf": {
+      "local_e": 129.96,
+      "local_n": -87.5
+     },
+     "step": {
+      "local_e": 129.96,
+      "local_n": -86.8
+     },
+     "outward_deg": 0.0,
+     "width_m": 1.26
+    }
+   ]
+  },
+  {
+   "structure": "forks_house_soldier_1812",
+   "name": "The discharged soldier's house at the forks, 1812",
+   "asset_sha256": "8efa79e47645ec4072dfbfe0e833b95442d80f7c86622456fb8c77d6e59638fd",
+   "placement": {
+    "local_e": 37.4,
+    "local_n": 52.1,
+    "rotation_deg": 0.0
+   },
+   "doors": [
+    {
+     "id": "forks_house_soldier_1812:front",
+     "leaf": {
+      "local_e": 40.04,
+      "local_n": 57.94
+     },
+     "step": {
+      "local_e": 40.04,
+      "local_n": 58.64
+     },
+     "outward_deg": 0.0,
+     "width_m": 1.26
+    }
+   ]
+  },
+  {
+   "structure": "kinzie_bake_house_1812",
+   "name": "The Kinzie bake-house, behind the house's west end",
+   "asset_sha256": "ca5233eb148cf8eb89e7c5f98a71f1e948e820c7429837a1c9e4af4a87415f55",
+   "placement": {
+    "local_e": 1150.1,
+    "local_n": 347.4,
+    "rotation_deg": 180.0
+   },
+   "doors": [
+    {
+     "id": "kinzie_bake_house_1812:front",
+     "leaf": {
+      "local_e": 1147.79,
+      "local_n": 343.56
+     },
+     "step": {
+      "local_e": 1147.79,
+      "local_n": 342.86
+     },
+     "outward_deg": 180.0,
+     "width_m": 1.26
+    }
+   ]
+  },
+  {
+   "structure": "kinzie_dairy_1812",
+   "name": "The Kinzie dairy, behind the house",
+   "asset_sha256": "e365afa5f9f8c2b83c64e99c9c7edcc93964668dc8b55a695f7bf2b17c6bba73",
+   "placement": {
+    "local_e": 1157.0,
+    "local_n": 359.5,
+    "rotation_deg": 180.0
+   },
+   "doors": [
+    {
+     "id": "kinzie_dairy_1812:front",
+     "leaf": {
+      "local_e": 1155.0,
+      "local_n": 354.82
+     },
+     "step": {
+      "local_e": 1155.0,
+      "local_n": 354.12
+     },
+     "outward_deg": 180.0,
+     "width_m": 0.84
+    }
+   ]
+  },
+  {
+   "structure": "kinzie_horse_mill_1812",
+   "name": "The old horse mill beside Kinzie's garden",
+   "asset_sha256": "df74994d96beff7bd0afa032d8619b1f0855cc1a1734831d07515a3c9d5cd59b",
+   "placement": {
+    "local_e": 1131.152,
+    "local_n": 351.424,
+    "rotation_deg": 180.0
+   },
+   "doors": [
+    {
+     "id": "kinzie_horse_mill_1812:front",
+     "leaf": {
+      "local_e": 1128.59,
+      "local_n": 347.57
+     },
+     "step": {
+      "local_e": 1128.59,
+      "local_n": 346.87
+     },
+     "outward_deg": 180.0,
+     "width_m": 1.33
+    }
+   ]
+  },
+  {
+   "structure": "kinzie_house_1812",
+   "name": "The Kinzie house, built by Jean Baptiste Point du Sable",
+   "asset_sha256": "940d58e82a70b1980812525f9e3534caa6dca38ce894e0a112844615686ce373",
+   "placement": {
+    "local_e": 1158.096,
+    "local_n": 342.706,
+    "rotation_deg": 180.0
+   },
+   "doors": [
+    {
+     "id": "kinzie_house_1812:front",
+     "leaf": {
+      "local_e": 1145.86,
+      "local_n": 338.48
+     },
+     "step": {
+      "local_e": 1145.16,
+      "local_n": 338.48
+     },
+     "outward_deg": 270.0,
+     "width_m": 1.26
+    },
+    {
+     "id": "kinzie_house_1812:door2",
+     "leaf": {
+      "local_e": 1152.0,
+      "local_n": 335.96
+     },
+     "step": {
+      "local_e": 1152.0,
+      "local_n": 335.26
+     },
+     "outward_deg": 180.0,
+     "width_m": 1.26
+    }
+   ]
+  },
+  {
+   "structure": "kinzie_lodging_house_1812",
+   "name": "The lodging house for Kinzie's Frenchmen",
+   "asset_sha256": "aa611997a755bddd21b0798c505f2cff7451e09bee50b80e0bbeaf57d13dbd92",
+   "placement": {
+    "local_e": 1168.353,
+    "local_n": 358.66,
+    "rotation_deg": 88.0
+   },
+   "doors": [
+    {
+     "id": "kinzie_lodging_house_1812:front",
+     "leaf": {
+      "local_e": 1173.45,
+      "local_n": 357.39
+     },
+     "step": {
+      "local_e": 1174.14,
+      "local_n": 357.41
+     },
+     "outward_deg": 88.0,
+     "width_m": 1.26
+    }
+   ]
+  },
+  {
+   "structure": "kinzie_stable_1812",
+   "name": "The Kinzie stable, east of the house",
+   "asset_sha256": "9a0bd88ee3ab69910f4afb7f52c1082184d67994f0e97116632c3391cfbaa84f",
+   "placement": {
+    "local_e": 1183.583,
+    "local_n": 357.718,
+    "rotation_deg": 168.0
+   },
+   "doors": [
+    {
+     "id": "kinzie_stable_1812:front",
+     "leaf": {
+      "local_e": 1181.65,
+      "local_n": 350.92
+     },
+     "step": {
+      "local_e": 1181.8,
+      "local_n": 350.24
+     },
+     "outward_deg": 168.0,
+     "width_m": 1.52
+    }
+   ]
+  },
+  {
+   "structure": "lalime_house_1812",
+   "name": "La Lime's house, the middle of the three houses west of the Kinzie house",
+   "asset_sha256": "94d44e1bdd191a3ef7dc7b8c8a70be89ea69135672d55d6adb22f43dc6de33a7",
+   "placement": {
+    "local_e": 1106.676,
+    "local_n": 349.29,
+    "rotation_deg": 180.0
+   },
+   "doors": [
+    {
+     "id": "lalime_house_1812:front",
+     "leaf": {
+      "local_e": 1103.17,
+      "local_n": 344.52
+     },
+     "step": {
+      "local_e": 1103.17,
+      "local_n": 343.82
+     },
+     "outward_deg": 180.0,
+     "width_m": 1.26
+    }
+   ]
+  },
+  {
+   "structure": "lee_house_1812",
+   "name": "The Lee family's house, on the shore at the river's mouth south of the fort",
+   "asset_sha256": "8ef7879e57d237a37eba3d3db0e1b438c93e1a26d633abb149b3204849803d87",
+   "placement": {
+    "local_e": 1127.0,
+    "local_n": -440.0,
+    "rotation_deg": 0.0
+   },
+   "doors": [
+    {
+     "id": "lee_house_1812:front",
+     "leaf": {
+      "local_e": 1131.0,
+      "local_n": -434.16
+     },
+     "step": {
+      "local_e": 1131.0,
+      "local_n": -433.46
+     },
+     "outward_deg": 0.0,
+     "width_m": 1.26
+    }
+   ]
+  },
+  {
+   "structure": "lees_place_cabin_1812",
+   "name": "Lee's Place (Hardscrabble): the farm cabin on the South Branch",
+   "asset_sha256": "aacc7218e1880430627540ab0b538ab5115427e2f81ff6969d69d48bc3a71e11",
+   "placement": {
+    "local_e": -1648.36,
+    "local_n": -4217.36,
+    "rotation_deg": 151.0
+   },
+   "doors": [
+    {
+     "id": "lees_place_cabin_1812:front",
+     "leaf": {
+      "local_e": -1655.33,
+      "local_n": -4227.56
+     },
+     "step": {
+      "local_e": -1654.99,
+      "local_n": -4228.17
+     },
+     "outward_deg": 151.0,
+     "width_m": 1.42
+    },
+    {
+     "id": "lees_place_cabin_1812:door2",
+     "leaf": {
+      "local_e": -1651.79,
+      "local_n": -4225.6
+     },
+     "step": {
+      "local_e": -1651.45,
+      "local_n": -4226.22
+     },
+     "outward_deg": 151.0,
+     "width_m": 1.42
+    },
+    {
+     "id": "lees_place_cabin_1812:door3",
+     "leaf": {
+      "local_e": -1647.91,
+      "local_n": -4223.45
+     },
+     "step": {
+      "local_e": -1647.57,
+      "local_n": -4224.06
+     },
+     "outward_deg": 151.0,
+     "width_m": 1.42
+    }
+   ]
+  },
+  {
+   "structure": "lemai_house_1812",
+   "name": "Le Mai's house, the westernmost of the three houses west of the Kinzie house, at the field the draught letters 'Mr Coursell'",
+   "asset_sha256": "9db139bc2142a13608e1dc55f62e73f3a70ec0c075439bd95e23d76d834f986d",
+   "placement": {
+    "local_e": 1050.968,
+    "local_n": 336.41,
+    "rotation_deg": 166.0
+   },
+   "doors": [
+    {
+     "id": "lemai_house_1812:front",
+     "leaf": {
+      "local_e": 1048.37,
+      "local_n": 331.54
+     },
+     "step": {
+      "local_e": 1048.54,
+      "local_n": 330.86
+     },
+     "outward_deg": 166.0,
+     "width_m": 1.26
+    }
+   ]
+  },
+  {
+   "structure": "miami_escort_camp_1812",
+   "name": "The Miami escort's camp, August 1812",
+   "asset_sha256": "41b6e56d6101e16faa3b39ff3746b440125da6b3a7af94b53a9e9d1238363023",
+   "placement": {
+    "local_e": 1060.0,
+    "local_n": 56.0,
+    "rotation_deg": 0.0
+   },
+   "doors": [
+    {
+     "id": "miami_escort_camp_1812:lodge1",
+     "leaf": {
+      "local_e": 1066.11,
+      "local_n": 59.61
+     },
+     "step": {
+      "local_e": 1065.61,
+      "local_n": 59.13
+     },
+     "outward_deg": 226.7,
+     "width_m": 1.33,
+     "lodge": true
+    },
+    {
+     "id": "miami_escort_camp_1812:lodge2",
+     "leaf": {
+      "local_e": 1070.19,
+      "local_n": 73.17
+     },
+     "step": {
+      "local_e": 1070.55,
+      "local_n": 72.57
+     },
+     "outward_deg": 149.2,
+     "width_m": 1.07,
+     "lodge": true
+    },
+    {
+     "id": "miami_escort_camp_1812:lodge3",
+     "leaf": {
+      "local_e": 1071.5,
+      "local_n": 64.76
+     },
+     "step": {
+      "local_e": 1071.98,
+      "local_n": 65.26
+     },
+     "outward_deg": 43.8,
+     "width_m": 1.36,
+     "lodge": true
+    },
+    {
+     "id": "miami_escort_camp_1812:lodge4",
+     "leaf": {
+      "local_e": 1080.96,
+      "local_n": 65.43
+     },
+     "step": {
+      "local_e": 1080.37,
+      "local_n": 65.79
+     },
+     "outward_deg": 301.3,
+     "width_m": 1.04,
+     "lodge": true
+    }
+   ],
+   "walls": [
+    [
+     [
+      1061.43,
+      65.19
+     ],
+     [
+      1062.93,
+      65.16
+     ],
+     [
+      1062.94,
+      65.24
+     ],
+     [
+      1062.94,
+      65.5
+     ],
+     [
+      1061.44,
+      65.52
+     ],
+     [
+      1061.44,
+      65.44
+     ],
+     [
+      1061.44,
+      65.27
+     ]
+    ],
+    [
+     [
+      1065.23,
+      60.67
+     ],
+     [
+      1065.25,
+      60.22
+     ],
+     [
+      1065.33,
+      59.67
+     ],
+     [
+      1066.1,
+      58.85
+     ],
+     [
+      1066.5,
+      58.77
+     ],
+     [
+      1066.76,
+      58.72
+     ],
+     [
+      1067.19,
+      58.71
+     ],
+     [
+      1067.62,
+      58.79
+     ],
+     [
+      1067.87,
+      58.87
+     ],
+     [
+      1068.21,
+      59.02
+     ],
+     [
+      1068.55,
+      59.21
+     ],
+     [
+      1068.88,
+      59.43
+     ],
+     [
+      1069.19,
+      59.68
+     ],
+     [
+      1069.72,
+      60.15
+     ],
+     [
+      1070.19,
+      60.58
+     ],
+     [
+      1070.61,
+      60.99
+     ],
+     [
+      1070.91,
+      61.28
+     ],
+     [
+      1071.23,
+      61.61
+     ],
+     [
+      1071.56,
+      61.96
+     ],
+     [
+      1071.72,
+      62.16
+     ],
+     [
+      1071.97,
+      62.47
+     ],
+     [
+      1072.2,
+      62.78
+     ],
+     [
+      1072.34,
+      62.99
+     ],
+     [
+      1072.5,
+      63.33
+     ],
+     [
+      1072.61,
+      63.72
+     ],
+     [
+      1072.59,
+      64.12
+     ],
+     [
+      1072.42,
+      64.48
+     ],
+     [
+      1072.16,
+      64.78
+     ],
+     [
+      1071.47,
+      65.4
+     ],
+     [
+      1071.14,
+      65.6
+     ],
+     [
+      1070.77,
+      65.72
+     ],
+     [
+      1070.51,
+      65.73
+     ],
+     [
+      1070.36,
+      65.73
+     ],
+     [
+      1070.04,
+      65.66
+     ],
+     [
+      1069.62,
+      65.51
+     ],
+     [
+      1069.22,
+      65.31
+     ],
+     [
+      1068.94,
+      65.16
+     ],
+     [
+      1068.61,
+      64.93
+     ],
+     [
+      1068.28,
+      64.69
+     ],
+     [
+      1067.97,
+      64.44
+     ],
+     [
+      1067.69,
+      64.19
+     ],
+     [
+      1067.43,
+      63.96
+     ],
+     [
+      1066.36,
+      62.92
+     ],
+     [
+      1066.05,
+      62.56
+     ],
+     [
+      1065.77,
+      62.19
+     ],
+     [
+      1065.54,
+      61.8
+     ],
+     [
+      1065.37,
+      61.4
+     ],
+     [
+      1065.3,
+      61.12
+     ]
+    ],
+    [
+     [
+      1066.88,
+      75.56
+     ],
+     [
+      1066.94,
+      75.09
+     ],
+     [
+      1067.06,
+      74.64
+     ],
+     [
+      1067.24,
+      74.2
+     ],
+     [
+      1067.49,
+      73.8
+     ],
+     [
+      1067.68,
+      73.58
+     ],
+     [
+      1067.97,
+      73.27
+     ],
+     [
+      1068.28,
+      73.0
+     ],
+     [
+      1068.53,
+      72.83
+     ],
+     [
+      1070.63,
+      71.74
+     ],
+     [
+      1072.1,
+      72.05
+     ],
+     [
+      1072.05,
+      72.28
+     ],
+     [
+      1072.04,
+      72.35
+     ],
+     [
+      1071.09,
+      75.48
+     ],
+     [
+      1071.01,
+      75.73
+     ],
+     [
+      1070.84,
+      76.1
+     ],
+     [
+      1070.62,
+      76.43
+     ],
+     [
+      1070.37,
+      76.75
+     ],
+     [
+      1070.09,
+      77.03
+     ],
+     [
+      1069.86,
+      77.21
+     ],
+     [
+      1069.47,
+      77.42
+     ],
+     [
+      1069.06,
+      77.56
+     ],
+     [
+      1068.78,
+      77.62
+     ],
+     [
+      1068.63,
+      77.62
+     ],
+     [
+      1068.29,
+      77.62
+     ],
+     [
+      1067.82,
+      77.52
+     ],
+     [
+      1067.42,
+      77.28
+     ],
+     [
+      1067.2,
+      77.02
+     ],
+     [
+      1067.11,
+      76.91
+     ],
+     [
+      1067.0,
+      76.64
+     ],
+     [
+      1066.91,
+      76.25
+     ],
+     [
+      1066.88,
+      75.84
+     ]
+    ],
+    [
+     [
+      1080.17,
+      75.81
+     ],
+     [
+      1080.86,
+      74.47
+     ],
+     [
+      1081.06,
+      74.58
+     ],
+     [
+      1081.13,
+      74.61
+     ],
+     [
+      1080.43,
+      75.94
+     ]
+    ],
+    [
+     [
+      1080.36,
+      64.75
+     ],
+     [
+      1080.47,
+      64.28
+     ],
+     [
+      1080.69,
+      63.88
+     ],
+     [
+      1080.9,
+      63.62
+     ],
+     [
+      1081.23,
+      63.27
+     ],
+     [
+      1081.6,
+      62.97
+     ],
+     [
+      1081.89,
+      62.82
+     ],
+     [
+      1082.29,
+      62.69
+     ],
+     [
+      1082.7,
+      62.63
+     ],
+     [
+      1083.1,
+      62.64
+     ],
+     [
+      1083.51,
+      62.7
+     ],
+     [
+      1083.82,
+      62.8
+     ],
+     [
+      1084.24,
+      63.01
+     ],
+     [
+      1084.56,
+      63.32
+     ],
+     [
+      1084.69,
+      63.61
+     ],
+     [
+      1084.72,
+      63.75
+     ],
+     [
+      1084.77,
+      64.07
+     ],
+     [
+      1084.72,
+      64.54
+     ],
+     [
+      1084.56,
+      64.97
+     ],
+     [
+      1084.31,
+      65.35
+     ],
+     [
+      1084.13,
+      65.52
+     ],
+     [
+      1083.82,
+      65.77
+     ],
+     [
+      1083.5,
+      65.98
+     ],
+     [
+      1082.92,
+      66.24
+     ],
+     [
+      1082.45,
+      66.37
+     ],
+     [
+      1081.98,
+      66.42
+     ],
+     [
+      1081.51,
+      66.35
+     ],
+     [
+      1081.19,
+      66.2
+     ],
+     [
+      1081.07,
+      66.13
+     ],
+     [
+      1080.9,
+      65.98
+     ],
+     [
+      1080.4,
+      65.23
+     ]
+    ],
+    [
+     [
+      1084.54,
+      58.14
+     ],
+     [
+      1084.61,
+      58.1
+     ],
+     [
+      1084.81,
+      57.98
+     ],
+     [
+      1085.56,
+      59.28
+     ],
+     [
+      1085.49,
+      59.32
+     ],
+     [
+      1085.28,
+      59.44
+     ]
+    ],
+    [
+     [
+      1086.31,
+      75.57
+     ],
+     [
+      1086.37,
+      75.52
+     ],
+     [
+      1086.57,
+      75.37
+     ],
+     [
+      1087.47,
+      76.57
+     ],
+     [
+      1087.2,
+      76.77
+     ]
+    ]
+   ]
+  },
+  {
+   "structure": "ouilmette_house_1812",
+   "name": "Antoine Ouilmette's house, the easternmost of the three houses west of the Kinzie house",
+   "asset_sha256": "bb35d77aaa6504c74e916df5ced31af94eb2ff6843972030d56212d7cfbdefd8",
+   "placement": {
+    "local_e": 1122.008,
+    "local_n": 348.284,
+    "rotation_deg": 180.0
+   },
+   "doors": [
+    {
+     "id": "ouilmette_house_1812:front",
+     "leaf": {
+      "local_e": 1118.3,
+      "local_n": 344.86
+     },
+     "step": {
+      "local_e": 1118.3,
+      "local_n": 344.16
+     },
+     "outward_deg": 180.0,
+     "width_m": 1.26
+    }
+   ]
+  },
+  {
+   "structure": "potawatomi_camp_1812_far_west",
+   "name": "The Potawatomi camp of August 1812: the men's lodges furthest west",
+   "asset_sha256": "3c251ec7e6de8ea89a0a2e932115088dd37bdae3882d196ea7c6bac4ac267f7d",
+   "placement": {
+    "local_e": 576.0,
+    "local_n": -132.0,
+    "rotation_deg": 0.0
+   },
+   "doors": [
+    {
+     "id": "potawatomi_camp_1812_far_west:lodge1",
+     "leaf": {
+      "local_e": 583.03,
+      "local_n": -115.36
+     },
+     "step": {
+      "local_e": 582.35,
+      "local_n": -115.22
+     },
+     "outward_deg": 281.9,
+     "width_m": 1.17,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_far_west:lodge2",
+     "leaf": {
+      "local_e": 589.32,
+      "local_n": -125.37
+     },
+     "step": {
+      "local_e": 589.38,
+      "local_n": -124.67
+     },
+     "outward_deg": 4.9,
+     "width_m": 0.78,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_far_west:lodge3",
+     "leaf": {
+      "local_e": 589.85,
+      "local_n": -110.36
+     },
+     "step": {
+      "local_e": 589.83,
+      "local_n": -111.06
+     },
+     "outward_deg": 181.5,
+     "width_m": 0.78,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_far_west:lodge4",
+     "leaf": {
+      "local_e": 590.36,
+      "local_n": -117.01
+     },
+     "step": {
+      "local_e": 591.04,
+      "local_n": -117.17
+     },
+     "outward_deg": 103.0,
+     "width_m": 1.18,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_far_west:lodge5",
+     "leaf": {
+      "local_e": 595.75,
+      "local_n": -111.44
+     },
+     "step": {
+      "local_e": 595.57,
+      "local_n": -112.12
+     },
+     "outward_deg": 194.9,
+     "width_m": 0.95,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_far_west:lodge6",
+     "leaf": {
+      "local_e": 596.96,
+      "local_n": -117.42
+     },
+     "step": {
+      "local_e": 596.27,
+      "local_n": -117.3
+     },
+     "outward_deg": 280.1,
+     "width_m": 0.96,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_far_west:lodge7",
+     "leaf": {
+      "local_e": 598.04,
+      "local_n": -123.84
+     },
+     "step": {
+      "local_e": 597.58,
+      "local_n": -123.31
+     },
+     "outward_deg": 319.2,
+     "width_m": 1.06,
+     "lodge": true
+    }
+   ],
+   "walls": [
+    [
+     [
+      579.46,
+      -115.05
+     ],
+     [
+      579.52,
+      -115.06
+     ],
+     [
+      579.72,
+      -115.09
+     ],
+     [
+      579.92,
+      -113.6
+     ],
+     [
+      579.72,
+      -113.58
+     ],
+     [
+      579.66,
+      -113.57
+     ]
+    ],
+    [
+     [
+      582.41,
+      -115.98
+     ],
+     [
+      582.43,
+      -116.19
+     ],
+     [
+      582.54,
+      -116.48
+     ],
+     [
+      582.84,
+      -116.86
+     ],
+     [
+      583.23,
+      -117.13
+     ],
+     [
+      583.48,
+      -117.29
+     ],
+     [
+      583.85,
+      -117.47
+     ],
+     [
+      584.24,
+      -117.64
+     ],
+     [
+      584.65,
+      -117.81
+     ],
+     [
+      585.08,
+      -117.95
+     ],
+     [
+      585.78,
+      -118.16
+     ],
+     [
+      586.6,
+      -118.36
+     ],
+     [
+      587.01,
+      -118.46
+     ],
+     [
+      587.47,
+      -118.55
+     ],
+     [
+      587.95,
+      -118.62
+     ],
+     [
+      588.43,
+      -118.66
+     ],
+     [
+      588.75,
+      -118.65
+     ],
+     [
+      589.18,
+      -118.62
+     ],
+     [
+      589.62,
+      -118.53
+     ],
+     [
+      589.93,
+      -118.45
+     ],
+     [
+      590.33,
+      -118.24
+     ],
+     [
+      590.63,
+      -117.94
+     ],
+     [
+      590.8,
+      -117.56
+     ],
+     [
+      590.92,
+      -116.64
+     ],
+     [
+      590.84,
+      -116.2
+     ],
+     [
+      590.66,
+      -115.77
+     ],
+     [
+      590.39,
+      -115.37
+     ],
+     [
+      590.2,
+      -115.2
+     ],
+     [
+      589.9,
+      -114.96
+     ],
+     [
+      589.56,
+      -114.77
+     ],
+     [
+      589.33,
+      -114.66
+     ],
+     [
+      588.95,
+      -114.52
+     ],
+     [
+      588.57,
+      -114.41
+     ],
+     [
+      588.18,
+      -114.32
+     ],
+     [
+      587.79,
+      -114.24
+     ],
+     [
+      587.48,
+      -114.17
+     ],
+     [
+      586.69,
+      -114.02
+     ],
+     [
+      586.02,
+      -113.89
+     ],
+     [
+      585.54,
+      -113.82
+     ],
+     [
+      585.05,
+      -113.77
+     ],
+     [
+      584.58,
+      -113.74
+     ],
+     [
+      584.12,
+      -113.76
+     ],
+     [
+      583.87,
+      -113.81
+     ],
+     [
+      583.47,
+      -113.95
+     ],
+     [
+      583.11,
+      -114.19
+     ],
+     [
+      582.93,
+      -114.39
+     ],
+     [
+      582.78,
+      -114.63
+     ],
+     [
+      582.67,
+      -114.88
+     ],
+     [
+      582.43,
+      -115.78
+     ]
+    ],
+    [
+     [
+      587.72,
+      -126.86
+     ],
+     [
+      587.74,
+      -127.19
+     ],
+     [
+      587.81,
+      -127.58
+     ],
+     [
+      587.92,
+      -127.96
+     ],
+     [
+      588.11,
+      -128.32
+     ],
+     [
+      588.27,
+      -128.5
+     ],
+     [
+      588.37,
+      -128.61
+     ],
+     [
+      588.63,
+      -128.76
+     ],
+     [
+      589.05,
+      -128.9
+     ],
+     [
+      589.5,
+      -128.85
+     ],
+     [
+      589.79,
+      -128.75
+     ],
+     [
+      589.91,
+      -128.66
+     ],
+     [
+      590.15,
+      -128.45
+     ],
+     [
+      590.41,
+      -128.04
+     ],
+     [
+      590.56,
+      -127.59
+     ],
+     [
+      590.67,
+      -127.12
+     ],
+     [
+      590.7,
+      -126.8
+     ],
+     [
+      590.68,
+      -126.34
+     ],
+     [
+      590.55,
+      -125.9
+     ],
+     [
+      590.4,
+      -125.61
+     ],
+     [
+      590.14,
+      -125.29
+     ],
+     [
+      589.78,
+      -125.03
+     ],
+     [
+      588.9,
+      -124.99
+     ],
+     [
+      588.44,
+      -125.29
+     ],
+     [
+      588.09,
+      -125.66
+     ],
+     [
+      587.92,
+      -125.96
+     ],
+     [
+      587.77,
+      -126.39
+     ]
+    ],
+    [
+     [
+      587.82,
+      -108.14
+     ],
+     [
+      587.84,
+      -108.6
+     ],
+     [
+      587.9,
+      -108.88
+     ],
+     [
+      588.02,
+      -109.28
+     ],
+     [
+      588.18,
+      -109.65
+     ],
+     [
+      588.33,
+      -109.9
+     ],
+     [
+      588.42,
+      -110.01
+     ],
+     [
+      588.62,
+      -110.26
+     ],
+     [
+      588.97,
+      -110.55
+     ],
+     [
+      589.38,
+      -110.74
+     ],
+     [
+      590.3,
+      -110.7
+     ],
+     [
+      590.74,
+      -110.52
+     ],
+     [
+      591.13,
+      -110.24
+     ],
+     [
+      591.36,
+      -109.98
+     ],
+     [
+      591.45,
+      -109.87
+     ],
+     [
+      591.61,
+      -109.6
+     ],
+     [
+      591.75,
+      -109.19
+     ],
+     [
+      591.85,
+      -108.74
+     ],
+     [
+      591.89,
+      -108.43
+     ],
+     [
+      591.91,
+      -108.03
+     ],
+     [
+      591.87,
+      -107.62
+     ],
+     [
+      591.82,
+      -107.2
+     ],
+     [
+      591.72,
+      -106.81
+     ],
+     [
+      591.62,
+      -106.57
+     ],
+     [
+      591.41,
+      -106.2
+     ],
+     [
+      591.13,
+      -105.89
+     ],
+     [
+      590.92,
+      -105.71
+     ],
+     [
+      590.8,
+      -105.65
+     ],
+     [
+      590.51,
+      -105.5
+     ],
+     [
+      590.04,
+      -105.41
+     ],
+     [
+      589.56,
+      -105.47
+     ],
+     [
+      589.26,
+      -105.6
+     ],
+     [
+      589.14,
+      -105.67
+     ],
+     [
+      588.91,
+      -105.87
+     ],
+     [
+      588.62,
+      -106.21
+     ],
+     [
+      588.36,
+      -106.59
+     ],
+     [
+      588.21,
+      -106.85
+     ],
+     [
+      588.02,
+      -107.26
+     ],
+     [
+      587.89,
+      -107.7
+     ]
+    ],
+    [
+     [
+      594.42,
+      -109.89
+     ],
+     [
+      594.47,
+      -110.29
+     ],
+     [
+      594.6,
+      -110.68
+     ],
+     [
+      594.79,
+      -111.06
+     ],
+     [
+      594.95,
+      -111.31
+     ],
+     [
+      595.23,
+      -111.63
+     ],
+     [
+      596.08,
+      -111.93
+     ],
+     [
+      596.47,
+      -111.86
+     ],
+     [
+      596.84,
+      -111.71
+     ],
+     [
+      597.18,
+      -111.48
+     ],
+     [
+      597.4,
+      -111.24
+     ],
+     [
+      597.66,
+      -110.85
+     ],
+     [
+      597.83,
+      -110.4
+     ],
+     [
+      597.91,
+      -110.08
+     ],
+     [
+      597.97,
+      -109.66
+     ],
+     [
+      597.99,
+      -109.22
+     ],
+     [
+      597.97,
+      -108.81
+     ],
+     [
+      597.88,
+      -108.38
+     ],
+     [
+      597.76,
+      -108.15
+     ],
+     [
+      597.53,
+      -107.83
+     ],
+     [
+      597.24,
+      -107.59
+     ],
+     [
+      596.88,
+      -107.42
+     ],
+     [
+      596.63,
+      -107.34
+     ],
+     [
+      596.49,
+      -107.33
+     ],
+     [
+      596.17,
+      -107.34
+     ],
+     [
+      595.75,
+      -107.5
+     ],
+     [
+      595.37,
+      -107.78
+     ],
+     [
+      595.36,
+      -107.79
+     ],
+     [
+      595.07,
+      -108.13
+     ],
+     [
+      594.9,
+      -108.38
+     ],
+     [
+      594.67,
+      -108.77
+     ],
+     [
+      594.5,
+      -109.18
+     ],
+     [
+      594.44,
+      -109.48
+     ]
+    ],
+    [
+     [
+      595.53,
+      -116.17
+     ],
+     [
+      595.59,
+      -116.32
+     ],
+     [
+      596.73,
+      -118.64
+     ],
+     [
+      597.04,
+      -119.01
+     ],
+     [
+      597.31,
+      -119.23
+     ],
+     [
+      597.69,
+      -119.49
+     ],
+     [
+      598.12,
+      -119.71
+     ],
+     [
+      598.43,
+      -119.85
+     ],
+     [
+      598.87,
+      -119.98
+     ],
+     [
+      599.33,
+      -120.05
+     ],
+     [
+      599.8,
+      -120.05
+     ],
+     [
+      600.25,
+      -119.99
+     ],
+     [
+      600.54,
+      -119.9
+     ],
+     [
+      600.96,
+      -119.74
+     ],
+     [
+      601.34,
+      -119.52
+     ],
+     [
+      601.56,
+      -119.33
+     ],
+     [
+      601.77,
+      -119.0
+     ],
+     [
+      601.85,
+      -118.61
+     ],
+     [
+      601.83,
+      -118.2
+     ],
+     [
+      601.71,
+      -117.83
+     ],
+     [
+      601.54,
+      -117.48
+     ],
+     [
+      601.4,
+      -117.27
+     ],
+     [
+      601.17,
+      -116.93
+     ],
+     [
+      600.88,
+      -116.67
+     ],
+     [
+      600.56,
+      -116.45
+     ],
+     [
+      600.35,
+      -116.32
+     ],
+     [
+      599.97,
+      -116.15
+     ],
+     [
+      599.6,
+      -116.02
+     ],
+     [
+      599.2,
+      -115.96
+     ],
+     [
+      598.79,
+      -115.92
+     ],
+     [
+      595.76,
+      -116.02
+     ],
+     [
+      595.61,
+      -116.04
+     ]
+    ],
+    [
+     [
+      595.97,
+      -123.66
+     ],
+     [
+      597.9,
+      -126.34
+     ],
+     [
+      598.16,
+      -126.66
+     ],
+     [
+      598.47,
+      -126.95
+     ],
+     [
+      598.81,
+      -127.19
+     ],
+     [
+      599.05,
+      -127.3
+     ],
+     [
+      599.18,
+      -127.35
+     ],
+     [
+      599.47,
+      -127.41
+     ],
+     [
+      599.48,
+      -127.41
+     ],
+     [
+      599.92,
+      -127.38
+     ],
+     [
+      600.35,
+      -127.23
+     ],
+     [
+      600.61,
+      -127.08
+     ],
+     [
+      600.72,
+      -126.98
+     ],
+     [
+      600.95,
+      -126.74
+     ],
+     [
+      601.16,
+      -126.31
+     ],
+     [
+      601.24,
+      -125.82
+     ],
+     [
+      601.2,
+      -125.36
+     ],
+     [
+      601.13,
+      -125.03
+     ],
+     [
+      600.96,
+      -124.58
+     ],
+     [
+      600.72,
+      -124.17
+     ],
+     [
+      600.5,
+      -123.92
+     ],
+     [
+      600.38,
+      -123.83
+     ],
+     [
+      600.13,
+      -123.64
+     ],
+     [
+      599.71,
+      -123.42
+     ],
+     [
+      599.28,
+      -123.27
+     ],
+     [
+      596.87,
+      -122.46
+     ]
+    ],
+    [
+     [
+      607.4,
+      -119.27
+     ],
+     [
+      607.41,
+      -119.35
+     ],
+     [
+      607.43,
+      -119.52
+     ],
+     [
+      607.48,
+      -119.9
+     ],
+     [
+      608.96,
+      -119.72
+     ],
+     [
+      608.89,
+      -119.16
+     ],
+     [
+      608.88,
+      -119.08
+     ]
+    ]
+   ]
+  },
+  {
+   "structure": "potawatomi_camp_1812_head_west",
+   "name": "The Potawatomi camp of August 1812: the men's lodges by the creek's head",
+   "asset_sha256": "bc5ee45ac560f89f71530bee35885996babe011208745412f417b179bb077979",
+   "placement": {
+    "local_e": 616.0,
+    "local_n": -172.0,
+    "rotation_deg": 0.0
+   },
+   "doors": [
+    {
+     "id": "potawatomi_camp_1812_head_west:lodge1",
+     "leaf": {
+      "local_e": 626.36,
+      "local_n": -149.06
+     },
+     "step": {
+      "local_e": 625.87,
+      "local_n": -148.56
+     },
+     "outward_deg": 316.4,
+     "width_m": 1.35,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_head_west:lodge2",
+     "leaf": {
+      "local_e": 627.51,
+      "local_n": -158.74
+     },
+     "step": {
+      "local_e": 628.21,
+      "local_n": -158.82
+     },
+     "outward_deg": 96.5,
+     "width_m": 0.85,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_head_west:lodge3",
+     "leaf": {
+      "local_e": 630.81,
+      "local_n": -162.77
+     },
+     "step": {
+      "local_e": 630.95,
+      "local_n": -162.08
+     },
+     "outward_deg": 10.9,
+     "width_m": 0.99,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_head_west:lodge4",
+     "leaf": {
+      "local_e": 631.62,
+      "local_n": -154.33
+     },
+     "step": {
+      "local_e": 632.09,
+      "local_n": -154.85
+     },
+     "outward_deg": 138.6,
+     "width_m": 1.37,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_head_west:lodge5",
+     "leaf": {
+      "local_e": 635.48,
+      "local_n": -150.28
+     },
+     "step": {
+      "local_e": 635.13,
+      "local_n": -150.89
+     },
+     "outward_deg": 210.5,
+     "width_m": 1.06,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_head_west:lodge6",
+     "leaf": {
+      "local_e": 636.67,
+      "local_n": -163.91
+     },
+     "step": {
+      "local_e": 636.09,
+      "local_n": -163.53
+     },
+     "outward_deg": 303.3,
+     "width_m": 1.09,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_head_west:lodge7",
+     "leaf": {
+      "local_e": 639.99,
+      "local_n": -154.33
+     },
+     "step": {
+      "local_e": 639.37,
+      "local_n": -154.66
+     },
+     "outward_deg": 242.3,
+     "width_m": 1.02,
+     "lodge": true
+    }
+   ],
+   "walls": [
+    [
+     [
+      619.76,
+      -166.22
+     ],
+     [
+      620.76,
+      -167.34
+     ],
+     [
+      620.93,
+      -167.18
+     ],
+     [
+      620.99,
+      -167.13
+     ],
+     [
+      619.99,
+      -166.01
+     ],
+     [
+      619.82,
+      -166.17
+     ]
+    ],
+    [
+     [
+      622.52,
+      -158.32
+     ],
+     [
+      622.54,
+      -158.73
+     ],
+     [
+      622.63,
+      -159.04
+     ],
+     [
+      622.84,
+      -159.44
+     ],
+     [
+      623.16,
+      -159.77
+     ],
+     [
+      623.42,
+      -159.97
+     ],
+     [
+      623.84,
+      -160.16
+     ],
+     [
+      623.84,
+      -160.16
+     ],
+     [
+      624.27,
+      -160.29
+     ],
+     [
+      624.74,
+      -160.39
+     ],
+     [
+      625.2,
+      -160.42
+     ],
+     [
+      625.53,
+      -160.41
+     ],
+     [
+      626.0,
+      -160.38
+     ],
+     [
+      626.45,
+      -160.27
+     ],
+     [
+      626.78,
+      -160.15
+     ],
+     [
+      627.18,
+      -159.91
+     ],
+     [
+      627.52,
+      -159.62
+     ],
+     [
+      627.81,
+      -159.22
+     ],
+     [
+      627.94,
+      -158.34
+     ],
+     [
+      627.81,
+      -157.99
+     ],
+     [
+      627.62,
+      -157.67
+     ],
+     [
+      627.38,
+      -157.41
+     ],
+     [
+      627.14,
+      -157.21
+     ],
+     [
+      626.78,
+      -156.91
+     ],
+     [
+      626.39,
+      -156.71
+     ],
+     [
+      626.11,
+      -156.58
+     ],
+     [
+      625.65,
+      -156.46
+     ],
+     [
+      625.19,
+      -156.41
+     ],
+     [
+      624.71,
+      -156.43
+     ],
+     [
+      624.25,
+      -156.52
+     ],
+     [
+      623.98,
+      -156.62
+     ],
+     [
+      623.57,
+      -156.8
+     ],
+     [
+      623.21,
+      -157.03
+     ],
+     [
+      622.99,
+      -157.21
+     ],
+     [
+      622.74,
+      -157.54
+     ],
+     [
+      622.58,
+      -157.92
+     ]
+    ],
+    [
+     [
+      625.29,
+      -150.31
+     ],
+     [
+      625.34,
+      -150.58
+     ],
+     [
+      625.5,
+      -150.96
+     ],
+     [
+      625.71,
+      -151.31
+     ],
+     [
+      625.95,
+      -151.65
+     ],
+     [
+      626.22,
+      -151.99
+     ],
+     [
+      626.68,
+      -152.48
+     ],
+     [
+      627.09,
+      -152.91
+     ],
+     [
+      627.45,
+      -153.28
+     ],
+     [
+      627.74,
+      -153.56
+     ],
+     [
+      628.01,
+      -153.82
+     ],
+     [
+      628.32,
+      -154.09
+     ],
+     [
+      628.57,
+      -154.28
+     ],
+     [
+      628.95,
+      -154.56
+     ],
+     [
+      629.33,
+      -154.79
+     ],
+     [
+      629.6,
+      -154.93
+     ],
+     [
+      629.97,
+      -155.06
+     ],
+     [
+      630.38,
+      -155.13
+     ],
+     [
+      632.79,
+      -155.47
+     ],
+     [
+      633.88,
+      -154.44
+     ],
+     [
+      631.98,
+      -151.8
+     ],
+     [
+      631.69,
+      -151.42
+     ],
+     [
+      631.37,
+      -151.05
+     ],
+     [
+      631.04,
+      -150.7
+     ],
+     [
+      630.74,
+      -150.41
+     ],
+     [
+      630.17,
+      -149.86
+     ],
+     [
+      629.71,
+      -149.43
+     ],
+     [
+      629.38,
+      -149.16
+     ],
+     [
+      629.05,
+      -148.9
+     ],
+     [
+      628.7,
+      -148.66
+     ],
+     [
+      628.36,
+      -148.45
+     ],
+     [
+      628.15,
+      -148.35
+     ],
+     [
+      627.81,
+      -148.19
+     ],
+     [
+      627.42,
+      -148.09
+     ],
+     [
+      627.01,
+      -148.09
+     ],
+     [
+      626.77,
+      -148.15
+     ],
+     [
+      626.57,
+      -148.25
+     ],
+     [
+      626.39,
+      -148.39
+     ],
+     [
+      625.73,
+      -149.04
+     ],
+     [
+      625.65,
+      -149.13
+     ],
+     [
+      625.58,
+      -149.23
+     ],
+     [
+      625.44,
+      -149.47
+     ],
+     [
+      625.29,
+      -149.87
+     ]
+    ],
+    [
+     [
+      628.32,
+      -164.91
+     ],
+     [
+      628.34,
+      -165.37
+     ],
+     [
+      628.38,
+      -165.82
+     ],
+     [
+      628.44,
+      -166.08
+     ],
+     [
+      628.53,
+      -166.48
+     ],
+     [
+      628.68,
+      -166.84
+     ],
+     [
+      628.8,
+      -167.06
+     ],
+     [
+      628.9,
+      -167.16
+     ],
+     [
+      629.09,
+      -167.35
+     ],
+     [
+      629.46,
+      -167.53
+     ],
+     [
+      629.86,
+      -167.6
+     ],
+     [
+      629.86,
+      -167.6
+     ],
+     [
+      630.26,
+      -167.6
+     ],
+     [
+      630.51,
+      -167.55
+     ],
+     [
+      630.89,
+      -167.44
+     ],
+     [
+      631.21,
+      -167.24
+     ],
+     [
+      631.41,
+      -167.08
+     ],
+     [
+      631.71,
+      -166.74
+     ],
+     [
+      631.93,
+      -166.37
+     ],
+     [
+      632.12,
+      -165.97
+     ],
+     [
+      632.28,
+      -165.56
+     ],
+     [
+      632.34,
+      -165.32
+     ],
+     [
+      632.41,
+      -164.93
+     ],
+     [
+      632.43,
+      -164.53
+     ],
+     [
+      632.41,
+      -164.28
+     ],
+     [
+      632.33,
+      -163.9
+     ],
+     [
+      632.15,
+      -163.52
+     ],
+     [
+      631.92,
+      -163.19
+     ],
+     [
+      631.66,
+      -162.89
+     ],
+     [
+      631.29,
+      -162.57
+     ],
+     [
+      630.47,
+      -162.26
+     ],
+     [
+      630.03,
+      -162.34
+     ],
+     [
+      629.63,
+      -162.53
+     ],
+     [
+      629.28,
+      -162.79
+     ],
+     [
+      629.07,
+      -163.01
+     ],
+     [
+      628.78,
+      -163.35
+     ],
+     [
+      628.59,
+      -163.72
+     ],
+     [
+      628.46,
+      -164.0
+     ],
+     [
+      628.35,
+      -164.45
+     ]
+    ],
+    [
+     [
+      634.63,
+      -149.34
+     ],
+     [
+      634.64,
+      -149.71
+     ],
+     [
+      634.73,
+      -150.07
+     ],
+     [
+      634.89,
+      -150.38
+     ],
+     [
+      635.7,
+      -150.78
+     ],
+     [
+      636.06,
+      -150.78
+     ],
+     [
+      636.43,
+      -150.72
+     ],
+     [
+      636.78,
+      -150.6
+     ],
+     [
+      637.06,
+      -150.42
+     ],
+     [
+      637.41,
+      -150.09
+     ],
+     [
+      637.67,
+      -149.69
+     ],
+     [
+      637.83,
+      -149.4
+     ],
+     [
+      637.95,
+      -149.01
+     ],
+     [
+      638.01,
+      -148.62
+     ],
+     [
+      637.94,
+      -148.21
+     ],
+     [
+      637.82,
+      -147.98
+     ],
+     [
+      637.76,
+      -147.85
+     ],
+     [
+      637.59,
+      -147.65
+     ],
+     [
+      637.27,
+      -147.39
+     ],
+     [
+      636.91,
+      -147.2
+     ],
+     [
+      636.65,
+      -147.16
+     ],
+     [
+      636.51,
+      -147.18
+     ],
+     [
+      636.21,
+      -147.24
+     ],
+     [
+      635.78,
+      -147.43
+     ],
+     [
+      635.44,
+      -147.72
+     ],
+     [
+      635.12,
+      -148.04
+     ],
+     [
+      634.96,
+      -148.26
+     ],
+     [
+      634.77,
+      -148.65
+     ],
+     [
+      634.66,
+      -149.06
+     ]
+    ],
+    [
+     [
+      636.02,
+      -164.61
+     ],
+     [
+      636.16,
+      -165.1
+     ],
+     [
+      636.3,
+      -165.37
+     ],
+     [
+      636.53,
+      -165.75
+     ],
+     [
+      636.84,
+      -166.05
+     ],
+     [
+      637.06,
+      -166.25
+     ],
+     [
+      637.44,
+      -166.48
+     ],
+     [
+      637.87,
+      -166.66
+     ],
+     [
+      638.28,
+      -166.79
+     ],
+     [
+      638.75,
+      -166.86
+     ],
+     [
+      639.04,
+      -166.84
+     ],
+     [
+      639.45,
+      -166.76
+     ],
+     [
+      639.83,
+      -166.52
+     ],
+     [
+      640.04,
+      -166.32
+     ],
+     [
+      640.26,
+      -165.98
+     ],
+     [
+      640.4,
+      -165.59
+     ],
+     [
+      640.43,
+      -165.19
+     ],
+     [
+      640.43,
+      -165.18
+     ],
+     [
+      640.36,
+      -164.79
+     ],
+     [
+      640.23,
+      -164.5
+     ],
+     [
+      640.0,
+      -164.1
+     ],
+     [
+      639.7,
+      -163.78
+     ],
+     [
+      639.47,
+      -163.57
+     ],
+     [
+      639.06,
+      -163.31
+     ],
+     [
+      638.62,
+      -163.13
+     ],
+     [
+      638.15,
+      -163.04
+     ],
+     [
+      637.67,
+      -163.06
+     ],
+     [
+      637.41,
+      -163.12
+     ],
+     [
+      637.03,
+      -163.21
+     ],
+     [
+      636.65,
+      -163.39
+     ],
+     [
+      636.08,
+      -164.07
+     ]
+    ],
+    [
+     [
+      637.99,
+      -154.12
+     ],
+     [
+      638.76,
+      -155.41
+     ],
+     [
+      641.28,
+      -155.34
+     ],
+     [
+      641.7,
+      -155.28
+     ],
+     [
+      642.11,
+      -155.15
+     ],
+     [
+      642.38,
+      -155.03
+     ],
+     [
+      642.73,
+      -154.81
+     ],
+     [
+      643.05,
+      -154.53
+     ],
+     [
+      643.33,
+      -154.24
+     ],
+     [
+      643.34,
+      -154.24
+     ],
+     [
+      643.6,
+      -153.91
+     ],
+     [
+      643.75,
+      -153.64
+     ],
+     [
+      643.9,
+      -153.22
+     ],
+     [
+      643.92,
+      -152.8
+     ],
+     [
+      643.84,
+      -152.5
+     ],
+     [
+      643.77,
+      -152.37
+     ],
+     [
+      643.59,
+      -152.1
+     ],
+     [
+      643.24,
+      -151.8
+     ],
+     [
+      642.83,
+      -151.62
+     ],
+     [
+      642.5,
+      -151.57
+     ],
+     [
+      642.36,
+      -151.56
+     ],
+     [
+      642.1,
+      -151.57
+     ],
+     [
+      641.72,
+      -151.64
+     ],
+     [
+      641.34,
+      -151.74
+     ],
+     [
+      641.09,
+      -151.82
+     ],
+     [
+      640.69,
+      -152.0
+     ],
+     [
+      640.3,
+      -152.25
+     ]
+    ],
+    [
+     [
+      645.85,
+      -146.38
+     ],
+     [
+      646.95,
+      -147.4
+     ],
+     [
+      647.13,
+      -147.2
+     ],
+     [
+      646.03,
+      -146.18
+     ]
+    ]
+   ]
+  },
+  {
+   "structure": "potawatomi_camp_1812_middle",
+   "name": "The Potawatomi camp of August 1812: the lodges at the creek's middle reach",
+   "asset_sha256": "8a9ceb174e656508d83d044e3c64bbdeca0d3097390a87d0d559c132f5947f13",
+   "placement": {
+    "local_e": 752.0,
+    "local_n": -190.0,
+    "rotation_deg": 0.0
+   },
+   "doors": [
+    {
+     "id": "potawatomi_camp_1812_middle:lodge1",
+     "leaf": {
+      "local_e": 759.28,
+      "local_n": -181.49
+     },
+     "step": {
+      "local_e": 759.46,
+      "local_n": -180.82
+     },
+     "outward_deg": 14.8,
+     "width_m": 0.98,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_middle:lodge2",
+     "leaf": {
+      "local_e": 762.81,
+      "local_n": -170.48
+     },
+     "step": {
+      "local_e": 762.63,
+      "local_n": -171.16
+     },
+     "outward_deg": 194.6,
+     "width_m": 0.89,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_middle:lodge3",
+     "leaf": {
+      "local_e": 763.89,
+      "local_n": -184.84
+     },
+     "step": {
+      "local_e": 763.91,
+      "local_n": -184.14
+     },
+     "outward_deg": 1.8,
+     "width_m": 0.8,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_middle:lodge4",
+     "leaf": {
+      "local_e": 765.02,
+      "local_n": -178.58
+     },
+     "step": {
+      "local_e": 764.33,
+      "local_n": -178.47
+     },
+     "outward_deg": 279.4,
+     "width_m": 0.99,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_middle:lodge5",
+     "leaf": {
+      "local_e": 770.35,
+      "local_n": -166.6
+     },
+     "step": {
+      "local_e": 769.94,
+      "local_n": -166.03
+     },
+     "outward_deg": 324.2,
+     "width_m": 1.37,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_middle:lodge6",
+     "leaf": {
+      "local_e": 771.42,
+      "local_n": -179.72
+     },
+     "step": {
+      "local_e": 772.11,
+      "local_n": -179.77
+     },
+     "outward_deg": 94.0,
+     "width_m": 0.99,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_middle:lodge7",
+     "leaf": {
+      "local_e": 774.84,
+      "local_n": -172.45
+     },
+     "step": {
+      "local_e": 775.27,
+      "local_n": -173.0
+     },
+     "outward_deg": 142.3,
+     "width_m": 1.33,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_middle:lodge8",
+     "leaf": {
+      "local_e": 782.81,
+      "local_n": -183.16
+     },
+     "step": {
+      "local_e": 782.62,
+      "local_n": -182.49
+     },
+     "outward_deg": 344.5,
+     "width_m": 0.9,
+     "lodge": true
+    }
+   ],
+   "walls": [
+    [
+     [
+      757.02,
+      -183.41
+     ],
+     [
+      757.05,
+      -183.83
+     ],
+     [
+      757.15,
+      -184.23
+     ],
+     [
+      757.3,
+      -184.61
+     ],
+     [
+      757.47,
+      -184.91
+     ],
+     [
+      757.78,
+      -185.27
+     ],
+     [
+      758.19,
+      -185.49
+     ],
+     [
+      758.52,
+      -185.52
+     ],
+     [
+      758.66,
+      -185.5
+     ],
+     [
+      758.99,
+      -185.43
+     ],
+     [
+      759.46,
+      -185.24
+     ],
+     [
+      759.85,
+      -184.97
+     ],
+     [
+      760.17,
+      -184.62
+     ],
+     [
+      760.34,
+      -184.33
+     ],
+     [
+      760.52,
+      -183.89
+     ],
+     [
+      760.61,
+      -183.42
+     ],
+     [
+      760.65,
+      -183.09
+     ],
+     [
+      760.64,
+      -182.63
+     ],
+     [
+      760.56,
+      -182.21
+     ],
+     [
+      760.36,
+      -181.8
+     ],
+     [
+      760.14,
+      -181.57
+     ],
+     [
+      760.04,
+      -181.46
+     ],
+     [
+      759.79,
+      -181.31
+     ],
+     [
+      758.94,
+      -180.98
+     ],
+     [
+      758.48,
+      -181.03
+     ],
+     [
+      758.06,
+      -181.25
+     ],
+     [
+      757.75,
+      -181.57
+     ],
+     [
+      757.56,
+      -181.83
+     ],
+     [
+      757.32,
+      -182.25
+     ],
+     [
+      757.14,
+      -182.68
+     ],
+     [
+      757.06,
+      -183.0
+     ]
+    ],
+    [
+     [
+      759.87,
+      -175.38
+     ],
+     [
+      759.97,
+      -176.37
+     ],
+     [
+      762.67,
+      -176.53
+     ],
+     [
+      762.88,
+      -175.55
+     ],
+     [
+      761.56,
+      -175.21
+     ],
+     [
+      761.22,
+      -175.2
+     ]
+    ],
+    [
+     [
+      761.38,
+      -168.21
+     ],
+     [
+      761.39,
+      -169.0
+     ],
+     [
+      761.48,
+      -169.47
+     ],
+     [
+      761.55,
+      -169.8
+     ],
+     [
+      762.51,
+      -172.18
+     ],
+     [
+      762.66,
+      -172.26
+     ],
+     [
+      762.82,
+      -172.2
+     ],
+     [
+      764.47,
+      -170.41
+     ],
+     [
+      764.78,
+      -170.08
+     ],
+     [
+      765.15,
+      -169.45
+     ],
+     [
+      765.34,
+      -169.05
+     ],
+     [
+      765.49,
+      -168.63
+     ],
+     [
+      765.57,
+      -168.18
+     ],
+     [
+      765.58,
+      -167.73
+     ],
+     [
+      765.53,
+      -167.47
+     ],
+     [
+      765.39,
+      -167.06
+     ],
+     [
+      765.19,
+      -166.7
+     ],
+     [
+      765.04,
+      -166.48
+     ],
+     [
+      764.73,
+      -166.15
+     ],
+     [
+      764.37,
+      -165.88
+     ],
+     [
+      763.96,
+      -165.72
+     ],
+     [
+      763.66,
+      -165.71
+     ],
+     [
+      763.52,
+      -165.71
+     ],
+     [
+      763.18,
+      -165.8
+     ],
+     [
+      762.78,
+      -165.99
+     ],
+     [
+      762.38,
+      -166.25
+     ],
+     [
+      762.12,
+      -166.46
+     ],
+     [
+      761.87,
+      -166.75
+     ],
+     [
+      761.67,
+      -167.08
+     ],
+     [
+      761.51,
+      -167.45
+     ],
+     [
+      761.41,
+      -167.83
+     ]
+    ],
+    [
+     [
+      762.3,
+      -186.11
+     ],
+     [
+      762.31,
+      -186.57
+     ],
+     [
+      762.33,
+      -186.89
+     ],
+     [
+      762.41,
+      -187.3
+     ],
+     [
+      762.59,
+      -187.71
+     ],
+     [
+      762.84,
+      -188.04
+     ],
+     [
+      763.1,
+      -188.19
+     ],
+     [
+      763.22,
+      -188.26
+     ],
+     [
+      763.55,
+      -188.32
+     ],
+     [
+      764.02,
+      -188.27
+     ],
+     [
+      764.45,
+      -188.04
+     ],
+     [
+      764.69,
+      -187.82
+     ],
+     [
+      764.94,
+      -187.48
+     ],
+     [
+      764.94,
+      -187.47
+     ],
+     [
+      765.12,
+      -187.11
+     ],
+     [
+      765.25,
+      -186.71
+     ],
+     [
+      765.29,
+      -186.44
+     ],
+     [
+      765.32,
+      -186.3
+     ],
+     [
+      765.3,
+      -185.99
+     ],
+     [
+      765.22,
+      -185.56
+     ],
+     [
+      765.02,
+      -185.16
+     ],
+     [
+      764.85,
+      -184.91
+     ],
+     [
+      764.63,
+      -184.69
+     ],
+     [
+      764.36,
+      -184.52
+     ],
+     [
+      763.47,
+      -184.45
+     ],
+     [
+      763.05,
+      -184.67
+     ],
+     [
+      762.75,
+      -184.97
+     ],
+     [
+      762.5,
+      -185.36
+     ],
+     [
+      762.41,
+      -185.65
+     ]
+    ],
+    [
+     [
+      764.41,
+      -180.78
+     ],
+     [
+      765.41,
+      -180.97
+     ],
+     [
+      766.43,
+      -181.16
+     ],
+     [
+      770.23,
+      -181.84
+     ],
+     [
+      770.79,
+      -181.93
+     ],
+     [
+      771.22,
+      -182.0
+     ],
+     [
+      771.24,
+      -181.98
+     ],
+     [
+      771.29,
+      -181.71
+     ],
+     [
+      771.43,
+      -181.0
+     ],
+     [
+      771.73,
+      -179.3
+     ],
+     [
+      771.89,
+      -178.44
+     ],
+     [
+      772.03,
+      -177.55
+     ],
+     [
+      772.02,
+      -177.52
+     ],
+     [
+      771.44,
+      -177.4
+     ],
+     [
+      766.11,
+      -176.45
+     ],
+     [
+      765.21,
+      -176.31
+     ],
+     [
+      765.19,
+      -176.33
+     ],
+     [
+      765.03,
+      -177.12
+     ],
+     [
+      764.61,
+      -179.51
+     ],
+     [
+      764.52,
+      -180.02
+     ]
+    ],
+    [
+     [
+      769.13,
+      -167.6
+     ],
+     [
+      769.22,
+      -168.05
+     ],
+     [
+      769.37,
+      -168.45
+     ],
+     [
+      769.54,
+      -168.81
+     ],
+     [
+      769.7,
+      -169.07
+     ],
+     [
+      769.93,
+      -169.47
+     ],
+     [
+      770.36,
+      -170.14
+     ],
+     [
+      770.61,
+      -170.47
+     ],
+     [
+      770.95,
+      -170.94
+     ],
+     [
+      771.21,
+      -171.26
+     ],
+     [
+      771.49,
+      -171.61
+     ],
+     [
+      771.72,
+      -171.85
+     ],
+     [
+      772.06,
+      -172.21
+     ],
+     [
+      772.4,
+      -172.52
+     ],
+     [
+      772.65,
+      -172.72
+     ],
+     [
+      773.03,
+      -172.96
+     ],
+     [
+      775.35,
+      -174.23
+     ],
+     [
+      775.49,
+      -174.17
+     ],
+     [
+      775.54,
+      -174.02
+     ],
+     [
+      775.95,
+      -171.62
+     ],
+     [
+      775.97,
+      -171.37
+     ],
+     [
+      775.95,
+      -170.95
+     ],
+     [
+      775.85,
+      -170.56
+     ],
+     [
+      775.78,
+      -170.33
+     ],
+     [
+      775.61,
+      -169.97
+     ],
+     [
+      775.41,
+      -169.61
+     ],
+     [
+      775.17,
+      -169.26
+     ],
+     [
+      774.92,
+      -168.92
+     ],
+     [
+      773.97,
+      -167.7
+     ],
+     [
+      773.68,
+      -167.37
+     ],
+     [
+      773.38,
+      -167.03
+     ],
+     [
+      773.06,
+      -166.71
+     ],
+     [
+      772.74,
+      -166.42
+     ],
+     [
+      772.54,
+      -166.29
+     ],
+     [
+      772.22,
+      -166.07
+     ],
+     [
+      771.84,
+      -165.89
+     ],
+     [
+      771.59,
+      -165.8
+     ],
+     [
+      771.2,
+      -165.77
+     ],
+     [
+      770.5,
+      -165.84
+     ],
+     [
+      769.55,
+      -166.43
+     ],
+     [
+      769.28,
+      -166.86
+     ],
+     [
+      769.14,
+      -167.19
+     ],
+     [
+      769.13,
+      -167.32
+     ]
+    ],
+    [
+     [
+      777.64,
+      -174.69
+     ],
+     [
+      777.71,
+      -175.43
+     ],
+     [
+      778.17,
+      -176.32
+     ],
+     [
+      779.68,
+      -175.53
+     ],
+     [
+      779.3,
+      -174.35
+     ]
+    ],
+    [
+     [
+      781.46,
+      -184.47
+     ],
+     [
+      781.49,
+      -184.93
+     ],
+     [
+      781.53,
+      -185.23
+     ],
+     [
+      781.64,
+      -185.62
+     ],
+     [
+      781.78,
+      -186.01
+     ],
+     [
+      781.98,
+      -186.38
+     ],
+     [
+      782.23,
+      -186.69
+     ],
+     [
+      782.42,
+      -186.85
+     ],
+     [
+      782.76,
+      -187.05
+     ],
+     [
+      783.14,
+      -187.18
+     ],
+     [
+      783.53,
+      -187.21
+     ],
+     [
+      783.77,
+      -187.18
+     ],
+     [
+      783.91,
+      -187.13
+     ],
+     [
+      784.17,
+      -187.02
+     ],
+     [
+      784.5,
+      -186.74
+     ],
+     [
+      784.75,
+      -186.37
+     ],
+     [
+      784.92,
+      -185.98
+     ],
+     [
+      784.99,
+      -185.74
+     ],
+     [
+      785.07,
+      -185.35
+     ],
+     [
+      785.08,
+      -184.96
+     ],
+     [
+      785.04,
+      -184.57
+     ],
+     [
+      784.99,
+      -184.33
+     ],
+     [
+      784.83,
+      -183.96
+     ],
+     [
+      783.21,
+      -181.4
+     ],
+     [
+      781.72,
+      -181.6
+     ]
+    ]
+   ]
+  },
+  {
+   "structure": "potawatomi_camp_1812_mouth",
+   "name": "The Potawatomi camp of August 1812: the lodges by the creek's mouth",
+   "asset_sha256": "21b369dc488903b5134dd6f50f0a7c2e9961a4b31231c64bc292e5f0e5b7fed1",
+   "placement": {
+    "local_e": 760.0,
+    "local_n": -50.0,
+    "rotation_deg": 0.0
+   },
+   "doors": [
+    {
+     "id": "potawatomi_camp_1812_mouth:lodge1",
+     "leaf": {
+      "local_e": 764.89,
+      "local_n": -36.45
+     },
+     "step": {
+      "local_e": 764.25,
+      "local_n": -36.16
+     },
+     "outward_deg": 294.1,
+     "width_m": 0.99,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_mouth:lodge2",
+     "leaf": {
+      "local_e": 770.94,
+      "local_n": -38.82
+     },
+     "step": {
+      "local_e": 771.59,
+      "local_n": -39.1
+     },
+     "outward_deg": 113.1,
+     "width_m": 0.99,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_mouth:lodge3",
+     "leaf": {
+      "local_e": 774.54,
+      "local_n": -42.2
+     },
+     "step": {
+      "local_e": 774.8,
+      "local_n": -41.55
+     },
+     "outward_deg": 21.4,
+     "width_m": 1.03,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_mouth:lodge4",
+     "leaf": {
+      "local_e": 776.52,
+      "local_n": -33.64
+     },
+     "step": {
+      "local_e": 776.54,
+      "local_n": -34.34
+     },
+     "outward_deg": 178.3,
+     "width_m": 0.8,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_mouth:lodge5",
+     "leaf": {
+      "local_e": 781.62,
+      "local_n": -31.69
+     },
+     "step": {
+      "local_e": 781.61,
+      "local_n": -32.39
+     },
+     "outward_deg": 180.6,
+     "width_m": 0.93,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_mouth:lodge6",
+     "leaf": {
+      "local_e": 783.04,
+      "local_n": -43.27
+     },
+     "step": {
+      "local_e": 782.36,
+      "local_n": -43.1
+     },
+     "outward_deg": 283.9,
+     "width_m": 1.19,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_mouth:lodge7",
+     "leaf": {
+      "local_e": 785.11,
+      "local_n": -35.2
+     },
+     "step": {
+      "local_e": 784.55,
+      "local_n": -35.63
+     },
+     "outward_deg": 232.8,
+     "width_m": 1.05,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_mouth:lodge8",
+     "leaf": {
+      "local_e": 790.38,
+      "local_n": -45.08
+     },
+     "step": {
+      "local_e": 791.05,
+      "local_n": -45.25
+     },
+     "outward_deg": 104.2,
+     "width_m": 1.19,
+     "lodge": true
+    }
+   ],
+   "walls": [
+    [
+     [
+      763.87,
+      -38.48
+     ],
+     [
+      764.21,
+      -38.63
+     ],
+     [
+      768.26,
+      -40.23
+     ],
+     [
+      769.33,
+      -40.65
+     ],
+     [
+      770.31,
+      -41.01
+     ],
+     [
+      770.68,
+      -40.14
+     ],
+     [
+      770.98,
+      -39.35
+     ],
+     [
+      770.98,
+      -39.35
+     ],
+     [
+      764.5,
+      -36.8
+     ],
+     [
+      764.19,
+      -37.61
+     ],
+     [
+      763.87,
+      -38.46
+     ]
+    ],
+    [
+     [
+      764.85,
+      -35.92
+     ],
+     [
+      771.32,
+      -38.46
+     ],
+     [
+      771.33,
+      -38.47
+     ],
+     [
+      771.98,
+      -36.81
+     ],
+     [
+      771.97,
+      -36.78
+     ],
+     [
+      771.18,
+      -36.46
+     ],
+     [
+      768.66,
+      -35.47
+     ],
+     [
+      766.11,
+      -34.47
+     ],
+     [
+      765.53,
+      -34.25
+     ],
+     [
+      765.52,
+      -34.27
+     ],
+     [
+      765.25,
+      -34.89
+     ],
+     [
+      765.05,
+      -35.4
+     ]
+    ],
+    [
+     [
+      772.01,
+      -44.1
+     ],
+     [
+      772.05,
+      -44.57
+     ],
+     [
+      772.15,
+      -45.04
+     ],
+     [
+      772.27,
+      -45.34
+     ],
+     [
+      772.55,
+      -45.74
+     ],
+     [
+      772.94,
+      -46.01
+     ],
+     [
+      773.26,
+      -46.1
+     ],
+     [
+      773.4,
+      -46.12
+     ],
+     [
+      773.74,
+      -46.14
+     ],
+     [
+      773.75,
+      -46.13
+     ],
+     [
+      774.2,
+      -46.04
+     ],
+     [
+      774.62,
+      -45.79
+     ],
+     [
+      774.85,
+      -45.55
+     ],
+     [
+      774.95,
+      -45.45
+     ],
+     [
+      775.12,
+      -45.18
+     ],
+     [
+      775.36,
+      -44.77
+     ],
+     [
+      775.53,
+      -44.33
+     ],
+     [
+      775.64,
+      -44.02
+     ],
+     [
+      775.72,
+      -43.55
+     ],
+     [
+      775.67,
+      -43.06
+     ],
+     [
+      775.5,
+      -42.62
+     ],
+     [
+      775.22,
+      -42.22
+     ],
+     [
+      775.07,
+      -42.08
+     ],
+     [
+      774.28,
+      -41.66
+     ],
+     [
+      773.8,
+      -41.7
+     ],
+     [
+      773.38,
+      -41.87
+     ],
+     [
+      772.97,
+      -42.12
+     ],
+     [
+      772.77,
+      -42.3
+     ],
+     [
+      772.5,
+      -42.59
+     ],
+     [
+      772.28,
+      -42.93
+     ],
+     [
+      772.16,
+      -43.16
+     ],
+     [
+      772.04,
+      -43.62
+     ]
+    ],
+    [
+     [
+      774.32,
+      -31.59
+     ],
+     [
+      774.4,
+      -32.06
+     ],
+     [
+      774.48,
+      -32.32
+     ],
+     [
+      774.64,
+      -32.69
+     ],
+     [
+      774.85,
+      -33.03
+     ],
+     [
+      775.01,
+      -33.24
+     ],
+     [
+      775.34,
+      -33.54
+     ],
+     [
+      775.69,
+      -33.78
+     ],
+     [
+      776.08,
+      -33.96
+     ],
+     [
+      776.99,
+      -34.03
+     ],
+     [
+      777.35,
+      -33.87
+     ],
+     [
+      777.65,
+      -33.63
+     ],
+     [
+      777.91,
+      -33.32
+     ],
+     [
+      778.08,
+      -33.02
+     ],
+     [
+      778.26,
+      -32.6
+     ],
+     [
+      778.36,
+      -32.16
+     ],
+     [
+      778.41,
+      -31.84
+     ],
+     [
+      778.41,
+      -31.38
+     ],
+     [
+      778.35,
+      -30.93
+     ],
+     [
+      778.22,
+      -30.5
+     ],
+     [
+      778.06,
+      -30.07
+     ],
+     [
+      777.94,
+      -29.83
+     ],
+     [
+      777.71,
+      -29.47
+     ],
+     [
+      777.41,
+      -29.13
+     ],
+     [
+      777.2,
+      -28.95
+     ],
+     [
+      776.86,
+      -28.78
+     ],
+     [
+      776.47,
+      -28.71
+     ],
+     [
+      776.08,
+      -28.74
+     ],
+     [
+      775.7,
+      -28.85
+     ],
+     [
+      775.35,
+      -29.03
+     ],
+     [
+      775.13,
+      -29.21
+     ],
+     [
+      774.84,
+      -29.54
+     ],
+     [
+      774.62,
+      -29.91
+     ],
+     [
+      774.5,
+      -30.17
+     ],
+     [
+      774.38,
+      -30.63
+     ],
+     [
+      774.32,
+      -31.11
+     ]
+    ],
+    [
+     [
+      776.5,
+      -36.65
+     ],
+     [
+      776.78,
+      -37.61
+     ],
+     [
+      777.73,
+      -38.05
+     ],
+     [
+      779.41,
+      -37.74
+     ],
+     [
+      779.23,
+      -36.76
+     ],
+     [
+      778.14,
+      -36.18
+     ]
+    ],
+    [
+     [
+      780.5,
+      -30.53
+     ],
+     [
+      780.59,
+      -30.99
+     ],
+     [
+      780.7,
+      -31.31
+     ],
+     [
+      780.85,
+      -31.63
+     ],
+     [
+      781.1,
+      -32.06
+     ],
+     [
+      781.89,
+      -32.28
+     ],
+     [
+      782.39,
+      -32.0
+     ],
+     [
+      782.74,
+      -31.75
+     ],
+     [
+      782.96,
+      -31.52
+     ],
+     [
+      783.05,
+      -31.41
+     ],
+     [
+      783.18,
+      -31.18
+     ],
+     [
+      783.34,
+      -30.78
+     ],
+     [
+      783.44,
+      -30.37
+     ],
+     [
+      783.48,
+      -30.09
+     ],
+     [
+      783.5,
+      -29.62
+     ],
+     [
+      783.41,
+      -29.13
+     ],
+     [
+      783.19,
+      -28.71
+     ],
+     [
+      783.19,
+      -28.71
+     ],
+     [
+      782.93,
+      -28.48
+     ],
+     [
+      782.82,
+      -28.4
+     ],
+     [
+      782.54,
+      -28.29
+     ],
+     [
+      782.12,
+      -28.22
+     ],
+     [
+      781.67,
+      -28.31
+     ],
+     [
+      781.43,
+      -28.44
+     ],
+     [
+      781.13,
+      -28.71
+     ],
+     [
+      780.88,
+      -29.02
+     ],
+     [
+      780.71,
+      -29.37
+     ],
+     [
+      780.56,
+      -29.74
+     ],
+     [
+      780.5,
+      -30.06
+     ]
+    ],
+    [
+     [
+      782.43,
+      -43.63
+     ],
+     [
+      782.46,
+      -43.98
+     ],
+     [
+      782.6,
+      -44.34
+     ],
+     [
+      782.8,
+      -44.66
+     ],
+     [
+      783.0,
+      -44.88
+     ],
+     [
+      783.35,
+      -45.2
+     ],
+     [
+      783.76,
+      -45.48
+     ],
+     [
+      784.03,
+      -45.64
+     ],
+     [
+      784.44,
+      -45.81
+     ],
+     [
+      784.89,
+      -45.95
+     ],
+     [
+      785.35,
+      -46.07
+     ],
+     [
+      785.77,
+      -46.16
+     ],
+     [
+      786.62,
+      -46.34
+     ],
+     [
+      787.32,
+      -46.47
+     ],
+     [
+      787.71,
+      -46.52
+     ],
+     [
+      788.1,
+      -46.56
+     ],
+     [
+      788.47,
+      -46.59
+     ],
+     [
+      788.86,
+      -46.6
+     ],
+     [
+      789.28,
+      -46.59
+     ],
+     [
+      789.61,
+      -46.54
+     ],
+     [
+      790.03,
+      -46.42
+     ],
+     [
+      790.42,
+      -46.15
+     ],
+     [
+      790.62,
+      -45.88
+     ],
+     [
+      790.7,
+      -45.73
+     ],
+     [
+      790.75,
+      -45.58
+     ],
+     [
+      790.98,
+      -44.67
+     ],
+     [
+      791.0,
+      -44.39
+     ],
+     [
+      790.98,
+      -44.1
+     ],
+     [
+      790.85,
+      -43.8
+     ],
+     [
+      790.58,
+      -43.48
+     ],
+     [
+      790.23,
+      -43.23
+     ],
+     [
+      789.93,
+      -43.06
+     ],
+     [
+      789.5,
+      -42.87
+     ],
+     [
+      789.08,
+      -42.72
+     ],
+     [
+      788.65,
+      -42.57
+     ],
+     [
+      788.21,
+      -42.42
+     ],
+     [
+      787.54,
+      -42.23
+     ],
+     [
+      786.74,
+      -42.02
+     ],
+     [
+      786.31,
+      -41.91
+     ],
+     [
+      785.84,
+      -41.8
+     ],
+     [
+      785.38,
+      -41.71
+     ],
+     [
+      784.93,
+      -41.67
+     ],
+     [
+      784.65,
+      -41.68
+     ],
+     [
+      784.19,
+      -41.71
+     ],
+     [
+      783.75,
+      -41.82
+     ],
+     [
+      783.49,
+      -41.91
+     ],
+     [
+      783.14,
+      -42.1
+     ],
+     [
+      782.83,
+      -42.39
+     ],
+     [
+      782.63,
+      -42.73
+     ]
+    ],
+    [
+     [
+      784.46,
+      -35.21
+     ],
+     [
+      784.97,
+      -35.82
+     ],
+     [
+      785.53,
+      -35.94
+     ],
+     [
+      785.99,
+      -36.03
+     ],
+     [
+      786.45,
+      -36.03
+     ],
+     [
+      786.73,
+      -35.97
+     ],
+     [
+      787.14,
+      -35.81
+     ],
+     [
+      787.51,
+      -35.57
+     ],
+     [
+      787.74,
+      -35.38
+     ],
+     [
+      788.02,
+      -35.06
+     ],
+     [
+      788.27,
+      -34.71
+     ],
+     [
+      788.49,
+      -34.35
+     ],
+     [
+      788.64,
+      -33.93
+     ],
+     [
+      788.69,
+      -33.6
+     ],
+     [
+      788.67,
+      -33.15
+     ],
+     [
+      788.49,
+      -32.71
+     ],
+     [
+      788.31,
+      -32.44
+     ],
+     [
+      788.21,
+      -32.34
+     ],
+     [
+      787.96,
+      -32.14
+     ],
+     [
+      787.96,
+      -32.14
+     ],
+     [
+      787.53,
+      -32.01
+     ],
+     [
+      787.06,
+      -32.02
+     ],
+     [
+      786.61,
+      -32.14
+     ],
+     [
+      786.32,
+      -32.27
+     ],
+     [
+      785.89,
+      -32.48
+     ],
+     [
+      785.48,
+      -32.72
+     ],
+     [
+      785.22,
+      -32.93
+     ],
+     [
+      785.12,
+      -33.04
+     ],
+     [
+      784.91,
+      -33.27
+     ],
+     [
+      784.67,
+      -33.65
+     ],
+     [
+      784.54,
+      -34.09
+     ],
+     [
+      784.48,
+      -34.55
+     ]
+    ]
+   ]
+  },
+  {
+   "structure": "potawatomi_camp_1812_north_flat",
+   "name": "The Potawatomi camp of August 1812: the men's lodges on the flat above the mouth",
+   "asset_sha256": "f44eb9dda80ea8b3a72c14208cd7faf1f7111ab2e6faea507366210dc168ff13",
+   "placement": {
+    "local_e": 696.0,
+    "local_n": -100.0,
+    "rotation_deg": 0.0
+   },
+   "doors": [
+    {
+     "id": "potawatomi_camp_1812_north_flat:lodge1",
+     "leaf": {
+      "local_e": 708.58,
+      "local_n": -81.17
+     },
+     "step": {
+      "local_e": 709.26,
+      "local_n": -81.31
+     },
+     "outward_deg": 102.3,
+     "width_m": 0.93,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_north_flat:lodge2",
+     "leaf": {
+      "local_e": 710.85,
+      "local_n": -86.62
+     },
+     "step": {
+      "local_e": 711.49,
+      "local_n": -86.34
+     },
+     "outward_deg": 66.2,
+     "width_m": 0.99,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_north_flat:lodge3",
+     "leaf": {
+      "local_e": 711.25,
+      "local_n": -92.21
+     },
+     "step": {
+      "local_e": 711.27,
+      "local_n": -91.51
+     },
+     "outward_deg": 1.5,
+     "width_m": 0.8,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_north_flat:lodge4",
+     "leaf": {
+      "local_e": 715.6,
+      "local_n": -79.4
+     },
+     "step": {
+      "local_e": 715.5,
+      "local_n": -80.09
+     },
+     "outward_deg": 189.0,
+     "width_m": 0.9,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_north_flat:lodge5",
+     "leaf": {
+      "local_e": 717.02,
+      "local_n": -86.35
+     },
+     "step": {
+      "local_e": 716.78,
+      "local_n": -85.69
+     },
+     "outward_deg": 340.5,
+     "width_m": 1.24,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_north_flat:lodge6",
+     "leaf": {
+      "local_e": 719.83,
+      "local_n": -93.08
+     },
+     "step": {
+      "local_e": 720.1,
+      "local_n": -93.73
+     },
+     "outward_deg": 156.6,
+     "width_m": 1.24,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_north_flat:lodge7",
+     "leaf": {
+      "local_e": 722.09,
+      "local_n": -83.88
+     },
+     "step": {
+      "local_e": 721.4,
+      "local_n": -83.99
+     },
+     "outward_deg": 261.6,
+     "width_m": 0.83,
+     "lodge": true
+    }
+   ],
+   "walls": [
+    [
+     [
+      700.22,
+      -91.72
+     ],
+     [
+      701.4,
+      -92.65
+     ],
+     [
+      701.53,
+      -92.48
+     ],
+     [
+      701.57,
+      -92.42
+     ],
+     [
+      700.39,
+      -91.5
+     ]
+    ],
+    [
+     [
+      704.37,
+      -80.55
+     ],
+     [
+      704.39,
+      -80.69
+     ],
+     [
+      704.43,
+      -80.96
+     ],
+     [
+      704.6,
+      -81.35
+     ],
+     [
+      704.83,
+      -81.71
+     ],
+     [
+      705.12,
+      -82.0
+     ],
+     [
+      705.34,
+      -82.15
+     ],
+     [
+      705.71,
+      -82.35
+     ],
+     [
+      706.11,
+      -82.47
+     ],
+     [
+      706.37,
+      -82.53
+     ],
+     [
+      706.78,
+      -82.55
+     ],
+     [
+      707.2,
+      -82.53
+     ],
+     [
+      707.6,
+      -82.47
+     ],
+     [
+      707.99,
+      -82.35
+     ],
+     [
+      708.22,
+      -82.23
+     ],
+     [
+      708.56,
+      -81.98
+     ],
+     [
+      708.81,
+      -81.66
+     ],
+     [
+      709.05,
+      -80.8
+     ],
+     [
+      708.93,
+      -80.36
+     ],
+     [
+      708.68,
+      -79.97
+     ],
+     [
+      708.34,
+      -79.69
+     ],
+     [
+      708.08,
+      -79.54
+     ],
+     [
+      707.68,
+      -79.35
+     ],
+     [
+      707.26,
+      -79.19
+     ],
+     [
+      706.97,
+      -79.1
+     ],
+     [
+      706.52,
+      -79.04
+     ],
+     [
+      706.06,
+      -79.06
+     ],
+     [
+      705.62,
+      -79.16
+     ],
+     [
+      705.21,
+      -79.34
+     ],
+     [
+      704.95,
+      -79.53
+     ],
+     [
+      704.62,
+      -79.85
+     ],
+     [
+      704.42,
+      -80.24
+     ]
+    ],
+    [
+     [
+      706.22,
+      -87.89
+     ],
+     [
+      706.23,
+      -88.28
+     ],
+     [
+      706.35,
+      -88.65
+     ],
+     [
+      706.6,
+      -88.94
+     ],
+     [
+      706.92,
+      -89.16
+     ],
+     [
+      707.28,
+      -89.33
+     ],
+     [
+      707.55,
+      -89.42
+     ],
+     [
+      707.95,
+      -89.53
+     ],
+     [
+      708.36,
+      -89.57
+     ],
+     [
+      708.63,
+      -89.59
+     ],
+     [
+      709.04,
+      -89.54
+     ],
+     [
+      709.43,
+      -89.45
+     ],
+     [
+      709.79,
+      -89.29
+     ],
+     [
+      710.14,
+      -89.09
+     ],
+     [
+      710.38,
+      -88.92
+     ],
+     [
+      710.73,
+      -88.64
+     ],
+     [
+      711.02,
+      -88.33
+     ],
+     [
+      711.2,
+      -88.1
+     ],
+     [
+      711.26,
+      -87.97
+     ],
+     [
+      711.38,
+      -87.72
+     ],
+     [
+      711.45,
+      -87.31
+     ],
+     [
+      711.39,
+      -86.89
+     ],
+     [
+      710.99,
+      -86.07
+     ],
+     [
+      710.68,
+      -85.71
+     ],
+     [
+      710.26,
+      -85.46
+     ],
+     [
+      709.82,
+      -85.34
+     ],
+     [
+      709.52,
+      -85.33
+     ],
+     [
+      709.08,
+      -85.35
+     ],
+     [
+      708.63,
+      -85.42
+     ],
+     [
+      708.33,
+      -85.48
+     ],
+     [
+      707.92,
+      -85.62
+     ],
+     [
+      707.53,
+      -85.82
+     ],
+     [
+      707.17,
+      -86.08
+     ],
+     [
+      706.86,
+      -86.39
+     ],
+     [
+      706.72,
+      -86.59
+     ],
+     [
+      706.52,
+      -86.9
+     ],
+     [
+      706.38,
+      -87.27
+     ],
+     [
+      706.27,
+      -87.65
+     ]
+    ],
+    [
+     [
+      709.36,
+      -94.29
+     ],
+     [
+      709.37,
+      -94.77
+     ],
+     [
+      709.47,
+      -95.24
+     ],
+     [
+      709.61,
+      -95.7
+     ],
+     [
+      709.74,
+      -95.98
+     ],
+     [
+      709.98,
+      -96.35
+     ],
+     [
+      710.32,
+      -96.68
+     ],
+     [
+      710.57,
+      -96.86
+     ],
+     [
+      710.92,
+      -97.02
+     ],
+     [
+      711.31,
+      -97.1
+     ],
+     [
+      711.7,
+      -97.08
+     ],
+     [
+      712.08,
+      -96.96
+     ],
+     [
+      712.4,
+      -96.75
+     ],
+     [
+      712.59,
+      -96.55
+     ],
+     [
+      712.87,
+      -96.2
+     ],
+     [
+      713.1,
+      -95.84
+     ],
+     [
+      713.23,
+      -95.59
+     ],
+     [
+      713.38,
+      -95.13
+     ],
+     [
+      713.46,
+      -94.65
+     ],
+     [
+      713.46,
+      -94.18
+     ],
+     [
+      713.37,
+      -93.7
+     ],
+     [
+      713.28,
+      -93.46
+     ],
+     [
+      713.13,
+      -93.09
+     ],
+     [
+      712.94,
+      -92.76
+     ],
+     [
+      711.55,
+      -90.56
+     ],
+     [
+      711.45,
+      -90.45
+     ],
+     [
+      711.3,
+      -90.47
+     ],
+     [
+      709.8,
+      -92.59
+     ],
+     [
+      709.67,
+      -92.82
+     ],
+     [
+      709.52,
+      -93.18
+     ],
+     [
+      709.43,
+      -93.55
+     ],
+     [
+      709.39,
+      -93.8
+     ]
+    ],
+    [
+     [
+      714.39,
+      -78.0
+     ],
+     [
+      714.39,
+      -78.26
+     ],
+     [
+      714.55,
+      -80.75
+     ],
+     [
+      714.61,
+      -80.88
+     ],
+     [
+      714.75,
+      -80.91
+     ],
+     [
+      716.71,
+      -79.45
+     ],
+     [
+      716.99,
+      -79.15
+     ],
+     [
+      717.16,
+      -78.86
+     ],
+     [
+      717.34,
+      -78.41
+     ],
+     [
+      717.4,
+      -77.94
+     ],
+     [
+      717.42,
+      -77.61
+     ],
+     [
+      717.39,
+      -77.21
+     ],
+     [
+      717.32,
+      -76.83
+     ],
+     [
+      717.15,
+      -76.47
+     ],
+     [
+      716.88,
+      -76.17
+     ],
+     [
+      716.66,
+      -76.05
+     ],
+     [
+      716.53,
+      -75.99
+     ],
+     [
+      716.23,
+      -75.94
+     ],
+     [
+      715.81,
+      -75.97
+     ],
+     [
+      715.4,
+      -76.15
+     ],
+     [
+      715.16,
+      -76.33
+     ],
+     [
+      714.88,
+      -76.69
+     ],
+     [
+      714.65,
+      -77.1
+     ],
+     [
+      714.47,
+      -77.53
+     ]
+    ],
+    [
+     [
+      715.55,
+      -87.46
+     ],
+     [
+      715.55,
+      -87.87
+     ],
+     [
+      715.57,
+      -88.12
+     ],
+     [
+      715.65,
+      -88.55
+     ],
+     [
+      715.78,
+      -88.99
+     ],
+     [
+      715.93,
+      -89.42
+     ],
+     [
+      716.1,
+      -89.83
+     ],
+     [
+      716.45,
+      -90.62
+     ],
+     [
+      716.76,
+      -91.3
+     ],
+     [
+      716.94,
+      -91.65
+     ],
+     [
+      717.14,
+      -92.0
+     ],
+     [
+      717.35,
+      -92.33
+     ],
+     [
+      717.56,
+      -92.65
+     ],
+     [
+      717.79,
+      -92.95
+     ],
+     [
+      718.02,
+      -93.2
+     ],
+     [
+      718.4,
+      -93.53
+     ],
+     [
+      718.81,
+      -93.73
+     ],
+     [
+      719.13,
+      -93.77
+     ],
+     [
+      719.32,
+      -93.75
+     ],
+     [
+      719.51,
+      -93.71
+     ],
+     [
+      720.38,
+      -93.37
+     ],
+     [
+      720.55,
+      -93.28
+     ],
+     [
+      720.71,
+      -93.18
+     ],
+     [
+      720.9,
+      -93.0
+     ],
+     [
+      721.13,
+      -92.68
+     ],
+     [
+      721.25,
+      -92.28
+     ],
+     [
+      721.29,
+      -91.99
+     ],
+     [
+      721.27,
+      -91.56
+     ],
+     [
+      721.21,
+      -91.17
+     ],
+     [
+      721.12,
+      -90.78
+     ],
+     [
+      721.01,
+      -90.38
+     ],
+     [
+      720.77,
+      -89.69
+     ],
+     [
+      720.55,
+      -89.08
+     ],
+     [
+      720.33,
+      -88.53
+     ],
+     [
+      720.18,
+      -88.17
+     ],
+     [
+      720.0,
+      -87.76
+     ],
+     [
+      719.8,
+      -87.35
+     ],
+     [
+      719.66,
+      -87.11
+     ],
+     [
+      719.43,
+      -86.76
+     ],
+     [
+      719.18,
+      -86.45
+     ],
+     [
+      719.0,
+      -86.26
+     ],
+     [
+      718.61,
+      -85.99
+     ],
+     [
+      718.19,
+      -85.82
+     ],
+     [
+      717.78,
+      -85.72
+     ],
+     [
+      717.32,
+      -85.73
+     ],
+     [
+      716.42,
+      -86.01
+     ],
+     [
+      716.11,
+      -86.2
+     ],
+     [
+      715.86,
+      -86.46
+     ],
+     [
+      715.69,
+      -86.77
+     ],
+     [
+      715.62,
+      -87.03
+     ]
+    ],
+    [
+     [
+      721.7,
+      -83.5
+     ],
+     [
+      721.77,
+      -84.37
+     ],
+     [
+      722.1,
+      -84.8
+     ],
+     [
+      722.52,
+      -85.08
+     ],
+     [
+      722.83,
+      -85.22
+     ],
+     [
+      723.28,
+      -85.36
+     ],
+     [
+      723.75,
+      -85.41
+     ],
+     [
+      724.08,
+      -85.41
+     ],
+     [
+      724.54,
+      -85.32
+     ],
+     [
+      724.99,
+      -85.17
+     ],
+     [
+      725.39,
+      -84.97
+     ],
+     [
+      725.66,
+      -84.76
+     ],
+     [
+      725.77,
+      -84.67
+     ],
+     [
+      725.93,
+      -84.48
+     ],
+     [
+      726.13,
+      -84.16
+     ],
+     [
+      726.24,
+      -83.76
+     ],
+     [
+      726.27,
+      -83.52
+     ],
+     [
+      726.26,
+      -83.38
+     ],
+     [
+      726.23,
+      -83.06
+     ],
+     [
+      726.05,
+      -82.63
+     ],
+     [
+      726.05,
+      -82.62
+     ],
+     [
+      725.75,
+      -82.29
+     ],
+     [
+      725.48,
+      -82.13
+     ],
+     [
+      725.35,
+      -82.06
+     ],
+     [
+      725.08,
+      -81.97
+     ],
+     [
+      724.68,
+      -81.91
+     ],
+     [
+      724.28,
+      -81.89
+     ],
+     [
+      724.0,
+      -81.89
+     ],
+     [
+      723.61,
+      -81.95
+     ],
+     [
+      723.23,
+      -82.06
+     ],
+     [
+      722.87,
+      -82.22
+     ],
+     [
+      722.87,
+      -82.22
+     ],
+     [
+      722.54,
+      -82.43
+     ],
+     [
+      722.36,
+      -82.59
+     ],
+     [
+      722.1,
+      -82.84
+     ],
+     [
+      722.09,
+      -82.85
+     ],
+     [
+      721.87,
+      -83.14
+     ],
+     [
+      721.87,
+      -83.15
+     ]
+    ],
+    [
+     [
+      727.73,
+      -93.64
+     ],
+     [
+      729.21,
+      -93.88
+     ],
+     [
+      729.26,
+      -93.58
+     ],
+     [
+      729.27,
+      -93.46
+     ],
+     [
+      729.31,
+      -93.24
+     ],
+     [
+      727.83,
+      -92.99
+     ],
+     [
+      727.82,
+      -93.07
+     ],
+     [
+      727.77,
+      -93.33
+     ],
+     [
+      727.74,
+      -93.56
+     ]
+    ],
+    [
+     [
+      728.01,
+      -77.49
+     ],
+     [
+      729.5,
+      -77.63
+     ],
+     [
+      729.53,
+      -77.34
+     ],
+     [
+      728.04,
+      -77.2
+     ],
+     [
+      728.03,
+      -77.28
+     ],
+     [
+      728.02,
+      -77.42
+     ]
+    ]
+   ]
+  },
+  {
+   "structure": "potawatomi_camp_1812_prairie_west",
+   "name": "The Potawatomi camp of August 1812: the men's lodges on the west prairie",
+   "asset_sha256": "dff9e77e70ede3421a1462d347a85b8e5dede2c202983b07dc56f054ebe14460",
+   "placement": {
+    "local_e": 568.0,
+    "local_n": -172.0,
+    "rotation_deg": 0.0
+   },
+   "doors": [
+    {
+     "id": "potawatomi_camp_1812_prairie_west:lodge1",
+     "leaf": {
+      "local_e": 578.11,
+      "local_n": -163.69
+     },
+     "step": {
+      "local_e": 577.48,
+      "local_n": -163.99
+     },
+     "outward_deg": 245.1,
+     "width_m": 1.27,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_prairie_west:lodge2",
+     "leaf": {
+      "local_e": 578.8,
+      "local_n": -156.97
+     },
+     "step": {
+      "local_e": 579.43,
+      "local_n": -157.28
+     },
+     "outward_deg": 116.0,
+     "width_m": 1.03,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_prairie_west:lodge3",
+     "leaf": {
+      "local_e": 584.82,
+      "local_n": -160.66
+     },
+     "step": {
+      "local_e": 585.46,
+      "local_n": -160.36
+     },
+     "outward_deg": 64.9,
+     "width_m": 1.26,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_prairie_west:lodge4",
+     "leaf": {
+      "local_e": 586.5,
+      "local_n": -151.13
+     },
+     "step": {
+      "local_e": 586.68,
+      "local_n": -151.8
+     },
+     "outward_deg": 165.0,
+     "width_m": 0.94,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_prairie_west:lodge5",
+     "leaf": {
+      "local_e": 587.5,
+      "local_n": -163.75
+     },
+     "step": {
+      "local_e": 587.31,
+      "local_n": -163.08
+     },
+     "outward_deg": 344.0,
+     "width_m": 0.99,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_prairie_west:lodge6",
+     "leaf": {
+      "local_e": 592.23,
+      "local_n": -155.56
+     },
+     "step": {
+      "local_e": 591.55,
+      "local_n": -155.71
+     },
+     "outward_deg": 257.6,
+     "width_m": 0.93,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_prairie_west:lodge7",
+     "leaf": {
+      "local_e": 593.42,
+      "local_n": -163.3
+     },
+     "step": {
+      "local_e": 592.74,
+      "local_n": -163.11
+     },
+     "outward_deg": 285.5,
+     "width_m": 0.92,
+     "lodge": true
+    }
+   ],
+   "walls": [
+    [
+     [
+      569.75,
+      -154.64
+     ],
+     [
+      569.81,
+      -154.68
+     ],
+     [
+      569.98,
+      -154.81
+     ],
+     [
+      570.19,
+      -154.97
+     ],
+     [
+      570.26,
+      -155.02
+     ],
+     [
+      571.16,
+      -153.82
+     ],
+     [
+      571.1,
+      -153.77
+     ],
+     [
+      570.96,
+      -153.67
+     ],
+     [
+      570.65,
+      -153.44
+     ]
+    ],
+    [
+     [
+      574.85,
+      -155.88
+     ],
+     [
+      574.96,
+      -156.27
+     ],
+     [
+      575.15,
+      -156.62
+     ],
+     [
+      575.33,
+      -156.85
+     ],
+     [
+      575.62,
+      -157.17
+     ],
+     [
+      575.95,
+      -157.47
+     ],
+     [
+      576.19,
+      -157.65
+     ],
+     [
+      576.55,
+      -157.83
+     ],
+     [
+      576.96,
+      -157.95
+     ],
+     [
+      577.37,
+      -158.02
+     ],
+     [
+      577.78,
+      -158.03
+     ],
+     [
+      578.11,
+      -158.0
+     ],
+     [
+      578.59,
+      -157.85
+     ],
+     [
+      578.99,
+      -157.56
+     ],
+     [
+      579.27,
+      -156.71
+     ],
+     [
+      579.24,
+      -156.32
+     ],
+     [
+      579.14,
+      -155.93
+     ],
+     [
+      579.14,
+      -155.92
+     ],
+     [
+      578.99,
+      -155.58
+     ],
+     [
+      578.81,
+      -155.34
+     ],
+     [
+      578.5,
+      -155.01
+     ],
+     [
+      578.14,
+      -154.74
+     ],
+     [
+      577.88,
+      -154.58
+     ],
+     [
+      577.47,
+      -154.39
+     ],
+     [
+      577.03,
+      -154.26
+     ],
+     [
+      576.59,
+      -154.21
+     ],
+     [
+      576.15,
+      -154.26
+     ],
+     [
+      575.88,
+      -154.37
+     ],
+     [
+      575.51,
+      -154.59
+     ],
+     [
+      575.19,
+      -154.89
+     ],
+     [
+      575.02,
+      -155.12
+     ],
+     [
+      574.96,
+      -155.25
+     ],
+     [
+      574.87,
+      -155.48
+     ]
+    ],
+    [
+     [
+      577.38,
+      -162.97
+     ],
+     [
+      577.4,
+      -163.16
+     ],
+     [
+      577.45,
+      -163.35
+     ],
+     [
+      577.81,
+      -164.21
+     ],
+     [
+      577.96,
+      -164.44
+     ],
+     [
+      578.16,
+      -164.65
+     ],
+     [
+      578.38,
+      -164.79
+     ],
+     [
+      578.74,
+      -164.93
+     ],
+     [
+      579.1,
+      -164.99
+     ],
+     [
+      579.51,
+      -165.0
+     ],
+     [
+      579.78,
+      -164.99
+     ],
+     [
+      580.17,
+      -164.94
+     ],
+     [
+      580.54,
+      -164.87
+     ],
+     [
+      580.93,
+      -164.77
+     ],
+     [
+      581.32,
+      -164.64
+     ],
+     [
+      581.63,
+      -164.52
+     ],
+     [
+      582.02,
+      -164.36
+     ],
+     [
+      582.85,
+      -164.0
+     ],
+     [
+      583.19,
+      -163.84
+     ],
+     [
+      583.55,
+      -163.66
+     ],
+     [
+      583.9,
+      -163.45
+     ],
+     [
+      584.23,
+      -163.23
+     ],
+     [
+      584.41,
+      -163.07
+     ],
+     [
+      584.7,
+      -162.81
+     ],
+     [
+      584.97,
+      -162.49
+     ],
+     [
+      585.2,
+      -162.17
+     ],
+     [
+      586.48,
+      -160.12
+     ],
+     [
+      586.47,
+      -159.98
+     ],
+     [
+      586.36,
+      -159.9
+     ],
+     [
+      584.03,
+      -159.25
+     ],
+     [
+      583.79,
+      -159.23
+     ],
+     [
+      583.37,
+      -159.24
+     ],
+     [
+      582.98,
+      -159.31
+     ],
+     [
+      582.4,
+      -159.46
+     ],
+     [
+      582.02,
+      -159.6
+     ],
+     [
+      581.63,
+      -159.76
+     ],
+     [
+      581.26,
+      -159.93
+     ],
+     [
+      580.94,
+      -160.07
+     ],
+     [
+      579.55,
+      -160.72
+     ],
+     [
+      579.17,
+      -160.92
+     ],
+     [
+      578.81,
+      -161.12
+     ],
+     [
+      578.47,
+      -161.33
+     ],
+     [
+      578.13,
+      -161.58
+     ],
+     [
+      577.87,
+      -161.83
+     ],
+     [
+      577.58,
+      -162.2
+     ],
+     [
+      577.41,
+      -162.63
+     ]
+    ],
+    [
+     [
+      581.02,
+      -149.69
+     ],
+     [
+      582.42,
+      -150.23
+     ],
+     [
+      582.55,
+      -149.88
+     ],
+     [
+      582.64,
+      -149.65
+     ],
+     [
+      582.67,
+      -149.58
+     ],
+     [
+      581.27,
+      -149.04
+     ],
+     [
+      581.05,
+      -149.61
+     ]
+    ],
+    [
+     [
+      584.14,
+      -148.61
+     ],
+     [
+      584.16,
+      -149.06
+     ],
+     [
+      584.21,
+      -149.38
+     ],
+     [
+      584.33,
+      -149.81
+     ],
+     [
+      585.53,
+      -153.15
+     ],
+     [
+      585.72,
+      -153.35
+     ],
+     [
+      586.83,
+      -152.34
+     ],
+     [
+      587.51,
+      -150.83
+     ],
+     [
+      587.63,
+      -150.44
+     ],
+     [
+      587.69,
+      -150.19
+     ],
+     [
+      587.72,
+      -149.81
+     ],
+     [
+      587.74,
+      -149.41
+     ],
+     [
+      587.74,
+      -149.16
+     ],
+     [
+      587.67,
+      -148.74
+     ],
+     [
+      587.51,
+      -148.35
+     ],
+     [
+      587.29,
+      -147.98
+     ],
+     [
+      587.03,
+      -147.65
+     ],
+     [
+      586.82,
+      -147.45
+     ],
+     [
+      586.47,
+      -147.18
+     ],
+     [
+      586.09,
+      -147.01
+     ],
+     [
+      585.81,
+      -146.96
+     ],
+     [
+      585.67,
+      -146.98
+     ],
+     [
+      585.38,
+      -147.05
+     ],
+     [
+      584.97,
+      -147.26
+     ],
+     [
+      584.64,
+      -147.54
+     ],
+     [
+      584.45,
+      -147.77
+     ],
+     [
+      584.36,
+      -147.89
+     ],
+     [
+      584.23,
+      -148.18
+     ]
+    ],
+    [
+     [
+      586.42,
+      -164.97
+     ],
+     [
+      586.43,
+      -165.38
+     ],
+     [
+      586.5,
+      -165.81
+     ],
+     [
+      586.56,
+      -166.1
+     ],
+     [
+      586.7,
+      -166.5
+     ],
+     [
+      586.88,
+      -166.86
+     ],
+     [
+      587.14,
+      -167.19
+     ],
+     [
+      587.43,
+      -167.49
+     ],
+     [
+      587.65,
+      -167.67
+     ],
+     [
+      587.98,
+      -167.92
+     ],
+     [
+      588.35,
+      -168.13
+     ],
+     [
+      588.61,
+      -168.24
+     ],
+     [
+      588.75,
+      -168.28
+     ],
+     [
+      589.06,
+      -168.36
+     ],
+     [
+      589.5,
+      -168.34
+     ],
+     [
+      589.91,
+      -168.19
+     ],
+     [
+      590.24,
+      -167.89
+     ],
+     [
+      590.42,
+      -167.61
+     ],
+     [
+      590.61,
+      -167.17
+     ],
+     [
+      590.73,
+      -166.7
+     ],
+     [
+      590.75,
+      -166.37
+     ],
+     [
+      590.72,
+      -165.99
+     ],
+     [
+      590.64,
+      -165.61
+     ],
+     [
+      590.52,
+      -165.24
+     ],
+     [
+      590.38,
+      -164.88
+     ],
+     [
+      590.19,
+      -164.54
+     ],
+     [
+      590.03,
+      -164.3
+     ],
+     [
+      589.76,
+      -163.94
+     ],
+     [
+      589.45,
+      -163.64
+     ],
+     [
+      589.22,
+      -163.46
+     ],
+     [
+      588.89,
+      -163.29
+     ],
+     [
+      588.5,
+      -163.18
+     ],
+     [
+      588.11,
+      -163.16
+     ],
+     [
+      587.73,
+      -163.22
+     ],
+     [
+      586.93,
+      -163.64
+     ],
+     [
+      586.69,
+      -163.94
+     ],
+     [
+      586.52,
+      -164.29
+     ],
+     [
+      586.44,
+      -164.67
+     ]
+    ],
+    [
+     [
+      590.52,
+      -155.49
+     ],
+     [
+      590.53,
+      -155.63
+     ],
+     [
+      590.64,
+      -155.72
+     ],
+     [
+      593.05,
+      -157.0
+     ],
+     [
+      593.35,
+      -157.11
+     ],
+     [
+      593.8,
+      -157.21
+     ],
+     [
+      594.26,
+      -157.24
+     ],
+     [
+      594.59,
+      -157.22
+     ],
+     [
+      594.98,
+      -157.16
+     ],
+     [
+      595.37,
+      -157.04
+     ],
+     [
+      595.74,
+      -156.88
+     ],
+     [
+      596.09,
+      -156.68
+     ],
+     [
+      596.34,
+      -156.48
+     ],
+     [
+      596.65,
+      -156.15
+     ],
+     [
+      596.87,
+      -155.74
+     ],
+     [
+      596.99,
+      -155.44
+     ],
+     [
+      597.07,
+      -155.0
+     ],
+     [
+      597.08,
+      -154.56
+     ],
+     [
+      596.95,
+      -154.14
+     ],
+     [
+      596.78,
+      -153.88
+     ],
+     [
+      596.69,
+      -153.77
+     ],
+     [
+      596.49,
+      -153.61
+     ],
+     [
+      596.15,
+      -153.38
+     ],
+     [
+      595.55,
+      -153.2
+     ],
+     [
+      595.1,
+      -153.13
+     ],
+     [
+      594.63,
+      -153.12
+     ],
+     [
+      594.18,
+      -153.15
+     ],
+     [
+      593.73,
+      -153.26
+     ],
+     [
+      593.43,
+      -153.39
+     ],
+     [
+      593.0,
+      -153.6
+     ],
+     [
+      592.62,
+      -153.86
+     ],
+     [
+      590.63,
+      -155.39
+     ]
+    ],
+    [
+     [
+      592.95,
+      -163.65
+     ],
+     [
+      593.08,
+      -164.1
+     ],
+     [
+      593.33,
+      -164.49
+     ],
+     [
+      593.66,
+      -164.81
+     ],
+     [
+      593.95,
+      -164.99
+     ],
+     [
+      594.39,
+      -165.18
+     ],
+     [
+      594.87,
+      -165.21
+     ],
+     [
+      595.21,
+      -165.18
+     ],
+     [
+      595.65,
+      -165.06
+     ],
+     [
+      596.07,
+      -164.89
+     ],
+     [
+      596.46,
+      -164.61
+     ],
+     [
+      596.63,
+      -164.35
+     ],
+     [
+      596.7,
+      -164.23
+     ],
+     [
+      596.75,
+      -163.91
+     ],
+     [
+      596.71,
+      -163.44
+     ],
+     [
+      596.52,
+      -163.01
+     ],
+     [
+      596.51,
+      -163.0
+     ],
+     [
+      596.32,
+      -162.75
+     ],
+     [
+      596.21,
+      -162.67
+     ],
+     [
+      596.01,
+      -162.52
+     ],
+     [
+      595.65,
+      -162.33
+     ],
+     [
+      595.27,
+      -162.19
+     ],
+     [
+      594.88,
+      -162.11
+     ],
+     [
+      594.58,
+      -162.09
+     ],
+     [
+      594.13,
+      -162.11
+     ],
+     [
+      593.73,
+      -162.25
+     ],
+     [
+      593.48,
+      -162.42
+     ],
+     [
+      593.32,
+      -162.59
+     ],
+     [
+      593.19,
+      -162.78
+     ]
+    ],
+    [
+     [
+      600.88,
+      -150.63
+     ],
+     [
+      601.16,
+      -152.1
+     ],
+     [
+      601.36,
+      -152.06
+     ],
+     [
+      601.73,
+      -152.0
+     ],
+     [
+      601.44,
+      -150.52
+     ],
+     [
+      601.38,
+      -150.53
+     ],
+     [
+      601.15,
+      -150.58
+     ]
+    ]
+   ]
+  },
+  {
+   "structure": "potawatomi_camp_1812_south_bend",
+   "name": "The Potawatomi camp of August 1812: the family lodges below the bend",
+   "asset_sha256": "1fa50ebac986204444bf0968cc540bda11c32556fbefc9b35a9d9da8fbf9c5db",
+   "placement": {
+    "local_e": 736.0,
+    "local_n": -232.0,
+    "rotation_deg": 0.0
+   },
+   "doors": [
+    {
+     "id": "potawatomi_camp_1812_south_bend:lodge1",
+     "leaf": {
+      "local_e": 747.72,
+      "local_n": -217.95
+     },
+     "step": {
+      "local_e": 748.42,
+      "local_n": -217.91
+     },
+     "outward_deg": 86.7,
+     "width_m": 0.77,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_south_bend:lodge2",
+     "leaf": {
+      "local_e": 749.4,
+      "local_n": -212.14
+     },
+     "step": {
+      "local_e": 749.79,
+      "local_n": -212.72
+     },
+     "outward_deg": 146.4,
+     "width_m": 1.06,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_south_bend:lodge3",
+     "leaf": {
+      "local_e": 751.67,
+      "local_n": -223.17
+     },
+     "step": {
+      "local_e": 751.88,
+      "local_n": -222.5
+     },
+     "outward_deg": 17.8,
+     "width_m": 0.98,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_south_bend:lodge4",
+     "leaf": {
+      "local_e": 756.56,
+      "local_n": -225.51
+     },
+     "step": {
+      "local_e": 755.98,
+      "local_n": -225.11
+     },
+     "outward_deg": 305.0,
+     "width_m": 1.1,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_south_bend:lodge5",
+     "leaf": {
+      "local_e": 756.83,
+      "local_n": -214.59
+     },
+     "step": {
+      "local_e": 756.26,
+      "local_n": -214.99
+     },
+     "outward_deg": 235.1,
+     "width_m": 1.04,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_south_bend:lodge6",
+     "leaf": {
+      "local_e": 758.02,
+      "local_n": -219.35
+     },
+     "step": {
+      "local_e": 757.51,
+      "local_n": -218.87
+     },
+     "outward_deg": 314.0,
+     "width_m": 1.38,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_south_bend:lodge7",
+     "leaf": {
+      "local_e": 763.46,
+      "local_n": -224.51
+     },
+     "step": {
+      "local_e": 763.97,
+      "local_n": -224.99
+     },
+     "outward_deg": 133.9,
+     "width_m": 1.4,
+     "lodge": true
+    }
+   ],
+   "walls": [
+    [
+     [
+      744.26,
+      -217.96
+     ],
+     [
+      744.27,
+      -218.36
+     ],
+     [
+      744.42,
+      -218.73
+     ],
+     [
+      744.57,
+      -218.96
+     ],
+     [
+      744.85,
+      -219.21
+     ],
+     [
+      745.21,
+      -219.41
+     ],
+     [
+      745.58,
+      -219.51
+     ],
+     [
+      745.97,
+      -219.56
+     ],
+     [
+      746.36,
+      -219.55
+     ],
+     [
+      746.61,
+      -219.51
+     ],
+     [
+      747.0,
+      -219.42
+     ],
+     [
+      747.36,
+      -219.27
+     ],
+     [
+      749.3,
+      -218.2
+     ],
+     [
+      749.49,
+      -216.71
+     ],
+     [
+      749.26,
+      -216.68
+     ],
+     [
+      749.18,
+      -216.67
+     ],
+     [
+      746.36,
+      -216.53
+     ],
+     [
+      745.94,
+      -216.58
+     ],
+     [
+      745.68,
+      -216.64
+     ],
+     [
+      745.29,
+      -216.81
+     ],
+     [
+      744.9,
+      -217.06
+     ],
+     [
+      744.58,
+      -217.34
+     ],
+     [
+      744.41,
+      -217.58
+     ],
+     [
+      744.33,
+      -217.71
+     ]
+    ],
+    [
+     [
+      745.76,
+      -209.53
+     ],
+     [
+      745.79,
+      -209.94
+     ],
+     [
+      745.84,
+      -210.21
+     ],
+     [
+      745.98,
+      -210.65
+     ],
+     [
+      746.18,
+      -211.07
+     ],
+     [
+      746.41,
+      -211.46
+     ],
+     [
+      746.7,
+      -211.82
+     ],
+     [
+      746.91,
+      -212.02
+     ],
+     [
+      747.26,
+      -212.29
+     ],
+     [
+      747.63,
+      -212.49
+     ],
+     [
+      747.89,
+      -212.6
+     ],
+     [
+      748.33,
+      -212.7
+     ],
+     [
+      748.79,
+      -212.72
+     ],
+     [
+      749.24,
+      -212.67
+     ],
+     [
+      750.0,
+      -212.2
+     ],
+     [
+      750.16,
+      -211.87
+     ],
+     [
+      750.25,
+      -211.5
+     ],
+     [
+      750.26,
+      -211.12
+     ],
+     [
+      750.24,
+      -210.82
+     ],
+     [
+      750.17,
+      -210.41
+     ],
+     [
+      750.06,
+      -209.99
+     ],
+     [
+      749.96,
+      -209.71
+     ],
+     [
+      749.79,
+      -209.36
+     ],
+     [
+      749.79,
+      -209.36
+     ],
+     [
+      749.6,
+      -209.02
+     ],
+     [
+      749.34,
+      -208.73
+     ],
+     [
+      749.05,
+      -208.45
+     ],
+     [
+      748.75,
+      -208.2
+     ],
+     [
+      748.5,
+      -208.03
+     ],
+     [
+      748.12,
+      -207.8
+     ],
+     [
+      747.67,
+      -207.67
+     ],
+     [
+      747.36,
+      -207.63
+     ],
+     [
+      747.21,
+      -207.65
+     ],
+     [
+      746.96,
+      -207.7
+     ],
+     [
+      746.62,
+      -207.89
+     ],
+     [
+      746.33,
+      -208.16
+     ],
+     [
+      746.11,
+      -208.49
+     ],
+     [
+      745.92,
+      -208.84
+     ],
+     [
+      745.85,
+      -209.11
+     ]
+    ],
+    [
+     [
+      749.2,
+      -225.15
+     ],
+     [
+      749.21,
+      -225.55
+     ],
+     [
+      749.27,
+      -225.95
+     ],
+     [
+      749.35,
+      -226.21
+     ],
+     [
+      749.5,
+      -226.56
+     ],
+     [
+      749.74,
+      -226.87
+     ],
+     [
+      750.1,
+      -227.05
+     ],
+     [
+      750.34,
+      -227.11
+     ],
+     [
+      750.78,
+      -227.12
+     ],
+     [
+      751.17,
+      -227.03
+     ],
+     [
+      751.57,
+      -226.87
+     ],
+     [
+      751.91,
+      -226.62
+     ],
+     [
+      752.07,
+      -226.43
+     ],
+     [
+      752.3,
+      -226.12
+     ],
+     [
+      752.51,
+      -225.78
+     ],
+     [
+      752.67,
+      -225.44
+     ],
+     [
+      752.77,
+      -225.2
+     ],
+     [
+      752.88,
+      -224.82
+     ],
+     [
+      752.93,
+      -224.45
+     ],
+     [
+      752.93,
+      -224.44
+     ],
+     [
+      752.92,
+      -224.07
+     ],
+     [
+      752.78,
+      -223.69
+     ],
+     [
+      752.57,
+      -223.35
+     ],
+     [
+      752.2,
+      -222.86
+     ],
+     [
+      751.49,
+      -222.55
+     ],
+     [
+      750.95,
+      -222.71
+     ],
+     [
+      750.53,
+      -222.9
+     ],
+     [
+      750.16,
+      -223.15
+     ],
+     [
+      749.95,
+      -223.35
+     ],
+     [
+      749.65,
+      -223.68
+     ],
+     [
+      749.43,
+      -224.06
+     ],
+     [
+      749.31,
+      -224.34
+     ],
+     [
+      749.22,
+      -224.73
+     ]
+    ],
+    [
+     [
+      753.14,
+      -218.29
+     ],
+     [
+      754.8,
+      -218.65
+     ],
+     [
+      754.92,
+      -218.65
+     ],
+     [
+      755.14,
+      -217.67
+     ],
+     [
+      753.48,
+      -217.31
+     ],
+     [
+      753.36,
+      -217.31
+     ]
+    ],
+    [
+     [
+      755.81,
+      -226.32
+     ],
+     [
+      755.87,
+      -226.72
+     ],
+     [
+      755.95,
+      -226.95
+     ],
+     [
+      756.08,
+      -227.3
+     ],
+     [
+      756.25,
+      -227.65
+     ],
+     [
+      756.44,
+      -227.99
+     ],
+     [
+      756.56,
+      -228.2
+     ],
+     [
+      756.8,
+      -228.51
+     ],
+     [
+      757.08,
+      -228.78
+     ],
+     [
+      757.42,
+      -229.01
+     ],
+     [
+      757.77,
+      -229.2
+     ],
+     [
+      758.05,
+      -229.29
+     ],
+     [
+      758.45,
+      -229.42
+     ],
+     [
+      758.88,
+      -229.47
+     ],
+     [
+      759.19,
+      -229.49
+     ],
+     [
+      759.34,
+      -229.46
+     ],
+     [
+      759.65,
+      -229.41
+     ],
+     [
+      760.04,
+      -229.2
+     ],
+     [
+      760.05,
+      -229.2
+     ],
+     [
+      760.36,
+      -228.87
+     ],
+     [
+      760.5,
+      -228.59
+     ],
+     [
+      760.57,
+      -228.47
+     ],
+     [
+      760.65,
+      -228.19
+     ],
+     [
+      760.72,
+      -227.77
+     ],
+     [
+      760.72,
+      -227.76
+     ],
+     [
+      760.7,
+      -227.34
+     ],
+     [
+      760.63,
+      -227.07
+     ],
+     [
+      760.58,
+      -226.94
+     ],
+     [
+      760.48,
+      -226.7
+     ],
+     [
+      760.25,
+      -226.35
+     ],
+     [
+      759.97,
+      -226.04
+     ],
+     [
+      759.67,
+      -225.76
+     ],
+     [
+      759.46,
+      -225.6
+     ],
+     [
+      759.12,
+      -225.37
+     ],
+     [
+      758.77,
+      -225.15
+     ],
+     [
+      756.23,
+      -223.62
+     ],
+     [
+      756.08,
+      -223.66
+     ],
+     [
+      756.01,
+      -223.8
+     ],
+     [
+      755.83,
+      -225.93
+     ]
+    ],
+    [
+     [
+      756.22,
+      -213.87
+     ],
+     [
+      756.23,
+      -214.08
+     ],
+     [
+      756.28,
+      -214.44
+     ],
+     [
+      756.82,
+      -215.17
+     ],
+     [
+      757.3,
+      -215.35
+     ],
+     [
+      757.83,
+      -215.41
+     ],
+     [
+      758.09,
+      -215.38
+     ],
+     [
+      758.46,
+      -215.3
+     ],
+     [
+      758.82,
+      -215.16
+     ],
+     [
+      759.17,
+      -214.97
+     ],
+     [
+      759.38,
+      -214.84
+     ],
+     [
+      759.68,
+      -214.59
+     ],
+     [
+      759.95,
+      -214.29
+     ],
+     [
+      760.19,
+      -213.99
+     ],
+     [
+      760.38,
+      -213.65
+     ],
+     [
+      760.51,
+      -213.26
+     ],
+     [
+      760.52,
+      -212.93
+     ],
+     [
+      760.46,
+      -212.49
+     ],
+     [
+      760.2,
+      -212.09
+     ],
+     [
+      759.98,
+      -211.84
+     ],
+     [
+      759.6,
+      -211.61
+     ],
+     [
+      759.18,
+      -211.5
+     ],
+     [
+      758.72,
+      -211.49
+     ],
+     [
+      758.29,
+      -211.57
+     ],
+     [
+      757.98,
+      -211.69
+     ],
+     [
+      757.54,
+      -211.88
+     ],
+     [
+      757.15,
+      -212.14
+     ],
+     [
+      756.89,
+      -212.36
+     ],
+     [
+      756.62,
+      -212.69
+     ],
+     [
+      756.42,
+      -213.03
+     ],
+     [
+      756.29,
+      -213.44
+     ]
+    ],
+    [
+     [
+      757.01,
+      -220.19
+     ],
+     [
+      757.06,
+      -220.5
+     ],
+     [
+      757.08,
+      -220.65
+     ],
+     [
+      757.19,
+      -220.91
+     ],
+     [
+      757.38,
+      -221.28
+     ],
+     [
+      757.59,
+      -221.61
+     ],
+     [
+      757.72,
+      -221.82
+     ],
+     [
+      757.95,
+      -222.12
+     ],
+     [
+      758.2,
+      -222.43
+     ],
+     [
+      758.46,
+      -222.73
+     ],
+     [
+      758.73,
+      -223.01
+     ],
+     [
+      758.97,
+      -223.25
+     ],
+     [
+      760.09,
+      -224.3
+     ],
+     [
+      760.4,
+      -224.55
+     ],
+     [
+      760.72,
+      -224.79
+     ],
+     [
+      761.04,
+      -224.99
+     ],
+     [
+      761.38,
+      -225.16
+     ],
+     [
+      761.74,
+      -225.29
+     ],
+     [
+      762.04,
+      -225.36
+     ],
+     [
+      762.48,
+      -225.42
+     ],
+     [
+      762.87,
+      -225.4
+     ],
+     [
+      763.15,
+      -225.34
+     ],
+     [
+      763.33,
+      -225.26
+     ],
+     [
+      763.5,
+      -225.15
+     ],
+     [
+      764.17,
+      -224.49
+     ],
+     [
+      764.29,
+      -224.31
+     ],
+     [
+      764.39,
+      -224.12
+     ],
+     [
+      764.47,
+      -223.81
+     ],
+     [
+      764.48,
+      -223.34
+     ],
+     [
+      764.35,
+      -222.84
+     ],
+     [
+      764.21,
+      -222.53
+     ],
+     [
+      763.99,
+      -222.19
+     ],
+     [
+      763.74,
+      -221.88
+     ],
+     [
+      763.45,
+      -221.56
+     ],
+     [
+      763.14,
+      -221.26
+     ],
+     [
+      762.06,
+      -220.27
+     ],
+     [
+      761.78,
+      -220.02
+     ],
+     [
+      761.42,
+      -219.73
+     ],
+     [
+      761.06,
+      -219.44
+     ],
+     [
+      760.69,
+      -219.17
+     ],
+     [
+      760.18,
+      -218.84
+     ],
+     [
+      759.85,
+      -218.66
+     ],
+     [
+      759.46,
+      -218.5
+     ],
+     [
+      759.21,
+      -218.41
+     ],
+     [
+      758.79,
+      -218.39
+     ],
+     [
+      758.39,
+      -218.49
+     ],
+     [
+      758.01,
+      -218.71
+     ],
+     [
+      757.34,
+      -219.37
+     ],
+     [
+      757.1,
+      -219.76
+     ]
+    ]
+   ]
+  },
+  {
+   "structure": "potawatomi_camp_1812_south_prairie",
+   "name": "The Potawatomi camp of August 1812: the family lodges on the south prairie",
+   "asset_sha256": "725f087b5e050fda8f8327e1cdade451528b189d1d4e9d5bc9d13d24541d054e",
+   "placement": {
+    "local_e": 736.0,
+    "local_n": -272.0,
+    "rotation_deg": 0.0
+   },
+   "doors": [
+    {
+     "id": "potawatomi_camp_1812_south_prairie:lodge1",
+     "leaf": {
+      "local_e": 743.11,
+      "local_n": -248.9
+     },
+     "step": {
+      "local_e": 742.52,
+      "local_n": -248.52
+     },
+     "outward_deg": 302.9,
+     "width_m": 1.34,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_south_prairie:lodge2",
+     "leaf": {
+      "local_e": 746.3,
+      "local_n": -265.55
+     },
+     "step": {
+      "local_e": 745.74,
+      "local_n": -265.97
+     },
+     "outward_deg": 233.4,
+     "width_m": 0.94,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_south_prairie:lodge3",
+     "leaf": {
+      "local_e": 749.24,
+      "local_n": -252.99
+     },
+     "step": {
+      "local_e": 749.82,
+      "local_n": -253.39
+     },
+     "outward_deg": 124.2,
+     "width_m": 1.31,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_south_prairie:lodge4",
+     "leaf": {
+      "local_e": 751.53,
+      "local_n": -261.69
+     },
+     "step": {
+      "local_e": 752.09,
+      "local_n": -261.26
+     },
+     "outward_deg": 53.1,
+     "width_m": 0.94,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_south_prairie:lodge5",
+     "leaf": {
+      "local_e": 756.36,
+      "local_n": -264.97
+     },
+     "step": {
+      "local_e": 756.26,
+      "local_n": -264.28
+     },
+     "outward_deg": 351.5,
+     "width_m": 0.84,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_south_prairie:lodge6",
+     "leaf": {
+      "local_e": 756.55,
+      "local_n": -251.98
+     },
+     "step": {
+      "local_e": 756.37,
+      "local_n": -252.66
+     },
+     "outward_deg": 194.7,
+     "width_m": 0.89,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_south_prairie:lodge7",
+     "leaf": {
+      "local_e": 759.98,
+      "local_n": -259.24
+     },
+     "step": {
+      "local_e": 759.39,
+      "local_n": -258.86
+     },
+     "outward_deg": 303.0,
+     "width_m": 1.02,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_south_prairie:lodge8",
+     "leaf": {
+      "local_e": 761.1,
+      "local_n": -253.16
+     },
+     "step": {
+      "local_e": 760.49,
+      "local_n": -253.51
+     },
+     "outward_deg": 240.8,
+     "width_m": 0.98,
+     "lodge": true
+    }
+   ],
+   "walls": [
+    [
+     [
+      742.4,
+      -249.44
+     ],
+     [
+      742.42,
+      -249.83
+     ],
+     [
+      742.51,
+      -250.2
+     ],
+     [
+      742.6,
+      -250.46
+     ],
+     [
+      742.83,
+      -250.88
+     ],
+     [
+      743.09,
+      -251.23
+     ],
+     [
+      743.37,
+      -251.55
+     ],
+     [
+      743.7,
+      -251.85
+     ],
+     [
+      744.22,
+      -252.25
+     ],
+     [
+      744.54,
+      -252.48
+     ],
+     [
+      745.09,
+      -252.86
+     ],
+     [
+      745.47,
+      -253.11
+     ],
+     [
+      745.84,
+      -253.35
+     ],
+     [
+      746.24,
+      -253.6
+     ],
+     [
+      746.66,
+      -253.84
+     ],
+     [
+      746.95,
+      -253.97
+     ],
+     [
+      747.35,
+      -254.14
+     ],
+     [
+      747.79,
+      -254.27
+     ],
+     [
+      748.13,
+      -254.33
+     ],
+     [
+      748.28,
+      -254.32
+     ],
+     [
+      748.52,
+      -254.29
+     ],
+     [
+      750.48,
+      -253.92
+     ],
+     [
+      751.72,
+      -253.09
+     ],
+     [
+      751.68,
+      -253.02
+     ],
+     [
+      751.55,
+      -252.83
+     ],
+     [
+      749.16,
+      -250.49
+     ],
+     [
+      748.85,
+      -250.21
+     ],
+     [
+      748.51,
+      -249.94
+     ],
+     [
+      748.17,
+      -249.68
+     ],
+     [
+      747.85,
+      -249.45
+     ],
+     [
+      746.53,
+      -248.59
+     ],
+     [
+      746.16,
+      -248.38
+     ],
+     [
+      745.77,
+      -248.19
+     ],
+     [
+      745.4,
+      -248.02
+     ],
+     [
+      745.02,
+      -247.89
+     ],
+     [
+      744.78,
+      -247.84
+     ],
+     [
+      744.37,
+      -247.77
+     ],
+     [
+      743.96,
+      -247.76
+     ],
+     [
+      743.6,
+      -247.82
+     ],
+     [
+      743.37,
+      -247.89
+     ],
+     [
+      743.14,
+      -248.04
+     ],
+     [
+      742.94,
+      -248.24
+     ],
+     [
+      742.49,
+      -249.04
+     ]
+    ],
+    [
+     [
+      744.78,
+      -263.85
+     ],
+     [
+      744.79,
+      -263.87
+     ],
+     [
+      745.19,
+      -264.43
+     ],
+     [
+      745.83,
+      -265.31
+     ],
+     [
+      746.69,
+      -266.46
+     ],
+     [
+      747.47,
+      -267.49
+     ],
+     [
+      747.49,
+      -267.51
+     ],
+     [
+      749.6,
+      -265.96
+     ],
+     [
+      751.37,
+      -264.65
+     ],
+     [
+      752.3,
+      -263.96
+     ],
+     [
+      753.05,
+      -263.39
+     ],
+     [
+      753.31,
+      -261.38
+     ],
+     [
+      753.32,
+      -261.25
+     ],
+     [
+      753.23,
+      -261.15
+     ],
+     [
+      750.38,
+      -259.74
+     ],
+     [
+      750.36,
+      -259.74
+     ],
+     [
+      749.45,
+      -260.39
+     ],
+     [
+      748.98,
+      -260.73
+     ],
+     [
+      747.88,
+      -261.53
+     ],
+     [
+      745.48,
+      -263.32
+     ]
+    ],
+    [
+     [
+      752.9,
+      -255.66
+     ],
+     [
+      753.23,
+      -256.61
+     ],
+     [
+      754.93,
+      -256.04
+     ],
+     [
+      754.88,
+      -255.04
+     ],
+     [
+      753.18,
+      -255.12
+     ]
+    ],
+    [
+     [
+      754.85,
+      -266.57
+     ],
+     [
+      754.86,
+      -266.87
+     ],
+     [
+      754.93,
+      -267.31
+     ],
+     [
+      755.03,
+      -267.76
+     ],
+     [
+      755.18,
+      -268.18
+     ],
+     [
+      755.43,
+      -268.57
+     ],
+     [
+      755.64,
+      -268.77
+     ],
+     [
+      755.98,
+      -269.01
+     ],
+     [
+      756.4,
+      -269.16
+     ],
+     [
+      756.67,
+      -269.22
+     ],
+     [
+      756.81,
+      -269.21
+     ],
+     [
+      757.14,
+      -269.17
+     ],
+     [
+      757.58,
+      -268.92
+     ],
+     [
+      757.86,
+      -268.56
+     ],
+     [
+      758.08,
+      -268.12
+     ],
+     [
+      758.16,
+      -267.87
+     ],
+     [
+      758.25,
+      -267.5
+     ],
+     [
+      758.31,
+      -267.1
+     ],
+     [
+      758.33,
+      -266.85
+     ],
+     [
+      758.29,
+      -266.46
+     ],
+     [
+      758.17,
+      -266.07
+     ],
+     [
+      758.01,
+      -265.72
+     ],
+     [
+      757.79,
+      -265.38
+     ],
+     [
+      757.55,
+      -265.12
+     ],
+     [
+      757.22,
+      -264.78
+     ],
+     [
+      756.77,
+      -264.56
+     ],
+     [
+      755.88,
+      -264.66
+     ],
+     [
+      755.55,
+      -264.86
+     ],
+     [
+      755.28,
+      -265.12
+     ],
+     [
+      755.06,
+      -265.43
+     ],
+     [
+      754.95,
+      -265.71
+     ],
+     [
+      754.86,
+      -266.13
+     ]
+    ],
+    [
+     [
+      755.42,
+      -250.67
+     ],
+     [
+      755.44,
+      -251.13
+     ],
+     [
+      755.5,
+      -251.44
+     ],
+     [
+      755.55,
+      -251.58
+     ],
+     [
+      755.68,
+      -251.89
+     ],
+     [
+      756.01,
+      -252.22
+     ],
+     [
+      756.9,
+      -252.45
+     ],
+     [
+      757.26,
+      -252.41
+     ],
+     [
+      757.6,
+      -252.25
+     ],
+     [
+      757.88,
+      -252.01
+     ],
+     [
+      758.04,
+      -251.79
+     ],
+     [
+      758.24,
+      -251.43
+     ],
+     [
+      758.39,
+      -251.04
+     ],
+     [
+      758.47,
+      -250.77
+     ],
+     [
+      758.51,
+      -250.35
+     ],
+     [
+      758.47,
+      -249.94
+     ],
+     [
+      758.33,
+      -249.54
+     ],
+     [
+      758.1,
+      -249.18
+     ],
+     [
+      757.88,
+      -248.94
+     ],
+     [
+      757.47,
+      -248.66
+     ],
+     [
+      757.0,
+      -248.61
+     ],
+     [
+      756.99,
+      -248.61
+     ],
+     [
+      756.68,
+      -248.7
+     ],
+     [
+      756.32,
+      -248.92
+     ],
+     [
+      755.98,
+      -249.19
+     ],
+     [
+      755.74,
+      -249.52
+     ],
+     [
+      755.61,
+      -249.77
+     ],
+     [
+      755.54,
+      -249.9
+     ],
+     [
+      755.45,
+      -250.21
+     ]
+    ],
+    [
+     [
+      759.42,
+      -259.9
+     ],
+     [
+      759.52,
+      -260.39
+     ],
+     [
+      759.69,
+      -260.83
+     ],
+     [
+      759.82,
+      -261.04
+     ],
+     [
+      760.03,
+      -261.36
+     ],
+     [
+      760.28,
+      -261.66
+     ],
+     [
+      760.57,
+      -261.93
+     ],
+     [
+      760.75,
+      -262.09
+     ],
+     [
+      761.12,
+      -262.32
+     ],
+     [
+      761.54,
+      -262.49
+     ],
+     [
+      761.97,
+      -262.62
+     ],
+     [
+      762.4,
+      -262.68
+     ],
+     [
+      762.63,
+      -262.69
+     ],
+     [
+      762.64,
+      -262.69
+     ],
+     [
+      763.02,
+      -262.68
+     ],
+     [
+      763.42,
+      -262.57
+     ],
+     [
+      763.77,
+      -262.4
+     ],
+     [
+      763.98,
+      -262.26
+     ],
+     [
+      764.25,
+      -261.95
+     ],
+     [
+      764.44,
+      -261.59
+     ],
+     [
+      764.55,
+      -261.19
+     ],
+     [
+      764.55,
+      -260.77
+     ],
+     [
+      764.46,
+      -260.46
+     ],
+     [
+      764.46,
+      -260.45
+     ],
+     [
+      764.28,
+      -260.04
+     ],
+     [
+      764.02,
+      -259.69
+     ],
+     [
+      763.82,
+      -259.44
+     ],
+     [
+      763.52,
+      -259.18
+     ],
+     [
+      763.2,
+      -258.93
+     ],
+     [
+      762.87,
+      -258.72
+     ],
+     [
+      762.52,
+      -258.56
+     ],
+     [
+      762.14,
+      -258.41
+     ],
+     [
+      761.88,
+      -258.35
+     ],
+     [
+      761.48,
+      -258.28
+     ],
+     [
+      761.07,
+      -258.27
+     ],
+     [
+      760.8,
+      -258.29
+     ],
+     [
+      760.32,
+      -258.43
+     ],
+     [
+      759.9,
+      -258.67
+     ],
+     [
+      759.43,
+      -259.43
+     ]
+    ],
+    [
+     [
+      760.58,
+      -252.65
+     ],
+     [
+      760.59,
+      -252.88
+     ],
+     [
+      760.94,
+      -253.72
+     ],
+     [
+      761.24,
+      -254.03
+     ],
+     [
+      761.63,
+      -254.25
+     ],
+     [
+      762.07,
+      -254.34
+     ],
+     [
+      762.41,
+      -254.32
+     ],
+     [
+      762.88,
+      -254.23
+     ],
+     [
+      763.34,
+      -254.09
+     ],
+     [
+      763.66,
+      -253.98
+     ],
+     [
+      764.09,
+      -253.77
+     ],
+     [
+      764.46,
+      -253.5
+     ],
+     [
+      764.78,
+      -253.14
+     ],
+     [
+      764.94,
+      -252.84
+     ],
+     [
+      765.0,
+      -252.71
+     ],
+     [
+      765.07,
+      -252.45
+     ],
+     [
+      765.11,
+      -252.04
+     ],
+     [
+      765.03,
+      -251.62
+     ],
+     [
+      764.9,
+      -251.37
+     ],
+     [
+      764.8,
+      -251.26
+     ],
+     [
+      764.62,
+      -251.1
+     ],
+     [
+      764.61,
+      -251.1
+     ],
+     [
+      764.28,
+      -250.92
+     ],
+     [
+      763.91,
+      -250.8
+     ],
+     [
+      763.51,
+      -250.7
+     ],
+     [
+      763.14,
+      -250.66
+     ],
+     [
+      762.8,
+      -250.67
+     ],
+     [
+      762.32,
+      -250.74
+     ],
+     [
+      761.9,
+      -250.94
+     ],
+     [
+      761.61,
+      -251.11
+     ],
+     [
+      761.26,
+      -251.4
+     ],
+     [
+      760.96,
+      -251.73
+     ],
+     [
+      760.72,
+      -252.14
+     ],
+     [
+      760.59,
+      -252.57
+     ]
+    ]
+   ]
+  },
+  {
+   "structure": "potawatomi_camp_1812_south_reach",
+   "name": "The Potawatomi camp of August 1812: the lodges south of the creek's bend",
+   "asset_sha256": "e61423321ef75cebe077ef0c733b41b9869a77916f09a1ca52d560b52838473a",
+   "placement": {
+    "local_e": 688.0,
+    "local_n": -248.0,
+    "rotation_deg": 0.0
+   },
+   "doors": [
+    {
+     "id": "potawatomi_camp_1812_south_reach:lodge1",
+     "leaf": {
+      "local_e": 698.64,
+      "local_n": -239.3
+     },
+     "step": {
+      "local_e": 699.34,
+      "local_n": -239.22
+     },
+     "outward_deg": 83.0,
+     "width_m": 0.87,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_south_reach:lodge2",
+     "leaf": {
+      "local_e": 699.3,
+      "local_n": -232.44
+     },
+     "step": {
+      "local_e": 699.83,
+      "local_n": -232.89
+     },
+     "outward_deg": 130.1,
+     "width_m": 1.04,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_south_reach:lodge3",
+     "leaf": {
+      "local_e": 707.11,
+      "local_n": -227.95
+     },
+     "step": {
+      "local_e": 707.04,
+      "local_n": -228.65
+     },
+     "outward_deg": 185.8,
+     "width_m": 0.89,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_south_reach:lodge4",
+     "leaf": {
+      "local_e": 709.13,
+      "local_n": -238.91
+     },
+     "step": {
+      "local_e": 708.95,
+      "local_n": -238.23
+     },
+     "outward_deg": 345.7,
+     "width_m": 0.98,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_south_reach:lodge5",
+     "leaf": {
+      "local_e": 712.83,
+      "local_n": -233.18
+     },
+     "step": {
+      "local_e": 712.13,
+      "local_n": -233.11
+     },
+     "outward_deg": 275.4,
+     "width_m": 0.77,
+     "lodge": true
+    }
+   ],
+   "walls": [
+    [
+     [
+      694.42,
+      -239.87
+     ],
+     [
+      694.43,
+      -240.01
+     ],
+     [
+      694.49,
+      -240.33
+     ],
+     [
+      694.74,
+      -240.73
+     ],
+     [
+      695.07,
+      -241.03
+     ],
+     [
+      695.49,
+      -241.26
+     ],
+     [
+      695.72,
+      -241.33
+     ],
+     [
+      696.09,
+      -241.41
+     ],
+     [
+      696.48,
+      -241.41
+     ],
+     [
+      696.87,
+      -241.35
+     ],
+     [
+      697.11,
+      -241.31
+     ],
+     [
+      697.56,
+      -241.14
+     ],
+     [
+      697.98,
+      -240.93
+     ],
+     [
+      697.99,
+      -240.93
+     ],
+     [
+      698.39,
+      -240.69
+     ],
+     [
+      698.75,
+      -240.36
+     ],
+     [
+      700.13,
+      -238.4
+     ],
+     [
+      700.09,
+      -238.26
+     ],
+     [
+      699.96,
+      -238.21
+     ],
+     [
+      697.28,
+      -237.94
+     ],
+     [
+      696.81,
+      -237.91
+     ],
+     [
+      696.48,
+      -237.92
+     ],
+     [
+      696.05,
+      -237.99
+     ],
+     [
+      695.64,
+      -238.14
+     ],
+     [
+      695.27,
+      -238.36
+     ],
+     [
+      695.06,
+      -238.57
+     ],
+     [
+      694.96,
+      -238.67
+     ],
+     [
+      694.8,
+      -238.89
+     ],
+     [
+      694.6,
+      -239.23
+     ],
+     [
+      694.47,
+      -239.6
+     ]
+    ],
+    [
+     [
+      695.64,
+      -230.54
+     ],
+     [
+      695.66,
+      -230.97
+     ],
+     [
+      695.75,
+      -231.37
+     ],
+     [
+      695.86,
+      -231.63
+     ],
+     [
+      696.03,
+      -232.01
+     ],
+     [
+      696.27,
+      -232.34
+     ],
+     [
+      696.46,
+      -232.54
+     ],
+     [
+      696.82,
+      -232.82
+     ],
+     [
+      697.23,
+      -233.03
+     ],
+     [
+      697.66,
+      -233.18
+     ],
+     [
+      698.11,
+      -233.27
+     ],
+     [
+      700.6,
+      -233.48
+     ],
+     [
+      701.5,
+      -232.28
+     ],
+     [
+      699.11,
+      -230.18
+     ],
+     [
+      698.88,
+      -229.98
+     ],
+     [
+      698.52,
+      -229.74
+     ],
+     [
+      698.12,
+      -229.55
+     ],
+     [
+      697.71,
+      -229.43
+     ],
+     [
+      697.26,
+      -229.4
+     ],
+     [
+      697.0,
+      -229.44
+     ],
+     [
+      696.62,
+      -229.51
+     ],
+     [
+      696.24,
+      -229.68
+     ],
+     [
+      696.02,
+      -229.81
+     ],
+     [
+      695.93,
+      -229.91
+     ],
+     [
+      695.76,
+      -230.13
+     ]
+    ],
+    [
+     [
+      704.13,
+      -233.44
+     ],
+     [
+      705.83,
+      -233.45
+     ],
+     [
+      706.82,
+      -233.12
+     ],
+     [
+      706.7,
+      -232.13
+     ],
+     [
+      705.02,
+      -232.33
+     ],
+     [
+      704.14,
+      -232.44
+     ]
+    ],
+    [
+     [
+      705.76,
+      -226.58
+     ],
+     [
+      705.76,
+      -226.87
+     ],
+     [
+      705.82,
+      -227.29
+     ],
+     [
+      705.98,
+      -227.67
+     ],
+     [
+      706.16,
+      -227.9
+     ],
+     [
+      706.38,
+      -228.08
+     ],
+     [
+      706.62,
+      -228.22
+     ],
+     [
+      707.51,
+      -228.4
+     ],
+     [
+      707.92,
+      -228.23
+     ],
+     [
+      708.25,
+      -227.94
+     ],
+     [
+      708.5,
+      -227.61
+     ],
+     [
+      708.64,
+      -227.32
+     ],
+     [
+      708.8,
+      -226.89
+     ],
+     [
+      708.84,
+      -226.44
+     ],
+     [
+      708.83,
+      -226.13
+     ],
+     [
+      708.71,
+      -225.66
+     ],
+     [
+      708.55,
+      -225.23
+     ],
+     [
+      708.26,
+      -224.84
+     ],
+     [
+      707.99,
+      -224.64
+     ],
+     [
+      707.87,
+      -224.58
+     ],
+     [
+      707.56,
+      -224.54
+     ],
+     [
+      707.14,
+      -224.62
+     ],
+     [
+      706.73,
+      -224.81
+     ],
+     [
+      706.47,
+      -224.97
+     ],
+     [
+      706.37,
+      -225.08
+     ],
+     [
+      706.17,
+      -225.3
+     ],
+     [
+      705.96,
+      -225.7
+     ],
+     [
+      705.82,
+      -226.13
+     ]
+    ],
+    [
+     [
+      707.54,
+      -237.87
+     ],
+     [
+      707.68,
+      -241.12
+     ],
+     [
+      707.74,
+      -241.53
+     ],
+     [
+      707.86,
+      -241.93
+     ],
+     [
+      708.04,
+      -242.31
+     ],
+     [
+      708.24,
+      -242.67
+     ],
+     [
+      708.38,
+      -242.87
+     ],
+     [
+      708.61,
+      -243.17
+     ],
+     [
+      708.92,
+      -243.42
+     ],
+     [
+      709.27,
+      -243.62
+     ],
+     [
+      709.5,
+      -243.7
+     ],
+     [
+      709.64,
+      -243.72
+     ],
+     [
+      709.96,
+      -243.75
+     ],
+     [
+      710.45,
+      -243.68
+     ],
+     [
+      710.9,
+      -243.5
+     ],
+     [
+      711.17,
+      -243.31
+     ],
+     [
+      711.27,
+      -243.22
+     ],
+     [
+      711.45,
+      -242.97
+     ],
+     [
+      711.65,
+      -242.54
+     ],
+     [
+      711.75,
+      -242.09
+     ],
+     [
+      711.78,
+      -241.79
+     ],
+     [
+      711.79,
+      -241.39
+     ],
+     [
+      711.76,
+      -240.98
+     ],
+     [
+      711.7,
+      -240.57
+     ],
+     [
+      711.58,
+      -240.18
+     ],
+     [
+      711.44,
+      -239.89
+     ],
+     [
+      711.21,
+      -239.5
+     ],
+     [
+      710.93,
+      -239.16
+     ],
+     [
+      708.81,
+      -237.06
+     ]
+    ],
+    [
+     [
+      711.12,
+      -232.23
+     ],
+     [
+      711.22,
+      -232.38
+     ],
+     [
+      712.8,
+      -234.44
+     ],
+     [
+      713.1,
+      -234.79
+     ],
+     [
+      713.37,
+      -235.0
+     ],
+     [
+      713.77,
+      -235.2
+     ],
+     [
+      714.22,
+      -235.33
+     ],
+     [
+      714.54,
+      -235.4
+     ],
+     [
+      715.0,
+      -235.44
+     ],
+     [
+      715.46,
+      -235.41
+     ],
+     [
+      715.92,
+      -235.34
+     ],
+     [
+      716.35,
+      -235.21
+     ],
+     [
+      716.63,
+      -235.08
+     ],
+     [
+      716.99,
+      -234.83
+     ],
+     [
+      717.29,
+      -234.53
+     ],
+     [
+      717.48,
+      -234.28
+     ],
+     [
+      717.65,
+      -233.9
+     ],
+     [
+      717.74,
+      -233.49
+     ],
+     [
+      717.69,
+      -233.07
+     ],
+     [
+      717.57,
+      -232.81
+     ],
+     [
+      717.51,
+      -232.68
+     ],
+     [
+      717.33,
+      -232.47
+     ],
+     [
+      717.03,
+      -232.19
+     ],
+     [
+      716.67,
+      -231.93
+     ],
+     [
+      716.44,
+      -231.78
+     ],
+     [
+      716.03,
+      -231.58
+     ],
+     [
+      715.6,
+      -231.42
+     ],
+     [
+      715.16,
+      -231.33
+     ],
+     [
+      714.7,
+      -231.31
+     ],
+     [
+      714.37,
+      -231.35
+     ],
+     [
+      713.92,
+      -231.45
+     ],
+     [
+      711.34,
+      -232.01
+     ],
+     [
+      711.18,
+      -232.07
+     ]
+    ]
+   ]
+  },
+  {
+   "structure": "potawatomi_camp_1812_south_west",
+   "name": "The Potawatomi camp of August 1812: the family lodges south of the reach",
+   "asset_sha256": "eb6ddbfc651379e6fc4ea31e274617841a59e077527add4819397554e71f6d34",
+   "placement": {
+    "local_e": 676.0,
+    "local_n": -288.0,
+    "rotation_deg": 0.0
+   },
+   "doors": [
+    {
+     "id": "potawatomi_camp_1812_south_west:lodge1",
+     "leaf": {
+      "local_e": 683.43,
+      "local_n": -267.2
+     },
+     "step": {
+      "local_e": 684.12,
+      "local_n": -267.27
+     },
+     "outward_deg": 95.3,
+     "width_m": 0.9,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_south_west:lodge2",
+     "leaf": {
+      "local_e": 686.01,
+      "local_n": -274.46
+     },
+     "step": {
+      "local_e": 686.69,
+      "local_n": -274.28
+     },
+     "outward_deg": 74.8,
+     "width_m": 1.0,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_south_west:lodge3",
+     "leaf": {
+      "local_e": 687.55,
+      "local_n": -284.7
+     },
+     "step": {
+      "local_e": 687.19,
+      "local_n": -285.31
+     },
+     "outward_deg": 210.3,
+     "width_m": 0.96,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_south_west:lodge4",
+     "leaf": {
+      "local_e": 688.65,
+      "local_n": -269.69
+     },
+     "step": {
+      "local_e": 689.05,
+      "local_n": -270.26
+     },
+     "outward_deg": 144.8,
+     "width_m": 1.06,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_south_west:lodge5",
+     "leaf": {
+      "local_e": 691.06,
+      "local_n": -279.23
+     },
+     "step": {
+      "local_e": 691.46,
+      "local_n": -278.66
+     },
+     "outward_deg": 34.6,
+     "width_m": 0.96,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_south_west:lodge6",
+     "leaf": {
+      "local_e": 692.97,
+      "local_n": -266.58
+     },
+     "step": {
+      "local_e": 693.0,
+      "local_n": -267.28
+     },
+     "outward_deg": 177.5,
+     "width_m": 0.77,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_south_west:lodge7",
+     "leaf": {
+      "local_e": 698.35,
+      "local_n": -276.06
+     },
+     "step": {
+      "local_e": 697.69,
+      "local_n": -275.83
+     },
+     "outward_deg": 289.1,
+     "width_m": 1.25,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_south_west:lodge8",
+     "leaf": {
+      "local_e": 699.33,
+      "local_n": -270.21
+     },
+     "step": {
+      "local_e": 698.69,
+      "local_n": -270.49
+     },
+     "outward_deg": 246.5,
+     "width_m": 0.98,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_south_west:lodge9",
+     "leaf": {
+      "local_e": 705.48,
+      "local_n": -278.41
+     },
+     "step": {
+      "local_e": 706.14,
+      "local_n": -278.64
+     },
+     "outward_deg": 109.2,
+     "width_m": 1.18,
+     "lodge": true
+    }
+   ],
+   "walls": [
+    [
+     [
+      678.57,
+      -266.68
+     ],
+     [
+      678.63,
+      -267.14
+     ],
+     [
+      678.77,
+      -267.56
+     ],
+     [
+      678.92,
+      -267.86
+     ],
+     [
+      679.2,
+      -268.26
+     ],
+     [
+      679.56,
+      -268.57
+     ],
+     [
+      679.83,
+      -268.74
+     ],
+     [
+      680.25,
+      -268.9
+     ],
+     [
+      680.7,
+      -269.0
+     ],
+     [
+      681.14,
+      -269.02
+     ],
+     [
+      681.59,
+      -268.99
+     ],
+     [
+      681.85,
+      -268.94
+     ],
+     [
+      682.23,
+      -268.85
+     ],
+     [
+      682.6,
+      -268.73
+     ],
+     [
+      682.84,
+      -268.62
+     ],
+     [
+      682.96,
+      -268.53
+     ],
+     [
+      683.2,
+      -268.37
+     ],
+     [
+      683.48,
+      -268.05
+     ],
+     [
+      683.69,
+      -267.69
+     ],
+     [
+      683.88,
+      -266.8
+     ],
+     [
+      683.77,
+      -266.36
+     ],
+     [
+      683.52,
+      -265.98
+     ],
+     [
+      683.28,
+      -265.75
+     ],
+     [
+      683.17,
+      -265.66
+     ],
+     [
+      682.91,
+      -265.48
+     ],
+     [
+      682.52,
+      -265.29
+     ],
+     [
+      682.11,
+      -265.11
+     ],
+     [
+      681.82,
+      -265.0
+     ],
+     [
+      681.42,
+      -264.9
+     ],
+     [
+      681.01,
+      -264.88
+     ],
+     [
+      680.6,
+      -264.9
+     ],
+     [
+      680.2,
+      -264.99
+     ],
+     [
+      679.9,
+      -265.1
+     ],
+     [
+      679.49,
+      -265.33
+     ],
+     [
+      679.11,
+      -265.63
+     ],
+     [
+      678.88,
+      -265.85
+     ],
+     [
+      678.81,
+      -265.97
+     ],
+     [
+      678.66,
+      -266.24
+     ]
+    ],
+    [
+     [
+      681.13,
+      -275.66
+     ],
+     [
+      681.19,
+      -276.04
+     ],
+     [
+      681.37,
+      -276.39
+     ],
+     [
+      681.56,
+      -276.57
+     ],
+     [
+      681.66,
+      -276.67
+     ],
+     [
+      681.94,
+      -276.82
+     ],
+     [
+      682.34,
+      -276.97
+     ],
+     [
+      682.78,
+      -277.07
+     ],
+     [
+      683.09,
+      -277.12
+     ],
+     [
+      683.5,
+      -277.14
+     ],
+     [
+      683.93,
+      -277.11
+     ],
+     [
+      684.34,
+      -277.03
+     ],
+     [
+      684.74,
+      -276.88
+     ],
+     [
+      685.03,
+      -276.73
+     ],
+     [
+      685.43,
+      -276.5
+     ],
+     [
+      685.8,
+      -276.21
+     ],
+     [
+      686.05,
+      -275.98
+     ],
+     [
+      686.31,
+      -275.63
+     ],
+     [
+      686.49,
+      -275.23
+     ],
+     [
+      686.54,
+      -274.78
+     ],
+     [
+      686.19,
+      -273.95
+     ],
+     [
+      685.9,
+      -273.64
+     ],
+     [
+      685.57,
+      -273.38
+     ],
+     [
+      685.57,
+      -273.38
+     ],
+     [
+      685.21,
+      -273.19
+     ],
+     [
+      684.9,
+      -273.11
+     ],
+     [
+      684.44,
+      -273.04
+     ],
+     [
+      684.0,
+      -273.06
+     ],
+     [
+      683.69,
+      -273.09
+     ],
+     [
+      683.26,
+      -273.17
+     ],
+     [
+      682.85,
+      -273.32
+     ],
+     [
+      682.45,
+      -273.51
+     ],
+     [
+      682.09,
+      -273.74
+     ],
+     [
+      681.88,
+      -273.93
+     ],
+     [
+      681.59,
+      -274.26
+     ],
+     [
+      681.38,
+      -274.62
+     ],
+     [
+      681.25,
+      -274.88
+     ],
+     [
+      681.15,
+      -275.27
+     ]
+    ],
+    [
+     [
+      685.53,
+      -283.66
+     ],
+     [
+      685.53,
+      -283.68
+     ],
+     [
+      685.86,
+      -283.9
+     ],
+     [
+      686.75,
+      -284.48
+     ],
+     [
+      688.11,
+      -285.35
+     ],
+     [
+      689.34,
+      -286.11
+     ],
+     [
+      689.69,
+      -285.61
+     ],
+     [
+      689.98,
+      -285.16
+     ],
+     [
+      690.67,
+      -284.08
+     ],
+     [
+      691.87,
+      -282.21
+     ],
+     [
+      692.18,
+      -281.72
+     ],
+     [
+      693.08,
+      -280.28
+     ],
+     [
+      693.08,
+      -280.26
+     ],
+     [
+      692.48,
+      -278.18
+     ],
+     [
+      692.4,
+      -278.04
+     ],
+     [
+      692.25,
+      -278.01
+     ],
+     [
+      689.29,
+      -277.83
+     ],
+     [
+      689.25,
+      -277.83
+     ],
+     [
+      688.69,
+      -278.68
+     ],
+     [
+      686.22,
+      -282.53
+     ]
+    ],
+    [
+     [
+      686.13,
+      -267.78
+     ],
+     [
+      686.15,
+      -268.27
+     ],
+     [
+      686.29,
+      -268.72
+     ],
+     [
+      686.51,
+      -269.15
+     ],
+     [
+      688.12,
+      -271.8
+     ],
+     [
+      689.54,
+      -271.33
+     ],
+     [
+      689.41,
+      -268.65
+     ],
+     [
+      689.37,
+      -268.4
+     ],
+     [
+      689.27,
+      -268.01
+     ],
+     [
+      689.12,
+      -267.65
+     ],
+     [
+      688.99,
+      -267.43
+     ],
+     [
+      688.65,
+      -267.08
+     ],
+     [
+      688.26,
+      -266.81
+     ],
+     [
+      687.79,
+      -266.63
+     ],
+     [
+      687.31,
+      -266.57
+     ],
+     [
+      687.05,
+      -266.62
+     ],
+     [
+      686.68,
+      -266.79
+     ],
+     [
+      686.4,
+      -267.09
+     ],
+     [
+      686.26,
+      -267.32
+     ],
+     [
+      686.22,
+      -267.45
+     ]
+    ],
+    [
+     [
+      691.16,
+      -264.85
+     ],
+     [
+      691.16,
+      -264.99
+     ],
+     [
+      691.17,
+      -265.26
+     ],
+     [
+      691.25,
+      -265.68
+     ],
+     [
+      691.42,
+      -266.06
+     ],
+     [
+      692.6,
+      -268.27
+     ],
+     [
+      692.73,
+      -268.3
+     ],
+     [
+      692.84,
+      -268.22
+     ],
+     [
+      694.21,
+      -266.35
+     ],
+     [
+      694.48,
+      -265.96
+     ],
+     [
+      694.59,
+      -265.71
+     ],
+     [
+      694.72,
+      -265.29
+     ],
+     [
+      694.76,
+      -264.86
+     ],
+     [
+      694.74,
+      -264.59
+     ],
+     [
+      694.67,
+      -264.19
+     ],
+     [
+      694.56,
+      -263.8
+     ],
+     [
+      694.4,
+      -263.43
+     ],
+     [
+      694.2,
+      -263.1
+     ],
+     [
+      694.02,
+      -262.89
+     ],
+     [
+      693.68,
+      -262.63
+     ],
+     [
+      693.27,
+      -262.5
+     ],
+     [
+      693.0,
+      -262.47
+     ],
+     [
+      692.86,
+      -262.49
+     ],
+     [
+      692.54,
+      -262.54
+     ],
+     [
+      692.11,
+      -262.74
+     ],
+     [
+      691.74,
+      -263.05
+     ],
+     [
+      691.51,
+      -263.45
+     ],
+     [
+      691.41,
+      -263.72
+     ],
+     [
+      691.28,
+      -264.13
+     ],
+     [
+      691.18,
+      -264.56
+     ]
+    ],
+    [
+     [
+      692.45,
+      -272.48
+     ],
+     [
+      692.63,
+      -273.46
+     ],
+     [
+      694.3,
+      -273.16
+     ],
+     [
+      695.27,
+      -272.97
+     ],
+     [
+      695.24,
+      -271.97
+     ],
+     [
+      693.54,
+      -272.0
+     ]
+    ],
+    [
+     [
+      697.64,
+      -270.39
+     ],
+     [
+      698.22,
+      -271.77
+     ],
+     [
+      700.9,
+      -271.31
+     ],
+     [
+      701.34,
+      -271.2
+     ],
+     [
+      701.63,
+      -271.1
+     ],
+     [
+      702.02,
+      -270.91
+     ],
+     [
+      702.02,
+      -270.91
+     ],
+     [
+      702.4,
+      -270.67
+     ],
+     [
+      702.74,
+      -270.38
+     ],
+     [
+      703.0,
+      -270.03
+     ],
+     [
+      703.11,
+      -269.79
+     ],
+     [
+      703.11,
+      -269.79
+     ],
+     [
+      703.21,
+      -269.38
+     ],
+     [
+      703.21,
+      -268.97
+     ],
+     [
+      703.19,
+      -268.7
+     ],
+     [
+      703.06,
+      -268.3
+     ],
+     [
+      702.81,
+      -267.96
+     ],
+     [
+      702.45,
+      -267.72
+     ],
+     [
+      702.04,
+      -267.59
+     ],
+     [
+      701.73,
+      -267.56
+     ],
+     [
+      701.26,
+      -267.56
+     ],
+     [
+      700.79,
+      -267.64
+     ],
+     [
+      700.48,
+      -267.74
+     ],
+     [
+      700.36,
+      -267.81
+     ],
+     [
+      700.08,
+      -267.96
+     ],
+     [
+      699.72,
+      -268.25
+     ]
+    ],
+    [
+     [
+      697.72,
+      -276.76
+     ],
+     [
+      697.84,
+      -277.14
+     ],
+     [
+      698.07,
+      -277.51
+     ],
+     [
+      698.26,
+      -277.72
+     ],
+     [
+      698.56,
+      -278.01
+     ],
+     [
+      698.87,
+      -278.26
+     ],
+     [
+      699.09,
+      -278.42
+     ],
+     [
+      699.46,
+      -278.63
+     ],
+     [
+      699.86,
+      -278.81
+     ],
+     [
+      700.26,
+      -278.97
+     ],
+     [
+      700.66,
+      -279.11
+     ],
+     [
+      702.23,
+      -279.59
+     ],
+     [
+      702.62,
+      -279.69
+     ],
+     [
+      703.02,
+      -279.77
+     ],
+     [
+      703.41,
+      -279.83
+     ],
+     [
+      703.8,
+      -279.88
+     ],
+     [
+      704.17,
+      -279.9
+     ],
+     [
+      704.4,
+      -279.88
+     ],
+     [
+      704.79,
+      -279.82
+     ],
+     [
+      705.18,
+      -279.67
+     ],
+     [
+      705.48,
+      -279.41
+     ],
+     [
+      705.64,
+      -279.23
+     ],
+     [
+      705.71,
+      -279.08
+     ],
+     [
+      705.78,
+      -278.94
+     ],
+     [
+      706.08,
+      -278.06
+     ],
+     [
+      706.13,
+      -277.8
+     ],
+     [
+      706.15,
+      -277.54
+     ],
+     [
+      706.11,
+      -277.26
+     ],
+     [
+      705.91,
+      -276.86
+     ],
+     [
+      705.62,
+      -276.56
+     ],
+     [
+      705.41,
+      -276.39
+     ],
+     [
+      705.09,
+      -276.19
+     ],
+     [
+      704.74,
+      -276.02
+     ],
+     [
+      704.38,
+      -275.86
+     ],
+     [
+      704.0,
+      -275.71
+     ],
+     [
+      703.63,
+      -275.57
+     ],
+     [
+      702.21,
+      -275.1
+     ],
+     [
+      701.82,
+      -274.98
+     ],
+     [
+      701.39,
+      -274.86
+     ],
+     [
+      700.95,
+      -274.75
+     ],
+     [
+      700.5,
+      -274.67
+     ],
+     [
+      700.17,
+      -274.66
+     ],
+     [
+      699.72,
+      -274.66
+     ],
+     [
+      699.25,
+      -274.72
+     ],
+     [
+      698.91,
+      -274.8
+     ],
+     [
+      698.54,
+      -274.97
+     ],
+     [
+      698.24,
+      -275.2
+     ],
+     [
+      698.02,
+      -275.49
+     ],
+     [
+      697.72,
+      -276.38
+     ]
+    ]
+   ]
+  },
+  {
+   "structure": "potawatomi_camp_1812_upper",
+   "name": "The Potawatomi camp of August 1812: the lodges up the creek",
+   "asset_sha256": "6bb35448422c026ebd8ee87b6c081e4243ada13e31d2744a870e4ef45abb5a88",
+   "placement": {
+    "local_e": 616.0,
+    "local_n": -222.0,
+    "rotation_deg": 0.0
+   },
+   "doors": [
+    {
+     "id": "potawatomi_camp_1812_upper:lodge1",
+     "leaf": {
+      "local_e": 619.15,
+      "local_n": -213.99
+     },
+     "step": {
+      "local_e": 618.49,
+      "local_n": -214.23
+     },
+     "outward_deg": 250.0,
+     "width_m": 0.99,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_upper:lodge2",
+     "leaf": {
+      "local_e": 625.19,
+      "local_n": -211.59
+     },
+     "step": {
+      "local_e": 625.84,
+      "local_n": -211.35
+     },
+     "outward_deg": 69.9,
+     "width_m": 0.99,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_upper:lodge3",
+     "leaf": {
+      "local_e": 629.46,
+      "local_n": -204.19
+     },
+     "step": {
+      "local_e": 629.6,
+      "local_n": -204.87
+     },
+     "outward_deg": 168.2,
+     "width_m": 0.87,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_upper:lodge4",
+     "leaf": {
+      "local_e": 633.83,
+      "local_n": -213.18
+     },
+     "step": {
+      "local_e": 633.3,
+      "local_n": -212.72
+     },
+     "outward_deg": 311.0,
+     "width_m": 1.03,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_upper:lodge5",
+     "leaf": {
+      "local_e": 638.66,
+      "local_n": -208.47
+     },
+     "step": {
+      "local_e": 637.96,
+      "local_n": -208.51
+     },
+     "outward_deg": 266.3,
+     "width_m": 0.76,
+     "lodge": true
+    }
+   ],
+   "walls": [
+    [
+     [
+      618.11,
+      -211.99
+     ],
+     [
+      618.72,
+      -213.56
+     ],
+     [
+      619.46,
+      -215.43
+     ],
+     [
+      619.78,
+      -216.16
+     ],
+     [
+      619.79,
+      -216.18
+     ],
+     [
+      620.09,
+      -216.08
+     ],
+     [
+      624.64,
+      -214.27
+     ],
+     [
+      626.22,
+      -213.62
+     ],
+     [
+      626.23,
+      -213.59
+     ],
+     [
+      626.95,
+      -211.45
+     ],
+     [
+      626.9,
+      -211.33
+     ],
+     [
+      624.56,
+      -209.41
+     ],
+     [
+      624.54,
+      -209.4
+     ],
+     [
+      624.08,
+      -209.58
+     ],
+     [
+      622.57,
+      -210.17
+     ],
+     [
+      621.82,
+      -210.47
+     ],
+     [
+      618.89,
+      -211.63
+     ],
+     [
+      618.11,
+      -211.96
+     ]
+    ],
+    [
+     [
+      627.29,
+      -201.99
+     ],
+     [
+      627.35,
+      -202.39
+     ],
+     [
+      627.4,
+      -202.63
+     ],
+     [
+      627.52,
+      -203.0
+     ],
+     [
+      627.67,
+      -203.36
+     ],
+     [
+      627.83,
+      -203.71
+     ],
+     [
+      628.08,
+      -204.02
+     ],
+     [
+      628.35,
+      -204.3
+     ],
+     [
+      628.62,
+      -204.48
+     ],
+     [
+      629.09,
+      -204.6
+     ],
+     [
+      629.98,
+      -204.48
+     ],
+     [
+      630.28,
+      -204.27
+     ],
+     [
+      630.5,
+      -203.99
+     ],
+     [
+      630.65,
+      -203.68
+     ],
+     [
+      630.73,
+      -203.37
+     ],
+     [
+      630.82,
+      -202.94
+     ],
+     [
+      630.84,
+      -202.5
+     ],
+     [
+      630.84,
+      -202.19
+     ],
+     [
+      630.77,
+      -201.72
+     ],
+     [
+      630.6,
+      -201.26
+     ],
+     [
+      630.34,
+      -200.87
+     ],
+     [
+      630.1,
+      -200.62
+     ],
+     [
+      629.99,
+      -200.52
+     ],
+     [
+      629.76,
+      -200.35
+     ],
+     [
+      629.39,
+      -200.14
+     ],
+     [
+      628.97,
+      -200.02
+     ],
+     [
+      628.69,
+      -200.01
+     ],
+     [
+      628.55,
+      -200.05
+     ],
+     [
+      628.31,
+      -200.13
+     ],
+     [
+      627.98,
+      -200.36
+     ],
+     [
+      627.71,
+      -200.65
+     ],
+     [
+      627.57,
+      -200.86
+     ],
+     [
+      627.5,
+      -200.99
+     ],
+     [
+      627.4,
+      -201.22
+     ],
+     [
+      627.3,
+      -201.61
+     ]
+    ],
+    [
+     [
+      630.33,
+      -207.18
+     ],
+     [
+      630.49,
+      -208.16
+     ],
+     [
+      631.24,
+      -208.48
+     ],
+     [
+      632.68,
+      -207.57
+     ],
+     [
+      632.15,
+      -206.73
+     ]
+    ],
+    [
+     [
+      631.46,
+      -212.99
+     ],
+     [
+      631.49,
+      -213.05
+     ],
+     [
+      631.58,
+      -213.22
+     ],
+     [
+      633.89,
+      -215.83
+     ],
+     [
+      634.21,
+      -216.15
+     ],
+     [
+      634.56,
+      -216.42
+     ],
+     [
+      634.95,
+      -216.65
+     ],
+     [
+      635.36,
+      -216.84
+     ],
+     [
+      635.64,
+      -216.91
+     ],
+     [
+      636.06,
+      -217.0
+     ],
+     [
+      636.5,
+      -216.95
+     ],
+     [
+      636.79,
+      -216.88
+     ],
+     [
+      637.14,
+      -216.69
+     ],
+     [
+      637.46,
+      -216.45
+     ],
+     [
+      637.72,
+      -216.15
+     ],
+     [
+      637.9,
+      -215.8
+     ],
+     [
+      637.96,
+      -215.56
+     ],
+     [
+      637.99,
+      -215.41
+     ],
+     [
+      637.99,
+      -215.09
+     ],
+     [
+      637.93,
+      -214.64
+     ],
+     [
+      637.77,
+      -214.23
+     ],
+     [
+      637.64,
+      -213.95
+     ],
+     [
+      637.41,
+      -213.57
+     ],
+     [
+      637.14,
+      -213.23
+     ],
+     [
+      636.82,
+      -212.95
+     ],
+     [
+      636.44,
+      -212.72
+     ],
+     [
+      636.18,
+      -212.61
+     ],
+     [
+      635.77,
+      -212.47
+     ],
+     [
+      635.36,
+      -212.4
+     ],
+     [
+      635.08,
+      -212.37
+     ],
+     [
+      632.78,
+      -212.29
+     ]
+    ],
+    [
+     [
+      638.15,
+      -208.1
+     ],
+     [
+      638.17,
+      -208.89
+     ],
+     [
+      638.57,
+      -209.33
+     ],
+     [
+      638.94,
+      -209.65
+     ],
+     [
+      639.36,
+      -209.89
+     ],
+     [
+      639.65,
+      -210.0
+     ],
+     [
+      640.09,
+      -210.11
+     ],
+     [
+      640.54,
+      -210.15
+     ],
+     [
+      640.86,
+      -210.13
+     ],
+     [
+      641.27,
+      -210.04
+     ],
+     [
+      641.66,
+      -209.9
+     ],
+     [
+      642.01,
+      -209.72
+     ],
+     [
+      642.35,
+      -209.45
+     ],
+     [
+      642.51,
+      -209.25
+     ],
+     [
+      642.7,
+      -208.93
+     ],
+     [
+      642.78,
+      -208.54
+     ],
+     [
+      642.76,
+      -208.14
+     ],
+     [
+      642.7,
+      -207.89
+     ],
+     [
+      642.54,
+      -207.52
+     ],
+     [
+      642.29,
+      -207.2
+     ],
+     [
+      641.97,
+      -206.94
+     ],
+     [
+      641.61,
+      -206.76
+     ],
+     [
+      641.34,
+      -206.69
+     ],
+     [
+      640.91,
+      -206.61
+     ],
+     [
+      640.48,
+      -206.59
+     ],
+     [
+      640.2,
+      -206.6
+     ],
+     [
+      639.81,
+      -206.68
+     ],
+     [
+      639.43,
+      -206.81
+     ],
+     [
+      639.08,
+      -207.0
+     ],
+     [
+      638.78,
+      -207.26
+     ],
+     [
+      638.54,
+      -207.57
+     ]
+    ]
+   ]
+  },
+  {
+   "structure": "potawatomi_camp_1812_west_bank",
+   "name": "The Potawatomi camp of August 1812: the lodges on the creek's west bank",
+   "asset_sha256": "0b53907ea75507e980677c56750a8ca57a39e619cb48856c161ceacf9a0d29a8",
+   "placement": {
+    "local_e": 664.0,
+    "local_n": -170.0,
+    "rotation_deg": 0.0
+   },
+   "doors": [
+    {
+     "id": "potawatomi_camp_1812_west_bank:lodge1",
+     "leaf": {
+      "local_e": 672.41,
+      "local_n": -163.42
+     },
+     "step": {
+      "local_e": 671.77,
+      "local_n": -163.7
+     },
+     "outward_deg": 246.5,
+     "width_m": 1.38,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_west_bank:lodge2",
+     "leaf": {
+      "local_e": 679.22,
+      "local_n": -153.07
+     },
+     "step": {
+      "local_e": 679.81,
+      "local_n": -153.45
+     },
+     "outward_deg": 123.1,
+     "width_m": 1.12,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_west_bank:lodge3",
+     "leaf": {
+      "local_e": 679.31,
+      "local_n": -160.36
+     },
+     "step": {
+      "local_e": 679.96,
+      "local_n": -160.11
+     },
+     "outward_deg": 68.5,
+     "width_m": 1.28,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_west_bank:lodge4",
+     "leaf": {
+      "local_e": 684.82,
+      "local_n": -149.05
+     },
+     "step": {
+      "local_e": 684.36,
+      "local_n": -149.58
+     },
+     "outward_deg": 221.0,
+     "width_m": 1.1,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_west_bank:lodge5",
+     "leaf": {
+      "local_e": 685.4,
+      "local_n": -160.66
+     },
+     "step": {
+      "local_e": 684.95,
+      "local_n": -160.13
+     },
+     "outward_deg": 319.2,
+     "width_m": 1.08,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_west_bank:lodge6",
+     "leaf": {
+      "local_e": 688.82,
+      "local_n": -155.83
+     },
+     "step": {
+      "local_e": 688.18,
+      "local_n": -155.54
+     },
+     "outward_deg": 294.2,
+     "width_m": 0.96,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_camp_1812_west_bank:lodge7",
+     "leaf": {
+      "local_e": 690.35,
+      "local_n": -151.03
+     },
+     "step": {
+      "local_e": 689.89,
+      "local_n": -151.56
+     },
+     "outward_deg": 220.9,
+     "width_m": 1.03,
+     "lodge": true
+    }
+   ],
+   "walls": [
+    [
+     [
+      671.67,
+      -162.62
+     ],
+     [
+      671.69,
+      -163.06
+     ],
+     [
+      671.79,
+      -163.03
+     ],
+     [
+      679.52,
+      -159.82
+     ],
+     [
+      679.63,
+      -159.76
+     ],
+     [
+      679.41,
+      -159.37
+     ],
+     [
+      679.06,
+      -159.09
+     ],
+     [
+      678.77,
+      -159.01
+     ],
+     [
+      678.63,
+      -158.97
+     ],
+     [
+      678.33,
+      -158.97
+     ],
+     [
+      677.89,
+      -159.0
+     ],
+     [
+      677.49,
+      -159.08
+     ],
+     [
+      677.24,
+      -159.12
+     ],
+     [
+      676.86,
+      -159.23
+     ],
+     [
+      676.46,
+      -159.36
+     ],
+     [
+      676.07,
+      -159.51
+     ],
+     [
+      675.68,
+      -159.67
+     ],
+     [
+      674.28,
+      -160.31
+     ],
+     [
+      673.93,
+      -160.49
+     ],
+     [
+      673.58,
+      -160.69
+     ],
+     [
+      673.24,
+      -160.91
+     ],
+     [
+      672.93,
+      -161.12
+     ],
+     [
+      672.7,
+      -161.32
+     ],
+     [
+      672.33,
+      -161.63
+     ],
+     [
+      671.99,
+      -161.99
+     ],
+     [
+      671.81,
+      -162.24
+     ],
+     [
+      671.76,
+      -162.37
+     ]
+    ],
+    [
+     [
+      672.1,
+      -163.94
+     ],
+     [
+      672.42,
+      -164.31
+     ],
+     [
+      672.81,
+      -164.55
+     ],
+     [
+      673.25,
+      -164.7
+     ],
+     [
+      673.6,
+      -164.76
+     ],
+     [
+      674.01,
+      -164.75
+     ],
+     [
+      674.39,
+      -164.7
+     ],
+     [
+      674.75,
+      -164.61
+     ],
+     [
+      675.13,
+      -164.5
+     ],
+     [
+      675.43,
+      -164.38
+     ],
+     [
+      675.86,
+      -164.21
+     ],
+     [
+      676.5,
+      -163.96
+     ],
+     [
+      677.02,
+      -163.73
+     ],
+     [
+      677.35,
+      -163.59
+     ],
+     [
+      677.74,
+      -163.41
+     ],
+     [
+      678.13,
+      -163.21
+     ],
+     [
+      678.79,
+      -162.81
+     ],
+     [
+      679.14,
+      -162.56
+     ],
+     [
+      679.38,
+      -162.35
+     ],
+     [
+      679.67,
+      -161.97
+     ],
+     [
+      679.85,
+      -161.55
+     ],
+     [
+      679.92,
+      -161.13
+     ],
+     [
+      679.9,
+      -160.67
+     ],
+     [
+      679.78,
+      -160.7
+     ],
+     [
+      672.23,
+      -163.88
+     ]
+    ],
+    [
+     [
+      675.43,
+      -151.97
+     ],
+     [
+      675.52,
+      -152.28
+     ],
+     [
+      675.72,
+      -152.71
+     ],
+     [
+      676.02,
+      -153.06
+     ],
+     [
+      676.25,
+      -153.29
+     ],
+     [
+      676.58,
+      -153.54
+     ],
+     [
+      676.93,
+      -153.74
+     ],
+     [
+      677.31,
+      -153.9
+     ],
+     [
+      677.7,
+      -153.98
+     ],
+     [
+      678.0,
+      -153.97
+     ],
+     [
+      678.44,
+      -153.91
+     ],
+     [
+      679.39,
+      -153.64
+     ],
+     [
+      679.9,
+      -153.02
+     ],
+     [
+      679.85,
+      -152.36
+     ],
+     [
+      679.68,
+      -151.88
+     ],
+     [
+      679.55,
+      -151.65
+     ],
+     [
+      679.34,
+      -151.3
+     ],
+     [
+      679.07,
+      -151.02
+     ],
+     [
+      678.88,
+      -150.85
+     ],
+     [
+      678.55,
+      -150.62
+     ],
+     [
+      678.18,
+      -150.46
+     ],
+     [
+      677.81,
+      -150.33
+     ],
+     [
+      677.43,
+      -150.24
+     ],
+     [
+      677.14,
+      -150.21
+     ],
+     [
+      676.7,
+      -150.2
+     ],
+     [
+      676.3,
+      -150.27
+     ],
+     [
+      676.03,
+      -150.4
+     ],
+     [
+      675.92,
+      -150.51
+     ],
+     [
+      675.72,
+      -150.72
+     ],
+     [
+      675.53,
+      -151.11
+     ],
+     [
+      675.43,
+      -151.53
+     ]
+    ],
+    [
+     [
+      681.73,
+      -154.08
+     ],
+     [
+      681.75,
+      -155.08
+     ],
+     [
+      682.69,
+      -155.35
+     ],
+     [
+      684.37,
+      -155.09
+     ],
+     [
+      684.22,
+      -154.11
+     ],
+     [
+      683.42,
+      -154.04
+     ]
+    ],
+    [
+     [
+      683.68,
+      -149.92
+     ],
+     [
+      684.44,
+      -151.21
+     ],
+     [
+      684.61,
+      -151.11
+     ],
+     [
+      684.67,
+      -151.07
+     ],
+     [
+      686.93,
+      -149.14
+     ],
+     [
+      687.21,
+      -148.85
+     ],
+     [
+      687.36,
+      -148.65
+     ],
+     [
+      687.55,
+      -148.31
+     ],
+     [
+      687.71,
+      -147.94
+     ],
+     [
+      687.84,
+      -147.55
+     ],
+     [
+      687.92,
+      -147.17
+     ],
+     [
+      687.93,
+      -146.9
+     ],
+     [
+      687.86,
+      -146.46
+     ],
+     [
+      687.68,
+      -146.08
+     ],
+     [
+      687.5,
+      -145.86
+     ],
+     [
+      687.11,
+      -145.6
+     ],
+     [
+      686.66,
+      -145.46
+     ],
+     [
+      686.17,
+      -145.46
+     ],
+     [
+      685.72,
+      -145.59
+     ],
+     [
+      685.5,
+      -145.71
+     ],
+     [
+      685.16,
+      -145.93
+     ],
+     [
+      684.85,
+      -146.19
+     ],
+     [
+      684.65,
+      -146.37
+     ],
+     [
+      684.37,
+      -146.75
+     ],
+     [
+      684.15,
+      -147.18
+     ],
+     [
+      684.04,
+      -147.64
+     ]
+    ],
+    [
+     [
+      684.0,
+      -160.11
+     ],
+     [
+      684.99,
+      -162.42
+     ],
+     [
+      685.2,
+      -162.78
+     ],
+     [
+      685.38,
+      -163.0
+     ],
+     [
+      685.72,
+      -163.27
+     ],
+     [
+      686.09,
+      -163.46
+     ],
+     [
+      686.53,
+      -163.54
+     ],
+     [
+      686.82,
+      -163.54
+     ],
+     [
+      686.96,
+      -163.54
+     ],
+     [
+      687.22,
+      -163.48
+     ],
+     [
+      687.6,
+      -163.3
+     ],
+     [
+      687.88,
+      -162.99
+     ],
+     [
+      688.0,
+      -162.74
+     ],
+     [
+      688.03,
+      -162.61
+     ],
+     [
+      688.07,
+      -162.36
+     ],
+     [
+      688.08,
+      -161.94
+     ],
+     [
+      687.98,
+      -161.57
+     ],
+     [
+      687.88,
+      -161.34
+     ],
+     [
+      687.82,
+      -161.2
+     ],
+     [
+      687.62,
+      -160.92
+     ],
+     [
+      687.29,
+      -160.58
+     ],
+     [
+      686.91,
+      -160.28
+     ],
+     [
+      684.82,
+      -158.82
+     ],
+     [
+      684.52,
+      -158.71
+     ]
+    ],
+    [
+     [
+      688.23,
+      -155.97
+     ],
+     [
+      688.3,
+      -156.89
+     ],
+     [
+      688.38,
+      -157.13
+     ],
+     [
+      688.42,
+      -157.26
+     ],
+     [
+      688.58,
+      -157.53
+     ],
+     [
+      688.87,
+      -157.88
+     ],
+     [
+      689.23,
+      -158.17
+     ],
+     [
+      689.5,
+      -158.36
+     ],
+     [
+      689.86,
+      -158.55
+     ],
+     [
+      690.24,
+      -158.71
+     ],
+     [
+      690.63,
+      -158.81
+     ],
+     [
+      691.04,
+      -158.87
+     ],
+     [
+      691.35,
+      -158.87
+     ],
+     [
+      691.78,
+      -158.83
+     ],
+     [
+      692.21,
+      -158.69
+     ],
+     [
+      692.5,
+      -158.57
+     ],
+     [
+      692.85,
+      -158.38
+     ],
+     [
+      693.15,
+      -158.14
+     ],
+     [
+      693.4,
+      -157.85
+     ],
+     [
+      693.52,
+      -157.48
+     ],
+     [
+      693.52,
+      -157.24
+     ],
+     [
+      693.52,
+      -157.09
+     ],
+     [
+      693.42,
+      -156.77
+     ],
+     [
+      693.23,
+      -156.32
+     ],
+     [
+      692.96,
+      -155.96
+     ],
+     [
+      692.76,
+      -155.71
+     ],
+     [
+      692.47,
+      -155.42
+     ],
+     [
+      692.15,
+      -155.17
+     ],
+     [
+      691.81,
+      -154.97
+     ],
+     [
+      691.43,
+      -154.82
+     ],
+     [
+      691.11,
+      -154.74
+     ],
+     [
+      690.64,
+      -154.66
+     ],
+     [
+      690.16,
+      -154.63
+     ],
+     [
+      689.84,
+      -154.65
+     ],
+     [
+      689.41,
+      -154.73
+     ],
+     [
+      689.4,
+      -154.74
+     ],
+     [
+      688.98,
+      -154.94
+     ],
+     [
+      688.51,
+      -155.26
+     ]
+    ],
+    [
+     [
+      689.49,
+      -150.21
+     ],
+     [
+      689.56,
+      -150.65
+     ],
+     [
+      689.76,
+      -151.05
+     ],
+     [
+      690.5,
+      -151.59
+     ],
+     [
+      690.9,
+      -151.7
+     ],
+     [
+      690.91,
+      -151.7
+     ],
+     [
+      691.31,
+      -151.72
+     ],
+     [
+      691.74,
+      -151.63
+     ],
+     [
+      691.99,
+      -151.53
+     ],
+     [
+      692.33,
+      -151.34
+     ],
+     [
+      692.64,
+      -151.1
+     ],
+     [
+      692.85,
+      -150.94
+     ],
+     [
+      693.19,
+      -150.62
+     ],
+     [
+      693.5,
+      -150.27
+     ],
+     [
+      693.76,
+      -149.86
+     ],
+     [
+      693.95,
+      -149.43
+     ],
+     [
+      694.01,
+      -149.18
+     ],
+     [
+      694.06,
+      -148.8
+     ],
+     [
+      694.01,
+      -148.39
+     ],
+     [
+      693.96,
+      -148.13
+     ],
+     [
+      693.81,
+      -147.73
+     ],
+     [
+      693.59,
+      -147.35
+     ],
+     [
+      693.29,
+      -147.03
+     ],
+     [
+      693.03,
+      -146.88
+     ],
+     [
+      692.9,
+      -146.82
+     ],
+     [
+      692.61,
+      -146.76
+     ],
+     [
+      692.17,
+      -146.75
+     ],
+     [
+      691.71,
+      -146.83
+     ],
+     [
+      691.41,
+      -146.91
+     ],
+     [
+      691.04,
+      -147.09
+     ],
+     [
+      690.69,
+      -147.32
+     ],
+     [
+      690.38,
+      -147.62
+     ],
+     [
+      690.13,
+      -147.96
+     ],
+     [
+      690.0,
+      -148.21
+     ],
+     [
+      689.82,
+      -148.61
+     ],
+     [
+      689.69,
+      -149.02
+     ],
+     [
+      689.61,
+      -149.29
+     ],
+     [
+      689.52,
+      -149.74
+     ]
+    ]
+   ]
+  },
+  {
+   "structure": "potawatomi_trading_lodges_1812",
+   "name": "The Potawatomi lodges by the river, 1812",
+   "asset_sha256": "52f4276bf20e423dd4439639b3b9612b93de44d144dd70737afdcdc5757e2e12",
+   "placement": {
+    "local_e": 698.0,
+    "local_n": -34.0,
+    "rotation_deg": 0.0
+   },
+   "doors": [
+    {
+     "id": "potawatomi_trading_lodges_1812:lodge1",
+     "leaf": {
+      "local_e": 704.91,
+      "local_n": -22.89
+     },
+     "step": {
+      "local_e": 705.54,
+      "local_n": -23.19
+     },
+     "outward_deg": 114.9,
+     "width_m": 1.05,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_trading_lodges_1812:lodge2",
+     "leaf": {
+      "local_e": 708.81,
+      "local_n": -26.78
+     },
+     "step": {
+      "local_e": 708.85,
+      "local_n": -26.08
+     },
+     "outward_deg": 3.4,
+     "width_m": 0.84,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_trading_lodges_1812:lodge3",
+     "leaf": {
+      "local_e": 712.08,
+      "local_n": -22.7
+     },
+     "step": {
+      "local_e": 711.41,
+      "local_n": -22.53
+     },
+     "outward_deg": 284.3,
+     "width_m": 0.99,
+     "lodge": true
+    },
+    {
+     "id": "potawatomi_trading_lodges_1812:lodge4",
+     "leaf": {
+      "local_e": 718.46,
+      "local_n": -23.96
+     },
+     "step": {
+      "local_e": 719.16,
+      "local_n": -23.99
+     },
+     "outward_deg": 92.7,
+     "width_m": 0.99,
+     "lodge": true
+    }
+   ],
+   "walls": [
+    [
+     [
+      700.26,
+      -21.04
+     ],
+     [
+      700.28,
+      -21.47
+     ],
+     [
+      700.33,
+      -21.73
+     ],
+     [
+      700.44,
+      -22.1
+     ],
+     [
+      700.6,
+      -22.47
+     ],
+     [
+      700.73,
+      -22.7
+     ],
+     [
+      700.99,
+      -23.03
+     ],
+     [
+      701.29,
+      -23.3
+     ],
+     [
+      701.64,
+      -23.53
+     ],
+     [
+      702.01,
+      -23.72
+     ],
+     [
+      702.26,
+      -23.81
+     ],
+     [
+      702.67,
+      -23.94
+     ],
+     [
+      703.06,
+      -24.02
+     ],
+     [
+      703.33,
+      -24.06
+     ],
+     [
+      703.8,
+      -24.04
+     ],
+     [
+      704.25,
+      -23.94
+     ],
+     [
+      704.65,
+      -23.73
+     ],
+     [
+      705.01,
+      -23.43
+     ],
+     [
+      705.47,
+      -22.66
+     ],
+     [
+      705.5,
+      -22.23
+     ],
+     [
+      705.4,
+      -21.82
+     ],
+     [
+      705.21,
+      -21.45
+     ],
+     [
+      705.03,
+      -21.23
+     ],
+     [
+      704.76,
+      -20.9
+     ],
+     [
+      704.24,
+      -20.47
+     ],
+     [
+      703.85,
+      -20.21
+     ],
+     [
+      703.45,
+      -20.0
+     ],
+     [
+      703.0,
+      -19.85
+     ],
+     [
+      702.56,
+      -19.77
+     ],
+     [
+      702.32,
+      -19.76
+     ],
+     [
+      701.92,
+      -19.77
+     ],
+     [
+      701.53,
+      -19.82
+     ],
+     [
+      701.17,
+      -19.92
+     ],
+     [
+      700.93,
+      -20.01
+     ],
+     [
+      700.81,
+      -20.1
+     ],
+     [
+      700.59,
+      -20.28
+     ],
+     [
+      700.34,
+      -20.63
+     ]
+    ],
+    [
+     [
+      706.76,
+      -28.78
+     ],
+     [
+      706.77,
+      -29.21
+     ],
+     [
+      706.86,
+      -29.62
+     ],
+     [
+      707.05,
+      -30.02
+     ],
+     [
+      707.22,
+      -30.23
+     ],
+     [
+      707.48,
+      -30.52
+     ],
+     [
+      707.84,
+      -30.73
+     ],
+     [
+      708.09,
+      -30.83
+     ],
+     [
+      708.23,
+      -30.84
+     ],
+     [
+      708.47,
+      -30.86
+     ],
+     [
+      708.85,
+      -30.77
+     ],
+     [
+      709.22,
+      -30.61
+     ],
+     [
+      709.51,
+      -30.39
+     ],
+     [
+      709.8,
+      -30.12
+     ],
+     [
+      709.98,
+      -29.91
+     ],
+     [
+      710.17,
+      -29.56
+     ],
+     [
+      710.31,
+      -29.17
+     ],
+     [
+      710.37,
+      -28.91
+     ],
+     [
+      710.39,
+      -28.45
+     ],
+     [
+      710.33,
+      -27.98
+     ],
+     [
+      710.22,
+      -27.54
+     ],
+     [
+      710.01,
+      -27.11
+     ],
+     [
+      709.87,
+      -26.93
+     ],
+     [
+      709.63,
+      -26.68
+     ],
+     [
+      709.3,
+      -26.49
+     ],
+     [
+      708.41,
+      -26.37
+     ],
+     [
+      708.03,
+      -26.46
+     ],
+     [
+      707.72,
+      -26.66
+     ],
+     [
+      707.45,
+      -26.92
+     ],
+     [
+      707.27,
+      -27.2
+     ],
+     [
+      707.06,
+      -27.6
+     ],
+     [
+      706.9,
+      -28.04
+     ],
+     [
+      706.81,
+      -28.35
+     ]
+    ],
+    [
+     [
+      711.43,
+      -24.86
+     ],
+     [
+      711.44,
+      -24.89
+     ],
+     [
+      712.35,
+      -25.09
+     ],
+     [
+      712.98,
+      -25.21
+     ],
+     [
+      717.63,
+      -26.13
+     ],
+     [
+      718.23,
+      -26.23
+     ],
+     [
+      718.3,
+      -25.97
+     ],
+     [
+      718.93,
+      -22.84
+     ],
+     [
+      719.12,
+      -21.8
+     ],
+     [
+      719.11,
+      -21.77
+     ],
+     [
+      718.32,
+      -21.6
+     ],
+     [
+      717.84,
+      -21.5
+     ],
+     [
+      713.19,
+      -20.59
+     ],
+     [
+      712.32,
+      -20.44
+     ],
+     [
+      712.29,
+      -20.45
+     ],
+     [
+      712.09,
+      -21.46
+     ],
+     [
+      711.5,
+      -24.4
+     ]
+    ]
+   ]
+  }
+ ]
+}

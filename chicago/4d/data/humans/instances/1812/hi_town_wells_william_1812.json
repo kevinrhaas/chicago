@@ -1,0 +1,304 @@
+{
+  "id": "hi_town_wells_william_1812",
+  "contract_version": 1,
+  "scene": "1812",
+  "person_id": "wells_william",
+  "appearance": {
+    "asset_id": "engage_1812"
+  },
+  "placement": {
+    "local_e": 1161.4,
+    "local_n": 228.4,
+    "heading_deg": 0.0,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "idle",
+    "loop": true,
+    "phase": 0.34
+  },
+  "behaviour": {
+    "state": "standing",
+    "day": [
+      {
+        "dates": {
+          "from": "1812-08-13",
+          "to": "1812-08-13"
+        },
+        "note": "13 August 1812: arrival (Heald's date)",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 16.0,
+            "indoors": true,
+            "away": true,
+            "doing": "on the road from Fort Wayne with his Miami escort"
+          },
+          {
+            "from": 16.0,
+            "to": 16.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1146.2,
+              "local_n": 196.4,
+              "heading_deg": 0.0
+            },
+            "doing": "riding in at the head of his Miamis",
+            "activity": "stand"
+          },
+          {
+            "from": 16.5,
+            "to": 18.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "with his niece and Captain Heald"
+          },
+          {
+            "from": 18.5,
+            "to": 19.2,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "supper"
+          },
+          {
+            "from": 19.2,
+            "to": 21.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "Kinzie and Helm call on him and urge that the arms and ammunition be destroyed; he presses Heald"
+          },
+          {
+            "from": 21.0,
+            "to": 24.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1161.4,
+              "local_n": 228.4,
+              "heading_deg": 0.0
+            },
+            "doing": "watching the ammunition and muskets go down the well",
+            "activity": "talk",
+            "knot": "well_destruction"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-14",
+          "to": "1812-08-14"
+        },
+        "note": "14 August 1812",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 1.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1161.4,
+              "local_n": 228.4,
+              "heading_deg": 0.0
+            },
+            "doing": "the last of the destruction",
+            "activity": "talk",
+            "knot": "well_destruction"
+          },
+          {
+            "from": 1.0,
+            "to": 5.3,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "asleep"
+          },
+          {
+            "from": 5.3,
+            "to": 6.6,
+            "indoors": false,
+            "at": {
+              "local_e": 1100.0,
+              "local_n": 200.0,
+              "heading_deg": 250.0
+            },
+            "doing": "with his Miamis at their horses",
+            "activity": "stand"
+          },
+          {
+            "from": 6.6,
+            "to": 7.8,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "breakfast with the Healds"
+          },
+          {
+            "from": 7.8,
+            "to": 8.4,
+            "indoors": false,
+            "at": {
+              "local_e": 1154.0,
+              "local_n": 224.6,
+              "heading_deg": 120.0
+            },
+            "doing": "looking over the arms and stores left to the command",
+            "activity": "stand"
+          },
+          {
+            "from": 8.4,
+            "to": 12.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1075.3,
+              "local_n": 220.3,
+              "heading_deg": 230.0
+            },
+            "doing": "beside Heald while the goods are given out, speaking to the chiefs",
+            "activity": "talk",
+            "knot": "factory_distribution"
+          },
+          {
+            "from": 12.0,
+            "to": 13.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "dinner with the Healds"
+          },
+          {
+            "from": 13.5,
+            "to": 14.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "resting"
+          },
+          {
+            "from": 14.0,
+            "to": 16.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1104.2,
+              "local_n": 223.5,
+              "heading_deg": 265.0
+            },
+            "doing": "at the council with Heald",
+            "activity": "talk",
+            "knot": "second_council_14aug"
+          },
+          {
+            "from": 16.5,
+            "to": 17.4,
+            "indoors": true,
+            "where": "first_fort_dearborn_blockhouse_nw",
+            "doing": "up in the north-west blockhouse, looking out over the river, the camps and the lake shore"
+          },
+          {
+            "from": 17.4,
+            "to": 18.8,
+            "indoors": false,
+            "at": {
+              "local_e": 1100.0,
+              "local_n": 200.0,
+              "heading_deg": 250.0
+            },
+            "doing": "settling with his Miamis the order of march: half ahead, half behind",
+            "activity": "stand"
+          },
+          {
+            "from": 18.8,
+            "to": 19.8,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "supper"
+          },
+          {
+            "from": 19.8,
+            "to": 21.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "with Heald when Black Partridge gives up his medal"
+          },
+          {
+            "from": 21.5,
+            "to": 24.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "asleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-15",
+          "to": "1812-08-15"
+        },
+        "note": "15 August 1812, until the march at nine",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 4.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "asleep"
+          },
+          {
+            "from": 4.5,
+            "to": 8.0,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "making ready"
+          },
+          {
+            "from": 8.0,
+            "to": 8.5,
+            "indoors": true,
+            "where": "first_fort_dearborn_commanding_officers_barracks",
+            "doing": "blackening his face"
+          },
+          {
+            "from": 8.5,
+            "to": 9.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1100.0,
+              "local_n": 200.0,
+              "heading_deg": 250.0
+            },
+            "doing": "mounted, waiting for the gate to open",
+            "activity": "stand"
+          },
+          {
+            "from": 9.0,
+            "to": 24.0,
+            "indoors": true,
+            "away": true,
+            "doing": "leading the column out (the battle jaunt has the march and his death)"
+          }
+        ]
+      }
+    ],
+    "presence": {
+      "from": "1812-08-13",
+      "to": "1812-08-15"
+    }
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 3,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": false,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "Reconstructed figure of William Wells in the 1812 town, at each hour of each run of dates where the reading for T-3463 (docs/RESEARCH/people-1812-3463/day.json) puts them: indoors (asked for at the door) or out at their work, with the people they would be with. The hours, the places and the companions are ours (liberty L-1812-town-days-3463), each span graded with its own basis in the reading; what a source says of them is on their card. They wear the engage 1812 role dress, with their own face, height, build and colouring.",
+    "sources": [
+      "andreas_1884_v1",
+      "currey_1912_story_of_old_fort_dearborn",
+      "kinzie_waubun_1856",
+      "kirkland_1893_chicago_massacre",
+      "quaife_1913"
+    ],
+    "liberty": "L418",
+    "seed": "wells_william:1812:days:20261108",
+    "replaceable_by": "A diary, letter or order book of the post that says where they were and what they did on the day."
+  }
+}

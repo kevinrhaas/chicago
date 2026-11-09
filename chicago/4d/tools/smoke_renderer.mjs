@@ -9538,10 +9538,10 @@ for (const [label, viewport, touch] of [
           why: flag?.querySelector('.pop-held-why')?.textContent?.trim() ?? '',
           recorded: said(window.__chicago4d.registry.get(id)?.sidecar?.review_reason ?? '', 'review_reason').trim(),
           overlay: !!overlay?.edits,
-          // Folded sections are not an answer to "without unfolding anything":
-          // the reason lived inside a 400-word note behind a disclosure before
-          // this, and that is the state the ticket was opened about.
-          openable: !!flag?.closest('details'),
+          // T-3521: folded under its "Under review" mark at the owner's word (2026-11-08,
+          // "yes do that for all of them"); the mark is on the card, the reason a tap away.
+          openable: !!flag?.closest('details.pop-held-fold')
+            && /Under review/.test(flag.closest('details').querySelector('summary')?.textContent ?? ''),
         };
       };
       const flagged = [...window.__chicago4d.registry.values()]
@@ -9553,8 +9553,8 @@ for (const [label, viewport, touch] of [
       return { flagged: flagged.map(read), control: control ? read(control) : null };
     });
     check(`${label}: every held building says so on its card`,
-      held.flagged.length > 0 && held.flagged.every((h) => h.notice && !h.openable),
-      `${held.flagged.filter((h) => !h.notice || h.openable).map((h) => h.id).join(', ')
+      held.flagged.length > 0 && held.flagged.every((h) => h.notice && h.openable),
+      `${held.flagged.filter((h) => !h.notice || !h.openable).map((h) => h.id).join(', ')
        || `${held.flagged.length} flagged`}`);
     // Verbatim, and for the same reason the account below is: this is the record's
     // sentence, not a gloss of it, and a renderer that trimmed it to a first clause

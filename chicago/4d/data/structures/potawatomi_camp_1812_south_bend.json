@@ -10,6 +10,7 @@
     {
       "id": "camp_1812",
       "documented_range": {
+        "drawn_only_within": true,
         "from": "1812-08-12",
         "to": "1812-08-16",
         "confidence": "inferred",

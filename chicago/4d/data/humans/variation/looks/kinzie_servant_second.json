@@ -1,0 +1,39 @@
+{
+ "format": "chicago4d_human_looks_v1",
+ "ticket": "T-3466",
+ "person_id": "kinzie_servant_second",
+ "scene": "1812",
+ "generated_by": "docs/RESEARCH/people-1812-town/looks.py",
+ "heritage": {
+  "origin": "not recorded (see the basis)",
+  "family": "reading"
+ },
+ "complexion": {
+  "value": "not recorded",
+  "drawn": "light",
+  "grade": "reconstructed"
+ },
+ "hair": {
+  "value": "not recorded",
+  "drawn": "mid_brown",
+  "cut": "cropped_1812",
+  "facial": [],
+  "grade": "reconstructed"
+ },
+ "eyes": {
+  "value": "not recorded",
+  "drawn": "brown",
+  "grade": "reconstructed"
+ },
+ "stature": {
+  "inches": 67,
+  "grade": "reconstructed",
+  "basis": "Nothing is known: not the name, ancestry or appearance. The household mixed French, Métis, Black and Anglo servants and helpers; the figure is a stand-in, labelled so."
+ },
+ "height_scale": 0.9725,
+ "basis": "Drawn in the words of the day reading for T-3466 (docs/RESEARCH/people-1812-3466/day.json): Nothing is known: not the name, ancestry or appearance. The household mixed French, Métis, Black and Anglo servants and helpers; the figure is a stand-in, labelled so. The drawn colours, cut and scale are a reconstructed rendering of those words (liberty L-1812-town-days-3463).",
+ "grade": "reconstructed",
+ "liberty": "L-1812-town-days-3463",
+ "replaceable_by": "A portrait or a description of them written in their lifetime.",
+ "build_words": "medium"
+}

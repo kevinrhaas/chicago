@@ -100,6 +100,21 @@
           "claim": "French and Potawatomi names (Peoria council 1811)",
           "tier": "secondary history (1884-1913), cite as compiler's statement [OCR normalised; spelling of the Potawatomi name unreliable]"
         }
+      ],
+      "on_15_august": {
+        "value": "Led the attack; received Heald's surrender",
+        "grade": "attested",
+        "note": "Heald (1812): \"met by one of the Potawatamie chiefs, called the Black Bird, with an interpreter\".",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
+        {
+          "label": "On 15 August",
+          "value": "Led the attack; received Heald's surrender",
+          "grade": "attested"
+        }
       ]
     }
   ]

@@ -1,0 +1,1105 @@
+{
+  "id": "hi_town_waubeeneemah_1812",
+  "contract_version": 1,
+  "scene": "1812",
+  "person_id": "waubeeneemah",
+  "appearance": {
+    "asset_id": "potawatomi_man_1812"
+  },
+  "placement": {
+    "local_e": 778.9,
+    "local_n": -37.1,
+    "heading_deg": 172.0,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "idle",
+    "loop": true,
+    "phase": 1.0
+  },
+  "behaviour": {
+    "state": "standing",
+    "day": [
+      {
+        "dates": {
+          "from": "1812-08-12",
+          "to": "1812-08-12"
+        },
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "potawatomi_camp_1812_mouth",
+            "doing": "asleep in the lodge"
+          },
+          {
+            "from": 5.5,
+            "to": 6.5,
+            "indoors": false,
+            "at": {
+              "local_e": 778.9,
+              "local_n": -37.1,
+              "heading_deg": 172.0
+            },
+            "doing": "morning at the yard, the fire made up",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 777.51,
+                "local_n": -37.29
+              },
+              {
+                "local_e": 780.29,
+                "local_n": -36.91
+              }
+            ]
+          },
+          {
+            "from": 6.5,
+            "to": 7.5,
+            "indoors": false,
+            "at": {
+              "local_e": 778.9,
+              "local_n": -37.1,
+              "heading_deg": 172.0
+            },
+            "doing": "eating with the household at the arbor",
+            "activity": "talk",
+            "knot": "talk_2ffa4142"
+          },
+          {
+            "from": 7.5,
+            "to": 12.0,
+            "indoors": false,
+            "at": {
+              "local_e": 778.9,
+              "local_n": -37.1,
+              "heading_deg": 172.0
+            },
+            "doing": "at the yard with the other men of the camp",
+            "activity": "talk",
+            "knot": "talk_376ac691"
+          },
+          {
+            "from": 12.0,
+            "to": 13.0,
+            "indoors": false,
+            "at": {
+              "local_e": 778.9,
+              "local_n": -37.1,
+              "heading_deg": 172.0
+            },
+            "doing": "eating with the household at the arbor",
+            "activity": "talk",
+            "knot": "talk_7d9fa806"
+          },
+          {
+            "from": 13.0,
+            "to": 14.0,
+            "indoors": false,
+            "at": {
+              "local_e": 778.9,
+              "local_n": -37.1,
+              "heading_deg": 172.0
+            },
+            "doing": "resting in the shade of the arbor",
+            "activity": "talk",
+            "knot": "talk_50f74631"
+          },
+          {
+            "from": 14.0,
+            "to": 14.5,
+            "indoors": false,
+            "at": {
+              "local_e": 790.0,
+              "local_n": -36.0,
+              "heading_deg": 110.6
+            },
+            "activity": "walk",
+            "to_point": {
+              "local_e": 1113.0,
+              "local_n": 214.0
+            },
+            "via": [
+              {
+                "local_e": 806.0,
+                "local_n": -42.0
+              },
+              {
+                "local_e": 850.0,
+                "local_n": -20.0
+              },
+              {
+                "local_e": 950.0,
+                "local_n": 45.0
+              },
+              {
+                "local_e": 1010.0,
+                "local_n": 90.0
+              },
+              {
+                "local_e": 1085.0,
+                "local_n": 98.0
+              },
+              {
+                "local_e": 1100.0,
+                "local_n": 150.0
+              },
+              {
+                "local_e": 1085.0,
+                "local_n": 200.0
+              },
+              {
+                "local_e": 1080.0,
+                "local_n": 214.0
+              }
+            ],
+            "once": true,
+            "doing": "walking to the council on the esplanade west of the fort"
+          },
+          {
+            "from": 14.5,
+            "to": 16.25,
+            "indoors": false,
+            "at": {
+              "local_e": 1115.4,
+              "local_n": 212.2,
+              "heading_deg": 307.0
+            },
+            "doing": "sitting in council with Captain Heald; no speech is staged",
+            "activity": "talk",
+            "knot": "talk_d81a0fa6"
+          },
+          {
+            "from": 16.25,
+            "to": 16.75,
+            "indoors": false,
+            "at": {
+              "local_e": 1113.0,
+              "local_n": 214.0,
+              "heading_deg": 270.0
+            },
+            "activity": "walk",
+            "to_point": {
+              "local_e": 790.0,
+              "local_n": -36.0
+            },
+            "via": [
+              {
+                "local_e": 1080.0,
+                "local_n": 214.0
+              },
+              {
+                "local_e": 1085.0,
+                "local_n": 200.0
+              },
+              {
+                "local_e": 1100.0,
+                "local_n": 150.0
+              },
+              {
+                "local_e": 1085.0,
+                "local_n": 98.0
+              },
+              {
+                "local_e": 1010.0,
+                "local_n": 90.0
+              },
+              {
+                "local_e": 950.0,
+                "local_n": 45.0
+              },
+              {
+                "local_e": 850.0,
+                "local_n": -20.0
+              },
+              {
+                "local_e": 806.0,
+                "local_n": -42.0
+              }
+            ],
+            "once": true,
+            "doing": "walking back to camp"
+          },
+          {
+            "from": 16.75,
+            "to": 17.5,
+            "indoors": false,
+            "at": {
+              "local_e": 778.9,
+              "local_n": -37.1,
+              "heading_deg": 172.0
+            },
+            "doing": "back at the yard",
+            "activity": "talk",
+            "knot": "talk_50f74631"
+          },
+          {
+            "from": 17.5,
+            "to": 18.75,
+            "indoors": false,
+            "at": {
+              "local_e": 778.9,
+              "local_n": -37.1,
+              "heading_deg": 172.0
+            },
+            "doing": "eating with the household at the arbor",
+            "activity": "talk",
+            "knot": "talk_50f74631"
+          },
+          {
+            "from": 18.75,
+            "to": 21.5,
+            "indoors": false,
+            "at": {
+              "local_e": 778.9,
+              "local_n": -37.1,
+              "heading_deg": 172.0
+            },
+            "doing": "evening at the yard",
+            "activity": "talk",
+            "knot": "talk_50f74631"
+          },
+          {
+            "from": 21.5,
+            "to": 24.0,
+            "indoors": true,
+            "where": "potawatomi_camp_1812_mouth",
+            "doing": "asleep in the lodge"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-13",
+          "to": "1812-08-13"
+        },
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "potawatomi_camp_1812_mouth",
+            "doing": "asleep in the lodge"
+          },
+          {
+            "from": 5.5,
+            "to": 6.5,
+            "indoors": false,
+            "at": {
+              "local_e": 778.9,
+              "local_n": -37.1,
+              "heading_deg": 172.0
+            },
+            "doing": "morning at the yard, the fire made up",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 777.51,
+                "local_n": -37.29
+              },
+              {
+                "local_e": 780.29,
+                "local_n": -36.91
+              }
+            ]
+          },
+          {
+            "from": 6.5,
+            "to": 7.5,
+            "indoors": false,
+            "at": {
+              "local_e": 778.9,
+              "local_n": -37.1,
+              "heading_deg": 172.0
+            },
+            "doing": "eating with the household at the arbor",
+            "activity": "talk",
+            "knot": "talk_2ffa4142"
+          },
+          {
+            "from": 7.5,
+            "to": 12.0,
+            "indoors": false,
+            "at": {
+              "local_e": 778.9,
+              "local_n": -37.1,
+              "heading_deg": 172.0
+            },
+            "doing": "at the yard with the other men of the camp",
+            "activity": "talk",
+            "knot": "talk_376ac691"
+          },
+          {
+            "from": 12.0,
+            "to": 13.0,
+            "indoors": false,
+            "at": {
+              "local_e": 778.9,
+              "local_n": -37.1,
+              "heading_deg": 172.0
+            },
+            "doing": "eating with the household at the arbor",
+            "activity": "talk",
+            "knot": "talk_7d9fa806"
+          },
+          {
+            "from": 13.0,
+            "to": 13.6,
+            "indoors": false,
+            "at": {
+              "local_e": 790.0,
+              "local_n": -36.0,
+              "heading_deg": 110.6
+            },
+            "activity": "walk",
+            "to_point": {
+              "local_e": 1080.0,
+              "local_n": 214.0
+            },
+            "via": [
+              {
+                "local_e": 806.0,
+                "local_n": -42.0
+              },
+              {
+                "local_e": 850.0,
+                "local_n": -20.0
+              },
+              {
+                "local_e": 950.0,
+                "local_n": 45.0
+              },
+              {
+                "local_e": 1010.0,
+                "local_n": 90.0
+              },
+              {
+                "local_e": 1085.0,
+                "local_n": 98.0
+              },
+              {
+                "local_e": 1100.0,
+                "local_n": 150.0
+              },
+              {
+                "local_e": 1085.0,
+                "local_n": 200.0
+              }
+            ],
+            "once": true,
+            "doing": "walking to the government factory for the goods"
+          },
+          {
+            "from": 13.6,
+            "to": 15.9,
+            "indoors": false,
+            "at": {
+              "local_e": 1078.3,
+              "local_n": 215.6,
+              "heading_deg": 275.0
+            },
+            "doing": "waiting with others before the factory while cloth is given out",
+            "activity": "stand"
+          },
+          {
+            "from": 15.9,
+            "to": 16.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1080.0,
+              "local_n": 214.0,
+              "heading_deg": 160.3
+            },
+            "activity": "walk",
+            "to_point": {
+              "local_e": 790.0,
+              "local_n": -36.0
+            },
+            "via": [
+              {
+                "local_e": 1085.0,
+                "local_n": 200.0
+              },
+              {
+                "local_e": 1100.0,
+                "local_n": 150.0
+              },
+              {
+                "local_e": 1085.0,
+                "local_n": 98.0
+              },
+              {
+                "local_e": 1010.0,
+                "local_n": 90.0
+              },
+              {
+                "local_e": 950.0,
+                "local_n": 45.0
+              },
+              {
+                "local_e": 850.0,
+                "local_n": -20.0
+              },
+              {
+                "local_e": 806.0,
+                "local_n": -42.0
+              }
+            ],
+            "once": true,
+            "doing": "walking back to camp"
+          },
+          {
+            "from": 16.5,
+            "to": 17.5,
+            "indoors": false,
+            "at": {
+              "local_e": 778.9,
+              "local_n": -37.1,
+              "heading_deg": 172.0
+            },
+            "doing": "back at the yard",
+            "activity": "talk",
+            "knot": "talk_50f74631"
+          },
+          {
+            "from": 17.5,
+            "to": 18.75,
+            "indoors": false,
+            "at": {
+              "local_e": 778.9,
+              "local_n": -37.1,
+              "heading_deg": 172.0
+            },
+            "doing": "eating with the household at the arbor",
+            "activity": "talk",
+            "knot": "talk_50f74631"
+          },
+          {
+            "from": 18.75,
+            "to": 21.5,
+            "indoors": false,
+            "at": {
+              "local_e": 778.9,
+              "local_n": -37.1,
+              "heading_deg": 172.0
+            },
+            "doing": "evening at the yard",
+            "activity": "talk",
+            "knot": "talk_50f74631"
+          },
+          {
+            "from": 21.5,
+            "to": 24.0,
+            "indoors": true,
+            "where": "potawatomi_camp_1812_mouth",
+            "doing": "asleep in the lodge"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-15",
+          "to": "1812-08-15"
+        },
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.0,
+            "indoors": true,
+            "where": "potawatomi_camp_1812_mouth",
+            "doing": "asleep in the lodge"
+          },
+          {
+            "from": 5.0,
+            "to": 6.25,
+            "indoors": false,
+            "at": {
+              "local_e": 778.9,
+              "local_n": -37.1,
+              "heading_deg": 172.0
+            },
+            "doing": "early meal at the yard",
+            "activity": "talk",
+            "knot": "talk_051fce82"
+          },
+          {
+            "from": 6.25,
+            "to": 7.5,
+            "indoors": false,
+            "at": {
+              "local_e": 777.9,
+              "local_n": -37.1,
+              "heading_deg": 172.0
+            },
+            "doing": "at the yard",
+            "activity": "stand"
+          },
+          {
+            "from": 7.5,
+            "to": 13.0,
+            "indoors": true,
+            "away": true,
+            "doing": "away from the camp"
+          },
+          {
+            "from": 13.0,
+            "to": 18.0,
+            "indoors": false,
+            "at": {
+              "local_e": 778.9,
+              "local_n": -37.1,
+              "heading_deg": 172.0
+            },
+            "doing": "back at the camp",
+            "activity": "talk",
+            "knot": "talk_50f74631"
+          },
+          {
+            "from": 18.0,
+            "to": 19.25,
+            "indoors": false,
+            "at": {
+              "local_e": 778.9,
+              "local_n": -37.1,
+              "heading_deg": 172.0
+            },
+            "doing": "eating with the household at the arbor",
+            "activity": "talk",
+            "knot": "talk_50f74631"
+          },
+          {
+            "from": 19.25,
+            "to": 21.5,
+            "indoors": false,
+            "at": {
+              "local_e": 778.9,
+              "local_n": -37.1,
+              "heading_deg": 172.0
+            },
+            "doing": "evening at the yard",
+            "activity": "talk",
+            "knot": "talk_50f74631"
+          },
+          {
+            "from": 21.5,
+            "to": 24.0,
+            "indoors": true,
+            "where": "potawatomi_camp_1812_mouth",
+            "doing": "asleep in the lodge"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-08-16",
+          "to": "1812-08-16"
+        },
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "potawatomi_camp_1812_mouth",
+            "doing": "asleep in the lodge"
+          },
+          {
+            "from": 5.5,
+            "to": 6.5,
+            "indoors": false,
+            "at": {
+              "local_e": 778.9,
+              "local_n": -37.1,
+              "heading_deg": 172.0
+            },
+            "doing": "morning at the yard, the fire made up",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 777.51,
+                "local_n": -37.29
+              },
+              {
+                "local_e": 780.29,
+                "local_n": -36.91
+              }
+            ]
+          },
+          {
+            "from": 6.5,
+            "to": 7.5,
+            "indoors": false,
+            "at": {
+              "local_e": 778.9,
+              "local_n": -37.1,
+              "heading_deg": 172.0
+            },
+            "doing": "eating with the household at the arbor",
+            "activity": "talk",
+            "knot": "talk_2ffa4142"
+          },
+          {
+            "from": 7.5,
+            "to": 12.0,
+            "indoors": false,
+            "at": {
+              "local_e": 778.9,
+              "local_n": -37.1,
+              "heading_deg": 172.0
+            },
+            "doing": "at the yard",
+            "activity": "talk",
+            "knot": "talk_376ac691"
+          },
+          {
+            "from": 12.0,
+            "to": 13.0,
+            "indoors": false,
+            "at": {
+              "local_e": 778.9,
+              "local_n": -37.1,
+              "heading_deg": 172.0
+            },
+            "doing": "eating with the household at the arbor",
+            "activity": "talk",
+            "knot": "talk_7d9fa806"
+          },
+          {
+            "from": 13.0,
+            "to": 17.5,
+            "indoors": false,
+            "at": {
+              "local_e": 778.9,
+              "local_n": -37.1,
+              "heading_deg": 172.0
+            },
+            "doing": "at the yard",
+            "activity": "talk",
+            "knot": "talk_50f74631"
+          },
+          {
+            "from": 17.5,
+            "to": 18.75,
+            "indoors": false,
+            "at": {
+              "local_e": 778.9,
+              "local_n": -37.1,
+              "heading_deg": 172.0
+            },
+            "doing": "eating with the household at the arbor",
+            "activity": "talk",
+            "knot": "talk_50f74631"
+          },
+          {
+            "from": 18.75,
+            "to": 21.5,
+            "indoors": false,
+            "at": {
+              "local_e": 778.9,
+              "local_n": -37.1,
+              "heading_deg": 172.0
+            },
+            "doing": "evening at the yard",
+            "activity": "talk",
+            "knot": "talk_50f74631"
+          },
+          {
+            "from": 21.5,
+            "to": 24.0,
+            "indoors": true,
+            "where": "potawatomi_camp_1812_mouth",
+            "doing": "asleep in the lodge"
+          }
+        ]
+      },
+      {
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "potawatomi_camp_1812_mouth",
+            "doing": "asleep in the lodge"
+          },
+          {
+            "from": 5.5,
+            "to": 6.5,
+            "indoors": false,
+            "at": {
+              "local_e": 778.9,
+              "local_n": -37.1,
+              "heading_deg": 172.0
+            },
+            "doing": "morning at the lodge door",
+            "activity": "stand"
+          },
+          {
+            "from": 6.5,
+            "to": 7.5,
+            "indoors": false,
+            "at": {
+              "local_e": 778.9,
+              "local_n": -37.1,
+              "heading_deg": 172.0
+            },
+            "doing": "eating with the household at the arbor",
+            "activity": "talk",
+            "knot": "talk_2ffa4142"
+          },
+          {
+            "from": 7.5,
+            "to": 7.75,
+            "indoors": false,
+            "at": {
+              "local_e": 778.9,
+              "local_n": -37.1,
+              "heading_deg": 172.0
+            },
+            "doing": "at the yard",
+            "activity": "stand"
+          },
+          {
+            "from": 7.75,
+            "to": 8.35,
+            "indoors": false,
+            "at": {
+              "local_e": 790.0,
+              "local_n": -36.0,
+              "heading_deg": 110.6
+            },
+            "activity": "walk",
+            "to_point": {
+              "local_e": 1080.0,
+              "local_n": 214.0
+            },
+            "via": [
+              {
+                "local_e": 806.0,
+                "local_n": -42.0
+              },
+              {
+                "local_e": 850.0,
+                "local_n": -20.0
+              },
+              {
+                "local_e": 950.0,
+                "local_n": 45.0
+              },
+              {
+                "local_e": 1010.0,
+                "local_n": 90.0
+              },
+              {
+                "local_e": 1085.0,
+                "local_n": 98.0
+              },
+              {
+                "local_e": 1100.0,
+                "local_n": 150.0
+              },
+              {
+                "local_e": 1085.0,
+                "local_n": 200.0
+              }
+            ],
+            "once": true,
+            "doing": "walking to the government factory for the goods"
+          },
+          {
+            "from": 8.35,
+            "to": 10.4,
+            "indoors": false,
+            "at": {
+              "local_e": 1079.0,
+              "local_n": 216.4,
+              "heading_deg": 275.0
+            },
+            "doing": "waiting with others before the factory while the goods and provisions are given out",
+            "activity": "stand"
+          },
+          {
+            "from": 10.4,
+            "to": 11.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1080.0,
+              "local_n": 214.0,
+              "heading_deg": 160.3
+            },
+            "activity": "walk",
+            "to_point": {
+              "local_e": 790.0,
+              "local_n": -36.0
+            },
+            "via": [
+              {
+                "local_e": 1085.0,
+                "local_n": 200.0
+              },
+              {
+                "local_e": 1100.0,
+                "local_n": 150.0
+              },
+              {
+                "local_e": 1085.0,
+                "local_n": 98.0
+              },
+              {
+                "local_e": 1010.0,
+                "local_n": 90.0
+              },
+              {
+                "local_e": 950.0,
+                "local_n": 45.0
+              },
+              {
+                "local_e": 850.0,
+                "local_n": -20.0
+              },
+              {
+                "local_e": 806.0,
+                "local_n": -42.0
+              }
+            ],
+            "once": true,
+            "doing": "walking back to camp carrying a share of cloth and provisions"
+          },
+          {
+            "from": 11.0,
+            "to": 12.0,
+            "indoors": false,
+            "at": {
+              "local_e": 778.9,
+              "local_n": -37.1,
+              "heading_deg": 172.0
+            },
+            "doing": "sitting under the arbor with Topenebe; the runner from Main Poc comes in",
+            "activity": "talk",
+            "knot": "talk_376ac691"
+          },
+          {
+            "from": 12.0,
+            "to": 13.0,
+            "indoors": false,
+            "at": {
+              "local_e": 778.9,
+              "local_n": -37.1,
+              "heading_deg": 172.0
+            },
+            "doing": "eating with the household at the arbor",
+            "activity": "talk",
+            "knot": "talk_7d9fa806"
+          },
+          {
+            "from": 13.0,
+            "to": 14.0,
+            "indoors": false,
+            "at": {
+              "local_e": 777.9,
+              "local_n": -37.1,
+              "heading_deg": 172.0
+            },
+            "doing": "resting in the shade of the arbor",
+            "activity": "talk",
+            "knot": "talk_50f74631"
+          },
+          {
+            "from": 14.0,
+            "to": 14.5,
+            "indoors": false,
+            "at": {
+              "local_e": 790.0,
+              "local_n": -36.0,
+              "heading_deg": 110.6
+            },
+            "activity": "walk",
+            "to_point": {
+              "local_e": 1113.0,
+              "local_n": 214.0
+            },
+            "via": [
+              {
+                "local_e": 806.0,
+                "local_n": -42.0
+              },
+              {
+                "local_e": 850.0,
+                "local_n": -20.0
+              },
+              {
+                "local_e": 950.0,
+                "local_n": 45.0
+              },
+              {
+                "local_e": 1010.0,
+                "local_n": 90.0
+              },
+              {
+                "local_e": 1085.0,
+                "local_n": 98.0
+              },
+              {
+                "local_e": 1100.0,
+                "local_n": 150.0
+              },
+              {
+                "local_e": 1085.0,
+                "local_n": 200.0
+              },
+              {
+                "local_e": 1080.0,
+                "local_n": 214.0
+              }
+            ],
+            "once": true,
+            "doing": "walking to the council on the esplanade west of the fort"
+          },
+          {
+            "from": 14.5,
+            "to": 16.25,
+            "indoors": false,
+            "at": {
+              "local_e": 1115.4,
+              "local_n": 212.2,
+              "heading_deg": 307.0
+            },
+            "doing": "sitting in council with Captain Heald; no speech is staged",
+            "activity": "talk",
+            "knot": "talk_d81a0fa6"
+          },
+          {
+            "from": 16.25,
+            "to": 16.75,
+            "indoors": false,
+            "at": {
+              "local_e": 1113.0,
+              "local_n": 214.0,
+              "heading_deg": 270.0
+            },
+            "activity": "walk",
+            "to_point": {
+              "local_e": 790.0,
+              "local_n": -36.0
+            },
+            "via": [
+              {
+                "local_e": 1080.0,
+                "local_n": 214.0
+              },
+              {
+                "local_e": 1085.0,
+                "local_n": 200.0
+              },
+              {
+                "local_e": 1100.0,
+                "local_n": 150.0
+              },
+              {
+                "local_e": 1085.0,
+                "local_n": 98.0
+              },
+              {
+                "local_e": 1010.0,
+                "local_n": 90.0
+              },
+              {
+                "local_e": 950.0,
+                "local_n": 45.0
+              },
+              {
+                "local_e": 850.0,
+                "local_n": -20.0
+              },
+              {
+                "local_e": 806.0,
+                "local_n": -42.0
+              }
+            ],
+            "once": true,
+            "doing": "walking back to camp"
+          },
+          {
+            "from": 16.75,
+            "to": 18.0,
+            "indoors": false,
+            "at": {
+              "local_e": 786.0,
+              "local_n": -40.6,
+              "heading_deg": 274.0
+            },
+            "doing": "cutting poles by the woodpile",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 786.1,
+                "local_n": -39.2
+              },
+              {
+                "local_e": 785.9,
+                "local_n": -42.0
+              }
+            ]
+          },
+          {
+            "from": 18.0,
+            "to": 19.0,
+            "indoors": false,
+            "at": {
+              "local_e": 778.9,
+              "local_n": -37.1,
+              "heading_deg": 172.0
+            },
+            "doing": "eating with the household at the arbor",
+            "activity": "talk",
+            "knot": "talk_50f74631"
+          },
+          {
+            "from": 19.0,
+            "to": 21.0,
+            "indoors": false,
+            "at": {
+              "local_e": 779.2,
+              "local_n": -34.8,
+              "heading_deg": 209.0
+            },
+            "doing": "sitting at the arbor in the evening with Topenebe and the chiefs",
+            "activity": "talk",
+            "knot": "talk_50f74631"
+          },
+          {
+            "from": 21.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "potawatomi_camp_1812_mouth",
+            "doing": "asleep in the lodge"
+          }
+        ]
+      }
+    ],
+    "presence": {
+      "from": "1812-08-12",
+      "to": "1812-08-16"
+    }
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 3,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": true,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "Reconstructed figure of Wau-bee-nee-mah in the 1812 town, at each hour of each run of dates where the reading for T-3467 (docs/RESEARCH/people-1812-3467/day.json) puts them: indoors (asked for at the door) or out at their work, with the people they would be with. The hours, the places and the companions are ours (liberty L-1812-town-days-3463), each span graded with its own basis in the reading; what a source says of them is on their card. They wear the potawatomi man 1812 role dress, with their own face, height, build and colouring.",
+    "sources": [
+      "kinzie_waubun_1856"
+    ],
+    "liberty": "L418",
+    "seed": "waubeeneemah:1812:days:20261108",
+    "replaceable_by": "A diary, letter or order book of the post that says where they were and what they did on the day."
+  }
+}

@@ -24,7 +24,10 @@ const index = JSON.parse(await fs.readFile(new URL('index.json', dir), 'utf8'));
 const privates = [];
 for (const id of index.instances) {
   const r = JSON.parse(await fs.readFile(new URL(`${id}.json`, dir), 'utf8'));
-  if (r.appearance.asset_id === 'private_first_infantry_1812') privates.push(r.person_id);
+  // T-3523: the men at their chores wear the fatigue clothes on the settler's body; the garrison
+  // dress file says who is of the company.
+  const g = persons[r.person_id]?.dress?.garrison;
+  if (r.appearance.asset_id === 'private_first_infantry_1812' || (g && g.station !== 'officer')) privates.push(r.person_id);
 }
 assert(privates.length >= 51, `the company stands (${privates.length})`);
 const combos = new Map(), heights = [];
@@ -85,5 +88,7 @@ assert.equal(looksOf(null), null, 'no looks, no section');
 const mainJs = await fs.readFile(new URL('renderers/web/js/main.js', here), 'utf8');
 const yardsJs = await fs.readFile(new URL('renderers/web/js/yards.js', here), 'utf8');
 assert(/const figureGround = [^;]*yards\.groundLiftAt/s.test(mainJs) && /groundHeight: \(e, n\) => figureGround\(e, n\)/.test(mainJs), 'figures stand on the drawn yard ground');
-assert(/out\.groundLiftAt = \(e, n\) => \(out\.treatmentAt\(e, n\) \? LIFT_M\.base : out\.trailCover\(e, n\) > 0 \? TRAIL_LIFT_M : 0\)/.test(yardsJs), 'yards say how far their earth is lifted');
+// T-3504: the highest of the yard's base, a worn trail and a laid bed or walk under the point.
+assert(/out\.groundLiftAt = \(e, n\) => \{\s*let lift = out\.treatmentAt\(e, n\) \? LIFT_M\.base : 0;\s*if \(lift < TRAIL_LIFT_M && out\.trailCover\(e, n\) > 0\) lift = TRAIL_LIFT_M;[^}]*raised/s.test(yardsJs)
+  && /raise\(bed, LIFT_M\.bed\)/.test(yardsJs) && /raise\(path, LIFT_M\.path\)/.test(yardsJs), 'yards say how far their earth is lifted');
 console.log(`human looks: ${privates.length} men, ${combos.size} colourings (commonest ${most}), heights ${mean.toFixed(1)} ± ${sd.toFixed(1)} in, Grummo ${persons.grummo_paul.looks.stature.inches} in: PASS`);

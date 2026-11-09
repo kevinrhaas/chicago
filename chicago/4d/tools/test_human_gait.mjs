@@ -133,7 +133,7 @@ async function walk(asset, { profile, seconds = 6, turn = 0, lod = 0, swapAt = n
 }
 
 const OFF = { l: 0, r: 0.5 };
-function judge(name, run, { lodSwap = false } = {}) {
+function judge(name, run, { lodSwap = false, swingMax = 72, size = 1 } = {}) {
   const { gait, log } = run;
   const P = gait.profile;
   const steady = log.filter(r => r.mode === 'walk' && r.t > 1.6 && r.t < log.at(-1).t - 3.2 && r.weight === 1);
@@ -169,9 +169,9 @@ function judge(name, run, { lodSwap = false } = {}) {
   const kneeAt = (lo, hi) => Math.max(...steady.filter(r => { const c = ((r.phase) % 1 + 1) % 1; return c > lo && c < hi; }).map(r => r.knee.l));
   const loading = kneeAt(0.05, 0.25), swing = kneeAt(0.62, 0.85);
   assert.ok(loading > 8 && loading < 32, `${name}: loading knee ${loading.toFixed(1)}`);
-  assert.ok(swing > 50 && swing < 72, `${name}: swing knee ${swing.toFixed(1)}`);
+  assert.ok(swing > 50 && swing < swingMax, `${name}: swing knee ${swing.toFixed(1)}`);
   const pel = steady.map(r => r.pelvis), bob = Math.max(...pel) - Math.min(...pel);
-  assert.ok(bob > 0.02 && bob < 0.06, `${name}: pelvis bob ${(bob * 100).toFixed(1)} cm`);
+  assert.ok(bob > 0.02 * size && bob < 0.06 * size, `${name}: pelvis bob ${(bob * 100).toFixed(1)} cm`);
   // Stopping: a closing step, both feet back under the hips, the clip's pose again.
   const end = log.at(-1);
   assert.equal(end.mode, 'idle', `${name}: back to the clip after the closing step`);
@@ -185,6 +185,25 @@ judge('John J. Glessner (61)', await walk('glessner_john_j_1904', { profile: { s
 judge('Otis Bardwell', await walk('bardwell_otis_1835', { profile: { sex: 'male', age: 30 } }));
 judge('Mary Reynolds (maid)', await walk('reynolds_mary_1904_maid', { profile: { sex: 'female', age: 25, skirt: true } }));
 judge('Otis, 1.08 tall, across a LOD swap', await walk('bardwell_otis_1835', { profile: { sex: 'male', age: 30 }, swapAt: 3.0, scale: 1.08 }), { lodSwap: true });
+// T-3520: the children walk as children. The toddler's body is under 0.8 m; read as an adult
+// it was given a man's stride and walked on its knees. Its stride is a child's for its height,
+// its knees bend as anyone's do, its pelvis stays at the height of its own legs.
+{
+  const toddler = gaitProfile({ sex: 'female', age: 3, height: 0.9 }), girl = gaitProfile({ sex: 'female', age: 8, height: 1.2 });
+  assert.ok(toddler.speed > 0.6 && toddler.speed < 1.0 && toddler.stride > 0.45 && toddler.stride < 0.7 && toddler.cadence * 60 > 150, `toddler ${JSON.stringify(toddler)}`);
+  assert.ok(girl.speed > 0.95 && girl.speed < 1.3 && girl.stride > 0.8 && girl.stride < 1.05, `girl ${JSON.stringify(girl)}`);
+  for (const [asset, age] of [['child_toddler_1812', 3], ['child_girl_1812', 8], ['child_boy_1812', 8]]) {
+    const run = await walk(asset, { profile: { sex: asset.includes('girl') ? 'female' : 'male', age } });
+    // A small child's foot is long for its leg: it clears the ground by lifting its toes, and
+    // the knee folds no further than anyone's (it folded to 85 degrees and read as kneeling).
+    judge(`${asset} (${age})`, run, { swingMax: 72, size: run.log[0].pelvis / 0.95 });  // the bob in proportion to the legs
+    const legs = run.log[0].pelvis, low = Math.min(...run.log.filter(r => r.mode === 'walk' && r.weight === 1).map(r => r.pelvis));
+    assert.ok(low > 0.85 * legs, `${asset}: the pelvis drops to ${(low / legs * 100).toFixed(0)} % of its standing height (walking on its knees)`);
+    const allKnee = Math.max(...run.log.filter(r => r.state === 'walking' || r.mode === 'close').map(r => Math.max(r.knee.l, r.knee.r)));
+    assert.ok(allKnee < 72, `${asset}: a knee folds to ${allKnee.toFixed(0)} deg in a step (kneeling)`);
+    assert.ok(run.gait.stride < 1.0 * (legs / 0.45), `${asset}: stride ${run.gait.stride.toFixed(2)} on hips ${legs.toFixed(2)} m high`);
+  }
+}
 
 // A turn: the planted foot stays put while the body turns over it.
 {
@@ -199,6 +218,36 @@ judge('Otis, 1.08 tall, across a LOD swap', await walk('bardwell_otis_1835', { p
   }
   assert.ok(slide < 0.006, `turning: flat foot slides ${(slide * 1000).toFixed(1)} mm`);
   console.log(`turning 30 deg/s: the flat foot slides ${(slide * 1000).toFixed(1)} mm: PASS`);
+}
+
+// T-3520: a nudge. People kept apart and out of the lodge walls are moved aside by the
+// spacing layer, not by the walk; a planted foot left behind pulled a toddler's hips down to
+// 13 % of their height, knees folded flat (the owner's "kneeling" child). The feet go with it.
+for (const [asset, age, sex] of [['child_toddler_1812', 3, 'female'], ['bardwell_otis_1835', 30, 'male']]) {
+  for (const kind of ['walking', 'stopping']) {
+    const gltf = await load(asset, 2);
+    const root = new THREE.Group(); root.add(gltf.scene);
+    const mixer = new THREE.AnimationMixer(gltf.scene);
+    mixer.clipAction(gltf.animations.find(a => a.name === 'walk')).play(); mixer.update(0); root.updateMatrixWorld(true);
+    const gait = createHumanGait({ id: asset, scene: gltf.scene, profile: { sex, age } });
+    const B = {}; gltf.scene.traverse(o => { if (o.isBone) B[o.name] = o; });
+    const W = n => B[n].getWorldPosition(new THREE.Vector3());
+    const knee = s => 180 - W('thigh_' + s).sub(W('calf_' + s)).angleTo(W('foot_' + s).sub(W('calf_' + s))) * 180 / Math.PI;
+    let legs = null, low = Infinity, most = 0;
+    const dt = 1 / 60, until = kind === 'walking' ? 4.5 : 1.5, at = kind === 'walking' ? 2 : 1.55;
+    for (let f = 0; f < 60 * 6; f++) {
+      const t = f * dt, state = t > 0.3 && t < until ? 'walking' : 'standing';
+      let moved = 0;
+      if (state === 'walking') { moved = gait.speed * gait.pace * dt; root.position.z += moved; }
+      if (t > at && t < at + 0.3) root.position.x += 0.6 * dt / 0.3;   // shoved 0.6 m aside in 0.3 s
+      root.updateMatrixWorld(true); mixer.update(dt); gait.apply(dt, { state, root, moved }); gltf.scene.updateMatrixWorld(true);
+      const p = W('pelvis').y - root.position.y; legs ??= p;
+      if (t > 0.5) { low = Math.min(low, p / legs); most = Math.max(most, knee('l'), knee('r')); }
+    }
+    assert.ok(low > 0.85, `${asset} nudged ${kind}: the pelvis drops to ${(low * 100).toFixed(0)} % (kneeling)`);
+    assert.ok(most < 72, `${asset} nudged ${kind}: a knee folds to ${most.toFixed(0)} deg`);
+    console.log(`${asset} nudged 0.6 m aside ${kind}: pelvis at least ${(low * 100).toFixed(0)} %, knee at most ${most.toFixed(0)} deg: PASS`);
+  }
 }
 
 // Deterministic.

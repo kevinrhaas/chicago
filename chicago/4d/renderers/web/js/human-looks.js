@@ -25,6 +25,14 @@ export const COMPLEXION_TINT = Object.freeze({
   ruddy: Object.freeze([1.03, 0.86, 0.8]),
   dark: Object.freeze([0.84, 0.74, 0.64]),
   brown: Object.freeze([0.76, 0.63, 0.5]),
+  // T-3463..T-3467, the town of 1812: the readings' own words for the French, Métis,
+  // Potawatomi, Miami and Black people of the post (olive; light brown; a warm medium-to-deep
+  // brown; dark brown). Reconstructed renderings as the five above are (liberty
+  // L-1812-town-days-3463), with no exaggerated feature: only the colour moves.
+  olive: Object.freeze([0.9, 0.79, 0.65]),
+  tan: Object.freeze([0.8, 0.65, 0.49]),
+  copper: Object.freeze([0.62, 0.46, 0.33]),
+  deep_brown: Object.freeze([0.43, 0.3, 0.21]),
 });
 /** Iris colours, linear, by the register's word for the eyes. */
 export const EYE_COLOUR = Object.freeze({
@@ -67,6 +75,59 @@ export function dressLooks(root, looks) {
     else { const n = remake(o.material); if (n) o.material = n; }
   });
   return [...made.values()].filter(Boolean);
+}
+
+/**
+ * T-3506: a person's own dress, on the same dressed body as everyone of their kind. The owner,
+ * 2026-11-08, of the 1812 camps: "all the people look identical like all wearing the same
+ * clothing and identical hair". `dress` (data/humans/variation/dress_1812_native.json, by way
+ * of the persons file) names, by the body's own material names, the colour of each piece of
+ * cloth (linear RGB: the dressed bodies are flat colours, so a clone with its colour set is the
+ * whole change), and by the body's own mesh names the pieces not worn today (a blanket set
+ * aside in the heat, silver left in the lodge). Clones share the program of the material they
+ * were made from: no texture, no program. Returns the clones, to dispose with the level.
+ */
+export function dressCloth(root, dress) {
+  const colours = dress?.colours ?? null, hide = dress?.hide ?? [], pieces = dress?.pieces ?? null;
+  if (!root || (!colours && !hide.length && !pieces)) return [];
+  const made = new Map();
+  const remake = (m) => {
+    if (made.has(m)) return made.get(m);
+    const rgb = colours?.[m?.name ?? ''];
+    let next = null;
+    if (rgb) {
+      next = m.clone();
+      next.color.setRGB(...rgb, THREE.LinearSRGBColorSpace);
+      // A body built with a flat picture under its colour (a one-colour cloth) is drawn by the
+      // colour alone, as the others are.
+      if (next.map) { next.map = null; next.needsUpdate = true; }
+    }
+    made.set(m, next);
+    return next;
+  };
+  // A piece's mesh is named `<asset>_<piece>_lod<n>` (or the piece alone).
+  const hidden = hide.length ? new RegExp(`(^|_)(${hide.map((h) => h.replace(/[^a-z0-9_]/gi, '')).join('|')})(_lod\\d+)?$`) : null;
+  // T-3522: a colour for one piece where pieces share a material (the gown's waist band is cut
+  // from the bodice's cloth in the body; hers may be a ribbon of another colour).
+  const own = [];
+  const pieceOf = pieces ? (name) => Object.keys(pieces).find((k) => new RegExp(`(^|_)${k.replace(/[^a-z0-9_]/gi, '')}(_lod\\d+)?$`).test(name)) : () => null;
+  root.traverse((o) => {
+    if (!o.isMesh) return;
+    if (hidden && hidden.test(o.name)) { o.visible = false; return; }
+    const piece = pieceOf(o.name);
+    if (piece && !Array.isArray(o.material)) {
+      const m = o.material.clone();
+      m.color.setRGB(...pieces[piece], THREE.LinearSRGBColorSpace);
+      if (m.map) { m.map = null; m.needsUpdate = true; }
+      o.material = m;
+      own.push(m);
+      return;
+    }
+    if (!colours) return;
+    if (Array.isArray(o.material)) o.material = o.material.map((m) => remake(m) ?? m);
+    else { const n = remake(o.material); if (n) o.material = n; }
+  });
+  return [...made.values()].filter(Boolean).concat(own);
 }
 
 export function disposeLooks(materials) {

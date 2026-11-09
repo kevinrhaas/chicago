@@ -19,9 +19,9 @@ posts, a fatigue party in rank before its sergeant, knots of men talking that br
 back together, an orderly at the commanding officer's door. Paul Grummo's own record is moved
 into the rank by hand. Nothing of that day is acted out: no council, no giving out of the goods, no
 destruction of the ammunition. Which man stands where follows the roll's order within a rank;
-the four married men stand near the quarters T-3461 gives their families. Sergeants', corporals'
-and musicians' distinctions (epaulettes, sashes, the musicians' coats) are not drawn: every man
-wears the private's dress, and his card's rank says what he was.
+the four married men stand near the quarters T-3461 gives their families. T-3523 dresses and arms each man by his rank and his station (garrison_dress.py: NCO epaulettes,
+the musicians' red coats, drums and fife cases, fatigue clothes at chores, muskets carried by
+duty) and writes data/humans/variation/dress_1812_garrison.json with the instances.
 
 Run from chicago/4d:  python3 docs/RESEARCH/people-1812-3462/place.py [--check]
 """
@@ -31,6 +31,9 @@ import json
 import math
 import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import garrison_dress as GD  # noqa: E402  (T-3523: dress by rank and duty)
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
@@ -175,10 +178,11 @@ def men():
     hh = [json.loads(p.read_text()) for p in sorted(COMPANY.glob('hh_*_1812.json'))]
     out = []
     for h in hh:
+        home = next((a['place_or_structure_id'] for a in h.get('associated_with', []) if a.get('kind') == 'home'), None)
         for p in h['persons']:
             occ = (p.get('occupation') or {}).get('value', '')
             if "heald's company" in occ.lower() and not occ.startswith(('captain', 'second lieutenant', 'ensign', "surgeon")):
-                out.append(p)
+                out.append({**p, '_home': home})
     return out
 
 
@@ -186,6 +190,7 @@ def instance(p, st):
     sid, words, e, n, heading, state, route = st[:7]
     duty = st[7] if len(st) > 7 else None
     rank = p['occupation']['value'].split(',')[0]
+    asset, _dress, worn = GD.dress_for(p['id'], rank, sid)
     behaviour = {'state': state}
     if route:
         behaviour['route'] = [{'local_e': a, 'local_n': b} for a, b in route]
@@ -193,13 +198,16 @@ def instance(p, st):
         behaviour['duty'] = duty
     if sid not in NIGHT_GUARD:
         behaviour['hours'] = list(DAY_HOURS)
+        # T-3463: in quarters he can be asked for at its door — his household's home (T-3461).
+        if p.get('_home'):
+            behaviour['quarters'] = p['_home']
     seed_phase = (sum(map(ord, p['id'])) % 97) / 97
     return {
         'id': f"hi_{p['id']}_1812",
         'contract_version': 1,
         'scene': '1812',
         'person_id': p['id'],
-        'appearance': {'asset_id': ASSET},
+        'appearance': {'asset_id': asset},
         'placement': {'local_e': e, 'local_n': n, 'heading_deg': heading, 'anchor': 'terrain'},
         'animation': {'clip': 'walk' if state == 'walking' else 'idle', 'loop': True, 'phase': round(seed_phase, 3)},
         'behaviour': behaviour,
@@ -213,10 +221,10 @@ def instance(p, st):
                       f"(on the company's muster-roll to 31 May 1812, Quaife 1913 App. VIII), {words}, on the afternoon of "
                       f"14 August 1812. Where he stands and what he is doing are ours (liberty L-1812-garrison-stations-3462): "
                       f"no guard report or order book of the post survives for that day, and nothing of it is acted out. He wears "
-                      f"the company private's dress (T-3451)" + ('' if rank == 'private' else
-                      f"; the marks of a {rank} are not drawn") + ". His face, height and build are seeded from his own name; no "
+                      + (f"{worn} (T-3523; who wears what, and how his musket is carried, are ours, liberty {GD.LIBERTY})" if worn
+                         else "the company private's dress (T-3451)") + ". His face, height and build are seeded from his own name; no "
                       "picture of him is known."),
-            'sources': sorted(set(['quaife_1913', 'whistler_1808_fort_dearborn_draught'] + DRESS_SOURCES)),
+            'sources': sorted(set(['quaife_1913', 'whistler_1808_fort_dearborn_draught'] + DRESS_SOURCES + (GD.SOURCES if worn else []))),
             'liberty': 'L418',
             'seed': f"{p['id']}:1812:{sid}:20261107",
             'replaceable_by': 'A guard report, order book or morning report of the post for August 1812, which would put him at his own duty.',
@@ -237,16 +245,32 @@ def build():
             plan[p['id']] = free.pop(0)
     missing = [p['id'] for p in people if p['id'] not in plan]
     assert not missing, missing
-    return {f"hi_{p['id']}_1812.json": instance(p, plan[p['id']]) for p in people}
+    return {f"hi_{p['id']}_1812.json": instance(p, plan[p['id']]) for p in people}, plan
+
+
+def garrison_dress(people, plan):
+    """T-3523: data/humans/variation/dress_1812_garrison.json, every man's and officer's dress."""
+    entries = {}
+    for p in people:
+        rank = p['occupation']['value'].split(',')[0]
+        sid = 'fatigue_2' if p['id'] == 'grummo_paul' else plan[p['id']][0]   # Grummo stands third in the rank
+        entries[p['id']] = GD.dress_for(p['id'], rank, sid)
+    for pid in GD.OFFICERS:
+        rec, words = GD.officer_dress(pid)
+        entries[pid] = ('officer_first_infantry_1812', rec, words)
+    return GD.dress_file(entries)
 
 
 def main(check=False):
-    files = build()
+    files, plan = build()
     index_path = INST / 'index.json'
     index = json.loads(index_path.read_text())
     others = [i for i in index['instances'] if not (i.startswith('hi_') and f"{i}.json" in files)]
-    index = {'scene': '1812', 'instances': others + sorted(f[:-5] for f in files)}
+    # Sorted whole, so every script that writes its own instances here (this one, the town's
+    # place_town.py) writes the same index.
+    index = {'scene': '1812', 'instances': sorted(set(others) | {f[:-5] for f in files})}
     files['index.json'] = index
+    dress = garrison_dress(men(), plan)
     stale = []
     for name, rec in files.items():
         text = json.dumps(rec, indent=2, ensure_ascii=False) + '\n'
@@ -256,6 +280,13 @@ def main(check=False):
                 stale.append(name)
         else:
             path.write_text(text)
+    dress_path = ROOT / 'data/humans/variation/dress_1812_garrison.json'
+    dress_text = json.dumps(dress, indent=1, ensure_ascii=False) + '\n'
+    if check:
+        if not dress_path.exists() or dress_path.read_text() != dress_text:
+            stale.append(str(dress_path.relative_to(ROOT)))
+    else:
+        dress_path.write_text(dress_text)
     if stale:
         raise SystemExit('stale 1812 garrison instances (rerun place.py): ' + ', '.join(stale))
     print(f"{len(files) - 1} men of Heald's company placed" + (' — current' if check else ''))

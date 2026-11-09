@@ -3143,7 +3143,9 @@ class Bay:
         T-3092: a rail may carry a stone `panel` in the middle of one run, rising to a pedestal,
         with iron scrolls over its sweeps, and its bars may each carry a `roundel` (1812's).
         T-3324: `bl` and `meta_key` lay a square tower's storey balcony with the same rail, on its
-        slab, and record it under its own name."""
+        slab, and record it under its own name.
+        T-1890: a bow's `to_frac` stops the rail that far round its arc, its end post against
+        the face the bow runs into (1801's front bow at the south pavilion's pilaster)."""
         bl = self.v["balcony"] if bl is None else bl
         role = "band" if bl.get("fabric") == "stone" else "iron"
         rf = self.v["roof"]
@@ -3168,6 +3170,9 @@ class Bay:
         y0, y3 = y_e + (0.002 if role == "band" or square else 0.0), y_e + bl["height_m"]
         d0, d1 = -z - pm / 2, -z + pm / 2
         sa, sb = run.s_start(z), run.s_end(z)
+        if bl.get("to_frac") is not None:
+            # T-1890: a bow's rail stopped part way round, against the face its bow runs into
+            sb = sa + (sb - sa) * bl["to_frac"]
         last = run is self.runs[-1]
         p0 = sa if first else None
         p1 = sb - pm if not square or last else sb - pm / 2
