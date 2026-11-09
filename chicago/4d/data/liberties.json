@@ -71700,6 +71700,36 @@
       ]
     },
     {
+      "id": "L-1812-town-dress-3522",
+      "title": "Each 1812 settler, trader, engagé and townswoman dressed as their own, with a hat of their own",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-08",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-08, with a still of three townsmen on the prairie in the same black round hat, dark waistcoat and grey trousers: *\"you need to vary the clothing more so everyone is their unique person in 1812 all of these guys wear the same hat and clothing so do that across the board\"*. The town wore five dressed bodies (settler 1812, trader 1812, engage 1812, woman working 1812, lady 1812), one set of colours and one hat each. No new body is made (1812's phone memory sits under its ceiling); the research notes on town dress 1812 writes the dress 1812 town data for the 40 townspeople who are not soldiers or children, and the walkthrough's human hats code makes each hat for the head it sits on. Five things are ours. (1) **Colours**, inside the readings' own ranges by trade (people-1812-3466 `dress`: the settler's tow, white or checked shirt, natural, tan or blue trousers, brown, red or striped waistcoat; the trader's dark green, blue or brown-black coat, yellow, buff or white waistcoat, black or buff breeches; the engagé's printed or striped calico, red sash with blue, green and yellow, natural or blue trousers; people-1812-3464 `dress`: the laundress's printed or striped short gown, striped, blue, brown or madder petticoat, white, natural or blue-checked apron; the woman of the country's red, blue or brown print and dark stroud; the officers' wives' white, cream or small-print gowns, the matron's dark), each cloth its own dye lot, older people's more worn. (2) **What is worn**: a waistcoat (drawn in the shirt's cloth for a man in his shirt sleeves, since the trousers under it are cut for one), neckerchief, sash, apron or neck kerchief left off by some; Wau-Bun's *\"suit of deer-skin, with belt, moccasins\"* on about one engagé in three; moccasins on some settlers. (3) **Hats**: felt round hats of the wearer's own crown (8.5-16 cm), taper and brim (4.5-10 cm), rolled or gone soft, black, rusty, brown, drab or grey; natural or weathered straw with or without a band; the red tuque, or a knitted cap in red, blue, brown or undyed with a long or short fall; some bare heads. The trader's hats are the tall town ones of Krimmel's men, the frontier ones lower. (4) **The women of the country** (Archange Ouilmette, Mrs Bisson, Josette LaFramboise, Madeline Mirandeau) wear Wau-Bun's blue cotton handkerchief round the head and moccasins; some laundresses a handkerchief in place of the cap, as the reading allows; Cicely the head-wrap of the reading for a woman in her place. (5) **The mix**: who wears which is seeded, rerolled until each person differs from everyone of their body in at least two of headwear, upper, middle and lower garment; no two alike (the human town dress test)."
+        },
+        {
+          "label": "Not invented",
+          "text": "the pieces and colour ranges of the readings above, which grade them (inferred for the engagé and the woman of the country, reconstructed for the settler and the trader) and cite Wau-Bun, Lambert (1810), Heriot (1807), Krimmel's Philadelphia pictures (1811-13), the Pixler family (c.1815) and the Met's garments of 1810-20. Nothing about any one of these people's clothes is recorded, save Wells's queue and round felt hat (people-1812-3463)."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "a description, inventory or picture of any of these people's clothes, which replaces their row."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-08."
+        }
+      ],
+      "work_refs": [
+        "T-3522"
+      ]
+    },
+    {
       "id": "L-1812-native-cards-3507",
       "title": "Names, histories and the part on 15 August for every Potawatomi and Miami card of 1812, and three named men who came after the 14th",
       "section": "per_subject",

@@ -650,6 +650,10 @@ step "Shabbona, Billy Caldwell and Alexander Robinson have the cards native_card
   python3 tools/native_cards_1812.py --check
 step "Every 1812 Potawatomi and Miami person is dressed as their own, as dress.py writes it (T-3506)" \
   python3 docs/RESEARCH/native-dress-1812-3506/dress.py --check
+step "Every 1812 settler, trader, engagé and townswoman is dressed as their own, as dress.py writes it (T-3522)" \
+  python3 docs/RESEARCH/town-dress-1812-3522/dress.py --check
+step "No two 1812 townspeople dressed alike; each hat made for its wearer's head, above the brow, rigid on the head bone, its crown and brim the wearer's own; on their card (T-3522)" \
+  node tools/test_human_town_dress.mjs
 step "People on foot walk heel to toe at a real pace and stride, the stance foot planted, the pelvis turning and rising over it, deterministic across LOD swaps (T-3472)" \
   node tools/test_human_gait.mjs
 step "A woman's skirt swings off her legs as she walks and never parts between them, the rest pose exact (T-3472)" \
@@ -3049,6 +3053,11 @@ step "the forts' parade grounds re-derive from their parade records" \
 # lodge_camp footprint, derived from the camp's sidecars and listed in the 1812 manifest.
 step "the 1812 camp's worn ground re-derives from its camp records (T-3342)" \
   python3 tools/generate_camp_ground_1812.py --check
+# T-3526: and that ground states every lodge and bark house standing on it, so yards.js
+# leaves its earth out from under them: the cut is inside every foot, the mask uploads, and
+# a scene with no dwellings compiles no cut (the lodges "floated" over a navy band from afar).
+step "no yard earth under the 1812 camp's lodges, so their feet stand on the ground at any range (T-3526)" \
+  node tools/test_yard_dwelling_cut.mjs
 
 # And the ground BETWEEN the 1812 buildings (T-3339): the worn trails (the beaten lake-shore
 # trail, the Vincennes trace, the cart road south from the gate, the paths along both banks)
