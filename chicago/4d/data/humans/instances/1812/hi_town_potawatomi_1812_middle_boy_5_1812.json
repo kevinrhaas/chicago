@@ -622,11 +622,17 @@
               "heading_deg": 258.0
             },
             "doing": "playing near the lodges",
-            "activity": "walk",
-            "to_point": {
-              "local_e": 772.15,
-              "local_n": -176.56
-            }
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 778.71,
+                "local_n": -173.73
+              },
+              {
+                "local_e": 779.29,
+                "local_n": -176.47
+              }
+            ]
           },
           {
             "from": 12.0,
@@ -651,11 +657,17 @@
               "heading_deg": 258.0
             },
             "doing": "playing near the lodges",
-            "activity": "walk",
-            "to_point": {
-              "local_e": 773.15,
-              "local_n": -176.56
-            }
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 779.71,
+                "local_n": -173.73
+              },
+              {
+                "local_e": 780.29,
+                "local_n": -176.47
+              }
+            ]
           },
           {
             "from": 15.5,
@@ -667,11 +679,17 @@
               "heading_deg": 258.0
             },
             "doing": "playing near the lodges",
-            "activity": "walk",
-            "to_point": {
-              "local_e": 772.15,
-              "local_n": -176.56
-            }
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 778.71,
+                "local_n": -173.73
+              },
+              {
+                "local_e": 779.29,
+                "local_n": -176.47
+              }
+            ]
           },
           {
             "from": 18.0,

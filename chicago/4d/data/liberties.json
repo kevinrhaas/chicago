@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1066,
+  "count": 1067,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -72129,6 +72129,39 @@
         "T-3527",
         "T-3342",
         "T-3528"
+      ]
+    },
+    {
+      "id": "L-1812-river-family-3530",
+      "title": "A Potawatomi family living at the lodges by the river all 1812: who they are, that they winter there, and their days",
+      "section": "per_subject",
+      "subjects": [
+        "potawatomi_trading_lodges_1812"
+      ],
+      "covers": [],
+      "recorded": "2026-11-09",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-09, on the card asking whether earlier work's year-round lodges by the river should have people living in them, chose *\"One family lives there all year\"* (\"Two or three lodges with a small Potawatomi family of about six to eight, with researched reconstructed names and histories like the gathering's people\"). So seven people live at The Potawatomi lodges by the river, 1812 on every date of 1812 (household the Potawatomi household): a man of about 38, his wife of 33, her mother of 57, a son of 16, a daughter of 12, a boy of 8 and a girl of 5. Their day reading is the research notes on people 1812 (written by the gen day tool there): the warm months (April to October) at the yard, fishing, mending the canoes, pounding corn, scraping hides, weaving, cooking and eating at the fire; a trading morning at the government factory about one day in six until Matthew Irwin left on 5 July 1812 (the canoe trip off the scene); the cold months (November to March) mostly indoors by the fire, the man and his son out hunting through the middle of the day; and 15 August, when the man and his son are away with the warriors. **That this family winters by the river is the owner's choice and against the run of the evidence**: Juliette Kinzie saw families carry their goods \"to their wintering-grounds, to be brought back in the spring\" (Wau-Bun ch. XV, 1831), and Currey has the Potawatomi \"come and go\" by habit (1912 ch. II); the family is put as one that stayed by the post, hunting from it and trading at it. Their names, gentes and histories are made by the native cards 1812 tool as for every unnamed Native card (“Names, histories and the part on 15 August for every Potawatomi and Miami card of 1812, and three named men who came after the 14th”), named after every other card so no name repeats, and put with the village \"at the camping place of Chicago, three leagues from the fort\" (Edwards, May 1812, in Andreas), the band nearest; their dress by the research notes on native dress 1812, their looks by the research notes on people 1812 town."
+        },
+        {
+          "label": "Not invented",
+          "text": "the Potawatomi's habit of coming and going and camping by the river near the creek's mouth, and their trade in furs and maple sugar (Currey 1912 ch. II); the factory and its closing (Irwin left 5 July 1812); Helm's and Heald's counts of the gathering and the attack. No trade, speech, ceremony or act of war is staged."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "a source that names a Potawatomi family living by the post at Chicago before 1812, or says where families wintered in these years; the judgement of Native scholars or community organisations, which may change who is drawn here, or whether."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-09."
+        }
+      ],
+      "work_refs": [
+        "T-3528",
+        "T-3530"
       ]
     },
     {

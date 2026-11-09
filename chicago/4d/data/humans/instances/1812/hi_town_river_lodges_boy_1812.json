@@ -1,0 +1,252 @@
+{
+  "id": "hi_town_river_lodges_boy_1812",
+  "contract_version": 1,
+  "scene": "1812",
+  "person_id": "river_lodges_boy_1812",
+  "appearance": {
+    "asset_id": "potawatomi_boy_1812"
+  },
+  "placement": {
+    "local_e": 711.0,
+    "local_n": -15.0,
+    "heading_deg": 30.0,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "idle",
+    "loop": true,
+    "phase": 0.758
+  },
+  "behaviour": {
+    "state": "standing",
+    "day": [
+      {
+        "dates": {
+          "from": "1812-11-01",
+          "to": "1812-12-31"
+        },
+        "note": "the cold months",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 11.5,
+            "indoors": true,
+            "where": "potawatomi_trading_lodges_1812",
+            "doing": "by the fire in the lodge"
+          },
+          {
+            "from": 11.5,
+            "to": 13.5,
+            "indoors": false,
+            "at": {
+              "local_e": 712.0,
+              "local_n": -25.1,
+              "heading_deg": 0.0
+            },
+            "doing": "playing in the snow between the lodges",
+            "activity": "stand"
+          },
+          {
+            "from": 13.5,
+            "to": 24.0,
+            "indoors": true,
+            "where": "potawatomi_trading_lodges_1812",
+            "doing": "by the fire in the lodge, and asleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-01-01",
+          "to": "1812-03-31"
+        },
+        "note": "the cold months",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 11.5,
+            "indoors": true,
+            "where": "potawatomi_trading_lodges_1812",
+            "doing": "by the fire in the lodge"
+          },
+          {
+            "from": 11.5,
+            "to": 13.5,
+            "indoors": false,
+            "at": {
+              "local_e": 712.0,
+              "local_n": -25.1,
+              "heading_deg": 0.0
+            },
+            "doing": "playing in the snow between the lodges",
+            "activity": "stand"
+          },
+          {
+            "from": 13.5,
+            "to": 24.0,
+            "indoors": true,
+            "where": "potawatomi_trading_lodges_1812",
+            "doing": "by the fire in the lodge, and asleep"
+          }
+        ]
+      },
+      {
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 6.0,
+            "indoors": true,
+            "where": "potawatomi_trading_lodges_1812",
+            "doing": "asleep in the lodge"
+          },
+          {
+            "from": 6.0,
+            "to": 9.5,
+            "indoors": false,
+            "at": {
+              "local_e": 711.0,
+              "local_n": -15.0,
+              "heading_deg": 30.0
+            },
+            "doing": "playing on the bank by the canoes",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 712.21,
+                "local_n": -15.7
+              },
+              {
+                "local_e": 709.79,
+                "local_n": -14.3
+              }
+            ]
+          },
+          {
+            "from": 9.5,
+            "to": 10.5,
+            "indoors": false,
+            "at": {
+              "local_e": 701.1,
+              "local_n": -26.8,
+              "heading_deg": 200.0
+            },
+            "doing": "eating at the fire with the household",
+            "activity": "talk",
+            "knot": "talk_b32f4ff9"
+          },
+          {
+            "from": 10.5,
+            "to": 13.0,
+            "indoors": false,
+            "at": {
+              "local_e": 711.0,
+              "local_n": -31.6,
+              "heading_deg": 95.0
+            },
+            "doing": "carrying sticks to the woodpile",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 710.88,
+                "local_n": -32.99
+              },
+              {
+                "local_e": 711.12,
+                "local_n": -30.21
+              }
+            ]
+          },
+          {
+            "from": 13.0,
+            "to": 16.0,
+            "indoors": false,
+            "at": {
+              "local_e": 712.4,
+              "local_n": -15.0,
+              "heading_deg": 30.0
+            },
+            "doing": "playing on the bank by the canoes",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 713.61,
+                "local_n": -15.7
+              },
+              {
+                "local_e": 711.19,
+                "local_n": -14.3
+              }
+            ]
+          },
+          {
+            "from": 16.0,
+            "to": 18.0,
+            "indoors": false,
+            "at": {
+              "local_e": 720.0,
+              "local_n": -22.2,
+              "heading_deg": 160.0
+            },
+            "doing": "watching the fish set on the rack",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 718.68,
+                "local_n": -22.68
+              },
+              {
+                "local_e": 721.32,
+                "local_n": -21.72
+              }
+            ]
+          },
+          {
+            "from": 18.0,
+            "to": 19.5,
+            "indoors": false,
+            "at": {
+              "local_e": 701.1,
+              "local_n": -26.8,
+              "heading_deg": 200.0
+            },
+            "doing": "eating at the fire with the household",
+            "activity": "talk",
+            "knot": "talk_fe8ee3cd"
+          },
+          {
+            "from": 19.5,
+            "to": 24.0,
+            "indoors": true,
+            "where": "potawatomi_trading_lodges_1812",
+            "doing": "asleep in the lodge"
+          }
+        ]
+      }
+    ],
+    "presence": {
+      "from": "1812-01-01",
+      "to": "1812-12-31"
+    }
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 3,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": true,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "Reconstructed figure of Their younger son (name not recorded) in the 1812 town, at each hour of each run of dates where the reading for T-3530 (docs/RESEARCH/people-1812-3530/day.json) puts them: indoors (asked for at the door) or out at their work, with the people they would be with. The hours, the places and the companions are ours (liberty L-1812-town-days-3463), each span graded with its own basis in the reading; what a source says of them is on their card. They wear the potawatomi boy 1812 role dress, with their own face, height, build and colouring.",
+    "sources": [
+      "currey_1912_old_fort_dearborn",
+      "kinzie_waubun_1856"
+    ],
+    "liberty": "L418",
+    "seed": "river_lodges_boy_1812:1812:days:20261108",
+    "replaceable_by": "A diary, letter or order book of the post that says where they were and what they did on the day."
+  }
+}

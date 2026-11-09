@@ -651,6 +651,10 @@ step "The cards of the 1812 town's people the 14 August sweep left out (Lalime, 
   python3 docs/RESEARCH/people-1812-town/cards.py --check
 step "The 1812 town's looks files are what looks.py writes from the readings' own words (T-3463..T-3467)" \
   python3 docs/RESEARCH/people-1812-town/looks.py --check
+# T-3530: the family the owner chose (2026-11-09) to live at the lodges by the river all 1812:
+# their day reading is what gen_day.py writes, so the cards, places and looks above read it.
+step "The family at the 1812 lodges by the river have the day reading gen_day.py writes: warm months, winter, trading mornings, 15 August (T-3530)" \
+  python3 docs/RESEARCH/people-1812-3530/gen_day.py --check
 step "Shabbona, Billy Caldwell and Alexander Robinson have the cards native_cards_1812.py writes, each placed where his sources tie him in August 1812 (T-3508)" \
   python3 tools/native_cards_1812.py --check
 step "Every 1812 Potawatomi and Miami person is dressed as their own, as dress.py writes it (T-3506)" \
