@@ -667,6 +667,8 @@ step "Each man of the 1812 garrison has his own complexion, hair, eyes and heigh
   node tools/test_human_looks.mjs
 step "The 1812 garrison's looks files are what looks.py writes (T-3491)" \
   python3 docs/RESEARCH/people-1812-3491/looks.py --check
+step "The 1812 garrison is dressed by rank and duty: NCOs' epaulettes on the shoulder, musicians' coats, drum and fife case, officers' sashes, men at work in fatigue clothes, sentries' muskets in the hand and the cornfield party's arms piled (T-3523)" \
+  node tools/test_human_garrison.mjs
 step "The driven team's generated walk and its hoof-support domain reproduce byte for byte, hooves planted without slide (T-2803)" \
   node tools/horse_walk_v2.mjs --check
 step "A driver's plain garments read as cloth: weave, heather and sheen by shader patch, no texture, one program (T-2804)" \

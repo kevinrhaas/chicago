@@ -24,7 +24,10 @@ const index = JSON.parse(await fs.readFile(new URL('index.json', dir), 'utf8'));
 const privates = [];
 for (const id of index.instances) {
   const r = JSON.parse(await fs.readFile(new URL(`${id}.json`, dir), 'utf8'));
-  if (r.appearance.asset_id === 'private_first_infantry_1812') privates.push(r.person_id);
+  // T-3523: the men at their chores wear the fatigue clothes on the settler's body; the garrison
+  // dress file says who is of the company.
+  const g = persons[r.person_id]?.dress?.garrison;
+  if (r.appearance.asset_id === 'private_first_infantry_1812' || (g && g.station !== 'officer')) privates.push(r.person_id);
 }
 assert(privates.length >= 51, `the company stands (${privates.length})`);
 const combos = new Map(), heights = [];
