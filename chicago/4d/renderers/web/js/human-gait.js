@@ -94,9 +94,19 @@ export function gaitProfile({ sex = 'male', age = 35, height = 1.72, skirt = fal
   const female = sex === 'female' || skirt;
   const old = clamp((age - 50) / 25, 0, 1); // 0 to 50, 1 by 75
   const jitter = (seed - 0.5) * 0.08;       // two people never walk exactly alike
-  const speed = (female ? 1.25 : 1.35) * (1 - 0.12 * old) * (skirt ? 0.92 : 1) * (1 + jitter * 0.6);
+  let speed = (female ? 1.25 : 1.35) * (1 - 0.12 * old) * (skirt ? 0.92 : 1) * (1 + jitter * 0.6);
   const ratio = (female ? 0.78 : 0.83) * (1 - 0.08 * old) * (skirt ? 0.95 : 1) * (1 + jitter * 0.4);
-  const stride = ratio * height;
+  let stride = ratio * height;
+  // T-3520: a child walks as a child, not as a small adult (the owner, 2026-11-08, of the
+  // 1812 children: "a very odd walk that does not make sense at all"). CHILD_GAIT's speed
+  // and cadence by age, the stride theirs for their own height; from seven on toward the
+  // adult's by fifteen.
+  if (age < 15) {
+    const c = childGait(age, height);
+    const t = clamp((age - 7) / 8, 0, 1);
+    speed = (c.speed + (speed - c.speed) * t) * (1 + jitter * 0.6);
+    stride = c.stride + (stride - c.stride) * t;
+  }
   return {
     speed, stride, cadence: (2 * speed) / stride,
     stepWidth: female ? 0.083 : 0.095,
@@ -105,6 +115,26 @@ export function gaitProfile({ sex = 'male', age = 35, height = 1.72, skirt = fal
     lateral: female ? 0.022 : 0.02,
     female, old,
   };
+}
+
+/**
+ * Children's walking by age (T-3520): the means Sutherland, Olshen, Cooper & Woo 1980 ("The
+ * development of mature gait", J Bone Joint Surg Am 62:336) give at one year (velocity
+ * 0.64 m/s, cadence 176 steps a minute) and at seven (1.14 m/s, 143), straight between them
+ * by age; the stature they are scaled from is a child of that age's usual height (0.76 m
+ * at one, 1.22 m at seven). A child shorter or taller than that takes a step in proportion.
+ */
+export const CHILD_GAIT = Object.freeze({
+  ages: Object.freeze([1, 7]), speed: Object.freeze([0.64, 1.14]), cadence: Object.freeze([176, 143]),
+  height: Object.freeze([0.76, 1.22]),
+});
+export function childGait(age, height) {
+  const t = clamp((age - CHILD_GAIT.ages[0]) / (CHILD_GAIT.ages[1] - CHILD_GAIT.ages[0]), 0, 1);
+  const at = (k) => CHILD_GAIT[k][0] + (CHILD_GAIT[k][1] - CHILD_GAIT[k][0]) * t;
+  const usual = at('height'), speed0 = at('speed'), cadence = at('cadence') / 60;
+  const scale = clamp(height / usual, 0.8, 1.25);
+  const stride = (2 * speed0 / cadence) * scale;
+  return { speed: stride * cadence / 2, stride };
 }
 
 /** A periodic Catmull-Rom through a 21-point table at cycle fraction `c`. */
@@ -232,8 +262,15 @@ export function createHumanGait({ id = 'human', scene = null, profile = {} } = {
     unit = next.getWorldScale(new THREE.Vector3()).y || 1;
     // Stature from the hip joint's height (about 0.53 of it in adults), not the drawn box,
     // which a hat and its plumes would stretch.
-    const drawn = ((rest.thigh_l.p.y + rest.thigh_r.p.y) / 2 - leg.l.shape.sole) / 0.53 * unit;
-    const metres = Number.isFinite(profile.height) && profile.height > 0.8 ? profile.height : drawn > 0.8 ? drawn : 1.7;
+    // T-3520: a child's hips sit lower in their height (about 0.44 of it at two, 0.51 by twelve),
+    // and a small child is well under 0.8 m: read as an adult of 1.7 m, a toddler was given a
+    // man's 1.3 m stride on legs 0.4 m long and walked on its knees.
+    const young = Number.isFinite(profile.age) && profile.age < 15;
+    const hipRatio = young ? 0.44 + 0.07 * clamp((profile.age - 2) / 10, 0, 1) : 0.53;
+    const drawn = ((rest.thigh_l.p.y + rest.thigh_r.p.y) / 2 - leg.l.shape.sole) / hipRatio * unit;
+    const least = young ? 0.5 : 0.8;
+    const metres = Number.isFinite(profile.height) && profile.height > least ? profile.height : drawn > least ? drawn
+      : young ? CHILD_GAIT.height[0] + (CHILD_GAIT.height[1] - CHILD_GAIT.height[0]) * clamp((profile.age - 1) / 6, 0, 1.6) : 1.7;
     P = gaitProfile({ ...profile, height: metres, seed });
     bound = true;
     return true;

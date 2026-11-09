@@ -126,6 +126,81 @@ def lodge_doors(sidecar: dict, glb: Path) -> list[dict]:
     return [{"id": f"{sidecar['id']}:lodge{i + 1}", **d} for i, d in enumerate(out)]
 
 
+def hull(points: np.ndarray) -> list[tuple[float, float]]:
+    """The convex hull of 2D points, counter-clockwise (Andrew's monotone chain)."""
+    pts = sorted(set(map(tuple, np.round(points, 3).tolist())))
+    if len(pts) < 3:
+        return pts
+
+    def cross(o, a, b):
+        return (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0])
+    lower, upper = [], []
+    for q in pts:
+        while len(lower) >= 2 and cross(lower[-2], lower[-1], q) <= 0:
+            lower.pop()
+        lower.append(q)
+    for q in reversed(pts):
+        while len(upper) >= 2 and cross(upper[-2], upper[-1], q) <= 0:
+            upper.pop()
+        upper.append(q)
+    return lower[:-1] + upper[:-1]
+
+
+WALL_LINK_M = 1.2   # covering triangles nearer than this are one lodge's wall
+WALL_FOOT_M = 0.4   # a wall comes down to the ground: covering lower than this
+
+
+def lodge_walls(sidecar: dict, glb: Path) -> list[list[list[float]]]:
+    """T-3520: where each lodge's walls stand on the ground, in local E/N (the owner, 2026-11-08:
+    "people can stand and break the wall of the mat walls"). The hull of the lodge's own covering
+    (mats or bark) where it comes down to the ground; an arbor's roof, up on its posts, is not a wall."""
+    parts = load_triangles(glb)
+    cover = [t for name, t in parts if name in ("camp_cattail_mat", "camp_elm_bark")]
+    if not cover:
+        return []
+    C = np.concatenate(cover)
+    C = C[C[:, :, 1].min(axis=1) < WALL_FOOT_M]
+    if not len(C):
+        return []
+    centres = np.stack([C[:, :, 0].mean(1), -C[:, :, 2].mean(1)], 1)
+    pl = sidecar["placement"]
+    out = []
+    for grp in clusters_within(centres, WALL_LINK_M):
+        pts = np.stack([C[grp][:, :, 0].ravel(), -C[grp][:, :, 2].ravel()], 1)
+        if float(np.ptp(pts, axis=0).max()) < 1.0:
+            continue
+        ring = [list(map(lambda x: round(x, 2), to_world(u, v, pl))) for u, v in hull(pts)]
+        if len(ring) >= 3:
+            out.append(ring)
+    out.sort(key=lambda r: (min(p[0] for p in r), min(p[1] for p in r)))
+    return out
+
+
+def clusters_within(points: np.ndarray, link: float) -> list[list[int]]:
+    """Groups of points each within `link` of another of its group (a grid keeps it quick)."""
+    cell = {}
+    for i, (x, y) in enumerate(points):
+        cell.setdefault((int(x // link), int(y // link)), []).append(i)
+    seen, out = set(), []
+    for i in range(len(points)):
+        if i in seen:
+            continue
+        seen.add(i)
+        grp, frontier = [i], [i]
+        while frontier:
+            j = frontier.pop()
+            cx, cy = int(points[j][0] // link), int(points[j][1] // link)
+            for dx in (-1, 0, 1):
+                for dy in (-1, 0, 1):
+                    for k in cell.get((cx + dx, cy + dy), []):
+                        if k not in seen and math.hypot(*(points[k] - points[j])) < link:
+                            seen.add(k)
+                            grp.append(k)
+                            frontier.append(k)
+        out.append(grp)
+    return out
+
+
 def doors_of(sidecar: dict, glb: Path) -> tuple[list[dict], list[str]]:
     problems = []
     if sidecar.get("archetype") == "lodge_camp" or sidecar["id"].startswith("potawatomi_camp_1812"):
@@ -229,14 +304,18 @@ def derive(previous: dict | None = None) -> tuple[dict, list[str]]:
             continue
         h = sha256(glb)
         old = prev.get(sc["id"])
-        if old and old.get("asset_sha256") == h and old.get("placement") == _placement(sc):
+        lodges = sc.get("archetype") == "lodge_camp" or sc["id"].startswith("potawatomi_camp_1812")
+        if old and old.get("asset_sha256") == h and old.get("placement") == _placement(sc) and (not lodges or "walls" in old):
             rows.append(old)
             continue
         doors, p = doors_of(sc, glb)
         problems += p
         if doors:
-            rows.append({"structure": sc["id"], "name": sc.get("name") or sc["id"], "asset_sha256": h,
-                         "placement": _placement(sc), "doors": doors})
+            row = {"structure": sc["id"], "name": sc.get("name") or sc["id"], "asset_sha256": h,
+                   "placement": _placement(sc), "doors": doors}
+            if lodges:
+                row["walls"] = lodge_walls(sc, glb)   # T-3520: no one stands in a lodge's wall
+            rows.append(row)
     return {
         "format": FORMAT,
         "ticket": "T-3463",
