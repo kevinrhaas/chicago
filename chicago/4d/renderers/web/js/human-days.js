@@ -1020,7 +1020,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
     const groups = new Map();
     for (const p of people) {
       const s = p.round ? p.cur : (p.play ?? p.span);
-      if (p.mode !== 'out' || p.called || !s || s.activity !== 'talk' || !s.knot) continue;
+      if (p.mode !== 'out' || p.called || p.hosted || !s || s.activity !== 'talk' || !s.knot) continue;
       if (humans.isHeld?.(p.actor)) continue;
       if (!groups.has(s.knot)) groups.set(s.knot, []);
       groups.get(s.knot).push(p);
@@ -1192,6 +1192,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
           continue;
         }
         if (p.absent) { p.absent = false; if (p.soldier) a.setIndoors?.(false); }
+        if (p.hosted) continue;   // T-3525: a jaunt's host, at their mark until let go
         // T-3524: on a passage's stair or in its doorway, they finish it before anything else.
         if (p.passing) { if (clock - p.passing.since > PASSAGE.stuck_s) offWay(p); continue; }
         if (p.called) { stepCalled(p, dt); continue; }
@@ -1230,6 +1231,57 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
       callOut(p, door.door);
       return { ok: true, door: door.id };
     },
+    /**
+     * T-3525: a jaunt's host. Take `personOrInstance` out of their day and walk them to
+     * `mark` ({ e, n }), out of the house by its door nearest the mark if they are in, and
+     * stand there turned to `heading`; `onArrive` once they stand. { ok, why }. They stay
+     * until `unhost`, which gives them back to the hour's place (in by a door, or out to it).
+     */
+    host(personOrInstance, mark, { heading = null, onArrive = null } = {}) {
+      const p = people.find((x) => x.actor.personId === personOrInstance || x.id === personOrInstance);
+      if (!p || p.entry) return { ok: false, why: 'no such person' };
+      if (p.absent) return { ok: false, why: 'not here on this date' };
+      if (p.called) p.called = null;
+      const a = p.actor, to = { e: mark.e, n: mark.n };
+      p.hosted = { mark: to, heading };
+      p.job = null; p.round = null; p.phase = null; p.cur = null;
+      p.token = (p.token ?? 0) + 1;
+      talk(a, false);
+      offWay(p);                // off any stair they were on (T-3524), and its door let go
+      const arrive = () => { if (p.hosted) onArrive?.(a); };
+      const structure = a.indoors ? (p.inside ?? p.span?.where ?? null) : null;
+      const door = structure ? doorNear(structure, to.e, to.n) : null;
+      p.inside = null;
+      p.mode = 'hosted';
+      a.setState?.('standing');
+      if (door) {
+        // Out by that door: up or down its stair, the door opening and shutting (T-3524), then on.
+        const t = p.token;
+        exitBy(p, door, (from) => { if (p.hosted && p.token >= t) go(p, to, heading, arrive, { from }); });
+        return { ok: true };
+      }
+      if (a.indoors) {
+        a.e = to.e; a.n = to.n; a.standY = null;
+        if (Number.isFinite(heading)) a.heading = heading;
+        a.setIndoors?.(false);
+        a.place?.();
+      }
+      go(p, to, heading, arrive);
+      return { ok: true };
+    },
+    /** T-3525: let a jaunt's host go back to their day. */
+    unhost(personOrInstance) {
+      const p = people.find((x) => x.actor.personId === personOrInstance || x.id === personOrInstance);
+      if (!p?.hosted) return false;
+      p.hosted = null;
+      p.token = (p.token ?? 0) + 1;
+      offWay(p);
+      p.span = null;            // the next frame enters the hour's span from where they stand
+      p.mode = p.actor.indoors ? 'in' : 'out';
+      return true;
+    },
+    /** T-3525: whether a jaunt holds this figure as a host. */
+    isHosted: (actor) => !!people.find((p) => p.actor === actor)?.hosted,
     /** Whether a person is held out by a call (human-duties.js leaves them be). */
     isCalled: (actor) => !!people.find((p) => p.actor === actor)?.called,
     /** The inside-only people (no figure until asked for), and how many are out now. */

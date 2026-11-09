@@ -995,7 +995,8 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
           emit('approach', a);
           // T-3521: `approach` marks an open the visitor did not ask for (they walked up, or the
           // person walked past them), so a card the visitor picked can stay where it is.
-          if (a.instance.interaction?.opens === 'resident_card' && a.identity.kind === 'person') emit('open', a, { approach: true });
+          // T-3525: a jaunt's host is met by the stop's own text; their card waits for its link.
+          if (a.instance.interaction?.opens === 'resident_card' && a.identity.kind === 'person' && !a.jauntHost) emit('open', a, { approach: true });
           if (a.instance.interaction?.opens === 'role_card' && a.identity.kind === 'anonymous') emit('role_open', a);
         } else if (!inside && near.has(a)) {
           near.delete(a);
