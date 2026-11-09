@@ -5681,6 +5681,8 @@ async function boot() {
   const transportReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   transportReducedMotion.addEventListener('change', resetVisualClock);
   let interactPaintAt = 0;
+  /** T-3527: the date and the buildings the dated structures were last drawn for. */
+  const datedFor = { date: undefined, buildings: null };
   let interactHinted = false;
   window.addEventListener('pagehide', event => {
     if (event.persisted) return;
@@ -6160,6 +6162,15 @@ async function boot() {
     // A 0.05 s visual-effects step made human clips/routes crawl on slow devices.
     api.humans?.update(frameDt, camera, walker.state, visualDt);
     api.duties?.update(frameDt);
+    // T-3527: the 1812 gathering's camps, their worn ground and paths come and go with
+    // the date the Season or a jaunt sets (buildings.js / yards.js setDate).
+    if (world.sunDate !== datedFor.date || buildings !== datedFor.buildings) {
+      datedFor.date = world.sunDate;
+      datedFor.buildings = buildings;
+      buildings?.setDate?.(world.sunDate);
+      api.yards?.setDate?.(world.sunDate);
+      gateFrame.invalidate?.();
+    }
     api.days?.update(frameDt);
     // T-3504: and then nobody stands in anybody else (human-spacing.js).
     api.spacing?.update(frameDt);

@@ -160,6 +160,15 @@ def dwellings(sc: dict) -> list[list[float]]:
     return out
 
 
+def window(sc: dict):
+    """The days a camp ground is drawn (T-3527): its record's documented_range where that
+    range says `drawn_only_within`, else None (drawn every day)."""
+    rng = sc.get("documented_range") or {}
+    if rng.get("drawn_only_within") is not True:
+        return None
+    return {"from": rng["from"], "to": rng["to"]}
+
+
 def _wobble(seed_name: str):
     """A slow, seeded, zero-mean breathing round the patch: three harmonics, phases off the
     record's id (crc32, as the archetype seeds), so no two patches fray alike."""
@@ -311,6 +320,15 @@ def derive() -> dict:
                 "its edges, the right reading for ground walked and worked between lodges."
             ),
             "interior_local_enu_m": rings,
+            "interior_drawn_within": [window(sc) for sc in groups],
+            "interior_drawn_within_note": (
+                "T-3527: one entry to each ring above, in the same order: the days its camp "
+                "stands, from that camp's record (documented_range with drawn_only_within), or "
+                "null for a ground drawn every day. yards.js draws a ring's earth only on its "
+                "days, as buildings.js draws the camp; on any other date the Season or a jaunt "
+                "sets, the ground is the prairie's (the owner, 2026-11-08, chose that the camps "
+                "come and go with the date)."
+            ),
             "dwellings_local_enu_m": [d for sc in groups for d in dwellings(sc)],
             "dwellings_note": (
                 "T-3526: the plan of every lodge and bark house standing on these grounds, as "

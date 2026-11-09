@@ -1083,6 +1083,10 @@
         "note": {
           "type": "string"
         },
+        "drawn_only_within": {
+          "const": true,
+          "description": "T-3527. The structure is drawn only on dates inside this range: buildings.js hides it on any other day the Season or a jaunt sets. For a camp or gathering that stood days, not years (the owner's pick for the 1812 gathering's camps, 2026-11-08). Absent: the range bounds when the structure existed, and the scene draws it whatever day of the year is shown."
+        },
         "from_is": {
           "enum": [
             "began",
