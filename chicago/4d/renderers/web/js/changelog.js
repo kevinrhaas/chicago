@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2852, ts: '2026-11-09T05:54:45.212Z', date: 'Nov 8, 2026, 11:54 PM CT', title: '1811 Prairie\'s roof loses the gash at its north-west corner', kind: 'fix',
+    items: [
+      'Seen from the north-west, the tall hipped roof at 1811 Prairie had a deep slot cut into it over the low corner pier, running back 3.4 m with a sheer slate wall.',
+      'The cut over the pier now tapers to nothing at the north eave, so the hip comes down to the pier in one piece.',
+      'From the street the pier still has open sky over its cap, as in the 1888 plate and both photographs.',
+    ] },
   { v: 2851, ts: '2026-11-09T04:41:57.867Z', date: 'Nov 8, 2026, 10:41 PM CT', title: '1812: a Potawatomi family lives at the lodges by the river', kind: 'feature',
     items: [
       'Seven people now live at the lodges by the river on every date of 1812: a man and his wife, her mother, and four children from five to sixteen. Each has a researched, reconstructed name, gens and history on their card.',
