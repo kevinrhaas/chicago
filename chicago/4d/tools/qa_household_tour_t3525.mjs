@@ -81,6 +81,14 @@ try {
       if (h.blocked) fail.push(`${row.stop}: ${h.person}'s mark is blocked ground`);
     }
     await shot(`${String(i + 1).padStart(2, '0')}-${row.stop}`);
+    if (!desktop) {
+      // A phone's panel covers the scene; the visitor folds it to look, so look folded too.
+      await page.click('.jaunt-collapse').catch(() => {});
+      await frames(4);
+      await shot(`${String(i + 1).padStart(2, '0')}-${row.stop}-folded`);
+      await page.evaluate(() => document.querySelector('.jaunt-bar-label')?.click());
+      await frames(2);
+    }
   }
   await page.evaluate(() => __chicago4d.jaunts.end());
   await frames(4);
