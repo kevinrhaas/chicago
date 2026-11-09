@@ -9,7 +9,8 @@
  *   records   every Potawatomi camp and the Miami escort's camp states its range as
  *             `drawn_only_within`, and the compiled sidecar carries it (buildings.js reads
  *             the sidecar); no other 1812 structure does;
- *   ground    the camp ground states one window per ring, its own camp's range; the camp
+ *   ground    the camp ground states one window per ring, its own camp's range (null for
+ *             T-3528's lodges by the river, drawn all year, and never cut); the camp
  *             paths carry the gathering's days; the older trails (lake shore, Vincennes,
  *             cart road, bank paths) none;
  *   mask      read back as the GPU reads it (nearest), every ring's inside names its window,
@@ -69,8 +70,12 @@ const rings = camp.ground.interior_local_enu_m;
 const wins = camp.ground.interior_drawn_within;
 assert.equal(wins.length, rings.length, 'one window per camp ring');
 const sorted = [...ranges.values()];
+// T-3528: the lodges by the river stand all year, so their ring carries no window.
+const undated = wins.filter((w) => w === null).length;
+assert.equal(undated, 1, `rings drawn every day: ${undated} (the lodges by the river)`);
 for (const w of wins) {
-  assert.ok(w && sorted.some((r) => r.from === w.from && r.to === w.to), `ring window ${JSON.stringify(w)} is no camp's range`);
+  if (w === null) continue;
+  assert.ok(sorted.some((r) => r.from === w.from && r.to === w.to), `ring window ${JSON.stringify(w)} is no camp's range`);
   checks += 1;
 }
 const pota = [...ranges].filter(([id]) => id.startsWith('potawatomi')).map(([, r]) => r);
@@ -110,8 +115,8 @@ const nearEveryDay = (e, n) => everyDay.some((t) => t.line_local_enu_m.some(([a,
   return Math.hypot(e - a - s * dx, n - b - s * dn) < 4;
 }));
 rings.forEach((ring, i) => {
-  const want = windows.findIndex((w) => keyOf(w) === keyOf(wins[i])) + 1;
-  assert.ok(want > 0, `ring ${i}: its window is not in the mask`);
+  const want = wins[i] === null ? 0 : windows.findIndex((w) => keyOf(w) === keyOf(wins[i])) + 1;
+  assert.ok(want > 0 || wins[i] === null, `ring ${i}: its window is not in the mask`);
   let tried = 0;
   for (const [e, n] of ring) {
     // a point a quarter of the way in from each vertex toward the ring's centroid

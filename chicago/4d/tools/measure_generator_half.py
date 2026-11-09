@@ -693,9 +693,11 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # 1035 -> 1043 on 2026-11-08 (T-3499): seven more grounds of the 1812 Potawatomi camp and the
 # Miami escort's camp, eight assets on the pure-Python `lodge_camp` (generators/lodge_camp_emit.py),
 # restaling on none of the shared rows.
+# 1043 -> 1044 on 2026-11-09 (T-3528): the 1812 Potawatomi lodges by the river, one asset on
+# the pure-Python `lodge_camp`, restaling on none of the shared rows.
 #
 STATED = {
-    "assets": 1043,
+    "assets": 1044,
     "restales": {
         "generators/common/*.py": 742,
         "generators/common/__init__.py": 0,

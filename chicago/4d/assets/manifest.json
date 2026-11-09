@@ -4203,6 +4203,16 @@
       "phase_id": "camp_1812",
       "structure_id": "potawatomi_camp_1812_west_bank"
     },
+    "potawatomi_trading_lodges_1812__camp_1812.glb": {
+      "archetype": "lodge_camp",
+      "baked_ao": false,
+      "bytes": 351656,
+      "generator": "generators/lodge_camp_emit.py",
+      "inputs_sha256": "c5522fe0df2a37c2211e5c505180c719289183953ba1d18c8a3b31769b591160",
+      "kind": "generated",
+      "phase_id": "camp_1812",
+      "structure_id": "potawatomi_trading_lodges_1812"
+    },
     "pruyne_kimball_drugstore__frame_1830s.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,

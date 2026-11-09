@@ -11,7 +11,7 @@
  * Headless, no browser:
  *
  *   record    the committed camp ground states one plan per dwelling the archetype lays
- *             (73 in 1812), each finite with positive half-axes, every one inside its own
+ *             (76 in 1812, 3 of them T-3528's lodges by the river), each finite with positive half-axes, every one inside its own
  *             ground's worn patch;
  *   inside    read back through the mask as the GPU reads it (bilinear on the texel grid),
  *             every plan is cut at 80 % of its radius in sixteen directions, and kept at the
@@ -52,7 +52,7 @@ let checks = 0;
 // record
 const list = dwellingsOf([camp]);
 assert.equal(list.length, camp.ground.dwellings_local_enu_m.length);
-assert.equal(list.length, 73, `1812 camp dwellings: ${list.length}`);
+assert.equal(list.length, 76, `1812 camp dwellings: ${list.length}`);
 for (const d of list) {
   assert.equal(d.length, 6);
   assert.ok(d.every(Number.isFinite), `finite: ${d}`);
