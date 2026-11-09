@@ -633,9 +633,9 @@ step "Each 1812 building's doors are where its model draws the leaf, and where o
   python3 tools/derive_doors_1812.py --check
 step "1812 people keep their day: off their dates nowhere (Lalime gone by 14 August, there in February), indoors or out by the hour, talking, at work, walking; a door offers Ask for whoever is inside, soldiers in quarters too, and the one asked for comes out to the visitor and goes back in (T-3463..T-3467)" \
   node tools/test_human_days.mjs
-step "Nobody stands in anybody else's place: a talk in a ring, people standing together talk, one alone is at a job, and every year's figures kept a body's width apart through the day (T-3504)" \
+step "Nobody stands in anybody else's place: a talk in a ring, people standing together talk, one alone is at a job, and every year's figures kept a body's width apart through the day, and nobody stands in a mat or bark lodge wall (T-3504, T-3520)" \
   node tools/test_human_spacing.mjs
-step "People keep busy all day: a talk gathers and parts again, each of its people at a job of their own or at play between, breaks indoors at their door and asked for there, every job's places clear of the buildings, the same round on every load; 1835 and 1904 too (T-3505, T-3516)" \
+step "People keep busy all day: a talk gathers and parts again, each of its people at a job of their own or at play between, breaks indoors at their door and asked for there, every job's places clear of the buildings, the same round on every load; 1835 and 1904 too; most children indoors or by their own door, never a crowd of them without grown-ups (T-3505, T-3516, T-3520)" \
   node tools/test_human_rounds.mjs
 step "1835's and 1904's drawn people's days are what days.py writes (T-3516)" \
   python3 docs/RESEARCH/people-days-1835-1904/days.py --check
@@ -651,11 +651,13 @@ step "Shabbona, Billy Caldwell and Alexander Robinson have the cards native_card
   python3 tools/native_cards_1812.py --check
 step "Every 1812 Potawatomi and Miami person is dressed as their own, as dress.py writes it (T-3506)" \
   python3 docs/RESEARCH/native-dress-1812-3506/dress.py --check
+step "Every 1812 town child is dressed as their own, the girls' hair longer than the boys', as children.py writes it (T-3520)" \
+  python3 docs/RESEARCH/children-1812-3520/children.py --check
 step "Every 1812 settler, trader, engagé and townswoman is dressed as their own, as dress.py writes it (T-3522)" \
   python3 docs/RESEARCH/town-dress-1812-3522/dress.py --check
 step "No two 1812 townspeople dressed alike; each hat made for its wearer's head, above the brow, rigid on the head bone, its crown and brim the wearer's own; on their card (T-3522)" \
   node tools/test_human_town_dress.mjs
-step "People on foot walk heel to toe at a real pace and stride, the stance foot planted, the pelvis turning and rising over it, deterministic across LOD swaps (T-3472)" \
+step "People on foot walk heel to toe at a real pace and stride, the stance foot planted, the pelvis turning and rising over it, deterministic across LOD swaps; a child at a child's pace and stride, never on its knees (T-3472, T-3520)" \
   node tools/test_human_gait.mjs
 step "A woman's skirt swings off her legs as she walks and never parts between them, the rest pose exact (T-3472)" \
   node tools/test_human_skirt.mjs
