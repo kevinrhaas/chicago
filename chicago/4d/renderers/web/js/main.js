@@ -3877,6 +3877,8 @@ async function boot() {
       router: { plan: (...args) => (api.router?.built ? api.router.plan(...args) : null) },
       // T-3505: a job's places between gatherings are clear of the buildings and the fort's walls.
       clear: clearWayOf(footprints),
+      // T-3524: Glessner's court and side doors open as people pass, up and down their stairs.
+      passages: api.houseDoors ?? null,
       problems: layerProblems('humans') });
   }
   // T-3504 (owner, 2026-11-08: "two people occupying the same space? Prevent that"): every year's
@@ -6121,6 +6123,8 @@ async function boot() {
     api.humans?.update(frameDt, camera, walker.state, visualDt);
     api.duties?.update(frameDt);
     api.days?.update(frameDt);
+    // T-3524: the doors people hold open swing toward open, or shut behind them.
+    api.houseDoors?.update?.(frameDt);
     // T-3504: and then nobody stands in anybody else (human-spacing.js).
     api.spacing?.update(frameDt);
 

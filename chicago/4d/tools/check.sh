@@ -419,6 +419,8 @@ step "Glessner's front door swings open, and a visitor and a drawn person walk u
   node tools/test_house_doors.mjs
 step "John J. Glessner on his front walk is greeted, and goes home up his steps, through his door and in (T-3443)" \
   node tools/test_house_errands.mjs
+step "Glessner's court and side doors open and shut as people pass, up and down their stairs (T-3524)" \
+  node tools/test_house_passages.mjs
 step "Loaded parade ground delegates to its native owner; failed assets and sundial geometry remain required (T-3041)" \
   node tools/test_parade_presence.mjs
 step "Jaunt daybook: idempotent keepsakes, data ranks, honest recovery (T-1258)" \

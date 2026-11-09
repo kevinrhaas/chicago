@@ -16,10 +16,13 @@ person's day (`behaviour.day[].spans[].where`) in data/humans/instances/<year>/.
         Eighteenth Street face, house-doors.js glessnerFrontPlan's frame):
           service_stair  the court's service entrance (openings_court_north, at the head of the
                          north court service stair, v4_detail.north_court_service_stair): one
-                         who goes in walks to the foot of the flight and is in; the climb to
-                         the landing door is not walked (reconstructed).
+                         answering stands STEP_M out from the foot of the flight. Since T-3524
+                         the door is a passage (house-doors.js): who goes in climbs the flight
+                         and the landing to it, it opens and shuts, and only then are they in.
           north_entry    the servants' entry off Eighteenth Street (v4_detail.north_entry_alcove):
-                         in at the alcove's opening, where its stair runs up to the door.
+                         one answering stands on the walk STEP_M out from the alcove's front
+                         steps; a passage too (T-3524), up the front steps and the stair inside
+                         to its side door.
           stable         the stable's carriage doorway on Eighteenth Street
                          (openings_stable_doors).
         The family's front door is house-doors.js's own (T-3442) and is not listed here.
@@ -85,14 +88,21 @@ def glessner_doors(sc: dict) -> list[dict]:
         foot = max(stair["flight_S"])
         out.append({"id": "glessner_house:service_stair", "leaf": world(W, foot), "step": world(W, foot + STEP_M / FT),
                     "outward_deg": outward(0, -1), "width_m": round((max(stair["flight_W"]) - min(stair["flight_W"])) * FT, 2),
-                    "reconstructed": "in at the foot of the north court service stair; the climb to the landing door ("
-                                     + court["what"] + ") is not walked"})
+                    "passage": True,
+                    "reconstructed": "up the north court service stair and its landing to the door (" + court["what"]
+                                     + "), which opens and shuts as they pass (house-doors.js passages, T-3524); "
+                                     "the line walked is the flight's middle"})
     alcove = detail.get("north_entry_alcove")
     if alcove:
-        W = sum(alcove["opening_W"]) / 2
-        out.append({"id": "glessner_house:north_entry", "leaf": world(W, alcove["back_S"] / 2), "step": world(W, -STEP_M / FT),
+        # The front steps (masonry_house_v4_detail.py north_entry) run out over the walk on the
+        # arch's west half, from its west jamb to the cheek; one answering stands out past them.
+        W = (max(alcove["opening_W"]) + max(alcove["cheek_W"])) / 2
+        out_S = -(float(alcove["front_run_ft"]) + STEP_M / FT)
+        out.append({"id": "glessner_house:north_entry", "leaf": world(W, alcove["back_S"] / 2), "step": world(W, out_S),
                     "outward_deg": outward(0, 1), "width_m": round((max(alcove["opening_W"]) - min(alcove["opening_W"])) * FT, 2),
-                    "reconstructed": "in at the alcove's opening, where its stair runs up to the door"})
+                    "passage": True,
+                    "reconstructed": "up the alcove's front steps and the stair inside it to its side door, which opens "
+                                     "and shuts as they pass (house-doors.js passages, T-3524); the line walked is the steps' middle"})
     stable = next((o for o in (val(sc, "openings_stable_doors") or {}).get("items", []) if o.get("kind") == "doors"), None)
     if stable:
         W = sum(stable["at"]) / 2

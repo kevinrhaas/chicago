@@ -94,6 +94,21 @@
  * door if that is indoors. A soldier in quarters (human-duties.js `behaviour.hours`, with
  * `behaviour.quarters` naming the building) is asked for the same way.
  *
+ * DOORS THAT OPEN, STAIRS THAT ARE CLIMBED (T-3524). The owner, 2026-11-08, of the Glessner
+ * court: *"when people enter the glessner house from the rear they just kind of disappear at the
+ * staircase i think the door should work and the stairs and they should come up and down the
+ * stairs"*. A door the caller's `passages` knows by its id (house-doors.js § passages: Glessner's
+ * court service entrance and its Eighteenth Street side door) is walked through, not vanished
+ * at: going in, a person walks to the foot of its way, up every tread to the door, which opens
+ * before them (it starts to as they come within OPEN_AHEAD_M; they wait at it till it is open),
+ * through it, and only then are they indoors, and it shuts behind them; coming out, it opens,
+ * they step out of the dark behind it, it shuts once they are PASSAGE.shut_past_m past it, and
+ * they walk down to the ground. A person called to the door comes down it to the visitor and
+ * goes back up it. While anyone is on the way they finish it (no new hour, round or call
+ * turns them on a stair); the way is used one direction at a time, a follower PASSAGE.follow_s
+ * behind whoever went before, so nobody meets anybody on a tread; the door stays open while
+ * anyone holds it. Far from the visitor (beyond NEAR_M), as before, they are put in or out.
+ *
  * INSIDE ONLY: people carded but not drawn (the gathering's lodges) come in an `inside` list,
  * { people: [{ person, name, home, door?, presence?, ask_order? }] }. On their dates they are in
  * `home` and offered at its doors (at `door` if given, else at one of its doors picked by their
@@ -159,6 +174,11 @@ export const GATHER = Object.freeze({ every_s: [75, 150], for_s: [24, 52], join_
 export const OWN = Object.freeze({ out_m: [1.8, 3.4], off_m: [1.2, 2.6], spots: 2, tries: 6 });
 /** T-3505: a child's play between gatherings: three places this far about where they stood. */
 export const PLAY = Object.freeze({ off_m: [2.5, 6], spots: 2 });
+/** T-3524: a passage (a door drawn people open, up its stair): it starts to open this far ahead
+ *  of them; they wait at it at most open_wait_s; it shuts once they are shut_past_m beyond it;
+ *  a follower starts up follow_s after the last one; one waits for a way in use at most busy_s;
+ *  a passage taking longer than stuck_s is let go. */
+export const PASSAGE = Object.freeze({ open_ahead_m: 2.2, open_wait_s: 5, shut_past_m: 1.3, follow_s: 3, busy_s: 25, stuck_s: 60 });
 /** T-3505: a break indoors: a door this near; a beat of every_s, the break for_s, in p of beats. */
 export const BREAK = Object.freeze({ reach_m: 45, every_s: [150, 330], for_s: [28, 75], p: 0.55 });
 /** What a child is, by the dress drawn. */
@@ -539,7 +559,7 @@ export function planDay(people, date, { clear = () => true } = {}) {
  */
 export function createHumanDays({ humans, three = null, hour = () => null, date = () => null, doors = null,
   interactions = null, visitor = () => null, eye = () => null, router = null, problems = [],
-  inside = null, spawn = null, despawn = null, clear = () => true } = {}) {
+  inside = null, spawn = null, despawn = null, clear = () => true, passages = null } = {}) {
   const Vec = three?.Vector3;
   let people = [];
   let seen = -1;
@@ -609,6 +629,123 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
     return best?.d ?? null;
   }
 
+  // ── T-3524: passages ──────────────────────────────────────────────────────────────
+  /** The passage a door is (house-doors.js), or null for a door that is only stood at. */
+  const passageOf = (door) => (door?.id ? passages?.passage?.(door.id) ?? null : null);
+  /** Who is on each passage's way now: id -> [{ p, dir, at }]. */
+  const onWays = new Map();
+  /** Things waited on: [{ p, token, until, then, deadline }], looked at once a frame. */
+  let waits = [];
+  function waitFor(p, until, then, seconds) {
+    if (until()) { then(); return; }
+    waits.push({ p, token: p.token, until, then, deadline: clock + seconds });
+  }
+  function stepWaits() {
+    if (!waits.length) return;
+    const now = waits;
+    waits = [];
+    for (const w of now) {
+      if (w.p.token !== w.token || w.p.actor.disposed) continue;
+      if (w.until() || clock >= w.deadline) w.then();
+      else waits.push(w);
+    }
+  }
+  /** Whether `dir` ('in' | 'out') may start on the way now: nobody the other way, the last one
+   *  going this way far enough ahead. */
+  function wayFree(pass, dir) {
+    const on = onWays.get(pass.id) ?? [];
+    return on.every((u) => u.dir === dir && clock - u.at >= PASSAGE.follow_s);
+  }
+  function onWay(p, pass, dir) {
+    const on = onWays.get(pass.id) ?? [];
+    on.push({ p, dir, at: clock });
+    onWays.set(pass.id, on);
+    p.passing = { door: pass, since: clock };
+  }
+  /** Off the way and no longer holding its door (done, or let go). */
+  function offWay(p) {
+    if (!p.passing) return;
+    const pass = p.passing.door;
+    pass.release(p);
+    const on = (onWays.get(pass.id) ?? []).filter((u) => u.p !== p);
+    if (on.length) onWays.set(pass.id, on); else onWays.delete(pass.id);
+    p.passing = null;
+  }
+  /** The way through, outside to in, with the ground filled in where it is open ground. */
+  function wayOf(p, pass) {
+    const raw = pass.way();
+    const a = p.actor;
+    const out = raw.map((q) => ({ e: q.e, n: q.n, y: Number.isFinite(q.y) ? q.y : (a.heightAt?.(q.e, q.n) ?? null) }));
+    out.door = raw.door;
+    out.leaf = raw.leaf;
+    return out;
+  }
+  /** Walk `p` in by `door` and call `inside()` once they are in. */
+  function enterBy(p, door, inside) {
+    const a = p.actor;
+    const pass = passageOf(door);
+    if (!pass) {
+      const step = pt(door.step), leaf = pt(door.leaf);
+      go(p, step, (door.outward_deg + 180) % 360, () => {
+        const t = ++p.token;
+        if (!a.walkPath?.([step, leaf], { onArrive: () => { if (p.token === t) inside(); } })) inside();
+      });
+      return;
+    }
+    const w = wayOf(p, pass);
+    const k = w.door;
+    go(p, w[0], bearing(w[1].e - w[0].e, w[1].n - w[0].n), () => {
+      waitFor(p, () => wayFree(pass, 'in'), () => {
+        onWay(p, pass, 'in');
+        const t = ++p.token;
+        const done = () => { offWay(p); inside(); };
+        const atDoor = () => {
+          if (p.token !== t) return;
+          pass.hold(p);
+          waitFor(p, () => pass.isOpen(), () => {
+            const t2 = ++p.token;
+            if (!a.walkPath(w.slice(k), { onArrive: () => { if (p.token === t2) done(); } })) done();
+          }, PASSAGE.open_wait_s);
+        };
+        if (!a.walkPath?.(w.slice(0, k + 1), { onArrive: atDoor })) { done(); return; }
+        // The door starts to open as they come up to it.
+        waitFor(p, () => dist(a, w[k]) < PASSAGE.open_ahead_m, () => pass.hold(p), PASSAGE.stuck_s);
+      }, PASSAGE.busy_s);
+    });
+  }
+  /** Bring `p` (indoors) out by `door` and call `out(from)` where they stand outside. */
+  function exitBy(p, door, out) {
+    const a = p.actor;
+    const pass = passageOf(door);
+    const step = pt(door.step);
+    if (!pass || !near(step.e, step.n)) {
+      a.e = step.e; a.n = step.n; a.standY = null; a.heading = door.outward_deg;
+      a.setIndoors?.(false);
+      a.place?.();
+      out(step);
+      return;
+    }
+    const w = wayOf(p, pass);
+    const back = [...w].reverse();
+    waitFor(p, () => wayFree(pass, 'out'), () => {
+      onWay(p, pass, 'out');
+      a.path = null;
+      a.e = back[0].e; a.n = back[0].n; a.standY = back[0].y;
+      a.heading = bearing(back[1].e - back[0].e, back[1].n - back[0].n);
+      a.setIndoors?.(false);
+      a.place?.();
+      pass.hold(p);
+      ++p.token;
+      waitFor(p, () => pass.isOpen(), () => {
+        const t2 = ++p.token;
+        const done = () => { offWay(p); out(back.at(-1)); };
+        if (!a.walkPath?.(back, { onArrive: () => { if (p.token === t2) done(); } })) { done(); return; }
+        // Once they are clear of its swing, it shuts behind them.
+        waitFor(p, () => dist(a, w.leaf) > PASSAGE.shut_past_m || !a.path, () => pass.release(p), PASSAGE.stuck_s);
+      }, PASSAGE.open_wait_s);
+    }, PASSAGE.busy_s);
+  }
+
   function collect() {
     people = [];
     for (const actor of humans.actors) {
@@ -655,6 +792,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
   }
   /** Back in: the figure goes. */
   function retire(p) {
+    offWay(p);
     const k = spawned.indexOf(p);
     if (k >= 0) spawned.splice(k, 1);
     const i = people.indexOf(p);
@@ -670,30 +808,28 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
     const door = doorNear(structure, a.e, a.n);
     if (!door || !near(a.e, a.n)) { a.path = null; a.setIndoors?.(true); p.mode = 'in'; return; }
     p.mode = 'going_in';
-    const step = pt(door.step), leaf = pt(door.leaf);
-    go(p, step, (door.outward_deg + 180) % 360, () => {
-      const t = ++p.token;
-      if (!a.walkPath?.([step, leaf], { onArrive: () => { if (p.token === t) { a.setIndoors?.(true); p.mode = 'in'; } } })) {
-        a.setIndoors?.(true); p.mode = 'in';
-      }
-    });
+    enterBy(p, door, () => { a.setIndoors?.(true); p.mode = 'in'; });
   }
 
   function comeOut(p, span) {
     const a = p.actor;
     const to = pt(span.at);
-    let from = null;
+    const onward = (from) => {
+      p.inside = null;
+      p.mode = 'going_out';
+      go(p, to, span.at.heading_deg, () => { p.mode = 'out'; startActivity(p, span); }, { from });
+    };
     if (a.indoors) {
       const door = p.inside ? doorNear(p.inside, to.e, to.n) : null;
-      from = door ? pt(door.step) : to;
-      a.e = from.e; a.n = from.n; a.standY = null;
-      a.heading = door ? door.outward_deg : (span.at.heading_deg ?? a.heading);
+      if (door) { p.mode = 'going_out'; exitBy(p, door, onward); return; }
+      a.e = to.e; a.n = to.n; a.standY = null;
+      a.heading = span.at.heading_deg ?? a.heading;
       a.setIndoors?.(false);
       a.place?.();
+      onward(to);
+      return;
     }
-    p.inside = null;
-    p.mode = 'going_out';
-    go(p, to, span.at.heading_deg, () => { p.mode = 'out'; startActivity(p, span); }, { from });
+    onward(null);
   }
 
   function startActivity(p, span) {
@@ -887,15 +1023,15 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
   const nameOf = (p) => p.entry?.name ?? p.actor.person?.name ?? p.actor.identity?.person?.name ?? p.actor.instance?.display_name ?? p.actor.personId ?? p.actor.id;
 
   function callOut(p, door) {
-    const a = p.actor;
-    const step = pt(door.step);
     p.called = { door, since: clock, off: 0 };
     p.job = null;
     p.token = (p.token ?? 0) + 1;
-    a.e = step.e; a.n = step.n; a.standY = null; a.heading = door.outward_deg;
-    a.setIndoors?.(false);
-    a.place?.();
     p.mode = 'called';
+    // Out of the door (down its stair, T-3524), then up to the visitor.
+    exitBy(p, door, (from) => meet(p, from));
+  }
+  function meet(p, step) {
+    const a = p.actor;
     const v = visitor();
     if (!v) return;
     const d = dist(step, v);
@@ -916,6 +1052,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
 
   function stepCalled(p, dt) {
     const c = p.called;
+    if (p.passing) return;       // on the stair to the door: they finish it first
     const v = visitor();
     const off = !v || Math.hypot(v.e - p.actor.e, v.n - p.actor.n) > STAY_M;
     c.off = off ? c.off + dt : 0;
@@ -926,12 +1063,8 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
       const back = c.door;
       p.inside = p.entry ? back.structure : p.b.quarters;
       p.mode = 'going_in';
-      const step = pt(back.step), leaf = pt(back.leaf);
       const inAgain = () => { p.actor.setIndoors?.(true); p.mode = 'in'; if (p.entry) retire(p); };
-      go(p, step, (back.outward_deg + 180) % 360, () => {
-        const t = ++p.token;
-        if (!p.actor.walkPath?.([step, leaf], { onArrive: () => { if (p.token === t) inAgain(); } })) inAgain();
-      });
+      enterBy(p, back, inAgain);
       return;
     }
     p.inside = c.door.structure;
@@ -1020,10 +1153,12 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
         // jaunt's), nowhere.
         const present = onDate(today, p.b.presence) && (!Array.isArray(p.b.day) || !!dayOn(p.b, today, p.actor.personId ?? p.id));
         if (!present) {
-          if (!p.absent) { p.absent = true; p.called = null; p.span = null; p.job = null; a.path = null; a.setIndoors?.(true); p.mode = 'in'; p.inside = null; }
+          if (!p.absent) { offWay(p); p.absent = true; p.called = null; p.span = null; p.job = null; a.path = null; a.setIndoors?.(true); p.mode = 'in'; p.inside = null; }
           continue;
         }
         if (p.absent) { p.absent = false; if (p.soldier) a.setIndoors?.(false); }
+        // T-3524: on a passage's stair or in its doorway, they finish it before anything else.
+        if (p.passing) { if (clock - p.passing.since > PASSAGE.stuck_s) offWay(p); continue; }
         if (p.called) { stepCalled(p, dt); continue; }
         if (p.soldier) continue;   // his hours are human-duties.js's
         const span = spanAt(dayOn(p.b, today, p.actor.personId ?? p.id), h);
@@ -1032,6 +1167,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
         else if (p.round) stepRound(p);
         else if (p.mode === 'out') stepJob(p);
       }
+      stepWaits();
       stepTalks(dt);
     },
     /** Ask for someone at their door now, as the door's Ask for does: { ok, why }. */
@@ -1072,6 +1208,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
           activity: p.span.indoors || p.phase === 'in' ? 'indoors' : ((p.round ? p.cur : null) ?? p.play ?? p.span).activity ?? 'stand' } : null,
         phase: p.phase ?? null, home: p.round?.home ?? null,
         called: !!p.called, e: +p.actor.e.toFixed(2), n: +p.actor.n.toFixed(2),
+        on_way: p.passing?.door.id ?? null,
       }));
     },
   };
