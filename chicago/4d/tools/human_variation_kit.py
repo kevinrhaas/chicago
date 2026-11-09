@@ -38,8 +38,7 @@ OUT_JSON = ROOT / 'assets/humans/web/hm08_variation_kit.json'
 PERSONS = ROOT / 'assets/humans/web/hm08_variation_persons.json'  # beside the kit: humans.js reads both from its asset base
 FITS = ROOT / 'data/humans/variation/fits'
 LOOKS = ROOT / 'data/humans/variation/looks'   # T-3491: complexion, hair, eyes, stature
-DRESS = ROOT / 'data/humans/variation/dress_1812_native.json'   # T-3506: each Native person's own dress and hair
-DRESS_CHILDREN = ROOT / 'data/humans/variation/dress_1812_children.json'   # T-3520: each town child's
+DRESS = ROOT / 'data/humans/variation'   # T-3506/T-3522: dress_1812_*.json, each person's own dress, hat and hair
 RESIDENTS = {'1812': ROOT / 'data/residents_1812', '1835': ROOT / 'data/residents', '1904': ROOT / 'data/residents_1904'}
 COMMIT = 'a8bc2d54ff0ac92e78ff71431b1023eda42bf482'
 RAW = f'https://raw.githubusercontent.com/makehumancommunity/makehuman/{COMMIT}/makehuman/data/targets/'
@@ -271,11 +270,14 @@ _DRESSES = None
 def dresses():
     global _DRESSES
     if _DRESSES is None:
+        # T-3522: every dress file of the scene (the camps T-3506, the townspeople T-3522, and any
+        # later one), sorted; a person dressed by two files is refused, not silently overlaid.
         _DRESSES = {}
-        # T-3506 the Native people's, T-3520 the town's children's.
-        for f in (DRESS, DRESS_CHILDREN):
-            if f.exists():
-                _DRESSES.update(json.loads(f.read_text())['persons'])
+        for f in sorted(DRESS.glob('dress_1812_*.json')):
+            for pid, rec in json.loads(f.read_text())['persons'].items():
+                if pid in _DRESSES:
+                    raise SystemExit(f'{pid} is dressed by two files ({f.name} and another dress_1812_*.json)')
+                _DRESSES[pid] = rec
     return _DRESSES
 
 
@@ -315,8 +317,11 @@ def persons():
         dress = dresses().get(pid)
         if dress:
             # T-3506: their own cloth colours and pieces worn, and their hair's tie and colour.
-            rec['dress'] = {k: dress[k] for k in ('colours', 'hide', 'worn') if dress.get(k)}
+            rec['dress'] = {k: dress[k] for k in ('colours', 'hide', 'pieces', 'hat', 'worn') if dress.get(k)}
             rec['dress']['grade'] = 'reconstructed'
+            # T-3522: a townsperson's handkerchief round the head is their dress's, not their hair's.
+            if isinstance(dress.get('headcloth'), list):
+                rec['dress']['headcloth'] = dress['headcloth']
             hair = dress.get('hair') or {}
             if hair.get('tail_cm'):
                 rec['dress']['tail_cm'] = hair['tail_cm']
