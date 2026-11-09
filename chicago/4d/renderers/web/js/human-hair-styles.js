@@ -106,6 +106,28 @@ export const HAIR_CUTS = Object.freeze({
     knot_cm: Object.freeze({ up: 1.5, back: 11 }),
     lift_mm: Object.freeze({ root: .6, tip: 1.4 }), density: 1.35, curl: .02, hang: false,
   }),
+  // T-3520: the 1812 town's children (the owner, 2026-11-08: "their hair is short they all
+  // look like boys"). A girl's hair worn longer than a boy's: parted in the middle, drawn back
+  // over the ears and plaited at the nape, the plait hanging down her back (its length is the
+  // person's `tail_cm`); or worn loose and curling to the shoulders. A little girl's to the neck; a boy's fuller
+  // cut straight across the brow. Reconstructed choices (docs/RESEARCH/children-1812-3520).
+  girl_plait_1812: Object.freeze({
+    flow: 'centre_part_back', part_cm: 0, lengths_cm: Object.freeze({ top: 9, side: 9, back: 8 }),
+    knot_cm: Object.freeze({ up: -6, back: 10 }),
+    lift_mm: Object.freeze({ root: .6, tip: 1.5 }), density: 1.4, curl: .03, hang: false,
+  }),
+  girl_curls_1812: Object.freeze({
+    flow: 'centre_part_down', part_cm: 0, lengths_cm: Object.freeze({ top: 10, side: 17, back: 22 }), card_mm: 5,
+    lift_mm: Object.freeze({ root: 1.2, tip: 4 }), density: 3.4, curl: .18, hang: true,
+  }),
+  toddler_curls_1812: Object.freeze({
+    flow: 'centre_part_down', part_cm: 0, lengths_cm: Object.freeze({ top: 7, side: 10, back: 12 }), card_mm: 4.5,
+    lift_mm: Object.freeze({ root: 1.2, tip: 3.5 }), density: 3, curl: .25, hang: true,
+  }),
+  boy_fringe_1812: Object.freeze({
+    flow: 'forward', part_cm: 0, lengths_cm: Object.freeze({ top: 4.6, side: 3, back: 3.2 }),
+    lift_mm: Object.freeze({ root: 1.2, tip: 3 }), density: 1.3, curl: .08, hang: true,
+  }),
   // Of the 1830s: fuller all round, brushed forward from the crown toward the brow and
   // temples, over the tops of the ears.
   brushed_forward_1835: Object.freeze({

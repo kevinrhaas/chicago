@@ -181,6 +181,17 @@ export const PLAY = Object.freeze({ off_m: [2.5, 6], spots: 2 });
 export const PASSAGE = Object.freeze({ open_ahead_m: 2.2, open_wait_s: 5, shut_past_m: 1.3, follow_s: 3, busy_s: 25, stuck_s: 60 });
 /** T-3505: a break indoors: a door this near; a beat of every_s, the break for_s, in p of beats. */
 export const BREAK = Object.freeze({ reach_m: 45, every_s: [150, 330], for_s: [28, 75], p: 0.55 });
+/**
+ * T-3520: children (the owner, 2026-11-08, of the 1812 fort yard: "the kids should not be all
+ * over the place", "occasionally there are kids together playing" but not "such a centerpiece";
+ * "when so many kids and no parents they should leave and come out of the door"). A child goes
+ * in for a door within reach_m (a household's own house is further off than a man's workplace);
+ * spends p of its beats of every_s indoors for for_s; when out on its own plays by its own door,
+ * door_m out from the step, rather than about the parade; and a gathering of children only
+ * comes together on a slower beat (play_every_s) and for a while (play_for_s).
+ */
+export const CHILD = Object.freeze({ reach_m: 150, every_s: [130, 260], for_s: [100, 220], p: 0.9,
+  play_every_s: [320, 640], play_for_s: [35, 80], door_m: [1.4, 3.6] });
 /** What a child is, by the dress drawn. */
 export const CHILD_RE = /(^|_)(child|boy|girl|toddler)(_|$)/;
 const lerp = ([lo, hi], t) => lo + (hi - lo) * t;
@@ -756,6 +767,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
         actor, b, id: actor.id, rand: seededRandom(`day:${actor.id}`), span: null, inside: null,
         mode: actor.indoors ? 'in' : 'out', absent: false, called: null, job: null,
         soldier: Array.isArray(b.hours) && !Array.isArray(b.day),
+        child: CHILD_RE.test(actor.instance?.appearance?.asset_id ?? ''),
       });
     }
     people.push(...spawned);
@@ -893,6 +905,8 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
     const act = span.activity ?? 'stand';
     if (span.round || act === 'work') {
       p.round = { knot: span.round?.knot ?? null, talk: span, own: span.round?.own ?? span, home: homeOf(p, span) };
+      // T-3520: a child out on its own plays by its own door, not about the yard.
+      if (p.child && p.round.home) p.round.own = byTheDoor(p, p.round.home, span) ?? p.round.own;
       phaseTo(p, want(p));
       return;
     }
@@ -909,9 +923,22 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
     for (const where of new Set((day?.spans ?? []).filter((s) => s.indoors && !s.away && s.where).map((s) => s.where))) {
       const d = doorNear(where, at.e, at.n);
       const k = d ? dist(pt(d.step), at) : Infinity;
-      if (k <= BREAK.reach_m && (!best || k < best.k)) best = { k, where };
+      if (k <= (p.child ? CHILD.reach_m : BREAK.reach_m) && (!best || k < best.k)) best = { k, where };
     }
     return best?.where ?? null;
+  }
+  /** T-3520: a child's play by its own door: out from the step a little way and back. */
+  function byTheDoor(p, where, span) {
+    const d = doorNear(where, pt(span.at).e, pt(span.at).n);
+    if (!d) return null;
+    const r = seededRandom(`door-play:${keyOf(p)}:${where}`);
+    const s = pt(d.step), out = (Number(d.outward_deg) || 0) + (r() - 0.5) * 70;
+    const far = lerp(CHILD.door_m, r()), near0 = Math.min(far - 0.8, 1.1);
+    const at = (m, deg) => ({ e: s.e + Math.sin(deg * Math.PI / 180) * m, n: s.n + Math.cos(deg * Math.PI / 180) * m });
+    const a = at(near0, out), b = at(far, out + (r() - 0.5) * 60);
+    if (!clear(s, a) || !clear(a, b)) return null;
+    return { ...span, activity: 'walk', at: local(a, (out + 180) % 360), to_point: local(b), via: [], once: false, round: undefined,
+      doing: 'playing by the door' };
   }
   /** The knots' gatherings, worked out once a frame: { on, cycle, joined: Set of people }. */
   const gathers = new Map();
@@ -919,16 +946,20 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
   let byKnot = new Map();
   function gathering(knot) {
     let g = gathers.get(knot);
-    if (!g) {
+    const members = byKnot.get(knot) ?? [];
+    // (Made again once its people are known: before the first frame it has none.)
+    if (!g || (g.kids === null && members.length)) {
       const r = seededRandom(`gather:${knot}`);
-      const every = lerp(GATHER.every_s, r());
-      g = { every, off: r() * every, cycle: null, on: false, joined: new Set(), order: new Map(), frame: -1 };
+      // T-3520: children at play together only now and then.
+      const kids = members.length ? members.every((q) => q.child) : null;
+      const every = lerp(kids ? CHILD.play_every_s : GATHER.every_s, r());
+      g = { every, off: r() * every, cycle: null, on: false, joined: new Set(), order: new Map(), frame: -1, kids };
       gathers.set(knot, g);
     }
     if (g.frame === frame) return g;
     g.frame = frame;
     const t = clock + g.off, c = Math.floor(t / g.every);
-    if (c !== g.cycle) { g.cycle = c; g.joined.clear(); g.order.clear(); g.len = lerp(GATHER.for_s, seededRandom(`gather:${knot}:${c}`)()); }
+    if (c !== g.cycle) { g.cycle = c; g.joined.clear(); g.order.clear(); g.len = lerp(g.kids ? CHILD.play_for_s : GATHER.for_s, seededRandom(`gather:${knot}:${c}`)()); }
     g.on = t - c * g.every < g.len;
     if (!g.on) { g.joined.clear(); return g; }
     const here = (byKnot.get(knot) ?? []).filter((q) => !q.called && !q.absent && q.phase !== 'in');
@@ -944,20 +975,24 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
   }
   /** Whether it is a while indoors for `p` now (their own beat). */
   function breakOn(p) {
+    const B = p.child ? CHILD : BREAK;   // T-3520: a child is in more than out
     if (!p.brk) {
       const r = seededRandom(`break:${keyOf(p)}`);
-      const every = lerp(BREAK.every_s, r());
+      const every = lerp(B.every_s, r());
       p.brk = { every, off: r() * every };
     }
     const t = clock + p.brk.off, c = Math.floor(t / p.brk.every);
     const r = seededRandom(`break:${keyOf(p)}:${c}`);
-    return r() < BREAK.p && t - c * p.brk.every < lerp(BREAK.for_s, r());
+    return r() < B.p && t - c * p.brk.every < lerp(B.for_s, r());
   }
   /** What the round has `p` at now: 'talk', 'in' (a break) or 'own'. */
   function want(p) {
     const r = p.round;
     if (r.knot && gathering(r.knot).joined.has(p)) return 'talk';
-    if (r.home && breakOn(p) && (p.phase === 'in' || near(p.actor.e, p.actor.n))) return 'in';
+    // T-3520: one out of sight goes in on their beat too (else everyone the visitor comes upon
+    // is out of doors, the children of a whole yard among them); one far off but in sight keeps
+    // to what they are at (stepRound).
+    if (r.home && breakOn(p) && (p.phase === 'in' || near(p.actor.e, p.actor.n) || !p.actor.root?.visible)) return 'in';
     return 'own';
   }
   function phaseTo(p, phase) {
