@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2850, ts: '2026-11-09T04:18:16.413Z', date: 'Nov 8, 2026, 10:18 PM CT', title: '1812: Potawatomi lodges by the river all year', kind: 'feature',
+    items: [
+      'A small Potawatomi camp now stands on the river\'s south bank just west of the creek mouth on every day of 1812: two mat lodges, an elm-bark house, two fires, a drying rack and two canoes drawn up by the water.',
+      'Currey writes that families came and went all year to trade furs and camped by the river near the creek mouth. Outside the August gathering, these lodges are the camp you find there.',
+    ] },
   { v: 2849, ts: '2026-11-09T03:56:02.958Z', date: 'Nov 8, 2026, 9:56 PM CT', title: 'Find only when someone is out, and cross the river by boat', kind: 'fix',
     items: [
       'Find this person and Follow are greyed out when the person isn\'t out in town right now, and the card says why. Sauganash, for one, doesn\'t reach Chicago until 16 August.',
