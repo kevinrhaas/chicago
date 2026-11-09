@@ -160,6 +160,19 @@
       "inside_a_roof": null
     },
     {
+      "id": "glessner_household_service_stair",
+      "local_e": 1355.4,
+      "local_n": -3236,
+      "aerial": false,
+      "inside": true,
+      "ground_m": 4.332,
+      "dry": true,
+      "stands_on": null,
+      "deck_m": null,
+      "margin_m": 217.5,
+      "inside_a_roof": null
+    },
+    {
       "id": "haunted_battle_ground",
       "local_e": 1404,
       "local_n": -3207,
@@ -239,7 +252,7 @@
     }
   ],
   "totals": {
-    "anchors": 17,
+    "anchors": 18,
     "outside_the_box": 0,
     "wet": 0,
     "in_a_roof": 0,

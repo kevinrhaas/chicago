@@ -88,6 +88,7 @@ import { createCrossings } from './crossings.js';
 import { mountHumans } from './humans.js';
 import { createHumanDuties } from './human-duties.js';
 import { createHumanDays, clearWayOf } from './human-days.js';
+import { createJauntHosts } from './jaunt-hosts.js';
 import { createHumanSpacing } from './human-spacing.js';
 import { createInteractions, createInteractKey } from './interact.js';
 import { createFollow } from './follow.js';
@@ -5336,6 +5337,21 @@ async function boot() {
         crowd: {
           hold: (ids) => { api.humans?.holdCrowd?.(ids); gateFrame.invalidate(); },
           restore: () => { api.humans?.releaseCrowd?.(); gateFrame.invalidate(); },
+        },
+        // T-3525: the people who tell a stop come to their marks, turned to its stand.
+        hosts: {
+          sync: (stop, { arrived }) => {
+            if (!api.humans) return;
+            api.jauntHosts ??= createJauntHosts({ humans: api.humans, days: api.days ?? null,
+              router: { plan: (...args) => (api.router?.built ? api.router.plan(...args) : null) },
+              visitor: () => ({ e: walker.state.e, n: walker.state.n }),
+              eye: () => camera.getWorldPosition(new THREE.Vector3()) });
+            const target = stop ? resolveJaunt(stop.destination) : null;
+            const stand = target ? travel.destinationOf(target, { mode: 'walk', card: false }) : null;
+            api.jauntHosts.sync(stop?.hosts ?? [], { stand: stand && Number.isFinite(stand.e) ? stand : null, arrived });
+            gateFrame.invalidate();
+          },
+          release: () => { api.jauntHosts?.release(); gateFrame.invalidate(); },
         },
         showMenu({ returnId }) { jauntReturnId = returnId; api.welcome.show({ focus: false }); api.welcome.enter('jaunts'); },
         closeDetail: jauntCards.close,

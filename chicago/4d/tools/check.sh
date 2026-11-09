@@ -403,6 +403,8 @@ step "Jaunt resources, Revise, endings and saved-session replay (T-1256)" \
   node tools/test_jaunt_mechanics.mjs
 step "Jaunts hold the everyday people out but for those each stop calls for, and give them back (T-3495)" \
   node tools/test_jaunt_crowd.mjs
+step "A stop's hosts come to their marks, greet the visitor and go back about their day (T-3525)" \
+  node tools/test_jaunt_hosts.mjs
 step "Jaunt route and pace estimates (T-1280)" \
   node tools/test_travel_estimate.mjs
 step "Street travel keeps each pace on its surface and clears buildings (T-2496)" \
