@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2840, ts: '2026-11-09T00:10:24.723Z', date: 'Nov 8, 2026, 6:10 PM CT', title: 'The 1812 townspeople each dress as their own person', kind: 'improvement',
+    items: [
+      'Settlers, traders, engagés and the town\'s women no longer share one outfit per trade: each wears their own colours, with or without a waistcoat, neckerchief, sash or apron.',
+      'Hats differ in shape, not only colour: tall and low felt round hats, soft or rolled brims, straw hats, knitted caps and tuques, and some bare heads.',
+      'The women of the country wear a blue handkerchief round the head and moccasins; some laundresses tie a handkerchief in place of the cap.',
+      'A person\'s card now says what they wear on 14 August, marked as a reconstruction.',
+    ] },
   { v: 2839, ts: '2026-11-08T21:52:41.956Z', date: 'Nov 8, 2026, 3:52 PM CT', title: '1812: the sloughs hold water', kind: 'improvement',
     items: [
       'The State Street slough the Potawatomi camps sit around now holds open water from the river up through the camps, winding, in pools and narrows with reeds, to a damp hollow at its head. It used to be a dry ditch.',
