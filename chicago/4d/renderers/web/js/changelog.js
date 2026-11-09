@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 2845, ts: '2026-11-09T01:43:32.042Z', date: 'Nov 8, 2026, 7:43 PM CT', title: 'Glessner\'s back doors open and the household climbs the stairs', kind: 'feature',
+    items: [
+      'The court service door opens as someone climbs the stair to it and shuts behind them; nobody vanishes at the foot any more.',
+      'Coming out, the door swings open, they step out on the landing and walk down every tread to the court.',
+      'The servants\' side door in the 18th Street alcove works the same way, up its front steps and inner stair.',
+      'Ask for someone at either door and they come down the stair to you.',
+      'Two people take the stair one behind the other, and the door stays open until the last is through.',
+    ] },
   { v: 2844, ts: '2026-11-09T01:31:37.044Z', date: 'Nov 8, 2026, 7:31 PM CT', title: '1812: the gathering\'s camps come and go with the date', kind: 'feature',
     items: [
       'The Potawatomi and Miami camps by the fort now stand only on the days of the August 1812 gathering (12 to 16 August). On any other date their lodges, their bare camp ground and the paths between them are gone, and that ground is open prairie again.',
