@@ -123,7 +123,9 @@ export function looksOf(looks, assetBase = null) {
   return {
     grade: looks.grade ?? 'reconstructed',
     rows: [['Complexion', looks.complexion.value], ['Hair', `${looks.hair.value}${(looks.hair.facial ?? []).length ? ', short side whiskers' : ''}`],
-      ['Eyes', looks.eyes?.value ?? ''], ['Height', feet ? `about ${feet}` : '']].filter(([, v]) => v),
+      ['Eyes', looks.eyes?.value ?? ''], ['Height', feet ? `about ${feet}` : ''],
+      // T-3522: what they wear on 14 August (their dress record's own words; reconstructed).
+      ['Dress', looks.worn ? `${looks.worn[0].toUpperCase()}${looks.worn.slice(1)}` : '']].filter(([, v]) => v),
     stature: looks.stature ?? null,
     heritage: looks.heritage?.origin && looks.heritage.origin !== 'not found' ? `${looks.heritage.origin.split(' (')[0]} name` : '',
     basis: looks.basis ?? '',
