@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2847, ts: '2026-11-09T02:51:57.338Z', date: 'Nov 8, 2026, 8:51 PM CT', title: '1812 toddlers stay on their feet when nudged aside', kind: 'fix',
+    items: [
+      'A toddler nudged aside while walking (kept apart from others or out of a wall) no longer sinks to its knees: its feet move with it.',
+      'Toddlers\' steps fold the knee like a real child\'s, lifting the toes to clear the ground instead.',
+      'A toddler standing at rest keeps its knees nearly straight.',
+    ] },
   { v: 2846, ts: '2026-11-09T02:38:42.616Z', date: 'Nov 8, 2026, 8:38 PM CT', title: '1812: the garrison dressed by rank, and armed', kind: 'improvement',
     items: [
       'Sergeants wear two white worsted epaulettes and corporals one on the right shoulder. Every enlisted man keeps the same tall felt cap, as the issue of the time gave them.',
