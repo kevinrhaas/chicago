@@ -36,7 +36,7 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
 OUT = ROOT / 'data/humans/variation/looks'
 INST = ROOT / 'data/humans/instances/1812'
-READINGS = [ROOT / f'docs/RESEARCH/people-1812-{t}/day.json' for t in (3463, 3464, 3465, 3466, 3467)]
+READINGS = [ROOT / f'docs/RESEARCH/people-1812-{t}/day.json' for t in (3463, 3464, 3465, 3466, 3467, 3530)]
 LIBERTY = 'L-1812-town-days-3463'
 PREFIX = 'hi_town_'
 IN_M = 0.0254
@@ -93,7 +93,7 @@ def main(check=False):
     want, problems = {}, []
     for path in READINGS:
         d = json.loads(path.read_text())
-        native = d['meta']['ticket'] == 'T-3467'
+        native = d['meta']['ticket'] in ('T-3467', 'T-3530')   # T-3530: the family at the lodges by the river
         for p in d['people']:
             pid = p['person_id'].split(':', 1)[-1]
             if pid not in drawn:

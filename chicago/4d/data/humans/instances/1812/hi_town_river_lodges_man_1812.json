@@ -1,0 +1,509 @@
+{
+  "id": "hi_town_river_lodges_man_1812",
+  "contract_version": 1,
+  "scene": "1812",
+  "person_id": "river_lodges_man_1812",
+  "appearance": {
+    "asset_id": "potawatomi_man_1812"
+  },
+  "placement": {
+    "local_e": 701.9,
+    "local_n": -26.0,
+    "heading_deg": 200.0,
+    "anchor": "terrain"
+  },
+  "animation": {
+    "clip": "idle",
+    "loop": true,
+    "phase": 0.907
+  },
+  "behaviour": {
+    "state": "standing",
+    "day": [
+      {
+        "dates": {
+          "from": "1812-08-15",
+          "to": "1812-08-15"
+        },
+        "note": "15 August",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.0,
+            "indoors": true,
+            "where": "potawatomi_trading_lodges_1812",
+            "doing": "asleep in the lodge"
+          },
+          {
+            "from": 5.0,
+            "to": 21.0,
+            "indoors": true,
+            "away": true,
+            "doing": "away with the warriors"
+          },
+          {
+            "from": 21.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "potawatomi_trading_lodges_1812",
+            "doing": "asleep in the lodge"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-11-01",
+          "to": "1812-12-31"
+        },
+        "note": "the cold months",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 6.5,
+            "indoors": true,
+            "where": "potawatomi_trading_lodges_1812",
+            "doing": "asleep in the lodge"
+          },
+          {
+            "from": 6.5,
+            "to": 7.5,
+            "indoors": false,
+            "at": {
+              "local_e": 712.0,
+              "local_n": -31.6,
+              "heading_deg": 95.0
+            },
+            "doing": "splitting wood at the pile",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 711.88,
+                "local_n": -32.99
+              },
+              {
+                "local_e": 712.12,
+                "local_n": -30.21
+              }
+            ]
+          },
+          {
+            "from": 7.5,
+            "to": 16.0,
+            "indoors": true,
+            "away": true,
+            "doing": "hunting in the timber along the river and the South Branch"
+          },
+          {
+            "from": 16.0,
+            "to": 17.0,
+            "indoors": false,
+            "at": {
+              "local_e": 720.0,
+              "local_n": -28.4,
+              "heading_deg": 70.0
+            },
+            "doing": "hanging the day's game on the scaffold",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 720.48,
+                "local_n": -29.72
+              },
+              {
+                "local_e": 719.52,
+                "local_n": -27.08
+              }
+            ]
+          },
+          {
+            "from": 17.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "potawatomi_trading_lodges_1812",
+            "doing": "by the fire in the lodge, and asleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-01-01",
+          "to": "1812-03-31"
+        },
+        "note": "the cold months",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 6.5,
+            "indoors": true,
+            "where": "potawatomi_trading_lodges_1812",
+            "doing": "asleep in the lodge"
+          },
+          {
+            "from": 6.5,
+            "to": 7.5,
+            "indoors": false,
+            "at": {
+              "local_e": 712.0,
+              "local_n": -31.6,
+              "heading_deg": 95.0
+            },
+            "doing": "splitting wood at the pile",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 711.88,
+                "local_n": -32.99
+              },
+              {
+                "local_e": 712.12,
+                "local_n": -30.21
+              }
+            ]
+          },
+          {
+            "from": 7.5,
+            "to": 16.0,
+            "indoors": true,
+            "away": true,
+            "doing": "hunting in the timber along the river and the South Branch"
+          },
+          {
+            "from": 16.0,
+            "to": 17.0,
+            "indoors": false,
+            "at": {
+              "local_e": 720.0,
+              "local_n": -28.4,
+              "heading_deg": 70.0
+            },
+            "doing": "hanging the day's game on the scaffold",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 720.48,
+                "local_n": -29.72
+              },
+              {
+                "local_e": 719.52,
+                "local_n": -27.08
+              }
+            ]
+          },
+          {
+            "from": 17.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "potawatomi_trading_lodges_1812",
+            "doing": "by the fire in the lodge, and asleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "from": "1812-04-01",
+          "to": "1812-07-04"
+        },
+        "chance": 0.167,
+        "note": "a trading morning at the factory",
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.0,
+            "indoors": true,
+            "where": "potawatomi_trading_lodges_1812",
+            "doing": "asleep in the lodge"
+          },
+          {
+            "from": 5.0,
+            "to": 8.0,
+            "indoors": false,
+            "at": {
+              "local_e": 707.6,
+              "local_n": -16.6,
+              "heading_deg": 20.0
+            },
+            "doing": "loading the canoe with packs of furs",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 708.92,
+                "local_n": -17.08
+              },
+              {
+                "local_e": 706.28,
+                "local_n": -16.12
+              }
+            ]
+          },
+          {
+            "from": 8.0,
+            "to": 9.0,
+            "indoors": true,
+            "away": true,
+            "doing": "paddling down the river to the fort"
+          },
+          {
+            "from": 9.0,
+            "to": 11.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1078.6,
+              "local_n": 217.6,
+              "heading_deg": 275.0
+            },
+            "doing": "trading furs at the government factory",
+            "activity": "stand"
+          },
+          {
+            "from": 11.5,
+            "to": 12.5,
+            "indoors": true,
+            "away": true,
+            "doing": "paddling home up the river"
+          },
+          {
+            "from": 12.5,
+            "to": 16.0,
+            "indoors": false,
+            "at": {
+              "local_e": 711.0,
+              "local_n": -26.5,
+              "heading_deg": 0.0
+            },
+            "doing": "resting by the lodge after the trip",
+            "activity": "talk",
+            "knot": "talk_47d9f351"
+          },
+          {
+            "from": 16.0,
+            "to": 18.0,
+            "indoors": false,
+            "at": {
+              "local_e": 720.0,
+              "local_n": -21.0,
+              "heading_deg": 160.0
+            },
+            "doing": "cleaning the fish and setting them on the rack",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 718.68,
+                "local_n": -21.48
+              },
+              {
+                "local_e": 721.32,
+                "local_n": -20.52
+              }
+            ]
+          },
+          {
+            "from": 18.0,
+            "to": 19.5,
+            "indoors": false,
+            "at": {
+              "local_e": 702.7,
+              "local_n": -26.0,
+              "heading_deg": 200.0
+            },
+            "doing": "eating at the fire with the household",
+            "activity": "talk",
+            "knot": "talk_fe8ee3cd"
+          },
+          {
+            "from": 19.5,
+            "to": 21.0,
+            "indoors": false,
+            "at": {
+              "local_e": 702.7,
+              "local_n": -26.0,
+              "heading_deg": 200.0
+            },
+            "doing": "evening at the fire",
+            "activity": "talk",
+            "knot": "talk_477f1c3e"
+          },
+          {
+            "from": 21.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "potawatomi_trading_lodges_1812",
+            "doing": "asleep in the lodge"
+          }
+        ]
+      },
+      {
+        "spans": [
+          {
+            "from": 0.0,
+            "to": 5.0,
+            "indoors": true,
+            "where": "potawatomi_trading_lodges_1812",
+            "doing": "asleep in the lodge"
+          },
+          {
+            "from": 5.0,
+            "to": 6.0,
+            "indoors": false,
+            "at": {
+              "local_e": 701.9,
+              "local_n": -26.0,
+              "heading_deg": 200.0
+            },
+            "doing": "at the fire in the morning",
+            "activity": "stand"
+          },
+          {
+            "from": 6.0,
+            "to": 9.5,
+            "indoors": false,
+            "at": {
+              "local_e": 711.0,
+              "local_n": -11.5,
+              "heading_deg": 0.0
+            },
+            "doing": "fishing from the bank below the lodges",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 712.4,
+                "local_n": -11.5
+              },
+              {
+                "local_e": 709.6,
+                "local_n": -11.5
+              }
+            ]
+          },
+          {
+            "from": 9.5,
+            "to": 10.5,
+            "indoors": false,
+            "at": {
+              "local_e": 702.7,
+              "local_n": -26.0,
+              "heading_deg": 200.0
+            },
+            "doing": "eating at the fire with the household",
+            "activity": "talk",
+            "knot": "talk_b32f4ff9"
+          },
+          {
+            "from": 10.5,
+            "to": 13.0,
+            "indoors": false,
+            "at": {
+              "local_e": 707.6,
+              "local_n": -16.6,
+              "heading_deg": 20.0
+            },
+            "doing": "mending a canoe drawn up on the bank",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 708.92,
+                "local_n": -17.08
+              },
+              {
+                "local_e": 706.28,
+                "local_n": -16.12
+              }
+            ]
+          },
+          {
+            "from": 13.0,
+            "to": 16.0,
+            "indoors": false,
+            "at": {
+              "local_e": 711.0,
+              "local_n": -26.5,
+              "heading_deg": 0.0
+            },
+            "doing": "resting by the lodge",
+            "activity": "talk",
+            "knot": "talk_47d9f351"
+          },
+          {
+            "from": 16.0,
+            "to": 18.0,
+            "indoors": false,
+            "at": {
+              "local_e": 720.0,
+              "local_n": -21.0,
+              "heading_deg": 160.0
+            },
+            "doing": "cleaning the fish and setting them on the rack",
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 718.68,
+                "local_n": -21.48
+              },
+              {
+                "local_e": 721.32,
+                "local_n": -20.52
+              }
+            ]
+          },
+          {
+            "from": 18.0,
+            "to": 19.5,
+            "indoors": false,
+            "at": {
+              "local_e": 702.7,
+              "local_n": -26.0,
+              "heading_deg": 200.0
+            },
+            "doing": "eating at the fire with the household",
+            "activity": "talk",
+            "knot": "talk_fe8ee3cd"
+          },
+          {
+            "from": 19.5,
+            "to": 21.0,
+            "indoors": false,
+            "at": {
+              "local_e": 702.7,
+              "local_n": -26.0,
+              "heading_deg": 200.0
+            },
+            "doing": "evening at the fire",
+            "activity": "talk",
+            "knot": "talk_477f1c3e"
+          },
+          {
+            "from": 21.0,
+            "to": 24.0,
+            "indoors": true,
+            "where": "potawatomi_trading_lodges_1812",
+            "doing": "asleep in the lodge"
+          }
+        ]
+      }
+    ],
+    "presence": {
+      "from": "1812-01-01",
+      "to": "1812-12-31"
+    }
+  },
+  "interaction": {
+    "selectable": true,
+    "radius_m": 3,
+    "opens": "resident_card"
+  },
+  "lod": {
+    "policy": "auto"
+  },
+  "display": "shown",
+  "review_required": true,
+  "provenance": {
+    "grade": "reconstructed",
+    "basis": "Reconstructed figure of The man of the lodges by the river (name not recorded) in the 1812 town, at each hour of each run of dates where the reading for T-3530 (docs/RESEARCH/people-1812-3530/day.json) puts them: indoors (asked for at the door) or out at their work, with the people they would be with. The hours, the places and the companions are ours (liberty L-1812-town-days-3463), each span graded with its own basis in the reading; what a source says of them is on their card. They wear the potawatomi man 1812 role dress, with their own face, height, build and colouring.",
+    "sources": [
+      "currey_1912_old_fort_dearborn",
+      "kinzie_waubun_1856"
+    ],
+    "liberty": "L418",
+    "seed": "river_lodges_man_1812:1812:days:20261108",
+    "replaceable_by": "A diary, letter or order book of the post that says where they were and what they did on the day."
+  }
+}

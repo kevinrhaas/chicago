@@ -42,7 +42,7 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
 OUT = ROOT / 'data/residents_1812/households'
 SOURCES = ROOT / 'data/sources'
-READINGS = [ROOT / f'docs/RESEARCH/people-1812-{t}/day.json' for t in (3463, 3464, 3465, 3466, 3467)]
+READINGS = [ROOT / f'docs/RESEARCH/people-1812-{t}/day.json' for t in (3463, 3464, 3465, 3466, 3467, 3530)]
 LIBERTY = 'L-1812-town-days-3463'
 SKIP = {'fettle_louis'}
 
@@ -78,6 +78,12 @@ for ground, nm in (('mouth', 'the creek mouth'), ('middle', 'the middle of the c
     HOUSEHOLDS[f'hh_potawatomi_camp_{ground}_1812'] = (
         f"The families at the camp's ground by {nm} (names not recorded)", None, 'camp', f'potawatomi_camp_1812_{ground}',
         'reconstructed', "The camp ground of the 1812 camp records; which lodge each family had is not recorded.", REVIEW_REP)
+
+# T-3530: the family the owner chose (2026-11-09) to live at T-3528's lodges by the river all 1812.
+HOUSEHOLDS['hh_potawatomi_lodges_1812'] = (
+    "The family at the lodges by the river (names not recorded)", 'river_lodges_man_1812', 'camp', 'potawatomi_trading_lodges_1812',
+    'reconstructed', "The lodges by the river of T-3528's record; that this family lived there all year is the owner's choice and ours.",
+    REVIEW_REP)
 
 PLACE = {'kinzie_boatman_1812': 'hh_kinzie_engages_1812', 'kinzie_engage_1812': 'hh_kinzie_engages_1812',
          'white_liberty': 'hh_lees_place_1812', 'cardin_john_b': 'hh_lees_place_1812',
@@ -219,7 +225,7 @@ def build():
         rec = {'id': hid, 'scene': '1812', 'name': name, 'head': head, 'division': division}
         if review:
             rec['review_required'] = True
-            rec['touches_removal'] = hid.startswith('hh_potawatomi_camp_')
+            rec['touches_removal'] = hid.startswith(('hh_potawatomi_camp_', 'hh_potawatomi_lodges_'))
             rec['review_note'] = review
         here = [p for p in persons if p['present_on_scene_date']['value'] in ('present', 'probably present')]
         rec['present_on_scene_date'] = {
@@ -241,7 +247,17 @@ def main(check=False):
     # T-3507..T-3509: names, histories and the 15th on the Native cards (tools/native_cards_1812.py)
     sys.path.insert(0, str(ROOT / 'tools'))
     import native_cards_1812 as nc
-    nc.apply_households({n[:-5]: r for n, r in out.items() if nc.is_native(n[:-5])})
+    first = {n[:-5]: r for n, r in out.items() if nc.is_native(n[:-5]) and not n.startswith('hh_potawatomi_lodges_')}
+    nc.apply_households(first)
+    # T-3530: the family at the lodges by the river is named after everyone else, avoiding every
+    # reconstructed name already on a card (this file's and the other generators'), so no name
+    # given before it moves and none repeats; its seven are one family.
+    lodges = {n[:-5]: r for n, r in out.items() if n.startswith('hh_potawatomi_lodges_')}
+    if lodges:
+        taken = nc.reconstructed_names(first) | nc.reconstructed_names(
+            nc.on_disk([f.stem for f in OUT.glob('hh_*.json') if not f.stem.startswith('hh_potawatomi_lodges_')]))
+        nc.apply_households(lodges, families={p['id']: hid for hid, r in lodges.items() for p in r['persons']},
+                            reserved=taken)
     stale = []
     for name, rec in out.items():
         text = json.dumps(rec, indent=2, ensure_ascii=False) + '\n'

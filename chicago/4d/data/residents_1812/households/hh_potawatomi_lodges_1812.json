@@ -1,0 +1,835 @@
+{
+  "id": "hh_potawatomi_lodges_1812",
+  "scene": "1812",
+  "name": "The family at the lodges by the river (names not recorded)",
+  "head": "river_lodges_man_1812",
+  "division": "camp",
+  "review_required": true,
+  "touches_removal": true,
+  "review_note": "review_required: a person of the Potawatomi gathering at Chicago in August 1812, the eve of the attack on the garrison and its families, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507); the card says which of its facts are ours. touches_removal: these are the people removed from Chicago in 1835. Nothing of the fighting is staged in the scene.",
+  "present_on_scene_date": {
+    "value": "present",
+    "confidence": "inferred",
+    "sources": [
+      "currey_1912_old_fort_dearborn",
+      "kinzie_waubun_1856"
+    ],
+    "note": "Each person's own card says how their presence on 14 August is known."
+  },
+  "associated_with": [
+    {
+      "kind": "home",
+      "place_or_structure_id": "potawatomi_trading_lodges_1812",
+      "resolves_to": "structure",
+      "from": null,
+      "to": null,
+      "tier": "reconstructed",
+      "source_id": "currey_1912_old_fort_dearborn",
+      "also_sources": [
+        "kinzie_waubun_1856"
+      ],
+      "note": "The lodges by the river of T-3528's record; that this family lived there all year is the owner's choice and ours."
+    }
+  ],
+  "not_in_this_household": {
+    "note": "Everyone the T-3463..T-3467 day readings put in this household is on the card (liberty L-1812-town-days-3463).",
+    "sources": [
+      "currey_1912_old_fort_dearborn",
+      "kinzie_waubun_1856"
+    ]
+  },
+  "persons": [
+    {
+      "id": "river_lodges_man_1812",
+      "name": "Far Wolf Track",
+      "relationship": "head",
+      "grade": "reconstructed",
+      "sources": [
+        "andreas_1884_v1",
+        "currey_1912_old_fort_dearborn",
+        "kinzie_waubun_1856",
+        "morgan_1877_ancient_society"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "38-38",
+        "low": 38,
+        "high": 38,
+        "tier": "reconstructed",
+        "note": "Chosen for a family of three generations; not recorded."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "Put at the lodges by the river through all of 1812, the owner's choice (2026-11-09); no source names or counts this family. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "A family put at the lodges by the river through 1812, standing for the families Currey says came and went to trade and camped by the creek's mouth. No source names or counts them; their names, ages, history and days are reconstructed. In the town from 1812-01-01 to 1812-12-31: All year at the lodges by the river: the warm months at the yard, the cold months more indoors, a trading morning at the factory now and then until it closed.",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a person of the Potawatomi gathering at Chicago in August 1812, the eve of the attack on the garrison and its families, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507); the card says which of its facts are ours. touches_removal: these are the people removed from Chicago in 1835. Nothing of the fighting is staged in the scene.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "liberty": "L-1812-town-days-3463",
+        "ticket": "T-3530",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
+      },
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Wolf gens as Morgan says a name did."
+      },
+      "also_written": [
+        "The man of the lodges by the river (name not recorded)"
+      ],
+      "on_15_august": {
+        "value": "Likely among the warriors who attacked the column",
+        "grade": "reconstructed",
+        "note": "Heald: \"between four and five hundred\" attacked, of the 500 at the council. Who fought is not recorded; that he did is our reading.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "People",
+          "value": "Potawatomi",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "The village at the portage",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Wolf (Mo-ăh′)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 38",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "Likely among the warriors who attacked the column",
+          "grade": "reconstructed"
+        }
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "His family is put with the village at the portage, at the camping place of Chicago, three leagues from the fort (about thirty men, Co-wa-bee-mai their chief in May 1812), one of the bands of the Chicago country Governor Edwards described that spring, and lives the year round in the lodges by the river below the fort, where most families came only to trade and went to their wintering grounds.",
+          "He is of the Wolf gens (Mo-ăh′), and his children are of it after him.",
+          "He is here with his wife Swift Bear Woman, his wife's mother One of the Fish, his son White Wolf (16), his daughter Spring Wolf Pup (12), his son Morning Wolf Pup (8) and his daughter Small Wolf Pup (5).",
+          "He fishes the river from the bank below the lodges in the warm months, and in the fall goes after ducks and geese in the marshes.",
+          "When the bands gathered at Chicago in August he was already here, and on the 13th was given cloth and blankets with the rest when the goods were handed out."
+        ]
+      }
+    },
+    {
+      "id": "river_lodges_woman_1812",
+      "name": "Swift Bear Woman",
+      "relationship": "wife",
+      "grade": "reconstructed",
+      "sources": [
+        "andreas_1884_v1",
+        "currey_1912_old_fort_dearborn",
+        "kinzie_waubun_1856",
+        "morgan_1877_ancient_society"
+      ],
+      "sex": "female",
+      "age_band": {
+        "value": "33-33",
+        "low": 33,
+        "high": 33,
+        "tier": "reconstructed",
+        "note": "Chosen for a family of three generations; not recorded."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "Put at the lodges by the river through all of 1812, the owner's choice (2026-11-09); no source names or counts this family. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "A family put at the lodges by the river through 1812, standing for the families Currey says came and went to trade and camped by the creek's mouth. No source names or counts them; their names, ages, history and days are reconstructed. In the town from 1812-01-01 to 1812-12-31: All year at the lodges by the river: the warm months at the yard, the cold months more indoors, a trading morning at the factory now and then until it closed.",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a person of the Potawatomi gathering at Chicago in August 1812, the eve of the attack on the garrison and its families, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507); the card says which of its facts are ours. touches_removal: these are the people removed from Chicago in 1835. Nothing of the fighting is staged in the scene.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "liberty": "L-1812-town-days-3463",
+        "ticket": "T-3530",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
+      },
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names her: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Bear gens as Morgan says a name did."
+      },
+      "also_written": [
+        "His wife (name not recorded)"
+      ],
+      "on_15_august": {
+        "value": "At the camp by the fort",
+        "grade": "inferred",
+        "note": "Heald's prisoners were brought back to \"their encampment near the fort\". What this person saw or did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "People",
+          "value": "Potawatomi",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "The village at the portage",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Bear (M′-ko′)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 33",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "At the camp by the fort",
+          "grade": "inferred"
+        }
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "Her family is put with the village at the portage, at the camping place of Chicago, three leagues from the fort (about thirty men, Co-wa-bee-mai their chief in May 1812), one of the bands of the Chicago country Governor Edwards described that spring, and lives the year round in the lodges by the river below the fort, where most families came only to trade and went to their wintering grounds.",
+          "She is of the Bear gens (M′-ko′); her husband, since no one married within the gens, is of another, and her children are of his.",
+          "She is here with her husband Far Wolf Track, her mother One of the Fish, her son White Wolf (16), her daughter Spring Wolf Pup (12), her son Morning Wolf Pup (8) and her daughter Small Wolf Pup (5).",
+          "She keeps the mats of the lodges in repair, pounds the corn traded from the villages, and sews moccasins that the post's families buy.",
+          "When the bands gathered at Chicago in August she was already here, and on the 13th was given cloth and blankets with the rest when the goods were handed out."
+        ]
+      }
+    },
+    {
+      "id": "river_lodges_grandmother_1812",
+      "name": "One of the Fish",
+      "relationship": "household_member",
+      "grade": "reconstructed",
+      "sources": [
+        "andreas_1884_v1",
+        "currey_1912_old_fort_dearborn",
+        "kinzie_waubun_1856",
+        "morgan_1877_ancient_society"
+      ],
+      "sex": "female",
+      "age_band": {
+        "value": "57-57",
+        "low": 57,
+        "high": 57,
+        "tier": "reconstructed",
+        "note": "Chosen for a family of three generations; not recorded."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "Put at the lodges by the river through all of 1812, the owner's choice (2026-11-09); no source names or counts this family. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "A family put at the lodges by the river through 1812, standing for the families Currey says came and went to trade and camped by the creek's mouth. No source names or counts them; their names, ages, history and days are reconstructed. In the town from 1812-01-01 to 1812-12-31: All year at the lodges by the river: the warm months at the yard, the cold months more indoors, a trading morning at the factory now and then until it closed.",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a person of the Potawatomi gathering at Chicago in August 1812, the eve of the attack on the garrison and its families, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507); the card says which of its facts are ours. touches_removal: these are the people removed from Chicago in 1835. Nothing of the fighting is staged in the scene.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "liberty": "L-1812-town-days-3463",
+        "ticket": "T-3530",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
+      },
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names her: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Carp gens as Morgan says a name did."
+      },
+      "also_written": [
+        "The wife's mother (name not recorded)"
+      ],
+      "on_15_august": {
+        "value": "At the camp by the fort",
+        "grade": "inferred",
+        "note": "Heald's prisoners were brought back to \"their encampment near the fort\". What this person saw or did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "People",
+          "value": "Potawatomi",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "The village at the portage",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Carp (N′-mă-pe-nă′)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 57",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "At the camp by the fort",
+          "grade": "inferred"
+        }
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "Her family is put with the village at the portage, at the camping place of Chicago, three leagues from the fort (about thirty men, Co-wa-bee-mai their chief in May 1812), one of the bands of the Chicago country Governor Edwards described that spring, and lives the year round in the lodges by the river below the fort, where most families came only to trade and went to their wintering grounds.",
+          "She is of the Carp gens (N′-mă-pe-nă′); her husband, since no one married within the gens, is of another, and her children are of his.",
+          "She is here with her daughter's husband Far Wolf Track, her daughter Swift Bear Woman, her grandson White Wolf (16), her granddaughter Spring Wolf Pup (12), her grandson Morning Wolf Pup (8) and her granddaughter Small Wolf Pup (5).",
+          "She boils maple sap in the spring and packs the sugar in birch-bark boxes for the factory, and dresses the deerskins her husband brings in.",
+          "When the bands gathered at Chicago in August she was already here, and on the 13th was given cloth and blankets with the rest when the goods were handed out."
+        ]
+      }
+    },
+    {
+      "id": "river_lodges_son_1812",
+      "name": "White Wolf",
+      "relationship": "son",
+      "grade": "reconstructed",
+      "sources": [
+        "andreas_1884_v1",
+        "currey_1912_old_fort_dearborn",
+        "kinzie_waubun_1856",
+        "morgan_1877_ancient_society"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "16-16",
+        "low": 16,
+        "high": 16,
+        "tier": "reconstructed",
+        "note": "Chosen for a family of three generations; not recorded."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "Put at the lodges by the river through all of 1812, the owner's choice (2026-11-09); no source names or counts this family. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "A family put at the lodges by the river through 1812, standing for the families Currey says came and went to trade and camped by the creek's mouth. No source names or counts them; their names, ages, history and days are reconstructed. In the town from 1812-01-01 to 1812-12-31: All year at the lodges by the river: the warm months at the yard, the cold months more indoors, a trading morning at the factory now and then until it closed.",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a person of the Potawatomi gathering at Chicago in August 1812, the eve of the attack on the garrison and its families, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507); the card says which of its facts are ours. touches_removal: these are the people removed from Chicago in 1835. Nothing of the fighting is staged in the scene.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "liberty": "L-1812-town-days-3463",
+        "ticket": "T-3530",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
+      },
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Wolf gens as Morgan says a name did."
+      },
+      "also_written": [
+        "Their son (name not recorded)"
+      ],
+      "on_15_august": {
+        "value": "Likely among the warriors who attacked the column",
+        "grade": "reconstructed",
+        "note": "Heald: \"between four and five hundred\" attacked, of the 500 at the council. Who fought is not recorded; that he did is our reading.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "People",
+          "value": "Potawatomi",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "The village at the portage",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Wolf (Mo-ăh′)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 16",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "Likely among the warriors who attacked the column",
+          "grade": "reconstructed"
+        }
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "His family is put with the village at the portage, at the camping place of Chicago, three leagues from the fort (about thirty men, Co-wa-bee-mai their chief in May 1812), one of the bands of the Chicago country Governor Edwards described that spring, and lives the year round in the lodges by the river below the fort, where most families came only to trade and went to their wintering grounds.",
+          "He is of the Wolf gens (Mo-ăh′), and his children are of it after him.",
+          "He is here with his father Far Wolf Track, his mother Swift Bear Woman, his grandmother One of the Fish, his sister Spring Wolf Pup (12), his brother Morning Wolf Pup (8) and his sister Small Wolf Pup (5).",
+          "He fishes the river from the bank below the lodges in the warm months, and in the fall goes after ducks and geese in the marshes.",
+          "When the bands gathered at Chicago in August he was already here, and on the 13th was given cloth and blankets with the rest when the goods were handed out."
+        ]
+      }
+    },
+    {
+      "id": "river_lodges_daughter_1812",
+      "name": "Spring Wolf Pup",
+      "relationship": "daughter",
+      "grade": "reconstructed",
+      "sources": [
+        "andreas_1884_v1",
+        "currey_1912_old_fort_dearborn",
+        "kinzie_waubun_1856",
+        "morgan_1877_ancient_society"
+      ],
+      "sex": "female",
+      "age_band": {
+        "value": "12-12",
+        "low": 12,
+        "high": 12,
+        "tier": "reconstructed",
+        "note": "Chosen for a family of three generations; not recorded."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "Put at the lodges by the river through all of 1812, the owner's choice (2026-11-09); no source names or counts this family. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "A family put at the lodges by the river through 1812, standing for the families Currey says came and went to trade and camped by the creek's mouth. No source names or counts them; their names, ages, history and days are reconstructed. In the town from 1812-01-01 to 1812-12-31: All year at the lodges by the river: the warm months at the yard, the cold months more indoors, a trading morning at the factory now and then until it closed.",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a person of the Potawatomi gathering at Chicago in August 1812, the eve of the attack on the garrison and its families, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507); the card says which of its facts are ours. touches_removal: these are the people removed from Chicago in 1835. Nothing of the fighting is staged in the scene.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "liberty": "L-1812-town-days-3463",
+        "ticket": "T-3530",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
+      },
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names her: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Wolf gens as Morgan says a name did. A name of childhood."
+      },
+      "also_written": [
+        "Their elder daughter (name not recorded)"
+      ],
+      "on_15_august": {
+        "value": "At the camp by the fort",
+        "grade": "inferred",
+        "note": "Heald's prisoners were brought back to \"their encampment near the fort\". What this person saw or did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "People",
+          "value": "Potawatomi",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "The village at the portage",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Wolf (Mo-ăh′)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 12",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "At the camp by the fort",
+          "grade": "inferred"
+        }
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "Her family is put with the village at the portage, at the camping place of Chicago, three leagues from the fort (about thirty men, Co-wa-bee-mai their chief in May 1812), one of the bands of the Chicago country Governor Edwards described that spring, and lives the year round in the lodges by the river below the fort, where most families came only to trade and went to their wintering grounds.",
+          "She is of the Wolf gens (Mo-ăh′, as Morgan writes it), her father's, and her name is a name of childhood, to be put aside for another as she grows up.",
+          "She is here with her father Far Wolf Track, her mother Swift Bear Woman, her grandmother One of the Fish, her brother White Wolf (16), her brother Morning Wolf Pup (8) and her sister Small Wolf Pup (5).",
+          "The children of the lodges run between the canoes and the river, and the older ones carry wood and water for the kettle."
+        ]
+      }
+    },
+    {
+      "id": "river_lodges_boy_1812",
+      "name": "Morning Wolf Pup",
+      "relationship": "son",
+      "grade": "reconstructed",
+      "sources": [
+        "andreas_1884_v1",
+        "currey_1912_old_fort_dearborn",
+        "kinzie_waubun_1856",
+        "morgan_1877_ancient_society"
+      ],
+      "sex": "male",
+      "age_band": {
+        "value": "8-8",
+        "low": 8,
+        "high": 8,
+        "tier": "reconstructed",
+        "note": "Chosen for a family of three generations; not recorded."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "Put at the lodges by the river through all of 1812, the owner's choice (2026-11-09); no source names or counts this family. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "A family put at the lodges by the river through 1812, standing for the families Currey says came and went to trade and camped by the creek's mouth. No source names or counts them; their names, ages, history and days are reconstructed. In the town from 1812-01-01 to 1812-12-31: All year at the lodges by the river: the warm months at the yard, the cold months more indoors, a trading morning at the factory now and then until it closed.",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a person of the Potawatomi gathering at Chicago in August 1812, the eve of the attack on the garrison and its families, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507); the card says which of its facts are ours. touches_removal: these are the people removed from Chicago in 1835. Nothing of the fighting is staged in the scene.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "liberty": "L-1812-town-days-3463",
+        "ticket": "T-3530",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
+      },
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names him: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Wolf gens as Morgan says a name did. A name of childhood."
+      },
+      "also_written": [
+        "Their younger son (name not recorded)"
+      ],
+      "on_15_august": {
+        "value": "At the camp by the fort",
+        "grade": "inferred",
+        "note": "Heald's prisoners were brought back to \"their encampment near the fort\". What this person saw or did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "People",
+          "value": "Potawatomi",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "The village at the portage",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Wolf (Mo-ăh′)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 8",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "At the camp by the fort",
+          "grade": "inferred"
+        }
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "His family is put with the village at the portage, at the camping place of Chicago, three leagues from the fort (about thirty men, Co-wa-bee-mai their chief in May 1812), one of the bands of the Chicago country Governor Edwards described that spring, and lives the year round in the lodges by the river below the fort, where most families came only to trade and went to their wintering grounds.",
+          "He is of the Wolf gens (Mo-ăh′, as Morgan writes it), his father's, and his name is a name of childhood, to be put aside for another as he grows up.",
+          "He is here with his father Far Wolf Track, his mother Swift Bear Woman, his grandmother One of the Fish, his brother White Wolf (16), his sister Spring Wolf Pup (12) and his sister Small Wolf Pup (5).",
+          "This child has grown up within sight of the fort, the soldiers and the traders' houses."
+        ]
+      }
+    },
+    {
+      "id": "river_lodges_girl_1812",
+      "name": "Small Wolf Pup",
+      "relationship": "daughter",
+      "grade": "reconstructed",
+      "sources": [
+        "andreas_1884_v1",
+        "currey_1912_old_fort_dearborn",
+        "kinzie_waubun_1856",
+        "morgan_1877_ancient_society"
+      ],
+      "sex": "female",
+      "age_band": {
+        "value": "5-5",
+        "low": 5,
+        "high": 5,
+        "tier": "reconstructed",
+        "note": "Chosen for a family of three generations; not recorded."
+      },
+      "present_on_scene_date": {
+        "value": "present",
+        "confidence": "inferred",
+        "note": "Put at the lodges by the river through all of 1812, the owner's choice (2026-11-09); no source names or counts this family. No source takes a roll call on the afternoon of 14 August 1812; this is read from the evidence below."
+      },
+      "note": "A family put at the lodges by the river through 1812, standing for the families Currey says came and went to trade and camped by the creek's mouth. No source names or counts them; their names, ages, history and days are reconstructed. In the town from 1812-01-01 to 1812-12-31: All year at the lodges by the river: the warm months at the yard, the cold months more indoors, a trading morning at the factory now and then until it closed.",
+      "review_required": true,
+      "touches_removal": true,
+      "review_note": "review_required: a person of the Potawatomi gathering at Chicago in August 1812, the eve of the attack on the garrison and its families, whom no source names. The owner asked (2026-11-08) that each be given a researched, respectful name and a history, both marked reconstructed (liberty L-1812-native-cards-3507); the card says which of its facts are ours. touches_removal: these are the people removed from Chicago in 1835. Nothing of the fighting is staged in the scene.",
+      "reconstruction": {
+        "stage": "counted_unnamed",
+        "counted_by": "quaife_1913",
+        "liberty": "L-1812-town-days-3463",
+        "ticket": "T-3530",
+        "name": "reconstructed",
+        "history": "reconstructed",
+        "name_ticket": "T-3507",
+        "cards_liberty": "L-1812-native-cards-3507"
+      },
+      "name_basis": {
+        "value": "reconstructed",
+        "grade": "reconstructed",
+        "sources": [
+          "morgan_1877_ancient_society"
+        ],
+        "note": "No source names her: our name, in English as the 1815-16 treaty clerks wrote these bands' names, speaking of the Wolf gens as Morgan says a name did. A name of childhood."
+      },
+      "also_written": [
+        "Their younger daughter (name not recorded)"
+      ],
+      "on_15_august": {
+        "value": "At the camp by the fort",
+        "grade": "inferred",
+        "note": "Heald's prisoners were brought back to \"their encampment near the fort\". What this person saw or did is not recorded.",
+        "sources": [
+          "quaife_1913"
+        ]
+      },
+      "card_facts": [
+        {
+          "label": "Name",
+          "value": "Reconstructed (no source names them)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "People",
+          "value": "Potawatomi",
+          "grade": "inferred"
+        },
+        {
+          "label": "Band",
+          "value": "The village at the portage",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Gens",
+          "value": "Wolf (Mo-ăh′)",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "Age in 1812",
+          "value": "About 5",
+          "grade": "reconstructed"
+        },
+        {
+          "label": "On 15 August",
+          "value": "At the camp by the fort",
+          "grade": "inferred"
+        }
+      ],
+      "evidence": [],
+      "history": {
+        "title": "A reconstructed history",
+        "grade": "reconstructed",
+        "liberty": "L-1812-native-cards-3507",
+        "caveat": "No source tells this life: every particular of it is ours.",
+        "paragraphs": [
+          "Her family is put with the village at the portage, at the camping place of Chicago, three leagues from the fort (about thirty men, Co-wa-bee-mai their chief in May 1812), one of the bands of the Chicago country Governor Edwards described that spring, and lives the year round in the lodges by the river below the fort, where most families came only to trade and went to their wintering grounds.",
+          "She is of the Wolf gens (Mo-ăh′, as Morgan writes it), her father's, and her name is a name of childhood, to be put aside for another as she grows up.",
+          "She is here with her father Far Wolf Track, her mother Swift Bear Woman, her grandmother One of the Fish, her brother White Wolf (16), her sister Spring Wolf Pup (12) and her brother Morning Wolf Pup (8).",
+          "This child has grown up within sight of the fort, the soldiers and the traders' houses."
+        ]
+      }
+    }
+  ],
+  "card_evidence": [
+    {
+      "source_id": "currey_1912_old_fort_dearborn",
+      "locator": "ch. II, Gutenberg #52346 lines 1360-1361",
+      "quote": "The Indians continued to come and go on their nomadic excursions according to their habit",
+      "claim": "Before 1812 the Potawatomi came and went at Chicago as a habit.",
+      "tier": "compiled secondary (Currey 1912)"
+    },
+    {
+      "source_id": "currey_1912_old_fort_dearborn",
+      "locator": "ch. II, Gutenberg #52346 lines 1361-1363",
+      "quote": "while in this vicinity they lived in their wigwams near the river, their favorite camping place being at a point on the south bank",
+      "claim": "Their usual camping place was the State Street creek on the south bank.",
+      "tier": "compiled secondary (Currey 1912)"
+    },
+    {
+      "source_id": "currey_1912_old_fort_dearborn",
+      "locator": "ch. II, Gutenberg #52346 lines 1366-1368",
+      "quote": "who were anxious to sell them supplies in exchange for the furs brought in by them",
+      "claim": "The traders wanted their furs.",
+      "tier": "compiled secondary (Currey 1912)"
+    },
+    {
+      "source_id": "currey_1912_old_fort_dearborn",
+      "locator": "ch. II, Gutenberg #52346 lines 1372-1373",
+      "quote": "the Indians also brought in quantities of maple sugar put up in birch-bark packages",
+      "claim": "Furs and maple sugar brought in for trade.",
+      "tier": "compiled secondary (Currey 1912)"
+    },
+    {
+      "source_id": "kinzie_waubun_1856",
+      "locator": "ch. XV, Gutenberg #12183 lines 4138-4140",
+      "quote": "carried with them to their wintering-grounds, to be brought back in the spring, when they returned to make their corn-fields",
+      "claim": "Most families left for winter hunting grounds and came back in spring (Juliette Kinzie's own observation, March 1831); this family is put as staying, which is ours.",
+      "tier": "Juliette Kinzie's own observation (1831), Wau-Bun 1856"
+    },
+    {
+      "source_id": "morgan_1877_ancient_society",
+      "locator": "pt. II, ch. II (VI, the right of bestowing names) and ch. VI (the gentes, notes 170 and 172)",
+      "quote": "These names either proclaimed by their signification the gens to which they belonged, or were known as such by common reputation.",
+      "claim": "how a reconstructed name is made"
+    },
+    {
+      "source_id": "andreas_1884_v1",
+      "locator": "p. 79 (Edwards, May 1812)",
+      "quote": "At the camping place of Chicago, three leagues from the Lake Michigan, or Chicago Fort, is a village of Pottawatomies, Chippewas and Ottawas, of about thirty men.",
+      "claim": "the village at the portage, the band these cards are put with (reconstructed)"
+    },
+    {
+      "source_id": "quaife_1913",
+      "locator": "App. VI, Helm (1814), lines 16634-16636",
+      "quote": "the tribes there assembled to amount of 500 warriors 179 women & children",
+      "claim": "Helm's count at the council"
+    },
+    {
+      "source_id": "quaife_1913",
+      "locator": "App. IV, Heald (23 Oct 1812), lines 16267-16269",
+      "quote": "Their number of warriors was between four and five hundred, mostly of the Potawatamie nation",
+      "claim": "the warriors in the attack"
+    },
+    {
+      "source_id": "quaife_1913",
+      "locator": "App. IV, Heald (23 Oct 1812), lines 16264-16266",
+      "quote": "we were taken back to their encampment near the fort, and distributed among the different tribes",
+      "claim": "the prisoners brought back to the camp"
+    }
+  ]
+}

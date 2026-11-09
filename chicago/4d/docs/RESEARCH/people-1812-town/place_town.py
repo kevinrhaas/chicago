@@ -50,7 +50,7 @@ ROOT = HERE.parents[2]
 INST = ROOT / 'data/humans/instances/1812'
 DOORS = ROOT / 'data/humans/doors_1812.json'
 SIDECARS = ROOT / 'data/sidecars/1812'
-READINGS = [ROOT / f'docs/RESEARCH/people-1812-{t}/day.json' for t in (3463, 3464, 3465, 3466, 3467)]
+READINGS = [ROOT / f'docs/RESEARCH/people-1812-{t}/day.json' for t in (3463, 3464, 3465, 3466, 3467, 3530)]
 LIBERTY = 'L-1812-town-days-3463'
 PREFIX = 'hi_town_'
 TALK_M = 4.0
@@ -117,7 +117,7 @@ def footprints():
         if not isinstance(sc, dict) or 'placement' not in sc:
             continue
         poly = (sc.get('footprint') or {}).get('polygon') or []
-        if len(poly) < 3 or sc.get('archetype') in ('field', 'garden', 'parade', 'yard', 'camp') or 'camp' in sc['id']:
+        if len(poly) < 3 or sc.get('archetype') in ('field', 'garden', 'parade', 'yard', 'camp', 'lodge_camp') or 'camp' in sc['id']:
             continue
         if any(k in sc['id'] for k in ('parade', 'garden', 'field', 'cornfield', 'covered_way', 'green', 'pickets')):
             continue
