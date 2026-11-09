@@ -980,7 +980,8 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
         if (inside && !near.has(a)) {
           near.add(a);
           emit('approach', a);
-          if (a.instance.interaction?.opens === 'resident_card' && a.identity.kind === 'person') emit('open', a);
+          // T-3525: a jaunt's host is met by the stop's own text; their card waits for its link.
+          if (a.instance.interaction?.opens === 'resident_card' && a.identity.kind === 'person' && !a.jauntHost) emit('open', a);
           if (a.instance.interaction?.opens === 'role_card' && a.identity.kind === 'anonymous') emit('role_open', a);
         } else if (!inside && near.has(a)) {
           near.delete(a);

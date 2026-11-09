@@ -129,7 +129,17 @@ export function seasonOfDate(date) {
  */
 export function stopPeople(stop) {
   const linked = (stop?.links || []).filter(l => l?.kind === 'person').map(l => l.id);
-  return [...new Set([...(Array.isArray(stop?.people) ? stop.people : []), ...linked].filter(id => typeof id === 'string' && id))];
+  return [...new Set([...(Array.isArray(stop?.people) ? stop.people : []), ...hostIds(stop), ...linked].filter(id => typeof id === 'string' && id))];
+}
+/** T-3525: the people who tell a stop, standing at their marks (jaunt-hosts.js). */
+export const hostIds = stop => (Array.isArray(stop?.hosts) ? stop.hosts : []).map(h => h?.person).filter(id => typeof id === 'string' && id);
+/** T-3525: who a jaunt keeps in the scene now: the stop's people, and on the way from a stop
+ *  its hosts too, so the one who sent the visitor on does not vanish behind them. */
+export function keptPeople(s) {
+  const here = stopPeople(currentStop(s));
+  if (!['travelling', 'paused'].includes(s?.phase)) return here;
+  const from = s.jaunt?.stops.find(stop => stop.id === s.fromStopId);
+  return [...new Set([...here, ...hostIds(from)])];
 }
 /** T-3459: the season a stop is shown in: its date's, else the jaunt's ambience, else null. */
 export const stopSeason = (jaunt, stop) => seasonOfDate(stop?.date) || jaunt?.ambience?.season || null;
@@ -300,7 +310,11 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
   // `stopPeople`) and holds everyone else out of the scene; `crowd.restore()` gives them all
   // back. Held from the flight to the first stop until the jaunt ends, completes or goes to
   // the menu. Optional: a harness without it plays the jaunt with whoever stands there.
-  crowd = null }) {
+  crowd = null,
+  // T-3525: a stop's hosts (jaunt-hosts.js): `hosts.sync(stop, { arrived })` brings the people
+  // who tell a stop to their marks on the way to it and greets the visitor on arrival;
+  // `hosts.release()` lets them all go back about their day. Optional, like the crowd.
+  hosts = null }) {
   const sessionKey = scene === '1835' ? SESSION_KEY : `${SESSION_KEY}.${scene}`;
   let state = emptyState(), serial = 0, request, detailRequest, destroyed = false, previousMode;
   let storage = suppliedStorage;
@@ -363,10 +377,26 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
   const syncCrowd = () => {
     if (!crowd) return;
     if (!state.jaunt || ['menu', 'outcome'].includes(state.phase)) { restoreCrowd(); return; }
-    const ids = stopPeople(currentStop(state)), key = ids.join(' ');
+    const ids = keptPeople(state), key = ids.join(' ');
     if (crowdHeld === key) return;
     crowdHeld = key;
     try { crowd.hold(ids); } catch { /* the people stay as they were; the outing goes on */ }
+  };
+  // T-3525: the stop whose hosts are out ('' = none), and whether the visitor has arrived.
+  let hostsKey = null;
+  const releaseHosts = () => {
+    if (!hosts || hostsKey === null) return;
+    hostsKey = null;
+    try { hosts.release(); } catch { /* the people stay as they were; the outing goes on */ }
+  };
+  const syncHosts = () => {
+    if (!hosts) return;
+    if (!state.jaunt || ['menu', 'outcome'].includes(state.phase)) { releaseHosts(); return; }
+    const stop = currentStop(state), arrived = ['atStop', 'detail'].includes(state.phase);
+    const key = `${state.session}:${stop?.id ?? ''}:${arrived ? 'here' : 'coming'}`;
+    if (hostsKey === key) return;
+    hostsKey = key;
+    try { hosts.sync(stop ?? null, { arrived }); } catch { /* the outing goes on without them */ }
   };
   const restore = () => { if (previousMode !== undefined) travel.setMode(previousMode); previousMode = undefined; };
   const cancel = (reason = 'jaunt') => travel.stop(reason);
@@ -385,6 +415,7 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
       state = { ...state, estimate: estimate(state) };
     render(state);
     syncCrowd();
+    syncHosts();
     if (state.phase === 'atStop' && (old.phase !== 'atStop' || old.stopIndex !== state.stopIndex || old.session !== state.session))
       applyHour(currentStop(state));
     if (old.phase === 'opening' && state.phase !== 'opening' && event.type !== 'ARRIVE') cancel('jaunt'); // T-3432: lands the flight
@@ -413,7 +444,7 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
   }
   async function start(id, { mode, chosen } = {}) {
     const generation = ++serial; request?.abort(); request = new AbortController();
-    state = emptyState(); clearSaved(); cancel(); dismissDetail(); restore(); restoreLight(); restoreCrowd(); render(state);
+    state = emptyState(); clearSaved(); cancel(); dismissDetail(); restore(); restoreLight(); restoreCrowd(); releaseHosts(); render(state);
     try {
       const jaunt = await load(id, { signal: request.signal });
       if (destroyed || generation !== serial) return false;
@@ -433,7 +464,7 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
       const land = () => dispatch({ type: 'ARRIVE', ...token });
       if (state.mode !== 'instantly' && flight?.begin?.({ token, label: jaunt.places?.[jaunt.stops[0].destination.id] ?? target.label,
         onArrive: land, onStop: land })) {
-        state = { ...state, estimate: estimate(state) }; render(state); syncCrowd(); applyHour(currentStop(state)); persist();
+        state = { ...state, estimate: estimate(state) }; render(state); syncCrowd(); syncHosts(); applyHour(currentStop(state)); persist();
       } else land();
       countField('jauntStarted'); // T-2660
       return true;
@@ -462,7 +493,7 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
       render(state); return false;
     }
   }
-  const explore = () => { ++serial; request?.abort(); state = emptyState(); clearSaved(); cancel(); dismissDetail(); restore(); restoreLight(); restoreCrowd(); render(state); };
+  const explore = () => { ++serial; request?.abort(); state = emptyState(); clearSaved(); cancel(); dismissDetail(); restore(); restoreLight(); restoreCrowd(); releaseHosts(); render(state); };
   return { start, get state() { return state; }, next: () => dispatch({ type: 'NEXT' }), prev: () => dispatch({ type: 'PREV' }),
     choose: id => dispatch({ type: 'CHOOSE', id }), retry: () => dispatch({ type: 'RETRY' }),
     revise: () => dispatch({ type: 'REVISE' }), restore: restoreSession,

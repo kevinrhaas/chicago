@@ -1,0 +1,857 @@
+{
+ "schema_version": 1,
+ "content_version": 1,
+ "category": "Neighbors",
+ "featured": true,
+ "review_required": false,
+ "long_form": true,
+ "id": "glessner-household-tour",
+ "scene": "1904",
+ "title": "The Glessner Household",
+ "premise": "Spend a spring morning in 1904 round 1800 Prairie Avenue with the people who live and work there: the Glessners, their cooks and maids, the coachman and the stable boy, each at their own door.",
+ "default_mode": "walk",
+ "allowed_modes": [
+  "walk",
+  "fly",
+  "instantly"
+ ],
+ "ambience": {
+  "hour": "morning",
+  "season": "spring"
+ },
+ "opening": {
+  "read_s": 30,
+  "text": "JAUNT: THE GLESSNER HOUSEHOLD. A spring morning, April 1904, at 1800 Prairie Avenue. On every other walk the people are out of your way. This time they are the walk.\n\nEight stops round the outside of the house, and at each one somebody who lives or works here is waiting at their own door: John and Frances Glessner, the two cooks, the parlor maid and the house maid, the coachman and the stable helper. Each tells you what they do here and sends you on to the next.\n\nThe people and the facts are from the house's own records: John Glessner's 1923 account of the house, the museum's research into Frances Glessner's journals, and the census of 1900. The words they say are written for this walk.\n\nMr. Glessner is on his front walk. Go and say good morning."
+ },
+ "stops": [
+  {
+   "id": "john",
+   "destination": {
+    "kind": "anchor",
+    "id": "glessner_tour_door"
+   },
+   "hosts": [
+    {
+     "person": "glessner_john_j",
+     "local_e": 1390.9,
+     "local_n": -3226.7
+    }
+   ],
+   "text": "Good morning, and welcome to 1800 Prairie Avenue. I'm John Glessner. I came to Chicago from Springfield, Ohio, in 1870, a few weeks married, to be nearer the farmers who buy our machines. We sold 800 of them in 1871 and 25,000 in 1884, and two years ago our firm went into the new International Harvester Company. Mr. Richardson designed this house, his last work, and we slept here first on 1 December 1887. A dear old lady once said to me, 'you get it from your wife and your house', meaning my place in this town. I took it as a compliment, for I selected the one and I built the other. Everyone who keeps the house is about this morning. Mrs. Glessner is in the courtyard: go in under the house by the carriage passage, just to your left.",
+   "evidence": [
+    "voices",
+    "outing",
+    "john-came",
+    "john-machines",
+    "richardson-last",
+    "first-night",
+    "old-lady",
+    "underpass"
+   ],
+   "links": [
+    {
+     "kind": "person",
+     "id": "glessner_john_j",
+     "label": "John J. Glessner"
+    },
+    {
+     "kind": "structure",
+     "id": "glessner_house",
+     "label": "About this house"
+    }
+   ],
+   "next": "frances",
+   "read_s": 39
+  },
+  {
+   "id": "frances",
+   "destination": {
+    "kind": "anchor",
+    "id": "glessner_tour_hall_bow"
+   },
+   "hosts": [
+    {
+     "person": "glessner_frances_m",
+     "local_e": 1369.1,
+     "local_n": -3236.22
+    }
+   ],
+   "text": "You found us! I'm Frances Glessner. Out here the house shows its sunny face: see the rounded bay of the hall, and the door whose yellow glass makes the hall feel sunny even on a grey Chicago day. The creeper on these walls came from our old house, one vine fifty-five feet long, and it flourished. Every Monday morning through the winter and spring my Reading Class meets in the library, the ladies sewing while we read. This year I have set up a silversmith's bench in the basement, and I keep bees. I have kept a journal since 1879, and in it I write down every servant we hire, their pay and why they left. One August evening in 1891 all five of our staff handed in their notice after dinner. So I sent for Mattie. Go and meet her by the kitchen side of the court.",
+   "evidence": [
+    "voices",
+    "outing",
+    "frances-born",
+    "yellow-glass",
+    "creeper",
+    "reading-class",
+    "journal-silver",
+    "servants-journal",
+    "walkout"
+   ],
+   "links": [
+    {
+     "kind": "person",
+     "id": "glessner_frances_m",
+     "label": "Frances M. Glessner"
+    }
+   ],
+   "next": "mattie",
+   "read_s": 41
+  },
+  {
+   "id": "mattie",
+   "destination": {
+    "kind": "anchor",
+    "id": "glessner_tour_court_north"
+   },
+   "hosts": [
+    {
+     "person": "glessner_williamson_martha_l",
+     "local_e": 1361.72,
+     "local_n": -3236.37
+    }
+   ],
+   "text": "Hello! Mattie Williamson, the cook. I was born in Quebec, and my brother Alex runs the Glessners' farm up in New Hampshire. I came to them in 1891. That winter Mrs. Glessner went through seven cooks in seven weeks, all beaten by her new gas stove, and in February 1892 she wrote in her journal, 'Mattie Williamson is going to try my cooking. I shall have her taught.' I have cooked here ever since. My kitchen is behind that wall, on the main floor, its window under the great arch. I send up eight-course dinners and feed the eight of us on staff besides. My bread and rolls took a prize in 1900, and I baked Miss Frances's wedding cake. In January last year the whole orchestra came to dinner, and they played Beethoven on my pots and pans! Kate Ryan is by the service stair. Go and say hello.",
+   "evidence": [
+    "voices",
+    "outing",
+    "mattie-born",
+    "mattie-cook",
+    "kitchen",
+    "kitchen-window",
+    "mattie-dinners",
+    "mattie-cake",
+    "pots-pans",
+    "own-cook"
+   ],
+   "links": [
+    {
+     "kind": "person",
+     "id": "glessner_williamson_martha_l",
+     "label": "Mattie Williamson"
+    }
+   ],
+   "next": "kate",
+   "read_s": 42
+  },
+  {
+   "id": "kate",
+   "destination": {
+    "kind": "anchor",
+    "id": "glessner_household_service_stair"
+   },
+   "hosts": [
+    {
+     "person": "pa1904_glessner_john_j_c1900_kate_ryan",
+     "local_e": 1352.9,
+     "local_n": -3233.0
+    }
+   ],
+   "text": "Good morning. Kate Ryan, and yes, I'm a cook too, born in Ireland in 1850. When the census man came round on 1 June 1900 the family and Mattie were away in New Hampshire for the summer, so it was me he wrote down as the cook. This stair is the staff's own way in and out: up it, and through the door at the top, is the back of the house. Inside, the corridor and kitchen walls are white glazed brick. The bells ring through to a board in the kitchen that shows which room wants us, and the iceman pushes his ice through a little half-door into the cold closet. We eat our own dinner at three, so the kitchen is clear for the family's. Christine should be coming back from market about now. Go out by the passage and round to the corner.",
+   "evidence": [
+    "voices",
+    "outing",
+    "kate",
+    "kate-away",
+    "kitchen",
+    "staff-dinner",
+    "servants-unseen"
+   ],
+   "links": [
+    {
+     "kind": "person",
+     "id": "pa1904_glessner_john_j_c1900_kate_ryan",
+     "label": "Kate Ryan"
+    }
+   ],
+   "next": "christine",
+   "read_s": 41
+  },
+  {
+   "id": "christine",
+   "destination": {
+    "kind": "anchor",
+    "id": "glessner_tour_corner"
+   },
+   "hosts": [
+    {
+     "person": "pa1904_glessner_john_j_c1900_christine_nelson",
+     "local_e": 1402.44,
+     "local_n": -3203.89
+    }
+   ],
+   "text": "Hej! Christine Nelson, the parlor maid. I came over from Sweden in 1892. The cook and the waitress feed the house and the ladies' maid looks after the ladies' clothes; the cleaning is mine, and in this city that never ends. The smoke is so thick the drawings in the hall had to go under glass, and the Morris papers and curtains are put back in the same patterns when they wear out. People walking by laugh at those narrow windows along Eighteenth Street. They only light the corridors, and those corridors are ours: every room has two doors or more, and the passages are planned so that servants rarely are in evidence. You can clean a whole floor and never cross the family. Mary keeps the rooms with me. She'll be at our door under the great arch.",
+   "evidence": [
+    "voices",
+    "outing",
+    "christine",
+    "women-staff",
+    "smoke",
+    "narrow-windows",
+    "servants-unseen"
+   ],
+   "links": [
+    {
+     "kind": "person",
+     "id": "pa1904_glessner_john_j_c1900_christine_nelson",
+     "label": "Christine Nelson"
+    }
+   ],
+   "next": "mary",
+   "read_s": 39
+  },
+  {
+   "id": "mary",
+   "destination": {
+    "kind": "anchor",
+    "id": "glessner_tour_arch"
+   },
+   "hosts": [
+    {
+     "person": "pa1904_glessner_john_j_c1900_mary_reynolds",
+     "local_e": 1363.72,
+     "local_n": -3209.32
+    }
+   ],
+   "text": "Hello, I'm Mary Reynolds, the house maid, and an Illinois girl. Welcome to our side of the house! Under the great arch is our own front door. We even have our own address, 35 Eighteenth Street, so our letters never mix with the family's. We women sleep up above the kitchen wing, four bedrooms off one hall, with a little porch over the street. The men live over the coach house, and there is no way through from their wing to ours. This door is also where the music gets smuggled in. On the twenty-fifth wedding anniversary Mr. Thomas brought the entire orchestra in this way and up the back stairs, and nobody upstairs knew a thing until they began to play. On New Year's Day last year a double quartet of horns crept up the same way. Charles will be at the stable doors, just along the street.",
+   "evidence": [
+    "voices",
+    "outing",
+    "mary",
+    "servants-address",
+    "women-rooms",
+    "anniversary",
+    "horns",
+    "kitchen-window"
+   ],
+   "links": [
+    {
+     "kind": "person",
+     "id": "pa1904_glessner_john_j_c1900_mary_reynolds",
+     "label": "Mary Reynolds"
+    }
+   ],
+   "next": "charles",
+   "read_s": 41
+  },
+  {
+   "id": "charles",
+   "destination": {
+    "kind": "anchor",
+    "id": "glessner_tour_stable"
+   },
+   "hosts": [
+    {
+     "person": "pa1904_glessner_john_j_c1900_charles_nelson",
+     "local_e": 1334.82,
+     "local_n": -3211.63
+    }
+   ],
+   "text": "Good morning to you. Charles Nelson, coachman. I came from Sweden in 1871, and I've driven for Mr. Glessner since the old house on Washington Street, where Martha and I and little Norman lived over the coach house. Now there are five children, and we live here in the rear building. This is my stable: six stalls, and room in the carriage house for as many carriages, all white glazed brick so it can be washed down like a dairy. The furnace room is underneath, so the coal and ashes never come near the house itself. When they broke ground in June 1886, young George drove his father's horse and buggy to the site and threw the first soil with his sister. My helper August is round the corner at the courtyard gates in the alley.",
+   "evidence": [
+    "voices",
+    "outing",
+    "charles",
+    "charles-1880",
+    "charles-old-house",
+    "stable-size",
+    "stable-brick",
+    "stable-door",
+    "first-soil"
+   ],
+   "links": [
+    {
+     "kind": "person",
+     "id": "pa1904_glessner_john_j_c1900_charles_nelson",
+     "label": "Charles Nelson"
+    }
+   ],
+   "next": "august",
+   "read_s": 38
+  },
+  {
+   "id": "august",
+   "destination": {
+    "kind": "anchor",
+    "id": "glessner_tour_gate"
+   },
+   "hosts": [
+    {
+     "person": "pa1904_glessner_john_j_c1900_august_billings",
+     "local_e": 1335.59,
+     "local_n": -3229.29
+    }
+   ],
+   "text": "Hallo! August Billings, the stable helper. I came over from Sweden in 1892, same year as Christine, and I sleep in the rear building with the other men. Charles has me at the harness and washing down the carriage, and I see to the doves too: the dovecotes hold near sixty, and their eggs go to the family's table. These gates are the back way into the court. They tell a story about them from before my time. In December 1887 the family brought every stick they owned in through here and into the house before the neighbours suspected even that they were about to move. That night they lit the new hearth with fire carried from the old one. That's the whole household. Thank you for coming round!",
+   "evidence": [
+    "voices",
+    "outing",
+    "august",
+    "doves",
+    "moving-day",
+    "women-rooms"
+   ],
+   "links": [
+    {
+     "kind": "person",
+     "id": "pa1904_glessner_john_j_c1900_august_billings",
+     "label": "August Billings"
+    }
+   ],
+   "next": "finish",
+   "read_s": 36
+  }
+ ],
+ "legs": [
+  {
+   "from": "john",
+   "to": "frances",
+   "story": "Mr. Glessner paid $50,000 for this corner in March 1885: two lots and the north 17 feet of a third.",
+   "story_evidence": [
+    "lot"
+   ],
+   "evidence": [
+    "outing"
+   ]
+  },
+  {
+   "from": "mattie",
+   "to": "kate",
+   "story": "The house has held receptions for more than four hundred, all fed from Mattie's kitchen.",
+   "story_evidence": [
+    "crowds"
+   ],
+   "evidence": [
+    "outing"
+   ]
+  },
+  {
+   "from": "kate",
+   "to": "christine",
+   "story": "Out on Prairie Avenue, the Pullman mansion stands diagonally across the corner.",
+   "story_evidence": [
+    "neighbours"
+   ],
+   "evidence": [
+    "outing"
+   ]
+  },
+  {
+   "from": "mary",
+   "to": "charles",
+   "story": "The house's walls are Wellesley granite on the streets and hollow brick inside, so there is nowhere for a mouse to live.",
+   "story_evidence": [
+    "mice"
+   ],
+   "evidence": [
+    "outing"
+   ]
+  }
+ ],
+ "endings": [
+  {
+   "id": "finish",
+   "completion_eligible": true,
+   "read_s": 26,
+   "text": "Two years after this morning, in 1906, the Glessners gave up horses for motor cars, and the wall between Charles's stable and the carriage house came down. Mattie cooked here until 1912, when she left to marry in California; Frances Glessner wrote of her that she was 'one of the finest people that ever lived.' John and Frances lived in this house to the end of their lives, and in 1924 he signed a deed of gift for it. The rooms these people kept are a museum now."
+  }
+ ],
+ "keepsake": {
+  "family": "Neighbors",
+  "id": "glessner-household-card",
+  "title": "Below Stairs at 1800 Prairie",
+  "text": "An interpretive card of the eight people met round the Glessner House on a spring morning in 1904, not a historical artifact."
+ },
+ "evidence": [
+  {
+   "id": "voices",
+   "text": "The household telling the walk in their own voices is modern interpretation: every word each person says to the visitor, how they say it, and which of their facts they choose, are written for this jaunt from the records cited beside them. No conversation with any of them is asserted; where they stand, and that they are all at home on one spring morning in 1904, are reconstructed.",
+   "confidence": "reconstructed",
+   "sources": [],
+   "liberty": "L-t3525-household-tour"
+  },
+  {
+   "id": "outing",
+   "text": "The walk, its order and its stands, its spring morning, its reading times, the hand-on from each person to the next and the keepsake are modern interpretation; no visit on a day in 1904 is asserted.",
+   "confidence": "reconstructed",
+   "sources": [],
+   "liberty": "L-t3525-household-tour"
+  },
+  {
+   "id": "john-came",
+   "text": "In 1870 John J. Glessner moved from Springfield, Ohio, where the plant of Warder, Bushnell and Glessner was, to Chicago to be closer to his midwestern market, bringing his wife Frances, whom he had just married.",
+   "confidence": "attested",
+   "sources": [
+    "habs_glessner_house_il_1015_data_pages"
+   ],
+   "locator": "Data page 4, Part I.B."
+  },
+  {
+   "id": "john-machines",
+   "text": "Warder, Bushnell and Glessner expanded from 800 machines sold in 1871 to 25,000 sold in 1884; in 1902 the firm went into the new International Harvester Company, of which Glessner was one of the four vice-presidents.",
+   "confidence": "attested",
+   "sources": [
+    "habs_glessner_house_il_1015_data_pages"
+   ],
+   "locator": "Data page 4, Part I.B, citing Andreas, History of Chicago, vol. 3."
+  },
+  {
+   "id": "richardson-last",
+   "text": "Henry Hobson Richardson designed the house; Glessner calls it his last work.",
+   "confidence": "attested",
+   "sources": [
+    "habs_glessner_house_il_1015_data_pages",
+    "glessner_story_of_a_house_1923"
+   ],
+   "locator": "HABS data page 2 (architect); Story of a House, HABS data page 13 ('It was his last work')."
+  },
+  {
+   "id": "first-night",
+   "text": "The family slept in the house for the first time on the night of 1 December 1887.",
+   "confidence": "attested",
+   "sources": [
+    "glessner_story_of_a_house_1923"
+   ],
+   "locator": "HABS data page 9."
+  },
+  {
+   "id": "old-lady",
+   "text": "A dear old lady once said to Glessner, 'Mr. Glessner, you are a very important member of this community; you have a position of great prominence and influence; you get it from your wife and your house,' and he thought it a real compliment, for I selected the one and I built the other.",
+   "confidence": "attested",
+   "sources": [
+    "glessner_story_of_a_house_1923"
+   ],
+   "locator": "HABS data pages 10-11."
+  },
+  {
+   "id": "underpass",
+   "text": "An underpass on the east (Prairie Avenue) front leads under the house to the courtyard.",
+   "confidence": "attested",
+   "sources": [
+    "habs_glessner_house_il_1015_data_pages",
+    "habs_glessner_house_il_1015_drawings"
+   ],
+   "locator": "HABS data page 2 (Part I.A.6, 'the door of the underpass on the east facade'); drawings sheet 2, the first-floor plan."
+  },
+  {
+   "id": "frances-born",
+   "text": "Sarah Frances Macbeth was born on 1 January 1848 in Urbana, Ohio, and married John Glessner on 7 December 1870.",
+   "confidence": "attested",
+   "sources": [
+    "glessner_house_family_page"
+   ],
+   "locator": "The biography of Frances Macbeth Glessner."
+  },
+  {
+   "id": "journal-silver",
+   "text": "Frances Macbeth Glessner kept a journal from 1879, and in 1904 set up a silversmith's workbench in the basement of the house; she also kept bees.",
+   "confidence": "attested",
+   "sources": [
+    "glessner_house_family_page"
+   ],
+   "locator": "The biography of Frances Macbeth Glessner."
+  },
+  {
+   "id": "reading-class",
+   "text": "Frances Glessner founded the Monday Morning Reading Class in the house; its weekly meetings ran through the winters and springs, in the library, and while the reading went on the ladies' fingers were busy with sewing.",
+   "confidence": "attested",
+   "sources": [
+    "glessner_story_of_a_house_1923"
+   ],
+   "locator": "HABS data page 10."
+  },
+  {
+   "id": "servants-journal",
+   "text": "Frances Glessner recorded each servant's name when hired, with their pay, their position and the reason they left or were dismissed.",
+   "confidence": "attested",
+   "sources": [
+    "glessner_house_blog_servants_2012"
+   ],
+   "locator": "The post's account of her servants' journal."
+  },
+  {
+   "id": "walkout",
+   "text": "In August 1891 all five of the house staff gave notice after dinner; Frances Glessner wrote: 'After dinner Fredrick appeared with a document signed by all five saying they would all leave as soon as they could be paid.' She sent for Mattie Williamson.",
+   "confidence": "attested",
+   "sources": [
+    "glessner_house_blog_mattie_williamson_2020"
+   ],
+   "locator": "The post, quoting Frances Glessner's journal for August 1891."
+  },
+  {
+   "id": "creeper",
+   "text": "The Virginia creeper on the courtyard walls was carried from the old house; one vine fifty-five feet long was replanted and trained its full length, and it flourished.",
+   "confidence": "attested",
+   "sources": [
+    "glessner_story_of_a_house_1923"
+   ],
+   "locator": "HABS data page 9."
+  },
+  {
+   "id": "yellow-glass",
+   "text": "Yellow glass under chipped white glass in the door leading to the courtyard gives the hall a feeling of sunlight even in cloudy weather.",
+   "confidence": "attested",
+   "sources": [
+    "glessner_story_of_a_house_1923"
+   ],
+   "locator": "HABS data page 14."
+  },
+  {
+   "id": "mattie-born",
+   "text": "Martha L. (Mattie) Williamson was born on 23 October 1859 in Inverness, Quebec, to Irish-born parents; her brother Alex and his wife Sarah managed the Glessners' New Hampshire farm, The Rocks, from 1883.",
+   "confidence": "attested",
+   "sources": [
+    "glessner_house_blog_mattie_williamson_2020"
+   ],
+   "locator": "The post's account of her early life."
+  },
+  {
+   "id": "mattie-cook",
+   "text": "In February 1892, hired as a maid, Mattie Williamson became the cook after Frances Glessner dismissed her seventh cook in seven weeks; the cooks had struggled with a new gas stove. Frances wrote: 'Mattie Williamson is going to try my cooking. I shall have her taught.'",
+   "confidence": "attested",
+   "sources": [
+    "glessner_house_blog_mattie_williamson_2020"
+   ],
+   "locator": "The post, quoting Frances Glessner's journal for February 1892."
+  },
+  {
+   "id": "mattie-dinners",
+   "text": "Mattie Williamson prepared eight-course dinners while feeding the live-in staff of eight, and won an award for her bread and rolls at a Women's Club competition in 1900.",
+   "confidence": "attested",
+   "sources": [
+    "glessner_house_blog_mattie_williamson_2020"
+   ],
+   "locator": "The post's account of her cooking."
+  },
+  {
+   "id": "mattie-cake",
+   "text": "Mattie Williamson baked the wedding cake for Frances Glessner and Blewett Lee, married at the house on 9 February 1898.",
+   "confidence": "attested",
+   "sources": [
+    "glessner_house_blog_mattie_williamson_2020"
+   ],
+   "locator": "The post's account of 1897-98."
+  },
+  {
+   "id": "mattie-rocks",
+   "text": "Each year Mattie Williamson went to The Rocks about a week ahead of the family to ready the house.",
+   "confidence": "attested",
+   "sources": [
+    "glessner_house_blog_mattie_williamson_2020"
+   ],
+   "locator": "The post, with Frances Glessner's journal for May 1903."
+  },
+  {
+   "id": "pots-pans",
+   "text": "Three weeks after the New Year's reception of 1903 about a hundred guests including the full orchestra dined in the house, and the musicians played the metronome movement of Beethoven's Eighth Symphony on pots, pans and dishes.",
+   "confidence": "attested",
+   "sources": [
+    "glessner_story_of_a_house_1923"
+   ],
+   "locator": "HABS data pages 15-16."
+  },
+  {
+   "id": "own-cook",
+   "text": "Course dinners have been served to more than one hundred guests at a time, the cooking all done in our kitchen and by our own cook.",
+   "confidence": "attested",
+   "sources": [
+    "glessner_story_of_a_house_1923"
+   ],
+   "locator": "HABS data page 15."
+  },
+  {
+   "id": "kitchen",
+   "text": "The kitchen and pantries are on the main or parlor floor, well lighted and well ventilated; the back entrance corridor and kitchen walls are of white glazed brick.",
+   "confidence": "attested",
+   "sources": [
+    "glessner_story_of_a_house_1923"
+   ],
+   "locator": "HABS data pages 13 and 15."
+  },
+  {
+   "id": "kitchen-window",
+   "text": "The women servants' entrance is set within the great arch on Eighteenth Street, and the kitchen window sits within the arch.",
+   "confidence": "attested",
+   "sources": [
+    "glessner_house_blog_home_for_servants_2014"
+   ],
+   "locator": "The post, on George Glessner's photograph of about 1890."
+  },
+  {
+   "id": "kate",
+   "text": "On 1 June 1900 the census enumerated Kate Ryan in the house as a servant, a cook, born April 1850 in Ireland, single.",
+   "confidence": "attested",
+   "sources": [
+    "census_1900_chicago_t623_roll245"
+   ],
+   "locator": "ED 40, sheet 5B, line 55, leaf n803."
+  },
+  {
+   "id": "kate-away",
+   "text": "Kate Ryan was enumerated as the house's cook while the Glessners were away at The Rocks, with Mattie Williamson as their cook in those years.",
+   "confidence": "inferred",
+   "sources": [
+    "census_1900_chicago_t623_roll245",
+    "glessner_house_blog_mattie_williamson_2020"
+   ],
+   "reasoning": "The census of 1 June 1900 lists the staff at 1800 Prairie and not John or Frances Glessner; Mattie Williamson went to The Rocks with the family each summer (the museum's account of her). That Kate Ryan cooked for the house in Chicago while they were gone is the reading of these two, not a record of it."
+  },
+  {
+   "id": "staff-dinner",
+   "text": "The servants ate their own dinner at about three o'clock, so that the kitchen could turn to the family's dinner afterwards; an annunciator in the kitchen showed which room had rung, and the iceman delivered ice through a half-door into the cold closet.",
+   "confidence": "attested",
+   "sources": [
+    "glessner_house_blog_servants_2012"
+   ],
+   "locator": "The post's account of the kitchen's routines."
+  },
+  {
+   "id": "servants-unseen",
+   "text": "There are two or more entrances or exits to every principal room, and passages are so planned that servants rarely are in evidence.",
+   "confidence": "attested",
+   "sources": [
+    "glessner_story_of_a_house_1923"
+   ],
+   "locator": "HABS data page 15."
+  },
+  {
+   "id": "christine",
+   "text": "On 1 June 1900 the census enumerated Christine Nelson in the house as a servant, a parlor maid, born March 1873 in Sweden, come to the United States in 1892, single.",
+   "confidence": "attested",
+   "sources": [
+    "census_1900_chicago_t623_roll245"
+   ],
+   "locator": "ED 40, sheet 5B, line 56, leaf n803."
+  },
+  {
+   "id": "women-staff",
+   "text": "The live-in women of the staff were a cook, a waitress, a parlor maid who did the cleaning, and a ladies' maid; a laundress and a seamstress came by the day.",
+   "confidence": "attested",
+   "sources": [
+    "glessner_house_blog_servants_2012"
+   ],
+   "locator": "The post's account of the staff."
+  },
+  {
+   "id": "smoke",
+   "text": "An alcove in the hall was prepared for drawings, with cork walls to receive thumb tacks, but used otherwise when the smoky atmosphere compelled putting pictures under glass; the wall papers, curtains and carpets are by William Morris, renewed from the same patterns.",
+   "confidence": "attested",
+   "sources": [
+    "glessner_story_of_a_house_1923"
+   ],
+   "locator": "HABS data pages 14 and 17."
+  },
+  {
+   "id": "narrow-windows",
+   "text": "Passers-by remarked on the narrow windows in the north side along 18th Street, just enough to light the narrow corridors, not realizing that on the courtyard side Richardson had put generous windows.",
+   "confidence": "attested",
+   "sources": [
+    "glessner_story_of_a_house_1923"
+   ],
+   "locator": "HABS data page 15."
+  },
+  {
+   "id": "mary",
+   "text": "On 1 June 1900 the census enumerated Mary Reynolds in the house as a servant, a house maid, born June 1871 in Illinois, single.",
+   "confidence": "attested",
+   "sources": [
+    "census_1900_chicago_t623_roll245"
+   ],
+   "locator": "ED 40, sheet 5B, line 54, leaf n803."
+  },
+  {
+   "id": "servants-address",
+   "text": "The servants had their own address, 35 Eighteenth Street (renumbered 227 E. 18th Street in 1909), and separate entrances, the women's set within the great arch.",
+   "confidence": "attested",
+   "sources": [
+    "glessner_house_blog_home_for_servants_2014"
+   ],
+   "locator": "The post."
+  },
+  {
+   "id": "women-rooms",
+   "text": "The women servants lived above the kitchen wing in four bedrooms along an east-west hallway, sharing a bathroom and a small porch facing 18th Street; the men lived above the coach house, and the two wings had no connection inside.",
+   "confidence": "attested",
+   "sources": [
+    "glessner_house_blog_servants_2012"
+   ],
+   "locator": "The post's account of the staff's rooms."
+  },
+  {
+   "id": "horns",
+   "text": "On 1 January 1903 a double quartet of horns slipped in by the Eighteenth Street door and up the back stairs and played in the upper hall at four o'clock.",
+   "confidence": "inferred",
+   "sources": [
+    "glessner_story_of_a_house_1923"
+   ],
+   "reasoning": "HABS data page 15 tells the surprise. Glessner calls the way in 'the Eighteenth Street door'; the great arch is the one Eighteenth Street entrance he describes leading to the back of the house, so the door is read as the arch's."
+  },
+  {
+   "id": "anniversary",
+   "text": "On the twenty-fifth anniversary of the Glessners' wedding Theodore Thomas brought the entire orchestra in by the Eighteenth Street door, up the back stairs, and their presence was not known until by his signal they began a concert.",
+   "confidence": "attested",
+   "sources": [
+    "glessner_story_of_a_house_1923"
+   ],
+   "locator": "HABS data page 15."
+  },
+  {
+   "id": "charles",
+   "text": "On 1 June 1900 the census enumerated Charles Nelson, coachman, born June 1848 in Sweden, come to the United States in 1871, married, as the head of his own household in the rear building, with his wife Martha and their children Norman J., Albert C., Richard, Martin and Helen.",
+   "confidence": "attested",
+   "sources": [
+    "census_1900_chicago_t623_roll245"
+   ],
+   "locator": "ED 40, sheet 5B, line 57, leaf n803."
+  },
+  {
+   "id": "charles-old-house",
+   "text": "Charles Nelson drove for the Glessners when they lived at Washington and Morgan Streets, and lived over their coach house there.",
+   "confidence": "inferred",
+   "sources": [
+    "glessner_house_blog_servants_christmas_2012",
+    "glessner_story_of_a_house_1923"
+   ],
+   "reasoning": "The museum lists him as the Glessners' coachman at Christmas 1894 and reads the 1880 census as placing him over the coach house with his wife and son; the Glessners lived at Washington and Morgan Streets from 1875 to 1887 (Story of a House, HABS data page 11), so the coach house of 1880 is read as theirs. That he served them from then to 1904 without a break is not recorded."
+  },
+  {
+   "id": "charles-1880",
+   "text": "Charles Nelson was the Glessners' coachman at Christmas 1894, and the 1880 census shows him living over the coach house with his wife Martha and their two-year-old son Norman.",
+   "confidence": "attested",
+   "sources": [
+    "glessner_house_blog_servants_christmas_2012"
+   ],
+   "locator": "The post's list of the staff of Christmas 1894."
+  },
+  {
+   "id": "stable-size",
+   "text": "The stable had six stalls for horses, and the carriage house could hold as many carriages.",
+   "confidence": "attested",
+   "sources": [
+    "glessner_house_blog_servants_2012"
+   ],
+   "locator": "The post's account of the coach house and stable."
+  },
+  {
+   "id": "stable-brick",
+   "text": "The carriage house and stables are of white glazed brick, and the house is heated from the furnace room under them, keeping the dust and dirt and noise of coal and ashes out of the house.",
+   "confidence": "attested",
+   "sources": [
+    "glessner_story_of_a_house_1923",
+    "habs_glessner_house_il_1015_data_pages"
+   ],
+   "locator": "Story of a House, HABS data page 13; HABS data page 22."
+  },
+  {
+   "id": "first-soil",
+   "text": "On 1 June 1886 George, fourteen and a half, drove his father's horse and buggy to the site, and he and his sister threw the first soil from the foundation trenches.",
+   "confidence": "attested",
+   "sources": [
+    "glessner_story_of_a_house_1923"
+   ],
+   "locator": "HABS data page 8."
+  },
+  {
+   "id": "stable-door",
+   "text": "The stable's carriage doorway opens on Eighteenth Street.",
+   "confidence": "attested",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings"
+   ],
+   "locator": "Sheets 2 and 5: the 18th Street carriage doorway."
+  },
+  {
+   "id": "august",
+   "text": "On 1 June 1900 the census enumerated August Billings in the rear building as a helper, born January 1875 in Sweden, come to the United States in 1892, single.",
+   "confidence": "attested",
+   "sources": [
+    "census_1900_chicago_t623_roll245"
+   ],
+   "locator": "ED 40, sheet 5B, line 64, leaf n803."
+  },
+  {
+   "id": "doves",
+   "text": "Doves in the dovecotes, which held nearly sixty, gave the family eggs.",
+   "confidence": "attested",
+   "sources": [
+    "glessner_house_blog_servants_2012"
+   ],
+   "locator": "The post."
+  },
+  {
+   "id": "moving-day",
+   "text": "Because of its plan the family moved all their household belongings through the courtyard entrance from the alley and placed them in the house before our neighbors suspected even that we were about to move; that night they lit the new hearth with fire carried from the old house at Washington and Morgan Streets.",
+   "confidence": "attested",
+   "sources": [
+    "glessner_story_of_a_house_1923"
+   ],
+   "locator": "HABS data pages 8-9."
+  },
+  {
+   "id": "automobiles",
+   "text": "In 1906 the Glessners changed to automobiles, and the wall between the stable and the carriage house was taken down.",
+   "confidence": "attested",
+   "sources": [
+    "glessner_house_blog_servants_2012"
+   ],
+   "locator": "The post's account of the coach house and stable."
+  },
+  {
+   "id": "mattie-leaves",
+   "text": "Mattie Williamson left in 1912 to marry William Prescott in Los Angeles; Frances Glessner later wrote to her son that Mattie was 'one of the finest people that ever lived.'",
+   "confidence": "attested",
+   "sources": [
+    "glessner_house_blog_mattie_williamson_2020"
+   ],
+   "locator": "The post's account of her marriage and death."
+  },
+  {
+   "id": "gift",
+   "text": "John Glessner owned the house until the deed of gift of 1 December 1924, and he and his wife lived in it until their deaths in 1936 and 1932.",
+   "confidence": "attested",
+   "sources": [
+    "habs_glessner_house_il_1015_data_pages"
+   ],
+   "locator": "Data pages 1-2."
+  },
+  {
+   "id": "lot",
+   "text": "In March 1885 Glessner bought lots 39, 40 and the north 17 feet of lot 38 for $50,000.",
+   "confidence": "attested",
+   "sources": [
+    "habs_glessner_house_il_1015_data_pages"
+   ],
+   "locator": "Data page 1, Part I.A.1."
+  },
+  {
+   "id": "crowds",
+   "text": "The house has held receptions for more than four hundred and dinners for more than a hundred, cooked in its own kitchen.",
+   "confidence": "attested",
+   "sources": [
+    "glessner_story_of_a_house_1923"
+   ],
+   "locator": "HABS data page 15."
+  },
+  {
+   "id": "neighbours",
+   "text": "Glessner built at the corner of Eighteenth Street and Prairie Avenue, diagonally opposite Pullman's mansion.",
+   "confidence": "attested",
+   "sources": [
+    "habs_glessner_house_il_1015_data_pages"
+   ],
+   "locator": "Data page 3, Part I.B."
+  },
+  {
+   "id": "mice",
+   "text": "The outside walls on the streets are of Wellesley granite, and all walls are lined with hollow brick, to which the plastering is attached without laths, so there is no place for mice behind the plastering.",
+   "confidence": "attested",
+   "sources": [
+    "glessner_story_of_a_house_1923"
+   ],
+   "locator": "HABS data page 13."
+  }
+ ],
+ "liberties": [
+  "L-t3525-household-tour"
+ ]
+}

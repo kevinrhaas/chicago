@@ -849,7 +849,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
     const groups = new Map();
     for (const p of people) {
       const s = p.round ? p.cur : (p.play ?? p.span);
-      if (p.mode !== 'out' || p.called || !s || s.activity !== 'talk' || !s.knot) continue;
+      if (p.mode !== 'out' || p.called || p.hosted || !s || s.activity !== 'talk' || !s.knot) continue;
       if (humans.isHeld?.(p.actor)) continue;
       if (!groups.has(s.knot)) groups.set(s.knot, []);
       groups.get(s.knot).push(p);
@@ -1024,6 +1024,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
           continue;
         }
         if (p.absent) { p.absent = false; if (p.soldier) a.setIndoors?.(false); }
+        if (p.hosted) continue;   // T-3525: a jaunt's host, at their mark until let go
         if (p.called) { stepCalled(p, dt); continue; }
         if (p.soldier) continue;   // his hours are human-duties.js's
         const span = spanAt(dayOn(p.b, today, p.actor.personId ?? p.id), h);
@@ -1059,6 +1060,50 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
       callOut(p, door.door);
       return { ok: true, door: door.id };
     },
+    /**
+     * T-3525: a jaunt's host. Take `personOrInstance` out of their day and walk them to
+     * `mark` ({ e, n }), out of the house by its door nearest the mark if they are in, and
+     * stand there turned to `heading`; `onArrive` once they stand. { ok, why }. They stay
+     * until `unhost`, which gives them back to the hour's place (in by a door, or out to it).
+     */
+    host(personOrInstance, mark, { heading = null, onArrive = null } = {}) {
+      const p = people.find((x) => x.actor.personId === personOrInstance || x.id === personOrInstance);
+      if (!p || p.entry) return { ok: false, why: 'no such person' };
+      if (p.absent) return { ok: false, why: 'not here on this date' };
+      if (p.called) p.called = null;
+      const a = p.actor, to = { e: mark.e, n: mark.n };
+      p.hosted = { mark: to, heading };
+      p.job = null; p.round = null; p.phase = null; p.cur = null;
+      p.token = (p.token ?? 0) + 1;
+      talk(a, false);
+      let from = null;
+      if (a.indoors) {
+        const structure = p.inside ?? p.span?.where ?? null;
+        const door = structure ? doorNear(structure, to.e, to.n) : null;
+        from = door ? pt(door.step) : to;
+        a.e = from.e; a.n = from.n; a.standY = null;
+        a.heading = door ? door.outward_deg : (Number.isFinite(heading) ? heading : a.heading);
+        a.setIndoors?.(false);
+        a.place?.();
+      }
+      p.inside = null;
+      p.mode = 'hosted';
+      a.setState?.('standing');
+      go(p, to, heading, () => { if (p.hosted) onArrive?.(a); }, { from });
+      return { ok: true };
+    },
+    /** T-3525: let a jaunt's host go back to their day. */
+    unhost(personOrInstance) {
+      const p = people.find((x) => x.actor.personId === personOrInstance || x.id === personOrInstance);
+      if (!p?.hosted) return false;
+      p.hosted = null;
+      p.token = (p.token ?? 0) + 1;
+      p.span = null;            // the next frame enters the hour's span from where they stand
+      p.mode = p.actor.indoors ? 'in' : 'out';
+      return true;
+    },
+    /** T-3525: whether a jaunt holds this figure as a host. */
+    isHosted: (actor) => !!people.find((p) => p.actor === actor)?.hosted,
     /** Whether a person is held out by a call (human-duties.js leaves them be). */
     isCalled: (actor) => !!people.find((p) => p.actor === actor)?.called,
     /** The inside-only people (no figure until asked for), and how many are out now. */
