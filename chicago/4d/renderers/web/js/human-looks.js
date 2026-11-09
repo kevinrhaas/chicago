@@ -88,8 +88,8 @@ export function dressLooks(root, looks) {
  * were made from: no texture, no program. Returns the clones, to dispose with the level.
  */
 export function dressCloth(root, dress) {
-  const colours = dress?.colours ?? null, hide = dress?.hide ?? [];
-  if (!root || (!colours && !hide.length)) return [];
+  const colours = dress?.colours ?? null, hide = dress?.hide ?? [], pieces = dress?.pieces ?? null;
+  if (!root || (!colours && !hide.length && !pieces)) return [];
   const made = new Map();
   const remake = (m) => {
     if (made.has(m)) return made.get(m);
@@ -107,14 +107,27 @@ export function dressCloth(root, dress) {
   };
   // A piece's mesh is named `<asset>_<piece>_lod<n>` (or the piece alone).
   const hidden = hide.length ? new RegExp(`(^|_)(${hide.map((h) => h.replace(/[^a-z0-9_]/gi, '')).join('|')})(_lod\\d+)?$`) : null;
+  // T-3522: a colour for one piece where pieces share a material (the gown's waist band is cut
+  // from the bodice's cloth in the body; hers may be a ribbon of another colour).
+  const own = [];
+  const pieceOf = pieces ? (name) => Object.keys(pieces).find((k) => new RegExp(`(^|_)${k.replace(/[^a-z0-9_]/gi, '')}(_lod\\d+)?$`).test(name)) : () => null;
   root.traverse((o) => {
     if (!o.isMesh) return;
     if (hidden && hidden.test(o.name)) { o.visible = false; return; }
+    const piece = pieceOf(o.name);
+    if (piece && !Array.isArray(o.material)) {
+      const m = o.material.clone();
+      m.color.setRGB(...pieces[piece], THREE.LinearSRGBColorSpace);
+      if (m.map) { m.map = null; m.needsUpdate = true; }
+      o.material = m;
+      own.push(m);
+      return;
+    }
     if (!colours) return;
     if (Array.isArray(o.material)) o.material = o.material.map((m) => remake(m) ?? m);
     else { const n = remake(o.material); if (n) o.material = n; }
   });
-  return [...made.values()].filter(Boolean);
+  return [...made.values()].filter(Boolean).concat(own);
 }
 
 export function disposeLooks(materials) {

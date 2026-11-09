@@ -47,6 +47,7 @@ import { dressSkin, restingLid } from './human-skin.js';
 import { dressHair, dressHeadcloth } from './human-hair.js';
 import { hairFor } from './human-hair-styles.js';
 import { dressLooks, dressCloth, looksHairStyle } from './human-looks.js';
+import { dressHat } from './human-hats.js';
 import { dressSpectacles } from './human-spectacles.js';
 import { dressGarrison, garrisonCarry, createArmsPiles } from './human-garrison.js';
 
@@ -436,6 +437,8 @@ export class HumanActor {
     const hair = dressHair(scene, { lod, person: this.personId ?? null, year, style });
     // T-3506: a handkerchief tied round the head, at every level.
     if (dress?.headcloth) { const cloth = dressHeadcloth(scene, dress.headcloth, { person: this.personId ?? null }); if (cloth) looked.push(cloth.material); }
+    // T-3522: their own hat (human-hats.js).
+    if (dress?.hat) looked.push(...(dressHat(scene, dress.hat, { person: this.personId, lod })?.materials ?? []));
     // T-3440: spectacles, for a person whose portrait shows them (human-spectacles.js).
     this.spectacles = dressSpectacles(scene, { lod, person: this.personId ?? null });
     // T-3523: a soldier of the 1812 garrison's rank marks, drum or fife case, and the musket
@@ -839,7 +842,7 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
     identityKind: actor.identity.kind, profileId: actor.identity.profile?.id ?? null, role: actor.identity.role,
     roleCard: humanRoleCard(actor.identity, actor.instance),
   });
-  const emit = (type, actor) => events.dispatchEvent(new CustomEvent(type, { detail: detail(actor) }));
+  const emit = (type, actor, extra = null) => events.dispatchEvent(new CustomEvent(type, { detail: extra ? { ...detail(actor), ...extra } : detail(actor) }));
 
   const layer = {
     group,
@@ -990,7 +993,9 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
         if (inside && !near.has(a)) {
           near.add(a);
           emit('approach', a);
-          if (a.instance.interaction?.opens === 'resident_card' && a.identity.kind === 'person') emit('open', a);
+          // T-3521: `approach` marks an open the visitor did not ask for (they walked up, or the
+          // person walked past them), so a card the visitor picked can stay where it is.
+          if (a.instance.interaction?.opens === 'resident_card' && a.identity.kind === 'person') emit('open', a, { approach: true });
           if (a.instance.interaction?.opens === 'role_card' && a.identity.kind === 'anonymous') emit('role_open', a);
         } else if (!inside && near.has(a)) {
           near.delete(a);

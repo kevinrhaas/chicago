@@ -3820,8 +3820,13 @@ async function boot() {
     // before it is drawn, so walking up to someone is not a stall on her skin's programs.
     prepare: (object) => renderer.compileAsync(object, camera, scene3d),
   });
-  api.humans.on('open', ({ personId }) => {
+  api.humans.on('open', ({ personId, approach }) => {
     if (!api.people) return;
+    // T-3521 (the owner, 2026-11-08: "when you click and select someone i think that person
+    // should stay up in the navigator, it curently always changes when someone walks in your
+    // field of view"): a person card already open stays until the visitor closes it or picks
+    // someone else; only walking up to someone with no person card open opens theirs.
+    if (approach && personCardOpen()) return;
     if (!draws('residents')) { void openPersonCard(personId); return; }
     hud.setPanel(true); hud.selectTab('people'); api.people.open?.(personId);
   });
@@ -3844,6 +3849,10 @@ async function boot() {
   // door and ask for any person inside"): each person's day by the scene's date and hour,
   // and every 1812 door that has someone behind it offers Ask for them (human-days.js).
   api.days = null;
+  // T-3520 (owner, 2026-11-08: "people can stand and break the wall of the mat walls"): each
+  // camp lodge's walls where they meet the ground (doors_1812.json `walls`, read off the camp's
+  // model), kept clear by a day's job places and by the spacing pass below.
+  let lodgeWalls = [];
   // T-3516 (owner, 2026-11-08: "This is for all years starting with 1812, give all people a
   // purpose and something to do"): every year's people keep a day, by its own doors file.
   const daysScene = String(loaded.scene.id ?? YEAR);
@@ -3852,6 +3861,7 @@ async function boot() {
       .then((r) => (r.ok ? r.json() : null)).catch(() => null);
     const [doors, inside] = await Promise.all([getOptional(`humans/doors_${daysScene}.json`),
       daysScene === '1812' ? getOptional('humans/inside_1812.json') : null]);
+    lodgeWalls = (doors?.structures ?? []).flatMap((row) => (row.walls ?? []).map((ring, i) => ({ id: `${row.structure}:walls${i + 1}`, pts: ring })));
     // The gathering's people who are carded and not drawn (inside_1812.json): a figure is
     // built for one only when they are asked for at their lodge's door, from the dress their
     // entry names, and taken away once they are back in.
@@ -3876,7 +3886,7 @@ async function boot() {
       // its ways only once something else (Go to) has built it, else walks straight.
       router: { plan: (...args) => (api.router?.built ? api.router.plan(...args) : null) },
       // T-3505: a job's places between gatherings are clear of the buildings and the fort's walls.
-      clear: clearWayOf(footprints),
+      clear: clearWayOf(footprints.concat(lodgeWalls)),
       problems: layerProblems('humans') });
   }
   // T-3504 (owner, 2026-11-08: "two people occupying the same space? Prevent that"): every year's
@@ -3884,7 +3894,8 @@ async function boot() {
   // never into a building, by the router's grid once something has built it.
   api.spacing = createHumanSpacing({ humans: api.humans,
     visitor: () => ({ e: walker.state.e, n: walker.state.n }),
-    blockedAt: (e, n) => (api.router?.built ? api.router.blockedAt(e, n) : false) });
+    blockedAt: (e, n) => (api.router?.built ? api.router.blockedAt(e, n) : false),
+    keepOut: lodgeWalls });
   /**
    * T-3439 (owner, 2026-11-07): Settings › Show › People and › Carriages and horses. A
    * viewing choice, like Street trees: hidden, a layer is neither drawn nor advanced nor
@@ -5036,7 +5047,11 @@ async function boot() {
     if (figure && !figure.disposed && figure.root?.parent && !api.humans.external?.(target.id)) {
       const { e: fe, n: fn } = figure.position;
       const b = (figure.heading ?? 0) * Math.PI / 180;
-      for (const [ahead, side] of [[2.5, 0], [0, 2.5], [0, -2.5], [-2.5, 0]]) {
+      // T-3521: in front first, then round them, then further out: someone in a lodge's
+      // doorway or between a cart and a wall had no clear stand at 2.5 m on four sides.
+      const stands = [[2.5, 0], [0, 2.5], [0, -2.5], [-2.5, 0]];
+      for (const r of [2.5, 4, 6, 9]) for (let k = 0; k < 12; k++) stands.push([Math.cos(k * Math.PI / 6) * r, Math.sin(k * Math.PI / 6) * r]);
+      for (const [ahead, side] of stands) {
         const e = fe + Math.sin(b) * ahead + Math.cos(b) * side;
         const n = fn + Math.cos(b) * ahead - Math.sin(b) * side;
         if (router.blockedAt(e, n)) continue;
@@ -5045,7 +5060,13 @@ async function boot() {
           label: target.label ?? figure.person?.name ?? 'Person' },
         { onArrive: () => target.then?.() });
       }
-      hud.say('No clear place beside this person'); return false;
+      if (!target.home) { hud.say('No clear place beside this person'); return false; }
+    }
+    // T-3521: someone not out in town now (indoors, or not drawn at this detail) is found at
+    // their door: the card's Find goes to the house they are in, and says so.
+    if (findInTown && target.home && loaded.registry.has(target.home)) {
+      hud.say(`${target.label ?? 'They'}: at home now`);
+      return goToTarget({ kind: 'structure', id: target.home });
     }
     const resolved = destinations.resolve(target);
     if (!resolved) {
@@ -5371,6 +5392,17 @@ async function boot() {
     }
     return householdRecords.get(file);
   }
+  // T-3521: a person's story as written for a reader (data/residents_<scene>/stories.json,
+  // beside the households), read once, the first time a card asks. No file is no stories:
+  // the card then tells what the record has.
+  let personStories = null;
+  async function personStory(id) {
+    const root = String((await peopleDirectory.load())?.residents_root ?? '').replace(/^data\//, '');
+    if (!root || !id) return null;
+    personStories ??= fetch(new URL(`${root}/stories.json`, resolveBases().dataBase), { cache: 'no-cache' })
+      .then((res) => (res.ok ? res.json() : null)).then((doc) => doc?.stories ?? {}).catch(() => ({}));
+    return (await personStories)?.[id] ?? null;
+  }
   // T-3413: a face fitted to a portrait of the person, for their card's Likeness section. The
   // file is the one the humans layer reads (assets/humans/web/hm08_variation_persons.json), read once.
   let humanPersons = null;
@@ -5382,7 +5414,8 @@ async function boot() {
       .catch(() => { humanPersons = null; return null; });
     // T-3491: and how he looks (`looks`), for the card's Looks section.
     // T-3508: the base goes back even with no face, for a card's own portrait (Shabbona's).
-    return humanPersons.then((d) => { const r = d?.persons?.[id]; return { face: r?.face ?? null, looks: r?.looks ?? null, base: String(base) }; });
+    // T-3522: and what they wear today (`dress.worn`), a row of that section.
+    return humanPersons.then((d) => { const r = d?.persons?.[id]; return { face: r?.face ?? null, looks: r?.looks ? { ...r.looks, worn: r?.dress?.worn ?? '' } : null, base: String(base) }; });
   }
   // A nearby occupied driver can be inspected as soon as its model is ready.
   // Warm only the existing card code/metadata; never open Navigator or acquire a model.
@@ -5413,10 +5446,19 @@ async function boot() {
   async function findSceneDirectoryPerson(id) {
     const row = (await peopleDirectory.load().catch(() => null))?.people?.find(r => r.id === id);
     if (!row) return false;
-    // T-3404: a driver on their round, or a figure standing or walking in town.
-    if (api.townTransport?.driverAnchorForPerson(id) || api.humans?.get?.(id)) return goToTarget({ kind: 'person', id });
-    const at = [row.lives_at, row.works_at].find(s => s && loaded.registry.has(s));
-    return at ? goToTarget({ kind: 'structure', id: at }) : false;
+    const at = [row.lives_at, row.works_at].find(s => s && loaded.registry.has(s)) ?? null;
+    // T-3404: a driver on their round, or a figure standing or walking in town; T-3521: else
+    // (and wherever no clear stand beside them is found) at the house they live or work in.
+    if (api.townTransport?.driverAnchorForPerson(id) || personInTown(id)) {
+      return goToTarget({ kind: 'person', id, label: row.name, home: at });
+    }
+    if (!at) { hud.say(`${row.name}: not in town now`); return false; }
+    hud.say(`${row.name}: indoors now`);
+    return goToTarget({ kind: 'structure', id: at });
+  }
+  /** T-3521: a person's card is showing (Inspect's People tab, the People screen, the drawer). */
+  function personCardOpen() {
+    return [...document.querySelectorAll('.insp-person-card, .people-card-name')].some((n) => n.checkVisibility?.() ?? n.offsetParent !== null);
   }
   async function openPersonCard(id) {
     if (api.people && !document.querySelector('.panel-tab[data-tab="people"]')?.hidden) {
@@ -5632,6 +5674,9 @@ async function boot() {
   api.follow = follow;
   api.followPerson = followPerson;
   api.personInTown = personInTown;
+  api.placedInTown = placedInTown;
+  // T-3521: a card's Find this person, by id (the harness tests it for everyone).
+  api.findPerson = (id) => findSceneDirectoryPerson(id);
   const interactKey = createInteractKey({ interactions,
     keyEl: document.getElementById('btn-interact'),
     moreEl: document.getElementById('interact-more'),
@@ -5642,6 +5687,8 @@ async function boot() {
   const transportReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   transportReducedMotion.addEventListener('change', resetVisualClock);
   let interactPaintAt = 0;
+  /** T-3527: the date and the buildings the dated structures were last drawn for. */
+  const datedFor = { date: undefined, buildings: null };
   let interactHinted = false;
   window.addEventListener('pagehide', event => {
     if (event.persisted) return;
@@ -5833,6 +5880,7 @@ async function boot() {
         householdRecord: (file) => householdRecord(file),
         residentCitations: () => ensureResidentCitations(),
         personFace: (id) => personFace(id),
+        personStory: (id) => personStory(id),
         openPicture: (id, i) => openPictureViewer(popup.picturesDoc, id, i),
         holdInspect: (id) => { inspectHold = id ?? null; },
         closeCard: () => popup.close(),
@@ -6120,6 +6168,15 @@ async function boot() {
     // A 0.05 s visual-effects step made human clips/routes crawl on slow devices.
     api.humans?.update(frameDt, camera, walker.state, visualDt);
     api.duties?.update(frameDt);
+    // T-3527: the 1812 gathering's camps, their worn ground and paths come and go with
+    // the date the Season or a jaunt sets (buildings.js / yards.js setDate).
+    if (world.sunDate !== datedFor.date || buildings !== datedFor.buildings) {
+      datedFor.date = world.sunDate;
+      datedFor.buildings = buildings;
+      buildings?.setDate?.(world.sunDate);
+      api.yards?.setDate?.(world.sunDate);
+      gateFrame.invalidate?.();
+    }
     api.days?.update(frameDt);
     // T-3504: and then nobody stands in anybody else (human-spacing.js).
     api.spacing?.update(frameDt);

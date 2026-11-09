@@ -23,7 +23,7 @@ const here = new URL('../', import.meta.url);
 const data = (text) => `data:text/javascript;base64,${Buffer.from(text).toString('base64')}`;
 const js = async (name) => fs.readFile(new URL(`renderers/web/js/${name}`, here), 'utf8');
 const days = await import(data(await js('human-days.js')));
-const { createHumanDays, planDay, dayOn, spanAt, clearWayOf, GATHER, BREAK, POST_RE, CHILD_RE } = days;
+const { createHumanDays, planDay, dayOn, spanAt, clearWayOf, GATHER, BREAK, POST_RE, CHILD_RE, NEAR_M } = days;
 const { occupiedPolygons } = await import(data(await js('occupied-footprints.js')));
 const doorsOf = async (scene) => JSON.parse(await fs.readFile(new URL(`data/humans/doors_${scene}.json`, here), 'utf8'));
 const doors = await doorsOf('1812');
@@ -115,6 +115,7 @@ function play(hour, seconds = 600, dt = 0.25, { recs: rs = recs, date: dd = date
   const tally = new Map();
   const knots = new Map();
   let askable = 0;
+  const kids = { out: 0, n: 0, most: 0 };
   for (let t = 0; t < seconds; t += dt) {
     for (const a of actors) {
       if (!a.pending) continue;
@@ -137,6 +138,19 @@ function play(hour, seconds = 600, dt = 0.25, { recs: rs = recs, date: dd = date
         if (!knots.has(p.round.knot)) knots.set(p.round.knot, { on: 0, offs: 0, last: false });
       }
     }
+    // T-3520: how many children are out, and the most of them in one place, of those the
+    // visitor is near (one far off keeps to what it is at until it is seen near: NEAR_M).
+    const seen = d.people.filter((p) => p.child && !p.absent && Math.hypot(p.actor.e - visitor.e, p.actor.n - visitor.n) < NEAR_M);
+    const out = seen.filter((p) => !p.actor.indoors);
+    kids.n += seen.length; kids.out += out.length;
+    // Children with their family about them (a lodge at its meal) are not a crowd of children:
+    // the most children in one place with fewer than one grown-up to two of them.
+    const grown = d.people.filter((p) => !p.child && !p.absent && !p.actor.indoors);
+    for (const a of out) {
+      const by = (q) => Math.hypot(q.actor.e - a.actor.e, q.actor.n - a.actor.n) < 15;
+      const here = out.filter(by).length, adults = grown.filter(by).length;
+      if (adults * 2 < here) kids.most = Math.max(kids.most, here);
+    }
     for (const [knot, g] of knots) {
       const on = d.people.some((p) => p.round?.knot === knot && p.phase === 'talk' && p.mode === 'out');
       if (on && !g.last) g.on++;
@@ -157,7 +171,7 @@ function play(hour, seconds = 600, dt = 0.25, { recs: rs = recs, date: dd = date
       visitor = { e: p.actor.e + 3, n: p.actor.n + 3 };
     }
   }
-  return { tally, knots, askable, snap: d.snapshot() };
+  return { tally, knots, askable, kids, snap: d.snapshot() };
 }
 
 const report = [];
@@ -165,7 +179,7 @@ const first = play(10, 120);
 const again = play(10, 120);
 assert.deepEqual(again.snap, first.snap, 'the same round on every load');
 for (const hour of [7, 10, 15.5, 19.5]) {
-  const { tally, knots, askable } = play(hour);
+  const { tally, knots, askable, kids } = play(hour);
   let talk = 0, all = 0, worst = 0, worstKey = '', idle = 0, breaks = 0;
   for (const [k, c] of tally) {
     talk += c.talk; all += c.n; idle += c.idle; breaks += c.brk;
@@ -180,7 +194,12 @@ for (const hour of [7, 10, 15.5, 19.5]) {
   assert(met.some((g) => g.on >= 3), `${hour}h: and come together again`);
   assert(breaks > 0, `${hour}h: someone goes in for a break`);
   assert(askable > 0, `${hour}h: and while in is offered at the door`);
-  report.push(`${hour}h ${(100 * talk / all).toFixed(0)}% talk (most ${(100 * worst).toFixed(0)}%), ${met.length}/${knots.size} knots gather, ${breaks} breaks`);
+  // T-3520 (owner, 2026-11-08: "the kids should not be all over the place", "occasionally
+  // there are kids together playing" but not "such a centerpiece"): most children are in most
+  // of the time, and no more than a handful are ever together out of doors.
+  assert(kids.n && kids.out / kids.n < 0.4, `${hour}h: the children are out ${(100 * kids.out / kids.n).toFixed(0)}% of the time`);
+  assert(kids.most <= 5, `${hour}h: ${kids.most} children out together in one place, few grown-ups by`);
+  report.push(`${hour}h ${(100 * talk / all).toFixed(0)}% talk (most ${(100 * worst).toFixed(0)}%), ${met.length}/${knots.size} knots gather, ${breaks} breaks, children out ${(100 * kids.out / kids.n).toFixed(0)}% (${kids.most} together at most without grown-ups)`);
 }
 // ── 1835 and 1904 (T-3516): every drawn person but the Glessners (the front door's, T-3443) and
 // a walker on her route has a day; played, they work, gather (1904's staff), take breaks in at

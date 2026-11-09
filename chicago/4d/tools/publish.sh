@@ -483,6 +483,8 @@ for own in data/residents_*/; do
   rm -rf "$SITE/data/$name"
   mkdir -p "$SITE/data/$name"
   cp -a "$own/households" "$SITE/data/$name/households"
+  # T-3521: each person's story as written for a reader, which the card reads beside them.
+  [ -f "$own/stories.json" ] && cp -a "$own/stories.json" "$SITE/data/$name/stories.json"
 done
 
 # The business layer. 196 firms compiled from the register — and 166 of them

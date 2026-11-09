@@ -15,7 +15,7 @@ import assert from 'node:assert/strict';
 const here = new URL('../', import.meta.url);
 const data = (text) => `data:text/javascript;base64,${Buffer.from(text).toString('base64')}`;
 const js = async (name) => fs.readFile(new URL(`renderers/web/js/${name}`, here), 'utf8');
-const { createHumanSpacing, MIN_M, RATE_M_S, MAX_M } = await import(data(await js('human-spacing.js')));
+const { createHumanSpacing, keepOutOf, wallsFrom, BODY_R_M, MIN_M, RATE_M_S, MAX_M } = await import(data(await js('human-spacing.js')));
 const { createHumanDays, planDay, dayOn, spanAt, POST_RE } = await import(data(await js('human-days.js')));
 const { createHumanDuties } = await import(data(await js('human-duties.js')));
 const doors = JSON.parse(await fs.readFile(new URL('data/humans/doors_1812.json', here), 'utf8'));
@@ -82,6 +82,24 @@ const apart = (a, b) => Math.hypot(at(a).e - at(b).e, at(a).n - at(b).n);
   for (const x of [a, b]) assert(!(x.e + x.spaceE > 0.05), 'not pushed into the blocked side');
 }
 
+// ── T-3520 (owner, 2026-11-08: "people can stand and break the wall of the mat walls"): no one
+// stands in a lodge's wall; one at its door step, outside, is left where they are ──
+{
+  const ring = Array.from({ length: 16 }, (_, i) => [20 + 2.5 * Math.sin(i * Math.PI / 8), 20 + 2.5 * Math.cos(i * Math.PI / 8)]);
+  const walls = [{ id: 'lodge', pts: ring }];
+  const inWall = actor('hi_in', 20 + 2.4, 20), inside = actor('hi_mid', 20.3, 20.2), step = actor('hi_step', 20, 20 + 2.5 + 0.55);
+  const sp = createHumanSpacing({ humans: { actors: [inWall, inside, step] }, keepOut: walls });
+  sp.update(0.016);
+  const W = wallsFrom(walls);
+  for (const a of [inWall, inside]) assert(!keepOutOf(W, at(a).e, at(a).n, BODY_R_M - 0.01), `${a.id} is out of the lodge's wall (${at(a).e.toFixed(2)}, ${at(a).n.toFixed(2)})`);
+  assert(Math.hypot(at(inWall).e - 20, at(inWall).n - 20) < 2.5 + BODY_R_M + 0.3, 'moved just past the wall, not far off');
+  assert.equal(step.spaceE, 0, 'one at the door step is left where they stand');
+  // Drawn, a step at a time.
+  const d = actor('hi_drawn', 20.5, 20); d.root.visible = true;
+  createHumanSpacing({ humans: { actors: [d] }, keepOut: walls }).update(0.1);
+  assert(Math.hypot(d.spaceE, d.spaceN) <= RATE_M_S * 0.1 + 1e-6, 'a drawn figure steps out, no jump');
+}
+
 // ── every year's records, played through the day ──
 async function records(scene) {
   const dir = new URL(`data/humans/instances/${scene}/`, here);
@@ -125,11 +143,16 @@ for (const scene of ['1812', '1835', '1904']) {
   const visitor = () => ({ e: actors[0]?.e ?? 0, n: actors[0]?.n ?? 0 });
   const days = createHumanDays({ humans, three, hour: () => hour, date: () => date, doors, visitor: () => null });
   const duties = createHumanDuties({ humans, three, hour: () => hour });
-  const spacing = createHumanSpacing({ humans });
-  let worst = Infinity, worstAt = '';
+  // T-3520: the camps' lodge walls, as main.js hands them in (doors_1812.json `walls`).
+  const walls = scene === '1812' ? doors.structures.flatMap((s) => (s.walls ?? []).map((pts, i) => ({ id: `${s.structure}:${i}`, pts }))) : [];
+  const W = wallsFrom(walls);
+  const spacing = createHumanSpacing({ humans, keepOut: walls });
+  let worst = Infinity, worstAt = '', inWalls = 0, inWallAt = '';
+  if (scene === '1812') assert(walls.length > 50, `the camps' lodges have walls (${walls.length})`);
   for (hour = 0; hour < 24; hour += 0.25) {
     for (let i = 0; i < 3; i++) { duties.update(0.25); days.update(0.25); spacing.update(0.25); }
     const out = actors.filter((a) => !a.indoors);
+    for (const a of out) if (keepOutOf(W, at(a).e, at(a).n, BODY_R_M - 0.02)) { inWalls++; inWallAt ||= `${a.id} at ${hour}h, ${a.state}, at ${at(a).e.toFixed(2)},${at(a).n.toFixed(2)} off ${(a.spaceE ?? 0).toFixed(2)},${(a.spaceN ?? 0).toFixed(2)} standY ${a.standY}`; }
     for (let i = 0; i < out.length; i++) for (let j = i + 1; j < out.length; j++) {
       const d = apart(out[i], out[j]);
       if (d < worst) { worst = d; worstAt = `${out[i].id} / ${out[j].id} at ${hour}h`; }
@@ -137,6 +160,7 @@ for (const scene of ['1812', '1835', '1904']) {
   }
   void visitor;
   assert(worst >= MIN_M - 0.02, `${scene}: two figures ${worst.toFixed(2)} m apart (${worstAt})`);
+  assert.equal(inWalls, 0, `${scene}: someone stands in a lodge's wall (${inWallAt})`);
   report.push(`${scene}: ${actors.length} figures, nearest pair ${worst === Infinity ? '-' : worst.toFixed(2)} m`);
 }
 console.log(`human spacing: one point taken apart, a step at a time when drawn, walkers round standers; ${report.join('; ')}: PASS`);
