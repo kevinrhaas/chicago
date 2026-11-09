@@ -42758,6 +42758,34 @@ any account of the household's comings and goings by the court.
 **Ticket:** T-3523.
 **Recorded:** 2026-11-08 (T-3523).
 
+### L-t3525-household-tour — The Glessner household tour: the people's voices, marks and morning
+
+**Decision:** a 1904 walking jaunt, `glessner-household-tour`, eight stops round the outside of 1800 Prairie
+Avenue, each told in the first person by a member of the household standing at a mark near the stop's stand
+(the stop's `hosts`): John and Frances Glessner, Mattie Williamson and Kate Ryan (cooks), Christine Nelson
+(parlor maid), Mary Reynolds (house maid), Charles Nelson (coachman) and August Billings (stable helper). While
+the visitor walks to a stop its host comes to the mark, out of the house by its door when their day has them
+in, turns to the stand and greets the visitor; when the visitor walks on, the host goes back about their day.
+**Why:** the owner, 2026-11-08: *"this will be the first jaunt we will show people here ... do a tour of
+glessner house from the outside by all the people who live there, like have john or frances welcome you and
+have everyone in the house explain their roles in the house ... make it a real intersting lively story with
+great facts particular to the era"*.
+**What is read.** Every fact a person tells: Glessner's The Story of a House (1923) in the HABS transcription,
+the HABS data pages, the house museum's family page and its posts on Mattie Williamson (2020), the Glessners
+and their servants (2012), a servants' Christmas (2012) and a home for servants (2014), and the 1900 census
+(ED 40, sheet 5B) for the six staff it lists.
+**What is invented.** Every word anyone says to the visitor: no conversation is asserted, and the voice,
+the greetings ("Hej", "Hallo"), the choice of facts and the hand-on from one person to the next are ours. That
+all eight are at home on one spring morning (15 April 1904): the census staff are graded inferred, counted four
+years before the scene. Each host's mark. The stable helper's chores (the harness, the carriage, the doves).
+Charles Nelson's unbroken service from 1880 to 1904 (the record has him in 1880, 1894 and 1900).
+**How to resolve:** a record of the staff in 1904 (Frances Glessner's servants' journal, the 1910 census for the
+house), or a photograph of any of them, replaces the matching line; a person found not to be there in 1904 is
+taken off the walk.
+**Applies to:** `data/jaunts/glessner-household-tour.json`; the stop `hosts` field (`renderers/web/js/jaunt-hosts.js`).
+**Ticket:** T-3525.
+**Recorded:** 2026-11-08 (T-3525).
+
 ### L-1812-trading-lodges-3528 — Potawatomi lodges by the river all 1812: a small camp on the south bank a little west of the creek's mouth, drawn every day
 
 **Decision:** `potawatomi_trading_lodges_1812` stands on the river's south bank a little west of the State Street creek's mouth (local E +698..+724, N -34..-16) every day of 1812, at the owner's choice of 2026-11-09 that the August gathering's camps stand only on its days (T-3527) "and the rest of the year that ground is open prairie with two or three trading lodges at the river mouth". **The habit is the source's**: Currey 1912 ch. II (Gutenberg #52346 plain text lines 1360-1369) has the Potawatomi "come and go on their nomadic excursions according to their habit, and while in this vicinity they lived in their wigwams near the river, their favorite camping place being at a point on the south bank near the present State Street bridge", the traders "anxious to sell them supplies in exchange for the furs brought in by them". **Everything else is ours.** That lodges stood there on every day of the year, rather than now and then; that they are one or two families' (two mat lodges, Forsyth's winter house, and an elm-bark house, his summer house), with two fires, a drying rack, a scaffold, a hide frame, firewood, a mortar and two canoes on the river side; the ground's place, off the gathering's landing group at the mouth itself and found by a search on the e1830_natural heightfield for level ground off the cut of the river and creek, clear of every other 1812 footprint and worn trail (docs/RESEARCH/trading-lodges-1812-3528/sites.py), and its extent; and its range, the scene's year, not a date any source gives. The lodge forms are T-3342's archetype, and what each rests on is L-1812-potawatomi-camp-2515.

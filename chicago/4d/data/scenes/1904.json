@@ -113,6 +113,15 @@
       "yaw_deg": 61.6
     },
     {
+      "id": "glessner_household_service_stair",
+      "label": "The Glessner courtyard, facing the service stair",
+      "short": "Courtyard, service stair",
+      "glyph": "court",
+      "local_e": 1355.4,
+      "local_n": -3236.0,
+      "yaw_deg": 325.0
+    },
+    {
       "id": "haunted_battle_ground",
       "label": "Prairie at Eighteenth, looking north-east over the 1812 battle ground toward the Pullman house",
       "short": "1812 battle ground",

@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2848, ts: '2026-11-09T03:32:06.539Z', date: 'Nov 8, 2026, 9:32 PM CT', title: 'Meet the Glessner household: the first jaunt with people in it', kind: 'feature',
+    items: [
+      'New 1904 jaunt, The Glessner Household: eight stops round 1800 Prairie on a spring morning, each told by someone who lives or works there.',
+      'John Glessner welcomes you on his front walk; Frances meets you in the courtyard; then the cooks Mattie Williamson and Kate Ryan, the maids Christine Nelson and Mary Reynolds, the coachman Charles Nelson and the stable helper August Billings, each at their own door.',
+      'At each stop that person comes out to their place, turns to you and greets you, then goes back to work when you walk on.',
+      'Every fact is from Glessner\'s 1923 account, the house museum\'s research and the 1900 census; the words they speak are written for the walk and marked as a liberty.',
+    ] },
   { v: 2847, ts: '2026-11-09T02:51:57.338Z', date: 'Nov 8, 2026, 8:51 PM CT', title: '1812 toddlers stay on their feet when nudged aside', kind: 'fix',
     items: [
       'A toddler nudged aside while walking (kept apart from others or out of a wall) no longer sinks to its knees: its feet move with it.',
