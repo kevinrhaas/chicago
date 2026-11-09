@@ -26,6 +26,10 @@ import math
 KEYS = {"deck_m", "rail"}
 RAIL_KEYS = {"inset_m", "height_m", "post_m", "posts_every_m", "plinth_m", "coping_m", "thickness_m",
              "roundel_m", "pitch_m"}
+#: T-3370: optional — the rail's west end (1936 Prairie's Chicagology photograph: the rail runs
+#: from the deck's south-east corner back behind the right stack and no further; west of it only
+#: a low curb shows), a cross-run there, and the deck's edge west of it a curb, the rail's plinth
+RAIL_OPTIONAL = {"from_u_m"}
 SEGMENTS = 16           # a roundel's circle in this many straight pieces
 
 
@@ -38,7 +42,7 @@ def resolve(spec, *, depth, width, eave, pitch, overhang, roof_form) -> dict:
     if not spec:
         return {}
     if not isinstance(spec, dict) or set(spec) != KEYS or not isinstance(spec["rail"], dict) \
-            or set(spec["rail"]) != RAIL_KEYS:
+            or not RAIL_KEYS <= set(spec["rail"]) <= RAIL_KEYS | RAIL_OPTIONAL:
         raise ParamError(f"hip_deck takes {sorted(KEYS)}, its rail {sorted(RAIL_KEYS)}")
     if roof_form != "hip":
         raise ParamError("hip_deck cuts a hip off level: roof_form hip")
@@ -61,6 +65,10 @@ def resolve(spec, *, depth, width, eave, pitch, overhang, roof_form) -> dict:
                          "apart, a 0.04-0.3 m plinth and 0.04-0.2 m coping, a panel no thicker than a post, "
                          "its roundels clear of plinth and coping and of each other")
     X0, X1, Z0, Z1 = -overhang + k, depth + overhang - k, -width - overhang + k, overhang - k
+    if "from_u_m" in r and not X0 + r["inset_m"] + 1.0 <= r["from_u_m"] <= X1 - r["inset_m"] - 2.0:
+        raise ParamError(f"hip_deck.rail.from_u_m {r['from_u_m']}: 1 m or more inside the deck's west edge "
+                         f"({X0 + r['inset_m']:.2f}) and leaving a railed deck 2 m or more long "
+                         f"(its east edge {X1 - r['inset_m']:.2f})")
     return {"deck_m": round(deck, 4), "rise_m": round(rise, 4), "inset_m": round(k, 4),
             "rect": [round(X0, 4), round(X1, 4), round(Z0, 4), round(Z1, 4)], "rail": r}
 
@@ -87,6 +95,9 @@ def dress(a):
     yd = dk["deck_m"]
     i, th, pm = r["inset_m"], r["thickness_m"], r["post_m"]
     XA, XB, ZA, ZB = X0 + i, X1 - i, Z0 + i, Z1 - i          # the rail's outer line
+    XC = XA                                                   # the curb's west line (T-3370)
+    if "from_u_m" in r:
+        XA = r["from_u_m"]
     seed = a.instance("k01.hip_deck", "roof_deck",
                       {"deck_m": yd, "inset_m": dk["inset_m"], "rail_height_m": r["height_m"]},
                       {"deck": ((X0 + X1) / 2, yd, (Z0 + Z1) / 2)})
@@ -112,6 +123,11 @@ def dress(a):
     # each side: its run's ends (the corner posts' inner faces) and where its panel's middle stands
     runs = [("x", XA + pm, XB - pm, ZA + pm / 2), ("x", XA + pm, XB - pm, ZB - pm / 2),
             ("z", ZA + pm, ZB - pm, XA + pm / 2), ("z", ZA + pm, ZB - pm, XB - pm / 2)]
+    if XC < XA:   # T-3370: west of the rail's end the deck's edge is a curb, the rail's plinth
+        cw = th / 2 + 0.02
+        box(XC, XA, yd, yp, ZA + pm / 2 - cw, ZA + pm / 2 + cw, skip=("bottom",))
+        box(XC, XA, yd, yp, ZB - pm / 2 - cw, ZB - pm / 2 + cw, skip=("bottom",))
+        box(XC + pm / 2 - cw, XC + pm / 2 + cw, yd, yp, ZA + pm / 2 + cw, ZB - pm / 2 - cw, skip=("bottom",))
     for x_, z_ in ((XA, ZA), (XB - pm, ZA), (XA, ZB - pm), (XB - pm, ZB - pm)):   # the corner posts
         box(x_, x_ + pm, yd, yt + 0.05, z_, z_ + pm, skip=("bottom",))
     for axis, a0, a1, c in runs:
