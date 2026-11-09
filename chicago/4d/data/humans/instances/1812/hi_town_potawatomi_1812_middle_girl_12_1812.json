@@ -681,11 +681,17 @@
               "heading_deg": 83.0
             },
             "doing": "playing near the lodges",
-            "activity": "walk",
-            "to_point": {
-              "local_e": 764.25,
-              "local_n": -178.45
-            }
+            "activity": "work",
+            "spots": [
+              {
+                "local_e": 757.47,
+                "local_n": -180.69
+              },
+              {
+                "local_e": 757.13,
+                "local_n": -177.91
+              }
+            ]
           },
           {
             "from": 18.0,

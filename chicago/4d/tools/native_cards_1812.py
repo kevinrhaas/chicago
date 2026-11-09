@@ -138,6 +138,9 @@ GROUND_BAND = {
     'upper': 'calumet', 'south_bend': 'gomo', 'south_prairie': 'gomo', 'south_west': 'main_poc',
     'north_flat': 'portage', 'head_west': 'pepper', 'prairie_west': 'milwaukee', 'far_west': 'gomo',
     'horse_ground': 'waubansee', 'miami': 'fort_wayne',
+    # T-3530: the family at the lodges by the river all year is put with the village nearest
+    # Chicago, "at the camping place of Chicago" (Edwards); reconstructed.
+    'river_lodges': 'portage',
 }
 
 # ── the gentes, as Morgan prints them (Ancient Society, pt. II ch. VI and notes 170, 172) ───────
@@ -243,6 +246,8 @@ def _ground(hid, p):
         return m.group(1)
     if 'miami' in hid:
         return 'miami'
+    if hid.startswith('hh_potawatomi_lodges_'):
+        return 'river_lodges'
     return None
 
 
@@ -301,7 +306,18 @@ def _gens_of(nation, key):
     return _pick(GENTES[nation], 'gens', key)
 
 
-def _history(p, role, age, nation, band, gens, family, treaty=None):
+# T-3530: the round of the family that lives at the lodges by the river through the year.
+YEAR_ROUND = {
+    'man': ["In the winter he hunts deer and traps beaver and muskrat in the timber along the river and the South Branch, and trades the skins at the factory and at Kinzie's for powder, cloth and kettles.",
+            "He fishes the river from the bank below the lodges in the warm months, and in the fall goes after ducks and geese in the marshes."],
+    'woman': ["She boils maple sap in the spring and packs the sugar in birch-bark boxes for the factory, and dresses the deerskins her husband brings in.",
+              "She keeps the mats of the lodges in repair, pounds the corn traded from the villages, and sews moccasins that the post's families buy."],
+    'child': ["The children of the lodges run between the canoes and the river, and the older ones carry wood and water for the kettle.",
+              "This child has grown up within sight of the fort, the soldiers and the traders' houses."],
+}
+
+
+def _history(p, role, age, nation, band, gens, family, treaty=None, year_round=False):
     """A reconstructed history, a few sentences, every particular ours."""
     B = BANDS[band]
     he, his, him = ('she', 'her', 'her') if p.get('sex') == 'female' else ('he', 'his', 'him')
@@ -311,6 +327,9 @@ def _history(p, role, age, nation, band, gens, family, treaty=None):
     size = f" ({B['size']} in May 1812)" if B.get('size') else ''
     if nation == 'Miami':
         out.append(f"{He} came from {B['name']} {B['where']}, and rode to Chicago with William Wells's escort, which reached the fort on the 13th.")
+    elif year_round:
+        out.append(f"{His} family is put with {B['name']}, {B['where']}{size}, one of the bands of the Chicago country Governor Edwards described that spring, "
+                   "and lives the year round in the lodges by the river below the fort, where most families came only to trade and went to their wintering grounds.")
     else:
         out.append(f"{His} family is put with {B['name']}, {B['where']}{size}, one of the bands of the Chicago country Governor Edwards described that spring.")
     g_name, g_word = gens
@@ -336,12 +355,17 @@ def _history(p, role, age, nation, band, gens, family, treaty=None):
         'child': ["The village's children run between the lodges and the river; the older ones carry wood and water for the kettle.",
                   "This summer is the first time this child has seen the fort, the soldiers and so many lodges in one place."],
     }
-    if role == 'man' and (age or 0) >= 56:
+    if year_round:
+        out.append(_pick(YEAR_ROUND[role], 'round', pid))
+    elif role == 'man' and (age or 0) >= 56:
         out.append("He has seen the French and the English traders come and go, and the Americans build the fort in 1803.")
     else:
         out.append(_pick(rounds[role], 'round', pid))
     if nation == 'Miami':
         out.append("At Chicago he camps with the escort south-west of the fort, with his pony.")
+    elif year_round:
+        if role != 'child':
+            out.append(f"When the bands gathered at Chicago in August {he} was already here, and on the 13th was given cloth and blankets with the rest when the goods were handed out.")
     elif role != 'child':
         out.append(f"{He} came in when the bands gathered at Chicago in August, and on the 13th was given cloth and blankets when the goods were handed out.")
     if treaty:
@@ -404,7 +428,7 @@ def on_disk(hids):
 
 
 def is_native(hid):
-    return hid.startswith(('hh_gathering_', 'hh_potawatomi_camp_', 'hh_miami_escort'))
+    return hid.startswith(('hh_gathering_', 'hh_potawatomi_camp_', 'hh_miami_escort', 'hh_potawatomi_lodges_'))
 
 
 def apply_households(households: dict, drawn=None, lodges=None, families=None, reserved=()):
@@ -461,6 +485,7 @@ def apply_households(households: dict, drawn=None, lodges=None, families=None, r
                     p['on_15_august'] = {'value': v, 'grade': grade, 'note': note, 'sources': srcs}
                     p['card_facts'] = [f for f in p.get('card_facts', []) if f.get('label') != 'On 15 August'] + [
                         {'label': 'On 15 August', 'value': v, 'grade': grade}]
+    year_round = {p['id'] for hid, hh in households.items() if hid.startswith('hh_potawatomi_lodges_') for p in hh['persons']}
     # Histories last, so a family is named by its new names.
     for pid, (nation, band, gens, role, age, treaty_line) in plan.items():
         p = everyone[pid]
@@ -468,11 +493,11 @@ def apply_households(households: dict, drawn=None, lodges=None, families=None, r
         key = families.get(pid)
         kin = [everyone[q] for q in fam_members.get(key, []) if q != pid and q in everyone] if key else []
         if kin:
-            fam = (_lodge_number(lodges.get(pid)), _kin_words(p, kin))
+            fam = (_lodge_number(lodges.get(pid)), _kin_family(p, kin) if pid in year_round else _kin_words(p, kin))
         p['history'] = {
             'title': 'A reconstructed history', 'grade': 'reconstructed', 'liberty': LIBERTY,
             'caveat': 'No source tells this life: every particular of it is ours.',
-            'paragraphs': _history(p, role, age, nation, band, gens, fam, treaty_line),
+            'paragraphs': _history(p, role, age, nation, band, gens, fam, treaty_line, year_round=pid in year_round),
         }
     return households
 
@@ -504,6 +529,30 @@ def _kin_words(p, kin):
             word = rel[(me, r)]
         return f"{'his' if p.get('sex') == 'male' else 'her'} {word} {q['name']}" + (f' ({a})' if a is not None and r == 'child' else '')
     words = [one(q) for q in kin[:6]]
+    return ', '.join(words[:-1]) + ' and ' + words[-1] if len(words) > 1 else words[0]
+
+
+def _kin_family(p, kin):
+    """T-3530: kin words for the three generations of the family at the lodges by the river, by
+    their relationships (head, wife, son, daughter, and the wife's mother), not by age alone."""
+    def kind(q):
+        r = q.get('relationship')
+        if r in ('head', 'wife', 'son', 'daughter'):
+            return r
+        return 'grandmother'
+    me = kind(p)
+    his = 'his' if p.get('sex') == 'male' else 'her'
+    table = {
+        'head': {'wife': 'wife', 'grandmother': "wife's mother", 'son': 'son', 'daughter': 'daughter'},
+        'wife': {'head': 'husband', 'grandmother': 'mother', 'son': 'son', 'daughter': 'daughter'},
+        'grandmother': {'head': "daughter's husband", 'wife': 'daughter', 'son': 'grandson', 'daughter': 'granddaughter'},
+        'son': {'head': 'father', 'wife': 'mother', 'grandmother': 'grandmother', 'son': 'brother', 'daughter': 'sister'},
+        'daughter': {'head': 'father', 'wife': 'mother', 'grandmother': 'grandmother', 'son': 'brother', 'daughter': 'sister'},
+    }
+    order = {'head': 0, 'wife': 1, 'grandmother': 2, 'son': 3, 'daughter': 3}
+    kin = sorted(kin, key=lambda q: (order[kind(q)], -(_age(q) or 0)))
+    words = [f"{his} {table[me][kind(q)]} {q['name']}" + (f' ({_age(q)})' if kind(q) in ('son', 'daughter') and _age(q) is not None else '')
+             for q in kin]
     return ', '.join(words[:-1]) + ' and ' + words[-1] if len(words) > 1 else words[0]
 
 

@@ -66270,6 +66270,605 @@
    },
    "sex": "male"
   },
+  "river_lodges_boy_1812": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_potawatomi_lodges_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_town_river_lodges_boy_1812.json"
+   ],
+   "age": {
+    "band": [
+     8,
+     8
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 8-8 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "brown, a warm medium-to-deep tone weathered by sun",
+     "drawn": "copper",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "black, straight",
+     "drawn": "black",
+     "cut": "tied_high_1812",
+     "facial": [],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "dark brown",
+     "drawn": "dark_brown",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 49,
+     "grade": "reconstructed",
+     "basis": "Heritage, not a description: no source read describes this person's face, colouring or stature. Drawn from the variation kit with the same care and range as everyone else in the town, with no exaggerated features."
+    },
+    "height_scale": 1.0329,
+    "heritage": {
+     "origin": "Potawatomi"
+    },
+    "basis": "Drawn in the words of the day reading for T-3530 (docs/RESEARCH/people-1812-3530/day.json): Heritage, not a description: no source read describes this person's face, colouring or stature. Drawn from the variation kit with the same care and range as everyone else in the town, with no exaggerated features. The drawn colours, cut and scale are a reconstructed rendering of those words (liberty L-1812-town-days-3463).",
+    "grade": "reconstructed",
+    "liberty": "L-1812-town-days-3463",
+    "file": "data/humans/variation/looks/river_lodges_boy_1812.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__calico_shirt_madder_1812": [
+      0.3615,
+      0.1764,
+      0.15
+     ],
+     "garment_lower__stroud_leggings_blue_1812": [
+      0.2208,
+      0.0414,
+      0.033
+     ]
+    },
+    "worn": "a shirt of red-and-white check; red stroud leggings",
+    "grade": "reconstructed"
+   }
+  },
+  "river_lodges_daughter_1812": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_potawatomi_lodges_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_town_river_lodges_daughter_1812.json"
+   ],
+   "age": {
+    "band": [
+     12,
+     12
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 12-12 (the person's record); the year inside it is seeded"
+   },
+   "sex": "female",
+   "looks": {
+    "complexion": {
+     "value": "brown, a warm medium-to-deep tone weathered by sun",
+     "drawn": "copper",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "black, straight",
+     "drawn": "blue_black",
+     "cut": "centre_part_tied_high_1812",
+     "facial": [
+      "brows_fine",
+      "lashes_upper"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "dark brown",
+     "drawn": "dark_brown",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 58,
+     "grade": "reconstructed",
+     "basis": "Heritage, not a description: no source read describes this person's face, colouring or stature. Drawn from the variation kit with the same care and range as everyone else in the town, with no exaggerated features."
+    },
+    "height_scale": 0.8928,
+    "heritage": {
+     "origin": "Potawatomi"
+    },
+    "basis": "Drawn in the words of the day reading for T-3530 (docs/RESEARCH/people-1812-3530/day.json): Heritage, not a description: no source read describes this person's face, colouring or stature. Drawn from the variation kit with the same care and range as everyone else in the town, with no exaggerated features. The drawn colours, cut and scale are a reconstructed rendering of those words (liberty L-1812-town-days-3463).",
+    "grade": "reconstructed",
+    "liberty": "L-1812-town-days-3463",
+    "file": "data/humans/variation/looks/river_lodges_daughter_1812.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__calico_shirt_1812": [
+      0.449,
+      0.3172,
+      0.1449
+     ],
+     "garment_lower__strouding_skirt_blue_1812": [
+      0.026,
+      0.0387,
+      0.0939
+     ],
+     "garment_lower__strouding_selvage_white_1812": [
+      0.426,
+      0.4047,
+      0.3408
+     ],
+     "garment_lower__cloth_leggings_red_1812": [
+      0.0342,
+      0.0509,
+      0.1235
+     ],
+     "footwear__moccasins_smoked_1812": [
+      0.1789,
+      0.1278,
+      0.0767
+     ]
+    },
+    "hide": [
+     "trade_blanket"
+    ],
+    "worn": "a blouse of buff-and-yellow calico; a wrapped skirt of blue stroud; the undyed selvage at the hem; blue cloth leggings; silver brooches at the neck",
+    "grade": "reconstructed",
+    "tail_cm": 18.5
+   }
+  },
+  "river_lodges_girl_1812": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_potawatomi_lodges_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_town_river_lodges_girl_1812.json"
+   ],
+   "age": {
+    "band": [
+     5,
+     5
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 5-5 (the person's record); the year inside it is seeded"
+   },
+   "sex": "female",
+   "looks": {
+    "complexion": {
+     "value": "brown, a warm medium-to-deep tone weathered by sun",
+     "drawn": "copper",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "black, straight",
+     "drawn": "black",
+     "cut": "centre_part_tied_high_1812",
+     "facial": [
+      "brows_fine",
+      "lashes_upper"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "dark brown",
+     "drawn": "dark_brown",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 42,
+     "grade": "reconstructed",
+     "basis": "Heritage, not a description: no source read describes this person's face, colouring or stature. Drawn from the variation kit with the same care and range as everyone else in the town, with no exaggerated features."
+    },
+    "height_scale": 0.8853,
+    "heritage": {
+     "origin": "Potawatomi"
+    },
+    "basis": "Drawn in the words of the day reading for T-3530 (docs/RESEARCH/people-1812-3530/day.json): Heritage, not a description: no source read describes this person's face, colouring or stature. Drawn from the variation kit with the same care and range as everyone else in the town, with no exaggerated features. The drawn colours, cut and scale are a reconstructed rendering of those words (liberty L-1812-town-days-3463).",
+    "grade": "reconstructed",
+    "liberty": "L-1812-town-days-3463",
+    "file": "data/humans/variation/looks/river_lodges_girl_1812.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__calico_blouse_rose_1812": [
+      0.071,
+      0.0878,
+      0.1633
+     ],
+     "garment_lower__stroud_skirt_blue_1812": [
+      0.0283,
+      0.0385,
+      0.0921
+     ],
+     "garment_lower__stroud_leggings_red_1812": [
+      0.0373,
+      0.052,
+      0.1159
+     ]
+    },
+    "worn": "a blouse of indigo-ground calico; a wrapped stroud skirt and cloth leggings",
+    "grade": "reconstructed",
+    "tail_cm": 11.3
+   }
+  },
+  "river_lodges_grandmother_1812": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_potawatomi_lodges_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_town_river_lodges_grandmother_1812.json"
+   ],
+   "age": {
+    "band": [
+     57,
+     57
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 57-57 (the person's record); the year inside it is seeded"
+   },
+   "sex": "female",
+   "looks": {
+    "complexion": {
+     "value": "brown, a warm medium-to-deep tone weathered by sun",
+     "drawn": "copper",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "grey streaked black, straight",
+     "drawn": "grey_brown",
+     "cut": "centre_part_low_1812",
+     "facial": [
+      "brows_fine",
+      "lashes_upper"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "dark brown",
+     "drawn": "dark_brown",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 61,
+     "grade": "reconstructed",
+     "basis": "Heritage, not a description: no source read describes this person's face, colouring or stature. Drawn from the variation kit with the same care and range as everyone else in the town, with no exaggerated features. Age shown in grey hair."
+    },
+    "height_scale": 0.939,
+    "heritage": {
+     "origin": "Potawatomi"
+    },
+    "basis": "Drawn in the words of the day reading for T-3530 (docs/RESEARCH/people-1812-3530/day.json): Heritage, not a description: no source read describes this person's face, colouring or stature. Drawn from the variation kit with the same care and range as everyone else in the town, with no exaggerated features. Age shown in grey hair. The drawn colours, cut and scale are a reconstructed rendering of those words (liberty L-1812-town-days-3463).",
+    "grade": "reconstructed",
+    "liberty": "L-1812-town-days-3463",
+    "file": "data/humans/variation/looks/river_lodges_grandmother_1812.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__calico_shirt_1812": [
+      0.3692,
+      0.2294,
+      0.2095
+     ],
+     "garment_lower__strouding_skirt_blue_1812": [
+      0.0162,
+      0.0162,
+      0.018
+     ],
+     "garment_lower__strouding_selvage_white_1812": [
+      0.3891,
+      0.3696,
+      0.3113
+     ],
+     "garment_lower__cloth_leggings_red_1812": [
+      0.1461,
+      0.0559,
+      0.0525
+     ],
+     "garment_outer__trade_blanket_white_1812": [
+      0.0606,
+      0.0753,
+      0.1377
+     ],
+     "footwear__moccasins_smoked_1812": [
+      0.1602,
+      0.1036,
+      0.0612
+     ]
+    },
+    "worn": "a blouse of red-and-white check; a wrapped skirt of black stroud; the undyed selvage at the hem; red cloth leggings; a blue, white-barred blanket; silver brooches at the neck",
+    "grade": "reconstructed",
+    "tail_cm": 13.9
+   }
+  },
+  "river_lodges_man_1812": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_potawatomi_lodges_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_town_river_lodges_man_1812.json"
+   ],
+   "age": {
+    "band": [
+     38,
+     38
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 38-38 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "brown, a warm medium-to-deep tone weathered by sun",
+     "drawn": "copper",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "black, straight",
+     "drawn": "black_brown",
+     "cut": "clubbed_long_1812",
+     "facial": [],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "dark brown",
+     "drawn": "dark_brown",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 68,
+     "grade": "reconstructed",
+     "basis": "Heritage, not a description: no source read describes this person's face, colouring or stature. Drawn from the variation kit with the same care and range as everyone else in the town, with no exaggerated features."
+    },
+    "height_scale": 0.987,
+    "heritage": {
+     "origin": "Potawatomi"
+    },
+    "basis": "Drawn in the words of the day reading for T-3530 (docs/RESEARCH/people-1812-3530/day.json): Heritage, not a description: no source read describes this person's face, colouring or stature. Drawn from the variation kit with the same care and range as everyone else in the town, with no exaggerated features. The drawn colours, cut and scale are a reconstructed rendering of those words (liberty L-1812-town-days-3463).",
+    "grade": "reconstructed",
+    "liberty": "L-1812-town-days-3463",
+    "file": "data/humans/variation/looks/river_lodges_man_1812.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__shirt_check_blue_1812": [
+      0.3558,
+      0.3966,
+      0.4885
+     ],
+     "garment_lower__breechcloth_broadcloth_blue_1812": [
+      0.0158,
+      0.0158,
+      0.0187
+     ],
+     "garment_lower__leggings_stroud_scarlet_1812": [
+      0.0174,
+      0.0174,
+      0.0205
+     ],
+     "accessory__garters_woven_dark_1812": [
+      0.0375,
+      0.0429,
+      0.0804
+     ],
+     "accessory__belt_leather_1812": [
+      0.0505,
+      0.0692,
+      0.1345
+     ],
+     "garment_outer__blanket_wool_white_1812": [
+      0.2058,
+      0.1964,
+      0.1776
+     ],
+     "garment_outer__blanket_stripe_dark_1812": [
+      0.0398,
+      0.0398,
+      0.0495
+     ],
+     "footwear__moccasins_smoked_1812": [
+      0.1695,
+      0.1097,
+      0.0648
+     ]
+    },
+    "hide": [
+     "silver_arm_bands",
+     "silver_brooches"
+    ],
+    "worn": "a shirt of blue-striped linen; a breechcloth of black stroud; black stroud leggings; dark blue garters; a blue woven sash; a grey, worn blanket",
+    "grade": "reconstructed",
+    "tail_cm": 19.9
+   }
+  },
+  "river_lodges_son_1812": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_potawatomi_lodges_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_town_river_lodges_son_1812.json"
+   ],
+   "age": {
+    "band": [
+     16,
+     16
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 16-16 (the person's record); the year inside it is seeded"
+   },
+   "sex": "male",
+   "looks": {
+    "complexion": {
+     "value": "brown, a warm medium-to-deep tone weathered by sun",
+     "drawn": "copper",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "black, straight",
+     "drawn": "black",
+     "cut": "clubbed_behind_1812",
+     "facial": [],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "dark brown",
+     "drawn": "dark_brown",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 66,
+     "grade": "reconstructed",
+     "basis": "Heritage, not a description: no source read describes this person's face, colouring or stature. Drawn from the variation kit with the same care and range as everyone else in the town, with no exaggerated features."
+    },
+    "height_scale": 0.9579,
+    "heritage": {
+     "origin": "Potawatomi"
+    },
+    "basis": "Drawn in the words of the day reading for T-3530 (docs/RESEARCH/people-1812-3530/day.json): Heritage, not a description: no source read describes this person's face, colouring or stature. Drawn from the variation kit with the same care and range as everyone else in the town, with no exaggerated features. The drawn colours, cut and scale are a reconstructed rendering of those words (liberty L-1812-town-days-3463).",
+    "grade": "reconstructed",
+    "liberty": "L-1812-town-days-3463",
+    "file": "data/humans/variation/looks/river_lodges_son_1812.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__shirt_check_blue_1812": [
+      0.2423,
+      0.2677,
+      0.327
+     ],
+     "garment_lower__breechcloth_broadcloth_blue_1812": [
+      0.0242,
+      0.0342,
+      0.0869
+     ],
+     "garment_lower__leggings_stroud_scarlet_1812": [
+      0.2248,
+      0.043,
+      0.0345
+     ],
+     "accessory__garters_woven_dark_1812": [
+      0.2395,
+      0.0436,
+      0.0327
+     ],
+     "accessory__belt_leather_1812": [
+      0.0479,
+      0.0656,
+      0.1272
+     ],
+     "garment_outer__blanket_wool_white_1812": [
+      0.4772,
+      0.4578,
+      0.3997
+     ],
+     "garment_outer__blanket_stripe_dark_1812": [
+      0.0219,
+      0.0261,
+      0.0514
+     ],
+     "footwear__moccasins_smoked_1812": [
+      0.1371,
+      0.0857,
+      0.048
+     ]
+    },
+    "hide": [
+     "silver_brooches"
+    ],
+    "worn": "a shirt of blue-and-white check; a breechcloth of blue broadcloth; scarlet stroud leggings; red garters; a blue woven sash; a white, dark-barred blanket; silver armbands",
+    "grade": "reconstructed",
+    "tail_cm": 13.6
+   }
+  },
+  "river_lodges_woman_1812": {
+   "scene": "1812",
+   "record": "data/residents_1812/households/hh_potawatomi_lodges_1812.json",
+   "drawn_as": [
+    "data/humans/instances/1812/hi_town_river_lodges_woman_1812.json"
+   ],
+   "age": {
+    "band": [
+     33,
+     33
+    ],
+    "grade": "reconstructed",
+    "basis": "age band 33-33 (the person's record); the year inside it is seeded"
+   },
+   "sex": "female",
+   "looks": {
+    "complexion": {
+     "value": "brown, a warm medium-to-deep tone weathered by sun",
+     "drawn": "copper",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "black, straight",
+     "drawn": "black_brown",
+     "cut": "centre_part_low_1812",
+     "facial": [
+      "brows_fine",
+      "lashes_upper"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "dark brown",
+     "drawn": "dark_brown",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 62,
+     "grade": "reconstructed",
+     "basis": "Heritage, not a description: no source read describes this person's face, colouring or stature. Drawn from the variation kit with the same care and range as everyone else in the town, with no exaggerated features."
+    },
+    "height_scale": 0.9544,
+    "heritage": {
+     "origin": "Potawatomi"
+    },
+    "basis": "Drawn in the words of the day reading for T-3530 (docs/RESEARCH/people-1812-3530/day.json): Heritage, not a description: no source read describes this person's face, colouring or stature. Drawn from the variation kit with the same care and range as everyone else in the town, with no exaggerated features. The drawn colours, cut and scale are a reconstructed rendering of those words (liberty L-1812-town-days-3463).",
+    "grade": "reconstructed",
+    "liberty": "L-1812-town-days-3463",
+    "file": "data/humans/variation/looks/river_lodges_woman_1812.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__calico_shirt_1812": [
+      0.4425,
+      0.1894,
+      0.2097
+     ],
+     "garment_lower__strouding_skirt_blue_1812": [
+      0.0171,
+      0.0171,
+      0.0198
+     ],
+     "garment_lower__strouding_selvage_white_1812": [
+      0.2518,
+      0.0367,
+      0.0315
+     ],
+     "garment_lower__cloth_leggings_red_1812": [
+      0.1423,
+      0.0368,
+      0.0329
+     ],
+     "garment_outer__trade_blanket_white_1812": [
+      0.2523,
+      0.0507,
+      0.0463
+     ],
+     "footwear__moccasins_smoked_1812": [
+      0.1929,
+      0.1378,
+      0.0827
+     ]
+    },
+    "hide": [
+     "silver_brooches"
+    ],
+    "worn": "a blouse of rose calico; a wrapped skirt of black stroud; a red silk ribbon at the hem; red cloth leggings; a scarlet, black-barred blanket",
+    "grade": "reconstructed",
+    "tail_cm": 14.0
+   }
+  },
   "ronan_george": {
    "scene": "1812",
    "record": "data/residents_1812/households/hh_ronan_george_1812.json",
