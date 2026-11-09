@@ -53,7 +53,8 @@ try {
       if (!a.welcome.enter('spawn')) throw Error('welcome entry failed');
       document.exitPointerLock?.();
       document.getElementById('control-help-gotit')?.click();
-      await a.setDetail('balanced');
+      // 1904's detail switch can outlast a run; the asks need the town, not the detail.
+      await Promise.race([a.setDetail('balanced'), new Promise((r) => setTimeout(r, 60000))]);
     });
     await page.waitForFunction(() => document.getElementById('gate').hidden);
     // Let the people load and take their places.
