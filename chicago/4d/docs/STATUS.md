@@ -26165,3 +26165,14 @@ visitor screenshot, full gate, image match or original-ticket completion is yet
 claimed. The original ticket stays partial; the finite questions are compound
 roof exposure and whole chimney profile, not camera pixel fitting or the
 already-correct opening counts. All affected comparison contexts must refresh.
+
+
+## T-2383 native increment reviewed — 2026-11-09
+
+Pinned native run 42711510675 retained commit `254bc9871dfda47d2e2c506fcde40f150da95de2`, whose raw parent is the dispatched source `1fb5055dbdb386b271c8e16a07f973b388d15715`. All 25 family outputs are fresh. The 24 non-Hotel MASTER/web controls are byte-identical; all 1021 foreign default registry rows and four foreign versions are preserved. All eight native source-gate parts pass, and independent registry/readback audit plus `validate.py --params --stale` pass with zero errors.
+
+Four actual comparison compositions were rerendered and viewed. The Hotel's narrower 0.60 m square shafts are a visible increment and the rear roof physically reaches the main ridge. The whole Hotel still differs: complete chimney proportions/caps and the compound roof/rear-gable exposure remain two finite questions on original T-2383. The earlier vague opening placeholder is retired as a separate blocker: the existing two upper gable openings and attic opening are present. The three unchanged Carpenter-shop anchors retain their reviewed matching verdicts; changed Hotel context is not independent evidence for the whole Hotel. No camera, footprint, height, placement, source date or source grade changed.
+
+Actual focused published desktop 1280×800 and phone 390×780 reviews both pass, binding the new 38536-byte Hotel web output, three credited pictures and the new liberty disclosure, with zero hard app, page or network errors. The requested street pose has a foreground fence; it is context inspection, not replacement photographic calibration. Fourteen exact retained review annotations are preserved and distinguished from loading failures by the existing renderer policy.
+
+The full published browser suite remains RED on existing semantic/selector assumptions after T-3521/T-3531/T-3478 and the real 43.795 MiB first-visit load against 40.200 MiB. No assertion or budget was weakened. All seven relevant renderer/tool/people/human/texture/terrain trees are unchanged from dev `dc998577`; the five largest compressed prebuilt files are byte-identical to that still-deployed dev preview. The Hotel web payload has unchanged raw size and seven fewer gzip bytes. These are bounded no-regression facts, not a pristine-baseline browser PASS or a full-smoke PASS. This parcel follows the owner's instruction to land reviewed harmless increments; T-2383 remains partial. Exact failures, baseline readbacks and runtime receipts are checkpointed in chicago-evidence.

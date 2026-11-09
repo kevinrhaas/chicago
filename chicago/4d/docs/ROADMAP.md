@@ -6403,3 +6403,8 @@ Current family scope is 23 defaults plus two Tremont variants; native output,
 24 non-Hotel controls, four affected compositions and both viewport reviews
 remain acceptance work. No new photo follow-up ticket or camera fitting is
 needed. This source checkpoint makes no whole-Hotel match/completion claim.
+
+
+### T-2383 — reviewed native shaft/junction increment, 2026-11-09
+
+The actual native family is fresh; 24 controls and all foreign registry rows are preserved. Four picture compositions and both focused published viewports were reviewed. This increment narrows the Hotel shafts and joins the rear ridge; it does not close original T-2383. Continue only the two finite whole-picture questions there: complete chimney silhouette and compound roof/rear-gable exposure. Preserve the accepted Carpenter anchors, diagnostic cameras and surveyed placement. Global browser failures are explicitly retained in STATUS and the PR; do not replace them with a claimed full-smoke pass or file new photo follow-ups.
