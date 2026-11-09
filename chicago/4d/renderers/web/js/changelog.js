@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2841, ts: '2026-11-09T00:27:31.330Z', date: 'Nov 8, 2026, 6:27 PM CT', title: '1812: camp lodges stand on the ground from any distance', kind: 'fix',
+    items: [
+      'From 50 m and more, every lodge in the camp seemed to hover over a strip of blue. The bare earth of the camp grounds was drawing over the bottom of each lodge and showing the shaded ground beneath it.',
+      'The camp grounds now leave their earth out from under every lodge and bark house, so the mats meet the ground at every range and from the air.',
+    ] },
   { v: 2840, ts: '2026-11-09T00:10:24.723Z', date: 'Nov 8, 2026, 6:10 PM CT', title: 'The 1812 townspeople each dress as their own person', kind: 'improvement',
     items: [
       'Settlers, traders, engagés and the town\'s women no longer share one outfit per trade: each wears their own colours, with or without a waistcoat, neckerchief, sash or apron.',
