@@ -42829,3 +42829,32 @@ hip's level cut is kept.
 and the rail's west end; a sharper copy of the plate would settle whether the stage's openings pass through.
 **Ticket:** T-3370 (piece 2 of T-3367).
 **Recorded:** 2026-11-08 (T-3370).
+
+
+### L-sauganash-ridge-join-and-shaft-section-2383 - Sauganash roof join and stack section
+
+**Decision:** The Sauganash Hotel's roof junction and stack section are reconstructed trials,
+not measurements from Andreas/Braunhold's retrospective 1884 engraving. The
+existing wing helper gives its roof the main ridge height but stops its crest
+3.75 m short of the main ridge. An explicit Hotel-only shared-ridge option now
+ends that crest at the main roof's centre, using the existing depth and roof
+overhang. The existing site, footprint, wall heights, pitch and unmeasured outer
+wing depth stay selected as before. The intended join is not proof of an exact
+historical junction or a July-1835 alteration date.
+
+The two ridge-end brick stacks retain their stations, plain heads and ridge +
+0.55 m tops. Their square section is tried at 0.60 m instead of the inherited
+0.90 m, to address the visibly broad shaft profile. The 0.60 m is reconstructed,
+not metres read from the plate or from a source-calibrated camera. No cap lip,
+new height, date, historical camera, occupant or material is asserted.
+
+These working choices leave other buildings as they were. They remain subject
+to comparison with the pictures and ordinary street views, and do not themselves
+establish an image match.
+
+**Covers:** `sauganash_hotel.frame_1831.form.cross_wing_shared_ridge_join`, `sauganash_hotel.frame_1831.form.ridge_end_chimney_section_m`.
+
+**Sources:** `andreas_1884_sauganash_hotel_plate`, a verified public-domain retrospective plate, used for relative form.
+
+**Ticket:** T-2383.
+**Recorded:** 2026-11-09.

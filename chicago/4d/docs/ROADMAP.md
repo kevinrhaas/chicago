@@ -6392,3 +6392,14 @@ The shadow counterfactual uses its existing declared lake_market calibration vie
 ### Driver delivery checkpoint and reviewed DEV reconciliation — 2026-11-04
 
 Public `967b427e` passed all four original native parts (1,165 checks/402 self-tests) on its exact committed tree, then HEAD QA and publication/check. Its current E803-based reconciliation retains all new DEV content and awaits a fresh integrated gate, current frame/memory CI and full smoke. Earlier evidence remains source-scoped; no DEV merge, global Light pass or photographic/boarding/riding acceptance is claimed.
+
+
+### T-2383 finite Sauganash roof/shaft trial, 2026-11-09
+
+Resume the preserved source work on current dev: an opt-in shared roof ridge
+and reconstructed 0.60 m stack section. Preserve the unchanged positional
+constructor with keyword-only options and declare both construction-note keys.
+Current family scope is 23 defaults plus two Tremont variants; native output,
+24 non-Hotel controls, four affected compositions and both viewport reviews
+remain acceptance work. No new photo follow-up ticket or camera fitting is
+needed. This source checkpoint makes no whole-Hotel match/completion claim.

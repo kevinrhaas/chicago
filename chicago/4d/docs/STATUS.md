@@ -26149,3 +26149,19 @@ The shadow-reach calibration now retakes its originally declared lake_market anc
 Public commit `967b427e5f8681b27eceefb065cf6f37199e3bbc` passed the original four-part native gate on its exact TREE `ff904c3f508b807700d0f5ec214e4ed840f3e637`: 1,165 distinct checks and 402 self-tests, followed by committed-HEAD QA, publication and published checks. Its feature branch is saved in PR1700; this is not a DEV merge or a whole-world qualification. Earlier fixture and measured-memory paragraphs retain their original source scopes.
 
 The current uncommitted reconciliation uses reviewed actual DEV `e803db79d3b152e444158104f796c6106f9080ab` and retains its keeper-house, source and evidence updates alongside the driver/clothing/memory work. A fresh integrated native gate, current frame/memory CI and full smoke remain pending. The global Light cost failure remains open; no photographic, natural-gait, continuous-contact, riding or boarding acceptance is added. Broad T-2804/T-1790 stay claimed with `pr:null`.
+
+
+## T-2383 Sauganash roof/shaft trial resumed, 2026-11-09
+
+The previous unmerged source checkpoint is ported onto current dev. The two
+opt-in controls try a joined rear/main ridge and a 0.60 m square chimney section;
+all dimensions are reconstructed and the prior stack stations/heights remain.
+The new fields are keyword-only, preserving the existing constructor, and the
+construction notes have explicit name-pool declarations. Current non-Hotel
+controls, later Fort cupola work and source cameras are preserved.
+
+This is the source half, needing a genuine pinned native bake. No new geometry,
+visitor screenshot, full gate, image match or original-ticket completion is yet
+claimed. The original ticket stays partial; the finite questions are compound
+roof exposure and whole chimney profile, not camera pixel fitting or the
+already-correct opening counts. All affected comparison contexts must refresh.

@@ -50,6 +50,7 @@ CONSUMED = frozenset({
     "shutter_type", "entrance_frontispiece", "front_opening_details", "front_lower_sash", "chimney_material", "roof_colour",
     "log_wing_door", "log_wing_porch_hood",
     "cross_wing", "cross_wing_depth_m", "cross_wing_end", "enclosed_left_annex",
+    "cross_wing_shared_ridge_join", "ridge_end_chimney_section_m",
     "upper_windows", "stovepipes", "rear_ell_door", "eaves_bays", "end_windows",
     "first_story_height_m", "entry_raise_m", "gable_lunette", "front_ground_layout",
     "flagstaff", "flagstaff_height_m", "gable_wall_cladding",
@@ -197,6 +198,9 @@ class FrameTavernParams:
     # disposition plate "11" draws for the Green Tree. With this placement the
     # record's chimney count must be exactly 2.
     chimney_placement: str = "frontage"
+    # Explicit opt-in square section for the two ridge-end shafts. None retains
+    # every legacy 0.90 m shaft. Height and plain heads are deliberately unchanged.
+    ridge_end_chimney_section_m: float | None = field(default=None, kw_only=True)
 
     # The resolved LOCAL wall carrying an attested second entrance mid-eaves:
     # None, "x_min" or "x_max". Records state a compass direction
@@ -290,6 +294,9 @@ class FrameTavernParams:
     cross_wing: bool = False
     cross_wing_depth_m: float = 8.0
     cross_wing_end: str = "x_max"
+    # Opt-in repair of the historical wing helper's unjoined ridge end.
+    # False preserves all legacy meshes, including photo-gated alternatives.
+    cross_wing_shared_ridge_join: bool = field(default=False, kw_only=True)
 
     # The finish the 665-roof programme dealt this building, and how weathered its
     # roof is. NOT form attributes — they live in the record's `reconstruction`
@@ -505,6 +512,13 @@ class FrameTavernParams:
         if self.entry_raise_m and self.entry_raise_m + 2.1 + 0.15 > first_height:
             raise ParamError("raised entrance and its head need 0.15 m below the "
                              "first-floor structure")
+        if self.ridge_end_chimney_section_m is not None:
+            section = self.ridge_end_chimney_section_m
+            if (isinstance(section, bool) or not isinstance(section, (int, float))
+                    or not math.isfinite(section) or not 0.30 <= section <= 1.20):
+                raise ParamError("ridge_end_chimney_section_m must be finite in 0.30..1.20 m")
+            if self.chimney_placement != "gable_ends" or self.chimneys != 2:
+                raise ParamError("ridge_end_chimney_section_m requires exactly two gable-end stacks")
         if self.chimney_placement == "gable_ends" and self.chimneys != 2:
             raise ParamError(f"chimney_placement 'gable_ends' stands one stack at each "
                              f"gable end, so the count must be 2, not {self.chimneys}")
@@ -639,6 +653,10 @@ class FrameTavernParams:
         if self.log_wing_door and not self.log_wing:
             raise ParamError("log_wing_door without log_wing — a door needs a wing "
                              "to open into")
+        if type(self.cross_wing_shared_ridge_join) is not bool:
+            raise ParamError("cross_wing_shared_ridge_join must be boolean")
+        if self.cross_wing_shared_ridge_join and not self.cross_wing:
+            raise ParamError("cross_wing_shared_ridge_join requires a cross_wing")
         if self.cross_wing:
             if self.cross_wing_end not in ("x_min", "x_max"):
                 raise ParamError(f"cross_wing_end '{self.cross_wing_end}' not in "
@@ -921,6 +939,7 @@ def from_phase(phase: dict, record: dict | None = None) -> FrameTavernParams:
         flagstaff=val("flagstaff", False),
         flagstaff_height_m=measure("flagstaff_height_m", 4.25),
         chimney_placement=str(val("chimney_placement", "frontage")),
+        ridge_end_chimney_section_m=measure("ridge_end_chimney_section_m"),
         side_entrance_face=side_face,
         enclosed_left_annex=val("enclosed_left_annex"),
         rear_ell=bool(val("rear_ell", False)),
@@ -936,6 +955,7 @@ def from_phase(phase: dict, record: dict | None = None) -> FrameTavernParams:
         cross_wing=bool(val("cross_wing", False)),
         cross_wing_depth_m=float(val("cross_wing_depth_m", 8.0)),
         cross_wing_end=str(val("cross_wing_end", "x_max")),
+        cross_wing_shared_ridge_join=val("cross_wing_shared_ridge_join", False),
         # The programme's own finish deal, read off the record rather than the
         # phase. `wall_finish` in `common/materials.py` states the order these are
         # applied in and why a stated coating outranks them.
