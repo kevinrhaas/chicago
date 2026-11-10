@@ -1,0 +1,146 @@
+{
+  "not_a_reading": "Rereading the already held source to fit a comparison camera, not a new source unit or measured building.",
+  "source_id": "kurz_allison_1893",
+  "photo": "../../sources/assets/prefire_views_kevin_2026_08/p6_0.png",
+  "image_px": [
+    569,
+    354
+  ],
+  "fit_parameters_order": [
+    "eye_u",
+    "eye_v",
+    "eye_h",
+    "yaw_deg",
+    "focal_px",
+    "principal_x",
+    "principal_y"
+  ],
+  "fit_parameters": [
+    -43.717622775524745,
+    31.542775594125285,
+    2.792544193691254,
+    133.27189016307628,
+    1252.7958930833577,
+    712.0071412579274,
+    239.42664825844744
+  ],
+  "rms_per_coordinate_px": 1.630739192767112,
+  "max_point_residual_px": 3.5063492213367202,
+  "picks": [
+    {
+      "model_uvh": [
+        0.0,
+        12.19,
+        0.0
+      ],
+      "image_px": [
+        271.0,
+        318.0
+      ],
+      "reprojected_px": [
+        270.97474909792084,
+        317.0039845342673
+      ],
+      "residual_px": [
+        -0.025250902079164916,
+        -0.9960154657326825
+      ]
+    },
+    {
+      "model_uvh": [
+        7.62,
+        12.19,
+        0.0
+      ],
+      "image_px": [
+        190.0,
+        305.0
+      ],
+      "reprojected_px": [
+        190.08439673398084,
+        308.50533337262834
+      ],
+      "residual_px": [
+        0.08439673398083869,
+        3.5053333726283427
+      ]
+    },
+    {
+      "model_uvh": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "image_px": [
+        548.0,
+        307.0
+      ],
+      "reprojected_px": [
+        547.9408541839946,
+        304.87699427658373
+      ],
+      "residual_px": [
+        -0.05914581600541169,
+        -2.12300572341627
+      ]
+    },
+    {
+      "model_uvh": [
+        0.0,
+        12.19,
+        5.0
+      ],
+      "image_px": [
+        271.0,
+        179.0
+      ],
+      "reprojected_px": [
+        270.97474909792084,
+        178.10316346386514
+      ],
+      "residual_px": [
+        -0.025250902079164916,
+        -0.896836536134856
+      ]
+    },
+    {
+      "model_uvh": [
+        7.62,
+        12.19,
+        5.0
+      ],
+      "image_px": [
+        190.0,
+        182.0
+      ],
+      "reprojected_px": [
+        190.08439673398084,
+        184.82119388749635
+      ],
+      "residual_px": [
+        0.08439673398083869,
+        2.8211938874963494
+      ]
+    },
+    {
+      "model_uvh": [
+        0.0,
+        0.0,
+        5.0
+      ],
+      "image_px": [
+        548.0,
+        190.0
+      ],
+      "reprojected_px": [
+        547.9408541839946,
+        187.68933048598421
+      ],
+      "residual_px": [
+        -0.05914581600541169,
+        -2.3106695140157854
+      ]
+    }
+  ],
+  "acceptance": "Framing only; source dimensions, source dates, geometry and verdicts are not inferred by this fit."
+}
