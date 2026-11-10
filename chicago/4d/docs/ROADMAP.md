@@ -1,3 +1,10 @@
+## T-3536 — household conversation follow-up (2026-11-10)
+
+Owner follow-up to T-3533: keep actions in a compact Interact dropdown and make
+social activities actual paired sequences, with arrival, conversation and return
+to duties. Start with the existing 1904 household; keep the partner lifecycle and
+menu reusable for later houses. Validation and release state are in STATUS.md.
+
 ## T-2795 — ground 1904 people on the visible pedestrian surface (2026-11-10)
 
 The coachman placement and safe tour/errand handoff shipped through PR #1917.

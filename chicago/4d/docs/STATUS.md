@@ -1,3 +1,39 @@
+## T-3536 — compact interactions and paired household conversations (2026-11-10)
+
+Household actions open under Interact, with short labels and decorative icons. The
+seasonal activity description remains on the action tooltip. R opens or closes the
+menu, Escape closes it, and number shortcuts work while it is open. Single-action
+objects retain their direct controls.
+
+A requested or scheduled 1904 discussion reserves two available household members,
+preferring someone outside and otherwise bringing a companion out through a door.
+Speech starts only after both arrive nearby; they face one another and alternate
+turns for a minute, then resume their current duties. A completed scheduled chat
+returns indoors until the next period. Failed arrivals, changed dates/hours, Go
+inside, greetings and jaunt takeover release the pair. Chores have working poses
+and short clear movements; the coachman's watch remains stationary.
+
+The published 1904 browser probe passes at 390×780 and 1280×800: compact
+menus fit, a requested companion arrives, the pair converse and return indoors,
+and Go inside still works. An unrelated driver joining the roster exposed a
+conversation cancellation; resident state now survives unrelated arrivals and
+departures, with a regression that fails before the fix and passes afterward.
+The behavior probe uses accelerated simulation clocks and is not a frame-time
+measurement; default-quality menu screenshots were also inspected.
+
+Focused day-engine, household-interaction (76), passage (109), jaunt-host,
+duties, spacing and multi-era routine tests pass. All four final local check
+partitions pass (323, 323, 323 and 322 checks), as does preflight. The initially
+skipped datum check passes after installing its missing dependency. On runtime
+`6f5dfa7de1d9`, the full published smoke passes every stage on both viewports
+(1,655 assertions), and the repository, human-model and performance checks pass.
+One external reference-image request failed in the first desktop 14–15 attempt;
+the unchanged full-stage rerun passes, with the failed reading retained.
+PR #1922 carries the implementation and its verification record.
+Validation also repaired a stale smoke expectation for the brick/clay material
+groups already added by T-3341; strict missing/duplicate/map checks remain.
+See [the verification record](RESEARCH/household-interactions-3536/README.md).
+
 ## T-2795 — 1904 figures follow the visible pavement (2026-11-10)
 
 The preceding coachman and safe errand/tour handoff increment is merged into DEV

@@ -588,6 +588,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
   let seen = -1;
   let clock = 0;
   const talks = new Map();
+  const socials = new Set();
   /** T-3504: how today's spans are played (planDay), made again when the date or the people change. */
   let plan = { date: undefined, map: new Map() };
   const playOf = (span) => {
@@ -791,11 +792,20 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
   }
 
   function collect() {
+    const actors = humans.actors, active = new Set(actors);
+    const previous = new Map(people.map(p => [p.actor, p]));
+    // Vehicles and other visitors can change the roster during a household's
+    // activity. Keep each existing resident's paths, calls and shared session.
+    for (const session of [...socials]) {
+      if (session.members.some(p => !active.has(p.actor) || p.b !== p.actor.instance?.behaviour)) endSocial(session);
+    }
     people = [];
-    for (const actor of humans.actors) {
+    for (const actor of actors) {
       if (spawned.some((q) => q.actor === actor)) continue;
       const b = actor.instance?.behaviour;
       if (!b || (!Array.isArray(b.day) && !b.presence && !b.quarters)) continue;
+      const prior = previous.get(actor);
+      if (prior?.b === b) { people.push(prior); continue; }
       people.push({
         actor, b, id: actor.id, rand: seededRandom(`day:${actor.id}`), span: null, inside: null,
         mode: actor.indoors ? 'in' : 'out', absent: false, called: null, job: null,
@@ -882,9 +892,12 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
     const act = span.activity ?? 'stand';
     if (!p.hosted) p.safeHostTravel = false; // returned to the everyday post
     p.job = null;
-    a.setState?.(act === 'talk' ? 'talking' : act === 'work' ? 'working' : 'standing');
+    // Talking starts only once a real partner has arrived.
+    a.setState?.(act === 'work' ? 'working' : 'standing');
     if (act === 'work') {
-      const spots = [pt(span.at), ...(span.spots ?? []).map(pt)];
+      const nearby = a.instance?.scene === '1904' && !span.spots
+        ? jobAbout(pt(span.at), span.at.heading_deg ?? 0, p.rand, clear).spots : [];
+      const spots = [pt(span.at), ...(span.spots ? span.spots.map(pt) : nearby)];
       p.job = { kind: 'work', spots, at: 0, until: clock + between(p, WORK.first_s), moving: false,
         face: span.at.heading_deg };
     } else if (act === 'walk' && span.to_point) {
@@ -927,6 +940,12 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
 
   /** Move a person to `span` (the hour has turned, or they were let go from a call). */
   function enter(p, written) {
+    if (p.actor.instance?.scene === '1904' && written.activity === 'talk' && !p.social) {
+      if (startSocial(p, written).ok) return;
+      // No available companion: return to household duties rather than wait alone.
+      restAfterTalk(p);
+      return;
+    }
     const a = p.actor;
     p.span = written;
     const span = p.play = playOf(written);
@@ -949,6 +968,87 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
 
   // ── T-3505: rounds ──────────────────────────────────────────────────────────────────
   const keyOf = (p) => p.actor.personId ?? p.id;
+  const home = (p) => (dayOn(p.b, date(), keyOf(p))?.spans ?? []).find((s) => s.indoors && !s.away && s.where)?.where;
+  const unavailable = (p) => p.absent || !onDate(date(), p.b.presence) || p.actor.disposed || p.hosted || held(p.actor) || humans.isHeld?.(p.actor);
+
+  function restAfterTalk(p) {
+    const original = spanAt(dayOn(p.b, date(), keyOf(p)), hour());
+    const where = home(p);
+    if (!where) return;
+    const span = { indoors: true, where, doing: 'back to household duties' };
+    p.override = { span, original, date: date(), until: null };
+    enter(p, span);
+  }
+
+  /** A shared break owns both paths until both arrive, chat, and resume their days. */
+  function startSocial(p, span) {
+    const where = home(p);
+    const candidates = people.filter((q) => q !== p && where && home(q) === where
+      && !unavailable(q) && !q.social && !q.called && !q.passing && !q.override && !q.entry
+      && !spanAt(dayOn(q.b, date(), keyOf(q)), hour())?.away);
+    candidates.sort((a, b) => Number(a.actor.indoors) - Number(b.actor.indoors)
+      || dist(a.actor, p.actor) - dist(b.actor, p.actor));
+    const q = candidates[0];
+    if (!q) return { ok: false, why: 'Nobody is free to chat just now' };
+    const at = q.actor.indoors ? pt(span.at) : { e: q.actor.e, n: q.actor.n };
+    // Use a clear, nearby standing place; never put the partner through a wall.
+    const next = [0, 90, 180, 270].map((h) => ({ e: at.e + Math.sin(h * Math.PI / 180) * 1.4,
+      n: at.n + Math.cos(h * Math.PI / 180) * 1.4 })).find((to) => clear(at, to));
+    if (!next) return { ok: false, why: 'There is no room to chat here' };
+    const session = { members: [p, q], date: date(), started: clock, chatting: null,
+      originals: [p, q].map((m) => spanAt(dayOn(m.b, date(), keyOf(m)), hour())) };
+    socials.add(session);
+    for (const [i, m] of session.members.entries()) {
+      m.social = session; m.called = null; m.override = null; m.job = null; m.round = null;
+      m.phase = null; m.cur = null;
+      m.token = (m.token ?? 0) + 1;
+      m.actor.stopPath?.(); talk(m.actor, false);
+      const to = i ? at : next;
+      const activity = { ...span, round: undefined, at: local(to), activity: 'talk' };
+      m.span = activity; m.play = activity;
+      comeOut(m, activity);
+    }
+    return { ok: true };
+  }
+
+  function endSocial(session) {
+    socials.delete(session);
+    for (const p of session.members) {
+      p.social = null; p.span = null; p.play = null;
+      p.token = (p.token ?? 0) + 1;
+      talk(p.actor, false);
+      // A jaunt or another interaction now owns its actor and path.
+      if (unavailable(p) || !humans.actors.includes(p.actor)) continue;
+      offWay(p); p.actor.stopPath?.(); p.actor.path = null; talk(p.actor, false);
+      const current = spanAt(dayOn(p.b, date(), keyOf(p)), hour());
+      if (current?.activity === 'talk') restAfterTalk(p);
+      else if (current) enter(p, current);
+    }
+  }
+
+  function stepSocials() {
+    for (const s of [...socials]) {
+      const [p, q] = s.members;
+      if (s.date !== date() || s.members.some((m, i) => unavailable(m)
+        || spanAt(dayOn(m.b, date(), keyOf(m)), hour()) !== s.originals[i])
+        || clock - s.started > 150 || (s.chatting !== null && clock - s.chatting >= 60)) {
+        endSocial(s); continue;
+      }
+      const together = s.members.every((m) => m.mode === 'out' && !m.actor.indoors && !m.passing)
+        && dist(p.actor, q.actor) <= 2.2;
+      if (!together) { for (const m of s.members) talk(m.actor, false); continue; }
+      if (s.chatting === null) {
+        s.chatting = clock;
+        p.actor.turnTo?.(bearing(q.actor.e - p.actor.e, q.actor.n - p.actor.n));
+        q.actor.turnTo?.(bearing(p.actor.e - q.actor.e, p.actor.n - q.actor.n));
+      }
+      for (const [i, m] of s.members.entries()) {
+        const other = s.members[1 - i].actor;
+        talk(m.actor, Math.floor((clock - s.chatting) / 4) % 2 === i);
+        look(m.actor, other, 1);
+      }
+    }
+  }
   /** The building of today's day whose door is nearest the span's place, within BREAK.reach_m. */
   function homeOf(p, span) {
     const day = dayOn(p.b, date(), keyOf(p));
@@ -1054,7 +1154,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
     const groups = new Map();
     for (const p of people) {
       const s = p.round ? p.cur : (p.play ?? p.span);
-      if (held(p.actor) || humans.isHeld?.(p.actor) || p.mode !== 'out' || p.called || p.hosted || !s || s.activity !== 'talk' || !s.knot) continue;
+      if (p.social || held(p.actor) || humans.isHeld?.(p.actor) || p.mode !== 'out' || p.called || p.hosted || !s || s.activity !== 'talk' || !s.knot) continue;
       if (!groups.has(s.knot)) groups.set(s.knot, []);
       groups.get(s.knot).push(p);
     }
@@ -1089,7 +1189,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
     return (dayOn(p.b, date(), keyOf(p))?.spans ?? []).find((s) => s.indoors && s.where)?.where ?? null;
   }
   function within(structure) {
-    return people.filter((p) => !p.absent && !p.called && !p.hosted && !held(p.actor) && !humans.isHeld?.(p.actor) && p.actor.indoors
+    return people.filter((p) => !p.absent && !p.social && !p.called && !p.hosted && !held(p.actor) && !humans.isHeld?.(p.actor) && p.actor.indoors
       && (p.soldier ? p.b.quarters === structure : p.mode === 'in' && (p.inside ?? recallHome(p)) === structure))
       .sort((x, y) => (x.b.ask_order ?? 50) - (y.b.ask_order ?? 50) || nameOf(x).localeCompare(nameOf(y)));
   }
@@ -1178,7 +1278,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
               const shown = inside.slice(page * ASK_PAGE, page * ASK_PAGE + ASK_PAGE);
               const asks = shown.map(({ p, entry, name }) => (p ? {
                 id: `ask:${p.actor.personId ?? p.id}`, label: `Ask for ${name}`, said: () => `${name} comes to the door`,
-                refuse: () => (p.called || !p.actor.indoors || p.hosted || held(p.actor) || humans.isHeld?.(p.actor) ? `${name} is not available` : null),
+                refuse: () => (p.social || p.called || !p.actor.indoors || p.hosted || held(p.actor) || humans.isHeld?.(p.actor) ? `${name} is not available` : null),
                 steps: [{ label: 'Knocking', seconds: ANSWER_S, run: (t) => { if (t >= 1) callOut(p, d); } }],
               } : {
                 id: `ask:${entry.person}`, label: `Ask for ${name}`, said: () => `${name} comes to the door`,
@@ -1200,11 +1300,12 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
     get people() { return people; },
     get doors() { return doorThings; },
     canAsk(id) {
-      return people.some((p) => (p.id === id || p.actor.personId === id) && !p.absent && (!p.span?.away || recallHome(p)) && p.actor.indoors && !p.called && !p.hosted && !held(p.actor) && !humans.isHeld?.(p.actor));
+      return people.some((p) => (p.id === id || p.actor.personId === id) && !p.absent && (!p.span?.away || recallHome(p)) && p.actor.indoors && !p.social && !p.called && !p.hosted && !held(p.actor) && !humans.isHeld?.(p.actor));
     },
     pause(id) {
       const p = people.find((q) => q.id === id);
       if (!p || p.hosted || p.passing) return;
+      if (p.social) endSocial(p.social);
       const where = (dayOn(p.b, date(), keyOf(p))?.spans ?? []).find((s) => s.where)?.where;
       const door = where && doorNear(where, p.actor.e, p.actor.n);
       if (!door) return;
@@ -1222,12 +1323,14 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
     /** A visitor's request lasts five minutes; going inside lasts until the next scheduled span. */
     request(id, activity = null) {
       const p = people.find((q) => q.id === id || q.actor.personId === id);
-      if (!p || p.absent || p.hosted || humans.isHeld?.(p.actor) || p.passing) return { ok: false, why: 'Not available just now' };
+      if (!p || unavailable(p) || p.passing) return { ok: false, why: 'Not available just now' };
       const original = spanAt(dayOn(p.b, date(), keyOf(p)), hour());
       const where = (dayOn(p.b, date(), keyOf(p))?.spans ?? []).find((s) => s.indoors && s.where)?.where;
       const span = activity === null ? (where && { from: 0, to: 24, indoors: true, where, doing: 'inside at your request' })
         : api.outdoorActivities(id).find((s) => s.id === activity)?.span;
       if (!span) return { ok: false, why: 'No activity available' };
+      if (p.social) endSocial(p.social);
+      if (span.activity === 'talk') return startSocial(p, span);
       p.called = null;
       p.override = { span, original, date: date(), until: activity === null ? null : clock + 300 };
       enter(p, span);
@@ -1239,6 +1342,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
       if (humans.actors.length !== seen) { collect(); if (!doorThings.length) makeDoors(); }
       dt = Math.min(dt, 0.25);
       clock += dt;
+      stepSocials();
       const h = hour();
       const today = date();
       frame++;
@@ -1270,7 +1374,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
           if (move.token !== p.token) p.pendingHostMove = null;
           else if (clock >= move.retry) { p.pendingHostMove = null; go(p, move.to, move.heading, move.done, { from: move.from }); }
         }
-        if (p.hosted) continue;   // T-3525: a jaunt's host, at their mark until let go
+        if (p.hosted || p.social) continue;   // A jaunt or paired conversation owns the path.
         // T-3524: on a passage's stair or in its doorway, they finish it before anything else.
         if (p.passing) { if (clock - p.passing.since > PASSAGE.stuck_s) offWay(p); continue; }
         if (p.called) { stepCalled(p, dt); continue; }
@@ -1308,7 +1412,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
       if (!p) return { ok: false, why: 'no such person' };
       if (p.absent || (p.span?.away && !recallHome(p))) return { ok: false, why: 'not here on this date' };
       if (p.hosted || held(p.actor) || humans.isHeld?.(p.actor)) return { ok: false, why: 'Not available just now' };
-      if (!p.actor.indoors || p.called) return { ok: false, why: 'not indoors' };
+      if (p.social || !p.actor.indoors || p.called) return { ok: false, why: 'not indoors' };
       const structure = p.soldier ? p.b.quarters : (p.inside ?? recallHome(p));
       const door = doorThings.find((t) => t.structure === structure);
       if (!door) return { ok: false, why: `no door known for ${structure}` };
@@ -1330,6 +1434,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
       // An errand owns its path and arrival callback until it finishes. The jaunt
       // retries afterwards; taking it now would strand both activities.
       if (held(p.actor)) return { ok: false, why: 'finishing another activity', retryable: true };
+      if (p.social) endSocial(p.social);
       if (p.called) p.called = null;
       const a = p.actor, to = { e: mark.e, n: mark.n };
       p.hosted = { mark: to, heading };

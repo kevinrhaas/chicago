@@ -158,7 +158,7 @@ const { chromium } = await loadPlaywright();
 import { collect as collectRoadBands, compare as compareRoadBands, render as renderRoadBands }
   from './road_band_movement.mjs';
 
-import { STRUCTURE_BATCH_KEYS, structureBatchContract, greenTreeYardMode } from './world_smoke_contracts.mjs';
+import { STRUCTURE_BATCH_KEYS, MAPPED_BATCH, structureBatchContract, greenTreeYardMode } from './world_smoke_contracts.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const PORT = Number(process.env.SMOKE_PORT || 4187);
@@ -732,13 +732,13 @@ const STANDS = [
 
 const STRUCTURE_BATCHES = STRUCTURE_BATCH_KEYS.length;
 /**
- * Five groups are the two roof coverings, two wall substrates and the one brick
- * panel (T-3411). The
+ * Seven groups are the two roof coverings, two wall substrates, the one brick
+ * panel (T-3411), and T-3341's early brick and clay reliefs. The
  * total alone could pass after losing a relief map and splitting an unrelated
  * surface instead; this holds the mapped groups, while the live glass predicate
  * below holds the one separate translucent class; the exact keys also hold the night-window group.
  */
-const TEXTURED_STRUCTURE_BATCHES = 5; // two roof coverings (T-1488) + clapboard and log walls (T-1963) + one brick panel (T-3411)
+const TEXTURED_STRUCTURE_BATCHES = STRUCTURE_BATCH_KEYS.filter(key => MAPPED_BATCH.test(key)).length;
 /**
  * How many distinct roughness values the merged batch must still carry, and how
  * far the frame must move when they are flattened.
@@ -2676,12 +2676,14 @@ for (const [label, viewport, touch] of [
       const got = await fp.waitForFunction(() => {
         const a = window.__chicago4d;
         return a?.device && a.bootDetail ? { cls: a.device.cls, forced: a.device.forced,
-          detail: a.bootDetail, sharp: a.device.choice.sharpness,
+          detail: a.bootDetail, sharp: a.device.choice.sharpness, lowMem: a.lowMemory,
           stored: localStorage.getItem('chicago4d.device') } : null;
       }, null, { polling: 250, timeout: 60_000 }).then((h) => h.jsonValue());
       await fctx.close();
-      check(`${label}: ?device=${cls} boots '${detail}' at sharpness ${sharp}, uncached (T-2559)`,
+      check(`${label}: ?device=${cls} boots '${detail}' at sharpness ${sharp}, uncached (T-2559)`
+        + `${touch || cls === 'weak' ? ', on the memory diet (T-3537)' : ''}`,
         got.cls === cls && got.forced === cls && got.detail === detail && got.sharp === sharp
+          && got.lowMem === (touch || cls === 'weak')
           && got.stored === null && ferrors.length === 0,
         `${JSON.stringify({ ...got, stored: got.stored ? 'cached!' : null })}${ferrors.length ? ` errors: ${ferrors.join('; ')}` : ''}`);
     }
@@ -12361,6 +12363,7 @@ for (const [label, viewport, touch] of [
           const m = b.material, u = m.userData;
           const key = m.transparent ? 'lantern-glass' : u.chiRoofRelief ? `roof:${u.chiRoofRelief}`
             : u.chiWallRelief ? `wall:${u.chiWallRelief}` : u.chiBrickBond ? `brick:${u.chiBrickBond}`
+            : u.chiMasonrySurface ? `masonry:${u.chiMasonrySurface}`
             : u.nightWindows ?? 'opaque';
           const mapped = Boolean(m.normalMap);
           // T-3411: a K03 brick panel carries its own base colour and normal (the
@@ -12374,7 +12377,7 @@ for (const [label, viewport, touch] of [
               && (mapped && !brick ? Boolean(m.aoMap && m.roughnessMap) : !m.aoMap && !m.roughnessMap)
               && (!u.nightWindows || (u.nightWindows === 'night-windows-v2' && !mapped && !m.transparent))
               && !u.glassPanes
-              && [u.chiRoofRelief, u.chiWallRelief, u.chiBrickBond, u.nightWindows].filter(Boolean).length <= 1
+              && [u.chiRoofRelief, u.chiWallRelief, u.chiBrickBond, u.chiMasonrySurface, u.nightWindows].filter(Boolean).length <= 1
               && (m.transparent ? Math.abs(m.opacity - 0.18) <= 1e-6 : m.opacity === 1) };
         }),
         batches: bs.length, laid: laid.length, values: seen.size, min, max,
@@ -12388,7 +12391,7 @@ for (const [label, viewport, touch] of [
         })),
       };
     });
-    check(`${label}: the opaque town stays merged beside its five relief groups and separate lantern glass`,
+    check(`${label}: the opaque town stays merged beside its seven relief groups and separate lantern glass`,
       structureBatchContract(batchCensus.groups)
         && batchCensus.textured === TEXTURED_STRUCTURE_BATCHES,
       `${batchCensus.batches} structure batch(es), want ${STRUCTURE_BATCHES}, of which `
