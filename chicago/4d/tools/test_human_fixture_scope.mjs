@@ -6,6 +6,13 @@ import { readFileSync } from 'node:fs';
 import test from 'node:test';
 import { TEAMSTER_IDS, parseFixtureArgs, teamsterFiles, prepareFixtureScope, mergeFixtureScope } from './human_fixture_scope.mjs';
 
+// The gate's explicit check mode runs this same complete assertion suite.
+const cliArgs = process.argv.slice(2);
+if (cliArgs.length > 1 || (cliArgs.length === 1 && cliArgs[0] !== '--check')) {
+  console.error('usage: node tools/test_human_fixture_scope.mjs [--check]');
+  process.exit(2);
+}
+
 const baseline = JSON.parse(readFileSync(new URL('../data/humans/fixture.measure.json', import.meta.url)));
 const recipe = JSON.parse(readFileSync(new URL('../data/humans/recipes/worker_1835.json', import.meta.url)));
 const sha = value => createHash('sha256').update(value).digest('hex');

@@ -10,6 +10,12 @@ and timing samples, and the 30-minute producer limit remain. The current corpus 
 A global check follows the merge; missing, extra, changed or mispaired files refuse it.
 The original full-corpus date remains, with a separately dated scope receipt.
 
+CI's check-mode audit identified quoted flag strings in the new helper and its
+test driver. The pure exported helper has no CLI or derived output, so its baseline
+reason records that distinction. The driver now explicitly accepts optional
+`--check` and runs the same complete assertion suite; the gate uses that mode.
+Unknown arguments are refused. Scanner rules and native assertions remain intact.
+
 This tooling unblocks the existing visible clothing refinement on T-1789. It changes
 no resident asset or adopted animation. Focused parser/inventory controls and the
 measured test isolation are the local validation scope; ordinary full CI, an actual
