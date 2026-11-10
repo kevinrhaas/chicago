@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2857, ts: '2026-11-10T01:30:35.013Z', date: 'Nov 9, 2026, 7:30 PM CT', title: 'Refine three early Chicago buildings', kind: 'change',
+    items: [
+      'Green Tree’s shoulder roof rises more sharply toward its main block, retaining its low outer eave.',
+      'Cobweb Castle gains partial lower-wall clapboards with a reconstructed extent.',
+      'The reconstructed jail roof shows above a lower palisade; its exact historical height remains uncertain.',
+    ] },
   { v: 2856, ts: '2026-11-10T01:21:22.939Z', date: 'Nov 9, 2026, 7:21 PM CT', title: 'More natural fabric on existing residents', kind: 'improvement',
     items: [
       'Standing and walking residents receive the linen and wool fabric finish already used by drivers, while keeping their individual clothing colours and style. No image textures are added.',
