@@ -63,7 +63,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from common.logwork import (  # noqa: E402
-    CHINK_RGBA, HEWN_RGBA, RELIEF_M, hewn_log_wall, log_prism,
+    CHINK_RGBA, HEWN_RGBA, NOTCH_OUT, RELIEF_M, hewn_log_wall, log_prism,
 )
 from common import materials  # noqa: E402
 from common import openings  # noqa: E402
@@ -1423,6 +1423,98 @@ def _compound(b: MeshBuilder, p: LogDwellingParams) -> None:
             r,roof,axis,_=p.compound_parts[i]
             _stack(b,*r,roofs[i],1.0,M_CHIMNEY_AFTER_SIGN,gable_axis=axis,at_min=n == 0,
                    head_z=p.chimney_head_m)
+    if p.compound_clapboard_height_m is not None:
+        _compound_clapboards(b, p)
+
+
+def _compound_exterior_runs(p: LogDwellingParams):
+    """Exterior union boundary only: no boards between connected log rooms."""
+    rooms = [part[0] for part in p.compound_parts]
+    for i, (x0, y0, x1, y1) in enumerate(rooms):
+        for axis, plane, outward, low, high in (("x", x0, -1, y0, y1),
+                ("x", x1, 1, y0, y1), ("y", y0, -1, x0, x1),
+                ("y", y1, 1, x0, x1)):
+            spans = [(low, high)]
+            for j, other in enumerate(rooms):
+                if i == j:
+                    continue
+                a0, b0, a1, b1 = other if axis == "x" else (other[1], other[0], other[3], other[2])
+                joins = abs((a0 if outward > 0 else a1) - plane) < 1e-9
+                if not joins:
+                    continue
+                cut = []
+                for a, z in spans:
+                    if b1 <= a or b0 >= z:
+                        cut.append((a, z))
+                    else:
+                        if a < b0:
+                            cut.append((a, b0))
+                        if b1 < z:
+                            cut.append((b1, z))
+                spans = cut
+            for a, z in spans:
+                yield axis, plane, outward, a, z
+
+
+def _compound_clapboards(b: MeshBuilder, p: LogDwellingParams) -> None:
+    """A declared partial-height board treatment, never a historical elevation.
+
+    McKee's account says the Agency House was clapboarded part way up, not how
+    high, on which date, or how its corners were finished. The chosen lower band
+    uses the existing neutral frame timber and lap rhythm. Existing notched ends
+    stay exposed rather than inventing concealed corner trim. Every current
+    front opening is left clear, including the two grounded Cobweb apertures.
+    """
+    height = p.compound_clapboard_height_m
+    conf = p.conf("compound_clapboard_height_m", "reconstructed")
+    base, lip = RELIEF_M * 1.7 + 0.006, 0.018
+    clear = NOTCH_OUT + 0.006
+    openings_ = compound_front_rects(p)
+    for axis, plane, outward, start, end in _compound_exterior_runs(p):
+        start, end = start + clear, end - clear
+        if end - start < 0.05:
+            continue
+        holes = [(a, z, low, high) for face, _kind, a, z, low, high in openings_
+                 if axis == "y" and outward > 0 and abs(face - plane) < 1e-9]
+        us = sorted({start, end, *(u for a, z, _lo, _hi in holes
+                                   for u in (a, z) if start < u < end)})
+        zs = sorted({0.0, height, *(i * CLAPBOARD_COURSE_M
+                    for i in range(1, math.ceil(height / CLAPBOARD_COURSE_M))
+                    if i * CLAPBOARD_COURSE_M < height),
+                    *(z for _a, _b, lo, hi in holes for z in (lo, hi) if 0 < z < height)})
+
+        def point(u, z, offset):
+            normal = plane + outward * offset
+            return (u, normal, z) if axis == "y" else (normal, u, z)
+
+        for u0, u1 in zip(us, us[1:]):
+            for z0, z1 in zip(zs, zs[1:]):
+                mid_u, mid_z = (u0 + u1) / 2, (z0 + z1) / 2
+                if any(a < mid_u < z and lo < mid_z < hi for a, z, lo, hi in holes):
+                    continue
+                course = math.floor(mid_z / CLAPBOARD_COURSE_M)
+                top = (course + 1) * CLAPBOARD_COURSE_M
+                n0 = base + lip * (top - z0) / CLAPBOARD_COURSE_M
+                n1 = base + lip * (top - z1) / CLAPBOARD_COURSE_M
+                pts = [point(u0, z0, n0), point(u1, z0, n0),
+                       point(u1, z1, n1), point(u0, z1, n1)]
+                if outward != (-1 if axis == "y" else 1):
+                    pts.reverse()
+                b.add_poly(pts, conf, M_FRAME)
+                # The underside gives each real lap its shadow; artificial
+                # opening-grid partitions do not grow additional false courses.
+                def cap(z, inner, outer, upward):
+                    edge = [point(u0, z, inner), point(u1, z, inner),
+                            point(u1, z, outer), point(u0, z, outer)]
+                    a, c, d = edge[:3]
+                    nz = (c[0] - a[0]) * (d[1] - a[1]) - (c[1] - a[1]) * (d[0] - a[0])
+                    if (nz > 0) != upward:
+                        edge.reverse()
+                    b.add_poly(edge, conf, M_FRAME)
+                if abs(z0 - course * CLAPBOARD_COURSE_M) < 1e-9:
+                    cap(z0, base, n0, False)
+                if abs(z1 - height) < 1e-9:
+                    cap(z1, RELIEF_M, n1, True)
 
 
 # T-2374 — a stated compound aperture, and why it is drawn this thinly.

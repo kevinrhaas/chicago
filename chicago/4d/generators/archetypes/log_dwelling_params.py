@@ -173,7 +173,7 @@ CONSUMED = frozenset({
     "ridge_stack_w_m", "ridge_stack_head_m", "ridge_stack_cap_m", "hip_end", "hip_inset_m",
     "lean_to_length_m", "lean_to_width_m", "lean_to_wall_m", "lean_to_pitch_deg", "log_finish",
     "roof_condition", "roof_colour", "compound_parts", "front_door_state", "compound_joint", "roof_pipe", "compound_wall_cladding", "compound_roof_overhang_m", "sign_pole_set_out", "compound_door_state", "compound_log_profile",
-    "compound_apertures",
+    "compound_apertures", "compound_clapboard_height_m",
 })
 
 #: The coatings a log wall can be stated to wear (T-2511). Whitewash is the one a
@@ -240,6 +240,9 @@ class LogDwellingParams:
     # every existing compound and the bounded elbow resolving and building
     # identically.
     compound_apertures: tuple = field(default=(), kw_only=True)
+    # Partial lower-wall boarding on a stated multi-room log compound. None
+    # preserves every existing dwelling; the extent is an explicit choice.
+    compound_clapboard_height_m: float | None = field(default=None, kw_only=True)
     # (baseXY,headXYZ,armXYZ,boardWH,hangerDrop), local reconstructed set-out.
     sign_pole_set_out: tuple | None = field(default=None, kw_only=True)
     # (fraction along elbow core ridge, diameter, head above ridge), reconstructed.
@@ -532,6 +535,13 @@ class LogDwellingParams:
             _validate_compound(self)
         if self.compound_apertures:
             _validate_compound_apertures(self)
+        if self.compound_clapboard_height_m is not None:
+            h = self.compound_clapboard_height_m
+            if (isinstance(h, bool) or not isinstance(h, (int, float))
+                    or not math.isfinite(h) or not 0.14 <= h <= self.wall_height_m - 0.14):
+                raise ParamError("compound_clapboard_height_m must leave at least one course of boards and exposed upper logs")
+            if not self.compound_parts or self.compound_joint is not None:
+                raise ParamError("partial compound boarding needs independent connected rooms, not a plain house or elbow")
         if not 2.0 <= self.width_m <= 40.0:
             raise ParamError(f"width_m {self.width_m} outside plausible range 2-40 m "
                              f"for a log building")
@@ -931,6 +941,7 @@ def from_phase(phase: dict, record: dict | None = None) -> LogDwellingParams:
         compound_log_profile=val("compound_log_profile"),
         compound_roof_overhang_m=val("compound_roof_overhang_m",0.0),
         compound_apertures=_read_compound_apertures(val("compound_apertures")),
+        compound_clapboard_height_m=val("compound_clapboard_height_m"),
         sign_pole_set_out=_read_sign_pole_set_out(val("sign_pole_set_out")),
         roof_pipe=(None if val("roof_pipe") is None else tuple(val("roof_pipe"))),
         roof_ridge_axis=(None if val("roof_ridge_axis") is None
