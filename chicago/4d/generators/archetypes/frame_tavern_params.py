@@ -52,7 +52,7 @@ CONSUMED = frozenset({
     "cross_wing", "cross_wing_depth_m", "cross_wing_end", "enclosed_left_annex",
     "cross_wing_shared_ridge_join", "ridge_end_chimney_section_m", "ridge_end_chimney_head",
     "upper_windows", "stovepipes", "rear_ell_door", "eaves_bays", "end_windows",
-    "first_story_height_m", "entry_raise_m", "gable_lunette", "front_ground_layout",
+    "first_story_height_m", "entry_raise_m", "gable_lunette", "front_ground_layout", "front_upper_layout",
     "flagstaff", "flagstaff_height_m", "gable_wall_cladding",
     "gable_arch_treatment", "corner_entry_surround", "gable_arch_text",
     "main_gable_cornice",
@@ -250,6 +250,8 @@ class FrameTavernParams:
     # across its width. None preserves the legacy centred-door layout exactly.
     # Stations and stock sections remain reconstructed; this is not a survey.
     front_ground_layout: list[float] | None = field(default=None, kw_only=True)
+    # Explicit three-sash upper front row; None preserves the legacy pair.
+    front_upper_layout: list[float] | None = field(default=None, kw_only=True)
 
     # Explicit sash on the MAIN gable ends of a frontage-scheme block (T-2383).
     # Each tuple is (end, at, z, width, height): end +x/-x, at a fraction of
@@ -593,6 +595,25 @@ class FrameTavernParams:
                     f"eaves_bays[{face!r}] {bays} on a {self.depth_m} m wall "
                     f"leaves {self.depth_m / bays:.2f} m a bay, under "
                     f"the {UPPER_BAY_MIN_M} m a sash and its pier need")
+        if self.front_upper_layout is not None:
+            stations = self.front_upper_layout
+            if self.conf("front_upper_layout") != 1.0:
+                raise ParamError("front_upper_layout metrics must remain reconstructed")
+            if self.elevation_scheme != "gable_front" or self.stories != 2:
+                raise ParamError("front_upper_layout needs a two-storey gable_front block")
+            if (not isinstance(stations, list) or len(stations) != 3
+                    or any(isinstance(v, bool) or not isinstance(v, (int, float))
+                           or not math.isfinite(v) for v in stations)):
+                raise ParamError("front_upper_layout needs three finite local fractions")
+            if not stations[0] < stations[1] < stations[2]:
+                raise ParamError("front_upper_layout stations must be strictly ordered")
+            spans = [(at*self.width_m-.85/2, at*self.width_m+.85/2) for at in stations]
+            if spans[0][0] < .15 or spans[-1][1] > self.width_m-.15:
+                raise ParamError("front_upper_layout reaches a wall corner")
+            if any(right[0]-left[1] < .30 for left, right in zip(spans,spans[1:])):
+                raise ParamError("front_upper_layout overlaps sash or leaves too little pier")
+            if self.wall_height_m/2*1.30+1.35+.15 > self.wall_height_m:
+                raise ParamError("front_upper_layout stock sash needs room below the wall head")
         if self.front_ground_layout is not None:
             stations = self.front_ground_layout
             if self.conf("front_ground_layout") != 1.0:
@@ -706,6 +727,13 @@ class FrameTavernParams:
                              "a hood over blank logs is a claim no view makes")
 
 
+
+    @property
+    def resolved_front_upper_stations(self) -> tuple[float, ...]:
+        """Actual +y upper sash centres; the native input document hashes this value."""
+        if self.front_upper_layout is None:
+            return self.width_m*.22, self.width_m*.78
+        return tuple(self.width_m*at for at in self.front_upper_layout)
 
     @property
     def resolved_front_ground_stations(self) -> tuple[float, tuple[float, float]]:
@@ -969,6 +997,7 @@ def from_phase(phase: dict, record: dict | None = None) -> FrameTavernParams:
                        else int(val("upper_windows"))),
         eaves_bays=val("eaves_bays", {}),
         front_ground_layout=val("front_ground_layout"),
+        front_upper_layout=val("front_upper_layout"),
         end_windows=tuple((str(o["end"]), float(o["at"]), float(o["z"]),
                            float(o["width_m"]), float(o["height_m"]))
                           for o in (val("end_windows") or ())),
