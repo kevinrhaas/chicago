@@ -1,46 +1,51 @@
 {
   "not_a_reading": "Rereading already held GreenTree pictorial inventory for original T2376 signoff; no new source unit.",
-  "status": "source_candidate_final_native_review_pending",
+  "status": "actual_native9dd_review_upper_front_bay_omission_open",
   "sources": [
     {
       "source_id": "andreas_1884_green_tree_hotel_plate",
       "held_path_from_chicago": "reference/images/chicago/chicago_green_tree_inn_1838.jpg",
       "sha256": "bfaa184f9043ea94560eb74e44926c631f06338bc90e6ba54951a610edef119a",
       "rights_disposition": "public_domain",
-      "actual_review": "Viewed whole source and prior actual native pair; existing fixed camera retained. New native pair review owed.",
-      "comparison_view": "andreas_1838"
+      "actual_review": "Actually viewed whole source and actual9dd AFTER/prior661c9a BEFORE pairs. Left group improvements are present, but model2 versus Trowbridge3 upper front sash is a categorical omission. Prior matches/tolerance assessment is withdrawn; same-ticket grouped-B source correction and genuine rerender remain owed.",
+      "comparison_view": "andreas_1838",
+      "comparison_verdict": "differs"
     },
     {
       "source_id": "trowbridge_green_tree_1902",
       "held_path_from_chicago": "reference/images/chicago/chicago_green_tree_tavern_1835.jpg",
       "sha256": "4d027d462b37b682d62cfa640083f2688d1b2dd9bba9ca39dc1dc979c2234225",
       "rights_disposition": "public_domain",
-      "actual_review": "Viewed whole composition and verified original Gale1902 n55; new source camera prepared, genuine native pair review owed. Open bay/three upper front sash/attic conflict with Andreas are explicit T3153 picture disagreements.",
-      "comparison_view": "trowbridge_1902"
+      "actual_review": "Actually viewed whole source and actual9dd AFTER/prior661c9a BEFORE pairs. Left group improvements are present, but model2 versus Trowbridge3 upper front sash is a categorical omission. Prior matches/tolerance assessment is withdrawn; same-ticket grouped-B source correction and genuine rerender remain owed.",
+      "comparison_view": "trowbridge_1902",
+      "comparison_verdict": "differs"
     },
     {
       "source_id": "kurz_allison_1893",
       "held_path_from_chicago": "4d/data/sources/assets/prefire_views_kevin_2026_08/p6_0.png",
       "sha256": "fef7a7b6c46f41319e6937d56156c724640e431c75463a6c27d014928c1c7955",
       "rights_disposition": "public_domain",
-      "actual_review": "Viewed whole panel11; new source camera prepared, genuine native pair review owed. Retrospective, potentially Andreas-dependent and no reliable July1835 metric/date.",
-      "comparison_view": "kurz_1893_panel11"
+      "actual_review": "Actually viewed whole source and actual9dd AFTER/prior661c9a BEFORE pairs. Left group improvements are present, but model2 versus Trowbridge3 upper front sash is a categorical omission. Prior matches/tolerance assessment is withdrawn; same-ticket grouped-B source correction and genuine rerender remain owed.",
+      "comparison_view": "kurz_1893_panel11",
+      "comparison_verdict": "differs"
     },
     {
       "source_id": "andreas_1884_green_tree_hotel_plate",
       "held_path_from_chicago": "reference/images/chicago/green-tree-tavern/1833_Green_Tree_Tavern_On_Northeast_Corner_of_Lake_and_West_Water_Streets_Now_Canal_Street_Chicago.jpg",
       "sha256": "509798ccb73e2be2524325dd9e2d912140130a59895da3609ba93e02a165cc0b",
       "rights_disposition": "public_domain_underlying_artwork",
-      "actual_review": "Actually viewed: same Andreas composition, smaller reproduction with a modern1833 label; supplies no independent date or extra camera. Covered by Andreas comparison.",
-      "comparison_view": "andreas_1838"
+      "actual_review": "Actually viewed whole source and actual9dd AFTER/prior661c9a BEFORE pairs. Left group improvements are present, but model2 versus Trowbridge3 upper front sash is a categorical omission. Prior matches/tolerance assessment is withdrawn; same-ticket grouped-B source correction and genuine rerender remain owed.",
+      "comparison_view": "andreas_1838",
+      "comparison_verdict": "differs"
     },
     {
       "source_id": "trowbridge_green_tree_1902",
       "held_path_from_chicago": "reference/images/chicago/green-tree-tavern/1835_Green_Tree_Tavern_On_Northeast_Corner_of_Lake_and_West_Water_Streets_Now_Canal_Street_Chicago.jpg",
       "sha256": "3600d9df941b507654398fdd161e36484e1b9ebb0d8d1629196e7cf2d3846353",
       "rights_disposition": "public_domain_underlying_artwork",
-      "actual_review": "Actually viewed: same Trowbridge composition, smaller reproduction with a modern1835 caption; no independent evidence. Covered by Trowbridge comparison.",
-      "comparison_view": "trowbridge_1902"
+      "actual_review": "Actually viewed whole source and actual9dd AFTER/prior661c9a BEFORE pairs. Left group improvements are present, but model2 versus Trowbridge3 upper front sash is a categorical omission. Prior matches/tolerance assessment is withdrawn; same-ticket grouped-B source correction and genuine rerender remain owed.",
+      "comparison_view": "trowbridge_1902",
+      "comparison_verdict": "differs"
     },
     {
       "source_id": "chm_green_tree_1859",
@@ -58,5 +63,8 @@
     "actual_CHM_photograph_seen": false,
     "disposition": "Known catalogue lead, text-only; no cleared image available to render, no asset derivation, no invented match. c1859 predates1880 move but permits intervening alterations. Not authenticated by same-named site engraving."
   },
-  "stopping_rule": "Only visitor-visible real physical differences >about0.3m/missing/wrong shape or count remain open; image-to-image and camera-fit disagreements are within tolerance underT3153. New matches require actual final rendered pairs to be viewed."
+  "stopping_rule": "Only visitor-visible real physical differences >about0.3m/missing/wrong shape or count remain open; image-to-image and camera-fit disagreements are within tolerance underT3153. New matches require actual final rendered pairs to be viewed.",
+  "final_native_MASTER_sha256": "124bf0599a8900855c02a1e7b90ac57c2097718a2bf2f7985e9d58f7c7dab84a",
+  "final_native_review": "FINAL-PICTURE-REVIEW-20261110.json",
+  "prior_matches_assessment_withdrawn": true
 }
