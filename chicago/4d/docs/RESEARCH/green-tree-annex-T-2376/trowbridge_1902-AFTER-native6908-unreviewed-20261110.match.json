@@ -1,0 +1,37 @@
+{
+  "structure_id": "green_tree_tavern",
+  "view": "trowbridge_1902",
+  "glb": "assets/gltf/green_tree_tavern__frame_1833.glb",
+  "glb_sha256": "114b98c2dc057bbc47f66ce158bc984be438399e0c4984222b93e810d542714f",
+  "camera_sha256": "53140e9ceeed8a59a5a0f588d730a0bba18e3eff730da61058ea976f049087b2",
+  "photo_sha256": "4d027d462b37b682d62cfa640083f2688d1b2dd9bba9ca39dc1dc979c2234225",
+  "side_by_side": "docs/RESEARCH/photo-match/green_tree_tavern/trowbridge_1902-side-by-side.jpg",
+  "verdict": "unreviewed",
+  "differences": [
+    {
+      "status": "fixed",
+      "what": "Actually viewed the final native124bf059 pair and the prior661c9a pair at this exact Trowbridge camera/source. The two-storey gabled core, two end stacks, seven long-wall sash stations on both floors, and lower front two viewer-left sash with viewer-right entrance are present. The retained attic light is also pictured here."
+    },
+    {
+      "status": "within tolerance",
+      "what": "Trowbridge retrospectively draws an open wagon bay, whereas the detailed Andreas and Kurz readings supply the adopted closed shoulder and farther gabled group. Those pictures disagree; under T3153 this is an explicit within-tolerance source conflict, not a missing unmodeled requirement or proof of a dated conversion. No second competing open roof/posts or covered wagon is added inside the closed group."
+    },
+    {
+      "status": "within tolerance",
+      "what": "Six wall-corner framing picks have RMS4.70px/max10.59px residuals; roof/eave slopes and projected lengths do not share a calibrated perspective. These drawing/camera differences are within tolerance and supply no measured footprint, height, surveyed viewing spot or site change."
+    },
+    {
+      "status": "not shown",
+      "what": "The monochrome drawing does not establish literal exterior pigment or roof tone. Existing provenance for finish remains unchanged."
+    },
+    {
+      "status": "not shown",
+      "what": "This isolated native-asset comparison does not include app terrain, the procedural post sign, bench, wagons, people, road or neighbours. Parent separately reviews those actual application layers and current WEB on desktop/phone; they are not accepted from this neutral plane."
+    },
+    {
+      "status": "open",
+      "what": "Actual final9dd model has only two upper front-gable sash. Trowbridge clearly shows three; the narrow left-edge detail in Andreas/Kurz was not safely resolved by the prior two-window reading. This is a categorical opening-count omission, not a camera/pixel tolerance. A same-ticket front_upper_layout correction will add three upper stations in the next grouped native. Current9dd remains differs; no original T2376 closure is claimed."
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

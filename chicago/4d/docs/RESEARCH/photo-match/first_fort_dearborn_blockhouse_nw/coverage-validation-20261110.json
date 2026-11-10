@@ -1,0 +1,12 @@
+{
+  "status": "PASS_FINITE_COVERAGE_BINDING_AND_SOURCE_SCOPE_NOT_FINAL_IMAGE_VERDICT",
+  "rows": 30,
+  "original21": 21,
+  "context9": 9,
+  "allowed_camera_models": 14,
+  "json_files_parsed": 12,
+  "new_match_verdict": "unreviewed",
+  "source_photo_unchanged": true,
+  "all_rendered_native_model_hashes_current": true,
+  "held_photo_camera_or_geometry_derivation": false
+}

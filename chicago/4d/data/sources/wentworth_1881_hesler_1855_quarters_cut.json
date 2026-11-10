@@ -1,0 +1,27 @@
+{
+  "id": "wentworth_1881_hesler_1855_quarters_cut",
+  "type": "illustration",
+  "citation": "Fort Dearborn quarters in 1855. Contained keyed woodcut in John Wentworth, Fort Dearborn (Chicago: Fergus Printing Company, 1881), unnumbered illustration leaf before printed p. 93; p. 93 credits a photograph by Alexander Hesler.",
+  "author": "Alexander Hesler (underlying 1855 photograph, attributed by the 1881 caption); wood engraver unestablished",
+  "date": "1881 (contained cut inspected; first separate appearance not established)",
+  "describes_date": "1855",
+  "repository": "Internet Archive, scanned 1881 Fergus pamphlet earlychicagofort00wentiala; direct public-domain source, rather than the modern Chicagology reproduction",
+  "url": "https://archive.org/download/earlychicagofort00wentiala/page/n101.jpg",
+  "locator": "Actual Internet Archive /page/n101.jpg; local cleared asset data/sources/assets/second_fort_wentworth_1881/p92_hesler_1855.jpg. The historical text and caption are also recorded under wentworth_1881_fort_dearborn.",
+  "tier": 5,
+  "rights_status": "public_domain",
+  "rights_note": "The actual 1881 United States publication is public domain by age. These bytes were independently acquired from its Internet Archive scan; no agency, auction or check_required modern reproduction is substituted.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "Source image actually opened on 10 November 2026. The 1855 illustration and p. 93 caption were rotated 270 degrees only for reading. The raw captures preserve the original orientation outside the published image. This contained-cut record does not invent an independent publication or claim inspection of the original daguerreotype or negative.",
+  "note": "The actual p. 93 key securely identifies the commandant\u2019s quarters A (brick, about 25 x 50 ft) and officers\u2019 quarters B (wood, about 30 x 60 ft). Both show gallery fabric in 1855; no automatic continuity of every fitting into July 1835 is asserted. B corroborates the existing reconstructed officers\u2019 piazza without replacing Hubbard\u2019s 1818 description as its earlier basis. The later city, Marine Hospital viewpoint and enlarged parade are not backdated. Diagnostic cameras render July 1835 models with the actual depiction dates stated. Only securely identified buildings receive card_members. T-2388 now explicitly adopts the securely named A front double gallery for July1835 as a reconstructed continuity choice. The existing north brick range identity, earlier plan/text and post\u2019s separately described early piazza make that choice reasonable; the1855picture governs broad form without becoming an attested1835installation date. No unknown soldiers\u2019 gallery is thereby identified.",
+  "what_it_supplies": [
+    "A credited nineteenth-century illustration with publication and depicted dates stated separately.",
+    "A finite later-form comparison, subject to the caption, occlusion and retrospective engraving limits."
+  ],
+  "what_it_does_not_supply": [
+    "An independent first publication date or inspection of the original photograph.",
+    "A metric camera, exact historical palette or proof that every fitting survived unchanged from July 1835.",
+    "A license for held modern reproductions, or named identities for unkeyed ranges merely because they were rendered as context."
+  ]
+}

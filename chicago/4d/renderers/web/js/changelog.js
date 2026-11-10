@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2866, ts: '2026-11-10T12:04:32.911Z', date: 'Nov 10, 2026, 6:04 AM CT', title: 'Green Tree and the forts: remaining picture corrections', kind: 'fix',
+    items: [
+      'T-2376: Select the missing third upper front window at Green Tree while retaining its completed lower left group. The categorical opening correction awaits the combined native build and fresh picture review.',
+      'T-3041: Enroll the credited Lossing view and complete first-fort original/context picture coverage under the adopted plan and explicit source limits, continuing through existing last child T-2387.',
+      'T-2388: Add the officers’ outside stair, named barn cupola and two small side posterns; adopt the commandant’s front double gallery as reconstructed continuity from the securely named later picture, preserving existing openings. Native, walking and published acceptance remain required.',
+    ] },
   { v: 2865, ts: '2026-11-10T10:39:51.606Z', date: 'Nov 10, 2026, 4:39 AM CT', title: 'Rendering detail refinements', kind: 'fix',
     items: [
       'Large views at Balanced detail now draw more efficiently, with unchanged appearance.',

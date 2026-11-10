@@ -1,0 +1,163 @@
+{
+  "status": "FINAL_B_THREE_ACTUAL_VIEWS_MATCHES_AFTER_PHYSICAL_UPPER_ROW_FIX",
+  "not_a_reading": "Adjudication of existing admitted source pictures, not a new archival source or measured survey.",
+  "native_run_id": 42758213227,
+  "native_source": "b9c767997c452740c6b690cf2d280d7f75c8c9d5",
+  "retained_native": "6908d896ffba7af2e99d9e5daffd1b49f3f1c9c1",
+  "MASTER_sha256": "114b98c2dc057bbc47f66ce158bc984be438399e0c4984222b93e810d542714f",
+  "MASTER_bytes": 297628,
+  "compiled_sidecar_sha256_at_final_read": "da9cdc2d7d371ef4062eb72b4ccb7a773e693f811dc29ab5d6247b7cb262f04c",
+  "compiled_upper_layout": [
+    0.2,
+    0.5,
+    0.78
+  ],
+  "actual_all_three_source_before9dd_after6908_whole_pairs_viewed": true,
+  "views": [
+    {
+      "view": "andreas_1838",
+      "verdict": "matches",
+      "open_differences": 0,
+      "upper_front_sash_actually_readable": 3,
+      "MASTER_sha256": "114b98c2dc057bbc47f66ce158bc984be438399e0c4984222b93e810d542714f",
+      "camera_sha256": "9439f5f7e6f3138e53328647456d332110948ef8421692f951827e48eb274f6b",
+      "photo_sha256": "bfaa184f9043ea94560eb74e44926c631f06338bc90e6ba54951a610edef119a",
+      "source_id": "andreas_1884_green_tree_hotel_plate",
+      "source_creator": "unsigned on the plate; the brief attributes the engraving to Braunhold, and no signature is legible at the resolution the scan publishes",
+      "source_url": "https://archive.org/details/historyofchicago01andr/page/n1301/mode/1up",
+      "canonical_pair": "docs/RESEARCH/photo-match/green_tree_tavern/andreas_1838-side-by-side.jpg",
+      "pair_sha256": "2efd2d4b8e6b22f7b45ec6aa593ab72d835ff4f4a50beae2cccbe4cd19dcebd0",
+      "before_9dd_differs_record": "docs/RESEARCH/green-tree-annex-T-2376/andreas_1838-BEFORE-upper-row-native9dd-20261110.match.json",
+      "before_9dd_pair": "docs/RESEARCH/green-tree-annex-T-2376/andreas_1838-BEFORE-upper-row-native9dd-20261110.jpg"
+    },
+    {
+      "view": "trowbridge_1902",
+      "verdict": "matches",
+      "open_differences": 0,
+      "upper_front_sash_actually_readable": 3,
+      "MASTER_sha256": "114b98c2dc057bbc47f66ce158bc984be438399e0c4984222b93e810d542714f",
+      "camera_sha256": "53140e9ceeed8a59a5a0f588d730a0bba18e3eff730da61058ea976f049087b2",
+      "photo_sha256": "4d027d462b37b682d62cfa640083f2688d1b2dd9bba9ca39dc1dc979c2234225",
+      "source_id": "trowbridge_green_tree_1902",
+      "source_creator": "W. E. S. Trowbridge; in Edwin O. Gale (1902)",
+      "source_url": "https://archive.org/details/reminiscencesofe00ingale/page/n55/mode/1up",
+      "canonical_pair": "docs/RESEARCH/photo-match/green_tree_tavern/trowbridge_1902-side-by-side.jpg",
+      "pair_sha256": "baa7bb1ca083888cf159780e5fd5b80abe4eb8404ed6bdcbc3b5c1df6de2c505",
+      "before_9dd_differs_record": "docs/RESEARCH/green-tree-annex-T-2376/trowbridge_1902-BEFORE-upper-row-native9dd-20261110.match.json",
+      "before_9dd_pair": "docs/RESEARCH/green-tree-annex-T-2376/trowbridge_1902-BEFORE-upper-row-native9dd-20261110.jpg"
+    },
+    {
+      "view": "kurz_1893_panel11",
+      "verdict": "matches",
+      "open_differences": 0,
+      "upper_front_sash_actually_readable": 3,
+      "MASTER_sha256": "114b98c2dc057bbc47f66ce158bc984be438399e0c4984222b93e810d542714f",
+      "camera_sha256": "1f7e255d0ab46b9f0e912fd37d559dd912f79e37c82af2e9fc08ea53fb021b6f",
+      "photo_sha256": "fef7a7b6c46f41319e6937d56156c724640e431c75463a6c27d014928c1c7955",
+      "source_id": "kurz_allison_1893",
+      "source_creator": "Kurz & Allison",
+      "source_url": "https://www.loc.gov/pictures/item/2003656685/",
+      "canonical_pair": "docs/RESEARCH/photo-match/green_tree_tavern/kurz_1893_panel11-side-by-side.jpg",
+      "pair_sha256": "553679e8e8c7fc2815e6995f01a1cb351a915a0a9763d9123c9b6d3223ec7931",
+      "before_9dd_differs_record": "docs/RESEARCH/green-tree-annex-T-2376/kurz_1893_panel11-BEFORE-upper-row-native9dd-20261110.match.json",
+      "before_9dd_pair": "docs/RESEARCH/green-tree-annex-T-2376/kurz_1893_panel11-BEFORE-upper-row-native9dd-20261110.jpg"
+    }
+  ],
+  "finite_adjudication": "All three actual new renders visibly carry three upper front sash. The prior categorical omission is fixed in geometry. Earlier left group corrections remain present. Residual projected spacing/eave/roof tilt, attic/open-bay source conflicts and nonmetric historical date uncertainty remain explicit underT3153, without relabeling the former missing upper sash as tolerance.",
+  "rights_and_picture_coverage": "Three verified public-domain source artworks: Andreas1884, Trowbridge1902 and Kurz1893, retrospective and potentially dependent; both named smaller reproductions are covered by their originals. Held/unverified CHM c1859 remains text-only, unseen and check_required; neither it nor the site1859 engraving supplies geometry or an invented match.",
+  "limits": "Three isolated genuine native asset/source comparisons only; no survey, literal pixel match, exact historical camera/date, app terrain/yard/WEB/UI acceptance, publication or original-ticket closure claimed here.",
+  "actual_image_gate_validation": {
+    "command": "node tools/image_gate.mjs --structure green_tree_tavern",
+    "result": "image gate: green_tree_tavern match every reference view",
+    "method": "Actual Root gate/helper bytes copied to an external validation tree with the final canonical records, exact Root cameras/photos, source records and genuine adopted B MASTER. No Root tracked writes.",
+    "log": "docs/RESEARCH/green-tree-annex-T-2376/B-FINAL-IMAGE-GATE-20261110.log",
+    "log_sha256": "d0d90e3dcd504090880a3d3f7a2cfde8c3c163fc2b81c449e0c87c8d3c3d5db5"
+  },
+  "retained_new_artifacts": [
+    {
+      "path": "docs/RESEARCH/green-tree-annex-T-2376/B-AFTER-RENDER-BINDINGS-20261110.json",
+      "bytes": 2700,
+      "sha256": "527f218e79853f3a34992f38ed8245a7ca83441747cee22e616b7a73df27ec0f"
+    },
+    {
+      "path": "docs/RESEARCH/green-tree-annex-T-2376/B-FINAL-IMAGE-GATE-20261110.log",
+      "bytes": 57,
+      "sha256": "d0d90e3dcd504090880a3d3f7a2cfde8c3c163fc2b81c449e0c87c8d3c3d5db5"
+    },
+    {
+      "path": "docs/RESEARCH/green-tree-annex-T-2376/andreas_1838-AFTER-native6908-render.log",
+      "bytes": 304,
+      "sha256": "c3b155300f4a87f1f4382bf10385bde0fd584e6a8110bacd8536e3366cedff18"
+    },
+    {
+      "path": "docs/RESEARCH/green-tree-annex-T-2376/andreas_1838-AFTER-native6908-render.png",
+      "bytes": 195128,
+      "sha256": "1940ac76cfed5ff7945dd0c59631769f72b5fe76da2be30df967759f8d2e4b78"
+    },
+    {
+      "path": "docs/RESEARCH/green-tree-annex-T-2376/andreas_1838-AFTER-native6908-unreviewed-20261110.match.json",
+      "bytes": 8410,
+      "sha256": "8a4160855c931b76f499b940eae33a0520c0d81a8bc30589866e5be921421a90"
+    },
+    {
+      "path": "docs/RESEARCH/green-tree-annex-T-2376/andreas_1838-BEFORE-upper-row-native9dd-20261110.jpg",
+      "bytes": 482606,
+      "sha256": "4c625c2ec38680fae36c854e38f688801cdf8bc559606a7c4eab8f79cb602e41"
+    },
+    {
+      "path": "docs/RESEARCH/green-tree-annex-T-2376/andreas_1838-BEFORE-upper-row-native9dd-20261110.match.json",
+      "bytes": 8933,
+      "sha256": "e3b496194abfe6c4536c7ace713d554c5a797468bdb24846c1a90441587d1938"
+    },
+    {
+      "path": "docs/RESEARCH/green-tree-annex-T-2376/kurz_1893_panel11-AFTER-native6908-render.log",
+      "bytes": 319,
+      "sha256": "2035dce5724d748fd7a7412b221d6da10bbe08f10e739b1096588707921273a9"
+    },
+    {
+      "path": "docs/RESEARCH/green-tree-annex-T-2376/kurz_1893_panel11-AFTER-native6908-render.png",
+      "bytes": 47885,
+      "sha256": "e8061d81928b5d931514476bb90ff69285f709faf98803e66551d649255b6561"
+    },
+    {
+      "path": "docs/RESEARCH/green-tree-annex-T-2376/kurz_1893_panel11-AFTER-native6908-unreviewed-20261110.match.json",
+      "bytes": 3108,
+      "sha256": "3d4040c9b3248b6843eb018f13a9082cc9657c647a6c8bed38b30ff079a39e64"
+    },
+    {
+      "path": "docs/RESEARCH/green-tree-annex-T-2376/kurz_1893_panel11-BEFORE-upper-row-native9dd-20261110.jpg",
+      "bytes": 105323,
+      "sha256": "c04ff3686046b9193701c8dd9ff49f3b6716a0867903b3e49dc202a592118b35"
+    },
+    {
+      "path": "docs/RESEARCH/green-tree-annex-T-2376/kurz_1893_panel11-BEFORE-upper-row-native9dd-20261110.match.json",
+      "bytes": 3616,
+      "sha256": "497e56847ed2cd07183b5dc2591332ba03df106cdd7c5bdfee54bae47ff0cc0b"
+    },
+    {
+      "path": "docs/RESEARCH/green-tree-annex-T-2376/trowbridge_1902-AFTER-native6908-render.log",
+      "bytes": 313,
+      "sha256": "0827e3f02a980d2594bc6b489afaa189cf3fa2e789fe1bfd3a36a4bd078e4198"
+    },
+    {
+      "path": "docs/RESEARCH/green-tree-annex-T-2376/trowbridge_1902-AFTER-native6908-render.png",
+      "bytes": 201838,
+      "sha256": "e6dd0e201e394dcd943aceac5fa6cd26a39fb10b07fc1b6d0424b19b3c3a5b31"
+    },
+    {
+      "path": "docs/RESEARCH/green-tree-annex-T-2376/trowbridge_1902-AFTER-native6908-unreviewed-20261110.match.json",
+      "bytes": 3308,
+      "sha256": "bd887312f4c0f54d7640327bc8dd466442f8dc81d018c143b55045d6e11ac347"
+    },
+    {
+      "path": "docs/RESEARCH/green-tree-annex-T-2376/trowbridge_1902-BEFORE-upper-row-native9dd-20261110.jpg",
+      "bytes": 260087,
+      "sha256": "f686dd57c062a5b70ec0b89f700ffcedb7e49e7bae75d5acc8704c47a2281526"
+    },
+    {
+      "path": "docs/RESEARCH/green-tree-annex-T-2376/trowbridge_1902-BEFORE-upper-row-native9dd-20261110.match.json",
+      "bytes": 3816,
+      "sha256": "28cb6e242376513fc0a5653e2b19a46ff0572a83f382bc8aedc66db021af688e"
+    }
+  ]
+}

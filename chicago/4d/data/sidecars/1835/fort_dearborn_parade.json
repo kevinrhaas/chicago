@@ -67,7 +67,7 @@
       "harrison_1830_river_mouth",
       "wentworth_1881_fort_dearborn"
     ],
-    "note": "TWO SOURCES ON ONE PAGE GIVE TWO DIFFERENT PARADE GROUNDS AND THIS PROJECT DOES NOT AVERAGE THEM. The key to the 1855 photograph: 'C is the parade-ground (80x200 ft.)'. Robert Fergus, of the same fort in 1850: 'about 80 feet wide, and extended from the river bank south, the full length of the enclosure - say 400 feet'. Eighty by two hundred and eighty by four hundred are not the same rectangle, and docs/research/04-structures-south.md records only the first, as documented. IT IS GRADED INFERRED HERE. What this polygon actually is: 21.8 x 33.2 m, about 71 x 109 ft, the court the 1830 plan leaves between the ranges. The WIDTH agrees with both later sources to about 11 percent, which is the check that the derived scale is reading the plate. The LENGTH agrees with neither, and the likeliest reading of that is that both later figures describe the compound AFTER the stockade came down, when the 'enclosure' was a board fence running from the river bank south - which is exactly what Fergus says his 400 ft is measured between. A third witness supports the split: Juliette Kinzie, inside the stockaded fort in 1831, says the parade-ground 'extended south of the pickets', so there was drill ground outside the south gate as well as court inside. That outside ground is NOT modelled - nothing gives its extent."
+    "note": "TWO SOURCES ON ONE PAGE GIVE TWO DIFFERENT PARADE GROUNDS AND THIS PROJECT DOES NOT AVERAGE THEM. The key to the 1855 photograph: 'C is the parade-ground (80x250 ft.)'. Robert Fergus, of the same fort in 1850: 'about 80 feet wide, and extended from the river bank south, the full length of the enclosure - say 400 feet'. Eighty by two hundred and eighty by four hundred are not the same rectangle, and docs/research/04-structures-south.md records only the first, as documented. IT IS GRADED INFERRED HERE. What this polygon actually is: 21.8 x 33.2 m, about 71 x 109 ft, the court the 1830 plan leaves between the ranges. The WIDTH agrees with both later sources to about 11 percent, which is the check that the derived scale is reading the plate. The LENGTH agrees with neither, and the likeliest reading of that is that both later figures describe the compound AFTER the stockade came down, when the 'enclosure' was a board fence running from the river bank south - which is exactly what Fergus says his 400 ft is measured between. A third witness supports the split: Juliette Kinzie, inside the stockaded fort in 1831, says the parade-ground 'extended south of the pickets', so there was drill ground outside the south gate as well as court inside. That outside ground is NOT modelled - nothing gives its extent. T-2388 source transcription correction: direct actual1881printedp93 was visually reread10November2026; its1855key says80x250ft, not the previously transcribed80x200ft. The later extent remains a different state and the existing1830-plan court is unchanged."
   },
   "attributes": {
     "kind": {
@@ -183,7 +183,9 @@
         "a parade ground 80 ft wide",
         "which buildings stood on which side of the parade",
         "the commandants of the second fort by date",
-        "the date the pickets came down is NOT given - only that it was 'at an earlier date' than 1850"
+        "the date the pickets came down is NOT given - only that it was 'at an earlier date' than 1850",
+        "Actual1881public-domain scans of the1850fort cut and1855keyed quarters cut, with explicit depiction dates.",
+        "A securely identified1855double-storey gallery on officers B and a gallery along commandants A; this does not independently date either fitting toJuly1835."
       ],
       "what_it_does_not_supply": [
         "the stockade's dimensions",
