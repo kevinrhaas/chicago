@@ -97,6 +97,7 @@ import { supportsTownTransport } from './transport-scenes.js';
 import { createWells } from './wells.js';
 import { createTimeStream } from './time-stream.js';
 import { createTelemetry } from './arrival-telemetry.js';
+import { setDraftHorseTextureCap } from './draft-horse-assets.js';
 import { t, applyStrings } from './strings/index.js';
 import './strings/arrival.js';
 import { createFlags } from './flags.js';
@@ -1876,6 +1877,10 @@ async function boot() {
    */
   const lowMem = coarse || !!device.choice?.lowMemory || !!crashGuard.state.stepdown;
   api.lowMemory = lowMem;
+  // T-3542: the horses' pictures are what keeping the teams on a phone costs it (six maps,
+  // about 22 MB): on a memory-saving device each is redrawn at 512 px (1024 on a computer)
+  // before the template is shared — blurrier up close, never gone (draft-horse-assets.js).
+  if (lowMem) setDraftHorseTextureCap(coarse ? 512 : 1024);
   // Resolve BEFORE the GLB fetch: a weak-machine boot must never download the
   // full inspection model simply to turn it down once Settings has mounted.
   // T-2547's step-down outranks everything; then the stored choice; then the
@@ -3985,7 +3990,10 @@ async function boot() {
           ? (e, n) => streetGrid.carriagewayHeight(e, n)
           : smoothGround ?? ((e, n) => profiledGroundHeight(terrain, decks, e, n)),
         footprints: () => footprints, visitor: () => walker.state,
-        interactions, detail: detailLevel, coarse, problems,
+        interactions, detail: detailLevel, problems,
+        // T-3542: every memory-saving device (a phone, an integrated-GPU computer, Light) takes
+        // a row's lighter horse, vehicle and driver; it no longer means no team at all.
+        coarse: lowMem || detailLevel === 'light',
         // T-3475: Step back to let it pass walks the visitor to a clear stand, looking where they looked.
         blockedAt: (e, n) => api.router?.blockedAt(e, n) ?? false,
         placeVisitor: (e, n) => { if (!walker.state.flying) walker.teleport({ local_e: e, local_n: n,

@@ -190,7 +190,7 @@ export function shortGpu(renderer) {
 export function decide(cls, { touch = false, cores = null, webgpu = false } = {}) {
   const c = DEVICE_CLASSES.includes(cls) ? cls : 'standard';
   const table = touch
-    ? { weak: ['light', 1], standard: ['light', 1], strong: ['light', 1.5] }
+    ? { weak: ['light', 1], standard: ['light', 1], strong: ['balanced', 1.5] }
     : { weak: ['balanced', 1], standard: ['full', 1.5], strong: ['full', 2] };
   const [detail, sharpness] = table[c];
   const textures = touch || c === 'weak' ? 'light' : 'full';

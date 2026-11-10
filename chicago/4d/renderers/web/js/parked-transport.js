@@ -8,7 +8,10 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { disposeLoadedAsset } from './scene-loader.js';
 
-const REACH = { full: 100, balanced: 65, light: 0 };
+/** T-3542: every tier draws the parked teams and vehicles. Light (a phone's) draws them
+ * nearer, never not at all: horses and carriages are the town's core (owner, 2026-11-10). */
+const REACH = { full: 100, balanced: 65, light: 50 };
+const draws = t => (REACH[t] ?? 0) > 0;
 
 /** T-3300: with `loadWithin` set, a vehicle's GLB is fetched only once the camera
  * comes within its tier's REACH plus that many metres, not at boot. The 1835 boot
@@ -243,13 +246,13 @@ export async function createParkedTransport({ dataBase, sceneId, terrain, confid
     },
     async setTier(next) {
       tier = next;
-      if (next === 'light') for (const instance of instances) {
+      if (!draws(next)) for (const instance of instances) {
         instance.teamRevision++; instance.team?.dispose(); instance.team = null;
         instance.static_support = instance.original_unhitched_static_support ?? instance.static_support;
         instance.card = card(instance.row, instance.spec);
       }
-      if (next !== 'light' && !deferred) await load();
-      if (next !== 'light') await Promise.all(instances.map(ensureTeam));
+      if (draws(next) && !deferred) await load();
+      if (draws(next)) await Promise.all(instances.map(ensureTeam));
       if (lastCamera) out.update(lastCamera);
     },
     pickAt(ndc, camera) {
@@ -294,7 +297,7 @@ export async function createParkedTransport({ dataBase, sceneId, terrain, confid
   let teamTools = null;
   function ensureTeam(instance) {
     if (!stationaryTeams || !instance.row.stationary_team || !instance.retainedPole
-      || !shown || confidence?.hidden?.reconstructed || tier === 'light' || disposed || !lastCamera
+      || !shown || confidence?.hidden?.reconstructed || !draws(tier) || disposed || !lastCamera
       || horizontalDistance(lastCamera, instance.row) >= (REACH[tier] ?? 0)
       || instance.team || instance.teamAttempted === instance.teamRevision) {
       return instance.teamPending ?? Promise.resolve(instance.team ?? null);
@@ -313,7 +316,7 @@ export async function createParkedTransport({ dataBase, sceneId, terrain, confid
       const team = await createParkedDraftTeam({ row: instance.row, frame: instance.group,
         vehicle: instance.vehicle, midVehicle: instance.midVehicle, dataBase,
         heightAt, confidence });
-      if (disposed || !shown || tier === 'light' || instance.teamRevision !== revision
+      if (disposed || !shown || !draws(tier) || instance.teamRevision !== revision
         || !lastCamera || horizontalDistance(lastCamera, instance.row) >= (REACH[tier] ?? 0)) {
         team.dispose(); instance.teamAttempted = null; return null;
       }
@@ -502,6 +505,6 @@ export async function createParkedTransport({ dataBase, sceneId, terrain, confid
     }
     if (lastCamera) out.update(lastCamera);
   }
-  if (tier !== 'light' && !deferred) await load();
+  if (draws(tier) && !deferred) await load();
   return out;
 }

@@ -42,7 +42,9 @@ check('weak and strong move detail and Sharpness the documented way, inside the 
   assert.equal(dp.decide('weak', { touch: false }).detail, 'balanced', 'T-3537: never Light, which drops horses and carriages');
   assert.equal(dp.decide('weak', { touch: false }).sharpness, 1);
   assert.equal(dp.decide('strong', { touch: false }).sharpness, 2);
-  assert.equal(dp.decide('strong', { touch: true }).detail, 'light', 'a phone never earns geometry (T-2546)');
+  assert.equal(dp.decide('strong', { touch: true }).detail, 'balanced', 'T-3542: a strong phone earns Balanced; weaker ones keep Light');
+  assert.equal(dp.decide('standard', { touch: true }).detail, 'light');
+  assert.equal(dp.decide('strong', { touch: true }).lowMemory, true, 'every phone keeps the memory diet');
   assert.equal(dp.decide('strong', { touch: true }).sharpness, 1.5);
   for (const cls of dp.DEVICE_CLASSES) for (const touch of [true, false]) {
     const c = dp.decide(cls, { touch, cores: 8 });

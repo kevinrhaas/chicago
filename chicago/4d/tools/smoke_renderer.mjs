@@ -2647,7 +2647,7 @@ for (const [label, viewport, touch] of [
     // closed — the tier is decided before the scene is fetched, so nothing after
     // it is this check's subject.
     const forcedWant = touch
-      ? { weak: ['light', 1], strong: ['light', 1.5] }
+      ? { weak: ['light', 1], strong: ['balanced', 1.5] }
       : { weak: ['balanced', 1], strong: ['full', 2] };
     for (const [cls, [detail, sharp]] of Object.entries(forcedWant)) {
       const fctx = await browser.newContext({ viewport, hasTouch: touch, isMobile: false,
