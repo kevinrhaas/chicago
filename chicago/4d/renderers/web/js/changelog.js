@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2872, ts: '2026-11-10T21:04:22.054Z', date: 'Nov 10, 2026, 3:04 PM CT', title: 'Computers with built-in graphics stop crashing in 1904', kind: 'fix',
+    items: [
+      'A computer whose graphics are built into the processor (Intel UHD, Iris, AMD Radeon Graphics) shares one pool of memory between the town and the picture. Such a computer now opens at Balanced detail with softer textures, and keeps each building once instead of twice, as a phone does. People, horses, carriages and wagons all stay. Before, it opened 1904 at Full and the browser tab could crash.',
+      'The observatory\'s device rating counts that shared memory, so such a computer now reads Low and says "shared memory", where before it read Good.',
+      'A computer that has crashed here also keeps the lighter memory use until you choose Scene detail and Sharpness in Settings yourself.',
+    ] },
   { v: 2871, ts: '2026-11-10T16:19:41.258Z', date: 'Nov 10, 2026, 10:19 AM CT', title: 'The Kinzie house and its river green', kind: 'change',
     items: [
       'The 1812 Kinzie house gains pale whitewashed logs and a taller pictured west doorway. Its fenced green is brought back to the house’s scale, with four Lombardy poplars in a row toward the river. The finish, exact door height and garden placement remain clearly marked as liberties.',
