@@ -1,3 +1,15 @@
+## T-2795 — ground 1904 people on the visible pedestrian surface (prepared, 2026-11-10)
+
+Prepare the bounded native support sampler for the existing coachman and other
+1904 people, preserving retained street geometry, horse roadway contact, decks,
+positive yards, water fallback and explicit door/stair heights. Source-only work
+and CPU/mask controls are ready; run one actual physical world after review to
+measure the prior 27 mm hover correction before opening the separate DEV PR.
+Do not infer slope/continuous-walking contact from a corrected centre height.
+Conservative mixed-mask edges fall back to the field and may step in height;
+phone performance, photographic acceptance and complete preflight remain open.
+The visitor changelog entry stays external until the preceding T-2795 entry folds.
+
 ## T-2795 — bring the existing coachman beside his waiting team (2026-11-10)
 
 Place Charles Nelson on the Prairie Avenue parkway beside the existing Glessner

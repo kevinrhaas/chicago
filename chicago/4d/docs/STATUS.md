@@ -1,3 +1,28 @@
+## T-2795 — 1904 figures on the visible pavement (source proposal, 2026-11-10)
+
+A separate, unmerged candidate replaces a figure's hidden raw terrain base only
+where both enabled terrain-cut materials admit the actual mask and an existing
+Float32 walk, parkway, curb-top or alley triangle supports the point. It changes
+no geometry, shader, field sampler, horse-road sampler, explicit stair height,
+water/deck rule, positive yard lift, anchor, model or render budget.
+
+The earlier exact-2c9 CPU controls passed: 47 mask/material/height-composition
+checks; actual district geometry retained byte for byte; a 215,176-byte lazy index
+with no duplicated XYZ, about 19 ms to initialize and 13 ms for 10,000 queries.
+Six known pixels from the actual mask receipt also cover all 2,942 recorded foot
+domain vertices and the actor centre after Float32 UV arithmetic. That sparse
+replay is not a reconstructed full mask or a new world measurement.
+
+The prior physical probe found roughly 27 mm of shoe hover above the parkway.
+The corrected centre would move down 30.022 mm, which by itself does not prove
+slope contact and may leave millimetres of penetration at the old sole minima.
+Fresh physical-only published-world contact remains required. Conservative mask
+blend edges keep the old field and can introduce a height discontinuity; continuous
+walking contact, phone cost and photographic/world acceptance remain unverified.
+On current committed 11d4 source, the same 47 controls and the actual native
+zero-write probe/isolation audit passed; all 976 foreign rows were retained.
+No full preflight or publication has been run for this sparse source proposal.
+
 ## T-2795 — Charles Nelson beside the Glessner carriage team (2026-11-10)
 
 The current proposal places existing coachman Charles Nelson on the Prairie Avenue

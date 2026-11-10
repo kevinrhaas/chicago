@@ -677,6 +677,8 @@ step "A woman's skirt swings off her legs as she walks and never parts between t
   node tools/test_human_skirt.mjs
 step "Each man of the 1812 garrison has his own complexion, hair, eyes and height from the period's registers, drawn on clones, on his card with a stand-in portrait (T-3491)" \
   node tools/test_human_looks.mjs
+step "1904 people use actual drawn pedestrian tops only beneath enabled terrain-cut masks, preserving decks, positive yards and other epochs (T-2795)" \
+  node tools/test_pedestrian_ground.mjs --check
 step "The 1812 garrison's looks files are what looks.py writes (T-3491)" \
   python3 docs/RESEARCH/people-1812-3491/looks.py --check
 step "The 1812 garrison is dressed by rank and duty: NCOs' epaulettes on the shoulder, musicians' coats, drum and fife case, officers' sashes, men at work in fatigue clothes, sentries' muskets in the hand and the cornfield party's arms piled (T-3523)" \

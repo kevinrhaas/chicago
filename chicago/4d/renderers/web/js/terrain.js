@@ -48,6 +48,7 @@
 
 import { fetchPublishedAssetBytes, registerPublishedTextureBuffers } from './published-assets.js';
 import * as THREE from 'three';
+import { definitelyCutByRedMask } from './pedestrian-ground.js';
 import { spatialBatch, spatialBatchAsync, batchPieces } from './spatial-batch.js';
 import { adaptiveGroundGrid } from './terrain-base.js';
 import { contextSample, replaceApron } from './coast-extension.js';
@@ -1032,6 +1033,19 @@ export async function createTerrain({
         else applyCut(m, { mask, x0, z0, width, depth });
       }
       walkOffset = typeof offset === 'function' ? offset : null;
+    },
+
+    /** Read-only admission for human support. Both detailed and base terrain must
+     * actually share this enabled cut. Unexpected mask formats keep the old floor. */
+    pedestrianGroundCutAt(e, n, expectedMask) {
+      const cut = groundMat?.userData?.cut, base = groundBase?.material?.userData?.cut;
+      if (!expectedMask || !cut || !(cut.on.value > 0.5) || cut.tex.value !== expectedMask
+        || (groundBase && (!base || !(base.on.value > 0.5) || base.tex.value !== expectedMask || !base.box.value.equals(cut.box.value)))
+        || expectedMask.format !== THREE.RedFormat || expectedMask.type !== THREE.UnsignedByteType
+        || expectedMask.minFilter !== THREE.LinearFilter || expectedMask.magFilter !== THREE.LinearFilter
+        || expectedMask.wrapS !== THREE.ClampToEdgeWrapping || expectedMask.wrapT !== THREE.ClampToEdgeWrapping
+        || expectedMask.generateMipmaps) return false;
+      return definitelyCutByRedMask(expectedMask, cut.box.value, e, n);
     },
 
     /** Backward-compatible names for older harnesses and external consumers. */
