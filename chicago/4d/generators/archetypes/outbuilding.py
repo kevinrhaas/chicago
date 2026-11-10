@@ -176,6 +176,8 @@ def build(params: OutbuildingParams, name: str):
         _interior(b, p, c_mass)
 
     _roof(b, p, c_roof)
+    if p.cupola_shape == "box_pyramid":
+        _cupola(b, p)
 
     # The forge stack goes up after the roof it breaks through, and it takes the
     # confidence of the COUNT alone. Nothing else about it is on the record — not the
@@ -1204,6 +1206,41 @@ def _jail_gable_light(b: MeshBuilder, p: OutbuildingParams, conf: float) -> None
         _prism(b, side, p, [(u - 0.012, z0), (u + 0.012, z0),
                             (u + 0.012, z1), (u - 0.012, z1)],
                dark, outer + 0.01, conf, M_TIMBER)
+
+
+def _cupola(b: MeshBuilder, p: OutbuildingParams) -> None:
+    """One bounded boarded head and pyramidal cap, explicitly reconstructed.
+
+    A record's attested occurrence does not attest this profile or its dimensions.
+    Every vertex therefore carries 1.0 regardless of `cupola`'s occurrence grade.
+    No louvres, glazing, finial or hidden working mechanism is invented.
+    """
+    width = float(p.cupola_width_m)
+    cx, cy = p.width_m / 2.0, p.depth_m / 2.0
+    half = width / 2.0
+    # Seat the entire square below BOTH roof slopes, not just at the ridge:
+    # there must be no daylight gap under the head's outer two edges.
+    bottom = p.apex_z_m - half * math.tan(math.radians(p.roof_pitch_deg)) - 0.08
+    head = p.apex_z_m + float(p.cupola_body_height_m)
+    conf = 1.0
+    b.add_box(cx - half, cy - half, bottom, cx + half, cy + half, head,
+              conf, M_BOARD, skip=("bottom",))
+    # Visible horizontal boarding on the plain head, using its existing material.
+    # Stock and course relief are reconstruction, not extra historical fittings.
+    z = p.apex_z_m + 0.20
+    while z < head - 0.05:
+        b.add_box(cx - half - 0.012, cy - half - 0.012, z,
+                  cx + half + 0.012, cy + half + 0.012, z + 0.018,
+                  conf, M_BOARD, skip=("bottom", "top"))
+        z += 0.20
+    overhang = 0.08
+    h = half + overhang
+    corners = [(cx - h, cy - h, head), (cx + h, cy - h, head),
+               (cx + h, cy + h, head), (cx - h, cy + h, head)]
+    apex = (cx, cy, head + float(p.cupola_roof_rise_m))
+    for index in range(4):
+        _slab(b, [corners[index], corners[(index + 1) % 4], apex],
+              0.04, conf, M_ROOF)
 
 
 # ------------------------------------------------------------------- the forge stack
