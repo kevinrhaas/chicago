@@ -182,3 +182,18 @@ focal and1.60m eye. Its solve records the exact points, residual, source uncerta
 and witness-family citation. Both views require actual native side-by-side review.
 The source's different lower-mark lengths, small offsets and relative side-roof
 proportions are disagreements between pictures underT3153, not extra open tickets.
+
+
+### Post-native card-link metadata correction
+
+The actual picture compiler accepts illustration/photo source records and
+correctly excludes a book citation from the Images tab. The companion camera
+therefore now names `kinzie_waubun_1831_unkeyed_panorama`, an illustration record
+for the actual held picture with the existing inventory's public-domain finding
+and qualified attribution. It does not invent a first publication or an
+independent witness. Only the companion camera's `source_id` and explanatory
+`solve` text change: every render parameter, photograph path, source bytes and
+pose remain identical. The actual old BEFORE fixture/hash is preserved and its
+metadata-only difference is recorded separately; no capture is re-labelled as
+made with new camera bytes. Both credited pictures now derive through the
+actual compiler without a historical From-this-spot navigation claim.
