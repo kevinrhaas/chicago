@@ -1,3 +1,15 @@
+## T-2795 — ground 1904 people on the visible pedestrian surface (2026-11-10)
+
+The coachman placement and safe tour/errand handoff shipped through PR #1917.
+The next native support candidate now has actual world evidence: Charles's centre
+matches the drawn parkway rather than the discarded raw field. Retain the measured
+2.315/2.850 mm slope/pose residuals and conservative mask-edge height transitions
+as open contact work; do not add a per-person height fudge or claim fitted feet.
+Preserve existing decks/yards/water, explicit stair heights, horse roadway contact,
+geometry and models. Require complete current-head hosted gate, moving and phone
+checks before DEV merge. Boarding/ride, full gait/contact and photographic acceptance
+continue on the existing tickets; no new ticket or broad closure is introduced.
+
 ## T-2795 — bring the existing coachman beside his waiting team (2026-11-10)
 
 Place Charles Nelson on the Prairie Avenue parkway beside the existing Glessner
