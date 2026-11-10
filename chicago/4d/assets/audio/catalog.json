@@ -4802,20 +4802,56 @@
       "excerpt_start_s": 0,
       "excerpt_duration_s": 24,
       "source_format": "Freesound HQ MP3 preview; not a lossless master",
-      "status": "proxy-approved; scene-integration-pending",
-      "runtime_enabled": false,
+      "status": "reconstructed-placement; listening-review-pending",
+      "runtime_enabled": true,
       "candidate_eras": [
         "1812",
         "1835",
         "1904"
       ],
-      "approved_eras": [],
+      "approved_eras": [
+        "1835"
+      ],
       "seasons_proposed": [
         "summer"
       ],
       "species_candidates": [],
       "placement_note": "Owner accepted a European cicada as an acoustic proxy, 2026-11-10. Recorded in Italy in 2011; species unspecified. Restrained summer daytime bed, never a claim of a named Chicago species or periodical emergence.",
-      "fauna_references": [],
+      "fauna_references": [
+        {
+          "path": "data/fauna/zones/f01_wet_prairie.json",
+          "scene_date": "1835-07-01",
+          "species_id": "neotibicen_spp",
+          "active_periods": [
+            "day",
+            "dusk"
+          ],
+          "july_vocalization": "chorus",
+          "july_presence": "audible"
+        },
+        {
+          "path": "data/fauna/zones/f02_mesic_prairie.json",
+          "scene_date": "1835-07-01",
+          "species_id": "neotibicen_spp",
+          "active_periods": [
+            "day",
+            "dusk"
+          ],
+          "july_vocalization": "chorus",
+          "july_presence": "audible"
+        },
+        {
+          "path": "data/fauna/zones/f06_north_timber.json",
+          "scene_date": "1835-07-01",
+          "species_id": "neotibicen_spp",
+          "active_periods": [
+            "day",
+            "dusk"
+          ],
+          "july_vocalization": "chorus",
+          "july_presence": "audible"
+        }
+      ],
       "proxy_authorized_by_owner": "2026-11-10",
       "original_integrity": {
         "bytes": 1109642,
@@ -4830,7 +4866,24 @@
       "loop": true,
       "gain_applied": 0.968835495848833,
       "processing": "Mono 48 kHz MP3 128 kbps; 2-second crossfade seam.",
-      "provenance": "Freesound HQ MP3 preview; not a lossless master. Owner accepted a European cicada as an acoustic proxy, 2026-11-10. Recorded in Italy in 2011; species unspecified. Restrained summer daytime bed, never a claim of a named Chicago species or periodical emergence."
+      "provenance": "Freesound HQ MP3 preview; not a lossless master. Owner accepted a European cicada as an acoustic proxy, 2026-11-10. Recorded in Italy in 2011; species unspecified. Restrained summer daytime bed, never a claim of a named Chicago species or periodical emergence.",
+      "scene_placement": {
+        "scene_date": "1835-07-01",
+        "species_id": "neotibicen_spp",
+        "zone_ids": [
+          "f01_wet_prairie",
+          "f02_mesic_prairie",
+          "f06_north_timber"
+        ],
+        "mode": "habitat-insects",
+        "from_hour": 12,
+        "gain": 0.065,
+        "gap_seconds": [
+          35,
+          80
+        ],
+        "note": "The owner-approved Italian recording is an acoustic proxy for the inferred annual-cicada habitat sound, not an identification as Neotibicen or an emergence claim. Summer, 1835-07-01 only, afternoon/day or dusk according to the scene sun and fauna records; complete recorded phrases with real quiet gaps."
+      }
     },
     {
       "id": "robin-calls",
@@ -4895,14 +4948,16 @@
       "excerpt_start_s": 0,
       "excerpt_duration_s": 3.816,
       "source_format": "Freesound HQ MP3 preview; not a lossless master",
-      "status": "audition-and-placement-pending",
-      "runtime_enabled": false,
+      "status": "reconstructed-placement; listening-review-pending",
+      "runtime_enabled": true,
       "candidate_eras": [
         "1812",
         "1835",
         "1904"
       ],
-      "approved_eras": [],
+      "approved_eras": [
+        "1835"
+      ],
       "seasons_proposed": [
         "spring",
         "summer",
@@ -4951,7 +5006,22 @@
       "loop": false,
       "gain_applied": 1,
       "processing": "Mono 48 kHz MP3 128 kbps; 10 ms edge fades; excerpt requires event editing.",
-      "provenance": "Freesound HQ MP3 preview; not a lossless master. Ferndale, Washington; cell-phone recording processed by creator. Match call type and playback density to July records."
+      "provenance": "Freesound HQ MP3 preview; not a lossless master. Ferndale, Washington; cell-phone recording processed by creator. Match call type and playback density to July records.",
+      "scene_placement": {
+        "scene_date": "1835-07-01",
+        "species_id": "agelaius_phoeniceus",
+        "zone_ids": [
+          "f03_sedge_meadow",
+          "f04_marsh"
+        ],
+        "mode": "distant-bird",
+        "gain": 0.14,
+        "gap_seconds": [
+          55,
+          120
+        ],
+        "note": "Modern Washington red-wing recording used as a reconstructed distant habitat call in the 1835 sedge meadow or marsh. The source stays at a fixed world point behind the listener, at least 36 m away, and stops if approached or brought into view. No near bird body or exact historical individual is implied. Long gaps honor reduced July song."
+      }
     },
     {
       "id": "summer-crickets",
@@ -4969,14 +5039,16 @@
       "excerpt_start_s": 0,
       "excerpt_duration_s": 24,
       "source_format": "Freesound HQ MP3 preview; not a lossless master",
-      "status": "audition-and-placement-pending",
-      "runtime_enabled": false,
+      "status": "reconstructed-placement; listening-review-pending",
+      "runtime_enabled": true,
       "candidate_eras": [
         "1812",
         "1835",
         "1904"
       ],
-      "approved_eras": [],
+      "approved_eras": [
+        "1835"
+      ],
       "seasons_proposed": [
         "summer",
         "fall"
@@ -5011,7 +5083,21 @@
       "loop": true,
       "gain_applied": 1,
       "processing": "Mono 48 kHz MP3 128 kbps; 2-second crossfade seam.",
-      "provenance": "Freesound HQ MP3 preview; not a lossless master. Prince Edward County, Ontario; species not identified by creator. Candidate genus-level proxy, not a species verification."
+      "provenance": "Freesound HQ MP3 preview; not a lossless master. Prince Edward County, Ontario; species not identified by creator. Candidate genus-level proxy, not a species verification.",
+      "scene_placement": {
+        "scene_date": "1835-07-01",
+        "species_id": "gryllus_spp",
+        "zone_ids": [
+          "f01_wet_prairie"
+        ],
+        "mode": "habitat-insects",
+        "gain": 0.055,
+        "gap_seconds": [
+          45,
+          100
+        ],
+        "note": "Ontario field-cricket recording used as a reconstructed genus-level acoustic proxy in the 1835 wet-prairie habitat. Dusk/night only on the researched July scene date. Quiet gaps and low gain preserve the record's sparse early-July chorus; no individual insect is placed."
+      }
     },
     {
       "id": "night-crickets",

@@ -1,5 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 // T-3532. Small decoded environmental loops; one streamed music cue at a time.
+import { createHabitatAudio } from './habitat-audio.js';
+
 export const AUDIO_BASE = new URL('../audio/', import.meta.url);
 export const MUSIC_YEARS = Object.freeze(['1812', '1835', '1904']);
 
@@ -70,9 +72,11 @@ export function createRecordedAudio({ ctx, ambience, music, environment = () => 
   const errors = new Set();
   let targets = new Map();
   let musicLevel = 0, duck = 1;
+  const habitat = createHabitatAudio({ ctx, output: ambience, catalog: () => catalog, environment,
+    fetcher, base, now, decodeAudio: decode, onError: message => report(message) });
   function report(message) { if (message) errors.add(message); onStatus(state()); }
-  function state() { return { year, voices: [...voices.keys()], decodedBytes: [...buffers.values()].reduce((n, b) => n + b.length * b.numberOfChannels * 4, 0),
-    track: track?.title ?? null, playing: !!player && !player.paused, errors: [...errors], loading: loads.size + (pending ? 1 : 0) }; }
+  function state() { return { year, voices: [...voices.keys(), ...habitat.state.voices], decodedBytes: [...buffers.values()].reduce((n, b) => n + b.length * b.numberOfChannels * 4, 0) + habitat.state.decodedBytes,
+    track: track?.title ?? null, playing: !!player && !player.paused, errors: [...errors], loading: loads.size + (pending ? 1 : 0) + habitat.state.loading, habitat: habitat.state }; }
   function fade(param, value) { param.setTargetAtTime(value, ctx.currentTime, 0.3); }
   function stopVoice(id) {
     const v = voices.get(id); if (!v) return;
@@ -85,6 +89,7 @@ export function createRecordedAudio({ ctx, ambience, music, environment = () => 
     mediaNode?.disconnect(); player = null; mediaNode = null; track = null;
   }
   function reset() {
+    habitat.reset();
     generation++; controller?.abort(); controller = null; pending = null;
     loads.clear(); targets.clear(); failed.clear(); buffers.clear();
     decoder = null;
@@ -126,6 +131,16 @@ export function createRecordedAudio({ ctx, ambience, music, environment = () => 
       for (const axis of ['x', 'y', 'z']) v.pan[`position${axis.toUpperCase()}`].setTargetAtTime(t[axis], ctx.currentTime, 0.15);
     }
   }
+  function decode(bytes) {
+    if (!decoder) {
+      // Shared environmental/habitat decoding stays at the masters'48kHz,
+      // independently of a96/192kHz hardware output context.
+      const Offline = globalThis.OfflineAudioContext ?? globalThis.webkitOfflineAudioContext;
+      try { decoder = Offline ? new Offline(1, 1, 48000) : ctx; }
+      catch { decoder = ctx; }
+    }
+    return decoder.decodeAudioData(bytes);
+  }
   async function want(id) {
     if (buffers.has(id)) { startVoice(id, buffers.get(id)); return; }
     if (loads.has(id) || failed.has(id) || !catalog) return;
@@ -137,19 +152,12 @@ export function createRecordedAudio({ ctx, ambience, music, environment = () => 
       if (!r.ok) throw Error(`HTTP ${r.status}`);
       const bytes = await r.arrayBuffer();
       if (own !== generation || disposed) return;
-      if (!decoder) {
-        // Decoding on the hardware context would resample to 96/192 kHz on
-        // some devices, multiplying cache size with no benefit to these masters.
-        const Offline = globalThis.OfflineAudioContext ?? globalThis.webkitOfflineAudioContext;
-        try { decoder = Offline ? new Offline(1, 1, 48000) : ctx; }
-        catch { decoder = ctx; }
-      }
-      const buffer = await decoder.decodeAudioData(bytes);
+      const buffer = await decode(bytes);
       if (own !== generation || disposed) return;
       // Fixed pilot budget: three <=24s mono loops, under 14 MiB decoded.
       if (buffer.duration > 24 || buffer.numberOfChannels !== 1) throw Error('loop exceeds audio memory budget');
       const bytesDecoded = buffer.length * buffer.numberOfChannels * 4;
-      if (bytesDecoded + state().decodedBytes > 14 * 1024 * 1024)
+      if (bytesDecoded + [...buffers.values()].reduce((n, b) => n + b.length * b.numberOfChannels * 4, 0) > 14 * 1024 * 1024)
         throw Error('decoded cache exceeds 14 MiB audio memory budget');
       buffers.set(id, buffer); startVoice(id, buffer);
     } catch (e) {
@@ -187,7 +195,7 @@ export function createRecordedAudio({ ctx, ambience, music, environment = () => 
     attempt(); report();
   }
   function update() {
-    if (disposed || (!enabled && !musicOn)) return;
+    if (disposed || (!enabled && !musicOn)) { habitat.sync({ enabled: false, year, duck }); return; }
     if (!catalog) { void readCatalog(); return; }
     const env = environment() ?? {}, camera = env.camera;
     if (enabled && camera) {
@@ -214,6 +222,7 @@ export function createRecordedAudio({ ctx, ambience, music, environment = () => 
       targets.clear();
       for (const id of [...voices.keys()]) stopVoice(id);
     }
+    habitat.sync({ enabled, year, duck });
     playMusic();
   }
   return {
@@ -231,8 +240,8 @@ export function createRecordedAudio({ ctx, ambience, music, environment = () => 
     },
     update,
     // Future narration can duck both buses without coupling to a voice provider.
-    setSpeechActive(on) { duck = on ? .3 : 1; fade(music.gain, musicLevel ** 2 * .5 * duck); for (const id of voices.keys()) applyVoice(id); },
+    setSpeechActive(on) { duck = on ? .3 : 1; habitat.setDuck(duck); fade(music.gain, musicLevel ** 2 * .5 * duck); for (const id of voices.keys()) applyVoice(id); },
     get state() { return state(); },
-    dispose() { disposed = true; enabled = false; musicOn = false; reset(); },
+    dispose() { disposed = true; enabled = false; musicOn = false; reset(); habitat.dispose(); },
   };
 }

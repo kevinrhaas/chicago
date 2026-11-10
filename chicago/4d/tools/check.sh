@@ -298,6 +298,10 @@ step "Recorded audio: era isolation, terrain water types, silent defaults, bound
   node tools/test_sound.mjs
 step "Hosted audio retains originals and binds published URLs to verified bytes without duplicate media (T-3532)" \
   node tools/test_audio_hosting.mjs
+step "Dated habitat audio qualifies real fauna, leaves silence and bounds voices, buffers and stale work (T-3534)" \
+  node tools/test_habitat_audio.mjs
+step "Default audio packages include approved habitat clips and retain review-only opt-in (T-3534)" \
+  python3 tools/test_habitat_audio_package.py
 step "Published audio smoke verifies delivery bytes in full and sparse artifact checkouts (T-3532)" \
   node tools/test_audio_smoke_replay.mjs
 step "Every Navigator app is legible at 4.5:1 or better in all four machines and both tones (T-2656, QA-21)" \
@@ -8714,6 +8718,9 @@ step "Shared draft-horse assets retain one lease-owned geometry and texture temp
   node tools/test_draft_horse_assets.mjs
 step "The unoccupied Glessner carriage team preserves actual delivery geometry, hoof contacts and tier lifecycle (T-2795)" \
   node tools/test_parked_draft_team.mjs
+
+step "Scoped teamster measurements retain every unmodified native fixture row and reject inventory drift (T-1789)" \
+  node tools/test_human_fixture_scope.mjs --check
 
 check_summary
 exit $CHECK_FAILED

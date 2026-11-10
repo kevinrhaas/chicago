@@ -5926,6 +5926,14 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_habitat_audio.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_habitat_audio_package.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_head_fit_distances.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5999,6 +6007,10 @@
       "wrote_ignored": []
     },
     "tools/test_human_errand_1904.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_fixture_scope.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

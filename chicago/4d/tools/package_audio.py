@@ -26,7 +26,7 @@ def build(output, public_base=None, include_candidates=False):
         raise ValueError('output must be absent or empty; use a new release directory')
     (output/'media').mkdir(parents=True, exist_ok=True)
     catalog = json.loads((AUDIO/'catalog.json').read_text())
-    catalog['assets'] = [a for a in catalog['assets'] if include_candidates or a['kind'] != 'candidate']
+    catalog['assets'] = [a for a in catalog['assets'] if include_candidates or a['kind'] != 'candidate' or a.get('runtime_enabled') is True]
     manifest = {}
     for asset in catalog['assets']:
         for field in ('opus', 'aac') if asset['kind'] == 'music' else ('url',):

@@ -18885,9 +18885,10 @@ for (const [label, viewport, touch] of [
     // The one thing this section must never imply. Nothing is drawn from the
     // layer — no animal geometry exists — so the panel says so in words, and the
     // day that stops being true this assertion is the one that should fail.
-    check(`${label}: the section says plainly that none of them is in the scene`,
+    check(`${label}: the wildlife section distinguishes undrawn bodies from reconstructed habitat sounds`,
       /None of them is drawn in the scene/.test(fauna.prose)
-      && /this is the research, not a population/i.test(fauna.prose),
+      && /Wildlife bodies are not drawn/.test(fauna.prose)
+      && /Selected recorded habitat sounds are reconstructed acoustic proxies/.test(fauna.prose),
       fauna.prose.slice(0, 200));
 
     // --- what grows here, in the same panel (T-0281) ------------------------

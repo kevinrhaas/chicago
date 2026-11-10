@@ -8,7 +8,8 @@ shared audio storage, current published provider pricing and the upload bundle.
 
 This is a local, reviewable foundation, not a completed town soundscape or a
 production release. It implements the owner's music, recorded wind/river/lake,
-opt-in controls and the catalogue. Actor events, wildlife, weather, speech,
+opt-in controls and the catalogue. Three dated 1835 habitat recordings now have a
+first scheduler; actor events, additional wildlife, weather, speech,
 interior filtering and scheduled activity below are implementation requirements.
 
 The generated development build now points to verified, content-addressed R2
@@ -36,9 +37,11 @@ cues, the three pilot environmental loops and 23 additional recorded candidates.
 Those candidates include wildlife/insects, horse vocalizations/hooves/harness,
 woodworking, a musket, wagon, steam whistle, fire, dock/door/bell and performed
 tavern chatter. Candidate previews add 5,605,876 bytes; all 40 delivery alternatives
-together are 41,173,377 bytes (39.266 MiB). The preview browser labels candidates
-and does not automatically enable them in the scene. The Italian cicada proxy
-is explicitly owner-authorized; that is separate from wiring its scene emitter.
+together are 41,173,377 bytes (39.266 MiB). Twenty candidates remain audition-only.
+Three have explicit 1835-07-01 habitat placements: the owner-approved Italian
+cicada, Ontario field crickets and a distant red-wing call. Their source identity
+and acoustic-proxy limitations remain visible; they are not enabled in all eras.
+The library distinguishes these habitat sounds from recordings still for review.
 
 `assets/audio/intake.json` carries source evidence, proposed seasons/eras,
 species uncertainties and pointers to existing 1835 fauna records. The same
@@ -68,9 +71,35 @@ playback at both output rates passes the memory and mute checks. Typically two p
 fully decoded into an AudioBuffer. The environmental cache is cleared on mute,
 hiding, context replacement, disposal and scene changes. Aborted/stale requests
 cannot restart playback. No network access to Freesound occurs at runtime.
+The habitat scheduler shares the fixed 48 kHz decoder, adds at most one 24-second
+mono clip (4.608 MB), and reports combined decoded bytes. The existing environment
+cache remains capped at 14 MiB; typical wind+water+habitat buffers total 12.67 MB.
 Town offline downloads exclude audio media, so they do not prefetch every era or
 both codecs. An explicit offline-audio option is not yet implemented; downloaded
 towns therefore do not guarantee offline sound. The catalogue remains available.
+
+The first habitat scheduler reads the existing fauna records and the actual
+flora zone finder, solar hour/elevation and displayed date. It adds no habitat
+geometry or second fauna fetch. Summer 1835-07-01 only: afternoon/day-dusk
+cicadas in wet/mesic prairie and north timber; sparse dusk/night crickets in wet
+prairie; occasional red-wing calls in sedge meadow or marsh. Other eras, viewing
+seasons, alternate jaunt dates, missing habitat, and a provided freezing
+temperature remain quiet. The town currently supplies no live temperature, so
+weather-driven cold suppression is not active. No robin record exists here; katydids remain silent
+under the actual July record.
+
+One finite phrase plays at unchanged pitch. Each species has long cooldowns,
+and a global 12–25-second gap prevents different calls filling one another's
+silence. Insects attenuate with height above actual ground and stop by 32 m.
+The scheduler reads surfaceHeight/groundHeight, never the 4 m walking barrier
+returned by the compatibility height method over water. Bird anchors stay
+1.5 m above the higher of actual ground or the Y=0 water plane. A
+red-wing call originates at a fixed live-habitat point 44–84 m behind the listener,
+with 3D distance attenuation; it fades out when approached within 36 m, beyond 96 m,
+or brought toward view. No identifiable close bird call is emitted without an
+animal body. The one pending decode stays reserved across resets until settled,
+so mute/unmute cannot launch overlapping decodes or resurrect stale audio.
+Master/Ambience, hidden state, disposal and speech ducking use the existing mixer.
 
 Water type is separate from wet terrain: slough → quiet, lake → lake waves,
 known river polygon → river lapping, unknown → quiet. The existing epoch vectors

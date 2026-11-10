@@ -1761,7 +1761,9 @@ const loadSound = (early = false) => (api.soundReady ??= import('./sound.js')
   .then(({ createSound }) => (api.sound = createSound({
     audio: () => gesture.audio, unlock: () => gesture.unlockAudio(), early, journey,
     settings: () => api.hud?.settings ?? arrivalSoundSettings, scene: () => YEAR,
-    environment: () => ({ camera: api.camera, terrain: api.terrain, season: api.season?.current ?? 'summer' }),
+    environment: () => ({ camera: api.camera, terrain: api.terrain, season: api.season?.current ?? 'summer',
+      flora: api.flora, faunaZones: api.fauna?.records, time: api.timeOfDay?.current,
+      sunElevation: api.world?.sun?.elevationDeg }),
   })))
   .catch(() => { api.soundReady = null; return null; }));
 const gesture = createGestureGate({ journey, tagEl: document.getElementById('look-tag'),

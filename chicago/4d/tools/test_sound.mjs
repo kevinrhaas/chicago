@@ -132,7 +132,10 @@ const flush = async () => { for(let i=0;i<12;i++) await Promise.resolve(); };
   assert(catalog.assets.filter(a=>a.kind==='environment').every(a=>a.license==='CC0-1.0'&&a.source_url));
   const candidates=catalog.assets.filter(a=>a.kind==='candidate');
   assert(candidates.length>=17,'expanded library includes the acquired recordings');
-  assert(candidates.every(a=>a.runtime_enabled===false&&a.approved_eras.length===0&&a.evidence&&a.source_url),'library intake never invents approved scene placements');
+  assert.deepEqual(candidates.filter(a=>a.runtime_enabled).map(a=>a.id).sort(), ['redwing-call','summer-cicada-proxy','summer-crickets']);
+  assert(candidates.every(a=>a.evidence&&a.source_url&&(a.runtime_enabled
+    ? a.approved_eras.length===1&&a.approved_eras[0]==='1835'&&a.scene_placement?.scene_date==='1835-07-01'
+    : a.approved_eras.length===0)), 'only explicit dated habitat placements may leave audition-only intake');
   const sound=fs.readFileSync(new URL('../renderers/web/js/sound.js',import.meta.url),'utf8');
   assert.doesNotMatch(sound,/createOscillator|createBuffer\(/,'no generated hums or tones');
   const main=fs.readFileSync(new URL('../renderers/web/js/main.js',import.meta.url),'utf8');

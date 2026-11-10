@@ -1,3 +1,33 @@
+## T-1789 — scope the repeated teamster fixture sweep (2026-11-10)
+
+The teamster producer now selects exactly the rebuilt Otis Bardwell, Joseph Dufresne
+and Martin Flynn outputs for its second native fixture sweep. The first complete
+fixture prerequisite, both native browser viewports, the unchanged acceptance checks
+and timing samples, and the 30-minute producer limit remain. The current corpus has
+248 baseline files: Otis supplies eight existing rows, while Joseph and Martin add
+16. The repeat sweep measures all 24 source/WEB LOD files and preserves the other
+240 rows only when their passing verdicts and actual file hashes remain unchanged.
+A global check follows the merge; missing, extra, changed or mispaired files refuse it.
+The original full-corpus date remains, with a separately dated scope receipt.
+
+CI's check-mode audit identified quoted flag strings in the new helper and its
+test driver. The pure exported helper has no CLI or derived output, so its baseline
+reason records that distinction. The driver now explicitly accepts optional
+`--check` and runs the same complete assertion suite; the gate uses that mode.
+Unknown arguments are refused. Scanner rules and native assertions remain intact.
+
+CI also detected that the generated research sign-off still carried the previous
+gate-baseline counts. Its canonical writer now refreshes that count sentence and
+the helper's ownership row from complete, source-verified inputs. Research metrics
+and the GO verdict remain unchanged; the report check and all 11 self-tests pass.
+
+This tooling unblocks the existing visible clothing refinement on T-1789. It changes
+no resident asset or adopted animation. Focused parser/inventory controls and the
+measured test isolation are the local validation scope; ordinary full CI, an actual
+scoped producer run, and visual review of the corrected coats remain pending. No
+cancelled or partial producer is treated as successful. Modular-library, photographic
+material/likeness and complete posed garment acceptance remain open on T-1789.
+
 ## Current portable-human foundations (2026-11-10)
 
 The portable-human contract (T-1786, PR #606), Blender exporter (T-1787, PR #644)
@@ -26452,3 +26482,45 @@ PR #1907 integrates pinned native run42745792113, retained9dd9ba7ddd22c6ff87e525
 Cobweb Castle, the jail and Sauganash/Carpenter contexts have actual fresh reviewed picture records. Lake House uses a dated wrong-state image disposition, not an invented July match; its published worksite qualification remains required. Official yard/entrance/planting/settled-ground derivations remove the old Cobweb prop intrusions, and11 dependent source checks pass. Existing accepted Currey views were actually refreshed without closing the first-fort original.
 
 Green Tree is PARTIAL: its raised rear gable, low connector and lower foreground sash are visibly built, but Trowbridge clearly shows THREE upper front windows and the current model has TWO. Allthree fresh records say differs and keep that categorical omission open. T-2376 will finish with T-3041/T-2388 in the next three-ticket group and one combined scoped build. No new photo follow-up is filed. Final protected source gate and published desktop/phone checks remain pending at this checkpoint. The smoke consumer repairs target actual current collapsed review disclosure, enabled building destination and stand-in-face disclosure; they do not change product behavior or budgets.
+
+### T-3534 — Dated 1835 habitat audio (2026-11-10)
+
+Three existing R2 recordings now have explicit runtime placements for the researched
+1835-07-01 summer scene: the owner-approved Italian cicada proxy, Ontario field
+crickets and a distant Washington red-wing call. Actual fauna records, flora-zone
+geometry and the scene's solar date/hour qualify each phrase. The other twenty
+candidates remain audition-only. No new media bytes or bucket uploads are added.
+Other eras, viewing seasons and alternate jaunt dates remain quiet; near bird
+calls await visible wildlife actors. Source identities and proxy limitations stay
+visible in the catalogue and compiled liberties.
+
+The shared fixed 48 kHz decoder adds at most one 24-second mono habitat clip
+(4.608 MB) beside the existing 14 MiB environmental cache. Phrases have real gaps,
+fixed distant bird anchors and approach/view suppression. Master/Ambience mute,
+hidden-tab cleanup, stale decode cancellation and speech ducking use the existing
+mixer lifecycle. Actual surfaceHeight/groundHeight supplies the ground; the 4 m
+walking barrier over water is never treated as terrain. Marsh bird sources stay
+1.5 m above the higher of actual terrain or the Y=0 water plane.
+
+Habitat/mixer units and packaging regression pass. Regeneration preserves placements
+and all 33 assets/40 original delivery hashes; upload packages include enabled
+habitat clips even without review-only candidates. The real liberty compiler
+produced 1,082 entries without problems, retaining all 1,081 foundation entries.
+The corrected audio-only Chromium fixture completed at 390 px and 1280 px: all
+three live R2 recordings produce nonzero samples, buffers stay at 48 kHz on a
+96 kHz output context, and mute/cache/disposal checks pass with zero page errors.
+
+Fresh actual-town source-overlay runs against the merged foundation snapshot
+site-integrated passed at 390×780 and 1280×800, reaching real readiness in 72.1 s
+and 124.1 s. Actual flora/terrain supplies wet prairie at E−684/N984 and marsh at
+E−504/N840. The integrated mixer plays cicada and respects Ambience mute; live
+cricket and red-wing phrases, actual hour/date/winter suppression, fixed rear
+habitat anchors, and near/far/in-view stopping pass with zero page errors. Actual
+wet slough, river and lake samples separately classify under the matching
+e1834_harbor_cut epoch; these readings establish classification, not audibility.
+
+These are source overlays on generated foundation geometry, with draws held only
+for data/audio checks while camera matrices update. They establish no pixel or
+regenerated-publication acceptance. Human mix/proxy listening, Safari, this PR's
+full source gates and generated-publication checks remain required. No merge or
+deployment of this habitat increment is claimed.

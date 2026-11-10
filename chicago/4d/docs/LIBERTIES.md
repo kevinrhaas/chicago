@@ -43126,3 +43126,59 @@ these as review candidates; catalogue inclusion is not scene placement.
 **Tier:** reconstructed.
 **Ticket:** T-3532.
 **Recorded:** 2026-11-10.
+
+### L-habitat-audio-1835 — Recorded habitat phrases from the dated fauna records
+
+**Decision:** use the already licensed modern recordings as reconstructed acoustic
+proxies on the 1835-07-01 scene date: the owner-approved Italian cicada in the wet
+prairie, mesic prairie and north timber; Ontario field crickets in the wet prairie;
+and the Washington red-wing call in sedge meadow or marsh. The actual flora-zone
+finder supplies the habitat, and the existing fauna record must permit audible
+presence, vocalization and the current period of day. The scene's solar date,
+hour and elevation are read directly, including jaunts. These placements do not
+carry to 1812, 1904 or the spring/fall/winter viewing dates.
+
+The Italian recording is not identified as the Neotibicen genus the habitat
+record describes. It stands for annual-cicada habitat sound under the owner's
+explicit proxy ruling, not for a named species or periodical emergence. The field
+cricket species is unspecified by its creator; genus-level similarity is a
+reconstruction, not a species identification. Robin calls and late-summer
+katydids remain unscheduled: the current fauna layer has no robin record and
+explicitly makes July katydids silent.
+
+One recorded phrase at a time plays at unchanged pitch with real gaps. The
+cicada's 35–80s, cricket's 45–100s and red-wing's 55–120s gaps, initial delay,
+gains and edge fades are sound-design choices, not historical measurements. A
+global 12–25 second gap between any two phrases preserves real silence even
+when several species qualify. Insects attenuate with height above actual ground
+and stop by 32 m; bird range and its rear-hemisphere rule use all three axes.
+The cicada starts after solar noon; twilight is the sun within 6 degrees of the
+horizon, rising before noon or setting after it. An available freezing-temperature
+value suppresses the layer; the current app has no temperature model, so the
+dated summer view is its fallback. Quiet early-July cricket phrases and long
+red-wing gaps avoid claiming a late-summer wall of insects or full spring song.
+
+The distant red-wing call is anchored to a live habitat point 44–84 m behind the
+listener for its entire phrase, never to a moving camera-relative point. It is
+suppressed within 36 m, outside 96 m, when brought toward view, or when its habitat
+record stops qualifying. This range and offscreen rule are liberties that avoid
+placing an audible near bird without a visible body. The selected point and 1.5 m
+height above the higher of the rendered terrain surface or water plane are
+reconstructed acoustic placement, not a surveyed bird. The walking barrier is
+not a terrain height for audio.
+Insect records are explicitly audible-only; no individual insect is placed.
+
+**Basis:** `data/fauna/zones/f01_wet_prairie.json`,
+`data/fauna/zones/f02_mesic_prairie.json`,
+`data/fauna/zones/f03_sedge_meadow.json`,
+`data/fauna/zones/f04_marsh.json`,
+`data/fauna/zones/f06_north_timber.json`; each is dated 1835-07-01 and retains
+its own grades and source limitations. Recording sources, licences and hashes
+remain in `assets/audio/intake.json` and the public audio catalogue.
+
+**How to resolve:** period/local evidence can revise a habitat or call's eligibility;
+regional lossless recordings and listening review can replace an acoustic proxy.
+Near bird calls require a visible, appropriately animated animal. Other eras and
+seasons require their own habitat/date authoring rather than copying this July layer.
+
+**Recorded:** 2026-11-10.
