@@ -6418,3 +6418,18 @@ Source implementation adds the missing west gateway beside the northwest blockho
 ### T-3041 / T-2387 — working west entrance; finite coverage still open (2026-11-10)
 
 The native west openings and two interactive leaves pass desktop/phone walking review; the south entrance retains its measured passage. The refreshed Currey row is resolved under its explicit owner rulings. Complete the original on the same tickets by reviewing/enrolling the prepared canonical northwest-blockhouse and whole-group picture coverage, accounting for the seven outer original records and nine context records that Currey does not individually attest. Preserve cameras by rigid anchor transfer only, source/date/rights limits and surveyed geometry; do not infer sixteen missing geometry repairs or close the original from this one fourteen-member view.
+
+
+### T-2374 / T-2376 / T-2380 — grouped reference increments (2026-11-10)
+
+### T-2376 — shoulder attachment rise trial, 2026-11-09
+
+Source changes only the existing reconstructed shoulder high roof control. Native scope is green_tree_tavern only; no producer changed. Rebuild and inspect the unchanged Andreas camera before accepting the slope increment; retain other left-group/source-coverage questions on original T-2376 and preserve the accepted pointed cap, main block, placement and competing open-bay evidence.
+
+### T-2374 — visible partial siding trial, 2026-11-09
+
+Partial lower-wall boards are prepared, with existing compound geometry and openings preserved. Integrate the precise note declaration and liberty; measure/enroll the new targeted geometry owner; genuinely rebuild the current82-member log family in the group’s native batch; compare using the unchanged private unsolved camera before app/hosted gate qualification. Keep whole-picture massing, wings/sub-roofs/junctions, finish interpretation and July1835 uncertainty on this original ticket. No new follow-up.
+
+T-2380 bounded enclosure-height trial is ready for fresh source/current comparisons and published inspection in the grouped parcel. Do not repeat the already-built keeper/east-gable or native pointed-board increments. Continue the existing original ticket; no new photo follow-up. After actual review, adjudicate the exposed-core row narrowly; keep unresolved roof identity, diagnostic framing and1836-versus-July limits explicit.
+
+Deliver as one reviewed group to reduce shared-ledger/registry conflicts. Perform the83-default scoped native build, actual control audits, fixed-camera comparisons and both published viewports before ordinary dev merge. Retain all existing camera/phase/date/rights constraints and unresolved original-picture questions; no new photo follow-up tickets.
