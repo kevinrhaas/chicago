@@ -43395,3 +43395,15 @@ or a read bill of sale; a planting account locating the trees rather than merely
 **Ticket:** T-3341.
 **Review:** docs/RESEARCH/early-masonry-3341.md; final desktop and phone frames are recorded there when qualified.
 **Recorded:** 2026-11-10 (T-3341).
+
+
+### L-charles-near-wool-1789 — Charles Nelson's close-view livery wool
+
+**Decision:** Only the existing Charles1904 livery coat receives original periodic color, roughness and tangent-normal detail at LOD0/1. The green palette is retained. The wool twill/heather design, 32mm aggregate-area calibration and 20micrometre relief coefficient are reconstructed engineering choices, not a captured or surviving historical textile. One shared original coat material spans body and skirt with different UV densities: actual area-based periods are about57.54mm and24.01mm; local stretch remains. No UV repaint, new triangles, anatomy, identity or animation is authored. Vertex rows duplicate only where actual Mikk tangent groups require it, with every original triangle corner/skin/morph component retained. Existing macro wear, rumple and sheen remain; maps own only weave/heather and exact-name recolors keep inherited normal/ORM textures.
+
+**Basis:** Existing monochrome livery references in L-human-modular-dress-1789/T-3483 describe the outfit, not Nelson's exact cloth, color or face. Current GLB parents, their provenance and source image rights remain unchanged. No new historical source or retained unchanged Blender master is invented. The derivative recipe binds the existing parent GLBs and the current canonical export refuses protected body/UV/rig/clip/material/provenance changes before an active write.
+
+**How to resolve:** Matched source/published native views, actual clothing fit and phone budget checks must qualify any adoption. Current six-view research remains stylized; strict selected-published release remains NONPASS with7 retained completed-transfer request findings. Container/semantic proofs do not settle photographic likeness or fit.
+
+**Ticket:** T-1789.
+**Recorded:** 2026-11-10.

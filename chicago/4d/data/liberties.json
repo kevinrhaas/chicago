@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1091,
+  "count": 1092,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -73092,6 +73092,37 @@
       ],
       "work_refs": [
         "T-3341"
+      ]
+    },
+    {
+      "id": "L-charles-near-wool-1789",
+      "title": "Charles Nelson's close-view livery wool",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-10",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "Only the existing Charles1904 livery coat receives original periodic color, roughness and tangent-normal detail at LOD0/1. The green palette is retained. The wool twill/heather design, 32mm aggregate-area calibration and 20micrometre relief coefficient are reconstructed engineering choices, not a captured or surviving historical textile. One shared original coat material spans body and skirt with different UV densities: actual area-based periods are about57.54mm and24.01mm; local stretch remains. No UV repaint, new triangles, anatomy, identity or animation is authored. Vertex rows duplicate only where actual Mikk tangent groups require it, with every original triangle corner/skin/morph component retained. Existing macro wear, rumple and sheen remain; maps own only weave/heather and exact-name recolors keep inherited normal/ORM textures."
+        },
+        {
+          "label": "Basis",
+          "text": "Existing monochrome livery references in “Original modular adult dress study”/later work describe the outfit, not Nelson's exact cloth, color or face. Current GLB parents, their provenance and source image rights remain unchanged. No new historical source or retained unchanged Blender master is invented. The derivative recipe binds the existing parent GLBs and the current canonical export refuses protected body/UV/rig/clip/material/provenance changes before an active write."
+        },
+        {
+          "label": "How to resolve",
+          "text": "Matched source/published native views, actual clothing fit and phone budget checks must qualify any adoption. Current six-view research remains stylized; strict selected-published release remains NONPASS with7 retained completed-transfer request findings. Container/semantic proofs do not settle photographic likeness or fit."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-10."
+        }
+      ],
+      "work_refs": [
+        "T-3483",
+        "T-1789"
       ]
     },
     {
