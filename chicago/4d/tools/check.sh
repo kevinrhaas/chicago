@@ -2950,6 +2950,8 @@ selftest "a stated compound aperture set is refused outside its room's wall, thr
 
 step "compound room heights and ridge stacks follow their stated rooms without changing legacy compounds (T-2374)" \
   python3 tools/test_log_compound_form.py
+step "a pictured taller end door stays below its plate and leaves unselected log openings unchanged (T-2484)" \
+  python3 tools/test_kinzie_end_door.py
 step "explicit barn cupolas seat on the roof while absent cupolas leave legacy outbuildings unchanged (T-2388)" \
   python3 tools/test_outbuilding_cupola.py
 step "an explicit outside piazza stair reaches its gallery and leaves existing fort buildings unchanged (T-2388)" \

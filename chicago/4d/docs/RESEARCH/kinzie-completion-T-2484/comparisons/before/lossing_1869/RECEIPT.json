@@ -1,0 +1,13 @@
+{
+  "view": "lossing_1869",
+  "command": [
+    "node",
+    "tools/photo_match.mjs",
+    "data/reference_views/kinzie_house_1812/lossing_1869.json",
+    "--out",
+    "/tmp/nov10-kinzie-before/captures/lossing_1869"
+  ],
+  "exit": 0,
+  "seconds": 1.4749656810017768,
+  "actual_before": "unchanged current MASTER940d58e82a70b1980812525f9e3534caa6dca38ce894e0a112844615686ce373 plus existing green; no trees drawn"
+}

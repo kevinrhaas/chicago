@@ -6527,3 +6527,13 @@ Seasonal daily routines now cover all eight drawn household members. Door caller
 Balanced now uses the existing conservative shadow-caster filter. At the failing 1835 West prairie view, 66,537 submitted triangles and 501 calls disappear with zero changed pixels; the 2,625,000 ceiling remains unchanged. Receipts: docs/RESEARCH/balanced-shadow-budget-3535/. Release smoke verification is recorded in the PR.
 
 T-3535 also recalibrates the Full-only Ghost triangle allowance from the complete desktop settings smoke, retaining the existing margin and all ordinary/lower-tier budgets.
+
+
+## 2026-11-10 T-2484 source checkpoint
+
+The existing1812 Kinzie house is being completed from all seven credited pictures. Actual
+before comparisons now include the existing green. The source states reconstructed
+whitewash, a2.50m end door, a17m green and a riverward four-poplar row. Six targeted
+producer/validation tests and actual command isolation pass. Native adoption, fresh
+after comparisons, published desktop/phone full-context review and final sourceCI remain
+pending; this source checkpoint does not close the ticket or claim an after-state.

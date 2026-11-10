@@ -168,7 +168,7 @@ CONSUMED = frozenset({
     "frame_addition_cladding", "frame_addition_ridge_stack", "frame_addition_upper_windows", "frame_addition_front_set_out", "frame_addition_roof_pitch_deg",
     "piazza", "piazza_depth_m", "piazza_posts", "piazza_rail", "chimney_ridge_at",
     "front_windows_per_side", "window_w_m", "window_h_m", "front_shutters",
-    "piazza_roof", "piazza_plate_m", "piazza_pitch_deg", "end_openings",
+    "piazza_roof", "piazza_plate_m", "piazza_pitch_deg", "end_openings", "end_door_height_m",
     "front_set_out", "door_w_m", "door_h_m", "chimney_end", "chimney_cross_m", "chimney_head_m", "lean_to",
     "ridge_stack_w_m", "ridge_stack_head_m", "ridge_stack_cap_m", "hip_end", "hip_inset_m",
     "lean_to_length_m", "lean_to_width_m", "lean_to_wall_m", "lean_to_pitch_deg", "log_finish",
@@ -329,6 +329,10 @@ class LogDwellingParams:
     # foot is stated. Empty, every other record,
     # keeps the archetype's rule that a log gable end is not pierced.
     end_openings: tuple = ()
+    # T-2484: a pictured end door may be taller than the generic cabin door.
+    # None retains the exact legacy1.93m opening; the selector changes only doors
+    # in end_openings and never grows an opening on an unpierced end.
+    end_door_height_m: float | None = field(default=None, kw_only=True)
     # INTERIOR STACKS ON THE RIDGE (T-2497), as fractions of the ridge from the core's
     # -x end, one per chimney. None keeps the archetype's gable-end placement (L26),
     # which is every other record; a record sets it only where a picture puts a stack
@@ -855,6 +859,13 @@ class LogDwellingParams:
                                  "a gable roof whose ridge runs along x")
             if self.frame_addition and self.frame_addition_side == "end":
                 raise ParamError("an end addition covers a gable end")
+        if self.end_door_height_m is not None:
+            if (not _finite(self.end_door_height_m)
+                    or not 1.6 <= self.end_door_height_m <= self.wall_height_m - 0.15):
+                raise ParamError("end_door_height_m must be finite, at least1.6m and "
+                                 "at least0.15m below the wall plate")
+            if not any(kind == "door" for _end, kind, _at, _z in self.end_openings):
+                raise ParamError("end_door_height_m needs an explicit end_openings door")
         apex = self.wall_height_m + self.depth_m / 2.0 * math.tan(
             math.radians(self.roof_pitch_deg))
         for end, kind, at, z in self.end_openings:
@@ -1033,6 +1044,8 @@ def from_phase(phase: dict, record: dict | None = None) -> LogDwellingParams:
         end_openings=tuple((str(o["end"]), str(o["kind"]), float(o["at"]),
                             None if o.get("z") is None else float(o["z"]))
                            for o in (val("end_openings") or ())),
+        end_door_height_m=(None if val("end_door_height_m") is None
+                           else float(val("end_door_height_m"))),
         front_windows_per_side=int(val("front_windows_per_side", 1)),
         window_w_m=(None if val("window_w_m") is None else float(val("window_w_m"))),
         window_h_m=(None if val("window_h_m") is None else float(val("window_h_m"))),
