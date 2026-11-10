@@ -1397,7 +1397,7 @@
     },
     {
       "ticket": "T-2193",
-      "records": 310,
+      "records": 316,
       "buckets": [
         "households/family_dwelling/north",
         "households/family_dwelling/south",
@@ -1620,7 +1620,7 @@
     "households_known": 165,
     "households_known_records": 1387,
     "households_awaiting_a_household": 1222,
-    "households_to_reconstruct": 426,
+    "households_to_reconstruct": 432,
     "businesses_target": 109,
     "businesses_known": 128,
     "businesses_to_reconstruct": 7,
@@ -1900,39 +1900,39 @@
     },
     "by_division": {
       "north": {
-        "held_heads_under_a_dwelling": 79,
+        "held_heads_under_a_dwelling": 82,
         "houses_other_stages_drew": 10,
-        "short_of_the_order": 7,
+        "short_of_the_order": 4,
         "waiting_families_share": 2,
         "re_spread_from_full_cells": 2,
         "discharged": 4,
-        "still_owed": 3
+        "still_owed": 0
       },
       "south": {
-        "held_heads_under_a_dwelling": 164,
+        "held_heads_under_a_dwelling": 166,
         "houses_other_stages_drew": 19,
-        "short_of_the_order": 1,
+        "short_of_the_order": 0,
         "waiting_families_share": 5,
         "re_spread_from_full_cells": 0,
-        "discharged": 1,
+        "discharged": 0,
         "still_owed": 0
       },
       "west": {
-        "held_heads_under_a_dwelling": 67,
+        "held_heads_under_a_dwelling": 69,
         "houses_other_stages_drew": 11,
-        "short_of_the_order": 11,
+        "short_of_the_order": 9,
         "waiting_families_share": 2,
-        "re_spread_from_full_cells": 2,
-        "discharged": 4,
-        "still_owed": 7
+        "re_spread_from_full_cells": 3,
+        "discharged": 5,
+        "still_owed": 4
       }
     },
-    "short_of_the_order": 19,
+    "short_of_the_order": 13,
     "discharged": 9,
-    "re_spread_from_full_cells": 4,
+    "re_spread_from_full_cells": 5,
     "discharging_nothing": 0,
-    "still_owed": 10,
-    "measured": "The held heads fall 19 short of the family_dwelling order. The housing deal holds 9 families present on the scene date and waiting on a roof behind the census ceiling, none of them a letter-list household, 9 with no division on the card; spread pro rata on the cells' targets, as rule 2 spreads the unplaced known, with a share past its cell's shortfall spread on over the cells still short (4 so), they discharge 9 and 10 are still owed.",
+    "still_owed": 4,
+    "measured": "The held heads fall 13 short of the family_dwelling order. The housing deal holds 9 families present on the scene date and waiting on a roof behind the census ceiling, none of them a letter-list household, 9 with no division on the card; spread pro rata on the cells' targets, as rule 2 spreads the unplaced known, with a share past its cell's shortfall spread on over the cells still short (5 so), they discharge 9 and 4 are still owed.",
     "ruling": "NOT A HOUSEHOLD THE TOWN LACKS. Rule 2 never orders a replacement for somebody standing in the town, and these families stand in it on their own cards: what they lack is a roof, which the remaining dwelling builds raise, and the deal seats them where the room is when they do.",
     "what_this_does_not_do": "It seats, moves, mints and retires nobody, counts no waiting family as a fill, and re-admits no household the letter-list ruling (T-0379) refuses a roof.",
     "what_would_reopen_it": "a waiting family seated in another division, or a held head of this one boarded instead: either takes one from the share or adds one to the shortfall, and the cell owes again under its owning ticket."
@@ -1942,10 +1942,10 @@
     "asks": "The family_dwelling order still owes houses once the waiting families are spent. Is there anybody the book may put in them?",
     "by_division": {
       "north": {
-        "owed_after_the_waiting_families": 3,
+        "owed_after_the_waiting_families": 0,
         "family_persons_still_owed": 0,
         "houses_those_persons_could_people": 0,
-        "discharged": 3,
+        "discharged": 0,
         "still_owed": 0
       },
       "south": {
@@ -1956,19 +1956,19 @@
         "still_owed": 0
       },
       "west": {
-        "owed_after_the_waiting_families": 7,
+        "owed_after_the_waiting_families": 4,
         "family_persons_still_owed": 0,
         "houses_those_persons_could_people": 0,
-        "discharged": 7,
+        "discharged": 4,
         "still_owed": 0
       }
     },
-    "owed_after_the_waiting_families": 10,
-    "discharged": 10,
+    "owed_after_the_waiting_families": 4,
+    "discharged": 4,
     "still_owed": 0,
-    "households_the_book_orders": 589,
+    "households_the_book_orders": 595,
     "households_range_floor": 473,
-    "measured": "The waiting families leave 10 houses owed on the family_dwelling rows. Every family person cell of North and West reads 0 left, so 10 of those houses have nobody the book may draw into them without overfilling a person cell; discharged, the book orders 589 households, inside the model's range from 473, and 0 are still owed.",
+    "measured": "The waiting families leave 4 houses owed on the family_dwelling rows. Every family person cell of West reads 0 left, so 4 of those houses have nobody the book may draw into them without overfilling a person cell; discharged, the book orders 595 households, inside the model's range from 473, and 0 are still owed.",
     "ruling": "NOT A HOUSEHOLD THE TOWN LACKS. A house is the people in it, and the person side of the division is full: its families stand in the town in fewer houses than the households midpoint asks, and larger, which the model's range admits. The order past what the open family cells could people is discharged rather than met with a house nobody lives in.",
     "what_this_does_not_do": "It seats, moves, mints and retires nobody, counts no single person or boarders' roof as a household, and re-admits no household the letter-list ruling (T-0379) refuses a roof.",
     "what_would_reopen_it": "a family person cell of the division owing again (a re-cut that frees people for a house), or a held head of the division boarded instead: either adds to what the open cells can people or to the shortfall, and the cell owes again under its owning ticket."
@@ -4508,12 +4508,11 @@
           },
           "target": 123,
           "known": 27,
-          "to_reconstruct": 89,
-          "filled": 89,
+          "to_reconstruct": 92,
+          "filled": 92,
           "owning_ticket": "T-2286",
           "basis": "the model's 645 households apportioned on the inventory's own family_dwelling roof count in the north division",
-          "discharged_by_the_waiting_families": 4,
-          "discharged_by_the_full_family_cells": 3
+          "discharged_by_the_waiting_families": 4
         },
         {
           "key": "households/family_dwelling/south",
@@ -4523,11 +4522,10 @@
           },
           "target": 258,
           "known": 74,
-          "to_reconstruct": 183,
-          "filled": 183,
+          "to_reconstruct": 184,
+          "filled": 184,
           "owning_ticket": "T-2256",
-          "basis": "the model's 645 households apportioned on the inventory's own family_dwelling roof count in the south division",
-          "discharged_by_the_waiting_families": 1
+          "basis": "the model's 645 households apportioned on the inventory's own family_dwelling roof count in the south division"
         },
         {
           "key": "households/family_dwelling/west",
@@ -4537,12 +4535,12 @@
           },
           "target": 110,
           "known": 21,
-          "to_reconstruct": 78,
-          "filled": 78,
+          "to_reconstruct": 80,
+          "filled": 80,
           "owning_ticket": "T-2286",
           "basis": "the model's 645 households apportioned on the inventory's own family_dwelling roof count in the west division",
-          "discharged_by_the_waiting_families": 4,
-          "discharged_by_the_full_family_cells": 7
+          "discharged_by_the_waiting_families": 5,
+          "discharged_by_the_full_family_cells": 4
         },
         {
           "key": "households/inn_tavern/north",
@@ -7036,21 +7034,21 @@
       "bucket": "households/family_dwelling/north",
       "ticket": "T-2193",
       "stage": "held_head_dwellings",
-      "records": 79,
+      "records": 82,
       "by": "tools/count_held_head_dwellings_1835.py --build"
     },
     {
       "bucket": "households/family_dwelling/south",
       "ticket": "T-2193",
       "stage": "held_head_dwellings",
-      "records": 164,
+      "records": 165,
       "by": "tools/count_held_head_dwellings_1835.py --build"
     },
     {
       "bucket": "households/family_dwelling/west",
       "ticket": "T-2193",
       "stage": "held_head_dwellings",
-      "records": 67,
+      "records": 69,
       "by": "tools/count_held_head_dwellings_1835.py --build"
     },
     {

@@ -6020,7 +6020,7 @@
   },
   "child_buckets_filled": 5,
   "working_lodgers_minted": 3,
-  "every_child_is_kin_of_a_named_keeper": true,
+  "every_child_has_an_explicit_modelled_parent": true,
   "people_ordered_into_lodging_still_owed": "This piece spends 135 people into beds and 35 more as the keepers' own children. The current book still orders 0 people; the exact cells and their keeper-kin requirement are in live_remainder. A frozen room's unspent residue is not a new order."
  }
 }

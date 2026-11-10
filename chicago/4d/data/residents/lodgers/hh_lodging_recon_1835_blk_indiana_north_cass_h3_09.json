@@ -24,7 +24,16 @@
   "minted_here": 5,
   "stands_on": "This group was reconstructed using an earlier estimate of 12 ordinary-night beds. The current estimate is 12, or 27 when crowded. Revising that estimate does not identify different residents. Their lodging here remains reconstructed; dated evidence can replace this allocation.",
   "withdrawn_if": "Dated evidence identifying who lodged here, or reviewed changes to the building's availability, crowding limit or town population model. A revised ordinary-night estimate alone does not name new residents.",
-  "note": "BEDS, AND ONE FAMILY. 1 of the people here took a bed and are not kin to each other or to anybody else under this roof — `data/residents/` cannot carry a person outside a household, so one record holds them all. The exception is the keeper and the 3 child(ren) on their card, who are a family and say so: every one of them carries `kin_of` naming the keeper."
+  "note": "A storage container for unrelated lodgers and expressly modeled kin groups. Sharing this card implies no kinship: every child names their own modeled parent, who may hold a separate source household card at this same roof.",
+  "supplementary_parent_links": [
+   {
+    "child": "rc_chevalier_archange",
+    "parent": "rc_chevalier_pierre",
+    "parent_name": "Pierre Chevalier",
+    "parent_household": "hh_rc_chevalier_pierre",
+    "grade": "reconstructed"
+   }
+  ]
  },
  "household_owed": {
   "size_drawn": 4,
@@ -444,7 +453,7 @@
     "confidence": "reconstructed",
     "note": "A child under ten carries no trade. The book's `lodging/trade` cells do not reach this band at all."
    },
-   "note": "RECONSTRUCTED, NOT FOUND. A supplementary child in an anonymous adult lodger's family, under the unchanged crowded capacity of their shared sleeping roof. The name is drawn from the existing pool; no source names this family.",
+   "note": "RECONSTRUCTED, NOT FOUND. A supplementary child of Pierre Chevalier, an anonymous reconstructed adult lodger, under the unchanged crowded capacity of their shared sleeping roof. Parentage is explicitly modeled. The name is drawn from the existing pool; no source names this family.",
    "dealt_by": {
     "ticket": "T-2023",
     "note": "Supplementary family completion; carried old family draws and identities unchanged."

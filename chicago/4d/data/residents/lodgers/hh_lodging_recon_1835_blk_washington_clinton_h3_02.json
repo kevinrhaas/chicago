@@ -22,7 +22,37 @@
   "minted_here": 13,
   "stands_on": "This group was reconstructed using an earlier estimate of 11 ordinary-night beds. The current estimate is 11, or 26 when crowded. Revising that estimate does not identify different residents. Their lodging here remains reconstructed; dated evidence can replace this allocation.",
   "withdrawn_if": "Dated evidence identifying who lodged here, or reviewed changes to the building's availability, crowding limit or town population model. A revised ordinary-night estimate alone does not name new residents.",
-  "note": "A CONTAINER, NOT A FAMILY. `data/residents/` cannot carry a person outside a household, and the people who boarded in one house were not kin. This record holds the beds of one house and claims no relation between the people in them beyond the roof."
+  "note": "A storage container for unrelated lodgers and expressly modeled kin groups. Sharing this card implies no kinship: every child names their own modeled parent, who may hold a separate source household card at this same roof.",
+  "supplementary_parent_links": [
+   {
+    "child": "rc_hastings_mary",
+    "parent": "rc_hastings_rufus",
+    "parent_name": "Rufus Hastings",
+    "parent_household": "hh_lodging_recon_1835_blk_washington_clinton_h3_02",
+    "grade": "reconstructed"
+   },
+   {
+    "child": "rc_robillard_catherine",
+    "parent": "rc_robillard_francois",
+    "parent_name": "Francois Robillard",
+    "parent_household": "hh_lodging_recon_1835_blk_washington_clinton_h3_02",
+    "grade": "reconstructed"
+   },
+   {
+    "child": "rc_stiles_lydia",
+    "parent": "rc_stiles_john",
+    "parent_name": "John Stiles",
+    "parent_household": "hh_lodging_recon_1835_blk_washington_clinton_h3_02",
+    "grade": "reconstructed"
+   },
+   {
+    "child": "rc_wadsworth_almira",
+    "parent": "rc_wadsworth_hiram",
+    "parent_name": "Hiram Wadsworth",
+    "parent_household": "hh_lodging_recon_1835_blk_washington_clinton_h3_02",
+    "grade": "reconstructed"
+   }
+  ]
  },
  "household_owed": {
   "size_drawn": null,
@@ -739,7 +769,7 @@
     "confidence": "reconstructed",
     "note": "A child under ten carries no trade. The book's `lodging/trade` cells do not reach this band at all."
    },
-   "note": "RECONSTRUCTED, NOT FOUND. A supplementary child in an anonymous adult lodger's family, under the unchanged crowded capacity of their shared sleeping roof. The name is drawn from the existing pool; no source names this family.",
+   "note": "RECONSTRUCTED, NOT FOUND. A supplementary child of Rufus Hastings, an anonymous reconstructed adult lodger, under the unchanged crowded capacity of their shared sleeping roof. Parentage is explicitly modeled. The name is drawn from the existing pool; no source names this family.",
    "dealt_by": {
     "ticket": "T-2023",
     "note": "Supplementary family completion; carried old family draws and identities unchanged."
@@ -816,7 +846,7 @@
     "confidence": "reconstructed",
     "note": "A child under ten carries no trade. The book's `lodging/trade` cells do not reach this band at all."
    },
-   "note": "RECONSTRUCTED, NOT FOUND. A supplementary child in an anonymous adult lodger's family, under the unchanged crowded capacity of their shared sleeping roof. The name is drawn from the existing pool; no source names this family.",
+   "note": "RECONSTRUCTED, NOT FOUND. A supplementary child of Francois Robillard, an anonymous reconstructed adult lodger, under the unchanged crowded capacity of their shared sleeping roof. Parentage is explicitly modeled. The name is drawn from the existing pool; no source names this family.",
    "dealt_by": {
     "ticket": "T-2023",
     "note": "Supplementary family completion; carried old family draws and identities unchanged."
@@ -893,7 +923,7 @@
     "confidence": "reconstructed",
     "note": "A child under ten carries no trade. The book's `lodging/trade` cells do not reach this band at all."
    },
-   "note": "RECONSTRUCTED, NOT FOUND. A supplementary child in an anonymous adult lodger's family, under the unchanged crowded capacity of their shared sleeping roof. The name is drawn from the existing pool; no source names this family.",
+   "note": "RECONSTRUCTED, NOT FOUND. A supplementary child of John Stiles, an anonymous reconstructed adult lodger, under the unchanged crowded capacity of their shared sleeping roof. Parentage is explicitly modeled. The name is drawn from the existing pool; no source names this family.",
    "dealt_by": {
     "ticket": "T-2023",
     "note": "Supplementary family completion; carried old family draws and identities unchanged."
@@ -970,7 +1000,7 @@
     "confidence": "reconstructed",
     "note": "A child under ten carries no trade. The book's `lodging/trade` cells do not reach this band at all."
    },
-   "note": "RECONSTRUCTED, NOT FOUND. A supplementary child in an anonymous adult lodger's family, under the unchanged crowded capacity of their shared sleeping roof. The name is drawn from the existing pool; no source names this family.",
+   "note": "RECONSTRUCTED, NOT FOUND. A supplementary child of Hiram Wadsworth, an anonymous reconstructed adult lodger, under the unchanged crowded capacity of their shared sleeping roof. Parentage is explicitly modeled. The name is drawn from the existing pool; no source names this family.",
    "dealt_by": {
     "ticket": "T-2023",
     "note": "Supplementary family completion; carried old family draws and identities unchanged."

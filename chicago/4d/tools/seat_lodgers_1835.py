@@ -2797,7 +2797,7 @@ def measurement(cards: dict, ledger: dict) -> dict:
         "the_two_counts_reconciled": the_two_counts_reconciled(ledger),
         "child_buckets_filled": len(ledger.get("child_fills") or {}),
         "working_lodgers_minted": sum((ledger.get("working_fills") or {}).values()),
-        "every_child_is_kin_of_a_named_keeper": all(
+        "every_child_has_an_explicit_modelled_parent": all(
             p.get("kin_of", {}).get("person")
             and (p["kin_of"]["person"] == card["head"]
                  or (p.get("dealt_by") or {}).get("ticket") == "T-2023")
@@ -3033,7 +3033,7 @@ def check() -> int:
     if not m["nobody_is_seated_twice"]:
         print("  FAIL somebody is seated twice")
         return 1
-    if not m["every_child_is_kin_of_a_named_keeper"]:
+    if not m["every_child_has_an_explicit_modelled_parent"]:
         print("  FAIL a person under ten stands free in a lodging cell")
         return 1
     print("  ok    %d lodging place(s); %d bed(s) filled, %d still empty and every one of "

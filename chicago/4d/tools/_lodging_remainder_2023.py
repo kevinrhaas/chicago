@@ -150,10 +150,19 @@ def apply(s, houses, cards, seated_by_house, drawn, live_room, arrivals,
                 "size and child sex/age seeds are recorded in quota_basis.remainder_completion. "
                 "Only the live lodging order is paid; no family/none counter is spent.")
             child["note"] = (
-                "RECONSTRUCTED, NOT FOUND. A supplementary child in an anonymous adult lodger's "
-                "family, under the unchanged crowded capacity of their shared sleeping roof. "
+                f"RECONSTRUCTED, NOT FOUND. A supplementary child of {parent['name']}, "
+                "an anonymous reconstructed adult lodger, under the unchanged crowded "
+                "capacity of their shared sleeping roof. Parentage is explicitly modeled. "
                 "The name is drawn from the existing pool; no source names this family.")
             append(sid, child, "child")
+            block = cards[f"hh_lodging_{sid}"]["lodging_household"]
+            block["note"] = (
+                "A storage container for unrelated lodgers and expressly modeled kin groups. "
+                "Sharing this card implies no kinship: every child names their own modeled "
+                "parent, who may hold a separate source household card at this same roof.")
+            block.setdefault("supplementary_parent_links", []).append({
+                "child": child["id"], "parent": parent["id"], "parent_name": parent["name"],
+                "parent_household": parent_household, "grade": "reconstructed"})
             draw.update(outcome="seated", person=child["id"])
         family_draws.append(family)
     if any(left.values()):
@@ -201,7 +210,11 @@ def verify(s, cards, ledger):
         "meaning": "One exceptional night within the existing full capacity; not an empty ordinary bed."}
     if block["ordinary_exception"] != expected_exception:
         raise SystemExit("FAIL T-2023 ordinary-night exception exceeds its reviewed single West youth")
-    if s.allocation_authorization_left(ledger) < 0:
+    capacity_basis = ledger["capacity_allocation_basis"]
+    authorization = capacity_basis["initial_allocation_authorized_empty_beds"]
+    initial_slept = sum(h["beds_ordinary"] for h in capacity_basis["houses"]) - authorization
+    acquired = max(0, sum(h["occupancy_after"] for h in ledger["houses"]) - initial_slept)
+    if acquired > authorization:
         raise SystemExit("FAIL T-2023 overdraws the unchanged allocation authorization")
     by_id = {p["id"]: p for c in cards.values() for p in c["persons"]}
     external = s.load(s.ROOT / "data/residents/reconstructed_trades/hh_rc_chevalier_pierre.json")
@@ -232,7 +245,8 @@ def verify(s, cards, ledger):
             if kin.get("person") != expected_parents.get(p["id"]):
                 raise SystemExit("FAIL T-2023 child kinship differs from its carried draw")
             parent = by_id.get(kin.get("person"))
-            if not parent or parent["grade"] != s.RECONSTRUCTED or parent["age_band"]["low"] < 20:
+            if (not parent or parent["grade"] != s.RECONSTRUCTED
+                    or parent["age_band"]["low"] < 20 or kin.get("name") != parent["name"]):
                 raise SystemExit("FAIL T-2023 child lacks an anonymous reconstructed adult parent")
             if house_of[parent["id"]] != row["place"] or p["age_band"]["high"] >= 10:
                 raise SystemExit("FAIL T-2023 child moved away from parent or was re-banded")
@@ -318,6 +332,8 @@ def self_test(s):
                l["quota_basis"]["remainder_completion"]["ordinary_exception"].update({f: v}))
     expect("authorization raised", lambda c, l: l["capacity_allocation_basis"].update(
         initial_allocation_authorized_empty_beds=33))
+    expect("authorization overdrawn", lambda c, l: l["houses"][0].update(
+        occupancy_after=l["houses"][0]["occupancy_after"] + 33))
     expect("new person beyond order", lambda c, l: l["remainder_fills"].update(
         {next(iter(l["remainder_fills"])): 2}))
     child_id = next(r["person"] for r in ledger["quota_basis"]["remainder_completion"]["additions"]

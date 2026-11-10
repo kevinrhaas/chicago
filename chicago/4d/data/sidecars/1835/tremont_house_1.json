@@ -406,7 +406,7 @@
       "relation": "lodged here",
       "why": "This group was reconstructed using an earlier estimate of 12 ordinary-night beds. The current estimate is 17, or 35 when crowded. Revising that estimate does not identify different residents. Their lodging here remains reconstructed; dated evidence can replace this allocation.",
       "sources": [],
-      "basis": "A CONTAINER, NOT A FAMILY. `data/residents/` cannot carry a person outside a household, and the people who boarded in one house were not kin. This record holds the beds of one house and claims no relation between the people in them beyond the roof.",
+      "basis": "A storage container for unrelated lodgers and expressly modeled kin groups. Sharing this card implies no kinship: every child names their own modeled parent, who may hold a separate source household card at this same roof.",
       "persons": [
         {
           "name": "Mary Fisk",
@@ -442,6 +442,55 @@
           "grade": "reconstructed",
           "occupation": "",
           "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 12 ordinary-night beds here (the current model reports 17) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Warren Thayer",
+          "relationship": "lodger",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 12 ordinary-night beds here (the current model reports 17) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "George Wadsworth",
+          "relationship": "lodger",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 12 ordinary-night beds here (the current model reports 17) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Michael Mahoney",
+          "relationship": "lodger",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 12 ordinary-night beds here (the current model reports 17) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Lydia Ingalls",
+          "relationship": "daughter",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. A supplementary child of Maria Ingalls, an anonymous reconstructed adult lodger, under the unchanged crowded capacity of their shared sleeping roof. Parentage is explicitly modeled. The name is drawn from the existing pool; no source names this family."
+        },
+        {
+          "name": "Victoire Bourassa",
+          "relationship": "daughter",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. A supplementary child of Louis Bourassa, an anonymous reconstructed adult lodger, under the unchanged crowded capacity of their shared sleeping roof. Parentage is explicitly modeled. The name is drawn from the existing pool; no source names this family."
+        },
+        {
+          "name": "Marie Bourassa",
+          "relationship": "daughter",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. A supplementary child of Louis Bourassa, an anonymous reconstructed adult lodger, under the unchanged crowded capacity of their shared sleeping roof. Parentage is explicitly modeled. The name is drawn from the existing pool; no source names this family."
+        },
+        {
+          "name": "Archange Bourassa",
+          "relationship": "daughter",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. A supplementary child of Louis Bourassa, an anonymous reconstructed adult lodger, under the unchanged crowded capacity of their shared sleeping roof. Parentage is explicitly modeled. The name is drawn from the existing pool; no source names this family."
         }
       ],
       "research_note": "WRITTEN BY tools/seat_lodgers_1835.py (T-1371, of T-1175), the `lodgers` stage of the 1835 resident reconstruction programme. This file is NOT research and is not a mint output: data/residents/households/ is re-derived by the mint writers and data/residents/index.json is derived from that directory, so a reconstruction lives here instead and is overlaid onto the scene by tools/compile_scene.py. docs/LIBERTIES.md carries the invention."
@@ -610,10 +659,10 @@
     "note": "The town model puts an inn or tavern at 9 people on an ordinary night and 35 when full, from the 1840 household tail (p90 and max of 964 Chicago households). This building takes the share of its class's total that its 418 m² of enclosed floor (139 m² × 3 storeys) is of the class's floor area.",
     "replaceable_by": "Any source that states this house's rooms, beds or lodgers on a dated day: an advertisement counting its rooms, a traveller's account of how many it slept, a licence return. A stated capacity retires the apportioned one outright.",
     "occupancy": {
-      "people": 12,
+      "people": 15,
       "beds_ordinary": 17,
-      "empty": 5,
-      "statement": "12 on this card against an ordinary night's 17 beds: 2 the residents layer already housed here, 5 seated here from elsewhere in the layer, where no source gives them a roof, 5 drawn against the order book's lodging buckets for beds that were standing empty.",
+      "empty": 2,
+      "statement": "15 on this card against an ordinary night's 17 beds: 2 the residents layer already housed here, 5 seated here from elsewhere in the layer, where no source gives them a roof, 8 drawn against the order book's lodging buckets for beds that were standing empty.",
       "empty_note": "",
       "keeper_persons": 2,
       "keeper_owed": ""

@@ -2434,7 +2434,10 @@ def household_buckets(model: dict, inventory: dict, known: dict) -> dict:
     # class guess. Davis belongs to the North inn; West's two inn families leave
     # only Kinzie in its boarding-house class. No division or total known count moves.
     lodging_programme = ROOT / "data/reconstruction/1835_lodging_household_programme.json"
-    if lodging_programme.exists() and known["houses_present"] == 165:
+    known_receipts_path = ROOT / "data/reconstruction/1835_known_household_receipts.json"
+    receipt_count = (len(json.loads(known_receipts_path.read_text(encoding="utf-8"))["receipts"])
+                     if known_receipts_path.exists() else None)
+    if lodging_programme.exists() and known["houses_present"] == receipt_count:
         programme = json.loads(lodging_programme.read_text(encoding="utf-8"))
         literal = Counter(r["quota_cell"].removeprefix("households/")
                           for r in programme["known_receipts"])
