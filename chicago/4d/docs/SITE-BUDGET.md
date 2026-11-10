@@ -172,7 +172,7 @@ BOOT PAYLOAD — first visit stands in the 1835 street
 Three consecutive runs produced byte-identical totals — the measurement is a
 property of the tree, not of the run.
 
-**The boot payload budget is 44.1 MB**, consciously re-budgeted on 2026-11-10 for the measured retained street (§ 4m). It was re-set to 40.2 MB on 2026-11-06 by T-3425 for five days of the
+**The boot payload budget is 44.9 MB**, consciously re-budgeted on 2026-11-10 for the early masonry maps (§ 18), after the measured retained street (§ 4m). It was re-set to 40.2 MB on 2026-11-06 by T-3425 for five days of the
 owner's town past T-3300's room (§ 4l). T-3300 had set it at 39.6 MB on 2026-11-01 for two weeks of the
 owner's town landing unmeasured (§ 4k). T-2711 had set it at 36.2 MB on 2026-10-17 for the prebuilt
 yards (§ 4j). T-2710 had set it at 33.7 MB the same day for the prebuilt streets (§ 4i), and
@@ -188,7 +188,7 @@ Re-measure and check with:
 ```
 bash tools/publish.sh                      # build the mirror the visitor gets
 node tools/measure_boot_payload.mjs        # the report above
-node tools/measure_boot_payload.mjs --check  # exit 1 past the 44.1 MB budget
+node tools/measure_boot_payload.mjs --check  # exit 1 past the 44.9 MB budget
 node tools/measure_boot_payload.mjs --against docs/measurements/T-3425-boot-payload-entries.json
                                            # what grew since § 4l's reading, file by file
 ```
@@ -1221,7 +1221,7 @@ production still ships the copies until the next promotion.
 
 This is a conscious storage re-budget from **432 to433 MiB**, not a skipped size check. The actual clean published tree at `c5551fdd66fc79d673155a20138f7d331df51b8b` measures **432.01 MiB** in source CI42749721172, part5. It fails only the432 MiB storage line; the other seven parts pass. The five intended native WEB outputs add10,656 raw bytes net (Cobweb -1,916; GreenTree +3,516; LakeHouse +6,300; jail +2,576; Sauganash +180), and the source/sidecar additions carry their credited pictures and compiled liberties. GreenTree remains partial until its missing upper window is corrected.
 
-The1 MiB increase gives just under1 MiB of clean-tree headroom. Using the existing deployed-artifact allowance accounting from §14, two433 MiB trees plus132.233 MiB other content total998.233 MiB, below the established1024 MiB ceiling. This calculation is an allowance, not a new measurement or claim of production promotion. The validator still measures the full clean published artifact and fails above433 MiB. Boot payload, Full/Balanced/Light frame limits, Light's floor, the90% warning and duplicate checks do not move. Actual focused published desktop and phone qualification uses the same seven target assets, sidecars and renderer files; this validator/documentation change changes no model or renderer.
+The1 MiB increase gives just under1 MiB of clean-tree headroom. Using the existing deployed-artifact allowance accounting from §14, two433 MiB trees plus 132.233 MiB other content total998.233 MiB, below the established1024 MiB ceiling. This calculation is an allowance, not a new measurement or claim of production promotion. The validator still measures the full clean published artifact and fails above433 MiB. Boot payload, Full/Balanced/Light frame limits, Light's floor, the90% warning and duplicate checks do not move. Actual focused published desktop and phone qualification uses the same seven target assets, sidecars and renderer files; this validator/documentation change changes no model or renderer.
 
 The local long-lived workspace contains additional generated materializations and is not used as the clean-artifact size reading. The quoted432.01 MiB comes from the named immutable GitHub CI job; the raw job log and native asset-cost receipts remain in the checkpoint.
 
@@ -1229,3 +1229,45 @@ The local long-lived workspace contains additional generated materializations an
 ### 2026-11-10 concurrent dev integration: Full Ghost allowance
 
 T-3535 independently qualified the same measured 3,737,315-triangle Full X-RAY reading with a retained 18,059-triangle margin and a 3,760,000 allowance. Integrating that already-merged dev work retains its 3,760,000 definition and strict public/stat consistency checks, superseding this parcel's narrower 3,750,000 allowance. The original 3,750,000 qualification still passes the stricter bound and remains recorded above. The current 2,675,000 Balanced allowance from this parcel coexists with T-3535's conservative shadow-caster filter; its filter is preserved. The ordinary Full, Light, inspection, reach and draw-call policies are preserved. This is an explicit reconciliation of two measured budget decisions, not a new geometry or performance claim.
+
+
+## 18. Early brick and clay relief: priced maps, 2026-11-10 (T-3341)
+
+This is a conscious measured capacity change under the standing owner ruling in
+AGENTS.md. The previous published boot measurement is 45,948,374 bytes. The new
+1024-pixel shared normal and packed ORL pairs add 925,318 compressed bytes before
+material statements and code: brick 315,054 + 126,350, clay 411,110 + 72,804.
+The 44.1 MiB allowance had only 293,827 whole bytes left, so that allowance cannot
+carry these maps. The boot allowance becomes **44.9 MiB**, giving 1,132,688 whole
+bytes over the measured baseline, of which 207,370 remain after the four map
+files. That remainder prices metadata and script changes. The actual final runtime
+`cab4514539` measures 46,888,266 gzip-wire bytes (44.716135 MiB) across 1,207 requests,
+inside 44.9 MiB with 192,796 whole bytes spare and zero failed responses. No deferred
+or refused requests hide these maps. The nine new masonry requests total 927,833
+wire bytes. The total 939,892-byte difference from the earlier post-B baseline also
+includes concurrent upstream horse/shared-publication code; it is not all assigned
+to T-3341. Exact per-URL readings are in the public packet linked from
+docs/RESEARCH/early-masonry-3341.md.
+
+The existing device policy retains 1024-pixel compressed sheets on desktop and
+512-pixel sheets on a phone. The actual isolated shader proof reports 5,592,512
+GPU bytes for the four Full maps and 1,398,208 for the four Light maps. The full
+WebP fallback is also exercised, but its 22,369,620-byte Full GPU cost is not a
+phone-memory acceptance claim. The actual unchanged-ceiling default-phone gates
+pass on `cab4514539`: 1812 is 320,512,587 bytes (305.664622 MiB) of 350 MiB; 1835 is
+533,963,944 bytes (509.227699 MiB) of 550 MiB. Both use Light and normal upload
+release and report no page errors.
+
+The six lossless WebPs add 1,625,354 bytes and the four KTX2 files add 925,318:
+2,550,672 new map bytes, plus two small packed statements. The clean published
+storage allowance therefore moves from **433 to 436 MiB**. Using the existing
+allowance accounting, two 436 MiB trees plus 132.233 MiB of other content total
+1,004.233 MiB, below the established 1,024 MiB ceiling. This is allowance accounting,
+not a new deployed-site measurement; the clean source-CI publication remains the
+storage authority. The 90 percent warning and duplicate-file guards remain active.
+
+No native vertex, triangle or GLB is changed. Light geometry remains the floor;
+ordinary Full, Balanced, Ghost, inspection and draw-call limits retain the
+completed picture-group/current-dev values. Existing mapped fort recipes and
+1904 material bindings are preserved. See docs/RESEARCH/early-masonry-3341.md for
+the surface-disposition ruling and exact generation commands.

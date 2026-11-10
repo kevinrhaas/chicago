@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2868, ts: '2026-11-10T13:58:16.040Z', date: 'Nov 10, 2026, 7:58 AM CT', title: 'Brick and clay surfaces across the early town', kind: 'feature',
+    items: [
+      'Brick walls and masonry chimneys in 1812 and 1835 show mortar joints, relief and varied brick faces. Exterior log-cabin stacks have the rough surface of stick-and-clay construction. Existing period brickwork retains its own fabric.',
+    ] },
   { v: 2867, ts: '2026-11-10T12:58:08.942Z', date: 'Nov 10, 2026, 6:58 AM CT', title: 'Glessner’s coachman waits beside his team', kind: 'improvement',
     items: [
       'Charles Nelson now keeps watch beside the waiting carriage horses, with his household routine preserved.',

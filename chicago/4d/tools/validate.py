@@ -281,7 +281,13 @@ WIDE_RANGE_YEARS = 12
 # boot, frame, Light, duplicate and warning guards are unchanged. Two433 MiB
 # allowances plus the last documented132.233 MiB other-content allowance are
 #998.233 MiB, below the established1GiB accounting ceiling. See SITE-BUDGET §17.
-SITE_BUDGET_MB = 433
+# T-3341: explicit early-surface map cost: 1,625,354B lossless WebP +925,318B
+# KTX2 + packed statements, about 2.44 MiB before metadata. Retain the 1024/phone512
+# quality policy and price this requested material detail at 436 MiB, not by
+# silently omitting maps. Two 436 + 132.233 MiB other content = 1004.233 < 1024 MiB.
+# Default boot and actual 1812/1835 phone memory are separately measured gates.
+# Light geometry, frame/draw-call caps, 90% warning and duplicates do not change.
+SITE_BUDGET_MB = 436
 # Warn at 90 % of it. See run_site_check for why this band exists (T-0722).
 SITE_WARN_FRACTION = 0.90
 # Identical files smaller than this are not worth a merge refusal (T-0722).
