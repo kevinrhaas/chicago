@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1088,
+  "count": 1090,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -72991,6 +72991,85 @@
       ],
       "work_refs": [
         "T-3533"
+      ]
+    },
+    {
+      "id": "L-charles-carriage-post",
+      "title": "Charles Nelson beside the waiting carriage team",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-10",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "Charles Nelson's everyday outdoor stand in 1904 is reconstructed on the west parkway of Prairie Avenue at local ENU 1395.2, -3245.955, facing east toward the waiting carriage team. It is outside the main pedestrian strip and west of the horses; actual sole support, body clearance and arrival sightlines still require renderer review. His seasonal outdoor work spans keep watch here; his existing short Eighteenth Street household break, winter shelter periods and indoor hours remain. Keeping watch is a stationary working post, with the portable figure's ordinary idle movements, not an additional sentry or a seated driver. His stable-door household-tour mark, the tour's stops and words, and his historical household/workplace records remain unchanged."
+        },
+        {
+          "label": "Basis",
+          "text": "The 1900 census names Charles as the Glessner household's coachman; it does not place him here on 1 July 1904. The source and date qualification in his existing instance still apply. No picture or document attests this exact stand or activity. The owner requested the existing coachman beside the carriage team without obstructing the house view or pedestrian walk. This moves one existing identity; it does not add another coachman or substitute Hans Johnson."
+        },
+        {
+          "label": "How to resolve",
+          "text": "Replace this everyday stand or occupation schedule when a contemporary account, plan annotation or photograph places the coachman, and retain the separately authored tour marks."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-10."
+        }
+      ],
+      "work_refs": []
+    },
+    {
+      "id": "L-early-masonry-surfaces-3341",
+      "title": "The early town's brick and clay surfaces, with the library's reconstructed module and weathering",
+      "section": "per_subject",
+      "subjects": [
+        "hogan_store",
+        "jb_beaubien_homestead",
+        "kinzie_bake_house_1812",
+        "kinzie_house_1812",
+        "kinzie_lodging_house_1812",
+        "miller_house",
+        "philo_carpenter_log_shop",
+        "wolf_point_tavern"
+      ],
+      "covers": [],
+      "recorded": "2026-11-10",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "untextured brick walls and masonry chimney faces in the 1812 and 1835 scenes wear the existing Chicago 1835 procedural clay-brick and lime-mortar sheet. Exterior log-cabin stacks wear its stick-and-clay sheet. The renderer projects metric face coordinates without changing a native position, normal, index or confidence. Already mapped period recipes keep their own sheets and brick shuffle. The 1904 scene binds no new surface."
+        },
+        {
+          "label": "What is read",
+          "text": "the library's brick generator lays 20 units and 48 courses over 4.2 m, with alternate half-unit offsets; these are reconstructed module dimensions, as its the material data already states. The clay sheet spans 2.04 m. The material disposition follows the research notes on chimneys sections 2, 3 and 6: an interior ridge stack is masonry; an exterior log-gable stack is stick-and-clay. No new archival colour, brick size or bond is claimed."
+        },
+        {
+          "label": "What is reconstructed",
+          "text": "the procedural grain and relief; the particular face selected for each brick; up to 7 percent lightness, 3 percent warmth and 5 percent broad mottle, exactly the existing “A K03 brick wall draws each brick from another of its kind in the panel, with its own small colour spread and a broad mottle” rule. The packed luminance ratio preserves the native material's mean colour. Every colour, roughness, normal and occlusion sample uses the same whole-brick permutation, with the original derivatives for mip selection."
+        },
+        {
+          "label": "The recorded ridge dispositions",
+          "text": "The Kinzie house, built by Jean Baptiste Point du Sable, The lodging house for Kinzie's Frenchmen, The Kinzie bake-house, behind the house's west end, Wolf Point Tavern, Beaubien's log cabin, beside the Sauganash, Col. Jean Baptiste Beaubien's Homestead and Hogan's Store already record chimney ridge at. Their stacks take the brick surface instead of the generic log archetype's clay treatment. The Miller House record instead declares frame addition ridge stack: its native chimney primitive is partitioned into its disconnected ground-foot exterior stack and roof-foot ridge stack; the former takes clay and the latter brick. This partition retains every original triangle and confidence value. The inference about fabric is the standing chimney ruling, not evidence of a newly discovered survey or colour."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a close dated picture or a source naming a particular stack's fabric replaces that stack's generic disposition; a documented brick module or weathering replaces this procedural sheet and spread for that building."
+        },
+        {
+          "label": "Review",
+          "text": "the research notes on early masonry; final desktop and phone frames are recorded there when qualified."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-10 (T-3341)."
+        }
+      ],
+      "work_refs": [
+        "T-3341"
       ]
     },
     {

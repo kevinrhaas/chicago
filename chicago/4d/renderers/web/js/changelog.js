@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2867, ts: '2026-11-10T12:58:08.942Z', date: 'Nov 10, 2026, 6:58 AM CT', title: 'Glessner’s coachman waits beside his team', kind: 'improvement',
+    items: [
+      'Charles Nelson now keeps watch beside the waiting carriage horses, with his household routine preserved.',
+      'On the household tour, guides approach before greeting and return safely when you leave.',
+    ] },
   { v: 2866, ts: '2026-11-10T12:04:32.911Z', date: 'Nov 10, 2026, 6:04 AM CT', title: 'Green Tree and the forts: remaining picture corrections', kind: 'fix',
     items: [
       'T-2376: Select the missing third upper front window at Green Tree while retaining its completed lower left group. The categorical opening correction awaits the combined native build and fresh picture review.',

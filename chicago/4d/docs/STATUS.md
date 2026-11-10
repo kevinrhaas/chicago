@@ -1,3 +1,38 @@
+## T-2795 — Charles Nelson beside the Glessner carriage team (2026-11-10)
+
+The current proposal places existing coachman Charles Nelson on the Prairie Avenue
+parkway beside the waiting Brougham team, between the existing trees and outside
+the main walking strip. It preserves the carriage's location, all seven other
+household members, Charles's four seasonal days, indoor periods and original
+11:00–11:30 Eighteenth Street break. The new work post is a declared reconstruction;
+it does not change his attested identity or claim an archival pose or likeness.
+
+A tour still uses his original stable-door mark. Visible host takeovers and returns
+require a real walk route; an unavailable route waits and retries instead of
+teleporting or declaring arrival. An actual camera cut may hand off a hidden host
+before the first destination frame. A visitor arriving first sees an approaching-guide
+status and can continue or leave. Menu/Resume retains the host; End returns him
+to his day. A running household errand retains its path and arrival callback; the
+tour waits until it finishes. Conversely, Greet, Stroll and door-call actions cannot
+replace a held guide’s path. Those interactions return when the guide is released.
+Existing house errands, seasonal routines and tour content are retained.
+
+Canonical owners and focused current-source jaunt/day controls passed on the
+source-bound candidate based on DEV `7dcb5bb07abe0c468463a6a16d4103861deb3c65`.
+All 1,081 prior Liberty rows and seven foreign household records remain exact.
+Both errand/guide ownership counterexamples fail on the pre-fix source; the fixed
+source passes all six focused day/round/household/jaunt suites in 10.17 seconds
+under the original 120-second supervisor and resource floors. These are focused
+controls, not the complete gate.
+The street/phone/tour observations and complete current-head hosted gate are still
+pending for this proposal. The earlier post's partial desktop observation ended at
+the unchanged 600-second limit, showed an obstructed view and exceeded its original
+triangle budget; that is retained as NONPASS, not reused as acceptance of this post.
+No ground rule, performance ceiling, source asset or animation changes. Existing
+acceptance bars remain intact.
+Boarding, a coachman conversation offering a ride, reins, passengers, continuous
+contact and photographic acceptance remain open on the existing transport tickets.
+
 ## T-2795 — native support for smaller DEV publications (2026-11-10)
 
 The parked Glessner team (PR #1908), existing-resident clothing/build fixes
@@ -26531,3 +26566,6 @@ R secondary uses, refusal receipts and caveats are in
 `RESEARCH/1835_lodging_remainder_2023.md`. PR1920 remains in review until protected
 checks and the published walkthrough verification finish; this entry is a public
 checkpoint, not a premature ticket closure.
+### 2026-11-10 — T-3341 early masonry surface increment
+
+The remaining flat brick and chimney materials in 1812 and 1835 now bind the existing procedural brick or clay sheet by their recorded disposition. Already mapped fort recipes and 1904 materials are retained. The new brick shuffle reads the library's 20 by 48 running bond; Miller's mixed native stack primitive is partitioned without losing triangles or confidence. Actual desktop/default-phone before-and-after surfaces pass in both scenes (28 directly reviewed frames and two detail roundtrips). Official boot passes at 44.716135 MiB of 44.9; unchanged phone-memory gates pass at 305.664622 MiB of 350 (1812) and 509.227699 MiB of 550 (1835). All eight source-check parts and their aggregate pass on runtime `cab4514539`; PR #1918 records final protected-check and dev-merge state. See docs/RESEARCH/early-masonry-3341.md and L-early-masonry-surfaces-3341.

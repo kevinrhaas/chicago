@@ -330,6 +330,21 @@ ok(!john.root.visible && !john.inRange, 'nor drawn, nor in range to be met');
   ok(engine.act(household.get(a.id), task.id).ok, 'can request a normal outdoor activity at night');
   daily.update(0.1);
   ok(!a.indoors && !daily.isCalled(a), 'activity replaces the door call without the night schedule interrupting');
+
+  // The reciprocal lease: manual Greet/Stroll cannot replace a tour guide's
+  // live route or arrival callback, even through the public direct action API.
+  const errand = household.get(a.id);
+  a.jauntHost = true;
+  a.walkPath([{ e: a.e, n: a.n }, { e: a.e + 8, n: a.n }], { endHeading: 90, onArrive() {} });
+  const guidePath = a.path;
+  ok(errand.at === null && engine.actionsOf(errand).length === 0, 'an approaching jaunt guide offers no competing household interactions');
+  ok(!engine.act(errand, 'greet').ok && !household.stroll(a.id, 'stroll:court').ok, 'direct Greet and Stroll also refuse the guide lease');
+  ok(a.path === guidePath && !errand.running, 'refused actions preserve the guide path and callback');
+  a.setIndoors(true);
+  ok(!household.callOut(a.id).ok && a.path === guidePath, 'calling an indoor hosted guide cannot replace the doorway handoff');
+  a.jauntHost = false;
+  a.setIndoors(false);
+  ok(engine.actionsOf(errand).some(c => c.id === 'greet'), 'household interactions return after the guide lease is released');
 }
 
 doors.dispose();

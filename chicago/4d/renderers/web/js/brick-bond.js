@@ -105,10 +105,15 @@ const MAX_COURSES = 12;
 export function bondUniforms(panelId) {
   const panel = PANELS[panelId];
   if (!panel) return null;
+  return bondUniformsFor(panel);
+}
+
+/** The same whole-brick permutation for another explicitly registered library sheet. */
+export function bondUniformsFor(panel, { maxCourses = MAX_COURSES } = {}) {
   const bond = BONDS[panel.bond];
   const courses = panel.courses;
-  if (courses > MAX_COURSES || courses % bond.length) {
-    throw new Error(`${panelId}: ${courses} courses do not hold whole periods of ${panel.bond}`);
+  if (!bond || courses > maxCourses || courses % bond.length) {
+    throw new Error(`${courses} courses do not hold whole periods of ${panel.bond}`);
   }
   const rows = Array.from({ length: courses }, (_, i) => bond[i % bond.length]);
   const lengths = [...new Set(rows.map(([, u]) => u))].sort((a, b) => b - a);
@@ -120,13 +125,14 @@ export function bondUniforms(panelId) {
   }
   const course = rows.map(([offset, unit]) => [offset, unit, start.get(unit),
     rows.filter(([, uu]) => uu === unit).length]);
-  while (course.length < MAX_COURSES) course.push([0, S, 0, 1]);
-  while (list.length < MAX_COURSES) list.push(0);
+  while (course.length < maxCourses) course.push([0, S, 0, 1]);
+  while (list.length < maxCourses) list.push(0);
   const half = panel.joint_m / 2;
   return {
-    panel: [panel.modules, courses, half / MODULE_M, half / COURSE_M],
+    panel: [panel.modules, courses, panel.halfJoint?.[0] ?? half / MODULE_M,
+      panel.halfJoint?.[1] ?? half / COURSE_M],
     course,
-    list: [list.slice(0, 4), list.slice(4, 8), list.slice(8, 12)],
+    list: Array.from({ length: Math.ceil(maxCourses / 4) }, (_, i) => list.slice(i * 4, i * 4 + 4)),
   };
 }
 
@@ -230,6 +236,23 @@ const NORMAL_SHUFFLED = 'textureGrad( normalMap, vNormalMapUv + chiBondShift, dF
 const NORMAL_FRAGMENT = ShaderChunk.normal_fragment_maps.includes(NORMAL_SAMPLE)
   ? ShaderChunk.normal_fragment_maps.split(NORMAL_SAMPLE).join(NORMAL_SHUFFLED)
   : null;
+
+/**
+ * T-3341: reuse the exact shuffle, shade and normal sampling for the early library's
+ * 20-by-48 running-bond sheet. Existing K03 panels retain the original twelve-row
+ * shader and uniforms; no 1904 material changes to accommodate the larger sheet.
+ */
+export function brickBondShader({ coordinate = 'vMapUv', maxCourses = MAX_COURSES } = {}) {
+  if (!['vMapUv', 'vNormalMapUv'].includes(coordinate) || maxCourses % 4) {
+    throw new Error('A brick sheet needs a registered UV and whole vec4 course lists');
+  }
+  return {
+    pars: FRAGMENT_PARS.replace(`chiBondCourse[ ${MAX_COURSES} ]`, `chiBondCourse[ ${maxCourses} ]`)
+      .replace('chiBondList[ 3 ]', `chiBondList[ ${maxCourses / 4} ]`),
+    resolve: FRAGMENT_RESOLVE.replaceAll('vMapUv', coordinate),
+    normal: NORMAL_FRAGMENT,
+  };
+}
 
 /**
  * Bind the shuffle to a material whose base colour is a K03 panel. Called on every

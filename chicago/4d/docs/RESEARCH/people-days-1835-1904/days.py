@@ -27,8 +27,9 @@ sidewalk, and Christine uses her recorded errand route. The hours and buildings 
   1904 (1 July; the household of 1800 Prairie Avenue)
     The cooks (Mattie Williamson, Kate Ryan) and the stable helper (August Billings) in the
     court, one talk among them (`glessner_court`); the maid (Mary Reynolds) at the north entry
-    and the coachman (Charles Nelson) at the stable doors on Eighteenth Street, another
-    (`glessner_18th`). Each in the house by its servants' doors (tools/derive_doors_scene.py)
+    on Eighteenth Street (`glessner_18th`); the coachman (Charles Nelson) keeps watch
+    beside the reconstructed carriage team on Prairie Avenue, outside the main pedestrian
+    strip. His household-tour mark remains at the stable doors. Each in the house by its servants' doors (tools/derive_doors_scene.py)
     at night and for the hours of the house's own meals.
   All eight drawn household members now have seasonal days, including the owners and
   Christine. Office hours are off-scene, not a claim to an office location. Activities
@@ -125,9 +126,9 @@ DAYS = {
         ]),
         "hi_pa1904_glessner_john_j_c1900_charles_nelson_1904": ("glessner_house", [
             IN(0, 6, "glessner_house", "asleep"),
-            OUT(6, 12.5, "at the stable doors: the horses, the carriage made ready", "glessner_18th"),
+            OUT(6, 12.5, "keeping watch beside the reconstructed carriage team: the horses and harness"),
             IN(12.5, 13.5, "glessner_house", "dinner"),
-            OUT(13.5, 19, "at the stable doors: the horses, the carriage made ready", "glessner_18th"),
+            OUT(13.5, 19, "keeping watch beside the reconstructed carriage team: the horses and harness"),
             IN(19, 24, "glessner_house", "supper; asleep"),
         ]),
     },
@@ -205,12 +206,15 @@ def day_of(rec: dict, spans: list) -> list:
             if "garden" in span["doing"] or "flowers" in span["doing"]:
                 span["doing"] = {"winter": "check the sheltered court and dormant plants", "spring": "tend the spring garden", "summer": "tend and inspect the courtyard flowers", "autumn": "inspect the garden and clear fallen leaves"}[season]
         # A short shared break, surrounded by each worker's own duties.
+        # Charles keeps his Eighteenth Street household break when his work post moves.
         shared = []
         for span in seasonal:
             if not span["indoors"] and span["from"] < 11 and span["to"] >= 11.5 and "christine" not in rec["id"]:
                 before, meeting, after = deepcopy(span), deepcopy(span), deepcopy(span)
                 before["to"] = 11
-                meeting.update({"from": 11, "to": 11.5, "activity": "talk", "knot": "glessner_court" if span["at"]["local_n"] < -3220 else "glessner_18th", "doing": "take a short break and discuss the household work"})
+                meeting.update({"from": 11, "to": 11.5, "activity": "talk", "knot": "glessner_18th" if "charles_nelson" in rec["id"] else ("glessner_court" if span["at"]["local_n"] < -3220 else "glessner_18th"), "doing": "take a short break and discuss the household work"})
+                if "charles_nelson" in rec["id"]:
+                    meeting["at"] = {"local_e": 1341.6, "local_n": -3216.95, "heading_deg": 35}
                 after["from"] = 11.5
                 shared.extend([before, meeting] + ([after] if after["from"] < after["to"] else []))
             else:
