@@ -1,0 +1,415 @@
+[
+  {
+    "view": "chicago_magazine_1857",
+    "native_run": "42818215260",
+    "native_source": "6b11594bbd1d1a4e9fdd864878359ccf1c54edfc",
+    "retained_native": "d6076c038f5d7e103c922110b568c3188436ec25",
+    "adopted_head": "d6076c038f5d7e103c922110b568c3188436ec25",
+    "MASTER_sha256": "24cd4c30b5c8b8d350c017aa63d016464c6064cab56724a4986a639a02f5e417",
+    "green_MASTER_sha256": "299ba9c64df65653ba7797191e2fb0ccd2929dae3b77c8a62f819c6cd38413fa",
+    "camera_sha256": "a99e80516952a7ed3ef20da58e8ab6c6b5bfa6c6e51843f58c015dc37a8a59fd",
+    "photo_sha256": "da2bb6630e8205444c2624b8fb9ae982d3a9f220da3539992eae3e4266436b1c",
+    "group_sha256": "cb3cad56edacf94a15202e6811a00efbc9ca5c73a50e1dd3bdab2ad04fa7eddd",
+    "members": [
+      {
+        "structure_id": "kinzie_house_1812",
+        "glb": "assets/gltf/kinzie_house_1812__kinzie_1804.glb",
+        "placement": {
+          "local_e": 1158.096,
+          "local_n": 342.706,
+          "rotation_deg": 180,
+          "scene": "1812",
+          "target_date": "1812-08-14",
+          "phase": "kinzie_1804"
+        },
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation_y": 0,
+        "glb_sha256": "24cd4c30b5c8b8d350c017aa63d016464c6064cab56724a4986a639a02f5e417"
+      },
+      {
+        "structure_id": "kinzie_house_1812_green",
+        "glb": "assets/gltf/kinzie_house_1812_green__kinzie_1804.glb",
+        "placement": {
+          "local_e": 1143.5,
+          "local_n": 318,
+          "rotation_deg": 0,
+          "scene": "1812",
+          "target_date": "1812-08-14",
+          "phase": "kinzie_1804"
+        },
+        "position": [
+          14.596000000000007,
+          0,
+          -24.706000000000014
+        ],
+        "rotation_y": 3.141592653589793,
+        "glb_sha256": "299ba9c64df65653ba7797191e2fb0ccd2929dae3b77c8a62f819c6cd38413fa"
+      }
+    ],
+    "pair": "docs/RESEARCH/photo-match/kinzie_house_1812/chicago_magazine_1857-side-by-side.jpg",
+    "pair_sha256": "db5952fd3c4a842363f670a88d2c3796dae37264e00531976cadcac4ff523c7f",
+    "raw_png": "/tmp/nov10-kinzie-after/raw/chicago_magazine_1857-render.png",
+    "raw_sha256": "1a866afb70b79e4a63620e011e3b19c462c8c2a9fc858db432b72ddb79099384",
+    "exit_code": 0,
+    "seconds": 1.652,
+    "verdict": "unreviewed"
+  },
+  {
+    "view": "cram_1893",
+    "native_run": "42818215260",
+    "native_source": "6b11594bbd1d1a4e9fdd864878359ccf1c54edfc",
+    "retained_native": "d6076c038f5d7e103c922110b568c3188436ec25",
+    "adopted_head": "d6076c038f5d7e103c922110b568c3188436ec25",
+    "MASTER_sha256": "24cd4c30b5c8b8d350c017aa63d016464c6064cab56724a4986a639a02f5e417",
+    "green_MASTER_sha256": "299ba9c64df65653ba7797191e2fb0ccd2929dae3b77c8a62f819c6cd38413fa",
+    "camera_sha256": "e3587eb1f4542619ac6d2bc438ac11ea591cbe775a623e196c9cd9ffffba0b0e",
+    "photo_sha256": "ee50dbb5e1143a5c7164e814a392a152a64f6b30da0ff17f5eb84ffbd25fc8d4",
+    "group_sha256": "cb3cad56edacf94a15202e6811a00efbc9ca5c73a50e1dd3bdab2ad04fa7eddd",
+    "members": [
+      {
+        "structure_id": "kinzie_house_1812",
+        "glb": "assets/gltf/kinzie_house_1812__kinzie_1804.glb",
+        "placement": {
+          "local_e": 1158.096,
+          "local_n": 342.706,
+          "rotation_deg": 180,
+          "scene": "1812",
+          "target_date": "1812-08-14",
+          "phase": "kinzie_1804"
+        },
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation_y": 0,
+        "glb_sha256": "24cd4c30b5c8b8d350c017aa63d016464c6064cab56724a4986a639a02f5e417"
+      },
+      {
+        "structure_id": "kinzie_house_1812_green",
+        "glb": "assets/gltf/kinzie_house_1812_green__kinzie_1804.glb",
+        "placement": {
+          "local_e": 1143.5,
+          "local_n": 318,
+          "rotation_deg": 0,
+          "scene": "1812",
+          "target_date": "1812-08-14",
+          "phase": "kinzie_1804"
+        },
+        "position": [
+          14.596000000000007,
+          0,
+          -24.706000000000014
+        ],
+        "rotation_y": 3.141592653589793,
+        "glb_sha256": "299ba9c64df65653ba7797191e2fb0ccd2929dae3b77c8a62f819c6cd38413fa"
+      }
+    ],
+    "pair": "docs/RESEARCH/photo-match/kinzie_house_1812/cram_1893-side-by-side.jpg",
+    "pair_sha256": "ffe776408a03e92926d812b60ba5d0aa160d4ae1235402bf753c63550ef924aa",
+    "raw_png": "/tmp/nov10-kinzie-after/raw/cram_1893-render.png",
+    "raw_sha256": "ca4d620addf776fe81d3477e680d5192cd9a1229ae59f925cf246894f142d2a9",
+    "exit_code": 0,
+    "seconds": 1.615,
+    "verdict": "unreviewed"
+  },
+  {
+    "view": "eastman_1820",
+    "native_run": "42818215260",
+    "native_source": "6b11594bbd1d1a4e9fdd864878359ccf1c54edfc",
+    "retained_native": "d6076c038f5d7e103c922110b568c3188436ec25",
+    "adopted_head": "d6076c038f5d7e103c922110b568c3188436ec25",
+    "MASTER_sha256": "24cd4c30b5c8b8d350c017aa63d016464c6064cab56724a4986a639a02f5e417",
+    "green_MASTER_sha256": "299ba9c64df65653ba7797191e2fb0ccd2929dae3b77c8a62f819c6cd38413fa",
+    "camera_sha256": "2a252ddbfb599efcb0bd0edc150a3b74a1a1028e17f741d6fa9a86b2afded9ca",
+    "photo_sha256": "4e0ea4deb8eea96c9cfaa1b78983b1d649aa810506d561d6d3815318f07d7348",
+    "group_sha256": "cb3cad56edacf94a15202e6811a00efbc9ca5c73a50e1dd3bdab2ad04fa7eddd",
+    "members": [
+      {
+        "structure_id": "kinzie_house_1812",
+        "glb": "assets/gltf/kinzie_house_1812__kinzie_1804.glb",
+        "placement": {
+          "local_e": 1158.096,
+          "local_n": 342.706,
+          "rotation_deg": 180,
+          "scene": "1812",
+          "target_date": "1812-08-14",
+          "phase": "kinzie_1804"
+        },
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation_y": 0,
+        "glb_sha256": "24cd4c30b5c8b8d350c017aa63d016464c6064cab56724a4986a639a02f5e417"
+      },
+      {
+        "structure_id": "kinzie_house_1812_green",
+        "glb": "assets/gltf/kinzie_house_1812_green__kinzie_1804.glb",
+        "placement": {
+          "local_e": 1143.5,
+          "local_n": 318,
+          "rotation_deg": 0,
+          "scene": "1812",
+          "target_date": "1812-08-14",
+          "phase": "kinzie_1804"
+        },
+        "position": [
+          14.596000000000007,
+          0,
+          -24.706000000000014
+        ],
+        "rotation_y": 3.141592653589793,
+        "glb_sha256": "299ba9c64df65653ba7797191e2fb0ccd2929dae3b77c8a62f819c6cd38413fa"
+      }
+    ],
+    "pair": "docs/RESEARCH/photo-match/kinzie_house_1812/eastman_1820-side-by-side.jpg",
+    "pair_sha256": "b8cc18a832b77dc236832e7e8af8a4714477a3ebab86453ae11af38d827d8b15",
+    "raw_png": "/tmp/nov10-kinzie-after/raw/eastman_1820-render.png",
+    "raw_sha256": "fd20416013ce15ba8d28d29fd17a541ced98be61b37f9acf05b967d25cab7c04",
+    "exit_code": 0,
+    "seconds": 2.086,
+    "verdict": "unreviewed"
+  },
+  {
+    "view": "gemmell_1820",
+    "native_run": "42818215260",
+    "native_source": "6b11594bbd1d1a4e9fdd864878359ccf1c54edfc",
+    "retained_native": "d6076c038f5d7e103c922110b568c3188436ec25",
+    "adopted_head": "d6076c038f5d7e103c922110b568c3188436ec25",
+    "MASTER_sha256": "24cd4c30b5c8b8d350c017aa63d016464c6064cab56724a4986a639a02f5e417",
+    "green_MASTER_sha256": "299ba9c64df65653ba7797191e2fb0ccd2929dae3b77c8a62f819c6cd38413fa",
+    "camera_sha256": "c82265dc782d0747c0ce8fc5a583b479c6090cd6b6b8a14afd2b35dd3688daf9",
+    "photo_sha256": "190a4acad488a288e2f2cc14bb940d170aea66a40c0c196574948d72d8a15354",
+    "group_sha256": "cb3cad56edacf94a15202e6811a00efbc9ca5c73a50e1dd3bdab2ad04fa7eddd",
+    "members": [
+      {
+        "structure_id": "kinzie_house_1812",
+        "glb": "assets/gltf/kinzie_house_1812__kinzie_1804.glb",
+        "placement": {
+          "local_e": 1158.096,
+          "local_n": 342.706,
+          "rotation_deg": 180,
+          "scene": "1812",
+          "target_date": "1812-08-14",
+          "phase": "kinzie_1804"
+        },
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation_y": 0,
+        "glb_sha256": "24cd4c30b5c8b8d350c017aa63d016464c6064cab56724a4986a639a02f5e417"
+      },
+      {
+        "structure_id": "kinzie_house_1812_green",
+        "glb": "assets/gltf/kinzie_house_1812_green__kinzie_1804.glb",
+        "placement": {
+          "local_e": 1143.5,
+          "local_n": 318,
+          "rotation_deg": 0,
+          "scene": "1812",
+          "target_date": "1812-08-14",
+          "phase": "kinzie_1804"
+        },
+        "position": [
+          14.596000000000007,
+          0,
+          -24.706000000000014
+        ],
+        "rotation_y": 3.141592653589793,
+        "glb_sha256": "299ba9c64df65653ba7797191e2fb0ccd2929dae3b77c8a62f819c6cd38413fa"
+      }
+    ],
+    "pair": "docs/RESEARCH/photo-match/kinzie_house_1812/gemmell_1820-side-by-side.jpg",
+    "pair_sha256": "debe90a0809af4612764c4a9414086fd7b044e0e93df05ae2c34911ec583aa40",
+    "raw_png": "/tmp/nov10-kinzie-after/raw/gemmell_1820-render.png",
+    "raw_sha256": "c7227e0880fede5860b2f983965286fd7ff594486438fd42da10b2e80ac00ffe",
+    "exit_code": 0,
+    "seconds": 1.712,
+    "verdict": "unreviewed"
+  },
+  {
+    "view": "lossing_1869",
+    "native_run": "42818215260",
+    "native_source": "6b11594bbd1d1a4e9fdd864878359ccf1c54edfc",
+    "retained_native": "d6076c038f5d7e103c922110b568c3188436ec25",
+    "adopted_head": "d6076c038f5d7e103c922110b568c3188436ec25",
+    "MASTER_sha256": "24cd4c30b5c8b8d350c017aa63d016464c6064cab56724a4986a639a02f5e417",
+    "green_MASTER_sha256": "299ba9c64df65653ba7797191e2fb0ccd2929dae3b77c8a62f819c6cd38413fa",
+    "camera_sha256": "26f54ef15334fcb789e675b449fd742999744c08203e017d8df1c11b47ec3d8f",
+    "photo_sha256": "754e804e82934c901813a33eb65cad1ba1412378eeed1da39f12c451727e4536",
+    "group_sha256": "cb3cad56edacf94a15202e6811a00efbc9ca5c73a50e1dd3bdab2ad04fa7eddd",
+    "members": [
+      {
+        "structure_id": "kinzie_house_1812",
+        "glb": "assets/gltf/kinzie_house_1812__kinzie_1804.glb",
+        "placement": {
+          "local_e": 1158.096,
+          "local_n": 342.706,
+          "rotation_deg": 180,
+          "scene": "1812",
+          "target_date": "1812-08-14",
+          "phase": "kinzie_1804"
+        },
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation_y": 0,
+        "glb_sha256": "24cd4c30b5c8b8d350c017aa63d016464c6064cab56724a4986a639a02f5e417"
+      },
+      {
+        "structure_id": "kinzie_house_1812_green",
+        "glb": "assets/gltf/kinzie_house_1812_green__kinzie_1804.glb",
+        "placement": {
+          "local_e": 1143.5,
+          "local_n": 318,
+          "rotation_deg": 0,
+          "scene": "1812",
+          "target_date": "1812-08-14",
+          "phase": "kinzie_1804"
+        },
+        "position": [
+          14.596000000000007,
+          0,
+          -24.706000000000014
+        ],
+        "rotation_y": 3.141592653589793,
+        "glb_sha256": "299ba9c64df65653ba7797191e2fb0ccd2929dae3b77c8a62f819c6cd38413fa"
+      }
+    ],
+    "pair": "docs/RESEARCH/photo-match/kinzie_house_1812/lossing_1869-side-by-side.jpg",
+    "pair_sha256": "2c920b5134197fcd60dcf8386377e1b29799b72fb00ac45e9cfee78347a22fcd",
+    "raw_png": "/tmp/nov10-kinzie-after/raw/lossing_1869-render.png",
+    "raw_sha256": "d9a90082eacdf53d3b3a0cbc0dfbd1ed2d3c7ef9ca84d8e3fd46589f1424d787",
+    "exit_code": 0,
+    "seconds": 1.422,
+    "verdict": "unreviewed"
+  },
+  {
+    "view": "sarony_1912",
+    "native_run": "42818215260",
+    "native_source": "6b11594bbd1d1a4e9fdd864878359ccf1c54edfc",
+    "retained_native": "d6076c038f5d7e103c922110b568c3188436ec25",
+    "adopted_head": "d6076c038f5d7e103c922110b568c3188436ec25",
+    "MASTER_sha256": "24cd4c30b5c8b8d350c017aa63d016464c6064cab56724a4986a639a02f5e417",
+    "green_MASTER_sha256": "299ba9c64df65653ba7797191e2fb0ccd2929dae3b77c8a62f819c6cd38413fa",
+    "camera_sha256": "751c6dd92380aa1fe3f47204cec234da15ed07a8c1c2bf669d82e93a81b2475e",
+    "photo_sha256": "e8d7e0ef844ca111484ba4abcae47154be20545281924947b466ff4b808b7eee",
+    "group_sha256": "cb3cad56edacf94a15202e6811a00efbc9ca5c73a50e1dd3bdab2ad04fa7eddd",
+    "members": [
+      {
+        "structure_id": "kinzie_house_1812",
+        "glb": "assets/gltf/kinzie_house_1812__kinzie_1804.glb",
+        "placement": {
+          "local_e": 1158.096,
+          "local_n": 342.706,
+          "rotation_deg": 180,
+          "scene": "1812",
+          "target_date": "1812-08-14",
+          "phase": "kinzie_1804"
+        },
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation_y": 0,
+        "glb_sha256": "24cd4c30b5c8b8d350c017aa63d016464c6064cab56724a4986a639a02f5e417"
+      },
+      {
+        "structure_id": "kinzie_house_1812_green",
+        "glb": "assets/gltf/kinzie_house_1812_green__kinzie_1804.glb",
+        "placement": {
+          "local_e": 1143.5,
+          "local_n": 318,
+          "rotation_deg": 0,
+          "scene": "1812",
+          "target_date": "1812-08-14",
+          "phase": "kinzie_1804"
+        },
+        "position": [
+          14.596000000000007,
+          0,
+          -24.706000000000014
+        ],
+        "rotation_y": 3.141592653589793,
+        "glb_sha256": "299ba9c64df65653ba7797191e2fb0ccd2929dae3b77c8a62f819c6cd38413fa"
+      }
+    ],
+    "pair": "docs/RESEARCH/photo-match/kinzie_house_1812/sarony_1912-side-by-side.jpg",
+    "pair_sha256": "d12d5e8d6b77692646a5215b953e71371392fdd9626bde2ee0b975560f12f798",
+    "raw_png": "/tmp/nov10-kinzie-after/raw/sarony_1912-render.png",
+    "raw_sha256": "cd9457cd3a5c88c405279d7af1d0b7bfc3d51fb1638b765c9ba5592e4d7e2abc",
+    "exit_code": 0,
+    "seconds": 1.428,
+    "verdict": "unreviewed"
+  },
+  {
+    "view": "teich_postcard",
+    "native_run": "42818215260",
+    "native_source": "6b11594bbd1d1a4e9fdd864878359ccf1c54edfc",
+    "retained_native": "d6076c038f5d7e103c922110b568c3188436ec25",
+    "adopted_head": "d6076c038f5d7e103c922110b568c3188436ec25",
+    "MASTER_sha256": "24cd4c30b5c8b8d350c017aa63d016464c6064cab56724a4986a639a02f5e417",
+    "green_MASTER_sha256": "299ba9c64df65653ba7797191e2fb0ccd2929dae3b77c8a62f819c6cd38413fa",
+    "camera_sha256": "5288c1a95769ab736b42e505b18adc822369f69c12c81905598f4869253e4694",
+    "photo_sha256": "6095e1c20a97aedd8d5e86b8a1203992dae080013d256f4f38d8f25820a34b48",
+    "group_sha256": "cb3cad56edacf94a15202e6811a00efbc9ca5c73a50e1dd3bdab2ad04fa7eddd",
+    "members": [
+      {
+        "structure_id": "kinzie_house_1812",
+        "glb": "assets/gltf/kinzie_house_1812__kinzie_1804.glb",
+        "placement": {
+          "local_e": 1158.096,
+          "local_n": 342.706,
+          "rotation_deg": 180,
+          "scene": "1812",
+          "target_date": "1812-08-14",
+          "phase": "kinzie_1804"
+        },
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "rotation_y": 0,
+        "glb_sha256": "24cd4c30b5c8b8d350c017aa63d016464c6064cab56724a4986a639a02f5e417"
+      },
+      {
+        "structure_id": "kinzie_house_1812_green",
+        "glb": "assets/gltf/kinzie_house_1812_green__kinzie_1804.glb",
+        "placement": {
+          "local_e": 1143.5,
+          "local_n": 318,
+          "rotation_deg": 0,
+          "scene": "1812",
+          "target_date": "1812-08-14",
+          "phase": "kinzie_1804"
+        },
+        "position": [
+          14.596000000000007,
+          0,
+          -24.706000000000014
+        ],
+        "rotation_y": 3.141592653589793,
+        "glb_sha256": "299ba9c64df65653ba7797191e2fb0ccd2929dae3b77c8a62f819c6cd38413fa"
+      }
+    ],
+    "pair": "docs/RESEARCH/photo-match/kinzie_house_1812/teich_postcard-side-by-side.jpg",
+    "pair_sha256": "20dca5d9c0d6d17f621b2f4b6c36fb40b2503042e6182ff3f30082962c8eb34b",
+    "raw_png": "/tmp/nov10-kinzie-after/raw/teich_postcard-render.png",
+    "raw_sha256": "a824e68c217aa8831a4950835b0790bd0d2322d24a775147e9c6e6634f24dcae",
+    "exit_code": 0,
+    "seconds": 1.539,
+    "verdict": "unreviewed"
+  }
+]

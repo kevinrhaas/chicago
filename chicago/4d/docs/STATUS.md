@@ -26502,3 +26502,5 @@ whitewash, a2.50m end door, a17m green and a riverward four-poplar row. Six targ
 producer/validation tests and actual command isolation pass. Native adoption, fresh
 after comparisons, published desktop/phone full-context review and final sourceCI remain
 pending; this source checkpoint does not close the ticket or claim an after-state.
+
+- T-2484 native/picture checkpoint (2026-11-10): qualified retained d6076c03 from source6b11594/Blender4.5.3 Ubuntu26.04; two target assets changed, all81controls and961+6foreigns exact. Seven directly reviewed fresh canonical house+green Matches now pass with explicit T3153 source/camera/palette disagreements. Corrected the proven refused north poplar by flora-only stations331.2/327.2/323.2/319.2; all83native inputs unchanged. Actual published six-tree/full-context desktop/defaultphone review and final current checks remain pending; T2484 is not Done.

@@ -1,28 +1,52 @@
-# Kinzie house completion — T-2484 source checkpoint
+# Kinzie house completion — T-2484 native and picture checkpoint
 
-The seven public-domain source pictures were directly opened and the unchanged current
-native house was rendered from all seven existing poses with the existing fenced green
-added. All seven commands exited 0; the original house-only cameras and prior DIFFERS
-records are preserved. The current MASTER is `940d58e82a70b1980812525f9e3534caa6dca38ce894e0a112844615686ce373`.
+Qualified native output is retained commit `d6076c038f5d7e103c922110b568c3188436ec25`,
+built from frozen physical source `6b11594bbd1d1a4e9fdd864878359ccf1c54edfc` in
+[run 42818215260](https://github.com/kevinrhaas/chicago/actions/runs/42818215260).
+The independently authenticated Ubuntu 26.04 / Blender 4.5.3 build selected exactly 83
+defaults: two physical targets and 81 controls. Every control MASTER, WEB and LOD is
+byte-exact, with zero UV exceptions; 961 foreign defaults and all six variants are exact.
+Both changed sidecars equal the complete actual frozen compiler output. The native west
+door leaf now runs from 0.02 to 2.52 m; the front door and every horizontal door/name/
+placement/wall cache field are unchanged. Only the Kinzie target asset hash changes in
+the actual mesh-derived door cache. See `native/ACTUAL-NATIVE-AUDIT-RESULT.json` and its
+bound audit, controls, foreign rows and literal preserved reader failures.
 
-The before views confirm a visible finish mismatch, a short west-end door and an
-unsupported oversized green. Source changes now choose bounded reconstructed whitewash,
-a 2.50 m end door under the existing 3.0 m plate, a 17.0 m-wide green centred on the same door,
-and a north/south row for the same four poplars. Other building dimensions, openings,
-stack positions, species/counts and the two cottonwoods are retained.
+All seven original public-domain pictures and the seven actual new-native AFTER pairs
+were directly viewed. Every official capture exited 0. The fresh unreviewed records and
+original raw render PNGs were preserved before adjudication in `comparisons/after/`.
+The canonical house+green image gate now passes seven Matches with no Open difference.
+The pale coated log surfaces, 2.50 m clear west door and removal of the arbitrary 39 m
+wide green are physical changes. The inherited incompatible source dates, perspective,
+post heights, end stack station and postcard palette are explicitly within tolerance
+under T-3153; this is not a claim of pixel-identical historic drawings. In particular,
+the source fence outlines and house-based camera fits leave garden-corner offsets.
+Actual committed house/green ground differs by less than 0.04 m, so a large terrain
+height explanation was tested and rejected. No new photo follow-up was filed. No source
+image pixel became a surveyed coordinate. The verified Teich source expressly rejects
+its late painter/printer palette as evidence of 1812; primary household Sarony governs.
 
-The seven cameras preserve every original eye/yaw/focal/principal/source pixel. They now
-include the actual existing green GLB and its compiled placement. The procedural trees
-are not falsely claimed as native mesh members; their source records and actual published
-full context will be reviewed separately on desktop and default phone after adoption.
+Canonical comparisons include the actual house plus native fenced green on a common
+grade, with every original camera eye, focal length, principal point and source pixel
+unchanged. Procedural trees, neighbouring structures and river are explicitly outside
+that render scope. Their absence is not concealed as a full-context image match.
 
-This is source work awaiting a pinned native build. Existing native bytes and the current
-seven match records have NOT been relabelled as an accepted after-state. Native output,
-fresh after pairs, actual published context review and the complete protected source gate
-remain required before merge/closure. Six actual producer/validation tests pass, including
-negative height/type/absent-door cases and unchanged non-door geometry. The new command's
-actual isolation measurement reports no in-tree writes.
+The four poplars remain the same species/count and reconstructed 12 m heights. The
+post-retention row is E1156 at N331.2, 327.2, 323.2 and 319.2, four metres apart.
+The earlier north station N332.7 was correctly found to be refused at 3.30 m from the
+house by the actual planter's 4.5 m exclusion. The corrected north stem clears it by
+4.80 m; the actual extracted blocker and all 67 existing 1812 structure/camp polygons
+admit all six proposed stems. Both cottonwoods, their species, places and heights are
+unchanged. This is a bounded reconstructed clearance choice. The actual post-retention
+83 native input hashes are all unchanged, so it requires no second Blender bake.
+The ByGrade colours describe the trees' inferred species appearance; exact planting
+positions/heights remain liberties in the Source/Liberty records.
 
-The drawing disagreements in front length, piazza height, roof sweep and shade remain
-explicitly adjudicated only after the new native output is directly viewed under T-3153.
-No new photo follow-up ticket is filed. No picture is treated as a surveyed coordinate.
+**Still required before T-2484 closure or a ready-to-merge claim:** actual published
+full-context Normal/ByGrade review on desktop and default 390×780 phone, all six grown
+stem/species/height/position/terrain readbacks, source and credited-image cards, standing
+Liberty, current protected source checks and required runtime checks. External review
+helpers are preserved under `review-helpers/`. They are session evidence/reproduction
+helpers with explicit frozen pins and historical workspace paths, not new gate commands.
+No runtime tree pass, protected-check pass, final scene release or ticket Done is claimed
+by this checkpoint.

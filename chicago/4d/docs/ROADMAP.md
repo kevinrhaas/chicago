@@ -6541,3 +6541,5 @@ whitewash, a2.50m end door, a17m green and a riverward four-poplar row. Six targ
 producer/validation tests and actual command isolation pass. Native adoption, fresh
 after comparisons, published desktop/phone full-context review and final sourceCI remain
 pending; this source checkpoint does not close the ticket or claim an after-state.
+
+- T-2484 advanced through actual native adoption and seven canonical house+green picture Matches (2026-11-10, PR1919); 81nativecontrols and961+6foreigns exact. Four safe reconstructed north/south poplar stations now clear the existing4.5m house exclusion. Remaining acceptance is actual published six-tree/household desktop/defaultphone Normal/ByGrade/source-card review plus current required checks and ordinary dev merge. No new photo follow-up.

@@ -22,33 +22,33 @@
       "species": "populus_nigra_italica",
       "at_local_enu_m": [
         1156.0,
-        332.7
+        331.2
       ],
       "height_m": 12,
       "confidence": "reconstructed",
-      "note": "T-2484 stem1of4: the four Lombardy poplars keep their existing species/count and reconstructed12m height. The household Sarony plate and1857 engraving draw the row advancing from the piazza toward the river, not stretching east along the bank as the old planting did. This north/south row stays in the newly bounded green's eastern part, E1156.0, at4.5m stations from N332.7 to319.2. Exact coordinates/orientation/spacing are reconstructed from the house and committed bank, not surveyed from image pixels. L-kinzie-house-completion-2484."
+      "note": "T-2484 stem1of4: the four Lombardy poplars keep their existing species/count and reconstructed12m height. The household Sarony plate and1857 engraving draw the row advancing from the piazza toward the river, not stretching east along the bank as the old planting did. This north/south row stays in the newly bounded green's eastern part, E1156.0, at4.0m stations from N331.2 to319.2. Exact coordinates/orientation/spacing are reconstructed from the house and committed bank, not surveyed from image pixels. L-kinzie-house-completion-2484. The nearest stem is4.80m from the actual house footprint, clearing the existing4.5m planter exclusion; the earlier N332.7 trial would be refused at3.3m. This clearance adjustment changes no historical source claim."
     },
     {
       "id": "kinzie_poplar_2",
       "species": "populus_nigra_italica",
       "at_local_enu_m": [
         1156.0,
-        328.2
+        327.2
       ],
       "height_m": 12,
       "confidence": "reconstructed",
-      "note": "T-2484 stem2of4: the four Lombardy poplars keep their existing species/count and reconstructed12m height. The household Sarony plate and1857 engraving draw the row advancing from the piazza toward the river, not stretching east along the bank as the old planting did. This north/south row stays in the newly bounded green's eastern part, E1156.0, at4.5m stations from N332.7 to319.2. Exact coordinates/orientation/spacing are reconstructed from the house and committed bank, not surveyed from image pixels. L-kinzie-house-completion-2484."
+      "note": "T-2484 stem2of4: the four Lombardy poplars keep their existing species/count and reconstructed12m height. The household Sarony plate and1857 engraving draw the row advancing from the piazza toward the river, not stretching east along the bank as the old planting did. This north/south row stays in the newly bounded green's eastern part, E1156.0, at4.0m stations from N331.2 to319.2. Exact coordinates/orientation/spacing are reconstructed from the house and committed bank, not surveyed from image pixels. L-kinzie-house-completion-2484. The nearest stem is4.80m from the actual house footprint, clearing the existing4.5m planter exclusion; the earlier N332.7 trial would be refused at3.3m. This clearance adjustment changes no historical source claim."
     },
     {
       "id": "kinzie_poplar_3",
       "species": "populus_nigra_italica",
       "at_local_enu_m": [
         1156.0,
-        323.7
+        323.2
       ],
       "height_m": 12,
       "confidence": "reconstructed",
-      "note": "T-2484 stem3of4: the four Lombardy poplars keep their existing species/count and reconstructed12m height. The household Sarony plate and1857 engraving draw the row advancing from the piazza toward the river, not stretching east along the bank as the old planting did. This north/south row stays in the newly bounded green's eastern part, E1156.0, at4.5m stations from N332.7 to319.2. Exact coordinates/orientation/spacing are reconstructed from the house and committed bank, not surveyed from image pixels. L-kinzie-house-completion-2484."
+      "note": "T-2484 stem3of4: the four Lombardy poplars keep their existing species/count and reconstructed12m height. The household Sarony plate and1857 engraving draw the row advancing from the piazza toward the river, not stretching east along the bank as the old planting did. This north/south row stays in the newly bounded green's eastern part, E1156.0, at4.0m stations from N331.2 to319.2. Exact coordinates/orientation/spacing are reconstructed from the house and committed bank, not surveyed from image pixels. L-kinzie-house-completion-2484. The nearest stem is4.80m from the actual house footprint, clearing the existing4.5m planter exclusion; the earlier N332.7 trial would be refused at3.3m. This clearance adjustment changes no historical source claim."
     },
     {
       "id": "kinzie_poplar_4",
@@ -59,7 +59,7 @@
       ],
       "height_m": 12,
       "confidence": "reconstructed",
-      "note": "T-2484 stem4of4: the four Lombardy poplars keep their existing species/count and reconstructed12m height. The household Sarony plate and1857 engraving draw the row advancing from the piazza toward the river, not stretching east along the bank as the old planting did. This north/south row stays in the newly bounded green's eastern part, E1156.0, at4.5m stations from N332.7 to319.2. Exact coordinates/orientation/spacing are reconstructed from the house and committed bank, not surveyed from image pixels. L-kinzie-house-completion-2484."
+      "note": "T-2484 stem4of4: the four Lombardy poplars keep their existing species/count and reconstructed12m height. The household Sarony plate and1857 engraving draw the row advancing from the piazza toward the river, not stretching east along the bank as the old planting did. This north/south row stays in the newly bounded green's eastern part, E1156.0, at4.0m stations from N331.2 to319.2. Exact coordinates/orientation/spacing are reconstructed from the house and committed bank, not surveyed from image pixels. L-kinzie-house-completion-2484. The nearest stem is4.80m from the actual house footprint, clearing the existing4.5m planter exclusion; the earlier N332.7 trial would be refused at3.3m. This clearance adjustment changes no historical source claim."
     },
     {
       "id": "kinzie_cottonwood_west",
@@ -84,5 +84,5 @@
       "note": "ONE OF THE TWO COTTONWOODS BEHIND THE HOUSE. Wau-Bun, of 1831: 'Two immense cottonwood-trees stood in the rear of the building, one of which still remains as an ancient landmark'; data/exclusions.json kinzie_house adds that they are 'separately attested and one survived into the 20th century'. Every picture draws a great broad crown behind the house. Where each stood is this record's own: behind the house, toward either end. HEIGHT 20 m, inside the species' 18-26 m band in z10_settled_town: trees 'immense' in 1831 were already grown in 1812."
     }
   ],
-  "research_note": "WHAT WOULD MOVE THESE. A measured plan of the Kinzie lot, or the Sarony lithograph after Mrs. John H. Kinzie's sketch (Currey's plate facing p. 32, not yet in the image store, T-2498), would place the row and the two trees. Until then their places are reconstructed (docs/LIBERTIES.md L-kinzie-house-1812-2497). T-3106: in_structure names the green's own fence footprint, where the four poplars are explicitly planted; the two rear cottonwoods remain outside it. This existing planted-container rule exempts only that polygon, never the house, other walls or travelled tracks. No stem or source claim moves."
+  "research_note": "WHAT WOULD MOVE THESE. A measured plan of the Kinzie lot or a planting account locating the trees rather than naming them. Sarony's lithograph after Juliette Kinzie's household sketch is now in the public image store as chicago_kinzie_residence_sarony_currey_1912.png and source sarony_kinzie_residence_currey_1912_plate; it was directly read with all six other pictures for T-2484. The four north/south poplar stations, exact spacing and all six heights/positions remain reconstructed in L-kinzie-house-completion-2484, not surveyed from image pixels. The four stations are N331.2,327.2,323.2,319.2 at E1156,4.0m apart: the north stem clears the actual house footprint by4.80m against the renderer's existing4.5m margin. T-3106's in_structure names only the green's fenced plot; it never exempts the house, other buildings or travelled tracks. Both cottonwoods keep their existing coordinates, species and heights. The ByGrade colours describe their inferred species appearance; these exact planting positions and heights remain liberties."
 }
