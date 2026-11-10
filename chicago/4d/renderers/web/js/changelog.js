@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2858, ts: '2026-11-10T01:51:52.549Z', date: 'Nov 9, 2026, 7:51 PM CT', title: 'Northwest blockhouse now shown as pictured', kind: 'change',
+    items: [
+      'The northwest blockhouse is now shown as pictured, with two existing credited drawings connected to its review cameras.',
+      'Both cameras remain diagnostic. Dimensions, other attribute confidence and town geometry are unchanged; the complete picture match is still unfinished.',
+    ] },
   { v: 2857, ts: '2026-11-10T01:30:35.013Z', date: 'Nov 9, 2026, 7:30 PM CT', title: 'Refine three early Chicago buildings', kind: 'change',
     items: [
       'Green Tree’s shoulder roof rises more sharply toward its main block, retaining its low outer eave.',
