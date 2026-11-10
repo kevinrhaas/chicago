@@ -50,3 +50,13 @@ helpers are preserved under `review-helpers/`. They are session evidence/reprodu
 helpers with explicit frozen pins and historical workspace paths, not new gate commands.
 No runtime tree pass, protected-check pass, final scene release or ticket Done is claimed
 by this checkpoint.
+
+The retained build’s part4 independently exposed two stale derived owners after the
+green footprint changed. Official `generate_worn_ground_1812.py` and
+`resolve_land_tracts.py --build` regenerated worn trails/yard rules and the land-owner
+join; both checks now pass, followed by the actual scene/source-use owners. All83
+native input hashes remain identical to frozen6b after these actual owner outputs.
+All1050 registered recipes (1044defaults +6variants) also passed a2.34second full input
+freshness read on committed3f44 before the owner checkpoint; no output/runtime pass
+is inferred from that. Stage15’s1835/1904 coverage does not establish1812 flora
+acceptance. Final published six-tree desktop/defaultphone review remains required.
