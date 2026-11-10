@@ -251,7 +251,7 @@
       "relation": "lodged here",
       "why": "This group was reconstructed using an earlier estimate of 12 ordinary-night beds. The current estimate is 12, or 27 when crowded. Revising that estimate does not identify different residents. Their lodging here remains reconstructed; dated evidence can replace this allocation.",
       "sources": [],
-      "basis": "BEDS, AND ONE FAMILY. 1 of the people here took a bed and are not kin to each other or to anybody else under this roof — `data/residents/` cannot carry a person outside a household, so one record holds them all. The exception is the keeper and the 3 child(ren) on their card, who are a family and say so: every one of them carries `kin_of` naming the keeper.",
+      "basis": "A storage container for unrelated lodgers and expressly modeled kin groups. Sharing this card implies no kinship: every child names their own modeled parent, who may hold a separate source household card at this same roof.",
       "persons": [
         {
           "name": "Hannah Chapin",
@@ -280,6 +280,13 @@
           "grade": "reconstructed",
           "occupation": "",
           "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the household model draws the keeper of this house a household of 4 and the card held only the keeper, and the whole of what is claimed is that: a child of this sex, under ten, lived with their parent in the house that parent kept. The eldest is capped at 0 years, because no child of this house is older than the keeper's own age band allows and nobody is born after 1835-07-01. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Archange Chevalier",
+          "relationship": "daughter",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. A supplementary child of Pierre Chevalier, an anonymous reconstructed adult lodger, under the unchanged crowded capacity of their shared sleeping roof. Parentage is explicitly modeled. The name is drawn from the existing pool; no source names this family."
         }
       ],
       "research_note": "WRITTEN BY tools/seat_lodgers_1835.py (T-1371, of T-1175), the `lodgers` stage of the 1835 resident reconstruction programme. This file is NOT research and is not a mint output: data/residents/households/ is re-derived by the mint writers and data/residents/index.json is derived from that directory, so a reconstruction lives here instead and is overlaid onto the scene by tools/compile_scene.py. docs/LIBERTIES.md carries the invention."
@@ -391,7 +398,7 @@
     }
   ],
   "research_note": "RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. The block, its scheduled roof count and its family mix follow the 665-roof programme; exact presence, lot, position, footprint, finish and instance-level form are interpretive. The H3 boarding house resolves through the frame_tavern archetype, the crosswalk's placeholder for it; the canonical boarding_house_frame generator is not implemented. The tavern's own cues are not raised on it: no gallery, no frontispiece, no sign, and a kitchen door rather than a carriage door in the rear service wing.",
-  "research_doc": "docs/RESEARCH/inferred_infill_1835.md",
+  "research_doc": "",
   "review_required": false,
   "reconstruction": {
     "status": "inferred_anonymous",

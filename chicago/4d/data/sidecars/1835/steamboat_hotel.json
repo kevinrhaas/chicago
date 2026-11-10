@@ -213,6 +213,44 @@
         }
       ],
       "research_note": "A HOUSEHOLD WHOSE ONLY DOCUMENTED FACT IS THE ONE THAT MATTERS - that a man of this name was keeping this house in the scene year. Everything else about him is blank, and four of the five household fields are conjectural as a result. THE SAUGANASH QUESTION IS LEFT OPEN ON PURPOSE. data/structures/sauganash_hotel.json records 'a Mr. Davis, proprietor' for 1835 and flags the possibility that he is this man; merging the two would create a documented claim out of a shared surname, and splitting them would create a second household out of the same. Neither is done."
+    },
+    {
+      "household": "hh_judar_barbery",
+      "name": "Barbery Judar",
+      "division": "",
+      "relation": "lodged here",
+      "why": "R placement of an existing present North adult in one of two real ordinary beds. The shared party implies no marriage, kinship or travel association; source identity and grade unchanged.",
+      "sources": [],
+      "basis": "SEATED HERE, NOT RECORDED HERE. This person is one the residents layer already holds and no source says where they slept; the bed is the invention and the person is not. Their own card carries their evidence and is not touched by the seat.",
+      "persons": [
+        {
+          "name": "Barbery Judar",
+          "relationship": "lodger",
+          "grade": "inferred",
+          "occupation": "",
+          "note": ""
+        }
+      ],
+      "research_note": ""
+    },
+    {
+      "household": "hh_welsh_t",
+      "name": "T Welsh",
+      "division": "",
+      "relation": "lodged here",
+      "why": "R placement of an existing present North adult in one of two real ordinary beds. The shared party implies no marriage, kinship or travel association; source identity and grade unchanged.",
+      "sources": [],
+      "basis": "SEATED HERE, NOT RECORDED HERE. This person is one the residents layer already holds and no source says where they slept; the bed is the invention and the person is not. Their own card carries their evidence and is not touched by the seat.",
+      "persons": [
+        {
+          "name": "T Welsh",
+          "relationship": "lodger",
+          "grade": "inferred",
+          "occupation": "",
+          "note": ""
+        }
+      ],
+      "research_note": ""
     }
   ],
   "citations": [
@@ -277,7 +315,7 @@
     }
   ],
   "research_note": "A HOTEL THAT IS ALL BUSINESS AND NO BUILDING: two sources give a street, a cross-street, a year and a keeper, and not one word about the fabric, the size, the plan, the storeys or the finish. So the archetype choice — `frame_tavern` rather than `log_dwelling` — IS the guess, and it is argued at form.construction rather than buried in the filename: every dateable Chicago hotel from 1833 on is frame, the log taverns belong to 1828-31, and the ordinary reading of a type is still not evidence about a building. Everything dimensional is tagged conjectural and the confidence view renders the whole house as massing. THE DATE IS THE OTHER RISK and it is set out in full on documented_range: 'opened in 1835' with no month, in a scene dated 1 July 1835, in a project that excludes the town's first fire engine for being five months late. WHAT WOULD SETTLE BOTH: the Chicago American, which Davis advertised in and whose first issue is dated 8 June 1835, and the Chicago Democrat. A dated advertisement would fix the opening; an advertisement of the ordinary period kind would also describe the house. See docs/RESEARCH/steamboat_hotel.md.",
-  "research_doc": "docs/RESEARCH/steamboat_hotel.md",
+  "research_doc": "",
   "review_required": false,
   "lodging": {
     "class": "inn_tavern",
@@ -290,11 +328,11 @@
     "note": "The town model puts an inn or tavern at 9 people on an ordinary night and 35 when full, from the 1840 household tail (p90 and max of 964 Chicago households). This building takes the share of its class's total that its 240 m² of enclosed floor (120 m² × 2 storeys) is of the class's floor area.",
     "replaceable_by": "Any source that states this house's rooms, beds or lodgers on a dated day: an advertisement counting its rooms, a traveller's account of how many it slept, a licence return. A stated capacity retires the apportioned one outright.",
     "occupancy": {
-      "people": 8,
+      "people": 10,
       "beds_ordinary": 10,
-      "empty": 2,
-      "statement": "8 on this card against an ordinary night's 10 beds: 8 the residents layer already housed here.",
-      "empty_note": "This house has a division and empty beds, and the order book has nothing left to draw them out of: every adult `lodging/none` cell of the north division is filled to what the book orders there. A person minted past that would be a person the town never ordered, so the beds stand empty and the order rather than the roof is what is short (T-1535).",
+      "empty": 0,
+      "statement": "10 on this card against an ordinary night's 10 beds: 8 the residents layer already housed here.",
+      "empty_note": "",
       "keeper_persons": 8,
       "keeper_owed": ""
     }

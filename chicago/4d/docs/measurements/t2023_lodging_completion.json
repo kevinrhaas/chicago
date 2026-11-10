@@ -1,0 +1,65 @@
+{
+  "status": "PASS",
+  "compared_with_source_commit": "195c2f761a",
+  "original_person_records_exact": 157,
+  "original_layer_seats_exact": 52,
+  "new_existing_person_seats": 2,
+  "new_reconstructed_persons": 13,
+  "original_housing_roofs_exact": 1807,
+  "live_person_debt": 0,
+  "live_household_debt": 0,
+  "actual_reconstructed_units": 56,
+  "known_receipts": 20,
+  "distinct_local_members": 368,
+  "global_exclusive_known_house_units": 165,
+  "housing_ledger_people_under_roofs": 3452,
+  "standing_dwellings": 421,
+  "census_ratio_unchanged": 8.204,
+  "ordinary_bed_programme_unchanged": 252,
+  "initial_allocation_authorization_unchanged": 32,
+  "remaining_authorization": 26,
+  "legacy_crowding_excesses": [
+    {
+      "place": "recon_1835_north_h1_007",
+      "people": 19,
+      "crowded_beds": 12,
+      "legacy_excess": 7
+    },
+    {
+      "place": "recon_1835_north_h2_022",
+      "people": 27,
+      "crowded_beds": 17,
+      "legacy_excess": 10
+    },
+    {
+      "place": "recon_1835_north_h2_028",
+      "people": 32,
+      "crowded_beds": 20,
+      "legacy_excess": 12
+    },
+    {
+      "place": "recon_1835_north_h2_030",
+      "people": 28,
+      "crowded_beds": 18,
+      "legacy_excess": 10
+    },
+    {
+      "place": "recon_1835_north_h2_045",
+      "people": 31,
+      "crowded_beds": 20,
+      "legacy_excess": 11
+    },
+    {
+      "place": "recon_1835_west_006",
+      "people": 22,
+      "crowded_beds": 13,
+      "legacy_excess": 9
+    },
+    {
+      "place": "recon_1835_west_035",
+      "people": 36,
+      "crowded_beds": 20,
+      "legacy_excess": 16
+    }
+  ]
+}

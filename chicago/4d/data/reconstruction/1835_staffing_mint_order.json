@@ -16,7 +16,9 @@
     "data/reconstruction/1835_business_staffing_model.json",
     "data/reconstruction/1835_reconstruction_order_book.json",
     "data/residents/reconstructed_seating.json",
-    "data/reconstruction/1835_lodgers_seated.json"
+    "data/reconstruction/1835_lodgers_seated.json",
+    "data/reconstruction/1835_existing_roof_reconciliation.json",
+    "data/structures/*.json"
   ],
   "what_the_re_cut_returned": {
     "what_it_is": "The first of the answers below was RULED by the owner and has since been SPENT: the book was re-cut. These are the re-cut's own words and figures, read from data/reconstruction/1835_reconstruction_order_book.json, so that this file cannot go on arguing from a book that has moved under it.",
@@ -254,16 +256,16 @@
       "ticket": "T-1371",
       "built_lodging_places": 28,
       "ordinary_night_beds": 252,
-      "ordinary_night_beds_slept_in": 215,
-      "occupied_after_this_stage": 220,
-      "occupants_above_ordinary_night_figure": 5,
-      "ordinary_night_net_balance": 32,
-      "allocation_authorized_empty_beds": 32,
-      "ordinary_night_beds_still_empty": 37,
-      "lodging_places_unbuilt": 24,
-      "may_anything_more_be_minted_here": "Yes — see the two counts above for which unit has the room.",
+      "ordinary_night_beds_slept_in": 220,
+      "occupied_after_this_stage": 226,
+      "occupants_above_ordinary_night_figure": 6,
+      "ordinary_night_net_balance": 26,
+      "allocation_authorized_empty_beds": 26,
+      "ordinary_night_beds_still_empty": 32,
+      "lodging_places_unbuilt": 0,
+      "may_anything_more_be_minted_here": "No: the current person and household orders are paid. Vacant beds alone authorize nobody.",
       "hands_of_the_ruling_that_would_need_a_bed": 0,
-      "reads_as": "0 of the 0 hands the ruling buys would have to be seated as lodgers, and 37 ordinary-night bed(s) stand physically empty, with 32 remaining under the carried allocation authorization, in the 28 built lodging places. The 24 lodging roofs the model schedules and nothing has raised are where the rest of the beds are."
+      "reads_as": "0 of the 0 hands the ruling buys would have to be seated as lodgers, and 32 ordinary-night bed(s) stand physically empty, with 26 remaining under the carried allocation authorization, in the 28 built lodging places. The 0 lodging roofs the model schedules and nothing has raised are where the rest of the beds are."
     },
     "mintable_today": 0,
     "reads_as": "The ruling is payable and seatable: 0 of the 0 hands it buys can be minted on the files as committed.",
@@ -272,16 +274,20 @@
       "T-1538 — seat the houses once they stand",
       "T-1532 dealt the working lodgers on 2026-10-03 — the lodging/trade buckets this purse is — into the beds that stood, so what is left of the purse waits on the roofs above"
     ],
-    "and_the_division_axis_is_not_priced_either": {
-      "what_it_is": "A third axis the payment does not look at: a slot names the DIVISION the book is short of a person in, and a hand is paid from the first bucket by key whatever division its house stands in. It is named here and not closed here, because for most of these houses it cannot be: the register places no premises for them.",
+    "on_the_division_axis": {
+      "what_it_is": "T-2023 prices the division before a payment: a hand can spend only a slot in the same committed civil division as its premises. A street-only or unplaced business with no stated division receives no payment; its location is not invented to make a quota spendable.",
+      "demand_rows_with_a_committed_division": 19,
+      "demand_rows_with_no_committed_division": 99,
       "hands_paid_for_by_the_placement_of_their_house": {},
-      "filed_as": "T-1566, beside this one"
+      "carried_from": "T-1566, through T-1532, completed here by T-2023"
     }
   },
   "rows": [
     {
       "business_id": "biz_a_chicago_stove_and_hollow_ware_dealer_august_1835",
       "business_name": "a Chicago stove and hollow ware dealer, August 1835",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "hardware_or_stove_store",
       "reads_as": "a hardware or stove store",
       "role": "clerk",
@@ -309,6 +315,8 @@
     {
       "business_id": "biz_a_filer_co",
       "business_name": "A. Filer & Co.",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "wood_trades_shop",
       "reads_as": "a joiner's or carriage maker's shop",
       "role": "joiner",
@@ -336,6 +344,8 @@
     {
       "business_id": "biz_a_filer_co",
       "business_name": "A. Filer & Co.",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "wood_trades_shop",
       "reads_as": "a joiner's or carriage maker's shop",
       "role": "joiner",
@@ -363,6 +373,8 @@
     {
       "business_id": "biz_a_leather_stock_chicago_june_1835",
       "business_name": "a leather stock, Chicago, June 1835",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "dry_goods_store",
       "reads_as": "a dry-goods store",
       "role": "clerk",
@@ -390,6 +402,8 @@
     {
       "business_id": "biz_a_o_t_breed",
       "business_name": "A. O. T. Breed",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "dry_goods_store",
       "reads_as": "a dry-goods store",
       "role": "clerk",
@@ -417,6 +431,8 @@
     {
       "business_id": "biz_a_wholesale_wine_and_liquor_store_dearborn_street",
       "business_name": "a wholesale wine and liquor store, Dearborn Street",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "grocery_and_provision_store",
       "reads_as": "a grocery and provision store",
       "role": "clerk",
@@ -444,6 +460,8 @@
     {
       "business_id": "biz_an_iron_and_hardware_stock_chicago_june_1835",
       "business_name": "an iron and hardware stock, Chicago, June 1835",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "hardware_or_stove_store",
       "reads_as": "a hardware or stove store",
       "role": "clerk",
@@ -471,6 +489,8 @@
     {
       "business_id": "biz_b_jones_grocery_and_provision_store",
       "business_name": "B. Jones, grocery and provision store",
+      "division": "south",
+      "division_basis": "committed premises district",
       "establishment_class": "grocery_and_provision_store",
       "reads_as": "a grocery and provision store",
       "role": "clerk",
@@ -498,6 +518,8 @@
     {
       "business_id": "biz_b_jones_storage_and_forwarding",
       "business_name": "B. Jones, storage and forwarding",
+      "division": "south",
+      "division_basis": "committed premises district",
       "establishment_class": "forwarding_and_warehouse",
       "reads_as": "a forwarding and commission house",
       "role": "clerk",
@@ -525,6 +547,8 @@
     {
       "business_id": "biz_b_jones_storage_and_forwarding",
       "business_name": "B. Jones, storage and forwarding",
+      "division": "south",
+      "division_basis": "committed premises district",
       "establishment_class": "forwarding_and_warehouse",
       "reads_as": "a forwarding and commission house",
       "role": "labourer",
@@ -552,6 +576,8 @@
     {
       "business_id": "biz_boot_shoe_and_leather_store_lake_street_proprietor_not_recovered",
       "business_name": "[boot, shoe and leather store, Lake street, proprietor not recovered]",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "shoemaker_shop",
       "reads_as": "a boot and shoe shop",
       "role": "shoemaker",
@@ -579,6 +605,8 @@
     {
       "business_id": "biz_briggs_humphrey",
       "business_name": "Briggs & Humphrey",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "wood_trades_shop",
       "reads_as": "a joiner's or carriage maker's shop",
       "role": "joiner",
@@ -606,6 +634,8 @@
     {
       "business_id": "biz_briggs_humphrey",
       "business_name": "Briggs & Humphrey",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "wood_trades_shop",
       "reads_as": "a joiner's or carriage maker's shop",
       "role": "joiner",
@@ -633,6 +663,8 @@
     {
       "business_id": "biz_c_i_harmon",
       "business_name": "C. & I. Harmon",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "dry_goods_store",
       "reads_as": "a dry-goods store",
       "role": "clerk",
@@ -660,6 +692,8 @@
     {
       "business_id": "biz_carpenter_chicago_merchant",
       "business_name": "Carpenter, Chicago merchant",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "dry_goods_store",
       "reads_as": "a dry-goods store",
       "role": "clerk",
@@ -687,6 +721,8 @@
     {
       "business_id": "biz_chase_ballard",
       "business_name": "Chase & Ballard",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "hardware_or_stove_store",
       "reads_as": "a hardware or stove store",
       "role": "clerk",
@@ -714,6 +750,8 @@
     {
       "business_id": "biz_chicago_democrat_printing_office",
       "business_name": "Chicago Democrat printing office",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "printing_office",
       "reads_as": "a printing office",
       "role": "printer",
@@ -741,6 +779,8 @@
     {
       "business_id": "biz_chicago_democrat_printing_office",
       "business_name": "Chicago Democrat printing office",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "printing_office",
       "reads_as": "a printing office",
       "role": "printer",
@@ -768,6 +808,8 @@
     {
       "business_id": "biz_chicago_soap_and_candle_manufactory",
       "business_name": "Chicago Soap and Candle Manufactory",
+      "division": "north",
+      "division_basis": "committed premises district",
       "establishment_class": "soap_and_candle_works",
       "reads_as": "a soap and candle works",
       "role": "labourer",
@@ -795,6 +837,8 @@
     {
       "business_id": "biz_clark_filer_co",
       "business_name": "Clark, Filer & Co.",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "wood_trades_shop",
       "reads_as": "a joiner's or carriage maker's shop",
       "role": "joiner",
@@ -822,6 +866,8 @@
     {
       "business_id": "biz_clark_filer_co",
       "business_name": "Clark, Filer & Co.",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "wood_trades_shop",
       "reads_as": "a joiner's or carriage maker's shop",
       "role": "joiner",
@@ -849,6 +895,8 @@
     {
       "business_id": "biz_d_carver_co",
       "business_name": "D. Carver & Co.",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "lumber_yard",
       "reads_as": "a lumber yard",
       "role": "labourer",
@@ -876,6 +924,8 @@
     {
       "business_id": "biz_daniel_elston_co",
       "business_name": "Daniel Elston & [Co.]",
+      "division": "north",
+      "division_basis": "committed premises district",
       "establishment_class": "soap_and_candle_works",
       "reads_as": "a soap and candle works",
       "role": "labourer",
@@ -903,6 +953,8 @@
     {
       "business_id": "biz_dart_co_castings",
       "business_name": "Dart & Co., castings",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "foundry",
       "reads_as": "an iron foundry",
       "role": "founder",
@@ -930,6 +982,8 @@
     {
       "business_id": "biz_david_carver",
       "business_name": "David Carver",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "lumber_yard",
       "reads_as": "a lumber yard",
       "role": "labourer",
@@ -957,6 +1011,8 @@
     {
       "business_id": "biz_e_l_thrall",
       "business_name": "E. L. Thrall",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "dry_goods_store",
       "reads_as": "a dry-goods store",
       "role": "clerk",
@@ -984,6 +1040,8 @@
     {
       "business_id": "biz_e_p_deacon",
       "business_name": "E. P. Deacon",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "lumber_yard",
       "reads_as": "a lumber yard",
       "role": "labourer",
@@ -1011,6 +1069,8 @@
     {
       "business_id": "biz_e_wentworth",
       "business_name": "E. Wentworth",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "tavern_or_hotel",
       "reads_as": "a tavern or hotel",
       "role": "domestic",
@@ -1038,6 +1098,8 @@
     {
       "business_id": "biz_e_wentworth",
       "business_name": "E. Wentworth",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "tavern_or_hotel",
       "reads_as": "a tavern or hotel",
       "role": "tavern_keeper",
@@ -1065,6 +1127,8 @@
     {
       "business_id": "biz_e_wentworth_s_public_house_on_flag_creek",
       "business_name": "E. Wentworth's public house on Flag Creek",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "tavern_or_hotel",
       "reads_as": "a tavern or hotel",
       "role": "domestic",
@@ -1092,6 +1156,8 @@
     {
       "business_id": "biz_e_wentworth_s_public_house_on_flag_creek",
       "business_name": "E. Wentworth's public house on Flag Creek",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "tavern_or_hotel",
       "reads_as": "a tavern or hotel",
       "role": "labourer",
@@ -1119,6 +1185,8 @@
     {
       "business_id": "biz_e_wentworth_s_public_house_on_flag_creek",
       "business_name": "E. Wentworth's public house on Flag Creek",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "tavern_or_hotel",
       "reads_as": "a tavern or hotel",
       "role": "tavern_keeper",
@@ -1146,6 +1214,8 @@
     {
       "business_id": "biz_e_wentworth_s_tavern_flag_creek",
       "business_name": "E. Wentworth's tavern, Flag Creek",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "tavern_or_hotel",
       "reads_as": "a tavern or hotel",
       "role": "domestic",
@@ -1173,6 +1243,8 @@
     {
       "business_id": "biz_e_wentworth_s_tavern_flag_creek",
       "business_name": "E. Wentworth's tavern, Flag Creek",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "tavern_or_hotel",
       "reads_as": "a tavern or hotel",
       "role": "labourer",
@@ -1200,6 +1272,8 @@
     {
       "business_id": "biz_e_wentworth_s_tavern_flag_creek",
       "business_name": "E. Wentworth's tavern, Flag Creek",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "tavern_or_hotel",
       "reads_as": "a tavern or hotel",
       "role": "tavern_keeper",
@@ -1227,6 +1301,8 @@
     {
       "business_id": "biz_e_wentworth_s_tavern_on_flag_creek",
       "business_name": "E. Wentworth's tavern on Flag Creek",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "tavern_or_hotel",
       "reads_as": "a tavern or hotel",
       "role": "domestic",
@@ -1254,6 +1330,8 @@
     {
       "business_id": "biz_e_wentworth_s_tavern_on_flag_creek",
       "business_name": "E. Wentworth's tavern on Flag Creek",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "tavern_or_hotel",
       "reads_as": "a tavern or hotel",
       "role": "labourer",
@@ -1281,6 +1359,8 @@
     {
       "business_id": "biz_e_wentworth_s_tavern_on_flag_creek",
       "business_name": "E. Wentworth's tavern on Flag Creek",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "tavern_or_hotel",
       "reads_as": "a tavern or hotel",
       "role": "tavern_keeper",
@@ -1308,6 +1388,8 @@
     {
       "business_id": "biz_eagle_tavern",
       "business_name": "Eagle Tavern",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "tavern_or_hotel",
       "reads_as": "a tavern or hotel",
       "role": "domestic",
@@ -1335,6 +1417,8 @@
     {
       "business_id": "biz_eagle_tavern",
       "business_name": "Eagle Tavern",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "tavern_or_hotel",
       "reads_as": "a tavern or hotel",
       "role": "labourer",
@@ -1362,6 +1446,8 @@
     {
       "business_id": "biz_eagle_tavern",
       "business_name": "Eagle Tavern",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "tavern_or_hotel",
       "reads_as": "a tavern or hotel",
       "role": "tavern_keeper",
@@ -1389,6 +1475,8 @@
     {
       "business_id": "biz_everson_co",
       "business_name": "Everson & Co.",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "livery_stable",
       "reads_as": "a livery stable",
       "role": "labourer",
@@ -1416,6 +1504,8 @@
     {
       "business_id": "biz_everson_co",
       "business_name": "Everson & Co.",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "livery_stable",
       "reads_as": "a livery stable",
       "role": "labourer",
@@ -1443,6 +1533,8 @@
     {
       "business_id": "biz_frederick_thomas_drugs_and_paints",
       "business_name": "Frederick Thomas, drugs and paints",
+      "division": "south",
+      "division_basis": "committed premises district",
       "establishment_class": "drug_store",
       "reads_as": "a drug store",
       "role": "clerk",
@@ -1470,6 +1562,8 @@
     {
       "business_id": "biz_fullerton_botsford",
       "business_name": "Fullerton & Botsford",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "grocery_and_provision_store",
       "reads_as": "a grocery and provision store",
       "role": "clerk",
@@ -1497,6 +1591,8 @@
     {
       "business_id": "biz_geo_w_laird_naper_s_settlement",
       "business_name": "Geo. W. Laird, Naper's Settlement",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "dry_goods_store",
       "reads_as": "a dry-goods store",
       "role": "clerk",
@@ -1524,6 +1620,8 @@
     {
       "business_id": "biz_george_holsman",
       "business_name": "George Holsman",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "tailor_shop",
       "reads_as": "a tailoring establishment",
       "role": "tailor",
@@ -1551,6 +1649,8 @@
     {
       "business_id": "biz_harmon_loomis_co",
       "business_name": "Harmon, Loomis & Co.",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "dry_goods_store",
       "reads_as": "a dry-goods store",
       "role": "clerk",
@@ -1578,6 +1678,8 @@
     {
       "business_id": "biz_hiram_pearsons",
       "business_name": "Hiram Pearsons",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "dry_goods_store",
       "reads_as": "a dry-goods store",
       "role": "clerk",
@@ -1605,6 +1707,8 @@
     {
       "business_id": "biz_ingersoll_s_tavern_stand",
       "business_name": "Ingersoll's tavern stand",
+      "division": "west",
+      "division_basis": "committed premises district",
       "establishment_class": "tavern_or_hotel",
       "reads_as": "a tavern or hotel",
       "role": "domestic",
@@ -1632,6 +1736,8 @@
     {
       "business_id": "biz_ingersoll_s_tavern_stand",
       "business_name": "Ingersoll's tavern stand",
+      "division": "west",
+      "division_basis": "committed premises district",
       "establishment_class": "tavern_or_hotel",
       "reads_as": "a tavern or hotel",
       "role": "labourer",
@@ -1659,6 +1765,8 @@
     {
       "business_id": "biz_ingersoll_s_tavern_stand",
       "business_name": "Ingersoll's tavern stand",
+      "division": "west",
+      "division_basis": "committed premises district",
       "establishment_class": "tavern_or_hotel",
       "reads_as": "a tavern or hotel",
       "role": "tavern_keeper",
@@ -1686,6 +1794,8 @@
     {
       "business_id": "biz_j_b_brown_dearborn_street_grocery",
       "business_name": "J. B. Brown, Dearborn Street grocery",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "grocery_and_provision_store",
       "reads_as": "a grocery and provision store",
       "role": "clerk",
@@ -1713,6 +1823,8 @@
     {
       "business_id": "biz_j_h_kinzie_merchant",
       "business_name": "J. H. Kinzie, merchant",
+      "division": "south",
+      "division_basis": "committed premises district",
       "establishment_class": "lumber_yard",
       "reads_as": "a lumber yard",
       "role": "labourer",
@@ -1740,6 +1852,8 @@
     {
       "business_id": "biz_j_k_botsford",
       "business_name": "J. K. Botsford",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "grocery_and_provision_store",
       "reads_as": "a grocery and provision store",
       "role": "clerk",
@@ -1767,6 +1881,8 @@
     {
       "business_id": "biz_j_k_botsford_tin_sheet_iron_and_copper_factory",
       "business_name": "J. K. Botsford, Tin, Sheet Iron and Copper Factory",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "tinner_shop",
       "reads_as": "a tin and copper manufactory",
       "role": "tinsmith",
@@ -1794,6 +1910,8 @@
     {
       "business_id": "biz_j_k_botsford_tin_sheet_iron_and_copper_factory",
       "business_name": "J. K. Botsford, Tin, Sheet Iron and Copper Factory",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "tinner_shop",
       "reads_as": "a tin and copper manufactory",
       "role": "tinsmith",
@@ -1821,6 +1939,8 @@
     {
       "business_id": "biz_j_l_wilson_co",
       "business_name": "J. L. Wilson & Co.",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "dry_goods_store",
       "reads_as": "a dry-goods store",
       "role": "clerk",
@@ -1848,6 +1968,8 @@
     {
       "business_id": "biz_j_wright_merchant",
       "business_name": "J. Wright, merchant",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "lumber_yard",
       "reads_as": "a lumber yard",
       "role": "labourer",
@@ -1875,6 +1997,8 @@
     {
       "business_id": "biz_john_bates_jr",
       "business_name": "John Bates, Jr.",
+      "division": "south",
+      "division_basis": "committed premises district",
       "establishment_class": "auction_and_commission_room",
       "reads_as": "an auction and commission room",
       "role": "clerk",
@@ -1902,6 +2026,8 @@
     {
       "business_id": "biz_john_h_kinzie",
       "business_name": "John H. Kinzie",
+      "division": "south",
+      "division_basis": "committed premises district",
       "establishment_class": "forwarding_and_warehouse",
       "reads_as": "a forwarding and commission house",
       "role": "clerk",
@@ -1929,6 +2055,8 @@
     {
       "business_id": "biz_john_h_kinzie",
       "business_name": "John H. Kinzie",
+      "division": "south",
+      "division_basis": "committed premises district",
       "establishment_class": "forwarding_and_warehouse",
       "reads_as": "a forwarding and commission house",
       "role": "labourer",
@@ -1956,6 +2084,8 @@
     {
       "business_id": "biz_john_holbrook",
       "business_name": "John Holbrook",
+      "division": "south",
+      "division_basis": "committed premises district",
       "establishment_class": "dry_goods_store",
       "reads_as": "a dry-goods store",
       "role": "clerk",
@@ -1983,6 +2113,8 @@
     {
       "business_id": "biz_john_s_kinzie_forwarding_and_commission_merchant",
       "business_name": "John S. Kinzie, forwarding and commission merchant",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "forwarding_and_warehouse",
       "reads_as": "a forwarding and commission house",
       "role": "clerk",
@@ -2010,6 +2142,8 @@
     {
       "business_id": "biz_john_s_kinzie_forwarding_and_commission_merchant",
       "business_name": "John S. Kinzie, forwarding and commission merchant",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "forwarding_and_warehouse",
       "reads_as": "a forwarding and commission house",
       "role": "labourer",
@@ -2037,6 +2171,8 @@
     {
       "business_id": "biz_john_wright",
       "business_name": "John Wright",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "dry_goods_store",
       "reads_as": "a dry-goods store",
       "role": "clerk",
@@ -2064,6 +2200,8 @@
     {
       "business_id": "biz_jones_king",
       "business_name": "Jones & King",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "hardware_or_stove_store",
       "reads_as": "a hardware or stove store",
       "role": "clerk",
@@ -2091,6 +2229,8 @@
     {
       "business_id": "biz_kinzie_forsyth",
       "business_name": "Kinzie & Forsyth",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "dry_goods_store",
       "reads_as": "a dry-goods store",
       "role": "clerk",
@@ -2118,6 +2258,8 @@
     {
       "business_id": "biz_kinzie_hall",
       "business_name": "Kinzie & Hall",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "dry_goods_store",
       "reads_as": "a dry-goods store",
       "role": "clerk",
@@ -2145,6 +2287,8 @@
     {
       "business_id": "biz_l_g_curtiss",
       "business_name": "L. G. Curtiss",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "surveyor_office",
       "reads_as": "a surveyor's office",
       "role": "labourer",
@@ -2172,6 +2316,8 @@
     {
       "business_id": "biz_l_w_montgomery_boot_and_shoe_maker",
       "business_name": "L. W. Montgomery, boot and shoe maker",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "shoemaker_shop",
       "reads_as": "a boot and shoe shop",
       "role": "shoemaker",
@@ -2199,6 +2345,8 @@
     {
       "business_id": "biz_new_york_clothing_store",
       "business_name": "New York Clothing Store",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "dry_goods_store",
       "reads_as": "a dry-goods store",
       "role": "clerk",
@@ -2226,6 +2374,8 @@
     {
       "business_id": "biz_noble_wesencraft",
       "business_name": "Noble & Wesencraft",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "mill",
       "reads_as": "a mill",
       "role": "sawyer",
@@ -2253,6 +2403,8 @@
     {
       "business_id": "biz_p_f_peck",
       "business_name": "P. F. Peck",
+      "division": "south",
+      "division_basis": "committed premises district",
       "establishment_class": "dry_goods_store",
       "reads_as": "a dry-goods store",
       "role": "clerk",
@@ -2280,6 +2432,8 @@
     {
       "business_id": "biz_peter_cohen",
       "business_name": "Peter Cohen",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "dry_goods_store",
       "reads_as": "a dry-goods store",
       "role": "clerk",
@@ -2307,6 +2461,8 @@
     {
       "business_id": "biz_peter_cohen_s_store",
       "business_name": "Peter Cohen's store",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "dry_goods_store",
       "reads_as": "a dry-goods store",
       "role": "clerk",
@@ -2334,6 +2490,8 @@
     {
       "business_id": "biz_r_a_kinzie",
       "business_name": "R. A. Kinzie",
+      "division": "west",
+      "division_basis": "committed premises district",
       "establishment_class": "dry_goods_store",
       "reads_as": "a dry-goods store",
       "role": "clerk",
@@ -2361,6 +2519,8 @@
     {
       "business_id": "biz_riggs_humphrey",
       "business_name": "Riggs & Humphrey",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "wood_trades_shop",
       "reads_as": "a joiner's or carriage maker's shop",
       "role": "joiner",
@@ -2388,6 +2548,8 @@
     {
       "business_id": "biz_riggs_humphrey",
       "business_name": "Riggs & Humphrey",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "wood_trades_shop",
       "reads_as": "a joiner's or carriage maker's shop",
       "role": "joiner",
@@ -2415,6 +2577,8 @@
     {
       "business_id": "biz_rockwell_cabinet_furniture_warehouse",
       "business_name": "Rockwell, cabinet furniture warehouse",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "wood_trades_shop",
       "reads_as": "a joiner's or carriage maker's shop",
       "role": "joiner",
@@ -2442,6 +2606,8 @@
     {
       "business_id": "biz_rockwell_cabinet_furniture_warehouse",
       "business_name": "Rockwell, cabinet furniture warehouse",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "wood_trades_shop",
       "reads_as": "a joiner's or carriage maker's shop",
       "role": "joiner",
@@ -2469,6 +2635,8 @@
     {
       "business_id": "biz_s_b_cobb_saddle_harness_and_trunk_manufactory",
       "business_name": "S. B. Cobb, saddle, harness and trunk manufactory",
+      "division": "west",
+      "division_basis": "committed premises district",
       "establishment_class": "leather_shop",
       "reads_as": "a saddler's and harness maker's shop",
       "role": "harness_maker",
@@ -2496,6 +2664,8 @@
     {
       "business_id": "biz_s_dewey",
       "business_name": "S. Dewey",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "wood_trades_shop",
       "reads_as": "a joiner's or carriage maker's shop",
       "role": "joiner",
@@ -2523,6 +2693,8 @@
     {
       "business_id": "biz_s_dewey",
       "business_name": "S. Dewey",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "wood_trades_shop",
       "reads_as": "a joiner's or carriage maker's shop",
       "role": "joiner",
@@ -2550,6 +2722,8 @@
     {
       "business_id": "biz_s_lincoln",
       "business_name": "S. Lincoln",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "tailor_shop",
       "reads_as": "a tailoring establishment",
       "role": "tailor",
@@ -2577,6 +2751,8 @@
     {
       "business_id": "biz_the_chicago_american_newspaper_and_job_printing_office",
       "business_name": "the Chicago American, newspaper and job printing office",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "printing_office",
       "reads_as": "a printing office",
       "role": "printer",
@@ -2604,6 +2780,8 @@
     {
       "business_id": "biz_the_chicago_american_newspaper_and_job_printing_office",
       "business_name": "the Chicago American, newspaper and job printing office",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "printing_office",
       "reads_as": "a printing office",
       "role": "printer",
@@ -2631,6 +2809,8 @@
     {
       "business_id": "biz_the_chicago_democrat",
       "business_name": "The Chicago Democrat",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "printing_office",
       "reads_as": "a printing office",
       "role": "printer",
@@ -2658,6 +2838,8 @@
     {
       "business_id": "biz_the_chicago_democrat",
       "business_name": "The Chicago Democrat",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "printing_office",
       "reads_as": "a printing office",
       "role": "printer",
@@ -2685,6 +2867,8 @@
     {
       "business_id": "biz_the_livery_stable_at_the_point",
       "business_name": "the Livery Stable at the Point",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "livery_stable",
       "reads_as": "a livery stable",
       "role": "labourer",
@@ -2712,6 +2896,8 @@
     {
       "business_id": "biz_the_livery_stable_at_the_point",
       "business_name": "the Livery Stable at the Point",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "livery_stable",
       "reads_as": "a livery stable",
       "role": "labourer",
@@ -2739,6 +2925,8 @@
     {
       "business_id": "biz_the_lumber_yard_and_warehouse_announced_for_the_opening_of_navigation_1834",
       "business_name": "the lumber yard and warehouse announced for the opening of navigation, 1834",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "lumber_yard",
       "reads_as": "a lumber yard",
       "role": "labourer",
@@ -2766,6 +2954,8 @@
     {
       "business_id": "biz_the_man_trap",
       "business_name": "the Man Trap",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "bakery",
       "reads_as": "a bakery",
       "role": "baker",
@@ -2793,6 +2983,8 @@
     {
       "business_id": "biz_the_new_store_at_the_corner_of_water_and_clark_streets",
       "business_name": "the New Store at the corner of Water and Clark streets",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "dry_goods_store",
       "reads_as": "a dry-goods store",
       "role": "clerk",
@@ -2820,6 +3012,8 @@
     {
       "business_id": "biz_the_stove_and_tin_ware_store_in_water_street_near_the_bridge",
       "business_name": "the stove and tin ware store in Water Street near the bridge",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "hardware_or_stove_store",
       "reads_as": "a hardware or stove store",
       "role": "clerk",
@@ -2847,6 +3041,8 @@
     {
       "business_id": "biz_the_traveller_s_home",
       "business_name": "the Traveller's Home",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "tavern_or_hotel",
       "reads_as": "a tavern or hotel",
       "role": "domestic",
@@ -2874,6 +3070,8 @@
     {
       "business_id": "biz_the_traveller_s_home",
       "business_name": "the Traveller's Home",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "tavern_or_hotel",
       "reads_as": "a tavern or hotel",
       "role": "labourer",
@@ -2901,6 +3099,8 @@
     {
       "business_id": "biz_the_traveller_s_home",
       "business_name": "the Traveller's Home",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "tavern_or_hotel",
       "reads_as": "a tavern or hotel",
       "role": "tavern_keeper",
@@ -2928,6 +3128,8 @@
     {
       "business_id": "biz_thos_emerson_co",
       "business_name": "Thos. Emerson & Co.",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "livery_stable",
       "reads_as": "a livery stable",
       "role": "labourer",
@@ -2955,6 +3157,8 @@
     {
       "business_id": "biz_tin_sheet_iron_and_stove_manufactory_proprietor_not_recovered",
       "business_name": "[tin, sheet iron and stove manufactory, proprietor not recovered]",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "tinner_shop",
       "reads_as": "a tin and copper manufactory",
       "role": "tinsmith",
@@ -2982,6 +3186,8 @@
     {
       "business_id": "biz_tin_sheet_iron_and_stove_manufactory_proprietor_not_recovered",
       "business_name": "[tin, sheet iron and stove manufactory, proprietor not recovered]",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "tinner_shop",
       "reads_as": "a tin and copper manufactory",
       "role": "tinsmith",
@@ -3009,6 +3215,8 @@
     {
       "business_id": "biz_uncertain_datid_gad_auction_and_commission_merchant_south_water_street",
       "business_name": "[uncertain: DATID GAD], auction and commission merchant, South Water Street",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "auction_and_commission_room",
       "reads_as": "an auction and commission room",
       "role": "clerk",
@@ -3036,6 +3244,8 @@
     {
       "business_id": "biz_uncertain_j_i_mulford_carriage_and_sleigh_maker",
       "business_name": "[uncertain: J. I. Mulford], carriage and sleigh maker",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "wood_trades_shop",
       "reads_as": "a joiner's or carriage maker's shop",
       "role": "joiner",
@@ -3063,6 +3273,8 @@
     {
       "business_id": "biz_uncertain_j_i_mulford_carriage_and_sleigh_maker",
       "business_name": "[uncertain: J. I. Mulford], carriage and sleigh maker",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "wood_trades_shop",
       "reads_as": "a joiner's or carriage maker's shop",
       "role": "joiner",
@@ -3090,6 +3302,8 @@
     {
       "business_id": "biz_unnamed_hat_manufacturer_dealer",
       "business_name": "[unnamed] hat manufacturer & dealer",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "leather_shop",
       "reads_as": "a saddler's and harness maker's shop",
       "role": "harness_maker",
@@ -3117,6 +3331,8 @@
     {
       "business_id": "biz_unnamed_new_store_la_salle_street",
       "business_name": "[unnamed] New Store, La Salle street",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "dry_goods_store",
       "reads_as": "a dry-goods store",
       "role": "clerk",
@@ -3144,6 +3360,8 @@
     {
       "business_id": "biz_w_h_brown",
       "business_name": "W. H. Brown",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "grocery_and_provision_store",
       "reads_as": "a grocery and provision store",
       "role": "clerk",
@@ -3171,6 +3389,8 @@
     {
       "business_id": "biz_w_h_taylor",
       "business_name": "[W. H.] Taylor",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "shoemaker_shop",
       "reads_as": "a boot and shoe shop",
       "role": "shoemaker",
@@ -3198,6 +3418,8 @@
     {
       "business_id": "biz_w_keeney",
       "business_name": "W. Keeney",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "tinner_shop",
       "reads_as": "a tin and copper manufactory",
       "role": "tinsmith",
@@ -3225,6 +3447,8 @@
     {
       "business_id": "biz_w_keeney",
       "business_name": "W. Keeney",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "tinner_shop",
       "reads_as": "a tin and copper manufactory",
       "role": "tinsmith",
@@ -3252,6 +3476,8 @@
     {
       "business_id": "biz_w_kimball",
       "business_name": "W. Kimball",
+      "division": "south",
+      "division_basis": "committed premises district",
       "establishment_class": "dry_goods_store",
       "reads_as": "a dry-goods store",
       "role": "clerk",
@@ -3279,6 +3505,8 @@
     {
       "business_id": "biz_w_kimball_s_new_store",
       "business_name": "W. Kimball's New Store",
+      "division": "south",
+      "division_basis": "committed premises district",
       "establishment_class": "dry_goods_store",
       "reads_as": "a dry-goods store",
       "role": "clerk",
@@ -3306,6 +3534,8 @@
     {
       "business_id": "biz_w_montgomery",
       "business_name": "W. Montgomery",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "auction_and_commission_room",
       "reads_as": "an auction and commission room",
       "role": "clerk",
@@ -3333,6 +3563,8 @@
     {
       "business_id": "biz_w_reed",
       "business_name": "W. Reed",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "wood_trades_shop",
       "reads_as": "a joiner's or carriage maker's shop",
       "role": "joiner",
@@ -3360,6 +3592,8 @@
     {
       "business_id": "biz_w_reed",
       "business_name": "W. Reed",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "wood_trades_shop",
       "reads_as": "a joiner's or carriage maker's shop",
       "role": "joiner",
@@ -3387,6 +3621,8 @@
     {
       "business_id": "biz_wm_h_taylor_boot_shoe_leather_store",
       "business_name": "Wm. H. Taylor, Boot, Shoe & Leather Store",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "shoemaker_shop",
       "reads_as": "a boot and shoe shop",
       "role": "shoemaker",
@@ -3414,6 +3650,8 @@
     {
       "business_id": "biz_wm_sabine_storage_forwarding_and_commission_merchant",
       "business_name": "Wm. Sabine, storage, forwarding and commission merchant",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "forwarding_and_warehouse",
       "reads_as": "a forwarding and commission house",
       "role": "clerk",
@@ -3441,6 +3679,8 @@
     {
       "business_id": "biz_wm_sabine_storage_forwarding_and_commission_merchant",
       "business_name": "Wm. Sabine, storage, forwarding and commission merchant",
+      "division": null,
+      "division_basis": "no single committed civil division for these premises",
       "establishment_class": "forwarding_and_warehouse",
       "reads_as": "a forwarding and commission house",
       "role": "labourer",

@@ -406,7 +406,7 @@
       "relation": "lodged here",
       "why": "This group was reconstructed using an earlier estimate of 12 ordinary-night beds. The current estimate is 17, or 35 when crowded. Revising that estimate does not identify different residents. Their lodging here remains reconstructed; dated evidence can replace this allocation.",
       "sources": [],
-      "basis": "A CONTAINER, NOT A FAMILY. `data/residents/` cannot carry a person outside a household, and the people who boarded in one house were not kin. This record holds the beds of one house and claims no relation between the people in them beyond the roof.",
+      "basis": "A storage container for unrelated lodgers and expressly modeled kin groups. Sharing this card implies no kinship: every child names their own modeled parent, who may hold a separate source household card at this same roof.",
       "persons": [
         {
           "name": "Mary Fisk",
@@ -442,6 +442,55 @@
           "grade": "reconstructed",
           "occupation": "",
           "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 12 ordinary-night beds here (the current model reports 17) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Warren Thayer",
+          "relationship": "lodger",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 12 ordinary-night beds here (the current model reports 17) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "George Wadsworth",
+          "relationship": "lodger",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 12 ordinary-night beds here (the current model reports 17) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Michael Mahoney",
+          "relationship": "lodger",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the committed allocation basis assigned 12 ordinary-night beds here (the current model reports 17) and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a lodger. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Lydia Ingalls",
+          "relationship": "daughter",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. A supplementary child of Maria Ingalls, an anonymous reconstructed adult lodger, under the unchanged crowded capacity of their shared sleeping roof. Parentage is explicitly modeled. The name is drawn from the existing pool; no source names this family."
+        },
+        {
+          "name": "Victoire Bourassa",
+          "relationship": "daughter",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. A supplementary child of Louis Bourassa, an anonymous reconstructed adult lodger, under the unchanged crowded capacity of their shared sleeping roof. Parentage is explicitly modeled. The name is drawn from the existing pool; no source names this family."
+        },
+        {
+          "name": "Marie Bourassa",
+          "relationship": "daughter",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. A supplementary child of Louis Bourassa, an anonymous reconstructed adult lodger, under the unchanged crowded capacity of their shared sleeping roof. Parentage is explicitly modeled. The name is drawn from the existing pool; no source names this family."
+        },
+        {
+          "name": "Archange Bourassa",
+          "relationship": "daughter",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. A supplementary child of Louis Bourassa, an anonymous reconstructed adult lodger, under the unchanged crowded capacity of their shared sleeping roof. Parentage is explicitly modeled. The name is drawn from the existing pool; no source names this family."
         }
       ],
       "research_note": "WRITTEN BY tools/seat_lodgers_1835.py (T-1371, of T-1175), the `lodgers` stage of the 1835 resident reconstruction programme. This file is NOT research and is not a mint output: data/residents/households/ is re-derived by the mint writers and data/residents/index.json is derived from that directory, so a reconstruction lives here instead and is overlaid onto the scene by tools/compile_scene.py. docs/LIBERTIES.md carries the invention."
@@ -597,7 +646,7 @@
     }
   ],
   "research_note": "CURRENT RECONSTRUCTED ROOF TONE: the named hotel now chooses the existing dark-brown stock colour as an appearance proxy to the dark roof/light walls in the monochrome Gifford view. Brown pigment, actual weather-blackening, age and damage are not attested. All affected roof material vertices retain reconstructed confidence. Roof geometry, flag, dates and geography are unchanged; comparisons remain differs.\n\nCURRENT RECONSTRUCTED ARCH NAME: the opaque panel now carries a consciously reconstructed TREMONT in light stroke capitals. The actual native Gifford marks do not independently resolve that full inscription; the word comes from the known house identity. All new glyph vertices are reconstructed, with font, pigment, dimensions, station and dated presence explicitly uncertain. Actual before/after comparison shows added light marks but still differs; no accepted match or historical transcription is claimed.\n\nCURRENT T-3055 INTEGRATION: this working first-Tremont model now has three unequal floor divisions (3.1/2.35/2.35 m within 7.8 m total walls), a reconstructed 32-degree roof, opaque arched gable panels without radial glazing or invented lettering, plain entry outlines, raised landings and a roof spar. The application flag layer uses an explicit phase/date-local anchor to display reconstructed cloth, with the 24-star pattern bounded through 1836-07-03. These changes follow the attributed owner-approved Gifford reference; they do not establish the exact July 1835 fitting dates, historical colours or metric dimensions. All provisional comparisons still differ, including the flag's wind pose. The original picture-match case remains open.\n\nHISTORICAL SECOND-PROPOSAL RESEARCH SNAPSHOT (its cloth-attachment/glazing status is superseded above):\nSECOND T-2385 ISOLATED PROPOSAL: visible arched gable feature, raised entrances, roof staff and four offset stack silhouettes are being reconstructed toward Gifford; the retained envelope and source limits remain. The arched feature's glazing/lettering interpretation and flag-cloth renderer attachment are unresolved. No image match or dated alteration is asserted.\n\nT-2385 CURRENT PICTURE-BASED READING: the actual owner-approved Gifford drawing visibly depicts three storeys and shuttered three/five-bay elevations. Form now follows it as an explicitly retrospective inference, while metric height and unpictured details remain reconstructed. Geographic placement and footprint are unchanged. The pictured three-storey reading and the project's Saloon Building first-three-storey shorthand remain in tension: Gifford is undated within 1833-1839, so it does not settle construction sequence. Saloon remains excluded for its documented 1836 date; no exclusion or dated historical statement is rewritten here. The historical text-only argument below is retained as SUPERSEDED on the two-storey choice, not erased; the drawing still does not settle a feature-by-feature date within 1833-1839.\n\nSUPERSEDED TEXT-ONLY STOREY INTERPRETATION:\nTHE GUARD ON THIS RECORD IS ITS STOREY COUNT, and it is a clean example of how a modern compilation manufactures a fact. chicagology_prefire021 prints, with no typographic break between them, an uncredited editorial summary, a passage of Chicago Illustrated (January 1866) and a reader's letter to the Chicago Tribune of 2 February 1874. The two period texts describe 'a wooden structure' and 'an unpretending frame structure' and count no storeys. The uncredited sentence says 'a three-story wooden building', and that sentence - one modern editor, no source - is where every three-storey Tremont of 1833 comes from, including Wikipedia's and including this project's own dossier, which cites 'chicagology and Wikipedia' as though they were two witnesses. Andreas, the fullest account, gives the building a builder, a corner, a material, four proprietors and a death date, and no height. The record therefore carries two storeys, tagged conjectural, with the three-storey reading argued against on the record rather than dropped. THE SAME PAGE'S HEADER IS WORSE AND MUST NOT BE READ: it gives 'SE corner of Lake and Dearborn Streets' and 'Architect: John M. Van Osdel', both of which belong to the LATER Tremonts, and it contradicts all three body texts on the corner. Andreas independently confirms the move, since the house begun in December 1839 stood 'on the corner where the present Tremont stands'. WHAT IS SOLIDLY ATTESTED, and it is not much: the north-west corner of Lake and Dearborn (three times), frame construction (three times), built 1833 by Alanson Sweet, Ira Couch proprietor from 1834, burned 27 October 1839 with seventeen other buildings, and Couch's own description of what he took over - 'a mere shell, without any sidewalk around it, and poorly furnished, as none of the rooms were entirely carpeted, little pieces in front of the bed being considered sufficient for anyone; and very many of the beds were minus one pleasant luxury, a pillow.' A USEFUL SCENE-LEVEL CHECK ON THIS PARCEL: the Chicago American of 15 August 1835, quoted by Andreas, counts the town's stock six weeks after the scene date - 'There are now upward of fifty business houses, four large forwarding-houses, EIGHT TAVERNS, two printing offices, two book-stores, one steam saw-mill, one brewery, one furnace (just going up), and twenty-five mechanics' shops of all kinds.' With this record, the Mansion House and the Exchange Coffee House added, the dataset holds exactly eight public houses for 1835 - Sauganash, Green Tree, Western, Wolf Point, Steamboat, Tremont, Mansion House, Exchange - which is a corroboration of the parcel as a whole rather than of any building in it. See docs/RESEARCH/tremont_house_1.md. THE PLAIN NAME IS CARRIED AS AN AKA (T-0406), because the printed corpus does not use the disambiguator this record is titled with. 'the Tremont House' is what the Chicago Democrat prints - it is the anchor of six advertisements in the gazetteer - and the register resolves an anchor against the committed town by WHOLE-SET equality of identity-bearing words, deliberately, so that 'the store' cannot land on the first store in the town. 'Tremont House (the first)' reduces to {tremont, house, first} and the printed anchor to {tremont, house}, so the two sets were not equal and the register reported that a building this project models, places at the north-west corner of Lake and Dearborn and draws named nothing the town holds. The '(the first)' in the NAME stays, and stays load-bearing: there was a second Tremont House, begun December 1839 on the corner where the later house stood, and nothing here is a statement that any successor stands in 1835 - the successor is not a committed record at all. The aka is the plain form only, and it still matches whole: 'the Tremont House' resolves here, 'Tremont' alone does not.\n\nPICTURE-PRIORITY READING, 2026-10-26: Gifford is the distinct whole-building picture and visibly shows three storeys with shutters. Gale 1902 p51 is TEXT, not a second picture: its smaller two-storey description remains contrary evidence and is represented by the optional gale-reading version. The pictured canonical form and existing reconstructed dimensions/placement are retained, with Gale's compatible yellow colour adopted as inferred. Neither source supplies a dated enlargement or proves every detail on1July1835. Stock yellow/trim tones remain liberties; the drawing is monochrome.",
-  "research_doc": "docs/RESEARCH/tremont_house_1.md",
+  "research_doc": "",
   "review_required": false,
   "lodging": {
     "class": "inn_tavern",
@@ -610,10 +659,10 @@
     "note": "The town model puts an inn or tavern at 9 people on an ordinary night and 35 when full, from the 1840 household tail (p90 and max of 964 Chicago households). This building takes the share of its class's total that its 418 m² of enclosed floor (139 m² × 3 storeys) is of the class's floor area.",
     "replaceable_by": "Any source that states this house's rooms, beds or lodgers on a dated day: an advertisement counting its rooms, a traveller's account of how many it slept, a licence return. A stated capacity retires the apportioned one outright.",
     "occupancy": {
-      "people": 12,
+      "people": 15,
       "beds_ordinary": 17,
-      "empty": 5,
-      "statement": "12 on this card against an ordinary night's 17 beds: 2 the residents layer already housed here, 5 seated here from elsewhere in the layer, where no source gives them a roof, 5 drawn against the order book's lodging buckets for beds that were standing empty.",
+      "empty": 2,
+      "statement": "15 on this card against an ordinary night's 17 beds: 2 the residents layer already housed here, 5 seated here from elsewhere in the layer, where no source gives them a roof, 8 drawn against the order book's lodging buckets for beds that were standing empty.",
       "empty_note": "",
       "keeper_persons": 2,
       "keeper_owed": ""

@@ -6556,6 +6556,27 @@ pending; this source checkpoint does not close the ticket or claim an after-stat
 
 - T-2484 advanced through actual native adoption and seven canonical house+green picture Matches (2026-11-10, PR1919); 81nativecontrols and961+6foreigns exact. Four safe reconstructed north/south poplar stations now clear the existing4.5m house exclusion. Remaining acceptance is actual published six-tree/household desktop/defaultphone Normal/ByGrade/source-card review plus current required checks and ordinary dev merge. No new photo follow-up.
 
+
+### 2026-11-10 — T-2023 remainder diagnostics
+
+The live order and the frozen room now have separate readings. Preserve existing people and assignments while reconciling household units, shared-roof occupancy and physical residential stock. Staffing payments now refuse a different or unknown civil division. The three-youth candidate exposed the old greedy housing redeal and is held outside this delivery until the carried housing extension is validated.
+
+
+### 2026-11-10 — T-2023 finite lodging reconciliation
+
+The source derivation now pays all 13 live lodging-person orders and all 34 missing
+household-unit receipts: 56 explicit R economies plus 20 known-house receipts, 368
+disjoint member IDs, with a global 165-house exclusive accounting crosswalk. It
+preserves all 157 original person records, 52 prior layer seats and 1,807 accepted
+housing roofs; two additional existing North adults take real Steamboat vacancies.
+Six already-standing upper residences correct the dwelling inventory 415→421; 3,452
+people remain below the unchanged 8.204 census ratio. A single explicitly exceptional
+West youth night stays inside Clinton H3's unchanged full 26 capacity. Seven older
+whole-roof excesses remain disclosed and receive no new admissions. Full bounds,
+R secondary uses, refusal receipts and caveats are in
+`RESEARCH/1835_lodging_remainder_2023.md`. PR1920 remains in review until protected
+checks and the published walkthrough verification finish; this entry is a public
+checkpoint, not a premature ticket closure.
 ### 2026-11-10 — T-3341 early masonry surface increment
 
 The remaining flat brick and chimney materials in 1812 and 1835 now bind the existing procedural brick or clay sheet by their recorded disposition. Already mapped fort recipes and 1904 materials are retained. The new brick shuffle reads the library's 20 by 48 running bond; Miller's mixed native stack primitive is partitioned without losing triangles or confidence. Actual desktop/default-phone before-and-after surfaces pass in both scenes (28 directly reviewed frames and two detail roundtrips). Official boot passes at 44.716135 MiB of 44.9; unchanged phone-memory gates pass at 305.664622 MiB of 350 (1812) and 509.227699 MiB of 550 (1835). All eight source-check parts and their aggregate pass on runtime `cab4514539`; PR #1918 records final protected-check and dev-merge state. See docs/RESEARCH/early-masonry-3341.md and L-early-masonry-surfaces-3341.
