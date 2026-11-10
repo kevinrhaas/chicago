@@ -19,6 +19,7 @@ import numpy as np
 
 from check_near import read, values, component, world_nodes
 from check_mid import bind_parts
+from sampled_sat import separation_batch, BATCH_CAP
 
 CLOSED_WORLD_POSITION_TOLERANCE_M = 2e-7
 CUT_SURFACE_AREA_TOLERANCE_M2 = 2e-6
@@ -47,6 +48,16 @@ def separation(a, b):
 def turn(tri, angle):
     c, s = math.cos(angle), math.sin(angle)
     return tri @ np.array([[c, 0, -s], [0, 1, 0], [s, 0, c]])
+
+
+def sampled_pair_batches(posed, fixed, candidates, tolerance):
+    """Only the sampled inner loop; native fixed-index order is unchanged."""
+    for start in range(0, len(candidates), BATCH_CAP):
+        indices = candidates[start:start + BATCH_CAP]
+        gaps, diagnostics = separation_batch(
+            np.broadcast_to(posed, (len(indices), 3, 3)), fixed[indices],
+            scalar=separation, decision_thresholds=tolerance)
+        yield indices, gaps, diagnostics
 
 
 def interval_clear(moving, fixed, start, end, depth, tolerance):
@@ -388,9 +399,10 @@ def check(args):
         'recipe_sha256': sha(args.recipe), 'source_receipt_sha256': sha(args.source_receipt),
         'checker_sha256': sha(Path(__file__)),
         'source_file_sha256': {name: sha(Path(__file__).with_name(name)) for name in [
-            'door_aperture.py', 'check_door_aperture.py', 'door-aperture.json', 'check_near.py', 'check_mid.py']},
+            'door_aperture.py', 'check_door_aperture.py', 'door-aperture.json', 'check_near.py', 'check_mid.py', 'sampled_sat.py']},
         'settings': {'max_interval_depth': args.max_depth, 'tolerance_m': args.tolerance,
-                     'sample_count': 15, 'fixed_surface_exemptions': []},
+                     'sample_count': 15, 'fixed_surface_exemptions': [],
+                     'sampled_only_diagnostic': args.sampled_only, 'sampled_batch_cap': BATCH_CAP},
         'sampled_angles_completed': [], 'interval_counts': {},
         'sweep_qualification_complete': False, 'final_PASS': False}
 
@@ -411,6 +423,9 @@ def check(args):
     recipe, doc, binary, protected, triangles, moving, labels, mobile, fixed = data
     flo, fhi = fixed.min(axis=1), fixed.max(axis=1)
     sampled, failures = [], []
+    sampled_batch_totals = {'batches': 0, 'pairs': 0, 'scalar_fallback_rows': 0,
+                            'axis_cutoff_ambiguous_rows': 0, 'decision_ambiguous_rows': 0,
+                            'owned_workspace_upper_bound_bytes': 0}
     total_angle = math.radians(recipe['open_angle_deg'])
     save_progress(phase='SAMPLED_SURFACES', sampled_angles_requested_deg=[float(math.degrees(a)) for a in np.linspace(0, total_angle, 15)])
     # The old 15-angle evidence is a method reference only; every row here is
@@ -424,9 +439,16 @@ def check(args):
             candidates = np.flatnonzero(np.all(fhi >= posed.min(axis=0) - args.tolerance, axis=1)
                                         & np.all(flo <= posed.max(axis=0) + args.tolerance, axis=1))
             broadphase_pairs += len(candidates)
-            for k in candidates:
-                if separation(posed, fixed[k]) <= args.tolerance:
-                    hits += 1
+            for indices, gaps, diagnostics in sampled_pair_batches(posed, fixed, candidates, args.tolerance):
+                sampled_batch_totals['batches'] += 1
+                for key in ['pairs', 'scalar_fallback_rows', 'axis_cutoff_ambiguous_rows', 'decision_ambiguous_rows']:
+                    sampled_batch_totals[key] += diagnostics[key]
+                sampled_batch_totals['owned_workspace_upper_bound_bytes'] = max(
+                    sampled_batch_totals['owned_workspace_upper_bound_bytes'], diagnostics['owned_workspace_upper_bound_bytes'])
+                contacts = np.flatnonzero(gaps <= args.tolerance)
+                hits += len(contacts)
+                for local_index in contacts:
+                    k = indices[local_index]
                     if len(failures) < 12:
                         failures.append({'angle_deg': math.degrees(angle), 'fixed_mesh': np.asarray(labels)[~moving][k]})
             moving_completed += 1
@@ -434,11 +456,33 @@ def check(args):
                 save_progress(current_sample={'angle_deg': float(math.degrees(angle)),
                     'moving_triangles_completed': moving_completed, 'moving_triangles_total': len(mobile),
                     'broadphase_pairs': broadphase_pairs, 'triangle_contacts': hits,
-                    'elapsed_s': time.monotonic() - angle_started}, failure_examples=failures)
+                    'elapsed_s': time.monotonic() - angle_started}, failure_examples=failures,
+                    sampled_batch_totals=sampled_batch_totals)
                 last_update = time.monotonic()
         sampled.append({'angle_deg': math.degrees(angle), 'triangle_contacts': hits,
                         'broadphase_pairs': broadphase_pairs, 'seconds': time.monotonic() - angle_started})
-        save_progress(sampled_angles_completed=sampled, current_sample=None, failure_examples=failures)
+        save_progress(sampled_angles_completed=sampled, current_sample=None, failure_examples=failures,
+                      sampled_batch_totals=sampled_batch_totals)
+    if args.sampled_only:
+        contacts = any(row['triangle_contacts'] for row in sampled)
+        result = {'schema': 'chicago-brougham-sampled-pose-diagnostic-v1',
+            'result': 'COMPLETE_WITH_SAMPLED_CONTACTS' if contacts else 'COMPLETE_NO_CONTACTS_AT_REQUESTED_SAMPLES',
+            'structure': structure, 'input_sha256': sha(args.input), 'candidate_sha256': sha(args.candidate),
+            'recipe_sha256': sha(args.recipe), 'source_receipt_sha256': sha(args.source_receipt),
+            'checker_sha256': sha(Path(__file__)), 'sampled_helper_sha256': sha(Path(__file__).with_name('sampled_sat.py')),
+            'all_actual_triangles': len(triangles), 'moving_triangles': int(moving.sum()),
+            'sampled': sampled, 'failure_examples': failures, 'sampled_batch_totals': sampled_batch_totals,
+            'intersection_tolerance_m': args.tolerance, 'max_interval_depth_UNRUN': args.max_depth,
+            'continuous_interval_run': False, 'continuous_surface_separation': False,
+            'PASS': False, 'final_PASS': False, 'boarding': False, 'passenger_fit': False,
+            'scope': 'Fifteen actual discrete poses only; no interval, continuous, visual, fit or delivery qualification.'}
+        args.report.write_text(json.dumps(result, indent=2, allow_nan=False) + '\n')
+        save_progress(state='SAMPLED_DIAGNOSTIC_COMPLETE_NONQUALIFYING', phase='COMPLETE',
+                      continuous_interval_run=False, final_PASS=False, sweep_qualification_complete=False,
+                      final_report_sha256=sha(args.report))
+        # Exit0 only means no contacts at these requested discrete samples.
+        # The explicit diagnostic report can NEVER be used as a full PASS.
+        return not contacts
     unresolved = 0
     interval_started = time.monotonic()
     interval_counts = {'moving_triangles_completed': 0, 'moving_triangles_total': len(mobile),
@@ -477,6 +521,8 @@ def check(args):
               'input_sha256': sha(args.input), 'candidate_sha256': sha(args.candidate),
               'recipe_sha256': sha(args.recipe), 'source_receipt_sha256': sha(args.source_receipt),
               'checker_sha256': sha(Path(__file__)), 'protected_original_occurrences_exact': len(protected),
+              'sampled_helper_sha256': sha(Path(__file__).with_name('sampled_sat.py')),
+              'sampled_batch_totals': sampled_batch_totals,
               'progress_path': str(progress_path), 'interval_counts': interval_counts,
               'all_actual_triangles': len(triangles), 'moving_triangles': int(moving.sum()),
               'sampled': sampled, 'failure_examples': failures, 'unresolved_continuous_pairs': unresolved,
@@ -500,8 +546,9 @@ if __name__ == '__main__':
     cli.add_argument('--max-depth', type=int, default=12)
     cli.add_argument('--progress', type=Path, default=None, help='Fresh atomic source-bound partial progress JSON')
     cli.add_argument('--structure-only', action='store_true', help='Run the same structural prefix; do not execute or qualify sweep')
+    cli.add_argument('--sampled-only', action='store_true', help='DIAGNOSTIC: fifteen poses only; never emits full PASS or runs interval proof')
     cli.add_argument('--tolerance', type=float, default=1e-8)
     args = cli.parse_args()
-    if args.report.exists() or not 0 < args.tolerance <= 1e-8 or not 1 <= args.max_depth <= 16:
+    if args.report.exists() or (args.structure_only and args.sampled_only) or not 0 < args.tolerance <= 1e-8 or not 1 <= args.max_depth <= 16:
         raise ValueError('Fresh report and strict bounded interval settings required')
     raise SystemExit(0 if check(args) else 1)

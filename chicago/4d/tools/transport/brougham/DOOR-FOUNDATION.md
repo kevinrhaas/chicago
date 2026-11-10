@@ -252,3 +252,50 @@ closed-domain check. Full local four-part checks, preflight, hosted exact-head
 checks and published/browser gates remain UNRUN for this source checkpoint.
 All recipe qualification/capability flags remain false. No installed asset,
 standing team, placement, scene, PR, DEV or MAIN change is included.
+
+## Sampled SAT integration checkpoint — partial diagnostic remains NONPASS
+
+`sampled_sat.py` is copied exactly from the reviewed outside-app numerical study,
+SHA256 `7ab5ca807174b3101828483672a94271511a9431d4a04dd5c72bafc63f1d5c93`,
+under GPL-3.0-or-later. Its17-axis construction derives from this project's GPL
+scalar checker archived at `d76c1c7927b383d12298f016daf891c035d510882a9189666a6e9d61245cf419`.
+Only the sampled-pose inner SAT loop uses batches of at most2048 pairs. Candidate
+order, all fixed surfaces, the exact15angles, AABB predicates, first12labels,
+1e-14axis cutoff and1e-8contact tolerance are retained. Near numerical cutoffs or
+the decision threshold, the original scalar function is the authority. The guard
+has measured bounded equivalence evidence, not a universal floating-point proof.
+The original `interval_clear` function and its scalar branches/displacement/depth
+remain byte-identical; no interval acceleration is integrated here.
+
+The outside-app old closed-pose replay matched all93,623candidate pairs,
+1,313contacts and first12labels on the old bad geometry; that old model remains
+NONPASS. The native `test_sampled_sat.py` controls closed in0.616s under the original
+resource guard:15branch/cutoff cases, six scalar fallbacks,2,051ordered candidates
+across the batch boundary, and clear/contact orchestration fixtures that retain
+all15samples, never call interval proof and never emit final PASS. Those mocked
+orchestration fixtures are not actual model/geometry qualification.
+
+`--sampled-only` has a separate diagnostic schema and always records `PASS:false`,
+`final_PASS:false` and continuous proof unrun. An exit0 means only that all requested
+discrete samples completed without contacts; it cannot qualify continuous sweep.
+Default full mode retains the original interval proof after its sampled phase.
+The new standalone numerical controls are not silently registered as a required
+gate; any future registration still needs real write-isolation measurement.
+
+The ONE repaired-near15pose diagnostic hit its original120s limit at120.037s.
+Thirteen poses completed: closed0° still has118contacts;−4.642857° has37;
+−9.285714° has7. The ten completed poses from−13.928571° through−55.714286°
+have0contacts. Pose−60.357143° was interrupted after1,504/2,946moving triangles;
+−65° was not run. The unchanged AABB scan still costs roughly8–10s per pose,
+even with zero candidate pairs. The run examined82,932candidate pairs in2,464
+batches, with no scalar ambiguity fallbacks and maximum reported owned workspace
+3,543,040bytes. Source/mesh hashes stayed unchanged; original resource floors
+passed and cleanup left zero children.
+
+This actual repaired-near attempt is **NONPASS**, with source-bound partial
+progress retained and no final diagnostic report. No mid or interval run followed.
+The remaining118closed contacts need exact part/triangle witnesses before the next
+geometry decision. Clear partial open poses do not supply the missing continuous,
+visual, runtime or delivery acceptance. No automatic retry or cap/threshold change
+is authorized by this checkpoint. All capability/qualification flags remain false;
+full local/hosted/published gates remain UNRUN and no delivery is installed.
