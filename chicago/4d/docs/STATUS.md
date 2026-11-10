@@ -24,8 +24,12 @@ measurement; default-quality menu screenshots were also inspected.
 Focused day-engine, household-interaction (76), passage (109), jaunt-host,
 duties, spacing and multi-era routine tests pass. All four final local check
 partitions pass (323, 323, 323 and 322 checks), as does preflight. The initially
-skipped datum check passes after installing its missing dependency. PR #1922
-remains draft pending final PR checks and the final-runtime published smoke.
+skipped datum check passes after installing its missing dependency. On runtime
+`6f5dfa7de1d9`, the full published smoke passes every stage on both viewports
+(1,655 assertions), and the repository, human-model and performance checks pass.
+One external reference-image request failed in the first desktop 14–15 attempt;
+the unchanged full-stage rerun passes, with the failed reading retained.
+PR #1922 carries the implementation and its verification record.
 Validation also repaired a stale smoke expectation for the brick/clay material
 groups already added by T-3341; strict missing/duplicate/map checks remain.
 See [the verification record](RESEARCH/household-interactions-3536/README.md).

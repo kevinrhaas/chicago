@@ -88,7 +88,8 @@ itself, fix the desktop failure.
 
 After the roster correction, focused day, household (76 checks), passage (109
 checks), jaunt-host, duties, spacing and multi-era routine tests all pass.
-Final PR validation and the final-runtime published smoke are pending.
+The final-runtime published smoke and standard PR checks also pass; their receipts
+follow below.
 
 ## Smoke contract repair found during validation
 
@@ -111,4 +112,35 @@ failures remain in the smoke ledger under their original application tree hash.
 All other original smoke legs passed, including desktop 13 (158 assertions).
 Together with the corrected 7–8 runs, every stage passed on both viewports.
 Those readings precede the final roster fix and retain their candidate hashes;
-the final runtime will receive its own full published smoke run.
+the final runtime received its own full published smoke run, recorded below.
+
+## Final-runtime external image retry
+
+On runtime `6f5dfa7de1d9`, the first desktop 14–15 attempt completed its body
+(164 passes) but failed the zero-page-error assertion because Chromium reported
+`net::ERR_BLOCKED_BY_ORB` for the externally hosted Glessner chimney-cap reference
+thumbnail (`a18-rba-mf-glessner-f30-chimney-caps-thumb.jpg`). The URL probe on
+2026-11-10 at 18:27 UTC returned HTTP 200, `image/jpeg`, 31,175 bytes, and a valid
+480×371 JPEG. The same source revision and the same desktop stages passed unchanged
+in [run 42868344580](https://github.com/kevinrhaas/chicago/actions/runs/42868344580),
+attempt 2 (165 passes, zero page errors). The failed reading remains in the smoke
+ledger; the zero-page-error assertion has not changed.
+
+## Final published validation
+
+Runtime `6f5dfa7de1d915411197023bf2ce680b9e629ab1`, smoke input hash
+`sha256:de159f920dc579d1`: all 15 stages pass on both viewports, 1,655 assertions
+across 16 successful jobs, with zero page errors. The standard PR gate, human-model,
+moving-frame and phone GPU-memory checks also pass on this runtime. Receipt updates
+change documentation and the smoke ledger only; the smoke input hash is unchanged.
+
+| Stages | Desktop 1280×800 | Mobile 390×780 |
+| --- | --- | --- |
+| 1-2 | [198 pass](https://github.com/kevinrhaas/chicago/actions/runs/42868136609) | [198 pass](https://github.com/kevinrhaas/chicago/actions/runs/42868153896) |
+| 3-4 | [136 pass](https://github.com/kevinrhaas/chicago/actions/runs/42868174458) | [139 pass](https://github.com/kevinrhaas/chicago/actions/runs/42868191779) |
+| 5-6 | [37 pass](https://github.com/kevinrhaas/chicago/actions/runs/42868208447) | [41 pass](https://github.com/kevinrhaas/chicago/actions/runs/42868225894) |
+| 7-8 | [48 pass](https://github.com/kevinrhaas/chicago/actions/runs/42868242498) | [48 pass](https://github.com/kevinrhaas/chicago/actions/runs/42868264267) |
+| 9-10 | [45 pass](https://github.com/kevinrhaas/chicago/actions/runs/42868280621) | [45 pass](https://github.com/kevinrhaas/chicago/actions/runs/42868296466) |
+| 11-12 | [37 pass](https://github.com/kevinrhaas/chicago/actions/runs/42868312254) | [37 pass](https://github.com/kevinrhaas/chicago/actions/runs/42868328532) |
+| 13 | [158 pass](https://github.com/kevinrhaas/chicago/actions/runs/42868094947) | [158 pass](https://github.com/kevinrhaas/chicago/actions/runs/42868115593) |
+| 14-15 | [165 pass](https://github.com/kevinrhaas/chicago/actions/runs/42868344580) | [165 pass](https://github.com/kevinrhaas/chicago/actions/runs/42868366683) |
