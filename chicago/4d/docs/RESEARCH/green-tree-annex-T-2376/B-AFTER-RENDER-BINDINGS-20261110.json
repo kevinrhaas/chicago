@@ -1,0 +1,50 @@
+[
+  {
+    "view": "andreas_1838",
+    "native_run": 42758213227,
+    "native_source": "b9c767997c452740c6b690cf2d280d7f75c8c9d5",
+    "retained_native": "6908d896ffba7af2e99d9e5daffd1b49f3f1c9c1",
+    "MASTER_sha256": "114b98c2dc057bbc47f66ce158bc984be438399e0c4984222b93e810d542714f",
+    "camera_sha256": "9439f5f7e6f3138e53328647456d332110948ef8421692f951827e48eb274f6b",
+    "photo_sha256": "bfaa184f9043ea94560eb74e44926c631f06338bc90e6ba54951a610edef119a",
+    "pair": "docs/RESEARCH/photo-match/green_tree_tavern/andreas_1838-side-by-side.jpg",
+    "pair_sha256": "2efd2d4b8e6b22f7b45ec6aa593ab72d835ff4f4a50beae2cccbe4cd19dcebd0",
+    "raw_png": "/tmp/nov10-final-three-native/green-tree-after/raw/andreas_1838-render.png",
+    "raw_sha256": "1940ac76cfed5ff7945dd0c59631769f72b5fe76da2be30df967759f8d2e4b78",
+    "exit_code": 0,
+    "seconds": 1.908,
+    "verdict": "unreviewed"
+  },
+  {
+    "view": "trowbridge_1902",
+    "native_run": 42758213227,
+    "native_source": "b9c767997c452740c6b690cf2d280d7f75c8c9d5",
+    "retained_native": "6908d896ffba7af2e99d9e5daffd1b49f3f1c9c1",
+    "MASTER_sha256": "114b98c2dc057bbc47f66ce158bc984be438399e0c4984222b93e810d542714f",
+    "camera_sha256": "53140e9ceeed8a59a5a0f588d730a0bba18e3eff730da61058ea976f049087b2",
+    "photo_sha256": "4d027d462b37b682d62cfa640083f2688d1b2dd9bba9ca39dc1dc979c2234225",
+    "pair": "docs/RESEARCH/photo-match/green_tree_tavern/trowbridge_1902-side-by-side.jpg",
+    "pair_sha256": "baa7bb1ca083888cf159780e5fd5b80abe4eb8404ed6bdcbc3b5c1df6de2c505",
+    "raw_png": "/tmp/nov10-final-three-native/green-tree-after/raw/trowbridge_1902-render.png",
+    "raw_sha256": "e6dd0e201e394dcd943aceac5fa6cd26a39fb10b07fc1b6d0424b19b3c3a5b31",
+    "exit_code": 0,
+    "seconds": 1.825,
+    "verdict": "unreviewed"
+  },
+  {
+    "view": "kurz_1893_panel11",
+    "native_run": 42758213227,
+    "native_source": "b9c767997c452740c6b690cf2d280d7f75c8c9d5",
+    "retained_native": "6908d896ffba7af2e99d9e5daffd1b49f3f1c9c1",
+    "MASTER_sha256": "114b98c2dc057bbc47f66ce158bc984be438399e0c4984222b93e810d542714f",
+    "camera_sha256": "1f7e255d0ab46b9f0e912fd37d559dd912f79e37c82af2e9fc08ea53fb021b6f",
+    "photo_sha256": "fef7a7b6c46f41319e6937d56156c724640e431c75463a6c27d014928c1c7955",
+    "pair": "docs/RESEARCH/photo-match/green_tree_tavern/kurz_1893_panel11-side-by-side.jpg",
+    "pair_sha256": "553679e8e8c7fc2815e6995f01a1cb351a915a0a9763d9123c9b6d3223ec7931",
+    "raw_png": "/tmp/nov10-final-three-native/green-tree-after/raw/kurz_1893_panel11-render.png",
+    "raw_sha256": "e8061d81928b5d931514476bb90ff69285f709faf98803e66551d649255b6561",
+    "exit_code": 0,
+    "seconds": 1.241,
+    "verdict": "unreviewed"
+  }
+]
