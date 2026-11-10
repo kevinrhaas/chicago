@@ -1,0 +1,54 @@
+{
+  "data/reference_views/log_jail/gale_1902.json": {
+    "sha256": "74641a1adcba03d01345eb92734dd3c9c8b4b24fa48aea36ea33e9753dffb8c9",
+    "bytes": 1485
+  },
+  "data/reference_views/log_jail/andreas_1884_context.json": {
+    "sha256": "22fab9978a88c613df36d100cc39e996092593be141e86695063878d7739724a",
+    "bytes": 1254
+  },
+  "data/sources/assets/log_jail_gale_1902/page_n79.jpg": {
+    "sha256": "d1fa0afa1dcd10af3b97ba11b46510fd71dd6504f6f9574aba73828e0fefb85a",
+    "bytes": 643815
+  },
+  "../reference/images/chicago/chicago_first_courthouse_1835.jpg": {
+    "sha256": "1fcbfe2a1f6c1b71439e5f0ad39fba8d3d59c319be73c4d706c2f9b2d3577277",
+    "bytes": 3621851
+  },
+  "assets/gltf/log_jail__log_1833.glb": {
+    "sha256": "e767412faebcd8b77a680d188d89458ea879cf467ec56494a8df1a49a2e65dec",
+    "bytes": 79736
+  },
+  "assets/gltf/log_jail_keeper_house__frame_1835.glb": {
+    "sha256": "91837241ab0873cbbd27c9f64cd314cc453e41addf019657da3afc8a98c6978b",
+    "bytes": 70700
+  },
+  "data/enclosures/log_jail_palisade.json": {
+    "sha256": "68d377d4dd54269c1ed939e898bb8df387ff1fd7ff5cd38483c21aa0b120d3af",
+    "bytes": 7853
+  },
+  "data/enclosures/log_jail_keeper_link.json": {
+    "sha256": "1594cc81214cd4f5d8e3612d1e6010d4b10d5e92df95b66e892561bfb283e6ee",
+    "bytes": 4399
+  },
+  "renderers/web/js/enclosures.js": {
+    "sha256": "f6b439fdb9d614ac2b882b0ce4c18f7a20d099b2998f0a3561ffa6e5f71d169d",
+    "bytes": 49789
+  },
+  "data/reference_views/log_jail/gale_1902.match.json": {
+    "sha256": "24eb1bab8060fd863f30bea49df7a96d3780dd1578d2aa3a3f0fabf5cee44410",
+    "bytes": 8773
+  },
+  "docs/RESEARCH/photo-match/log_jail/gale_1902-side-by-side.jpg": {
+    "sha256": "cfc95e0fdb47485601814b78f3863329e73b6db69ca96229669d398fafacdc74",
+    "bytes": 313303
+  },
+  "data/reference_views/log_jail/andreas_1884_context.match.json": {
+    "sha256": "bfdaf201a4a2fb25e1dcb7bacc87163a94e0e48a0ad8ee7d65cda5937bd5904a",
+    "bytes": 8034
+  },
+  "docs/RESEARCH/photo-match/log_jail/andreas_1884_context-side-by-side.jpg": {
+    "sha256": "58bf0c5d1cb648242b3026ea82aca8f5317c22b4c434e749bcb754043c99fc97",
+    "bytes": 383427
+  }
+}

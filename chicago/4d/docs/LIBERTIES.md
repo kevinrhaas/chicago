@@ -42872,3 +42872,44 @@ The 1.50 m cuts are aligned in the current model's existing clearance without mo
 **Covers:** `first_fort_dearborn_pickets_inner.first_fort_1803.form.gate_overrides`, `first_fort_dearborn_pickets_outer.first_fort_1803.form.gate_overrides`.
 **Ticket:** T-3041 (remaining work on T-2387).
 **Recorded:** 2026-11-09.
+
+
+### L-green-tree-shoulder-roof-rise-2376 — Raising the shoulder roof toward the main wall
+
+**Decision:** steepen the closed shoulder’s shed roof toward the main block, retaining its low outer eave and the already adopted pointed front-gable light. Andreas’s detailed retrospective print draws that stronger rise behind the light. The working attachment height changes from 4.0 to 4.6 m against the existing 3.2 m outer height and 3.6 m span (about 12.5° to 21.3°). Those values are reconstructed controls for relative form, not dimensions measured from the drawing.
+
+The 4.85 m pointed cap, both shoulder openings, all occupied polygons, connector and turned range, main footprint, surveyed placement, component dates, source grades and materials stay unchanged. Trowbridge’s competing open bay remains counterevidence; this trial establishes no conversion date or exact July-1835 condition. A new native output and fixed-camera comparison must accept or reject the trial; it does not sign off the wider left group.
+
+**How to resolve:** a dated independent plan, photograph or elevation could replace these metric choices; meanwhile retain the original picture discrepancy until actual review of the rebuilt model.
+
+**Sources:** `andreas_1884_green_tree_hotel_plate`, verified public-domain retrospective relative-form evidence; `trowbridge_green_tree_1902` and `kurz_allison_1893`, retained conflicting/dependent picture context.
+**Covers:** `green_tree_tavern.frame_1833.form.enclosed_left_annex`.
+**Ticket:** T-2376.
+**Recorded:** 2026-11-09.
+
+### L-cobweb-partial-clapboards-2374 — Partial lower-wall siding on the Agency House
+
+**Decision:** represent McKee’s account, quoted by Andreas, that the agency house was “afterward clapboarded part way up.” The existing five-room compound receives a lower band of neutral horizontal boards, with upper logs and notched ends exposed. No new paint, wall, roof, opening or site is claimed.
+
+The 1.30 m height is half the current inferred 2.6 m model wall, not a historical measurement. The inherited 0.14 m lap rhythm, 18 mm butt projection, chosen clearance from the log/chink skin and 0.246 m clearance at the ends of exposed runs are liberties. Leaving the existing notched corners and narrow junction strips unboarded avoids inventing concealed corner trim. Boards cover only the exterior union boundary and are cut around every current front opening. Existing dark faces, casings, roof forms and stacks remain in place.
+
+“Afterward” follows the account’s 1823 setting but supplies no completion date. Showing this finish in July1835 is reconstructed continuity, not a new dated finding. The unsolved panorama camera and the compound width, wings, sub-roofs, junctions, finish/tonal interpretation and whole-picture acceptance remain unresolved.
+
+**How to resolve:** a dated account or legible elevation showing the height and extent of the siding would replace the chosen band and corner treatment.
+
+**Covers:** `cobweb_castle.log_1820.form.compound_clapboard_height_m`.
+**Sources:** `andreas_1884_v1`, quoting McKee’s recollection; the existing `kinzie_waubun_1856` compound description remains controlling for composition.
+**Ticket:** T-2374.
+**Recorded:** 2026-11-09.
+
+### L-jail-palisade-height-exposure-2380 — The jail roof above its high enclosure
+
+**Building:** `log_jail`.
+**Decision:** Lower the reconstructed palisade from the earlier ten-foot choice to eight feet (2.44 m, rounded), retaining the original jail core and the existing compound line. Both retrospective drawings show a roof or cap of the jail itself above its enclosure. The former 3.05 m trial concealed almost all of the retained 2.66 m-eave core in the diagnostic Gale view. The chosen lower, still-high fence is meant to preserve concealed walls while letting that existing roof read above it.
+
+The number is a liberty, not a fence measurement recovered from either drawing. The pointed 127 mm heads, 254 mm boards, 6 mm gaps, posts, three backing courses, all endpoints, doorway approaches, low hung gate and building inputs stay unchanged. This does not choose between Gale’s taller gable and Andreas’s different rear cap, supply the identity of the original versus later cell, establish exact July1835 completion, or infer paint from monochrome tone. Gale’s plate remains captioned1836; the same qualified continuity reconstruction applies.
+
+**Sources:** `trowbridge_first_jail_gale_1902`, the verified public-domain1902 plate and p51 narrative; `andreas_1884_v1`, the contrasting courthouse/jail context engraving. They supply relative exposure, not metric height.
+**How to resolve:** a dated specification or a resolved compound sequence could replace this height. Fresh comparisons and actual published inspection must establish whether the visible increment improves core exposure; source-height calculation alone is not picture acceptance.
+**Ticket:** T-2380.
+**Recorded:** 2026-11-09.
