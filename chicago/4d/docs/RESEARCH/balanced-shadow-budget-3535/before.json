@@ -1,0 +1,39 @@
+{
+  "result": {
+    "scene": "1835",
+    "configured": {
+      "on": false,
+      "culled": 7502
+    },
+    "ceiling": 2625000,
+    "off": {
+      "triangles": 2658284,
+      "drawCalls": 6441
+    },
+    "on": {
+      "triangles": 2591747,
+      "drawCalls": 5940
+    },
+    "pixels": 1024000,
+    "different": 0,
+    "maxDelta": 0,
+    "controlDifferent": 143254
+  },
+  "errors": [],
+  "base_commit": "9b103acaea5e9acaae6f0db156cfa1e5dacb67de",
+  "viewport": {
+    "width": 1280,
+    "height": 800
+  },
+  "pose": {
+    "local_e": -250,
+    "local_n": -150,
+    "yaw_deg": 90,
+    "pitch_deg": -8
+  },
+  "source_sha256": {
+    "renderers/web/js/main.js": "17720cc690ec5c163cee0a8b3be43f19efe66e4e90a3798d252680464472b0d4",
+    "renderers/web/js/shadow-casters.js": "4f0f9e952766622fc304fb31d96b2ec38893dfdcde5cc966c03c0338cf435287"
+  },
+  "method": "Published 1835 app; Balanced; two held render frames per state; compare every RGB pixel with the existing conservative shadow cull off/on. A no-shadows positive control verifies that the comparison can see shadows."
+}

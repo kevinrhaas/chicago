@@ -11,8 +11,8 @@ ordinary things on a loop ... They can take breaks and go in and out of houses a
 renderers/web/js/human-days.js plays a day: indoors (a building, asked for at its door) or out
 at a place, at a job about it (a stand, played as one) or with others (a talk, which gathers
 now and then and parts, each at their job between), and between spans in and out of their
-door. Every span here is out at the place the record already stands the person (its
-`placement`), so nobody is moved to anywhere new; the hours and the buildings are:
+door. Most jobs use the existing placement; the owners also use the court and evening
+sidewalk, and Christine uses her recorded errand route. The hours and buildings are:
 
   1835 (1 July)
     Philip F. W. Peck   merchant; kept his store and lived in it (Andreas 1884; the record
@@ -30,9 +30,9 @@ door. Every span here is out at the place the record already stands the person (
     and the coachman (Charles Nelson) at the stable doors on Eighteenth Street, another
     (`glessner_18th`). Each in the house by its servants' doors (tools/derive_doors_scene.py)
     at night and for the hours of the house's own meals.
-  Not given a day: John J. and Frances Glessner, whose comings and goings are the front door's
-  (house-errands.js, T-3443/T-3444: Greet, Go home, Ask for at the door), and Christine
-  Nelson, who walks her errand route.
+  All eight drawn household members now have seasonal days, including the owners and
+  Christine. Office hours are off-scene, not a claim to an office location. Activities
+  and times are reconstructed, not diary entries (L-t3533-household-routines).
 
 The hours are reconstructed (a working day of the trade and the season), recorded as liberty
 L-t3516-days; the people, their trades and their buildings are their records'.
@@ -134,6 +134,42 @@ DAYS = {
 }
 
 
+HOUSE = "glessner_house"
+DAYS["1904"].update({
+    "hi_glessner_john_j_1904": (HOUSE, [
+        IN(0, 7, HOUSE, "sleeping and dressing"),
+        OUT(7, 8, "inspect the courtyard garden"),
+        IN(8, 9, HOUSE, "breakfast and correspondence"),
+        AWAY(9, 16, "at the office; its location is not staged"),
+        OUT(16, 17.5, "inspect the house and grounds"),
+        IN(17.5, 19, HOUSE, "dinner"),
+        OUT(19, 20, "talk with the household on the evening walk", "glessner_evening"),
+        IN(20, 24, HOUSE, "reading, family time and sleep"),
+    ]),
+    "hi_glessner_frances_m_1904": (HOUSE, [
+        IN(0, 8, HOUSE, "sleeping, dressing and breakfast"),
+        OUT(8, 9.5, "look over the garden with the household"),
+        IN(9.5, 11, HOUSE, "household accounts and correspondence"),
+        OUT(11, 12, "discuss household provisions in the court", "glessner_court"),
+        IN(12, 15.5, HOUSE, "luncheon, reading and calls"),
+        OUT(15.5, 17, "tend the courtyard flowers"),
+        IN(17, 19, HOUSE, "prepare for dinner and dine"),
+        OUT(19, 20, "talk with the household on the evening walk", "glessner_evening"),
+        IN(20, 24, HOUSE, "music, reading and sleep"),
+    ]),
+    "hi_pa1904_glessner_john_j_c1900_christine_nelson_1904": (HOUSE, [
+        IN(0, 6, HOUSE, "sleeping and dressing"),
+        IN(6, 10, HOUSE, "breakfast service and the parlour"),
+        OUT(10, 11.5, "walk the block on a household errand"),
+        IN(11.5, 14.5, HOUSE, "luncheon service and polishing"),
+        OUT(14.5, 15.5, "air and brush household things in the court"),
+        IN(15.5, 18.5, HOUSE, "the parlour and dinner service"),
+        OUT(18.5, 19.5, "take an evening walk"),
+        IN(19.5, 24, HOUSE, "supper and sleep"),
+    ]),
+})
+
+
 def day_of(rec: dict, spans: list) -> list:
     pl = rec["placement"]
     at = {"local_e": pl["local_e"], "local_n": pl["local_n"], "heading_deg": pl.get("heading_deg", 0.0)}
@@ -143,7 +179,55 @@ def day_of(rec: dict, spans: list) -> list:
         if s.get("at", 0) is None:
             s["at"] = dict(at)
         out.append(s)
-    return [{"note": f"Reconstructed day ({LIB}, T-3516): docs/RESEARCH/people-days-1835-1904/days.py.", "spans": out}]
+    if rec["scene"] != "1904":
+        return [{"note": f"Reconstructed day ({LIB}, T-3516): docs/RESEARCH/people-days-1835-1904/days.py.", "spans": out}]
+    from copy import deepcopy
+    variants = []
+    for season, months in [("winter", [12, 1, 2]), ("spring", [3, 4, 5]), ("autumn", [9, 10, 11]), ("summer", [6, 7, 8])]:
+        seasonal = deepcopy(out)
+        for span in seasonal:
+            if span["indoors"]:
+                continue
+            # Individual jobs dominate; shared knots remain brief gatherings in the day engine.
+            if span.get("knot") and span["to"] - span["from"] > 1:
+                span.pop("knot")
+                span["activity"] = "stand"
+            if rec["person_id"] == "glessner_john_j":
+                span["at"] = {"local_e": 1361.5, "local_n": -3232.5, "heading_deg": 230}
+            if span.get("knot") == "glessner_evening":
+                span["at"] = {"local_e": 1393.5, "local_n": -3226.5, "heading_deg": 270}
+            if "christine_nelson" in rec["id"]:
+                if "walk" in span["doing"]:
+                    route = rec["behaviour"]["route"]
+                    span.update(activity="walk", via=deepcopy(route[:-1]), to_point=deepcopy(route[-1]))
+                else:
+                    span["at"] = {"local_e": 1364, "local_n": -3234, "heading_deg": 210}
+            if "garden" in span["doing"] or "flowers" in span["doing"]:
+                span["doing"] = {"winter": "check the sheltered court and dormant plants", "spring": "tend the spring garden", "summer": "tend and inspect the courtyard flowers", "autumn": "inspect the garden and clear fallen leaves"}[season]
+        # A short shared break, surrounded by each worker's own duties.
+        shared = []
+        for span in seasonal:
+            if not span["indoors"] and span["from"] < 11 and span["to"] >= 11.5 and "christine" not in rec["id"]:
+                before, meeting, after = deepcopy(span), deepcopy(span), deepcopy(span)
+                before["to"] = 11
+                meeting.update({"from": 11, "to": 11.5, "activity": "talk", "knot": "glessner_court" if span["at"]["local_n"] < -3220 else "glessner_18th", "doing": "take a short break and discuss the household work"})
+                after["from"] = 11.5
+                shared.extend([before, meeting] + ([after] if after["from"] < after["to"] else []))
+            else:
+                shared.append(span)
+        seasonal = shared
+        if season == "winter":
+            shorter = []
+            for span in seasonal:
+                if not span["indoors"] and span["to"] - span["from"] > 0.5:
+                    end = span["to"]
+                    span["to"] = span["from"] + 0.5
+                    shorter.extend([span, IN(span["to"], end, HOUSE, "indoor household duties and shelter from the cold")])
+                else:
+                    shorter.append(span)
+            seasonal = shorter
+        variants.append({"dates": {"months": months}, "note": "Reconstructed seasonal routine (L-t3533-household-routines); times and activities are not diary evidence.", "spans": seasonal})
+    return variants
 
 
 def main() -> int:

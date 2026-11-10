@@ -21,7 +21,14 @@
     "state": "standing",
     "day": [
       {
-        "note": "Reconstructed day (L-t3516-days, T-3516): docs/RESEARCH/people-days-1835-1904/days.py.",
+        "dates": {
+          "months": [
+            12,
+            1,
+            2
+          ]
+        },
+        "note": "Reconstructed seasonal routine (L-t3533-household-routines); times and activities are not diary evidence.",
         "spans": [
           {
             "from": 0,
@@ -39,7 +46,26 @@
           },
           {
             "from": 9,
-            "to": 12,
+            "to": 9.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1367.5,
+              "local_n": -3233.0,
+              "heading_deg": 95
+            },
+            "activity": "stand",
+            "doing": "in the court: kitchen work out of doors, the deliveries taken in"
+          },
+          {
+            "from": 9.5,
+            "to": 11,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "indoor household duties and shelter from the cold"
+          },
+          {
+            "from": 11,
+            "to": 11.5,
             "indoors": false,
             "at": {
               "local_e": 1367.5,
@@ -47,8 +73,116 @@
               "heading_deg": 95
             },
             "activity": "talk",
-            "doing": "in the court: kitchen work out of doors, the deliveries taken in",
+            "doing": "take a short break and discuss the household work",
             "knot": "glessner_court"
+          },
+          {
+            "from": 11.5,
+            "to": 12,
+            "indoors": false,
+            "at": {
+              "local_e": 1367.5,
+              "local_n": -3233.0,
+              "heading_deg": 95
+            },
+            "activity": "stand",
+            "doing": "in the court: kitchen work out of doors, the deliveries taken in"
+          },
+          {
+            "from": 12,
+            "to": 14.5,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "the kitchen: luncheon"
+          },
+          {
+            "from": 14.5,
+            "to": 15.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1367.5,
+              "local_n": -3233.0,
+              "heading_deg": 95
+            },
+            "activity": "stand",
+            "doing": "in the court: kitchen work out of doors"
+          },
+          {
+            "from": 15.0,
+            "to": 17,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "indoor household duties and shelter from the cold"
+          },
+          {
+            "from": 17,
+            "to": 24,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "the kitchen: dinner; asleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "months": [
+            3,
+            4,
+            5
+          ]
+        },
+        "note": "Reconstructed seasonal routine (L-t3533-household-routines); times and activities are not diary evidence.",
+        "spans": [
+          {
+            "from": 0,
+            "to": 6,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "asleep"
+          },
+          {
+            "from": 6,
+            "to": 9,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "the kitchen: breakfast for the house"
+          },
+          {
+            "from": 9,
+            "to": 11,
+            "indoors": false,
+            "at": {
+              "local_e": 1367.5,
+              "local_n": -3233.0,
+              "heading_deg": 95
+            },
+            "activity": "stand",
+            "doing": "in the court: kitchen work out of doors, the deliveries taken in"
+          },
+          {
+            "from": 11,
+            "to": 11.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1367.5,
+              "local_n": -3233.0,
+              "heading_deg": 95
+            },
+            "activity": "talk",
+            "doing": "take a short break and discuss the household work",
+            "knot": "glessner_court"
+          },
+          {
+            "from": 11.5,
+            "to": 12,
+            "indoors": false,
+            "at": {
+              "local_e": 1367.5,
+              "local_n": -3233.0,
+              "heading_deg": 95
+            },
+            "activity": "stand",
+            "doing": "in the court: kitchen work out of doors, the deliveries taken in"
           },
           {
             "from": 12,
@@ -66,9 +200,186 @@
               "local_n": -3233.0,
               "heading_deg": 95
             },
+            "activity": "stand",
+            "doing": "in the court: kitchen work out of doors"
+          },
+          {
+            "from": 17,
+            "to": 24,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "the kitchen: dinner; asleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "months": [
+            9,
+            10,
+            11
+          ]
+        },
+        "note": "Reconstructed seasonal routine (L-t3533-household-routines); times and activities are not diary evidence.",
+        "spans": [
+          {
+            "from": 0,
+            "to": 6,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "asleep"
+          },
+          {
+            "from": 6,
+            "to": 9,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "the kitchen: breakfast for the house"
+          },
+          {
+            "from": 9,
+            "to": 11,
+            "indoors": false,
+            "at": {
+              "local_e": 1367.5,
+              "local_n": -3233.0,
+              "heading_deg": 95
+            },
+            "activity": "stand",
+            "doing": "in the court: kitchen work out of doors, the deliveries taken in"
+          },
+          {
+            "from": 11,
+            "to": 11.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1367.5,
+              "local_n": -3233.0,
+              "heading_deg": 95
+            },
             "activity": "talk",
-            "doing": "in the court: kitchen work out of doors",
+            "doing": "take a short break and discuss the household work",
             "knot": "glessner_court"
+          },
+          {
+            "from": 11.5,
+            "to": 12,
+            "indoors": false,
+            "at": {
+              "local_e": 1367.5,
+              "local_n": -3233.0,
+              "heading_deg": 95
+            },
+            "activity": "stand",
+            "doing": "in the court: kitchen work out of doors, the deliveries taken in"
+          },
+          {
+            "from": 12,
+            "to": 14.5,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "the kitchen: luncheon"
+          },
+          {
+            "from": 14.5,
+            "to": 17,
+            "indoors": false,
+            "at": {
+              "local_e": 1367.5,
+              "local_n": -3233.0,
+              "heading_deg": 95
+            },
+            "activity": "stand",
+            "doing": "in the court: kitchen work out of doors"
+          },
+          {
+            "from": 17,
+            "to": 24,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "the kitchen: dinner; asleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "months": [
+            6,
+            7,
+            8
+          ]
+        },
+        "note": "Reconstructed seasonal routine (L-t3533-household-routines); times and activities are not diary evidence.",
+        "spans": [
+          {
+            "from": 0,
+            "to": 6,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "asleep"
+          },
+          {
+            "from": 6,
+            "to": 9,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "the kitchen: breakfast for the house"
+          },
+          {
+            "from": 9,
+            "to": 11,
+            "indoors": false,
+            "at": {
+              "local_e": 1367.5,
+              "local_n": -3233.0,
+              "heading_deg": 95
+            },
+            "activity": "stand",
+            "doing": "in the court: kitchen work out of doors, the deliveries taken in"
+          },
+          {
+            "from": 11,
+            "to": 11.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1367.5,
+              "local_n": -3233.0,
+              "heading_deg": 95
+            },
+            "activity": "talk",
+            "doing": "take a short break and discuss the household work",
+            "knot": "glessner_court"
+          },
+          {
+            "from": 11.5,
+            "to": 12,
+            "indoors": false,
+            "at": {
+              "local_e": 1367.5,
+              "local_n": -3233.0,
+              "heading_deg": 95
+            },
+            "activity": "stand",
+            "doing": "in the court: kitchen work out of doors, the deliveries taken in"
+          },
+          {
+            "from": 12,
+            "to": 14.5,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "the kitchen: luncheon"
+          },
+          {
+            "from": 14.5,
+            "to": 17,
+            "indoors": false,
+            "at": {
+              "local_e": 1367.5,
+              "local_n": -3233.0,
+              "heading_deg": 95
+            },
+            "activity": "stand",
+            "doing": "in the court: kitchen work out of doors"
           },
           {
             "from": 17,

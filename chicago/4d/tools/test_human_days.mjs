@@ -310,3 +310,77 @@ const doorless = [...want].filter((s) => !withDoor.has(s));
 assert.deepEqual(doorless, [], `every building someone is in has a door: ${doorless}`);
 const n = records.filter((r) => r.behaviour?.day || r.behaviour?.quarters).length;
 console.log(`human days: dates, spans, talk, work, walk, doors and asking hold (${n} 1812 records with a day or quarters; ${doors.structures.length} buildings with doors)`);
+
+// T-3533: every currently drawn 1904 person has a complete seasonal day. Requests
+// deliberately ignore the hour, expire, and leave jaunt holds untouched.
+{
+  const folder = new URL('data/humans/instances/1904/', here);
+  const records = await Promise.all((await fs.readdir(folder)).filter((f) => f.startsWith('hi_')).map(async (f) => JSON.parse(await fs.readFile(new URL(f, folder), 'utf8'))));
+  const doorData = JSON.parse(await fs.readFile(new URL('data/humans/doors_1904.json', here), 'utf8'));
+  for (const record of records) {
+    for (let month = 1; month <= 12; month++) {
+      const day = dayOn(record.behaviour, `1904-${String(month).padStart(2, '0')}-15`);
+      assert(day, `${record.id}: month ${month}`);
+      let end = 0;
+      for (const span of day.spans) { assert.equal(span.from, end); assert(span.to > span.from); end = span.to; }
+      assert.equal(end, 24);
+      assert(day.spans.some((s) => !s.indoors));
+    }
+  }
+  let h = 23, d = '1904-07-01', held = false;
+  const a = actorOf(records.find((r) => r.person_id === 'glessner_john_j'), 'John');
+  const layer = createHumanDays({ humans: { actors: [a], isHeld: () => held }, hour: () => h, date: () => d, interactions: createInteractions(), doors: doorData });
+  layer.update(0.1);
+  assert(a.indoors, 'sleeping on initial load');
+  assert(layer.canAsk(a.id), 'available at the door while inside');
+  held = true;
+  assert.equal(layer.canAsk(a.id), false, 'jaunt-held people are not offered at the door');
+  assert.equal(layer.ask(a.id).ok, false, 'door requests cannot interrupt a jaunt hold');
+  assert(layer.doors.every((door) => door.actions.shut.every((action) => !action.id.startsWith('ask:'))), 'service doors also respect the jaunt hold');
+  held = false;
+  assert(layer.ask(a.id).ok, 'can call him outside');
+  const activities = layer.outdoorActivities(a.id);
+  assert(activities.length >= 3, 'all seasonal outdoor activities offered at night');
+  assert(layer.request(a.id, activities[0].id).ok);
+  layer.update(0.1);
+  assert(!a.indoors, 'garden request works outside normal hours');
+  for (let i = 0; i < 1201; i++) layer.update(0.25);
+  assert(a.indoors, 'returns to the night routine after five minutes');
+  h = 7.5; layer.update(0.1);
+  assert(layer.request(a.id).ok);
+  layer.update(0.1);
+  assert(a.indoors, 'Go inside overrides outdoor routine');
+  assert(layer.canAsk(a.id), 'can be asked for again');
+  assert(layer.ask(a.id).ok);
+  assert(layer.request(a.id, activities[1].id).ok);
+  held = true; h = 23;
+  const before = layer.snapshot(); layer.update(0.2);
+  assert.deepEqual(layer.snapshot(), before, 'jaunt holds suspend routine changes');
+  assert.equal(layer.request(a.id, 0).ok, false);
+  held = false; d = '1904-02-15'; layer.update(0.1);
+  assert(a.indoors, 'season change releases temporary activity');
+  h = 10; layer.update(0.1);
+  assert(layer.canAsk(a.id), 'the household remains callable during off-scene office work');
+  assert(layer.doors.some((door) => door.actions.shut.some((action) => action.id === 'ask:glessner_john_j')), 'the house door offers to recall him');
+  assert(layer.ask(a.id).ok, 'a visitor can recall him from office work');
+  assert(layer.request(a.id, activities[0].id).ok, 'then request an outdoor activity');
+}
+console.log('1904 seasonal coverage, door calls, temporary activities and jaunt priority hold');
+
+// Local chores must not build the town's route grid; obstructed household trips must.
+{
+  let blocked = false, calls = 0;
+  const router = { built: false, plan: (from, to, options) => { calls++; return { from, to, options }; } };
+  const route = days.createDayRouter({ router: () => router, clear: () => !blocked, buildWhenBlocked: true });
+  const from = { e: 1, n: 2 }, to = { e: 3, n: 4 };
+  assert.equal(route.plan(from, to, { mode: 'walk' }), null);
+  assert.equal(calls, 0, 'clear chores leave the cold grid alone');
+  blocked = true;
+  assert.deepEqual(route.plan(from, to, { mode: 'walk' }), { from, to, options: { mode: 'walk' } });
+  assert.equal(calls, 1, 'an obstructed trip uses the planner');
+  const legacy = days.createDayRouter({ router: () => router, clear: () => false });
+  assert.equal(legacy.plan(from, to), null, 'other scenes retain their lazy routing');
+  router.built = true;
+  assert(legacy.plan(from, to));
+  assert.equal(days.createDayRouter({ router: () => null, clear: () => false, buildWhenBlocked: true }).plan(from, to), null);
+}

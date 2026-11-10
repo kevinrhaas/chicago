@@ -18,7 +18,366 @@
     "phase": 0.4
   },
   "behaviour": {
-    "state": "standing"
+    "state": "standing",
+    "day": [
+      {
+        "dates": {
+          "months": [
+            12,
+            1,
+            2
+          ]
+        },
+        "note": "Reconstructed seasonal routine (L-t3533-household-routines); times and activities are not diary evidence.",
+        "spans": [
+          {
+            "from": 0,
+            "to": 7,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "sleeping and dressing"
+          },
+          {
+            "from": 7,
+            "to": 7.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1361.5,
+              "local_n": -3232.5,
+              "heading_deg": 230
+            },
+            "activity": "stand",
+            "doing": "check the sheltered court and dormant plants"
+          },
+          {
+            "from": 7.5,
+            "to": 8,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "indoor household duties and shelter from the cold"
+          },
+          {
+            "from": 8,
+            "to": 9,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "breakfast and correspondence"
+          },
+          {
+            "from": 9,
+            "to": 16,
+            "indoors": true,
+            "away": true,
+            "doing": "at the office; its location is not staged"
+          },
+          {
+            "from": 16,
+            "to": 16.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1361.5,
+              "local_n": -3232.5,
+              "heading_deg": 230
+            },
+            "activity": "stand",
+            "doing": "inspect the house and grounds"
+          },
+          {
+            "from": 16.5,
+            "to": 17.5,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "indoor household duties and shelter from the cold"
+          },
+          {
+            "from": 17.5,
+            "to": 19,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "dinner"
+          },
+          {
+            "from": 19,
+            "to": 19.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1393.5,
+              "local_n": -3226.5,
+              "heading_deg": 270
+            },
+            "activity": "talk",
+            "doing": "talk with the household on the evening walk",
+            "knot": "glessner_evening"
+          },
+          {
+            "from": 19.5,
+            "to": 20,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "indoor household duties and shelter from the cold"
+          },
+          {
+            "from": 20,
+            "to": 24,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "reading, family time and sleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "months": [
+            3,
+            4,
+            5
+          ]
+        },
+        "note": "Reconstructed seasonal routine (L-t3533-household-routines); times and activities are not diary evidence.",
+        "spans": [
+          {
+            "from": 0,
+            "to": 7,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "sleeping and dressing"
+          },
+          {
+            "from": 7,
+            "to": 8,
+            "indoors": false,
+            "at": {
+              "local_e": 1361.5,
+              "local_n": -3232.5,
+              "heading_deg": 230
+            },
+            "activity": "stand",
+            "doing": "tend the spring garden"
+          },
+          {
+            "from": 8,
+            "to": 9,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "breakfast and correspondence"
+          },
+          {
+            "from": 9,
+            "to": 16,
+            "indoors": true,
+            "away": true,
+            "doing": "at the office; its location is not staged"
+          },
+          {
+            "from": 16,
+            "to": 17.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1361.5,
+              "local_n": -3232.5,
+              "heading_deg": 230
+            },
+            "activity": "stand",
+            "doing": "inspect the house and grounds"
+          },
+          {
+            "from": 17.5,
+            "to": 19,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "dinner"
+          },
+          {
+            "from": 19,
+            "to": 20,
+            "indoors": false,
+            "at": {
+              "local_e": 1393.5,
+              "local_n": -3226.5,
+              "heading_deg": 270
+            },
+            "activity": "talk",
+            "doing": "talk with the household on the evening walk",
+            "knot": "glessner_evening"
+          },
+          {
+            "from": 20,
+            "to": 24,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "reading, family time and sleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "months": [
+            9,
+            10,
+            11
+          ]
+        },
+        "note": "Reconstructed seasonal routine (L-t3533-household-routines); times and activities are not diary evidence.",
+        "spans": [
+          {
+            "from": 0,
+            "to": 7,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "sleeping and dressing"
+          },
+          {
+            "from": 7,
+            "to": 8,
+            "indoors": false,
+            "at": {
+              "local_e": 1361.5,
+              "local_n": -3232.5,
+              "heading_deg": 230
+            },
+            "activity": "stand",
+            "doing": "inspect the garden and clear fallen leaves"
+          },
+          {
+            "from": 8,
+            "to": 9,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "breakfast and correspondence"
+          },
+          {
+            "from": 9,
+            "to": 16,
+            "indoors": true,
+            "away": true,
+            "doing": "at the office; its location is not staged"
+          },
+          {
+            "from": 16,
+            "to": 17.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1361.5,
+              "local_n": -3232.5,
+              "heading_deg": 230
+            },
+            "activity": "stand",
+            "doing": "inspect the house and grounds"
+          },
+          {
+            "from": 17.5,
+            "to": 19,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "dinner"
+          },
+          {
+            "from": 19,
+            "to": 20,
+            "indoors": false,
+            "at": {
+              "local_e": 1393.5,
+              "local_n": -3226.5,
+              "heading_deg": 270
+            },
+            "activity": "talk",
+            "doing": "talk with the household on the evening walk",
+            "knot": "glessner_evening"
+          },
+          {
+            "from": 20,
+            "to": 24,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "reading, family time and sleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "months": [
+            6,
+            7,
+            8
+          ]
+        },
+        "note": "Reconstructed seasonal routine (L-t3533-household-routines); times and activities are not diary evidence.",
+        "spans": [
+          {
+            "from": 0,
+            "to": 7,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "sleeping and dressing"
+          },
+          {
+            "from": 7,
+            "to": 8,
+            "indoors": false,
+            "at": {
+              "local_e": 1361.5,
+              "local_n": -3232.5,
+              "heading_deg": 230
+            },
+            "activity": "stand",
+            "doing": "tend and inspect the courtyard flowers"
+          },
+          {
+            "from": 8,
+            "to": 9,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "breakfast and correspondence"
+          },
+          {
+            "from": 9,
+            "to": 16,
+            "indoors": true,
+            "away": true,
+            "doing": "at the office; its location is not staged"
+          },
+          {
+            "from": 16,
+            "to": 17.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1361.5,
+              "local_n": -3232.5,
+              "heading_deg": 230
+            },
+            "activity": "stand",
+            "doing": "inspect the house and grounds"
+          },
+          {
+            "from": 17.5,
+            "to": 19,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "dinner"
+          },
+          {
+            "from": 19,
+            "to": 20,
+            "indoors": false,
+            "at": {
+              "local_e": 1393.5,
+              "local_n": -3226.5,
+              "heading_deg": 270
+            },
+            "activity": "talk",
+            "doing": "talk with the household on the evening walk",
+            "knot": "glessner_evening"
+          },
+          {
+            "from": 20,
+            "to": 24,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "reading, family time and sleep"
+          }
+        ]
+      }
+    ]
   },
   "interaction": {
     "selectable": true,

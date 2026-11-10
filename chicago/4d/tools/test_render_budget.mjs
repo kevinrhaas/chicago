@@ -8,12 +8,12 @@ const confidenceSource = fs.readFileSync(new URL('../renderers/web/js/confidence
   .replace("from 'three'", `from '${vendor}'`);
 const { createConfidenceView } = await import('data:text/javascript;base64,' + Buffer.from(confidenceSource).toString('base64'));
 const full = Object.freeze({ drawCalls: 7800, triangles: 3470000 });
-const expectedGhost = { drawCalls: 8900, triangles: 3675000 };
+const expectedGhost = { drawCalls: 8900, triangles: 3760000 };
 let checks = 0;
 function check(name, fn) { fn(); checks++; console.log('PASS ' + name); }
 check('Full active Ghost uses independently measured draw and triangle pins', () => {
   assert.equal(Math.ceil(8469 * 1.05 / 100) * 100, 8900);
-  assert.equal(Math.ceil((3656436 + 18059) / 5000) * 5000, 3675000);
+  assert.equal(Math.ceil((3737315 + 18059) / 5000) * 5000, 3760000);
   assert.deepEqual(renderBudget(full, 'full', true), expectedGhost);
 });
 check('the resolver does not mutate or drop other base policy fields', () => {
