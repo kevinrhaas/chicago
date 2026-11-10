@@ -207,7 +207,8 @@ export function wayOut(houseDoors, doorId, to, { groundAt } = {}) {
  * @param {string[]} [o.problems]
  */
 export function createHouseErrands({ days = null, humans, houseDoors, interactions, visitor = () => null, eye = () => null,
-  openCard = () => {}, groundAt = null, router = null, anchorAt = () => null, walkWith = () => {}, problems = [] } = {}) {
+  openCard = () => {}, groundAt = null, router = null, anchorAt = () => null, walkWith = () => {},
+  extraActions = () => [], problems = [] } = {}) {
   const errands = [];
   if (!humans || !houseDoors || !interactions) return { errands, get: () => null, sendHome: () => ({ ok: false }), callOut: () => ({ ok: false }), dispose() {} };
   const ground = groundAt ? { groundAt } : {};
@@ -306,6 +307,7 @@ export function createHouseErrands({ days = null, humans, houseDoors, interactio
             refuse: () => days.request(actor.id, a.id).ok ? null : 'Not available just now', steps: [],
           })) : []),
           ...strolls,
+          ...extraActions(actor, thing),
         ]; },
         get home() { return hosted() ? [] : [
           // T-3444: asked for at the door (the door's own action starts this).

@@ -7,6 +7,7 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { disposeLoadedAsset } from './scene-loader.js';
+import { broughamDoorRig } from './brougham-door.js';
 
 const REACH = { full: 100, balanced: 65, light: 0 };
 
@@ -98,7 +99,7 @@ function staticBatches(root, confidence, excluded = null) {
   const byMaterial = new Map();
   root.traverse(node => {
     if (!node.isMesh) return;
-    for (let p = node; p; p = p.parent) if (p === excluded) return;
+    for (let p = node; p; p = p.parent) if (p === excluded || excluded?.has?.(p)) return;
     if (node.isSkinnedMesh || Array.isArray(node.material)) throw Error('Expected rigid single-material primitives');
     const geometry = node.geometry.clone().applyMatrix4(local.clone().multiply(node.matrixWorld));
     const list = byMaterial.get(node.material) ?? [];
@@ -188,10 +189,12 @@ export async function createParkedTransport({ dataBase, sceneId, terrain, confid
     },
     setFallback(callback) { fallback = callback; },
     get shown() { return shown; },
+    get doorsAvailable() { return shown && !disposed && tier !== 'light' && !confidence?.hidden?.reconstructed; },
     setShown(on) {
       shown = on !== false;
       group.visible = shown;
       if (!shown) for (const instance of instances) {
+        instance.door?.resetHidden();
         instance.teamRevision++; instance.team?.dispose(); instance.team = null;
         instance.static_support = instance.original_unhitched_static_support ?? instance.static_support;
         instance.card = card(instance.row, instance.spec);
@@ -244,6 +247,7 @@ export async function createParkedTransport({ dataBase, sceneId, terrain, confid
     async setTier(next) {
       tier = next;
       if (next === 'light') for (const instance of instances) {
+        instance.door?.resetHidden();
         instance.teamRevision++; instance.team?.dispose(); instance.team = null;
         instance.static_support = instance.original_unhitched_static_support ?? instance.static_support;
         instance.card = card(instance.row, instance.spec);
@@ -439,26 +443,32 @@ export async function createParkedTransport({ dataBase, sceneId, terrain, confid
           vehicleHashes: { near: asset.parkedDeliverySha256, mid: midAsset?.parkedDeliverySha256 },
           card: card(row, spec), parking, wheel_clearance_m: wheelGap,
           static_support: staticSupport, ownedBatches: [] };
+        instance.door = broughamDoorRig({ root, midRoot, spec, vehicleHashes: instance.vehicleHashes });
+        const retained = (pole, index) => new Set([
+          ...(instance.retainedPole ? [pole] : []),
+          ...(instance.door ? [instance.door.leaves[index]] : []),
+        ]);
+        const preserveSource = instance.retainedPole || !!instance.door;
         building = instance;
         await ensureTeam(instance);
         if (disposed) { instance.team?.dispose(); break; }
-        const retainPole = (source, pole, batches) => {
+        const retainMoving = (source, moving, batches) => {
           source.traverse(n => {
             if (!n.isMesh) return;
-            let keep = false; for (let p = n; p; p = p.parent) if (p === pole) keep = true;
+            let keep = false; for (let p = n; p; p = p.parent) if (moving.has(p)) keep = true;
             n.visible = keep;
           });
           batches.add(source);
         };
-        const near = staticBatches(root, confidence, instance.retainedPole ? nearPole : null);
+        const near = staticBatches(root, confidence, retained(nearPole, 0));
         instance.ownedBatches.push(near);
-        if (instance.retainedPole) retainPole(root, nearPole, near); else placement.remove(root);
+        if (preserveSource) retainMoving(root, retained(nearPole, 0), near); else placement.remove(root);
         let model = near, lod = null;
         if (midAsset) {
           try {
-            const mid = staticBatches(midRoot, confidence, instance.retainedPole ? midPole : null);
+            const mid = staticBatches(midRoot, confidence, retained(midPole, 1));
             instance.ownedBatches.push(mid);
-            if (instance.retainedPole) retainPole(midRoot, midPole, mid); else placement.remove(midRoot);
+            if (preserveSource) retainMoving(midRoot, retained(midPole, 1), mid); else placement.remove(midRoot);
             lod = new THREE.LOD();
             // Selection happens with the same camera as reach/picking. Avoid
             // the renderer independently reselecting during shadow passes.
@@ -472,7 +482,7 @@ export async function createParkedTransport({ dataBase, sceneId, terrain, confid
             problems.push(`parked transport ${row.id} mid: ${error.message}; near retained`);
           }
         }
-        if (instance.retainedPole) placement.add(model);
+        if (preserveSource) placement.add(model);
         else {
           // Keep the original public group for ordinary parked vehicles:
           // a merged mesh group, or the Brougham's controlled LOD itself.
@@ -485,6 +495,7 @@ export async function createParkedTransport({ dataBase, sceneId, terrain, confid
         group.add(instance.group);
         instance.draw_batches = near.children.filter(n => n.userData.parkedBatchGeometry).length
           + (instance.retainedPole ? 2 : 0);
+        if (instance.door) instance.door.leaves[0].traverse(n => { if (n.isMesh) instance.draw_batches++; });
         if (instance.team) {
           instance.original_unhitched_static_support = staticSupport;
           instance.static_support = null;

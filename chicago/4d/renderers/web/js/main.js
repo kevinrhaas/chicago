@@ -103,6 +103,7 @@ import { createFlags } from './flags.js';
 import { createFortGates, gatesOnRoute } from './fort-gates.js';
 import { createHouseDoors } from './house-doors.js';
 import { createHouseErrands } from './house-errands.js';
+import { createCoachmanDoorActions } from './brougham-door.js';
 import { createNightLights } from './night-lights.js';
 import { createStreetGrid } from './street-grid.js';
 import { initKTX2, ktx2State } from './ktx2.js';
@@ -3932,7 +3933,11 @@ async function boot() {
   // T-3443: a person whose house has a working front door (John J. Glessner, by 1800
   // Prairie's) is an Interact thing too: Greet him, or send him home up his steps and in;
   // and (T-3444) his door offers Ask for him while he is in.
+  const coachmanDoorActions = createCoachmanDoorActions({ parkedTransport, humans: api.humans, days: api.days,
+      router: { plan: (...args) => api.router?.plan(...args) ?? null },
+      interactions, visitor: () => walker.state.flying ? null : { e: walker.state.e, n: walker.state.n } });
   api.houseErrands = createHouseErrands({ days: api.days, humans: api.humans, houseDoors, interactions,
+    extraActions: coachmanDoorActions,
     visitor: () => (walker.state.flying ? null : { e: walker.state.e, n: walker.state.n }),
     eye: () => camera.getWorldPosition(new THREE.Vector3()),
     openCard: (actor) => api.humans.select(actor.id),
@@ -5777,6 +5782,7 @@ async function boot() {
     // Driver leases and standing transfers finish before the human asset cache
     // loses its remaining scene actors. BFCache pagehide keeps the scene alive.
     api.townTransport?.dispose();
+    coachmanDoorActions.dispose();
     api.humans?.dispose();
     interactKey.dispose();
   });
