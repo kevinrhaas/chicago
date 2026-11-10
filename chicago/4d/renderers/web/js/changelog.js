@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2856, ts: '2026-11-10T01:21:22.939Z', date: 'Nov 9, 2026, 7:21 PM CT', title: 'More natural fabric on existing residents', kind: 'improvement',
+    items: [
+      'Standing and walking residents receive the linen and wool fabric finish already used by drivers, while keeping their individual clothing colours and style. No image textures are added.',
+      'Short-jacket authoring now cuts a level lower hem instead of retaining jagged triangle edges. Freshly generated coats still need rendered review before adoption.',
+      'The human library gains repeatable Blender assembly previews. Full library and photographic-quality acceptance remain open.',
+    ] },
   { v: 2855, ts: '2026-11-10T00:26:19.143Z', date: 'Nov 9, 2026, 6:26 PM CT', title: 'Open the first fort’s west wicket', kind: 'change',
     items: [
       'Two reconstructed leaves now open a passage through the double pickets beside the northwest blockhouse. The south entrance keeps its measured passage.',
