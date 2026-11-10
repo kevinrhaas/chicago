@@ -129,3 +129,37 @@ image-match verdict, pictured-grade ruling, position, dimension, form attribute
 or asset changes in this increment. The structure remains inferred by the
 existing grade rule because no camera or affirmative pictured ruling is added.
 T-2374 remains open; final picture matching is not claimed.
+
+## T-2374 final form and canonical illustration view — 2026-11-10
+
+This supersedes the old bounding-box, bare-log and unsolved-view limitations
+above. The sole identified held picture is the keyed panorama
+`chicago_fort_dearborn_1831_1.jpg` / `kinzie_1857_chicago_1831_panorama`.
+The full 1920×1042 reproduction and its Agency-House subject were visually read.
+The source register's Wisconsin Kinzie Agency House entry is a different,
+text-only property record, not another picture of Cobweb Castle.
+
+The composition follows Wau-Bun's centre/two wings/two tails and the engraving's
+dominant front gable, receding ridge, subordinate side gable, three front marks
+and small roof stack. The previous 13×9 m trial and transverse wing roofs made
+an overly broad cabin with conspicuous exterior wing stacks. The bounded
+replacement is 9×5.5 m: a 5×4.5 m centre, two 2×2 m wings recessed 1 m, and
+two 1.5×1 m rear adjuncts. The wings' 2.0 m eaves sit below the retained 2.6 m
+centre; all pitches remain 35°. One reconstructed 0.80 m square main-ridge
+stack replaces the unsupported pair. The retained head is 5.05 m. The former
+count was inferred, not textual evidence against the change. Exact metric
+choices and unseen rear forms remain reconstructed. The 1.30 m partial board
+band and central apertures' count, depth and relative set-out remain. Position
+and bearing values do not change; no survey or terrain is fitted.
+
+`data/reference_views/cobweb_castle/kinzie_1831.json` records a bounded
+illustrative pose fitted to five hand-read front points at 1.009 px coordinate
+RMS. Point uncertainty is about 2 px. Fixed 800 px focal length and 1.60 m eye
+choose a drawing pose family; they do not recover a historical viewpoint.
+`diagnostic_only` keeps that invented spot out of visitor navigation. Hidden
+tail geometry, monochrome colour, exact finish date and scene-date survival are
+outside what the picture establishes. Its canonical match record and actual
+side-by-side carry final acceptance after native export; CPU projection is not
+an image-gate verdict. Under T-3153, pixel offsets and disagreements between
+plausible drawing fits are within tolerance; missing or wrongly shaped visible
+elements still require a fix. See `L-cobweb-completion-2374`.
