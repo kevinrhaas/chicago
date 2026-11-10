@@ -51,7 +51,7 @@ class CompoundForm(unittest.TestCase):
 
     def test_emitted_stack_is_on_its_own_roof_and_one_only(self):
         p=dataclasses.replace(current(),compound_clapboard_height_m=None)
-        before,after=MeshBuilder('without'),MeshBuilder('with')
+        before,after=MeshBuilder('cobweb_castle__log_1820'),MeshBuilder('cobweb_castle__log_1820')
         builder._compound(before,dataclasses.replace(p,chimneys=0,compound_ridge_stacks=None))
         builder._compound(after,p)
         self.assertEqual(after.verts[:len(before.verts)],before.verts)
