@@ -2,6 +2,87 @@
   "note": "T-0216 — dev's standing smoke result, so a branch can answer \"is this red mine, or did I inherit it?\" from the record instead of re-running the stage on a clean worktree (three agents paid that price on one red on 2026-08-27; T-0215). Written by tools/dev-smoke-state.mjs, which parses a smoke log — local or from a chicago-4d-smoke.yml run. Every reading carries the CONDITIONS it was taken under, because a quiet CI runner does not predict a loaded steward box: T-0215 measured a factor of twenty on one tree. loadavg is sampled when the reading is filed, so it includes the smoke's own load. `treeHash` digests exactly what the smoke exercises (renderers, data, assets, smoke_renderer.mjs, the published mirror), so a reading whose hash matches yours is a reading OF YOUR TREE. A RECORD, NOT A BAR: nothing here gates anything. THE PART NUMBERS CHANGED ON 2026-08-30 (T-0346): part 4 was cut into 4, 5 and 6 and the old parts 5-9 became 7-11; then T-0173 halved part 7 (8-11 -> 9-12) and T-0170 halved part 10 (11-12 -> 12-13); on 2026-10-11 T-2337 halved part 10 again (11-14 -> 12-15). A reading filed before any of those is labelled in the OLD numbering of its day. Each of those also carries a treeHash that cannot match a tree containing the cut, so `ask` already reports them as not taken on your tree — but read the stage number as dated rather than current.",
   "readings": [
     {
+      "viewport": "mobile",
+      "stage": "5",
+      "parts": [
+        5
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 30,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 437,
+      "takenAt": "2026-11-10T09:04:48Z",
+      "ref": "steward/t-3533-household-routines",
+      "commit": "2a426e4f91c1",
+      "devCommit": "9d293d140002",
+      "treeHash": "sha256:b1b243d50655c6b1",
+      "treeDirty": false,
+      "changelogHash": "sha256:832274654804b20a",
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest, load not recoverable from the log"
+      },
+      "source": "gh-run:42787676968 https://github.com/kevinrhaas/chicago/actions/runs/42787676968"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "5",
+      "parts": [
+        5
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 30,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 785,
+      "takenAt": "2026-11-10T09:04:43Z",
+      "ref": "steward/t-3533-household-routines",
+      "commit": "2a426e4f91c1",
+      "devCommit": "9d293d140002",
+      "treeHash": "sha256:b1b243d50655c6b1",
+      "treeDirty": false,
+      "changelogHash": "sha256:832274654804b20a",
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest, load not recoverable from the log"
+      },
+      "source": "gh-run:42787667033 https://github.com/kevinrhaas/chicago/actions/runs/42787667033"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "13",
+      "parts": [
+        13
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 158,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 5107,
+      "takenAt": "2026-11-10T09:04:39Z",
+      "ref": "steward/t-3533-household-routines",
+      "commit": "2a426e4f91c1",
+      "devCommit": "9d293d140002",
+      "treeHash": "sha256:b1b243d50655c6b1",
+      "treeDirty": false,
+      "changelogHash": "sha256:832274654804b20a",
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest, load not recoverable from the log"
+      },
+      "source": "gh-run:42787656979 https://github.com/kevinrhaas/chicago/actions/runs/42787656979"
+    },
+    {
       "viewport": "desktop",
       "stage": "15",
       "parts": [
@@ -1740,98 +1821,6 @@
         ]
       },
       "source": "/tmp/smoke-d11.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "10",
-      "parts": [
-        10
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 30,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 473,
-      "takenAt": "2026-10-11T03:46:30.210Z",
-      "ref": "dev",
-      "commit": "0a2491b510c2",
-      "devCommit": "0a2491b510c2",
-      "treeHash": "sha256:3f9139ca6a72ef3d",
-      "treeDirty": true,
-      "changelogHash": "sha256:a1b3a9b10b0745eb",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          0.8,
-          3.1,
-          3.8
-        ]
-      },
-      "source": "/tmp/smoke-d10.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "13",
-      "parts": [
-        13
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 126,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 1122,
-      "takenAt": "2026-10-09T19:10:27.781Z",
-      "ref": "steward/t-2203-glessner-roof-tiles",
-      "commit": "acbde7d0e6e0",
-      "devCommit": "e698c6213787",
-      "treeHash": "sha256:8a19c54fd79dce51",
-      "treeDirty": true,
-      "changelogHash": "sha256:fd4ac0f2e7bde791",
-      "host": {
-        "kind": "local",
-        "cpus": 5,
-        "memGB": 17.6,
-        "loadavg": [
-          4,
-          4.3,
-          4.3
-        ]
-      },
-      "source": "/workspace/t2203-proof/smoke-desktop-13-final.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "3-6",
-      "parts": [
-        3,
-        4,
-        5,
-        6
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 143,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 2641,
-      "takenAt": "2026-10-03T22:01:13Z",
-      "ref": "steward/t2035-vegetation-continuity",
-      "commit": "db49ce6adfeb",
-      "devCommit": "a9c98af7a1f5",
-      "treeHash": null,
-      "treeDirty": false,
-      "changelogHash": "sha256:abee9f43dc2687ae",
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-latest; original job log and run metadata retrieved through GitHub connector"
-      },
-      "source": "gh-run:37157020341 https://github.com/kevinrhaas/chicago/actions/runs/37157020341"
     }
   ]
 }
