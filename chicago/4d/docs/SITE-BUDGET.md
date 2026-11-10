@@ -1195,3 +1195,12 @@ of the 52 sheets with HTTP 200, with no failed request and no page error.
 Two 432 MiB allowances plus §14's 132.233 MiB stay under 1 GiB, and `dev` now has about
 109 MB of headroom inside its allowance. The allowance is not lowered here, because
 production still ships the copies until the next promotion.
+
+
+## 17. The four-building picture delivery: measured storage allowance, 2026-11-10
+
+This is a conscious storage re-budget from **432 to433 MiB**, not a skipped size check. The actual clean published tree at `c5551fdd66fc79d673155a20138f7d331df51b8b` measures **432.01 MiB** in source CI42749721172, part5. It fails only the432 MiB storage line; the other seven parts pass. The five intended native WEB outputs add10,656 raw bytes net (Cobweb -1,916; GreenTree +3,516; LakeHouse +6,300; jail +2,576; Sauganash +180), and the source/sidecar additions carry their credited pictures and compiled liberties. GreenTree remains partial until its missing upper window is corrected.
+
+The1 MiB increase gives just under1 MiB of clean-tree headroom. Using the existing deployed-artifact allowance accounting from §14, two433 MiB trees plus132.233 MiB other content total998.233 MiB, below the established1024 MiB ceiling. This calculation is an allowance, not a new measurement or claim of production promotion. The validator still measures the full clean published artifact and fails above433 MiB. Boot payload, Full/Balanced/Light frame limits, Light's floor, the90% warning and duplicate checks do not move. Actual focused published desktop and phone qualification uses the same seven target assets, sidecars and renderer files; this validator/documentation change changes no model or renderer.
+
+The local long-lived workspace contains additional generated materializations and is not used as the clean-artifact size reading. The quoted432.01 MiB comes from the named immutable GitHub CI job; the raw job log and native asset-cost receipts remain in the checkpoint.
