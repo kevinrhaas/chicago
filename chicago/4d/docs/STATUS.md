@@ -1,3 +1,34 @@
+## T-2795 — native support for smaller DEV publications (2026-11-10)
+
+The parked Glessner team (PR #1908), existing-resident clothing/build fixes
+(PRs #1904/#1909) and individual horse coats (PR #1911) are merged into DEV.
+Their broader photographic, continuous contact, coachman and ride acceptances
+remain open. This change supports the separate MAIN publisher proposal #1914;
+it does not itself enable sharing or promote the DEV application to production.
+
+An optional immutable publication catalogue lets the native loaders fetch exact
+shared bytes while keeping logical model, LOD, sidecar and offline-cache paths.
+Complete bodies are checked against full SHA256 and size. The official GLTF
+buffer-view plugin covers the existing image-only external KTX2 sheet format;
+geometry buffers retain their native path. Native texture Source sharing,
+retries, old production-worker coexistence and cold/warm offline reloads are
+covered by real browser controls. Without a metadata pointer, loading retains
+its original identity and makes no catalogue request.
+
+The separate assembler's complete saved MAIN-742 publication fixture measures
+951,818,517 regular-file bytes after sharing 1,103 exact duplicates, with
+48,181,483 bytes below its one-billion-byte guard. All 7,148 non-DEV files remain
+byte-identical. This is a measured older artifact with the reviewed consumer
+overlay; latest-DEV assembly and live delivery are separate acceptance steps.
+The first insufficient safe subset correctly failed that guard and rolled back.
+Current-head complete hosted gates remain the merge bar; focused checks are not
+a substitute for them. No render budget, source asset or assertion is relaxed.
+
+The explicit browser fixture needs a real KTX2 sheet, configured Chromium and
+historical commit `6f2ebb8107815a47dda0e3e7f4416665ad70d57d` for its original
+classic-worker control. Shallow clones must fetch that commit before running
+`tools/test_published_assets_browser.mjs --check --output DIR --ktx-source FILE`.
+
 ## T-1789 — scope the repeated teamster fixture sweep (2026-11-10)
 
 The teamster producer now selects exactly the rebuilt Otis Bardwell, Joseph Dufresne
