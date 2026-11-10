@@ -5,8 +5,9 @@ This rereads the original 21-record scope for **1 July 1835**. The machine-reada
 opened, source hashes, dated interpretation and the remaining rendering qualification.
 It is a rereading of the existing corpus, not a new archival count.
 
-Three finite physical omissions are completed: the officers' outside stair, the plan-named
-big barn's cupola, and Kinzie's additional small posterns. The already-built officers'
+Four finite physical omissions are completed: the officers' outside stair, the plan-named
+big barn's cupola, Kinzie's additional small posterns, and the securely keyed
+commandant's front double gallery through an explicit reconstructed continuity choice. The already-built officers'
 upper piazza receives one outside timber stair. Hubbard expressly describes exterior stairs in his 1818 account
 (autobiography, printed p.36, leaf74, text2353–2358). Its continuity into July1835 has
 exactly the conditional interpretation already carried by the existing gallery.
@@ -103,7 +104,7 @@ assignable image feature; it does not claim the historical building did not exis
 | barracks | Retain east soldiers range and galleryfalse; do not transfer an unidentified gallery or earlier barracks. |
 | big_barn | Keep plan-based body; build its explicitly named cupola at declared reconstructed shape/dimensions. |
 | blockhouse | Keep delivered square cupola and centre stack0; plan controls footprint, later roof details excluded. |
-| commandants_quarters | Retain north brick range and stated25×50ft dimensions; unkeyed bays/stacks do not control. |
+| commandants_quarters | Retain north brick range and stated25×50ft body; adopt keyed1855Afront double gallery as explicit RECON continuity, preserving all15openings and moving only new supports clear of trim. |
 | flagstaff | Staff occurs in earlier/Wau views; no picture establishes its precise height or flag. |
 | garrison_garden | Plan/text garden retained; already-built flora planting acknowledged, stale absence note corrected; no duplicate trees. |
 | guard_house | Plan/Hubbard west-of-south-gate assignment retained. |
@@ -121,7 +122,7 @@ assignable image feature; it does not claim the historical building did not exis
 | us_factors_house | Retain independent identity; no transfer from disputed keyed Beaubien residence. |
 | wash_house | Keep plan-based shed; keyed1831 small house is a dated class/context comparison. |
 
-Beyond these three explicitly fixed omissions, no additional physical error of more
+Beyond these four explicitly fixed omissions, no additional physical error of more
 than0.3m, missing element, wrong count or wrong
 material has been established for a securely identified July1835 building in this
 corpus. Cross-date disagreements, unidentified ranges, retrospective composition,
@@ -155,3 +156,14 @@ missing measurements and undeclared leaf ownership fail. New fixture self-tests
 pass. Actual oldMASTER geometry correctly fails both new postern openings, while
 actual current producer CPU geometry clears them; `postern-isolation.json` keeps
 that positive/negative measurement distinct from a pinned native AFTER receipt.
+
+The commandant’s named A gallery is now a finite reconstructed adoption for
+July1835. The photograph dates1855; no alteration/installation date is invented.
+The retained1816range interpretation, Hubbard’s1827brick north range and Harrison’s1830range support identity/continuity, while the post’s separately described1818
+officers’ piazza supplies an analogy for plausibility, not an identity transfer.
+The named1855picture controls broad front-gallery form. Existing API controls
+produce its open lower level, upper deck, rail and canopy, with exact dimensions
+declared reconstructed. The existing15opening rectangles are unchanged; explicitly
+recording them lets the existing support solver avoid real trim intersections.
+The CPU control measures six clear supports, deck at2.7m, full15.24×2.1m reach,
+all reconstructed geometry and actual beam/canopy contact, with no producer change.
