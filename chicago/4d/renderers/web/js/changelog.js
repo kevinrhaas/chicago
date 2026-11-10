@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 2865, ts: '2026-11-10T10:39:51.606Z', date: 'Nov 10, 2026, 4:39 AM CT', title: 'Rendering detail refinements', kind: 'fix',
+    items: [
+      'Large views at Balanced detail now draw more efficiently, with unchanged appearance.',
+      'Full detail gives X-RAY views a measured allowance for their additional drawing work.',
+    ] },
+  { v: 2864, ts: '2026-11-10T10:39:51.606Z', date: 'Nov 10, 2026, 4:39 AM CT', title: 'Daily life at the Glessner house', kind: 'feature',
+    items: [
+      'The household follows seasonal routines, with work, errands, meals and evening company. Ask at the door for someone indoors, request an outdoor activity at any hour, or tell them to Go inside.',
+    ] },
   { v: 2863, ts: '2026-11-10T09:36:14.781Z', date: 'Nov 10, 2026, 3:36 AM CT', title: 'More reliable DEV preview updates', kind: 'fix',
     items: [
       'Adds support for smaller DEV publications while preserving existing models, textures and saved years.',
