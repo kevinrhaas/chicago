@@ -1,0 +1,28 @@
+{
+  "render_full_source_head": "cba1b76af4c34077c9ffcb3a31fa55bc39dc9ef0",
+  "camera_and_derived_source_head": "4d8292da47df257cbdbec8476cb54de9a2385706",
+  "geometry_base": "c5382c727ae06e0ba1cd6816cc072cbfba4d963d",
+  "native_root": "47f5ecbbe3a15cd0011eb6d87a619e4bd0144c4f",
+  "render_logs": [
+    "/tmp/nov10-firstfort-picture/currey-render.log",
+    "/tmp/nov10-firstfort-picture/kurz-render.log"
+  ],
+  "outputs": [
+    {
+      "view": "currey_1912_birdseye",
+      "raw_original": "/tmp/photo-match-MXHB1B/currey_1912_birdseye-render.png",
+      "raw_sha256": "771fe87b7094ae824e54560a74e91948c4c61b6241f20767878f72e17c02971b",
+      "pair_sha256": "ad200831611417ea4f5d75fad98f748c0f5aaa7a33eb5cfd7bdb83646427014a",
+      "as_generated_match_sha256": "0fe51556c2f7400802c2b8b3e018ef9c1aeb3a7a7afb2736e2e5c753cdea3e0d"
+    },
+    {
+      "view": "kurz_allison_1893_panel1",
+      "raw_original": "/tmp/photo-match-PQnEUx/kurz_allison_1893_panel1-render.png",
+      "raw_sha256": "b7f740a6aab533eaef53bb7881ed0beb3600ea7e28a0ef720bdcdcbe83a3e8bb",
+      "pair_sha256": "865721dcf8bd194a5bc305230fc0aad827d560da68492060be4d2da61a39f10d",
+      "as_generated_match_sha256": "45f3088fa73d3060064618f263ed321940a63f36bea4c5dea69b92c8a0b35beb"
+    }
+  ],
+  "review_scope": "Fresh complete generated pairs directly viewed 2026-11-10. Currey retains the existing diagnostic upper crop and T-3335 owner rulings. Kurz is diagnostic and differs. No historical camera fit, scene geometry edit, hidden-member attestation or all-pictures sign-off.",
+  "native_run_id": 42730943430
+}

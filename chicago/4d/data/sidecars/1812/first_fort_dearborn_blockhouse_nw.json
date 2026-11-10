@@ -11,9 +11,12 @@
   "scene": "1812",
   "target_date": "1812-08-14",
   "grade": {
-    "value": "inferred",
-    "why": "Known from maps or written records; no picture of it has been found.",
-    "pictures": []
+    "value": "attested",
+    "why": "Pictured: 2 of the pictures on the Images tab show it.",
+    "pictures": [
+      "early-currey-1912-first-fort-birdseye",
+      "kurz_allison_1893"
+    ]
   },
   "documented_range": {
     "from": "1803-08-17",

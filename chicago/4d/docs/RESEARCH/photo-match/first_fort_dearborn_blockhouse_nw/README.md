@@ -1,0 +1,11 @@
+# First-fort northwest picture coverage (T-3041)
+
+These are two fresh native comparisons from the unchanged diagnostic cameras enrolled on the northwest blockhouse. The generated raw PNGs and complete JPEG pairs are retained; `unreviewed/` preserves the exact original generated match records. The reviewed canonical records are under `data/reference_views/first_fort_dearborn_blockhouse_nw/`.
+
+Currey is **matches only within this bounded diagnostic view and the existing T-3335 owner rulings**. The upper render crop remains; this does not accept the whole northwest roof, cropped range/staff details or each of the fourteen contextual members. The ruled measured plans, range functions/lengths, south entrance gap and stacks are retained. The adopted cupolas, curved magazine roof, north-east pyramid cap and west entrance are visible at this scale. The dashed source route does not attest covered-way construction.
+
+Kurz & Allison panel 1 remains **differs**, with two open visible questions in its canonical record: the tower/range composition against the surveyed plan, and the unassigned galleried building at lower right. The retained curtain-only camera/staff projection conflict is explicit. Hidden context is not individually accepted or attested; the thirty-member group is not a thirty-building sign-off.
+
+`render-receipt.json` binds source/native identities and actual untouched output hashes. `base-and-actual-group-identity.json` verifies every rendered GLB and selected placement against base c5382c727ae06e0ba1cd6816cc072cbfba4d963d (44 memberships, 30 unique assets). Group hashes bind mesh bytes and selected placements, not the whole sidecar grade. The pictured badge is derived under existing AGENTS.md rule 12; it does not upgrade per-attribute confidence or prove an exact model match.
+
+Both complete pairs and the existing outer-picket Currey pair were directly viewed on 2026-11-10; parent independently viewed both new full pairs. T-3041 and T-2387 remain partial. No new historical camera, survey, geometry, date, credit identity, Images feature or public comparison link is asserted. This checkpoint carries targeted owner validation; the parent requires all eight CI parts and the required gate on the final pushed head before merge.
