@@ -20,6 +20,7 @@ import numpy as np
 from check_near import read, values, component, world_nodes
 from check_mid import bind_parts
 from sampled_sat import separation_batch, BATCH_CAP
+from sampled_broadphase import FixedYBroadphase
 
 CLOSED_WORLD_POSITION_TOLERANCE_M = 2e-7
 CUT_SURFACE_AREA_TOLERANCE_M2 = 2e-6
@@ -399,7 +400,7 @@ def check(args):
         'recipe_sha256': sha(args.recipe), 'source_receipt_sha256': sha(args.source_receipt),
         'checker_sha256': sha(Path(__file__)),
         'source_file_sha256': {name: sha(Path(__file__).with_name(name)) for name in [
-            'door_aperture.py', 'check_door_aperture.py', 'door-aperture.json', 'check_near.py', 'check_mid.py', 'sampled_sat.py']},
+            'door_aperture.py', 'check_door_aperture.py', 'door-aperture.json', 'check_near.py', 'check_mid.py', 'sampled_sat.py', 'sampled_broadphase.py']},
         'settings': {'max_interval_depth': args.max_depth, 'tolerance_m': args.tolerance,
                      'sample_count': 15, 'fixed_surface_exemptions': [],
                      'sampled_only_diagnostic': args.sampled_only, 'sampled_batch_cap': BATCH_CAP},
@@ -422,6 +423,7 @@ def check(args):
         return True
     recipe, doc, binary, protected, triangles, moving, labels, mobile, fixed = data
     flo, fhi = fixed.min(axis=1), fixed.max(axis=1)
+    sampled_broadphase = FixedYBroadphase(flo, fhi)
     sampled, failures = [], []
     sampled_batch_totals = {'batches': 0, 'pairs': 0, 'scalar_fallback_rows': 0,
                             'axis_cutoff_ambiguous_rows': 0, 'decision_ambiguous_rows': 0,
@@ -436,8 +438,7 @@ def check(args):
         last_update = time.monotonic()
         for tri in mobile:
             posed = turn(tri, angle)
-            candidates = np.flatnonzero(np.all(fhi >= posed.min(axis=0) - args.tolerance, axis=1)
-                                        & np.all(flo <= posed.max(axis=0) + args.tolerance, axis=1))
+            candidates = sampled_broadphase.candidates(posed.min(axis=0), posed.max(axis=0), args.tolerance)
             broadphase_pairs += len(candidates)
             for indices, gaps, diagnostics in sampled_pair_batches(posed, fixed, candidates, args.tolerance):
                 sampled_batch_totals['batches'] += 1
@@ -457,12 +458,12 @@ def check(args):
                     'moving_triangles_completed': moving_completed, 'moving_triangles_total': len(mobile),
                     'broadphase_pairs': broadphase_pairs, 'triangle_contacts': hits,
                     'elapsed_s': time.monotonic() - angle_started}, failure_examples=failures,
-                    sampled_batch_totals=sampled_batch_totals)
+                    sampled_batch_totals=sampled_batch_totals, sampled_broadphase=sampled_broadphase.reading())
                 last_update = time.monotonic()
         sampled.append({'angle_deg': math.degrees(angle), 'triangle_contacts': hits,
                         'broadphase_pairs': broadphase_pairs, 'seconds': time.monotonic() - angle_started})
         save_progress(sampled_angles_completed=sampled, current_sample=None, failure_examples=failures,
-                      sampled_batch_totals=sampled_batch_totals)
+                      sampled_batch_totals=sampled_batch_totals, sampled_broadphase=sampled_broadphase.reading())
     if args.sampled_only:
         contacts = any(row['triangle_contacts'] for row in sampled)
         result = {'schema': 'chicago-brougham-sampled-pose-diagnostic-v1',
@@ -470,6 +471,8 @@ def check(args):
             'structure': structure, 'input_sha256': sha(args.input), 'candidate_sha256': sha(args.candidate),
             'recipe_sha256': sha(args.recipe), 'source_receipt_sha256': sha(args.source_receipt),
             'checker_sha256': sha(Path(__file__)), 'sampled_helper_sha256': sha(Path(__file__).with_name('sampled_sat.py')),
+            'sampled_broadphase_sha256': sha(Path(__file__).with_name('sampled_broadphase.py')),
+            'sampled_broadphase': sampled_broadphase.reading(),
             'all_actual_triangles': len(triangles), 'moving_triangles': int(moving.sum()),
             'sampled': sampled, 'failure_examples': failures, 'sampled_batch_totals': sampled_batch_totals,
             'intersection_tolerance_m': args.tolerance, 'max_interval_depth_UNRUN': args.max_depth,
@@ -522,6 +525,8 @@ def check(args):
               'recipe_sha256': sha(args.recipe), 'source_receipt_sha256': sha(args.source_receipt),
               'checker_sha256': sha(Path(__file__)), 'protected_original_occurrences_exact': len(protected),
               'sampled_helper_sha256': sha(Path(__file__).with_name('sampled_sat.py')),
+              'sampled_broadphase_sha256': sha(Path(__file__).with_name('sampled_broadphase.py')),
+              'sampled_broadphase': sampled_broadphase.reading(),
               'sampled_batch_totals': sampled_batch_totals,
               'progress_path': str(progress_path), 'interval_counts': interval_counts,
               'all_actual_triangles': len(triangles), 'moving_triangles': int(moving.sum()),

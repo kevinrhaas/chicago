@@ -299,3 +299,37 @@ geometry decision. Clear partial open poses do not supply the missing continuous
 visual, runtime or delivery acceptance. No automatic retry or cap/threshold change
 is authorized by this checkpoint. All capability/qualification flags remain false;
 full local/hosted/published gates remain UNRUN and no delivery is installed.
+
+## Complete118-contact readback and exact sampled broadphase
+
+The read-only closed analysis completed in41.908s with original floors and zero
+children. It enumerated **all118** contacts across all44,183native AABB candidates;
+every candidate decision was independently scalar-rechecked against the batch
+result, with exact classification and maximum gap difference1.11e-15m. The256
+record cap was not reached. All2,946moving triangles and every fixed surface were
+included; source/recipe/mesh hashes stayed unchanged. The five pair counts are
+backing→step14/15:40/16, U→step14/15:24/4, lining→step14:34. Their conservative
+overlap-Y ranges lie within0.494716–0.560010m; these ranges and SAT gaps are not MTD.
+
+Actual floor surfaces establish topY0.9226999879m and bottomY0.8774999976m. The
+approved next SOURCE proposal clips only the added backing belowY0.926m (3.300012mm
+above that floor), uses whole source-ring translations to preserve stem section
+and terminal surfaces, and declares any fixed link to the actual floor separately.
+That next geometry has not yet been emitted or qualified by this checkpoint.
+
+`sampled_broadphase.py` is the exact reviewed GPL-3.0-or-later Y-shortlist helper,
+SHA256 `268380e6acb15ed2865904a2c7f1f992df397b28da7d2dd563fd31853ac8f38d`.
+It replaces only the sampled-pose AABB lookup. Immutable fixed-bound snapshots,
+inclusive boundary handling, ascending original fixed IDs and the final original
+six-condition predicate remain authoritative. Cache limits are16MiB/4,096LRU
+entries; fixed snapshots, sorted indexes, query temporary bounds and metadata are
+reported separately, not hidden behind that cache limit or called process RSS.
+
+Native numerical/integration controls passed in0.716s under original guards,
+including exact/nextafter boundaries, candidate order/dtype, immutable snapshots,
+byte/entry eviction and both clear/contact diagnostic fixtures. Original scalar
+SAT, `interval_clear` and the entire interval outer broadphase remain byte-exact.
+The outside-app three-pose/all2,946-query candidate comparisons matched full-scan
+arrays exactly; they are numerical candidate-set evidence, not clearance results.
+No old model15pose retry followed this performance change. All qualification
+flags remain false and the actual118-contact repaired model remains NONPASS.
