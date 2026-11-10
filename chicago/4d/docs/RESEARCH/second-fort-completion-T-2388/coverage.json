@@ -11,7 +11,9 @@
     "eastman_schoolcraft_chicago_1820_engraving",
     "childs_1857_chicago_from_lake_1820",
     "castelnau_1842_chicago_harbor",
-    "kellogg_blanchard_1856_old_fort_lake_house"
+    "kellogg_blanchard_1856_old_fort_lake_house",
+    "wentworth_1881_fort_1850_cut",
+    "wentworth_1881_hesler_1855_quarters_cut"
   ],
   "photos": [
     {
@@ -116,7 +118,7 @@
     },
     {
       "view": "wentworth-1850-later-compound",
-      "source_id": "wentworth_1881_fort_dearborn",
+      "source_id": "wentworth_1881_fort_1850_cut",
       "file": "chicago/4d/data/sources/assets/second_fort_wentworth_1881/p43_fort_1850.jpg",
       "sha256": "aaa68e5aa55c09e60efd2cfb9d21f25f7b4d9b2ebeb99691db77bba1513a3d34",
       "depicted": "1850",
@@ -127,7 +129,7 @@
     },
     {
       "view": "hesler-1855-later-quarters",
-      "source_id": "wentworth_1881_fort_dearborn",
+      "source_id": "wentworth_1881_hesler_1855_quarters_cut",
       "file": "chicago/4d/data/sources/assets/second_fort_wentworth_1881/p92_hesler_1855.jpg",
       "sha256": "0b88a1b59d7a7c8a1e57c4f86fcce48244abd11908a1c0b751b20f0d8a0a184b",
       "depicted": "1855",

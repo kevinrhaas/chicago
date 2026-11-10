@@ -139,3 +139,19 @@ Existing fort
 front tests pass, including legacy16 positional parameters, five first-fort canopy
 joints and Float32 contact. Pinned native generation and current actual comparisons
 are integrated by the root; this source parcel does not invent those receipts.
+
+The two contained Wentworth cuts have their own credited illustration source records,
+with1881publication and1850/1855depiction stated separately. The book remains the
+historical text citation. Actual `compile_pictures.derive` output confirms the1850
+cut reaches the blockhouse card and the1855cut reaches commandantsA/officersB, with
+creator, holder, URL and rights, and without an invented historical spot. This is
+compiler proof; published phone/desktop credit visibility remains the root’s UI check.
+
+The native gate reader now resolves per-side settings through the actual pure
+parameter API. It retains native gateway closure and independently measures the
+full wicket opening through every MASTER material. Runtime leaves are explicit
+app-owned geometry; duplicate baked leaves, blocked/stale/moved/undersized cuts,
+missing measurements and undeclared leaf ownership fail. New fixture self-tests
+pass. Actual oldMASTER geometry correctly fails both new postern openings, while
+actual current producer CPU geometry clears them; `postern-isolation.json` keeps
+that positive/negative measurement distinct from a pinned native AFTER receipt.
