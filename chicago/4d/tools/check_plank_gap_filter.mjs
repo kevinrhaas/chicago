@@ -29,6 +29,7 @@ const moduleURL = (source) => `data:text/javascript;base64,${Buffer.from(source)
 const source = await readFile(path.join(web, 'js/frontage.js'), 'utf8');
 const mod = await import(moduleURL(source
   .replace("from 'three'", `from '${threeURL}'`)
+  .replace("from './published-assets.js'", `from '${pathToFileURL(path.join(web, 'js/published-assets.js')).href}'`)
   .replace("import { resolveBases } from './scene-loader.js';",
     "const resolveBases = () => { throw new Error('scene loading outside this check'); };")
   .replace("from './gates.js'", `from '${pathToFileURL(path.join(web, 'js/gates.js')).href}'`)

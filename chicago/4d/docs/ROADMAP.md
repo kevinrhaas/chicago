@@ -1,3 +1,14 @@
+## T-2795 — deliver the existing transport refinements reliably (2026-11-10)
+
+Keep the merged horse team, clothing and coat increments credited. Add native
+verified publication aliases so the separate MAIN assembler can reduce duplicate
+preview bytes while preserving existing assets, logical LODs and saved years.
+Require complete integrated-head CI before DEV merge and separate owner approval
+for MAIN publisher changes. Measure the current publication and verify live
+freshness; the saved-artifact size proof alone does not establish live delivery.
+Continue the existing coachman, boarding, riding, motion and photographic work;
+this infrastructure increment does not close those acceptances or T-2795.
+
 ## T-1789 — retain the full baseline while rebuilding three residents (2026-11-10)
 
 Remove duplicate native measurement work from the second teamster sweep: rebuild and

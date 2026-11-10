@@ -21,6 +21,7 @@
  * `?data=` and `?assets=` override either.
  */
 
+import { fetchPublishedAssetBytes, registerPublishedTextureBuffers } from './published-assets.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { registerKTX2 } from './ktx2.js';
 import { shareImageSources, releaseSharedImage } from './shared-images.js';
@@ -207,9 +208,8 @@ async function fetchAsset(url) {
   let first;
   for (let attempt = 0; attempt < 2; attempt += 1) {
     try {
-      const res = await fetch(url, { cache: 'no-cache' });
-      if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
-      return { buffer: await res.arrayBuffer(), retried: attempt > 0 };
+      const buffer = await fetchPublishedAssetBytes(url, { cache: 'no-cache' });
+      return { buffer, retried: attempt > 0 };
     } catch (err) {
       if (attempt) throw new Error(`${err.message} (asked twice)`);
       first = err;
@@ -361,7 +361,7 @@ export async function loadScene(year, bases = resolveBases(), {
   };
 
   // The shared KTX2 loader (T-2582), so a KHR_texture_basisu derivative decodes.
-  const loader = registerKTX2(new GLTFLoader());
+  const loader = registerPublishedTextureBuffers(registerKTX2(new GLTFLoader()));
   // T-2464: houses built on one kit embed the same maps; decode each once.
   // T-2598: a phone keeps each picture's encoded bytes, so texture residency can
   // decode one again after the decoded copy was closed (texture-residency.js).

@@ -73,6 +73,7 @@
  *    `board_on_a_post` block states that reading rather than leaving it silent).
  */
 
+import { fetchPublishedAssetBytes } from './published-assets.js';
 import * as THREE from 'three';
 import { resolveBases } from './scene-loader.js';
 import { gateBoxes } from './gates.js';
@@ -1617,9 +1618,7 @@ export async function fetchPrebuiltFrontage({ dataBase, year, build }) {
     const index = await res.json();
     if (index.format !== PREBUILT_FORMAT) return { why: `prebuilt format ${index.format}, this page reads ${PREBUILT_FORMAT}` };
     if (index.build !== build) return { why: `prebuilt by build ${index.build}, this page is build ${build}` };
-    const binRes = await fetch(new URL(index.bin, base));
-    if (!binRes.ok) return { why: `no prebuilt buffer (${binRes.status})` };
-    let bin = await binRes.arrayBuffer();
+    let bin = await fetchPublishedAssetBytes(new URL(index.bin, base));
     // Shipped gzipped (the tree budget, prebuild_layers.mjs). A server that sent
     // it with Content-Encoding has already inflated it, so read the magic bytes.
     const head = new Uint8Array(bin, 0, Math.min(2, bin.byteLength));

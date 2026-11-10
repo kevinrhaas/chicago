@@ -4924,6 +4924,9 @@ selftest "year packs: membership, the update diff and the kill switch (T-2561)" 
 step "year packs: every file a pack lists ships at the hash it lists (T-2561)" \
   node tools/write_year_packs.mjs --check
 
+step "publication aliases retain exact bytes, logical LOD identities, year membership and strict source integrity (T-2795)" \
+  node tools/test_published_assets.mjs --check
+
 # The front doors on chicago.polecat.live (/4d/, /4d/<year>/) are walk/index.html with
 # a <base href> into walk/. Their self-test holds the one thing that can go wrong with
 # that shape: a <base> that is not the first child of <head>, or a planned year with

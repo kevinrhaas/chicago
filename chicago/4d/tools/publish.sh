@@ -542,6 +542,8 @@ fi
 # The parked vehicles fetch their placement manifest from the scene data base.
 # Their authored GLBs already travel with renderers/web; publish the data too.
 mkdir -p "$SITE/data/transport"
+# Moving, standing and parked horses share this runtime appearance contract.
+cp -f data/transport/horse-coats.json "$SITE/data/transport/horse-coats.json"
 rm -rf "$SITE/data/transport/parked"
 cp -a data/transport/parked "$SITE/data/transport/parked"
 # T-3500: the standing horse's derivation and qualification reports (5.3 MB) are the

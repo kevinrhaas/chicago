@@ -15,6 +15,7 @@ const THREE = await import(threeURL);
 const source = await readFile(path.join(web, 'js/frontage.js'), 'utf8');
 const moduleURL = text => `data:text/javascript;base64,${Buffer.from(text).toString('base64')}`;
 const mod = await import(moduleURL(source.replace("from 'three'", `from '${threeURL}'`)
+  .replace("from './published-assets.js'", `from '${pathToFileURL(path.join(web, 'js/published-assets.js')).href}'`)
   .replace("import { resolveBases } from './scene-loader.js';",
     "const resolveBases=()=>({assetBase:new URL('file:///tmp/t2037-no-assets/')});")
   .replace("from './gates.js'", `from '${pathToFileURL(path.join(web, 'js/gates.js')).href}'`)
