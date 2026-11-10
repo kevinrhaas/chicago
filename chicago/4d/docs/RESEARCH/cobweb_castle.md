@@ -143,7 +143,7 @@ The composition follows Wau-Bun's centre/two wings/two tails and the engraving's
 dominant front gable, receding ridge, subordinate side gable, three front marks
 and small roof stack. The previous 13×9 m trial and transverse wing roofs made
 an overly broad cabin with conspicuous exterior wing stacks. The bounded
-replacement is 9×5.5 m: a 5×4.5 m centre, two 2×2 m wings recessed 1 m, and
+replacement is 9×4.5 m: a 5×3.5 m centre, two 2×2 m wings recessed 1 m, and
 two 1.5×1 m rear adjuncts. The wings' 2.0 m eaves sit below the retained 2.6 m
 centre; all pitches remain 35°. One reconstructed 0.80 m square main-ridge
 stack replaces the unsupported pair. The retained head is 5.05 m. The former

@@ -43,11 +43,11 @@
         "polygon": [
           [
             0,
-            2.5
+            1.5
           ],
           [
             2,
-            2.5
+            1.5
           ],
           [
             2,
@@ -91,39 +91,39 @@
           ],
           [
             7,
-            2.5
+            1.5
           ],
           [
             9,
-            2.5
+            1.5
           ],
           [
             9,
-            4.5
+            3.5
+          ],
+          [
+            7,
+            3.5
           ],
           [
             7,
             4.5
           ],
           [
-            7,
-            5.5
-          ],
-          [
-            2,
-            5.5
-          ],
-          [
             2,
             4.5
+          ],
+          [
+            2,
+            3.5
           ],
           [
             0,
-            4.5
+            3.5
           ]
         ],
         "confidence": "reconstructed",
-        "note": "T-2374 final bounded reconstruction: the text-attested centre, two symmetrical wings and two rear tails occupy a 9 by 5.5 m envelope. The 5 m centre is retained; each former 4 m wing is narrowed to 2 m and its front recessed 1 m behind the central front. The central room is 4.5 m deep, and each 1.5 m wide rear tail runs 1 m back. These are choices within Wau-Bun's compact five-part composition and the small keyed panorama's dominant front gable and subordinate visible side gable, not measured historic dimensions or a survey. Room-coordinate rebasing keeps the polygon at local zero; position and rotation are unchanged. The central openings retain their earlier relative offsets, count, heights and depths. The generator builds the exact union, including re-entrant corners. The unseen wing, tails and continuation to July 1835 remain reconstructed. Supersedes the former 13 by 9 m trial; see L-cobweb-completion-2374."
+        "note": "T-2374 final bounded reconstruction: the text-attested centre, two symmetrical wings and two rear tails occupy a 9 by 4.5 m envelope. The 5 m centre is retained; each former 4 m wing is narrowed to 2 m and its front recessed 1 m behind the central front. The central room is 3.5 m deep, and each 1.5 m wide rear tail runs 1 m back. These are choices within Wau-Bun's compact five-part composition and the small keyed panorama's dominant front gable and subordinate visible side gable, not measured historic dimensions or a survey. Room-coordinate rebasing keeps the polygon at local zero; position and rotation are unchanged. The central openings retain their earlier relative offsets, count, heights and depths. The generator builds the exact union, including re-entrant corners. The unseen wing, tails and continuation to July 1835 remain reconstructed. Supersedes the former 13 by 9 m trial; see L-cobweb-completion-2374."
       },
       "form": {
         "construction": {
@@ -188,13 +188,13 @@
                 2,
                 1,
                 7,
-                5.5
+                4.5
               ],
               "roof_rect": [
                 2,
                 1,
                 7,
-                5.5
+                4.5
               ],
               "ridge_axis": "y",
               "front_opening": "door"
@@ -202,15 +202,15 @@
             {
               "wall_rect": [
                 0,
-                2.5,
+                1.5,
                 2,
-                4.5
+                3.5
               ],
               "roof_rect": [
                 0,
-                2.5,
+                1.5,
                 2,
-                4.5
+                3.5
               ],
               "ridge_axis": "y",
               "front_opening": "window"
@@ -218,15 +218,15 @@
             {
               "wall_rect": [
                 7,
-                2.5,
+                1.5,
                 9,
-                4.5
+                3.5
               ],
               "roof_rect": [
                 7,
-                2.5,
+                1.5,
                 9,
-                4.5
+                3.5
               ],
               "ridge_axis": "y",
               "front_opening": "window"
@@ -329,7 +329,7 @@
           "value": [
             [
               0,
-              0.5,
+              0.35,
               0.8
             ]
           ],
@@ -337,7 +337,7 @@
           "sources": [
             "kinzie_1857_chicago_1831_panorama"
           ],
-          "note": "T-2374: the panorama shows a small stack above the main roof rather than two large exterior wing-end stacks. Place one 0.80 m square shaft halfway along room zero's ridge; its head uses the existing 5.05 m chimney_head_m. Every metric coordinate is reconstructed, bounded by the drawn roof stack and retained central roof. No hidden flue or historic construction section is claimed."
+          "note": "T-2374: the panorama shows a small stack above the main roof rather than two large exterior wing-end stacks. Place one 0.80 m square shaft at 35 percent along room zero's ridge from the rear; its head uses the existing 5.05 m chimney_head_m. Every metric coordinate is reconstructed, bounded by the drawn roof stack and retained central roof. No hidden flue or historic construction section is claimed."
         },
         "compound_eave_heights_m": {
           "value": [

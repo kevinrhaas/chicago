@@ -58,8 +58,8 @@ class CompoundForm(unittest.TestCase):
         self.assertEqual(after.faces[:len(before.faces)],before.faces)
         stack=after.verts[len(before.verts):]
         self.assertEqual(len(stack),20)  # one five-faced shaft, no ground-reaching exterior stack
-        expected=((4.1,2.85,compound_gable_face(p,0)[5]-.4*math.tan(math.radians(35))-.25),
-                  (4.9,3.65,5.05))
+        expected=((4.1,1.825,compound_gable_face(p,0)[5]-.4*math.tan(math.radians(35))-.25),
+                  (4.9,2.625,5.05))
         for axis in range(3):
             self.assertAlmostEqual(min(v[axis] for v in stack),expected[0][axis])
             self.assertAlmostEqual(max(v[axis] for v in stack),expected[1][axis])
