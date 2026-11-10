@@ -1,0 +1,33 @@
+{
+  "provenance": {
+    "base_commit": "9b103acaea5e9acaae6f0db156cfa1e5dacb67de",
+    "main_sha256": "f38ca5a20c18a7f8d07c9b1f0ea24ee4b7e9bfaf0010c7341bc063c7d1e585c7",
+    "mirror_main_sha256": "f38ca5a20c18a7f8d07c9b1f0ea24ee4b7e9bfaf0010c7341bc063c7d1e585c7",
+    "culler_sha256": "4f0f9e952766622fc304fb31d96b2ec38893dfdcde5cc966c03c0338cf435287"
+  },
+  "viewport": {
+    "width": 1280,
+    "height": 800
+  },
+  "result": {
+    "scene": "1835",
+    "configured": {
+      "on": true,
+      "culled": 9316
+    },
+    "ceiling": 2625000,
+    "off": {
+      "triangles": 2658284,
+      "drawCalls": 6441
+    },
+    "on": {
+      "triangles": 2591747,
+      "drawCalls": 5940
+    },
+    "pixels": 1024000,
+    "different": 0,
+    "maxDelta": 0,
+    "controlDifferent": 143254
+  },
+  "errors": []
+}

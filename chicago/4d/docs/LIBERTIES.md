@@ -43093,6 +43093,7 @@ subject to actual native and ordinary-world desktop/phone image review in T-2795
 **Sources:** `sevketkabatas_2021_horse_model` supplies the existing CC BY 4.0 model and maps only. Individual coats and markings are owner-requested reconstruction.
 **How to resolve:** Historical pictures could identify particular animals; actual native and ordinary-world desktop/phone image reviews must qualify the current surface appearance.
 **Ticket:** T-2795.
+**Recorded:** 2026-11-10.
 
 ### L-t3533-household-routines — 1904 seasonal household days
 

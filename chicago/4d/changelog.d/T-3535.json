@@ -1,0 +1,1 @@
+{"title":"Rendering detail refinements","kind":"fix","items":["Large views at Balanced detail now draw more efficiently, with unchanged appearance.","Full detail gives X-RAY views a measured allowance for their additional drawing work."]}

@@ -1003,6 +1003,10 @@ const DETAIL_DECLARED = {
   // the rule are in the block above `full`.
   balanced: { triangles: 2625000, shadowReachM: 240, furnitureCastsShadow: true,
               furnitureReachM: FURNITURE_REACH_BALANCED_M, groundDetailReachM: null,
+              // T-3535: the same conservative sun-pass cull as Full and Light.
+              // At West prairie: 2,658,284 -> 2,591,747 triangles, identical pixels.
+              // docs/RESEARCH/balanced-shadow-budget-3535/ holds the comparison.
+              castersTowardView: true,
               protects: 'the median visitor: integrated graphics on an ordinary '
                 + 'laptop, which is what most people arrive on',
               measured: '2,625,000 set 2026-10-19: same fresh production-step split '
@@ -1134,7 +1138,7 @@ const DETAIL_DECLARED = {
               // T-2529: a structure piece casts only if its shadow can reach the
               // view (shadow-casters.js). Conservative, so the frame is the same
               // picture; the sun's pass stops drawing houses whose shadows fall
-              // away from the screen. `full` and `balanced` are unchanged.
+              // away from the screen. Full and Balanced now use the same test.
               castersTowardView: true,
               // T-3312: a far structure piece draws in the colour pass from its
               // clustered twin wherever the twin's edge moves under a pixel

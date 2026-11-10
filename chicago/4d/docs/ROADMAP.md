@@ -6510,3 +6510,9 @@ The owner-requested coat variation is prepared for the current 1812, 1835 and 19
 
 ### T-3533 - 1904 household routines
 Seasonal daily routines now cover all eight drawn household members. Door callers can request an outdoor activity at any hour or ask someone to Go inside. Extend this model to further houses after this household review.
+
+
+### T-3535 - Balanced shadow culling
+Balanced now uses the existing conservative shadow-caster filter. At the failing 1835 West prairie view, 66,537 submitted triangles and 501 calls disappear with zero changed pixels; the 2,625,000 ceiling remains unchanged. Receipts: docs/RESEARCH/balanced-shadow-budget-3535/. Release smoke verification is recorded in the PR.
+
+T-3535 also recalibrates the Full-only Ghost triangle allowance from the complete desktop settings smoke, retaining the existing margin and all ordinary/lower-tier budgets.

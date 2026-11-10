@@ -2,6 +2,508 @@
   "note": "T-0216 — dev's standing smoke result, so a branch can answer \"is this red mine, or did I inherit it?\" from the record instead of re-running the stage on a clean worktree (three agents paid that price on one red on 2026-08-27; T-0215). Written by tools/dev-smoke-state.mjs, which parses a smoke log — local or from a chicago-4d-smoke.yml run. Every reading carries the CONDITIONS it was taken under, because a quiet CI runner does not predict a loaded steward box: T-0215 measured a factor of twenty on one tree. loadavg is sampled when the reading is filed, so it includes the smoke's own load. `treeHash` digests exactly what the smoke exercises (renderers, data, assets, smoke_renderer.mjs, the published mirror), so a reading whose hash matches yours is a reading OF YOUR TREE. A RECORD, NOT A BAR: nothing here gates anything. THE PART NUMBERS CHANGED ON 2026-08-30 (T-0346): part 4 was cut into 4, 5 and 6 and the old parts 5-9 became 7-11; then T-0173 halved part 7 (8-11 -> 9-12) and T-0170 halved part 10 (11-12 -> 12-13); on 2026-10-11 T-2337 halved part 10 again (11-14 -> 12-15). A reading filed before any of those is labelled in the OLD numbering of its day. Each of those also carries a treeHash that cannot match a tree containing the cut, so `ask` already reports them as not taken on your tree — but read the stage number as dated rather than current.",
   "readings": [
     {
+      "viewport": "desktop",
+      "stage": "15",
+      "parts": [
+        15
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 34,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 916,
+      "takenAt": "2026-11-10T06:46:53Z",
+      "ref": "HEAD",
+      "commit": "9b103acaea5e",
+      "devCommit": "1226c29f7e57",
+      "treeHash": "sha256:30c63fd727702211",
+      "treeDirty": false,
+      "changelogHash": "sha256:d61635f3b0850aef",
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest, load not recoverable from the log"
+      },
+      "source": "gh-run:42770810909 https://github.com/kevinrhaas/chicago/actions/runs/42770810909"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "15",
+      "parts": [
+        15
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 34,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 432,
+      "takenAt": "2026-11-10T06:46:50Z",
+      "ref": "HEAD",
+      "commit": "9b103acaea5e",
+      "devCommit": "1226c29f7e57",
+      "treeHash": "sha256:30c63fd727702211",
+      "treeDirty": false,
+      "changelogHash": "sha256:d61635f3b0850aef",
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest, load not recoverable from the log"
+      },
+      "source": "gh-run:42770806692 https://github.com/kevinrhaas/chicago/actions/runs/42770806692"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "13",
+      "parts": [
+        13
+      ],
+      "verdict": "fail",
+      "target": "published",
+      "passed": 157,
+      "failed": 1,
+      "failures": [
+        "desktop 1280x800: Full X-RAY triangles stay inside the declared view budget (T-2981) — {\"year\":\"1835\",\"detail\":\"full\",\"ghosting\":true,\"calls\":8152,\"triangles\":3737315,\"budget\":{\"drawCalls\":8900,\"triangles\":3675000},\"publicBudget\":{\"drawCalls\":8900,\"triangles\":3675000}}"
+      ],
+      "wallSeconds": 4560,
+      "takenAt": "2026-11-10T06:46:47Z",
+      "ref": "HEAD",
+      "commit": "9b103acaea5e",
+      "devCommit": "9d293d140002",
+      "treeHash": "sha256:30c63fd727702211",
+      "treeDirty": false,
+      "changelogHash": "sha256:d61635f3b0850aef",
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest, load not recoverable from the log"
+      },
+      "source": "gh-run:42770801483 https://github.com/kevinrhaas/chicago/actions/runs/42770801483"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "13",
+      "parts": [
+        13
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 158,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 842,
+      "takenAt": "2026-11-10T06:46:45Z",
+      "ref": "HEAD",
+      "commit": "9b103acaea5e",
+      "devCommit": "1226c29f7e57",
+      "treeHash": "sha256:30c63fd727702211",
+      "treeDirty": false,
+      "changelogHash": "sha256:d61635f3b0850aef",
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest, load not recoverable from the log"
+      },
+      "source": "gh-run:42770796405 https://github.com/kevinrhaas/chicago/actions/runs/42770796405"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "9-12",
+      "parts": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 69,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 1753,
+      "takenAt": "2026-11-10T06:46:43Z",
+      "ref": "HEAD",
+      "commit": "9b103acaea5e",
+      "devCommit": "9d293d140002",
+      "treeHash": "sha256:30c63fd727702211",
+      "treeDirty": false,
+      "changelogHash": "sha256:d61635f3b0850aef",
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest, load not recoverable from the log"
+      },
+      "source": "gh-run:42770792708 https://github.com/kevinrhaas/chicago/actions/runs/42770792708"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "9-12",
+      "parts": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 69,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 290,
+      "takenAt": "2026-11-10T06:46:40Z",
+      "ref": "HEAD",
+      "commit": "9b103acaea5e",
+      "devCommit": "1226c29f7e57",
+      "treeHash": "sha256:30c63fd727702211",
+      "treeDirty": false,
+      "changelogHash": "sha256:d61635f3b0850aef",
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest, load not recoverable from the log"
+      },
+      "source": "gh-run:42770788316 https://github.com/kevinrhaas/chicago/actions/runs/42770788316"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "8",
+      "parts": [
+        8
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 22,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 806,
+      "takenAt": "2026-11-10T06:46:37Z",
+      "ref": "HEAD",
+      "commit": "9b103acaea5e",
+      "devCommit": "1226c29f7e57",
+      "treeHash": "sha256:30c63fd727702211",
+      "treeDirty": false,
+      "changelogHash": "sha256:d61635f3b0850aef",
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest, load not recoverable from the log"
+      },
+      "source": "gh-run:42770782326 https://github.com/kevinrhaas/chicago/actions/runs/42770782326"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "8",
+      "parts": [
+        8
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 22,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 204,
+      "takenAt": "2026-11-10T06:46:33Z",
+      "ref": "HEAD",
+      "commit": "9b103acaea5e",
+      "devCommit": "1226c29f7e57",
+      "treeHash": "sha256:30c63fd727702211",
+      "treeDirty": false,
+      "changelogHash": "sha256:d61635f3b0850aef",
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest, load not recoverable from the log"
+      },
+      "source": "gh-run:42770776167 https://github.com/kevinrhaas/chicago/actions/runs/42770776167"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "6-7",
+      "parts": [
+        6,
+        7
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 46,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 1084,
+      "takenAt": "2026-11-10T06:46:31Z",
+      "ref": "HEAD",
+      "commit": "9b103acaea5e",
+      "devCommit": "1226c29f7e57",
+      "treeHash": "sha256:30c63fd727702211",
+      "treeDirty": false,
+      "changelogHash": "sha256:d61635f3b0850aef",
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest, load not recoverable from the log"
+      },
+      "source": "gh-run:42770771776 https://github.com/kevinrhaas/chicago/actions/runs/42770771776"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "6-7",
+      "parts": [
+        6,
+        7
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 50,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 476,
+      "takenAt": "2026-11-10T06:46:28Z",
+      "ref": "HEAD",
+      "commit": "9b103acaea5e",
+      "devCommit": "1226c29f7e57",
+      "treeHash": "sha256:30c63fd727702211",
+      "treeDirty": false,
+      "changelogHash": "sha256:d61635f3b0850aef",
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest, load not recoverable from the log"
+      },
+      "source": "gh-run:42770767125 https://github.com/kevinrhaas/chicago/actions/runs/42770767125"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "5",
+      "parts": [
+        5
+      ],
+      "verdict": "fail",
+      "target": "published",
+      "passed": 29,
+      "failed": 1,
+      "failures": [
+        "desktop 1280x800: scene detail 'balanced' stays inside its own ceiling at the WORST stand — 2,658,284 tris of 2,625,000 at West prairie, east across the sward toward town, 6441 calls of 7800 at West prairie, east across the sward toward town — spread: West prairie, east across the sward toward town 2,658,284/6441c · Lake Street at Canal, east down the axis 2,468,961/5616c · Lake and Market, the corner itself 2,341,912/4007c · the forks, from Wolf Point 2,143,954/4263c · the Sauganash at 26 m 1,690,858/2844c · the open aerial 1,676,670/2826c"
+      ],
+      "wallSeconds": 630,
+      "takenAt": "2026-11-10T06:46:26Z",
+      "ref": "HEAD",
+      "commit": "9b103acaea5e",
+      "devCommit": "1226c29f7e57",
+      "treeHash": "sha256:30c63fd727702211",
+      "treeDirty": false,
+      "changelogHash": "sha256:d61635f3b0850aef",
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest, load not recoverable from the log"
+      },
+      "source": "gh-run:42770762952 https://github.com/kevinrhaas/chicago/actions/runs/42770762952"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "5",
+      "parts": [
+        5
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 30,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 311,
+      "takenAt": "2026-11-10T06:46:22Z",
+      "ref": "HEAD",
+      "commit": "9b103acaea5e",
+      "devCommit": "1226c29f7e57",
+      "treeHash": "sha256:30c63fd727702211",
+      "treeDirty": false,
+      "changelogHash": "sha256:d61635f3b0850aef",
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest, load not recoverable from the log"
+      },
+      "source": "gh-run:42770756248 https://github.com/kevinrhaas/chicago/actions/runs/42770756248"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "3-4",
+      "parts": [
+        3,
+        4
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 136,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 1372,
+      "takenAt": "2026-11-10T06:46:19Z",
+      "ref": "HEAD",
+      "commit": "9b103acaea5e",
+      "devCommit": "1226c29f7e57",
+      "treeHash": "sha256:30c63fd727702211",
+      "treeDirty": false,
+      "changelogHash": "sha256:d61635f3b0850aef",
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest, load not recoverable from the log"
+      },
+      "source": "gh-run:42770750955 https://github.com/kevinrhaas/chicago/actions/runs/42770750955"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "3-4",
+      "parts": [
+        3,
+        4
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 139,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 337,
+      "takenAt": "2026-11-10T06:46:17Z",
+      "ref": "HEAD",
+      "commit": "9b103acaea5e",
+      "devCommit": "1226c29f7e57",
+      "treeHash": "sha256:30c63fd727702211",
+      "treeDirty": false,
+      "changelogHash": "sha256:d61635f3b0850aef",
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest, load not recoverable from the log"
+      },
+      "source": "gh-run:42770747135 https://github.com/kevinrhaas/chicago/actions/runs/42770747135"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "1-2",
+      "parts": [
+        1,
+        2
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 198,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 1450,
+      "takenAt": "2026-11-10T06:46:14Z",
+      "ref": "HEAD",
+      "commit": "9b103acaea5e",
+      "devCommit": "1226c29f7e57",
+      "treeHash": "sha256:30c63fd727702211",
+      "treeDirty": false,
+      "changelogHash": "sha256:d61635f3b0850aef",
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest, load not recoverable from the log"
+      },
+      "source": "gh-run:42770741747 https://github.com/kevinrhaas/chicago/actions/runs/42770741747"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "1-2",
+      "parts": [
+        1,
+        2
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 198,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 437,
+      "takenAt": "2026-11-10T06:46:12Z",
+      "ref": "HEAD",
+      "commit": "9b103acaea5e",
+      "devCommit": "1226c29f7e57",
+      "treeHash": "sha256:30c63fd727702211",
+      "treeDirty": false,
+      "changelogHash": "sha256:d61635f3b0850aef",
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest, load not recoverable from the log"
+      },
+      "source": "gh-run:42770737170 https://github.com/kevinrhaas/chicago/actions/runs/42770737170"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "14",
+      "parts": [
+        14
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 144,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 823,
+      "takenAt": "2026-11-10T06:46:10Z",
+      "ref": "HEAD",
+      "commit": "9b103acaea5e",
+      "devCommit": "1226c29f7e57",
+      "treeHash": "sha256:30c63fd727702211",
+      "treeDirty": false,
+      "changelogHash": "sha256:d61635f3b0850aef",
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest, load not recoverable from the log"
+      },
+      "source": "gh-run:42770733238 https://github.com/kevinrhaas/chicago/actions/runs/42770733238"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "14",
+      "parts": [
+        14
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 144,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 247,
+      "takenAt": "2026-11-10T06:46:07Z",
+      "ref": "HEAD",
+      "commit": "9b103acaea5e",
+      "devCommit": "1226c29f7e57",
+      "treeHash": "sha256:30c63fd727702211",
+      "treeDirty": false,
+      "changelogHash": "sha256:d61635f3b0850aef",
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest, load not recoverable from the log"
+      },
+      "source": "gh-run:42770728331 https://github.com/kevinrhaas/chicago/actions/runs/42770728331"
+    },
+    {
       "viewport": "mobile",
       "stage": "1",
       "parts": [
@@ -1210,323 +1712,6 @@
     },
     {
       "viewport": "desktop",
-      "stage": "14",
-      "parts": [
-        14
-      ],
-      "verdict": "fail",
-      "target": "published",
-      "passed": 58,
-      "failed": 1,
-      "failures": [
-        "desktop 1280x800: the suite body ran to completion — Error: page.evaluate: Target page, context or browser has been closed"
-      ],
-      "wallSeconds": 595,
-      "takenAt": "2026-10-30T17:45:34.477Z",
-      "ref": "steward/t3256-1701-entrance-arch",
-      "commit": "34ae1c8cbc16",
-      "devCommit": "8b4e98207c1a",
-      "treeHash": "sha256:734b8df277a7489f",
-      "treeDirty": false,
-      "changelogHash": "sha256:c6b896f9c3507453",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          4.1,
-          4.9,
-          4.5
-        ]
-      },
-      "source": "/tmp/smoke_d14.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "15",
-      "parts": [
-        15
-      ],
-      "verdict": "killed",
-      "target": "published",
-      "passed": 21,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": null,
-      "takenAt": "2026-10-27T04:34:01.140Z",
-      "ref": "steward/t3187-1712-stone-front",
-      "commit": "e8b0126230b7",
-      "devCommit": "00a058ec1a86",
-      "treeHash": "sha256:d5adf52affbc0305",
-      "treeDirty": false,
-      "changelogHash": "sha256:d0e8cadeec07c5ad",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          6,
-          5.1,
-          4.4
-        ]
-      },
-      "source": "/tmp/work/smoke-d15.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "10",
-      "parts": [
-        10
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 31,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 113,
-      "takenAt": "2026-10-22T23:20:45.403Z",
-      "ref": "steward/t3040-fort-reference-groups",
-      "commit": "7d9afc0ecd86",
-      "devCommit": "7d9afc0ecd86",
-      "treeHash": "sha256:0e3028e203cb19e5",
-      "treeDirty": true,
-      "changelogHash": "sha256:406fa1adb1ff6ed3",
-      "host": {
-        "kind": "local",
-        "cpus": 5,
-        "memGB": 33.3,
-        "loadavg": [
-          0.9,
-          4,
-          4.1
-        ]
-      },
-      "source": "/tmp/t3040-smoke-mobile.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "15",
-      "parts": [
-        15
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 34,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 841,
-      "takenAt": "2026-10-22T16:57:27.476Z",
-      "ref": "claude/project-thread-1eaje1",
-      "commit": "2796de7bc55f",
-      "devCommit": "59da1aaacc9a",
-      "treeHash": "sha256:51c9bf1d238cd5ee",
-      "treeDirty": false,
-      "changelogHash": "sha256:d02663968cd152cf",
-      "host": {
-        "kind": "local",
-        "cpus": 4,
-        "memGB": 15.7,
-        "loadavg": [
-          3.2,
-          3.5,
-          3.3
-        ]
-      },
-      "source": "/tmp/claude-0/-home-claude/f7cba7df-4565-528c-89e0-a818e5b78339/scratchpad/smoke-d15.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "1-2",
-      "parts": [
-        1,
-        2
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 194,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 450,
-      "takenAt": "2026-10-17T17:54:12.924Z",
-      "ref": "steward/t2714-keith-checker-band",
-      "commit": "49501be6cad9",
-      "devCommit": "e62b79251247",
-      "treeHash": "sha256:497f94af35ef6c4f",
-      "treeDirty": false,
-      "changelogHash": "sha256:68eb240034ab0d96",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          3.7,
-          3.5,
-          3.7
-        ]
-      },
-      "source": "/tmp/k/smoke_m12.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "7-8",
-      "parts": [
-        7,
-        8
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 45,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 404,
-      "takenAt": "2026-10-17T01:24:03.364Z",
-      "ref": "steward/t2689-confidence-lane",
-      "commit": "5c8533f4e4bf",
-      "devCommit": "2abfc8e9640c",
-      "treeHash": "sha256:171113c3e9f9beba",
-      "treeDirty": false,
-      "changelogHash": "sha256:423932287c122955",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          4,
-          4.3,
-          4.2
-        ]
-      },
-      "source": "/tmp/smoke-m78.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "5-6",
-      "parts": [
-        5,
-        6
-      ],
-      "verdict": "fail",
-      "target": "published",
-      "passed": 40,
-      "failed": 1,
-      "failures": [
-        "mobile 390x780: the far merge gives back draw calls down the axial street and moves no triangle doing it — 90 call(s) saved over 11 of 41 cluster(s), -7380 triangle(s) moved"
-      ],
-      "wallSeconds": 365,
-      "takenAt": "2026-10-17T01:24:03.271Z",
-      "ref": "steward/t2689-confidence-lane",
-      "commit": "5c8533f4e4bf",
-      "devCommit": "2abfc8e9640c",
-      "treeHash": "sha256:171113c3e9f9beba",
-      "treeDirty": false,
-      "changelogHash": "sha256:423932287c122955",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          4,
-          4.3,
-          4.2
-        ]
-      },
-      "source": "/tmp/smoke-m56.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "2",
-      "parts": [
-        2
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 107,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 410,
-      "takenAt": "2026-10-16T04:21:03.308Z",
-      "ref": "steward/prairie-macro-variation",
-      "commit": "61e8dc043c28",
-      "devCommit": "ac7c81ed9605",
-      "treeHash": "sha256:30f879e99c308e87",
-      "treeDirty": false,
-      "changelogHash": "sha256:646db2977f78026d",
-      "host": {
-        "kind": "local",
-        "cpus": 4,
-        "memGB": 15.7,
-        "loadavg": [
-          3,
-          3.5,
-          3.4
-        ]
-      },
-      "source": "/tmp/claude-0/-home-user/e6f6a427-29e1-5e78-943d-b5d709abb45d/scratchpad/smoke-desktop-2.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "14",
-      "parts": [
-        14
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 128,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 1745,
-      "takenAt": "2026-10-16T02:14:51.553Z",
-      "ref": "steward/t1883-keith-photographic-finish",
-      "commit": "378a9250dc3b",
-      "devCommit": "378a9250dc3b",
-      "treeHash": "sha256:95aa65b69bca4e67",
-      "treeDirty": true,
-      "changelogHash": "sha256:352b125010f7a83d",
-      "host": {
-        "kind": "local",
-        "cpus": 5,
-        "memGB": 17.6,
-        "loadavg": [
-          2.8,
-          5.6,
-          6.7
-        ]
-      },
-      "source": "/workspace/scratch/t1883-smoke-desktop-14.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "11",
-      "parts": [
-        11
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 21,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 174,
-      "takenAt": "2026-10-11T04:03:29.905Z",
-      "ref": "steward/t2337-smoke-part10-recut",
-      "commit": "51ef0077b03e",
-      "devCommit": "0a2491b510c2",
-      "treeHash": "sha256:a61eb2e8b2e7f893",
-      "treeDirty": false,
-      "changelogHash": "sha256:a1b3a9b10b0745eb",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          3.8,
-          4.6,
-          4.5
-        ]
-      },
-      "source": "/tmp/smoke-m11.log"
-    },
-    {
-      "viewport": "desktop",
       "stage": "11",
       "parts": [
         11
@@ -1588,99 +1773,6 @@
       "source": "/tmp/smoke-d10.log"
     },
     {
-      "viewport": "mobile",
-      "stage": "12",
-      "parts": [
-        12
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 99,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": null,
-      "takenAt": "2026-10-10T00:31:09.665Z",
-      "ref": "steward/t-2206-glessner-proportions",
-      "commit": "145a1ddcd4da",
-      "devCommit": "01bf3aaf2fec",
-      "treeHash": "sha256:c6516aac9b4d5fa6",
-      "treeDirty": true,
-      "changelogHash": "sha256:28750ea283182949",
-      "host": {
-        "kind": "local",
-        "cpus": 5,
-        "memGB": 17.6,
-        "loadavg": [
-          2.6,
-          3.6,
-          3.5
-        ]
-      },
-      "source": "/workspace/t2206-proof/smoke-12.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "12",
-      "parts": [
-        12
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 101,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": null,
-      "takenAt": "2026-10-10T00:31:09.665Z",
-      "ref": "steward/t-2206-glessner-proportions",
-      "commit": "145a1ddcd4da",
-      "devCommit": "01bf3aaf2fec",
-      "treeHash": "sha256:c6516aac9b4d5fa6",
-      "treeDirty": true,
-      "changelogHash": "sha256:28750ea283182949",
-      "host": {
-        "kind": "local",
-        "cpus": 5,
-        "memGB": 17.6,
-        "loadavg": [
-          2.6,
-          3.6,
-          3.5
-        ]
-      },
-      "source": "/workspace/t2206-proof/smoke-12.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "8",
-      "parts": [
-        8
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 19,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": null,
-      "takenAt": "2026-10-09T22:57:53.121Z",
-      "ref": "steward/t-2205-glessner-roof-edges",
-      "commit": "fd690a3f493f",
-      "devCommit": "fd690a3f493f",
-      "treeHash": "sha256:dea990ac76059ff1",
-      "treeDirty": true,
-      "changelogHash": "sha256:a1b20b6c5cee0e9b",
-      "host": {
-        "kind": "local",
-        "cpus": 5,
-        "memGB": 17.6,
-        "loadavg": [
-          4.6,
-          4,
-          2.8
-        ]
-      },
-      "source": "/workspace/t2205-proof/smoke-stage8.log"
-    },
-    {
       "viewport": "desktop",
       "stage": "13",
       "parts": [
@@ -1710,178 +1802,6 @@
         ]
       },
       "source": "/workspace/t2203-proof/smoke-desktop-13-final.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "3,12-13",
-      "parts": [
-        3,
-        12,
-        13
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 308,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 1216,
-      "takenAt": "2026-10-09T18:26:23.197Z",
-      "ref": "steward/t-2203-glessner-roof-tiles",
-      "commit": "acbde7d0e6e0",
-      "devCommit": "e698c6213787",
-      "treeHash": "sha256:1e151f891df630ef",
-      "treeDirty": false,
-      "changelogHash": "sha256:f1e910d240f564ac",
-      "host": {
-        "kind": "local",
-        "cpus": 5,
-        "memGB": 17.6,
-        "loadavg": [
-          6.4,
-          7.5,
-          6.6
-        ]
-      },
-      "source": "/workspace/t2203-proof/smoke-mobile-3-12-13.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "7",
-      "parts": [
-        7
-      ],
-      "verdict": "fail",
-      "target": "published",
-      "passed": 34,
-      "failed": 1,
-      "failures": [
-        "desktop 1280x800: earth streets are populated and draped on the rendered ground — 29 streets, 261414 vertices, drape 0.000011372954562771653, wet 0"
-      ],
-      "wallSeconds": 1095,
-      "takenAt": "2026-10-08T09:41:42.511Z",
-      "ref": "steward/1812-lakeshore",
-      "commit": "b6aef1c75c95",
-      "devCommit": "7ec114a8db82",
-      "treeHash": "sha256:d827397ad2a6a5be",
-      "treeDirty": true,
-      "changelogHash": "sha256:3866e66a8468d0a4",
-      "host": {
-        "kind": "local",
-        "cpus": 9,
-        "memGB": 9.7,
-        "loadavg": [
-          5.2,
-          10.2,
-          11.9
-        ]
-      },
-      "source": "/tmp/t2171-smoke-desktop.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "1-6",
-      "parts": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6
-      ],
-      "verdict": "fail",
-      "target": "published",
-      "passed": 265,
-      "failed": 11,
-      "failures": [
-        "desktop 1280x800: both branch bridges carry four reconstructed repair piles — 2 bridge lots; [{\"kind\":\"timber\",\"e\":-123.5,\"n\":256.02,\"b\":0,\"quad\":[],\"bridge\":true,\"structure_id\":\"north_branch_bridge\",\"end\":\"west\",\"courses\":3,\"confidence\":\"reconstructed\",\"ground\":1.1781520051955736,\"wet\":false,\"vertices\":396,\"badConfidence\":0,\"minAlong\":-1.5240020751953125,\"maxAlong\":1.5240020751953125,\"minAcross\":-0.4000134277343932,\"maxAcross\":0.4000048828124818,\"minY\":1.1781519651412964,\"maxY\":1.7781519889831543},{\"kind\":\"timber\",\"e\":-39.67,\"n\":256.02,\"b\":0,\"quad\":[],\"bridge\":true,\"structure_id\":\"north_branch_bridge\",\"end\":\"east\",\"courses\":3,\"confidence\":\"reconstructed\",\"ground\":1.2165267045287709,\"wet\":false,\"vertices\":396,\"badConfidence\":0,\"minAlong\":-1.5240002441406233,\"maxAlong\":1.524000091552736,\"minAcross\":-0.4000134277343932,\"maxAcross\":0.4000048828124818,\"minY\":1.216526746749878,\"maxY\":1.8165266513824463},{\"kind\":\"timber\",\"e\":0.82,\"n\":-170.58,\"b\":6.278123852348803,\"quad\":[],\"bridge\":true,\"structure_id\":\"south_branch_raft_bridge\",\"end\":\"west\",\"courses\":3,\"confidence\":\"reconstructed\",\"ground\":1.1450201781234548,\"wet\":false,\"vertices\":1052,\"badConfidence\":0,\"minAlong\":-1.524000036384618,\"maxAlong\":1.5240001408065185,\"minAcross\":-0.4000051246909315,\"maxAcross\":2.5169742976094263,\"minY\":1.1450201272964478,\"maxY\":3.113241672515869},{\"kind\":\"timber\",\"e\":68.84,\"n\":-182.23,\"b\":6.278123852348803,\"quad\":[],\"bridge\":true,\"structure_id\":\"south_branch_raft_bridge\",\"end\":\"east\",\"courses\":3,\"confidence\":\"reconstructed\",\"ground\":0.9666105766963522,\"wet\":false,\"vertices\":396,\"badConfidence\":0,\"minAlong\":-1.5240025237696244,\"maxAlong\":1.5240028721910412,\"minAcross\":-0.39999596751948713,\"maxAcross\":0.4000026828453231,\"minY\":0.9666105508804321,\"maxY\":1.56661057472229}]",
-        "desktop 1280x800: bridge piles have their stated dimensions and stand on dry ground — [{\"kind\":\"timber\",\"e\":-123.5,\"n\":256.02,\"b\":0,\"quad\":[],\"bridge\":true,\"structure_id\":\"north_branch_bridge\",\"end\":\"west\",\"courses\":3,\"confidence\":\"reconstructed\",\"ground\":1.1781520051955736,\"wet\":false,\"vertices\":396,\"badConfidence\":0,\"minAlong\":-1.5240020751953125,\"maxAlong\":1.5240020751953125,\"minAcross\":-0.4000134277343932,\"maxAcross\":0.4000048828124818,\"minY\":1.1781519651412964,\"maxY\":1.7781519889831543},{\"kind\":\"timber\",\"e\":-39.67,\"n\":256.02,\"b\":0,\"quad\":[],\"bridge\":true,\"structure_id\":\"north_branch_bridge\",\"end\":\"east\",\"courses\":3,\"confidence\":\"reconstructed\",\"ground\":1.2165267045287709,\"wet\":false,\"vertices\":396,\"badConfidence\":0,\"minAlong\":-1.5240002441406233,\"maxAlong\":1.524000091552736,\"minAcross\":-0.4000134277343932,\"maxAcross\":0.4000048828124818,\"minY\":1.216526746749878,\"maxY\":1.8165266513824463},{\"kind\":\"timber\",\"e\":0.82,\"n\":-170.58,\"b\":6.278123852348803,\"quad\":[],\"bridge\":true,\"structure_id\":\"south_branch_raft_bridge\",\"end\":\"west\",\"courses\":3,\"confidence\":\"reconstructed\",\"ground\":1.1450201781234548,\"wet\":false,\"vertices\":1052,\"badConfidence\":0,\"minAlong\":-1.524000036384618,\"maxAlong\":1.5240001408065185,\"minAcross\":-0.4000051246909315,\"maxAcross\":2.5169742976094263,\"minY\":1.1450201272964478,\"maxY\":3.113241672515869},{\"kind\":\"timber\",\"e\":68.84,\"n\":-182.23,\"b\":6.278123852348803,\"quad\":[],\"bridge\":true,\"structure_id\":\"south_branch_raft_bridge\",\"end\":\"east\",\"courses\":3,\"confidence\":\"reconstructed\",\"ground\":0.9666105766963522,\"wet\":false,\"vertices\":396,\"badConfidence\":0,\"minAlong\":-1.5240025237696244,\"maxAlong\":1.5240028721910412,\"minAcross\":-0.39999596751948713,\"maxAcross\":0.4000026828453231,\"minY\":0.9666105508804321,\"maxY\":1.56661057472229}]",
-        "desktop 1280x800: no pile of material stands inside the building it is for — furthest vertex 2.60 m from its own pile's anchor, 0 vertex/vertices inside the lot's own footprint",
-        "desktop 1280x800: the frontage layer lays all five records' walks and stands their posts — 5 record(s) [green_tree_frontage, sauganash_frontage, river_walk_frontage, lasalle_crossing_frontage, town_street_edge], 121 walk(s), 100 crossing(s), 53 post(s), 37 fence run(s), 1900104 vertices, 186 wall(s) refused, problems [none]",
-        "desktop 1280x800: the frontage layer draws the meshes it authored — 125 authored mesh(es) (frontage, frontage-chunk x124), 10 far-merge artefact(s) [frontage-far-merge x10], 136 drawn in all",
-        "desktop 1280x800: the distant walk draw is one exact derived top-face batch — {\"meshes\":[{\"name\":\"frontage-far-walk-tops\",\"sharedMaterial\":true,\"castsShadow\":false,\"groundHugging\":true,\"candidates\":108554,\"drawn\":0}],\"state\":{\"candidateChunks\":119,\"candidateTriangles\":108554,\"eligibleChunks\":119,\"eligibleTriangles\":108554,\"activeChunks\":0,\"triangles\":0,\"drawCalls\":0,\"indexUpdates\":0}}"
-      ],
-      "wallSeconds": 1011,
-      "takenAt": "2026-10-08T07:24:59.092Z",
-      "ref": "steward/t-2157-validation",
-      "commit": "b3515147c382",
-      "devCommit": "1ab737cb4ff7",
-      "treeHash": "sha256:72bf73a190cba101",
-      "treeDirty": true,
-      "changelogHash": "sha256:72c127e049132ad1",
-      "host": {
-        "kind": "local",
-        "cpus": 9,
-        "memGB": 9.7,
-        "loadavg": [
-          16.1,
-          15.3,
-          13.8
-        ]
-      },
-      "source": "/tmp/t2157-final-smoke-desktop-1-6.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "3-6",
-      "parts": [
-        3,
-        4,
-        5,
-        6
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 146,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 892,
-      "takenAt": "2026-10-04T18:35:41.169Z",
-      "ref": "claude/project-thread-v3bnr3",
-      "commit": "85eae9d69c83",
-      "devCommit": "a17fbe62b57c",
-      "treeHash": "sha256:20cd244dd4b7e684",
-      "treeDirty": false,
-      "changelogHash": "sha256:c1cbee07e585a1dd",
-      "host": {
-        "kind": "local",
-        "cpus": 4,
-        "memGB": 15.7,
-        "loadavg": [
-          2.4,
-          3.2,
-          3.3
-        ]
-      },
-      "source": "/tmp/claude-0/-home-claude/78a296fc-4d86-5f43-a080-c6f5a273dfb9/scratchpad/smoke-m36.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "7-9",
-      "parts": [
-        7,
-        8,
-        9
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 56,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 1649,
-      "takenAt": "2026-10-03T22:02:40Z",
-      "ref": "steward/t2035-vegetation-continuity",
-      "commit": "db49ce6adfeb",
-      "devCommit": "a9c98af7a1f5",
-      "treeHash": null,
-      "treeDirty": false,
-      "changelogHash": "sha256:abee9f43dc2687ae",
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-latest; original job log and run metadata retrieved through GitHub connector"
-      },
-      "source": "gh-run:37157088665 https://github.com/kevinrhaas/chicago/actions/runs/37157088665"
     },
     {
       "viewport": "desktop",
