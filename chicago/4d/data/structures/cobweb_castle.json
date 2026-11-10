@@ -43,87 +43,87 @@
         "polygon": [
           [
             0,
-            4
+            2.5
           ],
           [
-            4,
-            4
+            2,
+            2.5
           ],
           [
-            4,
-            3
+            2,
+            1
           ],
           [
-            4.5,
-            3
+            2.5,
+            1
           ],
           [
-            4.5,
+            2.5,
             0
           ],
           [
-            6,
+            4,
             0
           ],
           [
-            6,
-            3
+            4,
+            1
+          ],
+          [
+            5,
+            1
+          ],
+          [
+            5,
+            0
+          ],
+          [
+            6.5,
+            0
+          ],
+          [
+            6.5,
+            1
           ],
           [
             7,
-            3
+            1
           ],
           [
             7,
-            0
-          ],
-          [
-            8.5,
-            0
-          ],
-          [
-            8.5,
-            3
+            2.5
           ],
           [
             9,
-            3
+            2.5
           ],
           [
             9,
-            4
+            4.5
           ],
           [
-            13,
-            4
+            7,
+            4.5
           ],
           [
-            13,
-            8
+            7,
+            5.5
           ],
           [
-            9,
-            8
+            2,
+            5.5
           ],
           [
-            9,
-            9
-          ],
-          [
-            4,
-            9
-          ],
-          [
-            4,
-            8
+            2,
+            4.5
           ],
           [
             0,
-            8
+            4.5
           ]
         ],
         "confidence": "reconstructed",
-        "note": "PLACEHOLDER. THE SHAPE CARRIES EVIDENCE AND EVERY NUMBER IN IT IS INVENTED, and the two must not be confused \u2014 the same distinction miller_house's footprint note draws. What is attested is the composition, from the only description of this building anybody wrote: 'a substantial, compact little building of logs hewed and squared, with a centre, two wings, and, strictly speaking, two tails, since, when there was found no more room for additions at the sides, they were placed in the rear, whereon a vacant spot could be found. These appendages did not mar the symmetry of the whole, as viewed from the front.' This polygon is that sentence drawn: a centre block projecting one metre forward of two flanking wings, so the front reads symmetrical, and two tails running back from the rear of the centre. The dimensions \u2014 a 5 m centre, 4 m wings, 1.5 m tails, a 13 x 9 m envelope \u2014 are chosen to suit the words 'compact little building' and are supported by nothing. Mrs. Callis's 'two large rooms' describes the house in 1816, before the wings and tails, and is the only interior evidence of any kind. NOTE WHAT THE MESH DOES WITH THIS: the log_dwelling archetype masses the polygon's BOUNDING BOX, so the visitor sees a plain 13 x 9 m rectangle and the composition this polygon draws is not built \u2014 the re-entrant corners beside the tails and beside the wings are filled in. That is admitted in docs/LIBERTIES.md rather than hidden, and it is the same limitation L27 records for Miller's house. To resolve: any plan, any dimension, or the Chicago Democrat's advertisements for the agency's buildings. T-2374 SUPERSESSION: the opt-in the connected room layout now builds five rooms whose union is this polygon, rather than its bounding box. The preceding paragraph describes the prior mesh limitation; its dimension and date cautions still apply."
+        "note": "T-2374 final bounded reconstruction: the text-attested centre, two symmetrical wings and two rear tails occupy a 9 by 5.5 m envelope. The 5 m centre is retained; each former 4 m wing is narrowed to 2 m and its front recessed 1 m behind the central front. The central room is 4.5 m deep, and each 1.5 m wide rear tail runs 1 m back. These are choices within Wau-Bun's compact five-part composition and the small keyed panorama's dominant front gable and subordinate visible side gable, not measured historic dimensions or a survey. Room-coordinate rebasing keeps the polygon at local zero; position and rotation are unchanged. The central openings retain their earlier relative offsets, count, heights and depths. The generator builds the exact union, including re-entrant corners. The unseen wing, tails and continuation to July 1835 remain reconstructed. Supersedes the former 13 by 9 m trial; see L-cobweb-completion-2374."
       },
       "form": {
         "construction": {
@@ -141,7 +141,7 @@
           "sources": [
             "andreas_1884_v1"
           ],
-          "note": "'the agency-house being afterward clapboarded part way up' \u2014 David McKee's recollection, printed by Andreas. This is an unusually specific finish for a building at this date and it is genuinely odd: siding taken part of the way up a log wall and no further, presumably to weather the lower courses. WHEN it was done is not stated beyond 'afterward', i.e. after 1823, so whether the boards were there on the scene date is not attested either. T-2374: the lower-wall trial now represents this occurrence through compound_clapboard_height_m; its chosen half-wall extent, neutral finish and corner clearances are liberties; the original date qualification remains.",
+          "note": "'the agency-house being afterward clapboarded part way up' \u2014 David McKee's recollection, printed by Andreas. This is an unusually specific finish for a building at this date and it is genuinely odd: siding taken part of the way up a log wall and no further, presumably to weather the lower courses. WHEN it was done is not stated beyond 'afterward', i.e. after 1823, so whether the boards were there on the scene date is not attested either. T-2374: the lower-wall reconstruction now represents this occurrence through compound_clapboard_height_m; its chosen half-wall extent, neutral finish and corner clearances are liberties; the original date qualification remains.",
           "geometry": "simplified"
         },
         "plan_composition": {
@@ -150,7 +150,7 @@
           "sources": [
             "kinzie_waubun_1856"
           ],
-          "note": "Wau-Bun's phrase, kept verbatim as a value because it is the single best-attested fact about this building and because the footprint polygon that draws it is not what the mesh is built from. The record states the composition; the model shows a rectangle. T-2374: the centre, wings and tails are now represented by the connected room layout; the preceding rectangle limitation is historical. Their exact arrangement and intersecting gables remain reconstructed.",
+          "note": "Wau-Bun states centre, two wings and two rear tails, with symmetry from the front. The connected-room generator builds that composition; exact dimensions and roof arrangement are reconstructed from that text and the keyed panorama's dominant front gable and smaller visible side gable.",
           "geometry": "simplified"
         },
         "stories": {
@@ -166,32 +166,35 @@
         "roof_type": {
           "value": "gable",
           "confidence": "reconstructed",
-          "note": "THE ONE THING WAU-BUN SAYS ABOUT THIS ROOF IS THAT IT WAS NOT ORDINARY: 'There were pleasant, happy hours passed under its odd-shaped roof.' Odd-shaped is what a centre with two wings and two tails produces \u2014 a roof of intersecting ridges, valleys and lean-tos that grew with the additions. The archetype builds one gable over one rectangle, so the model shows the opposite of what the source says, and the value is tagged conjectural because a gable here is a substitution rather than a reading. Left as `gable` rather than `shed` because a gable is the only one of the two forms this archetype offers that a log building of this size would carry. T-2374: the connected room layout replaces the former single gable with intersecting gables; no elevation establishes that this reconstructed roof matches the odd-shaped original."
+          "note": "Wau-Bun describes an odd-shaped roof. The reconstruction carries five parallel gables: a dominant central roof, two recessed smaller wing roofs, and two narrow rear tail roofs. The keyed panorama supplies the dominant-front and visible-side-gable hierarchy; it cannot establish hidden valleys or rear roof forms. All exact junctions remain reconstructed."
         },
         "roof_pitch_deg": {
           "value": 35.0,
           "confidence": "inferred",
-          "note": "No pitch is attested. 35 degrees is this archetype's mid-range for a low log building roofed in riven shakes. Inferred from construction practice, not measured, and inherited by a roof form the record has already said is wrong (see roof_type). T-2374 retains this pitch for each reconstructed compound roof."
+          "note": "Retained 35-degree reconstruction, bounded by the steep front gable in the retrospective panorama and log-roof practice. The tiny engraving and illustrative camera do not supply a measured pitch."
         },
         "chimneys": {
-          "value": 2,
-          "confidence": "inferred",
-          "note": "Not attested. Two is inferred from the plan the sources give rather than from the building: a centre with two wings, holding the agent's office and household \u2014 in 1831 that household was J. H. Kinzie's mother, two sisters and brother as well \u2014 is more rooms than one hearth heats through a Chicago winter. The COUNT is the inference; where the stacks stand, how big they are and what they are made of are the archetype's, which is the standing admission in docs/LIBERTIES.md L26. T-2374 retains the inferred count but chooses the outer wing gable ends, with reconstructed positions and inherited sections, rather than the former bbox gable ends."
+          "value": 1,
+          "confidence": "reconstructed",
+          "note": "The keyed panorama shows one small stack above the receding main ridge. One is adopted as a visible-count proxy, replacing the prior inferred pair of conspicuous exterior wing stacks. This is not proof that no hidden flue existed. Shaft section, position and continuation to July 1835 are reconstructed.",
+          "sources": [
+            "kinzie_1857_chicago_1831_panorama"
+          ]
         },
         "compound_parts": {
           "value": [
             {
               "wall_rect": [
-                4,
-                3,
-                9,
-                9
+                2,
+                1,
+                7,
+                5.5
               ],
               "roof_rect": [
-                4,
-                3,
-                9,
-                9
+                2,
+                1,
+                7,
+                5.5
               ],
               "ridge_axis": "y",
               "front_opening": "door"
@@ -199,63 +202,63 @@
             {
               "wall_rect": [
                 0,
-                4,
-                4,
-                8
+                2.5,
+                2,
+                4.5
               ],
               "roof_rect": [
                 0,
-                4,
-                6.5,
-                8
+                2.5,
+                2,
+                4.5
               ],
-              "ridge_axis": "x",
+              "ridge_axis": "y",
               "front_opening": "window"
             },
             {
               "wall_rect": [
+                7,
+                2.5,
                 9,
-                4,
-                13,
-                8
+                4.5
               ],
               "roof_rect": [
-                6.5,
-                4,
-                13,
-                8
+                7,
+                2.5,
+                9,
+                4.5
               ],
-              "ridge_axis": "x",
+              "ridge_axis": "y",
               "front_opening": "window"
             },
             {
               "wall_rect": [
-                4.5,
+                2.5,
                 0,
-                6,
-                3
+                4,
+                1
               ],
               "roof_rect": [
-                4.5,
+                2.5,
                 0,
-                6,
-                3
+                4,
+                1
               ],
               "ridge_axis": "y",
               "front_opening": null
             },
             {
               "wall_rect": [
-                7,
+                5,
                 0,
-                8.5,
-                3
+                6.5,
+                1
               ],
               "roof_rect": [
-                7,
+                5,
                 0,
-                8.5,
-                3
+                6.5,
+                1
               ],
               "ridge_axis": "y",
               "front_opening": null
@@ -265,7 +268,7 @@
           "sources": [
             "kinzie_waubun_1856"
           ],
-          "note": "T-2374 first massing increment: Wau-Bun's centre, two wings and two rear tails now become five connected log rooms. Wall rectangles exactly partition the already reconstructed footprint; every dimension remains invented. Wing roofs extend to the centre ridge to conceal internal gable ends, giving intersecting roof planes. All five eaves inherit the inferred 2.6 m wall height. Roof directions, extensions, junctions, one central front door, one window on each wing, and both outer-wing stack positions are reconstructed, not read from the small retrospective panorama. No pictured opening count, roof pitch, valley detail, finish or 1835 continuation is established. This does not settle the agency-house identification in the panorama or constitute an image match. See L-cobweb-compound-2374."
+          "note": "T-2374 final composition: five connected rooms exactly partition the reconstructed footprint. Parallel front-to-back gables replace the former transverse wing roofs: the 5 m centre has a dominant ridge, while each 2 by 2 m wing makes a subordinate gable recessed 1 m behind the front. Overlapping eaves meet at the room junctions; no valley flashing or hidden interior is claimed. The panorama bounds the hierarchy and visible side gable; Wau-Bun supplies two wings and two tails. Exact dimensions, depths, roof axes and unseen rear junctions remain reconstructed. The central and tail eaves retain 2.6 m; wing eaves are reconstructed at 2.0 m and all pitches retain 35 degrees."
         },
         "compound_apertures": {
           "value": [
@@ -274,8 +277,8 @@
               "face": "+y",
               "zone": "wall",
               "kind": "aperture",
-              "u0": 4.26,
-              "u1": 5.16,
+              "u0": 2.26,
+              "u1": 3.16,
               "z0": 0.02,
               "z1": 1.95
             },
@@ -284,8 +287,8 @@
               "face": "+y",
               "zone": "wall",
               "kind": "door",
-              "u0": 6.22,
-              "u1": 7.12,
+              "u0": 4.22,
+              "u1": 5.12,
               "z0": 0.02,
               "z1": 1.95
             },
@@ -294,8 +297,8 @@
               "face": "+y",
               "zone": "gable",
               "kind": "aperture",
-              "u0": 5.57,
-              "u1": 6.27,
+              "u0": 3.57,
+              "u1": 4.27,
               "z0": 2.74,
               "z1": 3.54
             }
@@ -304,7 +307,7 @@
           "sources": [
             "kinzie_1857_chicago_1831_panorama"
           ],
-          "note": "T-2374 FRONT APERTURE INCREMENT, AND THE COUNT IS THE ONLY THING THE PICTURE GIVES. The keyed panorama 'Fort Dearborn and Chicago in 1831', read here at full resolution on its Agency-House subject (chicago/reference/images/chicago/chicago_fort_dearborn_1831_1.jpg, sha256 624d8f1f52a75bf30653e8cbf37a388478b0ddf5a02f1fadf727cf2144b84c3f), draws the front gable with THREE dark marks: TWO upright ones standing on the ground line, and ONE small one high on the face at the head of the wall. The archetype's compound path states one opening per room, so that front could not be expressed at all and every data-only attempt at it was refused by the archetype's own validation; this attribute is the opt-in that lets one room state its own set, and it OVERRIDES the centre door that room's `front_opening` would otherwise put here, so the old opening does not survive among the new marks. WHAT IS READ AND WHAT IS INVENTED. Read from the picture: that there are two lower marks and one upper one; that the lower pair stand on the ground; and roughly where the three fall along the face, the lower pair in its left and middle leaving the right-hand stretch blank, the upper mark a little left of the apex. Invented: every dimension, every band, the depth and section of the recesses, and which of the two lower marks is the way in. The marks are a few pixels across a thirty-pixel gable in a retrospective engraving whose proportions are not this model's, so no fraction of them is carried across as a measurement: the coordinates here are set out from this record's own 5 m central wall and the rake of its own roof, inside the bounds the archetype validates. The face is drawn slightly oblique, which compresses its right-hand side, so even the arrangement is read with that caution. THE ENTRY ROLE IS A DESIGN INFERENCE AND NOT A READING. The picture does not say which mark was a door, or that either was. The right-hand one carries `kind: door` because it stands where this record's previous single centre door stood, so the town's entrance, apron and doorway clearance keep the ground they already held; the other is `kind: aperture`, which claims a hole and nothing else. No glazing, closure, interior, attic room, white paint or historic function is claimed by any of the three, and the white of the engraving's paper is not evidence of paint. WHAT THIS DOES NOT SETTLE. The source is retrospective 1831 context printed in 1881, not proof of the building as it stood on 1835-07-01; the camera on it remains unsolved and is not enrolled in data/reference_views/. The compound's overall width, the wing and sub-roof silhouettes, the roof junctions, the text-attested partial clapboarding and the building's finish and tone are all unchanged and still open. T-2374's image gate stays open. See L-cobweb-apertures-2374."
+          "note": "T-2374 FRONT APERTURE INCREMENT, AND THE COUNT IS THE ONLY THING THE PICTURE GIVES. The keyed panorama 'Fort Dearborn and Chicago in 1831', read here at full resolution on its Agency-House subject (chicago/reference/images/chicago/chicago_fort_dearborn_1831_1.jpg, sha256 624d8f1f52a75bf30653e8cbf37a388478b0ddf5a02f1fadf727cf2144b84c3f), draws the front gable with THREE dark marks: TWO upright ones standing on the ground line, and ONE small one high on the face at the head of the wall. The archetype's compound path states one opening per room, so that front could not be expressed at all and every data-only attempt at it was refused by the archetype's own validation; this attribute is the opt-in that lets one room state its own set, and it OVERRIDES the centre door that room's `front_opening` would otherwise put here, so the old opening does not survive among the new marks. WHAT IS READ AND WHAT IS INVENTED. Read from the picture: that there are two lower marks and one upper one; that the lower pair stand on the ground; and roughly where the three fall along the face, the lower pair in its left and middle leaving the right-hand stretch blank, the upper mark a little left of the apex. Invented: every dimension, every band, the depth and section of the recesses, and which of the two lower marks is the way in. The marks are a few pixels across a thirty-pixel gable in a retrospective engraving whose proportions are not this model's, so no fraction of them is carried across as a measurement: the coordinates here are set out from this record's own 5 m central wall and the rake of its own roof, inside the bounds the archetype validates. The face is drawn slightly oblique, which compresses its right-hand side, so even the arrangement is read with that caution. THE ENTRY ROLE IS A DESIGN INFERENCE AND NOT A READING. The picture does not say which mark was a door, or that either was. The right-hand one carries `kind: door` because it stands where this record's previous single centre door stood, so the town's entrance, apron and doorway clearance keep the ground they already held; the other is `kind: aperture`, which claims a hole and nothing else. No glazing, closure, interior, attic room, white paint or historic function is claimed by any of the three, and the white of the engraving's paper is not evidence of paint. T-2374 FINAL FORM SUPERSESSION: the three marks, their heights, widths, relative positions and recess depth are retained as the central room is rebased with the narrower wings. The final compound, roofs and stack have a canonical illustrative view in data/reference_views/cobweb_castle/kinzie_1831.json; its match record carries actual picture acceptance. The drawing remains retrospective 1831 context, not a measured survey or proof of an unchanged July 1835 condition. See L-cobweb-apertures-2374 and L-cobweb-completion-2374."
         },
         "chimney_head_m": {
           "value": 5.05,
@@ -312,7 +315,7 @@
           "sources": [
             "chicago_democrat_1833_1835"
           ],
-          "note": "T-3081: both outer-wing chimney heads are reconstructed at 5.05 m above grade. The unchanged 2.6 m eaves, 35-degree pitch and stated roof rectangles put the central ridge at about 4.526 m and each wing ridge at about 4.175 m. The heads therefore stand about 0.524 m above the highest roof and 0.875 m above their own wing roofs. This leaves a margin above the project's eighteen-inch (0.4572 m) clearance floor, drawn from section 18 of the 5 August 1835 by-law printed on 19 August (chicago_democrat_1835_08_19#c005 within the cited newspaper corpus). It is a declared construction choice, not a measured or pictured height or proof that this agency building complied in July 1835. Stack count, outer-wing positions, sections, roofs, occupied footprint and placement remain unchanged; T-2374's image gate remains open."
+          "note": "T-2374 retains the earlier reconstructed 5.05 m head, now on one central ridge stack. The retained 2.6 m eave, 5 m central span and 35-degree pitch put the central ridge about 4.526 m over grade, leaving about 0.524 m of head. The section 18 by-law clearance cited for T-3081 bounds this choice; it does not prove July 1835 compliance or a historical height. Placement and square section are separate reconstructed choices in compound_ridge_stacks."
         },
         "compound_clapboard_height_m": {
           "value": 1.3,
@@ -320,7 +323,35 @@
           "sources": [
             "andreas_1884_v1"
           ],
-          "note": "T-2374 partial-clapboarding trial: McKee's account printed by Andreas says the agency house was 'afterward clapboarded part way up'. The 1.30 m band is half the current inferred 2.6 m model wall, not a historical measurement. The exterior lower-wall fields use the existing neutral board finish and lap rhythm; upper logs and existing notched ends remain exposed, joined internal walls are not boarded, and all current apertures stay clear. Exact extent, corner treatment and the presence of this finish on 1 July 1835 are reconstructed choices; the account supplies no completion date. The compound, roof, openings, placement and historical uncertainty remain unchanged. Native and picture acceptance are pending."
+          "note": "T-2374 partial-clapboarding reconstruction: McKee's account printed by Andreas says the agency house was 'afterward clapboarded part way up'. The 1.30 m band is half the current inferred 2.6 m model wall, not a historical measurement. The exterior lower-wall fields use the existing neutral board finish and lap rhythm; upper logs and existing notched ends remain exposed, joined internal walls are not boarded, and all current apertures stay clear. Exact extent, corner treatment and the presence of this finish on 1 July 1835 are reconstructed choices; the account supplies no completion date. The 1.30 m band is retained in the final compound reconstruction; historical date uncertainty remains. Native and picture acceptance are recorded in the canonical reference view."
+        },
+        "compound_ridge_stacks": {
+          "value": [
+            [
+              0,
+              0.5,
+              0.8
+            ]
+          ],
+          "confidence": "reconstructed",
+          "sources": [
+            "kinzie_1857_chicago_1831_panorama"
+          ],
+          "note": "T-2374: the panorama shows a small stack above the main roof rather than two large exterior wing-end stacks. Place one 0.80 m square shaft halfway along room zero's ridge; its head uses the existing 5.05 m chimney_head_m. Every metric coordinate is reconstructed, bounded by the drawn roof stack and retained central roof. No hidden flue or historic construction section is claimed."
+        },
+        "compound_eave_heights_m": {
+          "value": [
+            2.6,
+            2.0,
+            2.0,
+            2.6,
+            2.6
+          ],
+          "confidence": "reconstructed",
+          "sources": [
+            "kinzie_1857_chicago_1831_panorama"
+          ],
+          "note": "T-2374: the visible subordinate side-gable eave is below the main eave in the keyed engraving. Choose 2.0 m for both symmetric wing walls, retaining the previous 2.6 m centre and rear tails. The approximately 0.6 m step is a bounded reconstruction, not a scale read from the drawing. All rooms retain the declared 1.30 m partial board band and exposed upper logs."
         }
       },
       "change_note": "The United States Indian Agency house on the north bank as Wau-Bun describes it in 1831: hewn squared log, a centre with two wings and two rear tails, clapboarded part way up at some point after 1823, standing at the foot of State Street with its front to the river and \u2014 by 1831 \u2014 a platted street opened across its back. The changes of occupancy after Wolcott's death in 1830 are changes of USE and do not open new phases."
@@ -350,6 +381,6 @@
     "derived_by": "tools/record_lot_seating.py",
     "note": "MEASURED, NOT CLAIMED (T-1478). This record's committed footprint lies 100% on lot 1 of blk_kinzie_dearborn_north in the north_division_tier grid, which is where tools/plat_occupancy.py seats it: a building stands on the lot most of it is on, and only if it reaches the part of that lot a roof could use. THE LOT GRID WAS DRAWN AFTER THE BUILDING WAS PLACED (T-1194 and its children), so this is an observation about the ground under a committed coordinate and NOT an address \u2014 no source names this lot, `claims_lot` is false, and nothing about the record's placement, footprint, form or confidence moved to write it. The seat is graded at the weaker of the lot lines this block states (inferred) and the numeral on them (inferred), read from data/traces/vectors/north_division_tier_lots.json."
   },
-  "research_note": "PICTURE CONTEXT: The Images tab links kinzie_1857_chicago_1831_panorama, the keyed \u201cFort Dearborn and Chicago in 1831\u201d cut whose caption names \u201cAgency-House.\u201d The verified reproduction is in John Wentworth\u2019s 1881 Fort Dearborn, printed p. 86; its heading credits Kinzie\u2019s Wau-Bun, 1857, without establishing the illustration\u2019s first edition. This is one retrospective panorama, not an independent second witness to Wau-Bun\u2019s written description. Its small agency-house subject supplies context, not measured dimensions, a solved camera, an accepted image match or proof of unchanged survival to 1 July 1835. The building\u2019s centre, wings, tails, partial siding and scene-date survival retain their stated evidence limits.\n\nTHE OLDEST BUILDING STANDING ON THE NORTH BANK IN THIS SCENE, if it was standing: begun under Charles Jouett's agency (1816-18), finished and lived in by Dr. Alexander Wolcott from about 1820, nicknamed Cobweb Castle during his bachelor years, and described once \u2014 in Wau-Bun, of 1831 \u2014 in the sentence that gives this record its shape. TWO SOURCES AGREE ON THE CORNER and neither gives a dimension. WHAT WRITING THIS RECORD ADDED TO THE PROJECT'S DOSSIER, all from Andreas vol. 1 read at full text rather than through the index: the footnote at p. 103 citing Wau-Bun for the corner; McKee's 'the agency-house being afterward clapboarded part way up'; Mrs. Callis's 'a log building of two large rooms, about twenty steps from the river bank, on the north side' for the Jouett-era house; and the 1830 recollection that 'the Government agency-house, known as \"Cobweb Castle,\" was left unoccupied by the death of Dr. Wolcott. In its vicinity were small log buildings occupied by the blacksmith, Mr. McKee, and Billy Caldwell' \u2014 which is the corroboration for Wau-Bun's ring of employees' log residences and for this project's blacksmith_shop_state_st record. THE RECORD IS FLAGGED review_required BECAUSE OF WHAT THIS BUILDING WAS: the United States Indian Agency at Chicago, the administrative seat of the process that ended in the removal of the Potawatomi in August 1835, six weeks after the scene date. AGENTS.md places that subject under a standing constraint: nothing here depicts, stages or narrates it, and any interpretive text hung on this building needs review before a scene carrying it is released. See docs/RESEARCH/cobweb_castle.md.",
+  "research_note": "PICTURE CONTEXT: The Images tab links kinzie_1857_chicago_1831_panorama, the keyed \u201cFort Dearborn and Chicago in 1831\u201d cut whose caption names \u201cAgency-House.\u201d The verified reproduction is in John Wentworth\u2019s 1881 Fort Dearborn, printed p. 86; its heading credits Kinzie\u2019s Wau-Bun, 1857, without establishing the illustration\u2019s first edition. This is one retrospective panorama, not an independent second witness to Wau-Bun\u2019s written description. Its small agency-house subject bounds the final reconstructed gable hierarchy and visible marks through the canonical illustrative view kinzie_1831; the view's match record carries actual review. It supplies neither measured dimensions, a historic viewpoint nor proof of unchanged survival to 1 July 1835. The building\u2019s centre, wings, tails, partial siding and scene-date survival retain their stated evidence limits.\n\nTHE OLDEST BUILDING STANDING ON THE NORTH BANK IN THIS SCENE, if it was standing: begun under Charles Jouett's agency (1816-18), finished and lived in by Dr. Alexander Wolcott from about 1820, nicknamed Cobweb Castle during his bachelor years, and described once \u2014 in Wau-Bun, of 1831 \u2014 in the sentence that gives this record its shape. TWO SOURCES AGREE ON THE CORNER and neither gives a dimension. WHAT WRITING THIS RECORD ADDED TO THE PROJECT'S DOSSIER, all from Andreas vol. 1 read at full text rather than through the index: the footnote at p. 103 citing Wau-Bun for the corner; McKee's 'the agency-house being afterward clapboarded part way up'; Mrs. Callis's 'a log building of two large rooms, about twenty steps from the river bank, on the north side' for the Jouett-era house; and the 1830 recollection that 'the Government agency-house, known as \"Cobweb Castle,\" was left unoccupied by the death of Dr. Wolcott. In its vicinity were small log buildings occupied by the blacksmith, Mr. McKee, and Billy Caldwell' \u2014 which is the corroboration for Wau-Bun's ring of employees' log residences and for this project's blacksmith_shop_state_st record. THE RECORD IS FLAGGED review_required BECAUSE OF WHAT THIS BUILDING WAS: the United States Indian Agency at Chicago, the administrative seat of the process that ended in the removal of the Potawatomi in August 1835, six weeks after the scene date. AGENTS.md places that subject under a standing constraint: nothing here depicts, stages or narrates it, and any interpretive text hung on this building needs review before a scene carrying it is released. See docs/RESEARCH/cobweb_castle.md.",
   "review_required": true
 }
