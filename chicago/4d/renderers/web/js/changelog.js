@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2871, ts: '2026-11-10T16:19:41.258Z', date: 'Nov 10, 2026, 10:19 AM CT', title: 'The Kinzie house and its river green', kind: 'change',
+    items: [
+      'The 1812 Kinzie house gains pale whitewashed logs and a taller pictured west doorway. Its fenced green is brought back to the house’s scale, with four Lombardy poplars in a row toward the river. The finish, exact door height and garden placement remain clearly marked as liberties.',
+    ] },
   { v: 2870, ts: '2026-11-10T14:55:24.580Z', date: 'Nov 10, 2026, 8:55 AM CT', title: 'The remaining lodging households have seats and explicit reconstructed membership', kind: 'fix',
     items: [
       'The thirteen remaining ordered lodging residents are assigned as reconstructed youths and anonymous lodgers’ children, with existing names, ages, kin and accepted addresses preserved. Two existing North adults take real vacancies at the Steamboat.',
