@@ -19,9 +19,9 @@ takes clay. A log building with the explicit `chimney_ridge_at` attribute takes
 brick on that ridge, following the same standing fabric ruling as the fort.
 
 The actual before census covers 447 scene/phase sidecars with these material roles.
-Fourteen fort brick/stack material instances already wear period sheets from
+Fourteen early brick/stack material instances already wear period sheets from
 T-3387; those sheets, UVs, mean colours and existing K03 shuffle are preserved.
-These include the first fort's magazine, so its before/after is a regression
+These include the first fort's magazine and the Lake House shell, so their before/after is a regression
 control rather than a claim that this ticket first gave it a texture.
 
 The seven recorded ridge cases are `kinzie_house_1812`,

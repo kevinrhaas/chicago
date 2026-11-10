@@ -779,7 +779,8 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       // build must not inherit a whitened/renamed source or an uncloneable hook.
       const ownMaterial = preserveMaterials || (!masonry.off && masonrySubstrate(bodyRole,
         record.sidecar, !!sourceMaterial.map, sourceMaterial.userData?.chiMasonryFabric) !== null);
-      let material = ownMaterial ? sourceMaterial.clone() : sourceMaterial;
+      let material = preserveMaterials ? sourceMaterial.clone() : sourceMaterial;
+      if (ownMaterial && !preserveMaterials) material = sourceMaterial.clone();
       // T-2109: a transmissive pane costs a second draw of every opaque thing
       // behind it. The replacement is a fresh material, so a clone it replaces
       // is ours to free; a shared source material is left alone.
