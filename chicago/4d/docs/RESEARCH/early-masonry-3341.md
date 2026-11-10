@@ -1,8 +1,9 @@
 # Early masonry surfaces — T-3341
 
-This source checkpoint binds the existing Chicago 1835 procedural brick and clay
-sheets to the early scenes' remaining untextured materials. Published visual and
-resource qualification is pending; this document does not claim a completed ticket.
+The existing Chicago 1835 procedural brick and clay sheets now cover the early
+scenes' remaining untextured materials. Actual desktop/default-phone visual,
+whole-boot and phone-memory qualification pass on runtime `cab4514539`.
+PR #1918 carries the remaining protected-check and dev-merge release gates.
 
 The material and fabric argument is already recorded in [chimneys.md](chimneys.md).
 The library's own `material.json` retains its evidence labels: brick fabric is
@@ -68,9 +69,9 @@ The prior actual published boot cost was 45,948,374 bytes against a 44.1 MiB
 allowance, leaving 293,827 whole bytes. The added maps exceed that room, so no
 whole-boot FITS claim is made here. The project permits a documented, measured
 capacity change (AGENTS.md, the owner's frame-budget ruling); its new
-44.9 MiB boot and436 MiB storage allowances are explicitly priced in SITE-BUDGET
-section18; actual post-change measurements remain pending on the completed
-picture-group integration baseline. Light geometry,
+44.9 MiB boot and 436 MiB storage allowances are explicitly priced in SITE-BUDGET
+section 18. The actual whole boot is 46,888,266 gzip-wire bytes (44.716135 MiB)
+against 44.9 MiB, with 192,796 whole bytes spare. Light geometry,
 ordinary draw-call caps and inspection limits are not part of this change.
 
 ## Verification at this checkpoint
@@ -82,9 +83,63 @@ ordinary draw-call caps and inspection limits are not part of this change.
   enrolled in the complete source gate.
 - The six WebPs and four KTX2 maps were derived by the existing canonical
   encoders. Their packed statements name the unchanged masters.
-- Source syntax passes. Full source CI, published desktop/phone before-and-after
-  frames, actual boot, and 1812/1835 phone memory remain pending.
+- Source syntax passes. All eight protected source parts and their aggregate pass
+  on `cab4514539`, including the existing K03 and joint-floor owners. Their negative
+  fixtures remain active; neither owner was weakened. Moving-frame and
+  upload-release checks also pass on that runtime.
+- Actual desktop 1280 by 800 and default-touch 390 by 780 before/after frames pass
+  in both scenes: 28 directly reviewed surface images and two detail roundtrips,
+  with no page, console, failed-request or bad-response errors.
+- Official normal boot and both unchanged-ceiling default-phone memory gates pass;
+  the measurements and limits are below.
 
-The final visual packet must include the already textured magazine as a control,
-a first-fort ridge stack, an 1835 brick building and a cabin's exterior stack at
-desktop and 390 by 780. No completed sign-off is inferred from the unit checks.
+## Actual published qualification, 2026-11-10
+
+[Public qualification packet](https://github.com/kevinrhaas/chicago-evidence/tree/be72d55f6e5609efb2a712fcb8e342f9e5de6eea/evidence/t3341-early-masonry-20261110) contains exact source,
+published-asset and grade pins, all real screenshots, camera matrices, raw gate
+outputs and rejected fixtures. The 1835 visual build is `39df38072a`; 1812 and both
+resource tools run on `cab4514539`. That final runtime only splits the same material
+clone predicate into the existing joint-floor guard's required initializer and an
+explicit early-material clone. The actual 33-house check and all three negative
+fixtures pass without changing that owner. No shader, native asset or map changed
+between those two visual builds.
+
+| Gate | Actual | Ceiling |
+| --- | ---: | ---: |
+| First 1835 visit, gzip wire, ready plus 3 seconds |46,888,266 bytes /44.716135 MiB |44.9 MiB |
+| Default 1812 phone resident estimate |320,512,587 bytes /305.664622 MiB |350 MiB, unchanged |
+| Default 1835 phone resident estimate |533,963,944 bytes /509.227699 MiB |550 MiB, unchanged |
+
+The official boot tool counts 1,207 real responses with zero failures. Its nine
+new masonry requests total 927,833 gzip-wire bytes; no new albedo URL is requested
+in the normal after boot. The 939,892-byte difference from the earlier 45,948,374-byte
+post-B publication includes concurrent code integrated through PR #1910, such as
+horse and shared-asset publication modules; it is not all attributed to this ticket.
+The packet includes exact before/after URL entries. The entire current boot is
+gated regardless of cause.
+
+The unmodified official memory meter enters each published year door at spawn,
+waits for uploads, draws real frames and performs two GCs. Both rows use default
+Light, report no page errors and keep the normal geometry-release policy. Source
+and published-build identity remain fixed before/after both resource tools. These
+are measured resident estimates, not driver-overhead guarantees or frame timings.
+The standalone full WebP view remains development fallback coverage; it does not
+claim a measured fallback-phone memory result.
+
+Actual bindings are 1812 brick 4/clay 11 and 1835 brick 357/clay 63. Full sheets are
+1024 pixels; default phone sheets are 512. Both 1835 Full/Light detail roundtrips
+retain all bindings. The magazine, north-range ridge and LakeHouse shell are
+already mapped regression controls. Newly bound close views show GreenTree's
+brick stacks, Kinzie bake-house ridge masonry, Miller's exterior clay and its
+separate addition-ridge brick. Existing declared review annotations are classified
+individually (26 in 1812, 14 in 1835); none is relabelled a new load failure.
+
+These are reconstructed diagnostic camera stations, not historical photograph
+stations. All 28 accepted surface frames were directly opened and reviewed. Six
+original phone fixtures are retained as rejected because the People navigator
+covered their stacks. Corrected views dock the real app navigator and fully expose
+the stack faces. On the accepted before-magazine phone view, the navigator's closing
+transition covers the lower door, while the full upper brick wall remains clear;
+that frame qualifies the brick control only. Desktop People cards sit beside the
+stack faces. No screenshot pixels or CSS are replaced. Final GitHub checks and
+the dev merge are recorded by PR #1918 rather than inferred from this runtime packet.

@@ -1240,15 +1240,23 @@ material statements and code: brick 315,054 + 126,350, clay 411,110 + 72,804.
 The 44.1 MiB allowance had only 293,827 whole bytes left, so that allowance cannot
 carry these maps. The boot allowance becomes **44.9 MiB**, giving 1,132,688 whole
 bytes over the measured baseline, of which 207,370 remain after the four map
-files. That remainder prices metadata and script changes; it is not a claim that
-an actual whole boot has already passed. The actual post-change default visitor
-measurement remains a merge gate. No deferred or refused requests hide these maps.
+files. That remainder prices metadata and script changes. The actual final runtime
+`cab4514539` measures 46,888,266 gzip-wire bytes (44.716135 MiB) across 1,207 requests,
+inside 44.9 MiB with 192,796 whole bytes spare and zero failed responses. No deferred
+or refused requests hide these maps. The nine new masonry requests total 927,833
+wire bytes. The total 939,892-byte difference from the earlier post-B baseline also
+includes concurrent upstream horse/shared-publication code; it is not all assigned
+to T-3341. Exact per-URL readings are in the public packet linked from
+docs/RESEARCH/early-masonry-3341.md.
 
 The existing device policy retains 1024-pixel compressed sheets on desktop and
 512-pixel sheets on a phone. The actual isolated shader proof reports 5,592,512
 GPU bytes for the four Full maps and 1,398,208 for the four Light maps. The full
 WebP fallback is also exercised, but its 22,369,620-byte Full GPU cost is not a
-phone-memory acceptance claim; actual 1812 and 1835 phone measurements must pass.
+phone-memory acceptance claim. The actual unchanged-ceiling default-phone gates
+pass on `cab4514539`: 1812 is 320,512,587 bytes (305.664622 MiB) of 350 MiB; 1835 is
+533,963,944 bytes (509.227699 MiB) of 550 MiB. Both use Light and normal upload
+release and report no page errors.
 
 The six lossless WebPs add 1,625,354 bytes and the four KTX2 files add 925,318:
 2,550,672 new map bytes, plus two small packed statements. The clean published
