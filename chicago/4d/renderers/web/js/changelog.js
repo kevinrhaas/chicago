@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2855, ts: '2026-11-10T00:26:19.143Z', date: 'Nov 9, 2026, 6:26 PM CT', title: 'Open the first fort’s west wicket', kind: 'change',
+    items: [
+      'Two reconstructed leaves now open a passage through the double pickets beside the northwest blockhouse. The south entrance keeps its measured passage.',
+    ] },
   { v: 2854, ts: '2026-11-09T23:07:14.028Z', date: 'Nov 9, 2026, 5:07 PM CT', title: 'Slim the Sauganash Hotel’s chimneys', kind: 'change',
     items: [
       'The Hotel’s two reconstructed brick shafts are slimmer, and its rear-wing roof now reaches the main ridge. The dimensions remain liberties drawn from relative form in the Andreas illustration.',
