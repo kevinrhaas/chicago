@@ -8711,5 +8711,8 @@ step "Shared draft-horse assets retain one lease-owned geometry and texture temp
 step "The unoccupied Glessner carriage team preserves actual delivery geometry, hoof contacts and tier lifecycle (T-2795)" \
   node tools/test_parked_draft_team.mjs
 
+step "Scoped teamster measurements retain every unmodified native fixture row and reject inventory drift (T-1789)" \
+  node tools/test_human_fixture_scope.mjs --check
+
 check_summary
 exit $CHECK_FAILED
