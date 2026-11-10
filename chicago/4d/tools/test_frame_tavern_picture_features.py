@@ -110,8 +110,8 @@ class PictureFeatures(unittest.TestCase):
         record, phase, params = record_params("green_tree_tavern", "frame_1833", annex=True)
         face = params.left_annex_parts[-1]["door_face"]
         centre = [(face["origin"][i] + .8*face["along"][i]) for i in range(2)]
-        self.assertAlmostEqual(centre[0], 13.6771914444072, places=9)
-        self.assertAlmostEqual(centre[1], 13.4470179705025, places=9)
+        self.assertAlmostEqual(centre[0], 13.381358661188733, places=9)
+        self.assertAlmostEqual(centre[1], 14.081433421428162, places=9)
         sidecar = {"id": record["id"], "archetype": "frame_tavern", "phase": phase["id"],
                    "placement": {"local_e": 0., "local_n": 0., "rotation_deg": 0.},
                    "footprint": phase["footprint"], "attributes": {}}
@@ -119,10 +119,57 @@ class PictureFeatures(unittest.TestCase):
                 patch.object(generate_entrances, "_streets", return_value=[]):
             result = generate_entrances.build()
         entry = next(x for x in result["entrances"] if "annex_boarding_range" in x["id"])
-        self.assertEqual(entry["at_local_enu_m"], [13.68, 13.45])
+        self.assertEqual(entry["at_local_enu_m"], [13.38, 14.08])
         self.assertEqual(entry["bearing_deg"], 335.)
         self.assertEqual(entry["width_m"], 1.)
 
+
+    def test_green_tree_rear_peak_and_connector_fall_are_bounded_opt_ins(self):
+        _, _, p = record_params("green_tree_tavern", "frame_1833", annex=True)
+        g = p.enclosed_left_annex
+        part = p.left_annex_parts[-1]
+        roof_calls=[]
+        original=builder._annex_gable_roof
+        def capture(*args,**kwargs):
+            roof_calls.append(args)
+            return original(*args,**kwargs)
+        mesh=MeshBuilder("complete-left-group")
+        with patch.object(builder,"_annex_gable_roof",side_effect=capture):
+            builder._enclosed_left_annex(mesh,p,p.width_m,p.depth_m)
+        # One dormer cap plus a low forward and taller rear range roof.
+        self.assertEqual(len(roof_calls),3)
+        self.assertEqual([call[6] for call in roof_calls[-2:]], [2.6,4.5])
+        self.assertAlmostEqual(roof_calls[-1][5],part["back"]+1.6)
+        self.assert_valid_mesh(mesh)
+        self.assertEqual(set(mesh.conf),{1.0})
+        # The opt-in reverses the real roof plane, not the source camera or wall.
+        with patch.object(builder,"_annex_shed_roof",wraps=builder._annex_shed_roof) as sheds:
+            builder._enclosed_left_annex(MeshBuilder("slope"),p,p.width_m,p.depth_m)
+        self.assertEqual(sheds.call_args_list[-1].args[6:8],(3.0,2.25))
+        legacy=copy.deepcopy(g)
+        legacy.pop("shed_infill_clapboard")
+        legacy["connector"].pop("falls_away_from_main")
+        legacy["boarding_range"].pop("rear_gable")
+        before=dataclasses.replace(p,enclosed_left_annex=legacy)
+        explicit=copy.deepcopy(legacy)
+        explicit["shed_infill_clapboard"]=False
+        explicit["connector"]["falls_away_from_main"]=False
+        explicit["boarding_range"]["rear_gable"]=None
+        a,b=MeshBuilder("a"),MeshBuilder("b")
+        builder._enclosed_left_annex(a,before,p.width_m,p.depth_m)
+        builder._enclosed_left_annex(b,dataclasses.replace(p,enclosed_left_annex=explicit),p.width_m,p.depth_m)
+        self.assertEqual((a.verts,a.faces,a.conf,a.mat_index),(b.verts,b.faces,b.conf,b.mat_index))
+        self.assertEqual(before.left_annex_parts,p.left_annex_parts)
+        for mutate in (
+            lambda q:q.update(shed_infill_clapboard="yes"),
+            lambda q:q["connector"].update(falls_away_from_main=1),
+            lambda q:q["boarding_range"]["rear_gable"].update(depth_m=3.6),
+            lambda q:q["boarding_range"]["rear_gable"].update(wall_m=5.),
+            lambda q:q["boarding_range"]["rear_gable"].update(roof_pitch_deg=50.),
+        ):
+            bad=copy.deepcopy(g);mutate(bad)
+            with self.assertRaises(ParamError):
+                dataclasses.replace(p,enclosed_left_annex=bad).validate()
 
     def test_reconstructed_dark_stock_roof_colour_changes_only_material_and_roof_confidence(self):
         from common import materials

@@ -979,10 +979,12 @@ def _validate_enclosed_left_annex(p: FrameTavernParams) -> None:
         raise ParamError("enclosed_left_annex metric layout must remain reconstructed")
     required = {"attach_face", "front_setback_m", "shoulder", "connector", "boarding_range"}
     if (not isinstance(g, dict) or not required <= set(g)
-            or set(g) - (required | {"shoulder_enclosed"})):
+            or set(g) - (required | {"shoulder_enclosed", "shed_infill_clapboard"})):
         raise ParamError("enclosed_left_annex needs exactly the bounded three-part layout")
     if "shoulder_enclosed" in g and type(g["shoulder_enclosed"]) is not bool:
         raise ParamError("enclosed_left_annex shoulder enclosure must be boolean")
+    if "shed_infill_clapboard" in g and type(g["shed_infill_clapboard"]) is not bool:
+        raise ParamError("enclosed_left_annex shed infill cladding must be boolean")
     def number(v, lo, hi, label):
         if isinstance(v, bool) or not isinstance(v, (int,float)) or not math.isfinite(v) or not lo <= v <= hi:
             raise ParamError(f"enclosed_left_annex {label} needs a finite number in {lo}..{hi}")
@@ -996,7 +998,8 @@ def _validate_enclosed_left_annex(p: FrameTavernParams) -> None:
     roofs={"shoulder":"shed_with_front_gable","connector":"shed","boarding_range":"gable"}
     for name in ("shoulder","connector","boarding_range"):
         v=g[name]
-        optional = {"front_set_out_m", "plan_rotation_deg"} if name == "boarding_range" else set()
+        optional = ({"front_set_out_m", "plan_rotation_deg", "rear_gable"}
+                    if name == "boarding_range" else ({"falls_away_from_main"} if name == "connector" else set()))
         if (not isinstance(v,dict) or not common|extra[name] <= set(v)
                 or set(v) - (common|extra[name]|optional)):
             raise ParamError(f"enclosed_left_annex {name} has unsupported or missing fields")
@@ -1021,7 +1024,16 @@ def _validate_enclosed_left_annex(p: FrameTavernParams) -> None:
             number(v["roof_pitch_deg"], 25., 40., name+" pitch")
             if v["ridge_axis"] != "y":
                 raise ParamError("enclosed_left_annex boarding range ridge is y")
+        if name == "boarding_range" and v.get("rear_gable") is not None:
+            rear = v["rear_gable"]
+            if not isinstance(rear, dict) or set(rear) != {"depth_m", "wall_m", "roof_pitch_deg"}:
+                raise ParamError("enclosed_left_annex rear gable needs bounded depth, wall and pitch")
+            number(rear["depth_m"], .75, v["depth_m"]-1., "rear gable depth")
+            number(rear["wall_m"], v["wall_m"]+.3, p.wall_height_m-.3, "rear gable wall")
+            number(rear["roof_pitch_deg"], 25., 40., "rear gable pitch")
         if name == "connector":
+            if "falls_away_from_main" in v and type(v["falls_away_from_main"]) is not bool:
+                raise ParamError("enclosed_left_annex connector fall direction must be boolean")
             if v["front_openings"] != []:
                 raise ParamError("enclosed_left_annex low connector has no stated front opening")
             continue
