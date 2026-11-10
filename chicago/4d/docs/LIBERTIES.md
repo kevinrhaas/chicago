@@ -42924,6 +42924,21 @@ The number is a liberty, not a fence measurement recovered from either drawing. 
 **Recorded:** 2026-11-09.
 
 
+### L-glessner-stationary-team-2795 — the waiting team outside Glessner House
+
+**Decision:** The owner requests a horse for the existing reconstructed carriage outside Glessner House, with coachman-led boarding and riding to follow. Its current central pole takes a matched pair; the individual horses, their matching appearance, waiting activity and association with this reconstructed carriage are liberties, not documented animals or household ownership. Reuse the existing licensed horse, fitted collar/girth and connection-unit assets. The carriage retains its location, catalogue type, current delivery finish and original source geometry.
+
+The animals use the existing quiet clip at independent reconstructed phases. Their neutral root stance is the previously declared bounded support quaternion; a complete-source hoof-vertex fit supplies vertical support without changing source joints or anatomy. The combined tilt and contact limits are unchanged. The raised pole is an independently posed runtime clone about the explicit front-axle lift pivot, not a silent alteration of the unhitched source master. Reins are not drawn to imaginary palms.
+
+This scene increment is unoccupied. Charles Nelson remains Glessner's existing coachman record; John Glessner may later be a passenger after actual seated/boarding work. Hans Johnson is not reassigned to Glessner. No particular trip, breed, historical likeness or ownership is claimed. A synthetic-plane finite check is not full street, harness/contact, photographic or boarding acceptance.
+
+This liberty applies to the carriage waiting on Prairie Avenue south of Eighteenth Street, its attached team, neutral stance and independent quiet movement.
+
+**Sources:** `studebaker_1893_illustrated_souvenir` supports the carriage design only. Individual placement, team and activity are owner-requested reconstruction, using existing licensed portable assets.
+
+**Ticket:** T-2795.
+**Recorded:** 2026-11-10.
+
 ### L-cobweb-completion-2374 — final compact Agency-House form
 
 **Decision:** Reconstruct the compact centre, subordinate wings and two rear tails, preserving the existing text-supported partial lower clapboarding.

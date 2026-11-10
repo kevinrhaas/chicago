@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2860, ts: '2026-11-10T05:17:20.492Z', date: 'Nov 9, 2026, 11:17 PM CT', title: 'A team for the carriage outside Glessner House', kind: 'feature',
+    items: [
+      'In Full and Balanced scene detail, a reconstructed pair of draft horses waits with the existing carriage south of Eighteenth Street. Its current finish is preserved, and the horses use their existing quiet motion and fitted gear.',
+      'The carriage remains unoccupied. Working coachman boarding and passenger rides are still in progress.',
+    ] },
   { v: 2859, ts: '2026-11-10T04:16:56.014Z', date: 'Nov 9, 2026, 10:16 PM CT', title: 'Five early Chicago buildings take their remaining pictured forms', kind: 'fix',
     items: [
       'T-2374: Cobweb Castle has a compact five-part log plan, lower wing roofs and one small main-ridge stack, retaining its partial clapboarding.',

@@ -11,6 +11,7 @@ import { fitHorseSupport } from './transport-support.js';
 import { createDriverLife } from './driver-life.js';
 import { clothHuman } from './fabric.js';
 import { loadLivery, dressInLivery } from './driver-livery.js';
+import { acquireDraftHorse } from './draft-horse-assets.js';
 
 /** Actual portable assets, never an identity/wardrobe or idle-only fallback. */
 export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], humanAssets,
@@ -25,22 +26,15 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
     || horseSupportDomain.half_length_m !== horseSpecCopy.support_domain.half_length_m)) {
     throw Error('driven assembly: same validated support domain as route preflight required');
   }
-  let horseAsset = null, horseLeases = 0;
+  const horseLeases = [];
   // T-3497: the photographic farm wagon ships meshopt-compressed (EXPORT-RECEIPT.json).
   const loader = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
   const assetURL = file => new URL(file, moduleBase).href;
   const acquireHorse = async () => {
-    if (!horseAsset) horseAsset = (async () => {
-      const response = await fetch(assetURL(horseSpecCopy.file));
-      if (!response.ok) throw Error(`driven assembly: horse HTTP${response.status}`);
-      const bytes = await response.arrayBuffer();
-      const hash = [...new Uint8Array(await crypto.subtle.digest('SHA-256', bytes))]
-        .map(n => n.toString(16).padStart(2, '0')).join('');
-      if (hash !== horseSpecCopy.sha256) throw Error('driven assembly: actual horse differs from model/support binding');
-      return loader.parseAsync(bytes, new URL('.', assetURL(horseSpecCopy.file)).href);
-    })();
-    horseLeases++;
-    try { return await horseAsset; } catch (error) { horseLeases--; if (!horseLeases) horseAsset = null; throw error; }
+    const lease = await acquireDraftHorse({ url: assetURL(horseSpecCopy.file), sha256: horseSpecCopy.sha256,
+      materialVariant: horseSpecCopy.material_variant, loader });
+    horseLeases.push(lease);
+    return lease.asset;
   };
   // T-2803: a walk generated for this GLB (tools/horse_walk_v2.mjs), bound by its
   // bytes, played by travelled metres exactly as the embedded careful walk is.
@@ -69,8 +63,9 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
     return liveries.get(key);
   };
   const releaseHorse = template => {
-    horseLeases--;
-    if (horseLeases === 0) { disposeLoadedAsset(template); horseAsset = null; }
+    const index = horseLeases.findIndex(lease => lease.asset === template);
+    if (index < 0) return;
+    horseLeases.splice(index, 1)[0].release();
   };
   // The two-horse team, its distance-driven walk and its support on the ground (T-2803).
   const makeTeam = (row, template, walk) => {

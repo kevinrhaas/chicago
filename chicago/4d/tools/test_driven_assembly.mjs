@@ -206,13 +206,14 @@ const { webcrypto } = await import('node:crypto');
 const { resolveHumanIdentity } = await import('../renderers/web/js/human-identity.js');
 const { teamSupportAt } = await import('../renderers/web/js/transport-support.js');
 const factoryCode = readFileSync(new URL('../renderers/web/js/driven-assembly-loader.js', import.meta.url), 'utf8');
+const horsePoolCode = readFileSync(new URL('../renderers/web/js/draft-horse-assets.js', import.meta.url), 'utf8');
 const fixtureBytes = readFileSync(path);
 const fixtureHash = [...new Uint8Array(await webcrypto.subtle.digest('SHA-256', fixtureBytes))].map(n => n.toString(16).padStart(2, '0')).join('');
 let fixtureNumber = 0;
 const deferredAsset = () => { let resolve, reject; const promise = new Promise((yes, no) => { resolve = yes; reject = no; }); return { promise, resolve, reject }; };
 async function controlledFactory(code, { syncFailure = null, wrongMetadata = false, wrongHash = false } = {}) {
   const io = { vehicle: deferredAsset(), human: deferredAsset(), horse: deferredAsset() };
-  const sourceHashesHorse = code.includes('actual horse differs from model/support binding');
+  const sourceHashesHorse = code.includes('actual horse differs from model/support binding') || code.includes('acquireDraftHorse');
   const events = [], stats = { vehicleDisposed: 0, horseDisposed: 0, humanRefs: 0, humanReleases: 0,
     constructed: 0, actorDisposed: 0, adopted: 0, restored: 0, ownership: null };
   const failure = Error('original controlled dependency failure');
@@ -275,6 +276,7 @@ async function controlledFactory(code, { syncFailure = null, wrongMetadata = fal
     fetch(url) { const kind = String(url).includes('/horse/') ? 'horse' : 'vehicle'; events.push(kind + '-start'); if (syncFailure === kind) throw failure; return io[kind].promise; },
   };
   const injected = `const { THREE, GLTFLoader, cloneSkinned, HumanActor, resolveHumanIdentity, disposeLoadedAsset, createDrivenAssembly, createTeamsterAssembly, MeshoptDecoder, createDriverLife, clothHuman, fitHorseSupport, crypto, fetch } = globalThis[${JSON.stringify(dependencyKey)}];\n`
+    + horsePoolCode.replace(/^import .*;\n/gm, '').replace(/^export /gm, '')
     + code.replace(/^import .*;\n/gm, '');
   const module = await import('data:text/javascript;base64,' + Buffer.from(injected).toString('base64'));
   delete globalThis[dependencyKey];
