@@ -180,7 +180,7 @@ function instantiate(asset, spec, row, confidence, groundHeight, coatRecipe, sce
 
 /** Separate skinned standing layer; NEVER enters vehicle staticBatches/wheel fitting. */
 export async function createStandingHorses({ dataBase = null, sceneId, confidence, detail = 'full',
-  problems = [], hostMissing = () => false, groundHeight = null } = {}) {
+  problems = [], hostMissing = () => false, groundHeight = null, recipeFile = null } = {}) {
   const group = new THREE.Group(); group.name = 'standing-horses';
   const ray = new THREE.Raycaster(), eye = new THREE.Vector3();
   const motionPreference = globalThis.matchMedia?.('(prefers-reduced-motion: reduce)');
@@ -287,8 +287,7 @@ export async function createStandingHorses({ dataBase = null, sceneId, confidenc
         asset = await new GLTFLoader().parseAsync(bytes, new URL('.', file).href);
         const canonicalReceipt = inspectStanding(asset.scene, spec);
         if (mine !== revision || disposed || tier === 'light') return;
-        const coatRecipe = manifest.horse_appearance
-          ? await loadHorseRecipe(dataBase, manifest.horse_appearance.recipe_file) : null;
+        const coatRecipe = recipeFile ? await loadHorseRecipe(dataBase, recipeFile) : null;
         if (mine !== revision || disposed || tier === 'light') return;
         const candidate = instantiate(asset, spec, row, confidence, groundHeight, coatRecipe, sceneId);
         candidate.receipt.canonical = canonicalReceipt;

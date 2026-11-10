@@ -16,6 +16,11 @@ reason records that distinction. The driver now explicitly accepts optional
 `--check` and runs the same complete assertion suite; the gate uses that mode.
 Unknown arguments are refused. Scanner rules and native assertions remain intact.
 
+CI also detected that the generated research sign-off still carried the previous
+gate-baseline counts. Its canonical writer now refreshes that count sentence and
+the helper's ownership row from complete, source-verified inputs. Research metrics
+and the GO verdict remain unchanged; the report check and all 11 self-tests pass.
+
 This tooling unblocks the existing visible clothing refinement on T-1789. It changes
 no resident asset or adopted animation. Focused parser/inventory controls and the
 measured test isolation are the local validation scope; ordinary full CI, an actual
@@ -26410,3 +26415,24 @@ focused batch, including canonical derivation, source/Three, driving/cache/129
 parked controls, both registration audits and changelog validation, passes. This
 is studio evidence; photographic quality and ordinary-world desktop/phone cost
 remain open alongside full movement, harness, boarding and passenger acceptance.
+
+
+### Current coat integration qualification
+
+The selected standing-horse placement/support/material/capability record is now
+byte-identical to its protected DEV baseline. Production main explicitly enables
+the optional coat recipe, and standalone callers retain their existing default.
+A real Three standing-factory guard covers source/published URL bases, ownership,
+Light/reload, recipe failure and disposal during loading. Original quiet/anatomy/
+upper-lid/upper-orbital assertions and the rederive self-test remain unchanged.
+
+The independent recipe owner follows source-use, outside the measured convergence
+interval and after the original four-step scene tail. Both generated research
+reports rederive with their original GO/ownership assertions; changes are the
+check-mode count/helper row and two later manifest positions. An eleven-command
+repair batch passes in 23.483 seconds under the original resource/cap/cleanup
+guards. Original CI failures are retained. The superseded c0cbb movement run has
+one Balanced-flight flora maximum of 36.0 ms against 32 ms; its protocol suppresses
+rendering and its camera is outside both horse reach radii. Those facts do not
+establish noise, causality or a passing performance result. Fresh ordinary CI
+is required on the repaired head; no ceiling was changed.

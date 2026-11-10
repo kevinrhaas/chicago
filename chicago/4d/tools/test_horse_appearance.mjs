@@ -50,7 +50,7 @@ for (const [scene, rows] of Object.entries(parked.scenes)) for (const row of row
   for (const individual of ['left', 'right']) individuals.push({ scene, row: row.id, individual });
 }
 assert.equal(loops.horse_appearance.recipe_file, 'transport/horse-coats.json');
-assert.equal(standing.horse_appearance.recipe_file, 'transport/horse-coats.json');
+assert.equal(standing.horse_appearance, undefined, 'frozen selected placement metadata is not an appearance configuration');
 assert.deepEqual(Object.fromEntries(recipe.scenes.map(scene => [scene, individuals.filter(i => i.scene === scene).length])), { 1812: 4, 1835: 3, 1904: 4 });
 const identities = individuals.map(i => horseIdentity(recipe, i));
 assert.equal(new Set(identities.map(i => i.key)).size, 11);
@@ -161,3 +161,104 @@ for (const source of recipe.source_contract) {
   for (const tree of [a, b, asset.scene]) { const skeletons = new Set(); tree.traverse(n => { if (n.isSkinnedMesh) skeletons.add(n.skeleton); }); for (const skeleton of skeletons) skeleton.dispose(); }
 }
 console.log('Actual source/material guards PASS: geometry/joints/maps bound, names preserved, independent owned clones cleaned; GLSL compilation, images and all-era street/phone acceptance UNRUN');
+
+// Execute the production main binding against the actual standing factory. Its
+// real GLTF parser sees the selected source arrays; images alone are stripped
+// for Node. URL controls cover source and published data bases without WebGL.
+{
+  const { createStandingHorses } = await import('../renderers/web/js/standing-horses.js');
+  const main = read('renderers/web/js/main.js').toString();
+  const begin = main.indexOf('const standingHorses = await createStandingHorses({');
+  const end = main.indexOf('\n  scene3d.add(standingHorses.group)', begin);
+  assert(begin >= 0 && end > begin);
+  const statement = main.slice(begin, end);
+  const invoke = new Function('createStandingHorses', 'layerBase', 'YEAR', 'confidence', 'detailLevel', 'layerProblems', 'hostMissing', 'yards',
+    `return (async () => { ${statement}; return standingHorses; })();`);
+  const nativeParse = GLTFLoader.prototype.parseAsync, previousFetch = globalThis.fetch;
+  const row = standing.scenes['1835'][0], camera = new THREE.PerspectiveCamera();
+  camera.position.set(row.at_local_enu_m[0], 1.7, -row.at_local_enu_m[1]+5);
+  const parsed = [], requests = [];
+  let mode = 'normal', releaseRecipe = null;
+  function dimensions(bytes) {
+    if (bytes.subarray(1, 4).toString() === 'PNG') return { width: bytes.readUInt32BE(16), height: bytes.readUInt32BE(20) };
+    assert.equal(bytes.readUInt16BE(0), 0xffd8, 'original JPEG or PNG required');
+    for (let p = 2; p+8 < bytes.length;) {
+      assert.equal(bytes[p++], 0xff); while (bytes[p] === 0xff) p++;
+      const marker = bytes[p++]; if (marker === 0xd8 || marker === 0xd9) continue;
+      const length = bytes.readUInt16BE(p);
+      if ([0xc0,0xc1,0xc2,0xc3,0xc5,0xc6,0xc7,0xc9,0xca,0xcb,0xcd,0xce,0xcf].includes(marker)) return { width: bytes.readUInt16BE(p+5), height: bytes.readUInt16BE(p+3) };
+      assert(length >= 2); p += length;
+    }
+    assert.fail('actual source image dimensions missing');
+  }
+  GLTFLoader.prototype.parseAsync = async function(bytes, base) {
+    const raw = Buffer.from(bytes), { doc, bin } = sourceDocument(raw);
+    const asset = await nativeParse.call(this, geometryOnly(raw), base);
+    // Native Texture handles carry dimensions parsed from each ORIGINAL image's
+    // header. No pixels are decoded/uploaded. The real factory budget assertion
+    // and map ownership stay exercised rather than being disabled for Node.
+    const images = doc.images.map(image => { const v = doc.bufferViews[image.bufferView]; return dimensions(bin.subarray(v.byteOffset ?? 0, (v.byteOffset ?? 0)+v.byteLength)); });
+    const textures = doc.textures.map(texture => new THREE.Texture(images[texture.source]));
+    asset.scene.traverse(node => {
+      if (!node.isMesh) return;
+      const source = doc.materials.find(material => material.name === node.material.name).pbrMetallicRoughness;
+      node.material.map = textures[source.baseColorTexture.index];
+      node.material.metalnessMap = node.material.roughnessMap = textures[source.metallicRoughnessTexture.index];
+    });
+    const body = bodyOf(asset.scene); let disposed = 0;
+    const textureDisposals = textures.map(() => 0); textures.forEach((texture, i) => texture.addEventListener('dispose', () => textureDisposals[i]++));
+    body.material.addEventListener('dispose', () => disposed++);
+    parsed.push({ asset, sourceBody: body, textureDisposals, get disposed() { return disposed; } }); return asset;
+  };
+  const publishedBase = new URL('https://published.invalid/4d/dev/data/');
+  globalThis.fetch = async value => {
+    const url = new URL(String(value)); requests.push(url.href);
+    const isRecipe = url.pathname.endsWith('/transport/horse-coats.json');
+    if (isRecipe && mode === 'missing') return { ok: false, status: 404 };
+    if (isRecipe && mode === 'pending') await new Promise(resolve => { releaseRecipe = resolve; });
+    const location = url.protocol === 'file:' ? new URL(url.pathname, url)
+      : new URL('data/'+url.pathname.slice(publishedBase.pathname.length), root);
+    const bytes = fs.readFileSync(location);
+    return { ok: true, status: 200, json: async () => JSON.parse(bytes),
+      arrayBuffer: async () => bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset+bytes.byteLength) };
+  };
+  const load = async layer => { layer.update(camera); await layer.ready; };
+  const baseOptions = { sceneId: '1835', confidence: createConfidenceView(), detail: 'full', groundHeight: () => 0 };
+  try {
+    const legacyProblems = [], start = requests.length;
+    const legacy = await createStandingHorses({ ...baseOptions, dataBase: new URL('data/', root), problems: legacyProblems });
+    await load(legacy); assert.deepEqual(legacyProblems, []); assert.equal(legacy.instances.length, 1);
+    assert.equal(bodyOf(legacy.instances[0].root).material.userData.chicagoHorseCoat, undefined);
+    assert(!requests.slice(start).some(url => url.includes('/horse-coats.json')), 'legacy constructor stays off and performs no recipe I/O');
+    legacy.dispose(); legacy.dispose();
+    for (const dataBase of [new URL('data/', root), publishedBase]) {
+      const problems = [], start = requests.length;
+      const layer = await invoke(createStandingHorses, name => { assert.equal(name, 'standing_horses'); return dataBase; }, '1835',
+        createConfidenceView(), 'full', name => { assert.equal(name, 'standing_horses'); return problems; }, () => false, { drawnBaseHeightAt: () => 0 });
+      await load(layer); assert.deepEqual(problems, []); assert.equal(layer.instances.length, 1);
+      const body = bodyOf(layer.instances[0].root), identity = body.material.userData.chicagoHorseCoat;
+      assert.equal(identity.key, '1835:'+row.id+':single'); assert.equal(identity.palette, 'iron_grey');
+      assert(requests.slice(start).includes(new URL('transport/horse-coats.json', dataBase).href), 'real production call supplies the explicit recipe file');
+      const privateMaterial = body.material; let ownedDisposed = 0;
+      privateMaterial.addEventListener('dispose', () => ownedDisposed++);
+      assert.notEqual(privateMaterial, parsed.at(-1).sourceBody.material); assert.equal(parsed.at(-1).sourceBody.material.userData.chicagoHorseCoat, undefined);
+      assert.equal(privateMaterial.map, parsed.at(-1).sourceBody.material.map, 'standing material borrows the original map handle');
+      await layer.setTier('light'); assert.equal(layer.instances.length, 0); assert.equal(ownedDisposed, 1); assert.equal(parsed.at(-1).disposed, 1); assert(parsed.at(-1).textureDisposals.every(count => count === 1), 'source owner disposes each borrowed map once');
+      await layer.setTier('full'); await layer.ready; assert.equal(layer.instances.length, 1);
+      assert.deepEqual(bodyOf(layer.instances[0].root).material.userData.chicagoHorseCoat, identity, 'reacquisition retains the same individual');
+      layer.dispose(); layer.dispose(); assert.equal(parsed.at(-1).disposed, 1);
+    }
+    mode = 'missing'; const problems = [];
+    const refused = await createStandingHorses({ ...baseOptions, dataBase: new URL('data/', root), problems, recipeFile: 'transport/horse-coats.json?missing' });
+    await load(refused); assert.equal(refused.instances.length, 0); assert(problems.some(message => message.includes('recipe HTTP404')));
+    assert.equal(parsed.at(-1).disposed, 1, 'recipe failure releases the parsed source'); refused.dispose();
+    mode = 'pending'; const pendingProblems = [];
+    const pending = await createStandingHorses({ ...baseOptions, dataBase: new URL('data/', root), problems: pendingProblems, recipeFile: 'transport/horse-coats.json?pending' });
+    pending.update(camera);
+    for (let i = 0; !releaseRecipe && i < 1000; i++) await new Promise(resolve => setTimeout(resolve, 2));
+    assert(releaseRecipe, 'actual source parse reached the delayed recipe fetch');
+    await pending.setTier('light'); pending.dispose(); releaseRecipe(); await pending.ready;
+    assert.equal(pending.instances.length, 0); assert.deepEqual(pendingProblems, []); assert.equal(parsed.at(-1).disposed, 1, 'late recipe completion cannot mount or retain the source');
+  } finally { globalThis.fetch = previousFetch; GLTFLoader.prototype.parseAsync = nativeParse; }
+  console.log('Standing factory/main wiring PASS: legacy off, source/published recipe opt-in, actual source-owned cleanup, Light reacquisition, error and late disposal; images/WebGL separate');
+}

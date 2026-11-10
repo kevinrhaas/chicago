@@ -2171,21 +2171,6 @@
       ]
     },
     {
-      "why": "T-2795: the generated horse coat contract reads only the separately authored recipe, two SHA-bound portable sources and the existing bound foot reference. It owns only horse-coats.json; the recipe, source assets and reference are inputs and remain unowned. No current manifest step rebuilds these inputs. Its slot precedes the liberties/source-use export sequence so downstream exports see the current contract. Focused two-write reproducibility and perturb/restore proof are recorded in docs/measurements/horse-coats-writer-2026-11-10.json; the complete manifest --prove remains unrun.",
-      "command": [
-        "python3",
-        "tools/derive_horse_coats.py"
-      ],
-      "resolves": [
-        "chicago/4d/data/transport/horse-coats.json"
-      ],
-      "verify": [
-        "python3",
-        "tools/derive_horse_coats.py",
-        "--check"
-      ]
-    },
-    {
       "why": "The liberties register, compiled from the sidecars and the town — every liberty the reconstruction takes, with its reason.",
       "command": [
         "python3",
@@ -2987,6 +2972,21 @@
       "verify": [
         "python3",
         "tools/compile_source_use.py",
+        "--check"
+      ]
+    },
+    {
+      "why": "T-2795: the generated horse coat contract reads only the separately authored recipe, two SHA-bound portable sources and the existing bound foot reference. It owns only horse-coats.json; the recipe, source assets and reference are inputs and remain unowned. No current manifest step rebuilds these inputs. Its slot is in the settled tail immediately after source-use export. The source-use compiler has an explicit collection whitelist that does not consume this transport contract; the recipe sources contain file/SHA bindings, while model citation is already declared by the liberties above. It reads no resident-card, profile or second-pass output and stays outside the measured between-pass window. Focused two-write reproducibility and perturb/restore proof are recorded in docs/measurements/horse-coats-writer-2026-11-10.json; the complete manifest --prove remains unrun.",
+      "command": [
+        "python3",
+        "tools/derive_horse_coats.py"
+      ],
+      "resolves": [
+        "chicago/4d/data/transport/horse-coats.json"
+      ],
+      "verify": [
+        "python3",
+        "tools/derive_horse_coats.py",
         "--check"
       ]
     },
