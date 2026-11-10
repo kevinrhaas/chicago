@@ -7,9 +7,9 @@
     "asset_id": "nelson_charles_1904_coachman"
   },
   "placement": {
-    "local_e": 1341.6,
-    "local_n": -3216.95,
-    "heading_deg": 35,
+    "local_e": 1395.2,
+    "local_n": -3245.955,
+    "heading_deg": 90,
     "anchor": "terrain"
   },
   "animation": {
@@ -42,12 +42,12 @@
             "to": 6.5,
             "indoors": false,
             "at": {
-              "local_e": 1341.6,
-              "local_n": -3216.95,
-              "heading_deg": 35
+              "local_e": 1395.2,
+              "local_n": -3245.955,
+              "heading_deg": 90
             },
             "activity": "stand",
-            "doing": "at the stable doors: the horses, the carriage made ready"
+            "doing": "keeping watch beside the reconstructed carriage team: the horses and harness"
           },
           {
             "from": 6.5,
@@ -74,12 +74,12 @@
             "to": 12.0,
             "indoors": false,
             "at": {
-              "local_e": 1341.6,
-              "local_n": -3216.95,
-              "heading_deg": 35
+              "local_e": 1395.2,
+              "local_n": -3245.955,
+              "heading_deg": 90
             },
             "activity": "stand",
-            "doing": "at the stable doors: the horses, the carriage made ready"
+            "doing": "keeping watch beside the reconstructed carriage team: the horses and harness"
           },
           {
             "from": 12.0,
@@ -100,12 +100,12 @@
             "to": 14.0,
             "indoors": false,
             "at": {
-              "local_e": 1341.6,
-              "local_n": -3216.95,
-              "heading_deg": 35
+              "local_e": 1395.2,
+              "local_n": -3245.955,
+              "heading_deg": 90
             },
             "activity": "stand",
-            "doing": "at the stable doors: the horses, the carriage made ready"
+            "doing": "keeping watch beside the reconstructed carriage team: the horses and harness"
           },
           {
             "from": 14.0,
@@ -145,12 +145,12 @@
             "to": 11,
             "indoors": false,
             "at": {
-              "local_e": 1341.6,
-              "local_n": -3216.95,
-              "heading_deg": 35
+              "local_e": 1395.2,
+              "local_n": -3245.955,
+              "heading_deg": 90
             },
             "activity": "stand",
-            "doing": "at the stable doors: the horses, the carriage made ready"
+            "doing": "keeping watch beside the reconstructed carriage team: the horses and harness"
           },
           {
             "from": 11,
@@ -170,12 +170,12 @@
             "to": 12.5,
             "indoors": false,
             "at": {
-              "local_e": 1341.6,
-              "local_n": -3216.95,
-              "heading_deg": 35
+              "local_e": 1395.2,
+              "local_n": -3245.955,
+              "heading_deg": 90
             },
             "activity": "stand",
-            "doing": "at the stable doors: the horses, the carriage made ready"
+            "doing": "keeping watch beside the reconstructed carriage team: the horses and harness"
           },
           {
             "from": 12.5,
@@ -189,12 +189,12 @@
             "to": 19,
             "indoors": false,
             "at": {
-              "local_e": 1341.6,
-              "local_n": -3216.95,
-              "heading_deg": 35
+              "local_e": 1395.2,
+              "local_n": -3245.955,
+              "heading_deg": 90
             },
             "activity": "stand",
-            "doing": "at the stable doors: the horses, the carriage made ready"
+            "doing": "keeping watch beside the reconstructed carriage team: the horses and harness"
           },
           {
             "from": 19,
@@ -227,12 +227,12 @@
             "to": 11,
             "indoors": false,
             "at": {
-              "local_e": 1341.6,
-              "local_n": -3216.95,
-              "heading_deg": 35
+              "local_e": 1395.2,
+              "local_n": -3245.955,
+              "heading_deg": 90
             },
             "activity": "stand",
-            "doing": "at the stable doors: the horses, the carriage made ready"
+            "doing": "keeping watch beside the reconstructed carriage team: the horses and harness"
           },
           {
             "from": 11,
@@ -252,12 +252,12 @@
             "to": 12.5,
             "indoors": false,
             "at": {
-              "local_e": 1341.6,
-              "local_n": -3216.95,
-              "heading_deg": 35
+              "local_e": 1395.2,
+              "local_n": -3245.955,
+              "heading_deg": 90
             },
             "activity": "stand",
-            "doing": "at the stable doors: the horses, the carriage made ready"
+            "doing": "keeping watch beside the reconstructed carriage team: the horses and harness"
           },
           {
             "from": 12.5,
@@ -271,12 +271,12 @@
             "to": 19,
             "indoors": false,
             "at": {
-              "local_e": 1341.6,
-              "local_n": -3216.95,
-              "heading_deg": 35
+              "local_e": 1395.2,
+              "local_n": -3245.955,
+              "heading_deg": 90
             },
             "activity": "stand",
-            "doing": "at the stable doors: the horses, the carriage made ready"
+            "doing": "keeping watch beside the reconstructed carriage team: the horses and harness"
           },
           {
             "from": 19,
@@ -309,12 +309,12 @@
             "to": 11,
             "indoors": false,
             "at": {
-              "local_e": 1341.6,
-              "local_n": -3216.95,
-              "heading_deg": 35
+              "local_e": 1395.2,
+              "local_n": -3245.955,
+              "heading_deg": 90
             },
             "activity": "stand",
-            "doing": "at the stable doors: the horses, the carriage made ready"
+            "doing": "keeping watch beside the reconstructed carriage team: the horses and harness"
           },
           {
             "from": 11,
@@ -334,12 +334,12 @@
             "to": 12.5,
             "indoors": false,
             "at": {
-              "local_e": 1341.6,
-              "local_n": -3216.95,
-              "heading_deg": 35
+              "local_e": 1395.2,
+              "local_n": -3245.955,
+              "heading_deg": 90
             },
             "activity": "stand",
-            "doing": "at the stable doors: the horses, the carriage made ready"
+            "doing": "keeping watch beside the reconstructed carriage team: the horses and harness"
           },
           {
             "from": 12.5,
@@ -353,12 +353,12 @@
             "to": 19,
             "indoors": false,
             "at": {
-              "local_e": 1341.6,
-              "local_n": -3216.95,
-              "heading_deg": 35
+              "local_e": 1395.2,
+              "local_n": -3245.955,
+              "heading_deg": 90
             },
             "activity": "stand",
-            "doing": "at the stable doors: the horses, the carriage made ready"
+            "doing": "keeping watch beside the reconstructed carriage team: the horses and harness"
           },
           {
             "from": 19,
@@ -383,7 +383,7 @@
   "review_required": false,
   "provenance": {
     "grade": "reconstructed",
-    "basis": "Reconstructed standing depiction of Charles Nelson, coachman in the Glessner household (inferred: the 1900 census enumerates him as the coachman, born June 1848 in Sweden, living with his wife and five children in the rear building behind the house; no source read says he was still there on 1 July 1904), standing on the Eighteenth Street walk beside his own stable's carriage doors, just west of them and about 0.9 m out from the wall, turned toward the street and Prairie Avenue. The coach house (stable, carriage room, harness room and loft, with the coachmen's rooms over it) and its doorway on Eighteenth Street are the house's own (HABS sheets 2-3; Glessner's The Story of a House, 1923). His standing livery, a double-breasted coat to the knee with two rows of bright buttons, white stock and gloves, white breeches, black top boots and a silk hat, is built after the 'Coachman' plate of Mrs. Seely's Cook Book (1902) and the coachmen of the 1902 and 1905 stereographs (T-3483); it is not Hans Johnson's box coat and cape. Where he stands and when, his face, hair and complexion are reconstructed: no picture of him is known.",
+    "basis": "Reconstructed standing depiction of Charles Nelson, coachman in the Glessner household (inferred: the 1900 census enumerates him as the coachman, born June 1848 in Sweden, living with his wife and five children in the rear building behind the house; no source read says he was still there on 1 July 1904), standing in a reconstructed everyday post on Prairie Avenue's west parkway beside the waiting carriage team, facing east toward the horses and clear of the main pedestrian strip. This everyday post is a visitor-facing reconstruction, not evidence of where he stood; his household-tour mark remains at the stable doors on Eighteenth Street. The coach house (stable, carriage room, harness room and loft, with the coachmen's rooms over it) and its doorway on Eighteenth Street are the house's own (HABS sheets 2-3; Glessner's The Story of a House, 1923). His standing livery, a double-breasted coat to the knee with two rows of bright buttons, white stock and gloves, white breeches, black top boots and a silk hat, is built after the 'Coachman' plate of Mrs. Seely's Cook Book (1902) and the coachmen of the 1902 and 1905 stereographs (T-3483); it is not Hans Johnson's box coat and cape. Where he stands and when, his face, hair and complexion are reconstructed: no picture of him is known.",
     "sources": [
       "census_1900_chicago_t623_roll245",
       "glessner_story_of_a_house_1923",
@@ -393,6 +393,6 @@
     ],
     "liberty": "L418",
     "seed": "pa1904_glessner_john_j_c1900_charles_nelson:1904:stable-doors-standing:20261107",
-    "replaceable_by": "A photograph of Charles Nelson or of the Glessner stable staff, or a record that he was or was not the Glessners' coachman in 1904; his place at the stable doors and his standing have no documentary claim."
+    "replaceable_by": "A photograph of Charles Nelson or of the Glessner stable staff, or a record that he was or was not the Glessners' coachman in 1904; his everyday place beside the carriage team and his standing have no documentary claim."
   }
 }

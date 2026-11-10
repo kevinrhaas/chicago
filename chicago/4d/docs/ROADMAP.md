@@ -1,3 +1,15 @@
+## T-2795 — bring the existing coachman beside his waiting team (2026-11-10)
+
+Place Charles Nelson on the Prairie Avenue parkway beside the existing Glessner
+carriage team, retaining the clear walking strip, carriage stand and household
+seasonal routines. Preserve his original short break and stable-door tour mark;
+use real visible routes, honest approaching-guide status and safe handback.
+Keep running errands and jaunt guides from replacing one another’s paths; defer
+tour takeover until the errand finishes and restore interactions after release.
+Require current-source street/phone/tour review and complete green hosted checks
+before DEV merge. Continue boarding, coachman conversation, passengers and ride
+controls on the existing tickets; this increment does not close their acceptance.
+
 ## T-2795 — deliver the existing transport refinements reliably (2026-11-10)
 
 Keep the merged horse team, clothing and coat increments credited. Add native
@@ -6543,3 +6555,7 @@ after comparisons, published desktop/phone full-context review and final sourceC
 pending; this source checkpoint does not close the ticket or claim an after-state.
 
 - T-2484 advanced through actual native adoption and seven canonical house+green picture Matches (2026-11-10, PR1919); 81nativecontrols and961+6foreigns exact. Four safe reconstructed north/south poplar stations now clear the existing4.5m house exclusion. Remaining acceptance is actual published six-tree/household desktop/defaultphone Normal/ByGrade/source-card review plus current required checks and ordinary dev merge. No new photo follow-up.
+
+### 2026-11-10 — T-3341 early masonry surface increment
+
+The remaining flat brick and chimney materials in 1812 and 1835 now bind the existing procedural brick or clay sheet by their recorded disposition. Already mapped fort recipes and 1904 materials are retained. The new brick shuffle reads the library's 20 by 48 running bond; Miller's mixed native stack primitive is partitioned without losing triangles or confidence. Actual desktop/default-phone before-and-after surfaces pass in both scenes (28 directly reviewed frames and two detail roundtrips). Official boot passes at 44.716135 MiB of 44.9; unchanged phone-memory gates pass at 305.664622 MiB of 350 (1812) and 509.227699 MiB of 550 (1835). All eight source-check parts and their aggregate pass on runtime `cab4514539`; PR #1918 records final protected-check and dev-merge state. See docs/RESEARCH/early-masonry-3341.md and L-early-masonry-surfaces-3341.
