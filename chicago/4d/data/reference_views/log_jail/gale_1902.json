@@ -20,11 +20,11 @@
   ],
   "focal_px": 1500,
   "eye": [
-    24,
     18,
+    28,
     1.7
   ],
-  "yaw_deg": 228.0,
+  "yaw_deg": 210.0,
   "basis_right_up_forward": [
     [
       0,
@@ -32,17 +32,17 @@
       -1
     ],
     [
-      -0.6691306063588581,
-      0.7431448254773944,
+      -0.8660254037844386,
+      0.5000000000000001,
       0
     ],
     [
-      -0.7431448254773944,
-      -0.6691306063588581,
+      -0.5000000000000001,
+      -0.8660254037844386,
       0
     ]
   ],
   "sky": "overcast",
-  "solve": "AUTHORED COMPOUND APPEARANCE DIAGNOSTIC, not a geographic historical camera solution. The entire original page is displayed at1112x1645 without cropping or source rotation; the camera basis rolls the model to the sideways page. Reframed from the northeast at a reconstructed1.70m standing eye to show the east gable light and keeper east end that the detailed artwork depicts, with keeper-left/core-right order. Eye,228degree bearing,1500px focal length and principal point are framing choices on a common flat review plane; they derive no site control or metric historical plan. This view compares bounded July continuity choices with the1902illustration captioned1836; no claim that every depicted feature existed by1July1835. The Andreas cap/elevation conflict remains source disagreement underT3153. Diagnostic only: no historical From this spot action.",
+  "solve": "AUTHORED COMPOUND APPEARANCE DIAGNOSTIC, not a geographic historical camera solution. The entire original page is displayed at1112x1645 without cropping or source rotation; the camera basis rolls the model to the sideways page. Reframed from the northeast at a reconstructed1.70m standing eye to show the east gable light and keeper east end that the detailed artwork depicts, with keeper-left/core-right order. Actual keeper-master triangle rays from this18m east/28m north eye leave all91sampled light points unoccluded; this is a CPU occlusion control, not image acceptance. Eye,210degree bearing,1500px focal length and principal point are framing choices on a common flat review plane; they derive no site control or metric historical plan. This view compares bounded July continuity choices with the1902illustration captioned1836; no claim that every depicted feature existed by1July1835. The Andreas cap/elevation conflict remains source disagreement underT3153. Diagnostic only: no historical From this spot action.",
   "diagnostic_only": true
 }
