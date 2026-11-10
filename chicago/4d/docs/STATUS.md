@@ -16,6 +16,11 @@ reason records that distinction. The driver now explicitly accepts optional
 `--check` and runs the same complete assertion suite; the gate uses that mode.
 Unknown arguments are refused. Scanner rules and native assertions remain intact.
 
+CI also detected that the generated research sign-off still carried the previous
+gate-baseline counts. Its canonical writer now refreshes that count sentence and
+the helper's ownership row from complete, source-verified inputs. Research metrics
+and the GO verdict remain unchanged; the report check and all 11 self-tests pass.
+
 This tooling unblocks the existing visible clothing refinement on T-1789. It changes
 no resident asset or adopted animation. Focused parser/inventory controls and the
 measured test isolation are the local validation scope; ordinary full CI, an actual
