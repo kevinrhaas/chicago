@@ -8706,6 +8706,11 @@ step "Human assembly still controls reject wrong identities, invalid bounds and 
 step "Human assembly still intake rejects stale runs, mismatched jobs and unsafe archives (T-1789)" \
   python3 tools/test_human_library_stills_intake.py
 
+step "Shared draft-horse assets retain one lease-owned geometry and texture template (T-2795)" \
+  node tools/test_draft_horse_assets.mjs
+step "The unoccupied Glessner carriage team preserves actual delivery geometry, hoof contacts and tier lifecycle (T-2795)" \
+  node tools/test_parked_draft_team.mjs
+
 step "Scoped teamster measurements retain every unmodified native fixture row and reject inventory drift (T-1789)" \
   node tools/test_human_fixture_scope.mjs
 

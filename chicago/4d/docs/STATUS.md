@@ -17,6 +17,22 @@ scoped producer run, and visual review of the corrected coats remain pending. No
 cancelled or partial producer is treated as successful. Modular-library, photographic
 material/likeness and complete posed garment acceptance remain open on T-1789.
 
+## Current portable-human foundations (2026-11-10)
+
+The portable-human contract (T-1786, PR #606), Blender exporter (T-1787, PR #644)
+and browser actor (T-1788, PR #669) are delivered and their tickets are done.
+Current DEV contains 31 figure families: 248 source/web GLBs with four LODs and
+56-joint rigs. Idle and walk are exported throughout; the adopted driver also
+has seated-drive, look and natural-idle clips. Do not rebuild or reopen these
+foundations merely because later wardrobe and motion work remains.
+
+PR #1904 merged the shared resident cloth finish and level-hem generator into DEV.
+T-1789 still covers the reusable wardrobe/library and its inspection; T-2673
+covers Mark Beaubien's assembly. T-1790 still owes its broader portable
+conversation, gesture, carry and work motions. Boarding and passenger rides
+remain on the existing carriage tickets. A working portable actor is not a
+claim that these later acceptances are complete.
+
 ## T-1789 — cloth finish and canonical library previews (2026-11-09)
 
 Standing and walking residents now receive the same existing reconstructed linen/wool
@@ -26290,6 +26306,59 @@ The authoritative scene compiler changes only this blockhouse's overall evidence
 
 Current-dev integration preserves the landed three-building PR1903 (a0218d1aae9d4a004f8a13b5af38cd4e7c9efd54) and concurrent resident-cloth PR1904. This camera/badge increment requires no native rebuild; actual first-fort member GLBs and placements are proven identical to the existing dev assets. No new photo follow-up or original-ticket closure is introduced.
 
+
+## T-2795 — a stationary team for the carriage outside Glessner House (2026-11-10)
+
+The existing reconstructed Brougham keeps its stand, identity and current near/mid delivery finish. The 1904 scene explicitly enables an unoccupied pair in fitted draft gear. Other parked rows, the original unhitched adapter default and Hans Johnson's separate moving circuit remain unchanged. Glessner's coachman Charles Nelson and passenger John Glessner are not substituted or seated by this increment. Doors and boarding remain closed.
+
+The moving and stationary teams lease one checked horse template per URL, SHA256 and material variant. Each owns its cloned skeletons; only the final lease disposes shared image/material/geometry resources. Light, hidden and remote states release the stationary team. The carriage body retains its eight material batches; its two pole primitives remain independent so the actual front-axle lift pivot can work in both genuine delivery LODs. Picking skips hidden source geometry and includes the attached team under the carriage's existing card.
+
+The source has asymmetric fore/hind sole heights. The stationary fit applies the existing reconstructed neutral stance, then fits all 1,196 original classified hoof vertices to the ground. Combined tilt stays within two degrees, per-foot minimum gap within one millimetre, and penetration within the original ten-micrometre numerical allowance. The explicit unheld-rein mode invents no driver, hand or seated-body fit.
+
+Source geometry/hierarchy/BIN equivalence between the original moving Brougham and current near delivery is exact; material metadata differs and is preserved. The bounded actual-mesh/Mixer case passes all 129 certified quiet sample times over the actual twelve-second clip, with the horses at independently declared phases, on a synthetic flat plane. Maximum pole/yoke gap is 12.621 mm, maximum per-hoof minimum gap 0.525 mm and minimum gap −0.008439 mm, within the unchanged 0.010 mm numerical allowance; genuine near/mid pole endpoints coincide throughout. This finite sampling does not prove the continuous intervals. The first two failed probes remain recorded; they exposed an ENU skin inverse-update error and the neutral-stance fit need. Cache ownership, the existing driven lifecycle controls and the actual parked adapter’s Full/Light and hide/show release/reacquire controls pass; both new gate suites have measured zero-write isolation rows. Full surface/continuous contact and photographic acceptance remain open. Current street checks and their limits are recorded below. T-2795 stays open for its full movement/fit acceptance.
+
+
+### Current Glessner street evidence and remaining limits
+
+The actual published 1904 phone view draws the preserved carriage and both horses.
+All 1,196 original hoof vertices per animal were independently checked against the
+drawn street triangles: per-foot minimum gaps range from numerical zero to
+0.539 mm; wheel gaps are 4.47-8.70 mm and the pole/yoke gap is 10.715 mm.
+The real quiet clocks pause and resume, and Light and hidden states release the
+team and restore it on return. These are finite contact and lifecycle readings,
+not full surface-intersection, continuous-contact or photographic acceptance.
+
+The phone probe remains NONPASS_BUDGET. Initial Light reads 411.969 MiB;
+an exact five-file original-DEV runtime/placement overlay on the same unchanged
+asset derivatives reads 411.737 MiB with identical 1,269 calls and 734,378 triangles.
+This is a thin historical runtime comparison, not a complete rebuilt old mirror.
+At the photographed street view Balanced reads 5,135,153 triangles against
+2,625,000; hiding vehicles still reads 4,958,239. Light after returning from
+Balanced reads 437.128 MiB and 1,411,088 triangles. No ceiling was raised or
+failure relabelled as a pass. The current repository profiles remain 1,300 MiB
+for 1904 desktop Full and 400 MiB for phone Light; they are measured profile
+readings, not an established invariant across all town cameras.
+
+Normal desktop Full and Balanced probes attached the actual team without browser
+or HTTP errors, but capture/screenshot deadlines prevented complete visual runs.
+The Full snapshot read about 1,550 MiB at this stand and is not a passing memory
+or ordinary-loop result. The native gate, ordinary PR CI and any further visual
+qualification are reported by their actual receipts; no partial transcript proves
+the whole gate. Published image, independent review, exact inputs, resource and
+cleanup receipts, original-DEV comparison and negative results are preserved in
+[chicago-evidence](https://github.com/kevinrhaas/chicago-evidence/tree/38da1455b2bfd2d39fd1de67400a64aa3a80475e/evidence/transport/glessner-stationary-team-2026-11-10/street-phone-wip-f721329c).
+
+
+A separate controlled desktop inspection now also renders the complete current
+carriage and pair at 1280x800 and independently passes the same original hoof
+and wheel contact limits. It calls the original renderer for one actual native
+frame while holding automatic GPU draws during setup and readback; simulation
+keeps running. All horse materials compile and no browser or HTTP errors occur.
+The close image preserves the delivered body finish and shows no gross floating
+or detached animal. Its 4,462,453 triangles still exceed the Balanced point
+ceiling, so the receipt remains NONPASS_BUDGET_CONTROLLED_PHOTO_CONTACT_CHECKS_PASSED.
+This is a controlled appearance/contact inspection, not ordinary-loop or FPS
+acceptance, nor photographic or complete-harness sign-off.
 
 ## Five early-building original parcels — final source integration, 2026-11-10
 

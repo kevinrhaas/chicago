@@ -5730,6 +5730,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_draft_horse_assets.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_drawn_placement_census.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -6499,6 +6503,10 @@
       "wrote_ignored": []
     },
     "tools/test_parade_presence.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_parked_draft_team.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
