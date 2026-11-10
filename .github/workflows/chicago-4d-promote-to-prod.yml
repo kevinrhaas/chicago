@@ -266,8 +266,29 @@ jobs:
             fi
           fi
 
-      - name: Publish (GITHUB_TOKEN pushes don't trigger deploy — dispatch it)
+      - name: Record the exact owner promotion for the production publisher
+        if: ${{ !inputs.dry_run && steps.survey.outputs.count != '0' }}
+        env:
+          OWNER_ACTOR: ${{ github.actor }}
+          PROMOTION_SOURCE_SHA: ${{ github.sha }}
+        run: |
+          python3 - <<'PY'
+          import json, os, pathlib, subprocess
+          receipt = {'schema': 1, 'run_id': int(os.environ['GITHUB_RUN_ID']),
+                     'actor': os.environ['OWNER_ACTOR'], 'source_sha': os.environ['PROMOTION_SOURCE_SHA'],
+                     'promoted_sha': subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip()}
+          (pathlib.Path(os.environ['RUNNER_TEMP']) / 'promotion-receipt.json').write_text(json.dumps(receipt) + '\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: ${{ !inputs.dry_run && steps.survey.outputs.count != '0' }}
+        with:
+          name: owner-promotion-${{ github.run_id }}
+          path: ${{ runner.temp }}/promotion-receipt.json
+          retention-days: 7
+      - name: Publish the explicit owner promotion
         if: ${{ !inputs.dry_run && steps.survey.outputs.count != '0' }}
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh workflow run deploy.yml --ref main
+        run: |
+          gh workflow run deploy.yml --ref main -f mode=production \
+            -f promotion_run_id="$GITHUB_RUN_ID" -f promoted_sha="$(git rev-parse HEAD)"

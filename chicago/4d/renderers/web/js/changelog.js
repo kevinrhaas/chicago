@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 2875, ts: '2026-11-10T23:33:18.287Z', date: 'Nov 10, 2026, 5:33 PM CT', title: 'Every loading screen reads your device', kind: 'feature',
+    items: [
+      'The Observatory\'s device meter now sits on each year\'s loading screen. It shows the same score, says why it reads that way (the graphics, shared memory, memory and cores), and lists what this device will draw: the detail level, the resolution and what is eased, such as thinner plants or the memory saver.',
+    ] },
+  { v: 2874, ts: '2026-11-10T22:39:42.299Z', date: 'Nov 10, 2026, 4:39 PM CT', title: '1904 memory lines move for its people and carriages', kind: 'chore',
+    items: [
+      'The memory lines 1904 is held to rise: 1,300 to 1,425 MB on a capable computer, and 400 to 425 MB on a phone. They make room for the people, horse teams and household routines added this week. Computers with built-in graphics now open a lighter town, so the computer line no longer covers the machines that crashed.',
+    ] },
   { v: 2873, ts: '2026-11-10T21:46:03.801Z', date: 'Nov 10, 2026, 3:46 PM CT', title: 'Compact interactions and conversations with company', kind: 'improvement',
     items: [
       'Open Interact for short activity labels and icons, with a scrollable list on phones.',
