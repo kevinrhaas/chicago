@@ -97,7 +97,7 @@
     "studebaker_brougham_1893": {
       "file": "transport/parked-brougham/brougham-near-delivery-v1.glb",
       "type": "Brougham \u2014 after the 1893 Studebaker catalogue",
-      "basis": "Original empty, unhitched Brougham reconstruction guided by Studebaker's 1893 catalogue illustration, leaf 0095. The shaped roof, curved door, separate footplates, fine step supports and dark rear quarters follow the depicted design. Metric dimensions, unseen construction, paint and surface materials, and this particular vehicle's presence, ownership and stop in 1904 are reconstructed. The catalogue does not identify the dark rear surface as glass or a curtain. Photographic refinement continues.",
+      "basis": "Original Brougham reconstruction guided by Studebaker's 1893 catalogue illustration, leaf 0095. The shaped roof, curved door, separate footplates, fine step supports and dark rear quarters follow the depicted design. Metric dimensions, unseen construction, paint and surface materials, and this particular vehicle's presence, ownership and stop in 1904 are reconstructed. The catalogue does not identify the dark rear surface as glass or a curtain. Photographic refinement continues.",
       "design_reference": {
         "value": "Studebaker Brothers Manufacturing Company \u2014 Brougham, 1893 catalogue",
         "confidence": "attested",
@@ -254,7 +254,61 @@
           "studebaker_1893_illustrated_souvenir"
         ],
         "liberty": "L-brougham-parked-2794",
-        "note": "Reconstructed empty, unhitched parked individual using the 1893 catalogue design reference. The catalogue establishes the maker/type before 1904; neither this particular vehicle, its owner, a household connection nor this curbside stop is documented. Closed doors, no occupant, horse, boarding, traffic or driving."
+        "note": "Reconstructed parked individual using the 1893 catalogue design reference. The catalogue establishes the maker/type before 1904; neither this particular vehicle, its owner, a household connection nor this curbside stop is documented. A matched pair and their stationary activity are reconstructed when the near carriage team is shown. Closed doors, no occupant, boarding, traffic or driving; no coachman or passenger fit is claimed.",
+        "stationary_team": {
+          "schema": "chicago4d_parked_draft_team_v1",
+          "driver_present": false,
+          "reins_mode": "unheld",
+          "pole_node": "vehicle_team_pole",
+          "horse_offset_m": [
+            0,
+            0,
+            3.08
+          ],
+          "team_half_spacing_m": 0.65,
+          "liberty": "L-glessner-stationary-team-2795",
+          "horse": {
+            "file": "transport/driven/horse-current26-inplace-full.glb",
+            "sha256": "ad9dc060f8630d0de04fef97d716e8c82be3ac8bf070684e78107720c5221ec6",
+            "material_variant": "organic_dielectric_v1",
+            "appearance_grade": "reconstructed",
+            "support_domain": {
+              "certificate_file": "transport/driven/current26-hoof-support-domain.json",
+              "certificate_sha256": "425d1c15c7869638a4c6f7b950cb38a9208faf9eb381476d77749b60f4fa7817",
+              "model_sha256": "ad9dc060f8630d0de04fef97d716e8c82be3ac8bf070684e78107720c5221ec6",
+              "half_width_m": 0.35,
+              "half_length_m": 0.595
+            },
+            "idle_clip": "sevket_reconstructed_quiet_head_neck_idle_v1",
+            "contact_file": "transport/parked/glessner-team-hoof-contacts.json",
+            "contact_sha256": "154c1a8c2f72bd99fdcb0ec1c0d33190d9ed43c42d1f709e896f54fbcc6ace64"
+          },
+          "vehicles": {
+            "near": {
+              "file": "transport/parked-brougham/brougham-near-delivery-v1.glb",
+              "sha256": "b5b183b4f115c5c7779ba0cb4ccba83fbffb62349647a9a6487f50cde49aef77"
+            },
+            "mid": {
+              "file": "transport/parked-brougham/brougham-mid-delivery-v1.glb",
+              "sha256": "16daaf1d5003aae3ea64de9d037962aaabf2a5c8638ac77a5a2e037564ef2d63"
+            }
+          },
+          "hitch": {
+            "vehicle_binding": "studebaker_brougham_1893",
+            "web_assets": true,
+            "reins_mode": "unheld",
+            "harness_file": "transport/driven-hitch/current26-collar-girth-v2.glb",
+            "harness_sha256": "53510c461d5d1f1cd43f8fb407ab95dfb585f303d52a0f891742f8acebf27dba",
+            "units_file": "transport/driven-hitch/connection-units-v1.glb",
+            "units_sha256": "394675f76a75f511558077bae88104b5c0a490b571bcfc1441d8815bc30d3632",
+            "bindings_file": "transport/driven/hitch-bindings-v2.json",
+            "bindings_sha256": "8ec2be9da95ab9b9d24730fe824ea451675038d1fe3f5c81fc950a799c9b4604"
+          },
+          "idle_phase_fractions": [
+            0,
+            0.375
+          ]
+        }
       }
     ]
   }

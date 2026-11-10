@@ -1,3 +1,11 @@
+## Delivered human foundations and remaining work (2026-11-10)
+
+T-1786, T-1787 and T-1788 are done: the portable contract, four-LOD exporter and
+browser actor are already in use. The remaining T-1789 work is the modular
+wardrobe/library and its inspection, with Mark's assembly on T-2673. T-1790
+retains the missing portable conversation/gesture/carry/work motions. Preserve
+these delivered foundations while improving existing figures and their clothing.
+
 ## T-1789 — refine existing residents and review their kit (2026-11-09)
 
 Reuse the drivers' linen/wool shading on ordinary residents, preserving their own
@@ -6458,3 +6466,12 @@ The three source trials now have pinned native83 evidence, exact81 unchanged MAS
 ### 2026-11-10 — T-3041 northwest coverage, PR #1905
 
 Two actual canonical northwest-blockhouse comparisons now preserve the existing Currey14-member and Kurz30-member world frames. Currey has only bounded existing owner-ruling acceptance with crop/context limits; Kurz retains two finite open composition/identity questions. The compiler's pictured badge reflects two already credited whole depictions, while geometry, attribute confidence and the Images list stay unchanged. Original T-3041/T-2387 coverage of the other dated pictures and the complete component inventory remains partial. The first-fort west wickets and cupolas already delivered must not be redone.
+
+
+## T-2795 — preserve the Glessner-front carriage while adding its team (2026-11-10)
+
+The owner selected the existing carriage outside Glessner House for a horse and a later coachman-led passenger ride. A bounded stationary pair uses the retained team pole, original fitted tack and current horse assets, while preserving the carriage's delivery finish and row. A small shared asset lease avoids loading separate embedded horse images for the moving and parked teams. The parked API remains explicitly opt-in and does not supply a dummy driver.
+
+The canonical fore soles sit about 5.236 mm above the hind-foot plane. A ground-only support fit cannot honestly call those feet planted. Reuse the existing bounded neutral support quaternion and fit the complete original hoof classifier against the actual ground reader; retain the original two-degree, one-millimetre and numerical-penetration limits. The source geometry stays unchanged. Limited synthetic-plane native readings do not replace real street, appearance or phone-cost qualification.
+
+The finite phone street contact, quiet-clock and release/reacquire checks now pass, with an actual published image; broader budget failures are retained in STATUS. Next on the existing T-2795/T-2801/T-2797 work: qualify full coupling surfaces and remaining world acceptance, then fit Charles Nelson and real reins, working doors/entry, safe passenger ownership/camera and board/ride/leave controls. John Glessner is an optional identified passenger; Hans Johnson's separate household/circuit is preserved. No additional ticket is filed for this increment.
