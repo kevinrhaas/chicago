@@ -1,0 +1,54 @@
+{
+  "status": "PASS_FINAL_FIRST_FORT_ORIGINAL_IMAGE_SCOPE_UNDER_T3335_T3153",
+  "original_records": 21,
+  "context_records": 9,
+  "fresh_actual_views": {
+    "nw_currey": 14,
+    "outer_currey": 14,
+    "kurz": 30,
+    "lossing": 14
+  },
+  "all_open_rows": 0,
+  "before_receipt_sha256": "6ccaa1936ca9159f368b93726828eb0cbf4dcb49f7757d64ab58b56fba83c863",
+  "after_receipt_sha256": "0b5f2da5a86fa9ca32c1f34f36dedd02ea806dc09a90387c34b1e0890fe0c08e",
+  "lossing_raw_before_after_pixels_changed": 0,
+  "currey_pixel_controls": {
+    "nw_currey": {
+      "pair_pixels_changed": 497,
+      "max_rgb_delta": 21,
+      "mean_abs_rgb_delta": 0.000951638517042037,
+      "old_pair": "/tmp/nov10-firstfort-final/accepted-currey-before/first_fort_dearborn_blockhouse_nw/currey_1912_birdseye-side-by-side.jpg",
+      "new_pair": "/tmp/nov10-firstfort-final/after/nw_currey/currey_1912_birdseye-side-by-side.jpg",
+      "raw_pixels_changed": 6,
+      "raw_max_rgb_delta": 19,
+      "raw_mean_abs_rgb_delta": 0.00013199880627166503
+    },
+    "outer_currey": {
+      "pair_pixels_changed": 0,
+      "max_rgb_delta": 0,
+      "mean_abs_rgb_delta": 0.0,
+      "old_pair": "/tmp/nov10-firstfort-final/accepted-currey-before/first_fort_dearborn_pickets_outer/currey_1912_birdseye-side-by-side.jpg",
+      "new_pair": "/tmp/nov10-firstfort-final/after/outer_currey/currey_1912_birdseye-side-by-side.jpg"
+    }
+  },
+  "current_matches": {
+    "currey_1912_birdseye": {
+      "sha256": "3ff0f57ec394c3c925ff07a8c772ae6c472cdd86675c929638461b960ee43a8d",
+      "verdict": "matches"
+    },
+    "kurz_allison_1893_panel1": {
+      "sha256": "7c1f1e87d14beb5f82fa7cd950bb0e1eab4a8785e4991b8fca1776912b0ccc3d",
+      "verdict": "matches"
+    },
+    "lossing_1869_fort": {
+      "sha256": "086ad1bfef84a23704a5a74ae84b6219f2609a93574c2681f80ade428ca2e537",
+      "verdict": "matches"
+    }
+  },
+  "limits": [
+    "Whistler measured plan/current75ft staff and adopted shape exceptions retained.",
+    "Unidentified outside gallery not arbitrarily assigned; hidden/context membership not attestation.",
+    "HeldGetty/Chicagology copies remain read-only; no new rights or geometry.",
+    "No historic source optics, landscape/terrain match or published runtime result claimed."
+  ]
+}

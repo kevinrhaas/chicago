@@ -111,14 +111,16 @@
     "gate_sides": {
       "value": [
         "n",
-        "s"
+        "s",
+        "e",
+        "w"
       ],
       "confidence": "attested",
       "sources": [
         "kinzie_waubun_1856",
         "andreas_1884_v1"
       ],
-      "note": "Two independent statements. Kinzie: 'Large gates opened to the north and south.' Andreas: 'It had two gates, one on the north and the other on the south side.' The 1830 plan draws a break in each of those two walls and in neither of the others, and Hubbard's 1827 account places buildings by reference to both - 'the store-house and guard-house were on either side of the southern gate; the sutler's store was east of the north gate'. Three sources, one arrangement."
+      "note": "Two independent statements. Kinzie: 'Large gates opened to the north and south.' Andreas: 'It had two gates, one on the north and the other on the south side.' The 1830 plan draws a break in each of those two walls and in neither of the others, and Hubbard's 1827 account places buildings by reference to both - 'the store-house and guard-house were on either side of the southern gate; the sutler's store was east of the north gate'. Three sources, one arrangement. T-2388: two smaller side posterns are now a bounded reconstruction of Kinzie’s distinct additional clause, not two more large gates. Her actual paragraph reads: Large gates opened to the north and south, and there were small posterns here and there for the accommodation of the inmates. The two main gates retain their attested sides and existing3.6m width; the additional east/west sides and count of two are reconstructed, with separate gate_overrides."
     },
     "gate_width_m": {
       "value": 3.6,
@@ -154,8 +156,27 @@
       "sources": [
         "kinzie_waubun_1856"
       ],
-      "geometry": "absent",
-      "note": "Kinzie: 'there were small posterns here and there for the accommodation of the inmates'. NOTHING OF THEM IS BUILT, and the reason is in the sentence: 'here and there' is not a position, and putting a postern anywhere would invent the one thing the only witness declines to give. The wall is therefore continuous between its two documented gates, which is a picture of the evidence rather than of the fort."
+      "geometry": "record_only",
+      "note": "OCCURRENCE DESCRIBED, ACTUAL OPENINGS NOW DRIVEN BY gate_sides/gate_overrides (T-2388). Kinzie1831 explicitly contrasts large north/south gates with small posterns here and there for accommodation of the inmates. The old refusal to model any postern solely because locations were unknown is superseded by two reconstructed side wicket seats. This descriptive boolean does not itself drive geometry; the consumed gate controls build and the actual fort-gates renderer hangs their leaves. Counttwo, east/west side, offsets,1.5m width and leaf detail are reconstructed; no picture has been assigned an exact postern."
+    },
+    "gate_overrides": {
+      "value": {
+        "e": {
+          "width_m": 1.5,
+          "offset_m": 14.5,
+          "kind": "wicket"
+        },
+        "w": {
+          "width_m": 1.5,
+          "offset_m": -15.0,
+          "kind": "wicket"
+        }
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "kinzie_waubun_1856"
+      ],
+      "note": "TWO SMALL SIDE POSTERNS, NOT AN ADDITIONAL PAIR OF LARGE GATES (T-2388). Actual Wau-Bun ch.XVII paragraph independently reread10November2026 at the existing source URL: Large gates opened to the north and south, and there were small posterns here and there for the accommodation of the inmates. The conjunction distinguishes small additional openings; the plural does not give a count, side, metric size, exact place or carpentry. Two is the minimum plural and our bounded choice. Each is1.5m wide, the supported narrow wicket kit: one at east-wall localv41.0m (offset+14.5), in the gap between barracks and sutler, and one at west-wall localv11.5m (offset-15), between blockhouse and officers’ range. Both use one inward-swinging paling leaf at existing wall height, safely shut initially. The south/north main gates, their3.6m spans and positions stay unchanged. These seats, width, leaf construction, same-height head and swing are reconstructed liberties rather than mapped postern marks. They avoid occupied building footprints and do not borrow the first fort’s separately attested west wicket."
     },
     "function": {
       "value": "military_post_enclosure",
@@ -283,7 +304,9 @@
         "a parade ground 80 ft wide",
         "which buildings stood on which side of the parade",
         "the commandants of the second fort by date",
-        "the date the pickets came down is NOT given - only that it was 'at an earlier date' than 1850"
+        "the date the pickets came down is NOT given - only that it was 'at an earlier date' than 1850",
+        "Actual1881public-domain scans of the1850fort cut and1855keyed quarters cut, with explicit depiction dates.",
+        "A securely identified1855double-storey gallery on officers B and a gallery along commandants A; this does not independently date either fitting toJuly1835."
       ],
       "what_it_does_not_supply": [
         "the stockade's dimensions",

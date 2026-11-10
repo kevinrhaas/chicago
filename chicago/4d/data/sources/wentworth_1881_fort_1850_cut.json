@@ -1,0 +1,27 @@
+{
+  "id": "wentworth_1881_fort_1850_cut",
+  "type": "illustration",
+  "citation": "Fort Dearborn in 1850. Contained woodcut in John Wentworth, Fort Dearborn (Chicago: Fergus Printing Company, 1881), printed p. 43; the caption attributes the underlying 1850 daguerreotype to Polycarpus von Schneidau.",
+  "author": "Polycarpus von Schneidau (underlying daguerreotype, attributed by the 1881 caption); wood engraver unestablished",
+  "date": "1881 (contained cut inspected; first separate appearance not established)",
+  "describes_date": "1850",
+  "repository": "Internet Archive, scanned 1881 Fergus pamphlet earlychicagofort00wentiala; direct public-domain source, rather than the modern Chicagology reproduction",
+  "url": "https://archive.org/download/earlychicagofort00wentiala/page/n50.jpg",
+  "locator": "Actual Internet Archive /page/n50.jpg; local cleared asset data/sources/assets/second_fort_wentworth_1881/p43_fort_1850.jpg. The historical text and caption are also recorded under wentworth_1881_fort_dearborn.",
+  "tier": 5,
+  "rights_status": "public_domain",
+  "rights_note": "The actual 1881 United States publication is public domain by age. These bytes were independently acquired from its Internet Archive scan; no agency, auction or check_required modern reproduction is substituted.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "Source image actually opened on 10 November 2026. The 1855 illustration and p. 93 caption were rotated 270 degrees only for reading. The raw captures preserve the original orientation outside the published image. This contained-cut record does not invent an independent publication or claim inspection of the original daguerreotype or negative.",
+  "note": "The caption names several ranges spatially; the unique cupola blockhouse identifies securely. The gallery, tall gable and stack ordering closely parallels Kurz panel 5. Compositional adaptation is inferred from the actual pictures, rather than established by a documented engraving genealogy. The Marine Hospital, board fence and enlarged parade remain the later 1850 state. Diagnostic cameras render July 1835 models with the actual depiction dates stated. Only securely identified buildings receive card_members.",
+  "what_it_supplies": [
+    "A credited nineteenth-century illustration with publication and depicted dates stated separately.",
+    "A finite later-form comparison, subject to the caption, occlusion and retrospective engraving limits."
+  ],
+  "what_it_does_not_supply": [
+    "An independent first publication date or inspection of the original photograph.",
+    "A metric camera, exact historical palette or proof that every fitting survived unchanged from July 1835.",
+    "A license for held modern reproductions, or named identities for unkeyed ranges merely because they were rendered as context."
+  ]
+}

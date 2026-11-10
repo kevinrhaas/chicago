@@ -12,9 +12,11 @@
   "scene": "1835",
   "target_date": "1835-07-01",
   "grade": {
-    "value": "inferred",
-    "why": "Known from maps or written records; no picture of it has been found.",
-    "pictures": []
+    "value": "attested",
+    "why": "Pictured: a picture on the Images tab shows it.",
+    "pictures": [
+      "wentworth_1881_hesler_1855_quarters_cut"
+    ]
   },
   "documented_range": {
     "from": "1816-07-01",
@@ -132,6 +134,150 @@
       "confidence": "inferred",
       "note": "Bare brick. Nothing says this building was rendered, painted or whitewashed; the whitewash in the sources belongs to the board fence of the 1850s compound and to John H. Kinzie's boyhood memory of the FIRST fort's blockhouses."
     },
+    "gallery": {
+      "value": true,
+      "confidence": "reconstructed",
+      "sources": [
+        "wentworth_1881_hesler_1855_quarters_cut",
+        "harrison_1830_river_mouth",
+        "hubbard_autobiography_1911"
+      ],
+      "note": "A PLAIN FRONT DOUBLE GALLERY, ADOPTED FOR JULY 1835 AS A BOUNDED CONTINUITY CHOICE (T-2388). The actual public-domain 1881 contained cut after Alexander Hesler’s 1855 photograph, with its explicit printed p.93 key, securely identifies this brick range as Commandant’s Quarters A and shows two gallery levels along its parade front. That strongest named picture governs the broad form; it does NOT date the gallery’s construction or prove it was unchanged in 1835. The existing interpretation identifies this with the brick commanding-officer range Hubbard describes inside the north stockade in 1827 and Harrison draws in 1830, under the fort’s 1816 rebuilding range. A front piazza is compatible with that retained fabric and arrangement; Hubbard’s distinct 1818 officers’ quarters already had an upper piazza, so the form is possible at this post before the scene date. That analogy supports plausibility, not identity or independent attestation of this gallery. We fairly choose continuity of the pictured plain gallery into 1 July 1835 rather than invent an alteration date. The occurrence IN THIS SCENE, every dimension, plain posts, deck, rails and canopy remain reconstructed. Existing full front width 15.24m, reach 2.1m, upper walk at the unchanged 2.7m storey line, 0.14m posts/deck and 0.95m rail are the existing gallery kit’s bounded choices. Footprint, surveyed placement, bearing188degrees, walls, roof, stacks and openings stay as before. No wraparound corner connection, additional stairs, unidentified 1850 soldiers’ gallery, paint or elaborate joinery is copied backwards."
+    },
+    "gallery_storeys": {
+      "value": 2,
+      "confidence": "reconstructed",
+      "sources": [
+        "wentworth_1881_hesler_1855_quarters_cut"
+      ],
+      "note": "Two levels follow the securely named 1855 A view: an open lower post level and an upper walk at the second floor. Carrying that arrangement into July1835 is the explicit reconstructed continuity choice in gallery, not an attested installation date. The existing5.4m wall and2.7m storey line stay fixed; exact deck, rail, pale rhythm, canopy fall and support sections remain liberties."
+    },
+    "face_openings": {
+      "value": [
+        {
+          "face": "front",
+          "kind": "window",
+          "u0": 1.545,
+          "u1": 2.265,
+          "z0": 0.81,
+          "z1": 1.86
+        },
+        {
+          "face": "front",
+          "kind": "window",
+          "u0": 5.3549999999999995,
+          "u1": 6.075,
+          "z0": 0.81,
+          "z1": 1.86
+        },
+        {
+          "face": "front",
+          "kind": "window",
+          "u0": 9.165000000000001,
+          "u1": 9.885,
+          "z0": 0.81,
+          "z1": 1.86
+        },
+        {
+          "face": "front",
+          "kind": "window",
+          "u0": 12.975000000000001,
+          "u1": 13.695,
+          "z0": 0.81,
+          "z1": 1.86
+        },
+        {
+          "face": "back",
+          "kind": "window",
+          "u0": 2.21,
+          "u1": 2.87,
+          "z0": 0.81,
+          "z1": 1.86
+        },
+        {
+          "face": "back",
+          "kind": "window",
+          "u0": 7.29,
+          "u1": 7.95,
+          "z0": 0.81,
+          "z1": 1.86
+        },
+        {
+          "face": "back",
+          "kind": "window",
+          "u0": 12.370000000000001,
+          "u1": 13.030000000000001,
+          "z0": 0.81,
+          "z1": 1.86
+        },
+        {
+          "face": "front",
+          "kind": "window",
+          "u0": 1.545,
+          "u1": 2.265,
+          "z0": 3.5100000000000002,
+          "z1": 4.5600000000000005
+        },
+        {
+          "face": "front",
+          "kind": "window",
+          "u0": 5.3549999999999995,
+          "u1": 6.075,
+          "z0": 3.5100000000000002,
+          "z1": 4.5600000000000005
+        },
+        {
+          "face": "front",
+          "kind": "window",
+          "u0": 9.165000000000001,
+          "u1": 9.885,
+          "z0": 3.5100000000000002,
+          "z1": 4.5600000000000005
+        },
+        {
+          "face": "front",
+          "kind": "window",
+          "u0": 12.975000000000001,
+          "u1": 13.695,
+          "z0": 3.5100000000000002,
+          "z1": 4.5600000000000005
+        },
+        {
+          "face": "back",
+          "kind": "window",
+          "u0": 2.21,
+          "u1": 2.87,
+          "z0": 3.5100000000000002,
+          "z1": 4.5600000000000005
+        },
+        {
+          "face": "back",
+          "kind": "window",
+          "u0": 7.29,
+          "u1": 7.95,
+          "z0": 3.5100000000000002,
+          "z1": 4.5600000000000005
+        },
+        {
+          "face": "back",
+          "kind": "window",
+          "u0": 12.370000000000001,
+          "u1": 13.030000000000001,
+          "z0": 3.5100000000000002,
+          "z1": 4.5600000000000005
+        },
+        {
+          "face": "front",
+          "kind": "door",
+          "u0": 7.07,
+          "u1": 8.17,
+          "z0": 0.02,
+          "z1": 2.05
+        }
+      ],
+      "confidence": "reconstructed",
+      "note": "The unchanged procedural layout written explicitly only so the existing gallery support solver clears every sash, casing and sill horn (T-2388). Captured directly from this range’s prior builder: four windows on each front storey, three on each rear storey, and one centred ground-floor front door; gable ends remain unread/empty as before. Every rectangle, sill, head, width and position is identical to the former default. Neither the 1855 picture nor an unkeyed earlier range is used to attest these counts or dimensions. The gallery’s original even support grid would intersect window trim; the existing explicit-opening API moves only its new supports onto solid piers."
+    },
     "function": {
       "value": "commanding_officers_quarters",
       "confidence": "attested",
@@ -221,6 +367,58 @@
       ]
     },
     {
+      "source_id": "hubbard_autobiography_1911",
+      "citation": "Gurdon Saltonstall Hubbard, The Autobiography of Gurdon Saltonstall Hubbard, Pa-pa-ma-ta-be, \"The Swift Walker\", with an Introduction by Caroline M. McIlvaine, Librarian of the Chicago Historical Society (Chicago: R. R. Donnelley & Sons Company, The Lakeside Press, Christmas 1911) — The Lakeside Classics. Read in full for its Chicago material before 1836: the front matter, McIlvaine's Introduction (pages ix-xxvii), and Hubbard's own narrative at pages 27-41, 135-138, 141-144, 153-159, 165-174 and 178-182. Hubbard's letter of 25 July 1827, printed as a note at page 174, is a separate source record.",
+      "url": "https://archive.org/details/autobiographyofg00hubb",
+      "archived_url": "https://archive.org/download/autobiographyofg00hubb/autobiographyofg00hubb_djvu.txt",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "transcribes": [
+        {
+          "work": "Hubbard's own autobiographical narrative — his engagement with the American Fur Company at Montreal and Mackinaw, the voyage of September 1818, his first entry into Chicago on 1 October 1818, the fort and its neighbours as he first saw them, the Chicago portage and Mud Lake, Hubbard's Trail, the trading posts of the Illinois River, and the Winnebago Scare of 1827 — ending abruptly at November 1830",
+          "date": "Written in the 1880s; printed 1888 and again 1911. Describes 1818-1830.",
+          "tier": 2,
+          "note": "A participant's recollection at more than fifty years' distance, and the rung most of this reading sits on. It is a recollection and not a record: the Fort Dearborn measurements are paces remembered, the payment of page 167 is dated to the wrong year, and the commanders' list is Hubbard's own search of the War Department records, which he says failed for the years after June 1833. The Winnebago Scare section (pages 166-174) is footnoted as coming not from the Diary but 'from statements by Mr. Hubbard in Chicago Historical Series, No. 10', which is one remove further."
+        },
+        {
+          "work": "Caroline M. McIlvaine's Introduction, pages ix-xxvii — a 1911 review of the fifty-six years the Autobiography does not cover, compiled from letters, memoranda, contemporaries' reminiscences and printed history, and quoting E. O. Gale's Reminiscences of Early Chicago, The Chicago American of 10 October 1835, the Sunday Times of 24 October 1875 and Henry E. Hamilton's 1907 biographical sketch",
+          "date": "1911",
+          "tier": 4,
+          "note": "EVERY STATEMENT THIS PROJECT TAKES ABOUT 1834, 1835 OR 1836 COMES FROM HERE AND NOT FROM HUBBARD. The brick building at La Salle and South Water, the five or six hundred inhabitants, the brig Illinois of 25 May 1835, the Green Tree Tavern, the fire engine, the Russell & Mather purchase, the canal commissioners and the water-works are all McIlvaine's, written seventy-six years after the scene, and several are quotations at a further remove. A run reaching for 'Hubbard on 1835' is reaching for McIlvaine."
+        },
+        {
+          "work": "Editorial notes by Henry E. Hamilton, signed H. E. H., inserted in square brackets in the narrative — including the note at page 178 that the hog-driving of 1829-30 'was the beginning of the packing industry in Chicago' — and the publishers' preface and closing note",
+          "date": "1888 (the notes); 1911 (the preface and the closing note, the latter signed C. M. M.)",
+          "tier": 4,
+          "note": "Compiler's judgements, sixty years after the events, printed inside the narrative's own type. bk_hub_101 and bk_hub_104 are read from this layer and say so."
+        }
+      ],
+      "what_it_supplies": [
+        "Fort Dearborn's occupation chronology, dated to the day, from its establishment in 1804 to its final abandonment on 29 December 1836 — which puts the scene year inside a continuous garrison running from 1 October 1832",
+        "a full description of the second fort as a man who lived beside it in 1818 remembered it: fourteen-foot oak pickets, a block house at the south-west corner and a bastion at the north-west, whitewashed stockade and buildings, the officers' quarters outside the pickets with a piazza at second-storey level, the soldiers' quarters, the sutler's store in the north-east corner, two gates, two ten-foot guardhouses, a two-storey commissary storehouse and a brick magazine",
+        "the fort's surroundings: a four-acre garden, a military barn, a field running half a mile south, the ONE road, a fence line closed from river to river, the well by the south gate, and wash-houses on the sandy beach east of the pickets",
+        "the Factor House — two storeys, squared logs, a split-picket fence, Jouett to about 1810 and then John Dean — and the American Fur Company's round-log storehouse built by John Craft and occupied after his death by Jean Baptiste Beaubien",
+        "John Kinzie's house described from inside it: a long log cabin with a rude piazza, fronting the river directly opposite the fort, with a window that had a sight-line to the fort at night — the piazza confirmed again nine years later",
+        "a complete building count for the whole of the present Cook County in 1818: the fort's group, the Factor House, the Fur Company storehouse, Hardscrabble, Ouilmette's cabin and Kinzie's house, and nothing else",
+        "the river mouth's history — its natural outlet at the fort, its southward migration behind a sand spit driven by north-east winds, its position at The Pines a mile south as late as 1827, the soldiers' cut of spring 1828 and the sand's refilling of it",
+        "landscape: the prairie seen from Douglas Grove, the Blue Island grove and the Desplaines timber, wild onion and leek along the river, wild rice and head-high grass at Mud Lake, the old cultivated field on the River Guarie still legible as cornhills, and prairie fires dangerous enough to sink boats against",
+        "Hubbard's Trail, dated by the man who cut it (1822 to Danville, extended north to Chicago in 1824) and the State road from Vincennes to Chicago ordered in the winter of 1833-34 that adopted most of it",
+        "the settlement's size taken sideways: about forty men and women turned out to fight the fort fire in 1827, and a majority of the men at the fort that summer were Hubbard's own employees",
+        "for 1835, at one remove through McIlvaine: the brig Illinois lightered ashore on 25 May because the harbour could not take her, the passengers going on to the Green Tree Tavern, the Chicago American of 10 October 1835 on Hubbard's fire engine, and the March 1835 purchase of the eighty acres of Russell & Mather's addition for $5,000",
+        "one period document, and it is graded separately: Hubbard's letter to his sister headed 'Chicago, July 25, 1827', at data/sources/hubbard_letter_1827_07_25.json"
+      ],
+      "what_it_does_not_supply": [
+        "Hubbard's own eyewitness on 1835. HIS NARRATIVE ENDS IN NOVEMBER 1830 and the closing note says so in as many words; the book's 1835 is Caroline McIlvaine's, written in 1911",
+        "any plat position, lot, or measured coordinate. Every placement here is prose — 'west and a little south of the fort', 'about where Wells street now crosses the river' — and several are given in streets that did not exist when the thing described did",
+        "reliable dimensions. 'A square of about six hundred feet' for the Fort Dearborn stockade is a pace-estimate at sixty years' distance and is much larger than the fort this project reconstructs",
+        "a consistent account of the officers' quarters: page 36 puts them outside the pickets and built of hewn logs, page 167 puts the commanding officers' former quarters in a brick building just within the north stockade and the log quarters within the pickets on the west. The book contradicts itself and this project does not resolve it",
+        "the right year for the Pottawatomie payment and the fort fire: page 167 prints 1828 where the section heading, the surrounding narrative and Hubbard's own dated letter all say July 1827",
+        "the names of the officers commanding Fort Dearborn after 19 June 1833 — Hubbard says he could not find them in the War Department records, so the source names nobody in command during the scene year",
+        "a residence for anybody in 1835. Every person Hubbard names, he names for what they did between 1812 and 1830",
+        "page images. This reading is of the Internet Archive's OCR text of the scan, corroborated against the deposited PDF's own text layer; no claim here is scan_verified"
+      ]
+    },
+    {
       "source_id": "isa_public_domain_land_tract_sales",
       "citation": "Illinois State Archives, Illinois Public Domain Land Tract Sales Database (Springfield: Office of the Secretary of State).",
       "url": "https://apps.ilsos.gov/isa/landSalesSearch.do",
@@ -241,12 +439,31 @@
         "a parade ground 80 ft wide",
         "which buildings stood on which side of the parade",
         "the commandants of the second fort by date",
-        "the date the pickets came down is NOT given - only that it was 'at an earlier date' than 1850"
+        "the date the pickets came down is NOT given - only that it was 'at an earlier date' than 1850",
+        "Actual1881public-domain scans of the1850fort cut and1855keyed quarters cut, with explicit depiction dates.",
+        "A securely identified1855double-storey gallery on officers B and a gallery along commandants A; this does not independently date either fitting toJuly1835."
       ],
       "what_it_does_not_supply": [
         "the stockade's dimensions",
         "anything about the fort in 1835 that is not inferred backwards from an 1850 or 1855 image",
         "a reliable division between first-fort and second-fort description - the pamphlet reprints both and readers routinely mix them"
+      ]
+    },
+    {
+      "source_id": "wentworth_1881_hesler_1855_quarters_cut",
+      "citation": "Fort Dearborn quarters in 1855. Contained keyed woodcut in John Wentworth, Fort Dearborn (Chicago: Fergus Printing Company, 1881), unnumbered illustration leaf before printed p. 93; p. 93 credits a photograph by Alexander Hesler.",
+      "url": "https://archive.org/download/earlychicagofort00wentiala/page/n101.jpg",
+      "archived_url": "",
+      "tier": 5,
+      "tier_label": "modern retrospective illustration/reconstruction",
+      "what_it_supplies": [
+        "A credited nineteenth-century illustration with publication and depicted dates stated separately.",
+        "A finite later-form comparison, subject to the caption, occlusion and retrospective engraving limits."
+      ],
+      "what_it_does_not_supply": [
+        "An independent first publication date or inspection of the original photograph.",
+        "A metric camera, exact historical palette or proof that every fitting survived unchanged from July 1835.",
+        "A license for held modern reproductions, or named identities for unkeyed ranges merely because they were rendered as context."
       ]
     },
     {
@@ -269,7 +486,7 @@
       ]
     }
   ],
-  "research_note": "THE ONE BUILDING IN FORT DEARBORN WITH A STATED SIZE, and therefore the building the whole complex is measured against. Its footprint note explains why that is both the strength of this record and a risk running through every other record in the fort. Two guards. The '25 x 50 ft' is a caption to an 1855 photograph, not a survey. And the 1855 key's phrase 'occupying the north-west corner of the enclosure' covers this building and the officers' quarters together as a pair seen from across the river; it is not a statement that this range stood in the corner, and Hubbard puts it 'just within the north stockade', which is where the 1830 plan draws it. See docs/RESEARCH/fort_dearborn.md.",
+  "research_note": "THE ONE BUILDING IN FORT DEARBORN WITH A STATED SIZE, and therefore the building the whole complex is measured against. Its footprint note explains why that is both the strength of this record and a risk running through every other record in the fort. Two guards. The '25 x 50 ft' is a caption to an 1855 photograph, not a survey. And the 1855 key's phrase 'occupying the north-west corner of the enclosure' covers this building and the officers' quarters together as a pair seen from across the river; it is not a statement that this range stood in the corner, and Hubbard puts it 'just within the north stockade', which is where the 1830 plan draws it. See docs/RESEARCH/fort_dearborn.md. T-2388 now adopts the securely identified 1855 A front double gallery as an explicit RECONSTRUCTED continuity choice for July1835, with no invented construction/alteration date. The older plan/Hubbard range identity and placement control; the new gallery does not identify or copy an unknown soldiers’ range.",
   "research_doc": "docs/RESEARCH/fort_dearborn_commandants_quarters.md",
   "review_required": false
 }

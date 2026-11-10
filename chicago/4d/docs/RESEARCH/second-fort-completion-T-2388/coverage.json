@@ -1,0 +1,788 @@
+{
+  "not_a_reading": "T-2388 rereading, identity/date and finite architectural adjudication of existing21-record corpus; no new archival enumeration",
+  "ticket": "T-2388",
+  "target_date": "1835-07-01",
+  "sources": [
+    "harrison_1830_river_mouth",
+    "hubbard_autobiography_1911",
+    "wentworth_1881_fort_dearborn",
+    "kurz_allison_1893",
+    "kinzie_1857_chicago_1831_panorama",
+    "eastman_schoolcraft_chicago_1820_engraving",
+    "childs_1857_chicago_from_lake_1820",
+    "castelnau_1842_chicago_harbor",
+    "kellogg_blanchard_1856_old_fort_lake_house",
+    "wentworth_1881_fort_1850_cut",
+    "wentworth_1881_hesler_1855_quarters_cut"
+  ],
+  "photos": [
+    {
+      "view": "second-fort-panel-5-compound",
+      "source_id": "kurz_allison_1893",
+      "file": "chicago/4d/data/sources/assets/prefire_views_kevin_2026_08/p3_1.png",
+      "sha256": "80c71433bd66455639b535718b936fa343be5e84a88a509dbe9f79e4f7b1818d",
+      "depicted": "caption1835, retrospective",
+      "made": "1893",
+      "rights": "public_domain",
+      "visually_opened": "2026-11-10"
+    },
+    {
+      "view": "eastman-1820-compound",
+      "source_id": "eastman_schoolcraft_chicago_1820_engraving",
+      "file": "chicago/reference/images/chicago/chicago_settlement_1820_2.jpg",
+      "sha256": "4e0ea4deb8eea96c9cfaa1b78983b1d649aa810506d561d6d3815318f07d7348",
+      "depicted": "1820",
+      "made": "1854",
+      "rights": "public_domain",
+      "visually_opened": "2026-11-10",
+      "framing_box_px": [
+        790,
+        651,
+        1074,
+        742
+      ]
+    },
+    {
+      "view": "childs-1820-compound",
+      "source_id": "childs_1857_chicago_from_lake_1820",
+      "file": "chicago/reference/images/chicago/chicago_from_lake_1818_1830_childs.jpg",
+      "sha256": "4f47c4deaf2011387567dfe4584e06cd4ec4edfcaac6a951ca620cb47cd523a3",
+      "depicted": "1820; caption1818\u20131830",
+      "made": "1857",
+      "rights": "public_domain",
+      "visually_opened": "2026-11-10",
+      "framing_box_px": [
+        845,
+        312,
+        1330,
+        508
+      ]
+    },
+    {
+      "view": "wau-bun-1831-keyed-compound",
+      "source_id": "kinzie_1857_chicago_1831_panorama",
+      "file": "chicago/reference/images/chicago/chicago_fort_dearborn_1831_1.jpg",
+      "sha256": "624d8f1f52a75bf30653e8cbf37a388478b0ddf5a02f1fadf727cf2144b84c3f",
+      "depicted": "1831",
+      "made": "1881 verified keyed reproduction, credits1857",
+      "rights": "public_domain",
+      "visually_opened": "2026-11-10",
+      "framing_box_px": [
+        476,
+        258,
+        1025,
+        446
+      ]
+    },
+    {
+      "view": "wau-bun-1831-compound",
+      "source_id": "kinzie_1857_chicago_1831_panorama",
+      "file": "chicago/reference/images/chicago/chicago_fort_dearborn_1831_2.jpg",
+      "sha256": "08c7b6565de151e88d94535d1940d27d30a15ee0724508ab3e8ac15383b49c4b",
+      "depicted": "1831",
+      "made": "nineteenth-century derivative; exact edition unresolved",
+      "rights": "public_domain",
+      "visually_opened": "2026-11-10",
+      "framing_box_px": [
+        530,
+        421,
+        1064,
+        604
+      ]
+    },
+    {
+      "view": "castelnau-1838-compound",
+      "source_id": "castelnau_1842_chicago_harbor",
+      "file": "chicago/reference/images/chicago/chicago_harbor_lighthouse_1838.jpg",
+      "sha256": "6db98a8dc196525c353e0520012a451c14ea4480a6aa173eb4f11bb2a1a178bd",
+      "depicted": "circa1838",
+      "made": "1842",
+      "rights": "public_domain",
+      "visually_opened": "2026-11-10",
+      "framing_box_px": [
+        326,
+        89,
+        571,
+        202
+      ]
+    },
+    {
+      "view": "kellogg-1856-later-blockhouse",
+      "source_id": "kellogg_blanchard_1856_old_fort_lake_house",
+      "file": "chicago/reference/images/chicago/chicago_fort_dearborn_river_mouth_1830.jpg",
+      "sha256": "8b0f864e238896900bad6e9429928257c0e9078921a7879bbd4ef48b7317c6a8",
+      "depicted": "circa1836\u20131849",
+      "made": "1856",
+      "rights": "public_domain",
+      "visually_opened": "2026-11-10"
+    },
+    {
+      "view": "wentworth-1850-later-compound",
+      "source_id": "wentworth_1881_fort_1850_cut",
+      "file": "chicago/4d/data/sources/assets/second_fort_wentworth_1881/p43_fort_1850.jpg",
+      "sha256": "aaa68e5aa55c09e60efd2cfb9d21f25f7b4d9b2ebeb99691db77bba1513a3d34",
+      "depicted": "1850",
+      "made": "1881cut after earlierphoto",
+      "rights": "public_domain; direct1881IAacquisition",
+      "visually_opened": "2026-11-10",
+      "date_disposition": "laterstate diagnostic; no silentJuly1835backdating"
+    },
+    {
+      "view": "hesler-1855-later-quarters",
+      "source_id": "wentworth_1881_hesler_1855_quarters_cut",
+      "file": "chicago/4d/data/sources/assets/second_fort_wentworth_1881/p92_hesler_1855.jpg",
+      "sha256": "0b88a1b59d7a7c8a1e57c4f86fcce48244abd11908a1c0b751b20f0d8a0a184b",
+      "depicted": "1855",
+      "made": "1881cut after earlierphoto",
+      "rights": "public_domain; direct1881IAacquisition",
+      "visually_opened": "2026-11-10",
+      "date_disposition": "laterstate diagnostic; no silentJuly1835backdating"
+    }
+  ],
+  "identity_rule": "A rendered member is not automatically drawn or attested. drawn means identifiable in the picture; occluded means its fabric cannot be separated from stockade/other masses; not_shown means no individually assignable image feature. Unknown unkeyed ranges are retained as unknown rather than allocated to arbitrary records. The plan and dated eyewitness arrangement control contradictory retrospective placement. No geometry is moved to cure camera or composition differences.",
+  "records": [
+    {
+      "record_id": "fort_dearborn_blockhouse",
+      "phase": "log_1816",
+      "scene_target_date": "1835-07-01",
+      "source_picture_visibility": {
+        "second-fort-panel-5-compound": "drawn",
+        "eastman-1820-compound": "drawn",
+        "childs-1820-compound": "drawn",
+        "wau-bun-1831-keyed-compound": "drawn",
+        "wau-bun-1831-compound": "drawn",
+        "castelnau-1838-compound": "drawn",
+        "kellogg-1856-later-blockhouse": "drawn",
+        "wentworth-1850-later-compound": "drawn",
+        "hesler-1855-later-quarters": "not shown"
+      },
+      "identity_and_controlling_evidence": "Unique south-west blockhouse identified across the cleared prints. Square cupola and removal of invented centre stack already delivered. Plan controls footprint; printed roof/jetty proportions disagree across dates and camera fits. Later louvres/projection excluded.",
+      "grade_boundary": "No pictured-grade promotion for an unidentifiable range or for enrollment as context.",
+      "architectural_disposition": "retain current bounded form; no identified open visitor-visible July1835 discrepancy",
+      "render_binding_status": "Actual before and nativeB29after rendered; all enrolled currentmember hashes bound. Source visibility remains individually drawn/occluded/notshown; see actual-comparison-review.json.",
+      "actual_master_binding": {
+        "before_sha256": "96d9fb803cdd3b1639c32b9e0c562d0b3bf2af1b2fe8254abea4d62e8e136b15",
+        "after_sha256": "96d9fb803cdd3b1639c32b9e0c562d0b3bf2af1b2fe8254abea4d62e8e136b15",
+        "changed": false,
+        "glb": "assets/gltf/fort_dearborn_blockhouse__log_1816.glb",
+        "native_run": "42758213227"
+      }
+    },
+    {
+      "record_id": "fort_dearborn_artillery_house",
+      "phase": "log_1816",
+      "scene_target_date": "1835-07-01",
+      "source_picture_visibility": {
+        "second-fort-panel-5-compound": "occluded",
+        "eastman-1820-compound": "occluded",
+        "childs-1820-compound": "occluded",
+        "wau-bun-1831-keyed-compound": "occluded",
+        "wau-bun-1831-compound": "occluded",
+        "castelnau-1838-compound": "occluded",
+        "kellogg-1856-later-blockhouse": "not shown",
+        "wentworth-1850-later-compound": "not shown",
+        "hesler-1855-later-quarters": "not shown"
+      },
+      "identity_and_controlling_evidence": "East-side artillery building follows the plan/text arrangement. No unkeyed roof can be assigned uniquely to it.",
+      "grade_boundary": "No pictured-grade promotion for an unidentifiable range or for enrollment as context.",
+      "architectural_disposition": "retain current bounded form; no identified open visitor-visible July1835 discrepancy",
+      "render_binding_status": "Actual before and nativeB29after rendered; all enrolled currentmember hashes bound. Source visibility remains individually drawn/occluded/notshown; see actual-comparison-review.json.",
+      "actual_master_binding": {
+        "before_sha256": "4e5a2c8b2b8b1d5aaabeca9b0e9addedd51be73efe6bf545eca236243043bf50",
+        "after_sha256": "4e5a2c8b2b8b1d5aaabeca9b0e9addedd51be73efe6bf545eca236243043bf50",
+        "changed": false,
+        "glb": "assets/gltf/fort_dearborn_artillery_house__log_1816.glb",
+        "native_run": "42758213227"
+      }
+    },
+    {
+      "record_id": "fort_dearborn_barracks",
+      "phase": "log_1816",
+      "scene_target_date": "1835-07-01",
+      "source_picture_visibility": {
+        "second-fort-panel-5-compound": "occluded",
+        "eastman-1820-compound": "occluded",
+        "childs-1820-compound": "occluded",
+        "wau-bun-1831-keyed-compound": "occluded",
+        "wau-bun-1831-compound": "occluded",
+        "castelnau-1838-compound": "occluded",
+        "kellogg-1856-later-blockhouse": "not shown",
+        "wentworth-1850-later-compound": "not shown",
+        "hesler-1855-later-quarters": "not shown"
+      },
+      "identity_and_controlling_evidence": "East soldiers range is recorded on plan and by Hubbard. Earlier1820 ranges may precede replacement; the Kurz gallery cannot be assigned to this range merely because the source summary calls it barracks. Keep galleryfalse.",
+      "grade_boundary": "No pictured-grade promotion for an unidentifiable range or for enrollment as context.",
+      "architectural_disposition": "retain current bounded form; no identified open visitor-visible July1835 discrepancy",
+      "render_binding_status": "Actual before and nativeB29after rendered; all enrolled currentmember hashes bound. Source visibility remains individually drawn/occluded/notshown; see actual-comparison-review.json.",
+      "actual_master_binding": {
+        "before_sha256": "ef648a9670ec7a9df934938c68dbc37ecfdbb09cdf34ef451c047ae48d88d108",
+        "after_sha256": "ef648a9670ec7a9df934938c68dbc37ecfdbb09cdf34ef451c047ae48d88d108",
+        "changed": false,
+        "glb": "assets/gltf/fort_dearborn_barracks__log_1816.glb",
+        "native_run": "42758213227"
+      }
+    },
+    {
+      "record_id": "fort_dearborn_big_barn",
+      "phase": "barn_1830",
+      "scene_target_date": "1835-07-01",
+      "source_picture_visibility": {
+        "second-fort-panel-5-compound": "not shown",
+        "eastman-1820-compound": "not shown",
+        "childs-1820-compound": "not shown",
+        "wau-bun-1831-keyed-compound": "not shown",
+        "wau-bun-1831-compound": "not shown",
+        "castelnau-1838-compound": "not shown",
+        "kellogg-1856-later-blockhouse": "not shown",
+        "wentworth-1850-later-compound": "not shown",
+        "hesler-1855-later-quarters": "not shown"
+      },
+      "identity_and_controlling_evidence": "Harrison names Big Barn with Cupola on outer ground. No securely named barn image in these panorama crops. Existing plan-based barn remains the bounded reconstruction. The explicit plan-named cupola was a real omitted element, now enabled through cupola_shape and explicit reconstructed1.2m width,1.0m body height and0.45m pyramid cap rise; plain boarded, centred on ridge.",
+      "grade_boundary": "No pictured-grade promotion for an unidentifiable range or for enrollment as context.",
+      "architectural_disposition": "fix source-named barn cupola; actual nativeB29 adopted and rendered",
+      "render_binding_status": "Actual before and nativeB29after rendered; all enrolled currentmember hashes bound. Source visibility remains individually drawn/occluded/notshown; see actual-comparison-review.json.",
+      "actual_master_binding": {
+        "before_sha256": "607820c6fcee33d0c099f4093adec31341c9360686816b9d19bbfa81b9d1389d",
+        "after_sha256": "4d350bc0ee24ff737fdb8920fc02750886074e4cd8b7fee37bd5c758fb6a9b97",
+        "changed": true,
+        "glb": "assets/gltf/fort_dearborn_big_barn__barn_1830.glb",
+        "native_run": "42758213227"
+      }
+    },
+    {
+      "record_id": "fort_dearborn_commandants_quarters",
+      "phase": "brick_1816",
+      "scene_target_date": "1835-07-01",
+      "source_picture_visibility": {
+        "second-fort-panel-5-compound": "occluded",
+        "eastman-1820-compound": "occluded",
+        "childs-1820-compound": "occluded",
+        "wau-bun-1831-keyed-compound": "occluded",
+        "wau-bun-1831-compound": "occluded",
+        "castelnau-1838-compound": "occluded",
+        "kellogg-1856-later-blockhouse": "not shown",
+        "wentworth-1850-later-compound": "not shown",
+        "hesler-1855-later-quarters": "drawn"
+      },
+      "identity_and_controlling_evidence": "North brick quarters identified by plan/text and later1855 key. Unkeyed panorama ranges cannot securely transfer bay/stack counts to it. Stated25\u00d750ft plan choice retained. Direct1881p92/p93now securely identifies A in the1855Hesler-derived view, including a two-level front gallery; its July1835continuity is not proven. This is a dated later detail, not an unidentifiedKurz assignment. The named 1855 A double gallery is now adopted for July1835 as an explicit RECONSTRUCTED continuity choice: the existing 1816-range interpretation, Hubbard1827 brick north range, Harrison1830 range and separate early officers-piazza analogy make that bounded form reasonable without attesting an installation date. Only the front gallery is added; its15.24m width,2.1m reach,2.7m upper floor, posts/rails/canopy are reconstructed. The15 existing openings are captured identically in the explicit API solely to keep new posts clear of trim. No unknown soldiers-gallery assignment or corner connector is made.",
+      "grade_boundary": "No pictured-grade promotion for an unidentifiable range or for enrollment as context.",
+      "architectural_disposition": "fix securely pictured commandants front double gallery through explicit reconstructed1855-to1835continuity adoption; actual nativeB29 adopted and rendered",
+      "render_binding_status": "Actual before and nativeB29after rendered; all enrolled currentmember hashes bound. Source visibility remains individually drawn/occluded/notshown; see actual-comparison-review.json.",
+      "actual_master_binding": {
+        "before_sha256": "58689363a9aab5bdbea6c776c0c732f63b0b339aa221792240a34b7d3d075ffd",
+        "after_sha256": "84df2871b2cd34396dc9df80f8b484a2623341f51400122e112fd00da9ae0ee6",
+        "changed": true,
+        "glb": "assets/gltf/fort_dearborn_commandants_quarters__brick_1816.glb",
+        "native_run": "42758213227"
+      }
+    },
+    {
+      "record_id": "fort_dearborn_flagstaff",
+      "phase": "staff_1833_37",
+      "scene_target_date": "1835-07-01",
+      "source_picture_visibility": {
+        "second-fort-panel-5-compound": "not shown",
+        "eastman-1820-compound": "drawn",
+        "childs-1820-compound": "drawn",
+        "wau-bun-1831-keyed-compound": "not shown",
+        "wau-bun-1831-compound": "drawn",
+        "castelnau-1838-compound": "not shown",
+        "kellogg-1856-later-blockhouse": "not shown",
+        "wentworth-1850-later-compound": "not shown",
+        "hesler-1855-later-quarters": "not shown"
+      },
+      "identity_and_controlling_evidence": "Wau-Bun second reproduction and earlier1820 scenes draw a flagstaff inside compound; panel5 omits it. No flag design/date/height is established by these lines. Current staff occurrence and15.24m reconstructed height remain.",
+      "grade_boundary": "No pictured-grade promotion for an unidentifiable range or for enrollment as context.",
+      "architectural_disposition": "retain current bounded form; no identified open visitor-visible July1835 discrepancy",
+      "render_binding_status": "Actual before and nativeB29after rendered; all enrolled currentmember hashes bound. Source visibility remains individually drawn/occluded/notshown; see actual-comparison-review.json.",
+      "actual_master_binding": {
+        "before_sha256": "476674491a725533413da111db916bc8922b4f406c2863e633d0562a0b4b29de",
+        "after_sha256": "476674491a725533413da111db916bc8922b4f406c2863e633d0562a0b4b29de",
+        "changed": false,
+        "glb": "assets/gltf/fort_dearborn_flagstaff__staff_1833_37.glb",
+        "native_run": "42758213227"
+      }
+    },
+    {
+      "record_id": "fort_dearborn_garrison_garden",
+      "phase": "fence_1816",
+      "scene_target_date": "1835-07-01",
+      "source_picture_visibility": {
+        "second-fort-panel-5-compound": "not shown",
+        "eastman-1820-compound": "not shown",
+        "childs-1820-compound": "not shown",
+        "wau-bun-1831-keyed-compound": "not shown",
+        "wau-bun-1831-compound": "not shown",
+        "castelnau-1838-compound": "not shown",
+        "kellogg-1856-later-blockhouse": "not shown",
+        "wentworth-1850-later-compound": "not shown",
+        "hesler-1855-later-quarters": "not shown"
+      },
+      "identity_and_controlling_evidence": "Company garden is named on plan/text, outside this architectural vignette. Vegetation/rails cannot be individually assigned from these images. Its old absence note is corrected: the actual fort_company_garden_1835 flora record already supplies the fruit trees and currants; no duplicate planting is made.",
+      "grade_boundary": "No pictured-grade promotion for an unidentifiable range or for enrollment as context.",
+      "architectural_disposition": "retain current bounded form; no identified open visitor-visible July1835 discrepancy",
+      "render_binding_status": "Actual before and nativeB29after rendered; all enrolled currentmember hashes bound. Source visibility remains individually drawn/occluded/notshown; see actual-comparison-review.json.",
+      "actual_master_binding": {
+        "before_sha256": "04c7df23ee5453fbc930d2e696e89ac86b06fcd19840c87a2a0ae01d42d19381",
+        "after_sha256": "04c7df23ee5453fbc930d2e696e89ac86b06fcd19840c87a2a0ae01d42d19381",
+        "changed": false,
+        "glb": "assets/gltf/fort_dearborn_garrison_garden__fence_1816.glb",
+        "native_run": "42758213227"
+      }
+    },
+    {
+      "record_id": "fort_dearborn_guard_house",
+      "phase": "log_1816",
+      "scene_target_date": "1835-07-01",
+      "source_picture_visibility": {
+        "second-fort-panel-5-compound": "occluded",
+        "eastman-1820-compound": "occluded",
+        "childs-1820-compound": "occluded",
+        "wau-bun-1831-keyed-compound": "occluded",
+        "wau-bun-1831-compound": "occluded",
+        "castelnau-1838-compound": "occluded",
+        "kellogg-1856-later-blockhouse": "not shown",
+        "wentworth-1850-later-compound": "not shown",
+        "hesler-1855-later-quarters": "not shown"
+      },
+      "identity_and_controlling_evidence": "West of south gate by plan/Hubbard magazine relationship. Unkeyed small gables cannot uniquely identify guard versus store/magazine.",
+      "grade_boundary": "No pictured-grade promotion for an unidentifiable range or for enrollment as context.",
+      "architectural_disposition": "retain current bounded form; no identified open visitor-visible July1835 discrepancy",
+      "render_binding_status": "Actual before and nativeB29after rendered; all enrolled currentmember hashes bound. Source visibility remains individually drawn/occluded/notshown; see actual-comparison-review.json.",
+      "actual_master_binding": {
+        "before_sha256": "bafe0cd8969bb26c0417e7c2ea47e1eedb07388d70220577ff42602d2e4a9bf9",
+        "after_sha256": "bafe0cd8969bb26c0417e7c2ea47e1eedb07388d70220577ff42602d2e4a9bf9",
+        "changed": false,
+        "glb": "assets/gltf/fort_dearborn_guard_house__log_1816.glb",
+        "native_run": "42758213227"
+      }
+    },
+    {
+      "record_id": "fort_dearborn_magazine",
+      "phase": "brick_1816",
+      "scene_target_date": "1835-07-01",
+      "source_picture_visibility": {
+        "second-fort-panel-5-compound": "occluded",
+        "eastman-1820-compound": "occluded",
+        "childs-1820-compound": "occluded",
+        "wau-bun-1831-keyed-compound": "occluded",
+        "wau-bun-1831-compound": "occluded",
+        "castelnau-1838-compound": "occluded",
+        "kellogg-1856-later-blockhouse": "not shown",
+        "wentworth-1850-later-compound": "not shown",
+        "hesler-1855-later-quarters": "not shown"
+      },
+      "identity_and_controlling_evidence": "Brick magazine placed from Hubbard and plan between guard/blockhouse. Small source gable cannot securely distinguish it from other minor buildings.",
+      "grade_boundary": "No pictured-grade promotion for an unidentifiable range or for enrollment as context.",
+      "architectural_disposition": "retain current bounded form; no identified open visitor-visible July1835 discrepancy",
+      "render_binding_status": "Actual before and nativeB29after rendered; all enrolled currentmember hashes bound. Source visibility remains individually drawn/occluded/notshown; see actual-comparison-review.json.",
+      "actual_master_binding": {
+        "before_sha256": "932063b1ac0cb9709f8602cc6496a5f59c64220658acccce4b53a4a34f2203ce",
+        "after_sha256": "932063b1ac0cb9709f8602cc6496a5f59c64220658acccce4b53a4a34f2203ce",
+        "changed": false,
+        "glb": "assets/gltf/fort_dearborn_magazine__brick_1816.glb",
+        "native_run": "42758213227"
+      }
+    },
+    {
+      "record_id": "fort_dearborn_officers_quarters",
+      "phase": "log_1816",
+      "scene_target_date": "1835-07-01",
+      "source_picture_visibility": {
+        "second-fort-panel-5-compound": "occluded",
+        "eastman-1820-compound": "occluded",
+        "childs-1820-compound": "occluded",
+        "wau-bun-1831-keyed-compound": "occluded",
+        "wau-bun-1831-compound": "occluded",
+        "castelnau-1838-compound": "occluded",
+        "kellogg-1856-later-blockhouse": "not shown",
+        "wentworth-1850-later-compound": "not shown",
+        "hesler-1855-later-quarters": "drawn"
+      },
+      "identity_and_controlling_evidence": "West log quarters follow plan and Hubbard1827. Two-storey piazza from Hubbard1818 retained conditionally; one outside timber flight now supplies his explicit access. Right-end position and dimensions reconstructed; no identification with Kurz unnamed galleried range is asserted. Direct1881p92/p93securely identifies B in1855 with its two-level gallery; this corroborates later form without independently proving everyJuly1835detail.",
+      "grade_boundary": "No pictured-grade promotion for an unidentifiable range or for enrollment as context.",
+      "architectural_disposition": "fix outside piazza stair; actual nativeB29 adopted and rendered",
+      "render_binding_status": "Actual before and nativeB29after rendered; all enrolled currentmember hashes bound. Source visibility remains individually drawn/occluded/notshown; see actual-comparison-review.json.",
+      "actual_master_binding": {
+        "before_sha256": "fc6cdc30ca4bca005a77748e82d79aecec0d39e06226e601a99427a0efc378fb",
+        "after_sha256": "83c62b1f0c9f377a4301e56fe2e18fb338572120b09ce4f3c6c4e75791d479cc",
+        "changed": true,
+        "glb": "assets/gltf/fort_dearborn_officers_quarters__log_1816.glb",
+        "native_run": "42758213227"
+      }
+    },
+    {
+      "record_id": "fort_dearborn_out_building_a",
+      "phase": "out_building_a_1830",
+      "scene_target_date": "1835-07-01",
+      "source_picture_visibility": {
+        "second-fort-panel-5-compound": "not shown",
+        "eastman-1820-compound": "not shown",
+        "childs-1820-compound": "not shown",
+        "wau-bun-1831-keyed-compound": "not shown",
+        "wau-bun-1831-compound": "not shown",
+        "castelnau-1838-compound": "not shown",
+        "kellogg-1856-later-blockhouse": "not shown",
+        "wentworth-1850-later-compound": "not shown",
+        "hesler-1855-later-quarters": "not shown"
+      },
+      "identity_and_controlling_evidence": "Outer unnamed plan buildingA; no named counterpart in these views. Exact openings and roof reconstructed.",
+      "grade_boundary": "No pictured-grade promotion for an unidentifiable range or for enrollment as context.",
+      "architectural_disposition": "retain current bounded form; no identified open visitor-visible July1835 discrepancy",
+      "render_binding_status": "Actual before and nativeB29after rendered; all enrolled currentmember hashes bound. Source visibility remains individually drawn/occluded/notshown; see actual-comparison-review.json.",
+      "actual_master_binding": {
+        "before_sha256": "757fa72b92c62509537d0533d484d79c79da2de3f47e74e7e97c0e2973edd5e6",
+        "after_sha256": "757fa72b92c62509537d0533d484d79c79da2de3f47e74e7e97c0e2973edd5e6",
+        "changed": false,
+        "glb": "assets/gltf/fort_dearborn_out_building_a__out_building_a_1830.glb",
+        "native_run": "42758213227"
+      }
+    },
+    {
+      "record_id": "fort_dearborn_out_building_b",
+      "phase": "out_building_b_1830",
+      "scene_target_date": "1835-07-01",
+      "source_picture_visibility": {
+        "second-fort-panel-5-compound": "not shown",
+        "eastman-1820-compound": "not shown",
+        "childs-1820-compound": "not shown",
+        "wau-bun-1831-keyed-compound": "not shown",
+        "wau-bun-1831-compound": "not shown",
+        "castelnau-1838-compound": "not shown",
+        "kellogg-1856-later-blockhouse": "not shown",
+        "wentworth-1850-later-compound": "not shown",
+        "hesler-1855-later-quarters": "not shown"
+      },
+      "identity_and_controlling_evidence": "Outer unnamed plan buildingB; no named counterpart in these views. Exact openings and roof reconstructed.",
+      "grade_boundary": "No pictured-grade promotion for an unidentifiable range or for enrollment as context.",
+      "architectural_disposition": "retain current bounded form; no identified open visitor-visible July1835 discrepancy",
+      "render_binding_status": "Actual before and nativeB29after rendered; all enrolled currentmember hashes bound. Source visibility remains individually drawn/occluded/notshown; see actual-comparison-review.json.",
+      "actual_master_binding": {
+        "before_sha256": "106d9128018ba5a9b48d934267292951d5e73de44f20b49955b0f39fb4099221",
+        "after_sha256": "106d9128018ba5a9b48d934267292951d5e73de44f20b49955b0f39fb4099221",
+        "changed": false,
+        "glb": "assets/gltf/fort_dearborn_out_building_b__out_building_b_1830.glb",
+        "native_run": "42758213227"
+      }
+    },
+    {
+      "record_id": "fort_dearborn_palisade",
+      "phase": "picket_1816",
+      "scene_target_date": "1835-07-01",
+      "source_picture_visibility": {
+        "second-fort-panel-5-compound": "drawn",
+        "eastman-1820-compound": "drawn",
+        "childs-1820-compound": "drawn",
+        "wau-bun-1831-keyed-compound": "drawn",
+        "wau-bun-1831-compound": "drawn",
+        "castelnau-1838-compound": "drawn",
+        "kellogg-1856-later-blockhouse": "not shown",
+        "wentworth-1850-later-compound": "not shown",
+        "hesler-1855-later-quarters": "not shown"
+      },
+      "identity_and_controlling_evidence": "High pointed stockade drawn in early views and Kurz. Present53m enclosure follows Harrison-derived scale, north/south gates and surveyed bearing. Horizontal compression/cropping in retrospective views does not overrule plan.1850s rough board fence is later. Kinzie explicitly distinguishes large north/south gates from additional small posterns; two side wickets now instantiate the minimum plural at reconstructed clear east/west seats, retaining main gates.",
+      "grade_boundary": "No pictured-grade promotion for an unidentifiable range or for enrollment as context.",
+      "architectural_disposition": "fix attested additional postern occurrence through two reconstructed side wickets; native/runtime pending",
+      "render_binding_status": "Actual before and nativeB29after rendered; all enrolled currentmember hashes bound. Source visibility remains individually drawn/occluded/notshown; see actual-comparison-review.json.",
+      "actual_master_binding": {
+        "before_sha256": "93be1ea20978ca9ac09ea877805d3fb43792a5251a38e986465ba9a497256194",
+        "after_sha256": "85ef76df063610e2ff85630245c95213b367a5fd729d3a9ad18be6b75d43e211",
+        "changed": true,
+        "glb": "assets/gltf/fort_dearborn_palisade__picket_1816.glb",
+        "native_run": "42758213227"
+      }
+    },
+    {
+      "record_id": "fort_dearborn_parade",
+      "phase": "parade_1816",
+      "scene_target_date": "1835-07-01",
+      "source_picture_visibility": {
+        "second-fort-panel-5-compound": "occluded",
+        "eastman-1820-compound": "occluded",
+        "childs-1820-compound": "occluded",
+        "wau-bun-1831-keyed-compound": "occluded",
+        "wau-bun-1831-compound": "occluded",
+        "castelnau-1838-compound": "occluded",
+        "kellogg-1856-later-blockhouse": "not shown",
+        "wentworth-1850-later-compound": "not shown",
+        "hesler-1855-later-quarters": "not shown"
+      },
+      "identity_and_controlling_evidence": "Interior ground hidden by perimeter fabric in low views. Later1850/1855 parade extent differs; do not replace the stockaded1835 court with later400ft ground.",
+      "grade_boundary": "No pictured-grade promotion for an unidentifiable range or for enrollment as context.",
+      "architectural_disposition": "retain current bounded form; no identified open visitor-visible July1835 discrepancy",
+      "render_binding_status": "Actual before and nativeB29after rendered; all enrolled currentmember hashes bound. Source visibility remains individually drawn/occluded/notshown; see actual-comparison-review.json.",
+      "actual_master_binding": {
+        "before_sha256": "bc45f858a47aed9b89524242010033983e930d174db8787af6000f4c33d334d7",
+        "after_sha256": "bc45f858a47aed9b89524242010033983e930d174db8787af6000f4c33d334d7",
+        "changed": false,
+        "glb": "assets/gltf/fort_dearborn_parade__parade_1816.glb",
+        "native_run": "42758213227"
+      }
+    },
+    {
+      "record_id": "fort_dearborn_root_house",
+      "phase": "cellar_1816",
+      "scene_target_date": "1835-07-01",
+      "source_picture_visibility": {
+        "second-fort-panel-5-compound": "not shown",
+        "eastman-1820-compound": "not shown",
+        "childs-1820-compound": "not shown",
+        "wau-bun-1831-keyed-compound": "not shown",
+        "wau-bun-1831-compound": "not shown",
+        "castelnau-1838-compound": "not shown",
+        "kellogg-1856-later-blockhouse": "not shown",
+        "wentworth-1850-later-compound": "not shown",
+        "hesler-1855-later-quarters": "not shown"
+      },
+      "identity_and_controlling_evidence": "Earth cellar class attested by Kinzie1831 on western riverbank. No individually assignable cellar silhouette here.",
+      "grade_boundary": "No pictured-grade promotion for an unidentifiable range or for enrollment as context.",
+      "architectural_disposition": "retain current bounded form; no identified open visitor-visible July1835 discrepancy",
+      "render_binding_status": "Actual before and nativeB29after rendered; all enrolled currentmember hashes bound. Source visibility remains individually drawn/occluded/notshown; see actual-comparison-review.json.",
+      "actual_master_binding": {
+        "before_sha256": "6826b10837f4d51beab80de4d03b6b4e53867075d688eecf219ef049567e7891",
+        "after_sha256": "6826b10837f4d51beab80de4d03b6b4e53867075d688eecf219ef049567e7891",
+        "changed": false,
+        "glb": "assets/gltf/fort_dearborn_root_house__cellar_1816.glb",
+        "native_run": "42758213227"
+      }
+    },
+    {
+      "record_id": "fort_dearborn_root_house_b",
+      "phase": "cellar_1816_b",
+      "scene_target_date": "1835-07-01",
+      "source_picture_visibility": {
+        "second-fort-panel-5-compound": "not shown",
+        "eastman-1820-compound": "not shown",
+        "childs-1820-compound": "not shown",
+        "wau-bun-1831-keyed-compound": "not shown",
+        "wau-bun-1831-compound": "not shown",
+        "castelnau-1838-compound": "not shown",
+        "kellogg-1856-later-blockhouse": "not shown",
+        "wentworth-1850-later-compound": "not shown",
+        "hesler-1855-later-quarters": "not shown"
+      },
+      "identity_and_controlling_evidence": "Second cellar is a reconstructed member of the attested root-house class. No independent image identity; no claim the print shows two.",
+      "grade_boundary": "No pictured-grade promotion for an unidentifiable range or for enrollment as context.",
+      "architectural_disposition": "retain current bounded form; no identified open visitor-visible July1835 discrepancy",
+      "render_binding_status": "Actual before and nativeB29after rendered; all enrolled currentmember hashes bound. Source visibility remains individually drawn/occluded/notshown; see actual-comparison-review.json.",
+      "actual_master_binding": {
+        "before_sha256": "c11aa91ef159b9afbfdf50a3c7d1e46f948aa06cd7f5c12bb5411a92266b068c",
+        "after_sha256": "c11aa91ef159b9afbfdf50a3c7d1e46f948aa06cd7f5c12bb5411a92266b068c",
+        "changed": false,
+        "glb": "assets/gltf/fort_dearborn_root_house_b__cellar_1816_b.glb",
+        "native_run": "42758213227"
+      }
+    },
+    {
+      "record_id": "fort_dearborn_shop",
+      "phase": "shop_1830",
+      "scene_target_date": "1835-07-01",
+      "source_picture_visibility": {
+        "second-fort-panel-5-compound": "not shown",
+        "eastman-1820-compound": "not shown",
+        "childs-1820-compound": "not shown",
+        "wau-bun-1831-keyed-compound": "not shown",
+        "wau-bun-1831-compound": "not shown",
+        "castelnau-1838-compound": "not shown",
+        "kellogg-1856-later-blockhouse": "not shown",
+        "wentworth-1850-later-compound": "not shown",
+        "hesler-1855-later-quarters": "not shown"
+      },
+      "identity_and_controlling_evidence": "Harrison named shop on outer ground; no secure named counterpart in panoramic houses.",
+      "grade_boundary": "No pictured-grade promotion for an unidentifiable range or for enrollment as context.",
+      "architectural_disposition": "retain current bounded form; no identified open visitor-visible July1835 discrepancy",
+      "render_binding_status": "Actual before and nativeB29after rendered; all enrolled currentmember hashes bound. Source visibility remains individually drawn/occluded/notshown; see actual-comparison-review.json.",
+      "actual_master_binding": {
+        "before_sha256": "4171fac2417d6a0612cbe0c73463dae46a85c027f7467700b75018a2dd967671",
+        "after_sha256": "4171fac2417d6a0612cbe0c73463dae46a85c027f7467700b75018a2dd967671",
+        "changed": false,
+        "glb": "assets/gltf/fort_dearborn_shop__shop_1830.glb",
+        "native_run": "42758213227"
+      }
+    },
+    {
+      "record_id": "fort_dearborn_store_house",
+      "phase": "log_1816",
+      "scene_target_date": "1835-07-01",
+      "source_picture_visibility": {
+        "second-fort-panel-5-compound": "occluded",
+        "eastman-1820-compound": "occluded",
+        "childs-1820-compound": "occluded",
+        "wau-bun-1831-keyed-compound": "occluded",
+        "wau-bun-1831-compound": "occluded",
+        "castelnau-1838-compound": "occluded",
+        "kellogg-1856-later-blockhouse": "not shown",
+        "wentworth-1850-later-compound": "not shown",
+        "hesler-1855-later-quarters": "not shown"
+      },
+      "identity_and_controlling_evidence": "East of south gate by plan/Hubbard placement. Low unkeyed range cannot uniquely separate it from guard.",
+      "grade_boundary": "No pictured-grade promotion for an unidentifiable range or for enrollment as context.",
+      "architectural_disposition": "retain current bounded form; no identified open visitor-visible July1835 discrepancy",
+      "render_binding_status": "Actual before and nativeB29after rendered; all enrolled currentmember hashes bound. Source visibility remains individually drawn/occluded/notshown; see actual-comparison-review.json.",
+      "actual_master_binding": {
+        "before_sha256": "71070332362119c0b8293c47aec97f35d192ea6aa8696fb130d57d9c7f087363",
+        "after_sha256": "71070332362119c0b8293c47aec97f35d192ea6aa8696fb130d57d9c7f087363",
+        "changed": false,
+        "glb": "assets/gltf/fort_dearborn_store_house__log_1816.glb",
+        "native_run": "42758213227"
+      }
+    },
+    {
+      "record_id": "fort_dearborn_sutlers_store",
+      "phase": "log_1816",
+      "scene_target_date": "1835-07-01",
+      "source_picture_visibility": {
+        "second-fort-panel-5-compound": "occluded",
+        "eastman-1820-compound": "occluded",
+        "childs-1820-compound": "occluded",
+        "wau-bun-1831-keyed-compound": "occluded",
+        "wau-bun-1831-compound": "occluded",
+        "castelnau-1838-compound": "occluded",
+        "kellogg-1856-later-blockhouse": "not shown",
+        "wentworth-1850-later-compound": "not shown",
+        "hesler-1855-later-quarters": "not shown"
+      },
+      "identity_and_controlling_evidence": "North-east store by plan/Hubbard and later key. Unkeyed north/east roofs do not supply an individual bay/stack count.",
+      "grade_boundary": "No pictured-grade promotion for an unidentifiable range or for enrollment as context.",
+      "architectural_disposition": "retain current bounded form; no identified open visitor-visible July1835 discrepancy",
+      "render_binding_status": "Actual before and nativeB29after rendered; all enrolled currentmember hashes bound. Source visibility remains individually drawn/occluded/notshown; see actual-comparison-review.json.",
+      "actual_master_binding": {
+        "before_sha256": "cf9b8e7880bdd6090cad861d5316771747700954bb79831fcc3841f12d2b27d9",
+        "after_sha256": "cf9b8e7880bdd6090cad861d5316771747700954bb79831fcc3841f12d2b27d9",
+        "changed": false,
+        "glb": "assets/gltf/fort_dearborn_sutlers_store__log_1816.glb",
+        "native_run": "42758213227"
+      }
+    },
+    {
+      "record_id": "fort_dearborn_us_factors_house",
+      "phase": "us_factors_house_1818",
+      "scene_target_date": "1835-07-01",
+      "source_picture_visibility": {
+        "second-fort-panel-5-compound": "not shown",
+        "eastman-1820-compound": "not shown",
+        "childs-1820-compound": "not shown",
+        "wau-bun-1831-keyed-compound": "not shown",
+        "wau-bun-1831-compound": "not shown",
+        "castelnau-1838-compound": "not shown",
+        "kellogg-1856-later-blockhouse": "not shown",
+        "wentworth-1850-later-compound": "not shown",
+        "hesler-1855-later-quarters": "not shown"
+      },
+      "identity_and_controlling_evidence": "Harrison named U.S.Factor\u2019s House, disputed identification with another Beaubien residence; no transfer of panorama keyed Gen.Beaubien house or its porch/stacks to this record.",
+      "grade_boundary": "No pictured-grade promotion for an unidentifiable range or for enrollment as context.",
+      "architectural_disposition": "retain current bounded form; no identified open visitor-visible July1835 discrepancy",
+      "render_binding_status": "Actual before and nativeB29after rendered; all enrolled currentmember hashes bound. Source visibility remains individually drawn/occluded/notshown; see actual-comparison-review.json.",
+      "actual_master_binding": {
+        "before_sha256": "f39f80677fff9e8e07b8b0bfe22a9e141fa0788d86f33a4e8b78ba2c2ed6ad9f",
+        "after_sha256": "f39f80677fff9e8e07b8b0bfe22a9e141fa0788d86f33a4e8b78ba2c2ed6ad9f",
+        "changed": false,
+        "glb": "assets/gltf/fort_dearborn_us_factors_house__us_factors_house_1818.glb",
+        "native_run": "42758213227"
+      }
+    },
+    {
+      "record_id": "fort_dearborn_wash_house",
+      "phase": "wash_house_1830",
+      "scene_target_date": "1835-07-01",
+      "source_picture_visibility": {
+        "second-fort-panel-5-compound": "not shown",
+        "eastman-1820-compound": "not shown",
+        "childs-1820-compound": "not shown",
+        "wau-bun-1831-keyed-compound": "not shown",
+        "wau-bun-1831-compound": "not shown",
+        "castelnau-1838-compound": "not shown",
+        "kellogg-1856-later-blockhouse": "not shown",
+        "wentworth-1850-later-compound": "not shown",
+        "hesler-1855-later-quarters": "not shown"
+      },
+      "identity_and_controlling_evidence": "Wau-Bun keyed foreground Wash-house depicts the class at another date/position; Hubbard describes several beach washhouses versus plan\u2019s one. Do not declare a particular shed or gable to be this1830-plan building. Current shed interpretation stays reconstructed.",
+      "grade_boundary": "No pictured-grade promotion for an unidentifiable range or for enrollment as context.",
+      "architectural_disposition": "retain current bounded form; no identified open visitor-visible July1835 discrepancy",
+      "render_binding_status": "Actual before and nativeB29after rendered; all enrolled currentmember hashes bound. Source visibility remains individually drawn/occluded/notshown; see actual-comparison-review.json.",
+      "actual_master_binding": {
+        "before_sha256": "c6b18f16934bd08a2aa4ceea85544c2f681b79ebd7224eb6ea07262719e238c5",
+        "after_sha256": "c6b18f16934bd08a2aa4ceea85544c2f681b79ebd7224eb6ea07262719e238c5",
+        "changed": false,
+        "glb": "assets/gltf/fort_dearborn_wash_house__wash_house_1830.glb",
+        "native_run": "42758213227"
+      }
+    }
+  ],
+  "held_pictures": [
+    {
+      "file": "chicago/reference/images/chicago/licensed_previews/chicago_second_fort_dearborn_1816_getty.jpg",
+      "status": "held; visually inspected solely for identity/coverage; no geometry/camera/asset derived",
+      "visually_opened": "2026-11-10"
+    },
+    {
+      "file": "chicago/reference/images/chicago/licensed_previews/chicago_fort_dearborn_1830_alamy.jpg",
+      "status": "held; visually inspected solely for identity/coverage; no geometry/camera/asset derived",
+      "visually_opened": "2026-11-10"
+    },
+    {
+      "file": "chicago/reference/images/chicago/licensed_previews/chicago_fort_dearborn_1892_peck_hindman.jpg",
+      "status": "held; visually inspected solely for identity/coverage; no geometry/camera/asset derived",
+      "visually_opened": "2026-11-10"
+    }
+  ],
+  "text_and_later_reproductions": [
+    {
+      "source_id": "chicagology_prefire276",
+      "disposition": "Modern reproduction rights check_required; no derived assets. Wentworth1881 underlying text controls later keyed dimensions/arrangement only.1850/1855 board fence and enlarged parade are later state, notJuly1835."
+    },
+    {
+      "source_id": "chicagology_prefire052",
+      "disposition": "Modern reproduction rights check_required; no derived assets. Wentworth1881 underlying text controls later keyed dimensions/arrangement only.1850/1855 board fence and enlarged parade are later state, notJuly1835."
+    },
+    {
+      "source_id": "wentworth_1881_fort_dearborn",
+      "disposition": "Modern reproduction rights check_required; no derived assets. Wentworth1881 underlying text controls later keyed dimensions/arrangement only.1850/1855 board fence and enlarged parade are later state, notJuly1835."
+    }
+  ],
+  "text_recheck": {
+    "source_id": "kinzie_waubun_1856",
+    "url": "https://www.authorama.com/wau-bun-19.html",
+    "read": "2026-11-10",
+    "locator": "ch.XVII paragraph beginning The fort was inclosed by high pickets",
+    "quote": "Large gates opened to the north and south, and there were small posterns here and there for the accommodation of the inmates.",
+    "adjudication": "Additional small openings are explicit; exact count, east/west sides, clear seats and width reconstructed. Two is minimum plural. No first-fort wicket inference imported."
+  },
+  "direct_plan_recheck": {
+    "source_id": "harrison_1830_river_mouth",
+    "url": "https://archive.org/download/historyofchicago01andr/page/n242.jpg",
+    "sha256": "548a4c5cdc9e71f2cad44a3eb1d617c421c7e653043f31e7045c44add1c1c4bc",
+    "read": "2026-11-10",
+    "finding": "Actualplanlabel Big Barn with Cupola visually read; no exactcupolashape/dimensions supplied. No exactpostern marks assigned."
+  },
+  "printed_key_correction": {
+    "source_id": "wentworth_1881_fort_dearborn",
+    "locator": "actualprintedp93",
+    "finding": "Caption saysparade80x250ft, not oldtranscription80x200ft. Existing1835courtstillrests on1830plan; no geometry resized."
+  },
+  "source_composition_ruling": {
+    "sources": [
+      "kurz_allison_1893",
+      "wentworth_1881_fort_dearborn"
+    ],
+    "not_a_reading": "Direct visual collation of already-read pictures, not a new independent historical witness.",
+    "finding": "Kurzpanel5and actual1881p43labelled1850cut share the ordered foreground masses: left low shed, gallery range, adjacent tall gable with external stair, tall chimney range, smallgable, cupola blockhouse. Kurz removes the1850MarineHospital background and right lighthouse/keeper scene, compresses spacing and recolours the foreground. Visual dependence/compositional adaptation is inferred, not a separately documented engraving genealogy.",
+    "ruling": "TheKurzcaptionrebuilt1835does not independently date these forms toJuly1835. Harrisonplan and datedHubbard arrangement control thattarget. Do not backdate latergalleries or arbitrarybays/stacks to namedrecords from a supposedly1835independentpicture. Theexistingblockhousecupola has separateWau1831corroboration. Camera/composition differences are withinT3153tolerance, not evidence of wrongsurveyedseats. Separate finite adoption: the securely keyed1855Afront gallery is now expressly reconstructed into1835 on the existing range identity and bounded continuity reasoning; this is not automatic attestation and does not identify the unkeyed soldiers gallery."
+  },
+  "actual_comparison_review": {
+    "date": "2026-11-10T05:19:31.925212+00:00",
+    "source_commit": "53b9bd1a2877d3d96a8b2a5c7adbb66aca8a0955",
+    "native_run": "42758213227",
+    "actual_views": 9,
+    "member_count": 21,
+    "changed_members": [
+      "fort_dearborn_big_barn",
+      "fort_dearborn_commandants_quarters",
+      "fort_dearborn_officers_quarters",
+      "fort_dearborn_palisade"
+    ],
+    "all_pairs_directly_opened": true,
+    "open_identified_july1835_architectural_discrepancies": 0,
+    "qualification": "Finite source/date/identity adjudication underT3153; no arbitrary anonymousgallery assignment. Published desktop/phonebody/gate/card validation is separate and remains pending."
+  }
+}

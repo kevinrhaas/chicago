@@ -1,0 +1,53 @@
+{
+  "structure_id": "fort_dearborn_commandants_quarters",
+  "view": "hesler-1855-later-quarters",
+  "glb": "assets/gltf/fort_dearborn_commandants_quarters__brick_1816.glb",
+  "glb_sha256": "58689363a9aab5bdbea6c776c0c732f63b0b339aa221792240a34b7d3d075ffd",
+  "camera_sha256": "cafea15f52de57a3268c7db88c9bbd42d84e1e0300e67979fc85b7c1d46a0dd8",
+  "photo_sha256": "0b88a1b59d7a7c8a1e57c4f86fcce48244abd11908a1c0b751b20f0d8a0a184b",
+  "rendered_members": [
+    {
+      "structure_id": "fort_dearborn_commandants_quarters",
+      "glb": "assets/gltf/fort_dearborn_commandants_quarters__brick_1816.glb",
+      "placement": {
+        "local_e": 1149.02,
+        "local_n": 244.98,
+        "rotation_deg": 188,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "brick_1816"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "58689363a9aab5bdbea6c776c0c732f63b0b339aa221792240a34b7d3d075ffd"
+    },
+    {
+      "structure_id": "fort_dearborn_officers_quarters",
+      "glb": "assets/gltf/fort_dearborn_officers_quarters__log_1816.glb",
+      "placement": {
+        "local_e": 1131.83,
+        "local_n": 232.2,
+        "rotation_deg": 98,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "log_1816"
+      },
+      "position": [
+        15.244075871398008,
+        0,
+        -15.048011524020803
+      ],
+      "rotation_y": 1.5707963267948966,
+      "glb_sha256": "fc6cdc30ca4bca005a77748e82d79aecec0d39e06226e601a99427a0efc378fb"
+    }
+  ],
+  "group_sha256": "e58e46d23589841239167c3a25ad9d4f264c5c28285b3660fe77b51511b49cd2",
+  "side_by_side": "../../captures/hesler-1855-later-quarters/hesler-1855-later-quarters-side-by-side.jpg",
+  "verdict": "unreviewed",
+  "differences": [],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

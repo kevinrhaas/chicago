@@ -67,9 +67,10 @@ No native vertex, triangle, GLB or existing texture is replaced.
 The prior actual published boot cost was 45,948,374 bytes against a 44.1 MiB
 allowance, leaving 293,827 whole bytes. The added maps exceed that room, so no
 whole-boot FITS claim is made here. The project permits a documented, measured
-capacity change (AGENTS.md, the owner's frame-budget ruling); its precise new
-boot/site allowance and actual post-change measurements remain pending until the
-current picture-group merge supplies the integration baseline. Light geometry,
+capacity change (AGENTS.md, the owner's frame-budget ruling); its new
+44.9 MiB boot and436 MiB storage allowances are explicitly priced in SITE-BUDGET
+section18; actual post-change measurements remain pending on the completed
+picture-group integration baseline. Light geometry,
 ordinary draw-call caps and inspection limits are not part of this change.
 
 ## Verification at this checkpoint

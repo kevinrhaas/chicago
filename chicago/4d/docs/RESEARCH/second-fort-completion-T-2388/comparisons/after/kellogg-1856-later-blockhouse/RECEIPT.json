@@ -1,0 +1,50 @@
+{
+  "view": "kellogg-1856-later-blockhouse",
+  "command": [
+    "node",
+    "tools/photo_match.mjs",
+    "data/reference_views/fort_dearborn_blockhouse/kellogg-1856-later-blockhouse.json",
+    "--out",
+    "/tmp/nov10-secondfort-after-actual/captures/kellogg-1856-later-blockhouse"
+  ],
+  "cwd": "/tmp/nov10-secondfort-after-actual/chicago/4d",
+  "exit_code": 0,
+  "seconds": 1.3842904567718506,
+  "camera_sha256": "f7265d054c1d241ccd9cbcd4a2ff2227f94ec18ab9bfd1ac0e2f159ede447d92",
+  "photo_sha256": "8b0f864e238896900bad6e9429928257c0e9078921a7879bbd4ef48b7317c6a8",
+  "members": 1,
+  "status": "CAPTURED_UNREVIEWED",
+  "bindings": {
+    "structure_id": "fort_dearborn_blockhouse",
+    "view": "kellogg-1856-later-blockhouse",
+    "glb": "assets/gltf/fort_dearborn_blockhouse__log_1816.glb",
+    "glb_sha256": "96d9fb803cdd3b1639c32b9e0c562d0b3bf2af1b2fe8254abea4d62e8e136b15",
+    "camera_sha256": "f7265d054c1d241ccd9cbcd4a2ff2227f94ec18ab9bfd1ac0e2f159ede447d92",
+    "photo_sha256": "8b0f864e238896900bad6e9429928257c0e9078921a7879bbd4ef48b7317c6a8",
+    "side_by_side": "../../captures/kellogg-1856-later-blockhouse/kellogg-1856-later-blockhouse-side-by-side.jpg",
+    "verdict": "unreviewed",
+    "differences": [],
+    "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  },
+  "native_run": "42758213227",
+  "root_head_at_setup": "53b9bd1a2877d3d96a8b2a5c7adbb66aca8a0955",
+  "before_receipt": "/tmp/nov10-secondfort-before-actual/captures/kellogg-1856-later-blockhouse/RECEIPT.json",
+  "files": {
+    "kellogg-1856-later-blockhouse.match.json": {
+      "bytes": 1140,
+      "sha256": "1d3ec180e60e4a412e81bdf316b3a7c08d7a6e16097e0ba92b16239b04ab564c"
+    },
+    "kellogg-1856-later-blockhouse-render.png": {
+      "bytes": 15924,
+      "sha256": "9ca97976e138548a783da02a3df2f826786fb4780f16c10a38f9c2b0a5e3a594"
+    },
+    "command.log": {
+      "bytes": 356,
+      "sha256": "6c4900e704a6daaa50c81b4785b804bc2e1c999805abe20a424ff675504cac66"
+    },
+    "kellogg-1856-later-blockhouse-side-by-side.jpg": {
+      "bytes": 275268,
+      "sha256": "b8fe09d0adcb49684f6495143744d0d015c5721e82e422f61b7e8b999eb7c605"
+    }
+  }
+}

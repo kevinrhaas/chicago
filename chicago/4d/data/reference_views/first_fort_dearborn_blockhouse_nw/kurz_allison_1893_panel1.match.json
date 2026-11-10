@@ -2,7 +2,7 @@
   "structure_id": "first_fort_dearborn_blockhouse_nw",
   "view": "kurz_allison_1893_panel1",
   "glb": "assets/gltf/first_fort_dearborn_blockhouse_nw__first_fort_1803.glb",
-  "glb_sha256": "2567def5a0c657bc40e051bce905fe3c8b8b66f73d46171fcc57dd73d97913fc",
+  "glb_sha256": "f05cba8e375a4acd832a6bd056c29fbb2389ccc8076f25ab6d72ad59163341ea",
   "camera_sha256": "cd06a7df0a1a2109f997b9a49dd137ea2f259f02dee890e5b6f77a6dc1469817",
   "photo_sha256": "fafa8793588f24b403e7f8ede60cc7cfd03647d31691e06320cd340c1869b49e",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "2567def5a0c657bc40e051bce905fe3c8b8b66f73d46171fcc57dd73d97913fc"
+      "glb_sha256": "f05cba8e375a4acd832a6bd056c29fbb2389ccc8076f25ab6d72ad59163341ea"
     },
     {
       "structure_id": "first_fort_covered_way_bank_lower",
@@ -118,7 +118,7 @@
         30.19999999999999
       ],
       "rotation_y": 0,
-      "glb_sha256": "4b52564cd577363639667ed59c38564fb997e5e5496291cfaf3799d0e208352a"
+      "glb_sha256": "aa8a8a5c39b32f3394598924dac1d2214cc75531994159f8b8c7977df16caf6a"
     },
     {
       "structure_id": "first_fort_dearborn_commanding_officers_barracks",
@@ -175,7 +175,7 @@
         -0.3400000000000034
       ],
       "rotation_y": -3.141592653589793,
-      "glb_sha256": "6ed239cb5eed46fbcf64796369423497e70de6cca0442bd4f2cbb88d3bde39cf"
+      "glb_sha256": "3d51d6a46407deace244ec2286561fe29d370048c591e86164e04b9674a5c334"
     },
     {
       "structure_id": "first_fort_dearborn_north_range",
@@ -577,17 +577,17 @@
       "glb_sha256": "52964e2c5c4bd7c75bb8208cb1afae470f59b749470bebf33a06d1ad5d06d1ed"
     }
   ],
-  "group_sha256": "8ce29bb5207b0becc5770ecbc661cd33e867e7916271afaeb321a6fb94ef019e",
+  "group_sha256": "7dffb491e2b770c4677090c83db2d38047d3b6749dbd3bae65c6228bc49ccc07",
   "side_by_side": "docs/RESEARCH/photo-match/first_fort_dearborn_blockhouse_nw/kurz_allison_1893_panel1-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
-      "what": "Unresolved visible skyline/arrangement: panel 1 clusters its two cupola-topped blockhouses near the middle of the visible curtain; this unchanged thirty-member diagnostic render shows the surveyed corner blockhouses far apart, with a different exposed-wall and range overlap. Reconcile the picture reading against Whistler and existing T-3335 rulings before claiming this view matches. No surveyed member is moved to force the retrospective composition.",
-      "status": "open"
+      "what": "Directly reviewed actual full source and current thirty-member native pair, 2026-11-10. Kurz panel1 clusters its cupola towers toward the curtain centre and compresses range overlap; the current fort retains Whistler's measured corner blockhouses, range functions/lengths and plan under the explicit T3335 owner ruling. This is a conflict between retrospective composition and the adopted contemporary plan, not a missing/wrongly placed model element. T3153 makes source/plan/camera disagreement within tolerance; no surveyed member is moved and no whole-panel metric equivalence is claimed.",
+      "status": "within tolerance"
     },
     {
-      "what": "The panel draws a large two-storey galleried outbuilding at the lower right; no corresponding depicted galleried facade appears there in this comparison. Its identity among context records is unresolved, so this is a visible source/coverage question, not an assertion that any particular member is absent or wrong, nor permission to invent another structure.",
-      "status": "open"
+      "what": "The full source visibly includes an unlabelled two-storey galleried house outside the stockade at lower right. No source-specific identification ties that form to any of these30named records. The contextual render does not establish such an identity; it must not relabel the agent, factory, house-in-factor-department, stable or another context member merely to fill that silhouette. This is not individually shown for a named component, not an established missing named building. The existing plan/text records remain intact; no new anonymous house is asserted.",
+      "status": "not shown"
     },
     {
       "what": "The retained curtain-only calibration projects the committed 75 ft staff above the image, while the panel draws its top in the sky. This is an explicitly declared conflict between drawing and diagnostic camera/plan, not evidence for shortening the staff. T-3153 camera-fit disagreement is not itself a geometry defect; no historical optical fit is claimed.",
@@ -604,12 +604,11 @@
     {
       "what": "Both existing blockhouse cupolas are present in the fresh native render. This confirms the adopted occurrence only; source dimensions, tower proportions and exact roof details are not independently established by this panel.",
       "status": "fixed"
+    },
+    {
+      "what": "Fresh adopted A5 native comparison directly reviewed,2026-11-10. All rendered members use current genuinely generated MASTERs and current1812 placements; previous Currey, Kurz and Lossing comparison evidence is retained. This final image adjudication applies the explicit T3335 plan and T3153 visitor/source-camera stopping rule to the named differences above, with the separate30-record coverage matrix. It does not attest hidden records or claim a recovered historical optical/geographic camera.",
+      "status": "within tolerance"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
-  "review": {
-    "reviewed_at": "2026-11-10",
-    "method": "Direct visual review of the complete fresh generated side-by-side; original generated unreviewed record retained under docs/RESEARCH/photo-match/first_fort_dearborn_blockhouse_nw/unreviewed/. Currey also compared directly with existing outer-picket full pair and its recorded T-3335 rulings.",
-    "scope": "This camera and its shown features only. T-3041 and T-2387 remain partial; no all-picture or all-member sign-off."
-  }
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

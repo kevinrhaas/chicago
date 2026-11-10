@@ -149,16 +149,16 @@ const gateAt = (thing, plan, sidecar) => {
 const speedWas = WALK.speed;
 WALK.speed = 1.5;
 try {
-  // ---- 1835: the second fort, its north and south gates
+  // ---- 1835: two large gates and two reconstructed small side posterns
   {
     const { registry, footprints, layer, ix, problems } = fort('1835');
     ok(problems.length === 0, `1835 hangs its gates without complaint: ${problems.join('; ')}`);
-    ok(layer.gates.map((g) => g.id).sort().join() === 'fort_dearborn_palisade:n,fort_dearborn_palisade:s', 'the 1835 stockade has its two gates, north and south');
+    ok(layer.gates.map((g) => g.id).sort().join() === 'fort_dearborn_palisade:e,fort_dearborn_palisade:n,fort_dearborn_palisade:s,fort_dearborn_palisade:w', 'the 1835 stockade has two large gates and two small side posterns');
     ok(layer.gates.every((g) => g.state === 'closed'), 'every gate starts shut');
     ok(drawsLeaves(registry.get('fort_dearborn_palisade')) && !drawsLeaves(registry.get('fort_dearborn_parade')), 'only the stockade gives up its baked leaves');
     const pal = registry.get('fort_dearborn_palisade').sidecar;
     const plan = stockadePlan(pal);
-    ok(plan.walls.length === 4 + 2 * 1 + 2 * 4, `curtain in six runs (two gates, two bastion corners) plus two bastions of four returns: ${plan.walls.length}`);
+    ok(plan.walls.length === 4 + 4 * 1 + 2 * 4, `curtain in eight runs (two main gates, two posterns, two bastion corners) plus two bastions of four returns: ${plan.walls.length}`);
     const fpPal = footprints.find((f) => f.id === 'fort_dearborn_palisade');
     const fpParade = footprints.find((f) => f.id === 'fort_dearborn_parade');
     ok(Array.isArray(fpPal.walls) && fpParade.ground === true, 'the stockade is walls and the parade is ground');

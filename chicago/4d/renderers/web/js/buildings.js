@@ -56,7 +56,7 @@ import { filterGlessnerRoof } from './glessner-roof-filter.js';
 import { tintGlessnerGranite } from './glessner-stone.js';
 import {tintKeithStone} from './keith-stone.js';
 import { loadWallRelief } from './wall-relief.js';
-import { loadMasonrySurfaces, masonryMeshes } from './masonry-surfaces.js';
+import { loadMasonrySurfaces, masonryMeshes, masonrySubstrate } from './masonry-surfaces.js';
 import { loadCampSurfaces } from './camp-surfaces.js';
 import { applyBrickBond, brickBondFromSearch } from './brick-bond.js';
 import { addFeet, feetPoints, packFeet } from './building-feet.js';
@@ -775,13 +775,17 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       if (mesh.geometry.getIndex()?.count === 0) continue;
       // A detail replacement rebuilds from the same source records. Never whiten
       // or shader-patch those source materials: each batch owns its own copy.
-      let material = preserveMaterials ? sourceMaterial.clone() : sourceMaterial;
+      // Keep early masonry's native role and colour immutable too: a later detail
+      // build must not inherit a whitened/renamed source or an uncloneable hook.
+      const ownMaterial = preserveMaterials || (!masonry.off && masonrySubstrate(bodyRole,
+        record.sidecar, !!sourceMaterial.map, sourceMaterial.userData?.chiMasonryFabric) !== null);
+      let material = ownMaterial ? sourceMaterial.clone() : sourceMaterial;
       // T-2109: a transmissive pane costs a second draw of every opaque thing
       // behind it. The replacement is a fresh material, so a clone it replaces
       // is ours to free; a shared source material is left alone.
       const cheaper = cheapenGlass(material, glass);
       if (cheaper !== material) {
-        if (preserveMaterials) material.dispose();
+        if (ownMaterial) material.dispose();
         material = cheaper;
       }
       // T-3332: a window pane glows by night (night-lights.js); 0 by day, to the bit.
@@ -821,7 +825,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
             new THREE.BufferAttribute(new Float32Array(count).fill(grain), 1));
         }
       } catch (err) {
-        if (preserveMaterials) material.dispose();
+        if (ownMaterial) material.dispose();
         problems.push(`${label}: ${err.message}`);
         continue;
       }
@@ -853,7 +857,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
         groups.set(key, bucket);
       } else {
         bucket.boundsRigid = bucket.boundsRigid && boundsRigid;
-        if (preserveMaterials) material.dispose();
+        if (ownMaterial) material.dispose();
       }
       totalTris += prepared.geo.getIndex().count / 3;
 

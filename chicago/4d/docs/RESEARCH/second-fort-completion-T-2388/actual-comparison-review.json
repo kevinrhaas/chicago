@@ -1,0 +1,310 @@
+{
+  "ticket": "T-2388",
+  "target_date": "1835-07-01",
+  "reviewed_at": "2026-11-10T05:19:31.925212+00:00",
+  "native_run": "42758213227",
+  "source_commit": "53b9bd1a2877d3d96a8b2a5c7adbb66aca8a0955",
+  "actual_before_after_camera_photo_identity": true,
+  "directly_opened_after_pairs": 9,
+  "verdict_counts": {
+    "matches": 9,
+    "differs": 0,
+    "unreviewed": 0
+  },
+  "review_scope": "Finite historical architecture/source comparison only. Nine actual pairs were opened before these verdicts. Published desktop/phone release-policy/body/gate-walking/card checks are separate pending work, not claimed by this artifact.",
+  "views": [
+    {
+      "view": "castelnau-1838-compound",
+      "verdict": "matches",
+      "camera": "data/reference_views/fort_dearborn_blockhouse/castelnau-1838-compound.json",
+      "match": "data/reference_views/fort_dearborn_blockhouse/castelnau-1838-compound.match.json",
+      "side_by_side": "docs/RESEARCH/second-fort-completion-T-2388/comparisons/after/castelnau-1838-compound/castelnau-1838-compound-side-by-side.jpg",
+      "differences": [
+        {
+          "status": "within tolerance",
+          "what": "Circa1838drawing, published1842: the stylized harbour/fort/lighthouse composition is a later cross-check. Anonymous tall/conical caps cannot be counted as extra blockhouses or mapped to arbitrary named ranges. The1830plan and datedHubbard arrangement govern theJuly1835oneblockhouse/twobastion form."
+        },
+        {
+          "status": "not shown",
+          "what": "The separate lighthouse, boats, river and urban foreground are outside this21fort-member render; no geometry is invented for the diagnostic. No secure source identity for the four newly completed features occurs here."
+        },
+        {
+          "status": "within tolerance",
+          "what": "Apparent fort size/spacing/roof and enclosure silhouettes disagree across this print, Wau-Bun and the plan. Uncalibrated pictorial/camera disagreements are bounded underT3153; no securely identifiedJuly1835physical element remains omitted."
+        },
+        {
+          "status": "not shown",
+          "what": "The finite21-record identity matrix distinguishes drawn, occluded/unseparated and not shown. Context enrollment does not identify anonymous roofs or promote their grades. Boats, river/city foreground and separate later urban buildings are outside this fort-member comparison."
+        },
+        {
+          "status": "within tolerance",
+          "what": "Diagnostic framing/common grade/overcast lighting are reconstructed review metadata. Camera alternatives, source-pixel offsets and contradictory retrospective compositions do not move the plan-controlled July1835 buildings under T-3153."
+        }
+      ],
+      "actual_capture_receipt": "docs/RESEARCH/second-fort-completion-T-2388/comparisons/after/castelnau-1838-compound/RECEIPT.json"
+    },
+    {
+      "view": "childs-1820-compound",
+      "verdict": "matches",
+      "camera": "data/reference_views/fort_dearborn_blockhouse/childs-1820-compound.json",
+      "match": "data/reference_views/fort_dearborn_blockhouse/childs-1820-compound.match.json",
+      "side_by_side": "docs/RESEARCH/second-fort-completion-T-2388/comparisons/after/childs-1820-compound/childs-1820-compound-side-by-side.jpg",
+      "differences": [
+        {
+          "status": "within tolerance",
+          "what": "The caption says a view taken1820 and appearance1818\u20131830; inventory dates the print1857. This compares earlier second-fort forms with the targetJuly1835plan. Earlier overlapping barracks/roof/bay/stack silhouettes cannot be assigned unchanged to arbitrary1835ranges."
+        },
+        {
+          "status": "within tolerance",
+          "what": "The pictorial fort/cupola/enclosure class is retained; exact apparent heights/spacing and anonymous white engraving surfaces do not establish measured1835dimensions or paint colour. The camera/source composition differs without moving any named building."
+        },
+        {
+          "status": "not shown",
+          "what": "The outer small houses/riverside foreground are not automatically this scope\u2019s21members. Plan/text barncupola, smallposterns and the distinctnamed1855A gallery have no securely identified counterpart in this earlier cut."
+        },
+        {
+          "status": "not shown",
+          "what": "The finite21-record identity matrix distinguishes drawn, occluded/unseparated and not shown. Context enrollment does not identify anonymous roofs or promote their grades. Boats, river/city foreground and separate later urban buildings are outside this fort-member comparison."
+        },
+        {
+          "status": "within tolerance",
+          "what": "Diagnostic framing/common grade/overcast lighting are reconstructed review metadata. Camera alternatives, source-pixel offsets and contradictory retrospective compositions do not move the plan-controlled July1835 buildings under T-3153."
+        }
+      ],
+      "actual_capture_receipt": "docs/RESEARCH/second-fort-completion-T-2388/comparisons/after/childs-1820-compound/RECEIPT.json"
+    },
+    {
+      "view": "eastman-1820-compound",
+      "verdict": "matches",
+      "camera": "data/reference_views/fort_dearborn_blockhouse/eastman-1820-compound.json",
+      "match": "data/reference_views/fort_dearborn_blockhouse/eastman-1820-compound.match.json",
+      "side_by_side": "docs/RESEARCH/second-fort-completion-T-2388/comparisons/after/eastman-1820-compound/eastman-1820-compound-side-by-side.jpg",
+      "differences": [
+        {
+          "status": "within tolerance",
+          "what": "Schoolcraft1820scene rendered by Eastman in1854 is an earlier second-fort depiction, not an exactJuly1835census. Its similar composition and the Childs view are not counted as two new independent confirmations of every roof or range."
+        },
+        {
+          "status": "within tolerance",
+          "what": "Palisade, blockhouse/cupola and compact ranges are compared as relative form. Their anonymous earlier roofs, apparent heights/spacing and monochrome white surfaces do not supply exact1835bay counts, dimensions or paint colour. The datedplan/text interpretation controls those limits."
+        },
+        {
+          "status": "not shown",
+          "what": "Separate riverside houses, boats, groundforms and the four new source-supported form controls are not individually identified by this print. No arbitrary member identity or extra model is manufactured from them."
+        },
+        {
+          "status": "not shown",
+          "what": "The finite21-record identity matrix distinguishes drawn, occluded/unseparated and not shown. Context enrollment does not identify anonymous roofs or promote their grades. Boats, river/city foreground and separate later urban buildings are outside this fort-member comparison."
+        },
+        {
+          "status": "within tolerance",
+          "what": "Diagnostic framing/common grade/overcast lighting are reconstructed review metadata. Camera alternatives, source-pixel offsets and contradictory retrospective compositions do not move the plan-controlled July1835 buildings under T-3153."
+        }
+      ],
+      "actual_capture_receipt": "docs/RESEARCH/second-fort-completion-T-2388/comparisons/after/eastman-1820-compound/RECEIPT.json"
+    },
+    {
+      "view": "kellogg-1856-later-blockhouse",
+      "verdict": "matches",
+      "camera": "data/reference_views/fort_dearborn_blockhouse/kellogg-1856-later-blockhouse.json",
+      "match": "data/reference_views/fort_dearborn_blockhouse/kellogg-1856-later-blockhouse.match.json",
+      "side_by_side": "docs/RESEARCH/second-fort-completion-T-2388/comparisons/after/kellogg-1856-later-blockhouse/kellogg-1856-later-blockhouse-side-by-side.jpg",
+      "differences": [
+        {
+          "status": "fixed",
+          "what": "The existing square cupola occupies the blockhouse roof centre and the former invented central stack remains removed. The actual AFTER retains the already-delivered jettied two-storey blockhouse; no cupola or stack is duplicated."
+        },
+        {
+          "status": "within tolerance",
+          "what": "Made1856, this source scene dates approximately1836\u20131849 from the completed Lake House, despite the local1830 filename. Louvred cap, adjacent ambiguous roof projection and lower later fence are later-state details, not established July1835 elements. They are not copied backwards."
+        },
+        {
+          "status": "within tolerance",
+          "what": "The engraving appears taller/narrower than the bounded14.52x9.8m inferred-plan,5.2m-wall reconstruction. Source bottom obscuration and unresolved eye/scale/principal degeneracy preclude a secure metric body/jetty comparison. Plan and dated text control July1835; no exact historical dimension is claimed and no calibrated >0.3m error is established."
+        },
+        {
+          "status": "not shown",
+          "what": "This diagnostic enrolls only the one securely identified blockhouse. Later surrounding buildings, ship/tree/riverfront and the other20fort records are not being matched."
+        }
+      ],
+      "actual_capture_receipt": "docs/RESEARCH/second-fort-completion-T-2388/comparisons/after/kellogg-1856-later-blockhouse/RECEIPT.json"
+    },
+    {
+      "view": "second-fort-panel-5-compound",
+      "verdict": "matches",
+      "camera": "data/reference_views/fort_dearborn_blockhouse/second-fort-panel-5-compound.json",
+      "match": "data/reference_views/fort_dearborn_blockhouse/second-fort-panel-5-compound.match.json",
+      "side_by_side": "docs/RESEARCH/second-fort-completion-T-2388/comparisons/after/second-fort-panel-5-compound/second-fort-panel-5-compound-side-by-side.jpg",
+      "differences": [
+        {
+          "status": "fixed",
+          "what": "The already-delivered square blockhouse cupola and stack0 remain present in the actual current21-member AFTER; no duplicate cupola was added."
+        },
+        {
+          "status": "within tolerance",
+          "what": "The1893caption claims1835, but this source shares the ordered foreground masses of the independently acquired1881p43cut explicitly depicting1850. Kurz omits the later Marine Hospital/lighthouse context, compresses spacing and recolours. Visual compositional adaptation is inferred, not documentary engraving genealogy. Its anonymous gallery/stair/ranges are not assigned to arbitrary1835records."
+        },
+        {
+          "status": "within tolerance",
+          "what": "Harrison1830 and Hubbard1827 control the retainedJuly1835positions and single blockhouse/two bastions. The source lower-angle linear composition and this retained world-camera high diagnostic view disagree; that framing/source conflict does not justify world/body moves or a second blockhouse."
+        },
+        {
+          "status": "not shown",
+          "what": "The newly source-supported officers stair, barn cupola, additionalposterns and named1855A gallery are actual current models, but this unkeyed source does not individually identify them. Nativecuts and runtime-ownedposternleaves are separately tested; the GLB-only photo_match does not render app-owned hanging leaves."
+        },
+        {
+          "status": "not shown",
+          "what": "The finite21-record identity matrix distinguishes drawn, occluded/unseparated and not shown. Context enrollment does not identify anonymous roofs or promote their grades. Boats, river/city foreground and separate later urban buildings are outside this fort-member comparison."
+        },
+        {
+          "status": "within tolerance",
+          "what": "Diagnostic framing/common grade/overcast lighting are reconstructed review metadata. Camera alternatives, source-pixel offsets and contradictory retrospective compositions do not move the plan-controlled July1835 buildings under T-3153."
+        }
+      ],
+      "actual_capture_receipt": "docs/RESEARCH/second-fort-completion-T-2388/comparisons/after/second-fort-panel-5-compound/RECEIPT.json"
+    },
+    {
+      "view": "wau-bun-1831-compound",
+      "verdict": "matches",
+      "camera": "data/reference_views/fort_dearborn_blockhouse/wau-bun-1831-compound.json",
+      "match": "data/reference_views/fort_dearborn_blockhouse/wau-bun-1831-compound.match.json",
+      "side_by_side": "docs/RESEARCH/second-fort-completion-T-2388/comparisons/after/wau-bun-1831-compound/wau-bun-1831-compound-side-by-side.jpg",
+      "differences": [
+        {
+          "status": "fixed",
+          "what": "The already-delivered blockhouse square cupola and stack0 are retained in the actual current compound; no duplicate gallery/cupola was built."
+        },
+        {
+          "status": "within tolerance",
+          "what": "Wau-Bun1831view is a dependent source family with its keyed reproduction. Wentworth1881pp86\u201387 records Hubbard\u2019s express criticism of the high ground, river bends and blockhouse height. Retain actual flat site and plan-controlledJuly1835arrangement rather than reproduce that criticised scenery."
+        },
+        {
+          "status": "within tolerance",
+          "what": "Relative stockade/cupola/range forms are covered; anonymous roofs and dates do not prove every earlier building remained unchanged into1835, or establish exact bay/stack/height metrics."
+        },
+        {
+          "status": "not shown",
+          "what": "The source does not individually identify the new officers stair, barncupola, additionalsmallposterns or secure1855A gallery. Class evidence is not an individualpictureidentity."
+        },
+        {
+          "status": "not shown",
+          "what": "The finite21-record identity matrix distinguishes drawn, occluded/unseparated and not shown. Context enrollment does not identify anonymous roofs or promote their grades. Boats, river/city foreground and separate later urban buildings are outside this fort-member comparison."
+        },
+        {
+          "status": "within tolerance",
+          "what": "Diagnostic framing/common grade/overcast lighting are reconstructed review metadata. Camera alternatives, source-pixel offsets and contradictory retrospective compositions do not move the plan-controlled July1835 buildings under T-3153."
+        }
+      ],
+      "actual_capture_receipt": "docs/RESEARCH/second-fort-completion-T-2388/comparisons/after/wau-bun-1831-compound/RECEIPT.json"
+    },
+    {
+      "view": "wau-bun-1831-keyed-compound",
+      "verdict": "matches",
+      "camera": "data/reference_views/fort_dearborn_blockhouse/wau-bun-1831-keyed-compound.json",
+      "match": "data/reference_views/fort_dearborn_blockhouse/wau-bun-1831-keyed-compound.match.json",
+      "side_by_side": "docs/RESEARCH/second-fort-completion-T-2388/comparisons/after/wau-bun-1831-keyed-compound/wau-bun-1831-keyed-compound-side-by-side.jpg",
+      "differences": [
+        {
+          "status": "fixed",
+          "what": "The already-delivered blockhouse square cupola and stack0 remain in the actual current compound; no duplicate gallery/cupola was built."
+        },
+        {
+          "status": "within tolerance",
+          "what": "This keyed reproduction creditsWau-Bun1857 and depicts1831. It is dependent on the unkeyed source family. Hubbard\u2019s published criticism of highground/river bends/blockhouse height governs the disagreement with the model\u2019s flat site and1830plan positions."
+        },
+        {
+          "status": "not shown",
+          "what": "The keyed smallWash-house does not securely identify this inlandplan shed among several beachwashhouses. GenBeaubien\u2019s residence is not automatically the separateUSFactor\u2019sHouse. Those pictured class/context forms do not move or regrade individual records."
+        },
+        {
+          "status": "within tolerance",
+          "what": "Source roof/stack/bay/metric disputes and weak camera alignment are not reliableJuly1835architectural dimensions. No new individually identified categorical omission remains beyond the four completed source-supported controls."
+        },
+        {
+          "status": "not shown",
+          "what": "The finite21-record identity matrix distinguishes drawn, occluded/unseparated and not shown. Context enrollment does not identify anonymous roofs or promote their grades. Boats, river/city foreground and separate later urban buildings are outside this fort-member comparison."
+        },
+        {
+          "status": "within tolerance",
+          "what": "Diagnostic framing/common grade/overcast lighting are reconstructed review metadata. Camera alternatives, source-pixel offsets and contradictory retrospective compositions do not move the plan-controlled July1835 buildings under T-3153."
+        }
+      ],
+      "actual_capture_receipt": "docs/RESEARCH/second-fort-completion-T-2388/comparisons/after/wau-bun-1831-keyed-compound/RECEIPT.json"
+    },
+    {
+      "view": "wentworth-1850-later-compound",
+      "verdict": "matches",
+      "camera": "data/reference_views/fort_dearborn_blockhouse/wentworth-1850-later-compound.json",
+      "match": "data/reference_views/fort_dearborn_blockhouse/wentworth-1850-later-compound.match.json",
+      "side_by_side": "docs/RESEARCH/second-fort-completion-T-2388/comparisons/after/wentworth-1850-later-compound/wentworth-1850-later-compound-side-by-side.jpg",
+      "differences": [
+        {
+          "status": "fixed",
+          "what": "The actual current21-member AFTER retains the already-delivered square blockhouse cupola and removes no plan-controlled1835member to imitate a later silhouette."
+        },
+        {
+          "status": "within tolerance",
+          "what": "The actual1881p43caption and text identify an1850scene after a daguerreotype. Its later rough-board whitewashed6ftfence, Marine Hospital, lighthouse/keeper and enlargedparade are expressly not aJuly1835state. The later key does not supply independent exact1835bay/stack/metricgallery counts."
+        },
+        {
+          "status": "within tolerance",
+          "what": "The later cut and Kurzpanel5 share their ordered foreground composition. The galleried range is not silently transferred to the1835soldiers barracks; the new commandantA gallery instead rests on the separately secure1855A identity and explicit reconstruction. Fixedplan ranges and retained high diagnostic camera are not forced into the engraving alignment."
+        },
+        {
+          "status": "not shown",
+          "what": "Outer barn cupola and the additional smallposterns lack a securely identified feature in this source. Their attested occurrence is plan/text evidence, and their metric details are reconstructed. Runtimeposternleaves are app-owned, outside this GLB-only comparison."
+        },
+        {
+          "status": "not shown",
+          "what": "The finite21-record identity matrix distinguishes drawn, occluded/unseparated and not shown. Context enrollment does not identify anonymous roofs or promote their grades. Boats, river/city foreground and separate later urban buildings are outside this fort-member comparison."
+        },
+        {
+          "status": "within tolerance",
+          "what": "Diagnostic framing/common grade/overcast lighting are reconstructed review metadata. Camera alternatives, source-pixel offsets and contradictory retrospective compositions do not move the plan-controlled July1835 buildings under T-3153."
+        }
+      ],
+      "actual_capture_receipt": "docs/RESEARCH/second-fort-completion-T-2388/comparisons/after/wentworth-1850-later-compound/RECEIPT.json"
+    },
+    {
+      "view": "hesler-1855-later-quarters",
+      "verdict": "matches",
+      "camera": "data/reference_views/fort_dearborn_commandants_quarters/hesler-1855-later-quarters.json",
+      "match": "data/reference_views/fort_dearborn_commandants_quarters/hesler-1855-later-quarters.match.json",
+      "side_by_side": "docs/RESEARCH/second-fort-completion-T-2388/comparisons/after/hesler-1855-later-quarters/hesler-1855-later-quarters-side-by-side.jpg",
+      "differences": [
+        {
+          "status": "fixed",
+          "what": "The securely keyed1855A brick commandant front was bare in the actual BEFORE. The actual native B29 AFTER now shows its plain front double gallery: open lower posts, full upper deck/rail and canopy. Occurrence/form are fairly adopted into July1835 as RECONSTRUCTED continuity, with no invented installation or alteration date. The named1855A source governs broad gallery form; exact dimensions remain reconstructed."
+        },
+        {
+          "status": "fixed",
+          "what": "The already-built officersB double gallery is retained. Its formerly missing outside timber stair is visible in the actual AFTER; Hubbard1818 supplies stair occurrence, while right/south-end side, run and dimensions are reconstructed. No second gallery was duplicated."
+        },
+        {
+          "status": "within tolerance",
+          "what": "The source depicts1855 from the later Marine Hospital and is an1881cut after Hesler. Only securely namedA+B are rendered, with currentJuly1835 plan positions/body dimensions and unchanged15A openings. Exact continuity, rail/post/bay metrics, surface colour and a corner connector are not established for1835. No later city/hospital is backdated and no exact optical or metric correspondence is claimed."
+        },
+        {
+          "status": "fixed",
+          "what": "The first A+B-only actual baseline cropped lower galleries. Same eye[-25,45,10],yaw153 and source are retained; finite focal2015/principal[2765,832] bring both complete bodies and expected galleries/stair in frame. This is diagnostic metadata, not a historical camera claim."
+        }
+      ],
+      "actual_capture_receipt": "docs/RESEARCH/second-fort-completion-T-2388/comparisons/after/hesler-1855-later-quarters/RECEIPT.json"
+    }
+  ],
+  "validation": {
+    "official_image_gate": {
+      "command": "node /tmp/nov10-secondfort-final-gate/chicago/4d/tools/image_gate.mjs --structure fort_dearborn_blockhouse fort_dearborn_commandants_quarters",
+      "exit_code": 0,
+      "stdout": "image gate: fort_dearborn_blockhouse, fort_dearborn_commandants_quarters match every reference view",
+      "fixture_qualification": "Copied five official gate modules and own final canonical records; read-only symlinks to actual Root53b9nativeassets/compiledsidecars/scenes/sources. No Root tracked mutations."
+    },
+    "actual_receipt_hash_verification": {
+      "exit_code": 0,
+      "result": "PASS all9 canonical camera/model/source/pair freshness; all18 immutable actual capture receipt/file hashes;21-member coverage native bindings"
+    },
+    "git_diff_check": {
+      "exit_code": 0
+    }
+  }
+}
