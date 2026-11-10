@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "repository": "kevinrhaas/chicago",
+  "production_sha": "c4e994921aec72239158e67fcf485991772bcb84",
+  "run_id": 42919104678,
+  "artifact_id": 13810608872,
+  "artifact_name": "github-pages",
+  "artifact_zip_bytes": 538860337,
+  "artifact_digest": "sha256:409834e8e70bdbcc3d97f185f21bf6330d97874023c8607dcec5aa8fd6aede66",
+  "site_limit_bytes": 1000000000,
+  "owner": "kevinrhaas",
+  "advance_policy": "Only an explicit owner promotion followed by a successful production deployment can replace this anchor. Ordinary DEV merges and MAIN movement cannot advance it."
+}
