@@ -47,7 +47,7 @@ import { createIntent, createBackendSwitch } from './controls/intent.js';
 import { createPointerLockBackend, isTyping } from './controls/pointerlock.js';
 import { createTouchBackend, prefersTouch } from './controls/touch.js';
 import { createWalker, footprintsFrom, decksFrom, WALK, HEADROOM_MARGIN_M } from './walker.js';
-import { profiledGroundHeight, deckGroundHeight } from './deck-surface.js';
+import { profiledGroundHeight, figureGroundHeight } from './deck-surface.js';
 import { passageGroundFrom } from './passage-ground.js';
 import { createFlora } from './flora.js';
 import { createTrees } from './trees.js';
@@ -3812,8 +3812,8 @@ async function boot() {
   // the ground as drawn: a deck where there is one, else the heightfield plus the couple of
   // centimetres a yard's laid earth or a worn trail is draped above it (yards.js), which
   // otherwise swallow a shoe whose trousers come down over it.
-  const figureGround = (e, n) => Math.max(deckGroundHeight(terrain, decks, e, n),
-    terrain.surfaceHeight(e, n) + (yards.groundLiftAt?.(e, n) ?? 0));
+  const figureGround = (e, n) => figureGroundHeight(terrain, decks, e, n,
+    yards.groundLiftAt?.(e, n) ?? 0, String(YEAR) === '1904' ? streetGrid.pedestrianHeight?.(e, n) ?? null : null);
   api.humans = await mountHumans({
     dataBase: layerBase('humans'), assetBase: bases.assetBase, sceneId: loaded.scene.id ?? YEAR,
     people, terrain, tier: detailLevel, problems: layerProblems('humans'),

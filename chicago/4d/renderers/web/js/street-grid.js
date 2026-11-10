@@ -50,6 +50,7 @@
 
 import * as THREE from 'three';
 import { createLazyRoadTriangleHeight } from './road-triangle-height.js';
+import { createMaskedPedestrianHeight } from './pedestrian-ground.js';
 import { ktx2Beside, loadSheet } from './ktx2.js';
 import {
   SEASON_HEAD, SEASON_VERTEX_DECL, SEASON_VERTEX_ASSIGN, SEASON_FRAGMENT_DECL, SEASON_FRAGMENT_APPLY,
@@ -785,6 +786,8 @@ export async function createStreetGrid({
     census: { carriageways: 0, faces: 0, alleys: 0, parcels: 0, triangles: 0, surfaced: 0, textured: 0 },
     parcelAt: () => null,
     carriagewayHeight: () => null,
+    pedestrianHeight: () => null,
+    pedestrianSupportReading: () => ({ initialized: false, owned_buffer_bytes: 0, duplicated_xyz_bytes: 0 }),
     setLotLines: () => {},
     pickAt: () => null,
     dispose: () => {},
@@ -1409,6 +1412,9 @@ export async function createStreetGrid({
       mesh.userData.roadLevel = buf.level;
     }
     mesh.userData.cls = buf.cls;
+    // Only the main flat band/crossing/join/alley surfaces enter human support.
+    // Separate curb walls and carriage posts below never receive this marker.
+    if (!buf.seam && ['walk', 'parkway', 'curb', 'alley'].includes(buf.cls)) mesh.userData.pedestrianSurface = true;
     mesh.userData.material = buf.material;
     mesh.userData.spans = buf.spans;
     mesh.castShadow = false;
@@ -1749,7 +1755,13 @@ export async function createStreetGrid({
   // the actual drawn base+overlay triangles; posed contact checks read both.
   carriagewaySurface = createLazyRoadTriangleHeight(() => [...meshes, ...overlays]
     .filter(mesh => mesh.userData.cls === 'carriageway'));
+  const pedestrianSurface = createMaskedPedestrianHeight(() => meshes, (e, n) =>
+    !!out.groundCut?.mask && !terrain.isWater(e, n)
+      && terrain.pedestrianGroundCutAt?.(e, n, out.groundCut.mask) === true);
+  out.pedestrianHeight = (e, n) => pedestrianSurface.heightAt(e, n);
+  out.pedestrianSupportReading = () => pedestrianSurface.reading();
   out.dispose = () => {
+    pedestrianSurface.dispose();
     carriagewaySurface?.dispose(); carriagewaySurface = null;
     if (out.groundCut) { terrain.setGroundCut?.({}); out.groundCut.mask.dispose(); }
     for (const m of [...meshes, ...overlays]) m.geometry.dispose();
