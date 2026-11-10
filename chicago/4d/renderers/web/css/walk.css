@@ -2541,3 +2541,15 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
   border: 1px solid color-mix(in srgb, var(--accent) 55%, transparent);
 }
 .research-link { color: var(--accent); }
+
+/* T-3532: opt-in audio is a full-width row, not a float that narrows the ticker. */
+.arrival-sound { display:flex; align-items:center; justify-content:center; gap:8px;
+  min-height:44px; min-width:44px; margin:0 0 12px auto; padding:8px 12px;
+  color:var(--text, #eee); background:var(--panel-solid, #142034);
+  border:1px solid var(--edge-strong, #526784); border-radius:6px; cursor:pointer; }
+.arrival-sound:focus-visible { outline:2px solid var(--signal, #f5bd59); outline-offset:3px; }
+.arrival-sound[aria-pressed="true"] { border-color:var(--signal, #f5bd59); }
+
+.arrival-sound .sound-playing-icon { display:none; }
+.arrival-sound[aria-pressed="true"] .sound-playing-icon { display:initial; }
+.arrival-sound[aria-pressed="true"] .sound-muted-icon { display:none; }

@@ -1,0 +1,882 @@
+{
+  "version": 1,
+  "note": "Candidate recordings for audition. No candidate is automatically enabled or approved for every era.",
+  "assets": [
+    {
+      "id": "tavern-walla",
+      "kind": "candidate",
+      "category": "voices",
+      "title": "Indistinct tavern chatter \u2014 performed",
+      "creator": "dazzamoo",
+      "source_url": "https://freesound.org/people/dazzamoo/sounds/651364/",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "acquired": "2026-11-10",
+      "original": "assets/audio/originals/intake/651364_4219647-hq.mp3",
+      "evidence": "assets/audio/evidence/tavern-walla.json",
+      "source_duration_s": 65.959184,
+      "excerpt_start_s": 0,
+      "excerpt_duration_s": 24,
+      "source_format": "Freesound HQ MP3 preview; not a lossless master",
+      "status": "audition-and-placement-pending",
+      "runtime_enabled": false,
+      "candidate_eras": [
+        "1812",
+        "1835",
+        "1904"
+      ],
+      "approved_eras": [],
+      "seasons_proposed": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "species_candidates": [],
+      "placement_note": "One performer recorded all voices for an animation. Human vocal performance, not an archival crowd. Review intelligible words and repetition; attach only to occupied interiors. Not Native-language dialogue.",
+      "fauna_references": []
+    },
+    {
+      "id": "wood-door",
+      "kind": "candidate",
+      "category": "structures",
+      "title": "Wooden door opening and closing",
+      "creator": "Ryding",
+      "source_url": "https://freesound.org/people/Ryding/sounds/125958/",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "acquired": "2026-11-10",
+      "original": "assets/audio/originals/intake/125958_981397-hq.mp3",
+      "evidence": "assets/audio/evidence/wood-door.json",
+      "source_duration_s": 2.904,
+      "excerpt_start_s": 0,
+      "excerpt_duration_s": 2.904,
+      "source_format": "Freesound HQ MP3 preview; not a lossless master",
+      "status": "audition-and-placement-pending",
+      "runtime_enabled": false,
+      "candidate_eras": [
+        "1812",
+        "1835",
+        "1904"
+      ],
+      "approved_eras": [],
+      "seasons_proposed": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "species_candidates": [],
+      "placement_note": "Trigger on the corresponding visible or interior door action; review latch hardware and acoustic space.",
+      "fauna_references": []
+    },
+    {
+      "id": "steam-whistle-proxy",
+      "kind": "candidate",
+      "category": "transport",
+      "title": "Steam traction-engine whistle",
+      "creator": "mike_stranks",
+      "source_url": "https://freesound.org/people/mike_stranks/sounds/407394/",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "acquired": "2026-11-10",
+      "original": "assets/audio/originals/intake/407394_5385809-hq.mp3",
+      "evidence": "assets/audio/evidence/steam-whistle-proxy.json",
+      "source_duration_s": 9.864,
+      "excerpt_start_s": 0,
+      "excerpt_duration_s": 9.864,
+      "source_format": "Freesound HQ MP3 preview; not a lossless master",
+      "status": "audition-and-placement-pending",
+      "runtime_enabled": false,
+      "candidate_eras": [
+        "1904"
+      ],
+      "approved_eras": [],
+      "seasons_proposed": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "species_candidates": [],
+      "placement_note": "Actual vintage traction-engine whistle, proposed as a 1904 steam sound proxy. Not an authenticated Chicago locomotive or an 1812/1835 rail sound.",
+      "fauna_references": []
+    },
+    {
+      "id": "horse-harness",
+      "kind": "candidate",
+      "category": "transport",
+      "title": "Horse harness jingling",
+      "creator": "o_ciz",
+      "source_url": "https://freesound.org/people/o_ciz/sounds/475481/",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "acquired": "2026-11-10",
+      "original": "assets/audio/originals/intake/475481_7009965-hq.mp3",
+      "evidence": "assets/audio/evidence/horse-harness.json",
+      "source_duration_s": 152.76,
+      "excerpt_start_s": 0,
+      "excerpt_duration_s": 24,
+      "source_format": "Freesound HQ MP3 preview; not a lossless master",
+      "status": "audition-and-placement-pending",
+      "runtime_enabled": false,
+      "candidate_eras": [
+        "1812",
+        "1835",
+        "1904"
+      ],
+      "approved_eras": [],
+      "seasons_proposed": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "species_candidates": [],
+      "placement_note": "Recorded harness hardware; coordinate with the visible horse/wagon assembly and movement.",
+      "fauna_references": []
+    },
+    {
+      "id": "dirt-footstep",
+      "kind": "candidate",
+      "category": "movement",
+      "title": "Dirt and gravel footstep",
+      "creator": "Yoyodaman234",
+      "source_url": "https://freesound.org/people/Yoyodaman234/sounds/223153/",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "acquired": "2026-11-10",
+      "original": "assets/audio/originals/intake/223153_2792951-hq.mp3",
+      "evidence": "assets/audio/evidence/dirt-footstep.json",
+      "source_duration_s": 0.626939,
+      "excerpt_start_s": 0,
+      "excerpt_duration_s": 0.626939,
+      "source_format": "Freesound HQ MP3 preview; not a lossless master",
+      "status": "audition-and-placement-pending",
+      "runtime_enabled": false,
+      "candidate_eras": [
+        "1812",
+        "1835",
+        "1904"
+      ],
+      "approved_eras": [],
+      "seasons_proposed": [
+        "spring",
+        "summer",
+        "fall"
+      ],
+      "species_candidates": [],
+      "placement_note": "Real recorded footstep; match ground surface and gait. Do not reuse for planks, snow or stone.",
+      "fauna_references": []
+    },
+    {
+      "id": "church-bell-proxy",
+      "kind": "candidate",
+      "category": "buildings",
+      "title": "Church bell",
+      "creator": "Garuda1982",
+      "source_url": "https://freesound.org/people/Garuda1982/sounds/426642/",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "acquired": "2026-11-10",
+      "original": "assets/audio/originals/intake/426642_2061858-hq.mp3",
+      "evidence": "assets/audio/evidence/church-bell-proxy.json",
+      "source_duration_s": 216.024,
+      "excerpt_start_s": 0,
+      "excerpt_duration_s": 24,
+      "source_format": "Freesound HQ MP3 preview; not a lossless master",
+      "status": "audition-and-placement-pending",
+      "runtime_enabled": false,
+      "candidate_eras": [
+        "1812",
+        "1835",
+        "1904"
+      ],
+      "approved_eras": [],
+      "seasons_proposed": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "species_candidates": [],
+      "placement_note": "Field recording; pitch, peal and schedule are a reconstructed proxy. Assign only to an era-appropriate building with a bell.",
+      "fauna_references": []
+    },
+    {
+      "id": "musket-outdoors",
+      "kind": "candidate",
+      "category": "military",
+      "title": "Outdoor musket shots",
+      "creator": "bruno.auzet",
+      "source_url": "https://freesound.org/people/bruno.auzet/sounds/538795/",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "acquired": "2026-11-10",
+      "original": "assets/audio/originals/intake/538795_11519060-hq.mp3",
+      "evidence": "assets/audio/evidence/musket-outdoors.json",
+      "source_duration_s": 3.6,
+      "excerpt_start_s": 0,
+      "excerpt_duration_s": 3.6,
+      "source_format": "Freesound HQ MP3 preview; not a lossless master",
+      "status": "audition-and-placement-pending",
+      "runtime_enabled": false,
+      "candidate_eras": [
+        "1812",
+        "1835",
+        "1904"
+      ],
+      "approved_eras": [],
+      "seasons_proposed": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "species_candidates": [],
+      "placement_note": "Real musket recorded in France in 2009, with mountain reverberation. Verify weapon and distance for 1812/1835; not the default 1904 army rifle. Requires individual-shot editing.",
+      "fauna_references": []
+    },
+    {
+      "id": "frog-call",
+      "kind": "candidate",
+      "category": "wildlife",
+      "title": "Frog call",
+      "creator": "stomachache",
+      "source_url": "https://freesound.org/people/stomachache/sounds/53259/",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "acquired": "2026-11-10",
+      "original": "assets/audio/originals/intake/53259_177850-hq.mp3",
+      "evidence": "assets/audio/evidence/frog-call.json",
+      "source_duration_s": 4.205714,
+      "excerpt_start_s": 0,
+      "excerpt_duration_s": 4.205714,
+      "source_format": "Freesound HQ MP3 preview; not a lossless master",
+      "status": "audition-and-placement-pending",
+      "runtime_enabled": false,
+      "candidate_eras": [
+        "1812",
+        "1835",
+        "1904"
+      ],
+      "approved_eras": [],
+      "seasons_proposed": [
+        "spring",
+        "summer"
+      ],
+      "species_candidates": [],
+      "placement_note": "Creator names a frog but no species or recording locality. Acoustic proxy candidate; do not label as American bullfrog without identification.",
+      "fauna_references": []
+    },
+    {
+      "id": "late-summer-katydid",
+      "kind": "candidate",
+      "category": "insects",
+      "title": "Late-summer true katydid",
+      "creator": "lukewarm_sound",
+      "source_url": "https://freesound.org/people/lukewarm_sound/sounds/637065/",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "acquired": "2026-11-10",
+      "original": "assets/audio/originals/intake/637065_6922646-hq.mp3",
+      "evidence": "assets/audio/evidence/late-summer-katydid.json",
+      "source_duration_s": 7.368,
+      "excerpt_start_s": 0,
+      "excerpt_duration_s": 7.368,
+      "source_format": "Freesound HQ MP3 preview; not a lossless master",
+      "status": "audition-and-placement-pending",
+      "runtime_enabled": false,
+      "candidate_eras": [
+        "1812",
+        "1835",
+        "1904"
+      ],
+      "approved_eras": [],
+      "seasons_proposed": [
+        "summer",
+        "fall"
+      ],
+      "species_candidates": [
+        "pterophylla_camellifolia"
+      ],
+      "placement_note": "Creator identifies Pterophylla camellifolia. Existing 1835-07-01 fauna record says silent/not perceptible; retain for late-summer nights, not the July default.",
+      "fauna_references": [
+        {
+          "path": "data/fauna/zones/f06_north_timber.json",
+          "scene_date": "1835-07-01",
+          "species_id": "pterophylla_camellifolia",
+          "active_periods": [
+            "night"
+          ],
+          "july_vocalization": "silent",
+          "july_presence": "not_perceptible"
+        }
+      ]
+    },
+    {
+      "id": "wood-wagon",
+      "kind": "candidate",
+      "category": "transport",
+      "title": "Wooden wagon rolling",
+      "creator": "craigsmith",
+      "source_url": "https://freesound.org/people/craigsmith/sounds/675230/",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "acquired": "2026-11-10",
+      "original": "assets/audio/originals/intake/675230_2524442-hq.mp3",
+      "evidence": "assets/audio/evidence/wood-wagon.json",
+      "source_duration_s": 11.136,
+      "excerpt_start_s": 0,
+      "excerpt_duration_s": 11.136,
+      "source_format": "Freesound HQ MP3 preview; not a lossless master",
+      "status": "audition-and-placement-pending",
+      "runtime_enabled": false,
+      "candidate_eras": [
+        "1812",
+        "1835",
+        "1904"
+      ],
+      "approved_eras": [],
+      "seasons_proposed": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "species_candidates": [],
+      "placement_note": "Creator describes a large wooden wagon rolling down a mountain. Match speed, load, road surface and visible assembly before use.",
+      "fauna_references": []
+    },
+    {
+      "id": "summer-cicada-proxy",
+      "kind": "candidate",
+      "category": "insects",
+      "title": "Summer cicada \u2014 Italian recording",
+      "creator": "dethrok",
+      "source_url": "https://freesound.org/people/dethrok/sounds/272169/",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "acquired": "2026-11-10",
+      "original": "assets/audio/originals/intake/272169_3186672-hq.mp3",
+      "evidence": "assets/audio/evidence/summer-cicada-proxy.json",
+      "source_duration_s": 45.844898,
+      "excerpt_start_s": 0,
+      "excerpt_duration_s": 24,
+      "source_format": "Freesound HQ MP3 preview; not a lossless master",
+      "status": "proxy-approved; scene-integration-pending",
+      "runtime_enabled": false,
+      "candidate_eras": [
+        "1812",
+        "1835",
+        "1904"
+      ],
+      "approved_eras": [],
+      "seasons_proposed": [
+        "summer"
+      ],
+      "species_candidates": [],
+      "placement_note": "Owner accepted a European cicada as an acoustic proxy, 2026-11-10. Recorded in Italy in 2011; species unspecified. Restrained summer daytime bed, never a claim of a named Chicago species or periodical emergence.",
+      "fauna_references": [],
+      "proxy_authorized_by_owner": "2026-11-10"
+    },
+    {
+      "id": "robin-calls",
+      "kind": "candidate",
+      "category": "wildlife",
+      "title": "American robin calls",
+      "creator": "coalcon",
+      "source_url": "https://freesound.org/people/coalcon/sounds/636070/",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "acquired": "2026-11-10",
+      "original": "assets/audio/originals/intake/636070_3320549-hq.mp3",
+      "evidence": "assets/audio/evidence/robin-calls.json",
+      "source_duration_s": 27.506939,
+      "excerpt_start_s": 0,
+      "excerpt_duration_s": 24,
+      "source_format": "Freesound HQ MP3 preview; not a lossless master",
+      "status": "audition-and-placement-pending",
+      "runtime_enabled": false,
+      "candidate_eras": [
+        "1812",
+        "1835",
+        "1904"
+      ],
+      "approved_eras": [],
+      "seasons_proposed": [
+        "spring",
+        "summer",
+        "fall"
+      ],
+      "species_candidates": [],
+      "placement_note": "Spokane, Washington; species and scene placement require review.",
+      "fauna_references": []
+    },
+    {
+      "id": "redwing-call",
+      "kind": "candidate",
+      "category": "wildlife",
+      "title": "Red-winged blackbird call",
+      "creator": "phylobates",
+      "source_url": "https://freesound.org/people/phylobates/sounds/509933/",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "acquired": "2026-11-10",
+      "original": "assets/audio/originals/intake/509933_9142988-hq.mp3",
+      "evidence": "assets/audio/evidence/redwing-call.json",
+      "source_duration_s": 3.816,
+      "excerpt_start_s": 0,
+      "excerpt_duration_s": 3.816,
+      "source_format": "Freesound HQ MP3 preview; not a lossless master",
+      "status": "audition-and-placement-pending",
+      "runtime_enabled": false,
+      "candidate_eras": [
+        "1812",
+        "1835",
+        "1904"
+      ],
+      "approved_eras": [],
+      "seasons_proposed": [
+        "spring",
+        "summer",
+        "fall"
+      ],
+      "species_candidates": [
+        "agelaius_phoeniceus"
+      ],
+      "placement_note": "Ferndale, Washington; cell-phone recording processed by creator. Match call type and playback density to July records.",
+      "fauna_references": [
+        {
+          "path": "data/fauna/zones/f03_sedge_meadow.json",
+          "scene_date": "1835-07-01",
+          "species_id": "agelaius_phoeniceus",
+          "active_periods": [
+            "dawn",
+            "day",
+            "dusk"
+          ],
+          "july_vocalization": "song_reduced",
+          "july_presence": "visible_and_audible"
+        },
+        {
+          "path": "data/fauna/zones/f04_marsh.json",
+          "scene_date": "1835-07-01",
+          "species_id": "agelaius_phoeniceus",
+          "active_periods": [
+            "dawn",
+            "day",
+            "dusk"
+          ],
+          "july_vocalization": "song_reduced",
+          "july_presence": "visible_and_audible"
+        }
+      ]
+    },
+    {
+      "id": "summer-crickets",
+      "kind": "candidate",
+      "category": "insects",
+      "title": "Summer field crickets",
+      "creator": "TRP",
+      "source_url": "https://freesound.org/people/TRP/sounds/571206/",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "acquired": "2026-11-10",
+      "original": "assets/audio/originals/intake/571206_97550-hq.mp3",
+      "evidence": "assets/audio/evidence/summer-crickets.json",
+      "source_duration_s": 97.56,
+      "excerpt_start_s": 0,
+      "excerpt_duration_s": 24,
+      "source_format": "Freesound HQ MP3 preview; not a lossless master",
+      "status": "audition-and-placement-pending",
+      "runtime_enabled": false,
+      "candidate_eras": [
+        "1812",
+        "1835",
+        "1904"
+      ],
+      "approved_eras": [],
+      "seasons_proposed": [
+        "summer",
+        "fall"
+      ],
+      "species_candidates": [
+        "gryllus_spp"
+      ],
+      "placement_note": "Prince Edward County, Ontario; species not identified by creator. Candidate genus-level proxy, not a species verification.",
+      "fauna_references": [
+        {
+          "path": "data/fauna/zones/f01_wet_prairie.json",
+          "scene_date": "1835-07-01",
+          "species_id": "gryllus_spp",
+          "active_periods": [
+            "dusk",
+            "night"
+          ],
+          "july_vocalization": "chorus",
+          "july_presence": "audible"
+        }
+      ]
+    },
+    {
+      "id": "night-crickets",
+      "kind": "candidate",
+      "category": "insects",
+      "title": "Night crickets",
+      "creator": "Lisa Redfern",
+      "source_url": "https://soundbible.com/2083-Crickets-Chirping-At-Night.html",
+      "license": "Public domain (source declaration)",
+      "license_url": "https://soundbible.com/2083-Crickets-Chirping-At-Night.html",
+      "acquired": "2026-11-10",
+      "original": "assets/audio/originals/intake/soundbible-2083.wav",
+      "evidence": "assets/audio/evidence/night-crickets.json",
+      "source_duration_s": 49.293061,
+      "excerpt_start_s": 0,
+      "excerpt_duration_s": 24,
+      "source_format": "WAV download",
+      "status": "audition-and-placement-pending",
+      "runtime_enabled": false,
+      "candidate_eras": [
+        "1812",
+        "1835",
+        "1904"
+      ],
+      "approved_eras": [],
+      "seasons_proposed": [
+        "summer",
+        "fall"
+      ],
+      "species_candidates": [
+        "gryllus_spp"
+      ],
+      "placement_note": "Recording location and species unspecified. WAV available; needs species and regional audition.",
+      "fauna_references": [
+        {
+          "path": "data/fauna/zones/f01_wet_prairie.json",
+          "scene_date": "1835-07-01",
+          "species_id": "gryllus_spp",
+          "active_periods": [
+            "dusk",
+            "night"
+          ],
+          "july_vocalization": "chorus",
+          "july_presence": "audible"
+        }
+      ]
+    },
+    {
+      "id": "coyote-distant",
+      "kind": "candidate",
+      "category": "wildlife",
+      "title": "Distant coyotes",
+      "creator": "SamsterBirdies",
+      "source_url": "https://freesound.org/people/SamsterBirdies/sounds/640060/",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "acquired": "2026-11-10",
+      "original": "assets/audio/originals/intake/640060_5487341-hq.mp3",
+      "evidence": "assets/audio/evidence/coyote-distant.json",
+      "source_duration_s": 49.162449,
+      "excerpt_start_s": 0,
+      "excerpt_duration_s": 24,
+      "source_format": "Freesound HQ MP3 preview; not a lossless master",
+      "status": "audition-and-placement-pending",
+      "runtime_enabled": false,
+      "candidate_eras": [
+        "1812",
+        "1835",
+        "1904"
+      ],
+      "approved_eras": [],
+      "seasons_proposed": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "species_candidates": [
+        "canis_latrans"
+      ],
+      "placement_note": "Night recording; location unspecified. Distant habitat source only after placement review.",
+      "fauna_references": [
+        {
+          "path": "data/fauna/zones/f01_wet_prairie.json",
+          "scene_date": "1835-07-01",
+          "species_id": "canis_latrans",
+          "active_periods": [
+            "dawn",
+            "day",
+            "dusk",
+            "night"
+          ],
+          "july_vocalization": "call_only",
+          "july_presence": "visible_and_audible"
+        },
+        {
+          "path": "data/fauna/zones/f09_river.json",
+          "scene_date": "1835-07-01",
+          "species_id": "canis_latrans",
+          "active_periods": [
+            "dawn",
+            "day",
+            "dusk",
+            "night"
+          ],
+          "july_vocalization": "call_only",
+          "july_presence": "visible_and_audible"
+        },
+        {
+          "path": "data/fauna/zones/f10_settled_town.json",
+          "scene_date": "1835-07-01",
+          "species_id": "canis_latrans",
+          "active_periods": [
+            "dawn",
+            "day",
+            "dusk",
+            "night"
+          ],
+          "july_vocalization": "call_only",
+          "july_presence": "visible_and_audible"
+        }
+      ]
+    },
+    {
+      "id": "horse-snort",
+      "kind": "candidate",
+      "category": "animals",
+      "title": "Horse snort",
+      "creator": "o_ciz",
+      "source_url": "https://freesound.org/people/o_ciz/sounds/475483/",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "acquired": "2026-11-10",
+      "original": "assets/audio/originals/intake/475483_7009965-hq.mp3",
+      "evidence": "assets/audio/evidence/horse-snort.json",
+      "source_duration_s": 2.544,
+      "excerpt_start_s": 0,
+      "excerpt_duration_s": 2.544,
+      "source_format": "Freesound HQ MP3 preview; not a lossless master",
+      "status": "audition-and-placement-pending",
+      "runtime_enabled": false,
+      "candidate_eras": [
+        "1812",
+        "1835",
+        "1904"
+      ],
+      "approved_eras": [],
+      "seasons_proposed": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "species_candidates": [],
+      "placement_note": "Attach to horse head and supported animation; no random disembodied snorts.",
+      "fauna_references": []
+    },
+    {
+      "id": "horse-whinny",
+      "kind": "candidate",
+      "category": "animals",
+      "title": "Horse whinny",
+      "creator": "Kubuzz",
+      "source_url": "https://freesound.org/people/Kubuzz/sounds/347036/",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "acquired": "2026-11-10",
+      "original": "assets/audio/originals/intake/347036_1708499-hq.mp3",
+      "evidence": "assets/audio/evidence/horse-whinny.json",
+      "source_duration_s": 10.752,
+      "excerpt_start_s": 0,
+      "excerpt_duration_s": 10.752,
+      "source_format": "Freesound HQ MP3 preview; not a lossless master",
+      "status": "audition-and-placement-pending",
+      "runtime_enabled": false,
+      "candidate_eras": [
+        "1812",
+        "1835",
+        "1904"
+      ],
+      "approved_eras": [],
+      "seasons_proposed": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "species_candidates": [],
+      "placement_note": "Recorded at a local event; inspect for crowd/modern contamination before use.",
+      "fauna_references": []
+    },
+    {
+      "id": "horse-walking",
+      "kind": "candidate",
+      "category": "transport",
+      "title": "Horses walking on dirt",
+      "creator": "davilca",
+      "source_url": "https://freesound.org/people/davilca/sounds/159498/",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "acquired": "2026-11-10",
+      "original": "assets/audio/originals/intake/159498_1177772-hq.mp3",
+      "evidence": "assets/audio/evidence/horse-walking.json",
+      "source_duration_s": 10.631837,
+      "excerpt_start_s": 0,
+      "excerpt_duration_s": 10.631837,
+      "source_format": "Freesound HQ MP3 preview; not a lossless master",
+      "status": "audition-and-placement-pending",
+      "runtime_enabled": false,
+      "candidate_eras": [
+        "1812",
+        "1835",
+        "1904"
+      ],
+      "approved_eras": [],
+      "seasons_proposed": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "species_candidates": [],
+      "placement_note": "Two real horses on a dirt road. Not an isolated hoof contact; requires event editing and surface matching.",
+      "fauna_references": []
+    },
+    {
+      "id": "hand-saw",
+      "kind": "candidate",
+      "category": "work",
+      "title": "Hand saw cutting wood",
+      "creator": "deleted_user_7146007",
+      "source_url": "https://freesound.org/people/deleted_user_7146007/sounds/383725/",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "acquired": "2026-11-10",
+      "original": "assets/audio/originals/intake/383725_7146007-hq.mp3",
+      "evidence": "assets/audio/evidence/hand-saw.json",
+      "source_duration_s": 87.0,
+      "excerpt_start_s": 0,
+      "excerpt_duration_s": 24,
+      "source_format": "Freesound HQ MP3 preview; not a lossless master",
+      "status": "audition-and-placement-pending",
+      "runtime_enabled": false,
+      "candidate_eras": [
+        "1812",
+        "1835",
+        "1904"
+      ],
+      "approved_eras": [],
+      "seasons_proposed": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "species_candidates": [],
+      "placement_note": "Needs stroke segmentation and worker synchronization; never stand in for powered machinery.",
+      "fauna_references": []
+    },
+    {
+      "id": "hammer-nail",
+      "kind": "candidate",
+      "category": "work",
+      "title": "Hammer driving a nail",
+      "creator": "Julien_Matthey",
+      "source_url": "https://freesound.org/people/Julien_Matthey/sounds/118341/",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "acquired": "2026-11-10",
+      "original": "assets/audio/originals/intake/118341_1535323-hq.mp3",
+      "evidence": "assets/audio/evidence/hammer-nail.json",
+      "source_duration_s": 25.652245,
+      "excerpt_start_s": 0,
+      "excerpt_duration_s": 24,
+      "source_format": "Freesound HQ MP3 preview; not a lossless master",
+      "status": "audition-and-placement-pending",
+      "runtime_enabled": false,
+      "candidate_eras": [
+        "1812",
+        "1835",
+        "1904"
+      ],
+      "approved_eras": [],
+      "seasons_proposed": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "species_candidates": [],
+      "placement_note": "Recorded indoors in an apartment. Room coloration and individual strikes require review before exterior placement.",
+      "fauna_references": []
+    },
+    {
+      "id": "wood-fire",
+      "kind": "candidate",
+      "category": "environment",
+      "title": "Wood fire crackling",
+      "creator": "RCSound99",
+      "source_url": "https://freesound.org/people/RCSound99/sounds/654043/",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "acquired": "2026-11-10",
+      "original": "assets/audio/originals/intake/654043_14308672-hq.mp3",
+      "evidence": "assets/audio/evidence/wood-fire.json",
+      "source_duration_s": 32.156735,
+      "excerpt_start_s": 0,
+      "excerpt_duration_s": 24,
+      "source_format": "Freesound HQ MP3 preview; not a lossless master",
+      "status": "audition-and-placement-pending",
+      "runtime_enabled": false,
+      "candidate_eras": [
+        "1812",
+        "1835",
+        "1904"
+      ],
+      "approved_eras": [],
+      "seasons_proposed": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "species_candidates": [],
+      "placement_note": "Real campfire in Ozark National Forest, Arkansas. Requires visible/located burning source and scheduled fire activity.",
+      "fauna_references": []
+    },
+    {
+      "id": "wood-dock",
+      "kind": "candidate",
+      "category": "structures",
+      "title": "Wooden dock creaking",
+      "creator": "Filipe Chagas",
+      "source_url": "https://freesound.org/people/Filipe%20Chagas/sounds/91912/",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "acquired": "2026-11-10",
+      "original": "assets/audio/originals/intake/91912_1512131-hq.mp3",
+      "evidence": "assets/audio/evidence/wood-dock.json",
+      "source_duration_s": 228.12,
+      "excerpt_start_s": 0,
+      "excerpt_duration_s": 24,
+      "source_format": "Freesound HQ MP3 preview; not a lossless master",
+      "status": "audition-and-placement-pending",
+      "runtime_enabled": false,
+      "candidate_eras": [
+        "1812",
+        "1835",
+        "1904"
+      ],
+      "approved_eras": [],
+      "seasons_proposed": [
+        "spring",
+        "summer",
+        "fall"
+      ],
+      "species_candidates": [],
+      "placement_note": "Modern yacht-club dock with water lapping. Not a wagon sample; inspect for boat hardware and site noise.",
+      "fauna_references": []
+    }
+  ]
+}

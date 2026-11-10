@@ -1195,3 +1195,20 @@ of the 52 sheets with HTTP 200, with no failed request and no page error.
 Two 432 MiB allowances plus §14's 132.233 MiB stay under 1 GiB, and `dev` now has about
 109 MB of headroom inside its allowance. The allowance is not lowered here, because
 production still ships the copies until the next promotion.
+
+## 16. Recorded audio moves to a shared bucket — T-3532
+
+The expanded audio library has 40 delivery files totaling 41,173,377 bytes
+(39.266 MiB). After full hash, CORS, MIME and byte-range verification, the local
+development publisher replaces those files with immutable R2 URLs in its small
+catalogue. Originals and authoring deliveries remain outside the published tree.
+Both app revisions can refer to the same bytes without duplicating them in Pages.
+
+The resulting app was 432.044 MiB, still slightly over the existing ceiling.
+Removing only indentation from the published `data/liberties.json` brings it to
+431.363 MiB after compiling the audio liberties. `check_published.mjs` requires full parsed-value equality with the
+readable source; no evidence records or fields are dropped. The 432 MiB limit
+is unchanged and remaining headroom is small. This measurement is the local app
+tree, not the complete live deployment or a production promotion. The current
+r2.dev host remains a development endpoint; production domain/cache work is
+described in AUDIO-HOSTING.md.

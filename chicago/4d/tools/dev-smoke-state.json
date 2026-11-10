@@ -3,6 +3,73 @@
   "readings": [
     {
       "viewport": "mobile",
+      "stage": "13",
+      "parts": [
+        13
+      ],
+      "verdict": "fail",
+      "target": "published",
+      "passed": 5,
+      "failed": 1,
+      "failures": [
+        "mobile 390x780: scene reaches ready — timed out at 240 s | agency_striker_log_house: review_required is set — review annotation retained; this flag does not block scene release | beaubien_barn: review_required is set — review annotation retained; this flag does not block scene release | beaubien_trading_post: review_required is set — review annotation retained; this flag does not block scene release"
+      ],
+      "wallSeconds": 281,
+      "takenAt": "2026-11-10T04:38:01.931Z",
+      "ref": "audio/recorded-soundscape",
+      "commit": "e8342e42555d",
+      "devCommit": "e8342e42555d",
+      "treeHash": "sha256:377dd10c2c5ad8c7",
+      "treeDirty": true,
+      "changelogHash": "sha256:0f9c564ea9277272",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 17.6,
+        "loadavg": [
+          5.4,
+          5.1,
+          4
+        ]
+      },
+      "source": "/workspace/audio-review/smoke-submit-mobile-13.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "13",
+      "parts": [
+        13
+      ],
+      "verdict": "fail",
+      "target": "published",
+      "passed": 52,
+      "failed": 2,
+      "failures": [
+        "mobile 390x780: opening a person shows their card with a way to their building — {\"opened\":true,\"hidden\":false,\"shown\":true,\"name\":\"John S. C. Hogan\",\"title\":\"John S. C. Hogan\",\"backShown\":true,\"go\":null,\"goText\":\"Find this personNot out in town at this hour or season\",\"fields\":true,\"seat\":{\"rung\":\"division_band\",\"label\":\"Banded in the south division, and no class dealt\",\"words\":\"The record reaches the south division and nothing narrower, and the head's trade is not one the placement policy has a dwelling clause for — so this household is banded to that division's own ground and no class is dealt for it. The division is the evidence; standing them anywhere inside it is reconstruction.\",\"next\":\"Would move it up the ladder: a source giving this household's head a trade, or naming a street, a corner or a building for them.\",\"noaddr\":false}}",
+        "mobile 390x780: the suite body ran to completion — Error: clickChrome: #people-card .people-go is disabled"
+      ],
+      "wallSeconds": 542,
+      "takenAt": "2026-11-10T04:07:55.646Z",
+      "ref": "audio/recorded-soundscape",
+      "commit": "e8342e42555d",
+      "devCommit": "e8342e42555d",
+      "treeHash": "sha256:459da5d2b1df74a3",
+      "treeDirty": true,
+      "changelogHash": "sha256:0f9c564ea9277272",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 17.6,
+        "loadavg": [
+          2,
+          4.8,
+          3.7
+        ]
+      },
+      "source": "/workspace/audio-review/smoke-r2-mobile-13.log"
+    },
+    {
+      "viewport": "mobile",
       "stage": "1",
       "parts": [
         1
@@ -1110,72 +1177,6 @@
         ]
       },
       "source": "/tmp/w/smoke-m3.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "1",
-      "parts": [
-        1
-      ],
-      "verdict": "fail",
-      "target": "published",
-      "passed": 94,
-      "failed": 1,
-      "failures": [
-        "desktop 1280x800: no flat sign's lettering is hidden behind its own wall — 39 flat sign(s), 1365 rays at their faces; 1 hidden: miller_house 4/35 (wall 0.170 m in front)"
-      ],
-      "wallSeconds": 385,
-      "takenAt": "2026-11-01T14:55:44.736Z",
-      "ref": "steward/t1932-1720-stable-range",
-      "commit": "5881aeddeed8",
-      "devCommit": "92ceb201eec0",
-      "treeHash": "sha256:86517df659c6acd7",
-      "treeDirty": false,
-      "changelogHash": "sha256:27391417c78874f6",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          4.6,
-          4.5,
-          4.1
-        ]
-      },
-      "source": "/tmp/w/smoke-d1.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "14",
-      "parts": [
-        14
-      ],
-      "verdict": "fail",
-      "target": "published",
-      "passed": 129,
-      "failed": 1,
-      "failures": [
-        "mobile 390x780: the suite body ran to completion — Error: page.evaluate: Target page, context or browser has been closed"
-      ],
-      "wallSeconds": 580,
-      "takenAt": "2026-11-01T09:55:19.496Z",
-      "ref": "steward/t3289-bow-cone-winding",
-      "commit": "b7a5b8feda38",
-      "devCommit": "1b6cb48db07e",
-      "treeHash": "sha256:a7d0f39745d15c89",
-      "treeDirty": false,
-      "changelogHash": "sha256:33fb6519e1ade03e",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          4,
-          4.5,
-          4.2
-        ]
-      },
-      "source": "/tmp/smoke_m14.log"
     },
     {
       "viewport": "mobile",

@@ -6458,3 +6458,14 @@ The three source trials now have pinned native83 evidence, exact81 unchanged MAS
 ### 2026-11-10 — T-3041 northwest coverage, PR #1905
 
 Two actual canonical northwest-blockhouse comparisons now preserve the existing Currey14-member and Kurz30-member world frames. Currey has only bounded existing owner-ruling acceptance with crop/context limits; Kurz retains two finite open composition/identity questions. The compiler's pictured badge reflects two already credited whole depictions, while geometry, attribute confidence and the Images list stay unchanged. Original T-3041/T-2387 coverage of the other dated pictures and the complete component inventory remains partial. The first-fort west wickets and cupolas already delivered must not be redone.
+
+### T-3532 — Reusable recorded audio library
+
+The first implementation supplies opt-in recorded ambience, the owner's seven
+era-separated music cues, licensing/derivative metadata and a searchable audio
+browser. The expanded library now includes 23 credited candidate recordings;
+all 40 delivery files are verified in R2 and the generated development build
+uses their hashed URLs. Next batches wire seasonal wildlife, slough ambience,
+moving transport, activity and reviewed voices into scenes. Audio scheduling must
+follow scene geography and the visible actors. See AUDIO.md; no generic surf at
+sloughs, no cross-era music fallback and no synthesized hum fallback.

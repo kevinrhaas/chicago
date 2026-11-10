@@ -12,6 +12,7 @@
 # four files whose parsed values were identical (T-0933).
 set -euo pipefail
 cd "$(dirname "$0")/.."
+node tools/audio_hosting.mjs --validate
 
 # The three v4 GLBs (master, full web, light web) are losslessly packed in committed archive parts.
 # Restore only missing ignored outputs; divergent existing bytes fail with repack
@@ -89,6 +90,9 @@ mkdir -p "$SITE/data/gltf" "$SITE/data/sidecars"
 if [ -d renderers/web ]; then
   rm -rf "$SITE/walk"
   cp -a renderers/web "$SITE/walk"
+  # T-3532: only verified, content-addressed audio leaves this mirror. The
+  # source recordings remain local; the app catalogue points to the media host.
+  node tools/audio_hosting.mjs --publish "$SITE"
   # T-2793: these historical/canonical masters have no live model or demo
   # consumer. Keep every source byte for authoring and physical checks, while
   # shipping the selected web deliveries. Year packs are built later from this
@@ -332,7 +336,15 @@ mkdir -p "$SITE/data/comparisons/glessner"
 cp -f data/comparisons/glessner/*.json "$SITE/data/comparisons/glessner/"
 # The liberties list the Evidence panel reads. Derived from docs/LIBERTIES.md,
 # which itself stays out of the payload.
-cp -f data/liberties.json "$SITE/data/"
+# T-3532: preserve every evidence/liberty value while omitting JSON indentation
+# in delivery (about 700 KiB). The source remains readable; parity is structural.
+python3 - "$SITE/data/liberties.json" <<'COMPACT_LIBERTIES'
+import json
+from pathlib import Path
+import sys
+value = json.loads(Path('data/liberties.json').read_text())
+Path(sys.argv[1]).write_text(json.dumps(value, ensure_ascii=False, separators=(',', ':')) + '\n')
+COMPACT_LIBERTIES
 # The reader's overlay (T-2825): the edits that say each research note of the records a page
 # reads as authored — plants, wildlife, households and a person's card, a firm's record, a
 # building's card — without a ticket number, a record id or a file path. DERIVED HERE, not

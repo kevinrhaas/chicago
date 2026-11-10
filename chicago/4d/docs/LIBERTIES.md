@@ -42913,3 +42913,57 @@ The number is a liberty, not a fence measurement recovered from either drawing. 
 **How to resolve:** a dated specification or a resolved compound sequence could replace this height. Fresh comparisons and actual published inspection must establish whether the visible increment improves core exposure; source-height calculation alone is not picture acceptance.
 **Ticket:** T-2380.
 **Recorded:** 2026-11-09.
+
+### L-audio-3532 — Recorded acoustic proxies and an era-separated score (2026-11-10)
+
+**Decision:** The owner requested recorded environmental effects, authorized suitable proxies,
+and supplied seven music cues with app-distribution permission. Frontier Reels are
+assigned to 1812, Border Ballads to 1835, and the two Waltzes to 1904; the early
+collections remain separate even where their styles overlap. File metadata says
+Suno-generated; the score is not a period composition/performance claim.
+
+Modern wind in leaves (o_ciz), gentle PEI river lapping (TRP), and Lake Maggiore
+shore waves (BonnyOrbit) are acoustic analogues. Their licenses and alterations
+are in assets/audio/catalog.json and the public Audio library. No recording is
+represented as historic Chicago. HQ previews are used, not lossless originals.
+The former synthesized hums, drones and interface ticks are removed.
+
+Water audibility uses an 8 m radial sampling of the loaded epoch's terrain within
+56 m. Type comes from existing river polygons and slough traces converted from
+UTM into the scene frame, plus the renderer's derived lake edge. Slough traces
+get their recorded half-width plus an 8 m acoustic classification tolerance;
+they take precedence and do not play either wave recording. Unclassified water
+is quiet. The river/lake mouth boundary inherits the derived lake-edge smoothing
+and is an approximation. Neither this tolerance nor the gain curve is a survey
+claim. Leaf rustle is suppressed in winter; weather and habitat detail remain to
+be added. Slough insects/frogs and reeds need locally appropriate recordings;
+quiet water is not filled with generic surf. The owner approved proxy selection
+but not invented species occurrence.
+
+**Ticket:** T-3532.
+**Recorded:** 2026-11-10.
+
+### L-audio-library-3532 — Expanded recordings and accepted acoustic proxies
+
+**Decision:** The next 23 acquisitions are
+recordings for audition and scene authoring, not a claim that every sound is
+already emitted in every era. Source descriptions, licences, acquisition hashes
+and edits are in assets/audio/intake.json, assets/audio/evidence/ and the audio
+catalogue. Most sources are Freesound HQ previews; one cricket source is a WAV
+download declared public domain by its source page.
+
+The owner explicitly accepted a European cicada as a reasonable proxy. The
+selected recording was made in Italy and is not identified as a Chicago species
+or a periodical brood. Existing 1835 fauna records constrain future call type,
+habitat and hour; late-summer true katydids do not replace the record's silent
+July state. Other proxies include a mountain-reverberant French musket and a
+vintage steam traction-engine whistle proposed for 1904. Neither authenticates
+a particular local weapon or locomotive. The tavern chatter is a recorded human
+performance by one creator, not a historical crowd or Indigenous-language script.
+Worker, horse, door, wagon and interior playback still requires the scene-owned
+activity and animation contracts in AUDIO.md. The public library identifies
+these as review candidates; catalogue inclusion is not scene placement.
+
+**Tier:** reconstructed.
+**Ticket:** T-3532.
+**Recorded:** 2026-11-10.

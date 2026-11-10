@@ -26270,3 +26270,84 @@ The northwest blockhouse now has two canonical diagnostic review cameras and act
 The authoritative scene compiler changes only this blockhouse's overall evidence badge from inferred to attested: “Pictured: 2 of the pictures on the Images tab show it.” This is rule12's identity/occurrence classification from two already credited whole depictions. The Images list, all per-attribute confidence, GLB bytes, scene placement and geometry remain unchanged. Diagnostic cameras add no historical From-this-spot action. Image/group/picture/grade owners and the full authoritative scene drift check pass on current dev; the original T-3041/T-2387 all-pictures request remains partial.
 
 Current-dev integration preserves the landed three-building PR1903 (a0218d1aae9d4a004f8a13b5af38cd4e7c9efd54) and concurrent resident-cloth PR1904. This camera/badge increment requires no native rebuild; actual first-fort member GLBs and placements are proven identical to the existing dev assets. No new photo follow-up or original-ticket closure is introduced.
+
+### T-3532 — Recorded audio pilot (2026-11-10)
+
+Implemented locally: loading-screen opt-in, independent music control, seven
+owner-authorized cues in separate era collections, three licensed environmental
+proxies, source/derivative catalogue and public audio browser. Synthetic hums,
+drones and interface sounds removed. River/lake/slough classification is explicit.
+No production promotion. Listening quality, historical placement at mouth
+boundaries, Safari playback and the full repository release gate are not yet
+signed off. See AUDIO.md for limits and remaining activity/voice batches.
+
+Focused checks passed: audio lifecycle/era/classification units, Settings,
+offline-pack exclusion, Chromium playback and all 17 codec deliveries at
+390×780 and 1280×800. The actual mobile arrival control starts the selected
+1835 cue with zero muted audio requests and no page errors. Published/source
+parity and page stripping pass after republishing. Part 1/4 of the full gate
+failed initially; licence path entries, a local ticket-clone symlink and the
+stale published page were corrected. A subsequent site validation still fails
+on storage alone: about 466 MiB versus the 432 MiB ceiling. The other three
+gate parts and full 3D smoke were not completed; no code commit, PR, merge or
+deployment is claimed. Audio hosting/storage must be resolved before release.
+Birds, insects and other fauna are specified by habitat/season/hour and historical
+plausibility in AUDIO.md, but are not yet scheduled or present in the library.
+
+Follow-on library work on 2026-11-10 supersedes that last library statement:
+23 additional recordings are now acquired, credited and available as compact
+audition files. The catalogue has 33 source assets and 40 codec deliveries;
+the delivery bytes total 41,173,377 (39.266 MiB). Actual decoding and catalogue
+filters pass in Chromium at 390×780 and 1280×800; lifecycle units, source-licence
+coverage and upload-package hashes pass. Candidate presence in the library does
+not schedule it in town. No listening-quality sign-off or full release gate is
+claimed. The owner approved the Italian cicada as an acoustic proxy.
+
+The owner activated Cloudflare R2 and reported CORS saved. A content-addressed
+upload bundle and provider-neutral catalogue are prepared, with a read-only host
+verifier. All 40 bucket objects now match their prepared SHA-256 hashes, and
+CORS, MIME types and HTTP 206 byte ranges pass. Chromium playback through Web
+Audio at the app origin passes for Opus, AAC/M4A and MP3. The generated development
+publication now uses verified hashed R2 URLs and omits all 40 media files from
+the site. Published-module browser checks pass at 390px and 1280px for real R2
+music, decoded wind, era changes, mute cleanup and catalogue layout. Lossless
+minification of published liberties JSON brings the app to 431.363 MiB within
+the unchanged 432 MiB ceiling. Full gates remain incomplete; no deployed
+integration is claimed. The r2.dev
+address is for development; production DNS remains
+separate because polecat.live currently delegates to GoDaddy. See
+AUDIO-HOSTING.md. No secrets were requested in chat, and no DNS delegation,
+production deployment or budget increase was performed.
+
+Final focused arrival checks pass on the actual generated app page at 390px
+and 1280px: no catalogue/media request while muted, trusted speaker click,
+nonzero samples from real R2 music through the master gain, correct button state,
+second-click mute, and zero page/media errors. Published/source parity passes.
+The latest part 1/4 source gate failed three steps: two geometry reproductions
+required Node22 instead of this workspace's Node24, and the new audio liberty
+entry lacked required field formatting/compiled output. Node22 was installed
+outside the repo; both geometry checks now pass individually. Both audio liberty
+entries now have proper fields and the regenerated data passes its check. The
+complete four-part gate has not been rerun to green.
+
+Published mobile smoke stage13 reached ready in155.4s with zero page errors,
+then stopped at the existing Hogan-card/building-navigation assertions: the
+current card offered disabled “Find this person” because the person was not out
+at that hour/season. Its result was52 passed/2 failed in9m02s and is filed in the
+standing smoke record. Its audio section was not reached. No assertion was
+relaxed; neither a clean-base reproduction of that failure nor the remaining
+full smoke stages are claimed. No commit, PR, merge or deployment is claimed.
+
+Release preparation corrected the People smoke to select the evidenced workplace
+action rather than the new Find/Follow button; the focused present/away regression
+passes. A quiet published mobile stage13 run reached ready in66.3s and passed its
+People navigation, recorded music/opt-in, independent music/master mute and hidden
+cleanup assertions. The run was intentionally stopped during later UI checks to
+move the complete matrix to CI; it is not a stage13 pass or a release-gate pass.
+Audio review also fixed water altitude attenuation and bounded environmental
+decoding to48kHz. Real R2 playback at96kHz and192kHz output passes with12,672,000
+decoded bytes for all three loops. Sparse bake smoke can replay verified hosted
+bytes without an unpublished source checkout, and its fingerprint includes the
+hosting inputs and actual published catalogue. Targeted replay, fingerprint and
+ticket/changelog mirror regression tests pass. The complete four-part source gate
+and both-viewport smoke matrix remain required before merge to dev.

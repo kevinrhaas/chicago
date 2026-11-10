@@ -94,6 +94,10 @@ export function yearFiles(files, year, owners) {
   return files.filter((rel) => {
     // T-2685: the home page's destination clips are the Observatory's, not a year's app.
     if (rel.startsWith('walk/portal/clips/')) return false;
+    // T-3532: audio is opt-in and streamed. A town download must not silently
+    // fetch every era and both music codecs. Explicit offline audio packs are
+    // a separate future choice; keep the catalogue/UI available offline.
+    if (/^walk\/audio\/.*\.(ogg|m4a|mp3)$/.test(rel)) return false;
     if (rel.startsWith('walk/') || rel === `${year}/index.html` || rel === `${year}/app.webmanifest`
       || NETWORK_FIRST.includes(rel)) return true;
     if (!rel.startsWith('data/')) return false;
@@ -201,7 +205,9 @@ function selfTest() {
     'data/sidecars/1835/a.json', 'data/sidecars/1904/b.json', 'data/terrain/epochs/e1834.json',
     'data/gltf/a__1835.glb', 'data/gltf/b__1904.glb', 'data/gltf/terrain__e1834.glb', 'data/gltf/loose.glb',
     'data/liberties.json', 'prairie-1904/index.html', 'walk/js/scene-loader.js',
-    'data/prebuilt/1835/frontage.json', 'data/prebuilt/1835/frontage.bin.gz'];
+    'data/prebuilt/1835/frontage.json', 'data/prebuilt/1835/frontage.bin.gz',
+    'walk/audio/catalog.json', 'walk/audio/credits.html', 'walk/audio/1835/music.ogg',
+    'walk/audio/1835/music.m4a', 'walk/audio/1812/music.ogg', 'walk/audio/river.mp3'];
   const text = {
     'data/sidecars/1835/a.json': '{"asset":"gltf/a__1835.glb"}',
     'data/sidecars/1904/b.json': '{"asset":"gltf/b__1904.glb"}',
@@ -230,6 +236,9 @@ function selfTest() {
   ok(y1835.has('data/prebuilt/1835/frontage.bin.gz') && !yearFiles(files, '1904', owners).includes('data/prebuilt/1835/frontage.bin.gz'),
     'a year\'s prebuilt layers are in its own pack and no other (T-2677)');
   ok(y1835.has('1835/index.html') && !y1835.has('1904/index.html'), 'each pack holds its own door only');
+  ok(y1835.has('walk/audio/catalog.json') && y1835.has('walk/audio/credits.html')
+    && ![...y1835].some(p=>/^walk\/audio\/.*\.(ogg|m4a|mp3)$/.test(p)),
+    'town packs keep audio credits but do not force optional audio downloads');
   ok(y1835.has('js/changelog.js') && y1835.has('build.json'), 'the network-first files are in the pack for offline');
   ok(!y1835.has('tickets.json') && !y1835.has('prairie-1904/index.html') && !y1835.has('index.html'),
     'files the walk never loads stay out');
