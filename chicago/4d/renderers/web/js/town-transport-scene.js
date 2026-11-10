@@ -39,12 +39,13 @@ export async function mountTownTransport({ sceneId, dataBase, people, getPeople 
   let assemblyModules = null, assemblyTools = null;
   const prepareAssemblyModules = () => (assemblyModules ??= Promise.all([
     import('./driven-assembly-loader.js'), import('./draft-hitch.js'),
-    import('three/addons/loaders/GLTFLoader.js'),
+    import('three/addons/loaders/GLTFLoader.js'), import('./horse-appearance.js'),
   ]).catch(error => { assemblyModules = null; throw error; }));
   const getAssemblyTools = () => (assemblyTools ??= prepareAssemblyModules()
-    .then(([{ createDrivenAssemblyLoader }, { createDraftHitchFactory }, { GLTFLoader }]) => {
+    .then(async ([{ createDrivenAssemblyLoader }, { createDraftHitchFactory }, { GLTFLoader }, { loadHorseRecipe }]) => {
     const loader = new GLTFLoader();
-    return { createDrivenAssemblyLoader, makeHitch: createDraftHitchFactory({ confidence, loadJSON: json,
+    return { createDrivenAssemblyLoader, coatRecipe: config.horse_appearance
+      ? await loadHorseRecipe(dataBase, config.horse_appearance.recipe_file) : null, makeHitch: createDraftHitchFactory({ confidence, loadJSON: json,
       loadGLTF: file => loader.loadAsync(new URL(file, moduleBase).href) }) };
   }).catch(error => { assemblyTools = null; throw error; }));
   const makeByHorse = new Map(), live = new Map(), fixed = new Map();
@@ -88,14 +89,14 @@ export async function mountTownTransport({ sceneId, dataBase, people, getPeople 
     async makeAssembly(row) {
       const model = modelFor(row);
       // Lazy eligible assembly only: Light/remote boot never fetches a district directory.
-      const [directory, { createDrivenAssemblyLoader, makeHitch }] = await Promise.all([
+      const [directory, { createDrivenAssemblyLoader, makeHitch, coatRecipe }] = await Promise.all([
         Array.isArray(people?.people) ? people : getPeople?.(), getAssemblyTools(),
       ]);
       if (!Array.isArray(directory?.people)) throw Error('town transport: this scene named people directory is unavailable');
       if (!makeByHorse.has(model)) makeByHorse.set(model, createDrivenAssemblyLoader({
         sceneId, people: directory.people, profiles: config.profiles ?? [],
         humanAssets: humans.assets, confidence, heightAt, horseSpec: config.horse_models[model], horseSupportDomain: supportByHorse.get(model),
-        makeHitch, driverLod: coarse ? 3 : 0,
+        makeHitch, coatRecipe, driverLod: coarse ? 3 : 0,
         // T-3497: a teamster on foot is the scene's own figure of him, made as the layer makes it.
         createWalker: typeof humans.createActor === 'function'
           ? (instance, identity) => humans.createActor(instance, { person: identity.person, identity }) : null,

@@ -1,0 +1,558 @@
+{
+  "schema": "chicago4d_horse_coats_v1",
+  "grade": "reconstructed",
+  "liberty": "L-horse-individual-coats-2795",
+  "basis": "Owner-requested individual coat/marking variation. Original colour and mask choices, not historical Chicago animals, breeds, ownership or captured new textures. Existing sevketkabatas Horse model/maps remain CC BY 4.0 with their existing credit.",
+  "scenes": [
+    "1812",
+    "1835",
+    "1904"
+  ],
+  "sources": [
+    {
+      "file": "renderers/web/transport/driven/horse-current26-inplace-full.glb",
+      "sha256": "ad9dc060f8630d0de04fef97d716e8c82be3ac8bf070684e78107720c5221ec6"
+    },
+    {
+      "file": "renderers/web/transport/standing-horse/horse-sevket-quiet-head-neck-idle-v6.glb",
+      "sha256": "7ce84d43445e930eecc6d9f69e97ed7ade0fe0b3fc44a9a753c25d88b3f548e1"
+    }
+  ],
+  "body_material": "Material_HorseMain4k00.png",
+  "hair_material": "Material.003_Hair12Main2k.png",
+  "eye_material": "Eye_brown",
+  "body_vertices": 5595,
+  "coordinate_frame": "canonical_metres_Yup_Zforward_Xleft",
+  "foot_reference": "data/transport/parked/horse-sevket-sidecar.json",
+  "mask_choices": {
+    "status": "Reconstructed painting regions within the real canonical source frame, not altered anatomy or contact classifiers",
+    "protect_below_y_m": 0.16,
+    "sock_transition_m": 0.025,
+    "sock_radius_m": 0.15,
+    "sock_top_range_m": [
+      0.24,
+      0.56
+    ],
+    "face_y_range_m": [
+      1.28,
+      1.76
+    ],
+    "face_z_min_m": 1.05,
+    "face_halfwidth_m": 0.075,
+    "muzzle_protect_z_m": [
+      1.36,
+      1.48
+    ],
+    "muzzle_protect_y_m": [
+      1.35,
+      1.47
+    ],
+    "dapple_pitch_m": 0.085,
+    "brown_reference_luminance": 0.12,
+    "white_reference_luminance": 0.55,
+    "hair_reference_luminance": 0.035,
+    "dapple_body_y_m": [
+      0.6,
+      0.9
+    ],
+    "dapple_front_fade_z_m": [
+      0.5,
+      0.9
+    ],
+    "hair_upper_y_m": [
+      0.65,
+      0.85
+    ],
+    "hair_tail_z_m": [
+      -0.95,
+      -0.8
+    ]
+  },
+  "palettes": [
+    {
+      "id": "bay",
+      "linear_rgb": [
+        0.14,
+        0.065,
+        0.023
+      ],
+      "mane_linear_rgb": null,
+      "dapple_strength": 0.02
+    },
+    {
+      "id": "chestnut",
+      "linear_rgb": [
+        0.24,
+        0.105,
+        0.04
+      ],
+      "mane_linear_rgb": [
+        0.11,
+        0.038,
+        0.015
+      ],
+      "dapple_strength": 0.015
+    },
+    {
+      "id": "iron_grey",
+      "linear_rgb": [
+        0.21,
+        0.23,
+        0.245
+      ],
+      "mane_linear_rgb": null,
+      "dapple_strength": 0.075
+    },
+    {
+      "id": "dark_bay",
+      "linear_rgb": [
+        0.075,
+        0.035,
+        0.018
+      ],
+      "mane_linear_rgb": null,
+      "dapple_strength": 0.025
+    }
+  ],
+  "group_palettes": {
+    "1812:fort_wagon_loop_1812": "bay",
+    "1812:shore_road_wagon_haul_1812": "chestnut",
+    "1835:western_hotel_driven_wagon_loop_1835": "chestnut",
+    "1835:western_hotel_yard_standing_horse_01": "iron_grey",
+    "1904:prairie_driven_brougham_loop_1904": "iron_grey",
+    "1904:prairie_parked_studebaker_brougham": "bay"
+  },
+  "individual_policy": "Palette keyed by scene/team row; blaze, four sock tops and dapple phase keyed by scene/row/individual side. Stable across reload and visibility/LOD reacquisition. No time, camera or random seed.",
+  "photographic_acceptance": false,
+  "seed_contract": {
+    "algorithm": "fnv1a32_murmur3_avalanche_v1",
+    "encoding": "ASCII",
+    "individual_key": "{scene}:{row}:{individual}",
+    "palette_key": "{scene}:{team}",
+    "channel_separator": "|",
+    "uint32_divisor": 4294967296,
+    "channels": {
+      "sock_enabled": "sock-enabled{index}",
+      "sock_height": "sock-height{index}",
+      "blaze_enabled": "blaze-enabled",
+      "blaze_width": "blaze-width",
+      "blaze_offset": "blaze-offset",
+      "phase": [
+        "pattern-x",
+        "pattern-y",
+        "pattern-z"
+      ]
+    }
+  },
+  "individual_choices": {
+    "sock_absent_probability": 0.3,
+    "blaze_absent_probability": 0.2,
+    "blaze_halfwidth_range_m": [
+      0.008,
+      0.04
+    ],
+    "blaze_offset_range_m": [
+      -0.006,
+      0.006
+    ],
+    "phase_range": [
+      0,
+      13
+    ]
+  },
+  "source_contract": [
+    {
+      "file": "renderers/web/transport/driven/horse-current26-inplace-full.glb",
+      "sha256": "ad9dc060f8630d0de04fef97d716e8c82be3ac8bf070684e78107720c5221ec6",
+      "body_vertices": 5595,
+      "body_bounds_m": [
+        [
+          -0.36283543705940247,
+          0.0,
+          -0.9441675543785095
+        ],
+        [
+          0.361839234828949,
+          1.7924532890319824,
+          1.542850136756897
+        ]
+      ],
+      "body_attributes": {
+        "POSITION": {
+          "accessor": {
+            "bufferView": 31,
+            "componentType": 5126,
+            "count": 5595,
+            "type": "VEC3",
+            "min": [
+              -0.36283543705940247,
+              0.0,
+              -0.9441675543785095
+            ],
+            "max": [
+              0.361839234828949,
+              1.7924532890319824,
+              1.542850136756897
+            ]
+          },
+          "buffer_view_sha256": "e9aa0c036e331cd649e126d9e27189983e3553638542ad41cc379805561e6fde"
+        },
+        "NORMAL": {
+          "accessor": {
+            "bufferView": 32,
+            "componentType": 5126,
+            "count": 5595,
+            "type": "VEC3",
+            "min": [
+              -0.9997574090957642,
+              -0.9999949932098389,
+              -0.9999623894691467
+            ],
+            "max": [
+              0.9999003410339355,
+              0.9980241060256958,
+              0.9999999403953552
+            ]
+          },
+          "buffer_view_sha256": "bb3311847e92ea013cc17f4a7eb2394fbcfa9ec890b3043bc2b197bdfffa22ad"
+        },
+        "TEXCOORD_0": {
+          "accessor": {
+            "bufferView": 33,
+            "componentType": 5126,
+            "count": 5595,
+            "type": "VEC2",
+            "min": [
+              0.0019199999514967203,
+              0.012769999913871288
+            ],
+            "max": [
+              0.9996299743652344,
+              0.9838700294494629
+            ]
+          },
+          "buffer_view_sha256": "cdbe373c5d484bbded1df6e3ba241f29f5029cd12ffbbe85f6f1528f0f987b81"
+        },
+        "JOINTS_0": {
+          "accessor": {
+            "bufferView": 34,
+            "componentType": 5123,
+            "count": 5595,
+            "type": "VEC4"
+          },
+          "buffer_view_sha256": "15e1f05caef552e1982f89abcf5bb57fada2621b0dbc6bf6b86b79739811366a"
+        },
+        "WEIGHTS_0": {
+          "accessor": {
+            "bufferView": 35,
+            "componentType": 5126,
+            "count": 5595,
+            "type": "VEC4",
+            "min": [
+              1.14794157117298e-14,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "max": [
+              1.0,
+              1.0,
+              1.0,
+              0.9962390661239624
+            ]
+          },
+          "buffer_view_sha256": "4b67898fdd71a08e25061764b78d31e916a2876edb1d45b622865d8678015bd1"
+        },
+        "TEXCOORD_1": {
+          "accessor": {
+            "bufferView": 33,
+            "componentType": 5126,
+            "count": 5595,
+            "type": "VEC2",
+            "min": [
+              0.0019199999514967203,
+              0.012769999913871288
+            ],
+            "max": [
+              0.9996299743652344,
+              0.9838700294494629
+            ]
+          },
+          "buffer_view_sha256": "cdbe373c5d484bbded1df6e3ba241f29f5029cd12ffbbe85f6f1528f0f987b81"
+        }
+      },
+      "body_indices": {
+        "accessor": {
+          "bufferView": 36,
+          "componentType": 5123,
+          "count": 29382,
+          "type": "SCALAR"
+        },
+        "buffer_view_sha256": "d828dbdbbad193f90e0cf140beba65d351846fe67e1bf0b1469f73f7ce6c2c16"
+      },
+      "joint_names": [
+        "horse_motion_root",
+        "horse_body",
+        "horse_neck",
+        "horse_head",
+        "horse_tail_base",
+        "horse_tail_tip",
+        "fore_l_shoulder",
+        "fore_l_elbow",
+        "fore_l_carpus",
+        "fore_l_fetlock",
+        "fore_l_hoof",
+        "fore_r_shoulder",
+        "fore_r_elbow",
+        "fore_r_carpus",
+        "fore_r_fetlock",
+        "fore_r_hoof",
+        "hind_l_hip",
+        "hind_l_stifle",
+        "hind_l_hock",
+        "hind_l_fetlock",
+        "hind_l_hoof",
+        "hind_r_hip",
+        "hind_r_stifle",
+        "hind_r_hock",
+        "hind_r_fetlock",
+        "hind_r_hoof"
+      ],
+      "inverse_bind_matrices": {
+        "accessor": {
+          "bufferView": 16,
+          "componentType": 5126,
+          "count": 26,
+          "type": "MAT4"
+        },
+        "buffer_view_sha256": "54fb5b70bea8f3ddcafffa2a80a2561387fa2ab3e66d83e8bcba0f9e8afb2da0"
+      },
+      "animation_names": [
+        "sevket_reconstructed_quiet_head_neck_idle_v1",
+        "reconstructed_bare_current26_inplace_careful_walk_cubic129_v1"
+      ],
+      "image_payload_sha256": [
+        "979df4f4dcdf4490f3f1780a7b411ac0e3c6be2af96e51ab49d83011a87d2a45",
+        "59465a0984f36264f7d2f9082c355f4c632f2e03e1c3c2e51cfda7bdb7b7ae90",
+        "38ec10da4600112c14988e3bb8156299cdf21a4443f6c0cbccecb94ead471938",
+        "237aaec69c56661e6179b8028cd604a11b058d4e45877ae168379b3d31936618",
+        "1e0382c8ad5d155dc3bf45378a5a37bb10bdcc79ffefee211e69edb3b609a5b3",
+        "f6a1cefd4126d387a1d73655918c1a97896845e527650a3555f560c2098fede3"
+      ],
+      "material_names": [
+        "Material.003_Hair12Main2k.png",
+        "Material_HorseMain4k00.png",
+        "Eye_brown"
+      ]
+    },
+    {
+      "file": "renderers/web/transport/standing-horse/horse-sevket-quiet-head-neck-idle-v6.glb",
+      "sha256": "7ce84d43445e930eecc6d9f69e97ed7ade0fe0b3fc44a9a753c25d88b3f548e1",
+      "body_vertices": 5595,
+      "body_bounds_m": [
+        [
+          -0.36283543705940247,
+          0.0,
+          -0.9441675543785095
+        ],
+        [
+          0.361839234828949,
+          1.7924532890319824,
+          1.542850136756897
+        ]
+      ],
+      "body_attributes": {
+        "POSITION": {
+          "accessor": {
+            "bufferView": 41,
+            "componentType": 5126,
+            "count": 5595,
+            "type": "VEC3",
+            "min": [
+              -0.36283543705940247,
+              0.0,
+              -0.9441675543785095
+            ],
+            "max": [
+              0.361839234828949,
+              1.7924532890319824,
+              1.542850136756897
+            ]
+          },
+          "buffer_view_sha256": "e9aa0c036e331cd649e126d9e27189983e3553638542ad41cc379805561e6fde"
+        },
+        "NORMAL": {
+          "accessor": {
+            "bufferView": 42,
+            "componentType": 5126,
+            "count": 5595,
+            "type": "VEC3",
+            "min": [
+              -0.9997574090957642,
+              -0.9999949932098389,
+              -0.9999623894691467
+            ],
+            "max": [
+              0.9999003410339355,
+              0.9980241060256958,
+              0.9999999403953552
+            ]
+          },
+          "buffer_view_sha256": "bb3311847e92ea013cc17f4a7eb2394fbcfa9ec890b3043bc2b197bdfffa22ad"
+        },
+        "TEXCOORD_0": {
+          "accessor": {
+            "bufferView": 43,
+            "componentType": 5126,
+            "count": 5595,
+            "type": "VEC2",
+            "min": [
+              0.0019199999514967203,
+              0.012769999913871288
+            ],
+            "max": [
+              0.9996299743652344,
+              0.9838700294494629
+            ]
+          },
+          "buffer_view_sha256": "cdbe373c5d484bbded1df6e3ba241f29f5029cd12ffbbe85f6f1528f0f987b81"
+        },
+        "JOINTS_0": {
+          "accessor": {
+            "bufferView": 44,
+            "componentType": 5123,
+            "count": 5595,
+            "type": "VEC4"
+          },
+          "buffer_view_sha256": "15e1f05caef552e1982f89abcf5bb57fada2621b0dbc6bf6b86b79739811366a"
+        },
+        "WEIGHTS_0": {
+          "accessor": {
+            "bufferView": 45,
+            "componentType": 5126,
+            "count": 5595,
+            "type": "VEC4",
+            "min": [
+              1.14794157117298e-14,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "max": [
+              1.0,
+              1.0,
+              1.0,
+              0.9962390661239624
+            ]
+          },
+          "buffer_view_sha256": "4b67898fdd71a08e25061764b78d31e916a2876edb1d45b622865d8678015bd1"
+        },
+        "TEXCOORD_1": {
+          "accessor": {
+            "bufferView": 43,
+            "componentType": 5126,
+            "count": 5595,
+            "type": "VEC2",
+            "min": [
+              0.0019199999514967203,
+              0.012769999913871288
+            ],
+            "max": [
+              0.9996299743652344,
+              0.9838700294494629
+            ]
+          },
+          "buffer_view_sha256": "cdbe373c5d484bbded1df6e3ba241f29f5029cd12ffbbe85f6f1528f0f987b81"
+        }
+      },
+      "body_indices": {
+        "accessor": {
+          "bufferView": 46,
+          "componentType": 5123,
+          "count": 29382,
+          "type": "SCALAR"
+        },
+        "buffer_view_sha256": "d828dbdbbad193f90e0cf140beba65d351846fe67e1bf0b1469f73f7ce6c2c16"
+      },
+      "joint_names": [
+        "horse_motion_root",
+        "horse_body",
+        "horse_neck",
+        "horse_head",
+        "horse_tail_base",
+        "horse_tail_tip",
+        "fore_l_shoulder",
+        "fore_l_elbow",
+        "fore_l_carpus",
+        "fore_l_fetlock",
+        "fore_l_hoof",
+        "fore_r_shoulder",
+        "fore_r_elbow",
+        "fore_r_carpus",
+        "fore_r_fetlock",
+        "fore_r_hoof",
+        "hind_l_hip",
+        "hind_l_stifle",
+        "hind_l_hock",
+        "hind_l_fetlock",
+        "hind_l_hoof",
+        "hind_r_hip",
+        "hind_r_stifle",
+        "hind_r_hock",
+        "hind_r_fetlock",
+        "hind_r_hoof"
+      ],
+      "inverse_bind_matrices": {
+        "accessor": {
+          "bufferView": 26,
+          "componentType": 5126,
+          "count": 26,
+          "type": "MAT4"
+        },
+        "buffer_view_sha256": "54fb5b70bea8f3ddcafffa2a80a2561387fa2ab3e66d83e8bcba0f9e8afb2da0"
+      },
+      "animation_names": [
+        "sevket_reconstructed_quiet_head_neck_idle_v1"
+      ],
+      "image_payload_sha256": [
+        "979df4f4dcdf4490f3f1780a7b411ac0e3c6be2af96e51ab49d83011a87d2a45",
+        "59465a0984f36264f7d2f9082c355f4c632f2e03e1c3c2e51cfda7bdb7b7ae90",
+        "38ec10da4600112c14988e3bb8156299cdf21a4443f6c0cbccecb94ead471938",
+        "237aaec69c56661e6179b8028cd604a11b058d4e45877ae168379b3d31936618",
+        "1e0382c8ad5d155dc3bf45378a5a37bb10bdcc79ffefee211e69edb3b609a5b3",
+        "f6a1cefd4126d387a1d73655918c1a97896845e527650a3555f560c2098fede3"
+      ],
+      "material_names": [
+        "Material.003_Hair12Main2k.png",
+        "Material_HorseMain4k00.png",
+        "Eye_brown"
+      ]
+    }
+  ],
+  "foot_reference_sha256": "65046a1f2eb44f5952ba966a1b9baa2633f5e0079df5cef934aec6118f99f8a0",
+  "foot_centres_m": {
+    "fore_l": [
+      0.1775004118680954,
+      0.0052360789850354195,
+      0.3987632393836975
+    ],
+    "fore_r": [
+      -0.1784951090812683,
+      0.005237669218331575,
+      0.3987651765346527
+    ],
+    "hind_l": [
+      0.3001173734664917,
+      0.0,
+      -0.4202912449836731
+    ],
+    "hind_r": [
+      -0.30109232664108276,
+      0.00010489956184756011,
+      -0.4202728271484375
+    ]
+  },
+  "source_protection": "Original geometry/UV/skin/IBMs/joints/clips/maps unchanged; shader colour only. Derived anchors do not replace complete-hoof classifiers.",
+  "native_all_path_visual_qualification": "UNRUN",
+  "recipe_sha256": "f7ceb0de2e60e3f9555746ef43cd6495f58d4fd39cc393b4607840fd13be791e"
+}

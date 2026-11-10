@@ -230,7 +230,7 @@ Reproduce: `python3 tools/location_reconciliation.py --check` · `python3 tools/
 | `outside_chicago` | 118 |
 | `refused` | 8,791 |
 
-The same rule over the gate itself: of **385** tools carrying a `--check`, **374** are run by `tools/check.sh` and **11** are not. Each of those declares why and who owns the answer, and **0** state no reason (C9):
+The same rule over the gate itself: of **387** tools carrying a `--check`, **376** are run by `tools/check.sh` and **11** are not. Each of those declares why and who owns the answer, and **0** state no reason (C9):
 
 | Ungated check | Owner | States why |
 | --- | ---: | ---: |

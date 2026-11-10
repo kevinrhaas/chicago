@@ -2,6 +2,7 @@
 // One immutable horse template across the moving and parked teams. Each team
 // owns its cloned skeletons; embedded images/geometry live until the last lease.
 import { disposeLoadedAsset } from './scene-loader.js';
+import { prepareHorseTemplate } from './horse-appearance.js';
 
 const entries = new Map();
 export async function acquireDraftHorse({ url, sha256, materialVariant, loader }) {
@@ -21,6 +22,7 @@ export async function acquireDraftHorse({ url, sha256, materialVariant, loader }
         .map(n => n.toString(16).padStart(2, '0')).join('');
       if (actual !== sha256) throw Error('draft horse: actual horse differs from its model binding');
       const asset = await loader.parseAsync(bytes, new URL('.', url).href);
+      prepareHorseTemplate(asset, materialVariant);
       entry.asset = asset;
       return asset;
     })();

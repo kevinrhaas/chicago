@@ -2799,6 +2799,7 @@ async function boot() {
   scene3d.add(parkedTransport.group);
   api.parkedTransport = parkedTransport;
   const standingHorses = await createStandingHorses({
+    recipeFile: 'transport/horse-coats.json',
     dataBase: layerBase('standing_horses'), sceneId: YEAR, confidence, detail: detailLevel,
     problems: layerProblems('standing_horses'), hostMissing,
     groundHeight: (e, n, recordId, regionId) => yards.drawnBaseHeightAt(e, n, recordId, regionId),
