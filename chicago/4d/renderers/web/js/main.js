@@ -1001,7 +1001,7 @@ const DETAIL_DECLARED = {
   // the rule are in the block above `full`.
   // T-2338, 2026-10-11: 2,290,000 -> 2,535,000 with `full` — the reading and
   // the rule are in the block above `full`.
-  balanced: { triangles: 2625000, shadowReachM: 240, furnitureCastsShadow: true,
+  balanced: { triangles: 2675000, shadowReachM: 240, furnitureCastsShadow: true,
               furnitureReachM: FURNITURE_REACH_BALANCED_M, groundDetailReachM: null,
               // T-3535: the same conservative sun-pass cull as Full and Light.
               // At West prairie: 2,658,284 -> 2,591,747 triangles, identical pixels.
@@ -1009,7 +1009,11 @@ const DETAIL_DECLARED = {
               castersTowardView: true,
               protects: 'the median visitor: integrated graphics on an ordinary '
                 + 'laptop, which is what most people arrive on',
-              measured: '2,625,000 set 2026-10-19: same fresh production-step split '
+              measured: '2,675,000 consciously re-budgeted 2026-11-10: retained native '
+                + '9dd9ba7d actual six-stand smoke measured 2,657,398 at desktop West '
+                + 'prairie; new cap leaves17,602 before the priced final group. '
+                + 'Light, ordinary Full and draw-call limits are unchanged. Previously '
+                + '2,625,000 set 2026-10-19: same fresh production-step split '
                 + 'diagnostic pricing (27 initial plus 9 continuation rows), six '
                 + 'stands at both viewports and all tiers; worst 2,607,952 at '
                 + 'desktop West prairie, +16,806 rounded up to 5,000. '

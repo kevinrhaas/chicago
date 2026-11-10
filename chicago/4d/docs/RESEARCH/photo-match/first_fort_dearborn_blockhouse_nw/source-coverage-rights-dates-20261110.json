@@ -1,0 +1,211 @@
+{
+  "sources": [
+    {
+      "source_id": "currey_1912_first_fort_birdseye",
+      "path": "chicago/4d/data/sources/currey_1912_first_fort_birdseye.json",
+      "sha256": "954122af71c5e0c49a76adc10fb5fa6c38ab5b27a2ba4365928a451b386ea78a",
+      "type": "illustration",
+      "date": "1912",
+      "describes_date": "the first Fort Dearborn, 1803–1812, reconstructed retrospectively",
+      "rights_status": "public_domain",
+      "verified": true,
+      "asset_use": "cross_check",
+      "camera_proposed": true,
+      "rights_claim": "Read existing source finding; no new external verification or rights upgrade.",
+      "current_sha256": "954122af71c5e0c49a76adc10fb5fa6c38ab5b27a2ba4365928a451b386ea78a",
+      "review_disposition": "Existing source/date/rights finding retained; actual consulted picture or container is recorded below."
+    },
+    {
+      "source_id": "kurz_allison_1893",
+      "path": "chicago/4d/data/sources/kurz_allison_1893.json",
+      "sha256": "7fb67704e22d5e26960e9611045e8f7b07e5cd0c345c502f72ba43abb00197a2",
+      "type": "illustration",
+      "date": "1893",
+      "describes_date": "1779-1857",
+      "rights_status": "public_domain",
+      "verified": true,
+      "asset_use": "cross_check",
+      "camera_proposed": true,
+      "rights_claim": "Read existing source finding; no new external verification or rights upgrade.",
+      "current_sha256": "7fb67704e22d5e26960e9611045e8f7b07e5cd0c345c502f72ba43abb00197a2",
+      "review_disposition": "Existing source/date/rights finding retained; actual consulted picture or container is recorded below."
+    },
+    {
+      "source_id": "lossing_1869_kinzie_mansion_engraving",
+      "path": "chicago/4d/data/sources/lossing_1869_kinzie_mansion_engraving.json",
+      "sha256": "8e4bbddb6f5d3264ef7dff32606e9faa721e92ca7ebdf34c91b61c572610edc7",
+      "type": "illustration",
+      "date": "1869",
+      "describes_date": "the Kinzie house and the first Fort Dearborn before 16 August 1812, drawn retrospectively",
+      "rights_status": "public_domain",
+      "verified": true,
+      "asset_use": "cross_check",
+      "camera_proposed": false,
+      "rights_claim": "Read existing source finding; no new external verification or rights upgrade.",
+      "current_sha256": "8e4bbddb6f5d3264ef7dff32606e9faa721e92ca7ebdf34c91b61c572610edc7",
+      "review_disposition": "Existing source/date/rights finding retained; actual consulted picture or container is recorded below."
+    },
+    {
+      "source_id": "whistler_1808_fort_dearborn_draught",
+      "path": "chicago/4d/data/sources/whistler_1808_fort_dearborn_draught.json",
+      "sha256": "d2a0d2cd0a45a8770f5212bbee3694a1ff47d4d76be500396e8c0fb3b2714ee5",
+      "type": "map",
+      "date": "1808-01-25",
+      "describes_date": "1808",
+      "rights_status": "public_domain",
+      "verified": true,
+      "asset_use": "geometry",
+      "camera_proposed": false,
+      "rights_claim": "Read existing source finding; no new external verification or rights upgrade.",
+      "current_sha256": "d2a0d2cd0a45a8770f5212bbee3694a1ff47d4d76be500396e8c0fb3b2714ee5",
+      "review_disposition": "Existing source/date/rights finding retained; actual consulted picture or container is recorded below."
+    },
+    {
+      "source_id": "chicagology_prefire274",
+      "path": "chicago/4d/data/sources/chicagology_prefire274.json",
+      "sha256": "f99a3c0831375cf4120f0f5e35d0cb409bad68fee87399d41a8e57677073659c",
+      "type": "website",
+      "date": "accessed 2026-08-09",
+      "describes_date": "1803-1857",
+      "rights_status": "check_required",
+      "verified": true,
+      "asset_use": "cross_check",
+      "camera_proposed": false,
+      "rights_claim": "Read existing source finding; no new external verification or rights upgrade.",
+      "current_sha256": "f99a3c0831375cf4120f0f5e35d0cb409bad68fee87399d41a8e57677073659c",
+      "review_disposition": "Existing source/date/rights finding retained; actual consulted picture or container is recorded below."
+    },
+    {
+      "source_id": "quaife_1913",
+      "path": "chicago/4d/data/sources/quaife_1913.json",
+      "sha256": "6d75f22d77036fc49e4c4a112343c9e2270afe0bdbce4ace733d55561eb673ae",
+      "type": "book",
+      "date": "1913",
+      "describes_date": "1673-1835",
+      "rights_status": "public_domain",
+      "verified": true,
+      "asset_use": "text_only",
+      "camera_proposed": false,
+      "rights_claim": "Read existing source finding; no new external verification or rights upgrade.",
+      "current_sha256": "6d75f22d77036fc49e4c4a112343c9e2270afe0bdbce4ace733d55561eb673ae",
+      "review_disposition": "Existing source/date/rights finding retained; actual consulted picture or container is recorded below."
+    }
+  ],
+  "date_guards": [
+    "Scene1812 target1812-08-14 is firstfort, not replacement1816/1835.",
+    "Kurzpanel1 depictsfirstfort; panel5 rebuilt1835 andpanel8 town1830 belong to secondfort-era questions, never transfer them to1812.",
+    "Lossing1869 retrospective1804-1812 scene does not prove a1804 alteration date or a contemporaneous eyewitness.",
+    "WhistlerJan25/Feb20,1808 not-yet-built cupolas remain counterevidence for1808; owner-adopted1812 completion is inferred.",
+    "Currey1912after1898model/1899newspaper is retrospective form only.",
+    "Chicagology274 website ischeck_required container with1857text,1808plan and1902Earle illustration; no inherited globalpublic-domain claim."
+  ],
+  "getty_held_group": {
+    "preview_files": [
+      "chicago_fort_dearborn_1803_getty.jpg",
+      "chicago_fort_dearborn_1803_getty_2.jpg",
+      "chicago_fort_dearborn_1803_getty_3.jpg",
+      "chicago_fort_dearborn_watercolor_1803_getty.jpg"
+    ],
+    "disposition": "Account as one heldpreview group; independence and original publication not established by this packet. Existinglocalcaption assertions are not a rightsupgrade. None is enrolled in candidate cameras or used to generate geometry.",
+    "individual_actual_readings": [
+      {
+        "id": "getty_print",
+        "path": "../reference/images/chicago/licensed_previews/chicago_fort_dearborn_1803_getty.jpg",
+        "sha256": "2ba4750a8df54736ded874c6ca6cac5b6ccc5f2c270f9a098b733b9abcc88496",
+        "observation": "Black-and-white fort print with two central roof towers, long outer ranges, stockade and a separate two-storey outside gallery. No named identity for that gallery is supplied.",
+        "use": "read-only coverage; no geometry/camera/source-photo derivative",
+        "rights_status": "check_required_retained",
+        "independence_claimed": false
+      },
+      {
+        "id": "getty_earle_framed",
+        "path": "../reference/images/chicago/licensed_previews/chicago_fort_dearborn_1803_getty_2.jpg",
+        "sha256": "c3ba066c71715bff02ee83fc837f38eef07a6e3f78d8f0aa2d22cf49ea46d8a4",
+        "observation": "Framed Earle painting labelled Fort Dearborn1803 with riverbank, corner blockhouse and small roof lookout. Painted colour/caption supplies no verified copyright/publication or measured plan.",
+        "use": "read-only coverage; no geometry/camera/source-photo derivative",
+        "rights_status": "check_required_retained",
+        "independence_claimed": false
+      },
+      {
+        "id": "getty_arch_topped_painting",
+        "path": "../reference/images/chicago/licensed_previews/chicago_fort_dearborn_1803_getty_3.jpg",
+        "sha256": "1b468b7b96a3441d793383d65bb16afc7089f5a36c6bd40f308766644b930db3",
+        "observation": "Arch-topped painting of a riverbank approach with prominent blockhouse, distant range and occupants. A different retrospective composition; no record identities or dimensions independently established.",
+        "use": "read-only coverage; no geometry/camera/source-photo derivative",
+        "rights_status": "check_required_retained",
+        "independence_claimed": false
+      },
+      {
+        "id": "getty_watercolor",
+        "path": "../reference/images/chicago/licensed_previews/chicago_fort_dearborn_watercolor_1803_getty.jpg",
+        "sha256": "55112aa187897f4891a53db50e986bcd82517c9b1c58810440ac15be58c75001",
+        "observation": "Watercolour with central fort, river, and a separate outside galleried house; no record-specific assignment or literal historical colour is made.",
+        "use": "read-only coverage; no geometry/camera/source-photo derivative",
+        "rights_status": "check_required_retained",
+        "independence_claimed": false
+      }
+    ]
+  },
+  "not_a_reading": "Source/date/rights re-review of already catalogued pictures for final original-scope coverage; no new source finding or rights upgrade.",
+  "actual_allowed_picture_readings": [
+    {
+      "source_id": "currey_1912_first_fort_birdseye",
+      "path": "../reference/images/chicago/chicago_fort_dearborn_birdseye_1812.jpg",
+      "sha256": "2f2b1e60fd78cb91956d16a50af526886b67c0b5fdc0337610ca5ad331360a1f",
+      "disposition": "Actual source plus current canonicalpair read; four owner-adopted elements already represented, remaining plan/proportion/gate/stacks ruled by T3335."
+    },
+    {
+      "source_id": "kurz_allison_1893",
+      "path": "data/sources/assets/prefire_views_kevin_2026_08/p4_0.png",
+      "sha256": "fafa8793588f24b403e7f8ede60cc7cfd03647d31691e06320cd340c1869b49e",
+      "disposition": "Actual panel1 plus canonicalpair read; current surveyed corner-tower separation and range functions are owner plan choices; outside gallery unidentified, no arbitrary replacement."
+    },
+    {
+      "source_id": "lossing_1869_kinzie_mansion_engraving",
+      "path": "../reference/images/chicago/chicago_kinzie_house_fort_dearborn_1812.jpg",
+      "sha256": "754e804e82934c901813a33eb65cad1ba1412378eeed1da39f12c451727e4536",
+      "disposition": "Actual full engraving read; independent fort-only diagnostic prepared; house-fit camera remains separate, all source pixels retained."
+    },
+    {
+      "source_id": "whistler_1808_fort_dearborn_draught",
+      "url": "https://www.gutenberg.org/files/69274/69274-h/images/fpage164_lg.png",
+      "sha256": "4568caacfde738aa5273411ac27a61a2a350dc78b715ea75ee8eab66af72bfb1",
+      "disposition": "Actual full1600x2290 contemporary plan re-read, exact recorded hash; plan/elevation mixing, omitted coveredway and dottedwharf preserved. No refit or new survey inference."
+    }
+  ],
+  "actual_container_review": {
+    "source_id": "chicagology_prefire274",
+    "html_url": "https://chicagology.com/prefire/prefire274/",
+    "html_sha256": "7e54a2d2a47753fbb2d037f2ee933664627b5c277a527ad06f8b7a183a1a8220",
+    "rights_status": "check_required_retained",
+    "read_only": true,
+    "derives_geometry_or_camera": false,
+    "individual_images": [
+      {
+        "filename": "chicagomagazinemarch1857fortdearborn1804.jpg",
+        "raw_reading_sha256": "0b9d3476e95b3d460bf0a757420f190d3f4674d95cdfe4bd2f369a4dbe4be6b1",
+        "observation": "The attributed1857 Kinzie-supplied view: clustered central towers/ranges and separate outside gallery, caption1804. Ownerplan retained, outsidegallery not assigned from juxtaposed prose.",
+        "use": "read-only source coverage; no derived asset, model or camera"
+      },
+      {
+        "filename": "fortdearborn1804.jpg",
+        "raw_reading_sha256": "0c7ff0b7fa5942421dc2c109c10ecc5abac62c104c4e84e66f33745778dc8c93",
+        "observation": "A related engraved fort/river/outside-gallery composition with altered smoke/shore/roof details. No independent record identity or measured plan inferred.",
+        "use": "read-only source coverage; no derived asset, model or camera"
+      },
+      {
+        "filename": "fortdearbornplanwhistler.jpg",
+        "raw_reading_sha256": "85eab98299797b4a87fd01a57194735054b872b5b083f152d70eb89d851b6d8e",
+        "observation": "Whistler plan reproduction including folded elevations and scale differences. The independently qualified exact Gutenberg plan, not this held container copy, governs geometry.",
+        "use": "read-only source coverage; no derived asset, model or camera"
+      },
+      {
+        "filename": "ftdearborn1803.jpg",
+        "raw_reading_sha256": "e2e25fcc77469fb897a361eb01416716c167cca3c051ab44868b130168f7e569",
+        "observation": "Colour arch-topped Earle painting also related to the held Getty painting preview. No independence assumed, no literal colour or geometry/camera derived.",
+        "use": "read-only source coverage; no derived asset, model or camera"
+      }
+    ],
+    "limits": "The source container presents1857 magazine prose/sketch, an additional related engraving, Whistler1808 and a1902 Earle mural together. These are not one date or a blanket licence; the independently verified public-domain Whistler/Currey/Kurz/Lossing witnesses supply permitted comparisons. Outside-gallery identity is not settled merely because adjacent prose describes the factory."
+  }
+}

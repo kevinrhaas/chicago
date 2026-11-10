@@ -863,8 +863,9 @@ def _fenestration_gable_front(b: MeshBuilder, params: FrameTavernParams, w: floa
     _door(b, params, "y", d, 1, door_cx - 0.6, door_cx + 0.6, 0.0, 2.1, ground_conf)
     for story in range(params.stories):
         z0 = story * story_h + story_h * 0.30
-        centres = (w * .22, w * .78) if story else ground_sash_centres
-        window_conf = ground_conf if story == 0 else conf
+        centres = params.resolved_front_upper_stations if story else ground_sash_centres
+        upper_conf = conf if params.front_upper_layout is None else max(conf,params.conf("front_upper_layout"))
+        window_conf = ground_conf if story == 0 else upper_conf
         for cx in centres:
             _win(b, params, "y", d, 1, cx - win_w / 2, cx + win_w / 2, z0, z0 + win_h,
                  window_conf)

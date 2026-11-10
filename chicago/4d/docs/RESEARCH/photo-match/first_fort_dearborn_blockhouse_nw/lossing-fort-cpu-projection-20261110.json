@@ -1,0 +1,391 @@
+{
+  "status": "CPU_ENVELOPE_FRAMING_NOT_IMAGE_MATCH_OR_HISTORICAL_CAMERA",
+  "source_sha256": "754e804e82934c901813a33eb65cad1ba1412378eeed1da39f12c451727e4536",
+  "heading_deg": 128.0,
+  "review_eye_height_m": 5.75,
+  "virtual_focal_px": 1600.0,
+  "fit_variables": {
+    "range_m": 185.7012101403903,
+    "principal_px": [
+      644.7421812860637,
+      205.0533635852613
+    ]
+  },
+  "eye": [
+    -128.92455054840912,
+    102.08908100479279,
+    5.75
+  ],
+  "foot_envelope_controls_px": {
+    "min_x": 445,
+    "max_x": 850,
+    "mean_foot_y": 255
+  },
+  "residual_px": [
+    5.684341886080802e-14,
+    1.1368683772161603e-13,
+    2.842170943040401e-14
+  ],
+  "projected_perimeter_corners": [
+    [
+      850.0000000000001,
+      255.27933356599314,
+      183.17217175754678
+    ],
+    [
+      669.4627256199337,
+      249.04861318041446,
+      209.11348576628012
+    ],
+    [
+      445.00000000000006,
+      253.92967370108425,
+      188.23024852323383
+    ],
+    [
+      612.8891211180363,
+      261.74237955250817,
+      162.28893451450048
+    ]
+  ],
+  "all14_actual_master_vertex_bounds_px_depth": {
+    "min": [
+      444.49880211524123,
+      57.383667672327334,
+      159.85688578956766
+    ],
+    "max": [
+      850.2482312707641,
+      262.23828661691687,
+      211.80188222264556
+    ]
+  },
+  "staff_projected_bounds": {
+    "min": [
+      642.8269383485471,
+      57.383667672327334,
+      185.30483769314938
+    ],
+    "max": [
+      645.3957684341799,
+      254.7012848944421,
+      185.60260154191232
+    ]
+  },
+  "all14_in_frame": true,
+  "current_inputs": [
+    {
+      "id": "first_fort_dearborn_blockhouse_nw",
+      "glb": "assets/gltf/first_fort_dearborn_blockhouse_nw__first_fort_1803.glb",
+      "glb_sha256": "2567def5a0c657bc40e051bce905fe3c8b8b66f73d46171fcc57dd73d97913fc",
+      "sidecar_sha256": "9e1a04371628fe00b2b29b195c7391bc018ba52b3b11573b194771613a4982b9",
+      "placement": {
+        "local_e": 1134.99,
+        "local_n": 233.28,
+        "rotation_deg": 0.0
+      },
+      "vertices": 2664,
+      "enu_min": [
+        -0.7300000190734863,
+        -0.7300000190734863,
+        0.0
+      ],
+      "enu_max": [
+        6.0,
+        6.519999980926514,
+        8.775398254394531
+      ]
+    },
+    {
+      "id": "first_fort_dearborn_pickets_outer",
+      "glb": "assets/gltf/first_fort_dearborn_pickets_outer__first_fort_1803.glb",
+      "glb_sha256": "79bad82805bd76ba85170f80f95f3a5a0436a09824883ad92a1aa565bc589c7d",
+      "sidecar_sha256": "cb25481504e2e9717b5bcf7f7a109128ed23ee9451afedacc76817a71dd332b4",
+      "placement": {
+        "local_e": 1135.94,
+        "local_n": 204.08,
+        "rotation_deg": 0.0
+      },
+      "vertices": 18668,
+      "enu_min": [
+        0.8247354149818875,
+        -29.370000001788128,
+        0.0
+      ],
+      "enu_max": [
+        33.99512023925786,
+        4.845269012451183,
+        3.880000114440918
+      ]
+    },
+    {
+      "id": "first_fort_dearborn_blockhouse_se",
+      "glb": "assets/gltf/first_fort_dearborn_blockhouse_se__first_fort_1803.glb",
+      "glb_sha256": "4b52564cd577363639667ed59c38564fb997e5e5496291cfaf3799d0e208352a",
+      "sidecar_sha256": "bd4bcf1b9d835ae0fa9fd7ea9bc27390e138c16225f3a5760b0df9d7ae90f985",
+      "placement": {
+        "local_e": 1164.34,
+        "local_n": 203.08,
+        "rotation_deg": 0.0
+      },
+      "vertices": 2556,
+      "enu_min": [
+        28.619999980926423,
+        -30.930000019073475,
+        0.0
+      ],
+      "enu_max": [
+        35.929999923705964,
+        -23.859999847412098,
+        8.87354850769043
+      ]
+    },
+    {
+      "id": "first_fort_dearborn_commanding_officers_barracks",
+      "glb": "assets/gltf/first_fort_dearborn_commanding_officers_barracks__first_fort_1803.glb",
+      "glb_sha256": "3e83f809c2e82363351f1d953552ac456b64d5af930cd1d9ce347983e4a31be3",
+      "sidecar_sha256": "b04abedc7de2c120d4cb7627f4084a272fc82861ac76cbd2cd31a308e52c4ecc",
+      "placement": {
+        "local_e": 1165.84,
+        "local_n": 218.23,
+        "rotation_deg": 270.0
+      },
+      "vertices": 4754,
+      "enu_min": [
+        24.549999809265046,
+        -15.35000001192094,
+        0.0
+      ],
+      "enu_max": [
+        31.150000011920838,
+        -5.640000152587902,
+        7.145879745483398
+      ]
+    },
+    {
+      "id": "first_fort_dearborn_flagstaff",
+      "glb": "assets/gltf/first_fort_dearborn_flagstaff__first_fort_1803.glb",
+      "glb_sha256": "c357d3b79c954102b992399cd8e72406a97a3c71b8f1c4d7fe001c6e8a354025",
+      "sidecar_sha256": "13bbd6c0a13b03d883df8037341ac0b0cf45726a902463668a81c52c3bd37aae",
+      "placement": {
+        "local_e": 1152.0,
+        "local_n": 221.0,
+        "rotation_deg": 0.0
+      },
+      "vertices": 40,
+      "enu_min": [
+        17.110000001490107,
+        -12.179999998509885,
+        0.0
+      ],
+      "enu_max": [
+        17.410000005960455,
+        -11.879999994039537,
+        22.860000610351562
+      ]
+    },
+    {
+      "id": "first_fort_dearborn_magazine",
+      "glb": "assets/gltf/first_fort_dearborn_magazine__first_fort_1803.glb",
+      "glb_sha256": "6ed239cb5eed46fbcf64796369423497e70de6cca0442bd4f2cbb88d3bde39cf",
+      "sidecar_sha256": "5d4bd577ea9f54f054087ea5879d6e683183c1f7ad55b1de96c29fd35bf50fc3",
+      "placement": {
+        "local_e": 1149.32,
+        "local_n": 233.62,
+        "rotation_deg": 180.0
+      },
+      "vertices": 738,
+      "enu_min": [
+        9.520000057220386,
+        -3.009999904632565,
+        0.0
+      ],
+      "enu_max": [
+        14.630000011920856,
+        0.6400000119209324,
+        3.6286253929138184
+      ]
+    },
+    {
+      "id": "first_fort_dearborn_north_range",
+      "glb": "assets/gltf/first_fort_dearborn_north_range__first_fort_1803.glb",
+      "glb_sha256": "65189f569d9511791d070e5a019238d523eb7774912bb0f44bc6ec672ebf4797",
+      "sidecar_sha256": "887f592227345afecc813c48bc9f35b9e8cb6a03ca26af87b119c01c43b1c7f1",
+      "placement": {
+        "local_e": 1159.56,
+        "local_n": 234.9,
+        "rotation_deg": 180.0
+      },
+      "vertices": 4282,
+      "enu_min": [
+        16.709999866485532,
+        -4.260000114440913,
+        0.0
+      ],
+      "enu_max": [
+        24.870000011920865,
+        1.9200000119209335,
+        7.004232883453369
+      ]
+    },
+    {
+      "id": "first_fort_dearborn_officers_barracks",
+      "glb": "assets/gltf/first_fort_dearborn_officers_barracks__first_fort_1803.glb",
+      "glb_sha256": "e16d5db907e36ff84eb9acba04165cd33e654f4ccd41e522fd2c44888f33a4c0",
+      "sidecar_sha256": "8e9386f52c6aa462fa387354a88fe872ff94a1a79ea80e199fdbb6b3fdfc89bf",
+      "placement": {
+        "local_e": 1138.53,
+        "local_n": 227.0,
+        "rotation_deg": 90.0
+      },
+      "vertices": 5822,
+      "enu_min": [
+        3.2399999880790347,
+        -19.929999618530275,
+        0.0
+      ],
+      "enu_max": [
+        9.509999790191614,
+        -5.979999988079072,
+        7.034585952758789
+      ]
+    },
+    {
+      "id": "first_fort_dearborn_parade",
+      "glb": "assets/gltf/first_fort_dearborn_parade__first_fort_1803.glb",
+      "glb_sha256": "85a49f66d032d59f1e780e5de77db590608b207948865bfb520ad4e891d74e57",
+      "sidecar_sha256": "670bc623907434192f55d1016058c9ef3e10e9c6e183d231761422db73dd53e9",
+      "placement": {
+        "local_e": 1144.11,
+        "local_n": 213.04,
+        "rotation_deg": 0.0
+      },
+      "vertices": 20,
+      "enu_min": [
+        9.11999999999989,
+        -20.24000000000001,
+        0.0
+      ],
+      "enu_max": [
+        24.630000228881727,
+        -3.780000915527353,
+        0.05999999865889549
+      ]
+    },
+    {
+      "id": "first_fort_dearborn_pickets_inner",
+      "glb": "assets/gltf/first_fort_dearborn_pickets_inner__first_fort_1803.glb",
+      "glb_sha256": "a655faa576521b03877967fc0fcb36727186da408c3625e6fb8ddc1121f975cf",
+      "sidecar_sha256": "ba012e0cdc93a84ad8737e84fcbfdb1050237a36bab44357039fb394f33566ac",
+      "placement": {
+        "local_e": 1138.53,
+        "local_n": 207.1,
+        "rotation_deg": 0.0
+      },
+      "vertices": 15434,
+      "enu_min": [
+        3.414790236353838,
+        -26.350000001788146,
+        0.0
+      ],
+      "enu_max": [
+        30.975237884521448,
+        1.7451651763915947,
+        3.880000114440918
+      ]
+    },
+    {
+      "id": "first_fort_dearborn_small_house_ne",
+      "glb": "assets/gltf/first_fort_dearborn_small_house_ne__first_fort_1803.glb",
+      "glb_sha256": "1e275240d88cab9f5a9ac4a47d4fd90f7e08204e310cb630a00a003455633c8c",
+      "sidecar_sha256": "3198cf93add924fcb8799f9b0f0212e521252997083dc49344b8da3684c631a0",
+      "placement": {
+        "local_e": 1165.84,
+        "local_n": 234.78,
+        "rotation_deg": 180.0
+      },
+      "vertices": 1916,
+      "enu_min": [
+        26.82231674194327,
+        -1.8079333305358887,
+        0.0
+      ],
+      "enu_max": [
+        31.167294985055833,
+        1.7679447829723358,
+        3.4623525142669678
+      ]
+    },
+    {
+      "id": "first_fort_dearborn_small_house_sw",
+      "glb": "assets/gltf/first_fort_dearborn_small_house_sw__first_fort_1803.glb",
+      "glb_sha256": "32a70d9d187a619d72b8cd3debf1de60be1700ad5dfebd9a08285beb1be02613",
+      "sidecar_sha256": "52e50c1affe26968175c0addb4196ae415ad20b2742fe0cf6157fc2a936c36a2",
+      "placement": {
+        "local_e": 1139.72,
+        "local_n": 208.44,
+        "rotation_deg": 0.0
+      },
+      "vertices": 928,
+      "enu_min": [
+        4.50182976901533,
+        -25.01039999365807,
+        0.0
+      ],
+      "enu_max": [
+        6.604238491058368,
+        -22.319599952697757,
+        2.999645471572876
+      ]
+    },
+    {
+      "id": "first_fort_dearborn_soldiers_barracks_se",
+      "glb": "assets/gltf/first_fort_dearborn_soldiers_barracks_se__first_fort_1803.glb",
+      "glb_sha256": "51f3d942ea8871a0be70533a392987a6c05019a0d4cebd7e95f48f665af0fd59",
+      "sidecar_sha256": "b9568c53e9a2932807f9e040e006e3632f2efe218430afacb6a2c3796df55c7d",
+      "placement": {
+        "local_e": 1150.51,
+        "local_n": 207.1,
+        "rotation_deg": 0.0
+      },
+      "vertices": 4214,
+      "enu_min": [
+        15.219999988079053,
+        -26.480000011920936,
+        0.0
+      ],
+      "enu_max": [
+        22.889999885559064,
+        -19.879999809265144,
+        7.145879745483398
+      ]
+    },
+    {
+      "id": "first_fort_dearborn_soldiers_barracks_sw",
+      "glb": "assets/gltf/first_fort_dearborn_soldiers_barracks_sw__first_fort_1803.glb",
+      "glb_sha256": "8e02cd7d24d42dec902435142aee5aad9650ca024af6e59422b16bae6dab9239",
+      "sidecar_sha256": "cac37d7f20fdab64bec1899743fbfa4fe4be6c381b9f37c7061aff529ce876c2",
+      "placement": {
+        "local_e": 1141.88,
+        "local_n": 207.1,
+        "rotation_deg": 0.0
+      },
+      "vertices": 4166,
+      "enu_min": [
+        6.589999988079171,
+        -26.480000011920936,
+        0.0
+      ],
+      "enu_max": [
+        13.929999961853127,
+        -19.879999809265144,
+        7.145879745483398
+      ]
+    }
+  ],
+  "limits": [
+    "Envelope fit is not a historical calibrated camera.",
+    "Source staff appears aroundx540/y100 while model staff retains documented75ft at measured parade centre.",
+    "No source identity is assigned to outer/hidden members."
+  ]
+}

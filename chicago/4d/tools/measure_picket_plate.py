@@ -30,7 +30,9 @@ standing at the north wall sees the sawtooth plainly; `docs/evidence/t-0094-*`
 are that view and the plate beside it.
 
 So the gate below is not an improvement, it is a **ratchet on something that was
-already true**: if the stockade ever loses its head — a flattened archetype, a
+already true**: the exact per-side owner wicket posts are measured separately
+(their existing kit rises 0.18 m above the pales). Only their five verified faces
+are excluded; every curtain vertex and individual head remains checked. If the stockade ever loses its head — a flattened archetype, a
 decimation pass that eats the apexes, a record that drives the point to nothing —
 this fails and names it, instead of the claim being re-filed from a screenshot.
 
@@ -102,6 +104,9 @@ the same bargain `tools/measure_reference.py` makes.
 from __future__ import annotations
 
 import argparse
+import ast
+import collections
+import copy
 import json
 import math
 import pathlib
@@ -196,46 +201,206 @@ def read_accessor(js, bin_, index):
             for i in range(acc["count"])]
 
 
-def model_head(glb: pathlib.Path = GLB) -> dict:
-    """What the committed mesh actually builds on top of a picket.
+# Float32 master coordinates, not a new architectural height allowance.
+POSITION_EPS_M = 0.0001
 
-    Blender exports Y-up, so a picket's height is the mesh's +Y. Every post is a
-    shaft with a four-triangle head, so the picket primitive's vertices land on
-    exactly three heights and the top one is the apexes.
+
+def wicket_posts(record: dict) -> tuple:
+    """Resolve each selected side through the actual pure params and owner kit.
+
+    Execute only _gate/_post/_beam and their literal constants from the geometry
+    owner, with a polygon collector. No bpy import, alternative kit dimensions or
+    whole-height cap: the resulting five exact faces identify each allowed post.
     """
-    js, bin_ = read_glb(glb)
+    sys.path.insert(0, str(ROOT / "generators"))
+    from archetypes.palisade_params import from_phase
+    params = from_phase(record["phases"][0], record)
+    params.validate()
+    owner = ROOT / "generators/archetypes/palisade.py"
+    tree = ast.parse(owner.read_text())
+    constants = {"M_PICKET", "M_TIMBER", "M_DARK",
+                 "WICKET_POST_HALF_M", "WICKET_POST_RISE_M"}
+    nodes = [ast.ImportFrom(module="__future__",
+                            names=[ast.alias(name="annotations")], level=0)]
+    for node in tree.body:
+        if isinstance(node, ast.Assign):
+            names = {n.id for t in node.targets for n in ast.walk(t)
+                     if isinstance(n, ast.Name)}
+            if names and names <= constants:
+                ast.literal_eval(node.value)  # reject executable constant expressions
+                nodes.append(node)
+        elif isinstance(node, ast.FunctionDef) and node.name in ("_gate", "_post", "_beam"):
+            nodes.append(node)
+    namespace = {}
+    exec(compile(ast.fix_missing_locations(ast.Module(body=nodes, type_ignores=[])),
+                 str(owner), "exec"), namespace)
+    posts = []
+
+    class Polygons:
+        def __init__(self):
+            self.faces = []
+
+        def add_poly(self, points, confidence, mat=0):
+            self.faces.append((points, mat))
+
+    original = namespace["_post"]
+
+    def capture(builder, *args, **kwargs):
+        before = len(builder.faces)
+        original(builder, *args, **kwargs)
+        faces = builder.faces[before:]
+        if any(mat != namespace["M_PICKET"] for _, mat in faces):
+            raise Fault("wicket owner changed its picket-material contract")
+        # Blender east/north/up -> glTF east/up/south, exactly as the master.
+        posts.append({"side": side, "faces": [
+            [(float(x), float(h), float(-n)) for x, n, h in points]
+            for points, _ in faces]})
+
+    namespace["_post"] = capture
+    for side in params.gate_sides:
+        if params.gate(side)["kind"] == "wicket":
+            namespace["_gate"](Polygons(), params, side, params.gate_conf(side))
+    return params, posts
+
+
+def picket_geometry(js, bin_) -> list:
     names = [m.get("name") for m in js.get("materials", [])]
     if PICKET_MATERIAL not in names:
-        raise Fault(f"{glb.name} has no '{PICKET_MATERIAL}' material — it carries "
-                    f"{names}; the picket surface cannot be identified")
-    want = names.index(PICKET_MATERIAL)
-    prim = next((p for m in js["meshes"] for p in m["primitives"]
-                 if p.get("material") == want), None)
-    if prim is None:
-        raise Fault(f"{glb.name} draws nothing with the '{PICKET_MATERIAL}' material")
-    ys = [round(v[1], 4) for v in read_accessor(js, bin_, prim["attributes"]["POSITION"])]
-    levels = sorted({y: ys.count(y) for y in set(ys)}.items())
-    if len(levels) < 3:
-        raise Fault(f"the picket surface stands on {len(levels)} height(s) "
-                    f"{[lv[0] for lv in levels]} — a shaft and a head make three")
-    (_foot, n_foot), (shoulder, n_shoulder), (apex, n_apex) = levels[0], levels[-2], levels[-1]
-    record = json.loads(RECORD.read_text())
+        raise Fault(f"no '{PICKET_MATERIAL}' material — it carries {names}")
+    out = []
+    for mesh in js["meshes"]:
+        for prim in mesh["primitives"]:
+            if names[prim.get("material", -1)] != PICKET_MATERIAL:
+                continue
+            if prim.get("mode", 4) != 4:
+                raise Fault("picket surface is not triangles")
+            pos = read_accessor(js, bin_, prim["attributes"]["POSITION"])
+            indices = ([v[0] for v in read_accessor(js, bin_, prim["indices"])]
+                       if "indices" in prim else list(range(len(pos))))
+            if len(indices) % 3:
+                raise Fault("picket triangle index count is not divisible by three")
+            out.append({"positions": pos, "triangles": [
+                tuple(indices[i:i + 3]) for i in range(0, len(indices), 3)]})
+    if not out:
+        raise Fault(f"nothing draws the '{PICKET_MATERIAL}' surface")
+    return out
+
+
+def measure_curtain(geometry: list, record: dict, name: str) -> dict:
+    """Remove ONLY complete, exact owner-kit posts, then measure every pale.
+
+    Merely being inside a post volume is insufficient: all five owner faces must
+    be present as two proper triangles each, at the exact corners. Partial,
+    extra, missing or oversized geometry is refused. Every other log vertex and
+    triangle stays subject to the record's curtain height and pointed-head test.
+    """
+    params, posts = wicket_posts(record)
+    excluded = [set() for _ in geometry]
+    excluded_tris = [set() for _ in geometry]
+    summaries = []
+    for post in posts:
+        faces = post["faces"]
+        corners = list(dict.fromkeys(v for face in faces for v in face))
+        lo = [min(v[k] for v in corners) for k in range(3)]
+        hi = [max(v[k] for v in corners) for k in range(3)]
+        inside = lambda v: all(lo[k] - POSITION_EPS_M <= v[k] <= hi[k] + POSITION_EPS_M
+                               for k in range(3))
+        found = [[] for _ in faces]
+        owned = []
+        for pi, primitive in enumerate(geometry):
+            for ti, tri in enumerate(primitive["triangles"]):
+                verts = [primitive["positions"][i] for i in tri]
+                hit = [inside(v) for v in verts]
+                if not any(hit):
+                    continue
+                if not all(hit):
+                    raise Fault("log triangle straddles an owner wicket-post volume")
+                mapped = []
+                for v in verts:
+                    matches = [i for i, c in enumerate(corners)
+                               if all(abs(v[k] - c[k]) <= POSITION_EPS_M for k in range(3))]
+                    if len(matches) != 1:
+                        raise Fault("wicket-post volume contains a non-owner corner")
+                    mapped.append(matches[0])
+                if len(set(mapped)) != 3:
+                    raise Fault("degenerate wicket-post triangle")
+                owners = [i for i, face in enumerate(faces)
+                          if set(mapped) <= {corners.index(v) for v in face}]
+                if len(owners) != 1:
+                    raise Fault("wicket triangle is not one of the owner's five faces")
+                found[owners[0]].append(set(mapped))
+                owned.append((pi, ti, tri))
+        for face, triangles in zip(faces, found):
+            order = [corners.index(v) for v in face]
+            if (len(triangles) != 2 or triangles[0] | triangles[1] != set(order)
+                    or triangles[0] & triangles[1] not in
+                    ({order[0], order[2]}, {order[1], order[3]})):
+                raise Fault("wicket post is missing, oversized or not the exact owner kit")
+        for pi, ti, tri in owned:
+            if ti in excluded_tris[pi]:
+                raise Fault("overlapping owner wicket-post volumes")
+            excluded[pi].update(tri)
+            excluded_tris[pi].add(ti)
+        summaries.append({"side": post["side"], "min": lo, "max": hi,
+                          "triangles": len(owned)})
+
+    expected = (0.0, params.picket_height_m - params.picket_point_m,
+                params.picket_height_m)
+
+    def level(v):
+        hits = [i for i, y in enumerate(expected) if abs(v[1] - y) <= POSITION_EPS_M]
+        if len(hits) != 1:
+            raise Fault(f"curtain vertex height {v[1]:.6f} is not record foot/shoulder/apex {expected}")
+        return hits[0]
+
+    ys = []
+    shaft_shoulders, head_shoulders = set(), set()
+    apex_triangles = collections.Counter()
+    key = lambda v: tuple(round(x, 5) for x in v)
+    for pi, primitive in enumerate(geometry):
+        for vi, v in enumerate(primitive["positions"]):
+            if vi not in excluded[pi]:
+                ys.append(round(expected[level(v)], 4))
+        for ti, tri in enumerate(primitive["triangles"]):
+            if ti in excluded_tris[pi]:
+                continue
+            verts = [primitive["positions"][i] for i in tri]
+            levels = [level(v) for v in verts]
+            if set(levels) == {0, 1}:
+                shaft_shoulders.update(key(v) for v, l in zip(verts, levels) if l == 1)
+            elif set(levels) == {1, 2} and levels.count(2) == 1:
+                head_shoulders.update(key(v) for v, l in zip(verts, levels) if l == 1)
+                apex_triangles.update(key(v) for v, l in zip(verts, levels) if l == 2)
+            else:
+                raise Fault("curtain triangle is a flat cap or not a shaft/point")
+    if shaft_shoulders != head_shoulders or not apex_triangles:
+        raise Fault("every curtain shaft must meet its own sharpened head")
+    if any(n != HEAD_TRIS for n in apex_triangles.values()):
+        raise Fault("curtain apex does not carry the owner's six head triangles")
+    levels = sorted(collections.Counter(ys).items())
+    if len(levels) != 3:
+        raise Fault(f"curtain stands on {len(levels)} levels, not foot/shoulder/apex")
+    (_foot, n_foot), (shoulder, n_shoulder), (apex, n_apex) = levels
     form = record["phases"][0]["form"]
     return {
-        "glb": glb.name,
-        "verts": len(ys),
+        "glb": name, "verts": len(ys),
         "levels": [{"y_m": y, "verts": n} for y, n in levels],
-        "foot_verts": n_foot,
-        "shoulder_m": shoulder,
-        "shoulder_verts": n_shoulder,
-        "apex_m": apex,
-        "apex_verts": n_apex,
+        "foot_verts": n_foot, "shoulder_m": shoulder,
+        "shoulder_verts": n_shoulder, "apex_m": apex, "apex_verts": n_apex,
         "point_m": round(apex - shoulder, 4),
         "point_fraction": round((apex - shoulder) / apex, 4) if apex else 0.0,
         "posts": n_apex // HEAD_TRIS,
         "record_picket_height_m": form["picket_height_m"]["value"],
         "record_picket_height_confidence": form["picket_height_m"]["confidence"],
+        "owner_wicket_posts": summaries,
+        "excluded_owner_post_vertices": sum(map(len, excluded)),
     }
+
+
+def model_head(glb: pathlib.Path = GLB) -> dict:
+    """The curtain's head, excluding only independently verified owner-kit posts."""
+    js, bin_ = read_glb(glb)
+    return measure_curtain(picket_geometry(js, bin_), json.loads(RECORD.read_text()), glb.name)
 
 
 def gate(head: dict, echo=print) -> int:
@@ -598,6 +763,86 @@ def self_test() -> int:
         print("  SELF-TEST FAIL: the committed master does not pass its own gate")
     else:
         print("  passes: the committed master, unmodified")
+
+    record = json.loads(RECORD.read_text())
+    js, bin_ = read_glb(GLB)
+    geometry = picket_geometry(js, bin_)
+    _params, owned = wicket_posts(record)
+
+    def reject(label, mutate):
+        altered = copy.deepcopy(geometry)
+        mutate(altered)
+        try:
+            result = measure_curtain(altered, record, label)
+            rejected = gate(result, echo=quiet) != 0
+        except Fault:
+            rejected = True
+        if rejected:
+            print("  fires: " + label)
+        else:
+            failures.append(label)
+            print("  SELF-TEST FAIL: " + label + " passed")
+
+    def move_apex(g, delta):
+        for prim in g:
+            prim["positions"] = [(x, y + delta if abs(y - real["apex_m"]) < POSITION_EPS_M else y, z)
+                                 for x, y, z in prim["positions"]]
+
+    reject("actual curtain pales flattened, owner posts retained",
+           lambda g: move_apex(g, -real["point_m"]))
+    reject("actual curtain pales too tall, owner posts retained",
+           lambda g: move_apex(g, 0.18))
+
+    def one_flat_head(g):
+        apex = next(v for prim in g for v in prim["positions"]
+                    if abs(v[1] - real["apex_m"]) < POSITION_EPS_M)
+        for prim in g:
+            prim["positions"] = [(x, real["shoulder_m"], z)
+                                 if all(abs(a-b) < POSITION_EPS_M for a,b in zip((x,y,z),apex))
+                                 else (x,y,z) for x,y,z in prim["positions"]]
+    reject("one flat curtain head among otherwise pointed pales", one_flat_head)
+    if owned:
+        top = max(v[1] for f in owned[0]["faces"] for v in f)
+        if abs(real["apex_m"] - 3.7) > POSITION_EPS_M or abs(top - 3.88) > POSITION_EPS_M:
+            failures.append("actual 3.7 m curtain / 3.88 m kit positive")
+        else:
+            print("  passes: actual 3.70 m pointed curtain and exact 3.88 m owner wicket posts")
+
+        def grow_posts(g):
+            for prim in g:
+                prim["positions"] = [(x, y + 0.03 if abs(y - top) < POSITION_EPS_M else y, z)
+                                     for x, y, z in prim["positions"]]
+        reject("oversized owner-position kit posts", grow_posts)
+
+        def widen_post(g):
+            corners = [v for f in owned[0]["faces"] for v in f]
+            lo = [min(v[k] for v in corners) for k in range(3)]
+            hi = [max(v[k] for v in corners) for k in range(3)]
+            cx = (lo[0] + hi[0]) / 2
+            for prim in g:
+                prim["positions"] = [(cx + 1.5*(v[0]-cx),v[1],v[2])
+                    if all(lo[k]-POSITION_EPS_M <= v[k] <= hi[k]+POSITION_EPS_M for k in range(3))
+                    else v for v in prim["positions"]]
+        reject("oversized kit width at the correct height and seat", widen_post)
+
+        def extra(g, shift, interior=False):
+            faces = owned[0]["faces"]
+            if interior:
+                lo = [min(v[k] for f in faces for v in f) for k in range(3)]
+                hi = [max(v[k] for f in faces for v in f) for k in range(3)]
+                pts = [((lo[0]+hi[0])/2, hi[1], (lo[2]+hi[2])/2),
+                       faces[-1][0], faces[-1][1]]
+                g.append({"positions": pts, "triangles": [(0, 1, 2)]})
+            else:
+                pts, tris = [], []
+                for face in faces:
+                    i = len(pts); pts.extend((x + shift, y, z + shift) for x, y, z in face)
+                    tris.extend([(i, i+1, i+2), (i, i+2, i+3)])
+                g.append({"positions": pts, "triangles": tris})
+        reject("same-height unowned tall geometry in another log primitive",
+               lambda g: extra(g, 5.0))
+        reject("extra geometry INSIDE an owner volume is not an exact kit",
+               lambda g: extra(g, 0, interior=True))
 
     flat = dict(real, apex_m=real["shoulder_m"], point_m=0.0, point_fraction=0.0)
     if gate(flat, echo=quiet) == 0:
