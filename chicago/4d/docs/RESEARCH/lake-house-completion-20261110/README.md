@@ -89,7 +89,8 @@ The earlier model was a uniform four-metre rectangular magazine skin, with one
 painted door surface. The `construction_site` opt-in replaces that with:
 
 - **Real masonry thickness and openings:** 0.46 m walls; seven selected north
-  work bays, with unglazed voids. Only three bays have brickwork bridged overhead.
+  work bays, with unglazed voids. Only three bays have brickwork bridged overhead, supported by timber lintels
+  bearing 0.22 m into each pier. Lintels are reconstructed too.
   The central opening starts at grade; this is no claim of an interior walkthrough.
 - **Uneven working lifts:** north-side wall heights of 4.0, 3.28 and 2.44 m;
   side walls step toward a rear lift of 1.2–2.08 m. A two-metre break in the rear
@@ -130,7 +131,7 @@ geometry and application bar:
    reason instead of claiming `matches`.
 
 Local source checks: schema PASS; helper syntax PASS; the **actual Lake House
-record → the integration `from_phase` → this helper** emits 62 positive-volume
+record → the integration `from_phase` → this helper** emits 65 positive-volume
 solid pieces inside 24 × 15 × 4 m. Every emitted piece has `_CONFIDENCE` input
 1.0: the existing GLB contract assigns attested 0.0, inferred 0.5 and reconstructed
 1.0. The building's attested project existence does not promote its invented

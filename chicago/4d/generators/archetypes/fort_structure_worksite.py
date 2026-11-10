@@ -43,6 +43,10 @@ def build(b, p, timber_mat: int = 4) -> None:
         box(a, d-t, 0, z, d, min(sill, top))
         # Only the first three bays have their brickwork carried across.
         if i < 3:
+            # A reconstructed timber lintel actually supports the raised
+            # brickwork; it bears 0.22 m into each pier and sits flush with
+            # the opening soffit. This is not an unsupported floating span.
+            box(a-.22, d-t+.015, 2.47, z+.22, d-.015, 2.65, timber_mat)
             box(a, d-t, 2.65, z, d, top)
 
     # The opposite working front has reached a lower, stepped lift. A broad
