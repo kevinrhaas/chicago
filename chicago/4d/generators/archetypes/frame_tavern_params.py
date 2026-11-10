@@ -50,7 +50,7 @@ CONSUMED = frozenset({
     "shutter_type", "entrance_frontispiece", "front_opening_details", "front_lower_sash", "chimney_material", "roof_colour",
     "log_wing_door", "log_wing_porch_hood",
     "cross_wing", "cross_wing_depth_m", "cross_wing_end", "enclosed_left_annex",
-    "cross_wing_shared_ridge_join", "ridge_end_chimney_section_m",
+    "cross_wing_shared_ridge_join", "ridge_end_chimney_section_m", "ridge_end_chimney_head",
     "upper_windows", "stovepipes", "rear_ell_door", "eaves_bays", "end_windows",
     "first_story_height_m", "entry_raise_m", "gable_lunette", "front_ground_layout",
     "flagstaff", "flagstaff_height_m", "gable_wall_cladding",
@@ -201,6 +201,8 @@ class FrameTavernParams:
     # Explicit opt-in square section for the two ridge-end shafts. None retains
     # every legacy 0.90 m shaft. Height and plain heads are deliberately unchanged.
     ridge_end_chimney_section_m: float | None = field(default=None, kw_only=True)
+    # Bounded reconstructed cap/head; absent keeps the legacy plain head.
+    ridge_end_chimney_head: dict | None = field(default=None, kw_only=True)
 
     # The resolved LOCAL wall carrying an attested second entrance mid-eaves:
     # None, "x_min" or "x_max". Records state a compass direction
@@ -519,6 +521,24 @@ class FrameTavernParams:
                 raise ParamError("ridge_end_chimney_section_m must be finite in 0.30..1.20 m")
             if self.chimney_placement != "gable_ends" or self.chimneys != 2:
                 raise ParamError("ridge_end_chimney_section_m requires exactly two gable-end stacks")
+        if self.ridge_end_chimney_head is not None:
+            g = self.ridge_end_chimney_head
+            if (self.chimney_placement != "gable_ends" or self.chimneys != 2
+                    or self.ridge_end_chimney_section_m is None):
+                raise ParamError("ridge_end_chimney_head requires two gable-end stacks and explicit section")
+            if self.confidence.get("ridge_end_chimney_head", "reconstructed") != "reconstructed":
+                raise ParamError("ridge_end_chimney_head metric controls must remain reconstructed")
+            bounds = {"height_above_ridge_m": (.4, 1.5), "cap_overhang_m": (.02, .15),
+                      "cap_height_m": (.06, .25)}
+            if not isinstance(g, dict) or set(g) != set(bounds):
+                raise ParamError("ridge_end_chimney_head needs bounded height, overhang and cap height")
+            for key, (lo, hi) in bounds.items():
+                value = g[key]
+                if (isinstance(value, bool) or not isinstance(value, (int, float))
+                        or not math.isfinite(value) or not lo <= value <= hi):
+                    raise ParamError(f"ridge_end_chimney_head {key} must be finite in {lo}..{hi}")
+            if g["height_above_ridge_m"] < g["cap_height_m"] + .2:
+                raise ParamError("ridge_end_chimney_head needs shaft above ridge below its cap")
         if self.chimney_placement == "gable_ends" and self.chimneys != 2:
             raise ParamError(f"chimney_placement 'gable_ends' stands one stack at each "
                              f"gable end, so the count must be 2, not {self.chimneys}")
@@ -940,6 +960,7 @@ def from_phase(phase: dict, record: dict | None = None) -> FrameTavernParams:
         flagstaff_height_m=measure("flagstaff_height_m", 4.25),
         chimney_placement=str(val("chimney_placement", "frontage")),
         ridge_end_chimney_section_m=measure("ridge_end_chimney_section_m"),
+        ridge_end_chimney_head=val("ridge_end_chimney_head"),
         side_entrance_face=side_face,
         enclosed_left_annex=val("enclosed_left_annex"),
         rear_ell=bool(val("rear_ell", False)),

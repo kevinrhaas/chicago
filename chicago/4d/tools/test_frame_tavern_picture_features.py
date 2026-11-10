@@ -124,6 +124,35 @@ class PictureFeatures(unittest.TestCase):
         self.assertEqual(entry["width_m"], 1.)
 
 
+    def test_optional_ridge_end_chimney_heads_keep_legacy_and_other_geometry(self):
+        _, _, p = record_params("sauganash_hotel", "frame_1831")
+        p = dataclasses.replace(p, chimney_placement="gable_ends", chimneys=2,
+                                ridge_end_chimney_section_m=.6)
+        plain, _ = builder.build(p,"plain")
+        explicit, _ = builder.build(dataclasses.replace(p,ridge_end_chimney_head=None),"plain")
+        self.assertEqual((plain.verts,plain.faces,plain.conf,plain.mat_index),
+                         (explicit.verts,explicit.faces,explicit.conf,explicit.mat_index))
+        head={"height_above_ridge_m":.75,"cap_overhang_m":.06,"cap_height_m":.12}
+        capped=dataclasses.replace(p,ridge_end_chimney_head=head)
+        capped.validate()
+        mesh,_=builder.build(capped,"capped")
+        self.assert_valid_mesh(mesh)
+        def material_geometry(b,material):
+            return [tuple(b.verts[i] for i in f) for f,m in zip(b.faces,b.mat_index) if m==material]
+        for material in set(plain.mat_index)-{builder.M_BRICK}:
+            self.assertEqual(material_geometry(plain,material),material_geometry(mesh,material))
+        before=material_geometry(plain,builder.M_BRICK)
+        after=material_geometry(mesh,builder.M_BRICK)
+        self.assertAlmostEqual(max(v[2] for f in after for v in f)-max(v[2] for f in before for v in f),.2)
+        self.assertTrue(all(mesh.conf[i]==1. for f,m in zip(mesh.faces,mesh.mat_index)
+                            if m==builder.M_BRICK for i in f))
+        for changed in (dict(ridge_end_chimney_section_m=None),dict(chimneys=1),
+                        dict(chimney_placement="frontage"),
+                        dict(confidence={**p.confidence,"ridge_end_chimney_head":"attested"}),
+                        dict(ridge_end_chimney_head={**head,"cap_overhang_m":float("nan")})):
+            with self.assertRaises(ParamError):
+                dataclasses.replace(capped,**changed).validate()
+
     def test_green_tree_rear_peak_and_connector_fall_are_bounded_opt_ins(self):
         _, _, p = record_params("green_tree_tavern", "frame_1833", annex=True)
         g = p.enclosed_left_annex

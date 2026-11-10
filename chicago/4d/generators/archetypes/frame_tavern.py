@@ -215,9 +215,22 @@ def build(params: FrameTavernParams, name: str):
             half = params.ridge_end_chimney_section_m / 2
             c_ch = params.worst_conf(*ch_attrs, "chimney_placement",
                                      "ridge_end_chimney_section_m")
+        head = params.ridge_end_chimney_head
+        if head is not None:
+            c_ch = params.worst_conf(*ch_attrs, "chimney_placement",
+                                     "ridge_end_chimney_section_m", "ridge_end_chimney_head")
         for cx, cy in spots:
-            b.add_box(cx - half, cy - half, wall_z, cx + half, cy + half,
-                      ridge_z + 0.55, c_ch, m_ch, skip=("bottom",))
+            if head is None:
+                b.add_box(cx - half, cy - half, wall_z, cx + half, cy + half,
+                          ridge_z + 0.55, c_ch, m_ch, skip=("bottom",))
+            else:
+                top = ridge_z + head["height_above_ridge_m"]
+                cap_base = top - head["cap_height_m"]
+                b.add_box(cx - half, cy - half, wall_z, cx + half, cy + half,
+                          cap_base, c_ch, m_ch, skip=("bottom", "top"))
+                cap_half = half + head["cap_overhang_m"]
+                b.add_box(cx - cap_half, cy - cap_half, cap_base,
+                          cx + cap_half, cy + cap_half, top, c_ch, m_ch)
     else:
         c_ch = params.worst_conf(*ch_attrs) if len(ch_attrs) > 1 else params.conf("chimneys")
         for fx in _stack_fractions(params.chimneys):
