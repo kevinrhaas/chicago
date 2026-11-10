@@ -1,0 +1,109 @@
+{
+  "qualification": "Nine actual BEFORE comparisons: eight cameras use exact current Root b9 canonical bytes; the1855view uses the explicitly proposed post-native A+B-only metadata follow-up, with unchanged eye/yaw/photo and bounded CPU-fit focal/principal. No inherited match files and every verdict remains unreviewed. Current Root A5 MASTERs and compiled placements were used.",
+  "status": "NINE_BEFORE_CAPTURES_COMPLETE_ALL_UNREVIEWED",
+  "root_head_at_setup": "b9c767997c452740c6b690cf2d280d7f75c8c9d5",
+  "views": [
+    {
+      "view": "castelnau-1838-compound",
+      "members": 21,
+      "verdict": "unreviewed",
+      "camera_sha256": "5637dd66f1eb32630b2e052f40c8bd1c68cb60cc48725b68238005f674bafa70",
+      "photo_sha256": "6db98a8dc196525c353e0520012a451c14ea4480a6aa173eb4f11bb2a1a178bd",
+      "group_sha256": "6f932c7475b31b928f7f0fc60e2228aa7a48966d63f50773e5e762ecde3210a6",
+      "seconds": 1.7256312370300293,
+      "exit_code": 0,
+      "receipt": "/tmp/nov10-secondfort-before-actual/captures/castelnau-1838-compound/RECEIPT.json"
+    },
+    {
+      "view": "childs-1820-compound",
+      "members": 21,
+      "verdict": "unreviewed",
+      "camera_sha256": "7e953451ba9b9ff34d10783bcb2ca4d524ac406815397f1e6f9faf661360fafb",
+      "photo_sha256": "4f47c4deaf2011387567dfe4584e06cd4ec4edfcaac6a951ca620cb47cd523a3",
+      "group_sha256": "6f932c7475b31b928f7f0fc60e2228aa7a48966d63f50773e5e762ecde3210a6",
+      "seconds": 2.2380003929138184,
+      "exit_code": 0,
+      "receipt": "/tmp/nov10-secondfort-before-actual/captures/childs-1820-compound/RECEIPT.json"
+    },
+    {
+      "view": "eastman-1820-compound",
+      "members": 21,
+      "verdict": "unreviewed",
+      "camera_sha256": "c07baebfe93faed132239b59714aa2c0787226591eb52bf2c38019b161cf1026",
+      "photo_sha256": "4e0ea4deb8eea96c9cfaa1b78983b1d649aa810506d561d6d3815318f07d7348",
+      "group_sha256": "6f932c7475b31b928f7f0fc60e2228aa7a48966d63f50773e5e762ecde3210a6",
+      "seconds": 2.02591872215271,
+      "exit_code": 0,
+      "receipt": "/tmp/nov10-secondfort-before-actual/captures/eastman-1820-compound/RECEIPT.json"
+    },
+    {
+      "view": "kellogg-1856-later-blockhouse",
+      "members": 1,
+      "verdict": "unreviewed",
+      "camera_sha256": "f7265d054c1d241ccd9cbcd4a2ff2227f94ec18ab9bfd1ac0e2f159ede447d92",
+      "photo_sha256": "8b0f864e238896900bad6e9429928257c0e9078921a7879bbd4ef48b7317c6a8",
+      "group_sha256": null,
+      "seconds": 1.5309827327728271,
+      "exit_code": 0,
+      "receipt": "/tmp/nov10-secondfort-before-actual/captures/kellogg-1856-later-blockhouse/RECEIPT.json"
+    },
+    {
+      "view": "second-fort-panel-5-compound",
+      "members": 21,
+      "verdict": "unreviewed",
+      "camera_sha256": "a49b78f228cc1414b1a1976ab87529984c5e99ad8dc6f4f3355f73e9f81b66e7",
+      "photo_sha256": "80c71433bd66455639b535718b936fa343be5e84a88a509dbe9f79e4f7b1818d",
+      "group_sha256": "6f932c7475b31b928f7f0fc60e2228aa7a48966d63f50773e5e762ecde3210a6",
+      "seconds": 1.9243860244750977,
+      "exit_code": 0,
+      "receipt": "/tmp/nov10-secondfort-before-actual/captures/second-fort-panel-5-compound/RECEIPT.json"
+    },
+    {
+      "view": "wau-bun-1831-compound",
+      "members": 21,
+      "verdict": "unreviewed",
+      "camera_sha256": "145bf925b0cc9ff52c8f1a6c63ffbdee9190e03a47315aa8eb3fdcdcb5889ebe",
+      "photo_sha256": "08c7b6565de151e88d94535d1940d27d30a15ee0724508ab3e8ac15383b49c4b",
+      "group_sha256": "6f932c7475b31b928f7f0fc60e2228aa7a48966d63f50773e5e762ecde3210a6",
+      "seconds": 1.8358659744262695,
+      "exit_code": 0,
+      "receipt": "/tmp/nov10-secondfort-before-actual/captures/wau-bun-1831-compound/RECEIPT.json"
+    },
+    {
+      "view": "wau-bun-1831-keyed-compound",
+      "members": 21,
+      "verdict": "unreviewed",
+      "camera_sha256": "fdf858ac0f7e12b5ccb6260925125448d9629d086f070eebcd0d6615726cb439",
+      "photo_sha256": "624d8f1f52a75bf30653e8cbf37a388478b0ddf5a02f1fadf727cf2144b84c3f",
+      "group_sha256": "6f932c7475b31b928f7f0fc60e2228aa7a48966d63f50773e5e762ecde3210a6",
+      "seconds": 1.8789474964141846,
+      "exit_code": 0,
+      "receipt": "/tmp/nov10-secondfort-before-actual/captures/wau-bun-1831-keyed-compound/RECEIPT.json"
+    },
+    {
+      "view": "wentworth-1850-later-compound",
+      "members": 21,
+      "verdict": "unreviewed",
+      "camera_sha256": "4866936d5f93f68219b82de3a89f325aaca5b604c38142b7bf771e5edddedcdf",
+      "photo_sha256": "aaa68e5aa55c09e60efd2cfb9d21f25f7b4d9b2ebeb99691db77bba1513a3d34",
+      "group_sha256": "6f932c7475b31b928f7f0fc60e2228aa7a48966d63f50773e5e762ecde3210a6",
+      "seconds": 3.175128698348999,
+      "exit_code": 0,
+      "receipt": "/tmp/nov10-secondfort-before-actual/captures/wentworth-1850-later-compound/RECEIPT.json"
+    },
+    {
+      "view": "hesler-1855-later-quarters",
+      "members": 2,
+      "verdict": "unreviewed",
+      "camera_sha256": "cafea15f52de57a3268c7db88c9bbd42d84e1e0300e67979fc85b7c1d46a0dd8",
+      "photo_sha256": "0b88a1b59d7a7c8a1e57c4f86fcce48244abd11908a1c0b751b20f0d8a0a184b",
+      "group_sha256": "e58e46d23589841239167c3a25ad9d4f264c5c28285b3660fe77b51511b49cd2",
+      "seconds": 2.711827278137207,
+      "exit_code": 0,
+      "receipt": "/tmp/nov10-secondfort-before-actual/captures/hesler-1855-later-quarters/RECEIPT.json"
+    }
+  ],
+  "total_render_seconds": 19.046688556671143,
+  "extra_capture": "One superseded canonical21-member1855before capture is preserved separately in captures-extra-1855-context21; it is not one of the nine qualified before views.",
+  "refined_1855_history": "/tmp/nov10-secondfort-before-actual/captures-history-1855-c390-cropped"
+}
