@@ -273,7 +273,7 @@ SHED_RISE_RATIO_MAX = 1.5
 CONSUMED = frozenset({
     "construction", "roof_type", "roof_pitch_deg", "wall_height_m",
     "door", "door_side", "door_width_m", "door_height_m", "door_bays",
-    "open_sides", "loft", "board_gap_m", "paint", "chimneys",
+    "open_sides", "loft", "board_gap_m", "paint", "chimneys", "picture_layout",
 })
 
 # Where this archetype touches the ground, read by tools/validate.py's ground contact
@@ -414,6 +414,10 @@ class OutbuildingParams:
     roof_type: str | None = None            # None -> default_roof_type
     roof_pitch_deg: float | None = None     # None -> default_roof_pitch_deg
     construction: str = "plank"
+
+    # An explicitly sourced picture layout; no other outbuilding acquires a jail
+    # light. Keyword-only so existing positional callers keep their contract.
+    picture_layout: str | None = field(default=None, kw_only=True)
 
     # The elevations that are posts and open air. Empty for a closed building.
     # Normalised to a sorted tuple in `from_phase` so that two records listing the
@@ -701,6 +705,18 @@ class OutbuildingParams:
     # ------------------------------------------------------------------- validation
 
     def validate(self) -> None:
+        if self.picture_layout is not None:
+            if self.picture_layout != "jail_gale_1902":
+                raise ParamError("picture_layout must be None or jail_gale_1902")
+            if (self.construction != "log" or self.roof_type != "gable"
+                    or not self.ridge_along_x or self.open_sides or self.loft):
+                raise ParamError("jail_gale_1902 requires a closed log gable with "
+                                 "east end and no hay loft")
+            # The head must fit below the rake at both jambs; never silently clip.
+            head_rise = 0.73
+            available = self.roof_rise_m * (1.0 - 0.24 / self.roof_run_m)
+            if available < head_rise + 0.08:
+                raise ParamError("jail_gale_1902 barred light crosses roof slope")
         # 0.9 m is a privy that a person can shut the door of; 30 m is longer than any
         # building attested in the town in 1835, so an outbuilding past it is an
         # arithmetic accident and not a barn.
@@ -1010,6 +1026,7 @@ def from_phase(phase: dict, record: dict | None = None) -> OutbuildingParams:
         roof_pitch_deg=(None if val("roof_pitch_deg") is None
                         else float(val("roof_pitch_deg"))),
         construction=str(val("construction", "plank")),
+        picture_layout=val("picture_layout"),
         open_sides=tuple(str(s) for s in (open_sides or ())),
         door=str(door),
         door_side=str(val("door_side", "front")),
