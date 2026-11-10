@@ -1,86 +1,91 @@
-# Sauganash Hotel: first current whole-hotel comparison
+# Sauganash Hotel — completion of original T-2383
 
-This partial increment on original T-2383 holds Andreas's 1884 engraving on the
-hotel's Images tab and enrolls the first hotel-owned diagnostic comparison. It
-does not rebuild the hotel or complete its picture matching.
+The current work completes the pictured Hotel form at the visitor-visible stopping
+rule in AGENTS.md rule 11 / T-3153. Earlier partial studies remain historical
+receipts; they are not the present verdict.
 
-The actual source is the Braunhold engraving headed “THE SAUGANASH HOTEL” in
-Andreas, History of Chicago, volume 1 (1884), page 632. The existing verified,
-public-domain tier-5 SourceRecord is `andreas_1884_sauganash_hotel_plate`; the
-held library image is `early-andreas-1884-sauganash`. Publication and depicted
-dates remain distinct. It is a retrospective picture, not a July 1835 survey.
+The final physical change gives the two retained 0.60 m square ridge-end brick
+shafts projecting masonry heads. Complete tops are ridge +0.75 m, with 0.12 m
+caps projecting 0.06 m each side, or 0.72 m overall. The occurrence and relative
+capped form come from Andreas/Braunhold; every numeric section remains a bounded
+reconstruction, not a retrospective engraving converted into a survey. The
+optional producer setting preserves the former geometry when absent. The
+main block, 8 m rear range, white siding and bright-blue shutters keep their
+existing evidence and grades.
 
-## Current source-bound comparison
+## What is accepted and why
 
-`data/reference_views/sauganash_hotel/andreas-1884.json` reanchors the existing
-two-member Carpenter-shop diagnostic camera to the hotel. Both current bearings
-are zero degrees; translating the eye by [9.92, 3.10, 0] metres preserves the
-world camera. Focal length, principal point, yaw, source picture and overcast
-review lighting stay unchanged. Analytical projection identity is a coordinate
-check, not a new hotel fit. The inherited six approximate picks and RMS 9.64 px
-belong to the SHOP fit only. The low eye and near-edge principal are not a
-historical camera or an independent dimension.
+The Hotel retains five upper front sash, four lower front sash around a central
+entrance, two upper main-gable openings and one attic opening; there is no
+remaining independently identified missing or miscounted opening. Boxed gable
+rakes/returns, the physical shared-ridge junction, ridge-end stack stations and
+slender shaft sections are built by prior accepted increments. The last missing
+head form is the current change.
 
-The native `photo_match.mjs` ran once in 4.363462 seconds, exit zero, with five
-children properly reaped and none left. Its current 20 tool/vendor inputs,
-models, scene placements, source picture and camera remained exact. Raw private
-output stays UNREVIEWED. Root directly inspected the actual new side-by-side
-and full source, accepting canonical enrollment only as DIFFERS.
+The broad left-wing roof exposure and small far-gable visibility differ under
+the retained Shop-fit diagnostic camera. They do not establish another measured
+Hotel dimension. The inherited camera was fitted to approximate annex wall
+corners, with a low eye and a principal point near the raster edge; it is not a
+historical station. An analytical fit to five approximate Hotel wall corners,
+with the actual geometry and focal length held fixed and roof points withheld,
+moves the near ridge from about (659,442) to (649,368), compared with the source
+pick around (648,350). Its approximately 9.2 px wall-coordinate RMS is diagnostic,
+not historical calibration. This demonstrates the camera-fit component without
+moving a roof to erase a projected gap. Under T-3153 these roof exposure/picture
+projection differences are **within tolerance**, and the owner's earlier
+“almost the same size” 8 m reconstructed range is retained.
 
-https://github.com/kevinrhaas/chicago-evidence/blob/9b32b26903431ce4fcfb083f47e18147b759d956/evidence/sauganash-2026-11-03/current-andreas-native-private-root-reviewed/RECOVERY.md
+The monochrome engraving supplies neither literal roof colour nor shutter paint.
+Wau-Bun's separate white/bright-blue description remains controlling. Related
+colour/redraw differences among the retrospective copies are declared tolerance,
+not independent dates or pigment measurements.
 
-The canonical JPG is byte-exact from that output; its native camera, photo,
-master and complete group bindings are retained. No old shop MATCHES verdict or
-stale provisional hotel render is relabelled. The earlier provisional hotel
-study used an older roof and is historical work, not this current comparison.
+## Every held picture was read
 
-## What remains
+The final native review uses the four existing compositions: the Hotel-owned
+Andreas comparison and the three Carpenter-shop anchored Andreas, Kurz & Allison
+panel 14 and Trowbridge comparisons. The canonical camera bytes, picture bytes
+and placements are retained. The Shop is unchanged; every context pair is read
+afresh because its Hotel neighbour changed.
 
-The main/left compound roof silhouette and broad rear-left wing visibly differ.
-The left main-gable openings and roof/wall intersections need further review.
-The retained shop fit cannot by itself decide new hotel dimensions or make
-those visitor-visible gaps disappear. Current five upper front windows, four
-lower front windows and central entrance are earlier merged work, retained
-without a new geometry claim. Monochrome hatching cannot determine literal
-green roofing, blue shutters or photometric finish; separate source evidence
-and existing reconstruction remain explicit.
+The smaller `sauganash-hotel/sauganash.jpg` is the same Andreas composition and
+was directly read. The held Petford colour image was also directly read: its
+capped redbrick stacks and compound categories support the same bounded form,
+while its cream/brown colours do not override the written white/blue evidence.
+The Petford object still has no verified accession/rights SourceRecord, as the
+existing owner-brief provenance audit records. It supplies a read-only
+cross-check, not a fabricated new source or derived asset. The 192 x 135 Getty
+thumbnail was read and adds no resolvable independent architectural detail;
+its stock rights are not promoted. Aliases and `reference/planning` files are
+byte duplicates, not more witnesses.
 
-This study omits app terrain, streets and people. Published desktop/phone body,
-card and entrance checks are separate release evidence. The other original
-hotel pictures and eventual full signoff remain on T-2383; no follow-up ticket
-or full completion is filed. Original T-2383 stays open after partial release.
+Publication and depicted dates remain separate throughout. Andreas 1884,
+Kurz & Allison 1893 and Trowbridge 1902 are dependent retrospective compositions;
+none establishes a fitting day or a surveyed state on 1 July 1835. The Petford
+caption “1831” likewise supplies no contemporary observation.
 
-## The ridge-end stacks — 2026-11-04
+## Actual final review binding
 
-A second bounded increment on the same comparison. The plate draws both
-main-block stacks close to the ridge ends; the model carried them at the
-generic 0.22/0.78 frontage fractions, roughly 1.6 m further inboard on each
-side. `form.chimney_placement` now selects the existing `gable_ends` kit, so on
-the retained 9.92 m block their centres read 0.60 m and 9.32 m. Nothing else in
-the record moved: count 2, square brick shafts, ridge + 0.55 m tops, the roof
-and its new boxed gable cornice, the cross wing, every opening, the paint and
-the surveyed position are all as they were, and the Carpenter shop is untouched.
+All four actual current-native side-by-side images were freshly rendered and
+directly viewed. Each now records **matches**, with no open discrepancy under
+T-3153. These are reviewed verdicts after seeing the images; the untouched raw
+generated records were unreviewed.
 
-The inset, the shaft section and the top height are the kit's reconstructed
-choices. The engraving supports the relative disposition and nothing more: no
-coordinate, no metre, no July 1835 fitting date, no historical camera. Petford
-and Trowbridge are related compositions, not independent corroboration.
-`docs/LIBERTIES.md` L-sauganash-ridge-end-stacks-2383 records the decision, the
-reasoning and these limits.
+Native run 42745792113 retained `9dd9ba7ddd22c6ff87e52522497205f62133fa1f` from dispatched
+source `64a752353bc66fa6bfa58c853b90c32625f7b739`. The Hotel MASTER is 225152 bytes,
+SHA256 `51a7008c31176390fae7d7fc189f61eb385c18e109a49c125f72d389ef550385`;
+the unchanged Shop MASTER is
+`f3e26f650627f36879087d75f30db5c4553e0f5938ae5bd0d305480958549cfc`.
+All four camera and picture hashes and all member placements equal the actual
+BEFORE review. `completion-20261110/review-receipt.json` retains exact raw,
+pair, camera, group and before/after bindings; the source-coverage and analytical
+camera receipts live beside it. The native physical caps are visible in every
+composition. Fine shared-surface raster fringes remain below the visitor bar.
 
-Measured on this same camera, the near stack's offset from the visible gable
-peak falls from about 0.19 to 0.08 of the ridge run against the picture's 0.04,
-and the far stack's rises from 0.57 to 0.67 against the picture's 0.65. That is
-a comparison of the before and after renders with the picture, directly viewed;
-it is not a survey and not an acceptance. The hotel's own verdict stays
-**differs**.
-
-The stacks' own proportions and heads remain **open**: Andreas draws slender
-shafts standing clear of the ridge under a corbelled cap, and the model's are
-squat blocks with a plain top. The compound roof silhouette and the left-gable
-questions are unchanged and stay open. The three Carpenter shop views were
-re-rendered from their own cameras because the hotel stands behind the shop in
-all three; the shop's master is byte-identical, each refreshed pair was viewed
-beside its picture, and all three keep **matches**.
-
-Original T-2383 remains open and partial after this increment.
+The external actual BEFORE and AFTER raw captures are retained at
+`/tmp/nov10-sauganash-before-review/BEFORE` and
+`/tmp/nov10-sauganash-after-review/AFTER`; they are not substituted for the
+canonical reviewed pairs. The first BEFORE Kurz fixture source-link error and
+its corrected four exit-zero reruns remain explicit. All four AFTER runs exited
+zero. Root owns the independent published desktop/phone release evidence and
+ticket closure; no browser PASS or whole-source-gate result is invented here.

@@ -1,0 +1,12 @@
+{
+  "structure_id": "green_tree_tavern",
+  "view": "trowbridge_1902",
+  "glb": "assets/gltf/green_tree_tavern__frame_1833.glb",
+  "glb_sha256": "661c9a71adba200fcfb82fd7c0c391297043377e000af7c9aafbd658d4e6079a",
+  "camera_sha256": "53140e9ceeed8a59a5a0f588d730a0bba18e3eff730da61058ea976f049087b2",
+  "photo_sha256": "4d027d462b37b682d62cfa640083f2688d1b2dd9bba9ca39dc1dc979c2234225",
+  "side_by_side": "docs/RESEARCH/photo-match/green_tree_tavern/trowbridge_1902-side-by-side.jpg",
+  "verdict": "unreviewed",
+  "differences": [],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

@@ -1,0 +1,8 @@
+{
+  "claim_limit": "No adoption or native acceptance; preserve literal failure and diagnose without broad waivers.",
+  "error": "Strict native audit rejected retained outputs; inspect failure receipt/log",
+  "run": 42818215260,
+  "source": "6b11594bbd1d1a4e9fdd864878359ccf1c54edfc",
+  "status": "FAIL_AUTH_MATERIALIZATION_OR_NATIVE_AUDIT",
+  "traceback": "Traceback (most recent call last):\n  File \"/tmp/nov10-kinzie-native-qualification/materialize-and-audit.py\", line 54, in <module>\n    unchanged();assert p.returncode==0,'Strict native audit rejected retained outputs; inspect failure receipt/log'\n                       ^^^^^^^^^^^^^^^\nAssertionError: Strict native audit rejected retained outputs; inspect failure receipt/log\n"
+}

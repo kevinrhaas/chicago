@@ -192,7 +192,30 @@ def hands_already_in_the_house(businesses: list, seating: dict) -> dict:
     return counts
 
 
-def demand(businesses: list, model: dict, seating: dict) -> list:
+def business_division(business: dict, premises_divisions: dict) -> tuple:
+    """A stated civil division, then the committed district of actual premises.
+
+    A street name alone is not assigned a side of the river here. Conflicting or
+    absent premises remain unpriced rather than spending some other division's
+    lodging quota. This is a payment boundary, not a new location ruling.
+    """
+    locations = business.get("locations") or []
+    declared = {loc.get("division") for loc in locations if loc.get("division")}
+    if business.get("division"):
+        declared.add(business["division"])
+    if declared:
+        return ((next(iter(declared)), "business record") if len(declared) == 1
+                and next(iter(declared)) in ("north", "south", "west") else
+                (None, "conflicting or non-civil division on business record"))
+    located = {premises_divisions[loc["structure_id"]] for loc in locations
+               if loc.get("structure_id") in premises_divisions}
+    if len(located) == 1 and next(iter(located)) in ("north", "south", "west"):
+        return next(iter(located)), "committed premises district"
+    return None, "no single committed civil division for these premises"
+
+
+def demand(businesses: list, model: dict, seating: dict,
+           premises_divisions: dict | None = None) -> list:
     """One row per house and role row the typical band is short in.
 
     A CLASS CAN NAME THE SAME ROLE TWICE — a printing office wants a journeyman
@@ -204,6 +227,7 @@ def demand(businesses: list, model: dict, seating: dict) -> list:
     standing = hands_already_in_the_house(businesses, seating)
     rows = []
     for business, klass in staffable(businesses, model):
+        division, division_basis = business_division(business, premises_divisions or {})
         by_role: dict = {}
         for role in klass.get("staff_roles") or []:
             by_role.setdefault(role["role"], []).append(role)
@@ -231,6 +255,8 @@ def demand(businesses: list, model: dict, seating: dict) -> list:
                 rows.append({
                     "business_id": business["id"],
                     "business_name": business.get("name"),
+                    "division": division,
+                    "division_basis": division_basis,
                     "establishment_class": klass["class"],
                     "reads_as": klass.get("reads_as"),
                     "role": name,
@@ -307,7 +333,9 @@ def pay_the_demand(rows: list, slots: list) -> dict:
         sexes = SEX_RULE_PAYS_FROM.get(row["sex_rule"], [])
         payable = [key for key in sorted(purse)
                    if by_bucket[key]["sex"] in sexes
-                   and bands_overlap(row["age_band"], by_bucket[key]["age_band"])]
+                   and bands_overlap(row["age_band"], by_bucket[key]["age_band"])
+                   and row.get("division") in ("north", "south", "west")
+                   and by_bucket[key].get("division") == row["division"]]
         spent = []
         for key in payable:
             if want <= 0:
@@ -424,7 +452,8 @@ def _tally(rows: list, key) -> list:
 
 
 def order(data: dict) -> dict:
-    rows = demand(data["businesses"], data["model"], data["seating"])
+    rows = demand(data["businesses"], data["model"], data["seating"],
+                  data.get("premises_divisions") or {})
     slots = outstanding_trade_slots(data["book"])
     paid = pay_the_demand(rows, slots)
     wanted = sum(row["short_by"] for row in rows)
@@ -550,6 +579,8 @@ def order(data: dict) -> dict:
             "data/reconstruction/1835_reconstruction_order_book.json",
             "data/residents/reconstructed_seating.json",
             "data/reconstruction/1835_lodgers_seated.json",
+            "data/reconstruction/1835_existing_roof_reconciliation.json",
+            "data/structures/*.json",
         ],
         "what_the_re_cut_returned": {
             "what_it_is": "The first of the answers below was RULED by the owner and "
@@ -755,16 +786,19 @@ def order(data: dict) -> dict:
                 "buckets this purse is — into the beds that stood, so what is left of "
                 "the purse waits on the roofs above",
             ],
-            "and_the_division_axis_is_not_priced_either": {
-                "what_it_is": "A third axis the payment does not look at: a slot names "
-                              "the DIVISION the book is short of a person in, and a "
-                              "hand is paid from the first bucket by key whatever "
-                              "division its house stands in. It is named here and not "
-                              "closed here, because for most of these houses it cannot "
-                              "be: the register places no premises for them.",
+            "on_the_division_axis": {
+                "what_it_is": "T-2023 prices the division before a payment: a hand "
+                              "can spend only a slot in the same committed civil division "
+                              "as its premises. A street-only or unplaced business with "
+                              "no stated division receives no payment; its location is "
+                              "not invented to make a quota spendable.",
+                "demand_rows_with_a_committed_division": sum(
+                    row["division"] is not None for row in rows),
+                "demand_rows_with_no_committed_division": sum(
+                    row["division"] is None for row in rows),
                 "hands_paid_for_by_the_placement_of_their_house": dict(sorted(
                     _placement_tally(ruled, data["businesses"]).items())),
-                "filed_as": "T-1566, beside this one",
+                "carried_from": "T-1566, through T-1532, completed here by T-2023",
             },
         },
         "rows": [
@@ -824,12 +858,20 @@ def order(data: dict) -> dict:
 
 
 def build_data() -> dict:
+    districts = {r["structure_id"]: r.get("district") for r in _load(
+        ROOT / "data/reconstruction/1835_existing_roof_reconciliation.json")["records"]}
+    for path in sorted((ROOT / "data/structures").glob("*.json")):
+        record = _load(path)
+        district = (record.get("reconstruction") or {}).get("district")
+        if district:
+            districts[record["id"]] = district
     return {
         "businesses": _businesses(),
         "model": _load(MODEL),
         "book": _load(ORDER_BOOK),
         "seating": _load(SEATING),
         "lodgers": _load(LODGERS_SEATED),
+        "premises_divisions": districts,
     }
 
 
@@ -918,9 +960,22 @@ def cmd_self_test() -> int:
         for payment in row["paid_from"]:
             slot = by_bucket[payment["bucket"]]
             if slot["sex"] not in SEX_RULE_PAYS_FROM[row["sex_rule"]] \
-                    or not bands_overlap(row["age_band"], slot["age_band"]):
+                    or not bands_overlap(row["age_band"], slot["age_band"]) \
+                    or slot.get("division") != row.get("division"):
                 failures.append("a slot paid for a hand it does not reach")
                 break
+
+    # The real purse is empty today. A synthetic future purse must not reopen
+    # the old north-slot/south-shop bug or pay a house whose division is unknown.
+    hand = {"business_id": "fixture", "short_by": 1, "sex_rule": "male",
+            "age_band": "adult_any", "division": "south"}
+    north_slot = {"bucket": "north", "outstanding": 1, "sex": "male",
+                  "age_band": "20_29", "division": "north"}
+    south_slot = dict(north_slot, bucket="south", division="south")
+    if (pay_the_demand([hand], [north_slot])["rows"][0]["paid"] != 0
+            or pay_the_demand([hand], [south_slot])["rows"][0]["paid"] != 1
+            or pay_the_demand([dict(hand, division=None)], [south_slot])["rows"][0]["paid"] != 0):
+        failures.append("division payment accepts another division or unknown premises")
 
     # 6. --check refuses a hand-edited order.
     fires("--check accepted a hand-edited order", lambda: _check_against({

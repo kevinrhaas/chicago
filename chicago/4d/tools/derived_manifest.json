@@ -2481,6 +2481,7 @@
         "chicago/4d/data/sidecars/1835/sources/chicagology_prefire278.json",
         "chicago/4d/data/sidecars/1835/sources/chicagology_southwaterstreet.json",
         "chicago/4d/data/sidecars/1835/sources/chicagology_wolf_point_walters.json",
+        "chicago/4d/data/sidecars/1835/sources/childs_1857_chicago_from_lake_1820.json",
         "chicago/4d/data/sidecars/1835/sources/chipublib_gaslight_blog.json",
         "chicago/4d/data/sidecars/1835/sources/chm_bartlett_diaries.json",
         "chicago/4d/data/sidecars/1835/sources/chm_clark_i71913_pullman_1905.json",
@@ -2673,6 +2674,7 @@
         "chicago/4d/data/sidecars/1835/sources/kellogg_blanchard_1856_old_fort_lake_house.json",
         "chicago/4d/data/sidecars/1835/sources/kendall_history_daniel_platt.json",
         "chicago/4d/data/sidecars/1835/sources/kinzie_1857_chicago_1831_panorama.json",
+        "chicago/4d/data/sidecars/1835/sources/kinzie_waubun_1831_unkeyed_panorama.json",
         "chicago/4d/data/sidecars/1835/sources/kinzie_waubun_1856.json",
         "chicago/4d/data/sidecars/1835/sources/kirkland_1893_chicago_massacre.json",
         "chicago/4d/data/sidecars/1835/sources/kirkland_1893_chicago_massacre_appendix_k.json",
@@ -2918,7 +2920,9 @@
         "chicago/4d/data/sidecars/1835/sources/views_of_chicago_1905_prairie_michigan.json",
         "chicago/4d/data/sidecars/1835/sources/vlm_blom_p157_kusken_kalen.json",
         "chicago/4d/data/sidecars/1835/sources/warrenville_ezra_galusha.json",
+        "chicago/4d/data/sidecars/1835/sources/wentworth_1881_fort_1850_cut.json",
         "chicago/4d/data/sidecars/1835/sources/wentworth_1881_fort_dearborn.json",
+        "chicago/4d/data/sidecars/1835/sources/wentworth_1881_hesler_1855_quarters_cut.json",
         "chicago/4d/data/sidecars/1835/sources/wentworth_fort_dearborn_1881.json",
         "chicago/4d/data/sidecars/1835/sources/wheeling_history_timothy_titcomb.json",
         "chicago/4d/data/sidecars/1835/sources/whistler_1808_fort_dearborn_draught.json",
@@ -2971,6 +2975,21 @@
       "verify": [
         "python3",
         "tools/compile_source_use.py",
+        "--check"
+      ]
+    },
+    {
+      "why": "T-2795: the generated horse coat contract reads only the separately authored recipe, two SHA-bound portable sources and the existing bound foot reference. It owns only horse-coats.json; the recipe, source assets and reference are inputs and remain unowned. No current manifest step rebuilds these inputs. Its slot is in the settled tail immediately after source-use export. The source-use compiler has an explicit collection whitelist that does not consume this transport contract; the recipe sources contain file/SHA bindings, while model citation is already declared by the liberties above. It reads no resident-card, profile or second-pass output and stays outside the measured between-pass window. Focused two-write reproducibility and perturb/restore proof are recorded in docs/measurements/horse-coats-writer-2026-11-10.json; the complete manifest --prove remains unrun.",
+      "command": [
+        "python3",
+        "tools/derive_horse_coats.py"
+      ],
+      "resolves": [
+        "chicago/4d/data/transport/horse-coats.json"
+      ],
+      "verify": [
+        "python3",
+        "tools/derive_horse_coats.py",
         "--check"
       ]
     },

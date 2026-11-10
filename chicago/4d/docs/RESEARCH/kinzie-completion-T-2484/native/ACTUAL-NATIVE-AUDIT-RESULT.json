@@ -1,0 +1,28 @@
+{
+  "Root_HEAD_and_worktree_unchanged": true,
+  "Root_native_registries_unchanged": true,
+  "audit_sha256": "f1f032c6f7deae75d11c937a47de2bfb230f42a75c2d5d63d685bdfc29e69d60",
+  "counts": {
+    "actual_stale_defaults": 83,
+    "actual_stale_variants": 0,
+    "controls_WEB_LOD_strict_identity": 81,
+    "controls_master_byte_identical": 81,
+    "controls_unused_uv_only_exceptions": 0,
+    "default_registry": 1044,
+    "foreign_defaults": 961,
+    "foreign_variants": 6,
+    "selected_control_asset_rows": 81,
+    "selected_defaults": 83,
+    "selected_geometry_target_asset_rows": 2,
+    "selected_structure_ids": 83,
+    "selected_variants": 0,
+    "variant_registry": 6
+  },
+  "raw_parents": [
+    "6b11594bbd1d1a4e9fdd864878359ccf1c54edfc"
+  ],
+  "retained": "d6076c038f5d7e103c922110b568c3188436ec25",
+  "run": 42818215260,
+  "source": "6b11594bbd1d1a4e9fdd864878359ccf1c54edfc",
+  "status": "PASS_SCOPED_NATIVE_FRESH_CONTROLS_EXACT_FOREIGN_EXACT"
+}

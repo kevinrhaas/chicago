@@ -1,0 +1,49 @@
+{
+  "structure_id": "fort_dearborn_blockhouse",
+  "scene": "1835",
+  "source_id": "eastman_schoolcraft_chicago_1820_engraving",
+  "photo": "../../../../reference/images/chicago/chicago_settlement_1820_2.jpg",
+  "image_px": [
+    1920,
+    1407
+  ],
+  "principal_px": [
+    1051.7180721918546,
+    699.682861982913
+  ],
+  "focal_px": 970.382673798265,
+  "eye": [
+    164.15209249791414,
+    242.37028671137926,
+    3.6
+  ],
+  "yaw_deg": 219.77,
+  "sky": "overcast",
+  "also_render": [
+    "fort_dearborn_artillery_house",
+    "fort_dearborn_barracks",
+    "fort_dearborn_big_barn",
+    "fort_dearborn_commandants_quarters",
+    "fort_dearborn_flagstaff",
+    "fort_dearborn_garrison_garden",
+    "fort_dearborn_guard_house",
+    "fort_dearborn_magazine",
+    "fort_dearborn_officers_quarters",
+    "fort_dearborn_out_building_a",
+    "fort_dearborn_out_building_b",
+    "fort_dearborn_palisade",
+    "fort_dearborn_parade",
+    "fort_dearborn_root_house",
+    "fort_dearborn_root_house_b",
+    "fort_dearborn_shop",
+    "fort_dearborn_store_house",
+    "fort_dearborn_sutlers_store",
+    "fort_dearborn_us_factors_house",
+    "fort_dearborn_wash_house"
+  ],
+  "card_members": [
+    "fort_dearborn_palisade"
+  ],
+  "diagnostic_only": true,
+  "solve": "Finite common-grade compound diagnostic,T-2388. Depicted 1820; made 1854; models remain1835-07-01. The world eye and yaw are the actual existing kinzie_house_1812/eastman_1820 camera transformed through its recorded world placement into the second-fort blockhouse frame, without moving either site. Its original five Kinzie-house landmarks had RMS5.81px; they do not calibrate the fort. The inherited eye is a bounded near-water review pose, not an accepted historical station. Framing alone uses the whole fort\u2019s source silhouette box [790, 651, 1074, 742] at source resolution [1920, 1407], holding pose and square pixels: focal 970.382674px and principal [1051.7180721918546, 699.682861982913]; current fixed stockade/blockhouse bounding rays establish horizontal extent and centre, with no claim that the drawing\u2019s individual corners match surveyed corners. Vertical silhouette and ranges may disagree because these retrospective/earlier/later prints are not one metric camera. Those camera/depiction disagreements fall withinT3153. Each source governs its own date; no earlier barracks, later louvres/projection or post-stockade fence is backdated. Blockhouse and stockade identify securely; all other rendered members are context, not pictured-grade assignments. See coverage.json for every21 records and named/unidentified ranges. No terrain, historical grade, river, foliage or colour is calibrated. Overcast is analytical lighting. A fresh actual side-by-side and visual adjudication are required."
+}

@@ -1,5 +1,5 @@
 /**
- * house-errands.js — a person who lives in a house, met in the street, can be sent home:
+ * house-errands.js — a person who lives in a house, met in the street, can be sent inside:
  * up the steps, through the door, and in (T-3443); and called back out at the door, to
  * walk with the visitor round the house or into its court (T-3444).
  *
@@ -34,6 +34,12 @@
  * symbolic_location). Only doors house-doors.js hangs are listed. It is the family's door:
  * a row whose relationship is `servant` (Mattie Williamson, the cook) is not sent through it
  * — the staff came and went by the service entrance off the court, which is not hung yet.
+ *
+ * T-3533: scheduled household members, including staff, share these interactions. The day
+ * engine owns their location and Go inside requests; front-door calls and guided strolls
+ * temporarily hold the routine. The activity menu offers the whole seasonal day's outdoor
+ * tasks at any hour. Indoor staff can answer a caller at the front door as well as their
+ * normal service doors; ordinary routines still use the day engine's doors.
  *
  * Nothing here knows the DOM; tools/test_house_errands.mjs drives it with the real door
  * layer and a real HumanActor.
@@ -200,7 +206,7 @@ export function wayOut(houseDoors, doorId, to, { groundAt } = {}) {
  * @param {(actor: object, on: boolean) => void} [o.walkWith]  the visitor walks along (follow.js), or stops
  * @param {string[]} [o.problems]
  */
-export function createHouseErrands({ humans, houseDoors, interactions, visitor = () => null, eye = () => null,
+export function createHouseErrands({ days = null, humans, houseDoors, interactions, visitor = () => null, eye = () => null,
   openCard = () => {}, groundAt = null, router = null, anchorAt = () => null, walkWith = () => {}, problems = [] } = {}) {
   const errands = [];
   if (!humans || !houseDoors || !interactions) return { errands, get: () => null, sendHome: () => ({ ok: false }), callOut: () => ({ ok: false }), dispose() {} };
@@ -210,9 +216,11 @@ export function createHouseErrands({ humans, houseDoors, interactions, visitor =
     const person = actor.person ?? actor.identity?.person ?? null;
     if (actor.identity?.kind !== 'person' || !person) continue;
     const doorId = HOUSEHOLD_DOORS[person.household];
-    if (!doorId || !usesFrontDoor(person)) continue;
+    const scheduled = !!days && Array.isArray(actor.instance?.behaviour?.day);
+    if (!doorId || (!scheduled && !usesFrontDoor(person))) continue;
     if (!houseDoors.get(doorId)) { problems.push(`${actor.id}: ${doorId} is not hung in this scene — he cannot be sent home`); continue; }
     const name = person.name ?? actor.id;
+    const hosted = () => !!actor.jauntHost || !!days?.isHosted?.(actor);
     const door = () => houseDoors.get(doorId);
     let way = null, arrived = false, refused = false, walking = false;
     const walk = (points, heading) => {
@@ -237,6 +245,7 @@ export function createHouseErrands({ humans, houseDoors, interactions, visitor =
       steps: [{ label: 'Walking', until: () => arrived, timeout: 240, run: (t) => {
         if (t === 1) { stopWalking(); return; }
         if (t !== 0) return;
+        if (scheduled) days.pause(actor.id);
         const a = anchorAt(s.anchor);
         const route = a && router?.plan({ e: actor.e, n: actor.n }, { e: a.e ?? a.local_e, n: a.n ?? a.local_n }, { mode: 'walk' });
         if (!route?.points?.length) { arrived = true; return; }
@@ -254,21 +263,25 @@ export function createHouseErrands({ humans, houseDoors, interactions, visitor =
       door: doorId,
       name,
       states: ['out', 'home'],
-      state: actor.indoors ? 'home' : 'out',
+      _state: actor.indoors ? 'home' : 'out',
+      get state() { return scheduled ? (actor.indoors ? 'home' : 'out') : this._state; },
+      set state(value) { this._state = value; },
       /** Where he is; indoors, with people hidden (Settings › Show › People), or held out
        *  by a jaunt that does not call for him (T-3495), nowhere a visitor can reach. */
-      get at() { return actor.indoors || actor.disposed || humans.shown === false || humans.isHeld?.(actor) ? null : [actor.e, actor.n]; },
+      get at() { return actor.indoors || actor.disposed || humans.shown === false || humans.isHeld?.(actor) || hosted() ? null : [actor.e, actor.n]; },
       reach: PERSON_REACH_M,
       actions: {
-        out: [
+        get out() { return hosted() ? [] : [
           { id: 'greet', label: 'Greet', to: 'out', said: '',
             steps: [{ label: 'Greeting', seconds: GREET_S, run: (t) => {
-              if (t === 0) greet();
+              if (t === 0) { if (scheduled) days.pause(actor.id); greet(); }
               if (t >= 1) openCard(actor);
             } }] },
-          { id: 'go_home', label: 'Go home', to: 'home', said: () => `${name} has gone in`,
+          ...(scheduled ? [{ id: 'go_home', label: 'Go inside', said: '',
+            refuse: () => days.request(actor.id).ok ? null : 'Not available just now',
+            steps: [] }] : [{ id: 'go_home', label: 'Go inside', to: 'home', said: () => `${name} has gone in`,
             steps: [
-              { label: 'Walking home', until: () => arrived, timeout: 180, run: (t) => {
+              { label: 'Going inside', until: () => arrived, timeout: 180, run: (t) => {
                 if (t !== 0) return;
                 stopWalking();
                 way = wayHome(houseDoors, doorId, [actor.e, actor.n], { ...ground, router });
@@ -287,9 +300,14 @@ export function createHouseErrands({ humans, houseDoors, interactions, visitor =
                 closeDoor();
               } },
             ] },
+          ]),
+          ...(scheduled ? days.outdoorActivities(actor.id).map((a) => ({
+            id: `activity:${a.id}`, label: a.label, said: '',
+            refuse: () => days.request(actor.id, a.id).ok ? null : 'Not available just now', steps: [],
+          })) : []),
           ...strolls,
-        ],
-        home: [
+        ]; },
+        get home() { return hosted() ? [] : [
           // T-3444: asked for at the door (the door's own action starts this).
           { id: 'come_out', label: 'Come to the door', to: 'out', said: () => `${name} comes to the door`,
             steps: [
@@ -315,10 +333,10 @@ export function createHouseErrands({ humans, houseDoors, interactions, visitor =
                 walk([...way.toThreshold, ...way.out.slice(1)], v ? bearing(v.e - end.e, v.n - end.n) : way.outward);
               } },
               { label: 'Closing the door', until: doorShut, timeout: 10, run: (t) => {
-                if (t === 0) { closeDoor(); greet(); }
+                if (t === 0) { closeDoor(); if (scheduled) days.pause(actor.id); greet(); }
               } },
             ] },
-        ],
+        ]; },
       },
     };
     interactions.add(thing);
@@ -330,7 +348,7 @@ export function createHouseErrands({ humans, houseDoors, interactions, visitor =
   for (const doorId of new Set(errands.map((t) => t.door))) {
     const d = houseDoors.get(doorId);
     const base = d.actions;
-    const asks = () => errands.filter((t) => t.door === doorId && t.state === 'home' && !t.running).map((t) => ({
+    const asks = () => errands.filter((t) => t.door === doorId && t.state === 'home' && (!days || !Array.isArray(t.actor.instance?.behaviour?.day) || days.canAsk(t.actor.id)) && !t.running).map((t) => ({
       id: `ask:${t.personId}`, label: `Ask for ${t.name}`, said: '',
       steps: [{ label: 'Knocking', seconds: 0, run: (x) => { if (x === 0) interactions.act(t, 'come_out'); } }],
     }));

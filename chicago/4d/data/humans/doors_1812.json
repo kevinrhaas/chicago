@@ -32,7 +32,7 @@
   {
    "structure": "first_fort_dearborn_blockhouse_nw",
    "name": "First Fort Dearborn \u2014 north-west blockhouse",
-   "asset_sha256": "2567def5a0c657bc40e051bce905fe3c8b8b66f73d46171fcc57dd73d97913fc",
+   "asset_sha256": "f05cba8e375a4acd832a6bd056c29fbb2389ccc8076f25ab6d72ad59163341ea",
    "placement": {
     "local_e": 1134.99,
     "local_n": 233.28,
@@ -57,7 +57,7 @@
   {
    "structure": "first_fort_dearborn_blockhouse_se",
    "name": "First Fort Dearborn \u2014 south-east blockhouse",
-   "asset_sha256": "4b52564cd577363639667ed59c38564fb997e5e5496291cfaf3799d0e208352a",
+   "asset_sha256": "aa8a8a5c39b32f3394598924dac1d2214cc75531994159f8b8c7977df16caf6a",
    "placement": {
     "local_e": 1164.34,
     "local_n": 203.08,
@@ -107,7 +107,7 @@
   {
    "structure": "first_fort_dearborn_magazine",
    "name": "First Fort Dearborn \u2014 magazine",
-   "asset_sha256": "6ed239cb5eed46fbcf64796369423497e70de6cca0442bd4f2cbb88d3bde39cf",
+   "asset_sha256": "3d51d6a46407deace244ec2286561fe29d370048c591e86164e04b9674a5c334",
    "placement": {
     "local_e": 1149.32,
     "local_n": 233.62,
@@ -633,7 +633,7 @@
   {
    "structure": "kinzie_house_1812",
    "name": "The Kinzie house, built by Jean Baptiste Point du Sable",
-   "asset_sha256": "940d58e82a70b1980812525f9e3534caa6dca38ce894e0a112844615686ce373",
+   "asset_sha256": "24cd4c30b5c8b8d350c017aa63d016464c6064cab56724a4986a639a02f5e417",
    "placement": {
     "local_e": 1158.096,
     "local_n": 342.706,

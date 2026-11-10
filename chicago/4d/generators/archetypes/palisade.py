@@ -167,7 +167,6 @@ def _stockade(b: MeshBuilder, p: PalisadeParams) -> None:
     can never leave a picket standing inside either of them.
     """
     c_wall = p.worst_conf("wall_kind", "picket_height_m", "construction")
-    c_gate = p.conf("gate_sides", "reconstructed")
     c_bast = p.conf("bastion_corners", "reconstructed")
     w, d = p.width_m, p.depth_m
 
@@ -187,7 +186,7 @@ def _stockade(b: MeshBuilder, p: PalisadeParams) -> None:
         run = math.dist(a, z)
         cuts = []
         if side in p.gate_sides:
-            half = p.gate_width_m / 2.0
+            half = p.gate(side)["width_m"] / 2.0
             mid = run / 2.0 + _gate_shift(p, side)
             cuts.append((mid - half, mid + half))
         for end, corner in zip((0.0, run), corner_at[side]):
@@ -201,7 +200,7 @@ def _stockade(b: MeshBuilder, p: PalisadeParams) -> None:
     for corner in p.bastion_corners:
         _bastion(b, p, corner, c_bast)
     for side in p.gate_sides:
-        _gate(b, p, side, c_gate)
+        _gate(b, p, side, p.gate_conf(side))
 
 
 def _gate_shift(p: PalisadeParams, side: str) -> float:
@@ -209,7 +208,8 @@ def _gate_shift(p: PalisadeParams, side: str) -> float:
     sits from the side's middle (T-3319). `gate_offset_m` is stated toward +u for the
     north and south walls and +v for the east and west; the south and east walls are
     walked that way and the north and west the other, so those two take it negated."""
-    return p.gate_offset_m if side in ("s", "e") else -p.gate_offset_m
+    offset = p.gate(side)["offset_m"]
+    return offset if side in ("s", "e") else -offset
 
 
 def _lerp(a, z, t):
@@ -354,15 +354,17 @@ def _gate(b: MeshBuilder, p: PalisadeParams, side: str, conf: float) -> None:
     nothing describes the gates being worked. See docs/RESEARCH/fort_dearborn.md.
     """
     w, d = p.width_m, p.depth_m
+    gate = p.gate(side)
+    offset = gate["offset_m"]
     if side in ("n", "s"):
-        cx, cy = w / 2.0 + p.gate_offset_m, (d if side == "n" else 0.0)
+        cx, cy = w / 2.0 + offset, (d if side == "n" else 0.0)
         ux, uy = 1.0, 0.0
     else:
-        cx, cy = (w if side == "e" else 0.0), d / 2.0 + p.gate_offset_m
+        cx, cy = (w if side == "e" else 0.0), d / 2.0 + offset
         ux, uy = 0.0, 1.0
     nx, ny = -uy, ux
-    half = p.gate_width_m / 2.0
-    if p.gate_kind == "wicket":
+    half = gate["width_m"] / 2.0
+    if gate["kind"] == "wicket":
         # T-3407 — A GARDEN WICKET: two hewn posts standing in the cut, a hand taller
         # than the pales, and nothing between them. The leaf is a paling of the
         # fence's own pales on two rails, hung by the renderer on the west post so a

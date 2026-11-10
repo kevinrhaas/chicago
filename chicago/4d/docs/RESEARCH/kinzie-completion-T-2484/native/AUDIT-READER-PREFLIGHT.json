@@ -1,0 +1,57 @@
+{
+  "status": "PASS_READER_PREFLIGHT_NOT_NATIVE_ACCEPTANCE",
+  "pinned_HEAD": "6b11594bbd1d1a4e9fdd864878359ccf1c54edfc",
+  "binding_sha256": "e9f0beae765610a9b5f11734e35a8440e44bd7b306aee080ef5a8e8c4f68cc22",
+  "actual_control_MASTER_readers_exercised": 81,
+  "actual_target_before_summaries": [
+    {
+      "asset_key": "kinzie_house_1812__kinzie_1804.glb",
+      "triangles": 1446,
+      "primitives": 10,
+      "actual_before_door_profile": {
+        "target": {
+          "u": 12.230999946594238,
+          "v": 4.224780082702637,
+          "width": 1.0399999618530273,
+          "bottom": 0.019999999552965164,
+          "top": 1.9500000476837158
+        },
+        "other_ground_doors": [
+          {
+            "u": 6.0960001945495605,
+            "v": 6.744999885559082,
+            "width": 1.0399999618530273,
+            "bottom": 0.019999999552965164,
+            "top": 1.9500000476837158
+          }
+        ],
+        "ground_door_count": 2,
+        "owner_low_sill_casing_envelopes": [
+          {
+            "u": 6.0959999561309814,
+            "v": 6.750499963760376,
+            "width": 1.2599997520446777,
+            "bottom": 0.019999999552965164,
+            "top": 2.069999933242798
+          },
+          {
+            "u": 12.236499786376953,
+            "v": 4.224780082702637,
+            "width": 1.260000228881836,
+            "bottom": 0.019999999552965164,
+            "top": 2.069999933242798
+          }
+        ],
+        "coordinate_claim": "Uncompressed native GLB local frame; identity node transforms; actual broad ground-sill leaf faces measured separately from owner casing envelopes."
+      }
+    },
+    {
+      "asset_key": "kinzie_house_1812_green__kinzie_1804.glb",
+      "triangles": 12272,
+      "primitives": 3
+    }
+  ],
+  "bound_SOURCE_input_files_Git_blob_and_SHA256_authenticated": 1217,
+  "canonical_asset_root": "/tmp/chicago-west-wicket-20261109/chicago/4d/assets",
+  "claim_limit": "Controls compare actual existing BEFORE files to themselves only for reader compatibility. Sparse source inputs were authenticated by frozen Git tree OIDs and actual bytes without source hydration. No rebuilt equality, native output or picture acceptance claimed."
+}

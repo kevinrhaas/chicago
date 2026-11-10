@@ -120,6 +120,14 @@ def resolve(rec: dict):
 def refuses(rec: dict, apertures, why: str) -> None:
     """A record whose stated set is `apertures` must not resolve."""
     bad = copy.deepcopy(rec)
+    # Fixtures use the original centre's x=4 datum. Move them with that room
+    # so the corner/rake refusals still exercise their stated boundaries.
+    apertures = copy.deepcopy(apertures)
+    dx = resolve(rec).compound_parts[0][0][0] - 4.0
+    for entry in apertures:
+        for key in ("u0", "u1"):
+            if key in entry:
+                entry[key] += dx
     form = bad["phases"][0]["form"]
     form["compound_apertures"] = {"value": apertures, "confidence": "reconstructed"}
     try:

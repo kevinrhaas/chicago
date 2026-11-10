@@ -2,7 +2,7 @@
   "structure_id": "first_fort_dearborn_pickets_outer",
   "view": "currey_1912_birdseye",
   "glb": "assets/gltf/first_fort_dearborn_pickets_outer__first_fort_1803.glb",
-  "glb_sha256": "517c6bd77df54f51dd1a641f52ed7fd2ab0477a8bb64f00e1ff523496ee1cfd7",
+  "glb_sha256": "79bad82805bd76ba85170f80f95f3a5a0436a09824883ad92a1aa565bc589c7d",
   "camera_sha256": "e88282076f21185c303a21cdd1e8a199bbd21b695cedcd64bf9e7663c3c97f83",
   "photo_sha256": "2f2b1e60fd78cb91956d16a50af526886b67c0b5fdc0337610ca5ad331360a1f",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "517c6bd77df54f51dd1a641f52ed7fd2ab0477a8bb64f00e1ff523496ee1cfd7"
+      "glb_sha256": "79bad82805bd76ba85170f80f95f3a5a0436a09824883ad92a1aa565bc589c7d"
     },
     {
       "structure_id": "first_fort_dearborn_blockhouse_nw",
@@ -42,7 +42,7 @@
         -29.19999999999999
       ],
       "rotation_y": 0,
-      "glb_sha256": "2567def5a0c657bc40e051bce905fe3c8b8b66f73d46171fcc57dd73d97913fc"
+      "glb_sha256": "f05cba8e375a4acd832a6bd056c29fbb2389ccc8076f25ab6d72ad59163341ea"
     },
     {
       "structure_id": "first_fort_dearborn_blockhouse_se",
@@ -61,7 +61,7 @@
         1
       ],
       "rotation_y": 0,
-      "glb_sha256": "4b52564cd577363639667ed59c38564fb997e5e5496291cfaf3799d0e208352a"
+      "glb_sha256": "aa8a8a5c39b32f3394598924dac1d2214cc75531994159f8b8c7977df16caf6a"
     },
     {
       "structure_id": "first_fort_dearborn_commanding_officers_barracks",
@@ -118,7 +118,7 @@
         -29.539999999999992
       ],
       "rotation_y": -3.141592653589793,
-      "glb_sha256": "6ed239cb5eed46fbcf64796369423497e70de6cca0442bd4f2cbb88d3bde39cf"
+      "glb_sha256": "3d51d6a46407deace244ec2286561fe29d370048c591e86164e04b9674a5c334"
     },
     {
       "structure_id": "first_fort_dearborn_north_range",
@@ -194,7 +194,7 @@
         -3.019999999999982
       ],
       "rotation_y": 0,
-      "glb_sha256": "64525231afa2bf84c25a86c63b6af8f68d82e9df6ec1b224572666c30bf32354"
+      "glb_sha256": "a655faa576521b03877967fc0fcb36727186da408c3625e6fb8ddc1121f975cf"
     },
     {
       "structure_id": "first_fort_dearborn_small_house_ne",
@@ -273,9 +273,9 @@
       "glb_sha256": "8e02cd7d24d42dec902435142aee5aad9650ca024af6e59422b16bae6dab9239"
     }
   ],
-  "group_sha256": "72bf5b6888ca7725cda91e7c4af78e829acf21e254ba3d143a5636eec8ad6fb6",
+  "group_sha256": "b46a9d58cffecab563d55b40d10139ca8cfec819b3c11e51b5a084a734e06d76",
   "side_by_side": "docs/RESEARCH/photo-match/first_fort_dearborn_pickets_outer/currey_1912_birdseye-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "Blockhouses (4, 5): the drawing tops each with a small square cupola under its own pyramid cap, above a jettied upper storey; ours stop at a plain pyramid roof. Whistler's 1808 index says 'the Cupolas are not yet built on the Block Houses as laid down', so his plan drew them and they were still to come in February 1808; whether they stood by 1812 is unrecorded. Owner, 2026-11-03 (T-3335): adopt it; the fix belongs to T-3041. FIXED under T-3041 (2026-11-07): both blockhouses now carry a small square cupola at the apex of the pyramid, under its own four-sided cap, through the fort_structure archetype's existing cupola control; its occurrence is inferred (Whistler's plan laid them down, Kurz & Allison panel 1 and this drawing draw them) and every dimension is the second fort's reconstructed kit (L-first-fort-blockhouse-cupolas-3041). Confirmed by eye on this side-by-side: a cupola now stands on each blockhouse roof where the drawing's 4 and 5 stand. The jetty under the cupolas is not built; its tall tower proportion stays on the owner-ruling row below. REVISED 2026-11-07 on the owner's reading of this drawing: the cupola bodies are now laid in the blockhouse's own coursed log rather than boarded, and the body is 1.6 m rather than 2.1 m, about 20% shorter overall; confirmed by eye on the new side-by-side. REVISED again 2026-11-07 on the owner's reading of the same drawing: each face of both cupola caps now carries a small hooded lookout opening where the drawing marks one (cupola_ports, inferred; its shape and size reconstructed, L-first-fort-blockhouse-cupolas-3041), and the roofs' shingles are drawn course by course with a tone on each shingle (L263 amended); confirmed by eye on the new side-by-side and on close renders of both caps.",
@@ -290,8 +290,8 @@
       "status": "owner ruling"
     },
     {
-      "what": "Western gateway (3): the drawing opens a gate in the west side beside the north-west blockhouse; ours has none. Quaife (1913) also puts a wicket gate 'near the northwestern blockhouse' (Whistler index no. 8), but the register could not find it on the 1808 sheet, so it was not built. Owner, 2026-11-03 (T-3335): adopt it; the fix belongs to T-3041.",
-      "status": "open"
+      "what": "Western gateway (3): the adopted west entrance is now cut through both existing picket rows immediately south of the northwest blockhouse and north of the west officers’ range. The fresh unchanged-camera comparison supports that occurrence and adjacency; the source does not supply an exact metric width or two separately attested gates. Both reconstructed single leaves operate in the actual 1812 app, and desktop/phone real-terrain checks pass both-shut, inner-only, outer-only and both-open states while preserving the south gateway. The 1.50 m cuts, 1.18 m leaf clearance, precise set-out and generic pale-and-rail make are liberties. Whistler’s surveyed plan, existing component dates and the diagnostic camera remain unchanged.",
+      "status": "fixed"
     },
     {
       "what": "Range functions: the drawing labels the east range 'barracks' (7) and puts the officers' quarters (6) on the south; ours follow Whistler's index (commanding officer east, officers west, soldiers south and north). The contemporary index governs; the drawing is retrospective. Owner ruling 2026-11-03 (T-3335): keep Whistler's index.",
@@ -328,6 +328,10 @@
     {
       "what": "Not shown by the drawing: the south-west small house (hidden or not drawn), the parade surface, and every metric size; the drawing is not to scale and its camera here is diagnostic only.",
       "status": "not shown"
+    },
+    {
+      "what": "A5 shared-native control refresh, 2026-11-10: the actual new pinned-model comparison was directly inspected against the full Currey source and preceding accepted pair. The already-adopted cupolas, magazine vault, north-east pyramid, west wickets and retained owner-plan/crop/context limits remain unchanged in visible form. Three first-fort MASTERs were genuinely regenerated with unused UV repacking; current model/group hashes are rebound by this fresh render. This is maintenance of the existing accepted view, not completion of the original all-pictures T3041/T2387 scope. The full before/after pair is pixel-identical.",
+      "status": "within tolerance"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

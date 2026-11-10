@@ -115,6 +115,10 @@ jobs:
         include:
           - year: '1835'
             viewport: self-test
+          # T-3537: a desktop on integrated graphics (?device=weak: Balanced + the phone's
+          # memory diet), the heaviest year only — where the owner's Inspiron crashed.
+          - year: '1904'
+            viewport: shared
     steps:
       - uses: actions/checkout@v4
         with:

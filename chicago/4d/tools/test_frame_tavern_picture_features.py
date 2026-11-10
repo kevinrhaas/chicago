@@ -110,8 +110,8 @@ class PictureFeatures(unittest.TestCase):
         record, phase, params = record_params("green_tree_tavern", "frame_1833", annex=True)
         face = params.left_annex_parts[-1]["door_face"]
         centre = [(face["origin"][i] + .8*face["along"][i]) for i in range(2)]
-        self.assertAlmostEqual(centre[0], 13.6771914444072, places=9)
-        self.assertAlmostEqual(centre[1], 13.4470179705025, places=9)
+        self.assertAlmostEqual(centre[0], 13.381358661188733, places=9)
+        self.assertAlmostEqual(centre[1], 14.081433421428162, places=9)
         sidecar = {"id": record["id"], "archetype": "frame_tavern", "phase": phase["id"],
                    "placement": {"local_e": 0., "local_n": 0., "rotation_deg": 0.},
                    "footprint": phase["footprint"], "attributes": {}}
@@ -119,10 +119,91 @@ class PictureFeatures(unittest.TestCase):
                 patch.object(generate_entrances, "_streets", return_value=[]):
             result = generate_entrances.build()
         entry = next(x for x in result["entrances"] if "annex_boarding_range" in x["id"])
-        self.assertEqual(entry["at_local_enu_m"], [13.68, 13.45])
+        self.assertEqual(entry["at_local_enu_m"], [13.38, 14.08])
         self.assertEqual(entry["bearing_deg"], 335.)
         self.assertEqual(entry["width_m"], 1.)
 
+
+    def test_optional_ridge_end_chimney_heads_keep_legacy_and_other_geometry(self):
+        _, _, p = record_params("sauganash_hotel", "frame_1831")
+        # The integrated canonical Sauganash intentionally opts into its new
+        # head. Save/assert that real choice, then clear it for the legacy control.
+        self.assertEqual(p.ridge_end_chimney_head,
+                         {"height_above_ridge_m":.75,"cap_overhang_m":.06,"cap_height_m":.12})
+        actual_head = p.ridge_end_chimney_head
+        p = dataclasses.replace(p, chimney_placement="gable_ends", chimneys=2,
+                                ridge_end_chimney_section_m=.6, ridge_end_chimney_head=None)
+        plain, _ = builder.build(p,"plain")
+        explicit, _ = builder.build(dataclasses.replace(p,ridge_end_chimney_head=None),"plain")
+        self.assertEqual((plain.verts,plain.faces,plain.conf,plain.mat_index),
+                         (explicit.verts,explicit.faces,explicit.conf,explicit.mat_index))
+        head=actual_head
+        capped=dataclasses.replace(p,ridge_end_chimney_head=head)
+        capped.validate()
+        mesh,_=builder.build(capped,"capped")
+        self.assert_valid_mesh(mesh)
+        def material_geometry(b,material):
+            return [tuple(b.verts[i] for i in f) for f,m in zip(b.faces,b.mat_index) if m==material]
+        for material in set(plain.mat_index)-{builder.M_BRICK}:
+            self.assertEqual(material_geometry(plain,material),material_geometry(mesh,material))
+        before=material_geometry(plain,builder.M_BRICK)
+        after=material_geometry(mesh,builder.M_BRICK)
+        self.assertAlmostEqual(max(v[2] for f in after for v in f)-max(v[2] for f in before for v in f),.2)
+        self.assertTrue(all(mesh.conf[i]==1. for f,m in zip(mesh.faces,mesh.mat_index)
+                            if m==builder.M_BRICK for i in f))
+        for changed in (dict(ridge_end_chimney_section_m=None),dict(chimneys=1),
+                        dict(chimney_placement="frontage"),
+                        dict(confidence={**p.confidence,"ridge_end_chimney_head":"attested"}),
+                        dict(ridge_end_chimney_head={**head,"cap_overhang_m":float("nan")})):
+            with self.assertRaises(ParamError):
+                dataclasses.replace(capped,**changed).validate()
+
+    def test_green_tree_rear_peak_and_connector_fall_are_bounded_opt_ins(self):
+        _, _, p = record_params("green_tree_tavern", "frame_1833", annex=True)
+        g = p.enclosed_left_annex
+        part = p.left_annex_parts[-1]
+        roof_calls=[]
+        original=builder._annex_gable_roof
+        def capture(*args,**kwargs):
+            roof_calls.append(args)
+            return original(*args,**kwargs)
+        mesh=MeshBuilder("complete-left-group")
+        with patch.object(builder,"_annex_gable_roof",side_effect=capture):
+            builder._enclosed_left_annex(mesh,p,p.width_m,p.depth_m)
+        # One dormer cap plus a low forward and taller rear range roof.
+        self.assertEqual(len(roof_calls),3)
+        self.assertEqual([call[6] for call in roof_calls[-2:]], [2.6,4.5])
+        self.assertAlmostEqual(roof_calls[-1][5],part["back"]+1.6)
+        self.assert_valid_mesh(mesh)
+        self.assertEqual(set(mesh.conf),{1.0})
+        # The opt-in reverses the real roof plane, not the source camera or wall.
+        with patch.object(builder,"_annex_shed_roof",wraps=builder._annex_shed_roof) as sheds:
+            builder._enclosed_left_annex(MeshBuilder("slope"),p,p.width_m,p.depth_m)
+        self.assertEqual(sheds.call_args_list[-1].args[6:8],(3.0,2.25))
+        legacy=copy.deepcopy(g)
+        legacy.pop("shed_infill_clapboard")
+        legacy["connector"].pop("falls_away_from_main")
+        legacy["boarding_range"].pop("rear_gable")
+        before=dataclasses.replace(p,enclosed_left_annex=legacy)
+        explicit=copy.deepcopy(legacy)
+        explicit["shed_infill_clapboard"]=False
+        explicit["connector"]["falls_away_from_main"]=False
+        explicit["boarding_range"]["rear_gable"]=None
+        a,b=MeshBuilder("a"),MeshBuilder("b")
+        builder._enclosed_left_annex(a,before,p.width_m,p.depth_m)
+        builder._enclosed_left_annex(b,dataclasses.replace(p,enclosed_left_annex=explicit),p.width_m,p.depth_m)
+        self.assertEqual((a.verts,a.faces,a.conf,a.mat_index),(b.verts,b.faces,b.conf,b.mat_index))
+        self.assertEqual(before.left_annex_parts,p.left_annex_parts)
+        for mutate in (
+            lambda q:q.update(shed_infill_clapboard="yes"),
+            lambda q:q["connector"].update(falls_away_from_main=1),
+            lambda q:q["boarding_range"]["rear_gable"].update(depth_m=3.6),
+            lambda q:q["boarding_range"]["rear_gable"].update(wall_m=5.),
+            lambda q:q["boarding_range"]["rear_gable"].update(roof_pitch_deg=50.),
+        ):
+            bad=copy.deepcopy(g);mutate(bad)
+            with self.assertRaises(ParamError):
+                dataclasses.replace(p,enclosed_left_annex=bad).validate()
 
     def test_reconstructed_dark_stock_roof_colour_changes_only_material_and_roof_confidence(self):
         from common import materials
@@ -404,6 +485,56 @@ class PictureFeatures(unittest.TestCase):
         self.assertEqual(p.gable_arch_text,phase["form"]["gable_arch_text"]["value"])
         bad=copy.deepcopy(phase);bad["form"]["gable_arch_text"]["confidence"]="attested"
         with self.assertRaises(ParamError):from_phase(bad,record)
+
+    def test_green_tree_upper_front_is_three_actual_hashed_sash_only(self):
+        from mesh_inputs import _params_doc
+        _, _, p = record_params("green_tree_tavern", "frame_1833")
+        self.assertEqual(p.front_upper_layout,[.20,.50,.78])
+        self.assertIn("front_upper_layout",CONSUMED)
+        parameter=inspect.signature(FrameTavernParams).parameters["front_upper_layout"]
+        self.assertEqual(parameter.kind,inspect.Parameter.KEYWORD_ONLY)
+        self.assertIsNone(parameter.default)
+        self.assertEqual(_params_doc(p)["inferred"]["resolved_front_upper_stations"],
+                         tuple(p.width_m*at for at in (.20,.50,.78)))
+        legacy=dataclasses.replace(p,front_upper_layout=None)
+        captures=[]
+        def collect(params):
+            calls=[]
+            with patch.object(builder,"_win",lambda *a,**k:calls.append(a[2:])):
+                builder._fenestration_gable_front(MeshBuilder("row"),params,p.width_m,p.depth_m,p.wall_height_m,8.,.5)
+            return calls
+        before,after=collect(legacy),collect(p)
+        is_upper=lambda a:a[0]=="y"and a[1]==p.depth_m and a[2]==1 and a[5]>p.wall_height_m/2
+        upper=[a for a in after if is_upper(a)]
+        self.assertEqual(len(upper),3)
+        for a,at in zip(upper,(.20,.50,.78)):
+            self.assertEqual(a[3:7],(p.width_m*at-.425,p.width_m*at+.425,3.25,4.6))
+            self.assertEqual(a[-1],1.)
+        self.assertEqual([a for a in before if not is_upper(a)],
+                         [a for a in after if not is_upper(a)])
+        old,_=builder.build(legacy,"old");new,_=builder.build(p,"new")
+        self.assert_valid_mesh(new)
+        def triangles(mesh):
+            return collections.Counter((mat,tuple((mesh.verts[i],mesh.conf[i])for i in face))
+                                       for face,mat in zip(mesh.faces,mesh.mat_index))
+        changed=list((triangles(old)-triangles(new)).elements())+list((triangles(new)-triangles(old)).elements())
+        self.assertTrue(changed)
+        # Every changed real accumulator face belongs to the +y upper opening kit.
+        for mat,face in changed:
+            for xyz,confidence in face:
+                self.assertGreaterEqual(xyz[2],p.wall_height_m/2)
+                self.assertLessEqual(xyz[2],p.wall_height_m)
+                self.assertLess(abs(xyz[1]-p.depth_m),.25)
+        self.assertEqual(legacy.resolved_front_upper_stations,(p.width_m*.22,p.width_m*.78))
+        for bad in (False,[],[.2,.8],[True,.5,.8],[.2,float("nan"),.8],
+                    [.5,.2,.8],[-.1,.5,.8],[.2,.5,1.],[.2,.21,.8]):
+            with self.assertRaises(ParamError):
+                dataclasses.replace(p,front_upper_layout=bad).validate()
+        for grade in ("attested","inferred"):
+            with self.assertRaises(ParamError):
+                dataclasses.replace(p,confidence={**p.confidence,"front_upper_layout":grade}).validate()
+        with self.assertRaises(ParamError):
+            dataclasses.replace(p,elevation_scheme="frontage").validate()
 
     def test_green_tree_front_ground_layout_is_sparse_and_reconstructed(self):
         record, phase, p = record_params("green_tree_tavern", "frame_1833")

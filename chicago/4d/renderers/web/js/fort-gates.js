@@ -43,10 +43,10 @@ import { footprintToWorld } from './walker.js';
  * every other palisade (the covered way, the gardens) keeps its baked leaves, shut. */
 export const FORT_GATES = Object.freeze({
   // 1835 — the second fort's two gates, north and south (Kinzie; Andreas).
-  fort_dearborn_palisade: { n: 'North gate', s: 'South gate' },
+  fort_dearborn_palisade: { n: 'North gate', s: 'South gate', e: 'East postern', w: 'West postern' },
   // 1812 — the first fort's main gate, through both rows of pickets (Whistler no. 7).
-  first_fort_dearborn_pickets_outer: { s: 'Main gate, outer row' },
-  first_fort_dearborn_pickets_inner: { s: 'Main gate, inner row' },
+  first_fort_dearborn_pickets_outer: { s: 'Main gate, outer row', w: 'West wicket, outer row' },
+  first_fort_dearborn_pickets_inner: { s: 'Main gate, inner row', w: 'West wicket, inner row' },
   // 1812 — the commanding officer's garden, its walk in from the fort (T-3407).
   first_fort_outer_officers_garden: { n: 'Garden gate' },
 });
@@ -142,9 +142,15 @@ export function stockadePlan(sidecar) {
   const us = poly.map((p) => p[0]), vs = poly.map((p) => p[1]);
   const w = Math.max(...us) - Math.min(...us), d = Math.max(...vs) - Math.min(...vs);
   const sides = [].concat(val(sidecar, 'gate_sides', [])).map((s) => String(s).toLowerCase());
-  const gw = Number(val(sidecar, 'gate_width_m', 3.6));
-  const kind = String(val(sidecar, 'gate_kind', 'gateway'));
-  const off = Number(val(sidecar, 'gate_offset_m', 0));
+  const overrides = val(sidecar, 'gate_overrides', {});
+  // The same per-side fallback as PalisadeParams.gate(): cuts, posts and leaves
+  // resolve once from the record, never from a renderer-only first-fort position.
+  const settings = (side) => {
+    const over = overrides[side] ?? {};
+    return { width: Number(over.width_m ?? val(sidecar, 'gate_width_m', 3.6)),
+      offset: Number(over.offset_m ?? val(sidecar, 'gate_offset_m', 0)),
+      kind: String(over.kind ?? val(sidecar, 'gate_kind', 'gateway')) };
+  };
   const height = Number(val(sidecar, 'picket_height_m', 3.7));
   const corners = [].concat(val(sidecar, 'bastion_corners', [])).map((c) => String(c).toLowerCase());
   const L = Number(val(sidecar, 'bastion_length_m', 7.0));
@@ -154,7 +160,7 @@ export function stockadePlan(sidecar) {
   const run = { s: [[0, 0], [w, 0]], e: [[w, 0], [w, d]], n: [[w, d], [0, d]], w: [[0, d], [0, 0]] };
   const cornerAt = { s: ['sw', 'se'], e: ['se', 'ne'], n: ['ne', 'nw'], w: ['nw', 'sw'] };
   // _gate_shift(): gate_offset_m is toward +u (n, s) or +v (e, w); n and w are walked back.
-  const shift = (side) => (side === 's' || side === 'e' ? off : -off);
+  const shift = (side) => (side === 's' || side === 'e' ? settings(side).offset : -settings(side).offset);
   const lerp = (a, z, t) => [a[0] + (z[0] - a[0]) * t, a[1] + (z[1] - a[1]) * t];
   const walls = [];
   for (const side of ['s', 'e', 'n', 'w']) {
@@ -162,6 +168,7 @@ export function stockadePlan(sidecar) {
     const len = Math.hypot(z[0] - a[0], z[1] - a[1]);
     const cuts = [];
     if (sides.includes(side)) {
+      const gw = settings(side).width;
       const mid = len / 2 + shift(side);
       cuts.push([mid - gw / 2, mid + gw / 2]);
     }
@@ -182,17 +189,20 @@ export function stockadePlan(sidecar) {
   // _gate(): the gateway's middle, its run and its inward side.
   const head = height * HEAD_FRAC;
   const gates = sides.map((side) => {
+    const { width: gw, offset: off, kind } = settings(side);
+    const confidence = Math.max(gradeOf(sidecar, 'gate_sides'),
+      Object.hasOwn(overrides, side) ? gradeOf(sidecar, 'gate_overrides') : 0);
     const ns = side === 'n' || side === 's';
     const centre = ns ? [w / 2 + off, side === 'n' ? d : 0] : [side === 'e' ? w : 0, d / 2 + off];
     const along = ns ? [1, 0] : [0, 1];
     const inward = { s: [0, 1], n: [0, -1], w: [1, 0], e: [-1, 0] }[side];
     if (kind === 'wicket') {
       // One leaf between the posts' inner faces, as tall as the pales less a hand.
-      return { side, kind, centre, along, inward, half: gw / 2 - 2 * WICKET_POST_HALF_M,
+      return { side, kind, confidence, centre, along, inward, half: gw / 2 - 2 * WICKET_POST_HALF_M,
         foot: WICKET_FOOT_M, head: height - WICKET_HEAD_DROP_M,
         pale: { width: Number(val(sidecar, 'picket_width_m', 0.12)), spacing: Number(val(sidecar, 'picket_spacing_m', 0.2)) } };
     }
-    return { side, kind: 'gateway', centre, along, inward, half: gw / 2, foot: LEAF_FOOT_M, head: head - LEAF_HEAD_GAP_M };
+    return { side, kind: 'gateway', confidence, centre, along, inward, half: gw / 2, foot: LEAF_FOOT_M, head: head - LEAF_HEAD_GAP_M };
   });
   return { w, d, walls, gates };
 }
@@ -466,7 +476,6 @@ export function createFortGates({ registry, buildings, footprints = [], confiden
       continue;
     }
     const toWorld = footprintToWorld(record.sidecar.placement);
-    const conf = gradeOf(record.sidecar, 'gate_sides');
     // The walls: the curtain and bastions always, each gateway's span while it is shut.
     const walls = plan.walls.map(([a, b]) => ({ a: toWorld(a), b: toWorld(b), half: WALL_HALF_M }));
     obstacle.walls = walls;
@@ -479,6 +488,7 @@ export function createFortGates({ registry, buildings, footprints = [], confiden
     group.add(holder);
 
     for (const gate of plan.gates) {
+      const conf = gate.confidence;
       const name = FORT_GATES[id][gate.side];
       if (!name) continue;
       // The leaves, each on a pivot at its hinge. Plan (x, y) is glTF (x, -z), so a plan

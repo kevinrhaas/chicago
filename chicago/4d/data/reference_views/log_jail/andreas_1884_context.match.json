@@ -2,7 +2,7 @@
   "structure_id": "log_jail",
   "view": "andreas_1884_context",
   "glb": "assets/gltf/log_jail__log_1833.glb",
-  "glb_sha256": "e767412faebcd8b77a680d188d89458ea879cf467ec56494a8df1a49a2e65dec",
+  "glb_sha256": "2b8cb0d6729ddcd1a3ead2af9bf9ce9bcff4e846bd0b8855ea39aa3af9527a25",
   "camera_sha256": "22fab9978a88c613df36d100cc39e996092593be141e86695063878d7739724a",
   "photo_sha256": "1fcbfe2a1f6c1b71439e5f0ad39fba8d3d59c319be73c4d706c2f9b2d3577277",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "e767412faebcd8b77a680d188d89458ea879cf467ec56494a8df1a49a2e65dec"
+      "glb_sha256": "2b8cb0d6729ddcd1a3ead2af9bf9ce9bcff4e846bd0b8855ea39aa3af9527a25"
     },
     {
       "structure_id": "log_jail_keeper_house",
@@ -45,12 +45,12 @@
       "glb_sha256": "91837241ab0873cbbd27c9f64cd314cc453e41addf019657da3afc8a98c6978b"
     }
   ],
-  "group_sha256": "b9a143ef6fe010920b352fc008d860d9267ed9aae03d75a5427efc1e1d333c67",
+  "group_sha256": "066eba2a15ecb26ba351842bb7b12023e8591067628ac480264996d34ec0cb89",
   "rendered_enclosures": [
     {
       "id": "log_jail_palisade",
       "file": "data/enclosures/log_jail_palisade.json",
-      "sha256": "4de1ab8905eb5af96e3ab249e797b29e5baa8c9cd3429c9c9b1fae6f1891de8f"
+      "sha256": "68d377d4dd54269c1ed939e898bb8df387ff1fd7ff5cd38483c21aa0b120d3af"
     },
     {
       "id": "log_jail_keeper_link",
@@ -77,7 +77,7 @@
     },
     {
       "file": "renderers/web/js/enclosures.js",
-      "sha256": "4dfac316ce02d19ad5d01f2186d0e85fb1372f4f0c64c6769ea26bffc085887d"
+      "sha256": "f6b439fdb9d614ac2b882b0ce4c18f7a20d099b2998f0a3561ffa6e5f71d169d"
     },
     {
       "file": "renderers/web/js/gates.js",
@@ -100,12 +100,12 @@
       "sha256": "3718df126d69c125362a03340913204470d8c50238605150e57f808840fb7759"
     }
   ],
-  "enclosures_sha256": "66d972818f54bef0981811b852ed7d0f4eb5995a60bd72e3c563e5b33f1a3f75",
+  "enclosures_sha256": "c727e48210c74b05933163c55b089f810235ed2efeed194873a37ad4ebabdca5",
   "side_by_side": "docs/RESEARCH/photo-match/log_jail/andreas_1884_context-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
-      "what": "Previously absent high plank palisade is now present in the actual native enclosure render. Gale p.51 supplies the kind/existence; overall3.05m height, compact outline and stock are declared reconstructions, not picture measurements.",
+      "what": "Previously absent high plank palisade is now present in the actual native enclosure render. Gale p.51 supplies the kind/existence; overall3.05m height, compact outline and stock are declared reconstructions, not picture measurements. HEIGHT TRIAL 2026-11-10 (T-2380): the reconstructed overall height is now 2.44 m; 3.05 m describes the preceding comparison. Neither number is a measured historic fence height.",
       "status": "fixed"
     },
     {
@@ -129,20 +129,24 @@
       "status": "within tolerance"
     },
     {
-      "what": "The plate shows the log jail's log gable rising above the plank fence immediately beside the keeper house. In this render the core is concealed behind the palisade and does not read at all. Same unresolved core-exposure question as the Gale view.",
-      "status": "open"
+      "what": "The earlier3.05m palisade concealment was already reduced with the retained2.44m reconstructed height. The actual new native comparison now additionally shows substantial hewn core wall and a pitched gable above that unchanged enclosure; keeper, fence stock, gates, footprint, site and both source dates are retained. This is a source-informed relative-form reconstruction, not a measured historical fence/eave dimension.",
+      "status": "fixed"
     },
     {
-      "what": "Scale and placement in frame differ grossly: the plate's jail group stands close behind the courthouse at the right of a near view, while the render puts the compound small and far off at the right edge. The camera here is diagnostic_only and was never solved to this plate, so this is a framing difference and is not promoted to a geometry error.",
-      "status": "open"
+      "what": "The actual fresh native context pair shows the corrected core wall and pitched roof clearly above the unchanged2.44m fence. The taller form replaces the prior concealed/low proxy. Andreas's distinct hip/pyramidal cap conflicts with Gale's clearer detailed gable, selected as the bounded continuity reconstruction; T3153 source-picture disagreement is within tolerance. No separate later cell is invented and no exact July state or source metres are asserted.",
+      "status": "fixed"
+    },
+    {
+      "what": "The entire Andreas source and actual new native pair are retained. Its composition centres on the courthouse and puts the jail near it; this authored distant camera frames only the July jail group. Scale/placement in frame and perspective disagreement are diagnostic source/camera differences within tolerance underT3153, not measured errors in the adopted jail site or plan. No later building or historical optical solution is invented to fill the picture.",
+      "status": "within tolerance"
     },
     {
       "what": "The plate's dominant subject, the brick Cook County court-house, is deliberately absent from the render: it was erected in the fall of 1835 and the county moved in toward the end of October, after the 1835-07-01 scene date. This is a date decision, not a modelling gap.",
       "status": "within tolerance"
     },
     {
-      "what": "The plate draws a light plank fence of separate boards; the render's palisade is one flat dark mass. No per-board stock is modelled and none is claimed.",
-      "status": "open"
+      "what": "Existing separate254mm boards,6mm gaps and127mm pointed heads remain native enclosure geometry. At this distant diagnostic scale they read as a dark band rather than the engraving's separated marks. That fine stock/lighting legibility is below the visitor bar and monochrome ink does not attest a literal paint colour. This is within tolerance underT3153; no fence feature is absent from the model.",
+      "status": "within tolerance"
     },
     {
       "what": "The keeper house's end gable took the roof-shingle material rather than wall boarding (see the Gale view, which is the plate that shows this end). FIXED 2026-11-04 (T-2380) by the same material-role change. In THIS plate the jail group is small at the right edge and the keeper's gable spans a few dozen pixels (93 px changed), so this view neither shows nor tests the correction; it is recorded here only so the two records do not disagree about the model.",

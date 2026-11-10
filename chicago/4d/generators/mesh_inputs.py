@@ -183,6 +183,9 @@ def _code_shas(archetype: str, params=None) -> dict[str, str]:
     # T-3387: a fort building laid in a K03 period recipe resolves it through k03_brick
     if archetype == "fort_structure" and getattr(params, "period_brick", None):
         wanted += [gen / "archetypes" / "k03_brick.py"]
+    # T-2379: only an explicitly unfinished worksite uses the construction helper.
+    if archetype == "fort_structure" and getattr(params, "construction_site", False):
+        wanted += [gen / "archetypes" / "fort_structure_worksite.py"]
     # T-1730: the high-detail Glessner build delegates to v4-only modules.
     # Hash every module in that family, including the material/texture recipe;
     # the legacy path never imports them. New helpers in the family therefore

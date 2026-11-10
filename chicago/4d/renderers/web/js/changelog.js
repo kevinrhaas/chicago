@@ -1,4 +1,100 @@
 export const CHANGELOG = [ // newest first
+  { v: 2872, ts: '2026-11-10T21:04:22.054Z', date: 'Nov 10, 2026, 3:04 PM CT', title: 'Computers with built-in graphics stop crashing in 1904', kind: 'fix',
+    items: [
+      'A computer whose graphics are built into the processor (Intel UHD, Iris, AMD Radeon Graphics) shares one pool of memory between the town and the picture. Such a computer now opens at Balanced detail with softer textures, and keeps each building once instead of twice, as a phone does. People, horses, carriages and wagons all stay. Before, it opened 1904 at Full and the browser tab could crash.',
+      'The observatory\'s device rating counts that shared memory, so such a computer now reads Low and says "shared memory", where before it read Good.',
+      'A computer that has crashed here also keeps the lighter memory use until you choose Scene detail and Sharpness in Settings yourself.',
+    ] },
+  { v: 2871, ts: '2026-11-10T16:19:41.258Z', date: 'Nov 10, 2026, 10:19 AM CT', title: 'The Kinzie house and its river green', kind: 'change',
+    items: [
+      'The 1812 Kinzie house gains pale whitewashed logs and a taller pictured west doorway. Its fenced green is brought back to the house’s scale, with four Lombardy poplars in a row toward the river. The finish, exact door height and garden placement remain clearly marked as liberties.',
+    ] },
+  { v: 2870, ts: '2026-11-10T14:55:24.580Z', date: 'Nov 10, 2026, 8:55 AM CT', title: 'The remaining lodging households have seats and explicit reconstructed membership', kind: 'fix',
+    items: [
+      'The thirteen remaining ordered lodging residents are assigned as reconstructed youths and anonymous lodgers’ children, with existing names, ages, kin and accepted addresses preserved. Two existing North adults take real vacancies at the Steamboat.',
+      'Lodging now counts actual shared household economies separately from storage cards. Exclusive known-house receipts, explicit secondary boarding uses and bounded reconstructed groups settle the remaining household order without inventing new roofs.',
+      'Housing allocations carry accepted seats forward, count existing vacant upper residences consistently, and prevent further admissions to overfull lodging roofs. Reports expose older crowding and distinguish current debt from frozen allocation residue; staffing payments require the premises’ civil division.',
+    ] },
+  { v: 2869, ts: '2026-11-10T14:33:45.475Z', date: 'Nov 10, 2026, 8:33 AM CT', title: 'Better footing on 1904 walks', kind: 'improvement',
+    items: [
+      'Reduced hovering above walks and parkways for people in 1904.',
+    ] },
+  { v: 2868, ts: '2026-11-10T13:58:16.040Z', date: 'Nov 10, 2026, 7:58 AM CT', title: 'Brick and clay surfaces across the early town', kind: 'feature',
+    items: [
+      'Brick walls and masonry chimneys in 1812 and 1835 show mortar joints, relief and varied brick faces. Exterior log-cabin stacks have the rough surface of stick-and-clay construction. Existing period brickwork retains its own fabric.',
+    ] },
+  { v: 2867, ts: '2026-11-10T12:58:08.942Z', date: 'Nov 10, 2026, 6:58 AM CT', title: 'Glessner’s coachman waits beside his team', kind: 'improvement',
+    items: [
+      'Charles Nelson now keeps watch beside the waiting carriage horses, with his household routine preserved.',
+      'On the household tour, guides approach before greeting and return safely when you leave.',
+    ] },
+  { v: 2866, ts: '2026-11-10T12:04:32.911Z', date: 'Nov 10, 2026, 6:04 AM CT', title: 'Green Tree and the forts: remaining picture corrections', kind: 'fix',
+    items: [
+      'T-2376: Select the missing third upper front window at Green Tree while retaining its completed lower left group. The categorical opening correction awaits the combined native build and fresh picture review.',
+      'T-3041: Enroll the credited Lossing view and complete first-fort original/context picture coverage under the adopted plan and explicit source limits, continuing through existing last child T-2387.',
+      'T-2388: Add the officers’ outside stair, named barn cupola and two small side posterns; adopt the commandant’s front double gallery as reconstructed continuity from the securely named later picture, preserving existing openings. Native, walking and published acceptance remain required.',
+    ] },
+  { v: 2865, ts: '2026-11-10T10:39:51.606Z', date: 'Nov 10, 2026, 4:39 AM CT', title: 'Rendering detail refinements', kind: 'fix',
+    items: [
+      'Large views at Balanced detail now draw more efficiently, with unchanged appearance.',
+      'Full detail gives X-RAY views a measured allowance for their additional drawing work.',
+    ] },
+  { v: 2864, ts: '2026-11-10T10:39:51.606Z', date: 'Nov 10, 2026, 4:39 AM CT', title: 'Daily life at the Glessner house', kind: 'feature',
+    items: [
+      'The household follows seasonal routines, with work, errands, meals and evening company. Ask at the door for someone indoors, request an outdoor activity at any hour, or tell them to Go inside.',
+    ] },
+  { v: 2863, ts: '2026-11-10T09:36:14.781Z', date: 'Nov 10, 2026, 3:36 AM CT', title: 'More reliable DEV preview updates', kind: 'fix',
+    items: [
+      'Adds support for smaller DEV publications while preserving existing models, textures and saved years.',
+      'Includes the horse color and marking contract in published builds.',
+    ] },
+  { v: 2862, ts: '2026-11-10T07:40:44.846Z', date: 'Nov 10, 2026, 1:40 AM CT', title: 'Individual coats for the town\'s horses', kind: 'feature',
+    items: [
+      'Town horses use bay, chestnut and grey coats, with stable individual blazes, socks and subtle dappling. Team members can match while keeping different markings.',
+      'These colors and markings are reconstructed choices. They do not identify documented Chicago animals.',
+    ] },
+  { v: 2861, ts: '2026-11-10T07:08:47.635Z', date: 'Nov 10, 2026, 1:08 AM CT', title: 'Unblock the next residents’ clothing build', kind: 'fix',
+    items: [
+      'Nothing you can see changes yet. This unblocks the build needed to refine existing residents’ clothing; their appearance remains under review.',
+    ] },
+  { v: 2860, ts: '2026-11-10T05:17:20.492Z', date: 'Nov 9, 2026, 11:17 PM CT', title: 'A team for the carriage outside Glessner House', kind: 'feature',
+    items: [
+      'In Full and Balanced scene detail, a reconstructed pair of draft horses waits with the existing carriage south of Eighteenth Street. Its current finish is preserved, and the horses use their existing quiet motion and fitted gear.',
+      'The carriage remains unoccupied. Working coachman boarding and passenger rides are still in progress.',
+    ] },
+  { v: 2859, ts: '2026-11-10T04:16:56.014Z', date: 'Nov 9, 2026, 10:16 PM CT', title: 'Five early Chicago buildings take their remaining pictured forms', kind: 'fix',
+    items: [
+      'T-2374: Cobweb Castle has a compact five-part log plan, lower wing roofs and one small main-ridge stack, retaining its partial clapboarding.',
+      'T-2376: Green Tree gains the separate higher rear gable, lower foreground range and corrected connecting roof shown in its retrospective pictures.',
+      'T-2379: Lake House becomes an open July construction site with uneven brick lifts, timber-supported incomplete openings and interior working stages; the later completed hotel is kept as context.',
+      'T-2380: The jail gains the taller log gable and upright barred-looking light selected from the detailed Gale picture, with its later caption and conflicting Andreas view explicit.',
+      'T-2383: Sauganash gains projecting masonry heads on its slender ridge-end stacks. Existing reconstructed dimensions, source conflicts and camera limits stay visible. Final native, picture and published desktop/phone acceptance remains required before these original tickets close.',
+    ] },
+  { v: 2858, ts: '2026-11-10T01:51:52.549Z', date: 'Nov 9, 2026, 7:51 PM CT', title: 'Northwest blockhouse now shown as pictured', kind: 'change',
+    items: [
+      'The northwest blockhouse is now shown as pictured, with two existing credited drawings connected to its review cameras.',
+      'Both cameras remain diagnostic. Dimensions, other attribute confidence and town geometry are unchanged; the complete picture match is still unfinished.',
+    ] },
+  { v: 2857, ts: '2026-11-10T01:30:35.013Z', date: 'Nov 9, 2026, 7:30 PM CT', title: 'Refine three early Chicago buildings', kind: 'change',
+    items: [
+      'Green Tree’s shoulder roof rises more sharply toward its main block, retaining its low outer eave.',
+      'Cobweb Castle gains partial lower-wall clapboards with a reconstructed extent.',
+      'The reconstructed jail roof shows above a lower palisade; its exact historical height remains uncertain.',
+    ] },
+  { v: 2856, ts: '2026-11-10T01:21:22.939Z', date: 'Nov 9, 2026, 7:21 PM CT', title: 'More natural fabric on existing residents', kind: 'improvement',
+    items: [
+      'Standing and walking residents receive the linen and wool fabric finish already used by drivers, while keeping their individual clothing colours and style. No image textures are added.',
+      'Short-jacket authoring now cuts a level lower hem instead of retaining jagged triangle edges. Freshly generated coats still need rendered review before adoption.',
+      'The human library gains repeatable Blender assembly previews. Full library and photographic-quality acceptance remain open.',
+    ] },
+  { v: 2855, ts: '2026-11-10T00:26:19.143Z', date: 'Nov 9, 2026, 6:26 PM CT', title: 'Open the first fort’s west wicket', kind: 'change',
+    items: [
+      'Two reconstructed leaves now open a passage through the double pickets beside the northwest blockhouse. The south entrance keeps its measured passage.',
+    ] },
+  { v: 2854, ts: '2026-11-09T23:07:14.028Z', date: 'Nov 9, 2026, 5:07 PM CT', title: 'Slim the Sauganash Hotel’s chimneys', kind: 'change',
+    items: [
+      'The Hotel’s two reconstructed brick shafts are slimmer, and its rear-wing roof now reaches the main ridge. The dimensions remain liberties drawn from relative form in the Andreas illustration.',
+    ] },
   { v: 2853, ts: '2026-11-09T06:38:03.103Z', date: 'Nov 9, 2026, 12:38 AM CT', title: '1936 Prairie\'s front chimney gets its photograph\'s two-stage top', kind: 'fix',
     items: [
       'The Thompson/Allerton house at 1936 Prairie: the tall chimney over the front of its south side now ends as its photograph shows it, with a broad moulded cap and a narrower top stage on it, a dark vent in its face, and it stands where the photograph puts it. The roof deck\'s railing now stops behind that chimney, as it does in the photograph, instead of running on along the roof.',

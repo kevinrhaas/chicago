@@ -43,7 +43,7 @@ def _clip(poly,field):
     return clean
 
 
-def garment_shell(m,kind,offset,recipe,bones,height,scale=1.):
+def garment_shell(m,kind,offset,recipe,bones,height,scale=1.,*,lower_hem_clip=False):
     """A source-derived shell with coincident UV seams and clipped vest edges.
 
     Original source UVs and exact weights survive on original vertices. New vest
@@ -115,12 +115,20 @@ def garment_shell(m,kind,offset,recipe,bones,height,scale=1.):
             # Candidate next trim: retain every face crossing the torso slab;
             # continuous source fields, never centroid ownership, cut its edges.
             keep=(max(ps[i][1] for i in face)>=waist-.04 and min(ps[i][1] for i in face)<=vest_top)
+        if kind=='shirt' and lower_hem_clip:
+            # Jacket-only pattern: retain crossing source faces before cutting.
+            # Centroid selection leaves the body triangulation as a sawtooth hem.
+            keep=((max(ps[i][1] for i in face)>=hem and
+                   min(ps[i][1] for i in face)<=neck+.035 and abs(p[0])<.23)
+                  or (arm>.35 and abs(p[0])<wrist-.012))
         if not keep:continue
         selected.append(fi)
         poly=[{'p':ps[i],'uv':m['uvs'][i],'w':m['weights'][i],'n':ns[i],'basis':{sids[i]:1.}} for i in face]
         # End the shirt on the actual existing collar's base plane. This
         # clips triangles and interpolates UVs/weights, instead of selecting
         # jagged whole faces by head weight. Neck/skin anatomy stays exact.
+        if kind=='shirt' and lower_hem_clip:
+            poly=_clip(poly,lambda v:v['p'][1]-hem)
         polys=[_clip(poly,lambda v:neck-v['p'][1])] if kind=='shirt' else [poly]
         if kind=='waistcoat':
             # Clip source corners/UVs/weights exactly on the declared lower/top
@@ -148,6 +156,11 @@ def garment_shell(m,kind,offset,recipe,bones,height,scale=1.):
                     ease=1. if kind!='shirt' else max(0.,min(1.,(shirt_ease['axis_y_m']-vertex['p'][1])/shirt_ease['transition_width_m']))
                     p[0]+=ease*math.copysign(.007/scale,p[0])
                 if kind=='shirt':
+                    if lower_hem_clip:
+                        # Preserve the hem plane and ease into the full offset;
+                        # clamping eased interior vertices would fold hem fans.
+                        gain=min(1.,max(0.,vertex['p'][1]-hem)/(2*offset/scale))
+                        p[1]=vertex['p'][1]+n[1]*offset/scale*gain
                     # Cut-edge normals can have a small vertical component.
                     # The garment seam itself stays on its declared collar
                     # plane instead of sagging into a near-planar stair edge.
@@ -207,6 +220,8 @@ def garment_shell(m,kind,offset,recipe,bones,height,scale=1.):
         'waistcoat_front_closure_y_m':closure_y if kind=='waistcoat' else None,
         'body_mutated':False,'maximum_discarded_cut_weight':maximum_drop,'degenerate_cut_fans_discarded':discarded_zero,
         'fit_accepted':False,'scope':'Original source construction; actual deformation and rendered clothing still need review'}
+    if lower_hem_clip:
+        result['receipt']['lower_hem_clip_y_m']=hem
     if shoulder_pattern:result['receipt'].update(waistcoat_shoulder_pattern=shoulder_pattern,waistcoat_top_clip_y_m=vest_top)
     if kind=='trousers':result=level_trouser_hems(result,bones)
     return result

@@ -1,0 +1,44 @@
+{
+  "structure_id": "kinzie_house_1812",
+  "view": "chicago_magazine_1857",
+  "glb": "assets/gltf/kinzie_house_1812__kinzie_1804.glb",
+  "glb_sha256": "940d58e82a70b1980812525f9e3534caa6dca38ce894e0a112844615686ce373",
+  "camera_sha256": "e8fc1b6bc3c897412261fd3e06c734b015f455046b39af49dfa6f4104bbf2869",
+  "side_by_side": "docs/RESEARCH/photo-match/kinzie_house_1812/chicago_magazine_1857-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "massing: long and low, one storey, the ridge along the river, the west gable toward the eye; the gable apex within about 10 px of the drawn (140, 176) on the red-edge overlay",
+      "status": "fixed"
+    },
+    {
+      "what": "stacks: two through the ridge, about 0.45 and 0.93 of it from the west gable (x 238 and 330 px); the build's at x 250 and 325 px",
+      "status": "fixed"
+    },
+    {
+      "what": "front windows: two tall bare sash each side of the central door; built as two 0.7 x 1.3 m sash each side with no shutters (`front_windows_per_side`, `window_w_m`, `window_h_m`, `front_shutters`)",
+      "status": "fixed"
+    },
+    {
+      "what": "walls: the engraving draws them light and smooth-faced with a corner board, as weatherboard or whitewash reads, about 1833. The 1812 house is built of squared logs from Moses and Kirkland's text, and Lossing's 1812 view draws them dark and coursed; the plate is evidence of its own date, about twenty years later, and a cladding put on in the 1810s or 1820s is the likeliest reading. Not built for 1812",
+      "status": "open"
+    },
+    {
+      "what": "the paling round the green before the piazza, and the four poplars along its river side: built outside this GLB, as kinzie_house_1812_green and data/flora/plantings/kinzie_house_1812_trees.json; the great tree behind the house is the west cottonwood there. This render is the house alone",
+      "status": "fixed"
+    },
+    {
+      "what": "colour: a monochrome wood engraving",
+      "status": "not shown"
+    },
+    {
+      "what": "the west gable end: something dark high in the gable and an upright mark low on the end wall: the light and the door Sarony draws there, now built (T-2516, end_openings)",
+      "status": "fixed"
+    },
+    {
+      "what": "piazza: across the front on six slender posts with a rail between them open at the door, under a flatter roof running from the main roof's lower edge out over the posts; built so (log_dwelling `piazza`, T-2497), and its roof rebuilt (T-2516) as the main slope broken to a flatter pitch just as drawn, its posts nearly the height of the wall (the west post's head lands about 5 px above the drawn one through this loose camera, rms 14 px)",
+      "status": "fixed"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

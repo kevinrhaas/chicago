@@ -1,0 +1,8 @@
+ok   NOTCH_REACH_M 0.2 is logwork's NOTCH_D 0.2
+ok   NOTCH_OUT_M 0.24 is logwork's NOTCH_OUT 0.24
+ok   log_notch is not a hole kind
+ok   Miller House's front names one log_notch (1 found)
+ok   it straddles the core/range junction at u 6.0 up the log storey (u 5.80-6.20, z to 2.60)
+ok   miller_house: board u 2.43-4.09 clears the log notch u 5.8-6.2 by 1.71 m (needs 0.1)
+ok   1 flat board(s) read against a log notch
+PASS: log notch front (0 failure(s))

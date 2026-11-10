@@ -149,16 +149,16 @@ const gateAt = (thing, plan, sidecar) => {
 const speedWas = WALK.speed;
 WALK.speed = 1.5;
 try {
-  // ---- 1835: the second fort, its north and south gates
+  // ---- 1835: two large gates and two reconstructed small side posterns
   {
     const { registry, footprints, layer, ix, problems } = fort('1835');
     ok(problems.length === 0, `1835 hangs its gates without complaint: ${problems.join('; ')}`);
-    ok(layer.gates.map((g) => g.id).sort().join() === 'fort_dearborn_palisade:n,fort_dearborn_palisade:s', 'the 1835 stockade has its two gates, north and south');
+    ok(layer.gates.map((g) => g.id).sort().join() === 'fort_dearborn_palisade:e,fort_dearborn_palisade:n,fort_dearborn_palisade:s,fort_dearborn_palisade:w', 'the 1835 stockade has two large gates and two small side posterns');
     ok(layer.gates.every((g) => g.state === 'closed'), 'every gate starts shut');
     ok(drawsLeaves(registry.get('fort_dearborn_palisade')) && !drawsLeaves(registry.get('fort_dearborn_parade')), 'only the stockade gives up its baked leaves');
     const pal = registry.get('fort_dearborn_palisade').sidecar;
     const plan = stockadePlan(pal);
-    ok(plan.walls.length === 4 + 2 * 1 + 2 * 4, `curtain in six runs (two gates, two bastion corners) plus two bastions of four returns: ${plan.walls.length}`);
+    ok(plan.walls.length === 4 + 4 * 1 + 2 * 4, `curtain in eight runs (two main gates, two posterns, two bastion corners) plus two bastions of four returns: ${plan.walls.length}`);
     const fpPal = footprints.find((f) => f.id === 'fort_dearborn_palisade');
     const fpParade = footprints.find((f) => f.id === 'fort_dearborn_parade');
     ok(Array.isArray(fpPal.walls) && fpParade.ground === true, 'the stockade is walls and the parade is ground');
@@ -214,16 +214,16 @@ try {
   {
     const { registry, footprints, layer, ix, problems } = fort('1812');
     ok(problems.length === 0, `1812 hangs its gates without complaint: ${problems.join('; ')}`);
-    ok(layer.gates.length === 2, 'the main gate in each picket row');
+    ok(layer.gates.length === 4, 'a main gate and west wicket in each picket row');
     // On Whistler's passage: square in the gap between the two halves of the south range.
     const sw = footprints.find((f) => f.id === 'first_fort_dearborn_soldiers_barracks_sw').pts;
     const se = footprints.find((f) => f.id === 'first_fort_dearborn_soldiers_barracks_se').pts;
     const gapMid = (Math.max(...sw.map((p) => p[0])) + Math.min(...se.map((p) => p[0]))) / 2;
-    for (const g of layer.gates) {
+    for (const g of layer.gates.filter((gate) => gate.id.endsWith(':s'))) {
       ok(Math.abs(g.at[0] - gapMid) < 0.06, `${g.name} stands in the barracks' gap (${g.at[0].toFixed(2)} vs ${gapMid.toFixed(2)})`);
     }
-    const outer = layer.gates.find((g) => g.id.includes('outer'));
-    const inner = layer.gates.find((g) => g.id.includes('inner'));
+    const outer = layer.gates.find((g) => g.id.includes('outer') && g.id.endsWith(':s'));
+    const inner = layer.gates.find((g) => g.id.includes('inner') && g.id.endsWith(':s'));
     const start = [outer.at[0], outer.at[1] - 6];
     const fpIn = footprints.find((f) => f.id === 'first_fort_dearborn_pickets_inner');
     const fpOut = footprints.find((f) => f.id === 'first_fort_dearborn_pickets_outer');
@@ -242,6 +242,59 @@ try {
       ok(!into.path.some((p) => inside(p[0], p[1], fp.pts)), `through the passage, never inside ${id}`);
     }
     ok(inside(into.end[0], into.end[1], fpOut.pts), 'inside both rows');
+  }
+
+  // ---- T-3041: independent west wickets beside the northwest blockhouse.
+  {
+    const { registry, footprints, layer, ix, problems } = fort('1812');
+    ok(problems.length === 0, `the west wickets hang without complaint: ${problems.join('; ')}`);
+    const outer = layer.gates.find((g) => g.id.includes('outer') && g.id.endsWith(':w'));
+    const inner = layer.gates.find((g) => g.id.includes('inner') && g.id.endsWith(':w'));
+    ok(outer && inner && Math.abs(outer.at[1] - inner.at[1]) < 0.001, 'both west cuts align across the two rows');
+    const fpIn = footprints.find((f) => f.id === 'first_fort_dearborn_pickets_inner');
+    const block = footprints.find((f) => f.id === 'first_fort_dearborn_blockhouse_nw');
+    const range = footprints.find((f) => f.id === 'first_fort_dearborn_officers_barracks');
+    ok(inner.at[1] + 0.75 < Math.min(...block.pts.map((p) => p[1])), 'the west opening is south of the northwest blockhouse');
+    ok(inner.at[1] - 0.75 > Math.max(...range.pts.map((p) => p[1])), 'and north of the existing west range');
+    for (const row of ['inner', 'outer']) {
+      const sc = registry.get(`first_fort_dearborn_pickets_${row}`).sidecar;
+      const plan = stockadePlan(sc), west = plan.gates.find((g) => g.side === 'w');
+      const south = plan.gates.find((g) => g.side === 's');
+      ok(west.kind === 'wicket' && leafDirections(west, 0).length === 1, `${row}: one west wicket leaf`);
+      ok(Math.abs(2 * west.half - 1.18) < 1e-9 && west.confidence === 1, `${row}: reconstructed clear span is 1.18 m`);
+      ok(south.kind === 'gateway' && leafDirections(south, 0).length === 2 && south.confidence === (row === 'inner' ? 0 : 0.5),
+        `${row}: the source-supported south gate keeps its two leaves and occurrence grade`);
+      const meshes = [];
+      layer.group.traverse((mesh) => { if (mesh.isMesh && mesh.userData.structure_id === sc.id) meshes.push(mesh); });
+      for (const [side, grade] of [['w', 1], ['s', row === 'inner' ? 0 : 0.5]]) {
+        const leaves = meshes.filter((mesh) => mesh.name.endsWith(`:${side}`));
+        ok(leaves.length === (side === 'w' ? 1 : 2)
+          && leaves.every((mesh) => [...mesh.geometry.getAttribute('_confidence').array].every((c) => c === grade)),
+        `${row}: actual ${side} leaf vertices retain the applicable confidence`);
+      }
+    }
+    const start = [outer.at[0] - 6, outer.at[1]];
+    const shut = walkFrom(footprints, start, 90, 8);
+    ok(shut.end[0] < outer.at[0] - WALK.radius + 0.01, 'west, both shut: stopped outside the outer row');
+    openAll(ix, [inner.id]);
+    const innerOnly = walkFrom(footprints, start, 90, 8);
+    ok(innerOnly.end[0] < outer.at[0] - WALK.radius + 0.01, 'west, inner only open: outer leaf still holds');
+    openAll(ix, [inner.id, outer.id]); // close inner, open outer
+    const between = walkFrom(footprints, start, 90, 8);
+    ok(between.end[0] > outer.at[0] + 0.3 && between.end[0] < inner.at[0] - WALK.radius + 0.01,
+      'west, outer only open: stopped between the rows');
+    openAll(ix, [inner.id]);
+    const through = walkFrom(footprints, start, 90, 10);
+    ok(inside(through.end[0], through.end[1], fpIn.pts) && through.end[0] > inner.at[0] + 3,
+      'west, both open: a visitor walks into the fort');
+    for (const fp of [block, range]) {
+      ok(!through.path.some((p) => inside(p[0], p[1], fp.pts)), `west passage never enters ${fp.id}`);
+    }
+    // At a point outside the wicket, the west curtain continues to hold.
+    const beside = walkFrom(footprints, [start[0], start[1] - 2], 90, 8);
+    ok(beside.end[0] < outer.at[0] - WALK.radius + 0.01, 'opening the wicket leaves the adjacent curtain solid');
+    const intoLeaf = walkFrom(footprints, [outer.at[0] + 0.8, outer.at[1] + 1.8], 180, 3);
+    ok(intoLeaf.end[1] > outer.at[1] - 0.75, 'an open west leaf remains solid to a visitor crossing its swing');
   }
 
   // ---- 1812: the commanding officer's garden, its wicket on the walk from the fort (T-3407)
@@ -287,7 +340,7 @@ try {
     ok(route?.points?.length, 'a walk is planned from outside the fort onto the parade');
     const order = gatesOnRoute(layer.gates, route.points).map((g) => g.id);
     ok(order.join() === 'first_fort_dearborn_pickets_outer:s,first_fort_dearborn_pickets_inner:s', `through the outer gate, then the inner (${order.join()})`);
-    for (const g of layer.gates) {
+    for (const g of layer.gates.filter((gate) => gate.id.endsWith(':s'))) {
       ok(route.points.some(([e, n]) => Math.abs(e - g.at[0]) < 0.01 && Math.abs(n - (g.at[1] - 1.5)) < 0.01)
         && route.points.some(([e, n]) => Math.abs(e - g.at[0]) < 0.01 && Math.abs(n - (g.at[1] + 1.5)) < 0.01),
       `${g.name}: the route is held to the gateway's middle, square to it`);
@@ -297,6 +350,22 @@ try {
     ok(round && round.length_m > 70 && gatesOnRoute(layer.gates, round.points).length === 0, `past the fort a walk goes round it, not through (${round?.length_m.toFixed(0)} m)`);
 
     rideIn('1812', footprints, layer, ix, router, from, parade);
+  }
+
+  // The separate western approach crosses its two wickets, not the south gateway.
+  {
+    const { footprints, layer, ix } = fort('1812');
+    const router = createRouter({ terrain: { ...flat, heightfield: { loaded: true, originE: 1050, originN: 120, widthM: 200, depthM: 160 } },
+      footprints, cell: 1, inflate: 0.1 });
+    const outer = layer.gates.find((g) => g.id.includes('outer') && g.id.endsWith(':w'));
+    const inner = layer.gates.find((g) => g.id.includes('inner') && g.id.endsWith(':w'));
+    const from = { e: outer.at[0] - 6, n: outer.at[1] }, to = { e: inner.at[0] + 4, n: inner.at[1] };
+    const route = router.plan(from, to, { mode: 'walk' });
+    ok(route?.points?.length, 'a walking ride is planned through the western approach');
+    ok(gatesOnRoute(layer.gates, route.points).map((g) => g.id).join()
+      === 'first_fort_dearborn_pickets_outer:w,first_fort_dearborn_pickets_inner:w',
+    'the western route crosses the outer and inner wickets in order');
+    rideIn('1812 west', footprints, layer, ix, router, from, to);
   }
 
   // ---- T-3405, 1835: in by the south gate, past the guard house's corner, onto the parade.

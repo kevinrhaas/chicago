@@ -1,0 +1,13 @@
+{
+  "sheet": "cat_and_clay_chimney_orl.ktx2",
+  "what": "the wall (or shingle roof) relief's packed map: R = AO, G = roughness, B = 0.5 * L / mean(L) (relief-pack.js packOrl), written bottom row first (tools/ktx2_sheets.py)",
+  "px": [
+    1024,
+    1024
+  ],
+  "mean_roughness": 0.953762,
+  "masters": {
+    "cat_and_clay_chimney_orm.png": "3c8f5dd58b25f2c6c7ac8334573a8c5eb4ef48e3055cf77c0c465a6a60ffc368",
+    "cat_and_clay_chimney_basecolor.png": "ac97f0dc3178344a5216f66d7e13559398451af4d6b26fc05c3b90eb4ba3480a"
+  }
+}

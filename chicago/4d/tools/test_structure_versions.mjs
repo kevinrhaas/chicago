@@ -123,6 +123,8 @@ const loaderSource = fs.readFileSync(loaderPath, 'utf8')
   .replace("import { registerKTX2 } from './ktx2.js';", 'const registerKTX2 = (l) => l;')
   .replace("'./structure-versions.js'", JSON.stringify(pathToFileURL(
     path.join(ROOT, 'renderers/web/js/structure-versions.js')).href))
+  .replace("'./published-assets.js'", JSON.stringify(pathToFileURL(
+    path.join(ROOT, 'renderers/web/js/published-assets.js')).href))
   .replace("'./shared-images.js'", JSON.stringify(pathToFileURL(
     path.join(ROOT, 'renderers/web/js/shared-images.js')).href));
 const loader = await import(`data:text/javascript;base64,${Buffer.from(loaderSource).toString('base64')}`);
@@ -298,6 +300,7 @@ try {
       .replace("import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';", `import { GLTFLoader } from '${realGLTFURL}';`)
       .replace("import { registerKTX2 } from './ktx2.js';", 'const registerKTX2 = l => { l.setKTX2Loader(globalThis.__T3173NoBankKtx2Fixture); return l; };')
       .replace("'./structure-versions.js'", JSON.stringify(pathToFileURL(path.join(ROOT, 'renderers/web/js/structure-versions.js')).href))
+      .replace("'./published-assets.js'", JSON.stringify(pathToFileURL(path.join(ROOT, 'renderers/web/js/published-assets.js')).href))
       .replace("'./shared-images.js'", JSON.stringify(pathToFileURL(path.join(ROOT, 'renderers/web/js/shared-images.js')).href));
     const actualLoader = await import(asModule(actualLoaderSource));
     const makeGLB = scale => {

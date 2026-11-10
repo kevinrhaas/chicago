@@ -5,6 +5,7 @@ import { readFileSync } from 'node:fs';
 import * as THREE from '../renderers/web/vendor/three-0.185.1/three.module.js';
 import { createDrivenAssembly, createTeamsterAssembly, createTownTransport } from '../renderers/web/js/town-transport.js';
 import { circleRoute, createTransportLoop } from '../renderers/web/js/transport-loop.js';
+import { prepareHorseTemplate, applyHorseAppearance, loadHorseRecipe } from '../renderers/web/js/horse-appearance.js';
 
 const path = new URL('../renderers/web/transport/wagon-driver/wagon-w01.glb', import.meta.url);
 const until = async predicate => { for (let i = 0; i < 1000; i++) { if (predicate()) return; await new Promise(r => setTimeout(r, 2)); } throw Error('bounded asynchronous test did not reach expected state'); };
@@ -206,13 +207,14 @@ const { webcrypto } = await import('node:crypto');
 const { resolveHumanIdentity } = await import('../renderers/web/js/human-identity.js');
 const { teamSupportAt } = await import('../renderers/web/js/transport-support.js');
 const factoryCode = readFileSync(new URL('../renderers/web/js/driven-assembly-loader.js', import.meta.url), 'utf8');
+const horsePoolCode = readFileSync(new URL('../renderers/web/js/draft-horse-assets.js', import.meta.url), 'utf8');
 const fixtureBytes = readFileSync(path);
 const fixtureHash = [...new Uint8Array(await webcrypto.subtle.digest('SHA-256', fixtureBytes))].map(n => n.toString(16).padStart(2, '0')).join('');
 let fixtureNumber = 0;
 const deferredAsset = () => { let resolve, reject; const promise = new Promise((yes, no) => { resolve = yes; reject = no; }); return { promise, resolve, reject }; };
 async function controlledFactory(code, { syncFailure = null, wrongMetadata = false, wrongHash = false } = {}) {
   const io = { vehicle: deferredAsset(), human: deferredAsset(), horse: deferredAsset() };
-  const sourceHashesHorse = code.includes('actual horse differs from model/support binding');
+  const sourceHashesHorse = code.includes('actual horse differs from model/support binding') || code.includes('acquireDraftHorse');
   const events = [], stats = { vehicleDisposed: 0, horseDisposed: 0, humanRefs: 0, humanReleases: 0,
     constructed: 0, actorDisposed: 0, adopted: 0, restored: 0, ownership: null };
   const failure = Error('original controlled dependency failure');
@@ -265,7 +267,7 @@ async function controlledFactory(code, { syncFailure = null, wrongMetadata = fal
   }
   const dependencyKey = `__controlledDriverFactory${fixtureNumber++}`;
   globalThis[dependencyKey] = { THREE, GLTFLoader: FixtureLoader, cloneSkinned: root => root.clone(true),
-    HumanActor: FixtureActor, resolveHumanIdentity, createDrivenAssembly, createTeamsterAssembly, MeshoptDecoder: {}, createDriverLife: () => null, clothHuman: () => [],
+    HumanActor: FixtureActor, prepareHorseTemplate, applyHorseAppearance, resolveHumanIdentity, createDrivenAssembly, createTeamsterAssembly, MeshoptDecoder: {}, createDriverLife: () => null, clothHuman: () => [],
     fitHorseSupport: () => ({ height_m: 0, normal_local_xyz: [0, 1, 0] }), crypto: webcrypto,
     disposeLoadedAsset(value) {
       if (value === gltfVehicle) stats.vehicleDisposed++;
@@ -274,7 +276,8 @@ async function controlledFactory(code, { syncFailure = null, wrongMetadata = fal
     },
     fetch(url) { const kind = String(url).includes('/horse/') ? 'horse' : 'vehicle'; events.push(kind + '-start'); if (syncFailure === kind) throw failure; return io[kind].promise; },
   };
-  const injected = `const { THREE, GLTFLoader, cloneSkinned, HumanActor, resolveHumanIdentity, disposeLoadedAsset, createDrivenAssembly, createTeamsterAssembly, MeshoptDecoder, createDriverLife, clothHuman, fitHorseSupport, crypto, fetch } = globalThis[${JSON.stringify(dependencyKey)}];\n`
+  const injected = `const { THREE, GLTFLoader, cloneSkinned, HumanActor, resolveHumanIdentity, disposeLoadedAsset, createDrivenAssembly, createTeamsterAssembly, MeshoptDecoder, createDriverLife, clothHuman, fitHorseSupport, prepareHorseTemplate, applyHorseAppearance, crypto, fetch } = globalThis[${JSON.stringify(dependencyKey)}];\n`
+    + horsePoolCode.replace(/^import .*;\n/gm, '').replace(/^export /gm, '')
     + code.replace(/^import .*;\n/gm, '');
   const module = await import('data:text/javascript;base64,' + Buffer.from(injected).toString('base64'));
   delete globalThis[dependencyKey];
@@ -383,7 +386,7 @@ function actualAssemblyCallback(code, catalog = null) {
   const make = new Function('modelFor', 'people', 'getPeople', 'makeByHorse', 'createDrivenAssemblyLoader', 'sceneId', 'config', 'humans', 'confidence', 'heightAt', 'supportByHorse', 'makeHitch', 'coarse', 'getAssemblyTools', `return (${method});`)(
     row => row.horse_model, catalog, async () => { gets++; return actualPeople1904; }, new Map(), nativeLoader,
     '1904', actualRoutes, { assets: {} }, null, () => 0, new Map(), nativeHitch, false,
-    async () => ({ createDrivenAssemblyLoader: nativeLoader, makeHitch: nativeHitch }));
+    async () => ({ createDrivenAssemblyLoader: nativeLoader, makeHitch: nativeHitch, coatRecipe: null }));
   return { make, get gets() { return gets; }, get nativeLoaderCalls() { return nativeLoaderCalls; } };
 }
 const lazy = actualAssemblyCallback(sceneBindingSource);
@@ -529,25 +532,41 @@ console.log('original1835 Navigator immediate return preserved while household p
 {
   const begin = sceneBindingSource.indexOf('let assemblyModules = null'), end = sceneBindingSource.indexOf('  const makeByHorse', begin);
   assert(begin >= 0 && end > begin);
-  const events = [], pendingModules = deferredAsset(); let loaders = 0, hitchFactories = 0;
-  class Loader { constructor() { loaders++; } loadAsync() { events.push('GLB'); throw Error('no GLB before actual makeHitch'); } }
-  const modules = {
-    './driven-assembly-loader.js': { createDrivenAssemblyLoader() {} },
-    './draft-hitch.js': { createDraftHitchFactory() { hitchFactories++; return () => {}; } },
-    'three/addons/loaders/GLTFLoader.js': { GLTFLoader: Loader },
-  };
-  const source = sceneBindingSource.slice(begin, end).replace(/\bimport\(/g, 'loadModule(');
-  const caches = new Function('loadModule', 'confidence', 'json', 'moduleBase', source + '\nreturn { prepareAssemblyModules, getAssemblyTools };')(
-    path => { events.push(path); return pendingModules.promise.then(() => modules[path]); }, null,
-    () => { events.push('JSON'); throw Error('directory/binding JSON must remain lazy'); }, new URL('https://controlled.example/'));
-  const first = caches.prepareAssemblyModules(), second = caches.prepareAssemblyModules();
-  assert.strictEqual(first, second); assert.equal(events.length, 3);
-  assert(events.every(path => path.endsWith('.js'))); assert.equal(loaders, 0); assert.equal(hitchFactories, 0);
-  pendingModules.resolve(); await first;
-  assert.equal(loaders, 0); assert.equal(hitchFactories, 0); assert.equal(events.length, 3);
-  const tools = caches.getAssemblyTools(), sameTools = caches.getAssemblyTools(); assert.strictEqual(tools, sameTools);
-  const readyTools = await tools; assert.equal(typeof readyTools.createDrivenAssemblyLoader, 'function');
-  assert.equal(loaders, 1); assert.equal(hitchFactories, 1); assert.equal(events.length, 3);
+  const recipe = JSON.parse(readFileSync(new URL('../data/transport/horse-coats.json', import.meta.url)));
+  // The real loader is injected, including its real validated JSON path. Cover
+  // both the unchanged no-recipe API and opt-in acquisition after lazy warmup.
+  for (const enabled of [false, true]) {
+    const events = [], pendingModules = deferredAsset(); let loaders = 0, hitchFactories = 0, recipeReads = 0;
+    class Loader { constructor() { loaders++; } loadAsync() { events.push('GLB'); throw Error('no GLB before actual makeHitch'); } }
+    const modules = {
+      './driven-assembly-loader.js': { createDrivenAssemblyLoader() {} },
+      './draft-hitch.js': { createDraftHitchFactory() { hitchFactories++; return () => {}; } },
+      'three/addons/loaders/GLTFLoader.js': { GLTFLoader: Loader },
+      './horse-appearance.js': { loadHorseRecipe },
+    };
+    const source = sceneBindingSource.slice(begin, end).replace(/\bimport\(/g, 'loadModule(');
+    const dataBase = new URL('https://controlled.example/lazy-coat-data/');
+    const config = enabled ? { horse_appearance: { recipe_file: 'transport/horse-coats.json' } } : {};
+    const oldFetch = globalThis.fetch;
+    globalThis.fetch = async url => {
+      recipeReads++; assert.equal(String(url), new URL('transport/horse-coats.json', dataBase).href);
+      return { ok: true, json: async () => recipe };
+    };
+    try {
+      const caches = new Function('loadModule', 'confidence', 'json', 'moduleBase', 'config', 'dataBase', source + '\nreturn { prepareAssemblyModules, getAssemblyTools };')(
+        path => { events.push(path); return pendingModules.promise.then(() => modules[path]); }, null,
+        () => { events.push('JSON'); throw Error('directory/binding JSON must remain lazy'); }, new URL('https://controlled.example/'), config, dataBase);
+      const first = caches.prepareAssemblyModules(), second = caches.prepareAssemblyModules();
+      assert.strictEqual(first, second); assert.equal(events.length, 4);
+      assert(events.every(path => path.endsWith('.js'))); assert.equal(loaders, 0); assert.equal(hitchFactories, 0); assert.equal(recipeReads, 0);
+      pendingModules.resolve(); await first;
+      assert.equal(loaders, 0); assert.equal(hitchFactories, 0); assert.equal(events.length, 4); assert.equal(recipeReads, 0);
+      const tools = caches.getAssemblyTools(), sameTools = caches.getAssemblyTools(); assert.strictEqual(tools, sameTools);
+      const readyTools = await tools; assert.equal(typeof readyTools.createDrivenAssemblyLoader, 'function');
+      assert.equal(loaders, 1); assert.equal(hitchFactories, 1); assert.equal(events.length, 4);
+      assert.equal(readyTools.coatRecipe, enabled ? recipe : null); assert.equal(recipeReads, enabled ? 1 : 0);
+    } finally { globalThis.fetch = oldFetch; }
+  }
 }
 console.log('eligibleJSprewarm: zeroGLBs/leases beforecomplete route, Light/remote/welcome/cancel/refusal/cache ownership PASS');
 // One cached JS request can finish across Light->Full generations; only the

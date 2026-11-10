@@ -1,0 +1,61 @@
+{
+  "status": "FULL_HELD_CORPUS_READ_FOUR_CLEARED_NATIVE_GROUPS_DIRECTLY_REVIEWED",
+  "read_at": "2026-11-10T02:19:55.685291+00:00",
+  "rows": [
+    {
+      "path": "/tmp/chicago-west-wicket-20261109/chicago/reference/images/chicago/chicago_sauganash_hotel_1831.jpg",
+      "sha256": "3884c16f72702fd3b1696663dd82b444ac26028b97472e03bd00a2fa75026afb",
+      "status": "actual_final_native_group_directly_reviewed",
+      "disposition": "Andreas/Braunhold1884, verified public-domain source. Hotel-owned camera and Shop-context camera both existing; final source requires actual refreshed pair review."
+    },
+    {
+      "path": "/tmp/chicago-west-wicket-20261109/chicago/reference/images/chicago/sauganash-hotel/sauganash.jpg",
+      "sha256": "b20dd261dea220e7bb98a429214cf33e4a09a55582bdace28711a0ba0c0f5a36",
+      "status": "same_composition_reproduction_read",
+      "disposition": "Smaller monochrome Andreas reproduction, directly read. Same five-bay frame block, two gable-upper windows plus attic, two capped main stacks, log shop and dependent compound silhouette. No independent camera, dimension or source state."
+    },
+    {
+      "path": "/tmp/chicago-west-wicket-20261109/chicago/reference/images/chicago/chicago_sauganash_tavern_1835.jpg",
+      "sha256": "1a4ae4d29ca25b2cefba837ef992a3b00503ab6779f0274c6df01b06e95d217f",
+      "status": "actual_final_native_group_directly_reviewed",
+      "disposition": "Verified1902 Trowbridge, public domain, already native camera under Shop anchor. Same depicted compound composition; finer louvred shutter evidence retained, no1835 observation asserted."
+    },
+    {
+      "path": "/tmp/chicago-west-wicket-20261109/chicago/reference/images/chicago/chicago_sauganash_hotel_1831_petford.jpg",
+      "sha256": "83c5ad6640d31717b668e10e238d816b6e0dc6868f66fcf1057291bfac8ed647",
+      "status": "read_only_cross_check_no_derived_asset",
+      "disposition": "Directly read colour image. Capped redbrick stacks and compound mass agree categorically; cream/brown colour rendition does not override separately attested white/bright-blue WauBun. Ownerbrief source remains unidentified-pending with no museum accession/rights finding; no new derived comparison or rights SourceRecord fabricated."
+    },
+    {
+      "path": "/tmp/chicago-west-wicket-20261109/chicago/reference/images/chicago/sauganash-hotel/images.jpeg",
+      "sha256": "3b280349c6e1d3b5539ddb0f91b7965635f5881dc7474373486efe240b5315fe",
+      "status": "unusable_stock_thumbnail_read",
+      "disposition": "Directly read192x135watermarkedGettythumbnail. Same composition; too small for independent architectural detail, modernstockrightsnotestablished. No geometry or derivative claimed."
+    },
+    {
+      "path": "/tmp/chicago-west-wicket-20261109/chicago/4d/data/sources/assets/carpenter_log_shop_kurz_1893_panel14.png",
+      "sha256": "f251e68441b86738120e6b0462fccd5521153b845a3efc5c5a04c23387506406",
+      "status": "actual_final_native_group_directly_reviewed",
+      "disposition": "Directly viewed actual existing Kurz1893panel14 pair, verifiedpublicdomain, existing Shop camera. Source-dependent redroof/redrawproportions remain tolerance; noindependent1835observation."
+    }
+  ],
+  "duplicates": [
+    "sauganash-hotel/sauganash2.jpg equals heldTrowbridge",
+    "sauganash-hotel/sauganashhotel.jpg equals heldPetford",
+    "reference/planning copies are duplicates"
+  ],
+  "required_final_groups": [
+    "sauganash_hotel/andreas-1884",
+    "philo_carpenter_log_shop/andreas-1884",
+    "philo_carpenter_log_shop/kurz-allison-1893-panel14",
+    "philo_carpenter_log_shop/trowbridge-1902"
+  ],
+  "actual_final_review": {
+    "reviewed_at": "2026-11-10T03:22:03.594004+00:00",
+    "retained_native_commit": "9dd9ba7ddd22c6ff87e52522497205f62133fa1f",
+    "source_commit": "64a752353bc66fa6bfa58c853b90c32625f7b739",
+    "native_run": 42745792113,
+    "all_four_verdicts": "matches",
+    "source_date_rights_limits_retained": true
+  }
+}

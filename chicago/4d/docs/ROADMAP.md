@@ -1,3 +1,75 @@
+## T-2795 — ground 1904 people on the visible pedestrian surface (2026-11-10)
+
+The coachman placement and safe tour/errand handoff shipped through PR #1917.
+The next native support candidate now has actual world evidence: Charles's centre
+matches the drawn parkway rather than the discarded raw field. Retain the measured
+2.315/2.850 mm slope/pose residuals and conservative mask-edge height transitions
+as open contact work; do not add a per-person height fudge or claim fitted feet.
+Preserve existing decks/yards/water, explicit stair heights, horse roadway contact,
+geometry and models. Require complete current-head hosted gate, moving and phone
+checks before DEV merge. Boarding/ride, full gait/contact and photographic acceptance
+continue on the existing tickets; no new ticket or broad closure is introduced.
+
+## T-2795 — bring the existing coachman beside his waiting team (2026-11-10)
+
+Place Charles Nelson on the Prairie Avenue parkway beside the existing Glessner
+carriage team, retaining the clear walking strip, carriage stand and household
+seasonal routines. Preserve his original short break and stable-door tour mark;
+use real visible routes, honest approaching-guide status and safe handback.
+Keep running errands and jaunt guides from replacing one another’s paths; defer
+tour takeover until the errand finishes and restore interactions after release.
+Require current-source street/phone/tour review and complete green hosted checks
+before DEV merge. Continue boarding, coachman conversation, passengers and ride
+controls on the existing tickets; this increment does not close their acceptance.
+
+## T-2795 — deliver the existing transport refinements reliably (2026-11-10)
+
+Keep the merged horse team, clothing and coat increments credited. Add native
+verified publication aliases so the separate MAIN assembler can reduce duplicate
+preview bytes while preserving existing assets, logical LODs and saved years.
+Require complete integrated-head CI before DEV merge and separate owner approval
+for MAIN publisher changes. Measure the current publication and verify live
+freshness; the saved-artifact size proof alone does not establish live delivery.
+Continue the existing coachman, boarding, riding, motion and photographic work;
+this infrastructure increment does not close those acceptances or T-2795.
+
+## T-1789 — retain the full baseline while rebuilding three residents (2026-11-10)
+
+Remove duplicate native measurement work from the second teamster sweep: rebuild and
+measure the three existing resident references through the same source/WEB LOD and
+browser checks, while proving every retained baseline file is unchanged. Preserve
+all 248 original rows' provenance: eight scoped rows may be replaced, 240 stay exact,
+and the 16 new Joseph/Martin rows require actual passing native measurements.
+
+This is the build dependency for the corrected reusable workwear, not appearance
+acceptance. Keep the full fixture prerequisite, global file gate, native checks,
+viewports and timeouts. Run the scoped producer after ordinary CI is green, inspect
+the corrected coats, and preserve Otis's adopted seated/natural-idle clips during
+any eventual asset adoption. The existing T-1789 remains open; no new ticket is filed.
+
+## Delivered human foundations and remaining work (2026-11-10)
+
+T-1786, T-1787 and T-1788 are done: the portable contract, four-LOD exporter and
+browser actor are already in use. The remaining T-1789 work is the modular
+wardrobe/library and its inspection, with Mark's assembly on T-2673. T-1790
+retains the missing portable conversation/gesture/carry/work motions. Preserve
+these delivered foundations while improving existing figures and their clothing.
+
+## T-1789 — refine existing residents and review their kit (2026-11-09)
+
+Reuse the drivers' linen/wool shading on ordinary residents, preserving their own
+clothing colours and material choices. Correct the visibly jagged short-jacket source
+hem, then judge fresh canonical coats in the actual Blender and exported views. No
+existing Otis animation or human asset is replaced by these source refinements.
+
+The real three-resident canonical build and its fixture prerequisite passed on
+`dc998577d76a09a31a5519b7deb0c0c0f6e1f869`. Reuse its exact artifact for the missing
+Blender assembly views through the separate opt-in portable-human rendering job.
+Review the resulting Otis/Joseph/Martin views before adopting generated assets, retaining
+Otis's already delivered driver and natural-idle animation. Full library coverage and
+photographic/posed garment acceptance stay on existing open T-1789; no follow-up ticket
+is introduced by this increment.
+
 ## T-2379 — retain the editor's comparison without making it a measurement (2026-11-04)
 
 An editor requesting a hotel “about double” the Lake House's size expresses a desired
@@ -6392,3 +6464,131 @@ The shadow counterfactual uses its existing declared lake_market calibration vie
 ### Driver delivery checkpoint and reviewed DEV reconciliation — 2026-11-04
 
 Public `967b427e` passed all four original native parts (1,165 checks/402 self-tests) on its exact committed tree, then HEAD QA and publication/check. Its current E803-based reconciliation retains all new DEV content and awaits a fresh integrated gate, current frame/memory CI and full smoke. Earlier evidence remains source-scoped; no DEV merge, global Light pass or photographic/boarding/riding acceptance is claimed.
+
+
+### T-2383 finite Sauganash roof/shaft trial, 2026-11-09
+
+Resume the preserved source work on current dev: an opt-in shared roof ridge
+and reconstructed 0.60 m stack section. Preserve the unchanged positional
+constructor with keyword-only options and declare both construction-note keys.
+Current family scope is 23 defaults plus two Tremont variants; native output,
+24 non-Hotel controls, four affected compositions and both viewport reviews
+remain acceptance work. No new photo follow-up ticket or camera fitting is
+needed. This source checkpoint makes no whole-Hotel match/completion claim.
+
+
+### T-2383 — reviewed native shaft/junction increment, 2026-11-09
+
+The actual native family is fresh; 24 controls and all foreign registry rows are preserved. Four picture compositions and both focused published viewports were reviewed. This increment narrows the Hotel shafts and joins the rear ridge; it does not close original T-2383. Continue only the two finite whole-picture questions there: complete chimney silhouette and compound roof/rear-gable exposure. Preserve the accepted Carpenter anchors, diagnostic cameras and surveyed placement. Global browser failures are explicitly retained in STATUS and the PR; do not replace them with a claimed full-smoke pass or file new photo follow-ups.
+
+
+### T-3041 / T-2387 — bounded west-wicket trial, 2026-11-09
+
+Source implementation adds the missing west gateway beside the northwest blockhouse to both first-fort picket rows, with reconstructed width, precise location and make. The existing main south passage and surveyed fort frame are preserved. Targeted params/producer and actual walking/ride tests pass; no image acceptance is claimed. Next: one palisade-family native bake (15 defaults: two changes, thirteen controls), verify unrelated registry preservation, compare the fixed Currey composition, pass the full gate and published desktop/phone smoke, then adjudicate the existing single open west-gateway discrepancy under the finite visitor bar. No new photo ticket or camera refit is needed.
+
+
+### T-3041 / T-2387 — working west entrance; finite coverage still open (2026-11-10)
+
+The native west openings and two interactive leaves pass desktop/phone walking review; the south entrance retains its measured passage. The refreshed Currey row is resolved under its explicit owner rulings. Complete the original on the same tickets by reviewing/enrolling the prepared canonical northwest-blockhouse and whole-group picture coverage, accounting for the seven outer original records and nine context records that Currey does not individually attest. Preserve cameras by rigid anchor transfer only, source/date/rights limits and surveyed geometry; do not infer sixteen missing geometry repairs or close the original from this one fourteen-member view.
+
+
+### T-2374 / T-2376 / T-2380 — grouped reference increments (2026-11-10)
+
+### T-2376 — shoulder attachment rise trial, 2026-11-09
+
+Source changes only the existing reconstructed shoulder high roof control. Native scope is green_tree_tavern only; no producer changed. Rebuild and inspect the unchanged Andreas camera before accepting the slope increment; retain other left-group/source-coverage questions on original T-2376 and preserve the accepted pointed cap, main block, placement and competing open-bay evidence.
+
+### T-2374 — visible partial siding trial, 2026-11-09
+
+Partial lower-wall boards are prepared, with existing compound geometry and openings preserved. Integrate the precise note declaration and liberty; measure/enroll the new targeted geometry owner; genuinely rebuild the current82-member log family in the group’s native batch; compare using the unchanged private unsolved camera before app/hosted gate qualification. Keep whole-picture massing, wings/sub-roofs/junctions, finish interpretation and July1835 uncertainty on this original ticket. No new follow-up.
+
+T-2380 bounded enclosure-height trial is ready for fresh source/current comparisons and published inspection in the grouped parcel. Do not repeat the already-built keeper/east-gable or native pointed-board increments. Continue the existing original ticket; no new photo follow-up. After actual review, adjudicate the exposed-core row narrowly; keep unresolved roof identity, diagnostic framing and1836-versus-July limits explicit.
+
+Deliver as one reviewed group to reduce shared-ledger/registry conflicts. Perform the83-default scoped native build, actual control audits, fixed-camera comparisons and both published viewports before ordinary dev merge. Retain all existing camera/phase/date/rights constraints and unresolved original-picture questions; no new photo follow-up tickets.
+
+
+### 2026-11-10 — T-2374/T-2376/T-2380 bounded picture progress, PR #1903
+
+The three source trials now have pinned native83 evidence, exact81 unchanged MASTER/WEB controls and961+6 preserved foreign bindings. Fresh fixed-camera Green Tree/Jail comparisons and the unchanged private Cobweb diagnostic have been viewed. Both actual published desktop and phone focused runs pass the current WEB bindings, sources/credited pictures/liberties, exact retained review annotations and real Jail fence/terrain alignment. Whole original matches remain partial: Cobweb's camera/compound/finish timing; Green Tree's left-group/connector proportions and other views; Jail's core roof/form and1836-to-July1835 continuity. Native cost is bounded at+1002 Cobweb triangles/+9612 WEB bytes; Green Tree triangle cost is unchanged. Broader inherited smoke failures remain disclosed, not represented as green. The next step for this increment is final required source CI and an ordinary dev merge; no new photo follow-up ticket is created.
+
+
+### 2026-11-10 — T-3041 northwest coverage, PR #1905
+
+Two actual canonical northwest-blockhouse comparisons now preserve the existing Currey14-member and Kurz30-member world frames. Currey has only bounded existing owner-ruling acceptance with crop/context limits; Kurz retains two finite open composition/identity questions. The compiler's pictured badge reflects two already credited whole depictions, while geometry, attribute confidence and the Images list stay unchanged. Original T-3041/T-2387 coverage of the other dated pictures and the complete component inventory remains partial. The first-fort west wickets and cupolas already delivered must not be redone.
+
+
+## T-2795 — preserve the Glessner-front carriage while adding its team (2026-11-10)
+
+The owner selected the existing carriage outside Glessner House for a horse and a later coachman-led passenger ride. A bounded stationary pair uses the retained team pole, original fitted tack and current horse assets, while preserving the carriage's delivery finish and row. A small shared asset lease avoids loading separate embedded horse images for the moving and parked teams. The parked API remains explicitly opt-in and does not supply a dummy driver.
+
+The canonical fore soles sit about 5.236 mm above the hind-foot plane. A ground-only support fit cannot honestly call those feet planted. Reuse the existing bounded neutral support quaternion and fit the complete original hoof classifier against the actual ground reader; retain the original two-degree, one-millimetre and numerical-penetration limits. The source geometry stays unchanged. Limited synthetic-plane native readings do not replace real street, appearance or phone-cost qualification.
+
+The finite phone street contact, quiet-clock and release/reacquire checks now pass, with an actual published image; broader budget failures are retained in STATUS. Next on the existing T-2795/T-2801/T-2797 work: qualify full coupling surfaces and remaining world acceptance, then fit Charles Nelson and real reins, working doors/entry, safe passenger ownership/camera and board/ride/leave controls. John Glessner is an optional identified passenger; Hans Johnson's separate household/circuit is preserved. No additional ticket is filed for this increment.
+
+### 2026-11-10 — finish T-2374/T-2376/T-2379/T-2380/T-2383 in the combined parcel
+
+The five finite source reconstructions are integrated: compact Cobweb plan/roof-stack count, Green Tree's two rear-range gable levels and connector fall, Gale-selected jail core/light, Sauganash capped stacks, and the bounded Lake House July worksite. Preserve all source/date/rights qualifications and the accepted Carpenter-shop anchors. Complete one combined pinned native batch and actual control audit, review every cleared current picture from its existing or expressly diagnostic framing, apply T-3153 to demonstrated source/camera conflicts, and inspect the published body/entrances/yard/terrain on desktop and phone. Keep Lake House's completed later hotel picture as wrong-date context for July progress; do not backdate its roof or cupola. Close the original tickets only from the actual integrated acceptance evidence, without new photo follow-ups or fabricated dimensions.
+
+
+### 2026-11-10 — Native picture group integrated; Green Tree upper row remains open
+
+PR #1907 integrates pinned native run42745792113, retained9dd9ba7ddd22c6ff87e52522497205f62133fa1f from source64a752353bc66fa6bfa58c853b90c32625f7b739. All375 selected bindings are fresh. Actual audit proves370 controls preserve non-UV geometry, materials, confidence and consumed UVs with identical published bytes;364 masters are identical and6 differ only in unused UV channels. All671 foreign defaults and4 variants remain exact. Three1812 door-cache hash changes independently rederive with unchanged door poses.
+
+Cobweb Castle, the jail and Sauganash/Carpenter contexts have actual fresh reviewed picture records. Lake House uses a dated wrong-state image disposition, not an invented July match; its published worksite qualification remains required. Official yard/entrance/planting/settled-ground derivations remove the old Cobweb prop intrusions, and11 dependent source checks pass. Existing accepted Currey views were actually refreshed without closing the first-fort original.
+
+Green Tree is PARTIAL: its raised rear gable, low connector and lower foreground sash are visibly built, but Trowbridge clearly shows THREE upper front windows and the current model has TWO. Allthree fresh records say differs and keep that categorical omission open. T-2376 will finish with T-3041/T-2388 in the next three-ticket group and one combined scoped build. No new photo follow-up is filed. Final protected source gate and published desktop/phone checks remain pending at this checkpoint. The smoke consumer repairs target actual current collapsed review disclosure, enabled building destination and stand-in-face disclosure; they do not change product behavior or budgets.
+
+
+### 2026-11-10 — T-2376 / T-3041 (last child T-2387) / T-2388 final combined source group
+
+Finish the three originals in one reviewed parcel. Build Green Tree's missing third upper front sash; retain the first-fort complete picture inventory and adopted-plan/source-limit rulings; realize the second fort's bounded piazza stair, named barn cupola, small side posterns and reconstructed commandant front gallery. The securely identified 1855 gallery view supplies later form, not an automatic July 1835 installation date. Preserve all fifteen inherited openings and surveyed seats. Compute the exact current native union before dispatch; the source plan predicts 29 outputs (27 defaults and two variants). Then perform the genuine combined build, control/foreign-binding audit, actual refreshed comparisons, two-postern walking/interaction and published desktop/phone checks under the unchanged source/date/rights constraints. Complete T-3041 through the existing last child T-2387; no new photo follow-up or source-only completion is warranted.
+
+## T-2795 — individual horse coats across eras (2026-11-10)
+
+The owner-requested coat variation is prepared for the current 1812, 1835 and 1904 horse paths, using stable individual markings and matched team palettes over unchanged licensed source maps. Focused canonical/source/material-ownership and legacy lifecycle controls pass. Focused writer/isolation registration now passes; compile canonical liberties/source-use first; then qualify actual all-era WebGL close-ups, ordinary-world desktop/phone appearance and cost before adoption. This remains one T-2795 increment; existing movement, coachman and passenger work stays open.
+
+### T-3533 - 1904 household routines
+Seasonal daily routines now cover all eight drawn household members. Door callers can request an outdoor activity at any hour or ask someone to Go inside. Extend this model to further houses after this household review.
+
+
+### T-3535 - Balanced shadow culling
+Balanced now uses the existing conservative shadow-caster filter. At the failing 1835 West prairie view, 66,537 submitted triangles and 501 calls disappear with zero changed pixels; the 2,625,000 ceiling remains unchanged. Receipts: docs/RESEARCH/balanced-shadow-budget-3535/. Release smoke verification is recorded in the PR.
+
+T-3535 also recalibrates the Full-only Ghost triangle allowance from the complete desktop settings smoke, retaining the existing margin and all ordinary/lower-tier budgets.
+
+
+## 2026-11-10 T-2484 source checkpoint
+
+The existing1812 Kinzie house is being completed from all seven credited pictures. Actual
+before comparisons now include the existing green. The source states reconstructed
+whitewash, a2.50m end door, a17m green and a riverward four-poplar row. Six targeted
+producer/validation tests and actual command isolation pass. Native adoption, fresh
+after comparisons, published desktop/phone full-context review and final sourceCI remain
+pending; this source checkpoint does not close the ticket or claim an after-state.
+
+- T-2484 advanced through actual native adoption and seven canonical house+green picture Matches (2026-11-10, PR1919); 81nativecontrols and961+6foreigns exact. Four safe reconstructed north/south poplar stations now clear the existing4.5m house exclusion. Remaining acceptance is actual published six-tree/household desktop/defaultphone Normal/ByGrade/source-card review plus current required checks and ordinary dev merge. No new photo follow-up.
+
+
+### 2026-11-10 — T-2023 remainder diagnostics
+
+The live order and the frozen room now have separate readings. Preserve existing people and assignments while reconciling household units, shared-roof occupancy and physical residential stock. Staffing payments now refuse a different or unknown civil division. The three-youth candidate exposed the old greedy housing redeal and is held outside this delivery until the carried housing extension is validated.
+
+
+### 2026-11-10 — T-2023 finite lodging reconciliation
+
+The source derivation now pays all 13 live lodging-person orders and all 34 missing
+household-unit receipts: 56 explicit R economies plus 20 known-house receipts, 368
+disjoint member IDs, with a global 165-house exclusive accounting crosswalk. It
+preserves all 157 original person records, 52 prior layer seats and 1,807 accepted
+housing roofs; two additional existing North adults take real Steamboat vacancies.
+Six already-standing upper residences correct the dwelling inventory 415→421; 3,452
+people remain below the unchanged 8.204 census ratio. A single explicitly exceptional
+West youth night stays inside Clinton H3's unchanged full 26 capacity. Seven older
+whole-roof excesses remain disclosed and receive no new admissions. Full bounds,
+R secondary uses, refusal receipts and caveats are in
+`RESEARCH/1835_lodging_remainder_2023.md`. PR1920 remains in review until protected
+checks and the published walkthrough verification finish; this entry is a public
+checkpoint, not a premature ticket closure.
+### 2026-11-10 — T-3341 early masonry surface increment
+
+The remaining flat brick and chimney materials in 1812 and 1835 now bind the existing procedural brick or clay sheet by their recorded disposition. Already mapped fort recipes and 1904 materials are retained. The new brick shuffle reads the library's 20 by 48 running bond; Miller's mixed native stack primitive is partitioned without losing triangles or confidence. Actual desktop/default-phone before-and-after surfaces pass in both scenes (28 directly reviewed frames and two detail roundtrips). Official boot passes at 44.716135 MiB of 44.9; unchanged phone-memory gates pass at 305.664622 MiB of 350 (1812) and 509.227699 MiB of 550 (1835). All eight source-check parts and their aggregate pass on runtime `cab4514539`; PR #1918 records final protected-check and dev-merge state. See docs/RESEARCH/early-masonry-3341.md and L-early-masonry-surfaces-3341.

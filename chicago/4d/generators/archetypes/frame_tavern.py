@@ -210,9 +210,27 @@ def build(params: FrameTavernParams, name: str):
         inset = 0.6
         spots = ([(inset, d / 2), (w - inset, d / 2)] if w >= d
                  else [(w / 2, inset), (w / 2, d - inset)])
+        half = 0.45
+        if params.ridge_end_chimney_section_m is not None:
+            half = params.ridge_end_chimney_section_m / 2
+            c_ch = params.worst_conf(*ch_attrs, "chimney_placement",
+                                     "ridge_end_chimney_section_m")
+        head = params.ridge_end_chimney_head
+        if head is not None:
+            c_ch = params.worst_conf(*ch_attrs, "chimney_placement",
+                                     "ridge_end_chimney_section_m", "ridge_end_chimney_head")
         for cx, cy in spots:
-            b.add_box(cx - 0.45, cy - 0.45, wall_z, cx + 0.45, cy + 0.45,
-                      ridge_z + 0.55, c_ch, m_ch, skip=("bottom",))
+            if head is None:
+                b.add_box(cx - half, cy - half, wall_z, cx + half, cy + half,
+                          ridge_z + 0.55, c_ch, m_ch, skip=("bottom",))
+            else:
+                top = ridge_z + head["height_above_ridge_m"]
+                cap_base = top - head["cap_height_m"]
+                b.add_box(cx - half, cy - half, wall_z, cx + half, cy + half,
+                          cap_base, c_ch, m_ch, skip=("bottom", "top"))
+                cap_half = half + head["cap_overhang_m"]
+                b.add_box(cx - cap_half, cy - cap_half, cap_base,
+                          cx + cap_half, cy + cap_half, top, c_ch, m_ch)
     else:
         c_ch = params.worst_conf(*ch_attrs) if len(ch_attrs) > 1 else params.conf("chimneys")
         for fx in _stack_fractions(params.chimneys):
@@ -845,8 +863,9 @@ def _fenestration_gable_front(b: MeshBuilder, params: FrameTavernParams, w: floa
     _door(b, params, "y", d, 1, door_cx - 0.6, door_cx + 0.6, 0.0, 2.1, ground_conf)
     for story in range(params.stories):
         z0 = story * story_h + story_h * 0.30
-        centres = (w * .22, w * .78) if story else ground_sash_centres
-        window_conf = ground_conf if story == 0 else conf
+        centres = params.resolved_front_upper_stations if story else ground_sash_centres
+        upper_conf = conf if params.front_upper_layout is None else max(conf,params.conf("front_upper_layout"))
+        window_conf = ground_conf if story == 0 else upper_conf
         for cx in centres:
             _win(b, params, "y", d, 1, cx - win_w / 2, cx + win_w / 2, z0, z0 + win_h,
                  window_conf)
@@ -918,7 +937,15 @@ def _cross_wing(b: MeshBuilder, params: FrameTavernParams, w: float, d: float,
 
     # its own gable, ridge along the deep axis. The span is d, so this returns the
     # main block's own ridge height and the two meet at the apex the plate draws.
-    ridge_z = b.add_gable_roof(x0, -p, x1, 0, wall_z, params.roof_pitch_deg,
+    roof_end = 0.0
+    if params.cross_wing_shared_ridge_join:
+        # add_gable_roof pads the longitudinal end by ROOF_OVERHANG.
+        # End its actual crest at the main roof's centre, not 0.25 m beyond it.
+        # Walls and the unmeasured outer wing length stay exactly as selected.
+        roof_end = d / 2 - ROOF_OVERHANG
+        c_roof = params.worst_conf("cross_wing", "roof_type", "roof_pitch_deg",
+                                   "cross_wing_shared_ridge_join")
+    ridge_z = b.add_gable_roof(x0, -p, x1, roof_end, wall_z, params.roof_pitch_deg,
                                c_roof, M_ROOF, ridge_along_x=False)
     if abs(ridge_z - main_ridge_z) > 0.01:
         raise ValueError(
@@ -1257,13 +1284,27 @@ def _enclosed_left_annex(b: MeshBuilder, p: FrameTavernParams, w: float, d: floa
         b.add_box(x0,y0,0,x1,front,h,c,M_WALL,skip=("bottom",))
         _annex_courses(b,p,x0,y0,x1,front,h,c)
         if name=="boarding_range":
-            _annex_gable_roof(b,p,x0,y0,x1,front,h,v["roof_pitch_deg"],c)
+            rear=v.get("rear_gable")
+            if rear is None:
+                _annex_gable_roof(b,p,x0,y0,x1,front,h,v["roof_pitch_deg"],c)
+            else:
+                # Two visible peaks: a low forward roof and the higher rear
+                # gable Andreas and Kurz draw behind it. Same occupied envelope.
+                join=y0+rear["depth_m"]
+                _annex_gable_roof(b,p,x0,join,x1,front,h,v["roof_pitch_deg"],c)
+                b.add_box(x0,y0,h,x1,join,rear["wall_m"],c,M_WALL,skip=("bottom",))
+                _annex_courses(b,p,x0,y0,x1,join,rear["wall_m"],c,start_z=h)
+                _annex_gable_roof(b,p,x0,y0,x1,join,rear["wall_m"],rear["roof_pitch_deg"],c)
         else:
-            # Shoulder falls away from the main block. The low connector rises
-            # toward the farther boarding range, a declared diagnostic first fit.
+            # Preserve the earlier connector direction unless its reconstructed
+            # picture reading explicitly opts into falling away from the main block.
             z0,z1=((v["roof_high_m"],v["roof_low_m"]) if name=="shoulder"
                    else (v["roof_low_m"],v["roof_high_m"]))
+            if name=="connector" and v.get("falls_away_from_main",False):
+                z0,z1=z1,z0
             _annex_shed_roof(b,x0,y0,x1,front,h,z0,z1,c)
+            if g.get("shed_infill_clapboard",False):
+                _annex_infill_courses(b,p,x0,y0,x1,front,h,z0,z1,c)
         if name != "connector":
             f,z,ww,hh=v["front_window"];cx=x0+f*v["span_m"]
             _win(b,p,"y",front,+1,cx-ww/2,cx+ww/2,z,z+hh,c)
@@ -1291,16 +1332,35 @@ def _enclosed_left_annex(b: MeshBuilder, p: FrameTavernParams, w: float, d: floa
                 b.verts[i]=(x0+dx*cs-dy*sn,y0+dx*sn+dy*cs,pz)
 
 
-def _annex_courses(b,p,x0,y0,x1,y1,wall_z,c):
+def _annex_courses(b,p,x0,y0,x1,y1,wall_z,c,*,start_z=0.):
     """The existing frame stock and material, translated onto bounded annex walls."""
     lip=.018
-    for z in materials.course_lines(0.,wall_z,p.siding_exposure_m,p.siding_lay_m,p.siding_seed):
+    for z in materials.course_lines(start_z,wall_z,p.siding_exposure_m,p.siding_lay_m,p.siding_seed):
         for y,out in ((y0,-1),(y1,+1)):
             pts=[(x0,y,z),(x1,y,z),(x1,y+out*lip,z-.02),(x0,y+out*lip,z-.02)]
             b.add_poly(list(reversed(pts)) if out<0 else pts,c,M_WALL)
         for x,out in ((x0,-1),(x1,+1)):
             pts=[(x,y0,z),(x,y1,z),(x+out*lip,y1,z-.02),(x+out*lip,y0,z-.02)]
             b.add_poly(list(reversed(pts)) if out>0 else pts,c,M_WALL)
+
+
+def _annex_infill_courses(b,p,x0,y0,x1,y1,wall_z,z0,z1,c):
+    """Continue opted-in clapboard over the shed's trapezoid, clipped to its roof."""
+    slope=(z1-z0)/(x1-x0);lip=.018
+    for z in materials.course_lines(wall_z,max(z0,z1),p.siding_exposure_m,p.siding_lay_m,p.siding_seed):
+        a,bx=x0,x1
+        if abs(slope)>1e-12:
+            cut=x0+(z-z0)/slope
+            if slope>0:a=max(x0,cut)
+            else:bx=min(x1,cut)
+        if bx-a>1e-8:
+            for y,out in ((y0,-1),(y1,+1)):
+                pts=[(a,y,z),(bx,y,z),(bx,y+out*lip,z-.02),(a,y+out*lip,z-.02)]
+                b.add_poly(list(reversed(pts)) if out<0 else pts,c,M_WALL)
+        for x,out,top in ((x0,-1,z0),(x1,+1,z1)):
+            if z<=top:
+                pts=[(x,y0,z),(x,y1,z),(x+out*lip,y1,z-.02),(x+out*lip,y0,z-.02)]
+                b.add_poly(list(reversed(pts)) if out>0 else pts,c,M_WALL)
 
 
 def _annex_shed_roof(b,x0,y0,x1,y1,wall_z,z0,z1,c):

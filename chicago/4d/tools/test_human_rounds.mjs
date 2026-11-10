@@ -14,8 +14,8 @@
 //     gathers and parts again; people go in for a break and come out, and while in are offered at
 //     their door; nobody out of doors stands idle but at a post;
 //   - the same seeds play the same round on every load.
-// T-3516 ("This is for all years starting with 1812"): 1835's and 1904's drawn people (but the
-// Glessners, the front door's, and a walker on her route) have a day, are in or away at night,
+// T-3516 / T-3533: every drawn person in 1835 and 1904 has a day, including the
+// Glessners and Christine; they are in or away at night,
 // take breaks at their own doors, and 1904's staff gather now and then.
 import fs from 'node:fs/promises';
 import assert from 'node:assert/strict';
@@ -201,18 +201,17 @@ for (const hour of [7, 10, 15.5, 19.5]) {
   assert(kids.most <= 5, `${hour}h: ${kids.most} children out together in one place, few grown-ups by`);
   report.push(`${hour}h ${(100 * talk / all).toFixed(0)}% talk (most ${(100 * worst).toFixed(0)}%), ${met.length}/${knots.size} knots gather, ${breaks} breaks, children out ${(100 * kids.out / kids.n).toFixed(0)}% (${kids.most} together at most without grown-ups)`);
 }
-// ── 1835 and 1904 (T-3516): every drawn person but the Glessners (the front door's, T-3443) and
-// a walker on her route has a day; played, they work, gather (1904's staff), take breaks in at
+// ── 1835 and 1904 (T-3516 / T-3533): every drawn person has a day;
+// played, they work, gather, take breaks in at
 // their own doors, and are in (or away) at night.
-for (const [scene, when, hours] of [['1835', '1835-07-01', [7, 12.5, 16]], ['1904', '1904-07-01', [10.5, 15.5]]]) {
+for (const [scene, when, hours] of [['1835', '1835-07-01', [7, 12.5, 16]], ['1904', '1904-07-01', [10.5, 11.25, 15.5, 19.25]]]) {
   const dir = new URL(`data/humans/instances/${scene}/`, here);
   const idx = JSON.parse(await fs.readFile(new URL('index.json', dir), 'utf8'));
   const rs = (await Promise.all(idx.instances.map(async (id) => JSON.parse(await fs.readFile(new URL(`${id}.json`, dir), 'utf8')))))
     .filter((r) => r.display === 'shown');
   const withDay = rs.filter((r) => Array.isArray(r.behaviour?.day));
   const without = rs.filter((r) => !Array.isArray(r.behaviour?.day)).map((r) => r.id).sort();
-  const allowed = { 1835: [], 1904: ['hi_glessner_frances_m_1904', 'hi_glessner_john_j_1904', 'hi_pa1904_glessner_john_j_c1900_christine_nelson_1904'] }[scene];
-  assert.deepEqual(without, allowed, `${scene}: everyone drawn has a day but ${allowed.join(', ') || 'no one'}`);
+  assert.deepEqual(without, [], `${scene}: every drawn person has a day, without exceptions`);
   const ds = await doorsOf(scene);
   const cl = clearWayOf(await footprintsOf(scene));
   const centre = { e: withDay.reduce((t, r) => t + r.placement.local_e, 0) / withDay.length, n: withDay.reduce((t, r) => t + r.placement.local_n, 0) / withDay.length };
@@ -234,7 +233,9 @@ for (const [scene, when, hours] of [['1835', '1835-07-01', [7, 12.5, 16]], ['190
     }
     assert(idle / Math.max(1, all) < 0.02, `${scene} ${hour}h: someone out stands idle`);
     assert(breaks > 0, `${scene} ${hour}h: someone goes in for a break`);
-    if (scene === '1904') assert(talk > 0, `${scene} ${hour}h: the staff gather now and then`);
+    // T-3533: shared breaks and evening company have their own slots; ordinary
+    // working hours no longer require everyone to be assigned a conversation.
+    if (scene === '1904' && [11.25, 19.25].includes(hour)) assert(talk > 0, `${scene} ${hour}h: the scheduled company gathers and parts`);
     seen.push(`${hour}h ${breaks} breaks, ${(100 * talk / Math.max(1, all)).toFixed(0)}% talk`);
   }
   void centre;

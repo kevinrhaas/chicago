@@ -50,8 +50,9 @@ CONSUMED = frozenset({
     "shutter_type", "entrance_frontispiece", "front_opening_details", "front_lower_sash", "chimney_material", "roof_colour",
     "log_wing_door", "log_wing_porch_hood",
     "cross_wing", "cross_wing_depth_m", "cross_wing_end", "enclosed_left_annex",
+    "cross_wing_shared_ridge_join", "ridge_end_chimney_section_m", "ridge_end_chimney_head",
     "upper_windows", "stovepipes", "rear_ell_door", "eaves_bays", "end_windows",
-    "first_story_height_m", "entry_raise_m", "gable_lunette", "front_ground_layout",
+    "first_story_height_m", "entry_raise_m", "gable_lunette", "front_ground_layout", "front_upper_layout",
     "flagstaff", "flagstaff_height_m", "gable_wall_cladding",
     "gable_arch_treatment", "corner_entry_surround", "gable_arch_text",
     "main_gable_cornice",
@@ -197,6 +198,11 @@ class FrameTavernParams:
     # disposition plate "11" draws for the Green Tree. With this placement the
     # record's chimney count must be exactly 2.
     chimney_placement: str = "frontage"
+    # Explicit opt-in square section for the two ridge-end shafts. None retains
+    # every legacy 0.90 m shaft. Height and plain heads are deliberately unchanged.
+    ridge_end_chimney_section_m: float | None = field(default=None, kw_only=True)
+    # Bounded reconstructed cap/head; absent keeps the legacy plain head.
+    ridge_end_chimney_head: dict | None = field(default=None, kw_only=True)
 
     # The resolved LOCAL wall carrying an attested second entrance mid-eaves:
     # None, "x_min" or "x_max". Records state a compass direction
@@ -244,6 +250,8 @@ class FrameTavernParams:
     # across its width. None preserves the legacy centred-door layout exactly.
     # Stations and stock sections remain reconstructed; this is not a survey.
     front_ground_layout: list[float] | None = field(default=None, kw_only=True)
+    # Explicit three-sash upper front row; None preserves the legacy pair.
+    front_upper_layout: list[float] | None = field(default=None, kw_only=True)
 
     # Explicit sash on the MAIN gable ends of a frontage-scheme block (T-2383).
     # Each tuple is (end, at, z, width, height): end +x/-x, at a fraction of
@@ -290,6 +298,9 @@ class FrameTavernParams:
     cross_wing: bool = False
     cross_wing_depth_m: float = 8.0
     cross_wing_end: str = "x_max"
+    # Opt-in repair of the historical wing helper's unjoined ridge end.
+    # False preserves all legacy meshes, including photo-gated alternatives.
+    cross_wing_shared_ridge_join: bool = field(default=False, kw_only=True)
 
     # The finish the 665-roof programme dealt this building, and how weathered its
     # roof is. NOT form attributes — they live in the record's `reconstruction`
@@ -505,6 +516,31 @@ class FrameTavernParams:
         if self.entry_raise_m and self.entry_raise_m + 2.1 + 0.15 > first_height:
             raise ParamError("raised entrance and its head need 0.15 m below the "
                              "first-floor structure")
+        if self.ridge_end_chimney_section_m is not None:
+            section = self.ridge_end_chimney_section_m
+            if (isinstance(section, bool) or not isinstance(section, (int, float))
+                    or not math.isfinite(section) or not 0.30 <= section <= 1.20):
+                raise ParamError("ridge_end_chimney_section_m must be finite in 0.30..1.20 m")
+            if self.chimney_placement != "gable_ends" or self.chimneys != 2:
+                raise ParamError("ridge_end_chimney_section_m requires exactly two gable-end stacks")
+        if self.ridge_end_chimney_head is not None:
+            g = self.ridge_end_chimney_head
+            if (self.chimney_placement != "gable_ends" or self.chimneys != 2
+                    or self.ridge_end_chimney_section_m is None):
+                raise ParamError("ridge_end_chimney_head requires two gable-end stacks and explicit section")
+            if self.confidence.get("ridge_end_chimney_head", "reconstructed") != "reconstructed":
+                raise ParamError("ridge_end_chimney_head metric controls must remain reconstructed")
+            bounds = {"height_above_ridge_m": (.4, 1.5), "cap_overhang_m": (.02, .15),
+                      "cap_height_m": (.06, .25)}
+            if not isinstance(g, dict) or set(g) != set(bounds):
+                raise ParamError("ridge_end_chimney_head needs bounded height, overhang and cap height")
+            for key, (lo, hi) in bounds.items():
+                value = g[key]
+                if (isinstance(value, bool) or not isinstance(value, (int, float))
+                        or not math.isfinite(value) or not lo <= value <= hi):
+                    raise ParamError(f"ridge_end_chimney_head {key} must be finite in {lo}..{hi}")
+            if g["height_above_ridge_m"] < g["cap_height_m"] + .2:
+                raise ParamError("ridge_end_chimney_head needs shaft above ridge below its cap")
         if self.chimney_placement == "gable_ends" and self.chimneys != 2:
             raise ParamError(f"chimney_placement 'gable_ends' stands one stack at each "
                              f"gable end, so the count must be 2, not {self.chimneys}")
@@ -559,6 +595,25 @@ class FrameTavernParams:
                     f"eaves_bays[{face!r}] {bays} on a {self.depth_m} m wall "
                     f"leaves {self.depth_m / bays:.2f} m a bay, under "
                     f"the {UPPER_BAY_MIN_M} m a sash and its pier need")
+        if self.front_upper_layout is not None:
+            stations = self.front_upper_layout
+            if self.conf("front_upper_layout") != 1.0:
+                raise ParamError("front_upper_layout metrics must remain reconstructed")
+            if self.elevation_scheme != "gable_front" or self.stories != 2:
+                raise ParamError("front_upper_layout needs a two-storey gable_front block")
+            if (not isinstance(stations, list) or len(stations) != 3
+                    or any(isinstance(v, bool) or not isinstance(v, (int, float))
+                           or not math.isfinite(v) for v in stations)):
+                raise ParamError("front_upper_layout needs three finite local fractions")
+            if not stations[0] < stations[1] < stations[2]:
+                raise ParamError("front_upper_layout stations must be strictly ordered")
+            spans = [(at*self.width_m-.85/2, at*self.width_m+.85/2) for at in stations]
+            if spans[0][0] < .15 or spans[-1][1] > self.width_m-.15:
+                raise ParamError("front_upper_layout reaches a wall corner")
+            if any(right[0]-left[1] < .30 for left, right in zip(spans,spans[1:])):
+                raise ParamError("front_upper_layout overlaps sash or leaves too little pier")
+            if self.wall_height_m/2*1.30+1.35+.15 > self.wall_height_m:
+                raise ParamError("front_upper_layout stock sash needs room below the wall head")
         if self.front_ground_layout is not None:
             stations = self.front_ground_layout
             if self.conf("front_ground_layout") != 1.0:
@@ -639,6 +694,10 @@ class FrameTavernParams:
         if self.log_wing_door and not self.log_wing:
             raise ParamError("log_wing_door without log_wing — a door needs a wing "
                              "to open into")
+        if type(self.cross_wing_shared_ridge_join) is not bool:
+            raise ParamError("cross_wing_shared_ridge_join must be boolean")
+        if self.cross_wing_shared_ridge_join and not self.cross_wing:
+            raise ParamError("cross_wing_shared_ridge_join requires a cross_wing")
         if self.cross_wing:
             if self.cross_wing_end not in ("x_min", "x_max"):
                 raise ParamError(f"cross_wing_end '{self.cross_wing_end}' not in "
@@ -668,6 +727,13 @@ class FrameTavernParams:
                              "a hood over blank logs is a claim no view makes")
 
 
+
+    @property
+    def resolved_front_upper_stations(self) -> tuple[float, ...]:
+        """Actual +y upper sash centres; the native input document hashes this value."""
+        if self.front_upper_layout is None:
+            return self.width_m*.22, self.width_m*.78
+        return tuple(self.width_m*at for at in self.front_upper_layout)
 
     @property
     def resolved_front_ground_stations(self) -> tuple[float, tuple[float, float]]:
@@ -921,6 +987,8 @@ def from_phase(phase: dict, record: dict | None = None) -> FrameTavernParams:
         flagstaff=val("flagstaff", False),
         flagstaff_height_m=measure("flagstaff_height_m", 4.25),
         chimney_placement=str(val("chimney_placement", "frontage")),
+        ridge_end_chimney_section_m=measure("ridge_end_chimney_section_m"),
+        ridge_end_chimney_head=val("ridge_end_chimney_head"),
         side_entrance_face=side_face,
         enclosed_left_annex=val("enclosed_left_annex"),
         rear_ell=bool(val("rear_ell", False)),
@@ -929,6 +997,7 @@ def from_phase(phase: dict, record: dict | None = None) -> FrameTavernParams:
                        else int(val("upper_windows"))),
         eaves_bays=val("eaves_bays", {}),
         front_ground_layout=val("front_ground_layout"),
+        front_upper_layout=val("front_upper_layout"),
         end_windows=tuple((str(o["end"]), float(o["at"]), float(o["z"]),
                            float(o["width_m"]), float(o["height_m"]))
                           for o in (val("end_windows") or ())),
@@ -936,6 +1005,7 @@ def from_phase(phase: dict, record: dict | None = None) -> FrameTavernParams:
         cross_wing=bool(val("cross_wing", False)),
         cross_wing_depth_m=float(val("cross_wing_depth_m", 8.0)),
         cross_wing_end=str(val("cross_wing_end", "x_max")),
+        cross_wing_shared_ridge_join=val("cross_wing_shared_ridge_join", False),
         # The programme's own finish deal, read off the record rather than the
         # phase. `wall_finish` in `common/materials.py` states the order these are
         # applied in and why a stated coating outranks them.
@@ -959,10 +1029,12 @@ def _validate_enclosed_left_annex(p: FrameTavernParams) -> None:
         raise ParamError("enclosed_left_annex metric layout must remain reconstructed")
     required = {"attach_face", "front_setback_m", "shoulder", "connector", "boarding_range"}
     if (not isinstance(g, dict) or not required <= set(g)
-            or set(g) - (required | {"shoulder_enclosed"})):
+            or set(g) - (required | {"shoulder_enclosed", "shed_infill_clapboard"})):
         raise ParamError("enclosed_left_annex needs exactly the bounded three-part layout")
     if "shoulder_enclosed" in g and type(g["shoulder_enclosed"]) is not bool:
         raise ParamError("enclosed_left_annex shoulder enclosure must be boolean")
+    if "shed_infill_clapboard" in g and type(g["shed_infill_clapboard"]) is not bool:
+        raise ParamError("enclosed_left_annex shed infill cladding must be boolean")
     def number(v, lo, hi, label):
         if isinstance(v, bool) or not isinstance(v, (int,float)) or not math.isfinite(v) or not lo <= v <= hi:
             raise ParamError(f"enclosed_left_annex {label} needs a finite number in {lo}..{hi}")
@@ -976,7 +1048,8 @@ def _validate_enclosed_left_annex(p: FrameTavernParams) -> None:
     roofs={"shoulder":"shed_with_front_gable","connector":"shed","boarding_range":"gable"}
     for name in ("shoulder","connector","boarding_range"):
         v=g[name]
-        optional = {"front_set_out_m", "plan_rotation_deg"} if name == "boarding_range" else set()
+        optional = ({"front_set_out_m", "plan_rotation_deg", "rear_gable"}
+                    if name == "boarding_range" else ({"falls_away_from_main"} if name == "connector" else set()))
         if (not isinstance(v,dict) or not common|extra[name] <= set(v)
                 or set(v) - (common|extra[name]|optional)):
             raise ParamError(f"enclosed_left_annex {name} has unsupported or missing fields")
@@ -1001,7 +1074,16 @@ def _validate_enclosed_left_annex(p: FrameTavernParams) -> None:
             number(v["roof_pitch_deg"], 25., 40., name+" pitch")
             if v["ridge_axis"] != "y":
                 raise ParamError("enclosed_left_annex boarding range ridge is y")
+        if name == "boarding_range" and v.get("rear_gable") is not None:
+            rear = v["rear_gable"]
+            if not isinstance(rear, dict) or set(rear) != {"depth_m", "wall_m", "roof_pitch_deg"}:
+                raise ParamError("enclosed_left_annex rear gable needs bounded depth, wall and pitch")
+            number(rear["depth_m"], .75, v["depth_m"]-1., "rear gable depth")
+            number(rear["wall_m"], v["wall_m"]+.3, p.wall_height_m-.3, "rear gable wall")
+            number(rear["roof_pitch_deg"], 25., 40., "rear gable pitch")
         if name == "connector":
+            if "falls_away_from_main" in v and type(v["falls_away_from_main"]) is not bool:
+                raise ParamError("enclosed_left_annex connector fall direction must be boolean")
             if v["front_openings"] != []:
                 raise ParamError("enclosed_left_annex low connector has no stated front opening")
             continue

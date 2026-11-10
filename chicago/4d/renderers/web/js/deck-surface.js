@@ -106,13 +106,25 @@ export function profiledGroundHeight(terrain, decks, e, n) {
  * heightfield under it. Over water a deck wins; with no deck the terrain's own surface
  * answers (not walkHeight's wading barrier: nobody is placed standing in the river).
  */
-export function deckGroundHeight(terrain, decks, e, n) {
+export function deckGroundHeight(terrain, decks, e, n, visibleBase = null) {
   let height = null;
   for (const d of decks) {
     if (!insideDeck(e, n, d.pts)) continue;
     const y = deckHeightAt(d, e, n);
     if (typeof y === 'number' && (height === null || y > height)) height = y;
   }
-  if (height === null) return terrain.surfaceHeight(e, n);
-  return terrain.isWater(e, n) ? height : Math.max(height, terrain.surfaceHeight(e, n));
+  if (height === null) return visibleBase ?? terrain.surfaceHeight(e, n);
+  return terrain.isWater(e, n) ? height : Math.max(height, visibleBase ?? terrain.surfaceHeight(e, n));
+}
+
+/** Existing field/deck/yard policy, with one explicitly mask-admitted street base.
+ * A positive yard lift still names a real laid surface over the raw field; zero
+ * lift names no extra surface and must not put discarded terrain back under a shoe.
+ * Navigation's water barrier and explicit actor stair/path heights are not involved. */
+export function figureGroundHeight(terrain, decks, e, n, yardLift = 0, maskedStreetHeight = null) {
+  if (!finite(maskedStreetHeight) || terrain.isWater(e, n)) {
+    return Math.max(deckGroundHeight(terrain, decks, e, n), terrain.surfaceHeight(e, n) + yardLift);
+  }
+  const floor = deckGroundHeight(terrain, decks, e, n, maskedStreetHeight);
+  return Math.max(floor, yardLift > 0 ? terrain.surfaceHeight(e, n) + yardLift : maskedStreetHeight);
 }

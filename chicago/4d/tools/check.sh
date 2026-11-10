@@ -90,6 +90,8 @@ step "The image gate refuses to close a building that does not match its picture
   node tools/image_gate.mjs --test
 step "Native palisade heads retain total height, outward normals, open gates and every legacy flat fence (T-2380)" \
   node tools/test_enclosure_points.mjs
+step "Per-side fort gates preserve legacy constructors, south settings and independent west cut/frame controls (T-3041)" \
+  python3 tools/test_palisade_side_gates.py
 step "Picture comparisons bind selected native fences, renderer code and anchor placement (T-2380)" \
   node tools/test_photo_match_enclosures.mjs
 step "Picture comparisons bind the planting drawn, its grown-plant renderers and anchor placement (T-1881)" \
@@ -222,6 +224,9 @@ step "A K03 brick wall's per-brick shuffle reads the library's own bonds, and ev
 
 selftest "The brick-bond check refuses a bond with a course moved and a load loop that never binds the shuffle (T-3295)" \
   node tools/check_brick_bond.mjs --self-test
+
+step "Early masonry uses the recorded stack disposition, preserves native triangles and leaves mapped and 1904 materials alone (T-3341)" \
+  node tools/test_masonry_surfaces.mjs
 
 step "A cheaper glass replaces only transmissive panes, and only when asked (T-2109)" \
   node tools/check_glass_modes.mjs
@@ -417,6 +422,10 @@ step "a visitor walks through a building's modelled passage where it clears the 
   node tools/test_walker_passage.mjs
 step "a visitor walks into Fort Dearborn through a gate Interact opens, 1835 and 1812 (T-3319)" \
   node tools/test_fort_gates.mjs
+step "both reconstructed second-fort posterns block a real walker shut and pass it after their actual leaves open (T-2388)" \
+  node tools/test_second_fort_posterns.mjs
+step "the named commandant gallery preserves its fifteen openings and clears their trim with supported reconstructed timber (T-2388)" \
+  python3 tools/test_second_fort_commandants_gallery.py
 step "Glessner's front door swings open, and a visitor and a drawn person walk up its steps to it (T-3442)" \
   node tools/test_house_doors.mjs
 step "John J. Glessner on his front walk is greeted, and goes home up his steps, through his door and in (T-3443)" \
@@ -671,6 +680,8 @@ step "A woman's skirt swings off her legs as she walks and never parts between t
   node tools/test_human_skirt.mjs
 step "Each man of the 1812 garrison has his own complexion, hair, eyes and height from the period's registers, drawn on clones, on his card with a stand-in portrait (T-3491)" \
   node tools/test_human_looks.mjs
+step "1904 people use actual drawn pedestrian tops only beneath enabled terrain-cut masks, preserving decks, positive yards and other epochs (T-2795)" \
+  node tools/test_pedestrian_ground.mjs --check
 step "The 1812 garrison's looks files are what looks.py writes (T-3491)" \
   python3 docs/RESEARCH/people-1812-3491/looks.py --check
 step "The 1812 garrison is dressed by rank and duty: NCOs' epaulettes on the shoulder, musicians' coats, drum and fife case, officers' sashes, men at work in fatigue clothes, sentries' muskets in the hand and the cornfield party's arms piled (T-3523)" \
@@ -2946,6 +2957,18 @@ step "a stated compound aperture set is read once, overrides its room's opening 
 selftest "a stated compound aperture set is refused outside its room's wall, through its own rake, with two ways in or on the bounded elbow" \
   python3 tools/test_log_compound_apertures.py --self-test
 
+step "compound room heights and ridge stacks follow their stated rooms without changing legacy compounds (T-2374)" \
+  python3 tools/test_log_compound_form.py
+step "a pictured taller end door stays below its plate and leaves unselected log openings unchanged (T-2484)" \
+  python3 tools/test_kinzie_end_door.py
+step "explicit barn cupolas seat on the roof while absent cupolas leave legacy outbuildings unchanged (T-2388)" \
+  python3 tools/test_outbuilding_cupola.py
+step "an explicit outside piazza stair reaches its gallery and leaves existing fort buildings unchanged (T-2388)" \
+  python3 tools/test_second_fort_piazza_stair.py
+
+step "partial compound clapboards preserve the old shell, clear its openings and leave other log dwellings alone (T-2374)" \
+  python3 tools/test_log_compound_clapboards.py
+
 # ...AND THE RULE IS LOCAL (T-0405). "Re-derives" only says the committed file matches the
 # rule; it says nothing about how far one frontage reaches. Until T-0405 the mounting was
 # dealt from a counter walked down the town in id order, so admitting one frontage in the
@@ -4911,6 +4934,9 @@ selftest "year packs: membership, the update diff and the kill switch (T-2561)" 
 
 step "year packs: every file a pack lists ships at the hash it lists (T-2561)" \
   node tools/write_year_packs.mjs --check
+
+step "publication aliases retain exact bytes, logical LOD identities, year membership and strict source integrity (T-2795)" \
+  node tools/test_published_assets.mjs --check
 
 # The front doors on chicago.polecat.live (/4d/, /4d/<year>/) are walk/index.html with
 # a <base href> into walk/. Their self-test holds the one thing that can go wrong with
@@ -8688,6 +8714,24 @@ step "World smoke keeps exact structure batches and both source-owned Green Tree
   node tools/test_world_smoke_contracts.mjs
 step "Green Tree yard generator preserves enclosed, open and blocked source readings (T-1790)" \
   python3 tools/test_green_tree_yard_modes.py
+
+step "Human assembly still controls reject wrong identities, invalid bounds and missing outputs (T-1789)" \
+  python3 tools/test_human_library_stills.py
+step "Human assembly still intake rejects stale runs, mismatched jobs and unsafe archives (T-1789)" \
+  python3 tools/test_human_library_stills_intake.py
+
+step "Shared draft-horse assets retain one lease-owned geometry and texture template (T-2795)" \
+  node tools/test_draft_horse_assets.mjs
+step "The unoccupied Glessner carriage team preserves actual delivery geometry, hoof contacts and tier lifecycle (T-2795)" \
+  node tools/test_parked_draft_team.mjs
+
+step "The horse coat contract rederives from its authored recipe and immutable source arrays (T-2795)" \
+  python3 tools/derive_horse_coats.py --check
+step "Individual horse coats use stable source-bound identities and own only their material clones (T-2795)" \
+  node tools/test_horse_appearance.mjs --check
+
+step "Scoped teamster measurements retain every unmodified native fixture row and reject inventory drift (T-1789)" \
+  node tools/test_human_fixture_scope.mjs --check
 
 check_summary
 exit $CHECK_FAILED

@@ -6,7 +6,7 @@
 //
 // The front door never writes the town's cached profile (storage: null), so a visit here
 // cannot change what the town chooses; it measures afresh each load, during the cold start.
-import { profileDevice, scoreProfile, CLASS_LABEL } from '../js/device-profile.js';
+import { profileDevice, scoreProfile, sharesSystemMemory, CLASS_LABEL } from '../js/device-profile.js';
 
 const meter = document.getElementById('device-meter');
 if (meter) run(meter).catch(err => {
@@ -41,6 +41,8 @@ async function run(root) {
   const facts = [
     `Fits ${detail} detail`,
     software ? 'software renderer' : gpuName(s.renderer),
+    // T-3537: an integrated GPU's memory is the system's; it is why the score sits low.
+    !touch && sharesSystemMemory(s.renderer) ? 'shared memory' : null,
     s.cores ? `${s.cores} cores` : null,
     s.memoryGB ? `${s.memoryGB >= 8 ? '8+' : s.memoryGB} GB` : 'memory not reported',
     s.webgpu?.adapter ? 'WebGPU' : null,

@@ -1,0 +1,8 @@
+{
+  "status": "PASS_ALL_CANONICAL_PHYSICAL_NATIVE_FILES_STILL_BEFORE",
+  "file_reads": 2101,
+  "ROOT_HEAD": "cab45145391cccb84ab408123b70207c32634fcc",
+  "binding_sha256": "e9f0beae765610a9b5f11734e35a8440e44bd7b306aee080ef5a8e8c4f68cc22",
+  "asset_root": "/tmp/chicago-west-wicket-20261109/chicago/4d/assets",
+  "claim_limit": "Every physical canonical native MASTER/WEB/LOD still equals the genuine before ledger. No adoption. The first small receipt write hit transientENOSPC and left an empty file; retry succeeded after capacity returned."
+}

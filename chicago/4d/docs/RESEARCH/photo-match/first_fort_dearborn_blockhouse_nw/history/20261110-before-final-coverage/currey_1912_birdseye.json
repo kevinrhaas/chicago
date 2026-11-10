@@ -1,0 +1,92 @@
+{
+  "structure_id": "first_fort_dearborn_blockhouse_nw",
+  "source_id": "currey_1912_first_fort_birdseye",
+  "library_image": "early-currey-1912-first-fort-birdseye",
+  "photo": "../../../../reference/images/chicago/chicago_fort_dearborn_birdseye_1812.jpg",
+  "image_px": [
+    889,
+    588
+  ],
+  "principal_px": [
+    444.5,
+    294.0
+  ],
+  "focal_px": 1000,
+  "eye": [
+    66.87000000000012,
+    27.00000000000003,
+    49.69
+  ],
+  "yaw_deg": 229.38,
+  "basis_right_up_forward": [
+    [
+      -0.650996,
+      0.759081,
+      0.0
+    ],
+    [
+      -0.555604,
+      -0.476492,
+      0.681366
+    ],
+    [
+      -0.517212,
+      -0.443567,
+      -0.731943
+    ]
+  ],
+  "sky": "overcast",
+  "scene": "1812",
+  "also_render": [
+    "first_fort_dearborn_pickets_outer",
+    "first_fort_dearborn_blockhouse_se",
+    "first_fort_dearborn_commanding_officers_barracks",
+    "first_fort_dearborn_flagstaff",
+    "first_fort_dearborn_magazine",
+    "first_fort_dearborn_north_range",
+    "first_fort_dearborn_officers_barracks",
+    "first_fort_dearborn_parade",
+    "first_fort_dearborn_pickets_inner",
+    "first_fort_dearborn_small_house_ne",
+    "first_fort_dearborn_small_house_sw",
+    "first_fort_dearborn_soldiers_barracks_se",
+    "first_fort_dearborn_soldiers_barracks_sw"
+  ],
+  "card_members": [
+    "first_fort_dearborn_pickets_outer",
+    "first_fort_dearborn_blockhouse_se",
+    "first_fort_dearborn_commanding_officers_barracks",
+    "first_fort_dearborn_flagstaff",
+    "first_fort_dearborn_magazine",
+    "first_fort_dearborn_north_range",
+    "first_fort_dearborn_officers_barracks",
+    "first_fort_dearborn_pickets_inner",
+    "first_fort_dearborn_soldiers_barracks_se",
+    "first_fort_dearborn_soldiers_barracks_sw"
+  ],
+  "diagnostic_only": true,
+  "solve": {
+    "status": "DIAGNOSTIC_GROUP_CAMERA (T-3335)",
+    "controls": "Five manual picks on the 889 x 588 Commons copy, each good to about 5 px: the outward pickets' north-east corner at its foot and its top (3.7 m, the record's reconstructed picket height), the inward pickets' north-east corner foot, and the nearest bottom corner of each blockhouse (the north-east corner of the south-east one, the north-east corner of the north-west one). Focal length held at 1000 px with the principal point at the picture's centre; eye, heading and pitch fitted by least squares. RMS 8.4 px, worst 12.9 px.",
+    "limits": "The drawing is not metric. It follows a Chicago Daily Tribune sketch (1899) of Albert L. Van den Berghen's 1898 model, and its plan is not Whistler's 1808 draught: the same fit puts the flagstaff's foot near y 139 where the drawing draws it near y 245, and no focal length from 700 to 2500 px fits both the plan corners and the staff. So the camera frames the fort for a side-by-side and nothing more; it is never a historical viewpoint, and no position, size or height is moved to fit it.",
+    "card_members": "Every building and picket row the picture draws, by its key: blockhouses 4 and 5, the ranges 6 and 7 and the north and west ranges, the magazine 8, the flagstaff and both picket rows. Left out: the two small houses (the picture shows neither where Whistler puts them; a small pyramid-roofed building stands in the inner north-east angle instead) and the parade ground itself.",
+    "lighting": "Overcast neutral review: the pen drawing's shading is hatching, not a sun.",
+    "scene": "Meshes share the flat review grade; the river bank, terrain and covered way are not drawn by the reviewer.",
+    "anchor_transfer": {
+      "status": "EXACT_RIGID_ANCHOR_TRANSFER_NO_REFIT",
+      "from_structure": "first_fort_dearborn_pickets_outer",
+      "to_structure": "first_fort_dearborn_blockhouse_nw",
+      "from_placement": {
+        "local_e": 1135.94,
+        "local_n": 204.08,
+        "rotation_deg": 0.0
+      },
+      "to_placement": {
+        "local_e": 1134.99,
+        "local_n": 233.28,
+        "rotation_deg": 0.0
+      },
+      "rule": "Same world eye, basis, image, intrinsics and all fourteen world member transforms. No source fit, geometry, survey datum, grade or date changed. Original outer-picket camera retained. New camera needs a fresh generated comparison and human review; no matching verdict is inherited."
+    }
+  }
+}

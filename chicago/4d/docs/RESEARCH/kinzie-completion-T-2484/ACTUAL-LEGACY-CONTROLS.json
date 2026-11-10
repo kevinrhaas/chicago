@@ -1,0 +1,576 @@
+{
+  "status": "EXACT_CPU_PRODUCER_CONTROL_EQUALITY",
+  "scope": "ActualoldHEADproducer versus newproducer on every other valid log_dwelling phase; vertices/faces/confidence/material slots/colours/named materials exact. Native byteaudit remains pending.",
+  "old_source_sha256": "eea34958d335eb6680cca1d3272b7e7e5a18feb6db6b36e42bf954291d1326c2",
+  "new_source_sha256": "775f27854131c123f8cd8aa2a58ff854cbe821c3026173db6031c823d2384fe7",
+  "control_phases": [
+    {
+      "id": "agency_striker_log_house",
+      "phase": "log_1830",
+      "sha256": "2257562bf7d3b6c40a57967dcd5b26897c84eaf794af42915d4a8d5f01745381",
+      "vertices": 918,
+      "faces": 230
+    },
+    {
+      "id": "blacksmith_shop_state_st",
+      "phase": "log_1823",
+      "sha256": "56d9cc254d601927f587468c0c3f4195efd0edf92903f655cc56adf6b83109ed",
+      "vertices": 966,
+      "faces": 242
+    },
+    {
+      "id": "brown_boarding_house",
+      "phase": "documented_1835",
+      "sha256": "f0139f7a984251324931a7b622cfd5331fcf4ee4c7edd81de808def1ad6e8e3a",
+      "vertices": 1166,
+      "faces": 292
+    },
+    {
+      "id": "burns_house_1812",
+      "phase": "burns_1812",
+      "sha256": "f91ec183b45f2d979f5f3ce4ba70647aa57c04398d4ba2e39b598eea95ec868f",
+      "vertices": 966,
+      "faces": 242
+    },
+    {
+      "id": "caldwell_agency_log_house",
+      "phase": "log_1830",
+      "sha256": "3c52c0d86870d0edcfc061cafd70e446cca0137ec76dbe80a51d95c48d74be48",
+      "vertices": 966,
+      "faces": 242
+    },
+    {
+      "id": "chappel_infant_school",
+      "phase": "log_1833",
+      "sha256": "8738e2ffd3d97ee7a9dbc6ffe9e1885e3460906ae3598bdabb6c7ae1f8895bb5",
+      "vertices": 1042,
+      "faces": 261
+    },
+    {
+      "id": "clybourn_cabins",
+      "phase": "log_1824",
+      "sha256": "60f59da577a377e06b812682aa88ae71d57de96198e10b95f15ebd379ba53560",
+      "vertices": 990,
+      "faces": 248
+    },
+    {
+      "id": "cobweb_castle",
+      "phase": "log_1820",
+      "sha256": "a6475656961fff8cf3c4b41d71b0ce3ef3054b056f393b9bc467c43304c72950",
+      "vertices": 4798,
+      "faces": 1202
+    },
+    {
+      "id": "council_house",
+      "phase": "log_1834",
+      "sha256": "85cb8e521c3adafcb745cd1eb9acba2750a8c2632cee12922d46ae5e1b2a59a6",
+      "vertices": 998,
+      "faces": 250
+    },
+    {
+      "id": "first_fort_outer_agents_house",
+      "phase": "first_fort_1803",
+      "sha256": "0391ab14cb6cc1a8c3045269cc9043a78951cb1ad4cb5fa3741ff1a42d254923",
+      "vertices": 1790,
+      "faces": 448
+    },
+    {
+      "id": "first_fort_outer_factory",
+      "phase": "first_fort_1803",
+      "sha256": "38c922892019a736443decca3e099c3734cbeedfa0e44d489419c255ca70c55f",
+      "vertices": 1798,
+      "faces": 450
+    },
+    {
+      "id": "first_fort_outer_interpreters_house",
+      "phase": "first_fort_1803",
+      "sha256": "5382afffef5b07c321d45cb55ac2518d340646e1d512851ca3f06560612a3ab9",
+      "vertices": 1798,
+      "faces": 450
+    },
+    {
+      "id": "forks_house_clark_1812",
+      "phase": "clark_1812",
+      "sha256": "c38ac5840b2ea14c9e6819cc27ed8430f9b81d29e1f94e96d54fbb1c99e87b86",
+      "vertices": 950,
+      "faces": 238
+    },
+    {
+      "id": "forks_house_soldier_1812",
+      "phase": "soldier_1812",
+      "sha256": "f01cd5cb011f53576657b4ef16028ac437a5b20f1f3ccad5c19fb40853915c0c",
+      "vertices": 974,
+      "faces": 244
+    },
+    {
+      "id": "fort_dearborn_us_factors_house",
+      "phase": "us_factors_house_1818",
+      "sha256": "5a0b08a3199284d61510c3a7384aa4d101db2dcf5964e7121920dd8c4d980160",
+      "vertices": 1918,
+      "faces": 480
+    },
+    {
+      "id": "harmon_log_cabin",
+      "phase": "documented_1835",
+      "sha256": "fa85679e8b408415d2bbfff29f054ea85a58cff9760eb4bb5b0185a3adf6fad1",
+      "vertices": 1038,
+      "faces": 260
+    },
+    {
+      "id": "hogan_store",
+      "phase": "log_1831",
+      "sha256": "29cb36791d31ef1f104c596a2f98cfa16997f8eac99f6a767267329a2da0743a",
+      "vertices": 1058,
+      "faces": 265
+    },
+    {
+      "id": "inf_boatman_cabin_north",
+      "phase": "inferred_1835",
+      "sha256": "0c055cc7a019638b24933b89faed75cb7a68b10f5e246cdb0575ffac12f17957",
+      "vertices": 1038,
+      "faces": 260
+    },
+    {
+      "id": "james_kinzie_house",
+      "phase": "dwelling_1830",
+      "sha256": "6f51e4d9c2740af77e9e6508e0b356a24cb7048f1f590e8e7747bd6e1a2f2a05",
+      "vertices": 998,
+      "faces": 250
+    },
+    {
+      "id": "jb_beaubien_homestead",
+      "phase": "log_1822",
+      "sha256": "c77ff4cca3c8a1749445ac1598e1d86d56d105345a95eca3e8b55ae7fdaa8553",
+      "vertices": 2388,
+      "faces": 598
+    },
+    {
+      "id": "kinzie_bake_house_1812",
+      "phase": "kinzie_1804",
+      "sha256": "7e59b466aa2218277300e6437117b39866eb31106b3b6bbf79a31e5eefdc3b2a",
+      "vertices": 898,
+      "faces": 225
+    },
+    {
+      "id": "kinzie_lodging_house_1812",
+      "phase": "kinzie_1804",
+      "sha256": "3604d2b0ece5eeda4827bece11c214011254098383e507d0ae8fcb4644c92f24",
+      "vertices": 794,
+      "faces": 199
+    },
+    {
+      "id": "kinzie_stable_1812",
+      "phase": "kinzie_1804",
+      "sha256": "a8d7d1205a9e67880d4e45fa34042857467db4eb40075b862759c09f13528346",
+      "vertices": 882,
+      "faces": 221
+    },
+    {
+      "id": "lalime_house_1812",
+      "phase": "lalime_1812",
+      "sha256": "5c06a96bea8dcae78d73d1216bc1e8f5b139da93495dc353e9990b0c7bb58fa0",
+      "vertices": 966,
+      "faces": 242
+    },
+    {
+      "id": "lee_house_1812",
+      "phase": "lee_1812",
+      "sha256": "9d9a01c16fb72051ad142f9e1e03a9b913e68ab9bc4ce6242f41004249f8d41a",
+      "vertices": 990,
+      "faces": 248
+    },
+    {
+      "id": "lees_place_cabin_1812",
+      "phase": "lees_place_1812",
+      "sha256": "cc8886f2d2ec4a842c162bfc25f19bc20c9e16b4b5e667b2b394341e9d91890d",
+      "vertices": 1732,
+      "faces": 434
+    },
+    {
+      "id": "lemai_house_1812",
+      "phase": "lemai_1812",
+      "sha256": "47420f348bb4db152c77637520c0b919f303c2e7ebe4b68924d21dc57c78a699",
+      "vertices": 950,
+      "faces": 238
+    },
+    {
+      "id": "madore_beaubien_house",
+      "phase": "log_1831",
+      "sha256": "a8f07274242dd3b85a218f252144e3b14b9b53a102c12a11ee663842f2523b4d",
+      "vertices": 998,
+      "faces": 250
+    },
+    {
+      "id": "mansion_house",
+      "phase": "log_frame_1833",
+      "sha256": "7f9361ae81cdfba7d3e3d96a7d0f37cc63e7847cf4290c9857e2b0880395982e",
+      "vertices": 1524,
+      "faces": 382
+    },
+    {
+      "id": "mckee_log_house",
+      "phase": "log_1823",
+      "sha256": "0dcc793cb0f011fdab6f6cb9faa32fb0c41a38e469a4bef46fb2f90592abded2",
+      "vertices": 966,
+      "faces": 242
+    },
+    {
+      "id": "miller_house",
+      "phase": "log_frame_1827",
+      "sha256": "1d2e4e282cb4f54a2ee1655d36875dc374bb2dbe633f55477813cecf2151d59a",
+      "vertices": 5146,
+      "faces": 1288
+    },
+    {
+      "id": "miller_tannery",
+      "phase": "log_1831",
+      "sha256": "ffb87bebba0780ae02b2fd9dc48cf4696e2c2a2758e37fcf3741ea7c09409b4b",
+      "vertices": 990,
+      "faces": 248
+    },
+    {
+      "id": "north_side_school_1833",
+      "phase": "log_1833",
+      "sha256": "bbbb265e2a011905b26afe972b465ed5ee57ca14f3e5412dca16a7e0e4cfb1a2",
+      "vertices": 998,
+      "faces": 250
+    },
+    {
+      "id": "ouilmette_house_1812",
+      "phase": "ouilmette_1812",
+      "sha256": "3e76d3701ef5c3c8bc2dcb971a97e4584c409900098337d1383f69775908f9cd",
+      "vertices": 822,
+      "faces": 206
+    },
+    {
+      "id": "philo_carpenter_log_shop",
+      "phase": "log_1832",
+      "sha256": "02f4839d86157acf73fd26b7f6057fac2806ada266708f1e30aa93bcffac9297",
+      "vertices": 1022,
+      "faces": 256
+    },
+    {
+      "id": "recon_1835_blk_lake_franklin_d1_02",
+      "phase": "inferred_1835",
+      "sha256": "10375c365163b09be2745a07010df985208a0f5987db2adda6e5628635d03662",
+      "vertices": 1086,
+      "faces": 272
+    },
+    {
+      "id": "recon_1835_blk_lake_market_d1_05",
+      "phase": "inferred_1835",
+      "sha256": "332e06d504799055b4fdf9aa8f2288ee9ae6c4bbf1959ae0e27c0e7b966d5c5b",
+      "vertices": 1054,
+      "faces": 264
+    },
+    {
+      "id": "recon_1835_blk_randolph_clark_d1_06",
+      "phase": "inferred_1835",
+      "sha256": "cbfc378a80a5b948c0a27254070c43efd3f3ba2d2d693c30a6e45910e3a316b3",
+      "vertices": 1054,
+      "faces": 264
+    },
+    {
+      "id": "recon_1835_blk_randolph_clinton_d1_03",
+      "phase": "inferred_1835",
+      "sha256": "ec82cbfb3721695b33d4543d0a9e549afedf3607f1c19ce2a28d5ee16604b77f",
+      "vertices": 1038,
+      "faces": 260
+    },
+    {
+      "id": "recon_1835_blk_randolph_dearborn_d1_04",
+      "phase": "inferred_1835",
+      "sha256": "8bfa6c60aac819b58b37a496b71dcdf4c10a2f730cc82619ec3d02b6262957e8",
+      "vertices": 1062,
+      "faces": 266
+    },
+    {
+      "id": "recon_1835_blk_randolph_dearborn_d1_12",
+      "phase": "inferred_1835",
+      "sha256": "8724870b1d84607a8426abb1962497c92267bb83caf667f96f56cf6f53625e38",
+      "vertices": 1038,
+      "faces": 260
+    },
+    {
+      "id": "recon_1835_blk_randolph_dearborn_d1_16",
+      "phase": "inferred_1835",
+      "sha256": "e5305e101b0212003d39dc2666080d8aac651b275a3db613541815475817a9e7",
+      "vertices": 1046,
+      "faces": 262
+    },
+    {
+      "id": "recon_1835_blk_randolph_franklin_d1_06",
+      "phase": "inferred_1835",
+      "sha256": "9cb902e985a0b647f8e2f7db916744dddd71301b8e13b387e595373970175bdc",
+      "vertices": 1046,
+      "faces": 262
+    },
+    {
+      "id": "recon_1835_blk_randolph_market_d1_10",
+      "phase": "inferred_1835",
+      "sha256": "b9358ee5f497943ae45bcb8eecb70a3c82801346cafde2165161fb265fe0a6be",
+      "vertices": 1038,
+      "faces": 260
+    },
+    {
+      "id": "recon_1835_blk_randolph_wells_d1_06",
+      "phase": "inferred_1835",
+      "sha256": "76cd5ffe167c670aad4bb0904c515d60b5ba9b6f31a671bfd324cbb57481d73c",
+      "vertices": 1046,
+      "faces": 262
+    },
+    {
+      "id": "recon_1835_blk_school_section_tier_82_d1_05",
+      "phase": "inferred_1835",
+      "sha256": "398ca7655c2b80dd2b88416ce3fa1772e70bdc5d8cd227ea9218f45619bc2325",
+      "vertices": 1046,
+      "faces": 262
+    },
+    {
+      "id": "recon_1835_blk_south_water_clark_d1_04",
+      "phase": "inferred_1835",
+      "sha256": "7f733ee722c28c9f09699ea26618c2a64a1f5fb77a4d8290b5fa393d7f223f9c",
+      "vertices": 1038,
+      "faces": 260
+    },
+    {
+      "id": "recon_1835_blk_south_water_dearborn_d1_05",
+      "phase": "inferred_1835",
+      "sha256": "c56446dba9580be87d442c0088daa4138d6bd7a000af1fd751c5996cd94e1760",
+      "vertices": 1046,
+      "faces": 262
+    },
+    {
+      "id": "recon_1835_blk_south_water_franklin_d1_04",
+      "phase": "inferred_1835",
+      "sha256": "76c232239042d24903332a6969cabeb145bb33ab8c945bc3dc8fc442c41a7f6a",
+      "vertices": 1062,
+      "faces": 266
+    },
+    {
+      "id": "recon_1835_blk_south_water_lasalle_d1_04",
+      "phase": "inferred_1835",
+      "sha256": "4b0f2c084c45a29bf5a493f67d547e0acce95e3e83c64465b34d10d836261266",
+      "vertices": 1046,
+      "faces": 262
+    },
+    {
+      "id": "recon_1835_blk_south_water_wells_d1_05",
+      "phase": "inferred_1835",
+      "sha256": "be0ec127d610c8b0ffdded12dec4a852b5bc69e89acc56674c63a32d595c39c2",
+      "vertices": 1046,
+      "faces": 262
+    },
+    {
+      "id": "recon_1835_blk_south_water_wells_d1_07",
+      "phase": "inferred_1835",
+      "sha256": "1bd54ee66d01e2d6d0d964010163aa4ae312ea6c608f3825a7ce10d0c8db39d2",
+      "vertices": 1054,
+      "faces": 264
+    },
+    {
+      "id": "recon_1835_north_d1_001",
+      "phase": "inferred_1835",
+      "sha256": "c078c5917da3b9c7b14ea2d7bf3e1ac9b839431489d1d526114d4309c7ed3db9",
+      "vertices": 1062,
+      "faces": 266
+    },
+    {
+      "id": "recon_1835_north_d1_013",
+      "phase": "inferred_1835",
+      "sha256": "7e695566610106afabdb7e641bb17a6f279faa29a9fbde11d733e8e32b81caff",
+      "vertices": 1094,
+      "faces": 274
+    },
+    {
+      "id": "recon_1835_north_d1_023",
+      "phase": "inferred_1835",
+      "sha256": "f36c9d542f3719c761d5bd007b7d23930f7a830c9ad015d63c0b48f44a3d98f9",
+      "vertices": 1054,
+      "faces": 264
+    },
+    {
+      "id": "recon_1835_north_d1_053",
+      "phase": "inferred_1835",
+      "sha256": "27e82c743d1c0c8c9d35bdb7127c3e7d7e3d09c60307fc6466f3a3affef8aae6",
+      "vertices": 1094,
+      "faces": 274
+    },
+    {
+      "id": "recon_1835_north_d1_054",
+      "phase": "inferred_1835",
+      "sha256": "864b9b699dbee2c3e8dfcc1c21860bb05f073b1e1c2a07188811ba1d45961f9c",
+      "vertices": 1054,
+      "faces": 264
+    },
+    {
+      "id": "recon_1835_north_d1_060",
+      "phase": "inferred_1835",
+      "sha256": "814c81bb0f020b07b45067669b552e2562937ab2941d74d3135597364acc5586",
+      "vertices": 1054,
+      "faces": 264
+    },
+    {
+      "id": "recon_1835_south_d1_003",
+      "phase": "inferred_1835",
+      "sha256": "cf608e4d5e650c1aec0653908368fb3d162ed326a7e2c7597c9bfb02c90cd231",
+      "vertices": 1054,
+      "faces": 264
+    },
+    {
+      "id": "recon_1835_south_d1_010",
+      "phase": "inferred_1835",
+      "sha256": "fa1da56c879a9682ae75d2ef6b12e27b4d012608cfe286a0727b3417bfeeeeed",
+      "vertices": 1054,
+      "faces": 264
+    },
+    {
+      "id": "recon_1835_south_d1_018",
+      "phase": "inferred_1835",
+      "sha256": "427f8cb6dad44df89eae137c6b81c2ab31aff2422b4dddfdbed122198d25d716",
+      "vertices": 1046,
+      "faces": 262
+    },
+    {
+      "id": "recon_1835_south_d1_021",
+      "phase": "inferred_1835",
+      "sha256": "d40f388098c40259bed1c8d236a0c8c228819b222752751a1dcd756b42670f63",
+      "vertices": 1046,
+      "faces": 262
+    },
+    {
+      "id": "recon_1835_south_d1_032",
+      "phase": "inferred_1835",
+      "sha256": "d4b09d7b54e108b884cb800e368728c98225d742f79616496b23f7629acbe164",
+      "vertices": 1062,
+      "faces": 266
+    },
+    {
+      "id": "recon_1835_south_d1_033",
+      "phase": "inferred_1835",
+      "sha256": "a83a513962dd06865d70f3c3c3883c6bd67b92a69ad2d8da85ba3c8c762b4422",
+      "vertices": 1038,
+      "faces": 260
+    },
+    {
+      "id": "recon_1835_west_001",
+      "phase": "inferred_1835",
+      "sha256": "3005cf7f5b0b363dbe291f7c144ea4a278e74d474790ef4cb0b6a3b56816ee8a",
+      "vertices": 1062,
+      "faces": 266
+    },
+    {
+      "id": "recon_1835_west_014",
+      "phase": "inferred_1835",
+      "sha256": "b1613d7d281a1decba8dee4c572a455633c72d75e802c69b6e145791f16cb725",
+      "vertices": 1054,
+      "faces": 264
+    },
+    {
+      "id": "recon_1835_west_026",
+      "phase": "inferred_1835",
+      "sha256": "7ff85a6ac133dcb0d0531577e9687bb13ead22e8acbb9237d9e9f1663996e550",
+      "vertices": 1046,
+      "faces": 262
+    },
+    {
+      "id": "recon_1835_west_027",
+      "phase": "inferred_1835",
+      "sha256": "d6e63d529f40ef4ca8a1bc1bc477bc630ef86dacc853db2dfe361151234162de",
+      "vertices": 1046,
+      "faces": 262
+    },
+    {
+      "id": "recon_1835_west_038",
+      "phase": "inferred_1835",
+      "sha256": "05f0920b32a3b186e16efd0cb2a05db8f7a8cf95cb6ee2196edfa87108748a7e",
+      "vertices": 1110,
+      "faces": 278
+    },
+    {
+      "id": "recon_1835_west_039",
+      "phase": "inferred_1835",
+      "sha256": "2bf468ee75be052a10bb643414208208b62528d5342f104e74c08fa75b278969",
+      "vertices": 1086,
+      "faces": 272
+    },
+    {
+      "id": "recon_1835_west_040",
+      "phase": "inferred_1835",
+      "sha256": "40144e329aae55ab10908b8bc1a13634e06e8852f2283f743a495fcb1f021957",
+      "vertices": 1038,
+      "faces": 260
+    },
+    {
+      "id": "recon_1835_west_048",
+      "phase": "inferred_1835",
+      "sha256": "9083df3b3043f6090d281c29e09ba59526c3700e63a1493e6ee0f0469a7eec28",
+      "vertices": 1046,
+      "faces": 262
+    },
+    {
+      "id": "recon_1835_west_049",
+      "phase": "inferred_1835",
+      "sha256": "2f6b9ff266944be42bb2998f29a2d4f838baf5c24cd8384b1e20f84f055c19d8",
+      "vertices": 1038,
+      "faces": 260
+    },
+    {
+      "id": "recon_1835_west_050",
+      "phase": "inferred_1835",
+      "sha256": "1bd70f1d36a4c45410a20d567b8b5044682aa2f6dcb236f52b379586d6b51318",
+      "vertices": 1038,
+      "faces": 260
+    },
+    {
+      "id": "recon_1835_west_051",
+      "phase": "inferred_1835",
+      "sha256": "2fe00985e34a9d8af4eae85658af053d8da7f355d648bc57b6b830860417e712",
+      "vertices": 1038,
+      "faces": 260
+    },
+    {
+      "id": "recon_1835_west_052",
+      "phase": "inferred_1835",
+      "sha256": "102f0729c3959b611bf795f97da3b506892072d9db3756fbdbad86d328965502",
+      "vertices": 1102,
+      "faces": 276
+    },
+    {
+      "id": "recon_1835_west_054",
+      "phase": "inferred_1835",
+      "sha256": "adedbb057f437e0825d89c4f8c18f5d4a12f8962a3d79db34f216ae144d25551",
+      "vertices": 1094,
+      "faces": 274
+    },
+    {
+      "id": "robert_kinzie_store",
+      "phase": "store_1830",
+      "sha256": "533d9be10655d7f78054658c972fc146e8e21c0dca37af464cd988647d3154b0",
+      "vertices": 1006,
+      "faces": 252
+    },
+    {
+      "id": "robinson_caldwell_cabins",
+      "phase": "log_1831",
+      "sha256": "d99e9360df01cf2633fc92d05c8520d68522c9fc7453f7848f86086b166cf9ce",
+      "vertices": 966,
+      "faces": 242
+    },
+    {
+      "id": "walker_meeting_house",
+      "phase": "log_1831",
+      "sha256": "ba31b813cea29e69eadb17a89f9fc9e6f2ccc4c4da424db577b04a16576c83cf",
+      "vertices": 990,
+      "faces": 248
+    },
+    {
+      "id": "wolf_point_tavern",
+      "phase": "log_frame_1828",
+      "sha256": "87fb0926133029711a69407f4b25b6ae501f0711fd3318f0139d688787e1790c",
+      "vertices": 3382,
+      "faces": 826
+    }
+  ],
+  "preexisting_param_refusals_not_counted": []
+}

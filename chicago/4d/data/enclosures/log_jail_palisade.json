@@ -65,9 +65,13 @@
       "note": "Gale calls it a high PLANK PALISADE. The independently verified1902 plate shows close-set vertical boards or pales enclosing the jail. The existing closed-board construction is used with its optional pointed heads, read from that plate; exact stock and dimensions remain reconstructed."
     },
     "height_m": {
-      "value": 3.05,
+      "value": 2.44,
       "confidence": "reconstructed",
-      "note": "Chosen10ft(3.05m, rounded), not a source measurement. Bound by the text concealed within a HIGH palisade and the unchanged2.66m jail eaves: a normal6ft yard fence would expose most of those walls. The current12degree core roof remains unresolved, so this height is not fitted to its ridge or claimed as an1835 dimension."
+      "note": "Chosen10ft(3.05m, rounded), not a source measurement. Bound by the text concealed within a HIGH palisade and the unchanged2.66m jail eaves: a normal6ft yard fence would expose most of those walls. The current12degree core roof remains unresolved, so this height is not fitted to its ridge or claimed as an1835 dimension. SUPERSEDED HEIGHT TRIAL 2026-11-09 (T-2380): use 8 ft (2.44 m, rounded) rather than the earlier 10 ft choice. Both retrospective pictures show a roof or cap of the jail itself above the palisade, while the former 3.05 m enclosure concealed almost all of the retained 2.66 m-eave/12-degree core in the Gale comparison. This lower, still-high enclosure is a reconstructed relative-exposure choice, not a measurement from either drawing. It leaves the existing core, keeper, all endpoints, board stock, gate and confidence grades unchanged. The chosen relation keeps the core walls largely hidden while allowing the roof above the fence; fresh picture review is still required, and neither the conflicting core-roof identity nor exact July1835 continuity is resolved.",
+      "sources": [
+        "trowbridge_first_jail_gale_1902",
+        "andreas_1884_v1"
+      ]
     },
     "rail_courses": {
       "value": 3,
@@ -105,7 +109,7 @@
     "point_height_m": {
       "value": 0.127,
       "confidence": "reconstructed",
-      "note": "Half the chosen254mm board width gives a127mm symmetrical pointed head. Total fence height3.05m includes this head; backing posts stop at the2.923m shoulder. No source measures the cut angle or point height."
+      "note": "Half the chosen254mm board width gives a127mm symmetrical pointed head. The revised total fence height2.44m includes this same head; backing posts stop at the2.313m shoulder. No source measures the cut angle or point height. Only the overall reconstructed height is revised in the 2026-11-09 exposure trial; board width, gap, thickness and point rise are retained."
     }
   },
   "citations": [
@@ -116,5 +120,5 @@
       "tier_label": "retrospective memoir and illustration, independently verified1902 publication"
     }
   ],
-  "research_note": "The high pointed plank enclosure now includes the separate keeper component and a continuous front. The old reconstructed central entrance gap is replaced by a low house-side hung gate in log_jail_keeper_link; the unchanged core door is behind the high front with its own reconstructed approach setback. The Gale1836-captioned picture and1835-framed narrative support the kind and partly enclosed house relation, not these numeric bounds or exactJuly1835continuity. Core roof/relative compound proportions remain DIFFERS. Actual current published terrain, both doorway approaches and gate clearance are still required before release acceptance."
+  "research_note": "The high pointed plank enclosure now includes the separate keeper component and a continuous front. The old reconstructed central entrance gap is replaced by a low house-side hung gate in log_jail_keeper_link; the unchanged core door is behind the high front with its own reconstructed approach setback. The Gale1836-captioned picture and1835-framed narrative support the kind and partly enclosed house relation, not these numeric bounds or exactJuly1835continuity. Core roof/relative compound proportions remain DIFFERS. Actual current published terrain, both doorway approaches and gate clearance are still required before release acceptance.\n\n2026-11-09 T-2380 relative-exposure trial: reduce only the reconstructed overall palisade height from3.05m to2.44m(8ft, rounded), so the retained core roof can read above it as both retrospective drawings show. This is not a historic measured fence height, a resolved core-roof reconstruction, a new July1835 date, a paint/colour decision or a new board-stock feature. Native separate254mm boards/6mm gaps/pointedheads were already present. No enclosure endpoint, doorway approach, low hung gate or building input moves. Fresh source/current comparisons and published view inspection remain pending."
 }

@@ -1,0 +1,163 @@
+{
+  "schema": "chicago4d_horse_coats_recipe_v1",
+  "grade": "reconstructed",
+  "liberty": "L-horse-individual-coats-2795",
+  "basis": "Owner-requested individual coat/marking variation. Original colour and mask choices, not historical Chicago animals, breeds, ownership or captured new textures. Existing sevketkabatas Horse model/maps remain CC BY 4.0 with their existing credit.",
+  "scenes": [
+    "1812",
+    "1835",
+    "1904"
+  ],
+  "sources": [
+    {
+      "file": "renderers/web/transport/driven/horse-current26-inplace-full.glb",
+      "sha256": "ad9dc060f8630d0de04fef97d716e8c82be3ac8bf070684e78107720c5221ec6"
+    },
+    {
+      "file": "renderers/web/transport/standing-horse/horse-sevket-quiet-head-neck-idle-v6.glb",
+      "sha256": "7ce84d43445e930eecc6d9f69e97ed7ade0fe0b3fc44a9a753c25d88b3f548e1"
+    }
+  ],
+  "body_material": "Material_HorseMain4k00.png",
+  "hair_material": "Material.003_Hair12Main2k.png",
+  "eye_material": "Eye_brown",
+  "body_vertices": 5595,
+  "coordinate_frame": "canonical_metres_Yup_Zforward_Xleft",
+  "foot_reference": "data/transport/parked/horse-sevket-sidecar.json",
+  "mask_choices": {
+    "status": "Reconstructed painting regions within the real canonical source frame, not altered anatomy or contact classifiers",
+    "protect_below_y_m": 0.16,
+    "sock_transition_m": 0.025,
+    "sock_radius_m": 0.15,
+    "sock_top_range_m": [
+      0.24,
+      0.56
+    ],
+    "face_y_range_m": [
+      1.28,
+      1.76
+    ],
+    "face_z_min_m": 1.05,
+    "face_halfwidth_m": 0.075,
+    "muzzle_protect_z_m": [
+      1.36,
+      1.48
+    ],
+    "muzzle_protect_y_m": [
+      1.35,
+      1.47
+    ],
+    "dapple_pitch_m": 0.085,
+    "brown_reference_luminance": 0.12,
+    "white_reference_luminance": 0.55,
+    "hair_reference_luminance": 0.035,
+    "dapple_body_y_m": [
+      0.6,
+      0.9
+    ],
+    "dapple_front_fade_z_m": [
+      0.5,
+      0.9
+    ],
+    "hair_upper_y_m": [
+      0.65,
+      0.85
+    ],
+    "hair_tail_z_m": [
+      -0.95,
+      -0.8
+    ]
+  },
+  "palettes": [
+    {
+      "id": "bay",
+      "linear_rgb": [
+        0.14,
+        0.065,
+        0.023
+      ],
+      "mane_linear_rgb": null,
+      "dapple_strength": 0.02
+    },
+    {
+      "id": "chestnut",
+      "linear_rgb": [
+        0.24,
+        0.105,
+        0.04
+      ],
+      "mane_linear_rgb": [
+        0.11,
+        0.038,
+        0.015
+      ],
+      "dapple_strength": 0.015
+    },
+    {
+      "id": "iron_grey",
+      "linear_rgb": [
+        0.21,
+        0.23,
+        0.245
+      ],
+      "mane_linear_rgb": null,
+      "dapple_strength": 0.075
+    },
+    {
+      "id": "dark_bay",
+      "linear_rgb": [
+        0.075,
+        0.035,
+        0.018
+      ],
+      "mane_linear_rgb": null,
+      "dapple_strength": 0.025
+    }
+  ],
+  "group_palettes": {
+    "1812:fort_wagon_loop_1812": "bay",
+    "1812:shore_road_wagon_haul_1812": "chestnut",
+    "1835:western_hotel_driven_wagon_loop_1835": "chestnut",
+    "1835:western_hotel_yard_standing_horse_01": "iron_grey",
+    "1904:prairie_driven_brougham_loop_1904": "iron_grey",
+    "1904:prairie_parked_studebaker_brougham": "bay"
+  },
+  "individual_policy": "Palette keyed by scene/team row; blaze, four sock tops and dapple phase keyed by scene/row/individual side. Stable across reload and visibility/LOD reacquisition. No time, camera or random seed.",
+  "photographic_acceptance": false,
+  "seed_contract": {
+    "algorithm": "fnv1a32_murmur3_avalanche_v1",
+    "encoding": "ASCII",
+    "individual_key": "{scene}:{row}:{individual}",
+    "palette_key": "{scene}:{team}",
+    "channel_separator": "|",
+    "uint32_divisor": 4294967296,
+    "channels": {
+      "sock_enabled": "sock-enabled{index}",
+      "sock_height": "sock-height{index}",
+      "blaze_enabled": "blaze-enabled",
+      "blaze_width": "blaze-width",
+      "blaze_offset": "blaze-offset",
+      "phase": [
+        "pattern-x",
+        "pattern-y",
+        "pattern-z"
+      ]
+    }
+  },
+  "individual_choices": {
+    "sock_absent_probability": 0.3,
+    "blaze_absent_probability": 0.2,
+    "blaze_halfwidth_range_m": [
+      0.008,
+      0.04
+    ],
+    "blaze_offset_range_m": [
+      -0.006,
+      0.006
+    ],
+    "phase_range": [
+      0,
+      13
+    ]
+  }
+}

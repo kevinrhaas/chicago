@@ -230,17 +230,19 @@ Reproduce: `python3 tools/location_reconciliation.py --check` · `python3 tools/
 | `outside_chicago` | 118 |
 | `refused` | 8,791 |
 
-The same rule over the gate itself: of **335** tools carrying a `--check`, **325** are run by `tools/check.sh` and **10** are not. Each of those declares why and who owns the answer, and **0** state no reason (C9):
+The same rule over the gate itself: of **390** tools carrying a `--check`, **378** are run by `tools/check.sh` and **12** are not. Each of those declares why and who owns the answer, and **0** state no reason (C9):
 
 | Ungated check | Owner | States why |
 | --- | ---: | ---: |
 | `generators/terrain_gen_e1830.py` | T-2003 | yes |
 | `tools/glessner_camera_baseline.py` | T-2228 | yes |
 | `tools/glessner_proportion_audit.py` | T-2228 | yes |
+| `tools/human_fixture_scope.mjs` | T-1789 | yes |
 | `tools/measure_boot_payload.mjs` | T-1156 | yes |
 | `tools/measure_boot_phases.mjs` | T-1246 | yes |
 | `tools/measure_street_widths.py` | — | yes |
 | `tools/rename_household_ids.py` | — | yes |
+| `tools/test_published_assets_browser.mjs` | T-2795 | yes |
 | `tools/trace_shoreline.py` | — | yes |
 | `tools/trace_shoreline_1830.py` | T-1243 | yes |
 | `tools/verify_fergus_1839_first_ward.py` | — | yes |

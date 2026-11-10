@@ -74,6 +74,14 @@ on:
         description: 'Immutable reviewed source SHA, required only for the separate dress study'
         type: string
         default: ''
+      render_library_stills:
+        description: 'Render three library masters from a successful canonical build; no asset promotion'
+        type: boolean
+        default: false
+      library_source_run:
+        description: 'Successful portable-human workflow run containing the three teamster masters'
+        type: string
+        default: ''
 
 concurrency:
   group: chicago-4d-humans-${{ github.ref }}
@@ -84,6 +92,7 @@ permissions:
 
 jobs:
   humans:
+    if: github.event_name != 'workflow_dispatch' || !inputs.render_library_stills
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     outputs:
@@ -187,6 +196,102 @@ jobs:
       - name: Drive the browser actor with the fixture, at both viewports
         working-directory: chicago/4d
         run: NODE_PATH="$(npm root -g)" node tools/human_actor.mjs
+
+  # Render the immutable, already fixture-qualified producer's masters. The
+  # receipt distinguishes that source SHA from this renderer's own checkout.
+  # Separate from the 30-minute canonical builder: no rebuild, export or writes
+  # to the source tree, and the existing builder/fixture timeouts stay unchanged.
+  library-stills:
+    if: github.event_name == 'workflow_dispatch' && inputs.render_library_stills
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - name: Validate the render-only request
+        env:
+          SOURCE_RUN: ${{ inputs.library_source_run }}
+          TEAMSTERS: ${{ inputs.build_teamsters }}
+          SEATED: ${{ inputs.build_seated_driver_study }}
+          DRESS: ${{ inputs.build_dress_study }}
+          SOURCE_REF: ${{ inputs.source_ref }}
+        run: |
+          python3 - <<'PY'
+          import os,re
+          if not re.fullmatch(r'[1-9][0-9]*',os.environ['SOURCE_RUN']):
+              raise SystemExit('library_source_run must be a positive run ID')
+          if any(os.environ[k]=='true' for k in ('TEAMSTERS','SEATED','DRESS')) or os.environ['SOURCE_REF']:
+              raise SystemExit('Library stills consume a completed build and must run separately')
+          PY
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            chicago/4d/tools
+            chicago/4d/data/humans
+            chicago/4d/generators/blender.pin
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Read the Blender pin
+        id: pin
+        run: |
+          source chicago/4d/generators/blender.pin
+          echo "version=$BLENDER_VERSION" >> "$GITHUB_OUTPUT"
+      - name: Restore pinned Blender
+        uses: actions/cache@v4
+        with:
+          path: /opt/blender-dl
+          key: blender-${{ steps.pin.outputs.version }}
+      - name: Fetch only the three verified source masters
+        working-directory: chicago/4d
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SOURCE_RUN: ${{ inputs.library_source_run }}
+        run: python3 tools/human_library_stills_intake.py --run "$SOURCE_RUN" --output-dir /tmp/library-source
+      - name: Ensure the pinned Blender worker
+        working-directory: chicago/4d
+        run: |
+          set -euo pipefail
+          source generators/blender.pin
+          cache=/opt/blender-dl
+          binary="$cache/$BLENDER_DIR/blender"
+          if [ ! -x "$binary" ]; then
+            mkdir -p "$cache"
+            archive="$cache/$(basename "$BLENDER_URL")"
+            [ -f "$archive" ] || curl -fL --retry 3 -o "$archive" "$BLENDER_URL"
+            echo "$BLENDER_SHA256  $archive" | sha256sum -c -
+            tar -xf "$archive" -C "$cache"
+          fi
+          "$binary" --version | head -1
+      - name: Render front, three-quarter and profile in Blender
+        working-directory: chicago/4d
+        env:
+          OMP_NUM_THREADS: '2'
+        run: |
+          set -euo pipefail
+          source generators/blender.pin
+          mkdir -p /tmp/library-stills
+          cp /tmp/library-source/source-binding.json /tmp/library-stills/
+          git rev-parse HEAD > /tmp/library-stills/renderer-source-sha.txt
+          for resident in bardwell_otis_1835 dufresne_joseph_1835 flynn_martin_1835; do
+            timeout --signal=TERM --kill-after=10s 180s \
+              "/opt/blender-dl/$BLENDER_DIR/blender" -b -noaudio --factory-startup --threads 2 --python-exit-code 1 \
+              --python tools/human_library_stills.py -- \
+              --master "/tmp/library-source/$resident/canonical.blend" --asset-id "$resident" \
+              --output-dir "/tmp/library-stills/$resident" \
+              2>&1 | tee "/tmp/library-stills/$resident.log"
+          done
+      - name: Preserve Blender assembly review outputs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: resident-library-stills-${{ github.sha }}
+          path: /tmp/library-stills/
+          if-no-files-found: warn
+          retention-days: 14
 
   # Explicit dispatch on the owner-visible authoring PR. No branch writes, scene
   # placements or production promotion: canonical masters and measurements are
@@ -338,11 +443,17 @@ jobs:
             /tmp/teamster-studies/hierarchy-controls/dufresne_joseph_1835/dufresne_joseph_1835.lod0.glb assets/humans/dufresne_joseph_1835.lod0.glb \
             /tmp/teamster-studies/hierarchy-controls/flynn_martin_1835/flynn_martin_1835.lod0.glb assets/humans/flynn_martin_1835.lod0.glb \
             | tee /tmp/teamster-studies/hierarchy-controls/validator-pointers.jsonl
-      - name: Measure all human exports and inspect the workwear studies
+      - name: Measure rebuilt teamsters, retain the unchanged human baseline, and inspect workwear
         working-directory: chicago/4d
         run: |
           set -euo pipefail
-          NODE_PATH="$(npm root -g)" node tools/human_fixture.mjs --write 2>&1 | tee /tmp/teamster-studies/human-fixture.log
+          # The prerequisite already ran the full native fixture. This second
+          # sweep measures every newly rebuilt output with the SAME checks;
+          # merging is refused if any other baseline GLB changed or disappeared.
+          NODE_PATH="$(npm root -g)" node tools/human_fixture.mjs --write \
+            --asset-ids bardwell_otis_1835,dufresne_joseph_1835,flynn_martin_1835 \
+            2>&1 | tee /tmp/teamster-studies/human-fixture.log
+          node tools/human_fixture.mjs --check
           bash tools/publish.sh
           node tools/test_human_inspection.mjs
           NODE_PATH="$(npm root -g)" node tools/human_teamster.mjs --published --sole-contact --output /tmp/teamster-studies/web \

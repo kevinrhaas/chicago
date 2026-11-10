@@ -959,7 +959,13 @@
      "south": 16,
      "north": 20,
      "west": 0
-    }
+    },
+    "current_book_adults_still_ordered": {
+     "south": 0,
+     "north": 0,
+     "west": 0
+    },
+    "note": "ordered_with_no_bed is the carried allocation room's historical residue, not current debt (7 unspent frozen slots). A later re-cut may have removed their order; current_book_adults_still_ordered states the live adult order without re-dealing anyone already seated."
    }
   },
   "youth_top_up": {
@@ -1272,6 +1278,707 @@
     "north": 0,
     "west": 0
    }
+  },
+  "remainder_completion": {
+   "ticket": "T-2023",
+   "buckets": [
+    {
+     "bucket": "persons/female/under_10/north/lodging/none",
+     "division": "north",
+     "sex": "female",
+     "age_band": "under_10",
+     "to_complete": 1
+    },
+    {
+     "bucket": "persons/female/under_10/south/lodging/none",
+     "division": "south",
+     "sex": "female",
+     "age_band": "under_10",
+     "to_complete": 4
+    },
+    {
+     "bucket": "persons/male/10_19/south/lodging/none",
+     "division": "south",
+     "sex": "male",
+     "age_band": "10_19",
+     "to_complete": 3
+    },
+    {
+     "bucket": "persons/female/under_10/west/lodging/none",
+     "division": "west",
+     "sex": "female",
+     "age_band": "under_10",
+     "to_complete": 4
+    },
+    {
+     "bucket": "persons/male/10_19/west/lodging/none",
+     "division": "west",
+     "sex": "male",
+     "age_band": "10_19",
+     "to_complete": 1
+    }
+   ],
+   "statement": "Bounded R completion, after every frozen draw. No historical family is asserted.",
+   "whole_roof_occupancy_before": {
+    "recon_1835_blk_indiana_north_cass_h3_09": 12,
+    "tremont_house_1": 12,
+    "recon_1835_blk_washington_clinton_h3_02": 11
+   },
+   "whole_roof_occupancy_after": {
+    "recon_1835_blk_indiana_north_cass_h3_09": 13,
+    "tremont_house_1": 19,
+    "recon_1835_blk_washington_clinton_h3_02": 16
+   },
+   "ordinary_exception": {
+    "place": "recon_1835_blk_washington_clinton_h3_02",
+    "division": "west",
+    "persons": 1,
+    "ordinary_beds_unchanged": 11,
+    "crowded_beds_unchanged": 26,
+    "meaning": "One exceptional night within the existing full capacity; not an empty ordinary bed."
+   },
+   "supplementary_children": {
+    "recon_1835_blk_indiana_north_cass_h3_09": 1,
+    "tremont_house_1": 4,
+    "recon_1835_blk_washington_clinton_h3_02": 4
+   },
+   "family_draws": [
+    {
+     "parent": "rc_chevalier_pierre",
+     "parent_household": "hh_rc_chevalier_pierre",
+     "place": "recon_1835_blk_indiana_north_cass_h3_09",
+     "size_drawn": 8,
+     "size_basis": "carried original trade-household draw",
+     "seed": "T-2023:lodging_family:rc_chevalier_pierre",
+     "draws": [
+      {
+       "index": 1,
+       "sex": "female",
+       "age_band": "under_10",
+       "outcome": "seated",
+       "person": "rc_chevalier_archange"
+      },
+      {
+       "index": 2,
+       "sex": "female",
+       "age_band": "under_10",
+       "outcome": "not this remaining order; never re-banded"
+      },
+      {
+       "index": 3,
+       "sex": "male",
+       "age_band": "under_10",
+       "outcome": "not this remaining order; never re-banded"
+      },
+      {
+       "index": 4,
+       "sex": "female",
+       "age_band": "10_19",
+       "outcome": "not this remaining order; never re-banded"
+      },
+      {
+       "index": 5,
+       "sex": "male",
+       "age_band": "under_10",
+       "outcome": "not this remaining order; never re-banded"
+      },
+      {
+       "index": 6,
+       "sex": "female",
+       "age_band": "under_10",
+       "outcome": "not this remaining order; never re-banded"
+      },
+      {
+       "index": 7,
+       "sex": "female",
+       "age_band": "under_10",
+       "outcome": "not this remaining order; never re-banded"
+      }
+     ]
+    },
+    {
+     "parent": "rc_fisk_mary",
+     "parent_household": "hh_lodging_tremont_house_1",
+     "place": "tremont_house_1",
+     "size_drawn": 8,
+     "size_basis": "supplementary 1840 size-histogram draw",
+     "seed": "T-2023:lodging_family:rc_fisk_mary",
+     "draws": [
+      {
+       "index": 1,
+       "sex": "male",
+       "age_band": "under_10",
+       "outcome": "not this remaining order; never re-banded"
+      },
+      {
+       "index": 2,
+       "sex": "male",
+       "age_band": "under_10",
+       "outcome": "not this remaining order; never re-banded"
+      },
+      {
+       "index": 3,
+       "sex": "male",
+       "age_band": "under_10",
+       "outcome": "not this remaining order; never re-banded"
+      },
+      {
+       "index": 4,
+       "sex": "male",
+       "age_band": "under_10",
+       "outcome": "not this remaining order; never re-banded"
+      },
+      {
+       "index": 5,
+       "sex": "male",
+       "age_band": "under_10",
+       "outcome": "not this remaining order; never re-banded"
+      },
+      {
+       "index": 6,
+       "sex": "male",
+       "age_band": "under_10",
+       "outcome": "not this remaining order; never re-banded"
+      },
+      {
+       "index": 7,
+       "sex": "male",
+       "age_band": "under_10",
+       "outcome": "not this remaining order; never re-banded"
+      }
+     ]
+    },
+    {
+     "parent": "rc_ingalls_maria",
+     "parent_household": "hh_lodging_tremont_house_1",
+     "place": "tremont_house_1",
+     "size_drawn": 5,
+     "size_basis": "supplementary 1840 size-histogram draw",
+     "seed": "T-2023:lodging_family:rc_ingalls_maria",
+     "draws": [
+      {
+       "index": 1,
+       "sex": "male",
+       "age_band": "10_19",
+       "outcome": "not this remaining order; never re-banded"
+      },
+      {
+       "index": 2,
+       "sex": "female",
+       "age_band": "10_19",
+       "outcome": "not this remaining order; never re-banded"
+      },
+      {
+       "index": 3,
+       "sex": "female",
+       "age_band": "under_10",
+       "outcome": "seated",
+       "person": "rc_ingalls_lydia"
+      },
+      {
+       "index": 4,
+       "sex": "male",
+       "age_band": "under_10",
+       "outcome": "not this remaining order; never re-banded"
+      }
+     ]
+    },
+    {
+     "parent": "rc_metcalf_amos",
+     "parent_household": "hh_lodging_tremont_house_1",
+     "place": "tremont_house_1",
+     "size_drawn": 2,
+     "size_basis": "supplementary 1840 size-histogram draw",
+     "seed": "T-2023:lodging_family:rc_metcalf_amos",
+     "draws": [
+      {
+       "index": 1,
+       "sex": "male",
+       "age_band": "under_10",
+       "outcome": "not this remaining order; never re-banded"
+      }
+     ]
+    },
+    {
+     "parent": "rc_bourassa_louis",
+     "parent_household": "hh_lodging_tremont_house_1",
+     "place": "tremont_house_1",
+     "size_drawn": 8,
+     "size_basis": "supplementary 1840 size-histogram draw",
+     "seed": "T-2023:lodging_family:rc_bourassa_louis",
+     "draws": [
+      {
+       "index": 1,
+       "sex": "female",
+       "age_band": "under_10",
+       "outcome": "seated",
+       "person": "rc_bourassa_victoire"
+      },
+      {
+       "index": 2,
+       "sex": "female",
+       "age_band": "under_10",
+       "outcome": "seated",
+       "person": "rc_bourassa_marie"
+      },
+      {
+       "index": 3,
+       "sex": "female",
+       "age_band": "under_10",
+       "outcome": "seated",
+       "person": "rc_bourassa_archange"
+      },
+      {
+       "index": 4,
+       "sex": "female",
+       "age_band": "under_10",
+       "outcome": "not this remaining order; never re-banded"
+      },
+      {
+       "index": 5,
+       "sex": "female",
+       "age_band": "under_10",
+       "outcome": "not this remaining order; never re-banded"
+      },
+      {
+       "index": 6,
+       "sex": "female",
+       "age_band": "under_10",
+       "outcome": "not this remaining order; never re-banded"
+      },
+      {
+       "index": 7,
+       "sex": "female",
+       "age_band": "under_10",
+       "outcome": "not this remaining order; never re-banded"
+      }
+     ]
+    },
+    {
+     "parent": "rc_lyman_susan",
+     "parent_household": "hh_lodging_recon_1835_blk_washington_clinton_h3_02",
+     "place": "recon_1835_blk_washington_clinton_h3_02",
+     "size_drawn": 1,
+     "size_basis": "supplementary 1840 size-histogram draw",
+     "seed": "T-2023:lodging_family:rc_lyman_susan",
+     "draws": []
+    },
+    {
+     "parent": "rc_mccarthy_owen",
+     "parent_household": "hh_lodging_recon_1835_blk_washington_clinton_h3_02",
+     "place": "recon_1835_blk_washington_clinton_h3_02",
+     "size_drawn": 7,
+     "size_basis": "supplementary 1840 size-histogram draw",
+     "seed": "T-2023:lodging_family:rc_mccarthy_owen",
+     "draws": [
+      {
+       "index": 1,
+       "sex": "male",
+       "age_band": "under_10",
+       "outcome": "not this remaining order; never re-banded"
+      },
+      {
+       "index": 2,
+       "sex": "male",
+       "age_band": "under_10",
+       "outcome": "not this remaining order; never re-banded"
+      },
+      {
+       "index": 3,
+       "sex": "female",
+       "age_band": "under_10",
+       "outcome": "name pool exhausted; no invented replacement"
+      },
+      {
+       "index": 4,
+       "sex": "female",
+       "age_band": "under_10",
+       "outcome": "name pool exhausted; no invented replacement"
+      },
+      {
+       "index": 5,
+       "sex": "male",
+       "age_band": "under_10",
+       "outcome": "not this remaining order; never re-banded"
+      },
+      {
+       "index": 6,
+       "sex": "male",
+       "age_band": "under_10",
+       "outcome": "not this remaining order; never re-banded"
+      }
+     ]
+    },
+    {
+     "parent": "rc_cobb_lemuel",
+     "parent_household": "hh_lodging_recon_1835_blk_washington_clinton_h3_02",
+     "place": "recon_1835_blk_washington_clinton_h3_02",
+     "size_drawn": 4,
+     "size_basis": "supplementary 1840 size-histogram draw",
+     "seed": "T-2023:lodging_family:rc_cobb_lemuel",
+     "draws": [
+      {
+       "index": 1,
+       "sex": "male",
+       "age_band": "under_10",
+       "outcome": "not this remaining order; never re-banded"
+      },
+      {
+       "index": 2,
+       "sex": "male",
+       "age_band": "under_10",
+       "outcome": "not this remaining order; never re-banded"
+      },
+      {
+       "index": 3,
+       "sex": "male",
+       "age_band": "under_10",
+       "outcome": "not this remaining order; never re-banded"
+      }
+     ]
+    },
+    {
+     "parent": "rc_hastings_rufus",
+     "parent_household": "hh_lodging_recon_1835_blk_washington_clinton_h3_02",
+     "place": "recon_1835_blk_washington_clinton_h3_02",
+     "size_drawn": 3,
+     "size_basis": "supplementary 1840 size-histogram draw",
+     "seed": "T-2023:lodging_family:rc_hastings_rufus",
+     "draws": [
+      {
+       "index": 1,
+       "sex": "male",
+       "age_band": "under_10",
+       "outcome": "not this remaining order; never re-banded"
+      },
+      {
+       "index": 2,
+       "sex": "female",
+       "age_band": "under_10",
+       "outcome": "seated",
+       "person": "rc_hastings_mary"
+      }
+     ]
+    },
+    {
+     "parent": "rc_pothier_alexis",
+     "parent_household": "hh_lodging_recon_1835_blk_washington_clinton_h3_02",
+     "place": "recon_1835_blk_washington_clinton_h3_02",
+     "size_drawn": 2,
+     "size_basis": "supplementary 1840 size-histogram draw",
+     "seed": "T-2023:lodging_family:rc_pothier_alexis",
+     "draws": [
+      {
+       "index": 1,
+       "sex": "male",
+       "age_band": "under_10",
+       "outcome": "not this remaining order; never re-banded"
+      }
+     ]
+    },
+    {
+     "parent": "rc_robillard_francois",
+     "parent_household": "hh_lodging_recon_1835_blk_washington_clinton_h3_02",
+     "place": "recon_1835_blk_washington_clinton_h3_02",
+     "size_drawn": 3,
+     "size_basis": "supplementary 1840 size-histogram draw",
+     "seed": "T-2023:lodging_family:rc_robillard_francois",
+     "draws": [
+      {
+       "index": 1,
+       "sex": "male",
+       "age_band": "10_19",
+       "outcome": "not this remaining order; never re-banded"
+      },
+      {
+       "index": 2,
+       "sex": "female",
+       "age_band": "under_10",
+       "outcome": "seated",
+       "person": "rc_robillard_catherine"
+      }
+     ]
+    },
+    {
+     "parent": "rc_stiles_john",
+     "parent_household": "hh_lodging_recon_1835_blk_washington_clinton_h3_02",
+     "place": "recon_1835_blk_washington_clinton_h3_02",
+     "size_drawn": 3,
+     "size_basis": "supplementary 1840 size-histogram draw",
+     "seed": "T-2023:lodging_family:rc_stiles_john",
+     "draws": [
+      {
+       "index": 1,
+       "sex": "female",
+       "age_band": "under_10",
+       "outcome": "seated",
+       "person": "rc_stiles_lydia"
+      },
+      {
+       "index": 2,
+       "sex": "male",
+       "age_band": "10_19",
+       "outcome": "not this remaining order; never re-banded"
+      }
+     ]
+    },
+    {
+     "parent": "rc_wadsworth_hiram",
+     "parent_household": "hh_lodging_recon_1835_blk_washington_clinton_h3_02",
+     "place": "recon_1835_blk_washington_clinton_h3_02",
+     "size_drawn": 3,
+     "size_basis": "supplementary 1840 size-histogram draw",
+     "seed": "T-2023:lodging_family:rc_wadsworth_hiram",
+     "draws": [
+      {
+       "index": 1,
+       "sex": "male",
+       "age_band": "under_10",
+       "outcome": "not this remaining order; never re-banded"
+      },
+      {
+       "index": 2,
+       "sex": "female",
+       "age_band": "under_10",
+       "outcome": "seated",
+       "person": "rc_wadsworth_almira"
+      }
+     ]
+    }
+   ],
+   "additions": [
+    {
+     "person": "rc_thayer_warren",
+     "place": "tremont_house_1",
+     "kind": "youth"
+    },
+    {
+     "person": "rc_wadsworth_george",
+     "place": "tremont_house_1",
+     "kind": "youth"
+    },
+    {
+     "person": "rc_mahoney_michael",
+     "place": "tremont_house_1",
+     "kind": "youth"
+    },
+    {
+     "person": "rc_rice_reuben",
+     "place": "recon_1835_blk_washington_clinton_h3_02",
+     "kind": "youth"
+    },
+    {
+     "person": "rc_chevalier_archange",
+     "place": "recon_1835_blk_indiana_north_cass_h3_09",
+     "kind": "child"
+    },
+    {
+     "person": "rc_ingalls_lydia",
+     "place": "tremont_house_1",
+     "kind": "child"
+    },
+    {
+     "person": "rc_bourassa_victoire",
+     "place": "tremont_house_1",
+     "kind": "child"
+    },
+    {
+     "person": "rc_bourassa_marie",
+     "place": "tremont_house_1",
+     "kind": "child"
+    },
+    {
+     "person": "rc_bourassa_archange",
+     "place": "tremont_house_1",
+     "kind": "child"
+    },
+    {
+     "person": "rc_hastings_mary",
+     "place": "recon_1835_blk_washington_clinton_h3_02",
+     "kind": "child"
+    },
+    {
+     "person": "rc_robillard_catherine",
+     "place": "recon_1835_blk_washington_clinton_h3_02",
+     "kind": "child"
+    },
+    {
+     "person": "rc_stiles_lydia",
+     "place": "recon_1835_blk_washington_clinton_h3_02",
+     "kind": "child"
+    },
+    {
+     "person": "rc_wadsworth_almira",
+     "place": "recon_1835_blk_washington_clinton_h3_02",
+     "kind": "child"
+    }
+   ],
+   "unspent": {
+    "persons/female/under_10/north/lodging/none": 0,
+    "persons/female/under_10/south/lodging/none": 0,
+    "persons/male/10_19/south/lodging/none": 0,
+    "persons/female/under_10/west/lodging/none": 0,
+    "persons/male/10_19/west/lodging/none": 0
+   },
+   "preserved_person_fingerprints": {
+    "rc_sawyer_maria": "83a3cbc45915e5718a13f6bfd09fcefdc3d6194f7734425efafb16b36b568f87",
+    "rc_wilcox_ezra": "cfa50d3c5853e7b89ff93557878f89b1dd3564aa107f072ca25eebfa2e2ad843",
+    "rc_goodrich_emily": "1344af231ffeb9b1030105a1613cdcf5895898e296d5aefa256b9e773b64422e",
+    "rc_rice_abigail": "8e169e33a3208ac957735b63022b808b5ca6f34fec420ea19b9a7b0001143536",
+    "rc_whitcomb_lucy": "420a925bc5a8067e18ad4809be001151e3daf05e298b73fb92d14bf07b2a2445",
+    "rc_doyle_hugh": "5b11c704091a80add80c94e8117f7a9a0a9e21804139edb531b751c47bcecb46",
+    "rc_pothier_francois": "33b2cec151087baffe4089dc90244fc3217494e4d9243034156a6e36f7275067",
+    "rc_sullivan_dennis": "d652568019dc3a6be4fbf13f4ee203c79a48702ee393e9157b3f4bf03a1edb75",
+    "rc_fisk_ira": "6c8a24d726028d1952d3c3012c60259e09bfe6fabbc6ea2732d8da39a0cdc4ec",
+    "rc_bardwell_esther": "6dc62a938d615ac3dee7ce0ac795c97d4945d83386b1a14be1965d23976f4046",
+    "rc_chevalier_therese": "dadcf6dc2f86b75b34ef236f8d0722cc7b70220ef4e39170668a1b97026c127a",
+    "rc_stiles_james": "8c96b410192cab4bfe1759a48f8269349a296e9dca0e72710a8275ef52b32020",
+    "rc_parmelee_otis": "669ea930da4670704e185183ad4ba003b8dafc724b3e6e51adac5e76d794ccd6",
+    "rc_hubbard_chauncey": "12b8cceb9a43519a5bf70f46ae83800d7ca3c4139baaa535573c71d74034f518",
+    "rc_bardwell_david": "4b0759ea09abcffee4b33c81ba050ccdcd0b78b9e7eb0dbfeec877e7b030020e",
+    "rc_bardwell_nancy": "48c22f34824a555294489d65f2b4f87ee271ab78ba3b86bb824a5e7bd8989262",
+    "rc_bardwell_henry": "8aa5a057136b694a81b6d2e666be9962b793c48be7761f40d7ed911f1c360d2d",
+    "rc_barnes_ezra": "1b8599ff937144d9212ada73ed4eca1abca4a708e35d402fba42d4aac905bf08",
+    "rc_cavanagh_ellen": "f9c6ec9b582e38d06b505a1e508fcdb983a53a5314c1ad143793dab3eb25d774",
+    "rc_bacon_esther": "e7272531754c1eb073a45d9d951374fe641ccff04471ad028bf3eb7988e25bcc",
+    "rc_hastings_ruth": "b911d65f15ce5e4c53f6751a52c0d61ab3d58a48de20bc5129156c4e1b840f18",
+    "rc_kellogg_john": "246d326449a07e76b5b9e5da34194536e1de2c562420ae97281937a2bfa5471e",
+    "rc_stiles_otis": "ac22954aab9d4ffc5a92f12aeae0493e422167e38129852341712469198fcab8",
+    "rc_crandall_calvin": "9e9445cfd0fadceda2d9ef63a7491b800b8dfecf43711b28348db00d74efbce7",
+    "rc_barnes_george": "0c53082e955e81da21a46c9d7108a89e0bef1fc3a5247f5ba631986770027a13",
+    "rc_barnes_luther": "0fddea59d06937c54a02abbbeb760f60b39bead7d9f92957eaac1a7bcce2ad1e",
+    "rc_barnes_samuel": "a712599d1eef1f15e5ddda2c72bfc0877f75b94750470f0caea06ef104fa1610",
+    "rc_cavanagh_johanna": "cb0e7cab7351b2c4e95ea16a62f4617b689f13ccb2ca2becacdd31dc9ee40c07",
+    "rc_metcalf_mary": "56e9a11bce317735a5b655bdf65b491e9a9bb2026491caf77f7e88050137b0ba",
+    "rc_gilbert_elisha": "95dce56cc17e5ac1e31b898845e1be4e63feebace2b8aa0e8325f728a49b5516",
+    "rc_gilbert_horace": "1704efc0bfea192fb6f482f6af62e5e2510a2d3f7b3ee76d782e146e36e7f8e5",
+    "rc_chevalier_jean": "e5215fa07e3d93c9901f4501838e057db1ccebdd8631d1e64325e657f8eeeaba",
+    "rc_sawyer_horace": "c18277fb73e3863441710a7d6eccefdd4d18abf52cc02b40719097a89db09250",
+    "rc_bardwell_reuben": "f5a36b04f6c42b69bc45cc456b06252ca2811ed648ef330a4d846e90ed800a9f",
+    "rc_whitcomb_david": "dbe38127d215eb4a9b9f3082de0207a1e03a8d18ff2ecaf53bf29eed5592a906",
+    "rc_cavanagh_alice": "1cbf9055d48bb85f600fd90096fe1d10a580eadbeaf7f74c4ba6f41cc89269d6",
+    "rc_newell_lydia": "9db8a58a065fdcca51d7e860073de9cf2d65e31169ef77bc86d999cc05d26670",
+    "rc_mcguire_bridget": "99ae1873585991567772b2597d87fde2df5dd57f2ed988dd293e96dcce8038a8",
+    "rc_bacon_alvah": "b2a7beacd69a3b013e20e82ed1c89b9b4dc258395539f5ca7d3ade0c0396050b",
+    "rc_hastings_orrin": "b62b3552e533b3f6c991069dcbe92c6e62201e439b06ce0ddbb34ea831d1aa5f",
+    "rc_pothier_pierre": "89d33a72ddc2a242e0145786fb9d08252c4ccbe4cf9d0a910c2a1f13d3621ca8",
+    "rc_nolan_owen": "72df9bbfa630ad03b3f779c833c44c95f47601e08fda6b21a2e8c7f52c1e0a06",
+    "rc_nichols_asa": "9a01b6081f583a7c06676056cb9eb34ad721bbb278ee3904b16307ab7dc0aa3b",
+    "rc_reilly_john": "064ae5ba54b04cc00ea51ffe79afd100d3041db6c062777d3848de848a2f792b",
+    "rc_newell_martha": "24f11fd4abcaa7560bd1a0bf3c90275c4606d1648820b332f230c898c13046f8",
+    "rc_newell_james": "e6badff7dfa38a63c939e40dcb0862ad4bfe98a61efd4b01744d6bbc4c4d80d7",
+    "rc_gilbert_benjamin": "413c041482f899bab17478b565936611f1cc8d6486a2919e945937ec11e510f1",
+    "rc_hubbard_orrin": "99cbd8b7a13684ce7d82ad1289f24b567347d33d47aaec81c5a198323898400d",
+    "rc_cardinal_jean": "f92dae1e8543db2b5e20298c2f716a5564d0f67c2322758d0e54d94cc232732f",
+    "rc_tuttle_abner": "41486ea13b498bb4401dd1dc778530fac28a991328f693c7352e300156cb42de",
+    "rc_lyman_henry": "1f5c3648027ef48a90089fffb6ba024f49af6dbdefca757d05de5ddc5b3fd04a",
+    "rc_sullivan_alice": "717082d8234b345384f7008da21d05d5e5278dc796e23446d5f245e89ff72858",
+    "rc_wadsworth_henry": "5fb7d5269e123728309577826cdce5a766091a0cf4927c25cc13bcce62a4bc26",
+    "rc_sheldon_horace": "dfa516d72129cc98c544e882889b84d56b33fc05637a870daa573546a5f1a227",
+    "rc_fitzgerald_martin": "b2b96a9c90b9151415e77b7bf601e5ad24aab37692094cc6444afca9232769d5",
+    "rc_whitcomb_mary": "0c74c1bfe52b842161adcf4af12716bf4cdebee6d3ca58363a32e2c6a7d8a1e4",
+    "rc_cobb_silas": "3838b634440b6b8f6135ec315850af5f15246b92871ed67ca9ee8d77763cf712",
+    "rc_bacon_alanson": "351f485420f3d1b331b50f1a892120b01699791d06d94a78a34361c729ab958c",
+    "rc_ingalls_orrin": "d5c08c6989326d9ae1c4afab7a8572beb7d36b5ecef984f8b1f67ac729e28a3b",
+    "rc_fitzgerald_terence": "e8b9d16646ed2a586899e3983328fc5e032ac8ef55088597098a7cab8d0d0fcc",
+    "rc_pelletier_victoire": "cb04fb827384bfb290802de1cba4c22c78d0013bd3a3d7d3e317d7255226e26c",
+    "rc_wadsworth_nancy": "8667f83f2c3131b6b2a4cc9d0a3773251a4ee2f2021a6d841e2cfb7e46e5e47e",
+    "rc_hubbard_clarissa": "92026423301367311a821b3f51f2dec8f820ef8c37b84a166ddeb9fd8654692b",
+    "rc_mcguire_honora": "63df42be0dad86f54924af25823f83fd695956d003a7144b63d17b1780978249",
+    "rc_bourassa_pierre": "4d8efb1fcdb0b78e8c5f86595f36c0a9c84923855db469fbeb5756fb564b20bd",
+    "rc_sheldon_james": "f18e59623618778d8ca19c885fbdd088ed064c76a78bc48087389eb93de2cba3",
+    "rc_bacon_benjamin": "8bc7afd68ae94b03737e599bf940cb15d90d543c05394c0cd304041960724e7d",
+    "rc_fisk_nathaniel": "f43c7b0d2ed0e1bdca179574b0220ca475b6ca0b81acbeaefe2b57436fd35cff",
+    "rc_pelletier_charles": "fcd581d88805a03b0cbbdfdc0af6fd21bb6fd4d6d6995553edc9b6da43c368cf",
+    "rc_pelletier_alexis": "6c40b79dbbf66e339f15c28338ceb0c283f64d92be2bee344cbc6ce5cbda84bf",
+    "rc_fisk_mary": "216e9f7a6c80b66ceceb5cd26c9d200794115fc8977ce4b2a008d100883ce09c",
+    "rc_ingalls_maria": "0f4064be76fa585648571c057a3712bf3d737441ade320ba8cb68e5f503253f1",
+    "rc_metcalf_amos": "9378b69df2f51e06e27e9a0b5863483f108cc9450332b019b569cab8046c69db",
+    "rc_bourassa_louis": "37b2bfa207652d55773e2cf03a3748d6588673854970b051b529285f0029b9aa",
+    "rc_whitcomb_jared": "f271e4c4def64a14ac9ee2f5f023629f94f82c7bf9340125b87dfe1f4e393db3",
+    "rc_barnes_rhoda": "2de7c54da739309bbb6a7fa85c702bb3189644da996460bbfe6d79294796a3b5",
+    "rc_woodruff_lydia": "95d7eb1f15cf1f784ce825d74782762e0405eeb81ab79e3a955df9fcd9970a35",
+    "rc_thayer_abigail": "07d66ff38bf88d27c5a65b4a544af2e6fcf231d48f68fb19d0cf9f355fed49ec",
+    "rc_newell_alvah": "904f8ec541149890b840cb84fa11e431897b932ea5f1e7a7ae15b109e883b04f",
+    "rc_parmelee_lemuel": "03e5d5111482f19a8210441852b52d74d58215436d917c48ce00b83627a0ff6d",
+    "rc_nash_otis": "aaa51d97c36b7655bf9ecf8b0202d8f74209f1cf81b8009a1fc3d057988bc594",
+    "rc_marcotte_toussaint": "81b46ee718026923fd848893e202fd9ba4b38ff9499c46bd1906c8e951258ed0",
+    "rc_eastman_joseph": "a71ecd2abb81cbfd8f41b596aa5387bcb04ff8133b48848318914b93f552fd19",
+    "rc_gilbert_lemuel": "ae2cdd9e1247f85214f882e8e1e5532d565116f1fc8043b147aae910b263f591",
+    "rc_kellogg_polly": "00092f40117c771c4871e791eff0391f0f345a9fa0dd853bce51f778b3265ee5",
+    "rc_hale_eliza": "995195f886fa15f5c844706002059fcaf79a60d4ad7d63a6d3abf6252f057b4f",
+    "rc_sawyer_clarissa": "037090637a18c04a5b86014cda042c3d07d0b7c01698d52855f76c1e00d00f6b",
+    "rc_gagnier_pierre": "5494c0345194770e2681dbdf1972e17846b08f28f564d32474de405c4922cfbd",
+    "rc_marcotte_louis": "a709868ca87eff173ad9d8b0d34b41cd27067bc7ec158f754565cf22d5273bb0",
+    "rc_fisk_levi": "ba59cba6285496d0a3abfcedb88f95cd0abc682923298f02c88cf1e5d1ad47dc",
+    "rc_duffy_bryan": "d02bc9fee71b3d237176c72ef62205277452a942a202ed52726011a70d3437bd",
+    "rc_gilbert_amanda": "50cc586d3c0303268ec07cf9722e554415bf79acc4df045033018d50c8b7df20",
+    "rc_doyle_martin": "1e98b70de22eb65a48e8dd49297457f7400ffb6245442e82b0639942a0e406a3",
+    "rc_sheldon_orrin": "cd8339f6b7d69fb483ddec84798a0055804bbb9c910bcb8c775922dfcab0b59f",
+    "rc_brady_patrick": "a7de73c82cb049ad958c576995029e081dcf78292cd3b6834a77fccef3a1ff71",
+    "rc_fairbanks_maria": "d71112d17df2ba93f0bcc4be940d81e7b843ea7ea4c55e97520b3ccee6cd66f5",
+    "rc_ingalls_ezra": "17d0488defe3586a2dac29fb3233b251f125bdf92f02d33c032461bece88a51f",
+    "rc_quinn_michael": "8f14fd0e545fa41254aee3f252f69341122096eeae3959d0d9e68b71511bff43",
+    "rc_nash_warren": "790cad815ce7d4e4f77804500e61dab451c630ed2813e54bfd2de722d0deda1c",
+    "rc_chevalier_medard": "bedc35a5fc7c525195e4057269ee6252195bd1320d0d9b08528e42aa6c74a079",
+    "rc_tuttle_alvah": "e0d5182153f0f977bfc8475b6a35b74fcfc4e3d78ed5ec11452e380b3c19ccb4",
+    "rc_stebbins_alvah": "bce1d33ac38f78c9c5eb689e68b552369fa4e4fdfc1e83ec8b5dc198965585f4",
+    "rc_leland_abner": "5648be4da7ed24e214379845f1b825e307fc152cab8ddd19cd58ac80f1cf67c7",
+    "rc_ingalls_elisha": "00012cb1aa65ffc98b821553e0a37bab538785d19b990c2a5b3683760bdd8e36",
+    "rc_parmelee_luther": "5f8eb7d154082e93537e9c005834845f1c01af022ca8e2dcc85b82b7ee3cf0fa",
+    "rc_rice_silas": "b0579da1678d0f054ecffc7dafd840eec3a8896ad441219125e6c2040309203f",
+    "rc_thayer_erastus": "0f843afdaf86c004d30469c2a165bf8665dd573ee0e380a91feaa4fe7c402fcd",
+    "rc_pratt_calvin": "47dc70f17ab52bd9b15fc63bcb6651235ec67699356d9e0060e2caf352c73f04",
+    "rc_woodruff_benjamin": "ccdb7e718c4630a98dc1d0abbc74715cc8b32c4f6ce354bd62e469dd5b1f89ff",
+    "rc_stebbins_jared": "2906ffaf9b172a8d7562014cac01c27100693325f13236e4a5709dd2238e7d2b",
+    "rc_stebbins_ira": "b466198a8c94add4fe7a373408181f19d09a68262acab9a7fdc6aee65dc1f462",
+    "rc_stebbins_amanda": "f29c17e90b6138da51b6caa5e21fcb6ede6ccd4cc8713b36dca9475ab1aa18bb",
+    "rc_chapin_hannah": "f16c7199d815b79e57dc39f49fbbb3da86e6fc5ec6296b439f49168a3fb1880f",
+    "rc_chapin_abner": "0f573bc8e6e38da3dc9bdcad049db57a437ebbc03515c65d2de965e08e9fe4b7",
+    "rc_chapin_nancy": "32e1f93dd3d49498f4dc5d4cee471e8828fc48834e44f508032ba98bba152484",
+    "rc_chapin_sophronia": "432cd515477f97b9531421626abff7b8401b8185a2787543754614d9a1dc16d3",
+    "rc_trottier_baptiste": "1d35e3a5c5abc1058432682d0890bd6511ed1d15fa0a34fd5e127c7b4370bfe4",
+    "rc_fisk_charles": "f493bb489a5e5d89b82e5e06d9ea511816a49554b584cc14cf05d8106f3a4831",
+    "rc_cobb_rufus": "86dfb6821c4f682d25fbf4ce4c4d4e96722b6a6b4dab728e15939bbb8d46a33d",
+    "rc_hastings_luther": "eedca3913615fb7e968df0a3c0bc08ee97094a2e2dbc69ae1a0326dc041ae4dd",
+    "rc_hastings_levi": "4e12fa533f413c92f91c6284a600092d13ec8a40f8cd719b61151713a0538250",
+    "rc_goodrich_otis": "5c7948b0651d8a568026947b376a42cac1babcf2fda367e813554dbec1bdef08",
+    "rc_kellogg_luther": "d1842679214ebfc7f62b1a42978bc12e46881a33357fd50fa35202c5163e26fc",
+    "rc_fairbanks_abner": "c3291cc74fc7d3444bc12bc58692254e01640966c3e92587d72edd8cb24752ab",
+    "rc_trottier_therese": "f6b5bd8874ed284eb3fb7a823fd07242c8afc13761f4da05f1246d4822a3a4c8",
+    "rc_trottier_madeleine": "b16af7d806c3353285ddbce4cebbe50e3d237d6e22b62f166495e04b36547953",
+    "rc_trottier_pierre": "e9ac58b716e4631d84c82f11ef622ca24a15155c99216382a4e6bff52f03c20b",
+    "rc_trottier_medard": "d2f4e5d78dc910f8fdf0637d908afb1c084016c58b1dcd553b873d035bcd3600",
+    "rc_mccarthy_edward": "acc404affe77b2e35f8a517ba11435185ea76ad561967cfcbd9ef3a71cc49bb6",
+    "rc_trottier_joseph": "a354fcf0bde55ef1088bef7345fa388517826240a5a2664556e2585a522c7857",
+    "rc_lyman_elisha": "b8d0af02d84fa6a4d7dabbbac6ebeb5204d9e40ac32735ecc978021b8f68ec95",
+    "rc_cardinal_antoine": "3995ec6d23e008e53368b8ad49539016d02062ecaa7a3e312a613e016d6239aa",
+    "rc_mccarthy_patrick": "ef9b36962b17748bbcd3c28ca8d024d1ee61b26fa62317aa6569ca54cd671ba8",
+    "rc_hubbard_ruth": "5a38f99c4abac6b1ba27a6867f533c19e8d12946e97b66d9bf6748a39ff42a12",
+    "rc_kellogg_esther": "d920edb30e3aaa547dfe193319b9d291aca18e6d70261fdaf53dfa005d9edbc1",
+    "rc_woodruff_esther": "35a416d3f2c5cabc1e925fddbc96a8066d9a72183026ce2d06bc44573f9fb9eb",
+    "rc_crandall_joseph": "21d85b4a1271da16a6b5ddf5e4aed9491b438277bc1d2971fa0711fa3f416ac3",
+    "rc_robillard_louis": "3e8685a149fb4e0095eead0df057fa0746b98116325540f8d475a700541d68d5",
+    "rc_robillard_angelique": "0fba0ad8872c84d9400998ef2e554aea2cd24405533503be5df0916855d84626",
+    "rc_hastings_polly": "6794d92c20d323d91f12d6e5e26ca3894db5f35dbdfd671ad417b1e900f06125",
+    "rc_cardinal_catherine": "41d95fb0888e6f88d71f59638154ff9500db74a54d2c4a9437552fbcb43da02e",
+    "rc_woodruff_maria": "a4b1fb13d09992d73b2ca04bec121d0b72d7d20675cddc14f6036b86f0855e89",
+    "rc_carroll_bryan": "74b555665e29f61827282db3b374157541528ccbaa0e16764828f79ed7d94fbf",
+    "rc_barnes_john": "2d48c0d3fe666927b5045ec448a418974d204d705e2deab8806e9aff026fbd53",
+    "rc_laframboise_alexis": "b33e193ea41d25effbde8e4a421caf1a426f5d1ad957512eb89eb9c7b73387e6",
+    "rc_parmelee_jared": "4a64a1ce4587cdc8fff869a5b480da616058a5d940936228c8d342eb7b925c33",
+    "rc_laframboise_michel": "e640d2a6daf1366911770179c875b5f48a57c2a0770ced04af7706c6f7d3a0c0",
+    "rc_laframboise_victoire": "dd9d06a8caa3ebda7134d0b9a0fa8ef6fd050fb25c787031c67b758a9b5420ea",
+    "rc_laframboise_marie": "be8ee0def6d8e9c775896b17db49bd3d13184e63249d7b2d8735fb3393065d99",
+    "rc_lyman_susan": "ad86632114db7d61136bbb0f9a0a05ee3f4c9071b253e3924834327e59e8756a",
+    "rc_mccarthy_owen": "5f950c6ec7ee91e1af327515587c24e3abd4b4eb7d13f37f92072e8fe9a6de7f",
+    "rc_cobb_lemuel": "90c1fb8eb71faec9f0696850cc0bb64df7c65026d87d40c68309e88f70206d2a",
+    "rc_hastings_rufus": "7df266d678a3d8c3aa80fb53fa84fca8e8606af979ed63bdff055d9bb4ffa192",
+    "rc_pothier_alexis": "da589be5bf6a11c90dfa31373c99a0658b2643cc22f4bd80d0872dbcb725ad09",
+    "rc_robillard_francois": "9c0facef652ecedc6e978eb0001055805ff80bd518cefdebb01cba90b0552390",
+    "rc_stiles_john": "89186e2c7416aa7ec5bb4e15f1af274080732c8c622851af4457d3429826b6b5",
+    "rc_wadsworth_hiram": "8df2154f70ab435be23a1a48b85e9633000be9ccbb9799d0f8e71233a4f7f1d1"
+   }
   }
  },
  "inputs": [
@@ -1281,6 +1988,9 @@
   "data/reconstruction/1835_trade_households.json",
   "data/reconstruction/1835_invented_name_pools.json",
   "data/reconstruction/1835_existing_roof_reconciliation.json",
+  "data/reconstruction/1835_lodging_household_programme.json",
+  "data/reconstruction/1835_known_household_receipts.json",
+  "data/reconstruction/1835_housing_seats.json",
   "data/residents/"
  ],
  "the_mix": {
@@ -1477,6 +2187,7 @@
    "minted_keeper": "rc_chapin_hannah",
    "minted_lodgers": 0,
    "minted_children": 3,
+   "supplementary_children": 1,
    "occupancy_after": 6,
    "inside_its_band": true,
    "at_its_ordinary_night_figure": false,
@@ -1637,9 +2348,10 @@
     "ulrich_nicholas"
    ],
    "minted_keeper": null,
-   "minted_lodgers": 8,
+   "minted_lodgers": 9,
    "minted_children": 0,
-   "occupancy_after": 11,
+   "supplementary_children": 4,
+   "occupancy_after": 12,
    "inside_its_band": true,
    "at_its_ordinary_night_figure": true,
    "allocation_beds_ordinary": 11
@@ -1992,9 +2704,9 @@
    "minted_keeper": null,
    "minted_lodgers": 0,
    "minted_children": 0,
-   "occupancy_after": 8,
+   "occupancy_after": 10,
    "inside_its_band": true,
-   "at_its_ordinary_night_figure": false,
+   "at_its_ordinary_night_figure": true,
    "allocation_beds_ordinary": 11
   },
   {
@@ -2021,9 +2733,10 @@
     "rc_hayes_patrick"
    ],
    "minted_keeper": null,
-   "minted_lodgers": 5,
+   "minted_lodgers": 8,
    "minted_children": 0,
-   "occupancy_after": 12,
+   "supplementary_children": 4,
+   "occupancy_after": 15,
    "inside_its_band": true,
    "at_its_ordinary_night_figure": false,
    "allocation_beds_ordinary": 12
@@ -3227,6 +3940,50 @@
     "kind": "person",
     "match": "a source that says where this person lived and worked on 1 July 1835, or one naming the keeper of this house"
    }
+  },
+  {
+   "person": "judar_barbery",
+   "name": "Barbery Judar",
+   "household": "hh_judar_barbery",
+   "file": "households/hh_judar_barbery.json",
+   "drawn_solitary_by": "T-2023",
+   "drawn_solitary_in_stage": "existing_unplaced_north_boarding_party",
+   "trade": "none_recorded",
+   "group": "labour",
+   "place": "steamboat_hotel",
+   "place_name": "Steamboat Hotel",
+   "relationship": "lodger",
+   "basis": {
+    "kind": "rule",
+    "id": "T-2023",
+    "note": "R placement of an existing present North adult in one of two real ordinary beds. The shared party implies no marriage, kinship or travel association; source identity and grade unchanged."
+   },
+   "replaceable_by": {
+    "kind": "person",
+    "match": "dated evidence naming this person's actual July1835 home"
+   }
+  },
+  {
+   "person": "welsh_t",
+   "name": "T Welsh",
+   "household": "hh_welsh_t",
+   "file": "households/hh_welsh_t.json",
+   "drawn_solitary_by": "T-2023",
+   "drawn_solitary_in_stage": "existing_unplaced_north_boarding_party",
+   "trade": "none_recorded",
+   "group": "labour",
+   "place": "steamboat_hotel",
+   "place_name": "Steamboat Hotel",
+   "relationship": "lodger",
+   "basis": {
+    "kind": "rule",
+    "id": "T-2023",
+    "note": "R placement of an existing present North adult in one of two real ordinary beds. The shared party implies no marriage, kinship or travel association; source identity and grade unchanged."
+   },
+   "replaceable_by": {
+    "kind": "person",
+    "match": "dated evidence naming this person's actual July1835 home"
+   }
   }
  ],
  "minted": [
@@ -3252,7 +4009,7 @@
    "id": "hh_lodging_recon_1835_blk_indiana_north_cass_h3_09",
    "file": "lodgers/hh_lodging_recon_1835_blk_indiana_north_cass_h3_09.json",
    "place": "recon_1835_blk_indiana_north_cass_h3_09",
-   "persons": 4
+   "persons": 5
   },
   {
    "id": "hh_lodging_recon_1835_blk_washington_clark_h3_05",
@@ -3276,7 +4033,7 @@
    "id": "hh_lodging_recon_1835_blk_washington_clinton_h3_02",
    "file": "lodgers/hh_lodging_recon_1835_blk_washington_clinton_h3_02.json",
    "place": "recon_1835_blk_washington_clinton_h3_02",
-   "persons": 8
+   "persons": 13
   },
   {
    "id": "hh_lodging_recon_1835_blk_washington_dearborn_h3_01",
@@ -3348,7 +4105,7 @@
    "id": "hh_lodging_tremont_house_1",
    "file": "lodgers/hh_lodging_tremont_house_1.json",
    "place": "tremont_house_1",
-   "persons": 5
+   "persons": 12
   },
   {
    "id": "hh_lodging_western_hotel",
@@ -3414,19 +4171,40 @@
  "working_fills": {
   "persons/male/10_19/south/lodging/trade": 3
  },
+ "remainder_fills": {
+  "persons/female/under_10/north/lodging/none": 1,
+  "persons/female/under_10/south/lodging/none": 4,
+  "persons/female/under_10/west/lodging/none": 4,
+  "persons/male/10_19/south/lodging/none": 3,
+  "persons/male/10_19/west/lodging/none": 1
+ },
  "household_fills": {
-  "statement": "One fill per lodging household record this stage writes, keyed on the order book's own household cell. A card written is a house filled.",
-  "unit": "houses, not people — the book's `households/<class>/<division>` cells. The people in them are counted separately by `fills`, against the `lodging` PERSON cells, and the two must never be added together.",
-  "carried_from": "T-1537, which is the reconciliation T-1534's acceptance asked for before either half of its order was minted.",
-  "not_a_draw": "No card, person, name, age band or seat is derived from this. It counts cards this stage already wrote; --check re-derives every one of them and refuses a differing byte.",
+  "ticket": "T-2023",
+  "global_exclusive_known_receipts": 165,
+  "statement": "Actual disjoint reconstructed household economies/tenancies under existing roofs. An inn holds several. No new kinship is inferred among unrelated boarders.",
+  "unit": "household economies, not container cards, individual source records or roofs",
+  "programme": "data/reconstruction/1835_lodging_household_programme.json",
+  "containers_written": 22,
+  "houses_filled": 56,
+  "known_house_receipts": 20,
+  "distinct_members": 368,
+  "double_credited_members": 0,
   "by_cell": {
-   "households/boarding_house/north": 6,
-   "households/boarding_house/south": 7,
-   "households/boarding_house/west": 3,
+   "households/boarding_house/north": 10,
+   "households/boarding_house/south": 29,
+   "households/boarding_house/west": 8,
+   "households/inn_tavern/north": 2,
    "households/inn_tavern/south": 5,
-   "households/inn_tavern/west": 1
+   "households/inn_tavern/west": 2
   },
-  "houses_filled": 22
+  "known_by_cell": {
+   "households/boarding_house/north": 2,
+   "households/boarding_house/south": 12,
+   "households/boarding_house/west": 1,
+   "households/inn_tavern/north": 1,
+   "households/inn_tavern/south": 2,
+   "households/inn_tavern/west": 2
+  }
  },
  "keeper_families": {
   "ticket": "T-1533",
@@ -3969,7 +4747,7 @@
  ],
  "not_this_piece": {
   "the_crews_and_the_works_gang": "T-1372, piece 3 of this parent: the vessels in port and the hands at the pier works, and the card that prints who lived in a house.",
-  "the_unbuilt_boarding_houses": "The lodging model schedules 42 boarding houses and 5 of them stand. The other 37 are 333 ordinary beds with no roof over them, and a bed cannot be slept in before it is built: T-1196 re-derives the roof programme and T-1187 raises the houses.",
+  "the_architectural_family_gap": "The primary lodging classifier omits generic H-family dwellings and is not the roof construction ledger. T-2023 counts actual household economies under existing roofs, with explicit R secondary boarding uses; the current structure book orders no additional lodging roof.",
   "the_staff": "T-1183 models how a business was staffed. The bar-keeper, the hostler, the cook and the chambermaid under every keeper here are that ticket's, as T-1370 already said.",
   "the_trade_of_a_lodger": "NOW DEALT, AFTER EVERYTHING ELSE (T-1532): `quota_basis.working_lodgers` carries the order and the beds it went into. The boarders above still carry no trade — they were ordered out of the `none` cells.",
   "the_children": "PART OF IT NOW IS. The book orders people under ten into lodging households and they are keepers' families rather than boarders, which is why refusal 3 would not deal them a bed. T-1533 draws the ones this stage can reach: the children of the keepers this stage itself minted, on the houses it minted them onto, out of the `under_10/*/lodging/none` cells for those houses' divisions. The rest are not reachable from here and are not moved: a child of a DOCUMENTED keeper is T-1171's draw or T-1179's convergence, and the south division's cells order children into the 37 boarding houses the lodging model schedules and nobody has built (T-1187 raises them), where there is no keeper to be kin to. `keeper_families` counts both halves."
@@ -4970,83 +5748,279 @@
    }
   ]
  },
+ "shared_occupancy": {
+  "note": "Distinct sleeping person IDs across the lodging and independent housing overlays; workplace-only rows excluded. Legacy crowding is reported, never used as spare capacity.",
+  "houses": [
+   {
+    "place": "brown_boarding_house",
+    "people": 4,
+    "ordinary_beds": 4,
+    "crowded_beds": 9,
+    "legacy_excess": 0
+   },
+   {
+    "place": "exchange_coffee_house",
+    "people": 11,
+    "ordinary_beds": 10,
+    "crowded_beds": 35,
+    "legacy_excess": 0
+   },
+   {
+    "place": "green_tree_tavern",
+    "people": 8,
+    "ordinary_beds": 8,
+    "crowded_beds": 35,
+    "legacy_excess": 0
+   },
+   {
+    "place": "kelsey_boarding_house",
+    "people": 0,
+    "ordinary_beds": 3,
+    "crowded_beds": 8,
+    "legacy_excess": 0
+   },
+   {
+    "place": "mansion_house",
+    "people": 6,
+    "ordinary_beds": 4,
+    "crowded_beds": 35,
+    "legacy_excess": 0
+   },
+   {
+    "place": "new_york_house",
+    "people": 8,
+    "ordinary_beds": 8,
+    "crowded_beds": 35,
+    "legacy_excess": 0
+   },
+   {
+    "place": "recon_1835_blk_indiana_north_cass_h3_09",
+    "people": 13,
+    "ordinary_beds": 12,
+    "crowded_beds": 27,
+    "legacy_excess": 0
+   },
+   {
+    "place": "recon_1835_blk_south_water_market_h3_02",
+    "people": 7,
+    "ordinary_beds": 12,
+    "crowded_beds": 28,
+    "legacy_excess": 0
+   },
+   {
+    "place": "recon_1835_blk_washington_clark_h3_05",
+    "people": 9,
+    "ordinary_beds": 9,
+    "crowded_beds": 22,
+    "legacy_excess": 0
+   },
+   {
+    "place": "recon_1835_blk_washington_clark_h3_06",
+    "people": 16,
+    "ordinary_beds": 13,
+    "crowded_beds": 30,
+    "legacy_excess": 0
+   },
+   {
+    "place": "recon_1835_blk_washington_clark_h3_11",
+    "people": 17,
+    "ordinary_beds": 13,
+    "crowded_beds": 30,
+    "legacy_excess": 0
+   },
+   {
+    "place": "recon_1835_blk_washington_clinton_h3_02",
+    "people": 16,
+    "ordinary_beds": 11,
+    "crowded_beds": 26,
+    "legacy_excess": 0
+   },
+   {
+    "place": "recon_1835_blk_washington_dearborn_h3_01",
+    "people": 13,
+    "ordinary_beds": 12,
+    "crowded_beds": 27,
+    "legacy_excess": 0
+   },
+   {
+    "place": "recon_1835_blk_washington_market_h3_01",
+    "people": 11,
+    "ordinary_beds": 10,
+    "crowded_beds": 23,
+    "legacy_excess": 0
+   },
+   {
+    "place": "recon_1835_blk_washington_market_h3_04",
+    "people": 12,
+    "ordinary_beds": 12,
+    "crowded_beds": 28,
+    "legacy_excess": 0
+   },
+   {
+    "place": "recon_1835_north_h1_007",
+    "people": 19,
+    "ordinary_beds": 5,
+    "crowded_beds": 12,
+    "legacy_excess": 7
+   },
+   {
+    "place": "recon_1835_north_h2_022",
+    "people": 27,
+    "ordinary_beds": 7,
+    "crowded_beds": 17,
+    "legacy_excess": 10
+   },
+   {
+    "place": "recon_1835_north_h2_028",
+    "people": 32,
+    "ordinary_beds": 9,
+    "crowded_beds": 20,
+    "legacy_excess": 12
+   },
+   {
+    "place": "recon_1835_north_h2_030",
+    "people": 28,
+    "ordinary_beds": 8,
+    "crowded_beds": 18,
+    "legacy_excess": 10
+   },
+   {
+    "place": "recon_1835_north_h2_045",
+    "people": 31,
+    "ordinary_beds": 8,
+    "crowded_beds": 20,
+    "legacy_excess": 11
+   },
+   {
+    "place": "recon_1835_north_t1_061",
+    "people": 1,
+    "ordinary_beds": 9,
+    "crowded_beds": 35,
+    "legacy_excess": 0
+   },
+   {
+    "place": "recon_1835_west_006",
+    "people": 22,
+    "ordinary_beds": 5,
+    "crowded_beds": 13,
+    "legacy_excess": 9
+   },
+   {
+    "place": "recon_1835_west_035",
+    "people": 36,
+    "ordinary_beds": 9,
+    "crowded_beds": 20,
+    "legacy_excess": 16
+   },
+   {
+    "place": "sauganash_hotel",
+    "people": 7,
+    "ordinary_beds": 7,
+    "crowded_beds": 35,
+    "legacy_excess": 0
+   },
+   {
+    "place": "steamboat_hotel",
+    "people": 10,
+    "ordinary_beds": 10,
+    "crowded_beds": 35,
+    "legacy_excess": 0
+   },
+   {
+    "place": "tremont_house_1",
+    "people": 19,
+    "ordinary_beds": 17,
+    "crowded_beds": 35,
+    "legacy_excess": 0
+   },
+   {
+    "place": "western_hotel",
+    "people": 15,
+    "ordinary_beds": 14,
+    "crowded_beds": 35,
+    "legacy_excess": 0
+   },
+   {
+    "place": "wolf_point_tavern",
+    "people": 4,
+    "ordinary_beds": 3,
+    "crowded_beds": 35,
+    "legacy_excess": 0
+   }
+  ]
+ },
  "measurement": {
   "built_lodging_places": 28,
   "ordinary_night_beds": 252,
   "crowded_beds": 728,
   "occupied_before_this_stage": 37,
-  "seated_from_the_layer": 52,
-  "minted_here": 131,
+  "seated_from_the_layer": 54,
+  "minted_here": 135,
   "minted_keepers": 13,
   "keeper_children_minted": 26,
+  "supplementary_lodger_children_minted": 9,
   "keeper_children_the_model_wanted": 36,
   "keeper_children_refused": 10,
-  "people_on_the_cards": 157,
-  "occupied_after_this_stage": 220,
-  "ordinary_night_beds_slept_in": 215,
-  "ordinary_night_beds_still_empty": 37,
-  "occupants_above_ordinary_night_figure": 5,
-  "ordinary_night_net_balance": 32,
-  "allocation_authorized_empty_beds": 32,
-  "houses_at_their_ordinary_night_figure": 21,
+  "people_on_the_cards": 170,
+  "occupied_after_this_stage": 226,
+  "ordinary_night_beds_slept_in": 220,
+  "ordinary_night_beds_still_empty": 32,
+  "occupants_above_ordinary_night_figure": 6,
+  "ordinary_night_net_balance": 26,
+  "allocation_authorized_empty_beds": 26,
+  "live_remainder": {
+   "ticket": "T-2023",
+   "note": "The current book less re-family arrivals and all current stage draws. Frozen top-up buckets remain unchanged; their residue is not live debt. Stage vacancies do not include the separate housing overlay and do not themselves authorize a new person.",
+   "persons_still_ordered": [],
+   "persons_still_ordered_total": 0,
+   "live_adults_still_ordered_by_division": {
+    "south": 0,
+    "north": 0,
+    "west": 0
+   },
+   "frozen_adults_not_still_ordered_by_division": {
+    "south": 0,
+    "north": 0,
+    "west": 7
+   },
+   "lodging_stage_empty_beds_by_division": {
+    "south": 15,
+    "north": 17,
+    "west": 0
+   },
+   "allocation_authorized_empty_beds": 26
+  },
+  "houses_at_their_ordinary_night_figure": 22,
   "houses_over_their_crowded_ceiling": 0,
   "nobody_is_seated_twice": true,
   "buckets_filled": 30,
-  "house_cells_filled": 5,
-  "lodging_households_built": 22,
+  "house_cells_filled": 6,
+  "lodging_households_built": 56,
   "the_two_counts_reconciled": {
    "lodging_roofs_the_model_schedules": 52,
    "lodging_places_built": 28,
-   "lodging_places_unbuilt": 24,
-   "built_places_holding_a_household": 22,
-   "built_places_holding_no_household": 6,
+   "lodging_places_unbuilt": 0,
+   "primary_classification_slots_not_in_the_lodging_model": 24,
+   "classification_note": "A scheduled architectural family and a primary lodging function are different counts. The classifier gap is not an order for new roofs.",
+   "built_places_holding_a_household": 26,
+   "built_places_holding_no_household": 2,
+   "secondary_boarding_roofs_with_known_house_receipts": 9,
+   "storage_container_cards": 22,
+   "reconstructed_household_units": 56,
+   "known_household_units": 20,
    "ordinary_night_beds": 252,
-   "ordinary_night_beds_slept_in": 215,
-   "ordinary_night_beds_still_empty": 37,
-   "occupants_above_ordinary_night_figure": 5,
-   "ordinary_night_net_balance": 32,
+   "ordinary_night_beds_slept_in": 220,
+   "ordinary_night_beds_still_empty": 32,
+   "occupants_above_ordinary_night_figure": 6,
+   "ordinary_night_net_balance": 26,
    "households_the_book_orders_in_these_two_classes": 56,
-   "houses_this_stage_has_filled": 22,
-   "houses_still_ordered_after_this_stage_s_counter": 34,
-   "built_places_with_no_household_and_why": [
-    {
-     "place": "green_tree_tavern",
-     "name": "Green Tree Tavern",
-     "beds_ordinary": 8,
-     "occupancy": 8,
-     "owed_a_lodging_household": false,
-     "why": "Its own keeper's household fills its ordinary-night figure, so this stage seats nobody here and there is no container to write."
-    },
-    {
-     "place": "kelsey_boarding_house",
-     "name": "Kelsey's boarding-house",
-     "beds_ordinary": 3,
-     "occupancy": 0,
-     "owed_a_lodging_household": true,
-     "why": "It has room and holds no lodging household: this stage owes it one."
-    },
-    {
-     "place": "mansion_house",
-     "name": "Mansion House",
-     "beds_ordinary": 4,
-     "occupancy": 6,
-     "owed_a_lodging_household": false,
-     "why": "Its own keeper's household fills its ordinary-night figure, so this stage seats nobody here and there is no container to write."
-    },
-    {
-     "place": "steamboat_hotel",
-     "name": "Steamboat Hotel",
-     "beds_ordinary": 10,
-     "occupancy": 8,
-     "owed_a_lodging_household": true,
-     "why": "It has room and holds no lodging household: this stage owes it one."
-    }
-   ],
-   "may_anything_more_be_minted_here": "Yes — see the two counts above for which unit has the room."
+   "houses_this_stage_has_filled": 56,
+   "houses_still_ordered_after_this_stage_s_counter": 0,
+   "may_anything_more_be_minted_here": "No: the current person and household orders are paid. Vacant beds alone authorize nobody."
   },
   "child_buckets_filled": 5,
   "working_lodgers_minted": 3,
-  "every_child_is_kin_of_a_named_keeper": true,
-  "people_ordered_into_lodging_still_owed": "The book orders 544 people into lodging households. This piece spends 131 of them into beds and 26 more as the keepers' own children; the rest wait on the 37 unbuilt boarding houses, the crews and the works gang (T-1372), and the children of houses this stage does not keep."
+  "every_child_has_an_explicit_modelled_parent": true,
+  "people_ordered_into_lodging_still_owed": "This piece spends 135 people into beds and 35 more as the keepers' own children. The current book still orders 0 people; the exact cells and their keeper-kin requirement are in live_remainder. A frozen room's unspent residue is not a new order."
  }
 }

@@ -1,0 +1,196 @@
+{
+  "status": "PINNED_CURRENT_FOURTEEN_NATIVE_BEFORE_INPUTS_NOT_ACCEPTANCE",
+  "created_utc": "2026-11-10T02:56:21.950811+00:00",
+  "root": "/tmp/chicago-west-wicket-20261109/chicago/4d",
+  "fixture": "/tmp/nov10-firstfort-final/before/fixture",
+  "source_head": "64a752353bc66fa6bfa58c853b90c32625f7b739",
+  "camera_sha256": "3e43b2396ff117c96663b57c469eda5882fd7f2536ecd305bf6e3ed6c083a642",
+  "camera_path": "/tmp/nov10-firstfort-final/before/fixture/data/reference_views/first_fort_dearborn_blockhouse_nw/lossing_1869_fort.json",
+  "root_files": {
+    "assets/manifest.json": {
+      "sha256": "8bcf1e5c171c9f040d9b5ccacd4b2c867af549c0e6d55b763cc755c0edb2a47f",
+      "bytes": 383967,
+      "fixture_exact": true
+    },
+    "data/scenes/1812.json": {
+      "sha256": "786cb14c08dff8dfab47cfe5f69dfb0c912632afbbdfb1a11be44fbc1d09d3b4",
+      "bytes": 41430,
+      "fixture_exact": true
+    },
+    "data/sidecars/1812/first_fort_dearborn_blockhouse_nw.json": {
+      "sha256": "9e1a04371628fe00b2b29b195c7391bc018ba52b3b11573b194771613a4982b9",
+      "bytes": 27249,
+      "fixture_exact": true
+    },
+    "assets/gltf/first_fort_dearborn_blockhouse_nw__first_fort_1803.glb": {
+      "sha256": "2567def5a0c657bc40e051bce905fe3c8b8b66f73d46171fcc57dd73d97913fc",
+      "bytes": 123452,
+      "fixture_exact": true
+    },
+    "data/sidecars/1812/first_fort_dearborn_pickets_outer.json": {
+      "sha256": "cb25481504e2e9717b5bcf7f7a109128ed23ee9451afedacc76817a71dd332b4",
+      "bytes": 21328,
+      "fixture_exact": true
+    },
+    "assets/gltf/first_fort_dearborn_pickets_outer__first_fort_1803.glb": {
+      "sha256": "79bad82805bd76ba85170f80f95f3a5a0436a09824883ad92a1aa565bc589c7d",
+      "bytes": 799032,
+      "fixture_exact": true
+    },
+    "data/sidecars/1812/first_fort_dearborn_blockhouse_se.json": {
+      "sha256": "bd4bcf1b9d835ae0fa9fd7ea9bc27390e138c16225f3a5760b0df9d7ae90f985",
+      "bytes": 27185,
+      "fixture_exact": true
+    },
+    "assets/gltf/first_fort_dearborn_blockhouse_se__first_fort_1803.glb": {
+      "sha256": "4b52564cd577363639667ed59c38564fb997e5e5496291cfaf3799d0e208352a",
+      "bytes": 118844,
+      "fixture_exact": true
+    },
+    "data/sidecars/1812/first_fort_dearborn_commanding_officers_barracks.json": {
+      "sha256": "b04abedc7de2c120d4cb7627f4084a272fc82861ac76cbd2cd31a308e52c4ecc",
+      "bytes": 25213,
+      "fixture_exact": true
+    },
+    "assets/gltf/first_fort_dearborn_commanding_officers_barracks__first_fort_1803.glb": {
+      "sha256": "3e83f809c2e82363351f1d953552ac456b64d5af930cd1d9ce347983e4a31be3",
+      "bytes": 372780,
+      "fixture_exact": true
+    },
+    "data/sidecars/1812/first_fort_dearborn_flagstaff.json": {
+      "sha256": "13bbd6c0a13b03d883df8037341ac0b0cf45726a902463668a81c52c3bd37aae",
+      "bytes": 17316,
+      "fixture_exact": true
+    },
+    "assets/gltf/first_fort_dearborn_flagstaff__first_fort_1803.glb": {
+      "sha256": "c357d3b79c954102b992399cd8e72406a97a3c71b8f1c4d7fe001c6e8a354025",
+      "bytes": 3088,
+      "fixture_exact": true
+    },
+    "data/sidecars/1812/first_fort_dearborn_magazine.json": {
+      "sha256": "5d4bd577ea9f54f054087ea5879d6e683183c1f7ad55b1de96c29fd35bf50fc3",
+      "bytes": 20235,
+      "fixture_exact": true
+    },
+    "assets/gltf/first_fort_dearborn_magazine__first_fort_1803.glb": {
+      "sha256": "6ed239cb5eed46fbcf64796369423497e70de6cca0442bd4f2cbb88d3bde39cf",
+      "bytes": 167912,
+      "fixture_exact": true
+    },
+    "data/sidecars/1812/first_fort_dearborn_north_range.json": {
+      "sha256": "887f592227345afecc813c48bc9f35b9e8cb6a03ca26af87b119c01c43b1c7f1",
+      "bytes": 24772,
+      "fixture_exact": true
+    },
+    "assets/gltf/first_fort_dearborn_north_range__first_fort_1803.glb": {
+      "sha256": "65189f569d9511791d070e5a019238d523eb7774912bb0f44bc6ec672ebf4797",
+      "bytes": 348412,
+      "fixture_exact": true
+    },
+    "data/sidecars/1812/first_fort_dearborn_officers_barracks.json": {
+      "sha256": "8e9386f52c6aa462fa387354a88fe872ff94a1a79ea80e199fdbb6b3fdfc89bf",
+      "bytes": 25762,
+      "fixture_exact": true
+    },
+    "assets/gltf/first_fort_dearborn_officers_barracks__first_fort_1803.glb": {
+      "sha256": "e16d5db907e36ff84eb9acba04165cd33e654f4ccd41e522fd2c44888f33a4c0",
+      "bytes": 427232,
+      "fixture_exact": true
+    },
+    "data/sidecars/1812/first_fort_dearborn_parade.json": {
+      "sha256": "670bc623907434192f55d1016058c9ef3e10e9c6e183d231761422db73dd53e9",
+      "bytes": 15309,
+      "fixture_exact": true
+    },
+    "assets/gltf/first_fort_dearborn_parade__first_fort_1803.glb": {
+      "sha256": "85a49f66d032d59f1e780e5de77db590608b207948865bfb520ad4e891d74e57",
+      "bytes": 2244,
+      "fixture_exact": true
+    },
+    "data/sidecars/1812/first_fort_dearborn_pickets_inner.json": {
+      "sha256": "ba012e0cdc93a84ad8737e84fcbfdb1050237a36bab44357039fb394f33566ac",
+      "bytes": 21406,
+      "fixture_exact": true
+    },
+    "assets/gltf/first_fort_dearborn_pickets_inner__first_fort_1803.glb": {
+      "sha256": "a655faa576521b03877967fc0fcb36727186da408c3625e6fb8ddc1121f975cf",
+      "bytes": 661360,
+      "fixture_exact": true
+    },
+    "data/sidecars/1812/first_fort_dearborn_small_house_ne.json": {
+      "sha256": "3198cf93add924fcb8799f9b0f0212e521252997083dc49344b8da3684c631a0",
+      "bytes": 18913,
+      "fixture_exact": true
+    },
+    "assets/gltf/first_fort_dearborn_small_house_ne__first_fort_1803.glb": {
+      "sha256": "1e275240d88cab9f5a9ac4a47d4fd90f7e08204e310cb630a00a003455633c8c",
+      "bytes": 81608,
+      "fixture_exact": true
+    },
+    "data/sidecars/1812/first_fort_dearborn_small_house_sw.json": {
+      "sha256": "52e50c1affe26968175c0addb4196ae415ad20b2742fe0cf6157fc2a936c36a2",
+      "bytes": 15447,
+      "fixture_exact": true
+    },
+    "assets/gltf/first_fort_dearborn_small_house_sw__first_fort_1803.glb": {
+      "sha256": "32a70d9d187a619d72b8cd3debf1de60be1700ad5dfebd9a08285beb1be02613",
+      "bytes": 40920,
+      "fixture_exact": true
+    },
+    "data/sidecars/1812/first_fort_dearborn_soldiers_barracks_se.json": {
+      "sha256": "b9568c53e9a2932807f9e040e006e3632f2efe218430afacb6a2c3796df55c7d",
+      "bytes": 24760,
+      "fixture_exact": true
+    },
+    "assets/gltf/first_fort_dearborn_soldiers_barracks_se__first_fort_1803.glb": {
+      "sha256": "51f3d942ea8871a0be70533a392987a6c05019a0d4cebd7e95f48f665af0fd59",
+      "bytes": 344980,
+      "fixture_exact": true
+    },
+    "data/sidecars/1812/first_fort_dearborn_soldiers_barracks_sw.json": {
+      "sha256": "cac37d7f20fdab64bec1899743fbfa4fe4be6c381b9f37c7061aff529ce876c2",
+      "bytes": 24869,
+      "fixture_exact": true
+    },
+    "assets/gltf/first_fort_dearborn_soldiers_barracks_sw__first_fort_1803.glb": {
+      "sha256": "8e02cd7d24d42dec902435142aee5aad9650ca024af6e59422b16bae6dab9239",
+      "bytes": 342536,
+      "fixture_exact": true
+    },
+    "tools/photo_match.mjs": {
+      "sha256": "75e452b467c22fc5d00cd4b512706c364c942d181869e504f7218ea25167a79c",
+      "bytes": 20696,
+      "fixture_exact": true
+    },
+    "tools/photo_match_group.mjs": {
+      "sha256": "12f1f96e154df492e269bc7e4e8f783805e83e8ddcabce5e0f33c1a623a5a930",
+      "bytes": 3769,
+      "fixture_exact": true
+    },
+    "tools/photo_match_enclosures.mjs": {
+      "sha256": "9355a03ab1b636f056c951dc8a8cf7a2bb8e922d90ff189474ccff3edf296f37",
+      "bytes": 4529,
+      "fixture_exact": true
+    },
+    "tools/photo_match_flora.mjs": {
+      "sha256": "c973a45041a77a11ea32e30302cdc3eda3dc5516ad715fb0b1e14060f08b5c87",
+      "bytes": 7254,
+      "fixture_exact": true
+    },
+    "renderers/web/vendor/three-0.185.1/three.module.js": {
+      "sha256": "bbf5ed13fe4373f5bd38b14ea8e62e9f157327da5638edc6d3863e08b167c9c7",
+      "bytes": 650153,
+      "fixture_exact": true
+    },
+    "renderers/web/vendor/three-0.185.1/three.core.js": {
+      "sha256": "3718df126d69c125362a03340913204470d8c50238605150e57f808840fb7759",
+      "bytes": 1443056,
+      "fixture_exact": true
+    },
+    "../reference/images/chicago/chicago_kinzie_house_fort_dearborn_1812.jpg": {
+      "sha256": "754e804e82934c901813a33eb65cad1ba1412378eeed1da39f12c451727e4536",
+      "bytes": 120363,
+      "fixture_exact": true
+    }
+  }
+}

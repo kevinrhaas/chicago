@@ -7,6 +7,13 @@
     "not_a_writer": "gated with --check and declares no write mode; recorded so the audit stops reporting it"
   },
   "tools": {
+    "derive_horse_coats.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-11-10",
+      "finding": "Reproduces: in a separate six-file Git index fixture, two bare writes advanced the generated contract mtime and retained its SHA256; deliberately corrupting the output was repaired to the same baseline. Every tracked fixture byte equalled its own index after each run. No application index or HEAD commit was used. SUP120, original resource pairs and descendant cleanup passed. See docs/measurements/horse-coats-writer-2026-11-10.json.",
+      "placed": "Only horse-coats.json is derived; the recipe, two SHA-bound portable sources and bound foot reference are separate inputs with no existing manifest owner. The explicit step is in the settled tail immediately after source-use export, whose collection whitelist does not consume this independent transport contract. Focused actual-write proof is measured; full-manifest rederive --prove remains unrun."
+    },
     "generate_glessner_finish.py": {
       "placement": "pending",
       "write_mode": "(bare)",
@@ -2344,6 +2351,12 @@
       "measured": "2026-11-08",
       "finding": "Reproduces: a bare write run on the tree rewrote data/humans/doors_1835.json (4 doors on 2 buildings, read off their models) and doors_1904.json (3 doors on Glessner's house, from its record) with identical bytes (T-3516).",
       "placed": "not yet \u2014 measured to reproduce. It reads the 1835 and 1904 people records' days, the buildings they name (sidecars, and the 1835 GLBs' door leaves as derive_doors_1812.py does); tools/test_human_rounds.mjs and human-days.js read its output, so it follows the structure emitters and the people days, and the manifest's order is its own measured pass, so it is not appended blind (T-3516)."
+    },
+    "test_published_assets.mjs": {
+      "placement": "not_a_writer",
+      "write_mode": null,
+      "measured": "2026-11-10",
+      "finding": "The explicit --check mode and bare invocation run the same pure/real-HTTP contract fixture. Own temporary publication trees and local HTTP server are removed in finally; no committed derived output is written or owned. Actual --check completed 38 controls; the affected four-command CPU batch completed in 0.566 seconds under original SUP120/resource floors with zero remaining owned children, covering source corruption, catalogue retry, native three-year packs and logical Glessner LOD. This is an executable checker, not a rederive owner; no research report was regenerated from the sparse candidate."
     }
   }
 }

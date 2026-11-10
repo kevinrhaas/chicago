@@ -97,14 +97,16 @@
         },
         "gate_sides": {
           "value": [
-            "s"
+            "s",
+            "w"
           ],
           "confidence": "inferred",
           "sources": [
             "whistler_1808_fort_dearborn_draught",
-            "quaife_1913"
+            "quaife_1913",
+            "currey_1912_first_fort_birdseye"
           ],
-          "note": "The register reads the main gate's passage running from the inward row out to this one (N -56.6 to -45.6 ft), so the outward row is open there too; no break in this row was read on its own. The wicket gate (index no. 8) Quaife puts 'near the northwestern blockhouse' is not built: the register could not find it on the sheet. The archetype used to centre a gate on its side; since T-3319 gate_offset_m stands it where the draught puts the passage, at E -11.1..-4.9 ft, about 9.3 ft west of this row's centre."
+          "note": "The register reads the main gate's passage running from the inward row out to this one (N -56.6 to -45.6 ft), so the outward row is open there too; no break in this row was read on its own. The wicket gate (index no. 8) Quaife puts 'near the northwestern blockhouse' is not built: the register could not find it on the sheet. The archetype used to centre a gate on its side; since T-3319 gate_offset_m stands it where the draught puts the passage, at E -11.1..-4.9 ft, about 9.3 ft west of this row's centre. WEST WICKET (T-3041): the earlier omission recorded above is superseded. The retrospective Currey birdseye labels western gateway 3 immediately south of northwest blockhouse 4; Quaife locates a wicket near that blockhouse. This supports the west-side occurrence and adjacency, not a precise location on Whistler's draught or a historical width. The south gate and its measured passage remain unchanged."
         },
         "gate_width_m": {
           "value": 1.89,
@@ -121,6 +123,21 @@
             "whistler_1808_fort_dearborn_draught"
           ],
           "note": "WHERE ALONG THE SOUTH ROW THE MAIN GATE STANDS: -2.83 m (9.3 ft) west of the row's middle. The register (data/traces/whistler_1808_fort_dearborn.json, index no. 7) reads the main gate's passage at E -11.1..-4.9 ft from the staff's foot, the gap between the two halves of the soldiers' barracks; the staff stands at local E +1152 and this row's middle at E +1152.36, so the passage's middle (E -8.0 ft) is this far west of it, and the gate then stands square in the gap the two halves of the south range leave (first_fort_dearborn_soldiers_barracks_sw and _se). Until T-3319 the archetype could only centre a gate, which hung both leaves across the back of the south-east barracks while the passage behind them stood walled; Quaife's 'at the middle of the south side' is the gate's place in the range, which the draught measures. Carries the register's +/-1.1 ft an edge."
+        },
+        "gate_overrides": {
+          "value": {
+            "w": {
+              "offset_m": 10.49,
+              "width_m": 1.5,
+              "kind": "wicket"
+            }
+          },
+          "confidence": "reconstructed",
+          "sources": [
+            "currey_1912_first_fort_birdseye",
+            "quaife_1913"
+          ],
+          "note": "WEST WICKET TRIAL (T-3041): a reconstructed 1.50 m cut aligned through both rows in the existing clearance just south of the northwest blockhouse and north of the west officers' range. The offset is chosen from those model neighbors, not measured from the historical drawing. No range, blockhouse, stockade footprint or surveyed placement moves. The single pale-and-rail leaf and posts reuse the generic wicket kit at the existing stockade height; its 1.18 m clear span, details and inward swing are liberties. This does not establish a completion date. Native and picture acceptance remain pending."
         }
       }
     }

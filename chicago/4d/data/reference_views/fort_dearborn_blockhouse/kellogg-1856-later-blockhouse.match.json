@@ -1,0 +1,33 @@
+{
+  "structure_id": "fort_dearborn_blockhouse",
+  "view": "kellogg-1856-later-blockhouse",
+  "glb": "assets/gltf/fort_dearborn_blockhouse__log_1816.glb",
+  "glb_sha256": "96d9fb803cdd3b1639c32b9e0c562d0b3bf2af1b2fe8254abea4d62e8e136b15",
+  "camera_sha256": "f7265d054c1d241ccd9cbcd4a2ff2227f94ec18ab9bfd1ac0e2f159ede447d92",
+  "photo_sha256": "8b0f864e238896900bad6e9429928257c0e9078921a7879bbd4ef48b7317c6a8",
+  "side_by_side": "docs/RESEARCH/second-fort-completion-T-2388/comparisons/after/kellogg-1856-later-blockhouse/kellogg-1856-later-blockhouse-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "status": "fixed",
+      "what": "The existing square cupola occupies the blockhouse roof centre and the former invented central stack remains removed. The actual AFTER retains the already-delivered jettied two-storey blockhouse; no cupola or stack is duplicated."
+    },
+    {
+      "status": "within tolerance",
+      "what": "Made1856, this source scene dates approximately1836\u20131849 from the completed Lake House, despite the local1830 filename. Louvred cap, adjacent ambiguous roof projection and lower later fence are later-state details, not established July1835 elements. They are not copied backwards."
+    },
+    {
+      "status": "within tolerance",
+      "what": "The engraving appears taller/narrower than the bounded14.52x9.8m inferred-plan,5.2m-wall reconstruction. Source bottom obscuration and unresolved eye/scale/principal degeneracy preclude a secure metric body/jetty comparison. Plan and dated text control July1835; no exact historical dimension is claimed and no calibrated >0.3m error is established."
+    },
+    {
+      "status": "not shown",
+      "what": "This diagnostic enrolls only the one securely identified blockhouse. Later surrounding buildings, ship/tree/riverfront and the other20fort records are not being matched."
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
+  "reviewed_at": "2026-11-10T05:19:31.925212+00:00",
+  "review_scope": "Directly opened actual native B29 AFTER fullpair after all nine captures completed; finiteJuly1835source/date/identity adjudication underAGENTS11/T3153. matches means no established open visitor-visible1835architectural discrepancy within this finite depicted scope, not pixel identity or attestation of every context member.",
+  "native_run": "42758213227",
+  "source_commit": "53b9bd1a2877d3d96a8b2a5c7adbb66aca8a0955"
+}

@@ -46,7 +46,9 @@
  * docs/LIBERTIES.md L9 rather than rediscovering it.
  */
 
+import { fetchPublishedAssetBytes, registerPublishedTextureBuffers } from './published-assets.js';
 import * as THREE from 'three';
+import { definitelyCutByRedMask } from './pedestrian-ground.js';
 import { spatialBatch, spatialBatchAsync, batchPieces } from './spatial-batch.js';
 import { adaptiveGroundGrid } from './terrain-base.js';
 import { contextSample, replaceApron } from './coast-extension.js';
@@ -1033,6 +1035,19 @@ export async function createTerrain({
       walkOffset = typeof offset === 'function' ? offset : null;
     },
 
+    /** Read-only admission for human support. Both detailed and base terrain must
+     * actually share this enabled cut. Unexpected mask formats keep the old floor. */
+    pedestrianGroundCutAt(e, n, expectedMask) {
+      const cut = groundMat?.userData?.cut, base = groundBase?.material?.userData?.cut;
+      if (!expectedMask || !cut || !(cut.on.value > 0.5) || cut.tex.value !== expectedMask
+        || (groundBase && (!base || !(base.on.value > 0.5) || base.tex.value !== expectedMask || !base.box.value.equals(cut.box.value)))
+        || expectedMask.format !== THREE.RedFormat || expectedMask.type !== THREE.UnsignedByteType
+        || expectedMask.minFilter !== THREE.LinearFilter || expectedMask.magFilter !== THREE.LinearFilter
+        || expectedMask.wrapS !== THREE.ClampToEdgeWrapping || expectedMask.wrapT !== THREE.ClampToEdgeWrapping
+        || expectedMask.generateMipmaps) return false;
+      return definitelyCutByRedMask(expectedMask, cut.box.value, e, n);
+    },
+
     /** Backward-compatible names for older harnesses and external consumers. */
     height(e, n) {
       const h = heightfield.sample(e, n);
@@ -1338,9 +1353,7 @@ async function fetchPrebuiltPieces({ dataBase, year, build, layer, format, own, 
       return { why: `prebuilt ${layer} format ${index.format}, this page reads ${format}` };
     }
     if (index.build !== build) return { why: `prebuilt by build ${index.build}, this page is build ${build}` };
-    const binRes = await fetch(new URL(index.bin, base));
-    if (!binRes.ok) return { why: `no prebuilt ${layer} buffer (${binRes.status})` };
-    let bin = await binRes.arrayBuffer();
+    let bin = await fetchPublishedAssetBytes(new URL(index.bin, base));
     // Gzipped twice on disk (prebuild_layers.mjs); a server that sent it with
     // Content-Encoding has inflated the outer pass, so read the magic bytes.
     const head = new Uint8Array(bin, 0, Math.min(2, bin.byteLength));
@@ -1513,8 +1526,8 @@ export function footprintsKey(footprints = []) {
  *  Exported for tools/prebuild_layers.mjs (T-2692): the ground built in Node is
  *  read through this loader, not a copy of it. */
 export async function loadGlbMesh(url) {
-  const buffer = await (await fetchOk(url)).arrayBuffer();
-  const loader = registerKTX2(new GLTFLoader());
+  const buffer = await fetchPublishedAssetBytes(url);
+  const loader = registerPublishedTextureBuffers(registerKTX2(new GLTFLoader()));
   // THE GROUND AND THE RIVER ARE COMPRESSED TOO, and this loader is not the one
   // scene-loader.js configures for the buildings.
   //

@@ -116,6 +116,19 @@ class PeriodWardrobeConstruction(unittest.TestCase):
   for jacket in jackets:
    self.assertGreater(jacket['receipt']['connected_lapel_edges'],0)
    self.assert_component(jacket)
+ def test_jacket_outer_hem_has_a_level_contour_instead_of_source_triangle_teeth(self):
+  for r in self.rows:
+   if not r['profile']['jacket']:continue
+   jacket=round_jacket(r['body']['meshes'][0],r['bones'],r['recipe'],r['profile']['body_height_m'],r['profile'])
+   hem=r['profile']['jacket']['hem_fraction']*r['profile']['body_height_m']
+   self.assertGreaterEqual(min(p[1] for p in jacket['positions_m']),hem-1e-12)
+   edges=collections.Counter(tuple(sorted((a,b))) for f in jacket['triangles'] for a,b in zip(f,f[1:]+f[:1]))
+   # Exclude rising open-front edges; torso hem away from the opening is level.
+   band={i for edge,n in edges.items() if n==1 for i in edge
+         if abs(jacket['positions_m'][i][1]-hem)<.03 and abs(jacket['positions_m'][i][0])>.04}
+   self.assertGreater(len(band),10)
+   self.assertTrue(all(abs(jacket['positions_m'][i][1]-hem)<1e-10 for i in band))
+   self.assert_component(jacket)
  def test_bad_thickness_degenerate_source_uv_and_detached_button_negative_controls(self):
   r=self.rows[0]
   for thickness in [0,-.001,.01]:

@@ -168,12 +168,12 @@ CONSUMED = frozenset({
     "frame_addition_cladding", "frame_addition_ridge_stack", "frame_addition_upper_windows", "frame_addition_front_set_out", "frame_addition_roof_pitch_deg",
     "piazza", "piazza_depth_m", "piazza_posts", "piazza_rail", "chimney_ridge_at",
     "front_windows_per_side", "window_w_m", "window_h_m", "front_shutters",
-    "piazza_roof", "piazza_plate_m", "piazza_pitch_deg", "end_openings",
+    "piazza_roof", "piazza_plate_m", "piazza_pitch_deg", "end_openings", "end_door_height_m",
     "front_set_out", "door_w_m", "door_h_m", "chimney_end", "chimney_cross_m", "chimney_head_m", "lean_to",
     "ridge_stack_w_m", "ridge_stack_head_m", "ridge_stack_cap_m", "hip_end", "hip_inset_m",
     "lean_to_length_m", "lean_to_width_m", "lean_to_wall_m", "lean_to_pitch_deg", "log_finish",
     "roof_condition", "roof_colour", "compound_parts", "front_door_state", "compound_joint", "roof_pipe", "compound_wall_cladding", "compound_roof_overhang_m", "sign_pole_set_out", "compound_door_state", "compound_log_profile",
-    "compound_apertures",
+    "compound_apertures", "compound_clapboard_height_m", "compound_ridge_stacks", "compound_eave_heights_m",
 })
 
 #: The coatings a log wall can be stated to wear (T-2511). Whitewash is the one a
@@ -240,6 +240,14 @@ class LogDwellingParams:
     # every existing compound and the bounded elbow resolving and building
     # identically.
     compound_apertures: tuple = field(default=(), kw_only=True)
+    # Partial lower-wall boarding on a stated multi-room log compound. None
+    # preserves every existing dwelling; the extent is an explicit choice.
+    compound_clapboard_height_m: float | None = field(default=None, kw_only=True)
+    # Optional (room index, fraction along its ridge, shaft width m) per stack.
+    # None retains the compound's exterior wing-end stacks exactly.
+    compound_ridge_stacks: tuple | None = field(default=None, kw_only=True)
+    # None inherits the dwelling's wall height on every room, as before.
+    compound_eave_heights_m: tuple | None = field(default=None, kw_only=True)
     # (baseXY,headXYZ,armXYZ,boardWH,hangerDrop), local reconstructed set-out.
     sign_pole_set_out: tuple | None = field(default=None, kw_only=True)
     # (fraction along elbow core ridge, diameter, head above ridge), reconstructed.
@@ -321,6 +329,10 @@ class LogDwellingParams:
     # foot is stated. Empty, every other record,
     # keeps the archetype's rule that a log gable end is not pierced.
     end_openings: tuple = ()
+    # T-2484: a pictured end door may be taller than the generic cabin door.
+    # None retains the exact legacy1.93m opening; the selector changes only doors
+    # in end_openings and never grows an opening on an unpierced end.
+    end_door_height_m: float | None = field(default=None, kw_only=True)
     # INTERIOR STACKS ON THE RIDGE (T-2497), as fractions of the ridge from the core's
     # -x end, one per chimney. None keeps the archetype's gable-end placement (L26),
     # which is every other record; a record sets it only where a picture puts a stack
@@ -530,8 +542,59 @@ class LogDwellingParams:
             raise ParamError("elbow addition needs the bounded joined compound")
         if self.compound_parts:
             _validate_compound(self)
+        if self.compound_eave_heights_m is not None:
+            heights = self.compound_eave_heights_m
+            if (not self.compound_parts or self.compound_joint is not None or
+                    not isinstance(heights, tuple) or len(heights) != len(self.compound_parts)):
+                raise ParamError("compound eave heights must name each independent room")
+            if any(not _finite(h) or not 1.8 <= h <= 3.6 for h in heights):
+                raise ParamError("compound eave heights outside one-storey bounds")
+            if (_finite(self.compound_clapboard_height_m) and
+                    any(self.compound_clapboard_height_m > h - 0.14 for h in heights)):
+                raise ParamError("compound boarding must leave upper logs on every room")
+            for index, part in enumerate(self.compound_parts):
+                if part[3] == "door" and heights[index] < 2.1:
+                    raise ParamError("compound door needs wall above its head")
         if self.compound_apertures:
             _validate_compound_apertures(self)
+        if self.compound_ridge_stacks is not None:
+            if not self.compound_parts or self.compound_joint is not None:
+                raise ParamError("compound ridge stacks need independent connected rooms")
+            if (not isinstance(self.compound_ridge_stacks, tuple) or
+                    len(self.compound_ridge_stacks) != self.chimneys or not self.chimneys):
+                raise ParamError("compound ridge stacks must name each stated chimney")
+            occupied = []
+            for entry in self.compound_ridge_stacks:
+                if not isinstance(entry, tuple) or len(entry) != 3:
+                    raise ParamError("compound ridge stack needs room, ridge fraction, shaft width")
+                room, at, width = entry
+                if (isinstance(room, bool) or not isinstance(room, int) or
+                        not 0 <= room < len(self.compound_parts)):
+                    raise ParamError("compound ridge stack names an absent room")
+                if any(isinstance(v, bool) or not isinstance(v, (int, float)) or
+                       not math.isfinite(v) for v in (at, width)):
+                    raise ParamError("compound ridge stack needs finite dimensions")
+                if not 0.05 <= at <= 0.95 or not 0.4 <= width <= 1.2:
+                    raise ParamError("compound ridge stack fraction or width outside bounds")
+                _wall, roof, axis, _opening = self.compound_parts[room]
+                cross_span = roof[3] - roof[1] if axis == "x" else roof[2] - roof[0]
+                ridge = compound_wall_height(self, room) + (cross_span / 2 + COMPOUND_ROOF_OVERHANG_M) * math.tan(math.radians(self.roof_pitch_deg))
+                if self.chimney_head_m is not None and self.chimney_head_m < ridge + 0.3:
+                    raise ParamError("compound ridge stack head must clear its own roof")
+                span = roof[2] - roof[0] if axis == "x" else roof[3] - roof[1]
+                if width / 2 > min(at, 1 - at) * span:
+                    raise ParamError("compound ridge stack crosses the roof end")
+                for other_room, other_at, other_width in occupied:
+                    if room == other_room and abs(at - other_at) * span <= (width + other_width) / 2:
+                        raise ParamError("compound ridge stacks overlap")
+                occupied.append(entry)
+        if self.compound_clapboard_height_m is not None:
+            h = self.compound_clapboard_height_m
+            if (isinstance(h, bool) or not isinstance(h, (int, float))
+                    or not math.isfinite(h) or not 0.14 <= h <= self.wall_height_m - 0.14):
+                raise ParamError("compound_clapboard_height_m must leave at least one course of boards and exposed upper logs")
+            if not self.compound_parts or self.compound_joint is not None:
+                raise ParamError("partial compound boarding needs independent connected rooms, not a plain house or elbow")
         if not 2.0 <= self.width_m <= 40.0:
             raise ParamError(f"width_m {self.width_m} outside plausible range 2-40 m "
                              f"for a log building")
@@ -796,6 +859,13 @@ class LogDwellingParams:
                                  "a gable roof whose ridge runs along x")
             if self.frame_addition and self.frame_addition_side == "end":
                 raise ParamError("an end addition covers a gable end")
+        if self.end_door_height_m is not None:
+            if (not _finite(self.end_door_height_m)
+                    or not 1.6 <= self.end_door_height_m <= self.wall_height_m - 0.15):
+                raise ParamError("end_door_height_m must be finite, at least1.6m and "
+                                 "at least0.15m below the wall plate")
+            if not any(kind == "door" for _end, kind, _at, _z in self.end_openings):
+                raise ParamError("end_door_height_m needs an explicit end_openings door")
         apex = self.wall_height_m + self.depth_m / 2.0 * math.tan(
             math.radians(self.roof_pitch_deg))
         for end, kind, at, z in self.end_openings:
@@ -931,6 +1001,11 @@ def from_phase(phase: dict, record: dict | None = None) -> LogDwellingParams:
         compound_log_profile=val("compound_log_profile"),
         compound_roof_overhang_m=val("compound_roof_overhang_m",0.0),
         compound_apertures=_read_compound_apertures(val("compound_apertures")),
+        compound_clapboard_height_m=val("compound_clapboard_height_m"),
+        compound_ridge_stacks=(None if val("compound_ridge_stacks") is None else
+                               tuple(tuple(entry) for entry in val("compound_ridge_stacks"))),
+        compound_eave_heights_m=(None if val("compound_eave_heights_m") is None else
+                                 tuple(val("compound_eave_heights_m"))),
         sign_pole_set_out=_read_sign_pole_set_out(val("sign_pole_set_out")),
         roof_pipe=(None if val("roof_pipe") is None else tuple(val("roof_pipe"))),
         roof_ridge_axis=(None if val("roof_ridge_axis") is None
@@ -969,6 +1044,8 @@ def from_phase(phase: dict, record: dict | None = None) -> LogDwellingParams:
         end_openings=tuple((str(o["end"]), str(o["kind"]), float(o["at"]),
                             None if o.get("z") is None else float(o["z"]))
                            for o in (val("end_openings") or ())),
+        end_door_height_m=(None if val("end_door_height_m") is None
+                           else float(val("end_door_height_m"))),
         front_windows_per_side=int(val("front_windows_per_side", 1)),
         window_w_m=(None if val("window_w_m") is None else float(val("window_w_m"))),
         window_h_m=(None if val("window_h_m") is None else float(val("window_h_m"))),
@@ -1323,6 +1400,10 @@ def _finite(v) -> bool:
             and math.isfinite(v))
 
 
+def compound_wall_height(p: "LogDwellingParams", index: int) -> float:
+    return p.wall_height_m if p.compound_eave_heights_m is None else p.compound_eave_heights_m[index]
+
+
 def compound_gable_face(p: "LogDwellingParams", index: int) -> tuple:
     """The +Y gable a compound room's own roof closes, as
     `(plane, u0, u1, apex_u, eave_z, ridge_z)`.
@@ -1340,7 +1421,7 @@ def compound_gable_face(p: "LogDwellingParams", index: int) -> tuple:
     u0, u1 = roof[0] - oh, roof[2] + oh
     rise = ((u1 - u0) / 2.0) * math.tan(math.radians(p.roof_pitch_deg))
     return (roof[3] + oh, u0, u1, (u0 + u1) / 2.0,
-            p.wall_height_m, p.wall_height_m + rise)
+            compound_wall_height(p, index), compound_wall_height(p, index) + rise)
 
 
 def _rake_z(u0: float, u1: float, apex_u: float, eave_z: float,
@@ -1389,11 +1470,11 @@ def _validate_compound_apertures(p: "LogDwellingParams") -> None:
         if zone == "wall":
             if not (wall[0] + APERTURE_EDGE_M <= u0 and u1 <= wall[2] - APERTURE_EDGE_M):
                 raise ParamError("compound wall aperture outside its own room's wall")
-            if not (0 <= z0 and z1 <= p.wall_height_m - APERTURE_EDGE_M):
+            if not (0 <= z0 and z1 <= compound_wall_height(p, room) - APERTURE_EDGE_M):
                 raise ParamError("compound wall aperture outside the wall's height")
         else:
             _plane, g0, g1, apex, eave, ridge = compound_gable_face(p, room)
-            if z0 < p.wall_height_m:
+            if z0 < compound_wall_height(p, room):
                 raise ParamError("compound gable aperture reaches below the eave")
             c = APERTURE_RAKE_CLEAR_M
             for u in (u0 - c, u1 + c):
