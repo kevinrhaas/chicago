@@ -1,4 +1,14 @@
 export const CHANGELOG = [ // newest first
+  { v: 2874, ts: '2026-11-10T22:39:42.299Z', date: 'Nov 10, 2026, 4:39 PM CT', title: '1904 memory lines move for its people and carriages', kind: 'chore',
+    items: [
+      'The memory lines 1904 is held to rise: 1,300 to 1,425 MB on a capable computer, and 400 to 425 MB on a phone. They make room for the people, horse teams and household routines added this week. Computers with built-in graphics now open a lighter town, so the computer line no longer covers the machines that crashed.',
+    ] },
+  { v: 2873, ts: '2026-11-10T21:46:03.801Z', date: 'Nov 10, 2026, 3:46 PM CT', title: 'Compact interactions and conversations with company', kind: 'improvement',
+    items: [
+      'Open Interact for short activity labels and icons, with a scrollable list on phones.',
+      'Household discussions find a companion outside or bring one out. Both meet, chat, and return to their duties.',
+      'Outdoor chores keep people occupied; the coachman keeps his watch.',
+    ] },
   { v: 2872, ts: '2026-11-10T21:04:22.054Z', date: 'Nov 10, 2026, 3:04 PM CT', title: 'Computers with built-in graphics stop crashing in 1904', kind: 'fix',
     items: [
       'A computer whose graphics are built into the processor (Intel UHD, Iris, AMD Radeon Graphics) shares one pool of memory between the town and the picture. Such a computer now opens at Balanced detail with softer textures, and keeps each building once instead of twice, as a phone does. People, horses, carriages and wagons all stay. Before, it opened 1904 at Full and the browser tab could crash.',

@@ -35,8 +35,8 @@
  * or after `timeout` seconds (60 when unsaid), so nothing waits forever. An action's
  * `said` is what the key says when it ends (a string, or a function of the thing; '' says
  * nothing); unsaid, it is the thing's name and new state ("South gate open"). A thing with
- * more than one action in its state offers them all: the first on the key (R, or 1), the
- * rest on keys beside it (2, 3 …).
+ * more than one action opens a collapsible Interact list (R), with actions numbered
+ * 1, 2, 3 … while open. Escape closes the list. Single actions stay direct.
  *
  * The KEY sits in the quick column under Inspect (index.html `#btn-interact`). It shows
  * while the visitor stands on foot within reach of something, names what Interact will do
@@ -209,14 +209,18 @@ export function createInteractions({ onChange = () => {} } = {}) {
 export function createInteractKey({ interactions, keyEl = null, where, say = () => {}, enabled = () => true,
   keys = null, isTyping = () => false, moreEl = null, doc = globalThis.document ?? null } = {}) {
   let near = null;
+  let expanded = false;
+  const menu = (o) => !!(moreEl && o?.more?.length && !o.busy && !o.waiting);
   let shown = [];             // the actions the keys offer now, in order: [first, ...more]
   const words = keyEl?.querySelector?.('.ik-what') ?? null;
+  moreEl?.setAttribute?.('role', 'group');
+  moreEl?.setAttribute?.('aria-label', 'Available interactions');
 
-  /** T-3443: a key per further action, each naming its number (2, 3 …). */
+  /** T-3536: a collapsed list of all choices, each with its number and optional icon. */
   function paintMore(o) {
     if (!moreEl) return;
-    const more = o && !o.busy && !o.waiting ? o.more ?? [] : [];
-    const want = more.map((a) => a.id).join('|');
+    const more = menu(o) ? (expanded ? [o.action, ...o.more] : []) : [];
+    const want = JSON.stringify([near?.id, ...more.map((a) => [a.id, a.label, a.icon, a.detail])]);
     if (moreEl.dataset?.actions === want && moreEl.hidden === !more.length) return;
     if (moreEl.dataset) moreEl.dataset.actions = want;
     moreEl.hidden = !more.length;
@@ -227,26 +231,35 @@ export function createInteractKey({ interactions, keyEl = null, where, say = () 
       b.type = 'button';
       b.className = 'chip quick-interact ik-more';
       b.dataset.action = a.id;
+      if (a.icon) {
+        const icon = doc.createElement('span'); icon.textContent = a.icon; icon.setAttribute('aria-hidden', 'true'); b.append(icon);
+      }
       const w = doc.createElement('span'); w.className = 'ik-what'; w.textContent = a.label;
-      const k = doc.createElement('kbd'); k.className = 'ik-kbd'; k.setAttribute('aria-hidden', 'true'); k.textContent = String(i + 2);
+      const k = doc.createElement('kbd'); k.className = 'ik-kbd'; k.setAttribute('aria-hidden', 'true'); k.textContent = String(i + 1);
       b.append(w, k);
       b.setAttribute('aria-label', `Interact: ${a.label} — ${near.name}`);
-      b.title = `Interact (${i + 2}): ${a.label} — ${near.name}`;
-      b.addEventListener('click', (e) => { e?.preventDefault?.(); press(a.id); });
+      b.title = `Interact (${i + 1}): ${a.detail ?? a.label} — ${near.name}`;
+      b.addEventListener('click', (e) => { e?.preventDefault?.(); press(a.id); if (!keyEl?.hidden) keyEl?.focus?.(); });
       moreEl.appendChild(b);
     });
   }
 
   function paint() {
     const o = near ? interactions.offer(near) : null;
+    const dropdown = menu(o);
+    if (!dropdown) expanded = false;
     shown = o && !o.busy && !o.waiting ? [o.action, ...(o.more ?? [])] : [];
     if (keyEl) {
       keyEl.hidden = !o;
       if (o) {
-        if (words) words.textContent = o.label;
-        else keyEl.textContent = o.label;
-        keyEl.setAttribute?.('aria-label', `Interact: ${o.label} — ${near.name}`);
-        keyEl.title = `Interact (R): ${o.label.replace(/…$/, '')} — ${near.name}`;
+        const label = dropdown ? 'Interact' : o.label;
+        if (words) words.textContent = label;
+        else keyEl.textContent = label;
+        keyEl.setAttribute?.('aria-expanded', String(expanded));
+        if (moreEl?.id) keyEl.setAttribute?.('aria-controls', moreEl.id);
+        if (keyEl.dataset) keyEl.dataset.menu = String(dropdown);
+        keyEl.setAttribute?.('aria-label', dropdown ? `Interact with ${near.name}` : `Interact: ${o.label} — ${near.name}`);
+        keyEl.title = dropdown ? `Interact (R) — ${near.name}` : `Interact (R): ${o.label.replace(/…$/, '')} — ${near.name}`;
         keyEl.setAttribute?.('aria-disabled', o.busy ? 'true' : 'false');
         if (keyEl.dataset) keyEl.dataset.thing = near.id;
       }
@@ -258,7 +271,7 @@ export function createInteractKey({ interactions, keyEl = null, where, say = () 
   function refresh() {
     const here = enabled() ? where?.() : null;
     const next = here && !here.flying ? interactions.nearest(here.e, here.n, here.bearing) : null;
-    if (next !== near) near = next;
+    if (next !== near) { near = next; expanded = false; }
     paint();
     return near;
   }
@@ -267,6 +280,7 @@ export function createInteractKey({ interactions, keyEl = null, where, say = () 
   function press(actionId = null) {
     const thing = refresh();
     if (!thing) return { ok: false, why: 'nothing in reach' };
+    expanded = false;
     const res = interactions.act(thing, actionId);
     if (res.refused) say(res.why);
     paint();
@@ -280,10 +294,18 @@ export function createInteractKey({ interactions, keyEl = null, where, say = () 
     const text = typeof said === 'function' ? said(thing) : said ?? `${thing.name} ${thing.state}`;
     if (text) say(text);
   });
-  const onClick = (e) => { e?.preventDefault?.(); press(); };
+  function toggle() {
+    refresh();
+    if (menu(near && interactions.offer(near))) { expanded = !expanded; paint(); }
+    else press();
+  }
+  const onClick = (e) => { e?.preventDefault?.(); toggle(); };
   keyEl?.addEventListener?.('click', onClick);
   const onKey = (e) => {
     if (e.repeat || e.metaKey || e.ctrlKey || e.altKey) return;
+    if (e.code === 'Escape' && expanded) {
+      expanded = false; paint(); keyEl?.focus?.(); e.preventDefault?.(); return;
+    }
     const digit = /^Digit([1-9])$/.exec(e.code ?? '');
     if (e.code !== INTERACT_KEY && !digit) return;
     if (isTyping(e.target)) return;
@@ -292,19 +314,19 @@ export function createInteractKey({ interactions, keyEl = null, where, say = () 
     if (digit) {
       // 1 is the first action, 2 the next …; a number nothing answers to is left alone.
       const action = shown[Number(digit[1]) - 1];
-      if (!action || shown.length < 2) return;
+      if (!action || shown.length < 2 || (menu(interactions.offer(near)) && !expanded)) return;
       e.preventDefault?.();
       press(action.id);
       return;
     }
     e.preventDefault?.();
-    press();
+    toggle();
   };
   keys?.addEventListener?.('keydown', onKey);
 
   return {
     get current() { return near; },
-    /** The actions the keys offer now (T-3443): ids, first on the main key. */
+    /** Available action ids, in the order shown when the list opens. */
     get choices() { return shown.map((a) => a.id); },
     refresh,
     press,

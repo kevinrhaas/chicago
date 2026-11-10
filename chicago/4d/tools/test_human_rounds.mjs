@@ -124,17 +124,19 @@ function play(hour, seconds = 600, dt = 0.25, { recs: rs = recs, date: dd = date
     }
     d.update(dt);
     for (const p of d.people) {
-      if (!p.round || p.absent) continue;
+      if ((!p.round && p.actor.instance.scene !== '1904') || p.absent) continue;
       // Each figure near the visitor's eye: the visitor stands by each of them in turn.
       const k = p.actor.personId;
       if (!tally.has(k)) tally.set(k, { talk: 0, in: 0, own: 0, idle: 0, n: 0, brk: 0 });
       const c = tally.get(k);
       c.n++;
-      if (p.phase === 'talk') c.talk++; else if (p.phase === 'in') c.in++; else c.own++;
-      if (p.phase === 'in' && p.mode === 'in' && c.lastIn !== true) c.brk++;
-      c.lastIn = p.phase === 'in' && p.mode === 'in';
-      if (p.mode === 'out' && p.actor.state === 'standing' && !p.job && p.phase === 'own' && !POST_RE.test(p.span?.doing ?? '')) c.idle++;
-      if (p.round.knot) {
+      const inside = p.mode === 'in' && (p.phase === 'in' || (!p.round && c.wasOutside));
+      if (p.phase === 'talk' || (p.social && p.actor.talking)) c.talk++; else if (inside) c.in++; else c.own++;
+      if (inside && c.lastIn !== true) c.brk++;
+      c.lastIn = inside;
+      if (!p.actor.indoors) c.wasOutside = true;
+      if (p.mode === 'out' && p.actor.state === 'standing' && !p.job && (p.phase === 'own' || (!p.round && !p.social)) && !POST_RE.test(p.span?.doing ?? '')) c.idle++;
+      if (p.round?.knot) {
         if (!knots.has(p.round.knot)) knots.set(p.round.knot, { on: 0, offs: 0, last: false });
       }
     }

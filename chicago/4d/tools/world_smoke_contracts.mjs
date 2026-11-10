@@ -6,10 +6,11 @@
 export const STRUCTURE_BATCH_KEYS = Object.freeze([
   'opaque', 'night-windows-v2', 'roof:roof_board', 'roof:roof_shingle',
   'wall:clapboard', 'wall:hewn_log', 'brick:common_buff_common_6', 'lantern-glass',
+  'masonry:brick', 'masonry:clay',
 ].sort());
 
-/** The groups that carry a relief map: two roof coverings, two wall substrates, one brick panel. */
-export const MAPPED_BATCH = /^(roof|wall|brick):/;
+/** T-3341 adds the early brick and clay reliefs beside the five existing mapped groups. */
+export const MAPPED_BATCH = /^(roof|wall|brick|masonry):/;
 
 export function structureBatchContract(batches) {
   const keys = batches.map((b) => b.key).sort();
