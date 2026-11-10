@@ -300,3 +300,12 @@ jobs:
           node .github/chicago-4d-url-check.mjs \
             --origin "${{ steps.deployment.outputs.page_url }}" \
             || echo "::warning::T-0968 URL smoke crashed — the deploy is unaffected; fix the checker"
+
+      # A successful Pages API response can still serve an older artifact.
+      # Verify the exact preview just uploaded; this happens AFTER deployment.
+      - name: Verify served DEV preview matches the uploaded artifact
+        run: |
+          node .github/chicago-4d-preview-freshness.mjs \
+            --origin "${{ steps.deployment.outputs.page_url }}" \
+            --preview-root site/4d/dev \
+            --out "$RUNNER_TEMP/chicago-dev-freshness.json"
