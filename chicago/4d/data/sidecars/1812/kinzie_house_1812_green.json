@@ -30,7 +30,7 @@
   },
   "change_note": "",
   "placement": {
-    "local_e": 1132.5,
+    "local_e": 1143.5,
     "local_n": 318.0,
     "rotation_deg": 0.0,
     "position_confidence": "reconstructed",
@@ -38,8 +38,8 @@
       "kinzie_waubun_1856",
       "chicago_magazine_1857_kinzie_house_engraving"
     ],
-    "position_note": "Wau-Bun: 'A broad green space was inclosed between it and the river'. Its north side runs along the piazza and its south side along the bank top, where the 1812 ground's level 1.5 m stands; its width, a house-length and a half either side of the door, is read off the 1832 and 1833 pictures, which carry the fence well east of the house to take in the poplars. The corners are this record's own (docs/LIBERTIES.md L-kinzie-house-1812-2497).",
-    "symbolic_location": "Before the Kinzie house, from just off its piazza (local N +333.5) to the top of the e1830_natural north bank (N +318), E +1132.5 to E +1171.5, centred on the house's door. The origin is the fence's south-west corner.",
+    "position_note": "Wau-Bun names a broad enclosed green between house and river. T-2484's actual house+green before comparisons exposed the old39m enclosure extending13.4m beyond the west gable and beyond the reference canvas: that width was an unsupported liberty. The replacement is a reconstructed17m width, the retained12.192m house plus roughly2.4m at either end, centred on the same door. North/south extent and the committed1812 bank top remain unchanged. The pictures bound relative form only; none supplies these georeferenced corners or an exact measurement. L-kinzie-house-completion-2484 supersedes only the old green-extent choice.",
+    "symbolic_location": "Before the Kinzie house, local E1143.5..1160.5 and N318.0..333.5. The17m green is centred on the existing E1152 front door; its north edge stays just off the piazza and its south edge at the committed bank top. The origin is its south-west corner.",
     "uncertainty_m": 20,
     "placement_provisional": false,
     "vertical_anchor": "terrain",
@@ -52,11 +52,11 @@
         0
       ],
       [
-        39.0,
+        17.0,
         0
       ],
       [
-        39.0,
+        17.0,
         15.5
       ],
       [
@@ -66,7 +66,7 @@
     ],
     "confidence": "reconstructed",
     "sources": [],
-    "note": "The fence line. Thirty-nine metres along the river by fifteen and a half to the bank."
+    "note": "T-2484: reconstructed17.0m along the river by the retained15.5m to the bank. The old39m width fails the actual source-context comparison. The house and broad-green texts plus the primary household plate bound this choice; no drawing is treated as a measured survey. L-kinzie-house-completion-2484."
   },
   "attributes": {
     "wall_kind": {
