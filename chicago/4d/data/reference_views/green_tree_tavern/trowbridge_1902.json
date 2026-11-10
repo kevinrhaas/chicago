@@ -1,0 +1,21 @@
+{
+  "structure_id": "green_tree_tavern",
+  "source_id": "trowbridge_green_tree_1902",
+  "photo": "../../../../reference/images/chicago/chicago_green_tree_tavern_1835.jpg",
+  "image_px": [
+    1630,
+    1198
+  ],
+  "principal_px": [
+    -2510.4425845070973,
+    582.5902592736766
+  ],
+  "focal_px": 5849.690674057582,
+  "eye": [
+    -93.99785101464362,
+    82.79505851497824,
+    2.923335785824922
+  ],
+  "yaw_deg": 99.36870583553471,
+  "solve": "Fixed review framing for the already held retrospective trowbridge_green_tree_1902 image. Six approximate visible wall-base/plate corners fitted while holding existing 7.62 x 12.19 m core and 5.0 m wall; those lengths are model inputs, not dimensions measured from this drawing. RMS 4.70 px per coordinate and maximum point residual 10.59 px. Source picks and residuals: docs/RESEARCH/green-tree-annex-T-2376/trowbridge_1902-camera-fit.json. Drawing perspective is not a calibrated physical lens or historical viewpoint, and residual camera/picture disagreements are within tolerance under T-3153. Source is retrospective and may depend on the other admitted pictures, and establishes no exact July1835 stage. The stronger detailed Andreas closed shoulder and rear group are retained; Trowbridge open-bay and upper/attic disagreements are explicit source conflict, not proof of a dated conversion. Default neutral review light is retained: this drawing supplies no measured sun/material specification. Isolated current native asset only: app terrain, procedural signage, people, wagons, masts and neighbours are separately reviewed and are not inferred from this neutral plane."
+}

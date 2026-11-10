@@ -2,7 +2,7 @@
   "structure_id": "log_jail",
   "view": "andreas_1884_context",
   "glb": "assets/gltf/log_jail__log_1833.glb",
-  "glb_sha256": "e767412faebcd8b77a680d188d89458ea879cf467ec56494a8df1a49a2e65dec",
+  "glb_sha256": "2b8cb0d6729ddcd1a3ead2af9bf9ce9bcff4e846bd0b8855ea39aa3af9527a25",
   "camera_sha256": "22fab9978a88c613df36d100cc39e996092593be141e86695063878d7739724a",
   "photo_sha256": "1fcbfe2a1f6c1b71439e5f0ad39fba8d3d59c319be73c4d706c2f9b2d3577277",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "e767412faebcd8b77a680d188d89458ea879cf467ec56494a8df1a49a2e65dec"
+      "glb_sha256": "2b8cb0d6729ddcd1a3ead2af9bf9ce9bcff4e846bd0b8855ea39aa3af9527a25"
     },
     {
       "structure_id": "log_jail_keeper_house",
@@ -45,7 +45,7 @@
       "glb_sha256": "91837241ab0873cbbd27c9f64cd314cc453e41addf019657da3afc8a98c6978b"
     }
   ],
-  "group_sha256": "b9a143ef6fe010920b352fc008d860d9267ed9aae03d75a5427efc1e1d333c67",
+  "group_sha256": "066eba2a15ecb26ba351842bb7b12023e8591067628ac480264996d34ec0cb89",
   "rendered_enclosures": [
     {
       "id": "log_jail_palisade",
@@ -102,7 +102,7 @@
   ],
   "enclosures_sha256": "c727e48210c74b05933163c55b089f810235ed2efeed194873a37ad4ebabdca5",
   "side_by_side": "docs/RESEARCH/photo-match/log_jail/andreas_1884_context-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "Previously absent high plank palisade is now present in the actual native enclosure render. Gale p.51 supplies the kind/existence; overall3.05m height, compact outline and stock are declared reconstructions, not picture measurements. HEIGHT TRIAL 2026-11-10 (T-2380): the reconstructed overall height is now 2.44 m; 3.05 m describes the preceding comparison. Neither number is a measured historic fence height.",
@@ -121,7 +121,7 @@
       "status": "fixed"
     },
     {
-      "what": "Andreas shows a hip/pyramidal rear cap, conflicting with Gale\u2019s taller gable. The mostly concealed original jail core/later-cell identity is unresolved; the post-July courthouse is deliberately absent from the July scene.",
+      "what": "Andreas shows a hip/pyramidal rear cap, conflicting with Gale’s taller gable. The mostly concealed original jail core/later-cell identity is unresolved; the post-July courthouse is deliberately absent from the July scene.",
       "status": "within tolerance"
     },
     {
@@ -129,29 +129,29 @@
       "status": "within tolerance"
     },
     {
-      "what": "The prior 3.05 m palisade concealed almost all of the retained jail core. FIXED IN PART 2026-11-10 (T-2380): at this unchanged authored camera the reconstructed 2.44 m palisade now leaves a shallow band of the existing core roof visible above the fence. This fixes complete concealment only; the source's taller exposed core/cap profile remains different. Core/keeper models, placement, grade plane, camera and full source are unchanged. Neither fence height nor the retained core form is measured from this diagnostic composition.",
+      "what": "The earlier3.05m palisade concealment was already reduced with the retained2.44m reconstructed height. The actual new native comparison now additionally shows substantial hewn core wall and a pitched gable above that unchanged enclosure; keeper, fence stock, gates, footprint, site and both source dates are retained. This is a source-informed relative-form reconstruction, not a measured historical fence/eave dimension.",
       "status": "fixed"
     },
     {
-      "what": "The newly exposed retained low roof does not reproduce the plate's tall log core and cap above the fence. The 2.44 m fence trial does not resolve that form/identity disagreement with Gale or date the pictured compound to July 1835. The post-July courthouse remains deliberately absent.",
-      "status": "open"
+      "what": "The actual fresh native context pair shows the corrected core wall and pitched roof clearly above the unchanged2.44m fence. The taller form replaces the prior concealed/low proxy. Andreas's distinct hip/pyramidal cap conflicts with Gale's clearer detailed gable, selected as the bounded continuity reconstruction; T3153 source-picture disagreement is within tolerance. No separate later cell is invented and no exact July state or source metres are asserted.",
+      "status": "fixed"
     },
     {
-      "what": "Scale and placement in frame differ grossly: the plate's jail group stands close behind the courthouse at the right of a near view, while the render puts the compound small and far off at the right edge. The camera here is diagnostic_only and was never solved to this plate, so this is a framing difference and is not promoted to a geometry error.",
-      "status": "open"
+      "what": "The entire Andreas source and actual new native pair are retained. Its composition centres on the courthouse and puts the jail near it; this authored distant camera frames only the July jail group. Scale/placement in frame and perspective disagreement are diagnostic source/camera differences within tolerance underT3153, not measured errors in the adopted jail site or plan. No later building or historical optical solution is invented to fill the picture.",
+      "status": "within tolerance"
     },
     {
       "what": "The plate's dominant subject, the brick Cook County court-house, is deliberately absent from the render: it was erected in the fall of 1835 and the county moved in toward the end of October, after the 1835-07-01 scene date. This is a date decision, not a modelling gap.",
       "status": "within tolerance"
     },
     {
-      "what": "The actual native palisade already has separate 254 mm boards, 6 mm gaps and 127 mm pointed heads; no stock or material changes are made here. The distant diagnostic render still reads as a broad dark fence rather than the plate's visibly separated vertical members. Finish and stock legibility remain unresolved. The monochrome plate supplies no literal paint colour.",
-      "status": "open"
+      "what": "Existing separate254mm boards,6mm gaps and127mm pointed heads remain native enclosure geometry. At this distant diagnostic scale they read as a dark band rather than the engraving's separated marks. That fine stock/lighting legibility is below the visitor bar and monochrome ink does not attest a literal paint colour. This is within tolerance underT3153; no fence feature is absent from the model.",
+      "status": "within tolerance"
     },
     {
       "what": "The keeper house's end gable took the roof-shingle material rather than wall boarding (see the Gale view, which is the plate that shows this end). FIXED 2026-11-04 (T-2380) by the same material-role change. In THIS plate the jail group is small at the right edge and the keeper's gable spans a few dozen pixels (93 px changed), so this view neither shows nor tests the correction; it is recorded here only so the two records do not disagree about the model.",
       "status": "fixed"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

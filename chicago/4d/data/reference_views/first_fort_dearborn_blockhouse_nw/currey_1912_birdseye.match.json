@@ -2,7 +2,7 @@
   "structure_id": "first_fort_dearborn_blockhouse_nw",
   "view": "currey_1912_birdseye",
   "glb": "assets/gltf/first_fort_dearborn_blockhouse_nw__first_fort_1803.glb",
-  "glb_sha256": "2567def5a0c657bc40e051bce905fe3c8b8b66f73d46171fcc57dd73d97913fc",
+  "glb_sha256": "f05cba8e375a4acd832a6bd056c29fbb2389ccc8076f25ab6d72ad59163341ea",
   "camera_sha256": "bfa2a6d12c674a0ae859edce4e194b7fbee1446803a61d88bbe3e7b041d0cdd5",
   "photo_sha256": "2f2b1e60fd78cb91956d16a50af526886b67c0b5fdc0337610ca5ad331360a1f",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "2567def5a0c657bc40e051bce905fe3c8b8b66f73d46171fcc57dd73d97913fc"
+      "glb_sha256": "f05cba8e375a4acd832a6bd056c29fbb2389ccc8076f25ab6d72ad59163341ea"
     },
     {
       "structure_id": "first_fort_dearborn_pickets_outer",
@@ -61,7 +61,7 @@
         30.19999999999999
       ],
       "rotation_y": 0,
-      "glb_sha256": "4b52564cd577363639667ed59c38564fb997e5e5496291cfaf3799d0e208352a"
+      "glb_sha256": "aa8a8a5c39b32f3394598924dac1d2214cc75531994159f8b8c7977df16caf6a"
     },
     {
       "structure_id": "first_fort_dearborn_commanding_officers_barracks",
@@ -118,7 +118,7 @@
         -0.3400000000000034
       ],
       "rotation_y": -3.141592653589793,
-      "glb_sha256": "6ed239cb5eed46fbcf64796369423497e70de6cca0442bd4f2cbb88d3bde39cf"
+      "glb_sha256": "3d51d6a46407deace244ec2286561fe29d370048c591e86164e04b9674a5c334"
     },
     {
       "structure_id": "first_fort_dearborn_north_range",
@@ -273,7 +273,7 @@
       "glb_sha256": "8e02cd7d24d42dec902435142aee5aad9650ca024af6e59422b16bae6dab9239"
     }
   ],
-  "group_sha256": "ecaeaf71841d2e5f78d0e87987304b0bebe5d8e9a6eabb18dbd9bf592c31c25b",
+  "group_sha256": "ae5abd869db44526e7a07457cac50695c0a692a12d186df12581434603419e95",
   "side_by_side": "docs/RESEARCH/photo-match/first_fort_dearborn_blockhouse_nw/currey_1912_birdseye-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
@@ -296,12 +296,11 @@
     {
       "what": "Fourteen rendered members are context, not fourteen depicted identities. The south-west small house and parade surface are not evidenced by the drawing; the labelled dashed route (2) shows a route toward the river, not covered-way construction. This group does not render or accept the covered way, bank, river or terrain.",
       "status": "not shown"
+    },
+    {
+      "what": "A5 shared-native control refresh, 2026-11-10: the actual new pinned-model comparison was directly inspected against the full Currey source and preceding accepted pair. The already-adopted cupolas, magazine vault, north-east pyramid, west wickets and retained owner-plan/crop/context limits remain unchanged in visible form. Three first-fort MASTERs were genuinely regenerated with unused UV repacking; current model/group hashes are rebound by this fresh render. This is maintenance of the existing accepted view, not completion of the original all-pictures T3041/T2387 scope. Raw render changes at6pixels only (maximumRGBdelta19); no visitor-visible geometric/material change.",
+      "status": "within tolerance"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
-  "review": {
-    "reviewed_at": "2026-11-10",
-    "method": "Direct visual review of the complete fresh generated side-by-side; original generated unreviewed record retained under docs/RESEARCH/photo-match/first_fort_dearborn_blockhouse_nw/unreviewed/. Currey also compared directly with existing outer-picket full pair and its recorded T-3335 rulings.",
-    "scope": "This camera and its shown features only. T-3041 and T-2387 remain partial; no all-picture or all-member sign-off."
-  }
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

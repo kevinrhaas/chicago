@@ -1,0 +1,28 @@
+{
+  "id": "kinzie_waubun_1831_unkeyed_panorama",
+  "type": "illustration",
+  "citation": "\u201cFort Dearborn as it appeared in 1831.\u201d Held unkeyed lithographic panorama, attributed by the repository image inventory to Napoleon Sarony after a sketch associated with Juliette Kinzie\u2019s Wau-Bun.",
+  "author": "Napoleon Sarony, after a Wau-Bun-associated sketch (repository inventory attribution)",
+  "date": "1856 (repository inventory attribution; first publication not independently verified here)",
+  "describes_date": "1831",
+  "repository": "Wikimedia Commons; copy held at chicago/reference/images/chicago/chicago_fort_dearborn_1831_2.jpg",
+  "url": "https://commons.wikimedia.org/wiki/File:Fort_Dearborn_1831_Kinzie.jpg",
+  "locator": "Complete held 1920 by 1115 unkeyed panorama; Agency-House subject at approximately x1390\u20131465,y510\u2013560, identified by matching position and composition in the separately keyed 1831 panorama. Same artwork catalogued as data/sources/assets/prefire_views_kevin_2026_08/p3_0.png.",
+  "tier": 5,
+  "rights_status": "public_domain",
+  "rights_note": "Existing chicago/reference/images/IMAGE_SOURCES.md entry for chicago_fort_dearborn_1831_2.jpg states public domain by pre-1930 publication. This record preserves that existing finding and uses the held copy, not a newly acquired stock reproduction.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "The actual complete held panorama and unchanged nearest-neighbour inspection crop were visually read on 10 November 2026. Held JPEG SHA256 08c7b6565de151e88d94535d1940d27d30a15ee0724508ab3e8ac15383b49c4b. Attribution and date are carried from the existing repository image inventory, not claimed as a fresh verification of the first publication or lithographer. The Commons catalogue URL is the one already recorded in that inventory.",
+  "what_it_supplies": [
+    "a second held reproduction in the Wau-Bun witness family, depicting the same small Agency-House composition as the keyed panorama",
+    "dominant front gable with three dark front marks, a receding main ridge, subordinate side gable and small roof stack",
+    "bounded visual cross-check through illustrative diagnostic camera waubun_1831"
+  ],
+  "what_it_does_not_supply": [
+    "independent eyewitness corroboration, metric dimensions or a historical viewing location",
+    "proof of exact pane/door function, paint, rear-room layout or unchanged July 1835 appearance",
+    "an independently verified first-publication date or attribution beyond the existing inventory"
+  ],
+  "note": "The small unkeyed Agency-House subject is identified by correspondence with the keyed panorama kinzie_1857_chicago_1831_panorama, not by a caption attached to this individual house. The two views are related Wau-Bun-family reproductions, not independent witnesses. The lower front-mark lengths and roof proportions differ; retain those disagreements under T-3153 rather than inventing metric precision."
+}

@@ -16,15 +16,15 @@
   ],
   "principal_px": [
     556,
-    552
+    880
   ],
   "focal_px": 1500,
   "eye": [
-    -12,
     18,
+    28,
     1.7
   ],
-  "yaw_deg": 136.0,
+  "yaw_deg": 210.0,
   "basis_right_up_forward": [
     [
       0,
@@ -32,17 +32,17 @@
       -1
     ],
     [
-      -0.7193398003386512,
-      -0.6946583704589971,
+      -0.8660254037844386,
+      0.5000000000000001,
       0
     ],
     [
-      0.6946583704589971,
-      -0.7193398003386512,
+      -0.5000000000000001,
+      -0.8660254037844386,
       0
     ]
   ],
   "sky": "overcast",
-  "solve": "PROVISIONAL COMPOUND DIAGNOSTIC, not an accepted camera solution. The entire1853x2741 original page is displayed at1112x1645; no crop, pixel edit or source rotation. The basis rolls the camera to the original sideways page. The chosen1.70m standing eye, approximately22m range and1500px focal length frame the unchanged jail and its native enclosure on a common flat review plane. Principal point is a visual framing choice, not a measured calibration. The source shows a keeper house and taller gabled core; neither its metric scale nor original1833cell identity is solved. Pictured palisade form may inform this bounded improvement; no coordinate or July date comes from the plate. Actual app terrain/clearance remain separately verified.",
+  "solve": "AUTHORED COMPOUND APPEARANCE DIAGNOSTIC, not a geographic historical camera solution. The entire original page is displayed at1112x1645 without cropping or source rotation; the camera basis rolls the model to the sideways page. Reframed from the northeast at a reconstructed1.70m standing eye to show the east gable light and keeper east end that the detailed artwork depicts, with keeper-left/core-right order. Actual keeper-master triangle rays from this18m east/28m north eye leave all91sampled light points unoccluded; this is a CPU occlusion control, not image acceptance. Eye,210degree bearing,1500px focal length and principal point are framing choices on a common flat review plane; they derive no site control or metric historical plan. This view compares bounded July continuity choices with the1902illustration captioned1836; no claim that every depicted feature existed by1July1835. The Andreas cap/elevation conflict remains source disagreement underT3153. Diagnostic only: no historical From this spot action.",
   "diagnostic_only": true
 }

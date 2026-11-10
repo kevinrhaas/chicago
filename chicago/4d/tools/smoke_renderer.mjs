@@ -10208,8 +10208,16 @@ for (const [label, viewport, touch] of [
       out.oneRow = tabTops.length > 0 && new Set(tabTops).size === 1;
       out.icons = [...root().querySelectorAll('.insp-tab')].every((b) => !!b.querySelector('svg.insp-tab-icon'));
       await open('mckee_log_house');
-      const held = await tab('people');
-      out.held = /Historical review context\./.test(held.text);
+      await tab('people');
+      // The retained context is intentionally collapsed (T-3521). Exercise the
+      // visitor's disclosure, then read the now-visible reason rather than old text.
+      const heldFold = root().querySelector('[data-insp-pane="people"] .pop-held-fold');
+      out.heldFold = { present: !!heldFold, collapsed: heldFold?.open === false,
+        mark: heldFold?.querySelector('summary')?.textContent.trim() ?? '' };
+      heldFold?.querySelector('summary')?.click();
+      out.heldOpened = await wait(() => heldFold?.open === true);
+      out.held = /Historical review context\./.test(
+        root().querySelector('[data-insp-pane="people"]')?.innerText ?? '');
       await open('hogan_store');
       out.reopened = current();
       // T-3022: Expert research (Settings) shows a Research tab carrying the card's Sources,
@@ -10238,6 +10246,8 @@ for (const [label, viewport, touch] of [
       && inspectTabs1835.oneRow && inspectTabs1835.icons
       && Object.values(inspectTabs1835.panes).every((p) => p.shown && p.filled === 'yes' && p.selected === 'true' && p.len > 0)
       && inspectTabs1835.people.households > 0 && inspectTabs1835.people.hogan && inspectTabs1835.people.link
+      && inspectTabs1835.heldFold.present && inspectTabs1835.heldFold.collapsed
+      && inspectTabs1835.heldFold.mark === 'Under review' && inspectTabs1835.heldOpened
       && inspectTabs1835.held && !inspectTabs1835.plumbing,
       JSON.stringify(inspectTabs1835).slice(0, 700));
     const rs = inspectTabs1835.research;
@@ -15598,12 +15608,14 @@ for (const [label, viewport, touch] of [
         + Object.values(pj.counts?.by_stage ?? {}).reduce((a, b) => a + b, 0);
       const opened = await dir.open('hogan_john_s_c');
       const card = document.getElementById('people-card');
-      const go = card?.querySelector('.people-go');
+      // Town Find/Follow actions precede the distinct building destination.
+      const go = card?.querySelector('.people-go[data-structure="hogan_store"]');
       out.card = { opened, hidden: card?.hasAttribute('hidden'), shown: card?.checkVisibility(),
         name: card?.querySelector('.people-card-name')?.textContent.trim() ?? '',
         title: document.getElementById('panel-title')?.textContent.trim() ?? '',
         backShown: !document.getElementById('panel-back')?.hasAttribute('hidden'),
         go: go?.dataset.structure ?? null, goText: go?.textContent.replace(/\s+/g, ' ').trim() ?? '',
+        goDisabled: go?.disabled ?? true,
         fields: !!card?.querySelector('.res-fields'),
         // T-1491. The seat, in words, under the actions block — and the bare
         // "No known address" it replaces, which must not be standing beside it.
@@ -15788,11 +15800,11 @@ for (const [label, viewport, touch] of [
     check(`${label}: opening a person shows their card with a way to their building`,
       people.card.opened && people.card.hidden === false && people.card.shown && /Hogan/.test(people.card.name)
       && people.card.title === people.card.name && people.card.backShown && people.card.go === 'hogan_store'
-      && /Go to where they/.test(people.card.goText) && people.card.fields,
+      && /Go to where they/.test(people.card.goText) && people.card.goDisabled === false && people.card.fields,
       JSON.stringify(people.card));
     // Go there, on horseback: the drawer closes, the ride ends at Hogan's with its card.
     await page.evaluate(() => { window.__chicago4d.setTravelMode('horse'); window.__chicago4d.popup.close(); });
-    await clickChrome('#people-card .people-go');
+    await clickChrome('#people-card .people-go[data-structure="hogan_store"]');
     const goThere = await page.evaluate((FRAMED) => {
       const api = window.__chicago4d;
       const framed = eval(FRAMED);
@@ -20635,6 +20647,8 @@ for (const [label, viewport, touch] of [
             back: card?.querySelector('[data-person-back]')?.textContent.trim() ?? '',
             lead: card?.querySelector('.insp-person-story [data-composed]')?.textContent ?? '',
             why: card?.querySelector('.insp-person-why-title')?.textContent ?? '',
+            likenessGrade: card?.querySelector('.insp-person-likeness')?.dataset.grade ?? '',
+            portraitLabel: card?.querySelector('.insp-person-likeness figure figcaption')?.textContent.trim() ?? '',
             leaf: card?.querySelector('.insp-person-leaf')?.getAttribute('href') ?? '',
             sources: card?.querySelectorAll('.insp-person-sources li').length ?? 0 };
           card?.querySelector('[data-person-back]')?.click();
@@ -20664,7 +20678,9 @@ for (const [label, viewport, touch] of [
         check(`${label}: a person on Inspect's People tab opens their own card, with Back to the household (T-3265)`,
           inspectTabs1904.card?.app === 'inspect' && inspectTabs1904.card.listHidden && inspectTabs1904.card.name === 'August Billings'
           && inspectTabs1904.card.back === 'The Glessner household' && /found August Billings/.test(inspectTabs1904.card.lead)
-          && /^Inferred/.test(inspectTabs1904.card.why) && /12thcensusofpopu245unit\/page\/n803/.test(inspectTabs1904.card.leaf)
+          && inspectTabs1904.card.why === 'Face reconstructed after a stand-in'
+          && inspectTabs1904.card.likenessGrade === 'reconstructed' && inspectTabs1904.card.portraitLabel === 'Stand-in, not them'
+          && /12thcensusofpopu245unit\/page\/n803/.test(inspectTabs1904.card.leaf)
           && inspectTabs1904.card.sources >= 1 && !inspectTabs1904.back.card && inspectTabs1904.back.listShown
           && inspectTabs1904.back.focus === 'pa1904_glessner_john_j_c1900_august_billings',
           JSON.stringify({ card: inspectTabs1904.card, back: inspectTabs1904.back }));

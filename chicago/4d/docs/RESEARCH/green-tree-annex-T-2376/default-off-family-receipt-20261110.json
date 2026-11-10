@@ -1,0 +1,160 @@
+{
+  "not_a_reading": "CPU source regression comparing the actual old/new accumulators, not an archival reading or native export.",
+  "base": "e8342e42555d65481080bbd5450bcf905006c910",
+  "new_producer_commit": "bf344ad7dd",
+  "unselected_phases_compared": 25,
+  "all_equal": true,
+  "rows": [
+    {
+      "record": "data/structures/exchange_coffee_house.json",
+      "phase": "frame_1834",
+      "accumulator_and_material_sha256": "ca6f881d3b31bf40b7a1bdbf4e192fb9c84840971a1c516dae3109eb378f719c",
+      "equal_to_base_accumulator": true
+    },
+    {
+      "record": "data/structures/new_york_house.json",
+      "phase": "frame_1834",
+      "accumulator_and_material_sha256": "e661f4eb032886cddc6a82dd51bb77af68e887c765fda6a2dac5a8977cbfc85a",
+      "equal_to_base_accumulator": true
+    },
+    {
+      "record": "data/structures/recon_1835_blk_indiana_north_cass_h3_09.json",
+      "phase": "inferred_1835",
+      "accumulator_and_material_sha256": "7f1abd2efa795460074081db5251c6370dc8abac4ff68096d8c1819f45dfc553",
+      "equal_to_base_accumulator": true
+    },
+    {
+      "record": "data/structures/recon_1835_blk_south_water_market_h3_02.json",
+      "phase": "inferred_1835",
+      "accumulator_and_material_sha256": "b282c4e10cbe1437517a5ba9e5e8101df88c49b82c451987d093fd1f00e860bc",
+      "equal_to_base_accumulator": true
+    },
+    {
+      "record": "data/structures/recon_1835_blk_washington_clark_h3_05.json",
+      "phase": "inferred_1835",
+      "accumulator_and_material_sha256": "fb850b0c059af3992f082304517539a372ad09837c081560d37e78adae60c16e",
+      "equal_to_base_accumulator": true
+    },
+    {
+      "record": "data/structures/recon_1835_blk_washington_clark_h3_06.json",
+      "phase": "inferred_1835",
+      "accumulator_and_material_sha256": "3656d22001044a5442ce1a30dbd2a005b8dca121a694ad13ef2137194700083e",
+      "equal_to_base_accumulator": true
+    },
+    {
+      "record": "data/structures/recon_1835_blk_washington_clark_h3_11.json",
+      "phase": "inferred_1835",
+      "accumulator_and_material_sha256": "6c5b7a71e7e9cb5568ebcc85dffd1e49c997f021711b7d52fca56d6607601e70",
+      "equal_to_base_accumulator": true
+    },
+    {
+      "record": "data/structures/recon_1835_blk_washington_clinton_h3_02.json",
+      "phase": "inferred_1835",
+      "accumulator_and_material_sha256": "cc12bf405cee1812fd664c465301aa36fd8f5f1928d08a8fabca0a9290dc9cd6",
+      "equal_to_base_accumulator": true
+    },
+    {
+      "record": "data/structures/recon_1835_blk_washington_dearborn_h3_01.json",
+      "phase": "inferred_1835",
+      "accumulator_and_material_sha256": "6e13fbaee0b6c8bcb398259709c20ab4eecaa9e095b6f56a8a9eecc4a975a923",
+      "equal_to_base_accumulator": true
+    },
+    {
+      "record": "data/structures/recon_1835_blk_washington_market_h3_01.json",
+      "phase": "inferred_1835",
+      "accumulator_and_material_sha256": "dbc3ae04782e62461578785c8d71bd5de299801e985b5b7a1a3d657c40c7ac2d",
+      "equal_to_base_accumulator": true
+    },
+    {
+      "record": "data/structures/recon_1835_blk_washington_market_h3_04.json",
+      "phase": "inferred_1835",
+      "accumulator_and_material_sha256": "d35f67a768eb7d0aa511d410ec2189cf54300e8264723fbca3260a40b83146e3",
+      "equal_to_base_accumulator": true
+    },
+    {
+      "record": "data/structures/recon_1835_north_h2_022.json",
+      "phase": "inferred_1835",
+      "accumulator_and_material_sha256": "a7863a14dcc13d93de1d69b2e2706e320d6dc775f38c46e126f168a6aa7fd544",
+      "equal_to_base_accumulator": true
+    },
+    {
+      "record": "data/structures/recon_1835_north_h2_028.json",
+      "phase": "inferred_1835",
+      "accumulator_and_material_sha256": "2dffb9e70dd2f8dde0109e6ed466943ea094501f55fdccc31746acf0de746e42",
+      "equal_to_base_accumulator": true
+    },
+    {
+      "record": "data/structures/recon_1835_north_h2_030.json",
+      "phase": "inferred_1835",
+      "accumulator_and_material_sha256": "04a6fbc3e042b329fe05868d409524025fdcdb808375edc8481bc8a16f94c01e",
+      "equal_to_base_accumulator": true
+    },
+    {
+      "record": "data/structures/recon_1835_north_h2_045.json",
+      "phase": "inferred_1835",
+      "accumulator_and_material_sha256": "9b2dfb37781f727b93f7093b5a5e5202b3c631efbfa1682f8e4156611a7b5222",
+      "equal_to_base_accumulator": true
+    },
+    {
+      "record": "data/structures/recon_1835_north_t1_061.json",
+      "phase": "inferred_1835",
+      "accumulator_and_material_sha256": "2af582651308348bfa9999c7380c031c1f75ec9194d3b706847253b41528dad9",
+      "equal_to_base_accumulator": true
+    },
+    {
+      "record": "data/structures/recon_1835_west_035.json",
+      "phase": "inferred_1835",
+      "accumulator_and_material_sha256": "2c736913edd945f86350a797b22bc14d138c024282ab1c4164ff37303b1395cb",
+      "equal_to_base_accumulator": true
+    },
+    {
+      "record": "data/structures/recon_1835_west_046.json",
+      "phase": "inferred_1835",
+      "accumulator_and_material_sha256": "e8e7548a458762209a2b7191387683bd759cb17d0ca203dbc9b33e79114186e8",
+      "equal_to_base_accumulator": true
+    },
+    {
+      "record": "data/structures/sauganash_hotel.json",
+      "phase": "log_1829",
+      "accumulator_and_material_sha256": "1762351cfa72e15a4345746992c05a4beadd1e89ec1110522723f969db4407bd",
+      "equal_to_base_accumulator": true
+    },
+    {
+      "record": "data/structures/sauganash_hotel.json",
+      "phase": "frame_1831",
+      "accumulator_and_material_sha256": "f7590ff80b4429db4c0aa98b0a25db619e17df3894f1de93a70b646eb2664f8f",
+      "equal_to_base_accumulator": true
+    },
+    {
+      "record": "data/structures/steamboat_hotel.json",
+      "phase": "frame_1835",
+      "accumulator_and_material_sha256": "e0b51fa0d396c029af0df08925a0bb110787db0ba25b9a472bf5d7ba6cfb46bb",
+      "equal_to_base_accumulator": true
+    },
+    {
+      "record": "data/structures/tremont_house_1.json",
+      "phase": "frame_1833",
+      "accumulator_and_material_sha256": "367d7f298adac81f43a441d1171d783afe0eccd2d4f9e402f5ebf32e2cb93837",
+      "equal_to_base_accumulator": true
+    },
+    {
+      "record": "data/structures/versions/tremont_house_1/gale-reading.json",
+      "phase": "frame_1833",
+      "accumulator_and_material_sha256": "2ba6d2be74aa003463f6d7b03a8be1f234cd254b789403e7d389f0d688ed0a6d",
+      "equal_to_base_accumulator": true
+    },
+    {
+      "record": "data/structures/versions/tremont_house_1/gifford-reading.json",
+      "phase": "frame_1833",
+      "accumulator_and_material_sha256": "561aeec587640f7c3ffcd763cc81680a136c33ea9b1420c8c84839a5f6e69462",
+      "equal_to_base_accumulator": true
+    },
+    {
+      "record": "data/structures/western_hotel.json",
+      "phase": "frame_1834",
+      "accumulator_and_material_sha256": "a1352b43231f0535358b534ba95187f842e7a88be7c4fb117b37ad48ebe291e9",
+      "equal_to_base_accumulator": true
+    }
+  ],
+  "limits": "Before the separate Sauganash data opts into its cap. No Blender, native GLB, texture export or app verdict claimed."
+}

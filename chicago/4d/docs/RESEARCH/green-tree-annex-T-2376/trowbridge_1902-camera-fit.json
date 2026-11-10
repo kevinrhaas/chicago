@@ -1,0 +1,146 @@
+{
+  "not_a_reading": "Rereading the already held source to fit a comparison camera, not a new source unit or measured building.",
+  "source_id": "trowbridge_green_tree_1902",
+  "photo": "../../../../reference/images/chicago/chicago_green_tree_tavern_1835.jpg",
+  "image_px": [
+    1630,
+    1198
+  ],
+  "fit_parameters_order": [
+    "eye_u",
+    "eye_v",
+    "eye_h",
+    "yaw_deg",
+    "focal_px",
+    "principal_x",
+    "principal_y"
+  ],
+  "fit_parameters": [
+    -93.99785101464362,
+    82.79505851497824,
+    2.923335785824922,
+    99.36870583553471,
+    5849.690674057582,
+    -2510.4425845070973,
+    582.5902592736766
+  ],
+  "rms_per_coordinate_px": 4.695040113325569,
+  "max_point_residual_px": 10.586074171140604,
+  "picks": [
+    {
+      "model_uvh": [
+        0.0,
+        12.19,
+        0.0
+      ],
+      "image_px": [
+        540.0,
+        753.0
+      ],
+      "reprojected_px": [
+        540.2673431079324,
+        746.644360600255
+      ],
+      "residual_px": [
+        0.2673431079324473,
+        -6.355639399744973
+      ]
+    },
+    {
+      "model_uvh": [
+        7.62,
+        12.19,
+        0.0
+      ],
+      "image_px": [
+        270.0,
+        738.0
+      ],
+      "reprojected_px": [
+        270.1027766193356,
+        735.6076581687616
+      ],
+      "residual_px": [
+        0.10277661933560012,
+        -2.3923418312383546
+      ]
+    },
+    {
+      "model_uvh": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "image_px": [
+        1146.0,
+        733.0
+      ],
+      "reprojected_px": [
+        1145.6298819464137,
+        743.5796020238618
+      ],
+      "residual_px": [
+        -0.37011805358633865,
+        10.579602023861753
+      ]
+    },
+    {
+      "model_uvh": [
+        0.0,
+        12.19,
+        5.0
+      ],
+      "image_px": [
+        540.0,
+        461.0
+      ],
+      "reprojected_px": [
+        540.2673431079324,
+        466.050351998734
+      ],
+      "residual_px": [
+        0.2673431079324473,
+        5.0503519987340155
+      ]
+    },
+    {
+      "model_uvh": [
+        7.62,
+        12.19,
+        5.0
+      ],
+      "image_px": [
+        270.0,
+        472.0
+      ],
+      "reprojected_px": [
+        270.1027766193356,
+        473.8905478096692
+      ],
+      "residual_px": [
+        0.10277661933560012,
+        1.890547809669215
+      ]
+    },
+    {
+      "model_uvh": [
+        0.0,
+        0.0,
+        5.0
+      ],
+      "image_px": [
+        1146.0,
+        477.0
+      ],
+      "reprojected_px": [
+        1145.6298819464137,
+        468.2274794062467
+      ],
+      "residual_px": [
+        -0.37011805358633865,
+        -8.772520593753313
+      ]
+    }
+  ],
+  "acceptance": "Framing only; source dimensions, source dates, geometry and verdicts are not inferred by this fit."
+}

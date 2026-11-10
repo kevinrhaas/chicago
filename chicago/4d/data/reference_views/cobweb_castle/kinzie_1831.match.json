@@ -1,0 +1,53 @@
+{
+  "structure_id": "cobweb_castle",
+  "view": "kinzie_1831",
+  "glb": "assets/gltf/cobweb_castle__log_1820.glb",
+  "glb_sha256": "df10931a6be875df6b9ca2fa6a4a9c1edbe5e4d2b672771edfc1c9971e506b5b",
+  "camera_sha256": "f81cc81bf0937520aca0e906eb16a4cf175405d4d047f6183adbb8151ae63682",
+  "photo_sha256": "624d8f1f52a75bf30653e8cbf37a388478b0ddf5a02f1fadf727cf2144b84c3f",
+  "side_by_side": "docs/RESEARCH/photo-match/cobweb_castle/kinzie_1831-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "Dominant front gable, receding main ridge and smaller recessed side gable replace the broad transverse-wing cabin. The actual final native render has the visible compound hierarchy in both held panoramas; exact 9 by 4.5 m set-out remains reconstructed.",
+      "status": "fixed"
+    },
+    {
+      "what": "One small shaft now rises through the main roof instead of two conspicuous exterior wing-end stacks. The visible count and disposition agree; 0.80 m section, 35-percent ridge position and 5.05 m head remain bounded choices.",
+      "status": "fixed"
+    },
+    {
+      "what": "The already completed two lower dark front marks and one high gable mark remain clear and distinct in the actual final render. No extra central opening reappears; the subordinate visible wing retains one window.",
+      "status": "fixed"
+    },
+    {
+      "what": "Lower front-mark extents differ between the keyed engraving (grounded upright marks) and the companion unkeyed lithograph (shorter marks above a pale wall-base band). Keep the grounded keyed reading and the neutral aperture/entry roles. This disagreement between pictures is within tolerance under T-3153, not proof of two historic functions.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "The companion lithograph places the side gable farther back and its small dark wing mark lower than the keyed cut. The built lower recessed side gable follows the keyed hierarchy; residual tiny-panoramic foreshortening, mark offsets and junction linework disagree between these related pictures and illustrative poses. Within tolerance under T-3153; neither is a metric elevation.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "Five approximate front points fit at 1.009 px coordinate RMS in the keyed view and 1.724 px in the companion, with about 2 px hand-reading uncertainty. Pixel offsets, line thickness and drawing-perspective differences do not establish a street-noticeable dimensional fault. The diagnostic poses remain illustrative and offer no historic From-this-spot location.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "Both unseen rear tails and the largely occluded opposite wing follow the text-attested five-part composition at reconstructed dimensions. These pictures do not measure their depths, hidden roof valleys, interior or exact symmetry.",
+      "status": "not shown"
+    },
+    {
+      "what": "Monochrome paper white and hatching do not attest whitewash, material colour, pane counts, lap spacing or exact surface tone. Text supplies squared logs and part-way clapboarding; the retained neutral 1.30 m band, upper logs, gable closure, roof covering and window details retain their declared reconstruction limits.",
+      "status": "not shown"
+    },
+    {
+      "what": "The source panoramas depict 1831 and do not prove unchanged July 1835 survival, occupancy or the completion date of partial siding. Existing scene-date continuity and finish-date qualifications remain.",
+      "status": "not shown"
+    },
+    {
+      "what": "This single-building flat-ground reviewer does not render the panorama's neighbouring buildings, trees, riverbank or overall geography. No surveyed position, terrain or historic stand was moved to fit the retrospective panorama. Published grounding and scene/card checks are separate.",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

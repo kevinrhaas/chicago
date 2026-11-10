@@ -1,0 +1,12 @@
+{
+  "structure_id": "green_tree_tavern",
+  "view": "kurz_1893_panel11",
+  "glb": "assets/gltf/green_tree_tavern__frame_1833.glb",
+  "glb_sha256": "661c9a71adba200fcfb82fd7c0c391297043377e000af7c9aafbd658d4e6079a",
+  "camera_sha256": "1f7e255d0ab46b9f0e912fd37d559dd912f79e37c82af2e9fc08ea53fb021b6f",
+  "photo_sha256": "fef7a7b6c46f41319e6937d56156c724640e431c75463a6c27d014928c1c7955",
+  "side_by_side": "docs/RESEARCH/photo-match/green_tree_tavern/kurz_1893_panel11-side-by-side.jpg",
+  "verdict": "unreviewed",
+  "differences": [],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

@@ -129,3 +129,71 @@ image-match verdict, pictured-grade ruling, position, dimension, form attribute
 or asset changes in this increment. The structure remains inferred by the
 existing grade rule because no camera or affirmative pictured ruling is added.
 T-2374 remains open; final picture matching is not claimed.
+
+## T-2374 final form and canonical illustration view — 2026-11-10
+
+This supersedes the old bounding-box, bare-log and unsolved-view limitations
+above. The keyed held panorama is
+`chicago_fort_dearborn_1831_1.jpg` / `kinzie_1857_chicago_1831_panorama`.
+The full 1920×1042 reproduction and its Agency-House subject were visually read.
+The source register's Wisconsin Kinzie Agency House entry is a different,
+text-only property record, not another picture of Cobweb Castle.
+
+The composition follows Wau-Bun's centre/two wings/two tails and the engraving's
+dominant front gable, receding ridge, subordinate side gable, three front marks
+and small roof stack. The previous 13×9 m trial and transverse wing roofs made
+an overly broad cabin with conspicuous exterior wing stacks. The bounded
+replacement is 9×4.5 m: a 5×3.5 m centre, two 2×2 m wings recessed 1 m, and
+two 1.5×1 m rear adjuncts. The wings' 2.0 m eaves sit below the retained 2.6 m
+centre; all pitches remain 35°. One reconstructed 0.80 m square main-ridge
+stack replaces the unsupported pair. The retained head is 5.05 m. The former
+count was inferred, not textual evidence against the change. Exact metric
+choices and unseen rear forms remain reconstructed. The 1.30 m partial board
+band and central apertures' count, depth and relative set-out remain. Position
+and bearing values do not change; no survey or terrain is fitted.
+
+`data/reference_views/cobweb_castle/kinzie_1831.json` records a bounded
+illustrative pose fitted to five hand-read front points at 1.009 px coordinate
+RMS. Point uncertainty is about 2 px. Fixed 800 px focal length and 1.60 m eye
+choose a drawing pose family; they do not recover a historical viewpoint.
+`diagnostic_only` keeps that invented spot out of visitor navigation. Hidden
+tail geometry, monochrome colour, exact finish date and scene-date survival are
+outside what the picture establishes. Its canonical match record and actual
+side-by-side carry final acceptance after native export; CPU projection is not
+an image-gate verdict. Under T-3153, pixel offsets and disagreements between
+plausible drawing fits are within tolerance; missing or wrongly shaped visible
+elements still require a fix. See `L-cobweb-completion-2374`.
+
+
+### Companion unkeyed panorama coverage
+
+The adjacent held `chicago_fort_dearborn_1831_2.jpg` was also visually read in full
+and at the Agency-House subject (unchanged crop1370,490..1495,580, nearest-neighbour
+8× inspection only). It shows the same dominant gable, three front marks,
+receding main roof, subordinate side gable and small stack. Its pale marks and
+roof proportions differ from the keyed engraving. These are two reproductions
+in the Wau-Bun witness family, not independent measurements or separate proof
+of unchanged1835fabric. The inventory credits the unkeyed lithograph to Sarony,
+1856; that attribution is preserved as inventory attribution rather than a new
+first-publication finding. The Wisconsin Agency House record remains unrelated.
+
+`waubun_1831.json` fits five approximate front points with the same fixed800px
+focal and1.60m eye. Its solve records the exact points, residual, source uncertainty
+and witness-family citation. Both views require actual native side-by-side review.
+The source's different lower-mark lengths, small offsets and relative side-roof
+proportions are disagreements between pictures underT3153, not extra open tickets.
+
+
+### Post-native card-link metadata correction
+
+The actual picture compiler accepts illustration/photo source records and
+correctly excludes a book citation from the Images tab. The companion camera
+therefore now names `kinzie_waubun_1831_unkeyed_panorama`, an illustration record
+for the actual held picture with the existing inventory's public-domain finding
+and qualified attribution. It does not invent a first publication or an
+independent witness. Only the companion camera's `source_id` and explanatory
+`solve` text change: every render parameter, photograph path, source bytes and
+pose remain identical. The actual old BEFORE fixture/hash is preserved and its
+metadata-only difference is recorded separately; no capture is re-labelled as
+made with new camera bytes. Both credited pictures now derive through the
+actual compiler without a historical From-this-spot navigation claim.

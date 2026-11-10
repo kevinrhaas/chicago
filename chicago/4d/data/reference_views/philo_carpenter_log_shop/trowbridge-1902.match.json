@@ -42,13 +42,21 @@
         3.0999999999999943
       ],
       "rotation_y": 0,
-      "glb_sha256": "685bdd9c7206b49c402e6621077df9ce8eeb4eb093666ac85ecfe8663360732f"
+      "glb_sha256": "51a7008c31176390fae7d7fc189f61eb385c18e109a49c125f72d389ef550385"
     }
   ],
-  "group_sha256": "de74d52aacb22c933b874fdd6a6cc0e39384c57bfb7087f5d79960c84d48ee1c",
+  "group_sha256": "b36b36806dc0886c931651b38beb400c5da67f23c181690245ffb5fc5af2848c",
   "side_by_side": "docs/RESEARCH/photo-match/philo_carpenter_log_shop/trowbridge-1902-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
+    {
+      "what": "The changed Hotel neighbour has now been freshly rendered and directly reviewed with the unchanged Carpenter-shop anchor. Its two slender brick ridge-end stacks visibly have projecting masonry heads. The Shop MASTER, placement, roof, log/gable courses, two front sash around one dark doorway and free-end stack are unchanged and retain their accepted categories. This is actual current-context review, not a verdict inherited without seeing the new pair.",
+      "status": "fixed"
+    },
+    {
+      "what": "The physical rear-wing ridge meets the main ridge. Broad left-roof exposure and the small far-gable visibility differ under the retained Shop-derived diagnostic camera. This is a source/camera projection gap, not an independently established physical size or missing mass: the plate supplies no wing depth, the owner-selected 8 m reconstruction remains, and a separate wall-corner-only camera experiment with geometry/focal held fixed moves the near roof apex about 74 px vertically. Under T-3153 this demonstrated camera-fit uncertainty is within tolerance; no historical station, new plan dimension or phase date is inferred.",
+      "status": "within tolerance"
+    },
     {
       "what": "The hotel standing behind the shop in this view was built with a bare rake where the picture draws a boxed gable cornice and its two short horizontal returns. Both are now built on the hotel's +x gable at reconstructed sections (T-2383, docs/LIBERTIES.md L-sauganash-main-gable-cornice-2383). The Carpenter shop ANCHOR is untouched: its own master, camera, placement, openings, materials and every prior T-3153 disposition are unchanged, and this pair was re-rendered and directly reviewed before the verdict below was retained.",
       "status": "fixed"
@@ -68,10 +76,15 @@
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
   "context_refresh_review": {
-    "reviewed_at": "2026-11-09T22:41:10.743083+00:00",
-    "retained_native_commit": "254bc9871dfda47d2e2c506fcde40f150da95de2",
-    "native_run": 42711510675,
-    "disposition": "Fresh actual source/current side-by-side viewed independently; existing Carpenter-shop acceptance retained.",
-    "scope": "Shop native master, camera, photograph and all placements are unchanged. Hotel context has slimmer shafts and a joined rear ridge, with count and stations retained. Its separate comparison still differs, including absent rear-gable exposure. Existing retrospective-copy pitch/colour tolerances remain; this does not attest the whole Hotel."
+    "reviewed_at": "2026-11-10T03:22:03.594004+00:00",
+    "retained_native_commit": "9dd9ba7ddd22c6ff87e52522497205f62133fa1f",
+    "dispatched_source_commit": "64a752353bc66fa6bfa58c853b90c32625f7b739",
+    "native_run": 42745792113,
+    "raw_generated_verdict": "unreviewed",
+    "raw_generated_match_sha256": "87977f7935dac9960b2c3eb252930e929ba6f8e1679e0e8460bf6facc2c15e94",
+    "raw_render_sha256": "9b36c9bdaed7d78713ff0c8efbb9266b3967768ae7b9ec788774672855da33c6",
+    "actual_pair_sha256": "6c37a52e027a1af5b4218cecb9442434fe440966612cf41b9c41594d7d44e1e1",
+    "disposition": "Actual final source/current pair directly viewed beside its drawing. Capped stack-head form fixed; finite source/camera roof exposure is within T-3153 tolerance. Shop anchors retain their reviewed accepted form.",
+    "scope": "All four existing cleared compositions reviewed. No camera, source-picture bytes, phase, member placement or Shop geometry changed. No application-release or new historical metric/date claim."
   }
 }

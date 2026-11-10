@@ -1,0 +1,48 @@
+{
+  "status": "PREPARED_BINDINGS_ONLY_GPU_NOT_RUN",
+  "native_run_id": 42745792113,
+  "native_raw_parent": "64a752353bc66fa6bfa58c853b90c32625f7b739",
+  "retained_native": "9dd9ba7ddd22c6ff87e52522497205f62133fa1f",
+  "model_sha256": "124bf0599a8900855c02a1e7b90ac57c2097718a2bf2f7985e9d58f7c7dab84a",
+  "model_bytes": 293260,
+  "model_path": "/tmp/chicago-west-wicket-20261109/chicago/4d/assets/gltf/green_tree_tavern__frame_1833.glb",
+  "compiled_sidecar_sha256": "1ee4d2027e3a7398b326c45af09d102ed23fecfe763d0534bb93327f6ea27df6",
+  "compiled_sidecar_asset_correct": true,
+  "compiled_occupied_rings_match_current_source": true,
+  "three_cameras": [
+    {
+      "view": "andreas_1838",
+      "camera_sha256": "9439f5f7e6f3138e53328647456d332110948ef8421692f951827e48eb274f6b",
+      "photo_sha256": "bfaa184f9043ea94560eb74e44926c631f06338bc90e6ba54951a610edef119a",
+      "source_id": "andreas_1884_green_tree_hotel_plate",
+      "source_creator": "unsigned on the plate; the brief attributes the engraving to Braunhold, and no signature is legible at the resolution the scan publishes",
+      "source_rights": "public_domain",
+      "source_verified": true,
+      "original_photo_reference": "../../../../reference/images/chicago/chicago_green_tree_inn_1838.jpg",
+      "source_url": "https://archive.org/details/historyofchicago01andr/page/n1301/mode/1up"
+    },
+    {
+      "view": "trowbridge_1902",
+      "camera_sha256": "53140e9ceeed8a59a5a0f588d730a0bba18e3eff730da61058ea976f049087b2",
+      "photo_sha256": "4d027d462b37b682d62cfa640083f2688d1b2dd9bba9ca39dc1dc979c2234225",
+      "source_id": "trowbridge_green_tree_1902",
+      "source_creator": "W. E. S. Trowbridge; in Edwin O. Gale (1902)",
+      "source_rights": "public_domain",
+      "source_verified": true,
+      "original_photo_reference": "../../../../reference/images/chicago/chicago_green_tree_tavern_1835.jpg",
+      "source_url": "https://archive.org/details/reminiscencesofe00ingale/page/n55/mode/1up"
+    },
+    {
+      "view": "kurz_1893_panel11",
+      "camera_sha256": "1f7e255d0ab46b9f0e912fd37d559dd912f79e37c82af2e9fc08ea53fb021b6f",
+      "photo_sha256": "fef7a7b6c46f41319e6937d56156c724640e431c75463a6c27d014928c1c7955",
+      "source_id": "kurz_allison_1893",
+      "source_creator": "Kurz & Allison",
+      "source_rights": "public_domain",
+      "source_verified": true,
+      "original_photo_reference": "../../sources/assets/prefire_views_kevin_2026_08/p6_0.png",
+      "source_url": "https://www.loc.gov/pictures/item/2003656685/"
+    }
+  ],
+  "claim_limit": "Preparation and read-only bindings only. No GPU render or image acceptance yet."
+}

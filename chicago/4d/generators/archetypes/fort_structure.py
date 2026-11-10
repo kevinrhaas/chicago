@@ -194,6 +194,9 @@ def build(params: FortStructureParams, name: str):
         _tower(b, params)
     elif params.kind == "flagstaff":
         _flagstaff(b, params)
+    elif params.construction_site:
+        from archetypes.fort_structure_worksite import build as build_worksite
+        build_worksite(b, params, timber_mat=4)
     else:
         _building(b, params)
 
@@ -261,6 +264,9 @@ def build(params: FortStructureParams, name: str):
     # docs/LIBERTIES.md needs no new entry — L26 already owns where a stack stands.
     # docs/RESEARCH/chimneys.md §4 is the argument in full;
     # `tools/measure_stack_fabric.py` is the gate that stops it regressing.
+    if params.construction_site:
+        mats.append(simple_material("worksite_timber", HEWN_RGBA,
+                                   roughness=materials.SUBSTRATES["hewn_log"].roughness))
     if params.chimneys > 0:
         stack = materials.chimney_finish("interior")
         mats.append(simple_material("chimney", stack.rgba, roughness=stack.roughness))
@@ -1235,8 +1241,8 @@ def _gallery_two_storeys(b: MeshBuilder, p: FortStructureParams, conf: float) ->
     # The canopy caps the joint. Omit a coplanar timber top: both materials
     # are double-sided, so duplicating that surface would cause z-fighting.
     b.add_box(0.0, d, upper - deck, w, d + reach, upper, c, M_TRIM)
-    # Long outer handrail and evenly spaced vertical pales; the two short ends
-    # are closed as a safety reconstruction. No external stair is invented.
+    # Long outer handrail and evenly spaced vertical pales. An opt-in outside
+    # stair opens only its own short end; the old closed ends remain the default.
     b.add_box(0.0, d + reach - post, upper + rail - 0.10,
               w, d + reach, upper + rail, c, M_TRIM)
     count = max(1, math.ceil(w / pitch))
@@ -1246,6 +1252,12 @@ def _gallery_two_storeys(b: MeshBuilder, p: FortStructureParams, conf: float) ->
                   x + baluster / 2, d + reach - post / 2 + baluster / 2,
                   upper + rail - 0.10, c, M_TRIM)
     for x in (0.0, w - post):
+        side = "left" if x == 0.0 else "right"
+        if p.gallery_stair_side == side:
+            # The rear half remains guarded beside the stair's 1 m clear throat.
+            b.add_box(x, d, upper + rail - .10,
+                      x + post, d + .75, upper + rail, c, M_TRIM)
+            continue
         b.add_box(x, d, upper + rail - 0.10,
                   x + post, d + reach - post, upper + rail, c, M_TRIM)
         count = max(1, math.ceil((reach - post) / pitch))
@@ -1257,6 +1269,54 @@ def _gallery_two_storeys(b: MeshBuilder, p: FortStructureParams, conf: float) ->
     b.add_poly([(0.0, d, wz), (w, d, wz),
                 (w, d + reach + 0.15, head), (0.0, d + reach + 0.15, head)],
                c, M_ROOF)
+    if p.gallery_stair_side != "none":
+        _gallery_stair(b, p, c)
+
+
+def _gallery_stair(b: MeshBuilder, p: FortStructureParams, conf: float) -> None:
+    """Outside timber access; occurrence from Hubbard, all geometry reconstructed.
+
+    A straight flight continues from one short end, without changing the range,
+    gallery, openings or existing posts. It rises to the existing storey line.
+    """
+    upper, run = p.storey_height_m, p.storey_height_m * 1.5
+    count = math.ceil(upper / .18)
+    rise, going = upper / count, run / count
+    sign = 1 if p.gallery_stair_side == "right" else -1
+    seat = p.width_m if sign == 1 else 0.0
+    y0, y1 = p.depth_m + .75, p.depth_m + 1.95
+
+    def box(a, z0, end, z1, ya, yb):
+        x0, x1 = sorted((seat + sign * a, seat + sign * end))
+        b.add_box(x0, ya, z0, x1, yb, z1, conf, M_TRIM)
+
+    # Fourteen risers at a 2.4 m floor: 171 mm. Independent 70 mm timber treads
+    # leave the flight open below rather than adding a solid staircase mass.
+    for i in range(1, count):
+        top = upper - i * rise
+        box((i - 1) * going, top - .07, i * going, top, y0, y1)
+
+    def slope(ya, yb, offset, thickness):
+        # A closed sloping prism, used for the two stringers and two handrails.
+        x0, x1 = seat, seat + sign * run
+        top0, top1 = upper + offset, offset
+        vertices = [(x0, ya, top0-thickness), (x1, ya, top1-thickness),
+                    (x1, yb, top1-thickness), (x0, yb, top0-thickness),
+                    (x0, ya, top0), (x1, ya, top1),
+                    (x1, yb, top1), (x0, yb, top0)]
+        for indices in ((0,3,2,1), (4,5,6,7), (0,1,5,4),
+                        (1,2,6,5), (2,3,7,6), (3,0,4,7)):
+            face = [vertices[i] for i in indices]
+            b.add_poly(face if sign == 1 else face[::-1], conf, M_TRIM)
+
+    for ya in (y0, y1-.10):
+        slope(ya, ya+.10, -.10, .18)
+        slope(ya, ya+.10, .95, .10)
+        for i in (0, count//2, count):
+            at = i * going
+            foot = max(0.0, upper - i * rise - .18)
+            box(max(0.0, at-.05), foot, min(run, at+.05),
+                upper - i * rise + .95, ya, ya+.10)
 
 
 def _explicit_openings(b: MeshBuilder, p: FortStructureParams) -> None:
