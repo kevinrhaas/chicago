@@ -161,7 +161,7 @@
     }
   ],
   "research_note": "BUILT ON A JOIN BETWEEN TWO SOURCES, AND THE JOIN IS THE RECORD'S WEAKEST POINT AFTER ITS POSITION. The project's dossier had only the Tribune's account of 18 August 1835 — an existence six weeks AFTER the scene date and no description of the building at all. Reading Andreas at full text turned up the other half: 'For a time services were held in various places — in Billy Caldwell's log council-house, in Chester Ingersoll's tavern, or in Watkins's school-house', which puts a log council house on the north side in 1834, a year BEFORE the scene date, and gives the only word anybody wrote about its fabric. Existence on 1835-07-01 is therefore bracketed rather than extrapolated. THE POSITION IS THE PROBLEM: 'east of the present State street and west of the \"Lake House\"' bounds it inside 215 m of riverbank and no source narrows it further, so the coordinate is a choice inside a band and is tagged conjectural. WHAT WOULD UPGRADE IT: any source naming a street, a corner or a lot — the Chicago Democrat's notices of agency business are the likeliest place, and the 1835 Wabansia and Kinzie's Addition plat would settle which lots were built on. See docs/RESEARCH/council_house.md.",
-  "research_doc": "",
+  "research_doc": "docs/RESEARCH/council_house.md",
   "review_required": true,
   "review_reason": "WHAT THIS RECORD DOES NOT DO, and the reason it is flagged review_required: the events the sources attach to this building — the treaty council of 1833 and the gathering of 18 August 1835 — are the removal of the Potawatomi from Chicago, which AGENTS.md places under a standing constraint."
 }

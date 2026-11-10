@@ -245,6 +245,6 @@
     }
   ],
   "research_note": "THE ANCHOR OF THE SOUTH WATER STREET COMMERCIAL ROW, and the first store this dataset has ever held on the street that was the town's business street. Andreas gives three things plainly — a two-storey frame store, the south-west corner of South Water and LaSalle, and an unfinished loft over it used as lodging — and gives no dimension at all, which is why the footprint is invented inside the one documented constraint the street offers: 55 ft lots. THE LOFT IS THE PART OF THIS RECORD THAT IS DOCUMENTED AND NOT BUILT, and it is worth stating in full because a visitor cannot see it. Rev. Jeremiah Porter, arriving in May 1833 to found what became the First Presbyterian Church, lodged in the unfinished loft of this store; that is the kind of detail that makes a boom-town store legible, and the model shows a plain two-storey block with a roof over it and nothing of the loft. It is not stated as a form attribute because the frame_storefront archetype was being written in parallel with this record and no record should guess at a parameter vocabulary that does not exist yet — the moment that archetype lands with a loft parameter, this record should gain 'loft': {value: true, confidence: 'documented'} and lose this paragraph. See docs/RESEARCH/peck_store.md. DO NOT ADD PECK'S BRICK HOUSE TO THIS SCENE: it is 1837, it is the first brick house erected in Chicago, and it is already in data/exclusions.json.",
-  "research_doc": "",
+  "research_doc": "docs/RESEARCH/peck_store.md",
   "review_required": false
 }

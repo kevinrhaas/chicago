@@ -180,7 +180,7 @@
     }
   ],
   "research_note": "RECONSTRUCTED BUILDING, RAISED FOR A RECONSTRUCTED HOUSEHOLD (docs/ROADMAP.md K1, phase two). The west-side smith's own roof. It is NOT one of the anonymous count-units of the 665-roof programme: those are placed by aggregate mix and carry no occupant, while this one exists because the occupation census says the town held a household of this trade and no anonymous roof of the right family stood free in this district. It consumes one slot of its district's programme target rather than adding to it - see the accounting block in data/reconstruction/1835_inferred_household_programme.json.",
-  "research_doc": "",
+  "research_doc": "docs/RESEARCH/residents_1835_inferred.md",
   "review_required": false,
   "reconstruction": {
     "status": "inferred_anonymous",
