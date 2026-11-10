@@ -225,6 +225,9 @@ step "A K03 brick wall's per-brick shuffle reads the library's own bonds, and ev
 selftest "The brick-bond check refuses a bond with a course moved and a load loop that never binds the shuffle (T-3295)" \
   node tools/check_brick_bond.mjs --self-test
 
+step "Early masonry uses the recorded stack disposition, preserves native triangles and leaves mapped and1904 materials alone (T-3341)" \
+  node tools/test_masonry_surfaces.mjs
+
 step "A cheaper glass replaces only transmissive panes, and only when asked (T-2109)" \
   node tools/check_glass_modes.mjs
 

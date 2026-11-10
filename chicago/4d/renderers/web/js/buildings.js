@@ -56,6 +56,7 @@ import { filterGlessnerRoof } from './glessner-roof-filter.js';
 import { tintGlessnerGranite } from './glessner-stone.js';
 import {tintKeithStone} from './keith-stone.js';
 import { loadWallRelief } from './wall-relief.js';
+import { loadMasonrySurfaces, masonryMeshes } from './masonry-surfaces.js';
 import { loadCampSurfaces } from './camp-surfaces.js';
 import { applyBrickBond, brickBondFromSearch } from './brick-bond.js';
 import { addFeet, feetPoints, packFeet } from './building-feet.js';
@@ -598,6 +599,15 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
    */
   const walls = await loadWallRelief({ lowSpec });
   if (walls.problem) problems.push(walls.problem);
+  // T-3341: only the early scenes' untextured masonry. Mapped period recipes
+  // retain their native sheets and the K03 brick shuffle below.
+  const masonry = await loadMasonrySurfaces({ lowSpec,
+    wanted: [...registry.values()].some((r) => r.gltf
+      && ['1812', '1835'].includes(String(r.sidecar?.scene))),
+    shuffle: brickBondFromSearch(globalThis.location?.search),
+  });
+  if (masonry.problem) problems.push(masonry.problem);
+  const masonryBound = { brick: 0, clay: 0 };
   /**
    * T-3342: the 1812 camp's mat, bark and bough coverings, bound by material name with
    * their sheets (camp-surfaces.js). Before the loop for the roofs' reason, and loaded
@@ -691,7 +701,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
         + `says '${record.sidecar.phase}' — the asset and the record disagree`);
     }
 
-    const meshes = collectMeshes(node);
+    const meshes = masonry.off ? collectMeshes(node) : masonryMeshes(collectMeshes(node), record.sidecar);
     if (!meshes.length) {
       problems.push(`${record.id}: the GLB contains no meshes`);
       continue;
@@ -784,7 +794,9 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       if (campWarning) problems.push(`${label}: ${campWarning}`);
       // A number when this is a bound wall: how much of the wood's figure its
       // finish lets through, written per vertex below (wall-grain.js).
-      const grain = walls.apply(material, record.sidecar);
+      const masonrySurface = masonry.apply(material, record.sidecar, bodyRole);
+      if (masonrySurface) masonryBound[masonrySurface] += 1;
+      const grain = masonrySurface ? null : walls.apply(material, record.sidecar);
       // T-3295: a K03 brick panel draws each brick from another of its kind, so the
       // 0.86 m tile stops showing; by the base colour's image name (brick-bond.js).
       const brickPanel = applyBrickBond(material, { on: brickBonds });
@@ -1819,6 +1831,7 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
      * each substrate's library id, map size, tile and mean roughness.
      */
     wallRelief: walls.off ? { off: true } : { off: false, substrates: walls.sets ?? null },
+    masonrySurfaces: { off: masonry.off, substrates: masonry.sets, bound: masonryBound },
     // T-3295: the K03 panels drawn brick by brick, or `{ off: true }` under ?bricks=tiled.
     brickBond: brickBonds ? { off: false, panels: brickBound } : { off: true },
     /** Draw calls these buildings cost in the colour pass. */

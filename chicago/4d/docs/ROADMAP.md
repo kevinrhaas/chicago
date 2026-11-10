@@ -6527,3 +6527,8 @@ Seasonal daily routines now cover all eight drawn household members. Door caller
 Balanced now uses the existing conservative shadow-caster filter. At the failing 1835 West prairie view, 66,537 submitted triangles and 501 calls disappear with zero changed pixels; the 2,625,000 ceiling remains unchanged. Receipts: docs/RESEARCH/balanced-shadow-budget-3535/. Release smoke verification is recorded in the PR.
 
 T-3535 also recalibrates the Full-only Ghost triangle allowance from the complete desktop settings smoke, retaining the existing margin and all ordinary/lower-tier budgets.
+
+
+### 2026-11-10 — T-3341 early masonry surface increment
+
+The remaining flat brick and chimney materials in 1812 and 1835 now bind the existing procedural brick or clay sheet by their recorded disposition. Already mapped fort recipes and 1904 materials are retained. The new brick shuffle reads the library's 20 by 48 running bond; Miller's mixed native stack primitive is partitioned without losing triangles or confidence. Texture derivatives and shader work are checkpointed; full published desktop/phone appearance, boot and phone-memory qualification remain pending at this source increment. See docs/RESEARCH/early-masonry-3341.md and L-early-masonry-surfaces-3341.
