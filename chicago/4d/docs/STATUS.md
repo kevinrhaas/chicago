@@ -1,27 +1,39 @@
-## T-2795 — 1904 figures on the visible pavement (source proposal, 2026-11-10)
+## T-2795 — 1904 figures follow the visible pavement (2026-11-10)
 
-A separate, unmerged candidate replaces a figure's hidden raw terrain base only
-where both enabled terrain-cut materials admit the actual mask and an existing
-Float32 walk, parkway, curb-top or alley triangle supports the point. It changes
-no geometry, shader, field sampler, horse-road sampler, explicit stair height,
-water/deck rule, positive yard lift, anchor, model or render budget.
+The preceding coachman and safe errand/tour handoff increment is merged into DEV
+through PR #1917, normal merge `f2346303048398c0f8597861ba0bcbeac6772e15`,
+after every required exact-head check passed. The broader transport acceptance
+remains open. This next candidate corrects the existing hidden-field support base
+for 1904 people, using an actual Float32 pedestrian surface only where both enabled
+terrain-cut materials admit the same actual mask. Geometry, terrain shaders, raw
+heightfield, horse-road sampling, explicit stair heights, water/deck rules, positive
+yard lifts, anchors, models and render budgets are retained.
 
-The earlier exact-2c9 CPU controls passed: 47 mask/material/height-composition
-checks; actual district geometry retained byte for byte; a 215,176-byte lazy index
-with no duplicated XYZ, about 19 ms to initialize and 13 ms for 10,000 queries.
-Six known pixels from the actual mask receipt also cover all 2,942 recorded foot
-domain vertices and the actor centre after Float32 UV arithmetic. That sparse
-replay is not a reconstructed full mask or a new world measurement.
+The actual source-bound a1bc31a8 world probe confirms the correction: Charles's
+root is now at the visible parkway centre, 4.311735338 m, while the raw field remains
+4.341757225 m. All 1,466/1,476 original foot-domain vertices are covered and masked
+by both actual compiled terrain materials. Foot minima still penetrate the sloping
+surface by 2.315/2.850 mm; this centre-height correction is not fitted soles, gait,
+continuous contact or photographic acceptance. Original horse contact assertions
+passed for the finite pose. The strict observer remains NONPASS because 30 native
+aborted requests were recorded; actual page/HTTP/server and physical-observer
+errors were zero. It closed under the original 600-second cap with accepted
+resource floors and no remaining owned children. The earlier attempt stopped on
+the original workspace floor before measuring feet; that failure is retained.
 
-The prior physical probe found roughly 27 mm of shoe hover above the parkway.
-The corrected centre would move down 30.022 mm, which by itself does not prove
-slope contact and may leave millimetres of penetration at the old sole minima.
-Fresh physical-only published-world contact remains required. Conservative mask
-blend edges keep the old field and can introduce a height discontinuity; continuous
-walking contact, phone cost and photographic/world acceptance remain unverified.
-On current committed 11d4 source, the same 47 controls and the actual native
-zero-write probe/isolation audit passed; all 976 foreign rows were retained.
-No full preflight or publication has been run for this sparse source proposal.
+Actual district controls retain geometry byte-for-byte and price a 215,176-byte
+lazy index with no duplicated XYZ, about 19 ms initialization and 13 ms for 10,000
+queries. The world confirms the same 18,166 triangles on five surfaces. These are
+CPU/owned-byte and finite physical observations, not a phone or frame-time pass.
+The 47 mask/material/height-composition controls and native zero-write isolation
+pass; all 976 prior isolation rows are retained. A sparse six-pixel replay covers
+all recorded vertices but is not a rebuilt full GPU mask. Conservative blend-edge
+fallback can cause a height jump; continuous walking remains unqualified.
+
+The original complete document bytes below are preserved. Full local preflight
+has not passed in this sparse asset checkout. Complete current-head hosted gates,
+including moving-frame and phone release checks, remain mandatory before DEV merge.
+No screenshot, UI, tour, quiet-clock or full-world pass is claimed for this probe.
 
 ## T-2795 — Charles Nelson beside the Glessner carriage team (2026-11-10)
 

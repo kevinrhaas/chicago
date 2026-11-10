@@ -1,14 +1,14 @@
-## T-2795 — ground 1904 people on the visible pedestrian surface (prepared, 2026-11-10)
+## T-2795 — ground 1904 people on the visible pedestrian surface (2026-11-10)
 
-Prepare the bounded native support sampler for the existing coachman and other
-1904 people, preserving retained street geometry, horse roadway contact, decks,
-positive yards, water fallback and explicit door/stair heights. Source-only work
-and CPU/mask controls are ready; run one actual physical world after review to
-measure the prior 27 mm hover correction before opening the separate DEV PR.
-Do not infer slope/continuous-walking contact from a corrected centre height.
-Conservative mixed-mask edges fall back to the field and may step in height;
-phone performance, photographic acceptance and complete preflight remain open.
-The visitor changelog entry stays external until the preceding T-2795 entry folds.
+The coachman placement and safe tour/errand handoff shipped through PR #1917.
+The next native support candidate now has actual world evidence: Charles's centre
+matches the drawn parkway rather than the discarded raw field. Retain the measured
+2.315/2.850 mm slope/pose residuals and conservative mask-edge height transitions
+as open contact work; do not add a per-person height fudge or claim fitted feet.
+Preserve existing decks/yards/water, explicit stair heights, horse roadway contact,
+geometry and models. Require complete current-head hosted gate, moving and phone
+checks before DEV merge. Boarding/ride, full gait/contact and photographic acceptance
+continue on the existing tickets; no new ticket or broad closure is introduced.
 
 ## T-2795 — bring the existing coachman beside his waiting team (2026-11-10)
 
