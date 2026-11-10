@@ -2,7 +2,7 @@
 
 This rereads the original 21-record scope for **1 July 1835**. The machine-readable
 [coverage matrix](coverage.json) names every record, every cleared picture actually
-opened, source hashes, dated interpretation and the remaining rendering qualification.
+opened, source hashes, dated interpretation and the actual native/render qualification.
 It is a rereading of the existing corpus, not a new archival count.
 
 Four finite physical omissions are completed: the officers' outside stair, the plan-named
@@ -127,14 +127,13 @@ than0.3m, missing element, wrong count or wrong
 material has been established for a securely identified July1835 building in this
 corpus. Cross-date disagreements, unidentified ranges, retrospective composition,
 source-pixel offsets and camera alternatives are adjudicated under AGENTS rule11 /
-T-3153; they do not become an endless list of new architectural blockers. Actual
-new side-by-sides still require visual review before any `matches` verdict.
+T-3153; they do not become an endless list of new architectural blockers. All nine actual nativeB29 AFTER full pairs have now been directly opened and adjudicated; see the dated review below.
 
 ## Validation and delivery boundary
 
 The CPU stair geometry test measures emitted tread levels, ground-to-floor risers,
 landing clearance, run, rail height and guarded invalid combinations. The actual
-postern runtime CPU test checks four rendered leaves, unchanged main-gate spans,
+postern runtime CPU test checks four gate assemblies and six rendered leaves, unchanged main-gate spans,
 closed barriers, real interaction swings and actual walker passage at both side seats.
 Existing fort
 front tests pass, including legacy16 positional parameters, five first-fort canopy
@@ -178,3 +177,39 @@ not a model/native input change or a new historical viewing station.
 ### 2026-11-10 finite 1855 diagnostic framing
 
 The actual A+B-only c390 baseline cropped the lower galleries. Keep its eye[-25,45,10], yaw153 and full-page source unchanged; use focal2015 and principal[2765,832] solely as diagnostic framing. CPU projection of both current A5 MASTER boxes extended for the explicitly expected A gallery and B stair places the full envelope within[208.64,874.86]–[2708.66,1825.45] of2918×2038 pixels. The exact source/model/camera bindings and bounds are in `hesler-1855-framing-bindings.json`. This is not a historical optics claim. Retain the c390 cropped actual comparison as history; the refined actual comparison is the common BEFORE/AFTER baseline. Root adopts both metadata follow-ups only after native29 adoption; the native b9 source pin is unchanged.
+
+
+## 2026-11-10 actual native B29 comparison sign-off
+
+Root adopted successful native run `42758213227` before these captures. The actual
+render source pin is `53b9bd1a2877d3d96a8b2a5c7adbb66aca8a0955`, including both
+post-native1855camera metadata follow-ups. All nine actual AFTER captures exited0,
+using exactly the camera/photo bytes of their final actual BEFORE baseline. Every
+rendered member hash was checked against the adopted setup. Exactly the four intended
+fort MASTERs changed; the other17 of21 remain byte-identical.
+
+Every full AFTER pair was directly opened before setting its canonical verdict.
+The nine canonical records now say `matches` with explicit fixed/notshown/within
+Tolerance differences under AGENTS11/T3153. This records no established open
+visitor-visible July1835 architectural discrepancy in the finite identified scope;
+it does not claim pixel identity, historical optical calibration or positive picture
+identity for every context member. Actual1855A front doublegallery and B exterior
+stair are now visible; the source-named barn cupola and text-attested smallposterns
+remain explicit reconstructed controls, with native cuts and app-owned leaves.
+Anonymous Kurz/1850galleries are still unassigned. Later louvres, roof projection,
+boardfence, enlarged parade and city/hospital context are still not backdated.
+
+[The review](actual-comparison-review.json) supplies all nine canonical match/pair
+paths and finite differences. `comparisons/before/` and `comparisons/after/` retain
+raw PNGs, full source/render pairs, original unreviewed capture records, command
+exit logs, receipts and exact source/camera/photo/member bindings. The final reviewed
+canonical records are separate from those immutable unreviewed capture records.
+`coverage.json` binds every one of21 records to actual before/after MASTER hashes
+without changing its honest drawn/occluded/notshown source identity. The superseded
+cropped1855c390 and context21 baselines are retained externally at the paths in the
+framing receipt; the qualified common final baseline is committed here.
+
+Published desktop/phone Normal/ByGrade body visits, continuous R/touch physical
+postern walking and full Images credit visibility are separate validation. This
+picture sign-off does not claim those pending checks. No geometry was changed during
+capture or adjudication.
