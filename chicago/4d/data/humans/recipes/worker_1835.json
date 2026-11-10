@@ -145,7 +145,10 @@
         "age_basis": "Authoring parameter inside the existing reconstructed age band, not an asserted exact age or birth year.",
         "shape_basis": "CC0 male macro targets; equal software-category blend is engineering only, not inferred ethnicity or a portrait."
       },
-      "wardrobe_assembly": "stable_keeper_round_jacket"
+      "wardrobe_assembly": "stable_keeper_round_jacket",
+      "authoring_studies": {
+        "woven_cloth_near_v1": true
+      }
     },
     {
       "id": "flynn_martin_1835",
