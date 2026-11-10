@@ -43,7 +43,7 @@ import { footprintToWorld } from './walker.js';
  * every other palisade (the covered way, the gardens) keeps its baked leaves, shut. */
 export const FORT_GATES = Object.freeze({
   // 1835 — the second fort's two gates, north and south (Kinzie; Andreas).
-  fort_dearborn_palisade: { n: 'North gate', s: 'South gate' },
+  fort_dearborn_palisade: { n: 'North gate', s: 'South gate', e: 'East postern', w: 'West postern' },
   // 1812 — the first fort's main gate, through both rows of pickets (Whistler no. 7).
   first_fort_dearborn_pickets_outer: { s: 'Main gate, outer row', w: 'West wicket, outer row' },
   first_fort_dearborn_pickets_inner: { s: 'Main gate, inner row', w: 'West wicket, inner row' },

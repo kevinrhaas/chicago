@@ -1,0 +1,24 @@
+{
+  "structure_id": "fort_dearborn_blockhouse",
+  "scene": "1835",
+  "source_id": "kellogg_blanchard_1856_old_fort_lake_house",
+  "photo": "../../../../reference/images/chicago/chicago_fort_dearborn_river_mouth_1830.jpg",
+  "image_px": [
+    1600,
+    1131
+  ],
+  "principal_px": [
+    825,
+    725
+  ],
+  "focal_px": 1300,
+  "eye": [
+    42,
+    55,
+    3.0
+  ],
+  "yaw_deg": 218,
+  "sky": "overcast",
+  "diagnostic_only": true,
+  "solve": "Later-form single-blockhouse diagnostic,T-2388. Made1856; completed Lake House dates scene approximately1836\u20131849 despite misleading1830 filename. Bounded oblique eye[42,55,3]m/yaw218deg and focal1300px frame this14.52\u00d79.8m inferred plan under source roof box approximatelyx642\u20131000,y410\u2013813. Principal[825,725] supplies the printed vertical offset. This is a reconstructed review pose with unresolved scale/eye/principal degeneracy, not a historical station or measured roof/jetty geometry. Survey plan and dated text control the July1835 model. The louvred lantern, adjacent small projection and later lower fence belong to the source\u2019s later scene and are expressly not copied backwards. Monochrome print supplies no surface colour. Current cap/cupola/jetty/body are compared only as continuity diagnostics; see coverage.json. No metric match is claimed by this fit."
+}

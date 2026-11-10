@@ -172,7 +172,7 @@ BOOT PAYLOAD — first visit stands in the 1835 street
 Three consecutive runs produced byte-identical totals — the measurement is a
 property of the tree, not of the run.
 
-**The boot payload budget is 40.2 MB**, re-set on 2026-11-06 by T-3425 for five days of the
+**The boot payload budget is 44.1 MB**, consciously re-budgeted on 2026-11-10 for the measured retained street (§ 4m). It was re-set to 40.2 MB on 2026-11-06 by T-3425 for five days of the
 owner's town past T-3300's room (§ 4l). T-3300 had set it at 39.6 MB on 2026-11-01 for two weeks of the
 owner's town landing unmeasured (§ 4k). T-2711 had set it at 36.2 MB on 2026-10-17 for the prebuilt
 yards (§ 4j). T-2710 had set it at 33.7 MB the same day for the prebuilt streets (§ 4i), and
@@ -188,7 +188,7 @@ Re-measure and check with:
 ```
 bash tools/publish.sh                      # build the mirror the visitor gets
 node tools/measure_boot_payload.mjs        # the report above
-node tools/measure_boot_payload.mjs --check  # exit 1 past the 40.2 MB budget
+node tools/measure_boot_payload.mjs --check  # exit 1 past the 44.1 MB budget
 node tools/measure_boot_payload.mjs --against docs/measurements/T-3425-boot-payload-entries.json
                                            # what grew since § 4l's reading, file by file
 ```
@@ -777,10 +777,30 @@ partition in place of float32 vertices and the tree atlas's resolution (§ 4k). 
 be read against this reading first:
 `node tools/measure_boot_payload.mjs --against docs/measurements/T-3425-boot-payload-entries.json`.
 
+### 4m. November10 actual street and the final picture group — measured re-budget
+
+This is a conscious re-budget under AGENTS.md's standing owner ruling, not a claim that the old smoke passed. Official fresh pre-group measurement on publishedc555/source846/native9dd reads **45,932,852 wire bytes (43.804981 MiB)**,1196requests and zero request failures, with the normal3second settle. The previous40.2MiB cap is genuinely breached. The new **44.1MiB** cap leaves309,349 whole wire bytes before this group, and will be checked again after the build.
+
+The retained native full smoke run42745792113 measured **2,657,398 triangles/6,441 calls** at desktop West prairie, over the previous2,625,000 ceiling. A fresh official six-stand Balanced sweep measured2,595,407/6,441; it does not erase the higher literal smoke reading. We price conservatively from2,657,398. The new **2,675,000** cap leaves17,602 triangles, with the existing7,800 draw-call cap unchanged.
+
+The final three originals select29 outputs (27defaultphases and twoTremont variants) with five intended targets. Actual old-native counts exactly match the CPU accumulator counts. The proposed new counts change GreenTree by+56, officers by+144, barn by+74, palisade by-74 and commandant by+1,404 triangles. Without crediting the reduction, positive resident-mesh growth is at most1,678 triangles; a second building shadow pass would make3,356. This is geometry pricing, not a whole-frame or wire FITS claim: view/culling/animation and compressed output bytes remain post-native checks.
+
+**Light's floor, ordinary Full, Balanced/Light Ghost, all draw-call ceilings and tier reaches remain unchanged.** Full Ghost has the separately measured correction below. No content is deleted, hidden or downgraded to meet these allowances. Raw failed full-smoke logs, both differing fresh measurements, input pins and exact CPU counts are preserved in the checkpoint. The final build must be measured; no future parcel is prepaid by these choices.
+
+#### Full Ghost correction from the actual retained-B desktop run
+
+The official desktop13 job at source `b9c767997c452740c6b690cf2d280d7f75c8c9d5`, with retained native `6908d896ffba7af2e99d9e5daffd1b49f3f1c9c1`, actually failed Full X-RAY at23:38: **3,737,315 triangles**, against the previous **3,675,000** allowance, an excess of62,315. Both public and frame-stat budgets agreed;8,152 calls remain below the unchanged8,900 Full Ghost draw ceiling. The old triangle allowance came from paired-parent X-RAY3,656,436 plus18,059 defended triangles, rounded up to5,000. The earlier boot/Balanced re-budget did not price this Full Ghost reading. The raw failure is retained at `/tmp/nov10-final-stockade-smoke/desktop13-original-job.log`; the job later timed out, which does not erase this actual failure.
+
+This is an actual post-bake discovery: the before-deal pricing required by T-1674 missed Full X-RAY. The conservative geometry price below does not retroactively turn that missed view into a pre-build measurement. The concurrent waiting-carriage team does not add an1835charge: `main.js` enables stationary teams only when YEAR is1904, and the parked loader reads only `record.scenes[String(sceneId)]`. The1835manifest has five wagons and no stationary team. Confidence renders the loaded scene's opaque/ghost passes; it does not load another date's scene. Thus the new1904horses contribute zero triangles to this1835reading; no unmeasured1904Ghost fit is claimed.
+
+Under the standing measured re-budget authority, **Full with active Ghost now allows3,750,000 triangles**. This leaves12,685 above the actual reading. That reading already includes the B geometry. As a conservative reserve, charge its positive resident-mesh growth1,678 again for three passes (5,034), giving3,742,349, then round up to25,000. This prices the observed excess without deleting or hiding faithful geometry. It is not a measured frame-time improvement, a universal camera maximum, a promised future parcel allowance or a fresh smoke PASS. The official desktop13 recovery must measure the same strict rendered≤declared and public/stat agreement checks after publication.
+
+The shared resolver, independent policy tests and smoke pin all use the same new Full Ghost ceiling. Ordinary Full remains3,470,000, Balanced2,675,000, Light1,190,000, the inspection allowance remains4,700,000, and all existing draw-call limits, tier reaches and Light's floor remain unchanged. Leaving Ghost or hiding its last visible grade restores the original tier policy. Negative controls reject the old ceiling, an unauthorized extra triangle/call, divergent public/stat ceilings, and applying this allowance to ordinary or lower-tier views.
+
 ## 5. What the gate does now
 
 - **Refuses** over 416 MiB (T-3170; measured re-budgets in §8, §9, §11 and §13) — the repository-hygiene guard, not the visitor-cost
-  budget; the visitor-cost budget is the 40.2 MB boot payload budget in § 4,
+  budget; the visitor-cost budget is the 44.1 MB boot payload budget in § 4,
   enforced by `tools/measure_boot_payload.mjs --check`. The gate names
   `tools/site_budget.py` in the message so the next run does not have to invent
   the report again.
@@ -1204,3 +1224,8 @@ This is a conscious storage re-budget from **432 to433 MiB**, not a skipped size
 The1 MiB increase gives just under1 MiB of clean-tree headroom. Using the existing deployed-artifact allowance accounting from §14, two433 MiB trees plus132.233 MiB other content total998.233 MiB, below the established1024 MiB ceiling. This calculation is an allowance, not a new measurement or claim of production promotion. The validator still measures the full clean published artifact and fails above433 MiB. Boot payload, Full/Balanced/Light frame limits, Light's floor, the90% warning and duplicate checks do not move. Actual focused published desktop and phone qualification uses the same seven target assets, sidecars and renderer files; this validator/documentation change changes no model or renderer.
 
 The local long-lived workspace contains additional generated materializations and is not used as the clean-artifact size reading. The quoted432.01 MiB comes from the named immutable GitHub CI job; the raw job log and native asset-cost receipts remain in the checkpoint.
+
+
+### 2026-11-10 concurrent dev integration: Full Ghost allowance
+
+T-3535 independently qualified the same measured 3,737,315-triangle Full X-RAY reading with a retained 18,059-triangle margin and a 3,760,000 allowance. Integrating that already-merged dev work retains its 3,760,000 definition and strict public/stat consistency checks, superseding this parcel's narrower 3,750,000 allowance. The original 3,750,000 qualification still passes the stricter bound and remains recorded above. The current 2,675,000 Balanced allowance from this parcel coexists with T-3535's conservative shadow-caster filter; its filter is preserved. The ordinary Full, Light, inspection, reach and draw-call policies are preserved. This is an explicit reconciliation of two measured budget decisions, not a new geometry or performance claim.

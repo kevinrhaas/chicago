@@ -1196,6 +1196,102 @@ per-house `from`), `docs/RESEARCH/district-background-3011/README.md`.
 **Resolved:** 2026-10-25, by the reading this entry asked for. T-3150 ingested Sanborn 1911 sheet 27 and read the face's 26 lots into the 1904 grid; T-3151 traced and censused its buildings as sheet `27w` and replaced the row with 35 drafts read off the sheet, house by house and stable by stable (`L-draft-district-background-3151`). The record `indiana_east_frontage_18th_20th_background_row` and its masters are gone, and the Blue Book's ten numbers now stand on their own lots: each falls on a lot whose 1911 front is a dwelling.
 
 
+### L45 — The garrison garden: a fence read from a drawing convention, and a planting not drawn
+**Decision:** `fort_dearborn_garrison_garden` is built as a worm rail fence round a square of
+about 77 m. The fence's **height, its courses, its panel length and its zigzag** are invented,
+and the **planting inside it is documented and not built at all**.
+**Why:** the 1830 Harrison plan draws this plot and labels it "Garden for the Garrison", and it
+draws two of its sides as a continuous zigzag. A zigzag boundary on a period American survey is
+the convention for a worm — snake — rail fence, so that is what is built; but the convention is
+the reading and the sheet never says "fence", which is why `wall_kind` is `inferred` and every
+dimension of the fence is `conjectural`. The planting is the opposite case and the sharper one:
+Juliette Kinzie says the company gardens were *"well filled with currant-bushes and young
+fruit-trees"*, which is `documented`, and **nothing of it is modelled**, because currant bushes
+and fruit trees are flora and `data/flora/` has no cultivated zone and no garden species. So the
+record carries a documented chip over an empty rectangle of ground.
+**A guard belongs here too.** The garden usually quoted in accounts of this fort — *"The ground
+on the south side was enclosed and cultivated as a garden"* — is from a passage that ends *"Such
+was the old Fort previous to 1812"*. It is the FIRST fort's garden and this record does not rest
+on it.
+**Consequence:** the reservation reads as fenced, empty ground. The single most evocative
+detail anyone recorded about this place — fruit trees in a garrison garden on the Chicago
+prairie — is in the data and invisible in the model.
+**How to resolve:** a cultivated-ground zone in `data/flora/`, which is a flora parcel rather
+than a structure one; the species are already named by the source.
+**Covers:** `fort_dearborn_garrison_garden.fence_1816.form.fence_height_m`, `fort_dearborn_garrison_garden.fence_1816.form.rail_courses`, `fort_dearborn_garrison_garden.fence_1816.form.panel_length_m`, `fort_dearborn_garrison_garden.fence_1816.form.panel_offset_m`, `fort_dearborn_garrison_garden.fence_1816.form.planting`.
+**Recorded:** 2026-08-11.
+
+**Resolved:** 2026-11-10, T-2388. Only the historical planting-omission claim is settled: the existing flora layer already supplies the young fruit trees and currant bushes through data/flora/plantings/fort_company_garden_1835.json, while this fence record’s attested planting description is record_only. This is not new garden vegetation in this source group; its species/count/row liberties remain L-fruit-trees-1835-2809. All four reconstructed fence metrics and the survey-symbol interpretation remain standing in L-second-fort-garden-fence-metrics-2388. The original text above is preserved as history; no fence dimension is resolved by moving it.
+
+
+### L47 — Fort Dearborn's stockade: the plan is evidence and the wall is not
+**Decision:** the fort's picket line is built at an invented height, out of invented posts, with
+an invented gate opening and invented corner works. Its **plan** — a square, two gates north and
+south, bastions at the north-west and south-east angles, a block-house at the south-west — is
+`documented` or `inferred` from three sources that agree; its **fabric** is entirely ours.
+**Why:** the whole of the physical description this project could find is one adjective. Juliette
+Kinzie, living inside it in 1831: *"The fort was inclosed by high pickets, with bastions at the
+alternate angles. Large gates opened to the north and south."* Andreas adds "a square stockade"
+and the two gates. The 1830 Harrison plan draws the outline. **Nobody wrote down how high the
+pickets were, how wide they were, how close they stood, how wide the gates opened or how far the
+bastions projected**, and Quaife — who wrote the standing monograph on this fort and had the War
+Department files — gives no dimension of the 1816 work anywhere. So twelve feet, a ten-inch face,
+a hand's gap, a twelve-foot gate and a seven-metre bastion are all this project's arithmetic
+wearing plausible numbers.
+**The one that matters most is the height.** A stockade's height is what a visitor reads the
+building by: at three metres it is a compound, at four it is a fort. The confidence view dithers
+it, which is exactly right and is the only thing standing between a viewer and a number we
+invented from an adjective.
+**Consequence:** the fort's silhouette — the thing anyone would photograph — is ours. So is the
+gap between the posts, which decides whether you can see through the wall.
+**How to resolve:** any quartermaster return, repair estimate or engineer's report for the post
+between 1816 and 1836. A picket count or a quantity of timber would settle the height and the
+spacing together.
+**Covers:** `fort_dearborn_palisade.picket_1816.form.picket_height_m`, `fort_dearborn_palisade.picket_1816.form.picket_width_m`, `fort_dearborn_palisade.picket_1816.form.picket_spacing_m`, `fort_dearborn_palisade.picket_1816.form.gate_width_m`, `fort_dearborn_palisade.picket_1816.form.bastion_length_m`, `fort_dearborn_palisade.picket_1816.form.bastion_projection_m`, `fort_dearborn_palisade.picket_1816.form.posterns`.
+**Recorded:** 2026-08-11.
+**Evidence since, 2026-08-28 (T-0185):** the gap between the posts — the part of this entry
+that "decides whether you can see through the wall" — was challenged by the one picture of the
+fort, and holds. `p4_0` resolves separate posts at a 10 px rhythm on a 42.9 px curtain, 0.23 of
+the wall's height per post against this record's 0.081, and nothing had ever tested whether that
+was a reading of the fort or of the lithograph. It is of the lithograph: at the plate's own scale
+of 11.6 px per metre this wall's rhythm is 2.78 px of post and **0.70 px of gap**, and the
+narrowest gap the plate holds anywhere on that curtain is 2 px. It could not have drawn this wall
+whatever the fort was made of, so its coarser pitch is the floor of the medium — and 0.23 of a
+3.7 m wall is an 0.86 m post, which is not a picket. **Nothing is upgraded and nothing moved.**
+Both figures stay `reconstructed` and this liberty stands exactly as written; what is new is that
+the disagreement is now measured and recorded, so the next run reads it rather than re-opening it.
+`tools/measure_picket_plate.py` prints both sides.
+
+**Resolved:** 2026-11-10, T-2388. Only the former posterns-omission claim represented by the original Covers token is settled at the source level: the attested descriptive posterns boolean is now record_only, and the separate consumed gate controls select two bounded side openings. Genuine native output and actual interaction/street review are still pending and required before merge; no built-geometry acceptance is asserted here. The six reconstructed picket, main-gate and bastion metrics, together with all prior source and medium-resolution qualifications, remain standing in L-second-fort-palisade-fabric-metrics-2388. The separate reconstructed postern seats, width and make remain admitted by L-second-fort-side-posterns-2388. No blanket settlement of the stockade fabric is intended.
+
+
+### L225 — The word the draughtsman thought worth writing is the one thing on this barn the model does not build
+**Decision:** `fort_dearborn_big_barn` stands west and a little south of Fort Dearborn with a
+plain gable roof. The plan that puts it there letters it **"Big Barn with Cupola"**, and the
+cupola is **not built**. The record carries it as `form.cupola`, graded `attested` — a source
+states it in so many words — with `geometry: "absent"` beside the value, so the omission is on
+the building's own card rather than in a reviewer's head.
+**Why:** the `outbuilding` archetype has no cupola and cannot acquire one cheaply. A cupola is
+a size, a set of louvres or lights, a roof of its own and a station along a ridge, and this
+building's ridge runs at a pitch that is itself inferred from period practice rather than
+measured off anything. That is four inventions stacked on an inference in order to render one
+word. The barn is honest with a plain gable and a record that says what is missing; it would be
+dishonest with a cupola this project designed.
+**Consequence:** a visitor sees a large log barn beside the garrison garden and does not see the
+one feature that made an 1830 engineer bother to name it. The `Evidence` panel says so. Anyone
+who later gives this archetype a cupola should come back here first — the parameters wanted are
+in this entry, not in the mesh.
+**What is NOT claimed:** nothing about the cupola's form. Its size, its glazing, its louvring
+and where it sat on the ridge are all unstated by both witnesses and are unstated here. A
+second plan of this fort, a post return, or the return of Harrison's 1830 original — what is
+readable today is Andreas's 1884 re-engraving of it — would replace this entry with geometry.
+Related: **T-0883** (this), **T-0758** (the parent: six things the plan names and nothing drew).
+**Covers:** `fort_dearborn_big_barn.barn_1830.form.cupola`.
+**Recorded:** 2026-09-06 (T-0883).
+
+**Resolved:** 2026-11-10, T-2388. The source-level refusal/absence declaration is superseded: the named cupola occurrence remains attested and record_only, while the consumed cupola_shape and three metric controls now select a bounded boarded body and pyramid cap. Their shape, seat and dimensions remain standing liberties in L-second-fort-big-barn-cupola-2388. The original omission rationale above is kept verbatim. Actual genuine native output, picture comparison and published street review remain pending and must qualify before merge; this line does not claim that the pending mesh has already been built or accepted.
+
+
 ## Per-subject liberties
 
 ### L4 — Sauganash Hotel: the gallery question, and how it was decided
@@ -2191,44 +2287,6 @@ store stood beyond the modelled box on L17's radial skirt; S2e has since built t
 under it. The invented block, side of street and point along it are untouched.
 **Recorded:** 2026-08-11.
 
-### L47 — Fort Dearborn's stockade: the plan is evidence and the wall is not
-**Decision:** the fort's picket line is built at an invented height, out of invented posts, with
-an invented gate opening and invented corner works. Its **plan** — a square, two gates north and
-south, bastions at the north-west and south-east angles, a block-house at the south-west — is
-`documented` or `inferred` from three sources that agree; its **fabric** is entirely ours.
-**Why:** the whole of the physical description this project could find is one adjective. Juliette
-Kinzie, living inside it in 1831: *"The fort was inclosed by high pickets, with bastions at the
-alternate angles. Large gates opened to the north and south."* Andreas adds "a square stockade"
-and the two gates. The 1830 Harrison plan draws the outline. **Nobody wrote down how high the
-pickets were, how wide they were, how close they stood, how wide the gates opened or how far the
-bastions projected**, and Quaife — who wrote the standing monograph on this fort and had the War
-Department files — gives no dimension of the 1816 work anywhere. So twelve feet, a ten-inch face,
-a hand's gap, a twelve-foot gate and a seven-metre bastion are all this project's arithmetic
-wearing plausible numbers.
-**The one that matters most is the height.** A stockade's height is what a visitor reads the
-building by: at three metres it is a compound, at four it is a fort. The confidence view dithers
-it, which is exactly right and is the only thing standing between a viewer and a number we
-invented from an adjective.
-**Consequence:** the fort's silhouette — the thing anyone would photograph — is ours. So is the
-gap between the posts, which decides whether you can see through the wall.
-**How to resolve:** any quartermaster return, repair estimate or engineer's report for the post
-between 1816 and 1836. A picket count or a quantity of timber would settle the height and the
-spacing together.
-**Covers:** `fort_dearborn_palisade.picket_1816.form.picket_height_m`, `fort_dearborn_palisade.picket_1816.form.picket_width_m`, `fort_dearborn_palisade.picket_1816.form.picket_spacing_m`, `fort_dearborn_palisade.picket_1816.form.gate_width_m`, `fort_dearborn_palisade.picket_1816.form.bastion_length_m`, `fort_dearborn_palisade.picket_1816.form.bastion_projection_m`, `fort_dearborn_palisade.picket_1816.form.posterns`.
-**Recorded:** 2026-08-11.
-**Evidence since, 2026-08-28 (T-0185):** the gap between the posts — the part of this entry
-that "decides whether you can see through the wall" — was challenged by the one picture of the
-fort, and holds. `p4_0` resolves separate posts at a 10 px rhythm on a 42.9 px curtain, 0.23 of
-the wall's height per post against this record's 0.081, and nothing had ever tested whether that
-was a reading of the fort or of the lithograph. It is of the lithograph: at the plate's own scale
-of 11.6 px per metre this wall's rhythm is 2.78 px of post and **0.70 px of gap**, and the
-narrowest gap the plate holds anywhere on that curtain is 2 px. It could not have drawn this wall
-whatever the fort was made of, so its coarser pitch is the floor of the medium — and 0.23 of a
-3.7 m wall is an 0.86 m post, which is not a picket. **Nothing is upgraded and nothing moved.**
-Both figures stay `reconstructed` and this liberty stands exactly as written; what is new is that
-the disagreement is now measured and recorded, so the next run reads it rather than re-opening it.
-`tools/measure_picket_plate.py` prints both sides.
-
 ### L42 — The fort's buildings stand at heights, under roofs and behind stacks nobody recorded
 **Decision:** across the six modelled buildings inside Fort Dearborn, the **storey counts** of
 the officers' quarters and the barracks, the **wall heights** of the block-house, the magazine,
@@ -2317,31 +2375,6 @@ several 1840s and 1850s views of the fort — the tower stands in the 1850 dague
 **Covers:** `chicago_lighthouse_1832.tower_1832.footprint`, `chicago_lighthouse_1832.tower_1832.form.roof_type`, `chicago_lighthouse_1832.tower_1832.form.paint`.
 **Recorded:** 2026-08-11.
 **Revised:** 2026-09-12 (T-1065) — `chicago_lighthouse_1832.tower_1832.position` removed from the covers list, because it stopped being a liberty. The entry is not moved to Resolved: three of its four values are still invented and the shape, which is what it was written about, is one of them.
-
-### L45 — The garrison garden: a fence read from a drawing convention, and a planting not drawn
-**Decision:** `fort_dearborn_garrison_garden` is built as a worm rail fence round a square of
-about 77 m. The fence's **height, its courses, its panel length and its zigzag** are invented,
-and the **planting inside it is documented and not built at all**.
-**Why:** the 1830 Harrison plan draws this plot and labels it "Garden for the Garrison", and it
-draws two of its sides as a continuous zigzag. A zigzag boundary on a period American survey is
-the convention for a worm — snake — rail fence, so that is what is built; but the convention is
-the reading and the sheet never says "fence", which is why `wall_kind` is `inferred` and every
-dimension of the fence is `conjectural`. The planting is the opposite case and the sharper one:
-Juliette Kinzie says the company gardens were *"well filled with currant-bushes and young
-fruit-trees"*, which is `documented`, and **nothing of it is modelled**, because currant bushes
-and fruit trees are flora and `data/flora/` has no cultivated zone and no garden species. So the
-record carries a documented chip over an empty rectangle of ground.
-**A guard belongs here too.** The garden usually quoted in accounts of this fort — *"The ground
-on the south side was enclosed and cultivated as a garden"* — is from a passage that ends *"Such
-was the old Fort previous to 1812"*. It is the FIRST fort's garden and this record does not rest
-on it.
-**Consequence:** the reservation reads as fenced, empty ground. The single most evocative
-detail anyone recorded about this place — fruit trees in a garrison garden on the Chicago
-prairie — is in the data and invisible in the model.
-**How to resolve:** a cultivated-ground zone in `data/flora/`, which is a flora parcel rather
-than a structure one; the species are already named by the source.
-**Covers:** `fort_dearborn_garrison_garden.fence_1816.form.fence_height_m`, `fort_dearborn_garrison_garden.fence_1816.form.rail_courses`, `fort_dearborn_garrison_garden.fence_1816.form.panel_length_m`, `fort_dearborn_garrison_garden.fence_1816.form.panel_offset_m`, `fort_dearborn_garrison_garden.fence_1816.form.planting`.
-**Recorded:** 2026-08-11.
 
 ### L41 — The harbour piers are a measured line, an interpolated length and an invented width
 **Decision:** `north_pier` and `south_pier` are drawn as timber crib lines 900 ft and 400 ft
@@ -11877,30 +11910,6 @@ notice) · **L26** (the archetype's chimney) · **L148** (the clapboard stock) �
 **T-0783** (this), **T-0412** (the vendor rule that took the house off P. Pruyne & Co.).
 **Covers:** `lasalle_lake_house.occupants`, `lasalle_lake_house.documented_1834.position`, `lasalle_lake_house.documented_1834.form.stories`, `lasalle_lake_house.documented_1834.form.wall_height_m`, `lasalle_lake_house.documented_1834.form.roof_pitch_deg`, `lasalle_lake_house.documented_1834.form.plan`, `lasalle_lake_house.documented_1834.form.bays`, `lasalle_lake_house.documented_1834.form.chimneys`, `lasalle_lake_house.documented_1834.form.paint`.
 **Recorded:** 2026-09-06 (T-0783).
-
-### L225 — The word the draughtsman thought worth writing is the one thing on this barn the model does not build
-**Decision:** `fort_dearborn_big_barn` stands west and a little south of Fort Dearborn with a
-plain gable roof. The plan that puts it there letters it **"Big Barn with Cupola"**, and the
-cupola is **not built**. The record carries it as `form.cupola`, graded `attested` — a source
-states it in so many words — with `geometry: "absent"` beside the value, so the omission is on
-the building's own card rather than in a reviewer's head.
-**Why:** the `outbuilding` archetype has no cupola and cannot acquire one cheaply. A cupola is
-a size, a set of louvres or lights, a roof of its own and a station along a ridge, and this
-building's ridge runs at a pitch that is itself inferred from period practice rather than
-measured off anything. That is four inventions stacked on an inference in order to render one
-word. The barn is honest with a plain gable and a record that says what is missing; it would be
-dishonest with a cupola this project designed.
-**Consequence:** a visitor sees a large log barn beside the garrison garden and does not see the
-one feature that made an 1830 engineer bother to name it. The `Evidence` panel says so. Anyone
-who later gives this archetype a cupola should come back here first — the parameters wanted are
-in this entry, not in the mesh.
-**What is NOT claimed:** nothing about the cupola's form. Its size, its glazing, its louvring
-and where it sat on the ridge are all unstated by both witnesses and are unstated here. A
-second plan of this fort, a post return, or the return of Harrison's 1830 original — what is
-readable today is Andreas's 1884 re-engraving of it — would replace this entry with geometry.
-Related: **T-0883** (this), **T-0758** (the parent: six things the plan names and nothing drew).
-**Covers:** `fort_dearborn_big_barn.barn_1830.form.cupola`.
-**Recorded:** 2026-09-06 (T-0883).
 
 ### L226 — Two buildings the fort's engineer named, and nothing else on earth describes
 **Decision:** `fort_dearborn_wash_house` and `fort_dearborn_shop` stand east and south-east of
@@ -43073,6 +43082,168 @@ no plan, phase date, paint or placement is moved to erase them.
 **Ticket:** T-2383.
 **Recorded:** 2026-11-10.
 
+
+### L-green-tree-upper-front-three-2376 — categorical missing upper sash
+
+**Decision:** The actual native9dd comparison has two main front-gable upper sash, while the
+verified public-domain Trowbridge/Gale1902 plate clearly draws three. The prior
+two-versus-three tolerance classification is withdrawn; a missing opening is a
+categorical discrepancy. `front_upper_layout` now chooses three upper stations
+only on Green Tree's +y face. Its fractions .20/.50/.78, alignment over the
+existing ground stations, stock .85x1.35 m sash, vertical band, trim and July1835
+continuity are RECONSTRUCTED, not measured from the retrospective plate.
+Andreas1884 and Kurz1893 are retained as related, potentially dependent form
+witnesses; their narrow left-edge/shoulder-junction detail did not safely establish
+a historical two-window row. No dated alteration is invented, no source grade or
+rights is promoted, and the held c1859 photograph supplies no geometry. Ground,
+rear, eaves, attic, completed left group, footprint and world placement remain
+unchanged. Current9dd views remain differs until the genuine corrected native
+and all three actual source comparisons have been reviewed.
+
+**Covers:** `green_tree_tavern.frame_1833.form.front_upper_layout`.
+
+**Sources:** `trowbridge_green_tree_1902`, `andreas_1884_green_tree_hotel_plate`, `kurz_allison_1893`.
+
+**How to resolve:** An independently identified contemporary elevation could replace the retrospective row and exact station/stock choices. Missing exact measurements do not block this bounded correction; genuine native output and all three actual comparisons must establish the corrected opening count before acceptance.
+
+**Ticket:** T-2376.
+**Recorded:** 2026-11-10.
+
+### L-second-fort-officers-outside-stair-2388 — explicit access to the upper piazza
+
+**Ticket:** T-2388. **Record:** `fort_dearborn_officers_quarters`, phase `log_1816`.
+**Sources:** `hubbard_autobiography_1911`, printed p.36, leaf74, committed text2353–2358;
+its contradictory1827 placement/identity passage and conditional continuity remain in
+this building's existing gallery note.
+
+**Decision:** Hubbard says the upper piazza was reached by outside stairs. One straight timber
+flight now continues from the right/south end of the already-built walk. Occurrence
+is carried conditionally from1818 to1July1835; side, exact location,3.6m run,1.0m clear
+width between rails (1.2m tread breadth),14risers to the existing2.4m storey line,
+70mm treads, two stringers,0.95m rails and their posts are reconstructed. The access
+opens only the corresponding end rail. The range's wall, all openings, gallery and
+cupola retain their prior dimensions. This explicitly supersedes the earlier refusal
+to model any stair because its location was unknown. It does not identify an unkeyed
+range in Kurz's1893 print, attest exact historic carpentry or backdate later fabric.
+
+
+**Covers:** `fort_dearborn_officers_quarters.log_1816.form.gallery_stair_side`.
+
+**How to resolve:** A detailed contemporary drawing or measured account identifying the same quarters could replace the chosen stair side, carpentry and metric controls. Hubbard supplies an early outside-stair occurrence, not exact July 1835 continuity or dimensions.
+
+**Recorded:** 2026-11-10.
+
+### L-second-fort-big-barn-cupola-2388 — bounded form for the named barn cupola
+
+**Ticket:** T-2388. **Record:** `fort_dearborn_big_barn`, phase `barn_1830`.
+**Sources:** `harrison_1830_river_mouth`, literal label “Big Barn with Cupola”.
+
+**Decision:** The label attests occurrence, carried under this record's existing1830–1835 continuity
+argument. One1.2m square boarded body is centred on the barn's existing gable ridge;
+its eave is1.0m above the ridge and its pyramid cap rises0.45m. A0.08m overlap below
+the main roof at its side edges closes the seat. Midpoint position, every dimension,
+plain boards, cap shape and absence of louvres/glazing/finial are reconstructed. No
+unidentified panorama range attests this cupola's appearance. This explicitly
+supersedes the earlier refusal to build the source-named feature because dimensions
+were unknown, while preserving the barn's body, footprint, roof, doors and placement.
+The descriptive `cupola` boolean remains record_only; new consumed shape/metric
+controls drive this one opt-in model and leave other legacy records unchanged.
+
+
+**Covers:** `fort_dearborn_big_barn.barn_1830.form.cupola_shape`, `fort_dearborn_big_barn.barn_1830.form.cupola_width_m`, `fort_dearborn_big_barn.barn_1830.form.cupola_body_height_m`, `fort_dearborn_big_barn.barn_1830.form.cupola_roof_rise_m`.
+
+**How to resolve:** A contemporaneous detailed view or measured description identifying the named barn could replace the square boarded body, midpoint seat, pyramid form and metric controls. The plan label supplies occurrence, while the chosen appearance remains reconstructed.
+
+**Recorded:** 2026-11-10.
+
+### L-second-fort-side-posterns-2388 — small additional openings at clear reconstructed seats
+
+**Ticket:** T-2388. **Record:** `fort_dearborn_palisade`, phase `picket_1816`.
+**Sources:** `kinzie_waubun_1856`, ch.XVII, paragraph beginning “The fort was inclosed
+by high pickets”, independently reread at the source's actual Authorama URL on
+10November2026. “Large gates opened to the north and south, and there were small
+posterns here and there for the accommodation of the inmates.”
+
+**Decision:** The small openings are additional to the two large gates, but exact number, sides,
+positions, width and construction are unrecorded. We choose the minimum plural,
+two: east localv41.0m and west localv11.5m, in the actual clear gaps between the
+ranges. Each is a1.5m narrow wicket, its one leaf hung at the stockade's existing
+height, shut initially and opening inward. Seats, count, width, tall leaf/head,
+paling detail, hinge side and swing are reconstructed; they are not marks read from
+a plan. The native record and app leaf/interaction/walking consumer share the same
+settings. The north/south3.6m main gates remain as before. This supersedes the
+prior omission solely because “here and there” supplied no exact location, without
+borrowing the first fort's separately attested west wicket.
+
+**Covers:** `fort_dearborn_palisade.picket_1816.form.gate_overrides`.
+
+**How to resolve:** An independently legible contemporary plan or description locating individual posterns could replace the chosen minimum-plural count and east/west seats, widths and leaf construction. The two larger north/south gates retain their independent evidence and dimensions.
+
+**Recorded:** 2026-11-10.
+
+### L-second-fort-commandants-front-gallery-2388 — named later form adopted as reconstructed continuity
+
+**Ticket:** T-2388. **Record:** `fort_dearborn_commandants_quarters`, phase `brick_1816`.
+**Sources:** `wentworth_1881_hesler_1855_quarters_cut`, actual contained illustration
+and printed p.93 key naming brick quarters A; `harrison_1830_river_mouth`;
+`hubbard_autobiography_1911` (1827 north brick range; separate1818officers’ piazza).
+
+**Decision:** The1855picture securely identifies this range and shows a front double gallery.
+We explicitly adopt its plain broad form for1July1835 at the reconstructed tier.
+The retained1816-range interpretation, Hubbard’s1827north brick building and the
+1830planned range support the existing identity and a reasonable continuity choice.
+Hubbard’s distinct early officers’ upper piazza makes such a form plausible at
+this post before1835; it does not attest this gallery or merge the two buildings.
+No exact construction/alteration date, unchanged-fabric finding or1835attestation
+is invented from the later picture.
+
+The existing gallery kit spans the unchanged15.24m front and reaches2.1m. Its upper
+walk stands at the existing2.7m storey line under an open lower post level, with
+0.14m posts/deck,0.95m rail, regular pales and a canopy meeting the existing eave.
+All dimensions, sections, support rhythm, plain finish and canopy shape are
+reconstructed. The existing15window/door rectangles are captured unchanged in the
+explicit-opening API so only the new supports move clear of casing and sill horns.
+The footprint, bearing188degrees, surveyed seat, walls, roof, chimneys and range
+identity remain as before. No wraparound connector, extra stairs or unidentified
+1850soldiers’ gallery is copied onto this range.
+
+**Covers:** `fort_dearborn_commandants_quarters.brick_1816.form.gallery`, `fort_dearborn_commandants_quarters.brick_1816.form.gallery_storeys`, `fort_dearborn_commandants_quarters.brick_1816.form.face_openings`.
+
+**How to resolve:** A dated contemporary plan, fabric account or view could establish the gallery's actual construction and whether it existed in July 1835. The securely keyed 1855 picture identifies its later broad form; the explicit July continuity, two levels, stock sections, metric controls and unchanged fifteen-opening layout remain reconstructed, without a fabricated alteration date or transfer from another range.
+
+**Recorded:** 2026-11-10.
+
+
+### L-second-fort-garden-fence-metrics-2388 — the standing worm-fence dimensions from historical L45
+
+**Decision:** Retain the current reconstructed garden fence at 1.30 m high, three rail courses, 3.0 m panel length and 0.90 m panel offset. The Harrison plan’s zigzag boundary supports the inferred worm-fence interpretation, not those measurements. Every height, course count, panel rhythm and zigzag dimension remains this project’s choice.
+
+The full historical argument is preserved verbatim in resolved L45; only its obsolete planting-omission statement has been settled. The existing flora layer already supplies the garden planting, whose own source/selection liberties remain separate. Neither that vegetation nor this successor adds a new garden or changes the fence’s geometry. The first-fort pre-1812 garden passage remains excluded as evidence for this second-fort garden.
+
+**Covers:** `fort_dearborn_garrison_garden.fence_1816.form.fence_height_m`, `fort_dearborn_garrison_garden.fence_1816.form.rail_courses`, `fort_dearborn_garrison_garden.fence_1816.form.panel_length_m`, `fort_dearborn_garrison_garden.fence_1816.form.panel_offset_m`.
+
+**Sources:** `harrison_1830_river_mouth` for the labelled plot and boundary convention; `kinzie_waubun_1856` for the separately recorded company-garden planting, not fence dimensions.
+
+**How to resolve:** A contemporary measured fence description, timber return or detailed plan identifying this garden could replace the chosen dimensions. Existing planting does not measure the fence.
+
+**Ticket:** T-2388; successor to L45’s four continuing fence admissions.
+**Recorded:** 2026-11-10.
+
+
+### L-second-fort-palisade-fabric-metrics-2388 — the six standing stockade metrics from historical L47
+
+**Decision:** Retain the current reconstructed picket height 3.70 m, picket width 0.24 m, picket spacing 0.30 m, main-gate width 3.60 m, bastion length 7.0 m and bastion projection 3.20 m. The written high-picket description and plan arrangement do not measure any of these six controls. The wall’s visible scale, transparency, large-gate aperture and corner-work proportions therefore remain declared inventions.
+
+Historical L47, including its 2026-08-28 measured print-resolution discussion, is preserved verbatim in Resolved. Only its posterns-omission claim is superseded at source level; that move does not resolve any picket, main-gate or bastion metric or promote a coarse lithograph rhythm to a timber measurement. The two reconstructed side-postern seats and narrow leaves have their own standing admission, L-second-fort-side-posterns-2388, and still require actual native and interaction review. The attested north/south large-gate disposition is not replaced by those additional small openings.
+
+**Covers:** `fort_dearborn_palisade.picket_1816.form.picket_height_m`, `fort_dearborn_palisade.picket_1816.form.picket_width_m`, `fort_dearborn_palisade.picket_1816.form.picket_spacing_m`, `fort_dearborn_palisade.picket_1816.form.gate_width_m`, `fort_dearborn_palisade.picket_1816.form.bastion_length_m`, `fort_dearborn_palisade.picket_1816.form.bastion_projection_m`.
+
+**Sources:** `kinzie_waubun_1856`, `andreas_1884_v1`, `harrison_1830_river_mouth`, for the described stockade and plan arrangement; none supplies these six exact dimensions.
+
+**How to resolve:** A contemporary quartermaster return, repair estimate, engineer’s report or measured plan for the 1816–1836 work could replace the invented timber, gate and bastion controls. New postern geometry does not settle their dimensions.
+
+**Ticket:** T-2388; successor to L47’s six continuing fabric admissions.
+**Recorded:** 2026-11-10.
 
 ### L-horse-individual-coats-2795 — individual coats and markings (1812, 1835, 1904)
 

@@ -1,0 +1,47 @@
+{
+  "structure_id": "first_fort_dearborn_blockhouse_nw",
+  "scene": "1812",
+  "source_id": "lossing_1869_kinzie_mansion_engraving",
+  "photo": "../../../../reference/images/chicago/chicago_kinzie_house_fort_dearborn_1812.jpg",
+  "image_px": [
+    960,
+    506
+  ],
+  "principal_px": [
+    644.7421812860637,
+    205.0533635852613
+  ],
+  "focal_px": 1600.0,
+  "eye": [
+    -128.92455054840912,
+    102.08908100479279,
+    5.75
+  ],
+  "yaw_deg": 128.0,
+  "sky": "overcast",
+  "also_render": [
+    "first_fort_dearborn_pickets_outer",
+    "first_fort_dearborn_blockhouse_se",
+    "first_fort_dearborn_commanding_officers_barracks",
+    "first_fort_dearborn_flagstaff",
+    "first_fort_dearborn_magazine",
+    "first_fort_dearborn_north_range",
+    "first_fort_dearborn_officers_barracks",
+    "first_fort_dearborn_parade",
+    "first_fort_dearborn_pickets_inner",
+    "first_fort_dearborn_small_house_ne",
+    "first_fort_dearborn_small_house_sw",
+    "first_fort_dearborn_soldiers_barracks_se",
+    "first_fort_dearborn_soldiers_barracks_sw"
+  ],
+  "card_members": [],
+  "diagnostic_only": true,
+  "solve": {
+    "status": "INDEPENDENT_FORT_ONLY_DIAGNOSTIC_NOT_HISTORICAL_OPTICS",
+    "source_observation": "The entire original960x506 Lossing1869 engraving is retained. The distant fort enclosure occupies approximatelyx445..850 with ground line near y255. Those are uncertain silhouette/framing observations, not surveyed corner identities. The prominent foreground Kinzie house, river, boats and vegetation are not modelled in this fort-only comparison.",
+    "framing": "Hold a virtual1600px focal length,5.75m review eye height and128degree heading from northwest; solve only camera range and principal point so the unchanged Whistler perimeter foot envelope spansx445..850 with mean footy255. This is a bounded appearance adapter, not a recovered historical lens, exact source camera or geographic From this spot. No position, bearing, size, range identity or staff height is fitted.",
+    "separation_from_kinzie_camera": "This is an independent fort-only pose. The existing kinzie_house_1812/lossing_1869.json remains unchanged; its same-world transfer places fort samples atx2038..4244 beyond the960px source and cannot also fit the fort. Do not claim this refit preserves that world viewpoint.",
+    "owner_plan": "T3335 retains Whistler1808 measured plans, corner blockhouses, range functions/lengths, main-gate gap and current stacks. Lossing1869 is a retrospective1804\u20131812 composition, not contemporary metrology. Its compressed staff/range/tower silhouette does not override that adopted plan. Source/plan/camera disagreements are within tolerance underT3153; unidentifiable silhouettes are not reassigned to named components.",
+    "limits": "All14members are shown on the common flat review plane as context; this does not attest hidden identities, absolute height, roof counts, image colours, a precise1804 constructionstate, bank, covered-way construction or outer buildings. The full75ftstaff may differ visibly from the source projection. Source caption/publication dates remain unchanged; no heldGetty/Chicagology image supplies this camera or new geometry."
+  }
+}

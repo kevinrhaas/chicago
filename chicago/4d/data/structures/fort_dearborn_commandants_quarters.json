@@ -1,6 +1,6 @@
 {
   "id": "fort_dearborn_commandants_quarters",
-  "name": "Fort Dearborn — commandant's quarters",
+  "name": "Fort Dearborn \u2014 commandant's quarters",
   "aka": [
     "the brick building",
     "commanding officer's quarters",
@@ -124,6 +124,150 @@
           "value": "brick",
           "confidence": "inferred",
           "note": "Bare brick. Nothing says this building was rendered, painted or whitewashed; the whitewash in the sources belongs to the board fence of the 1850s compound and to John H. Kinzie's boyhood memory of the FIRST fort's blockhouses."
+        },
+        "gallery": {
+          "value": true,
+          "confidence": "reconstructed",
+          "sources": [
+            "wentworth_1881_hesler_1855_quarters_cut",
+            "harrison_1830_river_mouth",
+            "hubbard_autobiography_1911"
+          ],
+          "note": "A PLAIN FRONT DOUBLE GALLERY, ADOPTED FOR JULY 1835 AS A BOUNDED CONTINUITY CHOICE (T-2388). The actual public-domain 1881 contained cut after Alexander Hesler\u2019s 1855 photograph, with its explicit printed p.93 key, securely identifies this brick range as Commandant\u2019s Quarters A and shows two gallery levels along its parade front. That strongest named picture governs the broad form; it does NOT date the gallery\u2019s construction or prove it was unchanged in 1835. The existing interpretation identifies this with the brick commanding-officer range Hubbard describes inside the north stockade in 1827 and Harrison draws in 1830, under the fort\u2019s 1816 rebuilding range. A front piazza is compatible with that retained fabric and arrangement; Hubbard\u2019s distinct 1818 officers\u2019 quarters already had an upper piazza, so the form is possible at this post before the scene date. That analogy supports plausibility, not identity or independent attestation of this gallery. We fairly choose continuity of the pictured plain gallery into 1 July 1835 rather than invent an alteration date. The occurrence IN THIS SCENE, every dimension, plain posts, deck, rails and canopy remain reconstructed. Existing full front width 15.24m, reach 2.1m, upper walk at the unchanged 2.7m storey line, 0.14m posts/deck and 0.95m rail are the existing gallery kit\u2019s bounded choices. Footprint, surveyed placement, bearing188degrees, walls, roof, stacks and openings stay as before. No wraparound corner connection, additional stairs, unidentified 1850 soldiers\u2019 gallery, paint or elaborate joinery is copied backwards."
+        },
+        "gallery_storeys": {
+          "value": 2,
+          "confidence": "reconstructed",
+          "sources": [
+            "wentworth_1881_hesler_1855_quarters_cut"
+          ],
+          "note": "Two levels follow the securely named 1855 A view: an open lower post level and an upper walk at the second floor. Carrying that arrangement into July1835 is the explicit reconstructed continuity choice in gallery, not an attested installation date. The existing5.4m wall and2.7m storey line stay fixed; exact deck, rail, pale rhythm, canopy fall and support sections remain liberties."
+        },
+        "face_openings": {
+          "value": [
+            {
+              "face": "front",
+              "kind": "window",
+              "u0": 1.545,
+              "u1": 2.265,
+              "z0": 0.81,
+              "z1": 1.86
+            },
+            {
+              "face": "front",
+              "kind": "window",
+              "u0": 5.3549999999999995,
+              "u1": 6.075,
+              "z0": 0.81,
+              "z1": 1.86
+            },
+            {
+              "face": "front",
+              "kind": "window",
+              "u0": 9.165000000000001,
+              "u1": 9.885,
+              "z0": 0.81,
+              "z1": 1.86
+            },
+            {
+              "face": "front",
+              "kind": "window",
+              "u0": 12.975000000000001,
+              "u1": 13.695,
+              "z0": 0.81,
+              "z1": 1.86
+            },
+            {
+              "face": "back",
+              "kind": "window",
+              "u0": 2.21,
+              "u1": 2.87,
+              "z0": 0.81,
+              "z1": 1.86
+            },
+            {
+              "face": "back",
+              "kind": "window",
+              "u0": 7.29,
+              "u1": 7.95,
+              "z0": 0.81,
+              "z1": 1.86
+            },
+            {
+              "face": "back",
+              "kind": "window",
+              "u0": 12.370000000000001,
+              "u1": 13.030000000000001,
+              "z0": 0.81,
+              "z1": 1.86
+            },
+            {
+              "face": "front",
+              "kind": "window",
+              "u0": 1.545,
+              "u1": 2.265,
+              "z0": 3.5100000000000002,
+              "z1": 4.5600000000000005
+            },
+            {
+              "face": "front",
+              "kind": "window",
+              "u0": 5.3549999999999995,
+              "u1": 6.075,
+              "z0": 3.5100000000000002,
+              "z1": 4.5600000000000005
+            },
+            {
+              "face": "front",
+              "kind": "window",
+              "u0": 9.165000000000001,
+              "u1": 9.885,
+              "z0": 3.5100000000000002,
+              "z1": 4.5600000000000005
+            },
+            {
+              "face": "front",
+              "kind": "window",
+              "u0": 12.975000000000001,
+              "u1": 13.695,
+              "z0": 3.5100000000000002,
+              "z1": 4.5600000000000005
+            },
+            {
+              "face": "back",
+              "kind": "window",
+              "u0": 2.21,
+              "u1": 2.87,
+              "z0": 3.5100000000000002,
+              "z1": 4.5600000000000005
+            },
+            {
+              "face": "back",
+              "kind": "window",
+              "u0": 7.29,
+              "u1": 7.95,
+              "z0": 3.5100000000000002,
+              "z1": 4.5600000000000005
+            },
+            {
+              "face": "back",
+              "kind": "window",
+              "u0": 12.370000000000001,
+              "u1": 13.030000000000001,
+              "z0": 3.5100000000000002,
+              "z1": 4.5600000000000005
+            },
+            {
+              "face": "front",
+              "kind": "door",
+              "u0": 7.07,
+              "u1": 8.17,
+              "z0": 0.02,
+              "z1": 2.05
+            }
+          ],
+          "confidence": "reconstructed",
+          "note": "The unchanged procedural layout written explicitly only so the existing gallery support solver clears every sash, casing and sill horn (T-2388). Captured directly from this range\u2019s prior builder: four windows on each front storey, three on each rear storey, and one centred ground-floor front door; gable ends remain unread/empty as before. Every rectangle, sill, head, width and position is identical to the former default. Neither the 1855 picture nor an unkeyed earlier range is used to attest these counts or dimensions. The gallery\u2019s original even support grid would intersect window trim; the existing explicit-opening API moves only its new supports onto solid piers."
         }
       }
     }
@@ -137,7 +281,7 @@
     ],
     "note": "Occupied by the commanding officer of the post; on 1835-07-01 that is Maj. John Greene, 5th Infantry (see fort_dearborn_palisade's occupants block). In 1827, with the post ungarrisoned, Dr. Alexander Wolcott the Indian Agent was living in it - which is Hubbard's reason for mentioning it at all."
   },
-  "research_note": "THE ONE BUILDING IN FORT DEARBORN WITH A STATED SIZE, and therefore the building the whole complex is measured against. Its footprint note explains why that is both the strength of this record and a risk running through every other record in the fort. Two guards. The '25 x 50 ft' is a caption to an 1855 photograph, not a survey. And the 1855 key's phrase 'occupying the north-west corner of the enclosure' covers this building and the officers' quarters together as a pair seen from across the river; it is not a statement that this range stood in the corner, and Hubbard puts it 'just within the north stockade', which is where the 1830 plan draws it. See docs/RESEARCH/fort_dearborn.md.",
+  "research_note": "THE ONE BUILDING IN FORT DEARBORN WITH A STATED SIZE, and therefore the building the whole complex is measured against. Its footprint note explains why that is both the strength of this record and a risk running through every other record in the fort. Two guards. The '25 x 50 ft' is a caption to an 1855 photograph, not a survey. And the 1855 key's phrase 'occupying the north-west corner of the enclosure' covers this building and the officers' quarters together as a pair seen from across the river; it is not a statement that this range stood in the corner, and Hubbard puts it 'just within the north stockade', which is where the 1830 plan draws it. See docs/RESEARCH/fort_dearborn.md. T-2388 now adopts the securely identified 1855 A front double gallery as an explicit RECONSTRUCTED continuity choice for July1835, with no invented construction/alteration date. The older plan/Hubbard range identity and placement control; the new gallery does not identify or copy an unknown soldiers\u2019 range.",
   "review_required": false,
   "land_owner": {
     "value": "The ground was entered by John Baptist Baubian, 28 May 1835",
@@ -145,7 +289,7 @@
     "sources": [
       "isa_public_domain_land_tract_sales"
     ],
-    "note": "THE UNITED STATES RESERVATION. This is the same tract L108 already derives for `1835_no_build_ground.json` — from G1, Madison's line and the traced waterline — so the polygon is inherited rather than built again, and `check.sh` already re-derives it. The register's own row is the second, independent witness to the date L108 quotes from Andreas: Beaubien's pre-emption, 28 May 1835, five weeks before the scene date. The derived polygon is short of the documented 75.69 acres for the reasons L108 states, and is a floor rather than the reservation. WHETHER THE ENTRY HELD IS NOT READ HERE: it was disputed, and this row records the entry the register carries and nothing about its outcome. THE MARGIN IS ONLY 16 m, which is inside the working horizontal uncertainty of the georeference (about 20 m) doubled, so the grade drops a tier: the tract is right if the constructed line is, and nothing here proves the line to better than that. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position — the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares.",
+    "note": "THE UNITED STATES RESERVATION. This is the same tract L108 already derives for `1835_no_build_ground.json` \u2014 from G1, Madison's line and the traced waterline \u2014 so the polygon is inherited rather than built again, and `check.sh` already re-derives it. The register's own row is the second, independent witness to the date L108 quotes from Andreas: Beaubien's pre-emption, 28 May 1835, five weeks before the scene date. The derived polygon is short of the documented 75.69 acres for the reasons L108 states, and is a floor rather than the reservation. WHETHER THE ENTRY HELD IS NOT READ HERE: it was disputed, and this row records the entry the register carries and nothing about its outcome. THE MARGIN IS ONLY 16 m, which is inside the working horizontal uncertainty of the georeference (about 20 m) doubled, so the grade drops a tier: the tract is right if the constructed line is, and nothing here proves the line to better than that. WHAT THIS ROW CLAIMS AND WHAT IT DOES NOT. It claims that the tract the Illinois State Archives' land-sale register describes contains this structure's committed position \u2014 the patent for this ground was ENTERED by this man on this date. It does not claim he still held the ground on 1 July 1835, that he lived here, or that he ever stood on it: a sale is a transaction, and the register's only column about residence names a county. THE SECTION LINES ARE CONSTRUCTED, NOT TRACED (L219): the grid is carried from the single PLSS corner at State & Madison, on the plat's own east-west bearing, in nominal one-mile squares.",
     "tract": "the south-west fractional quarter of section 10",
     "entries": [
       "ls0057"
