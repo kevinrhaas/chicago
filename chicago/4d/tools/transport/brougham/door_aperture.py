@@ -157,13 +157,49 @@ def shell_anchor(source_triangles, y, z):
     return [float((min(xs) + max(xs)) / 2), float(y), float(z)]
 
 
+def source_step_rings(data):
+    """Recover actual source cross-sections from its complete side-quad stream."""
+    points = data[:, :, :3].reshape((-1, 3))
+    if len(data) != 148:
+        raise ValueError('Unexpected source stem topology; require the actual19-ring master')
+    rings = [np.array([points[12 + 24 * i + 6 * j] for j in range(4)]) for i in range(18)]
+    rings.append(np.unique(points[6:12], axis=0))
+    mapping = {}
+    for i, ring in enumerate(rings):
+        if len(ring) != 4 or len(np.unique(ring, axis=0)) != 4:
+            raise ValueError('Source ring does not have four actual corners')
+        for p in ring:
+            if tuple(p) in mapping:
+                raise ValueError('Ambiguous source stem ring vertex')
+            mapping[tuple(p)] = i
+    if len(mapping) != 76 or any(tuple(p) not in mapping for p in points):
+        raise ValueError('Source rings do not account for every expanded stem vertex')
+    return rings, np.array([mapping[tuple(p)] for p in points]).reshape((-1, 3))
+
+
 def reroute_step(data, plan):
-    result = data.copy(); y = result[:, :, 1]
-    def smooth(low, high):
-        t = np.clip((y - low) / (high - low), 0, 1)
-        return t * t * (3 - 2 * t)
-    weight = smooth(*plan['ramp_up_root_y_m']) * (1 - smooth(*plan['ramp_down_root_y_m']))
-    result[:, :, 0] += plan['inboard_offset_m'] * weight
+    result = data.copy(); rings, vertex_ring = source_step_rings(data)
+    shifts, table = [], []
+    for i, ring in enumerate(rings):
+        centre = ring.mean(axis=0); y = float(centre[1])
+        def smooth(low, high):
+            t = min(1., max(0., (y - low) / (high - low)))
+            return t * t * (3 - 2 * t)
+        terminal = bool((ring[:, 1] <= plan['ramp_up_root_y_m'][0]).any()
+                        or (ring[:, 1] >= plan['ramp_down_root_y_m'][1]).any())
+        base = plan['inboard_offset_m'] * smooth(*plan['ramp_up_root_y_m']) * (1 - smooth(*plan['ramp_down_root_y_m']))
+        extra_weight = smooth(*plan['extra_ramp_up_root_y_m']) * (1 - smooth(*plan['extra_ramp_down_root_y_m']))
+        needed = max(0., plan['lower_target_min_x_m'] - float(ring[:, 0].min()) - base)
+        shift = 0. if terminal else base + needed * extra_weight
+        if shift > plan['max_ring_translation_m']:
+            raise ValueError('Ring translation exceeds declared engineering bound')
+        shifted = ring + [shift, 0, 0]
+        shifts.append(shift)
+        table.append({'ring': i, 'source_centre_root_m': centre.tolist(), 'terminal_ring_protected': terminal,
+                      'translation_x_m': shift,
+                      'source_bounds': {'min': ring.min(axis=0).tolist(), 'max': ring.max(axis=0).tolist()},
+                      'proposed_bounds': {'min': shifted.min(axis=0).tolist(), 'max': shifted.max(axis=0).tolist()}})
+    result[:, :, 0] += np.asarray(shifts)[vertex_ring]
     for i, tri in enumerate(result):
         if np.array_equal(tri[:, :3], data[i, :, :3]):
             continue
@@ -172,7 +208,36 @@ def reroute_step(data, plan):
         if length < 1e-12:
             raise ValueError('Step reroute collapsed a real source face')
         tri[:, 3:] = n / length
-    return result
+    return result, {'source_rings': len(rings), 'ring_table': table, 'max_translation_m': max(shifts),
+                    'construction_report_not_independent_proof': True}
+
+
+def backing_floor_cap(backing, y):
+    """Close the actual newly cut backing skins at the floor edge, facing down."""
+    segments = []
+    for triangle in backing:
+        edge = [p[:3] for p in triangle if abs(p[1] - y) < 1e-8]
+        if len(edge) != 2 or abs(edge[0][2] - edge[1][2]) < 1e-10:
+            continue
+        a, b = sorted(edge, key=lambda p: p[2]); segments.append((a, b))
+    stops = sorted(set(float(p[2]) for edge in segments for p in edge))
+    for low, high in zip(stops, stops[1:]):
+        if high - low < 1e-10:
+            continue
+        active = [(a, b) for a, b in segments if a[2] <= (low + high) / 2 <= b[2]]
+        if len(active) < 2:
+            continue
+        def skins(z):
+            xs = [a[0] + (b[0] - a[0]) * (z - a[2]) / (b[2] - a[2]) for a, b in active]
+            return min(xs), max(xs)
+        x0, x1 = skins(low); x2, x3 = skins(high)
+        points = np.array([[x0, y, low], [x1, y, low], [x3, y, high], [x2, y, high]])
+        if np.dot(np.cross(points[1] - points[0], points[2] - points[0]), [0, -1, 0]) < 0:
+            points = points[::-1]
+        for ids in [[0, 1, 2], [0, 2, 3]]:
+            p = points[ids]
+            if np.linalg.norm(np.cross(p[1] - p[0], p[2] - p[0])) > 1e-12:
+                yield np.concatenate([p, np.tile([0., -1., 0.], (3, 1))], axis=1)
 
 
 def ring(x, y, z, outer, inner, length, segments):
@@ -284,7 +349,8 @@ def build(source, recipe_path, detail, destination):
     source_bindings = bind_parts(doc, binary)
     batches, parts, protected, changed = {}, [], [], []
 
-    def emit(name, frame, material, data, source_part_index=None, derived_source_part_index=None):
+    def emit(name, frame, material, data, source_part_index=None, derived_source_part_index=None,
+             engineering_source_part_indices=None):
         data = np.asarray(data, dtype='<f4').reshape((-1, 3, 6))
         if not len(data):
             return
@@ -298,7 +364,8 @@ def build(source, recipe_path, detail, destination):
         parts.append({'name': name, 'frame': nodes[frame]['name'], 'frame_node_index': frame, 'material': material,
                       'triangle_start_in_batch': start, 'triangles': len(data),
                       **({'source_part_index': source_part_index} if source_part_index is not None else {}),
-                      **({'derived_source_part_index': derived_source_part_index} if derived_source_part_index is not None else {})})
+                      **({'derived_source_part_index': derived_source_part_index} if derived_source_part_index is not None else {}),
+                      **({'engineering_source_part_indices': engineering_source_part_indices} if engineering_source_part_indices is not None else {})})
 
     moving_names = {'deep_U_closed_door', 'door_edge_lining', 'side_door_glass',
                     'side_window_frame', 'side_glass_division'}
@@ -312,6 +379,13 @@ def build(source, recipe_path, detail, destination):
                     and cached[i][:, :, 0].max() < 0]
     assert len(right_shells) == 1
     source_shell = cached[right_shells[0]]
+    floor_ids = [i for i, part in enumerate(doc['extras']['parts']) if part['name'] == 'interior_floor']
+    assert len(floor_ids) == 1
+    floor_id = floor_ids[0]; floor_points = cached[floor_id][:, :, :3].reshape((-1, 3))
+    floor_top = float(floor_points[:, 1].max()); floor_bottom = float(floor_points[:, 1].min())
+    if recipe['backing_min_root_y_m'] - floor_top < .003:
+        raise ValueError('Added backing must retain the declared gap above the actual floor')
+    step_repairs, carry_links = [], []
     hinges = []
     for i, part in enumerate(doc['extras']['parts']):
         xyz = cached[i][:, :, :3].reshape((-1, 3))
@@ -336,7 +410,10 @@ def build(source, recipe_path, detail, destination):
             for tri in data:
                 fixed, _ = partition_profile(tri, profile, recipe['fixed_running_relief_m'])
                 _, leaf = partition_profile(tri, profile, -recipe['backing_relief_m'])
-                outside.extend(fixed); backing.extend(leaf)
+                outside.extend(fixed)
+                for fragment in leaf:
+                    above, _ = split_polygon(list(fragment), 1, recipe['backing_min_root_y_m'], 1)
+                    backing.extend(triangles(above))
             if not backing:
                 raise ValueError('No actual body surface removed: overlay-only door refused')
             emit(part['name'], parent, part['material'], outside, part_index)
@@ -344,6 +421,14 @@ def build(source, recipe_path, detail, destination):
                  list(profile_reveals(outside, profile, recipe['fixed_running_relief_m'])),
                  derived_source_part_index=part_index)
             backing = np.asarray(backing); backing[:, :, :3] -= pivot
+            # Close the actual encoded local cut skins. Their Float32 edge
+            # breakpoints cannot create phantom sub-ULP strips in the cap.
+            backing = np.asarray(backing, dtype='<f4').astype(float)
+            cap = np.asarray(list(backing_floor_cap(backing, float(np.float32(recipe['backing_min_root_y_m'] - pivot[1])))))
+            if not len(cap):
+                raise ValueError('Actual backing floor-edge closure missing')
+            emit('door_backing_floor_edge_cap', door, part['material'], cap,
+                 engineering_source_part_indices=[part_index, floor_id])
             emit('door_original_curved_backing', door, part['material'], backing, derived_source_part_index=part_index)
             changed.append({**part, 'source_part_index': part_index, 'source_node_path': binding['node_path'],
                             'operation': 'source-leaf-profile aperture; actual backing moves with declared running relief'})
@@ -362,9 +447,21 @@ def build(source, recipe_path, detail, destination):
             changed.append({**part, 'source_part_index': part_index, 'source_node_path': binding['node_path'],
                             'operation': 'hidden fixed-interface rebate; original inside fragment transfers at same closed-world surface'})
         elif right and part['name'] == 'step_support':
-            emit(part['name'], parent, part['material'], reroute_step(data, recipe['step_stem_repair']), part_index)
+            repaired, ring_report = reroute_step(data, recipe['step_stem_repair'])
+            emit(part['name'], parent, part['material'], repaired, part_index)
+            step_repairs.append({'source_occurrence_id': part_index, **ring_report})
+            terminal = np.unique(p[:6], axis=0)
+            assert len(terminal) == 4
+            centre = terminal.mean(axis=0); plan = recipe['fixed_step_carry_links']
+            endpoint = centre + [plan['floor_inboard_offset_m'], 0, 0]
+            endpoint[1] = floor_bottom + plan['floor_engagement_m']
+            axis = endpoint - centre; axis /= np.linalg.norm(axis)
+            start = centre - plan['terminal_engagement_m'] * axis
+            carry_links.append({'source_occurrence_id': part_index, 'floor_source_occurrence_id': floor_id,
+                                'terminal_centre_root_m': centre.tolist(), 'start_root_m': start.tolist(),
+                                'end_root_m': endpoint.tolist(), 'section_m': plan['section_m']})
             changed.append({**part, 'source_part_index': part_index, 'source_node_path': binding['node_path'],
-                            'operation': 'right hidden stem middle rerouted inboard; both terminal attachments retained'})
+                            'operation': '19 whole source rings translate inboard; original terminal rings/section retained; appearance unqualified'})
         elif move:
             shifted = data.copy(); shifted[:, :, :3] -= pivot
             emit(part['name'], door, part['material'], shifted, part_index)
@@ -378,6 +475,10 @@ def build(source, recipe_path, detail, destination):
         raise ValueError('Incomplete door assembly')
     # Port the proven C02 separate pin/alternating knuckle construction, retaining
     # its honest reconstruction status. Current whole-surface checks are REQUIRED.
+    for link in carry_links:
+        emit('fixed_step_floor_carry_link', 'vehicle_body', 4,
+             list(arm(link['start_root_m'], link['end_root_m'], link['section_m'])),
+             engineering_source_part_indices=[link['source_occurrence_id'], floor_id])
     for hinge in hinges:
         endpoint = np.asarray(hinge['centre_root_m'])
         y = float(endpoint[1]); fixed_endpoints = []
@@ -470,6 +571,9 @@ def build(source, recipe_path, detail, destination):
               'input_sha256': digest(original), 'output_sha256': digest(raw), 'bytes': len(raw),
               'recipe_sha256': digest(recipe_path.read_bytes()), 'producer_sha256': digest(Path(__file__).read_bytes()),
               'actual_hinge_attachments': hinges,
+              'actual_floor_source': {'source_occurrence_id': floor_id, 'top_root_y_m': floor_top, 'bottom_root_y_m': floor_bottom,
+                                      'backing_min_root_y_m': recipe['backing_min_root_y_m']},
+              'source_ring_construction_reports': step_repairs, 'fixed_step_carry_links': carry_links,
               'protected_parts': protected, 'changed_parts': changed, 'qualification': recipe['qualification'],
               'boarding_enabled': False, 'driver_passenger_fit': False}
     (destination / 'DOOR-SOURCE-RECEIPT.json').write_text(json.dumps(report, indent=2, allow_nan=False) + '\n')

@@ -333,3 +333,85 @@ The outside-app three-pose/all2,946-query candidate comparisons matched full-sca
 arrays exactly; they are numerical candidate-set evidence, not clearance results.
 No old model15pose retry followed this performance change. All qualification
 flags remain false and the actual118-contact repaired model remains NONPASS.
+
+
+## Next source-only floor/ring/link repair — not exported or qualified
+
+The complete118-contact readback is the design input; no contact is exempted.
+Only the added backing is clipped below rootY0.926m,3.300012mm above the actual
+source floor top0.9226999879m. A separately declared downward edge cap closes the
+actual encoded backing skins. The independent checker checks its attachment,
+normal/winding, surface area and cross-section coverage, including gaps/overlaps
+that equal total area alone would miss. Original whole moving leaf PN streams
+and materials remain unchanged; this clipping is not claimed as an unchanged
+original surface.
+
+Both source stems retain all19 four-corner rings and all76 unique source vertices.
+Each nonterminal ring receives one uniform X translation; its original section,
+Y/Z coordinates and complete terminal rings remain protected. The25mm base taper
+is supplemented by the declared lower route toward minimumX−0.440m, with extra
+rampsY0.455–0.475 and0.545–0.600. The source-bound maximum proposed translation is
+**188.041651mm**, bounded by189mm. This is a reconstructed trial and **may visibly
+change the lower bow**. Matched low-angle closed renders must assess it before
+adoption; it is not established as hidden or invisible. Later-taper89mm proposals
+are retained as bound-only alternatives, not collision conclusions.
+
+Two separately declared12×12mm fixed carry links run from the actual original
+upper stem caps into the actual floor, with6mm terminal engagement,10mm floor
+engagement and20mm inboard floor endpoints. The source-only analytic proposal has
+40.250229mm X separation from the WHOLE original U/lining envelope over the links'
+full Y range. This is not an emitted-mesh or swept-clearance result. The checker
+must independently read actual links, sections, outward box faces, terminal
+containment, floor-embedded end caps and complete U/lining closed envelopes.
+The stem-envelope domain now includes the actual U minimumY0.4899098, rather than
+starting at the rounded observation band0.49. All actual discrete/continuous
+surface checks remain mandatory; conservative closed-envelope checks do not
+replace them or establish strength, seating or boarding.
+
+New temporary near/mid generation, structural/real-corruption controls, sampled
+poses, continuous intervals, visual review and runtime checks are **UNRUN for
+this source change**. Original118contacts/partial120sNONPASS and all older failed
+receipts remain immutable. All capability/qualification flags remain false;
+installed assets, standing team, scene placement, DEV and MAIN remain unchanged.
+
+
+## Measured floor/ring/link source checkpoint — discrete poses clear only
+
+The reviewed source binding0eafb71153fc097f79116743db043aee089e6e43e50b500cb093ae6f2f5ebdbf
+was emitted once into fresh temporary outputs. The combined producer, actual
+near/mid structural baselines and24 real corruption controls closed0 in67.727655s.
+All original16 controls remain; eight additions test below-floor backing, actual
+ring-corner distortion at every repeated occurrence, detached fixed links and
+real duplicated/omitted cap facets. Every mutation has refreshed GLB/receipt
+hashes, so rejection is actual structure/geometry rather than a stale checksum.
+All original resource floors passed, parent bytes stayed exact, cleanup left zero
+children and fresh temporary outputs totalled91,397,584bytes (<128MiB).
+
+Actual temporary near:4,057,200bytes,54,642triangles,2,824moving;
+SHA256 `165e6c046d8e00b3ff2dc5db497165f5a759ff75b6dfeca247e0faccfab798aa`.
+Actual temporary mid:2,428,140bytes,32,366triangles,2,488moving;
+SHA256 `039d2a10e25e2be6319c8d0368851e3eb63a79bb5fba4a4840fda4bcd0c4f3d3`.
+These are uninstalled prototype costs, not accepted production budgets.
+Actual backing minY0.9259999990m clears source floor top0.9226999879m;
+246captriangles cover0.0287579086m² with246section checks. Maximum actual source
+ring translation is188.041657mm; link-to-WHOLE-U/lining closed X separation is
+40.250224mm, and the smallest complete overlapping-Y stem separator is12.162564mm.
+These structural envelope observations do not establish a swept proof or strength.
+
+The separately admitted new near15pose diagnostic closed0 in24.107856s with all
+15requested0°→−65° poses clear:61,736candidate pairs,1,855SATbatches,0fallbacks.
+The separate mid15pose diagnostic closed0 in18.734541s with all15poses clear:
+56,695pairs,1,780batches,0fallbacks. Original1e-8 tolerance/15angles/allfixedsurfaces
+and original SUP120/floors were retained; source/mesh/receipt hashes remained
+exact before/after both runs and both cleanups left zero children. The reports
+explicitly retain `PASS:false`, `final_PASS:false`, and continuous interval unrun.
+Near report SHA256 `1f31c68d4ee21776d0940076a8909c6450cb638a302fde896733402c23670fd1`;
+mid report SHA256 `b91af3df683da510fc9670be73d87e1212a05c1061810a67887f2cfac6d9c6f9`.
+The prior model's1313/118contacts and partial120sNONPASS remain preserved separately.
+
+**Continuous intervals, matched low-angle closed appearance of the188mm lower-bow
+trial, near/mid desktop/mobile visuals, runtime interaction/handoff, passenger fit,
+boarding, full four-part checks/preflight and exact-head hosted/published delivery
+gates remain OPEN/UNRUN.** This is an explicitly authorized unqualified source
+checkpoint on the owned feature branch only; no PR, installed delivery or DEV/MAIN
+merge is included. All recipe capability/qualification flags remain false.

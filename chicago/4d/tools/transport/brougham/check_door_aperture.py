@@ -122,7 +122,30 @@ def clipped_area(triangle, bounds):
                for i in range(1, len(polygon) - 1))
 
 
-def profile_area(triangles, profile, offset):
+def clipped_axis_vertices(triangles, limits):
+    vertices = []
+    for triangle in triangles:
+        polygon = list(triangle)
+        for axis, low, high in limits:
+            for bound, sign in [(low, 1), (high, -1)]:
+                if not polygon:
+                    break
+                output = []; previous = polygon[-1]; pd = sign * (previous[axis] - bound)
+                for current in polygon:
+                    cd = sign * (current[axis] - bound)
+                    if (pd >= 0) != (cd >= 0):
+                        output.append(previous + pd / (pd - cd) * (current - previous))
+                    if cd >= 0:
+                        output.append(current)
+                    previous, pd = current, cd
+                polygon = output
+            if not polygon:
+                break
+        vertices.extend(polygon)
+    return np.asarray(vertices).reshape((-1, 3))
+
+
+def profile_area(triangles, profile, offset, min_y=None):
     total = 0.
     for triangle in triangles:
         polygon = list(triangle)
@@ -136,6 +159,16 @@ def profile_area(triangles, profile, offset):
                 cd = float(n @ current[1:] - bound)
                 if (pd >= 0) != (cd >= 0):
                     result.append(previous + (pd / (pd - cd)) * (current - previous))
+                if cd >= 0:
+                    result.append(current)
+                previous, pd = current, cd
+            polygon = result
+        if min_y is not None and polygon:
+            result = []; previous = polygon[-1]; pd = previous[1] - min_y
+            for current in polygon:
+                cd = current[1] - min_y
+                if (pd >= 0) != (cd >= 0):
+                    result.append(previous + pd / (pd - cd) * (current - previous))
                 if cd >= 0:
                     result.append(current)
                 previous, pd = current, cd
@@ -267,22 +300,63 @@ def verify_structure(args):
             expected_steps.add(source_index); expected_changed_rows.append((source_index, part))
             assert target['frame'] == part['frame'] and not under_door(target_node), 'Fixed step stem moved with leaf'
             plan = recipe['step_stem_repair']; y = positions[:, 1]
-            def smooth(bounds):
-                t = np.clip((y - bounds[0]) / (bounds[1] - bounds[0]), 0, 1)
-                return t * t * (3 - 2 * t)
-            weight = smooth(plan['ramp_up_root_y_m']) * (1 - smooth(plan['ramp_down_root_y_m']))
-            expected = positions.copy(); expected[:, 0] += plan['inboard_offset_m'] * weight
-            error = float(np.abs(actual - expected).max())
             terminal = (y <= plan['ramp_up_root_y_m'][0]) | (y >= plan['ramp_down_root_y_m'][1])
             assert np.array_equal(actual[terminal], positions[terminal]), 'Original step terminal attachment moved'
-            assert error <= CLOSED_WORLD_POSITION_TOLERANCE_M, 'Hidden step stem repair differs from bounded source recipe'
+            assert np.array_equal(actual[:, 1:], positions[:, 1:]), 'Source ring Y/Z coordinates changed'
+            assert len(positions) == 444
+            # Independent extraction: use the source upper cap then the NEXT
+            # corner at the end of each actual side quad, not producer ring starts.
+            rings = [np.unique(positions[:6], axis=0)] + [np.array([
+                positions[12 + 24 * i + 6 * j + 5] for j in range(4)]) for i in range(18)]
+            actual_for_source = {}
+            for original_point, actual_point in zip(positions, actual):
+                key = tuple(original_point)
+                if key in actual_for_source:
+                    assert np.array_equal(actual_for_source[key], actual_point), 'Expanded source ring vertex occurrences separated'
+                actual_for_source[key] = actual_point
+            assert len(actual_for_source) == 76 and len(rings) == 19
+            checked_vertices = set(); ring_readings = []; error = 0.; section_error = 0.
+            for i, ring in enumerate(rings):
+                assert len(ring) == 4 and len(np.unique(ring, axis=0)) == 4
+                assert not any(tuple(p) in checked_vertices for p in ring)
+                checked_vertices.update(tuple(p) for p in ring)
+                emitted = np.asarray([actual_for_source[tuple(p)] for p in ring])
+                shifts = emitted - ring
+                assert np.ptp(shifts, axis=0).max() <= CLOSED_WORLD_POSITION_TOLERANCE_M, 'Source stem ring is not a rigid translation'
+                before_dist = np.linalg.norm(ring[:, None] - ring[None, :], axis=2)
+                after_dist = np.linalg.norm(emitted[:, None] - emitted[None, :], axis=2)
+                distortion = float(np.abs(before_dist - after_dist).max()); section_error = max(section_error, distortion)
+                assert distortion <= CLOSED_WORLD_POSITION_TOLERANCE_M, 'Source ring section/thickness changed'
+                centre_y = float(ring[:, 1].mean())
+                def smooth(bounds):
+                    t = min(1., max(0., (centre_y - bounds[0]) / (bounds[1] - bounds[0])))
+                    return t * t * (3 - 2 * t)
+                protected_ring = bool((ring[:, 1] <= plan['ramp_up_root_y_m'][0]).any()
+                                      or (ring[:, 1] >= plan['ramp_down_root_y_m'][1]).any())
+                base = plan['inboard_offset_m'] * smooth(plan['ramp_up_root_y_m']) * (1 - smooth(plan['ramp_down_root_y_m']))
+                weight = smooth(plan['extra_ramp_up_root_y_m']) * (1 - smooth(plan['extra_ramp_down_root_y_m']))
+                expected_dx = 0. if protected_ring else base + weight * max(0., plan['lower_target_min_x_m'] - float(ring[:, 0].min()) - base)
+                delta = float(np.abs(shifts[:, 0] - expected_dx).max()); error = max(error, delta)
+                assert delta <= CLOSED_WORLD_POSITION_TOLERANCE_M, 'Whole-ring route differs from bounded source recipe'
+                if protected_ring:
+                    assert np.array_equal(emitted, ring), 'Whole original terminal ring changed'
+                ring_readings.append({'ring': i, 'terminal_ring_exact': protected_ring,
+                                      'actual_x_translation_m': float(shifts[:, 0].mean()),
+                                      'section_distance_error_m': distortion,
+                                      'source_bounds': {'min': ring.min(axis=0).tolist(), 'max': ring.max(axis=0).tolist()},
+                                      'actual_bounds': {'min': emitted.min(axis=0).tolist(), 'max': emitted.max(axis=0).tolist()}})
+            assert checked_vertices == set(actual_for_source)
+            max_shift = max(r['actual_x_translation_m'] for r in ring_readings)
+            assert max_shift <= plan['max_ring_translation_m']
             whole_unchanged = terminal.reshape((-1, 3)).all(axis=1)
             a_normals = np.frombuffer(actual_normals, dtype='<f4').reshape((-1, 3, 3))
             b_normals = np.frombuffer(normal_bytes, dtype='<f4').reshape((-1, 3, 3))
             assert np.array_equal(a_normals[whole_unchanged], b_normals[whole_unchanged]), 'Unchanged terminal triangle NORMAL changed'
             step_rows.append({'source_part_index': source_index, 'terminal_vertices_exact': int(terminal.sum()),
                               'unchanged_terminal_triangles_PN_exact': int(whole_unchanged.sum()),
-                              'recipe_position_max_error_m': error, 'inboard_offset_m': plan['inboard_offset_m']})
+                              'recipe_position_max_error_m': error, 'base_inboard_offset_m': plan['inboard_offset_m'],
+                              'whole_source_rings_verified': 19, 'max_actual_translation_m': max_shift,
+                              'max_section_distance_error_m': section_error, 'actual_ring_table': ring_readings})
         else:
             expected_protected.add(source_index)
             expected_protected_rows.append((source_index, part))
@@ -329,12 +403,46 @@ def verify_structure(args):
         assert (profile @ n - a @ n).min() >= -1e-10, 'Profile is not convex/CCW'
     for vertex in profile:
         assert np.linalg.norm(support - vertex, axis=1).min() <= 1e-8, 'Profile vertex is not an actual source point'
+    floor_ids = [i for i, p in enumerate(source_parts) if p['name'] == 'interior_floor']
+    assert len(floor_ids) == 1
+    floor_id, = floor_ids
+    floor_positions, _, _, _ = geometry(source_parts[floor_id], True, source_world)
+    assert len(floor_positions) == 36 and len(np.unique(floor_positions, axis=0)) == 8
+    floor_min, floor_max = floor_positions.min(axis=0), floor_positions.max(axis=0)
+    assert recipe['backing_min_root_y_m'] - floor_max[1] >= .003, 'Backing floor gap changed'
+    original_u_lining = np.concatenate([geometry(p, True, source_world)[0] for p in source_parts
+        if p['name'] in ['deep_U_closed_door', 'door_edge_lining']
+        and geometry(p, True, source_world)[0][:, 0].max() < 0]).reshape((-1, 3, 3))
+    for reading in step_rows:
+        target = next(p for p in output_parts if p.get('source_part_index') == reading['source_part_index'])
+        xyz, _, _, _ = geometry(target, False, target_world)
+        low_z, high_z = float(xyz[:, 2].min()), float(xyz[:, 2].max())
+        closed_envelopes = []
+        # Cover the WHOLE actual overlapping Y domain, including the source
+        # U minimum .4899098 below the old rounded .49 observation band.
+        domain_low = max(float(original_u_lining[:, :, 1].min()), float(xyz[:, 1].min()))
+        domain_high = min(float(original_u_lining[:, :, 1].max()), float(xyz[:, 1].max()))
+        y_breaks = sorted({domain_low, domain_high, *[y for y in [.53, .60, .65, .735] if domain_low < y < domain_high]})
+        for low_y, high_y in zip(y_breaks, y_breaks[1:]):
+            leaf_points = clipped_axis_vertices(original_u_lining, [(1, low_y, high_y), (2, low_z, high_z)])
+            stem_points = clipped_axis_vertices(xyz.reshape((-1, 3, 3)), [(1, low_y, high_y)])
+            if not len(leaf_points) or not len(stem_points):
+                continue
+            separator = float(stem_points[:, 0].min() - leaf_points[:, 0].max())
+            assert separator >= .006, 'Actual stem triangle envelope still crosses original U/lining'
+            closed_envelopes.append({'root_y_band_m': [low_y, high_y],
+                                     'actual_triangle_envelope_x_separator_m': separator,
+                                     'closed_only_not_swept_proof': True})
+        assert closed_envelopes
+        reading['actual_closed_triangle_envelope_bands'] = closed_envelopes
     cut_accounting = []
     for part, original_triangles, fixed_triangles, is_wall, original_normals in cut_rows:
         area = lambda tris: float(np.linalg.norm(np.cross(tris[:, 1] - tris[:, 0], tris[:, 2] - tris[:, 0]), axis=1).sum() / 2)
         source_area = area(original_triangles)
         opening_area = profile_area(original_triangles, profile, recipe['fixed_running_relief_m'])
-        expected_backing_area = profile_area(original_triangles, profile, -recipe['backing_relief_m'] if is_wall else 0)
+        full_backing_area = profile_area(original_triangles, profile, -recipe['backing_relief_m'] if is_wall else 0)
+        expected_backing_area = profile_area(original_triangles, profile, -recipe['backing_relief_m'] if is_wall else 0,
+                                            recipe['backing_min_root_y_m'] if is_wall else None)
         fixed_area = area(fixed_triangles)
         derived_name = 'door_original_curved_backing' if is_wall else 'door_transferred_' + part['name']
         backing_parts = [p for p in output_parts if p['name'] == derived_name]
@@ -344,6 +452,8 @@ def verify_structure(args):
         assert backing['frame'] == 'vehicle_door_right' and under_door(backing_node), 'Cut-shell backing is not moving'
         assert backing['material'] == part['material'], 'Transferred source finish changed'
         backing_triangles = backing_positions.reshape((-1, 3, 3)); backing_area = area(backing_triangles)
+        if is_wall:
+            assert backing_positions[:, 1].min() >= recipe['backing_min_root_y_m'] - CLOSED_WORLD_POSITION_TOLERANCE_M, 'Added backing remains below the declared actual-floor cut'
         assert abs(fixed_area - (source_area - opening_area)) <= CUT_SURFACE_AREA_TOLERANCE_M2, 'Fixed cut-shell surface accounting changed'
         assert abs(backing_area - expected_backing_area) <= CUT_SURFACE_AREA_TOLERANCE_M2, 'Moving cut-shell backing/relief accounting changed'
         transferred_error = None
@@ -354,10 +464,132 @@ def verify_structure(args):
         cut_accounting.append({'name': part['name'], 'source_surface_area_m2': source_area,
             'fixed_retained_surface_area_m2': fixed_area, 'removed_aperture_surface_area_m2': opening_area,
             'moving_backing_surface_area_m2': backing_area,
-            'declared_running_relief_surface_area_m2': opening_area - expected_backing_area,
+            'declared_running_relief_surface_area_m2': opening_area - full_backing_area,
+            'removed_lower_backing_source_surface_area_m2': full_backing_area - expected_backing_area,
             'fixed_running_relief_m': recipe['fixed_running_relief_m'],
             'backing_inset_m': recipe['backing_relief_m'] if is_wall else 0,
             'transferred_original_closed_surface_max_error_m': transferred_error, 'not_claimed_unchanged': True})
+    caps = [p for p in output_parts if p['name'] == 'door_backing_floor_edge_cap']
+    assert len(caps) == 1
+    cap, = caps
+    cap_positions, cap_normals, cap_node, _ = geometry(cap, False, target_world)
+    assert under_door(cap_node) and cap['frame'] == 'vehicle_door_right' and cap['material'] == 0
+    assert cap['engineering_source_part_indices'] == [next(iter(expected_cut)), floor_id]
+    cut_y = recipe['backing_min_root_y_m']
+    assert np.abs(cap_positions[:, 1] - cut_y).max() <= CLOSED_WORLD_POSITION_TOLERANCE_M, 'Backing floor edge cap changed height'
+    actual_cap_normals = np.frombuffer(cap_normals, dtype='<f4').reshape((-1, 3))
+    assert np.array_equal(actual_cap_normals, np.tile([0., -1., 0.], (len(cap_positions), 1))), 'Backing floor cap must face down'
+    backing = next(p for p in output_parts if p['name'] == 'door_original_curved_backing')
+    back_positions, _, _, _ = geometry(backing, False, target_world)
+    edges = []
+    for tri in back_positions.reshape((-1, 3, 3)):
+        points = [p for p in tri if abs(p[1] - cut_y) <= CLOSED_WORLD_POSITION_TOLERANCE_M]
+        if len(points) == 2 and np.linalg.norm(points[1] - points[0]) > 1e-10:
+            edges.append(points)
+    assert edges, 'Actual backing cut skins missing'
+    for point in cap_positions:
+        distances = []
+        for a, b in edges:
+            d = b - a; t = np.clip(np.dot(point - a, d) / np.dot(d, d), 0, 1)
+            distances.append(np.linalg.norm(point - a - t * d))
+        assert min(distances) <= CLOSED_WORLD_POSITION_TOLERANCE_M, 'Floor cap vertex is not attached to actual cut skins'
+    for tri in cap_positions.reshape((-1, 3, 3)):
+        assert np.cross(tri[1] - tri[0], tri[2] - tri[0])[1] < -1e-12, 'Backing cap triangle winding/area changed'
+    stops = sorted(set(float(p[2]) for edge in edges for p in edge))
+    expected_cap_area = 0.
+    for low, high in zip(stops, stops[1:]):
+        active = [(a, b) for a, b in edges if min(a[2], b[2]) <= (low + high) / 2 <= max(a[2], b[2])
+                  and abs(a[2] - b[2]) > 1e-12]
+        if len(active) < 2:
+            continue
+        widths = []
+        for z in [low, high]:
+            xs = [a[0] + (b[0] - a[0]) * (z - a[2]) / (b[2] - a[2]) for a, b in active]
+            widths.append(max(xs) - min(xs))
+        expected_cap_area += (high - low) * sum(widths) / 2
+    cap_triangles = cap_positions.reshape((-1, 3, 3))
+    actual_cap_area = float(np.linalg.norm(np.cross(cap_triangles[:, 1] - cap_triangles[:, 0],
+                                                  cap_triangles[:, 2] - cap_triangles[:, 0]), axis=1).sum() / 2)
+    assert abs(actual_cap_area - expected_cap_area) <= CUT_SURFACE_AREA_TOLERANCE_M2, 'Actual backing floor cut is not fully capped'
+    # Area alone cannot distinguish equal-area duplicated and omitted facets.
+    # On each Z partition, every triangle/skin interval endpoint is linear;
+    # matching the ordered coverage at two interior Z values proves the full
+    # partition's cross-section coverage (within the original position limit).
+    all_stops = sorted(set(stops + cap_positions[:, 2].tolist()))
+    coverage_sections = 0
+    for low, high in zip(all_stops, all_stops[1:]):
+        if high - low <= 1e-10:
+            continue
+        for fraction in [.25, .75]:
+            z = low + fraction * (high - low)
+            xs = [a[0] + (b[0] - a[0]) * (z - a[2]) / (b[2] - a[2])
+                  for a, b in edges if min(a[2], b[2]) < z < max(a[2], b[2]) and abs(a[2] - b[2]) > 1e-12]
+            actual_intervals = []
+            for tri in cap_triangles:
+                intersections = []
+                for a, b in zip(tri, np.roll(tri, -1, axis=0)):
+                    if min(a[2], b[2]) < z < max(a[2], b[2]):
+                        intersections.append(float(a[0] + (b[0] - a[0]) * (z - a[2]) / (b[2] - a[2])))
+                if intersections:
+                    assert len(intersections) == 2
+                    actual_intervals.append((min(intersections), max(intersections)))
+            if not xs:
+                assert not actual_intervals, 'Backing cap extends beyond actual cut skins'
+                continue
+            assert len(xs) >= 2 and actual_intervals, 'Backing cap has an actual uncovered section'
+            cursor = min(xs)
+            for left, right in sorted(actual_intervals):
+                assert abs(left - cursor) <= CLOSED_WORLD_POSITION_TOLERANCE_M, 'Backing cap has an actual gap/overlap'
+                cursor = right
+            assert abs(cursor - max(xs)) <= CLOSED_WORLD_POSITION_TOLERANCE_M, 'Backing cap misses actual cut-skin width'
+            coverage_sections += 1
+    assert coverage_sections
+
+    links = [p for p in output_parts if p['name'] == 'fixed_step_floor_carry_link']
+    assert len(links) == 2
+    link_readings = []
+    for source_id in sorted(expected_steps):
+        candidates = [p for p in links if p.get('engineering_source_part_indices') == [source_id, floor_id]]
+        assert len(candidates) == 1
+        link, = candidates
+        xyz, _, node, _ = geometry(link, False, target_world)
+        assert not under_door(node) and link['frame'] == 'vehicle_body' and link['material'] == 4
+        assert len(xyz) == 36 and len(np.unique(xyz, axis=0)) == 8
+        source_xyz, _, _, _ = geometry(source_parts[source_id], True, source_world)
+        terminal_centre = np.unique(source_xyz[:6], axis=0).mean(axis=0)
+        plan = recipe['fixed_step_carry_links']
+        intended_end = terminal_centre + [plan['floor_inboard_offset_m'], 0, 0]
+        intended_end[1] = floor_min[1] + plan['floor_engagement_m']
+        axis = intended_end - terminal_centre; axis /= np.linalg.norm(axis)
+        intended_start = terminal_centre - axis * plan['terminal_engagement_m']
+        unique = np.unique(xyz, axis=0); projection = unique @ axis
+        start_vertices = unique[projection <= projection.min() + CLOSED_WORLD_POSITION_TOLERANCE_M]
+        end_vertices = unique[projection >= projection.max() - CLOSED_WORLD_POSITION_TOLERANCE_M]
+        assert len(start_vertices) == len(end_vertices) == 4
+        assert np.abs(start_vertices.mean(axis=0) - intended_start).max() <= CLOSED_WORLD_POSITION_TOLERANCE_M, 'Fixed carry link terminal attachment moved'
+        assert np.abs(end_vertices.mean(axis=0) - intended_end).max() <= CLOSED_WORLD_POSITION_TOLERANCE_M, 'Fixed carry link floor attachment moved'
+        assert np.all(end_vertices > floor_min) and np.all(end_vertices < floor_max), 'Carry link end cap is not embedded in the actual floor'
+        for cross_section in [start_vertices, end_vertices]:
+            measured = sorted(np.linalg.norm(cross_section[i] - cross_section[j]) for i in range(4) for j in range(i))
+            expected = sorted([plan['section_m']] * 4 + [plan['section_m'] * math.sqrt(2)] * 2)
+            assert np.abs(np.asarray(measured) - expected).max() <= CLOSED_WORLD_POSITION_TOLERANCE_M, 'Fixed carry link section changed'
+        margins = []
+        for tri in xyz.reshape((-1, 3, 3)):
+            n = np.cross(tri[1] - tri[0], tri[2] - tri[0]); n /= np.linalg.norm(n)
+            assert (xyz @ n - tri[0] @ n).max() <= CLOSED_WORLD_POSITION_TOLERANCE_M, 'Carry link is not a convex outward box'
+            margins.append(float((tri[0] - terminal_centre) @ n))
+        assert min(margins) >= plan['terminal_engagement_m'] - CLOSED_WORLD_POSITION_TOLERANCE_M, 'Carry link does not actually engage original terminal cap'
+        lo, hi = xyz.min(axis=0), xyz.max(axis=0)
+        nearby_original_leaf = clipped_axis_vertices(original_u_lining, [(1, lo[1], hi[1])])
+        assert len(nearby_original_leaf)
+        separator = float(lo[0] - nearby_original_leaf[:, 0].max())
+        assert separator >= .006, 'Fixed link crosses whole original U/lining envelope'
+        assert hi[1] < back_positions[:, 1].min() - 1e-8, 'Fixed link intersects added backing height envelope'
+        link_readings.append({'step_source_occurrence': source_id, 'floor_source_occurrence': floor_id,
+            'actual_bounds': {'min': lo.tolist(), 'max': hi.tolist()},
+            'terminal_cap_actual_interior_margin_m': min(margins), 'floor_end_cap_fully_embedded': True,
+            'WHOLE_original_U_lining_all_Z_closed_x_separator_m': separator,
+            'section_m': plan['section_m'], 'not_strength_or_swept_proof': True})
     triangles, moving, labels = decode(doc, binary)
     hole = recipe['aperture_root_yz_m']; inset = .015
     core = [(-.80, -.30), (hole['y_min'] + inset, hole['y_max'] - inset),
@@ -379,6 +611,11 @@ def verify_structure(args):
         'protected_actual_world_occurrences': protected_world_rows,
         'retained_original_leaf_parts': moved_rows, 'cut_shell_accounting': cut_accounting,
         'hidden_step_stem_repairs': step_rows, 'source_derived_profile_vertices': len(profile),
+        'actual_floor_top_m': float(floor_max[1]), 'actual_floor_bottom_m': float(floor_min[1]),
+        'actual_backing_min_y_m': float(back_positions[:, 1].min()),
+        'actual_floor_edge_cap_triangles': len(cap_positions) // 3,
+        'actual_floor_edge_cap_area_m2': actual_cap_area, 'actual_floor_cap_coverage_sections': coverage_sections,
+        'fixed_step_carry_links': link_readings,
         'closed_world_position_tolerance_m': CLOSED_WORLD_POSITION_TOLERANCE_M,
         'cut_surface_area_tolerance_m2': CUT_SURFACE_AREA_TOLERANCE_M2,
         'all_actual_triangles': len(triangles), 'moving_triangles': int(moving.sum()),

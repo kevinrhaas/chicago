@@ -1,5 +1,5 @@
 {
-  "schema": "chicago-brougham-right-door-study-v2",
+  "schema": "chicago-brougham-right-door-study-v3",
   "status": "UNQUALIFIED source proposal; not an installed delivery or a boarding approval",
   "base_contracts": {
     "near": "near-contract.json",
@@ -56,8 +56,10 @@
     "The existing curved wall below the door overlay is genuinely cut; its inside fragments become moving backing, with declared narrow running relief. Existing opaque door and glass retain their original closed positions.",
     "The opening is a door-operation study. The existing 0.4859m step-to-floor rise, occupant passage, seated fit, strength and driving remain unqualified.",
     "Hidden fixed wall/header/pillar interfaces are rebated at the actual closed leaf support envelope. Header/pillar interior fragments transfer to the leaf with the same source finish and closed surface;3mm running joints and6mm backing inset are unqualified engineering dimensions.",
-    "Only the hidden middle of the two right step stems moves25mm inboard through smooth Y tapers; original terminal attachments and tread pads remain exact. New straps attach at outer barrel wall and actual source shell/old fitting centres.",
-    "Strap starts engage the outer14mm barrel wall by2mm (radius12mm), retaining positive attachment without entering the6mm bore or5mm pin; this is new engineered joinery, not a contact exception."
+    "The two right step stems retain the25mm base taper plus the declared additional whole-source-ring route, reaching188.04mm at the lower bow; original terminal rings, attachments and tread pads remain exact. Lower-bow closed appearance remains OPEN. New straps attach at outer barrel wall and actual source shell/old fitting centres.",
+    "Strap starts engage the outer14mm barrel wall by2mm (radius12mm), retaining positive attachment without entering the6mm bore or5mm pin; this is new engineered joinery, not a contact exception.",
+    "Only the added backing is removed belowY.926 (3.300012mm above actual floor); new downward edge closure and two12mm fixed carry links are engineering reconstructions, not copied catalogue hardware.",
+    "Whole source-ring movement retains actual source section and terminal loops but can reach188.04mm in the lower turn. Potential visible lower-bow appearance change remains OPEN until actual matched low-angle renders; this is not measured as invisible."
   ],
   "aperture_profile_yz_m": [
     [
@@ -266,7 +268,36 @@
       0.65,
       0.735
     ],
-    "preserve_terminal_regions": "All source positions at Y<=.455 orY>=.735 remain exact; whole unchanged terminal triangles keep original PN; tread pads unchanged"
+    "preserve_terminal_regions": "All source positions at Y<=.455 orY>=.735 remain exact; whole unchanged terminal triangles keep original PN; tread pads unchanged",
+    "route_method": "whole_actual_19_source_rings",
+    "lower_target_min_x_m": -0.44,
+    "extra_ramp_up_root_y_m": [
+      0.455,
+      0.475
+    ],
+    "extra_ramp_down_root_y_m": [
+      0.545,
+      0.6
+    ],
+    "max_ring_translation_m": 0.189,
+    "observed_unexported_max_translation_m": 0.18804165110619833,
+    "protect_entire_terminal_rings": "Any original ring corner atY<=.455 orY>=.735 protects the complete ring; never clamp individual corners",
+    "appearance_status": "OPEN: up to188.04mm lower-ring movement may alter visible footbow; mandatory matched low-angle closed review before adoption"
   },
-  "hinge_strap_engagement_m": 0.002
+  "hinge_strap_engagement_m": 0.002,
+  "backing_min_root_y_m": 0.926,
+  "backing_floor_edge_cap": "Bridge actual cut skins atY.926, facing -Y in existing body material; original visible U leaf unchanged",
+  "fixed_step_carry_links": {
+    "section_m": 0.012,
+    "terminal_engagement_m": 0.006,
+    "floor_engagement_m": 0.01,
+    "floor_inboard_offset_m": 0.02,
+    "material_index": 4,
+    "basis": "Engineering fixed floor links from actual original upper stem cap centres to actual floor underside volume; no attested hardware or strength claim"
+  },
+  "engineering_observations": {
+    "original_near_sha256": "206cd7a9141896361abd312ce73cd4de0e0868eca532b097a995a0488fa3dfe4",
+    "floor_ring_link_source_observation_sha256": "69fe867ac035b07560dcd67ee93131effed16e35a9cd206753e5b19eeeeb5b41",
+    "complete_118_contact_envelope_sha256": "12cbb9bf1e286289c06878662d9cc5bde48f61e859cc2f28625d3f7e3cd05620"
+  }
 }
