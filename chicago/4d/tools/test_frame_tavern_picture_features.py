@@ -126,13 +126,18 @@ class PictureFeatures(unittest.TestCase):
 
     def test_optional_ridge_end_chimney_heads_keep_legacy_and_other_geometry(self):
         _, _, p = record_params("sauganash_hotel", "frame_1831")
+        # The integrated canonical Sauganash intentionally opts into its new
+        # head. Save/assert that real choice, then clear it for the legacy control.
+        self.assertEqual(p.ridge_end_chimney_head,
+                         {"height_above_ridge_m":.75,"cap_overhang_m":.06,"cap_height_m":.12})
+        actual_head = p.ridge_end_chimney_head
         p = dataclasses.replace(p, chimney_placement="gable_ends", chimneys=2,
-                                ridge_end_chimney_section_m=.6)
+                                ridge_end_chimney_section_m=.6, ridge_end_chimney_head=None)
         plain, _ = builder.build(p,"plain")
         explicit, _ = builder.build(dataclasses.replace(p,ridge_end_chimney_head=None),"plain")
         self.assertEqual((plain.verts,plain.faces,plain.conf,plain.mat_index),
                          (explicit.verts,explicit.faces,explicit.conf,explicit.mat_index))
-        head={"height_above_ridge_m":.75,"cap_overhang_m":.06,"cap_height_m":.12}
+        head=actual_head
         capped=dataclasses.replace(p,ridge_end_chimney_head=head)
         capped.validate()
         mesh,_=builder.build(capped,"capped")
