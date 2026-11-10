@@ -1,0 +1,170 @@
+{
+  "eye": [
+    -25,
+    45,
+    10
+  ],
+  "yaw_deg": 153,
+  "focal_px": 2015,
+  "principal_px": [
+    2765,
+    832
+  ],
+  "bounds_px": [
+    208.6441757110897,
+    874.8638864773621,
+    2708.659739142337,
+    1825.4545152987457
+  ],
+  "min_depth": 20.282760498542416,
+  "members": [
+    {
+      "structure_id": "fort_dearborn_commandants_quarters",
+      "glb_sha256": "58689363a9aab5bdbea6c776c0c732f63b0b339aa221792240a34b7d3d075ffd",
+      "expected_gltf_bounds": [
+        [
+          -0.30000001192092896,
+          0,
+          -9.87
+        ],
+        [
+          15.539999961853027,
+          8.749876976013184,
+          0.30000001192092896
+        ]
+      ],
+      "anchor_corners": [
+        [
+          -0.30000001192092896,
+          9.87,
+          0
+        ],
+        [
+          -0.30000001192092896,
+          -0.30000001192092896,
+          0
+        ],
+        [
+          -0.30000001192092896,
+          9.87,
+          8.749876976013184
+        ],
+        [
+          -0.30000001192092896,
+          -0.30000001192092896,
+          8.749876976013184
+        ],
+        [
+          15.539999961853027,
+          9.87,
+          0
+        ],
+        [
+          15.539999961853027,
+          -0.30000001192092896,
+          0
+        ],
+        [
+          15.539999961853027,
+          9.87,
+          8.749876976013184
+        ],
+        [
+          15.539999961853027,
+          -0.30000001192092896,
+          8.749876976013184
+        ]
+      ]
+    },
+    {
+      "structure_id": "fort_dearborn_officers_quarters",
+      "glb_sha256": "fc6cdc30ca4bca005a77748e82d79aecec0d39e06226e601a99427a0efc378fb",
+      "expected_gltf_bounds": [
+        [
+          -0.30000001192092896,
+          0,
+          -11.390000343322754
+        ],
+        [
+          21.89,
+          8.662504196166992,
+          0.30000001192092896
+        ]
+      ],
+      "anchor_corners": [
+        [
+          3.8540755280752546,
+          14.748011512099874,
+          0
+        ],
+        [
+          15.544075883318937,
+          14.748011512099874,
+          0
+        ],
+        [
+          3.8540755280752546,
+          14.748011512099874,
+          8.662504196166992
+        ],
+        [
+          15.544075883318937,
+          14.748011512099874,
+          8.662504196166992
+        ],
+        [
+          3.8540755280752563,
+          36.9380115240208,
+          0
+        ],
+        [
+          15.54407588331894,
+          36.9380115240208,
+          0
+        ],
+        [
+          3.8540755280752563,
+          36.9380115240208,
+          8.662504196166992
+        ],
+        [
+          15.54407588331894,
+          36.9380115240208,
+          8.662504196166992
+        ]
+      ]
+    }
+  ],
+  "qualification": "CPU conservative actual A5 MASTER accessor bounding boxes plus expected native29 gallery/stair bounds, not an attested optical fit. Same eye/yaw/photo; only focal/principal refined after one concrete crop failure.",
+  "before_camera_sha256": "a03622fdafddefcd81ba446610090e9895c7c2345b5dff4d7c72aed927e73341",
+  "refined_camera_sha256": "cafea15f52de57a3268c7db88c9bbd42d84e1e0300e67979fc85b7c1d46a0dd8",
+  "photo_sha256": "0b88a1b59d7a7c8a1e57c4f86fcce48244abd11908a1c0b751b20f0d8a0a184b",
+  "before_history": "/tmp/nov10-secondfort-before-actual/captures-history-1855-c390-cropped",
+  "root_source_pin": "b9c767997c452740c6b690cf2d280d7f75c8c9d5",
+  "actual_before_capture": {
+    "receipt": "/tmp/nov10-secondfort-before-actual/captures/hesler-1855-later-quarters/RECEIPT.json",
+    "exit_code": 0,
+    "seconds": 2.711827278137207,
+    "verdict": "unreviewed",
+    "group_sha256": "e58e46d23589841239167c3a25ad9d4f264c5c28285b3660fe77b51511b49cd2",
+    "files": {
+      "hesler-1855-later-quarters.match.json": {
+        "bytes": 2365,
+        "sha256": "4d0ebb6fd56a67690dd2d73c7f3aebed6d1f4879c8346cd5a898beec25682c82"
+      },
+      "hesler-1855-later-quarters-render.png": {
+        "bytes": 336784,
+        "sha256": "c43436e71009b0f61c2f78212a7b8d82ea19d7d0a69267929ec42cc80bf4cf08"
+      },
+      "command.log": {
+        "bytes": 408,
+        "sha256": "77accf3183eda6cfd58c17ad4f13c6fdd0ff7683b1e321860d166383e61f0859"
+      },
+      "hesler-1855-later-quarters-side-by-side.jpg": {
+        "bytes": 1362777,
+        "sha256": "619f018b21962961d83a284b4755cdaf49e21b694eaf16ef073e6c95dd54cf8c"
+      }
+    },
+    "direct_review": "Both complete A/B bodies visible. OfficersB double gallery readable; absent commandantsA gallery is the honest pre-native condition. Old c390 cropped pair retained. No match verdict assigned."
+  }
+}

@@ -174,3 +174,7 @@ Its pose, photo, optical fields and credited card members stay unchanged. Other
 1835fort models are unpictured in this cut and must not create false occluders; the
 other seven full compound views retain all21members. This is a camera-scope correction,
 not a model/native input change or a new historical viewing station.
+
+### 2026-11-10 finite 1855 diagnostic framing
+
+The actual A+B-only c390 baseline cropped the lower galleries. Keep its eye[-25,45,10], yaw153 and full-page source unchanged; use focal2015 and principal[2765,832] solely as diagnostic framing. CPU projection of both current A5 MASTER boxes extended for the explicitly expected A gallery and B stair places the full envelope within[208.64,874.86]–[2708.66,1825.45] of2918×2038 pixels. The exact source/model/camera bindings and bounds are in `hesler-1855-framing-bindings.json`. This is not a historical optics claim. Retain the c390 cropped actual comparison as history; the refined actual comparison is the common BEFORE/AFTER baseline. Root adopts both metadata follow-ups only after native29 adoption; the native b9 source pin is unchanged.
