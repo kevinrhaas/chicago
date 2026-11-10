@@ -2,7 +2,7 @@
   "structure_id": "first_fort_dearborn_blockhouse_nw",
   "view": "lossing_1869_fort",
   "glb": "assets/gltf/first_fort_dearborn_blockhouse_nw__first_fort_1803.glb",
-  "glb_sha256": "2567def5a0c657bc40e051bce905fe3c8b8b66f73d46171fcc57dd73d97913fc",
+  "glb_sha256": "f05cba8e375a4acd832a6bd056c29fbb2389ccc8076f25ab6d72ad59163341ea",
   "camera_sha256": "3e43b2396ff117c96663b57c469eda5882fd7f2536ecd305bf6e3ed6c083a642",
   "photo_sha256": "754e804e82934c901813a33eb65cad1ba1412378eeed1da39f12c451727e4536",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "2567def5a0c657bc40e051bce905fe3c8b8b66f73d46171fcc57dd73d97913fc"
+      "glb_sha256": "f05cba8e375a4acd832a6bd056c29fbb2389ccc8076f25ab6d72ad59163341ea"
     },
     {
       "structure_id": "first_fort_dearborn_pickets_outer",
@@ -61,7 +61,7 @@
         30.19999999999999
       ],
       "rotation_y": 0,
-      "glb_sha256": "4b52564cd577363639667ed59c38564fb997e5e5496291cfaf3799d0e208352a"
+      "glb_sha256": "aa8a8a5c39b32f3394598924dac1d2214cc75531994159f8b8c7977df16caf6a"
     },
     {
       "structure_id": "first_fort_dearborn_commanding_officers_barracks",
@@ -118,7 +118,7 @@
         -0.3400000000000034
       ],
       "rotation_y": -3.141592653589793,
-      "glb_sha256": "6ed239cb5eed46fbcf64796369423497e70de6cca0442bd4f2cbb88d3bde39cf"
+      "glb_sha256": "3d51d6a46407deace244ec2286561fe29d370048c591e86164e04b9674a5c334"
     },
     {
       "structure_id": "first_fort_dearborn_north_range",
@@ -273,9 +273,38 @@
       "glb_sha256": "8e02cd7d24d42dec902435142aee5aad9650ca024af6e59422b16bae6dab9239"
     }
   ],
-  "group_sha256": "ecaeaf71841d2e5f78d0e87987304b0bebe5d8e9a6eabb18dbd9bf592c31c25b",
+  "group_sha256": "ae5abd869db44526e7a07457cac50695c0a692a12d186df12581434603419e95",
   "side_by_side": "docs/RESEARCH/photo-match/first_fort_dearborn_blockhouse_nw/lossing_1869_fort-side-by-side.jpg",
-  "verdict": "unreviewed",
-  "differences": [],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "Actual full960x506 source and fresh fourteen-member native pair directly reviewed, 2026-11-10. The fort enclosure, roof group and both existing blockhouse cupolas are visible in the intended distant source area. This confirms their current occurrence in this independent diagnostic; it does not identify every hidden range, impose a surveyed source camera or attest metres/colours from the engraving.",
+      "status": "fixed"
+    },
+    {
+      "what": "Lossing's retrospective range/gable/tower compression conflicts with Whistler's measured corner layout and indexed range functions. T3335 explicitly retains that plan, blockhouse proportions, range lengths, main-gate gap and current stacks, with only the already-built adopted exceptions. Retain those owner choices; this comparison does not make the two plans equivalent.",
+      "status": "owner ruling"
+    },
+    {
+      "what": "The documented75ft(22.86m) staff stays at its measured parade centre. It projects nearx644/y57 in this fort-only frame, while the source places a compressed staff aroundx540/y100. The virtual projection was framed from the enclosure envelope, not calibrated to every drawn feature. T3153 makes this explicit source/plan/camera disagreement within tolerance; neither staff height nor world seat is moved.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "Foreground Kinzie house/fence, river, banks, boats and vegetation belong to the full source composition and are deliberately outside this fort-only flat-grade building comparison. The existing Kinzie camera remains unchanged, and its same-world fort transfer is not an accepted fit. Their absence here is not a missing fort component or permission to move the fort to match the house view.",
+      "status": "not shown"
+    },
+    {
+      "what": "The distant roof/stockade silhouettes do not individually identify all14rendered core components, seven other original records or nine context records. The complete30-row coverage matrix records their contemporary plan/text evidence and not-shown picture dispositions; no unlabelled distant or galleried form is assigned to fill a named record. Hidden elevations, covered-way construction and wharf particulars are not accepted by this image.",
+      "status": "not shown"
+    },
+    {
+      "what": "The full source remains uncropped and unchanged. The independent fort-only camera uses declared virtual1600px focal length,5.75m review height,128degree heading and fitted envelope framing; it is neither recovered historical optics nor the Kinzie house-fit world eye. Pixel framing and relative retrospective compression are within tolerance underT3153, not evidence for altering surveyed geometry.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "Fresh adopted A5 native comparison directly reviewed,2026-11-10. All rendered members use current genuinely generated MASTERs and current1812 placements; previous Currey, Kurz and Lossing comparison evidence is retained. This final image adjudication applies the explicit T3335 plan and T3153 visitor/source-camera stopping rule to the named differences above, with the separate30-record coverage matrix. It does not attest hidden records or claim a recovered historical optical/geographic camera.",
+      "status": "within tolerance"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }
