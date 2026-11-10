@@ -22,6 +22,7 @@ const { resolveSharpness, SHARPNESS_STOPS } = await import(pathToFileURL(path.jo
 const main = await readFile(path.join(web, 'js/main.js'), 'utf8');
 const hud = await readFile(path.join(web, 'js/hud.js'), 'utf8');
 const html = await readFile(path.join(web, 'index.html'), 'utf8');
+const meter = await readFile(path.join(web, 'portal/device-meter.js'), 'utf8');
 
 const checks = [];
 function check(name, run) { run(); checks.push(name); }
@@ -38,7 +39,7 @@ check('a standard device boots exactly the T-2110 defaults on both platforms', (
   assert.equal(dp.decide('nonsense', { touch: false }).detail, 'full', 'an unknown class reads as standard');
 });
 check('weak and strong move detail and Sharpness the documented way, inside the ladders', () => {
-  assert.equal(dp.decide('weak', { touch: false }).detail, 'balanced');
+  assert.equal(dp.decide('weak', { touch: false }).detail, 'balanced', 'T-3537: never Light, which drops horses and carriages');
   assert.equal(dp.decide('weak', { touch: false }).sharpness, 1);
   assert.equal(dp.decide('strong', { touch: false }).sharpness, 2);
   assert.equal(dp.decide('strong', { touch: true }).detail, 'light', 'a phone never earns geometry (T-2546)');
@@ -90,6 +91,59 @@ check("T-2547's crash marker steps a class down, never below weak", () => {
   assert.equal(dp.classify(GPU, up, { stepDown: 1 }).cls, 'standard');
   assert.equal(dp.classify(GPU, up, { stepDown: 5 }).cls, 'weak');
   assert.match(dp.classify(GPU, up, { stepDown: 1 }).why, /crash/);
+});
+// T-3537: the owner's Inspiron 3880 (Intel UHD 630, 12 GB) passed the benchmark as
+// standard, booted 1904 Full and its tab died. An integrated GPU is a weak computer.
+const IGPUS = [
+  'ANGLE (Intel, Intel(R) UHD Graphics 630 (0x00009BC8) Direct3D11 vs_5_0 ps_5_0, D3D11)',
+  'ANGLE (Intel, Intel(R) Iris(R) Xe Graphics (0x00009A49) Direct3D11 vs_5_0 ps_5_0, D3D11)',
+  'ANGLE (Intel, Intel(R) HD Graphics 620 Direct3D11 vs_5_0 ps_5_0, D3D11)',
+  'Mesa Intel(R) UHD Graphics 620 (KBL GT2)',
+  'ANGLE (Intel, Intel(R) Arc(TM) Graphics (0x00007D55) Direct3D11 vs_5_0 ps_5_0, D3D11)',
+  'ANGLE (AMD, AMD Radeon(TM) Graphics (0x00001638) Direct3D11 vs_5_0 ps_5_0, D3D11)',
+  'ANGLE (AMD, AMD Radeon(TM) Vega 8 Graphics (0x000015D8) Direct3D11 vs_5_0 ps_5_0, D3D11)',
+  'ANGLE (AMD, AMD Radeon 780M Graphics (0x000015BF) Direct3D11 vs_5_0 ps_5_0, D3D11)',
+  'ANGLE (Qualcomm, Qualcomm(R) Adreno(TM) X1-85 GPU, D3D11)',
+  'Intel Iris Pro OpenGL Engine',
+];
+const DISCRETE = [
+  'ANGLE (NVIDIA, NVIDIA GeForce RTX 3060 (0x00002503) Direct3D11 vs_5_0 ps_5_0, D3D11)',
+  'ANGLE (AMD, AMD Radeon RX 6700 XT (0x000073DF) Direct3D11 vs_5_0 ps_5_0, D3D11)',
+  'ANGLE (Intel, Intel(R) Arc(TM) A770 Graphics (0x000056A0) Direct3D11 vs_5_0 ps_5_0, D3D11)',
+  'ANGLE (AMD, AMD Radeon Pro 5500M OpenGL Engine, OpenGL 4.1)',
+  GPU.renderer,
+  'ANGLE (Apple, ANGLE Metal Renderer: Apple M2, Unspecified Version)',
+  'ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)',
+  '',
+];
+check('T-3537: an integrated GPU on a computer is weak whatever its benchmark; a phone is not moved', () => {
+  for (const r of IGPUS) assert.ok(dp.sharesSystemMemory(r), `integrated: ${r}`);
+  for (const r of DISCRETE) assert.ok(!dp.sharesSystemMemory(r), `not integrated: ${r}`);
+  const uhd = { ...GPU, renderer: IGPUS[0], cores: 12, memoryGB: 8 };
+  const fast = { fill: 3, verts: 0.3 }; // between the bounds: what the benchmark alone called standard
+  const pc = dp.classify(uhd, fast);
+  assert.equal(pc.cls, 'weak');
+  assert.match(pc.why, /integrated graphics sharing the system's memory \(Intel\(R\) UHD Graphics 630\)/);
+  assert.equal(dp.classify(uhd, fast, { touch: true }).cls, 'standard', 'a phone keeps Light whatever its class');
+  assert.equal(dp.classify(uhd, fast, { forced: 'strong' }).cls, 'strong', '?device= still forces');
+  const { score, grade } = dp.scoreProfile({ cls: pc.cls, signals: uhd, bench: fast });
+  assert.ok(score < 40 && ['poor', 'low'].includes(grade.id), `the meter no longer promises Good: ${score} ${grade.id}`);
+  assert.equal(dp.shortGpu(IGPUS[0]), 'Intel(R) UHD Graphics 630');
+});
+check('T-3537: a weak computer boots Balanced, blurrier, with the phone memory diet; a standard one keeps Full without it', () => {
+  const weak = dp.decide('weak', { touch: false, cores: 12 });
+  assert.equal(weak.detail, 'balanced', 'people, horses and carriages stay (owner, 2026-11-10)');
+  assert.equal(weak.sharpness, 1);
+  assert.equal(weak.textures, 'light');
+  assert.equal(weak.lowMemory, true);
+  assert.equal(dp.decide('standard', { touch: false }).lowMemory, false);
+  assert.equal(dp.decide('strong', { touch: false }).lowMemory, false);
+  for (const cls of dp.DEVICE_CLASSES) assert.equal(dp.decide(cls, { touch: true }).lowMemory, true);
+  assert.match(main, /const lowMem = coarse \|\| !!device\.choice\?\.lowMemory \|\| !!crashGuard\.state\.stepdown;/);
+  assert.ok(!/lowSpec: coarse/.test(main), 'every layer builds lowSpec from lowMem, not the touch screen');
+  assert.ok(!/if \(coarse\) releaseAfterUpload/.test(main), 'upload-release follows lowMem');
+  assert.match(main, /encodedImagesAsBlobs: lowMem,/);
+  assert.match(meter, /sharesSystemMemory\(s\.renderer\) \? 'shared memory'/);
 });
 check('the cache is keyed by renderer and build, and a stale key is a miss', () => {
   const store = new Map();
@@ -143,7 +197,6 @@ check('a stored choice is read before the profile, so the visitor keeps the last
 });
 
 // T-2901: the front door's device meter scores the same profile, inside its class's band.
-const meter = await readFile(path.join(web, 'portal/device-meter.js'), 'utf8');
 const portalHtml = await readFile(path.join(web, 'portal/index.html'), 'utf8');
 check('the meter score stays inside the band of the class the town boots on', () => {
   const band = { weak: [8, 39], standard: [40, 79], strong: [76, 99] };
