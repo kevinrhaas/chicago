@@ -1,3 +1,31 @@
+# T-2376 final source candidate and whole-picture coverage — 2026-11-10
+
+The remaining wrong shape has a concrete source correction: two separated low/high
+far-left gable peaks, connector roof falling toward the foreground range, upper
+infill clapboard and the foreground upper sash lowered within the low gable.
+See [source rationale](completion-source-20261110.md),
+[all-picture inventory](whole-picture-coverage-20261110.json) and
+[shared physical frames](physical-frame-receipt-20261110.json).
+Andreas retains its fixed camera; Trowbridge and Kurz now each have a fitted
+review camera with residuals recorded here. No new view is marked matches before
+its genuine final native pair is rendered and actually inspected.
+
+The owner stopping rule is T-3153: remaining camera/picture disagreement and the
+conflicting retrospective details are within tolerance; they are not automatic
+perpetual blockers or an invitation to invent a conversion date. The held c1859
+museum lead remains unseen/unverified/check_required, with no geometry or asset
+derived. The site1859 engraving is not authentication of that photograph.
+
+27 accumulator picture-feature tests, the front-wall reader and yard-mode tests
+pass. The shared core position/footprint and shoulder/connector physical frames
+are equal, the range's rear corners agree to roundoff, and its front/physical
+door advance together exactly0.7m. These are CPU/source checks, not native or app
+acceptance. Parent owns the one grouped genuine native and final picture/UI
+review. All earlier partial/open statements below are dated history; current
+final verdicts will be bound to the actual final native in the match records.
+
+---
+
 # Green Tree closed shoulder — current partial interpretation,2026-11-03
 
 The canonical existing enclosed_left_annex group now selects its closed shoulder. This supplies the wall, lower sash and small gabled/dormered upper light drawn in Andreas. Its complete normalized current native input document equals the genuine retained closed model's80d47recipe; no change to the building mesh producer or25-family bake is needed. All prior metric choices, source references, confidence, dates, main footprint and world placement remain unchanged.

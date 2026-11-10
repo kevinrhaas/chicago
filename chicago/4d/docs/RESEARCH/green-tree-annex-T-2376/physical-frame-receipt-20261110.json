@@ -1,0 +1,103 @@
+{
+  "not_a_reading": "Pure source/control/physical-frame comparison, not a new source unit or native render.",
+  "core_position_equal": true,
+  "core_footprint_equal": true,
+  "shoulder_and_connector_physical_frames_equal": true,
+  "turned_range_rear_corners_equal_to_roundoff": true,
+  "turned_range_front_advance_m": 0.7,
+  "old_door_center_local_uv": [
+    13.677191444407223,
+    13.447017970502507
+  ],
+  "new_door_center_local_uv": [
+    13.381358661188733,
+    14.081433421428162
+  ],
+  "additional_occupied_rings": [
+    {
+      "id": "shoulder",
+      "polygon": [
+        [
+          7.62,
+          5.589999999999999
+        ],
+        [
+          11.22,
+          5.589999999999999
+        ],
+        [
+          11.22,
+          12.389999999999999
+        ],
+        [
+          7.62,
+          12.389999999999999
+        ]
+      ],
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1884_green_tree_hotel_plate",
+        "kurz_allison_1893",
+        "trowbridge_green_tree_1902"
+      ],
+      "note": "Occupied ground of this reconstructed annex component; its exact resolved frame also builds the walls and door. The open yard bay is not a solid connecting polygon."
+    },
+    {
+      "id": "connector",
+      "polygon": [
+        [
+          11.22,
+          7.889999999999999
+        ],
+        [
+          14.22,
+          7.889999999999999
+        ],
+        [
+          14.22,
+          12.389999999999999
+        ],
+        [
+          11.22,
+          12.389999999999999
+        ]
+      ],
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1884_green_tree_hotel_plate",
+        "kurz_allison_1893",
+        "trowbridge_green_tree_1902"
+      ],
+      "note": "Occupied ground of this reconstructed annex component; its exact resolved frame also builds the walls and door. The open yard bay is not a solid connecting polygon."
+    },
+    {
+      "id": "boarding_range",
+      "polygon": [
+        [
+          14.22,
+          10.389999999999997
+        ],
+        [
+          17.8452311481466,
+          12.080473046962794
+        ],
+        [
+          16.28154357970601,
+          15.4338118589984
+        ],
+        [
+          12.656312431559412,
+          13.743338812035603
+        ]
+      ],
+      "confidence": "reconstructed",
+      "sources": [
+        "andreas_1884_green_tree_hotel_plate",
+        "kurz_allison_1893",
+        "trowbridge_green_tree_1902"
+      ],
+      "note": "Occupied ground of this reconstructed annex component; its exact resolved frame also builds the walls and door. The open yard bay is not a solid connecting polygon."
+    }
+  ],
+  "limits": "CPU shared physical frames only. Compilation/native yards/terrain/WEB and actual app require parent final review."
+}
