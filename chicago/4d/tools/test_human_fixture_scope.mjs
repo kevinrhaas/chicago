@@ -1,0 +1,126 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Guard/parser controls over the real inventory; no browser, GLB writes or mocks.
+import assert from 'node:assert/strict';
+import { createHash } from 'node:crypto';
+import { readFileSync } from 'node:fs';
+import test from 'node:test';
+import { TEAMSTER_IDS, parseFixtureArgs, teamsterFiles, prepareFixtureScope, mergeFixtureScope } from './human_fixture_scope.mjs';
+
+const baseline = JSON.parse(readFileSync(new URL('../data/humans/fixture.measure.json', import.meta.url)));
+const recipe = JSON.parse(readFileSync(new URL('../data/humans/recipes/worker_1835.json', import.meta.url)));
+const sha = value => createHash('sha256').update(value).digest('hex');
+const clone = value => JSON.parse(JSON.stringify(value));
+const date = '2026-11-10';
+function inputs() {
+  const document = clone(baseline);
+  const files = [...new Set([...document.files.map(row => row.file), ...teamsterFiles(TEAMSTER_IDS)])];
+  const hashes = new Map(document.files.map(row => [row.file, row.sha256]));
+  for (const file of teamsterFiles(TEAMSTER_IDS)) hashes.set(file, sha('guard-test-new-output:'+file));
+  return { baseline: document, files, hashes, assetIds: [...TEAMSTER_IDS] };
+}
+function measured(scope) {
+  const rows = new Map(scope.baseline.files.map(row => [row.file, row]));
+  return scope.selectedFiles.map(file => {
+    // New Joseph/Martin rows are synthetic guard inputs, never engine output.
+    const old = rows.get(file) ?? rows.get(file.replace(/dufresne_joseph_1835|flynn_martin_1835/, 'bardwell_otis_1835'));
+    return { ...clone(old), file, sha256: scope.hashes.get(file), triangles: old.triangles + 1,
+      derivative_of: file.includes('/web/') ? file.replace('/web/', '/') : null };
+  });
+}
+
+test('default full modes remain available; scoped mode names the actual three recipe IDs', () => {
+  assert.deepEqual([...TEAMSTER_IDS].sort(), recipe.proof_variants.map(v => v.id).sort());
+  for (const mode of ['', '--write', '--check']) assert.deepEqual(parseFixtureArgs(mode ? [mode] : []), { mode, assetIds: null });
+  assert.deepEqual(parseFixtureArgs(['--write', '--asset-ids', [...TEAMSTER_IDS].reverse().join(',')]),
+    { mode: '--write', assetIds: [...TEAMSTER_IDS] });
+});
+
+test('partial sets, duplicates, wrong IDs, unknown arguments and scoped check are refused', () => {
+  const ids = TEAMSTER_IDS.join(',');
+  for (const args of [ ['--asset-ids', ids], ['--check', '--asset-ids', ids], ['--write', '--asset-ids'],
+    ['--write', '--asset-ids', TEAMSTER_IDS.slice(0, 2).join(',')], ['--write', '--asset-ids', ids+',other'],
+    ['--write', '--asset-ids', [TEAMSTER_IDS[0], TEAMSTER_IDS[0], TEAMSTER_IDS[2]].join(',')],
+    ['--write', '--asset-ids', ids, '--asset-ids', ids], ['--write', '--check'], ['--unknown'] ]) {
+    assert.throws(() => parseFixtureArgs(args), /human fixture scope/);
+  }
+});
+
+test('248 baseline files plus 16 explicit additions select 24 source/web LODs and retain 240', () => {
+  const state = inputs(), scope = prepareFixtureScope(state);
+  assert.equal(state.baseline.files.length, 248); assert.equal(state.files.length, 264);
+  assert.equal(scope.selectedFiles.length, 24); assert.equal(scope.unchangedCount, 240); assert.equal(scope.addedCount, 16);
+  assert.equal(new Set(scope.selectedFiles).size, 24);
+  for (const id of TEAMSTER_IDS) {
+    assert.equal(scope.selectedFiles.filter(file => file.includes('/'+id+'.lod')).length, 8);
+    for (const dir of ['assets/humans', 'assets/humans/web']) for (const lod of [0, 1, 2, 3]) {
+      assert(scope.selectedFiles.includes(`${dir}/${id}.lod${lod}.glb`));
+    }
+  }
+});
+
+test('any changed unscoped byte binding or failed baseline verdict prevents native scope', () => {
+  const state = inputs(), selected = new Set(teamsterFiles(TEAMSTER_IDS));
+  const other = state.files.find(file => !selected.has(file));
+  state.hashes.set(other, sha('changed-unrelated-asset'));
+  assert.throws(() => prepareFixtureScope(state), /unscoped file changed/);
+  const failed = inputs(); failed.baseline.files.find(row => row.file === other).verdicts[0].ok = false;
+  assert.throws(() => prepareFixtureScope(failed), /failed\/empty verdicts/);
+});
+
+test('added, missing, duplicate and unbound files cannot disappear behind a scope', () => {
+  const extra = inputs(); extra.files.push('assets/humans/unrelated.lod0.glb'); extra.hashes.set(extra.files.at(-1), sha('extra'));
+  assert.throws(() => prepareFixtureScope(extra), /inventory differs/);
+  const absent = inputs(), file = teamsterFiles(TEAMSTER_IDS)[0];
+  absent.files = absent.files.filter(name => name !== file); absent.hashes.delete(file);
+  assert.throws(() => prepareFixtureScope(absent), /all 24/);
+  absent.baseline.files = absent.baseline.files.filter(row => row.file !== file);
+  assert.throws(() => prepareFixtureScope(absent), /all 24/);
+  const missingOld = inputs(), selected = new Set(teamsterFiles(TEAMSTER_IDS));
+  const oldFile = missingOld.files.find(name => !selected.has(name));
+  missingOld.files = missingOld.files.filter(name => name !== oldFile); missingOld.hashes.delete(oldFile);
+  assert.throws(() => prepareFixtureScope(missingOld), /baseline removals forbidden/);
+  const missingNew = inputs(), newFile = teamsterFiles(TEAMSTER_IDS).find(name => !baseline.files.some(row => row.file === name));
+  missingNew.files = missingNew.files.filter(name => name !== newFile); missingNew.hashes.delete(newFile);
+  assert.throws(() => prepareFixtureScope(missingNew), /all 24/);
+  const duplicate = inputs(); duplicate.baseline.files.push(clone(duplicate.baseline.files[0]));
+  assert.throws(() => prepareFixtureScope(duplicate), /duplicate/);
+  const noHash = inputs(); noHash.hashes.delete(noHash.files[0]);
+  assert.throws(() => prepareFixtureScope(noHash), /complete actual file inventory/);
+});
+
+test('merging updates only the measured rows, preserves old rows/date, and records the scope honestly', () => {
+  const state = inputs(), before = JSON.stringify(state.baseline), scope = prepareFixtureScope(state);
+  const rows = measured(scope), merged = mergeFixtureScope(scope, rows, state.files, state.hashes, date);
+  assert.equal(JSON.stringify(state.baseline), before);
+  assert.equal(merged.files.length, 264); assert.equal(merged.measured, state.baseline.measured);
+  assert.equal(merged.scoped_remeasurement.measured, date);
+  assert.equal(merged.scoped_remeasurement.measured_files, 24);
+  assert.equal(merged.scoped_remeasurement.unchanged_files_sha256_verified, 240);
+  assert.equal(merged.scoped_remeasurement.added_files, 16);
+  assert.equal(merged.scoped_remeasurement.replaced_existing_files, 8);
+  const updated = new Map(rows.map(row => [row.file, row]));
+  for (let i = 0; i < merged.files.length; i++) assert.deepEqual(merged.files[i], updated.get(merged.files[i].file) ?? state.baseline.files[i]);
+});
+
+test('missing, duplicated, failed, stale or mispaired native rows cannot be merged', () => {
+  const state = inputs(), scope = prepareFixtureScope(state), rows = measured(scope);
+  for (const wrong of [rows.slice(1), [...rows, clone(rows[0])],
+    rows.map((row, i) => i ? row : { ...row, verdicts: [{ check: 'native failure', ok: false }] }),
+    rows.map((row, i) => i ? row : { ...row, sha256: sha('stale-output') }),
+    rows.map((row, i) => i ? row : { ...row, lod: 3-row.lod }),
+    rows.map((row, i) => i ? row : { ...row, derivative_of: 'wrong-master.glb' })]) {
+    assert.throws(() => mergeFixtureScope(scope, wrong, state.files, state.hashes, date), /human fixture scope/);
+  }
+});
+
+test('any asset mutation or inventory change during native measurement is refused', () => {
+  const state = inputs(), scope = prepareFixtureScope(state), rows = measured(scope);
+  const selected = new Set(scope.selectedFiles);
+  for (const file of [scope.selectedFiles[0], state.files.find(name => !selected.has(name))]) {
+    const after = new Map(state.hashes); after.set(file, sha('changed-during-render:'+file));
+    assert.throws(() => mergeFixtureScope(scope, rows, state.files, after, date), /asset changed during native measurement/);
+  }
+  const files = [...state.files, 'assets/humans/late.lod0.glb'], hashes = new Map(state.hashes);
+  hashes.set(files.at(-1), sha('late'));
+  assert.throws(() => mergeFixtureScope(scope, rows, files, hashes, date), /inventory changed/);
+});
