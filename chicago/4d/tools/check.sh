@@ -8691,5 +8691,10 @@ step "World smoke keeps exact structure batches and both source-owned Green Tree
 step "Green Tree yard generator preserves enclosed, open and blocked source readings (T-1790)" \
   python3 tools/test_green_tree_yard_modes.py
 
+step "Human assembly still controls reject wrong identities, invalid bounds and missing outputs (T-1789)" \
+  python3 tools/test_human_library_stills.py
+step "Human assembly still intake rejects stale runs, mismatched jobs and unsafe archives (T-1789)" \
+  python3 tools/test_human_library_stills_intake.py
+
 check_summary
 exit $CHECK_FAILED
