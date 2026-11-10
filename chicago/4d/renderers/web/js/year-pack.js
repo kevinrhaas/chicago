@@ -20,6 +20,7 @@
  * is no sw.js or pack beside it. A visitor who never taps the control gets no
  * worker at all, and every failure here is shown on the control, never thrown.
  */
+import { verifiedPackAliases } from './published-assets.js';
 import { iconSvg } from './menu-icons.js';
 
 const MANIFEST = '__pack__.json';
@@ -75,6 +76,7 @@ export function createYearPack({ year, mount, base = document.baseURI, dev = fal
   /** Fetch what `next` adds over the installed pack and over `put`, the files this download
    *  already stored (rel -> hash), so a retry picks up where the last attempt stopped. */
   async function fetchFiles(next, old, put, cache, onProgress) {
+    const aliases = await verifiedPackAliases(next, root);
     const base = new Map((old?.files || []).map(([rel, hash]) => [rel, hash]));
     for (const [rel, hash] of put) base.set(rel, hash);
     const have = new Set((await cache.keys()).map((r) => decodeURIComponent(new URL(r.url).pathname.slice(root.pathname.length))));
@@ -89,12 +91,17 @@ export function createYearPack({ year, mount, base = document.baseURI, dev = fal
         try {
           // Marked, so the worker never answers it from the pack being replaced
           // (sw.js passes `c4d-pack` requests straight to the network).
-          const got = await fetch(`${url(rel)}?c4d-pack=${hash}`, { cache: 'no-store' });
+          const alias = aliases?.aliases[rel];
+          const source = alias ? new URL(alias.source, root).href : url(rel);
+          const got = await fetch(`${source}?c4d-pack=${hash}`, { cache: 'no-store' });
           if (!got.ok) throw new Error(`${rel}: ${got.status}`);
+          if (alias && (got.status !== 200 || got.headers.has('content-range')))
+            throw new Error(`${rel}: publication source is not a complete response`);
           const body = await got.arrayBuffer();
           // A file that does not match its entry is a site mid-deploy: stop, and let
           // download() read the list again.
-          if (await digest(body) !== hash) throw Object.assign(new Error(`${rel} changed while downloading`), { stale: true, rel });
+          const fullHash = hex(await crypto.subtle.digest('SHA-256', body));
+          if (body.byteLength !== size || fullHash.slice(0, 16) !== hash || (alias && fullHash !== alias.sha256)) throw Object.assign(new Error(`${rel} changed while downloading`), { stale: true, rel });
           await cache.put(url(rel), new Response(body, { headers: {
             'content-type': got.headers.get('content-type') || 'application/octet-stream' } }));
           put.set(rel, hash);

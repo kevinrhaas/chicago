@@ -29,6 +29,7 @@ const previousSelf=globalThis.self;
 globalThis.__T3173KTX2Loader=FakeKTX2Loader;
 async function moduleFor(name){let src=await fs.readFile(`${root}/renderers/web/js/${name}`,'utf8');
  src=src.replace("from 'three'",`from '${threeUrl}'`).replace("import { KTX2Loader } from 'three/addons/loaders/KTX2Loader.js';",'const KTX2Loader = globalThis.__T3173KTX2Loader;')
+ .replace("from './published-assets.js'",`from '${pathToFileURL(`${root}/renderers/web/js/published-assets.js`).href}'`)
  .replace("from './shared-images.js'",`from '${sharedUrl}'`).replace("from './batch-bounds.js'",`from '${boundsUrl}'`).replace("import { noteReleasedLevels } from './upload-release.js';",'const noteReleasedLevels = () => {};');
  return import(`data:text/javascript;base64,${Buffer.from(src).toString('base64')}`);}
 const kt=await moduleFor('ktx2.js');

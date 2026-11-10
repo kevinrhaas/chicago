@@ -45,7 +45,8 @@ async function moduleFor(profile, disabled = false) {
   }
   const marker = `__nativePolicyLoader${fixtureSequence++}`;
   globalThis[marker] = ControlledKTX2Loader;
-  const code = proposed.replace("import * as THREE from 'three';", `import * as THREE from '${threeURL}';`)
+  const code = proposed.replace("from './published-assets.js'", `from '${new URL('../renderers/web/js/published-assets.js', import.meta.url).href}'`)
+    .replace("import * as THREE from 'three';", `import * as THREE from '${threeURL}';`)
     .replace("import { KTX2Loader } from 'three/addons/loaders/KTX2Loader.js';", `const KTX2Loader = globalThis[${JSON.stringify(marker)}];`);
   let module;
   try { module = await import(dataModule(code)); } finally { delete globalThis[marker]; }
@@ -100,5 +101,33 @@ for (const profile of ['full', 'light']) {
   check(raw.image.width === 1024 && raw.mipmaps.length === 11, 'RGBA decoder cache remains full');
   const again = await new Promise(r => l.load('rgba', r));
   check(result.source === again.source && result.mipmaps.every((m, i) => m !== again.mipmaps[i]), 'RGBA repeat source sharing and descriptor isolation');
+}
+// Aliased invalid encoded bytes reach the REAL pinned KTX2 parser, coalesce one
+// concurrent request, deliver both errors, and evict the failed decode for retry.
+{
+  const { createHash } = await import('node:crypto');
+  const { assetAliasIdInput } = await import('../renderers/web/js/published-assets.js');
+  const bad = Buffer.from('deliberately invalid KTX2 decoder control');
+  const sha = b => createHash('sha256').update(b).digest('hex');
+  const rel = 'data/gltf/sheets/aaaaaaaaaaaaaaaa.ktx2';
+  const aliases = { [rel]: { source: '/4d/' + rel, sha256: sha(bad), bytes: bad.length } };
+  const catalogue = { schema: 1, scope: '/4d/dev/', productionScope: '/4d/', id: sha(assetAliasIdInput(aliases)), aliases };
+  const oldDocument = globalThis.document, oldFetch = globalThis.fetch;
+  let sourceRequests = 0;
+  globalThis.document = { baseURI: 'https://decoder.test/4d/dev/walk/', querySelector: () => ({ getAttribute: name =>
+    name === 'content' ? `/4d/dev/asset-aliases.${catalogue.id}.json` : catalogue.id }) };
+  globalThis.fetch = async url => {
+    if (String(url).includes('asset-aliases.')) return new Response(JSON.stringify(catalogue));
+    sourceRequests++; return new Response(bad);
+  };
+  try {
+    const { l } = await moduleFor('full');
+    const load = () => new Promise((resolve, reject) => l.load('https://decoder.test/4d/dev/' + rel, resolve, undefined, reject));
+    const pair = await Promise.allSettled([load(), load()]);
+    check(pair.every(r => r.status === 'rejected'), 'actual native alias decoder errors delivered to every concurrent caller');
+    check(sourceRequests === 1, 'failed alias decode coalesces verified bytes and native parse');
+    await assert.rejects(load()); checks++;
+    check(sourceRequests === 2, 'failed native alias decode is evicted for real retry');
+  } finally { globalThis.fetch = oldFetch; if (oldDocument === undefined) delete globalThis.document; else globalThis.document = oldDocument; }
 }
 console.log(`PASS ${checks} device texture policy checks. Actual pinned Three/KTX2 constructor layout; controlled decode delivery/support detection, no browser/GPU/appearance claim.`);

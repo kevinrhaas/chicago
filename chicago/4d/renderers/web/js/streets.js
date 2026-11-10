@@ -22,6 +22,7 @@
  * leaving honest gaps at unbridged channels rather than painting a ford.
  */
 
+import { fetchPublishedAssetBytes } from './published-assets.js';
 import * as THREE from 'three';
 import { spatialBatchAsync, batchPieces } from './spatial-batch.js';
 import { GRIT_TILE_PX, GRIT_TILE_M, gritTilePixels } from './ground-strip-mask.js';
@@ -2081,9 +2082,7 @@ export async function fetchPrebuiltStreets({ dataBase, year, build, detail = 'fu
     if (index.build !== build) return { why: `prebuilt by build ${index.build}, this page is build ${build}` };
     const want = index.bins?.[layout];
     if (!want) return { why: `the prebuild carries no ${layout} layout` };
-    const binRes = await fetch(new URL(want.bin, base));
-    if (!binRes.ok) return { why: `no prebuilt ${layout} streets buffer (${binRes.status})` };
-    let bin = await binRes.arrayBuffer();
+    let bin = await fetchPublishedAssetBytes(new URL(want.bin, base));
     // Gzipped twice on disk (prebuild_layers.mjs); a server that sent it with
     // Content-Encoding has inflated the outer pass, so read the magic bytes.
     const head = new Uint8Array(bin, 0, Math.min(2, bin.byteLength));

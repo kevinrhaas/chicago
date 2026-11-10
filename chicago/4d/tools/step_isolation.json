@@ -3955,6 +3955,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/derive_horse_coats.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/derive_lot_remnant.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -5922,6 +5926,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_horse_appearance.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_house_doors.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -5991,6 +5999,10 @@
       "wrote_ignored": []
     },
     "tools/test_human_errand_1904.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_fixture_scope.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6599,6 +6611,10 @@
       "wrote_ignored": []
     },
     "tools/test_program_cache_key.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_published_assets.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

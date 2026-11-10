@@ -40,6 +40,7 @@ hf.sample=(e,n)=>{let x=(e-hf.originE)/hf.cellM,y=(n-hf.originN)/hf.cellM;
 const dataBase=pathToFileURL(path.join(sourceRoot,'data/'));
 const frontageSource=await readFile(path.join(sourceRoot,'renderers/web/js/frontage.js'),'utf8');
 const frontage=await import(modURL(frontageSource.replace("from 'three'",`from '${threeURL}'`)
+ .replace("from './published-assets.js'",`from '${pathToFileURL(path.join(sourceRoot,'renderers/web/js/published-assets.js')).href}'`)
  .replace("import { resolveBases } from './scene-loader.js';","const resolveBases=()=>({assetBase:new URL('file:///tmp/t2037-no-assets/')});")
  .replace("from './gates.js'",`from '${pathToFileURL(path.join(sourceRoot,'renderers/web/js/gates.js')).href}'`)
  .replace("from './relief-pack.js'",`from '${pathToFileURL(path.join(sourceRoot,'renderers/web/js/relief-pack.js')).href}'`)

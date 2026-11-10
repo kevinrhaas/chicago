@@ -21,7 +21,14 @@
     "state": "standing",
     "day": [
       {
-        "note": "Reconstructed day (L-t3516-days, T-3516): docs/RESEARCH/people-days-1835-1904/days.py.",
+        "dates": {
+          "months": [
+            12,
+            1,
+            2
+          ]
+        },
+        "note": "Reconstructed seasonal routine (L-t3533-household-routines); times and activities are not diary evidence.",
         "spans": [
           {
             "from": 0,
@@ -32,7 +39,26 @@
           },
           {
             "from": 5.5,
-            "to": 12,
+            "to": 6.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1342.1,
+              "local_n": -3237.0,
+              "heading_deg": 80
+            },
+            "activity": "stand",
+            "doing": "in the court by the stable: the harness, the carriage washed"
+          },
+          {
+            "from": 6.0,
+            "to": 11,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "indoor household duties and shelter from the cold"
+          },
+          {
+            "from": 11,
+            "to": 11.5,
             "indoors": false,
             "at": {
               "local_e": 1342.1,
@@ -40,8 +66,109 @@
               "heading_deg": 80
             },
             "activity": "talk",
-            "doing": "in the court by the stable: the harness, the carriage washed",
+            "doing": "take a short break and discuss the household work",
             "knot": "glessner_court"
+          },
+          {
+            "from": 11.5,
+            "to": 12,
+            "indoors": false,
+            "at": {
+              "local_e": 1342.1,
+              "local_n": -3237.0,
+              "heading_deg": 80
+            },
+            "activity": "stand",
+            "doing": "in the court by the stable: the harness, the carriage washed"
+          },
+          {
+            "from": 12,
+            "to": 13,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "dinner"
+          },
+          {
+            "from": 13,
+            "to": 13.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1342.1,
+              "local_n": -3237.0,
+              "heading_deg": 80
+            },
+            "activity": "stand",
+            "doing": "in the court by the stable: the harness, the carriage washed"
+          },
+          {
+            "from": 13.5,
+            "to": 19,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "indoor household duties and shelter from the cold"
+          },
+          {
+            "from": 19,
+            "to": 24,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "supper; asleep in the rear building"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "months": [
+            3,
+            4,
+            5
+          ]
+        },
+        "note": "Reconstructed seasonal routine (L-t3533-household-routines); times and activities are not diary evidence.",
+        "spans": [
+          {
+            "from": 0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "asleep in the rear building"
+          },
+          {
+            "from": 5.5,
+            "to": 11,
+            "indoors": false,
+            "at": {
+              "local_e": 1342.1,
+              "local_n": -3237.0,
+              "heading_deg": 80
+            },
+            "activity": "stand",
+            "doing": "in the court by the stable: the harness, the carriage washed"
+          },
+          {
+            "from": 11,
+            "to": 11.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1342.1,
+              "local_n": -3237.0,
+              "heading_deg": 80
+            },
+            "activity": "talk",
+            "doing": "take a short break and discuss the household work",
+            "knot": "glessner_court"
+          },
+          {
+            "from": 11.5,
+            "to": 12,
+            "indoors": false,
+            "at": {
+              "local_e": 1342.1,
+              "local_n": -3237.0,
+              "heading_deg": 80
+            },
+            "activity": "stand",
+            "doing": "in the court by the stable: the harness, the carriage washed"
           },
           {
             "from": 12,
@@ -59,9 +186,172 @@
               "local_n": -3237.0,
               "heading_deg": 80
             },
+            "activity": "stand",
+            "doing": "in the court by the stable: the harness, the carriage washed"
+          },
+          {
+            "from": 19,
+            "to": 24,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "supper; asleep in the rear building"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "months": [
+            9,
+            10,
+            11
+          ]
+        },
+        "note": "Reconstructed seasonal routine (L-t3533-household-routines); times and activities are not diary evidence.",
+        "spans": [
+          {
+            "from": 0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "asleep in the rear building"
+          },
+          {
+            "from": 5.5,
+            "to": 11,
+            "indoors": false,
+            "at": {
+              "local_e": 1342.1,
+              "local_n": -3237.0,
+              "heading_deg": 80
+            },
+            "activity": "stand",
+            "doing": "in the court by the stable: the harness, the carriage washed"
+          },
+          {
+            "from": 11,
+            "to": 11.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1342.1,
+              "local_n": -3237.0,
+              "heading_deg": 80
+            },
             "activity": "talk",
-            "doing": "in the court by the stable: the harness, the carriage washed",
+            "doing": "take a short break and discuss the household work",
             "knot": "glessner_court"
+          },
+          {
+            "from": 11.5,
+            "to": 12,
+            "indoors": false,
+            "at": {
+              "local_e": 1342.1,
+              "local_n": -3237.0,
+              "heading_deg": 80
+            },
+            "activity": "stand",
+            "doing": "in the court by the stable: the harness, the carriage washed"
+          },
+          {
+            "from": 12,
+            "to": 13,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "dinner"
+          },
+          {
+            "from": 13,
+            "to": 19,
+            "indoors": false,
+            "at": {
+              "local_e": 1342.1,
+              "local_n": -3237.0,
+              "heading_deg": 80
+            },
+            "activity": "stand",
+            "doing": "in the court by the stable: the harness, the carriage washed"
+          },
+          {
+            "from": 19,
+            "to": 24,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "supper; asleep in the rear building"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "months": [
+            6,
+            7,
+            8
+          ]
+        },
+        "note": "Reconstructed seasonal routine (L-t3533-household-routines); times and activities are not diary evidence.",
+        "spans": [
+          {
+            "from": 0,
+            "to": 5.5,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "asleep in the rear building"
+          },
+          {
+            "from": 5.5,
+            "to": 11,
+            "indoors": false,
+            "at": {
+              "local_e": 1342.1,
+              "local_n": -3237.0,
+              "heading_deg": 80
+            },
+            "activity": "stand",
+            "doing": "in the court by the stable: the harness, the carriage washed"
+          },
+          {
+            "from": 11,
+            "to": 11.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1342.1,
+              "local_n": -3237.0,
+              "heading_deg": 80
+            },
+            "activity": "talk",
+            "doing": "take a short break and discuss the household work",
+            "knot": "glessner_court"
+          },
+          {
+            "from": 11.5,
+            "to": 12,
+            "indoors": false,
+            "at": {
+              "local_e": 1342.1,
+              "local_n": -3237.0,
+              "heading_deg": 80
+            },
+            "activity": "stand",
+            "doing": "in the court by the stable: the harness, the carriage washed"
+          },
+          {
+            "from": 12,
+            "to": 13,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "dinner"
+          },
+          {
+            "from": 13,
+            "to": 19,
+            "indoors": false,
+            "at": {
+              "local_e": 1342.1,
+              "local_n": -3237.0,
+              "heading_deg": 80
+            },
+            "activity": "stand",
+            "doing": "in the court by the stable: the harness, the carriage washed"
           },
           {
             "from": 19,

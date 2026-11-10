@@ -1,0 +1,84 @@
+{
+  "schema": "t2795_coat_writer_behavior_measurement_v1",
+  "tool": "tools/derive_horse_coats.py",
+  "write_mode": "(bare)",
+  "fixture": "Separate Git index fixture; six exact candidate/source files; no HEAD commit or application index used",
+  "inputs": [
+    {
+      "path": "tools/derive_horse_coats.py",
+      "sha256": "90a571efd4fe3168576afca1c36770420b14689624cc89aa49d60bf2e6c2526e",
+      "bytes": 4475
+    },
+    {
+      "path": "data/transport/horse-coats.recipe.json",
+      "sha256": "92b688b607e7500e65e8dfa18ccb398efe3163a056c88ad1d308d3cd668717a3",
+      "bytes": 4380
+    },
+    {
+      "path": "data/transport/horse-coats.json",
+      "sha256": "6f470d500f5d7472631b646ba2f8e1ae0a568b9cdb20ef266b0d135ed9c9a16a",
+      "bytes": 16051
+    },
+    {
+      "path": "data/transport/parked/horse-sevket-sidecar.json",
+      "sha256": "65046a1f2eb44f5952ba966a1b9baa2633f5e0079df5cef934aec6118f99f8a0",
+      "bytes": 406558
+    },
+    {
+      "path": "renderers/web/transport/driven/horse-current26-inplace-full.glb",
+      "sha256": "ad9dc060f8630d0de04fef97d716e8c82be3ac8bf070684e78107720c5221ec6",
+      "bytes": 3460908
+    },
+    {
+      "path": "renderers/web/transport/standing-horse/horse-sevket-quiet-head-neck-idle-v6.glb",
+      "sha256": "7ce84d43445e930eecc6d9f69e97ed7ade0fe0b3fc44a9a753c25d88b3f548e1",
+      "bytes": 4165556
+    }
+  ],
+  "samples": [
+    {
+      "label": "identity-write-1",
+      "returncode": 0,
+      "before_mtime_ns": 1794285845262098517,
+      "after_mtime_ns": 1794285845634814973,
+      "mtime_advanced": true,
+      "sha256": "6f470d500f5d7472631b646ba2f8e1ae0a568b9cdb20ef266b0d135ed9c9a16a",
+      "working_bytes_equal_own_index": true,
+      "stdout": "{\"sources\": 2, \"body_vertices\": 5595, \"source_only\": true, \"native_qualification\": \"UNRUN\"}"
+    },
+    {
+      "label": "identity-write-2",
+      "returncode": 0,
+      "before_mtime_ns": 1794285845634814973,
+      "after_mtime_ns": 1794285845734528500,
+      "mtime_advanced": true,
+      "sha256": "6f470d500f5d7472631b646ba2f8e1ae0a568b9cdb20ef266b0d135ed9c9a16a",
+      "working_bytes_equal_own_index": true,
+      "stdout": "{\"sources\": 2, \"body_vertices\": 5595, \"source_only\": true, \"native_qualification\": \"UNRUN\"}"
+    },
+    {
+      "label": "perturb-and-restore",
+      "returncode": 0,
+      "before_mtime_ns": 1794285845770550754,
+      "after_mtime_ns": 1794285845824551855,
+      "mtime_advanced": true,
+      "sha256": "6f470d500f5d7472631b646ba2f8e1ae0a568b9cdb20ef266b0d135ed9c9a16a",
+      "working_bytes_equal_own_index": true,
+      "stdout": "{\"sources\": 2, \"body_vertices\": 5595, \"source_only\": true, \"native_qualification\": \"UNRUN\"}"
+    }
+  ],
+  "all_input_bytes_unchanged_after_restoration": true,
+  "claimed_output": "chicago/4d/data/transport/horse-coats.json",
+  "only_output_mtime_advanced": true,
+  "reproduces": true,
+  "actual_write_proven": true,
+  "limits": "Focused writer proof only; no full rederive --prove or native/render acceptance",
+  "measured_utc_date": "2026-11-10",
+  "supervisor_seconds": 0.6658229309832677,
+  "timeout_seconds": 120,
+  "resource_pair_accepted": true,
+  "available_memory_before_bytes": 4319711232,
+  "available_memory_after_bytes": 4295446528,
+  "remaining_owned_children": [],
+  "original_application_source_unchanged": true
+}

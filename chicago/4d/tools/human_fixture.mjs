@@ -9,6 +9,9 @@
  *                                          readings to data/humans/fixture.measure.json
  *   node tools/human_fixture.mjs --write   the same, and WRITE the measure file: run it
  *                                          after tools/human_export.sh moves any byte
+ *   --write --asset-ids <the three teamster IDs> remeasure exactly their 24 rebuilt
+ *                                          source/web LODs; retain all other passing rows
+ *                                          only while their actual SHAs remain unchanged
  *   node tools/human_fixture.mjs --check   no browser: every GLB has a measure entry whose
  *                                          sha256 is the file's, and every verdict is ok —
  *                                          so a rebuild that is not re-measured fails in
@@ -39,14 +42,18 @@ import { execSync } from 'node:child_process';
 import { readFile, readdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { parseFixtureArgs, prepareFixtureScope, mergeFixtureScope } from './human_fixture_scope.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const MEASURE = path.join(ROOT, 'data/humans/fixture.measure.json');
-const MODE = process.argv[2] || '';
-if (!['', '--write', '--check'].includes(MODE)) {
-  console.error('usage: node tools/human_fixture.mjs [--write|--check]');
+let options;
+try { options = parseFixtureArgs(process.argv.slice(2)); }
+catch (error) {
+  console.error(error.message);
+  console.error('usage: node tools/human_fixture.mjs [--write|--check] [--asset-ids bardwell_otis_1835,dufresne_joseph_1835,flynn_martin_1835]');
   process.exit(2);
 }
+const MODE = options.mode;
 
 async function glbs() {
   const out = [];
@@ -61,8 +68,21 @@ const sha256 = async (f) => createHash('sha256').update(await readFile(path.join
 const lodOf = (f) => Number(/\.lod([0-3])\.glb$/.exec(f)[1]);
 const masterOf = (f) => (f.includes('/web/') ? f.replace('/web/', '/') : null);
 
-const files = await glbs();
+let files = await glbs();
 if (!files.length) { console.error('no human GLB under assets/humans/'); process.exit(1); }
+const hashFiles = async names => {
+  const hashes = new Map();
+  // Bound buffer residency: a 248-file inventory is hashed one file at a time.
+  for (const name of names) hashes.set(name, await sha256(name));
+  return hashes;
+};
+let scope = null;
+if (options.assetIds) {
+  scope = prepareFixtureScope({ baseline: JSON.parse(await readFile(MEASURE, 'utf8')),
+    files, hashes: await hashFiles(files), assetIds: options.assetIds });
+  files = scope.selectedFiles;
+  console.log(`Scoped native sweep: ${files.length} rebuilt files; ${scope.unchangedCount} other baseline SHAs verified`);
+}
 
 if (MODE === '--check') {
   const m = JSON.parse(await readFile(MEASURE, 'utf8'));
@@ -211,24 +231,31 @@ if (MODE !== '--write') {
 
 if (MODE === '--write') {
   if (failed) { console.log(`REFUSING to write the measure: ${failed} finding(s)`); process.exit(1); }
-  const tier = (lods) => lods.map((l) => entries.find((e) => e.lod === l && e.meshopt)).filter(Boolean);
-  const out = {
-    _doc: 'T-1787: the portable-human export path, measured in the browser by tools/human_fixture.mjs on the CI fixture '
-      + 'that tools/human_export.sh builds (tools/human_fixture_blend.py -> tools/human_export.py -> gltf-transform meshopt). '
-      + 'docs/HUMAN-ASSET-CONTRACT.md § 8 publishes the budgets from it. Frame times are SwiftShader (software) and '
-      + 'only compare LODs with each other. tools/human_fixture.mjs --check (in tools/check.sh) holds every sha256 here '
-      + 'to the committed GLB, so a rebuild that is not re-measured fails.',
-    ticket: 'T-1787',
-    measured: new Date().toISOString().slice(0, 10),
-    viewports: viewports,
-    tiers: Object.fromEntries(Object.entries(contract.lods.tiers).map(([t, lods]) => [t, {
-      lods, web_bytes_if_all_fetched: tier(lods).reduce((a, e) => a + e.bytes, 0),
-      nearest_lod_triangles: tier(lods)[0]?.triangles ?? null,
-    }])),
-    files: entries,
-  };
-  await writeFile(MEASURE, JSON.stringify(out, null, 2) + '\n');
-  console.log(`wrote ${path.relative(ROOT, MEASURE)}`);
+  if (scope) {
+    const inventory = await glbs();
+    const merged = mergeFixtureScope(scope, entries, inventory, await hashFiles(inventory), new Date().toISOString().slice(0, 10));
+    await writeFile(MEASURE, JSON.stringify(merged, null, 2) + '\n');
+    console.log(`merged ${entries.length} native rows; retained ${scope.unchangedCount} SHA-verified baseline rows`);
+  } else {
+    const tier = (lods) => lods.map((l) => entries.find((e) => e.lod === l && e.meshopt)).filter(Boolean);
+    const out = {
+      _doc: 'T-1787: the portable-human export path, measured in the browser by tools/human_fixture.mjs on the CI fixture '
+        + 'that tools/human_export.sh builds (tools/human_fixture_blend.py -> tools/human_export.py -> gltf-transform meshopt). '
+        + 'docs/HUMAN-ASSET-CONTRACT.md § 8 publishes the budgets from it. Frame times are SwiftShader (software) and '
+        + 'only compare LODs with each other. tools/human_fixture.mjs --check (in tools/check.sh) holds every sha256 here '
+        + 'to the committed GLB, so a rebuild that is not re-measured fails.',
+      ticket: 'T-1787',
+      measured: new Date().toISOString().slice(0, 10),
+      viewports: viewports,
+      tiers: Object.fromEntries(Object.entries(contract.lods.tiers).map(([t, lods]) => [t, {
+        lods, web_bytes_if_all_fetched: tier(lods).reduce((a, e) => a + e.bytes, 0),
+        nearest_lod_triangles: tier(lods)[0]?.triangles ?? null,
+      }])),
+      files: entries,
+    };
+    await writeFile(MEASURE, JSON.stringify(out, null, 2) + '\n');
+    console.log(`wrote ${path.relative(ROOT, MEASURE)}`);
+  }
 }
 console.log(`${entries.length} human GLB(s) opened at 1280x800 and 390x780; ${failed ? `${failed} finding(s)` : 'OK'}`);
 process.exit(failed ? 1 : 0);

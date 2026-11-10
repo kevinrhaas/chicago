@@ -4,9 +4,9 @@
   "what": "The tools carrying a --check mode that tools/check.sh does not run with --check, and WHY each one is not. A ratchet, not a target: this list may shrink, and audit_check_gates.py --gate fails when it grows, when it is left standing above what the tree actually shows, or when a row states no reason.",
   "how_to_change_it": "Gate the tool in tools/check.sh and re-run --write, or, if it cannot be gated today, write why_not_gated on its row here — --write carries that field forward — and point owner_ticket at whoever owns the answer. The gate fails on a row with no reason, and on a row the gate has since started running.",
   "counts": {
-    "check_capable": 335,
-    "gated": 325,
-    "ungated": 10
+    "check_capable": 389,
+    "gated": 377,
+    "ungated": 12
   },
   "ungated": [
     {
@@ -56,6 +56,12 @@
       "owner_ticket": "T-2003"
     },
     {
+      "tool": "tools/human_fixture_scope.mjs",
+      "other_modes_in_check_sh": [],
+      "why_not_gated": "Pure exported fixture-scope functions, not a CLI or a derived-content writer. The quoted --check strings parse arguments for human_fixture.mjs, whose real global --check remains gated. The complete helper behavior is gated through test_human_fixture_scope.mjs --check, with unchanged inventory/hash/merge assertions; executing the exports-only module with a dummy flag would prove nothing. Keep the consumer and its actual assertion suite gated.",
+      "owner_ticket": "T-1789"
+    },
+    {
       "tool": "tools/measure_boot_payload.mjs",
       "other_modes_in_check_sh": [],
       "why_not_gated": "T-0727/T-1156. The --check re-measures the boot payload in a real headless browser against the PUBLISHED mirror (~40 s plus a publish) — check.sh takes seconds and runs no browser. Deliberately ungated until T-1156 wires it into a nightly smoke leg, whose leg budgeting belongs to T-0167.",
@@ -66,6 +72,12 @@
       "other_modes_in_check_sh": [],
       "why_not_gated": "T-1246. --check boots the published mirror in real Chromium for the device/tier cold/warm timing matrix and 250 ms flora paint heartbeat. check.sh deliberately has no browser dependency; tools/test_boot_phases.mjs gates the deterministic phase/readiness/history contract there. The published browser check and failure/resume cases are run explicitly for this ticket, with the measured receipt in tools/boot_phase_measurements.json. A timing run must use a quiet browser host rather than concurrent per-commit gate jobs.",
       "owner_ticket": "T-1246"
+    },
+    {
+      "tool": "tools/test_published_assets_browser.mjs",
+      "other_modes_in_check_sh": [],
+      "why_not_gated": "A focused real Chromium/WebGL/classic-service-worker validation, deliberately separate from browser-free check.sh. Requires an explicit temporary published fixture, managed Chromium executable, and real KTX2 source argument; tests actual worker replacement, old production-worker coexistence, warm/cold offline reload, concurrent texture Source sharing in both URI-image and native external-KTX-buffer image layouts, and cache corruption. Original SUP120/resource floors measured PASS in 10.255 seconds on 2026-11-10 with complete owned cleanup. tools/test_published_assets.mjs --check gates pure/HTTP/catalogue/pack/URI/LOD integrity assertions; this browser driver must run explicitly before publication-alias acceptance. It does not replace whole-app or phone acceptance.",
+      "owner_ticket": "T-2795"
     }
   ]
 }

@@ -1,4 +1,27 @@
 export const CHANGELOG = [ // newest first
+  { v: 2865, ts: '2026-11-10T10:39:51.606Z', date: 'Nov 10, 2026, 4:39 AM CT', title: 'Rendering detail refinements', kind: 'fix',
+    items: [
+      'Large views at Balanced detail now draw more efficiently, with unchanged appearance.',
+      'Full detail gives X-RAY views a measured allowance for their additional drawing work.',
+    ] },
+  { v: 2864, ts: '2026-11-10T10:39:51.606Z', date: 'Nov 10, 2026, 4:39 AM CT', title: 'Daily life at the Glessner house', kind: 'feature',
+    items: [
+      'The household follows seasonal routines, with work, errands, meals and evening company. Ask at the door for someone indoors, request an outdoor activity at any hour, or tell them to Go inside.',
+    ] },
+  { v: 2863, ts: '2026-11-10T09:36:14.781Z', date: 'Nov 10, 2026, 3:36 AM CT', title: 'More reliable DEV preview updates', kind: 'fix',
+    items: [
+      'Adds support for smaller DEV publications while preserving existing models, textures and saved years.',
+      'Includes the horse color and marking contract in published builds.',
+    ] },
+  { v: 2862, ts: '2026-11-10T07:40:44.846Z', date: 'Nov 10, 2026, 1:40 AM CT', title: 'Individual coats for the town\'s horses', kind: 'feature',
+    items: [
+      'Town horses use bay, chestnut and grey coats, with stable individual blazes, socks and subtle dappling. Team members can match while keeping different markings.',
+      'These colors and markings are reconstructed choices. They do not identify documented Chicago animals.',
+    ] },
+  { v: 2861, ts: '2026-11-10T07:08:47.635Z', date: 'Nov 10, 2026, 1:08 AM CT', title: 'Unblock the next residents’ clothing build', kind: 'fix',
+    items: [
+      'Nothing you can see changes yet. This unblocks the build needed to refine existing residents’ clothing; their appearance remains under review.',
+    ] },
   { v: 2860, ts: '2026-11-10T05:17:20.492Z', date: 'Nov 9, 2026, 11:17 PM CT', title: 'A team for the carriage outside Glessner House', kind: 'feature',
     items: [
       'In Full and Balanced scene detail, a reconstructed pair of draft horses waits with the existing carriage south of Eighteenth Street. Its current finish is preserved, and the horses use their existing quiet motion and fitted gear.',

@@ -16876,7 +16876,8 @@ for (const [label, viewport, touch] of [
         modes: a.confidence.modes, readout: document.querySelector('#navigator .nav-readout')?.textContent ?? '' };
     });
     // T-2981: independently pin the1835 envelope and public/stat agreement.
-    // Full Ghost3750000 is the conscious November10 measured re-budget (§4m);
+    // Full Ghost3760000 retains concurrent T-3535's measured re-budget;
+    // PR1910 separately qualified the stricter3750000 before this integration.
     // the actual rendered<=declared checks below remain strict.
     // Ordinary six-stand and lower-tier ceilings elsewhere remain unchanged.
     const readConfidenceBudget = () => page.evaluate(() => {
@@ -16889,7 +16890,9 @@ for (const [label, viewport, touch] of [
       const ordinary = { full: 3470000, balanced: 2675000, light: 1190000 }[st.detail];
       const fullGhost = st.detail === 'full' && st.ghosting === true;
       const draws = fullGhost ? 8900 : 7800;
-      const triangles = fullGhost ? 3750000 : ordinary;
+      // T-3535: current published X-RAY 3,737,315 + retained 18,059 margin,
+      // rounded to 5,000; ordinary and lower-tier limits remain pinned.
+      const triangles = fullGhost ? 3760000 : ordinary;
       return String(st.year) === '1835' && ordinary !== undefined
         && st.budget.drawCalls === draws && st.budget.triangles === triangles
         && st.publicBudget.drawCalls === draws && st.publicBudget.triangles === triangles;

@@ -31,6 +31,9 @@ import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { planUpdate } from '../renderers/web/js/year-pack.js';
 import { sheetsNamedBy } from './share_glb_sheets.mjs';
+import { createAssetAliasContract, validateAssetAliases, assetAliasIdInput } from '../renderers/web/js/published-assets.js';
+
+export const ASSET_ALIAS_CAPABILITY = 'c4d-published-assets/1';
 
 const HERE = path.dirname(new URL(import.meta.url).pathname);
 const ROOT4D = path.resolve(HERE, '..');
@@ -94,6 +97,7 @@ export function yearFiles(files, year, owners) {
   return files.filter((rel) => {
     // T-2685: the home page's destination clips are the Observatory's, not a year's app.
     if (rel.startsWith('walk/portal/clips/')) return false;
+    if (/^asset-aliases\.[a-f0-9]{64}\.json$/.test(rel)) return true;
     if (rel.startsWith('walk/') || rel === `${year}/index.html` || rel === `${year}/app.webmanifest`
       || NETWORK_FIRST.includes(rel)) return true;
     if (!rel.startsWith('data/')) return false;
@@ -132,12 +136,44 @@ export function appManifest(year) {
 }
 
 export function swText(killed = existsSync(SW_OFF)) {
-  const src = readFileSync(SW_SOURCE, 'utf8');
+  const src = readFileSync(SW_SOURCE, 'utf8').replace('const ASSET_ALIAS_CONTRACT = null;',
+    `const ASSET_ALIAS_CONTRACT = (${createAssetAliasContract.toString()})();`);
   if (!/^const KILL = false;$/m.test(src)) throw new Error('offline/sw.js has no `const KILL = false;` line');
   return killed ? src.replace(/^const KILL = false;$/m, 'const KILL = true;') : src;
 }
 
-export function writeYearPacks(site) {
+/** Explicit CLI flags or the immutable HTML pointer name the one catalogue in use. */
+export function publicationAliases(site, { assetAliases = null, canonicalRoot = null } = {}) {
+  const html = path.join(site, 'walk/index.html');
+  const pointer = existsSync(html) && readFileSync(html, 'utf8').match(/<meta\b[^>]*name=["']c4d-asset-aliases["'][^>]*>/i)?.[0];
+  if (!assetAliases && !pointer) return null;
+  const attr = (name) => pointer?.match(new RegExp(`${name}=["']([^"']+)["']`, 'i'))?.[1];
+  const expected = attr('data-sha256');
+  if (pointer && (!/^[a-f0-9]{64}$/.test(expected) || attr('content') !== `/4d/dev/asset-aliases.${expected}.json`))
+    throw new Error('Invalid immutable publication alias pointer');
+  const file = path.resolve(assetAliases || path.join(site, `asset-aliases.${expected}.json`));
+  if (path.dirname(file) !== path.resolve(site)) throw new Error('Publication catalogue must be at its app root');
+  const catalogue = validateAssetAliases(JSON.parse(readFileSync(file, 'utf8')), 'https://publication.invalid/4d/dev/');
+  const id = createHash('sha256').update(assetAliasIdInput(catalogue.aliases)).digest('hex');
+  if (id !== catalogue.id || path.basename(file) !== `asset-aliases.${id}.json` || (pointer && expected !== id))
+    throw new Error('Publication catalogue ID/pointer mismatch');
+  if (!canonicalRoot && (path.basename(site) !== 'dev' || path.basename(path.dirname(site)) !== '4d'))
+    throw new Error('Canonical root must be explicit outside the published 4d/dev layout');
+  canonicalRoot = path.resolve(canonicalRoot || path.join(site, '..'));
+  const bytes = (rel) => {
+    const alias = catalogue.aliases[rel];
+    const buffer = readFileSync(path.join(alias ? canonicalRoot : site, rel));
+    if (alias && (buffer.length !== alias.bytes || createHash('sha256').update(buffer).digest('hex') !== alias.sha256))
+      throw new Error(`Publication source changed: ${rel}`);
+    return buffer;
+  };
+  // Validate every canonical source, even when no year currently owns the file.
+  for (const rel of Object.keys(catalogue.aliases)) bytes(rel);
+  return { catalogue, filename: path.basename(file), canonicalRoot, bytes };
+}
+
+export function writeYearPacks(site, options = {}) {
+  const aliases = publicationAliases(site, options);
   writeFileSync(path.join(site, 'sw.js'), swText());
   // The kill switch, the page's side: year-pack.js reads build.json on every visit.
   if (existsSync(SW_OFF) && existsSync(path.join(site, 'build.json'))) {
@@ -149,21 +185,24 @@ export function writeYearPacks(site) {
     if (!existsSync(path.join(site, year))) mkdirSync(path.join(site, year), { recursive: true });
     writeFileSync(path.join(site, year, 'app.webmanifest'), `${JSON.stringify(appManifest(year), null, 1)}\n`);
   }
-  const files = listFiles(site).filter((rel) => !rel.startsWith('packs/')).sort();
-  const owners = glbOwners(files, (rel) => readFileSync(path.join(site, rel), 'utf8'),
-    (rel) => sheetsNamedBy(site, rel));
+  const files = [...new Set([...listFiles(site).filter((rel) => !rel.startsWith('packs/')),
+    ...Object.keys(aliases?.catalogue.aliases || {})])].sort();
+  const read = (rel) => aliases ? aliases.bytes(rel) : readFileSync(path.join(site, rel));
+  const owners = glbOwners(files, (rel) => read(rel).toString('utf8'),
+    (rel) => sheetsNamedBy(aliases?.catalogue.aliases[rel] ? aliases.canonicalRoot : site, rel));
   const sums = new Map();
   const sum = (rel) => sums.get(rel) || sums.set(rel, (() => {
-    const bytes = readFileSync(path.join(site, rel));
+    const bytes = read(rel);
     return [hashOf(bytes), bytes.length];
   })()).get(rel);
   mkdirSync(path.join(site, 'packs'), { recursive: true });
   const summary = {};
   for (const year of years) {
     const list = yearFiles(files, year, owners).map((rel) => [rel, ...sum(rel)]);
-    const id = hashOf(list.map((f) => f.join(' ')).join('\n'));
+    const id = hashOf(list.map((f) => f.join(' ')).join('\n') + (aliases ? `\naliases ${aliases.catalogue.id}` : ''));
     const bytes = list.reduce((s, f) => s + f[2], 0);
-    const pack = { year, id, count: list.length, bytes, network_first: NETWORK_FIRST, files: list };
+    const pack = { year, id, count: list.length, bytes, network_first: NETWORK_FIRST, files: list,
+      ...(aliases ? { assetAliases: aliases.catalogue } : {}) };
     writeFileSync(path.join(site, 'packs', `${year}.json`), `${JSON.stringify(pack)}\n`);
     summary[year] = { id, count: list.length, bytes };
   }
@@ -172,7 +211,8 @@ export function writeYearPacks(site) {
 }
 
 /** The shipped packs list what ships: every entry exists, at its hash and size. */
-export function checkYearPacks(site) {
+export function checkYearPacks(site, options = {}) {
+  const aliases = publicationAliases(site, options);
   const problems = [];
   const killed = existsSync(SW_OFF);
   if (readFileSync(path.join(site, 'sw.js'), 'utf8') !== swText(killed)) {
@@ -181,11 +221,13 @@ export function checkYearPacks(site) {
   const summary = JSON.parse(readFileSync(path.join(site, 'packs/index.json'), 'utf8'));
   for (const year of packYears(site)) {
     const pack = JSON.parse(readFileSync(path.join(site, 'packs', `${year}.json`), 'utf8'));
+    if (JSON.stringify(pack.assetAliases || null) !== JSON.stringify(aliases?.catalogue || null))
+      problems.push(`${year}: the pack does not carry the exact publication alias catalogue`);
     if (summary[year]?.id !== pack.id) problems.push(`packs/index.json does not carry ${year}'s pack id`);
     for (const [rel, hash, size] of pack.files) {
-      const abs = path.join(site, rel);
-      if (!existsSync(abs)) { problems.push(`${year}: ${rel} is in the pack and not in the site`); continue; }
-      const bytes = readFileSync(abs);
+      const abs = path.join(aliases?.catalogue.aliases[rel] ? aliases.canonicalRoot : site, rel);
+      if (!existsSync(abs)) { problems.push(`${year}: ${rel} is in the pack and not in its declared source`); continue; }
+      const bytes = aliases ? aliases.bytes(rel) : readFileSync(abs);
       if (bytes.length !== size || hashOf(bytes) !== hash) problems.push(`${year}: ${rel} is not the file its pack entry describes`);
     }
     if (!pack.files.some(([rel]) => rel === `${year}/index.html`)) problems.push(`${year}: the pack does not hold its own door`);
@@ -247,17 +289,36 @@ function selfTest() {
 
 if (process.argv[1] && path.resolve(process.argv[1]) === new URL(import.meta.url).pathname) {
   const args = process.argv.slice(2);
-  if (args[0] === '--self-test') selfTest();
-  else if (args[0] === '--check') {
-    const problems = checkYearPacks(path.resolve(args[1] || path.join(ROOT4D, '../../site/4d')));
-    for (const p of problems) console.error(`year packs: ${p}`);
-    if (problems.length) process.exit(1);
-    console.log('year packs: every listed file is the file it describes');
-  } else {
-    const site = path.resolve(args[0] || path.join(ROOT4D, '../../site/4d'));
-    const summary = writeYearPacks(site);
-    for (const [year, s] of Object.entries(summary)) {
-      console.log(`   pack ${year}: ${s.count} files, ${(s.bytes / 1e6).toFixed(1)} MB`);
+  if (args.includes('--asset-alias-capability')) {
+    console.log(JSON.stringify({ capability: ASSET_ALIAS_CAPABILITY, schema: 1, catalogue: 'c4d-published-assets',
+      meta: 'c4d-asset-aliases', logicalPackSources: true, logicalGltfResources: true, ktx2Aliases: true, textureBufferAliases: true, prebuiltAliases: true,
+      supported: ['data/gltf/**/*.glb', 'data/gltf/**/*.ktx2', 'data/prebuilt/YYYY/*.bin.gz'],
+      supportedPaths: ['data/gltf/**/*.glb', 'data/gltf/**/*.ktx2', 'data/prebuilt/YYYY/*.bin.gz'],
+      consumers: [...['published-assets.js', 'scene-loader.js', 'terrain.js', 'ktx2.js', 'frontage.js', 'streets.js', 'yards.js', 'year-pack.js']
+        .map((name) => ({ source: `renderers/web/js/${name}`, published: `walk/js/${name}`, transform: 'copy' })),
+        { source: 'offline/sw.js', published: 'sw.js', transform: 'native-swText' },
+        { source: 'tools/write_year_packs.mjs', published: null, transform: 'source-only' }] }));
+  } else if (args[0] === '--self-test') selfTest();
+  else {
+    const checking = args[0] === '--check';
+    if (checking) args.shift();
+    const site = path.resolve(args.shift() || path.join(ROOT4D, '../../site/4d'));
+    const options = {};
+    while (args.length) {
+      const flag = args.shift();
+      if (!['--asset-aliases', '--canonical-root'].includes(flag) || !args.length)
+        throw new Error('Unknown or incomplete pack option');
+      options[flag === '--asset-aliases' ? 'assetAliases' : 'canonicalRoot'] = path.resolve(args.shift());
+    }
+    if (checking) {
+      const problems = checkYearPacks(site, options);
+      for (const p of problems) console.error(`year packs: ${p}`);
+      if (problems.length) process.exit(1);
+      console.log('year packs: every listed file is the file it describes');
+    } else {
+      const summary = writeYearPacks(site, options);
+      for (const [year, s] of Object.entries(summary))
+        console.log(`   pack ${year}: ${s.count} files, ${(s.bytes / 1e6).toFixed(1)} MB`);
     }
   }
 }

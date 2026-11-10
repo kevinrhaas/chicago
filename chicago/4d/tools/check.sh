@@ -4928,6 +4928,9 @@ selftest "year packs: membership, the update diff and the kill switch (T-2561)" 
 step "year packs: every file a pack lists ships at the hash it lists (T-2561)" \
   node tools/write_year_packs.mjs --check
 
+step "publication aliases retain exact bytes, logical LOD identities, year membership and strict source integrity (T-2795)" \
+  node tools/test_published_assets.mjs --check
+
 # The front doors on chicago.polecat.live (/4d/, /4d/<year>/) are walk/index.html with
 # a <base href> into walk/. Their self-test holds the one thing that can go wrong with
 # that shape: a <base> that is not the first child of <head>, or a planned year with
@@ -8714,6 +8717,14 @@ step "Shared draft-horse assets retain one lease-owned geometry and texture temp
   node tools/test_draft_horse_assets.mjs
 step "The unoccupied Glessner carriage team preserves actual delivery geometry, hoof contacts and tier lifecycle (T-2795)" \
   node tools/test_parked_draft_team.mjs
+
+step "The horse coat contract rederives from its authored recipe and immutable source arrays (T-2795)" \
+  python3 tools/derive_horse_coats.py --check
+step "Individual horse coats use stable source-bound identities and own only their material clones (T-2795)" \
+  node tools/test_horse_appearance.mjs --check
+
+step "Scoped teamster measurements retain every unmodified native fixture row and reject inventory drift (T-1789)" \
+  node tools/test_human_fixture_scope.mjs --check
 
 check_summary
 exit $CHECK_FAILED

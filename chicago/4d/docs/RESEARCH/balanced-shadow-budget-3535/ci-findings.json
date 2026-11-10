@@ -1,0 +1,43 @@
+{
+  "source_commit": "9b103acaea5e9acaae6f0db156cfa1e5dacb67de",
+  "published_smoke": [
+    {
+      "run": 42770762952,
+      "viewport": "desktop",
+      "stage": 5,
+      "passed": 29,
+      "failed": 1,
+      "view": "1835 West prairie, Balanced",
+      "triangles": 2658284,
+      "ceiling": 2625000
+    },
+    {
+      "run": 42770801483,
+      "viewport": "desktop",
+      "stage": 13,
+      "passed": 157,
+      "failed": 1,
+      "view": "1835 Full X-RAY",
+      "triangles": 3737315,
+      "ceiling": 3675000,
+      "draw_calls": 8152,
+      "draw_ceiling": 8900
+    }
+  ],
+  "baseline_comparison": {
+    "source_commit": "1226c29f7",
+    "run": 42775425682,
+    "stage": 5,
+    "viewport": "desktop",
+    "triangles": 2657384,
+    "ceiling": 2625000,
+    "passed": 29,
+    "failed": 1
+  },
+  "failed_local_probe": {
+    "phase": "loading",
+    "error": "page.waitForFunction: Timeout 240000ms exceeded",
+    "concurrent_work": "local gate part 3",
+    "measured_frame": false
+  }
+}

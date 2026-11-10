@@ -8,16 +8,19 @@ const confidenceSource = fs.readFileSync(new URL('../renderers/web/js/confidence
   .replace("from 'three'", `from '${vendor}'`);
 const { createConfidenceView } = await import('data:text/javascript;base64,' + Buffer.from(confidenceSource).toString('base64'));
 const full = Object.freeze({ drawCalls: 7800, triangles: 3470000 });
-const expectedGhost = { drawCalls: 8900, triangles: 3750000 };
+const expectedGhost = { drawCalls: 8900, triangles: 3760000 };
 let checks = 0;
 function check(name, fn) { fn(); checks++; console.log('PASS ' + name); }
 check('Full active Ghost uses independently measured draw and triangle pins', () => {
   assert.equal(Math.ceil(8469 * 1.05 / 100) * 100, 8900);
-  // Actual retained-B reading; reserve the already-included positive B growth
-  // once more for three passes, then round to25000. This is not a frame-time claim.
+  // Retain both independently measured decisions: PR1910's stricter allowance
+  // was already qualified, then concurrent T-3535 retained its defended margin.
   assert.equal(3737315 - 3675000, 62315);
-  assert.equal(Math.ceil((3737315 + 1678 * 3) / 25000) * 25000, 3750000);
-  assert.equal(expectedGhost.triangles - 3737315, 12685);
+  const priorBAllowance = Math.ceil((3737315 + 1678 * 3) / 25000) * 25000;
+  assert.equal(priorBAllowance, 3750000);
+  assert.equal(priorBAllowance - 3737315, 12685);
+  assert.equal(Math.ceil((3737315 + 18059) / 5000) * 5000, 3760000);
+  assert.equal(expectedGhost.triangles - 3737315, 22685);
   assert.deepEqual(renderBudget(full, 'full', true), expectedGhost);
 });
 check('the resolver does not mutate or drop other base policy fields', () => {
@@ -93,10 +96,10 @@ check('the actual smoke pin rejects stale, inflated and public/stat-divergent al
   const predicate = new Function('return (' + smoke.slice(begin + 'const confidenceBudgetPinned = '.length, end + 6).trim().replace(/;$/, '') + ')')();
   const row = (detail, ghosting, budget, publicBudget = budget) => ({ year: '1835', detail, ghosting, budget, publicBudget });
   assert.equal(predicate(row('full', true, expectedGhost)), true);
-  for (const triangles of [3675000, 3750001]) {
+  for (const triangles of [3675000, 3750000, 3750001, 3760001]) {
     assert.equal(predicate(row('full', true, { drawCalls: 8900, triangles })), false);
   }
-  assert.equal(predicate(row('full', true, expectedGhost, { ...expectedGhost, triangles: 3750001 })), false);
+  assert.equal(predicate(row('full', true, expectedGhost, { ...expectedGhost, triangles: 3760001 })), false);
   assert.equal(predicate(row('full', true, { ...expectedGhost, drawCalls: 8901 })), false);
   assert.equal(predicate(row('full', false, full)), true);
   assert.equal(predicate(row('full', false, expectedGhost)), false);

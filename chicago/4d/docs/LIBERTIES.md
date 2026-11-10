@@ -43244,3 +43244,33 @@ Historical L47, including its 2026-08-28 measured print-resolution discussion, i
 
 **Ticket:** T-2388; successor to L47’s six continuing fabric admissions.
 **Recorded:** 2026-11-10.
+
+### L-horse-individual-coats-2795 — individual coats and markings (1812, 1835, 1904)
+
+**Decision:** The owner requested visibly different horses across eras. Bay, chestnut, iron-grey
+and dark-bay palettes, individual blazes, sock heights and subdued dappling are
+reconstructed choices. Team members share a palette and have distinct stable
+markings; they do not identify historical Chicago animals, breeds or ownership.
+The engine-neutral recipe and its generated source contract carry these choices.
+
+The existing sevketkabatas *Horse* geometry and photographic fur maps retain their
+CC BY 4.0 attribution and unchanged bytes. Shader painting retains fur luminance detail,
+leaves the source eye material alone and protects chosen muzzle, lower-foot and pale-feather regions; chestnut individuals may also
+have a chestnut mane/tail. It creates no new captured historical texture or anatomy.
+This proposal does not establish photographic quality, qualified continuous hoof
+contact, natural standing/tail motion or all-era visual acceptance. Those remain
+subject to actual native and ordinary-world desktop/phone image review in T-2795.
+
+**Sources:** `sevketkabatas_2021_horse_model` supplies the existing CC BY 4.0 model and maps only. Individual coats and markings are owner-requested reconstruction.
+**How to resolve:** Historical pictures could identify particular animals; actual native and ordinary-world desktop/phone image reviews must qualify the current surface appearance.
+**Ticket:** T-2795.
+**Recorded:** 2026-11-10.
+
+### L-t3533-household-routines — 1904 seasonal household days
+
+**Decision:** All eight drawn Glessner household members follow reconstructed daily routines. Sleep, meals, service, garden work, errands, office absence and evening company are plausible activities bounded by their existing household roles, not attested diary entries. Winter outdoor periods are shorter; garden tasks vary by season. The office is off-scene, with no invented office address. Requested outdoor tasks may be performed at any hour for five minutes; Go inside lasts until the next scheduled period. Conversations use gestures, not invented quotations. Existing identities and their confidence grades are unchanged.
+
+**How to resolve:** Dated household diaries or work records could replace the reconstructed times and activities.
+
+**Ticket:** T-3533.
+**Recorded:** 2026-11-10.

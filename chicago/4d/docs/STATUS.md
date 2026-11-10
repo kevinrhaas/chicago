@@ -1,3 +1,72 @@
+## T-2795 — native support for smaller DEV publications (2026-11-10)
+
+The parked Glessner team (PR #1908), existing-resident clothing/build fixes
+(PRs #1904/#1909) and individual horse coats (PR #1911) are merged into DEV.
+Their broader photographic, continuous contact, coachman and ride acceptances
+remain open. This change supports the separate MAIN publisher proposal #1914;
+it does not itself enable sharing or promote the DEV application to production.
+
+An optional immutable publication catalogue lets the native loaders fetch exact
+shared bytes while keeping logical model, LOD, sidecar and offline-cache paths.
+Complete bodies are checked against full SHA256 and size. The official GLTF
+buffer-view plugin covers the existing image-only external KTX2 sheet format;
+geometry buffers retain their native path. Native texture Source sharing,
+retries, old production-worker coexistence and cold/warm offline reloads are
+covered by real browser controls. Without a metadata pointer, loading retains
+its original identity and makes no catalogue request.
+
+The separate assembler's complete saved MAIN-742 publication fixture measures
+951,818,517 regular-file bytes after sharing 1,103 exact duplicates, with
+48,181,483 bytes below its one-billion-byte guard. All 7,148 non-DEV files remain
+byte-identical. This is a measured older artifact with the reviewed consumer
+overlay; latest-DEV assembly and live delivery are separate acceptance steps.
+The first insufficient safe subset correctly failed that guard and rolled back.
+Current-head complete hosted gates remain the merge bar; focused checks are not
+a substitute for them. No render budget, source asset or assertion is relaxed.
+
+The actual DEV-9d archive also exposed a separate omitted runtime input: the shared
+horse-coat recipe was absent although all three horse owners request it. publish.sh
+now copies that contract explicitly. The real publication checker rejects absence
+and drift; the existing appearance test executes the actual transport copy block
+and checker in a fresh fixture, including missing and corrupt recipe controls.
+The authored recipe remains source-only. This closes a publication gap rather than
+claiming that the earlier archive already carried the color variation.
+
+The explicit browser fixture needs a real KTX2 sheet, configured Chromium and
+historical commit `6f2ebb8107815a47dda0e3e7f4416665ad70d57d` for its original
+classic-worker control. Shallow clones must fetch that commit before running
+`tools/test_published_assets_browser.mjs --check --output DIR --ktx-source FILE`.
+
+## T-1789 — scope the repeated teamster fixture sweep (2026-11-10)
+
+The teamster producer now selects exactly the rebuilt Otis Bardwell, Joseph Dufresne
+and Martin Flynn outputs for its second native fixture sweep. The first complete
+fixture prerequisite, both native browser viewports, the unchanged acceptance checks
+and timing samples, and the 30-minute producer limit remain. The current corpus has
+248 baseline files: Otis supplies eight existing rows, while Joseph and Martin add
+16. The repeat sweep measures all 24 source/WEB LOD files and preserves the other
+240 rows only when their passing verdicts and actual file hashes remain unchanged.
+A global check follows the merge; missing, extra, changed or mispaired files refuse it.
+The original full-corpus date remains, with a separately dated scope receipt.
+
+CI's check-mode audit identified quoted flag strings in the new helper and its
+test driver. The pure exported helper has no CLI or derived output, so its baseline
+reason records that distinction. The driver now explicitly accepts optional
+`--check` and runs the same complete assertion suite; the gate uses that mode.
+Unknown arguments are refused. Scanner rules and native assertions remain intact.
+
+CI also detected that the generated research sign-off still carried the previous
+gate-baseline counts. Its canonical writer now refreshes that count sentence and
+the helper's ownership row from complete, source-verified inputs. Research metrics
+and the GO verdict remain unchanged; the report check and all 11 self-tests pass.
+
+This tooling unblocks the existing visible clothing refinement on T-1789. It changes
+no resident asset or adopted animation. Focused parser/inventory controls and the
+measured test isolation are the local validation scope; ordinary full CI, an actual
+scoped producer run, and visual review of the corrected coats remain pending. No
+cancelled or partial producer is treated as successful. Modular-library, photographic
+material/likeness and complete posed garment acceptance remain open on T-1789.
+
 ## Current portable-human foundations (2026-11-10)
 
 The portable-human contract (T-1786, PR #606), Blender exporter (T-1787, PR #644)
@@ -26366,3 +26435,60 @@ The remaining group keeps the three originals together: Green Tree T-2376, first
 Second-fort source now supplies the officers' outside piazza stair, the named barn's small boarded pyramid cupola, two reconstructed small side posterns, and the commandant range's broad front double gallery. The latter is adopted from the securely keyed later 1855 A depiction as an explicit July-1835 reconstructed continuity choice, not backdated attestation. The gallery support solver uses fifteen explicitly captured existing opening rectangles without changing those openings. All exact stair/cupola/postern/gallery dimensions, sides, hidden carpentry and continuity choices retain their stated reconstructed grades and real sources. The descriptive occurrence booleans do not silently acquire measured appearance.
 
 Five structured liberty entries cover all ten new reconstructed form fields. Six new construction-note paths are declared precisely; existing read fields and the gate-note declaration remain controlling. The planned native union is 29 outputs, predicted as 27 defaults plus two variants: the 25-output frame family and four second-fort targets. Root must compute and pin that actual scope from current bindings before one combined native build. Source checks, native preservation/control audit, all affected fresh picture comparisons, actual gate walking and published desktop/phone qualification remain required. No new native, budget-fit, image-match, whole-gate or original-ticket completion is claimed by this source increment. No photo follow-up ticket is filed.
+
+## T-2795 — individual horse coats, source preparation (2026-11-10)
+
+The owner requested visible coat and marking differences across all eras. The prepared recipe covers the eleven current ordinary-world horses in 1812, 1835 and 1904. Bay, chestnut and grey teams have stable individual blazes, socks and subdued dappling. These choices are reconstructed liberties, not identified historical animals. Existing licensed fur maps supply detail; source geometry, material names, rigs, clips and image bytes are preserved. Moving and parked teams keep shared geometry/textures and own only their required coat/mane materials; standing reuses its private materials.
+
+The proposal's canonical derivation, actual-source/Three ownership guard, shared cache and existing driven lifecycle controls pass. Those bounded Node checks include stale-recipe rejection; actual WebGL inspection is recorded below. The follow-on checkout starts from the committed stationary-team increment. After the initial RAM refusal, a separate fixture proved two identical writes and perturb/restore recovery. Focused per-tool isolation and the manifest/isolation audits pass, preserving all foreign rows; no empty or historical measurement was invented. Canonical liberties and source-use exports pass. The full current-source gate, actual all-era street images and desktop/phone cost remain pending. No photographic quality, complete harness/contact, new motion clip, boarding or passenger acceptance is claimed. T-2795 remains open.
+
+
+### Bounded coat render review, 2026-11-10
+
+Fifteen actual-source WebGL panels cover all eleven configured horses and both
+source-native/current-organic baselines at quiet poses 0 and 3 seconds. Six actual
+images include larger Glessner-pair and grey-face views. Independent ROOT review
+accepts this limited colour/marking increment: fur detail remains, the Glessner
+pair has visibly different socks/blazes, and the grey eyelid fur follows the coat.
+The separate eye material, map and shader are unchanged. The first grey close-up
+exposed a rectangular brown BODY mask; removing that mask corrected the visible
+defect before commit. All original negative receipts are retained.
+
+The corrected run completes in 9.074 seconds with zero shader, page or request
+errors. All owned geometry, buffers, programs and textures release; only the
+independently identified renderer-owned DFG lookup texture remains. Original
+resource floors and the 120-second supervisor cap pass. A fresh eight-command
+focused batch, including canonical derivation, source/Three, driving/cache/129
+parked controls, both registration audits and changelog validation, passes. This
+is studio evidence; photographic quality and ordinary-world desktop/phone cost
+remain open alongside full movement, harness, boarding and passenger acceptance.
+
+
+### Current coat integration qualification
+
+The selected standing-horse placement/support/material/capability record is now
+byte-identical to its protected DEV baseline. Production main explicitly enables
+the optional coat recipe, and standalone callers retain their existing default.
+A real Three standing-factory guard covers source/published URL bases, ownership,
+Light/reload, recipe failure and disposal during loading. Original quiet/anatomy/
+upper-lid/upper-orbital assertions and the rederive self-test remain unchanged.
+
+The independent recipe owner follows source-use, outside the measured convergence
+interval and after the original four-step scene tail. Both generated research
+reports rederive with their original GO/ownership assertions; changes are the
+check-mode count/helper row and two later manifest positions. An eleven-command
+repair batch passes in 23.483 seconds under the original resource/cap/cleanup
+guards. Original CI failures are retained. The superseded c0cbb movement run has
+one Balanced-flight flora maximum of 36.0 ms against 32 ms; its protocol suppresses
+rendering and its camera is outside both horse reach radii. Those facts do not
+establish noise, causality or a passing performance result. Fresh ordinary CI
+is required on the repaired head; no ceiling was changed.
+
+### T-3533 — 1904 household routines
+All eight drawn household members have full seasonal days; the existing day engine handles individual work, short gatherings, indoor periods and jaunt holds. Door callers may request any of the season's outdoor activities temporarily, regardless of hour, or ask someone to Go inside. Office work is an off-scene absence; a door request can recall him so everyone remains available. This is the reusable household model; other houses' figures are not added here. Validation is recorded in the PR.
+
+
+### T-3535 - Balanced shadow culling
+Balanced now uses the existing conservative shadow-caster filter. At the failing 1835 West prairie view, 66,537 submitted triangles and 501 calls disappear with zero changed pixels; the 2,625,000 ceiling remains unchanged. Receipts: docs/RESEARCH/balanced-shadow-budget-3535/. Release smoke verification is recorded in the PR.
+
+The complete desktop settings smoke also measured Full X-RAY at 3,737,315 triangles. Its Full-only Ghost allowance is explicitly recalibrated to 3,760,000 (the reading plus the retained 18,059 margin, rounded to 5,000), per the documented higher-tier budget policy. Ordinary Full, Balanced, Light and draw-call limits remain unchanged; all budget assertions remain active.
