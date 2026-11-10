@@ -1,3 +1,18 @@
+## T-1789 — refine existing residents and review their kit (2026-11-09)
+
+Reuse the drivers' linen/wool shading on ordinary residents, preserving their own
+clothing colours and material choices. Correct the visibly jagged short-jacket source
+hem, then judge fresh canonical coats in the actual Blender and exported views. No
+existing Otis animation or human asset is replaced by these source refinements.
+
+The real three-resident canonical build and its fixture prerequisite passed on
+`dc998577d76a09a31a5519b7deb0c0c0f6e1f869`. Reuse its exact artifact for the missing
+Blender assembly views through the separate opt-in portable-human rendering job.
+Review the resulting Otis/Joseph/Martin views before adopting generated assets, retaining
+Otis's already delivered driver and natural-idle animation. Full library coverage and
+photographic/posed garment acceptance stay on existing open T-1789; no follow-up ticket
+is introduced by this increment.
+
 ## T-2379 — retain the editor's comparison without making it a measurement (2026-11-04)
 
 An editor requesting a hotel “about double” the Lake House's size expresses a desired

@@ -1,3 +1,38 @@
+## T-1789 — cloth finish and canonical library previews (2026-11-09)
+
+Standing and walking residents now receive the same existing reconstructed linen/wool
+fabric shading as the drivers, after their individual clothing colours and uniform
+materials are chosen. This preserves their clothing choices and adds no image textures
+or garment geometry. Driver calls remain idempotent. The canonical short-jacket producer
+also clips its lower seam to the declared hem plane instead of keeping jagged whole
+triangles; source cloth UVs and skin weights interpolate at that cut. Default shirt
+construction and Otis's adopted exports remain unchanged. Fresh canonical generation
+and rendered review of Joseph's/Martin's changed coat hems are still required.
+
+The real [portable-human build 42703941214](https://github.com/kevinrhaas/chicago/actions/runs/42703941214)
+passed on source `dc998577d76a09a31a5519b7deb0c0c0f6e1f869`, including its human fixture prerequisite.
+Otis Bardwell, Joseph Dufresne and Martin Flynn each produced a canonical Blender master
+and four source/four WEB LODs. All 24 container validations reported zero errors and
+warnings; both inspection reports passed. Existing identities retain their reconstructed
+appearance and original source/licence records. The builder's PNGs are Three inspection
+views and do not satisfy the three-resident Blender-render requirement.
+
+The opt-in `render_library_stills` job consumes a successful canonical build's exact
+teamster artifact, verifies GitHub's SHA256 digest and extracts only its three masters.
+It records the producer source separately from the renderer source, then renders front,
+three-quarter and profile views in pinned Blender 4.5.3. The render-only studio evaluates
+the original shared rig and idle pose with packed materials, LOD0 and Cycles. Master
+hashes must remain unchanged. Source binding, image hashes and actual rendering settings
+travel with the review artifact. This separate job preserves the original canonical
+builder and fixture timeouts.
+
+Native execution and visual acceptance of this new renderer remain pending. No runtime
+human assets are replaced: generated Otis lacks his subsequently delivered seated and
+natural-idle clips. T-1789 stays open for complete modular-library, garment/pose, material,
+measured-export and appearance acceptance. The previews unblock the missing Blender review
+before the next library asset adoption. This increment refines existing figures and
+claims no photographic-quality acceptance.
+
 ## T-3445 — the first-time tour and in-app help brought up to date (2026-11-07)
 
 The owner asked whether the first-time tour was current and to drop the wordy "why this
