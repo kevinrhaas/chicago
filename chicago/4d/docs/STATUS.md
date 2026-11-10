@@ -26483,6 +26483,55 @@ Cobweb Castle, the jail and Sauganash/Carpenter contexts have actual fresh revie
 
 Green Tree is PARTIAL: its raised rear gable, low connector and lower foreground sash are visibly built, but Trowbridge clearly shows THREE upper front windows and the current model has TWO. Allthree fresh records say differs and keep that categorical omission open. T-2376 will finish with T-3041/T-2388 in the next three-ticket group and one combined scoped build. No new photo follow-up is filed. Final protected source gate and published desktop/phone checks remain pending at this checkpoint. The smoke consumer repairs target actual current collapsed review disclosure, enabled building destination and stand-in-face disclosure; they do not change product behavior or budgets.
 
+
+## T-2795 — individual horse coats, source preparation (2026-11-10)
+
+The owner requested visible coat and marking differences across all eras. The prepared recipe covers the eleven current ordinary-world horses in 1812, 1835 and 1904. Bay, chestnut and grey teams have stable individual blazes, socks and subdued dappling. These choices are reconstructed liberties, not identified historical animals. Existing licensed fur maps supply detail; source geometry, material names, rigs, clips and image bytes are preserved. Moving and parked teams keep shared geometry/textures and own only their required coat/mane materials; standing reuses its private materials.
+
+The proposal's canonical derivation, actual-source/Three ownership guard, shared cache and existing driven lifecycle controls pass. Those bounded Node checks include stale-recipe rejection; actual WebGL inspection is recorded below. The follow-on checkout starts from the committed stationary-team increment. After the initial RAM refusal, a separate fixture proved two identical writes and perturb/restore recovery. Focused per-tool isolation and the manifest/isolation audits pass, preserving all foreign rows; no empty or historical measurement was invented. Canonical liberties and source-use exports pass. The full current-source gate, actual all-era street images and desktop/phone cost remain pending. No photographic quality, complete harness/contact, new motion clip, boarding or passenger acceptance is claimed. T-2795 remains open.
+
+
+### Bounded coat render review, 2026-11-10
+
+Fifteen actual-source WebGL panels cover all eleven configured horses and both
+source-native/current-organic baselines at quiet poses 0 and 3 seconds. Six actual
+images include larger Glessner-pair and grey-face views. Independent ROOT review
+accepts this limited colour/marking increment: fur detail remains, the Glessner
+pair has visibly different socks/blazes, and the grey eyelid fur follows the coat.
+The separate eye material, map and shader are unchanged. The first grey close-up
+exposed a rectangular brown BODY mask; removing that mask corrected the visible
+defect before commit. All original negative receipts are retained.
+
+The corrected run completes in 9.074 seconds with zero shader, page or request
+errors. All owned geometry, buffers, programs and textures release; only the
+independently identified renderer-owned DFG lookup texture remains. Original
+resource floors and the 120-second supervisor cap pass. A fresh eight-command
+focused batch, including canonical derivation, source/Three, driving/cache/129
+parked controls, both registration audits and changelog validation, passes. This
+is studio evidence; photographic quality and ordinary-world desktop/phone cost
+remain open alongside full movement, harness, boarding and passenger acceptance.
+
+
+### Current coat integration qualification
+
+The selected standing-horse placement/support/material/capability record is now
+byte-identical to its protected DEV baseline. Production main explicitly enables
+the optional coat recipe, and standalone callers retain their existing default.
+A real Three standing-factory guard covers source/published URL bases, ownership,
+Light/reload, recipe failure and disposal during loading. Original quiet/anatomy/
+upper-lid/upper-orbital assertions and the rederive self-test remain unchanged.
+
+The independent recipe owner follows source-use, outside the measured convergence
+interval and after the original four-step scene tail. Both generated research
+reports rederive with their original GO/ownership assertions; changes are the
+check-mode count/helper row and two later manifest positions. An eleven-command
+repair batch passes in 23.483 seconds under the original resource/cap/cleanup
+guards. Original CI failures are retained. The superseded c0cbb movement run has
+one Balanced-flight flora maximum of 36.0 ms against 32 ms; its protocol suppresses
+rendering and its camera is outside both horse reach radii. Those facts do not
+establish noise, causality or a passing performance result. Fresh ordinary CI
+is required on the repaired head; no ceiling was changed.
+
 ### T-3534 — Dated 1835 habitat audio (2026-11-10)
 
 Three existing R2 recordings now have explicit runtime placements for the researched
@@ -26504,14 +26553,15 @@ walking barrier over water is never treated as terrain. Marsh bird sources stay
 
 Habitat/mixer units and packaging regression pass. Regeneration preserves placements
 and all 33 assets/40 original delivery hashes; upload packages include enabled
-habitat clips even without review-only candidates. The real liberty compiler
-produced 1,082 entries without problems, retaining all 1,081 foundation entries.
+habitat clips even without review-only candidates. The earlier habitat checkpoint compiled 1,082 liberties. The subsequent
+integration of dev's individual horse coats rebuilt 1,083 entries, preserving
+both the incoming register and all three audio liberties.
 The corrected audio-only Chromium fixture completed at 390 px and 1280 px: all
 three live R2 recordings produce nonzero samples, buffers stay at 48 kHz on a
 96 kHz output context, and mute/cache/disposal checks pass with zero page errors.
 
-Fresh actual-town source-overlay runs against the merged foundation snapshot
-site-integrated passed at 390×780 and 1280×800, reaching real readiness in 72.1 s
+Actual-town source-overlay runs against the pre-coat-integration foundation
+snapshot site-integrated passed at 390×780 and 1280×800, reaching real readiness in 72.1 s
 and 124.1 s. Actual flora/terrain supplies wet prairie at E−684/N984 and marsh at
 E−504/N840. The integrated mixer plays cicada and respects Ambience mute; live
 cricket and red-wing phrases, actual hour/date/winter suppression, fixed rear

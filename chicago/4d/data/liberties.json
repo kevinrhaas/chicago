@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1082,
+  "count": 1083,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -72743,6 +72743,36 @@
       "work_refs": [
         "T-3153",
         "T-2383"
+      ]
+    },
+    {
+      "id": "L-horse-individual-coats-2795",
+      "title": "individual coats and markings (1812, 1835, 1904)",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-10",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "The owner requested visibly different horses across eras. Bay, chestnut, iron-grey and dark-bay palettes, individual blazes, sock heights and subdued dappling are reconstructed choices. Team members share a palette and have distinct stable markings; they do not identify historical Chicago animals, breeds or ownership. The engine-neutral recipe and its generated source contract carry these choices. The existing sevketkabatas *Horse* geometry and photographic fur maps retain their CC BY 4.0 attribution and unchanged bytes. Shader painting retains fur luminance detail, leaves the source eye material alone and protects chosen muzzle, lower-foot and pale-feather regions; chestnut individuals may also have a chestnut mane/tail. It creates no new captured historical texture or anatomy. This proposal does not establish photographic quality, qualified continuous hoof contact, natural standing/tail motion or all-era visual acceptance. Those remain subject to actual native and ordinary-world desktop/phone image review in this work."
+        },
+        {
+          "label": "Sources",
+          "text": "sevketkabatas, “Horse”, published 29 March 2021, CC BY 4.0, retrieved via… supplies the existing CC BY 4.0 model and maps only. Individual coats and markings are owner-requested reconstruction."
+        },
+        {
+          "label": "How to resolve",
+          "text": "Historical pictures could identify particular animals; actual native and ordinary-world desktop/phone image reviews must qualify the current surface appearance."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-10."
+        }
+      ],
+      "work_refs": [
+        "T-2795"
       ]
     },
     {

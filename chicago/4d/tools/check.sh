@@ -8719,6 +8719,11 @@ step "Shared draft-horse assets retain one lease-owned geometry and texture temp
 step "The unoccupied Glessner carriage team preserves actual delivery geometry, hoof contacts and tier lifecycle (T-2795)" \
   node tools/test_parked_draft_team.mjs
 
+step "The horse coat contract rederives from its authored recipe and immutable source arrays (T-2795)" \
+  python3 tools/derive_horse_coats.py --check
+step "Individual horse coats use stable source-bound identities and own only their material clones (T-2795)" \
+  node tools/test_horse_appearance.mjs --check
+
 step "Scoped teamster measurements retain every unmodified native fixture row and reject inventory drift (T-1789)" \
   node tools/test_human_fixture_scope.mjs --check
 

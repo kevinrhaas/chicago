@@ -1,5 +1,6 @@
 {
   "schema": "town_driven_transport_candidates_v1",
+  "horse_appearance": {"recipe_file": "transport/horse-coats.json", "grade": "reconstructed", "liberty": "L-horse-individual-coats-2795"},
   "status": "SOURCE_DERIVED_CANDIDATES_RENDERED_GROUND_COLLISION_AND_BROWSER_UNRUN",
   "corridor_line": "reconstructed",
   "corridor_line_why": "The 1835 demonstration uses reconstructed level ground southwest of town. The 1904 candidate uses a reconstructed lane within existing inferred carriageways; source triangle support assessment does not establish posed world contact or an archival trip.",
