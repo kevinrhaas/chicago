@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2874, ts: '2026-11-10T22:39:42.299Z', date: 'Nov 10, 2026, 4:39 PM CT', title: '1904 memory lines move for its people and carriages', kind: 'chore',
+    items: [
+      'The memory lines 1904 is held to rise: 1,300 to 1,425 MB on a capable computer, and 400 to 425 MB on a phone. They make room for the people, horse teams and household routines added this week. Computers with built-in graphics now open a lighter town, so the computer line no longer covers the machines that crashed.',
+    ] },
   { v: 2873, ts: '2026-11-10T21:46:03.801Z', date: 'Nov 10, 2026, 3:46 PM CT', title: 'Compact interactions and conversations with company', kind: 'improvement',
     items: [
       'Open Interact for short activity labels and icons, with a scrollable list on phones.',
