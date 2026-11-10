@@ -1,0 +1,198 @@
+{
+  "original": {
+    "core": "baseline",
+    "status": "FAIL",
+    "tests": 20,
+    "failed": 18,
+    "results": [
+      {
+        "name": "unsupported real ports refuse before any strict reservation",
+        "status": "FAIL",
+        "reason": "Missing expected exception."
+      },
+      {
+        "name": "asynchronous commit ports refuse rather than assert atomicity",
+        "status": "PASS"
+      },
+      {
+        "name": "detach before failure compensates and retains all owners",
+        "status": "FAIL",
+        "reason": "Expected values to be strictly equal:\n\ntrue !== false\n"
+      },
+      {
+        "name": "detach after failure compensates and retains all owners",
+        "status": "FAIL",
+        "reason": "Expected values to be strictly equal:\n\ntrue !== false\n"
+      },
+      {
+        "name": "restoreVisitor before failure compensates and retains all owners",
+        "status": "FAIL",
+        "reason": "Expected values to be strictly equal:\n\ntrue !== false\n"
+      },
+      {
+        "name": "restoreVisitor after failure compensates and retains all owners",
+        "status": "FAIL",
+        "reason": "Expected values to be strictly equal:\n\ntrue !== false\n"
+      },
+      {
+        "name": "restoreCamera before failure compensates and retains all owners",
+        "status": "FAIL",
+        "reason": "Expected values to be strictly equal:\n\ntrue !== false\n"
+      },
+      {
+        "name": "restoreCamera after failure compensates and retains all owners",
+        "status": "FAIL",
+        "reason": "Expected values to be strictly equal:\n\ntrue !== false\n"
+      },
+      {
+        "name": "failed stop never detaches; blocked ticks and explicit retry remain owned",
+        "status": "FAIL",
+        "reason": "Expected values to be strictly equal:\n\n0 !== 1\n"
+      },
+      {
+        "name": "nonzero or unknown speed is never neutral success",
+        "status": "PASS"
+      },
+      {
+        "name": "canceled waiter retains single owned stop through complete recovery",
+        "status": "FAIL",
+        "reason": "Expected values to be strictly equal:\n\n0 !== 1\n"
+      },
+      {
+        "name": "repeated cancel joins one pending recovery and releases once",
+        "status": "FAIL",
+        "reason": "Expected values to be strictly equal:\n\n0 !== 1\n"
+      },
+      {
+        "name": "failed independent verification compensates exact held state",
+        "status": "FAIL",
+        "reason": "Expected values to be strictly equal:\n\ntrue !== false\n"
+      },
+      {
+        "name": "lease release mutate-then-throw is compensated before seat release",
+        "status": "FAIL",
+        "reason": "Expected values to be strictly equal:\n\ntrue !== false\n"
+      },
+      {
+        "name": "false compensation acknowledgment never declares successful recovery",
+        "status": "FAIL",
+        "reason": "Expected values to be strictly equal:\n\ntrue !== false\n"
+      },
+      {
+        "name": "superseded owner/generation cannot release or overwrite newer state",
+        "status": "FAIL",
+        "reason": "Expected values to be strictly equal:\n\ntrue !== false\n"
+      },
+      {
+        "name": "provider retirement request blocks disposal and retains attachment",
+        "status": "FAIL",
+        "reason": "Missing expected rejection."
+      },
+      {
+        "name": "blocked exit stays seated and preserves ownership before retry",
+        "status": "FAIL",
+        "reason": "Expected values to be strictly equal:\n\n0 !== 1\n"
+      },
+      {
+        "name": "strict leave restore failure compensates before releasing any ownership",
+        "status": "FAIL",
+        "reason": "Expected values to be strictly equal:\n+ actual - expected\n\n+ null\n- {\n-   key: 'PARKED-BROUGHAM-CONTRACT-ONLY:p1',\n-   owner: 'local-visitor'\n- }\n"
+      },
+      {
+        "name": "context cancellation supersedes prepared exit before recovery commits",
+        "status": "FAIL",
+        "reason": "Expected values to be strictly equal:\n\n0 !== 1\n"
+      }
+    ],
+    "qualification": "Synthetic contract controls only; no physical boarding/motion/scene/UI/current-app acceptance."
+  },
+  "proposed": {
+    "core": "proposed",
+    "status": "PASS",
+    "tests": 20,
+    "failed": 0,
+    "results": [
+      {
+        "name": "unsupported real ports refuse before any strict reservation",
+        "status": "PASS"
+      },
+      {
+        "name": "asynchronous commit ports refuse rather than assert atomicity",
+        "status": "PASS"
+      },
+      {
+        "name": "detach before failure compensates and retains all owners",
+        "status": "PASS"
+      },
+      {
+        "name": "detach after failure compensates and retains all owners",
+        "status": "PASS"
+      },
+      {
+        "name": "restoreVisitor before failure compensates and retains all owners",
+        "status": "PASS"
+      },
+      {
+        "name": "restoreVisitor after failure compensates and retains all owners",
+        "status": "PASS"
+      },
+      {
+        "name": "restoreCamera before failure compensates and retains all owners",
+        "status": "PASS"
+      },
+      {
+        "name": "restoreCamera after failure compensates and retains all owners",
+        "status": "PASS"
+      },
+      {
+        "name": "failed stop never detaches; blocked ticks and explicit retry remain owned",
+        "status": "PASS"
+      },
+      {
+        "name": "nonzero or unknown speed is never neutral success",
+        "status": "PASS"
+      },
+      {
+        "name": "canceled waiter retains single owned stop through complete recovery",
+        "status": "PASS"
+      },
+      {
+        "name": "repeated cancel joins one pending recovery and releases once",
+        "status": "PASS"
+      },
+      {
+        "name": "failed independent verification compensates exact held state",
+        "status": "PASS"
+      },
+      {
+        "name": "lease release mutate-then-throw is compensated before seat release",
+        "status": "PASS"
+      },
+      {
+        "name": "false compensation acknowledgment never declares successful recovery",
+        "status": "PASS"
+      },
+      {
+        "name": "superseded owner/generation cannot release or overwrite newer state",
+        "status": "PASS"
+      },
+      {
+        "name": "provider retirement request blocks disposal and retains attachment",
+        "status": "PASS"
+      },
+      {
+        "name": "blocked exit stays seated and preserves ownership before retry",
+        "status": "PASS"
+      },
+      {
+        "name": "strict leave restore failure compensates before releasing any ownership",
+        "status": "PASS"
+      },
+      {
+        "name": "context cancellation supersedes prepared exit before recovery commits",
+        "status": "PASS"
+      }
+    ],
+    "qualification": "Synthetic contract controls only; no physical boarding/motion/scene/UI/current-app acceptance."
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "studyOnly": true,
+  "currentAppBinding": false,
+  "productionEnabled": false,
+  "appBase": "83cde5aa2b9103bcbc02186bd06b2aa6fc7dc764",
+  "plannedTarget": "Existing parked Brougham/Charles; no Hans driver replacement",
+  "origin": {
+    "evidenceCommit": "ce6a079182978a24093fded174a295324738907e",
+    "archiveGitBlob": "5c399411201c1b585bbc1464150542ad14dea89d",
+    "archiveSha256": "f01a2c62a95eb97f171bf105458eb1b93232db3ff54179d6ff3dcd42151cac81",
+    "baselineCoreSha256": "33c0db44f2303da44da07b3edffd263fb4f323cc2491e9726da215318485ed2a"
+  },
+  "source": [
+    {
+      "path": "README.md",
+      "bytes": 4561,
+      "sha256": "9b6a6868e400e443974ed659a5d258e547e64992efc71421e37004c66415fadc",
+      "testedExact": false
+    },
+    {
+      "path": "baseline/interaction-core-finite-proposed.mjs",
+      "bytes": 9245,
+      "sha256": "33c0db44f2303da44da07b3edffd263fb4f323cc2491e9726da215318485ed2a",
+      "testedExact": true
+    },
+    {
+      "path": "baseline/passenger-regression.test.mjs",
+      "bytes": 8026,
+      "sha256": "2f57015c9de5f55334d1f25ee4443d0e29d77dfa96f016de4000499b95f6502f",
+      "testedExact": true
+    },
+    {
+      "path": "proposed/interaction-core-finite-proposed.mjs",
+      "bytes": 12401,
+      "sha256": "6cb860ffb1e76b0272dd05400915fd195883036b92109e7c7242166918d5ed85",
+      "testedExact": true
+    },
+    {
+      "path": "proposed/passenger-regression.test.mjs",
+      "bytes": 8026,
+      "sha256": "2f57015c9de5f55334d1f25ee4443d0e29d77dfa96f016de4000499b95f6502f",
+      "testedExact": true
+    },
+    {
+      "path": "proposed/strict-recovery-adapter.mjs",
+      "bytes": 7162,
+      "sha256": "45c7580fa5557befd37548717f30db60d124b3d577359194989643d219fda444",
+      "testedExact": true
+    },
+    {
+      "path": "strict-recovery.test.mjs",
+      "bytes": 12717,
+      "sha256": "54630acb59c1036f5430ad43bc959cec7d44e1ab236996a5250109e67f8dd00c",
+      "testedExact": true
+    }
+  ],
+  "actualValidation": {
+    "originalDefault": "12/12 PASS",
+    "proposedDefault": "12/12 PASS",
+    "originalStrictFailures": 18,
+    "strictTests": 20,
+    "proposedStrictFailed": 0,
+    "SUPSeconds": 0.6164873620728031,
+    "originalTimeoutSeconds": 120,
+    "resourceFloorsAccepted": true,
+    "cleanupComplete": true,
+    "remainingOwnedChildren": [],
+    "sourceBeforeAfterExact": true,
+    "fullNativeCheckSh": "UNRUN",
+    "fullPreflight": "UNRUN"
+  },
+  "limits": [
+    "Synthetic pure contract; no physical boarding/motion/live UI/current app binding.",
+    "Synchronous commit/compensation verification requires qualified real ports; unsupported ports refuse.",
+    "Existing successful default behavior preserved; historical/current scene claims not promoted."
+  ]
+}
