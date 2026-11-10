@@ -220,6 +220,7 @@ export function createHouseErrands({ days = null, humans, houseDoors, interactio
     if (!doorId || (!scheduled && !usesFrontDoor(person))) continue;
     if (!houseDoors.get(doorId)) { problems.push(`${actor.id}: ${doorId} is not hung in this scene — he cannot be sent home`); continue; }
     const name = person.name ?? actor.id;
+    const hosted = () => !!actor.jauntHost || !!days?.isHosted?.(actor);
     const door = () => houseDoors.get(doorId);
     let way = null, arrived = false, refused = false, walking = false;
     const walk = (points, heading) => {
@@ -267,10 +268,10 @@ export function createHouseErrands({ days = null, humans, houseDoors, interactio
       set state(value) { this._state = value; },
       /** Where he is; indoors, with people hidden (Settings › Show › People), or held out
        *  by a jaunt that does not call for him (T-3495), nowhere a visitor can reach. */
-      get at() { return actor.indoors || actor.disposed || humans.shown === false || humans.isHeld?.(actor) ? null : [actor.e, actor.n]; },
+      get at() { return actor.indoors || actor.disposed || humans.shown === false || humans.isHeld?.(actor) || hosted() ? null : [actor.e, actor.n]; },
       reach: PERSON_REACH_M,
       actions: {
-        get out() { return [
+        get out() { return hosted() ? [] : [
           { id: 'greet', label: 'Greet', to: 'out', said: '',
             steps: [{ label: 'Greeting', seconds: GREET_S, run: (t) => {
               if (t === 0) { if (scheduled) days.pause(actor.id); greet(); }
@@ -306,7 +307,7 @@ export function createHouseErrands({ days = null, humans, houseDoors, interactio
           })) : []),
           ...strolls,
         ]; },
-        home: [
+        get home() { return hosted() ? [] : [
           // T-3444: asked for at the door (the door's own action starts this).
           { id: 'come_out', label: 'Come to the door', to: 'out', said: () => `${name} comes to the door`,
             steps: [
@@ -335,7 +336,7 @@ export function createHouseErrands({ days = null, humans, houseDoors, interactio
                 if (t === 0) { closeDoor(); if (scheduled) days.pause(actor.id); greet(); }
               } },
             ] },
-        ],
+        ]; },
       },
     };
     interactions.add(thing);
