@@ -1,8 +1,0 @@
-{
-  "title": "More reliable DEV preview updates",
-  "kind": "fix",
-  "items": [
-    "Adds support for smaller DEV publications while preserving existing models, textures and saved years.",
-    "Includes the horse color and marking contract in published builds."
-  ]
-}

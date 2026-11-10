@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2863, ts: '2026-11-10T09:36:14.781Z', date: 'Nov 10, 2026, 3:36 AM CT', title: 'More reliable DEV preview updates', kind: 'fix',
+    items: [
+      'Adds support for smaller DEV publications while preserving existing models, textures and saved years.',
+      'Includes the horse color and marking contract in published builds.',
+    ] },
   { v: 2862, ts: '2026-11-10T07:40:44.846Z', date: 'Nov 10, 2026, 1:40 AM CT', title: 'Individual coats for the town\'s horses', kind: 'feature',
     items: [
       'Town horses use bay, chestnut and grey coats, with stable individual blazes, socks and subtle dappling. Team members can match while keeping different markings.',
