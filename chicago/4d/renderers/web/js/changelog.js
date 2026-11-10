@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2870, ts: '2026-11-10T14:55:24.580Z', date: 'Nov 10, 2026, 8:55 AM CT', title: 'The remaining lodging households have seats and explicit reconstructed membership', kind: 'fix',
+    items: [
+      'The thirteen remaining ordered lodging residents are assigned as reconstructed youths and anonymous lodgers’ children, with existing names, ages, kin and accepted addresses preserved. Two existing North adults take real vacancies at the Steamboat.',
+      'Lodging now counts actual shared household economies separately from storage cards. Exclusive known-house receipts, explicit secondary boarding uses and bounded reconstructed groups settle the remaining household order without inventing new roofs.',
+      'Housing allocations carry accepted seats forward, count existing vacant upper residences consistently, and prevent further admissions to overfull lodging roofs. Reports expose older crowding and distinguish current debt from frozen allocation residue; staffing payments require the premises’ civil division.',
+    ] },
   { v: 2869, ts: '2026-11-10T14:33:45.475Z', date: 'Nov 10, 2026, 8:33 AM CT', title: 'Better footing on 1904 walks', kind: 'improvement',
     items: [
       'Reduced hovering above walks and parkways for people in 1904.',
