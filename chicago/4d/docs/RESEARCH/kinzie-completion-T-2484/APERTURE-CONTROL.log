@@ -1,0 +1,48 @@
+ok   COMPOUND_ROOF_OVERHANG_M 0.25 is add_gable_roof's own default overhang 0.25
+ok   Cobweb Castle states three apertures (3)
+ok   its centre gable stands at y 4.75 — the wall at 4.5 plus the overhang
+ok   that gable runs from the eave 2.6 up to the ridge 4.526
+ok   the centre room's front carries the two stated wall apertures (2)
+ok   the room's own front_opening is overridden, not drawn as well — no phantom centre door
+ok   ...and what stands there is one neutral aperture and one stated way in
+ok   both wings keep their own single window (['window', 'window'])
+ok   the front wall reads exactly those two rectangles (['aperture', 'door'])
+ok   nothing on the front WALL reading stands above the wall head
+ok   the entrance reader finds exactly one grounded way in (1)
+ok   an aperture is a hole a board must clear, and not an entrance kind
+ok   the builder's wall apertures are the SAME rectangles the facade reader gives
+ok   the one gable aperture is reported on the gable plane, not on the wall
+ok   ...and never reaches the front-wall reading
+ok   APERTURE_BACK_M 0.004 and RELIEF_M 0.022 both read off source
+ok   the surround's reveal runs back to the wall skin plus APERTURE_BACK_M (APERTURE_BACK_M)
+ok   and the dark face is given that same absolute offset (w.skin + APERTURE_BACK_M)
+ok   so the face lands at 0.026 m, proud of the 0.022 m the log courses stand out — not behind them
+ok   81 other log_dwelling phases resolve with no stated set and their legacy fronts (none changed)
+ok   refused: a room the record does not state (compound aperture names no stated room)
+ok   refused: a boolean room index (compound aperture names no stated room)
+ok   refused: a room whose +y wall is not an outward face (compound aperture face is not an outward face of its room)
+ok   refused: an unsupported face (compound aperture face is one of +y)
+ok   refused: an unsupported zone (compound aperture zone is wall or gable)
+ok   refused: an unsupported kind (compound aperture kind is aperture or door)
+ok   refused: a non-finite coordinate (compound aperture needs four finite coordinates)
+ok   refused: a boolean coordinate (compound aperture needs four finite coordinates)
+ok   refused: a negative width (compound aperture needs positive width and height)
+ok   refused: a negative height (compound aperture needs positive width and height)
+ok   refused: a wall aperture past its room's corner (compound wall aperture outside its own room's wall)
+ok   refused: a wall aperture inside the corner margin (compound wall aperture outside its own room's wall)
+ok   refused: a wall aperture into the wall head (compound wall aperture outside the wall's height)
+ok   refused: a gable aperture reaching below the eave (compound gable aperture reaches below the eave)
+ok   refused: a gable aperture standing through its own rake (compound gable aperture stands through its own rake)
+ok   refused: a gable aperture off the end of the rake (compound gable aperture stands through its own rake)
+ok   refused: a way in that does not reach the ground (a compound aperture door stands on the ground, in the wall)
+ok   refused: a way in up in the gable (a compound aperture door stands on the ground, in the wall)
+ok   refused: two ways in (a compound aperture set states at most one way in)
+ok   refused: two apertures with no wall between them (compound apertures overlap or leave no wall between them)
+ok   refused: two apertures that overlap (compound apertures overlap or leave no wall between them)
+ok   refused: an empty stated set (compound_apertures states at least one aperture; omit the attribute to state none)
+ok   refused: more apertures than the bound allows (compound_apertures states 1..6 apertures)
+ok   refused: an aperture missing a key (a compound aperture needs exactly room,face,zone,kind,u0,u1,z0,z1)
+ok   refused: a set on the bounded elbow (compound_apertures is not supported on the bounded elbow)
+ok   refused: a set on a house with no stated rooms (compound_apertures needs compound_parts)
+
+all checks passed

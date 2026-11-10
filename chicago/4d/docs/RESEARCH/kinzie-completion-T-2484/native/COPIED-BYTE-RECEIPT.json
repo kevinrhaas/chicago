@@ -1,0 +1,145 @@
+{
+  "status": "EXACT_BYTE_COPIES_OF_INDEPENDENT_AUDITOR_EVIDENCE_AND_LITERAL_FAILURES",
+  "files": [
+    {
+      "file": "native/ACTUAL-NATIVE-AUDIT-RESULT.json",
+      "bytes": 956,
+      "sha256": "6301563966788a3fb8d13d3a0fcefce467981ded689c42279eb517c3c13be478"
+    },
+    {
+      "file": "native/POST-NATIVE-AUDIT.json",
+      "bytes": 2389306,
+      "sha256": "f1f032c6f7deae75d11c937a47de2bfb230f42a75c2d5d63d685bdfc29e69d60"
+    },
+    {
+      "file": "native/POST-NATIVE-CONTROLS.json",
+      "bytes": 2006099,
+      "sha256": "cce4032899e4587d3a26c3ee6b213d057eebf3ec986076191fd40f17ad20ca88"
+    },
+    {
+      "file": "native/POST-NATIVE-TARGETS.json",
+      "bytes": 28975,
+      "sha256": "3e59c1a47e2dd36a392b29d59d1333ff43673bf6e24841c9b7ce18a1244190d2"
+    },
+    {
+      "file": "native/BEFORE-BINDING.json",
+      "bytes": 830545,
+      "sha256": "e9f0beae765610a9b5f11734e35a8440e44bd7b306aee080ef5a8e8c4f68cc22"
+    },
+    {
+      "file": "native/BEFORE-FOREIGN.json",
+      "bytes": 7596099,
+      "sha256": "59f284dc470f3a3cbc4b223ea73fae7d7d7db61f83f8d50f376020248feb63a1"
+    },
+    {
+      "file": "native/SCOPE-BUILD-CLOSURE.json",
+      "bytes": 1065,
+      "sha256": "e5a35cfaa586436efab9f1ae50a085bced4f15f58677bb0b8e9dabd407299aa1"
+    },
+    {
+      "file": "native/AUTHENTIC-NATIVE-PROVENANCE.json",
+      "bytes": 25954,
+      "sha256": "d0411fc3d240c57bf727de56c713b37190d23a5113f27c445edb9829e6774ef1"
+    },
+    {
+      "file": "native/ACTUAL-RETAINED-RAW-DIFF.txt",
+      "bytes": 1352,
+      "sha256": "2908c3df9a38df941d23fbb04679753fd813513762caa2e64abadca0ff53eb84"
+    },
+    {
+      "file": "native/ACTUAL-RETAINED-BRANCH.json",
+      "bytes": 4390,
+      "sha256": "c56b90257e35407c338b7aac32c1f64a858f1346a9b0a9366655e7f6b68c4217"
+    },
+    {
+      "file": "native/AUDIT-READER-PREFLIGHT.json",
+      "bytes": 2210,
+      "sha256": "6517ef30a8c316ea1965cd5503a37a07b5d88ec3cc4b7a9c85e6575b5a3a2fb3"
+    },
+    {
+      "file": "native/ROOT-AFTER-ALL-NATIVE-FILES-UNCHANGED.json",
+      "bytes": 547,
+      "sha256": "91b5cc6e39f527806bbce539780853e0b6ab408f8f72d18d48c13f1ad76e6a16"
+    },
+    {
+      "file": "native/ACTUAL-AUDIT-FAIL.json",
+      "bytes": 744,
+      "sha256": "f0bf3b7145682db09701fef12777247e6e2dbcab8254eb5309c6f9ce1a735790"
+    },
+    {
+      "file": "native/POST-NATIVE-AUDIT-FAIL.json",
+      "bytes": 1465,
+      "sha256": "009b091f7919faea303d29ad598bd148841c2af9f2b9288bfae3ad748d026d92"
+    },
+    {
+      "file": "native/OWNER-CLOSURE-NAMEERROR-POST-NATIVE-AUDIT-FAIL.json",
+      "bytes": 1465,
+      "sha256": "009b091f7919faea303d29ad598bd148841c2af9f2b9288bfae3ad748d026d92"
+    },
+    {
+      "file": "native/READER-CORRECTION.md",
+      "bytes": 872,
+      "sha256": "9c81cddbe96a2b6deceb0eee35bddabcc990a61d95a3d06d6dac9d01e70bb502"
+    },
+    {
+      "file": "native/only.txt",
+      "bytes": 2064,
+      "sha256": "6d9f63fcc22601c7fab321663e203059f81bc92f0af924c7cdded305e0fb0797"
+    },
+    {
+      "file": "native/asset-keys.txt",
+      "bytes": 3555,
+      "sha256": "898ddd7ea4febac5abea5580f5b39578d8bd4d63f6c430de2f9a5531c44538ef"
+    },
+    {
+      "file": "native/audit-retained.py",
+      "bytes": 30853,
+      "sha256": "bfdc1ad685a1ffb874f595c6de35cbba5732e07f63159299dd504cb425c4fcaf"
+    },
+    {
+      "file": "native/asset_overlay.py",
+      "bytes": 2276,
+      "sha256": "003f218c74025c82439a2dc5aa9f767f47ee007d0b553d62543097e4fdd0c0aa"
+    },
+    {
+      "file": "native/sidecar_owner.py",
+      "bytes": 2233,
+      "sha256": "1edecd756958ce4014d7972fbb278e63e5c42384c45162162b341f8e9ecc0f94"
+    },
+    {
+      "file": "native/kinzie_checks.py",
+      "bytes": 6002,
+      "sha256": "04d3a54aa5256081c5597463d84c99a7046e9949cd7b1b12251fe1a86c0c8956"
+    },
+    {
+      "file": "native/test-audit-guards.py",
+      "bytes": 6773,
+      "sha256": "47eddd62917faa6019a8268d7e564b8b8c2191754a6db9562a47c2048cd838a4"
+    },
+    {
+      "file": "native/README.md",
+      "bytes": 5449,
+      "sha256": "e84e4562dedaaf671a28c1f67a4b63daa5a29c4d339fbe86a8d44e3a5d0cd9ac"
+    },
+    {
+      "file": "native/INITIAL-SIDECAR-GUARD-ACTUAL-MATERIALIZE-AND-AUDIT.log",
+      "bytes": 837,
+      "sha256": "b56c25911e1b16950b8801127f9e2fbc9bf0f6696f1c3494b4212b9465a2872a"
+    },
+    {
+      "file": "native/INITIAL-SIDECAR-GUARD-ACTUAL-POST-NATIVE-AUDIT.log",
+      "bytes": 1395,
+      "sha256": "39883ebabec98c23e5031e28d34c6c5280dc056b717ab31be38c0a82ddafa76e"
+    },
+    {
+      "file": "native/INITIAL-SIDECAR-GUARD-ACTUAL-AUDIT-FAIL.json",
+      "bytes": 744,
+      "sha256": "f0bf3b7145682db09701fef12777247e6e2dbcab8254eb5309c6f9ce1a735790"
+    },
+    {
+      "file": "native/INITIAL-SIDECAR-GUARD-POST-NATIVE-AUDIT-FAIL.json",
+      "bytes": 1395,
+      "sha256": "39883ebabec98c23e5031e28d34c6c5280dc056b717ab31be38c0a82ddafa76e"
+    }
+  ]
+}

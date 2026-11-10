@@ -1,0 +1,508 @@
+{
+  "status": "PASS_READ_ONLY_PROSPECTIVE_METADATA_FLORA_REPAIR_NATIVE_INPUT_INVARIANCE_NOT_APPLIED",
+  "source": "6b11594bbd1d1a4e9fdd864878359ccf1c54edfc",
+  "records": 83,
+  "native_input_changes": 0,
+  "actual_SOURCE_asset_reads_authenticated": 0,
+  "rows": [
+    {
+      "asset_key": "agency_striker_log_house__log_1830.glb",
+      "before_inputs_sha256": "89cd4fb666183ca660040e80378f1272e07fa40cc1fa504dd758102fdc604563",
+      "prospective_after_inputs_sha256": "89cd4fb666183ca660040e80378f1272e07fa40cc1fa504dd758102fdc604563",
+      "same": true
+    },
+    {
+      "asset_key": "blacksmith_shop_state_st__log_1823.glb",
+      "before_inputs_sha256": "0d7fde109c26e22c2552f33f94cde3022a3b3e201bdf37a19e7de2e5de8351ec",
+      "prospective_after_inputs_sha256": "0d7fde109c26e22c2552f33f94cde3022a3b3e201bdf37a19e7de2e5de8351ec",
+      "same": true
+    },
+    {
+      "asset_key": "brown_boarding_house__documented_1835.glb",
+      "before_inputs_sha256": "037132ccc33228764e6ab4486d84067872fd384b26cc3729537bd6e5819e8384",
+      "prospective_after_inputs_sha256": "037132ccc33228764e6ab4486d84067872fd384b26cc3729537bd6e5819e8384",
+      "same": true
+    },
+    {
+      "asset_key": "burns_house_1812__burns_1812.glb",
+      "before_inputs_sha256": "3f976e22d39d90ca76ba7e4bda9e8ee1b67024b9b29d14fd6ae0fc1113dd51ea",
+      "prospective_after_inputs_sha256": "3f976e22d39d90ca76ba7e4bda9e8ee1b67024b9b29d14fd6ae0fc1113dd51ea",
+      "same": true
+    },
+    {
+      "asset_key": "caldwell_agency_log_house__log_1830.glb",
+      "before_inputs_sha256": "241330e70bebcf68769698d9172177b4a533619d7aa000558700b14beafa1521",
+      "prospective_after_inputs_sha256": "241330e70bebcf68769698d9172177b4a533619d7aa000558700b14beafa1521",
+      "same": true
+    },
+    {
+      "asset_key": "chappel_infant_school__log_1833.glb",
+      "before_inputs_sha256": "e64dd080fbbd172cdbbdcab531e28283b42e46742ecb72e88ae1f7f539241f1b",
+      "prospective_after_inputs_sha256": "e64dd080fbbd172cdbbdcab531e28283b42e46742ecb72e88ae1f7f539241f1b",
+      "same": true
+    },
+    {
+      "asset_key": "clybourn_cabins__log_1824.glb",
+      "before_inputs_sha256": "c3e2b7d134aa46ce66f133e6442c20b22413183d2e5e577ef5ebb7b7ec7febd1",
+      "prospective_after_inputs_sha256": "c3e2b7d134aa46ce66f133e6442c20b22413183d2e5e577ef5ebb7b7ec7febd1",
+      "same": true
+    },
+    {
+      "asset_key": "cobweb_castle__log_1820.glb",
+      "before_inputs_sha256": "1b89d9432a92a74f6d529d340405fbc625f336e00555ccdb9bc10114d0855217",
+      "prospective_after_inputs_sha256": "1b89d9432a92a74f6d529d340405fbc625f336e00555ccdb9bc10114d0855217",
+      "same": true
+    },
+    {
+      "asset_key": "council_house__log_1834.glb",
+      "before_inputs_sha256": "af716392f43fa76b2e64d4a176fb00f21b716f62edf0f7ee962205535c85bd01",
+      "prospective_after_inputs_sha256": "af716392f43fa76b2e64d4a176fb00f21b716f62edf0f7ee962205535c85bd01",
+      "same": true
+    },
+    {
+      "asset_key": "first_fort_outer_agents_house__first_fort_1803.glb",
+      "before_inputs_sha256": "f1c4c90e1ec728e974e5b625a5067f562e0a64dd823ddf7b0d8215d1fc052f8c",
+      "prospective_after_inputs_sha256": "f1c4c90e1ec728e974e5b625a5067f562e0a64dd823ddf7b0d8215d1fc052f8c",
+      "same": true
+    },
+    {
+      "asset_key": "first_fort_outer_factory__first_fort_1803.glb",
+      "before_inputs_sha256": "a8eef91ca1b817c6ee6eb0d16e8652e0d4617262083c7aa73eff35658337713d",
+      "prospective_after_inputs_sha256": "a8eef91ca1b817c6ee6eb0d16e8652e0d4617262083c7aa73eff35658337713d",
+      "same": true
+    },
+    {
+      "asset_key": "first_fort_outer_interpreters_house__first_fort_1803.glb",
+      "before_inputs_sha256": "023a26e3a7a55d0dcf6835dd51f33804ff8b43965653e73745c3a2da41c0e9f2",
+      "prospective_after_inputs_sha256": "023a26e3a7a55d0dcf6835dd51f33804ff8b43965653e73745c3a2da41c0e9f2",
+      "same": true
+    },
+    {
+      "asset_key": "forks_house_clark_1812__clark_1812.glb",
+      "before_inputs_sha256": "8e3bdb4c6f569dc6baa324563d978a8654bf7c06bf1ce583112fc05d065302bf",
+      "prospective_after_inputs_sha256": "8e3bdb4c6f569dc6baa324563d978a8654bf7c06bf1ce583112fc05d065302bf",
+      "same": true
+    },
+    {
+      "asset_key": "forks_house_soldier_1812__soldier_1812.glb",
+      "before_inputs_sha256": "1e2220e9a774a2fa18a924e6ce61b5a375b7cb2ea1777a3122044036c4e74656",
+      "prospective_after_inputs_sha256": "1e2220e9a774a2fa18a924e6ce61b5a375b7cb2ea1777a3122044036c4e74656",
+      "same": true
+    },
+    {
+      "asset_key": "fort_dearborn_us_factors_house__us_factors_house_1818.glb",
+      "before_inputs_sha256": "eb2ea241c62a15fd397aecd57e66f50c8e1bd5811ae42a0ff62db80aaf3f77d3",
+      "prospective_after_inputs_sha256": "eb2ea241c62a15fd397aecd57e66f50c8e1bd5811ae42a0ff62db80aaf3f77d3",
+      "same": true
+    },
+    {
+      "asset_key": "harmon_log_cabin__documented_1835.glb",
+      "before_inputs_sha256": "67ffe9039694254528b9d69729d706ee12a2eb5f1ca835f2f2763391574e8bb8",
+      "prospective_after_inputs_sha256": "67ffe9039694254528b9d69729d706ee12a2eb5f1ca835f2f2763391574e8bb8",
+      "same": true
+    },
+    {
+      "asset_key": "hogan_store__log_1831.glb",
+      "before_inputs_sha256": "4521341287aa8bf12fa10aeb0e8687a1016b3b5f44ba57a915f6f1222ab2c5a2",
+      "prospective_after_inputs_sha256": "4521341287aa8bf12fa10aeb0e8687a1016b3b5f44ba57a915f6f1222ab2c5a2",
+      "same": true
+    },
+    {
+      "asset_key": "inf_boatman_cabin_north__inferred_1835.glb",
+      "before_inputs_sha256": "bbcd00569178b6670b7d76b6a0f44282e7262afa8ba95de65ecbde4148782dba",
+      "prospective_after_inputs_sha256": "bbcd00569178b6670b7d76b6a0f44282e7262afa8ba95de65ecbde4148782dba",
+      "same": true
+    },
+    {
+      "asset_key": "james_kinzie_house__dwelling_1830.glb",
+      "before_inputs_sha256": "c517f0bd8d4bce65dcd09aede63b2dfe83779e056b20920d42723610b3557b70",
+      "prospective_after_inputs_sha256": "c517f0bd8d4bce65dcd09aede63b2dfe83779e056b20920d42723610b3557b70",
+      "same": true
+    },
+    {
+      "asset_key": "jb_beaubien_homestead__log_1822.glb",
+      "before_inputs_sha256": "951ec0b6f176d214144f0949fdcef839685de4b700c2b37301c5b716c0fcc1f8",
+      "prospective_after_inputs_sha256": "951ec0b6f176d214144f0949fdcef839685de4b700c2b37301c5b716c0fcc1f8",
+      "same": true
+    },
+    {
+      "asset_key": "kinzie_bake_house_1812__kinzie_1804.glb",
+      "before_inputs_sha256": "64de0569dfce45d389090ce46a37acabdd2a8db8f44fde7244a1607154bffa87",
+      "prospective_after_inputs_sha256": "64de0569dfce45d389090ce46a37acabdd2a8db8f44fde7244a1607154bffa87",
+      "same": true
+    },
+    {
+      "asset_key": "kinzie_house_1812__kinzie_1804.glb",
+      "before_inputs_sha256": "c09c195779f324cb256151d5c651b5d16b8032d35422a4e23c955d71e80e9965",
+      "prospective_after_inputs_sha256": "c09c195779f324cb256151d5c651b5d16b8032d35422a4e23c955d71e80e9965",
+      "same": true
+    },
+    {
+      "asset_key": "kinzie_house_1812_green__kinzie_1804.glb",
+      "before_inputs_sha256": "504b7f366cabbe8d00a2ea6fa4f3ca916b46d66a3093a1e4f2b52a2b16e23453",
+      "prospective_after_inputs_sha256": "504b7f366cabbe8d00a2ea6fa4f3ca916b46d66a3093a1e4f2b52a2b16e23453",
+      "same": true
+    },
+    {
+      "asset_key": "kinzie_lodging_house_1812__kinzie_1804.glb",
+      "before_inputs_sha256": "3056599c7fb61b014cad39d4deab00a1f092db7af27c59da26b62f808ab62484",
+      "prospective_after_inputs_sha256": "3056599c7fb61b014cad39d4deab00a1f092db7af27c59da26b62f808ab62484",
+      "same": true
+    },
+    {
+      "asset_key": "kinzie_stable_1812__kinzie_1804.glb",
+      "before_inputs_sha256": "0754e4b54493fbf5c6f519c1cbcb4c263758a35e70281d855c7d336795ba32b8",
+      "prospective_after_inputs_sha256": "0754e4b54493fbf5c6f519c1cbcb4c263758a35e70281d855c7d336795ba32b8",
+      "same": true
+    },
+    {
+      "asset_key": "lalime_house_1812__lalime_1812.glb",
+      "before_inputs_sha256": "b180f48cb31579613786bb2ba84e81933d8e654025417390c1da3c04f2c662fa",
+      "prospective_after_inputs_sha256": "b180f48cb31579613786bb2ba84e81933d8e654025417390c1da3c04f2c662fa",
+      "same": true
+    },
+    {
+      "asset_key": "lee_house_1812__lee_1812.glb",
+      "before_inputs_sha256": "9a5a0fe9a162fa5500c0b7b3413ca13e5418c7df58c1a7de5972ab28e7413732",
+      "prospective_after_inputs_sha256": "9a5a0fe9a162fa5500c0b7b3413ca13e5418c7df58c1a7de5972ab28e7413732",
+      "same": true
+    },
+    {
+      "asset_key": "lees_place_cabin_1812__lees_place_1812.glb",
+      "before_inputs_sha256": "1fb328d831a9eadaebc084935ec1a5862ac391900111266d28ed68fb99bb9456",
+      "prospective_after_inputs_sha256": "1fb328d831a9eadaebc084935ec1a5862ac391900111266d28ed68fb99bb9456",
+      "same": true
+    },
+    {
+      "asset_key": "lemai_house_1812__lemai_1812.glb",
+      "before_inputs_sha256": "2b0ae7fef15720c4a7d594c7a0b1eaec28d8ac2b91027cab8df181eb4d9f0591",
+      "prospective_after_inputs_sha256": "2b0ae7fef15720c4a7d594c7a0b1eaec28d8ac2b91027cab8df181eb4d9f0591",
+      "same": true
+    },
+    {
+      "asset_key": "madore_beaubien_house__log_1831.glb",
+      "before_inputs_sha256": "c3ee71a764a2abc4beddae4dc252562b2fc50a164368065e0ccc43d47024f2ca",
+      "prospective_after_inputs_sha256": "c3ee71a764a2abc4beddae4dc252562b2fc50a164368065e0ccc43d47024f2ca",
+      "same": true
+    },
+    {
+      "asset_key": "mansion_house__log_frame_1833.glb",
+      "before_inputs_sha256": "1d7d0ea2e11e029eb48a956094a703d188fdc203f099fd4f9f38f870a9dac3c1",
+      "prospective_after_inputs_sha256": "1d7d0ea2e11e029eb48a956094a703d188fdc203f099fd4f9f38f870a9dac3c1",
+      "same": true
+    },
+    {
+      "asset_key": "mckee_log_house__log_1823.glb",
+      "before_inputs_sha256": "853c16314596f19df14a30870e9305f80c82826a3f69df9c80eda7594371fa2d",
+      "prospective_after_inputs_sha256": "853c16314596f19df14a30870e9305f80c82826a3f69df9c80eda7594371fa2d",
+      "same": true
+    },
+    {
+      "asset_key": "miller_house__log_frame_1827.glb",
+      "before_inputs_sha256": "f38791d5468d666111f547cfc9a55cb884cd99bb40112b0aad4ed6e522e10042",
+      "prospective_after_inputs_sha256": "f38791d5468d666111f547cfc9a55cb884cd99bb40112b0aad4ed6e522e10042",
+      "same": true
+    },
+    {
+      "asset_key": "miller_tannery__log_1831.glb",
+      "before_inputs_sha256": "5d86cfa7b31fe9c8f5990ab9b3f5e78b1f0be75aebf4c6175777008624d82170",
+      "prospective_after_inputs_sha256": "5d86cfa7b31fe9c8f5990ab9b3f5e78b1f0be75aebf4c6175777008624d82170",
+      "same": true
+    },
+    {
+      "asset_key": "north_side_school_1833__log_1833.glb",
+      "before_inputs_sha256": "a1d573330cfa48ec02bd9223cf6f0010373c691ef1cce7a3bed35e8108b9c4d5",
+      "prospective_after_inputs_sha256": "a1d573330cfa48ec02bd9223cf6f0010373c691ef1cce7a3bed35e8108b9c4d5",
+      "same": true
+    },
+    {
+      "asset_key": "ouilmette_house_1812__ouilmette_1812.glb",
+      "before_inputs_sha256": "b557458642412c7c098873d4ef9273d34d346abcfd9f0103d621f457900c568a",
+      "prospective_after_inputs_sha256": "b557458642412c7c098873d4ef9273d34d346abcfd9f0103d621f457900c568a",
+      "same": true
+    },
+    {
+      "asset_key": "philo_carpenter_log_shop__log_1832.glb",
+      "before_inputs_sha256": "e3d7e2418d1dc9c0f1a466d71d4df23991f9850cef107d8c09620d5249d87d0d",
+      "prospective_after_inputs_sha256": "e3d7e2418d1dc9c0f1a466d71d4df23991f9850cef107d8c09620d5249d87d0d",
+      "same": true
+    },
+    {
+      "asset_key": "recon_1835_blk_lake_franklin_d1_02__inferred_1835.glb",
+      "before_inputs_sha256": "92be0b95454bbb2bcd1ed80eb08949c82021f401d6a9a1252baa9933420ca671",
+      "prospective_after_inputs_sha256": "92be0b95454bbb2bcd1ed80eb08949c82021f401d6a9a1252baa9933420ca671",
+      "same": true
+    },
+    {
+      "asset_key": "recon_1835_blk_lake_market_d1_05__inferred_1835.glb",
+      "before_inputs_sha256": "2a885889f4e2143011f0cdc231992a5f7b9c19c0cf570d3cdafa46000d6314e0",
+      "prospective_after_inputs_sha256": "2a885889f4e2143011f0cdc231992a5f7b9c19c0cf570d3cdafa46000d6314e0",
+      "same": true
+    },
+    {
+      "asset_key": "recon_1835_blk_randolph_clark_d1_06__inferred_1835.glb",
+      "before_inputs_sha256": "40d72874d70a16b52c9472372a80204de1339fa6d9c4e8d2ad887fa6fc75bbec",
+      "prospective_after_inputs_sha256": "40d72874d70a16b52c9472372a80204de1339fa6d9c4e8d2ad887fa6fc75bbec",
+      "same": true
+    },
+    {
+      "asset_key": "recon_1835_blk_randolph_clinton_d1_03__inferred_1835.glb",
+      "before_inputs_sha256": "859d9234beaa2717d1ada1d2aefab60116480aac6e1e2632197634286b7ec9bf",
+      "prospective_after_inputs_sha256": "859d9234beaa2717d1ada1d2aefab60116480aac6e1e2632197634286b7ec9bf",
+      "same": true
+    },
+    {
+      "asset_key": "recon_1835_blk_randolph_dearborn_d1_04__inferred_1835.glb",
+      "before_inputs_sha256": "3be31a5ccf3219fb3824c6f5438ccbd2601a5f852adb2f3e07b26b590d1f9727",
+      "prospective_after_inputs_sha256": "3be31a5ccf3219fb3824c6f5438ccbd2601a5f852adb2f3e07b26b590d1f9727",
+      "same": true
+    },
+    {
+      "asset_key": "recon_1835_blk_randolph_dearborn_d1_12__inferred_1835.glb",
+      "before_inputs_sha256": "c461c33e9df005cc1d76ea1c6cd8c0a09a1a9577127ba6be9bc0dc39b69d3c22",
+      "prospective_after_inputs_sha256": "c461c33e9df005cc1d76ea1c6cd8c0a09a1a9577127ba6be9bc0dc39b69d3c22",
+      "same": true
+    },
+    {
+      "asset_key": "recon_1835_blk_randolph_dearborn_d1_16__inferred_1835.glb",
+      "before_inputs_sha256": "fed6f69b537447616b239c8ccd0600e95861c53bf5902b17f74335959c1c0f10",
+      "prospective_after_inputs_sha256": "fed6f69b537447616b239c8ccd0600e95861c53bf5902b17f74335959c1c0f10",
+      "same": true
+    },
+    {
+      "asset_key": "recon_1835_blk_randolph_franklin_d1_06__inferred_1835.glb",
+      "before_inputs_sha256": "3eff694dc4f54fbd8a0d97924eb84b7253f53787d55f9c865634ba249098b928",
+      "prospective_after_inputs_sha256": "3eff694dc4f54fbd8a0d97924eb84b7253f53787d55f9c865634ba249098b928",
+      "same": true
+    },
+    {
+      "asset_key": "recon_1835_blk_randolph_market_d1_10__inferred_1835.glb",
+      "before_inputs_sha256": "9cf82a7b252b3517fd1f6cb7f5bb4201db8c8cd4f17dfee8ff7d8b2b27b788eb",
+      "prospective_after_inputs_sha256": "9cf82a7b252b3517fd1f6cb7f5bb4201db8c8cd4f17dfee8ff7d8b2b27b788eb",
+      "same": true
+    },
+    {
+      "asset_key": "recon_1835_blk_randolph_wells_d1_06__inferred_1835.glb",
+      "before_inputs_sha256": "5b8ce5049dc4cc279d7199bc3b1f52c5b9f1526c88a3c9b3abdd2835bea2610c",
+      "prospective_after_inputs_sha256": "5b8ce5049dc4cc279d7199bc3b1f52c5b9f1526c88a3c9b3abdd2835bea2610c",
+      "same": true
+    },
+    {
+      "asset_key": "recon_1835_blk_school_section_tier_82_d1_05__inferred_1835.glb",
+      "before_inputs_sha256": "886cce06a3c2d275ad7b688399d1e4a22ef2ff0472bfebd7aa087b658bd90611",
+      "prospective_after_inputs_sha256": "886cce06a3c2d275ad7b688399d1e4a22ef2ff0472bfebd7aa087b658bd90611",
+      "same": true
+    },
+    {
+      "asset_key": "recon_1835_blk_south_water_clark_d1_04__inferred_1835.glb",
+      "before_inputs_sha256": "607527e15a53a7795ea6914c53761e64f1f21f66e24017e5e7f88631193b2108",
+      "prospective_after_inputs_sha256": "607527e15a53a7795ea6914c53761e64f1f21f66e24017e5e7f88631193b2108",
+      "same": true
+    },
+    {
+      "asset_key": "recon_1835_blk_south_water_dearborn_d1_05__inferred_1835.glb",
+      "before_inputs_sha256": "40eb265378a5f4623bab7c43d76773d01af155b81c64fd1b0f74040027ca3cbf",
+      "prospective_after_inputs_sha256": "40eb265378a5f4623bab7c43d76773d01af155b81c64fd1b0f74040027ca3cbf",
+      "same": true
+    },
+    {
+      "asset_key": "recon_1835_blk_south_water_franklin_d1_04__inferred_1835.glb",
+      "before_inputs_sha256": "a0280aeb336a68115edb0af6dcbd55711b38d9140a4107d61ba6af4cabef4d70",
+      "prospective_after_inputs_sha256": "a0280aeb336a68115edb0af6dcbd55711b38d9140a4107d61ba6af4cabef4d70",
+      "same": true
+    },
+    {
+      "asset_key": "recon_1835_blk_south_water_lasalle_d1_04__inferred_1835.glb",
+      "before_inputs_sha256": "8fa451f0b2eebbfff677a071d21a35f8835d8de11fe42f9177ed0d1f8f0beb8b",
+      "prospective_after_inputs_sha256": "8fa451f0b2eebbfff677a071d21a35f8835d8de11fe42f9177ed0d1f8f0beb8b",
+      "same": true
+    },
+    {
+      "asset_key": "recon_1835_blk_south_water_wells_d1_05__inferred_1835.glb",
+      "before_inputs_sha256": "e90c2826556f99ed7f5188608bdd9f4e1810b31682c3a135df61f48867efeb92",
+      "prospective_after_inputs_sha256": "e90c2826556f99ed7f5188608bdd9f4e1810b31682c3a135df61f48867efeb92",
+      "same": true
+    },
+    {
+      "asset_key": "recon_1835_blk_south_water_wells_d1_07__inferred_1835.glb",
+      "before_inputs_sha256": "2607eafba9e268f64649d1a537ccea36dc91fd9a86f450fb7d1630e6fa779bc4",
+      "prospective_after_inputs_sha256": "2607eafba9e268f64649d1a537ccea36dc91fd9a86f450fb7d1630e6fa779bc4",
+      "same": true
+    },
+    {
+      "asset_key": "recon_1835_north_d1_001__inferred_1835.glb",
+      "before_inputs_sha256": "da1dd9a53b3b7758484494bcfc144b13d265180308bd4b6cccfe9d31dca46b4a",
+      "prospective_after_inputs_sha256": "da1dd9a53b3b7758484494bcfc144b13d265180308bd4b6cccfe9d31dca46b4a",
+      "same": true
+    },
+    {
+      "asset_key": "recon_1835_north_d1_013__inferred_1835.glb",
+      "before_inputs_sha256": "0265651ec0b1dd64f99345cfed7383a24429da116d3193431be1611ab5a1b093",
+      "prospective_after_inputs_sha256": "0265651ec0b1dd64f99345cfed7383a24429da116d3193431be1611ab5a1b093",
+      "same": true
+    },
+    {
+      "asset_key": "recon_1835_north_d1_023__inferred_1835.glb",
+      "before_inputs_sha256": "8c59877584ecac94f7c41304b57699511cdb4f4fa752a2be477452f35b71baad",
+      "prospective_after_inputs_sha256": "8c59877584ecac94f7c41304b57699511cdb4f4fa752a2be477452f35b71baad",
+      "same": true
+    },
+    {
+      "asset_key": "recon_1835_north_d1_053__inferred_1835.glb",
+      "before_inputs_sha256": "7764c7691bee76dc57f2534277d79d2d5d399a2e2362689a8e23183578f65569",
+      "prospective_after_inputs_sha256": "7764c7691bee76dc57f2534277d79d2d5d399a2e2362689a8e23183578f65569",
+      "same": true
+    },
+    {
+      "asset_key": "recon_1835_north_d1_054__inferred_1835.glb",
+      "before_inputs_sha256": "41954d59ba8a61159c379397dfa8258230e360289b6b8e967aca3dd19af99d1f",
+      "prospective_after_inputs_sha256": "41954d59ba8a61159c379397dfa8258230e360289b6b8e967aca3dd19af99d1f",
+      "same": true
+    },
+    {
+      "asset_key": "recon_1835_north_d1_060__inferred_1835.glb",
+      "before_inputs_sha256": "a2516e83656dc054dce90b16a6fb5aa83893026d5d3b886e188f54b206eca431",
+      "prospective_after_inputs_sha256": "a2516e83656dc054dce90b16a6fb5aa83893026d5d3b886e188f54b206eca431",
+      "same": true
+    },
+    {
+      "asset_key": "recon_1835_south_d1_003__inferred_1835.glb",
+      "before_inputs_sha256": "f35713ad843c3f33fcb100ffec68212270ef131690156c65c193d09d7274a2cf",
+      "prospective_after_inputs_sha256": "f35713ad843c3f33fcb100ffec68212270ef131690156c65c193d09d7274a2cf",
+      "same": true
+    },
+    {
+      "asset_key": "recon_1835_south_d1_010__inferred_1835.glb",
+      "before_inputs_sha256": "c0edd03a9ac2da878436e1cceafced8a3083249eb0b60f45569ceb39fd77db78",
+      "prospective_after_inputs_sha256": "c0edd03a9ac2da878436e1cceafced8a3083249eb0b60f45569ceb39fd77db78",
+      "same": true
+    },
+    {
+      "asset_key": "recon_1835_south_d1_018__inferred_1835.glb",
+      "before_inputs_sha256": "95e2682a1a19b36a08cd6c85339b21aa21fe7a6a5fc98bed522adcff824a02de",
+      "prospective_after_inputs_sha256": "95e2682a1a19b36a08cd6c85339b21aa21fe7a6a5fc98bed522adcff824a02de",
+      "same": true
+    },
+    {
+      "asset_key": "recon_1835_south_d1_021__inferred_1835.glb",
+      "before_inputs_sha256": "09e6236d8b72fe373288c834d5111a1fb40ad38ec483888d808796d7644de185",
+      "prospective_after_inputs_sha256": "09e6236d8b72fe373288c834d5111a1fb40ad38ec483888d808796d7644de185",
+      "same": true
+    },
+    {
+      "asset_key": "recon_1835_south_d1_032__inferred_1835.glb",
+      "before_inputs_sha256": "0f7df91b3ce88ab0fd52d61e49b6c1f27ba28e285e6af98ada09a81786711a40",
+      "prospective_after_inputs_sha256": "0f7df91b3ce88ab0fd52d61e49b6c1f27ba28e285e6af98ada09a81786711a40",
+      "same": true
+    },
+    {
+      "asset_key": "recon_1835_south_d1_033__inferred_1835.glb",
+      "before_inputs_sha256": "1703ae952f03983ea2552b858c72ba01ed166bc7e86cf8a601eb33ef0882155c",
+      "prospective_after_inputs_sha256": "1703ae952f03983ea2552b858c72ba01ed166bc7e86cf8a601eb33ef0882155c",
+      "same": true
+    },
+    {
+      "asset_key": "recon_1835_west_001__inferred_1835.glb",
+      "before_inputs_sha256": "583892562ee7ca660c103147a559229a515c8da78f3f92ef9acfe211da6d1c85",
+      "prospective_after_inputs_sha256": "583892562ee7ca660c103147a559229a515c8da78f3f92ef9acfe211da6d1c85",
+      "same": true
+    },
+    {
+      "asset_key": "recon_1835_west_014__inferred_1835.glb",
+      "before_inputs_sha256": "61788d1c839840f6d56553a478c09d0be2ce4c429e8a2f2d8cc57aa2758c2d90",
+      "prospective_after_inputs_sha256": "61788d1c839840f6d56553a478c09d0be2ce4c429e8a2f2d8cc57aa2758c2d90",
+      "same": true
+    },
+    {
+      "asset_key": "recon_1835_west_026__inferred_1835.glb",
+      "before_inputs_sha256": "d8892d0301970e40342d22485110d5d1d80c37d2ed454a28e7a875db270b0558",
+      "prospective_after_inputs_sha256": "d8892d0301970e40342d22485110d5d1d80c37d2ed454a28e7a875db270b0558",
+      "same": true
+    },
+    {
+      "asset_key": "recon_1835_west_027__inferred_1835.glb",
+      "before_inputs_sha256": "c0d3885f9140ad2f4a3f39fa2c925c2c7c98fcfefe9a7002d8bfe1ef16ca3fa9",
+      "prospective_after_inputs_sha256": "c0d3885f9140ad2f4a3f39fa2c925c2c7c98fcfefe9a7002d8bfe1ef16ca3fa9",
+      "same": true
+    },
+    {
+      "asset_key": "recon_1835_west_038__inferred_1835.glb",
+      "before_inputs_sha256": "98a842d5b00b81bba03216be0039c8d1c04e5f7ef199cc1e10611cb07634b7df",
+      "prospective_after_inputs_sha256": "98a842d5b00b81bba03216be0039c8d1c04e5f7ef199cc1e10611cb07634b7df",
+      "same": true
+    },
+    {
+      "asset_key": "recon_1835_west_039__inferred_1835.glb",
+      "before_inputs_sha256": "face63ed8715e1106d88dc38c64afad0051783b58fe4ff860345e3a3a4eb271f",
+      "prospective_after_inputs_sha256": "face63ed8715e1106d88dc38c64afad0051783b58fe4ff860345e3a3a4eb271f",
+      "same": true
+    },
+    {
+      "asset_key": "recon_1835_west_040__inferred_1835.glb",
+      "before_inputs_sha256": "b09ba457cb82e3f68024fb42fc21fcad705f7f7cb08fcb5426dceda1d6c00606",
+      "prospective_after_inputs_sha256": "b09ba457cb82e3f68024fb42fc21fcad705f7f7cb08fcb5426dceda1d6c00606",
+      "same": true
+    },
+    {
+      "asset_key": "recon_1835_west_048__inferred_1835.glb",
+      "before_inputs_sha256": "dabacffbd2f32fb7bc184f241871f5022c34ecf256fd978428ab78b61ba9e717",
+      "prospective_after_inputs_sha256": "dabacffbd2f32fb7bc184f241871f5022c34ecf256fd978428ab78b61ba9e717",
+      "same": true
+    },
+    {
+      "asset_key": "recon_1835_west_049__inferred_1835.glb",
+      "before_inputs_sha256": "8b037581dc8b511f41e78ba0b7f79a17146a65e0617135ff8caf2f66488b702f",
+      "prospective_after_inputs_sha256": "8b037581dc8b511f41e78ba0b7f79a17146a65e0617135ff8caf2f66488b702f",
+      "same": true
+    },
+    {
+      "asset_key": "recon_1835_west_050__inferred_1835.glb",
+      "before_inputs_sha256": "309852b1d3839ac31495c22410e9fde0d66296d97ff4b466c15d490bd0ff1349",
+      "prospective_after_inputs_sha256": "309852b1d3839ac31495c22410e9fde0d66296d97ff4b466c15d490bd0ff1349",
+      "same": true
+    },
+    {
+      "asset_key": "recon_1835_west_051__inferred_1835.glb",
+      "before_inputs_sha256": "a8454c5f2ea3818fce08df2b44dfa70409befcfbce1208429394f34023a2a497",
+      "prospective_after_inputs_sha256": "a8454c5f2ea3818fce08df2b44dfa70409befcfbce1208429394f34023a2a497",
+      "same": true
+    },
+    {
+      "asset_key": "recon_1835_west_052__inferred_1835.glb",
+      "before_inputs_sha256": "2d158696402defb55443f1ab136ba564934db13222df917c3067631a456c40ff",
+      "prospective_after_inputs_sha256": "2d158696402defb55443f1ab136ba564934db13222df917c3067631a456c40ff",
+      "same": true
+    },
+    {
+      "asset_key": "recon_1835_west_054__inferred_1835.glb",
+      "before_inputs_sha256": "f1d8a7d5017bb2989d0e65b79b39710a8c710e9729071fc2a4819bf94c846357",
+      "prospective_after_inputs_sha256": "f1d8a7d5017bb2989d0e65b79b39710a8c710e9729071fc2a4819bf94c846357",
+      "same": true
+    },
+    {
+      "asset_key": "robert_kinzie_store__store_1830.glb",
+      "before_inputs_sha256": "7832343ebbd27cef356870e04b2ba71feb4bebca2fa3ccfa32612552b52a8eb4",
+      "prospective_after_inputs_sha256": "7832343ebbd27cef356870e04b2ba71feb4bebca2fa3ccfa32612552b52a8eb4",
+      "same": true
+    },
+    {
+      "asset_key": "robinson_caldwell_cabins__log_1831.glb",
+      "before_inputs_sha256": "22b845b8838fcc81af380ccfe3ab0cd7328673791fe5fcb1b30478246c8e92dd",
+      "prospective_after_inputs_sha256": "22b845b8838fcc81af380ccfe3ab0cd7328673791fe5fcb1b30478246c8e92dd",
+      "same": true
+    },
+    {
+      "asset_key": "walker_meeting_house__log_1831.glb",
+      "before_inputs_sha256": "c6368d6f772583b7c2b130d012aadae36ad462247eacbbf92aac15dbeacf1246",
+      "prospective_after_inputs_sha256": "c6368d6f772583b7c2b130d012aadae36ad462247eacbbf92aac15dbeacf1246",
+      "same": true
+    },
+    {
+      "asset_key": "wolf_point_tavern__log_frame_1828.glb",
+      "before_inputs_sha256": "57036d293e1101ac60a213093dbe1c55c24f89a04238c5d3d88a6b85562c04db",
+      "prospective_after_inputs_sha256": "57036d293e1101ac60a213093dbe1c55c24f89a04238c5d3d88a6b85562c04db",
+      "same": true
+    }
+  ],
+  "claim_limit": "Candidate changes only a note on the house and the standalone flora planting file/notes, which is outside these83native input documents. Actual source edit still requires same proof afterward; no native output, smoke, runtime or picture acceptance."
+}

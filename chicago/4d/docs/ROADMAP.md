@@ -6557,6 +6557,18 @@ Balanced now uses the existing conservative shadow-caster filter. At the failing
 T-3535 also recalibrates the Full-only Ghost triangle allowance from the complete desktop settings smoke, retaining the existing margin and all ordinary/lower-tier budgets.
 
 
+## 2026-11-10 T-2484 source checkpoint
+
+The existing1812 Kinzie house is being completed from all seven credited pictures. Actual
+before comparisons now include the existing green. The source states reconstructed
+whitewash, a2.50m end door, a17m green and a riverward four-poplar row. Six targeted
+producer/validation tests and actual command isolation pass. Native adoption, fresh
+after comparisons, published desktop/phone full-context review and final sourceCI remain
+pending; this source checkpoint does not close the ticket or claim an after-state.
+
+- T-2484 advanced through actual native adoption and seven canonical house+green picture Matches (2026-11-10, PR1919); 81nativecontrols and961+6foreigns exact. Four safe reconstructed north/south poplar stations now clear the existing4.5m house exclusion. Remaining acceptance is actual published six-tree/household desktop/defaultphone Normal/ByGrade/source-card review plus current required checks and ordinary dev merge. No new photo follow-up.
+
+
 ### 2026-11-10 — T-2023 remainder diagnostics
 
 The live order and the frozen room now have separate readings. Preserve existing people and assignments while reconciling household units, shared-roof occupancy and physical residential stock. Staffing payments now refuse a different or unknown civil division. The three-youth candidate exposed the old greedy housing redeal and is held outside this delivery until the carried housing extension is validated.

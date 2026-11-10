@@ -26566,6 +26566,18 @@ Balanced now uses the existing conservative shadow-caster filter. At the failing
 The complete desktop settings smoke also measured Full X-RAY at 3,737,315 triangles. Its Full-only Ghost allowance is explicitly recalibrated to 3,760,000 (the reading plus the retained 18,059 margin, rounded to 5,000), per the documented higher-tier budget policy. Ordinary Full, Balanced, Light and draw-call limits remain unchanged; all budget assertions remain active.
 
 
+## 2026-11-10 T-2484 source checkpoint
+
+The existing1812 Kinzie house is being completed from all seven credited pictures. Actual
+before comparisons now include the existing green. The source states reconstructed
+whitewash, a2.50m end door, a17m green and a riverward four-poplar row. Six targeted
+producer/validation tests and actual command isolation pass. Native adoption, fresh
+after comparisons, published desktop/phone full-context review and final sourceCI remain
+pending; this source checkpoint does not close the ticket or claim an after-state.
+
+- T-2484 native/picture checkpoint (2026-11-10): qualified retained d6076c03 from source6b11594/Blender4.5.3 Ubuntu26.04; two target assets changed, all81controls and961+6foreigns exact. Seven directly reviewed fresh canonical house+green Matches now pass with explicit T3153 source/camera/palette disagreements. Corrected the proven refused north poplar by flora-only stations331.2/327.2/323.2/319.2; all83native inputs unchanged. Actual published six-tree/full-context desktop/defaultphone review and final current checks remain pending; T2484 is not Done.
+
+
 ### 2026-11-10 — T-2023 lodging remainder checkpoint
 
 The report distinguishes the carried adult room from the live order: its seven unspent West adult slots are historical residue, and the live West adult debt is zero. Lodger-stage vacancies and carried mint authorization are separate. Staffing payment requires the same committed civil division; unknown premises receive no payment. Existing people, housing assignments and cards remain unchanged. Completing the remainder continues in the same ticket; this checkpoint claims no new residents or ticket completion.

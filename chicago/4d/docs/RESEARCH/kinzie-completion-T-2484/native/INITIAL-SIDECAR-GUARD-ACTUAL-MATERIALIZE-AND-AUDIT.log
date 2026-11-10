@@ -1,0 +1,9 @@
+Objects ready d6076c038f5d7e103c922110b568c3188436ec25 9 changed paths 9 new immutable blobs
+{
+  "status": "FAIL_AUTH_MATERIALIZATION_OR_NATIVE_AUDIT",
+  "error": "Strict native audit rejected retained outputs; inspect failure receipt/log",
+  "traceback": "Traceback (most recent call last):\n  File \"/tmp/nov10-kinzie-native-qualification/materialize-and-audit.py\", line 54, in <module>\n    unchanged();assert p.returncode==0,'Strict native audit rejected retained outputs; inspect failure receipt/log'\n                       ^^^^^^^^^^^^^^^\nAssertionError: Strict native audit rejected retained outputs; inspect failure receipt/log\n",
+  "source": "6b11594bbd1d1a4e9fdd864878359ccf1c54edfc",
+  "run": 42818215260,
+  "claim_limit": "No adoption or native acceptance; preserve literal failure and diagnose without broad waivers."
+}

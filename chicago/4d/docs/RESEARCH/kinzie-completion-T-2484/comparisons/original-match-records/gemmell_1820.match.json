@@ -1,0 +1,36 @@
+{
+  "structure_id": "kinzie_house_1812",
+  "view": "gemmell_1820",
+  "glb": "assets/gltf/kinzie_house_1812__kinzie_1804.glb",
+  "glb_sha256": "940d58e82a70b1980812525f9e3534caa6dca38ce894e0a112844615686ce373",
+  "camera_sha256": "88e39cf2de42809e9fa5a40f28802f82555b073db87d5957e248c3716a0afc1e",
+  "side_by_side": "docs/RESEARCH/photo-match/kinzie_house_1812/gemmell_1820-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "place and bearing: one house on the north bank east of the forks, end-on to the lake, its fenced green and two poplars on its river side, across the river from the fort; the build's east gable lands on the drawn apex within about 9 px from this camera",
+      "status": "fixed"
+    },
+    {
+      "what": "walls, openings, stacks and piazza: the scan is too blurred at this size to show any of them",
+      "status": "not shown"
+    },
+    {
+      "what": "the house's walls drawn as from near their own height while its ground is laid out as from the air (the north eave falls away to the right, 15 px off the camera): the lithograph's own drawing, which no single camera reproduces",
+      "status": "not shown"
+    },
+    {
+      "what": "the paling round the green on the house's river side and the two poplars at its west end (x 1060-1080 px), and the trees behind it: built outside this GLB, as kinzie_house_1812_green and data/flora/plantings/kinzie_house_1812_trees.json (four poplars there, after Currey and the 1857 engraving, where this plate draws two)",
+      "status": "fixed"
+    },
+    {
+      "what": "colour: hand-coloured later; the colours are a nineteenth-century addition and not evidence (chicago/reference/images/IMAGE_SOURCES.md)",
+      "status": "not shown"
+    },
+    {
+      "what": "length: the plate draws the house from its east gable to the end of its north eave over about 62 px (x 1087-1150), the build's runs to x 1167 from this camera, and the Teich painting and Sarony's lithograph also draw the front shorter against the end. Sarony's stacks land within 3 px on a 40 ft ridge, so the roof he drew is the build's length; at 40 px on a blurred scan this plate cannot overrule it, and the 40 ft length stands as its liberty records",
+      "status": "open"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

@@ -1,0 +1,90 @@
+{
+  "structure_id": "kinzie_house_1812",
+  "view": "eastman_1820",
+  "glb": "assets/gltf/kinzie_house_1812__kinzie_1804.glb",
+  "glb_sha256": "24cd4c30b5c8b8d350c017aa63d016464c6064cab56724a4986a639a02f5e417",
+  "camera_sha256": "2a252ddbfb599efcb0bd0edc150a3b74a1a1028e17f741d6fa9a86b2afded9ca",
+  "photo_sha256": "4e0ea4deb8eea96c9cfaa1b78983b1d649aa810506d561d6d3815318f07d7348",
+  "rendered_members": [
+    {
+      "structure_id": "kinzie_house_1812",
+      "glb": "assets/gltf/kinzie_house_1812__kinzie_1804.glb",
+      "placement": {
+        "local_e": 1158.096,
+        "local_n": 342.706,
+        "rotation_deg": 180,
+        "scene": "1812",
+        "target_date": "1812-08-14",
+        "phase": "kinzie_1804"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "24cd4c30b5c8b8d350c017aa63d016464c6064cab56724a4986a639a02f5e417"
+    },
+    {
+      "structure_id": "kinzie_house_1812_green",
+      "glb": "assets/gltf/kinzie_house_1812_green__kinzie_1804.glb",
+      "placement": {
+        "local_e": 1143.5,
+        "local_n": 318,
+        "rotation_deg": 0,
+        "scene": "1812",
+        "target_date": "1812-08-14",
+        "phase": "kinzie_1804"
+      },
+      "position": [
+        14.596000000000007,
+        0,
+        -24.706000000000014
+      ],
+      "rotation_y": 3.141592653589793,
+      "glb_sha256": "299ba9c64df65653ba7797191e2fb0ccd2929dae3b77c8a62f819c6cd38413fa"
+    }
+  ],
+  "group_sha256": "cb3cad56edacf94a15202e6811a00efbc9ca5c73a50e1dd3bdab2ad04fa7eddd",
+  "side_by_side": "docs/RESEARCH/photo-match/kinzie_house_1812/eastman_1820-side-by-side.jpg",
+  "verdict": "unreviewed",
+  "differences": [
+    {
+      "what": "massing: the house seen end-on from the east, its gable toward the eye, the ridge running away up the river and the front slope carried down long and low on the left over the piazza; on the red-edge overlay the build's apex, both stacks and both eave corners land within about 7 px of the drawn ones",
+      "status": "fixed"
+    },
+    {
+      "what": "stacks: two through the ridge, the near one just behind the east gable's apex (x 1469 px) and the far one further along it (x 1492 px); the build's land within about 4 px",
+      "status": "fixed"
+    },
+    {
+      "what": "walls: drawn smooth and light on the gable end, as weatherboard reads, in 1820; the build's are squared log. Eight years after the 1812 scene and the earliest picture of the house; the same reading as the 1857, Cram and Teich records, and the same ruling: the 1812 house is built of squared logs (Moses and Kirkland) and Lossing's 1812 view draws them coursed",
+      "status": "open"
+    },
+    {
+      "what": "the house below its eaves: hidden behind a low log building with its own gable in front of it (x 1420-1510 px, y 712-752 px) and a whitewashed house with a door and a window to its right (x 1510-1575 px); the farmstead of 1820, after the Kinzies' return in 1816, which no 1812 source places",
+      "status": "not shown"
+    },
+    {
+      "what": "the palisade-like fence west of the house with two horses before it (x 1360-1420 px): the farmstead's yard in 1820; the 1812 green and its fence are kinzie_house_1812_green, south of the house, which this view does not see",
+      "status": "not shown"
+    },
+    {
+      "what": "the tree behind the house's ridge to the north-west (x 1500-1560 px): the cottonwoods are data/flora/plantings/kinzie_house_1812_trees.json; this render is the house alone",
+      "status": "fixed"
+    },
+    {
+      "what": "colour: a monochrome steel engraving",
+      "status": "not shown"
+    },
+    {
+      "what": "east end: two small windows side by side at the eave's height (about x 1442 and 1477 px, y 710-722 px); built (T-2516, end_openings) as two lights with their heads just under the eave, landing within about 6 px of the drawn",
+      "status": "fixed"
+    },
+    {
+      "what": "piazza roof: the front slope carried down past the gable's eave at a flatter pitch over the posts on the left; rebuilt so (T-2516). The hung roof's eave stood at 2.20 m where the plate draws it level with the back eave's 3.0 m; the swept roof's stands at 2.88 m",
+      "status": "fixed"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

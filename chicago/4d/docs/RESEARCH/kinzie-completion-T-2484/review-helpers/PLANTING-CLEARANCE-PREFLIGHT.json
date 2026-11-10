@@ -1,0 +1,277 @@
+{
+  "frozen_before_source": "6b11594bbd1d1a4e9fdd864878359ccf1c54edfc",
+  "status": "PASS_ACTUAL_FOOTPRINT_BLOCKER_NEGATIVE_AND_FINITE_CANDIDATE_NOT_RUNTIME_ACCEPTANCE",
+  "source_tree_sha256": "7429b5e761fd94cc348bcea6b781637f13f202da3111b102ffac8d9c3f7283fd",
+  "footprint_polygons": 67,
+  "actual_clear_margin_m": 4.5,
+  "before": [
+    {
+      "id": "kinzie_poplar_1",
+      "at": [
+        1156,
+        332.7
+      ],
+      "blocked": true,
+      "nearest": [
+        {
+          "id": "kinzie_house_1812",
+          "d": 3.3000000000000114
+        },
+        {
+          "id": "kinzie_bake_house_1812",
+          "d": 12.394353553130578
+        },
+        {
+          "id": "kinzie_lodging_house_1812",
+          "d": 21.564924725742948
+        }
+      ]
+    },
+    {
+      "id": "kinzie_poplar_2",
+      "at": [
+        1156,
+        328.2
+      ],
+      "blocked": false,
+      "nearest": [
+        {
+          "id": "kinzie_house_1812",
+          "d": 7.800000000000011
+        },
+        {
+          "id": "kinzie_bake_house_1812",
+          "d": 16.49151296879702
+        },
+        {
+          "id": "kinzie_lodging_house_1812",
+          "d": 25.347240089603424
+        }
+      ]
+    },
+    {
+      "id": "kinzie_poplar_3",
+      "at": [
+        1156,
+        323.7
+      ],
+      "blocked": false,
+      "nearest": [
+        {
+          "id": "kinzie_house_1812",
+          "d": 12.300000000000011
+        },
+        {
+          "id": "kinzie_bake_house_1812",
+          "d": 20.75620389184882
+        },
+        {
+          "id": "kinzie_lodging_house_1812",
+          "d": 29.332902718500918
+        }
+      ]
+    },
+    {
+      "id": "kinzie_poplar_4",
+      "at": [
+        1156,
+        319.2
+      ],
+      "blocked": false,
+      "nearest": [
+        {
+          "id": "kinzie_house_1812",
+          "d": 16.80000000000001
+        },
+        {
+          "id": "kinzie_bake_house_1812",
+          "d": 25.103187048659777
+        },
+        {
+          "id": "kinzie_lodging_house_1812",
+          "d": 33.44930169115759
+        }
+      ]
+    },
+    {
+      "id": "kinzie_cottonwood_west",
+      "at": [
+        1146,
+        352.5
+      ],
+      "blocked": false,
+      "nearest": [
+        {
+          "id": "kinzie_bake_house_1812",
+          "d": 5.100000000000023
+        },
+        {
+          "id": "kinzie_dairy_1812",
+          "d": 7.399999999999992
+        },
+        {
+          "id": "kinzie_garden_1812",
+          "d": 8
+        }
+      ]
+    },
+    {
+      "id": "kinzie_cottonwood_east",
+      "at": [
+        1162,
+        352
+      ],
+      "blocked": false,
+      "nearest": [
+        {
+          "id": "kinzie_dairy_1812",
+          "d": 5.7801384066473585
+        },
+        {
+          "id": "kinzie_lodging_house_1812",
+          "d": 6.581560572091103
+        },
+        {
+          "id": "kinzie_garden_1812",
+          "d": 8.5
+        }
+      ]
+    }
+  ],
+  "proposed_after": [
+    {
+      "id": "kinzie_poplar_1",
+      "at": [
+        1156,
+        331.2
+      ],
+      "blocked": false,
+      "nearest": [
+        {
+          "id": "kinzie_house_1812",
+          "d": 4.800000000000011
+        },
+        {
+          "id": "kinzie_bake_house_1812",
+          "d": 13.732079230764747
+        },
+        {
+          "id": "kinzie_lodging_house_1812",
+          "d": 22.79674345905513
+        }
+      ]
+    },
+    {
+      "id": "kinzie_poplar_2",
+      "at": [
+        1156,
+        327.2
+      ],
+      "blocked": false,
+      "nearest": [
+        {
+          "id": "kinzie_house_1812",
+          "d": 8.800000000000011
+        },
+        {
+          "id": "kinzie_bake_house_1812",
+          "d": 17.428998823799386
+        },
+        {
+          "id": "kinzie_lodging_house_1812",
+          "d": 26.218560908270206
+        }
+      ]
+    },
+    {
+      "id": "kinzie_poplar_3",
+      "at": [
+        1156,
+        323.2
+      ],
+      "blocked": false,
+      "nearest": [
+        {
+          "id": "kinzie_house_1812",
+          "d": 12.800000000000011
+        },
+        {
+          "id": "kinzie_bake_house_1812",
+          "d": 21.236054247434954
+        },
+        {
+          "id": "kinzie_lodging_house_1812",
+          "d": 29.784800819602207
+        }
+      ]
+    },
+    {
+      "id": "kinzie_poplar_4",
+      "at": [
+        1156,
+        319.2
+      ],
+      "blocked": false,
+      "nearest": [
+        {
+          "id": "kinzie_house_1812",
+          "d": 16.80000000000001
+        },
+        {
+          "id": "kinzie_bake_house_1812",
+          "d": 25.103187048659777
+        },
+        {
+          "id": "kinzie_lodging_house_1812",
+          "d": 33.44930169115759
+        }
+      ]
+    },
+    {
+      "id": "kinzie_cottonwood_west",
+      "at": [
+        1146,
+        352.5
+      ],
+      "blocked": false,
+      "nearest": [
+        {
+          "id": "kinzie_bake_house_1812",
+          "d": 5.100000000000023
+        },
+        {
+          "id": "kinzie_dairy_1812",
+          "d": 7.399999999999992
+        },
+        {
+          "id": "kinzie_garden_1812",
+          "d": 8
+        }
+      ]
+    },
+    {
+      "id": "kinzie_cottonwood_east",
+      "at": [
+        1162,
+        352
+      ],
+      "blocked": false,
+      "nearest": [
+        {
+          "id": "kinzie_dairy_1812",
+          "d": 5.7801384066473585
+        },
+        {
+          "id": "kinzie_lodging_house_1812",
+          "d": 6.581560572091103
+        },
+        {
+          "id": "kinzie_garden_1812",
+          "d": 8.5
+        }
+      ]
+    }
+  ],
+  "proposal": "Shift only first three R north stations to331.2/327.2/323.2; fourth319.2 unchanged, sameE1156, species/count/heights/cottonwoods unchanged. Four equal4m stations. Native house/green83 input signatures unaffected.",
+  "limits": "Actual extracted blocker with all current1812 structure/camp polygons. growthBlocked callback deliberatelyfalse, so terrain/dryfloor/roads/trails/decks still require actual published browser acceptance; no source or native mutation."
+}

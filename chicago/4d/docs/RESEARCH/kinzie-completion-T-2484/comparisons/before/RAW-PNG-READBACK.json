@@ -1,0 +1,51 @@
+[
+  {
+    "view": "chicago_magazine_1857",
+    "raw_png": "docs/RESEARCH/kinzie-completion-T-2484/comparisons/before/chicago_magazine_1857/chicago_magazine_1857-render.png",
+    "bytes": 53113,
+    "sha256": "256b5703f291f80352b4bfc5adee9d7cf17d33b129425a28438460b9841576e9",
+    "capture": "Original unmodified raw viewport PNG from the actual before command, copied from its retained temporary path; no rerender or image transform."
+  },
+  {
+    "view": "cram_1893",
+    "raw_png": "docs/RESEARCH/kinzie-completion-T-2484/comparisons/before/cram_1893/cram_1893-render.png",
+    "bytes": 43042,
+    "sha256": "deaf81361133ba96432c4c56449ef220377faa56962a9ed097c4b4772aa6ee35",
+    "capture": "Original unmodified raw viewport PNG from the actual before command, copied from its retained temporary path; no rerender or image transform."
+  },
+  {
+    "view": "eastman_1820",
+    "raw_png": "docs/RESEARCH/kinzie-completion-T-2484/comparisons/before/eastman_1820/eastman_1820-render.png",
+    "bytes": 46471,
+    "sha256": "bc105f4c8f5e945e22c4412911e56b2f7b116c6eea8bb495da3ff28f89e51fc9",
+    "capture": "Original unmodified raw viewport PNG from the actual before command, copied from its retained temporary path; no rerender or image transform."
+  },
+  {
+    "view": "gemmell_1820",
+    "raw_png": "docs/RESEARCH/kinzie-completion-T-2484/comparisons/before/gemmell_1820/gemmell_1820-render.png",
+    "bytes": 18698,
+    "sha256": "bc8482875b27882685dda2246a883f7cfabe31fd042424810adeb7895b19bcd0",
+    "capture": "Original unmodified raw viewport PNG from the actual before command, copied from its retained temporary path; no rerender or image transform."
+  },
+  {
+    "view": "lossing_1869",
+    "raw_png": "docs/RESEARCH/kinzie-completion-T-2484/comparisons/before/lossing_1869/lossing_1869-render.png",
+    "bytes": 34660,
+    "sha256": "b5cbfe3248f9edb990f63619adc14944e828817dd8657ef115438ddf5ead695c",
+    "capture": "Original unmodified raw viewport PNG from the actual before command, copied from its retained temporary path; no rerender or image transform."
+  },
+  {
+    "view": "sarony_1912",
+    "raw_png": "docs/RESEARCH/kinzie-completion-T-2484/comparisons/before/sarony_1912/sarony_1912-render.png",
+    "bytes": 34758,
+    "sha256": "58a7067660a595d7dc22340e906abaab6b72ff0fe781de177f093acd1f31ab40",
+    "capture": "Original unmodified raw viewport PNG from the actual before command, copied from its retained temporary path; no rerender or image transform."
+  },
+  {
+    "view": "teich_postcard",
+    "raw_png": "docs/RESEARCH/kinzie-completion-T-2484/comparisons/before/teich_postcard/teich_postcard-render.png",
+    "bytes": 62487,
+    "sha256": "21096988e894c48c56507a38e0d14669a9743a44d7f9e7548d52803c8887c858",
+    "capture": "Original unmodified raw viewport PNG from the actual before command, copied from its retained temporary path; no rerender or image transform."
+  }
+]

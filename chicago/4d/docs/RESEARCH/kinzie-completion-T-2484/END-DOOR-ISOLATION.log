@@ -1,0 +1,3 @@
+  step     python3 tools/test_kinzie_end_door.py
+
+tools/test_kinzie_end_door.py: 1 declared command(s) measured — wrote nothing in-tree

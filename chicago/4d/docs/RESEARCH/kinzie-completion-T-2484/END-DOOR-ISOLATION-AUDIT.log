@@ -1,0 +1,3 @@
+step isolation: OK — 975 tool(s) measured, none writes the live tree; every one of 1241 keyed gate step(s) has a row
+  3088 write(s) went to gitignored build products, classified by git check-ignore when measured, not by a list
+  35 step(s) are shell functions or bash and name no python/node tool; they are named rather than counted as measured (measured 2026-11-10)

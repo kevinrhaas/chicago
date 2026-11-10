@@ -1,0 +1,395 @@
+{
+  "status": "SEVEN_CANONICAL_HOUSE_GREEN_MATCHES_WITH_EXPLICIT_T3153_SOURCE_CAMERA_DISAGREEMENTS_NOT_RUNTIME_TREE_ACCEPTANCE",
+  "views": [
+    {
+      "view": "chicago_magazine_1857",
+      "pair": "docs/RESEARCH/photo-match/kinzie_house_1812/chicago_magazine_1857-side-by-side.jpg",
+      "pair_sha256": "db5952fd3c4a842363f670a88d2c3796dae37264e00531976cadcac4ff523c7f",
+      "match_sha256": "357c1677a5dbffd08d76f655a72d7a3a09385b7f38656a48b0edb0a66a3781d9",
+      "verdict": "matches",
+      "direct_review": "Direct source+after pair: long single storey, two ridge stacks, pierced west end, six-post full piazza and two sash each side of the central front door retained. Pale coated squared logs now replace dark uncoated walls. Corner log-end relief is below0.3m; no later weatherboards are invented. Trees hide the far piazza end in the engraving and are absent from this scoped native pair.",
+      "adjudications": [
+        {
+          "prior_status": "fixed",
+          "status": "fixed",
+          "what": "massing: long and low, one storey, the ridge along the river, the west gable toward the eye; the gable apex within about 10 px of the drawn (140, 176) on the red-edge overlay"
+        },
+        {
+          "prior_status": "fixed",
+          "status": "fixed",
+          "what": "stacks: two through the ridge, about 0.45 and 0.93 of it from the west gable (x 238 and 330 px); the build's at x 250 and 325 px"
+        },
+        {
+          "prior_status": "fixed",
+          "status": "fixed",
+          "what": "front windows: two tall bare sash each side of the central door; built as two 0.7 x 1.3 m sash each side with no shutters (`front_windows_per_side`, `window_w_m`, `window_h_m`, `front_shutters`)"
+        },
+        {
+          "prior_status": "open",
+          "status": "fixed",
+          "what": "The directly viewed AFTER now has pale whitewashed hewn logs and matching chinking, replacing the dark uncoated BEFORE. This matches the source’s visible pale wall treatment without inventing weatherboard substrate. The coating’s presence/date and exact tone remain reconstructed; Sarony household caption includes1804–1813 but does not date installation. Native log_finish=whitewash, L-kinzie-house-completion-2484."
+        },
+        {
+          "prior_status": "fixed",
+          "status": "within tolerance",
+          "what": "Canonical scope now actually includes the native17.0by15.5m fenced green, rather than a house-only GLB. Its unsupported39m width is physically removed. The17m width is a bounded reconstruction relative to the12.192m house, not a dimension read from image pixels. The drawings lay the garden edge nearly level while their building/roof fits imply converging lines; retained house-fit cameras therefore leave optical fence-corner offsets. For Sarony, the rendered front corners are approximately(445,293)/(663,278) against hand-read drawn front boundaries near(440,303)/(618,304); these are pixel/camera-fit disagreements, NOT historical metre measurements or a claim of exact overlay. Committed green/house ground is1.50–1.54m, so a large terrain-height excuse was tested and rejected. T3153 permits drawing/camera-fit disagreements within tolerance; no wrong fence count/type, missing enclosed green or independently established physical gap over0.3m is left. Exact metrics remainR in L-kinzie-house-completion-2484. The four poplars and two cottonwoods are procedural separate members, NOT rendered in these pairs; their actual published full-context acceptance remains required before ticket closure."
+        },
+        {
+          "prior_status": "not shown",
+          "status": "not shown",
+          "what": "colour: a monochrome wood engraving"
+        },
+        {
+          "prior_status": "fixed",
+          "status": "fixed",
+          "what": "the west gable end: something dark high in the gable and an upright mark low on the end wall: the light and the door Sarony draws there, now built (T-2516, end_openings)"
+        },
+        {
+          "prior_status": "fixed",
+          "status": "fixed",
+          "what": "piazza: across the front on six slender posts with a rail between them open at the door, under a flatter roof running from the main roof's lower edge out over the posts; built so (log_dwelling `piazza`, T-2497), and its roof rebuilt (T-2516) as the main slope broken to a flatter pitch just as drawn, its posts nearly the height of the wall (the west post's head lands about 5 px above the drawn one through this loose camera, rms 14 px)"
+        }
+      ]
+    },
+    {
+      "view": "cram_1893",
+      "pair": "docs/RESEARCH/photo-match/kinzie_house_1812/cram_1893-side-by-side.jpg",
+      "pair_sha256": "ffe776408a03e92926d812b60ba5d0aa160d4ae1235402bf753c63550ef924aa",
+      "match_sha256": "f22b8d3d68c251722526b1cf9917c664175db5bb7e6145b496e7dc0e6caaf348",
+      "verdict": "matches",
+      "direct_review": "Direct source+after pair: upper1832 panel only; pale house, west gable, two ridge stacks, long piazza, central entrance and flanking sash agree in visible form. The retrospective Cram drawing makes the piazza taller than Sarony; primary household Sarony governs2.95m plate. Lower1845 panorama is not a picture of the1812 house.",
+      "adjudications": [
+        {
+          "prior_status": "fixed",
+          "status": "fixed",
+          "what": "massing: a long, low, single-storey house on the north bank, its ridge along the river and a gable at each end, the west gable toward the eye; the build's west gable apex lands within about 4 px of the drawn (613, 340) and its roof outline on the drawn one on the red-edge overlay"
+        },
+        {
+          "prior_status": "fixed",
+          "status": "fixed",
+          "what": "stacks: two through the ridge, at x 671 and 735 px, 0.44 and 0.92 of the ridge from the west gable, the second by the east gable; the build's (0.45 and 0.92) land within 1 and 6 px. The plate agrees with the 1857 engraving and the Teich postcard against Lossing, as the Lossing match record rules"
+        },
+        {
+          "prior_status": "fixed",
+          "status": "fixed",
+          "what": "front windows: two sash each side of the central door under the piazza; the build's two each side of the door land between the same posts"
+        },
+        {
+          "prior_status": "open",
+          "status": "fixed",
+          "what": "The directly viewed AFTER now has pale whitewashed hewn logs and matching chinking, replacing the dark uncoated BEFORE. This matches the source’s visible pale wall treatment without inventing weatherboard substrate. The coating’s presence/date and exact tone remain reconstructed; Sarony household caption includes1804–1813 but does not date installation. Native log_finish=whitewash, L-kinzie-house-completion-2484."
+        },
+        {
+          "prior_status": "fixed",
+          "status": "within tolerance",
+          "what": "Canonical scope now actually includes the native17.0by15.5m fenced green, rather than a house-only GLB. Its unsupported39m width is physically removed. The17m width is a bounded reconstruction relative to the12.192m house, not a dimension read from image pixels. The drawings lay the garden edge nearly level while their building/roof fits imply converging lines; retained house-fit cameras therefore leave optical fence-corner offsets. For Sarony, the rendered front corners are approximately(445,293)/(663,278) against hand-read drawn front boundaries near(440,303)/(618,304); these are pixel/camera-fit disagreements, NOT historical metre measurements or a claim of exact overlay. Committed green/house ground is1.50–1.54m, so a large terrain-height excuse was tested and rejected. T3153 permits drawing/camera-fit disagreements within tolerance; no wrong fence count/type, missing enclosed green or independently established physical gap over0.3m is left. Exact metrics remainR in L-kinzie-house-completion-2484. The four poplars and two cottonwoods are procedural separate members, NOT rendered in these pairs; their actual published full-context acceptance remains required before ticket closure."
+        },
+        {
+          "prior_status": "not shown",
+          "status": "not shown",
+          "what": "the two-storey house and the low shed behind the house to the north-west (x 530-600 px, y 325-375 px): buildings of the 1832 establishment that no 1812 source places; Ouilmette's and Pettell's houses behind the Kinzie house are T-2484's other pieces, and the plate dates itself to 1832"
+        },
+        {
+          "prior_status": "not shown",
+          "status": "not shown",
+          "what": "colour: a monochrome wood engraving"
+        },
+        {
+          "prior_status": "fixed",
+          "status": "fixed",
+          "what": "piazza roof: the plate carries the roof down over the piazza in one plane from the ridge to an eave at y 370 px. Rebuilt (T-2516): the main roof now runs down over the piazza and breaks to a flatter pitch above the front wall, as Sarony's and Eastman's views draw it, and from this camera it reads as the plate's one plane, the eave on the drawn one within 3-6 px"
+        },
+        {
+          "prior_status": "open",
+          "status": "within tolerance",
+          "what": "piazza height: on the rebuilt piazza (2.95 m plate, Sarony's reading) every post's foot lands 3-7 px above the drawn foot and every head 3-6 px below the drawn head, so the plate still draws the piazza about 1.2 times as tall as the build (1.7 times before T-2516). Sarony's lithograph, drawn by a member of the household, governs the height T-2484 direct AFTER adjudication: Cram’s retrospective1832 panel and primary household Sarony disagree about piazza height. Retain Sarony’s2.95m plate; no unique historical metric follows from their hand-drawn post pixels."
+        },
+        {
+          "prior_status": "fixed",
+          "status": "fixed",
+          "what": "the west gable end: an upright pale mark low on the end wall at x 597-603 px: the door Sarony draws there, now built (end_openings), with the light high in the gable"
+        }
+      ]
+    },
+    {
+      "view": "eastman_1820",
+      "pair": "docs/RESEARCH/photo-match/kinzie_house_1812/eastman_1820-side-by-side.jpg",
+      "pair_sha256": "b8cc18a832b77dc236832e7e8af8a4714477a3ebab86453ae11af38d827d8b15",
+      "match_sha256": "433309898ed469ebbead915f485e6187e793447d5b33d336f2341156fad9e263",
+      "verdict": "matches",
+      "direct_review": "Direct source+after pair: east gable, two small upper wall lights, two ridge stacks and swept piazza roof retained; the now pale east end agrees. The lower walls are occluded by1820 outbuildings in the original. The native green is actually included but this east-side view does not show its south-side enclosure clearly enough to extract dimensions.",
+      "adjudications": [
+        {
+          "prior_status": "fixed",
+          "status": "fixed",
+          "what": "massing: the house seen end-on from the east, its gable toward the eye, the ridge running away up the river and the front slope carried down long and low on the left over the piazza; on the red-edge overlay the build's apex, both stacks and both eave corners land within about 7 px of the drawn ones"
+        },
+        {
+          "prior_status": "fixed",
+          "status": "fixed",
+          "what": "stacks: two through the ridge, the near one just behind the east gable's apex (x 1469 px) and the far one further along it (x 1492 px); the build's land within about 4 px"
+        },
+        {
+          "prior_status": "open",
+          "status": "fixed",
+          "what": "The directly viewed AFTER now has pale whitewashed hewn logs and matching chinking, replacing the dark uncoated BEFORE. This matches the source’s visible pale wall treatment without inventing weatherboard substrate. The coating’s presence/date and exact tone remain reconstructed; Sarony household caption includes1804–1813 but does not date installation. Native log_finish=whitewash, L-kinzie-house-completion-2484."
+        },
+        {
+          "prior_status": "not shown",
+          "status": "not shown",
+          "what": "the house below its eaves: hidden behind a low log building with its own gable in front of it (x 1420-1510 px, y 712-752 px) and a whitewashed house with a door and a window to its right (x 1510-1575 px); the farmstead of 1820, after the Kinzies' return in 1816, which no 1812 source places"
+        },
+        {
+          "prior_status": "not shown",
+          "status": "not shown",
+          "what": "the palisade-like fence west of the house with two horses before it (x 1360-1420 px): the farmstead's yard in 1820; the 1812 green and its fence are kinzie_house_1812_green, south of the house, which this view does not see"
+        },
+        {
+          "prior_status": "fixed",
+          "status": "not shown",
+          "what": "Canonical scope now actually includes the native17.0by15.5m fenced green, rather than a house-only GLB. Its unsupported39m width is physically removed. The17m width is a bounded reconstruction relative to the12.192m house, not a dimension read from image pixels. The drawings lay the garden edge nearly level while their building/roof fits imply converging lines; retained house-fit cameras therefore leave optical fence-corner offsets. For Sarony, the rendered front corners are approximately(445,293)/(663,278) against hand-read drawn front boundaries near(440,303)/(618,304); these are pixel/camera-fit disagreements, NOT historical metre measurements or a claim of exact overlay. Committed green/house ground is1.50–1.54m, so a large terrain-height excuse was tested and rejected. T3153 permits drawing/camera-fit disagreements within tolerance; no wrong fence count/type, missing enclosed green or independently established physical gap over0.3m is left. Exact metrics remainR in L-kinzie-house-completion-2484. The four poplars and two cottonwoods are procedural separate members, NOT rendered in these pairs; their actual published full-context acceptance remains required before ticket closure."
+        },
+        {
+          "prior_status": "not shown",
+          "status": "not shown",
+          "what": "colour: a monochrome steel engraving"
+        },
+        {
+          "prior_status": "fixed",
+          "status": "fixed",
+          "what": "east end: two small windows side by side at the eave's height (about x 1442 and 1477 px, y 710-722 px); built (T-2516, end_openings) as two lights with their heads just under the eave, landing within about 6 px of the drawn"
+        },
+        {
+          "prior_status": "fixed",
+          "status": "fixed",
+          "what": "piazza roof: the front slope carried down past the gable's eave at a flatter pitch over the posts on the left; rebuilt so (T-2516). The hung roof's eave stood at 2.20 m where the plate draws it level with the back eave's 3.0 m; the swept roof's stands at 2.88 m"
+        }
+      ]
+    },
+    {
+      "view": "gemmell_1820",
+      "pair": "docs/RESEARCH/photo-match/kinzie_house_1812/gemmell_1820-side-by-side.jpg",
+      "pair_sha256": "debe90a0809af4612764c4a9414086fd7b044e0e93df05ae2c34911ec583aa40",
+      "match_sha256": "c25daba563c6fe801d26be11e19c55012a919ea6d16afb34cf92950decdb23f7",
+      "verdict": "matches",
+      "direct_review": "Direct source+after pair: distant north-bank house and east-facing end remain in the source station. The scan cannot resolve individual sash, door, stacks or material joints. Drawing combines ground from above and walls from near their own height. Its two drawn poplars disagree with four in the household/1857 witnesses and Currey text; four are retained, explicitly separate runtime flora.",
+      "adjudications": [
+        {
+          "prior_status": "fixed",
+          "status": "fixed",
+          "what": "place and bearing: one house on the north bank east of the forks, end-on to the lake, its fenced green and two poplars on its river side, across the river from the fort; the build's east gable lands on the drawn apex within about 9 px from this camera"
+        },
+        {
+          "prior_status": "not shown",
+          "status": "not shown",
+          "what": "walls, openings, stacks and piazza: the scan is too blurred at this size to show any of them"
+        },
+        {
+          "prior_status": "not shown",
+          "status": "not shown",
+          "what": "the house's walls drawn as from near their own height while its ground is laid out as from the air (the north eave falls away to the right, 15 px off the camera): the lithograph's own drawing, which no single camera reproduces"
+        },
+        {
+          "prior_status": "fixed",
+          "status": "within tolerance",
+          "what": "Canonical scope now actually includes the native17.0by15.5m fenced green, rather than a house-only GLB. Its unsupported39m width is physically removed. The17m width is a bounded reconstruction relative to the12.192m house, not a dimension read from image pixels. The drawings lay the garden edge nearly level while their building/roof fits imply converging lines; retained house-fit cameras therefore leave optical fence-corner offsets. For Sarony, the rendered front corners are approximately(445,293)/(663,278) against hand-read drawn front boundaries near(440,303)/(618,304); these are pixel/camera-fit disagreements, NOT historical metre measurements or a claim of exact overlay. Committed green/house ground is1.50–1.54m, so a large terrain-height excuse was tested and rejected. T3153 permits drawing/camera-fit disagreements within tolerance; no wrong fence count/type, missing enclosed green or independently established physical gap over0.3m is left. Exact metrics remainR in L-kinzie-house-completion-2484. The four poplars and two cottonwoods are procedural separate members, NOT rendered in these pairs; their actual published full-context acceptance remains required before ticket closure."
+        },
+        {
+          "prior_status": "not shown",
+          "status": "not shown",
+          "what": "colour: hand-coloured later; the colours are a nineteenth-century addition and not evidence (chicago/reference/images/IMAGE_SOURCES.md)"
+        },
+        {
+          "prior_status": "open",
+          "status": "within tolerance",
+          "what": "length: the plate draws the house from its east gable to the end of its north eave over about 62 px (x 1087-1150), the build's runs to x 1167 from this camera, and the Teich painting and Sarony's lithograph also draw the front shorter against the end. Sarony's stacks land within 3 px on a 40 ft ridge, so the roof he drew is the build's length; at 40 px on a blurred scan this plate cannot overrule it, and the 40 ft length stands as its liberty records T-2484 direct AFTER adjudication: This blurred distant lithograph combines incompatible ground/wall perspectives; Sarony’s ridge/stacks and the shortened depicted front do not share one projective length fit. Retain40by22ft as the existing explicit reconstruction, not a read bill of sale. Pixel/camera-fit disagreement under T3153, not a measured physical error."
+        }
+      ]
+    },
+    {
+      "view": "lossing_1869",
+      "pair": "docs/RESEARCH/photo-match/kinzie_house_1812/lossing_1869-side-by-side.jpg",
+      "pair_sha256": "2c920b5134197fcd60dcf8386377e1b29799b72fb00ac45e9cfee78347a22fcd",
+      "match_sha256": "f3fd09e8efe9fcf1d2d576a9028404f0581ca2973c5a59c2c67c2bd6a6448f01",
+      "verdict": "matches",
+      "direct_review": "Direct source+after pair: one long low gabled house, full piazza and two ridge stacks. Lossing puts a stack near the west end and makes the posts lower/roof unbroken; Sarony,1857 and Cram instead place the end stack east, and primary Sarony/Eastman give the broken swept roof and taller posts. These explicit mutually inconsistent drawings cannot all supply one literal camera overlay. Pale finish follows household Sarony; dark hatch in this distant retrospective print does not establish an uncoated1812 surface.",
+      "adjudications": [
+        {
+          "prior_status": "fixed",
+          "status": "fixed",
+          "what": "massing: a long, low, single-storey house on the north bank, its ridge along the river and a gable at each end, the west gable toward the eye; the build's two ends land on the drawn ones (x 108 and 310 px) within about 10 px on the red-edge overlay"
+        },
+        {
+          "prior_status": "fixed",
+          "status": "within tolerance",
+          "what": "Squared-log substrate remains; the new plausible reconstructed whitewash follows primary Sarony household plate, its caption including1804–1813, plus the pale1820/1832/1857 witnesses. Lossing shades/hatches the west wall dark. That retrospective monochrome shading disagrees with the household appearance and is not an independent measured1812 coating date; retained finish choice and source disagreement remain explicit."
+        },
+        {
+          "prior_status": "fixed",
+          "status": "fixed",
+          "what": "piazza: across the whole front on posts with a rail between them, five posts visible east of the west gable (x 213-305 px); the build's six-post piazza puts five there, within about 13 px"
+        },
+        {
+          "prior_status": "open",
+          "status": "within tolerance",
+          "what": "stacks: Lossing draws two through the ridge, at x 200 px (0.4 of the ridge from the west gable) and x 163 px (by the west gable). The build's middle stack lands at x 194 px on his x 200; its other stands by the EAST gable (x 242 px), where the 1857 engraving, the Teich postcard and the Cram plate put the second stack. Where they disagree, the 1857 engraving governs: it is twelve years earlier, made in Chicago, and draws the roof plainly; Lossing drew the house from a distance, more than fifty years after the fort burned T-2484 direct AFTER adjudication: The stack count is two in both. Lossing puts the near-end stack west, while primary household Sarony,1857,Cram and Teich put it east. Retain the better-attested eastern end station and document the explicit source disagreement; not falsely changed to agree with Lossing."
+        },
+        {
+          "prior_status": "open",
+          "status": "not shown",
+          "what": "a dark mass behind the roof east of the stacks (x 240-280 px, y 250-270 px): it may be the far slope in shadow or a building behind. The 1857 engraving shows no range behind the house, so none is built; Wau-Bun's outbuildings and Ouilmette's and Pettell's cabins behind the house are T-2484's other pieces Canonical house+green scope does not depict the separate established bake-house/lodging/neighbour context; no rear wing is added to this house from an ambiguous shadow. Those existing structures are qualified in the actual published full context."
+        },
+        {
+          "prior_status": "not shown",
+          "status": "not shown",
+          "what": "openings: the front is in the piazza's shadow and no door or window is legible"
+        },
+        {
+          "prior_status": "fixed",
+          "status": "within tolerance",
+          "what": "Canonical scope now actually includes the native17.0by15.5m fenced green, rather than a house-only GLB. Its unsupported39m width is physically removed. The17m width is a bounded reconstruction relative to the12.192m house, not a dimension read from image pixels. The drawings lay the garden edge nearly level while their building/roof fits imply converging lines; retained house-fit cameras therefore leave optical fence-corner offsets. For Sarony, the rendered front corners are approximately(445,293)/(663,278) against hand-read drawn front boundaries near(440,303)/(618,304); these are pixel/camera-fit disagreements, NOT historical metre measurements or a claim of exact overlay. Committed green/house ground is1.50–1.54m, so a large terrain-height excuse was tested and rejected. T3153 permits drawing/camera-fit disagreements within tolerance; no wrong fence count/type, missing enclosed green or independently established physical gap over0.3m is left. Exact metrics remainR in L-kinzie-house-completion-2484. The four poplars and two cottonwoods are procedural separate members, NOT rendered in these pairs; their actual published full-context acceptance remains required before ticket closure."
+        },
+        {
+          "prior_status": "not shown",
+          "status": "not shown",
+          "what": "colour: a monochrome wood engraving"
+        },
+        {
+          "prior_status": "open",
+          "status": "within tolerance",
+          "what": "piazza roof: Lossing carries the main roof down over the piazza in one plane, its eave at y 293 px. Rebuilt (T-2516) as the main roof carried down over the piazza, broken to a flatter pitch above the front wall: Sarony and Eastman draw that break close to, and it is the one roof that answers all five pictures. From this low eye the break shows where Lossing draws none T-2484 direct AFTER adjudication: Lossing draws an unbroken low silhouette; primary Sarony and Eastman draw the swept slope’s break. Retain that shared roof and show the source disagreement. It is not a missing roof or a unique physical measurement beyond0.3m."
+        },
+        {
+          "prior_status": "open",
+          "status": "within tolerance",
+          "what": "piazza height: Lossing's posts are about 32 px tall and the rebuilt ones (Sarony's 2.95 m plate) draw about 39 px, every head about 7 px above the drawn head; T-2497's 2.0 m posts matched him. Sarony's lithograph governs; Lossing drew the house from a distance more than fifty years after the fort burned T-2484 direct AFTER adjudication: Lossing’s shorter posts conflict with primary household Sarony’s near-wall-height posts and Cram’s still taller ones. Retain the existing2.95m household reading; T3153 explicitly accepts source/camera-fit disagreement."
+        },
+        {
+          "prior_status": "not shown",
+          "status": "not shown",
+          "what": "the west end: drawn dark and hatched, in shade, with no opening legible; the light, window and door Sarony draws on it are built"
+        }
+      ]
+    },
+    {
+      "view": "sarony_1912",
+      "pair": "docs/RESEARCH/photo-match/kinzie_house_1812/sarony_1912-side-by-side.jpg",
+      "pair_sha256": "d12d5e8d6b77692646a5215b953e71371392fdd9626bde2ee0b975560f12f798",
+      "match_sha256": "b5f892aa269f40192537fa485e1dabc3489fef36c7dd3e23565907ff8c829114",
+      "verdict": "matches",
+      "direct_review": "Direct primary source+after pair: pale log surfaces, two ridge stacks, swept15-degree piazza under30-degree main slope, six posts, central front door with two sash each side, west gable light/window and now taller west doorway. Actual native clear leaf is0.02..2.52m, with unchanged horizontal station/width and front door. Ridge/stacks retain the earlier solved footprint fit; the shortened drawn piazza and garden perspective are not treated as surveyed physical dimensions. The far post/end is partly hidden by poplars in the source.",
+      "adjudications": [
+        {
+          "prior_status": "fixed",
+          "status": "fixed",
+          "what": "massing: a long, low, single-storey house under a gable roof along the river, the west gable toward the eye and the front running away to the right; the build's apex, the end wall's corners and both stacks land within 3-6 px"
+        },
+        {
+          "prior_status": "fixed",
+          "status": "fixed",
+          "what": "stacks: two through the ridge, at x 361 and 426 px; the build's at 0.55 and 0.08 of the ridge from its east end land within 3 px of each"
+        },
+        {
+          "prior_status": "fixed",
+          "status": "fixed",
+          "what": "piazza roof: the main roof carried down over the piazza and broken to a flatter pitch, the main roof drawn in dark courses and the piazza roof lighter below the break; built so (T-2516, piazza_roof swept at 15 degrees), its eave on the drawn one within about 3 px"
+        },
+        {
+          "prior_status": "fixed",
+          "status": "fixed",
+          "what": "piazza height: the posts stand nearly as tall as the wall, their heads about y 223 px over feet at y 271; T-2497's 2.0 m posts drew some 30 px. Read through this camera and built (piazza_plate_m 2.95): the render's heads and feet land on the drawn ones within about 3 px"
+        },
+        {
+          "prior_status": "fixed",
+          "status": "fixed",
+          "what": "The west gable light/window and taller end doorway are now built. Actual retained native ground-leaf probe: sill0.02m, head2.52m,2.50m clear, unchanged horizontal station/width; front door unchanged. The former1.95m head visibly sat too low in the BEFORE. Direct AFTER shows the taller leaf beneath its lintel and below3.0m plate. Exact height is a bounded reconstructed choice, not a historical dimension."
+        },
+        {
+          "prior_status": "fixed",
+          "status": "fixed",
+          "what": "front: a window in each bay of the piazza but the door's, the door in the middle bay; the build's two windows each side of a middle door"
+        },
+        {
+          "prior_status": "open",
+          "status": "within tolerance",
+          "what": "length: the posts are drawn about 25 px apart where the build's 2.39 m bays draw 29-33 px from this camera, so the front reads about 0.85 of the build's 40 ft against its end, as the Teich painting and the Gemmell plate also draw it. The roof does not agree with the posts: both stacks, at 0.08 and 0.55 of a 40 ft ridge, land within 3 px of the drawn ones. So the 40 ft length (L-kinzie-house-1812-2497) stands and the spacing is read as the draughtsman's T-2484 direct AFTER adjudication: The roof/stacks fit the retained40ft ridge, while the drawn piazza posts/front appear shorter and its far end is partly screened by the first poplar. These incompatible fit/occlusion cues are not a surveyed physical dimension. Four front sash/six posts are retained. The40by22ft choice remainsR; actual flora is qualified separately, not falsely present in this native pair."
+        },
+        {
+          "prior_status": "open",
+          "status": "fixed",
+          "what": "The directly viewed AFTER now has pale whitewashed hewn logs and matching chinking, replacing the dark uncoated BEFORE. This matches the source’s visible pale wall treatment without inventing weatherboard substrate. The coating’s presence/date and exact tone remain reconstructed; Sarony household caption includes1804–1813 but does not date installation. Native log_finish=whitewash, L-kinzie-house-completion-2484."
+        },
+        {
+          "prior_status": "fixed",
+          "status": "within tolerance",
+          "what": "Canonical scope now actually includes the native17.0by15.5m fenced green, rather than a house-only GLB. Its unsupported39m width is physically removed. The17m width is a bounded reconstruction relative to the12.192m house, not a dimension read from image pixels. The drawings lay the garden edge nearly level while their building/roof fits imply converging lines; retained house-fit cameras therefore leave optical fence-corner offsets. For Sarony, the rendered front corners are approximately(445,293)/(663,278) against hand-read drawn front boundaries near(440,303)/(618,304); these are pixel/camera-fit disagreements, NOT historical metre measurements or a claim of exact overlay. Committed green/house ground is1.50–1.54m, so a large terrain-height excuse was tested and rejected. T3153 permits drawing/camera-fit disagreements within tolerance; no wrong fence count/type, missing enclosed green or independently established physical gap over0.3m is left. Exact metrics remainR in L-kinzie-house-completion-2484. The four poplars and two cottonwoods are procedural separate members, NOT rendered in these pairs; their actual published full-context acceptance remains required before ticket closure."
+        },
+        {
+          "prior_status": "open",
+          "status": "not shown",
+          "what": "outbuildings and a two-storey house up the road to the west, behind the house: Wau-Bun's outbuildings and the neighbours' houses are T-2484's other pieces, not this record These are separate existing1812 records outside this canonical house+green pair, not omitted parts of the house; actual published household context review remains mandatory."
+        },
+        {
+          "prior_status": "not shown",
+          "status": "not shown",
+          "what": "colour: a monochrome lithograph"
+        }
+      ]
+    },
+    {
+      "view": "teich_postcard",
+      "pair": "docs/RESEARCH/photo-match/kinzie_house_1812/teich_postcard-side-by-side.jpg",
+      "pair_sha256": "20dca5d9c0d6d17f621b2f4b6c36fb40b2503042e6182ff3f30082962c8eb34b",
+      "match_sha256": "08c55e53bbf2275ee852f37247d27cdd186467fde67ad737cbe4b160f0025ca9",
+      "verdict": "matches",
+      "direct_review": "Direct source+after pair: long low gabled house, two ridge stacks, central front door with flanking openings, piazza rail and high west-gable light retained. Front is now pale. The coloured west shade/red-brown roof is visibly different from the pale normal native material, but verified teich_old_kinzie_house_postcard explicitly classifies painter/printer colours as NOT evidence of1812 and asset_use=cross_check. Primary Sarony is lighter. The old colour gap is source/date/palette disagreement within T3153, NOT falsely fixed or historically attested.",
+      "adjudications": [
+        {
+          "prior_status": "fixed",
+          "status": "fixed",
+          "what": "massing: a long, low, single-storey house above the river bank, its ridge along the river, the west gable toward the eye; on the red-edge overlay the build's ridge, its west apex and its east verge land on the painted ones within about 14 px, the painting's own perspective being looser than any lens (see the camera's solve)"
+        },
+        {
+          "prior_status": "fixed",
+          "status": "fixed",
+          "what": "stacks: two through the ridge, at x 535 and 605 px, the second toward the east end; the build's land at x 527 and 607"
+        },
+        {
+          "prior_status": "fixed",
+          "status": "fixed",
+          "what": "front: a central door (x 570-585 px) with two openings each side of it under the piazza, and a low paling along the piazza's front between the posts; the build's door, two sash each side and rail stand between the same posts"
+        },
+        {
+          "prior_status": "open",
+          "status": "fixed",
+          "what": "The directly viewed AFTER now has pale whitewashed hewn logs and matching chinking, replacing the dark uncoated BEFORE. This matches the source’s visible pale wall treatment without inventing weatherboard substrate. The coating’s presence/date and exact tone remain reconstructed; Sarony household caption includes1804–1813 but does not date installation. Native log_finish=whitewash, L-kinzie-house-completion-2484."
+        },
+        {
+          "prior_status": "fixed",
+          "status": "within tolerance",
+          "what": "Canonical scope now actually includes the native17.0by15.5m fenced green, rather than a house-only GLB. Its unsupported39m width is physically removed. The17m width is a bounded reconstruction relative to the12.192m house, not a dimension read from image pixels. The drawings lay the garden edge nearly level while their building/roof fits imply converging lines; retained house-fit cameras therefore leave optical fence-corner offsets. For Sarony, the rendered front corners are approximately(445,293)/(663,278) against hand-read drawn front boundaries near(440,303)/(618,304); these are pixel/camera-fit disagreements, NOT historical metre measurements or a claim of exact overlay. Committed green/house ground is1.50–1.54m, so a large terrain-height excuse was tested and rejected. T3153 permits drawing/camera-fit disagreements within tolerance; no wrong fence count/type, missing enclosed green or independently established physical gap over0.3m is left. Exact metrics remainR in L-kinzie-house-completion-2484. The four poplars and two cottonwoods are procedural separate members, NOT rendered in these pairs; their actual published full-context acceptance remains required before ticket closure."
+        },
+        {
+          "prior_status": "not shown",
+          "status": "not shown",
+          "what": "a low dark building behind the house's west end (x 375-420 px, y 275-310 px) and another on the rise behind (x 320-370 px, y 245-280 px), the road climbing past them: no 1812 source places them; Ouilmette's and Pettell's houses behind the Kinzie house are T-2484's other pieces"
+        },
+        {
+          "prior_status": "fixed",
+          "status": "fixed",
+          "what": "piazza roof: painted as the main roof carried down over the piazza to an eave at y 320 px; rebuilt (T-2516) as the main roof carried down and broken to a flatter pitch, which from this camera reads as the painted sweep, the eave on the painted one within about 3 px"
+        },
+        {
+          "prior_status": "open",
+          "status": "within tolerance",
+          "what": "west end: the small square window high in the gable (about 457, 285 px) is built (end_openings, after Sarony), and lands within about 8 px of the painted one. The end is still painted broader against the front than the build draws it (the apex 15 px left of the painted after the re-fit): a painter's perspective, and the 40 ft by 22 ft footprint stands (Sarony's stacks agree with it) T-2484 direct AFTER adjudication: The painter’s broad gable/short front disagrees with primary Sarony’s ridge/stacks fit and is not one physically measurable camera. The high light exists; retain the bounded reconstructed footprint and explicit source/camera disagreement."
+        },
+        {
+          "prior_status": "open",
+          "status": "within tolerance",
+          "what": "roof colour: painted red-brown, as weathered shingle reads; the build's roof is the archetype's neutral grey-brown. The painting is the only picture in colour, its painter and date are not recorded and the postcard's colour printing is c. 1910's; Sarony's monochrome lithograph, which governs, cannot say, so no colour is taken from this one card T-2484 direct AFTER adjudication: The visible red-brown postcard palette remains different. Verified teich_old_kinzie_house_postcard says its unidentified painter/printer colours are NOT evidence of1812 and this source is cross_check; its date isabout1910 and painting dateunknown. Primary household Sarony has a lighter roof. Retain the existing neutral weathered shingle stock asR, not an attested historical pigment. T3153 source/date/palette disagreement, not a false fixed-colour claim."
+        }
+      ]
+    }
+  ]
+}

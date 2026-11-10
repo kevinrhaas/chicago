@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1090,
+  "count": 1091,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -44418,125 +44418,6 @@
       ]
     },
     {
-      "id": "L-kinzie-house-1812-2497",
-      "title": "The Kinzie house in 1812: its size, its set-back, its piazza's measure, the green's corners and where its trees stand",
-      "section": "per_subject",
-      "subjects": [
-        "kinzie_house_1812",
-        "kinzie_house_1812_green"
-      ],
-      "covers": [
-        {
-          "domain": "structure",
-          "structure": "kinzie_house_1812",
-          "phase": "kinzie_1804",
-          "aspect": "footprint"
-        },
-        {
-          "domain": "structure",
-          "structure": "kinzie_house_1812",
-          "phase": "kinzie_1804",
-          "aspect": "form.piazza_depth_m"
-        },
-        {
-          "domain": "structure",
-          "structure": "kinzie_house_1812",
-          "phase": "kinzie_1804",
-          "aspect": "form.roof_pitch_deg"
-        },
-        {
-          "domain": "structure",
-          "structure": "kinzie_house_1812",
-          "phase": "kinzie_1804",
-          "aspect": "form.wall_height_m"
-        },
-        {
-          "domain": "structure",
-          "structure": "kinzie_house_1812",
-          "phase": "kinzie_1804",
-          "aspect": "position"
-        },
-        {
-          "domain": "structure",
-          "structure": "kinzie_house_1812_green",
-          "phase": "kinzie_1804",
-          "aspect": "footprint"
-        },
-        {
-          "domain": "structure",
-          "structure": "kinzie_house_1812_green",
-          "phase": "kinzie_1804",
-          "aspect": "form.construction"
-        },
-        {
-          "domain": "structure",
-          "structure": "kinzie_house_1812_green",
-          "phase": "kinzie_1804",
-          "aspect": "form.gate_sides"
-        },
-        {
-          "domain": "structure",
-          "structure": "kinzie_house_1812_green",
-          "phase": "kinzie_1804",
-          "aspect": "form.gate_width_m"
-        },
-        {
-          "domain": "structure",
-          "structure": "kinzie_house_1812_green",
-          "phase": "kinzie_1804",
-          "aspect": "form.picket_height_m"
-        },
-        {
-          "domain": "structure",
-          "structure": "kinzie_house_1812_green",
-          "phase": "kinzie_1804",
-          "aspect": "form.picket_spacing_m"
-        },
-        {
-          "domain": "structure",
-          "structure": "kinzie_house_1812_green",
-          "phase": "kinzie_1804",
-          "aspect": "form.picket_width_m"
-        },
-        {
-          "domain": "structure",
-          "structure": "kinzie_house_1812_green",
-          "phase": "kinzie_1804",
-          "aspect": "position"
-        }
-      ],
-      "recorded": "2026-10-15",
-      "revised": null,
-      "fields": [
-        {
-          "label": "Decision",
-          "text": "the Kinzie house (The Kinzie house, built by Jean Baptiste Point du Sable, piece 1), the log house Jean Baptiste Point du Sable built on the north bank opposite the fort and John Kinzie's home from 1804, stands in the 1812 scene as a single-storey hewn-log house 12.19 m by 6.71 m (forty feet by twenty-two), facing south across the river, centred on the first fort's flagstaff easting and set back so that 18 m of fenced green lies between its piazza and the top of the bank. A piazza 2.1 m deep runs its whole front on six posts under a flatter roof (since the main roof carried down over it at a break, “The Kinzie house's piazza under the main roof carried down, and its pierced ends: what is read off the pictures and what is the archetype's”), with a rail between the posts except at the door, and two stacks rise through its ridge. A paling 1.1 m high encloses the green, 39 m along the river by 15.5 m to the bank, with a gate before the door (The Kinzie house's fenced green). Four Lombardy poplars 12 m tall stand in a row 4.5 m apart along the green's river-side fence, from opposite the house's east half eastward, and two cottonwoods 20-21 m tall stand behind the house (the kinzie house 1812 trees data). **What is read, not invented.** That the house was of squared logs (Moses and Kirkland vol. 1 p. 30); that it faced south with the river in front, that Kinzie added a veranda and planted four Lombardy poplars \"at the foot of the slope on which the house stood\", and that it escaped the burning of 1812 (Currey 1912, ch. II); \"a long, low building, with a piazza extending along its front\", the green \"inclosed between it and the river, and shaded by a row of Lombardy poplars\", and \"two immense cottonwood-trees... in the rear\" (Wau-Bun, of 1831). One storey, a ridge along the river, two stacks through the ridge and where they stand, the piazza's flatter roof under the eave, six posts and a rail, the paling, and the poplars' row along its river side are read off the two engravings matched in the kinzie house 1812 data (Lossing 1869; the Chicago Magazine 1857). **What is invented.** The 22 by 40 ft footprint is reported from du Sable's 1800 bill of sale (Quaife, *Mississippi Valley Historical Review* 15:1, 1928), which is not in this corpus and was not read, so it is cited to nothing. The set-back from the bank, the wall height (3.0 m), the roof pitch (30 degrees), the piazza's depth and its deck, post and rail sizes (the archetypes generator the log dwelling tool `_piazza`), the stacks' size, the green's corners, the paling's height and the gate, and every tree's place and height."
-        },
-        {
-          "label": "Why",
-          "text": "the owner asked for the settlement around the fort to be built, and the house has three texts and six pictures behind its form and nothing behind its measure. Built at the reconstructed grade, it stands where every source puts it, in the form every picture shows."
-        },
-        {
-          "label": "How to resolve",
-          "text": "Quaife's 1928 article (the bill of sale's dimensions); the Sarony lithograph after Mrs. John H. Kinzie's sketch (Currey's plate facing p. 32) and Kirkland's \"Kinzie mansion in 1812\" (1893, p. 73), both later work's; any plat or survey of the Kinzie tract before 1833."
-        },
-        {
-          "label": "Covers",
-          "text": "`kinzie_house_1812.kinzie_1804.position`, `kinzie_house_1812.kinzie_1804.footprint`, `kinzie_house_1812.kinzie_1804.form.wall_height_m`, `kinzie_house_1812.kinzie_1804.form.roof_pitch_deg`, `kinzie_house_1812.kinzie_1804.form.piazza_depth_m`, `kinzie_house_1812_green.kinzie_1804.position`, `kinzie_house_1812_green.kinzie_1804.footprint`, `kinzie_house_1812_green.kinzie_1804.form.picket_height_m`, `kinzie_house_1812_green.kinzie_1804.form.construction`, `kinzie_house_1812_green.kinzie_1804.form.picket_width_m`, `kinzie_house_1812_green.kinzie_1804.form.picket_spacing_m`, `kinzie_house_1812_green.kinzie_1804.form.gate_sides`, `kinzie_house_1812_green.kinzie_1804.form.gate_width_m`."
-        },
-        {
-          "label": "Recorded",
-          "text": "2026-10-15 (T-2497)."
-        }
-      ],
-      "work_refs": [
-        "T-2497",
-        "T-2484",
-        "T-2516",
-        "T-2498"
-      ]
-    },
-    {
       "id": "L-kinzie-house-1812-2516",
       "title": "The Kinzie house's piazza under the main roof carried down, and its pierced ends: what is read off the pictures and what is the archetype's",
       "section": "per_subject",
@@ -72994,6 +72875,146 @@
       ]
     },
     {
+      "id": "L-kinzie-house-completion-2484",
+      "title": "The Kinzie house's whitewashed logs, taller end door and bounded green",
+      "section": "per_subject",
+      "subjects": [
+        "kinzie_house_1812",
+        "kinzie_house_1812_green"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "kinzie_house_1812",
+          "phase": "kinzie_1804",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "kinzie_house_1812",
+          "phase": "kinzie_1804",
+          "aspect": "form.end_door_height_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "kinzie_house_1812",
+          "phase": "kinzie_1804",
+          "aspect": "form.log_finish"
+        },
+        {
+          "domain": "structure",
+          "structure": "kinzie_house_1812",
+          "phase": "kinzie_1804",
+          "aspect": "form.piazza_depth_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "kinzie_house_1812",
+          "phase": "kinzie_1804",
+          "aspect": "form.roof_pitch_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "kinzie_house_1812",
+          "phase": "kinzie_1804",
+          "aspect": "form.wall_height_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "kinzie_house_1812",
+          "phase": "kinzie_1804",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "kinzie_house_1812_green",
+          "phase": "kinzie_1804",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "kinzie_house_1812_green",
+          "phase": "kinzie_1804",
+          "aspect": "form.construction"
+        },
+        {
+          "domain": "structure",
+          "structure": "kinzie_house_1812_green",
+          "phase": "kinzie_1804",
+          "aspect": "form.gate_sides"
+        },
+        {
+          "domain": "structure",
+          "structure": "kinzie_house_1812_green",
+          "phase": "kinzie_1804",
+          "aspect": "form.gate_width_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "kinzie_house_1812_green",
+          "phase": "kinzie_1804",
+          "aspect": "form.picket_height_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "kinzie_house_1812_green",
+          "phase": "kinzie_1804",
+          "aspect": "form.picket_spacing_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "kinzie_house_1812_green",
+          "phase": "kinzie_1804",
+          "aspect": "form.picket_width_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "kinzie_house_1812_green",
+          "phase": "kinzie_1804",
+          "aspect": "position"
+        }
+      ],
+      "recorded": "2026-11-10",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the Kinzie house retains its squared-log substrate and now uses the existing whitewash finish on both logs and chinking. Sarony's household sketch is the primary appearance witness: Currey's caption expressly includes1804–1813 as well as1816–1828, so treating its pale wall as necessarily a later cladding was unsupported. Eastman's1820 view also draws the end light. Neither dates a coating to August1812. This is reconstructed continuity of a plausible finish, not attested paint, a coating date or invented weatherboards. The log relief remains. Lossing's shaded, hatched view does not measure the underlying colour."
+        },
+        {
+          "label": "The end door",
+          "text": "a2.50m clear opening replaces the generic1.93m prototype on the west end. The actual Sarony before-pair leaves the prototype's head about10pixels below the drawing, while the nearby window's head is only a little higher than the drawn door. The chosen head at2.52m, including the0.02m sill, stays below the retained3.0m wall plate. This is a bounded reconstructed height, not a historical dimension. Door width and station, the front door, all other openings and every other log building keep their old treatment. The new selector is absent by default and cannot grow a door on an end that does not state one."
+        },
+        {
+          "label": "The green",
+          "text": "actual before-pairs now include its existing native fence, which the earlier house-only comparisons did not draw. The old39m rectangle reached13.4m west of the house and beyond the source frame; no text or measured plan supports it. The replacement is17.0m along the river by the retained15.5m depth, local E1143.5..1160.5 and N318.0..333.5. It is centred on the existing E1152 doorway, leaves roughly2.4m beyond either end of the12.192m house and keeps the bank top and piazza setback. These georeferenced corners are constructed from the house and committed1812 ground. Pictures bound relative form; no pixel is promoted to a surveyed position. The fence remains1.1m high with0.09m pales at0.16m pitch and a1.5m north-side gate. The generic leaf and the exact metrics remain reconstructed."
+        },
+        {
+          "label": "The trees",
+          "text": "the four Lombardy poplars keep their existing species/count and reconstructed 12m heights. Their old east/west line gives the opposite projected direction from the row advancing toward the river in the household and1857 pictures. A north/south row within the green, at E1156.0 and N331.2,327.2,323.2,319.2, is reconstructed, with its4.0m spacing. The actual planter excludes stems within4.5m of another building. The north stem now clears the house footprint by4.80m; the earlier N332.7 station would be refused at3.3m. This finite clearance adjustment changes no historical source claim. The ByGrade colours describe their inferred species appearance; the exact planting positions and heights listed here remain liberties. Both existing cottonwoods, their heights and their places remain unchanged. Canonical comparisons draw house plus green on their common grade; the actual grown plants and ground are reviewed separately in the published scene. No tree is claimed to be in a house-only GLB."
+        },
+        {
+          "label": "The inherited choices still standing",
+          "text": "the house remains12.192m by6.706m (forty by twenty-two feet), with3.0m walls, a30-degree main pitch and2.1m piazza depth; its existing setback and placement are unchanged. Quaife's1928 article is still not a read measurement in this corpus, so the footprint remains reconstructed. The inherited metric and placement claims are carried here so resolving the old green entry does not silently drop them. The old piazza/ends entry “The Kinzie house's piazza under the main roof carried down, and its pierced ends: what is read off the pictures and what is the archetype's” remains the record of its other choices; only its prototype end-door height is superseded here."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a dated account of the1812 finish and door, a measured house/green plan, or a read bill of sale; a planting account locating the trees rather than merely naming them."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-10."
+        },
+        {
+          "label": "Covers",
+          "text": "`kinzie_house_1812.kinzie_1804.position`, `kinzie_house_1812.kinzie_1804.footprint`, `kinzie_house_1812.kinzie_1804.form.wall_height_m`, `kinzie_house_1812.kinzie_1804.form.roof_pitch_deg`, `kinzie_house_1812.kinzie_1804.form.piazza_depth_m`, `kinzie_house_1812_green.kinzie_1804.position`, `kinzie_house_1812_green.kinzie_1804.footprint`, `kinzie_house_1812_green.kinzie_1804.form.picket_height_m`, `kinzie_house_1812_green.kinzie_1804.form.construction`, `kinzie_house_1812_green.kinzie_1804.form.picket_width_m`, `kinzie_house_1812_green.kinzie_1804.form.picket_spacing_m`, `kinzie_house_1812_green.kinzie_1804.form.gate_sides`, `kinzie_house_1812_green.kinzie_1804.form.gate_width_m`, `kinzie_house_1812.kinzie_1804.form.log_finish`, `kinzie_house_1812.kinzie_1804.form.end_door_height_m`."
+        }
+      ],
+      "work_refs": [
+        "T-2484"
+      ]
+    },
+    {
       "id": "L-charles-carriage-post",
       "title": "Charles Nelson beside the waiting carriage team",
       "section": "per_subject",
@@ -73070,6 +73091,138 @@
       ],
       "work_refs": [
         "T-3341"
+      ]
+    },
+    {
+      "id": "L-kinzie-house-1812-2497",
+      "title": "The Kinzie house in 1812: its size, its set-back, its piazza's measure, the green's corners and where its trees stand",
+      "section": "resolved",
+      "subjects": [
+        "kinzie_house_1812",
+        "kinzie_house_1812_green"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "kinzie_house_1812",
+          "phase": "kinzie_1804",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "kinzie_house_1812",
+          "phase": "kinzie_1804",
+          "aspect": "form.piazza_depth_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "kinzie_house_1812",
+          "phase": "kinzie_1804",
+          "aspect": "form.roof_pitch_deg"
+        },
+        {
+          "domain": "structure",
+          "structure": "kinzie_house_1812",
+          "phase": "kinzie_1804",
+          "aspect": "form.wall_height_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "kinzie_house_1812",
+          "phase": "kinzie_1804",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "kinzie_house_1812_green",
+          "phase": "kinzie_1804",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "kinzie_house_1812_green",
+          "phase": "kinzie_1804",
+          "aspect": "form.construction"
+        },
+        {
+          "domain": "structure",
+          "structure": "kinzie_house_1812_green",
+          "phase": "kinzie_1804",
+          "aspect": "form.gate_sides"
+        },
+        {
+          "domain": "structure",
+          "structure": "kinzie_house_1812_green",
+          "phase": "kinzie_1804",
+          "aspect": "form.gate_width_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "kinzie_house_1812_green",
+          "phase": "kinzie_1804",
+          "aspect": "form.picket_height_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "kinzie_house_1812_green",
+          "phase": "kinzie_1804",
+          "aspect": "form.picket_spacing_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "kinzie_house_1812_green",
+          "phase": "kinzie_1804",
+          "aspect": "form.picket_width_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "kinzie_house_1812_green",
+          "phase": "kinzie_1804",
+          "aspect": "position"
+        }
+      ],
+      "recorded": "2026-10-15",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the Kinzie house (The Kinzie house, built by Jean Baptiste Point du Sable, piece 1), the log house Jean Baptiste Point du Sable built on the north bank opposite the fort and John Kinzie's home from 1804, stands in the 1812 scene as a single-storey hewn-log house 12.19 m by 6.71 m (forty feet by twenty-two), facing south across the river, centred on the first fort's flagstaff easting and set back so that 18 m of fenced green lies between its piazza and the top of the bank. A piazza 2.1 m deep runs its whole front on six posts under a flatter roof (since the main roof carried down over it at a break, “The Kinzie house's piazza under the main roof carried down, and its pierced ends: what is read off the pictures and what is the archetype's”), with a rail between the posts except at the door, and two stacks rise through its ridge. A paling 1.1 m high encloses the green, 39 m along the river by 15.5 m to the bank, with a gate before the door (The Kinzie house's fenced green). Four Lombardy poplars 12 m tall stand in a row 4.5 m apart along the green's river-side fence, from opposite the house's east half eastward, and two cottonwoods 20-21 m tall stand behind the house (the kinzie house 1812 trees data). **What is read, not invented.** That the house was of squared logs (Moses and Kirkland vol. 1 p. 30); that it faced south with the river in front, that Kinzie added a veranda and planted four Lombardy poplars \"at the foot of the slope on which the house stood\", and that it escaped the burning of 1812 (Currey 1912, ch. II); \"a long, low building, with a piazza extending along its front\", the green \"inclosed between it and the river, and shaded by a row of Lombardy poplars\", and \"two immense cottonwood-trees... in the rear\" (Wau-Bun, of 1831). One storey, a ridge along the river, two stacks through the ridge and where they stand, the piazza's flatter roof under the eave, six posts and a rail, the paling, and the poplars' row along its river side are read off the two engravings matched in the kinzie house 1812 data (Lossing 1869; the Chicago Magazine 1857). **What is invented.** The 22 by 40 ft footprint is reported from du Sable's 1800 bill of sale (Quaife, *Mississippi Valley Historical Review* 15:1, 1928), which is not in this corpus and was not read, so it is cited to nothing. The set-back from the bank, the wall height (3.0 m), the roof pitch (30 degrees), the piazza's depth and its deck, post and rail sizes (the archetypes generator the log dwelling tool `_piazza`), the stacks' size, the green's corners, the paling's height and the gate, and every tree's place and height."
+        },
+        {
+          "label": "Why",
+          "text": "the owner asked for the settlement around the fort to be built, and the house has three texts and six pictures behind its form and nothing behind its measure. Built at the reconstructed grade, it stands where every source puts it, in the form every picture shows."
+        },
+        {
+          "label": "How to resolve",
+          "text": "Quaife's 1928 article (the bill of sale's dimensions); the Sarony lithograph after Mrs. John H. Kinzie's sketch (Currey's plate facing p. 32) and Kirkland's \"Kinzie mansion in 1812\" (1893, p. 73), both later work's; any plat or survey of the Kinzie tract before 1833."
+        },
+        {
+          "label": "Covers",
+          "text": "`kinzie_house_1812.kinzie_1804.position`, `kinzie_house_1812.kinzie_1804.footprint`, `kinzie_house_1812.kinzie_1804.form.wall_height_m`, `kinzie_house_1812.kinzie_1804.form.roof_pitch_deg`, `kinzie_house_1812.kinzie_1804.form.piazza_depth_m`, `kinzie_house_1812_green.kinzie_1804.position`, `kinzie_house_1812_green.kinzie_1804.footprint`, `kinzie_house_1812_green.kinzie_1804.form.picket_height_m`, `kinzie_house_1812_green.kinzie_1804.form.construction`, `kinzie_house_1812_green.kinzie_1804.form.picket_width_m`, `kinzie_house_1812_green.kinzie_1804.form.picket_spacing_m`, `kinzie_house_1812_green.kinzie_1804.form.gate_sides`, `kinzie_house_1812_green.kinzie_1804.form.gate_width_m`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-15 (T-2497)."
+        },
+        {
+          "label": "Resolved",
+          "text": "2026-11-10, earlier work replaces the unsupported39m green width and east/west poplar row after actual house+green comparisons. The original entry is retained verbatim; all still-live house, fence and planting choices continue in “The Kinzie house's whitewashed logs, taller end door and bounded green” below. Entries here were true when they were written and are kept verbatim, with a"
+        },
+        {
+          "label": "Resolved",
+          "text": "line saying what settled them. The gate exempts this section from the check that a claimed value is still an invention, which is what lets an append-only document survive its own data being corrected. **This section sits ABOVE the per-subject register on purpose**, and the reason is the exemption in the sentence before this one. While it was the last section in the file, every liberty appended at the end of the file — the operation this document tells you to perform — landed in it and was exempted from a check it should have been subject to. The `"
+        },
+        {
+          "label": "Resolved",
+          "text": "` line is now load-bearing rather than a courtesy: an entry here without one is a standing liberty that has been misfiled, and `the liberties compiler` says so and compiles it as standing."
+        }
+      ],
+      "work_refs": [
+        "T-2497",
+        "T-2484",
+        "T-2516",
+        "T-2498",
+        "T-0054"
       ]
     },
     {

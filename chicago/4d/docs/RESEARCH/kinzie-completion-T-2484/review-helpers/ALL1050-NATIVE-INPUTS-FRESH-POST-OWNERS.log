@@ -1,0 +1,10 @@
+{
+  "status": "PASS_ALL1050_REGISTERED_NATIVE_INPUTS_FRESH",
+  "source_head": "80ff2d2a64425fc8f50325411f3dcc0a45939dc1",
+  "seconds": 2.401,
+  "fresh": 1050,
+  "defaults": 1044,
+  "variants": 6,
+  "failures": [],
+  "claim_limit": "Actual native input recipes for all registered outputs recomputed. Sparse asset aliases are exact SOURCE Git blobs. Does not replace protected full source checks, native binary/control/foreign audit, image acceptance or published runtime review."
+}

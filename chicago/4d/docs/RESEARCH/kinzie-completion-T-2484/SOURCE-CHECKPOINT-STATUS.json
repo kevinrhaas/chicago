@@ -1,0 +1,34 @@
+{
+  "status": "SOURCE_CHECKPOINT_NATIVE_AND_AFTER_REVIEW_PENDING",
+  "new_end_door_tests": {
+    "tests": 6,
+    "exit": 0
+  },
+  "legacy_cpu_controls": {
+    "other_phases": 81,
+    "exact": true
+  },
+  "liberties_check": {
+    "count": 1082,
+    "exit": 0
+  },
+  "source_use": {
+    "sources": 656,
+    "exit": 0
+  },
+  "name_pool_exit": 0,
+  "changelog_exit": 0,
+  "notch_aperture_compound_controls_exit": 0,
+  "native_scope_defaults": 83,
+  "physical_targets": 2,
+  "native_build": "NOT_YET_DISPATCHED",
+  "after_photo_verdict": "NOT_REVIEWED",
+  "before_pairs": 7,
+  "before_commands_all_exit_zero": true,
+  "scope_warning": "Earlier local PARAMS attempts failed on intentionally omitted sparse materials and terrain; final materialized results are retained separately. No failing broad gate is described as passed.",
+  "project_params_owner": {
+    "exit": 0,
+    "errors": 0,
+    "existing_warnings": 323
+  }
+}

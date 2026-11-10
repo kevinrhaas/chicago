@@ -1,0 +1,7 @@
+{
+  "source": "7dcb5bb07abe0c468463a6a16d4103861deb3c65",
+  "master_sha256": "940d58e82a70b1980812525f9e3534caa6dca38ce894e0a112844615686ce373",
+  "master_bytes": 123776,
+  "data_record_sha256": "68bbed126bfa2594fbd620f20ed0948f594a594eedf64e8594f34fcfc09b0b5b",
+  "camera_change": "Add actual existing green only; all original camera poses/sourcepixels preserved. Trees are separately reviewed in live publishedapp."
+}

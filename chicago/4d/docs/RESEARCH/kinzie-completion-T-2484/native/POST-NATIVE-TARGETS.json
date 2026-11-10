@@ -1,0 +1,753 @@
+[
+  {
+    "after": {
+      "bytes": 123772,
+      "indices": 4338,
+      "local_mesh_union_bounds": {
+        "max": [
+          12.604000091552734,
+          6.030192852020264,
+          0.25
+        ],
+        "min": [
+          -0.25,
+          0.0,
+          -9.055999755859375
+        ]
+      },
+      "materials": 10,
+      "meshes": 1,
+      "primitive_details": [
+        {
+          "attribute_roles": [
+            "NORMAL",
+            "POSITION",
+            "_CONFIDENCE"
+          ],
+          "indices": 600,
+          "indices_raw_sha256": "a74c528e0d1eb6aef1143616cbdf17dc689f9fcbe4ddbe57e2abb3e6087c0376",
+          "material": "log",
+          "material_canonical_sha256": "dcd0c0a97bd76dc6accc15695e64025778e35ac6d9dc17f49c3c95f2e077bad2",
+          "mesh": 0,
+          "non_uv_attribute_raw_sha256": {
+            "NORMAL": "3204da2cafec143ad795a771c49bf81e6a4155c1c698ae215039f3a880588bd0",
+            "POSITION": "5b8966308818dc975958bfe5e6e79cdda378f911e3b35c3850c956df0492f571",
+            "_CONFIDENCE": "a9b61b3c4d4d70bf406d989ab65c4b85c70e7b68bb3967d96c174948ae4e3942"
+          },
+          "primitive": 0,
+          "triangles": 200,
+          "vertices": 400
+        },
+        {
+          "attribute_roles": [
+            "NORMAL",
+            "POSITION",
+            "_CONFIDENCE"
+          ],
+          "indices": 384,
+          "indices_raw_sha256": "29a26a1e2267c50b317cd8b46fef5659abcc3838c77b1deb6a7d32374b6d27d4",
+          "material": "chinking",
+          "material_canonical_sha256": "fa85b5dba858e6fe3d41992737d6f5a87822c74ba1e21e568ce56cfd6a8d5191",
+          "mesh": 0,
+          "non_uv_attribute_raw_sha256": {
+            "NORMAL": "da82ce9ff312d926e67fd0c4afa9f9177d36e6dbfc2519e9d51ba3cc0434a60b",
+            "POSITION": "0f20435911e4ede3bcba4847b6fd70dc0852745cee220d6b3468c2dc9d563cf5",
+            "_CONFIDENCE": "f6266df512f071ac505eed191ae133d690a7755f1f079e31cd24da47ac98e3ae"
+          },
+          "primitive": 1,
+          "triangles": 128,
+          "vertices": 256
+        },
+        {
+          "attribute_roles": [
+            "NORMAL",
+            "POSITION",
+            "_CONFIDENCE"
+          ],
+          "indices": 60,
+          "indices_raw_sha256": "533dea5978d9bc1d38706fd1cb980a373fbd891b80f6cdb7ca3e54b76e724af2",
+          "material": "roof_shingle",
+          "material_canonical_sha256": "cab2f9bcdc50473dfb72ee079303155a812363582bf79b046534fba53a2397b0",
+          "mesh": 0,
+          "non_uv_attribute_raw_sha256": {
+            "NORMAL": "74c6e403c9906584bb1374b69a6d05047c268f3eec2574b103cee5983a72d3c6",
+            "POSITION": "48d57897e58911e70f9568e08f776e7d6c21f3fb2f70b785356b7d747032b6f2",
+            "_CONFIDENCE": "292e18b337003b52e380c72fbd4fc75a3aec44e31ce21a44747537e7ad1c83d9"
+          },
+          "primitive": 2,
+          "triangles": 20,
+          "vertices": 42
+        },
+        {
+          "attribute_roles": [
+            "NORMAL",
+            "POSITION",
+            "_CONFIDENCE"
+          ],
+          "indices": 2214,
+          "indices_raw_sha256": "4e07b8479943038c9ac480c817b39dcb4461614de653aa1a9815a4d7b95c5ae8",
+          "material": "frame",
+          "material_canonical_sha256": "6dc755d63742345fdf030469261f4fd39eaf2c5cd4f4335d84e898859f25b13d",
+          "mesh": 0,
+          "non_uv_attribute_raw_sha256": {
+            "NORMAL": "08334efa0e117c84c8637b05039c32dbe72f608fc04a03b72b70be89d137898f",
+            "POSITION": "1e224fa68956c5d7e5fa8bc9bc0558c53866b680f779711c37de6a5d2548dbc1",
+            "_CONFIDENCE": "de1c26c8b91d8d91b93dbbfdac8d172c9bcc5a3b87b57ed69bba1414dc766819"
+          },
+          "primitive": 3,
+          "triangles": 738,
+          "vertices": 1476
+        },
+        {
+          "attribute_roles": [
+            "NORMAL",
+            "POSITION",
+            "_CONFIDENCE"
+          ],
+          "indices": 36,
+          "indices_raw_sha256": "111344a69a3f4c9c714bfdd23c3b16f9ad6beb430821bd310f33d9f795061012",
+          "material": "dark",
+          "material_canonical_sha256": "f75562ec481fc0a09474b0528d9939131a50efa8ea101d01f8357c0fc534a5d3",
+          "mesh": 0,
+          "non_uv_attribute_raw_sha256": {
+            "NORMAL": "8d4c93c62d530802411be410b284f4bca318e77b140648c238b5cdc20581a1ee",
+            "POSITION": "d3fe0274b540fbe062548ce2f8803a1eeb84b24d9149392b82ba796af1cec22b",
+            "_CONFIDENCE": "849203e6b4e586413022ab65a115f70a9e41cb0ee678fa1984c90f7d4a5f33ad"
+          },
+          "primitive": 4,
+          "triangles": 12,
+          "vertices": 24
+        },
+        {
+          "attribute_roles": [
+            "NORMAL",
+            "POSITION",
+            "_CONFIDENCE"
+          ],
+          "indices": 60,
+          "indices_raw_sha256": "a1da5dd9d9dfe4a39f58191c58096f0ae518c0ffadbaec24a326d4b1bcf8efca",
+          "material": "chimney",
+          "material_canonical_sha256": "374e6ae40d77dbc60fa63e2aab209b83781df20a6f03aea7dd32f2d08aa94161",
+          "mesh": 0,
+          "non_uv_attribute_raw_sha256": {
+            "NORMAL": "c5ae53d99a291e9a00ef71f06fe80baf5d45156d7f6ec4658f9dc0a49efcce58",
+            "POSITION": "ae45b2d419a0df958a2f4984d5583d96e3c1841718de3aafe4beccb07c940056",
+            "_CONFIDENCE": "9ac5a5b8f9f8733d1586d1ce645ebdb23ef66158555a928fa172e714832a483d"
+          },
+          "primitive": 5,
+          "triangles": 20,
+          "vertices": 40
+        },
+        {
+          "attribute_roles": [
+            "NORMAL",
+            "POSITION",
+            "_CONFIDENCE"
+          ],
+          "indices": 870,
+          "indices_raw_sha256": "a6e722cac731586a24ce99981c3c7b6e046c9055b2dd1e6f94e8a9d34e60d9df",
+          "material": "door",
+          "material_canonical_sha256": "87e8383b6406377431033807877a5b066a9fba9afea3eac3c9fdf81a62822527",
+          "mesh": 0,
+          "non_uv_attribute_raw_sha256": {
+            "NORMAL": "db25183972b2cb0a2e405feacf18e1f580790cea522a9699f4714784f9c478d0",
+            "POSITION": "6e33093ebba65f4e19595876d5806fbc96686fd41bbdc41bf922f91910ec97f4",
+            "_CONFIDENCE": "7bc9639108865504a3279d087bd802651b9a7dee37c71f1b2c666ff5a0ad8cc3"
+          },
+          "primitive": 6,
+          "triangles": 290,
+          "vertices": 580
+        },
+        {
+          "attribute_roles": [
+            "NORMAL",
+            "POSITION",
+            "_CONFIDENCE"
+          ],
+          "indices": 54,
+          "indices_raw_sha256": "14c7f823752339c34c6d6e4d3188780aa6df62825e732611ffcc55b36fb1fb94",
+          "material": "glass",
+          "material_canonical_sha256": "e1c0bd89d1e9e86d1d1ac77fab430e90edbb488ed19aa479d5796dae998cfa77",
+          "mesh": 0,
+          "non_uv_attribute_raw_sha256": {
+            "NORMAL": "e504b4a182dcae79db94ecb723a9fb77feb64e7a9a7159a584a5d7e2a8fe44a7",
+            "POSITION": "fd835666a0facf468d0b8d57e0aa24a7c10a0c9756e8b34beaa888cec9dfb0dc",
+            "_CONFIDENCE": "bf3c3dec7e6f743e7bd2529cefb787167b4d2fa2a125e17dab4fba41c7cc9df3"
+          },
+          "primitive": 7,
+          "triangles": 18,
+          "vertices": 36
+        },
+        {
+          "attribute_roles": [
+            "NORMAL",
+            "POSITION",
+            "_CONFIDENCE"
+          ],
+          "indices": 24,
+          "indices_raw_sha256": "2675db74ae8e267bde75812130293fcadd7f3059c4b0c3069304018b48efb871",
+          "material": "door_panel",
+          "material_canonical_sha256": "c74b9e3462a6febca33316dd271067ca093e14e84be61453a911828744a1b105",
+          "mesh": 0,
+          "non_uv_attribute_raw_sha256": {
+            "NORMAL": "fdb463bb20e4874520596d887b65b849363b2bbb9d7bc4749cc7959c1aab70d5",
+            "POSITION": "a9bf8a29e71c0e5a68d8d67e21db326745956285896d0541e6879889b4466919",
+            "_CONFIDENCE": "9628e545ed3ac074e5a6cbf542a642b62482fbfca9b4cb3ea4743a1874256e37"
+          },
+          "primitive": 8,
+          "triangles": 8,
+          "vertices": 16
+        },
+        {
+          "attribute_roles": [
+            "NORMAL",
+            "POSITION",
+            "_CONFIDENCE"
+          ],
+          "indices": 36,
+          "indices_raw_sha256": "111344a69a3f4c9c714bfdd23c3b16f9ad6beb430821bd310f33d9f795061012",
+          "material": "iron",
+          "material_canonical_sha256": "e3280ef064c9d5b8a3ca8846e39a067a208393fdee2216706d5a7a489fcd2439",
+          "mesh": 0,
+          "non_uv_attribute_raw_sha256": {
+            "NORMAL": "8d4c93c62d530802411be410b284f4bca318e77b140648c238b5cdc20581a1ee",
+            "POSITION": "cb50429aaaedaf4cb70cc9b6bdce33875bef5c9975e1c20c93b63910b800fdb5",
+            "_CONFIDENCE": "849203e6b4e586413022ab65a115f70a9e41cb0ee678fa1984c90f7d4a5f33ad"
+          },
+          "primitive": 9,
+          "triangles": 12,
+          "vertices": 24
+        }
+      ],
+      "primitives": 10,
+      "sha256": "24cd4c30b5c8b8d350c017aa63d016464c6064cab56724a4986a639a02f5e417",
+      "triangles": 1446,
+      "vertices_including_export_splits": 2894
+    },
+    "asset_key": "kinzie_house_1812__kinzie_1804.glb",
+    "before": {
+      "bytes": 123776,
+      "indices": 4338,
+      "local_mesh_union_bounds": {
+        "max": [
+          12.604000091552734,
+          6.030192852020264,
+          0.25
+        ],
+        "min": [
+          -0.25,
+          0.0,
+          -9.055999755859375
+        ]
+      },
+      "materials": 10,
+      "meshes": 1,
+      "primitive_details": [
+        {
+          "attribute_roles": [
+            "NORMAL",
+            "POSITION",
+            "_CONFIDENCE"
+          ],
+          "indices": 600,
+          "indices_raw_sha256": "a74c528e0d1eb6aef1143616cbdf17dc689f9fcbe4ddbe57e2abb3e6087c0376",
+          "material": "log",
+          "material_canonical_sha256": "a5c80d0baa4e9162d0288df0182bf84e9c4408d63368b2ca13a3c72c200783de",
+          "mesh": 0,
+          "non_uv_attribute_raw_sha256": {
+            "NORMAL": "3204da2cafec143ad795a771c49bf81e6a4155c1c698ae215039f3a880588bd0",
+            "POSITION": "5b8966308818dc975958bfe5e6e79cdda378f911e3b35c3850c956df0492f571",
+            "_CONFIDENCE": "a9b61b3c4d4d70bf406d989ab65c4b85c70e7b68bb3967d96c174948ae4e3942"
+          },
+          "primitive": 0,
+          "triangles": 200,
+          "vertices": 400
+        },
+        {
+          "attribute_roles": [
+            "NORMAL",
+            "POSITION",
+            "_CONFIDENCE"
+          ],
+          "indices": 384,
+          "indices_raw_sha256": "29a26a1e2267c50b317cd8b46fef5659abcc3838c77b1deb6a7d32374b6d27d4",
+          "material": "chinking",
+          "material_canonical_sha256": "a2d16616369c3ed220eabb4f827a5b9e3604e2b3c492efd724d44e236507c1f5",
+          "mesh": 0,
+          "non_uv_attribute_raw_sha256": {
+            "NORMAL": "da82ce9ff312d926e67fd0c4afa9f9177d36e6dbfc2519e9d51ba3cc0434a60b",
+            "POSITION": "0f20435911e4ede3bcba4847b6fd70dc0852745cee220d6b3468c2dc9d563cf5",
+            "_CONFIDENCE": "f6266df512f071ac505eed191ae133d690a7755f1f079e31cd24da47ac98e3ae"
+          },
+          "primitive": 1,
+          "triangles": 128,
+          "vertices": 256
+        },
+        {
+          "attribute_roles": [
+            "NORMAL",
+            "POSITION",
+            "_CONFIDENCE"
+          ],
+          "indices": 60,
+          "indices_raw_sha256": "533dea5978d9bc1d38706fd1cb980a373fbd891b80f6cdb7ca3e54b76e724af2",
+          "material": "roof_shingle",
+          "material_canonical_sha256": "cab2f9bcdc50473dfb72ee079303155a812363582bf79b046534fba53a2397b0",
+          "mesh": 0,
+          "non_uv_attribute_raw_sha256": {
+            "NORMAL": "74c6e403c9906584bb1374b69a6d05047c268f3eec2574b103cee5983a72d3c6",
+            "POSITION": "48d57897e58911e70f9568e08f776e7d6c21f3fb2f70b785356b7d747032b6f2",
+            "_CONFIDENCE": "292e18b337003b52e380c72fbd4fc75a3aec44e31ce21a44747537e7ad1c83d9"
+          },
+          "primitive": 2,
+          "triangles": 20,
+          "vertices": 42
+        },
+        {
+          "attribute_roles": [
+            "NORMAL",
+            "POSITION",
+            "_CONFIDENCE"
+          ],
+          "indices": 2214,
+          "indices_raw_sha256": "4e07b8479943038c9ac480c817b39dcb4461614de653aa1a9815a4d7b95c5ae8",
+          "material": "frame",
+          "material_canonical_sha256": "6dc755d63742345fdf030469261f4fd39eaf2c5cd4f4335d84e898859f25b13d",
+          "mesh": 0,
+          "non_uv_attribute_raw_sha256": {
+            "NORMAL": "08334efa0e117c84c8637b05039c32dbe72f608fc04a03b72b70be89d137898f",
+            "POSITION": "1e224fa68956c5d7e5fa8bc9bc0558c53866b680f779711c37de6a5d2548dbc1",
+            "_CONFIDENCE": "de1c26c8b91d8d91b93dbbfdac8d172c9bcc5a3b87b57ed69bba1414dc766819"
+          },
+          "primitive": 3,
+          "triangles": 738,
+          "vertices": 1476
+        },
+        {
+          "attribute_roles": [
+            "NORMAL",
+            "POSITION",
+            "_CONFIDENCE"
+          ],
+          "indices": 36,
+          "indices_raw_sha256": "111344a69a3f4c9c714bfdd23c3b16f9ad6beb430821bd310f33d9f795061012",
+          "material": "dark",
+          "material_canonical_sha256": "f75562ec481fc0a09474b0528d9939131a50efa8ea101d01f8357c0fc534a5d3",
+          "mesh": 0,
+          "non_uv_attribute_raw_sha256": {
+            "NORMAL": "8d4c93c62d530802411be410b284f4bca318e77b140648c238b5cdc20581a1ee",
+            "POSITION": "b766499d6604ebb5adb3f2f612f4dd1bbd82f1752d3da45235e15f9eff8d1a72",
+            "_CONFIDENCE": "4faaba9793e45f671b05cdd0c14615acb7b6dfed4864e7aca0dde06627eefab8"
+          },
+          "primitive": 4,
+          "triangles": 12,
+          "vertices": 24
+        },
+        {
+          "attribute_roles": [
+            "NORMAL",
+            "POSITION",
+            "_CONFIDENCE"
+          ],
+          "indices": 60,
+          "indices_raw_sha256": "a1da5dd9d9dfe4a39f58191c58096f0ae518c0ffadbaec24a326d4b1bcf8efca",
+          "material": "chimney",
+          "material_canonical_sha256": "374e6ae40d77dbc60fa63e2aab209b83781df20a6f03aea7dd32f2d08aa94161",
+          "mesh": 0,
+          "non_uv_attribute_raw_sha256": {
+            "NORMAL": "c5ae53d99a291e9a00ef71f06fe80baf5d45156d7f6ec4658f9dc0a49efcce58",
+            "POSITION": "ae45b2d419a0df958a2f4984d5583d96e3c1841718de3aafe4beccb07c940056",
+            "_CONFIDENCE": "9ac5a5b8f9f8733d1586d1ce645ebdb23ef66158555a928fa172e714832a483d"
+          },
+          "primitive": 5,
+          "triangles": 20,
+          "vertices": 40
+        },
+        {
+          "attribute_roles": [
+            "NORMAL",
+            "POSITION",
+            "_CONFIDENCE"
+          ],
+          "indices": 870,
+          "indices_raw_sha256": "a6e722cac731586a24ce99981c3c7b6e046c9055b2dd1e6f94e8a9d34e60d9df",
+          "material": "door",
+          "material_canonical_sha256": "87e8383b6406377431033807877a5b066a9fba9afea3eac3c9fdf81a62822527",
+          "mesh": 0,
+          "non_uv_attribute_raw_sha256": {
+            "NORMAL": "db25183972b2cb0a2e405feacf18e1f580790cea522a9699f4714784f9c478d0",
+            "POSITION": "0630dd9b599a33923852b2eeefe17a3f2352159a6be459ac3078b9c8c70c4c72",
+            "_CONFIDENCE": "29933cb9ba24950c115378f204fb4c84352439a5f1ccc7c3bac5a3e4d27e2762"
+          },
+          "primitive": 6,
+          "triangles": 290,
+          "vertices": 580
+        },
+        {
+          "attribute_roles": [
+            "NORMAL",
+            "POSITION",
+            "_CONFIDENCE"
+          ],
+          "indices": 54,
+          "indices_raw_sha256": "14c7f823752339c34c6d6e4d3188780aa6df62825e732611ffcc55b36fb1fb94",
+          "material": "glass",
+          "material_canonical_sha256": "e1c0bd89d1e9e86d1d1ac77fab430e90edbb488ed19aa479d5796dae998cfa77",
+          "mesh": 0,
+          "non_uv_attribute_raw_sha256": {
+            "NORMAL": "e504b4a182dcae79db94ecb723a9fb77feb64e7a9a7159a584a5d7e2a8fe44a7",
+            "POSITION": "fd835666a0facf468d0b8d57e0aa24a7c10a0c9756e8b34beaa888cec9dfb0dc",
+            "_CONFIDENCE": "bf3c3dec7e6f743e7bd2529cefb787167b4d2fa2a125e17dab4fba41c7cc9df3"
+          },
+          "primitive": 7,
+          "triangles": 18,
+          "vertices": 36
+        },
+        {
+          "attribute_roles": [
+            "NORMAL",
+            "POSITION",
+            "_CONFIDENCE"
+          ],
+          "indices": 24,
+          "indices_raw_sha256": "2675db74ae8e267bde75812130293fcadd7f3059c4b0c3069304018b48efb871",
+          "material": "door_panel",
+          "material_canonical_sha256": "c74b9e3462a6febca33316dd271067ca093e14e84be61453a911828744a1b105",
+          "mesh": 0,
+          "non_uv_attribute_raw_sha256": {
+            "NORMAL": "fdb463bb20e4874520596d887b65b849363b2bbb9d7bc4749cc7959c1aab70d5",
+            "POSITION": "38afe05774847afab311a65f9e2ff5f9f1457f691ad47ab42551c1e249bfc3db",
+            "_CONFIDENCE": "6fce29e319dce3c5939f2852ecd2403be5cd12ea63297414fc63cad6118f73a5"
+          },
+          "primitive": 8,
+          "triangles": 8,
+          "vertices": 16
+        },
+        {
+          "attribute_roles": [
+            "NORMAL",
+            "POSITION",
+            "_CONFIDENCE"
+          ],
+          "indices": 36,
+          "indices_raw_sha256": "111344a69a3f4c9c714bfdd23c3b16f9ad6beb430821bd310f33d9f795061012",
+          "material": "iron",
+          "material_canonical_sha256": "e3280ef064c9d5b8a3ca8846e39a067a208393fdee2216706d5a7a489fcd2439",
+          "mesh": 0,
+          "non_uv_attribute_raw_sha256": {
+            "NORMAL": "8d4c93c62d530802411be410b284f4bca318e77b140648c238b5cdc20581a1ee",
+            "POSITION": "e8372dca0491adbd6b84eb9f4ce62b1bf527624137a3a37b2091005dff64df29",
+            "_CONFIDENCE": "4faaba9793e45f671b05cdd0c14615acb7b6dfed4864e7aca0dde06627eefab8"
+          },
+          "primitive": 9,
+          "triangles": 12,
+          "vertices": 24
+        }
+      ],
+      "primitives": 10,
+      "sha256": "940d58e82a70b1980812525f9e3534caa6dca38ce894e0a112844615686ce373",
+      "triangles": 1446,
+      "vertices_including_export_splits": 2894
+    },
+    "bounds_equal": true,
+    "claim_limit": "Target geometry change is measured, not declared visually correct. Source-specific semantic probes and actual final picture/UI review remain required.",
+    "cost_delta": {
+      "bytes": -4,
+      "indices": 0,
+      "materials": 0,
+      "primitives": 0,
+      "triangles": 0,
+      "vertices_including_export_splits": 0
+    },
+    "kind": "default",
+    "kinzie_end_door_height_probe": {
+      "after": {
+        "coordinate_claim": "Uncompressed native GLB local frame; identity node transforms; actual broad ground-sill leaf faces measured separately from owner casing envelopes.",
+        "ground_door_count": 2,
+        "other_ground_doors": [
+          {
+            "bottom": 0.019999999552965164,
+            "top": 1.9500000476837158,
+            "u": 6.0960001945495605,
+            "v": 6.744999885559082,
+            "width": 1.0399999618530273
+          }
+        ],
+        "owner_low_sill_casing_envelopes": [
+          {
+            "bottom": 0.019999999552965164,
+            "top": 2.069999933242798,
+            "u": 6.0959999561309814,
+            "v": 6.750499963760376,
+            "width": 1.2599997520446777
+          },
+          {
+            "bottom": 0.019999999552965164,
+            "top": 2.640000104904175,
+            "u": 12.236499786376953,
+            "v": 4.224780082702637,
+            "width": 1.260000228881836
+          }
+        ],
+        "target": {
+          "bottom": 0.019999999552965164,
+          "top": 2.5199999809265137,
+          "u": 12.230999946594238,
+          "v": 4.224780082702637,
+          "width": 1.0399999618530273
+        }
+      },
+      "before": {
+        "coordinate_claim": "Uncompressed native GLB local frame; identity node transforms; actual broad ground-sill leaf faces measured separately from owner casing envelopes.",
+        "ground_door_count": 2,
+        "other_ground_doors": [
+          {
+            "bottom": 0.019999999552965164,
+            "top": 1.9500000476837158,
+            "u": 6.0960001945495605,
+            "v": 6.744999885559082,
+            "width": 1.0399999618530273
+          }
+        ],
+        "owner_low_sill_casing_envelopes": [
+          {
+            "bottom": 0.019999999552965164,
+            "top": 2.069999933242798,
+            "u": 6.0959999561309814,
+            "v": 6.750499963760376,
+            "width": 1.2599997520446777
+          },
+          {
+            "bottom": 0.019999999552965164,
+            "top": 2.069999933242798,
+            "u": 12.236499786376953,
+            "v": 4.224780082702637,
+            "width": 1.260000228881836
+          }
+        ],
+        "target": {
+          "bottom": 0.019999999552965164,
+          "top": 1.9500000476837158,
+          "u": 12.230999946594238,
+          "v": 4.224780082702637,
+          "width": 1.0399999618530273
+        }
+      },
+      "claim_limit": "Independent native vertical extent probe; not a historical height or visual/picture acceptance.",
+      "expected_head_m": 2.52,
+      "expected_sill_m": 0.02,
+      "frozen_clear_height_m": 2.5,
+      "other_ground_door_geometry_exact": true,
+      "status": "PASS_ACTUAL_KINZIE_2_50M_CLEAR_END_DOOR"
+    },
+    "materials_equal": false,
+    "node_transforms_exact": true,
+    "non_uv_semantic_added": 744,
+    "non_uv_semantic_removed": 744,
+    "oriented_triangle_semantic_added": 372,
+    "oriented_triangle_semantic_removed": 372,
+    "structure_id": "kinzie_house_1812"
+  },
+  {
+    "after": {
+      "bytes": 727208,
+      "indices": 21912,
+      "local_mesh_union_bounds": {
+        "max": [
+          17.046932220458984,
+          1.2059999704360962,
+          0.04695521295070648
+        ],
+        "min": [
+          -0.04693397879600525,
+          0.0,
+          -15.670000076293945
+        ]
+      },
+      "materials": 3,
+      "meshes": 1,
+      "primitive_details": [
+        {
+          "attribute_roles": [
+            "NORMAL",
+            "POSITION",
+            "_CONFIDENCE",
+            "_TONE"
+          ],
+          "indices": 21384,
+          "indices_raw_sha256": "3babe13c2f161d298dd709e53b4d0bb46b2df95dfce9d42f0ded37376c564b32",
+          "material": "log",
+          "material_canonical_sha256": "a5c80d0baa4e9162d0288df0182bf84e9c4408d63368b2ca13a3c72c200783de",
+          "mesh": 0,
+          "non_uv_attribute_raw_sha256": {
+            "NORMAL": "68d1e1d6932cf4a4100ccbceba2e3aa7ed93df019ceaa6c9091f00839666e450",
+            "POSITION": "f28494ea9f208ee49234235db5bc92705c625fca775cf7e5cee873913abc3911",
+            "_CONFIDENCE": "40460302cfd4b3a3a5cc62fcbf1d4fbf7fc81117c4e84aef50d9d0919c7358bd",
+            "_TONE": "d4fec1ea4d997d2ecd55c14e7c58f4b5d477d7aa913388a6e59fad2bbc3c0dbf"
+          },
+          "primitive": 0,
+          "triangles": 7128,
+          "vertices": 16632
+        },
+        {
+          "attribute_roles": [
+            "NORMAL",
+            "POSITION",
+            "_CONFIDENCE",
+            "_TONE"
+          ],
+          "indices": 456,
+          "indices_raw_sha256": "7cac524ca2dc84263c585961fd0d3793754933d16e31b5839489387c5358189d",
+          "material": "gate",
+          "material_canonical_sha256": "56e040ea2cbef60b1ae8c0420e05ceb1b6dda7ed49aa22404d010063af4a2da5",
+          "mesh": 0,
+          "non_uv_attribute_raw_sha256": {
+            "NORMAL": "10db7e60f09f1529ad03a01222fec79c946aea072e2190e947d3213612fbad87",
+            "POSITION": "85c77f79314c76b3fe563f59051dea1e30ee68d108dc749aad8f84e36132dffa",
+            "_CONFIDENCE": "0f56c1d1f0edd29966380ba3d77f0a70913d22e59a4f583c84e19146c88128c3",
+            "_TONE": "0f56c1d1f0edd29966380ba3d77f0a70913d22e59a4f583c84e19146c88128c3"
+          },
+          "primitive": 1,
+          "triangles": 152,
+          "vertices": 304
+        },
+        {
+          "attribute_roles": [
+            "NORMAL",
+            "POSITION",
+            "_CONFIDENCE",
+            "_TONE"
+          ],
+          "indices": 72,
+          "indices_raw_sha256": "0145a2c9521e0c5f545c5c46696dc3a7e0a0470fe48eb56a86e574465b40bc19",
+          "material": "dark",
+          "material_canonical_sha256": "f75562ec481fc0a09474b0528d9939131a50efa8ea101d01f8357c0fc534a5d3",
+          "mesh": 0,
+          "non_uv_attribute_raw_sha256": {
+            "NORMAL": "ce8db8ba0832e3fd63f47551957addd680e90232cf57374ce58e754fcd865841",
+            "POSITION": "51908a6cecf3ca8b8081dd497cd96eb2d837f0ebaf660b8bcd048b285b36bdc5",
+            "_CONFIDENCE": "c90489868a1a64a74239d5331b18d608ef69e28579f36f3ae1949cfe7354907a",
+            "_TONE": "c90489868a1a64a74239d5331b18d608ef69e28579f36f3ae1949cfe7354907a"
+          },
+          "primitive": 2,
+          "triangles": 24,
+          "vertices": 48
+        }
+      ],
+      "primitives": 3,
+      "sha256": "299ba9c64df65653ba7797191e2fb0ccd2929dae3b77c8a62f819c6cd38413fa",
+      "triangles": 7304,
+      "vertices_including_export_splits": 16984
+    },
+    "asset_key": "kinzie_house_1812_green__kinzie_1804.glb",
+    "before": {
+      "bytes": 1220712,
+      "indices": 36816,
+      "local_mesh_union_bounds": {
+        "max": [
+          39.04693603515625,
+          1.2059999704360962,
+          0.04696343466639519
+        ],
+        "min": [
+          -0.04693397879600525,
+          0.0,
+          -15.670000076293945
+        ]
+      },
+      "materials": 3,
+      "meshes": 1,
+      "primitive_details": [
+        {
+          "attribute_roles": [
+            "NORMAL",
+            "POSITION",
+            "_CONFIDENCE",
+            "_TONE"
+          ],
+          "indices": 36288,
+          "indices_raw_sha256": "5a7aab92079c2d2a0111870f0a33913927d951a3e952beb45b608c34ad757b96",
+          "material": "log",
+          "material_canonical_sha256": "a5c80d0baa4e9162d0288df0182bf84e9c4408d63368b2ca13a3c72c200783de",
+          "mesh": 0,
+          "non_uv_attribute_raw_sha256": {
+            "NORMAL": "4c9ecf2efd07489d3328186ec602c00c019f4fe90ea0750ff11ca16bd6faa7ca",
+            "POSITION": "cea240dad4407b459c56ff97448cf5008a879133be50eb7c3f7d624f31fb5638",
+            "_CONFIDENCE": "87d478206136cdf4b9005f401ec853c750ba147c14455ea78dd3d02780ff24f5",
+            "_TONE": "c413346e2bcac26908184f00292e9c402eefa429d7ee30d82028680718e4c5a4"
+          },
+          "primitive": 0,
+          "triangles": 12096,
+          "vertices": 28224
+        },
+        {
+          "attribute_roles": [
+            "NORMAL",
+            "POSITION",
+            "_CONFIDENCE",
+            "_TONE"
+          ],
+          "indices": 456,
+          "indices_raw_sha256": "7cac524ca2dc84263c585961fd0d3793754933d16e31b5839489387c5358189d",
+          "material": "gate",
+          "material_canonical_sha256": "56e040ea2cbef60b1ae8c0420e05ceb1b6dda7ed49aa22404d010063af4a2da5",
+          "mesh": 0,
+          "non_uv_attribute_raw_sha256": {
+            "NORMAL": "10db7e60f09f1529ad03a01222fec79c946aea072e2190e947d3213612fbad87",
+            "POSITION": "1db8cd6835e04c7693568053cecde4c26996e00976fbae7cf5a2f4060a56f92b",
+            "_CONFIDENCE": "0f56c1d1f0edd29966380ba3d77f0a70913d22e59a4f583c84e19146c88128c3",
+            "_TONE": "0f56c1d1f0edd29966380ba3d77f0a70913d22e59a4f583c84e19146c88128c3"
+          },
+          "primitive": 1,
+          "triangles": 152,
+          "vertices": 304
+        },
+        {
+          "attribute_roles": [
+            "NORMAL",
+            "POSITION",
+            "_CONFIDENCE",
+            "_TONE"
+          ],
+          "indices": 72,
+          "indices_raw_sha256": "0145a2c9521e0c5f545c5c46696dc3a7e0a0470fe48eb56a86e574465b40bc19",
+          "material": "dark",
+          "material_canonical_sha256": "f75562ec481fc0a09474b0528d9939131a50efa8ea101d01f8357c0fc534a5d3",
+          "mesh": 0,
+          "non_uv_attribute_raw_sha256": {
+            "NORMAL": "ce8db8ba0832e3fd63f47551957addd680e90232cf57374ce58e754fcd865841",
+            "POSITION": "b9b02a14a7f55740fd12f91ea57a837a80cf7f92a12de9035ba6005d5763f935",
+            "_CONFIDENCE": "c90489868a1a64a74239d5331b18d608ef69e28579f36f3ae1949cfe7354907a",
+            "_TONE": "c90489868a1a64a74239d5331b18d608ef69e28579f36f3ae1949cfe7354907a"
+          },
+          "primitive": 2,
+          "triangles": 24,
+          "vertices": 48
+        }
+      ],
+      "primitives": 3,
+      "sha256": "17f1949b77027d37302342535fc59255221320b5c2e5efbbaf3a470655c3dd50",
+      "triangles": 12272,
+      "vertices_including_export_splits": 28576
+    },
+    "bounds_equal": false,
+    "claim_limit": "Target geometry change is measured, not declared visually correct. Source-specific semantic probes and actual final picture/UI review remain required.",
+    "cost_delta": {
+      "bytes": -493504,
+      "indices": -14904,
+      "materials": 0,
+      "primitives": 0,
+      "triangles": -4968,
+      "vertices_including_export_splits": -11592
+    },
+    "kind": "default",
+    "kinzie_end_door_height_probe": null,
+    "materials_equal": true,
+    "node_transforms_exact": true,
+    "non_uv_semantic_added": 12814,
+    "non_uv_semantic_removed": 24406,
+    "oriented_triangle_semantic_added": 5526,
+    "oriented_triangle_semantic_removed": 10494,
+    "structure_id": "kinzie_house_1812_green"
+  }
+]
