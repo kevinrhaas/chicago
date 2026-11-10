@@ -384,3 +384,86 @@ console.log('1904 seasonal coverage, door calls, temporary activities and jaunt 
   assert(legacy.plan(from, to));
   assert.equal(days.createDayRouter({ router: () => null, clear: () => false, buildWhenBlocked: true }).plan(from, to), null);
 }
+
+// T-3536: a discussion has a real companion, arrival, alternating speech and a return.
+{
+  let h = 10, d = '1904-07-01';
+  const held = new Set();
+  const house = 'kinzie_house_1812';
+  const chat = OUT(12, 13, 1150, 332, 0, { activity: 'talk', knot: 'household', doing: 'chat together' });
+  const make = (id, spans) => actorOf({ ...rec(id, { day: [{ spans }] }), scene: '1904' }, id);
+  const asker = make('asker', [IN(0, 12, house), chat, IN(13, 24, house)]);
+  const worker = make('worker', [IN(0, 9, house), OUT(9, 18, 1152, 332, 180, { activity: 'work' }), IN(18, 24, house)]);
+  const sleeper = make('sleeper', [IN(0, 24, house)]);
+  const actors = [asker, worker, sleeper];
+  for (const a of actors) a.stopPath = () => { a.pending = null; a.path = null; };
+  const layer = createHumanDays({ humans: { actors, isHeld: (a) => held.has(a) }, three,
+    hour: () => h, date: () => d, doors, visitor: () => ({ e: 1152, n: 332 }) });
+  const tick = (seconds, arrive = true) => {
+    for (let t = 0; t < seconds; t += 0.25) {
+      if (arrive) for (const a of actors) if (a.pending) {
+        const p = a.pending; a.pending = null; a.e = p.end.e; a.n = p.end.n; p.onArrive?.();
+      }
+      layer.update(0.25);
+    }
+  };
+  tick(3);
+  assert(layer.request(asker.id, 0).ok);
+  assert(layer.people.find((p) => p.actor === worker).social, 'prefers the outdoor worker');
+  assert(!layer.canAsk(asker.id) && !layer.canAsk(worker.id), 'reserved participants cannot be summoned again');
+  assert(!layer.people.find((p) => p.actor === sleeper).social, 'leaves an indoor person at their duties when a partner is outside');
+  tick(2, false);
+  assert(actors.every((a) => !a.actions.talking), 'no conversation before both arrive');
+  tick(4);
+  assert.equal([asker, worker].filter((a) => a.actions.talking).length, 1);
+  assert(Math.hypot(asker.e - worker.e, asker.n - worker.n) <= 2.2, 'partners actually meet');
+  assert(asker.looks && worker.looks, 'both attend to each other');
+  const first = asker.actions.talking;
+  tick(4);
+  assert.notEqual(asker.actions.talking, first, 'speaking turns alternate');
+  tick(65);
+  assert(asker.indoors, 'requester returns to indoor duties');
+  assert(!worker.indoors && worker.state === 'working', 'outdoor worker resumes the scheduled job');
+  assert(actors.every((a) => !a.actions.talking), 'speech stops when the session ends');
+
+  h = 23; tick(3);
+  assert(layer.request(asker.id, 0).ok, 'night requests remain available');
+  tick(4);
+  assert.equal(actors.filter((a) => !a.indoors).length, 2, 'brings exactly one indoor companion out');
+  assert.equal(actors.filter((a) => a.actions.talking).length, 1);
+  tick(65);
+  assert(actors.every((a) => a.indoors), 'both go back inside after the chat');
+
+  held.add(worker); held.add(sleeper);
+  assert.equal(layer.request(asker.id, 0).ok, false, 'no partner means a useful refusal, not a lone chat');
+  held.clear();
+  assert(layer.request(asker.id, 0).ok);
+  tick(4);
+  const partner = layer.people.find((p) => p.actor !== asker && p.social).actor;
+  held.add(partner);
+  const ownedPath = { jaunt: true }; partner.path = ownedPath;
+  tick(3, false);
+  assert.equal(partner.path, ownedPath, 'a new jaunt owns its path');
+  assert(!layer.people.some((p) => p.social), 'a jaunt releases the pair');
+  assert(actors.every((a) => !a.actions.talking), 'no abandoned talking animation');
+  held.clear(); tick(3);
+
+  assert(layer.request(asker.id, 0).ok);
+  tick(155, false); tick(3);
+  assert(!layer.people.some((p) => p.social), 'failed arrivals time out and release both people');
+  assert(actors.every((a) => a.indoors), 'failed arrivals return to duties');
+
+  h = 12.2; tick(5);
+  assert(layer.people.some((p) => p.social), 'scheduled discussions also find a companion');
+  tick(65);
+  assert(asker.indoors, 'a completed scheduled discussion does not restart endlessly');
+  assert(!layer.people.some((p) => p.social));
+  h = 23; tick(3);
+  assert(layer.request(asker.id, 0).ok); tick(4);
+  assert(layer.request(asker.id).ok, 'Go inside interrupts a conversation'); tick(3);
+  assert(actors.every((a) => a.indoors), 'Go inside releases the companion too');
+  assert(layer.request(asker.id, 0).ok); tick(4);
+  d = '1904-07-02'; tick(3);
+  assert(!layer.people.some((p) => p.social), 'a date change cancels the old conversation');
+}
+console.log('paired household discussions: outdoor/indoor partners, arrivals, return, timeouts and interruptions hold');

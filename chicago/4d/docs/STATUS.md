@@ -1,3 +1,23 @@
+## T-3536 — compact interactions and paired household conversations (2026-11-10)
+
+Household actions open under Interact, with short labels and decorative icons. The
+seasonal activity description remains on the action tooltip. R opens or closes the
+menu, Escape closes it, and number shortcuts work while it is open. Single-action
+objects retain their direct controls.
+
+A requested or scheduled 1904 discussion reserves two available household members,
+preferring someone outside and otherwise bringing a companion out through a door.
+Speech starts only after both arrive nearby; they face one another and alternate
+turns for a minute, then resume their current duties. A completed scheduled chat
+returns indoors until the next period. Failed arrivals, changed dates/hours, Go
+inside, greetings and jaunt takeover release the pair. Chores have working poses
+and short clear movements; the coachman's watch remains stationary.
+
+Focused day-engine, household-interaction and multi-era routine tests pass. All
+four local check partitions pass (323, 323, 323 and 322 checks). Published
+phone/desktop verification and PR checks are pending; no merge or release pass
+is claimed here yet.
+
 ## T-2795 — 1904 figures follow the visible pavement (2026-11-10)
 
 The preceding coachman and safe errand/tour handoff increment is merged into DEV
