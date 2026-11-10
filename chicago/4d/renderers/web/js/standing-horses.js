@@ -4,6 +4,7 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { clone as cloneSkinned } from 'three/addons/utils/SkeletonUtils.js';
 import { disposeLoadedAsset } from './scene-loader.js';
+import { loadHorseRecipe, applyHorseAppearance } from './horse-appearance.js';
 import { createPlantedStandingHorseIdle, validatePlantedStandingHeader } from './standing-horse-planted-idle.js';
 import { standingHorseCard as card } from './standing-horse-card.js';
 import { createQuietHeadNeckStandingContract, QUIET_MODE } from './standing-horse-quiet-head-neck-idle.js';
@@ -79,14 +80,14 @@ function inspectStanding(root, spec) {
 }
 
 /** Play only the explicit planted-standing26 clip; old head/tail clips are not composed. */
-function instantiate(asset, spec, row, confidence, groundHeight) {
+function instantiate(asset, spec, row, confidence, groundHeight, coatRecipe, sceneId) {
   const root = cloneSkinned(asset.scene);
   const clonedGeometry = new Set(), clonedMaterials = new Set(), shadowMaterials = new Set();
-  let idle = null;
+  let idle = null, appearance = null;
   const placement = new THREE.Group(), support = new THREE.Group();
   const metric = new THREE.Group(), origin = new THREE.Group();
   const retireClone = () => {
-    placement.removeFromParent(); idle?.dispose(); disposeSkeletons(root);
+    placement.removeFromParent(); appearance?.dispose(); idle?.dispose(); disposeSkeletons(root);
     for (const geometry of clonedGeometry) geometry.dispose();
     for (const material of clonedMaterials) material.dispose();
     for (const material of shadowMaterials) material.dispose();
@@ -111,6 +112,8 @@ function instantiate(asset, spec, row, confidence, groundHeight) {
       }
       node.frustumCulled = false; node.castShadow = false; node.receiveShadow = true;
     });
+    appearance = applyHorseAppearance(root, { recipe: coatRecipe, sourceSha: spec.runtime_asset.sha256,
+      scene: sceneId, row: row.id, individual: 'single', confidence, ownedMaterials: clonedMaterials });
     placement.name = row.id; placement.userData.standingHorseId = row.id;
     placement.rotation.y = yawOf(row.bearing_deg);
     placement.position.set(row.at_local_enu_m[0], 0, -row.at_local_enu_m[1]);
@@ -168,7 +171,7 @@ function instantiate(asset, spec, row, confidence, groundHeight) {
     }
     return { group: placement, root, asset, row, idle, idleWasActive: false, card: card(row, spec), dispose: retireClone,
       receipt: { asset_sha256: spec.runtime_asset.sha256, source_qualification_mode: spec.runtime_asset.source_qualification_mode ?? 'anatomy_r3',
-        material_variant: row.material_variant, root_y_m: base,
+        material_variant: row.material_variant, ...(appearance.identity ? { appearance: appearance.identity } : {}), root_y_m: base,
         support_quaternion_xyzw: q, minimum_gap_by_hoof_m: gaps,
         equal_10mm_slab_minimum_gaps_m: slabGaps, mixer_count: idle ? 1 : 0,
         autoplay: Boolean(idle), original_six_autoplay: false, idle_clip: idle?.status.clip ?? null } };
@@ -284,7 +287,10 @@ export async function createStandingHorses({ dataBase = null, sceneId, confidenc
         asset = await new GLTFLoader().parseAsync(bytes, new URL('.', file).href);
         const canonicalReceipt = inspectStanding(asset.scene, spec);
         if (mine !== revision || disposed || tier === 'light') return;
-        const candidate = instantiate(asset, spec, row, confidence, groundHeight);
+        const coatRecipe = manifest.horse_appearance
+          ? await loadHorseRecipe(dataBase, manifest.horse_appearance.recipe_file) : null;
+        if (mine !== revision || disposed || tier === 'light') return;
+        const candidate = instantiate(asset, spec, row, confidence, groundHeight, coatRecipe, sceneId);
         candidate.receipt.canonical = canonicalReceipt;
         active = candidate; asset = null; group.add(active.group);
         if (lastCamera) out.update(lastCamera);

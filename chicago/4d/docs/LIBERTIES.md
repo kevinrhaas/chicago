@@ -43072,3 +43072,25 @@ no plan, phase date, paint or placement is moved to erase them.
 
 **Ticket:** T-2383.
 **Recorded:** 2026-11-10.
+
+
+### L-horse-individual-coats-2795 — individual coats and markings (1812, 1835, 1904)
+
+**Decision:** The owner requested visibly different horses across eras. Bay, chestnut, iron-grey
+and dark-bay palettes, individual blazes, sock heights and subdued dappling are
+reconstructed choices. Team members share a palette and have distinct stable
+markings; they do not identify historical Chicago animals, breeds or ownership.
+The engine-neutral recipe and its generated source contract carry these choices.
+
+The existing sevketkabatas *Horse* geometry and photographic fur maps retain their
+CC BY 4.0 attribution and unchanged bytes. Shader painting retains fur luminance detail,
+leaves the source eye material alone and protects chosen muzzle, lower-foot and pale-feather regions; chestnut individuals may also
+have a chestnut mane/tail. It creates no new captured historical texture or anatomy.
+This proposal does not establish photographic quality, qualified continuous hoof
+contact, natural standing/tail motion or all-era visual acceptance. Those remain
+subject to actual native and ordinary-world desktop/phone image review in T-2795.
+
+**Sources:** `sevketkabatas_2021_horse_model` supplies the existing CC BY 4.0 model and maps only. Individual coats and markings are owner-requested reconstruction.
+**How to resolve:** Historical pictures could identify particular animals; actual native and ordinary-world desktop/phone image reviews must qualify the current surface appearance.
+**Ticket:** T-2795.
+**Recorded:** 2026-11-10.

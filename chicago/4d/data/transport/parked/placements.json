@@ -257,6 +257,7 @@
         "note": "Reconstructed parked individual using the 1893 catalogue design reference. The catalogue establishes the maker/type before 1904; neither this particular vehicle, its owner, a household connection nor this curbside stop is documented. A matched pair and their stationary activity are reconstructed when the near carriage team is shown. Closed doors, no occupant, boarding, traffic or driving; no coachman or passenger fit is claimed.",
         "stationary_team": {
           "schema": "chicago4d_parked_draft_team_v1",
+          "horse_appearance": {"recipe_file": "transport/horse-coats.json", "scene": "1904", "grade": "reconstructed", "liberty": "L-horse-individual-coats-2795"},
           "driver_present": false,
           "reins_mode": "unheld",
           "pole_node": "vehicle_team_pole",

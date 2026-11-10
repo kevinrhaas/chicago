@@ -1,5 +1,6 @@
 {
   "schema": "standing_horse_placements_v1",
+  "horse_appearance": {"recipe_file": "transport/horse-coats.json", "grade": "reconstructed", "liberty": "L-horse-individual-coats-2795"},
   "status": "Quiet head/neck idle selected for local integration after exact finite129 qualification; actual unheld yard, phone, app and photographic acceptance pending.",
   "models": {
     "sevket_horse_standing_development_01": {

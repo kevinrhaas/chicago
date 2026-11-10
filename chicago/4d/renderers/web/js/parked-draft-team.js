@@ -6,6 +6,7 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { clone as cloneSkinned } from 'three/addons/utils/SkeletonUtils.js';
 import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
 import { acquireDraftHorse } from './draft-horse-assets.js';
+import { loadHorseRecipe, applyHorseAppearance } from './horse-appearance.js';
 import { createDraftHitchFactory } from './draft-hitch.js';
 import { certifiedHorseSupportDomain, fitHorseSupport } from './transport-support.js';
 
@@ -73,6 +74,7 @@ export async function createParkedDraftTeam({ row, frame, vehicle, midVehicle = 
     if (disposed) return;
     disposed = true; hitch?.dispose(); midLift?.restore();
     for (const horse of horses) {
+      horse.appearance?.dispose();
       horse.mixer.stopAllAction(); horse.mixer.uncacheRoot(horse.root);
       const skeletons = new Set(); horse.root.traverse(n => { if (n.isSkinnedMesh) skeletons.add(n.skeleton); });
       for (const skeleton of skeletons) skeleton.dispose();
@@ -96,6 +98,8 @@ export async function createParkedDraftTeam({ row, frame, vehicle, midVehicle = 
     if (!neutral.toArray().every(Number.isFinite) || Math.abs(neutral.length() - 1) > 1e-7) throw Error('parked team: finite neutral stance required');
     lease = await acquireDraftHorse({ url: url(horseSpec.file), sha256: horseSpec.sha256,
       materialVariant: horseSpec.material_variant, loader });
+    const coatRecipe = spec.horse_appearance
+      ? await loadHorseRecipe(dataBase, spec.horse_appearance.recipe_file) : null;
     const clip = lease.asset.animations.find(a => a.name === horseSpec.idle_clip);
     if (!clip || certificate.quiet_frames !== 129) throw Error('parked team: actual certified quiet clip missing');
     root.position.fromArray(spec.horse_offset_m); frame.add(root);
@@ -105,14 +109,16 @@ export async function createParkedDraftTeam({ row, frame, vehicle, midVehicle = 
       horse.traverse(node => {
         if (!node.isMesh) return;
         node.frustumCulled = false; node.receiveShadow = true;
-        if (horseSpec.material_variant === 'organic_dielectric_v1') node.material.metalness = 0;
         if (!node.geometry.getAttribute('_confidence')) node.geometry.setAttribute('_confidence',
           new THREE.Float32BufferAttribute(new Float32Array(node.geometry.attributes.position.count).fill(1), 1));
         confidence?.patch?.(node.material);
       });
       const mixer = new THREE.AnimationMixer(horse); mixer.clipAction(clip).play();
       mixer.setTime(spec.idle_phase_fractions[side === -1 ? 0 : 1] * clip.duration);
-      const entry = { root: horse, mixer, support: null }; horses.push(entry);
+      const entry = { root: horse, mixer, support: null, appearance: null }; horses.push(entry);
+      entry.appearance = applyHorseAppearance(horse, { recipe: coatRecipe,
+        sourceSha: horseSpec.sha256, scene: spec.horse_appearance?.scene, row: row.id,
+        individual: side === 1 ? 'left' : 'right', confidence });
       updateFrame();
       const at = horse.getWorldPosition(new THREE.Vector3());
       const support = fitHorseSupport({ e: at.x, n: -at.z, yaw: frame.rotation.y, heightAt, ...domain });
@@ -179,7 +185,7 @@ export async function createParkedDraftTeam({ row, frame, vehicle, midVehicle = 
         if (!fit?.valid) throw Error('parked team: pole no longer meets the actual collar yoke');
         midLift?.setPitch(fit.pole_pitch_rad);
         last = { ...fit, horse_sha256: horseSpec.sha256, idle_clip: clip.name,
-          supports: horses.map(h => h.support), source_vehicle_unchanged: true,
+          supports: horses.map(h => h.support), ...(coatRecipe ? { appearances: horses.map(h => h.appearance.identity) } : {}), source_vehicle_unchanged: true,
           boarding: false, coachman_fit: false, full_surface_contact_acceptance: 'UNRUN' };
         return last;
       },

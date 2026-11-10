@@ -7,6 +7,13 @@
     "not_a_writer": "gated with --check and declares no write mode; recorded so the audit stops reporting it"
   },
   "tools": {
+    "derive_horse_coats.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-11-10",
+      "finding": "Reproduces: in a separate six-file Git index fixture, two bare writes advanced the generated contract mtime and retained its SHA256; deliberately corrupting the output was repaired to the same baseline. Every tracked fixture byte equalled its own index after each run. No application index or HEAD commit was used. SUP120, original resource pairs and descendant cleanup passed. See docs/measurements/horse-coats-writer-2026-11-10.json.",
+      "placed": "Only horse-coats.json is derived; the recipe, two SHA-bound portable sources and bound foot reference are separate inputs with no existing manifest owner. The explicit step precedes liberties/source-use export. Focused actual-write proof is measured; full-manifest rederive --prove remains unrun."
+    },
     "generate_glessner_finish.py": {
       "placement": "pending",
       "write_mode": "(bare)",

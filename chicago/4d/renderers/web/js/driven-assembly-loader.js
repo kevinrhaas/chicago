@@ -12,10 +12,11 @@ import { createDriverLife } from './driver-life.js';
 import { clothHuman } from './fabric.js';
 import { loadLivery, dressInLivery } from './driver-livery.js';
 import { acquireDraftHorse } from './draft-horse-assets.js';
+import { applyHorseAppearance } from './horse-appearance.js';
 
 /** Actual portable assets, never an identity/wardrobe or idle-only fallback. */
 export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], humanAssets,
-  confidence, heightAt, horseSpec, horseSupportDomain, makeHitch, adoptPerson = () => () => {},
+  confidence, heightAt, horseSpec, horseSupportDomain, coatRecipe = null, makeHitch, adoptPerson = () => () => {},
   moduleBase = new URL('../', import.meta.url), driverLod = 0, createWalker = null }) {
   if (!humanAssets || typeof makeHitch !== 'function') throw Error('driven assembly: portable humans and actual visible hitch loader required');
   const horseSpecCopy = { ...horseSpec };
@@ -70,21 +71,29 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
   // The two-horse team, its distance-driven walk and its support on the ground (T-2803).
   const makeTeam = (row, template, walk) => {
     const group = new THREE.Group(); group.name = `team:${row.id}`;
-    const horses = [-1, 1].map(side => {
-      const root = cloneSkinned(template.scene);
-      root.traverse(node => {
-        if (!node.isMesh) return;
-        node.frustumCulled = false;
-        if (horseSpecCopy.material_variant === 'organic_dielectric_v1') node.material.metalness = 0;
-      });
+    const horses = [];
+    const retireHorse = horse => {
+      horse.appearance?.dispose();
+      horse.mixer?.stopAllAction(); horse.mixer?.uncacheRoot(horse.root);
+      const skeletons = new Set(); horse.root.traverse(node => { if (node.isSkinnedMesh) skeletons.add(node.skeleton); });
+      for (const skeleton of skeletons) skeleton.dispose();
+      horse.root.removeFromParent();
+    };
+    try { for (const side of [-1, 1]) {
+      const root = cloneSkinned(template.scene), horse = { root };
+      horses.push(horse); // Error cleanup owns this skeleton before decoration.
+      root.traverse(node => { if (node.isMesh) node.frustumCulled = false; });
+      horse.appearance = applyHorseAppearance(root, { recipe: coatRecipe,
+        sourceSha: horseSpecCopy.sha256, scene: sceneId, row: row.id,
+        individual: side === 1 ? 'left' : 'right', confidence });
       root.position.set(side * row.team_half_spacing_m, 0, 0);
       group.add(root);
-      const mixer = new THREE.AnimationMixer(root);
+      const mixer = horse.mixer = new THREE.AnimationMixer(root);
       const action = mixer.clipAction(walk).setLoop(THREE.LoopRepeat, Infinity).play();
       action.paused = true; mixer.setTime(0);
       const savedHorse = row.initial_assembly_state?.horse?.[side === -1 ? 0 : 1];
-      return { root, mixer, action, distance: savedHorse?.distance_m ?? 0, prior: null, x: root.position.x };
-    });
+      Object.assign(horse, { action, distance: savedHorse?.distance_m ?? 0, prior: null, x: root.position.x });
+    } } catch (error) { for (const horse of horses) retireHorse(horse); throw error; }
     let teamDisposed = false;
     return {
       root: group, horses,
@@ -113,16 +122,11 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
         }
       },
       stop() {}, // Distance-driven mixers freeze at the existing phase, never snap to idle.
-      snapshot() { return horses.map(horse => ({ distance_m: horse.distance, support: horse.support })); },
+      snapshot() { return horses.map(horse => ({ distance_m: horse.distance, support: horse.support, ...(horse.appearance.identity ? { appearance: horse.appearance.identity } : {}) })); },
       dispose() {
         if (teamDisposed) return;
         teamDisposed = true;
-        for (const horse of horses) {
-          horse.mixer.stopAllAction(); horse.mixer.uncacheRoot(horse.root);
-          const skeletons = new Set(); horse.root.traverse(node => { if (node.isSkinnedMesh) skeletons.add(node.skeleton); });
-          for (const skeleton of skeletons) skeleton.dispose();
-          horse.root.removeFromParent();
-        }
+        for (const horse of horses) retireHorse(horse);
         releaseHorse(template);
       },
     };
