@@ -11,6 +11,10 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { applyHorseAppearance, horseIdentity, prepareHorseTemplate,
   validateHorseRecipe } from '../renderers/web/js/horse-appearance.js';
+// This driver is always read-only; --check explicitly selects the same complete
+// source/ownership controls for the gate's check-mode contract.
+assert(process.argv.length === 2 || (process.argv.length === 3 && process.argv[2] === '--check'),
+  'usage: node tools/test_horse_appearance.mjs [--check]');
 const root = new URL('../', import.meta.url);
 const read = file => fs.readFileSync(new URL(file, root));
 const json = file => JSON.parse(read(file));

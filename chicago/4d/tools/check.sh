@@ -8714,7 +8714,7 @@ step "The unoccupied Glessner carriage team preserves actual delivery geometry, 
 step "The horse coat contract rederives from its authored recipe and immutable source arrays (T-2795)" \
   python3 tools/derive_horse_coats.py --check
 step "Individual horse coats use stable source-bound identities and own only their material clones (T-2795)" \
-  node tools/test_horse_appearance.mjs
+  node tools/test_horse_appearance.mjs --check
 
 check_summary
 exit $CHECK_FAILED
