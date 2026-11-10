@@ -154,11 +154,8 @@ const standBy = enu(face + at.d + 1.2, at.s + 0.4);
 visitor = { e: standBy.e, n: standBy.n };
 const key = createInteractKey({ interactions: ix, keyEl, moreEl, doc, keys,
   where: () => ({ ...visitor, bearing: (outward + 180) % 360, flying: false }), say: (t) => said.push(t) });
-ok(key.refresh() === thing && keyEl.textContent === 'Greet', 'beside him the key offers Greet');
-ok(key.choices.join() === 'greet,go_home,stroll:court,stroll:arch' && !moreEl.hidden && moreEl.children.length === 3
-  && moreEl.children[0].children[0].textContent === 'Go inside' && moreEl.children[0].children[1].textContent === '2'
-  && moreEl.children[1].children[0].textContent === 'Show me the courtyard' && moreEl.children[2].children[1].textContent === '4',
-  'and Go inside on a second key, numbered 2, and his walks on 3 and 4');
+ok(key.refresh() === thing && keyEl.textContent === 'Interact' && moreEl.hidden, 'person actions start collapsed');
+ok(key.choices.join() === 'greet,go_home,stroll:court,stroll:arch', 'all actions remain available');
 ok(HOUSE_STROLLS[plan.id].every((x) => anchorAt(x.anchor)), 'every walk goes to a stand the scene has');
 let prevented = 0;
 const press = (code) => keyListeners.keydown({ code, target: null, preventDefault: () => { prevented += 1; } });
@@ -167,7 +164,16 @@ ok(prevented === 0 && !thing.running, 'a number nothing answers to is left alone
 
 // ---------------------------------------------------------------- Greet
 press('KeyR');
-ok(thing.running?.action.id === 'greet' && john.greeted === 1 && john.attended?.s === 6, 'R greets him: he looks at the visitor and touches his brim');
+ok(!moreEl.hidden && moreEl.children.length === 4 && !thing.running, 'R opens the complete menu without greeting');
+ok(moreEl.children[1].children.find((c) => c.className === 'ik-what').textContent === 'Go inside', 'short Go inside label');
+press('Escape');
+ok(moreEl.hidden, 'Escape collapses the menu');
+press('Digit1');
+ok(!thing.running, 'hidden menu shortcuts do not trigger actions');
+press('KeyR');
+press('Digit1');
+ok(moreEl.hidden, 'choosing an action collapses the menu');
+ok(thing.running?.action.id === 'greet' && john.greeted === 1 && john.attended?.s === 6, 'Greet greets him: he looks at the visitor and touches his brim');
 const toVisitor = (Math.atan2(visitor.e - john.e, visitor.n - john.n) * 180 / Math.PI + 360) % 360;
 for (let i = 0; i < 90; i++) { ix.update(1 / 60); john.walk(1 / 60); }
 ok(Math.abs(((john.heading - toVisitor + 540) % 360) - 180) < 1, `and turns to them (${john.heading.toFixed(1)} vs ${toVisitor.toFixed(1)})`);
@@ -187,6 +193,7 @@ function run(seconds, onFrame = null) {
   return trail;
 }
 const start = toPlan(john.e, john.n);
+press('KeyR');
 press('Digit2');
 ok(thing.running?.action.id === 'go_home', '2 sends him home');
 const trail = run(30);

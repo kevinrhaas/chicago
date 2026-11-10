@@ -9,6 +9,16 @@ const brick = batches.find((b) => b.key.startsWith('brick:'));
 assert.ok(brick && brick.mapped);
 assert.equal(structureBatchContract([...batches, ...Array(6).fill(brick)]), false);
 assert.equal(structureBatchContract(batches.filter((b) => b !== brick)), false);
+// T-3341's two new source-bound reliefs each remain one mapped group, and may
+// not hide in the opaque group or substitute for an existing roof/wall panel.
+for (const key of ['masonry:brick', 'masonry:clay']) {
+  const masonry = batches.find(b => b.key === key);
+  assert.ok(masonry?.mapped);
+  assert.equal(structureBatchContract(batches.filter(b => b !== masonry)), false);
+  assert.equal(structureBatchContract([...batches, masonry]), false);
+  assert.equal(structureBatchContract(batches.map(b => b === masonry ? { ...b, key: 'opaque' } : b)), false);
+  assert.equal(structureBatchContract(batches.map(b => b === masonry ? { ...b, mapped: false } : b)), false);
+}
 for (const invalid of [batches.slice(1), [...batches, batches[0]],
   batches.map((b, i) => i === 0 ? { ...b, key: batches[1].key } : b),
   batches.map((b) => b.mapped ? { ...b, mapped: false } : b),
