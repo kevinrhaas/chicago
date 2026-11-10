@@ -39,6 +39,10 @@ from pathlib import Path
 
 import bpy
 
+# Blender --python does not guarantee this directory is on sys.path.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from human_cloth_microtexture import selected_woven_tangents
+
 
 def verified_rigid_frames(rig, meshes):
     """Verify the actual canonical authoring state, never infer it from a GLB."""
@@ -119,7 +123,7 @@ def main(out_dir: Path) -> int:
             export_apply=False,
             export_texcoords=True,
             export_normals=True,
-            export_tangents=False,
+            export_tangents=selected_woven_tangents(asset_id, lod, meshes),
             export_materials="EXPORT",
             export_image_format="AUTO",
             export_skins=True,

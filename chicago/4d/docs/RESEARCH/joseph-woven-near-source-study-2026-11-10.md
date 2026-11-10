@@ -24,3 +24,9 @@ Native qualification must require these exact far MASTER/WEB SHA256 values from 
 - `web/dufresne_joseph_1835.lod3.glb`: `fadb5b3cc3ec37eb095eb5957bfdd8c1e6f007a9390e8baa39d192a5f58e6146`
 
 After ROOT's final review only: existing `chicago-4d-humans.yml` on this dedicated measurement branch, `build_teamsters=true`; seated/dress/render flags false, `source_ref=''`, `library_source_run=''`. No dispatch is performed by preparing this branch. Any later library-still or native HumanActor/world qualification requires its own reviewed source-bound execution. No budget/sample/quality bar is changed.
+
+## Missing-tangent failure and scoped correction
+
+Official native run42815699269 at source834fcbcee9de46de3270e28c786ed5fae57ae6c6 failed the unchanged hierarchy warning guard: Joseph rootLOD0 had four MESH_PRIMITIVE_GENERATED_TANGENT_SPACE warnings, and the parented control had those same four beyond its eleven expected hierarchy warnings. The24 container validations had zero errors; the browser measurement step was skipped. This run remains NONPASS. No private job log is included here.
+
+The shared exporter now requests actual tangent export only when selected Joseph LOD0/1 materials carry the explicit portable marker and a linked tangent-space Normal Map image. Root and parented controls already use the same human_export.py; parenting/rigid-frame policy does not determine this flag. Other identities, unmarked materials and far LODs retain export_tangents=False. No validator warning whitelist, threshold or assertion changes are made. Native emission of the expected TANGENT accessors and exact far four-file hashes must be confirmed by a new reviewed native run; cheap source controls do not establish that result. Near tangent vertex storage is additional to the earlier texture-only arithmetic and still needs actual measurement.

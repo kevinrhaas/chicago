@@ -36,6 +36,51 @@ def requested_near(variant, explicit=False):
     return enabled
 
 
+def woven_tangent_required(asset_id, lod, bindings):
+    """Pure export decision for selected, marked Joseph near normal maps."""
+    if asset_id != JOSEPH or type(lod) is not int or lod not in (0, 1):
+        return False
+    for binding in bindings:
+        marker = binding.get('marker') or {}
+        source = marker.get('source_material')
+        if (type(marker.get('version')) is int and marker['version'] == 1
+                and source in MATERIALS and marker.get('profile') == MATERIALS[source]
+                and marker.get('runtime_weave') == 'portable_maps_replace_common_fabric'
+                and binding.get('material') == source+'__woven_near'
+                and binding.get('normal_mapped') is True):
+            return True
+    return False
+
+
+def selected_woven_tangents(asset_id, lod, meshes):
+    """Read actual selected BPy links, identically for root/parented controls."""
+    if asset_id != JOSEPH or lod not in (0, 1):
+        return False
+    bindings = []
+    for mesh in meshes:
+        for material in mesh.data.materials:
+            if material is None:
+                continue
+            marker = material.get('chicago4d_cloth_microtexture')
+            marker = marker.to_dict() if hasattr(marker, 'to_dict') else marker
+            if not marker:
+                continue
+            mapped = False
+            if material.use_nodes and material.node_tree:
+                for bsdf in material.node_tree.nodes:
+                    if bsdf.type != 'BSDF_PRINCIPLED':
+                        continue
+                    for link in bsdf.inputs['Normal'].links:
+                        normal = link.from_node
+                        if normal.type == 'NORMAL_MAP' and normal.space == 'TANGENT':
+                            mapped |= any(color.from_node.type == 'TEX_IMAGE'
+                                          and color.from_node.image is not None
+                                          for color in normal.inputs['Color'].links)
+            bindings.append({'material': material.name, 'marker': marker,
+                             'normal_mapped': bool(mapped)})
+    return woven_tangent_required(asset_id, lod, bindings)
+
+
 def relief(kind, u, v):
     """Periodic physical height field; linen interlaces, wool has diagonal wales."""
     if kind == 'linen':

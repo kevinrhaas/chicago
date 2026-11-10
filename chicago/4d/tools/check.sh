@@ -8725,5 +8725,8 @@ step "Scoped teamster measurements retain every unmodified native fixture row an
 step "Portable Joseph textile pixels preserve finite metric normals and bounded near-only memory (T-1789)" \
   python3 tools/test_human_cloth_microtexture.py
 
+step "Only explicitly normal-mapped Joseph near exports request tangent data in both worker paths (T-1789)" \
+  python3 tools/test_human_cloth_tangents.py
+
 check_summary
 exit $CHECK_FAILED
