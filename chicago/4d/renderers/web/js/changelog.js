@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2862, ts: '2026-11-10T07:40:44.846Z', date: 'Nov 10, 2026, 1:40 AM CT', title: 'Individual coats for the town\'s horses', kind: 'feature',
+    items: [
+      'Town horses use bay, chestnut and grey coats, with stable individual blazes, socks and subtle dappling. Team members can match while keeping different markings.',
+      'These colors and markings are reconstructed choices. They do not identify documented Chicago animals.',
+    ] },
   { v: 2861, ts: '2026-11-10T07:08:47.635Z', date: 'Nov 10, 2026, 1:08 AM CT', title: 'Unblock the next residents’ clothing build', kind: 'fix',
     items: [
       'Nothing you can see changes yet. This unblocks the build needed to refine existing residents’ clothing; their appearance remains under review.',
