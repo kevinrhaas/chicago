@@ -1684,6 +1684,7 @@ ADULT_TOP_UP = {
 }
 
 
+
 def committed_top_up(block_key: str = "top_up") -> list | None:
     """The top-up room as committed, or None before a build has recorded one."""
     if not LEDGER.exists():
@@ -2118,7 +2119,22 @@ def fill() -> tuple:
     allocation, basis = capacity_allocation_model(live)
     cards, ledger = _fill_from_allocation(allocation)
     publish_capacity_truth(cards, ledger, live, basis)
+    annotate_live_room(ledger)
     return cards, ledger
+
+
+def annotate_live_room(ledger: dict) -> None:
+    """Keep the carried allocation's residue beside its current authorization."""
+    current = live_lodging_remainder(ledger)
+    adult_residue = ledger["quota_basis"]["top_up"]["what_is_left"]
+    adult_residue["current_book_adults_still_ordered"] = (
+        current["live_adults_still_ordered_by_division"])
+    adult_residue["note"] = (
+        "ordered_with_no_bed is the carried allocation room's historical residue, "
+        f"not current debt ({sum(adult_residue['ordered_with_no_bed'].values())} "
+        "unspent frozen slots). A later re-cut may have removed their order; "
+        "current_book_adults_still_ordered states the live adult order without "
+        "re-dealing anyone already seated.")
 
 
 def _fill_from_allocation(model: dict) -> tuple:
@@ -2403,6 +2419,7 @@ def _fill_from_allocation(model: dict) -> tuple:
         + Counter(youth_fills), live_room, arrivals, pool,
         taken_names, taken_ids, household_fills, refusals)
 
+
     ledger = {
         "$schema_note": "DERIVED. Written by tools/seat_lodgers_1835.py --build; "
                         "re-derived by --check in tools/check.sh. Do not hand-edit.",
@@ -2663,6 +2680,52 @@ def ordinary_bed_accounting(houses: list) -> dict:
     }
 
 
+def live_lodging_remainder(ledger: dict) -> dict:
+    """Current order, carried room and this stage's beds are different bounds.
+
+    Re-cutting the book cannot move a frozen person. Equally, a frozen, unspent
+    seven-person room cannot be described as seven people the live book still
+    orders. The live order decomposes into the re-family arrivals and this stage's
+    own draws; reading that decomposition is stable before and after write_fills.
+    """
+    drawn = Counter()
+    for key in ("fills", "child_fills", "top_up_fills", "youth_top_up_fills",
+                "working_fills", "remainder_fills"):
+        drawn.update(ledger.get(key) or {})
+    arrivals = book_refamily_arrivals()
+    rows = []
+    for (division, sex, band, axis), (key, ordered) in sorted(book_lodging_room().items()):
+        remaining = max(0, ordered - arrivals.get(key, 0) - drawn[key])
+        if remaining:
+            rows.append({"bucket": key, "division": division, "sex": sex,
+                         "age_band": band, "trade": axis, "persons": remaining,
+                         "requires_keeper_kin": band == "under_10"})
+    adult = Counter()
+    for row in rows:
+        if row["age_band"] in TOP_UP_BANDS:
+            adult[row["division"]] += row["persons"]
+    physical = Counter()
+    for house in ledger["houses"]:
+        if house["division"] in DIVISIONS:
+            physical[house["division"]] += max(
+                0, house["beds_ordinary"] - house["occupancy_after"])
+    frozen_adult = ledger["quota_basis"]["top_up"]["what_is_left"]["ordered_with_no_bed"]
+    return {
+        "ticket": "T-2023",
+        "note": "The current book less re-family arrivals and all current stage draws. "
+                "Frozen top-up buckets remain unchanged; their residue is not live debt. "
+                "Stage vacancies do not include the separate housing overlay and do not "
+                "themselves authorize a new person.",
+        "persons_still_ordered": rows,
+        "persons_still_ordered_total": sum(row["persons"] for row in rows),
+        "live_adults_still_ordered_by_division": {d: adult[d] for d in DIVISIONS},
+        "frozen_adults_not_still_ordered_by_division": {
+            d: max(0, frozen_adult.get(d, 0) - adult[d]) for d in DIVISIONS},
+        "lodging_stage_empty_beds_by_division": {d: physical[d] for d in DIVISIONS},
+        "allocation_authorized_empty_beds": allocation_authorization_left(ledger),
+    }
+
+
 def the_two_counts_reconciled(ledger: dict) -> dict:
     """HOUSES AGAINST BEDS, which is the reconciliation T-1534's acceptance asked for
     before either half of its order could be minted, and T-1537 is the ticket that made it.
@@ -2757,6 +2820,7 @@ def measurement(cards: dict, ledger: dict) -> dict:
         "occupied_after_this_stage": after,
         **ordinary_bed_accounting(houses),
         "allocation_authorized_empty_beds": allocation_authorization_left(ledger),
+        "live_remainder": live_lodging_remainder(ledger),
         "houses_at_their_ordinary_night_figure":
             sum(1 for h in houses if h["at_its_ordinary_night_figure"]),
         "houses_over_their_crowded_ceiling":
@@ -2775,11 +2839,11 @@ def measurement(cards: dict, ledger: dict) -> dict:
             for card in cards.values() for p in card["persons"]
             if p["relationship"] in ("son", "daughter")),
         "people_ordered_into_lodging_still_owed": (
-            "The book orders 544 people into lodging households. This piece spends "
-            f"{minted - children} of them into beds and {children} more as the keepers' "
-            "own children; the rest wait on the 37 unbuilt boarding houses, the crews and "
-            "the works gang (T-1372), and the children of houses this stage does not "
-            "keep."),
+            f"This piece spends {minted - children} people into beds and {children} "
+            "more as the keepers' own children. The current book still orders "
+            f"{live_lodging_remainder(ledger)['persons_still_ordered_total']} people; "
+            "the exact cells and their keeper-kin requirement are in live_remainder. "
+            "A frozen room's unspent residue is not a new order."),
     }
 
 
@@ -2844,6 +2908,11 @@ def build() -> int:
     ledger["measurement"] = measurement(cards, ledger)
     LEDGER.write_text(dumps(ledger), encoding="utf-8")
     write_fills(ledger)
+    # The book's re-cut reads this stage's newly filed rows. Refresh only the
+    # live report after that re-cut, so one build is already a fixed point.
+    annotate_live_room(ledger)
+    ledger["measurement"] = measurement(cards, ledger)
+    LEDGER.write_text(dumps(ledger), encoding="utf-8")
     print("  wrote %s" % LEDGER.relative_to(ROOT))
     print("  %d seat(s) from the layer, %d person(s) minted into %d house(s); "
           "%d card(s) written, %d retired"
@@ -2883,6 +2952,7 @@ def refuse(cards: dict, ledger: dict) -> None:
     both.update({k: int(v) for k, v in (ledger.get("top_up_fills") or {}).items()})
     both.update({k: int(v) for k, v in (ledger.get("youth_top_up_fills") or {}).items()})
     both.update({k: int(v) for k, v in (ledger.get("working_fills") or {}).items()})
+    both.update({k: int(v) for k, v in (ledger.get("remainder_fills") or {}).items()})
     refuse_a_recut_under_the_draw(dict(both), live)
     refuse_a_household_fill_outside_the_order(
         {tuple(k.split("/")[1:]): int(v) for k, v in

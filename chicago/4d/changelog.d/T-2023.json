@@ -1,0 +1,8 @@
+{
+  "title": "Lodging reports distinguish old allocations from current needs",
+  "kind": "fix",
+  "items": [
+    "The lodging report now separates an old frozen allocation from people the current model still needs, so seven retired West adult slots no longer read as seven people awaiting beds.",
+    "Staffing orders require the same civil division as the premises. A location that has not been placed cannot spend another division's allowance. Existing residents and their addresses stay unchanged."
+  ]
+}

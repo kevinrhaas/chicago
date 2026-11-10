@@ -959,7 +959,13 @@
      "south": 16,
      "north": 20,
      "west": 0
-    }
+    },
+    "current_book_adults_still_ordered": {
+     "south": 0,
+     "north": 0,
+     "west": 0
+    },
+    "note": "ordered_with_no_bed is the carried allocation room's historical residue, not current debt (7 unspent frozen slots). A later re-cut may have removed their order; current_book_adults_still_ordered states the live adult order without re-dealing anyone already seated."
    }
   },
   "youth_top_up": {
@@ -4988,6 +4994,74 @@
   "occupants_above_ordinary_night_figure": 5,
   "ordinary_night_net_balance": 32,
   "allocation_authorized_empty_beds": 32,
+  "live_remainder": {
+   "ticket": "T-2023",
+   "note": "The current book less re-family arrivals and all current stage draws. Frozen top-up buckets remain unchanged; their residue is not live debt. Stage vacancies do not include the separate housing overlay and do not themselves authorize a new person.",
+   "persons_still_ordered": [
+    {
+     "bucket": "persons/female/under_10/north/lodging/none",
+     "division": "north",
+     "sex": "female",
+     "age_band": "under_10",
+     "trade": "none",
+     "persons": 1,
+     "requires_keeper_kin": true
+    },
+    {
+     "bucket": "persons/female/under_10/south/lodging/none",
+     "division": "south",
+     "sex": "female",
+     "age_band": "under_10",
+     "trade": "none",
+     "persons": 4,
+     "requires_keeper_kin": true
+    },
+    {
+     "bucket": "persons/male/10_19/south/lodging/none",
+     "division": "south",
+     "sex": "male",
+     "age_band": "10_19",
+     "trade": "none",
+     "persons": 3,
+     "requires_keeper_kin": false
+    },
+    {
+     "bucket": "persons/female/under_10/west/lodging/none",
+     "division": "west",
+     "sex": "female",
+     "age_band": "under_10",
+     "trade": "none",
+     "persons": 4,
+     "requires_keeper_kin": true
+    },
+    {
+     "bucket": "persons/male/10_19/west/lodging/none",
+     "division": "west",
+     "sex": "male",
+     "age_band": "10_19",
+     "trade": "none",
+     "persons": 1,
+     "requires_keeper_kin": false
+    }
+   ],
+   "persons_still_ordered_total": 13,
+   "live_adults_still_ordered_by_division": {
+    "south": 0,
+    "north": 0,
+    "west": 0
+   },
+   "frozen_adults_not_still_ordered_by_division": {
+    "south": 0,
+    "north": 0,
+    "west": 7
+   },
+   "lodging_stage_empty_beds_by_division": {
+    "south": 18,
+    "north": 19,
+    "west": 0
+   },
+   "allocation_authorized_empty_beds": 32
+  },
   "houses_at_their_ordinary_night_figure": 21,
   "houses_over_their_crowded_ceiling": 0,
   "nobody_is_seated_twice": true,
@@ -5047,6 +5121,6 @@
   "child_buckets_filled": 5,
   "working_lodgers_minted": 3,
   "every_child_is_kin_of_a_named_keeper": true,
-  "people_ordered_into_lodging_still_owed": "The book orders 544 people into lodging households. This piece spends 131 of them into beds and 26 more as the keepers' own children; the rest wait on the 37 unbuilt boarding houses, the crews and the works gang (T-1372), and the children of houses this stage does not keep."
+  "people_ordered_into_lodging_still_owed": "This piece spends 131 people into beds and 26 more as the keepers' own children. The current book still orders 13 people; the exact cells and their keeper-kin requirement are in live_remainder. A frozen room's unspent residue is not a new order."
  }
 }
