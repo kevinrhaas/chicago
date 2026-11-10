@@ -205,6 +205,9 @@ def day_of(rec: dict, spans: list) -> list:
                     span["at"] = {"local_e": 1364, "local_n": -3234, "heading_deg": 210}
             if "garden" in span["doing"] or "flowers" in span["doing"]:
                 span["doing"] = {"winter": "check the sheltered court and dormant plants", "spring": "tend the spring garden", "summer": "tend and inspect the courtyard flowers", "autumn": "inspect the garden and clear fallen leaves"}[season]
+            # Chores have a working pose; the coachman's watch is a deliberate stationary post.
+            if span.get("activity") == "stand" and "charles_nelson" not in rec["id"]:
+                span["activity"] = "work"
         # A short shared break, surrounded by each worker's own duties.
         # Charles keeps his Eighteenth Street household break when his work post moves.
         shared = []

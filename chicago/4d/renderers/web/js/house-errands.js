@@ -58,13 +58,32 @@ export const HOUSEHOLD_DOORS = Object.freeze({
  */
 export const HOUSE_STROLLS = Object.freeze({
   'glessner_house:front': Object.freeze([
-    Object.freeze({ id: 'stroll:court', label: 'Show me the courtyard', anchor: 'glessner_tour_hall_bow' }),
-    Object.freeze({ id: 'stroll:arch', label: 'Walk round to the arch', anchor: 'glessner_tour_arch' }),
+    Object.freeze({ id: 'stroll:court', label: 'Show courtyard', icon: '⌂', anchor: 'glessner_tour_hall_bow' }),
+    Object.freeze({ id: 'stroll:arch', label: 'Visit arch', icon: '↗', anchor: 'glessner_tour_arch' }),
   ]),
 });
 
 /** Who goes in and out by the front door: the household's own, not its staff. */
 export const usesFrontDoor = (person) => !!person && person.relationship !== 'servant';
+
+/** Short controls; the complete seasonal description remains the action's detail. */
+export function activityOffer(activity) {
+  const text = activity.label ?? '';
+  let label = 'Outdoor duties', icon = '⚒';
+  if (activity.span?.activity === 'talk') { label = /provisions/.test(text) ? 'Discuss provisions' : 'Chat together'; icon = '💬'; }
+  else if (/garden|flowers|plants|leaves/.test(text)) { label = 'Tend garden'; icon = '❧'; }
+  else if (/house and grounds/.test(text)) { label = 'Inspect grounds'; icon = '⌂'; }
+  else if (/evening walk/.test(text)) { label = 'Take a walk'; icon = '↗'; }
+  else if (/walk the block/.test(text)) { label = 'Run an errand'; icon = '↗'; }
+  else if (/air and brush/.test(text)) label = 'Air household things';
+  else if (/keeping watch/.test(text)) label = 'Tend the team';
+  else if (/harness|carriage washed/.test(text)) label = 'Carriage care';
+  else if (/deliveries/.test(text)) label = 'Receive deliveries';
+  else if (/kitchen/.test(text)) label = 'Kitchen work';
+  else if (/steps swept/.test(text)) label = 'Sweep steps';
+  else if (/entry|service stair/.test(text)) label = 'Tend service entry';
+  return { label, icon, detail: text };
+}
 
 /** How near, on foot, the visitor must stand to a person for the Interact key to offer them. */
 export const PERSON_REACH_M = 2.5;
@@ -240,7 +259,7 @@ export function createHouseErrands({ days = null, humans, houseDoors, interactio
     const stopWalking = () => { if (walking) { walking = false; walkWith(actor, false); } };
 
     const strolls = (HOUSE_STROLLS[doorId] ?? []).map((s) => ({
-      id: s.id, label: s.label, to: 'out', said: '',
+      id: s.id, label: s.label, icon: s.icon, to: 'out', said: '',
       refuse: () => (anchorAt(s.anchor) && router ? null : 'No way there from here'),
       steps: [{ label: 'Walking', until: () => arrived, timeout: 240, run: (t) => {
         if (t === 1) { stopWalking(); return; }
@@ -272,14 +291,14 @@ export function createHouseErrands({ days = null, humans, houseDoors, interactio
       reach: PERSON_REACH_M,
       actions: {
         get out() { return hosted() ? [] : [
-          { id: 'greet', label: 'Greet', to: 'out', said: '',
+          { id: 'greet', label: 'Greet', icon: '👋', to: 'out', said: '',
             steps: [{ label: 'Greeting', seconds: GREET_S, run: (t) => {
               if (t === 0) { if (scheduled) days.pause(actor.id); greet(); }
               if (t >= 1) openCard(actor);
             } }] },
-          ...(scheduled ? [{ id: 'go_home', label: 'Go inside', said: '',
+          ...(scheduled ? [{ id: 'go_home', label: 'Go inside', icon: '⌂', said: '',
             refuse: () => days.request(actor.id).ok ? null : 'Not available just now',
-            steps: [] }] : [{ id: 'go_home', label: 'Go inside', to: 'home', said: () => `${name} has gone in`,
+            steps: [] }] : [{ id: 'go_home', label: 'Go inside', icon: '⌂', to: 'home', said: () => `${name} has gone in`,
             steps: [
               { label: 'Going inside', until: () => arrived, timeout: 180, run: (t) => {
                 if (t !== 0) return;
@@ -302,8 +321,8 @@ export function createHouseErrands({ days = null, humans, houseDoors, interactio
             ] },
           ]),
           ...(scheduled ? days.outdoorActivities(actor.id).map((a) => ({
-            id: `activity:${a.id}`, label: a.label, said: '',
-            refuse: () => days.request(actor.id, a.id).ok ? null : 'Not available just now', steps: [],
+            id: `activity:${a.id}`, ...activityOffer(a), said: '',
+            refuse: () => { const result = days.request(actor.id, a.id); return result.ok ? null : result.why; }, steps: [],
           })) : []),
           ...strolls,
         ]; },
