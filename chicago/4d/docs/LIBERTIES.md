@@ -43057,3 +43057,134 @@ no plan, phase date, paint or placement is moved to erase them.
 
 **Ticket:** T-2383.
 **Recorded:** 2026-11-10.
+
+
+### L-green-tree-upper-front-three-2376 — categorical missing upper sash
+
+**Decision:** The actual native9dd comparison has two main front-gable upper sash, while the
+verified public-domain Trowbridge/Gale1902 plate clearly draws three. The prior
+two-versus-three tolerance classification is withdrawn; a missing opening is a
+categorical discrepancy. `front_upper_layout` now chooses three upper stations
+only on Green Tree's +y face. Its fractions .20/.50/.78, alignment over the
+existing ground stations, stock .85x1.35 m sash, vertical band, trim and July1835
+continuity are RECONSTRUCTED, not measured from the retrospective plate.
+Andreas1884 and Kurz1893 are retained as related, potentially dependent form
+witnesses; their narrow left-edge/shoulder-junction detail did not safely establish
+a historical two-window row. No dated alteration is invented, no source grade or
+rights is promoted, and the held c1859 photograph supplies no geometry. Ground,
+rear, eaves, attic, completed left group, footprint and world placement remain
+unchanged. Current9dd views remain differs until the genuine corrected native
+and all three actual source comparisons have been reviewed.
+
+**Covers:** `green_tree_tavern.frame_1833.form.front_upper_layout`.
+
+**Sources:** `trowbridge_green_tree_1902`, `andreas_1884_green_tree_hotel_plate`, `kurz_allison_1893`.
+
+**How to resolve:** An independently identified contemporary elevation could replace the retrospective row and exact station/stock choices. Missing exact measurements do not block this bounded correction; genuine native output and all three actual comparisons must establish the corrected opening count before acceptance.
+
+**Ticket:** T-2376.
+**Recorded:** 2026-11-10.
+
+### L-second-fort-officers-outside-stair-2388 — explicit access to the upper piazza
+
+**Ticket:** T-2388. **Record:** `fort_dearborn_officers_quarters`, phase `log_1816`.
+**Sources:** `hubbard_autobiography_1911`, printed p.36, leaf74, committed text2353–2358;
+its contradictory1827 placement/identity passage and conditional continuity remain in
+this building's existing gallery note.
+
+**Decision:** Hubbard says the upper piazza was reached by outside stairs. One straight timber
+flight now continues from the right/south end of the already-built walk. Occurrence
+is carried conditionally from1818 to1July1835; side, exact location,3.6m run,1.0m clear
+width between rails (1.2m tread breadth),14risers to the existing2.4m storey line,
+70mm treads, two stringers,0.95m rails and their posts are reconstructed. The access
+opens only the corresponding end rail. The range's wall, all openings, gallery and
+cupola retain their prior dimensions. This explicitly supersedes the earlier refusal
+to model any stair because its location was unknown. It does not identify an unkeyed
+range in Kurz's1893 print, attest exact historic carpentry or backdate later fabric.
+
+
+**Covers:** `fort_dearborn_officers_quarters.log_1816.form.gallery_stair_side`.
+
+**How to resolve:** A detailed contemporary drawing or measured account identifying the same quarters could replace the chosen stair side, carpentry and metric controls. Hubbard supplies an early outside-stair occurrence, not exact July 1835 continuity or dimensions.
+
+**Recorded:** 2026-11-10.
+
+### L-second-fort-big-barn-cupola-2388 — bounded form for the named barn cupola
+
+**Ticket:** T-2388. **Record:** `fort_dearborn_big_barn`, phase `barn_1830`.
+**Sources:** `harrison_1830_river_mouth`, literal label “Big Barn with Cupola”.
+
+**Decision:** The label attests occurrence, carried under this record's existing1830–1835 continuity
+argument. One1.2m square boarded body is centred on the barn's existing gable ridge;
+its eave is1.0m above the ridge and its pyramid cap rises0.45m. A0.08m overlap below
+the main roof at its side edges closes the seat. Midpoint position, every dimension,
+plain boards, cap shape and absence of louvres/glazing/finial are reconstructed. No
+unidentified panorama range attests this cupola's appearance. This explicitly
+supersedes the earlier refusal to build the source-named feature because dimensions
+were unknown, while preserving the barn's body, footprint, roof, doors and placement.
+The descriptive `cupola` boolean remains record_only; new consumed shape/metric
+controls drive this one opt-in model and leave other legacy records unchanged.
+
+
+**Covers:** `fort_dearborn_big_barn.barn_1830.form.cupola_shape`, `fort_dearborn_big_barn.barn_1830.form.cupola_width_m`, `fort_dearborn_big_barn.barn_1830.form.cupola_body_height_m`, `fort_dearborn_big_barn.barn_1830.form.cupola_roof_rise_m`.
+
+**How to resolve:** A contemporaneous detailed view or measured description identifying the named barn could replace the square boarded body, midpoint seat, pyramid form and metric controls. The plan label supplies occurrence, while the chosen appearance remains reconstructed.
+
+**Recorded:** 2026-11-10.
+
+### L-second-fort-side-posterns-2388 — small additional openings at clear reconstructed seats
+
+**Ticket:** T-2388. **Record:** `fort_dearborn_palisade`, phase `picket_1816`.
+**Sources:** `kinzie_waubun_1856`, ch.XVII, paragraph beginning “The fort was inclosed
+by high pickets”, independently reread at the source's actual Authorama URL on
+10November2026. “Large gates opened to the north and south, and there were small
+posterns here and there for the accommodation of the inmates.”
+
+**Decision:** The small openings are additional to the two large gates, but exact number, sides,
+positions, width and construction are unrecorded. We choose the minimum plural,
+two: east localv41.0m and west localv11.5m, in the actual clear gaps between the
+ranges. Each is a1.5m narrow wicket, its one leaf hung at the stockade's existing
+height, shut initially and opening inward. Seats, count, width, tall leaf/head,
+paling detail, hinge side and swing are reconstructed; they are not marks read from
+a plan. The native record and app leaf/interaction/walking consumer share the same
+settings. The north/south3.6m main gates remain as before. This supersedes the
+prior omission solely because “here and there” supplied no exact location, without
+borrowing the first fort's separately attested west wicket.
+
+**Covers:** `fort_dearborn_palisade.picket_1816.form.gate_overrides`.
+
+**How to resolve:** An independently legible contemporary plan or description locating individual posterns could replace the chosen minimum-plural count and east/west seats, widths and leaf construction. The two larger north/south gates retain their independent evidence and dimensions.
+
+**Recorded:** 2026-11-10.
+
+### L-second-fort-commandants-front-gallery-2388 — named later form adopted as reconstructed continuity
+
+**Ticket:** T-2388. **Record:** `fort_dearborn_commandants_quarters`, phase `brick_1816`.
+**Sources:** `wentworth_1881_hesler_1855_quarters_cut`, actual contained illustration
+and printed p.93 key naming brick quarters A; `harrison_1830_river_mouth`;
+`hubbard_autobiography_1911` (1827 north brick range; separate1818officers’ piazza).
+
+**Decision:** The1855picture securely identifies this range and shows a front double gallery.
+We explicitly adopt its plain broad form for1July1835 at the reconstructed tier.
+The retained1816-range interpretation, Hubbard’s1827north brick building and the
+1830planned range support the existing identity and a reasonable continuity choice.
+Hubbard’s distinct early officers’ upper piazza makes such a form plausible at
+this post before1835; it does not attest this gallery or merge the two buildings.
+No exact construction/alteration date, unchanged-fabric finding or1835attestation
+is invented from the later picture.
+
+The existing gallery kit spans the unchanged15.24m front and reaches2.1m. Its upper
+walk stands at the existing2.7m storey line under an open lower post level, with
+0.14m posts/deck,0.95m rail, regular pales and a canopy meeting the existing eave.
+All dimensions, sections, support rhythm, plain finish and canopy shape are
+reconstructed. The existing15window/door rectangles are captured unchanged in the
+explicit-opening API so only the new supports move clear of casing and sill horns.
+The footprint, bearing188degrees, surveyed seat, walls, roof, chimneys and range
+identity remain as before. No wraparound connector, extra stairs or unidentified
+1850soldiers’ gallery is copied onto this range.
+
+**Covers:** `fort_dearborn_commandants_quarters.brick_1816.form.gallery`, `fort_dearborn_commandants_quarters.brick_1816.form.gallery_storeys`, `fort_dearborn_commandants_quarters.brick_1816.form.face_openings`.
+
+**How to resolve:** A dated contemporary plan, fabric account or view could establish the gallery's actual construction and whether it existed in July 1835. The securely keyed 1855 picture identifies its later broad form; the explicit July continuity, two levels, stock sections, metric controls and unchanged fifteen-opening layout remain reconstructed, without a fabricated alteration date or transfer from another range.
+
+**Recorded:** 2026-11-10.
