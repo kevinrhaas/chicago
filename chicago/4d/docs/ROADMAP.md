@@ -1,3 +1,17 @@
+## T-1789 — retain the full baseline while rebuilding three residents (2026-11-10)
+
+Remove duplicate native measurement work from the second teamster sweep: rebuild and
+measure the three existing resident references through the same source/WEB LOD and
+browser checks, while proving every retained baseline file is unchanged. Preserve
+all 248 original rows' provenance: eight scoped rows may be replaced, 240 stay exact,
+and the 16 new Joseph/Martin rows require actual passing native measurements.
+
+This is the build dependency for the corrected reusable workwear, not appearance
+acceptance. Keep the full fixture prerequisite, global file gate, native checks,
+viewports and timeouts. Run the scoped producer after ordinary CI is green, inspect
+the corrected coats, and preserve Otis's adopted seated/natural-idle clips during
+any eventual asset adoption. The existing T-1789 remains open; no new ticket is filed.
+
 ## Delivered human foundations and remaining work (2026-11-10)
 
 T-1786, T-1787 and T-1788 are done: the portable contract, four-LOD exporter and

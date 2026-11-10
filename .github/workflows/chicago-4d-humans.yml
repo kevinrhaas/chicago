@@ -443,11 +443,17 @@ jobs:
             /tmp/teamster-studies/hierarchy-controls/dufresne_joseph_1835/dufresne_joseph_1835.lod0.glb assets/humans/dufresne_joseph_1835.lod0.glb \
             /tmp/teamster-studies/hierarchy-controls/flynn_martin_1835/flynn_martin_1835.lod0.glb assets/humans/flynn_martin_1835.lod0.glb \
             | tee /tmp/teamster-studies/hierarchy-controls/validator-pointers.jsonl
-      - name: Measure all human exports and inspect the workwear studies
+      - name: Measure rebuilt teamsters, retain the unchanged human baseline, and inspect workwear
         working-directory: chicago/4d
         run: |
           set -euo pipefail
-          NODE_PATH="$(npm root -g)" node tools/human_fixture.mjs --write 2>&1 | tee /tmp/teamster-studies/human-fixture.log
+          # The prerequisite already ran the full native fixture. This second
+          # sweep measures every newly rebuilt output with the SAME checks;
+          # merging is refused if any other baseline GLB changed or disappeared.
+          NODE_PATH="$(npm root -g)" node tools/human_fixture.mjs --write \
+            --asset-ids bardwell_otis_1835,dufresne_joseph_1835,flynn_martin_1835 \
+            2>&1 | tee /tmp/teamster-studies/human-fixture.log
+          node tools/human_fixture.mjs --check
           bash tools/publish.sh
           node tools/test_human_inspection.mjs
           NODE_PATH="$(npm root -g)" node tools/human_teamster.mjs --published --sole-contact --output /tmp/teamster-studies/web \

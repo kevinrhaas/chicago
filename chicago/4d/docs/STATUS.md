@@ -1,3 +1,28 @@
+## T-1789 — scope the repeated teamster fixture sweep (2026-11-10)
+
+The teamster producer now selects exactly the rebuilt Otis Bardwell, Joseph Dufresne
+and Martin Flynn outputs for its second native fixture sweep. The first complete
+fixture prerequisite, both native browser viewports, the unchanged acceptance checks
+and timing samples, and the 30-minute producer limit remain. The current corpus has
+248 baseline files: Otis supplies eight existing rows, while Joseph and Martin add
+16. The repeat sweep measures all 24 source/WEB LOD files and preserves the other
+240 rows only when their passing verdicts and actual file hashes remain unchanged.
+A global check follows the merge; missing, extra, changed or mispaired files refuse it.
+The original full-corpus date remains, with a separately dated scope receipt.
+
+CI's check-mode audit identified quoted flag strings in the new helper and its
+test driver. The pure exported helper has no CLI or derived output, so its baseline
+reason records that distinction. The driver now explicitly accepts optional
+`--check` and runs the same complete assertion suite; the gate uses that mode.
+Unknown arguments are refused. Scanner rules and native assertions remain intact.
+
+This tooling unblocks the existing visible clothing refinement on T-1789. It changes
+no resident asset or adopted animation. Focused parser/inventory controls and the
+measured test isolation are the local validation scope; ordinary full CI, an actual
+scoped producer run, and visual review of the corrected coats remain pending. No
+cancelled or partial producer is treated as successful. Modular-library, photographic
+material/likeness and complete posed garment acceptance remain open on T-1789.
+
 ## Current portable-human foundations (2026-11-10)
 
 The portable-human contract (T-1786, PR #606), Blender exporter (T-1787, PR #644)

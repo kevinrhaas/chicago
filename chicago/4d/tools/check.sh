@@ -8716,5 +8716,8 @@ step "The horse coat contract rederives from its authored recipe and immutable s
 step "Individual horse coats use stable source-bound identities and own only their material clones (T-2795)" \
   node tools/test_horse_appearance.mjs --check
 
+step "Scoped teamster measurements retain every unmodified native fixture row and reject inventory drift (T-1789)" \
+  node tools/test_human_fixture_scope.mjs --check
+
 check_summary
 exit $CHECK_FAILED
