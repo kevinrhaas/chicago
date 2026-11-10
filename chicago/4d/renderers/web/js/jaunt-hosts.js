@@ -40,10 +40,19 @@ export const hostIds = (stop) => (Array.isArray(stop?.hosts) ? stop.hosts : []).
 export function createJauntHosts({ humans, days = null, router = null, visitor = () => null, eye = () => null } = {}) {
   /** person id -> { actor, mark, via: 'days'|'self', back, route, arrived, greeted } */
   const held = new Map();
+  // Released dayless figures keep their original place until a safe return succeeds.
+  const returning = new Map();
+  let wanted = new Map(), stand = null, readyCallback = null, skipped = new Set(), visitorArrived = false, clock = 0, retryAt = 0;
+  const waiting = () => [...wanted.keys()].filter((id) => !skipped.has(id) && !held.get(id)?.arrived);
+  function notifyReady() { if (!waiting().length) { const done = readyCallback; readyCallback = null; done?.(); } }
+
 
   function way(a, b) {
-    const route = router?.plan?.({ e: a.e, n: a.n }, { e: b.e, n: b.n }, { mode: 'walk' });
-    const pts = route?.points?.length ? route.points.map(([e, n]) => ({ e, n })) : [];
+    let route;
+    try { route = router?.plan?.({ e: a.e, n: a.n }, { e: b.e, n: b.n }, { mode: 'walk' }); } catch { return null; }
+    if (!Array.isArray(route?.points) || !route.points.length || !route.points.every((q) => Array.isArray(q) && q.length === 2 && q.every(Number.isFinite))) return null;
+    if (Math.hypot(route.points.at(-1)[0] - b.e, route.points.at(-1)[1] - b.n) > 0.05) return null;
+    const pts = route.points.map(([e, n]) => ({ e, n }));
     return [{ e: a.e, n: a.n }, ...pts.filter((p) => dist(p, a) > 0.05 && dist(p, b) > 0.05), { e: b.e, n: b.n }];
   }
 
@@ -58,68 +67,121 @@ export function createJauntHosts({ humans, days = null, router = null, visitor =
     a.actions?.greet?.();
   }
 
-  function take(host, stand) {
+  function take(host, stand, cut = false) {
     const mark = markOf(host);
     const actor = humans?.get?.(host.person);
-    if (!mark || !actor || actor.disposed) return null;
+    if (!mark || !actor || actor.disposed) { skipped.add(host.person); return null; }
     const heading = stand ? bearing(stand.e - mark.e, stand.n - mark.n) : null;
-    actor.jauntHost = true;   // humans.js: walking up to a host does not open their card over the stop
     const h = { actor, mark, heading, via: null, back: null, route: false, arrived: false, greeted: false, wantGreet: false };
-    const onArrive = () => { h.arrived = true; if (h.wantGreet) greet(h); };
-    if (days?.host?.(host.person, mark, { heading, onArrive })?.ok) {
+    const onArrive = () => { if (h.released) return; h.arrived = true; if (h.wantGreet) greet(h); notifyReady(); };
+    const day = days?.host?.(host.person, mark, { heading, onArrive, safeTravel: true, atCut: cut });
+    if (day?.ok) {
+      actor.jauntHost = true;
       h.via = 'days';
       return h;
     }
+    if (day && day.why !== 'no such person') { skipped.add(host.person); return null; } // absent is not a dayless figure
     // No day of their own: walk them there, and remember where they were.
     h.via = 'self';
-    h.back = { e: actor.e, n: actor.n, heading: actor.heading, indoors: !!actor.indoors };
-    h.route = actor.state === 'walking' && !actor.path && Array.isArray(actor.route);
+    const previous = returning.get(host.person);
+    h.back = previous?.back ?? { e: actor.e, n: actor.n, heading: actor.heading, indoors: !!actor.indoors };
+    h.route = previous?.route ?? (actor.state === 'walking' && !actor.path && Array.isArray(actor.route));
     if (actor.indoors) { actor.setIndoors?.(false); actor.e = mark.e; actor.n = mark.n; actor.standY = null; actor.place?.(); }
-    const pts = way({ e: actor.e, n: actor.n }, mark);
-    if (dist(pts[0], mark) < 0.05 || !actor.walkPath?.(pts, { endHeading: heading, onArrive })) {
+    const hidden = actor.root?.visible === false || cut; // cut is supplied only after the camera actually jumped
+    const close = dist(actor, mark) < 0.05;
+    const pts = hidden || close ? null : way({ e: actor.e, n: actor.n }, mark);
+    if (!hidden && !close && !pts) return null;
+    actor.jauntHost = true;
+    if (hidden || close) {
       actor.path = null; actor.e = mark.e; actor.n = mark.n;
       if (Number.isFinite(heading)) actor.heading = heading;
       actor.setState?.('standing'); actor.place?.();
       onArrive();
+    } else if (!actor.walkPath?.(pts, { endHeading: heading, onArrive })) {
+      actor.jauntHost = false; return null;
     }
+    if (previous) { previous.returning = false; returning.delete(host.person); }
     return h;
+  }
+
+  function returnHome(person, h) {
+    const a = h.actor, b = h.back;
+    if (!a || a.disposed) { returning.delete(person); return; }
+    if (h.movingBack && a.path) return;
+    h.movingBack = false;
+    const home = () => {
+      if (returning.get(person) !== h) return; // a later takeover owns this figure now
+      returning.delete(person);
+      h.returning = false;
+      if (b.indoors) { a.setIndoors?.(true); return; }
+      if (h.route) a.setState?.('walking');
+    };
+    const hidden = a.root?.visible === false;
+    const close = dist(a, b) < 0.05;
+    const pts = hidden || close ? null : way(a, b);
+    if (hidden || close) {
+      a.path = null; a.e = b.e; a.n = b.n; a.heading = b.heading;
+      a.setState?.('standing'); a.place?.(); home();
+    } else if (pts) {
+      h.movingBack = true;
+      if (!a.walkPath?.(pts, { endHeading: b.heading, onArrive: home })) h.movingBack = false;
+    }
+    // An unavailable/rejected route retains this return; update retries without teleporting.
   }
 
   function give(person, h) {
     held.delete(person);
+    h.released = true;
     const a = h.actor;
     if (!a || a.disposed) return;
     a.jauntHost = false;
     if (h.via === 'days') { days?.unhost?.(person); return; }
-    const b = h.back;
-    const home = () => {
-      if (b.indoors) { a.setIndoors?.(true); return; }
-      if (h.route) a.setState?.('walking');
-    };
-    const pts = way({ e: a.e, n: a.n }, b);
-    if (dist(pts[0], b) < 0.05 || !a.walkPath?.(pts, { endHeading: b.heading, onArrive: home })) {
-      a.path = null; a.e = b.e; a.n = b.n; a.heading = b.heading; a.setState?.('standing'); a.place?.(); home();
+    h.returning = true; h.movingBack = false;
+    returning.set(person, h);
+    returnHome(person, h);
+  }
+
+  function takeWanted(cut = false) {
+    for (const [person, host] of wanted) {
+      if (held.has(person) || skipped.has(person)) continue;
+      const h = take(host, stand, cut);
+      if (h) { h.wantGreet = visitorArrived; held.set(person, h); if (h.arrived && h.wantGreet) greet(h); }
     }
+    notifyReady();
   }
 
   const api = {
     get active() { return [...held.keys()]; },
-    sync(hosts = [], { stand = null, arrived = false } = {}) {
-      const wanted = new Map();
+    get waiting() { return waiting(); },
+    get returning() { return [...returning.keys()]; },
+    sync(hosts = [], { stand: target = null, arrived = false, retain = [], cut = false, onReady = null } = {}) {
+      const retained = new Set(retain);
+      wanted = new Map(); stand = target; skipped = new Set(); readyCallback = onReady; visitorArrived = arrived;
       for (const host of Array.isArray(hosts) ? hosts : []) if (markOf(host)) wanted.set(host.person, host);
       for (const [person, h] of [...held]) {
         const w = wanted.get(person);
-        if (!w || dist(markOf(w), h.mark) > 0.05) give(person, h);
+        if ((!w && !retained.has(person)) || (w && (dist(markOf(w), h.mark) > 0.05 || (cut && !h.arrived)))) give(person, h);
       }
-      for (const [person, host] of wanted) {
-        if (held.has(person)) continue;
-        const h = take(host, stand);
-        if (h) held.set(person, h);
+      takeWanted(cut);
+      for (const [person, h] of held) {
+        h.wantGreet = arrived && wanted.has(person);
+        if (h.wantGreet && h.arrived) greet(h);
       }
-      if (arrived) for (const h of held.values()) { h.wantGreet = true; if (h.arrived) greet(h); }
+      notifyReady();
       return api.active;
     },
-    release() { for (const [person, h] of [...held]) give(person, h); },
+    update(dt) {
+      if (!(dt > 0) || !Number.isFinite(dt)) return;
+      clock += dt;
+      if (clock < retryAt) return;
+      retryAt = clock + 0.5;
+      for (const [person, h] of returning) returnHome(person, h);
+      takeWanted();
+    },
+    release() {
+      wanted.clear(); skipped.clear(); readyCallback = null;
+      for (const [person, h] of [...held]) give(person, h);
+    },
   };
   return api;
 }

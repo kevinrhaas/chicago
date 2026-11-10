@@ -575,12 +575,13 @@ export function createDayRouter({ router, clear, buildWhenBlocked = false }) {
  * @param {() => {e:number, n:number} | null} [o.visitor]   where the visitor stands, on foot
  * @param {() => object | null} [o.eye]         the camera's world position (a Vector3)
  * @param {object} [o.router]                   route.js's planner ({ plan(from, to, {mode}) })
+ * @param {object} [o.hostRouter]               real planner for visible jaunt takeovers/returns
  * @param {string[]} [o.problems]
  * @param {(a: {e:number, n:number}, b: {e:number, n:number}) => boolean} [o.clear]  T-3505: whether a
  *                                              job's way from a to b is clear (clearWayOf)
  */
 export function createHumanDays({ humans, three = null, hour = () => null, date = () => null, doors = null,
-  interactions = null, visitor = () => null, eye = () => null, router = null, problems = [],
+  interactions = null, visitor = () => null, eye = () => null, router = null, hostRouter = null, problems = [],
   inside = null, spawn = null, despawn = null, clear = () => true, held = () => false, passages = null } = {}) {
   const Vec = three?.Vector3;
   let people = [];
@@ -624,7 +625,28 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
   function go(p, to, heading, done, { from = null } = {}) {
     const a = p.actor;
     const start = from ?? { e: a.e, n: a.n };
-    if (!near(start.e, start.n) && !near(to.e, to.n) || typeof a.walkPath !== 'function' || dist(start, to) < 0.05) {
+    const safe = !!p.safeHostTravel;
+    const hidden = a.root?.visible === false || p.cutHandoff; // explicit camera cut, never an inferred visibility change
+    p.cutHandoff = false; // the cut grants one handoff only, never a later return
+    if (safe && dist(start, to) >= 0.05 && !hidden) {
+      let route;
+      try { route = (hostRouter ?? router)?.plan?.(start, to, { mode: 'walk' }); } catch { /* retry below */ }
+      const pts = Array.isArray(route?.points) && route.points.every((q) => Array.isArray(q) && q.length === 2 && q.every(Number.isFinite)) ? route.points : null;
+      if (!pts?.length || Math.hypot(pts.at(-1)[0] - to.e, pts.at(-1)[1] - to.n) > 0.05 || typeof a.walkPath !== 'function') {
+        a.path = null; a.setState?.('standing');
+        p.pendingHostMove = { to, heading, done, from, token: p.token, retry: clock + 0.5 };
+        return; // no chord, visible teleport, or false arrival when the planner is unavailable
+      }
+      p.pendingHostMove = null;
+      const token = (p.token = (p.token ?? 0) + 1);
+      const points = [{ e: start.e, n: start.n }, ...pts.map(([e, n]) => ({ e, n })), { e: to.e, n: to.n }]
+        .filter((q, i, all) => !i || dist(q, all[i - 1]) > 0.05);
+      const ok = a.walkPath(points, { endHeading: Number.isFinite(heading) ? heading : null,
+        onArrive: () => { if (p.token === token) done?.(); } });
+      if (!ok) p.pendingHostMove = { to, heading, done, from, token, retry: clock + 0.5 };
+      return;
+    }
+    if ((safe && hidden) || (!safe && !near(start.e, start.n) && !near(to.e, to.n)) || typeof a.walkPath !== 'function' || dist(start, to) < 0.05) {
       a.path = null;
       a.e = to.e; a.n = to.n;
       if (Number.isFinite(heading)) a.heading = heading;
@@ -827,11 +849,11 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
   function goIn(p, structure) {
     const a = p.actor;
     p.inside = structure;
-    if (a.indoors) { p.mode = 'in'; return; }
+    if (a.indoors) { p.mode = 'in'; if (!p.hosted) p.safeHostTravel = false; return; }
     const door = doorNear(structure, a.e, a.n);
-    if (!door || !near(a.e, a.n)) { a.path = null; a.setIndoors?.(true); p.mode = 'in'; return; }
+    if (!door || (!p.safeHostTravel && !near(a.e, a.n))) { a.path = null; a.setIndoors?.(true); p.mode = 'in'; if (!p.hosted) p.safeHostTravel = false; return; }
     p.mode = 'going_in';
-    enterBy(p, door, () => { a.setIndoors?.(true); p.mode = 'in'; });
+    enterBy(p, door, () => { a.setIndoors?.(true); p.mode = 'in'; if (!p.hosted) p.safeHostTravel = false; });
   }
 
   function comeOut(p, span) {
@@ -858,6 +880,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
   function startActivity(p, span) {
     const a = p.actor;
     const act = span.activity ?? 'stand';
+    if (!p.hosted) p.safeHostTravel = false; // returned to the everyday post
     p.job = null;
     a.setState?.(act === 'talk' ? 'talking' : act === 'work' ? 'working' : 'standing');
     if (act === 'work') {
@@ -1242,6 +1265,11 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
           continue;
         }
         if (p.absent) { p.absent = false; if (p.soldier) a.setIndoors?.(false); }
+        if (p.pendingHostMove) {
+          const move = p.pendingHostMove;
+          if (move.token !== p.token) p.pendingHostMove = null;
+          else if (clock >= move.retry) { p.pendingHostMove = null; go(p, move.to, move.heading, move.done, { from: move.from }); }
+        }
         if (p.hosted) continue;   // T-3525: a jaunt's host, at their mark until let go
         // T-3524: on a passage's stair or in its doorway, they finish it before anything else.
         if (p.passing) { if (clock - p.passing.since > PASSAGE.stuck_s) offWay(p); continue; }
@@ -1292,14 +1320,19 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
      * `mark` ({ e, n }), out of the house by its door nearest the mark if they are in, and
      * stand there turned to `heading`; `onArrive` once they stand. { ok, why }. They stay
      * until `unhost`, which gives them back to the hour's place (in by a door, or out to it).
+     * `safeTravel` requires real routes whenever visible, including handback; `atCut` is
+     * granted only after an actual synchronous camera cut, before its first destination frame.
      */
-    host(personOrInstance, mark, { heading = null, onArrive = null } = {}) {
+    host(personOrInstance, mark, { heading = null, onArrive = null, safeTravel = false, atCut = false } = {}) {
       const p = people.find((x) => x.actor.personId === personOrInstance || x.id === personOrInstance);
       if (!p || p.entry) return { ok: false, why: 'no such person' };
       if (p.absent) return { ok: false, why: 'not here on this date' };
       if (p.called) p.called = null;
       const a = p.actor, to = { e: mark.e, n: mark.n };
       p.hosted = { mark: to, heading };
+      p.safeHostTravel = safeTravel;
+      p.cutHandoff = atCut && !a.indoors;
+      p.pendingHostMove = null;
       p.job = null; p.round = null; p.phase = null; p.cur = null;
       p.token = (p.token ?? 0) + 1;
       talk(a, false);
@@ -1330,6 +1363,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
       const p = people.find((x) => x.actor.personId === personOrInstance || x.id === personOrInstance);
       if (!p?.hosted) return false;
       p.hosted = null;
+      p.pendingHostMove = null;
       p.token = (p.token ?? 0) + 1;
       offWay(p);
       p.span = null;            // the next frame enters the hour's span from where they stand

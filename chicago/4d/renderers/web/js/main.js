@@ -3895,6 +3895,9 @@ async function boot() {
       // Routine chores on clear ground do not warm the large route grid. A 1904
       // trip around the house does use it when the direct line crosses a wall.
       router: createDayRouter({ router: () => api.router, clear: dayClear, buildWhenBlocked: String(YEAR) === '1904' }),
+      // A visible jaunt host must take a real route, including the return to their day.
+      // Hidden handoffs do not build the grid; this lazily warms it only for a visible leg.
+      hostRouter: { plan: (...args) => api.router?.plan(...args) ?? null },
       clear: dayClear,
       // T-3524: Glessner's court and side doors open as people pass, up and down their stairs.
       passages: api.houseDoors ?? null,
@@ -5348,16 +5351,17 @@ async function boot() {
         },
         // T-3525: the people who tell a stop come to their marks, turned to its stand.
         hosts: {
-          sync: (stop, { arrived }) => {
+          sync: (stop, { arrived, retain = [], cut = false, onReady = null }) => {
             if (!api.humans) return;
             api.jauntHosts ??= createJauntHosts({ humans: api.humans, days: api.days ?? null,
-              router: { plan: (...args) => (api.router?.built ? api.router.plan(...args) : null) },
+              router: { plan: (...args) => api.router?.plan(...args) ?? null },
               visitor: () => ({ e: walker.state.e, n: walker.state.n }),
               eye: () => camera.getWorldPosition(new THREE.Vector3()) });
             const target = stop ? resolveJaunt(stop.destination) : null;
             const stand = target ? travel.destinationOf(target, { mode: 'walk', card: false }) : null;
-            api.jauntHosts.sync(stop?.hosts ?? [], { stand: stand && Number.isFinite(stand.e) ? stand : null, arrived });
+            api.jauntHosts.sync(stop?.hosts ?? [], { stand: stand && Number.isFinite(stand.e) ? stand : null, arrived, retain, cut, onReady });
             gateFrame.invalidate();
+            return { waiting: api.jauntHosts.waiting.length > 0 };
           },
           release: () => { api.jauntHosts?.release(); gateFrame.invalidate(); },
         },
@@ -6257,6 +6261,7 @@ async function boot() {
       gateFrame.invalidate?.();
     }
     api.days?.update(frameDt);
+    api.jauntHosts?.update(frameDt);
     // T-3524: the doors people hold open swing toward open, or shut behind them.
     api.houseDoors?.update?.(frameDt);
     // T-3504: and then nobody stands in anybody else (human-spacing.js).

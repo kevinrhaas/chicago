@@ -253,6 +253,10 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
       }
       if (state.phase === 'paused') body.append(button('Resume ride', actions.resumeRide));
       if (state.error) body.append(button('Try this stop again', actions.retry));
+    } else if (state.hostWaiting) {
+      const waiting = node('p', 'Your guide is approaching. You can wait here, continue to the next stop, or leave the jaunt.', 'jaunt-meta');
+      waiting.setAttribute('role', 'status'); waiting.setAttribute('aria-live', 'polite');
+      body.append(waiting);
     } else {
       const historicalClaims = stop.narrative ? stop.evidence.filter(id => state.jaunt.evidence.find(c => c.id === id)?.confidence !== 'reconstructed') : stop.evidence;
       prose(body, stop.text, historicalClaims, historicalClaims?.every(id => state.jaunt.evidence.find(c => c.id === id)?.confidence === 'reconstructed'), [], stop.since);

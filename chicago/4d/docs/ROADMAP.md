@@ -1,3 +1,13 @@
+## T-2795 — bring the existing coachman beside his waiting team (2026-11-10)
+
+Place Charles Nelson on the Prairie Avenue parkway beside the existing Glessner
+carriage team, retaining the clear walking strip, carriage stand and household
+seasonal routines. Preserve his original short break and stable-door tour mark;
+use real visible routes, honest approaching-guide status and safe handback.
+Require current-source street/phone/tour review and complete green hosted checks
+before DEV merge. Continue boarding, coachman conversation, passengers and ride
+controls on the existing tickets; this increment does not close their acceptance.
+
 ## T-2795 — deliver the existing transport refinements reliably (2026-11-10)
 
 Keep the merged horse team, clothing and coat increments credited. Add native
