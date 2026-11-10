@@ -24,6 +24,14 @@ The first insufficient safe subset correctly failed that guard and rolled back.
 Current-head complete hosted gates remain the merge bar; focused checks are not
 a substitute for them. No render budget, source asset or assertion is relaxed.
 
+The actual DEV-9d archive also exposed a separate omitted runtime input: the shared
+horse-coat recipe was absent although all three horse owners request it. publish.sh
+now copies that contract explicitly. The real publication checker rejects absence
+and drift; the existing appearance test executes the actual transport copy block
+and checker in a fresh fixture, including missing and corrupt recipe controls.
+The authored recipe remains source-only. This closes a publication gap rather than
+claiming that the earlier archive already carried the color variation.
+
 The explicit browser fixture needs a real KTX2 sheet, configured Chromium and
 historical commit `6f2ebb8107815a47dda0e3e7f4416665ad70d57d` for its original
 classic-worker control. Shallow clones must fetch that commit before running
