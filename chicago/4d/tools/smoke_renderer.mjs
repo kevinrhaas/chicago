@@ -2659,12 +2659,14 @@ for (const [label, viewport, touch] of [
       const got = await fp.waitForFunction(() => {
         const a = window.__chicago4d;
         return a?.device && a.bootDetail ? { cls: a.device.cls, forced: a.device.forced,
-          detail: a.bootDetail, sharp: a.device.choice.sharpness,
+          detail: a.bootDetail, sharp: a.device.choice.sharpness, lowMem: a.lowMemory,
           stored: localStorage.getItem('chicago4d.device') } : null;
       }, null, { polling: 250, timeout: 60_000 }).then((h) => h.jsonValue());
       await fctx.close();
-      check(`${label}: ?device=${cls} boots '${detail}' at sharpness ${sharp}, uncached (T-2559)`,
+      check(`${label}: ?device=${cls} boots '${detail}' at sharpness ${sharp}, uncached (T-2559)`
+        + `${touch || cls === 'weak' ? ', on the memory diet (T-3537)' : ''}`,
         got.cls === cls && got.forced === cls && got.detail === detail && got.sharp === sharp
+          && got.lowMem === (touch || cls === 'weak')
           && got.stored === null && ferrors.length === 0,
         `${JSON.stringify({ ...got, stored: got.stored ? 'cached!' : null })}${ferrors.length ? ` errors: ${ferrors.join('; ')}` : ''}`);
     }

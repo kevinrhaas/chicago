@@ -1,7 +1,7 @@
 /**
  * WHAT A YEAR KEEPS RESIDENT, LAYER BY LAYER, AND WHO IS HOLDING IT (T-2546).
  *
- *   node tools/measure_memory.mjs [--year 1812,1835,1904] [--only desktop|mobile|both]
+ *   node tools/measure_memory.mjs [--year 1812,1835,1904] [--only desktop|mobile|shared|both|a,b]
  *        [--no-snapshot] [--keep-geometry] [--ktx2-off] [--json out.json]
  *   node tools/measure_memory.mjs --from reading.json
  *   node tools/measure_memory.mjs --gate [--year …] [--only …] [--json out.json]
@@ -172,7 +172,16 @@ const VIEWPORTS = [
   // The owner's phone: touch, coarse pointer, an iPhone's pixel ratio; the renderer
   // picks its own boot tier and Sharpness (Low on a phone) as it does there.
   { id: 'mobile', label: 'phone 390x780 dpr3', width: 390, height: 780, dsf: 3, mobile: true, tier: null },
-].filter((v) => (SELF_TEST ? v.mobile : ONLY === 'both' || (ONLY === 'mobile' ? v.mobile : !v.mobile)));
+  // T-3537: a desktop on integrated graphics (Intel UHD / Iris, AMD Radeon Graphics), whose
+  // GPU memory IS the system's: the owner's test PC (i5-10400, UHD 630, 12 GB) crashed
+  // 1904 at Full. `?device=weak` is the class device-profile.js gives such a GPU, so the
+  // page boots its own choice there, as that PC does: Balanced detail at Sharpness Low
+  // with the phone's release-after-upload memory diet, at a 1080p monitor's size. Read only when asked
+  // for (`--only shared`, or a list such as `desktop,shared`).
+  { id: 'shared', label: 'integrated-GPU desktop 1920x1080 ?device=weak', width: 1920, height: 1080, dsf: 1,
+    mobile: false, tier: null, query: 'device=weak' },
+].filter((v) => (SELF_TEST ? v.mobile
+  : ONLY === 'both' ? v.id === 'desktop' || v.id === 'mobile' : ONLY.split(',').includes(v.id)));
 
 // ---------------------------------------------------------------- printing
 
@@ -649,7 +658,7 @@ for (const year of YEARS) {
     const page = await ctx.newPage();
     const errors = [];
     page.on('pageerror', (e) => errors.push(String(e)));
-    const qs = [KEEP_GEOMETRY && 'keep-geometry=1', KTX2_OFF && 'ktx2=0',
+    const qs = [vp.query, KEEP_GEOMETRY && 'keep-geometry=1', KTX2_OFF && 'ktx2=0',
       RESIDENCY_OFF && 'residency=0', argAt('--budget-mib') && `residency-budget=${argAt('--budget-mib')}`]
       .filter(Boolean);
     const q = qs.length ? `?${qs.join('&')}` : '';

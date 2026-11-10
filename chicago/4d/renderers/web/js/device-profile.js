@@ -75,6 +75,42 @@ export function isSoftwareRenderer(renderer) {
   return SOFTWARE.test(String(renderer || ''));
 }
 
+/**
+ * T-3537: AN INTEGRATED GPU HAS NO MEMORY OF ITS OWN. The owner's test PC (Dell
+ * Inspiron 3880: i5-10400, Intel UHD Graphics 630, 12 GB) passed the benchmark as
+ * `standard`, so the meter read it in the 70s and 1904 booted Full, and Chrome's tab
+ * died ("Aw, Snap") on dev and prod. Its GPU is fast enough; what it lacks is memory:
+ * the "128 MB" Windows reports is a carve-out, and every texture and vertex buffer
+ * comes out of the same system RAM the tab's own arrays live in, so a desktop at Full
+ * pays for each heavy layer twice from one pool (1904 Full read 1.17 GB here before
+ * the driver's own copies). The benchmark cannot see that, and Chromium's
+ * `deviceMemory` stops at 8, so the renderer string is the signal.
+ *
+ * Named here: Intel's UHD / HD / Iris graphics and the Arc graphics built into its
+ * Core Ultra chips (a discrete Arc card names its model, A770 or B580, and is left
+ * out); AMD's APUs ("Radeon(TM) Graphics", "Vega 8", "780M"); Qualcomm Adreno and
+ * Arm Mali on Windows-on-Arm laptops and Chromebooks. Apple silicon is left out on
+ * purpose: its memory is shared too, but a Mac is the machine the desktop budgets
+ * were read on, and the owner's own Mac boots 1904 Full without a crash.
+ */
+const SHARED_GPU = [
+  /\bintel\b[^,]*\b(?:u?hd|iris)\b/i,
+  /\bintel\b[^,]*\barc(?:\(tm\))? graphics/i,
+  /\bintel\b[^,]*\b(?:gma|graphics media accelerator)\b/i,
+  /\bradeon(?:\(tm\))?(?: r[2-7])? graphics\b/i,
+  /\bradeon(?:\(tm\))? vega \d+(?: mobile)? graphics\b/i,
+  /\bradeon(?:\(tm\))? (?:\d{3}m|vega)\b/i,
+  /\badreno\b/i,
+  /\bmali\b/i,
+];
+
+/** True when the renderer string names an integrated GPU that shares the system's memory. */
+export function sharesSystemMemory(renderer) {
+  const r = String(renderer || '');
+  if (!r || isSoftwareRenderer(r) || /\bapple\b/i.test(r)) return false;
+  return SHARED_GPU.some((re) => re.test(r));
+}
+
 /** `?device=weak|standard|strong` — HARNESS ONLY: forces the class, never cached. */
 export function forcedClass(search) {
   try {
@@ -87,7 +123,7 @@ export function forcedClass(search) {
  * The class from what was read and measured. Pure, so it is tested in node.
  * Returns { cls, why }.
  */
-export function classify(signals, bench, { forced = null, stepDown = 0 } = {}) {
+export function classify(signals, bench, { forced = null, stepDown = 0, touch = false } = {}) {
   let cls;
   let why;
   if (forced) {
@@ -101,6 +137,10 @@ export function classify(signals, bench, { forced = null, stepDown = 0 } = {}) {
     cls = 'weak';
     why = `few resources (${signals.cores ?? '?'} cores, ${signals.memoryGB ?? '?'} GB, `
       + `${signals.maxTexture ?? '?'} px textures)`;
+  } else if (!touch && sharesSystemMemory(signals.renderer)) {
+    // T-3537: a phone keeps Light whatever its class, so only a computer is moved.
+    cls = 'weak';
+    why = `integrated graphics sharing the system's memory (${shortGpu(signals.renderer)})`;
   } else if (!bench || !Number.isFinite(bench.fill) || !Number.isFinite(bench.verts)) {
     cls = 'standard'; why = 'the benchmark gave no reading';
   } else if (bench.fill < THRESHOLDS.fill.weak || bench.verts < THRESHOLDS.verts.weak) {
@@ -122,14 +162,30 @@ export function classify(signals, bench, { forced = null, stepDown = 0 } = {}) {
 
 function fmt(n) { return Number.isFinite(n) ? n.toFixed(2) : '?'; }
 
+/** "ANGLE (Intel, Intel(R) UHD Graphics 630 (0x00009BC8) Direct3D11 …)" → "Intel(R) UHD Graphics 630". */
+export function shortGpu(renderer) {
+  let s = String(renderer || '');
+  const angle = s.match(/^ANGLE \((.*)\)$/);
+  if (angle) { const parts = angle[1].split(', '); s = parts[1] || parts[0]; }
+  s = s.replace(/^ANGLE Metal Renderer:\s*/, '').replace(/\s*\(0x[0-9a-f]+\)/gi, '')
+    .replace(/\s+Direct3D.*$/i, '').replace(/\/PCIe\/SSE2/i, '').trim();
+  return s || 'GPU not reported';
+}
+
 /**
  * What a class chooses, on a touch device or not. Pure.
  *
  * A phone or tablet keeps `light` detail at every class: the owner's phone
  * memory crashes (T-2546) are about geometry held, and until that meter reads
  * what `balanced` costs on a phone a stronger phone earns Sharpness, not
- * geometry. A weak desktop steps to `balanced` at Low; a strong one is drawn
- * at High.
+ * geometry. A weak desktop boots `balanced` at Low, and since T-3537 with the
+ * phone's memory diet: `balanced` alone still held 1904's every page array beside
+ * the GPU's copy (1,009 MB), and a weak computer is mostly one on integrated
+ * graphics, whose GPU copy comes out of the same RAM. Not `light`: the owner,
+ * 2026-11-10, "I didn't want to lose people at lower computer settings ... or
+ * horses or carriages or wagons" — `light` draws no horse or vehicle at all, and
+ * its people only to 60 m. Blurrier is the price instead: Sharpness Low and the
+ * light texture tier. A strong desktop is drawn at High.
  */
 export function decide(cls, { touch = false, cores = null, webgpu = false } = {}) {
   const c = DEVICE_CLASSES.includes(cls) ? cls : 'standard';
@@ -140,7 +196,11 @@ export function decide(cls, { touch = false, cores = null, webgpu = false } = {}
   const textures = touch || c === 'weak' ? 'light' : 'full';
   const n = Number.isFinite(cores) && cores > 0 ? cores : 4;
   const workers = c === 'weak' ? 1 : Math.max(1, Math.min(c === 'strong' ? 6 : 4, n - 1));
-  return { detail, sharpness, textures, workers, webgpu: !!webgpu };
+  // T-3537: the phone's memory diet (main.js `lowMem`): release page arrays once the
+  // GPU holds them, build layers lowSpec. Every phone, and a weak computer, which is
+  // where integrated graphics land: their GPU memory is the tab's own system RAM.
+  const lowMemory = touch || c === 'weak';
+  return { detail, sharpness, textures, workers, webgpu: !!webgpu, lowMemory };
 }
 
 /** The words Settings shows. */
@@ -430,7 +490,7 @@ export async function profileDevice({
     signals.webgpu = gpu;
     const software = isSoftwareRenderer(signals.renderer);
     const bench = gl && !forced && (!software || forceBench) ? await benchmark(gl, { now }) : null;
-    const { cls, why } = classify(signals, bench, { forced, stepDown });
+    const { cls, why } = classify(signals, bench, { forced, stepDown, touch });
     const profile = {
       key, cls, why, touch,
       choice: decide(cls, { touch, cores: signals.cores, webgpu: !!gpu.adapter }),

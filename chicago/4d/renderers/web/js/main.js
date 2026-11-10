@@ -1860,6 +1860,22 @@ async function boot() {
   const device = await profileDevice({ touch: coarse, build: bootCell.build, storage: bootStorage,
     search: location.search });
   api.device = device;
+  /**
+   * T-3537: THE PHONE'S MEMORY DIET, ON EVERY DEVICE THAT NEEDS IT. Until this,
+   * `coarse` (a touch screen) chose both the controls and how the page holds memory:
+   * a phone lets go of its page arrays once the GPU has them (upload-release.js),
+   * keeps decoded images as Blobs and builds its layers `lowSpec`. A desktop on
+   * integrated graphics, whose GPU memory is the same system RAM the tab holds its
+   * arrays in, kept both copies at Full and its tab died (the owner's Inspiron,
+   * Intel UHD 630, "Aw, Snap" on 1904). So memory follows the device profile:
+   * a touch screen, a computer the profile calls `weak` (integrated graphics among
+   * its reasons, device-profile.js `sharesSystemMemory`), or any device that
+   * already ran out of memory here (crash-guard.js's step-down, until the visitor
+   * picks Scene detail or Sharpness again). The controls, the welcome and the
+   * picks still follow `coarse`.
+   */
+  const lowMem = coarse || !!device.choice?.lowMemory || !!crashGuard.state.stepdown;
+  api.lowMemory = lowMem;
   // Resolve BEFORE the GLB fetch: a weak-machine boot must never download the
   // full inspection model simply to turn it down once Settings has mounted.
   // T-2547's step-down outranks everything; then the stored choice; then the
@@ -1881,7 +1897,7 @@ async function boot() {
     // `?residency-budget=<MiB>` overrides the tier's budget, for a tool reading what
     // the reach alone would hold.
     const budget = Number(params.get('residency-budget'));
-    residency = createTextureResidency({ group, renderer, tier: detailLevel, closeImages: coarse,
+    residency = createTextureResidency({ group, renderer, tier: detailLevel, closeImages: lowMem,
       releaseCompressedLevels: true,
       settings: budget > 0 ? { budgetBytes: budget * 1048576 } : null });
     residency.prime(eye, options);
@@ -2073,9 +2089,9 @@ async function boot() {
     // A phone can release every decoded image; desktop releases compressed levels
     // only, so keep encoded recovery bytes only for the images that can need them.
     // Desktop regular images remain decoded and can be restored directly.
-    keepEncodedImages: RESIDENCY_ON ? (coarse ? true : 'compressed') : false,
+    keepEncodedImages: RESIDENCY_ON ? (lowMem ? true : 'compressed') : false,
     // T-3454: and a phone keeps them as Blobs, whose bytes are held outside the tab.
-    encodedImagesAsBlobs: coarse,
+    encodedImagesAsBlobs: lowMem,
     // T-2597: every structure at once unless `?boot-pool=N` asks for a pool (BOOT_POOL).
     pool: bootPoolFromSearch(location.search),
   });
@@ -2162,7 +2178,7 @@ async function boot() {
   api.intersections = loaded.index?.intersections ?? [];
 
   const world = createWorld({
-    renderer, scene: scene3d, sceneJson: loaded.scene, datum: loaded.datum, lowSpec: coarse,
+    renderer, scene: scene3d, sceneJson: loaded.scene, datum: loaded.datum, lowSpec: lowMem,
   });
 
   const confidence = createConfidenceView();
@@ -2204,7 +2220,7 @@ async function boot() {
    *  and lets go of its page arrays (upload-release.js), keeping back what this
    *  tier never shows. */
   const settleOnGpu = (layer) => {
-    if (!coarse) return;
+    if (!lowMem) return;
     const want = DETAIL[detailLevel] ?? DETAIL.full;
     // What the reach will hold back from where the visitor stands is left for
     // the walk to upload when it comes near, as it always was.
@@ -2250,7 +2266,7 @@ async function boot() {
     // Balanced and Light share the reduced asset and its batches. Keep their
     // cells identical so a same-asset Balanced -> Light switch stays culled.
     spatialCells: inspectionLod && detailLevel !== 'full' ? { cellM: 4, heightM: 2 } : null,
-    lowSpec: coarse,
+    lowSpec: lowMem,
     // T-3312: the colour twins are cut only for a tier below `full`, which is the
     // only place they are drawn; a desktop at `full` carries none of them.
     colourTwins: detailLevel !== 'full', farColourTier,
@@ -2272,7 +2288,7 @@ async function boot() {
   settleOnGpu(buildings.group);
   // T-2548: once the batch holds its copy and the GPU its maps, a phone lets go
   // of the source geometry and the decoded images (upload-release.js).
-  if (coarse) {
+  if (lowMem) {
     releaseSources(loaded.registry);
     closeUploadedImages(buildings.group, renderer);
   }
@@ -2401,7 +2417,7 @@ async function boot() {
   api.contextCity = contextCity;
   const streetTrees = await createStreetTrees({
     dataBase: layerBase('street_trees'), sceneId: loaded.scene.id ?? YEAR, terrain, confidence,
-    problems: layerProblems('street_trees'), lowSpec: coarse,
+    problems: layerProblems('street_trees'), lowSpec: lowMem,
     mode: streetTreeMode(seasonPref.season, seasonPref.treesShown),
     checkpoint: bootCheckpoint, levelAt: streetGrid.offsetAt ?? null, ...detailOpts(),
     contextTrees: (level) => contextCity.treeStems?.(level) ?? [],
@@ -2434,10 +2450,10 @@ async function boot() {
   const backYards = await createBackYards({
     dataBase: layerBase('back_yards'), assetBase: bases.assetBase, sceneId: loaded.scene.id ?? YEAR, terrain,
     confidence, problems: layerProblems('back_yards'), levelAt: streetGrid.offsetAt ?? null, ...detailOpts(),
-    lowSpec: coarse, season: seasonPref.season, sharedMaps: sharedPbr, checkpoint: bootCheckpoint,
+    lowSpec: lowMem, season: seasonPref.season, sharedMaps: sharedPbr, checkpoint: bootCheckpoint,
     bedOf: (id) => buildings.positionOf?.(id)?.y ?? null,
     // A phone grows the kitchen rows only once they come into view; their arrays then go.
-    onGeometry: coarse ? (group) => releaseAfterUpload(group) : null,
+    onGeometry: lowMem ? (group) => releaseAfterUpload(group) : null,
   });
   scene3d.add(backYards.group);
   api.backYards = backYards;
@@ -2448,7 +2464,7 @@ async function boot() {
     dataBase: layerBase('front_yards'), sceneId: loaded.scene.id ?? YEAR, terrain, confidence,
     problems: layerProblems('front_yards'), levelAt: streetGrid.offsetAt ?? null, ...detailOpts(),
     // T-3223: grown as the parkway elms are, on their leaf and bark atlases, in the Season.
-    grownMaterials: streetTrees.materials ?? null, lowSpec: coarse, checkpoint: bootCheckpoint,
+    grownMaterials: streetTrees.materials ?? null, lowSpec: lowMem, checkpoint: bootCheckpoint,
     mode: SEASON_TREE_MODE[seasonPref.season] ?? 'summer',
     // T-3488: the back yards' shrubs, trees, creeper and beds, grown here with the front yards'.
     back: backYards.doc ?? null,
@@ -2461,7 +2477,7 @@ async function boot() {
   // T-3460: planted for the visitor's Season (applySeason keeps it so).
   const gardens = await createGardens({
     dataBase: layerBase('gardens'), sceneId: loaded.scene.id ?? YEAR, terrain, confidence,
-    problems: layerProblems('gardens'), lowSpec: coarse, ...detailOpts(), season: seasonPref.season,
+    problems: layerProblems('gardens'), lowSpec: lowMem, ...detailOpts(), season: seasonPref.season,
     // A phone lays the garden only once it comes into view; its arrays then go as railway's do.
     onGeometry: (group) => releaseAfterUpload(group),
   });
@@ -2780,7 +2796,7 @@ async function boot() {
   // measured from the same wall base `buildings.js` anchors them at.
   const signage = await createSignage({
     dataBase: layerBase('signage'), terrain, confidence, problems: layerProblems('signage'), hostMissing,
-    assetBase: bases.assetBase, lowSpec: coarse,
+    assetBase: bases.assetBase, lowSpec: lowMem,
   });
   scene3d.add(signage.group);
   api.signage = signage;
@@ -2817,7 +2833,7 @@ async function boot() {
   standingHorses.update(camera);
   const yard = await createYardGoods({
     dataBase: layerBase('yard_goods'), terrain, confidence, problems: layerProblems('yard_goods'), hostMissing,
-    lowSpec: coarse,
+    lowSpec: lowMem,
     replacementIds: parkedTransport.replacementIds,
     // T-3458: 1812 reads its own folder (the settlement's wood, casks and carts).
     dir: loaded.scene.yard_dir ?? 'yard/',
@@ -2940,7 +2956,7 @@ async function boot() {
   // Built after the buildings, whose log walls' hewn-wood sheets the hulls wear.
   const crossings = await createCrossings({
     dataBase: layerBase('crossings'), terrain, confidence, problems: layerProblems('crossings'),
-    detail: detailLevel, coarse, lowSpec: coarse, walkEye: () => WALK.eyeHeight,
+    detail: detailLevel, coarse, lowSpec: lowMem, walkEye: () => WALK.eyeHeight,
     onRide: (boat, on) => {
       if (!on) return;
       api.travel?.stop?.('crossing');
@@ -3410,7 +3426,7 @@ async function boot() {
           // T-2183 defaults both to dark; an explicit comparison stays selected.
           next.buildings = await createBuildings({ registry: next.registry, confidence, terrain,
             shadowCasters, colourTwins: level !== 'full', farColourTier,
-            checkpoint: bootCheckpoint, preserveMaterials: true, lowSpec: coarse,
+            checkpoint: bootCheckpoint, preserveMaterials: true, lowSpec: lowMem,
             collectViewBackings: true,
             spatialCells: level !== 'full' ? { cellM: 4, heightM: 2 } : null,
             glass: glassForDetail(level, GLASS_REQUEST) });
@@ -3471,7 +3487,7 @@ async function boot() {
         disposeLoadedAsset(oldAsset);
         attachResidency(buildings.group, camera.position);
         for (const gltf of next.retired ?? []) disposeLoadedAsset(gltf);
-        if (coarse) {
+        if (lowMem) {
           settleOnGpu(buildings.group);
           releaseSources(loaded.registry);
           closeUploadedImages(buildings.group, renderer);
@@ -3524,9 +3540,9 @@ async function boot() {
       applyShadowTier(level);
       applyFurnitureReach(level);
       applyGroundDetailReach(level);
-      if (coarse) releaseAfterUpload(scene3d);
+      if (lowMem) releaseAfterUpload(scene3d);
       void Promise.resolve(streetsRebuilt).then((rebuilt) => {
-        if (rebuilt && coarse) releaseAfterUpload(scene3d);
+        if (rebuilt && lowMem) releaseAfterUpload(scene3d);
       }, (error) => {
         problems.push(`streets: the ${level} road could not be laid: ${error?.message ?? error}`);
         console.error('[4D Chicago] streets detail', error);
@@ -3617,7 +3633,7 @@ async function boot() {
       });
       scene3d.add(trees.group);
       await streetsRebuilt;
-      if (coarse) releaseAfterUpload(scene3d);
+      if (lowMem) releaseAfterUpload(scene3d);
       api.flora = flora;
       api.trees = trees;
       if (seasonState.season !== 'summer') void seasonPlants(seasonState.season).then(() => gateFrame.invalidate());
@@ -6319,7 +6335,7 @@ async function boot() {
   }
   // T-2158: before anything is uploaded, a phone marks the layers that may let
   // go of their page arrays once the GPU has them (upload-release.js).
-  if (coarse) releaseAfterUpload(scene3d);
+  if (lowMem) releaseAfterUpload(scene3d);
   // Compile programs while the gate can still repaint, before the first draw.
   // The horizon creates its initial geometry on update, so include that too.
   trees.update(0, camera, scene3d.fog?.color);

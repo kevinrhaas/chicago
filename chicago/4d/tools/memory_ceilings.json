@@ -393,6 +393,25 @@
             "note": "Four figures drawn from the people pool: John Glessner and Martha Williamson, with Frances Glessner in the courtyard and the maid Mary Reynolds at the 18th Street arch, at the light tier's LOD2/LOD3 (1.0 MB of geometry, 7.2 MB of sixteen textures, their pictures decoded once across figures since T-3453). The human layer stays inside its 12 MB. The total reads 11 KB under the 400 MiB line here; CI read 408.4 MB on this build (70ef821) against 399.3 on the branch before it (3d4a760, Martha alone), so the 400 MiB line is crossed on CI: the rest of 1904 grew about 16 MB on a phone since T-3408's 375.1 (without the two new figures this build read 395.9). The ceiling is unchanged."
           }
         ]
+      },
+      "shared": {
+        "total_bytes": 629145600,
+        "reading_bytes": 565795498,
+        "tier": "balanced",
+        "reading_mb": {
+          "total": 539.6,
+          "js_heap": 95.4,
+          "arraybuffers": 88.1,
+          "gpu_buffers": 215.1,
+          "gpu_textures": 141.0
+        },
+        "set_by": {
+          "ticket": "T-3537",
+          "on": "2026-11-10T19:29:21.394Z",
+          "build": "565e5a35d+T-3537",
+          "reading": "docs/measurements/T-3537-memory-1904-shared.json",
+          "note": "A desktop on integrated graphics (?device=weak, 1920x1080): the owner's Inspiron 3880 (Intel UHD 630, 12 GB) crashed 1904 at Full ('Aw, Snap'). Same build before: Full 1292.3 MB, the old weak boot (Balanced, every page array kept) 1009.3. Now Balanced at Sharpness Low with the phone's memory diet (upload-release, lowSpec layers, light textures): 539.6 MB, with people, carriages, horses and wagons still drawn (owner, 2026-11-10: losing them is not an option). Reading x1.1 rounded up to 25 MiB."
+        }
       }
     }
   }
