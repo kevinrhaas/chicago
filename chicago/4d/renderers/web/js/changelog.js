@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2869, ts: '2026-11-10T14:33:45.475Z', date: 'Nov 10, 2026, 8:33 AM CT', title: 'Better footing on 1904 walks', kind: 'improvement',
+    items: [
+      'Reduced hovering above walks and parkways for people in 1904.',
+    ] },
   { v: 2868, ts: '2026-11-10T13:58:16.040Z', date: 'Nov 10, 2026, 7:58 AM CT', title: 'Brick and clay surfaces across the early town', kind: 'feature',
     items: [
       'Brick walls and masonry chimneys in 1812 and 1835 show mortar joints, relief and varied brick faces. Exterior log-cabin stacks have the rough surface of stick-and-clay construction. Existing period brickwork retains its own fabric.',
