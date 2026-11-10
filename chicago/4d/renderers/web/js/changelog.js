@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2854, ts: '2026-11-09T23:07:14.028Z', date: 'Nov 9, 2026, 5:07 PM CT', title: 'Slim the Sauganash Hotel’s chimneys', kind: 'change',
+    items: [
+      'The Hotel’s two reconstructed brick shafts are slimmer, and its rear-wing roof now reaches the main ridge. The dimensions remain liberties drawn from relative form in the Andreas illustration.',
+    ] },
   { v: 2853, ts: '2026-11-09T06:38:03.103Z', date: 'Nov 9, 2026, 12:38 AM CT', title: '1936 Prairie\'s front chimney gets its photograph\'s two-stage top', kind: 'fix',
     items: [
       'The Thompson/Allerton house at 1936 Prairie: the tall chimney over the front of its south side now ends as its photograph shows it, with a broad moulded cap and a narrower top stage on it, a dark vent in its face, and it stands where the photograph puts it. The roof deck\'s railing now stops behind that chimney, as it does in the photograph, instead of running on along the roof.',

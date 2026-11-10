@@ -2,7 +2,7 @@
   "structure_id": "sauganash_hotel",
   "view": "andreas-1884",
   "glb": "assets/gltf/sauganash_hotel__frame_1831.glb",
-  "glb_sha256": "16335b77d354996661cd5da85405b7cd51e76ed34088991f762b787be59f0d93",
+  "glb_sha256": "685bdd9c7206b49c402e6621077df9ce8eeb4eb093666ac85ecfe8663360732f",
   "camera_sha256": "276f2051fa8db6379236b5d642a6ca75c740f4e82ebf44819c72808917d55991",
   "photo_sha256": "3884c16f72702fd3b1696663dd82b444ac26028b97472e03bd00a2fa75026afb",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "16335b77d354996661cd5da85405b7cd51e76ed34088991f762b787be59f0d93"
+      "glb_sha256": "685bdd9c7206b49c402e6621077df9ce8eeb4eb093666ac85ecfe8663360732f"
     },
     {
       "structure_id": "philo_carpenter_log_shop",
@@ -45,16 +45,16 @@
       "glb_sha256": "f3e26f650627f36879087d75f30db5c4553e0f5938ae5bd0d305480958549cfc"
     }
   ],
-  "group_sha256": "7f9b0deb5521bbe972c5d6e20a6018b5d2b2fe239bd814ff39fb34053745d6c9",
+  "group_sha256": "c5528cce404dd1833d073e71795539f9ee2bcfe880cb33664d6b8955a2a3c227",
   "side_by_side": "docs/RESEARCH/photo-match/sauganash_hotel/andreas-1884-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
     {
-      "what": "THE TWO RIDGE STACKS STOOD TOO FAR INBOARD. Andreas/Braunhold draws both main-block stacks close to the ridge ends — the near one immediately behind the visible gable peak, the far one well out toward the far end — while the model placed them at the generic 0.22/0.78 frontage fractions, about 1.6 m inboard of the picture's disposition on each side. The existing `gable_ends` kit is now selected, so on the retained 9.92 m block their centres are 0.60 m and 9.32 m. Measured on this same camera, the near stack's offset from the gable peak falls from about 0.19 to 0.08 of the visible ridge run against the picture's 0.04, and the far stack's rises from 0.57 to 0.67 against the picture's 0.65. The 0.60 m inset, the 0.90 m square shaft and the ridge + 0.55 m top are reconstructed generator choices; the plate supports the relative disposition and supplies no measurement. docs/LIBERTIES.md L-sauganash-ridge-end-stacks-2383.",
+      "what": "The two main-block ridge stacks retain the already corrected gable-end stations, 0.60 m and 9.32 m along the retained 9.92 m block. Their current square shafts are 0.60 m wide; this run changes section, not count, stations, top elevation or brick material. These dimensions are reconstructed choices; Andreas/Braunhold supplies relative disposition, not measurements.",
       "status": "fixed"
     },
     {
-      "what": "The stacks' own proportions and heads still differ from the picture. Andreas draws slender brick shafts standing well clear of the ridge with a corbelled cap; the model carries squat 0.90 m square blocks ridge + 0.55 m with a plain top, which a visitor on the street would notice. Count (2), brick material and the ridge line are unchanged and are not in question. Only the along-ridge station moved here; shaft section, height and cap remain open on their own merits.",
+      "what": "The actual rebuilt comparison now shows slimmer 0.60 m square shafts in place of the former 0.90 m blocks. Their complete proportions and heads still differ from the picture: the retained ridge +0.55 m tops remain plain, while Andreas draws slender capped brick stacks. This is a visible narrowing increment, not acceptance of the complete chimney silhouette.",
       "status": "open"
     },
     {
@@ -62,12 +62,12 @@
       "status": "fixed"
     },
     {
-      "what": "The main and left compound roof silhouette, including the broad rear-left wing, differs visibly from Andreas in the actual current two-building comparison. Existing geometry and surveyed placement are retained. The inherited annex fit does not supply independent hotel dimensions, and this material shape/proportion review remains open.",
+      "what": "The rebuilt rear-wing roof now physically reaches the main ridge, closing the former short junction. The actual current two-building comparison still differs from Andreas in the broad compound roof silhouette and rear-left gable exposure. This junction increment does not qualify those proportions. Surveyed placement, footprint, pitch and heights remain unchanged; the diagnostic annex camera supplies no independent hotel dimensions.",
       "status": "open"
     },
     {
-      "what": "The left main-gable opening presentation and the model's roof/wall intersections require further whole-hotel review. Do not infer a missing opening count or a new metric set-out from the poorly constrained annex framing. This first hotel comparison does not qualify those details.",
-      "status": "open"
+      "what": "The retained Hotel has two upper main-gable openings and one attic opening, the categories visible above the annex in this picture. The earlier general opening/intersection placeholder did not identify a separate missing or miscounted opening. Under the finite visitor rule it is retired as an independent blocker; the observable compound roof discrepancy remains explicitly open above, without a camera refit or new metric claim.",
+      "status": "within tolerance"
     },
     {
       "what": "The retained annex framing has a low eye and near-edge principal and remains diagnostic. Its camera/pixel-fit uncertainty is within tolerance under T-3153 and adds no independent-calibration sign-off requirement. It supplies no new hotel dimension or historical viewpoint; the observable roof/compound and left-gable differences remain open on their own merits.",
@@ -86,10 +86,12 @@
       "status": "not shown"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
   "context_refresh_review": {
-    "reviewed_at": "2026-11-04T07:00:00+00:00",
-    "disposition": "This run rendered the view from its own camera before and after the change and viewed both side-by-sides beside the picture itself before setting the verdict below.",
-    "scope": "The only rendered input that moved is the Sauganash hotel's master: its two main-block ridge stacks moved from the generic 0.22/0.78 frontage fractions to the existing gable_ends kit's 0.60 m end insets (T-2383). The Carpenter shop anchor's GLB is byte-identical, and no camera, placement or photograph changed. This review signs off neither the whole hotel nor T-2383, whose roof silhouette and left-gable differences stay open."
+    "reviewed_at": "2026-11-09T22:38:00.943601+00:00",
+    "retained_native_commit": "254bc9871dfda47d2e2c506fcde40f150da95de2",
+    "native_run": 42711510675,
+    "disposition": "Fresh actual source/current side-by-side viewed beside the drawing. Slender-section and physical junction increments accepted; whole Hotel still differs.",
+    "scope": "Only Hotel master/web changed geometry; all24 family controls are byte-identical. Shop master, camera, photo and placements are unchanged. Two finite blockers remain: complete chimney silhouette and compound roof silhouette."
   }
 }

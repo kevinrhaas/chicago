@@ -42,10 +42,10 @@
         3.0999999999999943
       ],
       "rotation_y": 0,
-      "glb_sha256": "16335b77d354996661cd5da85405b7cd51e76ed34088991f762b787be59f0d93"
+      "glb_sha256": "685bdd9c7206b49c402e6621077df9ce8eeb4eb093666ac85ecfe8663360732f"
     }
   ],
-  "group_sha256": "8740f16344972785805c6f3d6ea467c0f685de3495b73fe550bae0db410ce8ab",
+  "group_sha256": "de74d52aacb22c933b874fdd6a6cc0e39384c57bfb7087f5d79960c84d48ee1c",
   "side_by_side": "docs/RESEARCH/photo-match/philo_carpenter_log_shop/kurz-allison-1893-panel14-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
@@ -70,10 +70,12 @@
       "status": "not shown"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
   "context_refresh_review": {
-    "reviewed_at": "2026-11-04T07:00:00+00:00",
-    "disposition": "This run rendered the view from its own camera before and after the change and viewed both side-by-sides beside the picture itself before setting the verdict below.",
-    "scope": "The only rendered input that moved is the Sauganash hotel's master: its two main-block ridge stacks moved from the generic 0.22/0.78 frontage fractions to the existing gable_ends kit's 0.60 m end insets (T-2383). The Carpenter shop anchor's GLB is byte-identical, and no camera, placement or photograph changed. This review signs off neither the whole hotel nor T-2383, whose roof silhouette and left-gable differences stay open."
+    "reviewed_at": "2026-11-09T22:41:10.743083+00:00",
+    "retained_native_commit": "254bc9871dfda47d2e2c506fcde40f150da95de2",
+    "native_run": 42711510675,
+    "disposition": "Fresh actual source/current side-by-side viewed independently; existing Carpenter-shop acceptance retained.",
+    "scope": "Shop native master, camera, photograph and all placements are unchanged. Hotel context has slimmer shafts and a joined rear ridge, with count and stations retained. Its separate comparison still differs, including absent rear-gable exposure. Existing retrospective-copy pitch/colour tolerances remain; this does not attest the whole Hotel."
   }
 }
