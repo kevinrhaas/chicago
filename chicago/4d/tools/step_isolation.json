@@ -6470,6 +6470,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_palisade_side_gates.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_parade_presence.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -6834,11 +6838,11 @@
       "wrote": [],
       "wrote_ignored": []
     },
-    "tools/test_yard_dwelling_cut.mjs": {
+    "tools/test_yard_dated_cut.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
-    "tools/test_yard_dated_cut.mjs": {
+    "tools/test_yard_dwelling_cut.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

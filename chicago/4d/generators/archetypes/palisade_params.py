@@ -59,7 +59,7 @@ CORNERS = ("nw", "ne", "se", "sw")
 CONSUMED = frozenset({
     "wall_kind", "construction", "picket_height_m", "picket_width_m",
     "picket_spacing_m", "picket_head_m", "gate_sides", "gate_width_m",
-    "gate_offset_m", "gate_kind", "bastion_corners", "bastion_length_m", "bastion_projection_m",
+    "gate_offset_m", "gate_kind", "gate_overrides", "bastion_corners", "bastion_length_m", "bastion_projection_m",
     "rail_courses", "panel_length_m", "panel_offset_m", "fence_height_m",
 })
 
@@ -148,6 +148,9 @@ class PalisadeParams:
     # paling's: two posts and an opening, its single leaf hung by the renderer
     # (fort-gates.js) so a visitor can open it.
     gate_kind: str = "gateway"
+    # A side may need a different width, position or make from the main gateway.
+    # Omitted entries retain the scalar contract, including positional callers.
+    gate_overrides: dict = field(default_factory=dict, kw_only=True)
 
     # corner works. A bastion here is a re-entrant of the picket line: it leaves
     # the wall `bastion_length_m` from the corner on each face, projects
@@ -173,6 +176,18 @@ class PalisadeParams:
         """Least-confident wins — the contract's rule for geometry driven by
         several attributes."""
         return max((self.conf(a) for a in attrs), default=1.0)
+
+    def gate(self, side: str) -> dict:
+        """One gate's resolved settings, shared by its curtain cut and frame."""
+        override = self.gate_overrides.get(side, {})
+        return {"width_m": override.get("width_m", self.gate_width_m),
+                "offset_m": override.get("offset_m", self.gate_offset_m),
+                "kind": override.get("kind", self.gate_kind)}
+
+    def gate_conf(self, side: str) -> float:
+        """An unrelated side's reconstruction never downgrades the main gate."""
+        return max(self.conf("gate_sides"), self.conf("gate_overrides")) \
+            if side in self.gate_overrides else self.conf("gate_sides")
 
     @property
     def picket_point_m(self) -> float:
@@ -214,6 +229,8 @@ class PalisadeParams:
         return int(math.floor(self.perimeter_m / max(self.picket_spacing_m, 1e-6)))
 
     def validate(self) -> None:
+        if not isinstance(self.gate_overrides, dict):
+            raise ParamError("gate_overrides must be a map of named gate sides")
         if not 2.0 <= self.width_m <= 400.0:
             raise ParamError(f"width_m {self.width_m} outside 2-400 m")
         if not 2.0 <= self.depth_m <= 400.0:
@@ -264,17 +281,31 @@ class PalisadeParams:
             raise ParamError(f"picket_spacing_m {self.picket_spacing_m} leaves gaps wider "
                              f"than two pickets; that is a paling fence, not a stockade, "
                              f"and no source describes Fort Dearborn as one")
+        for side, override in self.gate_overrides.items():
+            if side not in self.gate_sides:
+                raise ParamError(f"gate_overrides side '{side}' is not a named gate")
+            if not isinstance(override, dict) or set(override) - {"width_m", "offset_m", "kind"}:
+                raise ParamError(f"gate_overrides '{side}' accepts only width_m, offset_m and kind")
         for s in self.gate_sides:
             if s not in SIDES:
                 raise ParamError(f"gate side '{s}' not in {SIDES}")
             run = self.width_m if s in ("n", "s") else self.depth_m
-            if self.gate_width_m > run * 0.5:
-                raise ParamError(f"a {self.gate_width_m} m gate takes more than half of the "
+            gate = self.gate(s)
+            width, offset, kind = gate["width_m"], gate["offset_m"], gate["kind"]
+            for name, value in (("width_m", width), ("offset_m", offset)):
+                if isinstance(value, bool) or not isinstance(value, (float, int)) or not math.isfinite(value):
+                    raise ParamError(f"{s} gate {name} must be a finite number")
+            if not 1.5 <= width <= 8.0:
+                raise ParamError(f"{s} gate width_m {width} outside 1.5-8 m")
+            if kind not in GATE_KINDS:
+                raise ParamError(f"{s} gate kind '{kind}' not in {GATE_KINDS}")
+            if width > run * 0.5:
+                raise ParamError(f"a {width} m gate takes more than half of the "
                                  f"{run} m {s} wall")
             # The gate and its jambs stay on the wall with a picket's width to spare.
-            room = run / 2.0 - self.gate_width_m / 2.0 - 0.5
-            if abs(self.gate_offset_m) > room:
-                raise ParamError(f"gate_offset_m {self.gate_offset_m} puts the {s} gate off "
+            room = run / 2.0 - width / 2.0 - 0.5
+            if abs(offset) > room:
+                raise ParamError(f"gate offset_m {offset} puts the {s} gate off "
                                  f"its {run} m wall (at most {room:.2f} m either way)")
         if self.gate_kind not in GATE_KINDS:
             raise ParamError(f"gate_kind '{self.gate_kind}' not in {GATE_KINDS}")
@@ -293,6 +324,8 @@ class PalisadeParams:
                                  f"outside 1-12 m")
 
     def _validate_fence(self) -> None:
+        if self.gate_overrides:
+            raise ParamError("gate_overrides is only consumed by a picket_stockade")
         if self.picket_head_m is not None:
             raise ParamError(f"picket_head_m {self.picket_head_m} is stated on a worm "
                              f"fence, which has no pickets to head — a worm fence is "
@@ -364,6 +397,7 @@ def from_phase(phase: dict, record: dict | None = None) -> PalisadeParams:
         gate_width_m=float(val("gate_width_m", 3.6)),
         gate_offset_m=float(val("gate_offset_m", 0.0)),
         gate_kind=str(val("gate_kind", "gateway")),
+        gate_overrides=val("gate_overrides", {}),
         bastion_corners=_seq(val("bastion_corners"), CORNERS, "bastion corner"),
         bastion_length_m=float(val("bastion_length_m", 7.0)),
         bastion_projection_m=float(val("bastion_projection_m", 3.0)),

@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1069,
+  "count": 1070,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -72235,6 +72235,57 @@
       ],
       "work_refs": [
         "T-2383"
+      ]
+    },
+    {
+      "id": "L-first-fort-west-wicket-3041",
+      "title": "A reconstructed west wicket beside the northwest blockhouse",
+      "section": "per_subject",
+      "subjects": [
+        "first_fort_dearborn_pickets_inner",
+        "first_fort_dearborn_pickets_outer"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "first_fort_dearborn_pickets_inner",
+          "phase": "first_fort_1803",
+          "aspect": "form.gate_overrides"
+        },
+        {
+          "domain": "structure",
+          "structure": "first_fort_dearborn_pickets_outer",
+          "phase": "first_fort_1803",
+          "aspect": "form.gate_overrides"
+        }
+      ],
+      "recorded": "2026-11-09",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "open a small west gateway through both existing picket rows just south of the northwest blockhouse and north of the west officers' range. Currey's retrospective birdseye labels western gateway 3 in that relationship, and Quaife places a wicket near the northwestern blockhouse. Whistler's register did not locate it on the draught. The source supports the gateway and its neighbors, not a measured position, width, exact construction or completion date. The 1.50 m cuts are aligned in the current model's existing clearance without moving the stockades, blockhouse or range. Their positions within that clearance, their two posts, single pale-and-rail leaves, 1.18 m clear spans, inward swings and use of the existing reconstructed stockade height are liberties. The generic wicket kit supplies the make; it is not evidence that this military wicket was a garden gate. Both south gates retain their measured passage, width and occurrence grades. The existing component date ranges remain qualified; this trial establishes no new historical day."
+        },
+        {
+          "label": "How to resolve",
+          "text": "an independently legible contemporary plan or picture locating and showing this wicket would replace the model's chosen positions and make. Native output, picture comparison and walking inspection remain pending; this source change alone is not an image-match verdict."
+        },
+        {
+          "label": "Sources",
+          "text": "'Bird’s-Eye View of Old Fort Dearborn.' Illustration at p. 27 of J. Seymour…, a verified public-domain retrospective illustration; Quaife, Milo Milton. Chicago and the Old Northwest, 1673-1835: A Study of the…, for the northwest-blockhouse adjacency."
+        },
+        {
+          "label": "Covers",
+          "text": "`first_fort_dearborn_pickets_inner.first_fort_1803.form.gate_overrides`, `first_fort_dearborn_pickets_outer.first_fort_1803.form.gate_overrides`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-09."
+        }
+      ],
+      "work_refs": [
+        "T-3041",
+        "T-2387"
       ]
     },
     {

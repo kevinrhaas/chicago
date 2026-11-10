@@ -104,14 +104,16 @@
     },
     "gate_sides": {
       "value": [
-        "s"
+        "s",
+        "w"
       ],
       "confidence": "attested",
       "sources": [
         "whistler_1808_fort_dearborn_draught",
-        "quaife_1913"
+        "quaife_1913",
+        "currey_1912_first_fort_birdseye"
       ],
-      "note": "Whistler's index no. 7, 'Main Gate', drawn in the middle of the south range. Quaife: 'The main gateway of the stockade was at the middle of the south side'. The wicket gate (index no. 8) Quaife puts 'near the northwestern blockhouse' is not built: the register could not find it on the sheet. The archetype used to centre a gate on its side; since T-3319 gate_offset_m stands it where the draught puts the passage, at E -11.1..-4.9 ft, about 8.6 ft west of this row's centre."
+      "note": "Whistler's index no. 7, 'Main Gate', drawn in the middle of the south range. Quaife: 'The main gateway of the stockade was at the middle of the south side'. The wicket gate (index no. 8) Quaife puts 'near the northwestern blockhouse' is not built: the register could not find it on the sheet. The archetype used to centre a gate on its side; since T-3319 gate_offset_m stands it where the draught puts the passage, at E -11.1..-4.9 ft, about 8.6 ft west of this row's centre. WEST WICKET (T-3041): the earlier omission recorded above is superseded. The retrospective Currey birdseye labels western gateway 3 immediately south of northwest blockhouse 4; Quaife locates a wicket near that blockhouse. This supports the west-side occurrence and adjacency, not a precise location on Whistler's draught or a historical width. The south gate and its measured passage remain unchanged."
     },
     "gate_width_m": {
       "value": 1.89,
@@ -128,6 +130,21 @@
         "whistler_1808_fort_dearborn_draught"
       ],
       "note": "WHERE ALONG THE SOUTH ROW THE MAIN GATE STANDS: -2.62 m (8.6 ft) west of the row's middle. The register (data/traces/whistler_1808_fort_dearborn.json, index no. 7) reads the main gate's passage at E -11.1..-4.9 ft from the staff's foot, the gap between the two halves of the soldiers' barracks; the staff stands at local E +1152 and this row's middle at E +1152.16, so the passage's middle (E -8.0 ft) is this far west of it, and the gate then stands square in the gap the two halves of the south range leave (first_fort_dearborn_soldiers_barracks_sw and _se). Until T-3319 the archetype could only centre a gate, which hung both leaves across the back of the south-east barracks while the passage behind them stood walled; Quaife's 'at the middle of the south side' is the gate's place in the range, which the draught measures. Carries the register's +/-1.1 ft an edge."
+    },
+    "gate_overrides": {
+      "value": {
+        "w": {
+          "offset_m": 10.53,
+          "width_m": 1.5,
+          "kind": "wicket"
+        }
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "currey_1912_first_fort_birdseye",
+        "quaife_1913"
+      ],
+      "note": "WEST WICKET TRIAL (T-3041): a reconstructed 1.50 m cut aligned through both rows in the existing clearance just south of the northwest blockhouse and north of the west officers' range. The offset is chosen from those model neighbors, not measured from the historical drawing. No range, blockhouse, stockade footprint or surveyed placement moves. The single pale-and-rail leaf and posts reuse the generic wicket kit at the existing stockade height; its 1.18 m clear span, details and inward swing are liberties. This does not establish a completion date. Native and picture acceptance remain pending."
     },
     "function": {
       "value": "military_post_enclosure",
@@ -180,6 +197,25 @@
         "any plan, footprint, orientation or measured survey",
         "the height, roof form or fenestration of any fort building",
         "any evidence independent of wentworth_1881_fort_dearborn - it is the same text at a different address"
+      ]
+    },
+    {
+      "source_id": "currey_1912_first_fort_birdseye",
+      "citation": "'Bird’s-Eye View of Old Fort Dearborn.' Illustration at p. 27 of J. Seymour Currey, The Story of Old Fort Dearborn (Chicago: A. C. McClurg & Co., 1912). Numbered reconstruction of the first fort, not a contemporary view.",
+      "url": "https://commons.wikimedia.org/wiki/File:Birds_eye_view_of_first_Fort_Dearborn.jpg",
+      "archived_url": "https://www.gutenberg.org/cache/epub/52346/pg52346-images.html#Page_27",
+      "tier": 5,
+      "tier_label": "modern retrospective illustration/reconstruction",
+      "what_it_supplies": [
+        "Two-storey courtyard gallery treatment on the visible inner barracks/quarters ranges: an upper walk with close vertical rail pales over the open lower level, under a roof near the main eave.",
+        "The numbered caption identifies the main entrance (1), sally-port (2), western gateway (3), NW and SE blockhouses (4,5), officers quarters (6), barracks (7), and magazine (8).",
+        "The roofed blockhouse lanterns as a retrospective representation, without a construction date."
+      ],
+      "what_it_does_not_supply": [
+        "An eyewitness, independent testimony from 1803–1812, or a dated record of when the upper walks or blockhouse lanterns were built.",
+        "Any dimension, coordinate, bearing, measured roof slope, gallery depth, post section, rail height, baluster spacing or floor thickness.",
+        "Independent identification of every existing named range’s interior facade: the near faces are concealed, and the reconstruction’s main entrance and magazine arrangement must not displace Whistler’s contemporary measured plan.",
+        "Colour, material tone, or agreement between all pictorial reconstructions."
       ]
     },
     {

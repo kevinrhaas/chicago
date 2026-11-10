@@ -6408,3 +6408,13 @@ needed. This source checkpoint makes no whole-Hotel match/completion claim.
 ### T-2383 — reviewed native shaft/junction increment, 2026-11-09
 
 The actual native family is fresh; 24 controls and all foreign registry rows are preserved. Four picture compositions and both focused published viewports were reviewed. This increment narrows the Hotel shafts and joins the rear ridge; it does not close original T-2383. Continue only the two finite whole-picture questions there: complete chimney silhouette and compound roof/rear-gable exposure. Preserve the accepted Carpenter anchors, diagnostic cameras and surveyed placement. Global browser failures are explicitly retained in STATUS and the PR; do not replace them with a claimed full-smoke pass or file new photo follow-ups.
+
+
+### T-3041 / T-2387 — bounded west-wicket trial, 2026-11-09
+
+Source implementation adds the missing west gateway beside the northwest blockhouse to both first-fort picket rows, with reconstructed width, precise location and make. The existing main south passage and surveyed fort frame are preserved. Targeted params/producer and actual walking/ride tests pass; no image acceptance is claimed. Next: one palisade-family native bake (15 defaults: two changes, thirteen controls), verify unrelated registry preservation, compare the fixed Currey composition, pass the full gate and published desktop/phone smoke, then adjudicate the existing single open west-gateway discrepancy under the finite visitor bar. No new photo ticket or camera refit is needed.
+
+
+### T-3041 / T-2387 — working west entrance; finite coverage still open (2026-11-10)
+
+The native west openings and two interactive leaves pass desktop/phone walking review; the south entrance retains its measured passage. The refreshed Currey row is resolved under its explicit owner rulings. Complete the original on the same tickets by reviewing/enrolling the prepared canonical northwest-blockhouse and whole-group picture coverage, accounting for the seven outer original records and nine context records that Currey does not individually attest. Preserve cameras by rigid anchor transfer only, source/date/rights limits and surveyed geometry; do not infer sixteen missing geometry repairs or close the original from this one fourteen-member view.
