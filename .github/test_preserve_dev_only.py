@@ -73,9 +73,9 @@ class Preservation(unittest.TestCase):
     def test_baseline_wrong_run_head_expiry_and_live_version_refused(self):
         policy=json.loads((BASE/'live-production.json').read_bytes())
         run={'id':policy['run_id'],'head_sha':policy['production_sha'],'head_branch':'main','conclusion':'success','status':'completed'}
-        artifact={'id':policy['artifact_id'],'name':'github-pages','expired':False,'size_in_bytes':policy['artifact_zip_bytes'],'digest':policy['artifact_digest']};live={'version':'9c65defae'}
+        artifact={'id':policy['artifact_id'],'name':'github-pages','expired':False,'size_in_bytes':policy['artifact_zip_bytes'],'digest':policy['artifact_digest']};live={'version':policy['production_sha'][:9]}
         guard.validate_baseline(policy,run,artifact,live)
-        for subject,key,value in [('run','head_sha','ed676263'),('run','conclusion','failure'),('artifact','expired',True),('artifact','digest','sha256:wrong'),('live','version','ed676263')]:
+        for subject,key,value in [('run','head_sha','ed676263'),('run','conclusion','failure'),('artifact','expired',True),('artifact','digest','sha256:wrong'),('live','version','000000000')]:
             r,a,l=copy.deepcopy(run),copy.deepcopy(artifact),copy.deepcopy(live);{'run':r,'artifact':a,'live':l}[subject][key]=value
             with self.assertRaises(AssertionError):guard.validate_baseline(policy,r,a,l)
     def test_production_requires_matching_actual_owner_promotion(self):
