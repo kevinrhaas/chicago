@@ -133,7 +133,7 @@ T-2374 remains open; final picture matching is not claimed.
 ## T-2374 final form and canonical illustration view — 2026-11-10
 
 This supersedes the old bounding-box, bare-log and unsolved-view limitations
-above. The sole identified held picture is the keyed panorama
+above. The keyed held panorama is
 `chicago_fort_dearborn_1831_1.jpg` / `kinzie_1857_chicago_1831_panorama`.
 The full 1920×1042 reproduction and its Agency-House subject were visually read.
 The source register's Wisconsin Kinzie Agency House entry is a different,
@@ -163,3 +163,22 @@ side-by-side carry final acceptance after native export; CPU projection is not
 an image-gate verdict. Under T-3153, pixel offsets and disagreements between
 plausible drawing fits are within tolerance; missing or wrongly shaped visible
 elements still require a fix. See `L-cobweb-completion-2374`.
+
+
+### Companion unkeyed panorama coverage
+
+The adjacent held `chicago_fort_dearborn_1831_2.jpg` was also visually read in full
+and at the Agency-House subject (unchanged crop1370,490..1495,580, nearest-neighbour
+8× inspection only). It shows the same dominant gable, three front marks,
+receding main roof, subordinate side gable and small stack. Its pale marks and
+roof proportions differ from the keyed engraving. These are two reproductions
+in the Wau-Bun witness family, not independent measurements or separate proof
+of unchanged1835fabric. The inventory credits the unkeyed lithograph to Sarony,
+1856; that attribution is preserved as inventory attribution rather than a new
+first-publication finding. The Wisconsin Agency House record remains unrelated.
+
+`waubun_1831.json` fits five approximate front points with the same fixed800px
+focal and1.60m eye. Its solve records the exact points, residual, source uncertainty
+and witness-family citation. Both views require actual native side-by-side review.
+The source's different lower-mark lengths, small offsets and relative side-roof
+proportions are disagreements between pictures underT3153, not extra open tickets.

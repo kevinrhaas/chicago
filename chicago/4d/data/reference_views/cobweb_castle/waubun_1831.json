@@ -1,0 +1,24 @@
+{
+  "structure_id": "cobweb_castle",
+  "source_id": "kinzie_waubun_1856",
+  "scene": "1835",
+  "diagnostic_only": true,
+  "photo": "../../../../reference/images/chicago/chicago_fort_dearborn_1831_2.jpg",
+  "image_px": [
+    1920,
+    1115
+  ],
+  "principal_px": [
+    1438.8809356534246,
+    540.3134694712517
+  ],
+  "focal_px": 800.0,
+  "eye": [
+    -59.171477561763375,
+    51.09302024810053,
+    1.6
+  ],
+  "yaw_deg": 128.5697478186169,
+  "sky": "overcast",
+  "solve": "ILLUSTRATIVE DRAWING FIT, not a recovered historical viewpoint. Full unaltered 1920 by 1115 held unkeyed panorama chicago_fort_dearborn_1831_2.jpg. The repository image inventory attributes this lithograph to Napoleon Sarony after a Wau-Bun-associated sketch, made 1856 and depicting 1831; this inventory attribution is not an independently verified first-publication finding. The Agency-House subject is identified by the matching location/composition in the keyed panorama kinzie_1857_chicago_1831_panorama. Existing book kinzie_waubun_1856 is the witness-family citation, not proof of independent imagery. Five hand-read front points: base corners (1391,556),(1421,559), eaves (1391,526),(1421,530), apex (1404,513), each about 2 px uncertain. Fixed 800 px focal and 1.60 m eye fit the retained reconstructed 5 m central gable, 2.6 m wall and 35-degree roof at 1.724 px coordinate RMS. Side ridge, subordinate gable and small stack are withheld visual checks. Both reproductions show three front marks; their exact widths/lower extents and relative roof proportions differ and are within tolerance under T-3153. Neither measures the rear tails, paint or July 1835 survival. Diagnostic-only withholds an invented From-this-spot location. Soft overcast lighting compares form with monochrome linework, not historic shadows or colour."
+}
