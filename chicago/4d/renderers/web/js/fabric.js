@@ -129,6 +129,12 @@ const patched = new WeakSet();
 export function patchFabric(material) {
   const cloth = clothFor(material);
   if (!cloth || !material.isMeshStandardMaterial) return null;
+  // Only the explicit near-LOD portable study owns its weave/normal relief.
+  // GLTFLoader retains material extras; ordinary/far garments keep this shader.
+  const portable = material.userData?.chicago4d_cloth_microtexture;
+  if (portable?.version === 1 && portable.runtime_weave === 'portable_maps_replace_common_fabric'
+    && material.normalMap && material.roughnessMap) return null;
+
   if (patched.has(material)) return cloth;
   patched.add(material);
   const prior = material.onBeforeCompile;

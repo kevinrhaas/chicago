@@ -48,6 +48,7 @@ def parse_args():
     p.add_argument('--output', required=True, type=Path)
     p.add_argument('--liberty', help='Existing project LIBERTIES entry assigned by the integrator')
     p.add_argument('--variant', required=True, help='Required existing-resident recipe variant ID; no generic default')
+    p.add_argument('--woven-cloth-near', action='store_true', help='Explicit original portable textile-map study for LOD0/1; default/far LODs unchanged, not photo accepted')
     p.add_argument('--experimental-normal-probes',action='store_true',help='Explicit isolated-CI experiment only; no default normal method change')
     p.add_argument('--normal-probe-receipts',type=Path,help='Required /tmp directory for experimental normal diagnostics')
     p.add_argument('--normal-tolerance',type=float,default=1e-3,help='LOD0 body custom-normal readback bound (default 1e-3). Some machines encode short2 a little coarser (max 1.3e-3..2.1e-3 seen on the 2026-11-08 cloud builds); a build there may pass up to 5e-3 and says so in its audit')
@@ -249,6 +250,10 @@ def build(args):
     wardrobe = None
     if 'modular_wardrobe' in recipe:
         recipe, wardrobe = resolve_wardrobe(recipe, variant)
+    from human_cloth_microtexture import requested_near
+    woven_near = requested_near(variant, args.woven_cloth_near)
+    if woven_near and (wardrobe is None or args.recipe.resolve() != (ROOT/'data/humans/recipes/worker_1835.json').resolve()):
+        raise ValueError('--woven-cloth-near is bounded to the explicit 1835 modular workwear study')
     reference = resolve_person_reference(variant)
     bodypath = ROOT/variant['body_input']
     if args.body and args.body.resolve()!=bodypath.resolve():
@@ -621,6 +626,12 @@ def build(args):
         eye_data=build_eye_components(bones,lod,recipe['eye_components'])
         for component in eye_data['meshes']:
             object_mesh(f"{asset}_{component['name']}_lod{lod}",component['positions_m'],component['triangles'],component['uvs'],component['weights'],component['material'],col)
+    if woven_near:
+        from human_cloth_microtexture import apply_near
+        report=apply_near(scene,colors,recipe['modular_wardrobe']['material_roughness'],args.variant)
+        # Source-only report: exported scene/root metadata would change far LOD bytes.
+        text=bpy.data.texts.new('joseph_woven_near_report.json');text.write(json.dumps(report,sort_keys=True))
+        print(json.dumps({'source_cloth_microtexture':report}),flush=True)
     for name,bone in contract['sockets']['required']:
         obj=bpy.data.objects.new(name,None);rigcol.objects.link(obj)
         obj.empty_display_size=.035;obj.parent=rig;obj.parent_type='BONE';obj.parent_bone=bone

@@ -35,6 +35,23 @@ assert.equal(clothFor({ name: 'garment_lower__highwaist_pantaloons' }), CLOTHS.c
 for (const name of ['skin', 'hair__makehuman_short04', 'footwear__closed_leather_shoes', 'eyes__iris', '']) assert.equal(clothFor({ name }), null, name);
 assert.equal(patchFabric(Object.assign(new THREE.MeshBasicMaterial(), { name: 'garment_upper__shirt_linen' })), null, 'an unlit material is left alone');
 
+
+// Portable near material extras survive real Three material cloning. Their PBR
+// normal/roughness owns the weave; no additive shader relief is installed.
+const portable = Object.assign(new THREE.MeshStandardMaterial(), { name: 'garment_outer__round_jacket__woven_near',
+  normalMap: new THREE.Texture(), roughnessMap: new THREE.Texture() });
+portable.userData.chicago4d_cloth_microtexture = { version: 1, runtime_weave: 'portable_maps_replace_common_fabric' };
+const clonedPortable = portable.clone(), portablePrior = clonedPortable.onBeforeCompile;
+assert.equal(patchFabric(clonedPortable), null, 'marked portable maps avoid double fabric weave');
+assert.equal(clonedPortable.onBeforeCompile, portablePrior, 'portable shader hook unchanged');
+assert.equal(clonedPortable.normalMap, portable.normalMap, 'normal texture remains shared through clone');
+const missingNormal = portable.clone(); missingNormal.normalMap = null;
+assert.equal(patchFabric(missingNormal), CLOTHS.wool, 'incomplete map binding cannot claim portable relief');
+const unmarkedMaps = portable.clone(); unmarkedMaps.userData = {};
+assert.equal(patchFabric(unmarkedMaps), CLOTHS.wool, 'unmarked old material keeps common cloth shader');
+portable.normalMap.dispose(); portable.roughnessMap.dispose();
+portable.dispose(); clonedPortable.dispose(); missingNormal.dispose(); unmarkedMaps.dispose();
+
 // Splices into three's own standard shader, after a prior hook, and is idempotent.
 const compile = material => {
   const shader = { uniforms: {}, vertexShader: THREE.ShaderLib.standard.vertexShader, fragmentShader: THREE.ShaderLib.standard.fragmentShader };

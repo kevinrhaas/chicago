@@ -8722,5 +8722,8 @@ step "Individual horse coats use stable source-bound identities and own only the
 step "Scoped teamster measurements retain every unmodified native fixture row and reject inventory drift (T-1789)" \
   node tools/test_human_fixture_scope.mjs --check
 
+step "Portable Joseph textile pixels preserve finite metric normals and bounded near-only memory (T-1789)" \
+  python3 tools/test_human_cloth_microtexture.py
+
 check_summary
 exit $CHECK_FAILED
