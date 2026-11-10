@@ -6453,3 +6453,8 @@ Deliver as one reviewed group to reduce shared-ledger/registry conflicts. Perfor
 ### 2026-11-10 — T-2374/T-2376/T-2380 bounded picture progress, PR #1903
 
 The three source trials now have pinned native83 evidence, exact81 unchanged MASTER/WEB controls and961+6 preserved foreign bindings. Fresh fixed-camera Green Tree/Jail comparisons and the unchanged private Cobweb diagnostic have been viewed. Both actual published desktop and phone focused runs pass the current WEB bindings, sources/credited pictures/liberties, exact retained review annotations and real Jail fence/terrain alignment. Whole original matches remain partial: Cobweb's camera/compound/finish timing; Green Tree's left-group/connector proportions and other views; Jail's core roof/form and1836-to-July1835 continuity. Native cost is bounded at+1002 Cobweb triangles/+9612 WEB bytes; Green Tree triangle cost is unchanged. Broader inherited smoke failures remain disclosed, not represented as green. The next step for this increment is final required source CI and an ordinary dev merge; no new photo follow-up ticket is created.
+
+
+### 2026-11-10 — T-3041 northwest coverage, PR #1905
+
+Two actual canonical northwest-blockhouse comparisons now preserve the existing Currey14-member and Kurz30-member world frames. Currey has only bounded existing owner-ruling acceptance with crop/context limits; Kurz retains two finite open composition/identity questions. The compiler's pictured badge reflects two already credited whole depictions, while geometry, attribute confidence and the Images list stay unchanged. Original T-3041/T-2387 coverage of the other dated pictures and the complete component inventory remains partial. The first-fort west wickets and cupolas already delivered must not be redone.
