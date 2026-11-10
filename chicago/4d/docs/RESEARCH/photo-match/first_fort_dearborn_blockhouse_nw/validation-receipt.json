@@ -1,0 +1,63 @@
+{
+  "cwd": "/tmp/nov9-group-cobweb/chicago/4d",
+  "scope": "Targeted ordinary owners only. No full four-part local gate claim. Per explicit user checkpoint authorization, parent must run final exact-head eight-part server CI and required gate before merge.",
+  "sparse_asset_materialization": "Ordinary image gate needed existing binary assets and held source pictures omitted by sparse checkout. Initial attempts reported absent vendor and unrelated held pictures. Temporary links to full retained native assets/reference/vendor and 15 exact pre-existing full-source picture copies supplied them; final ordinary owner logs listed below passed. Those temporary sparse-only inputs were removed afterward. No FULL tracked files changed.",
+  "checks": [
+    {
+      "command": "node tools/image_gate.mjs --check",
+      "exit_code": 0,
+      "log": "/tmp/nov10-firstfort-picture/image-schema.log",
+      "log_sha256": "f12d10ecc84f00393f53c11abf44a9d741ca8543e9aefed6fb8686365c83f200",
+      "last_line": "image gate: 161 reference view(s) on 69 building(s), 77 matching; none malformed"
+    },
+    {
+      "command": "node tools/image_gate.mjs --test",
+      "exit_code": 0,
+      "log": "/tmp/nov10-firstfort-picture/image-self.log",
+      "log_sha256": "245aa52dc679767ee003d16919f659f83500c7fe5adc1f9454582e337c1af3ca",
+      "last_line": "ok   image gate self-test: the actual closing gate refuses a stale native fence signature"
+    },
+    {
+      "command": "node tools/test_photo_match_group.mjs",
+      "exit_code": 0,
+      "log": "/tmp/nov10-firstfort-picture/group.log",
+      "log_sha256": "2323cf5fa9db6d427ecbae2d9a21a6e271ee3ff895a36e5703cf8dc394f8b619",
+      "last_line": "ok   image gate self-test: group bearings, phase selection, dependency hashes and missing-member refusals"
+    },
+    {
+      "command": "python3 tools/compile_pictures.py --self-test",
+      "exit_code": 0,
+      "log": "/tmp/nov10-firstfort-picture/pictures-self.log",
+      "log_sha256": "adcde414a118e3f4f31fc4979a605433cbac9246bffe9ad29ecb2ab0d89dd02a",
+      "last_line": "OK: joins, filters, accessories, demolished lots and credits all behave"
+    },
+    {
+      "command": "python3 tools/compile_pictures.py --check",
+      "exit_code": 0,
+      "log": "/tmp/nov10-firstfort-picture/pictures-check.log",
+      "log_sha256": "101400ff605d1b27466760390173644e4881d25bde63db09bfe77a9891abb352",
+      "last_line": "OK: pictures derive (generated at publish; nothing written)"
+    },
+    {
+      "command": "python3 tools/grade_structures.py --self-test",
+      "exit_code": 0,
+      "log": "/tmp/nov10-firstfort-picture/grade-self.log",
+      "log_sha256": "e16196d7dcd7bebe232af7a1eacc7708a1d7e1695611d07991c176913db5f879",
+      "last_line": "OK: pictures, cameras, rulings, existence and the street maps each decide what they should"
+    },
+    {
+      "command": "python3 tools/grade_structures.py --check",
+      "exit_code": 0,
+      "log": "/tmp/nov10-firstfort-picture/grade-check.log",
+      "log_sha256": "fa1ba5c0f92524a217e7e7c5e30cf219c9f27e3a454e61b57e96302e38ce3956",
+      "last_line": "OK: every ruling names its structure, its picture and why"
+    },
+    {
+      "command": "python3 tools/compile_scene.py --all --check",
+      "exit_code": 0,
+      "log": "/tmp/nov10-firstfort-picture/scene-all-check.log",
+      "log_sha256": "fc29c90c9986f2c11b2cee2a1521c81178b39ea7fe25721a69e203eadff8c5db",
+      "last_line": "OK: every committed sidecar is what the dataset compiles to"
+    }
+  ]
+}
