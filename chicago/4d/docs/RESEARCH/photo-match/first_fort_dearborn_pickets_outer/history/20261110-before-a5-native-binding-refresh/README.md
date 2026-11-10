@@ -1,0 +1,1 @@
+Previous genuinely accepted Currey camera, match and full pair preserved before A5 shared-native binding refresh. Existing original-scope acceptance limits remain; this archive/refresh does not close T3041/T2387. Outer-picket original raw PNG was not retained by its earlier run; no old raw output is invented.

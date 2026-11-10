@@ -1,0 +1,17 @@
+{
+  "status": "PASS_ACTUAL_EXISTING_ACCEPTED_CURREY_NATIVE_BINDING_REFRESH_NOT_ORIGINAL_SCOPE_COMPLETION",
+  "verdict": "matches",
+  "view": "first_fort_dearborn_pickets_outer/currey_1912_birdseye",
+  "camera_sha256": "e88282076f21185c303a21cdd1e8a199bbd21b695cedcd64bf9e7663c3c97f83",
+  "group_sha256": "b46a9d58cffecab563d55b40d10139ca8cfec819b3c11e51b5a084a734e06d76",
+  "new_record_sha256": "1fa4c70ba2bdea70bf105f9ec9fe52957b6fa2bc751e56148526b8f97301a960",
+  "pair_sha256": "2bd19baa082311f5271bc1344aa7ab2dcca989cca19e25790e095789ef5bb7c1",
+  "pixel_control": {
+    "pair_pixels_changed": 0,
+    "max_rgb_delta": 0,
+    "mean_abs_rgb_delta": 0.0,
+    "old_pair": "/tmp/nov10-firstfort-final/accepted-currey-before/first_fort_dearborn_pickets_outer/currey_1912_birdseye-side-by-side.jpg",
+    "new_pair": "/tmp/nov10-firstfort-final/after/outer_currey/currey_1912_birdseye-side-by-side.jpg"
+  },
+  "shared_after_receipt_sha256": "0b5f2da5a86fa9ca32c1f34f36dedd02ea806dc09a90387c34b1e0890fe0c08e"
+}
