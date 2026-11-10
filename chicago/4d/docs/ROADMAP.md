@@ -4,6 +4,8 @@ Place Charles Nelson on the Prairie Avenue parkway beside the existing Glessner
 carriage team, retaining the clear walking strip, carriage stand and household
 seasonal routines. Preserve his original short break and stable-door tour mark;
 use real visible routes, honest approaching-guide status and safe handback.
+Keep running errands and jaunt guides from replacing one another’s paths; defer
+tour takeover until the errand finishes and restore interactions after release.
 Require current-source street/phone/tour review and complete green hosted checks
 before DEV merge. Continue boarding, coachman conversation, passengers and ride
 controls on the existing tickets; this increment does not close their acceptance.

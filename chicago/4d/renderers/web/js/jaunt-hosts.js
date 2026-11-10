@@ -80,6 +80,7 @@ export function createJauntHosts({ humans, days = null, router = null, visitor =
       h.via = 'days';
       return h;
     }
+    if (day?.retryable) return null; // another activity retains ownership; update retries
     if (day && day.why !== 'no such person') { skipped.add(host.person); return null; } // absent is not a dayless figure
     // No day of their own: walk them there, and remember where they were.
     h.via = 'self';

@@ -224,6 +224,45 @@ console.log('PASS hidden day-host handoff and handback in walk/instant/fly, back
   hosts.release();
 }
 console.log('PASS visible hosts await safe routing and arrival, with safe visible handback and no fake takeover');
+// A running household errand owns the real actor's path. Waiting for it must not
+// skip the host, greet early, lose its arrival callback or make End cancel it.
+for (const leaveWhileBusy of [false, true]) {
+  const charles = figure('charles', { root: { visible: true }, instance: { behaviour: { day: [{ spans: [
+    { from: 0, to: 24, indoors: false, activity: 'stand', at: { local_e: 0, local_n: 0 }, doing: 'keeping watch' },
+  ] }] } } });
+  const humans = { actors: [charles], get: () => charles };
+  let busy = false, errandArrivals = 0, hostReady = 0;
+  const days = createHumanDays({ humans, hour: () => 10, date: () => '1904-04-15',
+    held: actor => actor === charles && busy, hostRouter: planned });
+  days.update(.1);
+  busy = true;
+  charles.walkPath([{ e: 0, n: 0 }, { e: 2, n: 0 }], { endHeading: 90, onArrive: () => { errandArrivals++; busy = false; } });
+  const errandPath = charles.path, before = figure.greets;
+  const hosts = createJauntHosts({ humans, days });
+  hosts.sync([{ person: 'charles', local_e: 8, local_n: 0 }], { arrived: true, onReady: () => hostReady++ });
+  for (let i = 0; i < 4; i++) { days.update(.25); hosts.update(.25); }
+  assert.equal(charles.path, errandPath, 'the running errand keeps its path and original callback');
+  assert.equal(days.isHosted(charles), false, 'busy actor is not taken over');
+  assert.deepEqual(hosts.waiting, ['charles'], 'busy is temporary, not an absent or dayless host');
+  assert.equal(figure.greets, before); assert.equal(hostReady, 0);
+  if (leaveWhileBusy) hosts.release();
+  charles.arrive();
+  assert.equal(errandArrivals, 1, 'the original errand completes without waiting for a timeout');
+  hosts.update(.5);
+  if (leaveWhileBusy) {
+    assert.equal(charles.path, null); assert.deepEqual(hosts.active, []);
+    assert.equal(days.isHosted(charles), false); assert.equal(hostReady, 0);
+    assert.equal(figure.greets, before, 'End while waiting neither takes nor greets the person later');
+  } else {
+    assert.equal(days.isHosted(charles), true, 'the host is taken only after the errand finishes');
+    assert.equal(charles.path.pts.at(-1).e, 8, 'a real host route follows the completed errand');
+    assert.equal(hostReady, 0); charles.arrive(); assert.equal(hostReady, 1);
+    assert.equal(figure.greets, before + 1);
+    hosts.release(); days.update(.1); charles.arrive();
+    assert.equal(days.isHosted(charles), false); assert.deepEqual([charles.e, charles.n], [0, 0]);
+  }
+}
+console.log('PASS busy household errand retains ownership; host waits, retries and can be cancelled safely');
 {
   const charles = figure('charles', { e: 1395.2, n: -3244.3, root: { visible: true }, instance: { behaviour: { day: [{ spans: [
     { from: 0, to: 24, indoors: false, activity: 'stand', at: { local_e: 1395.2, local_n: -3244.3, heading_deg: 90 }, doing: 'keeping watch beside the carriage team' },

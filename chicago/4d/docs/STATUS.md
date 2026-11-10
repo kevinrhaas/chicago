@@ -12,11 +12,18 @@ require a real walk route; an unavailable route waits and retries instead of
 teleporting or declaring arrival. An actual camera cut may hand off a hidden host
 before the first destination frame. A visitor arriving first sees an approaching-guide
 status and can continue or leave. Menu/Resume retains the host; End returns him
-to his day. Existing house errands, seasonal routines and tour content are retained.
+to his day. A running household errand retains its path and arrival callback; the
+tour waits until it finishes. Conversely, Greet, Stroll and door-call actions cannot
+replace a held guide’s path. Those interactions return when the guide is released.
+Existing house errands, seasonal routines and tour content are retained.
 
 Canonical owners and focused current-source jaunt/day controls passed on the
 source-bound candidate based on DEV `7dcb5bb07abe0c468463a6a16d4103861deb3c65`.
 All 1,081 prior Liberty rows and seven foreign household records remain exact.
+Both errand/guide ownership counterexamples fail on the pre-fix source; the fixed
+source passes all six focused day/round/household/jaunt suites in 10.17 seconds
+under the original 120-second supervisor and resource floors. These are focused
+controls, not the complete gate.
 The street/phone/tour observations and complete current-head hosted gate are still
 pending for this proposal. The earlier post's partial desktop observation ended at
 the unchanged 600-second limit, showed an obstructed view and exceeded its original

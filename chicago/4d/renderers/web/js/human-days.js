@@ -1327,6 +1327,9 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
       const p = people.find((x) => x.actor.personId === personOrInstance || x.id === personOrInstance);
       if (!p || p.entry) return { ok: false, why: 'no such person' };
       if (p.absent) return { ok: false, why: 'not here on this date' };
+      // An errand owns its path and arrival callback until it finishes. The jaunt
+      // retries afterwards; taking it now would strand both activities.
+      if (held(p.actor)) return { ok: false, why: 'finishing another activity', retryable: true };
       if (p.called) p.called = null;
       const a = p.actor, to = { e: mark.e, n: mark.n };
       p.hosted = { mark: to, heading };
