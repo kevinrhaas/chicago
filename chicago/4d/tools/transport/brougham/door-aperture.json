@@ -1,27 +1,51 @@
 {
-  "schema": "chicago-brougham-right-door-study-v1",
+  "schema": "chicago-brougham-right-door-study-v2",
   "status": "UNQUALIFIED source proposal; not an installed delivery or a boarding approval",
-  "base_contracts": {"near": "near-contract.json", "mid": "mid-contract.json"},
+  "base_contracts": {
+    "near": "near-contract.json",
+    "mid": "mid-contract.json"
+  },
   "door_node": "vehicle_door_right",
   "side": -1,
-  "hinge_root_m": [-0.655, 0, -0.43],
+  "hinge_root_m": [
+    -0.655,
+    0,
+    -0.43
+  ],
   "open_angle_deg": -65,
   "duration_s": 1.6,
-  "aperture_root_yz_m": {"y_min": 0.926, "y_max": 1.9, "z_min": -0.34, "z_max": 0.20},
-  "backing_relief_m": 0.018,
-  "hinge_heights_m": [1.12, 1.44],
+  "aperture_root_yz_m": {
+    "y_min": 0.926,
+    "y_max": 1.9,
+    "z_min": -0.34,
+    "z_max": 0.2
+  },
+  "backing_relief_m": 0.006,
   "hinge_pin_radius_m": 0.005,
   "hinge_bore_radius_m": 0.006,
   "hinge_barrel_radius_m": 0.014,
   "hinge_knuckle_length_m": 0.03,
-  "hinge_fixed_offsets_m": [-0.04, 0.04],
+  "hinge_fixed_offsets_m": [
+    -0.04,
+    0.04
+  ],
   "hinge_pin_length_m": 0.13,
   "hinge_segments": 16,
   "runtime_sweep_margin_m": 0.35,
-  "staff_stand_local_m": [-2.1, 0, 0.2],
+  "staff_stand_local_m": [
+    -2.1,
+    0,
+    0.2
+  ],
   "boarding_enabled": false,
   "driver_passenger_fit": false,
-  "qualification": {"real_aperture": false, "closed_appearance": false, "sampled_surface_clearance": false, "continuous_sweep": false, "near_mid_visual": false},
+  "qualification": {
+    "real_aperture": false,
+    "closed_appearance": false,
+    "sampled_surface_clearance": false,
+    "continuous_sweep": false,
+    "near_mid_visual": false
+  },
   "prior_work": {
     "archive": "evidence/period-transport-2026-10-18/parallel-refinement-2026-10-19/c02-door-mechanical-repair-review.tar.gz",
     "sha256": "fb10f0e2f9dd624831b0bf24ef9e533832dc9c847fd343721034e3703de2743a",
@@ -30,6 +54,219 @@
   "liberties": [
     "One right (curbside) leaf only; rear-hung mechanism and dimensions are engineering reconstructions, not attested catalogue hardware.",
     "The existing curved wall below the door overlay is genuinely cut; its inside fragments become moving backing, with declared narrow running relief. Existing opaque door and glass retain their original closed positions.",
-    "The opening is a door-operation study. The existing 0.4859m step-to-floor rise, occupant passage, seated fit, strength and driving remain unqualified."
-  ]
+    "The opening is a door-operation study. The existing 0.4859m step-to-floor rise, occupant passage, seated fit, strength and driving remain unqualified.",
+    "Hidden fixed wall/header/pillar interfaces are rebated at the actual closed leaf support envelope. Header/pillar interior fragments transfer to the leaf with the same source finish and closed surface;3mm running joints and6mm backing inset are unqualified engineering dimensions.",
+    "Only the hidden middle of the two right step stems moves25mm inboard through smooth Y tapers; original terminal attachments and tread pads remain exact. New straps attach at outer barrel wall and actual source shell/old fitting centres.",
+    "Strap starts engage the outer14mm barrel wall by2mm (radius12mm), retaining positive attachment without entering the6mm bore or5mm pin; this is new engineered joinery, not a contact exception."
+  ],
+  "aperture_profile_yz_m": [
+    [
+      0.489909827709198,
+      -0.08749602735042572
+    ],
+    [
+      0.4900953769683838,
+      -0.11782544106245041
+    ],
+    [
+      0.4915350079536438,
+      -0.14878632128238678
+    ],
+    [
+      0.49471601843833923,
+      -0.17942926287651062
+    ],
+    [
+      0.5001335740089417,
+      -0.20880849659442902
+    ],
+    [
+      0.5082828998565674,
+      -0.2359415888786316
+    ],
+    [
+      0.5190753936767578,
+      -0.2608448565006256
+    ],
+    [
+      0.5321882963180542,
+      -0.2841565012931824
+    ],
+    [
+      0.5477592945098877,
+      -0.30577847361564636
+    ],
+    [
+      0.5659089684486389,
+      -0.3255743384361267
+    ],
+    [
+      0.5866991877555847,
+      -0.34336522221565247
+    ],
+    [
+      0.6087775230407715,
+      -0.3591980040073395
+    ],
+    [
+      0.6321631669998169,
+      -0.37322431802749634
+    ],
+    [
+      0.658873438835144,
+      -0.3853645920753479
+    ],
+    [
+      0.6908168196678162,
+      -0.39550092816352844
+    ],
+    [
+      0.7299203276634216,
+      -0.4035598039627075
+    ],
+    [
+      0.7761701345443726,
+      -0.40916359424591064
+    ],
+    [
+      0.828231692314148,
+      -0.4123750627040863
+    ],
+    [
+      0.8861021399497986,
+      -0.41380056738853455
+    ],
+    [
+      1.2059930562973022,
+      -0.4169194996356964
+    ],
+    [
+      1.3083271980285645,
+      -0.4170556366443634
+    ],
+    [
+      1.3966282606124878,
+      -0.41211724281311035
+    ],
+    [
+      2.0024945735931396,
+      -0.3617461323738098
+    ],
+    [
+      2.078430652618408,
+      -0.12243245542049408
+    ],
+    [
+      2.101264715194702,
+      0.07076338678598404
+    ],
+    [
+      2.0457816123962402,
+      0.23240824043750763
+    ],
+    [
+      1.3927313089370728,
+      0.29258373379707336
+    ],
+    [
+      1.3059507608413696,
+      0.2898962199687958
+    ],
+    [
+      0.84779292345047,
+      0.25240617990493774
+    ],
+    [
+      0.799648106098175,
+      0.24726957082748413
+    ],
+    [
+      0.7552130222320557,
+      0.23986758291721344
+    ],
+    [
+      0.715157151222229,
+      0.2302985042333603
+    ],
+    [
+      0.6801837086677551,
+      0.21916981041431427
+    ],
+    [
+      0.6493551731109619,
+      0.2063230723142624
+    ],
+    [
+      0.6217657923698425,
+      0.19161547720432281
+    ],
+    [
+      0.5964797139167786,
+      0.17489546537399292
+    ],
+    [
+      0.5736351609230042,
+      0.15598978102207184
+    ],
+    [
+      0.5538919568061829,
+      0.1350153684616089
+    ],
+    [
+      0.5370500683784485,
+      0.1122409999370575
+    ],
+    [
+      0.5228724479675293,
+      0.08790973573923111
+    ],
+    [
+      0.5111007690429688,
+      0.0622159019112587
+    ],
+    [
+      0.5021205544471741,
+      0.03453145921230316
+    ],
+    [
+      0.4961039125919342,
+      0.004778525326400995
+    ],
+    [
+      0.4924589991569519,
+      -0.02608400583267212
+    ],
+    [
+      0.49059009552001953,
+      -0.05714426934719086
+    ]
+  ],
+  "profile_source_names": [
+    "deep_U_closed_door",
+    "door_edge_lining",
+    "side_door_glass",
+    "side_window_frame"
+  ],
+  "profile_interpretation": "Engineering convex support envelope of actual current closed leaf; not an attested historical joint. Rectangular aperture_root_yz_m is retained only as independent entry-core test.",
+  "fixed_running_relief_m": 0.003,
+  "hinge_heights_from": "Actual source PN bounds centres of the two original right rear cosmetic hardware blocks",
+  "rear_hardware_assignment": "All three original right hardware blocks move rigidly with the leaf at unchanged closed WORLD PN; rear two are cosmetic leaf fittings, not stationary pin barrels",
+  "fixed_anchor_z_m": -0.5,
+  "transfer_fixed_interfaces": [
+    "closed_upper_side_header",
+    "rear_window_pillar"
+  ],
+  "step_stem_repair": {
+    "inboard_offset_m": 0.025,
+    "ramp_up_root_y_m": [
+      0.455,
+      0.49
+    ],
+    "ramp_down_root_y_m": [
+      0.65,
+      0.735
+    ],
+    "preserve_terminal_regions": "All source positions at Y<=.455 orY>=.735 remain exact; whole unchanged terminal triangles keep original PN; tread pads unchanged"
+  },
+  "hinge_strap_engagement_m": 0.002
 }

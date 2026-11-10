@@ -110,6 +110,54 @@ def clipped_area(triangle, bounds):
                for i in range(1, len(polygon) - 1))
 
 
+def profile_area(triangles, profile, offset):
+    total = 0.
+    for triangle in triangles:
+        polygon = list(triangle)
+        for a, b in zip(profile, np.roll(profile, -1, axis=0)):
+            edge = b - a; n = np.array([-edge[1], edge[0]]); n /= np.linalg.norm(n)
+            bound = float(n @ a - offset)
+            if not polygon:
+                break
+            result = []; previous = polygon[-1]; pd = float(n @ previous[1:] - bound)
+            for current in polygon:
+                cd = float(n @ current[1:] - bound)
+                if (pd >= 0) != (cd >= 0):
+                    result.append(previous + (pd / (pd - cd)) * (current - previous))
+                if cd >= 0:
+                    result.append(current)
+                previous, pd = current, cd
+            polygon = result
+        total += sum(np.linalg.norm(np.cross(polygon[i] - polygon[0], polygon[i + 1] - polygon[0])) / 2
+                     for i in range(1, len(polygon) - 1))
+    return float(total)
+
+
+def original_surface_error(points, normals, original_triangles, original_normals):
+    """Each transferred PN vertex must lie on an actual original source facet."""
+    a = original_triangles[:, 0]; e0 = original_triangles[:, 1] - a; e1 = original_triangles[:, 2] - a
+    d00 = np.einsum('ij,ij->i', e0, e0); d01 = np.einsum('ij,ij->i', e0, e1); d11 = np.einsum('ij,ij->i', e1, e1)
+    denominator = d00 * d11 - d01 * d01
+    assert np.all(denominator > 0)
+    slack = CLOSED_WORLD_POSITION_TOLERANCE_M / np.maximum(np.minimum(np.sqrt(d00), np.sqrt(d11)), 1e-9)
+    worst = 0.
+    for point, normal in zip(points, normals):
+        v = point - a; d20 = np.einsum('ij,ij->i', v, e0); d21 = np.einsum('ij,ij->i', v, e1)
+        u = (d11 * d20 - d01 * d21) / denominator; w = (d00 * d21 - d01 * d20) / denominator
+        closest = a + u[:, None] * e0 + w[:, None] * e1
+        distance = np.linalg.norm(closest - point, axis=1)
+        interpolated = ((1 - u - w)[:, None] * original_normals[:, 0]
+                        + u[:, None] * original_normals[:, 1] + w[:, None] * original_normals[:, 2])
+        interpolated /= np.linalg.norm(interpolated, axis=1)[:, None]
+        possible = ((u >= -slack) & (w >= -slack) & (u + w <= 1 + slack)
+                    & (np.abs(interpolated - normal).max(axis=1) <= 2e-7))
+        assert possible.any(), 'Transferred header/pillar normal is not from an original facet'
+        best = float(distance[possible].min())
+        assert best <= CLOSED_WORLD_POSITION_TOLERANCE_M, 'Transferred header/pillar closed-WORLD surface changed'
+        worst = max(worst, best)
+    return worst
+
+
 def verify_structure(args):
     """The same actual-geometry prefix used by structure-only AND full checks.
 
@@ -169,15 +217,18 @@ def verify_structure(args):
 
     move_names = {'deep_U_closed_door', 'door_edge_lining', 'side_door_glass',
                   'side_window_frame', 'side_glass_division'}
-    moved_rows, cut_rows = [], []
+    moved_rows, cut_rows, step_rows = [], [], []
     expected_moved, expected_cut, expected_protected = set(), set(), set()
+    expected_interfaces, expected_steps = set(), set()
+    assert set(recipe['transfer_fixed_interfaces']) == {'closed_upper_side_header', 'rear_window_pillar'}
     expected_protected_rows, expected_changed_rows, protected_world_rows = [], [], []
     for source_index, part in enumerate(source_parts):
         positions, normal_bytes, source_node, source_binding = geometry(part, True, source_world)
         right = part['frame'] == 'vehicle_body' and positions[:, 0].max() < 0
-        required_move = right and (part['name'] in move_names or
-            (part['name'] == 'small_door_hardware' and positions[:, 2].mean() > 0))
+        required_move = right and (part['name'] in move_names or part['name'] == 'small_door_hardware')
         required_cut = right and part['name'] == 'deep_curved_lower_body'
+        required_interface = right and part['name'] in recipe['transfer_fixed_interfaces']
+        required_step = right and part['name'] == 'step_support'
         targets = [p for p in output_parts if p.get('source_part_index') == source_index]
         assert len(targets) == 1, ('Original part lost/duplicated', source_index, part['name'])
         target, = targets
@@ -194,11 +245,32 @@ def verify_structure(args):
             moved_rows.append({'source_part_index': source_index, 'name': part['name'],
                                'closed_world_position_max_error_m': error, 'normals_exact': True,
                                'actual_required_door_ancestry': True})
-        elif required_cut:
-            expected_cut.add(source_index)
+        elif required_cut or required_interface:
+            (expected_cut if required_cut else expected_interfaces).add(source_index)
             expected_changed_rows.append((source_index, part))
             assert target['frame'] == part['frame'] and not under_door(target_node), 'Cut wall must remain fixed'
-            cut_rows.append((part, positions.reshape((-1, 3, 3)), actual.reshape((-1, 3, 3))))
+            cut_rows.append((part, positions.reshape((-1, 3, 3)), actual.reshape((-1, 3, 3)),
+                             required_cut, normal_bytes))
+        elif required_step:
+            expected_steps.add(source_index); expected_changed_rows.append((source_index, part))
+            assert target['frame'] == part['frame'] and not under_door(target_node), 'Fixed step stem moved with leaf'
+            plan = recipe['step_stem_repair']; y = positions[:, 1]
+            def smooth(bounds):
+                t = np.clip((y - bounds[0]) / (bounds[1] - bounds[0]), 0, 1)
+                return t * t * (3 - 2 * t)
+            weight = smooth(plan['ramp_up_root_y_m']) * (1 - smooth(plan['ramp_down_root_y_m']))
+            expected = positions.copy(); expected[:, 0] += plan['inboard_offset_m'] * weight
+            error = float(np.abs(actual - expected).max())
+            terminal = (y <= plan['ramp_up_root_y_m'][0]) | (y >= plan['ramp_down_root_y_m'][1])
+            assert np.array_equal(actual[terminal], positions[terminal]), 'Original step terminal attachment moved'
+            assert error <= CLOSED_WORLD_POSITION_TOLERANCE_M, 'Hidden step stem repair differs from bounded source recipe'
+            whole_unchanged = terminal.reshape((-1, 3)).all(axis=1)
+            a_normals = np.frombuffer(actual_normals, dtype='<f4').reshape((-1, 3, 3))
+            b_normals = np.frombuffer(normal_bytes, dtype='<f4').reshape((-1, 3, 3))
+            assert np.array_equal(a_normals[whole_unchanged], b_normals[whole_unchanged]), 'Unchanged terminal triangle NORMAL changed'
+            step_rows.append({'source_part_index': source_index, 'terminal_vertices_exact': int(terminal.sum()),
+                              'unchanged_terminal_triangles_PN_exact': int(whole_unchanged.sum()),
+                              'recipe_position_max_error_m': error, 'inboard_offset_m': plan['inboard_offset_m']})
         else:
             expected_protected.add(source_index)
             expected_protected_rows.append((source_index, part))
@@ -211,6 +283,7 @@ def verify_structure(args):
                 'source_node_path': source_binding['node_path'], 'target_node_path': target_binding['node_path'],
                 'expanded_local_PN_exact': True, 'closed_WORLD_PN_exact': True})
     assert expected_moved and len(expected_cut) == 1, 'Required original leaf/cut body inventory missing'
+    assert len(expected_interfaces) == 2 and len(expected_steps) == 2, 'Narrow right-interface repair inventory changed'
     assert {r['name'] for r in moved_rows}.issuperset(move_names), 'Incomplete original glass/trim/door assembly'
     assert len(expected_protected) == len(protected), 'Protected classification disagrees with actual input'
     # Preserve the original all-occurrences accounting assertion, now with real
@@ -226,32 +299,53 @@ def verify_structure(args):
             used.add(source_index)
     assert used == set(range(len(source_parts))), 'Original occurrence accounting incomplete'
 
+    profile = np.asarray(recipe['aperture_profile_yz_m'], dtype=float)
+    assert set(recipe['profile_source_names']) == {'deep_U_closed_door', 'door_edge_lining', 'side_door_glass', 'side_window_frame'}
+    assert profile.ndim == 2 and profile.shape[1] == 2 and len(profile) >= 3 and np.isfinite(profile).all()
+    support = []
+    for i, part in enumerate(source_parts):
+        if part['name'] not in recipe['profile_source_names'] or part['frame'] != 'vehicle_body':
+            continue
+        p, _, _, _ = geometry(part, True, source_world)
+        if p[:, 0].max() < 0:
+            support.extend(p[:, 1:])
+    support = np.asarray(support)
+    assert len(support)
+    for a, b in zip(profile, np.roll(profile, -1, axis=0)):
+        edge = b - a; n = np.array([-edge[1], edge[0]]); n /= np.linalg.norm(n)
+        assert (support @ n - a @ n).min() >= -CLOSED_WORLD_POSITION_TOLERANCE_M, 'Profile does not enclose actual original leaf support'
+        assert (profile @ n - a @ n).min() >= -1e-10, 'Profile is not convex/CCW'
+    for vertex in profile:
+        assert np.linalg.norm(support - vertex, axis=1).min() <= 1e-8, 'Profile vertex is not an actual source point'
     cut_accounting = []
-    for part, original_triangles, fixed_triangles in cut_rows:
-        hole = recipe['aperture_root_yz_m']
-        smaller = {key: value + (recipe['backing_relief_m'] if key.endswith('_min') else -recipe['backing_relief_m'])
-                   for key, value in hole.items()}
-        def inside_area(tris, area):
-            return sum(clipped_area(t, [(-1000, 1000), (area['y_min'], area['y_max']),
-                                            (area['z_min'], area['z_max'])]) for t in tris)
+    for part, original_triangles, fixed_triangles, is_wall, original_normals in cut_rows:
         area = lambda tris: float(np.linalg.norm(np.cross(tris[:, 1] - tris[:, 0], tris[:, 2] - tris[:, 0]), axis=1).sum() / 2)
         source_area = area(original_triangles)
-        opening_area = inside_area(original_triangles, hole)
-        expected_backing_area = inside_area(original_triangles, smaller)
+        opening_area = profile_area(original_triangles, profile, recipe['fixed_running_relief_m'])
+        expected_backing_area = profile_area(original_triangles, profile, -recipe['backing_relief_m'] if is_wall else 0)
         fixed_area = area(fixed_triangles)
-        backing_parts = [p for p in output_parts if p['name'] == 'door_original_curved_backing']
+        derived_name = 'door_original_curved_backing' if is_wall else 'door_transferred_' + part['name']
+        backing_parts = [p for p in output_parts if p['name'] == derived_name]
         assert len(backing_parts) == 1, 'Actual moving cut-shell backing missing/duplicated'
         backing, = backing_parts
         backing_positions, _, backing_node, _ = geometry(backing, False, target_world)
         assert backing['frame'] == 'vehicle_door_right' and under_door(backing_node), 'Cut-shell backing is not moving'
+        assert backing['material'] == part['material'], 'Transferred source finish changed'
         backing_triangles = backing_positions.reshape((-1, 3, 3)); backing_area = area(backing_triangles)
         assert abs(fixed_area - (source_area - opening_area)) <= CUT_SURFACE_AREA_TOLERANCE_M2, 'Fixed cut-shell surface accounting changed'
         assert abs(backing_area - expected_backing_area) <= CUT_SURFACE_AREA_TOLERANCE_M2, 'Moving cut-shell backing/relief accounting changed'
+        transferred_error = None
+        if not is_wall:
+            actual_n = np.frombuffer(component(doc, binary, backing, 'NORMAL'), dtype='<f4').reshape((-1, 3))
+            source_n = np.frombuffer(original_normals, dtype='<f4').reshape((-1, 3, 3))
+            transferred_error = original_surface_error(backing_positions, actual_n, original_triangles, source_n)
         cut_accounting.append({'name': part['name'], 'source_surface_area_m2': source_area,
             'fixed_retained_surface_area_m2': fixed_area, 'removed_aperture_surface_area_m2': opening_area,
             'moving_backing_surface_area_m2': backing_area,
             'declared_running_relief_surface_area_m2': opening_area - expected_backing_area,
-            'relief_m': recipe['backing_relief_m'], 'not_claimed_unchanged': True})
+            'fixed_running_relief_m': recipe['fixed_running_relief_m'],
+            'backing_inset_m': recipe['backing_relief_m'] if is_wall else 0,
+            'transferred_original_closed_surface_max_error_m': transferred_error, 'not_claimed_unchanged': True})
     triangles, moving, labels = decode(doc, binary)
     hole = recipe['aperture_root_yz_m']; inset = .015
     core = [(-.80, -.30), (hole['y_min'] + inset, hole['y_max'] - inset),
@@ -272,6 +366,7 @@ def verify_structure(args):
         'checker_sha256': sha(Path(__file__)), 'protected_original_occurrences_exact': len(protected),
         'protected_actual_world_occurrences': protected_world_rows,
         'retained_original_leaf_parts': moved_rows, 'cut_shell_accounting': cut_accounting,
+        'hidden_step_stem_repairs': step_rows, 'source_derived_profile_vertices': len(profile),
         'closed_world_position_tolerance_m': CLOSED_WORLD_POSITION_TOLERANCE_M,
         'cut_surface_area_tolerance_m2': CUT_SURFACE_AREA_TOLERANCE_M2,
         'all_actual_triangles': len(triangles), 'moving_triangles': int(moving.sum()),

@@ -124,7 +124,7 @@ export function createCoachmanDoorActions({ parkedTransport, humans, days, route
         const points = route?.points;
         if (!Array.isArray(points) || points.length < 2 || !points.every(p => Array.isArray(p)
           && p.length === 2 && p.every(Number.isFinite))
-          || !short({ e: points.at(-1)[0], n: points.at(-1)[1] }, stand)) return 'Charles has no clear path to the carriage';
+          || Math.hypot(points.at(-1)[0] - stand.e, points.at(-1)[1] - stand.n) > .05) return 'Charles has no clear path to the carriage';
         if (door.blocked(bodies())) return 'Please stand clear of the carriage door’s swing';
         if (actor.root?.visible !== true || !days?.host || !days?.unhost) return 'Charles is not available here';
         // Host before interact marks this SAME person thing running: the normal

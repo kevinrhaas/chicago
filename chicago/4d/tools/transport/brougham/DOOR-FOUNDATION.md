@@ -165,7 +165,7 @@ First-witness SAT separations range from approximately -0.092mm to -10.159mm.
 These are normalized-axis separation witnesses, **not** a measured minimum
 translation or a prescription to remove that much material everywhere.
 
-### Smallest repair proposal — NOT applied
+### Repair proposal recorded at a30 — not applied in that checkpoint
 
 Keep every original moving leaf/glass/lining position and finish unchanged.
 Relieve only the fixed interfaces actually obstructing that assembly: cut/rebate
@@ -185,3 +185,70 @@ mechanism, not an exception for intended contact. None of these repairs is yet
 applied. Every changed fixed-source occurrence must enter the declared change
 scope and new structural/negative/swept/visual checks. Wheels, lamps, terrain,
 the standing team and placement remain outside the repair scope.
+
+## Narrow engineering repair source — temporary structural checkpoint
+
+The next source recipe replaces the rectangular wall cut with a 45-vertex convex
+support envelope derived from actual original right U leaf, lining, glazing and
+window-frame Y/Z positions. It is an explicit engineering door-bay envelope, not
+an attested joint or a claim that a convex hull reproduces every trim concavity.
+The fixed running joint is 3mm outside that support, with backing inset 6mm.
+The old rectangle is only the independent entry-core test region. Cut reveals
+join actual inner/outer skins along those profile planes.
+
+Only thirteen original right-side occurrences enter the changed scope: eight
+whole rigid leaf/fitting occurrences, one curved wall, two hidden step stems and
+the upper header/rear pillar. The original six whole moving streams stay exact;
+the two rear cosmetic fittings also transfer rigidly at their original closed
+WORLD PN. Fixed header/pillar portions within the door profile transfer with
+their original finish and surface rather than simply disappearing. Their fixed
+remainders retain the surrounding roof/rear-quarter geometry; the narrow running
+joint is separately accounted as changed source surface. The structural verifier
+checks transferred header/pillar vertices and normals against actual source
+facets, in addition to surface-area accounting and actual door ancestry.
+
+The two right step stems move 25mm inboard only in a smoothly tapered middle:
+ramp-up Y0.455→0.490m, full offset through0.650m, ramp-down to0.735m. Both terminal
+regions, terminal triangles and the tread pads retain their original geometry.
+The new hinges use actual old rear fitting centres (Y1.013099968/1.329500020m);
+moving straps start at the barrel's outer wall and attach to those fittings.
+Fixed straps attach to actual shell-skin mid-depth intersections at Z−0.50m.
+This declares new engineering joinery, not strength or historical hardware proof.
+
+Charles's route endpoint preflight now uses the same0.05m bound as native safe
+host travel; both planners delegate to the same `api.router.plan`. Date/hour,
+passage, held/hosted, failed-route and cancellation behavior still require the
+planned actual runtime tests before enablement.
+
+The one authorized combined temporary near/mid producer plus structural/control
+cell closed in **24.064s**, with the original SUP120/floors accepted, zero remaining
+children and all parent input/source hashes unchanged. Both structural baselines
+passed, and **all sixteen** checksum-refreshed geometry/ancestry corruptions were
+rejected, including source step-terminal displacement and transferred-header
+closed-WORLD displacement. No tolerance or depth was relaxed.
+
+| Temporary repaired detail | SHA256 | Bytes | Triangles |
+|---|---|---:|---:|
+| near | `a06ff9458cd8ab94487acd1ca1561dc6d4d39099933ad7563d4ca2f832b96570` | 4,061,836 | 54,740 |
+| mid | `062242f219f56c683695b2ad72fd227c3a577e00f007ddd7c8a2ee20b95e029c` | 2,432,772 | 32,464 |
+
+Each detail has **6,478 more triangles** than the previous temporary prototype
+(and retains30raw meshes/48nodes). This is actual cut/reveal tessellation, not a
+free runtime change: future indexing, LOD, publication/memory/frame budgets and
+visual gates must include these exact changed inputs. No GLB payload is committed.
+
+Near/mid preserve468/302 original WORLD PN occurrences exactly; eight whole
+original leaf/fitting occurrences retain their normals and closed positions
+(maximum position error2.95e-8m). Each step keeps96terminal vertices and23whole
+terminal triangles exact. The transferred pillar/header source-facet position
+errors are1.20e-9/8.93e-8m, below the unchanged2e-7m bound. The actual independent
+entry-core fixed-surface area remains0. These are structural statements only.
+
+The repaired meshes have **no new closed-contact, full sampled/continuous sweep,
+current-byte visual or runtime qualification yet**. The old1313contact/120sNONPASS
+belongs to the old prototype and remains immutable; it is not a test of this new
+geometry. A reviewed exact batch SAT helper is pending before another bounded
+closed-domain check. Full local four-part checks, preflight, hosted exact-head
+checks and published/browser gates remain UNRUN for this source checkpoint.
+All recipe qualification/capability flags remain false. No installed asset,
+standing team, placement, scene, PR, DEV or MAIN change is included.
