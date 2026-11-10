@@ -1,0 +1,49 @@
+{
+  "structure_id": "fort_dearborn_commandants_quarters",
+  "scene": "1835",
+  "source_id": "wentworth_1881_fort_dearborn",
+  "photo": "../../sources/assets/second_fort_wentworth_1881/p92_hesler_1855.jpg",
+  "image_px": [
+    2918,
+    2038
+  ],
+  "principal_px": [
+    2020,
+    1450
+  ],
+  "focal_px": 2400,
+  "eye": [
+    -25,
+    45,
+    10
+  ],
+  "yaw_deg": 153,
+  "sky": "overcast",
+  "also_render": [
+    "fort_dearborn_blockhouse",
+    "fort_dearborn_artillery_house",
+    "fort_dearborn_barracks",
+    "fort_dearborn_big_barn",
+    "fort_dearborn_flagstaff",
+    "fort_dearborn_garrison_garden",
+    "fort_dearborn_guard_house",
+    "fort_dearborn_magazine",
+    "fort_dearborn_officers_quarters",
+    "fort_dearborn_out_building_a",
+    "fort_dearborn_out_building_b",
+    "fort_dearborn_palisade",
+    "fort_dearborn_parade",
+    "fort_dearborn_root_house",
+    "fort_dearborn_root_house_b",
+    "fort_dearborn_shop",
+    "fort_dearborn_store_house",
+    "fort_dearborn_sutlers_store",
+    "fort_dearborn_us_factors_house",
+    "fort_dearborn_wash_house"
+  ],
+  "card_members": [
+    "fort_dearborn_officers_quarters"
+  ],
+  "diagnostic_only": true,
+  "solve": "LATER1855NAMEDQUARTERS,T-2388. ActualPD1881p92engraving afterHesler1855photo and its explicitp93key: commandantsA brick25x50ft,officersB wood30x60ft. This securely identifies both pictured quarters, unlike the unkeyedKurzrange. July1835models render, not a1855scene. The source looksnorthwest fromMarineHospital, a later building absent in1835. Eye[-25,45,10]inAframe withyaw153,focal2400 and principal[2020,1450] is a finite reconstructed southeast review framing on the existing stated plan spans, not an attested historical camera/height. No1855MarineHospital, northbank city or completedLakeHouse is built backwards. Existingofficersdoublegallery is supported byHubbard1818; its1855appearance does not prove unchanged1835detail. The commandantsgallery shown in1855 is a dated continuity question; no blanket1835attestation. Bay/stack counts and camera alternatives are not exact metric data. All21members are enrolled as context; only A and B are securely named picturedquarters, so B alone receivescard_members in addition to anchorA. Common grade and analyticalovercastlighting;diagnostic_only suppresses historicalspot. Currentactualpair is required beforeverdict."
+}
