@@ -50,7 +50,7 @@
     {
       "id": "log_jail_palisade",
       "file": "data/enclosures/log_jail_palisade.json",
-      "sha256": "4de1ab8905eb5af96e3ab249e797b29e5baa8c9cd3429c9c9b1fae6f1891de8f"
+      "sha256": "68d377d4dd54269c1ed939e898bb8df387ff1fd7ff5cd38483c21aa0b120d3af"
     },
     {
       "id": "log_jail_keeper_link",
@@ -77,7 +77,7 @@
     },
     {
       "file": "renderers/web/js/enclosures.js",
-      "sha256": "4dfac316ce02d19ad5d01f2186d0e85fb1372f4f0c64c6769ea26bffc085887d"
+      "sha256": "f6b439fdb9d614ac2b882b0ce4c18f7a20d099b2998f0a3561ffa6e5f71d169d"
     },
     {
       "file": "renderers/web/js/gates.js",
@@ -100,12 +100,12 @@
       "sha256": "3718df126d69c125362a03340913204470d8c50238605150e57f808840fb7759"
     }
   ],
-  "enclosures_sha256": "66d972818f54bef0981811b852ed7d0f4eb5995a60bd72e3c563e5b33f1a3f75",
+  "enclosures_sha256": "c727e48210c74b05933163c55b089f810235ed2efeed194873a37ad4ebabdca5",
   "side_by_side": "docs/RESEARCH/photo-match/log_jail/gale_1902-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
     {
-      "what": "Previously absent high plank palisade is now present in the actual native enclosure render. Gale p.51 supplies the kind/existence; overall3.05m height, compact outline and stock are declared reconstructions, not picture measurements.",
+      "what": "Previously absent high plank palisade is now present in the actual native enclosure render. Gale p.51 supplies the kind/existence; overall3.05m height, compact outline and stock are declared reconstructions, not picture measurements. HEIGHT TRIAL 2026-11-10 (T-2380): the reconstructed overall height is now 2.44 m; 3.05 m describes the preceding comparison. Neither number is a measured historic fence height.",
       "status": "fixed"
     },
     {
@@ -129,7 +129,11 @@
       "status": "within tolerance"
     },
     {
-      "what": "The plate shows the log jail's own log walls and roof standing well clear above the fence, left of the keeper house. In this render the core is concealed behind the palisade and almost none of it reads. A visitor comparing the two would notice the jail itself is missing from the picture's dominant position: the palisade is too high for the core against this picture, or the core too low, and this increment resolves neither.",
+      "what": "The prior 3.05 m palisade concealed almost all of the retained jail core. FIXED IN PART 2026-11-10 (T-2380): at the unchanged authored camera the reconstructed 2.44 m palisade now exposes a continuous band of the existing core roof above its pointed heads. This fixes the complete-concealment symptom only; the source roof and wall profile still differ as recorded below. Core/keeper models, placement, grade plane, camera and source are unchanged. The new height is a relative-exposure trial, not a source measurement or proof of July 1835 form.",
+      "status": "fixed"
+    },
+    {
+      "what": "The now-visible retained core still presents a low roof profile instead of the plate's taller exposed log-wall and gabled volume. The 2.44 m fence trial does not reproduce that source silhouette or settle whether the later drawn volume identifies the original cell. Gale and Andreas disagree about the exposed roof form, and neither retrospective composition establishes the exact July 1835 core.",
       "status": "open"
     },
     {
@@ -137,11 +141,11 @@
       "status": "open"
     },
     {
-      "what": "The keeper house's drawn elevation is the north front and east gable of the reconstructed `keeper_gale_1902` layout. Whether the plate's house is the same building seen the same way is not established — the plate is captioned 1836 and Andreas draws a different elevation entirely.",
+      "what": "The keeper house's drawn elevation is the north front and east gable of the reconstructed `keeper_gale_1902` layout. Whether the plate's house is the same building seen the same way is not established \u2014 the plate is captioned 1836 and Andreas draws a different elevation entirely.",
       "status": "open"
     },
     {
-      "what": "Tone and material: the render's palisade reads as one flat dark brown mass, where the plate draws light vertical boards with visible joints and shadow. No board-by-board palisade stock is modelled and none is claimed.",
+      "what": "The actual native palisade already has separate 254 mm boards, 6 mm gaps and 127 mm pointed heads; this increment changes none of that stock or its materials. At this fixed diagnostic camera the render still reads as a broad dark fence while the plate distinguishes light vertical members and deeper joints. Stock visibility and finish remain unresolved; this monochrome plate does not establish a literal paint colour.",
       "status": "open"
     },
     {
@@ -149,5 +153,5 @@
       "status": "fixed"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

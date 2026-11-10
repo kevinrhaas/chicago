@@ -2948,6 +2948,9 @@ step "a stated compound aperture set is read once, overrides its room's opening 
 selftest "a stated compound aperture set is refused outside its room's wall, through its own rake, with two ways in or on the bounded elbow" \
   python3 tools/test_log_compound_apertures.py --self-test
 
+step "partial compound clapboards preserve the old shell, clear its openings and leave other log dwellings alone (T-2374)" \
+  python3 tools/test_log_compound_clapboards.py
+
 # ...AND THE RULE IS LOCAL (T-0405). "Re-derives" only says the committed file matches the
 # rule; it says nothing about how far one frontage reaches. Until T-0405 the mounting was
 # dealt from a counter walked down the town in id order, so admitting one frontage in the
@@ -8690,6 +8693,11 @@ step "World smoke keeps exact structure batches and both source-owned Green Tree
   node tools/test_world_smoke_contracts.mjs
 step "Green Tree yard generator preserves enclosed, open and blocked source readings (T-1790)" \
   python3 tools/test_green_tree_yard_modes.py
+
+step "Human assembly still controls reject wrong identities, invalid bounds and missing outputs (T-1789)" \
+  python3 tools/test_human_library_stills.py
+step "Human assembly still intake rejects stale runs, mismatched jobs and unsafe archives (T-1789)" \
+  python3 tools/test_human_library_stills_intake.py
 
 check_summary
 exit $CHECK_FAILED

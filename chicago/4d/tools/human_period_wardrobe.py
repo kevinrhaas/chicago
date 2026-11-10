@@ -163,7 +163,7 @@ def round_jacket(body_mesh, bones, recipe, height, profile, scale=1.):
         raise ValueError('unsupported reconstructed jacket ease/length')
     source = garment_shell(body_mesh, 'shirt', spec['ease_m'],
                            {**recipe, 'shirt_hem_fraction': spec['hem_fraction']},
-                           bones, height, scale)
+                           bones, height, scale, lower_hem_clip=True)
     waist = recipe['waist_height_fraction']*height/scale
     neck = bones['neck_01']['head_m'][1]
     def opening(y):
@@ -230,7 +230,7 @@ def round_jacket(body_mesh, bones, recipe, height, profile, scale=1.):
     if not lapel_edges:
         raise ValueError('jacket has no connected front lapels')
     out['receipt'] = {'construction': 'source-fitted short round jacket with connected folded front edges',
-                      'connected_lapel_edges': len(lapel_edges), 'source_body_mutated': False,
+                      'connected_lapel_edges': len(lapel_edges), 'lower_hem_clip_y_m': source['receipt']['lower_hem_clip_y_m'], 'source_body_mutated': False,
                       'source_body_uvs_mutated': False, 'grade': 'reconstructed', 'fit_accepted': False}
     return out
 

@@ -50,6 +50,7 @@ import { dressLooks, dressCloth, looksHairStyle } from './human-looks.js';
 import { dressHat } from './human-hats.js';
 import { dressSpectacles } from './human-spectacles.js';
 import { dressGarrison, garrisonCarry, createArmsPiles } from './human-garrison.js';
+import { clothHuman } from './fabric.js';
 
 /** § 8: the LODs each scene-detail tier may draw. `light` stays the floor. */
 export const HUMAN_TIERS = Object.freeze({ full: [0, 1, 2, 3], balanced: [1, 2, 3], light: [2, 3] });
@@ -446,6 +447,10 @@ export class HumanActor {
     // his height. The wearer's own fitted geometries go with the level.
     const armed = dress?.garrison ? dressGarrison(scene, dress.garrison, { lod }) : null;
     if (armed) looked.push(...armed.owned);
+    // The same reconstructed linen/wool weave and wear as the drivers, after
+    // each resident's colours and any replacement uniform materials are chosen.
+    // No texture or material is allocated; a driver's later call is idempotent.
+    clothHuman(scene);
     const extras = [];
     for (const g of armed?.meshes ?? []) g.traverse((o) => { if (o.isMesh) extras.push(o); });
     const clips = new Map();
