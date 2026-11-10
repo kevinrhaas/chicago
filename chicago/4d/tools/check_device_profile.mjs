@@ -249,7 +249,8 @@ check('T-3539: the loading screen\'s panel names the shared memory and what a we
   const phone = { cls: 'standard', touch: true, signals: { renderer: 'Apple GPU', cores: 6 }, bench: null, choice: dp.decide('standard', { touch: true }) };
   const ph = ad.arrivalDeviceStatus({ profile: phone, detail: 'light', sharpness: 1, lowMemory: true });
   assert.ok(!ph.assess.includes('shared memory'), 'a phone is not flagged');
-  assert.ok(ph.setup.includes('plants thinned further, horses and carriages off'), 'Light says what it eases, by name');
+  assert.ok(ph.setup.includes('every street, building, person and carriage'), 'T-3542: Light keeps people, horses and carriages');
+  assert.ok(ph.setup.includes('plants thinned further, carriages drawn nearer'), 'Light says what it eases, by name');
   assert.ok(ad.arrivalDeviceStatus({ profile: strong, detail: 'full', sharpness: 1.5, chosen: true }).setup.includes('your settings'));
   assert.ok(ad.arrivalDeviceStatus({ profile: strong, detail: 'balanced', sharpness: 1, steppedDown: true, chosen: true })
     .setup.at(-1).startsWith('eased after'), 'the step-down outranks "your settings"');

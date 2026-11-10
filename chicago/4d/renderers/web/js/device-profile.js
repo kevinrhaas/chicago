@@ -175,16 +175,18 @@ export function shortGpu(renderer) {
 /**
  * What a class chooses, on a touch device or not. Pure.
  *
- * A phone or tablet keeps `light` detail at every class: the owner's phone
- * memory crashes (T-2546) are about geometry held, and until that meter reads
- * what `balanced` costs on a phone a stronger phone earns Sharpness, not
- * geometry. A weak desktop boots `balanced` at Low, and since T-3537 with the
+ * A phone or tablet starts at `light`, and since T-3542 a strong one at
+ * `balanced` (measured: 1904 525 MB, 1835 677, 1812 470 on the phone meter,
+ * against Light's 426 / 501 / 339), every phone still on the memory diet; a
+ * phone that runs out of memory steps down (crash-guard.js). Light itself no
+ * longer drops anything core: since the owner's ruling (2026-11-10) it draws
+ * people to 140 m and keeps its horses, carriages and wagons, nearer. A weak desktop boots `balanced` at Low, and since T-3537 with the
  * phone's memory diet: `balanced` alone still held 1904's every page array beside
  * the GPU's copy (1,009 MB), and a weak computer is mostly one on integrated
  * graphics, whose GPU copy comes out of the same RAM. Not `light`: the owner,
  * 2026-11-10, "I didn't want to lose people at lower computer settings ... or
- * horses or carriages or wagons" — `light` draws no horse or vehicle at all, and
- * its people only to 60 m. Blurrier is the price instead: Sharpness Low and the
+ * horses or carriages or wagons" — `light` then drew no horse or vehicle at all
+ * (T-3542 since draws them nearer). Blurrier is the price instead: Sharpness Low and the
  * light texture tier. A strong desktop is drawn at High.
  */
 export function decide(cls, { touch = false, cores = null, webgpu = false } = {}) {
