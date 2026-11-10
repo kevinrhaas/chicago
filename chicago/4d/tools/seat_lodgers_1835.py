@@ -2724,7 +2724,7 @@ def the_two_counts_reconciled(ledger: dict) -> dict:
     scheduled = sum(int(c.get("scheduled_roofs") or 0) for c in lodging_model()["classes"]
                     if c["class"] in LODGING_CLASSES)
     book = load(BOOK)
-    roof_debt = sum(max(0, int(r.get("to_reconstruct") or 0) - int(r.get("filled") or 0))
+    roof_debt = sum(max(0, int(r.get("to_build") or 0))
                     for f in book["bucket_families"] if f["key"] == "structures"
                     for r in f["buckets"] if r.get("axes", {}).get("group") in
                     ("larger_boarding_houses", "inns_taverns"))

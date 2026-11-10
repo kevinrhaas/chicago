@@ -8997,7 +8997,9 @@
       "witkins_thomas",
       "woodruff_alson"
     ],
-    "conservative_note": "All members of all current T2193 counted households and T1174 source-pass households excluded, including non-head members. Other known households are excluded from reconstructed units even when not selected for the20 local receipts."
+    "conservative_note": "All members of all current T2193 counted households and T1174 source-pass households excluded, including non-head members. Other known households are excluded from reconstructed units even when not selected for the20 local receipts.",
+    "measurement_kind": "historical_partition_audit_snapshot",
+    "snapshot_note": "These counts describe the authored partition audit before the final held-head refresh; they are retained as the historical audit, not presented as current ledger totals. The lodging writer independently checks every member of the current T-2193/T-1174 and housing-family/dealt exclusions on every build and refuses any overlap."
   },
   "ticket": "T-2023",
   "grade": "reconstructed",
