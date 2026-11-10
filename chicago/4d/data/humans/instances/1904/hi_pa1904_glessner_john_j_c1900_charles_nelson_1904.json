@@ -21,7 +21,14 @@
     "state": "standing",
     "day": [
       {
-        "note": "Reconstructed day (L-t3516-days, T-3516): docs/RESEARCH/people-days-1835-1904/days.py.",
+        "dates": {
+          "months": [
+            12,
+            1,
+            2
+          ]
+        },
+        "note": "Reconstructed seasonal routine (L-t3533-household-routines); times and activities are not diary evidence.",
         "spans": [
           {
             "from": 0,
@@ -32,7 +39,26 @@
           },
           {
             "from": 6,
-            "to": 12.5,
+            "to": 6.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1341.6,
+              "local_n": -3216.95,
+              "heading_deg": 35
+            },
+            "activity": "stand",
+            "doing": "at the stable doors: the horses, the carriage made ready"
+          },
+          {
+            "from": 6.5,
+            "to": 11,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "indoor household duties and shelter from the cold"
+          },
+          {
+            "from": 11,
+            "to": 11.5,
             "indoors": false,
             "at": {
               "local_e": 1341.6,
@@ -40,8 +66,116 @@
               "heading_deg": 35
             },
             "activity": "talk",
-            "doing": "at the stable doors: the horses, the carriage made ready",
+            "doing": "take a short break and discuss the household work",
             "knot": "glessner_18th"
+          },
+          {
+            "from": 11.5,
+            "to": 12.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1341.6,
+              "local_n": -3216.95,
+              "heading_deg": 35
+            },
+            "activity": "stand",
+            "doing": "at the stable doors: the horses, the carriage made ready"
+          },
+          {
+            "from": 12.0,
+            "to": 12.5,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "indoor household duties and shelter from the cold"
+          },
+          {
+            "from": 12.5,
+            "to": 13.5,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "dinner"
+          },
+          {
+            "from": 13.5,
+            "to": 14.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1341.6,
+              "local_n": -3216.95,
+              "heading_deg": 35
+            },
+            "activity": "stand",
+            "doing": "at the stable doors: the horses, the carriage made ready"
+          },
+          {
+            "from": 14.0,
+            "to": 19,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "indoor household duties and shelter from the cold"
+          },
+          {
+            "from": 19,
+            "to": 24,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "supper; asleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "months": [
+            3,
+            4,
+            5
+          ]
+        },
+        "note": "Reconstructed seasonal routine (L-t3533-household-routines); times and activities are not diary evidence.",
+        "spans": [
+          {
+            "from": 0,
+            "to": 6,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "asleep"
+          },
+          {
+            "from": 6,
+            "to": 11,
+            "indoors": false,
+            "at": {
+              "local_e": 1341.6,
+              "local_n": -3216.95,
+              "heading_deg": 35
+            },
+            "activity": "stand",
+            "doing": "at the stable doors: the horses, the carriage made ready"
+          },
+          {
+            "from": 11,
+            "to": 11.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1341.6,
+              "local_n": -3216.95,
+              "heading_deg": 35
+            },
+            "activity": "talk",
+            "doing": "take a short break and discuss the household work",
+            "knot": "glessner_18th"
+          },
+          {
+            "from": 11.5,
+            "to": 12.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1341.6,
+              "local_n": -3216.95,
+              "heading_deg": 35
+            },
+            "activity": "stand",
+            "doing": "at the stable doors: the horses, the carriage made ready"
           },
           {
             "from": 12.5,
@@ -59,9 +193,172 @@
               "local_n": -3216.95,
               "heading_deg": 35
             },
+            "activity": "stand",
+            "doing": "at the stable doors: the horses, the carriage made ready"
+          },
+          {
+            "from": 19,
+            "to": 24,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "supper; asleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "months": [
+            9,
+            10,
+            11
+          ]
+        },
+        "note": "Reconstructed seasonal routine (L-t3533-household-routines); times and activities are not diary evidence.",
+        "spans": [
+          {
+            "from": 0,
+            "to": 6,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "asleep"
+          },
+          {
+            "from": 6,
+            "to": 11,
+            "indoors": false,
+            "at": {
+              "local_e": 1341.6,
+              "local_n": -3216.95,
+              "heading_deg": 35
+            },
+            "activity": "stand",
+            "doing": "at the stable doors: the horses, the carriage made ready"
+          },
+          {
+            "from": 11,
+            "to": 11.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1341.6,
+              "local_n": -3216.95,
+              "heading_deg": 35
+            },
             "activity": "talk",
-            "doing": "at the stable doors: the horses, the carriage made ready",
+            "doing": "take a short break and discuss the household work",
             "knot": "glessner_18th"
+          },
+          {
+            "from": 11.5,
+            "to": 12.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1341.6,
+              "local_n": -3216.95,
+              "heading_deg": 35
+            },
+            "activity": "stand",
+            "doing": "at the stable doors: the horses, the carriage made ready"
+          },
+          {
+            "from": 12.5,
+            "to": 13.5,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "dinner"
+          },
+          {
+            "from": 13.5,
+            "to": 19,
+            "indoors": false,
+            "at": {
+              "local_e": 1341.6,
+              "local_n": -3216.95,
+              "heading_deg": 35
+            },
+            "activity": "stand",
+            "doing": "at the stable doors: the horses, the carriage made ready"
+          },
+          {
+            "from": 19,
+            "to": 24,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "supper; asleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "months": [
+            6,
+            7,
+            8
+          ]
+        },
+        "note": "Reconstructed seasonal routine (L-t3533-household-routines); times and activities are not diary evidence.",
+        "spans": [
+          {
+            "from": 0,
+            "to": 6,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "asleep"
+          },
+          {
+            "from": 6,
+            "to": 11,
+            "indoors": false,
+            "at": {
+              "local_e": 1341.6,
+              "local_n": -3216.95,
+              "heading_deg": 35
+            },
+            "activity": "stand",
+            "doing": "at the stable doors: the horses, the carriage made ready"
+          },
+          {
+            "from": 11,
+            "to": 11.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1341.6,
+              "local_n": -3216.95,
+              "heading_deg": 35
+            },
+            "activity": "talk",
+            "doing": "take a short break and discuss the household work",
+            "knot": "glessner_18th"
+          },
+          {
+            "from": 11.5,
+            "to": 12.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1341.6,
+              "local_n": -3216.95,
+              "heading_deg": 35
+            },
+            "activity": "stand",
+            "doing": "at the stable doors: the horses, the carriage made ready"
+          },
+          {
+            "from": 12.5,
+            "to": 13.5,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "dinner"
+          },
+          {
+            "from": 13.5,
+            "to": 19,
+            "indoors": false,
+            "at": {
+              "local_e": 1341.6,
+              "local_n": -3216.95,
+              "heading_deg": 35
+            },
+            "activity": "stand",
+            "doing": "at the stable doors: the horses, the carriage made ready"
           },
           {
             "from": 19,

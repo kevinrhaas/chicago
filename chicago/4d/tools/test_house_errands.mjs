@@ -8,11 +8,11 @@
  *   - the instance stands on his own front walk, facing the street, within reach of nobody
  *     else's door; the person thing is made for him and not for his cook, nor for a man of
  *     another household;
- *   - the Interact key offers Greet first and Go home as a second key, numbered 2; R greets,
+ *   - the Interact key offers Greet first and Go inside as a second key, numbered 2; R greets,
  *     2 sends him home, and a number nothing answers to is left alone;
  *   - Greet turns him to the visitor and opens his card once the greeting is done, saying
  *     nothing on the status line;
- *   - Go home: he walks only toward the door (never back to the sidewalk first), up onto the
+ *   - Go inside: he walks only toward the door (never back to the sidewalk first), up onto the
  *     threshold at the sill, waits clear of the leaf while it swings, walks in past it, is
  *     indoors (no longer drawn, picked or offered), and the door shuts behind him; the key
  *     says he has gone in;
@@ -156,9 +156,9 @@ const key = createInteractKey({ interactions: ix, keyEl, moreEl, doc, keys,
   where: () => ({ ...visitor, bearing: (outward + 180) % 360, flying: false }), say: (t) => said.push(t) });
 ok(key.refresh() === thing && keyEl.textContent === 'Greet', 'beside him the key offers Greet');
 ok(key.choices.join() === 'greet,go_home,stroll:court,stroll:arch' && !moreEl.hidden && moreEl.children.length === 3
-  && moreEl.children[0].children[0].textContent === 'Go home' && moreEl.children[0].children[1].textContent === '2'
+  && moreEl.children[0].children[0].textContent === 'Go inside' && moreEl.children[0].children[1].textContent === '2'
   && moreEl.children[1].children[0].textContent === 'Show me the courtyard' && moreEl.children[2].children[1].textContent === '4',
-  'and Go home on a second key, numbered 2, and his walks on 3 and 4');
+  'and Go inside on a second key, numbered 2, and his walks on 3 and 4');
 ok(HOUSE_STROLLS[plan.id].every((x) => anchorAt(x.anchor)), 'every walk goes to a stand the scene has');
 let prevented = 0;
 const press = (code) => keyListeners.keydown({ code, target: null, preventDefault: () => { prevented += 1; } });
@@ -174,7 +174,7 @@ ok(Math.abs(((john.heading - toVisitor + 540) % 360) - 180) < 1, `and turns to t
 ok(opened.length === 1 && opened[0] === john.id && !thing.running && thing.state === 'out', `his card opens when the greeting is done (${GREET_S} s)`);
 ok(said.length === 0, 'and the status line says nothing over it');
 
-// ---------------------------------------------------------------- Go home
+// ---------------------------------------------------------------- Go inside
 function run(seconds, onFrame = null) {
   const trail = [];
   for (let i = 0; i < seconds * 60; i++) {
@@ -301,6 +301,35 @@ ok(!john.root.visible && !john.inRange, 'nor drawn, nor in range to be met');
   ix2.act(t2);
   ix2.update(1.5); ix2.update(0.6);
   ok(!t2.running && t2.state === 'b', 'or at its timeout');
+}
+
+// T-3533: the real day engine and errand engine share one actor without fighting.
+{
+  const { createHumanDays } = await import('../renderers/web/js/human-days.js');
+  const engine = createInteractions();
+  const a = actorFor(instance, person);
+  const staff = actorFor(read('data/humans/instances/1904/hi_glessner_williamson_martha_l_1904.json'), cook);
+  const humans = { actors: [a, staff] };
+  let household, caller = null;
+  const daily = createHumanDays({ humans, hour: () => 23, date: () => '1904-07-01',
+    doors: read('data/humans/doors_1904.json'), interactions: engine,
+    visitor: () => caller, held: (actor) => !!household?.get(actor.id)?.running });
+  daily.update(0.1);
+  caller = visitor;
+  household = createHouseErrands({ humans, houseDoors: doors, interactions: engine, days: daily,
+    visitor: () => visitor, groundAt: () => BASE, router, anchorAt });
+  ok(household.errands.length === 2, 'scheduled staff have the same outdoor interactions as family');
+  ok(household.get(a.id).state === 'home', 'errand state reflects the schedule');
+  ok(household.callOut(a.id).ok, 'scheduled resident can answer the working front door');
+  for (let i = 0; i < 60 * 90; i++) { engine.update(1 / 60); ix.update(1 / 60); a.walk(1 / 60); daily.update(1 / 60); }
+  ok(!a.indoors && daily.isCalled(a), 'front-door call holds the resident outside his night routine');
+  const choices = engine.actionsOf(household.get(a.id));
+  ok(choices.some((c) => c.id.startsWith('activity:')), 'normal outdoor activities offered after answering');
+  ok(choices.some((c) => c.label === 'Go inside'), 'Go inside remains available');
+  const task = choices.find((c) => c.id.startsWith('activity:'));
+  ok(engine.act(household.get(a.id), task.id).ok, 'can request a normal outdoor activity at night');
+  daily.update(0.1);
+  ok(!a.indoors && !daily.isCalled(a), 'activity replaces the door call without the night schedule interrupting');
 }
 
 doors.dispose();

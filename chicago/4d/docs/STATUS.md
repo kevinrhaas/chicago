@@ -26436,3 +26436,6 @@ one Balanced-flight flora maximum of 36.0 ms against 32 ms; its protocol suppres
 rendering and its camera is outside both horse reach radii. Those facts do not
 establish noise, causality or a passing performance result. Fresh ordinary CI
 is required on the repaired head; no ceiling was changed.
+
+### T-3533 — 1904 household routines
+All eight drawn household members have full seasonal days; the existing day engine handles individual work, short gatherings, indoor periods and jaunt holds. Door callers may request any of the season's outdoor activities temporarily, regardless of hour, or ask someone to Go inside. Office work is an off-scene absence; a door request can recall him so everyone remains available. This is the reusable household model; other houses' figures are not added here. Validation is recorded in the PR.

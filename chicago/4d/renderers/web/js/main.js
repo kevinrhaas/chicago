@@ -87,7 +87,7 @@ import { createBoats } from './boats.js';
 import { createCrossings } from './crossings.js';
 import { mountHumans } from './humans.js';
 import { createHumanDuties } from './human-duties.js';
-import { createHumanDays, clearWayOf } from './human-days.js';
+import { createHumanDays, createDayRouter, clearWayOf } from './human-days.js';
 import { createJauntHosts } from './jaunt-hosts.js';
 import { createHumanSpacing } from './human-spacing.js';
 import { createInteractions, createInteractKey } from './interact.js';
@@ -3881,15 +3881,17 @@ async function boot() {
       };
       return api.humans.add(rec, { person: byPerson.get(entry.person) ?? { id: entry.person, name: entry.name } });
     };
+    const dayClear = clearWayOf(footprints.concat(lodgeWalls));
     api.days = createHumanDays({ humans: api.humans, three: THREE, hour: sunHour, date: () => world.sunDate ?? null,
-      doors, interactions, inside, spawn, despawn: (actor) => api.humans?.remove?.(actor.id),
+      doors, interactions, inside, spawn,
+      held: (actor) => !!api.houseErrands?.get(actor.id)?.running,
+      despawn: (actor) => api.humans?.remove?.(actor.id),
       visitor: () => (walker.state.flying ? null : { e: walker.state.e, n: walker.state.n }),
       eye: () => camera.getWorldPosition(new THREE.Vector3()),
-      // The router's grid is hundreds of MB and is built on its first plan: a day's walk takes
-      // its ways only once something else (Go to) has built it, else walks straight.
-      router: { plan: (...args) => (api.router?.built ? api.router.plan(...args) : null) },
-      // T-3505: a job's places between gatherings are clear of the buildings and the fort's walls.
-      clear: clearWayOf(footprints.concat(lodgeWalls)),
+      // Routine chores on clear ground do not warm the large route grid. A 1904
+      // trip around the house does use it when the direct line crosses a wall.
+      router: createDayRouter({ router: () => api.router, clear: dayClear, buildWhenBlocked: String(YEAR) === '1904' }),
+      clear: dayClear,
       // T-3524: Glessner's court and side doors open as people pass, up and down their stairs.
       passages: api.houseDoors ?? null,
       problems: layerProblems('humans') });
@@ -3923,7 +3925,7 @@ async function boot() {
   // T-3443: a person whose house has a working front door (John J. Glessner, by 1800
   // Prairie's) is an Interact thing too: Greet him, or send him home up his steps and in;
   // and (T-3444) his door offers Ask for him while he is in.
-  api.houseErrands = createHouseErrands({ humans: api.humans, houseDoors, interactions,
+  api.houseErrands = createHouseErrands({ days: api.days, humans: api.humans, houseDoors, interactions,
     visitor: () => (walker.state.flying ? null : { e: walker.state.e, n: walker.state.n }),
     eye: () => camera.getWorldPosition(new THREE.Vector3()),
     openCard: (actor) => api.humans.select(actor.id),

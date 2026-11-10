@@ -68,6 +68,761 @@
         "local_e": 1395.73,
         "local_n": -3462.1
       }
+    ],
+    "day": [
+      {
+        "dates": {
+          "months": [
+            12,
+            1,
+            2
+          ]
+        },
+        "note": "Reconstructed seasonal routine (L-t3533-household-routines); times and activities are not diary evidence.",
+        "spans": [
+          {
+            "from": 0,
+            "to": 6,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "sleeping and dressing"
+          },
+          {
+            "from": 6,
+            "to": 10,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "breakfast service and the parlour"
+          },
+          {
+            "from": 10,
+            "to": 10.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1393.61,
+              "local_n": -3250.0,
+              "heading_deg": 1
+            },
+            "activity": "walk",
+            "doing": "walk the block on a household errand",
+            "via": [
+              {
+                "local_e": 1393.28,
+                "local_n": -3217.1
+              },
+              {
+                "local_e": 1392.17,
+                "local_n": -3216.02
+              },
+              {
+                "local_e": 1367.0,
+                "local_n": -3216.31
+              },
+              {
+                "local_e": 1363.0,
+                "local_n": -3215.81
+              },
+              {
+                "local_e": 1336.0,
+                "local_n": -3216.12
+              },
+              {
+                "local_e": 1332.5,
+                "local_n": -3216.71
+              },
+              {
+                "local_e": 1276.06,
+                "local_n": -3217.37
+              },
+              {
+                "local_e": 1274.98,
+                "local_n": -3218.48
+              },
+              {
+                "local_e": 1277.89,
+                "local_n": -3463.28
+              },
+              {
+                "local_e": 1279.0,
+                "local_n": -3464.36
+              },
+              {
+                "local_e": 1394.64,
+                "local_n": -3463.21
+              }
+            ],
+            "to_point": {
+              "local_e": 1395.73,
+              "local_n": -3462.1
+            }
+          },
+          {
+            "from": 10.5,
+            "to": 11.5,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "indoor household duties and shelter from the cold"
+          },
+          {
+            "from": 11.5,
+            "to": 14.5,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "luncheon service and polishing"
+          },
+          {
+            "from": 14.5,
+            "to": 15.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1364,
+              "local_n": -3234,
+              "heading_deg": 210
+            },
+            "activity": "stand",
+            "doing": "air and brush household things in the court"
+          },
+          {
+            "from": 15.0,
+            "to": 15.5,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "indoor household duties and shelter from the cold"
+          },
+          {
+            "from": 15.5,
+            "to": 18.5,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "the parlour and dinner service"
+          },
+          {
+            "from": 18.5,
+            "to": 19.0,
+            "indoors": false,
+            "at": {
+              "local_e": 1393.61,
+              "local_n": -3250.0,
+              "heading_deg": 1
+            },
+            "activity": "walk",
+            "doing": "take an evening walk",
+            "via": [
+              {
+                "local_e": 1393.28,
+                "local_n": -3217.1
+              },
+              {
+                "local_e": 1392.17,
+                "local_n": -3216.02
+              },
+              {
+                "local_e": 1367.0,
+                "local_n": -3216.31
+              },
+              {
+                "local_e": 1363.0,
+                "local_n": -3215.81
+              },
+              {
+                "local_e": 1336.0,
+                "local_n": -3216.12
+              },
+              {
+                "local_e": 1332.5,
+                "local_n": -3216.71
+              },
+              {
+                "local_e": 1276.06,
+                "local_n": -3217.37
+              },
+              {
+                "local_e": 1274.98,
+                "local_n": -3218.48
+              },
+              {
+                "local_e": 1277.89,
+                "local_n": -3463.28
+              },
+              {
+                "local_e": 1279.0,
+                "local_n": -3464.36
+              },
+              {
+                "local_e": 1394.64,
+                "local_n": -3463.21
+              }
+            ],
+            "to_point": {
+              "local_e": 1395.73,
+              "local_n": -3462.1
+            }
+          },
+          {
+            "from": 19.0,
+            "to": 19.5,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "indoor household duties and shelter from the cold"
+          },
+          {
+            "from": 19.5,
+            "to": 24,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "supper and sleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "months": [
+            3,
+            4,
+            5
+          ]
+        },
+        "note": "Reconstructed seasonal routine (L-t3533-household-routines); times and activities are not diary evidence.",
+        "spans": [
+          {
+            "from": 0,
+            "to": 6,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "sleeping and dressing"
+          },
+          {
+            "from": 6,
+            "to": 10,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "breakfast service and the parlour"
+          },
+          {
+            "from": 10,
+            "to": 11.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1393.61,
+              "local_n": -3250.0,
+              "heading_deg": 1
+            },
+            "activity": "walk",
+            "doing": "walk the block on a household errand",
+            "via": [
+              {
+                "local_e": 1393.28,
+                "local_n": -3217.1
+              },
+              {
+                "local_e": 1392.17,
+                "local_n": -3216.02
+              },
+              {
+                "local_e": 1367.0,
+                "local_n": -3216.31
+              },
+              {
+                "local_e": 1363.0,
+                "local_n": -3215.81
+              },
+              {
+                "local_e": 1336.0,
+                "local_n": -3216.12
+              },
+              {
+                "local_e": 1332.5,
+                "local_n": -3216.71
+              },
+              {
+                "local_e": 1276.06,
+                "local_n": -3217.37
+              },
+              {
+                "local_e": 1274.98,
+                "local_n": -3218.48
+              },
+              {
+                "local_e": 1277.89,
+                "local_n": -3463.28
+              },
+              {
+                "local_e": 1279.0,
+                "local_n": -3464.36
+              },
+              {
+                "local_e": 1394.64,
+                "local_n": -3463.21
+              }
+            ],
+            "to_point": {
+              "local_e": 1395.73,
+              "local_n": -3462.1
+            }
+          },
+          {
+            "from": 11.5,
+            "to": 14.5,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "luncheon service and polishing"
+          },
+          {
+            "from": 14.5,
+            "to": 15.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1364,
+              "local_n": -3234,
+              "heading_deg": 210
+            },
+            "activity": "stand",
+            "doing": "air and brush household things in the court"
+          },
+          {
+            "from": 15.5,
+            "to": 18.5,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "the parlour and dinner service"
+          },
+          {
+            "from": 18.5,
+            "to": 19.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1393.61,
+              "local_n": -3250.0,
+              "heading_deg": 1
+            },
+            "activity": "walk",
+            "doing": "take an evening walk",
+            "via": [
+              {
+                "local_e": 1393.28,
+                "local_n": -3217.1
+              },
+              {
+                "local_e": 1392.17,
+                "local_n": -3216.02
+              },
+              {
+                "local_e": 1367.0,
+                "local_n": -3216.31
+              },
+              {
+                "local_e": 1363.0,
+                "local_n": -3215.81
+              },
+              {
+                "local_e": 1336.0,
+                "local_n": -3216.12
+              },
+              {
+                "local_e": 1332.5,
+                "local_n": -3216.71
+              },
+              {
+                "local_e": 1276.06,
+                "local_n": -3217.37
+              },
+              {
+                "local_e": 1274.98,
+                "local_n": -3218.48
+              },
+              {
+                "local_e": 1277.89,
+                "local_n": -3463.28
+              },
+              {
+                "local_e": 1279.0,
+                "local_n": -3464.36
+              },
+              {
+                "local_e": 1394.64,
+                "local_n": -3463.21
+              }
+            ],
+            "to_point": {
+              "local_e": 1395.73,
+              "local_n": -3462.1
+            }
+          },
+          {
+            "from": 19.5,
+            "to": 24,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "supper and sleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "months": [
+            9,
+            10,
+            11
+          ]
+        },
+        "note": "Reconstructed seasonal routine (L-t3533-household-routines); times and activities are not diary evidence.",
+        "spans": [
+          {
+            "from": 0,
+            "to": 6,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "sleeping and dressing"
+          },
+          {
+            "from": 6,
+            "to": 10,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "breakfast service and the parlour"
+          },
+          {
+            "from": 10,
+            "to": 11.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1393.61,
+              "local_n": -3250.0,
+              "heading_deg": 1
+            },
+            "activity": "walk",
+            "doing": "walk the block on a household errand",
+            "via": [
+              {
+                "local_e": 1393.28,
+                "local_n": -3217.1
+              },
+              {
+                "local_e": 1392.17,
+                "local_n": -3216.02
+              },
+              {
+                "local_e": 1367.0,
+                "local_n": -3216.31
+              },
+              {
+                "local_e": 1363.0,
+                "local_n": -3215.81
+              },
+              {
+                "local_e": 1336.0,
+                "local_n": -3216.12
+              },
+              {
+                "local_e": 1332.5,
+                "local_n": -3216.71
+              },
+              {
+                "local_e": 1276.06,
+                "local_n": -3217.37
+              },
+              {
+                "local_e": 1274.98,
+                "local_n": -3218.48
+              },
+              {
+                "local_e": 1277.89,
+                "local_n": -3463.28
+              },
+              {
+                "local_e": 1279.0,
+                "local_n": -3464.36
+              },
+              {
+                "local_e": 1394.64,
+                "local_n": -3463.21
+              }
+            ],
+            "to_point": {
+              "local_e": 1395.73,
+              "local_n": -3462.1
+            }
+          },
+          {
+            "from": 11.5,
+            "to": 14.5,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "luncheon service and polishing"
+          },
+          {
+            "from": 14.5,
+            "to": 15.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1364,
+              "local_n": -3234,
+              "heading_deg": 210
+            },
+            "activity": "stand",
+            "doing": "air and brush household things in the court"
+          },
+          {
+            "from": 15.5,
+            "to": 18.5,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "the parlour and dinner service"
+          },
+          {
+            "from": 18.5,
+            "to": 19.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1393.61,
+              "local_n": -3250.0,
+              "heading_deg": 1
+            },
+            "activity": "walk",
+            "doing": "take an evening walk",
+            "via": [
+              {
+                "local_e": 1393.28,
+                "local_n": -3217.1
+              },
+              {
+                "local_e": 1392.17,
+                "local_n": -3216.02
+              },
+              {
+                "local_e": 1367.0,
+                "local_n": -3216.31
+              },
+              {
+                "local_e": 1363.0,
+                "local_n": -3215.81
+              },
+              {
+                "local_e": 1336.0,
+                "local_n": -3216.12
+              },
+              {
+                "local_e": 1332.5,
+                "local_n": -3216.71
+              },
+              {
+                "local_e": 1276.06,
+                "local_n": -3217.37
+              },
+              {
+                "local_e": 1274.98,
+                "local_n": -3218.48
+              },
+              {
+                "local_e": 1277.89,
+                "local_n": -3463.28
+              },
+              {
+                "local_e": 1279.0,
+                "local_n": -3464.36
+              },
+              {
+                "local_e": 1394.64,
+                "local_n": -3463.21
+              }
+            ],
+            "to_point": {
+              "local_e": 1395.73,
+              "local_n": -3462.1
+            }
+          },
+          {
+            "from": 19.5,
+            "to": 24,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "supper and sleep"
+          }
+        ]
+      },
+      {
+        "dates": {
+          "months": [
+            6,
+            7,
+            8
+          ]
+        },
+        "note": "Reconstructed seasonal routine (L-t3533-household-routines); times and activities are not diary evidence.",
+        "spans": [
+          {
+            "from": 0,
+            "to": 6,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "sleeping and dressing"
+          },
+          {
+            "from": 6,
+            "to": 10,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "breakfast service and the parlour"
+          },
+          {
+            "from": 10,
+            "to": 11.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1393.61,
+              "local_n": -3250.0,
+              "heading_deg": 1
+            },
+            "activity": "walk",
+            "doing": "walk the block on a household errand",
+            "via": [
+              {
+                "local_e": 1393.28,
+                "local_n": -3217.1
+              },
+              {
+                "local_e": 1392.17,
+                "local_n": -3216.02
+              },
+              {
+                "local_e": 1367.0,
+                "local_n": -3216.31
+              },
+              {
+                "local_e": 1363.0,
+                "local_n": -3215.81
+              },
+              {
+                "local_e": 1336.0,
+                "local_n": -3216.12
+              },
+              {
+                "local_e": 1332.5,
+                "local_n": -3216.71
+              },
+              {
+                "local_e": 1276.06,
+                "local_n": -3217.37
+              },
+              {
+                "local_e": 1274.98,
+                "local_n": -3218.48
+              },
+              {
+                "local_e": 1277.89,
+                "local_n": -3463.28
+              },
+              {
+                "local_e": 1279.0,
+                "local_n": -3464.36
+              },
+              {
+                "local_e": 1394.64,
+                "local_n": -3463.21
+              }
+            ],
+            "to_point": {
+              "local_e": 1395.73,
+              "local_n": -3462.1
+            }
+          },
+          {
+            "from": 11.5,
+            "to": 14.5,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "luncheon service and polishing"
+          },
+          {
+            "from": 14.5,
+            "to": 15.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1364,
+              "local_n": -3234,
+              "heading_deg": 210
+            },
+            "activity": "stand",
+            "doing": "air and brush household things in the court"
+          },
+          {
+            "from": 15.5,
+            "to": 18.5,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "the parlour and dinner service"
+          },
+          {
+            "from": 18.5,
+            "to": 19.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1393.61,
+              "local_n": -3250.0,
+              "heading_deg": 1
+            },
+            "activity": "walk",
+            "doing": "take an evening walk",
+            "via": [
+              {
+                "local_e": 1393.28,
+                "local_n": -3217.1
+              },
+              {
+                "local_e": 1392.17,
+                "local_n": -3216.02
+              },
+              {
+                "local_e": 1367.0,
+                "local_n": -3216.31
+              },
+              {
+                "local_e": 1363.0,
+                "local_n": -3215.81
+              },
+              {
+                "local_e": 1336.0,
+                "local_n": -3216.12
+              },
+              {
+                "local_e": 1332.5,
+                "local_n": -3216.71
+              },
+              {
+                "local_e": 1276.06,
+                "local_n": -3217.37
+              },
+              {
+                "local_e": 1274.98,
+                "local_n": -3218.48
+              },
+              {
+                "local_e": 1277.89,
+                "local_n": -3463.28
+              },
+              {
+                "local_e": 1279.0,
+                "local_n": -3464.36
+              },
+              {
+                "local_e": 1394.64,
+                "local_n": -3463.21
+              }
+            ],
+            "to_point": {
+              "local_e": 1395.73,
+              "local_n": -3462.1
+            }
+          },
+          {
+            "from": 19.5,
+            "to": 24,
+            "indoors": true,
+            "where": "glessner_house",
+            "doing": "supper and sleep"
+          }
+        ]
+      }
     ]
   },
   "interaction": {

@@ -6507,3 +6507,6 @@ Green Tree is PARTIAL: its raised rear gable, low connector and lower foreground
 ## T-2795 — individual horse coats across eras (2026-11-10)
 
 The owner-requested coat variation is prepared for the current 1812, 1835 and 1904 horse paths, using stable individual markings and matched team palettes over unchanged licensed source maps. Focused canonical/source/material-ownership and legacy lifecycle controls pass. Focused writer/isolation registration now passes; compile canonical liberties/source-use first; then qualify actual all-era WebGL close-ups, ordinary-world desktop/phone appearance and cost before adoption. This remains one T-2795 increment; existing movement, coachman and passenger work stays open.
+
+### T-3533 - 1904 household routines
+Seasonal daily routines now cover all eight drawn household members. Door callers can request an outdoor activity at any hour or ask someone to Go inside. Extend this model to further houses after this household review.

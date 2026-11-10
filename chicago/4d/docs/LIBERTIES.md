@@ -43093,4 +43093,12 @@ subject to actual native and ordinary-world desktop/phone image review in T-2795
 **Sources:** `sevketkabatas_2021_horse_model` supplies the existing CC BY 4.0 model and maps only. Individual coats and markings are owner-requested reconstruction.
 **How to resolve:** Historical pictures could identify particular animals; actual native and ordinary-world desktop/phone image reviews must qualify the current surface appearance.
 **Ticket:** T-2795.
+
+### L-t3533-household-routines — 1904 seasonal household days
+
+**Decision:** All eight drawn Glessner household members follow reconstructed daily routines. Sleep, meals, service, garden work, errands, office absence and evening company are plausible activities bounded by their existing household roles, not attested diary entries. Winter outdoor periods are shorter; garden tasks vary by season. The office is off-scene, with no invented office address. Requested outdoor tasks may be performed at any hour for five minutes; Go inside lasts until the next scheduled period. Conversations use gestures, not invented quotations. Existing identities and their confidence grades are unchanged.
+
+**How to resolve:** Dated household diaries or work records could replace the reconstructed times and activities.
+
+**Ticket:** T-3533.
 **Recorded:** 2026-11-10.
