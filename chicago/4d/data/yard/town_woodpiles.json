@@ -387,11 +387,11 @@
     {
      "kind": "cordwood",
      "at_local_enu_m": [
-      811.38,
-      118.75
+      812.95,
+      121.25
      ],
      "bearing_deg": 180.0,
-     "length_m": 2.06,
+     "length_m": 1.2,
      "depth_m": 0.61,
      "height_m": 1.0,
      "stick": "stove",
@@ -400,14 +400,15 @@
     {
      "kind": "chopping_block",
      "at_local_enu_m": [
-      811.96,
-      120.16
+      813.1,
+      122.66
      ],
      "bearing_deg": 180.0,
      "billets": 3,
      "seed": 686584995
     }
-   ]
+   ],
+   "cut_down": "the rick shortened to 1.2 m to fit the wall"
   },
   {
    "structure_id": "council_house",
