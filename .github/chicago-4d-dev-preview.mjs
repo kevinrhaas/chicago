@@ -18,10 +18,10 @@
 //     published `site/4d/` tree under `dev/` therefore preserves every
 //     path by construction, which is exactly why the whole tree is mirrored
 //     rather than just `walk/`.
-//   • NO SERVICE-WORKER STUB. The pilot must neutralise an installed SW so a
-//     preview never caches itself into a visitor's browser. The 4D walk app has
-//     no service worker at all, so there is nothing to neutralise and a stub
-//     would be a file that exists only to be confusing.
+//   • SCOPED NATIVE OFFLINE SUPPORT. Compatible DEV builds keep logical DEV
+//     URLs and their own service-worker scope. The publisher can reuse verified
+//     production bytes through the native alias contract; older builds keep
+//     their full copies. No global fetch or service-worker URL rewriting.
 //   • NO CNAME / releases handling. site/CNAME belongs to production; this script
 //     touches ONLY `site/4d/`, and the landing page and the other viewers under
 //     `site/` must never appear under a 4D preview.
@@ -31,6 +31,7 @@
 import { readFile, writeFile, cp, rm, readdir, stat, mkdir } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
+import { assembleAssetAliases, assertSiteBudget } from './chicago-4d-asset-aliases.mjs';
 
 const [srcRoot, sha = '', committedIso = ''] = process.argv.slice(2);
 if (!srcRoot) {
@@ -63,6 +64,7 @@ const OUT = join(APP, 'dev');
 
 if (!existsSync(SRC)) {
   console.log(`dev-preview: ${SRC} does not exist on the dev ref — skipping`);
+  await assertSiteBudget('site');
   process.exit(0);
 }
 
@@ -148,6 +150,9 @@ if (existsSync(ROBOTS)) {
 } else {
   await writeFile(ROBOTS, 'User-agent: *\nDisallow: /4d/dev/\n');
 }
+
+const aliases = await assembleAssetAliases({ siteRoot: 'site', devWorktree: srcRoot, requestedSha: sha });
+console.log(`dev-preview: asset publication ${JSON.stringify(aliases)}`);
 
 console.log(`dev-preview: assembled ${OUT} from ${SRC}${sha ? ` (${sha})` : ''}`);
 
