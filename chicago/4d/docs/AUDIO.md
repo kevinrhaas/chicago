@@ -13,9 +13,10 @@ interior filtering and scheduled activity below are implementation requirements.
 
 The generated development build now points to verified, content-addressed R2
 media. Its 40 delivery files (39.266 MiB) are omitted from the Pages artifact;
-authoring files remain local. The resulting app tree measures 431.363 MiB within
-the unchanged 432 MiB budget, including a lossless whitespace reduction in the
-published liberties data. This is a local build, not a deployed release. The
+authoring files remain local. The pre-integration pilot measured 431.363 MiB within
+its then-unchanged 432 MiB budget, including a lossless whitespace reduction in the
+published liberties data. Incoming dev work now sets a 433 MiB allowance; the
+combined build requires fresh validation. These are local builds, not a deployed release. The
 bucket's r2.dev endpoint is for development; production hostname/cache setup and
 the complete repository release gate remain outstanding. See AUDIO-HOSTING.md.
 

@@ -8,7 +8,8 @@ reduces visitor downloads, not the space occupied on the host.
 
 ## Two different limits
 
-`tools/validate.py` sets a project budget of **432 MiB per app tree**. This is
+`tools/validate.py` sets a project budget of **433 MiB per app tree**, inherited
+from the current dev branch. This is
 editable project policy. GitHub's documented **1 GB published Pages site limit**
 is a provider limit, not a setting we can raise in that file. The present workflow
 assembles production and `/4d/dev/` into one Pages deployment. Other site content
@@ -28,7 +29,7 @@ promotion scenario, not just today's dev directory size.
 
 | Option | What changes | Benefit and limit |
 |---|---|---|
-| Raise the local 432 MiB budget | Validator and documented storage allowance | Smallest change if the complete deployment has headroom; cannot increase GitHub's 1 GB limit. |
+| Raise the local 433 MiB budget | Validator and documented storage allowance | Smallest change if the complete deployment has headroom; cannot increase GitHub's 1 GB limit. |
 | Separate dev and production Pages deployments | Separate publishing repositories/projects, workflows, hostnames, origin/offline checks | Each actual Pages site has its own allowance. Merely serving branches under two folders does not do this. Shared audio would still be duplicated unless separately hosted. |
 | Shared audio object storage and CDN — recommended | One media bucket, production hostname, CORS, versioned catalogue URLs | Both app versions use the same immutable files; audio leaves the Pages artifact. No app split and no duplicate library. |
 | Separate audio-only Pages site | Separate deployment and media hostname | A free bridge for a small library, but still subject to Pages storage/bandwidth limits and Git-oriented binary publishing. |
@@ -105,7 +106,8 @@ URLs into the generated catalogue and omits the corresponding local binaries.
 `check_published.mjs` checks this transformation and rejects duplicate media.
 The source/archive copies remain available for authoring and rollback. Published
 `data/liberties.json` is also minified with full parsed-value equality checked;
-the generated app now measures 431.363 MiB within its unchanged 432 MiB budget.
+the pre-integration pilot measured 431.363 MiB within its then-unchanged 432 MiB budget.
+Current dev inherits a 433 MiB allowance; the combined build needs fresh validation.
 
 For a production hostname, repackage with `--public-base https://HOST/`, upload
 or reuse the same hashed objects, repeat host verification and browser playback,

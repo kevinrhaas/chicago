@@ -2820,6 +2820,7 @@ async function boot() {
   const parkedDrawingBuffer = new THREE.Vector2();
   const parkedTransport = await createParkedTransport({
     dataBase: layerBase('parked_transport'), sceneId: YEAR, terrain, confidence,
+    stationaryTeams: String(YEAR) === '1904',
     detail: detailLevel, problems: layerProblems('parked_transport'), hostMissing,
     groundHeight: String(YEAR) === '1904' ? (e, n) => streetGrid.carriagewayHeight(e, n) : null,
     getDrawingBufferHeight: () => renderer.getDrawingBufferSize(parkedDrawingBuffer).y,
@@ -6251,7 +6252,8 @@ async function boot() {
     railway.update(camera);
     flags.update(dt);
     crossings.update(dt, camera);
-    parkedTransport.update(camera);
+    parkedTransport.update(camera, visualDt, { paused: animationHold || gateOpen || document.hidden,
+      reducedMotion: transportReducedMotion.matches });
     // T-3439: Settings › Show › Carriages and horses, hidden: nothing driven is fetched,
     // and a team already on its round is hidden the way the Confidence view hides it.
     api.townTransport?.ensureNear(camera.position, shownLayers.vehicles && !gateOpen && !animationHold && !document.hidden && !confidence.hidden.reconstructed);

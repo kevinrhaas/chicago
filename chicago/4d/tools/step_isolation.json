@@ -5738,6 +5738,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_draft_horse_assets.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_drawn_placement_census.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -6410,6 +6414,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_log_compound_form.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_log_notch_front.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -6482,6 +6490,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_outbuilding_cupola.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_outbuilding_forge.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -6495,6 +6507,10 @@
       "wrote_ignored": []
     },
     "tools/test_parade_presence.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_parked_draft_team.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6631,6 +6647,10 @@
       "wrote_ignored": []
     },
     "tools/test_roam_tip.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_second_fort_piazza_stair.py": {
       "wrote": [],
       "wrote_ignored": []
     },

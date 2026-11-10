@@ -176,6 +176,8 @@ def build(params: OutbuildingParams, name: str):
         _interior(b, p, c_mass)
 
     _roof(b, p, c_roof)
+    if p.cupola_shape == "box_pyramid":
+        _cupola(b, p)
 
     # The forge stack goes up after the roof it breaks through, and it takes the
     # confidence of the COUNT alone. Nothing else about it is on the record — not the
@@ -201,6 +203,9 @@ def build(params: OutbuildingParams, name: str):
     vent = vent_rect(p)
     if vent:
         _vent(b, p, vent, c_fen)
+
+    if p.picture_layout == "jail_gale_1902":
+        _jail_gable_light(b, p, p.conf("picture_layout", "reconstructed"))
 
     # ---- the surfaces, off the sheet (T-0007) --------------------------------
     # 114 of the town's records are outbuildings and 76 of them ship a boarded wall,
@@ -1150,6 +1155,92 @@ def _vent(b: MeshBuilder, p: OutbuildingParams, vent: tuple, conf: float) -> Non
     _prism(b, side, p, [(u0 - j, z0 - j), (u1 + j, z0 - j),
                         (u1 + j, z1 + j), (u0 - j, z1 + j)],
            0.0, off["frame"] * 0.8, conf, M_TIMBER)
+
+
+def _jail_gable_light(b: MeshBuilder, p: OutbuildingParams, conf: float) -> None:
+    """Gale's one upright barred-looking east gable light, T-2380.
+
+    No hay door or habitable loft is asserted. Like this archetype's other log
+    openings, the dark recess assembly stands ahead of the log core. The pictured
+    existence/shape informs the choice; metric set-out, three uprights, one crossbar and material
+    are reconstruction. No other layout or default building changes.
+    """
+    # Continue the existing hewn-course material through the visible gable;
+    # the default family keeps its simplified flat gable infill.
+    course = _lerp_jit(_seed(p, "back", 0), *LOG_COURSE_RANGE_M)
+    course = min(course, max(LOG_COURSE_RANGE_M[0], min(p.width_m, p.depth_m) / 6.0))
+    for side in ("left", "right"):
+        z = float(p.wall_height_m) + course
+        while z + 0.025 < p.apex_z_m:
+            za, zb = z - 0.025, z + 0.025
+            a = _top_span(p, side, za)
+            c = _top_span(p, side, zb)
+            if a and c:
+                _face(b, side, p, LOG_FACE_OFF_M * 0.4 + RELIEF_M,
+                      [(a[0], za), (a[1], za), (c[1], zb), (c[0], zb)],
+                      conf, M_CHINK)
+            z += course
+    side = "right"
+    centre = p.depth_m / 2.0
+    u0, u1 = centre - 0.24, centre + 0.24
+    z0, z1 = float(p.wall_height_m) - 0.12, float(p.wall_height_m) + 0.73
+    off = _offsets(p)
+    dark = off["frame"] + 0.035
+    outer = dark + 0.045
+    _face(b, side, p, dark, [(u0, z0), (u1, z0), (u1, z1), (u0, z1)],
+          conf, M_DARK)
+    j = 0.055
+    for a, c in ((u0 - j, u0), (u1, u1 + j)):
+        _prism(b, side, p, [(a, z0 - j), (c, z0 - j),
+                            (c, z1 + j), (a, z1 + j)], dark, outer, conf, M_TIMBER)
+    for a, c in ((z0 - j, z0), (z1, z1 + j)):
+        _prism(b, side, p, [(u0, a), (u1, a), (u1, c), (u0, c)],
+               dark, outer, conf, M_TIMBER)
+    # The source also shows one horizontal crossing member around mid-height.
+    mid = (z0 + z1) / 2.0
+    _prism(b, side, p, [(u0, mid - 0.012), (u1, mid - 0.012),
+                        (u1, mid + 0.012), (u0, mid + 0.012)],
+           dark, outer + 0.012, conf, M_TIMBER)
+    for fraction in (0.25, 0.5, 0.75):
+        u = u0 + (u1 - u0) * fraction
+        _prism(b, side, p, [(u - 0.012, z0), (u + 0.012, z0),
+                            (u + 0.012, z1), (u - 0.012, z1)],
+               dark, outer + 0.01, conf, M_TIMBER)
+
+
+def _cupola(b: MeshBuilder, p: OutbuildingParams) -> None:
+    """One bounded boarded head and pyramidal cap, explicitly reconstructed.
+
+    A record's attested occurrence does not attest this profile or its dimensions.
+    Every vertex therefore carries 1.0 regardless of `cupola`'s occurrence grade.
+    No louvres, glazing, finial or hidden working mechanism is invented.
+    """
+    width = float(p.cupola_width_m)
+    cx, cy = p.width_m / 2.0, p.depth_m / 2.0
+    half = width / 2.0
+    # Seat the entire square below BOTH roof slopes, not just at the ridge:
+    # there must be no daylight gap under the head's outer two edges.
+    bottom = p.apex_z_m - half * math.tan(math.radians(p.roof_pitch_deg)) - 0.08
+    head = p.apex_z_m + float(p.cupola_body_height_m)
+    conf = 1.0
+    b.add_box(cx - half, cy - half, bottom, cx + half, cy + half, head,
+              conf, M_BOARD, skip=("bottom",))
+    # Visible horizontal boarding on the plain head, using its existing material.
+    # Stock and course relief are reconstruction, not extra historical fittings.
+    z = p.apex_z_m + 0.20
+    while z < head - 0.05:
+        b.add_box(cx - half - 0.012, cy - half - 0.012, z,
+                  cx + half + 0.012, cy + half + 0.012, z + 0.018,
+                  conf, M_BOARD, skip=("bottom", "top"))
+        z += 0.20
+    overhang = 0.08
+    h = half + overhang
+    corners = [(cx - h, cy - h, head), (cx + h, cy - h, head),
+               (cx + h, cy + h, head), (cx - h, cy + h, head)]
+    apex = (cx, cy, head + float(p.cupola_roof_rise_m))
+    for index in range(4):
+        _slab(b, [corners[index], corners[(index + 1) % 4], apex],
+              0.04, conf, M_ROOF)
 
 
 # ------------------------------------------------------------------- the forge stack

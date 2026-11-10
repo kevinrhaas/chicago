@@ -1,0 +1,57 @@
+{
+  "structure_id": "green_tree_tavern",
+  "view": "andreas_1838",
+  "glb": "assets/gltf/green_tree_tavern__frame_1833.glb",
+  "glb_sha256": "124bf0599a8900855c02a1e7b90ac57c2097718a2bf2f7985e9d58f7c7dab84a",
+  "camera_sha256": "9439f5f7e6f3138e53328647456d332110948ef8421692f951827e48eb274f6b",
+  "photo_sha256": "bfaa184f9043ea94560eb74e44926c631f06338bc90e6ba54951a610edef119a",
+  "side_by_side": "docs/RESEARCH/photo-match/green_tree_tavern/andreas_1838-side-by-side.jpg",
+  "verdict": "unreviewed",
+  "differences": [
+    {
+      "what": "The main gable ground floor now has two viewer-left sash and a rightmost entrance, replacing the centred doorway; the actual door moves2.286m in the unchanged footprint. Native primary entrance and apron follow it.",
+      "status": "fixed"
+    },
+    {
+      "what": "The previously omitted closed shoulder now has its clapboard wall, lower sash and raised front-gable/dormer light in the actual native closed-reading comparison at the unchanged camera/source. Existing metric controls are retained as reconstruction. The canonical yard producer declines the separate open shed/posts and its coupled covered wagon to avoid competing geometry. Trowbridge’s open bay remains explicit source disagreement, not a dated conversion.",
+      "status": "fixed"
+    },
+    {
+      "what": "The small front-gable light over the closed shoulder now reads as the sharply pointed cap Andreas draws, instead of the blunt, nearly flat one. front_gable_peak_m 4.50 to 4.85 m against the builder's unchanged 4.20 m dormer head and 0.625 m roof half-span turns the cap from about 25.6 to about 46.1 degrees, and the clapboard courses step up the little gable face with it. Independent exported-mesh comparison at the unchanged camera 9439f5f7 and picture bfaa184f confines the change to that dormer roof and its gable-course infill: 3318 to 3330 triangles, two roof-ridge vertices raised 0.35 m, 24 cladding vertices added in the 4.307-4.581 m band, the full model bounding box exactly equal, and the other eight primitives byte-identical in geometry, normals, vertex colours, confidence, indices and material. Re-audited 2026-11-04: `TEXCOORD_0` was repacked across all ten primitives, so those eight are not byte-identical as whole primitives; the earlier “every other primitive byte-identical” wording is withdrawn as too broad. Those UVs are unused — the master declares no texture, no image and no material texture reference — so the repack changes no rendered pixel. No sky seam, hole or roof penetration. 4.85 m is a RECONSTRUCTED control for the drawn shape, not a measurement off the retrospective plate, and it dates nothing.",
+      "status": "fixed"
+    },
+    {
+      "what": "The closed shoulder's formerly shallow roof attachment is raised toward the main wall in the actual current 83-target native comparison (run 42730943430, retained native 47f5ecbbe3a15cd0011eb6d87a619e4bd0144c4f). I directly viewed this new pair and the preserved before pair at the identical camera 9439f5f7 and source bfaa184f: the shoulder roof now visibly rises more strongly behind the pointed light, improving that finite relative-form reading against Andreas. The existing reconstructed roof_high_m changes from 4.0 to 4.6 m with the outer 3.2 m eave and 4.85 m pointed cap retained, steepening the chosen roof from about 12.53 to 21.25 degrees. A second reviewer independently viewed both pairs and agreed that the higher, steeper attachment is the intended visible increment. This accepts that bounded model choice, not a measured historical height or the whole roof, eaves or left group. Independent native comparison confines the intended geometry change to eight vertical coordinates including the roof-overhang formula; no camera, footprint, placement or source grade is changed.",
+      "status": "fixed"
+    },
+    {
+      "what": "The rest of the left group still differs from Andreas: the shoulder's remaining eaves/roof reading and the relative proportions and simplified forms of shoulder, connector and farther turned range against the main block remain unresolved. The higher roof attachment above does not settle those broader discrepancies. No new metric distance, height, angle or historical camera is inferred from the provisional fit, and this partial increment is not picture acceptance for the view or for original T-2376. Trowbridge's competing open-bay reading and the original ticket's wider picture/date coverage remain explicit limits.",
+      "status": "open"
+    },
+    {
+      "what": "The middle south-wall doorway is now the pictured stock sash: the actual new-master comparison at the unchanged Andreas camera shows seven lower sash rather than six sash and a middle door. Independent exported-triangle comparison confines the 56 replaced triangles to that opening; the existing 0.75 m sill, 0.85 m glass width and 2.10 m head are retained model controls, not archival measurements. Gray's later side-door recollection remains explicit counterevidence; the picture-led choice is inferred and proves no exact July-1835 absence of a door. Actualpublishedbothviewportbody/yard/ground/NormalByGrade/entry/creditedsourceandnativeWEBreviewpassed2026-10-29 onthe source-boundc093candidate; the substantial enclosed annex then remained OPEN.",
+      "status": "fixed"
+    },
+    {
+      "what": "Andreas1838 shows two upper gable sash without the small attic light, while Trowbridge1902 captioned1835 shows three upper sash and an attic light; Kurz1893 is retrospective and may depend on Andreas. These conflicting drawing details are within tolerance underT3153, not a new follow-up.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "Retained provisional drawing framing hasRMS6.11px/max12.65px corner residuals and an off-image principal point. The picture/camera-fit disagreement is within tolerance; it supplies no measured change to the existing footprint or height.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "The monochrome engraving cannot establish literal paint colour. The retained finish remains a declared reconstruction; the later coloured Kurz print is not a contemporaneous paint specification.",
+      "status": "not shown"
+    },
+    {
+      "what": "The isolated asset review omits app terrain, procedural signage and wagon shed, people and neighbouring structures; those layers are checked separately in the actual app and are not inferred from this neutral-plane render.",
+      "status": "not shown"
+    },
+    {
+      "what": "The known c1859 catalogue photograph record chm_green_tree_1859 remains unverified/check_required and cross_check. Its current metadata predates the1880 move but allows intervening alterations; no new geometry or cleared asset is derived from it here, and it is not this governing engraving.",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

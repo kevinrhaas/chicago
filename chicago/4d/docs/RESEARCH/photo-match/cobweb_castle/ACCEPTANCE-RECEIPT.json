@@ -1,0 +1,38 @@
+{
+  "qualification": "Actual final native whole pairs and both unchanged source crops directly inspected; finite T-3153 acceptance, not pixel identity or historical camera recovery. Published UI/full gate/merge remain root-owned.",
+  "native_run": "42745792113",
+  "native_url": "https://github.com/kevinrhaas/chicago/actions/runs/42745792113",
+  "native_commit": "9dd9ba7ddd22c6ff87e52522497205f62133fa1f",
+  "native_source_pin": "64a752353bc66fa6bfa58c853b90c32625f7b739",
+  "root_metadata_head_at_capture": "3a5bce49c60faf80d01cf063ce285751844518a7 with official derived updates",
+  "master_bytes": 195392,
+  "sidecar_sha256_at_capture": "3f426d3c4c91919c646413d07533ee2a2b25ca674b8f3f932697c7917e4d4d6a",
+  "before_master_sha256": "3abae40ec16a402f49c564ec5effb6b2f5811eb64238d21b7d8476405ee825b8",
+  "before_qualification": "Both actual BEFORE pairs retained externally under the same render parameters. Companion camera source_id/solve changed metadata only; its original BEFORE hash is preserved separately, not restamped.",
+  "views": [
+    {
+      "view": "kinzie_1831",
+      "camera_sha256": "f81cc81bf0937520aca0e906eb16a4cf175405d4d047f6183adbb8151ae63682",
+      "photo_sha256": "624d8f1f52a75bf30653e8cbf37a388478b0ddf5a02f1fadf727cf2144b84c3f",
+      "actual_master_sha256": "df10931a6be875df6b9ca2fa6a4a9c1edbe5e4d2b672771edfc1c9971e506b5b",
+      "pair_sha256": "179ed38c8320bbc7de008c20ae1d046c58759f5623d00abd7d0ed3701ba0668e",
+      "raw_png_sha256": "01a4c203998e9f4c8dcfc7e122d4a4ca45abea085035b14b61cfab8794f83242",
+      "generated_unreviewed_record_sha256": "00074a562f5e4cdb6e6a3648fd80850f662a67c568a2cd836800d2aa27d059e4",
+      "canonical_match_sha256": "fe17c1b4db27e2e6ab333ce5daaf3cfc6946da0c175b158599a1cea926bd6db2",
+      "verdict": "matches",
+      "open_differences": 0
+    },
+    {
+      "view": "waubun_1831",
+      "camera_sha256": "00b5f68ae93a53fc6a799f04bc11d94ce62683f485b516cfe2ce8a812b784d96",
+      "photo_sha256": "08c7b6565de151e88d94535d1940d27d30a15ee0724508ab3e8ac15383b49c4b",
+      "actual_master_sha256": "df10931a6be875df6b9ca2fa6a4a9c1edbe5e4d2b672771edfc1c9971e506b5b",
+      "pair_sha256": "8698c93e19dfbf70492a2425d41d77d1d3f0c8af697c4ef96e73539f7aee361d",
+      "raw_png_sha256": "4376fbca5b34b5c9ed504169c441cf9dda8aed478409686b8ca526145d8b24ab",
+      "generated_unreviewed_record_sha256": "1f61fae47a3ed71e38660112799bd9ae3f9072c245bb8400e4c8d419e16f691a",
+      "canonical_match_sha256": "ba5c196e94652d0715f044e2d7721b32a06cb7b0eb9b93dee4d8e394e409f3e1",
+      "verdict": "matches",
+      "open_differences": 0
+    }
+  ]
+}

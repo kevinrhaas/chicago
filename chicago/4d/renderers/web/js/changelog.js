@@ -1,4 +1,17 @@
 export const CHANGELOG = [ // newest first
+  { v: 2860, ts: '2026-11-10T05:17:20.492Z', date: 'Nov 9, 2026, 11:17 PM CT', title: 'A team for the carriage outside Glessner House', kind: 'feature',
+    items: [
+      'In Full and Balanced scene detail, a reconstructed pair of draft horses waits with the existing carriage south of Eighteenth Street. Its current finish is preserved, and the horses use their existing quiet motion and fitted gear.',
+      'The carriage remains unoccupied. Working coachman boarding and passenger rides are still in progress.',
+    ] },
+  { v: 2859, ts: '2026-11-10T04:16:56.014Z', date: 'Nov 9, 2026, 10:16 PM CT', title: 'Five early Chicago buildings take their remaining pictured forms', kind: 'fix',
+    items: [
+      'T-2374: Cobweb Castle has a compact five-part log plan, lower wing roofs and one small main-ridge stack, retaining its partial clapboarding.',
+      'T-2376: Green Tree gains the separate higher rear gable, lower foreground range and corrected connecting roof shown in its retrospective pictures.',
+      'T-2379: Lake House becomes an open July construction site with uneven brick lifts, timber-supported incomplete openings and interior working stages; the later completed hotel is kept as context.',
+      'T-2380: The jail gains the taller log gable and upright barred-looking light selected from the detailed Gale picture, with its later caption and conflicting Andreas view explicit.',
+      'T-2383: Sauganash gains projecting masonry heads on its slender ridge-end stacks. Existing reconstructed dimensions, source conflicts and camera limits stay visible. Final native, picture and published desktop/phone acceptance remains required before these original tickets close.',
+    ] },
   { v: 2858, ts: '2026-11-10T01:51:52.549Z', date: 'Nov 9, 2026, 7:51 PM CT', title: 'Northwest blockhouse now shown as pictured', kind: 'change',
     items: [
       'The northwest blockhouse is now shown as pictured, with two existing credited drawings connected to its review cameras.',

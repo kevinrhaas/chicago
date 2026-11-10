@@ -1,0 +1,20 @@
+{
+  "status": "PASS_ACTUAL_EXISTING_ACCEPTED_CURREY_NATIVE_BINDING_REFRESH_NOT_ORIGINAL_SCOPE_COMPLETION",
+  "verdict": "matches",
+  "view": "first_fort_dearborn_blockhouse_nw/currey_1912_birdseye",
+  "camera_sha256": "bfa2a6d12c674a0ae859edce4e194b7fbee1446803a61d88bbe3e7b041d0cdd5",
+  "group_sha256": "ae5abd869db44526e7a07457cac50695c0a692a12d186df12581434603419e95",
+  "new_record_sha256": "3ff0f57ec394c3c925ff07a8c772ae6c472cdd86675c929638461b960ee43a8d",
+  "pair_sha256": "bd1f935da0d60a3149a36182c5e19d9c2e65f47ac5142f16d3524dcda37768ac",
+  "pixel_control": {
+    "pair_pixels_changed": 497,
+    "max_rgb_delta": 21,
+    "mean_abs_rgb_delta": 0.000951638517042037,
+    "old_pair": "/tmp/nov10-firstfort-final/accepted-currey-before/first_fort_dearborn_blockhouse_nw/currey_1912_birdseye-side-by-side.jpg",
+    "new_pair": "/tmp/nov10-firstfort-final/after/nw_currey/currey_1912_birdseye-side-by-side.jpg",
+    "raw_pixels_changed": 6,
+    "raw_max_rgb_delta": 19,
+    "raw_mean_abs_rgb_delta": 0.00013199880627166503
+  },
+  "shared_after_receipt_sha256": "0b5f2da5a86fa9ca32c1f34f36dedd02ea806dc09a90387c34b1e0890fe0c08e"
+}

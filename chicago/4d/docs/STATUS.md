@@ -1,3 +1,19 @@
+## Current portable-human foundations (2026-11-10)
+
+The portable-human contract (T-1786, PR #606), Blender exporter (T-1787, PR #644)
+and browser actor (T-1788, PR #669) are delivered and their tickets are done.
+Current DEV contains 31 figure families: 248 source/web GLBs with four LODs and
+56-joint rigs. Idle and walk are exported throughout; the adopted driver also
+has seated-drive, look and natural-idle clips. Do not rebuild or reopen these
+foundations merely because later wardrobe and motion work remains.
+
+PR #1904 merged the shared resident cloth finish and level-hem generator into DEV.
+T-1789 still covers the reusable wardrobe/library and its inspection; T-2673
+covers Mark Beaubien's assembly. T-1790 still owes its broader portable
+conversation, gesture, carry and work motions. Boarding and passenger rides
+remain on the existing carriage tickets. A working portable actor is not a
+claim that these later acceptances are complete.
+
 ## T-1789 — cloth finish and canonical library previews (2026-11-09)
 
 Standing and walking residents now receive the same existing reconstructed linen/wool
@@ -26273,6 +26289,12 @@ Current-dev integration preserves the landed three-building PR1903 (a0218d1aae9d
 
 ### T-3532 — Recorded audio pilot (2026-11-10)
 
+The following entries preserve the audio pilot checkpoints before integration
+with the newer dev building and carriage changes. Storage figures and gate
+failures describe those checkpoints, not the final merged build. The current
+storage allowance is 433 MiB (SITE-BUDGET.md, section 17); the pilot used the
+earlier 432 MiB allowance.
+
 Implemented locally: loading-screen opt-in, independent music control, seven
 owner-authorized cues in separate era collections, three licensed environmental
 proxies, source/derivative catalogue and public audio browser. Synthetic hums,
@@ -26351,3 +26373,82 @@ bytes without an unpublished source checkout, and its fingerprint includes the
 hosting inputs and actual published catalogue. Targeted replay, fingerprint and
 ticket/changelog mirror regression tests pass. The complete four-part source gate
 and both-viewport smoke matrix remain required before merge to dev.
+
+Pre-integration source checkpoint: all four source gate parts passed before
+commit `a265f37c`, with 321, 320, 320 and 319 selected steps respectively. The
+new hosting check is called directly by the publication gate, and both new tests
+have measured isolation rows. Draft PR #1912 is open. Integrating the newer dev
+head requires fresh source qualification and the full published desktop/phone
+smoke matrix; the earlier passes do not qualify that merged tree. No merge to dev
+or production deployment is claimed.
+
+
+## T-2795 — a stationary team for the carriage outside Glessner House (2026-11-10)
+
+The existing reconstructed Brougham keeps its stand, identity and current near/mid delivery finish. The 1904 scene explicitly enables an unoccupied pair in fitted draft gear. Other parked rows, the original unhitched adapter default and Hans Johnson's separate moving circuit remain unchanged. Glessner's coachman Charles Nelson and passenger John Glessner are not substituted or seated by this increment. Doors and boarding remain closed.
+
+The moving and stationary teams lease one checked horse template per URL, SHA256 and material variant. Each owns its cloned skeletons; only the final lease disposes shared image/material/geometry resources. Light, hidden and remote states release the stationary team. The carriage body retains its eight material batches; its two pole primitives remain independent so the actual front-axle lift pivot can work in both genuine delivery LODs. Picking skips hidden source geometry and includes the attached team under the carriage's existing card.
+
+The source has asymmetric fore/hind sole heights. The stationary fit applies the existing reconstructed neutral stance, then fits all 1,196 original classified hoof vertices to the ground. Combined tilt stays within two degrees, per-foot minimum gap within one millimetre, and penetration within the original ten-micrometre numerical allowance. The explicit unheld-rein mode invents no driver, hand or seated-body fit.
+
+Source geometry/hierarchy/BIN equivalence between the original moving Brougham and current near delivery is exact; material metadata differs and is preserved. The bounded actual-mesh/Mixer case passes all 129 certified quiet sample times over the actual twelve-second clip, with the horses at independently declared phases, on a synthetic flat plane. Maximum pole/yoke gap is 12.621 mm, maximum per-hoof minimum gap 0.525 mm and minimum gap −0.008439 mm, within the unchanged 0.010 mm numerical allowance; genuine near/mid pole endpoints coincide throughout. This finite sampling does not prove the continuous intervals. The first two failed probes remain recorded; they exposed an ENU skin inverse-update error and the neutral-stance fit need. Cache ownership, the existing driven lifecycle controls and the actual parked adapter’s Full/Light and hide/show release/reacquire controls pass; both new gate suites have measured zero-write isolation rows. Full surface/continuous contact and photographic acceptance remain open. Current street checks and their limits are recorded below. T-2795 stays open for its full movement/fit acceptance.
+
+
+### Current Glessner street evidence and remaining limits
+
+The actual published 1904 phone view draws the preserved carriage and both horses.
+All 1,196 original hoof vertices per animal were independently checked against the
+drawn street triangles: per-foot minimum gaps range from numerical zero to
+0.539 mm; wheel gaps are 4.47-8.70 mm and the pole/yoke gap is 10.715 mm.
+The real quiet clocks pause and resume, and Light and hidden states release the
+team and restore it on return. These are finite contact and lifecycle readings,
+not full surface-intersection, continuous-contact or photographic acceptance.
+
+The phone probe remains NONPASS_BUDGET. Initial Light reads 411.969 MiB;
+an exact five-file original-DEV runtime/placement overlay on the same unchanged
+asset derivatives reads 411.737 MiB with identical 1,269 calls and 734,378 triangles.
+This is a thin historical runtime comparison, not a complete rebuilt old mirror.
+At the photographed street view Balanced reads 5,135,153 triangles against
+2,625,000; hiding vehicles still reads 4,958,239. Light after returning from
+Balanced reads 437.128 MiB and 1,411,088 triangles. No ceiling was raised or
+failure relabelled as a pass. The current repository profiles remain 1,300 MiB
+for 1904 desktop Full and 400 MiB for phone Light; they are measured profile
+readings, not an established invariant across all town cameras.
+
+Normal desktop Full and Balanced probes attached the actual team without browser
+or HTTP errors, but capture/screenshot deadlines prevented complete visual runs.
+The Full snapshot read about 1,550 MiB at this stand and is not a passing memory
+or ordinary-loop result. The native gate, ordinary PR CI and any further visual
+qualification are reported by their actual receipts; no partial transcript proves
+the whole gate. Published image, independent review, exact inputs, resource and
+cleanup receipts, original-DEV comparison and negative results are preserved in
+[chicago-evidence](https://github.com/kevinrhaas/chicago-evidence/tree/38da1455b2bfd2d39fd1de67400a64aa3a80475e/evidence/transport/glessner-stationary-team-2026-11-10/street-phone-wip-f721329c).
+
+
+A separate controlled desktop inspection now also renders the complete current
+carriage and pair at 1280x800 and independently passes the same original hoof
+and wheel contact limits. It calls the original renderer for one actual native
+frame while holding automatic GPU draws during setup and readback; simulation
+keeps running. All horse materials compile and no browser or HTTP errors occur.
+The close image preserves the delivered body finish and shows no gross floating
+or detached animal. Its 4,462,453 triangles still exceed the Balanced point
+ceiling, so the receipt remains NONPASS_BUDGET_CONTROLLED_PHOTO_CONTACT_CHECKS_PASSED.
+This is a controlled appearance/contact inspection, not ordinary-loop or FPS
+acceptance, nor photographic or complete-harness sign-off.
+
+## Five early-building original parcels — final source integration, 2026-11-10
+
+T-2374, T-2376, T-2379, T-2380 and T-2383 now carry finite, evidence-bounded source reconstructions for the remaining visitor-visible forms. Cobweb has a compact five-part plan, lower wing eaves and one pictured main-ridge stack; its partial lower siding is retained. Green Tree has separate low/front and raised/rear gables, the corrected connector fall and continued infill boards. The jail has the taller Gale-selected core gable and one reconstructed barred-looking light, with a diagnostic eye kept clear of the keeper roof. Sauganash has capped slender ridge-end stacks; the owner-selected 8 m range is retained and camera-dependent roof exposure is within T-3153 tolerance. Lake House is an open July brick worksite with uneven lifts, supported incomplete openings and working stages inside its existing footprint.
+
+All numeric controls and unpictured forms remain reconstructed at their stated bounds. Retrospective source conflicts, the jail's 1836 caption, Lake House's later completed-hotel imagery, unidentified Petford/museum leads and separately rights-held reproductions are explicitly qualified; no source grade, historical camera, fitting day or July alteration is invented. The five structured liberties and exact construction-note declarations accompany the source.
+
+This is source integration, not final native or release evidence. Targeted producer/parameter, legacy-compatibility and semantic geometry checks are recorded in the original parcels. One combined pinned native batch, control/foreign-binding audit, fresh actual picture comparisons, integrated source gate and published desktop/phone review remain required before the original tickets close. The existing reviewed PR1903/PR1901 increments are preserved as earlier evidence. No automatic MATCHES, full-smoke PASS or original-ticket completion is asserted here, and no new photo follow-up is filed.
+
+
+### 2026-11-10 — Native picture group integrated; Green Tree upper row remains open
+
+PR #1907 integrates pinned native run42745792113, retained9dd9ba7ddd22c6ff87e52522497205f62133fa1f from source64a752353bc66fa6bfa58c853b90c32625f7b739. All375 selected bindings are fresh. Actual audit proves370 controls preserve non-UV geometry, materials, confidence and consumed UVs with identical published bytes;364 masters are identical and6 differ only in unused UV channels. All671 foreign defaults and4 variants remain exact. Three1812 door-cache hash changes independently rederive with unchanged door poses.
+
+Cobweb Castle, the jail and Sauganash/Carpenter contexts have actual fresh reviewed picture records. Lake House uses a dated wrong-state image disposition, not an invented July match; its published worksite qualification remains required. Official yard/entrance/planting/settled-ground derivations remove the old Cobweb prop intrusions, and11 dependent source checks pass. Existing accepted Currey views were actually refreshed without closing the first-fort original.
+
+Green Tree is PARTIAL: its raised rear gable, low connector and lower foreground sash are visibly built, but Trowbridge clearly shows THREE upper front windows and the current model has TWO. Allthree fresh records say differs and keep that categorical omission open. T-2376 will finish with T-3041/T-2388 in the next three-ticket group and one combined scoped build. No new photo follow-up is filed. Final protected source gate and published desktop/phone checks remain pending at this checkpoint. The smoke consumer repairs target actual current collapsed review disclosure, enabled building destination and stand-in-face disclosure; they do not change product behavior or budgets.

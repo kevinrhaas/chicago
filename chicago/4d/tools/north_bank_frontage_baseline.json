@@ -1,69 +1,69 @@
 {
- "_doc": "T-0947. The committed north-bank frontages on North Water Street, and which of them stand on the rule stated at docs/RESEARCH/street_module_1830.md § 11. `on_rule` records are held to the derived frontage line (the street's own track kerb plus a 2.00 m clearance) to 0.05 m. `exceptions` are held to their own committed figure to 0.25 m, each with the reason it is not on the rule. A north-bank frontage in neither list FAILS the gate — that is the assertion T-0947 asked for, after two green reconciliations of one ruling placed the same building 36.79 m apart. Rewrite with tools/measure_north_bank_frontage.py --write-baseline, only in the commit that moves something, and never to make a number smaller.",
- "rule_m": 5.0,
- "on_rule": [
-  "north_bank_shed_dearborn_w__shed_1835",
-  "north_bank_shed_dearborn_e1__shed_1835",
-  "north_bank_shed_dearborn_e2__shed_1835",
-  "north_bank_shed_dearborn_e3__shed_1835",
-  "steamboat_hotel__frame_1835"
- ],
- "exceptions": {
-  "blacksmith_shop_state_st__log_1823": {
-   "face_m": 4.424,
-   "reason": "CLEAR OF THE TRACK by 1.42 m but 0.58 m short of the frontage line. It is placed on State Street rather than on North Water — it falls in this band only because the two streets converge at Wolcott — so the rule for this street does not govern it."
-  },
-  "brickyard_north_side__yard_1833": {
-   "face_m": 1.753,
-   "reason": "DRAWN INSIDE THE TRACK by 1.25 m. A yard rather than a frontage: the record places the working ground, and a yard's edge is not a street face."
-  },
-  "cobweb_castle__log_1820": {
-   "face_m": 2.886,
-   "reason": "DRAWN INSIDE THE TRACK by 0.11 m, and the corner is documented twice — Wau-Bun's 'southwest corner of Wolcott and N. Water Streets' and Andreas independently. A documented corner outranks a frontage offset; 0.11 m is inside the arithmetic of a traced centreline in any case."
-  },
-  "council_house__log_1834": {
-   "face_m": 9.654,
-   "reason": "SET BACK 4.65 m BEYOND THE RULE, and deliberately: the record is `conjectural` and admits ±110 m along the bank inside a 215 m attested band, so its coordinate is a placement of last resort and not a frontage. T-0947 leaves it where it is and the Steamboat Hotel's station is measured from its footprint."
-  },
-  "inf_boatman_cabin_north__inferred_1835": {
-   "face_m": 12.693,
-   "reason": "SET BACK 7.69 m BEYOND THE RULE, by the street rather than by hand (T-1726). It stood 1.00 m from the centreline, on the road, until every drawn street joined the generators' no-roof-in-the-road question; the household programme's `corridor_clearance` then moved it the least distance north that clears North Water's whole 80 ft drawn corridor by 0.5 m. The rule here is the travelled track and the generators' bar is the street's declared width, so an invented roof cleared of the one stands back from the other — which is what the record's own role, a cabin set back from the bank, already said."
-  },
-  "kinzie_hunter_warehouse__warehouse_1834": {
-   "face_m": 0.058,
-   "reason": "DRAWN INSIDE THE TRACK by 2.94 m, and the coordinate outranks the ribbon. The warehouse is placed from a documented position at the forks; `north_water`'s west end is a reconstructed trace that T-0226 already re-derived once off the committed bank. A position with a source beats a line this project drew — the same reading `measure_corridor_intrusion` takes of the platted grid."
-  },
-  "north_side_school_1833__log_1833": {
-   "face_m": 2.015,
-   "reason": "DRAWN INSIDE THE TRACK by 0.99 m. Placed 2026-08-11 from Andreas's 'just east of Clark Street' on the north bank, against a book that contradicts itself about which side of Clark the school stood on; the record's own note admits about 110 m of along-street uncertainty. The documented reading holds and the frontage rule does not reach it."
-  },
-  "recon_1835_bank_freight_f3_001__inferred_1835": {
-   "face_m": 13.48,
-   "reason": "CLEAR OF THE DRAWN CORRIDOR by 1.29 m, and 8.48 m behind the frontage line ON PURPOSE (T-2022). It is a reconstruction placed after T-1743, whose gate refuses any new roof inside a street as data/streets/1835.json draws it, and North Water is drawn at the 80 ft module (12.19 m half-width): the 5.00 m frontage line lies inside that corridor, so a new roof cannot stand on it. The sheds that hold the rule stand inside the drawn corridor as banked laps. It stands instead on its tier lot's own street line, 3.0 m inside the lot, the nearest it can come to the water while clear of the drawn street (L399)."
-  },
-  "recon_1835_north_d3_020__inferred_1835": {
-   "reason": "UNEXPLAINED — write the reason.",
-   "face_m": 17.062
-  },
-  "mckee_log_house__log_1823": {
-   "face_m": 7.762,
-   "reason": "NOT A STREET FRONTAGE. One of the ring of agency log buildings T-1714 raised on the riverbank strip between North Water Street and the water, placed by offset from this project's cobweb_castle coordinate and facing the river at bearing 180 — Wau-Bun's own sentence for this group is that the street 'was maliciously opened directly in the rear of the building', so the houses predate the plat and front the water, not the road. The rule for this street does not govern them, and moving one onto the frontage line would be inventing a relation to a street that was laid out behind it. Set back 2.76 m beyond the frontage line, clear of the track."
-  },
-  "caldwell_agency_log_house__log_1830": {
-   "face_m": 9.533,
-   "reason": "NOT A STREET FRONTAGE. One of the ring of agency log buildings T-1714 raised on the riverbank strip between North Water Street and the water, placed by offset from this project's cobweb_castle coordinate and facing the river at bearing 180 — Wau-Bun's own sentence for this group is that the street 'was maliciously opened directly in the rear of the building', so the houses predate the plat and front the water, not the road. The rule for this street does not govern them, and moving one onto the frontage line would be inventing a relation to a street that was laid out behind it. Set back 4.53 m beyond the frontage line, the furthest north of the three."
-  },
-  "agency_striker_log_house__log_1830": {
-   "face_m": 4.652,
-   "reason": "NOT A STREET FRONTAGE. One of the ring of agency log buildings T-1714 raised on the riverbank strip between North Water Street and the water, placed by offset from this project's cobweb_castle coordinate and facing the river at bearing 180 — Wau-Bun's own sentence for this group is that the street 'was maliciously opened directly in the rear of the building', so the houses predate the plat and front the water, not the road. The rule for this street does not govern them, and moving one onto the frontage line would be inventing a relation to a street that was laid out behind it. Since 2026-10-23 it stands between McKee's house and the agency blacksmith shop with its south face in line with the shop's, moved off the riverbank shed that had been built through it: clear of the track by about 1.65 m and about 0.35 m short of the frontage line, nearer the road than the rule asks for the same reason as the other two."
-  },
-  "steamboat_hotel_stable__stable_1835": {
-   "face_m": 18.415,
-   "reason": "T-1776. The Steamboat Hotel's own stable, behind the house on the landward side away from the front it turns toward the landing. A stable stands behind the roof it serves, not on the street, so the frontage rule does not govern it; it is held where it stands, 18.4 m back, as the hotel's other outbuilding would be."
-  },
-  "burns_house_1812__burns_1812": {
-   "face_m": 0.053,
-   "reason": "AN 1812 HOUSE MEASURED AGAINST AN 1835 STREET. It stands 1812-1819, before North Water Street was platted, so the street's frontage rule cannot govern it; it is seated by its sources instead, twenty steps (15.2 m) north of the 1812 north bank at the later foot of State Street, west of cobweb_castle (T-2487, L-1812-burns-lee-2487). That its south face falls 0.05 m from the 1835 frontage line is a coincidence of the two lines, not a placement on it."
+  "_doc": "T-0947. The committed north-bank frontages on North Water Street, and which of them stand on the rule stated at docs/RESEARCH/street_module_1830.md \u00a7 11. `on_rule` records are held to the derived frontage line (the street's own track kerb plus a 2.00 m clearance) to 0.05 m. `exceptions` are held to their own committed figure to 0.25 m, each with the reason it is not on the rule. A north-bank frontage in neither list FAILS the gate \u2014 that is the assertion T-0947 asked for, after two green reconciliations of one ruling placed the same building 36.79 m apart. Rewrite with tools/measure_north_bank_frontage.py --write-baseline, only in the commit that moves something, and never to make a number smaller.",
+  "rule_m": 5.0,
+  "on_rule": [
+    "north_bank_shed_dearborn_w__shed_1835",
+    "north_bank_shed_dearborn_e1__shed_1835",
+    "north_bank_shed_dearborn_e2__shed_1835",
+    "north_bank_shed_dearborn_e3__shed_1835",
+    "steamboat_hotel__frame_1835"
+  ],
+  "exceptions": {
+    "agency_striker_log_house__log_1830": {
+      "face_m": 4.652,
+      "reason": "NOT A STREET FRONTAGE. One of the ring of agency log buildings T-1714 raised on the riverbank strip between North Water Street and the water, placed by offset from this project's cobweb_castle coordinate and facing the river at bearing 180 \u2014 Wau-Bun's own sentence for this group is that the street 'was maliciously opened directly in the rear of the building', so the houses predate the plat and front the water, not the road. The rule for this street does not govern them, and moving one onto the frontage line would be inventing a relation to a street that was laid out behind it. Since 2026-10-23 it stands between McKee's house and the agency blacksmith shop with its south face in line with the shop's, moved off the riverbank shed that had been built through it: clear of the track by about 1.65 m and about 0.35 m short of the frontage line, nearer the road than the rule asks for the same reason as the other two."
+    },
+    "blacksmith_shop_state_st__log_1823": {
+      "face_m": 4.424,
+      "reason": "CLEAR OF THE TRACK by 1.42 m but 0.58 m short of the frontage line. It is placed on State Street rather than on North Water \u2014 it falls in this band only because the two streets converge at Wolcott \u2014 so the rule for this street does not govern it."
+    },
+    "brickyard_north_side__yard_1833": {
+      "face_m": 1.753,
+      "reason": "DRAWN INSIDE THE TRACK by 1.25 m. A yard rather than a frontage: the record places the working ground, and a yard's edge is not a street face."
+    },
+    "burns_house_1812__burns_1812": {
+      "face_m": 0.053,
+      "reason": "AN 1812 HOUSE MEASURED AGAINST AN 1835 STREET. It stands 1812-1819, before North Water Street was platted, so the street's frontage rule cannot govern it; it is seated by its sources instead, twenty steps (15.2 m) north of the 1812 north bank at the later foot of State Street, west of cobweb_castle (T-2487, L-1812-burns-lee-2487). That its south face falls 0.05 m from the 1835 frontage line is a coincidence of the two lines, not a placement on it."
+    },
+    "caldwell_agency_log_house__log_1830": {
+      "face_m": 9.533,
+      "reason": "NOT A STREET FRONTAGE. One of the ring of agency log buildings T-1714 raised on the riverbank strip between North Water Street and the water, placed by offset from this project's cobweb_castle coordinate and facing the river at bearing 180 \u2014 Wau-Bun's own sentence for this group is that the street 'was maliciously opened directly in the rear of the building', so the houses predate the plat and front the water, not the road. The rule for this street does not govern them, and moving one onto the frontage line would be inventing a relation to a street that was laid out behind it. Set back 4.53 m beyond the frontage line, the furthest north of the three."
+    },
+    "cobweb_castle__log_1820": {
+      "face_m": 7.391,
+      "reason": "T-2374 picture reconstruction retains the documented southwest corner placement and rotation. Its new 9 by 4.5 m bounded compound replaces the old 13 by 9 m shell, so its measured street face changes while the UTM position stays fixed. The old 2.886 m exception described the superseded envelope, not a surveyed front-wall coordinate. The actual new face is remeasured by the unchanged frontage owner; the sourced corner continues to outrank a uniform frontage offset. Room widths/depths and their July continuity remain declared liberties, not survey measurements."
+    },
+    "council_house__log_1834": {
+      "face_m": 9.654,
+      "reason": "SET BACK 4.65 m BEYOND THE RULE, and deliberately: the record is `conjectural` and admits \u00b1110 m along the bank inside a 215 m attested band, so its coordinate is a placement of last resort and not a frontage. T-0947 leaves it where it is and the Steamboat Hotel's station is measured from its footprint."
+    },
+    "inf_boatman_cabin_north__inferred_1835": {
+      "face_m": 12.693,
+      "reason": "SET BACK 7.69 m BEYOND THE RULE, by the street rather than by hand (T-1726). It stood 1.00 m from the centreline, on the road, until every drawn street joined the generators' no-roof-in-the-road question; the household programme's `corridor_clearance` then moved it the least distance north that clears North Water's whole 80 ft drawn corridor by 0.5 m. The rule here is the travelled track and the generators' bar is the street's declared width, so an invented roof cleared of the one stands back from the other \u2014 which is what the record's own role, a cabin set back from the bank, already said."
+    },
+    "kinzie_hunter_warehouse__warehouse_1834": {
+      "face_m": 0.058,
+      "reason": "DRAWN INSIDE THE TRACK by 2.94 m, and the coordinate outranks the ribbon. The warehouse is placed from a documented position at the forks; `north_water`'s west end is a reconstructed trace that T-0226 already re-derived once off the committed bank. A position with a source beats a line this project drew \u2014 the same reading `measure_corridor_intrusion` takes of the platted grid."
+    },
+    "mckee_log_house__log_1823": {
+      "face_m": 7.762,
+      "reason": "NOT A STREET FRONTAGE. One of the ring of agency log buildings T-1714 raised on the riverbank strip between North Water Street and the water, placed by offset from this project's cobweb_castle coordinate and facing the river at bearing 180 \u2014 Wau-Bun's own sentence for this group is that the street 'was maliciously opened directly in the rear of the building', so the houses predate the plat and front the water, not the road. The rule for this street does not govern them, and moving one onto the frontage line would be inventing a relation to a street that was laid out behind it. Set back 2.76 m beyond the frontage line, clear of the track."
+    },
+    "north_side_school_1833__log_1833": {
+      "face_m": 2.015,
+      "reason": "DRAWN INSIDE THE TRACK by 0.99 m. Placed 2026-08-11 from Andreas's 'just east of Clark Street' on the north bank, against a book that contradicts itself about which side of Clark the school stood on; the record's own note admits about 110 m of along-street uncertainty. The documented reading holds and the frontage rule does not reach it."
+    },
+    "recon_1835_bank_freight_f3_001__inferred_1835": {
+      "face_m": 13.48,
+      "reason": "CLEAR OF THE DRAWN CORRIDOR by 1.29 m, and 8.48 m behind the frontage line ON PURPOSE (T-2022). It is a reconstruction placed after T-1743, whose gate refuses any new roof inside a street as data/streets/1835.json draws it, and North Water is drawn at the 80 ft module (12.19 m half-width): the 5.00 m frontage line lies inside that corridor, so a new roof cannot stand on it. The sheds that hold the rule stand inside the drawn corridor as banked laps. It stands instead on its tier lot's own street line, 3.0 m inside the lot, the nearest it can come to the water while clear of the drawn street (L399)."
+    },
+    "recon_1835_north_d3_020__inferred_1835": {
+      "reason": "UNEXPLAINED \u2014 write the reason.",
+      "face_m": 17.062
+    },
+    "steamboat_hotel_stable__stable_1835": {
+      "face_m": 18.415,
+      "reason": "T-1776. The Steamboat Hotel's own stable, behind the house on the landward side away from the front it turns toward the landing. A stable stands behind the roof it serves, not on the street, so the frontage rule does not govern it; it is held where it stands, 18.4 m back, as the hotel's other outbuilding would be."
+    }
   }
- }
 }

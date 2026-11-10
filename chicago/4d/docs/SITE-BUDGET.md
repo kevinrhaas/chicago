@@ -1204,11 +1204,23 @@ development publisher replaces those files with immutable R2 URLs in its small
 catalogue. Originals and authoring deliveries remain outside the published tree.
 Both app revisions can refer to the same bytes without duplicating them in Pages.
 
-The resulting app was 432.044 MiB, still slightly over the existing ceiling.
-Removing only indentation from the published `data/liberties.json` brings it to
-431.363 MiB after compiling the audio liberties. `check_published.mjs` requires full parsed-value equality with the
-readable source; no evidence records or fields are dropped. The 432 MiB limit
-is unchanged and remaining headroom is small. This measurement is the local app
-tree, not the complete live deployment or a production promotion. The current
+The pre-integration audio pilot measured 432.044 MiB, slightly over its then-current
+432 MiB ceiling. Removing only indentation from the published `data/liberties.json`
+measured 431.363 MiB after compiling the audio liberties. `check_published.mjs`
+requires full parsed-value equality with the readable source; no evidence records
+or fields are dropped. The audio pilot did not raise the storage allowance. These
+are historical local app-tree measurements, not measurements of the merged dev
+build, the complete live deployment or a production promotion. The current storage
+allowance is 433 MiB under the separately measured picture-delivery change in
+section 17 below; the integrated audio/building tree must be measured again. The
 r2.dev host remains a development endpoint; production domain/cache work is
 described in AUDIO-HOSTING.md.
+
+
+## 17. The four-building picture delivery: measured storage allowance, 2026-11-10
+
+This is a conscious storage re-budget from **432 to433 MiB**, not a skipped size check. The actual clean published tree at `c5551fdd66fc79d673155a20138f7d331df51b8b` measures **432.01 MiB** in source CI42749721172, part5. It fails only the432 MiB storage line; the other seven parts pass. The five intended native WEB outputs add10,656 raw bytes net (Cobweb -1,916; GreenTree +3,516; LakeHouse +6,300; jail +2,576; Sauganash +180), and the source/sidecar additions carry their credited pictures and compiled liberties. GreenTree remains partial until its missing upper window is corrected.
+
+The1 MiB increase gives just under1 MiB of clean-tree headroom. Using the existing deployed-artifact allowance accounting from §14, two433 MiB trees plus132.233 MiB other content total998.233 MiB, below the established1024 MiB ceiling. This calculation is an allowance, not a new measurement or claim of production promotion. The validator still measures the full clean published artifact and fails above433 MiB. Boot payload, Full/Balanced/Light frame limits, Light's floor, the90% warning and duplicate checks do not move. Actual focused published desktop and phone qualification uses the same seven target assets, sidecars and renderer files; this validator/documentation change changes no model or renderer.
+
+The local long-lived workspace contains additional generated materializations and is not used as the clean-artifact size reading. The quoted432.01 MiB comes from the named immutable GitHub CI job; the raw job log and native asset-cost receipts remain in the checkpoint.

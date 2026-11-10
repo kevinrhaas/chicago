@@ -2952,6 +2952,13 @@ step "a stated compound aperture set is read once, overrides its room's opening 
 selftest "a stated compound aperture set is refused outside its room's wall, through its own rake, with two ways in or on the bounded elbow" \
   python3 tools/test_log_compound_apertures.py --self-test
 
+step "compound room heights and ridge stacks follow their stated rooms without changing legacy compounds (T-2374)" \
+  python3 tools/test_log_compound_form.py
+step "explicit barn cupolas seat on the roof while absent cupolas leave legacy outbuildings unchanged (T-2388)" \
+  python3 tools/test_outbuilding_cupola.py
+step "an explicit outside piazza stair reaches its gallery and leaves existing fort buildings unchanged (T-2388)" \
+  python3 tools/test_second_fort_piazza_stair.py
+
 step "partial compound clapboards preserve the old shell, clear its openings and leave other log dwellings alone (T-2374)" \
   python3 tools/test_log_compound_clapboards.py
 
@@ -8702,6 +8709,11 @@ step "Human assembly still controls reject wrong identities, invalid bounds and 
   python3 tools/test_human_library_stills.py
 step "Human assembly still intake rejects stale runs, mismatched jobs and unsafe archives (T-1789)" \
   python3 tools/test_human_library_stills_intake.py
+
+step "Shared draft-horse assets retain one lease-owned geometry and texture template (T-2795)" \
+  node tools/test_draft_horse_assets.mjs
+step "The unoccupied Glessner carriage team preserves actual delivery geometry, hoof contacts and tier lifecycle (T-2795)" \
+  node tools/test_parked_draft_team.mjs
 
 check_summary
 exit $CHECK_FAILED

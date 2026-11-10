@@ -42914,6 +42914,165 @@ The number is a liberty, not a fence measurement recovered from either drawing. 
 **Ticket:** T-2380.
 **Recorded:** 2026-11-09.
 
+
+### L-glessner-stationary-team-2795 — the waiting team outside Glessner House
+
+**Decision:** The owner requests a horse for the existing reconstructed carriage outside Glessner House, with coachman-led boarding and riding to follow. Its current central pole takes a matched pair; the individual horses, their matching appearance, waiting activity and association with this reconstructed carriage are liberties, not documented animals or household ownership. Reuse the existing licensed horse, fitted collar/girth and connection-unit assets. The carriage retains its location, catalogue type, current delivery finish and original source geometry.
+
+The animals use the existing quiet clip at independent reconstructed phases. Their neutral root stance is the previously declared bounded support quaternion; a complete-source hoof-vertex fit supplies vertical support without changing source joints or anatomy. The combined tilt and contact limits are unchanged. The raised pole is an independently posed runtime clone about the explicit front-axle lift pivot, not a silent alteration of the unhitched source master. Reins are not drawn to imaginary palms.
+
+This scene increment is unoccupied. Charles Nelson remains Glessner's existing coachman record; John Glessner may later be a passenger after actual seated/boarding work. Hans Johnson is not reassigned to Glessner. No particular trip, breed, historical likeness or ownership is claimed. A synthetic-plane finite check is not full street, harness/contact, photographic or boarding acceptance.
+
+This liberty applies to the carriage waiting on Prairie Avenue south of Eighteenth Street, its attached team, neutral stance and independent quiet movement.
+
+**Sources:** `studebaker_1893_illustrated_souvenir` supports the carriage design only. Individual placement, team and activity are owner-requested reconstruction, using existing licensed portable assets.
+
+**Ticket:** T-2795.
+**Recorded:** 2026-11-10.
+
+### L-cobweb-completion-2374 — final compact Agency-House form
+
+**Decision:** Reconstruct the compact centre, subordinate wings and two rear tails, preserving the existing text-supported partial lower clapboarding.
+
+The text supplies a compact centre, two wings, two rear tails and partial
+clapboarding. The keyed retrospective illustration supplies a dominant front
+gable, receding ridge, subordinate side gable, three front marks and one visible
+roof stack. Its few pixels are not metric evidence. Replace the prior13×9m trial
+with a9×4.5m reconstruction: centre5×3.5m, two2×2m wings recessed1m, and two1.5×1m
+rear tails. Wing eaves are2.0m; centre/tails retain2.6m. Parallel35° gables and
+unseen rear junctions are choices. One0.80m square stack 35 percent along the main
+ridge, head5.05m, replaces the unsupported two exterior wing stacks. It is a
+visible-count proxy, not proof that hidden flues never existed. Retain the1.30m
+board band and all three front marks with unchanged relative set-out/depth.
+Position and rotation values remain unchanged; no survey or terrain is fitted.
+
+The canonical illustrative camera uses five approximate front points at1.009px
+coordinate RMS, with about2px reading uncertainty, fixed800px focal and1.60m eye.
+This chooses a pose family, not a recovered historical viewing location;
+`diagnostic_only` withholds From-this-spot navigation. Monochrome tone does not
+attest paint; paper white is not whitewash evidence. The drawing depicts1831,
+was reproduced1881 with1857credit, and cannot establish unchangedJuly1835form.
+Actual native side-by-side acceptance belongs in its match record, not this
+liberty. Unpictured exact dimensions, rear forms, finish dates and survival are
+reconstructed within the already stated historical limits.
+
+The companion held unkeyed panorama chicago_fort_dearborn_1831_2.jpg is also
+enrolled as waubun_1831, with a1.724px front fit and about2px point uncertainty.
+Its inventory Sarony/Wau-Bun attribution is qualified, and it is not independent
+evidence. Both actual native views must be reviewed; their lower-mark extents
+and minor roof proportion disagreement are within tolerance underT3153.
+
+**Covers:** `cobweb_castle.log_1820.footprint`, `cobweb_castle.log_1820.form.compound_parts`, `cobweb_castle.log_1820.form.compound_apertures`, `cobweb_castle.log_1820.form.compound_ridge_stacks`, `cobweb_castle.log_1820.form.compound_eave_heights_m`, `cobweb_castle.log_1820.form.chimneys`, `cobweb_castle.log_1820.form.chimney_head_m`, `cobweb_castle.log_1820.form.compound_clapboard_height_m`.
+
+**Sources:** `kinzie_waubun_1856`, `kinzie_1857_chicago_1831_panorama`, `andreas_1884_v1`.
+
+**How to resolve:** A dimensioned contemporary plan or detailed, independently identified early view could replace the compact reconstruction and establish hidden roof junctions or the date of the partial siding. Current small retrospective depictions support bounded form rather than measured dimensions.
+
+**Ticket:** T-2374.
+**Recorded:** 2026-11-10.
+
+### L-green-tree-complete-left-group-2376 — two gable levels and connector form (2026-11-10)
+
+**Decision:** Green Tree's current `enclosed_left_annex` is an evidence-bounded reconstruction,
+using the actually viewed public-domain Andreas1884 Green Tree plate and
+Kurz&Allison1893 panel11 (`andreas_1884_green_tree_hotel_plate`,
+`kurz_allison_1893`), with Trowbridge/Gale1902 as explicit counterevidence
+(`trowbridge_green_tree_1902`). Andreas and Kurz draw a low foreground gable and
+a separate higher rear gable; the previous constant-height turned range omitted
+that second silhouette. A raised rear section now supplies it. Its1.6m depth,
+4.5m wall and37degree roof, the range's3.7m depth/1.7m front set-out, and the
+existing25degree plan turn are RECONSTRUCTED controls. The range's back corner
+stays put; the forward wall and its physical entrance advance together0.7m.
+The low connector falls away from the main block toward the foreground range,
+with working high/low edges3.0/2.25m. Existing clapboard stock continues over
+shed infill rather than leaving a flat proxy patch. The foreground upper-light
+sill drops3.1to2.7m with its existing0.65x0.70m section retained. None of these
+numbers is a metric measurement from a retrospective drawing, a surveyed plan,
+a dated alteration, an asserted interior or extra lodging capacity.
+
+The pictures may be dependent. Trowbridge's open wagon bay and different
+upper/attic openings, Gray's later side entrance and bilateral additions, and
+the held c1859 catalogue lead remain explicit. Those image-to-image and
+camera-fit conflicts are within tolerance underT3153 and prove no conversion
+year. The site file named1859 is an engraving showing later commercial
+shopfronts, lettering, awnings and a gas lamp, not an authenticated CHM
+ICHi040230 photograph; neither that held reproduction nor the unverified,
+check_required museum lead supplies this geometry or a derived asset.
+The core footprint, world placement, source rights and source grades do not
+change. Genuine final native pictures and published app review supply
+acceptance; a source proposal or CPU diagnostic alone does not.
+
+**Covers:** `green_tree_tavern.frame_1833.form.enclosed_left_annex`.
+
+**Sources:** `andreas_1884_green_tree_hotel_plate`, `kurz_allison_1893`, `trowbridge_green_tree_1902`.
+
+**How to resolve:** An independently identified contemporary plan or detailed view could replace the chosen metric controls and settle the competing closed-shoulder and open-wagon-bay readings. The dependent retrospective images and later commercial views establish no July conversion date or recovered historical camera.
+
+**Ticket:** T-2376.
+**Recorded:** 2026-11-10.
+
+### L-log-jail-core-continuity-2380 — bounded core form (2026-11-10)
+
+**Decision:** `log_jail`, phase `log_1833`, retains the documented 1833 log jail, existing reconstructed footprint/site and source dates. The detailed independently public-domain Gale/Trowbridge 1902 plate (captioned **1836**) is selected for its taller log gable and one upright barred-looking gable light; Gale p51's 1835-framed recollection supplies the continuity context, not proof of every detail by 1 July. Eave **3.35 m**, pitch **28°**, east gable registration, **0.48 x 0.85 m** light, three uprights, one crossbar, 55 mm framing and continued gable course relief are explicit reconstruction choices, not measured historical dimensions or structural/interior evidence. They replace the low 2.66 m/12° proxy while keeping keeper/enclosure/site/footprint and phase dates unchanged. Andreas 1884's hip/pyramidal cap, different domestic elevation and absent core flues are retained as contradictory retrospective appearance, within tolerance under T-3153; no second cell or post-July courthouse is invented to reconcile the pictures. No geometry is derived from the separately rights-held UCR/1947 copies. The reframed northeast Gale eye is diagnostic only, with unchanged full source pixels, and supplies no historic “From this spot” action. Acceptance requires actual refreshed native comparisons and published street review; this Liberty does not claim a match by itself.
+
+**Covers:** `log_jail.log_1833.form.wall_height_m`, `log_jail.log_1833.form.roof_pitch_deg`, `log_jail.log_1833.form.picture_layout`.
+
+**Sources:** `trowbridge_first_jail_gale_1902`, `andreas_1884_v1`.
+
+**How to resolve:** A contemporary dated view or measured plan could replace the selected core profile and opening controls and establish its exact July 1835 appearance. The 1836 retrospective caption and contradictory Andreas roof remain explicit; no date or second cell is invented to reconcile them.
+
+**Ticket:** T-2380.
+**Recorded:** 2026-11-10.
+
+### L-lake-house-worksite-2379 — finish a bounded July worksite, without backdating the later hotel
+
+**Decision:** `lake_house_construction.shell_1835` uses the default-off `construction_site` builder: thick, open brick walls with uneven lifts, seven selected work bays, only three bridged openings supported by reconstructed timber lintels, a broad rear material-access break and two interior timber working stages. All pieces stay within the existing 24 × 15 m footprint and four-metre maximum. The existing nine external material piles stay on their independently declared yard layer.
+
+**Evidence and bounds:** The held Chicago Democrat 10 June 1835 p.2 col.5 notice attests an active project before 1 July, not its measured progress; the reading is transcription-mediated, with bracketed supplies, and no original facsimile was newly read. Andreas's later completed brick hotel, three storeys and a basement, and autumn 1836 opening bound a substantial unfinished project. The exact July lift is a chosen reconstruction within the retained zero-to-two-storey range. The 0.46 m masonry, chosen seven-bay rhythm, individual apertures, incomplete lintels, lower lifts and 1.65 m stage decks/stock/positions are all invented within those bounds. No source counts or measures them. No cellar excavation, below-grade interior, accommodation or completed-hotel roof/cupola/glazing/sign is represented. The prior position and its uncertainty are retained; no later address or retrospective print relocates it.
+
+**Picture scope:** The original Chicago picture is the 1856 Kellogg/Blanchard print, showing the completed ca.1836–1849 hotel. Its planning copy is byte-identical. All four Lake House illustrations embedded in the live Chicagology source page were also read: the about-1860 completed-hotel photograph, the 1869 mapped hotel and two later text-ad/menu composites. None depicts July progress; no asset is derived from that check_required site. The 1869 map places the later hotel west of Rush, contradicting the existing reconstructed east-side choice; that later-state conflict is recorded without tracing it into July coordinates. Milwaukee's Lake House is a different building. The completed print remains credited later context and is ineligible to prescribe July construction progress. No empty `matches` verdict is created. Any image-gate exception for the original ticket must name this wrong-date ruling. A measured contemporary plan or dated progress picture could replace the reconstruction; missing exact numbers do not block building it at this tier.
+
+**Covers:** `lake_house_construction.shell_1835.form.construction_site`, `lake_house_construction.shell_1835.form.kind`, `lake_house_construction.shell_1835.form.stories`, `lake_house_construction.shell_1835.form.wall_height_m`, `lake_house_construction.shell_1835.form.roof_type`, `lake_house_construction.shell_1835.footprint`.
+
+**Ticket:** T-2379. Actual known-source coverage and finite native/published acceptance: `docs/RESEARCH/lake-house-completion-20261110/README.md`.
+
+**Sources:** `chicago_democrat_1833_1835`, `andreas_1884_v1`.
+
+**How to resolve:** A measured contemporary plan or dated July construction-progress view could replace the selected lifts, bays and staging. The completed ca.1836–1849 hotel picture remains later context, not evidence of the July worksite.
+
+**Recorded:** 2026-11-10.
+
+### L-sauganash-capped-stack-heads-2383 — Sauganash pictured masonry heads
+
+**Covers:** `sauganash_hotel.frame_1831.form.ridge_end_chimney_head`.
+
+**Decision:** Andreas/Braunhold's retrospective 1884 engraving draws two slender brick stacks
+with projecting masonry heads. The earlier two ridge-end shafts had plain tops,
+which omitted that visible form. Keep their 0.60 m square sections and 0.60 m
+end insets; select complete tops 0.75 m above the ridge, of which the last
+0.12 m is a square cap projecting 0.06 m on every side (0.72 m overall). The
+shaft ends at ridge +0.63 m. All of those dimensions are **reconstructed working
+choices**, bounded by the drawn slender, capped profile; none is a historical
+metre, counted brick course or dated July-1835 alteration read from the plate.
+Source: `andreas_1884_sauganash_hotel_plate`. These choices use the opt-in
+`ridge_end_chimney_head`; absence preserves the existing kit exactly.
+
+The retained compound roof has an 8 m reconstructed rear range, following the
+owner's earlier “almost the same size” reading. The plate supplies no independent
+wing length or historical station. A separate analytical Hotel wall-corner fit
+changes the near roof apex by about 74 px vertically with geometry unchanged,
+so the broad left-wing exposure and small far-gable visibility in the retained
+Shop-fit camera do not establish another physical dimension. Those source/camera
+exposure differences are adjudicated under the T-3153 camera-fit tolerance;
+no plan, phase date, paint or placement is moved to erase them.
+
+**Sources:** `andreas_1884_sauganash_hotel_plate`, the verified public-domain retrospective plate, used for relative shape only.
+
+**How to resolve:** A contemporary detailed stack view or measured record could replace the bounded head sections. The retained diagnostic camera and retrospective line weight do not independently determine historic metres, brick courses or a July fitting date.
+
+**Ticket:** T-2383.
+**Recorded:** 2026-11-10.
+
 ### L-audio-3532 — Recorded acoustic proxies and an era-separated score (2026-11-10)
 
 **Decision:** The owner requested recorded environmental effects, authorized suitable proxies,

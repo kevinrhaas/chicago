@@ -1,0 +1,593 @@
+{
+  "status": "ACTUAL_FOUR_NATIVE_GROUPS_DIRECTLY_VIEWED_MATCHES_UNDER_T3153",
+  "reviewed_at": "2026-11-10T03:22:03.594004+00:00",
+  "retained_native_commit": "9dd9ba7ddd22c6ff87e52522497205f62133fa1f",
+  "dispatched_source_commit": "64a752353bc66fa6bfa58c853b90c32625f7b739",
+  "native_run": 42745792113,
+  "hotel_master_sha256": "51a7008c31176390fae7d7fc189f61eb385c18e109a49c125f72d389ef550385",
+  "hotel_master_bytes": 225152,
+  "shop_master_sha256": "f3e26f650627f36879087d75f30db5c4553e0f5938ae5bd0d305480958549cfc",
+  "groups": [
+    {
+      "group": "sauganash_hotel/andreas-1884",
+      "camera_sha256": "276f2051fa8db6379236b5d642a6ca75c740f4e82ebf44819c72808917d55991",
+      "photo_sha256": "3884c16f72702fd3b1696663dd82b444ac26028b97472e03bd00a2fa75026afb",
+      "group_sha256": "57734244aa3ca91be4e977e5343e679552599f10c337ca7faee4af9b003bd58f",
+      "canonical_match": "data/reference_views/sauganash_hotel/andreas-1884.match.json",
+      "canonical_match_sha256": "5018dc819d5ef462ef97d3b84d92ef44805c330c42eaac165d95b4ee3e198829",
+      "canonical_pair": "docs/RESEARCH/photo-match/sauganash_hotel/andreas-1884-side-by-side.jpg",
+      "canonical_pair_sha256": "0d31203f112bc22f178eb5851c54f64184c985d554838207e415186e700bb6fb",
+      "verdict": "matches",
+      "open_differences": 0,
+      "raw_render_sha256": "a8c598409510cb5911f8b205a7a06fbc1a27b8ed5baa391f3260a527373f3e4e",
+      "before_pair_sha256": "71b618b6ff336a61804120a00190a628fbe4c614afb758daf585a80c5c1b5899",
+      "before_raw_render_sha256": "2f744baef21b8610e14319dcb4a9bb22aa7b9fd9570073ad08c6b5c208b43e2f",
+      "before_after_camera_photo_exact": true
+    },
+    {
+      "group": "philo_carpenter_log_shop/andreas-1884",
+      "camera_sha256": "6ea679de451fa88947b4ff763440142d16835452021f7fe4eed8a79e9867389a",
+      "photo_sha256": "3884c16f72702fd3b1696663dd82b444ac26028b97472e03bd00a2fa75026afb",
+      "group_sha256": "b36b36806dc0886c931651b38beb400c5da67f23c181690245ffb5fc5af2848c",
+      "canonical_match": "data/reference_views/philo_carpenter_log_shop/andreas-1884.match.json",
+      "canonical_match_sha256": "c78911a98ddeb1701dfbd6b25cd992283703b201598d740460e8a863e7f9ce2e",
+      "canonical_pair": "docs/RESEARCH/photo-match/philo_carpenter_log_shop/andreas-1884-side-by-side.jpg",
+      "canonical_pair_sha256": "c57d452cf1af31e1c2b9c9ffe636874adb4780169d61890b48dbbbbba7e734b5",
+      "verdict": "matches",
+      "open_differences": 0,
+      "raw_render_sha256": "d58e13391d9a1f18060476eada15a576b65fe06e25eae2cbd634857c6b10fa38",
+      "before_pair_sha256": "c1b65894f83fc2259e8e2c0dacbd4a98c6d80152559aa0208e834b6ace53d0ca",
+      "before_raw_render_sha256": "38b5353a51885d27c4d9be3181d4683ffc004e8d30adc2111018b041d755a5ff",
+      "before_after_camera_photo_exact": true
+    },
+    {
+      "group": "philo_carpenter_log_shop/kurz-allison-1893-panel14",
+      "camera_sha256": "a4f07a851137c13d4caba5fc0a4afd56e6d7f3b210a821f65ce98ca46e4d32d6",
+      "photo_sha256": "f251e68441b86738120e6b0462fccd5521153b845a3efc5c5a04c23387506406",
+      "group_sha256": "b36b36806dc0886c931651b38beb400c5da67f23c181690245ffb5fc5af2848c",
+      "canonical_match": "data/reference_views/philo_carpenter_log_shop/kurz-allison-1893-panel14.match.json",
+      "canonical_match_sha256": "12c80148b178f3d65a302e78f6ce06662ec9a7adf72a2309e80b2a8cc5164f35",
+      "canonical_pair": "docs/RESEARCH/photo-match/philo_carpenter_log_shop/kurz-allison-1893-panel14-side-by-side.jpg",
+      "canonical_pair_sha256": "44e9bbc4abd1f624bca22344bb1514713d265e356450a3632c29ea35c24f695e",
+      "verdict": "matches",
+      "open_differences": 0,
+      "raw_render_sha256": "008c2dc0a7481878dce53b9654ad3ff19c63c8efee40da2360fc8e4b6a66eb77",
+      "before_pair_sha256": "728e012006655312722e2ed064dbe2dc295050a9746d004c3426654de682f18b",
+      "before_raw_render_sha256": "f75e3da88627dbf62f202a1264310679562d84adb0043d86f75a65b5537569b4",
+      "before_after_camera_photo_exact": true
+    },
+    {
+      "group": "philo_carpenter_log_shop/trowbridge-1902",
+      "camera_sha256": "d39698da52b1d40c70947369c4417651d0e585e8ebd9c5ab48b16d89417de7f8",
+      "photo_sha256": "1a4ae4d29ca25b2cefba837ef992a3b00503ab6779f0274c6df01b06e95d217f",
+      "group_sha256": "b36b36806dc0886c931651b38beb400c5da67f23c181690245ffb5fc5af2848c",
+      "canonical_match": "data/reference_views/philo_carpenter_log_shop/trowbridge-1902.match.json",
+      "canonical_match_sha256": "11c4bcc3cc9b25bcf9ce3a26cec089918de4822c60736e1a08131c0c922556ff",
+      "canonical_pair": "docs/RESEARCH/photo-match/philo_carpenter_log_shop/trowbridge-1902-side-by-side.jpg",
+      "canonical_pair_sha256": "6c37a52e027a1af5b4218cecb9442434fe440966612cf41b9c41594d7d44e1e1",
+      "verdict": "matches",
+      "open_differences": 0,
+      "raw_render_sha256": "9b36c9bdaed7d78713ff0c8efbb9266b3967768ae7b9ec788774672855da33c6",
+      "before_pair_sha256": "9227d61bb6440cb3df94816c8d7f8143114eae05ab875b7e2cd36e5eca9afbae",
+      "before_raw_render_sha256": "cd63be0ba608903cea1872ea8a749e2f15e4b46de3e3be90b627b4acdf9d2c33",
+      "before_after_camera_photo_exact": true
+    }
+  ],
+  "before_capture": {
+    "status": "ACTUAL_FOUR_BEFORE_CAPTURES_COMPLETE_NOT_FINAL_GEOMETRY",
+    "captured_utc": "2026-11-10T02:59:30.774288+00:00",
+    "groups": [
+      {
+        "group": "sauganash_hotel/andreas-1884",
+        "command": [
+          "node",
+          "/tmp/chicago-west-wicket-20261109/chicago/4d/tools/photo_match.mjs",
+          "data/reference_views/sauganash_hotel/andreas-1884.json",
+          "--out",
+          "docs/RESEARCH/photo-match/sauganash_hotel"
+        ],
+        "exit": 0,
+        "seconds": 1.8798445879947394,
+        "log": "/tmp/nov10-sauganash-before-review/BEFORE/logs/sauganash_hotel/andreas-1884.log",
+        "raw": "/tmp/nov10-sauganash-before-review/BEFORE/raw/sauganash_hotel/andreas-1884-render.png",
+        "raw_sha256": "2f744baef21b8610e14319dcb4a9bb22aa7b9fd9570073ad08c6b5c208b43e2f",
+        "pair": "/tmp/nov10-sauganash-before-review/BEFORE/chicago/4d/docs/RESEARCH/photo-match/sauganash_hotel/andreas-1884-side-by-side.jpg",
+        "pair_sha256": "71b618b6ff336a61804120a00190a628fbe4c614afb758daf585a80c5c1b5899",
+        "camera_sha256": "276f2051fa8db6379236b5d642a6ca75c740f4e82ebf44819c72808917d55991",
+        "photo_sha256": "3884c16f72702fd3b1696663dd82b444ac26028b97472e03bd00a2fa75026afb",
+        "group_sha256": "c5528cce404dd1833d073e71795539f9ee2bcfe880cb33664d6b8955a2a3c227",
+        "rendered_members": [
+          {
+            "structure_id": "sauganash_hotel",
+            "glb": "assets/gltf/sauganash_hotel__frame_1831.glb",
+            "placement": {
+              "local_e": 101.4,
+              "local_n": -130.6,
+              "rotation_deg": 0,
+              "scene": "1835",
+              "target_date": "1835-07-01",
+              "phase": "frame_1831"
+            },
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation_y": 0,
+            "glb_sha256": "685bdd9c7206b49c402e6621077df9ce8eeb4eb093666ac85ecfe8663360732f"
+          },
+          {
+            "structure_id": "philo_carpenter_log_shop",
+            "glb": "assets/gltf/philo_carpenter_log_shop__log_1832.glb",
+            "placement": {
+              "local_e": 111.32,
+              "local_n": -127.5,
+              "rotation_deg": 0,
+              "scene": "1835",
+              "target_date": "1835-07-01",
+              "phase": "log_1832"
+            },
+            "position": [
+              9.919999999999987,
+              0,
+              -3.0999999999999943
+            ],
+            "rotation_y": 0,
+            "glb_sha256": "f3e26f650627f36879087d75f30db5c4553e0f5938ae5bd0d305480958549cfc"
+          }
+        ],
+        "raw_match": "/tmp/nov10-sauganash-before-review/BEFORE/chicago/4d/data/reference_views/sauganash_hotel/andreas-1884.match.json",
+        "raw_match_sha256": "efb2fcc6d0cb9359f1f16e5037c097e44b58d023e2f95b0e63c01320540565ab",
+        "raw_verdict": "unreviewed"
+      },
+      {
+        "group": "philo_carpenter_log_shop/andreas-1884",
+        "command": [
+          "node",
+          "/tmp/chicago-west-wicket-20261109/chicago/4d/tools/photo_match.mjs",
+          "data/reference_views/philo_carpenter_log_shop/andreas-1884.json",
+          "--out",
+          "docs/RESEARCH/photo-match/philo_carpenter_log_shop"
+        ],
+        "exit": 0,
+        "seconds": 1.9269173829816282,
+        "log": "/tmp/nov10-sauganash-before-review/BEFORE/logs/philo_carpenter_log_shop/andreas-1884.log",
+        "raw": "/tmp/nov10-sauganash-before-review/BEFORE/raw/philo_carpenter_log_shop/andreas-1884-render.png",
+        "raw_sha256": "38b5353a51885d27c4d9be3181d4683ffc004e8d30adc2111018b041d755a5ff",
+        "pair": "/tmp/nov10-sauganash-before-review/BEFORE/chicago/4d/docs/RESEARCH/photo-match/philo_carpenter_log_shop/andreas-1884-side-by-side.jpg",
+        "pair_sha256": "c1b65894f83fc2259e8e2c0dacbd4a98c6d80152559aa0208e834b6ace53d0ca",
+        "camera_sha256": "6ea679de451fa88947b4ff763440142d16835452021f7fe4eed8a79e9867389a",
+        "photo_sha256": "3884c16f72702fd3b1696663dd82b444ac26028b97472e03bd00a2fa75026afb",
+        "group_sha256": "de74d52aacb22c933b874fdd6a6cc0e39384c57bfb7087f5d79960c84d48ee1c",
+        "rendered_members": [
+          {
+            "structure_id": "philo_carpenter_log_shop",
+            "glb": "assets/gltf/philo_carpenter_log_shop__log_1832.glb",
+            "placement": {
+              "local_e": 111.32,
+              "local_n": -127.5,
+              "rotation_deg": 0,
+              "scene": "1835",
+              "target_date": "1835-07-01",
+              "phase": "log_1832"
+            },
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation_y": 0,
+            "glb_sha256": "f3e26f650627f36879087d75f30db5c4553e0f5938ae5bd0d305480958549cfc"
+          },
+          {
+            "structure_id": "sauganash_hotel",
+            "glb": "assets/gltf/sauganash_hotel__frame_1831.glb",
+            "placement": {
+              "local_e": 101.4,
+              "local_n": -130.6,
+              "rotation_deg": 0,
+              "scene": "1835",
+              "target_date": "1835-07-01",
+              "phase": "frame_1831"
+            },
+            "position": [
+              -9.919999999999987,
+              0,
+              3.0999999999999943
+            ],
+            "rotation_y": 0,
+            "glb_sha256": "685bdd9c7206b49c402e6621077df9ce8eeb4eb093666ac85ecfe8663360732f"
+          }
+        ],
+        "raw_match": "/tmp/nov10-sauganash-before-review/BEFORE/chicago/4d/data/reference_views/philo_carpenter_log_shop/andreas-1884.match.json",
+        "raw_match_sha256": "f84be4a80f090259381f3a67138b17c47ec13b4045a236cb37ef71a5ccbe5717",
+        "raw_verdict": "unreviewed"
+      },
+      {
+        "group": "philo_carpenter_log_shop/kurz-allison-1893-panel14",
+        "command": [
+          "node",
+          "/tmp/chicago-west-wicket-20261109/chicago/4d/tools/photo_match.mjs",
+          "data/reference_views/philo_carpenter_log_shop/kurz-allison-1893-panel14.json",
+          "--out",
+          "docs/RESEARCH/photo-match/philo_carpenter_log_shop"
+        ],
+        "exit": 0,
+        "seconds": 1.1700662119837943,
+        "log": "/tmp/nov10-sauganash-before-review/BEFORE/logs/philo_carpenter_log_shop/kurz-allison-1893-panel14.log",
+        "raw": "/tmp/nov10-sauganash-before-review/BEFORE/raw/philo_carpenter_log_shop/kurz-allison-1893-panel14-render.png",
+        "raw_sha256": "f75e3da88627dbf62f202a1264310679562d84adb0043d86f75a65b5537569b4",
+        "pair": "/tmp/nov10-sauganash-before-review/BEFORE/chicago/4d/docs/RESEARCH/photo-match/philo_carpenter_log_shop/kurz-allison-1893-panel14-side-by-side.jpg",
+        "pair_sha256": "728e012006655312722e2ed064dbe2dc295050a9746d004c3426654de682f18b",
+        "camera_sha256": "a4f07a851137c13d4caba5fc0a4afd56e6d7f3b210a821f65ce98ca46e4d32d6",
+        "photo_sha256": "f251e68441b86738120e6b0462fccd5521153b845a3efc5c5a04c23387506406",
+        "group_sha256": "de74d52aacb22c933b874fdd6a6cc0e39384c57bfb7087f5d79960c84d48ee1c",
+        "rendered_members": [
+          {
+            "structure_id": "philo_carpenter_log_shop",
+            "glb": "assets/gltf/philo_carpenter_log_shop__log_1832.glb",
+            "placement": {
+              "local_e": 111.32,
+              "local_n": -127.5,
+              "rotation_deg": 0,
+              "scene": "1835",
+              "target_date": "1835-07-01",
+              "phase": "log_1832"
+            },
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation_y": 0,
+            "glb_sha256": "f3e26f650627f36879087d75f30db5c4553e0f5938ae5bd0d305480958549cfc"
+          },
+          {
+            "structure_id": "sauganash_hotel",
+            "glb": "assets/gltf/sauganash_hotel__frame_1831.glb",
+            "placement": {
+              "local_e": 101.4,
+              "local_n": -130.6,
+              "rotation_deg": 0,
+              "scene": "1835",
+              "target_date": "1835-07-01",
+              "phase": "frame_1831"
+            },
+            "position": [
+              -9.919999999999987,
+              0,
+              3.0999999999999943
+            ],
+            "rotation_y": 0,
+            "glb_sha256": "685bdd9c7206b49c402e6621077df9ce8eeb4eb093666ac85ecfe8663360732f"
+          }
+        ],
+        "raw_match": "/tmp/nov10-sauganash-before-review/BEFORE/chicago/4d/data/reference_views/philo_carpenter_log_shop/kurz-allison-1893-panel14.match.json",
+        "raw_match_sha256": "5ceff4bfac776ac337026470ee81393708c1cf741694ec7840af8e46afa88fc6",
+        "raw_verdict": "unreviewed"
+      },
+      {
+        "group": "philo_carpenter_log_shop/trowbridge-1902",
+        "command": [
+          "node",
+          "/tmp/chicago-west-wicket-20261109/chicago/4d/tools/photo_match.mjs",
+          "data/reference_views/philo_carpenter_log_shop/trowbridge-1902.json",
+          "--out",
+          "docs/RESEARCH/photo-match/philo_carpenter_log_shop"
+        ],
+        "exit": 0,
+        "seconds": 1.267115772003308,
+        "log": "/tmp/nov10-sauganash-before-review/BEFORE/logs/philo_carpenter_log_shop/trowbridge-1902.log",
+        "raw": "/tmp/nov10-sauganash-before-review/BEFORE/raw/philo_carpenter_log_shop/trowbridge-1902-render.png",
+        "raw_sha256": "cd63be0ba608903cea1872ea8a749e2f15e4b46de3e3be90b627b4acdf9d2c33",
+        "pair": "/tmp/nov10-sauganash-before-review/BEFORE/chicago/4d/docs/RESEARCH/photo-match/philo_carpenter_log_shop/trowbridge-1902-side-by-side.jpg",
+        "pair_sha256": "9227d61bb6440cb3df94816c8d7f8143114eae05ab875b7e2cd36e5eca9afbae",
+        "camera_sha256": "d39698da52b1d40c70947369c4417651d0e585e8ebd9c5ab48b16d89417de7f8",
+        "photo_sha256": "1a4ae4d29ca25b2cefba837ef992a3b00503ab6779f0274c6df01b06e95d217f",
+        "group_sha256": "de74d52aacb22c933b874fdd6a6cc0e39384c57bfb7087f5d79960c84d48ee1c",
+        "rendered_members": [
+          {
+            "structure_id": "philo_carpenter_log_shop",
+            "glb": "assets/gltf/philo_carpenter_log_shop__log_1832.glb",
+            "placement": {
+              "local_e": 111.32,
+              "local_n": -127.5,
+              "rotation_deg": 0,
+              "scene": "1835",
+              "target_date": "1835-07-01",
+              "phase": "log_1832"
+            },
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation_y": 0,
+            "glb_sha256": "f3e26f650627f36879087d75f30db5c4553e0f5938ae5bd0d305480958549cfc"
+          },
+          {
+            "structure_id": "sauganash_hotel",
+            "glb": "assets/gltf/sauganash_hotel__frame_1831.glb",
+            "placement": {
+              "local_e": 101.4,
+              "local_n": -130.6,
+              "rotation_deg": 0,
+              "scene": "1835",
+              "target_date": "1835-07-01",
+              "phase": "frame_1831"
+            },
+            "position": [
+              -9.919999999999987,
+              0,
+              3.0999999999999943
+            ],
+            "rotation_y": 0,
+            "glb_sha256": "685bdd9c7206b49c402e6621077df9ce8eeb4eb093666ac85ecfe8663360732f"
+          }
+        ],
+        "raw_match": "/tmp/nov10-sauganash-before-review/BEFORE/chicago/4d/data/reference_views/philo_carpenter_log_shop/trowbridge-1902.match.json",
+        "raw_match_sha256": "d3300974cb4ad51449c7b19690bc89e8b602ba9032af5ab503c2170098c72865",
+        "raw_verdict": "unreviewed"
+      }
+    ]
+  },
+  "after_capture": {
+    "status": "ACTUAL_FOUR_CURRENT_NATIVE_CAPTURES_COMPLETE_REVIEW_REQUIRED",
+    "captured_utc": "2026-11-10T03:19:43.997055+00:00",
+    "groups": [
+      {
+        "group": "sauganash_hotel/andreas-1884",
+        "command": [
+          "node",
+          "/tmp/chicago-west-wicket-20261109/chicago/4d/tools/photo_match.mjs",
+          "data/reference_views/sauganash_hotel/andreas-1884.json",
+          "--out",
+          "docs/RESEARCH/photo-match/sauganash_hotel"
+        ],
+        "exit": 0,
+        "seconds": 1.7248426789883524,
+        "log": "/tmp/nov10-sauganash-after-review/AFTER/logs/sauganash_hotel/andreas-1884.log",
+        "raw": "/tmp/nov10-sauganash-after-review/AFTER/raw/sauganash_hotel/andreas-1884-render.png",
+        "raw_sha256": "a8c598409510cb5911f8b205a7a06fbc1a27b8ed5baa391f3260a527373f3e4e",
+        "pair": "/tmp/nov10-sauganash-after-review/AFTER/chicago/4d/docs/RESEARCH/photo-match/sauganash_hotel/andreas-1884-side-by-side.jpg",
+        "pair_sha256": "0d31203f112bc22f178eb5851c54f64184c985d554838207e415186e700bb6fb",
+        "camera_sha256": "276f2051fa8db6379236b5d642a6ca75c740f4e82ebf44819c72808917d55991",
+        "photo_sha256": "3884c16f72702fd3b1696663dd82b444ac26028b97472e03bd00a2fa75026afb",
+        "group_sha256": "57734244aa3ca91be4e977e5343e679552599f10c337ca7faee4af9b003bd58f",
+        "rendered_members": [
+          {
+            "structure_id": "sauganash_hotel",
+            "glb": "assets/gltf/sauganash_hotel__frame_1831.glb",
+            "placement": {
+              "local_e": 101.4,
+              "local_n": -130.6,
+              "rotation_deg": 0,
+              "scene": "1835",
+              "target_date": "1835-07-01",
+              "phase": "frame_1831"
+            },
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation_y": 0,
+            "glb_sha256": "51a7008c31176390fae7d7fc189f61eb385c18e109a49c125f72d389ef550385"
+          },
+          {
+            "structure_id": "philo_carpenter_log_shop",
+            "glb": "assets/gltf/philo_carpenter_log_shop__log_1832.glb",
+            "placement": {
+              "local_e": 111.32,
+              "local_n": -127.5,
+              "rotation_deg": 0,
+              "scene": "1835",
+              "target_date": "1835-07-01",
+              "phase": "log_1832"
+            },
+            "position": [
+              9.919999999999987,
+              0,
+              -3.0999999999999943
+            ],
+            "rotation_y": 0,
+            "glb_sha256": "f3e26f650627f36879087d75f30db5c4553e0f5938ae5bd0d305480958549cfc"
+          }
+        ],
+        "raw_match": "/tmp/nov10-sauganash-after-review/AFTER/chicago/4d/data/reference_views/sauganash_hotel/andreas-1884.match.json",
+        "raw_match_sha256": "12127f630ddda2bd2eb3791c39b7ba2079908271598b5776fba5165cad94e926",
+        "raw_verdict": "unreviewed"
+      },
+      {
+        "group": "philo_carpenter_log_shop/andreas-1884",
+        "command": [
+          "node",
+          "/tmp/chicago-west-wicket-20261109/chicago/4d/tools/photo_match.mjs",
+          "data/reference_views/philo_carpenter_log_shop/andreas-1884.json",
+          "--out",
+          "docs/RESEARCH/photo-match/philo_carpenter_log_shop"
+        ],
+        "exit": 0,
+        "seconds": 1.8365877119940706,
+        "log": "/tmp/nov10-sauganash-after-review/AFTER/logs/philo_carpenter_log_shop/andreas-1884.log",
+        "raw": "/tmp/nov10-sauganash-after-review/AFTER/raw/philo_carpenter_log_shop/andreas-1884-render.png",
+        "raw_sha256": "d58e13391d9a1f18060476eada15a576b65fe06e25eae2cbd634857c6b10fa38",
+        "pair": "/tmp/nov10-sauganash-after-review/AFTER/chicago/4d/docs/RESEARCH/photo-match/philo_carpenter_log_shop/andreas-1884-side-by-side.jpg",
+        "pair_sha256": "c57d452cf1af31e1c2b9c9ffe636874adb4780169d61890b48dbbbbba7e734b5",
+        "camera_sha256": "6ea679de451fa88947b4ff763440142d16835452021f7fe4eed8a79e9867389a",
+        "photo_sha256": "3884c16f72702fd3b1696663dd82b444ac26028b97472e03bd00a2fa75026afb",
+        "group_sha256": "b36b36806dc0886c931651b38beb400c5da67f23c181690245ffb5fc5af2848c",
+        "rendered_members": [
+          {
+            "structure_id": "philo_carpenter_log_shop",
+            "glb": "assets/gltf/philo_carpenter_log_shop__log_1832.glb",
+            "placement": {
+              "local_e": 111.32,
+              "local_n": -127.5,
+              "rotation_deg": 0,
+              "scene": "1835",
+              "target_date": "1835-07-01",
+              "phase": "log_1832"
+            },
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation_y": 0,
+            "glb_sha256": "f3e26f650627f36879087d75f30db5c4553e0f5938ae5bd0d305480958549cfc"
+          },
+          {
+            "structure_id": "sauganash_hotel",
+            "glb": "assets/gltf/sauganash_hotel__frame_1831.glb",
+            "placement": {
+              "local_e": 101.4,
+              "local_n": -130.6,
+              "rotation_deg": 0,
+              "scene": "1835",
+              "target_date": "1835-07-01",
+              "phase": "frame_1831"
+            },
+            "position": [
+              -9.919999999999987,
+              0,
+              3.0999999999999943
+            ],
+            "rotation_y": 0,
+            "glb_sha256": "51a7008c31176390fae7d7fc189f61eb385c18e109a49c125f72d389ef550385"
+          }
+        ],
+        "raw_match": "/tmp/nov10-sauganash-after-review/AFTER/chicago/4d/data/reference_views/philo_carpenter_log_shop/andreas-1884.match.json",
+        "raw_match_sha256": "141acdcd1fae70fa7a58b1b5780b806397037f65aa69b919320c8a65d1c3e065",
+        "raw_verdict": "unreviewed"
+      },
+      {
+        "group": "philo_carpenter_log_shop/kurz-allison-1893-panel14",
+        "command": [
+          "node",
+          "/tmp/chicago-west-wicket-20261109/chicago/4d/tools/photo_match.mjs",
+          "data/reference_views/philo_carpenter_log_shop/kurz-allison-1893-panel14.json",
+          "--out",
+          "docs/RESEARCH/photo-match/philo_carpenter_log_shop"
+        ],
+        "exit": 0,
+        "seconds": 1.169914414989762,
+        "log": "/tmp/nov10-sauganash-after-review/AFTER/logs/philo_carpenter_log_shop/kurz-allison-1893-panel14.log",
+        "raw": "/tmp/nov10-sauganash-after-review/AFTER/raw/philo_carpenter_log_shop/kurz-allison-1893-panel14-render.png",
+        "raw_sha256": "008c2dc0a7481878dce53b9654ad3ff19c63c8efee40da2360fc8e4b6a66eb77",
+        "pair": "/tmp/nov10-sauganash-after-review/AFTER/chicago/4d/docs/RESEARCH/photo-match/philo_carpenter_log_shop/kurz-allison-1893-panel14-side-by-side.jpg",
+        "pair_sha256": "44e9bbc4abd1f624bca22344bb1514713d265e356450a3632c29ea35c24f695e",
+        "camera_sha256": "a4f07a851137c13d4caba5fc0a4afd56e6d7f3b210a821f65ce98ca46e4d32d6",
+        "photo_sha256": "f251e68441b86738120e6b0462fccd5521153b845a3efc5c5a04c23387506406",
+        "group_sha256": "b36b36806dc0886c931651b38beb400c5da67f23c181690245ffb5fc5af2848c",
+        "rendered_members": [
+          {
+            "structure_id": "philo_carpenter_log_shop",
+            "glb": "assets/gltf/philo_carpenter_log_shop__log_1832.glb",
+            "placement": {
+              "local_e": 111.32,
+              "local_n": -127.5,
+              "rotation_deg": 0,
+              "scene": "1835",
+              "target_date": "1835-07-01",
+              "phase": "log_1832"
+            },
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation_y": 0,
+            "glb_sha256": "f3e26f650627f36879087d75f30db5c4553e0f5938ae5bd0d305480958549cfc"
+          },
+          {
+            "structure_id": "sauganash_hotel",
+            "glb": "assets/gltf/sauganash_hotel__frame_1831.glb",
+            "placement": {
+              "local_e": 101.4,
+              "local_n": -130.6,
+              "rotation_deg": 0,
+              "scene": "1835",
+              "target_date": "1835-07-01",
+              "phase": "frame_1831"
+            },
+            "position": [
+              -9.919999999999987,
+              0,
+              3.0999999999999943
+            ],
+            "rotation_y": 0,
+            "glb_sha256": "51a7008c31176390fae7d7fc189f61eb385c18e109a49c125f72d389ef550385"
+          }
+        ],
+        "raw_match": "/tmp/nov10-sauganash-after-review/AFTER/chicago/4d/data/reference_views/philo_carpenter_log_shop/kurz-allison-1893-panel14.match.json",
+        "raw_match_sha256": "7b2e9687c7a0d1d685241d9bbd2687f176f2ad709f4b63efb849da63dbad41d7",
+        "raw_verdict": "unreviewed"
+      },
+      {
+        "group": "philo_carpenter_log_shop/trowbridge-1902",
+        "command": [
+          "node",
+          "/tmp/chicago-west-wicket-20261109/chicago/4d/tools/photo_match.mjs",
+          "data/reference_views/philo_carpenter_log_shop/trowbridge-1902.json",
+          "--out",
+          "docs/RESEARCH/photo-match/philo_carpenter_log_shop"
+        ],
+        "exit": 0,
+        "seconds": 1.2185776139958762,
+        "log": "/tmp/nov10-sauganash-after-review/AFTER/logs/philo_carpenter_log_shop/trowbridge-1902.log",
+        "raw": "/tmp/nov10-sauganash-after-review/AFTER/raw/philo_carpenter_log_shop/trowbridge-1902-render.png",
+        "raw_sha256": "9b36c9bdaed7d78713ff0c8efbb9266b3967768ae7b9ec788774672855da33c6",
+        "pair": "/tmp/nov10-sauganash-after-review/AFTER/chicago/4d/docs/RESEARCH/photo-match/philo_carpenter_log_shop/trowbridge-1902-side-by-side.jpg",
+        "pair_sha256": "6c37a52e027a1af5b4218cecb9442434fe440966612cf41b9c41594d7d44e1e1",
+        "camera_sha256": "d39698da52b1d40c70947369c4417651d0e585e8ebd9c5ab48b16d89417de7f8",
+        "photo_sha256": "1a4ae4d29ca25b2cefba837ef992a3b00503ab6779f0274c6df01b06e95d217f",
+        "group_sha256": "b36b36806dc0886c931651b38beb400c5da67f23c181690245ffb5fc5af2848c",
+        "rendered_members": [
+          {
+            "structure_id": "philo_carpenter_log_shop",
+            "glb": "assets/gltf/philo_carpenter_log_shop__log_1832.glb",
+            "placement": {
+              "local_e": 111.32,
+              "local_n": -127.5,
+              "rotation_deg": 0,
+              "scene": "1835",
+              "target_date": "1835-07-01",
+              "phase": "log_1832"
+            },
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation_y": 0,
+            "glb_sha256": "f3e26f650627f36879087d75f30db5c4553e0f5938ae5bd0d305480958549cfc"
+          },
+          {
+            "structure_id": "sauganash_hotel",
+            "glb": "assets/gltf/sauganash_hotel__frame_1831.glb",
+            "placement": {
+              "local_e": 101.4,
+              "local_n": -130.6,
+              "rotation_deg": 0,
+              "scene": "1835",
+              "target_date": "1835-07-01",
+              "phase": "frame_1831"
+            },
+            "position": [
+              -9.919999999999987,
+              0,
+              3.0999999999999943
+            ],
+            "rotation_y": 0,
+            "glb_sha256": "51a7008c31176390fae7d7fc189f61eb385c18e109a49c125f72d389ef550385"
+          }
+        ],
+        "raw_match": "/tmp/nov10-sauganash-after-review/AFTER/chicago/4d/data/reference_views/philo_carpenter_log_shop/trowbridge-1902.match.json",
+        "raw_match_sha256": "87977f7935dac9960b2c3eb252930e929ba6f8e1679e0e8460bf6facc2c15e94",
+        "raw_verdict": "unreviewed"
+      }
+    ]
+  },
+  "claim_limit": "Image-match completion only. Actual published desktop/phone release review and integrated CI are root-owned. No historical station, measured head dimension, date or unlicensed source derivative is asserted."
+}
