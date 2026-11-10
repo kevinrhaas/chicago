@@ -232,5 +232,34 @@ check('the front door measures with the town\'s profile and never writes the tow
   assert.equal((portalHtml.match(/<i style="--i:\d+"><\/i>/g) || []).length, 20, 'twenty segments, four per grade');
 });
 
+// T-3539: the loading screen carries the meter, with why it reads so and what is drawn.
+const ad = await import(pathToFileURL(path.join(web, 'js/arrival-device.js')).href);
+check('T-3539: the loading screen\'s panel names the shared memory and what a weak computer draws', () => {
+  const inspiron = { cls: 'weak', touch: false, why: 'integrated graphics sharing the system\'s memory (Intel(R) UHD Graphics 630)',
+    signals: { webgl2: true, renderer: 'ANGLE (Intel, Intel(R) UHD Graphics 630 (0x00009BC5) Direct3D11 vs_5_0 ps_5_0, D3D11)', cores: 12, memoryGB: 8 },
+    bench: { fill: 6, verts: 0.6 }, choice: dp.decide('weak', { touch: false }) };
+  const st = ad.arrivalDeviceStatus({ profile: inspiron, detail: 'balanced', sharpness: 1, lowMemory: true });
+  assert.ok(st.score < 40 && st.score === dp.scoreProfile(inspiron).score, 'the Observatory\'s own number, in the weak band');
+  assert.deepEqual(st.assess, ['Intel UHD Graphics 630', 'shared memory', '8+ GB', '12 cores']);
+  assert.deepEqual(st.setup, ['Balanced detail', 'every street, building, person and carriage', 'resolution low',
+    'plants thinned', 'textures softer', 'memory saver on']);
+  const strong = { cls: 'strong', touch: false, signals: { ...GPU, cores: 12 }, bench: { fill: 20, verts: 2 }, choice: dp.decide('strong', { touch: false }) };
+  assert.deepEqual(ad.arrivalDeviceStatus({ profile: strong, detail: 'full', sharpness: 2 }).setup,
+    ['Full detail', 'every street, building, person and carriage', 'resolution high']);
+  const phone = { cls: 'standard', touch: true, signals: { renderer: 'Apple GPU', cores: 6 }, bench: null, choice: dp.decide('standard', { touch: true }) };
+  const ph = ad.arrivalDeviceStatus({ profile: phone, detail: 'light', sharpness: 1, lowMemory: true });
+  assert.ok(!ph.assess.includes('shared memory'), 'a phone is not flagged');
+  assert.ok(ph.setup.includes('plants thinned further, horses and carriages off'), 'Light says what it eases, by name');
+  assert.ok(ad.arrivalDeviceStatus({ profile: strong, detail: 'full', sharpness: 1.5, chosen: true }).setup.includes('your settings'));
+  assert.ok(ad.arrivalDeviceStatus({ profile: strong, detail: 'balanced', sharpness: 1, steppedDown: true, chosen: true })
+    .setup.at(-1).startsWith('eased after'), 'the step-down outranks "your settings"');
+  for (const words of [st, ph].flatMap(x => [...x.assess, ...x.setup])) assert.doesNotMatch(words, /fail|poor|cannot|crash|error/i, 'never negative');
+});
+check('T-3539: every year\'s loading screen mounts the panel, painted from the boot\'s settings in force', () => {
+  assert.match(html, /<div id="arrival-device" class="arrival-device" data-state="reading"/);
+  assert.equal((html.match(/<span class="arrival-device-bar">((?:<i><\/i>)+)<\/span>/)?.[1].match(/<i>/g) || []).length, 20, 'twenty segments, as the Observatory');
+  assert.match(main, /paintArrivalDevice\(document\.getElementById\('arrival-device'\), \{\s*profile: device, detail: detailLevel, sharpness: bootQuality, lowMemory: lowMem,/);
+});
+
 console.log(`check_device_profile: ${checks.length} checks passed`);
 for (const c of checks) console.log(`  ok  ${c}`);

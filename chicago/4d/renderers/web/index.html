@@ -133,6 +133,14 @@
         <!-- T-2612: the ticker's distance from the destination, painted by arrival-telemetry.js. -->
         <div><dt data-str="arrival.readout.years">Years to go</dt><dd data-telemetry="years">—</dd></div>
       </dl>
+      <!-- T-3539: the Observatory's device meter, on every year's loading screen, from the
+           profile this boot chose by (js/arrival-device.js): the score, why it reads so
+           (graphics, shared memory, memory, cores) and what this device will draw. -->
+      <div id="arrival-device" class="arrival-device" data-state="reading" role="group" aria-label="This device">
+        <p class="arrival-device-head" aria-hidden="true"><span data-str="arrival.device.head">This device</span><span class="arrival-device-bar"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><b data-dev="score">··</b><em data-dev="grade" data-str="arrival.device.reading">Reading</em></p>
+        <p class="arrival-device-line" data-dev="assess" aria-hidden="true"></p>
+        <p class="arrival-device-line arrival-device-setup" data-dev="setup" aria-hidden="true"></p>
+      </div>
     </div>
     <p class="gate-sub" id="gate-sub" aria-live="polite" hidden data-str="arrival.sub.loading">Loading the scene…</p>
     <p id="arrival-announce" class="visually-hidden" role="status" aria-live="polite"></p>

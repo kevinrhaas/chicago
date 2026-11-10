@@ -97,6 +97,7 @@ import { supportsTownTransport } from './transport-scenes.js';
 import { createWells } from './wells.js';
 import { createTimeStream } from './time-stream.js';
 import { createTelemetry } from './arrival-telemetry.js';
+import { paintArrivalDevice } from './arrival-device.js';
 import { setDraftHorseTextureCap } from './draft-horse-assets.js';
 import { t, applyStrings } from './strings/index.js';
 import './strings/arrival.js';
@@ -1916,6 +1917,14 @@ async function boot() {
   const bootQuality = crashBoot.lowered.quality ? crashBoot.quality
     : resolveSharpness(readQualityPreference(), coarse, qualityGuess);
   const detailOpts = () => ({ detail: detailLevel });
+  // T-3539: the loading screen's device panel — the Observatory's score, why it reads so
+  // and what this boot will draw, from the settings in force (not only the profile's).
+  try {
+    api.arrivalDevice = paintArrivalDevice(document.getElementById('arrival-device'), {
+      profile: device, detail: detailLevel, sharpness: bootQuality, lowMemory: lowMem,
+      steppedDown: !!(crashBoot.lowered.detail || crashBoot.lowered.quality),
+      chosen: !!(readDetailPreference() || Number(readQualityPreference()) > 0) });
+  } catch (err) { console.warn('[arrival device]', err); }
 
   /**
    * MULTISAMPLING, ON EVERY DEVICE INCLUDING A PHONE (T-0157).
