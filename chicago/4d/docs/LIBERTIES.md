@@ -292,7 +292,6 @@ recessed rectangular cut and copper point placed on the north ridge.
 **Covers:** `glessner_house.as_built_1887.form.bay_dining_elevation`.
 **Recorded:** 2026-10-08 (T-2157).
 
-
 ## Resolved
 
 Entries here were true when they were written and are kept verbatim, with a **Resolved:**
@@ -43274,6 +43273,17 @@ subject to actual native and ordinary-world desktop/phone image review in T-2795
 **How to resolve:** Dated household diaries or work records could replace the reconstructed times and activities.
 
 **Ticket:** T-3533.
+**Recorded:** 2026-11-10.
+
+
+### L-charles-carriage-post — Charles Nelson beside the waiting carriage team
+
+**Decision:** Charles Nelson's everyday outdoor stand in 1904 is reconstructed on the west parkway of Prairie Avenue at local ENU 1395.2, -3245.955, facing east toward the waiting carriage team. It is outside the main pedestrian strip and west of the horses; actual sole support, body clearance and arrival sightlines still require renderer review. His seasonal outdoor work spans keep watch here; his existing short Eighteenth Street household break, winter shelter periods and indoor hours remain. Keeping watch is a stationary working post, with the portable figure's ordinary idle movements, not an additional sentry or a seated driver. His stable-door household-tour mark, the tour's stops and words, and his historical household/workplace records remain unchanged.
+
+**Basis:** The 1900 census names Charles as the Glessner household's coachman; it does not place him here on 1 July 1904. The source and date qualification in his existing instance still apply. No picture or document attests this exact stand or activity. The owner requested the existing coachman beside the carriage team without obstructing the house view or pedestrian walk. This moves one existing identity; it does not add another coachman or substitute Hans Johnson.
+
+**How to resolve:** Replace this everyday stand or occupation schedule when a contemporary account, plan annotation or photograph places the coachman, and retain the separately authored tour marks.
+
 **Recorded:** 2026-11-10.
 
 ### L-early-masonry-surfaces-3341 — The early town's brick and clay surfaces, with the library's reconstructed module and weathering

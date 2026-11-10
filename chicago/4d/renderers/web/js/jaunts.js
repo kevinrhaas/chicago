@@ -384,6 +384,7 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
   };
   // T-3525: the stop whose hosts are out ('' = none), and whether the visitor has arrived.
   let hostsKey = null;
+  let hostCut = false; // true only after an actual synchronous camera cut, before its first frame
   const releaseHosts = () => {
     if (!hosts || hostsKey === null) return;
     hostsKey = null;
@@ -391,12 +392,22 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
   };
   const syncHosts = () => {
     if (!hosts) return;
-    if (!state.jaunt || ['menu', 'outcome'].includes(state.phase)) { releaseHosts(); return; }
-    const stop = currentStop(state), arrived = ['atStop', 'detail'].includes(state.phase);
+    if (!state.jaunt || state.phase === 'outcome') { releaseHosts(); return; }
+    if (state.phase === 'menu') return; // pause keeps the existing host at their mark for Resume
+    const stop = currentStop(state), arrived = state.phase === 'atStop' || (state.phase === 'detail' && state.detailPhase === 'atStop');
     const key = `${state.session}:${stop?.id ?? ''}:${arrived ? 'here' : 'coming'}`;
-    if (hostsKey === key) return;
+    const cut = hostCut; hostCut = false;
+    if (hostsKey === key && !cut) return;
     hostsKey = key;
-    try { hosts.sync(stop ?? null, { arrived }); } catch { /* the outing goes on without them */ }
+    let waiting = false;
+    try {
+      waiting = !!hosts.sync(stop ?? null, { arrived, retain: keptPeople(state), cut,
+        onReady: () => {
+          if (hostsKey !== key || !state.hostWaiting) return;
+          state = { ...state, hostWaiting: false }; render(state);
+        } })?.waiting;
+    } catch { /* the outing goes on without them */ }
+    state = { ...state, hostWaiting: arrived && waiting };
   };
   const restore = () => { if (previousMode !== undefined) travel.setMode(previousMode); previousMode = undefined; };
   const cancel = (reason = 'jaunt') => travel.stop(reason);
@@ -413,9 +424,10 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
     if (old.phase === 'detail' && state.phase !== 'detail') dismissDetail();
     if (state.jaunt && !['DETAIL', 'RETURN'].includes(event.type) && (state.leg !== old.leg || state.phase !== old.phase || state.mode !== old.mode || state.modeChosen !== old.modeChosen))
       state = { ...state, estimate: estimate(state) };
-    render(state);
+    if (event.cut === true) hostCut = true;
     syncCrowd();
     syncHosts();
+    render(state);
     if (state.phase === 'atStop' && (old.phase !== 'atStop' || old.stopIndex !== state.stopIndex || old.session !== state.session))
       applyHour(currentStop(state));
     if (old.phase === 'opening' && state.phase !== 'opening' && event.type !== 'ARRIVE') cancel('jaunt'); // T-3432: lands the flight
@@ -423,9 +435,10 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
       cancel(['MODE', 'INSTANT'].includes(event.type) ? 'replan' : 'jaunt'); dismissDetail();
       if (previousMode === undefined) previousMode = travel.mode;
       const token = { session: state.session, leg: state.leg }, target = resolve(currentStop(state).destination);
+      const instant = legMode(state) === 'instantly';
       travel.setMode(legMode(state));
       if (!target || !travel.go(target, { token,
-        onArrive: tags => dispatch({ type: 'ARRIVE', ...tags }),
+        onArrive: tags => dispatch({ type: 'ARRIVE', ...tags, cut: instant }),
         onStop: tags => dispatch({ type: 'STOPPED', ...tags }),
         onRoute: route => {
           if (state.session !== token.session || state.leg !== token.leg || state.phase !== 'travelling') return;
@@ -464,7 +477,7 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
       const land = () => dispatch({ type: 'ARRIVE', ...token });
       if (state.mode !== 'instantly' && flight?.begin?.({ token, label: jaunt.places?.[jaunt.stops[0].destination.id] ?? target.label,
         onArrive: land, onStop: land })) {
-        state = { ...state, estimate: estimate(state) }; render(state); syncCrowd(); syncHosts(); applyHour(currentStop(state)); persist();
+        state = { ...state, estimate: estimate(state) }; syncCrowd(); syncHosts(); render(state); applyHour(currentStop(state)); persist();
       } else land();
       countField('jauntStarted'); // T-2660
       return true;
@@ -504,6 +517,7 @@ export function createJaunts({ scene = '1835', load, resolve, place, travel, ent
       const target = state.restored ? resolve(currentStop(state).destination) : null;
       if (state.restored && (!target || !enter(target) || !place(target))) return false;
       if (!state.restored && !enter(null, { resume: true })) return false;
+      if (state.restored) hostCut = true; // place(target) above is the actual camera cut
       previousMode = travel.mode; state = { ...state, restored: false }; return dispatch({ type: 'RESUME' }); },
     restart: () => state.jaunt && start(state.jaunt.id, { mode: state.mode, chosen: state.modeChosen }),
     detail(link) {
