@@ -419,6 +419,10 @@ step "a visitor walks through a building's modelled passage where it clears the 
   node tools/test_walker_passage.mjs
 step "a visitor walks into Fort Dearborn through a gate Interact opens, 1835 and 1812 (T-3319)" \
   node tools/test_fort_gates.mjs
+step "both reconstructed second-fort posterns block a real walker shut and pass it after their actual leaves open (T-2388)" \
+  node tools/test_second_fort_posterns.mjs
+step "the named commandant gallery preserves its fifteen openings and clears their trim with supported reconstructed timber (T-2388)" \
+  python3 tools/test_second_fort_commandants_gallery.py
 step "Glessner's front door swings open, and a visitor and a drawn person walk up its steps to it (T-3442)" \
   node tools/test_house_doors.mjs
 step "John J. Glessner on his front walk is greeted, and goes home up his steps, through his door and in (T-3443)" \

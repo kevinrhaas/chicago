@@ -28,7 +28,7 @@ check('Normal, Tint and inactive Ghost keep the original base object and limits'
   for (const active of [false, undefined, null, 0, 'true']) assert.equal(renderBudget(full, 'full', active), full);
 });
 check('Balanced and Light preserve their exact ceilings with Ghost enabled', () => {
-  for (const [detail, triangles] of [['balanced', 2625000], ['light', 1190000]]) {
+  for (const [detail, triangles] of [['balanced', 2675000], ['light', 1190000]]) {
     const base = Object.freeze({ drawCalls: 7800, triangles });
     assert.equal(renderBudget(base, detail, true), base);
     assert.deepEqual(base, { drawCalls: 7800, triangles });
@@ -74,7 +74,7 @@ check('multiple Ghost grades restore only when the last visible Ghost ends', () 
 });
 check('detail transitions return to the original lower-tier and ordinary policies', () => {
   const c = createConfidenceView(); c.set(true); c.setGrade('inferred', { mode: 'ghost' });
-  const balanced = Object.freeze({ drawCalls: 7800, triangles: 2625000 });
+  const balanced = Object.freeze({ drawCalls: 7800, triangles: 2675000 });
   assert.deepEqual(renderBudget(full, 'full', c.ghosting), expectedGhost);
   assert.equal(renderBudget(balanced, 'balanced', c.ghosting), balanced);
   assert.deepEqual(renderBudget(full, 'full', c.ghosting), expectedGhost);

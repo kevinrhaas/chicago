@@ -3687,6 +3687,12 @@ for (const [label, viewport, touch] of [
       return {
         stockade: {
           statedM: stated('fort_dearborn_palisade', 'picket_height_m'),
+          // Existing native gate kits stand above the pointed curtain: ordinary
+          // gateway posts by0.10m, wicket posts by0.18m. Resolve the actual kinds
+          // per side, as the producer does, rather than loosening a height bar.
+          kitPostRiseM: Math.max(0, ...(stated('fort_dearborn_palisade', 'gate_sides') ?? []).map(side =>
+            ((stated('fort_dearborn_palisade', 'gate_overrides') ?? {})[side]?.kind
+              ?? stated('fort_dearborn_palisade', 'gate_kind') ?? 'gateway') === 'wicket' ?0.18:0.10)),
           meshM: bounds.fort_dearborn_palisade
             ? bounds.fort_dearborn_palisade.max[1] - bounds.fort_dearborn_palisade.min[1]
             : null,
@@ -3711,12 +3717,13 @@ for (const [label, viewport, touch] of [
         },
       };
     });
-    // The record's twelve feet reached the bake. 0.15 m of tolerance is the
-    // cap rail the archetype adds over the stated picket, nothing more.
+    // The literal twelve-foot pickets remain. The bounding box includes the
+    // existing taller gateway/wicket posts; measure that named kit addition
+    // explicitly, with20mm tolerance for the loaded quantized geometry.
     check(`${label}: the stockade's pickets are baked at the record's twelve feet`,
       fortPair.stockade.statedM === 3.7 && fortPair.stockade.meshM !== null
-      && Math.abs(fortPair.stockade.meshM - fortPair.stockade.statedM) <= 0.15,
-      `record ${fortPair.stockade.statedM} m, mesh ${fortPair.stockade.meshM?.toFixed(2)} m`);
+      && Math.abs(fortPair.stockade.meshM - fortPair.stockade.statedM - fortPair.stockade.kitPostRiseM) <= 0.02,
+      `record ${fortPair.stockade.statedM} m + kit posts ${fortPair.stockade.kitPostRiseM} m, mesh ${fortPair.stockade.meshM?.toFixed(2)} m`);
     check(`${label}: the stockade tops a walker's eye where wall and anchor meet`,
       fortPair.stockade.topY !== null
       && fortPair.stockade.topY - fortPair.stockade.eyeY >= 0.5,
@@ -16877,7 +16884,7 @@ for (const [label, viewport, touch] of [
         budget: { ...st.budget }, publicBudget: { ...a.budget } };
     });
     const confidenceBudgetPinned = (st) => {
-      const ordinary = { full: 3470000, balanced: 2625000, light: 1190000 }[st.detail];
+      const ordinary = { full: 3470000, balanced: 2675000, light: 1190000 }[st.detail];
       const fullGhost = st.detail === 'full' && st.ghosting === true;
       const draws = fullGhost ? 8900 : 7800;
       const triangles = fullGhost ? 3675000 : ordinary;

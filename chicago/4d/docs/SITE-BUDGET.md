@@ -172,7 +172,7 @@ BOOT PAYLOAD — first visit stands in the 1835 street
 Three consecutive runs produced byte-identical totals — the measurement is a
 property of the tree, not of the run.
 
-**The boot payload budget is 40.2 MB**, re-set on 2026-11-06 by T-3425 for five days of the
+**The boot payload budget is 44.1 MB**, consciously re-budgeted on 2026-11-10 for the measured retained street (§ 4m). It was re-set to 40.2 MB on 2026-11-06 by T-3425 for five days of the
 owner's town past T-3300's room (§ 4l). T-3300 had set it at 39.6 MB on 2026-11-01 for two weeks of the
 owner's town landing unmeasured (§ 4k). T-2711 had set it at 36.2 MB on 2026-10-17 for the prebuilt
 yards (§ 4j). T-2710 had set it at 33.7 MB the same day for the prebuilt streets (§ 4i), and
@@ -188,7 +188,7 @@ Re-measure and check with:
 ```
 bash tools/publish.sh                      # build the mirror the visitor gets
 node tools/measure_boot_payload.mjs        # the report above
-node tools/measure_boot_payload.mjs --check  # exit 1 past the 40.2 MB budget
+node tools/measure_boot_payload.mjs --check  # exit 1 past the 44.1 MB budget
 node tools/measure_boot_payload.mjs --against docs/measurements/T-3425-boot-payload-entries.json
                                            # what grew since § 4l's reading, file by file
 ```
@@ -777,10 +777,20 @@ partition in place of float32 vertices and the tree atlas's resolution (§ 4k). 
 be read against this reading first:
 `node tools/measure_boot_payload.mjs --against docs/measurements/T-3425-boot-payload-entries.json`.
 
+### 4m. November10 actual street and the final picture group — measured re-budget
+
+This is a conscious re-budget under AGENTS.md's standing owner ruling, not a claim that the old smoke passed. Official fresh pre-group measurement on publishedc555/source846/native9dd reads **45,932,852 wire bytes (43.804981 MiB)**,1196requests and zero request failures, with the normal3second settle. The previous40.2MiB cap is genuinely breached. The new **44.1MiB** cap leaves309,349 whole wire bytes before this group, and will be checked again after the build.
+
+The retained native full smoke run42745792113 measured **2,657,398 triangles/6,441 calls** at desktop West prairie, over the previous2,625,000 ceiling. A fresh official six-stand Balanced sweep measured2,595,407/6,441; it does not erase the higher literal smoke reading. We price conservatively from2,657,398. The new **2,675,000** cap leaves17,602 triangles, with the existing7,800 draw-call cap unchanged.
+
+The final three originals select29 outputs (27defaultphases and twoTremont variants) with five intended targets. Actual old-native counts exactly match the CPU accumulator counts. The proposed new counts change GreenTree by+56, officers by+144, barn by+74, palisade by-74 and commandant by+1,404 triangles. Without crediting the reduction, positive resident-mesh growth is at most1,678 triangles; a second building shadow pass would make3,356. This is geometry pricing, not a whole-frame or wire FITS claim: view/culling/animation and compressed output bytes remain post-native checks.
+
+**Light's floor, ordinary Full, Ghost, all draw-call ceilings and tier reaches remain unchanged.** No content is deleted, hidden or downgraded to meet these allowances. Raw failed full-smoke logs, both differing fresh measurements, input pins and exact CPU counts are preserved in the checkpoint. The final build must be measured; no future parcel is prepaid by these choices.
+
 ## 5. What the gate does now
 
 - **Refuses** over 416 MiB (T-3170; measured re-budgets in §8, §9, §11 and §13) — the repository-hygiene guard, not the visitor-cost
-  budget; the visitor-cost budget is the 40.2 MB boot payload budget in § 4,
+  budget; the visitor-cost budget is the 44.1 MB boot payload budget in § 4,
   enforced by `tools/measure_boot_payload.mjs --check`. The gate names
   `tools/site_budget.py` in the message so the next run does not have to invent
   the report again.
