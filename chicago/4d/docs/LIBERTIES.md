@@ -13627,6 +13627,21 @@ transient, re-admission, women-and-children and trade bands), tickets **T-1371**
 **T-1161**, the programme **T-1167**.
 **Recorded:** 2026-09-19.
 
+**T-2023 amendment, 2026-11-10 — explicit remainder families and one exceptional night.**
+The thirteen live lodging orders are appended after every carried draw. Nine under-ten
+girls are explicit R supplementary children of existing anonymous reconstructed adults,
+with size/sex/age and name-pool refusals recorded; none names a historical family. Three
+South youths take actual ordinary space at the Tremont. One West youth takes an explicitly
+exceptional night at Clinton H3: twelve ordinary occupants against eleven ordinary beds,
+inside the unchanged full capacity of twenty-six. This exception is limited to that one
+already-ordered youth and does not enlarge any capacity or the carried initial mint
+authorization of thirty-two. Two already existing North adults take the Steamboat's two
+real ordinary vacancies as a reconstructed non-kin party. All157 existing person records
+and52 prior layer seats remain exact. Source, bounds, shared occupancy and withdrawal
+conditions are in `RESEARCH/1835_lodging_remainder_2023.md` and the frozen
+`quota_basis.remainder_completion`; the child/parent links remain R, not source evidence.
+
+
 ### L253 — 827 people the project had already read are ruled into the town's population, and 679 of them are carried there by a rule rather than by a record
 
 **Decision:** of the 2,269 people the resident layer carries, **827** stood outside the
@@ -20396,6 +20411,30 @@ the 3,001 seated, against 299; the busiest is `recon_1835_blk_washington_dearbor
 people in 217 m², and no cabin holds more than ten. **What is invented** is every boarder and
 family placed under a named household's roof: no source puts them there, and the named
 household's own card is unchanged.
+
+**T-2023 amendment, 2026-11-10 — accepted seats, vacant upper residences and real units.**
+A later lodging mint now carries every accepted household/roof assignment, including all
+1,807 in the migration basis. It does not silently re-rank boarded residents. Six already
+standing C2 store-residences have attic living rooms in their existing1.5-storey forms;
+vacancy does not delete their residential stock. Counting them corrects415 to421 standing
+dwellings while retaining the census8.204 ratio and all T-2244 no-tenant findings. No pure
+shop becomes a dwelling or new tenant seat. New housing admissions may not increase an
+existing lodging roof's full-capacity excess.
+
+The lodging programme's household economies are expressly reconstructed shared units,
+not one family per storage card or one family per letter-list individual. Exact disjoint
+membership, preserved kin,20 exclusive known-house receipts,56 R units and the global165
+known-house accounting crosswalk are committed in the two T-2023 programme files. Nine
+generic H roofs receive R secondary boarding classifications from their already-seated
+households; no primary form, identity, source grade or roof assignment changes. North and
+West each shift one known boarding credit to a literal inn receipt, conserving every
+known-house division total. Two single-person receipts retain the official stated
+kinship/premises eligibility without asserting newly attested independent families.
+Unrelated boarders acquire no invented kinship. The full1840 lodging tail bounds boarding
+economies21 and inns35 separately from the unchanged1–8 kin-family draw and physical roof
+capacities. See `RESEARCH/1835_lodging_remainder_2023.md` for exact receipts, legacy capacity
+excesses, caveats and replacement conditions.
+
 
 ### L355 — Two camps on conjectural ground: the land-sale crowd on the reservation shore and a wagon party at the west approach
 

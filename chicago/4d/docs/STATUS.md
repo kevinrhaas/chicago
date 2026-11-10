@@ -26497,3 +26497,37 @@ The complete desktop settings smoke also measured Full X-RAY at 3,737,315 triang
 ### 2026-11-10 — T-2023 lodging remainder checkpoint
 
 The report distinguishes the carried adult room from the live order: its seven unspent West adult slots are historical residue, and the live West adult debt is zero. Lodger-stage vacancies and carried mint authorization are separate. Staffing payment requires the same committed civil division; unknown premises receive no payment. Existing people, housing assignments and cards remain unchanged. Completing the remainder continues in the same ticket; this checkpoint claims no new residents or ticket completion.
+
+
+### 2026-11-10 — T-2023 finite lodging reconciliation
+
+The source derivation now pays all13 live lodging-person orders and all34 missing
+household-unit receipts:56 explicit R economies plus20 known-house receipts,368
+disjoint member IDs, with a global165-house exclusive accounting crosswalk. It
+preserves all157 original person records,52 prior layer seats and1,807 accepted
+housing roofs; two additional existing North adults take real Steamboat vacancies.
+Six already-standing upper residences correct the dwelling inventory415→421;3,452
+people remain below the unchanged8.204 census ratio. A single explicitly exceptional
+West youth night stays inside Clinton H3's unchanged full26 capacity. Seven older
+whole-roof excesses remain disclosed and receive no new admissions. Full bounds,
+R secondary uses, refusal receipts and caveats are in
+`RESEARCH/1835_lodging_remainder_2023.md`. PR1920 remains in review until protected
+checks and the published walkthrough verification finish; this entry is a public
+checkpoint, not a premature ticket closure.
+
+
+### 2026-11-10 — T-2023 finite lodging reconciliation
+
+The source derivation now pays all 13 live lodging-person orders and all 34 missing
+household-unit receipts: 56 explicit R economies plus 20 known-house receipts, 368
+disjoint member IDs, with a global 165-house exclusive accounting crosswalk. It
+preserves all 157 original person records, 52 prior layer seats and 1,807 accepted
+housing roofs; two additional existing North adults take real Steamboat vacancies.
+Six already-standing upper residences correct the dwelling inventory 415→421; 3,452
+people remain below the unchanged 8.204 census ratio. A single explicitly exceptional
+West youth night stays inside Clinton H3's unchanged full 26 capacity. Seven older
+whole-roof excesses remain disclosed and receive no new admissions. Full bounds,
+R secondary uses, refusal receipts and caveats are in
+`RESEARCH/1835_lodging_remainder_2023.md`. PR1920 remains in review until protected
+checks and the published walkthrough verification finish; this entry is a public
+checkpoint, not a premature ticket closure.

@@ -2081,6 +2081,9 @@ def person_buckets(model: dict, composition: dict, inventory: dict, known: dict,
 #: re-cut of 2026-09-21 re-dealt 25 of 56 invented boarders and took six further gate
 #: steps red with them, because other layers had adopted them by name.
 REMAINDER_STABLE_STAGES = {
+    "T-2023": "tools/seat_lodgers_1835.py — append-only remainder completion, "
+              "frozen quota_basis.remainder_completion; all157 prior person records "
+              "and52 layer seats are preserved, identities/kinship/roofs rechecked",
     "T-1371": "tools/seat_lodgers_1835.py — deals against the committed `quota_basis` in "
               "data/reconstruction/1835_lodgers_seated.json (T-1503)",
     # T-1536 deals the `10_19` lodging youths — the very cells this re-cut pays the
@@ -2427,6 +2430,21 @@ def household_buckets(model: dict, inventory: dict, known: dict) -> dict:
     for k, v in subtract_pro_rata(targets, known["houses_present_unplaced"]).items():
         known_by_cell[k] += v
 
+    # T-2023: actual known-house receipts replace the lodging portion's pro-rata
+    # class guess. Davis belongs to the North inn; West's two inn families leave
+    # only Kinzie in its boarding-house class. No division or total known count moves.
+    lodging_programme = ROOT / "data/reconstruction/1835_lodging_household_programme.json"
+    if lodging_programme.exists() and known["houses_present"] == 165:
+        programme = json.loads(lodging_programme.read_text(encoding="utf-8"))
+        literal = Counter(r["quota_cell"].removeprefix("households/")
+                          for r in programme["known_receipts"])
+        for div in CIVIL_DIVISIONS:
+            keys = [f"boarding_house/{div}", f"inn_tavern/{div}"]
+            if sum(literal.get(k, 0) for k in keys) != sum(known_by_cell.get(k, 0) for k in keys):
+                raise Fault("T-2023 lodging known receipts change a division's known-house total")
+            for key in keys:
+                if key in known_by_cell:
+                    known_by_cell[key] = literal.get(key, 0)
     owners = {h: t for h, _, t in HOUSEHOLD_BUCKETS}
     buckets = []
     for key in sorted(targets):

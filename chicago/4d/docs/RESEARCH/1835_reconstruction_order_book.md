@@ -12,7 +12,7 @@
 | Businesses (enumerated classes) | 109 | 128 | 7 |
 | Roofs | 668 | 688 | 0 |
 
-**2,863 people stand in the layer today** and **13** are still owed after the counters, so the town this book converges to is **2,876** — inside the model's 2,370-3,265. `--build` and `--check` both refuse a remainder that lands outside it.
+**2,863 people stand in the layer today** and **0** are still owed after the counters, so the town this book converges to is **2,863** — inside the model's 2,370-3,265. `--build` and `--check` both refuse a remainder that lands outside it.
 
 ## What the re-cut found
 
@@ -31,7 +31,7 @@ Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 ag
 
 *What does the town converge to if every remaining order is filled?*
 
-2,863 standing plus 13 still owed is 2,876, inside the model's 2,370-3,265. Before the re-cut the same sum was 2,863 + 843 = 3,706, and the book was ordering a replacement for 826 people already in the layer. It is 327 above the model's 2,549 point, and that surplus is the 395 people drawn into 51 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book.
+2,863 standing plus 0 still owed is 2,863, inside the model's 2,370-3,265. Before the re-cut the same sum was 2,863 + 843 = 3,706, and the book was ordering a replacement for 826 people already in the layer. It is 314 above the model's 2,549 point, and that surplus is the 395 people drawn into 51 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book.
 
 ### households are counted in two different units
 
@@ -113,9 +113,9 @@ the owner's ruling of 2026-09-24 on T-1530, carried in T-1556: the surplus the r
 
 **A move is not** a retirement (nobody is un-written, which is T-1459's ruling of 2026-09-20) and a draw (no stranger enters the town, so the population does not move — only what is still OWED does).
 
-395 held head(s) stand across 51 refused bucket(s), and 13 slot(s) of order stand open elsewhere in the persons ladder. A held head moved into an open order fills that order without drawing a stranger, so each move takes one person off what is still owed rather than out of the town.
+395 held head(s) stand across 51 refused bucket(s), and 0 slot(s) of order stand open elsewhere in the persons ladder. A held head moved into an open order fills that order without drawing a stranger, so each move takes one person off what is still owed rather than out of the town.
 
-**142 move(s) have been made**, carrying 0 adoption(s) out of 41 bucket(s) and into 43. The book is owed 13 people now, and would be owed 0 if every held head moved. The model's point is what decides HOW MANY move, and that number is T-1559's to spend; this book states the two ends of the range.
+**142 move(s) have been made**, carrying 0 adoption(s) out of 41 bucket(s) and into 43. The book is owed 0 people now, and would be owed 0 if every held head moved. The model's point is what decides HOW MANY move, and that number is T-1559's to spend; this book states the two ends of the range.
 
 Which heads move is T-1558's (settled): T-1558 modelled it against the adoption layers and published the cost ladder there, with the tier of every held person and the ceilings the axes impose. `refamily_shape` above refuses a move whose `rule` is not one of the movable rungs, so the naming T-1557 required is now checked rather than trusted. The moves themselves are T-1559's.
 
@@ -300,7 +300,7 @@ Read from data/residents/households/*.json — every person whose occupation is 
 
 ### What moved
 
-The re-cut wanted **36** trade slots in the bands it reopened. The younger bands held **9** undrawn and the adult cells it would draw from held **6**, so **6** moved and the book's employed total did not change. Every cell below is a `lodging` cell on both sides, because every `family` cell of the reopened band is drawn out: the working youths this book still orders are BOARDERS — an apprentice or a shop hand sleeping where he works — which is a consequence of what is already drawn and not a claim about 1835.
+The re-cut wanted **36** trade slots in the bands it reopened. The younger bands held **6** undrawn and the adult cells it would draw from held **6**, so **6** moved and the book's employed total did not change. Every cell below is a `lodging` cell on both sides, because every `family` cell of the reopened band is drawn out: the working youths this book still orders are BOARDERS — an apprentice or a shop hand sleeping where he works — which is a consequence of what is already drawn and not a claim about 1835.
 
 | into | slots |
 |---|---:|
@@ -326,7 +326,7 @@ The re-cut wanted **36** trade slots in the bands it reopened. The younger bands
 | `persons/male/10_19/north/lodging` (into) | 1 | 0 | 6 | T-2023 |
 | `persons/male/10_19/south/family` (into) | 8 | 0 | 65 | T-1174 |
 | `persons/male/10_19/west/family` (into) | 3 | 0 | 23 | T-1174 |
-| `persons/male/10_19/west/lodging` (into) | 1 | 0 | 5 | T-2023 |
+| `persons/male/10_19/west/lodging` (into) | 1 | 0 | 6 | T-2023 |
 | `persons/female/20_29/north/family` (out of) | 1 | 0 | 15 | T-2187 |
 | `persons/female/20_29/south/family` (out of) | 3 | 0 | 30 | T-2187 |
 | `persons/female/20_29/south/lodging` (out of) | 1 | 0 | 6 | T-2023 |
@@ -359,9 +359,10 @@ The re-cut's one forbidden move is to pull a quota out from under a stage that h
 | T-2193 | 310 | 3 |
 | T-1347 | 309 | 24 |
 | T-1171 | 294 | 19 |
-| T-1371 | 138 | 35 |
+| T-1371 | 172 | 36 |
 | T-1533 | 26 | 5 |
 | T-2236 | 19 | 3 |
+| T-2023 | 13 | 5 |
 | T-1536 | 11 | 4 |
 | T-1532 | 3 | 1 |
 | T-1184 | 2 | 1 |
@@ -484,20 +485,20 @@ Who the town still has to be given, by sex, age, division, household and trade.
 | `persons/female/50_plus/west/lodging/trade` | 1 | 0 | 1 | 1 | T-2023 |
 | `persons/female/50_plus/west/lodging/none` | 1 | 0 | 1 | 1 | T-2023 |
 | `persons/female/under_10/north/family/none` | 55 | 30 | 62 | 62 | T-1174 |
-| `persons/female/under_10/north/lodging/none` | 19 | 11 | 8 | 7 | T-2023 |
+| `persons/female/under_10/north/lodging/none` | 19 | 11 | 8 | 8 | T-2023 |
 | `persons/female/under_10/south/family/none` | 133 | 76 | 190 | 190 | T-1174 |
-| `persons/female/under_10/south/lodging/none` | 47 | 26 | 21 | 17 | T-2023 |
+| `persons/female/under_10/south/lodging/none` | 47 | 26 | 21 | 21 | T-2023 |
 | `persons/female/under_10/west/family/none` | 49 | 26 | 71 | 71 | T-1174 |
-| `persons/female/under_10/west/lodging/none` | 17 | 9 | 8 | 4 | T-2023 |
+| `persons/female/under_10/west/lodging/none` | 17 | 9 | 8 | 8 | T-2023 |
 | `persons/male/10_19/north/family/none` | 37 | 20 | 31 | 31 | T-1174 |
 | `persons/male/10_19/north/lodging/trade` | 0 | 0 | 1 | 1 | T-2023 |
 | `persons/male/10_19/north/lodging/none` | 13 | 7 | 6 | 6 | T-2023 |
 | `persons/male/10_19/south/family/none` | 88 | 49 | 70 | 70 | T-1174 |
 | `persons/male/10_19/south/lodging/trade` | 4 | 0 | 7 | 7 | T-2023 |
-| `persons/male/10_19/south/lodging/none` | 27 | 18 | 9 | 6 | T-2023 |
+| `persons/male/10_19/south/lodging/none` | 27 | 18 | 9 | 9 | T-2023 |
 | `persons/male/10_19/west/family/none` | 33 | 18 | 25 | 25 | T-1174 |
 | `persons/male/10_19/west/lodging/trade` | 0 | 0 | 1 | 1 | T-2023 |
-| `persons/male/10_19/west/lodging/none` | 12 | 6 | 6 | 5 | T-2023 |
+| `persons/male/10_19/west/lodging/none` | 12 | 6 | 6 | 6 | T-2023 |
 | `persons/male/20_29/north/family/trade` | 31 | 17 | 22 | 22 | T-2187 |
 | `persons/male/20_29/north/family/none` | 58 | 31 | 0 | 0 | T-2187 |
 | `persons/male/20_29/north/lodging/trade` | 7 | 6 | 1 | 1 | T-2023 |
@@ -569,15 +570,15 @@ The households the model wants, by kind and division.
 
 | bucket | target | known | to do | filled | ticket |
 |---|---:|---:|---:|---:|---|
-| `households/boarding_house/north` | 12 | 3 | 9 | 6 | T-2023 |
-| `households/boarding_house/south` | 41 | 12 | 29 | 7 | T-2023 |
-| `households/boarding_house/west` | 9 | 2 | 7 | 3 | T-2023 |
+| `households/boarding_house/north` | 12 | 2 | 10 | 10 | T-2023 |
+| `households/boarding_house/south` | 41 | 12 | 29 | 29 | T-2023 |
+| `households/boarding_house/west` | 9 | 1 | 8 | 8 | T-2023 |
 | `households/family_dwelling/north` | 123 | 27 | 89 | 89 | T-2286 |
 | `households/family_dwelling/south` | 258 | 74 | 183 | 183 | T-2256 |
 | `households/family_dwelling/west` | 110 | 21 | 78 | 78 | T-2286 |
-| `households/inn_tavern/north` | 3 | 0 | 3 | 0 | T-2023 |
+| `households/inn_tavern/north` | 3 | 1 | 2 | 2 | T-2023 |
 | `households/inn_tavern/south` | 7 | 2 | 5 | 5 | T-2023 |
-| `households/inn_tavern/west` | 4 | 1 | 3 | 1 | T-2023 |
+| `households/inn_tavern/west` | 4 | 2 | 2 | 2 | T-2023 |
 | `households/institutional/south` | 1 | 0 | 1 | 1 | T-1531 |
 | `households/store_residence/north` | 6 | 2 | 2 | 2 | T-2246 |
 | `households/store_residence/south` | 62 | 18 | 12 | 12 | T-2246 |
@@ -586,9 +587,9 @@ The households the model wants, by kind and division.
 
 **The store rows, ruled (T-2194).** The book ordered 77 store households on the town's 52 civil store roofs, 1.48 a roof, because the households are apportioned on roof counts. A store residence is one household, the keeper's, so 25 are discharged; 8 more stand a house of trade whose keeper the town places on another roof, so nobody lived over them; 4 stand a house of trade whose keeper the town holds no card for, so nobody is seated over them; and 0 are still owed: a keeper for a store roof that stands with nobody in it. BOTH. The book over-orders the store rows, by what it ordered above one household a store roof, and that is discharged here. And the index is short: the household quota counts houses off the residents index alone, so the trade households the reconstruction drew as heads of their own and seated on a roof, the readmitted and the underdocumented are outside the count. They are people the cards hold present, not an order to fill, and T-2236 forms the store households from the keepers of the houses of trade the town holds, over their own stores, rather than from anybody new; what it could not form is T-2246's.
 
-**The family rows, ruled (T-2256).** The held heads fall 19 short of the family_dwelling order. The housing deal holds 14 families present on the scene date and waiting on a roof behind the census ceiling, none of them a letter-list household, 14 with no division on the card; spread pro rata on the cells' targets, as rule 2 spreads the unplaced known, with a share past its cell's shortfall spread on over the cells still short (6 so), they discharge 14 and 5 are still owed. NOT A HOUSEHOLD THE TOWN LACKS. Rule 2 never orders a replacement for somebody standing in the town, and these families stand in it on their own cards: what they lack is a roof, which the remaining dwelling builds raise, and the deal seats them where the room is when they do.
+**The family rows, ruled (T-2256).** The held heads fall 19 short of the family_dwelling order. The housing deal holds 9 families present on the scene date and waiting on a roof behind the census ceiling, none of them a letter-list household, 9 with no division on the card; spread pro rata on the cells' targets, as rule 2 spreads the unplaced known, with a share past its cell's shortfall spread on over the cells still short (4 so), they discharge 9 and 10 are still owed. NOT A HOUSEHOLD THE TOWN LACKS. Rule 2 never orders a replacement for somebody standing in the town, and these families stand in it on their own cards: what they lack is a roof, which the remaining dwelling builds raise, and the deal seats them where the room is when they do.
 
-**What the waiting families leave, ruled (T-2286).** The waiting families leave 5 houses owed on the family_dwelling rows. Every family person cell of West reads 0 left, so 5 of those houses have nobody the book may draw into them without overfilling a person cell; discharged, the book orders 589 households, inside the model's range from 473, and 0 are still owed. NOT A HOUSEHOLD THE TOWN LACKS. A house is the people in it, and the person side of the division is full: its families stand in the town in fewer houses than the households midpoint asks, and larger, which the model's range admits. The order past what the open family cells could people is discharged rather than met with a house nobody lives in.
+**What the waiting families leave, ruled (T-2286).** The waiting families leave 10 houses owed on the family_dwelling rows. Every family person cell of North and West reads 0 left, so 10 of those houses have nobody the book may draw into them without overfilling a person cell; discharged, the book orders 589 households, inside the model's range from 473, and 0 are still owed. NOT A HOUSEHOLD THE TOWN LACKS. A house is the people in it, and the person side of the division is full: its families stand in the town in fewer houses than the households midpoint asks, and larger, which the model's range admits. The order past what the open family cells could people is discharged rather than met with a house nobody lives in.
 
 ## Businesses
 

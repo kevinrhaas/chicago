@@ -6536,3 +6536,20 @@ T-3535 also recalibrates the Full-only Ghost triangle allowance from the complet
 ### 2026-11-10 — T-2023 remainder diagnostics
 
 The live order and the frozen room now have separate readings. Preserve existing people and assignments while reconciling household units, shared-roof occupancy and physical residential stock. Staffing payments now refuse a different or unknown civil division. The three-youth candidate exposed the old greedy housing redeal and is held outside this delivery until the carried housing extension is validated.
+
+
+### 2026-11-10 — T-2023 finite lodging reconciliation
+
+The source derivation now pays all 13 live lodging-person orders and all 34 missing
+household-unit receipts: 56 explicit R economies plus 20 known-house receipts, 368
+disjoint member IDs, with a global 165-house exclusive accounting crosswalk. It
+preserves all 157 original person records, 52 prior layer seats and 1,807 accepted
+housing roofs; two additional existing North adults take real Steamboat vacancies.
+Six already-standing upper residences correct the dwelling inventory 415→421; 3,452
+people remain below the unchanged 8.204 census ratio. A single explicitly exceptional
+West youth night stays inside Clinton H3's unchanged full 26 capacity. Seven older
+whole-roof excesses remain disclosed and receive no new admissions. Full bounds,
+R secondary uses, refusal receipts and caveats are in
+`RESEARCH/1835_lodging_remainder_2023.md`. PR1920 remains in review until protected
+checks and the published walkthrough verification finish; this entry is a public
+checkpoint, not a premature ticket closure.
