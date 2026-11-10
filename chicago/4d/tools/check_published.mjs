@@ -88,6 +88,7 @@ const COPIES = [
   ['data/night_lights/', 'data/night_lights/'],
   ['data/signage/', 'data/signage/'],
   ['data/yard/', 'data/yard/'],
+  ['data/transport/horse-coats.json', 'data/transport/horse-coats.json'],
   ['data/transport/parked/', 'data/transport/parked/'],
   ['data/transport/driven/', 'data/transport/driven/'],
   ['data/wharves/', 'data/wharves/'],
@@ -370,6 +371,10 @@ if (existsSync(transportPolicyFile)) {
 
 // The driven layer fetches these at runtime. Checking only existing mirror
 // files would let an entirely omitted data family pass (and the app fetch 404).
+const coatRecipe = 'data/transport/horse-coats.json';
+if (existsSync(path.join(REPO, coatRecipe)) && !existsSync(path.join(SITE, coatRecipe))) {
+  problems.push(`${coatRecipe} is missing from the published mirror; publish.sh must copy the horse appearance recipe.`);
+}
 for (const rel of ['data/transport/driven/loops.json', 'data/transport/driven/hitch-bindings-v2.json',
   'data/transport/driven/current26-hoof-support-domain.json',
   'data/transport/driven/current26-walk-v2-hoof-domain.json']) {

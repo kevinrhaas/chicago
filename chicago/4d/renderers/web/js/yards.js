@@ -63,6 +63,7 @@
  * ground has nothing to cast onto and would only fight its own drape.
  */
 
+import { fetchPublishedAssetBytes } from './published-assets.js';
 import * as THREE from 'three';
 import { retainYardStaticSupport } from './yard-static-support.js';
 import { GRIT_TILE_M } from './ground-strip-mask.js';
@@ -1820,9 +1821,7 @@ export async function fetchPrebuiltYards({ dataBase, year, build }) {
     }
     if (index.build !== build) return { why: `prebuilt by build ${index.build}, this page is build ${build}` };
     if (String(index.year) !== String(year)) return { why: `prebuilt for ${index.year}, this scene is ${year}` };
-    const binRes = await fetch(new URL(index.bin, base));
-    if (!binRes.ok) return { why: `no prebuilt yards buffer (${binRes.status})` };
-    let bin = await binRes.arrayBuffer();
+    let bin = await fetchPublishedAssetBytes(new URL(index.bin, base));
     // Gzipped twice on disk (prebuild_layers.mjs); a server that sent it with
     // Content-Encoding has inflated the outer pass, so read the magic bytes.
     const head = new Uint8Array(bin, 0, Math.min(2, bin.byteLength));

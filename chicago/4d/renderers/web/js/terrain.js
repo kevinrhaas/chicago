@@ -46,6 +46,7 @@
  * docs/LIBERTIES.md L9 rather than rediscovering it.
  */
 
+import { fetchPublishedAssetBytes, registerPublishedTextureBuffers } from './published-assets.js';
 import * as THREE from 'three';
 import { spatialBatch, spatialBatchAsync, batchPieces } from './spatial-batch.js';
 import { adaptiveGroundGrid } from './terrain-base.js';
@@ -1338,9 +1339,7 @@ async function fetchPrebuiltPieces({ dataBase, year, build, layer, format, own, 
       return { why: `prebuilt ${layer} format ${index.format}, this page reads ${format}` };
     }
     if (index.build !== build) return { why: `prebuilt by build ${index.build}, this page is build ${build}` };
-    const binRes = await fetch(new URL(index.bin, base));
-    if (!binRes.ok) return { why: `no prebuilt ${layer} buffer (${binRes.status})` };
-    let bin = await binRes.arrayBuffer();
+    let bin = await fetchPublishedAssetBytes(new URL(index.bin, base));
     // Gzipped twice on disk (prebuild_layers.mjs); a server that sent it with
     // Content-Encoding has inflated the outer pass, so read the magic bytes.
     const head = new Uint8Array(bin, 0, Math.min(2, bin.byteLength));
@@ -1513,8 +1512,8 @@ export function footprintsKey(footprints = []) {
  *  Exported for tools/prebuild_layers.mjs (T-2692): the ground built in Node is
  *  read through this loader, not a copy of it. */
 export async function loadGlbMesh(url) {
-  const buffer = await (await fetchOk(url)).arrayBuffer();
-  const loader = registerKTX2(new GLTFLoader());
+  const buffer = await fetchPublishedAssetBytes(url);
+  const loader = registerPublishedTextureBuffers(registerKTX2(new GLTFLoader()));
   // THE GROUND AND THE RIVER ARE COMPRESSED TOO, and this loader is not the one
   // scene-loader.js configures for the buildings.
   //

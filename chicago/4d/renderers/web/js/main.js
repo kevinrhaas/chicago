@@ -88,7 +88,7 @@ import { createBoats } from './boats.js';
 import { createCrossings } from './crossings.js';
 import { mountHumans } from './humans.js';
 import { createHumanDuties } from './human-duties.js';
-import { createHumanDays, clearWayOf } from './human-days.js';
+import { createHumanDays, createDayRouter, clearWayOf } from './human-days.js';
 import { createJauntHosts } from './jaunt-hosts.js';
 import { createHumanSpacing } from './human-spacing.js';
 import { createInteractions, createInteractKey } from './interact.js';
@@ -1004,6 +1004,10 @@ const DETAIL_DECLARED = {
   // the rule are in the block above `full`.
   balanced: { triangles: 2625000, shadowReachM: 240, furnitureCastsShadow: true,
               furnitureReachM: FURNITURE_REACH_BALANCED_M, groundDetailReachM: null,
+              // T-3535: the same conservative sun-pass cull as Full and Light.
+              // At West prairie: 2,658,284 -> 2,591,747 triangles, identical pixels.
+              // docs/RESEARCH/balanced-shadow-budget-3535/ holds the comparison.
+              castersTowardView: true,
               protects: 'the median visitor: integrated graphics on an ordinary '
                 + 'laptop, which is what most people arrive on',
               measured: '2,625,000 set 2026-10-19: same fresh production-step split '
@@ -1135,7 +1139,7 @@ const DETAIL_DECLARED = {
               // T-2529: a structure piece casts only if its shadow can reach the
               // view (shadow-casters.js). Conservative, so the frame is the same
               // picture; the sun's pass stops drawing houses whose shadows fall
-              // away from the screen. `full` and `balanced` are unchanged.
+              // away from the screen. Full and Balanced now use the same test.
               castersTowardView: true,
               // T-3312: a far structure piece draws in the colour pass from its
               // clustered twin wherever the twin's edge moves under a pixel
@@ -3915,15 +3919,17 @@ async function boot() {
       };
       return api.humans.add(rec, { person: byPerson.get(entry.person) ?? { id: entry.person, name: entry.name } });
     };
+    const dayClear = clearWayOf(footprints.concat(lodgeWalls));
     api.days = createHumanDays({ humans: api.humans, three: THREE, hour: sunHour, date: () => world.sunDate ?? null,
-      doors, interactions, inside, spawn, despawn: (actor) => api.humans?.remove?.(actor.id),
+      doors, interactions, inside, spawn,
+      held: (actor) => !!api.houseErrands?.get(actor.id)?.running,
+      despawn: (actor) => api.humans?.remove?.(actor.id),
       visitor: () => (walker.state.flying ? null : { e: walker.state.e, n: walker.state.n }),
       eye: () => camera.getWorldPosition(new THREE.Vector3()),
-      // The router's grid is hundreds of MB and is built on its first plan: a day's walk takes
-      // its ways only once something else (Go to) has built it, else walks straight.
-      router: { plan: (...args) => (api.router?.built ? api.router.plan(...args) : null) },
-      // T-3505: a job's places between gatherings are clear of the buildings and the fort's walls.
-      clear: clearWayOf(footprints.concat(lodgeWalls)),
+      // Routine chores on clear ground do not warm the large route grid. A 1904
+      // trip around the house does use it when the direct line crosses a wall.
+      router: createDayRouter({ router: () => api.router, clear: dayClear, buildWhenBlocked: String(YEAR) === '1904' }),
+      clear: dayClear,
       // T-3524: Glessner's court and side doors open as people pass, up and down their stairs.
       passages: api.houseDoors ?? null,
       problems: layerProblems('humans') });
@@ -3957,7 +3963,7 @@ async function boot() {
   // T-3443: a person whose house has a working front door (John J. Glessner, by 1800
   // Prairie's) is an Interact thing too: Greet him, or send him home up his steps and in;
   // and (T-3444) his door offers Ask for him while he is in.
-  api.houseErrands = createHouseErrands({ humans: api.humans, houseDoors, interactions,
+  api.houseErrands = createHouseErrands({ days: api.days, humans: api.humans, houseDoors, interactions,
     visitor: () => (walker.state.flying ? null : { e: walker.state.e, n: walker.state.n }),
     eye: () => camera.getWorldPosition(new THREE.Vector3()),
     openCard: (actor) => api.humans.select(actor.id),

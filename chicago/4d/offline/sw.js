@@ -32,6 +32,8 @@
  */
 'use strict';
 const KILL = false;
+// tools/write_year_packs.mjs embeds the shared engine-neutral contract here.
+const ASSET_ALIAS_CONTRACT = null;
 const SCOPE = new URL(self.registration.scope);
 const PREFIX = `c4d-pack ${SCOPE.pathname} `;
 const MANIFEST = '__pack__.json';
@@ -41,9 +43,22 @@ let loading = null;
 
 function relOf(url) {
   const u = new URL(url);
-  if (u.origin !== SCOPE.origin || !u.pathname.startsWith(SCOPE.pathname)) return null;
-  // year-pack.js downloading a pack: always the network, never the pack it replaces.
-  if (u.searchParams.has('c4d-pack')) return null;
+  if (u.origin !== SCOPE.origin) return null;
+  // Runtime aliases carry the legacy production-worker network bypass as well.
+  // Only a hash-qualified DEV alias can override it after exact catalogue lookup.
+  const runtimeAlias = /^[a-f0-9]{64}$/.test(u.searchParams.get('c4d-asset-alias') || '')
+    && u.searchParams.get('c4d-pack') === u.searchParams.get('c4d-asset-alias');
+  if (u.searchParams.has('c4d-pack') && !runtimeAlias) return null;
+  if (!u.pathname.startsWith(SCOPE.pathname)) {
+    const hash = u.searchParams.get('c4d-asset-alias');
+    const key = `@alias ${u.pathname} ${hash}`;
+    // A cold worker must load its installed catalogues before deciding. Only
+    // exact same-origin production counterparts with a full digest reach that
+    // lookup; an unknown candidate still takes the ordinary network path.
+    const relative = u.pathname.startsWith('/4d/') ? u.pathname.slice(4) : '';
+    return SCOPE.pathname === '/4d/dev/' && /^[a-f0-9]{64}$/.test(hash || '')
+      && ASSET_ALIAS_CONTRACT?.pathOK(relative) ? key : null;
+  }
   let rel;
   try { rel = decodeURIComponent(u.pathname.slice(SCOPE.pathname.length)); } catch { return null; }
   return rel === '' || rel.endsWith('/') ? `${rel}index.html` : rel;
@@ -57,11 +72,31 @@ async function loadIndex() {
     const res = await (await caches.open(name)).match(new URL(MANIFEST, SCOPE).href);
     if (!res) continue;   // a download that never finished: nothing of it is served
     const pack = await res.json();
+    let aliases = null;
+    if (pack.assetAliases) {
+      if (!ASSET_ALIAS_CONTRACT) throw new Error('Publication alias worker was not generated');
+      const catalogue = ASSET_ALIAS_CONTRACT.validate(pack.assetAliases, SCOPE);
+      const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(ASSET_ALIAS_CONTRACT.input(catalogue.aliases)));
+      const hash = [...new Uint8Array(digest)].map((b) => b.toString(16).padStart(2, '0')).join('');
+      if (hash !== catalogue.id) throw new Error('Installed publication alias catalogue digest mismatch');
+      aliases = catalogue.aliases;
+    }
     const net = new Set(pack.network_first || []);
-    for (const [rel] of pack.files) {
+    for (const [rel, hash, bytes] of pack.files) {
       const hit = map.get(rel);
       if (hit) hit.years.push(year);
       else map.set(rel, { years: [year], net: net.has(rel) });
+      const alias = aliases?.[rel];
+      if (alias) {
+        if (alias.sha256.slice(0, 16) !== hash || alias.bytes !== bytes)
+          throw new Error('Installed pack disagrees with publication alias');
+        const logical = map.get(rel);
+        if (!logical.sha256) { logical.sha256 = alias.sha256; logical.bytes = bytes; }
+        const key = `@alias ${alias.source} ${alias.sha256}`;
+        const shared = map.get(key);
+        if (shared) shared.years.push(year);
+        else map.set(key, { years: [year], net: false, rel, sha256: alias.sha256, bytes });
+      }
     }
   }
   index = map;
@@ -72,7 +107,17 @@ async function loadIndex() {
 async function fromPack(hit, key) {
   for (const year of hit.years) {
     const res = await (await caches.open(PREFIX + year)).match(key);
-    if (res) return res;
+    if (res) {
+      if (hit.sha256) {
+        if (res.status !== 200 || res.headers.has('content-range')) continue;
+        const body = await res.clone().arrayBuffer();
+        if (body.byteLength !== hit.bytes) continue;
+        const digest = await crypto.subtle.digest('SHA-256', body);
+        const hash = [...new Uint8Array(digest)].map((b) => b.toString(16).padStart(2, '0')).join('');
+        if (hash !== hit.sha256) continue;
+      }
+      return res;
+    }
   }
   return null;
 }
@@ -81,7 +126,7 @@ async function serve(request, rel) {
   const map = index || await (loading ||= loadIndex());
   const hit = map.get(rel);
   if (!hit) return fetch(request);
-  const key = new URL(rel, SCOPE).href;
+  const key = new URL(hit.rel || rel, SCOPE).href;
   if (hit.net) {
     try {
       const res = await fetch(request);
@@ -108,7 +153,7 @@ self.addEventListener('message', (event) => {
 self.addEventListener('fetch', (event) => {
   if (KILL) return;
   const request = event.request;
-  if (request.method !== 'GET') return;
+  if (request.method !== 'GET' || request.headers.has('range')) return;
   const rel = relOf(request.url);
   if (rel === null) return;
   if (index && !index.has(rel)) return;

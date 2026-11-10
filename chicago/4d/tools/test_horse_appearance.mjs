@@ -20,6 +20,46 @@ const read = file => fs.readFileSync(new URL(file, root));
 const json = file => JSON.parse(read(file));
 const sha = bytes => createHash('sha256').update(bytes).digest('hex');
 const recipe = validateHorseRecipe(json('data/transport/horse-coats.json'));
+// Execute the real publication block and real mirror checker in a fresh tree.
+// A source-only URL mock cannot expose a runtime recipe omitted by publish.sh.
+{
+  const temporary = fs.mkdtempSync(path.join(tmpdir(), 'c4d-coat-publication-'));
+  const app = path.join(temporary, 'chicago/4d'), site = path.join(temporary, 'site/4d');
+  const put = (rel, bytes) => {
+    const target = path.join(app, rel); fs.mkdirSync(path.dirname(target), { recursive: true }); fs.writeFileSync(target, bytes);
+  };
+  try {
+    for (const name of ['check_published.mjs', 'share_glb_sheets.mjs', 'audio_hosting.mjs']) put('tools/'+name, read('tools/'+name));
+    const rel = 'data/transport/horse-coats.json';
+    put(rel, read(rel));
+    fs.mkdirSync(path.join(app, 'data/transport/parked'), { recursive: true });
+    for (const name of ['loops.json', 'hitch-bindings-v2.json', 'current26-hoof-support-domain.json', 'current26-walk-v2-hoof-domain.json']) {
+      put('data/transport/driven/'+name, read('data/transport/driven/'+name));
+    }
+    fs.mkdirSync(site, { recursive: true });
+    const publisher = read('tools/publish.sh').toString();
+    const start = publisher.indexOf('# The parked vehicles fetch');
+    const end = publisher.indexOf('# The wharf layer', start);
+    assert(start >= 0 && end > start, 'actual transport publication block is identifiable');
+    const copy = () => spawnSync('bash', ['-e', '-c', publisher.slice(start, end)], {
+      cwd: app, env: { ...process.env, SITE: site }, encoding: 'utf8',
+    });
+    const check = () => spawnSync(process.execPath, [path.join(app, 'tools/check_published.mjs')], { cwd: temporary, encoding: 'utf8' });
+    const copied = copy(); assert.equal(copied.status, 0, copied.stderr);
+    assert.deepEqual(fs.readFileSync(path.join(site, rel)), read(rel), 'actual publisher carries the complete runtime recipe');
+    assert.equal(fs.existsSync(path.join(site, 'data/transport/horse-coats.recipe.json')), false, 'authoring recipe is not a runtime input');
+    let result = check(); assert.equal(result.status, 0, result.stdout+result.stderr);
+    fs.rmSync(path.join(site, rel));
+    result = check(); assert.notEqual(result.status, 0, 'an entirely missing published recipe fails the real mirror gate');
+    assert.match(result.stdout+result.stderr, /horse-coats\.json.*missing/);
+    assert.equal(copy().status, 0, 'the actual publisher restores the missing recipe');
+    const drifted = structuredClone(recipe); drifted.schema = -1;
+    fs.writeFileSync(path.join(site, rel), JSON.stringify(drifted));
+    result = check(); assert.notEqual(result.status, 0, 'published recipe drift fails the real mirror gate');
+    assert.match(result.stdout+result.stderr, /horse-coats\.json/);
+    console.log('Horse recipe publication PASS: actual copy, exact bytes, missing and corrupted mirror rejection');
+  } finally { fs.rmSync(temporary, { recursive: true, force: true }); }
+}
 assert.equal(sha(read('data/transport/horse-coats.recipe.json')), recipe.recipe_sha256, 'authored recipe changes must reach the runtime contract');
 assert.equal(sha(read(recipe.foot_reference)), recipe.foot_reference_sha256, 'real foot reference remains bound');
 assert.deepEqual(Object.fromEntries(Object.entries(json(recipe.foot_reference).contacts).map(([limb, contact]) => [limb, contact.minimum_vertex_canonical_m])), recipe.foot_centres_m);

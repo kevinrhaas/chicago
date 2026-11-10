@@ -1,3 +1,42 @@
+## T-2795 — native support for smaller DEV publications (2026-11-10)
+
+The parked Glessner team (PR #1908), existing-resident clothing/build fixes
+(PRs #1904/#1909) and individual horse coats (PR #1911) are merged into DEV.
+Their broader photographic, continuous contact, coachman and ride acceptances
+remain open. This change supports the separate MAIN publisher proposal #1914;
+it does not itself enable sharing or promote the DEV application to production.
+
+An optional immutable publication catalogue lets the native loaders fetch exact
+shared bytes while keeping logical model, LOD, sidecar and offline-cache paths.
+Complete bodies are checked against full SHA256 and size. The official GLTF
+buffer-view plugin covers the existing image-only external KTX2 sheet format;
+geometry buffers retain their native path. Native texture Source sharing,
+retries, old production-worker coexistence and cold/warm offline reloads are
+covered by real browser controls. Without a metadata pointer, loading retains
+its original identity and makes no catalogue request.
+
+The separate assembler's complete saved MAIN-742 publication fixture measures
+951,818,517 regular-file bytes after sharing 1,103 exact duplicates, with
+48,181,483 bytes below its one-billion-byte guard. All 7,148 non-DEV files remain
+byte-identical. This is a measured older artifact with the reviewed consumer
+overlay; latest-DEV assembly and live delivery are separate acceptance steps.
+The first insufficient safe subset correctly failed that guard and rolled back.
+Current-head complete hosted gates remain the merge bar; focused checks are not
+a substitute for them. No render budget, source asset or assertion is relaxed.
+
+The actual DEV-9d archive also exposed a separate omitted runtime input: the shared
+horse-coat recipe was absent although all three horse owners request it. publish.sh
+now copies that contract explicitly. The real publication checker rejects absence
+and drift; the existing appearance test executes the actual transport copy block
+and checker in a fresh fixture, including missing and corrupt recipe controls.
+The authored recipe remains source-only. This closes a publication gap rather than
+claiming that the earlier archive already carried the color variation.
+
+The explicit browser fixture needs a real KTX2 sheet, configured Chromium and
+historical commit `6f2ebb8107815a47dda0e3e7f4416665ad70d57d` for its original
+classic-worker control. Shallow clones must fetch that commit before running
+`tools/test_published_assets_browser.mjs --check --output DIR --ktx-source FILE`.
+
 ## T-1789 — scope the repeated teamster fixture sweep (2026-11-10)
 
 The teamster producer now selects exactly the rebuilt Otis Bardwell, Joseph Dufresne
@@ -26574,3 +26613,25 @@ for data/audio checks while camera matrices update. They establish no pixel or
 regenerated-publication acceptance. Human mix/proxy listening, Safari, this PR's
 full source gates and generated-publication checks remain required. No merge or
 deployment of this habitat increment is claimed.
+### T-3533 — 1904 household routines
+All eight drawn household members have full seasonal days; the existing day engine handles individual work, short gatherings, indoor periods and jaunt holds. Door callers may request any of the season's outdoor activities temporarily, regardless of hour, or ask someone to Go inside. Office work is an off-scene absence; a door request can recall him so everyone remains available. This is the reusable household model; other houses' figures are not added here. Validation is recorded in the PR.
+
+
+### T-3535 - Balanced shadow culling
+Balanced now uses the existing conservative shadow-caster filter. At the failing 1835 West prairie view, 66,537 submitted triangles and 501 calls disappear with zero changed pixels; the 2,625,000 ceiling remains unchanged. Receipts: docs/RESEARCH/balanced-shadow-budget-3535/. Release smoke verification is recorded in the PR.
+
+The complete desktop settings smoke also measured Full X-RAY at 3,737,315 triangles. Its Full-only Ghost allowance is explicitly recalibrated to 3,760,000 (the reading plus the retained 18,059 margin, rounded to 5,000), per the documented higher-tier budget policy. Ordinary Full, Balanced, Light and draw-call limits remain unchanged; all budget assertions remain active.
+
+
+### Audio integration after T-3533/T-3535 landed (2026-11-10)
+
+PR #1912 integrates dev `e41a911e0`, including shared asset publication, the
+horse-coat recipe, household routines and the existing rendering repair.
+The audio/offline merge retains both alias catalogues and optional-media
+exclusion. The horse publication fixture now copies the real audio-hosting
+helper required by the actual mirror checker; missing/corrupt-recipe controls
+remain intact. Earlier audio/renderer receipts are historical checkpoints.
+Two source batches passed the preceding integration; the third was stopped
+when dev advanced. Fresh complete source and published browser qualification
+are required for this combined tree. No new ordinary/lower-tier ceiling is
+introduced here, and T-3502's separate boot-payload issue remains open.

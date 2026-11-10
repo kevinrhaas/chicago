@@ -3,36 +3,167 @@
   "readings": [
     {
       "viewport": "mobile",
+      "stage": "5",
+      "parts": [
+        5
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 30,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 437,
+      "takenAt": "2026-11-10T09:04:48Z",
+      "ref": "steward/t-3533-household-routines",
+      "commit": "2a426e4f91c1",
+      "devCommit": "9d293d140002",
+      "treeHash": "sha256:b1b243d50655c6b1",
+      "treeDirty": false,
+      "changelogHash": "sha256:832274654804b20a",
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest, load not recoverable from the log"
+      },
+      "source": "gh-run:42787676968 https://github.com/kevinrhaas/chicago/actions/runs/42787676968"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "5",
+      "parts": [
+        5
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 30,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 785,
+      "takenAt": "2026-11-10T09:04:43Z",
+      "ref": "steward/t-3533-household-routines",
+      "commit": "2a426e4f91c1",
+      "devCommit": "9d293d140002",
+      "treeHash": "sha256:b1b243d50655c6b1",
+      "treeDirty": false,
+      "changelogHash": "sha256:832274654804b20a",
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest, load not recoverable from the log"
+      },
+      "source": "gh-run:42787667033 https://github.com/kevinrhaas/chicago/actions/runs/42787667033"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "13",
+      "parts": [
+        13
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 158,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 5107,
+      "takenAt": "2026-11-10T09:04:39Z",
+      "ref": "steward/t-3533-household-routines",
+      "commit": "2a426e4f91c1",
+      "devCommit": "9d293d140002",
+      "treeHash": "sha256:b1b243d50655c6b1",
+      "treeDirty": false,
+      "changelogHash": "sha256:832274654804b20a",
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest, load not recoverable from the log"
+      },
+      "source": "gh-run:42787656979 https://github.com/kevinrhaas/chicago/actions/runs/42787656979"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "15",
+      "parts": [
+        15
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 34,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 916,
+      "takenAt": "2026-11-10T06:46:53Z",
+      "ref": "HEAD",
+      "commit": "9b103acaea5e",
+      "devCommit": "1226c29f7e57",
+      "treeHash": "sha256:30c63fd727702211",
+      "treeDirty": false,
+      "changelogHash": "sha256:d61635f3b0850aef",
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest, load not recoverable from the log"
+      },
+      "source": "gh-run:42770810909 https://github.com/kevinrhaas/chicago/actions/runs/42770810909"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "15",
+      "parts": [
+        15
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 34,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 432,
+      "takenAt": "2026-11-10T06:46:50Z",
+      "ref": "HEAD",
+      "commit": "9b103acaea5e",
+      "devCommit": "1226c29f7e57",
+      "treeHash": "sha256:30c63fd727702211",
+      "treeDirty": false,
+      "changelogHash": "sha256:d61635f3b0850aef",
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest, load not recoverable from the log"
+      },
+      "source": "gh-run:42770806692 https://github.com/kevinrhaas/chicago/actions/runs/42770806692"
+    },
+    {
+      "viewport": "desktop",
       "stage": "13",
       "parts": [
         13
       ],
       "verdict": "fail",
       "target": "published",
-      "passed": 5,
+      "passed": 157,
       "failed": 1,
       "failures": [
-        "mobile 390x780: scene reaches ready — timed out at 240 s | agency_striker_log_house: review_required is set — review annotation retained; this flag does not block scene release | beaubien_barn: review_required is set — review annotation retained; this flag does not block scene release | beaubien_trading_post: review_required is set — review annotation retained; this flag does not block scene release"
+        "desktop 1280x800: Full X-RAY triangles stay inside the declared view budget (T-2981) — {\"year\":\"1835\",\"detail\":\"full\",\"ghosting\":true,\"calls\":8152,\"triangles\":3737315,\"budget\":{\"drawCalls\":8900,\"triangles\":3675000},\"publicBudget\":{\"drawCalls\":8900,\"triangles\":3675000}}"
       ],
-      "wallSeconds": 281,
-      "takenAt": "2026-11-10T04:38:01.931Z",
-      "ref": "audio/recorded-soundscape",
-      "commit": "e8342e42555d",
-      "devCommit": "e8342e42555d",
-      "treeHash": "sha256:377dd10c2c5ad8c7",
-      "treeDirty": true,
-      "changelogHash": "sha256:0f9c564ea9277272",
+      "wallSeconds": 4560,
+      "takenAt": "2026-11-10T06:46:47Z",
+      "ref": "HEAD",
+      "commit": "9b103acaea5e",
+      "devCommit": "9d293d140002",
+      "treeHash": "sha256:30c63fd727702211",
+      "treeDirty": false,
+      "changelogHash": "sha256:d61635f3b0850aef",
       "host": {
-        "kind": "local",
-        "cpus": 5,
-        "memGB": 17.6,
-        "loadavg": [
-          5.4,
-          5.1,
-          4
-        ]
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest, load not recoverable from the log"
       },
-      "source": "/workspace/audio-review/smoke-submit-mobile-13.log"
+      "source": "gh-run:42770801483 https://github.com/kevinrhaas/chicago/actions/runs/42770801483"
     },
     {
       "viewport": "mobile",
@@ -40,33 +171,418 @@
       "parts": [
         13
       ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 158,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 842,
+      "takenAt": "2026-11-10T06:46:45Z",
+      "ref": "HEAD",
+      "commit": "9b103acaea5e",
+      "devCommit": "1226c29f7e57",
+      "treeHash": "sha256:30c63fd727702211",
+      "treeDirty": false,
+      "changelogHash": "sha256:d61635f3b0850aef",
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest, load not recoverable from the log"
+      },
+      "source": "gh-run:42770796405 https://github.com/kevinrhaas/chicago/actions/runs/42770796405"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "9-12",
+      "parts": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 69,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 1753,
+      "takenAt": "2026-11-10T06:46:43Z",
+      "ref": "HEAD",
+      "commit": "9b103acaea5e",
+      "devCommit": "9d293d140002",
+      "treeHash": "sha256:30c63fd727702211",
+      "treeDirty": false,
+      "changelogHash": "sha256:d61635f3b0850aef",
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest, load not recoverable from the log"
+      },
+      "source": "gh-run:42770792708 https://github.com/kevinrhaas/chicago/actions/runs/42770792708"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "9-12",
+      "parts": [
+        9,
+        10,
+        11,
+        12
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 69,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 290,
+      "takenAt": "2026-11-10T06:46:40Z",
+      "ref": "HEAD",
+      "commit": "9b103acaea5e",
+      "devCommit": "1226c29f7e57",
+      "treeHash": "sha256:30c63fd727702211",
+      "treeDirty": false,
+      "changelogHash": "sha256:d61635f3b0850aef",
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest, load not recoverable from the log"
+      },
+      "source": "gh-run:42770788316 https://github.com/kevinrhaas/chicago/actions/runs/42770788316"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "8",
+      "parts": [
+        8
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 22,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 806,
+      "takenAt": "2026-11-10T06:46:37Z",
+      "ref": "HEAD",
+      "commit": "9b103acaea5e",
+      "devCommit": "1226c29f7e57",
+      "treeHash": "sha256:30c63fd727702211",
+      "treeDirty": false,
+      "changelogHash": "sha256:d61635f3b0850aef",
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest, load not recoverable from the log"
+      },
+      "source": "gh-run:42770782326 https://github.com/kevinrhaas/chicago/actions/runs/42770782326"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "8",
+      "parts": [
+        8
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 22,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 204,
+      "takenAt": "2026-11-10T06:46:33Z",
+      "ref": "HEAD",
+      "commit": "9b103acaea5e",
+      "devCommit": "1226c29f7e57",
+      "treeHash": "sha256:30c63fd727702211",
+      "treeDirty": false,
+      "changelogHash": "sha256:d61635f3b0850aef",
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest, load not recoverable from the log"
+      },
+      "source": "gh-run:42770776167 https://github.com/kevinrhaas/chicago/actions/runs/42770776167"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "6-7",
+      "parts": [
+        6,
+        7
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 46,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 1084,
+      "takenAt": "2026-11-10T06:46:31Z",
+      "ref": "HEAD",
+      "commit": "9b103acaea5e",
+      "devCommit": "1226c29f7e57",
+      "treeHash": "sha256:30c63fd727702211",
+      "treeDirty": false,
+      "changelogHash": "sha256:d61635f3b0850aef",
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest, load not recoverable from the log"
+      },
+      "source": "gh-run:42770771776 https://github.com/kevinrhaas/chicago/actions/runs/42770771776"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "6-7",
+      "parts": [
+        6,
+        7
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 50,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 476,
+      "takenAt": "2026-11-10T06:46:28Z",
+      "ref": "HEAD",
+      "commit": "9b103acaea5e",
+      "devCommit": "1226c29f7e57",
+      "treeHash": "sha256:30c63fd727702211",
+      "treeDirty": false,
+      "changelogHash": "sha256:d61635f3b0850aef",
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest, load not recoverable from the log"
+      },
+      "source": "gh-run:42770767125 https://github.com/kevinrhaas/chicago/actions/runs/42770767125"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "5",
+      "parts": [
+        5
+      ],
       "verdict": "fail",
       "target": "published",
-      "passed": 52,
-      "failed": 2,
+      "passed": 29,
+      "failed": 1,
       "failures": [
-        "mobile 390x780: opening a person shows their card with a way to their building — {\"opened\":true,\"hidden\":false,\"shown\":true,\"name\":\"John S. C. Hogan\",\"title\":\"John S. C. Hogan\",\"backShown\":true,\"go\":null,\"goText\":\"Find this personNot out in town at this hour or season\",\"fields\":true,\"seat\":{\"rung\":\"division_band\",\"label\":\"Banded in the south division, and no class dealt\",\"words\":\"The record reaches the south division and nothing narrower, and the head's trade is not one the placement policy has a dwelling clause for — so this household is banded to that division's own ground and no class is dealt for it. The division is the evidence; standing them anywhere inside it is reconstruction.\",\"next\":\"Would move it up the ladder: a source giving this household's head a trade, or naming a street, a corner or a building for them.\",\"noaddr\":false}}",
-        "mobile 390x780: the suite body ran to completion — Error: clickChrome: #people-card .people-go is disabled"
+        "desktop 1280x800: scene detail 'balanced' stays inside its own ceiling at the WORST stand — 2,658,284 tris of 2,625,000 at West prairie, east across the sward toward town, 6441 calls of 7800 at West prairie, east across the sward toward town — spread: West prairie, east across the sward toward town 2,658,284/6441c · Lake Street at Canal, east down the axis 2,468,961/5616c · Lake and Market, the corner itself 2,341,912/4007c · the forks, from Wolf Point 2,143,954/4263c · the Sauganash at 26 m 1,690,858/2844c · the open aerial 1,676,670/2826c"
       ],
-      "wallSeconds": 542,
-      "takenAt": "2026-11-10T04:07:55.646Z",
-      "ref": "audio/recorded-soundscape",
-      "commit": "e8342e42555d",
-      "devCommit": "e8342e42555d",
-      "treeHash": "sha256:459da5d2b1df74a3",
-      "treeDirty": true,
-      "changelogHash": "sha256:0f9c564ea9277272",
+      "wallSeconds": 630,
+      "takenAt": "2026-11-10T06:46:26Z",
+      "ref": "HEAD",
+      "commit": "9b103acaea5e",
+      "devCommit": "1226c29f7e57",
+      "treeHash": "sha256:30c63fd727702211",
+      "treeDirty": false,
+      "changelogHash": "sha256:d61635f3b0850aef",
       "host": {
-        "kind": "local",
-        "cpus": 5,
-        "memGB": 17.6,
-        "loadavg": [
-          2,
-          4.8,
-          3.7
-        ]
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest, load not recoverable from the log"
       },
-      "source": "/workspace/audio-review/smoke-r2-mobile-13.log"
+      "source": "gh-run:42770762952 https://github.com/kevinrhaas/chicago/actions/runs/42770762952"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "5",
+      "parts": [
+        5
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 30,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 311,
+      "takenAt": "2026-11-10T06:46:22Z",
+      "ref": "HEAD",
+      "commit": "9b103acaea5e",
+      "devCommit": "1226c29f7e57",
+      "treeHash": "sha256:30c63fd727702211",
+      "treeDirty": false,
+      "changelogHash": "sha256:d61635f3b0850aef",
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest, load not recoverable from the log"
+      },
+      "source": "gh-run:42770756248 https://github.com/kevinrhaas/chicago/actions/runs/42770756248"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "3-4",
+      "parts": [
+        3,
+        4
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 136,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 1372,
+      "takenAt": "2026-11-10T06:46:19Z",
+      "ref": "HEAD",
+      "commit": "9b103acaea5e",
+      "devCommit": "1226c29f7e57",
+      "treeHash": "sha256:30c63fd727702211",
+      "treeDirty": false,
+      "changelogHash": "sha256:d61635f3b0850aef",
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest, load not recoverable from the log"
+      },
+      "source": "gh-run:42770750955 https://github.com/kevinrhaas/chicago/actions/runs/42770750955"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "3-4",
+      "parts": [
+        3,
+        4
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 139,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 337,
+      "takenAt": "2026-11-10T06:46:17Z",
+      "ref": "HEAD",
+      "commit": "9b103acaea5e",
+      "devCommit": "1226c29f7e57",
+      "treeHash": "sha256:30c63fd727702211",
+      "treeDirty": false,
+      "changelogHash": "sha256:d61635f3b0850aef",
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest, load not recoverable from the log"
+      },
+      "source": "gh-run:42770747135 https://github.com/kevinrhaas/chicago/actions/runs/42770747135"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "1-2",
+      "parts": [
+        1,
+        2
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 198,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 1450,
+      "takenAt": "2026-11-10T06:46:14Z",
+      "ref": "HEAD",
+      "commit": "9b103acaea5e",
+      "devCommit": "1226c29f7e57",
+      "treeHash": "sha256:30c63fd727702211",
+      "treeDirty": false,
+      "changelogHash": "sha256:d61635f3b0850aef",
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest, load not recoverable from the log"
+      },
+      "source": "gh-run:42770741747 https://github.com/kevinrhaas/chicago/actions/runs/42770741747"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "1-2",
+      "parts": [
+        1,
+        2
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 198,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 437,
+      "takenAt": "2026-11-10T06:46:12Z",
+      "ref": "HEAD",
+      "commit": "9b103acaea5e",
+      "devCommit": "1226c29f7e57",
+      "treeHash": "sha256:30c63fd727702211",
+      "treeDirty": false,
+      "changelogHash": "sha256:d61635f3b0850aef",
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest, load not recoverable from the log"
+      },
+      "source": "gh-run:42770737170 https://github.com/kevinrhaas/chicago/actions/runs/42770737170"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "14",
+      "parts": [
+        14
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 144,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 823,
+      "takenAt": "2026-11-10T06:46:10Z",
+      "ref": "HEAD",
+      "commit": "9b103acaea5e",
+      "devCommit": "1226c29f7e57",
+      "treeHash": "sha256:30c63fd727702211",
+      "treeDirty": false,
+      "changelogHash": "sha256:d61635f3b0850aef",
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest, load not recoverable from the log"
+      },
+      "source": "gh-run:42770733238 https://github.com/kevinrhaas/chicago/actions/runs/42770733238"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "14",
+      "parts": [
+        14
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 144,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 247,
+      "takenAt": "2026-11-10T06:46:07Z",
+      "ref": "HEAD",
+      "commit": "9b103acaea5e",
+      "devCommit": "1226c29f7e57",
+      "treeHash": "sha256:30c63fd727702211",
+      "treeDirty": false,
+      "changelogHash": "sha256:d61635f3b0850aef",
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest, load not recoverable from the log"
+      },
+      "source": "gh-run:42770728331 https://github.com/kevinrhaas/chicago/actions/runs/42770728331"
     },
     {
       "viewport": "mobile",
@@ -1179,6 +1695,72 @@
       "source": "/tmp/w/smoke-m3.log"
     },
     {
+      "viewport": "desktop",
+      "stage": "1",
+      "parts": [
+        1
+      ],
+      "verdict": "fail",
+      "target": "published",
+      "passed": 94,
+      "failed": 1,
+      "failures": [
+        "desktop 1280x800: no flat sign's lettering is hidden behind its own wall — 39 flat sign(s), 1365 rays at their faces; 1 hidden: miller_house 4/35 (wall 0.170 m in front)"
+      ],
+      "wallSeconds": 385,
+      "takenAt": "2026-11-01T14:55:44.736Z",
+      "ref": "steward/t1932-1720-stable-range",
+      "commit": "5881aeddeed8",
+      "devCommit": "92ceb201eec0",
+      "treeHash": "sha256:86517df659c6acd7",
+      "treeDirty": false,
+      "changelogHash": "sha256:27391417c78874f6",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.6,
+          4.5,
+          4.1
+        ]
+      },
+      "source": "/tmp/w/smoke-d1.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "14",
+      "parts": [
+        14
+      ],
+      "verdict": "fail",
+      "target": "published",
+      "passed": 129,
+      "failed": 1,
+      "failures": [
+        "mobile 390x780: the suite body ran to completion — Error: page.evaluate: Target page, context or browser has been closed"
+      ],
+      "wallSeconds": 580,
+      "takenAt": "2026-11-01T09:55:19.496Z",
+      "ref": "steward/t3289-bow-cone-winding",
+      "commit": "b7a5b8feda38",
+      "devCommit": "1b6cb48db07e",
+      "treeHash": "sha256:a7d0f39745d15c89",
+      "treeDirty": false,
+      "changelogHash": "sha256:33fb6519e1ade03e",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4,
+          4.5,
+          4.2
+        ]
+      },
+      "source": "/tmp/smoke_m14.log"
+    },
+    {
       "viewport": "mobile",
       "stage": "14",
       "parts": [
@@ -1208,6 +1790,104 @@
         ]
       },
       "source": "/tmp/smoke-m14.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "11",
+      "parts": [
+        11
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 21,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 483,
+      "takenAt": "2026-10-11T03:46:30.312Z",
+      "ref": "dev",
+      "commit": "0a2491b510c2",
+      "devCommit": "0a2491b510c2",
+      "treeHash": "sha256:3f9139ca6a72ef3d",
+      "treeDirty": true,
+      "changelogHash": "sha256:a1b3a9b10b0745eb",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          0.8,
+          3.1,
+          3.8
+        ]
+      },
+      "source": "/tmp/smoke-d11.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "13",
+      "parts": [
+        13
+      ],
+      "verdict": "fail",
+      "target": "published",
+      "passed": 5,
+      "failed": 1,
+      "failures": [
+        "mobile 390x780: scene reaches ready — timed out at 240 s | agency_striker_log_house: review_required is set — review annotation retained; this flag does not block scene release | beaubien_barn: review_required is set — review annotation retained; this flag does not block scene release | beaubien_trading_post: review_required is set — review annotation retained; this flag does not block scene release"
+      ],
+      "wallSeconds": 281,
+      "takenAt": "2026-11-10T04:38:01.931Z",
+      "ref": "audio/recorded-soundscape",
+      "commit": "e8342e42555d",
+      "devCommit": "e8342e42555d",
+      "treeHash": "sha256:377dd10c2c5ad8c7",
+      "treeDirty": true,
+      "changelogHash": "sha256:0f9c564ea9277272",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 17.6,
+        "loadavg": [
+          5.4,
+          5.1,
+          4
+        ]
+      },
+      "source": "/workspace/audio-review/smoke-submit-mobile-13.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "13",
+      "parts": [
+        13
+      ],
+      "verdict": "fail",
+      "target": "published",
+      "passed": 52,
+      "failed": 2,
+      "failures": [
+        "mobile 390x780: opening a person shows their card with a way to their building — {\"opened\":true,\"hidden\":false,\"shown\":true,\"name\":\"John S. C. Hogan\",\"title\":\"John S. C. Hogan\",\"backShown\":true,\"go\":null,\"goText\":\"Find this personNot out in town at this hour or season\",\"fields\":true,\"seat\":{\"rung\":\"division_band\",\"label\":\"Banded in the south division, and no class dealt\",\"words\":\"The record reaches the south division and nothing narrower, and the head's trade is not one the placement policy has a dwelling clause for — so this household is banded to that division's own ground and no class is dealt for it. The division is the evidence; standing them anywhere inside it is reconstruction.\",\"next\":\"Would move it up the ladder: a source giving this household's head a trade, or naming a street, a corner or a building for them.\",\"noaddr\":false}}",
+        "mobile 390x780: the suite body ran to completion — Error: clickChrome: #people-card .people-go is disabled"
+      ],
+      "wallSeconds": 542,
+      "takenAt": "2026-11-10T04:07:55.646Z",
+      "ref": "audio/recorded-soundscape",
+      "commit": "e8342e42555d",
+      "devCommit": "e8342e42555d",
+      "treeHash": "sha256:459da5d2b1df74a3",
+      "treeDirty": true,
+      "changelogHash": "sha256:0f9c564ea9277272",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 17.6,
+        "loadavg": [
+          2,
+          4.8,
+          3.7
+        ]
+      },
+      "source": "/workspace/audio-review/smoke-r2-mobile-13.log"
     },
     {
       "viewport": "desktop",
@@ -1525,37 +2205,6 @@
         ]
       },
       "source": "/tmp/smoke-m11.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "11",
-      "parts": [
-        11
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 21,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 483,
-      "takenAt": "2026-10-11T03:46:30.312Z",
-      "ref": "dev",
-      "commit": "0a2491b510c2",
-      "devCommit": "0a2491b510c2",
-      "treeHash": "sha256:3f9139ca6a72ef3d",
-      "treeDirty": true,
-      "changelogHash": "sha256:a1b3a9b10b0745eb",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          0.8,
-          3.1,
-          3.8
-        ]
-      },
-      "source": "/tmp/smoke-d11.log"
     },
     {
       "viewport": "desktop",

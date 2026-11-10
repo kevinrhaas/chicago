@@ -27,6 +27,7 @@
  * The shared GLB adapter applies this same device texture policy before delivery,
  * including residency re-decodes. Full retains every mip regardless of scene detail.
  */
+import { publishedAssetAddress, fetchPublishedAssetBytes, hasPublishedAssetPointer } from './published-assets.js';
 import * as THREE from 'three';
 import { KTX2Loader } from 'three/addons/loaders/KTX2Loader.js';
 
@@ -35,6 +36,7 @@ let dropTopMip = false;
 let rendererRef = null;
 let glbLoader = null;
 const lightGlbVariants = new WeakMap();
+const pendingAliasTextures = new WeakMap();
 /** What the boot found, for `__chicago4d.ktx2` and the memory meter's report. */
 export const ktx2State = { enabled: false, reason: 'not initialised', dropTopMip: false, glb: 'shared',
   formats: null, sheets: { ktx2: 0, fallback: 0, gpuBytes: 0, failed: [] } };
@@ -112,7 +114,7 @@ export function registerKTX2(gltfLoader) {
 function glbTextureLoader(source, reduce) {
   return {
     load(url, onLoad, onProgress, onError) {
-      return source.load(url, (texture) => {
+      const deliver = (texture) => {
         let variant = texture;
         if (reduce) {
           let light = lightGlbVariants.get(texture);
@@ -134,7 +136,29 @@ function glbTextureLoader(source, reduce) {
         delivered.mipmaps = variant.mipmaps.map((level) => ({ ...level }));
         forgetSettledTranscodes(source);
         onLoad(delivered);
-      }, onProgress, onError);
+      };
+      // GLTFLoader retains the logical GLB directory. Only exact catalogue sheets
+      // move, with bytes verified before the native transcoder sees its buffer.
+      if (!hasPublishedAssetPointer()) return source.load(url, deliver, onProgress, onError);
+      publishedAssetAddress(url).then(async ({ alias }) => {
+        if (!alias) return source.load(url, deliver, onProgress, onError);
+        const { source: address } = await publishedAssetAddress(url);
+        let pending = pendingAliasTextures.get(source);
+        if (!pending) { pending = new Map(); pendingAliasTextures.set(source, pending); }
+        const key = address.href;
+        let decoded = pending.get(key);
+        if (!decoded) {
+          // Native FileLoader coalesces concurrent URL reads; retain that same
+          // buffer/transcode/Source sharing at the verified-byte boundary.
+          decoded = fetchPublishedAssetBytes(url).then((bytes) => new Promise((resolve, reject) => {
+            source.parse(bytes, resolve, reject);
+          }));
+          pending.set(key, decoded);
+          const clear = () => { if (pending.get(key) === decoded) pending.delete(key); };
+          decoded.then(clear, clear);
+        }
+        return decoded.then(deliver);
+      }).catch((error) => { if (onError) onError(error); else console.error(error); });
     },
   };
 }

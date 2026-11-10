@@ -1,3 +1,14 @@
+## T-2795 — deliver the existing transport refinements reliably (2026-11-10)
+
+Keep the merged horse team, clothing and coat increments credited. Add native
+verified publication aliases so the separate MAIN assembler can reduce duplicate
+preview bytes while preserving existing assets, logical LODs and saved years.
+Require complete integrated-head CI before DEV merge and separate owner approval
+for MAIN publisher changes. Measure the current publication and verify live
+freshness; the saved-artifact size proof alone does not establish live delivery.
+Continue the existing coachman, boarding, riding, motion and photographic work;
+this infrastructure increment does not close those acceptances or T-2795.
+
 ## T-1789 — retain the full baseline while rebuilding three residents (2026-11-10)
 
 Remove duplicate native measurement work from the second teamster sweep: rebuild and
@@ -6522,3 +6533,20 @@ Green Tree is PARTIAL: its raised rear gable, low connector and lower foreground
 ## T-2795 — individual horse coats across eras (2026-11-10)
 
 The owner-requested coat variation is prepared for the current 1812, 1835 and 1904 horse paths, using stable individual markings and matched team palettes over unchanged licensed source maps. Focused canonical/source/material-ownership and legacy lifecycle controls pass. Focused writer/isolation registration now passes; compile canonical liberties/source-use first; then qualify actual all-era WebGL close-ups, ordinary-world desktop/phone appearance and cost before adoption. This remains one T-2795 increment; existing movement, coachman and passenger work stays open.
+
+### T-3533 - 1904 household routines
+Seasonal daily routines now cover all eight drawn household members. Door callers can request an outdoor activity at any hour or ask someone to Go inside. Extend this model to further houses after this household review.
+
+
+### T-3535 - Balanced shadow culling
+Balanced now uses the existing conservative shadow-caster filter. At the failing 1835 West prairie view, 66,537 submitted triangles and 501 calls disappear with zero changed pixels; the 2,625,000 ceiling remains unchanged. Receipts: docs/RESEARCH/balanced-shadow-budget-3535/. Release smoke verification is recorded in the PR.
+
+T-3535 also recalibrates the Full-only Ghost triangle allowance from the complete desktop settings smoke, retaining the existing margin and all ordinary/lower-tier budgets.
+
+
+### Audio integration after the rendering dependency landed (2026-11-10)
+
+Finish T-3532/T-3534 in PR #1912 on dev e41a911e0, preserving its shared-asset
+publication and T-3533/T-3535 changes. Complete the full source checks and both
+published viewports before merging. Existing T-3502 retains the separate boot
+payload issue; no new rendering ticket or ordinary/lower-tier budget is added.
