@@ -167,3 +167,10 @@ declared reconstructed. The existing15opening rectangles are unchanged; explicit
 recording them lets the existing support solver avoid real trim intersections.
 The CPU control measures six clear supports, deck at2.7m, full15.24×2.1m reach,
 all reconstructed geometry and actual beam/canopy contact, with no producer change.
+
+10November2026 metadata follow-up, to adopt only after the pinned B native run:
+The securely keyed1855quarters camera now renders only commandantsA and officersB.
+Its pose, photo, optical fields and credited card members stay unchanged. Other
+1835fort models are unpictured in this cut and must not create false occluders; the
+other seven full compound views retain all21members. This is a camera-scope correction,
+not a model/native input change or a new historical viewing station.
