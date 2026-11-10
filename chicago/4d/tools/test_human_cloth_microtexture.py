@@ -69,11 +69,14 @@ class TextileControls(unittest.TestCase):
                 self.assertAlmostEqual(sum(pixels[1::4])/(SIZE*SIZE), .9, places=6)
         self.assertEqual(self.maps['linen', 'color'], map_pixels('linen', 'color', (.12, .09, .065, 1), .9))
 
-    def test_color_is_encoded_once_without_material_factor(self):
+    def test_color_input_domains_preserve_declared_means(self):
         for kind in ('linen', 'wool'):
             pixels = self.maps[kind, 'color']
             for channel, color in enumerate((.12, .09, .065)):
-                self.assertAlmostEqual(sum(pixels[channel::4])/(SIZE*SIZE), color, places=7)
+                values=pixels[channel::4]
+                if kind == 'wool':
+                    values=[v/12.92 if v <= .04045 else ((v+.055)/1.055)**2.4 for v in values]
+                self.assertAlmostEqual(sum(values)/(SIZE*SIZE), color, places=7)
 
     def test_measured_uv_repeat_scales_with_source_and_keeps_metric_period(self):
         positions = [(0, 0, 0), (2, 0, 0), (0, 2, 0)]

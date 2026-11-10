@@ -8728,5 +8728,8 @@ step "Portable Joseph textile pixels preserve finite metric normals and bounded 
 step "Only explicitly normal-mapped Joseph near exports request tangent data in both worker paths (T-1789)" \
   python3 tools/test_human_cloth_tangents.py
 
+step "Portable cloth color packing preserves the linear wool palette and inherited shirt/data bytes (T-1789)" \
+  python3 tools/test_human_cloth_color.py
+
 check_summary
 exit $CHECK_FAILED

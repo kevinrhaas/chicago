@@ -94,8 +94,20 @@ def relief(kind, u, v):
     raise ValueError('unknown textile profile')
 
 
+# Failed native834 readback proved packed generated sRGB images retain the
+# assigned numeric values. Wool replaced linear factors and needs IEC encoding.
+# Linen already had an encoded generated image: preserve that inherited palette.
+COLOR_INPUT_SPACE = {'linen': 'legacy_encoded_srgb', 'wool': 'linear_factor'}
+
+
+def linear_to_srgb(value):
+    if not math.isfinite(value) or not 0 <= value <= 1:
+        raise ValueError('finite linear color in [0,1] required')
+    return 12.92*value if value <= .0031308 else 1.055*value**(1/2.4)-.055
+
+
 def map_pixels(kind, channel, color=(1., 1., 1., 1.), roughness=.9, size=SIZE):
-    """RGBA float pixels suitable for packed PNG images, with no dependencies."""
+    """Packed-image inputs: explicit wool IEC encoding, inherited linen unchanged."""
     if kind not in ('linen', 'wool') or channel not in ('color', 'orm', 'normal'):
         raise ValueError('unknown textile profile/channel')
     if type(size) is not int or size < 128 or size > 512 or size & (size-1):
@@ -121,6 +133,8 @@ def map_pixels(kind, channel, color=(1., 1., 1., 1.), roughness=.9, size=SIZE):
                 strength = .025 if kind == 'linen' else .045
                 shade = 1+strength*variation+.025*heather
                 rgb = tuple(max(0., min(1., c*shade)) for c in color[:3])
+                if COLOR_INPUT_SPACE[kind] == 'linear_factor':
+                    rgb = tuple(linear_to_srgb(c) for c in rgb)
             pixels.extend((*rgb, 1.))
     return pixels
 
@@ -200,6 +214,7 @@ def apply_near(scene, colors, roughness, variant_id):
         material['chicago4d_cloth_microtexture'] = {
             'version': 1, 'profile': kind, 'source_material': name,
             'grade': 'reconstructed', 'license': 'CC0-1.0',
+            'color_input_space': COLOR_INPUT_SPACE[kind],
             'tile_side_m': TILE_M, 'uv_repeat': metric['uv_repeat'],
             'historical_texture': False, 'photo_quality_accepted': False,
             'runtime_weave': 'portable_maps_replace_common_fabric'}
@@ -238,7 +253,8 @@ def apply_near(scene, colors, roughness, variant_id):
                         obj.data.materials[i] = near[material.name]
     report = {'version': 1, 'variant': variant_id, 'grade': 'reconstructed', 'license': 'CC0-1.0', 'historical_texture': False,
               'photo_quality_accepted': False, 'lods': [0, 1], 'materials': receipts,
-              'normal_convention': 'OpenGL tangent +Y, strength 1', 'thread_period_m': {'linen': .002, 'wool': .001},
+              'normal_convention': 'OpenGL tangent +Y, strength 1',
+              'color_input_space': COLOR_INPUT_SPACE, 'thread_period_m': {'linen': .002, 'wool': .001},
               'height_coefficient_m': {'linen': .000025, 'wool': .000020},
               'memory_estimate': memory_cost(len(near), len({MATERIALS[n] for n in near})),
               'actual_packed_images': len(images), 'shared_normals': True,
