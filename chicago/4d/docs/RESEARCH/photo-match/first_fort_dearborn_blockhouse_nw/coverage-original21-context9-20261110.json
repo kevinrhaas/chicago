@@ -1,0 +1,1560 @@
+{
+  "status": "REVIEWED_FINITE_SOURCE_COVERAGE_NOT_NATIVE_MATCH_VERDICTS",
+  "counts": {
+    "originals": 21,
+    "currey_rendered_originals": 14,
+    "other_originals": 7,
+    "context": 9,
+    "total": 30
+  },
+  "rows": [
+    {
+      "structure_id": "first_fort_dearborn_blockhouse_nw",
+      "current_name": "First Fort Dearborn — north-west blockhouse",
+      "scope": "original21",
+      "rendered_in_currey": true,
+      "rendered_in_kurz_proposed_group": true,
+      "currey": {
+        "status": "visible_adopted_cupola_and_owner_plan",
+        "note": "Cupola/log/height/ports shipped; tower proportions and surveyed seat retain explicit owner ruling."
+      },
+      "kurz_panel1": {
+        "status": "pair_of_blockhouse_forms_positions_conflict",
+        "note": "Two roof lanterns shown; no invented separate stack. Whistler corner arrangement governs; panel does not independently identify metric NW/SE seats."
+      },
+      "lossing": {
+        "status": "compound_silhouette_no_individual_identity",
+        "note": "Actual full Lossing engraving reviewed: distant enclosure, range roofs, staff and small end cap are visible, but the image does not resolve this record as an individually measured/identified building. New independent fort-only camera frames these14coremembers; the existing Kinzie fit remains unchanged. Whistler measured plan and75ftstaff govern under T3335; compressed retrospective composition/camera disagreement is within tolerance under T3153."
+      },
+      "whistler1808": {
+        "status": "draught_garrison_plan_or_folded_elevation",
+        "note": "Use the existing measured reading, not a new perspective calibration. Folded elevations do not supply consistent heights."
+      },
+      "chicagology274": "container_only_rights_check_required_no_new_image_derivation",
+      "getty_preview_group": "held_group_not_independent_attestations_no_enrollment_or_geometry_derivation",
+      "current_record_sha256": "b88297b89beabc29a32acfa0f8639c9d00c3934ac299267685757907943f07f7",
+      "rendered_in_lossing_fort_diagnostic": true,
+      "held_preview_views": {
+        "getty_print": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_earle_framed": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_arch_topped_painting": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_watercolor": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        }
+      },
+      "finite_component_disposition": "Existing owner-adopted geometry present; retain measured Whistler layout. Source disagreements are within tolerance; native comparisons still require actual review."
+    },
+    {
+      "structure_id": "first_fort_covered_way_bank_lower",
+      "current_name": "First Fort Dearborn — the covered way to the river, down the bank, to the water",
+      "scope": "context9",
+      "rendered_in_currey": false,
+      "rendered_in_kurz_proposed_group": true,
+      "currey": {
+        "status": "route_symbol_only_not_segment_geometry",
+        "note": "Currey dashed sally-port route supports a covered-way occurrence; does not depict this four-segment bank geometry. Not rendered in Currey."
+      },
+      "kurz_panel1": {
+        "status": "not_individually_identifiable",
+        "note": "No current record-specific attestation from this panel. The unlabelled galleried house outside the curtain must not be arbitrarily assigned to an outer record."
+      },
+      "lossing": {
+        "status": "not_individually_identifiable",
+        "note": "Actual full Lossing engraving reviewed; this named record is not individually identifiable. Foreground Kinzie house/fence, boats and an unlabelled far-shore form are not reassigned to it. This is a not-shown coverage disposition, not a missing-geometry task."
+      },
+      "whistler1808": {
+        "status": "index_only_omitted_from_draught",
+        "index_no": 33,
+        "note": "Index explicitly says omitted; four source-modeled runs are not drawn on the sheet. Quaife supplies NE-corner route in text."
+      },
+      "chicagology274": "container_only_rights_check_required_no_new_image_derivation",
+      "getty_preview_group": "held_group_not_independent_attestations_no_enrollment_or_geometry_derivation",
+      "current_record_sha256": "891b7cae67a8005de433ba24d6aaa3f70bf93a8dac80a5fa3ef32254e5115677",
+      "rendered_in_lossing_fort_diagnostic": false,
+      "held_preview_views": {
+        "getty_print": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_earle_framed": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_arch_topped_painting": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_watercolor": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        }
+      },
+      "finite_component_disposition": "Whistler index33 explicitly omits covered way from draught. Currey dashed route attests a route, not four built segment shapes; existing source-qualified four-run reconstruction is retained, no new gallery/boat assignment."
+    },
+    {
+      "structure_id": "first_fort_covered_way_bank_middle",
+      "current_name": "First Fort Dearborn — the covered way to the river, down the bank, middle step",
+      "scope": "context9",
+      "rendered_in_currey": false,
+      "rendered_in_kurz_proposed_group": true,
+      "currey": {
+        "status": "route_symbol_only_not_segment_geometry",
+        "note": "Currey dashed sally-port route supports a covered-way occurrence; does not depict this four-segment bank geometry. Not rendered in Currey."
+      },
+      "kurz_panel1": {
+        "status": "not_individually_identifiable",
+        "note": "No current record-specific attestation from this panel. The unlabelled galleried house outside the curtain must not be arbitrarily assigned to an outer record."
+      },
+      "lossing": {
+        "status": "not_individually_identifiable",
+        "note": "Actual full Lossing engraving reviewed; this named record is not individually identifiable. Foreground Kinzie house/fence, boats and an unlabelled far-shore form are not reassigned to it. This is a not-shown coverage disposition, not a missing-geometry task."
+      },
+      "whistler1808": {
+        "status": "index_only_omitted_from_draught",
+        "index_no": 33,
+        "note": "Index explicitly says omitted; four source-modeled runs are not drawn on the sheet. Quaife supplies NE-corner route in text."
+      },
+      "chicagology274": "container_only_rights_check_required_no_new_image_derivation",
+      "getty_preview_group": "held_group_not_independent_attestations_no_enrollment_or_geometry_derivation",
+      "current_record_sha256": "f339e8599f0252014e006b54854d5daa63d4c0e71cf7a0c1f1758da04051db5e",
+      "rendered_in_lossing_fort_diagnostic": false,
+      "held_preview_views": {
+        "getty_print": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_earle_framed": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_arch_topped_painting": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_watercolor": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        }
+      },
+      "finite_component_disposition": "Whistler index33 explicitly omits covered way from draught. Currey dashed route attests a route, not four built segment shapes; existing source-qualified four-run reconstruction is retained, no new gallery/boat assignment."
+    },
+    {
+      "structure_id": "first_fort_covered_way_bank_upper",
+      "current_name": "First Fort Dearborn — the covered way to the river, down the bank, upper step",
+      "scope": "context9",
+      "rendered_in_currey": false,
+      "rendered_in_kurz_proposed_group": true,
+      "currey": {
+        "status": "route_symbol_only_not_segment_geometry",
+        "note": "Currey dashed sally-port route supports a covered-way occurrence; does not depict this four-segment bank geometry. Not rendered in Currey."
+      },
+      "kurz_panel1": {
+        "status": "not_individually_identifiable",
+        "note": "No current record-specific attestation from this panel. The unlabelled galleried house outside the curtain must not be arbitrarily assigned to an outer record."
+      },
+      "lossing": {
+        "status": "not_individually_identifiable",
+        "note": "Actual full Lossing engraving reviewed; this named record is not individually identifiable. Foreground Kinzie house/fence, boats and an unlabelled far-shore form are not reassigned to it. This is a not-shown coverage disposition, not a missing-geometry task."
+      },
+      "whistler1808": {
+        "status": "index_only_omitted_from_draught",
+        "index_no": 33,
+        "note": "Index explicitly says omitted; four source-modeled runs are not drawn on the sheet. Quaife supplies NE-corner route in text."
+      },
+      "chicagology274": "container_only_rights_check_required_no_new_image_derivation",
+      "getty_preview_group": "held_group_not_independent_attestations_no_enrollment_or_geometry_derivation",
+      "current_record_sha256": "7dfcc0ad71f3bff4bd05a8d8006e01aefc5b9acec2e569734aa506d4e71271b5",
+      "rendered_in_lossing_fort_diagnostic": false,
+      "held_preview_views": {
+        "getty_print": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_earle_framed": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_arch_topped_painting": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_watercolor": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        }
+      },
+      "finite_component_disposition": "Whistler index33 explicitly omits covered way from draught. Currey dashed route attests a route, not four built segment shapes; existing source-qualified four-run reconstruction is retained, no new gallery/boat assignment."
+    },
+    {
+      "structure_id": "first_fort_covered_way_terrace",
+      "current_name": "First Fort Dearborn — the covered way to the river, across the terrace",
+      "scope": "context9",
+      "rendered_in_currey": false,
+      "rendered_in_kurz_proposed_group": true,
+      "currey": {
+        "status": "route_symbol_only_not_segment_geometry",
+        "note": "Currey dashed sally-port route supports a covered-way occurrence; does not depict this four-segment bank geometry. Not rendered in Currey."
+      },
+      "kurz_panel1": {
+        "status": "not_individually_identifiable",
+        "note": "No current record-specific attestation from this panel. The unlabelled galleried house outside the curtain must not be arbitrarily assigned to an outer record."
+      },
+      "lossing": {
+        "status": "not_individually_identifiable",
+        "note": "Actual full Lossing engraving reviewed; this named record is not individually identifiable. Foreground Kinzie house/fence, boats and an unlabelled far-shore form are not reassigned to it. This is a not-shown coverage disposition, not a missing-geometry task."
+      },
+      "whistler1808": {
+        "status": "index_only_omitted_from_draught",
+        "index_no": 33,
+        "note": "Index explicitly says omitted; four source-modeled runs are not drawn on the sheet. Quaife supplies NE-corner route in text."
+      },
+      "chicagology274": "container_only_rights_check_required_no_new_image_derivation",
+      "getty_preview_group": "held_group_not_independent_attestations_no_enrollment_or_geometry_derivation",
+      "current_record_sha256": "417ae88bcf38e907a7d1f5c947bddbb89c54614f39425dc2e72f439d83eeab1f",
+      "rendered_in_lossing_fort_diagnostic": false,
+      "held_preview_views": {
+        "getty_print": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_earle_framed": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_arch_topped_painting": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_watercolor": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        }
+      },
+      "finite_component_disposition": "Whistler index33 explicitly omits covered way from draught. Currey dashed route attests a route, not four built segment shapes; existing source-qualified four-run reconstruction is retained, no new gallery/boat assignment."
+    },
+    {
+      "structure_id": "first_fort_dearborn_blockhouse_se",
+      "current_name": "First Fort Dearborn — south-east blockhouse",
+      "scope": "original21",
+      "rendered_in_currey": true,
+      "rendered_in_kurz_proposed_group": true,
+      "currey": {
+        "status": "visible_adopted_cupola_and_owner_plan",
+        "note": "Cupola/log/height/ports shipped; tower proportions and surveyed seat retain explicit owner ruling."
+      },
+      "kurz_panel1": {
+        "status": "pair_of_blockhouse_forms_positions_conflict",
+        "note": "Two roof lanterns shown; no invented separate stack. Whistler corner arrangement governs; panel does not independently identify metric NW/SE seats."
+      },
+      "lossing": {
+        "status": "compound_silhouette_no_individual_identity",
+        "note": "Actual full Lossing engraving reviewed: distant enclosure, range roofs, staff and small end cap are visible, but the image does not resolve this record as an individually measured/identified building. New independent fort-only camera frames these14coremembers; the existing Kinzie fit remains unchanged. Whistler measured plan and75ftstaff govern under T3335; compressed retrospective composition/camera disagreement is within tolerance under T3153."
+      },
+      "whistler1808": {
+        "status": "draught_garrison_plan_or_folded_elevation",
+        "note": "Use the existing measured reading, not a new perspective calibration. Folded elevations do not supply consistent heights."
+      },
+      "chicagology274": "container_only_rights_check_required_no_new_image_derivation",
+      "getty_preview_group": "held_group_not_independent_attestations_no_enrollment_or_geometry_derivation",
+      "current_record_sha256": "4c8d2946e1fe3ae9cadd35874a1d13ca82bb1b1df3bdd8549b621535bfefb096",
+      "rendered_in_lossing_fort_diagnostic": true,
+      "held_preview_views": {
+        "getty_print": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_earle_framed": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_arch_topped_painting": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_watercolor": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        }
+      },
+      "finite_component_disposition": "Existing owner-adopted geometry present; retain measured Whistler layout. Source disagreements are within tolerance; native comparisons still require actual review."
+    },
+    {
+      "structure_id": "first_fort_dearborn_commanding_officers_barracks",
+      "current_name": "First Fort Dearborn — commanding officer's barracks (east range)",
+      "scope": "original21",
+      "rendered_in_currey": true,
+      "rendered_in_kurz_proposed_group": true,
+      "currey": {
+        "status": "visible_component_form_limited_by_owner_plan",
+        "note": "Visible as part of the compound; source is retrospective and does not supply historic metres or a fitted plan."
+      },
+      "kurz_panel1": {
+        "status": "range_silhouette_only_identity_limited",
+        "note": "Some range roof/opening forms visible, no independent assignment of all five ranges or hidden faces. Preserve contemporary identities and lengths."
+      },
+      "lossing": {
+        "status": "compound_silhouette_no_individual_identity",
+        "note": "Actual full Lossing engraving reviewed: distant enclosure, range roofs, staff and small end cap are visible, but the image does not resolve this record as an individually measured/identified building. New independent fort-only camera frames these14coremembers; the existing Kinzie fit remains unchanged. Whistler measured plan and75ftstaff govern under T3335; compressed retrospective composition/camera disagreement is within tolerance under T3153."
+      },
+      "whistler1808": {
+        "status": "draught_garrison_plan_or_folded_elevation",
+        "note": "Use the existing measured reading, not a new perspective calibration. Folded elevations do not supply consistent heights."
+      },
+      "chicagology274": "container_only_rights_check_required_no_new_image_derivation",
+      "getty_preview_group": "held_group_not_independent_attestations_no_enrollment_or_geometry_derivation",
+      "current_record_sha256": "c0bc9569eaf35364c5dd54dfc8efee6fd95b79a6ba43f7c4a3fe47b70cc0d885",
+      "rendered_in_lossing_fort_diagnostic": true,
+      "held_preview_views": {
+        "getty_print": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_earle_framed": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_arch_topped_painting": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_watercolor": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        }
+      },
+      "finite_component_disposition": "Existing owner-adopted geometry present; retain measured Whistler layout. Source disagreements are within tolerance; native comparisons still require actual review."
+    },
+    {
+      "structure_id": "first_fort_dearborn_flagstaff",
+      "current_name": "First Fort Dearborn — flagstaff",
+      "scope": "original21",
+      "rendered_in_currey": true,
+      "rendered_in_kurz_proposed_group": true,
+      "currey": {
+        "status": "visible_component_form_limited_by_owner_plan",
+        "note": "Visible as part of the compound; source is retrospective and does not supply historic metres or a fitted plan."
+      },
+      "kurz_panel1": {
+        "status": "staff_occurrence_camera_conflict",
+        "note": "Do not shorten the documented75ft staff for inherited237px diagnostic residual."
+      },
+      "lossing": {
+        "status": "compound_silhouette_no_individual_identity",
+        "note": "Actual full Lossing engraving reviewed: distant enclosure, range roofs, staff and small end cap are visible, but the image does not resolve this record as an individually measured/identified building. New independent fort-only camera frames these14coremembers; the existing Kinzie fit remains unchanged. Whistler measured plan and75ftstaff govern under T3335; compressed retrospective composition/camera disagreement is within tolerance under T3153."
+      },
+      "whistler1808": {
+        "status": "draught_garrison_plan_or_folded_elevation",
+        "note": "Use the existing measured reading, not a new perspective calibration. Folded elevations do not supply consistent heights."
+      },
+      "chicagology274": "container_only_rights_check_required_no_new_image_derivation",
+      "getty_preview_group": "held_group_not_independent_attestations_no_enrollment_or_geometry_derivation",
+      "current_record_sha256": "e45de1736d52b14ab207a76c9ec8a549f450807de263abd25f696b8f657f5750",
+      "rendered_in_lossing_fort_diagnostic": true,
+      "held_preview_views": {
+        "getty_print": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_earle_framed": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_arch_topped_painting": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_watercolor": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        }
+      },
+      "finite_component_disposition": "Existing owner-adopted geometry present; retain measured Whistler layout. Source disagreements are within tolerance; native comparisons still require actual review."
+    },
+    {
+      "structure_id": "first_fort_dearborn_magazine",
+      "current_name": "First Fort Dearborn — magazine",
+      "scope": "original21",
+      "rendered_in_currey": true,
+      "rendered_in_kurz_proposed_group": true,
+      "currey": {
+        "status": "adopted_vault_shape",
+        "note": "T-3335 adopts rounded roof; current shallow reconstructed rise is not an exact historical radius."
+      },
+      "kurz_panel1": {
+        "status": "not_individually_identifiable",
+        "note": "No current record-specific attestation from this panel. The unlabelled galleried house outside the curtain must not be arbitrarily assigned to an outer record."
+      },
+      "lossing": {
+        "status": "compound_silhouette_no_individual_identity",
+        "note": "Actual full Lossing engraving reviewed: distant enclosure, range roofs, staff and small end cap are visible, but the image does not resolve this record as an individually measured/identified building. New independent fort-only camera frames these14coremembers; the existing Kinzie fit remains unchanged. Whistler measured plan and75ftstaff govern under T3335; compressed retrospective composition/camera disagreement is within tolerance under T3153."
+      },
+      "whistler1808": {
+        "status": "arched_elevation_only",
+        "note": "Do not call its elevation a measured plan or derive a barrel radius from it."
+      },
+      "chicagology274": "container_only_rights_check_required_no_new_image_derivation",
+      "getty_preview_group": "held_group_not_independent_attestations_no_enrollment_or_geometry_derivation",
+      "current_record_sha256": "87efd4d60023e151453e8414b6dd30cec58a54a98ff469ec91dcd02a583d85f5",
+      "rendered_in_lossing_fort_diagnostic": true,
+      "held_preview_views": {
+        "getty_print": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_earle_framed": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_arch_topped_painting": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_watercolor": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        }
+      },
+      "finite_component_disposition": "Existing owner-adopted geometry present; retain measured Whistler layout. Source disagreements are within tolerance; native comparisons still require actual review."
+    },
+    {
+      "structure_id": "first_fort_dearborn_north_range",
+      "current_name": "First Fort Dearborn — north range (soldiers' barracks and contractor's store)",
+      "scope": "original21",
+      "rendered_in_currey": true,
+      "rendered_in_kurz_proposed_group": true,
+      "currey": {
+        "status": "visible_component_form_limited_by_owner_plan",
+        "note": "Visible as part of the compound; source is retrospective and does not supply historic metres or a fitted plan."
+      },
+      "kurz_panel1": {
+        "status": "range_silhouette_only_identity_limited",
+        "note": "Some range roof/opening forms visible, no independent assignment of all five ranges or hidden faces. Preserve contemporary identities and lengths."
+      },
+      "lossing": {
+        "status": "compound_silhouette_no_individual_identity",
+        "note": "Actual full Lossing engraving reviewed: distant enclosure, range roofs, staff and small end cap are visible, but the image does not resolve this record as an individually measured/identified building. New independent fort-only camera frames these14coremembers; the existing Kinzie fit remains unchanged. Whistler measured plan and75ftstaff govern under T3335; compressed retrospective composition/camera disagreement is within tolerance under T3153."
+      },
+      "whistler1808": {
+        "status": "draught_garrison_plan_or_folded_elevation",
+        "note": "Use the existing measured reading, not a new perspective calibration. Folded elevations do not supply consistent heights."
+      },
+      "chicagology274": "container_only_rights_check_required_no_new_image_derivation",
+      "getty_preview_group": "held_group_not_independent_attestations_no_enrollment_or_geometry_derivation",
+      "current_record_sha256": "f991c40ba787229081e517f883d146e861efdba9ae0b167919a7a5a3336751aa",
+      "rendered_in_lossing_fort_diagnostic": true,
+      "held_preview_views": {
+        "getty_print": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_earle_framed": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_arch_topped_painting": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_watercolor": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        }
+      },
+      "finite_component_disposition": "Existing owner-adopted geometry present; retain measured Whistler layout. Source disagreements are within tolerance; native comparisons still require actual review."
+    },
+    {
+      "structure_id": "first_fort_dearborn_officers_barracks",
+      "current_name": "First Fort Dearborn — officers' barracks (west range)",
+      "scope": "original21",
+      "rendered_in_currey": true,
+      "rendered_in_kurz_proposed_group": true,
+      "currey": {
+        "status": "visible_component_form_limited_by_owner_plan",
+        "note": "Visible as part of the compound; source is retrospective and does not supply historic metres or a fitted plan."
+      },
+      "kurz_panel1": {
+        "status": "range_silhouette_only_identity_limited",
+        "note": "Some range roof/opening forms visible, no independent assignment of all five ranges or hidden faces. Preserve contemporary identities and lengths."
+      },
+      "lossing": {
+        "status": "compound_silhouette_no_individual_identity",
+        "note": "Actual full Lossing engraving reviewed: distant enclosure, range roofs, staff and small end cap are visible, but the image does not resolve this record as an individually measured/identified building. New independent fort-only camera frames these14coremembers; the existing Kinzie fit remains unchanged. Whistler measured plan and75ftstaff govern under T3335; compressed retrospective composition/camera disagreement is within tolerance under T3153."
+      },
+      "whistler1808": {
+        "status": "draught_garrison_plan_or_folded_elevation",
+        "note": "Use the existing measured reading, not a new perspective calibration. Folded elevations do not supply consistent heights."
+      },
+      "chicagology274": "container_only_rights_check_required_no_new_image_derivation",
+      "getty_preview_group": "held_group_not_independent_attestations_no_enrollment_or_geometry_derivation",
+      "current_record_sha256": "1908d3061ae1ed980570389938c3ad3eda04b45e24831ee5b592442b240d0112",
+      "rendered_in_lossing_fort_diagnostic": true,
+      "held_preview_views": {
+        "getty_print": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_earle_framed": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_arch_topped_painting": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_watercolor": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        }
+      },
+      "finite_component_disposition": "Existing owner-adopted geometry present; retain measured Whistler layout. Source disagreements are within tolerance; native comparisons still require actual review."
+    },
+    {
+      "structure_id": "first_fort_dearborn_parade",
+      "current_name": "First Fort Dearborn — parade",
+      "scope": "original21",
+      "rendered_in_currey": true,
+      "rendered_in_kurz_proposed_group": true,
+      "currey": {
+        "status": "open_ground_only",
+        "note": "Courtyard open space visible; its detailed surface fabric is not depicted."
+      },
+      "kurz_panel1": {
+        "status": "not_individually_identifiable",
+        "note": "No current record-specific attestation from this panel. The unlabelled galleried house outside the curtain must not be arbitrarily assigned to an outer record."
+      },
+      "lossing": {
+        "status": "compound_silhouette_no_individual_identity",
+        "note": "Actual full Lossing engraving reviewed: distant enclosure, range roofs, staff and small end cap are visible, but the image does not resolve this record as an individually measured/identified building. New independent fort-only camera frames these14coremembers; the existing Kinzie fit remains unchanged. Whistler measured plan and75ftstaff govern under T3335; compressed retrospective composition/camera disagreement is within tolerance under T3153."
+      },
+      "whistler1808": {
+        "status": "draught_garrison_plan_or_folded_elevation",
+        "note": "Use the existing measured reading, not a new perspective calibration. Folded elevations do not supply consistent heights."
+      },
+      "chicagology274": "container_only_rights_check_required_no_new_image_derivation",
+      "getty_preview_group": "held_group_not_independent_attestations_no_enrollment_or_geometry_derivation",
+      "current_record_sha256": "827de50319b83917814a67fb58eccf2c8864ecd16170c6fddef3859034353815",
+      "rendered_in_lossing_fort_diagnostic": true,
+      "held_preview_views": {
+        "getty_print": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_earle_framed": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_arch_topped_painting": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_watercolor": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        }
+      },
+      "finite_component_disposition": "Existing owner-adopted geometry present; retain measured Whistler layout. Source disagreements are within tolerance; native comparisons still require actual review."
+    },
+    {
+      "structure_id": "first_fort_dearborn_pickets_inner",
+      "current_name": "First Fort Dearborn — inward row of pickets",
+      "scope": "original21",
+      "rendered_in_currey": true,
+      "rendered_in_kurz_proposed_group": true,
+      "currey": {
+        "status": "visible_double_curtain_adopted_west_occurrence",
+        "note": "Wicket occurrence and adjacency adopted by T-3335; dimensions, exact alignment and leaf mechanics reconstructed. Current west increment independently qualifies it."
+      },
+      "kurz_panel1": {
+        "status": "second_row_not_independently_resolved",
+        "note": "Preserve Whistler double row; drawing does not independently resolve its complete inner curtain."
+      },
+      "lossing": {
+        "status": "compound_silhouette_no_individual_identity",
+        "note": "Actual full Lossing engraving reviewed: distant enclosure, range roofs, staff and small end cap are visible, but the image does not resolve this record as an individually measured/identified building. New independent fort-only camera frames these14coremembers; the existing Kinzie fit remains unchanged. Whistler measured plan and75ftstaff govern under T3335; compressed retrospective composition/camera disagreement is within tolerance under T3153."
+      },
+      "whistler1808": {
+        "status": "draught_garrison_plan_or_folded_elevation",
+        "note": "Use the existing measured reading, not a new perspective calibration. Folded elevations do not supply consistent heights."
+      },
+      "chicagology274": "container_only_rights_check_required_no_new_image_derivation",
+      "getty_preview_group": "held_group_not_independent_attestations_no_enrollment_or_geometry_derivation",
+      "current_record_sha256": "117e3ba2776f20b64c9802d60b6fa5193b8504426e667790ccfefc635d3ed2de",
+      "rendered_in_lossing_fort_diagnostic": true,
+      "held_preview_views": {
+        "getty_print": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_earle_framed": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_arch_topped_painting": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_watercolor": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        }
+      },
+      "finite_component_disposition": "Existing owner-adopted geometry present; retain measured Whistler layout. Source disagreements are within tolerance; native comparisons still require actual review."
+    },
+    {
+      "structure_id": "first_fort_dearborn_pickets_outer",
+      "current_name": "First Fort Dearborn — outward row of pickets",
+      "scope": "original21",
+      "rendered_in_currey": true,
+      "rendered_in_kurz_proposed_group": true,
+      "currey": {
+        "status": "visible_double_curtain_adopted_west_occurrence",
+        "note": "Wicket occurrence and adjacency adopted by T-3335; dimensions, exact alignment and leaf mechanics reconstructed. Current west increment independently qualifies it."
+      },
+      "kurz_panel1": {
+        "status": "stockade_curtain_visible",
+        "note": "Picket curtain visible; no metric height or physical camera claimed."
+      },
+      "lossing": {
+        "status": "compound_silhouette_no_individual_identity",
+        "note": "Actual full Lossing engraving reviewed: distant enclosure, range roofs, staff and small end cap are visible, but the image does not resolve this record as an individually measured/identified building. New independent fort-only camera frames these14coremembers; the existing Kinzie fit remains unchanged. Whistler measured plan and75ftstaff govern under T3335; compressed retrospective composition/camera disagreement is within tolerance under T3153."
+      },
+      "whistler1808": {
+        "status": "draught_garrison_plan_or_folded_elevation",
+        "note": "Use the existing measured reading, not a new perspective calibration. Folded elevations do not supply consistent heights."
+      },
+      "chicagology274": "container_only_rights_check_required_no_new_image_derivation",
+      "getty_preview_group": "held_group_not_independent_attestations_no_enrollment_or_geometry_derivation",
+      "current_record_sha256": "b7f124143bc4a9541cdfe7640222a2e2cdc164a2f36fcc6b5b80a5a1e4935654",
+      "rendered_in_lossing_fort_diagnostic": true,
+      "held_preview_views": {
+        "getty_print": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_earle_framed": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_arch_topped_painting": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_watercolor": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        }
+      },
+      "finite_component_disposition": "Existing owner-adopted geometry present; retain measured Whistler layout. Source disagreements are within tolerance; native comparisons still require actual review."
+    },
+    {
+      "structure_id": "first_fort_dearborn_small_house_ne",
+      "current_name": "First Fort Dearborn — small house, north-east corner",
+      "scope": "original21",
+      "rendered_in_currey": true,
+      "rendered_in_kurz_proposed_group": true,
+      "currey": {
+        "status": "adopted_roof_shape_identity_inferred",
+        "note": "T-3335 adopts pyramid form; existing Currey card-members exclusion retained, no new blanket attestation."
+      },
+      "kurz_panel1": {
+        "status": "not_individually_identifiable",
+        "note": "No current record-specific attestation from this panel. The unlabelled galleried house outside the curtain must not be arbitrarily assigned to an outer record."
+      },
+      "lossing": {
+        "status": "compound_silhouette_no_individual_identity",
+        "note": "Actual full Lossing engraving reviewed: distant enclosure, range roofs, staff and small end cap are visible, but the image does not resolve this record as an individually measured/identified building. New independent fort-only camera frames these14coremembers; the existing Kinzie fit remains unchanged. Whistler measured plan and75ftstaff govern under T3335; compressed retrospective composition/camera disagreement is within tolerance under T3153."
+      },
+      "whistler1808": {
+        "status": "draught_garrison_plan_or_folded_elevation",
+        "note": "Use the existing measured reading, not a new perspective calibration. Folded elevations do not supply consistent heights."
+      },
+      "chicagology274": "container_only_rights_check_required_no_new_image_derivation",
+      "getty_preview_group": "held_group_not_independent_attestations_no_enrollment_or_geometry_derivation",
+      "current_record_sha256": "95010c177f5ff9f61d08504b43d7419d92e911d250e7659d1c4d227f9ce36c30",
+      "rendered_in_lossing_fort_diagnostic": true,
+      "held_preview_views": {
+        "getty_print": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_earle_framed": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_arch_topped_painting": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_watercolor": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        }
+      },
+      "finite_component_disposition": "Existing owner-adopted geometry present; retain measured Whistler layout. Source disagreements are within tolerance; native comparisons still require actual review."
+    },
+    {
+      "structure_id": "first_fort_dearborn_small_house_sw",
+      "current_name": "First Fort Dearborn — small house, south-west corner",
+      "scope": "original21",
+      "rendered_in_currey": true,
+      "rendered_in_kurz_proposed_group": true,
+      "currey": {
+        "status": "not_shown_or_occluded",
+        "note": "Explicit existing Currey not-shown ruling; render membership is context only."
+      },
+      "kurz_panel1": {
+        "status": "not_individually_identifiable",
+        "note": "No current record-specific attestation from this panel. The unlabelled galleried house outside the curtain must not be arbitrarily assigned to an outer record."
+      },
+      "lossing": {
+        "status": "compound_silhouette_no_individual_identity",
+        "note": "Actual full Lossing engraving reviewed: distant enclosure, range roofs, staff and small end cap are visible, but the image does not resolve this record as an individually measured/identified building. New independent fort-only camera frames these14coremembers; the existing Kinzie fit remains unchanged. Whistler measured plan and75ftstaff govern under T3335; compressed retrospective composition/camera disagreement is within tolerance under T3153."
+      },
+      "whistler1808": {
+        "status": "draught_garrison_plan_or_folded_elevation",
+        "note": "Use the existing measured reading, not a new perspective calibration. Folded elevations do not supply consistent heights."
+      },
+      "chicagology274": "container_only_rights_check_required_no_new_image_derivation",
+      "getty_preview_group": "held_group_not_independent_attestations_no_enrollment_or_geometry_derivation",
+      "current_record_sha256": "b07564676cb5035a7c0244035abc7180dd966f6a9004cecde59ccbf04ee84c21",
+      "rendered_in_lossing_fort_diagnostic": true,
+      "held_preview_views": {
+        "getty_print": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_earle_framed": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_arch_topped_painting": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_watercolor": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        }
+      },
+      "finite_component_disposition": "Existing owner-adopted geometry present; retain measured Whistler layout. Source disagreements are within tolerance; native comparisons still require actual review."
+    },
+    {
+      "structure_id": "first_fort_dearborn_soldiers_barracks_se",
+      "current_name": "First Fort Dearborn — soldiers' barracks, east of the main gate",
+      "scope": "original21",
+      "rendered_in_currey": true,
+      "rendered_in_kurz_proposed_group": true,
+      "currey": {
+        "status": "visible_component_form_limited_by_owner_plan",
+        "note": "Visible as part of the compound; source is retrospective and does not supply historic metres or a fitted plan."
+      },
+      "kurz_panel1": {
+        "status": "range_silhouette_only_identity_limited",
+        "note": "Some range roof/opening forms visible, no independent assignment of all five ranges or hidden faces. Preserve contemporary identities and lengths."
+      },
+      "lossing": {
+        "status": "compound_silhouette_no_individual_identity",
+        "note": "Actual full Lossing engraving reviewed: distant enclosure, range roofs, staff and small end cap are visible, but the image does not resolve this record as an individually measured/identified building. New independent fort-only camera frames these14coremembers; the existing Kinzie fit remains unchanged. Whistler measured plan and75ftstaff govern under T3335; compressed retrospective composition/camera disagreement is within tolerance under T3153."
+      },
+      "whistler1808": {
+        "status": "draught_garrison_plan_or_folded_elevation",
+        "note": "Use the existing measured reading, not a new perspective calibration. Folded elevations do not supply consistent heights."
+      },
+      "chicagology274": "container_only_rights_check_required_no_new_image_derivation",
+      "getty_preview_group": "held_group_not_independent_attestations_no_enrollment_or_geometry_derivation",
+      "current_record_sha256": "e6ffccbfac521d7bfe481a45a823c11670ef57ffadc6d9f377761cb4cce1997c",
+      "rendered_in_lossing_fort_diagnostic": true,
+      "held_preview_views": {
+        "getty_print": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_earle_framed": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_arch_topped_painting": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_watercolor": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        }
+      },
+      "finite_component_disposition": "Existing owner-adopted geometry present; retain measured Whistler layout. Source disagreements are within tolerance; native comparisons still require actual review."
+    },
+    {
+      "structure_id": "first_fort_dearborn_soldiers_barracks_sw",
+      "current_name": "First Fort Dearborn — soldiers' barracks, west of the main gate",
+      "scope": "original21",
+      "rendered_in_currey": true,
+      "rendered_in_kurz_proposed_group": true,
+      "currey": {
+        "status": "visible_component_form_limited_by_owner_plan",
+        "note": "Visible as part of the compound; source is retrospective and does not supply historic metres or a fitted plan."
+      },
+      "kurz_panel1": {
+        "status": "range_silhouette_only_identity_limited",
+        "note": "Some range roof/opening forms visible, no independent assignment of all five ranges or hidden faces. Preserve contemporary identities and lengths."
+      },
+      "lossing": {
+        "status": "compound_silhouette_no_individual_identity",
+        "note": "Actual full Lossing engraving reviewed: distant enclosure, range roofs, staff and small end cap are visible, but the image does not resolve this record as an individually measured/identified building. New independent fort-only camera frames these14coremembers; the existing Kinzie fit remains unchanged. Whistler measured plan and75ftstaff govern under T3335; compressed retrospective composition/camera disagreement is within tolerance under T3153."
+      },
+      "whistler1808": {
+        "status": "draught_garrison_plan_or_folded_elevation",
+        "note": "Use the existing measured reading, not a new perspective calibration. Folded elevations do not supply consistent heights."
+      },
+      "chicagology274": "container_only_rights_check_required_no_new_image_derivation",
+      "getty_preview_group": "held_group_not_independent_attestations_no_enrollment_or_geometry_derivation",
+      "current_record_sha256": "8e3e0b03bf316a6961ec837094887f9ba773f7eeb3f40c3283414a91c1eea4f7",
+      "rendered_in_lossing_fort_diagnostic": true,
+      "held_preview_views": {
+        "getty_print": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_earle_framed": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_arch_topped_painting": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_watercolor": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        }
+      },
+      "finite_component_disposition": "Existing owner-adopted geometry present; retain measured Whistler layout. Source disagreements are within tolerance; native comparisons still require actual review."
+    },
+    {
+      "structure_id": "first_fort_outer_agents_house",
+      "current_name": "First Fort Dearborn — the Indian agent's house",
+      "scope": "original21",
+      "rendered_in_currey": false,
+      "rendered_in_kurz_proposed_group": true,
+      "currey": {
+        "status": "not_individually_shown",
+        "note": "Outside the Currey compound render; no individual shape or identity attested by this view."
+      },
+      "kurz_panel1": {
+        "status": "not_individually_identifiable",
+        "note": "No current record-specific attestation from this panel. The unlabelled galleried house outside the curtain must not be arbitrarily assigned to an outer record."
+      },
+      "lossing": {
+        "status": "not_individually_identifiable",
+        "note": "Actual full Lossing engraving reviewed; this named record is not individually identifiable. Foreground Kinzie house/fence, boats and an unlabelled far-shore form are not reassigned to it. This is a not-shown coverage disposition, not a missing-geometry task."
+      },
+      "whistler1808": {
+        "status": "outside_arrangement_not_garrison_scale",
+        "index_no": 17,
+        "existing_reading": "pictorial elevation drawn like the factory, numeral '17' beside it, its paled yard east of it with the distance line running from it",
+        "note": "Outside pictorial boxes/positions are reconstructed under the existing explicit rule; no new metre inference."
+      },
+      "chicagology274": "container_only_rights_check_required_no_new_image_derivation",
+      "getty_preview_group": "held_group_not_independent_attestations_no_enrollment_or_geometry_derivation",
+      "current_record_sha256": "c3f4c11e7f36115650680a41298a1df6f75abd004364bea7b2124c188b95196a",
+      "rendered_in_lossing_fort_diagnostic": false,
+      "held_preview_views": {
+        "getty_print": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_earle_framed": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_arch_topped_painting": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_watercolor": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        }
+      },
+      "finite_component_disposition": "Named existing plan/text component accounted. Not independently shown or identified by the retrospective pictures; no arbitrary gallery assignment and no new geometry request."
+    },
+    {
+      "structure_id": "first_fort_outer_armourers_shop",
+      "current_name": "First Fort Dearborn — the armourer's shop",
+      "scope": "context9",
+      "rendered_in_currey": false,
+      "rendered_in_kurz_proposed_group": true,
+      "currey": {
+        "status": "not_individually_shown",
+        "note": "Outside the Currey compound render; no individual shape or identity attested by this view."
+      },
+      "kurz_panel1": {
+        "status": "not_individually_identifiable",
+        "note": "No current record-specific attestation from this panel. The unlabelled galleried house outside the curtain must not be arbitrarily assigned to an outer record."
+      },
+      "lossing": {
+        "status": "not_individually_identifiable",
+        "note": "Actual full Lossing engraving reviewed; this named record is not individually identifiable. Foreground Kinzie house/fence, boats and an unlabelled far-shore form are not reassigned to it. This is a not-shown coverage disposition, not a missing-geometry task."
+      },
+      "whistler1808": {
+        "status": "outside_arrangement_not_garrison_scale",
+        "index_no": 20,
+        "existing_reading": "READ AT T-2507 on 5-6x crops. The house south-east of the officers' garden toward the beach: a front of lights facing west with its roof, and a lower piece on it, drawn to the east. Lettered beside its front, reading down the sheet, a word or two and the numeral '20'; the numeral is clear, the words before it are not read (they may name the trade, and are not asserted).",
+        "note": "Outside pictorial boxes/positions are reconstructed under the existing explicit rule; no new metre inference."
+      },
+      "chicagology274": "container_only_rights_check_required_no_new_image_derivation",
+      "getty_preview_group": "held_group_not_independent_attestations_no_enrollment_or_geometry_derivation",
+      "current_record_sha256": "a958e6495c2e6716f642938ac3abc246744f5fb53777cd1c8c7ea9d17c9642c1",
+      "rendered_in_lossing_fort_diagnostic": false,
+      "held_preview_views": {
+        "getty_print": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_earle_framed": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_arch_topped_painting": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_watercolor": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        }
+      },
+      "finite_component_disposition": "Named existing plan/text component accounted. Not independently shown or identified by the retrospective pictures; no arbitrary gallery assignment and no new geometry request."
+    },
+    {
+      "structure_id": "first_fort_outer_bake_house",
+      "current_name": "First Fort Dearborn — the bake house",
+      "scope": "context9",
+      "rendered_in_currey": false,
+      "rendered_in_kurz_proposed_group": true,
+      "currey": {
+        "status": "not_individually_shown",
+        "note": "Outside the Currey compound render; no individual shape or identity attested by this view."
+      },
+      "kurz_panel1": {
+        "status": "not_individually_identifiable",
+        "note": "No current record-specific attestation from this panel. The unlabelled galleried house outside the curtain must not be arbitrarily assigned to an outer record."
+      },
+      "lossing": {
+        "status": "not_individually_identifiable",
+        "note": "Actual full Lossing engraving reviewed; this named record is not individually identifiable. Foreground Kinzie house/fence, boats and an unlabelled far-shore form are not reassigned to it. This is a not-shown coverage disposition, not a missing-geometry task."
+      },
+      "whistler1808": {
+        "status": "outside_arrangement_not_garrison_scale",
+        "index_no": 22,
+        "existing_reading": "READ AT T-2507 at 8x, turned to its lettering. The small building between the agent's house and its distance line, the numeral '22' beside its front. Its front faces east like the column below it; where the others draw a pitched roof to the west it draws a hatched, ROUNDED shape. That may be an oven's dome or a roof drawn round, and is read as neither: the record carries a gable. A smaller mark just south of it, about [561, 1255, 580, 1272], has no numeral and is not built.",
+        "note": "Outside pictorial boxes/positions are reconstructed under the existing explicit rule; no new metre inference."
+      },
+      "chicagology274": "container_only_rights_check_required_no_new_image_derivation",
+      "getty_preview_group": "held_group_not_independent_attestations_no_enrollment_or_geometry_derivation",
+      "current_record_sha256": "b14bb31abd48459346aa50f4e83d13d15b6d7a309500a43e04db447104b24d54",
+      "rendered_in_lossing_fort_diagnostic": false,
+      "held_preview_views": {
+        "getty_print": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_earle_framed": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_arch_topped_painting": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_watercolor": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        }
+      },
+      "finite_component_disposition": "Named existing plan/text component accounted. Not independently shown or identified by the retrospective pictures; no arbitrary gallery assignment and no new geometry request."
+    },
+    {
+      "structure_id": "first_fort_outer_factory",
+      "current_name": "First Fort Dearborn — the United States factory (the factor's house)",
+      "scope": "original21",
+      "rendered_in_currey": false,
+      "rendered_in_kurz_proposed_group": true,
+      "currey": {
+        "status": "not_individually_shown",
+        "note": "Outside the Currey compound render; no individual shape or identity attested by this view."
+      },
+      "kurz_panel1": {
+        "status": "not_individually_identifiable",
+        "note": "No current record-specific attestation from this panel. The unlabelled galleried house outside the curtain must not be arbitrarily assigned to an outer record."
+      },
+      "lossing": {
+        "status": "not_individually_identifiable",
+        "note": "Actual full Lossing engraving reviewed; this named record is not individually identifiable. Foreground Kinzie house/fence, boats and an unlabelled far-shore form are not reassigned to it. This is a not-shown coverage disposition, not a missing-geometry task."
+      },
+      "whistler1808": {
+        "status": "outside_arrangement_not_garrison_scale",
+        "index_no": 18,
+        "existing_reading": "pictorial elevation, roof to the west and a two-storey front of six lights to the east, with a paled yard lettered 'Paling' east of it",
+        "note": "Outside pictorial boxes/positions are reconstructed under the existing explicit rule; no new metre inference."
+      },
+      "chicagology274": "container_only_rights_check_required_no_new_image_derivation",
+      "getty_preview_group": "held_group_not_independent_attestations_no_enrollment_or_geometry_derivation",
+      "current_record_sha256": "b2df6be26bdb5d346112f2b4796d750603a84382f565f086185d2383bf0b8e2f",
+      "rendered_in_lossing_fort_diagnostic": false,
+      "held_preview_views": {
+        "getty_print": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_earle_framed": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_arch_topped_painting": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_watercolor": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        }
+      },
+      "finite_component_disposition": "Named existing plan/text component accounted. Not independently shown or identified by the retrospective pictures; no arbitrary gallery assignment and no new geometry request."
+    },
+    {
+      "structure_id": "first_fort_outer_interpreters_house",
+      "current_name": "First Fort Dearborn — the interpreter's house",
+      "scope": "context9",
+      "rendered_in_currey": false,
+      "rendered_in_kurz_proposed_group": true,
+      "currey": {
+        "status": "not_individually_shown",
+        "note": "Outside the Currey compound render; no individual shape or identity attested by this view."
+      },
+      "kurz_panel1": {
+        "status": "not_individually_identifiable",
+        "note": "No current record-specific attestation from this panel. The unlabelled galleried house outside the curtain must not be arbitrarily assigned to an outer record."
+      },
+      "lossing": {
+        "status": "not_individually_identifiable",
+        "note": "Actual full Lossing engraving reviewed; this named record is not individually identifiable. Foreground Kinzie house/fence, boats and an unlabelled far-shore form are not reassigned to it. This is a not-shown coverage disposition, not a missing-geometry task."
+      },
+      "whistler1808": {
+        "status": "outside_arrangement_not_garrison_scale",
+        "index_no": 19,
+        "existing_reading": "READ AT T-2507 on a 5x crop. A pictorial elevation drawn TURNED about 32 degrees anticlockwise off the sheet's axes, the only house on the sheet drawn so: its front, with two rows of two lights, runs from about (425, 1283) up to (493, 1240) and faces south-south-east (bearing 148), the roof drawn behind it to the north-north-west. sheet_px is the plan in the drawing's own axes about its centre (451, 1242.5): 80 px along the front, 47 px deep; drawn_bbox_px is the turned drawing's extent on the sheet. The numeral '19' is the register's reading.",
+        "note": "Outside pictorial boxes/positions are reconstructed under the existing explicit rule; no new metre inference."
+      },
+      "chicagology274": "container_only_rights_check_required_no_new_image_derivation",
+      "getty_preview_group": "held_group_not_independent_attestations_no_enrollment_or_geometry_derivation",
+      "current_record_sha256": "4c5cc409d134f2dcfd0dfa73e039460827f54b62a2a268441f2e4e6006c32169",
+      "rendered_in_lossing_fort_diagnostic": false,
+      "held_preview_views": {
+        "getty_print": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_earle_framed": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_arch_topped_painting": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_watercolor": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        }
+      },
+      "finite_component_disposition": "Named existing plan/text component accounted. Not independently shown or identified by the retrospective pictures; no arbitrary gallery assignment and no new geometry request."
+    },
+    {
+      "structure_id": "first_fort_outer_merchants_shop",
+      "current_name": "First Fort Dearborn — the merchant's shop",
+      "scope": "context9",
+      "rendered_in_currey": false,
+      "rendered_in_kurz_proposed_group": true,
+      "currey": {
+        "status": "not_individually_shown",
+        "note": "Outside the Currey compound render; no individual shape or identity attested by this view."
+      },
+      "kurz_panel1": {
+        "status": "not_individually_identifiable",
+        "note": "No current record-specific attestation from this panel. The unlabelled galleried house outside the curtain must not be arbitrarily assigned to an outer record."
+      },
+      "lossing": {
+        "status": "not_individually_identifiable",
+        "note": "Actual full Lossing engraving reviewed; this named record is not individually identifiable. Foreground Kinzie house/fence, boats and an unlabelled far-shore form are not reassigned to it. This is a not-shown coverage disposition, not a missing-geometry task."
+      },
+      "whistler1808": {
+        "status": "outside_arrangement_not_garrison_scale",
+        "index_no": 21,
+        "existing_reading": "READ AT T-2507 at 8x, turned to its lettering. The small house east-south-east of the officers' garden that the register found with an illegible mark: the mark, west of its front, reads '21'. A front with two lights facing west, its roof drawn to the east.",
+        "note": "Outside pictorial boxes/positions are reconstructed under the existing explicit rule; no new metre inference."
+      },
+      "chicagology274": "container_only_rights_check_required_no_new_image_derivation",
+      "getty_preview_group": "held_group_not_independent_attestations_no_enrollment_or_geometry_derivation",
+      "current_record_sha256": "6360e25a72f1c9cb7fde5cfc77477f5ed7c5b51c2992ec0d2faba67c6cbab9a0",
+      "rendered_in_lossing_fort_diagnostic": false,
+      "held_preview_views": {
+        "getty_print": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_earle_framed": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_arch_topped_painting": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_watercolor": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        }
+      },
+      "finite_component_disposition": "Named existing plan/text component accounted. Not independently shown or identified by the retrospective pictures; no arbitrary gallery assignment and no new geometry request."
+    },
+    {
+      "structure_id": "first_fort_outer_officers_garden",
+      "current_name": "First Fort Dearborn — the Commanding Officer's garden",
+      "scope": "original21",
+      "rendered_in_currey": false,
+      "rendered_in_kurz_proposed_group": true,
+      "currey": {
+        "status": "not_individually_shown",
+        "note": "Outside the Currey compound render; no individual shape or identity attested by this view."
+      },
+      "kurz_panel1": {
+        "status": "not_individually_identifiable",
+        "note": "No current record-specific attestation from this panel. The unlabelled galleried house outside the curtain must not be arbitrarily assigned to an outer record."
+      },
+      "lossing": {
+        "status": "not_individually_identifiable",
+        "note": "Actual full Lossing engraving reviewed; this named record is not individually identifiable. Foreground Kinzie house/fence, boats and an unlabelled far-shore form are not reassigned to it. This is a not-shown coverage disposition, not a missing-geometry task."
+      },
+      "whistler1808": {
+        "status": "outside_arrangement_not_garrison_scale",
+        "index_no": null,
+        "existing_reading": "a ruled rectangle of eight beds in two rows with a walk round them, entered by a walk from the north at mid-width. Its four sides are the four longest ruled lines in the box (rows 1514 and 1722, columns 752 and 1166).",
+        "note": "Outside pictorial boxes/positions are reconstructed under the existing explicit rule; no new metre inference."
+      },
+      "chicagology274": "container_only_rights_check_required_no_new_image_derivation",
+      "getty_preview_group": "held_group_not_independent_attestations_no_enrollment_or_geometry_derivation",
+      "current_record_sha256": "fdcb7e8ddf18ed49bdbcb91e4c0d8e20c5820a956d10186630f3a04a70a40e8e",
+      "rendered_in_lossing_fort_diagnostic": false,
+      "held_preview_views": {
+        "getty_print": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_earle_framed": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_arch_topped_painting": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_watercolor": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        }
+      },
+      "finite_component_disposition": "Named existing plan/text component accounted. Not independently shown or identified by the retrospective pictures; no arbitrary gallery assignment and no new geometry request."
+    },
+    {
+      "structure_id": "first_fort_outer_stable_middle",
+      "current_name": "First Fort Dearborn — the house in the factor's department",
+      "scope": "original21",
+      "rendered_in_currey": false,
+      "rendered_in_kurz_proposed_group": true,
+      "currey": {
+        "status": "not_individually_shown",
+        "note": "Outside the Currey compound render; no individual shape or identity attested by this view."
+      },
+      "kurz_panel1": {
+        "status": "not_individually_identifiable",
+        "note": "No current record-specific attestation from this panel. The unlabelled galleried house outside the curtain must not be arbitrarily assigned to an outer record."
+      },
+      "lossing": {
+        "status": "not_individually_identifiable",
+        "note": "Actual full Lossing engraving reviewed; this named record is not individually identifiable. Foreground Kinzie house/fence, boats and an unlabelled far-shore form are not reassigned to it. This is a not-shown coverage disposition, not a missing-geometry task."
+      },
+      "whistler1808": {
+        "status": "outside_arrangement_not_garrison_scale",
+        "index_no": 23,
+        "existing_reading": "the second of the three. READ AT T-2507 at 8x, turned to its lettering: the numeral beside its front is '23', House in Factors Dept., where its neighbours north and south both read '24', Stables. So this record is RE-LABELLED as the house in the factor's department and is not moved (L391 said a better reading would do exactly that). Its id and part key are kept from T-2062 so that nothing that names it breaks.",
+        "note": "Outside pictorial boxes/positions are reconstructed under the existing explicit rule; no new metre inference."
+      },
+      "chicagology274": "container_only_rights_check_required_no_new_image_derivation",
+      "getty_preview_group": "held_group_not_independent_attestations_no_enrollment_or_geometry_derivation",
+      "current_record_sha256": "a4707f0e7052a9289b062d8f69f18c7f64d2fdf4abd40f24a3c6c1bf45290d34",
+      "rendered_in_lossing_fort_diagnostic": false,
+      "held_preview_views": {
+        "getty_print": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_earle_framed": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_arch_topped_painting": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_watercolor": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        }
+      },
+      "finite_component_disposition": "Preserve current house-in-factor-department identity from Whistler numeral23; durable stable_middle id does not make it a third stable. Not independently identified by these retrospective pictures."
+    },
+    {
+      "structure_id": "first_fort_outer_stable_north",
+      "current_name": "First Fort Dearborn — stable, north of three",
+      "scope": "original21",
+      "rendered_in_currey": false,
+      "rendered_in_kurz_proposed_group": true,
+      "currey": {
+        "status": "not_individually_shown",
+        "note": "Outside the Currey compound render; no individual shape or identity attested by this view."
+      },
+      "kurz_panel1": {
+        "status": "not_individually_identifiable",
+        "note": "No current record-specific attestation from this panel. The unlabelled galleried house outside the curtain must not be arbitrarily assigned to an outer record."
+      },
+      "lossing": {
+        "status": "not_individually_identifiable",
+        "note": "Actual full Lossing engraving reviewed; this named record is not individually identifiable. Foreground Kinzie house/fence, boats and an unlabelled far-shore form are not reassigned to it. This is a not-shown coverage disposition, not a missing-geometry task."
+      },
+      "whistler1808": {
+        "status": "outside_arrangement_not_garrison_scale",
+        "index_no": 24,
+        "existing_reading": "the first of the column of three small buildings south of no. 17",
+        "note": "Outside pictorial boxes/positions are reconstructed under the existing explicit rule; no new metre inference."
+      },
+      "chicagology274": "container_only_rights_check_required_no_new_image_derivation",
+      "getty_preview_group": "held_group_not_independent_attestations_no_enrollment_or_geometry_derivation",
+      "current_record_sha256": "8f529d670410399a6effe7b369f2858f8ebbe9381942d6ed41d442e44b6981fb",
+      "rendered_in_lossing_fort_diagnostic": false,
+      "held_preview_views": {
+        "getty_print": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_earle_framed": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_arch_topped_painting": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_watercolor": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        }
+      },
+      "finite_component_disposition": "Named existing plan/text component accounted. Not independently shown or identified by the retrospective pictures; no arbitrary gallery assignment and no new geometry request."
+    },
+    {
+      "structure_id": "first_fort_outer_stable_south",
+      "current_name": "First Fort Dearborn — stable, south of three",
+      "scope": "original21",
+      "rendered_in_currey": false,
+      "rendered_in_kurz_proposed_group": true,
+      "currey": {
+        "status": "not_individually_shown",
+        "note": "Outside the Currey compound render; no individual shape or identity attested by this view."
+      },
+      "kurz_panel1": {
+        "status": "not_individually_identifiable",
+        "note": "No current record-specific attestation from this panel. The unlabelled galleried house outside the curtain must not be arbitrarily assigned to an outer record."
+      },
+      "lossing": {
+        "status": "not_individually_identifiable",
+        "note": "Actual full Lossing engraving reviewed; this named record is not individually identifiable. Foreground Kinzie house/fence, boats and an unlabelled far-shore form are not reassigned to it. This is a not-shown coverage disposition, not a missing-geometry task."
+      },
+      "whistler1808": {
+        "status": "outside_arrangement_not_garrison_scale",
+        "index_no": 24,
+        "existing_reading": "the third of the three",
+        "note": "Outside pictorial boxes/positions are reconstructed under the existing explicit rule; no new metre inference."
+      },
+      "chicagology274": "container_only_rights_check_required_no_new_image_derivation",
+      "getty_preview_group": "held_group_not_independent_attestations_no_enrollment_or_geometry_derivation",
+      "current_record_sha256": "4d56f789b046574f52b1cac887f4910200fe6b4264bcdaacef12d19e6fea7219",
+      "rendered_in_lossing_fort_diagnostic": false,
+      "held_preview_views": {
+        "getty_print": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_earle_framed": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_arch_topped_painting": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_watercolor": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        }
+      },
+      "finite_component_disposition": "Named existing plan/text component accounted. Not independently shown or identified by the retrospective pictures; no arbitrary gallery assignment and no new geometry request."
+    },
+    {
+      "structure_id": "first_fort_outer_sutlers_garden",
+      "current_name": "First Fort Dearborn — the sutler's garden",
+      "scope": "original21",
+      "rendered_in_currey": false,
+      "rendered_in_kurz_proposed_group": true,
+      "currey": {
+        "status": "not_individually_shown",
+        "note": "Outside the Currey compound render; no individual shape or identity attested by this view."
+      },
+      "kurz_panel1": {
+        "status": "not_individually_identifiable",
+        "note": "No current record-specific attestation from this panel. The unlabelled galleried house outside the curtain must not be arbitrarily assigned to an outer record."
+      },
+      "lossing": {
+        "status": "not_individually_identifiable",
+        "note": "Actual full Lossing engraving reviewed; this named record is not individually identifiable. Foreground Kinzie house/fence, boats and an unlabelled far-shore form are not reassigned to it. This is a not-shown coverage disposition, not a missing-geometry task."
+      },
+      "whistler1808": {
+        "status": "outside_arrangement_not_garrison_scale",
+        "index_no": null,
+        "existing_reading": "a small ruled plot east of the officers' garden toward the beach, lettered 'a Sutlers Garden', with one small house inside it. The house is not built: its numeral is not legible, and the register's no. 21 reading of a mark near it stays unread.",
+        "note": "Outside pictorial boxes/positions are reconstructed under the existing explicit rule; no new metre inference."
+      },
+      "chicagology274": "container_only_rights_check_required_no_new_image_derivation",
+      "getty_preview_group": "held_group_not_independent_attestations_no_enrollment_or_geometry_derivation",
+      "current_record_sha256": "ea51db237a8218e8f4d5ddb4664e296cec90a402abe2b0744098b8d68f95170f",
+      "rendered_in_lossing_fort_diagnostic": false,
+      "held_preview_views": {
+        "getty_print": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_earle_framed": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_arch_topped_painting": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_watercolor": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        }
+      },
+      "finite_component_disposition": "Named existing plan/text component accounted. Not independently shown or identified by the retrospective pictures; no arbitrary gallery assignment and no new geometry request."
+    },
+    {
+      "structure_id": "first_fort_wharf",
+      "current_name": "First Fort Dearborn — the wharf",
+      "scope": "context9",
+      "rendered_in_currey": false,
+      "rendered_in_kurz_proposed_group": true,
+      "currey": {
+        "status": "not_individually_shown",
+        "note": "Outside the Currey compound render; no individual shape or identity attested by this view."
+      },
+      "kurz_panel1": {
+        "status": "not_individually_identifiable",
+        "note": "No current record-specific attestation from this panel. The unlabelled galleried house outside the curtain must not be arbitrarily assigned to an outer record."
+      },
+      "lossing": {
+        "status": "not_individually_identifiable",
+        "note": "Actual full Lossing engraving reviewed; this named record is not individually identifiable. Foreground Kinzie house/fence, boats and an unlabelled far-shore form are not reassigned to it. This is a not-shown coverage disposition, not a missing-geometry task."
+      },
+      "whistler1808": {
+        "status": "dotted_sheet_mark_unscaled_river_seat",
+        "index_no": 27,
+        "note": "Existing trace reads a small dotted wharf mark; present river seat and minimum deck remain explicit reconstruction."
+      },
+      "chicagology274": "container_only_rights_check_required_no_new_image_derivation",
+      "getty_preview_group": "held_group_not_independent_attestations_no_enrollment_or_geometry_derivation",
+      "current_record_sha256": "b11ab232b7765f603d8e8e6f100366bf487e98364ddd08754e052560f7a67cb3",
+      "rendered_in_lossing_fort_diagnostic": false,
+      "held_preview_views": {
+        "getty_print": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_earle_framed": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_arch_topped_painting": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        },
+        "getty_watercolor": {
+          "status": "read_only_compound_observation_no_individual_assignment",
+          "geometry_or_camera_derivation": false,
+          "reason": "Held preview publication/copy rights remain unverified; no source-photo derivative, model/camera fit, material colour or new attestation is derived. Source caption1803 alone is not a dated observed state."
+        }
+      },
+      "finite_component_disposition": "Whistler dotted wharf mark/index27 is present; current river seat/deck remains reconstruction. Not independently identified in the retrospective views; no extra wharf invented."
+    }
+  ],
+  "limits": [
+    "All30existing record identities and original21/context9 counts checked individually; no newly attested records.",
+    "Each listed allowed source has a finite observation/use disposition; unidentified or concealed components do not create new modelling tickets.",
+    "T3335 adopted Whistler plan controls categorical retrospective layout differences; T3153 handles source/camera disagreement.",
+    "HeldGetty/Chicagology source rights remain unchanged; review is read-only and yields no new geometry, derived source image or held-photo camera.",
+    "Final match verdicts require actual native/render review, with published desktop/phone review supplied by the parent."
+  ],
+  "not_a_reading": "Re-reading and finite acceptance disposition of the original21+context9 existing first-fort records; no new research-spend units or record attestations.",
+  "review_date": "2026-11-10",
+  "owner_plan_ruling": {
+    "ticket": "T-3335",
+    "retained_on": "T-3041",
+    "quote": "Keep Whistler's measured plan for everything else (owner ruling): blockhouse proportions, the main gate as a gap between the barracks halves (no gate building), range functions and lengths, chimneys.",
+    "adopted_already_merged": [
+      "both blockhouse cupolas, with later owner log/lower-body/ports refinements",
+      "magazine barrel vault",
+      "north-east small-house pyramid cap",
+      "western gateway/wickets beside north-west blockhouse through both rows"
+    ]
+  },
+  "actual_render_acceptance": "Currey current existing matches is preserved with stated crop/context limits. Kurz retains differs until its actual refreshed comparison is reviewed under the adopted plan. New Lossing camera has no generated match yet. This source-coverage matrix sets no match verdict."
+}
