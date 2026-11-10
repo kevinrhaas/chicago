@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2861, ts: '2026-11-10T07:08:47.635Z', date: 'Nov 10, 2026, 1:08 AM CT', title: 'Unblock the next residents’ clothing build', kind: 'fix',
+    items: [
+      'Nothing you can see changes yet. This unblocks the build needed to refine existing residents’ clothing; their appearance remains under review.',
+    ] },
   { v: 2860, ts: '2026-11-10T05:17:20.492Z', date: 'Nov 9, 2026, 11:17 PM CT', title: 'A team for the carriage outside Glessner House', kind: 'feature',
     items: [
       'In Full and Balanced scene detail, a reconstructed pair of draft horses waits with the existing carriage south of Eighteenth Street. Its current finish is preserved, and the horses use their existing quiet motion and fitted gear.',
