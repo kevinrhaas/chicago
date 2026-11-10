@@ -105,6 +105,18 @@ basecolor, not a new image; both carry the library's licence and its one conditi
 Every file, as the checker matches them one by one:
 
 ```
+textures/chicago_1835_pbr/masonry/cat_and_clay_chimney/cat_and_clay_chimney_basecolor.webp
+textures/chicago_1835_pbr/masonry/cat_and_clay_chimney/cat_and_clay_chimney_normal_gl.ktx2
+textures/chicago_1835_pbr/masonry/cat_and_clay_chimney/cat_and_clay_chimney_normal_gl.webp
+textures/chicago_1835_pbr/masonry/cat_and_clay_chimney/cat_and_clay_chimney_orl.json
+textures/chicago_1835_pbr/masonry/cat_and_clay_chimney/cat_and_clay_chimney_orl.ktx2
+textures/chicago_1835_pbr/masonry/cat_and_clay_chimney/cat_and_clay_chimney_orm.webp
+textures/chicago_1835_pbr/masonry/chicago_clay_brick_lime_mortar/chicago_clay_brick_lime_mortar_basecolor.webp
+textures/chicago_1835_pbr/masonry/chicago_clay_brick_lime_mortar/chicago_clay_brick_lime_mortar_normal_gl.ktx2
+textures/chicago_1835_pbr/masonry/chicago_clay_brick_lime_mortar/chicago_clay_brick_lime_mortar_normal_gl.webp
+textures/chicago_1835_pbr/masonry/chicago_clay_brick_lime_mortar/chicago_clay_brick_lime_mortar_orl.json
+textures/chicago_1835_pbr/masonry/chicago_clay_brick_lime_mortar/chicago_clay_brick_lime_mortar_orl.ktx2
+textures/chicago_1835_pbr/masonry/chicago_clay_brick_lime_mortar/chicago_clay_brick_lime_mortar_orm.webp
 textures/chicago_1835_pbr/LICENSE.txt
 textures/chicago_1835_pbr/README.md
 textures/chicago_1835_pbr/RESEARCH_NOTES.md

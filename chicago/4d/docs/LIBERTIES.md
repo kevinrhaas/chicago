@@ -43285,3 +43285,14 @@ subject to actual native and ordinary-world desktop/phone image review in T-2795
 **How to resolve:** Replace this everyday stand or occupation schedule when a contemporary account, plan annotation or photograph places the coachman, and retain the separately authored tour marks.
 
 **Recorded:** 2026-11-10.
+
+### L-early-masonry-surfaces-3341 — The early town's brick and clay surfaces, with the library's reconstructed module and weathering
+
+**Decision:** untextured brick walls and masonry chimney faces in the 1812 and 1835 scenes wear the existing Chicago 1835 procedural clay-brick and lime-mortar sheet. Exterior log-cabin stacks wear its stick-and-clay sheet. The renderer projects metric face coordinates without changing a native position, normal, index or confidence. Already mapped period recipes keep their own sheets and brick shuffle. The 1904 scene binds no new surface.
+**What is read:** the library's brick generator lays 20 units and 48 courses over 4.2 m, with alternate half-unit offsets; these are reconstructed module dimensions, as its material.json already states. The clay sheet spans 2.04 m. The material disposition follows docs/RESEARCH/chimneys.md sections 2, 3 and 6: an interior ridge stack is masonry; an exterior log-gable stack is stick-and-clay. No new archival colour, brick size or bond is claimed.
+**What is reconstructed:** the procedural grain and relief; the particular face selected for each brick; up to 7 percent lightness, 3 percent warmth and 5 percent broad mottle, exactly the existing L-k03-brick-shuffle-3295 rule. The packed luminance ratio preserves the native material's mean colour. Every colour, roughness, normal and occlusion sample uses the same whole-brick permutation, with the original derivatives for mip selection.
+**The recorded ridge dispositions:** kinzie_house_1812, kinzie_lodging_house_1812, kinzie_bake_house_1812, wolf_point_tavern, philo_carpenter_log_shop, jb_beaubien_homestead and hogan_store already record chimney_ridge_at. Their stacks take the brick surface instead of the generic log archetype's clay treatment. The miller_house record instead declares frame_addition_ridge_stack: its native chimney primitive is partitioned into its disconnected ground-foot exterior stack and roof-foot ridge stack; the former takes clay and the latter brick. This partition retains every original triangle and confidence value. The inference about fabric is the standing chimney ruling, not evidence of a newly discovered survey or colour.
+**How to resolve:** a close dated picture or a source naming a particular stack's fabric replaces that stack's generic disposition; a documented brick module or weathering replaces this procedural sheet and spread for that building.
+**Ticket:** T-3341.
+**Review:** docs/RESEARCH/early-masonry-3341.md; final desktop and phone frames are recorded there when qualified.
+**Recorded:** 2026-11-10 (T-3341).

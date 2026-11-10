@@ -51,6 +51,9 @@ SHIPPED: dict[str, tuple[str, ...]] = {
     "walls/clapboard_board_face": ("normal_gl", "orm", "basecolor"),
     # renderers/web/js/wall-relief.js (T-1963)
     "walls/hewn_log_face": ("normal_gl", "orm", "basecolor"),
+    # renderers/web/js/masonry-surfaces.js (T-3341): early brick and clay relief.
+    "masonry/chicago_clay_brick_lime_mortar": ("normal_gl", "orm", "basecolor"),
+    "masonry/cat_and_clay_chimney": ("normal_gl", "orm", "basecolor"),
 }
 
 # DERIVED TILES (T-2590): a map a module does not bind as it stands but turns into

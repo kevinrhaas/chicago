@@ -124,7 +124,8 @@ OTHER_WRITERS = tuple(ASSETS / 'trees' / f'{m}.ktx2' for m in ('leaf_atlas', 'ba
 # wall-relief.js SUBSTRATES (T-2588): the normal as it stands, and the packed `orl`.
 # roof-relief.js's shingle (T-3041) takes the same pair by the same recipe: its riven
 # shingles each carry their own tone, which only an albedo ratio can show.
-WALL_SUBSTRATES = ('walls/clapboard_board_face', 'walls/hewn_log_face', 'roofs/wood_shingles_weathered')
+WALL_SUBSTRATES = ('walls/clapboard_board_face', 'walls/hewn_log_face', 'roofs/wood_shingles_weathered',
+                   'masonry/chicago_clay_brick_lime_mortar', 'masonry/cat_and_clay_chimney')
 
 
 def wall_sheets():

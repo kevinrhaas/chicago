@@ -267,6 +267,22 @@ for face in clapboard_board_face hewn_log_face; do
   for k in "$src"/*.ktx2; do [ -f "$k" ] && cp -f "$k" "$dst/"; done
 done
 
+# T-3341: the early town's brick and clay relief. The shared normal/ORL pairs
+# use the same packing, fallback and material statements as the wood walls.
+for face in chicago_clay_brick_lime_mortar cat_and_clay_chimney; do
+  src="assets/textures/chicago_1835_pbr/masonry/$face"
+  dst="$SITE/data/textures/chicago_1835_pbr/masonry/$face"
+  mkdir -p "$dst"
+  cp -f "$src/material.json" \
+        "$src/${face}_normal_gl.webp" \
+        "$src/${face}_orm.webp" \
+        "$src/${face}_basecolor.webp" \
+        "$src/${face}_normal_gl.ktx2" \
+        "$src/${face}_orl.ktx2" \
+        "$src/${face}_orl.json" \
+        "$dst/"
+done
+
 # The T-1797 ground strip's two library substrates — `renderers/web/js/ground-strip.js`,
 # drawn only under `?proof=ground`. Same asset-base rename and the same reason as
 # the roof relief above: material.json carries the metric tile the strip reads.

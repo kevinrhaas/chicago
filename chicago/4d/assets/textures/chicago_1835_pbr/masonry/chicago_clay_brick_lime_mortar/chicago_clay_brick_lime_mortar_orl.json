@@ -1,0 +1,13 @@
+{
+  "sheet": "chicago_clay_brick_lime_mortar_orl.ktx2",
+  "what": "the wall (or shingle roof) relief's packed map: R = AO, G = roughness, B = 0.5 * L / mean(L) (relief-pack.js packOrl), written bottom row first (tools/ktx2_sheets.py)",
+  "px": [
+    1024,
+    1024
+  ],
+  "mean_roughness": 0.891348,
+  "masters": {
+    "chicago_clay_brick_lime_mortar_orm.png": "6f14ef73f14db71fb85da09d84bbe987eed6e46a9bff5971b9ac88d66ce95bc5",
+    "chicago_clay_brick_lime_mortar_basecolor.png": "bdabc743fa98f1aa7d84e3a5a978c3bb658f8494c30ba767e4bb4501b2d08fa1"
+  }
+}
