@@ -474,6 +474,41 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
 }
 .arrival-readout dd[data-read="eta"] { color: var(--lamp, var(--accent)); }
 .arrival-readout dd[data-telemetry="years"] { color: var(--lamp, var(--accent)); }
+/* T-3539: the device panel — the Observatory's meter, then why it reads so and what this
+   device draws. Two lines are held from first paint, so the device does not grow when the
+   profile lands. */
+.arrival-device {
+  display: grid; gap: 4px; padding: 7px 10px 8px;
+  border: 1px solid var(--edge); border-radius: var(--r-control, 4px);
+  background: color-mix(in srgb, var(--panel-raised, var(--panel)) 55%, transparent);
+}
+.arrival-device-head { display: flex; align-items: center; gap: 8px; margin: 0; }
+.arrival-device-head > span:first-child {
+  flex: none; color: var(--ink-faint, var(--ink-dim));
+  font: var(--label-weight, 400) 8.5px/1 var(--font-label, var(--font-mono, ui-monospace, monospace));
+  letter-spacing: var(--label-tracking, .14em); text-transform: uppercase;
+}
+.arrival-device-bar { flex: 1; display: grid; grid-template-columns: repeat(20, minmax(0, 1fr)); gap: 2px; min-width: 0; }
+.arrival-device-bar i {
+  height: 8px; border-radius: 1px; background: color-mix(in srgb, var(--ink-faint, var(--ink-dim)) 25%, transparent);
+  transition: background-color 160ms ease-out;
+}
+.arrival-device-bar i.on { background: var(--lamp, var(--accent)); }
+.arrival-device-bar i.top { box-shadow: 0 0 6px color-mix(in srgb, var(--lamp, var(--accent)) 70%, transparent); }
+.arrival-device-head b {
+  flex: none; color: var(--lamp, var(--accent));
+  font: 500 13px/16px var(--font-mono, ui-monospace, monospace); font-variant-numeric: tabular-nums;
+}
+.arrival-device-head em {
+  flex: none; min-width: 4.2em; color: var(--ink); font: var(--label-weight, 400) 8.5px/1 var(--font-label, var(--font-mono, ui-monospace, monospace));
+  font-style: normal; letter-spacing: var(--label-tracking, .14em); text-transform: uppercase;
+}
+.arrival-device[data-state="reading"] .arrival-device-head em { animation: arrival-blink 1.1s steps(2) infinite; }
+.arrival-device-line {
+  margin: 0; min-height: 14px; color: var(--ink-dim, var(--ink)); font: 400 11px/14px var(--font-body, system-ui, sans-serif);
+  overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2;
+}
+.arrival-device-setup { color: var(--ink); }
 /* T-2612: the log's line for a phase still running ends in an ellipsis, not OK. */
 .arrival-log li.run::after { content: "…"; }
 .arrival-log li.fault::after { content: "FAULT"; color: var(--alert, #E0457B); }
@@ -484,7 +519,9 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
 @keyframes arrival-logline { from { transform: translateY(6px); opacity: 0; } }
 @media (prefers-reduced-motion: reduce) {
   .arrival-screen::before, .arrival-live i, .arrival-headline::after,
-  .arrival-lamps li[data-state="active"] i::after, .arrival-log li.fresh { animation: none; }
+  .arrival-lamps li[data-state="active"] i::after, .arrival-log li.fresh,
+  .arrival-device[data-state="reading"] .arrival-device-head em { animation: none; }
+  .arrival-device-bar i { transition: none; }
   .arrival-timestream, .arrival-timestream[data-state="on"] { transition: none; transform: none; }
 }
 @media (max-width: 520px) {
@@ -504,6 +541,9 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
   .arrival-readout > div:nth-child(odd) { border-left: 0; }
   .arrival-readout > div:nth-child(n + 3) { border-top: 1px solid var(--edge); }
   .arrival-readout dd { font-size: 11.5px; }
+  .arrival-device { padding: 6px 7px 7px; gap: 3px; }
+  .arrival-device-line { font-size: 10.5px; line-height: 13px; min-height: 13px; }
+  .arrival-device-setup { -webkit-line-clamp: 3; line-clamp: 3; }
 }
 
 /* ----------------------------------------------------------------- hud --- */
