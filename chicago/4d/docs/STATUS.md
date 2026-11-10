@@ -26566,6 +26566,43 @@ Balanced now uses the existing conservative shadow-caster filter. At the failing
 The complete desktop settings smoke also measured Full X-RAY at 3,737,315 triangles. Its Full-only Ghost allowance is explicitly recalibrated to 3,760,000 (the reading plus the retained 18,059 margin, rounded to 5,000), per the documented higher-tier budget policy. Ordinary Full, Balanced, Light and draw-call limits remain unchanged; all budget assertions remain active.
 
 
+### 2026-11-10 — T-2023 lodging remainder checkpoint
+
+The report distinguishes the carried adult room from the live order: its seven unspent West adult slots are historical residue, and the live West adult debt is zero. Lodger-stage vacancies and carried mint authorization are separate. Staffing payment requires the same committed civil division; unknown premises receive no payment. Existing people, housing assignments and cards remain unchanged. Completing the remainder continues in the same ticket; this checkpoint claims no new residents or ticket completion.
+
+
+### 2026-11-10 — T-2023 finite lodging reconciliation
+
+The source derivation now pays all13 live lodging-person orders and all34 missing
+household-unit receipts:56 explicit R economies plus20 known-house receipts,368
+disjoint member IDs, with a global165-house exclusive accounting crosswalk. It
+preserves all157 original person records,52 prior layer seats and1,807 accepted
+housing roofs; two additional existing North adults take real Steamboat vacancies.
+Six already-standing upper residences correct the dwelling inventory415→421;3,452
+people remain below the unchanged8.204 census ratio. A single explicitly exceptional
+West youth night stays inside Clinton H3's unchanged full26 capacity. Seven older
+whole-roof excesses remain disclosed and receive no new admissions. Full bounds,
+R secondary uses, refusal receipts and caveats are in
+`RESEARCH/1835_lodging_remainder_2023.md`. PR1920 remains in review until protected
+checks and the published walkthrough verification finish; this entry is a public
+checkpoint, not a premature ticket closure.
+
+
+### 2026-11-10 — T-2023 finite lodging reconciliation
+
+The source derivation now pays all 13 live lodging-person orders and all 34 missing
+household-unit receipts: 56 explicit R economies plus 20 known-house receipts, 368
+disjoint member IDs, with a global 165-house exclusive accounting crosswalk. It
+preserves all 157 original person records, 52 prior layer seats and 1,807 accepted
+housing roofs; two additional existing North adults take real Steamboat vacancies.
+Six already-standing upper residences correct the dwelling inventory 415→421; 3,452
+people remain below the unchanged 8.204 census ratio. A single explicitly exceptional
+West youth night stays inside Clinton H3's unchanged full 26 capacity. Seven older
+whole-roof excesses remain disclosed and receive no new admissions. Full bounds,
+R secondary uses, refusal receipts and caveats are in
+`RESEARCH/1835_lodging_remainder_2023.md`. PR1920 remains in review until protected
+checks and the published walkthrough verification finish; this entry is a public
+checkpoint, not a premature ticket closure.
 ### 2026-11-10 — T-3341 early masonry surface increment
 
 The remaining flat brick and chimney materials in 1812 and 1835 now bind the existing procedural brick or clay sheet by their recorded disposition. Already mapped fort recipes and 1904 materials are retained. The new brick shuffle reads the library's 20 by 48 running bond; Miller's mixed native stack primitive is partitioned without losing triangles or confidence. Actual desktop/default-phone before-and-after surfaces pass in both scenes (28 directly reviewed frames and two detail roundtrips). Official boot passes at 44.716135 MiB of 44.9; unchanged phone-memory gates pass at 305.664622 MiB of 350 (1812) and 509.227699 MiB of 550 (1835). All eight source-check parts and their aggregate pass on runtime `cab4514539`; PR #1918 records final protected-check and dev-merge state. See docs/RESEARCH/early-masonry-3341.md and L-early-masonry-surfaces-3341.

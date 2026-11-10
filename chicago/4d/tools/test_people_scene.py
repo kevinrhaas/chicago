@@ -45,7 +45,7 @@ def ok(msg):
 
 
 def check_how_known():
-    """Only the explicit invented trade-head category loses the source-named fallback."""
+    """Explicit invented trade heads and the T-2023 append retain model-name provenance."""
     rows = json.loads((DATA / "sidecars/1835/people.json").read_text())["people"]
     by_id = {row["id"]: row for row in rows}
     def raw(ident):
@@ -63,6 +63,13 @@ def check_how_known():
              ("trade category with civic evidence", {**person, "civic_mint": True}, False, "civic_mint"),
              ("trade category with letter evidence", {**person, "letter_list_only": True}, False, "letter_list"),
              ("grade alone proves no invented name", {"grade": "reconstructed"}, False, "documented")]
+    cases.extend([
+        ("T-2023 modeled daughter", raw("rc_chevalier_archange"), False, "reconstructed"),
+        ("T-2023 modeled youth", raw("rc_rice_reuben"), False, "reconstructed"),
+        ("older lodger category preserved", raw("rc_fisk_mary"), False, "documented"),
+        ("T-2023 row with civic evidence preserves it",
+         {**raw("rc_chevalier_archange"), "civic_mint": True}, False, "civic_mint"),
+    ])
     for ident in ("stephen_r_beggs", "susan_anderson", "pay_co_je_bai", "nau_con_ne_bec", "maub_biss"):
         source_named = raw(ident)
         if not source_named.get("name_as_read"):
@@ -106,10 +113,12 @@ def check_known_tallies(directory=None):
     for key, value in expected.items():
         if counts.get(key) != value:
             fail(f"people counts.{key} is {counts.get(key)!r}, but actual card/filter rows count {value}")
-    if not trade_ids or model_ids != trade_ids:
-        fail("reconstructed identity card category is not exactly the explicitly minted trade-head set")
+    ledger = json.loads((DATA / "reconstruction/1835_lodgers_seated.json").read_text())
+    completion_ids = {r["person"] for r in ledger["quota_basis"]["remainder_completion"]["additions"]}
+    if len(completion_ids) != 13 or not trade_ids or model_ids != trade_ids | completion_ids:
+        fail("reconstructed identity cards differ from explicit trade-head and T-2023 mint sets")
     else:
-        ok(f"{len(trade_ids)} actual trade-head identity cards agree with the reconstructed tally; source counts preserved")
+        ok(f"{len(trade_ids)} trade heads plus13 explicit T-2023 identities agree with the reconstructed tally; older categories preserved")
 
 
 def check():

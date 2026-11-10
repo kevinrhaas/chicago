@@ -8,7 +8,7 @@ The closeout of the reconstruction (T-1215) asks four joins of the committed dat
 
 | join | state | what keeps it open |
 |---|---|---|
-| Every household housed | open | 37 households without a roof yet |
+| Every household housed | open | 25 households without a roof yet |
 | Every working person at a workplace | open | 27 working people owed a workplace |
 | Every business roofed or its limit stated | closed | — |
 | Every standing roof occupied or its use stated | open | 6 standing roofs empty and owed somebody |
@@ -17,7 +17,7 @@ Dangling ids: **0**. The town is **not yet complete**: the open joins above are 
 
 ## The three tiers' shares of the people housed
 
-Of the **3,404** people housed in a standing building: **11.3 % attested** (385), **29.3 % inferred** (996), **59.4 % reconstructed** (2,023).
+Of the **3,454** people housed in a standing building: **11.3 % attested** (392), **29.0 % inferred** (1,001), **59.7 % reconstructed** (2,061).
 
 ## Every table by tier
 
@@ -25,19 +25,19 @@ Of the **3,404** people housed in a standing building: **11.3 % attested** (385)
 
 | | attested | inferred | reconstructed | all |
 |---|---:|---:|---:|---:|
-| housed | 385 | 996 | 2,023 | 3,404 |
-| counted apart — waiting on a roof | 18 | 19 | 80 | 117 |
+| housed | 392 | 1,001 | 2,061 | 3,454 |
+| counted apart — waiting on a roof | 11 | 14 | 55 | 80 |
 | counted apart — absent on the scene date | 10 | 10 | 30 | 50 |
 | unhoused (owed a roof) | 0 | 0 | 0 | 0 |
-| **all** | **413** | **1,025** | **2,133** | **3,571** |
-| share | 11.6 % | 28.7 % | 59.7 % | |
+| **all** | **413** | **1,025** | **2,146** | **3,584** |
+| share | 11.5 % | 28.6 % | 59.9 % | |
 
 ### Households (by the head's grade)
 
 | | attested | inferred | reconstructed | all |
 |---|---:|---:|---:|---:|
-| housed | 371 | 980 | 565 | 1,916 |
-| counted apart — waiting on a roof | 18 | 19 | 0 | 37 |
+| housed | 378 | 985 | 565 | 1,928 |
+| counted apart — waiting on a roof | 11 | 14 | 0 | 25 |
 | counted apart — absent on the scene date | 10 | 10 | 30 | 50 |
 | unhoused (owed a roof) | 0 | 0 | 0 | 0 |
 | **all** | **399** | **1,009** | **595** | **2,003** |
