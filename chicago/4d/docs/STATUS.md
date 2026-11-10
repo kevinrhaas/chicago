@@ -13,10 +13,22 @@ returns indoors until the next period. Failed arrivals, changed dates/hours, Go
 inside, greetings and jaunt takeover release the pair. Chores have working poses
 and short clear movements; the coachman's watch remains stationary.
 
-Focused day-engine, household-interaction and multi-era routine tests pass. All
-four local check partitions pass (323, 323, 323 and 322 checks). Published
-phone/desktop verification and PR checks are pending; no merge or release pass
-is claimed here yet.
+The published 1904 browser probe passes at 390×780 and 1280×800: compact
+menus fit, a requested companion arrives, the pair converse and return indoors,
+and Go inside still works. An unrelated driver joining the roster exposed a
+conversation cancellation; resident state now survives unrelated arrivals and
+departures, with a regression that fails before the fix and passes afterward.
+The behavior probe uses accelerated simulation clocks and is not a frame-time
+measurement; default-quality menu screenshots were also inspected.
+
+Focused day-engine, household-interaction (76), passage (109), jaunt-host,
+duties, spacing and multi-era routine tests pass. All four final local check
+partitions pass (323, 323, 323 and 322 checks), as does preflight. The initially
+skipped datum check passes after installing its missing dependency. PR #1922
+remains draft pending final PR checks and the final-runtime published smoke.
+Validation also repaired a stale smoke expectation for the brick/clay material
+groups already added by T-3341; strict missing/duplicate/map checks remain.
+See [the verification record](RESEARCH/household-interactions-3536/README.md).
 
 ## T-2795 — 1904 figures follow the visible pavement (2026-11-10)
 

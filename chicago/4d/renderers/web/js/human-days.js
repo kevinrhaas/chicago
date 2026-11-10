@@ -792,12 +792,20 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
   }
 
   function collect() {
-    for (const session of [...socials]) endSocial(session);
+    const actors = humans.actors, active = new Set(actors);
+    const previous = new Map(people.map(p => [p.actor, p]));
+    // Vehicles and other visitors can change the roster during a household's
+    // activity. Keep each existing resident's paths, calls and shared session.
+    for (const session of [...socials]) {
+      if (session.members.some(p => !active.has(p.actor) || p.b !== p.actor.instance?.behaviour)) endSocial(session);
+    }
     people = [];
-    for (const actor of humans.actors) {
+    for (const actor of actors) {
       if (spawned.some((q) => q.actor === actor)) continue;
       const b = actor.instance?.behaviour;
       if (!b || (!Array.isArray(b.day) && !b.presence && !b.quarters)) continue;
+      const prior = previous.get(actor);
+      if (prior?.b === b) { people.push(prior); continue; }
       people.push({
         actor, b, id: actor.id, rand: seededRandom(`day:${actor.id}`), span: null, inside: null,
         mode: actor.indoors ? 'in' : 'out', absent: false, called: null, job: null,
@@ -1010,7 +1018,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
       p.token = (p.token ?? 0) + 1;
       talk(p.actor, false);
       // A jaunt or another interaction now owns its actor and path.
-      if (unavailable(p)) continue;
+      if (unavailable(p) || !humans.actors.includes(p.actor)) continue;
       offWay(p); p.actor.stopPath?.(); p.actor.path = null; talk(p.actor, false);
       const current = spanAt(dayOn(p.b, date(), keyOf(p)), hour());
       if (current?.activity === 'talk') restAfterTalk(p);

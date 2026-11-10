@@ -418,6 +418,13 @@ console.log('1904 seasonal coverage, door calls, temporary activities and jaunt 
   assert.equal([asker, worker].filter((a) => a.actions.talking).length, 1);
   assert(Math.hypot(asker.e - worker.e, asker.n - worker.n) <= 2.2, 'partners actually meet');
   assert(asker.looks && worker.looks, 'both attend to each other');
+  const participant = layer.people.find(p => p.actor === asker), session = participant.social;
+  const passerby = actorOf(rec('passing_driver', {}), 'Passing driver');
+  actors.push(passerby); tick(0.25);
+  assert.equal(layer.people.find(p => p.actor === asker), participant, 'an unrelated arrival preserves the resident state');
+  assert.equal(participant.social, session, 'an unrelated arrival cannot cancel the conversation');
+  actors.pop(); tick(0.25);
+  assert.equal(participant.social, session, 'an unrelated departure cannot cancel the conversation');
   const first = asker.actions.talking;
   tick(4);
   assert.notEqual(asker.actions.talking, first, 'speaking turns alternate');
@@ -465,5 +472,10 @@ console.log('1904 seasonal coverage, door calls, temporary activities and jaunt 
   assert(layer.request(asker.id, 0).ok); tick(4);
   d = '1904-07-02'; tick(3);
   assert(!layer.people.some((p) => p.social), 'a date change cancels the old conversation');
+  assert(layer.request(asker.id, 0).ok); tick(4);
+  const removed = layer.people.find(p => p.actor !== asker && p.social).actor;
+  actors.splice(actors.indexOf(removed), 1); tick(3);
+  assert(!layer.people.some(p => p.social), 'removing an actual participant releases the remaining person');
+  assert(asker.indoors, 'the remaining person resumes duties');
 }
 console.log('paired household discussions: outdoor/indoor partners, arrivals, return, timeouts and interruptions hold');
