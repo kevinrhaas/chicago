@@ -50,7 +50,7 @@
     {
       "id": "log_jail_palisade",
       "file": "data/enclosures/log_jail_palisade.json",
-      "sha256": "4de1ab8905eb5af96e3ab249e797b29e5baa8c9cd3429c9c9b1fae6f1891de8f"
+      "sha256": "68d377d4dd54269c1ed939e898bb8df387ff1fd7ff5cd38483c21aa0b120d3af"
     },
     {
       "id": "log_jail_keeper_link",
@@ -77,7 +77,7 @@
     },
     {
       "file": "renderers/web/js/enclosures.js",
-      "sha256": "4dfac316ce02d19ad5d01f2186d0e85fb1372f4f0c64c6769ea26bffc085887d"
+      "sha256": "f6b439fdb9d614ac2b882b0ce4c18f7a20d099b2998f0a3561ffa6e5f71d169d"
     },
     {
       "file": "renderers/web/js/gates.js",
@@ -100,12 +100,12 @@
       "sha256": "3718df126d69c125362a03340913204470d8c50238605150e57f808840fb7759"
     }
   ],
-  "enclosures_sha256": "66d972818f54bef0981811b852ed7d0f4eb5995a60bd72e3c563e5b33f1a3f75",
+  "enclosures_sha256": "c727e48210c74b05933163c55b089f810235ed2efeed194873a37ad4ebabdca5",
   "side_by_side": "docs/RESEARCH/photo-match/log_jail/andreas_1884_context-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
     {
-      "what": "Previously absent high plank palisade is now present in the actual native enclosure render. Gale p.51 supplies the kind/existence; overall3.05m height, compact outline and stock are declared reconstructions, not picture measurements.",
+      "what": "Previously absent high plank palisade is now present in the actual native enclosure render. Gale p.51 supplies the kind/existence; overall3.05m height, compact outline and stock are declared reconstructions, not picture measurements. HEIGHT TRIAL 2026-11-10 (T-2380): the reconstructed overall height is now 2.44 m; 3.05 m describes the preceding comparison. Neither number is a measured historic fence height.",
       "status": "fixed"
     },
     {
@@ -121,7 +121,7 @@
       "status": "fixed"
     },
     {
-      "what": "Andreas shows a hip/pyramidal rear cap, conflicting with Gale’s taller gable. The mostly concealed original jail core/later-cell identity is unresolved; the post-July courthouse is deliberately absent from the July scene.",
+      "what": "Andreas shows a hip/pyramidal rear cap, conflicting with Gale\u2019s taller gable. The mostly concealed original jail core/later-cell identity is unresolved; the post-July courthouse is deliberately absent from the July scene.",
       "status": "within tolerance"
     },
     {
@@ -129,7 +129,11 @@
       "status": "within tolerance"
     },
     {
-      "what": "The plate shows the log jail's log gable rising above the plank fence immediately beside the keeper house. In this render the core is concealed behind the palisade and does not read at all. Same unresolved core-exposure question as the Gale view.",
+      "what": "The prior 3.05 m palisade concealed almost all of the retained jail core. FIXED IN PART 2026-11-10 (T-2380): at this unchanged authored camera the reconstructed 2.44 m palisade now leaves a shallow band of the existing core roof visible above the fence. This fixes complete concealment only; the source's taller exposed core/cap profile remains different. Core/keeper models, placement, grade plane, camera and full source are unchanged. Neither fence height nor the retained core form is measured from this diagnostic composition.",
+      "status": "fixed"
+    },
+    {
+      "what": "The newly exposed retained low roof does not reproduce the plate's tall log core and cap above the fence. The 2.44 m fence trial does not resolve that form/identity disagreement with Gale or date the pictured compound to July 1835. The post-July courthouse remains deliberately absent.",
       "status": "open"
     },
     {
@@ -141,7 +145,7 @@
       "status": "within tolerance"
     },
     {
-      "what": "The plate draws a light plank fence of separate boards; the render's palisade is one flat dark mass. No per-board stock is modelled and none is claimed.",
+      "what": "The actual native palisade already has separate 254 mm boards, 6 mm gaps and 127 mm pointed heads; no stock or material changes are made here. The distant diagnostic render still reads as a broad dark fence rather than the plate's visibly separated vertical members. Finish and stock legibility remain unresolved. The monochrome plate supplies no literal paint colour.",
       "status": "open"
     },
     {
@@ -149,5 +153,5 @@
       "status": "fixed"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

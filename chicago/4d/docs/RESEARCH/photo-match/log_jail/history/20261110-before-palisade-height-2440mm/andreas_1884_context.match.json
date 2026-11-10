@@ -1,0 +1,153 @@
+{
+  "structure_id": "log_jail",
+  "view": "andreas_1884_context",
+  "glb": "assets/gltf/log_jail__log_1833.glb",
+  "glb_sha256": "e767412faebcd8b77a680d188d89458ea879cf467ec56494a8df1a49a2e65dec",
+  "camera_sha256": "22fab9978a88c613df36d100cc39e996092593be141e86695063878d7739724a",
+  "photo_sha256": "1fcbfe2a1f6c1b71439e5f0ad39fba8d3d59c319be73c4d706c2f9b2d3577277",
+  "rendered_members": [
+    {
+      "structure_id": "log_jail",
+      "glb": "assets/gltf/log_jail__log_1833.glb",
+      "placement": {
+        "local_e": 465.51,
+        "local_n": -275.87,
+        "rotation_deg": 0,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "log_1833"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "e767412faebcd8b77a680d188d89458ea879cf467ec56494a8df1a49a2e65dec"
+    },
+    {
+      "structure_id": "log_jail_keeper_house",
+      "glb": "assets/gltf/log_jail_keeper_house__frame_1835.glb",
+      "placement": {
+        "local_e": 473.31,
+        "local_n": -274.57,
+        "rotation_deg": 0,
+        "scene": "1835",
+        "target_date": "1835-07-01",
+        "phase": "frame_1835"
+      },
+      "position": [
+        7.800000000000011,
+        0,
+        -1.3000000000000114
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "91837241ab0873cbbd27c9f64cd314cc453e41addf019657da3afc8a98c6978b"
+    }
+  ],
+  "group_sha256": "b9a143ef6fe010920b352fc008d860d9267ed9aae03d75a5427efc1e1d333c67",
+  "rendered_enclosures": [
+    {
+      "id": "log_jail_palisade",
+      "file": "data/enclosures/log_jail_palisade.json",
+      "sha256": "4de1ab8905eb5af96e3ab249e797b29e5baa8c9cd3429c9c9b1fae6f1891de8f"
+    },
+    {
+      "id": "log_jail_keeper_link",
+      "file": "data/enclosures/log_jail_keeper_link.json",
+      "sha256": "1594cc81214cd4f5d8e3612d1e6010d4b10d5e92df95b66e892561bfb283e6ee"
+    }
+  ],
+  "enclosure_anchor": {
+    "local_e": 465.51,
+    "local_n": -275.87,
+    "rotation_deg": 0,
+    "scene": "1835",
+    "target_date": "1835-07-01",
+    "phase": "log_1833"
+  },
+  "enclosure_renderer_sources": [
+    {
+      "file": "tools/photo_match.mjs",
+      "sha256": "75e452b467c22fc5d00cd4b512706c364c942d181869e504f7218ea25167a79c"
+    },
+    {
+      "file": "tools/photo_match_enclosures.mjs",
+      "sha256": "9355a03ab1b636f056c951dc8a8cf7a2bb8e922d90ff189474ccff3edf296f37"
+    },
+    {
+      "file": "renderers/web/js/enclosures.js",
+      "sha256": "4dfac316ce02d19ad5d01f2186d0e85fb1372f4f0c64c6769ea26bffc085887d"
+    },
+    {
+      "file": "renderers/web/js/gates.js",
+      "sha256": "7d54b76befcadeb9b2d6704059a83d513a6feb47325a1eaaa3ccf2a832d56448"
+    },
+    {
+      "file": "renderers/web/js/compact-streams.js",
+      "sha256": "791877a11a15c7754ed7269338bc2b42bc4eb3d65a08fa3fd6c5f7c2e5f4f4de"
+    },
+    {
+      "file": "renderers/web/js/gpu-pick.js",
+      "sha256": "4314066f2eed63983df7230e375879358b89152168f1b3ee0a55992347a6c11a"
+    },
+    {
+      "file": "renderers/web/vendor/three-0.185.1/three.module.js",
+      "sha256": "bbf5ed13fe4373f5bd38b14ea8e62e9f157327da5638edc6d3863e08b167c9c7"
+    },
+    {
+      "file": "renderers/web/vendor/three-0.185.1/three.core.js",
+      "sha256": "3718df126d69c125362a03340913204470d8c50238605150e57f808840fb7759"
+    }
+  ],
+  "enclosures_sha256": "66d972818f54bef0981811b852ed7d0f4eb5995a60bd72e3c563e5b33f1a3f75",
+  "side_by_side": "docs/RESEARCH/photo-match/log_jail/andreas_1884_context-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "Previously absent high plank palisade is now present in the actual native enclosure render. Gale p.51 supplies the kind/existence; overall3.05m height, compact outline and stock are declared reconstructions, not picture measurements.",
+      "status": "fixed"
+    },
+    {
+      "what": "The actual native palisade now has pointed closed-board heads matching the pictured top form. Exact point rise and stock dimensions remain reconstructed.",
+      "status": "fixed"
+    },
+    {
+      "what": "The keeper house pictured partly within the compound is absent. Its footprint, original-cell relationship and July1835 continuity are unresolved; no anonymous house is relabelled or invented in this increment. RESOLVED 2026-11-03 (T-2380): The keeper house is now built and rendered in the group: log_jail_keeper_house__frame_1835.glb. Andreas draws the small white house beside the jail from a different side than Gale; the built elevation follows Gale, and that disagreement is recorded below rather than reconciled.",
+      "status": "fixed"
+    },
+    {
+      "what": "The pictured compound enclosure/gate relationship extends around the keeper house. The current compact enclosure and open doorway-aligned passage do not reproduce that whole compound or its hung gate. Layout and gate attribution remain unresolved. RESOLVED 2026-11-03 (T-2380): The continuous palisade front and the low house-side gate are now rendered. Their layout is reconstruction.",
+      "status": "fixed"
+    },
+    {
+      "what": "Andreas shows a hip/pyramidal rear cap, conflicting with Gale’s taller gable. The mostly concealed original jail core/later-cell identity is unresolved; the post-July courthouse is deliberately absent from the July scene.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "Provisional compound framing, distance and principal point are diagnostic choices. The full source is uncropped; common flat ground is a review adapter. This is not a solved source camera or a historical From this spot location, and neither pixel scale nor perspective disagreement is promoted into a metric geometry error.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "The plate shows the log jail's log gable rising above the plank fence immediately beside the keeper house. In this render the core is concealed behind the palisade and does not read at all. Same unresolved core-exposure question as the Gale view.",
+      "status": "open"
+    },
+    {
+      "what": "Scale and placement in frame differ grossly: the plate's jail group stands close behind the courthouse at the right of a near view, while the render puts the compound small and far off at the right edge. The camera here is diagnostic_only and was never solved to this plate, so this is a framing difference and is not promoted to a geometry error.",
+      "status": "open"
+    },
+    {
+      "what": "The plate's dominant subject, the brick Cook County court-house, is deliberately absent from the render: it was erected in the fall of 1835 and the county moved in toward the end of October, after the 1835-07-01 scene date. This is a date decision, not a modelling gap.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "The plate draws a light plank fence of separate boards; the render's palisade is one flat dark mass. No per-board stock is modelled and none is claimed.",
+      "status": "open"
+    },
+    {
+      "what": "The keeper house's end gable took the roof-shingle material rather than wall boarding (see the Gale view, which is the plate that shows this end). FIXED 2026-11-04 (T-2380) by the same material-role change. In THIS plate the jail group is small at the right edge and the keeper's gable spans a few dozen pixels (93 px changed), so this view neither shows nor tests the correction; it is recorded here only so the two records do not disagree about the model.",
+      "status": "fixed"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}
