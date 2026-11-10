@@ -1,0 +1,1 @@
+Actual before-core comparisons using the final Gale northeast diagnostic and unchanged Andreas context camera, old genuine core MASTER e767412f, unchanged keeper and2.44m enclosure. Full sources and cameras are identical to the final after capture. These genuine before records remain unreviewed comparison baselines, not final acceptance.

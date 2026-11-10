@@ -1,0 +1,125 @@
+{
+  "status": "PINNED_BEFORE_INPUTS_NOT_ACCEPTANCE",
+  "created_utc": "2026-11-10T02:41:07.048968+00:00",
+  "root": "/tmp/chicago-west-wicket-20261109/chicago/4d",
+  "fixture": "/tmp/nov10-jail-core-comparison/before/fixture",
+  "native_model_base": "e8342e42555d65481080bbd5450bcf905006c910",
+  "source_head": "a5fb62eb4483d80c6643fc0f07f5dc5581c79a93",
+  "files": {
+    "assets/manifest.json": {
+      "sha256": "8bcf1e5c171c9f040d9b5ccacd4b2c867af549c0e6d55b763cc755c0edb2a47f",
+      "bytes": 383967,
+      "fixture_exact": true
+    },
+    "assets/gltf/log_jail__log_1833.glb": {
+      "sha256": "e767412faebcd8b77a680d188d89458ea879cf467ec56494a8df1a49a2e65dec",
+      "bytes": 79736,
+      "fixture_exact": true
+    },
+    "assets/gltf/log_jail_keeper_house__frame_1835.glb": {
+      "sha256": "91837241ab0873cbbd27c9f64cd314cc453e41addf019657da3afc8a98c6978b",
+      "bytes": 70700,
+      "fixture_exact": true
+    },
+    "data/sidecars/1835/log_jail.json": {
+      "sha256": "bbb5e5c8f79f8e301f8ad49403b2472dba66ee6da91bfa91b2ffc9103223d7c9",
+      "bytes": 23848,
+      "fixture_exact": true
+    },
+    "data/sidecars/1835/log_jail_keeper_house.json": {
+      "sha256": "0f2c731fbde42a6761d1dbe1a80ef69f5b73cd00c027e78bc74d20d4f1090608",
+      "bytes": 10743,
+      "fixture_exact": true
+    },
+    "data/enclosures/index.json": {
+      "sha256": "53b984bfd136ab007b6af91ce6a4ead83291f292ef6b2c6aaebc0e0db1f5f5fb",
+      "bytes": 7310,
+      "fixture_exact": true
+    },
+    "data/enclosures/log_jail_palisade.json": {
+      "sha256": "68d377d4dd54269c1ed939e898bb8df387ff1fd7ff5cd38483c21aa0b120d3af",
+      "bytes": 7853,
+      "fixture_exact": true
+    },
+    "data/enclosures/log_jail_keeper_link.json": {
+      "sha256": "1594cc81214cd4f5d8e3612d1e6010d4b10d5e92df95b66e892561bfb283e6ee",
+      "bytes": 4399,
+      "fixture_exact": true
+    },
+    "data/scenes/1835.json": {
+      "sha256": "39cfbf12e026824db260289b0a60e3b48da7ee88212ef51268b495b2b81cdafb",
+      "bytes": 10688,
+      "fixture_exact": true
+    },
+    "data/reference_views/log_jail/gale_1902.json": {
+      "sha256": "9e19aa287e966b8be1bcb51e3044efab9d27d6b021ac56803b59acd9145fa239",
+      "bytes": 1767,
+      "fixture_exact": true
+    },
+    "data/reference_views/log_jail/andreas_1884_context.json": {
+      "sha256": "22fab9978a88c613df36d100cc39e996092593be141e86695063878d7739724a",
+      "bytes": 1254,
+      "fixture_exact": true
+    },
+    "tools/photo_match.mjs": {
+      "sha256": "75e452b467c22fc5d00cd4b512706c364c942d181869e504f7218ea25167a79c",
+      "bytes": 20696,
+      "fixture_exact": true
+    },
+    "tools/photo_match_group.mjs": {
+      "sha256": "12f1f96e154df492e269bc7e4e8f783805e83e8ddcabce5e0f33c1a623a5a930",
+      "bytes": 3769,
+      "fixture_exact": true
+    },
+    "tools/photo_match_enclosures.mjs": {
+      "sha256": "9355a03ab1b636f056c951dc8a8cf7a2bb8e922d90ff189474ccff3edf296f37",
+      "bytes": 4529,
+      "fixture_exact": true
+    },
+    "tools/photo_match_flora.mjs": {
+      "sha256": "c973a45041a77a11ea32e30302cdc3eda3dc5516ad715fb0b1e14060f08b5c87",
+      "bytes": 7254,
+      "fixture_exact": true
+    },
+    "renderers/web/js/enclosures.js": {
+      "sha256": "f6b439fdb9d614ac2b882b0ce4c18f7a20d099b2998f0a3561ffa6e5f71d169d",
+      "bytes": 49789,
+      "fixture_exact": true
+    },
+    "renderers/web/js/gates.js": {
+      "sha256": "7d54b76befcadeb9b2d6704059a83d513a6feb47325a1eaaa3ccf2a832d56448",
+      "bytes": 7029,
+      "fixture_exact": true
+    },
+    "renderers/web/js/compact-streams.js": {
+      "sha256": "791877a11a15c7754ed7269338bc2b42bc4eb3d65a08fa3fd6c5f7c2e5f4f4de",
+      "bytes": 30725,
+      "fixture_exact": true
+    },
+    "renderers/web/js/gpu-pick.js": {
+      "sha256": "4314066f2eed63983df7230e375879358b89152168f1b3ee0a55992347a6c11a",
+      "bytes": 25451,
+      "fixture_exact": true
+    },
+    "renderers/web/vendor/three-0.185.1/three.module.js": {
+      "sha256": "bbf5ed13fe4373f5bd38b14ea8e62e9f157327da5638edc6d3863e08b167c9c7",
+      "bytes": 650153,
+      "fixture_exact": true
+    },
+    "renderers/web/vendor/three-0.185.1/three.core.js": {
+      "sha256": "3718df126d69c125362a03340913204470d8c50238605150e57f808840fb7759",
+      "bytes": 1443056,
+      "fixture_exact": true
+    },
+    "data/sources/assets/log_jail_gale_1902/page_n79.jpg": {
+      "sha256": "d1fa0afa1dcd10af3b97ba11b46510fd71dd6504f6f9574aba73828e0fefb85a",
+      "bytes": 643815,
+      "fixture_exact": true
+    },
+    "../reference/images/chicago/chicago_first_courthouse_1835.jpg": {
+      "sha256": "1fcbfe2a1f6c1b71439e5f0ad39fba8d3d59c319be73c4d706c2f9b2d3577277",
+      "bytes": 3621851,
+      "fixture_exact": true
+    }
+  }
+}
