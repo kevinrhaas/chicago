@@ -106,7 +106,8 @@ CUPOLA_PORT_IN_M = 0.40
 CONSUMED = frozenset({
     "kind", "stories", "wall_height_m", "roof_type", "roof_pitch_deg", "barrel_rise_m",
     "construction", "paint", "chimneys", "gallery", "loopholes", "sun_dial",
-    "upper_overhang_m", "lantern", "gallery_storeys", "face_openings",
+    "upper_overhang_m", "lantern", "gallery_storeys", "gallery_stair_side", "face_openings",
+    "construction_site",
     "lantern_profile", "tower_diameter_m", "tower_openings", "tower_profile",
     "tower_lantern_detail", "tower_masonry", "cupola",
     # T-3041: a cupola's own wall fabric and body height, opt-in per record
@@ -195,6 +196,8 @@ class FortStructureParams:
     # T-3041: a small lookout port in each of the cap's four faces. Off by default.
     cupola_ports: bool = field(default=False, kw_only=True)
     gallery_storeys: int = field(default=1, kw_only=True)
+    gallery_stair_side: str = field(default="none", kw_only=True)
+    construction_site: bool = field(default=False, kw_only=True)
     face_openings: list | None = field(default=None, kw_only=True)
 
     # Lighthouse-only opt-ins. Keep all existing positional and gallery controls.
@@ -413,6 +416,19 @@ class FortStructureParams:
                 raise ParamError("a double gallery requires gallery=true on quarters or barracks")
             if self.stories != 2:
                 raise ParamError("a double gallery requires a two-storey range")
+        if self.gallery_stair_side not in ("none", "left", "right"):
+            raise ParamError("gallery_stair_side must be none, left or right")
+        if self.gallery_stair_side != "none" and not (self.gallery and self.gallery_storeys == 2):
+            raise ParamError("outside gallery stairs require a double gallery")
+        if not isinstance(self.construction_site, bool):
+            raise ParamError("construction_site must be a boolean")
+        if self.construction_site and not (
+                self.kind == "magazine" and self.construction == "brick"
+                and self.roof_type == "none" and self.stories == 1
+                and self.chimneys == 0 and not self.gallery and not self.cupola
+                and min(self.width_m, self.depth_m) >= 6):
+            raise ParamError("construction_site requires a roofless one-storey brick magazine "
+                             "at least 6 m wide/deep, without stacks, gallery or cupola")
         if not isinstance(self.cupola, bool):
             raise ParamError("cupola is a yes or no, not a count or a size")
         if self.cupola_construction not in CUPOLA_CONSTRUCTIONS:
@@ -649,6 +665,8 @@ def from_phase(phase: dict, record: dict | None = None) -> FortStructureParams:
         chimneys=int(val("chimneys", 0)),
         gallery=bool(val("gallery", False)),
         gallery_storeys=val("gallery_storeys", 1),
+        gallery_stair_side=val("gallery_stair_side", "none"),
+        construction_site=val("construction_site", False),
         face_openings=val("face_openings", None),
         loopholes=bool(val("loopholes", False)),
         cupola=bool(val("cupola", False)),

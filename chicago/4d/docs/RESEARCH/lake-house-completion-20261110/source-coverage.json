@@ -1,0 +1,45 @@
+{
+  "read_date": "2026-11-10",
+  "source_id": "chicagology_prefire112",
+  "page_url": "https://chicagology.com/prefire/prefire112/",
+  "rights_status": "check_required",
+  "scope": "Read for identity/date/source applicability only; no geometry or asset derived. Neither image count nor source status claims an exhaustive archival search.",
+  "images": [
+    {
+      "local_read_name": "lakehouse1859.jpg",
+      "bytes": 388335,
+      "sha256": "ee5dcba82ab98aada9cc91ba4869e9d172309a1c9f53ee36e31f449667e028ef",
+      "kind": "photograph",
+      "date_read_from_held_image_or_page": "page About1860; filename1859",
+      "july1835_ruling": "later_completed_state",
+      "asset_derivation": false
+    },
+    {
+      "local_read_name": "lakehouse1857ad.jpg",
+      "bytes": 1629049,
+      "sha256": "977e6b4eb9e5f0826b07d2a64fd7b3c10d9bf4c45b18fa0820e2e30fcf636dba",
+      "kind": "text_advertisement",
+      "date_read_from_held_image_or_page": "1857-09-05",
+      "july1835_ruling": "no_architecture",
+      "asset_derivation": false
+    },
+    {
+      "local_read_name": "lakehouse1854menu.jpg",
+      "bytes": 3034000,
+      "sha256": "8498f7624c962ba06321f9ffa41c4eb3474a393d6d080f7956edab3f20d9fcd1",
+      "kind": "text_advertisement_and_menu",
+      "date_read_from_held_image_or_page": "1856-11-15 /1854-06-11",
+      "july1835_ruling": "no_architecture",
+      "asset_derivation": false
+    },
+    {
+      "local_read_name": "lakehouse1869map.jpg",
+      "bytes": 10283561,
+      "sha256": "53961fbc31c62593f54b5a2e47197f1148d80e65b44c67e64df80bb690a87a79",
+      "kind": "map_reproduction",
+      "date_read_from_held_image_or_page": "page1869",
+      "july1835_ruling": "later_mapped_state",
+      "asset_derivation": false
+    }
+  ]
+}

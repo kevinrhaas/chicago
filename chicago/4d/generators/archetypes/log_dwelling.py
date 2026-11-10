@@ -73,7 +73,7 @@ from archetypes.log_dwelling_params import (  # noqa: E402
     ADDITION_WIN_HALF_M, DOOR_HALF_M, WIN_AT_FRAC, WIN_HALF_M, LogDwellingParams,
     addition_extent, addition_front_rects, core_extent, core_front_rects,
     lean_to_extent, compound_front_rects, resolved_core_ridge_axis,
-    compound_aperture_rects,
+    compound_aperture_rects, compound_wall_height,
 )
 
 #: This archetype's roof COVERING, off the sheet's dealing rule (T-1487).
@@ -1393,11 +1393,12 @@ def _compound(b: MeshBuilder, p: LogDwellingParams) -> None:
     roof intersections and openings have no measured elevation.
     """
     roofs = []
-    for r, roof, axis, opening in p.compound_parts:
+    for index, (r, roof, axis, opening) in enumerate(p.compound_parts):
         x0,y0,x1,y1 = r
-        hewn_log_wall(b,x0,y0,x1,y1,0.0,p.wall_height_m,1.0,M_LOG,M_CHINK,
+        eave = compound_wall_height(p, index)
+        hewn_log_wall(b,x0,y0,x1,y1,0.0,eave,1.0,M_LOG,M_CHINK,
                       skip=("bottom","top"))
-        ridge = b.add_gable_roof(*roof,p.wall_height_m,p.roof_pitch_deg,1.0,M_ROOF,
+        ridge = b.add_gable_roof(*roof,eave,p.roof_pitch_deg,1.0,M_ROOF,
                                   ridge_along_x=axis == "x")
         roofs.append(ridge)
     stated=compound_aperture_rects(p)
@@ -1415,7 +1416,19 @@ def _compound(b: MeshBuilder, p: LogDwellingParams) -> None:
         _compound_aperture(b,plane,u0,u1,z0,z1,c_ap,kind=kind,gable=zone == "gable")
     # Retain the recorded count, but choose the outermost rooms for the two
     # stacks. Their axis, position, section and head remain reconstructed.
-    if p.chimneys:
+    if p.compound_ridge_stacks is not None:
+        for room, at, width in p.compound_ridge_stacks:
+            _wall, roof, axis, _ = p.compound_parts[room]
+            x0, y0, x1, y1 = roof
+            cx = x0 + at * (x1 - x0) if axis == "x" else (x0 + x1) / 2
+            cy = (y0 + y1) / 2 if axis == "x" else y0 + at * (y1 - y0)
+            half = width / 2
+            foot = roofs[room] - half * math.tan(math.radians(p.roof_pitch_deg)) - 0.25
+            head = roofs[room] + 0.72 if p.chimney_head_m is None else p.chimney_head_m
+            b.add_box(cx-half, cy-half, foot, cx+half, cy+half, head,
+                      p.worst_conf("chimneys", "compound_ridge_stacks"), M_CHIMNEY_AFTER_SIGN,
+                      skip=("bottom",))
+    elif p.chimneys:
         indices=[min(range(len(p.compound_parts)),key=lambda i:p.compound_parts[i][0][0])]
         if p.chimneys == 2:
             indices.append(max(range(len(p.compound_parts)),key=lambda i:p.compound_parts[i][0][2]))

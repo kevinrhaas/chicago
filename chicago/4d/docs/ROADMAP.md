@@ -6458,3 +6458,17 @@ The three source trials now have pinned native83 evidence, exact81 unchanged MAS
 ### 2026-11-10 — T-3041 northwest coverage, PR #1905
 
 Two actual canonical northwest-blockhouse comparisons now preserve the existing Currey14-member and Kurz30-member world frames. Currey has only bounded existing owner-ruling acceptance with crop/context limits; Kurz retains two finite open composition/identity questions. The compiler's pictured badge reflects two already credited whole depictions, while geometry, attribute confidence and the Images list stay unchanged. Original T-3041/T-2387 coverage of the other dated pictures and the complete component inventory remains partial. The first-fort west wickets and cupolas already delivered must not be redone.
+
+
+### 2026-11-10 — finish T-2374/T-2376/T-2379/T-2380/T-2383 in the combined parcel
+
+The five finite source reconstructions are integrated: compact Cobweb plan/roof-stack count, Green Tree's two rear-range gable levels and connector fall, Gale-selected jail core/light, Sauganash capped stacks, and the bounded Lake House July worksite. Preserve all source/date/rights qualifications and the accepted Carpenter-shop anchors. Complete one combined pinned native batch and actual control audit, review every cleared current picture from its existing or expressly diagnostic framing, apply T-3153 to demonstrated source/camera conflicts, and inspect the published body/entrances/yard/terrain on desktop and phone. Keep Lake House's completed later hotel picture as wrong-date context for July progress; do not backdate its roof or cupola. Close the original tickets only from the actual integrated acceptance evidence, without new photo follow-ups or fabricated dimensions.
+
+
+### 2026-11-10 — Native picture group integrated; Green Tree upper row remains open
+
+PR #1907 integrates pinned native run42745792113, retained9dd9ba7ddd22c6ff87e52522497205f62133fa1f from source64a752353bc66fa6bfa58c853b90c32625f7b739. All375 selected bindings are fresh. Actual audit proves370 controls preserve non-UV geometry, materials, confidence and consumed UVs with identical published bytes;364 masters are identical and6 differ only in unused UV channels. All671 foreign defaults and4 variants remain exact. Three1812 door-cache hash changes independently rederive with unchanged door poses.
+
+Cobweb Castle, the jail and Sauganash/Carpenter contexts have actual fresh reviewed picture records. Lake House uses a dated wrong-state image disposition, not an invented July match; its published worksite qualification remains required. Official yard/entrance/planting/settled-ground derivations remove the old Cobweb prop intrusions, and11 dependent source checks pass. Existing accepted Currey views were actually refreshed without closing the first-fort original.
+
+Green Tree is PARTIAL: its raised rear gable, low connector and lower foreground sash are visibly built, but Trowbridge clearly shows THREE upper front windows and the current model has TWO. Allthree fresh records say differs and keep that categorical omission open. T-2376 will finish with T-3041/T-2388 in the next three-ticket group and one combined scoped build. No new photo follow-up is filed. Final protected source gate and published desktop/phone checks remain pending at this checkpoint. The smoke consumer repairs target actual current collapsed review disclosure, enabled building destination and stand-in-face disclosure; they do not change product behavior or budgets.

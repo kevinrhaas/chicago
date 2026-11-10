@@ -1,0 +1,21 @@
+{
+  "structure_id": "green_tree_tavern",
+  "source_id": "kurz_allison_1893",
+  "photo": "../../sources/assets/prefire_views_kevin_2026_08/p6_0.png",
+  "image_px": [
+    569,
+    354
+  ],
+  "principal_px": [
+    712.0071412579274,
+    239.42664825844744
+  ],
+  "focal_px": 1252.7958930833577,
+  "eye": [
+    -43.717622775524745,
+    31.542775594125285,
+    2.792544193691254
+  ],
+  "yaw_deg": 133.27189016307628,
+  "solve": "Fixed review framing for the already held retrospective kurz_allison_1893 image. Six approximate visible wall-base/plate corners fitted while holding existing 7.62 x 12.19 m core and 5.0 m wall; those lengths are model inputs, not dimensions measured from this drawing. RMS 1.63 px per coordinate and maximum point residual 3.51 px. Source picks and residuals: docs/RESEARCH/green-tree-annex-T-2376/kurz_1893_panel11-camera-fit.json. Drawing perspective is not a calibrated physical lens or historical viewpoint, and residual camera/picture disagreements are within tolerance under T-3153. Source is retrospective and may depend on the other admitted pictures, and establishes no exact July1835 stage. The stronger detailed Andreas closed shoulder and rear group are retained; Trowbridge open-bay and upper/attic disagreements are explicit source conflict, not proof of a dated conversion. Default neutral review light is retained: this drawing supplies no measured sun/material specification. Isolated current native asset only: app terrain, procedural signage, people, wagons, masts and neighbours are separately reviewed and are not inferred from this neutral plane."
+}

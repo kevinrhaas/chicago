@@ -1,0 +1,32 @@
+{
+  "status": "PASS_TWO_ACTUAL_NATIVE_JAIL_IMAGE_REVIEWS_UNDER_T3153",
+  "core_master_sha256": "2b8cb0d6729ddcd1a3ead2af9bf9ce9bcff4e846bd0b8855ea39aa3af9527a25",
+  "keeper_master_sha256": "91837241ab0873cbbd27c9f64cd314cc453e41addf019657da3afc8a98c6978b",
+  "before_receipt_sha256": "e65935a4af51e1b2f7a01450e312a74ab92ec317d64f7f5a12f70b88e22e0a49",
+  "after_receipt_sha256": "c16a93daf10c39697d72249159623f8ed99cb7bc3d2a712b77c119217c416eb1",
+  "raw_visible_inset_px": [
+    425,
+    1010,
+    477,
+    1028
+  ],
+  "bar_crossbar_legibility": "within tolerance, not claimed individually sharp",
+  "views": {
+    "gale_1902": {
+      "verdict": "matches",
+      "match_sha256": "ca3d53240068905d12c2bcb43142c0d35e195bd949e82a0f6ec242a97fd78b1b",
+      "pair_sha256": "65082ac606dc5523fe6e2b6b1f13c9b5b2236ad7429ed156f1edad5333fa2c51"
+    },
+    "andreas_1884_context": {
+      "verdict": "matches",
+      "match_sha256": "d812b3386f9b9f73f1c25ac07db10be4a8813168a2d36391e0074d9a5b610e36",
+      "pair_sha256": "d8bc8b73a094cb5489513c15806fcdeecf9417bb666b70389463348b636ce82d"
+    }
+  },
+  "limits": [
+    "No historical camera/metres or exactJuly1835 appearance claimed.",
+    "Gale1836 and Andreas contradictory roof/elevation remain disclosed.",
+    "PostJuly courthouse and undated later cell are not backdated.",
+    "Published desktop/phone/terrain acceptance is parent-owned and separate."
+  ]
+}
