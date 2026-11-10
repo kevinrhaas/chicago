@@ -1,0 +1,27 @@
+{
+  "status": "PASS_EXACT_BUILD_SELECTION_CLOSURE",
+  "pinned_HEAD": "6b11594bbd1d1a4e9fdd864878359ccf1c54edfc",
+  "actual_build_resolver_extracted_from": "generators/build.py resolve_phase AST (no bpy/build import/execution)",
+  "selected_structure_ids": 83,
+  "actual_all_scene_default_phase_outputs": 83,
+  "actual_all_scene_variant_phase_outputs": 0,
+  "exactly_frozen_manifest_scope": true,
+  "scene_date_inputs": [
+    {
+      "path": "data/scenes/1812.json",
+      "sha256": "786cb14c08dff8dfab47cfe5f69dfb0c912632afbbdfb1a11be44fbc1d09d3b4",
+      "target_date": "1812-08-14"
+    },
+    {
+      "path": "data/scenes/1835.json",
+      "sha256": "39cfbf12e026824db260289b0a60e3b48da7ee88212ef51268b495b2b81cdafb",
+      "target_date": "1835-07-01"
+    },
+    {
+      "path": "data/scenes/1904.json",
+      "sha256": "5b17f717511981042766af5fddbe8148d7f30aa1baa0bfdf3f591e2fa84ae15a",
+      "target_date": "1904-07-01"
+    }
+  ],
+  "claim_limit": "Read-only selection simulation using the actual builder date resolver. No Blender/native dispatch or export."
+}

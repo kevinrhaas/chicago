@@ -1,0 +1,33 @@
+{
+  "structure_id": "green_tree_tavern",
+  "view": "kurz_1893_panel11",
+  "glb": "assets/gltf/green_tree_tavern__frame_1833.glb",
+  "glb_sha256": "114b98c2dc057bbc47f66ce158bc984be438399e0c4984222b93e810d542714f",
+  "camera_sha256": "1f7e255d0ab46b9f0e912fd37d559dd912f79e37c82af2e9fc08ea53fb021b6f",
+  "photo_sha256": "fef7a7b6c46f41319e6937d56156c724640e431c75463a6c27d014928c1c7955",
+  "side_by_side": "docs/RESEARCH/photo-match/green_tree_tavern/kurz_1893_panel11-side-by-side.jpg",
+  "verdict": "unreviewed",
+  "differences": [
+    {
+      "status": "fixed",
+      "what": "Actually viewed the final native124bf059 pair and the prior661c9a pair against whole Kurz panel11. The core two-storey gable, two stacks, seven long-wall bays and lower front two sash/viewer-right door are retained; the closed shoulder and pointed upper light, low connector falling toward the foreground range, and two separate lower foreground/higher rear gable peaks are now present. The foreground upper light is lowered in its low gable and upper infill carries clapboard relief."
+    },
+    {
+      "status": "within tolerance",
+      "what": "The higher rear gable appears broader and exact eave/ridge tilts, projected spacing and small opening offsets differ from the stylized panel. These drawing/camera projection differences are within tolerance under T3153, not independent physical dimensions. No remaining missing or wrong categorical building element is identified."
+    },
+    {
+      "status": "not shown",
+      "what": "Kurz is a retrospective chromolithograph, potentially dependent on Andreas. Its artistic colour wash is not a contemporary July1835 paint specification; existing finish provenance is retained without asserting exact historical pigment or literal daylight."
+    },
+    {
+      "status": "not shown",
+      "what": "The isolated asset excludes app terrain, procedural sign/walks, people, masts and neighbours. Actual application and current WEB acceptance belong to the parent desktop/phone review, not this neutral plane."
+    },
+    {
+      "status": "open",
+      "what": "Actual final9dd model has only two upper front-gable sash. Trowbridge clearly shows three; the narrow left-edge detail in Andreas/Kurz was not safely resolved by the prior two-window reading. This is a categorical opening-count omission, not a camera/pixel tolerance. A same-ticket front_upper_layout correction will add three upper stations in the next grouped native. Current9dd remains differs; no original T2376 closure is claimed."
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

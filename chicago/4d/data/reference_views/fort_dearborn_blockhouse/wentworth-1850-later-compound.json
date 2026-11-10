@@ -1,0 +1,64 @@
+{
+  "structure_id": "fort_dearborn_blockhouse",
+  "scene": "1835",
+  "source_id": "wentworth_1881_fort_1850_cut",
+  "image_px": [
+    1940,
+    2900
+  ],
+  "principal_px": [
+    970,
+    1100
+  ],
+  "focal_px": 1513.7569833798866,
+  "eye": [
+    -147.54990708692117,
+    216.8130385451387,
+    100
+  ],
+  "yaw_deg": 124.60398758246501,
+  "basis_right_up_forward": [
+    [
+      -0.5679010310413586,
+      -0.8230968466360212,
+      0
+    ],
+    [
+      0.3061917084402153,
+      -0.21125896379045067,
+      0.9282328845180219
+    ],
+    [
+      0.7640255601906418,
+      -0.527144412164279,
+      -0.3719996130365632
+    ]
+  ],
+  "sky": "overcast",
+  "also_render": [
+    "fort_dearborn_artillery_house",
+    "fort_dearborn_barracks",
+    "fort_dearborn_big_barn",
+    "fort_dearborn_commandants_quarters",
+    "fort_dearborn_flagstaff",
+    "fort_dearborn_garrison_garden",
+    "fort_dearborn_guard_house",
+    "fort_dearborn_magazine",
+    "fort_dearborn_officers_quarters",
+    "fort_dearborn_out_building_a",
+    "fort_dearborn_out_building_b",
+    "fort_dearborn_palisade",
+    "fort_dearborn_parade",
+    "fort_dearborn_root_house",
+    "fort_dearborn_root_house_b",
+    "fort_dearborn_shop",
+    "fort_dearborn_store_house",
+    "fort_dearborn_sutlers_store",
+    "fort_dearborn_us_factors_house",
+    "fort_dearborn_wash_house"
+  ],
+  "diagnostic_only": true,
+  "photo": "../../sources/assets/second_fort_wentworth_1881/p43_fort_1850.jpg",
+  "card_members": [],
+  "solve": "LATER1850STATE,T-2388. The actualPD1881p43cut labels thisFortDearbornin1850 after vonSchneidau, including completedMarineHospital and later board fence. This composition clearly resembles the1893Kurzpanel5 and is a dependent/later comparison, not a new1835survey. ExistingT3040world eye,basis,yaw and focal are held unchanged; principal[970,1100] frames the actual full-page source (the text/caption stays visible below). All21July1835members render as context on common grade, no later hospital or civilian buildings invented. Only the unique blockhouse identifies securely enough for this camera anchor; no unkeyed caption alignment automatically assigns galleries/openings/stacks to named ranges. The1850removed-picket board fence, enlarged parade, later roofs and hospital are explicitly excluded fromJuly1835. Camera limits and cross-date composition are withinT3153tolerance;diagnostic_only never historicalspot. Actualpagep43source acquired directly fromIA,page/n50.jpg; seecoverage matrix."
+}

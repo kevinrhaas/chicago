@@ -1,0 +1,8 @@
+{
+  "status": "FAIL_NATIVE_AUDIT",
+  "retained_sha_supplied": "d6076c038f5d7e103c922110b568c3188436ec25",
+  "error_type": "AssertionError",
+  "error": "Unexpected retained changed paths ['chicago/4d/data/sidecars/1812/kinzie_house_1812.json', 'chicago/4d/data/sidecars/1812/kinzie_house_1812_green.json']",
+  "traceback": "Traceback (most recent call last):\n  File \"/tmp/nov10-kinzie-native-qualification/audit-retained.py\", line 269, in main\n    try:r=audit(args)\n          ^^^^^^^^^^^\n  File \"/tmp/nov10-kinzie-native-qualification/audit-retained.py\", line 263, in audit\n    require(set(changes)<=allowed,'Unexpected retained changed paths '+repr(sorted(set(changes)-allowed)));require(required<=set(changes),'Missing intended target/native registry changes '+repr(sorted(required-set(changes))))\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/tmp/nov10-kinzie-native-qualification/audit-retained.py\", line 19, in require\n    if not ok: raise AssertionError(message)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Unexpected retained changed paths ['chicago/4d/data/sidecars/1812/kinzie_house_1812.json', 'chicago/4d/data/sidecars/1812/kinzie_house_1812_green.json']\n",
+  "claim_limit": "No native acceptance. Investigate literal failure; do not weaken scope/control checks to force green."
+}

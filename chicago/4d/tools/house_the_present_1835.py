@@ -280,6 +280,8 @@ def seed(*parts) -> str:
 
 def read_inputs() -> dict:
     index = load(DATA / "sidecars" / YEAR / "index.json")
+    lodging_caps = {p["id"]: p["beds_crowded"] for p in
+                    load(DATA / "reconstruction/1835_lodging_model.json")["places"]}
     roofs, standing = {}, set()
     for row in index["structures"]:
         standing.add(row["id"])
@@ -297,6 +299,7 @@ def read_inputs() -> dict:
             "area": floor_area((sidecar.get("footprint") or {}).get("polygon"),
                                value_of(attributes.get("stories"))),
             "beds": (recon.get("capacity") or {}).get("beds_ordinary"),
+            "crowded_beds": lodging_caps.get(row["id"]),
             "function": value_of(record.get("function")),
             "assigned_to": (record.get("resident_assignment") or {}).get("household_id"),
         }
@@ -418,9 +421,47 @@ def division_of(card: dict, row: dict | None) -> str | None:
     return None
 
 
+def standing_dwelling_stock(roofs: dict, inhabited: set) -> set:
+    """Residential fabric counts whether occupied or vacant; a shop is not a tenant."""
+    return {sid for sid, row in roofs.items()
+            if (row["family"] in DWELLING_FAMILIES and not row["documented"])
+            or row["function"] == "store_residence"
+            or (row["documented"] and row["function"] in DOCUMENTED_DWELLINGS)} | inhabited
+
+
+def carried_housing_basis(inputs: dict) -> dict | None:
+    """Accept the previous deal once; new roof capacity cannot re-deal its people.
+
+    The old writer re-ranked every household after each lodger mint. T-2023
+    preserves the accepted household/roof pairs and lets only unplaced households
+    enter the remaining queue. The captured membership is a floor, not a new draw.
+    """
+    if not OUT.exists():
+        return None
+    committed = load(OUT)
+    if committed.get("allocation_basis"):
+        basis = copy.deepcopy(committed["allocation_basis"])
+        if basis.get("version") != 1:
+            raise ValueError("unsupported carried housing allocation basis")
+        return basis
+    return {
+        "version": 1,
+        "ticket": "T-2023",
+        "source_ledger_sha256": hashlib.sha256(OUT.read_bytes()).hexdigest(),
+        "note": "Existing household/roof assignments accepted before the later "
+                "lodging remainder. New members and new residential capacity do not "
+                "silently re-rank or remove these accepted assignments.",
+        "seats": copy.deepcopy(committed["seats"]),
+        "members": {s["household"]: sorted(p["id"] for p in
+                     inputs["cards"][s["household"]]["card"].get("persons", []))
+                    for s in committed["seats"]},
+    }
+
+
 def deal(inputs: dict) -> dict:
     roofs, cards, book = inputs["roofs"], inputs["cards"], inputs["book"]
     standing, vessels, seated = inputs["standing"], inputs["vessels"], inputs["seated"]
+    allocation_basis = carried_housing_basis(inputs)
 
     pool = {sid: r for sid, r in roofs.items()
             if r["family"] in DWELLING_FAMILIES and not r["documented"]
@@ -514,7 +555,9 @@ def deal(inputs: dict) -> dict:
         division = division_of(cards[hid]["card"], book.get(hid))
         return division, [sid for sid, r in (offered or pool).items()
                           if (division is None or r["district"] == division)
-                          and r["family"] in families_ok]
+                          and r["family"] in families_ok
+                          and (r.get("crowded_beds") is None
+                               or people[sid] + size(hid) <= r["crowded_beds"])]
 
     homes = DWELLING_FAMILIES - LODGING_FAMILIES
 
@@ -599,7 +642,9 @@ def deal(inputs: dict) -> dict:
         for hid in singles:
             division = division_of(cards[hid]["card"], book.get(hid))
             beds = [sid for sid, free in lodging_beds.items()
-                    if free > 0 and (division is None or pool[sid]["district"] == division)]
+                    if free > 0 and (division is None or pool[sid]["district"] == division)
+                    and (pool[sid].get("crowded_beds") is None
+                         or people[sid] + size(hid) <= pool[sid]["crowded_beds"])]
             if beds:
                 sid = min(beds, key=lambda s: (-lodging_beds[s], seed(hid, s, TICKET)))
                 lodging_beds[sid] -= 1
@@ -615,9 +660,38 @@ def deal(inputs: dict) -> dict:
 
     def standing_dwellings():
         inhabited = {sid for sid, n in people.items() if n > 0}
-        return {sid for sid, r in roofs.items()
-                if (r["family"] in DWELLING_FAMILIES and not r["documented"])
-                or (r["documented"] and r["function"] in DOCUMENTED_DWELLINGS)} | inhabited
+        # T-2023: a vacant C2 upper residence remains residential stock, just as
+        # an empty D/H/T does. Admission does not offer a store to a tenant or
+        # overturn T-2244's finding that nobody lived over it.
+        return standing_dwelling_stock(roofs, inhabited)
+
+    carried_present, carried_ruled, carried_keepers = set(), set(), set()
+    if allocation_basis:
+        for row in allocation_basis["seats"]:
+            hid, sid = row["household"], row["place"]
+            if hid not in cards or sid not in standing or hid in seated:
+                raise ValueError(f"carried housing assignment invalidated: {hid} at {sid}")
+            current_ids = {p["id"] for p in cards[hid]["card"].get("persons", [])}
+            if not set(allocation_basis["members"][hid]) <= current_ids:
+                raise ValueError(f"a carried household lost a member: {hid}")
+            eligible = owed if row["presence"] == "on_the_card" else ruled_owed
+            if hid not in eligible:
+                raise ValueError(f"a carried household is no longer eligible: {hid}")
+            # Retain the complete accepted row, updating only a legitimately
+            # enlarged household's size. The place and its reasoning are carried.
+            retained = dict(row, persons=len(current_ids))
+            seats.append(retained)
+            people[sid] += len(current_ids)
+            if row["rung"] == "lodger":
+                lodging_beds[sid] = max(0, lodging_beds.get(sid, 0) - len(current_ids))
+            if row["rung"] == "keeper":
+                stores_taken.add(sid)
+                kept[row["division"]] += 1
+                if row["presence"] == "ruled_in":
+                    carried_keepers.add(hid)
+            (carried_present if row["presence"] == "on_the_card" else carried_ruled).add(hid)
+        owed = [hid for hid in owed if hid not in carried_present]
+        ruled_owed = [hid for hid in ruled_owed if hid not in carried_ruled]
 
     # THE PRESENT ON THEIR CARDS (T-1971): every one is owed a roof and every one gets one.
     seat_cohort(owed, "on_the_card")
@@ -734,6 +808,7 @@ def deal(inputs: dict) -> dict:
         "parent_ticket": "T-1965",
         "target_date": "1835-07-01",
         "generated_by": "tools/house_the_present_1835.py",
+        "allocation_basis": allocation_basis,
         "liberty": LIBERTY,
         "not_a_reading": "no page of any source is read here. Every seat is an adjudication over "
                          "committed records — which standing dwelling a present household with no "
@@ -755,9 +830,9 @@ def deal(inputs: dict) -> dict:
         ],
         "counts": {
             "present_households_already_housed": already,
-            "present_households_owed_a_roof": len(owed),
+            "present_households_owed_a_roof": len(owed) + len(carried_present),
             "ruled_in_households_already_housed": ruled_already,
-            "ruled_in_households_owed_a_roof": len(ruled_owed),
+            "ruled_in_households_owed_a_roof": len(ruled_owed) + len(carried_ruled),
             "of_them_only_at_work_on_a_roof": sum(h in inputs["at_work_only"]
                                                   for h in owed + ruled_owed),
             "seated": len(seats),
@@ -858,8 +933,8 @@ def deal(inputs: dict) -> dict:
             "the_line_stops": "at the first household the census's people per dwelling cannot "
                               "take; nobody behind it is seated, so a weaker ruling never takes "
                               "a roof a stronger one waits for",
-            "admitted": len(admitted),
-            "kept_a_store_before_the_line": len(ruled_keepers),
+            "admitted": len(admitted) + len(carried_ruled - carried_keepers),
+            "kept_a_store_before_the_line": len(ruled_keepers) + len(carried_keepers),
             "waiting": len(waiting),
             "admitted_by_leg": dict(sorted(Counter(inputs["ruled"][h] for h in admitted).items())),
             "waiting_by_leg": dict(sorted(Counter(inputs["ruled"][h] for h in waiting).items())),
@@ -890,6 +965,31 @@ def render(doc: dict) -> str:
 
 def problems(doc: dict, inputs: dict) -> list[str]:
     out = []
+    basis = doc.get("allocation_basis") or {}
+    assigned = {row["household"]: row for row in doc["seats"]}
+    for row in basis.get("seats", []):
+        current = assigned.get(row["household"])
+        if current is None or current["place"] != row["place"]:
+            out.append(f"a carried housing assignment moved or disappeared: {row['household']}")
+    # A frozen excess is disclosed, not spare room for another admission.
+    baseline_people, current_people = {}, {}
+    for sid, rows in compile_residents(housing=False).items():
+        ids = {p["id"] for row in rows if row.get("relation") != WORKED_HERE
+               for p in inputs["cards"][row["household"]]["card"].get("persons", [])}
+        baseline_people[sid] = set(ids)
+        current_people[sid] = set(ids)
+    for target, rows in ((baseline_people, basis.get("seats", [])),
+                         (current_people, doc["seats"])):
+        for row in rows:
+            if row["household"] not in inputs["cards"]:
+                continue
+            target.setdefault(row["place"], set()).update(
+                p["id"] for p in inputs["cards"][row["household"]]["card"].get("persons", []))
+    if basis:
+        for sid, ids in current_people.items():
+            cap = inputs["roofs"].get(sid, {}).get("crowded_beds")
+            if cap is not None and len(ids) > max(cap, len(baseline_people.get(sid, set()))):
+                out.append(f"new housing admission increases lodging roof crowding: {sid}")
     pool_ok = {sid for sid, r in inputs["roofs"].items() if r["family"] in DWELLING_FAMILIES
                and not r["documented"] and r["occupants"] in (None, "")}
     seen = Counter(s["household"] for s in doc["seats"])
@@ -1034,6 +1134,16 @@ def report(doc: dict) -> str:
 
 def self_test(inputs: dict) -> int:
     failures = []
+    # A vacant store-residence has sleeping fabric; a vacant pure shop does
+    # not. Neither inventory classification makes a tenant or an eligible seat.
+    fixture = {
+        "empty_d": {"family": "D1", "documented": False, "function": "house"},
+        "upper_rooms": {"family": "C2", "documented": False,
+                        "function": "store_residence"},
+        "shop_only": {"family": "C1", "documented": False, "function": "store"},
+    }
+    if standing_dwelling_stock(fixture, set()) != {"empty_d", "upper_rooms"}:
+        failures.append("vacant upper residences omitted or pure shops invented as dwellings")
     base = deal(inputs)
     if problems(base, inputs):
         failures.append("the committed deal is not clean to begin with")
@@ -1047,6 +1157,13 @@ def self_test(inputs: dict) -> int:
     expect("a seat on a roof the scene does not stand",
            lambda d: d["seats"][0].update(place="no_such_structure"))
     expect("a household seated twice", lambda d: d["seats"].append(dict(d["seats"][0])))
+    if base.get("allocation_basis"):
+        carried = base["allocation_basis"]["seats"][0]
+        expect("an accepted household moved by a later mint", lambda d: next(
+            s for s in d["seats"] if s["household"] == carried["household"]).update(
+                place=next(sid for sid in inputs["standing"] if sid != carried["place"])))
+        expect("an accepted household dropped by a later mint", lambda d: d.update(
+            seats=[s for s in d["seats"] if s["household"] != carried["household"]]))
     expect("a seat on a documented building", lambda d: d["seats"][0].update(
         place=next(s for s, r in sorted(inputs["roofs"].items()) if r["documented"])))
     expect("a present household left unhoused",
@@ -1106,7 +1223,7 @@ def self_test(inputs: dict) -> int:
     if failures:
         print("SELF-TEST FAILED — the guard did not fire on: " + "; ".join(failures))
         return 1
-    print("self-test: all seventeen guards fire")
+    print("self-test: capacity inventory and all housing preservation/eligibility guards fire")
     return 0
 
 

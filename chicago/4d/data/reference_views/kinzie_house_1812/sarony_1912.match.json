@@ -2,10 +2,52 @@
   "structure_id": "kinzie_house_1812",
   "view": "sarony_1912",
   "glb": "assets/gltf/kinzie_house_1812__kinzie_1804.glb",
-  "glb_sha256": "940d58e82a70b1980812525f9e3534caa6dca38ce894e0a112844615686ce373",
-  "camera_sha256": "826b04c696c43c08d70020c7d0df221b92245e9e4e6ac210c9be841a2c7a111a",
+  "glb_sha256": "24cd4c30b5c8b8d350c017aa63d016464c6064cab56724a4986a639a02f5e417",
+  "camera_sha256": "751c6dd92380aa1fe3f47204cec234da15ed07a8c1c2bf669d82e93a81b2475e",
+  "photo_sha256": "e8d7e0ef844ca111484ba4abcae47154be20545281924947b466ff4b808b7eee",
+  "rendered_members": [
+    {
+      "structure_id": "kinzie_house_1812",
+      "glb": "assets/gltf/kinzie_house_1812__kinzie_1804.glb",
+      "placement": {
+        "local_e": 1158.096,
+        "local_n": 342.706,
+        "rotation_deg": 180,
+        "scene": "1812",
+        "target_date": "1812-08-14",
+        "phase": "kinzie_1804"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "24cd4c30b5c8b8d350c017aa63d016464c6064cab56724a4986a639a02f5e417"
+    },
+    {
+      "structure_id": "kinzie_house_1812_green",
+      "glb": "assets/gltf/kinzie_house_1812_green__kinzie_1804.glb",
+      "placement": {
+        "local_e": 1143.5,
+        "local_n": 318,
+        "rotation_deg": 0,
+        "scene": "1812",
+        "target_date": "1812-08-14",
+        "phase": "kinzie_1804"
+      },
+      "position": [
+        14.596000000000007,
+        0,
+        -24.706000000000014
+      ],
+      "rotation_y": 3.141592653589793,
+      "glb_sha256": "299ba9c64df65653ba7797191e2fb0ccd2929dae3b77c8a62f819c6cd38413fa"
+    }
+  ],
+  "group_sha256": "cb3cad56edacf94a15202e6811a00efbc9ca5c73a50e1dd3bdab2ad04fa7eddd",
   "side_by_side": "docs/RESEARCH/photo-match/kinzie_house_1812/sarony_1912-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "massing: a long, low, single-storey house under a gable roof along the river, the west gable toward the eye and the front running away to the right; the build's apex, the end wall's corners and both stacks land within 3-6 px",
@@ -24,7 +66,7 @@
       "status": "fixed"
     },
     {
-      "what": "the west end: a small light high in the gable (x 294-301, y 203-216 px), a window toward the back of the end wall (x 284-292, y 224-241) and a door toward its front (x 300-309, y 230-264) with a step before it; built (end_openings), each within about 3 px of the drawn, except that the drawn door is taller, its head about 10 px above the build's 1.95 m door, under a lintel",
+      "what": "The west gable light/window and taller end doorway are now built. Actual retained native ground-leaf probe: sill0.02m, head2.52m,2.50m clear, unchanged horizontal station/width; front door unchanged. The former1.95m head visibly sat too low in the BEFORE. Direct AFTER shows the taller leaf beneath its lintel and below3.0m plate. Exact height is a bounded reconstructed choice, not a historical dimension.",
       "status": "fixed"
     },
     {
@@ -32,25 +74,36 @@
       "status": "fixed"
     },
     {
-      "what": "length: the posts are drawn about 25 px apart where the build's 2.39 m bays draw 29-33 px from this camera, so the front reads about 0.85 of the build's 40 ft against its end, as the Teich painting and the Gemmell plate also draw it. The roof does not agree with the posts: both stacks, at 0.08 and 0.55 of a 40 ft ridge, land within 3 px of the drawn ones. So the 40 ft length (L-kinzie-house-1812-2497) stands and the spacing is read as the draughtsman's",
-      "status": "open"
+      "what": "length: the posts are drawn about 25 px apart where the build's 2.39 m bays draw 29-33 px from this camera, so the front reads about 0.85 of the build's 40 ft against its end, as the Teich painting and the Gemmell plate also draw it. The roof does not agree with the posts: both stacks, at 0.08 and 0.55 of a 40 ft ridge, land within 3 px of the drawn ones. So the 40 ft length (L-kinzie-house-1812-2497) stands and the spacing is read as the draughtsman's T-2484 direct AFTER adjudication: The roof/stacks fit the retained40ft ridge, while the drawn piazza posts/front appear shorter and its far end is partly screened by the first poplar. These incompatible fit/occlusion cues are not a surveyed physical dimension. Four front sash/six posts are retained. The40by22ft choice remainsR; actual flora is qualified separately, not falsely present in this native pair.",
+      "status": "within tolerance"
     },
     {
-      "what": "walls: drawn light, smooth-faced and whitewashed, front and end; the standing ruling, which this ticket (T-2516) leaves alone: the 1812 house is built of squared logs (Moses and Kirkland), and a picture that draws the house light and smooth is evidence of a later cladding or whitewash. Not built for 1812",
-      "status": "open"
-    },
-    {
-      "what": "the picket fence round the green, the landing, the four poplars in a row and the great tree behind the house: built outside this GLB, as kinzie_house_1812_green and data/flora/plantings/kinzie_house_1812_trees.json; this render is the house alone",
+      "what": "The directly viewed AFTER now has pale whitewashed hewn logs and matching chinking, replacing the dark uncoated BEFORE. This matches the source’s visible pale wall treatment without inventing weatherboard substrate. The coating’s presence/date and exact tone remain reconstructed; Sarony household caption includes1804–1813 but does not date installation. Native log_finish=whitewash, L-kinzie-house-completion-2484.",
       "status": "fixed"
     },
     {
-      "what": "outbuildings and a two-storey house up the road to the west, behind the house: Wau-Bun's outbuildings and the neighbours' houses are T-2484's other pieces, not this record",
-      "status": "open"
+      "what": "Canonical scope now actually includes the native17.0by15.5m fenced green, rather than a house-only GLB. Its unsupported39m width is physically removed. The17m width is a bounded reconstruction relative to the12.192m house, not a dimension read from image pixels. The drawings lay the garden edge nearly level while their building/roof fits imply converging lines; retained house-fit cameras therefore leave optical fence-corner offsets. For Sarony, the rendered front corners are approximately(445,293)/(663,278) against hand-read drawn front boundaries near(440,303)/(618,304); these are pixel/camera-fit disagreements, NOT historical metre measurements or a claim of exact overlay. Committed green/house ground is1.50–1.54m, so a large terrain-height excuse was tested and rejected. T3153 permits drawing/camera-fit disagreements within tolerance; no wrong fence count/type, missing enclosed green or independently established physical gap over0.3m is left. Exact metrics remainR in L-kinzie-house-completion-2484. The four poplars and two cottonwoods are procedural separate members, NOT rendered in these pairs; their actual published full-context acceptance remains required before ticket closure.",
+      "status": "within tolerance"
+    },
+    {
+      "what": "outbuildings and a two-storey house up the road to the west, behind the house: Wau-Bun's outbuildings and the neighbours' houses are T-2484's other pieces, not this record These are separate existing1812 records outside this canonical house+green pair, not omitted parts of the house; actual published household context review remains mandatory.",
+      "status": "not shown"
     },
     {
       "what": "colour: a monochrome lithograph",
       "status": "not shown"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown}. A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
+  "review": {
+    "reviewed_utc": "2026-11-10T13:31:47.342213+00:00",
+    "method": "Each original source and each exact actual native AFTER pair directly viewed; no camera/source pixel moved. Original generated UNREVIEWED records/raw PNGs preserved before adjudication.",
+    "native_run": 42818215260,
+    "native_source": "6b11594bbd1d1a4e9fdd864878359ccf1c54edfc",
+    "retained_native": "d6076c038f5d7e103c922110b568c3188436ec25",
+    "canonical_scope": "house+native fenced green on common grade; no procedural trees, outbuildings,river or calibrated colour implied",
+    "direct_review": "Direct primary source+after pair: pale log surfaces, two ridge stacks, swept15-degree piazza under30-degree main slope, six posts, central front door with two sash each side, west gable light/window and now taller west doorway. Actual native clear leaf is0.02..2.52m, with unchanged horizontal station/width and front door. Ridge/stacks retain the earlier solved footprint fit; the shortened drawn piazza and garden perspective are not treated as surveyed physical dimensions. The far post/end is partly hidden by poplars in the source.",
+    "rule": "T3153: fixed actual visible physical misses; explicit incompatible source/date/camera-fit cues within tolerance. No new photo follow-up.",
+    "supplemental_tree_context": "REQUIRED_BEFORE_T2484_CLOSURE: actual publisheddesktop/defaultphoneNormal/ByGrade must show all6accepted planted stems/species/heights/positions and honest inferred ecology versus reconstructed planting liberties."
+  }
 }

@@ -1,0 +1,57 @@
+{
+  "status": "READ_ONLY_COMMITTED_HEIGHTFIELD_CHECK_NOT_RUNTIME_OR_VISUAL_ACCEPTANCE",
+  "epoch": "e1830_natural",
+  "points": [
+    {
+      "e": 1143.5,
+      "n": 318,
+      "height_m": 1.4954
+    },
+    {
+      "e": 1160.5,
+      "n": 318,
+      "height_m": 1.5008000000000004
+    },
+    {
+      "e": 1143.5,
+      "n": 333.5,
+      "height_m": 1.5070000000000001
+    },
+    {
+      "e": 1160.5,
+      "n": 333.5,
+      "height_m": 1.5304000000000002
+    },
+    {
+      "e": 1145.904,
+      "n": 333.9,
+      "height_m": 1.51
+    },
+    {
+      "e": 1158.096,
+      "n": 333.9,
+      "height_m": 1.526192
+    },
+    {
+      "e": 1145.904,
+      "n": 336,
+      "height_m": 1.5107232000000002
+    },
+    {
+      "e": 1158.096,
+      "n": 342.706,
+      "height_m": 1.5350982208000001
+    },
+    {
+      "e": 1156,
+      "n": 331.2,
+      "height_m": 1.52096
+    },
+    {
+      "e": 1156,
+      "n": 319.2,
+      "height_m": 1.5107199999999992
+    }
+  ],
+  "claim_limit": "Actual committed bilinear heightfield only; browser placement also samples actual native feet."
+}

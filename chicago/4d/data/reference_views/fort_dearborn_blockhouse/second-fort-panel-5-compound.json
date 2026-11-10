@@ -1,0 +1,66 @@
+{
+  "structure_id": "fort_dearborn_blockhouse",
+  "scene": "1835",
+  "source_id": "kurz_allison_1893",
+  "image_px": [
+    1081,
+    579
+  ],
+  "principal_px": [
+    540.5,
+    289.5
+  ],
+  "focal_px": 1513.7569833798866,
+  "eye": [
+    -147.54990708692117,
+    216.8130385451387,
+    100
+  ],
+  "yaw_deg": 124.60398758246501,
+  "basis_right_up_forward": [
+    [
+      -0.5679010310413586,
+      -0.8230968466360212,
+      0
+    ],
+    [
+      0.3061917084402153,
+      -0.21125896379045067,
+      0.9282328845180219
+    ],
+    [
+      0.7640255601906418,
+      -0.527144412164279,
+      -0.3719996130365632
+    ]
+  ],
+  "sky": "overcast",
+  "also_render": [
+    "fort_dearborn_artillery_house",
+    "fort_dearborn_barracks",
+    "fort_dearborn_big_barn",
+    "fort_dearborn_commandants_quarters",
+    "fort_dearborn_flagstaff",
+    "fort_dearborn_garrison_garden",
+    "fort_dearborn_guard_house",
+    "fort_dearborn_magazine",
+    "fort_dearborn_officers_quarters",
+    "fort_dearborn_out_building_a",
+    "fort_dearborn_out_building_b",
+    "fort_dearborn_palisade",
+    "fort_dearborn_parade",
+    "fort_dearborn_root_house",
+    "fort_dearborn_root_house_b",
+    "fort_dearborn_shop",
+    "fort_dearborn_store_house",
+    "fort_dearborn_sutlers_store",
+    "fort_dearborn_us_factors_house",
+    "fort_dearborn_wash_house"
+  ],
+  "diagnostic_only": true,
+  "photo": "../../sources/assets/prefire_views_kevin_2026_08/p3_1.png",
+  "card_members": [
+    "fort_dearborn_palisade"
+  ],
+  "solve": "THE T-3040 FIT, REUSED UNCHANGED AS A CONTROLLED BEFORE/AFTER FRAME (T-2388). Every camera number here \u2014 principal point, focal length, eye and basis \u2014 is copied from docs/RESEARCH/fort-reference-groups-T-3040/second-fort-panel-5.json verbatim, so the two renders this folder holds differ only by the blockhouse's own bytes. It is NOT an accepted photographic camera and no better one is claimed: that fit reached its imposed 100 m eye bound, both stockade endpoints are cropped, and the drawing compresses the compound, so the whole fort renders aerial and undersized against a nearly level print. diagnostic_only, therefore: a review frame, never a historical 'from this spot'. Surveyed placements are untouched and nothing was moved to fit the vignette. What the frame is good for is the one thing it is used for here \u2014 the same pixels of the blockhouse's own roof, before and after. The original fit named the bare pyramid apex at [1037,234] and recorded the cupola top near [1037,215] as 'a separate absent feature'; that is the feature this parcel builds. Overcast review lighting is an analytical choice for a printed drawing, not a claim about the historical sun. Context members are rendered, not attested. CURRENT ENROLLMENT T-2388, 10 November2026: same world camera, current July1835 selected MASTERs and all21 scope records. Only the blockhouse and palisade can be identified securely in this unkeyed panel; card_members therefore contains only the palisade in addition to the anchor. Named ranges, outer service buildings, earth cellars, garden, parade and flagstaff are context, not individually attested by rendering. The finite identity matrix is docs/RESEARCH/second-fort-completion-T-2388/coverage.json. Camera-bound cropping, size and compressed composition are within tolerance underT3153, not independent historical geometry errors. The actual new side-by-side must be reviewed before a verdict is made."
+}

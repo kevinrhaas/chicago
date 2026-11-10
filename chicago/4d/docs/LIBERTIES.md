@@ -294,6 +294,50 @@ recessed rectangular cut and copper point placed on the north ridge.
 
 ## Resolved
 
+### L-kinzie-house-1812-2497 — The Kinzie house in 1812: its size, its set-back, its piazza's measure, the green's corners and where its trees stand
+
+**Decision:** the Kinzie house (`kinzie_house_1812`, T-2497, piece 1 of T-2484), the log house Jean
+Baptiste Point du Sable built on the north bank opposite the fort and John Kinzie's home from 1804,
+stands in the 1812 scene as a single-storey hewn-log house 12.19 m by 6.71 m (forty feet by
+twenty-two), facing south across the river, centred on the first fort's flagstaff easting and set
+back so that 18 m of fenced green lies between its piazza and the top of the bank. A piazza 2.1 m
+deep runs its whole front on six posts under a flatter roof (since T-2516 the main roof carried down over it at a break, L-kinzie-house-1812-2516), with a rail between the posts
+except at the door, and two stacks rise through its ridge. A paling 1.1 m high encloses the green, 39 m along the river by 15.5 m to the bank, with a gate before
+the door (`kinzie_house_1812_green`). Four Lombardy poplars 12 m tall stand in a row 4.5 m apart along
+the green's river-side fence, from opposite the house's east half eastward, and two cottonwoods 20-21 m tall stand behind the house
+(`data/flora/plantings/kinzie_house_1812_trees.json`).
+
+**What is read, not invented.** That the house was of squared logs (Moses and Kirkland vol. 1 p.
+30); that it faced south with the river in front, that Kinzie added a veranda and planted four
+Lombardy poplars "at the foot of the slope on which the house stood", and that it escaped the
+burning of 1812 (Currey 1912, ch. II); "a long, low building, with a piazza extending along its
+front", the green "inclosed between it and the river, and shaded by a row of Lombardy poplars", and
+"two immense cottonwood-trees ... in the rear" (Wau-Bun, of 1831). One storey, a ridge along the
+river, two stacks through the ridge and where they stand, the piazza's flatter roof under the eave,
+six posts and a rail, the paling, and the poplars' row along its river side are read off the two engravings matched in
+`data/reference_views/kinzie_house_1812/` (Lossing 1869; the Chicago Magazine 1857).
+
+**What is invented.** The 22 by 40 ft footprint is reported from du Sable's 1800 bill of sale
+(Quaife, *Mississippi Valley Historical Review* 15:1, 1928), which is not in this corpus and was not
+read, so it is cited to nothing. The set-back from the bank, the wall height (3.0 m), the roof pitch
+(30 degrees), the piazza's depth and its deck, post and rail sizes (`generators/archetypes/
+log_dwelling.py` `_piazza`), the stacks' size, the green's corners, the paling's height and the gate, and every tree's place and height.
+
+**Why:** the owner asked for the settlement around the fort to be built (T-2484, 2026-10-13), and
+the house has three texts and six pictures behind its form and nothing behind its measure. Built at
+the reconstructed tier, it stands where every source puts it, in the form every picture shows.
+
+**How to resolve:** Quaife's 1928 article (the bill of sale's dimensions); the Sarony lithograph
+after Mrs. John H. Kinzie's sketch (Currey's plate facing p. 32) and Kirkland's "Kinzie mansion in
+1812" (1893, p. 73), both T-2498's; any plat or survey of the Kinzie tract before 1833.
+
+**Covers:** `kinzie_house_1812.kinzie_1804.position`, `kinzie_house_1812.kinzie_1804.footprint`, `kinzie_house_1812.kinzie_1804.form.wall_height_m`, `kinzie_house_1812.kinzie_1804.form.roof_pitch_deg`, `kinzie_house_1812.kinzie_1804.form.piazza_depth_m`, `kinzie_house_1812_green.kinzie_1804.position`, `kinzie_house_1812_green.kinzie_1804.footprint`, `kinzie_house_1812_green.kinzie_1804.form.picket_height_m`, `kinzie_house_1812_green.kinzie_1804.form.construction`, `kinzie_house_1812_green.kinzie_1804.form.picket_width_m`, `kinzie_house_1812_green.kinzie_1804.form.picket_spacing_m`, `kinzie_house_1812_green.kinzie_1804.form.gate_sides`, `kinzie_house_1812_green.kinzie_1804.form.gate_width_m`.
+**Ticket:** T-2497.
+**Recorded:** 2026-10-15 (T-2497).
+
+**Resolved:** 2026-11-10, T-2484 replaces the unsupported39m green width and east/west poplar row after actual house+green comparisons. The original entry is retained verbatim; all still-live house, fence and planting choices continue in L-kinzie-house-completion-2484 below.
+
+
 Entries here were true when they were written and are kept verbatim, with a **Resolved:**
 line saying what settled them. The gate exempts this section from the check that a claimed
 value is still an invention, which is what lets an append-only document survive its own data
@@ -1194,6 +1238,102 @@ lots.
 per-house `from`), `docs/RESEARCH/district-background-3011/README.md`.
 **Recorded:** 2026-10-25 (T-3011).
 **Resolved:** 2026-10-25, by the reading this entry asked for. T-3150 ingested Sanborn 1911 sheet 27 and read the face's 26 lots into the 1904 grid; T-3151 traced and censused its buildings as sheet `27w` and replaced the row with 35 drafts read off the sheet, house by house and stable by stable (`L-draft-district-background-3151`). The record `indiana_east_frontage_18th_20th_background_row` and its masters are gone, and the Blue Book's ten numbers now stand on their own lots: each falls on a lot whose 1911 front is a dwelling.
+
+
+### L45 — The garrison garden: a fence read from a drawing convention, and a planting not drawn
+**Decision:** `fort_dearborn_garrison_garden` is built as a worm rail fence round a square of
+about 77 m. The fence's **height, its courses, its panel length and its zigzag** are invented,
+and the **planting inside it is documented and not built at all**.
+**Why:** the 1830 Harrison plan draws this plot and labels it "Garden for the Garrison", and it
+draws two of its sides as a continuous zigzag. A zigzag boundary on a period American survey is
+the convention for a worm — snake — rail fence, so that is what is built; but the convention is
+the reading and the sheet never says "fence", which is why `wall_kind` is `inferred` and every
+dimension of the fence is `conjectural`. The planting is the opposite case and the sharper one:
+Juliette Kinzie says the company gardens were *"well filled with currant-bushes and young
+fruit-trees"*, which is `documented`, and **nothing of it is modelled**, because currant bushes
+and fruit trees are flora and `data/flora/` has no cultivated zone and no garden species. So the
+record carries a documented chip over an empty rectangle of ground.
+**A guard belongs here too.** The garden usually quoted in accounts of this fort — *"The ground
+on the south side was enclosed and cultivated as a garden"* — is from a passage that ends *"Such
+was the old Fort previous to 1812"*. It is the FIRST fort's garden and this record does not rest
+on it.
+**Consequence:** the reservation reads as fenced, empty ground. The single most evocative
+detail anyone recorded about this place — fruit trees in a garrison garden on the Chicago
+prairie — is in the data and invisible in the model.
+**How to resolve:** a cultivated-ground zone in `data/flora/`, which is a flora parcel rather
+than a structure one; the species are already named by the source.
+**Covers:** `fort_dearborn_garrison_garden.fence_1816.form.fence_height_m`, `fort_dearborn_garrison_garden.fence_1816.form.rail_courses`, `fort_dearborn_garrison_garden.fence_1816.form.panel_length_m`, `fort_dearborn_garrison_garden.fence_1816.form.panel_offset_m`, `fort_dearborn_garrison_garden.fence_1816.form.planting`.
+**Recorded:** 2026-08-11.
+
+**Resolved:** 2026-11-10, T-2388. Only the historical planting-omission claim is settled: the existing flora layer already supplies the young fruit trees and currant bushes through data/flora/plantings/fort_company_garden_1835.json, while this fence record’s attested planting description is record_only. This is not new garden vegetation in this source group; its species/count/row liberties remain L-fruit-trees-1835-2809. All four reconstructed fence metrics and the survey-symbol interpretation remain standing in L-second-fort-garden-fence-metrics-2388. The original text above is preserved as history; no fence dimension is resolved by moving it.
+
+
+### L47 — Fort Dearborn's stockade: the plan is evidence and the wall is not
+**Decision:** the fort's picket line is built at an invented height, out of invented posts, with
+an invented gate opening and invented corner works. Its **plan** — a square, two gates north and
+south, bastions at the north-west and south-east angles, a block-house at the south-west — is
+`documented` or `inferred` from three sources that agree; its **fabric** is entirely ours.
+**Why:** the whole of the physical description this project could find is one adjective. Juliette
+Kinzie, living inside it in 1831: *"The fort was inclosed by high pickets, with bastions at the
+alternate angles. Large gates opened to the north and south."* Andreas adds "a square stockade"
+and the two gates. The 1830 Harrison plan draws the outline. **Nobody wrote down how high the
+pickets were, how wide they were, how close they stood, how wide the gates opened or how far the
+bastions projected**, and Quaife — who wrote the standing monograph on this fort and had the War
+Department files — gives no dimension of the 1816 work anywhere. So twelve feet, a ten-inch face,
+a hand's gap, a twelve-foot gate and a seven-metre bastion are all this project's arithmetic
+wearing plausible numbers.
+**The one that matters most is the height.** A stockade's height is what a visitor reads the
+building by: at three metres it is a compound, at four it is a fort. The confidence view dithers
+it, which is exactly right and is the only thing standing between a viewer and a number we
+invented from an adjective.
+**Consequence:** the fort's silhouette — the thing anyone would photograph — is ours. So is the
+gap between the posts, which decides whether you can see through the wall.
+**How to resolve:** any quartermaster return, repair estimate or engineer's report for the post
+between 1816 and 1836. A picket count or a quantity of timber would settle the height and the
+spacing together.
+**Covers:** `fort_dearborn_palisade.picket_1816.form.picket_height_m`, `fort_dearborn_palisade.picket_1816.form.picket_width_m`, `fort_dearborn_palisade.picket_1816.form.picket_spacing_m`, `fort_dearborn_palisade.picket_1816.form.gate_width_m`, `fort_dearborn_palisade.picket_1816.form.bastion_length_m`, `fort_dearborn_palisade.picket_1816.form.bastion_projection_m`, `fort_dearborn_palisade.picket_1816.form.posterns`.
+**Recorded:** 2026-08-11.
+**Evidence since, 2026-08-28 (T-0185):** the gap between the posts — the part of this entry
+that "decides whether you can see through the wall" — was challenged by the one picture of the
+fort, and holds. `p4_0` resolves separate posts at a 10 px rhythm on a 42.9 px curtain, 0.23 of
+the wall's height per post against this record's 0.081, and nothing had ever tested whether that
+was a reading of the fort or of the lithograph. It is of the lithograph: at the plate's own scale
+of 11.6 px per metre this wall's rhythm is 2.78 px of post and **0.70 px of gap**, and the
+narrowest gap the plate holds anywhere on that curtain is 2 px. It could not have drawn this wall
+whatever the fort was made of, so its coarser pitch is the floor of the medium — and 0.23 of a
+3.7 m wall is an 0.86 m post, which is not a picket. **Nothing is upgraded and nothing moved.**
+Both figures stay `reconstructed` and this liberty stands exactly as written; what is new is that
+the disagreement is now measured and recorded, so the next run reads it rather than re-opening it.
+`tools/measure_picket_plate.py` prints both sides.
+
+**Resolved:** 2026-11-10, T-2388. Only the former posterns-omission claim represented by the original Covers token is settled at the source level: the attested descriptive posterns boolean is now record_only, and the separate consumed gate controls select two bounded side openings. Genuine native output and actual interaction/street review are still pending and required before merge; no built-geometry acceptance is asserted here. The six reconstructed picket, main-gate and bastion metrics, together with all prior source and medium-resolution qualifications, remain standing in L-second-fort-palisade-fabric-metrics-2388. The separate reconstructed postern seats, width and make remain admitted by L-second-fort-side-posterns-2388. No blanket settlement of the stockade fabric is intended.
+
+
+### L225 — The word the draughtsman thought worth writing is the one thing on this barn the model does not build
+**Decision:** `fort_dearborn_big_barn` stands west and a little south of Fort Dearborn with a
+plain gable roof. The plan that puts it there letters it **"Big Barn with Cupola"**, and the
+cupola is **not built**. The record carries it as `form.cupola`, graded `attested` — a source
+states it in so many words — with `geometry: "absent"` beside the value, so the omission is on
+the building's own card rather than in a reviewer's head.
+**Why:** the `outbuilding` archetype has no cupola and cannot acquire one cheaply. A cupola is
+a size, a set of louvres or lights, a roof of its own and a station along a ridge, and this
+building's ridge runs at a pitch that is itself inferred from period practice rather than
+measured off anything. That is four inventions stacked on an inference in order to render one
+word. The barn is honest with a plain gable and a record that says what is missing; it would be
+dishonest with a cupola this project designed.
+**Consequence:** a visitor sees a large log barn beside the garrison garden and does not see the
+one feature that made an 1830 engineer bother to name it. The `Evidence` panel says so. Anyone
+who later gives this archetype a cupola should come back here first — the parameters wanted are
+in this entry, not in the mesh.
+**What is NOT claimed:** nothing about the cupola's form. Its size, its glazing, its louvring
+and where it sat on the ridge are all unstated by both witnesses and are unstated here. A
+second plan of this fort, a post return, or the return of Harrison's 1830 original — what is
+readable today is Andreas's 1884 re-engraving of it — would replace this entry with geometry.
+Related: **T-0883** (this), **T-0758** (the parent: six things the plan names and nothing drew).
+**Covers:** `fort_dearborn_big_barn.barn_1830.form.cupola`.
+**Recorded:** 2026-09-06 (T-0883).
+
+**Resolved:** 2026-11-10, T-2388. The source-level refusal/absence declaration is superseded: the named cupola occurrence remains attested and record_only, while the consumed cupola_shape and three metric controls now select a bounded boarded body and pyramid cap. Their shape, seat and dimensions remain standing liberties in L-second-fort-big-barn-cupola-2388. The original omission rationale above is kept verbatim. Actual genuine native output, picture comparison and published street review remain pending and must qualify before merge; this line does not claim that the pending mesh has already been built or accepted.
 
 
 ## Per-subject liberties
@@ -2191,44 +2331,6 @@ store stood beyond the modelled box on L17's radial skirt; S2e has since built t
 under it. The invented block, side of street and point along it are untouched.
 **Recorded:** 2026-08-11.
 
-### L47 — Fort Dearborn's stockade: the plan is evidence and the wall is not
-**Decision:** the fort's picket line is built at an invented height, out of invented posts, with
-an invented gate opening and invented corner works. Its **plan** — a square, two gates north and
-south, bastions at the north-west and south-east angles, a block-house at the south-west — is
-`documented` or `inferred` from three sources that agree; its **fabric** is entirely ours.
-**Why:** the whole of the physical description this project could find is one adjective. Juliette
-Kinzie, living inside it in 1831: *"The fort was inclosed by high pickets, with bastions at the
-alternate angles. Large gates opened to the north and south."* Andreas adds "a square stockade"
-and the two gates. The 1830 Harrison plan draws the outline. **Nobody wrote down how high the
-pickets were, how wide they were, how close they stood, how wide the gates opened or how far the
-bastions projected**, and Quaife — who wrote the standing monograph on this fort and had the War
-Department files — gives no dimension of the 1816 work anywhere. So twelve feet, a ten-inch face,
-a hand's gap, a twelve-foot gate and a seven-metre bastion are all this project's arithmetic
-wearing plausible numbers.
-**The one that matters most is the height.** A stockade's height is what a visitor reads the
-building by: at three metres it is a compound, at four it is a fort. The confidence view dithers
-it, which is exactly right and is the only thing standing between a viewer and a number we
-invented from an adjective.
-**Consequence:** the fort's silhouette — the thing anyone would photograph — is ours. So is the
-gap between the posts, which decides whether you can see through the wall.
-**How to resolve:** any quartermaster return, repair estimate or engineer's report for the post
-between 1816 and 1836. A picket count or a quantity of timber would settle the height and the
-spacing together.
-**Covers:** `fort_dearborn_palisade.picket_1816.form.picket_height_m`, `fort_dearborn_palisade.picket_1816.form.picket_width_m`, `fort_dearborn_palisade.picket_1816.form.picket_spacing_m`, `fort_dearborn_palisade.picket_1816.form.gate_width_m`, `fort_dearborn_palisade.picket_1816.form.bastion_length_m`, `fort_dearborn_palisade.picket_1816.form.bastion_projection_m`, `fort_dearborn_palisade.picket_1816.form.posterns`.
-**Recorded:** 2026-08-11.
-**Evidence since, 2026-08-28 (T-0185):** the gap between the posts — the part of this entry
-that "decides whether you can see through the wall" — was challenged by the one picture of the
-fort, and holds. `p4_0` resolves separate posts at a 10 px rhythm on a 42.9 px curtain, 0.23 of
-the wall's height per post against this record's 0.081, and nothing had ever tested whether that
-was a reading of the fort or of the lithograph. It is of the lithograph: at the plate's own scale
-of 11.6 px per metre this wall's rhythm is 2.78 px of post and **0.70 px of gap**, and the
-narrowest gap the plate holds anywhere on that curtain is 2 px. It could not have drawn this wall
-whatever the fort was made of, so its coarser pitch is the floor of the medium — and 0.23 of a
-3.7 m wall is an 0.86 m post, which is not a picket. **Nothing is upgraded and nothing moved.**
-Both figures stay `reconstructed` and this liberty stands exactly as written; what is new is that
-the disagreement is now measured and recorded, so the next run reads it rather than re-opening it.
-`tools/measure_picket_plate.py` prints both sides.
-
 ### L42 — The fort's buildings stand at heights, under roofs and behind stacks nobody recorded
 **Decision:** across the six modelled buildings inside Fort Dearborn, the **storey counts** of
 the officers' quarters and the barracks, the **wall heights** of the block-house, the magazine,
@@ -2317,31 +2419,6 @@ several 1840s and 1850s views of the fort — the tower stands in the 1850 dague
 **Covers:** `chicago_lighthouse_1832.tower_1832.footprint`, `chicago_lighthouse_1832.tower_1832.form.roof_type`, `chicago_lighthouse_1832.tower_1832.form.paint`.
 **Recorded:** 2026-08-11.
 **Revised:** 2026-09-12 (T-1065) — `chicago_lighthouse_1832.tower_1832.position` removed from the covers list, because it stopped being a liberty. The entry is not moved to Resolved: three of its four values are still invented and the shape, which is what it was written about, is one of them.
-
-### L45 — The garrison garden: a fence read from a drawing convention, and a planting not drawn
-**Decision:** `fort_dearborn_garrison_garden` is built as a worm rail fence round a square of
-about 77 m. The fence's **height, its courses, its panel length and its zigzag** are invented,
-and the **planting inside it is documented and not built at all**.
-**Why:** the 1830 Harrison plan draws this plot and labels it "Garden for the Garrison", and it
-draws two of its sides as a continuous zigzag. A zigzag boundary on a period American survey is
-the convention for a worm — snake — rail fence, so that is what is built; but the convention is
-the reading and the sheet never says "fence", which is why `wall_kind` is `inferred` and every
-dimension of the fence is `conjectural`. The planting is the opposite case and the sharper one:
-Juliette Kinzie says the company gardens were *"well filled with currant-bushes and young
-fruit-trees"*, which is `documented`, and **nothing of it is modelled**, because currant bushes
-and fruit trees are flora and `data/flora/` has no cultivated zone and no garden species. So the
-record carries a documented chip over an empty rectangle of ground.
-**A guard belongs here too.** The garden usually quoted in accounts of this fort — *"The ground
-on the south side was enclosed and cultivated as a garden"* — is from a passage that ends *"Such
-was the old Fort previous to 1812"*. It is the FIRST fort's garden and this record does not rest
-on it.
-**Consequence:** the reservation reads as fenced, empty ground. The single most evocative
-detail anyone recorded about this place — fruit trees in a garrison garden on the Chicago
-prairie — is in the data and invisible in the model.
-**How to resolve:** a cultivated-ground zone in `data/flora/`, which is a flora parcel rather
-than a structure one; the species are already named by the source.
-**Covers:** `fort_dearborn_garrison_garden.fence_1816.form.fence_height_m`, `fort_dearborn_garrison_garden.fence_1816.form.rail_courses`, `fort_dearborn_garrison_garden.fence_1816.form.panel_length_m`, `fort_dearborn_garrison_garden.fence_1816.form.panel_offset_m`, `fort_dearborn_garrison_garden.fence_1816.form.planting`.
-**Recorded:** 2026-08-11.
 
 ### L41 — The harbour piers are a measured line, an interpolated length and an invented width
 **Decision:** `north_pier` and `south_pier` are drawn as timber crib lines 900 ft and 400 ft
@@ -11878,30 +11955,6 @@ notice) · **L26** (the archetype's chimney) · **L148** (the clapboard stock) �
 **Covers:** `lasalle_lake_house.occupants`, `lasalle_lake_house.documented_1834.position`, `lasalle_lake_house.documented_1834.form.stories`, `lasalle_lake_house.documented_1834.form.wall_height_m`, `lasalle_lake_house.documented_1834.form.roof_pitch_deg`, `lasalle_lake_house.documented_1834.form.plan`, `lasalle_lake_house.documented_1834.form.bays`, `lasalle_lake_house.documented_1834.form.chimneys`, `lasalle_lake_house.documented_1834.form.paint`.
 **Recorded:** 2026-09-06 (T-0783).
 
-### L225 — The word the draughtsman thought worth writing is the one thing on this barn the model does not build
-**Decision:** `fort_dearborn_big_barn` stands west and a little south of Fort Dearborn with a
-plain gable roof. The plan that puts it there letters it **"Big Barn with Cupola"**, and the
-cupola is **not built**. The record carries it as `form.cupola`, graded `attested` — a source
-states it in so many words — with `geometry: "absent"` beside the value, so the omission is on
-the building's own card rather than in a reviewer's head.
-**Why:** the `outbuilding` archetype has no cupola and cannot acquire one cheaply. A cupola is
-a size, a set of louvres or lights, a roof of its own and a station along a ridge, and this
-building's ridge runs at a pitch that is itself inferred from period practice rather than
-measured off anything. That is four inventions stacked on an inference in order to render one
-word. The barn is honest with a plain gable and a record that says what is missing; it would be
-dishonest with a cupola this project designed.
-**Consequence:** a visitor sees a large log barn beside the garrison garden and does not see the
-one feature that made an 1830 engineer bother to name it. The `Evidence` panel says so. Anyone
-who later gives this archetype a cupola should come back here first — the parameters wanted are
-in this entry, not in the mesh.
-**What is NOT claimed:** nothing about the cupola's form. Its size, its glazing, its louvring
-and where it sat on the ridge are all unstated by both witnesses and are unstated here. A
-second plan of this fort, a post return, or the return of Harrison's 1830 original — what is
-readable today is Andreas's 1884 re-engraving of it — would replace this entry with geometry.
-Related: **T-0883** (this), **T-0758** (the parent: six things the plan names and nothing drew).
-**Covers:** `fort_dearborn_big_barn.barn_1830.form.cupola`.
-**Recorded:** 2026-09-06 (T-0883).
-
 ### L226 — Two buildings the fort's engineer named, and nothing else on earth describes
 **Decision:** `fort_dearborn_wash_house` and `fort_dearborn_shop` stand east and south-east of
 Fort Dearborn's pickets. **Where they stand and how big they are is read off a plan. What they
@@ -13546,7 +13599,7 @@ programme itself raised as a lodging place, at the trade that roof's own `functi
 states. Nothing is hand-authored: every value comes from a seed a reader can retype, and
 `--check` re-derives all twelve cards and the ledger byte for byte.
 
-**Scope:** `residents.persons[lodgers]` — 157 people in 22 lodging-household cards (155 until T-2196 raised the boarding house on the Market wedge's lot 7, 2026-10-09, **L411**: Mark Beaubien's household moves into it under `lodging_near_the_landings` and five people already standing re-seat into it, Alanson Sweet's takes the Clark block house Beaubien left, and the second Clark house, keeperless, gets a drawn keeper, Alvah Stebbins, with three children; one working lodger is no longer drawn, because `quota_basis.working_lodgers`' `persons/male/10_19/south/lodging/trade` cell was re-frozen at the live order, 4 to 3, when the re-dealt houses drew one more there, and nobody else moved by hand: 13 keepers, 118 boarders and working lodgers, 26 keepers' children; 23 until T-2185 re-dealt the beds over a layer that lost 22 drawn family members on 2026-10-09: 155 are still seated, and the Steamboat Hotel's one drawn lodger is no longer among them, so its card is retired), re-derivable from `tools/seat_lodgers_1835.py --check` (56 seats come from the layer; these 155 are the invention on top of them — 131 boarders, working lodgers and keepers, and the 24 keepers' children T-1533 draws). **T-2148 grew it from 147 in 22 to 155 in 23 on 2026-10-06.** Plat block 50's boarding house on Canal Street (`recon_1835_blk_washington_clinton_h3_02`, **L394**) is a 27th lodging place; it is dealt last, after every house the frozen room was dealt to, and takes seven boarders, and the bed model's re-apportionment moves one more onto the other houses (123 to 131 minted; 234 to 243 ordinary-night beds, 19 of them empty). It has no keeper: every adult `lodging/trade` cell of the West is already filled by the re-family ledger's heads, so the stage refuses the keeper and says so rather than mint a person the book does not order. One frozen cell was re-frozen by hand to make that deal possible, and nothing else: `persons/male/40_49/west/lodging/none` had been recorded in `re_cut_since` as cut from 2 to 1 under a deal that drew 1 there, and the new house would otherwise have drawn the slot the book no longer orders. **T-2021 shrank it from 150 in 23 to 147 in 22 on 2026-10-04, and invention gave way to the town's own households.** The family ruling (**L244**) gave 156 married houses the wife and children the household model drew for them, so seven more people already sleep in the lodging places before this stage deals (30 to 37). One of those houses is the Mansion House's keeper, Edward Haddock: his own household now fills the house's ordinary-night figure, so the stage seats nobody there and its lodging card retires with its four invented lodgers. The re-deal across the other houses mints two fewer boarders in all (125 to 123), and five more ordinary-night beds are slept in by somebody the town already counts (23 empty to 18). One keeper's child is no longer drawn: the ruling's wives and children took the last Yankee forenames free beside the surname Gilbert, so Benjamin Gilbert's child is refused for the pool, as `keeper_families` says (24 drawn of the 31 the model wants). Nobody is over-dealt and nobody already standing was moved by hand. **T-1532 grew it from 146 to 150, still in 23 cards, on 2026-10-03, and the four are the book's working lodgers.** The `lodging/trade` order — lodgers who worked at something — was the one third of the bed buckets this stage had always left open "for the stage that can price it". By the time it was dealt the re-family arrivals had filled every cell of it but one: `persons/male/10_19/south/lodging/trade`, four still owed. The stage now deals it LAST, after the top-up and the youths' top-up, in a fourth frozen room (`quota_basis.working_lodgers`) read the same way the top-up's is, so a later re-cut moves nobody it seats; three youths of 10-19 take empty beds in `recon_1835_blk_washington_market_h3_01` and one in `recon_1835_blk_washington_market_h3_04`, the beds the youths' top-up left. Each one's trade is a seeded pick over T-1347's own set off the Fergus 1839 table (L248), less the keepers' trades and the trades the December census counts by their keeper: two clerks, a carpenter and a tailor. No seniority rule is applied, for T-1347's reason, so the table's shares stand for an apprentice as for a journeyman. The trades are invented and say so on each card; no employer is drawn here, and the staffing join (T-1433) seats the two clerks at John Dean Caton's and at J. D. Caton's law office and the tailor at George Holsman's, in places those houses still had open, so nobody already seated there moves. **T-1536 grew it from 135 in 22 to 146 in 23 on 2026-10-03, and the eleven are youths the book still ordered.** The re-cut had grown the `10_19/*/lodging/none` cells while the frozen room stood still, so the book ordered eleven people of ten to nineteen into North and South lodging households with nobody drawn, beside thirty-eight empty ordinary-night beds in the same two divisions. Refusal 3 refuses a bed to a child under ten, not to this band, which the boarders stage has always dealt. So a third room, the youths' top-up, is dealt after the adults' top-up on the same terms, read live once and carried in `quota_basis.youth_top_up`: three youths take beds at the Steamboat Hotel (whose lodging card comes back), five at the Dearborn H3 house and three at the Market H3 house, and twenty-seven ordinary-night beds still stand empty with no order the book makes. Not one person already standing moved. They are boarders with no trade recorded, named from the pools like every other lodger, and claim no kinship with anybody under the roof. The nine under-tens the book still orders into South and West lodging stay undrawn, because a child is drawn as a keeper's kin or not at all: every keeper in those divisions has the under-ten children the 1840 histogram draws them, bar two at the McCarthy house, refused because the Irish name pool is spent beside that surname, as `keeper_families` says. They come with the keepers of lodging roofs not yet raised (T-2023). **T-1538 grew it from 134 to 135, still in 22 cards, on 2026-10-03, and the one is a bed the book still ordered.** The frozen room T-1503 deals against was spent to its last cell while the re-cut book still ordered eight adults into `lodging/none` cells nobody had drawn — one in the North, seven in the West. The stage now deals a TOP-UP after every other draw it makes, against the book's order less the re-family arrivals less what it had already drawn, read live once and carried in `quota_basis.top_up` so a later re-cut moves nobody it seats: one boarder, a man of 20-29, takes the last empty bed of `recon_1835_north_h2_045`, and not one person already standing moved. His surname is drawn clear of everyone already on the house's card, because unrelated boarders under one roof sharing a name read as kin. The other seven are carried in the top-up's room with no bed to go to — every West ordinary-night bed is slept in — so they wait on a roof (T-1209), and twenty-nine ordinary-night beds in the North and South stand empty with no order the book makes, so nobody is minted into them; `quota_basis.top_up.what_is_left` says both. **T-1951 grew it from 121 in 20 to 134 in 22 on 2026-10-02, and most of the new beds stand empty, said.** It raised the South's three boarding houses the plan still held (`recon_1835_blk_washington_market_h3_01` and `_h3_04`, `recon_1835_blk_washington_dearborn_h3_01`, **L349**), so the lodging model apportions the class over fifteen places. The stage draws a keeper for each — Louis Robillard, Michel Laframboise and Edward McCarthy, with five children between them — mints two boarders, and re-seats thirteen people already standing towards the new houses, which therefore sleep **4 of 10, 6 of 12 and 8 of 12**. The other sixteen ordinary-night beds stand empty under the stage's own refusal (`no order left, no mint`): every adult `lodging/none` cell of the South is filled to what the book orders, so a house raised on the plan's headroom gets a keeper and the people the town already counts, and nobody is invented to fill it. The houses the thirteen came from give up a bed or two each — the Clark block's second and third houses now sleep thirteen apiece, Chapin's house six of its twelve — and the Steamboat Hotel's one minted lodger is no longer minted, so its lodging card retires with three of its eleven beds empty, as Kelsey's did under T-1952. Thirty ordinary-night beds stand empty in all, every one with its reason, and nobody is over-dealt. **T-1950 grew it from 110 in 19 to 121 in 20 on 2026-10-02** by raising the third H3 boarding house on `blk_washington_clark` (`recon_1835_blk_washington_clark_h3_11`, **L345**): the house's drawn keeper, Baptiste Trottier, and his four children are minted with five boarders, and eight people already standing re-seat towards it, which fills its fourteen ordinary-night beds. The houses they came from give up a bed or two each, and two more of the North's beds go empty and said: Chapin's house on `blk_indiana_north_cass` now sleeps eight of its thirteen and the Steamboat Hotel nine of its eleven, both under the stage's own refusal (`no order left, no mint`), beside Kelsey's four. Eleven ordinary-night beds stand empty in all, and nobody is over-dealt. **T-1808 shrank it from 116 to 108 on 2026-10-02, and documented people displaced invented ones again.** The placement pass had seated Mark Beaubien's household on `recon_1835_blk_washington_clark_h3_05` and Alanson Sweet's on `_h3_06` under `lodging_near_the_landings`, while this stage, reading keepers off `works_at` alone, drew a keeper of its own for both roofs — so two households answered for each. The stage now reads an adoption under a keeper clause as the house's keeper (its refusal 6): each man takes the bed a drawn keeper took, as a seat that writes nothing into his card, and the two drawn keepers and their six children are retired. Not one boarder moved. **T-1952 grew it from 108 to 110, still in 19 cards, on 2026-10-02** by raising the North Division's H3 boarding house (`recon_1835_blk_indiana_north_cass_h3_09`, **L344**): the lodging model now apportions the boarding-house class over twelve places, the new house's keeper and her children are drawn, and the North's solitary people re-seat towards it — which empties Kelsey's boarding-house, whose card is withdrawn: its four ordinary-night beds stand empty under the stage's own refusal (`no order left, no mint`), because every adult `lodging/none` cell of the North is filled to what the book orders. Nobody is over-dealt and nobody is lost; the people Kelsey's held sleep in the new house. A minted keeper's surname is now drawn clear of every keeper minted before her, since a keeper's surname is her house's trade style (T-1952's change to the name draw; no standing keeper's name moved). **T-1809 grew it from 106 in 18 to 116 in 19 on 2026-10-01** by raising the second H3 boarding house (`recon_1835_blk_washington_clark_h3_06`, **L321**): the class is apportioned over eleven places, the new house takes 16 ordinary-night beds and its keeper's three children, and seven standing houses give up an ordinary-night bed. Two of Kelsey's beds now stand empty and said: the layer's solitary people re-seat towards the new house, and the South's adult lodging cells have no open order left for the last two. **T-1778 grew it from 94 in 17 to 106 in 18 on 2026-10-01** by raising the town's first H3 boarding house (`recon_1835_blk_washington_clark_h3_05`, **L318**): the lodging model apportions the boarding-house class over ten places instead of nine, the new house takes 12 ordinary-night beds, and the beds already standing are re-cut by a bed at most. **T-1717 grew it from 84 in 16 to 94 in 17 on 2026-09-28, and a roof is only half the reason.** That ticket raised `kelsey_boarding_house` — the house Eve Kelsey kept, which Bonnell's walk of an August morning in 1835 describes as full of boarders — so the stage gained an eighteenth lodging place and the five ordinary-night beds that came with it; the other five of the ten are beds that appeared in houses already standing, because the roof programme moved under the lodging model and re-sized them. TWO THINGS IN THE MACHINERY MOVED WITH IT, both of them the same fault caught from two sides. **The order a house is dealt in is part of the deal.** The loop spends the room house by house, so a house inserted ahead of another by nothing more than its own name takes the cells the second one was going to draw: `kelsey_boarding_house` sorts fourth of eighteen, and raising it re-dealt ten of the seventeen houses already standing for no reason a reader could give. T-1535 had already answered this for the two houses it added, by dealing them last; the answer is now carried for every house, as `quota_basis.houses_the_deal_was_dealt_to` beside the room the deal was dealt against, and a lodging place that is not on that list is dealt after every one that is. **And an order that is already slept in is not an open order.** The frozen room is a cell's `to_reconstruct` read gross, which is right for a quota and wrong for a ceiling: the re-family programme (T-1563) lands 129 heads of the town's own model into these same lodging cells, and four of the ten new people were minted into cells those heads had already filled — `build_order_book_1835.py` refused the book for it, correctly, because "a move needs an open order to fill". The deal now clamps on the book's OPEN orders — its order less those arrivals — as well as on the frozen room, and sheds what will not fit onto cells that still have one; where a whole division is closed it mints nobody and the beds stand empty and said, exactly as T-1535 wrote. THAT CEILING IS FROZEN TOO, in `quota_basis.open_orders_the_deal_was_capped_at`, for the same reason the room is: read live it would be a second live reading of the book, and a re-cut that removes one undrawn slot would change which cells enter the proportional split and move somebody already standing — this stage's own self-test demonstrates exactly that, and it now passes. Not one bed went empty here: all 162 are slept in, and the four shed people stand in north and west cells the book still orders. **T-1525 MOVED IT, AND THE DIRECTION IS THE ONE THIS PROJECT WANTS.** Spending T-0841's ruling — a parish register is evidence about the man who keeps it — minted the register's 120 DOCUMENTED residents into the layer: the French, Métis, Irish and German Catholic town the poll books never recorded. Documented people displace invented ones wherever the two stand in the same place, so a count that FALLS here is not work lost, it is invention retired in favour of the record. The count is re-derived from the cards and never typed. Six invented boarders give way: the seats they filled are taken by people the register names, and the seat count from the layer rises 47 to 54 as they do. **T-1490 grew it from 77 in 15 to 87 in 16 on 2026-09-24, by the same mechanism as T-1480 below and for the same reason: a roof arrived.** That ticket carried Jefferson Street north on its own surviving control, which released three West Division placements T-1444 had held unbuilt rather than let an extrapolated boundary decide which side of the town limits they stood on. One of the three, `recon_1835_west_035`, is an H2, and the lodging model apportions an H2 as a lodging house — so the stage gained a sixteenth house and the ordinary-night capacity that came with it, and ten more people are minted into beds that now exist. Nothing already dealt moved: the house is dealt after every house already dealt, as the New York House and the Sauganash were. THE COUNT IS NOT A CONSTANT AND MUST NOT BE READ AS ONE — it moves whenever the roof programme moves, which is precisely why it is re-derived from the cards and never typed. **T-1533 grew it from 67 to 77 on 2026-09-24, and the ten are not boarders at all: they are the CHILDREN of the six keepers this stage itself invented.** The stage had refused them — "a child does not take a bed at a tavern on their own account" — and left the book's `under_10/*/lodging/none` cells to T-1171 and T-1174, neither of which reaches a keeper minted here, because both draw families onto the cards in `data/residents/households/` and these six keepers are not there. So the children were ordered from nobody. They are drawn at the 1840 size histogram, through T-1171's own reader, so one town is not sized two ways: the keeper is one of the drawn size and the rest are their children, each carrying `kin_of` naming the keeper — never a free-standing person in a lodging cell. **No spouse is drawn, and that is the liberty's own limit**: the spouse rule this project holds is written for a male head and three of these six keepers are women, so the household stands at one parent and their children, which is a FLOOR and not a claim that a keeper kept no spouse. Fourteen children were wanted and ten drawn; the four refusals are written per house in `keeper_families` — one the model put in adolescence, where the book's `10_19` lodging cells are already discharged, and three for whom the invented-name pool holds no forename not already borne beside the keeper's surname. A child takes no ordinary-night bed, so not one of the 144 the boarders fill moves. **T-1535 grew it from 56 in 13 to 67 in 15 on 2026-09-24, and the eleven are beds this stage already held and would not fill.** The stage refused the New York House and the Sauganash Hotel for want of a division — seven empty beds and four — on the ground that `data/structures/*.json` carries no division field. `data/reconstruction/1835_existing_roof_reconciliation.json` settles both into the South Division by name and always did, so the refusal was a fact about where the tool looked rather than about the evidence, and lifting it invents eleven more people at exactly the tier the other fifty-six stand at. The two houses are dealt LAST, after every house already dealt, so no existing card moves: the diff that landed this is two new cards and not one changed one. Every one of the town's 144 ordinary-night beds is now slept in. The count has moved TWICE this week and in opposite directions, which is why it is re-derived and never stated. It read 75 in 12. **T-1171 shrank it to 47**: `reconstruct_modelled_families.py` had been refusing 822 households on a `present_on_scene_date` of `uncertain` that T-1386 had already adjudicated, and once that stage reads the rulings the model draws 30 more of the town's own named men as living alone — so `seat_lodgers_1835.py` puts THEM in beds it would otherwise have invented somebody for. Twenty-eight invented people gone, twenty-eight real ones in their place, and that is the direction this question is supposed to travel. **T-1480 then grew it to 56 in 13**: the redeal made `recon_1835_north_h2_045` an H2 rather than an H3, and `recon_1835_north_h2_022` and `recon_1835_north_h2_028` boarding houses at all, so the lodging model apportioned one more house and the capacity that came with it. The seventeen of the title are not in it and must not be: they are people the town already counts, and this stage wrote them a `lives_at` rather than a life. **T-1525 MOVED IT A SECOND TIME, FROM 81 TO 84, AND THIS ONE IS A RE-DEAL AND NOT A ROOF.** The stage freezes the quota it deals against so that a later re-cut of the order book spends what the stage did not and moves nobody — and this branch re-cut the book so far that the frozen quota stood at 334 lodgers where the book now orders 273. The gap was being held shut by a live ceiling that read the book on every build, and that ceiling turned out to be deciding which cells entered the proportional split: a cell the book had emptied since the deal left the split and moved every other cell's share by rounding, with nobody ever over-dealt. So the owner ruled the quota re-frozen against the re-cut book and the ceiling now reads the frozen room alone. THE RE-DEAL IS THE COST OF THAT and it is stated rather than absorbed: 32 invented slots retired, 35 opened and 7 re-banded, for a net of three. Not one of them is a person any source names — every one is `reconstructed`, and a reader who met one of these names met it as an invention. What a re-cut may NOT do is still what it could not do before: take the order out from under somebody already standing. That now stops the build and asks for a deliberate re-freeze instead of being absorbed quietly, which is the whole of what changed.
+**Scope:** `residents.persons[lodgers]` — 170 people in 22 lodging-household cards (157 before T-2023 appended thirteen ordered people on 2026-11-10: four youths and nine supplementary anonymous-lodger children, preserving every prior person record; current totals are thirteen keepers, 122 boarders/working lodgers,26 keepers' children and nine other anonymous-lodger children, plus 54 seats from the existing layer. The following older counts describe their dated builds. 155 until T-2196 raised the boarding house on the Market wedge's lot 7, 2026-10-09, **L411**: Mark Beaubien's household moves into it under `lodging_near_the_landings` and five people already standing re-seat into it, Alanson Sweet's takes the Clark block house Beaubien left, and the second Clark house, keeperless, gets a drawn keeper, Alvah Stebbins, with three children; one working lodger is no longer drawn, because `quota_basis.working_lodgers`' `persons/male/10_19/south/lodging/trade` cell was re-frozen at the live order, 4 to 3, when the re-dealt houses drew one more there, and nobody else moved by hand: 13 keepers, 118 boarders and working lodgers, 26 keepers' children; 23 until T-2185 re-dealt the beds over a layer that lost 22 drawn family members on 2026-10-09: 155 are still seated, and the Steamboat Hotel's one drawn lodger is no longer among them, so its card is retired), re-derivable from `tools/seat_lodgers_1835.py --check` (56 seats come from the layer; these 155 are the invention on top of them — 131 boarders, working lodgers and keepers, and the 24 keepers' children T-1533 draws). **T-2148 grew it from 147 in 22 to 155 in 23 on 2026-10-06.** Plat block 50's boarding house on Canal Street (`recon_1835_blk_washington_clinton_h3_02`, **L394**) is a 27th lodging place; it is dealt last, after every house the frozen room was dealt to, and takes seven boarders, and the bed model's re-apportionment moves one more onto the other houses (123 to 131 minted; 234 to 243 ordinary-night beds, 19 of them empty). It has no keeper: every adult `lodging/trade` cell of the West is already filled by the re-family ledger's heads, so the stage refuses the keeper and says so rather than mint a person the book does not order. One frozen cell was re-frozen by hand to make that deal possible, and nothing else: `persons/male/40_49/west/lodging/none` had been recorded in `re_cut_since` as cut from 2 to 1 under a deal that drew 1 there, and the new house would otherwise have drawn the slot the book no longer orders. **T-2021 shrank it from 150 in 23 to 147 in 22 on 2026-10-04, and invention gave way to the town's own households.** The family ruling (**L244**) gave 156 married houses the wife and children the household model drew for them, so seven more people already sleep in the lodging places before this stage deals (30 to 37). One of those houses is the Mansion House's keeper, Edward Haddock: his own household now fills the house's ordinary-night figure, so the stage seats nobody there and its lodging card retires with its four invented lodgers. The re-deal across the other houses mints two fewer boarders in all (125 to 123), and five more ordinary-night beds are slept in by somebody the town already counts (23 empty to 18). One keeper's child is no longer drawn: the ruling's wives and children took the last Yankee forenames free beside the surname Gilbert, so Benjamin Gilbert's child is refused for the pool, as `keeper_families` says (24 drawn of the 31 the model wants). Nobody is over-dealt and nobody already standing was moved by hand. **T-1532 grew it from 146 to 150, still in 23 cards, on 2026-10-03, and the four are the book's working lodgers.** The `lodging/trade` order — lodgers who worked at something — was the one third of the bed buckets this stage had always left open "for the stage that can price it". By the time it was dealt the re-family arrivals had filled every cell of it but one: `persons/male/10_19/south/lodging/trade`, four still owed. The stage now deals it LAST, after the top-up and the youths' top-up, in a fourth frozen room (`quota_basis.working_lodgers`) read the same way the top-up's is, so a later re-cut moves nobody it seats; three youths of 10-19 take empty beds in `recon_1835_blk_washington_market_h3_01` and one in `recon_1835_blk_washington_market_h3_04`, the beds the youths' top-up left. Each one's trade is a seeded pick over T-1347's own set off the Fergus 1839 table (L248), less the keepers' trades and the trades the December census counts by their keeper: two clerks, a carpenter and a tailor. No seniority rule is applied, for T-1347's reason, so the table's shares stand for an apprentice as for a journeyman. The trades are invented and say so on each card; no employer is drawn here, and the staffing join (T-1433) seats the two clerks at John Dean Caton's and at J. D. Caton's law office and the tailor at George Holsman's, in places those houses still had open, so nobody already seated there moves. **T-1536 grew it from 135 in 22 to 146 in 23 on 2026-10-03, and the eleven are youths the book still ordered.** The re-cut had grown the `10_19/*/lodging/none` cells while the frozen room stood still, so the book ordered eleven people of ten to nineteen into North and South lodging households with nobody drawn, beside thirty-eight empty ordinary-night beds in the same two divisions. Refusal 3 refuses a bed to a child under ten, not to this band, which the boarders stage has always dealt. So a third room, the youths' top-up, is dealt after the adults' top-up on the same terms, read live once and carried in `quota_basis.youth_top_up`: three youths take beds at the Steamboat Hotel (whose lodging card comes back), five at the Dearborn H3 house and three at the Market H3 house, and twenty-seven ordinary-night beds still stand empty with no order the book makes. Not one person already standing moved. They are boarders with no trade recorded, named from the pools like every other lodger, and claim no kinship with anybody under the roof. The nine under-tens the book still orders into South and West lodging stay undrawn, because a child is drawn as a keeper's kin or not at all: every keeper in those divisions has the under-ten children the 1840 histogram draws them, bar two at the McCarthy house, refused because the Irish name pool is spent beside that surname, as `keeper_families` says. They come with the keepers of lodging roofs not yet raised (T-2023). **T-1538 grew it from 134 to 135, still in 22 cards, on 2026-10-03, and the one is a bed the book still ordered.** The frozen room T-1503 deals against was spent to its last cell while the re-cut book still ordered eight adults into `lodging/none` cells nobody had drawn — one in the North, seven in the West. The stage now deals a TOP-UP after every other draw it makes, against the book's order less the re-family arrivals less what it had already drawn, read live once and carried in `quota_basis.top_up` so a later re-cut moves nobody it seats: one boarder, a man of 20-29, takes the last empty bed of `recon_1835_north_h2_045`, and not one person already standing moved. His surname is drawn clear of everyone already on the house's card, because unrelated boarders under one roof sharing a name read as kin. The other seven are carried in the top-up's room with no bed to go to — every West ordinary-night bed is slept in — so they wait on a roof (T-1209), and twenty-nine ordinary-night beds in the North and South stand empty with no order the book makes, so nobody is minted into them; `quota_basis.top_up.what_is_left` says both. **T-1951 grew it from 121 in 20 to 134 in 22 on 2026-10-02, and most of the new beds stand empty, said.** It raised the South's three boarding houses the plan still held (`recon_1835_blk_washington_market_h3_01` and `_h3_04`, `recon_1835_blk_washington_dearborn_h3_01`, **L349**), so the lodging model apportions the class over fifteen places. The stage draws a keeper for each — Louis Robillard, Michel Laframboise and Edward McCarthy, with five children between them — mints two boarders, and re-seats thirteen people already standing towards the new houses, which therefore sleep **4 of 10, 6 of 12 and 8 of 12**. The other sixteen ordinary-night beds stand empty under the stage's own refusal (`no order left, no mint`): every adult `lodging/none` cell of the South is filled to what the book orders, so a house raised on the plan's headroom gets a keeper and the people the town already counts, and nobody is invented to fill it. The houses the thirteen came from give up a bed or two each — the Clark block's second and third houses now sleep thirteen apiece, Chapin's house six of its twelve — and the Steamboat Hotel's one minted lodger is no longer minted, so its lodging card retires with three of its eleven beds empty, as Kelsey's did under T-1952. Thirty ordinary-night beds stand empty in all, every one with its reason, and nobody is over-dealt. **T-1950 grew it from 110 in 19 to 121 in 20 on 2026-10-02** by raising the third H3 boarding house on `blk_washington_clark` (`recon_1835_blk_washington_clark_h3_11`, **L345**): the house's drawn keeper, Baptiste Trottier, and his four children are minted with five boarders, and eight people already standing re-seat towards it, which fills its fourteen ordinary-night beds. The houses they came from give up a bed or two each, and two more of the North's beds go empty and said: Chapin's house on `blk_indiana_north_cass` now sleeps eight of its thirteen and the Steamboat Hotel nine of its eleven, both under the stage's own refusal (`no order left, no mint`), beside Kelsey's four. Eleven ordinary-night beds stand empty in all, and nobody is over-dealt. **T-1808 shrank it from 116 to 108 on 2026-10-02, and documented people displaced invented ones again.** The placement pass had seated Mark Beaubien's household on `recon_1835_blk_washington_clark_h3_05` and Alanson Sweet's on `_h3_06` under `lodging_near_the_landings`, while this stage, reading keepers off `works_at` alone, drew a keeper of its own for both roofs — so two households answered for each. The stage now reads an adoption under a keeper clause as the house's keeper (its refusal 6): each man takes the bed a drawn keeper took, as a seat that writes nothing into his card, and the two drawn keepers and their six children are retired. Not one boarder moved. **T-1952 grew it from 108 to 110, still in 19 cards, on 2026-10-02** by raising the North Division's H3 boarding house (`recon_1835_blk_indiana_north_cass_h3_09`, **L344**): the lodging model now apportions the boarding-house class over twelve places, the new house's keeper and her children are drawn, and the North's solitary people re-seat towards it — which empties Kelsey's boarding-house, whose card is withdrawn: its four ordinary-night beds stand empty under the stage's own refusal (`no order left, no mint`), because every adult `lodging/none` cell of the North is filled to what the book orders. Nobody is over-dealt and nobody is lost; the people Kelsey's held sleep in the new house. A minted keeper's surname is now drawn clear of every keeper minted before her, since a keeper's surname is her house's trade style (T-1952's change to the name draw; no standing keeper's name moved). **T-1809 grew it from 106 in 18 to 116 in 19 on 2026-10-01** by raising the second H3 boarding house (`recon_1835_blk_washington_clark_h3_06`, **L321**): the class is apportioned over eleven places, the new house takes 16 ordinary-night beds and its keeper's three children, and seven standing houses give up an ordinary-night bed. Two of Kelsey's beds now stand empty and said: the layer's solitary people re-seat towards the new house, and the South's adult lodging cells have no open order left for the last two. **T-1778 grew it from 94 in 17 to 106 in 18 on 2026-10-01** by raising the town's first H3 boarding house (`recon_1835_blk_washington_clark_h3_05`, **L318**): the lodging model apportions the boarding-house class over ten places instead of nine, the new house takes 12 ordinary-night beds, and the beds already standing are re-cut by a bed at most. **T-1717 grew it from 84 in 16 to 94 in 17 on 2026-09-28, and a roof is only half the reason.** That ticket raised `kelsey_boarding_house` — the house Eve Kelsey kept, which Bonnell's walk of an August morning in 1835 describes as full of boarders — so the stage gained an eighteenth lodging place and the five ordinary-night beds that came with it; the other five of the ten are beds that appeared in houses already standing, because the roof programme moved under the lodging model and re-sized them. TWO THINGS IN THE MACHINERY MOVED WITH IT, both of them the same fault caught from two sides. **The order a house is dealt in is part of the deal.** The loop spends the room house by house, so a house inserted ahead of another by nothing more than its own name takes the cells the second one was going to draw: `kelsey_boarding_house` sorts fourth of eighteen, and raising it re-dealt ten of the seventeen houses already standing for no reason a reader could give. T-1535 had already answered this for the two houses it added, by dealing them last; the answer is now carried for every house, as `quota_basis.houses_the_deal_was_dealt_to` beside the room the deal was dealt against, and a lodging place that is not on that list is dealt after every one that is. **And an order that is already slept in is not an open order.** The frozen room is a cell's `to_reconstruct` read gross, which is right for a quota and wrong for a ceiling: the re-family programme (T-1563) lands 129 heads of the town's own model into these same lodging cells, and four of the ten new people were minted into cells those heads had already filled — `build_order_book_1835.py` refused the book for it, correctly, because "a move needs an open order to fill". The deal now clamps on the book's OPEN orders — its order less those arrivals — as well as on the frozen room, and sheds what will not fit onto cells that still have one; where a whole division is closed it mints nobody and the beds stand empty and said, exactly as T-1535 wrote. THAT CEILING IS FROZEN TOO, in `quota_basis.open_orders_the_deal_was_capped_at`, for the same reason the room is: read live it would be a second live reading of the book, and a re-cut that removes one undrawn slot would change which cells enter the proportional split and move somebody already standing — this stage's own self-test demonstrates exactly that, and it now passes. Not one bed went empty here: all 162 are slept in, and the four shed people stand in north and west cells the book still orders. **T-1525 MOVED IT, AND THE DIRECTION IS THE ONE THIS PROJECT WANTS.** Spending T-0841's ruling — a parish register is evidence about the man who keeps it — minted the register's 120 DOCUMENTED residents into the layer: the French, Métis, Irish and German Catholic town the poll books never recorded. Documented people displace invented ones wherever the two stand in the same place, so a count that FALLS here is not work lost, it is invention retired in favour of the record. The count is re-derived from the cards and never typed. Six invented boarders give way: the seats they filled are taken by people the register names, and the seat count from the layer rises 47 to 54 as they do. **T-1490 grew it from 77 in 15 to 87 in 16 on 2026-09-24, by the same mechanism as T-1480 below and for the same reason: a roof arrived.** That ticket carried Jefferson Street north on its own surviving control, which released three West Division placements T-1444 had held unbuilt rather than let an extrapolated boundary decide which side of the town limits they stood on. One of the three, `recon_1835_west_035`, is an H2, and the lodging model apportions an H2 as a lodging house — so the stage gained a sixteenth house and the ordinary-night capacity that came with it, and ten more people are minted into beds that now exist. Nothing already dealt moved: the house is dealt after every house already dealt, as the New York House and the Sauganash were. THE COUNT IS NOT A CONSTANT AND MUST NOT BE READ AS ONE — it moves whenever the roof programme moves, which is precisely why it is re-derived from the cards and never typed. **T-1533 grew it from 67 to 77 on 2026-09-24, and the ten are not boarders at all: they are the CHILDREN of the six keepers this stage itself invented.** The stage had refused them — "a child does not take a bed at a tavern on their own account" — and left the book's `under_10/*/lodging/none` cells to T-1171 and T-1174, neither of which reaches a keeper minted here, because both draw families onto the cards in `data/residents/households/` and these six keepers are not there. So the children were ordered from nobody. They are drawn at the 1840 size histogram, through T-1171's own reader, so one town is not sized two ways: the keeper is one of the drawn size and the rest are their children, each carrying `kin_of` naming the keeper — never a free-standing person in a lodging cell. **No spouse is drawn, and that is the liberty's own limit**: the spouse rule this project holds is written for a male head and three of these six keepers are women, so the household stands at one parent and their children, which is a FLOOR and not a claim that a keeper kept no spouse. Fourteen children were wanted and ten drawn; the four refusals are written per house in `keeper_families` — one the model put in adolescence, where the book's `10_19` lodging cells are already discharged, and three for whom the invented-name pool holds no forename not already borne beside the keeper's surname. A child takes no ordinary-night bed, so not one of the 144 the boarders fill moves. **T-1535 grew it from 56 in 13 to 67 in 15 on 2026-09-24, and the eleven are beds this stage already held and would not fill.** The stage refused the New York House and the Sauganash Hotel for want of a division — seven empty beds and four — on the ground that `data/structures/*.json` carries no division field. `data/reconstruction/1835_existing_roof_reconciliation.json` settles both into the South Division by name and always did, so the refusal was a fact about where the tool looked rather than about the evidence, and lifting it invents eleven more people at exactly the tier the other fifty-six stand at. The two houses are dealt LAST, after every house already dealt, so no existing card moves: the diff that landed this is two new cards and not one changed one. Every one of the town's 144 ordinary-night beds is now slept in. The count has moved TWICE this week and in opposite directions, which is why it is re-derived and never stated. It read 75 in 12. **T-1171 shrank it to 47**: `reconstruct_modelled_families.py` had been refusing 822 households on a `present_on_scene_date` of `uncertain` that T-1386 had already adjudicated, and once that stage reads the rulings the model draws 30 more of the town's own named men as living alone — so `seat_lodgers_1835.py` puts THEM in beds it would otherwise have invented somebody for. Twenty-eight invented people gone, twenty-eight real ones in their place, and that is the direction this question is supposed to travel. **T-1480 then grew it to 56 in 13**: the redeal made `recon_1835_north_h2_045` an H2 rather than an H3, and `recon_1835_north_h2_022` and `recon_1835_north_h2_028` boarding houses at all, so the lodging model apportioned one more house and the capacity that came with it. The seventeen of the title are not in it and must not be: they are people the town already counts, and this stage wrote them a `lives_at` rather than a life. **T-1525 MOVED IT A SECOND TIME, FROM 81 TO 84, AND THIS ONE IS A RE-DEAL AND NOT A ROOF.** The stage freezes the quota it deals against so that a later re-cut of the order book spends what the stage did not and moves nobody — and this branch re-cut the book so far that the frozen quota stood at 334 lodgers where the book now orders 273. The gap was being held shut by a live ceiling that read the book on every build, and that ceiling turned out to be deciding which cells entered the proportional split: a cell the book had emptied since the deal left the split and moved every other cell's share by rounding, with nobody ever over-dealt. So the owner ruled the quota re-frozen against the re-cut book and the ceiling now reads the frozen room alone. THE RE-DEAL IS THE COST OF THAT and it is stated rather than absorbed: 32 invented slots retired, 35 opened and 7 re-banded, for a net of three. Not one of them is a person any source names — every one is `reconstructed`, and a reader who met one of these names met it as an invention. What a re-cut may NOT do is still what it could not do before: take the order out from under somebody already standing. That now stops the build and asks for a deliberate re-freeze instead of being absorbed quietly, which is the whole of what changed.
 
 **The liberty SHRANK on 2026-09-20, and the reason is worth keeping (T-1171).** It stood at
 75 minted against 17 seated. `reconstruct_modelled_families.py` had been refusing 822
@@ -13617,6 +13670,21 @@ transient, re-admission, women-and-children and trade bands), tickets **T-1371**
 **T-1175**, the lodging model **T-1370**, the order book **T-1166**, the town model
 **T-1161**, the programme **T-1167**.
 **Recorded:** 2026-09-19.
+
+**T-2023 amendment, 2026-11-10 — explicit remainder families and one exceptional night.**
+The thirteen live lodging orders are appended after every carried draw. Nine under-ten
+girls are explicit R supplementary children of existing anonymous reconstructed adults,
+with size/sex/age and name-pool refusals recorded; none names a historical family. Three
+South youths take actual ordinary space at the Tremont. One West youth takes an explicitly
+exceptional night at Clinton H3: twelve ordinary occupants against eleven ordinary beds,
+inside the unchanged full capacity of twenty-six. This exception is limited to that one
+already-ordered youth and does not enlarge any capacity or the carried initial mint
+authorization of thirty-two. Two already existing North adults take the Steamboat's two
+real ordinary vacancies as a reconstructed non-kin party. All157 existing person records
+and 52 prior layer seats remain exact. Source, bounds, shared occupancy and withdrawal
+conditions are in `RESEARCH/1835_lodging_remainder_2023.md` and the frozen
+`quota_basis.remainder_completion`; the child/parent links remain R, not source evidence.
+
 
 ### L253 — 827 people the project had already read are ruled into the town's population, and 679 of them are carried there by a rule rather than by a record
 
@@ -20387,6 +20455,30 @@ the 3,001 seated, against 299; the busiest is `recon_1835_blk_washington_dearbor
 people in 217 m², and no cabin holds more than ten. **What is invented** is every boarder and
 family placed under a named household's roof: no source puts them there, and the named
 household's own card is unchanged.
+
+**T-2023 amendment, 2026-11-10 — accepted seats, vacant upper residences and real units.**
+A later lodging mint now carries every accepted household/roof assignment, including all
+1,807 in the migration basis. It does not silently re-rank boarded residents. Six already
+standing C2 store-residences have attic living rooms in their existing 1.5-storey forms;
+vacancy does not delete their residential stock. Counting them corrects 415 to 421 standing
+dwellings while retaining the census 8.204 ratio and all T-2244 no-tenant findings. No pure
+shop becomes a dwelling or new tenant seat. New housing admissions may not increase an
+existing lodging roof's full-capacity excess.
+
+The lodging programme's household economies are expressly reconstructed shared units,
+not one family per storage card or one family per letter-list individual. Exact disjoint
+membership, preserved kin, 20 exclusive known-house receipts, 56 R units and the global 165
+known-house accounting crosswalk are committed in the two T-2023 programme files. Nine
+generic H roofs receive R secondary boarding classifications from their already-seated
+households; no primary form, identity, source grade or roof assignment changes. North and
+West each shift one known boarding credit to a literal inn receipt, conserving every
+known-house division total. Two single-person receipts retain the official stated
+kinship/premises eligibility without asserting newly attested independent families.
+Unrelated boarders acquire no invented kinship. The full 1840 lodging tail bounds boarding
+economies 21 and inns 35 separately from the unchanged 1–8 kin-family draw and physical roof
+capacities. See `RESEARCH/1835_lodging_remainder_2023.md` for exact receipts, legacy capacity
+excesses, caveats and replacement conditions.
+
 
 ### L355 — Two camps on conjectural ground: the land-sale crowd on the reservation shore and a wagon party at the west approach
 
@@ -28801,46 +28893,6 @@ after 1812; or a survey of the 1812 mouth, which would move the Lee house with i
 **Recorded:** 2026-10-15 (T-2487).
 **Covers:** `burns_house_1812.burns_1812.footprint`, `burns_house_1812.burns_1812.form.stories`, `burns_house_1812.burns_1812.form.wall_height_m`, `burns_house_1812.burns_1812.form.construction`, `burns_house_1812.burns_1812.form.roof_type`, `burns_house_1812.burns_1812.form.roof_pitch_deg`, `burns_house_1812.burns_1812.form.chimneys`, `lee_house_1812.lee_1812.documented_range`, `lee_house_1812.lee_1812.footprint`, `lee_house_1812.lee_1812.form.stories`, `lee_house_1812.lee_1812.form.wall_height_m`, `lee_house_1812.lee_1812.form.construction`, `lee_house_1812.lee_1812.form.roof_type`, `lee_house_1812.lee_1812.form.roof_pitch_deg`, `lee_house_1812.lee_1812.form.chimneys`
 
-### L-kinzie-house-1812-2497 — The Kinzie house in 1812: its size, its set-back, its piazza's measure, the green's corners and where its trees stand
-
-**Decision:** the Kinzie house (`kinzie_house_1812`, T-2497, piece 1 of T-2484), the log house Jean
-Baptiste Point du Sable built on the north bank opposite the fort and John Kinzie's home from 1804,
-stands in the 1812 scene as a single-storey hewn-log house 12.19 m by 6.71 m (forty feet by
-twenty-two), facing south across the river, centred on the first fort's flagstaff easting and set
-back so that 18 m of fenced green lies between its piazza and the top of the bank. A piazza 2.1 m
-deep runs its whole front on six posts under a flatter roof (since T-2516 the main roof carried down over it at a break, L-kinzie-house-1812-2516), with a rail between the posts
-except at the door, and two stacks rise through its ridge. A paling 1.1 m high encloses the green, 39 m along the river by 15.5 m to the bank, with a gate before
-the door (`kinzie_house_1812_green`). Four Lombardy poplars 12 m tall stand in a row 4.5 m apart along
-the green's river-side fence, from opposite the house's east half eastward, and two cottonwoods 20-21 m tall stand behind the house
-(`data/flora/plantings/kinzie_house_1812_trees.json`).
-
-**What is read, not invented.** That the house was of squared logs (Moses and Kirkland vol. 1 p.
-30); that it faced south with the river in front, that Kinzie added a veranda and planted four
-Lombardy poplars "at the foot of the slope on which the house stood", and that it escaped the
-burning of 1812 (Currey 1912, ch. II); "a long, low building, with a piazza extending along its
-front", the green "inclosed between it and the river, and shaded by a row of Lombardy poplars", and
-"two immense cottonwood-trees ... in the rear" (Wau-Bun, of 1831). One storey, a ridge along the
-river, two stacks through the ridge and where they stand, the piazza's flatter roof under the eave,
-six posts and a rail, the paling, and the poplars' row along its river side are read off the two engravings matched in
-`data/reference_views/kinzie_house_1812/` (Lossing 1869; the Chicago Magazine 1857).
-
-**What is invented.** The 22 by 40 ft footprint is reported from du Sable's 1800 bill of sale
-(Quaife, *Mississippi Valley Historical Review* 15:1, 1928), which is not in this corpus and was not
-read, so it is cited to nothing. The set-back from the bank, the wall height (3.0 m), the roof pitch
-(30 degrees), the piazza's depth and its deck, post and rail sizes (`generators/archetypes/
-log_dwelling.py` `_piazza`), the stacks' size, the green's corners, the paling's height and the gate, and every tree's place and height.
-
-**Why:** the owner asked for the settlement around the fort to be built (T-2484, 2026-10-13), and
-the house has three texts and six pictures behind its form and nothing behind its measure. Built at
-the reconstructed tier, it stands where every source puts it, in the form every picture shows.
-
-**How to resolve:** Quaife's 1928 article (the bill of sale's dimensions); the Sarony lithograph
-after Mrs. John H. Kinzie's sketch (Currey's plate facing p. 32) and Kirkland's "Kinzie mansion in
-1812" (1893, p. 73), both T-2498's; any plat or survey of the Kinzie tract before 1833.
-
-**Covers:** `kinzie_house_1812.kinzie_1804.position`, `kinzie_house_1812.kinzie_1804.footprint`, `kinzie_house_1812.kinzie_1804.form.wall_height_m`, `kinzie_house_1812.kinzie_1804.form.roof_pitch_deg`, `kinzie_house_1812.kinzie_1804.form.piazza_depth_m`, `kinzie_house_1812_green.kinzie_1804.position`, `kinzie_house_1812_green.kinzie_1804.footprint`, `kinzie_house_1812_green.kinzie_1804.form.picket_height_m`, `kinzie_house_1812_green.kinzie_1804.form.construction`, `kinzie_house_1812_green.kinzie_1804.form.picket_width_m`, `kinzie_house_1812_green.kinzie_1804.form.picket_spacing_m`, `kinzie_house_1812_green.kinzie_1804.form.gate_sides`, `kinzie_house_1812_green.kinzie_1804.form.gate_width_m`.
-**Ticket:** T-2497.
-**Recorded:** 2026-10-15 (T-2497).
 
 ### L-kinzie-house-1812-2516 — The Kinzie house's piazza under the main roof carried down, and its pierced ends: what is read off the pictures and what is the archetype's
 
@@ -43074,6 +43126,168 @@ no plan, phase date, paint or placement is moved to erase them.
 **Recorded:** 2026-11-10.
 
 
+### L-green-tree-upper-front-three-2376 — categorical missing upper sash
+
+**Decision:** The actual native9dd comparison has two main front-gable upper sash, while the
+verified public-domain Trowbridge/Gale1902 plate clearly draws three. The prior
+two-versus-three tolerance classification is withdrawn; a missing opening is a
+categorical discrepancy. `front_upper_layout` now chooses three upper stations
+only on Green Tree's +y face. Its fractions .20/.50/.78, alignment over the
+existing ground stations, stock .85x1.35 m sash, vertical band, trim and July1835
+continuity are RECONSTRUCTED, not measured from the retrospective plate.
+Andreas1884 and Kurz1893 are retained as related, potentially dependent form
+witnesses; their narrow left-edge/shoulder-junction detail did not safely establish
+a historical two-window row. No dated alteration is invented, no source grade or
+rights is promoted, and the held c1859 photograph supplies no geometry. Ground,
+rear, eaves, attic, completed left group, footprint and world placement remain
+unchanged. Current9dd views remain differs until the genuine corrected native
+and all three actual source comparisons have been reviewed.
+
+**Covers:** `green_tree_tavern.frame_1833.form.front_upper_layout`.
+
+**Sources:** `trowbridge_green_tree_1902`, `andreas_1884_green_tree_hotel_plate`, `kurz_allison_1893`.
+
+**How to resolve:** An independently identified contemporary elevation could replace the retrospective row and exact station/stock choices. Missing exact measurements do not block this bounded correction; genuine native output and all three actual comparisons must establish the corrected opening count before acceptance.
+
+**Ticket:** T-2376.
+**Recorded:** 2026-11-10.
+
+### L-second-fort-officers-outside-stair-2388 — explicit access to the upper piazza
+
+**Ticket:** T-2388. **Record:** `fort_dearborn_officers_quarters`, phase `log_1816`.
+**Sources:** `hubbard_autobiography_1911`, printed p.36, leaf74, committed text2353–2358;
+its contradictory1827 placement/identity passage and conditional continuity remain in
+this building's existing gallery note.
+
+**Decision:** Hubbard says the upper piazza was reached by outside stairs. One straight timber
+flight now continues from the right/south end of the already-built walk. Occurrence
+is carried conditionally from1818 to1July1835; side, exact location,3.6m run,1.0m clear
+width between rails (1.2m tread breadth),14risers to the existing2.4m storey line,
+70mm treads, two stringers,0.95m rails and their posts are reconstructed. The access
+opens only the corresponding end rail. The range's wall, all openings, gallery and
+cupola retain their prior dimensions. This explicitly supersedes the earlier refusal
+to model any stair because its location was unknown. It does not identify an unkeyed
+range in Kurz's1893 print, attest exact historic carpentry or backdate later fabric.
+
+
+**Covers:** `fort_dearborn_officers_quarters.log_1816.form.gallery_stair_side`.
+
+**How to resolve:** A detailed contemporary drawing or measured account identifying the same quarters could replace the chosen stair side, carpentry and metric controls. Hubbard supplies an early outside-stair occurrence, not exact July 1835 continuity or dimensions.
+
+**Recorded:** 2026-11-10.
+
+### L-second-fort-big-barn-cupola-2388 — bounded form for the named barn cupola
+
+**Ticket:** T-2388. **Record:** `fort_dearborn_big_barn`, phase `barn_1830`.
+**Sources:** `harrison_1830_river_mouth`, literal label “Big Barn with Cupola”.
+
+**Decision:** The label attests occurrence, carried under this record's existing1830–1835 continuity
+argument. One1.2m square boarded body is centred on the barn's existing gable ridge;
+its eave is1.0m above the ridge and its pyramid cap rises0.45m. A0.08m overlap below
+the main roof at its side edges closes the seat. Midpoint position, every dimension,
+plain boards, cap shape and absence of louvres/glazing/finial are reconstructed. No
+unidentified panorama range attests this cupola's appearance. This explicitly
+supersedes the earlier refusal to build the source-named feature because dimensions
+were unknown, while preserving the barn's body, footprint, roof, doors and placement.
+The descriptive `cupola` boolean remains record_only; new consumed shape/metric
+controls drive this one opt-in model and leave other legacy records unchanged.
+
+
+**Covers:** `fort_dearborn_big_barn.barn_1830.form.cupola_shape`, `fort_dearborn_big_barn.barn_1830.form.cupola_width_m`, `fort_dearborn_big_barn.barn_1830.form.cupola_body_height_m`, `fort_dearborn_big_barn.barn_1830.form.cupola_roof_rise_m`.
+
+**How to resolve:** A contemporaneous detailed view or measured description identifying the named barn could replace the square boarded body, midpoint seat, pyramid form and metric controls. The plan label supplies occurrence, while the chosen appearance remains reconstructed.
+
+**Recorded:** 2026-11-10.
+
+### L-second-fort-side-posterns-2388 — small additional openings at clear reconstructed seats
+
+**Ticket:** T-2388. **Record:** `fort_dearborn_palisade`, phase `picket_1816`.
+**Sources:** `kinzie_waubun_1856`, ch.XVII, paragraph beginning “The fort was inclosed
+by high pickets”, independently reread at the source's actual Authorama URL on
+10November2026. “Large gates opened to the north and south, and there were small
+posterns here and there for the accommodation of the inmates.”
+
+**Decision:** The small openings are additional to the two large gates, but exact number, sides,
+positions, width and construction are unrecorded. We choose the minimum plural,
+two: east localv41.0m and west localv11.5m, in the actual clear gaps between the
+ranges. Each is a1.5m narrow wicket, its one leaf hung at the stockade's existing
+height, shut initially and opening inward. Seats, count, width, tall leaf/head,
+paling detail, hinge side and swing are reconstructed; they are not marks read from
+a plan. The native record and app leaf/interaction/walking consumer share the same
+settings. The north/south3.6m main gates remain as before. This supersedes the
+prior omission solely because “here and there” supplied no exact location, without
+borrowing the first fort's separately attested west wicket.
+
+**Covers:** `fort_dearborn_palisade.picket_1816.form.gate_overrides`.
+
+**How to resolve:** An independently legible contemporary plan or description locating individual posterns could replace the chosen minimum-plural count and east/west seats, widths and leaf construction. The two larger north/south gates retain their independent evidence and dimensions.
+
+**Recorded:** 2026-11-10.
+
+### L-second-fort-commandants-front-gallery-2388 — named later form adopted as reconstructed continuity
+
+**Ticket:** T-2388. **Record:** `fort_dearborn_commandants_quarters`, phase `brick_1816`.
+**Sources:** `wentworth_1881_hesler_1855_quarters_cut`, actual contained illustration
+and printed p.93 key naming brick quarters A; `harrison_1830_river_mouth`;
+`hubbard_autobiography_1911` (1827 north brick range; separate1818officers’ piazza).
+
+**Decision:** The1855picture securely identifies this range and shows a front double gallery.
+We explicitly adopt its plain broad form for1July1835 at the reconstructed tier.
+The retained1816-range interpretation, Hubbard’s1827north brick building and the
+1830planned range support the existing identity and a reasonable continuity choice.
+Hubbard’s distinct early officers’ upper piazza makes such a form plausible at
+this post before1835; it does not attest this gallery or merge the two buildings.
+No exact construction/alteration date, unchanged-fabric finding or1835attestation
+is invented from the later picture.
+
+The existing gallery kit spans the unchanged15.24m front and reaches2.1m. Its upper
+walk stands at the existing2.7m storey line under an open lower post level, with
+0.14m posts/deck,0.95m rail, regular pales and a canopy meeting the existing eave.
+All dimensions, sections, support rhythm, plain finish and canopy shape are
+reconstructed. The existing15window/door rectangles are captured unchanged in the
+explicit-opening API so only the new supports move clear of casing and sill horns.
+The footprint, bearing188degrees, surveyed seat, walls, roof, chimneys and range
+identity remain as before. No wraparound connector, extra stairs or unidentified
+1850soldiers’ gallery is copied onto this range.
+
+**Covers:** `fort_dearborn_commandants_quarters.brick_1816.form.gallery`, `fort_dearborn_commandants_quarters.brick_1816.form.gallery_storeys`, `fort_dearborn_commandants_quarters.brick_1816.form.face_openings`.
+
+**How to resolve:** A dated contemporary plan, fabric account or view could establish the gallery's actual construction and whether it existed in July 1835. The securely keyed 1855 picture identifies its later broad form; the explicit July continuity, two levels, stock sections, metric controls and unchanged fifteen-opening layout remain reconstructed, without a fabricated alteration date or transfer from another range.
+
+**Recorded:** 2026-11-10.
+
+
+### L-second-fort-garden-fence-metrics-2388 — the standing worm-fence dimensions from historical L45
+
+**Decision:** Retain the current reconstructed garden fence at 1.30 m high, three rail courses, 3.0 m panel length and 0.90 m panel offset. The Harrison plan’s zigzag boundary supports the inferred worm-fence interpretation, not those measurements. Every height, course count, panel rhythm and zigzag dimension remains this project’s choice.
+
+The full historical argument is preserved verbatim in resolved L45; only its obsolete planting-omission statement has been settled. The existing flora layer already supplies the garden planting, whose own source/selection liberties remain separate. Neither that vegetation nor this successor adds a new garden or changes the fence’s geometry. The first-fort pre-1812 garden passage remains excluded as evidence for this second-fort garden.
+
+**Covers:** `fort_dearborn_garrison_garden.fence_1816.form.fence_height_m`, `fort_dearborn_garrison_garden.fence_1816.form.rail_courses`, `fort_dearborn_garrison_garden.fence_1816.form.panel_length_m`, `fort_dearborn_garrison_garden.fence_1816.form.panel_offset_m`.
+
+**Sources:** `harrison_1830_river_mouth` for the labelled plot and boundary convention; `kinzie_waubun_1856` for the separately recorded company-garden planting, not fence dimensions.
+
+**How to resolve:** A contemporary measured fence description, timber return or detailed plan identifying this garden could replace the chosen dimensions. Existing planting does not measure the fence.
+
+**Ticket:** T-2388; successor to L45’s four continuing fence admissions.
+**Recorded:** 2026-11-10.
+
+
+### L-second-fort-palisade-fabric-metrics-2388 — the six standing stockade metrics from historical L47
+
+**Decision:** Retain the current reconstructed picket height 3.70 m, picket width 0.24 m, picket spacing 0.30 m, main-gate width 3.60 m, bastion length 7.0 m and bastion projection 3.20 m. The written high-picket description and plan arrangement do not measure any of these six controls. The wall’s visible scale, transparency, large-gate aperture and corner-work proportions therefore remain declared inventions.
+
+Historical L47, including its 2026-08-28 measured print-resolution discussion, is preserved verbatim in Resolved. Only its posterns-omission claim is superseded at source level; that move does not resolve any picket, main-gate or bastion metric or promote a coarse lithograph rhythm to a timber measurement. The two reconstructed side-postern seats and narrow leaves have their own standing admission, L-second-fort-side-posterns-2388, and still require actual native and interaction review. The attested north/south large-gate disposition is not replaced by those additional small openings.
+
+**Covers:** `fort_dearborn_palisade.picket_1816.form.picket_height_m`, `fort_dearborn_palisade.picket_1816.form.picket_width_m`, `fort_dearborn_palisade.picket_1816.form.picket_spacing_m`, `fort_dearborn_palisade.picket_1816.form.gate_width_m`, `fort_dearborn_palisade.picket_1816.form.bastion_length_m`, `fort_dearborn_palisade.picket_1816.form.bastion_projection_m`.
+
+**Sources:** `kinzie_waubun_1856`, `andreas_1884_v1`, `harrison_1830_river_mouth`, for the described stockade and plan arrangement; none supplies these six exact dimensions.
+
+**How to resolve:** A contemporary quartermaster return, repair estimate, engineer’s report or measured plan for the 1816–1836 work could replace the invented timber, gate and bastion controls. New postern geometry does not settle their dimensions.
+
+**Ticket:** T-2388; successor to L47’s six continuing fabric admissions.
+**Recorded:** 2026-11-10.
+
 ### L-horse-individual-coats-2795 — individual coats and markings (1812, 1835, 1904)
 
 **Decision:** The owner requested visibly different horses across eras. Bay, chestnut, iron-grey
@@ -43213,3 +43427,81 @@ Near bird calls require a visible, appropriately animated animal. Other eras and
 seasons require their own habitat/date authoring rather than copying this July layer.
 
 **Recorded:** 2026-11-10.
+
+
+### L-kinzie-house-completion-2484 — The Kinzie house's whitewashed logs, taller end door and bounded green
+
+**Decision:** the Kinzie house retains its squared-log substrate and now uses the existing
+whitewash finish on both logs and chinking. Sarony's household sketch is the primary
+appearance witness: Currey's caption expressly includes1804–1813 as well as1816–1828,
+so treating its pale wall as necessarily a later cladding was unsupported. Eastman's1820
+view also draws the end light. Neither dates a coating to August1812. This is reconstructed
+continuity of a plausible finish, not attested paint, a coating date or invented weatherboards.
+The log relief remains. Lossing's shaded, hatched view does not measure the underlying colour.
+
+**The end door:** a2.50m clear opening replaces the generic1.93m prototype on the west end.
+The actual Sarony before-pair leaves the prototype's head about10pixels below the drawing,
+while the nearby window's head is only a little higher than the drawn door. The chosen head
+at2.52m, including the0.02m sill, stays below the retained3.0m wall plate. This is a bounded
+reconstructed height, not a historical dimension. Door width and station, the front door,
+all other openings and every other log building keep their old treatment. The new selector
+is absent by default and cannot grow a door on an end that does not state one.
+
+**The green:** actual before-pairs now include its existing native fence, which the earlier
+house-only comparisons did not draw. The old39m rectangle reached13.4m west of the house
+and beyond the source frame; no text or measured plan supports it. The replacement is17.0m
+along the river by the retained15.5m depth, local E1143.5..1160.5 and N318.0..333.5. It is
+centred on the existing E1152 doorway, leaves roughly2.4m beyond either end of the12.192m
+house and keeps the bank top and piazza setback. These georeferenced corners are constructed
+from the house and committed1812 ground. Pictures bound relative form; no pixel is promoted
+to a surveyed position. The fence remains1.1m high with0.09m pales at0.16m pitch and a1.5m
+north-side gate. The generic leaf and the exact metrics remain reconstructed.
+
+**The trees:** the four Lombardy poplars keep their existing species/count and reconstructed
+12m heights. Their old east/west line gives the opposite projected direction from the row
+advancing toward the river in the household and1857 pictures. A north/south row within the
+green, at E1156.0 and N331.2,327.2,323.2,319.2, is reconstructed, with its4.0m spacing.
+The actual planter excludes stems within4.5m of another building. The north stem now
+clears the house footprint by4.80m; the earlier N332.7 station would be refused at3.3m.
+This finite clearance adjustment changes no historical source claim. The ByGrade
+colours describe their inferred species appearance; the exact planting positions and
+heights listed here remain liberties.
+Both existing cottonwoods, their heights and their places remain unchanged. Canonical
+comparisons draw house plus green on their common grade; the actual grown plants and ground
+are reviewed separately in the published scene. No tree is claimed to be in a house-only GLB.
+
+**The inherited choices still standing:** the house remains12.192m by6.706m (forty by
+twenty-two feet), with3.0m walls, a30-degree main pitch and2.1m piazza depth; its existing
+setback and placement are unchanged. Quaife's1928 article is still not a read measurement in
+this corpus, so the footprint remains reconstructed. The inherited metric and placement
+claims are carried here so resolving the old green entry does not silently drop them.
+The old piazza/ends entry L-kinzie-house-1812-2516 remains the record of its other choices;
+only its prototype end-door height is superseded here.
+
+**How to resolve:** a dated account of the1812 finish and door, a measured house/green plan,
+or a read bill of sale; a planting account locating the trees rather than merely naming them.
+
+**Ticket:** T-2484.
+**Recorded:** 2026-11-10.
+**Covers:** `kinzie_house_1812.kinzie_1804.position`, `kinzie_house_1812.kinzie_1804.footprint`, `kinzie_house_1812.kinzie_1804.form.wall_height_m`, `kinzie_house_1812.kinzie_1804.form.roof_pitch_deg`, `kinzie_house_1812.kinzie_1804.form.piazza_depth_m`, `kinzie_house_1812_green.kinzie_1804.position`, `kinzie_house_1812_green.kinzie_1804.footprint`, `kinzie_house_1812_green.kinzie_1804.form.picket_height_m`, `kinzie_house_1812_green.kinzie_1804.form.construction`, `kinzie_house_1812_green.kinzie_1804.form.picket_width_m`, `kinzie_house_1812_green.kinzie_1804.form.picket_spacing_m`, `kinzie_house_1812_green.kinzie_1804.form.gate_sides`, `kinzie_house_1812_green.kinzie_1804.form.gate_width_m`, `kinzie_house_1812.kinzie_1804.form.log_finish`, `kinzie_house_1812.kinzie_1804.form.end_door_height_m`.
+
+### L-charles-carriage-post — Charles Nelson beside the waiting carriage team
+
+**Decision:** Charles Nelson's everyday outdoor stand in 1904 is reconstructed on the west parkway of Prairie Avenue at local ENU 1395.2, -3245.955, facing east toward the waiting carriage team. It is outside the main pedestrian strip and west of the horses; actual sole support, body clearance and arrival sightlines still require renderer review. His seasonal outdoor work spans keep watch here; his existing short Eighteenth Street household break, winter shelter periods and indoor hours remain. Keeping watch is a stationary working post, with the portable figure's ordinary idle movements, not an additional sentry or a seated driver. His stable-door household-tour mark, the tour's stops and words, and his historical household/workplace records remain unchanged.
+
+**Basis:** The 1900 census names Charles as the Glessner household's coachman; it does not place him here on 1 July 1904. The source and date qualification in his existing instance still apply. No picture or document attests this exact stand or activity. The owner requested the existing coachman beside the carriage team without obstructing the house view or pedestrian walk. This moves one existing identity; it does not add another coachman or substitute Hans Johnson.
+
+**How to resolve:** Replace this everyday stand or occupation schedule when a contemporary account, plan annotation or photograph places the coachman, and retain the separately authored tour marks.
+
+**Recorded:** 2026-11-10.
+
+### L-early-masonry-surfaces-3341 — The early town's brick and clay surfaces, with the library's reconstructed module and weathering
+
+**Decision:** untextured brick walls and masonry chimney faces in the 1812 and 1835 scenes wear the existing Chicago 1835 procedural clay-brick and lime-mortar sheet. Exterior log-cabin stacks wear its stick-and-clay sheet. The renderer projects metric face coordinates without changing a native position, normal, index or confidence. Already mapped period recipes keep their own sheets and brick shuffle. The 1904 scene binds no new surface.
+**What is read:** the library's brick generator lays 20 units and 48 courses over 4.2 m, with alternate half-unit offsets; these are reconstructed module dimensions, as its material.json already states. The clay sheet spans 2.04 m. The material disposition follows docs/RESEARCH/chimneys.md sections 2, 3 and 6: an interior ridge stack is masonry; an exterior log-gable stack is stick-and-clay. No new archival colour, brick size or bond is claimed.
+**What is reconstructed:** the procedural grain and relief; the particular face selected for each brick; up to 7 percent lightness, 3 percent warmth and 5 percent broad mottle, exactly the existing L-k03-brick-shuffle-3295 rule. The packed luminance ratio preserves the native material's mean colour. Every colour, roughness, normal and occlusion sample uses the same whole-brick permutation, with the original derivatives for mip selection.
+**The recorded ridge dispositions:** kinzie_house_1812, kinzie_lodging_house_1812, kinzie_bake_house_1812, wolf_point_tavern, philo_carpenter_log_shop, jb_beaubien_homestead and hogan_store already record chimney_ridge_at. Their stacks take the brick surface instead of the generic log archetype's clay treatment. The miller_house record instead declares frame_addition_ridge_stack: its native chimney primitive is partitioned into its disconnected ground-foot exterior stack and roof-foot ridge stack; the former takes clay and the latter brick. This partition retains every original triangle and confidence value. The inference about fabric is the standing chimney ruling, not evidence of a newly discovered survey or colour.
+**How to resolve:** a close dated picture or a source naming a particular stack's fabric replaces that stack's generic disposition; a documented brick module or weathering replaces this procedural sheet and spread for that building.
+**Ticket:** T-3341.
+**Review:** docs/RESEARCH/early-masonry-3341.md; final desktop and phone frames are recorded there when qualified.
+**Recorded:** 2026-11-10 (T-3341).

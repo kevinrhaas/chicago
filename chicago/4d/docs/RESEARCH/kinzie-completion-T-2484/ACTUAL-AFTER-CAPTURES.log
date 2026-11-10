@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/tmp/nov10-kinzie-ui/capture-after.py", line 15, in <module>
+    for key,digest in keys.values():assert sha(root/'assets/gltf'/key)==digest
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/nov10-kinzie-ui/capture-after.py", line 13, in <lambda>
+    sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+                                ^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1019, in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/nov10-kinzie-completion/chicago/4d/assets/gltf/kinzie_house_1812__kinzie_1804.glb'

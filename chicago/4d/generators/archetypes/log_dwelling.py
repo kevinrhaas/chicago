@@ -864,7 +864,11 @@ def _end_openings(b: MeshBuilder, p: LogDwellingParams, x0, y0, x1, y1,
                 _opening(b, "x", x, yc - LIGHT_HALF_W, yc + LIGHT_HALF_W, z - LIGHT_HALF_H,
                          z + LIGHT_HALF_H, out, c, shutters=False)
         elif kind == "door":
-            _opening(b, "x", x, yc - _DOOR_HALF, yc + _DOOR_HALF, 0.02, 1.95, out, c,
+            # The absent selector preserves every previous door vertex and grade.
+            head = 1.95 if p.end_door_height_m is None else 0.02 + p.end_door_height_m
+            door_c = c if p.end_door_height_m is None else p.worst_conf(
+                "end_openings", "end_door_height_m")
+            _opening(b, "x", x, yc - _DOOR_HALF, yc + _DOOR_HALF, 0.02, head, out, door_c,
                      kind="door")
         else:
             z0, z1 = (wz0, wz1) if z is None else (z - (wz1 - wz0) / 2.0, z + (wz1 - wz0) / 2.0)

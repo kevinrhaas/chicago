@@ -112,11 +112,43 @@
     "cupola": {
       "value": true,
       "confidence": "attested",
-      "geometry": "absent",
+      "geometry": "record_only",
       "sources": [
         "harrison_1830_river_mouth"
       ],
-      "note": "THE PLATE PUTS THE WORD ON THE SHEET — 'Big Barn with Cupola' — so the cupola is attested in the strict sense this project means: a source states it. IT IS NOT BUILT. The outbuilding archetype has no cupola and inventing one would mean inventing its size, its glazing, its louvres and its position on a ridge whose pitch is itself inferred, which is four inventions to render one word. The barn therefore stands with a plain gable and this record says so rather than letting the omission pass silently. It is the one thing on this building that a source names outright and the mesh does not show, and it is the reason the draughtsman bothered to letter this barn at all — a cupola is what made it worth naming."
+      "note": "OCCURRENCE STATED, BOUNDED FORM NOW BUILT (T-2388). Harrison’s plan literally labels Big Barn with Cupola, so this attests the occurrence under the existing plan/1835 continuity interpretation. This descriptive boolean remains record_only; the actually consumed cupola_shape and three explicit metric attributes now build it. The prior refusal to add any cupola solely because size, glazing, louvres and position were unknown is superseded: we choose one plain boarded square body with a pyramid cap at the existing ridge midpoint, without glazing, louvres or finial. Shape, position, material and every dimension are reconstructed, not measured from the plan or from an unidentified panorama building. This is the separately named barn cupola, not another version of the already-delivered blockhouse cupola."
+    },
+    "cupola_shape": {
+      "value": "box_pyramid",
+      "confidence": "reconstructed",
+      "sources": [
+        "harrison_1830_river_mouth"
+      ],
+      "note": "Plain boarded square body under a pyramid cap, centred on the existing gable ridge. No picture identifies this barn’s cupola; shape, midpoint placement, unpainted boards and lack of openings/finial are a bounded reconstruction of the source’s one word, not an image measurement."
+    },
+    "cupola_width_m": {
+      "value": 1.2,
+      "confidence": "reconstructed",
+      "sources": [
+        "harrison_1830_river_mouth"
+      ],
+      "note": "A1.2m square body: about one eighth of the9.4m roof span, enough to read as a small barn ventilator without dominating the47ft barn. Exact width is a liberty, not attested."
+    },
+    "cupola_body_height_m": {
+      "value": 1.0,
+      "confidence": "reconstructed",
+      "sources": [
+        "harrison_1830_river_mouth"
+      ],
+      "note": "The body eave1.0m above the existing ridge, with its bottom seated0.08m below the main roof at the side edges to avoid floating gaps. Both height and joint are reconstructed."
+    },
+    "cupola_roof_rise_m": {
+      "value": 0.45,
+      "confidence": "reconstructed",
+      "sources": [
+        "harrison_1830_river_mouth"
+      ],
+      "note": "The pyramid cap rises0.45m above the body eave. The pitch, cap reach and joinery are reconstructed; the label supplies no detail."
     },
     "function": {
       "value": "military_barn",

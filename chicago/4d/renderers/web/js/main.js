@@ -48,7 +48,7 @@ import { createIntent, createBackendSwitch } from './controls/intent.js';
 import { createPointerLockBackend, isTyping } from './controls/pointerlock.js';
 import { createTouchBackend, prefersTouch } from './controls/touch.js';
 import { createWalker, footprintsFrom, decksFrom, WALK, HEADROOM_MARGIN_M } from './walker.js';
-import { profiledGroundHeight, deckGroundHeight } from './deck-surface.js';
+import { profiledGroundHeight, figureGroundHeight } from './deck-surface.js';
 import { passageGroundFrom } from './passage-ground.js';
 import { createFlora } from './flora.js';
 import { createTrees } from './trees.js';
@@ -1002,7 +1002,7 @@ const DETAIL_DECLARED = {
   // the rule are in the block above `full`.
   // T-2338, 2026-10-11: 2,290,000 -> 2,535,000 with `full` — the reading and
   // the rule are in the block above `full`.
-  balanced: { triangles: 2625000, shadowReachM: 240, furnitureCastsShadow: true,
+  balanced: { triangles: 2675000, shadowReachM: 240, furnitureCastsShadow: true,
               furnitureReachM: FURNITURE_REACH_BALANCED_M, groundDetailReachM: null,
               // T-3535: the same conservative sun-pass cull as Full and Light.
               // At West prairie: 2,658,284 -> 2,591,747 triangles, identical pixels.
@@ -1010,7 +1010,11 @@ const DETAIL_DECLARED = {
               castersTowardView: true,
               protects: 'the median visitor: integrated graphics on an ordinary '
                 + 'laptop, which is what most people arrive on',
-              measured: '2,625,000 set 2026-10-19: same fresh production-step split '
+              measured: '2,675,000 consciously re-budgeted 2026-11-10: retained native '
+                + '9dd9ba7d actual six-stand smoke measured 2,657,398 at desktop West '
+                + 'prairie; new cap leaves17,602 before the priced final group. '
+                + 'Light, ordinary Full and draw-call limits are unchanged. Previously '
+                + '2,625,000 set 2026-10-19: same fresh production-step split '
                 + 'diagnostic pricing (27 initial plus 9 continuation rows), six '
                 + 'stands at both viewports and all tiers; worst 2,607,952 at '
                 + 'desktop West prairie, +16,806 rounded up to 5,000. '
@@ -3842,8 +3846,8 @@ async function boot() {
   // the ground as drawn: a deck where there is one, else the heightfield plus the couple of
   // centimetres a yard's laid earth or a worn trail is draped above it (yards.js), which
   // otherwise swallow a shoe whose trousers come down over it.
-  const figureGround = (e, n) => Math.max(deckGroundHeight(terrain, decks, e, n),
-    terrain.surfaceHeight(e, n) + (yards.groundLiftAt?.(e, n) ?? 0));
+  const figureGround = (e, n) => figureGroundHeight(terrain, decks, e, n,
+    yards.groundLiftAt?.(e, n) ?? 0, String(YEAR) === '1904' ? streetGrid.pedestrianHeight?.(e, n) ?? null : null);
   api.humans = await mountHumans({
     dataBase: layerBase('humans'), assetBase: bases.assetBase, sceneId: loaded.scene.id ?? YEAR,
     people, terrain, tier: detailLevel, problems: layerProblems('humans'),
@@ -3929,6 +3933,9 @@ async function boot() {
       // Routine chores on clear ground do not warm the large route grid. A 1904
       // trip around the house does use it when the direct line crosses a wall.
       router: createDayRouter({ router: () => api.router, clear: dayClear, buildWhenBlocked: String(YEAR) === '1904' }),
+      // A visible jaunt host must take a real route, including the return to their day.
+      // Hidden handoffs do not build the grid; this lazily warms it only for a visible leg.
+      hostRouter: { plan: (...args) => api.router?.plan(...args) ?? null },
       clear: dayClear,
       // T-3524: Glessner's court and side doors open as people pass, up and down their stairs.
       passages: api.houseDoors ?? null,
@@ -5389,16 +5396,17 @@ async function boot() {
         },
         // T-3525: the people who tell a stop come to their marks, turned to its stand.
         hosts: {
-          sync: (stop, { arrived }) => {
+          sync: (stop, { arrived, retain = [], cut = false, onReady = null }) => {
             if (!api.humans) return;
             api.jauntHosts ??= createJauntHosts({ humans: api.humans, days: api.days ?? null,
-              router: { plan: (...args) => (api.router?.built ? api.router.plan(...args) : null) },
+              router: { plan: (...args) => api.router?.plan(...args) ?? null },
               visitor: () => ({ e: walker.state.e, n: walker.state.n }),
               eye: () => camera.getWorldPosition(new THREE.Vector3()) });
             const target = stop ? resolveJaunt(stop.destination) : null;
             const stand = target ? travel.destinationOf(target, { mode: 'walk', card: false }) : null;
-            api.jauntHosts.sync(stop?.hosts ?? [], { stand: stand && Number.isFinite(stand.e) ? stand : null, arrived });
+            api.jauntHosts.sync(stop?.hosts ?? [], { stand: stand && Number.isFinite(stand.e) ? stand : null, arrived, retain, cut, onReady });
             gateFrame.invalidate();
+            return { waiting: api.jauntHosts.waiting.length > 0 };
           },
           release: () => { api.jauntHosts?.release(); gateFrame.invalidate(); },
         },
@@ -6298,6 +6306,7 @@ async function boot() {
       gateFrame.invalidate?.();
     }
     api.days?.update(frameDt);
+    api.jauntHosts?.update(frameDt);
     // T-3524: the doors people hold open swing toward open, or shut behind them.
     api.houseDoors?.update?.(frameDt);
     // T-3504: and then nobody stands in anybody else (human-spacing.js).

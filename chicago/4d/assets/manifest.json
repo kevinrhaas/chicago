@@ -4,7 +4,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 46552,
-      "inputs_sha256": "7fcd5785fd1e026f6b846ae62a9f18eff4f9c654d183063ab66feac40debbb09",
+      "inputs_sha256": "89cd4fb666183ca660040e80378f1272e07fa40cc1fa504dd758102fdc604563",
       "kind": "generated",
       "phase_id": "log_1830",
       "structure_id": "agency_striker_log_house"
@@ -80,7 +80,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 48416,
-      "inputs_sha256": "4e572fbe7bbfc6e0c7a539b085d59298c0907becfbaa90225bde7b82a3b3e124",
+      "inputs_sha256": "0d7fde109c26e22c2552f33f94cde3022a3b3e201bdf37a19e7de2e5de8351ec",
       "kind": "generated",
       "phase_id": "log_1823",
       "structure_id": "blacksmith_shop_state_st"
@@ -98,7 +98,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 56736,
-      "inputs_sha256": "8309d154339b85240d5fd544d26385f139a5250b7d4ea6ebef5832ab06e29eba",
+      "inputs_sha256": "037132ccc33228764e6ab4486d84067872fd384b26cc3729537bd6e5819e8384",
       "kind": "generated",
       "phase_id": "documented_1835",
       "structure_id": "brown_boarding_house"
@@ -127,7 +127,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 48096,
-      "inputs_sha256": "9014ee730c1bee1d329d683f610ba17c6f058f3279cde0b9cbdd09ed02a98ead",
+      "inputs_sha256": "3f976e22d39d90ca76ba7e4bda9e8ee1b67024b9b29d14fd6ae0fc1113dd51ea",
       "kind": "generated",
       "phase_id": "burns_1812",
       "structure_id": "burns_house_1812"
@@ -136,7 +136,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 48436,
-      "inputs_sha256": "e457db770a90c266ccb56efc4a2afbf2162175e3cbfc648844038084799d00b9",
+      "inputs_sha256": "241330e70bebcf68769698d9172177b4a533619d7aa000558700b14beafa1521",
       "kind": "generated",
       "phase_id": "log_1830",
       "structure_id": "caldwell_agency_log_house"
@@ -154,7 +154,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 49864,
-      "inputs_sha256": "5e5e9b1c31e1b3cb06239b8ef5a019119e2379feaeb116e890f9b3244eb5d90f",
+      "inputs_sha256": "e64dd080fbbd172cdbbdcab531e28283b42e46742ecb72e88ae1f7f539241f1b",
       "kind": "generated",
       "phase_id": "log_1833",
       "structure_id": "chappel_infant_school"
@@ -199,7 +199,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 49608,
-      "inputs_sha256": "99d404d8b10990a9a8af98006cbed1d594e33693092db3dbf0c308d5f7af7833",
+      "inputs_sha256": "c3e2b7d134aa46ce66f133e6442c20b22413183d2e5e577ef5ebb7b7ec7febd1",
       "kind": "generated",
       "phase_id": "log_1824",
       "structure_id": "clybourn_cabins"
@@ -217,7 +217,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 195392,
-      "inputs_sha256": "006eb5caf813956572cd7ddcebe90b60dbad3a535ab8c807b4fe04912bae7dd0",
+      "inputs_sha256": "1b89d9432a92a74f6d529d340405fbc625f336e00555ccdb9bc10114d0855217",
       "kind": "generated",
       "phase_id": "log_1820",
       "structure_id": "cobweb_castle"
@@ -246,7 +246,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 49316,
-      "inputs_sha256": "c8dfc5bbd8f18350a6213123707ad6ab499bed6694134d14ad0477fa4800b598",
+      "inputs_sha256": "af716392f43fa76b2e64d4a176fb00f21b716f62edf0f7ee962205535c85bd01",
       "kind": "generated",
       "phase_id": "log_1834",
       "structure_id": "council_house"
@@ -399,7 +399,7 @@
       "archetype": "frame_tavern",
       "baked_ao": false,
       "bytes": 107408,
-      "inputs_sha256": "2d5a403dd2a6a5712860e5bacc6601d38ba41e62c77b4eed4d8c1054bcc26d66",
+      "inputs_sha256": "b076dc722a0e1cfb7ec56cde144c80258e5162b431367c0b8eb9d3b9ff371130",
       "kind": "generated",
       "phase_id": "frame_1834",
       "structure_id": "exchange_coffee_house"
@@ -579,7 +579,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 80740,
-      "inputs_sha256": "a9d8662e9cb4cb89dac36a10e26e5cc1b68ddf8b43e35b77a9b0d9a1543aaddf",
+      "inputs_sha256": "f1c4c90e1ec728e974e5b625a5067f562e0a64dd823ddf7b0d8215d1fc052f8c",
       "kind": "generated",
       "phase_id": "first_fort_1803",
       "structure_id": "first_fort_outer_agents_house"
@@ -606,7 +606,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 80772,
-      "inputs_sha256": "8504f7094dd76e077105b7c71c994d8a024574c5f7bf017d3a486e56df16b222",
+      "inputs_sha256": "a8eef91ca1b817c6ee6eb0d16e8652e0d4617262083c7aa73eff35658337713d",
       "kind": "generated",
       "phase_id": "first_fort_1803",
       "structure_id": "first_fort_outer_factory"
@@ -615,7 +615,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 80476,
-      "inputs_sha256": "1e44e5a16f15e0080596dec987529b832d1addd80c94d20799749be2e0ac5f82",
+      "inputs_sha256": "023a26e3a7a55d0dcf6835dd51f33804ff8b43965653e73745c3a2da41c0e9f2",
       "kind": "generated",
       "phase_id": "first_fort_1803",
       "structure_id": "first_fort_outer_interpreters_house"
@@ -745,7 +745,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 47824,
-      "inputs_sha256": "38e1800b486d8fa19eed368dc22ec8435336bd9be60bbdef789afd766d346cee",
+      "inputs_sha256": "8e3bdb4c6f569dc6baa324563d978a8654bf7c06bf1ce583112fc05d065302bf",
       "kind": "generated",
       "phase_id": "clark_1812",
       "structure_id": "forks_house_clark_1812"
@@ -754,7 +754,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 48136,
-      "inputs_sha256": "579103865545e37d0ba5cc3cf1838363a267444b2590fd24acf3776253a1f0ce",
+      "inputs_sha256": "1e2220e9a774a2fa18a924e6ce61b5a375b7cb2ea1777a3122044036c4e74656",
       "kind": "generated",
       "phase_id": "soldier_1812",
       "structure_id": "forks_house_soldier_1812"
@@ -790,8 +790,8 @@
     "fort_dearborn_big_barn__barn_1830.glb": {
       "archetype": "outbuilding",
       "baked_ao": false,
-      "bytes": 121764,
-      "inputs_sha256": "eb0a0d62cc96c133244a9be58f40868f9ba378cf016ac73f1aa0367c6e7a4c47",
+      "bytes": 127828,
+      "inputs_sha256": "458f46e9aa577d319d3ce45d910a380dff31a411d0f1fef193e9142c9660cc29",
       "kind": "generated",
       "phase_id": "barn_1830",
       "structure_id": "fort_dearborn_big_barn"
@@ -808,8 +808,8 @@
     "fort_dearborn_commandants_quarters__brick_1816.glb": {
       "archetype": "fort_structure",
       "baked_ao": false,
-      "bytes": 218392,
-      "inputs_sha256": "95b8d6a88e4e1b505f25933de7db0dccd8b0a6213d0b6268b33bff35204b458f",
+      "bytes": 361588,
+      "inputs_sha256": "ac558ae650f53fade29458f5fa01438d39c174260ee347756abcaa43d0ee6839",
       "kind": "generated",
       "phase_id": "brick_1816",
       "structure_id": "fort_dearborn_commandants_quarters"
@@ -853,8 +853,8 @@
     "fort_dearborn_officers_quarters__log_1816.glb": {
       "archetype": "fort_structure",
       "baked_ao": false,
-      "bytes": 475316,
-      "inputs_sha256": "755145471c98072bc68945ed271bb945539292111711f1bfe039c9efe9316b2c",
+      "bytes": 490020,
+      "inputs_sha256": "a1d6dd1a9e5e09f99c916312f8741609c78425d71b7fd74c8c29072e838f1792",
       "kind": "generated",
       "phase_id": "log_1816",
       "structure_id": "fort_dearborn_officers_quarters"
@@ -880,8 +880,8 @@
     "fort_dearborn_palisade__picket_1816.glb": {
       "archetype": "palisade",
       "baked_ao": false,
-      "bytes": 1415824,
-      "inputs_sha256": "9b8c5c3d141a61bbac1be51c606dd3accb0e11d600a80140ffa8b6c15ddd3de4",
+      "bytes": 1407300,
+      "inputs_sha256": "f2aba66ac9cb7ba4418d584bb58a95503429d1a795bedbf9a29f8976ab138371",
       "kind": "generated",
       "phase_id": "picket_1816",
       "structure_id": "fort_dearborn_palisade"
@@ -944,7 +944,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 85800,
-      "inputs_sha256": "631371c1bf8523df531bd2c4fbe15c2f215de072d898213db6e5e33cddf41aa5",
+      "inputs_sha256": "eb2ea241c62a15fd397aecd57e66f50c8e1bd5811ae42a0ff62db80aaf3f77d3",
       "kind": "generated",
       "phase_id": "us_factors_house_1818",
       "structure_id": "fort_dearborn_us_factors_house"
@@ -1049,8 +1049,8 @@
     "green_tree_tavern__frame_1833.glb": {
       "archetype": "frame_tavern",
       "baked_ao": false,
-      "bytes": 293260,
-      "inputs_sha256": "f42f8976e1f54f3866b29ed47290e801d5b0c5fcb4570d9d5e3324cb59f4132c",
+      "bytes": 297628,
+      "inputs_sha256": "f3a11cddc8c59e3fa2e3eddb55daf14dd5ddd26c040a75837fa737e3c923c764",
       "kind": "generated",
       "phase_id": "frame_1833",
       "structure_id": "green_tree_tavern"
@@ -1088,7 +1088,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 51732,
-      "inputs_sha256": "da4362ef55bf21146b2e3cfa319c6f149de1ff89823038831bdac70b0b90d682",
+      "inputs_sha256": "67ffe9039694254528b9d69729d706ee12a2eb5f1ca835f2f2763391574e8bb8",
       "kind": "generated",
       "phase_id": "documented_1835",
       "structure_id": "harmon_log_cabin"
@@ -1175,7 +1175,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 50452,
-      "inputs_sha256": "b8012ca79f6a3f19f831e58f9042d1aa1b14fcf51cc84ae04f48007258463523",
+      "inputs_sha256": "4521341287aa8bf12fa10aeb0e8687a1016b3b5f44ba57a915f6f1222ab2c5a2",
       "kind": "generated",
       "phase_id": "log_1831",
       "structure_id": "hogan_store"
@@ -3009,7 +3009,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 51740,
-      "inputs_sha256": "fc70f2237b2cf50ef849ae9e06fec70518a3b462c1cb6675347370e989ea8f1a",
+      "inputs_sha256": "bbcd00569178b6670b7d76b6a0f44282e7262afa8ba95de65ecbde4148782dba",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "inf_boatman_cabin_north"
@@ -3234,7 +3234,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 49316,
-      "inputs_sha256": "96de00d53144000a88c857afafaa912e602cdc9db8111a9f70ebbece87e81712",
+      "inputs_sha256": "c517f0bd8d4bce65dcd09aede63b2dfe83779e056b20920d42723610b3557b70",
       "kind": "generated",
       "phase_id": "dwelling_1830",
       "structure_id": "james_kinzie_house"
@@ -3243,7 +3243,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 102744,
-      "inputs_sha256": "e8a13730a10b0f961cd875edbf0ff28639ee96d3f3f49f930321c094435a5a82",
+      "inputs_sha256": "951ec0b6f176d214144f0949fdcef839685de4b700c2b37301c5b716c0fcc1f8",
       "kind": "generated",
       "phase_id": "log_1822",
       "structure_id": "jb_beaubien_homestead"
@@ -3368,7 +3368,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 45172,
-      "inputs_sha256": "3b8b1febcc865506adf3e45981f5421a1310e88c7decc1ce45f2fdbe4a035522",
+      "inputs_sha256": "64de0569dfce45d389090ce46a37acabdd2a8db8f44fde7244a1607154bffa87",
       "kind": "generated",
       "phase_id": "kinzie_1804",
       "structure_id": "kinzie_bake_house_1812"
@@ -3403,8 +3403,8 @@
     "kinzie_house_1812__kinzie_1804.glb": {
       "archetype": "log_dwelling",
       "baked_ao": false,
-      "bytes": 123776,
-      "inputs_sha256": "5c926bdc556b41a30eab30177dafbfb39143de0ad95c785a0082bbd8a038ec05",
+      "bytes": 123772,
+      "inputs_sha256": "c09c195779f324cb256151d5c651b5d16b8032d35422a4e23c955d71e80e9965",
       "kind": "generated",
       "phase_id": "kinzie_1804",
       "structure_id": "kinzie_house_1812"
@@ -3412,8 +3412,8 @@
     "kinzie_house_1812_green__kinzie_1804.glb": {
       "archetype": "palisade",
       "baked_ao": false,
-      "bytes": 1220712,
-      "inputs_sha256": "10320bbac8b21823aa1ee34071cfa7b4d8a3ea8fec81d52b20410c296335961e",
+      "bytes": 727208,
+      "inputs_sha256": "504b7f366cabbe8d00a2ea6fa4f3ca916b46d66a3093a1e4f2b52a2b16e23453",
       "kind": "generated",
       "phase_id": "kinzie_1804",
       "structure_id": "kinzie_house_1812_green"
@@ -3431,7 +3431,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 42040,
-      "inputs_sha256": "8cf906eb863be800819cdc1e188c1de073c2103f467f656d79ce988de4033af3",
+      "inputs_sha256": "3056599c7fb61b014cad39d4deab00a1f092db7af27c59da26b62f808ab62484",
       "kind": "generated",
       "phase_id": "kinzie_1804",
       "structure_id": "kinzie_lodging_house_1812"
@@ -3440,7 +3440,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 43952,
-      "inputs_sha256": "e359b4c8d1e6340d40e9eebb317c7817760e8206185e8b6433104b882b4e4fb7",
+      "inputs_sha256": "0754e4b54493fbf5c6f519c1cbcb4c263758a35e70281d855c7d336795ba32b8",
       "kind": "generated",
       "phase_id": "kinzie_1804",
       "structure_id": "kinzie_stable_1812"
@@ -3458,7 +3458,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 48412,
-      "inputs_sha256": "3c93a2ff403773a5a9c937e94f0f81475994adfd097bd046da2d8ab16b144763",
+      "inputs_sha256": "b180f48cb31579613786bb2ba84e81933d8e654025417390c1da3c04f2c662fa",
       "kind": "generated",
       "phase_id": "lalime_1812",
       "structure_id": "lalime_house_1812"
@@ -3523,7 +3523,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 49928,
-      "inputs_sha256": "8e01d14822158c7ff5986ac8fe0cfbb21aba74bfa350f1626bc54f12bd6006f1",
+      "inputs_sha256": "9a5a0fe9a162fa5500c0b7b3413ca13e5418c7df58c1a7de5972ab28e7413732",
       "kind": "generated",
       "phase_id": "lee_1812",
       "structure_id": "lee_house_1812"
@@ -3532,7 +3532,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 78332,
-      "inputs_sha256": "4f97d4c75f50fadc8c10b6a9b25b72a54ee3eafd7154900e46399272872343bf",
+      "inputs_sha256": "1fb328d831a9eadaebc084935ec1a5862ac391900111266d28ed68fb99bb9456",
       "kind": "generated",
       "phase_id": "lees_place_1812",
       "structure_id": "lees_place_cabin_1812"
@@ -3590,7 +3590,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 48732,
-      "inputs_sha256": "c96e482bc74a15096f8615551e15b87e95250c5dd2b460337a19d7bb4d42ec36",
+      "inputs_sha256": "2b0ae7fef15720c4a7d594c7a0b1eaec28d8ac2b91027cab8df181eb4d9f0591",
       "kind": "generated",
       "phase_id": "lemai_1812",
       "structure_id": "lemai_house_1812"
@@ -3637,7 +3637,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 49340,
-      "inputs_sha256": "44bf91ab194bb5b29558290b59caa8184b3ff1da8e8dfea2cfb09003193f570d",
+      "inputs_sha256": "c3ee71a764a2abc4beddae4dc252562b2fc50a164368065e0ccc43d47024f2ca",
       "kind": "generated",
       "phase_id": "log_1831",
       "structure_id": "madore_beaubien_house"
@@ -3646,7 +3646,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 67560,
-      "inputs_sha256": "9b02915d89e86e7b2994f9dec785680beb5ed593a976d87ee02446330edd61f4",
+      "inputs_sha256": "1d7d0ea2e11e029eb48a956094a703d188fdc203f099fd4f9f38f870a9dac3c1",
       "kind": "generated",
       "phase_id": "log_frame_1833",
       "structure_id": "mansion_house"
@@ -3773,7 +3773,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 48416,
-      "inputs_sha256": "8eba0db8c876bb90a7c7f942af3dc75cc9647068bbb29ab043664e4214b7f08e",
+      "inputs_sha256": "853c16314596f19df14a30870e9305f80c82826a3f69df9c80eda7594371fa2d",
       "kind": "generated",
       "phase_id": "log_1823",
       "structure_id": "mckee_log_house"
@@ -3792,7 +3792,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 211932,
-      "inputs_sha256": "23c8bddda6326268bdd80e62d1c5ddc967e1a372c7c278b17db8701d56a48618",
+      "inputs_sha256": "f38791d5468d666111f547cfc9a55cb884cd99bb40112b0aad4ed6e522e10042",
       "kind": "generated",
       "phase_id": "log_frame_1827",
       "structure_id": "miller_house"
@@ -3801,7 +3801,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 49292,
-      "inputs_sha256": "c3b3103a47191a843b5eb7bf9131b016589fe0457c435a34692b01db94be2669",
+      "inputs_sha256": "5d86cfa7b31fe9c8f5990ab9b3f5e78b1f0be75aebf4c6175777008624d82170",
       "kind": "generated",
       "phase_id": "log_1831",
       "structure_id": "miller_tannery"
@@ -3868,7 +3868,7 @@
       "archetype": "frame_tavern",
       "baked_ao": false,
       "bytes": 106732,
-      "inputs_sha256": "22a1fa08482e3a12bdfa780cd69c1638e4f784ff2bdacbfa16c462ca1cc9250d",
+      "inputs_sha256": "cb4bab3f5913132bcaaca64d4690a4f4fac8fc3ce3a90811f4161786e13e387a",
       "kind": "generated",
       "phase_id": "frame_1834",
       "structure_id": "new_york_house"
@@ -3985,7 +3985,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 49640,
-      "inputs_sha256": "de8719cf47881416136b051460dd297b1ba49f621d75435769ba2ffe363cfabb",
+      "inputs_sha256": "a1d573330cfa48ec02bd9223cf6f0010373c691ef1cce7a3bed35e8108b9c4d5",
       "kind": "generated",
       "phase_id": "log_1833",
       "structure_id": "north_side_school_1833"
@@ -4032,7 +4032,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 42836,
-      "inputs_sha256": "34f51072d9ebeecc30f98b615b7784f15ff636c6138e89362a4912bf3a5d5bba",
+      "inputs_sha256": "b557458642412c7c098873d4ef9273d34d346abcfd9f0103d621f457900c568a",
       "kind": "generated",
       "phase_id": "ouilmette_1812",
       "structure_id": "ouilmette_house_1812"
@@ -4050,7 +4050,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 48472,
-      "inputs_sha256": "f54a1b2af1e5c16ad1bc09e12b250b5d9f0c3b41e46a2acccd42d53b5bb54331",
+      "inputs_sha256": "e3d7e2418d1dc9c0f1a466d71d4df23991f9850cef107d8c09620d5249d87d0d",
       "kind": "generated",
       "phase_id": "log_1832",
       "structure_id": "philo_carpenter_log_shop"
@@ -4425,7 +4425,7 @@
       "archetype": "frame_tavern",
       "baked_ao": false,
       "bytes": 162520,
-      "inputs_sha256": "d5711ae141eb2f91bd168355255c6530c6206eef71089bb74bd11834174269fe",
+      "inputs_sha256": "c4f511244cdfe43ca6f80382cc380e4e8cae2d8e2d1aee486c669b16da5c501c",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_indiana_north_cass_h3_09"
@@ -4596,7 +4596,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 53648,
-      "inputs_sha256": "2b00b18032665bc48275598a298918b09f8220381d497df0ac8204ea37d19b02",
+      "inputs_sha256": "92be0b95454bbb2bcd1ed80eb08949c82021f401d6a9a1252baa9933420ca671",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_lake_franklin_d1_02"
@@ -4632,7 +4632,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 52396,
-      "inputs_sha256": "90c8d001ea2c73d51c59dedc91e5c8471a815501eeeef1cf026373788e927f53",
+      "inputs_sha256": "2a885889f4e2143011f0cdc231992a5f7b9c19c0cf570d3cdafa46000d6314e0",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_lake_market_d1_05"
@@ -4695,7 +4695,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 52088,
-      "inputs_sha256": "13eabfca28255360fe867df0fb680134a26ce20e845abe185e51a5c99cef2439",
+      "inputs_sha256": "40d72874d70a16b52c9472372a80204de1339fa6d9c4e8d2ad887fa6fc75bbec",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_randolph_clark_d1_06"
@@ -4803,7 +4803,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 52096,
-      "inputs_sha256": "fb49a7ea0c33a8b6b78db50a7d2886a98f39cbe5c0df64ca4617bceed5061139",
+      "inputs_sha256": "859d9234beaa2717d1ada1d2aefab60116480aac6e1e2632197634286b7ec9bf",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_randolph_clinton_d1_03"
@@ -4911,7 +4911,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 52104,
-      "inputs_sha256": "89f58a3139c9cab8157f82cc7264d30a359b941cd7edfbe14af58feda668de8b",
+      "inputs_sha256": "3be31a5ccf3219fb3824c6f5438ccbd2601a5f852adb2f3e07b26b590d1f9727",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_randolph_dearborn_d1_04"
@@ -4920,7 +4920,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 51792,
-      "inputs_sha256": "f4a8929de25986b266b920576fcf07547d155672c4bc2f11c3932319c2c500f3",
+      "inputs_sha256": "c461c33e9df005cc1d76ea1c6cd8c0a09a1a9577127ba6be9bc0dc39b69d3c22",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_randolph_dearborn_d1_12"
@@ -4929,7 +4929,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 51788,
-      "inputs_sha256": "f99f1ffa4e1ef23de5c0a318bcfaf9f9967309dfbab92f240fcb1335d4b4a2fc",
+      "inputs_sha256": "fed6f69b537447616b239c8ccd0600e95861c53bf5902b17f74335959c1c0f10",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_randolph_dearborn_d1_16"
@@ -5037,7 +5037,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 51796,
-      "inputs_sha256": "8406838b475652b3838fcfdef152488df727d064fbd01396a50a8a9c57ee479a",
+      "inputs_sha256": "3eff694dc4f54fbd8a0d97924eb84b7253f53787d55f9c865634ba249098b928",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_randolph_franklin_d1_06"
@@ -5100,7 +5100,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 51472,
-      "inputs_sha256": "e15efd3d6443b514cc307cc27f27f293ce34495c6c6f6c9c6cb801a11f7c7404",
+      "inputs_sha256": "9cf82a7b252b3517fd1f6cb7f5bb4201db8c8cd4f17dfee8ff7d8b2b27b788eb",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_randolph_market_d1_10"
@@ -5226,7 +5226,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 52084,
-      "inputs_sha256": "90346c79c163e4b593768936df9351bd3476f4e01fa3a29aa52ca9caa24b6f22",
+      "inputs_sha256": "5b8ce5049dc4cc279d7199bc3b1f52c5b9f1526c88a3c9b3abdd2835bea2610c",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_randolph_wells_d1_06"
@@ -5478,7 +5478,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 52428,
-      "inputs_sha256": "24ab661fa0b802af0cd548195bc086ed80431d225180bb64022e9de4bd6cc7d2",
+      "inputs_sha256": "886cce06a3c2d275ad7b688399d1e4a22ef2ff0472bfebd7aa087b658bd90611",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_school_section_tier_82_d1_05"
@@ -5685,7 +5685,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 52104,
-      "inputs_sha256": "70d761fbaac593bf47c8ff78ff142779da74c68bb3979527f7c61ceb2373cd0f",
+      "inputs_sha256": "607527e15a53a7795ea6914c53761e64f1f21f66e24017e5e7f88631193b2108",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_south_water_clark_d1_04"
@@ -5784,7 +5784,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 52408,
-      "inputs_sha256": "d07ee6c7a31392b93d434e576e8d3e52f7af754e5fa38bfcef7dd0d5735576ce",
+      "inputs_sha256": "40eb265378a5f4623bab7c43d76773d01af155b81c64fd1b0f74040027ca3cbf",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_south_water_dearborn_d1_05"
@@ -5883,7 +5883,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 52428,
-      "inputs_sha256": "8c64f4e946d2606c53878fa5e5b39160b9bbab17957292fe87107249d5bb0323",
+      "inputs_sha256": "a0280aeb336a68115edb0af6dcbd55711b38d9140a4107d61ba6af4cabef4d70",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_south_water_franklin_d1_04"
@@ -6000,7 +6000,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 51488,
-      "inputs_sha256": "ce17b98b9c02a8ca21ef07fd367c01abd43140a2113067869827264d060e78fd",
+      "inputs_sha256": "8fa451f0b2eebbfff677a071d21a35f8835d8de11fe42f9177ed0d1f8f0beb8b",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_south_water_lasalle_d1_04"
@@ -6081,7 +6081,7 @@
       "archetype": "frame_tavern",
       "baked_ao": false,
       "bytes": 163140,
-      "inputs_sha256": "dc4f36195c3067b7c13574fe7364d7e1c48891bb201d23fb9353f13976f18355",
+      "inputs_sha256": "2a7be8aa5bf07a44b23dcb08c475140994925041fd3633eaa3422d3deea93804",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_south_water_market_h3_02"
@@ -6135,7 +6135,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 52092,
-      "inputs_sha256": "12fd1c6068db1b0c6c2cfa0773bc440174ab925059c762abd02124db9c85d5ba",
+      "inputs_sha256": "e90c2826556f99ed7f5188608bdd9f4e1810b31682c3a135df61f48867efeb92",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_south_water_wells_d1_05"
@@ -6144,7 +6144,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 51792,
-      "inputs_sha256": "2698c610296a1febe6c0012be7f7d3a978948c1a388c11916775a9bf5f276049",
+      "inputs_sha256": "2607eafba9e268f64649d1a537ccea36dc91fd9a86f450fb7d1630e6fa779bc4",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_south_water_wells_d1_07"
@@ -6297,7 +6297,7 @@
       "archetype": "frame_tavern",
       "baked_ao": false,
       "bytes": 151124,
-      "inputs_sha256": "9fa507a78d124efd8e482c6a4c4403cb70f432baae5a8a2ca53b10feb5b94e8e",
+      "inputs_sha256": "04bc53b0a2c0e99e86b1409edf56755dea2d9aad705d11a4c709d48d14acddfa",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_clark_h3_05"
@@ -6306,7 +6306,7 @@
       "archetype": "frame_tavern",
       "baked_ao": false,
       "bytes": 162024,
-      "inputs_sha256": "2ab96af9f9b4020d915c356c28ff8daeda43ceb98e3aed0338b72381c0ce4085",
+      "inputs_sha256": "157cdd81dce85a17699d66d6b8948a1e0b550eb1f8e16a9bbed9e90cf2c77d40",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_clark_h3_06"
@@ -6315,7 +6315,7 @@
       "archetype": "frame_tavern",
       "baked_ao": false,
       "bytes": 162680,
-      "inputs_sha256": "d4da782744b833d2b0ccdcc12446eba9f712bee538c4b72c9a9d3031b5fba0b8",
+      "inputs_sha256": "13c3b385093a8d69f6fe762200f7a110bde982e0fd7099be9e0046cde6c44c94",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_clark_h3_11"
@@ -6495,7 +6495,7 @@
       "archetype": "frame_tavern",
       "baked_ao": false,
       "bytes": 165324,
-      "inputs_sha256": "b3b65288fe4111710ded16625dab8e192842fdb8aafc25593f14ce1e604a0666",
+      "inputs_sha256": "9f40f9121f820c97a64c888b3530ae666f44414524b6559d9f921dd109df377c",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_clinton_h3_02"
@@ -6576,7 +6576,7 @@
       "archetype": "frame_tavern",
       "baked_ao": false,
       "bytes": 162824,
-      "inputs_sha256": "0f89525b181480a1012d00f8948bb52aa00bd2f42cb60b7bd99ca50afb72ab1d",
+      "inputs_sha256": "21113fbfc70dcbc55e58cd6d20cb00138afa3bfd03cc8ce3fbb48c4cda2f6e73",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_dearborn_h3_01"
@@ -6936,7 +6936,7 @@
       "archetype": "frame_tavern",
       "baked_ao": false,
       "bytes": 155964,
-      "inputs_sha256": "931483fa019d096533b079f736d9a3554bd2fc830566a60fa76dcbdadc592eff",
+      "inputs_sha256": "dfe61df1e13f490ecb884eb51cc1c65b0f00e01ce9456a3c596f098c0aab1249",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_market_h3_01"
@@ -6945,7 +6945,7 @@
       "archetype": "frame_tavern",
       "baked_ao": false,
       "bytes": 163092,
-      "inputs_sha256": "cf297f9d1213cc3d1c2fd4321c70a7a786f383d2994c6db507298e06d3fb4499",
+      "inputs_sha256": "09267a890eba09016954bc78488e7a217795e967f3b64c8f21d609d4698f87c3",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_market_h3_04"
@@ -7476,7 +7476,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 51744,
-      "inputs_sha256": "9cce7f8777f061169d358ed4ab4beae722f07e5d75629b8e7057818346e3877b",
+      "inputs_sha256": "da1dd9a53b3b7758484494bcfc144b13d265180308bd4b6cccfe9d31dca46b4a",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_north_d1_001"
@@ -7485,7 +7485,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 53612,
-      "inputs_sha256": "c3d1c39be9587c88a62097e27e3675298fe4352b69ba9e7803c1db3adc2d473c",
+      "inputs_sha256": "0265651ec0b1dd64f99345cfed7383a24429da116d3193431be1611ab5a1b093",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_north_d1_013"
@@ -7494,7 +7494,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 51740,
-      "inputs_sha256": "fea5b3f87c2f80f4bcf3a7e7af52428547de0951391a8d0dbae2d52ab3ac4653",
+      "inputs_sha256": "8c59877584ecac94f7c41304b57699511cdb4f4fa752a2be477452f35b71baad",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_north_d1_023"
@@ -7503,7 +7503,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 54244,
-      "inputs_sha256": "b9f52bfda6eb52e805575fc4218550cc0e47480a6a8ccaa1e8aefdb755e31809",
+      "inputs_sha256": "7764c7691bee76dc57f2534277d79d2d5d399a2e2362689a8e23183578f65569",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_north_d1_053"
@@ -7512,7 +7512,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 52056,
-      "inputs_sha256": "db203b969c8bfca82adf8c3e29f45cf9f1d4121a85cc4e9af5d4f6e70fe55fac",
+      "inputs_sha256": "41954d59ba8a61159c379397dfa8258230e360289b6b8e967aca3dd19af99d1f",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_north_d1_054"
@@ -7521,7 +7521,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 51740,
-      "inputs_sha256": "2f7eb0dead3aadc7de23cd6cb0afe97d902761c0038730deaa37cc1ebdbf4a55",
+      "inputs_sha256": "a2516e83656dc054dce90b16a6fb5aa83893026d5d3b886e188f54b206eca431",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_north_d1_060"
@@ -8061,7 +8061,7 @@
       "archetype": "frame_tavern",
       "baked_ao": false,
       "bytes": 120552,
-      "inputs_sha256": "4e7957df691a3f02bb7a800b4931a4b9e675795739a5348ecdbdff9738aa65d1",
+      "inputs_sha256": "aae519d48dc032e6133cc492d08d4c12ebfaa2bdddc70042d98d4ae81f921cb8",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_north_h2_022"
@@ -8070,7 +8070,7 @@
       "archetype": "frame_tavern",
       "baked_ao": false,
       "bytes": 128684,
-      "inputs_sha256": "95d327b3ded23fa30c942f82fdbc82270684516f0db87047b9d25c612e176752",
+      "inputs_sha256": "81b0db1ba36a79e67501d288658ac1928db8f23e7ccb56066216c4688af8d550",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_north_h2_028"
@@ -8079,7 +8079,7 @@
       "archetype": "frame_tavern",
       "baked_ao": false,
       "bytes": 119600,
-      "inputs_sha256": "b87c8b86024e2f547ae5d6c6ab040c03c1e31c8a01a5b506f91cef34436f04ae",
+      "inputs_sha256": "834182a178c725fcbbf7923c2991f56cd41b9b06f60433ae0867bbb844d8e290",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_north_h2_030"
@@ -8088,7 +8088,7 @@
       "archetype": "frame_tavern",
       "baked_ao": false,
       "bytes": 131492,
-      "inputs_sha256": "a58a7a2edcb09dba0a193fe8a3b0d581fe7f382f07a549d6b980d7d9bc489492",
+      "inputs_sha256": "f6a6b4668145b895d5dc5eb369f698204c6ced2e08a2229c2ad0fafe756b6e2b",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_north_h2_045"
@@ -8097,7 +8097,7 @@
       "archetype": "frame_tavern",
       "baked_ao": false,
       "bytes": 104660,
-      "inputs_sha256": "768637a8b8e719f78a895f143b95123f0979b915ee45891a495b2e4896443a81",
+      "inputs_sha256": "713881ddd17dc3de0152fac7ffa25d7262bfae0e45ce142e5071e98f7a093e44",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_north_t1_061"
@@ -8259,7 +8259,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 52056,
-      "inputs_sha256": "6cee4db71f311addea3a3916b1123fdb82ba4f7447c5829b72f6f228e8f6379a",
+      "inputs_sha256": "f35713ad843c3f33fcb100ffec68212270ef131690156c65c193d09d7274a2cf",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_south_d1_003"
@@ -8268,7 +8268,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 52368,
-      "inputs_sha256": "ef41fd5c6aa7f96d9369a63c421cd1970af3b2645a4ad40101386f255e416c73",
+      "inputs_sha256": "c0edd03a9ac2da878436e1cceafced8a3083249eb0b60f45569ceb39fd77db78",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_south_d1_010"
@@ -8277,7 +8277,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 51432,
-      "inputs_sha256": "f99dfc7a376bbedc901704d20fc7a3dc6d88e0d2ac405200086df9e2ad3be55b",
+      "inputs_sha256": "95e2682a1a19b36a08cd6c85339b21aa21fe7a6a5fc98bed522adcff824a02de",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_south_d1_018"
@@ -8286,7 +8286,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 51748,
-      "inputs_sha256": "049f30dc7f11905edeb290f8fc40de050a1ad5951945e2b0853b6492949e55fd",
+      "inputs_sha256": "09e6236d8b72fe373288c834d5111a1fb40ad38ec483888d808796d7644de185",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_south_d1_021"
@@ -8295,7 +8295,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 51748,
-      "inputs_sha256": "0e2b0a5caed6cc360da4c59ecb0fec79bd87946b44e7a3260bd24b651d5fa334",
+      "inputs_sha256": "0f7df91b3ce88ab0fd52d61e49b6c1f27ba28e285e6af98ada09a81786711a40",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_south_d1_032"
@@ -8304,7 +8304,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 51424,
-      "inputs_sha256": "74d545712e4c531bca7557cd58f00af41db0173927a6669b3118e6c38338e6da",
+      "inputs_sha256": "1703ae952f03983ea2552b858c72ba01ed166bc7e86cf8a601eb33ef0882155c",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_south_d1_033"
@@ -8592,7 +8592,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 52044,
-      "inputs_sha256": "6daea647dfef30d21ee5260a0151acb9693079e775b43e54fcf76e6ba157345b",
+      "inputs_sha256": "583892562ee7ca660c103147a559229a515c8da78f3f92ef9acfe211da6d1c85",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_west_001"
@@ -8709,7 +8709,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 52040,
-      "inputs_sha256": "e830b16cd10c152259f2e6bd73a86ec253ac495975eb4721b1312cc295946698",
+      "inputs_sha256": "61788d1c839840f6d56553a478c09d0be2ce4c429e8a2f2d8cc57aa2758c2d90",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_west_014"
@@ -8817,7 +8817,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 51416,
-      "inputs_sha256": "17c0c4e6479e6fade9993def332663a75ca22a2c7f894a2a83b2a5dd9d487bd8",
+      "inputs_sha256": "d8892d0301970e40342d22485110d5d1d80c37d2ed454a28e7a875db270b0558",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_west_026"
@@ -8826,7 +8826,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 51420,
-      "inputs_sha256": "9bc2f098e60afe78f7db76074ba75843cfbce716c289989250d932e0d8baf264",
+      "inputs_sha256": "c0d3885f9140ad2f4a3f39fa2c925c2c7c98fcfefe9a7002d8bfe1ef16ca3fa9",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_west_027"
@@ -8898,7 +8898,7 @@
       "archetype": "frame_tavern",
       "baked_ao": false,
       "bytes": 129924,
-      "inputs_sha256": "186b7c4387c7900efcb8c8cc5b6794a01c51b2f2372d371f9f67dab2f0a78fac",
+      "inputs_sha256": "c59316a6a67fd5862767aad70766a701cd0c3b9391e055530bcc2725ac358bc5",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_west_035"
@@ -8925,7 +8925,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 53292,
-      "inputs_sha256": "e94ae17001c64b74a83ccc022095343ad9e9122eb2bc59a3c602c80e4c8ef0db",
+      "inputs_sha256": "98a842d5b00b81bba03216be0039c8d1c04e5f7ef199cc1e10611cb07634b7df",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_west_038"
@@ -8934,7 +8934,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 53296,
-      "inputs_sha256": "409c1982486953a7bd4a8bc46d118b896a01c73652295d1249760f4655b5e8af",
+      "inputs_sha256": "face63ed8715e1106d88dc38c64afad0051783b58fe4ff860345e3a3a4eb271f",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_west_039"
@@ -8943,7 +8943,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 52044,
-      "inputs_sha256": "a0e3179109676551a214f64ee46ae2e9874b1e94ff99338369cb32a65682cb81",
+      "inputs_sha256": "b09ba457cb82e3f68024fb42fc21fcad705f7f7cb08fcb5426dceda1d6c00606",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_west_040"
@@ -8997,7 +8997,7 @@
       "archetype": "frame_tavern",
       "baked_ao": false,
       "bytes": 108376,
-      "inputs_sha256": "a1924655d4653c918ce980e3bed40ee563ffc127d67d6de3d80811947feb6c50",
+      "inputs_sha256": "a3001dbcb65200290d7b13f7fcec1d7d1605867c8c4776c509d059b597d7a88d",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_west_046"
@@ -9015,7 +9015,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 52356,
-      "inputs_sha256": "787edb1eae7978c87225d5b19f5dd0dc2774c559e80b1e44a462ba56a6b03a9b",
+      "inputs_sha256": "dabacffbd2f32fb7bc184f241871f5022c34ecf256fd978428ab78b61ba9e717",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_west_048"
@@ -9024,7 +9024,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 51416,
-      "inputs_sha256": "d1f913e1d8c63351caa5dfd14a231679e8db7e72cff42b93569187bcc5ccbd35",
+      "inputs_sha256": "8b037581dc8b511f41e78ba0b7f79a17146a65e0617135ff8caf2f66488b702f",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_west_049"
@@ -9033,7 +9033,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 51412,
-      "inputs_sha256": "89a079ad4995aab664b19f94db176ce927b4cc1c37932674bf7cab1d25ca2f23",
+      "inputs_sha256": "309852b1d3839ac31495c22410e9fde0d66296d97ff4b466c15d490bd0ff1349",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_west_050"
@@ -9042,7 +9042,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 51420,
-      "inputs_sha256": "dd529ef8c77edc4adb479b9fc923348af2592fc3f2b492410da7df20988ab678",
+      "inputs_sha256": "a8454c5f2ea3818fce08df2b44dfa70409befcfbce1208429394f34023a2a497",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_west_051"
@@ -9051,7 +9051,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 54228,
-      "inputs_sha256": "3e15823127b5021622fb831a2e5550172dd4b2740cd3234204c0b6512c08fa55",
+      "inputs_sha256": "2d158696402defb55443f1ab136ba564934db13222df917c3067631a456c40ff",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_west_052"
@@ -9069,7 +9069,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 53604,
-      "inputs_sha256": "e0b005e35384ac408c3509d3628cbf5ec02db827a16b981965ebcaed1c0db915",
+      "inputs_sha256": "f1d8a7d5017bb2989d0e65b79b39710a8c710e9729071fc2a4819bf94c846357",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_west_054"
@@ -9137,7 +9137,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 49628,
-      "inputs_sha256": "1b1bed22b69c3581570d6dd0c4572cdfd39eb7050cf8289311dc3870047be9e6",
+      "inputs_sha256": "7832343ebbd27cef356870e04b2ba71feb4bebca2fa3ccfa32612552b52a8eb4",
       "kind": "generated",
       "phase_id": "store_1830",
       "structure_id": "robert_kinzie_store"
@@ -9146,7 +9146,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 48104,
-      "inputs_sha256": "9e80db1ea5f77ad751047535c3890be89b6ca0efd64c22f9a8a9c03142822c69",
+      "inputs_sha256": "22b845b8838fcc81af380ccfe3ab0cd7328673791fe5fcb1b30478246c8e92dd",
       "kind": "generated",
       "phase_id": "log_1831",
       "structure_id": "robinson_caldwell_cabins"
@@ -9195,7 +9195,7 @@
       "archetype": "frame_tavern",
       "baked_ao": false,
       "bytes": 225152,
-      "inputs_sha256": "c5a6cd9007a881cb9d2a998c2db14e23cc7583fd10ceff7649f5fa76b9ee8f6b",
+      "inputs_sha256": "7c9d39f6e967f75c4ede34495bc76c0846d883617ba683602beffde4236d5bc0",
       "kind": "generated",
       "phase_id": "frame_1831",
       "structure_id": "sauganash_hotel"
@@ -9358,7 +9358,7 @@
       "archetype": "frame_tavern",
       "baked_ao": false,
       "bytes": 103956,
-      "inputs_sha256": "2a9bf1ea7651653ce1e1fee9349b91280c349a3685c4b216535d3b31908fab81",
+      "inputs_sha256": "17eb851b0ca8f397bdcd2761d25814460f4a4f8f62adb60219a92fd8980b3266",
       "kind": "generated",
       "phase_id": "frame_1835",
       "structure_id": "steamboat_hotel"
@@ -9491,7 +9491,7 @@
       "archetype": "frame_tavern",
       "baked_ao": false,
       "bytes": 445044,
-      "inputs_sha256": "da218ad9924db1bfa1159fba50808c580119a44cff028398be29538e75588dff",
+      "inputs_sha256": "d1ef55a8f21dc47846411b23c5d208e501c1935201aaaa44b83c3b1a98bc9e61",
       "kind": "generated",
       "phase_id": "frame_1833",
       "structure_id": "tremont_house_1"
@@ -9577,7 +9577,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 49624,
-      "inputs_sha256": "28b5f07d7d620ecd9f9890d7174d82380b025523754c8df112523a9ba94336ca",
+      "inputs_sha256": "c6368d6f772583b7c2b130d012aadae36ad462247eacbbf92aac15dbeacf1246",
       "kind": "generated",
       "phase_id": "log_1831",
       "structure_id": "walker_meeting_house"
@@ -9634,7 +9634,7 @@
       "archetype": "frame_tavern",
       "baked_ao": false,
       "bytes": 108328,
-      "inputs_sha256": "591f22bee7cd7a27be9a895958d52ab10052288eb7f1da127f2dd4b4047fa5a1",
+      "inputs_sha256": "3ec4cb700eb0270641a8c633f62f9827a0659c2872417f6ab1371b924b407f55",
       "kind": "generated",
       "phase_id": "frame_1834",
       "structure_id": "western_hotel"
@@ -9692,7 +9692,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 142196,
-      "inputs_sha256": "d2dc2bc18f6169834ae0ab37ea413a55e05b9ccb0934cda063277b396ebe35ca",
+      "inputs_sha256": "57036d293e1101ac60a213093dbe1c55c24f89a04238c5d3d88a6b85562c04db",
       "kind": "generated",
       "phase_id": "log_frame_1828",
       "structure_id": "wolf_point_tavern"

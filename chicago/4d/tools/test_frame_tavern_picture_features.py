@@ -486,6 +486,56 @@ class PictureFeatures(unittest.TestCase):
         bad=copy.deepcopy(phase);bad["form"]["gable_arch_text"]["confidence"]="attested"
         with self.assertRaises(ParamError):from_phase(bad,record)
 
+    def test_green_tree_upper_front_is_three_actual_hashed_sash_only(self):
+        from mesh_inputs import _params_doc
+        _, _, p = record_params("green_tree_tavern", "frame_1833")
+        self.assertEqual(p.front_upper_layout,[.20,.50,.78])
+        self.assertIn("front_upper_layout",CONSUMED)
+        parameter=inspect.signature(FrameTavernParams).parameters["front_upper_layout"]
+        self.assertEqual(parameter.kind,inspect.Parameter.KEYWORD_ONLY)
+        self.assertIsNone(parameter.default)
+        self.assertEqual(_params_doc(p)["inferred"]["resolved_front_upper_stations"],
+                         tuple(p.width_m*at for at in (.20,.50,.78)))
+        legacy=dataclasses.replace(p,front_upper_layout=None)
+        captures=[]
+        def collect(params):
+            calls=[]
+            with patch.object(builder,"_win",lambda *a,**k:calls.append(a[2:])):
+                builder._fenestration_gable_front(MeshBuilder("row"),params,p.width_m,p.depth_m,p.wall_height_m,8.,.5)
+            return calls
+        before,after=collect(legacy),collect(p)
+        is_upper=lambda a:a[0]=="y"and a[1]==p.depth_m and a[2]==1 and a[5]>p.wall_height_m/2
+        upper=[a for a in after if is_upper(a)]
+        self.assertEqual(len(upper),3)
+        for a,at in zip(upper,(.20,.50,.78)):
+            self.assertEqual(a[3:7],(p.width_m*at-.425,p.width_m*at+.425,3.25,4.6))
+            self.assertEqual(a[-1],1.)
+        self.assertEqual([a for a in before if not is_upper(a)],
+                         [a for a in after if not is_upper(a)])
+        old,_=builder.build(legacy,"old");new,_=builder.build(p,"new")
+        self.assert_valid_mesh(new)
+        def triangles(mesh):
+            return collections.Counter((mat,tuple((mesh.verts[i],mesh.conf[i])for i in face))
+                                       for face,mat in zip(mesh.faces,mesh.mat_index))
+        changed=list((triangles(old)-triangles(new)).elements())+list((triangles(new)-triangles(old)).elements())
+        self.assertTrue(changed)
+        # Every changed real accumulator face belongs to the +y upper opening kit.
+        for mat,face in changed:
+            for xyz,confidence in face:
+                self.assertGreaterEqual(xyz[2],p.wall_height_m/2)
+                self.assertLessEqual(xyz[2],p.wall_height_m)
+                self.assertLess(abs(xyz[1]-p.depth_m),.25)
+        self.assertEqual(legacy.resolved_front_upper_stations,(p.width_m*.22,p.width_m*.78))
+        for bad in (False,[],[.2,.8],[True,.5,.8],[.2,float("nan"),.8],
+                    [.5,.2,.8],[-.1,.5,.8],[.2,.5,1.],[.2,.21,.8]):
+            with self.assertRaises(ParamError):
+                dataclasses.replace(p,front_upper_layout=bad).validate()
+        for grade in ("attested","inferred"):
+            with self.assertRaises(ParamError):
+                dataclasses.replace(p,confidence={**p.confidence,"front_upper_layout":grade}).validate()
+        with self.assertRaises(ParamError):
+            dataclasses.replace(p,elevation_scheme="frontage").validate()
+
     def test_green_tree_front_ground_layout_is_sparse_and_reconstructed(self):
         record, phase, p = record_params("green_tree_tavern", "frame_1833")
         self.assertEqual(p.front_ground_layout, [.20, .50, .78])

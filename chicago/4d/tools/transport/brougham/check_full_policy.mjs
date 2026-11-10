@@ -20,7 +20,7 @@ function check(m){
  assert.equal(m.driverBudget.drawCalls,7800,'General driver draw-call ceiling unchanged');
  assert.equal(m.driverBudget.triangles,3470000,'Ordinary driver triangle ceiling unchanged');
  assert.equal(off,base,'No inspection uses exact original table');
- assert.equal(base.full.triangles,3470000,'Ordinary Full unchanged');assert.equal(base.balanced.triangles,2625000,'Balanced unchanged');assert.equal(base.light.triangles,1190000,'Ordinary Light unchanged');
+ assert.equal(base.full.triangles,3470000,'Ordinary Full unchanged');assert.equal(base.balanced.triangles,2675000,'Measured Balanced policy');assert.equal(base.light.triangles,1190000,'Ordinary Light unchanged');
  assert.equal(on.full.triangles,expectedFull,'Only measured selected Full allowance');assert.equal(on.full.declared,expectedFull,'Declaration matches runtime Full');
  assert.equal(on.light.triangles,1270000,'Selected Light floor unchanged');assert.equal(on.light.declared,1270000,'Selected Light declaration unchanged');
  assert.equal(on.balanced,base.balanced,'Inspection cannot replace Balanced policy');
@@ -38,7 +38,7 @@ for(const[name,mutate]of[
  ['Inspection Full unauthorized extra triangle',s=>s.replace(/const GLESSNER_V4_FULL_TRIANGLES = \d+;/,`const GLESSNER_V4_FULL_TRIANGLES = ${expectedFull+1};`)],
  ['Inspection Light increase',s=>s.replace('const GLESSNER_V4_LIGHT_TRIANGLES = 1270000;','const GLESSNER_V4_LIGHT_TRIANGLES = 1270001;')],
  ['Ordinary Light increase',s=>s.replace('light:    { triangles: 1190000,','light:    { triangles: 1190001,')],
- ['Balanced increase',s=>s.replace('balanced: { triangles: 2625000,','balanced: { triangles: 2625001,')],
+ ['Balanced unauthorized increase',s=>s.replace('balanced: { triangles: 2675000,','balanced: { triangles: 2675001,')],
  ['Ordinary Full increase',s=>s.replace('full:     { triangles: 3470000,','full:     { triangles: 3470001,')],
  ['Selected Full shadow reach',s=>s.replace('full: { ...DETAIL.full, triangles:', 'full: { ...DETAIL.full, shadowReachM: 241, triangles:')],
  ['Selected Light shadow reach',s=>s.replace('light: { ...DETAIL.light, triangles:', 'light: { ...DETAIL.light, shadowReachM: 121, triangles:')],

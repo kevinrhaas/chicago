@@ -21,10 +21,19 @@
    "shatttuck_walter",
    "rc_mccarthy_ellen"
   ],
-  "minted_here": 4,
+  "minted_here": 5,
   "stands_on": "This group was reconstructed using an earlier estimate of 12 ordinary-night beds. The current estimate is 12, or 27 when crowded. Revising that estimate does not identify different residents. Their lodging here remains reconstructed; dated evidence can replace this allocation.",
   "withdrawn_if": "Dated evidence identifying who lodged here, or reviewed changes to the building's availability, crowding limit or town population model. A revised ordinary-night estimate alone does not name new residents.",
-  "note": "BEDS, AND ONE FAMILY. 1 of the people here took a bed and are not kin to each other or to anybody else under this roof — `data/residents/` cannot carry a person outside a household, so one record holds them all. The exception is the keeper and the 3 child(ren) on their card, who are a family and say so: every one of them carries `kin_of` naming the keeper."
+  "note": "A storage container for unrelated lodgers and expressly modeled kin groups. Sharing this card implies no kinship: every child names their own modeled parent, who may hold a separate source household card at this same roof.",
+  "supplementary_parent_links": [
+   {
+    "child": "rc_chevalier_archange",
+    "parent": "rc_chevalier_pierre",
+    "parent_name": "Pierre Chevalier",
+    "parent_household": "hh_rc_chevalier_pierre",
+    "grade": "reconstructed"
+   }
+  ]
  },
  "household_owed": {
   "size_drawn": 4,
@@ -373,6 +382,83 @@
     "note": "A child under ten carries no trade. The book's `lodging/trade` cells do not reach this band at all."
    },
    "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the household model draws the keeper of this house a household of 4 and the card held only the keeper, and the whole of what is claimed is that: a child of this sex, under ten, lived with their parent in the house that parent kept. The eldest is capped at 0 years, because no child of this house is older than the keeper's own age band allows and nobody is born after 1835-07-01. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+  },
+  {
+   "id": "rc_chevalier_archange",
+   "name": "Archange Chevalier",
+   "relationship": "daughter",
+   "grade": "reconstructed",
+   "sex": "female",
+   "age_band": {
+    "value": "0-9",
+    "low": 0,
+    "high": 9,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_reconstruction_order_book",
+     "note": "The bucket that ordered this person is under_10; the band is the order, not a draw. Nothing here is a reading of anybody's age."
+    },
+    "seed": "T-2023:lodging_family:rc_chevalier_pierre:child:001:age_band",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The order book counts in the 1840 schedule's bands and this project writes no year it cannot read."
+   },
+   "kin_of": {
+    "person": "rc_chevalier_pierre",
+    "name": "Pierre Chevalier",
+    "household": "hh_rc_chevalier_pierre",
+    "relation": "reconstructed child of an anonymous adult lodger",
+    "note": "An explicit R supplementary family relation. No historical source identifies this parent or child."
+   },
+   "name_basis": {
+    "value": "Archange Chevalier",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "The surname is the anonymous adult lodger's own, which is the kinship claim. The forename is drawn from the french_colonial pool — the anonymous adult lodger's own community, carried rather than re-drawn — and it steps past every forename already borne in this family."
+    },
+    "seed": "T-2023:lodging_family:rc_chevalier_pierre:child:001:forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a child of this anonymous adult lodger"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. No source names this child. The name exists so a reader can tell one drawn child from another, and it is checked against every real name in the layer."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "1835_town_model",
+    "note": "Supplementary anonymous lodging-family draw of 8, child 1; size and child sex/age seeds are recorded in quota_basis.remainder_completion. Only the live lodging order is paid; no family/none counter is spent."
+   },
+   "seed": "T-2023:lodging_family:rc_chevalier_pierre:child:001:age_band",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming the household of this house's anonymous adult lodger, which would retire every child drawn here"
+   },
+   "reconstruction": {
+    "stage": "lodgers",
+    "ticket": "T-2023",
+    "programme": "chicago_1835_resident_reconstruction",
+    "community": "french_colonial",
+    "review_required": false
+   },
+   "resident_subtype": "reconstructed_lodger_child",
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "A child under ten carries no trade. The book's `lodging/trade` cells do not reach this band at all."
+   },
+   "note": "RECONSTRUCTED, NOT FOUND. A supplementary child of Pierre Chevalier, an anonymous reconstructed adult lodger, under the unchanged crowded capacity of their shared sleeping roof. Parentage is explicitly modeled. The name is drawn from the existing pool; no source names this family.",
+   "dealt_by": {
+    "ticket": "T-2023",
+    "note": "Supplementary family completion; carried old family draws and identities unchanged."
+   },
+   "remainder_bucket": "persons/female/under_10/north/lodging/none"
   }
  ],
  "touches_removal": false,

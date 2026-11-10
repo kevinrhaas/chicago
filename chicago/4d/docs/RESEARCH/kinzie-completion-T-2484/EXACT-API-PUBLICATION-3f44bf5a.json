@@ -1,0 +1,482 @@
+{
+  "status": "PASS_EXACT_BLOBS_TREE_COMMIT_AND_NONFORCE_BRANCH_FAST_FORWARD",
+  "commit": "3f44bf5afb3b962e175e4b9ded2d940ff52de296",
+  "base": "d6076c038f5d7e103c922110b568c3188436ec25",
+  "branch": "steward/t2484-kinzie-house-completion-20261110",
+  "blobs": [
+    {
+      "path": "chicago/4d/data/flora/plantings/kinzie_house_1812_trees.json",
+      "sha": "5edb3c0c9188396f8f8d6a4b9d469da27b51b395",
+      "bytes": 8212
+    },
+    {
+      "path": "chicago/4d/data/liberties.json",
+      "sha": "e2cd05f62602b20195b9e2c176c5b9f15f3a4073",
+      "bytes": 5949434
+    },
+    {
+      "path": "chicago/4d/data/reference_views/kinzie_house_1812/chicago_magazine_1857.match.json",
+      "sha": "c00f2c33f4d8cf423359069f49c91e32ea5a0432",
+      "bytes": 6885
+    },
+    {
+      "path": "chicago/4d/data/reference_views/kinzie_house_1812/cram_1893.match.json",
+      "sha": "573ed0c06f0cf0875fa3769942f70ee0b9ac3ff7",
+      "bytes": 7921
+    },
+    {
+      "path": "chicago/4d/data/reference_views/kinzie_house_1812/eastman_1820.match.json",
+      "sha": "8675e3bf7ffb837b5bbfd3a28cecffbd2f20cae2",
+      "bytes": 7253
+    },
+    {
+      "path": "chicago/4d/data/reference_views/kinzie_house_1812/gemmell_1820.match.json",
+      "sha": "19644752747cbc87e93d2d3379c8723e3d292e02",
+      "bytes": 6748
+    },
+    {
+      "path": "chicago/4d/data/reference_views/kinzie_house_1812/lossing_1869.match.json",
+      "sha": "61d958d12c78921d779346e70aafb3a56636ae1d",
+      "bytes": 9336
+    },
+    {
+      "path": "chicago/4d/data/reference_views/kinzie_house_1812/sarony_1912.match.json",
+      "sha": "dfda50eef7bf7fd3b97f1b2dfd600d5a33d839ec",
+      "bytes": 8736
+    },
+    {
+      "path": "chicago/4d/data/reference_views/kinzie_house_1812/teich_postcard.match.json",
+      "sha": "5cf83ca9900c71c599d110b8de6f5cb88191c046",
+      "bytes": 8690
+    },
+    {
+      "path": "chicago/4d/data/sidecars/1812/kinzie_house_1812.json",
+      "sha": "e2f004cf91c4018cd8cccfcf2eb87d75589f4f79",
+      "bytes": 40308
+    },
+    {
+      "path": "chicago/4d/data/structures/kinzie_house_1812.json",
+      "sha": "18a1b6d460856a71c99a275e9474b3a498fe166c",
+      "bytes": 21761
+    },
+    {
+      "path": "chicago/4d/docs/LIBERTIES.md",
+      "sha": "7dcac655122c6248033e30c10db64ac91eb0773c",
+      "bytes": 4197813
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/ACTUAL-AFTER-CAPTURES-RETRY1.log",
+      "sha": "c2d9f8ea1ee3824b343ee944099171270ce5a16d",
+      "bytes": 337
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/ACTUAL-AFTER-CAPTURES.log",
+      "sha": "c8f20b2eaffe5bd4eceadec9dc4d2f4dc3551549",
+      "bytes": 1019
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/ACTUAL-SEVEN-IMAGE-GATE.log",
+      "sha": "d3d630c058fd049b35c9fe215897833d338b490f",
+      "bytes": 57
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/POST-RETENTION-DOOR-TEST.log",
+      "sha": "36e4c2388a6be2976123441f5e992c27f7df53c3",
+      "bytes": 104
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/POST-RETENTION-INPUTS-UNCHANGED.json",
+      "sha": "d74e5d9fe0bbbc6240de2450d8cdd6e942f546f5",
+      "bytes": 24827
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/POST-RETENTION-LIB-CHECK.log",
+      "sha": "f73ada720b6cbc3015c72ef7385c0991159a4b32",
+      "bytes": 61
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/POST-RETENTION-LIB-COMPILE-RETRY.log",
+      "sha": "92924b49300ba49cd19fc1cd81b8afdb7baa1919",
+      "bytes": 45
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/POST-RETENTION-LIB-COMPILE.log",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/POST-RETENTION-SOURCE-USE-CHECK.log",
+      "sha": "9c4ce99c8b25f030a6db468f6fbb8dd459fe5cf0",
+      "bytes": 76
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/POST-RETENTION-SOURCE-USE-COMPILE-RETRY.log",
+      "sha": "9c4ce99c8b25f030a6db468f6fbb8dd459fe5cf0",
+      "bytes": 76
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/README.md",
+      "sha": "a88baf6d53e856036663d09a1d6bfddb691f939f",
+      "bytes": 3928
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/SEVEN-DIRECT-AFTER-REVIEWS.json",
+      "sha": "6d8a228e5ecda1e09039f1c025e9ee268eaa4ffe",
+      "bytes": 38966
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/comparisons/after/RENDER-BINDINGS.json",
+      "sha": "4ff719c64a8700815f5c07a549178dfdbc7fe1a8",
+      "bytes": 15907
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/comparisons/after/generated-unreviewed/chicago_magazine_1857.match.json",
+      "sha": "a1bb07df56330c72b4e73a7dd639550c2dff0eea",
+      "bytes": 4550
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/comparisons/after/generated-unreviewed/cram_1893.match.json",
+      "sha": "667069aad4c33e160def9cffa9b11018e6dad1f9",
+      "bytes": 5405
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/comparisons/after/generated-unreviewed/eastman_1820.match.json",
+      "sha": "6ab7ec128e33788b057ac96a611f294bf230007a",
+      "bytes": 4800
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/comparisons/after/generated-unreviewed/gemmell_1820.match.json",
+      "sha": "762f2cd76b92f3f3285d1d390f126eb95ba5e15e",
+      "bytes": 4084
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/comparisons/after/generated-unreviewed/lossing_1869.match.json",
+      "sha": "23e27ea25a2fe8f8a7e1a46ec481ed33b14b61ac",
+      "bytes": 5509
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/comparisons/after/generated-unreviewed/sarony_1912.match.json",
+      "sha": "688384deb7078a96bc05db03050dae2cdfc7fc7c",
+      "bytes": 5479
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/comparisons/after/generated-unreviewed/teich_postcard.match.json",
+      "sha": "f5dba2e2342ebd58f6b3033d26986bb3d0141cfd",
+      "bytes": 5350
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/comparisons/after/logs/chicago_magazine_1857.log",
+      "sha": "6f3de27e9cbd02ad45cb24c660947c6f94ac3a8f",
+      "bytes": 332
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/comparisons/after/logs/cram_1893.log",
+      "sha": "a2af66d3c6e3d3935c93d80b48464b4a66ccbcb0",
+      "bytes": 296
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/comparisons/after/logs/eastman_1820.log",
+      "sha": "29e55b4928f3ac95f2a0af7f7595dbcd65514e61",
+      "bytes": 305
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/comparisons/after/logs/gemmell_1820.log",
+      "sha": "8375ca245008a5819e073ac6015813879d23f3fd",
+      "bytes": 305
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/comparisons/after/logs/lossing_1869.log",
+      "sha": "6cbd9eb1e5f38c72327327d9be0015b50bc91456",
+      "bytes": 305
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/comparisons/after/logs/sarony_1912.log",
+      "sha": "eee474b57cbe4da915efdddcd6ef182ebfb3e9b6",
+      "bytes": 302
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/comparisons/after/logs/teich_postcard.log",
+      "sha": "8bda02562d172234c3f8a3328d7c5057c07a01f4",
+      "bytes": 311
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/comparisons/after/raw/chicago_magazine_1857-render.png",
+      "sha": "c2586f7756b786d756e5a1077e1968fd6b3ca1f6",
+      "bytes": 48608
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/comparisons/after/raw/cram_1893-render.png",
+      "sha": "0358bb6c3726ecc500331f81029a4ed4cdac6085",
+      "bytes": 28118
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/comparisons/after/raw/eastman_1820-render.png",
+      "sha": "2b5359a4be5911d6cd1514f8186f19e3f5d7e76b",
+      "bytes": 45575
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/comparisons/after/raw/gemmell_1820-render.png",
+      "sha": "50a83256ea31e389c4de1840f711694d58e79cc0",
+      "bytes": 17034
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/comparisons/after/raw/lossing_1869-render.png",
+      "sha": "97c4fe83de2f40c5bc05ed0bf50bc7f35fb837ca",
+      "bytes": 23706
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/comparisons/after/raw/sarony_1912-render.png",
+      "sha": "058060909968338470e4b32557ef6ef05b364917",
+      "bytes": 24926
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/comparisons/after/raw/teich_postcard-render.png",
+      "sha": "42c1cd7d08a1c5e1abee59bc9a2083e18cb7bfa9",
+      "bytes": 50670
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/native/ACTUAL-AUDIT-FAIL.json",
+      "sha": "57693db07372aa9e72f8be634ce23b2d73d5d301",
+      "bytes": 744
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/native/ACTUAL-NATIVE-AUDIT-RESULT.json",
+      "sha": "b7eab3be4efc6b6cfaf9c9dd1a04dff5c0f6d6c0",
+      "bytes": 956
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/native/ACTUAL-RETAINED-BRANCH.json",
+      "sha": "acbcda081b7890d203feba758034f9f256d123d3",
+      "bytes": 4390
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/native/ACTUAL-RETAINED-RAW-DIFF.txt",
+      "sha": "b213ccac0fc2a5fc51ef62ad51a73b0e2e7f2174",
+      "bytes": 1352
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/native/AUDIT-READER-PREFLIGHT.json",
+      "sha": "a24689daebbb2c310c90c3f11d03e2cd130673f1",
+      "bytes": 2210
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/native/AUTHENTIC-NATIVE-PROVENANCE.json",
+      "sha": "508808de5307df9141fad82ab30b04e755f62727",
+      "bytes": 25954
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/native/BEFORE-BINDING.json",
+      "sha": "391a47c1cc62993378b6639ac314544225d7f0b0",
+      "bytes": 830545
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/native/BEFORE-FOREIGN.json",
+      "sha": "257c80c3ff310b22cca8fbbd0c6e1f98ad2a5a6b",
+      "bytes": 7596099
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/native/COPIED-BYTE-RECEIPT.json",
+      "sha": "ae0498698517adac2e460fbecba8631a1e15626a",
+      "bytes": 4843
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/native/INITIAL-SIDECAR-GUARD-ACTUAL-AUDIT-FAIL.json",
+      "sha": "57693db07372aa9e72f8be634ce23b2d73d5d301",
+      "bytes": 744
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/native/INITIAL-SIDECAR-GUARD-ACTUAL-MATERIALIZE-AND-AUDIT.log",
+      "sha": "bef6124c00e0b0d6e9bd2d4131de2df3d2629dad",
+      "bytes": 837
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/native/INITIAL-SIDECAR-GUARD-ACTUAL-POST-NATIVE-AUDIT.log",
+      "sha": "183409ea3c9c4ab31b89c203829e3ea4dbbb3717",
+      "bytes": 1395
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/native/INITIAL-SIDECAR-GUARD-POST-NATIVE-AUDIT-FAIL.json",
+      "sha": "183409ea3c9c4ab31b89c203829e3ea4dbbb3717",
+      "bytes": 1395
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/native/OWNER-CLOSURE-NAMEERROR-POST-NATIVE-AUDIT-FAIL.json",
+      "sha": "f3e498d215aa2e883906cd9a22d2c0862e86c10a",
+      "bytes": 1465
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/native/POST-NATIVE-AUDIT-FAIL.json",
+      "sha": "f3e498d215aa2e883906cd9a22d2c0862e86c10a",
+      "bytes": 1465
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/native/POST-NATIVE-AUDIT.json",
+      "sha": "eb4a1e95e50e182dfb0e76a18704c58b73c44e72",
+      "bytes": 2389306
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/native/POST-NATIVE-CONTROLS.json",
+      "sha": "dd88a270914dd3a44679329f9756831ba3842fb4",
+      "bytes": 2006099
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/native/POST-NATIVE-TARGETS.json",
+      "sha": "5b09c128263d5c5257b6631875325cdd0fd5ff2e",
+      "bytes": 28975
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/native/READER-CORRECTION.md",
+      "sha": "d3b955e210f6e64a9e4ffe046a76187265274c1e",
+      "bytes": 872
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/native/README.md",
+      "sha": "e945171b802c6dc7c66eefd89d0255d08f526c5e",
+      "bytes": 5449
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/native/ROOT-AFTER-ALL-NATIVE-FILES-UNCHANGED.json",
+      "sha": "805388ccc2c2dff4656825a5794f5e086231467f",
+      "bytes": 547
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/native/SCOPE-BUILD-CLOSURE.json",
+      "sha": "0f76a63931339b9f70723dbde1b8b1e64a15ea61",
+      "bytes": 1065
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/native/asset-keys.txt",
+      "sha": "d3d40cb93538b62aaaa813209de9811a9e9dee7d",
+      "bytes": 3555
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/native/asset_overlay.py",
+      "sha": "63d8c7c8a2161ed28f944d9f9c8a39d4981802cc",
+      "bytes": 2276
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/native/audit-retained.py",
+      "sha": "1a63732be55d6890f613676c51d83623b021b420",
+      "bytes": 30853
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/native/kinzie_checks.py",
+      "sha": "d110ffefc0bfc91f06eda38fb8c914b0b6f5cca2",
+      "bytes": 6002
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/native/only.txt",
+      "sha": "7e2a2395348b60d41f12e9d91ccf2c22d2be368c",
+      "bytes": 2064
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/native/sidecar_owner.py",
+      "sha": "7be4088120cbf9b8a2ee64d73968f2acdf25e64e",
+      "bytes": 2233
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/native/test-audit-guards.py",
+      "sha": "2e100ac9f99a213ee824c9256d337ab3154aeb46",
+      "bytes": 6773
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/review-helpers/GREEN-COMMON-GRADE-TERRAIN-CHECK.json",
+      "sha": "59490754d5b31452d800d865a2e85c407cb7ee1d",
+      "bytes": 1073
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/review-helpers/PLANTING-CLEARANCE-PREFLIGHT.json",
+      "sha": "265965c1de1a7b355dc9763737ec02376620f2bb",
+      "bytes": 5974
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/review-helpers/PROSPECTIVE-NATIVE-INPUTS-UNCHANGED.json",
+      "sha": "c3ebbb11ea5f45ddf01faeda7c7064394cc14521",
+      "bytes": 25756
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/review-helpers/adjudicate-seven.py",
+      "sha": "843ce97ea9a86f30ac1c0e5a21401374df755c0f",
+      "bytes": 13031
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/review-helpers/apply-retained-flora-prose.py",
+      "sha": "2c2cc4bd3d1a6f441051f03e69e0424789cfa5f5",
+      "bytes": 5462
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/review-helpers/capture-after.py",
+      "sha": "7584d291f29fc9f48c15ded3d2e8cb626be15522",
+      "bytes": 3658
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/review-helpers/planting-clearance-preflight.mjs",
+      "sha": "a4ecda1d5f9604382954721b61697bf5b0439846",
+      "bytes": 3721
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/review-helpers/prepare-expected.mjs",
+      "sha": "13befebc6641431751ff5688db6a70dc42409891",
+      "bytes": 5455
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/review-helpers/prospective-input-proof.py",
+      "sha": "79cd3be4b679506e7db13aeac900f92e40d1d196",
+      "bytes": 2369
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/kinzie-completion-T-2484/review-helpers/review.mjs",
+      "sha": "2a8c8f927f592aaaa842b3ad2c2997631a677055",
+      "bytes": 17304
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/photo-match/kinzie_house_1812/chicago_magazine_1857-side-by-side.jpg",
+      "sha": "4adc2a78f2e96d4bdcd3936bbccefd03b3878107",
+      "bytes": 135450
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/photo-match/kinzie_house_1812/cram_1893-side-by-side.jpg",
+      "sha": "c6063cc552829388bfda7e1fc88cdce0958e1c34",
+      "bytes": 191772
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/photo-match/kinzie_house_1812/eastman_1820-side-by-side.jpg",
+      "sha": "4a5f27471a5182cd322bf636ac82b5d93dd268d5",
+      "bytes": 594492
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/photo-match/kinzie_house_1812/gemmell_1820-side-by-side.jpg",
+      "sha": "21d0c26b25e25b604d1ee699446525cc9cd572ab",
+      "bytes": 198911
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/photo-match/kinzie_house_1812/lossing_1869-side-by-side.jpg",
+      "sha": "94aa4ff37eed51316695f88f04e299c420a16fea",
+      "bytes": 124171
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/photo-match/kinzie_house_1812/sarony_1912-side-by-side.jpg",
+      "sha": "8f193e6cf76255ff5d7e535c3009e2524f095a43",
+      "bytes": 94225
+    },
+    {
+      "path": "chicago/4d/docs/RESEARCH/photo-match/kinzie_house_1812/teich_postcard-side-by-side.jpg",
+      "sha": "9994fdc195abfd16c66729763fe724aec508f086",
+      "bytes": 133289
+    },
+    {
+      "path": "chicago/4d/docs/ROADMAP.md",
+      "sha": "354b2f41e6c52ce1cd6684575f76283b504822cf",
+      "bytes": 954301
+    },
+    {
+      "path": "chicago/4d/docs/STATUS.md",
+      "sha": "bfd3363d63378164dee661ec501f9ee792887e72",
+      "bytes": 2108402
+    }
+  ],
+  "before_ref": "6b11594bbd1d1a4e9fdd864878359ccf1c54edfc",
+  "exact_tree": "5d54dce7031b4a46ea107bb396b9f9cc3e4f3adc",
+  "exact_commit": "3f44bf5afb3b962e175e4b9ded2d940ff52de296",
+  "public_ref_readback": "3f44bf5afb3b962e175e4b9ded2d940ff52de296"
+}

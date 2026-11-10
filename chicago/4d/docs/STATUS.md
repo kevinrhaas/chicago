@@ -1,3 +1,75 @@
+## T-2795 — 1904 figures follow the visible pavement (2026-11-10)
+
+The preceding coachman and safe errand/tour handoff increment is merged into DEV
+through PR #1917, normal merge `f2346303048398c0f8597861ba0bcbeac6772e15`,
+after every required exact-head check passed. The broader transport acceptance
+remains open. This next candidate corrects the existing hidden-field support base
+for 1904 people, using an actual Float32 pedestrian surface only where both enabled
+terrain-cut materials admit the same actual mask. Geometry, terrain shaders, raw
+heightfield, horse-road sampling, explicit stair heights, water/deck rules, positive
+yard lifts, anchors, models and render budgets are retained.
+
+The actual source-bound a1bc31a8 world probe confirms the correction: Charles's
+root is now at the visible parkway centre, 4.311735338 m, while the raw field remains
+4.341757225 m. All 1,466/1,476 original foot-domain vertices are covered and masked
+by both actual compiled terrain materials. Foot minima still penetrate the sloping
+surface by 2.315/2.850 mm; this centre-height correction is not fitted soles, gait,
+continuous contact or photographic acceptance. Original horse contact assertions
+passed for the finite pose. The strict observer remains NONPASS because 30 native
+aborted requests were recorded; actual page/HTTP/server and physical-observer
+errors were zero. It closed under the original 600-second cap with accepted
+resource floors and no remaining owned children. The earlier attempt stopped on
+the original workspace floor before measuring feet; that failure is retained.
+
+Actual district controls retain geometry byte-for-byte and price a 215,176-byte
+lazy index with no duplicated XYZ, about 19 ms initialization and 13 ms for 10,000
+queries. The world confirms the same 18,166 triangles on five surfaces. These are
+CPU/owned-byte and finite physical observations, not a phone or frame-time pass.
+The 47 mask/material/height-composition controls and native zero-write isolation
+pass; all 976 prior isolation rows are retained. A sparse six-pixel replay covers
+all recorded vertices but is not a rebuilt full GPU mask. Conservative blend-edge
+fallback can cause a height jump; continuous walking remains unqualified.
+
+The original complete document bytes below are preserved. Full local preflight
+has not passed in this sparse asset checkout. Complete current-head hosted gates,
+including moving-frame and phone release checks, remain mandatory before DEV merge.
+No screenshot, UI, tour, quiet-clock or full-world pass is claimed for this probe.
+
+## T-2795 — Charles Nelson beside the Glessner carriage team (2026-11-10)
+
+The current proposal places existing coachman Charles Nelson on the Prairie Avenue
+parkway beside the waiting Brougham team, between the existing trees and outside
+the main walking strip. It preserves the carriage's location, all seven other
+household members, Charles's four seasonal days, indoor periods and original
+11:00–11:30 Eighteenth Street break. The new work post is a declared reconstruction;
+it does not change his attested identity or claim an archival pose or likeness.
+
+A tour still uses his original stable-door mark. Visible host takeovers and returns
+require a real walk route; an unavailable route waits and retries instead of
+teleporting or declaring arrival. An actual camera cut may hand off a hidden host
+before the first destination frame. A visitor arriving first sees an approaching-guide
+status and can continue or leave. Menu/Resume retains the host; End returns him
+to his day. A running household errand retains its path and arrival callback; the
+tour waits until it finishes. Conversely, Greet, Stroll and door-call actions cannot
+replace a held guide’s path. Those interactions return when the guide is released.
+Existing house errands, seasonal routines and tour content are retained.
+
+Canonical owners and focused current-source jaunt/day controls passed on the
+source-bound candidate based on DEV `7dcb5bb07abe0c468463a6a16d4103861deb3c65`.
+All 1,081 prior Liberty rows and seven foreign household records remain exact.
+Both errand/guide ownership counterexamples fail on the pre-fix source; the fixed
+source passes all six focused day/round/household/jaunt suites in 10.17 seconds
+under the original 120-second supervisor and resource floors. These are focused
+controls, not the complete gate.
+The street/phone/tour observations and complete current-head hosted gate are still
+pending for this proposal. The earlier post's partial desktop observation ended at
+the unchanged 600-second limit, showed an obstructed view and exceeded its original
+triangle budget; that is retained as NONPASS, not reused as acceptance of this post.
+No ground rule, performance ceiling, source asset or animation changes. Existing
+acceptance bars remain intact.
+Boarding, a coachman conversation offering a ride, reins, passengers, continuous
+contact and photographic acceptance remain open on the existing transport tickets.
+
 ## T-2795 — native support for smaller DEV publications (2026-11-10)
 
 The parked Glessner team (PR #1908), existing-resident clothing/build fixes
@@ -26523,6 +26595,14 @@ Cobweb Castle, the jail and Sauganash/Carpenter contexts have actual fresh revie
 Green Tree is PARTIAL: its raised rear gable, low connector and lower foreground sash are visibly built, but Trowbridge clearly shows THREE upper front windows and the current model has TWO. Allthree fresh records say differs and keep that categorical omission open. T-2376 will finish with T-3041/T-2388 in the next three-ticket group and one combined scoped build. No new photo follow-up is filed. Final protected source gate and published desktop/phone checks remain pending at this checkpoint. The smoke consumer repairs target actual current collapsed review disclosure, enabled building destination and stand-in-face disclosure; they do not change product behavior or budgets.
 
 
+## T-2376 / T-3041 / T-2388 — remaining original picture group, source integration, 2026-11-10
+
+The remaining group keeps the three originals together: Green Tree T-2376, first-fort T-3041 through its last child T-2387, and second-fort T-2388. Green Tree selects the clearly pictured third upper front-gable sash; the former two-versus-three tolerance disposition is withdrawn as a categorical omission. The first fort enrolls the credited Lossing comparison and the full 21-original/9-context picture inventory, retaining the adopted-plan owner rulings, source/hidden-member limits and actual prior Currey maintenance. Those source coverage records are not a new historical camera or a closure of every record from one group view.
+
+Second-fort source now supplies the officers' outside piazza stair, the named barn's small boarded pyramid cupola, two reconstructed small side posterns, and the commandant range's broad front double gallery. The latter is adopted from the securely keyed later 1855 A depiction as an explicit July-1835 reconstructed continuity choice, not backdated attestation. The gallery support solver uses fifteen explicitly captured existing opening rectangles without changing those openings. All exact stair/cupola/postern/gallery dimensions, sides, hidden carpentry and continuity choices retain their stated reconstructed grades and real sources. The descriptive occurrence booleans do not silently acquire measured appearance.
+
+Five structured liberty entries cover all ten new reconstructed form fields. Six new construction-note paths are declared precisely; existing read fields and the gate-note declaration remain controlling. The planned native union is 29 outputs, predicted as 27 defaults plus two variants: the 25-output frame family and four second-fort targets. Root must compute and pin that actual scope from current bindings before one combined native build. Source checks, native preservation/control audit, all affected fresh picture comparisons, actual gate walking and published desktop/phone qualification remain required. No new native, budget-fit, image-match, whole-gate or original-ticket completion is claimed by this source increment. No photo follow-up ticket is filed.
+
 ## T-2795 — individual horse coats, source preparation (2026-11-10)
 
 The owner requested visible coat and marking differences across all eras. The prepared recipe covers the eleven current ordinary-world horses in 1812, 1835 and 1904. Bay, chestnut and grey teams have stable individual blazes, socks and subdued dappling. These choices are reconstructed liberties, not identified historical animals. Existing licensed fur maps supply detail; source geometry, material names, rigs, clips and image bytes are preserved. Moving and parked teams keep shared geometry/textures and own only their required coat/mane materials; standing reuses its private materials.
@@ -26623,15 +26703,68 @@ Balanced now uses the existing conservative shadow-caster filter. At the failing
 The complete desktop settings smoke also measured Full X-RAY at 3,737,315 triangles. Its Full-only Ghost allowance is explicitly recalibrated to 3,760,000 (the reading plus the retained 18,059 margin, rounded to 5,000), per the documented higher-tier budget policy. Ordinary Full, Balanced, Light and draw-call limits remain unchanged; all budget assertions remain active.
 
 
-### Audio integration after T-3533/T-3535 landed (2026-11-10)
+### Audio integration with current DEV (2026-11-10)
 
-PR #1912 integrates dev `e41a911e0`, including shared asset publication, the
-horse-coat recipe, household routines and the existing rendering repair.
-The audio/offline merge retains both alias catalogues and optional-media
-exclusion. The horse publication fixture now copies the real audio-hosting
-helper required by the actual mirror checker; missing/corrupt-recipe controls
-remain intact. Earlier audio/renderer receipts are historical checkpoints.
-Two source batches passed the preceding integration; the third was stopped
-when dev advanced. Fresh complete source and published browser qualification
-are required for this combined tree. No new ordinary/lower-tier ceiling is
-introduced here, and T-3502's separate boot-payload issue remains open.
+PR #1912 integrates dev `b9a87a9a4`, including shared-asset publication,
+fort/tavern and Kinzie picture work, household and coachman routines,
+visible-pavement support, masonry surfaces and the lodging remainder. The
+audio/offline merge retains both alias catalogues and optional-media exclusion.
+The horse publication fixture copies the real audio-hosting helper required by
+the mirror checker; missing/corrupt-recipe controls remain intact. Earlier
+audio and renderer receipts remain historical checkpoints. Current source and
+published-browser qualification is recorded on PR #1912. Incoming budget
+policies are retained; this audio integration introduces no additional increase.
+
+
+## 2026-11-10 T-2484 source checkpoint
+
+The existing1812 Kinzie house is being completed from all seven credited pictures. Actual
+before comparisons now include the existing green. The source states reconstructed
+whitewash, a2.50m end door, a17m green and a riverward four-poplar row. Six targeted
+producer/validation tests and actual command isolation pass. Native adoption, fresh
+after comparisons, published desktop/phone full-context review and final sourceCI remain
+pending; this source checkpoint does not close the ticket or claim an after-state.
+
+- T-2484 native/picture checkpoint (2026-11-10): qualified retained d6076c03 from source6b11594/Blender4.5.3 Ubuntu26.04; two target assets changed, all81controls and961+6foreigns exact. Seven directly reviewed fresh canonical house+green Matches now pass with explicit T3153 source/camera/palette disagreements. Corrected the proven refused north poplar by flora-only stations331.2/327.2/323.2/319.2; all83native inputs unchanged. Actual published six-tree/full-context desktop/defaultphone review and final current checks remain pending; T2484 is not Done.
+
+
+### 2026-11-10 — T-2023 lodging remainder checkpoint
+
+The report distinguishes the carried adult room from the live order: its seven unspent West adult slots are historical residue, and the live West adult debt is zero. Lodger-stage vacancies and carried mint authorization are separate. Staffing payment requires the same committed civil division; unknown premises receive no payment. Existing people, housing assignments and cards remain unchanged. Completing the remainder continues in the same ticket; this checkpoint claims no new residents or ticket completion.
+
+
+### 2026-11-10 — T-2023 finite lodging reconciliation
+
+The source derivation now pays all13 live lodging-person orders and all34 missing
+household-unit receipts:56 explicit R economies plus20 known-house receipts,368
+disjoint member IDs, with a global165-house exclusive accounting crosswalk. It
+preserves all157 original person records,52 prior layer seats and1,807 accepted
+housing roofs; two additional existing North adults take real Steamboat vacancies.
+Six already-standing upper residences correct the dwelling inventory415→421;3,452
+people remain below the unchanged8.204 census ratio. A single explicitly exceptional
+West youth night stays inside Clinton H3's unchanged full26 capacity. Seven older
+whole-roof excesses remain disclosed and receive no new admissions. Full bounds,
+R secondary uses, refusal receipts and caveats are in
+`RESEARCH/1835_lodging_remainder_2023.md`. PR1920 remains in review until protected
+checks and the published walkthrough verification finish; this entry is a public
+checkpoint, not a premature ticket closure.
+
+
+### 2026-11-10 — T-2023 finite lodging reconciliation
+
+The source derivation now pays all 13 live lodging-person orders and all 34 missing
+household-unit receipts: 56 explicit R economies plus 20 known-house receipts, 368
+disjoint member IDs, with a global 165-house exclusive accounting crosswalk. It
+preserves all 157 original person records, 52 prior layer seats and 1,807 accepted
+housing roofs; two additional existing North adults take real Steamboat vacancies.
+Six already-standing upper residences correct the dwelling inventory 415→421; 3,452
+people remain below the unchanged 8.204 census ratio. A single explicitly exceptional
+West youth night stays inside Clinton H3's unchanged full 26 capacity. Seven older
+whole-roof excesses remain disclosed and receive no new admissions. Full bounds,
+R secondary uses, refusal receipts and caveats are in
+`RESEARCH/1835_lodging_remainder_2023.md`. PR1920 remains in review until protected
+checks and the published walkthrough verification finish; this entry is a public
+checkpoint, not a premature ticket closure.
+### 2026-11-10 — T-3341 early masonry surface increment
+
+The remaining flat brick and chimney materials in 1812 and 1835 now bind the existing procedural brick or clay sheet by their recorded disposition. Already mapped fort recipes and 1904 materials are retained. The new brick shuffle reads the library's 20 by 48 running bond; Miller's mixed native stack primitive is partitioned without losing triangles or confidence. Actual desktop/default-phone before-and-after surfaces pass in both scenes (28 directly reviewed frames and two detail roundtrips). Official boot passes at 44.716135 MiB of 44.9; unchanged phone-memory gates pass at 305.664622 MiB of 350 (1812) and 509.227699 MiB of 550 (1835). All eight source-check parts and their aggregate pass on runtime `cab4514539`; PR #1918 records final protected-check and dev-merge state. See docs/RESEARCH/early-masonry-3341.md and L-early-masonry-surfaces-3341.

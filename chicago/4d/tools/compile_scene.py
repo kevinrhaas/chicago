@@ -961,6 +961,13 @@ def how_known(person: dict, transient: bool = False) -> str:
         return "civic_mint"
     if person.get("resident_subtype") == "projected_resident":
         return "projected"
+    # T-2023 appends anonymous invented lodging identities. Their source names
+    # are explicitly a programme draw; do not label them as named in evidence.
+    # Earlier source-read categories above and all older lodger rows stay intact.
+    if (person.get("grade") == "reconstructed"
+            and (person.get("reconstruction") or {}).get("stage") == "lodgers"
+            and (person.get("dealt_by") or {}).get("ticket") == "T-2023"):
+        return "reconstructed"
     # This explicit mint category invents names; grade alone does not.
     # Readmitted and underdocumented source-read names keep their evidence category.
     if (person.get("grade") == "reconstructed"

@@ -6406,6 +6406,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_kinzie_end_door.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_ktx2_texture_policy.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -6439,6 +6443,10 @@
       "wrote_ignored": []
     },
     "tools/test_log_notch_front.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_masonry_surfaces.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6535,6 +6543,10 @@
       "wrote_ignored": []
     },
     "tools/test_parked_transport_empty_scene.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_pedestrian_ground.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6674,7 +6686,15 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_second_fort_commandants_gallery.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_second_fort_piazza_stair.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_second_fort_posterns.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
