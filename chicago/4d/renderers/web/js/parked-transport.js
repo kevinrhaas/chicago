@@ -42,7 +42,7 @@ function broughamMidDistance(camera, drawingBufferHeight) {
  * canceled before readiness despite a decoded model. Keep manager abort/error
  * accounting, and resolve embedded relative resources from the asset directory.
  */
-async function loadBrougham(file) {
+async function loadBrougham(file, expectedHash = null) {
   const loader = new GLTFLoader(), manager = loader.manager;
   const assetUrl = new URL(file, new URL('../', import.meta.url));
   const requestUrl = manager.resolveURL(assetUrl.href);
@@ -55,14 +55,21 @@ async function loadBrougham(file) {
     });
     if (!response.ok) throw Error(`Brougham HTTP ${response.status}`);
     const bytes = await response.arrayBuffer();
-    return await loader.parseAsync(bytes, new URL('.', assetUrl).href);
+    let actualHash = null;
+    if (expectedHash) {
+      actualHash = [...new Uint8Array(await crypto.subtle.digest('SHA-256', bytes))]
+        .map(n => n.toString(16).padStart(2, '0')).join('');
+    }
+    const asset = await loader.parseAsync(bytes, new URL('.', assetUrl).href);
+    if (actualHash) asset.parkedDeliverySha256 = actualHash;
+    return asset;
   } catch (error) {
     manager.itemError(requestUrl);
     throw error;
   } finally { manager.itemEnd(requestUrl); }
 }
 
-function card(row, manifest) {
+function card(row, manifest, team = null) {
   return { id: row.id, sidecar: {
     name: row.name, phase: null,
     ...(row.model === 'studebaker_brougham_1893' ? { change_note: 'This is a reconstructed, empty parked example based on the 1893 Studebaker Brougham catalogue design. This individual carriage, its ownership and its presence at this stop in 1904 are not attested.' } : {}),
@@ -73,24 +80,27 @@ function card(row, manifest) {
       maker: { value: manifest.design_reference ? 'Reconstructed individual; no attested specimen' : 'Unidentified; type reconstruction', confidence: 'reconstructed', sources: [],
         note: manifest.design_reference ? 'The catalogue design is identified separately; this parked individual and its ownership are reconstructed.' : 'This model is not identified as a particular manufacturer or catalog model.' },
       ...(manifest.design_reference ? { design_reference: manifest.design_reference } : {}),
-      parked: { value: 'Unoccupied and unhitched', confidence: 'reconstructed', sources: [],
-        note: 'A parked example, without a driver, passengers or a claim of ownership.' },
+      parked: { value: team ? 'Unoccupied, with a pair of horses in harness' : 'Unoccupied and unhitched', confidence: 'reconstructed', sources: [],
+        note: team ? 'A reconstructed stationary team. No seated coachman, passengers or boarding is enabled; no household ownership is attested.'
+          : 'A parked example, without a driver, passengers or a claim of ownership.' },
     },
     citations: row.source_ids.map(source_id => ({ source_id })),
-    research_note: `${manifest.basis} ${row.note} Liberties: ${row.liberty}.`,
+    research_note: `${manifest.basis} ${row.note} Liberties: ${row.liberty}${team ? `; ${row.stationary_team.liberty}` : ''}.`,
   } };
 }
 
 /** Merge only static meshes sharing the SAME material, after the parking pose.
  * This preserves their GLB vertex normals/UVs/maps while avoiding a draw per hardware part.
  */
-function staticBatches(root, confidence) {
+function staticBatches(root, confidence, excluded = null) {
   root.updateMatrixWorld(true);
+  const local = root.matrixWorld.clone().invert();
   const byMaterial = new Map();
   root.traverse(node => {
     if (!node.isMesh) return;
+    for (let p = node; p; p = p.parent) if (p === excluded) return;
     if (node.isSkinnedMesh || Array.isArray(node.material)) throw Error('Expected rigid single-material primitives');
-    const geometry = node.geometry.clone().applyMatrix4(node.matrixWorld);
+    const geometry = node.geometry.clone().applyMatrix4(local.clone().multiply(node.matrixWorld));
     const list = byMaterial.get(node.material) ?? [];
     list.push(geometry); byMaterial.set(node.material, list);
   });
@@ -103,6 +113,7 @@ function staticBatches(root, confidence) {
         new Float32Array(geometry.getAttribute('position').count).fill(1), 1));
       confidence?.patch(material);
       const mesh = new THREE.Mesh(geometry, material);
+      mesh.userData.parkedBatchGeometry = true;
       mesh.castShadow = true; mesh.receiveShadow = true;
       group.add(mesh);
     }
@@ -152,7 +163,7 @@ function parkTongue(root, row, terrain, base) {
 
 export async function createParkedTransport({ dataBase, sceneId, terrain, confidence,
   detail = 'full', problems = [], hostMissing = () => false, groundHeight = null,
-  getDrawingBufferHeight = () => null, loadWithin = null } = {}) {
+  getDrawingBufferHeight = () => null, loadWithin = null, stationaryTeams = false } = {}) {
   const group = new THREE.Group(); group.name = 'parked-transport';
   const instances = [], assets = new Map(), replacementIds = new Set();
   let tier = detail, fallback = () => {}, lastCamera = null, disposed = false, loading = null;
@@ -164,18 +175,33 @@ export async function createParkedTransport({ dataBase, sceneId, terrain, confid
   const requested = new Set(), finished = new Set();
   const out = { group, instances, replacementIds, records: [], requested,
     // Vehicles asked for and not yet placed (or refused): a scripted view waits on 0.
-    get pending() { return requested.size - finished.size; },
+    get pending() { return requested.size - finished.size + instances.filter(i => i.teamPending).length; },
+    async ready() {
+      // A hide/show revision can retire a pending team and schedule its
+      // replacement in that promise's continuation. Drain until stable rather
+      // than reporting ready after only the original snapshot settles.
+      while (!disposed) {
+        const currentLoading = loading;
+        await Promise.all([currentLoading, ...instances.map(i => i.teamPending)]);
+        if (disposed || (loading === currentLoading && !instances.some(i => i.teamPending))) return;
+      }
+    },
     setFallback(callback) { fallback = callback; },
     get shown() { return shown; },
     setShown(on) {
       shown = on !== false;
       group.visible = shown;
+      if (!shown) for (const instance of instances) {
+        instance.teamRevision++; instance.team?.dispose(); instance.team = null;
+        instance.static_support = instance.original_unhitched_static_support ?? instance.static_support;
+        instance.card = card(instance.row, instance.spec);
+      }
       // Shown again: every stand-in back, then each vehicle in reach takes its place again.
       for (const id of replacementIds) fallback(id, !shown);
       if (shown && lastCamera) out.update(lastCamera);
       return shown;
     },
-    update(camera) {
+    update(camera, dt = 0, { paused = false, reducedMotion = false } = {}) {
       if (disposed) return;
       lastCamera = camera;
       if (!shown) return;
@@ -187,6 +213,23 @@ export async function createParkedTransport({ dataBase, sceneId, terrain, confid
         const visible = (REACH[tier] ?? REACH.full) > 0
           && camera.position.distanceTo(instance.group.position) < REACH[tier];
         instance.group.visible = visible;
+        if (instance.team && horizontalDistance(camera, instance.row) > (REACH[tier] ?? 0) + (loadWithin ?? 0)) {
+          instance.teamRevision++; instance.team.dispose(); instance.team = null;
+          instance.card = card(instance.row, instance.spec);
+          instance.static_support = instance.original_unhitched_static_support ?? instance.static_support;
+        }
+        if (visible && !instance.team && !confidence?.hidden?.reconstructed) void ensureTeam(instance);
+        if (instance.team) {
+          try { instance.team.update(dt, { paused, reducedMotion,
+            visible: visible && !confidence?.hidden?.reconstructed,
+            shadows: tier === 'full' && camera.position.distanceTo(instance.group.position) < 30 }); }
+          catch (error) {
+            instance.team.dispose(); instance.team = null;
+            instance.static_support = instance.original_unhitched_static_support ?? instance.static_support;
+            instance.card = card(instance.row, instance.spec);
+            problems.push(`parked transport ${instance.row.id} team: ${error.message}; unoccupied carriage retained`);
+          }
+        }
         if (instance.lod) {
           camera.updateWorldMatrix(true, false);
           instance.lod.updateWorldMatrix(true, false);
@@ -200,17 +243,30 @@ export async function createParkedTransport({ dataBase, sceneId, terrain, confid
     },
     async setTier(next) {
       tier = next;
+      if (next === 'light') for (const instance of instances) {
+        instance.teamRevision++; instance.team?.dispose(); instance.team = null;
+        instance.static_support = instance.original_unhitched_static_support ?? instance.static_support;
+        instance.card = card(instance.row, instance.spec);
+      }
       if (next !== 'light' && !deferred) await load();
+      if (next !== 'light') await Promise.all(instances.map(ensureTeam));
       if (lastCamera) out.update(lastCamera);
     },
     pickAt(ndc, camera) {
       if (disposed || confidence?.hidden?.reconstructed) return null;
       for (let ancestor = group; ancestor; ancestor = ancestor.parent) if (!ancestor.visible) return null;
       ray.setFromCamera(ndc ?? new THREE.Vector2(), camera);
-      const hit = ray.intersectObjects(instances.filter(i => i.group.visible).map(i =>
+      const roots = instances.filter(i => i.group.visible).flatMap(i =>
         // Recursive raycasting visits invisible LOD children too. Start at ONLY
         // the committed active level, preserving the common parked card owner.
-        i.lod ? i.lod.levels[i.lod.getCurrentLevel()].object : i.group), true)[0];
+        i.lod ? [i.lod.levels[i.lod.getCurrentLevel()].object, ...(i.team?.pickRoots ?? [])] : [i.group]);
+      const meshes = [];
+      for (const root of roots) root.traverse(node => {
+        if (!node.isMesh) return;
+        for (let p = node; p; p = p.parent) if (!p.visible) return;
+        meshes.push(node);
+      });
+      const hit = ray.intersectObjects(meshes, false)[0];
       if (!hit) return null;
       let owner = hit.object;
       while (owner && !owner.userData.parkedId) owner = owner.parent;
@@ -218,9 +274,13 @@ export async function createParkedTransport({ dataBase, sceneId, terrain, confid
       return instance ? { id: instance.row.id, record: instance.card, point: hit.point, distance: hit.distance } : null;
     },
     dispose() {
+      if (disposed) return;
       disposed = true;
+      for (const instance of instances) { instance.teamRevision++; instance.team?.dispose(); }
       for (const instance of instances) if (instance.row.replaces) fallback(instance.row.replaces, true);
-      group.traverse(n => n.geometry?.dispose());
+      const geometry = new Set();
+      group.traverse(n => { if (n.userData.parkedBatchGeometry) geometry.add(n.geometry); });
+      for (const value of geometry) value.dispose();
       for (const promise of assets.values()) void promise.then(disposeLoadedAsset, () => {});
       group.clear();
       instances.length = 0; replacementIds.clear();
@@ -231,6 +291,42 @@ export async function createParkedTransport({ dataBase, sceneId, terrain, confid
   // its deferred update() still calls load(), which must find an empty list
   // rather than a binding still in its temporal dead zone.
   let record = null, rows = [];
+  let teamTools = null;
+  function ensureTeam(instance) {
+    if (!stationaryTeams || !instance.row.stationary_team || !instance.retainedPole
+      || !shown || confidence?.hidden?.reconstructed || tier === 'light' || disposed || !lastCamera
+      || horizontalDistance(lastCamera, instance.row) >= (REACH[tier] ?? 0)
+      || instance.team || instance.teamAttempted === instance.teamRevision) {
+      return instance.teamPending ?? Promise.resolve(instance.team ?? null);
+    }
+    if (instance.teamPending) return instance.teamPending.then(() => ensureTeam(instance));
+    const revision = instance.teamRevision;
+    instance.teamAttempted = revision;
+    instance.teamPending = (async () => {
+      const spec = instance.row.stationary_team;
+      if (instance.vehicleHashes.near !== spec.vehicles.near.sha256
+        || (instance.midVehicle && instance.vehicleHashes.mid !== spec.vehicles.mid.sha256)) {
+        throw Error('current delivery geometry is not the reviewed team binding');
+      }
+      teamTools ??= import('./parked-draft-team.js');
+      const { createParkedDraftTeam } = await teamTools;
+      const team = await createParkedDraftTeam({ row: instance.row, frame: instance.group,
+        vehicle: instance.vehicle, midVehicle: instance.midVehicle, dataBase,
+        heightAt, confidence });
+      if (disposed || !shown || tier === 'light' || instance.teamRevision !== revision
+        || !lastCamera || horizontalDistance(lastCamera, instance.row) >= (REACH[tier] ?? 0)) {
+        team.dispose(); instance.teamAttempted = null; return null;
+      }
+      instance.team = team; instance.card = card(instance.row, instance.spec, team);
+      instance.original_unhitched_static_support ??= instance.static_support;
+      instance.static_support = null;
+      return team;
+    })().catch(error => {
+      problems.push(`parked transport ${instance.row.id} team: ${error.message}; unoccupied carriage retained`);
+      return null;
+    }).finally(() => { instance.teamPending = null; });
+    return instance.teamPending;
+  }
   if (!dataBase || !terrain || !['1835', '1904'].includes(String(sceneId))) return out;
   const heightAt = groundHeight ?? ((e, n) => terrain.surfaceHeight(e, n));
   try {
@@ -256,10 +352,12 @@ export async function createParkedTransport({ dataBase, sceneId, terrain, confid
     for (const row of batch) {
       if (disposed) break;
       const spec = record.models[row.model];
+      let building = null;
       try {
         let pending = assets.get(row.model);
         if (!pending) {
-          pending = row.model === 'studebaker_brougham_1893' ? loadBrougham(spec.file)
+          pending = row.model === 'studebaker_brougham_1893' ? loadBrougham(spec.file,
+            stationaryTeams ? row.stationary_team?.vehicles?.near?.sha256 : null)
             : new GLTFLoader().loadAsync(new URL(spec.file, new URL('../', import.meta.url)).href);
           assets.set(row.model, pending);
         }
@@ -317,18 +415,50 @@ export async function createParkedTransport({ dataBase, sceneId, terrain, confid
             const key = `${row.model}:mid`;
             let pendingMid = assets.get(key);
             if (!pendingMid) {
-              pendingMid = loadBrougham(spec.delivery_lods.mid);
+              pendingMid = loadBrougham(spec.delivery_lods.mid,
+                stationaryTeams ? row.stationary_team?.vehicles?.mid?.sha256 : null);
               assets.set(key, pendingMid);
             }
             midAsset = await pendingMid;
             if (disposed) break;
           } catch (error) { problems.push(`parked transport ${row.id} mid: ${error.message}; near retained`); }
         }
-        const near = staticBatches(root, confidence);
+        const placement = new THREE.Group();
+        placement.name = row.id; placement.userData.parkedId = row.id;
+        placement.position.set(row.at_local_enu_m[0], base, -row.at_local_enu_m[1]);
+        placement.rotation.y = yaw; placement.visible = false;
+        const midRoot = midAsset?.scene.clone(true) ?? null;
+        placement.add(root); if (midRoot) placement.add(midRoot);
+        placement.updateWorldMatrix(true, true);
+        const poleName = stationaryTeams ? row.stationary_team?.pole_node : null;
+        const nearPole = poleName ? root.getObjectByName(poleName) : null;
+        const midPole = midRoot && poleName ? midRoot.getObjectByName(poleName) : null;
+        const instance = { row, spec, group: placement, vehicle: root, midVehicle: midRoot,
+          retainedPole: Boolean(nearPole && (!midRoot || midPole)), team: null,
+          teamRevision: 0, teamAttempted: null, teamPending: null,
+          vehicleHashes: { near: asset.parkedDeliverySha256, mid: midAsset?.parkedDeliverySha256 },
+          card: card(row, spec), parking, wheel_clearance_m: wheelGap,
+          static_support: staticSupport, ownedBatches: [] };
+        building = instance;
+        await ensureTeam(instance);
+        if (disposed) { instance.team?.dispose(); break; }
+        const retainPole = (source, pole, batches) => {
+          source.traverse(n => {
+            if (!n.isMesh) return;
+            let keep = false; for (let p = n; p; p = p.parent) if (p === pole) keep = true;
+            n.visible = keep;
+          });
+          batches.add(source);
+        };
+        const near = staticBatches(root, confidence, instance.retainedPole ? nearPole : null);
+        instance.ownedBatches.push(near);
+        if (instance.retainedPole) retainPole(root, nearPole, near); else placement.remove(root);
         let model = near, lod = null;
         if (midAsset) {
           try {
-            const mid = staticBatches(midAsset.scene.clone(true), confidence);
+            const mid = staticBatches(midRoot, confidence, instance.retainedPole ? midPole : null);
+            instance.ownedBatches.push(mid);
+            if (instance.retainedPole) retainPole(midRoot, midPole, mid); else placement.remove(midRoot);
             lod = new THREE.LOD();
             // Selection happens with the same camera as reach/picking. Avoid
             // the renderer independently reselecting during shadow passes.
@@ -337,17 +467,38 @@ export async function createParkedTransport({ dataBase, sceneId, terrain, confid
             lod.addLevel(mid, 24, 0.05);
             near.visible = true; mid.visible = false;
             model = lod;
-          } catch (error) { problems.push(`parked transport ${row.id} mid: ${error.message}; near retained`); }
+          } catch (error) {
+            midRoot.removeFromParent();
+            problems.push(`parked transport ${row.id} mid: ${error.message}; near retained`);
+          }
         }
-        model.name = row.id; model.userData.parkedId = row.id;
-        model.position.set(row.at_local_enu_m[0], base, -row.at_local_enu_m[1]);
-        model.rotation.y = yaw;
-        model.visible = false;
-        group.add(model);
-        instances.push({ row, group: model, card: card(row, spec), parking,
-          wheel_clearance_m: wheelGap, static_support: staticSupport, draw_batches: near.children.length,
-          ...(lod ? { lod, active_lod: 'near', active_triangles: 45338 } : {}) });
-      } catch (error) { problems.push(`parked transport ${row.id}: ${error.message}; ${row.replaces ? 'existing yard vehicle retained' : 'vehicle not shown'}`); }
+        if (instance.retainedPole) placement.add(model);
+        else {
+          // Keep the original public group for ordinary parked vehicles:
+          // a merged mesh group, or the Brougham's controlled LOD itself.
+          model.name = row.id; model.userData.parkedId = row.id;
+          model.position.copy(placement.position);
+          model.quaternion.copy(placement.quaternion);
+          model.visible = false;
+          instance.group = model;
+        }
+        group.add(instance.group);
+        instance.draw_batches = near.children.filter(n => n.userData.parkedBatchGeometry).length
+          + (instance.retainedPole ? 2 : 0);
+        if (instance.team) {
+          instance.original_unhitched_static_support = staticSupport;
+          instance.static_support = null;
+        }
+        Object.assign(instance, lod ? { lod, active_lod: 'near', active_triangles: 45338 } : {});
+        instances.push(instance);
+        building = null;
+      } catch (error) {
+        building?.team?.dispose(); building?.group.removeFromParent();
+        for (const batch of building?.ownedBatches ?? []) batch.traverse(n => {
+          if (n.userData.parkedBatchGeometry) n.geometry.dispose();
+        });
+        problems.push(`parked transport ${row.id}: ${error.message}; ${row.replaces ? 'existing yard vehicle retained' : 'vehicle not shown'}`);
+      }
     }
     if (lastCamera) out.update(lastCamera);
   }

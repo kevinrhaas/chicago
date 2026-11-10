@@ -30,10 +30,11 @@ const releaseAsset = asset => {
  */
 export function createDraftHitchFactory({ loadGLTF, loadJSON, confidence = null } = {}) {
   if (typeof loadGLTF !== 'function' || typeof loadJSON !== 'function') throw Error('draft hitch: asset and data loaders required');
-  return async function makeHitch({ row, vehicle, driver, horses }) {
+  return async function makeHitch({ row, vehicle, driver, horses, parked = false }) {
     const spec = row.hitch;
     if (!spec?.harness_file || !spec.units_file || !spec.bindings_file || !spec.vehicle_binding) throw Error('draft hitch: explicit portable asset/binding specification required');
-    if (horses?.length !== 2 || !driver?.root || !vehicle?.getObjectByName) throw Error('draft hitch: real two-horse team, driver and vehicle required');
+    if (horses?.length !== 2 || !vehicle?.getObjectByName || (!parked && !driver?.root)) throw Error('draft hitch: real two-horse team, driver and vehicle required');
+    if (parked && (driver || spec.reins_mode !== 'unheld')) throw Error('draft hitch: an unoccupied parked team must explicitly omit driver reins');
     const pending = await Promise.allSettled([loadGLTF(spec.harness_file), loadGLTF(spec.units_file), loadJSON(spec.bindings_file)]);
     if (pending.some(x => x.status === 'rejected')) {
       for (const r of pending.slice(0, 2)) if (r.status === 'fulfilled') releaseAsset(r.value);
@@ -174,8 +175,11 @@ export function createDraftHitchFactory({ loadGLTF, loadJSON, confidence = null 
               chain('unit_trace', [bandPoint(h, 'noseband', side), ...definition.surface_guides[`cheek_${side}`].map(ref => guide(h, ref)), bandPoint(h, 'pollstrap', side)]);
             }
           }
-          const palms = palmPoints();
-          if (row.driver_mode === 'on_foot') {
+          const palms = parked ? null : palmPoints();
+          if (parked) {
+            // A stationary unoccupied team has no invented hand or dangling
+            // simulated rein. Fitting reins to its coachman is separate work.
+          } else if (row.driver_mode === 'on_foot') {
             // T-3497: a teamster on foot leads the near (left, +x) horse by a line to its bit,
             // from his hand to the nearer ring of its noseband.
             const palm = driver.root.localToWorld(new THREE.Vector3(...palms.r));
@@ -201,7 +205,8 @@ export function createDraftHitchFactory({ loadGLTF, loadJSON, confidence = null 
           }
           last = { pole_to_yoke_connection_m: gap, valid: gap <= .12, pole_pitch_rad: pitch,
             instance_counts: counts, original_parked_asset_changed: false,
-            actual_palm_surface_endpoints: true, closed_finger_grip_verified: false,
+            actual_palm_surface_endpoints: !parked, closed_finger_grip_verified: false,
+            ...(parked ? { mode: 'unoccupied_parked', reins: 'not_fitted', driver_present: false } : {}),
             global_harness_body_intersection_or_world_acceptance: 'UNRUN' };
           return last;
         },
