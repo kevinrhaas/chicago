@@ -16529,7 +16529,7 @@ for (const [label, viewport, touch] of [
     // >>> T-2656: the Settings app (DESIGN §07). Light or dark is Settings › Display's two-way
     // choice and the HUD holds no chip for it; the four machines are tiles, the one in use
     // marked, and a tap on another switches the machine and its tone; Auto names this device's
-    // levels; Sound has its three levels and says nothing plays yet; About opens What's new;
+    // levels; Sound has four levels and examples beside their own controls; About opens What's new;
     // and at Text size 140 % every Navigator app reflows with nothing past its edge and no line
     // cut short (QA-18), the choice stored. Everything is put back as found. Waits are generous:
     // a starved runner takes seconds between frames.
@@ -16546,7 +16546,18 @@ for (const [label, viewport, touch] of [
         auto: document.getElementById('s-perf-auto-line')?.textContent ?? '',
         autoShown: document.getElementById('s-perf-auto')?.closest('.field')?.hidden === false,
         sound: ['master', 'effects', 'ambience', 'music'].filter((s) => document.getElementById(`s-sound-${s}`)?.type === 'range').length,
-        soundNote: document.getElementById('s-sound-note')?.textContent.trim() ?? '',
+        soundTotal: document.querySelectorAll('#s-sound input[type="range"]').length,
+        soundHelp: Object.fromEntries(['effects', 'ambience'].map((key) => {
+          const slider = document.getElementById(`s-sound-${key}`);
+          const help = document.getElementById(`s-sound-${key}-help`);
+          const group = slider?.closest('.sound-control');
+          return [key, { text: help?.textContent.trim() ?? '',
+            ownGroup: !!group && help?.closest('.sound-control') === group
+              && group.querySelectorAll('input[type="range"]').length === 1
+              && help.previousElementSibling?.contains(slider) === true,
+            described: !!help && slider?.getAttribute('aria-describedby') === help.id }];
+        })),
+        soundNotesAbsent: !document.querySelector('#s-sound-note, #s-sound-music-help'),
       };
       // Light or dark: the other tone, then back.
       const tone = html.dataset.theme === 'light' ? 'light' : 'dark';
@@ -16618,10 +16629,15 @@ for (const [label, viewport, touch] of [
       settingsApp.tiles.join(',') === 'control-room,brass,worlds-fair,deep-space' && settingsApp.tileOn === settingsApp.skin
       && settingsApp.switched && settingsApp.restored,
       JSON.stringify({ tiles: settingsApp.tiles, on: settingsApp.tileOn, skin: settingsApp.skin, switched: settingsApp.switched }));
-    check(`${label}: Auto names this device's levels, Sound has master, effects and ambience and says what each covers, About opens What's new (T-2656)`,
+    check(`${label}: Auto names this device's levels, Sound has four sliders with their own Ambience/Effects examples and no extra notes, About opens What's new (T-2656, T-3544)`,
       settingsApp.autoShown && /^Auto for this device: (Full|Balanced|Light) detail, (Low|Medium|High) sharpness, adaptive pacing\.$/.test(settingsApp.auto)
-      && settingsApp.sound === 4 && /not a recording of the past\./.test(settingsApp.soundNote) && settingsApp.whatsNew,  // the note: T-2659
-      JSON.stringify({ auto: settingsApp.auto, autoShown: settingsApp.autoShown, sound: settingsApp.sound, note: settingsApp.soundNote, whatsNew: settingsApp.whatsNew }));
+      && settingsApp.sound === 4 && settingsApp.soundTotal === 4 && settingsApp.soundNotesAbsent
+      && Object.values(settingsApp.soundHelp).every((h) => h.ownGroup && h.described)
+      && /wind, lake waves, birds and insects/.test(settingsApp.soundHelp.ambience.text)
+      && /wagon wheels and harness jingles from moving teams/.test(settingsApp.soundHelp.effects.text)
+      && settingsApp.whatsNew,
+      JSON.stringify({ auto: settingsApp.auto, autoShown: settingsApp.autoShown, sound: settingsApp.sound,
+        total: settingsApp.soundTotal, help: settingsApp.soundHelp, notesAbsent: settingsApp.soundNotesAbsent, whatsNew: settingsApp.whatsNew }));
     check(`${label}: at text size 140 % every Navigator app reflows, nothing past its edge and no line cut short, and the choice is stored (T-2656, QA-18)`,
       settingsApp.scale === '1.4' && settingsApp.storedScale === 1.4 && settingsApp.back
       && Object.keys(settingsApp.clipped).length >= 6 && Object.values(settingsApp.clipped).every((list) => list.length === 0),
@@ -16767,9 +16783,10 @@ for (const [label, viewport, touch] of [
     // control in the open Navigator — the tone already chosen, so nothing changes — hit-tested
     // in the page first. clickChrome's untrusted .click() is no gesture to a browser (or to
     // gesture-gate.js), which is why it must not be the instrument here. Then the graph is
-    // built on a running context, era music streams, and Settings sliders move the real
-    // gains. Master and Music mute stop playback, and a hidden tab clears recorded voices.
-    // Every level is put back as found. Every wait is bounded
+    // built on a running context. Period music waits for the native Free roam entry;
+    // then it streams and Settings sliders move the real gains. Master and Music mute
+    // stop playback, and a hidden tab clears recorded voices. Levels, pose, the one-time
+    // roam tip and tour offer are put back as found. Every wait is bounded
     // by the clock, not by a count of timer ticks a starved runner stretches.
     await openSection('settings').catch(() => {});
     const soundTapSel = '#s-theme .seg-btn[aria-checked="true"]';
@@ -16795,7 +16812,7 @@ for (const [label, viewport, touch] of [
       if (touch) await page.touchscreen.tap(soundTap.x, soundTap.y);
       else await page.mouse.click(soundTap.x, soundTap.y);
     }
-    const soundRead = await page.evaluate(async () => {
+    const soundSetup = await page.evaluate(async () => {
       const api = window.__chicago4d;
       const wait = ms => new Promise(r => setTimeout(r, ms));
       const until = async (fn, ms) => {
@@ -16810,25 +16827,72 @@ for (const [label, viewport, touch] of [
       const was=Object.fromEntries(keys.map(k=>[k,slider(k).value]));
       const slide=(k,v)=>{slider(k).value=String(v);slider(k).dispatchEvent(new Event('input',{bubbles:true}));};
       const first=sound.state;
+      const w=api.walker;
+      const saved={ was, at:{local_e:w.state.e,local_n:w.state.n,yaw_deg:w.bearingDeg,
+        pitch_deg:w.state.pitch*180/Math.PI,altitude_m:w.state.flying?w.state.altitude:null},
+        tipStored:localStorage.getItem('chicago4d.roamTipSeen'),tipShowing:api.roamTip.showing,
+        offerStored:localStorage.getItem('chicago4d.tourOffer'),offerState:api.tourOffer.state,
+        backend:api.controlBackend };
+      const beforeJourney=api.journey.state;
       slide('master',1);slide('music',.4);
-      await until(() => sound.state.recorded?.playing, 30000);
-      const on=sound.state;
-      slide('music',0);await wait(400);const musicOff=!sound.state.recorded?.playing;
-      slide('master',0);await wait(400);const muted=sound.state.silent&&!sound.state.recorded?.voices.length;
-      slide('master',1);slide('music',.4);await wait(500);
-      Object.defineProperty(document,'hidden',{configurable:true,get:()=>true});
-      document.dispatchEvent(new Event('visibilitychange'));await wait(400);
-      const hidden=sound.state.silent&&!sound.state.recorded?.playing&&!sound.state.recorded?.voices.length;
-      delete document.hidden;document.dispatchEvent(new Event('visibilitychange'));
-      for(const k of keys)slide(k,was[k]);
-      return {loaded:true,first,on,musicOff,muted,hidden};
+      await wait(400);
+      const beforeEntry=sound.state;
+      // Earlier stages can hide the gate without choosing an arrival action.
+      // Reopen the real card, then click its actual Free roam control below;
+      // never manufacture a journey transition just to make music eligible.
+      api.welcome.show();
+      return {loaded:true,first,beforeJourney,beforeEntry,saved};
     });
-    check(`${label}: recorded audio stays opt-in, streams era music, and never starts the old hum (T-3532)`,
-      !soundTap.miss && soundRead.loaded && soundRead.first.silent && !soundRead.first.hum
-      && soundRead.on.recorded?.playing && !soundRead.on.hum && !soundRead.on.recorded.errors.length, JSON.stringify(soundRead));
+    const soundRoamClick = soundSetup.loaded
+      ? await page.locator('#home-roam').click({ timeout: 30_000 }).then(() => null, (e) => e.message)
+      : 'recorded sound did not load';
+    const soundRead = await page.evaluate(async (setup) => {
+      if (!setup.loaded) return setup;
+      const api=window.__chicago4d,sound=api.sound;
+      const wait=ms=>new Promise(r=>setTimeout(r,ms));
+      const until=async(fn,ms)=>{const end=Date.now()+ms;while(!fn()&&Date.now()<end)await wait(100);return !!fn();};
+      const keys=['master','effects','ambience','music'];
+      const slide=(k,v)=>{const s=document.getElementById(`s-sound-${k}`);s.value=String(v);s.dispatchEvent(new Event('input',{bubbles:true}));};
+      let hiddenOverride=false;
+      try {
+        const entered=await until(()=>api.welcome.state==='world'&&api.journey.state==='exploring',30000);
+        await until(()=>sound.state.recorded?.playing,30000);
+        const on=sound.state;
+        slide('music',0);await wait(400);const musicOff=!sound.state.recorded?.playing;
+        slide('master',0);await wait(400);const muted=sound.state.silent&&!sound.state.recorded?.voices.length;
+        slide('master',1);slide('music',.4);await wait(500);
+        Object.defineProperty(document,'hidden',{configurable:true,get:()=>true});hiddenOverride=true;
+        document.dispatchEvent(new Event('visibilitychange'));await wait(400);
+        const hidden=sound.state.silent&&!sound.state.recorded?.playing&&!sound.state.recorded?.voices.length;
+        return {loaded:true,first:setup.first,beforeJourney:setup.beforeJourney,beforeEntry:setup.beforeEntry,
+          entered,journey:api.journey.state,on,musicOff,muted,hidden};
+      } finally {
+        if(hiddenOverride){delete document.hidden;document.dispatchEvent(new Event('visibilitychange'));}
+        for(const k of keys)slide(k,setup.saved.was[k]);
+        // Leave a failed click as a failed assertion, but let following checks run
+        // in the town. This is the welcome's native resume, not a journey override.
+        if(api.welcome.state==='welcome')api.welcome.close();
+        api.hud.setFly(setup.saved.at.altitude_m!==null,{announce:false});
+        api.walker.teleport(setup.saved.at);
+        api.roamTip.forget();
+        if(setup.saved.tipShowing)api.roamTip.show({touch:setup.saved.backend==='touch'});
+        api.tourOffer.forget();
+        if(setup.saved.offerState)api.tourOffer.spend(setup.saved.offerState);
+        for(const [key,value] of [['chicago4d.roamTipSeen',setup.saved.tipStored],['chicago4d.tourOffer',setup.saved.offerStored]]){
+          if(value===null)localStorage.removeItem(key);else localStorage.setItem(key,value);
+        }
+      }
+    }, soundSetup);
+    check(`${label}: recorded audio stays opt-in, waits through arrival, streams era music after native Free roam, and never starts the old hum (T-3532, T-3544)`,
+      !soundTap.miss && !soundRoamClick && soundRead.loaded && soundRead.first.silent && !soundRead.first.hum
+      && (soundRead.beforeJourney!=='landed'||!soundRead.beforeEntry.recorded?.playing)
+      && soundRead.entered && soundRead.journey==='exploring'
+      && soundRead.on.recorded?.playing && !soundRead.on.hum && !soundRead.on.recorded.errors.length,
+      JSON.stringify({tap:soundTap,roamClick:soundRoamClick,...soundRead}));
     check(`${label}: independent music mute, Master mute and hidden-tab cleanup stop recorded audio (T-3532)`,
       soundRead.musicOff && soundRead.muted && soundRead.hidden, JSON.stringify(soundRead));
     // <<< T-2659
+    await openSection('settings');
     await clickChrome('#panel-close');
     // T-2620: Settings is a Navigator app now, so closing it leaves the device docked on
     // Settings; give it back as found (Home, docked) for the Navigator's own checks below.
