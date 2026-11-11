@@ -259,21 +259,25 @@ jobs:
           BLENDER_CACHE: /opt/blender-dl
         run: ./tools/human_export.sh --verify
 
-      # Installed GLOBALLY, as chicago-4d-smoke.yml does: the tools resolve it through
-      # `npm root -g`.
-      - name: Install Playwright
+      # Keep the canonical Python/Blender fixture producer on the host. The exact
+      # Playwright 1.56.1 browser image already contains Chromium and its OS deps.
+      - name: Open every human GLB and drive the actor, at both viewports
         run: |
-          set -e
-          npm install -g playwright@1.56.1
-          node "$(npm root -g)/playwright/cli.js" install --with-deps chromium
-
-      - name: Open every human GLB in the browser, at both viewports
-        working-directory: chicago/4d
-        run: NODE_PATH="$(npm root -g)" node tools/human_fixture.mjs
-
-      - name: Drive the browser actor with the fixture, at both viewports
-        working-directory: chicago/4d
-        run: NODE_PATH="$(npm root -g)" node tools/human_actor.mjs
+          set -euo pipefail
+          docker run --rm --init --ipc=host \
+            --user pwuser \
+            --mount "type=bind,src=$GITHUB_WORKSPACE,dst=$GITHUB_WORKSPACE,readonly" \
+            --workdir "$GITHUB_WORKSPACE/chicago/4d" \
+            mcr.microsoft.com/playwright@sha256:42f02d323c310069b4d54c94bd91a608966a486c3492c48ae0b1cea747ec5ca2 \
+            bash -euo pipefail -c '
+              pw_private="$(mktemp -d /tmp/chicago-human-playwright.XXXXXX)"
+              pw_prefix="$pw_private/npm"
+              pw_cache="$pw_private/cache"
+              npm install --global --prefix "$pw_prefix" --cache "$pw_cache" playwright@1.56.1
+              export NODE_PATH="$(npm root --global --prefix "$pw_prefix")"
+              node tools/human_fixture.mjs
+              node tools/human_actor.mjs
+            '
 
   # Render the immutable, already fixture-qualified producer's masters. The
   # receipt distinguishes that source SHA from this renderer's own checkout.

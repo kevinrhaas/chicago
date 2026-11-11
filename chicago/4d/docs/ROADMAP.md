@@ -1,3 +1,23 @@
+### T1789 linen capture: browser dependency repair, 11 November 2026
+
+Source-only update; no replacement human assets or fit acceptance yet. Source
+0a579798 passed all sixteen local source sections (1,337 executions) and the
+eight-part GitHub code gate. Its capture 43053758545 failed before geometry:
+the humans prerequisite could not resolve Ubuntu's package host while installing
+Playwright dependencies. The ordinary PR job and its one fresh-runner retry
+failed at that same DNS step. Those failures remain failures; no producer parents
+were accepted.
+
+The proposed browser-only step uses the official Playwright 1.56.1 Noble image,
+pinned by its linux/amd64 digest, with the image's pwuser and a read-only source
+mount. Both complete browser fixture and actor commands retain both viewports.
+Canonical Python/Blender work stays on the host; source/definition binding, tool
+pins, all assertions and the original 45/30-minute job limits are preserved.
+Static syntax/contract checks do not prove container compatibility: actual CI
+browser execution, new canonical assets, matching native views, fresh DEV
+integration and final published checks remain pending. Broader clothing realism
+and T1789 stay open. Production is unchanged.
+
 ## Linen capture codec-pin correction — 11 November 2026
 
 The ordinary checks for draft PR #1933 pass on source c9990d8b. Its canonical
