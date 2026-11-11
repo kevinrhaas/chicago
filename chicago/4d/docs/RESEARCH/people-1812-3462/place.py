@@ -196,11 +196,56 @@ def instance(p, st):
         behaviour['route'] = [{'local_e': a, 'local_n': b} for a, b in route]
     if duty:
         behaviour['duty'] = duty
+    # T-3541: the station remains the duty engine's; the day owns meals, rest and
+    # visitor requests. These hours are reconstruction, not a surviving guard roster.
     if sid not in NIGHT_GUARD:
-        behaviour['hours'] = list(DAY_HOURS)
-        # T-3463: in quarters he can be asked for at its door — his household's home (T-3461).
-        if p.get('_home'):
-            behaviour['quarters'] = p['_home']
+        behaviour['hours'] = list(DAY_HOURS)  # legacy readers; a day takes precedence
+    home = p['_home']
+    behaviour['quarters'] = home
+    at = {'local_e': e, 'local_n': n, 'heading_deg': heading}
+    def inside(a, b, doing):
+        return {'from': a, 'to': b, 'indoors': True, 'where': home, 'doing': doing}
+    def out(a, b, activity, doing, **extra):
+        return {'from': a, 'to': b, 'indoors': False, 'at': at,
+                'activity': activity, 'doing': doing, **extra}
+    kind = (duty or {}).get('kind')
+    activity = ('walk' if kind == 'beat' or route else 'talk' if kind == 'knot'
+                else 'stand' if sid in NIGHT_GUARD else 'work')
+    post_fields = {'duty': True}
+    if kind == 'beat':
+        post_fields['to_point'] = duty['to']
+    elif route:
+        post_fields['via'] = behaviour['route'][:-1]
+        post_fields['to_point'] = behaviour['route'][-1]
+    if kind == 'knot':
+        post_fields['knot'] = duty['id']
+    post = lambda a, b: out(a, b, activity, words, **post_fields)
+    if sid in NIGHT_GUARD:
+        spans = [post(0, 5.5), inside(5.5, 13, 'sleeping after the night watch'),
+                 post(13, 17), inside(17, 18, 'supper in quarters'),
+                 out(18, 20, 'work', 'cleaning and mending equipment'),
+                 inside(20, 21, 'resting before the night watch'), post(21, 24)]
+    else:
+        spans = [inside(0, 5.5, 'asleep in quarters'), post(5.5, 12),
+                 inside(12, 13, 'meal in quarters'), post(13, 18),
+                 inside(18, 19, 'supper in quarters'),
+                 out(19, 20, 'work', 'cleaning and mending equipment'),
+                 out(20, 21, 'talk', 'a break with a comrade', knot=f'quarters_{home}'),
+                 inside(21, 24, 'asleep in quarters')]
+    cold = []
+    for span in spans:
+        if not span['indoors'] and not span.get('duty') and span.get('activity') == 'work':
+            cold.extend([{**span, 'to': span['from'] + 0.5},
+                         inside(span['from'] + 0.5, span['to'], 'mending equipment indoors in cold weather')])
+        elif not span.get('duty') and span.get('activity') == 'talk':
+            cold.append(inside(span['from'], span['to'], 'evening rest in quarters in cold weather'))
+        elif any(word in words for word in ('garden', 'cornfield')) and span.get('duty'):
+            cold.append(inside(span['from'], span['to'], 'tending stored supplies in cold weather'))
+        else:
+            cold.append(span)
+    behaviour['day'] = [{'dates': {'months': [11, 12, 1, 2, 3]}, 'spans': cold}, {'spans': spans}]
+    for variant in behaviour['day']:
+        variant['note'] = 'Reconstructed daily hours and ordinary activities; liberty L-1812-everyday-routines-3541. The station and existing presence records remain.'
     seed_phase = (sum(map(ord, p['id'])) % 97) / 97
     return {
         'id': f"hi_{p['id']}_1812",
@@ -219,7 +264,7 @@ def instance(p, st):
             'grade': 'reconstructed',
             'basis': (f"Reconstructed figure of {p['name']}, {rank} of Captain Nathan Heald's company of the First Infantry "
                       f"(on the company's muster-roll to 31 May 1812, Quaife 1913 App. VIII), {words}, on the afternoon of "
-                      f"14 August 1812. Where he stands and what he is doing are ours (liberty L-1812-garrison-stations-3462): "
+                      f"14 August 1812. Where he stands and what he is doing are ours (liberty L-1812-garrison-stations-3462); his daily meals, rest and activity hours are also reconstructed (L-1812-everyday-routines-3541): "
                       f"no guard report or order book of the post survives for that day, and nothing of it is acted out. He wears "
                       + (f"{worn} (T-3523; who wears what, and how his musket is carried, are ours, liberty {GD.LIBERTY})" if worn
                          else "the company private's dress (T-3451)") + ". His face, height and build are seeded from his own name; no "
@@ -263,6 +308,13 @@ def garrison_dress(people, plan):
 
 def main(check=False):
     files, plan = build()
+    # Grummo keeps his existing attested identity and placement, sharing the day model.
+    grummo = json.loads((INST / f'{KEEP}.json').read_text())
+    person = next(p for p in men() if p['id'] == 'grummo_paul')
+    at = grummo['placement']
+    station = ('fatigue_2', 'in the rank of a fatigue party drawn up on the parade', at['local_e'], at['local_n'], at['heading_deg'], 'standing', None, {'kind': 'rank', 'id': 'fatigue_party'})
+    grummo['behaviour'] = instance(person, station)['behaviour']
+    files[f'{KEEP}.json'] = grummo
     index_path = INST / 'index.json'
     index = json.loads(index_path.read_text())
     others = [i for i in index['instances'] if not (i.startswith('hi_') and f"{i}.json" in files)]

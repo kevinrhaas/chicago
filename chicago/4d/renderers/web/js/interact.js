@@ -44,7 +44,24 @@
  * DOM beyond the elements it is handed: tools/test_fort_gates.mjs drives it with fakes.
  */
 
+import { iconSvg } from './menu-icons.js';
+
 export const INTERACT_KEY = 'KeyR';
+export const PERSON_GRACE_S = 4;
+
+/** One restrained visual language for every year's actions. */
+export function actionStyle(action) {
+  if (action.id === 'go_inside') return { icon: 'enter', tone: 'return', order: 1 };
+  if (action.id === 'go_home') return { icon: 'Neighbors', tone: 'return', order: 2 };
+  if (action.id === 'greet') return { icon: 'greet', tone: 'social', order: 0 };
+  const text = `${action.label ?? ''} ${action.detail ?? ''}`;
+  if (/chat|talk|discuss|conversation/i.test(text)) return { icon: 'chat', tone: 'social', order: 0 };
+  if (/garden|plant|flower/i.test(text)) return { icon: 'garden', tone: 'task', order: 0 };
+  if (/food|cook|meal|hearth/i.test(text)) return { icon: 'food', tone: 'task', order: 0 };
+  if (/horse|stable/i.test(text)) return { icon: 'horse', tone: 'task', order: 0 };
+  if (/walk|round|stroll|visit|show|patrol/i.test(text)) return { icon: 'walk', tone: 'move', order: 0 };
+  return { icon: action.iconName ?? 'Livelihood', tone: 'task', order: 0 };
+}
 
 /**
  * @param {object} [o]
@@ -123,6 +140,7 @@ export function createInteractions({ onChange = () => {} } = {}) {
       things.set(thing.id, thing);
       return thing;
     },
+    remove(id) { return things.delete(id); },
     actionsOf,
     offer,
     /**
@@ -207,10 +225,24 @@ export function createInteractions({ onChange = () => {} } = {}) {
  * @param {Document} [o.doc]             makes those keys (document)
  */
 export function createInteractKey({ interactions, keyEl = null, where, say = () => {}, enabled = () => true,
-  keys = null, isTyping = () => false, moreEl = null, doc = globalThis.document ?? null } = {}) {
+  keys = null, isTyping = () => false, moreEl = null, onExpand = () => {},
+  now = () => performance.now() / 1000, doc = globalThis.document ?? null } = {}) {
   let near = null;
+  let selected = null, lastReach = -Infinity, releaseAttention = null;
   let expanded = false;
   const menu = (o) => !!(moreEl && o?.more?.length && !o.busy && !o.waiting);
+  const valid = (t) => !!t && interactions.get(t.id) === t && !!t.at && !!interactions.offer(t);
+  const actions = (o) => {
+    const list = o ? [o.action, ...(o.more ?? [])] : [];
+    return near?.kind === 'person' ? list.sort((a, b) => actionStyle(a).order - actionStyle(b).order) : list;
+  };
+  function expand(value) {
+    if (expanded === value) return;
+    expanded = value;
+    if (value) releaseAttention = onExpand(near) ?? null;
+    else { const release = releaseAttention; releaseAttention = null; if (typeof release === 'function') release(); }
+  }
+  function dismiss() { expand(false); selected = null; lastReach = -Infinity; paint(); }
   let shown = [];             // the actions the keys offer now, in order: [first, ...more]
   const words = keyEl?.querySelector?.('.ik-what') ?? null;
   moreEl?.setAttribute?.('role', 'group');
@@ -219,21 +251,31 @@ export function createInteractKey({ interactions, keyEl = null, where, say = () 
   /** T-3536: a collapsed list of all choices, each with its number and optional icon. */
   function paintMore(o) {
     if (!moreEl) return;
-    const more = menu(o) ? (expanded ? [o.action, ...o.more] : []) : [];
-    const want = JSON.stringify([near?.id, ...more.map((a) => [a.id, a.label, a.icon, a.detail])]);
+    const more = menu(o) && expanded ? actions(o) : [];
+    const want = JSON.stringify([near?.id, ...more.map((a) => [a.id, a.label, a.iconName, a.detail])]);
     if (moreEl.dataset?.actions === want && moreEl.hidden === !more.length) return;
     if (moreEl.dataset) moreEl.dataset.actions = want;
     moreEl.hidden = !more.length;
     moreEl.replaceChildren?.();
     if (!doc) return;
+    if (more.length && near.kind === 'person') {
+      const head = doc.createElement('div'); head.className = 'ik-person';
+      const name = doc.createElement('span'); name.textContent = near.name; name.title = near.name;
+      const close = doc.createElement('button'); close.type = 'button'; close.className = 'ik-dismiss';
+      close.setAttribute('aria-label', 'Dismiss person interactions'); close.innerHTML = iconSvg('close', 16);
+      close.addEventListener('click', (e) => { e?.preventDefault?.(); dismiss(); keyEl?.focus?.(); });
+      head.append(name, close); moreEl.appendChild(head);
+    }
     more.forEach((a, i) => {
       const b = doc.createElement('button');
       b.type = 'button';
       b.className = 'chip quick-interact ik-more';
       b.dataset.action = a.id;
-      if (a.icon) {
-        const icon = doc.createElement('span'); icon.textContent = a.icon; icon.setAttribute('aria-hidden', 'true'); b.append(icon);
-      }
+      const style = actionStyle(a);
+      b.dataset.tone = style.tone;
+      if (style.order && (!i || !actionStyle(more[i - 1]).order)) b.className += ' ik-return-first';
+      const icon = doc.createElement('span'); icon.className = 'ik-icon'; icon.innerHTML = iconSvg(style.icon, 18);
+      icon.setAttribute('aria-hidden', 'true'); b.append(icon);
       const w = doc.createElement('span'); w.className = 'ik-what'; w.textContent = a.label;
       const k = doc.createElement('kbd'); k.className = 'ik-kbd'; k.setAttribute('aria-hidden', 'true'); k.textContent = String(i + 1);
       b.append(w, k);
@@ -247,8 +289,8 @@ export function createInteractKey({ interactions, keyEl = null, where, say = () 
   function paint() {
     const o = near ? interactions.offer(near) : null;
     const dropdown = menu(o);
-    if (!dropdown) expanded = false;
-    shown = o && !o.busy && !o.waiting ? [o.action, ...(o.more ?? [])] : [];
+    if (!dropdown) expand(false);
+    shown = o && !o.busy && !o.waiting ? actions(o) : [];
     if (keyEl) {
       keyEl.hidden = !o;
       if (o) {
@@ -270,8 +312,18 @@ export function createInteractKey({ interactions, keyEl = null, where, say = () 
   /** Re-read who is in reach. Cheap: a handful of things, a distance each. */
   function refresh() {
     const here = enabled() ? where?.() : null;
-    const next = here && !here.flying ? interactions.nearest(here.e, here.n, here.bearing) : null;
-    if (next !== near) { near = next; expanded = false; }
+    if (!valid(selected)) selected = null;
+    let next = null;
+    if (here && !here.flying) {
+      const nearest = interactions.nearest(here.e, here.n, here.bearing);
+      const distance = near?.at ? Math.hypot(near.at[0] - here.e, near.at[1] - here.n) : Infinity;
+      if (near === nearest) lastReach = now();
+      const retained = near?.kind === 'person' && valid(near)
+        && (expanded || (now() - lastReach < PERSON_GRACE_S && distance < (near.reach ?? 5) + 6));
+      next = selected ?? (retained ? near : nearest);
+      if (next === nearest) lastReach = now();
+    } else selected = null;
+    if (next !== near) { expand(false); near = next; }
     paint();
     return near;
   }
@@ -280,7 +332,7 @@ export function createInteractKey({ interactions, keyEl = null, where, say = () 
   function press(actionId = null) {
     const thing = refresh();
     if (!thing) return { ok: false, why: 'nothing in reach' };
-    expanded = false;
+    expand(false);
     const res = interactions.act(thing, actionId);
     if (res.refused) say(res.why);
     paint();
@@ -296,15 +348,15 @@ export function createInteractKey({ interactions, keyEl = null, where, say = () 
   });
   function toggle() {
     refresh();
-    if (menu(near && interactions.offer(near))) { expanded = !expanded; paint(); }
+    if (menu(near && interactions.offer(near))) { expand(!expanded); paint(); }
     else press();
   }
   const onClick = (e) => { e?.preventDefault?.(); toggle(); };
   keyEl?.addEventListener?.('click', onClick);
   const onKey = (e) => {
     if (e.repeat || e.metaKey || e.ctrlKey || e.altKey) return;
-    if (e.code === 'Escape' && expanded) {
-      expanded = false; paint(); keyEl?.focus?.(); e.preventDefault?.(); return;
+    if (e.code === 'Escape' && (expanded || selected)) {
+      dismiss(); keyEl?.focus?.(); e.preventDefault?.(); return;
     }
     const digit = /^Digit([1-9])$/.exec(e.code ?? '');
     if (e.code !== INTERACT_KEY && !digit) return;
@@ -330,7 +382,16 @@ export function createInteractKey({ interactions, keyEl = null, where, say = () 
     get choices() { return shown.map((a) => a.id); },
     refresh,
     press,
+    /** A deliberate figure/card pick survives their walking out of proximity. */
+    select(id) {
+      const target = interactions.get(id);
+      if (target?.kind !== 'person' || !valid(target)) return false;
+      if (target !== near) expand(false);
+      selected = target; near = target; paint(); return true;
+    },
+    dismiss,
     dispose() {
+      dismiss();
       off();
       keyEl?.removeEventListener?.('click', onClick);
       keys?.removeEventListener?.('keydown', onKey);

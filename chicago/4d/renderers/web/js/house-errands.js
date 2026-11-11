@@ -296,9 +296,12 @@ export function createHouseErrands({ days = null, humans, houseDoors, interactio
               if (t === 0) { if (scheduled) days.pause(actor.id); greet(); }
               if (t >= 1) openCard(actor);
             } }] },
-          ...(scheduled ? [{ id: 'go_home', label: 'Go inside', icon: '⌂', said: '',
-            refuse: () => days.request(actor.id).ok ? null : 'Not available just now',
-            steps: [] }] : [{ id: 'go_home', label: 'Go inside', icon: '⌂', to: 'home', said: () => `${name} has gone in`,
+          ...(scheduled ? [
+            { id: 'go_inside', label: 'Go inside', detail: 'Enter the nearest available building', said: '', steps: [],
+              refuse: () => { const r = days.request(actor.id, null, { inside: 'nearest' }); return r.ok ? null : r.why; } },
+            { id: 'go_home', label: 'Go home', detail: 'Return to their residence', said: '', steps: [],
+              refuse: () => { const r = days.request(actor.id, null, { inside: 'home' }); return r.ok ? null : r.why; } },
+          ] : [{ id: 'go_home', label: 'Go home', to: 'home', said: () => `${name} has gone in`,
             steps: [
               { label: 'Going inside', until: () => arrived, timeout: 180, run: (t) => {
                 if (t !== 0) return;

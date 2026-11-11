@@ -501,6 +501,10 @@
                     "once": {
                       "type": "boolean",
                       "description": "A walk made once, from `at` by `via` to `to_point`, where they then stand."
+                    },
+                    "duty": {
+                      "type": "boolean",
+                      "description": "At this span the existing behaviour.duty (or station chore) owns the figure after the day engine brings them to their post. Meals, rest, calls and jaunts release the duty."
                     }
                   },
                   "allOf": [
@@ -593,6 +597,11 @@
           "minimum": 0,
           "maximum": 99,
           "description": "T-3463: where in a door's Ask for list the person comes (lower first; 50 when unsaid)."
+        },
+        "shelter": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$",
+          "description": "A reconstructed host building for a requested indoor pause when a visitor has no town home in the current day. Does not override presence or away spans."
         }
       }
     },
