@@ -13,14 +13,15 @@
   "grade": "reconstructed"
  },
  "hair": {
-  "value": "grey brown",
-  "drawn": "grey_brown",
+  "value": "white grey",
+  "drawn": "white_grey",
   "cut": "short_side_part_1904",
   "facial": [
    "moustache_full",
    "brows_full"
   ],
-  "grade": "inferred"
+  "grade": "inferred",
+  "basis": "Light grey/white rendering follows the light hair and moustache in the halftone and the recorded age; exact colour is reconstructed."
  },
  "eyes": {
   "value": "grey",

@@ -43520,3 +43520,18 @@ or a read bill of sale; a planting account locating the trees rather than merely
 **Recorded:** 2026-11-10.
 
 **Visitor shelter:** On visiting dates without a town home, the three mouth-family visitors (`potawatomi_1812_mouth_man_1`, `potawatomi_1812_mouth_woman_1`, `potawatomi_1812_mouth_girl_10`) may wait inside the Kinzie house at the visitor's request, and Winnemeg inside the agency. Their existing days already place them visiting those places. This is a reconstructed temporary indoor pause, not a change of home, arrival date or departure.
+
+
+### L-prairie-likenesses-3547 — Prairie Avenue appearances (T-3547, 2026-11-11)
+
+**Decision:** Identified, captioned portraits constrain visible facial proportions, hair silhouette and facial hair. The pictured date may be unknown even when publication is dated. Single-view depth, skin and eye colours, stature, build, clothes and intervening ageing are reconstructed. A light tone in a monochrome portrait may guide a grey/white rendering without establishing exact colour. Unpictured people receive stable, individually varied reconstructions; the cards explicitly say that no verified portrait was found in the searched sources. No ancestry is inferred from surname, birthplace or photograph. Body presentation is a casting choice based on the recorded relationship and occupation, not a newly attested sex field. The original eight Glessner figures retain their earlier evidence and liberties.
+
+**Recorded:** 2026-11-11.
+
+### L-prairie-people-3548 — Household figures, doors and days (T-3548, 2026-11-11)
+
+**Decision:** The 1904 household roster supplies identity, household, recorded birth and graded presence. A birth year alone is treated as a mid-year birthday for scene age. Unpictured adults reuse the already available period role bodies, with individual faces, colouring, stature, hair and cloth. Activities, daily times, seasons, company and short outings are reconstructed. Only a bounded nearby rotation needs meshes; door calls can request other available residents. Aliases and collective entries do not become additional actors; former residents remain on cards without appearing in 1904. For draft houses with no door mesh, an entrance at the middle of the street-facing front is explicitly reconstructed, not a survey reading.
+
+**Basis:** Children's new clothing sources show other American children, not Prairie Avenue residents: Arthur Hewitt's Roosevelt sons, published 29 May 1904, and Frank Snyder's children in Oxford, Ohio, August 1904. Boys' jackets, knee trousers and stockings, girls' sleeved waisted frocks, teenage variants and toddler clothing are original simplified garments with reconstructed colours, ease, unseen details and fit. Pinned CC0 child/teenage graphical bodies supply age-appropriate proportions; individual heights are unmeasured. Equal upstream software shape-category blends are engineering, not ethnicity. New geometry requires canonical export and visible review before scene use. Infants must not become independently walking outdoor adults.
+
+**Recorded:** 2026-11-11.

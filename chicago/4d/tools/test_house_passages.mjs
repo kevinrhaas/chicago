@@ -51,6 +51,8 @@ const ok = (cond, msg) => { assert(cond, msg); checks += 1; };
 const near = (a, b, tol) => Math.abs(a - b) <= tol;
 const sidecar = JSON.parse(fs.readFileSync(new URL('data/sidecars/1904/glessner_house.json', ROOT), 'utf8'));
 const doors = JSON.parse(fs.readFileSync(new URL('data/humans/doors_1904.json', ROOT), 'utf8'));
+const glessnerDoors = doors.structures.find(s => s.structure === 'glessner_house');
+ok(glessnerDoors, 'Glessner remains among all neighborhood doors');
 const BASE = 4.33;
 
 // ---------------------------------------------------------------- the plans are the model's doors
@@ -66,7 +68,7 @@ ok(plans.every(Boolean), 'the record carries both passages');
 for (const plan of plans) {
   const m = MEASURED[plan.id];
   ok(m, `${plan.id} is a door of doors_1904.json`);
-  const row = doors.structures[0].doors.find((d) => d.id === plan.id);
+  const row = glessnerDoors.doors.find((d) => d.id === plan.id);
   ok(row?.passage === true && !/not walked/.test(row.reconstructed ?? ''), `${plan.id}: the doors file names it a passage, climbed`);
   ok(near(plan.sill, 1.89, 0.01), `${plan.id}: its sill at 6 ft over north grade (${plan.sill.toFixed(3)})`);
   const box = leafBox(plan);
@@ -159,7 +161,7 @@ ok(court.state === 'closed' && Math.abs(pivot.rotation.y) < 1e-9, 'let go by all
 // The swing turns inward: the free edge goes behind the wall face.
 const way0 = court.way();
 ok(way0.length > 20 && Number.isFinite(way0[way0.door].y) && way0[0].y === null, 'its way in ENU, world heights, open ground at the foot');
-ok(near(way0[0].e, doors.structures[0].doors[0].step.local_e, 0.05) && near(way0[0].n, doors.structures[0].doors[0].step.local_n, 0.05),
+ok(near(way0[0].e, glessnerDoors.doors[0].step.local_e, 0.05) && near(way0[0].n, glessnerDoors.doors[0].step.local_n, 0.05),
   'the way starts where the doors file has one stand at the foot');
 ok(near(way0.at(-1).y, BASE + plans[0].sill, 1e-3), 'and ends inside, on the sill');
 

@@ -714,7 +714,7 @@ for (const phone of [true, false]) {
   const [list, cardHost] = screen.children;
   assert(list?.classList.contains('ppl-dir') && cardHost?.classList.contains('ppl-card') && cardHost.hidden, '1904: the list, and a card host shut');
   assert(list.querySelector('.ppl-search'), 'a search box');
-  assert.equal(list.querySelector('.ppl-status').textContent, '71 households \u00b7 440 people', 'the counts, read off the directory');
+  assert.equal(list.querySelector('.ppl-status').textContent, '71 households \u00b7 445 people', 'the counts, read off the directory');
   // T-3253: every Blue Book household is a row of its own; the Glessners' is one of them.
   const rows = list.querySelectorAll('.ppl-results .ppl-row');
   assert(rows.length >= 60, `1904: ${rows.length} household rows`);

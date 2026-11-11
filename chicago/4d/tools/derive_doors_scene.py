@@ -35,6 +35,8 @@ import math
 import sys
 from pathlib import Path
 
+import numpy as np
+
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 import derive_doors_1812 as d1812  # noqa: E402
@@ -56,7 +58,56 @@ def wheres(scene: str) -> set[str]:
             for s in v.get("spans") or []:
                 if s.get("indoors") and s.get("where") and not s.get("away"):
                     out.add(s["where"])
+    inside = ROOT / f"data/humans/inside_{scene}.json"
+    if inside.exists():
+        out.update(p['home'] for p in json.loads(inside.read_text()).get('people', []))
     return out
+
+
+def prairie_doors(sc: dict, glb: Path) -> list[dict]:
+    """Prairie plans run u toward the street. Read the built front leaf and stoop.
+
+    Draft houses without a door mesh keep an explicitly reconstructed entrance on
+    that front, never a claim that the survey locates their door.
+    """
+    poly = np.asarray(sc['footprint']['polygon'], dtype=float)
+    parts = d1812.load_triangles(glb)
+    leaves = [t for name, t in parts if name.lower() in ('door_leaf', 'door', 'door_panel')]
+    floor = float(val(sc, 'principal_floor_m') or 2.5)
+    candidates = []
+    if leaves:
+        tris = np.concatenate(leaves)
+        tris = tris[tris[:, :, 1].min(axis=1) < floor + .3]
+        centres = np.stack([tris[:, :, 0].mean(1), -tris[:, :, 2].mean(1)], 1)
+        for group in d1812.clusters_within(centres, .8):
+            uv = np.stack([tris[group][:, :, 0].ravel(), -tris[group][:, :, 2].ravel()], 1)
+            low, high = uv.min(0), uv.max(0)
+            if high[1] - low[1] >= .5:
+                candidates.append(((low + high) / 2, high[1] - low[1]))
+    if candidates:
+        (u, v), width = max(candidates, key=lambda x: x[0][0])
+        basis = 'Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed.'
+    else:
+        u, v = float(poly[:, 0].max()), float((poly[:, 1].min() + poly[:, 1].max()) / 2)
+        width = 1.2
+        basis = 'No separate front leaf is modelled in this draft. A reconstructed entrance is placed at the middle of the street-facing front (the plan u axis); the survey does not attest a doorway here.'
+    out_u = max(u, float(poly[:, 0].max()))
+    for name, tris in parts:
+        if name.lower() != 'stoop_stone':
+            continue
+        pts = tris.reshape(-1, 3)
+        near = pts[(np.abs(-pts[:, 2] - v) < max(width, 2.5)) & (pts[:, 0] >= u)]
+        if len(near):
+            out_u = max(out_u, float(near[:, 0].max()))
+    pl = sc['placement']
+    leaf = d1812.to_world(float(u), float(v), pl)
+    step = d1812.to_world(out_u + STEP_M, float(v), pl)
+    angle = (90 + float(pl.get('rotation_deg') or 0)) % 360
+    return [{'id': sc['id'] + ':front',
+             'leaf': dict(zip(('local_e', 'local_n'), map(lambda x: round(x, 2), leaf))),
+             'step': dict(zip(('local_e', 'local_n'), map(lambda x: round(x, 2), step))),
+             'outward_deg': round(angle, 1), 'width_m': round(float(width), 2),
+             'reconstructed': basis}]
 
 
 def val(sc: dict, name: str):
@@ -127,7 +178,7 @@ def derive(scene: str) -> tuple[dict, list[str]]:
                 problems.append(f"{sid}: its model {sc['asset']} is not built")
                 continue
             h = d1812.sha256(glb)
-            doors, p = d1812.doors_of(sc, glb)
+            doors, p = (prairie_doors(sc, glb), []) if scene == '1904' else d1812.doors_of(sc, glb)
             problems += p
             doors = [{k: (round(float(v), 2) if isinstance(v, float) or type(v).__name__.startswith("float") else v)
                       for k, v in x.items()} for x in doors]

@@ -4870,6 +4870,14 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/prairie_children_source.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/prairie_people.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/prebuild_layers.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -6635,6 +6643,10 @@
       "wrote_ignored": []
     },
     "tools/test_pr_stuck.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_prairie_people.py": {
       "wrote": [],
       "wrote_ignored": []
     },

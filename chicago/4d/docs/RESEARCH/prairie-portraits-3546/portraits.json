@@ -222,7 +222,9 @@
       "hair_cut": "short_side_part_1904",
       "facial": "moustache_full",
       "identity_status": "caption_read",
-      "matching_status": "not_yet_visually_accepted"
+      "matching_status": "not_yet_visually_accepted",
+      "hair_tone": "white_grey",
+      "hair_tone_basis": "Light grey/white rendering follows the light hair and moustache in the halftone and the recorded age; exact colour is reconstructed."
     },
     {
       "person_id": "pa1904_clark_john_m",
@@ -238,12 +240,13 @@
         1353
       ],
       "portrait": "assets/humans/web/portraits/pa1904_clark_john_m_portrait.jpg",
-      "hair_cut": "short_side_part_1904",
+      "hair_cut": "bald_crown_fringe_1904",
       "facial": "moustache",
       "identity_status": "caption_read",
       "matching_status": "not_yet_visually_accepted",
       "hair_tone": "white_grey",
-      "hair_tone_basis": "Light grey/white rendering follows the light hair tone in the halftone and the recorded age; exact colour is reconstructed."
+      "hair_tone_basis": "Light grey/white rendering follows the light hair tone in the halftone and the recorded age; exact colour is reconstructed.",
+      "grooming_basis": "The captioned portrait shows a high bare forehead and receded crown, with hair remaining at the sides; a complete short-haired crown contradicted that visible silhouette."
     },
     {
       "person_id": "pa1904_kimball_william_w",
@@ -285,7 +288,8 @@
       "hair_tone": "grey_brown",
       "hair_tone_basis": "Brown-grey is a reconstructed rendering of the halftone tone; exact colour cannot be read.",
       "identity_status": "caption_read",
-      "matching_status": "not_yet_visually_accepted"
+      "matching_status": "not_yet_visually_accepted",
+      "grooming_basis": "The identified plate shows a broad, full moustache extending below the upper lip, not the smaller standard moustache."
     },
     {
       "person_id": "pa1904_pullman_mrs_george_m",

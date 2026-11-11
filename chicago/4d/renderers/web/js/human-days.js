@@ -1034,7 +1034,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
     candidates.sort((a, b) => Number(a.actor.indoors) - Number(b.actor.indoors)
       || distanceOf(a) - distanceOf(b));
     let q = candidates[0];
-    if (!q && p.actor.instance?.scene === '1812' && spawn && (!p.autonomousUntil || spawned.length < 3)) {
+    if (!q && spawn && (!p.autonomousUntil || spawned.length < 3)) {
       const entry = insideOnly.find(x => x.person !== keyOf(p) && x.home === where
         && (!p.entry?.door || x.door === p.entry.door) && onDate(date(), x.presence)
         && !spanAt(dayOn(x, date(), x.person), hour())?.away
@@ -1356,7 +1356,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
   // T-3540: generic 1812 people use their day engine's doors and ownership.
   // Registration follows the roster, including a lodge resident materialized later.
   function registerPerson(p) {
-    if (!interactions || p.actor.instance?.scene !== '1812' || interactions.get?.(`person:${p.id}`)) return;
+    if (!interactions || (!p.entry && p.actor.instance?.scene !== '1812') || interactions.get?.(`person:${p.id}`)) return;
     const a = p.actor;
     interactions.add({
       id: `person:${p.id}`, kind: 'person', personId: a.personId, actor: a, name: nameOf(p),
@@ -1483,7 +1483,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
           return { id: i, label: s.doing, span };
         })
         .filter((s, i, all) => all.findIndex((a) => a.label === s.label) === i);
-      if (p.actor.instance?.scene === '1812' && !activities.some(a => a.span.activity === 'talk') && activities.length) {
+      if ((p.entry || p.actor.instance?.scene === '1812') && !activities.some(a => a.span.activity === 'talk') && activities.length) {
         const span = { ...activities[0].span, activity: 'talk', doing: 'a break with a neighbour' };
         activities.push({ id: 'chat', label: span.doing, span });
       }
@@ -1704,8 +1704,9 @@ export function routineOffer(activity) {
     [/water/i, 'Fetch water', '◒'], [/wood|fire|kettle/i, 'Tend the hearth', '♨'],
     [/pony|horse|bridle|stable/i, 'Tend horses', '♞'], [/canoe|boat|paddle/i, 'Tend boats', '⚒'],
     [/fish/i, 'Fishing tasks', '⚒'], [/skin|sew|mend|moccasin|equipment|gear/i, 'Mend and repair', '⚒'],
-    [/corn|meal|meat|cook|bake/i, 'Prepare food', '♨'], [/mat|lodge|house/i, 'Household tasks', '⌂'],
-    [/walk|rounds|river|bank/i, 'Take a walk', '↗'], [/order|inspect|office/i, 'Daily rounds', '↗'],
+    [/corn|meal|meat|cook|bake/i, 'Prepare food', '♨'],
+    [/walk|taking the air|rounds|river|bank/i, 'Take a walk', '↗'],
+    [/mat|lodge|house/i, 'Household tasks', '⌂'], [/order|inspect|office/i, 'Daily rounds', '↗'],
   ];
   if (activity.span?.activity === 'talk') return { label: 'Chat together', icon: '💬', detail: text };
   const rule = rules.find(([pattern]) => pattern.test(text));

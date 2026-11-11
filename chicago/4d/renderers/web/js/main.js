@@ -3948,7 +3948,7 @@ async function boot() {
     const getOptional = (rel) => fetch(new URL(rel, bases.dataBase), { cache: 'no-cache' })
       .then((r) => (r.ok ? r.json() : null)).catch(() => null);
     const [doors, inside] = await Promise.all([getOptional(`humans/doors_${daysScene}.json`),
-      daysScene === '1812' ? getOptional('humans/inside_1812.json') : null]);
+      ['1812', '1904'].includes(daysScene) ? getOptional(`humans/inside_${daysScene}.json`) : null]);
     lodgeWalls = (doors?.structures ?? []).flatMap((row) => (row.walls ?? []).map((ring, i) => ({ id: `${row.structure}:walls${i + 1}`, pts: ring })));
     // The gathering's people who are carded and not drawn (inside_1812.json): a figure is
     // built for a small nearby rotation or a door call, from the dress their entry

@@ -1,3 +1,11 @@
+## T-3546, T-3547, T-3548 — Prairie Avenue people (2026-11-11)
+
+Prepared for review: 445 card entries across 71 households, including five daughters separated from collective listings using existing census transcriptions. Fifteen newly verified portraits have crops, landmark fits and model stills. Other cards disclose the bounded portrait search and reconstructed appearance. Birth-date conflicts remain visible.
+
+The adult expansion currently supplies 364 callable residents with individual appearances and seasonal reconstructed days. Eight existing Glessner actors remain; aliases, collective labels and absent former residents do not create duplicate figures. All 71 homes have an explicit door or a disclosed reconstructed entrance. Thirty-eight younger residents are tracked separately while five age-specific clothing assets proceed through canonical remote authoring. No unexported child recipe is enabled in the scene.
+
+All four local gate sections and representative published phone/desktop person checks passed. Full remote renderer checks, child exports and first-role visual review remain pending. Research inventory and identity rulings: `docs/RESEARCH/prairie-portraits-3546/`.
+
 ## T-3540, T-3541, T-3543 — daily routines and persistent interactions (2026-11-10)
 
 All 284 drawn people and all 520 callable household/lodge residents have explicit

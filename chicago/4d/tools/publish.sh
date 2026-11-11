@@ -796,7 +796,11 @@ rm -f "$SITE"/data/humans/*.measure.json
 # T-3500: each person's looks file is an input of tools/human_variation_kit.py, which carries
 # it into hm08_variation_persons.json (`looks`), the file the renderer reads; the 1812
 # gathering's 634 are 3 MB the page never fetches.
-rm -rf "$SITE/data/humans/variation/looks"
+# T-3548: the variation directory is authoring input. The renderer reads its
+# compiled values from web/hm08_variation_persons.json and web/hm08_variation_kit.*.
+# Portrait/model pictures remain in web/portraits; no evidence is removed there.
+rm -rf "$SITE/data/humans/variation"
+rm -f "$SITE/data/humans/prairie_1904.json"
 # T-3463: the people's instance records ship minified, as the residents do: the 1812 town's
 # 158 records are 0.86 MB of indentation a visitor never reads (humans.js fetches them with
 # response.json()). tools/check_published.mjs holds each to its source, value for value.
@@ -833,6 +837,18 @@ if [ -d assets/humans/web ]; then
   # (--streams), 2 KiB or more: the same bodies, hands and hair under different dress.
   node tools/share_glb_sheets.mjs "$SITE" --dir data/humans/web --source assets/humans/web --streams
 fi
+
+# T-3548: keep the larger neighborhood roster within the existing delivery budget.
+# Only JSON whitespace changes; check_published compares complete parsed values,
+# alongside the existing household-note and boot-sidecar transformations.
+python3 - "$SITE/data/humans" "$SITE/data/sidecars" <<'COMPACT_PEOPLE'
+import json, sys
+from pathlib import Path
+for folder in sys.argv[1:]:
+    for file in Path(folder).rglob('*.json'):
+        value = json.loads(file.read_text())
+        file.write_text(json.dumps(value, ensure_ascii=False, separators=(',', ':')) + '\n')
+COMPACT_PEOPLE
 
 # The animal layer (ROADMAP K51). Same argument as the residents above, and it
 # was open longer: 139 records across ten habitat zones, every one graded to

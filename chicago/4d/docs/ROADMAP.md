@@ -1,3 +1,7 @@
+## T-3546, T-3547, T-3548 — Prairie Avenue portraits and people (2026-11-11)
+
+Extend the Glessner person-card and figure model across the complete Prairie Avenue roster. Resolve portrait identities and rights; fit visible proportions while declaring liberties; build age-appropriate household figures with existing routines, door calls and jaunts. Preserve canonical aliases, former residents and collective entries. STATUS.md and the linked research folder record validation and remaining geometry.
+
 ## T-3543 - persistent person interactions across years (2026-11-11)
 
 Owner follow-up while the 1812 rollout was in validation: walking people must not
