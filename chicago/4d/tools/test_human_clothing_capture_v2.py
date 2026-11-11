@@ -375,7 +375,7 @@ class CaptureControls(unittest.TestCase):
         section=workflow.split('- name: Validate opt-in study request before checkout',1)[1]
         source=re.search(r"python3 - <<'PY'\n(.*?)\n          PY",section,re.S).group(1)
         values=dict(SOURCE_REF='',DRESS_ENABLED='false',TEAMSTERS_ENABLED='false',SEATED_ENABLED='false',
-                    CLOTHING_ENABLED='false',CLOTHING_SOURCE='',CLOTHING_MANIFEST='',STILLS_ENABLED='false',LIBRARY_SOURCE_RUN='',
+                    PRAIRIE_ENABLED='false',CLOTHING_ENABLED='false',CLOTHING_SOURCE='',CLOTHING_MANIFEST='',STILLS_ENABLED='false',LIBRARY_SOURCE_RUN='',
                     GITHUB_OUTPUT=str(self.root/'github-output'))
         values.update(env)
         with patch.dict(os.environ,values,clear=True):exec(compile(textwrap.dedent(source),'actual-workflow-mode-validation','exec'),{})
@@ -384,9 +384,13 @@ class CaptureControls(unittest.TestCase):
         self.mode_validation()
         self.mode_validation(DRESS_ENABLED='true',SOURCE_REF='1cbb1817508593562f99ed378b6932368b5699b9')
         self.mode_validation(CLOTHING_ENABLED='true',CLOTHING_SOURCE='a'*40,CLOTHING_MANIFEST='b'*64)
-        for key in ('DRESS_ENABLED','TEAMSTERS_ENABLED','SEATED_ENABLED','STILLS_ENABLED'):
+        self.mode_validation(PRAIRIE_ENABLED='true')
+        for key in ('DRESS_ENABLED','TEAMSTERS_ENABLED','SEATED_ENABLED','PRAIRIE_ENABLED','STILLS_ENABLED'):
             with self.subTest(key=key),self.assertRaises(SystemExit):
                 self.mode_validation(CLOTHING_ENABLED='true',CLOTHING_SOURCE='a'*40,CLOTHING_MANIFEST='b'*64,**{key:'true'})
+        for key in ('DRESS_ENABLED','TEAMSTERS_ENABLED','SEATED_ENABLED','STILLS_ENABLED'):
+            with self.subTest(prairie_key=key),self.assertRaises(SystemExit):
+                self.mode_validation(PRAIRIE_ENABLED='true',**{key:'true'})
         for values in ({'CLOTHING_SOURCE':'a'*40},{'CLOTHING_MANIFEST':'b'*64},
                        {'CLOTHING_ENABLED':'true','CLOTHING_SOURCE':'$(touch /tmp/NO)','CLOTHING_MANIFEST':'b'*64},
                        {'SOURCE_REF':'a'*40},{'DRESS_ENABLED':'true','SOURCE_REF':'a'*40}):

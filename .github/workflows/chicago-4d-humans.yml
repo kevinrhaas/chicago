@@ -58,6 +58,10 @@ on:
       - '.github/workflows/chicago-4d-humans.yml'
   workflow_dispatch:
     inputs:
+      build_prairie_children:
+        description: 'Build the five reconstructed 1904 child clothing assets from this PR; artifacts only'
+        type: boolean
+        default: false
       build_clothing_capture_v2:
         description: 'T1789 artifact-only canonical parent capture; no material/asset promotion'
         type: boolean
@@ -121,6 +125,7 @@ jobs:
           TEAMSTERS_ENABLED: ${{ inputs.build_teamsters }}
           SEATED_ENABLED: ${{ inputs.build_seated_driver_study }}
           SOURCE_REF: ${{ inputs.source_ref }}
+          PRAIRIE_ENABLED: ${{ inputs.build_prairie_children }}
           CLOTHING_ENABLED: ${{ inputs.build_clothing_capture_v2 }}
           CLOTHING_SOURCE: ${{ inputs.clothing_source_ref }}
           CLOTHING_MANIFEST: ${{ inputs.clothing_manifest_sha256 }}
@@ -134,13 +139,15 @@ jobs:
           clothing_source=os.environ['CLOTHING_SOURCE']
           clothing_manifest=os.environ['CLOTHING_MANIFEST']
           if clothing:
-              if any(os.environ[k]=='true' for k in ('DRESS_ENABLED','TEAMSTERS_ENABLED','SEATED_ENABLED','STILLS_ENABLED')) or source or os.environ['LIBRARY_SOURCE_RUN']:
+              if any(os.environ[k]=='true' for k in ('DRESS_ENABLED','TEAMSTERS_ENABLED','SEATED_ENABLED','PRAIRIE_ENABLED','STILLS_ENABLED')) or source or os.environ['LIBRARY_SOURCE_RUN']:
                   raise SystemExit('T1789 capture must run separately from every existing study/stills mode')
               if not re.fullmatch(r'[0-9a-f]{40}',clothing_source) or not re.fullmatch(r'[0-9a-f]{64}',clothing_manifest):
                   raise SystemExit('T1789 capture requires immutable source and manifest pins')
           elif clothing_source or clothing_manifest:
               raise SystemExit('T1789 capture fields require the explicit capture flag')
           dress=os.environ['DRESS_ENABLED']=='true'
+          if os.environ['PRAIRIE_ENABLED']=='true' and (dress or os.environ['TEAMSTERS_ENABLED']=='true' or os.environ['SEATED_ENABLED']=='true' or os.environ['STILLS_ENABLED']=='true'):
+              raise SystemExit('The Prairie children build must run separately from other authoring studies')
           if dress:
               if os.environ['TEAMSTERS_ENABLED']=='true' or os.environ['SEATED_ENABLED']=='true':
                   raise SystemExit('The dress study must run separately from teamster/seated studies')
@@ -297,13 +304,14 @@ jobs:
           TEAMSTERS: ${{ inputs.build_teamsters }}
           SEATED: ${{ inputs.build_seated_driver_study }}
           DRESS: ${{ inputs.build_dress_study }}
+          PRAIRIE: ${{ inputs.build_prairie_children }}
           SOURCE_REF: ${{ inputs.source_ref }}
         run: |
           python3 - <<'PY'
           import os,re
           if not re.fullmatch(r'[1-9][0-9]*',os.environ['SOURCE_RUN']):
               raise SystemExit('library_source_run must be a positive run ID')
-          if any(os.environ[k]=='true' for k in ('TEAMSTERS','SEATED','DRESS')) or os.environ['SOURCE_REF']:
+          if any(os.environ[k]=='true' for k in ('TEAMSTERS','SEATED','DRESS','PRAIRIE')) or os.environ['SOURCE_REF']:
               raise SystemExit('Library stills consume a completed build and must run separately')
           PY
       - uses: actions/checkout@v4
@@ -469,6 +477,8 @@ jobs:
           done
       - name: Install Playwright
         run: |
+          python3 .github/prepare-ubuntu-browser-mirrors.py --self-test
+          python3 .github/prepare-ubuntu-browser-mirrors.py
           npm install -g playwright@1.56.1
           node "$(npm root -g)/playwright/cli.js" install --with-deps chromium
       - name: Audit declared resident animation time bounds before browser loading
@@ -686,6 +696,8 @@ jobs:
       - name: Install existing browser and validator pins on Ubuntu24.04
         run: |
           set -euo pipefail
+          python3 .github/prepare-ubuntu-browser-mirrors.py --self-test
+          python3 .github/prepare-ubuntu-browser-mirrors.py
           npm install -g playwright@1.56.1 gltf-validator@2.0.0-dev.3.10
           node "$(npm root -g)/playwright/cli.js" install --with-deps chromium
       - name: Audit actual new animation time bounds and hair contracts
@@ -843,3 +855,42 @@ jobs:
           name: t1789-clothing-parents-${{ github.run_id }}-${{ needs.humans.outputs.clothing_source_sha }}
           if-no-files-found: error
           path: ${{ runner.temp }}/t1789-clothing-capture-v2/
+
+  prairie-children:
+    if: github.event_name == 'workflow_dispatch' && inputs.build_prairie_children && !inputs.render_library_stills
+    needs: humans
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: pip install --quiet jsonschema numpy scipy Pillow
+      - name: Read the existing Blender pin
+        id: pin
+        run: |
+          source chicago/4d/generators/blender.pin
+          echo "version=$BLENDER_VERSION" >> "$GITHUB_OUTPUT"
+      - uses: actions/cache@v4
+        with:
+          path: /opt/blender-dl
+          key: blender-${{ steps.pin.outputs.version }}
+      - name: Build five canonical child masters and portable exports
+        working-directory: chicago/4d
+        env:
+          BLENDER_CACHE: /opt/blender-dl
+        run: bash tools/prairie_children_build.sh /tmp/prairie-children
+      - name: Keep source-bound masters, exports and diagnostics for visual review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: prairie-children-${{ github.sha }}
+          path: /tmp/prairie-children
+          if-no-files-found: error
+          retention-days: 14

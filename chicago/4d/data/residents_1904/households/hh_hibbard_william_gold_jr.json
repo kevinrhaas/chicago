@@ -46,7 +46,15 @@
         "chicago_blue_book_1905"
       ],
       "printed_as": "1637 Mr. & Mrs. Wm. Gold Hibbard",
-      "note": "The 1904 OCR prints 'Wm. Gold Hibbard' at 1637 and the 1905 edition 'Wm. Gold Hibbard jr.'; the father's widow is listed separately at 1701 in both, so this is the son."
+      "note": "The 1904 OCR prints 'Wm. Gold Hibbard' at 1637 and the 1905 edition 'Wm. Gold Hibbard jr.'; the father's widow is listed separately at 1701 in both, so this is the son.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_hibbard_mrs_william_gold_jr",
@@ -57,7 +65,15 @@
         "chicago_blue_book_1904",
         "chicago_blue_book_1905"
       ],
-      "printed_as": "1637 Mr. & Mrs. Wm. Gold Hibbard"
+      "printed_as": "1637 Mr. & Mrs. Wm. Gold Hibbard",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     }
   ]
 }

@@ -14,7 +14,10 @@ window.sound=createSound({audio:()=>ctx,settings:()=>levels,scene:()=>year,
 environment:()=>({season,camera:{position:{x:0,y:2,z:0}},terrain:{loaded:false}})});
 document.getElementById('on').onclick=()=>{ctx??=new AudioContext();ctx.resume();levels.soundMaster=.8;sound.sync();};
 </script>`;
-const browser=await pw.chromium.launch({executablePath:process.env.PW_EXECUTABLE??'/usr/bin/chromium',headless:true,args:['--no-sandbox']});
+const proxyURL=process.env.HTTPS_PROXY||process.env.HTTP_PROXY||process.env.https_proxy||process.env.http_proxy;
+const proxyAddress=proxyURL?new URL(proxyURL):null;
+const proxy=proxyAddress?{server:proxyAddress.origin,...(proxyAddress.username?{username:decodeURIComponent(proxyAddress.username),password:decodeURIComponent(proxyAddress.password)}:{})}:undefined;
+const browser=await pw.chromium.launch({proxy,executablePath:process.env.PW_EXECUTABLE??'/usr/bin/chromium',headless:true,args:['--no-sandbox']});
 try{
  for(const width of [390,1280]){
   const page=await browser.newPage({viewport:{width,height:780}}),requests=[],errors=[];
@@ -43,8 +46,10 @@ try{
   assert(await page.evaluate(()=>sound.state.silent&&!sound.state.recorded.playing&&sound.state.recorded.decodedBytes===0));
   await page.evaluate(()=>sound.dispose());
   await page.goto(origin+'/audio/credits.html');await page.waitForSelector('article');
-  await page.selectOption('#era','candidate');assert.equal(await page.locator('article').count(),20);
+  await page.selectOption('#era','candidate');assert.equal(await page.locator('article').count(),18);
   await page.selectOption('#era','habitat');assert.equal(await page.locator('article').count(),3);
+  await page.selectOption('#era','transport');assert.equal(await page.locator('article').count(),2);
+  assert((await page.locator('article small').allTextContents()).every(t=>t.includes('Moving team')&&t.includes('reconstructed proxy')));
   assert(!await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth));
   assert.deepEqual(errors,[]);
   console.log(`HOSTED AUDIO BROWSER PASS ${width}px: published modules, real R2 music/decoded wind, era changes, mute cleanup, no candidate autoplay, catalogue layout`);

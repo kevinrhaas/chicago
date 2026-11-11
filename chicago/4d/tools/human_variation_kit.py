@@ -244,13 +244,21 @@ def drawn_people():
             out.setdefault(row['person_id'], {'scene': str(row['scene']), 'drawn_as': []})['drawn_as'].append(f"data/transport/driven/loops.json#{row['id']}")
     # Carded people drawn only when asked for at their door (T-3500): their figure is built
     # then, from the same row as anyone's.
-    inside = ROOT / 'data/humans/inside_1812.json'
-    for row in json.loads(inside.read_text()).get('people', []) if inside.exists() else []:
-        out.setdefault(row['person'], {'scene': '1812', 'drawn_as': []})['drawn_as'].append(f"data/humans/inside_1812.json#{row['person']}")
+    for scene in RESIDENTS:
+        inside = ROOT / f'data/humans/inside_{scene}.json'
+        for row in json.loads(inside.read_text()).get('people', []) if inside.exists() else []:
+            out.setdefault(row['person'], {'scene': scene, 'drawn_as': []})['drawn_as'].append(f"data/humans/inside_{scene}.json#{row['person']}")
     for path in sorted(FITS.glob('*.json')) if FITS.exists() else []:
         fit = json.loads(path.read_text())
         # A fitted face is carried for the person whether or not a figure draws them yet.
         out.setdefault(fit['person_id'], {'scene': str(fit['scene']), 'drawn_as': []})
+    # Former residents keep their researched appearance on the card, without an actor
+    # in a year in which they no longer lived here.
+    prairie = ROOT / 'data/humans/prairie_1904.json'
+    if prairie.exists():
+        for row in json.loads(prairie.read_text())['people']:
+            if row.get('asset_id'):
+                out.setdefault(row['person'], {'scene': '1904', 'drawn_as': []})
     return out
 
 
@@ -273,10 +281,10 @@ def dresses():
         # T-3522: every dress file of the scene (the camps T-3506, the townspeople T-3522, and any
         # later one), sorted; a person dressed by two files is refused, not silently overlaid.
         _DRESSES = {}
-        for f in sorted(DRESS.glob('dress_1812_*.json')):
+        for f in sorted(DRESS.glob('dress_[0-9][0-9][0-9][0-9]_*.json')):
             for pid, rec in json.loads(f.read_text())['persons'].items():
                 if pid in _DRESSES:
-                    raise SystemExit(f'{pid} is dressed by two files ({f.name} and another dress_1812_*.json)')
+                    raise SystemExit(f'{pid} is dressed by two files ({f.name} and another dress file)')
                 _DRESSES[pid] = rec
     return _DRESSES
 

@@ -43521,6 +43521,57 @@ or a read bill of sale; a planting account locating the trees rather than merely
 
 **Visitor shelter:** On visiting dates without a town home, the three mouth-family visitors (`potawatomi_1812_mouth_man_1`, `potawatomi_1812_mouth_woman_1`, `potawatomi_1812_mouth_girl_10`) may wait inside the Kinzie house at the visitor's request, and Winnemeg inside the agency. Their existing days already place them visiting those places. This is a reconstructed temporary indoor pause, not a change of home, arrival date or departure.
 
+### L-transport-audio-3544 — Recorded mechanical textures on moving teams
+
+**Decision:** the CC0 horse-harness recording by o_ciz (Freesound 475481) follows the loaded moving teams in the 1812-08-14, 1835-07-01 and 1904-07-01 scenes. The CC0 large wooden wagon rolling downhill recording by craigsmith (Freesound 675230) follows the two 1812 army wagons and the 1835 Western Hotel wagon. It does not represent the 1904 brougham. Exact actor ids and dates are in assets/audio/intake.json. The modern recordings are acoustic proxies, not evidence of a Chicago vehicle, its road surface or historical sound level.
+
+**What is reconstructed:** source positions use the actual horse and vehicle roots; no independent invisible actor is placed. Gains .15/.22, 32/40 metre reach, squared distance falloff, speed-scaled gain, four-to-six-second excerpts with .25–1 second gaps and short edge fades are sound-design choices. Pitch is unchanged. Two nearby teams and four simultaneous voices bound the mix. Stops, dwell, holds, hidden/cull, reduced motion, off-hours and disposal suppress their sound. These are mechanical textures, not individually synchronized hoof impacts, vocalizations or work strokes. Existing source and delivery license/integrity records remain in the audio catalogue; the bytes already uploaded to R2 are reused.
+
+**How to resolve:** replace a proxy or tune its placement after human listening in the scene; a period-specific mechanical recording or documented road surface can improve the choice. Automated decoding and signal checks do not establish listening quality. No production listening approval is claimed.
+
+**Ticket:** T-3544.
+**Recorded:** 2026-11-11.
+
+### L-calm-river-audio-3544 — Calm recorded water as the river's acoustic proxy
+
+**Decision:** use the exact TRP575244 loop selected by the owner as “Light water on rocks” on 2026-11-11, under the existing classified-river audio placement. Retain the previous TRP577323 take as a disabled library recording with its owner review. Lake waves, slough treatment and the liked insects are unchanged.
+
+**What is reconstructed:** a modern Manitoulin lake recording of water lapping against rocks (summer 2008 per creator) stands in for the nearly still Chicago River. It is not a historical Chicago recording or evidence of a rocky historical river bank. The preview is decoded fully to mono 48 kHz before cropping source 121–145 s; a two-second linear end-to-start overlap produces the selected 22-second loop at unity gain, encoded as MP3 at 128 kb/s. No synthetic water, normalization, denoising, EQ, gating, time stretching or inserted silence is used. The existing river-edge gain and distance treatment are sound-design choices, not measured historical acoustic levels.
+
+**Basis:** TRP's source description and individual CC0 declaration at https://freesound.org/people/TRP/sounds/575244/; acquisition and license metadata are in assets/audio/evidence/calm-river-water.json. The source and accepted derivative hashes remain in the audio catalogue. Owner selection is recorded with the exact quoted label and date.
+
+**How to resolve:** a suitable local recording and listening review may improve this acoustic proxy; historical bank-surface evidence may refine its geographic fit. The owner selected the offered loop; in-scene mix validation remains separate.
+
+**Tier:** reconstructed.
+**Ticket:** T-3544.
+**Recorded:** 2026-11-11.
+
+### L-prairie-likenesses-3547 — Prairie Avenue appearances (T-3547, 2026-11-11)
+
+**Decision:** Identified, captioned portraits constrain visible facial proportions, hair silhouette and facial hair. The pictured date may be unknown even when publication is dated. Single-view depth, skin and eye colours, stature, build, clothes and intervening ageing are reconstructed. A light tone in a monochrome portrait may guide a grey/white rendering without establishing exact colour. Unpictured people receive stable, individually varied reconstructions; the cards explicitly say that no verified portrait was found in the searched sources. No ancestry is inferred from surname, birthplace or photograph. Body presentation is a casting choice based on the recorded relationship and occupation, not a newly attested sex field. The original eight Glessner figures retain their earlier evidence and liberties.
+
+**Recorded:** 2026-11-11.
+
+### L-prairie-people-3548 — Household figures, doors and days (T-3548, 2026-11-11)
+
+**Decision:** The 1904 household roster supplies identity, household, recorded birth and graded presence. A birth year alone is treated as a mid-year birthday for scene age. Unpictured adults reuse the already available period role bodies, with individual faces, colouring, stature, hair and cloth. Activities, daily times, seasons, company and short outings are reconstructed. Only a bounded nearby rotation needs meshes; door calls can request other available residents. Aliases and collective entries do not become additional actors; former residents remain on cards without appearing in 1904. For draft houses with no door mesh, an entrance at the middle of the street-facing front is explicitly reconstructed, not a survey reading.
+
+**Basis:** Children's new clothing sources show other American children, not Prairie Avenue residents: Arthur Hewitt's Roosevelt sons, published 29 May 1904, and Frank Snyder's children in Oxford, Ohio, August 1904. Boys' jackets, knee trousers and stockings, girls' sleeved waisted frocks, teenage variants and toddler clothing are original simplified garments with reconstructed colours, ease, unseen details and fit. Pinned CC0 child/teenage graphical bodies supply age-appropriate proportions; individual heights are unmeasured. Equal upstream software shape-category blends are engineering, not ethnicity. New geometry requires canonical export and visible review before scene use. Infants must not become independently walking outdoor adults.
+
+**Recorded:** 2026-11-11.
+
+**T-3547 additional portraits, 2026-11-11:** Grace Murray Meeker and Albertine Huck Field use captioned photographs published in the Chicago Sunday Tribune on 3 March 1907. The exposures may be earlier; the figure uses the inferred 1904 birth-derived age. Landmark fits preserve the visible facial proportions, while exact waves in their hair, dress, jewellery, colour and unseen depth remain reconstructed. Gwendolyn Field's secondary birth dates disagree by a year (1901/1902); she is treated as a young child, not a default adult. Elizabeth Grey's difficult census age is retained as uncertain.
+
+
+### L-prairie-younger-3550 — Younger Prairie residents and household care (T-3550, 2026-11-11)
+
+**Decision:** The owner approved the five child and teen prototypes presented in the review packet, saying “Approve these five prototypes.” The admission records the canonical build, recipe and export hashes. Thirty-five present residents aged two through seventeen use those approved toddler, child and teen bodies; the household records retain the evidence and uncertainty for their ages. Their clothes, colours, hair, stature and individual facial variation are reconstructions. Stature interpolates between the approved engineering bodies with small seeded variation, not personal measurements. Adult aging and body-build targets are disabled on these juvenile bodies. None of these figures claims an archival likeness without an identified portrait.
+
+**Activities and company:** Seasonal lessons or indoor occupations, meals, play, walks, family conversations and sleep are reconstructed daily routines. Children under twelve go outside with an available adult recorded in the same household. Recorded nurses or governesses and adult heads or spouses are preferred when available; these care assignments do not establish parentage or an attested historical duty. The two figures share the outing and return afterward, and a visitor's interaction keeps the caregiver nearby. Older children and teens may take their own short frontage walk and join an available person for conversation. These are short, bounded scene activities, not documented appointments or transcripts.
+
+**Infants:** Five residents younger than two have feeding, quiet play, naps and sleep within household care. “Ask after” at the door opens the infant's card and reports the current reconstructed care activity and household caregivers. No independent walking infant or substitute adult body is drawn; the approved prototypes do not include an infant figure. The choice of caregivers and daily timings is explicitly disclosed as a liberty on the card.
+
+**Recorded:** 2026-11-11.
 
 ### L-charles-near-wool-1789 — Charles Nelson's close-view livery wool
 

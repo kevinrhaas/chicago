@@ -54,7 +54,15 @@
         "as_enumerated": "Walker, J. M. Mrs.",
         "relation_as_enumerated": "Head"
       },
-      "note": "The 1900 census lists J. M. Walker here with the other columns left blank (ED 40, sheet 1A, line 36, leaf n794)."
+      "note": "The 1900 census lists J. M. Walker here with the other columns left blank (ED 40, sheet 1A, line 36, leaf n794).",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_walker_wirt_d",
@@ -74,7 +82,15 @@
         "years": "1890-1895",
         "on_scene_date": "no"
       },
-      "note": "Listed at 1720 under Mrs. James M. Walker from 1890 to 1895; a Mrs. Wirt D. Walker is listed there in 1901. That they were a son of the house is read from the shared surname at the number; the Blue Book does not print the relationship."
+      "note": "Listed at 1720 under Mrs. James M. Walker from 1890 to 1895; a Mrs. Wirt D. Walker is listed there in 1901. That they were a son of the house is read from the shared surname at the number; the Blue Book does not print the relationship.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_walker_henry_h_at_1720",
@@ -82,7 +98,10 @@
       "relationship": "son",
       "grade": "inferred",
       "sources": [
-        "chicago_blue_book_1902"
+        "chicago_blue_book_1902",
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905",
+        "witherspoon_men_of_illinois_1902"
       ],
       "printed_as": "1720 Mr. & Mrs. Henry H. Walker",
       "lived_here": {
@@ -90,7 +109,21 @@
         "on_scene_date": "no"
       },
       "own_card": "pa1904_walker_henry_h",
-      "note": "Listed at 1720 with his wife in the 1902 edition; from 1903 they are next door at 1721, where they live in 1904 on their own card. That they were a son of the house is read from the shared surname at the number; the Blue Book does not print the relationship."
+      "note": "Listed at 1720 with his wife in the 1902 edition; from 1903 they are next door at 1721, where they live in 1904 on their own card. That they were a son of the house is read from the shared surname at the number; the Blue Book does not print the relationship.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      },
+      "portrait": {
+        "image": "humans/web/portraits/pa1904_walker_henry_h_portrait.jpg",
+        "caption": "Henry H. Walker, undated photograph published in Men of Illinois (1902), p. 470.",
+        "grade": "attested",
+        "why": "Identified by the printed caption and checked against the household record. The monochrome photograph does not establish skin, eye or clothing colours."
+      }
     },
     {
       "id": "pa1904_walker_mrs_james_m_c1900_winnifred_johnson",
@@ -123,7 +156,15 @@
         "as_enumerated": "Johnson, Winnifred Miss",
         "relation_as_enumerated": "Servant"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a servant (housekeeper); born February 1867, in Ireland, came to the United States in 1866, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (housekeeper); born February 1867, in Ireland, came to the United States in 1866, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     }
   ]
 }

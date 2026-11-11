@@ -99,7 +99,11 @@ ROLE_ASSEMBLIES_1835=(('merchant_1835_v1','data/humans/recipes/merchant_1835.jso
 def resolve_person_reference(variant, root=ROOT):
     """Resolve existing person and scene; never mint a name or upgrade its grade."""
     scene=str(variant['person_reference_scene'])
-    if scene=='1904':return resolve_dress_reference_1904(variant,root)
+    if scene=='1904':
+        if variant.get('id') in ('child_boy_1904', 'child_girl_1904', 'child_toddler_1904', 'teen_boy_1904', 'teen_girl_1904'):
+            from human_child_1904 import resolve_reference
+            return resolve_reference(variant, root)
+        return resolve_dress_reference_1904(variant,root)
     if scene=='1812':return resolve_soldier_reference_1812(variant,root)
     if scene!='1835':raise ValueError('this wardrobe recipe is bounded to the 1835 scene')
     pid=variant['person_reference_id']
@@ -298,6 +302,9 @@ def build(args):
         # T-3451: an 1812 private of the First Infantry; generic garment meshes through the dress path.
         from human_soldier_1812 import prepare_soldier_assembly
         dress = prepare_soldier_assembly(ROOT, recipe, variant, body)
+    elif variant.get('id') in ('child_boy_1904', 'child_girl_1904', 'child_toddler_1904', 'teen_boy_1904', 'teen_girl_1904'):
+        from human_child_1904 import prepare_child_assembly
+        dress = prepare_child_assembly(ROOT, recipe, variant, body)
     elif recipe.get('role_1812'):
         # T-3463..T-3467: an 1812 role (officer, woman, child, trader, engage, Potawatomi or
         # Miami) built by the generator its recipe names; generic garment meshes through the dress path.
@@ -716,7 +723,7 @@ def build(args):
             # T-3479/T-3481: women in skirts; the errand dress also names the hand that carries her basket (humans.js reads `carry`).
             extra={'carry':dress['carry']} if dress.get('carry') else {}
             scene['chicago4d_human']['wardrobe_assembly_json']=json.dumps({'assembly':dress['assembly'],'liberty':dress['liberty'],'production_eligible':False,'qualified_roles':['standing','walking'],'skirt':True,'standing_source_only':False,'walking_seated_and_photo_accepted':False,'body_and_identity_unchanged':True,'garments':dress['garments'],**extra},sort_keys=True)
-        elif recipe.get('role_1812'):
+        elif recipe.get('role_1812') or recipe.get('child_components', {}).get('generator') == 'tools/human_child_1904.py':
             # T-3463..T-3467: an 1812 role; a woman's or girl's skirt and a carried thing are the generator's to say.
             extra={k:dress[k] for k in ('skirt','carry') if dress.get(k)}
             scene['chicago4d_human']['wardrobe_assembly_json']=json.dumps({'assembly':dress['assembly'],'liberty':dress['liberty'],'production_eligible':False,'qualified_roles':['standing','walking'],'standing_source_only':False,'walking_seated_and_photo_accepted':False,'body_and_identity_unchanged':True,'garments':dress['garments'],**extra},sort_keys=True)

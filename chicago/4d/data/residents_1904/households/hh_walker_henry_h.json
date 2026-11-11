@@ -43,9 +43,16 @@
       "grade": "attested",
       "sources": [
         "chicago_blue_book_1904",
-        "chicago_blue_book_1905"
+        "chicago_blue_book_1905",
+        "witherspoon_men_of_illinois_1902"
       ],
-      "printed_as": "1721 Mr. & Mrs. Henry H. Walker"
+      "printed_as": "1721 Mr. & Mrs. Henry H. Walker",
+      "portrait": {
+        "image": "humans/web/portraits/pa1904_walker_henry_h_portrait.jpg",
+        "caption": "Henry H. Walker, undated photograph published in Men of Illinois (1902), p. 470.",
+        "grade": "attested",
+        "why": "Identified by the printed caption and checked against the household record. The monochrome photograph does not establish skin, eye or clothing colours."
+      }
     },
     {
       "id": "pa1904_walker_mrs_henry_h",
@@ -56,7 +63,15 @@
         "chicago_blue_book_1904",
         "chicago_blue_book_1905"
       ],
-      "printed_as": "1721 Mr. & Mrs. Henry H. Walker"
+      "printed_as": "1721 Mr. & Mrs. Henry H. Walker",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     }
   ]
 }

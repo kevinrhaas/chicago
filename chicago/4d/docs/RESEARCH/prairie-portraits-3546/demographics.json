@@ -1,0 +1,1011 @@
+{
+  "not_a_reading": "Re-reading existing census transcriptions into structured age fields, with independent period biographical corrections. No new census pages claimed.",
+  "sources": [
+    "buckingham_sturges_genealogy_1907",
+    "census_1900_chicago_t623_roll245",
+    "census_1910_chicago_t624_roll241",
+    "geneanet_field_family_dates",
+    "glessner_house_family_page",
+    "jane_addams_grace_murray_meeker",
+    "leonard_book_of_chicagoans_1905",
+    "witherspoon_men_of_illinois_1902"
+  ],
+  "evidence": [
+    {
+      "person_id": "pa1904_armour_mrs_philip_d",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 14B, line 69, leaf n821",
+      "value": "1843",
+      "grade": "inferred"
+    },
+    {
+      "person_id": "pa1904_bellas_t_h",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 36, sheet 2A, line 36, leaf n667",
+      "value": "1846",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_bellas_mrs_t_h",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 36, sheet 2A, line 37, leaf n667",
+      "value": "1851",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_foote_erastus",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 36, sheet 2A, line 42, leaf n667",
+      "value": "1850",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_buckingham_e",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 9A, line 1, leaf n810",
+      "value": "1829",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_buckingham_e",
+      "field": "born",
+      "value": "1829-01-16",
+      "sources": [
+        "witherspoon_men_of_illinois_1902",
+        "leonard_book_of_chicagoans_1905"
+      ],
+      "previous_reading": {
+        "value": "1829",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The existing census transcription gives born January 1829. The year is carried into the age shown on this card."
+      },
+      "basis": "Captioned biography; census disagreements retained in the original note."
+    },
+    {
+      "person_id": "pa1904_buckingham_clarence",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 9A, line 2, leaf n810",
+      "value": "1854",
+      "grade": "inferred"
+    },
+    {
+      "person_id": "pa1904_clark_john_m",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 9A, line 45, leaf n810",
+      "value": "1837",
+      "grade": "inferred"
+    },
+    {
+      "person_id": "pa1904_clark_john_m",
+      "field": "born",
+      "value": "1836-08-01",
+      "sources": [
+        "witherspoon_men_of_illinois_1902",
+        "leonard_book_of_chicagoans_1905"
+      ],
+      "previous_reading": {
+        "value": "1837",
+        "confidence": "inferred",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The existing census transcription gives born August 1837. The transcription flags uncertainty; the year remains provisional."
+      },
+      "basis": "Captioned biography; census disagreements retained in the original note."
+    },
+    {
+      "person_id": "pa1904_clark_mrs_john_m",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 9A, line 46, leaf n810",
+      "value": "1850",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_corwith_mrs_henry",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 4B, line 60, leaf n801",
+      "value": "1834",
+      "grade": "inferred"
+    },
+    {
+      "person_id": "pa1904_corwith_charles_r",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 4B, line 61, leaf n801",
+      "value": "1866",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_dent_thomas",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 4A, line 31, leaf n800",
+      "value": "1842",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_dent_mrs_thomas",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 4A, line 32, leaf n800",
+      "value": "1847",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_einstein_m",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 36, sheet 2A, line 49, leaf n667",
+      "value": "1827",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_einstein_mrs_m",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 36, sheet 2A, line 50, leaf n667",
+      "value": "1831",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_field_marshall",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 4A, line 34, leaf n800",
+      "value": "1834",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_field_marshall",
+      "field": "born",
+      "value": "1835-08-18",
+      "sources": [
+        "witherspoon_men_of_illinois_1902",
+        "leonard_book_of_chicagoans_1905"
+      ],
+      "previous_reading": {
+        "value": "1834",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The existing census transcription gives born August 1834. The year is carried into the age shown on this card."
+      },
+      "basis": "Captioned biography; census disagreements retained in the original note."
+    },
+    {
+      "person_id": "pa1904_frank_henry_l",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 36, sheet 3A, line 5, leaf n669",
+      "value": "1839",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_frank_mrs_henry_l",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 36, sheet 3A, line 6, leaf n669",
+      "value": "1854",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_gorton_frank_s",
+      "field": "born",
+      "value": "1847-08-01",
+      "sources": [
+        "witherspoon_men_of_illinois_1902",
+        "leonard_book_of_chicagoans_1905"
+      ],
+      "previous_reading": null,
+      "basis": "Captioned biography; census disagreements retained in the original note."
+    },
+    {
+      "person_id": "pa1904_gregory_robert_b",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 36, sheet 2A, line 24, leaf n667",
+      "value": "1849",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_gregory_mrs_robert_b",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 36, sheet 2A, line 25, leaf n667",
+      "value": "1857",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_gregory_mrs_elizabeth",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 36, sheet 2A, line 29, leaf n667",
+      "value": "1820",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_gregory_eleanor",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 36, sheet 2A, line 26, leaf n667",
+      "value": "1882",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_grey_w_l",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 9A, line 32, leaf n810",
+      "value": "1840",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_grey_mrs_w_l",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 9A, line 33, leaf n810",
+      "value": "1850",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_hamline_john_h",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 36, sheet 1A, line 20, leaf n665",
+      "value": "1856",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_hamline_mrs_john_h",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 36, sheet 1A, line 21, leaf n665",
+      "value": "1859",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_mead_george_a",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 36, sheet 1A, line 24, leaf n665",
+      "value": "1864",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_johnston_mrs_h_morris",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 36, sheet 2A, line 32, leaf n667",
+      "value": "1841",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_johnston_h_mcb",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 36, sheet 2A, line 31, leaf n667",
+      "value": "1869",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_johnston_morris_l",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 36, sheet 2A, line 33, leaf n667",
+      "value": "1871",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_keith_edson_jr",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 15A, line 37, leaf n822",
+      "value": "1865",
+      "grade": "inferred"
+    },
+    {
+      "person_id": "pa1904_keith_mrs_edson_jr",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 15A, line 38, leaf n822",
+      "value": "1870",
+      "grade": "inferred"
+    },
+    {
+      "person_id": "pa1904_keith_elbridge_g",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 5A, line 2, leaf n802",
+      "value": "1840",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_keith_elbridge_g",
+      "field": "born",
+      "value": "1840-07-16",
+      "sources": [
+        "witherspoon_men_of_illinois_1902"
+      ],
+      "previous_reading": {
+        "value": "1840",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The existing census transcription gives born July 1840. The year is carried into the age shown on this card."
+      },
+      "basis": "Captioned biography; census disagreements retained in the original note."
+    },
+    {
+      "person_id": "pa1904_keith_mrs_elbridge_g",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 5A, line 3, leaf n802",
+      "value": "1843",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_keith_stanley",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 5A, line 6, leaf n802",
+      "value": "1879",
+      "grade": "inferred"
+    },
+    {
+      "person_id": "pa1904_keith_harold",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 5A, line 7, leaf n802",
+      "value": "1881",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_keith_mrs_edson",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 4B, line 95, leaf n801",
+      "value": "1839",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_kimball_william_w",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 3A, line 11, leaf n798",
+      "value": "1828",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_kimball_mrs_william_w",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 3A, line 12, leaf n798",
+      "value": "1835",
+      "grade": "inferred"
+    },
+    {
+      "person_id": "pa1904_lamb_augustus_d",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 12A, line 37, leaf n816",
+      "value": "1825",
+      "grade": "inferred"
+    },
+    {
+      "person_id": "pa1904_lamb_benjamin_b",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 12A, line 36, leaf n816",
+      "value": "1860",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_longini_a",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 36, sheet 2B, line 55, leaf n668",
+      "value": "1847",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_longini_mrs_a",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 36, sheet 2B, line 56, leaf n668",
+      "value": "1860",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_lowden_frank_orren",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 4B, line 77, leaf n801",
+      "value": "1864",
+      "grade": "inferred"
+    },
+    {
+      "person_id": "pa1904_lowden_frank_orren",
+      "field": "born",
+      "value": "1861-01-26",
+      "sources": [
+        "witherspoon_men_of_illinois_1902",
+        "leonard_book_of_chicagoans_1905"
+      ],
+      "previous_reading": {
+        "value": "1864",
+        "confidence": "inferred",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The existing census transcription gives born April 1864. The transcription flags uncertainty; the year remains provisional."
+      },
+      "basis": "Captioned biography; census disagreements retained in the original note."
+    },
+    {
+      "person_id": "pa1904_lowden_mrs_frank_orren",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 4B, line 78, leaf n801",
+      "value": "1868",
+      "grade": "inferred"
+    },
+    {
+      "person_id": "pa1904_mcbean_a_j",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 12B, line 51, leaf n817",
+      "value": "1835",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_mcbean_mrs_a_j",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 12B, line 52, leaf n817",
+      "value": "1852",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_mcbean_george_b",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 12B, line 55, leaf n817",
+      "value": "1876",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_mcbean_a_j_f",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 12B, line 53, leaf n817",
+      "value": "1870",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_mcbean_mrs_a_j_f",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 12B, line 54, leaf n817",
+      "value": "1869",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_mcbirney_hugh",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 1B, line 61, leaf n795",
+      "value": "1824",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_mcbirney_mrs_hugh",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 1B, line 62, leaf n795",
+      "value": "1830",
+      "grade": "inferred"
+    },
+    {
+      "person_id": "pa1904_mcbirney_hugh_j",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 36, sheet 1A, line 6, leaf n665",
+      "value": "1853",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_mcbirney_mrs_hugh_j",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 36, sheet 1A, line 7, leaf n665",
+      "value": "1858",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_meyer_mrs_m_a",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 12A, line 24, leaf n816",
+      "value": "1842",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_meyer_daughter",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 12A, line 29, leaf n816",
+      "value": "1880",
+      "grade": "inferred"
+    },
+    {
+      "person_id": "pa1904_meyer_e_f",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 12A, line 25, leaf n816",
+      "value": "1865",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_meyer_albert",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 12A, line 26, leaf n816",
+      "value": "1867",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_meyer_carl",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 12A, line 27, leaf n816",
+      "value": "1869",
+      "grade": "inferred"
+    },
+    {
+      "person_id": "pa1904_meyer_abraham",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 12A, line 28, leaf n816",
+      "value": "1871",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_otis_f_r",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 12B, line 75, leaf n817",
+      "value": "1825",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_otis_f_r",
+      "field": "born",
+      "value": "1825-02-10",
+      "sources": [
+        "witherspoon_men_of_illinois_1902"
+      ],
+      "previous_reading": {
+        "value": "1825",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The existing census transcription gives born February 1825. The year is carried into the age shown on this card."
+      },
+      "basis": "Captioned biography; census disagreements retained in the original note."
+    },
+    {
+      "person_id": "pa1904_otis_mrs_f_r",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 12B, line 76, leaf n817",
+      "value": "1830",
+      "grade": "inferred"
+    },
+    {
+      "person_id": "pa1904_otis_daughter",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 12B, line 79, leaf n817",
+      "value": "1864",
+      "grade": "inferred"
+    },
+    {
+      "person_id": "pa1904_otis_charles_t",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 12B, line 77, leaf n817",
+      "value": "1852",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_otis_lucius_j",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 12B, line 78, leaf n817",
+      "value": "1859",
+      "grade": "inferred"
+    },
+    {
+      "person_id": "pa1904_otis_mrs_joseph_e",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 1B, line 55, leaf n795",
+      "value": "1837",
+      "grade": "inferred"
+    },
+    {
+      "person_id": "pa1904_perry_howard_e",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 36, sheet 1A, line 30, leaf n665",
+      "value": "1860",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_perry_mrs_howard_e",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 36, sheet 1A, line 31, leaf n665",
+      "value": "1865",
+      "grade": "inferred"
+    },
+    {
+      "person_id": "pa1904_pike_eugene_s",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 14A, line 47, leaf n820",
+      "value": "1835",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_pike_eugene_s",
+      "field": "born",
+      "value": "1835-10-05",
+      "sources": [
+        "witherspoon_men_of_illinois_1902"
+      ],
+      "previous_reading": {
+        "value": "1835",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The existing census transcription gives born April 1835. The year is carried into the age shown on this card."
+      },
+      "basis": "Captioned biography; census disagreements retained in the original note."
+    },
+    {
+      "person_id": "pa1904_pike_mrs_eugene_s",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 14A, line 48, leaf n820",
+      "value": "1838",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_pike_william_wallace",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 14A, line 49, leaf n820",
+      "value": "1872",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_ream_norman_b",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 4A, line 21, leaf n800",
+      "value": "1844",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_ream_mrs_norman_b",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 4A, line 22, leaf n800",
+      "value": "1852",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_reid_william_h",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 12A, line 46, leaf n816",
+      "value": "1845",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_reid_mrs_william_h",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 12A, line 47, leaf n816",
+      "value": "1862",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_roloson_robert_w",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 14B, line 58, leaf n821",
+      "value": "1840",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_rothschild_mrs_m_m",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 15A, line 26, leaf n822",
+      "value": "1860",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_rothschild_jesse",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 15A, line 29, leaf n822",
+      "value": "1886",
+      "grade": "inferred"
+    },
+    {
+      "person_id": "pa1904_shipman_daniel_b",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 5A, line 16, leaf n802",
+      "value": "1830",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_shortall_john_g",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 36, sheet 3A, line 17, leaf n669",
+      "value": "1839",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_shortall_john_g",
+      "field": "born",
+      "value": "1838-09-20",
+      "sources": [
+        "witherspoon_men_of_illinois_1902",
+        "leonard_book_of_chicagoans_1905"
+      ],
+      "previous_reading": {
+        "value": "1839",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The existing census transcription gives born May 1839. The year is carried into the age shown on this card."
+      },
+      "basis": "Captioned biography; census disagreements retained in the original note."
+    },
+    {
+      "person_id": "pa1904_shortall_john_l",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 36, sheet 3A, line 9, leaf n669",
+      "value": "1865",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_shortall_mrs_john_l",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 36, sheet 3A, line 10, leaf n669",
+      "value": "1867",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_spalding_jesse",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 1A, line 20, leaf n794",
+      "value": "1830",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_spalding_mrs_jesse",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 1A, line 21, leaf n794",
+      "value": "1830",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_stirling_william_r",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 36, sheet 2B, line 62, leaf n668",
+      "value": "1850",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_stirling_mrs_william_r",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 36, sheet 2B, line 63, leaf n668",
+      "value": "1862",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_stone_mrs_h_o",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 12B, line 84, leaf n817",
+      "value": "1845",
+      "grade": "inferred"
+    },
+    {
+      "person_id": "pa1904_tolman_samuel_a",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 12B, line 69, leaf n817",
+      "value": "1837",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_tolman_mrs_samuel_a",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 12B, line 70, leaf n817",
+      "value": "1849",
+      "grade": "inferred"
+    },
+    {
+      "person_id": "pa1904_walker_james_r",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 1A, line 38, leaf n794",
+      "value": "1864",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_walker_mrs_james_r",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 1A, line 39, leaf n794",
+      "value": "1864",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_young_lawrence_a",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 5A, line 33, leaf n802",
+      "value": "1870",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_young_lawrence_a",
+      "field": "born",
+      "value": "1870",
+      "sources": [
+        "witherspoon_men_of_illinois_1902"
+      ],
+      "previous_reading": {
+        "value": "1870",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The existing census transcription gives born May 1870. The year is carried into the age shown on this card."
+      },
+      "basis": "Captioned biography; census disagreements retained in the original note."
+    },
+    {
+      "person_id": "pa1904_young_mrs_lawrence_a",
+      "field": "born",
+      "source": "census_1900_chicago_t623_roll245",
+      "locator": "ED 40, sheet 5A, line 34, leaf n802",
+      "value": "1873",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_pullman_mrs_george_m",
+      "field": "born",
+      "source": "smithsonian_harriet_sanger_pullman",
+      "locator": "sitter record IL990082",
+      "value": "1842-04-18",
+      "grade": "attested",
+      "basis": "Named catalogue sitter; the household census left personal columns unknown, rather than supplying a conflicting date."
+    },
+    {
+      "person_id": "pa1904_buckingham_kate_s",
+      "field": "born",
+      "source": "buckingham_sturges_genealogy_1907",
+      "locator": "p. 61, scan leaf 115 / access n114, visually read",
+      "value": "1858-08-03",
+      "grade": "attested",
+      "conflicting_census_year": "1859"
+    },
+    {
+      "person_id": "pa1904_buckingham_lucy_m",
+      "field": "born",
+      "source": "buckingham_sturges_genealogy_1907",
+      "locator": "p. 61, scan leaf 115 / access n114, visually read",
+      "value": "1870-09-09",
+      "grade": "attested",
+      "conflicting_census_year": "1862"
+    },
+    {
+      "person_id": "pa1904_meeker_mrs_arthur",
+      "field": "born",
+      "source": "jane_addams_grace_murray_meeker",
+      "locator": "Structured birth date in the Jane Addams Digital Edition; no primary birth record inspected. Its inconsistent marriage-date prose is not used.",
+      "value": "1869-03-21",
+      "grade": "inferred"
+    },
+    {
+      "person_id": "pa1904_field_mrs_marshall_jr",
+      "field": "born",
+      "source": "geneanet_field_family_dates",
+      "locator": "Provisional year from a compiled genealogy; no primary birth record inspected.",
+      "value": "1872",
+      "grade": "inferred"
+    },
+    {
+      "person_id": "pa1904_field_gwendolyn",
+      "field": "born",
+      "source": "geneanet_field_family_dates",
+      "locator": "Provisional year from Geneanet. The 2023 Peerage News family notice gives 1902 instead; about two to three on the scene date, not an adult. No primary birth record inspected.",
+      "value": "1901",
+      "grade": "inferred"
+    },
+    {
+      "person_id": "pa1904_lee_frances_glessner",
+      "field": "born",
+      "source": "glessner_house_family_page",
+      "locator": "The Glessner House family biography explicitly gives 25 March 1878. She is 26 on the scene date.",
+      "value": "1878-03-25",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_grey_elizabeth_w",
+      "field": "born",
+      "source": "census_1910_chicago_t624_roll241",
+      "locator": "Re-reading the existing household note: the difficult 1910 age appears to be 14, implying about 1895-96. The reading may be wrong and is retained as uncertain; the Miss title is not enough to assume an adult in 1904.",
+      "value": "1896",
+      "grade": "inferred"
+    },
+    {
+      "person_id": "pa1904_keith_walter_w",
+      "field": "born",
+      "source": "census_1910_chicago_t624_roll241",
+      "locator": "Re-reading existing 1910 household note: age 40, ED 166, sheet 8B, lines 76-78, implying about 1869-70.",
+      "value": "1870",
+      "grade": "inferred"
+    },
+    {
+      "person_id": "pa1904_kellogg_mrs_lois",
+      "field": "born",
+      "source": "census_1910_chicago_t624_roll241",
+      "locator": "Re-reading existing 1910 household note: age 43, ED 167, sheet 6B, lines 75-76, implying about 1866-67.",
+      "value": "1867",
+      "grade": "inferred"
+    },
+    {
+      "person_id": "pa1904_jenkins_mrs_john_e",
+      "field": "born",
+      "source": "census_1910_chicago_t624_roll241",
+      "locator": "Re-reading existing 1910 household note: age 49, ED 166, sheet 6A, lines 9-11, implying about 1860-61.",
+      "value": "1861",
+      "grade": "inferred"
+    }
+  ]
+}

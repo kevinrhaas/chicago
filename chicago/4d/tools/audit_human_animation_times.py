@@ -11,7 +11,10 @@ def require(ok,message):
 def index(value,length):
  require(isinstance(value,int) and not isinstance(value,bool) and 0<=value<length,'invalid input accessor index')
  return value
-def audit_document(doc):
+def audit_document(doc, *, expected_speed_m_s=.6):
+ # Child builders supply the speed derived from their pinned leg length. The
+ # default CLI/adult contract stays exactly 0.6 m/s, not a relaxed speed range.
+ require(finite(expected_speed_m_s) and 0<expected_speed_m_s<=.6,'invalid expected walk speed')
  require(isinstance(doc,dict),'GLB JSON must be object')
  accessors=doc.get('accessors');animations=doc.get('animations')
  require(isinstance(accessors,list),'accessors must be array')
@@ -38,11 +41,11 @@ def audit_document(doc):
  walks=[c for c in clips if c['name']=='walk'];require(len(walks)==1,'exactly one named walk required: '+repr([c['name'] for c in clips]))
  w=walks[0];pairs=w['serialized_bounds_unique']
  require(all(abs(lo)<=1e-6 and hi<=1.2+1e-5 for lo,hi in pairs) and abs(max(hi for lo,hi in pairs)-1.2)<=1e-5,'walk declared time bounds must start0 and end1.2: '+json.dumps(w,allow_nan=False))
- for k,v in [('speed_m_s',.6),('stance_fraction',.62),('cycle_duration_s',1.2)]:
+ for k,v in [('speed_m_s',expected_speed_m_s),('stance_fraction',.62),('cycle_duration_s',1.2)]:
   actual=w['extras'][k];require(finite(actual) and abs(actual-v)<=1e-6,'walk declared '+k+' mismatch or missing')
  return clips
 def reject_constant(value):raise ValueError('nonfinite JSON constant '+value)
-def inspect_file(path):
+def inspect_file(path, *, expected_speed_m_s=.6):
  result={'file':str(path),'sha256':None,'scope':SCOPE,'passed':False}
  try:
   data=Path(path).read_bytes();result['sha256']=hashlib.sha256(data).hexdigest()
@@ -50,7 +53,7 @@ def inspect_file(path):
   require(struct.unpack_from('<III',data)==(0x46546c67,2,len(data)),'invalid GLB magic/version/length')
   size,kind=struct.unpack_from('<II',data,12);require(kind==0x4e4f534a and size%4==0 and 20+size<=len(data),'invalid GLB JSON chunk')
   doc=json.loads(data[20:20+size],parse_constant=reject_constant)
-  result['clips']=audit_document(doc);result['passed']=True
+  result['clips']=audit_document(doc,expected_speed_m_s=expected_speed_m_s);result['passed']=True
  except (ValueError,TypeError,KeyError,IndexError,struct.error,OSError) as error:result['error']=str(error)
  return result
 def main(args):

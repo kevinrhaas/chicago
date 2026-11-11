@@ -4874,6 +4874,14 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/prairie_children_source.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/prairie_people.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/prebuild_layers.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -6654,6 +6662,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_prairie_people.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_prebuilt_index.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -6895,6 +6907,10 @@
       "wrote_ignored": []
     },
     "tools/test_tour_offer.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_transport_audio.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

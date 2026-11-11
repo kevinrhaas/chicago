@@ -1,0 +1,167 @@
+{
+ "format": "chicago4d_human_portrait_marks_v1",
+ "ticket": "T-3547",
+ "person_id": "pa1904_keith_elbridge_g",
+ "scene": "1904",
+ "source": "glessner_commercial_club_1910_keith_plate",
+ "scan": "https://archive.org/download/commercialclubof00gles/page/leaf87_w3000.jpg",
+ "scan_size_px": [
+  2737,
+  4555
+ ],
+ "crop_px": [
+  1429,
+  2458,
+  2020,
+  3246
+ ],
+ "_doc": "Visible facial landmarks read by eye on the identified original plate. Coordinates are in the crop; sigma includes screening and occlusion. No hidden far eye is invented.",
+ "age_at_picture_years": 50,
+ "age_note": "Undated portrait; age is an approximate modelling estimate from the period of the plate. Scene age uses the separately sourced birth date. The printed presidency year for Keith is not a photographic date.",
+ "grade": "inferred",
+ "basis": "Identified caption/signature and biographical entry, p. 77, lower right. A single-view facial fit, with loose uncertainties for obscured features; the image identity is attested but unseen form is reconstructed.",
+ "not_modelled": [
+  "Exact photographic date; skin, eye and clothing colours; height and build below the bust."
+ ],
+ "axes": [
+  "nose_length",
+  "nose_width",
+  "nose_depth",
+  "nose_hump",
+  "nose_curve",
+  "nose_tip",
+  "nose_tip_width",
+  "nostrils",
+  "nose_height",
+  "mouth_width",
+  "lip_upper",
+  "lip_lower",
+  "mouth_height",
+  "chin_prominence",
+  "chin_width",
+  "chin_height",
+  "jaw",
+  "prognathism",
+  "cheekbones",
+  "cheek_volume",
+  "cheek_inner",
+  "brow_height",
+  "brow_angle",
+  "brow_ridge",
+  "forehead_slope",
+  "temples",
+  "ear_size",
+  "ear_flap",
+  "ear_lobe",
+  "jowls",
+  "head_shape",
+  "forehead_height"
+ ],
+ "marks": [
+  {
+   "landmark": "pupil_r",
+   "x": 295,
+   "y": 284,
+   "sigma_px": 8.2
+  },
+  {
+   "landmark": "pupil_l",
+   "x": 457,
+   "y": 279,
+   "sigma_px": 10.9
+  },
+  {
+   "landmark": "eye_outer_r",
+   "x": 249,
+   "y": 293,
+   "sigma_px": 10.9
+  },
+  {
+   "landmark": "eye_inner_r",
+   "x": 328,
+   "y": 290,
+   "sigma_px": 10.9
+  },
+  {
+   "landmark": "eye_inner_l",
+   "x": 429,
+   "y": 284,
+   "sigma_px": 13.7
+  },
+  {
+   "landmark": "eye_outer_l",
+   "x": 484,
+   "y": 276,
+   "sigma_px": 13.7
+  },
+  {
+   "landmark": "nasion",
+   "x": 397,
+   "y": 282,
+   "sigma_px": 16.4
+  },
+  {
+   "landmark": "nose_tip",
+   "x": 438,
+   "y": 383,
+   "sigma_px": 13.7
+  },
+  {
+   "landmark": "subnasale",
+   "x": 408,
+   "y": 430,
+   "sigma_px": 19.2
+  },
+  {
+   "landmark": "stomion",
+   "x": 408,
+   "y": 506,
+   "sigma_px": 27.4
+  },
+  {
+   "landmark": "menton",
+   "x": 405,
+   "y": 607,
+   "sigma_px": 21.9
+  },
+  {
+   "landmark": "ear_top_r",
+   "x": 109,
+   "y": 315,
+   "sigma_px": 21.9
+  },
+  {
+   "landmark": "ear_lobe_r",
+   "x": 134,
+   "y": 449,
+   "sigma_px": 19.2
+  },
+  {
+   "landmark": "vertex",
+   "x": 304,
+   "y": 55,
+   "sigma_px": 41.1
+  }
+ ],
+ "card": {
+  "_doc": "What the person's card shows (T-3413): `portrait` is cut from the scan at `portrait_from_scan_px` (left, top, right, bottom) and scaled to `size_px`; `model` is tools/portrait_still.mjs's render of the fitted face on `body`, turned to the fit's yaw and framed like the portrait. `dress` (T-3440): the still is dressed as humans.js dresses him in town, with his skin, his own hair and moustache (human-hair-styles.js) and his spectacles (human-spectacles.js). `hide` leaves out his derby: the portrait is bareheaded.",
+  "portrait": "assets/humans/web/portraits/pa1904_keith_elbridge_g_portrait.jpg",
+  "portrait_from_scan_px": [
+   1429,
+   2458,
+   2020,
+   3246
+  ],
+  "model": "assets/humans/web/portraits/pa1904_keith_elbridge_g_model.jpg",
+  "size_px": [
+   360,
+   480
+  ],
+  "body": "glessner_john_j_1904",
+  "background": "#1c1b18",
+  "distance_m": 0.9,
+  "aim_above_head_m": 0.0,
+  "dress": true,
+  "hide": "^headwear"
+ }
+}

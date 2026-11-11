@@ -35,7 +35,7 @@ const settingsHtml = html.slice(html.indexOf('data-panel="settings"'), html.inde
     's-lot-lines', 's-show-control-help', 's-about', 's-about-build', 's-about-dev', 's-about-dev-note'];
   const added = ['s-display', 's-theme', 's-text-size', 's-machine', 's-skins', 's-perf-auto', 's-perf-auto-line', 's-sound',
     's-sound-master', 's-sound-effects', 's-sound-ambience', 's-sound-music', 'v-sound-music', 'v-sound-master', 'v-sound-effects', 'v-sound-ambience',
-    's-sound-note', 's-open-whatsnew'];
+    's-sound-effects-help', 's-sound-ambience-help', 's-open-whatsnew'];
   for (const id of [...kept, ...added]) {
     assert.equal((html.match(new RegExp(`id="${id}"`, 'g')) ?? []).length, 1, `#${id} is on the page once`);
     assert(settingsHtml.includes(`id="${id}"`), `#${id} is in Settings`);
@@ -50,9 +50,6 @@ const settingsHtml = html.slice(html.indexOf('data-panel="settings"'), html.inde
   assert.deepEqual(sizes.map((m) => Number(m[2])), [100, 110, 120, 130, 140]);
   // Light or dark left the HUD for good, and the old chip with it.
   assert(!/id="btn-theme"/.test(html), 'the HUD chip is gone');
-  // Sound says it is off until Master, and that the ambience is not a recording (T-2659;
-  // T-3445 cut the note to those two).
-  assert.match(settingsHtml, /id="s-sound-note"[^>]*>Off until you enable sound\. Recorded ambience and era music; not a recording of the past\./);
   // About keeps T-2629's stamp, and opens What's new.
   const about = settingsHtml.slice(settingsHtml.indexOf('id="s-about"'));
   assert(about.indexOf('id="s-about-build"') > 0 && about.indexOf('id="s-open-whatsnew"') > about.indexOf('id="s-about-build"'));

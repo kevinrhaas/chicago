@@ -1,0 +1,148 @@
+{
+ "format": "chicago4d_human_face_fit_v1",
+ "ticket": "T-3413",
+ "person_id": "pa1904_keith_elbridge_g",
+ "scene": "1904",
+ "generated_by": "tools/fit_portrait_face.py",
+ "_doc": "Regenerate with tools/fit_portrait_face.py from the portrait record; never edit by hand.",
+ "grade": "inferred",
+ "sources": [
+  "glessner_commercial_club_1910_keith_plate"
+ ],
+ "portrait": "data/humans/variation/portraits/pa1904_keith_elbridge_g.json",
+ "basis": "Identified caption/signature and biographical entry, p. 77, lower right. A single-view facial fit, with loose uncertainties for obscured features; the image identity is attested but unseen form is reconstructed.",
+ "liberty": "L-human-variation-3412",
+ "values": {
+  "nose_length": 0.005,
+  "nose_width": 0.0,
+  "nose_depth": 0.15,
+  "nose_hump": 0.068,
+  "nose_curve": -0.01,
+  "nose_tip": -0.062,
+  "nose_tip_width": 0.0,
+  "nostrils": 0.0,
+  "nose_height": -0.031,
+  "mouth_width": 0.0,
+  "lip_upper": 0.0,
+  "lip_lower": -0.003,
+  "mouth_height": -0.117,
+  "chin_prominence": -0.041,
+  "chin_width": -0.001,
+  "chin_height": 0.243,
+  "jaw": -0.003,
+  "prognathism": -0.025,
+  "cheekbones": 0.0,
+  "cheek_volume": 0.0,
+  "cheek_inner": 0.0,
+  "brow_height": 0.002,
+  "brow_angle": -0.067,
+  "brow_ridge": 0.0,
+  "forehead_slope": -0.205,
+  "temples": 0.0,
+  "ear_size": -0.09,
+  "ear_flap": -0.043,
+  "ear_lobe": -0.042,
+  "jowls": 0.0,
+  "head_shape": 0.152,
+  "forehead_height": -0.194,
+  "head_shape.option": 2
+ },
+ "read_from_picture": [
+  "chin_height"
+ ],
+ "mostly_prior": [
+  "brow_angle",
+  "brow_height",
+  "brow_ridge",
+  "cheek_inner",
+  "cheek_volume",
+  "cheekbones",
+  "chin_prominence",
+  "chin_width",
+  "ear_flap",
+  "ear_lobe",
+  "ear_size",
+  "forehead_height",
+  "forehead_slope",
+  "head_shape",
+  "jaw",
+  "jowls",
+  "lip_lower",
+  "lip_upper",
+  "mouth_height",
+  "mouth_width",
+  "nose_curve",
+  "nose_depth",
+  "nose_height",
+  "nose_hump",
+  "nose_length",
+  "nose_tip",
+  "nose_tip_width",
+  "nose_width",
+  "nostrils",
+  "prognathism",
+  "temples"
+ ],
+ "fit": {
+  "rms_px": 18.69,
+  "per_mark_px": {
+   "pupil_r": 6.6,
+   "pupil_l": 3.2,
+   "eye_outer_r": 9.7,
+   "eye_inner_r": 5.5,
+   "eye_inner_l": 3.1,
+   "eye_outer_l": 9.0,
+   "nasion": 10.8,
+   "nose_tip": 21.0,
+   "subnasale": 4.2,
+   "stomion": 34.5,
+   "menton": 15.0,
+   "ear_top_r": 23.7,
+   "ear_lobe_r": 6.3,
+   "vertex": 45.1
+  },
+  "camera": {
+   "yaw_deg": 19.3,
+   "pitch_deg": -6.5,
+   "roll_deg": 5.7,
+   "px_per_m": 2634.8,
+   "shift_px": [
+    342.8,
+    328.4
+   ]
+  },
+  "landmark_vertices": {
+   "pupil_r": [
+    4868,
+    17
+   ],
+   "pupil_l": [
+    11486,
+    6801
+   ],
+   "eye_outer_r": 17,
+   "eye_inner_r": 4868,
+   "eye_inner_l": 11486,
+   "eye_outer_l": 6801,
+   "nasion": 132,
+   "nose_tip": 297,
+   "subnasale": 5072,
+   "stomion": 523,
+   "menton": 5225,
+   "ear_top_r": 5413,
+   "ear_lobe_r": 5732,
+   "vertex": 881
+  }
+ },
+ "not_modelled": [
+  "Exact photographic date; skin, eye and clothing colours; height and build below the bust."
+ ],
+ "card": {
+  "source_citation": "John J. Glessner, The Commercial Club of Chicago (Chicago, 1910), former presidents, p. 77: Elbridge G. Keith, lower-right portrait, presidency labelled 1890.",
+  "source_url": "https://archive.org/details/commercialclubof00gles",
+  "rms_mm": 7.1,
+  "marks": 14,
+  "portrait": "humans/web/portraits/pa1904_keith_elbridge_g_portrait.jpg",
+  "model": "humans/web/portraits/pa1904_keith_elbridge_g_model.jpg"
+ }
+}

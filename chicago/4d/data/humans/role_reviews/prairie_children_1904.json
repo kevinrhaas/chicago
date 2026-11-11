@@ -1,0 +1,251 @@
+{
+  "format": "chicago4d_reviewed_human_roles_v1",
+  "ticket": "T-3550",
+  "approved_on": "2026-11-11",
+  "approved_by": "owner",
+  "approval": "Approve these five prototypes",
+  "approval_scope": "The five presented child and teen prototypes are approved as the basis for Prairie Avenue younger-resident activation. This is first-role admission, not a claim of exact photographic matching.",
+  "build_run": "https://github.com/kevinrhaas/chicago/actions/runs/42997832738",
+  "build_source": "a229ee241fc1fd756f2be5b8a5190910e1ba52c5",
+  "artifact_zip_sha256": "9a2397dd828cfda9aaf8ec3e4d7b4acd5ebfe5fc7ae9647036864a587eb88146",
+  "review_evidence": "https://github.com/kevinrhaas/chicago-evidence/tree/aa59d0e/evidence/prairie-people-2026-11-11/child-prototypes",
+  "prototype_recipe_note": "The retained build recipes describe their pre-review prototype status. This separately bound owner review admits the exact exports below without changing their geometry or relabelling them as photographic matches.",
+  "roles": [
+    {
+      "asset_id": "child_boy_1904",
+      "recipe": "data/humans/recipes/child_boy_1904.json",
+      "recipe_sha256": "f8cb76812b2a0528c41d1d34f3d91752bd63a70be7105ba9d0da9256d21def35",
+      "files": [
+        {
+          "file": "assets/humans/child_boy_1904.lod0.glb",
+          "sha256": "298a2ce63f98895c6f989476f7774a8e39414b55d76ff6d06f6929eb39494bb0",
+          "bytes": 8839040
+        },
+        {
+          "file": "assets/humans/child_boy_1904.lod1.glb",
+          "sha256": "d2b8e7f740d65de7f921bb32b9e9a30ffb82d6315a86f7bf15ba44ad35d8140c",
+          "bytes": 8100512
+        },
+        {
+          "file": "assets/humans/child_boy_1904.lod2.glb",
+          "sha256": "693289f825ef906a79c5fb4942e2e28174f18e252b411f936e73013559659624",
+          "bytes": 7489956
+        },
+        {
+          "file": "assets/humans/child_boy_1904.lod3.glb",
+          "sha256": "0ee5a96c667feb05b8a134b41c80684acbd2b90b5ce629a0d00e59dd452c71bb",
+          "bytes": 7235244
+        },
+        {
+          "file": "assets/humans/web/child_boy_1904.lod0.glb",
+          "sha256": "7ea92424f5f9559b6e4ec4365f4ebb5a8815c2546da5aa97b1d645ba34d5be02",
+          "bytes": 4481944
+        },
+        {
+          "file": "assets/humans/web/child_boy_1904.lod1.glb",
+          "sha256": "0b148eb81393cd92448196d323cd43b8529e669f4d486ac84253b87ff9009cb2",
+          "bytes": 1579012
+        },
+        {
+          "file": "assets/humans/web/child_boy_1904.lod2.glb",
+          "sha256": "f409241f436b76bbdc349a47282a8d2d9d8f2c4cc362fbdaa17e595c9b5eb8fe",
+          "bytes": 618280
+        },
+        {
+          "file": "assets/humans/web/child_boy_1904.lod3.glb",
+          "sha256": "4d75e2c426adf884fc1aa9d96f89481d71eb5b622d90445cf26a7f12e7caacdd",
+          "bytes": 302376
+        }
+      ]
+    },
+    {
+      "asset_id": "child_girl_1904",
+      "recipe": "data/humans/recipes/child_girl_1904.json",
+      "recipe_sha256": "61ca1a2547ab2eff8cc5d24caa0eb628612149b61c33b89611a60ea5a43d14bc",
+      "files": [
+        {
+          "file": "assets/humans/child_girl_1904.lod0.glb",
+          "sha256": "568689f24618f50a51b9a8dbcfaf7bc6bb4e6d87fb038d0910ad98e6db2764f7",
+          "bytes": 8635152
+        },
+        {
+          "file": "assets/humans/child_girl_1904.lod1.glb",
+          "sha256": "593c8f7b8d4fdab2147cec450c234886c04f8cb9b95efa31e7aafa8f9efd7f9b",
+          "bytes": 7934448
+        },
+        {
+          "file": "assets/humans/child_girl_1904.lod2.glb",
+          "sha256": "1851e9654531d1838f273f94af2a75707a4557645a21488a916fe7dbd8ab5465",
+          "bytes": 7338360
+        },
+        {
+          "file": "assets/humans/child_girl_1904.lod3.glb",
+          "sha256": "958724c76ceae7dd851b150dc3cc199d1773e7bb91c4eb71d6a2ae2a5220737b",
+          "bytes": 7071336
+        },
+        {
+          "file": "assets/humans/web/child_girl_1904.lod0.glb",
+          "sha256": "b751d8ae3c48fbffb6f4d7dbc1ebcc57ec20788bfe6ac99cadbc28ca4cc64621",
+          "bytes": 4329156
+        },
+        {
+          "file": "assets/humans/web/child_girl_1904.lod1.glb",
+          "sha256": "b7fbd81d3a66a50ad60421cb173ab7d310788ab7c21db06c35c87a2744778edb",
+          "bytes": 1543672
+        },
+        {
+          "file": "assets/humans/web/child_girl_1904.lod2.glb",
+          "sha256": "81fd32602f2c27c675707f87ae62006a8cc2d686af16447eb81d74228a715e25",
+          "bytes": 613344
+        },
+        {
+          "file": "assets/humans/web/child_girl_1904.lod3.glb",
+          "sha256": "c12807e58f9c770c376ffd5315e8d78b3a41fb0388ba8af2db8283391b8195b9",
+          "bytes": 300260
+        }
+      ]
+    },
+    {
+      "asset_id": "child_toddler_1904",
+      "recipe": "data/humans/recipes/child_toddler_1904.json",
+      "recipe_sha256": "565ce5a64fd0181161c99263d7b64e8ba23091de8d1ab886c2a750ec80df6081",
+      "files": [
+        {
+          "file": "assets/humans/child_toddler_1904.lod0.glb",
+          "sha256": "6e936e90af6bf3e2eced766cf0857c19726eaea2a56bac3c43641d20e3303b3f",
+          "bytes": 8799652
+        },
+        {
+          "file": "assets/humans/child_toddler_1904.lod1.glb",
+          "sha256": "0cef8c52c6c77d51a0542a386043ffa015693f8121f3e95751be2f859fe23ecf",
+          "bytes": 8105636
+        },
+        {
+          "file": "assets/humans/child_toddler_1904.lod2.glb",
+          "sha256": "ee9f139a30940919d286ae18e212b47bad0e28173d2468be0aeb0ef21b2eb4fe",
+          "bytes": 7512012
+        },
+        {
+          "file": "assets/humans/child_toddler_1904.lod3.glb",
+          "sha256": "61056a4a046a7e8e5607170b14e1a760130091d953dc6c254528e985564f81d5",
+          "bytes": 7248132
+        },
+        {
+          "file": "assets/humans/web/child_toddler_1904.lod0.glb",
+          "sha256": "8501bdec569f992900f48b59d3939b15036d44e06d815a129eedc243ce905952",
+          "bytes": 4469692
+        },
+        {
+          "file": "assets/humans/web/child_toddler_1904.lod1.glb",
+          "sha256": "c8f5160ae693c0dce51d93a0d155f3cead87706ed2db016084aecfac08d00d4f",
+          "bytes": 1582096
+        },
+        {
+          "file": "assets/humans/web/child_toddler_1904.lod2.glb",
+          "sha256": "56bb274f769c6c60637a71eadf53aa860ad7df6ebfd9fe2718739887c6b89d64",
+          "bytes": 623944
+        },
+        {
+          "file": "assets/humans/web/child_toddler_1904.lod3.glb",
+          "sha256": "50afb6e7b32acf37ffd2bbebd68e2900714bc77b8b2b23007b1a8e142e01d3f3",
+          "bytes": 305396
+        }
+      ]
+    },
+    {
+      "asset_id": "teen_boy_1904",
+      "recipe": "data/humans/recipes/teen_boy_1904.json",
+      "recipe_sha256": "bccfe1d08f9f30fb85864ea54e559ef0e24ccf80d9de412d77fc8369a1685cf1",
+      "files": [
+        {
+          "file": "assets/humans/teen_boy_1904.lod0.glb",
+          "sha256": "33962f211417826230968fa1ba9a8dccaaf8b010b9a29baa6651409f52036225",
+          "bytes": 8867964
+        },
+        {
+          "file": "assets/humans/teen_boy_1904.lod1.glb",
+          "sha256": "721886f417995a9910926235c02286637d721151cac80c95bfc47818b36fa63a",
+          "bytes": 8115736
+        },
+        {
+          "file": "assets/humans/teen_boy_1904.lod2.glb",
+          "sha256": "15baba1d32de7e150d972cabb1ed88f10e2160ea1dfcd3d50ad215cc4b066e55",
+          "bytes": 7492412
+        },
+        {
+          "file": "assets/humans/teen_boy_1904.lod3.glb",
+          "sha256": "2dfb4ee23762e21eeabe5411c1e57dd12d3d6476421d51ade4d7993a54b206bb",
+          "bytes": 7234020
+        },
+        {
+          "file": "assets/humans/web/teen_boy_1904.lod0.glb",
+          "sha256": "4058222d2cc0e70c9266c9251e2012e8141d2bb0b7d00b3ea46de5029a6e98ea",
+          "bytes": 4487920
+        },
+        {
+          "file": "assets/humans/web/teen_boy_1904.lod1.glb",
+          "sha256": "99553d8f01f179c4d20bff0f953bdda54b2c26121b8f7fb15376459df7bce57d",
+          "bytes": 1582792
+        },
+        {
+          "file": "assets/humans/web/teen_boy_1904.lod2.glb",
+          "sha256": "468bf473c5b252ead025458f4ad2482e2433c63da4a67af85c1d49e7c895aa5e",
+          "bytes": 621400
+        },
+        {
+          "file": "assets/humans/web/teen_boy_1904.lod3.glb",
+          "sha256": "878afd409c6f7cc8b545b149dd4afa8d1b05017fb4290f03dbce4c10656e90ab",
+          "bytes": 303848
+        }
+      ]
+    },
+    {
+      "asset_id": "teen_girl_1904",
+      "recipe": "data/humans/recipes/teen_girl_1904.json",
+      "recipe_sha256": "0c45bfd667efc5da9954619613aaf709eab675be8ded72a9d9a300edb3d95e7c",
+      "files": [
+        {
+          "file": "assets/humans/teen_girl_1904.lod0.glb",
+          "sha256": "8baa5e4c5c6a115f575b38c534348b4c5911d3d04e4715e3c153a62c0018cb2e",
+          "bytes": 8616616
+        },
+        {
+          "file": "assets/humans/teen_girl_1904.lod1.glb",
+          "sha256": "0eb3f722105e2ca7f584ff6a0de13c2b8b852d59dab9000c72c6924a478af247",
+          "bytes": 7918896
+        },
+        {
+          "file": "assets/humans/teen_girl_1904.lod2.glb",
+          "sha256": "1ce1294e197fbcd0a8ce2ae20feebd5affb6bf75f5c2b76343cf1c5dbee8d20a",
+          "bytes": 7329980
+        },
+        {
+          "file": "assets/humans/teen_girl_1904.lod3.glb",
+          "sha256": "6335f10e9e6e569968b2d67e85a7b03f76c61f981dd22707c6f2e3f7724cfff7",
+          "bytes": 7063952
+        },
+        {
+          "file": "assets/humans/web/teen_girl_1904.lod0.glb",
+          "sha256": "67a861998a73bd3c80b4b98ca10550d6227d79cae63fb47f7a9b33734a5ab3a0",
+          "bytes": 4321272
+        },
+        {
+          "file": "assets/humans/web/teen_girl_1904.lod1.glb",
+          "sha256": "717bbbe3737c6448334a6649a8c90d49df9e5232ca7a29c3cd6d58019729d3da",
+          "bytes": 1536416
+        },
+        {
+          "file": "assets/humans/web/teen_girl_1904.lod2.glb",
+          "sha256": "29bfeb4f2c4070264b54c37219be091276007c5e53832e94a890d6342483a36e",
+          "bytes": 610072
+        },
+        {
+          "file": "assets/humans/web/teen_girl_1904.lod3.glb",
+          "sha256": "124eacfe69d9b12ddc558021e97ea3cda8d49ae5ac89d6021316018de9795912",
+          "bytes": 296984
+        }
+      ]
+    }
+  ],
+  "not_a_reading": "Owner prototype admission and canonical artifact provenance, not new historical or photographic-match evidence."
+}

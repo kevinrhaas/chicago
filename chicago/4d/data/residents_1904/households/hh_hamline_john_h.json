@@ -53,6 +53,22 @@
         "locator": "ED 36, sheet 1A, line 20, leaf n665",
         "as_enumerated": "Hamline, John H",
         "relation_as_enumerated": "Head"
+      },
+      "born": {
+        "value": "1856",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The existing census transcription gives born March 1856. The year is carried into the age shown on this card."
+      },
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
       }
     },
     {
@@ -73,7 +89,23 @@
         "as_enumerated": "Hamline, Josephine",
         "relation_as_enumerated": "Wife"
       },
-      "note": "The 1900 census lists Josephine Hamline here as wife, born March 1859, in New York, married (ED 36, sheet 1A, line 21, leaf n665)."
+      "note": "The 1900 census lists Josephine Hamline here as wife, born March 1859, in New York, married (ED 36, sheet 1A, line 21, leaf n665).",
+      "born": {
+        "value": "1859",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The existing census transcription gives born March 1859. The year is carried into the age shown on this card."
+      },
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_mead_george_a",
@@ -92,6 +124,22 @@
         "locator": "ED 36, sheet 1A, line 24, leaf n665",
         "as_enumerated": "Mead, George",
         "relation_as_enumerated": "Brother-in-law"
+      },
+      "born": {
+        "value": "1864",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The existing census transcription gives born October 1864. The year is carried into the age shown on this card."
+      },
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
       }
     },
     {
@@ -117,7 +165,15 @@
         "as_enumerated": "Hamline, Josephine",
         "relation_as_enumerated": "Daughter"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a daughter of the head; born March 1889, in Illinois. The 1904 Blue Book names no children, so a child at home in 1900 is placed here in 1904 by inference."
+      "note": "Enumerated on 1 June 1900 in the house, as a daughter of the head; born March 1889, in Illinois. The 1904 Blue Book names no children, so a child at home in 1900 is placed here in 1904 by inference.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_hamline_john_h_c1900_john_h_hamline",
@@ -142,7 +198,15 @@
         "as_enumerated": "Hamline, John H",
         "relation_as_enumerated": "Son"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a son of the head; born February 1898, in Illinois. The 1904 Blue Book names no children, so a child at home in 1900 is placed here in 1904 by inference."
+      "note": "Enumerated on 1 June 1900 in the house, as a son of the head; born February 1898, in Illinois. The 1904 Blue Book names no children, so a child at home in 1900 is placed here in 1904 by inference.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_hamline_john_h_c1900_grace_delashmutt",
@@ -175,7 +239,15 @@
         "as_enumerated": "Delashmutt, Grace",
         "relation_as_enumerated": "Servant"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a servant (nurse); born February 1865, in Illinois, widowed. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (nurse); born February 1865, in Illinois, widowed. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_hamline_john_h_c1900_bridget_o_brien",
@@ -208,7 +280,15 @@
         "as_enumerated": "O'Brien, Bridget",
         "relation_as_enumerated": "Servant"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a servant (waitress); born April 1875, in Ireland, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (waitress); born April 1875, in Ireland, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_hamline_john_h_c1900_amelia_frick",
@@ -241,7 +321,15 @@
         "as_enumerated": "Frick, Amelia",
         "relation_as_enumerated": "Servant"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a servant (chambermaid); born May 1868, in Illinois, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (chambermaid); born May 1868, in Illinois, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_hamline_john_h_c1900_kate_wagener",
@@ -274,7 +362,15 @@
         "as_enumerated": "Wagener, Kate",
         "relation_as_enumerated": "Servant"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a servant (laundress); born February 1872, in Germany, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (laundress); born February 1872, in Germany, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_hamline_john_h_c1900_agnes_murphy",
@@ -307,7 +403,15 @@
         "as_enumerated": "Murphy, Agnes",
         "relation_as_enumerated": "Servant"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a servant (cook); born June 1868, in Illinois, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (cook); born June 1868, in Illinois, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     }
   ]
 }

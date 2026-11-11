@@ -46,7 +46,15 @@
         "chicago_blue_book_1905"
       ],
       "printed_as": "2018 Mrs. L. A. Herrick",
-      "note": "The card is anchored on the older Mrs. Herrick; the Blue Book does not say who headed the house."
+      "note": "The card is anchored on the older Mrs. Herrick; the Blue Book does not say who headed the house.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_herrick_e_walter",
@@ -57,7 +65,15 @@
         "chicago_blue_book_1904"
       ],
       "printed_as": "2018 E. Walter Herrick",
-      "note": "Listed at 2018 in the 1904 edition, not in the 1905 one; his relation to Mrs. Herrick is not printed."
+      "note": "Listed at 2018 in the 1904 edition, not in the 1905 one; his relation to Mrs. Herrick is not printed.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_herrick_louise",
@@ -69,7 +85,15 @@
         "chicago_blue_book_1905"
       ],
       "printed_as": "2018 Miss Louise Herrick",
-      "note": "A daughter is read from 'Miss' and the shared surname under Mrs. Herrick; the Blue Book does not state the relationship."
+      "note": "A daughter is read from 'Miss' and the shared surname under Mrs. Herrick; the Blue Book does not state the relationship.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_de_teresa_mrs_nicolas",
@@ -81,7 +105,15 @@
         "chicago_blue_book_1905"
       ],
       "printed_as": "2018 Mrs. Nicolas de Teresa",
-      "note": "Listed at 2018 in both editions; her relation to the Herricks is not printed."
+      "note": "Listed at 2018 in both editions; her relation to the Herricks is not printed.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_de_teresa_isabel",
@@ -93,7 +125,15 @@
         "chicago_blue_book_1905"
       ],
       "printed_as": "2018 Miss Isabel de Teresa",
-      "note": "The 1904 OCR reads 'Isabel', the 1905 'Ysabel'. A daughter of Mrs. de Teresa by the name; the relation is not printed."
+      "note": "The 1904 OCR reads 'Isabel', the 1905 'Ysabel'. A daughter of Mrs. de Teresa by the name; the relation is not printed.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     }
   ]
 }

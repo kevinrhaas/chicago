@@ -1,0 +1,204 @@
+{
+ "version": 1,
+ "license": "CC0-1.0",
+ "liberty": "L-prairie-people-3548",
+ "height_scale": 1.0,
+ "lod_ratios": [
+  1.0,
+  0.6,
+  0.28,
+  0.12
+ ],
+ "skin_texture": {
+  "path": "assets/authored/humans/skin_toigo_bronze_female/young_lightskinned_female_diffuse_Bronze.png",
+  "sha256": "535535f30bacd42111590df4b03cf3b6bcdb7db18f336ce670665ec332ab3e0b",
+  "license": "CC0-1.0",
+  "color_space": "sRGB",
+  "base_color_factor": [
+   1,
+   1,
+   1,
+   1
+  ],
+  "roughness": 0.68,
+  "roughness_basis": "Reconstructed engineering value, not measured from a period person or calibrated capture.",
+  "identity_basis": "Cleared reusable generic skin atlas; not a likeness, attested complexion, or source identifying any named/reconstructed resident.",
+  "uv_status": "Source atlas and UV registration viewed in source diagnostics; final Blender export/LOD render validation remains outstanding.",
+  "female_appearance_status": "The same author's female bronze atlas (skins01, CC0), replacing the male one whose beard shadow read as a man's jaw at 3 m (T-3434); photographic qualification remains open."
+ },
+ "hair_component": {
+  "directory": "assets/authored/humans/hair_short04",
+  "texture": "short04_diffuse_periodic_pad_draft.png",
+  "uv_transform": {
+   "source_height": 2048,
+   "top_rows": 8,
+   "bottom_rows": 1
+  },
+  "roughness": 0.65,
+  "alpha_cutoff": 0.4,
+  "appearance_basis": "Shared cleared CC0 short04 source fitted to existing Otis/Joseph/Martin bodies; hair/part/color are reconstructed choices, no period hairstyle attestation or individual likeness.",
+  "source_manifest_sha256": "68a02130cd50dd0d727f31f8f53702fe91bd9ecb9aa98309a7814191abf89e99"
+ },
+ "eye_components": {
+  "radius_m": 0.012,
+  "iris_radius_m": 0.0055,
+  "pupil_radius_m": 0.0022,
+  "corneal_bulge_m": 0,
+  "cornea_enabled": false,
+  "source_basis": "Actual helper centers/axes; original opaque sclera/iris/pupil, reconstructed dimensions and brown color, not resident facts",
+  "status": "No actual BPy/export/blink fit/photographic acceptance"
+ },
+ "label": "Reconstructed teen girl 1904 clothing on an age-15 body",
+ "scene_date": "1904-07-01",
+ "grade": "reconstructed",
+ "sources": [
+  "hewitt_roosevelt_sons_1904",
+  "snyder_children_tea_1904"
+ ],
+ "basis": "Original 1904 clothing shells on a pinned CC0 child body. Identity, stature, colour and exact fit are not attested.",
+ "source_scope": "Hewitt: Roosevelt boys, published New-York Tribune 29 May 1904. Snyder: two children at play, Oxford Ohio, August 1904. These are clothing references, not portraits of Prairie Avenue residents.",
+ "colors_linear_rgba": {
+  "skin": [
+   1.0,
+   1.0,
+   1.0,
+   1.0
+  ],
+  "eyes": [
+   0.12,
+   0.09,
+   0.06,
+   1.0
+  ],
+  "garment_upper__child_frock_1904": [
+   0.4,
+   0.36,
+   0.28,
+   1
+  ],
+  "garment_lower__child_frock_1904": [
+   0.4,
+   0.36,
+   0.28,
+   1
+  ],
+  "accessory__child_collar_1904": [
+   0.75,
+   0.73,
+   0.68,
+   1
+  ],
+  "garment_lower__child_stockings_1904": [
+   0.025,
+   0.022,
+   0.02,
+   1
+  ],
+  "footwear__child_shoes_1904": [
+   0.022,
+   0.019,
+   0.016,
+   1
+  ]
+ },
+ "workwear_coverage": {
+  "shoe_clearance_m": 0.003
+ },
+ "proof_variants": [
+  {
+   "id": "teen_girl_1904",
+   "component_assembly": "teen_girl_1904_v1",
+   "person_reference_id": "anonymous_teen_girl_1904",
+   "person_reference_scene": "1904",
+   "person_reference_grade": "reconstructed",
+   "person_reference_record": "data/sources/hewitt_roosevelt_sons_1904.json",
+   "reference_summary": {
+    "name": "a girl in reconstructed 1904 everyday clothes",
+    "named": false,
+    "dress_role": "teen_girl_1904",
+    "presence": "clothing reference only"
+   },
+   "body_input": "assets/authored/humans/makehuman_hm08/prepared_teen_female_15.json",
+   "body_parameters": {
+    "chosen_height_m": 1.59,
+    "engineering_age_years": 15,
+    "height_basis": "Reconstructed engineering stature, varied per resident; no individual measurement.",
+    "age_basis": "Child graphical targets for this engineering age; resident age comes from the household record.",
+    "shape_basis": "An equal blend of software shape categories, not a claim about ancestry."
+   },
+   "body_basis": "Pinned CC0 age-specific body; neither a named person nor an attested height or ancestry.",
+   "recipe_path": "data/humans/recipes/teen_girl_1904.json"
+  }
+ ],
+ "child_components": {
+  "version": 1,
+  "generator": "tools/human_child_1904.py",
+  "role": "teen_girl_1904",
+  "liberty": "L-prairie-people-3548",
+  "body_sha256": "fb3a84cbe80d2dad8e6948bf5e11bca77fb3dd88fcbbb18370c58a268a3f2835",
+  "production_eligible": false,
+  "photo_accepted": false,
+  "garments": [
+   {
+    "id": "garment_upper__child_frock_1904",
+    "material": "garment_upper__child_frock_1904",
+    "provenance": {
+     "grade": "reconstructed",
+     "source_ids": [
+      "hewitt_roosevelt_sons_1904",
+      "snyder_children_tea_1904"
+     ],
+     "liberty": "L-prairie-people-3548"
+    }
+   },
+   {
+    "id": "garment_lower__child_frock_1904",
+    "material": "garment_lower__child_frock_1904",
+    "provenance": {
+     "grade": "reconstructed",
+     "source_ids": [
+      "hewitt_roosevelt_sons_1904",
+      "snyder_children_tea_1904"
+     ],
+     "liberty": "L-prairie-people-3548"
+    }
+   },
+   {
+    "id": "accessory__child_collar_1904",
+    "material": "accessory__child_collar_1904",
+    "provenance": {
+     "grade": "reconstructed",
+     "source_ids": [
+      "hewitt_roosevelt_sons_1904",
+      "snyder_children_tea_1904"
+     ],
+     "liberty": "L-prairie-people-3548"
+    }
+   },
+   {
+    "id": "garment_lower__child_stockings_1904",
+    "material": "garment_lower__child_stockings_1904",
+    "provenance": {
+     "grade": "reconstructed",
+     "source_ids": [
+      "hewitt_roosevelt_sons_1904",
+      "snyder_children_tea_1904"
+     ],
+     "liberty": "L-prairie-people-3548"
+    }
+   },
+   {
+    "id": "footwear__child_shoes_1904",
+    "material": "footwear__child_shoes_1904",
+    "provenance": {
+     "grade": "reconstructed",
+     "source_ids": [
+      "hewitt_roosevelt_sons_1904",
+      "snyder_children_tea_1904"
+     ],
+     "liberty": "L-prairie-people-3548"
+    }
+   }
+  ]
+ }
+}

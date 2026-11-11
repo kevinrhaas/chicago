@@ -2599,14 +2599,25 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
 }
 .research-link { color: var(--accent); }
 
-/* T-3532: opt-in audio is a full-width row, not a float that narrows the ticker. */
-.arrival-sound { display:flex; align-items:center; justify-content:center; gap:8px;
-  min-height:44px; min-width:44px; margin:0 0 12px auto; padding:8px 12px;
-  color:var(--text, #eee); background:var(--panel-solid, #142034);
-  border:1px solid var(--edge-strong, #526784); border-radius:6px; cursor:pointer; }
+/* Compact icon in the device header; retain a 44 px touch target. */
+.gate-card { position:relative; }
+.arrival-sound { position:absolute; inset:10px 10px auto auto; z-index:2;
+  display:flex; align-items:center; justify-content:center;
+  width:44px; height:44px; min-height:44px; min-width:44px; margin:0; padding:10px;
+  color:var(--text, #eee); background:transparent;
+  border:0; border-radius:6px; cursor:pointer; }
+.gate:not([data-state="welcome"]) .gate-eyebrow { max-width:calc(100% - 48px); margin-inline-end:48px; }
+.gate[data-state="welcome"] .gate-code { padding-inline-end:48px; min-height:28px; }
+.gate[data-state="welcome"] .gate-eyebrow { padding-inline-end:44px; }
 .arrival-sound:focus-visible { outline:2px solid var(--signal, #f5bd59); outline-offset:3px; }
-.arrival-sound[aria-pressed="true"] { border-color:var(--signal, #f5bd59); }
+.arrival-sound[aria-pressed="true"] { color:var(--signal, #f5bd59); }
 
 .arrival-sound .sound-playing-icon { display:none; }
 .arrival-sound[aria-pressed="true"] .sound-playing-icon { display:initial; }
 .arrival-sound[aria-pressed="true"] .sound-muted-icon { display:none; }
+
+/* Each explanation belongs to the slider above it, with a larger gap before
+   the next control. Keep the accessible label and description separate. */
+#s-sound .sound-control { margin-bottom:18px; }
+#s-sound .sound-control > .field { margin-bottom:0; }
+#s-sound .sound-control > .legend-note { margin:2px 0 0; line-height:1.45; }

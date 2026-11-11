@@ -287,7 +287,13 @@ WIDE_RANGE_YEARS = 12
 # silently omitting maps. Two 436 + 132.233 MiB other content = 1004.233 < 1024 MiB.
 # Default boot and actual 1812/1835 phone memory are separately measured gates.
 # Light geometry, frame/draw-call caps, 90% warning and duplicates do not change.
-SITE_BUDGET_MB = 436
+# T-3550: owner-approved five juvenile roles add 5.26 MiB after shared-sheet
+# extraction; published checkpoint measured 440.883 MiB (2026-11-11), against
+# the adult rollout at 435.62. Allow 443 MiB for these exports and their 40
+# younger-resident records. Two443 + last measured other-content132.233 =
+# 1018.233 MiB, below the established1024 MiB accounting ceiling. The assets
+# load on demand; boot, frame, Light, memory and duplicate gates are unchanged.
+SITE_BUDGET_MB = 443
 # Warn at 90 % of it. See run_site_check for why this band exists (T-0722).
 SITE_WARN_FRACTION = 0.90
 # Identical files smaller than this are not worth a merge refusal (T-0722).

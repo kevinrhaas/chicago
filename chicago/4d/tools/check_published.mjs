@@ -251,6 +251,11 @@ const TRANSFORMED = [
         + 'loader knows the packed copies exist without probing for them (T-2315)',
     gate: 'pack_boot_sidecars.mjs --check (check.sh) asserts the shipped index is its source plus exactly '
         + 'that key.' },
+  { re: /^data\/sidecars\/[^/]+\/.+\.json$/,
+    what: 'T-3548: remaining sidecars ship without JSON indentation; earlier transforms retain their own stronger checks',
+    gate: 'Every parsed field is compared with its source; no field is omitted or rewritten',
+    verify: rel => isDeepStrictEqual(JSON.parse(readFileSync(path.join(REPO, rel), 'utf8')),
+      JSON.parse(readFileSync(path.join(SITE, rel), 'utf8'))) ? null : `${rel}: compact sidecar differs from source` },
   { re: /^data\/gltf\/.*\.glb$/,
     what: 'gltf-transform meshopt derivative built by bake.sh from assets/gltf masters',
     gate: 'R-BUG3c-b: check.sh asserts the committed master against the heightfield and REPORTS the '
@@ -285,6 +290,15 @@ const TRANSFORMED = [
     gate: 'share_glb_sheets.mjs --dir data/humans/web --check: named by its own hash, held by two or more GLBs, '
         + 'and a re-deflated PNG draws its source\'s pixels with its source\'s other chunks (samePngPixels).' },
   // T-3463: the browser fixture's readings and the dress recipes are not shipped (publish.sh).
+  { re: /^data\/humans\/.+\.json$/,
+    what: 'T-3548: human runtime JSON ships without indentation; authoring-only variation inputs remain outside the mirror',
+    gate: 'Every parsed field equals its source, including all portraits, ages, dress, identities and daily schedules',
+    verify: rel => {
+      const src = rel.startsWith('data/humans/web/') ? rel.replace('data/humans/web/', 'assets/humans/web/') : rel;
+      if (!existsSync(path.join(REPO, src))) return `${rel}: no source for compact human record`;
+      return isDeepStrictEqual(JSON.parse(readFileSync(path.join(REPO, src), 'utf8')),
+        JSON.parse(readFileSync(path.join(SITE, rel), 'utf8'))) ? null : `${rel}: compact human record differs from source`;
+    } },
   { re: /^data\/humans\/instances\/.+\.json$/,
     what: 'publish.sh writes the people\'s instance records minified — the same JSON value on one line (T-3463)',
     gate: 'checked here: the SHIPPED file parses to a value deep-equal to its source data/humans/instances '

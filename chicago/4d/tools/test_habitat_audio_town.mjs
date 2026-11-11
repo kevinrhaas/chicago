@@ -202,7 +202,7 @@ for (const width of widths) {
   console.log(`${width}px: actual water classifications only (not audibility or pixel evidence): ${JSON.stringify(water)}`);
   assert(await page.evaluate(() => __ha.engine.state.errors.length === 0));
   assert.deepEqual(errors, []); assert(responses.every(r => r.status >= 200 && r.status < 300), JSON.stringify(responses));
-  const live = catalog.assets.filter(a => a.runtime_enabled).map(a => a.url);
+  const live = catalog.assets.filter(a => a.runtime_enabled && ['habitat-insects', 'distant-bird'].includes(a.scene_placement?.mode)).map(a => a.url);
   for (const url of live) assert(requests.includes(url), `actual R2 request: ${url}`);
   console.log(`HABITAT TOWN OVERLAY PASS ${width}px: real prairie/marsh, real scene hour/date/season, integrated ambience lifecycle, real cricket/bird samples, fixed distant rear anchor, near/far/in-view silence; zero page errors. No pixel qualification.`);
  } catch (error) {

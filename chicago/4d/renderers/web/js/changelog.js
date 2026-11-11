@@ -1,4 +1,20 @@
 export const CHANGELOG = [ // newest first
+  { v: 2882, ts: '2026-11-11T17:59:21.153Z', date: 'Nov 11, 2026, 11:59 AM CT', title: 'Prairie Avenue people gain portraits, individual looks and household routines', kind: 'feature',
+    items: [
+      'Person cards gain verified period portraits, source notes and clearer portrait-search limits.',
+      'Individual face fits, hair, facial hair and spectacles follow identified pictures; reconstructed features remain labelled.',
+      'Adults, children and teens follow seasonal routines, answer household door calls, take walks and chat with other people.',
+      'Small children come outside with a household adult, who stays nearby during interactions. Both return indoors after their outing.',
+      'Ask after an infant at the door to open their card and learn about their reconstructed household care.',
+    ] },
+  { v: 2881, ts: '2026-11-11T13:16:02.113Z', date: 'Nov 11, 2026, 7:16 AM CT', title: 'Compact sound controls, continuous music and quieter town ambience', kind: 'feature',
+    items: [
+      'Period music keeps repeating in town, but stays silent during time travel and arrival. Ambience and effects remain independent.',
+      'Wind is much quieter in town, especially in 1904, with a modest increase by the lake. The owner-selected light water on rocks replaces the busy river recording; insects stay as they were.',
+      'With Sound on, nearby moving teams carry harness jingles; wooden wagons in 1812 and 1835 also rumble. Their sounds follow position and distance, and stop with the vehicle or when it is hidden.',
+      'The loading-screen speaker is a compact on/off icon. Settings explain Ambience (wind, waves, birds and insects) and Effects (nearby wagon wheels and harness jingles).',
+      'The audio library records sources and reconstructed placements. Transport reuses existing hosted files; the calmer river adds one small recorded loop.',
+    ] },
   { v: 2880, ts: '2026-11-11T10:14:24.451Z', date: 'Nov 11, 2026, 4:14 AM CT', title: 'Fine wool detail on Charles Nelson\'s coat', kind: 'change',
     items: [
       'Charles\'s existing green livery keeps its cut and movement, with a fine wool surface in close views.',

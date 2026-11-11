@@ -1,0 +1,26 @@
+{
+  "source_url": "https://freesound.org/people/TRP/sounds/575244/",
+  "creator": "TRP",
+  "description": "Calm water light lapping onto rocks, summer (2008). Zoom H2 internal mics.",
+  "license": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "retrieved": "2026-11-11",
+  "source_page_sha256": "94b1dd22883584ee70b79dec4889a8225b63231a13c0286054610ea3ebb27256",
+  "rights_evidence_text": "Creative Commons 0 You can copy, modify, distribute and perform the sound, even for commercial purposes, all without the need of asking permission to the author.",
+  "download_url": "https://cdn.freesound.org/previews/575/575244_97550-hq.mp3",
+  "acquisition": "Freesound HQ MP3 preview, not the original download",
+  "file_sha256": "8ab476464f7d1280514f6a405988550f423b572e9fe3900b29b776cfba77ab48",
+  "file_bytes": 4995639,
+  "source_audio": {
+    "codec_name": "mp3",
+    "sample_rate": "44100",
+    "channels": 2
+  },
+  "owner_selection": {
+    "date": "2026-11-11",
+    "quote": "Light water on rocks",
+    "delivery_sha256": "6831b7ad102ec023194c4040776c5245b6cb47451d652a94a07dc742e28362af",
+    "delivery_bytes": 352940
+  },
+  "placement_note": "Modern rocky lake water is a reconstructed acoustic proxy for the nearly still river, not evidence of historical Chicago bank substrate."
+}

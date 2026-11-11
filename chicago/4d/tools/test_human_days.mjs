@@ -643,3 +643,89 @@ console.log('1812: all 804 routines, soldier ownership, Native door/activity/cha
 
 // Keep the cold-grid and explicit-trip regression in the existing day-engine gate.
 await import('./test_human_days_routing.mjs');
+
+// T-3550: approved young residents have real company, including door calls.
+{
+  const house = 'kinzie_house_1812';
+  const door = doors.structures.find(s => s.structure === house).doors[0];
+  let h = 23, d = '1904-07-01';
+  const walk = OUT(10, 12, door.step.local_e + 2, door.step.local_n, 90,
+    { activity: 'walk', doing: 'playing near home with a household adult', to_point: { local_e: door.step.local_e + 5, local_n: door.step.local_n } });
+  const day = [{ spans: [IN(0, 10, house), walk, IN(12, 17, house), { ...walk, from: 17, to: 18, activity: 'talk' }, IN(18, 24, house)] }];
+  const entries = [
+    { person: 'small_child', name: 'Child', home: house, door: door.id, asset_id: 'child_toddler_1904', supervised: true, caregivers: ['caregiver'], day },
+    { person: 'caregiver', name: 'Caregiver', home: house, door: door.id, asset_id: 'glessner_frances_m_1904', day: [{ spans: [IN(0, 24, house)] }] },
+  ];
+  const infant = { person: 'infant', name: 'Infant', home: house, door: door.id, care_only: true, caregivers: ['caregiver'], day: [{ spans: [{ ...IN(0, 24, house), doing: 'sleeping in household care' }] }] };
+  const actors = [], opened = [], removed = [];
+  const humans = { actors, shown: true };
+  const interactions = createInteractions();
+  let allowAdult = true, warmedGrid = false, clearOuting = true;
+  const layer = createHumanDays({ humans, three, hour: () => h, date: () => d, doors, interactions,
+    visitor: () => ({ e: door.step.local_e + 3, n: door.step.local_n }), inside: { people: entries, care: [infant] },
+    openResident: id => opened.push(id),
+    clear: () => clearOuting,
+    router: { plan: (a, b) => warmedGrid ? { points: [[a.e, a.n], [a.e + 5, a.n + 5], [b.e, b.n]] } : null },
+    spawn(entry) {
+      if (entry.person === 'caregiver' && !allowAdult) return null;
+      assert(!entry.care_only, 'infants never enter the mesh factory');
+      const a = actorOf({ ...rec(entry.person, {}, [door.leaf.local_e, door.leaf.local_n, 0]), scene: '1904' }, entry.name);
+      a.stopPath = () => { a.pending = null; a.path = null; };
+      actors.push(a); return a;
+    },
+    despawn(a) { removed.push(a.personId); const i = actors.indexOf(a); if (i >= 0) actors.splice(i, 1); },
+  });
+  function tick(seconds) {
+    for (let t = 0; t < seconds; t += .25) {
+      for (const a of actors) if (a.pending) { const p = a.pending; a.pending = null; a.e = p.end.e; a.n = p.end.n; p.onArrive?.(); }
+      layer.update(.25);
+    }
+  }
+  tick(1);
+  const infantAction = layer.doors.find(t => t.structure === house).actions.shut.find(a => a.id === 'ask:infant');
+  assert.equal(infantAction.label, 'Ask after Infant');
+  assert(infantAction.said().includes('sleeping in household care'));
+  assert(layer.ask('infant').householdCare); assert.deepEqual(opened, ['infant']); assert.equal(actors.length, 0);
+  allowAdult = false;
+  const childAction = layer.doors.find(t => t.structure === house).actions.shut.find(a => a.id === 'ask:small_child');
+  childAction.steps[0].run(1); assert(childAction.said().includes('household adult'), 'the door reports a missing caregiver instead of claiming the child came out'); tick(2);
+  assert.equal(layer.ask('small_child').ok, false, 'no available adult means no unaccompanied outing'); tick(2);
+  assert.equal(actors.length, 0, 'failed calls retire the hidden child');
+  allowAdult = true;
+  assert(layer.ask('small_child').ok); tick(4);
+  let child = layer.people.find(p => p.actor.personId === 'small_child');
+  let adult = layer.people.find(p => p.actor.personId === 'caregiver');
+  assert(child.social === adult.social && child.social.supervised, 'door call reserves the household adult');
+  assert(!child.actor.indoors && !adult.actor.indoors);
+  assert(Math.hypot(child.actor.e - adult.actor.e, child.actor.n - adult.actor.n) <= 2.2);
+  const activity = layer.outdoorActivities(child.id).find(a => a.span.activity === 'walk');
+  assert(layer.request(child.id, activity.id).ok, 'a normal outdoor activity can be requested at night');
+  warmedGrid = true; // an already-built router may snap nearby partners onto different cells
+  const before = [child.actor.walks.length, adult.actor.walks.length]; tick(12);
+  assert(child.actor.walks.length > before[0] && adult.actor.walks.length > before[1], 'both walk during supervised play');
+  const sharedLegs = [child, adult].map((p, i) => p.actor.walks.slice(before[i]));
+  assert(sharedLegs.flat().every(points => points.length === 2), 'clear shared frontage legs must not acquire separate grid detours');
+  assert.deepEqual(sharedLegs[0].map(([a,b]) => [b[0]-a[0],b[1]-a[1]]), sharedLegs[1].map(([a,b]) => [b[0]-a[0],b[1]-a[1]]), 'both partners walk the same short translation');
+  clearOuting = false; const blockedCount = child.actor.walks.length; tick(8);
+  assert.equal(child.actor.walks.length, blockedCount, 'a blocked next leg never takes a direct shortcut');
+  clearOuting = true; tick(4);
+  const session = child.social, release = layer.attend(child.id);
+  assert(release); assert.equal(child.social, session); assert.equal(adult.social, session, 'menu keeps the caregiver present');
+  const heldWalks = adult.actor.walks.length; tick(3); assert.equal(adult.actor.walks.length, heldWalks, 'caregiver waits with the menu'); release();
+  const oldWalk = { old: true }; adult.actor.path = oldWalk;
+  const releaseForGreeting = layer.attend(child.id); assert(releaseForGreeting);
+  layer.pause(child.id); releaseForGreeting(); tick(2);
+  assert.notEqual(adult.actor.path, oldWalk, 'closing the menu after a greeting cannot revive the caregiver old walk');
+  assert.equal(child.social, adult.social, 'greeting keeps the pair');
+  const chatActivity = layer.outdoorActivities(child.id).find(a => a.span.activity === 'talk');
+  assert(layer.request(child.id, chatActivity.id).ok);
+  tick(4); assert.equal([child, adult].filter(p => p.actor.actions.talking).length, 1, 'a real paired conversation');
+  assert(layer.request(child.id, null, { inside: 'home' }).ok); tick(5);
+  assert.equal(actors.length, 0, 'Go home returns and releases both figures');
+  assert(layer.ask('small_child').ok); tick(4); child = layer.people.find(p => p.actor.personId === 'small_child');
+  assert(layer.request(child.id, layer.outdoorActivities(child.id).find(a => a.span.activity === 'walk').id).ok);
+  tick(160); tick(5); assert.equal(actors.length, 0, 'the requested outing finishes and both return to duties');
+  assert(removed.includes('caregiver') && removed.includes('small_child'));
+  humans.crowdKept = []; assert.equal(layer.ask('infant').ok, false); assert.equal(layer.ask('small_child').ok, false, 'jaunts retain priority');
+}
+console.log('Prairie younger residents: supervision, shared walks, door care, menus, return and jaunt priority hold');

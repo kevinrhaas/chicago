@@ -1,0 +1,169 @@
+{
+  "format": "chicago4d_human_portrait_marks_v1",
+  "ticket": "T-3547",
+  "person_id": "pa1904_meeker_mrs_arthur",
+  "scene": "1904",
+  "source": "chicago_tribune_society_women_1907",
+  "scan": "https://archive.lib.msu.edu/DMC/tribune/trib00000000/trib00000000823.jpg",
+  "scan_size_px": [
+    10391,
+    13847
+  ],
+  "crop_px": [
+    6235,
+    8469,
+    8728,
+    11794
+  ],
+  "_doc": "Visible facial landmarks read from the captioned newspaper photograph. Grain and print contrast reflected in uncertainty; hidden crown is not marked.",
+  "base_body": "glessner_frances_m_1904",
+  "sex": "female",
+  "age_at_picture_years": 37,
+  "age_note": "Approximate age at 1907 publication, from an inferred birth date; the undated exposure may be earlier. The scene figure uses the 1904 age.",
+  "grade": "inferred",
+  "basis": "Caption identifies the sitter; one-view facial depth, exact grooming and colours remain reconstructed.",
+  "not_modelled": [
+    "Exact photographed dress and jewellery.",
+    "Unseen depth, photographic colour and personal measurements."
+  ],
+  "axes": [
+    "nose_length",
+    "nose_width",
+    "nose_depth",
+    "nose_hump",
+    "nose_curve",
+    "nose_tip",
+    "nose_tip_width",
+    "nostrils",
+    "nose_height",
+    "mouth_width",
+    "lip_upper",
+    "lip_lower",
+    "mouth_height",
+    "chin_prominence",
+    "chin_width",
+    "chin_height",
+    "jaw",
+    "prognathism",
+    "cheekbones",
+    "cheek_volume",
+    "cheek_inner",
+    "brow_height",
+    "brow_angle",
+    "brow_ridge",
+    "forehead_slope",
+    "temples",
+    "ear_size",
+    "ear_flap",
+    "ear_lobe",
+    "jowls",
+    "head_shape",
+    "forehead_height",
+    "mouth_corners"
+  ],
+  "marks": [
+    {
+      "landmark": "pupil_r",
+      "x": 985,
+      "y": 1430,
+      "sigma_px": 20.8
+    },
+    {
+      "landmark": "pupil_l",
+      "x": 1463,
+      "y": 1451,
+      "sigma_px": 20.8
+    },
+    {
+      "landmark": "eye_outer_r",
+      "x": 860,
+      "y": 1409,
+      "sigma_px": 24.9
+    },
+    {
+      "landmark": "eye_inner_r",
+      "x": 1097,
+      "y": 1442,
+      "sigma_px": 24.9
+    },
+    {
+      "landmark": "eye_inner_l",
+      "x": 1346,
+      "y": 1442,
+      "sigma_px": 24.9
+    },
+    {
+      "landmark": "eye_outer_l",
+      "x": 1579,
+      "y": 1446,
+      "sigma_px": 24.9
+    },
+    {
+      "landmark": "nasion",
+      "x": 1230,
+      "y": 1421,
+      "sigma_px": 33.2
+    },
+    {
+      "landmark": "nose_tip",
+      "x": 1246,
+      "y": 1692,
+      "sigma_px": 29.1
+    },
+    {
+      "landmark": "subnasale",
+      "x": 1255,
+      "y": 1766,
+      "sigma_px": 29.1
+    },
+    {
+      "landmark": "stomion",
+      "x": 1246,
+      "y": 1937,
+      "sigma_px": 29.1
+    },
+    {
+      "landmark": "menton",
+      "x": 1255,
+      "y": 2269,
+      "sigma_px": 49.9
+    },
+    {
+      "landmark": "ear_top_r",
+      "x": 602,
+      "y": 1588,
+      "sigma_px": 49.9
+    },
+    {
+      "landmark": "ear_lobe_r",
+      "x": 681,
+      "y": 1845,
+      "sigma_px": 49.9
+    }
+  ],
+  "card": {
+    "_doc": "Captioned 1907 newspaper photograph and face fit; reconstructed 1904 day clothes, hair and colours.",
+    "portrait": "assets/humans/web/portraits/pa1904_meeker_mrs_arthur_portrait.jpg",
+    "portrait_from_scan_px": [
+      6235,
+      8469,
+      8728,
+      11794
+    ],
+    "model": "assets/humans/web/portraits/pa1904_meeker_mrs_arthur_model.jpg",
+    "size_px": [
+      360,
+      480
+    ],
+    "body": "glessner_frances_m_1904",
+    "background": "#1c1b18",
+    "distance_m": 0.9,
+    "aim_above_head_m": 0.0,
+    "dress": true,
+    "hide": "^headwear|hat_plumes"
+  },
+  "read_by_eye": {
+    "values": {},
+    "basis": "Only visible landmarks constrain the fit; unseen form remains reconstructed."
+  }
+}

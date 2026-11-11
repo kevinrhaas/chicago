@@ -53,7 +53,23 @@
         "as_enumerated": "Shortall, John L",
         "relation_as_enumerated": "Head"
       },
-      "note": "The 1900 census lists John L. Shortall here as head, born May 1865, in Illinois, married, lawyer (ED 36, sheet 3A, line 9, leaf n669)."
+      "note": "The 1900 census lists John L. Shortall here as head, born May 1865, in Illinois, married, lawyer (ED 36, sheet 3A, line 9, leaf n669).",
+      "born": {
+        "value": "1865",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The existing census transcription gives born May 1865. The year is carried into the age shown on this card."
+      },
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_shortall_mrs_john_l",
@@ -72,7 +88,23 @@
         "as_enumerated": "Shortall, Mary C",
         "relation_as_enumerated": "Wife"
       },
-      "note": "The 1900 census lists Mary C. Shortall here as wife, born February 1867, in Massachusetts, married (ED 36, sheet 3A, line 10, leaf n669)."
+      "note": "The 1900 census lists Mary C. Shortall here as wife, born February 1867, in Massachusetts, married (ED 36, sheet 3A, line 10, leaf n669).",
+      "born": {
+        "value": "1867",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The existing census transcription gives born February 1867. The year is carried into the age shown on this card."
+      },
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_shortall_john_l_c1900_catherine_shortall",
@@ -97,7 +129,15 @@
         "as_enumerated": "Shortall, Catherine",
         "relation_as_enumerated": "Daughter"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a daughter of the head; born July 1890, in South Dakota. The 1904 Blue Book names no children, so a child at home in 1900 is placed here in 1904 by inference."
+      "note": "Enumerated on 1 June 1900 in the house, as a daughter of the head; born July 1890, in South Dakota. The 1904 Blue Book names no children, so a child at home in 1900 is placed here in 1904 by inference.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_shortall_john_l_c1900_helen_shortall",
@@ -122,7 +162,15 @@
         "as_enumerated": "Shortall, Helen",
         "relation_as_enumerated": "Daughter"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a daughter of the head; born March 1892, in Illinois. The 1904 Blue Book names no children, so a child at home in 1900 is placed here in 1904 by inference."
+      "note": "Enumerated on 1 June 1900 in the house, as a daughter of the head; born March 1892, in Illinois. The 1904 Blue Book names no children, so a child at home in 1900 is placed here in 1904 by inference.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_shortall_john_l_c1900_harrington_shortall",
@@ -147,7 +195,15 @@
         "as_enumerated": "Shortall, Harrington",
         "relation_as_enumerated": "Son"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a son of the head; born February 1895, in Illinois. The 1904 Blue Book names no children, so a child at home in 1900 is placed here in 1904 by inference."
+      "note": "Enumerated on 1 June 1900 in the house, as a son of the head; born February 1895, in Illinois. The 1904 Blue Book names no children, so a child at home in 1900 is placed here in 1904 by inference.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_shortall_john_l_c1900_margaret_shortall",
@@ -172,7 +228,15 @@
         "as_enumerated": "Shortall, Margaret",
         "relation_as_enumerated": "Daughter"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a daughter of the head; born December 1896, in Illinois. The 1904 Blue Book names no children, so a child at home in 1900 is placed here in 1904 by inference."
+      "note": "Enumerated on 1 June 1900 in the house, as a daughter of the head; born December 1896, in Illinois. The 1904 Blue Book names no children, so a child at home in 1900 is placed here in 1904 by inference.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_shortall_john_l_c1900_ellen_downey",
@@ -205,7 +269,15 @@
         "as_enumerated": "Downey, Ellen",
         "relation_as_enumerated": "Servant"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a servant (nurse); born February 1872, in Connecticut, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (nurse); born February 1872, in Connecticut, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_shortall_john_l_c1900_harriet_hamilton",
@@ -238,7 +310,15 @@
         "as_enumerated": "Hamilton, Harriet",
         "relation_as_enumerated": "Servant"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a servant (housemaid); born April 1874, in Canada (Eng.), single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (housemaid); born April 1874, in Canada (Eng.), single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     }
   ]
 }

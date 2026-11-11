@@ -303,6 +303,8 @@ step "Hosted audio retains originals and binds published URLs to verified bytes 
   node tools/test_audio_hosting.mjs
 step "Dated habitat audio qualifies real fauna, leaves silence and bounds voices, buffers and stale work (T-3534)" \
   node tools/test_habitat_audio.mjs
+step "Recorded transport follows moving dated actors with bounded spatial voices and mute cleanup (T-3544)" \
+  node tools/test_transport_audio.mjs
 step "Default audio packages include approved habitat clips and retain review-only opt-in (T-3534)" \
   python3 tools/test_habitat_audio_package.py
 step "Published audio smoke verifies delivery bytes in full and sparse artifact checkouts (T-3532)" \
@@ -656,6 +658,12 @@ step "Each 1812 building's doors are where its model draws the leaf, and where o
   python3 tools/derive_doors_1812.py --check
 step "1812 people keep their day: off their dates nowhere (Lalime gone by 14 August, there in February), indoors or out by the hour, talking, at work, walking; a door offers Ask for whoever is inside, soldiers in quarters too, and the one asked for comes out to the visitor and goes back in (T-3463..T-3467)" \
   node tools/test_human_days.mjs
+step "Prairie Avenue roster casting, aliases, portraits and seasonal days remain consistent (T-3548)" \
+  python3 tools/test_prairie_people.py
+step "Prairie Avenue generated residents and appearance profiles reproduce (T-3547, T-3548)" \
+  python3 tools/prairie_people.py --check
+step "Prairie Avenue child source recipes match their pinned bodies (T-3548)" \
+  python3 tools/prairie_children_source.py --check
 step "Nobody stands in anybody else's place: a talk in a ring, people standing together talk, one alone is at a job, and every year's figures kept a body's width apart through the day, and nobody stands in a mat or bark lodge wall (T-3504, T-3520)" \
   node tools/test_human_spacing.mjs
 step "People keep busy all day: a talk gathers and parts again, each of its people at a job of their own or at play between, breaks indoors at their door and asked for there, every job's places clear of the buildings, the same round on every load; 1835 and 1904 too; most children indoors or by their own door, never a crowd of them without grown-ups (T-3505, T-3516, T-3520)" \

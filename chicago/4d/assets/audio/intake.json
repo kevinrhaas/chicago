@@ -118,14 +118,18 @@
       "excerpt_start_s": 0,
       "excerpt_duration_s": 24,
       "source_format": "Freesound HQ MP3 preview; not a lossless master",
-      "status": "audition-and-placement-pending",
-      "runtime_enabled": false,
+      "status": "dated-moving-transport-proxy",
+      "runtime_enabled": true,
       "candidate_eras": [
         "1812",
         "1835",
         "1904"
       ],
-      "approved_eras": [],
+      "approved_eras": [
+        "1812",
+        "1835",
+        "1904"
+      ],
       "seasons_proposed": [
         "spring",
         "summer",
@@ -134,7 +138,38 @@
       ],
       "species_candidates": [],
       "placement_note": "Recorded harness hardware; coordinate with the visible horse/wagon assembly and movement.",
-      "fauna_references": []
+      "fauna_references": [],
+      "scene_placement": {
+        "mode": "moving-transport",
+        "anchor": "harness",
+        "gain": 0.15,
+        "max_distance_m": 32,
+        "bindings": [
+          {
+            "scene": "1812",
+            "scene_date": "1812-08-14",
+            "actor_ids": [
+              "fort_wagon_loop_1812",
+              "shore_road_wagon_haul_1812"
+            ]
+          },
+          {
+            "scene": "1835",
+            "scene_date": "1835-07-01",
+            "actor_ids": [
+              "western_hotel_driven_wagon_loop_1835"
+            ]
+          },
+          {
+            "scene": "1904",
+            "scene_date": "1904-07-01",
+            "actor_ids": [
+              "prairie_driven_brougham_loop_1904"
+            ]
+          }
+        ],
+        "note": "Reconstructed acoustic proxy attached only to the visible moving team; quiet during holds, stops, hidden layers and off-hours. Short unpitched excerpts follow actual vehicle position and speed. Modern recording, not evidence of this historical vehicle; listening quality remains to be reviewed."
+      }
     },
     {
       "id": "dirt-footstep",
@@ -330,14 +365,17 @@
       "excerpt_start_s": 0,
       "excerpt_duration_s": 11.136,
       "source_format": "Freesound HQ MP3 preview; not a lossless master",
-      "status": "audition-and-placement-pending",
-      "runtime_enabled": false,
+      "status": "dated-moving-transport-proxy",
+      "runtime_enabled": true,
       "candidate_eras": [
         "1812",
         "1835",
         "1904"
       ],
-      "approved_eras": [],
+      "approved_eras": [
+        "1812",
+        "1835"
+      ],
       "seasons_proposed": [
         "spring",
         "summer",
@@ -346,7 +384,31 @@
       ],
       "species_candidates": [],
       "placement_note": "Creator describes a large wooden wagon rolling down a mountain. Match speed, load, road surface and visible assembly before use.",
-      "fauna_references": []
+      "fauna_references": [],
+      "scene_placement": {
+        "mode": "moving-transport",
+        "anchor": "wagon",
+        "gain": 0.22,
+        "max_distance_m": 40,
+        "bindings": [
+          {
+            "scene": "1812",
+            "scene_date": "1812-08-14",
+            "actor_ids": [
+              "fort_wagon_loop_1812",
+              "shore_road_wagon_haul_1812"
+            ]
+          },
+          {
+            "scene": "1835",
+            "scene_date": "1835-07-01",
+            "actor_ids": [
+              "western_hotel_driven_wagon_loop_1835"
+            ]
+          }
+        ],
+        "note": "Reconstructed acoustic proxy attached only to the visible moving team; quiet during holds, stops, hidden layers and off-hours. Short unpitched excerpts follow actual vehicle position and speed. Modern recording, not evidence of this historical vehicle; listening quality remains to be reviewed. The source describes a large wooden wagon rolling downhill; use is a mechanical-texture proxy, not a claim about Chicago road surface. Excluded from the 1904 brougham."
+      }
     },
     {
       "id": "summer-cicada-proxy",

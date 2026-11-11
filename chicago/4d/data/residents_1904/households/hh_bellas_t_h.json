@@ -29,7 +29,7 @@
     }
   ],
   "not_in_this_household": {
-    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 36, T623 roll 245) was read for this card. The three live-in staff it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. Left off: Emeline C. Bellas (named in the note on \"The Misses Bellas\"); Helen M. Bellas (named in the note on \"The Misses Bellas\"); Edith Bellas (named in the note on \"The Misses Bellas\"). The 1910 census (T624 roll 241, ED 166 and 167) was read for this card's children: the children it lists, and those the Blue Book lists at the number from 1890 to 1911, are on the card with the years each lived here, whether or not they were at home in 1904. A person goes on this card when a source names them, and not before.",
+    "note": "WHO IS NOT ON THIS CARD, AND WHY. The Blue Book is a society register: it names the family members who received and were received, prints unmarried daughters only as '& dr.', and names no young children, servants, coachmen, cooks or nurses. The 1900 census (ED 36, T623 roll 245) was read for this card. The three live-in staff it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. The daughters named in the 1900 census now have individual cards linked from the collective Blue Book entry. Their presence on 1 July 1904 remains uncertain. The 1910 census (T624 roll 241, ED 166 and 167) was read for this card's children: the children it lists, and those the Blue Book lists at the number from 1890 to 1911, are on the card with the years each lived here, whether or not they were at home in 1904. A person goes on this card when a source names them, and not before.",
     "sources": [
       "chicago_blue_book_1904",
       "census_1900_chicago_t623_roll245",
@@ -54,6 +54,22 @@
         "locator": "ED 36, sheet 2A, line 36, leaf n667",
         "as_enumerated": "Bellas, Thomas H",
         "relation_as_enumerated": "Head"
+      },
+      "born": {
+        "value": "1846",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The existing census transcription gives born November 1846. The year is carried into the age shown on this card."
+      },
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
       }
     },
     {
@@ -74,7 +90,23 @@
         "as_enumerated": "Bellas, Emma L",
         "relation_as_enumerated": "Wife"
       },
-      "note": "The 1900 census lists Emma L. Bellas here as wife, born October 1851, in Illinois, married (ED 36, sheet 2A, line 37, leaf n667)."
+      "note": "The 1900 census lists Emma L. Bellas here as wife, born October 1851, in Illinois, married (ED 36, sheet 2A, line 37, leaf n667).",
+      "born": {
+        "value": "1851",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The existing census transcription gives born October 1851. The year is carried into the age shown on this card."
+      },
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_bellas_daughters",
@@ -88,7 +120,21 @@
         "census_1910_chicago_t624_roll241"
       ],
       "printed_as": "1634 Mr. & Mrs. T. H. Bellas & drs.",
-      "note": "The Blue Book prints '& drs.' after the household's name: two or more unmarried daughters at home, neither named nor counted. One line stands for them all. 'Miss Bellas' is the book's own form of address, not a recorded name. The 1900 census lists the unmarried daughters at home as Emeline C. Bellas (born March 1881, in Illinois, single; ED 36, sheet 2A, line 38, leaf n667); Helen M. Bellas (born July 1884, in Illinois; ED 36, sheet 2A, line 39, leaf n667); Edith Bellas (born October 1887, in Illinois; ED 36, sheet 2A, line 40, leaf n667). Which of them the 1904 line stands for, the book does not say. The 1910 census lists the household under Erastus Foote, with Emma L. Bellas, widow, as his sister and Helena M. Bellas, 23, and Edith Bellas, 20, as his nieces (ED 166, sheet 9A, lines 1-4): very likely the daughters the book means."
+      "note": "The Blue Book prints '& drs.' after the household's name: two or more unmarried daughters at home, neither named nor counted. One line stands for them all. 'Miss Bellas' is the book's own form of address, not a recorded name. The 1900 census lists the unmarried daughters at home as Emeline C. Bellas (born March 1881, in Illinois, single; ED 36, sheet 2A, line 38, leaf n667); Helen M. Bellas (born July 1884, in Illinois; ED 36, sheet 2A, line 39, leaf n667); Edith Bellas (born October 1887, in Illinois; ED 36, sheet 2A, line 40, leaf n667). Which of them the 1904 line stands for, the book does not say. The 1910 census lists the household under Erastus Foote, with Emma L. Bellas, widow, as his sister and Helena M. Bellas, 23, and Edith Bellas, 20, as his nieces (ED 166, sheet 9A, lines 1-4): very likely the daughters the book means.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      },
+      "collective": true,
+      "individual_cards": [
+        "pa1904_bellas_emeline_c",
+        "pa1904_bellas_helen_m",
+        "pa1904_bellas_edith"
+      ]
     },
     {
       "id": "pa1904_foote_erastus",
@@ -108,6 +154,22 @@
         "locator": "ED 36, sheet 2A, line 42, leaf n667",
         "as_enumerated": "Foote, Erastus",
         "relation_as_enumerated": "Brother-in-law"
+      },
+      "born": {
+        "value": "1850",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The existing census transcription gives born March 1850. The year is carried into the age shown on this card."
+      },
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
       }
     },
     {
@@ -141,7 +203,15 @@
         "as_enumerated": "Smith, Margaret M",
         "relation_as_enumerated": "Servant"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a servant (governess); born September 1870, in Scotland, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (governess); born September 1870, in Scotland, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_bellas_t_h_c1900_emelia_brandt",
@@ -174,7 +244,15 @@
         "as_enumerated": "Brandt, Emelia",
         "relation_as_enumerated": "Servant"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a servant (cook); born May 1866, in Sweden, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (cook); born May 1866, in Sweden, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_bellas_t_h_c1900_anna_carlson",
@@ -207,7 +285,108 @@
         "as_enumerated": "Carlson, Anna",
         "relation_as_enumerated": "Servant"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a servant (waitress); born August 1877, in Sweden, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (waitress); born August 1877, in Sweden, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
+    },
+    {
+      "id": "pa1904_bellas_emeline_c",
+      "name": "Emeline C. Bellas",
+      "relationship": "daughter",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245",
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905"
+      ],
+      "born": {
+        "value": "1881",
+        "confidence": "inferred",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Year transcribed in the existing collective daughters record; later census ages may disagree."
+      },
+      "note": "Emeline C. Bellas is individually named in the 1900 census transcription on the household’s collective daughters card (line 38). The Blue Books still list unmarried daughters in 1904 and 1905 but do not name them. Continued residence is inferred, not individually attested. ",
+      "lived_here": {
+        "years": "1900; inferred 1904",
+        "on_scene_date": "unknown"
+      },
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "No individual portrait verified in the sources searched; the figure is reconstructed.",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ]
+      }
+    },
+    {
+      "id": "pa1904_bellas_helen_m",
+      "name": "Helen M. Bellas",
+      "relationship": "daughter",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245",
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905"
+      ],
+      "born": {
+        "value": "1884",
+        "confidence": "inferred",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Year transcribed in the existing collective daughters record; later census ages may disagree."
+      },
+      "note": "Helen M. Bellas is individually named in the 1900 census transcription on the household’s collective daughters card (line 39). The Blue Books still list unmarried daughters in 1904 and 1905 but do not name them. Continued residence is inferred, not individually attested. ",
+      "lived_here": {
+        "years": "1900; inferred 1904",
+        "on_scene_date": "unknown"
+      },
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "No individual portrait verified in the sources searched; the figure is reconstructed.",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ]
+      }
+    },
+    {
+      "id": "pa1904_bellas_edith",
+      "name": "Edith Bellas",
+      "relationship": "daughter",
+      "grade": "inferred",
+      "sources": [
+        "census_1900_chicago_t623_roll245",
+        "chicago_blue_book_1904",
+        "chicago_blue_book_1905"
+      ],
+      "born": {
+        "value": "1887",
+        "confidence": "inferred",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "Year transcribed in the existing collective daughters record; later census ages may disagree."
+      },
+      "note": "Edith Bellas is individually named in the 1900 census transcription on the household’s collective daughters card (line 40). The Blue Books still list unmarried daughters in 1904 and 1905 but do not name them. Continued residence is inferred, not individually attested. ",
+      "lived_here": {
+        "years": "1900; inferred 1904",
+        "on_scene_date": "unknown"
+      },
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "No individual portrait verified in the sources searched; the figure is reconstructed.",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ]
+      }
     }
   ]
 }
