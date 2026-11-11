@@ -43505,3 +43505,14 @@ or a read bill of sale; a planting account locating the trees rather than merely
 **Ticket:** T-3341.
 **Review:** docs/RESEARCH/early-masonry-3341.md; final desktop and phone frames are recorded there when qualified.
 **Recorded:** 2026-11-10 (T-3341).
+
+### L-transport-audio-3544 — Recorded mechanical textures on moving teams
+
+**Decision:** the CC0 horse-harness recording by o_ciz (Freesound 475481) follows the loaded moving teams in the 1812-08-14, 1835-07-01 and 1904-07-01 scenes. The CC0 large wooden wagon rolling downhill recording by craigsmith (Freesound 675230) follows the two 1812 army wagons and the 1835 Western Hotel wagon. It does not represent the 1904 brougham. Exact actor ids and dates are in assets/audio/intake.json. The modern recordings are acoustic proxies, not evidence of a Chicago vehicle, its road surface or historical sound level.
+
+**What is reconstructed:** source positions use the actual horse and vehicle roots; no independent invisible actor is placed. Gains .15/.22, 32/40 metre reach, squared distance falloff, speed-scaled gain, four-to-six-second excerpts with .25–1 second gaps and short edge fades are sound-design choices. Pitch is unchanged. Two nearby teams and four simultaneous voices bound the mix. Stops, dwell, holds, hidden/cull, reduced motion, off-hours and disposal suppress their sound. These are mechanical textures, not individually synchronized hoof impacts, vocalizations or work strokes. Existing source and delivery license/integrity records remain in the audio catalogue; the bytes already uploaded to R2 are reused.
+
+**How to resolve:** replace a proxy or tune its placement after human listening in the scene; a period-specific mechanical recording or documented road surface can improve the choice. Automated decoding and signal checks do not establish listening quality. No production listening approval is claimed.
+
+**Ticket:** T-3544.
+**Recorded:** 2026-11-11.

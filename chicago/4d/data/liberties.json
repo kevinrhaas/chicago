@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1094,
+  "count": 1095,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -73168,6 +73168,38 @@
       ],
       "work_refs": [
         "T-3341"
+      ]
+    },
+    {
+      "id": "L-transport-audio-3544",
+      "title": "Recorded mechanical textures on moving teams",
+      "section": "per_subject",
+      "subjects": [
+        "western_hotel"
+      ],
+      "covers": [],
+      "recorded": "2026-11-11",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the CC0 horse-harness recording by o ciz (Freesound 475481) follows the loaded moving teams in the 1812-08-14, 1835-07-01 and 1904-07-01 scenes. The CC0 large wooden wagon rolling downhill recording by craigsmith (Freesound 675230) follows the two 1812 army wagons and the 1835 Western Hotel wagon. It does not represent the 1904 brougham. Exact actor ids and dates are in the intake model. The modern recordings are acoustic proxies, not evidence of a Chicago vehicle, its road surface or historical sound level."
+        },
+        {
+          "label": "What is reconstructed",
+          "text": "source positions use the actual horse and vehicle roots; no independent invisible actor is placed. Gains.15/.22, 32/40 metre reach, squared distance falloff, speed-scaled gain, four-to-six-second excerpts with.25–1 second gaps and short edge fades are sound-design choices. Pitch is unchanged. Two nearby teams and four simultaneous voices bound the mix. Stops, dwell, holds, hidden/cull, reduced motion, off-hours and disposal suppress their sound. These are mechanical textures, not individually synchronized hoof impacts, vocalizations or work strokes. Existing source and delivery license/integrity records remain in the audio catalogue; the bytes already uploaded to R2 are reused."
+        },
+        {
+          "label": "How to resolve",
+          "text": "replace a proxy or tune its placement after human listening in the scene; a period-specific mechanical recording or documented road surface can improve the choice. Automated decoding and signal checks do not establish listening quality. No production listening approval is claimed."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-11."
+        }
+      ],
+      "work_refs": [
+        "T-3544"
       ]
     },
     {

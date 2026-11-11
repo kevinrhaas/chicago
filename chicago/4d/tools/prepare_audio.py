@@ -76,6 +76,9 @@ def main():
             'provenance': 'Real-world recording per creator; HQ MP3 preview, not the lossless original. Chicago placement is reconstructed.',
             'processing': f'24-second excerpt from {start}s; mono; 2-second crossfade seam; wind gain +20 dB only; 48 kHz MP3 128 kbps.',
             'duration_s': 22, 'url': mp3.name, 'delivery': fingerprint(mp3)})
+        if key == 'river':
+            assets[-1].update(runtime_enabled=False,
+                review_note='Held from scene playback after owner listening review, 2026-11-11: too much moving/babbling water for the nearly still river. Retained for audition; a calmer close-bank lapping recording is needed. Lake waves and slough classification remain separate.')
     # Reviewable library additions stay opt-in to scene authoring. The runtime
     # only requests explicitly scheduled IDs; catalogue membership is not a cue.
     intake = ROOT / 'assets/audio/intake.json'

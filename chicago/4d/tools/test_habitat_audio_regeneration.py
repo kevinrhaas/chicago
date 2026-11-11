@@ -40,5 +40,7 @@ with tempfile.TemporaryDirectory(prefix='habitat-regeneration-') as tmp:
     actual = json.loads((output/'catalog.json').read_text())
     assert actual == expected, 'regeneration changed a delivery, provenance field or placement declaration'
     assert json.loads((authoring/'catalog.json').read_text()) == expected
-    assert sum(a.get('runtime_enabled') is True for a in actual['assets']) == 3
+    enabled = [a for a in actual['assets'] if a.get('runtime_enabled') is True]
+    assert sum(a['scene_placement']['mode'] in ['habitat-insects', 'distant-bird'] for a in enabled) == 3
+    assert sum(a['scene_placement']['mode'] == 'moving-transport' for a in enabled) == 2
 print('HABITAT REGENERATION PASS: existing preparation preserves all placement metadata and reproduces the same33 assets/40 delivery hashes')

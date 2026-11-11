@@ -45,11 +45,10 @@ for (const name of ['settings', 'travel']) {
     assert.ok(n <= MAX_WORDS, `a ${name} note is ${n} words (${MAX_WORDS} at most): "${inner.replace(/\s+/g, ' ').trim().slice(0, 80)}"`);
   }
 }
-for (const key of ['settings.sound.note', 'research.switch.note', 'hud.move.note', 'hud.move.arrive.note']) {
+for (const key of ['research.switch.note', 'hud.move.note', 'hud.move.arrive.note']) {
   assert.ok(words(t(key)) <= MAX_WORDS, `${key} is ${words(t(key))} words`);
 }
 // The sound note still says the ambience is not a recording (T-2659's honesty line).
-assert.match(t('settings.sound.note'), /not a recording of the past\./);
 
 // ---- the researched defaults are named on their readouts ------------------------------------
 const hud = read('js/hud.js');

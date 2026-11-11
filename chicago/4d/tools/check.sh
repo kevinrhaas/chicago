@@ -303,6 +303,8 @@ step "Hosted audio retains originals and binds published URLs to verified bytes 
   node tools/test_audio_hosting.mjs
 step "Dated habitat audio qualifies real fauna, leaves silence and bounds voices, buffers and stale work (T-3534)" \
   node tools/test_habitat_audio.mjs
+step "Recorded transport follows moving dated actors with bounded spatial voices and mute cleanup (T-3544)" \
+  node tools/test_transport_audio.mjs
 step "Default audio packages include approved habitat clips and retain review-only opt-in (T-3534)" \
   python3 tools/test_habitat_audio_package.py
 step "Published audio smoke verifies delivery bytes in full and sparse artifact checkouts (T-3532)" \

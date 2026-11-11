@@ -30,7 +30,10 @@ document.getElementById('on').onclick=()=>{
 window.samplePeak=()=>{const v=new Float32Array(analyser.fftSize);analyser.getFloatTimeDomainData(v);return Math.max(...v.map(Math.abs));};
 </script>`;
 
-const browser=await chromium.launch({executablePath:process.env.PW_EXECUTABLE??'/usr/bin/chromium',headless:true,args:['--no-sandbox']});
+const proxyURL=process.env.HTTPS_PROXY||process.env.HTTP_PROXY||process.env.https_proxy||process.env.http_proxy;
+const proxyInfo=proxyURL?new URL(proxyURL):null;
+const proxy=proxyInfo?{server:proxyInfo.origin,...(proxyInfo.username?{username:decodeURIComponent(proxyInfo.username),password:decodeURIComponent(proxyInfo.password)}:{})}:undefined;
+const browser=await chromium.launch({proxy,executablePath:process.env.PW_EXECUTABLE??'/usr/bin/chromium',headless:true,args:['--no-sandbox']});
 const results=[];
 try {
  for(const rate of [96000,192000]) {
@@ -52,19 +55,23 @@ try {
   const first=await page.evaluate(()=>({rate:ctx.sampleRate,state:engine.state,peak:samplePeak()}));
   assert.equal(first.rate,rate);
   assert.equal(first.state.decodedBytes,4224000);
-  for(const [mode,bytes] of [['river',8448000],['lake',12672000]]) {
+  await page.evaluate(()=>{window.mode='river';engine.update();});
+  assert.deepEqual(await page.evaluate(()=>engine.state.voices),['wind'],'busy river proxy remains held');
+  assert.equal(await page.evaluate(()=>engine.state.decodedBytes),4224000);
+  assert(!requests.includes(catalog.assets.find(a=>a.id==='river').url),'held river media is never fetched');
+  for(const [mode,bytes] of [['lake',8448000]]) {
    await page.evaluate(m=>{window.mode=m;engine.update();},mode);
    await page.waitForFunction(m=>engine.state.voices.includes(m),mode,{timeout:30000});
    assert.equal(await page.evaluate(()=>engine.state.decodedBytes),bytes);
   }
   const all=await page.evaluate(()=>engine.state);
   assert.deepEqual(all.errors,[]);assert.deepEqual(errors,[]);
-  assert.equal(new Set(requests).size,3,'all three actual hosted MP3 deliveries requested');
+  assert.equal(new Set(requests).size,2,'only the eligible wind and lake deliveries are requested');
   await page.evaluate(()=>engine.sync({active:false,ambienceOn:true,musicOn:false,year:'1835'}));
   assert.equal(await page.evaluate(()=>engine.state.decodedBytes),0);
   await page.evaluate(async()=>{engine.dispose();await ctx.close();});
   results.push({hardwareRate:rate,firstDecodedBytes:first.state.decodedBytes,firstPeak:first.peak,allDecodedBytes:all.decodedBytes,errors,deliveries:requests});
-  console.log('FIXED DECODE BROWSER PASS '+rate+'Hz: actual R2 wind/river/lake, 4,224,000 bytes per22s loop, 12,672,000-byte full cache, nonzero output, mute releases cache');
+  console.log('FIXED DECODE BROWSER PASS '+rate+'Hz: actual R2 wind/lake, held river not fetched, 4,224,000 bytes per22s loop, 8,448,000-byte cache, nonzero output, mute releases cache');
   await page.close();
  }
  if (process.env.AUDIO_RATE_REPORT) await fs.writeFile(process.env.AUDIO_RATE_REPORT,JSON.stringify(results,null,2)+'\n');

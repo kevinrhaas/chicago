@@ -2,7 +2,8 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { createSound, curve } from '../renderers/web/js/sound.js';
-import { createRecordedAudio, nearbyWater, waterKind, musicFor } from '../renderers/web/js/recorded-audio.js';
+import { createJourney } from '../renderers/web/js/journey.js';
+import { createRecordedAudio, nearbyWater, waterKind, musicFor, windGain } from '../renderers/web/js/recorded-audio.js';
 
 const catalog = JSON.parse(fs.readFileSync(new URL('../renderers/web/audio/catalog.json', import.meta.url)));
 assert.deepEqual(['1812','1835','1904'].map(y => musicFor(catalog,y).length), [3,2,2]);
@@ -25,6 +26,19 @@ assert.equal(waterKind({x:45,z:0},terrain,zone),'river');
 assert.equal(waterKind({x:200,z:0},terrain,zone),null,'unknown water is not generic surf');
 assert.equal(waterKind({x:200,z:0},{...terrain,lakeShore:{n0:-100,step:100,e:[100,100,100]}},zone),'lake');
 assert.equal(waterKind({x:45,z:0},{...terrain,epochId:'other'},zone),null,'epoch mismatch never reuses geography');
+for(const year of ['1812','1835','1904']) {
+  const town=windGain(year,'summer',null),shore=windGain(year,'summer','lake',0);
+  assert(town < .13/4,'town rustle is substantially below the rejected constant wind');
+  assert(shore>town && shore<.13/2,'lake exposure stays restrained, never the old windy bed');
+  assert(windGain(year,'summer','lake',24)<shore);
+  assert.equal(windGain(year,'summer','lake',56),town);
+  assert.equal(windGain(year,'summer','river',0),town,'a river does not inherit exposed lake wind');
+  assert.equal(windGain(year,'summer','slough',0),town);
+  assert.equal(windGain(year,'fall',null),town/2);
+  assert.equal(windGain(year,'winter','lake',0),0,'no leaf rustle in the bare season');
+}
+assert(windGain('1904','summer',null)<windGain('1812','summer',null),'1904 town uses a quieter mix than open early Chicago');
+assert.equal(catalog.assets.find(a=>a.id==='river').runtime_enabled,false,'owner-rejected busy river recording is held from scenes');
 const param = () => ({ value:0, setTargetAtTime(v) { this.value = v; } });
 function context() {
   const sources = [];
@@ -42,6 +56,65 @@ function mediaFactory() {
   return { made, make() { const m={ paused:true, src:'', canPlayType:()=> 'probably', play(){this.paused=false;return Promise.resolve();}, pause(){this.paused=true;}, removeAttribute(){this.src='';},load(){} };made.push(m);return m; } };
 }
 const flush = async () => { for(let i=0;i<12;i++) await Promise.resolve(); };
+{
+  const ctx=context(),journey=createJourney({initial:'observatory',root:null});let last,calls=0;
+  const sound=createSound({audio:()=>ctx,journey,doc:null,storage:null,every:()=>1,cancelEvery(){},
+    settings:()=>({soundMaster:1,soundMusic:1,soundAmbience:1,soundEffects:1}),
+    recordings:()=>({sync(s){last=s;calls++;},dispose(){}})});
+  for(const state of ['observatory','locking','jumping','time-stream','landing','landed']) {
+    assert(journey.go(state));assert.equal(last.musicOn,false,`${state} has no period music`);
+    assert(last.active&&last.ambienceOn&&last.effectsOn,'arrival leaves ambience and effects independently enabled');
+  }
+  for(const state of ['exploring','inspecting','on-jaunt','touring']) {
+    assert(journey.go(state));assert.equal(last.musicOn,true,`${state} permits the era playlist immediately`);
+  }
+  assert(journey.recall());assert.equal(last.musicOn,false,'recall stops period music');
+  sound.dispose();const disposedCalls=calls;sound.sync();assert.equal(calls,disposedCalls);
+}
+{
+  const ctx=context(), media=mediaFactory();
+  const engine=createRecordedAudio({ctx,ambience:ctx.createGain(),music:ctx.createGain(),
+    media:()=>media.make(),fetcher:async()=>({ok:true,json:async()=>catalog})});
+  const sync=musicOn=>engine.sync({active:true,ambienceOn:true,musicOn,year:'1835'});
+  sync(true);await flush();const first=media.made[0];
+  first.onerror();first.onerror();assert(!engine.state.playing);
+  sync(true);await flush();assert.equal(media.made.length,1,'failed media does not spin retries');
+  sync(false);sync(true);await flush();
+  assert(engine.state.playing,'a deliberate Music off/on retries without muting ambience');
+  assert.equal(media.made.length,2);engine.dispose();
+}
+{
+  // Natural ends advance immediately using the already-unlocked media element.
+  // No timer tick or clock advance is needed, including the wrap to cue one.
+  const ctx=context(), media=mediaFactory(); let connects=0;
+  const original=ctx.createMediaElementSource;
+  ctx.createMediaElementSource=()=>{connects++;return original();};
+  const engine=createRecordedAudio({ctx,ambience:ctx.createGain(),music:ctx.createGain(),
+    media:()=>media.make(),now:()=>0,fetcher:async()=>({ok:true,json:async()=>catalog})});
+  const sync=(year,active=true,musicOn=true)=>engine.sync({active,ambienceOn:false,musicOn,year});
+  for(const year of ['1835','1812','1904']) {
+    sync(year);await flush();
+    const list=musicFor(catalog,year),element=media.made.at(-1),before=media.made.length,links=connects;
+    for(let i=1;i<=list.length*2;i++) {
+      element.paused=true;element.onended();await flush();
+      assert.equal(engine.state.track,list[i%list.length].title);
+      assert(engine.state.playing,'natural end immediately starts the next cue');
+      assert.equal(media.made.length,before,'all cues reuse the gesture-unlocked player');
+      assert.equal(connects,links,'all cues reuse the same media graph node');
+    }
+    const retired=element.onended;
+    sync(year,true,false);retired();await flush();
+    assert(!engine.state.playing,'Music off cannot be undone by a queued ending');
+    sync(year);await flush();const restarted=media.made.at(-1);
+    retired();assert.equal(media.made.at(-1),restarted);assert.equal(engine.state.track,list[0].title);
+  }
+  const retired=media.made.at(-1).onended;
+  sync('1835');await flush();retired();assert.equal(engine.state.track,musicFor(catalog,'1835')[0].title);
+  const muted=media.made.at(-1).onended;
+  sync('1835',false);muted();assert(!engine.state.playing);
+  sync('1835');await flush();const disposed=media.made.at(-1).onended;
+  engine.dispose();disposed();assert(!engine.state.playing);
+}
 {
   // A high-rate device must not quietly multiply the decoded cache budget.
   const ctx=context();
@@ -83,17 +156,21 @@ const flush = async () => { for(let i=0;i<12;i++) await Promise.resolve(); };
 }
 {
   const ctx=context(), media=mediaFactory(), requests=[];
-  let season='summer';
+  let season='summer',activeTerrain=terrain;
   const fixture={...catalog,water_zones:{'1835':{epoch:'test',features:[{kind:'river',polygon:[[[0,-100],[100,-100],[100,100],[0,100],[0,-100]]]}]}}};
   const engine=createRecordedAudio({ctx,ambience:ctx.createGain(),music:ctx.createGain(),media:()=>media.make(),
-    environment:()=>({season,camera:{position:{x:0,y:2,z:0}},terrain}),
+    environment:()=>({season,camera:{position:{x:0,y:2,z:0}},terrain:activeTerrain}),
     fetcher:async url=> {requests.push(String(url));return {ok:true,json:async()=>fixture,arrayBuffer:async()=>new ArrayBuffer(0)};} });
   engine.sync({active:false,ambienceOn:true,musicOn:true,year:'1835'});await flush();
   assert.equal(requests.length,0,'muted boot downloads nothing');
   engine.sync({active:true,ambienceOn:true,musicOn:true,year:'1835'});await flush();
-  assert.deepEqual(engine.state.voices.sort(),['river','wind']);assert.equal(engine.state.decodedBytes,8448000);
+  assert.deepEqual(engine.state.voices,['wind']);assert.equal(engine.state.decodedBytes,4224000);
+  assert(!requests.some(url=>url.endsWith('/river.mp3')),'held river recording is not fetched, not merely turned down');
   assert.equal(media.made.length,1);assert.match(media.made[0].src,/1835\/.*border.*ogg$/);
-  season='winter';engine.update();assert.deepEqual(engine.state.voices,['river']);
+  season='winter';engine.update();assert.deepEqual(engine.state.voices,[]);
+  activeTerrain={...terrain,lakeShore:{n0:-100,step:100,e:[0,0,0]}};
+  engine.update();await flush();assert.deepEqual(engine.state.voices,['lake'],'classified lake waves remain eligible while the river proxy is held');
+  assert(requests.some(url=>url.endsWith('/lake.mp3')));
   engine.sync({active:true,ambienceOn:true,musicOn:true,year:'1904'});await flush();
   assert.equal(media.made[0].src,'','scene switch releases the old stream');
   assert.match(media.made.at(-1).src,/1904\/.*waltz.*ogg$/);
@@ -132,10 +209,12 @@ const flush = async () => { for(let i=0;i<12;i++) await Promise.resolve(); };
   assert(catalog.assets.filter(a=>a.kind==='environment').every(a=>a.license==='CC0-1.0'&&a.source_url));
   const candidates=catalog.assets.filter(a=>a.kind==='candidate');
   assert(candidates.length>=17,'expanded library includes the acquired recordings');
-  assert.deepEqual(candidates.filter(a=>a.runtime_enabled).map(a=>a.id).sort(), ['redwing-call','summer-cicada-proxy','summer-crickets']);
+  assert.deepEqual(candidates.filter(a=>a.runtime_enabled).map(a=>a.id).sort(), ['horse-harness','redwing-call','summer-cicada-proxy','summer-crickets','wood-wagon']);
   assert(candidates.every(a=>a.evidence&&a.source_url&&(a.runtime_enabled
-    ? a.approved_eras.length===1&&a.approved_eras[0]==='1835'&&a.scene_placement?.scene_date==='1835-07-01'
-    : a.approved_eras.length===0)), 'only explicit dated habitat placements may leave audition-only intake');
+    ? a.scene_placement?.mode==='moving-transport'
+      ? a.approved_eras.length>0&&a.scene_placement.bindings.every(b=>a.approved_eras.includes(b.scene)&&b.scene_date.startsWith(b.scene+'-')&&b.actor_ids.length>0)
+      : a.approved_eras.length===1&&a.approved_eras[0]==='1835'&&a.scene_placement?.scene_date==='1835-07-01'
+    : a.approved_eras.length===0)), 'only explicit dated habitat or actor placements may leave audition-only intake');
   const sound=fs.readFileSync(new URL('../renderers/web/js/sound.js',import.meta.url),'utf8');
   assert.doesNotMatch(sound,/createOscillator|createBuffer\(/,'no generated hums or tones');
   const main=fs.readFileSync(new URL('../renderers/web/js/main.js',import.meta.url),'utf8');

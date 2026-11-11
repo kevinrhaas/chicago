@@ -6,6 +6,34 @@ shared audio storage, current published provider pricing and the upload bundle.
 
 ## Scope and delivery status
 
+Current checkpoint (2026-11-11): PR #1912 is merged and live on DEV after all 18
+published smoke jobs and a public speaker/playback check at both viewport sizes.
+The older pilot measurements below describe pre-integration checkpoints. This
+increment, T-3544, adds continuous music, a quieter environmental mix and moving transport; production promotion remains separate.
+Eighteen candidates now remain audition-only, with two additional dated mechanical
+textures using the existing verified R2 files. No new upload is needed.
+
+Moving transport uses the Effects bus: actual mesh anchors and accepted travelled
+metres drive direction, distance and intensity. Harness jingles serve four loaded
+moving teams; rolling wood serves the three 1812/1835 wagons, not the 1904 brougham.
+The catalogue names each actor and scene date. Stop, dwell, pause, reduced motion,
+hidden/cull, off-hours and disposal silence those sources. Two nearest teams share
+two mono 48 kHz buffers (6,737,316 decoded bytes, 8 MiB ceiling) across four finite
+voices. Four-to-six-second recorded excerpts have unchanged pitch, edge fades and
+short gaps; they are mechanical textures, not individual hoof strikes. Pending
+decode work cannot restart a retired source. The shared listener updates even with
+Ambience and Music both off. Human listening and Safari/device qualification remain.
+
+### Owner listening adjustment — 2026-11-11
+
+The owner liked the insects and found wind too strong in town, especially 1904, and the river proxy too busy for the visibly slow, nearly still water. Habitat recordings, scheduling and gains remain unchanged. Wind now uses subdued town gains of 0.030 / 0.022 / 0.012 in 1812 / 1835 / 1904, versus the former constant 0.13. Classified lake proximity raises that mix gradually to at most 0.055; fall halves leaf rustle and winter stops it. These are listening presets and shoreline proximity, not simulated weather or calculated building shelter. Lake waves keep their separate gain and geography.
+
+The river recording is explicitly disabled in the generated catalogue and excluded from runtime targets and fetches. Lowering a busy water recording would not change its character. Quiet river edges are preferable until a calm close-bank lapping take is auditioned; no lake surf is substituted. The held clip stays in the library with the owner's review note and unchanged source/rights metadata. All existing delivery bytes remain reusable in R2.
+
+Calmer-water metadata shortlist (CC0 links verified; not yet downloaded or auditioned): [McClintock Bay](https://freesound.org/people/SoundsLikeYukon/sounds/758708/) has gentle sandy-bank lapping but the creator warns of a faint dock cleat/flagpole clang; [Manitoulin calm water](https://freesound.org/people/TRP/sounds/575244/) laps against rocks, so substrate fit needs review; [Pier Lap](https://freesound.org/people/craigsmith/sounds/438839/) includes wood creaks and a slightly reverberant space, making it a dock candidate rather than a generic river bed. Descriptions are screening evidence, not listening approval.
+
+### Pre-integration pilot checkpoints
+
 This is a local, reviewable foundation, not a completed town soundscape or a
 production release. It implements the owner's music, recorded wind/river/lake,
 opt-in controls and the catalogue. Three dated 1835 habitat recordings now have a
@@ -37,11 +65,11 @@ cues, the three pilot environmental loops and 23 additional recorded candidates.
 Those candidates include wildlife/insects, horse vocalizations/hooves/harness,
 woodworking, a musket, wagon, steam whistle, fire, dock/door/bell and performed
 tavern chatter. Candidate previews add 5,605,876 bytes; all 40 delivery alternatives
-together are 41,173,377 bytes (39.266 MiB). Twenty candidates remain audition-only.
+together are 41,173,377 bytes (39.266 MiB). Eighteen candidates remain audition-only; two have dated moving-transport bindings.
 Three have explicit 1835-07-01 habitat placements: the owner-approved Italian
 cicada, Ontario field crickets and a distant red-wing call. Their source identity
 and acoustic-proxy limitations remain visible; they are not enabled in all eras.
-The library distinguishes these habitat sounds from recordings still for review.
+The library distinguishes habitat sounds, moving-team recordings and recordings still for review.
 
 `assets/audio/intake.json` carries source evidence, proposed seasons/eras,
 species uncertainties and pointers to existing 1835 fauna records. The same
@@ -59,21 +87,24 @@ the owner-supplied score is not licensed as an open sample collection.
 
 Music collections are deliberately disjoint: 1812 Frontier (3), 1835 Border (2),
 1904 Waltzes (2). Browser selection uses Ogg/Opus first and AAC when unsupported.
-Only the active cue streams; cues have 15 seconds of quiet between them. There is
-no full-playlist preload. Music gain includes 6 dB headroom before its slider;
+Only the active cue streams. Music cycles continuously through the selected era’s
+collection, wrapping to the first cue with no scheduled silence between tracks.
+Period music is permitted only while exploring, inspecting, on a jaunt or touring; time travel, landing, the arrival choices and recall keep it off without changing the ambience/effects sliders. The compact loading-screen speaker retains a 44 px touch target and accessible on/off labels. Settings keep only the requested Ambience and Effects examples, grouped close to their own sliders; the additional Music/general notes were removed on owner review.
+The same streaming element is retained across track endings; loading the next
+file can still take a moment. There is no full-playlist preload. Music gain includes 6 dB headroom before its slider;
 original decoded true peaks were -0.43 to +0.49 dBTP. Master defaults off; the
 loading-screen speaker button enables it, with detailed levels in Settings.
 
-Wind, river and lake use 22-second mono loops with a 2-second edited seam. A
-48 kHz offline decoder keeps all three at 12,672,000 bytes even when the output
-device runs at 96 or 192 kHz; the cache also enforces a 14 MiB ceiling. Real R2
-playback at both output rates passes the memory and mute checks. Typically two play. Music is not
+The pilot wind, river and lake deliveries are 22-second mono loops with a 2-second edited seam. The river delivery is now held from scene playback after owner listening feedback; it remains auditionable in the library. A
+48 kHz offline decoder keeps each loop at 4,224,000 bytes even when the output
+device runs at 96 or 192 kHz. The currently eligible wind/lake pair totals
+8,448,000 bytes; the cache still enforces a 14 MiB ceiling. Only wind and classified lake water are currently eligible; river and slough areas do not borrow lake waves. Music is not
 fully decoded into an AudioBuffer. The environmental cache is cleared on mute,
 hiding, context replacement, disposal and scene changes. Aborted/stale requests
 cannot restart playback. No network access to Freesound occurs at runtime.
 The habitat scheduler shares the fixed 48 kHz decoder, adds at most one 24-second
 mono clip (4.608 MB), and reports combined decoded bytes. The existing environment
-cache remains capped at 14 MiB; typical wind+water+habitat buffers total 12.67 MB.
+cache remains capped at 14 MiB; the eligible wind/lake pair plus one maximum-length habitat clip totals at most 13,056,000 bytes.
 Town offline downloads exclude audio media, so they do not prefetch every era or
 both codecs. An explicit offline-audio option is not yet implemented; downloaded
 towns therefore do not guarantee offline sound. The catalogue remains available.

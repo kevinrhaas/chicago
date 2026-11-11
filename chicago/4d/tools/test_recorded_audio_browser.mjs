@@ -55,6 +55,7 @@ try{
   for(const [era,n] of [['1812',3],['1835',2],['1904',2]]){await page.selectOption('#era',era);assert.equal(await page.locator('article').count(),n);}
   await page.selectOption('#era','candidate');assert.equal(await page.locator('article').count(),catalog.assets.filter(a=>a.kind==='candidate'&&!a.runtime_enabled).length);
   await page.selectOption('#era','habitat');assert.equal(await page.locator('article').count(),3);
+  await page.selectOption('#era','transport');assert.equal(await page.locator('article').count(),2);
   await page.click('#era');
   const decode=await page.evaluate(async()=>{
    const c=await(await fetch('./catalog.json')).json(),ctx=new AudioContext();await ctx.resume();const rows=[];

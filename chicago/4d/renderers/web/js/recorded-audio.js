@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 // T-3532. Small decoded environmental loops; one streamed music cue at a time.
 import { createHabitatAudio } from './habitat-audio.js';
+import { createTransportAudio } from './transport-audio.js';
 
 export const AUDIO_BASE = new URL('../audio/', import.meta.url);
 export const MUSIC_YEARS = Object.freeze(['1812', '1835', '1904']);
@@ -28,6 +29,16 @@ export function nearbyWater(terrain, eye) {
 
 export function musicFor(catalog, year) {
   return catalog.assets.filter(a => a.kind === 'music' && a.era === String(year));
+}
+
+/** Listening mix, not simulated weather: town leaf rustle stays subdued, with
+ * a bounded increase beside the scene's classified lake shore. */
+export function windGain(year, season, water, distance = Infinity) {
+  if (season === 'winter') return 0;
+  const town = { '1812': .03, '1835': .022, '1904': .012 }[String(year)] ?? .012;
+  const shore = water === 'lake' && Number.isFinite(distance)
+    ? Math.max(0, 1 - Math.max(0, distance) / 56) ** 2 : 0;
+  return (town + (.055 - town) * shore) * (season === 'fall' ? .5 : 1);
 }
 
 function insideRing(x, n, ring) {
@@ -61,11 +72,11 @@ export function waterKind(wet, terrain, zone) {
   return null; // Unknown water remains quiet until classified, never generic surf.
 }
 
-export function createRecordedAudio({ ctx, ambience, music, environment = () => ({}),
+export function createRecordedAudio({ ctx, ambience, effects, music, environment = () => ({}),
   fetcher = globalThis.fetch?.bind(globalThis), media = () => new Audio(),
   base = AUDIO_BASE, onStatus = () => {}, now = () => Date.now() } = {}) {
-  let disposed = false, enabled = false, musicOn = false, catalog = null, pending = null;
-  let year = '', generation = 0, controller = null, nextMusicAt = 0;
+  let disposed = false, enabled = false, effectsOn = false, musicOn = false, catalog = null, pending = null;
+  let year = '', generation = 0, controller = null, musicFailed = false;
   let player = null, mediaNode = null, track = null, trackIndex = 0, fallback = false;
   let decoder = null;
   const buffers = new Map(), loads = new Map(), voices = new Map(), failed = new Set();
@@ -74,9 +85,11 @@ export function createRecordedAudio({ ctx, ambience, music, environment = () => 
   let musicLevel = 0, duck = 1;
   const habitat = createHabitatAudio({ ctx, output: ambience, catalog: () => catalog, environment,
     fetcher, base, now, decodeAudio: decode, onError: message => report(message) });
+  const transport = createTransportAudio({ ctx, output: effects, catalog: () => catalog, environment,
+    fetcher, base, now, decodeAudio: decode, onError: message => report(message) });
   function report(message) { if (message) errors.add(message); onStatus(state()); }
-  function state() { return { year, voices: [...voices.keys(), ...habitat.state.voices], decodedBytes: [...buffers.values()].reduce((n, b) => n + b.length * b.numberOfChannels * 4, 0) + habitat.state.decodedBytes,
-    track: track?.title ?? null, playing: !!player && !player.paused, errors: [...errors], loading: loads.size + (pending ? 1 : 0) + habitat.state.loading, habitat: habitat.state }; }
+  function state() { return { year, voices: [...voices.keys(), ...habitat.state.voices, ...transport.state.voices], decodedBytes: [...buffers.values()].reduce((n, b) => n + b.length * b.numberOfChannels * 4, 0) + habitat.state.decodedBytes + transport.state.decodedBytes,
+    track: track?.title ?? null, playing: !!player && !player.paused, errors: [...errors], loading: loads.size + (pending ? 1 : 0) + habitat.state.loading + transport.state.loading, habitat: habitat.state, transport: transport.state }; }
   function fade(param, value) { param.setTargetAtTime(value, ctx.currentTime, 0.3); }
   function stopVoice(id) {
     const v = voices.get(id); if (!v) return;
@@ -89,15 +102,15 @@ export function createRecordedAudio({ ctx, ambience, music, environment = () => 
     mediaNode?.disconnect(); player = null; mediaNode = null; track = null;
   }
   function reset() {
-    habitat.reset();
+    habitat.reset(); transport.reset();
     generation++; controller?.abort(); controller = null; pending = null;
     loads.clear(); targets.clear(); failed.clear(); buffers.clear();
     decoder = null;
     for (const id of [...voices.keys()]) stopVoice(id);
-    stopMusic(); trackIndex = 0; nextMusicAt = 0;
+    stopMusic(); trackIndex = 0; musicFailed = false;
   }
   async function readCatalog() {
-    if (catalog || pending || disposed || (!enabled && !musicOn) || failed.has('catalog')) return;
+    if (catalog || pending || disposed || (!enabled && !musicOn && !effectsOn) || failed.has('catalog')) return;
     const own = generation; controller ??= new AbortController();
     pending = (async () => {
       try {
@@ -144,7 +157,7 @@ export function createRecordedAudio({ ctx, ambience, music, environment = () => 
   async function want(id) {
     if (buffers.has(id)) { startVoice(id, buffers.get(id)); return; }
     if (loads.has(id) || failed.has(id) || !catalog) return;
-    const asset = catalog.assets.find(a => a.id === id); if (!asset) return;
+    const asset = catalog.assets.find(a => a.id === id); if (!asset || asset.runtime_enabled === false) return;
     const own = generation; controller ??= new AbortController();
     loads.set(id, true);
     try {
@@ -165,7 +178,7 @@ export function createRecordedAudio({ ctx, ambience, music, environment = () => 
     } finally { if (own === generation) loads.delete(id); }
   }
   function playMusic() {
-    if (!musicOn || !catalog || player || now() < nextMusicAt) return;
+    if (disposed || !musicOn || !catalog || player || musicFailed) return;
     const list = musicFor(catalog, year); if (!list.length) return;
     track = list[trackIndex % list.length]; player = media(); player.preload = 'none';
     player.crossOrigin = 'anonymous'; fallback = !player.canPlayType('audio/ogg; codecs="opus"');
@@ -174,7 +187,7 @@ export function createRecordedAudio({ ctx, ambience, music, environment = () => 
     let attemptId = 0;
     const fail = e => {
       if (!fallback) { fallback = true; attempt(); }
-      else { report(`Music unavailable: ${track.title}: ${e?.message ?? 'media error'}`); stopMusic(); nextMusicAt = Infinity; }
+      else { report(`Music unavailable: ${track.title}: ${e?.message ?? 'media error'}`); stopMusic(); musicFailed = true; }
     };
     const attempt = () => {
       const id = ++attemptId;
@@ -184,21 +197,31 @@ export function createRecordedAudio({ ctx, ambience, music, environment = () => 
         // The rejected Opus play promise can arrive after onerror has already
         // started AAC. Only the current attempt may stop or replace playback.
         if (e.name === 'NotSupportedError') fail(e);
-        else { report(`Music playback: ${e.message}`); stopMusic(); nextMusicAt = Infinity; }
+        else { report(`Music playback: ${e.message}`); stopMusic(); musicFailed = true; }
       });
     };
     element.onerror = () => {
       if (own !== generation || player !== element) return;
       fail(element.error);
     };
-    element.onended = () => { stopMusic(); trackIndex++; nextMusicAt = now() + 15000; report(); };
+    element.onended = () => {
+      if (disposed || !musicOn || own !== generation || player !== element) return;
+      // Keep the gesture-unlocked streaming element and its graph connection.
+      // Advance immediately, then wrap within this era; no full-playlist preload.
+      trackIndex = (trackIndex + 1) % list.length;
+      track = list[trackIndex];
+      fallback = !element.canPlayType('audio/ogg; codecs="opus"');
+      attempt(); report();
+    };
     attempt(); report();
   }
   function update() {
-    if (disposed || (!enabled && !musicOn)) { habitat.sync({ enabled: false, year, duck }); return; }
+    if (disposed || (!enabled && !musicOn && !effectsOn)) {
+      habitat.sync({ enabled: false, year, duck }); transport.sync({ enabled: false, year, duck }); return;
+    }
     if (!catalog) { void readCatalog(); return; }
     const env = environment() ?? {}, camera = env.camera;
-    if (enabled && camera) {
+    if ((enabled || effectsOn) && camera) {
       const eye = camera.position, q = camera.quaternion;
       if (q && ctx.listener.positionX) {
         // Camera looks along local -Z, up local +Y; Three and Web Audio both use Y-up.
@@ -210,12 +233,18 @@ export function createRecordedAudio({ ctx, ambience, music, environment = () => 
           ctx.listener[`up${axis}`].setTargetAtTime(up[i], ctx.currentTime, .05);
         }
       }
+    }
+    if (enabled && camera) {
+      const eye = camera.position;
       targets = new Map();
-      // Leaf rustle is inappropriate for bare winter trees. Weather is not yet modelled.
-      if (env.season !== 'winter') targets.set('wind', { gain: .13 });
       const wet = nearbyWater(env.terrain, eye);
       const kind = waterKind(wet, env.terrain, catalog.water_zones?.[year]);
-      if (kind === 'river' || kind === 'lake') targets.set(kind, { ...wet, gain: (kind === 'lake' ? .32 : .22) * (1 - wet.distance / 64) ** 2 });
+      const wind = windGain(year, env.season, kind, wet?.distance);
+      if (wind > 0) targets.set('wind', { gain: wind });
+      // A recording rejected in listening review remains auditionable in the
+      // library, but cannot imply water movement absent from the scene.
+      if ((kind === 'river' || kind === 'lake') && catalog.assets.find(a => a.id === kind)?.runtime_enabled !== false)
+        targets.set(kind, { ...wet, gain: (kind === 'lake' ? .32 : .22) * (1 - wet.distance / 64) ** 2 });
       for (const id of [...voices.keys()]) if (!targets.has(id)) stopVoice(id);
       for (const id of targets.keys()) { void want(id); applyVoice(id); }
     } else {
@@ -223,25 +252,27 @@ export function createRecordedAudio({ ctx, ambience, music, environment = () => 
       for (const id of [...voices.keys()]) stopVoice(id);
     }
     habitat.sync({ enabled, year, duck });
+    transport.sync({ enabled: effectsOn, year, duck });
     playMusic();
   }
   return {
-    sync({ active, ambienceOn, musicOn: wantsMusic, year: nextYear, musicLevel: level = .4 } = {}) {
+    sync({ active, ambienceOn, effectsOn: wantsEffects, musicOn: wantsMusic, year: nextYear, musicLevel: level = .4 } = {}) {
       if (disposed) return;
       const next = String(nextYear ?? '');
       if (year !== next) { reset(); year = next; }
       const nextEnabled = !!active && !!ambienceOn, nextMusic = !!active && !!wantsMusic;
-      if ((!nextEnabled && !nextMusic) && (enabled || musicOn)) reset();
-      enabled = nextEnabled; musicOn = nextMusic; musicLevel = level;
+      const nextEffects = !!active && !!wantsEffects && !!effects;
+      if ((!nextEnabled && !nextMusic && !nextEffects) && (enabled || musicOn || effectsOn)) reset();
+      enabled = nextEnabled; musicOn = nextMusic; effectsOn = nextEffects; musicLevel = level;
       fade(music.gain, Math.min(1, Math.max(0, level)) ** 2 * .5 * duck);
       if (!enabled) { targets.clear(); for (const id of [...voices.keys()]) stopVoice(id); }
-      if (!musicOn) stopMusic();
+      if (!musicOn) { stopMusic(); musicFailed = false; }
       update();
     },
     update,
     // Future narration can duck both buses without coupling to a voice provider.
-    setSpeechActive(on) { duck = on ? .3 : 1; habitat.setDuck(duck); fade(music.gain, musicLevel ** 2 * .5 * duck); for (const id of voices.keys()) applyVoice(id); },
+    setSpeechActive(on) { duck = on ? .3 : 1; habitat.setDuck(duck); transport.setDuck(duck); fade(music.gain, musicLevel ** 2 * .5 * duck); for (const id of voices.keys()) applyVoice(id); },
     get state() { return state(); },
-    dispose() { disposed = true; enabled = false; musicOn = false; reset(); habitat.dispose(); },
+    dispose() { disposed = true; enabled = false; musicOn = false; effectsOn = false; reset(); habitat.dispose(); transport.dispose(); },
   };
 }

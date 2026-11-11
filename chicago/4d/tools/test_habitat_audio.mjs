@@ -11,7 +11,7 @@ const catalog = JSON.parse(fs.readFileSync(path.join(root, 'renderers/web/audio/
 const index = read('data/fauna/index.json');
 const zones = index.zones.map(z => read('data/fauna/' + z.file));
 const ids = list => list.map(c => c.asset.id).sort();
-const selected = catalog.assets.filter(a => a.runtime_enabled === true);
+const selected = catalog.assets.filter(a => a.runtime_enabled === true && ['habitat-insects', 'distant-bird'].includes(a.scene_placement?.mode));
 assert.deepEqual(selected.map(a => a.id).sort(), ['redwing-call', 'summer-cicada-proxy', 'summer-crickets']);
 for (const a of selected) {
   assert.deepEqual(a.approved_eras, ['1835']);
