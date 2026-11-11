@@ -279,8 +279,9 @@ class CaptureControls(unittest.TestCase):
             'BLENDER_DIR=blender-4.5.3-linux-x64\n'
             'BLENDER_URL=https://download.blender.org/release/Blender4.5/blender-4.5.3-linux-x64.tar.xz\n'
             'BLENDER_SHA256='+C.digest(archive.read_bytes())+'\n')
-        (self.app/'tools/web_derivatives.sh').write_text('\n'.join(
-            'GT_'+key+'_VERSION=4.5.0' for key in ('CLI','CORE','FUNCTIONS','EXTENSIONS'))+'\n')
+        # Exercise the actual canonical shell syntax rather than inventing pin lines.
+        (self.app/'tools/web_derivatives.sh').write_bytes(
+            (C.APP/'tools/web_derivatives.sh').read_bytes())
         return cache, archive, binary
 
     def test_verified_blender_cache_accepts_actual_LTS_header_only(self):
@@ -308,6 +309,28 @@ class CaptureControls(unittest.TestCase):
         with patch.object(C,'APP',self.app),patch.dict(os.environ,{'BLENDER_CACHE':str(cache)}),patch.object(C,'run',return_value='Blender 4.5.3 LTS') as runner:
             with self.assertRaisesRegex(ValueError,'pinned Blender archive checksum'):C.prepare_tools()
             runner.assert_not_called()
+
+    def test_real_codec_pin_syntax_refuses_changed_missing_ambiguous_and_shell_values(self):
+        cache, archive, binary = self.version_cache()
+        path = self.app/'tools/web_derivatives.sh'; actual = path.read_text()
+        canonical = 'GT_CLI_VERSION="4.5.0"'
+        self.assertEqual(actual.count(canonical),1)
+        marker = self.root/'must-not-be-created'
+        cases = {
+            'wrong-version': actual.replace(canonical,'GT_CLI_VERSION="4.5.1"'),
+            'missing': actual.replace(canonical+'\n',''),
+            'ambiguous': actual+'\n'+canonical+'\n',
+            'shell-suffix': actual.replace(canonical,canonical+'; touch '+str(marker)),
+            'shell-substitution': actual.replace(canonical,'GT_CLI_VERSION="$(touch '+str(marker)+')"'),
+            'unquoted': actual.replace(canonical,'GT_CLI_VERSION=4.5.0'),
+        }
+        with patch.object(C,'APP',self.app),patch.dict(os.environ,{'BLENDER_CACHE':str(cache)}):
+            for name, text in cases.items():
+                path.write_text(text)
+                with self.subTest(case=name),patch.object(C,'run',return_value='Blender 4.5.3 LTS') as runner:
+                    with self.assertRaisesRegex(ValueError,'exact existing codec closure'):C.prepare_tools()
+                    runner.assert_called_once_with([str(binary),'--version'])
+                    self.assertFalse(marker.exists())
 
     def execute_args(self):
         from types import SimpleNamespace

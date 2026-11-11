@@ -170,7 +170,12 @@ def prepare_tools():
     need(version_line == 'Blender 4.5.3 LTS',
          f'pinned Blender version: expected Blender 4.5.3 LTS; observed {version_line[:200]!r}')
     codec = (APP/'tools/web_derivatives.sh').read_text()
-    pins = dict(re.findall(r'^GT_(CLI|CORE|FUNCTIONS|EXTENSIONS)_VERSION=([^\s#]+)', codec, re.M))
+    pin_rows = re.findall(r'^GT_(CLI|CORE|FUNCTIONS|EXTENSIONS)_VERSION=(.*)$', codec, re.M)
+    need(len(pin_rows) == 4 and len({key for key, _ in pin_rows}) == 4,
+         'exact existing codec closure: four unique declarations required')
+    need(all(re.fullmatch(r'"[0-9]+\.[0-9]+\.[0-9]+"', value) for _, value in pin_rows),
+         'exact existing codec closure: quoted version literals required')
+    pins = {key: value[1:-1] for key, value in pin_rows}
     need(pins == dict.fromkeys(('CLI', 'CORE', 'FUNCTIONS', 'EXTENSIONS'), '4.5.0'), 'exact existing codec closure')
     cli = ['npx', '--yes']
     for name in ('cli', 'core', 'functions', 'extensions'):

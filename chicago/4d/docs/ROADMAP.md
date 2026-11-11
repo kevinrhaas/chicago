@@ -1,3 +1,18 @@
+## Linen capture codec-pin correction — 11 November 2026
+
+The ordinary checks for draft PR #1933 pass on source c9990d8b. Its canonical
+capture 43018920928 passed the human browser and actor prerequisite, then stopped
+before geometry: the capture parser retained quotes around the existing codec
+version pins and rejected the correct `4.5.0` values. The verified Blender archive
+and exact `Blender 4.5.3 LTS` header passed. The parser correction preserves the
+canonical codec script and version, with controls using its actual pin syntax.
+No new parents were produced or adopted; the existing assets and fixture remain
+unchanged. Both failed capture receipts are retained. A new committed source,
+request and successful canonical capture must precede matched native comparisons,
+asset adoption and a normal green DEV merge. The 104 baseline views remain valid.
+PR #1928 is already verified on DEV; production and broader clothing acceptance
+remain unchanged. T-1789 remains open.
+
 ## Linen seat build correction — 11 November 2026
 
 PR #1928 is merged and verified on public DEV (900d9166e); production is unchanged. The looser 1812 linen seat remains source-only in draft PR #1933. Its first canonical capture (43000644195) stopped before geometry: the checksum-verified Blender release reports `Blender 4.5.3 LTS`, while the capture guard expected the bare version. The guard now requires that exact LTS header and retains archive, binary and codec pins. The rear-view observer now writes compact JSON without removing fields or increasing caps; 104 baseline images across four LODs and both viewports are complete. A fresh committed source, request and canonical build are still required; no new native parents or linen fit acceptance exist. T-1789 clothing realism remains open.
