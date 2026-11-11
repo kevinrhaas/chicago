@@ -31,7 +31,10 @@ USES = ('scene', 'other_scene', 'exclusion', 'research', 'unused')
 # 259 766); 272 000 from T-3463..T-3467's eighteen 1812 town dress sources (the officers',
 # trader's, women's and children's Met and Krimmel pictures, Keating, Lambert, Heriot and the
 # SAAM portraits read 265 911) — see outputs().
-INDEX_BUDGET = 272_000
+# T-3546: nine portrait, clothing and biographical records bring the complete
+# catalogue to 273,559 raw bytes. Allow the next 8 KB increment, preserving every
+# citation and the unchanged 120,000-byte compressed first-open release limit.
+INDEX_BUDGET = 280_000
 GRADES = {'attested', 'inferred', 'reconstructed'}
 GRADE_ALIASES = {'documented': 'attested', 'conjectural': 'reconstructed',
                  'unknown': 'reconstructed', 'not_1835_resident': 'reconstructed'}

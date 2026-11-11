@@ -46,7 +46,9 @@
         "chicago_blue_book_1904",
         "wikipedia_frank_orren_lowden",
         "chicago_blue_book_1905",
-        "census_1900_chicago_t623_roll245"
+        "census_1900_chicago_t623_roll245",
+        "witherspoon_men_of_illinois_1902",
+        "leonard_book_of_chicagoans_1905"
       ],
       "printed_as": "1912 Mr. & Mrs. Frank Orren Lowden",
       "occupation": {
@@ -64,7 +66,29 @@
         "as_enumerated": "Lowden, F. O.",
         "relation_as_enumerated": "Head"
       },
-      "note": "The 1900 census lists F. O. Lowden here as head, born April 1864 (the figures are hard to read), in Iowa (as read), married, lawyer (ED 40, sheet 4B, line 77, leaf n801)."
+      "note": "The 1900 census lists F. O. Lowden here as head, born April 1864 (the figures are hard to read), in Iowa (as read), married, lawyer (ED 40, sheet 4B, line 77, leaf n801).",
+      "born": {
+        "value": "1861-01-26",
+        "confidence": "attested",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ],
+        "note": "Biographical date from the cited period publication(s). The earlier census transcription on this card is retained as a separate reading; where it disagrees, this figure uses the independently published biographical date. The publication date is not the date the photograph was taken."
+      },
+      "card_facts": [
+        {
+          "label": "Full name",
+          "value": "Frank Orren Lowden",
+          "grade": "attested"
+        }
+      ],
+      "portrait": {
+        "image": "humans/web/portraits/pa1904_lowden_frank_orren_portrait.jpg",
+        "caption": "Frank Orren Lowden, undated photograph published in Men of Illinois (1902), p. 173.",
+        "grade": "attested",
+        "why": "Identified by the printed caption and checked against the household record. The monochrome photograph does not establish skin, eye or clothing colours."
+      }
     },
     {
       "id": "pa1904_lowden_mrs_frank_orren",
@@ -85,6 +109,22 @@
         "locator": "ED 40, sheet 4B, line 78, leaf n801",
         "as_enumerated": "Lowden, Florence P.",
         "relation_as_enumerated": "Wife"
+      },
+      "born": {
+        "value": "1868",
+        "confidence": "inferred",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The existing census transcription gives born August 1868. The transcription flags uncertainty; the year remains provisional."
+      },
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
       }
     },
     {
@@ -110,7 +150,15 @@
         "as_enumerated": "Lowden, Pullman",
         "relation_as_enumerated": "Son"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a son of the head; born November 1897, in Illinois. The 1904 Blue Book names no children, so a child at home in 1900 is placed here in 1904 by inference."
+      "note": "Enumerated on 1 June 1900 in the house, as a son of the head; born November 1897, in Illinois. The 1904 Blue Book names no children, so a child at home in 1900 is placed here in 1904 by inference.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_lowden_frank_orren_c1900_florence_lowden",
@@ -135,7 +183,15 @@
         "as_enumerated": "Lowden, Florence",
         "relation_as_enumerated": "Daughter"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a daughter of the head; born August 1898, in Illinois. The 1904 Blue Book names no children, so a child at home in 1900 is placed here in 1904 by inference."
+      "note": "Enumerated on 1 June 1900 in the house, as a daughter of the head; born August 1898, in Illinois. The 1904 Blue Book names no children, so a child at home in 1900 is placed here in 1904 by inference.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_lowden_frank_orren_c1900_kate_hurley",
@@ -168,7 +224,15 @@
         "as_enumerated": "Hurley, Kate",
         "relation_as_enumerated": "Servant"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a servant (waitress); born November 1875 (the figures are hard to read), in Ireland, came to the United States in 1891, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (waitress); born November 1875 (the figures are hard to read), in Ireland, came to the United States in 1891, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_lowden_frank_orren_c1900_robert_grimmond",
@@ -201,7 +265,15 @@
         "as_enumerated": "Grimmond, Robert",
         "relation_as_enumerated": "Servant"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a servant (steward); born October 1865, in England, came to the United States in 1886, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (steward); born October 1865, in England, came to the United States in 1886, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_lowden_frank_orren_c1900_anna_peterson",
@@ -234,7 +306,15 @@
         "as_enumerated": "Peterson, Anna",
         "relation_as_enumerated": "Servant"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a servant (nurse (children)); born June 1872 (the figures are hard to read), in Sweden, came to the United States in 1892, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (nurse (children)); born June 1872 (the figures are hard to read), in Sweden, came to the United States in 1892, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_lowden_frank_orren_c1900_may_proot",
@@ -267,7 +347,15 @@
         "as_enumerated": "Proot, May Mrs.",
         "relation_as_enumerated": "Servant"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a servant (cook); born 1847 (the figures are hard to read), in France, widowed. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (cook); born 1847 (the figures are hard to read), in France, widowed. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_lowden_frank_orren_c1900_nora_ryan",
@@ -300,7 +388,15 @@
         "as_enumerated": "Ryan, Nora",
         "relation_as_enumerated": "Servant"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a servant (cook); born August 1879, in Ireland, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (cook); born August 1879, in Ireland, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_lowden_frank_orren_c1900_kate_arnold",
@@ -333,7 +429,15 @@
         "as_enumerated": "Arnold, Kate Mrs.",
         "relation_as_enumerated": "Servant"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a servant (laundress); born August 1864, in Pennsylvania, widowed. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (laundress); born August 1864, in Pennsylvania, widowed. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_lowden_frank_orren_c1900_leonie",
@@ -366,7 +470,15 @@
         "as_enumerated": "(blotted), Leonie Miss",
         "relation_as_enumerated": "Servant"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a servant (ladies maid); born January 1873, in France, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (ladies maid); born January 1873, in France, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_lowden_frank_orren_c1900_jennie_walker",
@@ -399,7 +511,15 @@
         "as_enumerated": "Walker, Jennie",
         "relation_as_enumerated": "Servant"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a servant (house maid); born September 1857, in Illinois, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (house maid); born September 1857, in Illinois, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_lowden_frank_orren_c1900_sophie_olson",
@@ -432,7 +552,15 @@
         "as_enumerated": "Olson, Sophie",
         "relation_as_enumerated": "Servant"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a servant (chambermaid); born January 1843 (the figures are hard to read), in Sweden, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (chambermaid); born January 1843 (the figures are hard to read), in Sweden, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_lowden_frank_orren_c1900_clarence_clough",
@@ -465,7 +593,15 @@
         "as_enumerated": "Clough, Clarence",
         "relation_as_enumerated": "Head"
       },
-      "note": "Enumerated on 1 June 1900 in the rear building behind the house, as the head of his own household there (coachman); born January 1860, in New York, married. Living with him: Clarence Clough (wife), Clarence E. Clough (son). Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+      "note": "Enumerated on 1 June 1900 in the rear building behind the house, as the head of his own household there (coachman); born January 1860, in New York, married. Living with him: Clarence Clough (wife), Clarence E. Clough (son). Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_lowden_frank_orren_c1900_hugh_fields",
@@ -498,7 +634,15 @@
         "as_enumerated": "Fields, Hugh",
         "relation_as_enumerated": "Boarder"
       },
-      "note": "Enumerated on 1 June 1900 in the rear building behind the house, as a boarder (groom); born September 1855 (the figures are hard to read), in Scotland, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+      "note": "Enumerated on 1 June 1900 in the rear building behind the house, as a boarder (groom); born September 1855 (the figures are hard to read), in Scotland, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_lowden_frank_orren_c1900_john_halloran",
@@ -531,7 +675,15 @@
         "as_enumerated": "Halloran, John",
         "relation_as_enumerated": "Boarder"
       },
-      "note": "Enumerated on 1 June 1900 in the rear building behind the house, as a boarder (footman); born June 1876 (the figures are hard to read), in Ireland, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+      "note": "Enumerated on 1 June 1900 in the rear building behind the house, as a boarder (footman); born June 1876 (the figures are hard to read), in Ireland, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     }
   ]
 }

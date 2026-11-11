@@ -45,7 +45,15 @@
         "chicago_blue_book_1904"
       ],
       "printed_as": "1612 George F. Brown",
-      "note": "Listed at 1612 in the 1904 edition and not in the 1905 one, which prints only Charles Edward Brown and George F. Brown jr. there; whether he was still in the house on 1 July 1904 is not documented."
+      "note": "Listed at 1612 in the 1904 edition and not in the 1905 one, which prints only Charles Edward Brown and George F. Brown jr. there; whether he was still in the house on 1 July 1904 is not documented.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_brown_george_f_jr",
@@ -57,7 +65,15 @@
         "chicago_blue_book_1905"
       ],
       "printed_as": "1612 George F. Brown jr.",
-      "note": "'jr.' is the Blue Book's; that he is George F. Brown's son is read from the name, which the book does not state."
+      "note": "'jr.' is the Blue Book's; that he is George F. Brown's son is read from the name, which the book does not state.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_brown_charles_edward",
@@ -69,7 +85,15 @@
         "chicago_blue_book_1905"
       ],
       "printed_as": "1612 Charles Edward Brown",
-      "note": "Listed at the house in both editions. The Blue Book does not say how he was related to George F. Brown."
+      "note": "Listed at the house in both editions. The Blue Book does not say how he was related to George F. Brown.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     }
   ]
 }

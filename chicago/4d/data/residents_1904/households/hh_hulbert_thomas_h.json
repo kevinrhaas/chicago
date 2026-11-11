@@ -46,7 +46,15 @@
         "chicago_blue_book_1905"
       ],
       "printed_as": "2123 Thomas H. Hubbart [1904 OCR] / Thomas H. Hulbert [1905 OCR]",
-      "note": "The two editions' OCR disagree on the surname, 'Hubbart' in 1904 and 'Hulbert' in 1905; the page images were not read, so the spelling is the 1905 reading and is not settled."
+      "note": "The two editions' OCR disagree on the surname, 'Hubbart' in 1904 and 'Hulbert' in 1905; the page images were not read, so the spelling is the 1905 reading and is not settled.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     }
   ]
 }

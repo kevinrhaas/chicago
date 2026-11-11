@@ -55,7 +55,23 @@
         "as_enumerated": "Keith, Edson Mrs.",
         "relation_as_enumerated": "Head"
       },
-      "note": "The 1900 census lists Edson Keith here as head, born July 1839, in Illinois, widowed (ED 40, sheet 4B, line 95, leaf n801)."
+      "note": "The 1900 census lists Edson Keith here as head, born July 1839, in Illinois, widowed (ED 40, sheet 4B, line 95, leaf n801).",
+      "born": {
+        "value": "1839",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The existing census transcription gives born July 1839. The year is carried into the age shown on this card."
+      },
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_keith_edson_jr_at_1906",
@@ -73,7 +89,15 @@
         "on_scene_date": "no"
       },
       "own_card": "pa1904_keith_edson_jr",
-      "note": "Listed at 1906 under Mr. and Mrs. Edson Keith in 1890 and 1891, and with his wife in 1892; the 'jr.' names him the son of the house. From the 1894 edition he lives at 2110, where he and his family are on their own card in 1904. The 1910 census has his mother the mother of two children, both living (ED 166, sheet 8B, line 71, leaf n1444)."
+      "note": "Listed at 1906 under Mr. and Mrs. Edson Keith in 1890 and 1891, and with his wife in 1892; the 'jr.' names him the son of the house. From the 1894 edition he lives at 2110, where he and his family are on their own card in 1904. The 1910 census has his mother the mother of two children, both living (ED 166, sheet 8B, line 71, leaf n1444).",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_keith_walter_w",
@@ -95,7 +119,15 @@
         "years": "1890-1897",
         "on_scene_date": "no"
       },
-      "note": "Listed at 1906 under his parents from 1890, and with his own wife in 1897. In 1910 the census finds Walter W. Keith, 40, next door at 1904 with his wife Frances and son Winchester (ED 166, sheet 8B, lines 76-78), and the widow at 1906 the mother of two living children; with Edson Keith jr. that makes the two. That he was her son is read from the listing and that count."
+      "note": "Listed at 1906 under his parents from 1890, and with his own wife in 1897. In 1910 the census finds Walter W. Keith, 40, next door at 1904 with his wife Frances and son Winchester (ED 166, sheet 8B, lines 76-78), and the widow at 1906 the mother of two living children; with Edson Keith jr. that makes the two. That he was her son is read from the listing and that count.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_keith_mrs_edson_c1900_hilda_johnson",
@@ -128,7 +160,15 @@
         "as_enumerated": "Johnson, Hilda",
         "relation_as_enumerated": "Servant"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a servant (ladies maid); born November 1865, in Sweden, came to the United States in 1889, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (ladies maid); born November 1865, in Sweden, came to the United States in 1889, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_keith_mrs_edson_c1900_greta_lindine",
@@ -161,7 +201,15 @@
         "as_enumerated": "Lindine, Greta",
         "relation_as_enumerated": "Servant"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a servant (cook); born September 1866, in Sweden, came to the United States in 1888, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (cook); born September 1866, in Sweden, came to the United States in 1888, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_keith_mrs_edson_c1900_paul_rasmussen",
@@ -194,7 +242,15 @@
         "as_enumerated": "Rasmussen, Paul",
         "relation_as_enumerated": "Head"
       },
-      "note": "Enumerated on 1 June 1900 in the rear building behind the house, as the head of his own household there (coachman); born April 1863 (the figures are hard to read), in Denmark, came to the United States in 1886, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+      "note": "Enumerated on 1 June 1900 in the rear building behind the house, as the head of his own household there (coachman); born April 1863 (the figures are hard to read), in Denmark, came to the United States in 1886, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     }
   ]
 }

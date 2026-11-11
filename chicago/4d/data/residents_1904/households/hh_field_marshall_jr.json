@@ -46,7 +46,15 @@
         "chicago_blue_book_1904",
         "chicago_blue_book_1905"
       ],
-      "printed_as": "1919 Mr. & Mrs. Marshall Field jr."
+      "printed_as": "1919 Mr. & Mrs. Marshall Field jr.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_field_mrs_marshall_jr",
@@ -59,7 +67,15 @@
         "chicago_blue_book_1905"
       ],
       "printed_as": "1919 Mr. & Mrs. Marshall Field jr.",
-      "note": "The Blue Book prints her as Mrs. Marshall Field jr.; her own name is from Wikipedia's article on her son, which calls her the daughter of Louis Carl Huck."
+      "note": "The Blue Book prints her as Mrs. Marshall Field jr.; her own name is from Wikipedia's article on her son, which calls her the daughter of Louis Carl Huck.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_field_marshall_iii",
@@ -77,7 +93,15 @@
         ],
         "note": "Born in Chicago on 28 September 1893 (Wikipedia)."
       },
-      "note": "Ten years old on the scene date. Wikipedia names his parents and says he was 'raised primarily in England' (after his father's death in 1905) without giving a Chicago address; his place in his parents' house in 1904 is inferred."
+      "note": "Ten years old on the scene date. Wikipedia names his parents and says he was 'raised primarily in England' (after his father's death in 1905) without giving a Chicago address; his place in his parents' house in 1904 is inferred.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_field_henry",
@@ -95,7 +119,15 @@
         ],
         "note": "Born 1895, died 1917 (the lifespan Wikipedia's article on his brother gives him)."
       },
-      "note": "About nine on the scene date; his place in his parents' house is inferred as his brother's is. A sister, Gwendolyn, is not on this card because the source read for it does not name her."
+      "note": "About nine on the scene date; his place in his parents' house is inferred as his brother's is. A sister, Gwendolyn, is not on this card because the source read for it does not name her.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_field_gwendolyn",
@@ -109,7 +141,15 @@
         "years": "a child here in 1903-1905",
         "on_scene_date": "yes"
       },
-      "note": "Gwendolyn Mary Field, the daughter of Marshall Field Jr. and Albertine Huck (Wikipedia names her among their children). The household is listed here from the 1903 edition to 1905, and her father died in November 1905; her birth date is not in the source read, so her place in the house in 1904 is inferred as her brothers' is."
+      "note": "Gwendolyn Mary Field, the daughter of Marshall Field Jr. and Albertine Huck (Wikipedia names her among their children). The household is listed here from the 1903 edition to 1905, and her father died in November 1905; her birth date is not in the source read, so her place in the house in 1904 is inferred as her brothers' is.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     }
   ]
 }

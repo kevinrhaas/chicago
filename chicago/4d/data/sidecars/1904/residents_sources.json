@@ -120,6 +120,14 @@
       "tier": 3,
       "tier_label": "compiled secondary (Andreas)"
     },
+    "buckingham_sturges_genealogy_1907": {
+      "source_id": "buckingham_sturges_genealogy_1907",
+      "citation": "Ebenezer Buckingham, compiler, Solomon Sturges and His Descendants: A Memoir and a Genealogy (New York: The Grafton Press, 1907), p. 61, children of Ebenezer and Lucy Buckingham.",
+      "url": "https://archive.org/details/solomonsturgeshi02buck/page/n114/mode/1up",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness"
+    },
     "buffalo_nehemiah_case": {
       "source_id": "buffalo_nehemiah_case",
       "citation": "Buffalo city directory, Nehemiah Case entry",
@@ -1382,6 +1390,14 @@
       "tier": 4,
       "tier_label": "later scholarship"
     },
+    "glessner_commercial_club_1910_keith_plate": {
+      "source_id": "glessner_commercial_club_1910_keith_plate",
+      "citation": "John J. Glessner, The Commercial Club of Chicago (Chicago, 1910), former presidents, p. 77: Elbridge G. Keith, lower-right portrait, presidency labelled 1890.",
+      "url": "https://archive.org/details/commercialclubof00gles",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness"
+    },
     "glessner_house_blog_mattie_williamson_2020": {
       "source_id": "glessner_house_blog_mattie_williamson_2020",
       "citation": "Glessner House Museum, 'Mattie Williamson, the Glessners' beloved cook', The Story of a House (blog), 31 March 2020.",
@@ -1480,6 +1496,22 @@
         "the date the stable became a garage, the date the roof tiles were tarred, or any other change between 1887 and 1946 that it does not list",
         "measurements: the data pages describe; the drawings (habs_glessner_house_il_1015_drawings) measure"
       ]
+    },
+    "hall_successful_men_1896": {
+      "source_id": "hall_successful_men_1896",
+      "citation": "Henry Hall, editor, America's Successful Men of Affairs, volume II: The United States at Large (New York: New York Tribune, 1896), William Wallace Kimball, pp. 461–463 and signed portrait plate facing p. 461.",
+      "url": "https://archive.org/details/americassuccessf02hallrich",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness"
+    },
+    "harris_ewing_pullman_1908": {
+      "source_id": "harris_ewing_pullman_1908",
+      "citation": "Harris & Ewing, Mrs. George M. Pullman, half-length portrait, seated, facing front (1908). Library of Congress, LCCN 90710921, digital ID cph.3c01380; US Copyright Office registration H105262.",
+      "url": "https://www.loc.gov/pictures/item/90710921/",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness"
     },
     "hathaway_1834": {
       "source_id": "hathaway_1834",
@@ -1752,6 +1784,14 @@
       "archived_url": "",
       "tier": 4,
       "tier_label": "later scholarship"
+    },
+    "leonard_book_of_chicagoans_1905": {
+      "source_id": "leonard_book_of_chicagoans_1905",
+      "citation": "John W. Leonard, editor, The Book of Chicagoans: A Biographical Dictionary of Leading Living Men and Women of the City of Chicago (Chicago: A. N. Marquis, 1905), alphabetical entries.",
+      "url": "https://archive.org/details/bookofchicagoans1905leon",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness"
     },
     "loc_mantowoc_benjamin_jones": {
       "source_id": "loc_mantowoc_benjamin_jones",
@@ -2219,6 +2259,15 @@
         "An address, a trade or a household. The roll carries none of the three."
       ]
     },
+    "smithsonian_harriet_sanger_pullman": {
+      "source_id": "smithsonian_harriet_sanger_pullman",
+      "citation": "Smithsonian National Portrait Gallery, Catalog of American Portraits: Harriet Sanger Pullman, record IL990082 (Eastman Johnson portrait). Sitter born 18 April 1842, died 28 March 1921.",
+      "url": "https://npg.si.edu/object/npg_IL990082",
+      "archived_url": "https://web.archive.org/web/*/https://npg.si.edu/object/npg_IL990082",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "carries_no_document": "Catalogue entry supplies sitter birth and death dates and points to the portrait owner; it is not an archival document transcription."
+    },
     "st_cyr_register_ichr_v4": {
       "source_id": "st_cyr_register_ichr_v4",
       "citation": "The first Chicago Catholic church register — Father John Mary Irenaeus St. Cyr's marriage register and his death and burial page — as printed and annotated in the *Illinois Catholic Historical Review*, vol. 4 (July 1921 - April 1922), and republished in two pages by the Genealogy Trails Transcription Team. 128 dated marriages of 1834-1839, each naming groom, bride, witnesses and officiating priest, and 11 deaths and burials of June 1834 to March 1837.",
@@ -2553,6 +2602,14 @@
       "archived_url": "",
       "tier": 4,
       "tier_label": "later scholarship"
+    },
+    "witherspoon_men_of_illinois_1902": {
+      "source_id": "witherspoon_men_of_illinois_1902",
+      "citation": "Halliday Witherspoon, Men of Illinois (Chicago, 1902), captioned photographic portraits and biographical notices; individual page locators recorded with each portrait.",
+      "url": "https://archive.org/details/menofillinois01with",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness"
     },
     "wright_in_memoriam_1885": {
       "source_id": "wright_in_memoriam_1885",

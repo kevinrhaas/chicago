@@ -1,0 +1,310 @@
+{
+  "not_a_reading": "Portrait selection and fit measurements; existing household identities are re-read, not counted as newly discovered residents.",
+  "sources": [
+    "glessner_commercial_club_1910_keith_plate",
+    "hall_successful_men_1896",
+    "harris_ewing_pullman_1908",
+    "witherspoon_men_of_illinois_1902"
+  ],
+  "portraits": [
+    {
+      "person_id": "pa1904_pike_eugene_s",
+      "source": "witherspoon_men_of_illinois_1902",
+      "page": 58,
+      "leaf": 112,
+      "scan_sha256": "7701464fa91152262dca5246855a88e901e96c6c6e01c19846efe3a6611b75f8",
+      "scan": "https://archive.org/download/menofillinois01with/page/leaf112_w3000.jpg",
+      "crop_px": [
+        261,
+        2221,
+        881,
+        3048
+      ],
+      "portrait": "assets/humans/web/portraits/pa1904_pike_eugene_s_portrait.jpg",
+      "hair_cut": "bald_crown_fringe_1904",
+      "facial": "moustache",
+      "identity_status": "caption_read",
+      "matching_status": "not_yet_visually_accepted",
+      "hair_tone": "white_grey",
+      "hair_tone_basis": "Light grey/white rendering follows the light hair tone in the halftone and the recorded age; exact colour is reconstructed."
+    },
+    {
+      "person_id": "pa1904_buckingham_e",
+      "source": "witherspoon_men_of_illinois_1902",
+      "page": 103,
+      "leaf": 157,
+      "scan_sha256": "a0b91018e6dcd0897a4e01153522864c527620e89814904aae99e5f8f7137343",
+      "scan": "https://archive.org/download/menofillinois01with/page/leaf157_w3000.jpg",
+      "crop_px": [
+        310,
+        546,
+        985,
+        1447
+      ],
+      "portrait": "assets/humans/web/portraits/pa1904_buckingham_e_portrait.jpg",
+      "hair_cut": "bald_crown_fringe_1904",
+      "facial": "beard_short",
+      "identity_status": "caption_read",
+      "matching_status": "not_yet_visually_accepted",
+      "hair_tone": "white_grey",
+      "hair_tone_basis": "Light grey/white rendering follows the light hair tone in the halftone and the recorded age; exact colour is reconstructed."
+    },
+    {
+      "person_id": "pa1904_lowden_frank_orren",
+      "source": "witherspoon_men_of_illinois_1902",
+      "page": 173,
+      "leaf": 227,
+      "scan_sha256": "88635845051a76c13a23f700600eb4bbde3ad50ce0bbbaf9c0b5fec6f9851dee",
+      "scan": "https://archive.org/download/menofillinois01with/page/leaf227_w3000.jpg",
+      "crop_px": [
+        390,
+        566,
+        975,
+        1348
+      ],
+      "portrait": "assets/humans/web/portraits/pa1904_lowden_frank_orren_portrait.jpg",
+      "hair_cut": "short_side_part_1904",
+      "facial": "",
+      "identity_status": "caption_read",
+      "matching_status": "not_yet_visually_accepted"
+    },
+    {
+      "person_id": "pa1904_shortall_john_g",
+      "source": "witherspoon_men_of_illinois_1902",
+      "page": 191,
+      "leaf": 245,
+      "scan_sha256": "3d878094ad0c9a8835cce1961402fef8f048eb62963d2184c8f08e32af3585ea",
+      "scan": "https://archive.org/download/menofillinois01with/page/leaf245_w3000.jpg",
+      "crop_px": [
+        345,
+        2206,
+        1030,
+        3120
+      ],
+      "portrait": "assets/humans/web/portraits/pa1904_shortall_john_g_portrait.jpg",
+      "hair_cut": "short_side_part_1904",
+      "facial": "moustache_full",
+      "identity_status": "caption_read",
+      "matching_status": "not_yet_visually_accepted"
+    },
+    {
+      "person_id": "pa1904_shipman_daniel_b",
+      "source": "witherspoon_men_of_illinois_1902",
+      "page": 278,
+      "leaf": 332,
+      "scan_sha256": "8d60551aae958159f5c261187fb333bb7f4c9f0b6aa1a7b91d24705ef275bf38",
+      "scan": "https://archive.org/download/menofillinois01with/page/leaf332_w3000.jpg",
+      "crop_px": [
+        276,
+        2177,
+        926,
+        3043
+      ],
+      "portrait": "assets/humans/web/portraits/pa1904_shipman_daniel_b_portrait.jpg",
+      "hair_cut": "short_side_part_1904",
+      "facial": "",
+      "identity_status": "caption_read",
+      "matching_status": "not_yet_visually_accepted",
+      "hair_tone": "white_grey",
+      "hair_tone_basis": "Light grey/white rendering follows the light hair tone in the halftone and the recorded age; exact colour is reconstructed."
+    },
+    {
+      "person_id": "pa1904_mckinlock_george_a",
+      "source": "witherspoon_men_of_illinois_1902",
+      "page": 283,
+      "leaf": 337,
+      "scan_sha256": "d9a4c056b6524b653f0fd6c678a671d0b8ec9bab67403e3db09ae6c50799396d",
+      "scan": "https://archive.org/download/menofillinois01with/page/leaf337_w3000.jpg",
+      "crop_px": [
+        390,
+        519,
+        1020,
+        1360
+      ],
+      "portrait": "assets/humans/web/portraits/pa1904_mckinlock_george_a_portrait.jpg",
+      "hair_cut": "short_side_part_1904",
+      "facial": "moustache",
+      "identity_status": "caption_read",
+      "matching_status": "not_yet_visually_accepted"
+    },
+    {
+      "person_id": "pa1904_otis_f_r",
+      "source": "witherspoon_men_of_illinois_1902",
+      "page": 464,
+      "leaf": 518,
+      "scan_sha256": "6208fe08936c6d4a74b35691173d86c5425507bb37826f124ac692d6c3f61864",
+      "scan": "https://archive.org/download/menofillinois01with/page/leaf518_w3000.jpg",
+      "crop_px": [
+        293,
+        561,
+        988,
+        1487
+      ],
+      "portrait": "assets/humans/web/portraits/pa1904_otis_f_r_portrait.jpg",
+      "hair_cut": "bald_crown_fringe_1904",
+      "facial": "beard_short",
+      "identity_status": "caption_read",
+      "matching_status": "not_yet_visually_accepted",
+      "hair_tone": "white_grey",
+      "hair_tone_basis": "Light grey/white rendering follows the light hair tone in the halftone and the recorded age; exact colour is reconstructed."
+    },
+    {
+      "person_id": "pa1904_walker_henry_h",
+      "source": "witherspoon_men_of_illinois_1902",
+      "page": 470,
+      "leaf": 524,
+      "scan_sha256": "a018eb02556bac9da151731621a7457c712cdff5a23c46a79a0f39f99599409c",
+      "scan": "https://archive.org/download/menofillinois01with/page/leaf524_w3000.jpg",
+      "crop_px": [
+        360,
+        551,
+        998,
+        1402
+      ],
+      "portrait": "assets/humans/web/portraits/pa1904_walker_henry_h_portrait.jpg",
+      "hair_cut": "short_side_part_1904",
+      "facial": "moustache_full",
+      "identity_status": "caption_read",
+      "matching_status": "not_yet_visually_accepted"
+    },
+    {
+      "person_id": "pa1904_gorton_frank_s",
+      "source": "witherspoon_men_of_illinois_1902",
+      "page": 134,
+      "leaf": 188,
+      "scan_sha256": "dd9e361e5afdfa651f58624f04f3891e50a9adc6e882359ad86fac67200ed376",
+      "scan": "https://archive.org/download/menofillinois01with/page/leaf188_w3000.jpg",
+      "crop_px": [
+        266,
+        2231,
+        849,
+        3008
+      ],
+      "portrait": "assets/humans/web/portraits/pa1904_gorton_frank_s_portrait.jpg",
+      "hair_cut": "short_side_part_1904",
+      "facial": "moustache_full",
+      "identity_status": "caption_read",
+      "matching_status": "not_yet_visually_accepted"
+    },
+    {
+      "person_id": "pa1904_young_lawrence_a",
+      "source": "witherspoon_men_of_illinois_1902",
+      "page": 203,
+      "leaf": 257,
+      "scan_sha256": "f415abe4364e1fbb3fce7d54c82d46a553398becabe3ca3052d9e92fa2a85e5e",
+      "scan": "https://archive.org/download/menofillinois01with/page/leaf257_w3000.jpg",
+      "crop_px": [
+        1531,
+        588,
+        2197,
+        1474
+      ],
+      "portrait": "assets/humans/web/portraits/pa1904_young_lawrence_a_portrait.jpg",
+      "hair_cut": "short_side_part_1904",
+      "facial": "",
+      "identity_status": "caption_read",
+      "matching_status": "not_yet_visually_accepted"
+    },
+    {
+      "person_id": "pa1904_field_marshall",
+      "source": "witherspoon_men_of_illinois_1902",
+      "page": 353,
+      "leaf": 407,
+      "scan_sha256": "643188f58be0d35a1894eb3d7e6b96e27dd7426b84e8003d8c31bfd6f0323d4c",
+      "scan": "https://archive.org/download/menofillinois01with/page/leaf407_w3000.jpg",
+      "crop_px": [
+        335,
+        526,
+        963,
+        1363
+      ],
+      "portrait": "assets/humans/web/portraits/pa1904_field_marshall_portrait.jpg",
+      "hair_cut": "short_side_part_1904",
+      "facial": "moustache_full",
+      "identity_status": "caption_read",
+      "matching_status": "not_yet_visually_accepted"
+    },
+    {
+      "person_id": "pa1904_clark_john_m",
+      "source": "witherspoon_men_of_illinois_1902",
+      "page": 474,
+      "leaf": 528,
+      "scan_sha256": "8e046116b8547ab1182f16dad7ec066b7aa188d7378d3c0ae43c7bbef9594a3a",
+      "scan": "https://archive.org/download/menofillinois01with/page/leaf528_w3000.jpg",
+      "crop_px": [
+        1521,
+        536,
+        2135,
+        1353
+      ],
+      "portrait": "assets/humans/web/portraits/pa1904_clark_john_m_portrait.jpg",
+      "hair_cut": "short_side_part_1904",
+      "facial": "moustache",
+      "identity_status": "caption_read",
+      "matching_status": "not_yet_visually_accepted",
+      "hair_tone": "white_grey",
+      "hair_tone_basis": "Light grey/white rendering follows the light hair tone in the halftone and the recorded age; exact colour is reconstructed."
+    },
+    {
+      "person_id": "pa1904_kimball_william_w",
+      "source": "hall_successful_men_1896",
+      "page": "plate facing p. 461",
+      "leaf": 520,
+      "scan": "https://archive.org/download/americassuccessf02hallrich/page/leaf520_w3000.jpg",
+      "scan_sha256": "3b5153253e90483d68fcfee751c00679c0fe9168c64c4ce2f29ceb835ed08fca",
+      "crop_px": [
+        567,
+        556,
+        1223,
+        1430
+      ],
+      "portrait": "assets/humans/web/portraits/pa1904_kimball_william_w_portrait.jpg",
+      "hair_cut": "short_side_part_1904",
+      "facial": "moustache_full",
+      "hair_tone": "grey_brown",
+      "hair_tone_basis": "Brown-grey is a reconstructed rendering of the halftone tone; exact colour cannot be read.",
+      "identity_status": "caption_read",
+      "matching_status": "not_yet_visually_accepted"
+    },
+    {
+      "person_id": "pa1904_keith_elbridge_g",
+      "source": "glessner_commercial_club_1910_keith_plate",
+      "page": "p. 77, lower right",
+      "leaf": 87,
+      "scan": "https://archive.org/download/commercialclubof00gles/page/leaf87_w3000.jpg",
+      "scan_sha256": "8f0d0e9a00eb5aa06d00c960e218ba76cb6192b63af2a04291302cf0dfd6b71b",
+      "crop_px": [
+        1429,
+        2458,
+        2020,
+        3246
+      ],
+      "portrait": "assets/humans/web/portraits/pa1904_keith_elbridge_g_portrait.jpg",
+      "hair_cut": "short_side_part_1904",
+      "facial": "moustache_full",
+      "hair_tone": "grey_brown",
+      "hair_tone_basis": "Brown-grey is a reconstructed rendering of the halftone tone; exact colour cannot be read.",
+      "identity_status": "caption_read",
+      "matching_status": "not_yet_visually_accepted"
+    },
+    {
+      "person_id": "pa1904_pullman_mrs_george_m",
+      "source": "harris_ewing_pullman_1908",
+      "scan": "https://upload.wikimedia.org/wikipedia/commons/6/63/Mrs._George_M._Pullman,_half-length_portrait,_seated,_facing_front_LCCN90710921.jpg",
+      "scan_sha256": "7f6a2856d8e3b2c18afdba98a6be8f1b4d1538774d9c9a4a8d11374222c97765",
+      "crop_px": [
+        1188,
+        778,
+        2150,
+        2060
+      ],
+      "portrait": "assets/humans/web/portraits/pa1904_pullman_mrs_george_m_portrait.jpg",
+      "hair_cut": "swept_up_knot_1904",
+      "facial": "",
+      "hair_tone": "white_grey",
+      "hair_tone_basis": "Light hair tone is visible; exact colour is reconstructed.",
+      "identity_status": "catalogue_and_museum_crosscheck",
+      "matching_status": "not_yet_visually_accepted"
+    }
+  ]
+}

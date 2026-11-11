@@ -1,0 +1,24 @@
+{
+ "not_a_reading": "Identity safeguards, not roster discoveries.",
+ "rulings": [
+  {
+   "person_id": "pa1904_armour_mrs_philip_d",
+   "candidate": "https://commons.wikimedia.org/wiki/File:Malvina_Belle_Ogden_Armour.jpg",
+   "decision": "withheld",
+   "reason": "The cited original, The Woman Beautiful (1899), captions the image MRS. OGDEN ARMOUR. That conflicts with the Commons identification as Philip D. Armour's wife; not treated as Malvina's likeness.",
+   "original": "https://www.gutenberg.org/files/23750/23750-h/23750-h.htm"
+  },
+  {
+   "person_id": "pa1904_otis_joseph_e",
+   "candidate": "Men of Illinois (1902), p. 464, upper right",
+   "decision": "not attached to junior",
+   "reason": "Caption is Joseph E. Otis senior, who died in 1902. His son is a different resident."
+  },
+  {
+   "person_id": "pa1904_brown_george_f",
+   "candidate": "Men of Illinois (1902), scan leaf247",
+   "decision": "rejected",
+   "reason": "Page captions identify Smith and Stevens, not George F. Brown."
+  }
+ ]
+}

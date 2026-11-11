@@ -46,7 +46,15 @@
         "chicago_blue_book_1904",
         "chicago_blue_book_1905"
       ],
-      "printed_as": "1923 Mrs. C. P. Kellogg"
+      "printed_as": "1923 Mrs. C. P. Kellogg",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_kellogg_mrs_lois",
@@ -66,6 +74,14 @@
         "locator": "ED 167, sheet 6B, line 76, leaf n1460",
         "as_enumerated": "Kellogg, Lois",
         "relation_as_enumerated": "Daughter"
+      },
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
       }
     },
     {
@@ -99,7 +115,15 @@
         "as_enumerated": "Nelson, Thomas",
         "relation_as_enumerated": "Head"
       },
-      "note": "Enumerated on 1 June 1900 in the rear building behind the house, as the head of his own household there (coachman); born February 1866, in Sweden, came to the United States in 1884, married. Living with him: Nellie Nelson (wife), Hilda Nelson (daughter), Eugenie Nelson (daughter). Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+      "note": "Enumerated on 1 June 1900 in the rear building behind the house, as the head of his own household there (coachman); born February 1866, in Sweden, came to the United States in 1884, married. Living with him: Nellie Nelson (wife), Hilda Nelson (daughter), Eugenie Nelson (daughter). Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     }
   ]
 }

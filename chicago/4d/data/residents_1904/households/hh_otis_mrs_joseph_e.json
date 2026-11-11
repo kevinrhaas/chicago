@@ -55,7 +55,23 @@
         "as_enumerated": "Otis, Marie P.",
         "relation_as_enumerated": "Wife"
       },
-      "note": "The 1900 census lists Marie P. Otis here as wife, born August 1837, in Ohio (as read), married (ED 40, sheet 1B, line 55, leaf n795)."
+      "note": "The 1900 census lists Marie P. Otis here as wife, born August 1837, in Ohio (as read), married (ED 40, sheet 1B, line 55, leaf n795).",
+      "born": {
+        "value": "1837",
+        "confidence": "inferred",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The existing census transcription gives born August 1837. The transcription flags uncertainty; the year remains provisional."
+      },
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_otis_joseph_e_jr",
@@ -71,7 +87,15 @@
         "years": "1890-1891",
         "on_scene_date": "no"
       },
-      "note": "Listed at 1730 under Mr. and Mrs. Joseph E. Otis in the 1890 and 1891 editions; the 'jr.' names him the son of the house. The 1910 census has his mother the mother of eight children, four of them living (ED 166, sheet 6A, line 6, leaf n1439)."
+      "note": "Listed at 1730 under Mr. and Mrs. Joseph E. Otis in the 1890 and 1891 editions; the 'jr.' names him the son of the house. The 1910 census has his mother the mother of eight children, four of them living (ED 166, sheet 6A, line 6, leaf n1439).",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_otis_ralph_c",
@@ -110,7 +134,15 @@
         "years": "1890-1901; 1910",
         "on_scene_date": "unknown"
       },
-      "note": "Listed at 1730 under his parents from 1890, with his wife in 1901, and not in the 1902 to 1910 editions; the 1910 census finds him at home again, as son, aged 40, with his wife Evaleen. Whether he lived here in 1904 is not documented."
+      "note": "Listed at 1730 under his parents from 1890, with his wife in 1901, and not in the 1902 to 1910 editions; the 1910 census finds him at home again, as son, aged 40, with his wife Evaleen. Whether he lived here in 1904 is not documented.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_jenkins_john_e",
@@ -121,7 +153,15 @@
         "chicago_blue_book_1905"
       ],
       "printed_as": "1730 Mr. & Mrs. John E. Jenkins",
-      "note": "First listed at 1730 in the 1905 edition (canvass begun September 1904); not in the 1904 edition, so whether he was already here on 1 July 1904 is not documented. His relation to Mrs. Otis is not printed."
+      "note": "First listed at 1730 in the 1905 edition (canvass begun September 1904); not in the 1904 edition, so whether he was already here on 1 July 1904 is not documented. His relation to Mrs. Otis is not printed.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_jenkins_mrs_john_e",
@@ -140,6 +180,14 @@
         "locator": "ED 166, sheet 6A, line 10, leaf n1439",
         "as_enumerated": "Jenkins, Lillian",
         "relation_as_enumerated": "Daughter"
+      },
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
       }
     },
     {
@@ -173,7 +221,15 @@
         "as_enumerated": "Sanz, Amelia",
         "relation_as_enumerated": "Servant"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a servant (house maid); born December 1872, in Wisconsin, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (house maid); born December 1872, in Wisconsin, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_otis_mrs_joseph_e_c1900_annie_paulson",
@@ -206,7 +262,15 @@
         "as_enumerated": "Paulson, Annie",
         "relation_as_enumerated": "Servant"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a servant (cook); born 1854 (the figures are hard to read), in Norway, came to the United States in 1880, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (cook); born 1854 (the figures are hard to read), in Norway, came to the United States in 1880, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_otis_mrs_joseph_e_c1900_john_bailey",
@@ -239,7 +303,15 @@
         "as_enumerated": "Bailey, John",
         "relation_as_enumerated": "Head"
       },
-      "note": "Enumerated on 1 June 1900 in the rear building behind the house, as the head of his own household there (coachman); born May 1872, in Maryland, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. The census records the color column as B."
+      "note": "Enumerated on 1 June 1900 in the rear building behind the house, as the head of his own household there (coachman); born May 1872, in Maryland, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. The census records the color column as B.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     }
   ]
 }

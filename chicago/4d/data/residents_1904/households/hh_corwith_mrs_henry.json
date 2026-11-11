@@ -54,7 +54,23 @@
         "as_enumerated": "Corwith (reads Carwith), Alma Mrs.",
         "relation_as_enumerated": "Head"
       },
-      "note": "The 1900 census lists Alma Corwith here as head, born October 1834, in Illinois (as read), widowed (ED 40, sheet 4B, line 60, leaf n801)."
+      "note": "The 1900 census lists Alma Corwith here as head, born October 1834, in Illinois (as read), widowed (ED 40, sheet 4B, line 60, leaf n801).",
+      "born": {
+        "value": "1834",
+        "confidence": "inferred",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The existing census transcription gives born October 1834. The transcription flags uncertainty; the year remains provisional."
+      },
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_corwith_charles_r",
@@ -74,6 +90,22 @@
         "locator": "ED 40, sheet 4B, line 61, leaf n801",
         "as_enumerated": "Corwith, Charles R",
         "relation_as_enumerated": "Son"
+      },
+      "born": {
+        "value": "1866",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The existing census transcription gives born May 1866. The year is carried into the age shown on this card."
+      },
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
       }
     },
     {
@@ -97,7 +129,15 @@
         "years": "1892-1902",
         "on_scene_date": "no"
       },
-      "note": "Listed at 1945 under Mrs. Henry Corwith from 1892 to 1902, beside his brother Charles R. Corwith; not in 1903 or after. That they were a son of the house is read from the shared surname at the number; the Blue Book does not print the relationship."
+      "note": "Listed at 1945 under Mrs. Henry Corwith from 1892 to 1902, beside his brother Charles R. Corwith; not in 1903 or after. That they were a son of the house is read from the shared surname at the number; the Blue Book does not print the relationship.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_corwith_frank",
@@ -113,7 +153,15 @@
         "years": "1892-1893",
         "on_scene_date": "no"
       },
-      "note": "Listed at 1945 under Mrs. Henry Corwith in 1892 and 1893. That they were a son of the house is read from the shared surname at the number; the Blue Book does not print the relationship. The household also printed '& dr.' from 1892 to 1894, a daughter the book does not name."
+      "note": "Listed at 1945 under Mrs. Henry Corwith in 1892 and 1893. That they were a son of the house is read from the shared surname at the number; the Blue Book does not print the relationship. The household also printed '& dr.' from 1892 to 1894, a daughter the book does not name.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_corwith_mrs_henry_c1900_hannah_bolin",
@@ -146,7 +194,15 @@
         "as_enumerated": "Bolin, Hannah",
         "relation_as_enumerated": "Servant"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a servant (house maid); born January 1869, in Sweden, came to the United States in 1891, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (house maid); born January 1869, in Sweden, came to the United States in 1891, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_corwith_mrs_henry_c1900_minnie_anderson",
@@ -179,7 +235,15 @@
         "as_enumerated": "Anderson, Minnie",
         "relation_as_enumerated": "Servant"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a servant (waitress); born June 1875, in Sweden, came to the United States in 1894, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (waitress); born June 1875, in Sweden, came to the United States in 1894, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_corwith_mrs_henry_c1900_selma_peterson",
@@ -212,7 +276,15 @@
         "as_enumerated": "Peterson, Selma",
         "relation_as_enumerated": "Servant"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a servant (cook); born April 1870, in Sweden, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (cook); born April 1870, in Sweden, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_corwith_mrs_henry_c1900_elsie_nelson",
@@ -245,7 +317,15 @@
         "as_enumerated": "Nelson, Elsie",
         "relation_as_enumerated": "Servant"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a servant (laundress); born March 1876, in Sweden, came to the United States in 1891, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (laundress); born March 1876, in Sweden, came to the United States in 1891, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_corwith_mrs_henry_c1900_lottie_wenzel",
@@ -278,7 +358,15 @@
         "as_enumerated": "Wenzel, Lottie",
         "relation_as_enumerated": "Servant"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a servant (ladies maid); born June 1865, in Germany, came to the United States in 1872, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (ladies maid); born June 1865, in Germany, came to the United States in 1872, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_corwith_mrs_henry_c1900_lizzie_foley",
@@ -311,7 +399,15 @@
         "as_enumerated": "Foley, Lizzie",
         "relation_as_enumerated": "Servant"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a servant (waitress); born October 1876, in Germany (as read), single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (waitress); born October 1876, in Germany (as read), single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     }
   ]
 }

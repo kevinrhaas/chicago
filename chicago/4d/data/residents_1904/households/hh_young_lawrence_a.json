@@ -45,7 +45,8 @@
       "sources": [
         "chicago_blue_book_1904",
         "chicago_blue_book_1905",
-        "census_1900_chicago_t623_roll245"
+        "census_1900_chicago_t623_roll245",
+        "witherspoon_men_of_illinois_1902"
       ],
       "printed_as": "1812 Mr. & Mrs. Lawrence A. Young",
       "census_1900": {
@@ -55,7 +56,28 @@
         "as_enumerated": "Young, Lawrence A.",
         "relation_as_enumerated": "Head"
       },
-      "note": "The 1900 census lists Lawrence A. Young here as head, born May 1870, in Kentucky, married, lawyer (ED 40, sheet 5A, line 33, leaf n802)."
+      "note": "The 1900 census lists Lawrence A. Young here as head, born May 1870, in Kentucky, married, lawyer (ED 40, sheet 5A, line 33, leaf n802).",
+      "born": {
+        "value": "1870",
+        "confidence": "attested",
+        "sources": [
+          "witherspoon_men_of_illinois_1902"
+        ],
+        "note": "Biographical date from the cited period publication(s). The earlier census transcription on this card is retained as a separate reading; where it disagrees, this figure uses the independently published biographical date. The publication date is not the date the photograph was taken."
+      },
+      "card_facts": [
+        {
+          "label": "Full name",
+          "value": "Lawrence A. Young",
+          "grade": "attested"
+        }
+      ],
+      "portrait": {
+        "image": "humans/web/portraits/pa1904_young_lawrence_a_portrait.jpg",
+        "caption": "Lawrence A. Young, undated photograph published in Men of Illinois (1902), p. 203.",
+        "grade": "attested",
+        "why": "Identified by the printed caption and checked against the household record. The monochrome photograph does not establish skin, eye or clothing colours."
+      }
     },
     {
       "id": "pa1904_young_mrs_lawrence_a",
@@ -75,7 +97,23 @@
         "as_enumerated": "Young, Mattie W.",
         "relation_as_enumerated": "Wife"
       },
-      "note": "The 1900 census lists Mattie W. Young here as wife, born September 1873, in Illinois, married (ED 40, sheet 5A, line 34, leaf n802)."
+      "note": "The 1900 census lists Mattie W. Young here as wife, born September 1873, in Illinois, married (ED 40, sheet 5A, line 34, leaf n802).",
+      "born": {
+        "value": "1873",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The existing census transcription gives born September 1873. The year is carried into the age shown on this card."
+      },
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_young_lawrence_a_c1900_henry_w_young",
@@ -108,7 +146,15 @@
         "as_enumerated": "Young, Henry W.",
         "relation_as_enumerated": "Son"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a son of the head (at school); born December 1894, in Illinois. The 1904 Blue Book names no children, so a child at home in 1900 is placed here in 1904 by inference. Part of the name is hard to read on the sheet; this is the best reading."
+      "note": "Enumerated on 1 June 1900 in the house, as a son of the head (at school); born December 1894, in Illinois. The 1904 Blue Book names no children, so a child at home in 1900 is placed here in 1904 by inference. Part of the name is hard to read on the sheet; this is the best reading.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_young_lawrence_a_c1900_alice_young",
@@ -133,7 +179,15 @@
         "as_enumerated": "Young, Alice",
         "relation_as_enumerated": "Daughter"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a daughter of the head; born May 1898, in Illinois. The 1904 Blue Book names no children, so a child at home in 1900 is placed here in 1904 by inference. Part of the name is hard to read on the sheet; this is the best reading."
+      "note": "Enumerated on 1 June 1900 in the house, as a daughter of the head; born May 1898, in Illinois. The 1904 Blue Book names no children, so a child at home in 1900 is placed here in 1904 by inference. Part of the name is hard to read on the sheet; this is the best reading.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_young_lawrence_r",
@@ -162,7 +216,15 @@
         "years": "born about 1903; here in 1910",
         "on_scene_date": "yes"
       },
-      "note": "The Youngs' third child: the 1910 census lists him at 1812 aged 7, with his brother Henry W. and sister Alice, and their mother as having borne three children, all living (ED 166, sheet 1A, lines 41-45). Born about 1902-03 to a family listed here from the 1897 edition to 1914, he was very likely a baby in the house on 1 July 1904; that is inferred from his age, not recorded."
+      "note": "The Youngs' third child: the 1910 census lists him at 1812 aged 7, with his brother Henry W. and sister Alice, and their mother as having borne three children, all living (ED 166, sheet 1A, lines 41-45). Born about 1902-03 to a family listed here from the 1897 edition to 1914, he was very likely a baby in the house on 1 July 1904; that is inferred from his age, not recorded.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_young_lawrence_a_c1900_katie_lyden",
@@ -195,7 +257,15 @@
         "as_enumerated": "Lyden, Katie",
         "relation_as_enumerated": "Servant"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a servant (waitress); born March 1874, in Ireland, came to the United States in 1888, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (waitress); born March 1874, in Ireland, came to the United States in 1888, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_young_lawrence_a_c1900_rose_annie_colwell",
@@ -228,7 +298,15 @@
         "as_enumerated": "Colwell, Rose Annie",
         "relation_as_enumerated": "Servant"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a servant (laundress); born May 1853, in Ireland, came to the United States in 1868, widowed. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (laundress); born May 1853, in Ireland, came to the United States in 1868, widowed. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_young_lawrence_a_c1900_elizabeth_mcgregor",
@@ -261,7 +339,15 @@
         "as_enumerated": "McGregor, Elizabeth",
         "relation_as_enumerated": "Servant"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a servant (cook); born December 1871, in Scotland, came to the United States in 1893, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (cook); born December 1871, in Scotland, came to the United States in 1893, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_young_lawrence_a_c1900_lizzie_hale",
@@ -294,7 +380,15 @@
         "as_enumerated": "Hale, Lizzie",
         "relation_as_enumerated": "Servant"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a servant (nurse (children)); born January 1871, in England, came to the United States in 1895, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (nurse (children)); born January 1871, in England, came to the United States in 1895, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_young_lawrence_a_c1900_margaret_flaherty",
@@ -327,7 +421,15 @@
         "as_enumerated": "Flaherty, Margaret",
         "relation_as_enumerated": "Servant"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a servant (nurse (infant)); born March 1869, in Wisconsin, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (nurse (infant)); born March 1869, in Wisconsin, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_young_lawrence_a_c1900_thomas_goodwin",
@@ -360,7 +462,15 @@
         "as_enumerated": "Goodwin, Thomas",
         "relation_as_enumerated": "Head"
       },
-      "note": "Enumerated on 1 June 1900 in the rear building behind the house, as the head of his own household there (coachman); born June 1871 (the figures are hard to read), in England, came to the United States in 1892, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+      "note": "Enumerated on 1 June 1900 in the rear building behind the house, as the head of his own household there (coachman); born June 1871 (the figures are hard to read), in England, came to the United States in 1892, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_young_lawrence_a_c1900_william_wellington",
@@ -393,7 +503,15 @@
         "as_enumerated": "Wellington, William",
         "relation_as_enumerated": "Roomer"
       },
-      "note": "Enumerated on 1 June 1900 in the rear building behind the house, as a roomer (groom); born February 1872, in England, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+      "note": "Enumerated on 1 June 1900 in the rear building behind the house, as a roomer (groom); born February 1872, in England, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     }
   ]
 }

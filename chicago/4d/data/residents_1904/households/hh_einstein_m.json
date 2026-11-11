@@ -55,7 +55,23 @@
         "as_enumerated": "Einstein, Morris",
         "relation_as_enumerated": "Head"
       },
-      "note": "The 1900 census lists Morris Einstein here as head, born July 1827, in Germany, came to the United States in 1843, married, capitalist (ED 36, sheet 2A, line 49, leaf n667)."
+      "note": "The 1900 census lists Morris Einstein here as head, born July 1827, in Germany, came to the United States in 1843, married, capitalist (ED 36, sheet 2A, line 49, leaf n667).",
+      "born": {
+        "value": "1827",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The existing census transcription gives born July 1827. The year is carried into the age shown on this card."
+      },
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_einstein_mrs_m",
@@ -75,7 +91,23 @@
         "as_enumerated": "Einstein, Julia",
         "relation_as_enumerated": "Wife"
       },
-      "note": "The 1900 census lists Julia Einstein here as wife, born August 1831, in Germany, married (ED 36, sheet 2A, line 50, leaf n667)."
+      "note": "The 1900 census lists Julia Einstein here as wife, born August 1831, in Germany, married (ED 36, sheet 2A, line 50, leaf n667).",
+      "born": {
+        "value": "1831",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The existing census transcription gives born August 1831. The year is carried into the age shown on this card."
+      },
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_einstein_daughter",
@@ -89,7 +121,15 @@
         "census_1910_chicago_t624_roll241"
       ],
       "printed_as": "1628 Mr. & Mrs. M. Einstein & dr.",
-      "note": "The Blue Book prints '& dr.' after the household's name: an unmarried daughter at home, not named. 'Miss Einstein' is the book's own form of address, not a recorded name. The 1900 census lists the unmarried daughter at home as Anna B. Einstein (born February 1868, in Illinois, single; ED 36, sheet 2B, line 53, leaf n668). She is very likely the one the book means, but the book does not say. The 1894 Blue Book lists a Miss Anna B. Einstein at 1628, and the 1910 census lists Anna B. Einstein there as the unmarried daughter at home (ED 166, sheet 8B, line 92), so she is very likely the one the book means."
+      "note": "The Blue Book prints '& dr.' after the household's name: an unmarried daughter at home, not named. 'Miss Einstein' is the book's own form of address, not a recorded name. The 1900 census lists the unmarried daughter at home as Anna B. Einstein (born February 1868, in Illinois, single; ED 36, sheet 2B, line 53, leaf n668). She is very likely the one the book means, but the book does not say. The 1894 Blue Book lists a Miss Anna B. Einstein at 1628, and the 1910 census lists Anna B. Einstein there as the unmarried daughter at home (ED 166, sheet 8B, line 92), so she is very likely the one the book means.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_einstein_benjamin",
@@ -113,7 +153,15 @@
         "years": "1890-1901",
         "on_scene_date": "no"
       },
-      "note": "Listed at 1628 under Mr. and Mrs. Morris Einstein in every edition read from 1890 to 1901, and not in 1902 or after. That they were a son of the house is read from the shared surname at the number; the Blue Book does not print the relationship. The 1910 census has Julia Einstein the mother of seven children, six of them living (ED 166, sheet 8B, line 91, leaf n1444)."
+      "note": "Listed at 1628 under Mr. and Mrs. Morris Einstein in every edition read from 1890 to 1901, and not in 1902 or after. That they were a son of the house is read from the shared surname at the number; the Blue Book does not print the relationship. The 1910 census has Julia Einstein the mother of seven children, six of them living (ED 166, sheet 8B, line 91, leaf n1444).",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_einstein_arthur",
@@ -128,7 +176,15 @@
         "years": "1890",
         "on_scene_date": "no"
       },
-      "note": "Listed at 1628 under Mr. and Mrs. Morris Einstein in the 1890 edition only. That they were a son of the house is read from the shared surname at the number; the Blue Book does not print the relationship."
+      "note": "Listed at 1628 under Mr. and Mrs. Morris Einstein in the 1890 edition only. That they were a son of the house is read from the shared surname at the number; the Blue Book does not print the relationship.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_einstein_jennie_shafner",
@@ -161,7 +217,15 @@
         "years": "1902; 1910-1911",
         "on_scene_date": "unknown"
       },
-      "note": "The 1910 census lists her at 1628 as the Einsteins' daughter, divorced, aged 56 and born in West Virginia. The Blue Book lists Mrs. Jennie E. Shaffner at 1628 in the 1902 edition and again from 1910; it does not list her there in 1904 or 1905, so whether she was home that year is not documented."
+      "note": "The 1910 census lists her at 1628 as the Einsteins' daughter, divorced, aged 56 and born in West Virginia. The Blue Book lists Mrs. Jennie E. Shaffner at 1628 in the 1902 edition and again from 1910; it does not list her there in 1904 or 1905, so whether she was home that year is not documented.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_einstein_emma_biers",
@@ -193,7 +257,15 @@
         "years": "1895; 1910",
         "on_scene_date": "unknown"
       },
-      "note": "The 1910 census lists her at 1628 as the Einsteins' daughter, a widow of 54, born in California. The Blue Book lists Mrs. Emma Beirs at 1628 in 1895 and 1910 only."
+      "note": "The 1910 census lists her at 1628 as the Einsteins' daughter, a widow of 54, born in California. The Blue Book lists Mrs. Emma Beirs at 1628 in 1895 and 1910 only.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_einstein_m_c1900_katy_bergin",
@@ -218,7 +290,15 @@
         "as_enumerated": "Bergin, Katy",
         "relation_as_enumerated": "Servant"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a servant; born December 1874, in Ireland, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+      "note": "Enumerated on 1 June 1900 in the house, as a servant; born December 1874, in Ireland, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     }
   ]
 }
