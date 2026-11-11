@@ -622,19 +622,26 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
     return [{ e: a.e, n: a.n }, ...pts.filter((p) => dist(p, a) > 0.05 && dist(p, b) > 0.05), { e: b.e, n: b.n }];
   }
 
+  const requestedRoute = (p) => !!(p.safeHostTravel || (p.actor.instance?.scene === '1812'
+    && (p.visitorReturn || p.called?.visitorRequested || p.social?.visitorRequested || p.override?.visitorRequested)));
   /** Walk `actor` to `to` (or put them there, far off), facing `heading`; then `done`. */
   function go(p, to, heading, done, { from = null } = {}) {
     const a = p.actor;
     const start = from ?? { e: a.e, n: a.n };
-    const safe = !!p.safeHostTravel || (!!p.safeRoutineTravel && (near(start.e, start.n) || near(to.e, to.n)));
+    const requested = requestedRoute(p);
+    const safe = requested || (!!p.safeRoutineTravel && (near(start.e, start.n) || near(to.e, to.n)));
     // A routine leaving a door is still hidden until the actor's next render update.
     // That lag must not authorize a jump across the street. Jaunt cuts keep their own rule.
     const hidden = p.cutHandoff || (!p.safeRoutineTravel && a.root?.visible === false);
     p.cutHandoff = false; // the cut grants one handoff only, never a later return
     if (safe && dist(start, to) >= 0.05 && !hidden) {
       let route;
-      try { route = p.safeRoutineTravel && clear(start, to)
-        ? { points: [[start.e, start.n], [to.e, to.n]] } : (hostRouter ?? router)?.plan?.(start, to, { mode: 'walk' }); } catch { /* retry below */ }
+      // Automatic routines must respect the day router's cold-grid policy.
+      // The full planner is for actual visitor/jaunt journeys, not every nearby
+      // blocked chore. An unavailable routine route waits and retries safely.
+      try { route = !p.safeHostTravel && (p.safeRoutineTravel || requested) && clear(start, to)
+        ? { points: [[start.e, start.n], [to.e, to.n]] }
+        : (requested || a.instance?.scene !== '1812' ? (hostRouter ?? router) : router)?.plan?.(start, to, { mode: 'walk' }); } catch { /* retry below */ }
       const pts = Array.isArray(route?.points) && route.points.every((q) => Array.isArray(q) && q.length === 2 && q.every(Number.isFinite)) ? route.points : null;
       if (!pts?.length || Math.hypot(pts.at(-1)[0] - to.e, pts.at(-1)[1] - to.n) > 0.05 || typeof a.walkPath !== 'function') {
         a.path = null; a.setState?.('standing');
@@ -881,12 +888,12 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
     p.inside = structure;
     if (a.instance?.scene === '1812') p.safeRoutineTravel = true;
     if (p.entry) rested.set(p.entry.person, { date: date(), span: spanAt(dayOn(p.b, date(), keyOf(p)), hour()) });
-    if (a.indoors && (!previous || previous === structure)) { p.mode = 'in'; if (!p.hosted) p.safeHostTravel = false; return; }
+    if (a.indoors && (!previous || previous === structure)) { p.mode = 'in'; p.visitorReturn = false; if (!p.hosted) p.safeHostTravel = false; return; }
     const door = doorsOf(structure).find(d => d.id === doorId) ?? homeDoor(p, structure, a.e, a.n);
-    if (!door || (!p.safeHostTravel && !near(a.e, a.n))) { a.path = null; a.setIndoors?.(true); p.mode = 'in'; if (!p.hosted) p.safeHostTravel = false; return; }
+    if (!door || (!requestedRoute(p) && !near(a.e, a.n))) { a.path = null; a.setIndoors?.(true); p.mode = 'in'; p.visitorReturn = false; if (!p.hosted) p.safeHostTravel = false; return; }
     const inward = () => {
       p.mode = 'going_in';
-      enterBy(p, door, () => { a.setIndoors?.(true); p.mode = 'in'; if (!p.hosted) p.safeHostTravel = false; });
+      enterBy(p, door, () => { a.setIndoors?.(true); p.mode = 'in'; p.visitorReturn = false; if (!p.hosted) p.safeHostTravel = false; });
     };
     if (a.indoors && previous !== structure) {
       const out = homeDoor(p, previous, a.e, a.n);
@@ -921,6 +928,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
     const a = p.actor;
     const act = span.activity ?? 'stand';
     if (!p.hosted) p.safeHostTravel = false; // returned to the everyday post
+    p.visitorReturn = false;
     p.safeRoutineTravel = false;
     p.job = null;
     // Talking starts only once a real partner has arrived.
@@ -987,7 +995,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
     p.job = null;
     p.token = (p.token ?? 0) + 1;
     p.round = null; p.phase = null; p.cur = null;
-    if (span.away) { talk(a, false); a.path = null; a.setIndoors?.(true); p.mode = 'in'; p.inside = null; return; }
+    if (span.away) { talk(a, false); a.path = null; a.setIndoors?.(true); p.mode = 'in'; p.inside = null; p.visitorReturn = false; return; }
     if (span.indoors) { talk(a, false); goIn(p, span.where, span.door); return; }
     // T-3505: a talk or a job is played as a round: gatherings, one's own job, breaks indoors.
     const act = span.activity ?? 'stand';
@@ -1006,17 +1014,17 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
   const home = (p) => (dayOn(p.b, date(), keyOf(p))?.spans ?? []).find((s) => s.indoors && !s.away && s.where)?.where ?? p.b.shelter;
   const unavailable = (p) => p.absent || !onDate(date(), p.b.presence) || p.actor.disposed || p.hosted || held(p.actor) || humans.isHeld?.(p.actor);
 
-  function restAfterTalk(p) {
+  function restAfterTalk(p, visitorRequested = false) {
     const original = spanAt(dayOn(p.b, date(), keyOf(p)), hour());
     const where = home(p);
     if (!where) return;
     const span = { indoors: true, where, doing: 'back to household duties' };
-    p.override = { span, original, date: date(), until: null };
+    p.override = { span, original, date: date(), until: null, visitorRequested };
     enter(p, span);
   }
 
   /** A shared break owns both paths until both arrive, chat, and resume their days. */
-  function startSocial(p, span) {
+  function startSocial(p, span, visitorRequested = false) {
     const where = home(p);
     const currentOf = q => spanAt(dayOn(q.b, date(), keyOf(q)), hour());
     const anchor = p.actor.indoors ? pt(span.at) : { e: p.actor.e, n: p.actor.n };
@@ -1048,7 +1056,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
     const next = [0, 90, 180, 270].map((h) => ({ e: at.e + Math.sin(h * Math.PI / 180) * 1.4,
       n: at.n + Math.cos(h * Math.PI / 180) * 1.4 })).find((to) => clear(at, to));
     if (!next) return { ok: false, why: 'There is no room to chat here' };
-    const session = { members: [p, q], date: date(), started: clock, chatting: null,
+    const session = { members: [p, q], date: date(), started: clock, chatting: null, visitorRequested,
       originals: [p, q].map((m) => spanAt(dayOn(m.b, date(), keyOf(m)), hour())) };
     socials.add(session);
     for (const [i, m] of session.members.entries()) {
@@ -1076,8 +1084,11 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
       offWay(p); p.actor.stopPath?.(); p.actor.path = null; talk(p.actor, false);
       const current = spanAt(dayOn(p.b, date(), keyOf(p)), hour());
       if (p.actor.instance?.scene === '1812') p.safeRoutineTravel = true;
-      if (p.entry || (current?.activity === 'talk' && !current.duty)) restAfterTalk(p);
-      else if (current) enter(p, current);
+      if (p.entry || (current?.activity === 'talk' && !current.duty)) restAfterTalk(p, session.visitorRequested);
+      else if (current) {
+        if (session.visitorRequested) p.visitorReturn = true;
+        enter(p, current);
+      }
     }
   }
 
@@ -1253,7 +1264,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
   function callOut(p, door) {
     p.autonomousUntil = null;
     p.override = null;
-    p.called = { door, since: clock, off: 0 };
+    p.called = { door, since: clock, off: 0, visitorRequested: true };
     p.job = null;
     p.token = (p.token ?? 0) + 1;
     p.mode = 'called';
@@ -1289,11 +1300,12 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
     if (clock - c.since < STAY_S && c.off < LEAVE_S) return;
     // Let go: back in by the door they came out of, or on to the hour's place.
     p.called = null;
+    if (c.visitorRequested) p.visitorReturn = true; // retain the visitor's return leg until arrival
     if (p.soldier || p.entry) {
       const back = c.door;
       p.inside = p.entry ? back.structure : p.b.quarters;
       p.mode = 'going_in';
-      const inAgain = () => { p.actor.setIndoors?.(true); p.mode = 'in'; if (p.entry) retire(p); };
+      const inAgain = () => { p.actor.setIndoors?.(true); p.mode = 'in'; p.visitorReturn = false; if (!p.hosted) p.safeHostTravel = false; if (p.entry) retire(p); };
       enterBy(p, back, inAgain);
       return;
     }
@@ -1465,7 +1477,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
       if (!door) return;
       p.token = (p.token ?? 0) + 1;
       p.actor.stopPath?.(); talk(p.actor, false); p.job = null; p.round = null;
-      p.called = { door, since: clock, off: 0 };
+      p.called = { door, since: clock, off: 0, visitorRequested: true };
     },
     outdoorActivities(id) {
       const p = people.find((q) => q.id === id || q.actor.personId === id);
@@ -1502,10 +1514,10 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
       if (!span) return { ok: false, why: 'No activity available' };
       if (p.social) endSocial(p.social);
       p.autonomousUntil = null;
-      if (span.activity === 'talk') return startSocial(p, span);
+      if (span.activity === 'talk') return startSocial(p, span, true);
       p.called = null;
       if (p.actor.instance?.scene === '1812' || activity === null) p.safeRoutineTravel = true;
-      p.override = { span, original, date: date(), until: activity === null ? null : clock + 300 };
+      p.override = { span, original, date: date(), until: activity === null ? null : clock + 300, visitorRequested: true };
       enter(p, span);
       return { ok: true };
     },
@@ -1564,8 +1576,10 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
         let span = spanAt(dayOn(p.b, today, p.actor.personId ?? p.id), h);
         if (p.override) {
           if (p.override.date !== today || (p.override.until ? clock >= p.override.until : span !== p.override.original)) {
+            const visitorRequested = p.override.visitorRequested;
             p.override = null; p.span = null;
-            if (p.entry) { restAfterTalk(p); continue; }
+            if (visitorRequested) p.visitorReturn = true; // return from the requested activity
+            if (p.entry) { restAfterTalk(p, visitorRequested); continue; }
           } else span = p.override.span;
         }
         if (!span) continue;
@@ -1625,6 +1639,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
       p.hosted = { mark: to, heading };
       p.attending = null;
       p.safeHostTravel = safeTravel;
+      p.visitorReturn = false;
       p.safeRoutineTravel = false;
       p.cutHandoff = atCut && !a.indoors;
       p.pendingHostMove = null;

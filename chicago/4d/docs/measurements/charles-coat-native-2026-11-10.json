@@ -1,0 +1,115 @@
+{
+  "schema": "charles_near_coat_actual_native_fixture_v1",
+  "measurement": {
+    "status": "ACTUAL_NATIVE_FOUR_NEAR_ROWS_AND_244_UNCHANGED_ROWS_PASS",
+    "head": "0e7803553f6cd602ea37611a6ba4e67731961fdb",
+    "command": [
+      "node",
+      "tools/human_fixture.mjs",
+      "--write",
+      "--asset-ids",
+      "nelson_charles_1904_coachman"
+    ],
+    "selected_rows": [
+      "assets/humans/nelson_charles_1904_coachman.lod0.glb",
+      "assets/humans/nelson_charles_1904_coachman.lod1.glb",
+      "assets/humans/web/nelson_charles_1904_coachman.lod0.glb",
+      "assets/humans/web/nelson_charles_1904_coachman.lod1.glb"
+    ],
+    "actual248_file_hashes_unchanged_before_after": true,
+    "unchanged244_rows_exact": true,
+    "both_viewports": {
+      "desktop": [
+        1280,
+        800
+      ],
+      "mobile": [
+        390,
+        780
+      ]
+    },
+    "timing_frames_per_file": 30,
+    "full_original_date_preserved": true,
+    "fixture_sha256": "22a4b9f10a7093b3b1fe5f2d1414365b984d4c85fb4e556f81a5843e08d576fa",
+    "removed_untracked_generated_cache_files": [
+      "tools/__pycache__/human_charles_coat.cpython-312.pyc",
+      "tools/__pycache__/verify_human_charles_coat.cpython-312.pyc"
+    ],
+    "full_APP_gate_photo_fit_acceptance": false
+  },
+  "supervisor": {
+    "returncode": 0,
+    "seconds": 84.44128470902797,
+    "command_seconds": 84.44104090007022,
+    "resource_pause_seconds": 0.0,
+    "command": [
+      "/tmp/ROOT-GATE-BIND-PREP-20261110/with-cache.sh",
+      "--",
+      "bash",
+      "/tmp/t1789-charles-native-fixture-20261110-02/cell.sh"
+    ],
+    "cwd": "/workspace",
+    "main_child_pid": 1865667,
+    "timed_out": false,
+    "requested_timeout_seconds": 120.0,
+    "effective_timeout_seconds": 120.0,
+    "timeout_override_reason": null
+  },
+  "resources": {
+    "accepted": true,
+    "before": {
+      "accepted": true,
+      "checks": {
+        "exact_nonnegative_integers": true,
+        "same_restored_epoch": true,
+        "complete_event_keyset": true,
+        "all_nonmax_zero": true,
+        "max_not_below_new_epoch_baseline": true,
+        "available_components_agree": true,
+        "ram_floor": true,
+        "workspace_floor": true,
+        "tmp_floor": true
+      },
+      "baseline_sha256": "3f494df78dc3dfaeb0bc5d2c7b7c80d05b0dc82950b30375316a7125f886b3ff"
+    },
+    "after": {
+      "accepted": true,
+      "checks": {
+        "exact_nonnegative_integers": true,
+        "same_restored_epoch": true,
+        "complete_event_keyset": true,
+        "all_nonmax_zero": true,
+        "max_not_below_new_epoch_baseline": true,
+        "available_components_agree": true,
+        "ram_floor": true,
+        "workspace_floor": true,
+        "tmp_floor": true
+      },
+      "baseline_sha256": "3f494df78dc3dfaeb0bc5d2c7b7c80d05b0dc82950b30375316a7125f886b3ff"
+    },
+    "max_monotone_between_snapshots": true
+  },
+  "cleanup": {
+    "reaped_owned_descendants": [
+      {
+        "pid": 1865733,
+        "status": 0
+      },
+      {
+        "pid": 1865737,
+        "status": 0
+      },
+      {
+        "pid": 1865736,
+        "status": 0
+      },
+      {
+        "pid": 1865739,
+        "status": 0
+      }
+    ],
+    "remaining_owned_children": [],
+    "cleanup_complete": true
+  },
+  "full_APP_gate_published_release_phone_memory_photo_fit_accepted": false
+}

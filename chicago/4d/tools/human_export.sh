@@ -100,6 +100,14 @@ else
 "$BIN" -b -noaudio "$MASTER" --python-exit-code 1 --python tools/human_export.py -- "$SCRATCH/lods" \
   | grep -E '^wrote ' | sed "s#$SCRATCH/lods/##"
 fi
+CHARLES_TARGET=""
+if [ "$MODE" = master ] && [ -f "$SCRATCH/lods/nelson_charles_1904_coachman.lod0.glb" ]; then
+  # This resident has a reviewed material-only terminal. Keep ALL fresh exports
+  # in scratch until its complete parent compatibility check passes. Unknown
+  # body/UV/rig/clip/provenance changes must not erase the adopted coat or FARs.
+  CHARLES_TARGET="$OUT"
+  OUT="$SCRATCH/charles-canonical"
+fi
 mkdir -p "$OUT/web"
 written=()
 for f in "$SCRATCH"/lods/*.glb; do
@@ -134,6 +142,19 @@ for f in "$SCRATCH"/lods/*.glb; do
   fi
   written+=("$OUT/$name" "$OUT/web/$name")
 done
+
+if [ -n "$CHARLES_TARGET" ]; then
+  # Same existing pinned codec closure; official Mikk is needed only for this
+  # explicit Charles master, never for fixture/verify or other resident builds.
+  C4D_CHARLES_EXPORTED="$OUT" C4D_CHARLES_TARGET="$CHARLES_TARGET" \
+    "${GT_NPX[@]}" --package "mikktspace@1.1.1" -c \
+    'python3 tools/human_charles_coat.py --finish-export "$C4D_CHARLES_EXPORTED" --target "$C4D_CHARLES_TARGET"'
+  OUT="$CHARLES_TARGET"
+  written=()
+  for lod in 0 1 2 3; do
+    written+=("$OUT/nelson_charles_1904_coachman.lod$lod.glb" "$OUT/web/nelson_charles_1904_coachman.lod$lod.glb")
+  done
+fi
 
 echo "== gate: tools/human_contract.py --glb"
 python3 tools/human_contract.py --glb "${written[@]}"

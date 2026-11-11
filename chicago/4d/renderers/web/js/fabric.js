@@ -121,6 +121,20 @@ const ANCHORS = ['#include <color_fragment>', '#include <roughnessmap_fragment>'
   '#include <normal_fragment_maps>', '#include <lights_fragment_end>'];
 
 const patched = new WeakSet();
+/** A reviewed portable wool map supplies only thread weave and dye heather.
+ * Keep the existing common macro wear, rumple and sheen. Ordinary materials,
+ * recolors keep their inherited normal map; clearing the color map restores
+ * common dye heather, while the inherited portable normal still owns the weave.
+ */
+export function portableCoatThreads(material) {
+  const marker = material?.userData?.chicago4d_cloth_microtexture;
+  return material?.name === 'garment_outer__livery_coat_green_1904'
+    && marker?.version === 1 && marker.profile === 'wool'
+    && marker.source_material === material.name
+    && marker.runtime_weave === 'portable_maps_with_common_macro'
+    && marker.license === 'CC0-1.0' && marker.historical_texture === false
+    && Boolean(material.normalMap && material.roughnessMap);
+}
 /**
  * Patch one garment material in place. Returns the cloth it was given, or null
  * for a material that is not a plain garment (skin, hair, eyes, shoes) or that
@@ -136,7 +150,9 @@ export function patchFabric(material) {
   const priorKey = hadKey ? String(material.customProgramCacheKey())
     : (typeof prior === 'function' && prior !== THREE.Material.prototype.onBeforeCompile ? prior.toString() : '');
   const uniforms = {
-    chiFabric: { value: new THREE.Vector4(cloth.pitch_m, cloth.weave, cloth.heather, cloth.rumple * .01) },
+    chiFabric: { value: new THREE.Vector4(cloth.pitch_m,
+      portableCoatThreads(material) ? 0 : cloth.weave,
+      portableCoatThreads(material) && material.map ? 0 : cloth.heather, cloth.rumple * .01) },
     chiFabricWear: { value: new THREE.Vector2(cloth.sheen, cloth.twill) },
   };
   material.onBeforeCompile = (shader, renderer) => {
