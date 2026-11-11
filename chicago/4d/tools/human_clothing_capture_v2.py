@@ -165,7 +165,10 @@ def prepare_tools():
     with archive.open('rb') as stream:
         archive_hash = hashlib.file_digest(stream, 'sha256').hexdigest()
     need(archive_hash == values['BLENDER_SHA256'], 'pinned Blender archive checksum')
-    need(run([str(binary), '--version']).splitlines()[0] == 'Blender 4.5.3', 'pinned Blender version')
+    version_lines = run([str(binary), '--version']).splitlines()
+    version_line = version_lines[0] if version_lines else ''
+    need(version_line == 'Blender 4.5.3 LTS',
+         f'pinned Blender version: expected Blender 4.5.3 LTS; observed {version_line[:200]!r}')
     codec = (APP/'tools/web_derivatives.sh').read_text()
     pins = dict(re.findall(r'^GT_(CLI|CORE|FUNCTIONS|EXTENSIONS)_VERSION=([^\s#]+)', codec, re.M))
     need(pins == dict.fromkeys(('CLI', 'CORE', 'FUNCTIONS', 'EXTENSIONS'), '4.5.0'), 'exact existing codec closure')

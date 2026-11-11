@@ -268,6 +268,47 @@ class CaptureControls(unittest.TestCase):
             tools.assert_not_called()
         self.assertFalse(self.output.exists())
 
+    def version_cache(self):
+        cache = self.root/'fixture-provisioned-cache'; cache.mkdir()
+        archive = cache/'blender-4.5.3-linux-x64.tar.xz'
+        archive.write_bytes(b'small archive checksum control')
+        binary = cache/'blender-4.5.3-linux-x64/blender'
+        binary.parent.mkdir(); binary.write_bytes(b'not executed')
+        (self.app/'generators/blender.pin').write_text(
+            'BLENDER_VERSION=4.5.3\n'
+            'BLENDER_DIR=blender-4.5.3-linux-x64\n'
+            'BLENDER_URL=https://download.blender.org/release/Blender4.5/blender-4.5.3-linux-x64.tar.xz\n'
+            'BLENDER_SHA256='+C.digest(archive.read_bytes())+'\n')
+        (self.app/'tools/web_derivatives.sh').write_text('\n'.join(
+            'GT_'+key+'_VERSION=4.5.0' for key in ('CLI','CORE','FUNCTIONS','EXTENSIONS'))+'\n')
+        return cache, archive, binary
+
+    def test_verified_blender_cache_accepts_actual_LTS_header_only(self):
+        cache, archive, binary = self.version_cache()
+        with patch.object(C,'APP',self.app),patch.dict(os.environ,{'BLENDER_CACHE':str(cache)}):
+            with patch.object(C,'run',return_value='Blender 4.5.3 LTS\nBuild date: fixture') as runner:
+                actual, cli = C.prepare_tools()
+                self.assertEqual(actual,binary)
+                runner.assert_called_once_with([str(binary),'--version'])
+                self.assertEqual(cli,['npx','--yes',
+                    '--package','@gltf-transform/cli@4.5.0',
+                    '--package','@gltf-transform/core@4.5.0',
+                    '--package','@gltf-transform/functions@4.5.0',
+                    '--package','@gltf-transform/extensions@4.5.0','gltf-transform'])
+            for wrong in ('Blender 4.5.4 LTS','Blender 4.5.3','Blender 4.5.3 LTS unexpected',''):
+                with self.subTest(header=wrong),patch.object(C,'run',return_value=wrong) as runner:
+                    with self.assertRaises(ValueError) as error:C.prepare_tools()
+                    self.assertIn('pinned Blender version',str(error.exception))
+                    self.assertIn('observed '+repr(wrong),str(error.exception))
+                    runner.assert_called_once_with([str(binary),'--version'])
+
+    def test_LTS_header_cannot_bypass_archive_checksum(self):
+        cache, archive, binary = self.version_cache()
+        archive.write_bytes(b'corrupted archive')
+        with patch.object(C,'APP',self.app),patch.dict(os.environ,{'BLENDER_CACHE':str(cache)}),patch.object(C,'run',return_value='Blender 4.5.3 LTS') as runner:
+            with self.assertRaisesRegex(ValueError,'pinned Blender archive checksum'):C.prepare_tools()
+            runner.assert_not_called()
+
     def execute_args(self):
         from types import SimpleNamespace
         return SimpleNamespace(source='a'*40,definition_sha='a'*40,definition_ref='reviewed-definition',manifest_sha256='f'*64)

@@ -1,3 +1,7 @@
+## Linen seat build correction — 11 November 2026
+
+PR #1928 is merged and verified on public DEV (900d9166e); production is unchanged. The looser 1812 linen seat remains source-only in draft PR #1933. Its first canonical capture (43000644195) stopped before geometry: the checksum-verified Blender release reports `Blender 4.5.3 LTS`, while the capture guard expected the bare version. The guard now requires that exact LTS header and retains archive, binary and codec pins. The rear-view observer now writes compact JSON without removing fields or increasing caps; 104 baseline images across four LODs and both viewports are complete. A fresh committed source, request and canonical build are still required; no new native parents or linen fit acceptance exist. T-1789 clothing realism remains open.
+
 ## T-1789 — fuller 1812 linen trouser seat: source preparation (2026-11-11)
 
 The existing settler role now has a model-specific fuller linen trouser seat.

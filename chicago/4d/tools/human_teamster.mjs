@@ -42,7 +42,7 @@ try{let pw;try{pw=await import('playwright');}catch{const root=(process.env.NODE
 
 
 async function saveSeat(){
- const data=JSON.stringify(seatReport,null,2)+'\n';
+ const data=JSON.stringify(seatReport)+'\n';
  if(Buffer.byteLength(data)+seatInspectionBytes>(2*1024*1024-4096)*lods.length||seatPngBytes>4*1024*1024*lods.length)throw Error('finite observer output-byte cap exhausted');
  const pending=path.join(output,'.seat-review.pending'),handle=await open(pending,'wx');try{await handle.writeFile(data);await handle.sync();}finally{await handle.close();}await rename(pending,path.join(output,'seat-review.json'));const directory=await open(output,'r');try{await directory.sync();}finally{await directory.close();}
 }
