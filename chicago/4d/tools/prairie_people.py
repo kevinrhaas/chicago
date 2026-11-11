@@ -14,6 +14,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 LIBERTY = 'L-prairie-people-3548'
+CHILD_LIBERTY = 'L-prairie-younger-3550'
 LOOKS_LIBERTY = 'L-prairie-likenesses-3547'
 MALE_STAFF = {'henry_deneke', 'joseph_daniels', 'b_f_plummer', 'fred_stump',
               'thomas_benson', 'john_dunford', 'james_mason', 'arthur_george_parker',
@@ -61,6 +62,9 @@ def casting(p):
 
 
 def role_of(p, sex):
+    age = age_of(p)
+    if age is not None and age < 18:
+        return 'child_toddler_1904' if age < 5 else ('child_' if age < 12 else 'teen_') + ('girl' if sex == 'female' else 'boy') + '_1904'
     job = (p.get('occupation') or {}).get('value', '').lower()
     if p.get('relationship') != 'servant':
         return 'lady' if sex == 'female' else 'gentleman'
@@ -82,8 +86,16 @@ ASSETS = {'gentleman': 'glessner_john_j_1904', 'lady': 'glessner_frances_m_1904'
           'steward': 'glessner_john_j_1904', 'maid': 'reynolds_mary_1904_maid',
           'cook': 'ryan_kate_1904_cook', 'companion': 'nelson_christine_1904_errand'}
 
+CHILD_HEIGHT = {'child_boy_1904': 1.208, 'child_girl_1904': 1.205, 'child_toddler_1904': .905, 'teen_boy_1904': 1.65, 'teen_girl_1904': 1.59}
+ASSETS.update({k: k for k in CHILD_HEIGHT})
 
 def dress_for(pid, role):
+    if role in CHILD_HEIGHT:
+        palette = PALETTE + [('cream', [.40, .36, .28]), ('blue', [.13, .20, .28]), ('rose', [.30, .16, .18])]
+        name, rgb = choose(pid, 'cloth', palette)
+        boy = 'boy' in role
+        mats = ['garment_upper__child_jacket_1904', 'garment_lower__child_trousers_1904'] if boy else ['garment_upper__child_frock_1904', 'garment_lower__child_frock_1904']
+        return {'asset': role, 'colours': {m: rgb for m in mats}, 'hide': [], 'worn': f'{name} jacket and knee trousers' if boy else f'{name} frock and stockings'}
     name, rgb = choose(pid, 'cloth', PALETTE[:4] if role in ('gentleman', 'steward') else PALETTE)
     material = {'gentleman': 'garment_outer__frock_coat_black', 'steward': 'garment_outer__frock_coat_black',
                 'lady': 'garment_outer__lady_jacket_black', 'coachman': 'garment_outer__livery_coat_green_1904',
@@ -115,12 +127,25 @@ def looks_for(p, sex, portrait):
     skin = choose(pid, 'skin', ['fair', 'light', 'ruddy', 'olive'])
     eyes = choose(pid, 'eyes', ['blue', 'grey', 'hazel', 'brown'])
     inches = round((64 if sex == 'female' else 68) + (draw(pid, 'height') - .5) * 6, 1)
+    young = age is not None and age < 18
+    if young:
+        if not portrait:
+            cut = 'girl_plait_1812' if sex == 'female' else 'cropped_1812'
+        facial = ['brows_fine', 'lashes_upper'] if sex == 'female' else ['brows_full']
+        # Interpolate between the approved engineering bodies, not a historical measurement.
+        anchors = [(2, .85), (3, .905), (4, .99), (5, 1.06), (8, 1.205), (11, 1.40), (12, 1.45), (15, 1.59 if sex == 'female' else 1.65), (17, 1.65 if sex == 'female' else 1.74)]
+        lo = max((x for x in anchors if x[0] <= age), key=lambda x: x[0])
+        hi = min((x for x in anchors if x[0] >= age), key=lambda x: x[0])
+        metres = lo[1] if lo[0] == hi[0] else lo[1] + (hi[1] - lo[1]) * (age - lo[0]) / (hi[0] - lo[0])
+        inches = round(metres * (1 + (draw(pid, 'height') - .5) * .035) / .0254, 1)
     basis = ('Hair cut and facial hair follow the identified portrait; facial proportions have a separate photograph fit. ' if portrait else
              'No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. ')
     basis += 'Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty.'
+    if young:
+        basis += ' Stature is interpolated between approved child and teen engineering bodies, with small individual variation; adult aging and body-build targets are disabled.'
     if age is None:
         basis += 'An adult age is provisional because this record gives no birth year.'
-    return {'format': 'chicago4d_human_looks_v1', 'ticket': 'T-3547', 'person_id': pid, 'scene': '1904',
+    return {'format': 'chicago4d_human_looks_v1', 'ticket': 'T-3550' if young else 'T-3547', 'person_id': pid, 'scene': '1904',
             'generated_by': 'tools/prairie_people.py', 'heritage': {'origin': 'not found'},
             'complexion': {'value': skin, 'drawn': skin, 'grade': 'reconstructed'},
             'hair': {'value': hair.replace('_', ' '), 'drawn': hair, 'cut': cut, 'facial': facial,
@@ -128,17 +153,36 @@ def looks_for(p, sex, portrait):
                      **({'basis': portrait['hair_tone_basis']} if portrait and portrait.get('hair_tone_basis') else {})},
             'eyes': {'value': eyes, 'drawn': eyes, 'grade': 'reconstructed'},
             'stature': {'inches': inches, 'grade': 'reconstructed', 'basis': 'Artistic body variation; no personal measurement located.'},
-            'height_scale': round(inches * .0254 / (1.65 if sex == 'female' else 1.75), 4),
-            'grade': 'reconstructed', 'basis': basis, 'liberty': LOOKS_LIBERTY}
+            'height_scale': round(inches * .0254 / (CHILD_HEIGHT[role_of(p, sex)] if young else (1.65 if sex == 'female' else 1.75)), 4),
+            'grade': 'reconstructed', 'basis': basis, 'liberty': CHILD_LIBERTY if young else LOOKS_LIBERTY}
 
 
-def routine(pid, home, door, role):
+def routine(pid, home, door, role, age=None):
     # All outdoor points are beyond the answering place, along its frontage.
     angle = math.radians(door['outward_deg']); de, dn = math.sin(angle), math.cos(angle)
     base = door['step']; side = (draw(pid, 'side') - .5) * 3
     at = {'local_e': round(base['local_e'] + .8 * de + side * dn, 2),
           'local_n': round(base['local_n'] + .8 * dn - side * de, 2), 'heading_deg': door['outward_deg']}
     end = {'local_e': round(at['local_e'] + 3 * dn, 2), 'local_n': round(at['local_n'] - 3 * de, 2)}
+    if role in CHILD_HEIGHT:
+        def inside(a, b, doing):
+            return {'from': a, 'to': b, 'indoors': True, 'where': home, 'doing': doing}
+        def outside(a, b, doing, activity):
+            return {'from': a, 'to': b, 'indoors': False, 'at': at, 'activity': activity, 'doing': doing, **({'to_point': end} if activity == 'walk' else {})}
+        days = []
+        for months, length in [([11, 12, 1, 2], .5), ([3, 4, 9, 10], 1), (None, 1.5)]:
+            little = age < 5
+            days.append({**({'dates': {'months': months}} if months else {}), 'spans': [
+                inside(0, 7, 'sleeping in household care' if little else 'sleeping'),
+                inside(7, 10, 'breakfast and indoor play' if little else 'breakfast and lessons or reading'),
+                outside(10, 10 + length, 'a short walk with a household adult' if age < 12 else 'taking the air near home', 'walk'),
+                inside(10 + length, 15, 'meal, indoor play and a nap' if little else 'lessons, a meal and indoor occupations'),
+                outside(15, 15 + length, 'playing near home with a household adult' if age < 12 else 'a walk along the frontage', 'walk'),
+                inside(15 + length, 17, 'indoor play and family time'),
+                outside(17, 17 + length / 2, 'a conversation with a household member', 'talk'),
+                inside(17 + length / 2, 20 if age < 12 else 21.5, 'supper and family time'),
+                inside(20 if age < 12 else 21.5, 24, 'sleeping') ]})
+        return days
     work = {'gentleman': 'taking a walk along the house frontage', 'lady': 'taking the air and visiting along the frontage',
             'coachman': 'checking the approach before the next carriage trip',
             'stable_helper': 'checking the carriage approach', 'steward': 'checking for household deliveries',
@@ -170,18 +214,20 @@ def generate():
     rows = read('data/sidecars/1904/people.json')['people']
     originals = {read(str(f.relative_to(ROOT)))['person_id'] for f in (ROOT / 'data/humans/instances/1904').glob('hi_*.json')}
     portraits = {x['person_id']: x for x in read('docs/RESEARCH/prairie-portraits-3546/portraits.json')['portraits']}
-    catalog, inside, dresses, outputs = [], [], {}, {}
+    catalog, inside, care, dresses, outputs = [], [], [], {}, {}
+    records = {}
     for row in rows:
         p = next(p for p in read('data/residents_1904/' + row['file'])['persons'] if p['id'] == row['id'])
         pid = p['id']; age = age_of(p); sex = casting(p); role = role_of(p, sex)
+        records[pid] = p
         status = ('alias' if p.get('own_card') else 'collective' if p.get('collective') else
                   'absent' if row['present'] == 'absent' or p.get('lived_here', {}).get('on_scene_date') == 'no' else
-                  'existing' if pid in originals else 'child_mesh_pending' if age is not None and age < 18 else 'ready')
+                  'existing' if pid in originals else 'household_care' if age is not None and age < 2 else 'ready')
         item = {'person': pid, 'home': row['lives_at'], 'status': status, 'age_1904': age,
                 'portrait': 'verified' if pid in portraits or p.get('portrait') or (ROOT / f'data/humans/variation/fits/{pid}.json').exists() else 'not_identified'}
         if status == 'alias':
             item['canonical'] = p['own_card']
-        elif status not in ('collective', 'existing', 'child_mesh_pending') and (age is None or age >= 18):
+        elif status not in ('collective', 'existing', 'household_care') and (age is None or age >= 2):
             item.update(asset_id=ASSETS[role], body_presentation=sex, casting_grade='reconstructed', role=role)
             outputs[f'data/humans/variation/looks/{pid}.json'] = looks_for(p, sex, portraits.get(pid))
             dresses[pid] = dress_for(pid, role)
@@ -190,27 +236,52 @@ def generate():
                            'asset_id': ASSETS[role], 'ask_order': 10 if p['relationship'] != 'servant' else 30,
                            'provenance': {'grade': 'reconstructed', 'ticket': 'T-3548', 'sources': p.get('sources', []),
                                           'liberty': LIBERTY, 'basis': 'Identity from the household record; presence remains as graded there. Appearance, daily movements, company and clothes are reconstructed.'}})
+        if status == 'household_care':
+            care.append({'person': pid, 'name': p['name'], 'home': row['lives_at'], 'door': row['lives_at'] + ':front', 'ask_order': 15, 'age_1904': age, 'care_only': True,
+                         'provenance': {'grade': 'reconstructed', 'ticket': 'T-3550', 'sources': p.get('sources', []), 'liberty': CHILD_LIBERTY,
+                                        'basis': 'Identity and birth evidence remain on the household record; care, timing and caregivers are reconstructed.'}})
         catalog.append(item)
+    # A care assignment is a same-household reconstruction, never a claim of parentage.
+    for entry in inside + care:
+        age = age_of(records[entry['person']])
+        if age is None or age >= 18:
+            continue
+        adults = [x for x in catalog if x['home'] == entry['home'] and x['status'] in ('ready', 'existing') and (x['age_1904'] is None or x['age_1904'] >= 18)]
+        adults.sort(key=lambda x: (0 if any(w in (records[x['person']].get('occupation') or {}).get('value', '').lower() for w in ('nurse', 'governess')) else 1 if records[x['person']].get('relationship') in ('head', 'wife') else 2, x['person']))
+        if not adults:
+            raise ValueError('No household adult for ' + entry['person'])
+        entry['caregivers'] = [x['person'] for x in adults]
+        entry['care_basis'] = 'Reconstructed company from adults recorded in this household; not an attested care assignment or parentage.'
+        entry['age_1904'] = age
+        entry['supervised'] = age < 12
+        entry['routine_liberty'] = CHILD_LIBERTY
+        if age >= 2:
+            entry['role_review'] = 'data/humans/role_reviews/prairie_children_1904.json'
+            entry['provenance']['liberty'] = CHILD_LIBERTY
+            entry['provenance']['ticket'] = 'T-3550'
     # Derive doors from this full set without a circular dependency on yesterday's generated inside file.
     import derive_doors_scene as doors_tool
     previous = doors_tool.wheres
-    doors_tool.wheres = lambda scene: previous(scene) | {x['home'] for x in inside} if scene == '1904' else previous(scene)
+    doors_tool.wheres = lambda scene: previous(scene) | {x['home'] for x in inside + care} if scene == '1904' else previous(scene)
     door_data, errors = doors_tool.derive('1904')
     doors_tool.wheres = previous
     if errors:
         raise ValueError(errors)
     byhome = {x['structure']: x['doors'] for x in door_data['structures']}
     roles = {x['person']: x.get('role') for x in catalog}
-    for entry in inside:
+    for entry in inside + care:
         ds = byhome[entry['home']]
         door = next((d for d in ds if d['id'] == entry['door']), ds[0])
         entry['door'] = door['id']
-        entry['day'] = routine(entry['person'], entry['home'], door, roles[entry['person']])
-        entry['routine_liberty'] = LIBERTY
+        if entry.get('care_only'):
+            entry['day'] = [{'spans': [{'from': a, 'to': b, 'indoors': True, 'where': entry['home'], 'doing': doing} for a, b, doing in [(0, 7, 'sleeping in household care'), (7, 10, 'being fed and cared for'), (10, 12, 'playing quietly in household care'), (12, 15, 'being fed or taking a nap'), (15, 18, 'awake with a household caregiver'), (18, 24, 'receiving evening care or sleeping')]]}]
+        else:
+            entry['day'] = routine(entry['person'], entry['home'], door, roles[entry['person']], entry.get('age_1904'))
+        entry.setdefault('routine_liberty', LIBERTY)
     # Keep the door compiler's canonical byte representation as well as its values.
     outputs['data/humans/doors_1904.json'] = json.dumps(door_data, indent=1) + '\n'
     outputs['data/humans/inside_1904.json'] = {'format': 'chicago4d_inside_only_v1', 'generated_by': 'tools/prairie_people.py',
-        'doc': 'Prairie Avenue residents built near the visitor or on a door call; seasonal reconstructed days. Aliases, collective listings and absent former residents do not create duplicate actors. See prairie_1904.json for the complete roster and pending child geometry.', 'people': inside}
+        'doc': 'Prairie Avenue residents built near the visitor or on a door call; seasonal reconstructed days. Aliases, collective listings and absent former residents do not create duplicate actors. See prairie_1904.json for the complete roster. Infants have household care schedules and can be asked after at the door; they do not walk out independently.', 'people': inside, 'care': care}
     outputs['data/humans/prairie_1904.json'] = {'format': 'chicago4d_prairie_cast_v1', 'ticket': 'T-3548',
         'generated_by': 'tools/prairie_people.py', 'liberty': LIBERTY, 'people': catalog}
     outputs['data/humans/variation/dress_1904_prairie.json'] = {'format': 'chicago4d_human_dress_v1', 'scene': '1904',

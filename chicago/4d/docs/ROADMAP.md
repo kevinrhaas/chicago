@@ -1,10 +1,6 @@
-## T-3550 - activate the five owner-approved younger-resident roles (2026-11-11)
+## T-3546, T-3547, T-3549, T-3550 - Prairie Avenue people and household routines (2026-11-11)
 
-The owner approved all five child/teen prototypes. Import and validate their exact canonical exports, then enable age-appropriate household days for 35 children/teens and household care for five infants. Preserve household identity, supervision, door calls, returns, seasonal routines, jaunt priority and the existing adults. The role admission and STATUS.md track the current checkpoint; approval is no longer pending.
-
-## T-3546, T-3547, T-3549 — Prairie Avenue portraits and people (2026-11-11)
-
-Extend the Glessner person-card and figure model across the complete Prairie Avenue roster. Resolve portrait identities and rights; fit visible proportions while declaring liberties; build age-appropriate household figures with existing routines, door calls and jaunts. Preserve canonical aliases, former residents and collective entries. STATUS.md and the linked research folder record validation. T-3548 is split into adult rollout T-3549 and younger-resident review/activation T-3550; the latter remains open after the adult rollout.
+Complete the researched person cards, portrait fits and individual appearances across 71 homes. Activate the five owner-approved younger roles: 35 children/teens with seasonal days and household companions, plus indoor care for five infants. Preserve adults, identity rulings, door calls, returns and jaunt priority. Combined PR #1932 carries the rollout; STATUS.md records validation.
 
 ## T-1789 — 1812 startup routing during Charles coat integration (2026-11-11)
 
@@ -6663,6 +6659,17 @@ checkpoint, not a premature ticket closure.
 
 The remaining flat brick and chimney materials in 1812 and 1835 now bind the existing procedural brick or clay sheet by their recorded disposition. Already mapped fort recipes and 1904 materials are retained. The new brick shuffle reads the library's 20 by 48 running bond; Miller's mixed native stack primitive is partitioned without losing triangles or confidence. Actual desktop/default-phone before-and-after surfaces pass in both scenes (28 directly reviewed frames and two detail roundtrips). Official boot passes at 44.716135 MiB of 44.9; unchanged phone-memory gates pass at 305.664622 MiB of 350 (1812) and 509.227699 MiB of 550 (1835). All eight source-check parts and their aggregate pass on runtime `cab4514539`; PR #1918 records final protected-check and dev-merge state. See docs/RESEARCH/early-masonry-3341.md and L-early-masonry-surfaces-3341.
 
+### T-3544 — Actual moving teams own their sound
+
+The next audio increment uses two existing recorded mechanical textures because actual loaded transport already supplies motion, visibility, world position and stops. This makes spatial audio useful without inventing invisible activity. The wooden-wagon recording excludes the 1904 brougham; all dated teams may use the harness proxy. Reuse verified R2 bytes, bound decoding to two mono buffers and control playback through Effects. Human listening remains necessary before production qualification. Subsequent work should align edited hoof impacts, calls and work strokes to the corresponding visible action; occupied-building voices still need content/identity review. Do not add generic distant conversation to stand in for a specific Indigenous language.
+
+T-3544 owner steering (2026-11-11): music now repeats the selected era’s collection using one streaming element, without the previous fifteen-second delay. Verify natural endings and wrapping, and retain mute/hidden/scene/disposal guards and active-track-only loading.
+
+T-3544 listening adjustment: preserve the owner-liked insects; lower town wind with restrained lake exposure and hold the busy river proxy from scene playback. Next river intake should supply quiet close-bank lapping appropriate to visibly slow water, auditioned before activation. Keep lake and slough classifications separate.
+
+T-3544 arrival refinement: compact icon-only sound control, examples beside Ambience and Effects, and period music only once in town. Time-travel/arrival scoring remains empty pending its own owner-selected track; the town playlists still repeat.
+
+T-3544 selected river follow-up: owner chose Light water on rocks; exact MP3 uploaded and public hash/CORS/MIME/ranges verified. Integrate its pinned loop at classified river edges, retain the previous take held, preserve lake/slough/insects and validate the combined audio update before DEV merge.
 
 ### T-1789 - existing Charles coat, near material terminal
 

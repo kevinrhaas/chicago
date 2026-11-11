@@ -1,0 +1,38 @@
+{
+ "format": "chicago4d_human_looks_v1",
+ "ticket": "T-3550",
+ "person_id": "pa1904_cunningham_secor_jr",
+ "scene": "1904",
+ "generated_by": "tools/prairie_people.py",
+ "heritage": {
+  "origin": "not found"
+ },
+ "complexion": {
+  "value": "olive",
+  "drawn": "olive",
+  "grade": "reconstructed"
+ },
+ "hair": {
+  "value": "light brown",
+  "drawn": "light_brown",
+  "cut": "cropped_1812",
+  "facial": [
+   "brows_full"
+  ],
+  "grade": "reconstructed"
+ },
+ "eyes": {
+  "value": "grey",
+  "drawn": "grey",
+  "grade": "reconstructed"
+ },
+ "stature": {
+  "inches": 57.2,
+  "grade": "reconstructed",
+  "basis": "Artistic body variation; no personal measurement located."
+ },
+ "height_scale": 0.8805,
+ "grade": "reconstructed",
+ "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty. Stature is interpolated between approved child and teen engineering bodies, with small individual variation; adult aging and body-build targets are disabled.",
+ "liberty": "L-prairie-younger-3550"
+}

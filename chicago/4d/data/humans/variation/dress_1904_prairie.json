@@ -179,6 +179,23 @@
    "hide": [],
    "worn": "plum coachman working clothes"
   },
+  "pa1904_bellas_edith": {
+   "asset": "teen_girl_1904",
+   "colours": {
+    "garment_upper__child_frock_1904": [
+     0.3,
+     0.16,
+     0.18
+    ],
+    "garment_lower__child_frock_1904": [
+     0.3,
+     0.16,
+     0.18
+    ]
+   },
+   "hide": [],
+   "worn": "rose frock and stockings"
+  },
   "pa1904_bellas_emeline_c": {
    "asset": "glessner_frances_m_1904",
    "colours": {
@@ -844,6 +861,23 @@
    "hide": [],
    "worn": "slate day dress"
   },
+  "pa1904_cunningham_elizabeth_s": {
+   "asset": "teen_girl_1904",
+   "colours": {
+    "garment_upper__child_frock_1904": [
+     0.035,
+     0.06,
+     0.045
+    ],
+    "garment_lower__child_frock_1904": [
+     0.035,
+     0.06,
+     0.045
+    ]
+   },
+   "hide": [],
+   "worn": "dark green frock and stockings"
+  },
   "pa1904_cunningham_mrs_secor": {
    "asset": "glessner_frances_m_1904",
    "colours": {
@@ -872,6 +906,23 @@
    },
    "hide": [],
    "worn": "dark green coat and trousers"
+  },
+  "pa1904_cunningham_secor_jr": {
+   "asset": "teen_boy_1904",
+   "colours": {
+    "garment_upper__child_jacket_1904": [
+     0.13,
+     0.2,
+     0.28
+    ],
+    "garment_lower__child_trousers_1904": [
+     0.13,
+     0.2,
+     0.28
+    ]
+   },
+   "hide": [],
+   "worn": "blue jacket and knee trousers"
   },
   "pa1904_mcbean_a_j_c1900_louise_dane": {
    "asset": "reynolds_mary_1904_maid",
@@ -1235,6 +1286,40 @@
    "hide": [],
    "worn": "slate day dress"
   },
+  "pa1904_field_gwendolyn": {
+   "asset": "child_toddler_1904",
+   "colours": {
+    "garment_upper__child_frock_1904": [
+     0.09,
+     0.053,
+     0.032
+    ],
+    "garment_lower__child_frock_1904": [
+     0.09,
+     0.053,
+     0.032
+    ]
+   },
+   "hide": [],
+   "worn": "brown frock and stockings"
+  },
+  "pa1904_field_henry": {
+   "asset": "child_boy_1904",
+   "colours": {
+    "garment_upper__child_jacket_1904": [
+     0.4,
+     0.36,
+     0.28
+    ],
+    "garment_lower__child_trousers_1904": [
+     0.4,
+     0.36,
+     0.28
+    ]
+   },
+   "hide": [],
+   "worn": "cream jacket and knee trousers"
+  },
   "pa1904_field_marshall": {
    "asset": "glessner_john_j_1904",
    "colours": {
@@ -1536,6 +1621,40 @@
    "hide": [],
    "worn": "slate day dress"
   },
+  "pa1904_glessner_elizabeth": {
+   "asset": "child_girl_1904",
+   "colours": {
+    "garment_upper__child_frock_1904": [
+     0.035,
+     0.06,
+     0.045
+    ],
+    "garment_lower__child_frock_1904": [
+     0.035,
+     0.06,
+     0.045
+    ]
+   },
+   "hide": [],
+   "worn": "dark green frock and stockings"
+  },
+  "pa1904_glessner_frances": {
+   "asset": "child_toddler_1904",
+   "colours": {
+    "garment_upper__child_frock_1904": [
+     0.13,
+     0.2,
+     0.28
+    ],
+    "garment_lower__child_frock_1904": [
+     0.13,
+     0.2,
+     0.28
+    ]
+   },
+   "hide": [],
+   "worn": "blue frock and stockings"
+  },
   "pa1904_glessner_george_m": {
    "asset": "glessner_john_j_1904",
    "colours": {
@@ -1547,6 +1666,23 @@
    },
    "hide": [],
    "worn": "navy coat and trousers"
+  },
+  "pa1904_glessner_john": {
+   "asset": "child_toddler_1904",
+   "colours": {
+    "garment_upper__child_frock_1904": [
+     0.075,
+     0.035,
+     0.05
+    ],
+    "garment_lower__child_frock_1904": [
+     0.075,
+     0.035,
+     0.05
+    ]
+   },
+   "hide": [],
+   "worn": "plum frock and stockings"
   },
   "pa1904_young_lawrence_a_c1900_thomas_goodwin": {
    "asset": "nelson_charles_1904_coachman",
@@ -1703,6 +1839,23 @@
    "hide": [],
    "worn": "charcoal coat and trousers"
   },
+  "pa1904_gregory_robert_b_c1900_ruth_gregory": {
+   "asset": "teen_girl_1904",
+   "colours": {
+    "garment_upper__child_frock_1904": [
+     0.035,
+     0.06,
+     0.045
+    ],
+    "garment_lower__child_frock_1904": [
+     0.035,
+     0.06,
+     0.045
+    ]
+   },
+   "hide": [],
+   "worn": "dark green frock and stockings"
+  },
   "pa1904_grey_charles_g": {
    "asset": "glessner_john_j_1904",
    "colours": {
@@ -1714,6 +1867,23 @@
    },
    "hide": [],
    "worn": "dark green coat and trousers"
+  },
+  "pa1904_grey_elizabeth_w": {
+   "asset": "child_girl_1904",
+   "colours": {
+    "garment_upper__child_frock_1904": [
+     0.075,
+     0.085,
+     0.1
+    ],
+    "garment_lower__child_frock_1904": [
+     0.075,
+     0.085,
+     0.1
+    ]
+   },
+   "hide": [],
+   "worn": "slate frock and stockings"
   },
   "pa1904_grey_florence": {
    "asset": "glessner_frances_m_1904",
@@ -1903,6 +2073,40 @@
    },
    "hide": [],
    "worn": "brown coat and trousers"
+  },
+  "pa1904_hamline_john_h_c1900_john_h_hamline": {
+   "asset": "child_boy_1904",
+   "colours": {
+    "garment_upper__child_jacket_1904": [
+     0.4,
+     0.36,
+     0.28
+    ],
+    "garment_lower__child_trousers_1904": [
+     0.4,
+     0.36,
+     0.28
+    ]
+   },
+   "hide": [],
+   "worn": "cream jacket and knee trousers"
+  },
+  "pa1904_hamline_john_h_c1900_josephine_hamline": {
+   "asset": "teen_girl_1904",
+   "colours": {
+    "garment_upper__child_frock_1904": [
+     0.13,
+     0.2,
+     0.28
+    ],
+    "garment_lower__child_frock_1904": [
+     0.13,
+     0.2,
+     0.28
+    ]
+   },
+   "hide": [],
+   "worn": "blue frock and stockings"
   },
   "pa1904_hamline_mrs_john_h": {
    "asset": "glessner_frances_m_1904",
@@ -2294,6 +2498,23 @@
    "hide": [],
    "worn": "dark green maid working clothes"
   },
+  "pa1904_field_marshall_iii": {
+   "asset": "child_boy_1904",
+   "colours": {
+    "garment_upper__child_jacket_1904": [
+     0.075,
+     0.085,
+     0.1
+    ],
+    "garment_lower__child_trousers_1904": [
+     0.075,
+     0.085,
+     0.1
+    ]
+   },
+   "hide": [],
+   "worn": "slate jacket and knee trousers"
+  },
   "pa1904_jenkins_john_e": {
    "asset": "glessner_john_j_1904",
    "colours": {
@@ -2620,6 +2841,23 @@
    "hide": [],
    "worn": "brown coat and trousers"
   },
+  "pa1904_keith_edson_jr_c1900_frederick_keith": {
+   "asset": "child_boy_1904",
+   "colours": {
+    "garment_upper__child_jacket_1904": [
+     0.048,
+     0.047,
+     0.044
+    ],
+    "garment_lower__child_trousers_1904": [
+     0.048,
+     0.047,
+     0.044
+    ]
+   },
+   "hide": [],
+   "worn": "charcoal jacket and knee trousers"
+  },
   "pa1904_keith_harold": {
    "asset": "glessner_john_j_1904",
    "colours": {
@@ -2631,6 +2869,23 @@
    },
    "hide": [],
    "worn": "navy coat and trousers"
+  },
+  "pa1904_keith_edson_jr_c1900_katharine_keith": {
+   "asset": "teen_girl_1904",
+   "colours": {
+    "garment_upper__child_frock_1904": [
+     0.3,
+     0.16,
+     0.18
+    ],
+    "garment_lower__child_frock_1904": [
+     0.3,
+     0.16,
+     0.18
+    ]
+   },
+   "hide": [],
+   "worn": "rose frock and stockings"
   },
   "pa1904_keith_daughter": {
    "asset": "glessner_frances_m_1904",
@@ -2976,6 +3231,23 @@
    "hide": [],
    "worn": "charcoal day dress"
   },
+  "pa1904_lee_john_glessner": {
+   "asset": "child_boy_1904",
+   "colours": {
+    "garment_upper__child_jacket_1904": [
+     0.09,
+     0.053,
+     0.032
+    ],
+    "garment_lower__child_trousers_1904": [
+     0.09,
+     0.053,
+     0.032
+    ]
+   },
+   "hide": [],
+   "worn": "brown jacket and knee trousers"
+  },
   "pa1904_lowden_frank_orren_c1900_leonie": {
    "asset": "reynolds_mary_1904_maid",
    "colours": {
@@ -3080,6 +3352,23 @@
    "hide": [],
    "worn": "dark green coat and trousers"
   },
+  "pa1904_longini_a_c1900_marcel_longini": {
+   "asset": "teen_boy_1904",
+   "colours": {
+    "garment_upper__child_jacket_1904": [
+     0.075,
+     0.085,
+     0.1
+    ],
+    "garment_lower__child_trousers_1904": [
+     0.075,
+     0.085,
+     0.1
+    ]
+   },
+   "hide": [],
+   "worn": "slate jacket and knee trousers"
+  },
   "pa1904_longini_daughter": {
    "asset": "glessner_frances_m_1904",
    "colours": {
@@ -3131,6 +3420,23 @@
    "hide": [],
    "worn": "charcoal maid working clothes"
   },
+  "pa1904_lowden_frank_orren_c1900_florence_lowden": {
+   "asset": "child_girl_1904",
+   "colours": {
+    "garment_upper__child_frock_1904": [
+     0.09,
+     0.053,
+     0.032
+    ],
+    "garment_lower__child_frock_1904": [
+     0.09,
+     0.053,
+     0.032
+    ]
+   },
+   "hide": [],
+   "worn": "brown frock and stockings"
+  },
   "pa1904_lowden_mrs_frank_orren": {
    "asset": "glessner_frances_m_1904",
    "colours": {
@@ -3159,6 +3465,23 @@
    },
    "hide": [],
    "worn": "dark green coat and trousers"
+  },
+  "pa1904_lowden_frank_orren_c1900_pullman_lowden": {
+   "asset": "child_boy_1904",
+   "colours": {
+    "garment_upper__child_jacket_1904": [
+     0.075,
+     0.085,
+     0.1
+    ],
+    "garment_lower__child_trousers_1904": [
+     0.075,
+     0.085,
+     0.1
+    ]
+   },
+   "hide": [],
+   "worn": "slate jacket and knee trousers"
   },
   "pa1904_young_lawrence_a_c1900_katie_lyden": {
    "asset": "reynolds_mary_1904_maid",
@@ -3288,6 +3611,23 @@
    "hide": [],
    "worn": "navy day dress"
   },
+  "pa1904_mcbirney_hugh_j_c1900_annie_l_mcbirney": {
+   "asset": "teen_girl_1904",
+   "colours": {
+    "garment_upper__child_frock_1904": [
+     0.025,
+     0.038,
+     0.07
+    ],
+    "garment_lower__child_frock_1904": [
+     0.025,
+     0.038,
+     0.07
+    ]
+   },
+   "hide": [],
+   "worn": "navy frock and stockings"
+  },
   "pa1904_mcbirney_day": {
    "asset": "glessner_john_j_1904",
    "colours": {
@@ -3335,6 +3675,23 @@
    },
    "hide": [],
    "worn": "brown coat and trousers"
+  },
+  "pa1904_mcbirney_hugh_j_c1900_isabelle_mcbirney": {
+   "asset": "teen_girl_1904",
+   "colours": {
+    "garment_upper__child_frock_1904": [
+     0.3,
+     0.16,
+     0.18
+    ],
+    "garment_lower__child_frock_1904": [
+     0.3,
+     0.16,
+     0.18
+    ]
+   },
+   "hide": [],
+   "worn": "rose frock and stockings"
   },
   "pa1904_mcbirney_mrs_hugh_j": {
    "asset": "glessner_frances_m_1904",
@@ -3523,6 +3880,23 @@
    "hide": [],
    "worn": "navy coat and trousers"
   },
+  "pa1904_meeker_grace": {
+   "asset": "child_girl_1904",
+   "colours": {
+    "garment_upper__child_frock_1904": [
+     0.075,
+     0.035,
+     0.05
+    ],
+    "garment_lower__child_frock_1904": [
+     0.075,
+     0.035,
+     0.05
+    ]
+   },
+   "hide": [],
+   "worn": "plum frock and stockings"
+  },
   "pa1904_meeker_mrs_arthur": {
    "asset": "glessner_frances_m_1904",
    "colours": {
@@ -3539,6 +3913,23 @@
    },
    "hide": [],
    "worn": "navy day dress"
+  },
+  "pa1904_meeker_katherine": {
+   "asset": "child_girl_1904",
+   "colours": {
+    "garment_upper__child_frock_1904": [
+     0.048,
+     0.047,
+     0.044
+    ],
+    "garment_lower__child_frock_1904": [
+     0.048,
+     0.047,
+     0.044
+    ]
+   },
+   "hide": [],
+   "worn": "charcoal frock and stockings"
   },
   "pa1904_meyer_abraham": {
    "asset": "glessner_john_j_1904",
@@ -4472,6 +4863,23 @@
    "hide": [],
    "worn": "brown coat and trousers"
   },
+  "pa1904_ream_norman_b_c1900_louis_m_ream": {
+   "asset": "teen_boy_1904",
+   "colours": {
+    "garment_upper__child_jacket_1904": [
+     0.09,
+     0.053,
+     0.032
+    ],
+    "garment_lower__child_trousers_1904": [
+     0.09,
+     0.053,
+     0.032
+    ]
+   },
+   "hide": [],
+   "worn": "brown jacket and knee trousers"
+  },
   "pa1904_ream_norman_b": {
    "asset": "glessner_john_j_1904",
    "colours": {
@@ -4672,6 +5080,23 @@
    },
    "hide": [],
    "worn": "slate cook working clothes"
+  },
+  "pa1904_rothschild_mrs_m_m_c1900_emma_rothschild": {
+   "asset": "teen_girl_1904",
+   "colours": {
+    "garment_upper__child_frock_1904": [
+     0.075,
+     0.035,
+     0.05
+    ],
+    "garment_lower__child_frock_1904": [
+     0.075,
+     0.035,
+     0.05
+    ]
+   },
+   "hide": [],
+   "worn": "plum frock and stockings"
   },
   "pa1904_rothschild_mrs_m_m_c1900_gertrude_rothschild": {
    "asset": "glessner_frances_m_1904",
@@ -4896,6 +5321,57 @@
    "hide": [],
    "worn": "charcoal coat and trousers"
   },
+  "pa1904_shortall_john_l_c1900_catherine_shortall": {
+   "asset": "teen_girl_1904",
+   "colours": {
+    "garment_upper__child_frock_1904": [
+     0.3,
+     0.16,
+     0.18
+    ],
+    "garment_lower__child_frock_1904": [
+     0.3,
+     0.16,
+     0.18
+    ]
+   },
+   "hide": [],
+   "worn": "rose frock and stockings"
+  },
+  "pa1904_shortall_john_l_c1900_harrington_shortall": {
+   "asset": "child_boy_1904",
+   "colours": {
+    "garment_upper__child_jacket_1904": [
+     0.3,
+     0.16,
+     0.18
+    ],
+    "garment_lower__child_trousers_1904": [
+     0.3,
+     0.16,
+     0.18
+    ]
+   },
+   "hide": [],
+   "worn": "rose jacket and knee trousers"
+  },
+  "pa1904_shortall_john_l_c1900_helen_shortall": {
+   "asset": "teen_girl_1904",
+   "colours": {
+    "garment_upper__child_frock_1904": [
+     0.025,
+     0.038,
+     0.07
+    ],
+    "garment_lower__child_frock_1904": [
+     0.025,
+     0.038,
+     0.07
+    ]
+   },
+   "hide": [],
+   "worn": "navy frock and stockings"
+  },
   "pa1904_shortall_john_g": {
    "asset": "glessner_john_j_1904",
    "colours": {
@@ -4919,6 +5395,23 @@
    },
    "hide": [],
    "worn": "dark green coat and trousers"
+  },
+  "pa1904_shortall_john_l_c1900_margaret_shortall": {
+   "asset": "child_girl_1904",
+   "colours": {
+    "garment_upper__child_frock_1904": [
+     0.09,
+     0.053,
+     0.032
+    ],
+    "garment_lower__child_frock_1904": [
+     0.09,
+     0.053,
+     0.032
+    ]
+   },
+   "hide": [],
+   "worn": "brown frock and stockings"
   },
   "pa1904_shortall_mrs_john_l": {
    "asset": "glessner_frances_m_1904",
@@ -5125,6 +5618,23 @@
    },
    "hide": [],
    "worn": "brown day dress"
+  },
+  "pa1904_stirling_william_r_c1900_jean_w_sterling": {
+   "asset": "teen_girl_1904",
+   "colours": {
+    "garment_upper__child_frock_1904": [
+     0.3,
+     0.16,
+     0.18
+    ],
+    "garment_lower__child_frock_1904": [
+     0.3,
+     0.16,
+     0.18
+    ]
+   },
+   "hide": [],
+   "worn": "rose frock and stockings"
   },
   "pa1904_stettauer_charles_s": {
    "asset": "glessner_john_j_1904",
@@ -5419,6 +5929,40 @@
    "hide": [],
    "worn": "plum cook working clothes"
   },
+  "pa1904_walker_james_r_c1900_arthur_m_walker": {
+   "asset": "child_boy_1904",
+   "colours": {
+    "garment_upper__child_jacket_1904": [
+     0.4,
+     0.36,
+     0.28
+    ],
+    "garment_lower__child_trousers_1904": [
+     0.4,
+     0.36,
+     0.28
+    ]
+   },
+   "hide": [],
+   "worn": "cream jacket and knee trousers"
+  },
+  "pa1904_walker_james_r_c1900_dexter_walker": {
+   "asset": "child_boy_1904",
+   "colours": {
+    "garment_upper__child_jacket_1904": [
+     0.09,
+     0.053,
+     0.032
+    ],
+    "garment_lower__child_trousers_1904": [
+     0.09,
+     0.053,
+     0.032
+    ]
+   },
+   "hide": [],
+   "worn": "brown jacket and knee trousers"
+  },
   "pa1904_ream_norman_b_c1900_harry_walker": {
    "asset": "glessner_john_j_1904",
    "colours": {
@@ -5442,6 +5986,23 @@
    },
    "hide": [],
    "worn": "navy coat and trousers"
+  },
+  "pa1904_walker_james_r_c1900_james_m_walker": {
+   "asset": "teen_boy_1904",
+   "colours": {
+    "garment_upper__child_jacket_1904": [
+     0.13,
+     0.2,
+     0.28
+    ],
+    "garment_lower__child_trousers_1904": [
+     0.13,
+     0.2,
+     0.28
+    ]
+   },
+   "hide": [],
+   "worn": "blue jacket and knee trousers"
   },
   "pa1904_walker_james_r": {
    "asset": "glessner_john_j_1904",
@@ -5674,6 +6235,40 @@
    },
    "hide": [],
    "worn": "dark green day dress"
+  },
+  "pa1904_young_lawrence_a_c1900_alice_young": {
+   "asset": "child_girl_1904",
+   "colours": {
+    "garment_upper__child_frock_1904": [
+     0.4,
+     0.36,
+     0.28
+    ],
+    "garment_lower__child_frock_1904": [
+     0.4,
+     0.36,
+     0.28
+    ]
+   },
+   "hide": [],
+   "worn": "cream frock and stockings"
+  },
+  "pa1904_young_lawrence_a_c1900_henry_w_young": {
+   "asset": "child_boy_1904",
+   "colours": {
+    "garment_upper__child_jacket_1904": [
+     0.048,
+     0.047,
+     0.044
+    ],
+    "garment_lower__child_trousers_1904": [
+     0.048,
+     0.047,
+     0.044
+    ]
+   },
+   "hide": [],
+   "worn": "charcoal jacket and knee trousers"
   },
   "pa1904_young_lawrence_a": {
    "asset": "glessner_john_j_1904",

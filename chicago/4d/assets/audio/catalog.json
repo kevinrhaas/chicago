@@ -4255,9 +4255,9 @@
       }
     },
     {
-      "id": "river",
+      "id": "river-held",
       "kind": "environment",
-      "title": "Gentle riverbank lapping",
+      "title": "Previous river recording (held)",
       "creator": "TRP",
       "source_url": "https://freesound.org/people/TRP/sounds/577323/",
       "license": "CC0-1.0",
@@ -4271,11 +4271,38 @@
       "provenance": "Real-world recording per creator; HQ MP3 preview, not the lossless original. Chicago placement is reconstructed.",
       "processing": "24-second excerpt from 10s; mono; 2-second crossfade seam; wind gain +20 dB only; 48 kHz MP3 128 kbps.",
       "duration_s": 22,
-      "url": "river.mp3",
+      "url": "river-held.mp3",
       "delivery": {
         "bytes": 352940,
         "sha256": "a63798768beaff4eba54e79293c89b81e9940d87d8742b45b0ac93130610bd5a"
-      }
+      },
+      "runtime_enabled": false,
+      "review_note": "Held from scene playback after owner listening review, 2026-11-11: too much moving/babbling water for the nearly still river. Retained for audition; replaced in the scene by the owner-selected calmer water recording. Lake waves and slough classification remain separate."
+    },
+    {
+      "id": "river",
+      "kind": "environment",
+      "title": "Light water on rocks",
+      "creator": "TRP",
+      "source_url": "https://freesound.org/people/TRP/sounds/575244/",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "acquired": "2026-11-11",
+      "original": "assets/audio/originals/575244_97550-hq.mp3",
+      "original_integrity": {
+        "bytes": 4995639,
+        "sha256": "8ab476464f7d1280514f6a405988550f423b572e9fe3900b29b776cfba77ab48"
+      },
+      "provenance": "Real lake-water field recording on rocks at Manitoulin, summer 2008, per creator; Freesound HQ MP3 preview, not the original download. Used as a reconstructed acoustic proxy for the nearly still Chicago River; rocky lake substrate is not evidence of the historical river bank.",
+      "processing": "Full preview decoded to mono 48 kHz before sample-index crop 121\u2013145 s; 2-second linear end-to-start overlap; 22-second loop; unity gain; MP3 128 kbps. No EQ, normalization, denoising, gating, stretching or synthesis.",
+      "duration_s": 22,
+      "url": "river.mp3",
+      "delivery": {
+        "bytes": 352940,
+        "sha256": "6831b7ad102ec023194c4040776c5245b6cb47451d652a94a07dc742e28362af"
+      },
+      "runtime_enabled": true,
+      "review_note": "Owner selected \"Light water on rocks\" from the three audition samples, 2026-11-11 (TRP575244). Exact accepted loop bytes retained. Lake waves, slough treatment and insects remain separate and unchanged."
     },
     {
       "id": "lake",
@@ -4458,14 +4485,18 @@
       "excerpt_start_s": 0,
       "excerpt_duration_s": 24,
       "source_format": "Freesound HQ MP3 preview; not a lossless master",
-      "status": "audition-and-placement-pending",
-      "runtime_enabled": false,
+      "status": "dated-moving-transport-proxy",
+      "runtime_enabled": true,
       "candidate_eras": [
         "1812",
         "1835",
         "1904"
       ],
-      "approved_eras": [],
+      "approved_eras": [
+        "1812",
+        "1835",
+        "1904"
+      ],
       "seasons_proposed": [
         "spring",
         "summer",
@@ -4475,6 +4506,37 @@
       "species_candidates": [],
       "placement_note": "Recorded harness hardware; coordinate with the visible horse/wagon assembly and movement.",
       "fauna_references": [],
+      "scene_placement": {
+        "mode": "moving-transport",
+        "anchor": "harness",
+        "gain": 0.15,
+        "max_distance_m": 32,
+        "bindings": [
+          {
+            "scene": "1812",
+            "scene_date": "1812-08-14",
+            "actor_ids": [
+              "fort_wagon_loop_1812",
+              "shore_road_wagon_haul_1812"
+            ]
+          },
+          {
+            "scene": "1835",
+            "scene_date": "1835-07-01",
+            "actor_ids": [
+              "western_hotel_driven_wagon_loop_1835"
+            ]
+          },
+          {
+            "scene": "1904",
+            "scene_date": "1904-07-01",
+            "actor_ids": [
+              "prairie_driven_brougham_loop_1904"
+            ]
+          }
+        ],
+        "note": "Reconstructed acoustic proxy attached only to the visible moving team; quiet during holds, stops, hidden layers and off-hours. Short unpitched excerpts follow actual vehicle position and speed. Modern recording, not evidence of this historical vehicle; listening quality remains to be reviewed."
+      },
       "original_integrity": {
         "bytes": 3702000,
         "sha256": "bf58578372871414f0af75a48ad65de069827402c1016ee9c9c1e11644b9257f"
@@ -4754,14 +4816,17 @@
       "excerpt_start_s": 0,
       "excerpt_duration_s": 11.136,
       "source_format": "Freesound HQ MP3 preview; not a lossless master",
-      "status": "audition-and-placement-pending",
-      "runtime_enabled": false,
+      "status": "dated-moving-transport-proxy",
+      "runtime_enabled": true,
       "candidate_eras": [
         "1812",
         "1835",
         "1904"
       ],
-      "approved_eras": [],
+      "approved_eras": [
+        "1812",
+        "1835"
+      ],
       "seasons_proposed": [
         "spring",
         "summer",
@@ -4771,6 +4836,30 @@
       "species_candidates": [],
       "placement_note": "Creator describes a large wooden wagon rolling down a mountain. Match speed, load, road surface and visible assembly before use.",
       "fauna_references": [],
+      "scene_placement": {
+        "mode": "moving-transport",
+        "anchor": "wagon",
+        "gain": 0.22,
+        "max_distance_m": 40,
+        "bindings": [
+          {
+            "scene": "1812",
+            "scene_date": "1812-08-14",
+            "actor_ids": [
+              "fort_wagon_loop_1812",
+              "shore_road_wagon_haul_1812"
+            ]
+          },
+          {
+            "scene": "1835",
+            "scene_date": "1835-07-01",
+            "actor_ids": [
+              "western_hotel_driven_wagon_loop_1835"
+            ]
+          }
+        ],
+        "note": "Reconstructed acoustic proxy attached only to the visible moving team; quiet during holds, stops, hidden layers and off-hours. Short unpitched excerpts follow actual vehicle position and speed. Modern recording, not evidence of this historical vehicle; listening quality remains to be reviewed. The source describes a large wooden wagon rolling downhill; use is a mechanical-texture proxy, not a claim about Chicago road surface. Excluded from the 1904 brougham."
+      },
       "original_integrity": {
         "bytes": 245568,
         "sha256": "3077e2119b97aa5ded12fd94e55d0d944b032905817c26bd3fcf5d6e6285d5b2"
@@ -4853,20 +4942,6 @@
         }
       ],
       "proxy_authorized_by_owner": "2026-11-10",
-      "original_integrity": {
-        "bytes": 1109642,
-        "sha256": "37392db070734b431000e90cf1edcccfba35746888ebbe824ac3573f403f464f"
-      },
-      "duration_s": 22.0,
-      "url": "candidates/summer-cicada-proxy.mp3",
-      "delivery": {
-        "bytes": 352940,
-        "sha256": "77da8a7629e19c07d93bf8bf71a0a7928d487321026a8bdd90a925e33f3bf374"
-      },
-      "loop": true,
-      "gain_applied": 0.968835495848833,
-      "processing": "Mono 48 kHz MP3 128 kbps; 2-second crossfade seam.",
-      "provenance": "Freesound HQ MP3 preview; not a lossless master. Owner accepted a European cicada as an acoustic proxy, 2026-11-10. Recorded in Italy in 2011; species unspecified. Restrained summer daytime bed, never a claim of a named Chicago species or periodical emergence.",
       "scene_placement": {
         "scene_date": "1835-07-01",
         "species_id": "neotibicen_spp",
@@ -4883,7 +4958,21 @@
           80
         ],
         "note": "The owner-approved Italian recording is an acoustic proxy for the inferred annual-cicada habitat sound, not an identification as Neotibicen or an emergence claim. Summer, 1835-07-01 only, afternoon/day or dusk according to the scene sun and fauna records; complete recorded phrases with real quiet gaps."
-      }
+      },
+      "original_integrity": {
+        "bytes": 1109642,
+        "sha256": "37392db070734b431000e90cf1edcccfba35746888ebbe824ac3573f403f464f"
+      },
+      "duration_s": 22.0,
+      "url": "candidates/summer-cicada-proxy.mp3",
+      "delivery": {
+        "bytes": 352940,
+        "sha256": "77da8a7629e19c07d93bf8bf71a0a7928d487321026a8bdd90a925e33f3bf374"
+      },
+      "loop": true,
+      "gain_applied": 0.968835495848833,
+      "processing": "Mono 48 kHz MP3 128 kbps; 2-second crossfade seam.",
+      "provenance": "Freesound HQ MP3 preview; not a lossless master. Owner accepted a European cicada as an acoustic proxy, 2026-11-10. Recorded in Italy in 2011; species unspecified. Restrained summer daytime bed, never a claim of a named Chicago species or periodical emergence."
     },
     {
       "id": "robin-calls",
@@ -4993,20 +5082,6 @@
           "july_presence": "visible_and_audible"
         }
       ],
-      "original_integrity": {
-        "bytes": 86832,
-        "sha256": "ff61b66c94d4ab30ec01e0a9c0220b1f853916133981a56b44ca88a13d1af01a"
-      },
-      "duration_s": 3.776104166666667,
-      "url": "candidates/redwing-call.mp3",
-      "delivery": {
-        "bytes": 61484,
-        "sha256": "58e98b3010c5653fe2a62a64539164520bf304bc815f1d0abd272521f40906f5"
-      },
-      "loop": false,
-      "gain_applied": 1,
-      "processing": "Mono 48 kHz MP3 128 kbps; 10 ms edge fades; excerpt requires event editing.",
-      "provenance": "Freesound HQ MP3 preview; not a lossless master. Ferndale, Washington; cell-phone recording processed by creator. Match call type and playback density to July records.",
       "scene_placement": {
         "scene_date": "1835-07-01",
         "species_id": "agelaius_phoeniceus",
@@ -5021,7 +5096,21 @@
           120
         ],
         "note": "Modern Washington red-wing recording used as a reconstructed distant habitat call in the 1835 sedge meadow or marsh. The source stays at a fixed world point behind the listener, at least 36 m away, and stops if approached or brought into view. No near bird body or exact historical individual is implied. Long gaps honor reduced July song."
-      }
+      },
+      "original_integrity": {
+        "bytes": 86832,
+        "sha256": "ff61b66c94d4ab30ec01e0a9c0220b1f853916133981a56b44ca88a13d1af01a"
+      },
+      "duration_s": 3.776104166666667,
+      "url": "candidates/redwing-call.mp3",
+      "delivery": {
+        "bytes": 61484,
+        "sha256": "58e98b3010c5653fe2a62a64539164520bf304bc815f1d0abd272521f40906f5"
+      },
+      "loop": false,
+      "gain_applied": 1,
+      "processing": "Mono 48 kHz MP3 128 kbps; 10 ms edge fades; excerpt requires event editing.",
+      "provenance": "Freesound HQ MP3 preview; not a lossless master. Ferndale, Washington; cell-phone recording processed by creator. Match call type and playback density to July records."
     },
     {
       "id": "summer-crickets",
@@ -5070,20 +5159,6 @@
           "july_presence": "audible"
         }
       ],
-      "original_integrity": {
-        "bytes": 2208144,
-        "sha256": "1b908d851e4597a8ea78913f251a51588056d23d3182f47d2c80d185f71e422d"
-      },
-      "duration_s": 22.0,
-      "url": "candidates/summer-crickets.mp3",
-      "delivery": {
-        "bytes": 352940,
-        "sha256": "4d7d1c101fabe17bfc009c3227b3f83acf2eacbd9c801fd2971e1984dd585080"
-      },
-      "loop": true,
-      "gain_applied": 1,
-      "processing": "Mono 48 kHz MP3 128 kbps; 2-second crossfade seam.",
-      "provenance": "Freesound HQ MP3 preview; not a lossless master. Prince Edward County, Ontario; species not identified by creator. Candidate genus-level proxy, not a species verification.",
       "scene_placement": {
         "scene_date": "1835-07-01",
         "species_id": "gryllus_spp",
@@ -5097,7 +5172,21 @@
           100
         ],
         "note": "Ontario field-cricket recording used as a reconstructed genus-level acoustic proxy in the 1835 wet-prairie habitat. Dusk/night only on the researched July scene date. Quiet gaps and low gain preserve the record's sparse early-July chorus; no individual insect is placed."
-      }
+      },
+      "original_integrity": {
+        "bytes": 2208144,
+        "sha256": "1b908d851e4597a8ea78913f251a51588056d23d3182f47d2c80d185f71e422d"
+      },
+      "duration_s": 22.0,
+      "url": "candidates/summer-crickets.mp3",
+      "delivery": {
+        "bytes": 352940,
+        "sha256": "4d7d1c101fabe17bfc009c3227b3f83acf2eacbd9c801fd2971e1984dd585080"
+      },
+      "loop": true,
+      "gain_applied": 1,
+      "processing": "Mono 48 kHz MP3 128 kbps; 2-second crossfade seam.",
+      "provenance": "Freesound HQ MP3 preview; not a lossless master. Prince Edward County, Ontario; species not identified by creator. Candidate genus-level proxy, not a species verification."
     },
     {
       "id": "night-crickets",

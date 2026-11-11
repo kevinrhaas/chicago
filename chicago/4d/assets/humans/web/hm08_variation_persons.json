@@ -63507,6 +63507,72 @@
     "grade": "reconstructed"
    }
   },
+  "pa1904_bellas_edith": {
+   "scene": "1904",
+   "record": "data/residents_1904/households/hh_bellas_t_h.json",
+   "drawn_as": [
+    "data/humans/inside_1904.json#pa1904_bellas_edith"
+   ],
+   "age": {
+    "years": 17,
+    "grade": "inferred",
+    "sources": [
+     "census_1900_chicago_t623_roll245"
+    ],
+    "basis": "born 1887 (the person's record)"
+   },
+   "looks": {
+    "complexion": {
+     "value": "light",
+     "drawn": "light",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "dark brown",
+     "drawn": "dark_brown",
+     "cut": "girl_plait_1812",
+     "facial": [
+      "brows_fine",
+      "lashes_upper"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "blue",
+     "drawn": "blue",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 65.0,
+     "grade": "reconstructed",
+     "basis": "Artistic body variation; no personal measurement located."
+    },
+    "height_scale": 1.0384,
+    "heritage": {
+     "origin": "not found"
+    },
+    "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty. Stature is interpolated between approved child and teen engineering bodies, with small individual variation; adult aging and body-build targets are disabled.",
+    "grade": "reconstructed",
+    "liberty": "L-prairie-younger-3550",
+    "file": "data/humans/variation/looks/pa1904_bellas_edith.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__child_frock_1904": [
+      0.3,
+      0.16,
+      0.18
+     ],
+     "garment_lower__child_frock_1904": [
+      0.3,
+      0.16,
+      0.18
+     ]
+    },
+    "worn": "rose frock and stockings",
+    "grade": "reconstructed"
+   }
+  },
   "pa1904_bellas_emeline_c": {
    "scene": "1904",
    "record": "data/residents_1904/households/hh_bellas_t_h.json",
@@ -66152,6 +66218,72 @@
     "grade": "reconstructed"
    }
   },
+  "pa1904_cunningham_elizabeth_s": {
+   "scene": "1904",
+   "record": "data/residents_1904/households/hh_cunningham_secor.json",
+   "drawn_as": [
+    "data/humans/inside_1904.json#pa1904_cunningham_elizabeth_s"
+   ],
+   "age": {
+    "years": 15,
+    "grade": "inferred",
+    "sources": [
+     "census_1910_chicago_t624_roll241"
+    ],
+    "basis": "born 1889 (the person's record)"
+   },
+   "looks": {
+    "complexion": {
+     "value": "light",
+     "drawn": "light",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "dark brown",
+     "drawn": "dark_brown",
+     "cut": "girl_plait_1812",
+     "facial": [
+      "brows_fine",
+      "lashes_upper"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "grey",
+     "drawn": "grey",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 62.7,
+     "grade": "reconstructed",
+     "basis": "Artistic body variation; no personal measurement located."
+    },
+    "height_scale": 1.0016,
+    "heritage": {
+     "origin": "not found"
+    },
+    "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty. Stature is interpolated between approved child and teen engineering bodies, with small individual variation; adult aging and body-build targets are disabled.",
+    "grade": "reconstructed",
+    "liberty": "L-prairie-younger-3550",
+    "file": "data/humans/variation/looks/pa1904_cunningham_elizabeth_s.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__child_frock_1904": [
+      0.035,
+      0.06,
+      0.045
+     ],
+     "garment_lower__child_frock_1904": [
+      0.035,
+      0.06,
+      0.045
+     ]
+    },
+    "worn": "dark green frock and stockings",
+    "grade": "reconstructed"
+   }
+  },
   "pa1904_cunningham_mrs_secor": {
    "scene": "1904",
    "record": "data/residents_1904/households/hh_cunningham_secor.json",
@@ -66386,6 +66518,71 @@
      ]
     },
     "worn": "dark green maid working clothes",
+    "grade": "reconstructed"
+   }
+  },
+  "pa1904_cunningham_secor_jr": {
+   "scene": "1904",
+   "record": "data/residents_1904/households/hh_cunningham_secor.json",
+   "drawn_as": [
+    "data/humans/inside_1904.json#pa1904_cunningham_secor_jr"
+   ],
+   "age": {
+    "years": 12,
+    "grade": "inferred",
+    "sources": [
+     "census_1910_chicago_t624_roll241"
+    ],
+    "basis": "born 1892 (the person's record)"
+   },
+   "looks": {
+    "complexion": {
+     "value": "olive",
+     "drawn": "olive",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "light brown",
+     "drawn": "light_brown",
+     "cut": "cropped_1812",
+     "facial": [
+      "brows_full"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "grey",
+     "drawn": "grey",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 57.2,
+     "grade": "reconstructed",
+     "basis": "Artistic body variation; no personal measurement located."
+    },
+    "height_scale": 0.8805,
+    "heritage": {
+     "origin": "not found"
+    },
+    "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty. Stature is interpolated between approved child and teen engineering bodies, with small individual variation; adult aging and body-build targets are disabled.",
+    "grade": "reconstructed",
+    "liberty": "L-prairie-younger-3550",
+    "file": "data/humans/variation/looks/pa1904_cunningham_secor_jr.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__child_jacket_1904": [
+      0.13,
+      0.2,
+      0.28
+     ],
+     "garment_lower__child_trousers_1904": [
+      0.13,
+      0.2,
+      0.28
+     ]
+    },
+    "worn": "blue jacket and knee trousers",
     "grade": "reconstructed"
    }
   },
@@ -67243,6 +67440,137 @@
     "grade": "reconstructed"
    }
   },
+  "pa1904_field_gwendolyn": {
+   "scene": "1904",
+   "record": "data/residents_1904/households/hh_field_marshall_jr.json",
+   "drawn_as": [
+    "data/humans/inside_1904.json#pa1904_field_gwendolyn"
+   ],
+   "age": {
+    "years": 3,
+    "grade": "inferred",
+    "sources": [
+     "geneanet_field_family_dates"
+    ],
+    "basis": "born 1901 (the person's record)"
+   },
+   "looks": {
+    "complexion": {
+     "value": "fair",
+     "drawn": "fair",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "dark brown",
+     "drawn": "dark_brown",
+     "cut": "girl_plait_1812",
+     "facial": [
+      "brows_fine",
+      "lashes_upper"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "grey",
+     "drawn": "grey",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 36.2,
+     "grade": "reconstructed",
+     "basis": "Artistic body variation; no personal measurement located."
+    },
+    "height_scale": 1.016,
+    "heritage": {
+     "origin": "not found"
+    },
+    "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty. Stature is interpolated between approved child and teen engineering bodies, with small individual variation; adult aging and body-build targets are disabled.",
+    "grade": "reconstructed",
+    "liberty": "L-prairie-younger-3550",
+    "file": "data/humans/variation/looks/pa1904_field_gwendolyn.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__child_frock_1904": [
+      0.09,
+      0.053,
+      0.032
+     ],
+     "garment_lower__child_frock_1904": [
+      0.09,
+      0.053,
+      0.032
+     ]
+    },
+    "worn": "brown frock and stockings",
+    "grade": "reconstructed"
+   }
+  },
+  "pa1904_field_henry": {
+   "scene": "1904",
+   "record": "data/residents_1904/households/hh_field_marshall_jr.json",
+   "drawn_as": [
+    "data/humans/inside_1904.json#pa1904_field_henry"
+   ],
+   "age": {
+    "years": 9,
+    "grade": "attested",
+    "sources": [
+     "wikipedia_marshall_field_iii"
+    ],
+    "basis": "born 1895 (the person's record)"
+   },
+   "looks": {
+    "complexion": {
+     "value": "light",
+     "drawn": "light",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "mid brown",
+     "drawn": "mid_brown",
+     "cut": "cropped_1812",
+     "facial": [
+      "brows_full"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "hazel",
+     "drawn": "hazel",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 50.3,
+     "grade": "reconstructed",
+     "basis": "Artistic body variation; no personal measurement located."
+    },
+    "height_scale": 1.0576,
+    "heritage": {
+     "origin": "not found"
+    },
+    "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty. Stature is interpolated between approved child and teen engineering bodies, with small individual variation; adult aging and body-build targets are disabled.",
+    "grade": "reconstructed",
+    "liberty": "L-prairie-younger-3550",
+    "file": "data/humans/variation/looks/pa1904_field_henry.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__child_jacket_1904": [
+      0.4,
+      0.36,
+      0.28
+     ],
+     "garment_lower__child_trousers_1904": [
+      0.4,
+      0.36,
+      0.28
+     ]
+    },
+    "worn": "cream jacket and knee trousers",
+    "grade": "reconstructed"
+   }
+  },
   "pa1904_field_marshall": {
    "scene": "1904",
    "record": "data/residents_1904/households/hh_field_marshall.json",
@@ -67679,6 +68007,71 @@
      ]
     },
     "worn": "navy coat and trousers",
+    "grade": "reconstructed"
+   }
+  },
+  "pa1904_field_marshall_iii": {
+   "scene": "1904",
+   "record": "data/residents_1904/households/hh_field_marshall_jr.json",
+   "drawn_as": [
+    "data/humans/inside_1904.json#pa1904_field_marshall_iii"
+   ],
+   "age": {
+    "years": 10,
+    "grade": "attested",
+    "sources": [
+     "wikipedia_marshall_field_iii"
+    ],
+    "basis": "born 1893-09-28 (the person's record)"
+   },
+   "looks": {
+    "complexion": {
+     "value": "olive",
+     "drawn": "olive",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "dark brown",
+     "drawn": "dark_brown",
+     "cut": "cropped_1812",
+     "facial": [
+      "brows_full"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "blue",
+     "drawn": "blue",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 51.8,
+     "grade": "reconstructed",
+     "basis": "Artistic body variation; no personal measurement located."
+    },
+    "height_scale": 1.0892,
+    "heritage": {
+     "origin": "not found"
+    },
+    "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty. Stature is interpolated between approved child and teen engineering bodies, with small individual variation; adult aging and body-build targets are disabled.",
+    "grade": "reconstructed",
+    "liberty": "L-prairie-younger-3550",
+    "file": "data/humans/variation/looks/pa1904_field_marshall_iii.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__child_jacket_1904": [
+      0.075,
+      0.085,
+      0.1
+     ],
+     "garment_lower__child_trousers_1904": [
+      0.075,
+      0.085,
+      0.1
+     ]
+    },
+    "worn": "slate jacket and knee trousers",
     "grade": "reconstructed"
    }
   },
@@ -68455,6 +68848,138 @@
     "grade": "reconstructed"
    }
   },
+  "pa1904_glessner_elizabeth": {
+   "scene": "1904",
+   "record": "data/residents_1904/households/hh_glessner_george_m.json",
+   "drawn_as": [
+    "data/humans/inside_1904.json#pa1904_glessner_elizabeth"
+   ],
+   "age": {
+    "years": 5,
+    "grade": "attested",
+    "sources": [
+     "glessner_house_family_page"
+    ],
+    "basis": "born 1899 (the person's record)"
+   },
+   "looks": {
+    "complexion": {
+     "value": "light",
+     "drawn": "light",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "dark brown",
+     "drawn": "dark_brown",
+     "cut": "girl_plait_1812",
+     "facial": [
+      "brows_fine",
+      "lashes_upper"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "grey",
+     "drawn": "grey",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 42.2,
+     "grade": "reconstructed",
+     "basis": "Artistic body variation; no personal measurement located."
+    },
+    "height_scale": 0.8895,
+    "heritage": {
+     "origin": "not found"
+    },
+    "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty. Stature is interpolated between approved child and teen engineering bodies, with small individual variation; adult aging and body-build targets are disabled.",
+    "grade": "reconstructed",
+    "liberty": "L-prairie-younger-3550",
+    "file": "data/humans/variation/looks/pa1904_glessner_elizabeth.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__child_frock_1904": [
+      0.035,
+      0.06,
+      0.045
+     ],
+     "garment_lower__child_frock_1904": [
+      0.035,
+      0.06,
+      0.045
+     ]
+    },
+    "worn": "dark green frock and stockings",
+    "grade": "reconstructed"
+   }
+  },
+  "pa1904_glessner_frances": {
+   "scene": "1904",
+   "record": "data/residents_1904/households/hh_glessner_george_m.json",
+   "drawn_as": [
+    "data/humans/inside_1904.json#pa1904_glessner_frances"
+   ],
+   "age": {
+    "years": 4,
+    "grade": "attested",
+    "sources": [
+     "glessner_house_family_page"
+    ],
+    "basis": "born 1900 (the person's record)"
+   },
+   "looks": {
+    "complexion": {
+     "value": "ruddy",
+     "drawn": "ruddy",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "black brown",
+     "drawn": "black_brown",
+     "cut": "girl_plait_1812",
+     "facial": [
+      "brows_fine",
+      "lashes_upper"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "blue",
+     "drawn": "blue",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 38.9,
+     "grade": "reconstructed",
+     "basis": "Artistic body variation; no personal measurement located."
+    },
+    "height_scale": 1.0918,
+    "heritage": {
+     "origin": "not found"
+    },
+    "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty. Stature is interpolated between approved child and teen engineering bodies, with small individual variation; adult aging and body-build targets are disabled.",
+    "grade": "reconstructed",
+    "liberty": "L-prairie-younger-3550",
+    "file": "data/humans/variation/looks/pa1904_glessner_frances.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__child_frock_1904": [
+      0.13,
+      0.2,
+      0.28
+     ],
+     "garment_lower__child_frock_1904": [
+      0.13,
+      0.2,
+      0.28
+     ]
+    },
+    "worn": "blue frock and stockings",
+    "grade": "reconstructed"
+   }
+  },
   "pa1904_glessner_george_m": {
    "scene": "1904",
    "record": "data/residents_1904/households/hh_glessner_george_m.json",
@@ -68512,6 +69037,71 @@
      ]
     },
     "worn": "navy coat and trousers",
+    "grade": "reconstructed"
+   }
+  },
+  "pa1904_glessner_john": {
+   "scene": "1904",
+   "record": "data/residents_1904/households/hh_glessner_george_m.json",
+   "drawn_as": [
+    "data/humans/inside_1904.json#pa1904_glessner_john"
+   ],
+   "age": {
+    "years": 2,
+    "grade": "attested",
+    "sources": [
+     "glessner_house_family_page"
+    ],
+    "basis": "born 1902 (the person's record)"
+   },
+   "looks": {
+    "complexion": {
+     "value": "light",
+     "drawn": "light",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "light brown",
+     "drawn": "light_brown",
+     "cut": "cropped_1812",
+     "facial": [
+      "brows_full"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "brown",
+     "drawn": "brown",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 33.5,
+     "grade": "reconstructed",
+     "basis": "Artistic body variation; no personal measurement located."
+    },
+    "height_scale": 0.9402,
+    "heritage": {
+     "origin": "not found"
+    },
+    "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty. Stature is interpolated between approved child and teen engineering bodies, with small individual variation; adult aging and body-build targets are disabled.",
+    "grade": "reconstructed",
+    "liberty": "L-prairie-younger-3550",
+    "file": "data/humans/variation/looks/pa1904_glessner_john.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__child_frock_1904": [
+      0.075,
+      0.035,
+      0.05
+     ],
+     "garment_lower__child_frock_1904": [
+      0.075,
+      0.035,
+      0.05
+     ]
+    },
+    "worn": "plum frock and stockings",
     "grade": "reconstructed"
    }
   },
@@ -69381,6 +69971,72 @@
     "grade": "reconstructed"
    }
   },
+  "pa1904_gregory_robert_b_c1900_ruth_gregory": {
+   "scene": "1904",
+   "record": "data/residents_1904/households/hh_gregory_robert_b.json",
+   "drawn_as": [
+    "data/humans/inside_1904.json#pa1904_gregory_robert_b_c1900_ruth_gregory"
+   ],
+   "age": {
+    "years": 16,
+    "grade": "attested",
+    "sources": [
+     "census_1900_chicago_t623_roll245"
+    ],
+    "basis": "born 1888 (the person's record)"
+   },
+   "looks": {
+    "complexion": {
+     "value": "olive",
+     "drawn": "olive",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "mid brown",
+     "drawn": "mid_brown",
+     "cut": "girl_plait_1812",
+     "facial": [
+      "brows_fine",
+      "lashes_upper"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "blue",
+     "drawn": "blue",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 64.3,
+     "grade": "reconstructed",
+     "basis": "Artistic body variation; no personal measurement located."
+    },
+    "height_scale": 1.0272,
+    "heritage": {
+     "origin": "not found"
+    },
+    "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty. Stature is interpolated between approved child and teen engineering bodies, with small individual variation; adult aging and body-build targets are disabled.",
+    "grade": "reconstructed",
+    "liberty": "L-prairie-younger-3550",
+    "file": "data/humans/variation/looks/pa1904_gregory_robert_b_c1900_ruth_gregory.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__child_frock_1904": [
+      0.035,
+      0.06,
+      0.045
+     ],
+     "garment_lower__child_frock_1904": [
+      0.035,
+      0.06,
+      0.045
+     ]
+    },
+    "worn": "dark green frock and stockings",
+    "grade": "reconstructed"
+   }
+  },
   "pa1904_grey_charles_g": {
    "scene": "1904",
    "record": "data/residents_1904/households/hh_grey_w_l.json",
@@ -69489,6 +70145,72 @@
      ]
     },
     "worn": "slate day dress",
+    "grade": "reconstructed"
+   }
+  },
+  "pa1904_grey_elizabeth_w": {
+   "scene": "1904",
+   "record": "data/residents_1904/households/hh_grey_w_l.json",
+   "drawn_as": [
+    "data/humans/inside_1904.json#pa1904_grey_elizabeth_w"
+   ],
+   "age": {
+    "years": 8,
+    "grade": "inferred",
+    "sources": [
+     "census_1910_chicago_t624_roll241"
+    ],
+    "basis": "born 1896 (the person's record)"
+   },
+   "looks": {
+    "complexion": {
+     "value": "fair",
+     "drawn": "fair",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "sandy",
+     "drawn": "sandy",
+     "cut": "girl_plait_1812",
+     "facial": [
+      "brows_fine",
+      "lashes_upper"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "grey",
+     "drawn": "grey",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 47.9,
+     "grade": "reconstructed",
+     "basis": "Artistic body variation; no personal measurement located."
+    },
+    "height_scale": 1.0097,
+    "heritage": {
+     "origin": "not found"
+    },
+    "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty. Stature is interpolated between approved child and teen engineering bodies, with small individual variation; adult aging and body-build targets are disabled.",
+    "grade": "reconstructed",
+    "liberty": "L-prairie-younger-3550",
+    "file": "data/humans/variation/looks/pa1904_grey_elizabeth_w.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__child_frock_1904": [
+      0.075,
+      0.085,
+      0.1
+     ],
+     "garment_lower__child_frock_1904": [
+      0.075,
+      0.085,
+      0.1
+     ]
+    },
+    "worn": "slate frock and stockings",
     "grade": "reconstructed"
    }
   },
@@ -70366,6 +71088,137 @@
      "basket_cloth"
     ],
     "worn": "brown companion working clothes",
+    "grade": "reconstructed"
+   }
+  },
+  "pa1904_hamline_john_h_c1900_john_h_hamline": {
+   "scene": "1904",
+   "record": "data/residents_1904/households/hh_hamline_john_h.json",
+   "drawn_as": [
+    "data/humans/inside_1904.json#pa1904_hamline_john_h_c1900_john_h_hamline"
+   ],
+   "age": {
+    "years": 6,
+    "grade": "attested",
+    "sources": [
+     "census_1900_chicago_t623_roll245"
+    ],
+    "basis": "born 1898 (the person's record)"
+   },
+   "looks": {
+    "complexion": {
+     "value": "fair",
+     "drawn": "fair",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "mid brown",
+     "drawn": "mid_brown",
+     "cut": "cropped_1812",
+     "facial": [
+      "brows_full"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "hazel",
+     "drawn": "hazel",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 44.1,
+     "grade": "reconstructed",
+     "basis": "Artistic body variation; no personal measurement located."
+    },
+    "height_scale": 0.9273,
+    "heritage": {
+     "origin": "not found"
+    },
+    "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty. Stature is interpolated between approved child and teen engineering bodies, with small individual variation; adult aging and body-build targets are disabled.",
+    "grade": "reconstructed",
+    "liberty": "L-prairie-younger-3550",
+    "file": "data/humans/variation/looks/pa1904_hamline_john_h_c1900_john_h_hamline.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__child_jacket_1904": [
+      0.4,
+      0.36,
+      0.28
+     ],
+     "garment_lower__child_trousers_1904": [
+      0.4,
+      0.36,
+      0.28
+     ]
+    },
+    "worn": "cream jacket and knee trousers",
+    "grade": "reconstructed"
+   }
+  },
+  "pa1904_hamline_john_h_c1900_josephine_hamline": {
+   "scene": "1904",
+   "record": "data/residents_1904/households/hh_hamline_john_h.json",
+   "drawn_as": [
+    "data/humans/inside_1904.json#pa1904_hamline_john_h_c1900_josephine_hamline"
+   ],
+   "age": {
+    "years": 15,
+    "grade": "attested",
+    "sources": [
+     "census_1900_chicago_t623_roll245"
+    ],
+    "basis": "born 1889 (the person's record)"
+   },
+   "looks": {
+    "complexion": {
+     "value": "ruddy",
+     "drawn": "ruddy",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "sandy",
+     "drawn": "sandy",
+     "cut": "girl_plait_1812",
+     "facial": [
+      "brows_fine",
+      "lashes_upper"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "grey",
+     "drawn": "grey",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 63.1,
+     "grade": "reconstructed",
+     "basis": "Artistic body variation; no personal measurement located."
+    },
+    "height_scale": 1.008,
+    "heritage": {
+     "origin": "not found"
+    },
+    "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty. Stature is interpolated between approved child and teen engineering bodies, with small individual variation; adult aging and body-build targets are disabled.",
+    "grade": "reconstructed",
+    "liberty": "L-prairie-younger-3550",
+    "file": "data/humans/variation/looks/pa1904_hamline_john_h_c1900_josephine_hamline.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__child_frock_1904": [
+      0.13,
+      0.2,
+      0.28
+     ],
+     "garment_lower__child_frock_1904": [
+      0.13,
+      0.2,
+      0.28
+     ]
+    },
+    "worn": "blue frock and stockings",
     "grade": "reconstructed"
    }
   },
@@ -72659,6 +73512,71 @@
     "grade": "reconstructed"
    }
   },
+  "pa1904_keith_edson_jr_c1900_frederick_keith": {
+   "scene": "1904",
+   "record": "data/residents_1904/households/hh_keith_edson_jr.json",
+   "drawn_as": [
+    "data/humans/inside_1904.json#pa1904_keith_edson_jr_c1900_frederick_keith"
+   ],
+   "age": {
+    "years": 9,
+    "grade": "attested",
+    "sources": [
+     "census_1900_chicago_t623_roll245"
+    ],
+    "basis": "born 1895 (the person's record)"
+   },
+   "looks": {
+    "complexion": {
+     "value": "ruddy",
+     "drawn": "ruddy",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "dark brown",
+     "drawn": "dark_brown",
+     "cut": "cropped_1812",
+     "facial": [
+      "brows_full"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "brown",
+     "drawn": "brown",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 50.7,
+     "grade": "reconstructed",
+     "basis": "Artistic body variation; no personal measurement located."
+    },
+    "height_scale": 1.066,
+    "heritage": {
+     "origin": "not found"
+    },
+    "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty. Stature is interpolated between approved child and teen engineering bodies, with small individual variation; adult aging and body-build targets are disabled.",
+    "grade": "reconstructed",
+    "liberty": "L-prairie-younger-3550",
+    "file": "data/humans/variation/looks/pa1904_keith_edson_jr_c1900_frederick_keith.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__child_jacket_1904": [
+      0.048,
+      0.047,
+      0.044
+     ],
+     "garment_lower__child_trousers_1904": [
+      0.048,
+      0.047,
+      0.044
+     ]
+    },
+    "worn": "charcoal jacket and knee trousers",
+    "grade": "reconstructed"
+   }
+  },
   "pa1904_keith_edson_jr_c1900_george_hauser": {
    "scene": "1904",
    "record": "data/residents_1904/households/hh_keith_edson_jr.json",
@@ -72716,6 +73634,72 @@
      ]
     },
     "worn": "slate stable helper working clothes",
+    "grade": "reconstructed"
+   }
+  },
+  "pa1904_keith_edson_jr_c1900_katharine_keith": {
+   "scene": "1904",
+   "record": "data/residents_1904/households/hh_keith_edson_jr.json",
+   "drawn_as": [
+    "data/humans/inside_1904.json#pa1904_keith_edson_jr_c1900_katharine_keith"
+   ],
+   "age": {
+    "years": 12,
+    "grade": "inferred",
+    "sources": [
+     "census_1900_chicago_t623_roll245"
+    ],
+    "basis": "born 1892 (the person's record)"
+   },
+   "looks": {
+    "complexion": {
+     "value": "olive",
+     "drawn": "olive",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "black brown",
+     "drawn": "black_brown",
+     "cut": "girl_plait_1812",
+     "facial": [
+      "brows_fine",
+      "lashes_upper"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "hazel",
+     "drawn": "hazel",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 57.5,
+     "grade": "reconstructed",
+     "basis": "Artistic body variation; no personal measurement located."
+    },
+    "height_scale": 0.9186,
+    "heritage": {
+     "origin": "not found"
+    },
+    "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty. Stature is interpolated between approved child and teen engineering bodies, with small individual variation; adult aging and body-build targets are disabled.",
+    "grade": "reconstructed",
+    "liberty": "L-prairie-younger-3550",
+    "file": "data/humans/variation/looks/pa1904_keith_edson_jr_c1900_katharine_keith.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__child_frock_1904": [
+      0.3,
+      0.16,
+      0.18
+     ],
+     "garment_lower__child_frock_1904": [
+      0.3,
+      0.16,
+      0.18
+     ]
+    },
+    "worn": "rose frock and stockings",
     "grade": "reconstructed"
    }
   },
@@ -75087,6 +76071,71 @@
     "grade": "reconstructed"
    }
   },
+  "pa1904_lee_john_glessner": {
+   "scene": "1904",
+   "record": "data/residents_1904/households/hh_lee_blewett.json",
+   "drawn_as": [
+    "data/humans/inside_1904.json#pa1904_lee_john_glessner"
+   ],
+   "age": {
+    "years": 6,
+    "grade": "attested",
+    "sources": [
+     "glessner_house_family_page"
+    ],
+    "basis": "born 1898 (the person's record)"
+   },
+   "looks": {
+    "complexion": {
+     "value": "light",
+     "drawn": "light",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "black brown",
+     "drawn": "black_brown",
+     "cut": "cropped_1812",
+     "facial": [
+      "brows_full"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "blue",
+     "drawn": "blue",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 43.6,
+     "grade": "reconstructed",
+     "basis": "Artistic body variation; no personal measurement located."
+    },
+    "height_scale": 0.9168,
+    "heritage": {
+     "origin": "not found"
+    },
+    "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty. Stature is interpolated between approved child and teen engineering bodies, with small individual variation; adult aging and body-build targets are disabled.",
+    "grade": "reconstructed",
+    "liberty": "L-prairie-younger-3550",
+    "file": "data/humans/variation/looks/pa1904_lee_john_glessner.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__child_jacket_1904": [
+      0.09,
+      0.053,
+      0.032
+     ],
+     "garment_lower__child_trousers_1904": [
+      0.09,
+      0.053,
+      0.032
+     ]
+    },
+    "worn": "brown jacket and knee trousers",
+    "grade": "reconstructed"
+   }
+  },
   "pa1904_longini_a": {
    "scene": "1904",
    "record": "data/residents_1904/households/hh_longini_a.json",
@@ -75271,6 +76320,71 @@
      ]
     },
     "worn": "navy maid working clothes",
+    "grade": "reconstructed"
+   }
+  },
+  "pa1904_longini_a_c1900_marcel_longini": {
+   "scene": "1904",
+   "record": "data/residents_1904/households/hh_longini_a.json",
+   "drawn_as": [
+    "data/humans/inside_1904.json#pa1904_longini_a_c1900_marcel_longini"
+   ],
+   "age": {
+    "years": 14,
+    "grade": "attested",
+    "sources": [
+     "census_1900_chicago_t623_roll245"
+    ],
+    "basis": "born 1890 (the person's record)"
+   },
+   "looks": {
+    "complexion": {
+     "value": "ruddy",
+     "drawn": "ruddy",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "dark brown",
+     "drawn": "dark_brown",
+     "cut": "cropped_1812",
+     "facial": [
+      "brows_full"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "brown",
+     "drawn": "brown",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 62.5,
+     "grade": "reconstructed",
+     "basis": "Artistic body variation; no personal measurement located."
+    },
+    "height_scale": 0.9621,
+    "heritage": {
+     "origin": "not found"
+    },
+    "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty. Stature is interpolated between approved child and teen engineering bodies, with small individual variation; adult aging and body-build targets are disabled.",
+    "grade": "reconstructed",
+    "liberty": "L-prairie-younger-3550",
+    "file": "data/humans/variation/looks/pa1904_longini_a_c1900_marcel_longini.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__child_jacket_1904": [
+      0.075,
+      0.085,
+      0.1
+     ],
+     "garment_lower__child_trousers_1904": [
+      0.075,
+      0.085,
+      0.1
+     ]
+    },
+    "worn": "slate jacket and knee trousers",
     "grade": "reconstructed"
    }
   },
@@ -75638,6 +76752,72 @@
      ]
     },
     "worn": "navy coachman working clothes",
+    "grade": "reconstructed"
+   }
+  },
+  "pa1904_lowden_frank_orren_c1900_florence_lowden": {
+   "scene": "1904",
+   "record": "data/residents_1904/households/hh_lowden_frank_orren.json",
+   "drawn_as": [
+    "data/humans/inside_1904.json#pa1904_lowden_frank_orren_c1900_florence_lowden"
+   ],
+   "age": {
+    "years": 6,
+    "grade": "attested",
+    "sources": [
+     "census_1900_chicago_t623_roll245"
+    ],
+    "basis": "born 1898 (the person's record)"
+   },
+   "looks": {
+    "complexion": {
+     "value": "fair",
+     "drawn": "fair",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "sandy",
+     "drawn": "sandy",
+     "cut": "girl_plait_1812",
+     "facial": [
+      "brows_fine",
+      "lashes_upper"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "brown",
+     "drawn": "brown",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 43.2,
+     "grade": "reconstructed",
+     "basis": "Artistic body variation; no personal measurement located."
+    },
+    "height_scale": 0.9106,
+    "heritage": {
+     "origin": "not found"
+    },
+    "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty. Stature is interpolated between approved child and teen engineering bodies, with small individual variation; adult aging and body-build targets are disabled.",
+    "grade": "reconstructed",
+    "liberty": "L-prairie-younger-3550",
+    "file": "data/humans/variation/looks/pa1904_lowden_frank_orren_c1900_florence_lowden.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__child_frock_1904": [
+      0.09,
+      0.053,
+      0.032
+     ],
+     "garment_lower__child_frock_1904": [
+      0.09,
+      0.053,
+      0.032
+     ]
+    },
+    "worn": "brown frock and stockings",
     "grade": "reconstructed"
    }
   },
@@ -76154,6 +77334,71 @@
      ]
     },
     "worn": "charcoal cook working clothes",
+    "grade": "reconstructed"
+   }
+  },
+  "pa1904_lowden_frank_orren_c1900_pullman_lowden": {
+   "scene": "1904",
+   "record": "data/residents_1904/households/hh_lowden_frank_orren.json",
+   "drawn_as": [
+    "data/humans/inside_1904.json#pa1904_lowden_frank_orren_c1900_pullman_lowden"
+   ],
+   "age": {
+    "years": 7,
+    "grade": "attested",
+    "sources": [
+     "census_1900_chicago_t623_roll245"
+    ],
+    "basis": "born 1897 (the person's record)"
+   },
+   "looks": {
+    "complexion": {
+     "value": "fair",
+     "drawn": "fair",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "light brown",
+     "drawn": "light_brown",
+     "cut": "cropped_1812",
+     "facial": [
+      "brows_full"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "brown",
+     "drawn": "brown",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 45.6,
+     "grade": "reconstructed",
+     "basis": "Artistic body variation; no personal measurement located."
+    },
+    "height_scale": 0.9588,
+    "heritage": {
+     "origin": "not found"
+    },
+    "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty. Stature is interpolated between approved child and teen engineering bodies, with small individual variation; adult aging and body-build targets are disabled.",
+    "grade": "reconstructed",
+    "liberty": "L-prairie-younger-3550",
+    "file": "data/humans/variation/looks/pa1904_lowden_frank_orren_c1900_pullman_lowden.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__child_jacket_1904": [
+      0.075,
+      0.085,
+      0.1
+     ],
+     "garment_lower__child_trousers_1904": [
+      0.075,
+      0.085,
+      0.1
+     ]
+    },
+    "worn": "slate jacket and knee trousers",
     "grade": "reconstructed"
    }
   },
@@ -77407,6 +78652,138 @@
     "grade": "reconstructed"
    }
   },
+  "pa1904_mcbirney_hugh_j_c1900_annie_l_mcbirney": {
+   "scene": "1904",
+   "record": "data/residents_1904/households/hh_mcbirney_hugh_j.json",
+   "drawn_as": [
+    "data/humans/inside_1904.json#pa1904_mcbirney_hugh_j_c1900_annie_l_mcbirney"
+   ],
+   "age": {
+    "years": 16,
+    "grade": "attested",
+    "sources": [
+     "census_1900_chicago_t623_roll245"
+    ],
+    "basis": "born 1888 (the person's record)"
+   },
+   "looks": {
+    "complexion": {
+     "value": "light",
+     "drawn": "light",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "mid brown",
+     "drawn": "mid_brown",
+     "cut": "girl_plait_1812",
+     "facial": [
+      "brows_fine",
+      "lashes_upper"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "hazel",
+     "drawn": "hazel",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 64.5,
+     "grade": "reconstructed",
+     "basis": "Artistic body variation; no personal measurement located."
+    },
+    "height_scale": 1.0304,
+    "heritage": {
+     "origin": "not found"
+    },
+    "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty. Stature is interpolated between approved child and teen engineering bodies, with small individual variation; adult aging and body-build targets are disabled.",
+    "grade": "reconstructed",
+    "liberty": "L-prairie-younger-3550",
+    "file": "data/humans/variation/looks/pa1904_mcbirney_hugh_j_c1900_annie_l_mcbirney.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__child_frock_1904": [
+      0.025,
+      0.038,
+      0.07
+     ],
+     "garment_lower__child_frock_1904": [
+      0.025,
+      0.038,
+      0.07
+     ]
+    },
+    "worn": "navy frock and stockings",
+    "grade": "reconstructed"
+   }
+  },
+  "pa1904_mcbirney_hugh_j_c1900_isabelle_mcbirney": {
+   "scene": "1904",
+   "record": "data/residents_1904/households/hh_mcbirney_hugh_j.json",
+   "drawn_as": [
+    "data/humans/inside_1904.json#pa1904_mcbirney_hugh_j_c1900_isabelle_mcbirney"
+   ],
+   "age": {
+    "years": 13,
+    "grade": "attested",
+    "sources": [
+     "census_1900_chicago_t623_roll245"
+    ],
+    "basis": "born 1891 (the person's record)"
+   },
+   "looks": {
+    "complexion": {
+     "value": "fair",
+     "drawn": "fair",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "dark brown",
+     "drawn": "dark_brown",
+     "cut": "girl_plait_1812",
+     "facial": [
+      "brows_fine",
+      "lashes_upper"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "brown",
+     "drawn": "brown",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 59.1,
+     "grade": "reconstructed",
+     "basis": "Artistic body variation; no personal measurement located."
+    },
+    "height_scale": 0.9441,
+    "heritage": {
+     "origin": "not found"
+    },
+    "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty. Stature is interpolated between approved child and teen engineering bodies, with small individual variation; adult aging and body-build targets are disabled.",
+    "grade": "reconstructed",
+    "liberty": "L-prairie-younger-3550",
+    "file": "data/humans/variation/looks/pa1904_mcbirney_hugh_j_c1900_isabelle_mcbirney.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__child_frock_1904": [
+      0.3,
+      0.16,
+      0.18
+     ],
+     "garment_lower__child_frock_1904": [
+      0.3,
+      0.16,
+      0.18
+     ]
+    },
+    "worn": "rose frock and stockings",
+    "grade": "reconstructed"
+   }
+  },
   "pa1904_mcbirney_hugh_j_c1900_julia_orosz": {
    "scene": "1904",
    "record": "data/residents_1904/households/hh_mcbirney_hugh_j.json",
@@ -78141,6 +79518,138 @@
      ]
     },
     "worn": "navy coat and trousers",
+    "grade": "reconstructed"
+   }
+  },
+  "pa1904_meeker_grace": {
+   "scene": "1904",
+   "record": "data/residents_1904/households/hh_meeker_arthur.json",
+   "drawn_as": [
+    "data/humans/inside_1904.json#pa1904_meeker_grace"
+   ],
+   "age": {
+    "years": 9,
+    "grade": "inferred",
+    "sources": [
+     "census_1910_chicago_t624_roll241"
+    ],
+    "basis": "born 1895 (the person's record)"
+   },
+   "looks": {
+    "complexion": {
+     "value": "ruddy",
+     "drawn": "ruddy",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "light brown",
+     "drawn": "light_brown",
+     "cut": "girl_plait_1812",
+     "facial": [
+      "brows_fine",
+      "lashes_upper"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "blue",
+     "drawn": "blue",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 50.2,
+     "grade": "reconstructed",
+     "basis": "Artistic body variation; no personal measurement located."
+    },
+    "height_scale": 1.0582,
+    "heritage": {
+     "origin": "not found"
+    },
+    "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty. Stature is interpolated between approved child and teen engineering bodies, with small individual variation; adult aging and body-build targets are disabled.",
+    "grade": "reconstructed",
+    "liberty": "L-prairie-younger-3550",
+    "file": "data/humans/variation/looks/pa1904_meeker_grace.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__child_frock_1904": [
+      0.075,
+      0.035,
+      0.05
+     ],
+     "garment_lower__child_frock_1904": [
+      0.075,
+      0.035,
+      0.05
+     ]
+    },
+    "worn": "plum frock and stockings",
+    "grade": "reconstructed"
+   }
+  },
+  "pa1904_meeker_katherine": {
+   "scene": "1904",
+   "record": "data/residents_1904/households/hh_meeker_arthur.json",
+   "drawn_as": [
+    "data/humans/inside_1904.json#pa1904_meeker_katherine"
+   ],
+   "age": {
+    "years": 10,
+    "grade": "inferred",
+    "sources": [
+     "census_1910_chicago_t624_roll241"
+    ],
+    "basis": "born 1894 (the person's record)"
+   },
+   "looks": {
+    "complexion": {
+     "value": "light",
+     "drawn": "light",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "dark brown",
+     "drawn": "dark_brown",
+     "cut": "girl_plait_1812",
+     "facial": [
+      "brows_fine",
+      "lashes_upper"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "hazel",
+     "drawn": "hazel",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 51.8,
+     "grade": "reconstructed",
+     "basis": "Artistic body variation; no personal measurement located."
+    },
+    "height_scale": 1.0919,
+    "heritage": {
+     "origin": "not found"
+    },
+    "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty. Stature is interpolated between approved child and teen engineering bodies, with small individual variation; adult aging and body-build targets are disabled.",
+    "grade": "reconstructed",
+    "liberty": "L-prairie-younger-3550",
+    "file": "data/humans/variation/looks/pa1904_meeker_katherine.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__child_frock_1904": [
+      0.048,
+      0.047,
+      0.044
+     ],
+     "garment_lower__child_frock_1904": [
+      0.048,
+      0.047,
+      0.044
+     ]
+    },
+    "worn": "charcoal frock and stockings",
     "grade": "reconstructed"
    }
   },
@@ -82150,6 +83659,71 @@
     "grade": "reconstructed"
    }
   },
+  "pa1904_ream_norman_b_c1900_louis_m_ream": {
+   "scene": "1904",
+   "record": "data/residents_1904/households/hh_ream_norman_b.json",
+   "drawn_as": [
+    "data/humans/inside_1904.json#pa1904_ream_norman_b_c1900_louis_m_ream"
+   ],
+   "age": {
+    "years": 17,
+    "grade": "attested",
+    "sources": [
+     "census_1900_chicago_t623_roll245"
+    ],
+    "basis": "born 1887 (the person's record)"
+   },
+   "looks": {
+    "complexion": {
+     "value": "ruddy",
+     "drawn": "ruddy",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "dark brown",
+     "drawn": "dark_brown",
+     "cut": "cropped_1812",
+     "facial": [
+      "brows_full"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "blue",
+     "drawn": "blue",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 68.4,
+     "grade": "reconstructed",
+     "basis": "Artistic body variation; no personal measurement located."
+    },
+    "height_scale": 1.0529,
+    "heritage": {
+     "origin": "not found"
+    },
+    "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty. Stature is interpolated between approved child and teen engineering bodies, with small individual variation; adult aging and body-build targets are disabled.",
+    "grade": "reconstructed",
+    "liberty": "L-prairie-younger-3550",
+    "file": "data/humans/variation/looks/pa1904_ream_norman_b_c1900_louis_m_ream.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__child_jacket_1904": [
+      0.09,
+      0.053,
+      0.032
+     ],
+     "garment_lower__child_trousers_1904": [
+      0.09,
+      0.053,
+      0.032
+     ]
+    },
+    "worn": "brown jacket and knee trousers",
+    "grade": "reconstructed"
+   }
+  },
   "pa1904_reid_mrs_william_h": {
    "scene": "1904",
    "record": "data/residents_1904/households/hh_reid_william_h.json",
@@ -83436,6 +85010,72 @@
     "grade": "reconstructed"
    }
   },
+  "pa1904_rothschild_mrs_m_m_c1900_emma_rothschild": {
+   "scene": "1904",
+   "record": "data/residents_1904/households/hh_rothschild_mrs_m_m.json",
+   "drawn_as": [
+    "data/humans/inside_1904.json#pa1904_rothschild_mrs_m_m_c1900_emma_rothschild"
+   ],
+   "age": {
+    "years": 17,
+    "grade": "attested",
+    "sources": [
+     "census_1900_chicago_t623_roll245"
+    ],
+    "basis": "born 1887 (the person's record)"
+   },
+   "looks": {
+    "complexion": {
+     "value": "light",
+     "drawn": "light",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "black brown",
+     "drawn": "black_brown",
+     "cut": "girl_plait_1812",
+     "facial": [
+      "brows_fine",
+      "lashes_upper"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "grey",
+     "drawn": "grey",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 64.5,
+     "grade": "reconstructed",
+     "basis": "Artistic body variation; no personal measurement located."
+    },
+    "height_scale": 1.0304,
+    "heritage": {
+     "origin": "not found"
+    },
+    "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty. Stature is interpolated between approved child and teen engineering bodies, with small individual variation; adult aging and body-build targets are disabled.",
+    "grade": "reconstructed",
+    "liberty": "L-prairie-younger-3550",
+    "file": "data/humans/variation/looks/pa1904_rothschild_mrs_m_m_c1900_emma_rothschild.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__child_frock_1904": [
+      0.075,
+      0.035,
+      0.05
+     ],
+     "garment_lower__child_frock_1904": [
+      0.075,
+      0.035,
+      0.05
+     ]
+    },
+    "worn": "plum frock and stockings",
+    "grade": "reconstructed"
+   }
+  },
   "pa1904_rothschild_mrs_m_m_c1900_gertrude_rothschild": {
    "scene": "1904",
    "record": "data/residents_1904/households/hh_rothschild_mrs_m_m.json",
@@ -84254,6 +85894,72 @@
     "grade": "reconstructed"
    }
   },
+  "pa1904_shortall_john_l_c1900_catherine_shortall": {
+   "scene": "1904",
+   "record": "data/residents_1904/households/hh_shortall_john_l.json",
+   "drawn_as": [
+    "data/humans/inside_1904.json#pa1904_shortall_john_l_c1900_catherine_shortall"
+   ],
+   "age": {
+    "years": 14,
+    "grade": "attested",
+    "sources": [
+     "census_1900_chicago_t623_roll245"
+    ],
+    "basis": "born 1890 (the person's record)"
+   },
+   "looks": {
+    "complexion": {
+     "value": "light",
+     "drawn": "light",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "black brown",
+     "drawn": "black_brown",
+     "cut": "girl_plait_1812",
+     "facial": [
+      "brows_fine",
+      "lashes_upper"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "brown",
+     "drawn": "brown",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 60.0,
+     "grade": "reconstructed",
+     "basis": "Artistic body variation; no personal measurement located."
+    },
+    "height_scale": 0.9585,
+    "heritage": {
+     "origin": "not found"
+    },
+    "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty. Stature is interpolated between approved child and teen engineering bodies, with small individual variation; adult aging and body-build targets are disabled.",
+    "grade": "reconstructed",
+    "liberty": "L-prairie-younger-3550",
+    "file": "data/humans/variation/looks/pa1904_shortall_john_l_c1900_catherine_shortall.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__child_frock_1904": [
+      0.3,
+      0.16,
+      0.18
+     ],
+     "garment_lower__child_frock_1904": [
+      0.3,
+      0.16,
+      0.18
+     ]
+    },
+    "worn": "rose frock and stockings",
+    "grade": "reconstructed"
+   }
+  },
   "pa1904_shortall_john_l_c1900_ellen_downey": {
    "scene": "1904",
    "record": "data/residents_1904/households/hh_shortall_john_l.json",
@@ -84382,6 +86088,203 @@
      ]
     },
     "worn": "dark green maid working clothes",
+    "grade": "reconstructed"
+   }
+  },
+  "pa1904_shortall_john_l_c1900_harrington_shortall": {
+   "scene": "1904",
+   "record": "data/residents_1904/households/hh_shortall_john_l.json",
+   "drawn_as": [
+    "data/humans/inside_1904.json#pa1904_shortall_john_l_c1900_harrington_shortall"
+   ],
+   "age": {
+    "years": 9,
+    "grade": "attested",
+    "sources": [
+     "census_1900_chicago_t623_roll245"
+    ],
+    "basis": "born 1895 (the person's record)"
+   },
+   "looks": {
+    "complexion": {
+     "value": "ruddy",
+     "drawn": "ruddy",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "mid brown",
+     "drawn": "mid_brown",
+     "cut": "cropped_1812",
+     "facial": [
+      "brows_full"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "hazel",
+     "drawn": "hazel",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 49.7,
+     "grade": "reconstructed",
+     "basis": "Artistic body variation; no personal measurement located."
+    },
+    "height_scale": 1.045,
+    "heritage": {
+     "origin": "not found"
+    },
+    "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty. Stature is interpolated between approved child and teen engineering bodies, with small individual variation; adult aging and body-build targets are disabled.",
+    "grade": "reconstructed",
+    "liberty": "L-prairie-younger-3550",
+    "file": "data/humans/variation/looks/pa1904_shortall_john_l_c1900_harrington_shortall.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__child_jacket_1904": [
+      0.3,
+      0.16,
+      0.18
+     ],
+     "garment_lower__child_trousers_1904": [
+      0.3,
+      0.16,
+      0.18
+     ]
+    },
+    "worn": "rose jacket and knee trousers",
+    "grade": "reconstructed"
+   }
+  },
+  "pa1904_shortall_john_l_c1900_helen_shortall": {
+   "scene": "1904",
+   "record": "data/residents_1904/households/hh_shortall_john_l.json",
+   "drawn_as": [
+    "data/humans/inside_1904.json#pa1904_shortall_john_l_c1900_helen_shortall"
+   ],
+   "age": {
+    "years": 12,
+    "grade": "attested",
+    "sources": [
+     "census_1900_chicago_t623_roll245"
+    ],
+    "basis": "born 1892 (the person's record)"
+   },
+   "looks": {
+    "complexion": {
+     "value": "light",
+     "drawn": "light",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "sandy",
+     "drawn": "sandy",
+     "cut": "girl_plait_1812",
+     "facial": [
+      "brows_fine",
+      "lashes_upper"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "hazel",
+     "drawn": "hazel",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 56.3,
+     "grade": "reconstructed",
+     "basis": "Artistic body variation; no personal measurement located."
+    },
+    "height_scale": 0.8994,
+    "heritage": {
+     "origin": "not found"
+    },
+    "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty. Stature is interpolated between approved child and teen engineering bodies, with small individual variation; adult aging and body-build targets are disabled.",
+    "grade": "reconstructed",
+    "liberty": "L-prairie-younger-3550",
+    "file": "data/humans/variation/looks/pa1904_shortall_john_l_c1900_helen_shortall.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__child_frock_1904": [
+      0.025,
+      0.038,
+      0.07
+     ],
+     "garment_lower__child_frock_1904": [
+      0.025,
+      0.038,
+      0.07
+     ]
+    },
+    "worn": "navy frock and stockings",
+    "grade": "reconstructed"
+   }
+  },
+  "pa1904_shortall_john_l_c1900_margaret_shortall": {
+   "scene": "1904",
+   "record": "data/residents_1904/households/hh_shortall_john_l.json",
+   "drawn_as": [
+    "data/humans/inside_1904.json#pa1904_shortall_john_l_c1900_margaret_shortall"
+   ],
+   "age": {
+    "years": 8,
+    "grade": "attested",
+    "sources": [
+     "census_1900_chicago_t623_roll245"
+    ],
+    "basis": "born 1896 (the person's record)"
+   },
+   "looks": {
+    "complexion": {
+     "value": "fair",
+     "drawn": "fair",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "sandy",
+     "drawn": "sandy",
+     "cut": "girl_plait_1812",
+     "facial": [
+      "brows_fine",
+      "lashes_upper"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "brown",
+     "drawn": "brown",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 48.0,
+     "grade": "reconstructed",
+     "basis": "Artistic body variation; no personal measurement located."
+    },
+    "height_scale": 1.0118,
+    "heritage": {
+     "origin": "not found"
+    },
+    "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty. Stature is interpolated between approved child and teen engineering bodies, with small individual variation; adult aging and body-build targets are disabled.",
+    "grade": "reconstructed",
+    "liberty": "L-prairie-younger-3550",
+    "file": "data/humans/variation/looks/pa1904_shortall_john_l_c1900_margaret_shortall.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__child_frock_1904": [
+      0.09,
+      0.053,
+      0.032
+     ],
+     "garment_lower__child_frock_1904": [
+      0.09,
+      0.053,
+      0.032
+     ]
+    },
+    "worn": "brown frock and stockings",
     "grade": "reconstructed"
    }
   },
@@ -85703,6 +87606,72 @@
     "grade": "reconstructed"
    }
   },
+  "pa1904_stirling_william_r_c1900_jean_w_sterling": {
+   "scene": "1904",
+   "record": "data/residents_1904/households/hh_stirling_william_r.json",
+   "drawn_as": [
+    "data/humans/inside_1904.json#pa1904_stirling_william_r_c1900_jean_w_sterling"
+   ],
+   "age": {
+    "years": 14,
+    "grade": "attested",
+    "sources": [
+     "census_1900_chicago_t623_roll245"
+    ],
+    "basis": "born 1890 (the person's record)"
+   },
+   "looks": {
+    "complexion": {
+     "value": "olive",
+     "drawn": "olive",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "mid brown",
+     "drawn": "mid_brown",
+     "cut": "girl_plait_1812",
+     "facial": [
+      "brows_fine",
+      "lashes_upper"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "grey",
+     "drawn": "grey",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 61.6,
+     "grade": "reconstructed",
+     "basis": "Artistic body variation; no personal measurement located."
+    },
+    "height_scale": 0.9841,
+    "heritage": {
+     "origin": "not found"
+    },
+    "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty. Stature is interpolated between approved child and teen engineering bodies, with small individual variation; adult aging and body-build targets are disabled.",
+    "grade": "reconstructed",
+    "liberty": "L-prairie-younger-3550",
+    "file": "data/humans/variation/looks/pa1904_stirling_william_r_c1900_jean_w_sterling.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__child_frock_1904": [
+      0.3,
+      0.16,
+      0.18
+     ],
+     "garment_lower__child_frock_1904": [
+      0.3,
+      0.16,
+      0.18
+     ]
+    },
+    "worn": "rose frock and stockings",
+    "grade": "reconstructed"
+   }
+  },
   "pa1904_stone_mrs_h_o": {
    "scene": "1904",
    "record": "data/residents_1904/households/hh_stone_mrs_h_o.json",
@@ -86456,6 +88425,136 @@
     "grade": "reconstructed"
    }
   },
+  "pa1904_walker_james_r_c1900_arthur_m_walker": {
+   "scene": "1904",
+   "record": "data/residents_1904/households/hh_walker_james_r.json",
+   "drawn_as": [
+    "data/humans/inside_1904.json#pa1904_walker_james_r_c1900_arthur_m_walker"
+   ],
+   "age": {
+    "years": 8,
+    "grade": "inferred",
+    "sources": [
+     "census_1900_chicago_t623_roll245"
+    ],
+    "basis": "born 1896 (the person's record)"
+   },
+   "looks": {
+    "complexion": {
+     "value": "ruddy",
+     "drawn": "ruddy",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "sandy",
+     "drawn": "sandy",
+     "cut": "cropped_1812",
+     "facial": [
+      "brows_full"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "blue",
+     "drawn": "blue",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 47.3,
+     "grade": "reconstructed",
+     "basis": "Artistic body variation; no personal measurement located."
+    },
+    "height_scale": 0.9946,
+    "heritage": {
+     "origin": "not found"
+    },
+    "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty. Stature is interpolated between approved child and teen engineering bodies, with small individual variation; adult aging and body-build targets are disabled.",
+    "grade": "reconstructed",
+    "liberty": "L-prairie-younger-3550",
+    "file": "data/humans/variation/looks/pa1904_walker_james_r_c1900_arthur_m_walker.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__child_jacket_1904": [
+      0.4,
+      0.36,
+      0.28
+     ],
+     "garment_lower__child_trousers_1904": [
+      0.4,
+      0.36,
+      0.28
+     ]
+    },
+    "worn": "cream jacket and knee trousers",
+    "grade": "reconstructed"
+   }
+  },
+  "pa1904_walker_james_r_c1900_dexter_walker": {
+   "scene": "1904",
+   "record": "data/residents_1904/households/hh_walker_james_r.json",
+   "drawn_as": [
+    "data/humans/inside_1904.json#pa1904_walker_james_r_c1900_dexter_walker"
+   ],
+   "age": {
+    "years": 5,
+    "grade": "inferred",
+    "sources": [
+     "census_1900_chicago_t623_roll245"
+    ],
+    "basis": "born 1899 (the person's record)"
+   },
+   "looks": {
+    "complexion": {
+     "value": "fair",
+     "drawn": "fair",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "dark brown",
+     "drawn": "dark_brown",
+     "cut": "cropped_1812",
+     "facial": [
+      "brows_full"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "brown",
+     "drawn": "brown",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 41.5,
+     "grade": "reconstructed",
+     "basis": "Artistic body variation; no personal measurement located."
+    },
+    "height_scale": 0.8726,
+    "heritage": {
+     "origin": "not found"
+    },
+    "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty. Stature is interpolated between approved child and teen engineering bodies, with small individual variation; adult aging and body-build targets are disabled.",
+    "grade": "reconstructed",
+    "liberty": "L-prairie-younger-3550",
+    "file": "data/humans/variation/looks/pa1904_walker_james_r_c1900_dexter_walker.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__child_jacket_1904": [
+      0.09,
+      0.053,
+      0.032
+     ],
+     "garment_lower__child_trousers_1904": [
+      0.09,
+      0.053,
+      0.032
+     ]
+    },
+    "worn": "brown jacket and knee trousers",
+    "grade": "reconstructed"
+   }
+  },
   "pa1904_walker_james_r_c1900_elizabeth_martinson": {
    "scene": "1904",
    "record": "data/residents_1904/households/hh_walker_james_r.json",
@@ -86650,6 +88749,71 @@
      "basket_cloth"
     ],
     "worn": "dark green companion working clothes",
+    "grade": "reconstructed"
+   }
+  },
+  "pa1904_walker_james_r_c1900_james_m_walker": {
+   "scene": "1904",
+   "record": "data/residents_1904/households/hh_walker_james_r.json",
+   "drawn_as": [
+    "data/humans/inside_1904.json#pa1904_walker_james_r_c1900_james_m_walker"
+   ],
+   "age": {
+    "years": 13,
+    "grade": "attested",
+    "sources": [
+     "census_1900_chicago_t623_roll245"
+    ],
+    "basis": "born 1891 (the person's record)"
+   },
+   "looks": {
+    "complexion": {
+     "value": "light",
+     "drawn": "light",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "black brown",
+     "drawn": "black_brown",
+     "cut": "cropped_1812",
+     "facial": [
+      "brows_full"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "brown",
+     "drawn": "brown",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 60.1,
+     "grade": "reconstructed",
+     "basis": "Artistic body variation; no personal measurement located."
+    },
+    "height_scale": 0.9252,
+    "heritage": {
+     "origin": "not found"
+    },
+    "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty. Stature is interpolated between approved child and teen engineering bodies, with small individual variation; adult aging and body-build targets are disabled.",
+    "grade": "reconstructed",
+    "liberty": "L-prairie-younger-3550",
+    "file": "data/humans/variation/looks/pa1904_walker_james_r_c1900_james_m_walker.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__child_jacket_1904": [
+      0.13,
+      0.2,
+      0.28
+     ],
+     "garment_lower__child_trousers_1904": [
+      0.13,
+      0.2,
+      0.28
+     ]
+    },
+    "worn": "blue jacket and knee trousers",
     "grade": "reconstructed"
    }
   },
@@ -87423,6 +89587,72 @@
     "grade": "reconstructed"
    }
   },
+  "pa1904_young_lawrence_a_c1900_alice_young": {
+   "scene": "1904",
+   "record": "data/residents_1904/households/hh_young_lawrence_a.json",
+   "drawn_as": [
+    "data/humans/inside_1904.json#pa1904_young_lawrence_a_c1900_alice_young"
+   ],
+   "age": {
+    "years": 6,
+    "grade": "attested",
+    "sources": [
+     "census_1900_chicago_t623_roll245"
+    ],
+    "basis": "born 1898 (the person's record)"
+   },
+   "looks": {
+    "complexion": {
+     "value": "ruddy",
+     "drawn": "ruddy",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "sandy",
+     "drawn": "sandy",
+     "cut": "girl_plait_1812",
+     "facial": [
+      "brows_fine",
+      "lashes_upper"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "blue",
+     "drawn": "blue",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 43.3,
+     "grade": "reconstructed",
+     "basis": "Artistic body variation; no personal measurement located."
+    },
+    "height_scale": 0.9127,
+    "heritage": {
+     "origin": "not found"
+    },
+    "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty. Stature is interpolated between approved child and teen engineering bodies, with small individual variation; adult aging and body-build targets are disabled.",
+    "grade": "reconstructed",
+    "liberty": "L-prairie-younger-3550",
+    "file": "data/humans/variation/looks/pa1904_young_lawrence_a_c1900_alice_young.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__child_frock_1904": [
+      0.4,
+      0.36,
+      0.28
+     ],
+     "garment_lower__child_frock_1904": [
+      0.4,
+      0.36,
+      0.28
+     ]
+    },
+    "worn": "cream frock and stockings",
+    "grade": "reconstructed"
+   }
+  },
   "pa1904_young_lawrence_a_c1900_elizabeth_mcgregor": {
    "scene": "1904",
    "record": "data/residents_1904/households/hh_young_lawrence_a.json",
@@ -87486,6 +89716,71 @@
      ]
     },
     "worn": "plum cook working clothes",
+    "grade": "reconstructed"
+   }
+  },
+  "pa1904_young_lawrence_a_c1900_henry_w_young": {
+   "scene": "1904",
+   "record": "data/residents_1904/households/hh_young_lawrence_a.json",
+   "drawn_as": [
+    "data/humans/inside_1904.json#pa1904_young_lawrence_a_c1900_henry_w_young"
+   ],
+   "age": {
+    "years": 10,
+    "grade": "attested",
+    "sources": [
+     "census_1900_chicago_t623_roll245"
+    ],
+    "basis": "born 1894 (the person's record)"
+   },
+   "looks": {
+    "complexion": {
+     "value": "olive",
+     "drawn": "olive",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "light brown",
+     "drawn": "light_brown",
+     "cut": "cropped_1812",
+     "facial": [
+      "brows_full"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "blue",
+     "drawn": "blue",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 51.7,
+     "grade": "reconstructed",
+     "basis": "Artistic body variation; no personal measurement located."
+    },
+    "height_scale": 1.0871,
+    "heritage": {
+     "origin": "not found"
+    },
+    "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty. Stature is interpolated between approved child and teen engineering bodies, with small individual variation; adult aging and body-build targets are disabled.",
+    "grade": "reconstructed",
+    "liberty": "L-prairie-younger-3550",
+    "file": "data/humans/variation/looks/pa1904_young_lawrence_a_c1900_henry_w_young.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__child_jacket_1904": [
+      0.048,
+      0.047,
+      0.044
+     ],
+     "garment_lower__child_trousers_1904": [
+      0.048,
+      0.047,
+      0.044
+     ]
+    },
+    "worn": "charcoal jacket and knee trousers",
     "grade": "reconstructed"
    }
   },

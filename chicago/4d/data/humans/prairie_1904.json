@@ -139,9 +139,13 @@
   {
    "person": "pa1904_bellas_edith",
    "home": "house_1634_prairie",
-   "status": "child_mesh_pending",
+   "status": "ready",
    "age_1904": 17,
-   "portrait": "not_identified"
+   "portrait": "not_identified",
+   "asset_id": "teen_girl_1904",
+   "body_presentation": "female",
+   "casting_grade": "reconstructed",
+   "role": "teen_girl_1904"
   },
   {
    "person": "pa1904_bellas_emeline_c",
@@ -662,9 +666,13 @@
   {
    "person": "pa1904_cunningham_elizabeth_s",
    "home": "marsh_house_1824_prairie",
-   "status": "child_mesh_pending",
+   "status": "ready",
    "age_1904": 15,
-   "portrait": "not_identified"
+   "portrait": "not_identified",
+   "asset_id": "teen_girl_1904",
+   "body_presentation": "female",
+   "casting_grade": "reconstructed",
+   "role": "teen_girl_1904"
   },
   {
    "person": "pa1904_cunningham_mrs_secor",
@@ -691,9 +699,13 @@
   {
    "person": "pa1904_cunningham_secor_jr",
    "home": "marsh_house_1824_prairie",
-   "status": "child_mesh_pending",
+   "status": "ready",
    "age_1904": 12,
-   "portrait": "not_identified"
+   "portrait": "not_identified",
+   "asset_id": "teen_boy_1904",
+   "body_presentation": "male",
+   "casting_grade": "reconstructed",
+   "role": "teen_boy_1904"
   },
   {
    "person": "pa1904_mcbean_a_j_c1900_louise_dane",
@@ -962,16 +974,24 @@
   {
    "person": "pa1904_field_gwendolyn",
    "home": "marshall_field_jr_house_1919_prairie",
-   "status": "child_mesh_pending",
+   "status": "ready",
    "age_1904": 3,
-   "portrait": "not_identified"
+   "portrait": "not_identified",
+   "asset_id": "child_toddler_1904",
+   "body_presentation": "female",
+   "casting_grade": "reconstructed",
+   "role": "child_toddler_1904"
   },
   {
    "person": "pa1904_field_henry",
    "home": "marshall_field_jr_house_1919_prairie",
-   "status": "child_mesh_pending",
+   "status": "ready",
    "age_1904": 9,
-   "portrait": "not_identified"
+   "portrait": "not_identified",
+   "asset_id": "child_boy_1904",
+   "body_presentation": "male",
+   "casting_grade": "reconstructed",
+   "role": "child_boy_1904"
   },
   {
    "person": "pa1904_field_marshall",
@@ -1204,23 +1224,31 @@
   {
    "person": "pa1904_glessner_elizabeth",
    "home": "george_glessner_house_1706_prairie",
-   "status": "child_mesh_pending",
+   "status": "ready",
    "age_1904": 5,
-   "portrait": "not_identified"
+   "portrait": "not_identified",
+   "asset_id": "child_girl_1904",
+   "body_presentation": "female",
+   "casting_grade": "reconstructed",
+   "role": "child_girl_1904"
   },
   {
    "person": "pa1904_glessner_emily",
    "home": "george_glessner_house_1706_prairie",
-   "status": "child_mesh_pending",
+   "status": "household_care",
    "age_1904": 0,
    "portrait": "not_identified"
   },
   {
    "person": "pa1904_glessner_frances",
    "home": "george_glessner_house_1706_prairie",
-   "status": "child_mesh_pending",
+   "status": "ready",
    "age_1904": 4,
-   "portrait": "not_identified"
+   "portrait": "not_identified",
+   "asset_id": "child_toddler_1904",
+   "body_presentation": "female",
+   "casting_grade": "reconstructed",
+   "role": "child_toddler_1904"
   },
   {
    "person": "pa1904_glessner_frances_at_1800",
@@ -1259,9 +1287,13 @@
   {
    "person": "pa1904_glessner_john",
    "home": "george_glessner_house_1706_prairie",
-   "status": "child_mesh_pending",
+   "status": "ready",
    "age_1904": 2,
-   "portrait": "not_identified"
+   "portrait": "not_identified",
+   "asset_id": "child_toddler_1904",
+   "body_presentation": "male",
+   "casting_grade": "reconstructed",
+   "role": "child_toddler_1904"
   },
   {
    "person": "glessner_john_j",
@@ -1383,9 +1415,13 @@
   {
    "person": "pa1904_gregory_robert_b_c1900_ruth_gregory",
    "home": "shortall_gregory_house_1638_prairie_front",
-   "status": "child_mesh_pending",
+   "status": "ready",
    "age_1904": 16,
-   "portrait": "not_identified"
+   "portrait": "not_identified",
+   "asset_id": "teen_girl_1904",
+   "body_presentation": "female",
+   "casting_grade": "reconstructed",
+   "role": "teen_girl_1904"
   },
   {
    "person": "pa1904_grey_charles_g",
@@ -1401,9 +1437,13 @@
   {
    "person": "pa1904_grey_elizabeth_w",
    "home": "house_2010_prairie",
-   "status": "child_mesh_pending",
+   "status": "ready",
    "age_1904": 8,
-   "portrait": "not_identified"
+   "portrait": "not_identified",
+   "asset_id": "child_girl_1904",
+   "body_presentation": "female",
+   "casting_grade": "reconstructed",
+   "role": "child_girl_1904"
   },
   {
    "person": "pa1904_grey_florence",
@@ -1551,16 +1591,24 @@
   {
    "person": "pa1904_hamline_john_h_c1900_john_h_hamline",
    "home": "house_1621_prairie",
-   "status": "child_mesh_pending",
+   "status": "ready",
    "age_1904": 6,
-   "portrait": "not_identified"
+   "portrait": "not_identified",
+   "asset_id": "child_boy_1904",
+   "body_presentation": "male",
+   "casting_grade": "reconstructed",
+   "role": "child_boy_1904"
   },
   {
    "person": "pa1904_hamline_john_h_c1900_josephine_hamline",
    "home": "house_1621_prairie",
-   "status": "child_mesh_pending",
+   "status": "ready",
    "age_1904": 15,
-   "portrait": "not_identified"
+   "portrait": "not_identified",
+   "asset_id": "teen_girl_1904",
+   "body_presentation": "female",
+   "casting_grade": "reconstructed",
+   "role": "teen_girl_1904"
   },
   {
    "person": "pa1904_hamline_mrs_john_h",
@@ -1856,9 +1904,13 @@
   {
    "person": "pa1904_field_marshall_iii",
    "home": "marshall_field_jr_house_1919_prairie",
-   "status": "child_mesh_pending",
+   "status": "ready",
    "age_1904": 10,
-   "portrait": "not_identified"
+   "portrait": "not_identified",
+   "asset_id": "child_boy_1904",
+   "body_presentation": "male",
+   "casting_grade": "reconstructed",
+   "role": "child_boy_1904"
   },
   {
    "person": "pa1904_jenkins_john_e",
@@ -2124,9 +2176,13 @@
   {
    "person": "pa1904_keith_edson_jr_c1900_frederick_keith",
    "home": "rees_house_2110_prairie",
-   "status": "child_mesh_pending",
+   "status": "ready",
    "age_1904": 9,
-   "portrait": "not_identified"
+   "portrait": "not_identified",
+   "asset_id": "child_boy_1904",
+   "body_presentation": "male",
+   "casting_grade": "reconstructed",
+   "role": "child_boy_1904"
   },
   {
    "person": "pa1904_keith_harold",
@@ -2142,9 +2198,13 @@
   {
    "person": "pa1904_keith_edson_jr_c1900_katharine_keith",
    "home": "rees_house_2110_prairie",
-   "status": "child_mesh_pending",
+   "status": "ready",
    "age_1904": 12,
-   "portrait": "not_identified"
+   "portrait": "not_identified",
+   "asset_id": "teen_girl_1904",
+   "body_presentation": "female",
+   "casting_grade": "reconstructed",
+   "role": "teen_girl_1904"
   },
   {
    "person": "pa1904_keith_daughter",
@@ -2391,16 +2451,20 @@
   {
    "person": "pa1904_lee_frances",
    "home": "glessner_lee_house_1700_prairie",
-   "status": "child_mesh_pending",
+   "status": "household_care",
    "age_1904": 1,
    "portrait": "not_identified"
   },
   {
    "person": "pa1904_lee_john_glessner",
    "home": "glessner_lee_house_1700_prairie",
-   "status": "child_mesh_pending",
+   "status": "ready",
    "age_1904": 6,
-   "portrait": "not_identified"
+   "portrait": "not_identified",
+   "asset_id": "child_boy_1904",
+   "body_presentation": "male",
+   "casting_grade": "reconstructed",
+   "role": "child_boy_1904"
   },
   {
    "person": "pa1904_lee_martha",
@@ -2489,9 +2553,13 @@
   {
    "person": "pa1904_longini_a_c1900_marcel_longini",
    "home": "house_1626_prairie",
-   "status": "child_mesh_pending",
+   "status": "ready",
    "age_1904": 14,
-   "portrait": "not_identified"
+   "portrait": "not_identified",
+   "asset_id": "teen_boy_1904",
+   "body_presentation": "male",
+   "casting_grade": "reconstructed",
+   "role": "teen_boy_1904"
   },
   {
    "person": "pa1904_longini_daughter",
@@ -2529,9 +2597,13 @@
   {
    "person": "pa1904_lowden_frank_orren_c1900_florence_lowden",
    "home": "moulton_lowden_house_1912_prairie",
-   "status": "child_mesh_pending",
+   "status": "ready",
    "age_1904": 6,
-   "portrait": "not_identified"
+   "portrait": "not_identified",
+   "asset_id": "child_girl_1904",
+   "body_presentation": "female",
+   "casting_grade": "reconstructed",
+   "role": "child_girl_1904"
   },
   {
    "person": "pa1904_lowden_mrs_frank_orren",
@@ -2558,9 +2630,13 @@
   {
    "person": "pa1904_lowden_frank_orren_c1900_pullman_lowden",
    "home": "moulton_lowden_house_1912_prairie",
-   "status": "child_mesh_pending",
+   "status": "ready",
    "age_1904": 7,
-   "portrait": "not_identified"
+   "portrait": "not_identified",
+   "asset_id": "child_boy_1904",
+   "body_presentation": "male",
+   "casting_grade": "reconstructed",
+   "role": "child_boy_1904"
   },
   {
    "person": "pa1904_young_lawrence_a_c1900_katie_lyden",
@@ -2664,9 +2740,13 @@
   {
    "person": "pa1904_mcbirney_hugh_j_c1900_annie_l_mcbirney",
    "home": "house_1625_prairie",
-   "status": "child_mesh_pending",
+   "status": "ready",
    "age_1904": 16,
-   "portrait": "not_identified"
+   "portrait": "not_identified",
+   "asset_id": "teen_girl_1904",
+   "body_presentation": "female",
+   "casting_grade": "reconstructed",
+   "role": "teen_girl_1904"
   },
   {
    "person": "pa1904_mcbirney_day",
@@ -2715,9 +2795,13 @@
   {
    "person": "pa1904_mcbirney_hugh_j_c1900_isabelle_mcbirney",
    "home": "house_1625_prairie",
-   "status": "child_mesh_pending",
+   "status": "ready",
    "age_1904": 13,
-   "portrait": "not_identified"
+   "portrait": "not_identified",
+   "asset_id": "teen_girl_1904",
+   "body_presentation": "female",
+   "casting_grade": "reconstructed",
+   "role": "teen_girl_1904"
   },
   {
    "person": "pa1904_mcbirney_mrs_hugh_j",
@@ -2854,16 +2938,20 @@
   {
    "person": "pa1904_meeker_arthur_jr",
    "home": "sears_meeker_house_1815_prairie",
-   "status": "child_mesh_pending",
+   "status": "household_care",
    "age_1904": 1,
    "portrait": "not_identified"
   },
   {
    "person": "pa1904_meeker_grace",
    "home": "sears_meeker_house_1815_prairie",
-   "status": "child_mesh_pending",
+   "status": "ready",
    "age_1904": 9,
-   "portrait": "not_identified"
+   "portrait": "not_identified",
+   "asset_id": "child_girl_1904",
+   "body_presentation": "female",
+   "casting_grade": "reconstructed",
+   "role": "child_girl_1904"
   },
   {
    "person": "pa1904_meeker_mrs_arthur",
@@ -2879,14 +2967,18 @@
   {
    "person": "pa1904_meeker_katherine",
    "home": "sears_meeker_house_1815_prairie",
-   "status": "child_mesh_pending",
+   "status": "ready",
    "age_1904": 10,
-   "portrait": "not_identified"
+   "portrait": "not_identified",
+   "asset_id": "child_girl_1904",
+   "body_presentation": "female",
+   "casting_grade": "reconstructed",
+   "role": "child_girl_1904"
   },
   {
    "person": "pa1904_meeker_mary",
    "home": "sears_meeker_house_1815_prairie",
-   "status": "child_mesh_pending",
+   "status": "household_care",
    "age_1904": 0,
    "portrait": "not_identified"
   },
@@ -3597,9 +3689,13 @@
   {
    "person": "pa1904_ream_norman_b_c1900_louis_m_ream",
    "home": "ream_house_1901_prairie",
-   "status": "child_mesh_pending",
+   "status": "ready",
    "age_1904": 17,
-   "portrait": "not_identified"
+   "portrait": "not_identified",
+   "asset_id": "teen_boy_1904",
+   "body_presentation": "male",
+   "casting_grade": "reconstructed",
+   "role": "teen_boy_1904"
   },
   {
    "person": "pa1904_ream_norman_b",
@@ -3772,9 +3868,13 @@
   {
    "person": "pa1904_rothschild_mrs_m_m_c1900_emma_rothschild",
    "home": "rothschild_house_2112_prairie",
-   "status": "child_mesh_pending",
+   "status": "ready",
    "age_1904": 17,
-   "portrait": "not_identified"
+   "portrait": "not_identified",
+   "asset_id": "teen_girl_1904",
+   "body_presentation": "female",
+   "casting_grade": "reconstructed",
+   "role": "teen_girl_1904"
   },
   {
    "person": "pa1904_rothschild_mrs_m_m_c1900_gertrude_rothschild",
@@ -3940,23 +4040,35 @@
   {
    "person": "pa1904_shortall_john_l_c1900_catherine_shortall",
    "home": "house_1604_prairie",
-   "status": "child_mesh_pending",
+   "status": "ready",
    "age_1904": 14,
-   "portrait": "not_identified"
+   "portrait": "not_identified",
+   "asset_id": "teen_girl_1904",
+   "body_presentation": "female",
+   "casting_grade": "reconstructed",
+   "role": "teen_girl_1904"
   },
   {
    "person": "pa1904_shortall_john_l_c1900_harrington_shortall",
    "home": "house_1604_prairie",
-   "status": "child_mesh_pending",
+   "status": "ready",
    "age_1904": 9,
-   "portrait": "not_identified"
+   "portrait": "not_identified",
+   "asset_id": "child_boy_1904",
+   "body_presentation": "male",
+   "casting_grade": "reconstructed",
+   "role": "child_boy_1904"
   },
   {
    "person": "pa1904_shortall_john_l_c1900_helen_shortall",
    "home": "house_1604_prairie",
-   "status": "child_mesh_pending",
+   "status": "ready",
    "age_1904": 12,
-   "portrait": "not_identified"
+   "portrait": "not_identified",
+   "asset_id": "teen_girl_1904",
+   "body_presentation": "female",
+   "casting_grade": "reconstructed",
+   "role": "teen_girl_1904"
   },
   {
    "person": "pa1904_shortall_john_g",
@@ -3991,9 +4103,13 @@
   {
    "person": "pa1904_shortall_john_l_c1900_margaret_shortall",
    "home": "house_1604_prairie",
-   "status": "child_mesh_pending",
+   "status": "ready",
    "age_1904": 8,
-   "portrait": "not_identified"
+   "portrait": "not_identified",
+   "asset_id": "child_girl_1904",
+   "body_presentation": "female",
+   "casting_grade": "reconstructed",
+   "role": "child_girl_1904"
   },
   {
    "person": "pa1904_shortall_mrs_john_l",
@@ -4152,9 +4268,13 @@
   {
    "person": "pa1904_stirling_william_r_c1900_jean_w_sterling",
    "home": "house_1616_prairie",
-   "status": "child_mesh_pending",
+   "status": "ready",
    "age_1904": 14,
-   "portrait": "not_identified"
+   "portrait": "not_identified",
+   "asset_id": "teen_girl_1904",
+   "body_presentation": "female",
+   "casting_grade": "reconstructed",
+   "role": "teen_girl_1904"
   },
   {
    "person": "pa1904_stettauer_charles_s",
@@ -4368,16 +4488,24 @@
   {
    "person": "pa1904_walker_james_r_c1900_arthur_m_walker",
    "home": "house_1726_prairie",
-   "status": "child_mesh_pending",
+   "status": "ready",
    "age_1904": 8,
-   "portrait": "not_identified"
+   "portrait": "not_identified",
+   "asset_id": "child_boy_1904",
+   "body_presentation": "male",
+   "casting_grade": "reconstructed",
+   "role": "child_boy_1904"
   },
   {
    "person": "pa1904_walker_james_r_c1900_dexter_walker",
    "home": "house_1726_prairie",
-   "status": "child_mesh_pending",
+   "status": "ready",
    "age_1904": 5,
-   "portrait": "not_identified"
+   "portrait": "not_identified",
+   "asset_id": "child_boy_1904",
+   "body_presentation": "male",
+   "casting_grade": "reconstructed",
+   "role": "child_boy_1904"
   },
   {
    "person": "pa1904_ream_norman_b_c1900_harry_walker",
@@ -4412,9 +4540,13 @@
   {
    "person": "pa1904_walker_james_r_c1900_james_m_walker",
    "home": "house_1726_prairie",
-   "status": "child_mesh_pending",
+   "status": "ready",
    "age_1904": 13,
-   "portrait": "not_identified"
+   "portrait": "not_identified",
+   "asset_id": "teen_boy_1904",
+   "body_presentation": "male",
+   "casting_grade": "reconstructed",
+   "role": "teen_boy_1904"
   },
   {
    "person": "pa1904_walker_james_r",
@@ -4602,16 +4734,24 @@
   {
    "person": "pa1904_young_lawrence_a_c1900_alice_young",
    "home": "wheeler_house_1812_prairie",
-   "status": "child_mesh_pending",
+   "status": "ready",
    "age_1904": 6,
-   "portrait": "not_identified"
+   "portrait": "not_identified",
+   "asset_id": "child_girl_1904",
+   "body_presentation": "female",
+   "casting_grade": "reconstructed",
+   "role": "child_girl_1904"
   },
   {
    "person": "pa1904_young_lawrence_a_c1900_henry_w_young",
    "home": "wheeler_house_1812_prairie",
-   "status": "child_mesh_pending",
+   "status": "ready",
    "age_1904": 10,
-   "portrait": "not_identified"
+   "portrait": "not_identified",
+   "asset_id": "child_boy_1904",
+   "body_presentation": "male",
+   "casting_grade": "reconstructed",
+   "role": "child_boy_1904"
   },
   {
    "person": "pa1904_young_lawrence_a",
@@ -4627,7 +4767,7 @@
   {
    "person": "pa1904_young_lawrence_r",
    "home": "wheeler_house_1812_prairie",
-   "status": "child_mesh_pending",
+   "status": "household_care",
    "age_1904": 1,
    "portrait": "not_identified"
   },

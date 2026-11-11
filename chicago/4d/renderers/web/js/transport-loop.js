@@ -196,7 +196,7 @@ export function createTransportLoop({
   let dwell = Math.max(0, initial_dwell_s), dwellingAt = dwell > 0 ? stopList.find(s => Math.abs(s.distance_m - wrap(initial_distance_m, route.length)) < 1e-6) ?? null : null;
   let distance = wrap(initial_distance_m, route.length), totalDistance = initial_total_distance_m;
   let state = initial_state, reason = null, disposed = false, visible = false;
-  let lastPose = null, motionReset = true;
+  let lastPose = null, motionReset = true, audioSpeed = 0;
   const wheelRotation = [...initial_wheel_rotation_rad];
   const localToEnu = (p, x, z) => [p.e + Math.cos(p.yaw) * x + Math.sin(p.yaw) * z,
     p.n + Math.sin(p.yaw) * x - Math.cos(p.yaw) * z];
@@ -245,11 +245,15 @@ export function createTransportLoop({
     get dwelling() { return dwell > 0 ? dwellingAt : null; },
     get visible() { return visible && !disposed; },
     get disposed() { return disposed; },
+    // Read only actual admitted motion, never the nominal journey state (which
+    // remains 'moving' during a loading stop). Anchors belong to loaded meshes.
+    get audioState() { return { id, moving: !disposed && visible && state === 'moving' && dwell === 0 && audioSpeed > 0,
+      speed: audioSpeed, anchors: !disposed && visible ? assembly.audioAnchors?.() ?? null : null }; },
     pickDriverAt(...args) { return disposed || !visible ? null : assembly.pickDriverAt?.(...args) ?? null; },
     previewAt(s) { return poseAt(wrap(s, route.length)); },
     stop(why = 'interaction') {
       if (disposed) return false;
-      state = 'stopped'; reason = why; motionReset = true;
+      state = 'stopped'; reason = why; motionReset = true; audioSpeed = 0;
       assembly.stop?.();
       return true;
     },
@@ -265,6 +269,7 @@ export function createTransportLoop({
       elapsedFrame = false, motionFrame = true } = {}) {
       finite(dt, 'frame time');
       if (dt < 0) throw Error('transport loop: negative frame time');
+      audioSpeed = 0;
       if (disposed) return;
       const wasVisible = visible;
       visible = enabled && drawn;
@@ -294,7 +299,7 @@ export function createTransportLoop({
       // Bound the rear axle's per-frame advance, not the slow horse's elapsed
       // time. Speed 1 + update(10) still advances at most .25m. Every accepted
       // metre takes the same <= .05s clearance/ground/wheel/gait steps below.
-      let remaining = Math.min(dt, elapsedFrame ? 0.25 / speed_m_s : 0.25);
+      let remaining = Math.min(dt, elapsedFrame ? 0.25 / speed_m_s : 0.25), travelled = 0;
       while (remaining > 1e-10) {
         let tick = Math.min(remaining, 0.05), ds = tick * speed_m_s;
         // T-3497: pull up exactly at the next stop ahead (a stop just left lies behind).
@@ -314,7 +319,7 @@ export function createTransportLoop({
           const ratio = (i < 2 ? 1 : Math.hypot(1, wheelbase_m * curvature)) - curvature * x;
           wheelRotation[i] = wrap(wheelRotation[i] + ds * ratio / wheel_radii_m[i], TAU);
         }
-        distance = next.distance; totalDistance += ds;
+        distance = next.distance; totalDistance += ds; travelled += ds;
         assembly.advance?.(tick, ds);
         draw(); remaining -= tick;
         if (arriving) {
@@ -322,6 +327,7 @@ export function createTransportLoop({
           if (arriving.stop.dwell_s > 0) { dwell = arriving.stop.dwell_s; dwellingAt = arriving.stop; assembly.stop?.(); break; }
         }
       }
+      if (state === 'moving' && dwell === 0 && dt > 0) audioSpeed = travelled / dt;
     },
     snapshot() {
       return { id, state, reason, visible: out.visible, disposed, distance_m: distance,

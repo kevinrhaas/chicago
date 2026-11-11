@@ -58,11 +58,7 @@ their own authored interactions. Absent people, aliases and collective entries d
 not create duplicate actors. A nearby rotation is bounded to three additional
 autonomous figures; explicit calls can summon other available people.
 
-The 40 younger residents are still carded and currently await first-role review
-and age-appropriate scene activation. Five new clothing recipes use pinned CC0
-child/teenage bodies and identified 1904 clothing references. Infants must remain in household care rather
-than being represented as independently walking adults. The remote workflow builds
-canonical masters and portable exports without automatically enabling them.
+The owner approved all five child/teen prototypes. Thirty-five younger residents now use those canonical roles, age-scaled stature and complete seasonal days; children under twelve go outside with a same-household adult. The five infants remain in household care, with feeding, play, nap and sleep schedules described by “Ask after” at the door. Reconstructed caregiver choices and routines are declared in L-prairie-younger-3550. Adult aging and body-build targets are disabled on the approved juvenile proportions.
 
 ## Review and verification
 
@@ -121,4 +117,4 @@ The later newspaper pass adds captioned 1907 portraits of Grace Murray Meeker an
 
 ## Younger-resident review
 
-Five child/teen role prototypes exported successfully through canonical run 42997832738, source a229ee241fc1fd756f2be5b8a5190910e1ba52c5. Forty mechanical browser inspections passed, and desktop/phone town captures retain actual asset, runtime and camera hashes. First-role review under `data/people_match/README.md` and scene activation remain open on T-3550; mechanical success does not establish photographic acceptance. The evidence lives under `evidence/prairie-people-2026-11-11/child-prototypes/` in chicago-evidence. The adult rollout T-3549 does not close this remaining work.
+Five child/teen role prototypes exported successfully through canonical run 42997832738, source a229ee241fc1fd756f2be5b8a5190910e1ba52c5. Forty mechanical browser inspections passed, and desktop/phone town captures retain actual asset, runtime and camera hashes. The owner subsequently approved these five prototypes as the basis for younger residents. The admission in `data/humans/role_reviews/prairie_children_1904.json` binds that answer to the unchanged canonical exports; it does not assert exact photographic likeness. T-3550 activates their age-appropriate routines in the combined rollout. The evidence lives under `evidence/prairie-people-2026-11-11/child-prototypes/` in chicago-evidence. Final integrated validation is recorded on PR #1932.

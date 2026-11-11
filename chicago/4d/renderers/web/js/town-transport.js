@@ -4,6 +4,17 @@ import { routeFor, createTransportLoop, preflightTransportRouteAsync, TransportS
 const WHEELS = ['vehicle_wheel_rear_left', 'vehicle_wheel_rear_right',
   'vehicle_wheel_front_left', 'vehicle_wheel_front_right'];
 
+// The horse root follows the real team pose, including its hitch offset. The
+// vehicle root differs from the enclosing group for a teamster-led wagon.
+function audioAnchors(root, vehicle, horse) {
+  if (!root.visible || !vehicle.visible || !horse.root.visible) return null;
+  const point = node => {
+    const p = node.getWorldPosition(node.position.clone());
+    return { x: p.x, y: p.y, z: p.z };
+  };
+  return { harness: point(horse.root), wagon: point(vehicle) };
+}
+
 /**
  * Bind a separately owned, real GLTF scene, seated portable human and moving horse.
  * The loader retains responsibility for date/identity, contact and hitch validation;
@@ -49,6 +60,7 @@ export function createDrivenAssembly({ vehicle, driver, horse, confidence,
   let lastPose = null, posed = false;
   return {
     root,
+    audioAnchors: () => disposed ? null : audioAnchors(root, vehicle, horse),
     pose(pose) {
       if (disposed) return;
       lastPose = pose; posed = true;
@@ -157,6 +169,7 @@ export function createTeamsterAssembly({ root, vehicle, walker, horse, confidenc
   return {
     root,
     walker,
+    audioAnchors: () => disposed ? null : audioAnchors(root, vehicle, horse),
     pose(pose) {
       if (disposed) return;
       lastPose = pose; posed = true;
@@ -231,6 +244,7 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
   let lastUpdate = null;
   const out = {
     actors, roots,
+    get audioSources() { return disposed ? [] : actors.map(actor => ({ ...actor.audioState, scene: sceneId })); },
     async ready() {
       if (disposed || !draws(tier)) return;
       if (load && loadGeneration === generation) return load;

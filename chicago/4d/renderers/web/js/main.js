@@ -1773,6 +1773,7 @@ const loadSound = (early = false) => (api.soundReady ??= import('./sound.js')
     settings: () => api.hud?.settings ?? arrivalSoundSettings, scene: () => YEAR,
     environment: () => ({ camera: api.camera, terrain: api.terrain, season: api.season?.current ?? 'summer',
       flora: api.flora, faunaZones: api.fauna?.records, time: api.timeOfDay?.current,
+      transport: api.townTransport?.audioSources ?? [],
       sunElevation: api.world?.sun?.elevationDeg }),
   })))
   .catch(() => { api.soundReady = null; return null; }));
@@ -1788,7 +1789,7 @@ function paintSoundToggle() {
   if (soundToggle) {
     soundToggle.setAttribute('aria-pressed', String(on));
     soundToggle.setAttribute('aria-label', on ? 'Mute audio' : 'Enable audio');
-    soundToggle.querySelector('[data-sound-label]').textContent = on ? 'Sound on' : 'Sound off';
+    soundToggle.title = on ? 'Mute audio' : 'Enable audio';
   }
 }
 soundToggle?.addEventListener('click', () => {
@@ -3970,6 +3971,7 @@ async function boot() {
     api.days = createHumanDays({ humans: api.humans, three: THREE, hour: sunHour, date: () => world.sunDate ?? null,
       doors, interactions, inside, spawn,
       openCard: (actor) => api.humans.select(actor.id),
+      openResident: (id) => openPersonCard(id),
       held: (actor) => !!api.houseErrands?.get(actor.id)?.running,
       despawn: (actor) => api.humans?.remove?.(actor.id),
       visitor: () => (walker.state.flying ? null : { e: walker.state.e, n: walker.state.n }),
@@ -5573,7 +5575,9 @@ async function boot() {
     if (!root || !id) return null;
     personStories ??= fetch(new URL(`${root}/stories.json`, resolveBases().dataBase), { cache: 'no-cache' })
       .then((res) => (res.ok ? res.json() : null)).then((doc) => doc?.stories ?? {}).catch(() => ({}));
-    return (await personStories)?.[id] ?? null;
+    const story = (await personStories)?.[id] ?? null;
+    const care = api.days?.careStatus?.(id);
+    return care ? [...(story ?? []), care.text + ' Daily care and the choice of caregivers are liberties; infants remain in household care rather than walking outside independently.'] : story;
   }
   // T-3413: a face fitted to a portrait of the person, for their card's Likeness section. The
   // file is the one the humans layer reads (assets/humans/web/hm08_variation_persons.json), read once.
