@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1094,
+  "count": 1095,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -73168,6 +73168,45 @@
       ],
       "work_refs": [
         "T-3341"
+      ]
+    },
+    {
+      "id": "L-1812-everyday-routines-3541",
+      "title": "Daily routines and visitor-requested activities for the whole 1812 population",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-10",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "The 51 enlisted men formerly governed only by a station or daytime hours now have explicit meals, quarters, equipment care and duty periods. The five night guards sleep after the watch and keep their existing posts during their duty spans. Cold-season equipment care is mostly indoors; garden and cornfield workers tend stored supplies instead. The 520 people listed at household and lodge doors have complete daily routines too, using the existing gathering's ordinary work repertoire and their own lodge doorway. Children play close to that doorway. Louis Fettle has household tasks and a shorter cold-season evening outdoors."
+        },
+        {
+          "label": "Compression",
+          "text": "Logical schedules do not require 520 additional figures at once. At most three additional nearby residents are drawn autonomously, one new figure at most every five seconds; each takes a short outing, returns through their own door, and another can take a turn. Calling for someone remains available independently. A requested conversation reserves two real people, prefers a nearby outdoor companion, otherwise brings someone out, waits for both to meet, and ends after about a minute. A requested task lasts about five minutes; Go inside lasts until the next scheduled span. These are visitor-paced reconstructions, not claims about precise historical hours or conversations."
+        },
+        {
+          "label": "Basis",
+          "text": "Existing station and gathering research in people-1812-3462/the place tool and gathering-people-1812-3500/the build tool, and their cited Quaife 1913 readings, establish the people and broader circumstances, not these individual routines. Work descriptions reuse that reconstructed repertoire. Existing Native names, identity grades, review explanations, arrival dates and battle-day absences remain. No dialogue, ceremony or fighting is added. People represented only by reference cards because their presence is absent or uncertain are not newly placed; carried infants remain with their household rather than being called outside alone."
+        },
+        {
+          "label": "How to resolve",
+          "text": "Replace a reconstructed activity, hour or household assignment when a contemporary account names it. Retain bounded rendering and real companion arrival as presentation behavior."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-10."
+        },
+        {
+          "label": "Visitor shelter",
+          "text": "On visiting dates without a town home, the three mouth-family visitors (potawatomi 1812 mouth man 1, potawatomi 1812 mouth woman 1, potawatomi 1812 mouth girl 10) may wait inside the Kinzie house at the visitor's request, and Winnemeg inside the agency. Their existing days already place them visiting those places. This is a reconstructed temporary indoor pause, not a change of home, arrival date or departure."
+        }
+      ],
+      "work_refs": [
+        "T-3540",
+        "T-3541"
       ]
     },
     {
