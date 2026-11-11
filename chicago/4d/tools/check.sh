@@ -297,8 +297,16 @@ step "The Navigator docks, opens and snaps between its heights, Home reads the s
   node tools/test_navigator.mjs
 step "Settings lays out Display, Machine, Performance with Auto, Sound, Units and About & What's new, every id kept, every choice stored (T-2656)" \
   node tools/test_settings_app.mjs
-step "The Navigator's sounds: a tick per flipped digit at most 12 a second, nothing before the first tap, Master at 0 silent, a hidden tab stops the hum and the ambience, and Settings › Sound's levels reach the graph (T-2659)" \
+step "Recorded audio: era isolation, terrain water types, silent defaults, bounded memory, stale requests, mute and hidden-tab cleanup (T-3532)" \
   node tools/test_sound.mjs
+step "Hosted audio retains originals and binds published URLs to verified bytes without duplicate media (T-3532)" \
+  node tools/test_audio_hosting.mjs
+step "Dated habitat audio qualifies real fauna, leaves silence and bounds voices, buffers and stale work (T-3534)" \
+  node tools/test_habitat_audio.mjs
+step "Default audio packages include approved habitat clips and retain review-only opt-in (T-3534)" \
+  python3 tools/test_habitat_audio_package.py
+step "Published audio smoke verifies delivery bytes in full and sparse artifact checkouts (T-3532)" \
+  node tools/test_audio_smoke_replay.mjs
 step "Every Navigator app is legible at 4.5:1 or better in all four machines and both tones (T-2656, QA-21)" \
   node tools/check_navigator_contrast.mjs
 selftest "…and a token drifted toward its panel, or the device's overrides removed, is refused (T-2656)" \
@@ -4897,7 +4905,7 @@ step "the boot sidecars rehydrate to the records at their own URLs (T-2315)" \
   node tools/pack_boot_sidecars.mjs --check
 
 step "publish.sh produces a mirror that matches its source" \
-  node tools/check_published.mjs
+  bash -c 'node tools/check_published.mjs && node tools/audio_hosting.mjs --check ../../site/4d'
 
 # T-3232: a texture sheet two or more published GLBs carry ships once, under
 # data/gltf/sheets/, and each GLB names it as an external buffer. The committed GLBs

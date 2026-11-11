@@ -6523,6 +6523,21 @@ The three source trials now have pinned native83 evidence, exact81 unchanged MAS
 
 Two actual canonical northwest-blockhouse comparisons now preserve the existing Currey14-member and Kurz30-member world frames. Currey has only bounded existing owner-ruling acceptance with crop/context limits; Kurz retains two finite open composition/identity questions. The compiler's pictured badge reflects two already credited whole depictions, while geometry, attribute confidence and the Images list stay unchanged. Original T-3041/T-2387 coverage of the other dated pictures and the complete component inventory remains partial. The first-fort west wickets and cupolas already delivered must not be redone.
 
+### T-3532 — Reusable recorded audio library
+
+The first implementation supplies opt-in recorded ambience, the owner's seven
+era-separated music cues, licensing/derivative metadata and a searchable audio
+browser. The expanded library now includes 23 credited candidate recordings;
+all 40 delivery files are verified in R2 and the generated development build
+uses their hashed URLs. T-3534's first dated wildlife batch now schedules three of
+those recordings on 1835-07-01: cicada and field-cricket phrases plus distant
+red-wing calls, qualified by the existing fauna, flora and time-of-day data.
+Twenty candidates remain audition-only. Other eras/seasons, visible wildlife
+actors, slough ambience, moving transport, activity and reviewed voices remain
+next batches; this July layer does not transfer to them automatically. Audio scheduling must
+follow scene geography and the visible actors. See AUDIO.md; no generic surf at
+sloughs, no cross-era music fallback and no synthesized hum fallback.
+
 
 ## T-2795 — preserve the Glessner-front carriage while adding its team (2026-11-10)
 
@@ -6562,6 +6577,18 @@ Seasonal daily routines now cover all eight drawn household members. Door caller
 Balanced now uses the existing conservative shadow-caster filter. At the failing 1835 West prairie view, 66,537 submitted triangles and 501 calls disappear with zero changed pixels; the 2,625,000 ceiling remains unchanged. Receipts: docs/RESEARCH/balanced-shadow-budget-3535/. Release smoke verification is recorded in the PR.
 
 T-3535 also recalibrates the Full-only Ghost triangle allowance from the complete desktop settings smoke, retaining the existing margin and all ordinary/lower-tier budgets.
+
+
+### Audio integration with current DEV (2026-11-10)
+
+T-3532/T-3534 are grouped in PR #1912 on dev `b9a87a9a4`, preserving shared
+asset publication, fort/tavern and Kinzie picture work, household and coachman
+routines, visible-pavement support, masonry surfaces and the lodging remainder.
+Current source and published-browser qualification is recorded on that PR.
+Subsequent audio increments are actor-linked transport/work sounds, qualified
+additional fauna and wetland recordings, reviewed speech and production media
+hosting. T-3502 remains a separate historical boot-cost ticket; incoming budget
+decisions are retained without an additional audio-driven increase.
 
 
 ## 2026-11-10 T-2484 source checkpoint

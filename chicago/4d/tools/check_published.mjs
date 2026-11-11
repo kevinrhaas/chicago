@@ -32,6 +32,7 @@ import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { isDeepStrictEqual } from 'node:util';
 import { checkSheets } from './share_glb_sheets.mjs';
+import { checkAudio } from './audio_hosting.mjs';
 
 const HERE = path.dirname(new URL(import.meta.url).pathname);
 const REPO = path.resolve(HERE, '..');
@@ -138,6 +139,15 @@ for (const scene of existsSync(path.join(REPO, 'data/sidecars')) ? readdirSync(p
 }
 
 const TRANSFORMED = [
+  { re: /^data\/liberties\.json$/,
+    what: 'publish.sh removes JSON indentation from the liberty index; every parsed field and entry is retained',
+    gate: 'check_published.mjs compares the complete parsed source and published index, including every evidence note',
+    verify: rel => isDeepStrictEqual(JSON.parse(readFileSync(path.join(REPO,rel),'utf8')),JSON.parse(readFileSync(path.join(SITE,rel),'utf8')))
+      ? null : 'Published liberties differ from their source values' },
+  { re: /^walk\/audio\/catalog\.json$/,
+    what: 'audio_hosting.mjs rewrites media URLs to verified immutable R2 objects and minifies the catalogue; source audio stays outside the mirror',
+    gate: 'checkAudio verifies the complete published catalogue against source hashes, host policy and the recorded upload verification, and refuses duplicate local media',
+    verify: () => { try { checkAudio(SITE); } catch(e) { return e.message; } return null; } },
   { re: /^(?:\d{4}\/)?index\.html$/,
     what: 'the front doors — /4d/ and /4d/<year>/ on chicago.polecat.live. tools/write_entry_pages.mjs '
         + 'copies the temporal observatory to the root and writes year doors as the stamped renderer plus a base into walk/, so the address '
@@ -303,6 +313,8 @@ const walk = (dir, base = '') => {
 const sha = (p) => createHash('sha1').update(readFileSync(p)).digest('hex');
 
 const problems = [];
+if (existsSync(path.join(REPO,'tools/audio-hosting.json')) && !existsSync(path.join(SITE,'walk/audio/catalog.json')))
+  problems.push('Published audio catalogue is missing');
 const transformed = [];
 let identical = 0;
 const unmapped = [];

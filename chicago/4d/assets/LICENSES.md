@@ -2634,3 +2634,108 @@ on their cards as such (`data/residents_1812/households/hh_shabbona_1812.json`,
 humans/web/portraits/robinson_kirkland_1893.jpg
 humans/web/portraits/shabbona_kirkland_1893.jpg
 ```
+
+## Recorded audio and owner-supplied score — T-3532, 2026-11-10
+
+`assets/audio/catalog.json` lists every original by path, creator/source, rights,
+SHA-256 and every delivery derivative. `tools/prepare_audio.py` reproduces the web
+files; originals are never copied to the published site. The app's Audio library
+(`renderers/web/audio/credits.html`) presents the credits and liberties.
+
+| Files | Rights and provenance |
+|---|---|
+| `audio/originals/1-Border-Ballad.m4a`, `audio/originals/2-Border-Ballad-2.m4a` | Owner-supplied Suno-generated score, assigned to 1835. Owner explicitly authorized use and app distribution in chat on 2026-11-10. No open asset license or archival performance is asserted. |
+| `audio/originals/3-Salon-Waltz.m4a`, `audio/originals/5-Elegant-Waltz.m4a` | Same owner authorization; assigned to 1904. |
+| `audio/originals/4-Reel-of-the-Frontier.m4a`, `audio/originals/6-Reel-of-the-Frontier-2.m4a`, `audio/originals/7-Reel-of-the-Frontier-3.m4a` | Same owner authorization; assigned to 1812. Separate collection from 1835, per owner. |
+| `audio/originals/475448_7009965-hq.mp3` | o_ciz, Wind(leaves).WAV, https://freesound.org/people/o_ciz/sounds/475448/ — CC0 1.0; HQ preview acquired 2026-11-10. |
+| `audio/originals/577323_97550-hq.mp3` | TRP, Waves, gentle lapping, river, water, close, PEI, 2011.wav, https://freesound.org/people/TRP/sounds/577323/ — CC0 1.0; HQ preview acquired 2026-11-10. |
+| `audio/originals/442543_5902878-hq.mp3` | BonnyOrbit, Waves on shore from pier of lake maggiore.wav, https://freesound.org/people/BonnyOrbit/sounds/442543/ — CC0 1.0; HQ preview acquired 2026-11-10. |
+| `audio/catalog.json` | Project-authored metadata; the source-specific licenses above govern the audio, not the repository's code license. |
+
+CC0 text: https://creativecommons.org/publicdomain/zero/1.0/ . The source pages
+identify real-world field recordings. These are acoustic proxies, not Chicago
+historical evidence. Environmental derivatives are trimmed, folded to mono,
+crossfaded at the loop seam and MP3 encoded. Music Ogg deliveries preserve the
+supplied Opus packets; AAC alternatives are transcoded. Owner authorization covers
+app distribution; it is not a general permission to redistribute the score as a
+standalone sample library. No paid account or purchase was made for this work.
+
+
+## Audio library expansion — T-3532, 2026-11-10
+
+These files are reviewable recordings, not automatically enabled scene cues.
+Individual source descriptions and licence evidence are retained under
+`assets/audio/evidence/`; `assets/audio/intake.json` carries placement limits.
+Freesound sources are HQ MP3 previews; the SoundBible cricket is a WAV download.
+
+| File | Creator and source | Rights |
+|---|---|---|
+| `audio/originals/intake/538795_11519060-hq.mp3` | bruno.auzet — https://freesound.org/people/bruno.auzet/sounds/538795/ | CC0-1.0 |
+| `audio/originals/intake/53259_177850-hq.mp3` | stomachache — https://freesound.org/people/stomachache/sounds/53259/ | CC0-1.0 |
+| `audio/originals/intake/637065_6922646-hq.mp3` | lukewarm_sound — https://freesound.org/people/lukewarm_sound/sounds/637065/ | CC0-1.0 |
+| `audio/originals/intake/675230_2524442-hq.mp3` | craigsmith — https://freesound.org/people/craigsmith/sounds/675230/ | CC0-1.0 |
+| `audio/originals/intake/272169_3186672-hq.mp3` | dethrok — https://freesound.org/people/dethrok/sounds/272169/ | CC0-1.0 |
+| `audio/originals/intake/636070_3320549-hq.mp3` | coalcon — https://freesound.org/people/coalcon/sounds/636070/ | CC0-1.0 |
+| `audio/originals/intake/509933_9142988-hq.mp3` | phylobates — https://freesound.org/people/phylobates/sounds/509933/ | CC0-1.0 |
+| `audio/originals/intake/571206_97550-hq.mp3` | TRP — https://freesound.org/people/TRP/sounds/571206/ | CC0-1.0 |
+| `audio/originals/intake/soundbible-2083.wav` | Lisa Redfern — https://soundbible.com/2083-Crickets-Chirping-At-Night.html | Public domain (source declaration) |
+| `audio/originals/intake/640060_5487341-hq.mp3` | SamsterBirdies — https://freesound.org/people/SamsterBirdies/sounds/640060/ | CC0-1.0 |
+| `audio/originals/intake/475483_7009965-hq.mp3` | o_ciz — https://freesound.org/people/o_ciz/sounds/475483/ | CC0-1.0 |
+| `audio/originals/intake/347036_1708499-hq.mp3` | Kubuzz — https://freesound.org/people/Kubuzz/sounds/347036/ | CC0-1.0 |
+| `audio/originals/intake/159498_1177772-hq.mp3` | davilca — https://freesound.org/people/davilca/sounds/159498/ | CC0-1.0 |
+| `audio/originals/intake/383725_7146007-hq.mp3` | deleted_user_7146007 — https://freesound.org/people/deleted_user_7146007/sounds/383725/ | CC0-1.0 |
+| `audio/originals/intake/118341_1535323-hq.mp3` | Julien_Matthey — https://freesound.org/people/Julien_Matthey/sounds/118341/ | CC0-1.0 |
+| `audio/originals/intake/654043_14308672-hq.mp3` | RCSound99 — https://freesound.org/people/RCSound99/sounds/654043/ | CC0-1.0 |
+| `audio/originals/intake/91912_1512131-hq.mp3` | Filipe Chagas — https://freesound.org/people/Filipe%20Chagas/sounds/91912/ | CC0-1.0 |
+
+Metadata authored for the project:
+
+```text
+audio/intake.json
+audio/evidence/musket-outdoors.json
+audio/evidence/frog-call.json
+audio/evidence/late-summer-katydid.json
+audio/evidence/wood-wagon.json
+audio/evidence/summer-cicada-proxy.json
+audio/evidence/robin-calls.json
+audio/evidence/redwing-call.json
+audio/evidence/summer-crickets.json
+audio/evidence/night-crickets.json
+audio/evidence/coyote-distant.json
+audio/evidence/horse-snort.json
+audio/evidence/horse-whinny.json
+audio/evidence/horse-walking.json
+audio/evidence/hand-saw.json
+audio/evidence/hammer-nail.json
+audio/evidence/wood-fire.json
+audio/evidence/wood-dock.json
+```
+
+Every derivative is covered by its source rights and recorded edit recipe in
+`audio/catalog.json`. Public-domain status for Lisa Redfern’s cricket recording
+is the source page’s declaration, not a claim that it uses the CC0 instrument.
+The Italian cicada is an owner-authorized acoustic proxy; it is not represented
+as a named Chicago species. No standalone redistribution right is added to the
+owner-supplied music.
+
+Additional recorded building and transport candidates:
+
+| File | Creator and source | Rights |
+|---|---|---|
+| `audio/originals/intake/651364_4219647-hq.mp3` | dazzamoo — https://freesound.org/people/dazzamoo/sounds/651364/ | CC0-1.0 |
+| `audio/originals/intake/125958_981397-hq.mp3` | Ryding — https://freesound.org/people/Ryding/sounds/125958/ | CC0-1.0 |
+| `audio/originals/intake/407394_5385809-hq.mp3` | mike_stranks — https://freesound.org/people/mike_stranks/sounds/407394/ | CC0-1.0 |
+| `audio/originals/intake/475481_7009965-hq.mp3` | o_ciz — https://freesound.org/people/o_ciz/sounds/475481/ | CC0-1.0 |
+| `audio/originals/intake/223153_2792951-hq.mp3` | Yoyodaman234 — https://freesound.org/people/Yoyodaman234/sounds/223153/ | CC0-1.0 |
+| `audio/originals/intake/426642_2061858-hq.mp3` | Garuda1982 — https://freesound.org/people/Garuda1982/sounds/426642/ | CC0-1.0 |
+
+Project-authored evidence metadata:
+
+```text
+audio/evidence/tavern-walla.json
+audio/evidence/wood-door.json
+audio/evidence/steam-whistle-proxy.json
+audio/evidence/horse-harness.json
+audio/evidence/dirt-footstep.json
+audio/evidence/church-bell-proxy.json
+```
