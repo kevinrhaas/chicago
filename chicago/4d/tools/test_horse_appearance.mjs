@@ -29,7 +29,7 @@ const recipe = validateHorseRecipe(json('data/transport/horse-coats.json'));
     const target = path.join(app, rel); fs.mkdirSync(path.dirname(target), { recursive: true }); fs.writeFileSync(target, bytes);
   };
   try {
-    for (const name of ['check_published.mjs', 'share_glb_sheets.mjs']) put('tools/'+name, read('tools/'+name));
+    for (const name of ['check_published.mjs', 'share_glb_sheets.mjs', 'audio_hosting.mjs']) put('tools/'+name, read('tools/'+name));
     const rel = 'data/transport/horse-coats.json';
     put(rel, read(rel));
     fs.mkdirSync(path.join(app, 'data/transport/parked'), { recursive: true });

@@ -2,7 +2,7 @@
 /**
  * T-2656 (NAV-903) — the Navigator's Settings app: its groups in the design's order, every
  * id the page and the smoke read kept, light or dark as a two-way choice, text size
- * 100-140 %, Auto, Sound's three levels (and what each covers, T-2659), What's new from
+ * 100-140 %, Auto, Sound's four levels (and what each covers, T-2659), What's new from
  * About, and the machine tiles painted in each machine's own colours.
  *
  *   node tools/test_settings_app.mjs
@@ -34,7 +34,7 @@ const settingsHtml = html.slice(html.indexOf('data-panel="settings"'), html.inde
     's-street-names-label', 's-look-tag', 'row-season', 's-season', 'row-street-trees', 's-street-trees', 'row-lot-lines',
     's-lot-lines', 's-show-control-help', 's-about', 's-about-build', 's-about-dev', 's-about-dev-note'];
   const added = ['s-display', 's-theme', 's-text-size', 's-machine', 's-skins', 's-perf-auto', 's-perf-auto-line', 's-sound',
-    's-sound-master', 's-sound-effects', 's-sound-ambience', 'v-sound-master', 'v-sound-effects', 'v-sound-ambience',
+    's-sound-master', 's-sound-effects', 's-sound-ambience', 's-sound-music', 'v-sound-music', 'v-sound-master', 'v-sound-effects', 'v-sound-ambience',
     's-sound-note', 's-open-whatsnew'];
   for (const id of [...kept, ...added]) {
     assert.equal((html.match(new RegExp(`id="${id}"`, 'g')) ?? []).length, 1, `#${id} is on the page once`);
@@ -52,7 +52,7 @@ const settingsHtml = html.slice(html.indexOf('data-panel="settings"'), html.inde
   assert(!/id="btn-theme"/.test(html), 'the HUD chip is gone');
   // Sound says it is off until Master, and that the ambience is not a recording (T-2659;
   // T-3445 cut the note to those two).
-  assert.match(settingsHtml, /id="s-sound-note"[^>]*>Off until you raise Master\. Ambience is a mood tone, not a recording of the past\./);
+  assert.match(settingsHtml, /id="s-sound-note"[^>]*>Off until you enable sound\. Recorded ambience and era music; not a recording of the past\./);
   // About keeps T-2629's stamp, and opens What's new.
   const about = settingsHtml.slice(settingsHtml.indexOf('id="s-about"'));
   assert(about.indexOf('id="s-about-build"') > 0 && about.indexOf('id="s-open-whatsnew"') > about.indexOf('id="s-about-build"'));
@@ -96,20 +96,20 @@ const settingsHtml = html.slice(html.indexOf('data-panel="settings"'), html.inde
   assert.equal(normalTextScale('1.4'), 1.4);
   assert.equal(normalTextScale(1.5), 1);
   assert.equal(normalTextScale(undefined), 1);
-  assert.deepEqual(SOUND_DEFAULTS, { soundMaster: 0, soundEffects: 1, soundAmbience: 1 }, 'sound is off by default: Master at 0 (owner, 2026-10-20, T-2941)');
+  assert.deepEqual(SOUND_DEFAULTS, { soundMaster: 0, soundEffects: 1, soundMusic: 0.4, soundAmbience: 1 }, 'sound is off by default: Master at 0 (owner, 2026-10-20, T-2941)');
   // T-2941: a first visit is silent; the old all-on defaults a whole-object save stored are not
   // a choice; a level moved off them, or any level once `soundChosen`, is kept.
-  const silent = { soundChosen: false, soundMaster: 0, soundEffects: 1, soundAmbience: 1 };
+  const silent = { soundChosen: false, soundMaster: 0, soundEffects: 1, soundMusic: 0.4, soundAmbience: 1 };
   assert.deepEqual(soundLevelsFrom({}), silent, 'a first visit starts muted');
   assert.deepEqual(soundLevelsFrom(null), silent);
-  assert.deepEqual(soundLevelsFrom({ soundMaster: 1, soundEffects: 1, soundAmbience: 1, fov: 70 }), silent,
+  assert.deepEqual(soundLevelsFrom({ soundMaster: 1, soundEffects: 1, soundMusic: 0.4, soundAmbience: 1, fov: 70 }), silent,
     'the old defaults stored beside another setting are no sound choice');
-  assert.deepEqual(soundLevelsFrom({ soundMaster: 0.5, soundEffects: 1, soundAmbience: 1 }),
-    { soundChosen: true, soundMaster: 0.5, soundEffects: 1, soundAmbience: 1 }, 'a moved Master is kept');
-  assert.deepEqual(soundLevelsFrom({ soundMaster: 1, soundEffects: 1, soundAmbience: 0 }),
-    { soundChosen: true, soundMaster: 1, soundEffects: 1, soundAmbience: 0 }, 'a moved Ambience keeps every level');
-  assert.deepEqual(soundLevelsFrom({ soundChosen: true, soundMaster: 1, soundEffects: 1, soundAmbience: 1 }),
-    { soundChosen: true, soundMaster: 1, soundEffects: 1, soundAmbience: 1 }, 'sound turned on in Settings is remembered');
+  assert.deepEqual(soundLevelsFrom({ soundMaster: 0.5, soundEffects: 1, soundMusic: 0.4, soundAmbience: 1 }),
+    { soundChosen: true, soundMaster: 0.5, soundEffects: 1, soundMusic: 0.4, soundAmbience: 1 }, 'a moved Master is kept');
+  assert.deepEqual(soundLevelsFrom({ soundMaster: 1, soundEffects: 1, soundMusic: 0.4, soundAmbience: 0 }),
+    { soundChosen: true, soundMaster: 1, soundEffects: 1, soundMusic: 0.4, soundAmbience: 0 }, 'a moved Ambience keeps every level');
+  assert.deepEqual(soundLevelsFrom({ soundChosen: true, soundMaster: 1, soundEffects: 1, soundMusic: 0.4, soundAmbience: 1 }),
+    { soundChosen: true, soundMaster: 1, soundEffects: 1, soundMusic: 0.4, soundAmbience: 1 }, 'sound turned on in Settings is remembered');
   assert.deepEqual(soundLevelsFrom({ soundChosen: true }), { soundChosen: true, ...SOUND_DEFAULTS });
   assert.equal(normalVolume('0.35'), 0.35);
   assert.equal(normalVolume(7), 1);
@@ -170,7 +170,7 @@ function fakePage() {
   const row = make('div', { cls: ['field', 'row'], parent: root });
   make('span', { id: 's-perf-auto-line', parent: row });
   make('button', { id: 's-perf-auto', parent: row });
-  for (const slug of ['master', 'effects', 'ambience']) {
+  for (const slug of ['master', 'effects', 'ambience', 'music']) {
     make('input', { id: `s-sound-${slug}`, parent: root });
     make('b', { id: `v-sound-${slug}`, parent: root });
   }
@@ -261,4 +261,4 @@ function fakePage() {
 
 console.log('SETTINGS APP PASS — Display, Show, Movement, Machine, Performance, Sound, Units, About & What\'s new in order with every id kept; '
   + 'light or dark is a two-way choice; text size 100–140 % applies and persists; Auto names and restores the device\'s levels; '
-  + 'Sound\'s three levels persist and say what each covers; the machine tiles are each machine\'s own colours');
+  + 'Sound\'s four levels persist and say what each covers; the machine tiles are each machine\'s own colours');

@@ -309,8 +309,8 @@ export async function mountFauna({ mount, noteMount = null, sceneId, dataBase, p
   if (noteMount) {
     noteMount.textContent = `${speciesCount} animals across ${zones.length} habitats, `
       + `${drawn} of them on ground this scene draws, every one of them stated for `
-      + `1 July rather than for the year. None of them is in the scene: this is the `
-      + `research, not a population.`;
+      + `1 July rather than for the year. Wildlife bodies are not drawn. Selected `
+      + `recorded habitat sounds are reconstructed acoustic proxies.`;
     noteMount.removeAttribute('aria-busy');
   }
 
@@ -320,5 +320,7 @@ export async function mountFauna({ mount, noteMount = null, sceneId, dataBase, p
     mount.removeAttribute('aria-busy');
   }
 
-  return { zones: zones.length, species: speciesCount, drawn, error: null };
+  // The sound scheduler reads the same dated habitat records as these cards.
+  // No additional fetch or second habitat interpretation is introduced.
+  return { zones: zones.length, species: speciesCount, drawn, records: zones, error: null };
 }
