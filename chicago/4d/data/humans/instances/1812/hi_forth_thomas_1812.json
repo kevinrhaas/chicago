@@ -18,7 +18,180 @@
     "phase": 0.34
   },
   "behaviour": {
-    "state": "standing"
+    "state": "standing",
+    "quarters": "first_fort_dearborn_soldiers_barracks_sw",
+    "day": [
+      {
+        "dates": {
+          "months": [
+            11,
+            12,
+            1,
+            2,
+            3
+          ]
+        },
+        "spans": [
+          {
+            "from": 0,
+            "to": 5.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1151.0,
+              "local_n": 200.8,
+              "heading_deg": 165
+            },
+            "activity": "stand",
+            "doing": "corporal of the guard, before the main gate",
+            "duty": true
+          },
+          {
+            "from": 5.5,
+            "to": 13,
+            "indoors": true,
+            "where": "first_fort_dearborn_soldiers_barracks_sw",
+            "doing": "sleeping after the night watch"
+          },
+          {
+            "from": 13,
+            "to": 17,
+            "indoors": false,
+            "at": {
+              "local_e": 1151.0,
+              "local_n": 200.8,
+              "heading_deg": 165
+            },
+            "activity": "stand",
+            "doing": "corporal of the guard, before the main gate",
+            "duty": true
+          },
+          {
+            "from": 17,
+            "to": 18,
+            "indoors": true,
+            "where": "first_fort_dearborn_soldiers_barracks_sw",
+            "doing": "supper in quarters"
+          },
+          {
+            "from": 18,
+            "to": 18.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1151.0,
+              "local_n": 200.8,
+              "heading_deg": 165
+            },
+            "activity": "work",
+            "doing": "cleaning and mending equipment"
+          },
+          {
+            "from": 18.5,
+            "to": 20,
+            "indoors": true,
+            "where": "first_fort_dearborn_soldiers_barracks_sw",
+            "doing": "mending equipment indoors in cold weather"
+          },
+          {
+            "from": 20,
+            "to": 21,
+            "indoors": true,
+            "where": "first_fort_dearborn_soldiers_barracks_sw",
+            "doing": "resting before the night watch"
+          },
+          {
+            "from": 21,
+            "to": 24,
+            "indoors": false,
+            "at": {
+              "local_e": 1151.0,
+              "local_n": 200.8,
+              "heading_deg": 165
+            },
+            "activity": "stand",
+            "doing": "corporal of the guard, before the main gate",
+            "duty": true
+          }
+        ],
+        "note": "Reconstructed daily hours and ordinary activities; liberty L-1812-everyday-routines-3541. The station and existing presence records remain."
+      },
+      {
+        "spans": [
+          {
+            "from": 0,
+            "to": 5.5,
+            "indoors": false,
+            "at": {
+              "local_e": 1151.0,
+              "local_n": 200.8,
+              "heading_deg": 165
+            },
+            "activity": "stand",
+            "doing": "corporal of the guard, before the main gate",
+            "duty": true
+          },
+          {
+            "from": 5.5,
+            "to": 13,
+            "indoors": true,
+            "where": "first_fort_dearborn_soldiers_barracks_sw",
+            "doing": "sleeping after the night watch"
+          },
+          {
+            "from": 13,
+            "to": 17,
+            "indoors": false,
+            "at": {
+              "local_e": 1151.0,
+              "local_n": 200.8,
+              "heading_deg": 165
+            },
+            "activity": "stand",
+            "doing": "corporal of the guard, before the main gate",
+            "duty": true
+          },
+          {
+            "from": 17,
+            "to": 18,
+            "indoors": true,
+            "where": "first_fort_dearborn_soldiers_barracks_sw",
+            "doing": "supper in quarters"
+          },
+          {
+            "from": 18,
+            "to": 20,
+            "indoors": false,
+            "at": {
+              "local_e": 1151.0,
+              "local_n": 200.8,
+              "heading_deg": 165
+            },
+            "activity": "work",
+            "doing": "cleaning and mending equipment"
+          },
+          {
+            "from": 20,
+            "to": 21,
+            "indoors": true,
+            "where": "first_fort_dearborn_soldiers_barracks_sw",
+            "doing": "resting before the night watch"
+          },
+          {
+            "from": 21,
+            "to": 24,
+            "indoors": false,
+            "at": {
+              "local_e": 1151.0,
+              "local_n": 200.8,
+              "heading_deg": 165
+            },
+            "activity": "stand",
+            "doing": "corporal of the guard, before the main gate",
+            "duty": true
+          }
+        ],
+        "note": "Reconstructed daily hours and ordinary activities; liberty L-1812-everyday-routines-3541. The station and existing presence records remain."
+      }
+    ]
   },
   "interaction": {
     "selectable": true,
@@ -32,7 +205,7 @@
   "review_required": false,
   "provenance": {
     "grade": "reconstructed",
-    "basis": "Reconstructed figure of Thomas Forth, corporal of Captain Nathan Heald's company of the First Infantry (on the company's muster-roll to 31 May 1812, Quaife 1913 App. VIII), corporal of the guard, before the main gate, on the afternoon of 14 August 1812. Where he stands and what he is doing are ours (liberty L-1812-garrison-stations-3462): no guard report or order book of the post survives for that day, and nothing of it is acted out. He wears the company's blue coat faced red, the tall felt cap with its white feather, white crossbelts and linen overalls; a corporal's white worsted epaulette on the right shoulder; his musket with the bayonet fixed, at the order (T-3523; who wears what, and how his musket is carried, are ours, liberty L-1812-garrison-dress-3523). His face, height and build are seeded from his own name; no picture of him is known.",
+    "basis": "Reconstructed figure of Thomas Forth, corporal of Captain Nathan Heald's company of the First Infantry (on the company's muster-roll to 31 May 1812, Quaife 1913 App. VIII), corporal of the guard, before the main gate, on the afternoon of 14 August 1812. Where he stands and what he is doing are ours (liberty L-1812-garrison-stations-3462); his daily meals, rest and activity hours are also reconstructed (L-1812-everyday-routines-3541): no guard report or order book of the post survives for that day, and nothing of it is acted out. He wears the company's blue coat faced red, the tall felt cap with its white feather, white crossbelts and linen overalls; a corporal's white worsted epaulette on the right shoulder; his musket with the bayonet fixed, at the order (T-3523; who wears what, and how his musket is carried, are ours, liberty L-1812-garrison-dress-3523). His face, height and build are seeded from his own name; no picture of him is known.",
     "sources": [
       "loc_ogden_1888_infantry_artillery_1802_1810",
       "met_krimmel_1813_philadelphia_soldiery",

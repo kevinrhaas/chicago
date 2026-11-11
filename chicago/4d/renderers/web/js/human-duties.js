@@ -130,11 +130,11 @@ export function createHumanDuties({ humans, three = null, hour = () => null, hel
     // T-3504: a man out by the hours with no duty, standing at his station, is at a chore.
     for (const a of humans.actors) {
       const b = a.instance?.behaviour;
-      if (!b || b.duty || Array.isArray(b.day) || !Array.isArray(b.hours) || (b.state ?? 'standing') !== 'standing' || b.route) continue;
+      if (!b || b.duty || (Array.isArray(b.day) && !b.day.some(d => d.spans.some(s => s.duty))) || !Array.isArray(b.hours) || (b.state ?? 'standing') !== 'standing' || b.route) continue;
       byKey.set(`chore:${a.id}`, { key: `chore:${a.id}`, kind: 'chore', id: a.id, members: [{ actor: a, duty: { kind: 'chore' } }] });
     }
     groups = [...byKey.values()].map(start);
-    timed = humans.actors.filter((a) => Array.isArray(a.instance?.behaviour?.hours));
+    timed = humans.actors.filter((a) => Array.isArray(a.instance?.behaviour?.hours) && !Array.isArray(a.instance?.behaviour?.day));
     seen = humans.actors.length;
   }
 
@@ -261,7 +261,16 @@ export function createHumanDuties({ humans, three = null, hour = () => null, hel
         const inside = !withinHours(h, a.instance.behaviour.hours);
         if (!!a.indoors !== inside) a.setIndoors?.(inside);
       }
-      for (const g of groups) {
+      for (const full of groups) {
+        const members = full.members.filter(m => !held(m.actor) && !m.actor.indoors);
+        const key = members.map(m => m.actor.id).join(',');
+        if (full.activeKey !== key) {
+          for (const m of full.active?.members ?? []) talk(m.actor, false);
+          full.activeKey = key;
+          full.active = members.length ? start({ key: full.key, kind: full.kind, id: full.id, members: members.map(m => ({ actor: m.actor, duty: m.duty })) }) : null;
+        }
+        const g = full.active;
+        if (!g) continue;
         g.t += dt;
         // A body loaded since the start: hold the rank's hands where the rank wants them.
         if (g.kind === 'rank') for (const m of g.members) if (m !== g.lead && m.actor.actions && m.actor.actions.held !== 'rest') m.actor.actions.hold?.('rest');
@@ -275,7 +284,7 @@ export function createHumanDuties({ humans, three = null, hour = () => null, hel
     get indoors() { return timed.filter((a) => a.indoors).map((a) => a.personId); },
     /** What each duty is doing, for the harness. */
     snapshot() {
-      return groups.map((g) => ({
+      return groups.map((full) => full.active ?? full).map((g) => ({
         key: g.key, kind: g.kind, t: +g.t.toFixed(2), phase: g.phase ?? null,
         speaker: g.kind === 'knot' ? g.speaker?.actor.personId ?? null : g.kind === 'rank' && g.speaking ? g.lead?.actor.personId ?? null : null,
         members: g.members.map((m) => ({ person: m.actor.personId, mode: m.mode ?? null, e: +m.actor.e.toFixed(2), n: +m.actor.n.toFixed(2) })),

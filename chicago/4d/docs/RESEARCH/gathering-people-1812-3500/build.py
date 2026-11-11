@@ -457,6 +457,42 @@ def day_for(p, at, meal, work, kind, men_talk):
     return spans
 
 
+def resident_day(p, door, obst):
+    """T-3541: a complete day for a lazily drawn resident, at their own lodge.
+
+    Ordinary tasks use the same reconstructed repertoire as the drawn residents.
+    Different half-hour starts spread visits to the yard; the renderer materializes
+    only a small nearby cohort. The rest keep their logical day without a mesh.
+    """
+    q = obst.near(*before(door, 2.0), reach=2.0, sep=0) or (door['step']['local_e'], door['step']['local_n'])
+    at = (q[0], q[1], door['outward_deg'])
+    child = p['kind'] == 'child'
+    kind = 'child' if child else p['kind']
+    work = WORK[kind][int(seeded('work', p['pid']) * len(WORK[kind]))]
+    spans = []
+    start = 7.5 + int(seeded('routine-hour', p['pid']) * 6) * 0.5
+    def inn(a, b, text):
+        return {'from': a, 'to': b, 'indoors': True, 'where': p['home'], 'doing': text}
+    def out(a, b, act, text):
+        return {'from': a, 'to': b, 'indoors': False,
+                'at': {'local_e': at[0], 'local_n': at[1], 'heading_deg': at[2]},
+                'activity': act, 'doing': text}
+    spans = [inn(0, 6, 'asleep in the lodge'), inn(6, start, 'breakfast and household tasks in the lodge'),
+             out(start, start + 1.5, 'work', work), inn(start + 1.5, 14, 'meal and household tasks in the lodge'),
+             out(14, 17, 'work', 'playing by the lodge' if child else work),
+             inn(17, 18.5, 'evening meal in the lodge'),
+             out(18.5, 20, 'talk', 'a break with the household'), inn(20, 24, 'resting in the lodge')]
+    variants = []
+    if kind == 'man' and p['age'] <= 55:
+        variants.append({'dates': {'from': '1812-08-15', 'to': '1812-08-15'},
+                         'spans': away(spans, 7.5, 13, 'away from the camp')})
+    if kind == 'miami':
+        variants.extend([
+            {'dates': {'from': '1812-08-13', 'to': '1812-08-13'}, 'spans': away(spans, 0, 16, 'on the road from Fort Wayne')},
+            {'dates': {'from': '1812-08-15', 'to': '1812-08-15'}, 'spans': away(spans, 9, 24, 'gone south with the column')}])
+    return variants + [{'spans': spans}]
+
+
 def away(spans, a, b, text):
     out = []
     for s in spans:
@@ -636,12 +672,27 @@ def build():
         if not p['drawn']:
             inside.append({'person': pid, 'name': next(x['name'] for x in files_hh[('hh_miami_escort_camp_1812' if g == 'miami' else f'hh_gathering_{g}_1812')]['persons'] if x['id'] == pid),
                            'home': p['home'], 'door': door['id'], 'asset_id': asset_of(p),
+                           'day': resident_day(p, door, obst),
+                           'routine_liberty': 'L-1812-everyday-routines-3541',
                            'presence': {'from': '1812-08-13', 'to': '1812-08-15'} if g == 'miami' else {'from': '1812-08-12', 'to': '1812-08-16'},
                            'provenance': INSIDE_PROVENANCE})
     # Louis Fettle, asked for at Le Mai's door; his looks are the T-3466 reading's words
     inside.append({'person': 'fettle_louis', 'name': 'Louis Fettle', 'home': 'lemai_house_1812', 'asset_id': 'engage_1812',
                    'presence': {'from': '1803-08-17', 'to': '1812-08-15'},
                    'provenance': INSIDE_PROVENANCE})
+    fettle = inside[-1]
+    fd = next(s for s in json.loads(DOORS.read_text())['structures'] if s['structure'] == fettle['home'])['doors'][0]
+    fettle['day'] = resident_day({'pid': fettle['person'], 'home': fettle['home'], 'kind': 'man', 'age': 60}, fd, obst)
+    # A year-round household, with shorter outdoor work in the cold season.
+    for variant in fettle['day']:
+        for span in variant['spans']:
+            span['doing'] = span['doing'].replace('lodge', 'house').replace('shaving a new bow stave', 'mending household gear').replace('repairing a fish spear', 'mending household gear')
+    cold = json.loads(json.dumps(fettle['day'][-1]['spans']))
+    for span in cold:
+        if not span['indoors'] and span['from'] >= 18:
+            span.update(indoors=True, where=fettle['home'], doing='evening household tasks indoors')
+    fettle['day'].insert(0, {'dates': {'months': [11, 12, 1, 2, 3]}, 'spans': cold})
+    fettle['routine_liberty'] = 'L-1812-everyday-routines-3541'
     looks_files['fettle_louis.json'] = {
         'format': 'chicago4d_human_looks_v1', 'ticket': TICKET, 'person_id': 'fettle_louis', 'scene': '1812', 'generated_by': GEN,
         'heritage': {'origin': 'French-Canadian', 'family': 'reading'},
@@ -655,7 +706,12 @@ def build():
 
 
 def write(path, rec, indent, check, stale):
-    text = json.dumps(rec, indent=indent, ensure_ascii=False) + '\n'
+    text = json.dumps(rec, indent=indent, ensure_ascii=False,
+                      separators=(',', ':') if indent is None else None) + '\n'
+    if indent is None:
+        # Generated roster: one compact resident per line keeps the published
+        # schedule payload inside the existing site budget, without losing data.
+        text = text.replace('},{"person":', '},\n{"person":')
     if check:
         if not path.exists() or path.read_text() != text:
             stale.append(str(path.relative_to(ROOT)))
@@ -678,7 +734,7 @@ def main(check=False):
     write(INST / 'index.json', {**index, 'instances': sorted(set(keep) | {f[:-5] for f in files_inst})}, 2, check, stale)
     doc = json.loads(INSIDE.read_text())
     others = [x for x in doc['people'] if (x.get('provenance') or {}).get('ticket') != TICKET]
-    write(INSIDE, {**doc, 'people': others + inside}, 1, check, stale)
+    write(INSIDE, {**doc, 'people': others + inside}, None, check, stale)
     for name, rec in looks_files.items():
         write(LOOKS / name, rec, 1, check, stale)
     for old in LOOKS.glob('*.json'):
