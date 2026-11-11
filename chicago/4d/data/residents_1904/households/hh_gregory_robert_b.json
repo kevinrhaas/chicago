@@ -54,7 +54,23 @@
         "as_enumerated": "Gregory, Robert D",
         "relation_as_enumerated": "Head"
       },
-      "note": "The 1900 census lists Robert D. Gregory here as head, born August 1849, in Michigan, married, dealer, musical instruments (ED 36, sheet 2A, line 24, leaf n667)."
+      "note": "The 1900 census lists Robert D. Gregory here as head, born August 1849, in Michigan, married, dealer, musical instruments (ED 36, sheet 2A, line 24, leaf n667).",
+      "born": {
+        "value": "1849",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The existing census transcription gives born August 1849. The year is carried into the age shown on this card."
+      },
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_gregory_mrs_robert_b",
@@ -74,7 +90,23 @@
         "as_enumerated": "Gregory, Ida",
         "relation_as_enumerated": "Wife"
       },
-      "note": "The 1900 census lists Ida Gregory here as wife, born June 1857, in Illinois, married (ED 36, sheet 2A, line 25, leaf n667)."
+      "note": "The 1900 census lists Ida Gregory here as wife, born June 1857, in Illinois, married (ED 36, sheet 2A, line 25, leaf n667).",
+      "born": {
+        "value": "1857",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The existing census transcription gives born June 1857. The year is carried into the age shown on this card."
+      },
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_gregory_mrs_elizabeth",
@@ -93,6 +125,22 @@
         "locator": "ED 36, sheet 2A, line 29, leaf n667",
         "as_enumerated": "Gregory, Elizabeth",
         "relation_as_enumerated": "Mother"
+      },
+      "born": {
+        "value": "1820",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The existing census transcription gives born January 1820. The year is carried into the age shown on this card."
+      },
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
       }
     },
     {
@@ -113,6 +161,22 @@
         "locator": "ED 36, sheet 2A, line 26, leaf n667",
         "as_enumerated": "Gregory, Ellener",
         "relation_as_enumerated": "Daughter"
+      },
+      "born": {
+        "value": "1882",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The existing census transcription gives born June 1882. The year is carried into the age shown on this card."
+      },
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
       }
     },
     {
@@ -138,7 +202,15 @@
         "as_enumerated": "Gregory, Grace E",
         "relation_as_enumerated": "Daughter"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a daughter of the head; born December 1883, in Illinois, single. The 1904 Blue Book names no children, so a child at home in 1900 is placed here in 1904 by inference."
+      "note": "Enumerated on 1 June 1900 in the house, as a daughter of the head; born December 1883, in Illinois, single. The 1904 Blue Book names no children, so a child at home in 1900 is placed here in 1904 by inference.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_gregory_robert_b_c1900_ruth_gregory",
@@ -163,7 +235,15 @@
         "as_enumerated": "Gregory, Ruth",
         "relation_as_enumerated": "Daughter"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a daughter of the head; born May 1888, in Illinois. The 1904 Blue Book names no children, so a child at home in 1900 is placed here in 1904 by inference."
+      "note": "Enumerated on 1 June 1900 in the house, as a daughter of the head; born May 1888, in Illinois. The 1904 Blue Book names no children, so a child at home in 1900 is placed here in 1904 by inference.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     }
   ]
 }

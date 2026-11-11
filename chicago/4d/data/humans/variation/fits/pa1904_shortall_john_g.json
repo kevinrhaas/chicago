@@ -1,0 +1,142 @@
+{
+ "format": "chicago4d_human_face_fit_v1",
+ "ticket": "T-3413",
+ "person_id": "pa1904_shortall_john_g",
+ "scene": "1904",
+ "generated_by": "tools/fit_portrait_face.py",
+ "_doc": "Regenerate with tools/fit_portrait_face.py from the portrait record; never edit by hand.",
+ "grade": "attested",
+ "sources": [
+  "witherspoon_men_of_illinois_1902"
+ ],
+ "portrait": "data/humans/variation/portraits/pa1904_shortall_john_g.json",
+ "basis": "Captioned portrait of this person in Men of Illinois (1902), p. 191, scan leaf 245. Identity cross-checked against household and biographical records. Facial proportions are fitted within the uncertainty of the visible landmarks; single-view depth remains prior-led.",
+ "liberty": "L-human-variation-3412",
+ "values": {
+  "nose_length": -0.189,
+  "nose_width": 0.0,
+  "nose_depth": 0.04,
+  "nose_hump": 0.0,
+  "nose_curve": 0.0,
+  "nose_tip": 0.076,
+  "nose_tip_width": 0.0,
+  "nostrils": 0.0,
+  "nose_height": 0.165,
+  "mouth_width": 0.0,
+  "lip_upper": 0.0,
+  "lip_lower": -0.02,
+  "mouth_height": -0.043,
+  "chin_prominence": -0.158,
+  "chin_width": 0.0,
+  "chin_height": 0.073,
+  "jaw": 0.075,
+  "prognathism": -0.121,
+  "cheekbones": 0.0,
+  "cheek_volume": 0.0,
+  "cheek_inner": 0.0,
+  "brow_height": 0.0,
+  "brow_angle": 0.0,
+  "brow_ridge": 0.006,
+  "forehead_slope": -0.561,
+  "temples": 0.0,
+  "ear_size": 0.034,
+  "ear_flap": -0.026,
+  "ear_lobe": 0.066,
+  "jowls": 0.0,
+  "head_shape": 0.362,
+  "forehead_height": -0.334,
+  "head_shape.option": 1
+ },
+ "read_from_picture": [
+  "forehead_slope"
+ ],
+ "mostly_prior": [
+  "brow_angle",
+  "brow_height",
+  "brow_ridge",
+  "cheek_inner",
+  "cheek_volume",
+  "cheekbones",
+  "chin_height",
+  "chin_prominence",
+  "chin_width",
+  "ear_flap",
+  "ear_lobe",
+  "ear_size",
+  "forehead_height",
+  "head_shape",
+  "jaw",
+  "jowls",
+  "lip_lower",
+  "lip_upper",
+  "mouth_height",
+  "mouth_width",
+  "nose_curve",
+  "nose_depth",
+  "nose_height",
+  "nose_hump",
+  "nose_length",
+  "nose_tip",
+  "nose_tip_width",
+  "nose_width",
+  "nostrils",
+  "prognathism",
+  "temples"
+ ],
+ "fit": {
+  "rms_px": 26.49,
+  "per_mark_px": {
+   "pupil_r": 7.7,
+   "pupil_l": 6.6,
+   "nasion": 10.4,
+   "nose_tip": 6.5,
+   "subnasale": 15.1,
+   "stomion": 43.4,
+   "menton": 41.9,
+   "ear_top_r": 11.6,
+   "ear_lobe_r": 28.0,
+   "vertex": 44.4
+  },
+  "camera": {
+   "yaw_deg": 40.0,
+   "pitch_deg": -3.2,
+   "roll_deg": 5.5,
+   "px_per_m": 2715.3,
+   "shift_px": [
+    401.1,
+    413.8
+   ]
+  },
+  "landmark_vertices": {
+   "pupil_r": [
+    4868,
+    17
+   ],
+   "pupil_l": [
+    11486,
+    6801
+   ],
+   "nasion": 132,
+   "nose_tip": 297,
+   "subnasale": 5072,
+   "stomion": 523,
+   "menton": 5225,
+   "ear_top_r": 5413,
+   "ear_lobe_r": 5732,
+   "vertex": 881
+  }
+ },
+ "not_modelled": [
+  "Colour of skin, eyes, hair and clothing: monochrome halftone.",
+  "Height and build below the bust.",
+  "Exact date of the original photograph and any intervening change in appearance."
+ ],
+ "card": {
+  "source_citation": "Halliday Witherspoon, Men of Illinois (Chicago, 1902), captioned photographic portraits and biographical notices; individual page locators recorded with each portrait.",
+  "source_url": "https://archive.org/details/menofillinois01with",
+  "rms_mm": 9.8,
+  "marks": 10,
+  "portrait": "humans/web/portraits/pa1904_shortall_john_g_portrait.jpg",
+  "model": "humans/web/portraits/pa1904_shortall_john_g_model.jpg"
+ }
+}

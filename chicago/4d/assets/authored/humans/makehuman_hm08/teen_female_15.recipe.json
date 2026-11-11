@@ -1,0 +1,53 @@
+{
+ "format": "chicago4d_human_graphical_target_recipe_v1",
+ "targets": [
+  {
+   "path": "makehuman/data/targets/macrodetails/caucasian-female-child.target",
+   "sha256": "17fc408839c0a407bf4efd96d9af7eebcdf20d74698659f3597b0647ed6b147e",
+   "coefficient": 0.2222222222222222
+  },
+  {
+   "path": "makehuman/data/targets/macrodetails/caucasian-female-young.target",
+   "sha256": "118379f6e8ba9266247fdb8788a20e1df40a239f97ced0b9905bcbcc74f6e820",
+   "coefficient": 0.1111111111111111
+  },
+  {
+   "path": "makehuman/data/targets/macrodetails/asian-female-child.target",
+   "sha256": "a4fffea45a475a24a0a7332dac28a07dfd60a9af9eb50b61ed5abd1178197f75",
+   "coefficient": 0.2222222222222222
+  },
+  {
+   "path": "makehuman/data/targets/macrodetails/asian-female-young.target",
+   "sha256": "095fe79694fa19e1fe98d93009ec116199bd524e081c640351a10eccf2cca1eb",
+   "coefficient": 0.1111111111111111
+  },
+  {
+   "path": "makehuman/data/targets/macrodetails/african-female-child.target",
+   "sha256": "f88b8f252df8a9a3f35f78e1664983e9a30756bca1e454afce39438296eb7b41",
+   "coefficient": 0.2222222222222222
+  },
+  {
+   "path": "makehuman/data/targets/macrodetails/african-female-young.target",
+   "sha256": "92d61eeb3c164b421fd5a7c3537ee45e7e1a51de4d49bf312e19c3df2be1d8fc",
+   "coefficient": 0.1111111111111111
+  }
+ ],
+ "phenotype": {
+  "sex": "female engineering child",
+  "chosen_age_years": 15,
+  "age_band_years": [
+   14,
+   17
+  ],
+  "age_anchors_years": {
+   "baby": 1,
+   "child": 10,
+   "young": 25
+  },
+  "age_method": "Linear child10/young25 graphical anchors, 2/3 child and 1/3 young.",
+  "ancestry_status": "unattested; equal upstream software-category blend is an authoring liberty, not a resident ethnicity",
+  "age_status": "Fifteen-year engineering body for reconstructed 1904 teenagers; no individual height measurement.",
+  "likeness_status": "component study; not attested likeness"
+ },
+ "basis": "Sparse CC0 graphical child/baby target deltas applied to base and all helper vertices before skeleton derivation; no upstream program logic copied (T-3465)"
+}

@@ -582,7 +582,7 @@ export function createDayRouter({ router, clear, buildWhenBlocked = false }) {
  */
 export function createHumanDays({ humans, three = null, hour = () => null, date = () => null, doors = null,
   interactions = null, visitor = () => null, eye = () => null, router = null, hostRouter = null, problems = [],
-  inside = null, spawn = null, despawn = null, openCard = () => {}, clear = () => true, held = () => false, passages = null } = {}) {
+  inside = null, spawn = null, despawn = null, openCard = () => {}, openResident = () => {}, clear = () => true, held = () => false, passages = null } = {}) {
   const Vec = three?.Vector3;
   let people = [];
   let seen = -1;
@@ -603,6 +603,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
   const doorThings = [];
   /** Lazy household residents, materialized for a nearby outing or a door call. */
   const insideOnly = (inside?.people ?? []).filter((x) => x?.person && x.home);
+  const householdCare = (inside?.care ?? []).filter(x => x?.person && x.home && x.care_only);
   const spawned = [];
   const byStructure = new Map();
   for (const s of doors?.structures ?? []) byStructure.set(s.structure, s);
@@ -625,7 +626,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
   const requestedRoute = (p) => !!(p.safeHostTravel || (p.actor.instance?.scene === '1812'
     && (p.visitorReturn || p.called?.visitorRequested || p.social?.visitorRequested || p.override?.visitorRequested)));
   /** Walk `actor` to `to` (or put them there, far off), facing `heading`; then `done`. */
-  function go(p, to, heading, done, { from = null } = {}) {
+  function go(p, to, heading, done, { from = null, speed = null, direct = false } = {}) {
     const a = p.actor;
     const start = from ?? { e: a.e, n: a.n };
     const requested = requestedRoute(p);
@@ -639,22 +640,22 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
       // Automatic routines must respect the day router's cold-grid policy.
       // The full planner is for actual visitor/jaunt journeys, not every nearby
       // blocked chore. An unavailable routine route waits and retries safely.
-      try { route = !p.safeHostTravel && (p.safeRoutineTravel || requested) && clear(start, to)
+      try { route = (direct || (!p.safeHostTravel && (p.safeRoutineTravel || requested))) && clear(start, to)
         ? { points: [[start.e, start.n], [to.e, to.n]] }
         : (requested || a.instance?.scene !== '1812' ? (hostRouter ?? router) : router)?.plan?.(start, to, { mode: 'walk' }); } catch { /* retry below */ }
       const pts = Array.isArray(route?.points) && route.points.every((q) => Array.isArray(q) && q.length === 2 && q.every(Number.isFinite)) ? route.points : null;
       if (!pts?.length || Math.hypot(pts.at(-1)[0] - to.e, pts.at(-1)[1] - to.n) > 0.05 || typeof a.walkPath !== 'function') {
         a.path = null; a.setState?.('standing');
-        p.pendingHostMove = { to, heading, done, from, token: p.token, retry: clock + 0.5 };
+        p.pendingHostMove = { to, heading, done, from, speed, direct, token: p.token, retry: clock + 0.5 };
         return; // no chord, visible teleport, or false arrival when the planner is unavailable
       }
       p.pendingHostMove = null;
       const token = (p.token = (p.token ?? 0) + 1);
       const points = [{ e: start.e, n: start.n }, ...pts.map(([e, n]) => ({ e, n })), { e: to.e, n: to.n }]
         .filter((q, i, all) => !i || dist(q, all[i - 1]) > 0.05);
-      const ok = a.walkPath(points, { endHeading: Number.isFinite(heading) ? heading : null,
+      const ok = a.walkPath(points, { speed, endHeading: Number.isFinite(heading) ? heading : null,
         onArrive: () => { if (p.token === token) done?.(); } });
-      if (!ok) p.pendingHostMove = { to, heading, done, from, token, retry: clock + 0.5 };
+      if (!ok) p.pendingHostMove = { to, heading, done, from, speed, direct, token, retry: clock + 0.5 };
       return;
     }
     if ((safe && hidden) || (!safe && !near(start.e, start.n) && !near(to.e, to.n)) || typeof a.walkPath !== 'function' || dist(start, to) < 0.05) {
@@ -667,7 +668,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
       return;
     }
     const token = (p.token = (p.token ?? 0) + 1);
-    const ok = a.walkPath(way(start, to), { endHeading: Number.isFinite(heading) ? heading : null,
+    const ok = a.walkPath(direct && clear(start, to) ? [start, to] : way(start, to), { speed, endHeading: Number.isFinite(heading) ? heading : null,
       onArrive: () => { if (p.token === token) done?.(); } });
     if (!ok) done?.();
   }
@@ -844,13 +845,14 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
   function ghostsAt(structure, doorId) {
     const today = date();
     const here = doorThings.filter((t) => t.structure === structure);
-    return insideOnly.filter((x) => x.home === structure && onDate(today, x.presence)
+    return [...insideOnly, ...householdCare].filter((x) => x.home === structure && onDate(today, x.presence)
       && (humans.crowdKept == null || humans.crowdKept.includes(x.person))
       && !spanAt(dayOn(x, today, x.person), hour())?.away
       && !spawned.some((q) => q.entry === x) && doorOf(x, here) === doorId);
   }
   /** An inside-only person's figure, built at the door they were asked for at. */
   function summon(entry, door) {
+    if (entry.care_only) return null; // infants never acquire an independent walking actor
     let actor = null;
     try { actor = spawn?.(entry, door) ?? null; } catch (err) { problems.push(`human-days: ${entry.person} could not be built: ${err?.message ?? err}`); }
     if (!actor) return null;
@@ -983,7 +985,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
 
   /** Move a person to `span` (the hour has turned, or they were let go from a call). */
   function enter(p, written) {
-    if ((p.actor.instance?.scene === '1904' || p.entry) && written.activity === 'talk' && !p.social) {
+    if ((p.actor.instance?.scene === '1904' || p.entry) && (written.activity === 'talk' || (p.entry?.supervised && !written.indoors && !written.away)) && !p.social) {
       if (startSocial(p, written).ok) return;
       // No available companion: return to household duties rather than wait alone.
       restAfterTalk(p);
@@ -1026,6 +1028,9 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
   /** A shared break owns both paths until both arrive, chat, and resume their days. */
   function startSocial(p, span, visitorRequested = false) {
     const where = home(p);
+    const supervised = !!p.entry?.supervised;
+    const compatible = q => (!supervised || p.entry.caregivers?.includes(keyOf(q)))
+      && (!q.entry?.supervised || q.entry.caregivers?.includes(keyOf(p)));
     const currentOf = q => spanAt(dayOn(q.b, date(), keyOf(q)), hour());
     const anchor = p.actor.indoors ? pt(span.at) : { e: p.actor.e, n: p.actor.n };
     // A shared household/camp is not permission to recruit someone across town.
@@ -1033,30 +1038,35 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
     const exitOf = q => homeDoor(q, q.inside ?? home(q), anchor.e, anchor.n);
     const distanceOf = q => q.actor.indoors
       ? (exitOf(q) ? dist(pt(exitOf(q).step), anchor) : Infinity) : dist(q.actor, anchor);
-    const candidates = people.filter((q) => q !== p && where
+    const candidates = people.filter((q) => q !== p && where && compatible(q)
       && (q.actor.indoors ? ((q.inside ?? home(q)) === where
         || (q.actor.instance?.scene === '1812' && distanceOf(q) < 30)) : distanceOf(q) < 18)
       && !unavailable(q) && !q.attending && !q.social && !q.called && !q.passing && !q.override
       && !currentOf(q)?.away
       && !(currentOf(q)?.duty && (q.b.duty?.kind === 'beat' || POST_RE.test(currentOf(q)?.doing ?? ''))));
     candidates.sort((a, b) => Number(a.actor.indoors) - Number(b.actor.indoors)
+      || (supervised ? p.entry.caregivers.indexOf(keyOf(a)) - p.entry.caregivers.indexOf(keyOf(b)) : 0)
       || distanceOf(a) - distanceOf(b));
     let q = candidates[0];
-    if (!q && p.actor.instance?.scene === '1812' && spawn && (!p.autonomousUntil || spawned.length < 3)) {
-      const entry = insideOnly.find(x => x.person !== keyOf(p) && x.home === where
+    if (!q && spawn && (!p.autonomousUntil || spawned.length < 3)) {
+      const entry = insideOnly.filter(x => x.person !== keyOf(p) && x.home === where
+        && (!supervised || p.entry.caregivers?.includes(x.person))
+        && (!x.supervised || x.caregivers?.includes(keyOf(p)))
+        && (humans.crowdKept == null || humans.crowdKept.includes(x.person))
         && (!p.entry?.door || x.door === p.entry.door) && onDate(date(), x.presence)
         && !spanAt(dayOn(x, date(), x.person), hour())?.away
-        && !spawned.some(m => m.entry === x));
+        && !spawned.some(m => m.entry === x))
+        .sort((a, b) => supervised ? p.entry.caregivers.indexOf(a.person) - p.entry.caregivers.indexOf(b.person) : 0)[0];
       const door = entry && doorThings.find(t => t.door.id === entry.door);
       if (door) q = summon(entry, door.door);
     }
-    if (!q) return { ok: false, why: 'Nobody is free to chat just now' };
+    if (!q) return { ok: false, why: supervised ? 'A household adult is not free just now' : 'Nobody is free to chat just now' };
     const at = q.actor.indoors ? anchor : { e: q.actor.e, n: q.actor.n };
     // Use a clear, nearby standing place; never put the partner through a wall.
     const next = [0, 90, 180, 270].map((h) => ({ e: at.e + Math.sin(h * Math.PI / 180) * 1.4,
       n: at.n + Math.cos(h * Math.PI / 180) * 1.4 })).find((to) => clear(at, to));
     if (!next) return { ok: false, why: 'There is no room to chat here' };
-    const session = { members: [p, q], date: date(), started: clock, chatting: null, visitorRequested,
+    const session = { members: [p, q], supervised: supervised || !!q.entry?.supervised, outing: supervised && span.activity !== 'talk' ? span : null, date: date(), started: clock, chatting: null, visitorRequested,
       originals: [p, q].map((m) => spanAt(dayOn(m.b, date(), keyOf(m)), hour())) };
     socials.add(session);
     for (const [i, m] of session.members.entries()) {
@@ -1092,22 +1102,49 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
     }
   }
 
+  // Shared short walks use the child's pace and only clear, nearby frontage. A
+  // caregiver waits whenever the child's menu/card holds them, and returns with them.
+  // Keep these already-clear short legs direct: independent grid snapping sends
+  // one partner on a detour and separates them even when their speeds match.
+  function stepOuting(s) {
+    if (!s.bases) s.bases = s.members.map(m => ({ e: m.actor.e, n: m.actor.n }));
+    if (s.moving || clock < (s.nextMove ?? 0) || s.outing.activity === 'greet') return;
+    const start = pt(s.outing.at), end = pt(s.outing.to_point ?? s.outing.at);
+    const delta = { e: end.e - start.e, n: end.n - start.n };
+    const offset = s.leg ? { e: 0, n: 0 } : delta;
+    const targets = s.bases.map(b => ({ e: b.e + offset.e, n: b.n + offset.n }));
+    if (dist(start, end) < .2 || !targets.every((to, i) => clear(s.members[i].actor, to))) {
+      s.nextMove = clock + 4; return;
+    }
+    s.moving = true; s.arrived = 0;
+    for (const [i, m] of s.members.entries()) {
+      talk(m.actor, false);
+      go(m, targets[i], bearing(targets[i].e - m.actor.e, targets[i].n - m.actor.n), () => {
+        if (m.social !== s) return;
+        if (++s.arrived === s.members.length) { s.moving = false; s.leg = !s.leg; s.nextMove = clock + 3; }
+      }, { speed: .65, direct: true });
+    }
+  }
+
   function stepSocials() {
     for (const s of [...socials]) {
       const [p, q] = s.members;
       if (s.date !== date() || s.members.some((m, i) => unavailable(m)
         || spanAt(dayOn(m.b, date(), keyOf(m)), hour()) !== s.originals[i])
-        || clock - s.started > 150 || (s.chatting !== null && clock - s.chatting >= 60)) {
+        || clock - s.started > (s.outing ? 330 : 150) || (s.chatting !== null && clock - s.chatting >= (s.outing ? (s.visitorRequested ? 150 : 90) : 60))) {
         endSocial(s); continue;
       }
+      if (s.members.some(m => m.attending)) { for (const m of s.members) talk(m.actor, false); continue; }
       const together = s.members.every((m) => m.mode === 'out' && !m.actor.indoors && !m.passing)
         && dist(p.actor, q.actor) <= 2.2;
+      if (s.outing && s.chatting !== null) { stepOuting(s); continue; }
       if (!together) { for (const m of s.members) talk(m.actor, false); continue; }
       if (s.chatting === null) {
         s.chatting = clock;
         p.actor.turnTo?.(bearing(q.actor.e - p.actor.e, q.actor.n - p.actor.n));
         q.actor.turnTo?.(bearing(p.actor.e - q.actor.e, p.actor.n - q.actor.n));
       }
+      if (s.outing) { stepOuting(s); continue; }
       for (const [i, m] of s.members.entries()) {
         const other = s.members[1 - i].actor;
         talk(m.actor, Math.floor((clock - s.chatting) / 4) % 2 === i);
@@ -1262,6 +1299,13 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
   const nameOf = (p) => p.entry?.name ?? p.actor.person?.name ?? p.actor.identity?.person?.name ?? p.actor.instance?.display_name ?? p.actor.personId ?? p.actor.id;
 
   function callOut(p, door) {
+    if (p.entry?.supervised) {
+      p.autonomousUntil = null;
+      const span = { indoors: false, at: { ...door.step, heading_deg: door.outward_deg }, activity: 'greet', doing: 'at the door with a household adult' };
+      const result = startSocial(p, span, true);
+      if (!result.ok) restAfterTalk(p, true);
+      return result;
+    }
     p.autonomousUntil = null;
     p.override = null;
     p.called = { door, since: clock, off: 0, visitorRequested: true };
@@ -1270,6 +1314,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
     p.mode = 'called';
     // Out of the door (down its stair, T-3524), then up to the visitor.
     exitBy(p, door, (from) => meet(p, from));
+    return { ok: true };
   }
   function meet(p, step) {
     const a = p.actor;
@@ -1321,7 +1366,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
       if (p.b.shelter) wanted.add(p.b.shelter);
       for (const v of p.b.day ?? []) for (const s of v.spans ?? []) if (s.indoors && s.where) wanted.add(s.where);
     }
-    if (spawn) for (const x of insideOnly) wanted.add(x.home);
+    if (spawn) for (const x of [...insideOnly, ...householdCare]) wanted.add(x.home);
     for (const structure of wanted) {
       const rec = byStructure.get(structure);
       if (!rec) { problems.push(`human-days: no door is known for ${structure}; who is in it cannot be asked for`); continue; }
@@ -1345,15 +1390,20 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
               const pages = Math.ceil(inside.length / ASK_PAGE);
               page %= pages;
               const shown = inside.slice(page * ASK_PAGE, page * ASK_PAGE + ASK_PAGE);
-              const asks = shown.map(({ p, entry, name }) => (p ? {
-                id: `ask:${p.actor.personId ?? p.id}`, label: `Ask for ${name}`, said: () => `${name} comes to the door`,
+              const asks = shown.map(({ p, entry, name }) => {
+                let answer = `${name} comes to the door`;
+                return (p ? {
+                id: `ask:${p.actor.personId ?? p.id}`, label: `Ask for ${name}`, said: () => answer,
                 refuse: () => (p.social || p.called || !p.actor.indoors || p.hosted || held(p.actor) || humans.isHeld?.(p.actor) ? `${name} is not available` : null),
-                steps: [{ label: 'Knocking', seconds: ANSWER_S, run: (t) => { if (t >= 1) callOut(p, d); } }],
+                steps: [{ label: 'Knocking', seconds: ANSWER_S, run: (t) => { if (t >= 1) { const result = callOut(p, d); if (!result.ok) answer = result.why; } } }],
+              } : entry.care_only ? {
+                id: `ask:${entry.person}`, label: `Ask after ${name}`, said: () => careStatus(entry.person)?.text ?? '',
+                steps: [{ label: 'Knocking', seconds: ANSWER_S, run: t => { if (t >= 1) openResident(entry.person); } }],
               } : {
-                id: `ask:${entry.person}`, label: `Ask for ${name}`, said: () => `${name} comes to the door`,
+                id: `ask:${entry.person}`, label: `Ask for ${name}`, said: () => answer,
                 refuse: () => (spawned.some((q) => q.entry === entry) ? `${name} is not in` : null),
-                steps: [{ label: 'Knocking', seconds: ANSWER_S, run: (t) => { if (t >= 1) { const q = summon(entry, d); if (q) callOut(q, d); } } }],
-              }));
+                steps: [{ label: 'Knocking', seconds: ANSWER_S, run: (t) => { if (t >= 1) { const q = summon(entry, d); const result = q ? callOut(q, d) : { ok: false, why: `${name} could not come out` }; if (!result.ok) answer = result.why; } } }],
+              }); });
               if (pages > 1) asks.push({ id: 'others', label: 'Others inside…', said: '', steps: [{ label: '', seconds: 0, run: (t) => { if (t === 0) page += 1; } }] });
               return asks;
             },
@@ -1368,7 +1418,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
   // T-3540: generic 1812 people use their day engine's doors and ownership.
   // Registration follows the roster, including a lodge resident materialized later.
   function registerPerson(p) {
-    if (!interactions || p.actor.instance?.scene !== '1812' || interactions.get?.(`person:${p.id}`)) return;
+    if (!interactions || (!p.entry && p.actor.instance?.scene !== '1812') || interactions.get?.(`person:${p.id}`)) return;
     const a = p.actor;
     interactions.add({
       id: `person:${p.id}`, kind: 'person', personId: a.personId, actor: a, name: nameOf(p),
@@ -1403,6 +1453,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
     if (spawned.length >= 3) return;
     const v = visitor();
     const candidates = insideOnly.filter(entry => {
+      if (entry.supervised && spawned.length > 1) return false; // reserve a place for the caregiver
       if (!entry.day || !onDate(date(), entry.presence) || spawned.some(p => p.entry === entry || p.entry.door === entry.door)) return false;
       const span = spanAt(dayOn(entry, date(), entry.person), hour());
       const last = rested.get(entry.person);
@@ -1421,7 +1472,18 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
     }
   }
 
+  function careStatus(id) {
+    const entry = householdCare.find(x => x.person === id);
+    if (!entry || !onDate(date(), entry.presence)) return null;
+    const doing = spanAt(dayOn(entry, date(), id), hour())?.doing ?? 'in household care';
+    const names = entry.caregivers.map(id => insideOnly.find(x => x.person === id)?.name
+      ?? people.find(p => keyOf(p) === id)?.actor.person?.name).filter(Boolean);
+    return { person: id, doing, caregivers: entry.caregivers, names, home: entry.home,
+      text: `${entry.name} is ${doing}. In this reconstruction, care is shared by adults of the household${names.length ? `, including ${names.slice(0, 2).join(' and ')}` : ''}.` };
+  }
+
   const api = {
+    careStatus,
     get people() { return people; },
     get doors() { return doorThings; },
     residence(id) {
@@ -1451,7 +1513,10 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
     attend(id) {
       const p = people.find(q => q.id === id || q.actor.personId === id);
       if (!p || unavailable(p) || p.attending || p.passing || p.actor.indoors) return null;
-      if (p.social) endSocial(p.social);
+      const pair = p.social?.supervised ? p.social : null;
+      if (p.social && !pair) endSocial(p.social);
+      const companions = pair?.members.filter(m => m !== p).map(m => ({ m, path: m.actor.path, state: m.actor.state, token: m.token })) ?? [];
+      for (const { m } of companions) { m.actor.path = null; m.actor.setState?.('standing'); }
       const a = p.actor;
       const hold = { path: a.path, state: a.state, token: p.token, date: date(),
         span: spanAt(dayOn(p.b, date(), keyOf(p)), hour()) };
@@ -1460,6 +1525,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
       return () => {
         if (p.attending !== hold) return;
         p.attending = null;
+        for (const { m, path, state, token } of companions) if (m.social === pair && m.token === token) { m.actor.path = path; m.actor.setState?.(state); }
         if (unavailable(p) || p.token !== hold.token) return;
         if (date() !== hold.date || spanAt(dayOn(p.b, date(), keyOf(p)), hour()) !== hold.span) { p.span = null; return; }
         a.path = hold.path; a.setState?.(hold.state);
@@ -1471,6 +1537,12 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
     pause(id) {
       const p = people.find((q) => q.id === id);
       if (!p || p.hosted || p.passing) return;
+      if (p.social?.supervised) {
+        const s = p.social;
+        for (const m of s.members) { m.actor.stopPath?.(); m.actor.path = null; m.token = (m.token ?? 0) + 1; m.actor.setState?.('standing'); talk(m.actor, false); }
+        s.outing = { ...p.span, activity: 'greet' }; s.started = clock; s.chatting = clock; s.visitorRequested = true;
+        return;
+      }
       if (p.social) endSocial(p.social);
       const where = home(p);
       const door = where && homeDoor(p, where, p.actor.e, p.actor.n);
@@ -1495,7 +1567,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
           return { id: i, label: s.doing, span };
         })
         .filter((s, i, all) => all.findIndex((a) => a.label === s.label) === i);
-      if (p.actor.instance?.scene === '1812' && !activities.some(a => a.span.activity === 'talk') && activities.length) {
+      if ((p.entry || p.actor.instance?.scene === '1812') && !activities.some(a => a.span.activity === 'talk') && activities.length) {
         const span = { ...activities[0].span, activity: 'talk', doing: 'a break with a neighbour' };
         activities.push({ id: 'chat', label: span.doing, span });
       }
@@ -1512,9 +1584,21 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
       const span = activity === null ? (where && { from: 0, to: 24, indoors: true, where, door: entrance?.door.id, doing: 'inside at your request' })
         : api.outdoorActivities(id).find((s) => s.id === activity)?.span;
       if (!span) return { ok: false, why: 'No activity available' };
+      const carePair = p.social?.supervised ? p.social : null;
+      if (carePair && activity !== null && (p.entry?.supervised || ['talk', 'walk'].includes(span.activity))) {
+        for (const m of carePair.members) { m.actor.stopPath?.(); m.actor.path = null; m.token = (m.token ?? 0) + 1; talk(m.actor, false); }
+        carePair.outing = span.activity === 'talk' ? null : span; carePair.bases = null; carePair.moving = false; carePair.nextMove = 0; carePair.leg = false;
+        carePair.started = clock; carePair.chatting = clock; carePair.visitorRequested = true;
+        for (const m of carePair.members) { m.span = span; m.play = span; }
+        return { ok: true };
+      }
       if (p.social) endSocial(p.social);
+      if (carePair && activity === null) for (const m of carePair.members.filter(m => m !== p)) {
+        m.override = { span, original: spanAt(dayOn(m.b, date(), keyOf(m)), hour()), date: date(), until: null, visitorRequested: true };
+        enter(m, span);
+      }
       p.autonomousUntil = null;
-      if (span.activity === 'talk') return startSocial(p, span, true);
+      if (span.activity === 'talk' || (p.entry?.supervised && !span.indoors)) return startSocial(p, span, true);
       p.called = null;
       if (p.actor.instance?.scene === '1812' || activity === null) p.safeRoutineTravel = true;
       p.override = { span, original, date: date(), until: activity === null ? null : clock + 300, visitorRequested: true };
@@ -1562,7 +1646,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
         if (p.pendingHostMove) {
           const move = p.pendingHostMove;
           if (move.token !== p.token) p.pendingHostMove = null;
-          else if (clock >= move.retry) { p.pendingHostMove = null; go(p, move.to, move.heading, move.done, { from: move.from }); }
+          else if (clock >= move.retry) { p.pendingHostMove = null; go(p, move.to, move.heading, move.done, { from: move.from, speed: move.speed, direct: move.direct }); }
         }
         if (!p.hosted && a.instance?.scene === '1812' && spanAt(dayOn(p.b, today, keyOf(p)), h)?.away) {
           p.called = null; p.override = null;
@@ -1593,6 +1677,11 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
     },
     /** Ask for someone at their door now, as the door's Ask for does: { ok, why }. */
     ask(personOrInstance) {
+      const care = careStatus(personOrInstance);
+      if (care) {
+        if (humans.crowdKept != null) return { ok: false, why: 'Not available during this jaunt' };
+        openResident(personOrInstance); return { ok: true, householdCare: true, care };
+      }
       const p = people.find((x) => x.actor.personId === personOrInstance || x.id === personOrInstance);
       const entry = !p && spawn ? insideOnly.find((x) => x.person === personOrInstance) : null;
       if (entry) {
@@ -1605,8 +1694,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
         if (!door) return { ok: false, why: `no door known for ${entry.home}` };
         const q = summon(entry, door.door);
         if (!q) return { ok: false, why: 'could not be built' };
-        callOut(q, door.door);
-        return { ok: true, door: door.id };
+        return { ...callOut(q, door.door), door: door.id };
       }
       if (!p) return { ok: false, why: 'no such person' };
       if (p.absent || (p.span?.away && !recallHome(p))) return { ok: false, why: 'not here on this date' };
@@ -1615,8 +1703,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
       const structure = p.soldier ? p.b.quarters : (p.inside ?? recallHome(p));
       const door = doorThings.find((t) => t.structure === structure);
       if (!door) return { ok: false, why: `no door known for ${structure}` };
-      callOut(p, door.door);
-      return { ok: true, door: door.id };
+      return { ...callOut(p, door.door), door: door.id };
     },
     /**
      * T-3525: a jaunt's host. Take `personOrInstance` out of their day and walk them to
@@ -1691,7 +1778,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
         || (Array.isArray(p.b.day) && (!p.span?.duty || p.mode !== 'out')));
     },
     /** Lazy residents and the number of their currently materialized figures. */
-    get insideOnly() { return { listed: insideOnly.length, out: spawned.length }; },
+    get insideOnly() { return { listed: insideOnly.length, inCare: householdCare.length, out: spawned.length }; },
     /** Who is where, for the harness. */
     snapshot() {
       return people.map((p) => ({
@@ -1719,8 +1806,9 @@ export function routineOffer(activity) {
     [/water/i, 'Fetch water', '◒'], [/wood|fire|kettle/i, 'Tend the hearth', '♨'],
     [/pony|horse|bridle|stable/i, 'Tend horses', '♞'], [/canoe|boat|paddle/i, 'Tend boats', '⚒'],
     [/fish/i, 'Fishing tasks', '⚒'], [/skin|sew|mend|moccasin|equipment|gear/i, 'Mend and repair', '⚒'],
-    [/corn|meal|meat|cook|bake/i, 'Prepare food', '♨'], [/mat|lodge|house/i, 'Household tasks', '⌂'],
-    [/walk|rounds|river|bank/i, 'Take a walk', '↗'], [/order|inspect|office/i, 'Daily rounds', '↗'],
+    [/corn|meal|meat|cook|bake/i, 'Prepare food', '♨'],
+    [/walk|taking the air|rounds|river|bank/i, 'Take a walk', '↗'],
+    [/mat|lodge|house/i, 'Household tasks', '⌂'], [/order|inspect|office/i, 'Daily rounds', '↗'],
   ];
   if (activity.span?.activity === 'talk') return { label: 'Chat together', icon: '💬', detail: text };
   const rule = rules.find(([pattern]) => pattern.test(text));

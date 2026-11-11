@@ -46,7 +46,15 @@
         "chicago_blue_book_1904",
         "chicago_blue_book_1905"
       ],
-      "printed_as": "2021 Mrs. James L. High & dr."
+      "printed_as": "2021 Mrs. James L. High & dr.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_high_daughter",
@@ -58,7 +66,15 @@
         "chicago_blue_book_1905"
       ],
       "printed_as": "2021 Mrs. James L. High & dr.",
-      "note": "The Blue Book prints '& dr.' after the household's name: an unmarried daughter at home, not named. 'Miss High' is the book's own form of address, not a recorded name."
+      "note": "The Blue Book prints '& dr.' after the household's name: an unmarried daughter at home, not named. 'Miss High' is the book's own form of address, not a recorded name.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_high_shirley_t",
@@ -95,7 +111,15 @@
         "years": "1897-1899; 1903; 1909-1911",
         "on_scene_date": "no"
       },
-      "note": "Listed at 2021 under Mr. and Mrs. James L. High from 1897 to 1899, with his own wife in 1903, and from 1909, when he heads the house: the 1910 census lists him there with his wife Helen and their sons James and Raymond (ED 167, sheet 2A, lines 20-23). The 1904 to 1908 editions do not list him there. That they were a son of the house is read from the shared surname at the number; the Blue Book does not print the relationship."
+      "note": "Listed at 2021 under Mr. and Mrs. James L. High from 1897 to 1899, with his own wife in 1903, and from 1909, when he heads the house: the 1910 census lists him there with his wife Helen and their sons James and Raymond (ED 167, sheet 2A, lines 20-23). The 1904 to 1908 editions do not list him there. That they were a son of the house is read from the shared surname at the number; the Blue Book does not print the relationship.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     }
   ]
 }

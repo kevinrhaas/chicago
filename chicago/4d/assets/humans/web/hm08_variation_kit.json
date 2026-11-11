@@ -11,7 +11,7 @@
  "bin": "hm08_variation_kit.bin",
  "bin_bytes": 927482,
  "bin_sha256": "6eaa8ea253b2e7f63e0974318ef4f67a7558da4c985e33cd9c8264930782780b",
- "axes_sha256": "af4ff97cd5b1b31231c2d6e853c888a60bd6228ace86c6c421c18ad23c4a71ce",
+ "axes_sha256": "c2b1f87d191fbd6a3ea73c429ac3bc74a2763230af3f5197b48db1e853f7accc",
  "manifest_sha256": "80087621bf4d5b3185430dda3d8a08ed8c81a9286c91d4ad92a84d6a8d2847d1",
  "limit": 0.6,
  "height": {
@@ -28,6 +28,61 @@
   ]
  },
  "assets": {
+  "child_boy_1904": {
+   "base_age_years": 8,
+   "sex": "male",
+   "age_drive": false,
+   "height_clip": [
+    0.85,
+    1.19
+   ],
+   "face_draw_scale": 0.35,
+   "body_draw_scale": 0
+  },
+  "child_girl_1904": {
+   "base_age_years": 8,
+   "sex": "female",
+   "age_drive": false,
+   "height_clip": [
+    0.85,
+    1.19
+   ],
+   "face_draw_scale": 0.35,
+   "body_draw_scale": 0
+  },
+  "child_toddler_1904": {
+   "base_age_years": 3,
+   "sex": "either",
+   "age_drive": false,
+   "height_clip": [
+    0.88,
+    1.15
+   ],
+   "face_draw_scale": 0.35,
+   "body_draw_scale": 0
+  },
+  "teen_boy_1904": {
+   "base_age_years": 15,
+   "sex": "male",
+   "age_drive": false,
+   "height_clip": [
+    0.86,
+    1.08
+   ],
+   "face_draw_scale": 0.35,
+   "body_draw_scale": 0
+  },
+  "teen_girl_1904": {
+   "base_age_years": 15,
+   "sex": "female",
+   "age_drive": false,
+   "height_clip": [
+    0.89,
+    1.07
+   ],
+   "face_draw_scale": 0.35,
+   "body_draw_scale": 0
+  },
   "bardwell_otis_1835": {
    "base_age_years": 35,
    "sex": "male"

@@ -54,7 +54,23 @@
         "as_enumerated": "Tolman, S. A.",
         "relation_as_enumerated": "Head"
       },
-      "note": "The 1900 census lists S. A. Tolman here as head, born March 1837, in Maine, married, wholesale grain (ED 40, sheet 12B, line 69, leaf n817)."
+      "note": "The 1900 census lists S. A. Tolman here as head, born March 1837, in Maine, married, wholesale grain (ED 40, sheet 12B, line 69, leaf n817).",
+      "born": {
+        "value": "1837",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The existing census transcription gives born March 1837. The year is carried into the age shown on this card."
+      },
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_tolman_mrs_samuel_a",
@@ -74,7 +90,23 @@
         "as_enumerated": "Tolman, Bessie",
         "relation_as_enumerated": "Wife"
       },
-      "note": "The 1900 census lists Bessie Tolman here as wife, born August 1849 (the figures are hard to read), in New Hampshire, married (ED 40, sheet 12B, line 70, leaf n817)."
+      "note": "The 1900 census lists Bessie Tolman here as wife, born August 1849 (the figures are hard to read), in New Hampshire, married (ED 40, sheet 12B, line 70, leaf n817).",
+      "born": {
+        "value": "1849",
+        "confidence": "inferred",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The existing census transcription gives born August 1849. The transcription flags uncertainty; the year remains provisional."
+      },
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_tolman_samuel_a_c1900_ida_nelson",
@@ -107,7 +139,15 @@
         "as_enumerated": "Nelson, Ida",
         "relation_as_enumerated": "Servant"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a servant (house maid); born October 1862 (the figures are hard to read), in Sweden, came to the United States in 1888, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (house maid); born October 1862 (the figures are hard to read), in Sweden, came to the United States in 1888, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_tolman_samuel_a_c1900_wm_taylor",
@@ -140,7 +180,15 @@
         "as_enumerated": "Taylor, Wm.",
         "relation_as_enumerated": "Head"
       },
-      "note": "Enumerated on 1 June 1900 in the rear building behind the house, as the head of his own household there (coachman); born February 1862, in England, married. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+      "note": "Enumerated on 1 June 1900 in the rear building behind the house, as the head of his own household there (coachman); born February 1862, in England, married. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     }
   ]
 }

@@ -11,6 +11,13 @@ def glb(doc):
 class Audit(unittest.TestCase):
  def test_valid_declared_metadata_only(self):
   r=audit.audit_document(document());self.assertEqual(r[0]['serialized_bounds_unique'],[(0,1.2)]);self.assertIn('NOT decoded',audit.SCOPE)
+ def test_child_speed_is_exact_and_does_not_relax_adult_contract(self):
+  d=document();d['animations'][0]['extras']['speed_m_s']=.37
+  audit.audit_document(d,expected_speed_m_s=.37)
+  with self.assertRaises(ValueError):audit.audit_document(d)
+  with self.assertRaises(ValueError):audit.audit_document(d,expected_speed_m_s=.38)
+  for speed in [0,-1,.61,True,float('nan'),float('inf')]:
+   with self.assertRaises(ValueError):audit.audit_document(d,expected_speed_m_s=speed)
  def test_malformed_missing_bounds(self):
   for key in ['min','max']:
    for value in [None,[],[0,1],True,'1',[True],[None],[float('nan')],[float('inf')],[10**1000]]:

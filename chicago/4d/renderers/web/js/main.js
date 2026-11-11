@@ -3949,7 +3949,7 @@ async function boot() {
     const getOptional = (rel) => fetch(new URL(rel, bases.dataBase), { cache: 'no-cache' })
       .then((r) => (r.ok ? r.json() : null)).catch(() => null);
     const [doors, inside] = await Promise.all([getOptional(`humans/doors_${daysScene}.json`),
-      daysScene === '1812' ? getOptional('humans/inside_1812.json') : null]);
+      ['1812', '1904'].includes(daysScene) ? getOptional(`humans/inside_${daysScene}.json`) : null]);
     lodgeWalls = (doors?.structures ?? []).flatMap((row) => (row.walls ?? []).map((ring, i) => ({ id: `${row.structure}:walls${i + 1}`, pts: ring })));
     // The gathering's people who are carded and not drawn (inside_1812.json): a figure is
     // built for a small nearby rotation or a door call, from the dress their entry
@@ -3971,6 +3971,7 @@ async function boot() {
     api.days = createHumanDays({ humans: api.humans, three: THREE, hour: sunHour, date: () => world.sunDate ?? null,
       doors, interactions, inside, spawn,
       openCard: (actor) => api.humans.select(actor.id),
+      openResident: (id) => openPersonCard(id),
       held: (actor) => !!api.houseErrands?.get(actor.id)?.running,
       despawn: (actor) => api.humans?.remove?.(actor.id),
       visitor: () => (walker.state.flying ? null : { e: walker.state.e, n: walker.state.n }),
@@ -5574,7 +5575,9 @@ async function boot() {
     if (!root || !id) return null;
     personStories ??= fetch(new URL(`${root}/stories.json`, resolveBases().dataBase), { cache: 'no-cache' })
       .then((res) => (res.ok ? res.json() : null)).then((doc) => doc?.stories ?? {}).catch(() => ({}));
-    return (await personStories)?.[id] ?? null;
+    const story = (await personStories)?.[id] ?? null;
+    const care = api.days?.careStatus?.(id);
+    return care ? [...(story ?? []), care.text + ' Daily care and the choice of caregivers are liberties; infants remain in household care rather than walking outside independently.'] : story;
   }
   // T-3413: a face fitted to a portrait of the person, for their card's Likeness section. The
   // file is the one the humans layer reads (assets/humans/web/hm08_variation_persons.json), read once.

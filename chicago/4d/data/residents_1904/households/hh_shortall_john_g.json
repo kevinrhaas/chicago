@@ -44,7 +44,9 @@
       "sources": [
         "chicago_blue_book_1904",
         "chicago_blue_book_1905",
-        "census_1900_chicago_t623_roll245"
+        "census_1900_chicago_t623_roll245",
+        "witherspoon_men_of_illinois_1902",
+        "leonard_book_of_chicagoans_1905"
       ],
       "printed_as": "1600 John G. Shortall",
       "census_1900": {
@@ -54,7 +56,29 @@
         "as_enumerated": "Shortall, John G",
         "relation_as_enumerated": "Head"
       },
-      "note": "The 1900 census lists John G. Shortall here as head, born May 1839, in England, came to the United States in 1860, widowed, capitalist (ED 36, sheet 3A, line 17, leaf n669)."
+      "note": "The 1900 census lists John G. Shortall here as head, born May 1839, in England, came to the United States in 1860, widowed, capitalist (ED 36, sheet 3A, line 17, leaf n669).",
+      "born": {
+        "value": "1838-09-20",
+        "confidence": "attested",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ],
+        "note": "Biographical date from the cited period publication(s). The earlier census transcription on this card is retained as a separate reading; where it disagrees, this figure uses the independently published biographical date. The publication date is not the date the photograph was taken."
+      },
+      "card_facts": [
+        {
+          "label": "Full name",
+          "value": "John G. Shortall",
+          "grade": "attested"
+        }
+      ],
+      "portrait": {
+        "image": "humans/web/portraits/pa1904_shortall_john_g_portrait.jpg",
+        "caption": "John G. Shortall, undated photograph published in Men of Illinois (1902), p. 191.",
+        "grade": "attested",
+        "why": "Identified by the printed caption and checked against the household record. The monochrome photograph does not establish skin, eye or clothing colours."
+      }
     },
     {
       "id": "pa1904_shortall_john_g_son_john_l",
@@ -71,7 +95,15 @@
         "on_scene_date": "no"
       },
       "own_card": "pa1904_shortall_john_l",
-      "note": "Listed at 1600 under John G. Shortall, with his wife, in the 1893 and 1894 editions, and from the 1895 edition next door at 1604, where he and his family live in 1904 on their own card. That he was John G. Shortall's son is read from the shared surname at the number; the Blue Book does not print it."
+      "note": "Listed at 1600 under John G. Shortall, with his wife, in the 1893 and 1894 editions, and from the 1895 edition next door at 1604, where he and his family live in 1904 on their own card. That he was John G. Shortall's son is read from the shared surname at the number; the Blue Book does not print it.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_shortall_john_g_c1900_jessie_mckay",
@@ -104,7 +136,15 @@
         "as_enumerated": "McKay, Jessie",
         "relation_as_enumerated": "Servant"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a servant (cook); born January 1860, in Canada (Eng.), single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (cook); born January 1860, in Canada (Eng.), single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     }
   ]
 }

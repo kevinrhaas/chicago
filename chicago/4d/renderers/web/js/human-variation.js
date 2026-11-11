@@ -108,6 +108,11 @@ export function personVariation({ kit, key, record = null, assetId = null, scene
   // square, heavy-chinned face that reads as a man's): its face axes and head outline only.
   const damp = asset.face_draw_scale;
   if (damp != null) for (const a of kit.axes) if ((a.scope === 'face' || a.id === 'head_shape') && !a.drive && !a.draw_as && a.id in values) values[a.id] *= damp;
+  // T-3550: keep approved juvenile body proportions; adult build targets need not
+  // reshape these bodies. Face variation and person-specific stature remain separate.
+  if (asset.body_draw_scale != null) for (const a of kit.axes) {
+    if (a.scope === 'full' && a.id !== 'head_shape' && !a.drive && !a.draw_as && a.id in values) values[a.id] = asset.body_draw_scale === 0 ? 0 : values[a.id] * asset.body_draw_scale;
+  }
   for (const a of kit.axes) if (a.draw_as && !a.drive && a.draw_as in values) values[a.id] = values[a.draw_as];
   // The body's own lean (T-3434: the women's bodies toward MakeHuman's feminine face and a
   // resting mouth), added to the draw; a fitted face below still overrides it.

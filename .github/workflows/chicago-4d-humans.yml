@@ -58,6 +58,10 @@ on:
       - '.github/workflows/chicago-4d-humans.yml'
   workflow_dispatch:
     inputs:
+      build_prairie_children:
+        description: 'Build the five reconstructed 1904 child clothing assets from this PR; artifacts only'
+        type: boolean
+        default: false
       build_teamsters:
         description: 'Build and inspect existing residents’ reconstructed 1835 workwear masters (prototype artifacts)'
         type: boolean
@@ -108,11 +112,14 @@ jobs:
           TEAMSTERS_ENABLED: ${{ inputs.build_teamsters }}
           SEATED_ENABLED: ${{ inputs.build_seated_driver_study }}
           SOURCE_REF: ${{ inputs.source_ref }}
+          PRAIRIE_ENABLED: ${{ inputs.build_prairie_children }}
         run: |
           python3 - <<'PY'
           import os,re
           source=os.environ['SOURCE_REF']
           dress=os.environ['DRESS_ENABLED']=='true'
+          if os.environ['PRAIRIE_ENABLED']=='true' and (dress or os.environ['TEAMSTERS_ENABLED']=='true' or os.environ['SEATED_ENABLED']=='true'):
+              raise SystemExit('The Prairie children build must run separately from other authoring studies')
           if dress:
               if os.environ['TEAMSTERS_ENABLED']=='true' or os.environ['SEATED_ENABLED']=='true':
                   raise SystemExit('The dress study must run separately from teamster/seated studies')
@@ -186,6 +193,8 @@ jobs:
       - name: Install Playwright
         run: |
           set -e
+          python3 .github/prepare-ubuntu-browser-mirrors.py --self-test
+          python3 .github/prepare-ubuntu-browser-mirrors.py
           npm install -g playwright@1.56.1
           node "$(npm root -g)/playwright/cli.js" install --with-deps chromium
 
@@ -215,13 +224,14 @@ jobs:
           TEAMSTERS: ${{ inputs.build_teamsters }}
           SEATED: ${{ inputs.build_seated_driver_study }}
           DRESS: ${{ inputs.build_dress_study }}
+          PRAIRIE: ${{ inputs.build_prairie_children }}
           SOURCE_REF: ${{ inputs.source_ref }}
         run: |
           python3 - <<'PY'
           import os,re
           if not re.fullmatch(r'[1-9][0-9]*',os.environ['SOURCE_RUN']):
               raise SystemExit('library_source_run must be a positive run ID')
-          if any(os.environ[k]=='true' for k in ('TEAMSTERS','SEATED','DRESS')) or os.environ['SOURCE_REF']:
+          if any(os.environ[k]=='true' for k in ('TEAMSTERS','SEATED','DRESS','PRAIRIE')) or os.environ['SOURCE_REF']:
               raise SystemExit('Library stills consume a completed build and must run separately')
           PY
       - uses: actions/checkout@v4
@@ -387,6 +397,8 @@ jobs:
           done
       - name: Install Playwright
         run: |
+          python3 .github/prepare-ubuntu-browser-mirrors.py --self-test
+          python3 .github/prepare-ubuntu-browser-mirrors.py
           npm install -g playwright@1.56.1
           node "$(npm root -g)/playwright/cli.js" install --with-deps chromium
       - name: Audit declared resident animation time bounds before browser loading
@@ -604,6 +616,8 @@ jobs:
       - name: Install existing browser and validator pins on Ubuntu24.04
         run: |
           set -euo pipefail
+          python3 .github/prepare-ubuntu-browser-mirrors.py --self-test
+          python3 .github/prepare-ubuntu-browser-mirrors.py
           npm install -g playwright@1.56.1 gltf-validator@2.0.0-dev.3.10
           node "$(npm root -g)/playwright/cli.js" install --with-deps chromium
       - name: Audit actual new animation time bounds and hair contracts
@@ -687,3 +701,42 @@ jobs:
             chicago/4d/assets/humans/flynn_mary_1835_dress_study.lod[0-3].glb
             chicago/4d/assets/humans/web/flynn_mary_1835_dress_study.lod[0-3].glb
             /tmp/dress-study/
+
+  prairie-children:
+    if: github.event_name == 'workflow_dispatch' && inputs.build_prairie_children && !inputs.render_library_stills
+    needs: humans
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: pip install --quiet jsonschema numpy scipy Pillow
+      - name: Read the existing Blender pin
+        id: pin
+        run: |
+          source chicago/4d/generators/blender.pin
+          echo "version=$BLENDER_VERSION" >> "$GITHUB_OUTPUT"
+      - uses: actions/cache@v4
+        with:
+          path: /opt/blender-dl
+          key: blender-${{ steps.pin.outputs.version }}
+      - name: Build five canonical child masters and portable exports
+        working-directory: chicago/4d
+        env:
+          BLENDER_CACHE: /opt/blender-dl
+        run: bash tools/prairie_children_build.sh /tmp/prairie-children
+      - name: Keep source-bound masters, exports and diagnostics for visual review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: prairie-children-${{ github.sha }}
+          path: /tmp/prairie-children
+          if-no-files-found: error
+          retention-days: 14

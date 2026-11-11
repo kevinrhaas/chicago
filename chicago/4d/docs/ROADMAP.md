@@ -1,3 +1,7 @@
+## T-3546, T-3547, T-3549, T-3550 - Prairie Avenue people and household routines (2026-11-11)
+
+Complete the researched person cards, portrait fits and individual appearances across 71 homes. Activate the five owner-approved younger roles: 35 children/teens with seasonal days and household companions, plus indoor care for five infants. Preserve adults, identity rulings, door calls, returns and jaunt priority. Combined PR #1932 carries the rollout; STATUS.md records validation.
+
 ## T-1789 — 1812 startup routing during Charles coat integration (2026-11-11)
 
 Keep the existing lazy automatic-routing policy while integrating the daily-life

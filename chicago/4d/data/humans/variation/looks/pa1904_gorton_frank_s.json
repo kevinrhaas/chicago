@@ -1,0 +1,39 @@
+{
+ "format": "chicago4d_human_looks_v1",
+ "ticket": "T-3547",
+ "person_id": "pa1904_gorton_frank_s",
+ "scene": "1904",
+ "generated_by": "tools/prairie_people.py",
+ "heritage": {
+  "origin": "not found"
+ },
+ "complexion": {
+  "value": "olive",
+  "drawn": "olive",
+  "grade": "reconstructed"
+ },
+ "hair": {
+  "value": "black brown",
+  "drawn": "black_brown",
+  "cut": "short_side_part_1904",
+  "facial": [
+   "moustache_full",
+   "brows_full"
+  ],
+  "grade": "inferred"
+ },
+ "eyes": {
+  "value": "grey",
+  "drawn": "grey",
+  "grade": "reconstructed"
+ },
+ "stature": {
+  "inches": 69.3,
+  "grade": "reconstructed",
+  "basis": "Artistic body variation; no personal measurement located."
+ },
+ "height_scale": 1.0058,
+ "grade": "reconstructed",
+ "basis": "Hair cut and facial hair follow the identified portrait; facial proportions have a separate photograph fit. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty.",
+ "liberty": "L-prairie-likenesses-3547"
+}

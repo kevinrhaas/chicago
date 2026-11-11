@@ -5,6 +5,214 @@
  "note": "Where each 1904 building a drawn person's day goes into is entered, and where one who answers stands. Asking at a door, going in and out: renderers/web/js/human-days.js.",
  "structures": [
   {
+   "structure": "armour_corwith_house_1945_prairie",
+   "name": "1945 Prairie Avenue \u2014 the George Armour/Corwith house, a Second Empire corner mansion (K01; T-3281)",
+   "placement": {
+    "local_e": 1439.442,
+    "local_n": -3446.041,
+    "rotation_deg": 179.435
+   },
+   "doors": [
+    {
+     "id": "armour_corwith_house_1945_prairie:front",
+     "leaf": {
+      "local_e": 1424.76,
+      "local_n": -3451.79
+     },
+     "step": {
+      "local_e": 1413.55,
+      "local_n": -3451.9
+     },
+     "outward_deg": 269.4,
+     "width_m": 1.3,
+     "reconstructed": "Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed."
+    }
+   ],
+   "asset_sha256": "f939133984ac3675f2d1bc79b974f5a806c5e82f3d2c86d32d3c69d0151801ce"
+  },
+  {
+   "structure": "armour_house_2115_prairie",
+   "name": "2115 Prairie Avenue \u2014 Kelley/Armour Second Empire (district draft; refined by T-1925)",
+   "placement": {
+    "local_e": 1440.458,
+    "local_n": -3656.724,
+    "rotation_deg": 179.318
+   },
+   "doors": [
+    {
+     "id": "armour_house_2115_prairie:front",
+     "leaf": {
+      "local_e": 1428.02,
+      "local_n": -3662.0
+     },
+     "step": {
+      "local_e": 1427.32,
+      "local_n": -3662.01
+     },
+     "outward_deg": 269.3,
+     "width_m": 1.2,
+     "reconstructed": "No separate front leaf is modelled in this draft. A reconstructed entrance is placed at the middle of the street-facing front (the plan u axis); the survey does not attest a doorway here."
+    }
+   ],
+   "asset_sha256": "77ad1ef746fa1fd9cdf4506aac02102d03252f6261e3a01216a665556b839b52"
+  },
+  {
+   "structure": "buckingham_house_2036_prairie",
+   "name": "2036 Prairie Avenue \u2014 Buckingham map-led corner mansion (district draft; refined by T-1911)",
+   "placement": {
+    "local_e": 1363.889,
+    "local_n": -3593.629,
+    "rotation_deg": -0.632
+   },
+   "doors": [
+    {
+     "id": "buckingham_house_2036_prairie:front",
+     "leaf": {
+      "local_e": 1383.84,
+      "local_n": -3588.66
+     },
+     "step": {
+      "local_e": 1384.54,
+      "local_n": -3588.65
+     },
+     "outward_deg": 89.4,
+     "width_m": 1.2,
+     "reconstructed": "No separate front leaf is modelled in this draft. A reconstructed entrance is placed at the middle of the street-facing front (the plan u axis); the survey does not attest a doorway here."
+    }
+   ],
+   "asset_sha256": "26ab39ebad7aa71743103c02e40042a7a82b32611f93f5f5b5afd6b50c04df9d"
+  },
+  {
+   "structure": "dent_house_1823_prairie",
+   "name": "1823 Prairie Avenue \u2014 Thomas Dent house",
+   "placement": {
+    "local_e": 1434.812,
+    "local_n": -3279.968,
+    "rotation_deg": 179.455
+   },
+   "doors": [
+    {
+     "id": "dent_house_1823_prairie:front",
+     "leaf": {
+      "local_e": 1423.0,
+      "local_n": -3286.28
+     },
+     "step": {
+      "local_e": 1419.32,
+      "local_n": -3286.32
+     },
+     "outward_deg": 269.5,
+     "width_m": 1.2,
+     "reconstructed": "Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed."
+    }
+   ],
+   "asset_sha256": "db88687ddf41514fb6a0b64dfde417388126c2297de88d8873873a2de95bd20c"
+  },
+  {
+   "structure": "dexter_house_1721_prairie",
+   "name": "1721 Prairie Avenue \u2014 Wirt Dexter house, Arthur Little's front of 1889, K01 frontage assembly",
+   "placement": {
+    "local_e": 1432.826,
+    "local_n": -3132.173,
+    "rotation_deg": 179.607
+   },
+   "doors": [
+    {
+     "id": "dexter_house_1721_prairie:front",
+     "leaf": {
+      "local_e": 1425.27,
+      "local_n": -3134.02
+     },
+     "step": {
+      "local_e": 1410.69,
+      "local_n": -3134.12
+     },
+     "outward_deg": 269.6,
+     "width_m": 1.2,
+     "reconstructed": "Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed."
+    }
+   ],
+   "asset_sha256": "332de0a1f9049ae44860bebc0ad5acb970bfcab916d27f56cc148bea871f257f"
+  },
+  {
+   "structure": "edson_keith_house_1906_prairie",
+   "name": "1906 Prairie Avenue \u2014 the Edson Keith house (Italianate stone front; attached 1908)",
+   "placement": {
+    "local_e": 1362.228,
+    "local_n": -3374.463,
+    "rotation_deg": -0.617
+   },
+   "doors": [
+    {
+     "id": "edson_keith_house_1906_prairie:front",
+     "leaf": {
+      "local_e": 1383.7,
+      "local_n": -3365.03
+     },
+     "step": {
+      "local_e": 1394.25,
+      "local_n": -3364.92
+     },
+     "outward_deg": 89.4,
+     "width_m": 1.2,
+     "reconstructed": "Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed."
+    }
+   ],
+   "asset_sha256": "71ff76b165b1289dc9a314fa67a60e0622bddd4a36e701ea6f5ae97364933d55"
+  },
+  {
+   "structure": "elbridge_keith_house_1900_prairie",
+   "name": "1900 Prairie Avenue \u2014 Elbridge G. Keith house",
+   "placement": {
+    "local_e": 1364.765,
+    "local_n": -3353.943,
+    "rotation_deg": -0.616
+   },
+   "doors": [
+    {
+     "id": "elbridge_keith_house_1900_prairie:front",
+     "leaf": {
+      "local_e": 1384.42,
+      "local_n": -3348.03
+     },
+     "step": {
+      "local_e": 1394.07,
+      "local_n": -3347.93
+     },
+     "outward_deg": 89.4,
+     "width_m": 1.2,
+     "reconstructed": "Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed."
+    }
+   ],
+   "asset_sha256": "b8cedd3f5be2c81365222214fb0ce615475c3af75ec4a6f1c15fb3931aec7b8d"
+  },
+  {
+   "structure": "george_glessner_house_1706_prairie",
+   "name": "1706 Prairie Avenue \u2014 George Glessner Georgian townhouse, south of the pair, K01 frontage assembly",
+   "placement": {
+    "local_e": 1368.171,
+    "local_n": -3104.665,
+    "rotation_deg": -0.581
+   },
+   "doors": [
+    {
+     "id": "george_glessner_house_1706_prairie:front",
+     "leaf": {
+      "local_e": 1381.05,
+      "local_n": -3100.29
+     },
+     "step": {
+      "local_e": 1390.83,
+      "local_n": -3100.2
+     },
+     "outward_deg": 89.4,
+     "width_m": 1.2,
+     "reconstructed": "Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed."
+    }
+   ],
+   "asset_sha256": "5bb910a2881446389c7774abc0e6e6dc64acb13733bf95fdeec416f646b5601f"
+  },
+  {
    "structure": "glessner_house",
    "name": "John J. Glessner House",
    "placement": {
@@ -57,6 +265,1618 @@
      "width_m": 3.69
     }
    ]
+  },
+  {
+   "structure": "glessner_lee_house_1700_prairie",
+   "name": "1700 Prairie Avenue \u2014 Glessner-Lee Georgian townhouse, north of the pair, K01 frontage assembly",
+   "placement": {
+    "local_e": 1368.059,
+    "local_n": -3093.615,
+    "rotation_deg": -0.581
+   },
+   "doors": [
+    {
+     "id": "glessner_lee_house_1700_prairie:front",
+     "leaf": {
+      "local_e": 1380.89,
+      "local_n": -3084.78
+     },
+     "step": {
+      "local_e": 1390.67,
+      "local_n": -3084.69
+     },
+     "outward_deg": 89.4,
+     "width_m": 1.2,
+     "reconstructed": "Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed."
+    }
+   ],
+   "asset_sha256": "2725eb0c8a2b654dc6d1aaaa9fb53b16dc0f5551b1372f0e7f42622c86d73e81"
+  },
+  {
+   "structure": "goodman_house_1612_prairie",
+   "name": "1612 Prairie Avenue \u2014 Joseph Goodman house, Italianate stone front",
+   "placement": {
+    "local_e": 1360.742,
+    "local_n": -2993.057,
+    "rotation_deg": -0.578
+   },
+   "doors": [
+    {
+     "id": "goodman_house_1612_prairie:front",
+     "leaf": {
+      "local_e": 1380.12,
+      "local_n": -2987.24
+     },
+     "step": {
+      "local_e": 1389.78,
+      "local_n": -2987.14
+     },
+     "outward_deg": 89.4,
+     "width_m": 1.2,
+     "reconstructed": "Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed."
+    }
+   ],
+   "asset_sha256": "9a9ac8f5d525a390a2f4b1c0f12b5ef9e7d8482510dd8a948db431327e56e198"
+  },
+  {
+   "structure": "henderson_house_1816_prairie",
+   "name": "1816 Prairie Avenue \u2014 Charles M. Henderson house",
+   "placement": {
+    "local_e": 1372.999,
+    "local_n": -3276.373,
+    "rotation_deg": -0.621
+   },
+   "doors": [
+    {
+     "id": "henderson_house_1816_prairie:front",
+     "leaf": {
+      "local_e": 1384.72,
+      "local_n": -3267.27
+     },
+     "step": {
+      "local_e": 1393.26,
+      "local_n": -3267.17
+     },
+     "outward_deg": 89.4,
+     "width_m": 1.2,
+     "reconstructed": "Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed."
+    }
+   ],
+   "asset_sha256": "a9fab1bc33e69d1ec007ee345879669ad9d1afc8f8c830617daa3f1f778557d3"
+  },
+  {
+   "structure": "hibbard_house_1701_prairie",
+   "name": "1701 Prairie Avenue \u2014 the William G. Hibbard house, Italianate, with its 1874 rear range (K01; refined by T-3240, T-3241, T-3242, T-1876)",
+   "placement": {
+    "local_e": 1430.676,
+    "local_n": -3073.558,
+    "rotation_deg": 179.61
+   },
+   "doors": [
+    {
+     "id": "hibbard_house_1701_prairie:front",
+     "leaf": {
+      "local_e": 1419.24,
+      "local_n": -3080.64
+     },
+     "step": {
+      "local_e": 1409.78,
+      "local_n": -3080.7
+     },
+     "outward_deg": 269.6,
+     "width_m": 2.2,
+     "reconstructed": "Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed."
+    }
+   ],
+   "asset_sha256": "ac96640c4fd88e68936105ca0e42566af1e15f5fb63858e6605c7db6ce633e32"
+  },
+  {
+   "structure": "high_house_2021_prairie",
+   "name": "2021 Prairie Avenue \u2014 High brick gabled/turret house (district draft; refined by T-1917)",
+   "placement": {
+    "local_e": 1440.938,
+    "local_n": -3544.5,
+    "rotation_deg": 179.389
+   },
+   "doors": [
+    {
+     "id": "high_house_2021_prairie:front",
+     "leaf": {
+      "local_e": 1426.74,
+      "local_n": -3549.65
+     },
+     "step": {
+      "local_e": 1426.04,
+      "local_n": -3549.66
+     },
+     "outward_deg": 269.4,
+     "width_m": 1.2,
+     "reconstructed": "No separate front leaf is modelled in this draft. A reconstructed entrance is placed at the middle of the street-facing front (the plan u axis); the survey does not attest a doorway here."
+    }
+   ],
+   "asset_sha256": "4627e864f98db7ae218949d3b192eda9d3941b77faa3237190ce6a0a5e8d8d81"
+  },
+  {
+   "structure": "house_1600_prairie",
+   "name": "1600 Prairie Avenue \u2014 brick corner house, K01 frontage assembly",
+   "placement": {
+    "local_e": 1360.565,
+    "local_n": -2959.927,
+    "rotation_deg": -0.542
+   },
+   "doors": [
+    {
+     "id": "house_1600_prairie:front",
+     "leaf": {
+      "local_e": 1380.12,
+      "local_n": -2957.94
+     },
+     "step": {
+      "local_e": 1389.84,
+      "local_n": -2957.85
+     },
+     "outward_deg": 89.5,
+     "width_m": 1.2,
+     "reconstructed": "Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed."
+    }
+   ],
+   "asset_sha256": "e34ea5012b7ecd9ed0674afacc238c514f5748e0f0653bfbf6d1a388fff305e1"
+  },
+  {
+   "structure": "house_1604_prairie",
+   "name": "1604 Prairie Avenue - brick house with its traced rear range, K01 frontage assembly",
+   "placement": {
+    "local_e": 1368.112,
+    "local_n": -2971.65,
+    "rotation_deg": -0.578
+   },
+   "doors": [
+    {
+     "id": "house_1604_prairie:front",
+     "leaf": {
+      "local_e": 1380.07,
+      "local_n": -2965.03
+     },
+     "step": {
+      "local_e": 1389.92,
+      "local_n": -2964.93
+     },
+     "outward_deg": 89.4,
+     "width_m": 1.2,
+     "reconstructed": "Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed."
+    }
+   ],
+   "asset_sha256": "4c34db42c897ff28e27a4e5af525f507a8fc3a43e54001d859f96ce702ef4050"
+  },
+  {
+   "structure": "house_1608_prairie",
+   "name": "1608 Prairie Avenue \u2014 brick house, K01 frontage assembly",
+   "placement": {
+    "local_e": 1360.824,
+    "local_n": -2980.12,
+    "rotation_deg": -0.578
+   },
+   "doors": [
+    {
+     "id": "house_1608_prairie:front",
+     "leaf": {
+      "local_e": 1379.84,
+      "local_n": -2974.58
+     },
+     "step": {
+      "local_e": 1390.03,
+      "local_n": -2974.48
+     },
+     "outward_deg": 89.4,
+     "width_m": 1.2,
+     "reconstructed": "Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed."
+    }
+   ],
+   "asset_sha256": "b67fce1fc7f6e792afa25074730b7fa488b410abba280a8b50cd03ee84fd72f2"
+  },
+  {
+   "structure": "house_1616_prairie",
+   "name": "1616 Prairie Avenue \u2014 brick house, K01 frontage assembly",
+   "placement": {
+    "local_e": 1356.889,
+    "local_n": -3004.303,
+    "rotation_deg": -0.579
+   },
+   "doors": [
+    {
+     "id": "house_1616_prairie:front",
+     "leaf": {
+      "local_e": 1380.16,
+      "local_n": -2999.32
+     },
+     "step": {
+      "local_e": 1390.3,
+      "local_n": -2999.22
+     },
+     "outward_deg": 89.4,
+     "width_m": 1.2,
+     "reconstructed": "Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed."
+    }
+   ],
+   "asset_sha256": "5b30facc7c4701cdd9914cab9ac11a337910391e304c56f1016c1026fab6304c"
+  },
+  {
+   "structure": "house_1619_prairie",
+   "name": "1619 Prairie Avenue \u2014 four-storey stone-front house with its full-height swell bay, K01 frontage assembly",
+   "placement": {
+    "local_e": 1426.608,
+    "local_n": -2995.719,
+    "rotation_deg": 179.607
+   },
+   "doors": [
+    {
+     "id": "house_1619_prairie:front",
+     "leaf": {
+      "local_e": 1413.5,
+      "local_n": -2997.71
+     },
+     "step": {
+      "local_e": 1408.82,
+      "local_n": -2997.74
+     },
+     "outward_deg": 269.6,
+     "width_m": 1.2,
+     "reconstructed": "Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed."
+    }
+   ],
+   "asset_sha256": "59442400d3d5e9b596482d337ff51c8556f5742647161602369ebaa1c1a4603a"
+  },
+  {
+   "structure": "house_1621_prairie",
+   "name": "1621 Prairie Avenue \u2014 John H. Hamline's stone-front house with its swell bay, from Treat & Foltz's drawing, K01 frontage assembly",
+   "placement": {
+    "local_e": 1426.786,
+    "local_n": -3004.431,
+    "rotation_deg": 179.603
+   },
+   "doors": [
+    {
+     "id": "house_1621_prairie:front",
+     "leaf": {
+      "local_e": 1414.51,
+      "local_n": -3006.32
+     },
+     "step": {
+      "local_e": 1409.31,
+      "local_n": -3006.35
+     },
+     "outward_deg": 269.6,
+     "width_m": 1.2,
+     "reconstructed": "Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed."
+    }
+   ],
+   "asset_sha256": "a8bc10d0fa2d41abf8e180690aaa605c8d6ca8120de3dd9a27db4447aa4bf9f3"
+  },
+  {
+   "structure": "house_1625_prairie",
+   "name": "1625 Prairie Avenue \u2014 Hugh J. McBirney's Tudor stone front, K01 frontage assembly",
+   "placement": {
+    "local_e": 1433.025,
+    "local_n": -3019.364,
+    "rotation_deg": 179.614
+   },
+   "doors": [
+    {
+     "id": "house_1625_prairie:front",
+     "leaf": {
+      "local_e": 1413.69,
+      "local_n": -3025.24
+     },
+     "step": {
+      "local_e": 1409.13,
+      "local_n": -3025.28
+     },
+     "outward_deg": 269.6,
+     "width_m": 1.2,
+     "reconstructed": "Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed."
+    }
+   ],
+   "asset_sha256": "9859b67b011c06075400cdd2c6608053de3b642c3e6e120e391df0a5b8c4484a"
+  },
+  {
+   "structure": "house_1626_prairie",
+   "name": "1626 Prairie Avenue \u2014 brick house with a frame front bay, the north half of the pair with 1628, K01 frontage assembly",
+   "placement": {
+    "local_e": 1368.105,
+    "local_n": -3038.789,
+    "rotation_deg": -0.579
+   },
+   "doors": [
+    {
+     "id": "house_1626_prairie:front",
+     "leaf": {
+      "local_e": 1380.11,
+      "local_n": -3032.07
+     },
+     "step": {
+      "local_e": 1390.67,
+      "local_n": -3031.96
+     },
+     "outward_deg": 89.4,
+     "width_m": 1.2,
+     "reconstructed": "Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed."
+    }
+   ],
+   "asset_sha256": "c736ba922fd9484532bbc037e8cef648e7108569c9f3e9d305b6e5f806e2ee51"
+  },
+  {
+   "structure": "house_1628_prairie",
+   "name": "1628 Prairie Avenue \u2014 brick house, the south half of the pair with 1626, K01 frontage assembly",
+   "placement": {
+    "local_e": 1368.161,
+    "local_n": -3044.789,
+    "rotation_deg": -0.579
+   },
+   "doors": [
+    {
+     "id": "house_1628_prairie:front",
+     "leaf": {
+      "local_e": 1380.21,
+      "local_n": -3043.07
+     },
+     "step": {
+      "local_e": 1390.78,
+      "local_n": -3042.96
+     },
+     "outward_deg": 89.4,
+     "width_m": 1.2,
+     "reconstructed": "Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed."
+    }
+   ],
+   "asset_sha256": "69c3662a07b92e5400044f747a7c5cab0dded67c1ce1bce918ff68705cc604b0"
+  },
+  {
+   "structure": "house_1634_prairie",
+   "name": "1634 Prairie Avenue \u2014 stone-front house, the north half of the pair with 1636, K01 frontage assembly",
+   "placement": {
+    "local_e": 1365.376,
+    "local_n": -3061.544,
+    "rotation_deg": -0.58
+   },
+   "doors": [
+    {
+     "id": "house_1634_prairie:front",
+     "leaf": {
+      "local_e": 1380.58,
+      "local_n": -3059.54
+     },
+     "step": {
+      "local_e": 1390.67,
+      "local_n": -3059.44
+     },
+     "outward_deg": 89.4,
+     "width_m": 1.2,
+     "reconstructed": "Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed."
+    }
+   ],
+   "asset_sha256": "7abf52bf68accc61378699a1b0a81d2088c6930e3cdf1867e8ed8a3bc60544e9"
+  },
+  {
+   "structure": "house_1636_prairie",
+   "name": "1636 Prairie Avenue \u2014 stone-front house, the south half of the pair with 1634, K01 frontage assembly",
+   "placement": {
+    "local_e": 1365.476,
+    "local_n": -3069.228,
+    "rotation_deg": -0.58
+   },
+   "doors": [
+    {
+     "id": "house_1636_prairie:front",
+     "leaf": {
+      "local_e": 1380.62,
+      "local_n": -3063.24
+     },
+     "step": {
+      "local_e": 1390.71,
+      "local_n": -3063.14
+     },
+     "outward_deg": 89.4,
+     "width_m": 1.2,
+     "reconstructed": "Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed."
+    }
+   ],
+   "asset_sha256": "afbd02d1d96f413b855413a9826d947ad5b85e0c62a418cd2574bb2c804b807b"
+  },
+  {
+   "structure": "house_1708_prairie",
+   "name": "1708 Prairie Avenue \u2014 three-storey brick front with a canted bay (Thorne-associated), K01 frontage assembly",
+   "placement": {
+    "local_e": 1368.577,
+    "local_n": -3112.161,
+    "rotation_deg": -0.581
+   },
+   "doors": [
+    {
+     "id": "house_1708_prairie:front",
+     "leaf": {
+      "local_e": 1381.14,
+      "local_n": -3106.13
+     },
+     "step": {
+      "local_e": 1391.19,
+      "local_n": -3106.03
+     },
+     "outward_deg": 89.4,
+     "width_m": 1.2,
+     "reconstructed": "Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed."
+    }
+   ],
+   "asset_sha256": "b2c0aa9da2efb90f7ca21650ff7ef4b048e4fe49933bd63cb762d1244c7c949a"
+  },
+  {
+   "structure": "house_1712_prairie",
+   "name": "1712 Prairie Avenue \u2014 stone-front house of two and a half storeys, K01 frontage assembly",
+   "placement": {
+    "local_e": 1369.475,
+    "local_n": -3123.385,
+    "rotation_deg": -0.581
+   },
+   "doors": [
+    {
+     "id": "house_1712_prairie:front",
+     "leaf": {
+      "local_e": 1381.51,
+      "local_n": -3121.31
+     },
+     "step": {
+      "local_e": 1391.35,
+      "local_n": -3121.21
+     },
+     "outward_deg": 89.4,
+     "width_m": 1.2,
+     "reconstructed": "Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed."
+    }
+   ],
+   "asset_sha256": "6e4aeefb03e5387664609c32a356430011b2a6f396e149ba06884cc58a2cbfaa"
+  },
+  {
+   "structure": "house_1726_prairie",
+   "name": "1726 Prairie Avenue \u2014 brick house of two and a half storeys with its canted bays, K01 frontage assembly",
+   "placement": {
+    "local_e": 1360.273,
+    "local_n": -3166.528,
+    "rotation_deg": -0.582
+   },
+   "doors": [
+    {
+     "id": "house_1726_prairie:front",
+     "leaf": {
+      "local_e": 1381.62,
+      "local_n": -3159.71
+     },
+     "step": {
+      "local_e": 1391.77,
+      "local_n": -3159.61
+     },
+     "outward_deg": 89.4,
+     "width_m": 1.2,
+     "reconstructed": "Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed."
+    }
+   ],
+   "asset_sha256": "f163f1e5b439f8fbf41c0c0f313779a9b205661afef1696431f1643f93a80ef4"
+  },
+  {
+   "structure": "house_1730_prairie",
+   "name": "1730 Prairie Avenue \u2014 brick house under a mansard with its two-storey rear range, K01 frontage assembly",
+   "placement": {
+    "local_e": 1369.543,
+    "local_n": -3178.716,
+    "rotation_deg": -0.582
+   },
+   "doors": [
+    {
+     "id": "house_1730_prairie:front",
+     "leaf": {
+      "local_e": 1381.85,
+      "local_n": -3176.99
+     },
+     "step": {
+      "local_e": 1391.98,
+      "local_n": -3176.89
+     },
+     "outward_deg": 89.4,
+     "width_m": 1.2,
+     "reconstructed": "Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed."
+    }
+   ],
+   "asset_sha256": "7d53403c1112142d9a67bcae20bb507b2a2dff8dc6f87a58fc20de297ded0b33"
+  },
+  {
+   "structure": "house_1736_prairie",
+   "name": "1736 Prairie Avenue \u2014 the Ingraham/McBirney house, its veranda front from the c. 1890 photograph, K01 frontage assembly",
+   "placement": {
+    "local_e": 1359.105,
+    "local_n": -3195.844,
+    "rotation_deg": -0.618
+   },
+   "doors": [
+    {
+     "id": "house_1736_prairie:front",
+     "leaf": {
+      "local_e": 1382.16,
+      "local_n": -3190.12
+     },
+     "step": {
+      "local_e": 1392.42,
+      "local_n": -3190.01
+     },
+     "outward_deg": 89.4,
+     "width_m": 1.2,
+     "reconstructed": "Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed."
+    }
+   ],
+   "asset_sha256": "b51f4372a2b81305a81ce16d861d07b330773c855bc3998990f0a8f33ad18685"
+  },
+  {
+   "structure": "house_1828_prairie",
+   "name": "1828 Prairie Avenue \u2014 Daniel B. Shipman house",
+   "placement": {
+    "local_e": 1365.981,
+    "local_n": -3313.353,
+    "rotation_deg": -0.621
+   },
+   "doors": [
+    {
+     "id": "house_1828_prairie:front",
+     "leaf": {
+      "local_e": 1385.13,
+      "local_n": -3307.05
+     },
+     "step": {
+      "local_e": 1393.65,
+      "local_n": -3306.95
+     },
+     "outward_deg": 89.4,
+     "width_m": 1.2,
+     "reconstructed": "Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed."
+    }
+   ],
+   "asset_sha256": "0e4dc9d12d64a45efb95fbf5c889a8d2d79074583cff249a9451e00949151062"
+  },
+  {
+   "structure": "house_2000_prairie",
+   "name": "2000 Prairie Avenue \u2014 Frame dwelling, K16 clapboard",
+   "placement": {
+    "local_e": 1362.469,
+    "local_n": -3491.778,
+    "rotation_deg": -0.593
+   },
+   "doors": [
+    {
+     "id": "house_2000_prairie:front",
+     "leaf": {
+      "local_e": 1378.6,
+      "local_n": -3488.71
+     },
+     "step": {
+      "local_e": 1379.3,
+      "local_n": -3488.7
+     },
+     "outward_deg": 89.4,
+     "width_m": 1.2,
+     "reconstructed": "No separate front leaf is modelled in this draft. A reconstructed entrance is placed at the middle of the street-facing front (the plan u axis); the survey does not attest a doorway here."
+    }
+   ],
+   "asset_sha256": "8fbc56fd60d5a150b7f72dd141a234af87a314ce238debe432ef287b30dc93fb"
+  },
+  {
+   "structure": "house_2001_prairie",
+   "name": "2001 Prairie Avenue \u2014 stone-front corner house of two and a half storeys on 20th Street, K01 frontage assembly",
+   "placement": {
+    "local_e": 1441.568,
+    "local_n": -3482.545,
+    "rotation_deg": 179.399
+   },
+   "doors": [
+    {
+     "id": "house_2001_prairie:front",
+     "leaf": {
+      "local_e": 1422.71,
+      "local_n": -3483.79
+     },
+     "step": {
+      "local_e": 1414.39,
+      "local_n": -3483.88
+     },
+     "outward_deg": 269.4,
+     "width_m": 1.2,
+     "reconstructed": "Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed."
+    }
+   ],
+   "asset_sha256": "1adf4b08fe0db82b8b1760ab3381e39a3f5ea5a2cff0ed1f666ee59692558bf0"
+  },
+  {
+   "structure": "house_2003_prairie",
+   "name": "2003 Prairie Avenue \u2014 three-storey brick house with a curved front bay, the north half of the pair with 2005, K01 frontage assembly",
+   "placement": {
+    "local_e": 1441.136,
+    "local_n": -3489.24,
+    "rotation_deg": 179.383
+   },
+   "doors": [
+    {
+     "id": "house_2003_prairie:front",
+     "leaf": {
+      "local_e": 1422.67,
+      "local_n": -3490.09
+     },
+     "step": {
+      "local_e": 1414.22,
+      "local_n": -3490.18
+     },
+     "outward_deg": 269.4,
+     "width_m": 1.2,
+     "reconstructed": "Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed."
+    }
+   ],
+   "asset_sha256": "7ca3edd089c32b9295a4cf7003bb0a4e491d1eeaf4680fd37c209e2d26a61c59"
+  },
+  {
+   "structure": "house_2005_prairie",
+   "name": "2005 Prairie Avenue \u2014 three-storey brick house with a curved front bay, the south half of the pair with 2003, K01 frontage assembly",
+   "placement": {
+    "local_e": 1440.891,
+    "local_n": -3496.156,
+    "rotation_deg": 179.388
+   },
+   "doors": [
+    {
+     "id": "house_2005_prairie:front",
+     "leaf": {
+      "local_e": 1422.49,
+      "local_n": -3502.31
+     },
+     "step": {
+      "local_e": 1414.04,
+      "local_n": -3502.4
+     },
+     "outward_deg": 269.4,
+     "width_m": 1.2,
+     "reconstructed": "Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed."
+    }
+   ],
+   "asset_sha256": "bc794b404574e6656a4c0fd25456cfcbc94cdabc3adc858798facc28db2a6deb"
+  },
+  {
+   "structure": "house_2010_prairie",
+   "name": "2010 Prairie Avenue \u2014 Frame dwelling, K16 clapboard",
+   "placement": {
+    "local_e": 1364.479,
+    "local_n": -3516.884,
+    "rotation_deg": -0.593
+   },
+   "doors": [
+    {
+     "id": "house_2010_prairie:front",
+     "leaf": {
+      "local_e": 1378.94,
+      "local_n": -3513.18
+     },
+     "step": {
+      "local_e": 1379.64,
+      "local_n": -3513.17
+     },
+     "outward_deg": 89.4,
+     "width_m": 1.2,
+     "reconstructed": "No separate front leaf is modelled in this draft. A reconstructed entrance is placed at the middle of the street-facing front (the plan u axis); the survey does not attest a doorway here."
+    }
+   ],
+   "asset_sha256": "47185a95e8531177947fe61fbd76f130423d8c10df49a39808f0a1cad9b79cd3"
+  },
+  {
+   "structure": "house_2011_prairie",
+   "name": "2011 Prairie Avenue \u2014 Romanesque neighbour of Mayer (district draft; refined by T-1915)",
+   "placement": {
+    "local_e": 1449.646,
+    "local_n": -3511.93,
+    "rotation_deg": 179.383
+   },
+   "doors": [
+    {
+     "id": "house_2011_prairie:front",
+     "leaf": {
+      "local_e": 1426.68,
+      "local_n": -3514.93
+     },
+     "step": {
+      "local_e": 1425.98,
+      "local_n": -3514.94
+     },
+     "outward_deg": 269.4,
+     "width_m": 1.2,
+     "reconstructed": "No separate front leaf is modelled in this draft. A reconstructed entrance is placed at the middle of the street-facing front (the plan u axis); the survey does not attest a doorway here."
+    }
+   ],
+   "asset_sha256": "48614d99b8cebb6839aeb2ab55a90e4ffd15a158c34a728a2bd16f6ee4cad384"
+  },
+  {
+   "structure": "house_2017_prairie",
+   "name": "2017 Prairie Avenue \u2014 Stone-front masonry (district draft; refined by T-1917)",
+   "placement": {
+    "local_e": 1441.061,
+    "local_n": -3530.462,
+    "rotation_deg": 179.389
+   },
+   "doors": [
+    {
+     "id": "house_2017_prairie:front",
+     "leaf": {
+      "local_e": 1424.62,
+      "local_n": -3535.76
+     },
+     "step": {
+      "local_e": 1423.92,
+      "local_n": -3535.77
+     },
+     "outward_deg": 269.4,
+     "width_m": 1.2,
+     "reconstructed": "No separate front leaf is modelled in this draft. A reconstructed entrance is placed at the middle of the street-facing front (the plan u axis); the survey does not attest a doorway here."
+    }
+   ],
+   "asset_sha256": "df741bd49f4658bc76fb2865dccef57d759f6167c8b6ec74c13d672b4bfebdcc"
+  },
+  {
+   "structure": "house_2018_prairie",
+   "name": "2018 Prairie Avenue \u2014 Stone-front masonry (district draft; refined by T-1910)",
+   "placement": {
+    "local_e": 1361.235,
+    "local_n": -3541.669,
+    "rotation_deg": -0.593
+   },
+   "doors": [
+    {
+     "id": "house_2018_prairie:front",
+     "leaf": {
+      "local_e": 1382.46,
+      "local_n": -3538.7
+     },
+     "step": {
+      "local_e": 1383.16,
+      "local_n": -3538.69
+     },
+     "outward_deg": 89.4,
+     "width_m": 1.2,
+     "reconstructed": "No separate front leaf is modelled in this draft. A reconstructed entrance is placed at the middle of the street-facing front (the plan u axis); the survey does not attest a doorway here."
+    }
+   ],
+   "asset_sha256": "40ee0f35e2e862a379bf132c22f7fa1258610ed36ba189b290bfd22b512fe1bc"
+  },
+  {
+   "structure": "house_2026_prairie",
+   "name": "2026 Prairie Avenue \u2014 Stone-front masonry (district draft; refined by T-1910)",
+   "placement": {
+    "local_e": 1371.172,
+    "local_n": -3559.522,
+    "rotation_deg": -0.612
+   },
+   "doors": [
+    {
+     "id": "house_2026_prairie:front",
+     "leaf": {
+      "local_e": 1382.87,
+      "local_n": -3554.27
+     },
+     "step": {
+      "local_e": 1383.57,
+      "local_n": -3554.26
+     },
+     "outward_deg": 89.4,
+     "width_m": 1.2,
+     "reconstructed": "No separate front leaf is modelled in this draft. A reconstructed entrance is placed at the middle of the street-facing front (the plan u axis); the survey does not attest a doorway here."
+    }
+   ],
+   "asset_sha256": "f662d7ecaa7a7f4e1c83701471a21501eb63207c9758e029f430777c4014111a"
+  },
+  {
+   "structure": "house_2027_prairie",
+   "name": "2027 Prairie Avenue \u2014 Cobb-associated map-led villa (district draft; refined by T-1917)",
+   "placement": {
+    "local_e": 1446.838,
+    "local_n": -3560.703,
+    "rotation_deg": 179.389
+   },
+   "doors": [
+    {
+     "id": "house_2027_prairie:front",
+     "leaf": {
+      "local_e": 1424.4,
+      "local_n": -3566.69
+     },
+     "step": {
+      "local_e": 1423.7,
+      "local_n": -3566.7
+     },
+     "outward_deg": 269.4,
+     "width_m": 1.2,
+     "reconstructed": "No separate front leaf is modelled in this draft. A reconstructed entrance is placed at the middle of the street-facing front (the plan u axis); the survey does not attest a doorway here."
+    }
+   ],
+   "asset_sha256": "e933189342846e5d201631216d256b2f4db35e22fd0c2bfa799b0e63b311d131"
+  },
+  {
+   "structure": "house_2101_prairie",
+   "name": "2101 Prairie Avenue \u2014 Brick masonry (district draft; refined by T-1924)",
+   "placement": {
+    "local_e": 1445.103,
+    "local_n": -3617.722,
+    "rotation_deg": 179.38
+   },
+   "doors": [
+    {
+     "id": "house_2101_prairie:front",
+     "leaf": {
+      "local_e": 1424.66,
+      "local_n": -3622.82
+     },
+     "step": {
+      "local_e": 1423.96,
+      "local_n": -3622.83
+     },
+     "outward_deg": 269.4,
+     "width_m": 1.2,
+     "reconstructed": "No separate front leaf is modelled in this draft. A reconstructed entrance is placed at the middle of the street-facing front (the plan u axis); the survey does not attest a doorway here."
+    }
+   ],
+   "asset_sha256": "041521ea1fbca918eacd259601147f8a85705f7eab66fd86152506402e920e7c"
+  },
+  {
+   "structure": "house_2120_prairie",
+   "name": "2120 Prairie Avenue \u2014 Brick masonry (district draft; refined by T-1926)",
+   "placement": {
+    "local_e": 1373.102,
+    "local_n": -3683.478,
+    "rotation_deg": -0.685
+   },
+   "doors": [
+    {
+     "id": "house_2120_prairie:front",
+     "leaf": {
+      "local_e": 1389.29,
+      "local_n": -3677.78
+     },
+     "step": {
+      "local_e": 1389.99,
+      "local_n": -3677.78
+     },
+     "outward_deg": 89.3,
+     "width_m": 1.2,
+     "reconstructed": "No separate front leaf is modelled in this draft. A reconstructed entrance is placed at the middle of the street-facing front (the plan u axis); the survey does not attest a doorway here."
+    }
+   ],
+   "asset_sha256": "49cfbe2dc8aff7f6e887e029922bb5746a261b5b2d6c165f4bdf82a8cf1e2c9d"
+  },
+  {
+   "structure": "house_2123_prairie",
+   "name": "2123 Prairie Avenue \u2014 Stone-front masonry (district draft; refined by T-1930)",
+   "placement": {
+    "local_e": 1443.141,
+    "local_n": -3675.389,
+    "rotation_deg": 179.318
+   },
+   "doors": [
+    {
+     "id": "house_2123_prairie:front",
+     "leaf": {
+      "local_e": 1427.93,
+      "local_n": -3678.45
+     },
+     "step": {
+      "local_e": 1427.23,
+      "local_n": -3678.45
+     },
+     "outward_deg": 269.3,
+     "width_m": 1.2,
+     "reconstructed": "No separate front leaf is modelled in this draft. A reconstructed entrance is placed at the middle of the street-facing front (the plan u axis); the survey does not attest a doorway here."
+    }
+   ],
+   "asset_sha256": "951cfb738330b7a14f893e0f76f7aec38297efd7b40127943022e5951fad959d"
+  },
+  {
+   "structure": "jones_house_1834_prairie",
+   "name": "1834 Prairie Avenue \u2014 Fernando Jones house",
+   "placement": {
+    "local_e": 1363.446,
+    "local_n": -3330.041,
+    "rotation_deg": -0.616
+   },
+   "doors": [
+    {
+     "id": "jones_house_1834_prairie:front",
+     "leaf": {
+      "local_e": 1385.19,
+      "local_n": -3326.31
+     },
+     "step": {
+      "local_e": 1393.04,
+      "local_n": -3326.22
+     },
+     "outward_deg": 89.4,
+     "width_m": 1.4,
+     "reconstructed": "Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed."
+    }
+   ],
+   "asset_sha256": "f6680d7b6a231d4cb2f5a307180e34b87d01c931a9bf700ad2af49e7ed5c476e"
+  },
+  {
+   "structure": "keith_house_1808_prairie",
+   "name": "Osborn R. Keith house (1808 Prairie Avenue), K01 frontage assembly",
+   "placement": {
+    "local_e": 1369.959,
+    "local_n": -3250.476,
+    "rotation_deg": -0.669
+   },
+   "doors": [
+    {
+     "id": "keith_house_1808_prairie:front",
+     "leaf": {
+      "local_e": 1387.68,
+      "local_n": -3241.57
+     },
+     "step": {
+      "local_e": 1393.31,
+      "local_n": -3241.5
+     },
+     "outward_deg": 89.3,
+     "width_m": 1.2,
+     "reconstructed": "Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed."
+    }
+   ],
+   "asset_sha256": "b0540e5073db2f881cee936bf62b2ae16288f7c4dabca64866d92fb18a9dbc7f"
+  },
+  {
+   "structure": "kellogg_house_1709_prairie",
+   "name": "1709 Prairie Avenue \u2014 Palmer Kellogg successor, K01 frontage assembly from the 1893 drawing and the 1911 sheet",
+   "placement": {
+    "local_e": 1433.47,
+    "local_n": -3101.38,
+    "rotation_deg": 179.609
+   },
+   "doors": [
+    {
+     "id": "kellogg_house_1709_prairie:front",
+     "leaf": {
+      "local_e": 1418.53,
+      "local_n": -3103.38
+     },
+     "step": {
+      "local_e": 1410.11,
+      "local_n": -3103.44
+     },
+     "outward_deg": 269.6,
+     "width_m": 1.2,
+     "reconstructed": "Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed."
+    }
+   ],
+   "asset_sha256": "f83546f37a248303f50220c01a59b573c1bf50b8f3ddebccb5b2a507df5373a9"
+  },
+  {
+   "structure": "kellogg_house_1923_prairie",
+   "name": "1923 Prairie Avenue \u2014 the Kellogg house (brick, under a mansard)",
+   "placement": {
+    "local_e": 1435.8,
+    "local_n": -3416.0,
+    "rotation_deg": 179.445
+   },
+   "doors": [
+    {
+     "id": "kellogg_house_1923_prairie:front",
+     "leaf": {
+      "local_e": 1423.67,
+      "local_n": -3425.12
+     },
+     "step": {
+      "local_e": 1413.34,
+      "local_n": -3425.22
+     },
+     "outward_deg": 269.4,
+     "width_m": 1.2,
+     "reconstructed": "Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed."
+    }
+   ],
+   "asset_sha256": "f9acf4819c0b78868aa93fa09fe2de1fdc2fb15423e852bb13bc72991c350caf"
+  },
+  {
+   "structure": "kimball_house_1801_prairie",
+   "name": "1801 Prairie Avenue \u2014 W. W. Kimball's Chateauesque house in Bedford stone, built on K01 at the massing J. W. Taylor's c. 1895 photograph shows (T-2538, moved onto the kit by T-2843; refined by T-2910, T-2911, T-2540, T-1890)",
+   "placement": {
+    "local_e": 1440.086,
+    "local_n": -3217.467,
+    "rotation_deg": 179.454
+   },
+   "doors": [
+    {
+     "id": "kimball_house_1801_prairie:front",
+     "leaf": {
+      "local_e": 1422.42,
+      "local_n": -3219.24
+     },
+     "step": {
+      "local_e": 1411.2,
+      "local_n": -3219.34
+     },
+     "outward_deg": 269.5,
+     "width_m": 1.5,
+     "reconstructed": "Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed."
+    }
+   ],
+   "asset_sha256": "b93b8278faf4c7a2a0397201ad8c59c808d55c14244d03277bdcb84aab7bb3cd"
+  },
+  {
+   "structure": "law_house_1620_prairie",
+   "name": "1620 Prairie Avenue \u2014 Robert Law house restored for 1904",
+   "placement": {
+    "local_e": 1366.874,
+    "local_n": -3022.849,
+    "rotation_deg": -0.579
+   },
+   "doors": [
+    {
+     "id": "law_house_1620_prairie:front",
+     "leaf": {
+      "local_e": 1383.38,
+      "local_n": -3016.76
+     },
+     "step": {
+      "local_e": 1390.5,
+      "local_n": -3016.68
+     },
+     "outward_deg": 89.4,
+     "width_m": 1.2,
+     "reconstructed": "Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed."
+    }
+   ],
+   "asset_sha256": "c77f06750bca66ad29d9f2f299e36b8a913befb858dfed9d7a4de5d0e2c19768"
+  },
+  {
+   "structure": "marsh_house_1824_prairie",
+   "name": "1824 Prairie Avenue \u2014 Pomeroy/Marsh house (the 1857 villa refaced in stone after 1880)",
+   "placement": {
+    "local_e": 1371.506,
+    "local_n": -3296.338,
+    "rotation_deg": -0.627
+   },
+   "doors": [
+    {
+     "id": "marsh_house_1824_prairie:front",
+     "leaf": {
+      "local_e": 1383.35,
+      "local_n": -3289.06
+     },
+     "step": {
+      "local_e": 1393.48,
+      "local_n": -3288.95
+     },
+     "outward_deg": 89.4,
+     "width_m": 1.2,
+     "reconstructed": "Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed."
+    }
+   ],
+   "asset_sha256": "d9a8ea0377aab41ff6e660525064d8309157a5b0bfa8099cd909700da3aa8b0b"
+  },
+  {
+   "structure": "marshall_field_house_1905_prairie",
+   "name": "1905 Prairie Avenue \u2014 the Marshall Field house (Second Empire)",
+   "placement": {
+    "local_e": 1443.678,
+    "local_n": -3356.596,
+    "rotation_deg": 179.444
+   },
+   "doors": [
+    {
+     "id": "marshall_field_house_1905_prairie:front",
+     "leaf": {
+      "local_e": 1422.93,
+      "local_n": -3364.45
+     },
+     "step": {
+      "local_e": 1412.65,
+      "local_n": -3364.55
+     },
+     "outward_deg": 269.4,
+     "width_m": 1.2,
+     "reconstructed": "Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed."
+    }
+   ],
+   "asset_sha256": "883f2c0854fccc1abbe88160dc85a1fc133901a9011f9c50d6b35bbfaa1a22c6"
+  },
+  {
+   "structure": "marshall_field_jr_house_1919_prairie",
+   "name": "1919 Prairie Avenue \u2014 Marshall Field Jr. house, after its 1902 enlargement, K01 frontage assembly",
+   "placement": {
+    "local_e": 1440.132,
+    "local_n": -3404.084,
+    "rotation_deg": 179.445
+   },
+   "doors": [
+    {
+     "id": "marshall_field_jr_house_1919_prairie:front",
+     "leaf": {
+      "local_e": 1422.28,
+      "local_n": -3412.91
+     },
+     "step": {
+      "local_e": 1413.14,
+      "local_n": -3413.0
+     },
+     "outward_deg": 269.4,
+     "width_m": 1.3,
+     "reconstructed": "Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed."
+    }
+   ],
+   "asset_sha256": "634a1d1ed99a1c15016ef60393780ad118d8310767a3ddac417427d92af2ffee"
+  },
+  {
+   "structure": "mayer_house_2009_prairie",
+   "name": "2009 Prairie Avenue \u2014 the Max A. Meyer house, Burnham & Root's French Gothic rowhouse (T-1913; detailing T-1914)",
+   "placement": {
+    "local_e": 1448.216,
+    "local_n": -3504.619,
+    "rotation_deg": 179.389
+   },
+   "doors": [
+    {
+     "id": "mayer_house_2009_prairie:front",
+     "leaf": {
+      "local_e": 1422.68,
+      "local_n": -3511.07
+     },
+     "step": {
+      "local_e": 1414.56,
+      "local_n": -3511.16
+     },
+     "outward_deg": 269.4,
+     "width_m": 1.08,
+     "reconstructed": "Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed."
+    }
+   ],
+   "asset_sha256": "79e533edd65c1e6e4c4485220774634fc99b3ade128ec5c33531d35d5323f15a"
+  },
+  {
+   "structure": "moulton_lowden_house_1912_prairie",
+   "name": "1912 Prairie Avenue \u2014 the Moulton/Lowden house (Chateauesque stone front)",
+   "placement": {
+    "local_e": 1365.764,
+    "local_n": -3401.08,
+    "rotation_deg": -0.622
+   },
+   "doors": [
+    {
+     "id": "moulton_lowden_house_1912_prairie:front",
+     "leaf": {
+      "local_e": 1385.42,
+      "local_n": -3389.47
+     },
+     "step": {
+      "local_e": 1394.48,
+      "local_n": -3389.37
+     },
+     "outward_deg": 89.4,
+     "width_m": 1.7,
+     "reconstructed": "Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed."
+    }
+   ],
+   "asset_sha256": "a6abfe04b79118a9a8a0fa8b2e0a0433ac2fba0d76c2b45a51805584a4755b66"
+  },
+  {
+   "structure": "otis_house_2033_prairie",
+   "name": "2033 Prairie Avenue \u2014 Otis Italianate rowhouse (district draft; refined by T-1918)",
+   "placement": {
+    "local_e": 1436.545,
+    "local_n": -3582.098,
+    "rotation_deg": 179.385
+   },
+   "doors": [
+    {
+     "id": "otis_house_2033_prairie:front",
+     "leaf": {
+      "local_e": 1424.08,
+      "local_n": -3585.48
+     },
+     "step": {
+      "local_e": 1423.38,
+      "local_n": -3585.49
+     },
+     "outward_deg": 269.4,
+     "width_m": 1.2,
+     "reconstructed": "No separate front leaf is modelled in this draft. A reconstructed entrance is placed at the middle of the street-facing front (the plan u axis); the survey does not attest a doorway here."
+    }
+   ],
+   "asset_sha256": "7e5e6ff9d365987c8ca0266332847398730f48b92e67b159755554898a0ccda4"
+  },
+  {
+   "structure": "pullman_house_1729_prairie",
+   "name": "1729 Prairie Avenue \u2014 the George M. Pullman house (K01; refined by T-1881)",
+   "placement": {
+    "local_e": 1456.371,
+    "local_n": -3167.542,
+    "rotation_deg": 179.611
+   },
+   "doors": [
+    {
+     "id": "pullman_house_1729_prairie:front",
+     "leaf": {
+      "local_e": 1427.25,
+      "local_n": -3174.61
+     },
+     "step": {
+      "local_e": 1410.89,
+      "local_n": -3174.73
+     },
+     "outward_deg": 269.6,
+     "width_m": 1.2,
+     "reconstructed": "Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed."
+    }
+   ],
+   "asset_sha256": "968ac3f1a0a55b4c5a44645336d4ce0b08a24dc1971398cb7d6a4181d557528b"
+  },
+  {
+   "structure": "ream_house_1901_prairie",
+   "name": "1901 Prairie Avenue \u2014 Norman B. Ream house",
+   "placement": {
+    "local_e": 1444.736,
+    "local_n": -3322.914,
+    "rotation_deg": 179.444
+   },
+   "doors": [
+    {
+     "id": "ream_house_1901_prairie:front",
+     "leaf": {
+      "local_e": 1422.58,
+      "local_n": -3329.73
+     },
+     "step": {
+      "local_e": 1412.35,
+      "local_n": -3329.83
+     },
+     "outward_deg": 269.4,
+     "width_m": 1.2,
+     "reconstructed": "Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed."
+    }
+   ],
+   "asset_sha256": "8ec22ad318ac1cf14da2aa8de4a4cc88f18eee7afd94a098d414d7b72cb10bb3"
+  },
+  {
+   "structure": "rees_house_2110_prairie",
+   "name": "2110 Prairie Avenue \u2014 Rees Romanesque narrow house (district draft; refined by T-1922, T-1923)",
+   "placement": {
+    "local_e": 1366.94,
+    "local_n": -3654.687,
+    "rotation_deg": -0.682
+   },
+   "doors": [
+    {
+     "id": "rees_house_2110_prairie:front",
+     "leaf": {
+      "local_e": 1386.9,
+      "local_n": -3651.32
+     },
+     "step": {
+      "local_e": 1387.6,
+      "local_n": -3651.32
+     },
+     "outward_deg": 89.3,
+     "width_m": 1.2,
+     "reconstructed": "No separate front leaf is modelled in this draft. A reconstructed entrance is placed at the middle of the street-facing front (the plan u axis); the survey does not attest a doorway here."
+    }
+   ],
+   "asset_sha256": "979d45cc172bc3900eab7a61557933bac634816deeb50208645be2df96d7f607"
+  },
+  {
+   "structure": "reid_house_2013_prairie",
+   "name": "2013 Prairie Avenue \u2014 Reid classical/fireproof townhouse (district draft; refined by T-1916)",
+   "placement": {
+    "local_e": 1440.741,
+    "local_n": -3522.122,
+    "rotation_deg": 179.383
+   },
+   "doors": [
+    {
+     "id": "reid_house_2013_prairie:front",
+     "leaf": {
+      "local_e": 1422.77,
+      "local_n": -3525.07
+     },
+     "step": {
+      "local_e": 1422.07,
+      "local_n": -3525.07
+     },
+     "outward_deg": 269.4,
+     "width_m": 1.2,
+     "reconstructed": "No separate front leaf is modelled in this draft. A reconstructed entrance is placed at the middle of the street-facing front (the plan u axis); the survey does not attest a doorway here."
+    }
+   ],
+   "asset_sha256": "eee6798740e2682abe9fce7eb87ead8c97ebe54f99eedd113113da70300ca550"
+  },
+  {
+   "structure": "robbins_house_2126_prairie",
+   "name": "2126 Prairie Avenue \u2014 Robbins Georgian/Federal transition (district draft; refined by T-1926)",
+   "placement": {
+    "local_e": 1377.195,
+    "local_n": -3700.375,
+    "rotation_deg": -0.685
+   },
+   "doors": [
+    {
+     "id": "robbins_house_2126_prairie:front",
+     "leaf": {
+      "local_e": 1388.39,
+      "local_n": -3695.49
+     },
+     "step": {
+      "local_e": 1389.09,
+      "local_n": -3695.48
+     },
+     "outward_deg": 89.3,
+     "width_m": 1.2,
+     "reconstructed": "No separate front leaf is modelled in this draft. A reconstructed entrance is placed at the middle of the street-facing front (the plan u axis); the survey does not attest a doorway here."
+    }
+   ],
+   "asset_sha256": "dee713ab16c611012dfde516c72f33f5696e9b87050fd9d74bf0dbdf31b7f8f2"
+  },
+  {
+   "structure": "roloson_house_2109_prairie",
+   "name": "2109 Prairie Avenue \u2014 Roloson partly seen in Armour photograph (district draft; refined by T-1924)",
+   "placement": {
+    "local_e": 1436.332,
+    "local_n": -3642.51,
+    "rotation_deg": 179.312
+   },
+   "doors": [
+    {
+     "id": "roloson_house_2109_prairie:front",
+     "leaf": {
+      "local_e": 1427.37,
+      "local_n": -3645.37
+     },
+     "step": {
+      "local_e": 1426.67,
+      "local_n": -3645.38
+     },
+     "outward_deg": 269.3,
+     "width_m": 1.2,
+     "reconstructed": "No separate front leaf is modelled in this draft. A reconstructed entrance is placed at the middle of the street-facing front (the plan u axis); the survey does not attest a doorway here."
+    }
+   ],
+   "asset_sha256": "464598ae39c2e9334fb1aa3cbcfd30eecfa59abdaaf27e211575f783bdd0ee0a"
+  },
+  {
+   "structure": "rothschild_house_2112_prairie",
+   "name": "2112 Prairie Avenue \u2014 Rothschild stone-front townhouse (district draft; refined by T-1921)",
+   "placement": {
+    "local_e": 1365.25,
+    "local_n": -3666.258,
+    "rotation_deg": -0.681
+   },
+   "doors": [
+    {
+     "id": "rothschild_house_2112_prairie:front",
+     "leaf": {
+      "local_e": 1376.45,
+      "local_n": -3662.12
+     },
+     "step": {
+      "local_e": 1377.15,
+      "local_n": -3662.12
+     },
+     "outward_deg": 89.3,
+     "width_m": 1.2,
+     "reconstructed": "No separate front leaf is modelled in this draft. A reconstructed entrance is placed at the middle of the street-facing front (the plan u axis); the survey does not attest a doorway here."
+    }
+   ],
+   "asset_sha256": "3dc9cb7dcd00a42f7fb7cb223bcaf1fcde7c4efdea148c154177c9e92ddd90ef"
+  },
+  {
+   "structure": "sears_meeker_house_1815_prairie",
+   "name": "1815 Prairie Avenue \u2014 Joseph Sears house (Arthur Meeker's from 1893)",
+   "placement": {
+    "local_e": 1439.098,
+    "local_n": -3260.209,
+    "rotation_deg": 179.45
+   },
+   "doors": [
+    {
+     "id": "sears_meeker_house_1815_prairie:front",
+     "leaf": {
+      "local_e": 1421.85,
+      "local_n": -3263.73
+     },
+     "step": {
+      "local_e": 1411.64,
+      "local_n": -3263.83
+     },
+     "outward_deg": 269.4,
+     "width_m": 1.2,
+     "reconstructed": "Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed."
+    }
+   ],
+   "asset_sha256": "bcfedb456fda25e70f28c54a73f8ae6a6ca824bef4281858e5eecfd6c904bf05"
+  },
+  {
+   "structure": "shortall_gregory_house_1638_prairie_front",
+   "name": "Shortall-Gregory house (1638 Prairie Avenue): the K16 timber house",
+   "placement": {
+    "local_e": 1379.347,
+    "local_n": -3077.663,
+    "rotation_deg": -0.815
+   },
+   "doors": [
+    {
+     "id": "shortall_gregory_house_1638_prairie_front:front",
+     "leaf": {
+      "local_e": 1380.41,
+      "local_n": -3075.08
+     },
+     "step": {
+      "local_e": 1381.11,
+      "local_n": -3075.07
+     },
+     "outward_deg": 89.2,
+     "width_m": 1.2,
+     "reconstructed": "No separate front leaf is modelled in this draft. A reconstructed entrance is placed at the middle of the street-facing front (the plan u axis); the survey does not attest a doorway here."
+    }
+   ],
+   "asset_sha256": "6a0ccb97bf5abbbd5ec723e6f0f36856f3941857948db82a5c86ea79ca950f21"
+  },
+  {
+   "structure": "spalding_house_1637_prairie",
+   "name": "1637 Prairie Avenue \u2014 Jesse Spalding's remodel of the Grosvenor house, K01 frontage assembly",
+   "placement": {
+    "local_e": 1431.387,
+    "local_n": -3053.109,
+    "rotation_deg": 179.603
+   },
+   "doors": [
+    {
+     "id": "spalding_house_1637_prairie:front",
+     "leaf": {
+      "local_e": 1420.61,
+      "local_n": -3059.89
+     },
+     "step": {
+      "local_e": 1409.53,
+      "local_n": -3059.97
+     },
+     "outward_deg": 269.6,
+     "width_m": 1.2,
+     "reconstructed": "Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed."
+    }
+   ],
+   "asset_sha256": "1af0946376bb00f27498c4303bfb8eab3ef8b791b4e9181ef48f01a5875de897"
+  },
+  {
+   "structure": "stone_house_2035_prairie",
+   "name": "2035 Prairie Avenue \u2014 Corner of limestone row (district draft; refined by T-1918)",
+   "placement": {
+    "local_e": 1439.614,
+    "local_n": -3589.747,
+    "rotation_deg": 179.364
+   },
+   "doors": [
+    {
+     "id": "stone_house_2035_prairie:front",
+     "leaf": {
+      "local_e": 1425.65,
+      "local_n": -3592.65
+     },
+     "step": {
+      "local_e": 1424.95,
+      "local_n": -3592.66
+     },
+     "outward_deg": 269.4,
+     "width_m": 1.2,
+     "reconstructed": "No separate front leaf is modelled in this draft. A reconstructed entrance is placed at the middle of the street-facing front (the plan u axis); the survey does not attest a doorway here."
+    }
+   ],
+   "asset_sha256": "e8bbac5226b012e8fab0dadcb54f8fb42f457c4bed67b2b3dd3081f0d32c665d"
+  },
+  {
+   "structure": "tolman_house_2031_prairie",
+   "name": "2031 Prairie Avenue \u2014 Lemont-limestone Italianate row (district draft; refined by T-1918)",
+   "placement": {
+    "local_e": 1436.465,
+    "local_n": -3573.84,
+    "rotation_deg": 179.39
+   },
+   "doors": [
+    {
+     "id": "tolman_house_2031_prairie:front",
+     "leaf": {
+      "local_e": 1424.75,
+      "local_n": -3577.34
+     },
+     "step": {
+      "local_e": 1424.05,
+      "local_n": -3577.35
+     },
+     "outward_deg": 269.4,
+     "width_m": 1.2,
+     "reconstructed": "No separate front leaf is modelled in this draft. A reconstructed entrance is placed at the middle of the street-facing front (the plan u axis); the survey does not attest a doorway here."
+    }
+   ],
+   "asset_sha256": "dcf223696f3441a3893b36281d703b1089c7a95c595433b819823b85725e698b"
+  },
+  {
+   "structure": "tucker_smith_house_2140_prairie",
+   "name": "2140 Prairie Avenue \u2014 Tucker/Smith polychrome corner mansion (district draft; refined by T-1928, T-1929)",
+   "placement": {
+    "local_e": 1380.935,
+    "local_n": -3740.198,
+    "rotation_deg": -0.751
+   },
+   "doors": [
+    {
+     "id": "tucker_smith_house_2140_prairie:front",
+     "leaf": {
+      "local_e": 1389.33,
+      "local_n": -3731.96
+     },
+     "step": {
+      "local_e": 1390.03,
+      "local_n": -3731.95
+     },
+     "outward_deg": 89.2,
+     "width_m": 1.2,
+     "reconstructed": "No separate front leaf is modelled in this draft. A reconstructed entrance is placed at the middle of the street-facing front (the plan u axis); the survey does not attest a doorway here."
+    }
+   ],
+   "asset_sha256": "e42479eb5b2725b6aace80d3c370b571c917362140f0268a42dd7be01587f993"
+  },
+  {
+   "structure": "walker_house_1720_prairie",
+   "name": "1720 Prairie Avenue \u2014 Tyrrell/Walker Italianate frame, K16 clapboard",
+   "placement": {
+    "local_e": 1359.651,
+    "local_n": -3140.252,
+    "rotation_deg": -0.581
+   },
+   "doors": [
+    {
+     "id": "walker_house_1720_prairie:front",
+     "leaf": {
+      "local_e": 1381.85,
+      "local_n": -3135.03
+     },
+     "step": {
+      "local_e": 1382.55,
+      "local_n": -3135.02
+     },
+     "outward_deg": 89.4,
+     "width_m": 1.2,
+     "reconstructed": "No separate front leaf is modelled in this draft. A reconstructed entrance is placed at the middle of the street-facing front (the plan u axis); the survey does not attest a doorway here."
+    }
+   ],
+   "asset_sha256": "3ec8929e2af875d3f1636ab04da27aef1605fbdd0c313047a0816e7a1ad390d0"
+  },
+  {
+   "structure": "wheeler_house_1812_prairie",
+   "name": "1812 Prairie Avenue \u2014 George H. Wheeler house (Burnham & Root, 1884), a stone and brick front under a shaped Flemish gable",
+   "placement": {
+    "local_e": 1370.097,
+    "local_n": -3260.11,
+    "rotation_deg": -0.616
+   },
+   "doors": [
+    {
+     "id": "wheeler_house_1812_prairie:front",
+     "leaf": {
+      "local_e": 1384.51,
+      "local_n": -3253.18
+     },
+     "step": {
+      "local_e": 1391.82,
+      "local_n": -3253.1
+     },
+     "outward_deg": 89.4,
+     "width_m": 2.54,
+     "reconstructed": "Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed."
+    }
+   ],
+   "asset_sha256": "f614b1cb7aa3b75dae90ce57780bd8dc43d9c36ca0b219f403449c63c5b6045c"
   }
  ]
 }

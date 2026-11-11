@@ -43546,6 +43546,33 @@ or a read bill of sale; a planting account locating the trees rather than merely
 **Ticket:** T-3544.
 **Recorded:** 2026-11-11.
 
+### L-prairie-likenesses-3547 — Prairie Avenue appearances (T-3547, 2026-11-11)
+
+**Decision:** Identified, captioned portraits constrain visible facial proportions, hair silhouette and facial hair. The pictured date may be unknown even when publication is dated. Single-view depth, skin and eye colours, stature, build, clothes and intervening ageing are reconstructed. A light tone in a monochrome portrait may guide a grey/white rendering without establishing exact colour. Unpictured people receive stable, individually varied reconstructions; the cards explicitly say that no verified portrait was found in the searched sources. No ancestry is inferred from surname, birthplace or photograph. Body presentation is a casting choice based on the recorded relationship and occupation, not a newly attested sex field. The original eight Glessner figures retain their earlier evidence and liberties.
+
+**Recorded:** 2026-11-11.
+
+### L-prairie-people-3548 — Household figures, doors and days (T-3548, 2026-11-11)
+
+**Decision:** The 1904 household roster supplies identity, household, recorded birth and graded presence. A birth year alone is treated as a mid-year birthday for scene age. Unpictured adults reuse the already available period role bodies, with individual faces, colouring, stature, hair and cloth. Activities, daily times, seasons, company and short outings are reconstructed. Only a bounded nearby rotation needs meshes; door calls can request other available residents. Aliases and collective entries do not become additional actors; former residents remain on cards without appearing in 1904. For draft houses with no door mesh, an entrance at the middle of the street-facing front is explicitly reconstructed, not a survey reading.
+
+**Basis:** Children's new clothing sources show other American children, not Prairie Avenue residents: Arthur Hewitt's Roosevelt sons, published 29 May 1904, and Frank Snyder's children in Oxford, Ohio, August 1904. Boys' jackets, knee trousers and stockings, girls' sleeved waisted frocks, teenage variants and toddler clothing are original simplified garments with reconstructed colours, ease, unseen details and fit. Pinned CC0 child/teenage graphical bodies supply age-appropriate proportions; individual heights are unmeasured. Equal upstream software shape-category blends are engineering, not ethnicity. New geometry requires canonical export and visible review before scene use. Infants must not become independently walking outdoor adults.
+
+**Recorded:** 2026-11-11.
+
+**T-3547 additional portraits, 2026-11-11:** Grace Murray Meeker and Albertine Huck Field use captioned photographs published in the Chicago Sunday Tribune on 3 March 1907. The exposures may be earlier; the figure uses the inferred 1904 birth-derived age. Landmark fits preserve the visible facial proportions, while exact waves in their hair, dress, jewellery, colour and unseen depth remain reconstructed. Gwendolyn Field's secondary birth dates disagree by a year (1901/1902); she is treated as a young child, not a default adult. Elizabeth Grey's difficult census age is retained as uncertain.
+
+
+### L-prairie-younger-3550 — Younger Prairie residents and household care (T-3550, 2026-11-11)
+
+**Decision:** The owner approved the five child and teen prototypes presented in the review packet, saying “Approve these five prototypes.” The admission records the canonical build, recipe and export hashes. Thirty-five present residents aged two through seventeen use those approved toddler, child and teen bodies; the household records retain the evidence and uncertainty for their ages. Their clothes, colours, hair, stature and individual facial variation are reconstructions. Stature interpolates between the approved engineering bodies with small seeded variation, not personal measurements. Adult aging and body-build targets are disabled on these juvenile bodies. None of these figures claims an archival likeness without an identified portrait.
+
+**Activities and company:** Seasonal lessons or indoor occupations, meals, play, walks, family conversations and sleep are reconstructed daily routines. Children under twelve go outside with an available adult recorded in the same household. Recorded nurses or governesses and adult heads or spouses are preferred when available; these care assignments do not establish parentage or an attested historical duty. The two figures share the outing and return afterward, and a visitor's interaction keeps the caregiver nearby. Older children and teens may take their own short frontage walk and join an available person for conversation. These are short, bounded scene activities, not documented appointments or transcripts.
+
+**Infants:** Five residents younger than two have feeding, quiet play, naps and sleep within household care. “Ask after” at the door opens the infant's card and reports the current reconstructed care activity and household caregivers. No independent walking infant or substitute adult body is drawn; the approved prototypes do not include an infant figure. The choice of caregivers and daily timings is explicitly disclosed as a liberty on the card.
+
+**Recorded:** 2026-11-11.
+
 ### L-charles-near-wool-1789 — Charles Nelson's close-view livery wool
 
 **Decision:** Only the existing Charles1904 livery coat receives original periodic color, roughness and tangent-normal detail at LOD0/1. The green palette is retained. The wool twill/heather design, 32mm aggregate-area calibration and 20micrometre relief coefficient are reconstructed engineering choices, not a captured or surviving historical textile. One shared original coat material spans body and skirt with different UV densities: actual area-based periods are about57.54mm and24.01mm; local stretch remains. No UV repaint, new triangles, anatomy, identity or animation is authored. Vertex rows duplicate only where actual Mikk tangent groups require it, with every original triangle corner/skin/morph component retained. Existing macro wear, rumple and sheen remain; maps own only weave/heather and exact-name recolors keep inherited normal/ORM textures.

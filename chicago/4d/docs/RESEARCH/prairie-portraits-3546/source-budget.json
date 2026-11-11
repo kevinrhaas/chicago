@@ -1,0 +1,22 @@
+{
+  "not_a_reading": "Deterministic gzip measurement of complete Sources first-open payload, not an archival reading.",
+  "files": [
+    {
+      "file": "data/sidecars/1835/sources/index.json",
+      "raw_bytes": 274714,
+      "gzip_bytes": 64311
+    },
+    {
+      "file": "renderers/web/js/sources.js",
+      "raw_bytes": 18076,
+      "gzip_bytes": 6602
+    },
+    {
+      "file": "renderers/web/css/sources.css",
+      "raw_bytes": 1937,
+      "gzip_bytes": 774
+    }
+  ],
+  "gzip_total": 71687,
+  "unchanged_wire_limit": 120000
+}
