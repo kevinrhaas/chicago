@@ -16634,7 +16634,7 @@ for (const [label, viewport, touch] of [
       && settingsApp.sound === 4 && settingsApp.soundTotal === 4 && settingsApp.soundNotesAbsent
       && Object.values(settingsApp.soundHelp).every((h) => h.ownGroup && h.described)
       && /wind, lake waves, birds and insects/.test(settingsApp.soundHelp.ambience.text)
-      && /wagon wheels and harness jingles from moving teams/.test(settingsApp.soundHelp.effects.text)
+      && /^Nearby actions: hoofbeats, wagon wheels and hammering\.$/.test(settingsApp.soundHelp.effects.text)
       && settingsApp.whatsNew,
       JSON.stringify({ auto: settingsApp.auto, autoShown: settingsApp.autoShown, sound: settingsApp.sound,
         total: settingsApp.soundTotal, help: settingsApp.soundHelp, notesAbsent: settingsApp.soundNotesAbsent, whatsNew: settingsApp.whatsNew }));
