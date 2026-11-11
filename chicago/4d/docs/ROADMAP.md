@@ -1,3 +1,21 @@
+## T-3543 - persistent person interactions across years (2026-11-11)
+
+Owner follow-up while the 1812 rollout was in validation: walking people must not
+lose the Interact menu; a clicked person stays selected, actions use clean line
+icons, and nearby shelter differs from returning to the residence. Shared controls
+apply across years, with explicit 1904 walking-person verification. Delivered with
+T-3540 and T-3541 as one integrated routine and interaction change.
+PR #1929 carries the verified implementation; STATUS.md links its receipts.
+
+## T-3540, T-3541 — extend daily life to everyone in 1812 (2026-11-10)
+
+Owner follow-up to the 1904 household model, explicitly including all Native
+residents and visitors. Share compact interactions, flexible ordinary outdoor
+activities, actual companion conversations and return to duties across the town,
+fort and lodges. Preserve historical presence and jaunt ownership; keep lazy lodge
+figures within the existing rendering approach. Implementation and verification
+state are in STATUS.md and docs/RESEARCH/1812-routines-3540/.
+
 ## T-3536 — household conversation follow-up (2026-11-10)
 
 Owner follow-up to T-3533: keep actions in a compact Interact dropdown and make
@@ -6636,3 +6654,5 @@ T-3544 owner steering (2026-11-11): music now repeats the selected era’s colle
 T-3544 listening adjustment: preserve the owner-liked insects; lower town wind with restrained lake exposure and hold the busy river proxy from scene playback. Next river intake should supply quiet close-bank lapping appropriate to visibly slow water, auditioned before activation. Keep lake and slough classifications separate.
 
 T-3544 arrival refinement: compact icon-only sound control, examples beside Ambience and Effects, and period music only once in town. Time-travel/arrival scoring remains empty pending its own owner-selected track; the town playlists still repeat.
+
+T-3544 selected river follow-up: owner chose Light water on rocks; exact MP3 uploaded and public hash/CORS/MIME/ranges verified. Integrate its pinned loop at classified river edges, retain the previous take held, preserve lake/slough/insects and validate the combined audio update before DEV merge.

@@ -8,7 +8,7 @@ reduces visitor downloads, not the space occupied on the host.
 
 ## Two different limits
 
-`tools/validate.py` sets a project budget of **433 MiB per app tree**, inherited
+`tools/validate.py` sets a project budget of **436 MiB per app tree**, inherited
 from the current dev branch. This is
 editable project policy. GitHub's documented **1 GB published Pages site limit**
 is a provider limit, not a setting we can raise in that file. The present workflow
@@ -29,7 +29,7 @@ promotion scenario, not just today's dev directory size.
 
 | Option | What changes | Benefit and limit |
 |---|---|---|
-| Raise the local 433 MiB budget | Validator and documented storage allowance | Smallest change if the complete deployment has headroom; cannot increase GitHub's 1 GB limit. |
+| Raise the local 436 MiB budget | Validator and documented storage allowance | Smallest change if the complete deployment has headroom; cannot increase GitHub's 1 GB limit. |
 | Separate dev and production Pages deployments | Separate publishing repositories/projects, workflows, hostnames, origin/offline checks | Each actual Pages site has its own allowance. Merely serving branches under two folders does not do this. Shared audio would still be duplicated unless separately hosted. |
 | Shared audio object storage and CDN — recommended | One media bucket, production hostname, CORS, versioned catalogue URLs | Both app versions use the same immutable files; audio leaves the Pages artifact. No app split and no duplicate library. |
 | Separate audio-only Pages site | Separate deployment and media hostname | A free bridge for a small library, but still subject to Pages storage/bandwidth limits and Git-oriented binary publishing. |
@@ -73,6 +73,8 @@ checks of its published modules pass at phone and desktop widths, including era
 changes, decoded wind, mute cleanup and no candidate autoplay. This is local
 published-build integration, not a live deployment. Cache-Control
 headers were absent; production cache policy and the custom domain remain work.
+The 2026-11-11 owner-selected calmer river adds one separately verified 352,940-byte MP3. The combined receipt now covers 41 objects / 41,526,317 bytes; the original 40 verified rows are preserved. Its content-addressed object is `media/6831b7ad102ec023194c4040776c5245b6cb47451d652a94a07dc742e28362af.mp3`.
+
 For repeat verification use
 `tools/verify_audio_host.py --manifest <upload-manifest.json> --report <report.json>`
 after uploading, then exercise browser playback from an allowed origin. The
@@ -107,7 +109,7 @@ URLs into the generated catalogue and omits the corresponding local binaries.
 The source/archive copies remain available for authoring and rollback. Published
 `data/liberties.json` is also minified with full parsed-value equality checked;
 the pre-integration pilot measured 431.363 MiB within its then-unchanged 432 MiB budget.
-Current dev inherits a 433 MiB allowance; the combined build needs fresh validation.
+Current dev inherits a 436 MiB allowance; the combined build needs fresh validation.
 
 For a production hostname, repackage with `--public-base https://HOST/`, upload
 or reuse the same hashed objects, repeat host verification and browser playback,

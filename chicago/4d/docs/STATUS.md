@@ -1,3 +1,43 @@
+## T-3540, T-3541, T-3543 — daily routines and persistent interactions (2026-11-10)
+
+All 284 drawn people and all 520 callable household/lodge residents have explicit
+full-day schedules. Existing dated and seasonal routines remain; 51 enlisted men
+now alternate duty, quarters, meals and equipment care, with winter changes and
+night guard shifts. Lodge residents use the existing reconstructed ordinary task
+repertoire at their own doors. Three additional nearby residents at most take
+short autonomous outings; requested visits remain independently available.
+
+Every 1812 actor, including newly summoned Native residents, has short icon actions
+under Interact: Greet, Go inside, outdoor tasks and Chat together. Requested chats
+reserve a real companion, prefer someone outside, wait for both to arrive and then
+return both to their day. Dynamic figures and their controls are released after
+returning inside. Jaunts retain priority. Historical absence cannot be overridden
+by a liberal activity menu; reference-only people and carried infants are not
+new standalone figures. All reconstructed timing is declared in liberty
+L-1812-everyday-routines-3541.
+
+The shared Interact control retains a passing person briefly and pins a deliberately
+selected person until dismissed or unavailable. Opening their menu pauses their
+walk; closing it or choosing an action releases that pause. A named close control
+and Escape dismiss selection. Actions use line icons with restrained color, and
+Go inside (nearest available entrance) and Go home (residence) are grouped last.
+Guests remain callable at the building they entered, then return through doors.
+Requested walks continue beyond drawing range without animating hidden figures,
+so a selected person can finish going inside after the visitor moves away.
+
+Focused checks cover all 804 schedules, paired conversations, soldier ownership,
+Native door calls, bounded rotation, spacing, seasonal absence, walking selection,
+menu pause/resume, offscreen arrivals and distinct indoor destinations. All four
+final local check partitions pass (324, 324, 324, 325 steps), as does preflight.
+
+Published 1812 Native household and 1904 walking-person sequences pass on phone
+and desktop, with no page errors and default-quality screenshots inspected.
+The full published smoke passes all 15 stages on both viewports (1,653 assertions)
+on runtime `sha256:27b7282625ca4d07`. Repository, human-model, moving-frame performance
+and build checks pass. [PR #1929](https://github.com/kevinrhaas/chicago/pull/1929)
+carries the change; [the verification record](RESEARCH/1812-routines-3540/README.md)
+links every smoke receipt to its tested build.
+
 ## T-3536 — compact interactions and paired household conversations (2026-11-10)
 
 Household actions open under Interact, with short labels and decorative icons. The
@@ -26818,3 +26858,5 @@ T-3544 listening feedback (2026-11-11): the owner liked the insects but found th
 T-3544 control/travel steering: the loading-screen control is now an icon-only speaker with a 44 px touch target, mute/on glyphs, accessible label and tooltip. Settings separately describe background wind/lake/birds/insects and nearby wagon/harness effects. The owner clarified: “Only time-travel/arrival; keep period music in town.” The actual journey state now permits era music in exploring/inspecting/jaunt/tour states, suppresses it during time travel/arrival/recall, and leaves ambience/effects independent. Journey transition unit checks and the all-era real-media repeat/AAC checks pass. Published arrival checks and visual review pass at 390 and 1280 pixels: compact icon, no muted fetch, real R2 ambience without period music throughout arrival, mute/unmute, native Free roam entry starting Border Ballad, Settings examples and zero page/media errors. Full repository and published scene-smoke results belong to the PR.
 
 T-3544 spacing follow-up: each Ambience/Effects description is grouped with its own label and slider, about 8 px below its slider and 18 px before the next control in the actual markup/style review at both widths. The owner-requested Music and general sound notes are removed; source/rights details remain in the audio library.
+
+T-3544 river selection follow-up (2026-11-11): the owner selected “Light water on rocks” from three loop auditions and uploaded the exact MP3. Full public verification passed for SHA-256, CORS, MIME and ranges. The generator now preserves the pinned source/crop/encoding and enables that 22-second river proxy; the earlier busy take remains disabled under river-held. Lake/slough classification and existing insects are unchanged. The library labels accepted environmental audio separately from held recordings and habitat candidates. Regeneration reproduces all 34 assets / 41 delivery hashes, preserving the 40 previous deliveries. Real R2 tests at 96/192 kHz output isolate nonzero selected-river and lake signals, keep the three-loop environmental cache at 12,672,000 bytes, never fetch the rejected take, leave sloughs quiet and release memory on mute. The source-library browser checks also pass at 390/1280: all 41 codec deliveries decode, accepted and held labels are correct, and filters/controls retain zero page errors. Final combined release validation is pending; no new live-deployment claim is made here.

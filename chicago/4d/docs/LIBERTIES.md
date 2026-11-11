@@ -43506,6 +43506,21 @@ or a read bill of sale; a planting account locating the trees rather than merely
 **Review:** docs/RESEARCH/early-masonry-3341.md; final desktop and phone frames are recorded there when qualified.
 **Recorded:** 2026-11-10 (T-3341).
 
+### L-1812-everyday-routines-3541 — Daily routines and visitor-requested activities for the whole 1812 population
+
+**Decision:** The 51 enlisted men formerly governed only by a station or daytime hours now have explicit meals, quarters, equipment care and duty periods. The five night guards sleep after the watch and keep their existing posts during their duty spans. Cold-season equipment care is mostly indoors; garden and cornfield workers tend stored supplies instead. The 520 people listed at household and lodge doors have complete daily routines too, using the existing gathering's ordinary work repertoire and their own lodge doorway. Children play close to that doorway. Louis Fettle has household tasks and a shorter cold-season evening outdoors.
+
+**Compression:** Logical schedules do not require 520 additional figures at once. At most three additional nearby residents are drawn autonomously, one new figure at most every five seconds; each takes a short outing, returns through their own door, and another can take a turn. Calling for someone remains available independently. A requested conversation reserves two real people, prefers a nearby outdoor companion, otherwise brings someone out, waits for both to meet, and ends after about a minute. A requested task lasts about five minutes; Go inside lasts until the next scheduled span. These are visitor-paced reconstructions, not claims about precise historical hours or conversations.
+
+**Basis:** Existing station and gathering research in `people-1812-3462/place.py` and `gathering-people-1812-3500/build.py`, and their cited Quaife 1913 readings, establish the people and broader circumstances, not these individual routines. Work descriptions reuse that reconstructed repertoire. Existing Native names, identity grades, review explanations, arrival dates and battle-day absences remain. No dialogue, ceremony or fighting is added. People represented only by reference cards because their presence is absent or uncertain are not newly placed; carried infants remain with their household rather than being called outside alone.
+
+**How to resolve:** Replace a reconstructed activity, hour or household assignment when a contemporary account names it. Retain bounded rendering and real companion arrival as presentation behavior.
+
+**Ticket:** T-3540, T-3541.
+**Recorded:** 2026-11-10.
+
+**Visitor shelter:** On visiting dates without a town home, the three mouth-family visitors (`potawatomi_1812_mouth_man_1`, `potawatomi_1812_mouth_woman_1`, `potawatomi_1812_mouth_girl_10`) may wait inside the Kinzie house at the visitor's request, and Winnemeg inside the agency. Their existing days already place them visiting those places. This is a reconstructed temporary indoor pause, not a change of home, arrival date or departure.
+
 ### L-transport-audio-3544 — Recorded mechanical textures on moving teams
 
 **Decision:** the CC0 horse-harness recording by o_ciz (Freesound 475481) follows the loaded moving teams in the 1812-08-14, 1835-07-01 and 1904-07-01 scenes. The CC0 large wooden wagon rolling downhill recording by craigsmith (Freesound 675230) follows the two 1812 army wagons and the 1835 Western Hotel wagon. It does not represent the 1904 brougham. Exact actor ids and dates are in assets/audio/intake.json. The modern recordings are acoustic proxies, not evidence of a Chicago vehicle, its road surface or historical sound level.
@@ -43514,5 +43529,19 @@ or a read bill of sale; a planting account locating the trees rather than merely
 
 **How to resolve:** replace a proxy or tune its placement after human listening in the scene; a period-specific mechanical recording or documented road surface can improve the choice. Automated decoding and signal checks do not establish listening quality. No production listening approval is claimed.
 
+**Ticket:** T-3544.
+**Recorded:** 2026-11-11.
+
+### L-calm-river-audio-3544 — Calm recorded water as the river's acoustic proxy
+
+**Decision:** use the exact TRP575244 loop selected by the owner as “Light water on rocks” on 2026-11-11, under the existing classified-river audio placement. Retain the previous TRP577323 take as a disabled library recording with its owner review. Lake waves, slough treatment and the liked insects are unchanged.
+
+**What is reconstructed:** a modern Manitoulin lake recording of water lapping against rocks (summer 2008 per creator) stands in for the nearly still Chicago River. It is not a historical Chicago recording or evidence of a rocky historical river bank. The preview is decoded fully to mono 48 kHz before cropping source 121–145 s; a two-second linear end-to-start overlap produces the selected 22-second loop at unity gain, encoded as MP3 at 128 kb/s. No synthetic water, normalization, denoising, EQ, gating, time stretching or inserted silence is used. The existing river-edge gain and distance treatment are sound-design choices, not measured historical acoustic levels.
+
+**Basis:** TRP's source description and individual CC0 declaration at https://freesound.org/people/TRP/sounds/575244/; acquisition and license metadata are in assets/audio/evidence/calm-river-water.json. The source and accepted derivative hashes remain in the audio catalogue. Owner selection is recorded with the exact quoted label and date.
+
+**How to resolve:** a suitable local recording and listening review may improve this acoustic proxy; historical bank-surface evidence may refine its geographic fit. The owner selected the offered loop; in-scene mix validation remains separate.
+
+**Tier:** reconstructed.
 **Ticket:** T-3544.
 **Recorded:** 2026-11-11.

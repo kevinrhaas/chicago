@@ -22,9 +22,11 @@ function paint(){
  $('count').textContent=`${rows.length} sounds · audio loads only when you press Play`;
  for(const row of rows){
   const card=document.createElement('article'),title=document.createElement('h2'),tag=document.createElement('small'),note=document.createElement('p'),rights=document.createElement('p'),audio=document.createElement('audio');
-  title.textContent=row.title;tag.textContent=row.era?`${row.era} · Music`:row.runtime_enabled===true?(row.scene_placement?.mode==='moving-transport'?`${row.approved_eras.join(' / ')} · Moving team · reconstructed proxy`:'1835 · Habitat sound · reconstructed proxy'):row.kind==='candidate'?`For review · ${row.category}`:`Shared · ${row.id}`;note.textContent=row.provenance;
+  title.textContent=row.title;
+  tag.textContent=row.era?`${row.era} · Music`:row.kind==='environment'?'Shared · Environment · reconstructed proxy':row.runtime_enabled===true?(row.scene_placement?.mode==='moving-transport'?`${row.approved_eras.join(' / ')} · Moving team · reconstructed proxy`:'1835 · Habitat sound · reconstructed proxy'):row.kind==='candidate'?`For review · ${row.category}`:`Shared · ${row.id}`;
+  note.textContent=row.provenance;
   if(row.scene_placement?.note)note.textContent+=' '+row.scene_placement.note;
-  if(row.review_note){tag.textContent='Held from scene playback';note.textContent+=' '+row.review_note;}
+  if(row.review_note){if(row.runtime_enabled===false)tag.textContent='Held from scene playback';note.textContent+=' '+row.review_note;}
   rights.textContent=row.creator?`${row.creator} · ${row.license}`:row.rights;
   audio.controls=true;audio.preload='none';audio.setAttribute('aria-label',row.title);
   audio.src=row.url??(audio.canPlayType('audio/ogg; codecs="opus"')?row.opus:row.aac);

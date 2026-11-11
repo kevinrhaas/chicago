@@ -12,12 +12,18 @@ const { chromium } = pw;
 const root=fileURLToPath(new URL('../renderers/web/', import.meta.url)).replace(/\/$/, '');
 const origin='https://chicago.polecat.live';
 const { catalog } = hostedCatalog();
-catalog.water_zones={'1835':{epoch:'test',features:[{kind:'river',polygon:[[[0,-100],[100,-100],[100,100],[0,100],[0,-100]]]}]}};
+const selectedRiver=catalog.assets.find(a=>a.id==='river'),heldRiver=catalog.assets.find(a=>a.id==='river-held');
+assert.equal(selectedRiver.runtime_enabled,true);assert.equal(heldRiver.runtime_enabled,false);
+assert.equal(selectedRiver.delivery.sha256,'6831b7ad102ec023194c4040776c5245b6cb47451d652a94a07dc742e28362af');
+catalog.water_zones={'1835':{epoch:'test',features:[
+ {kind:'river',polygon:[[[0,-100],[100,-100],[100,100],[0,100],[0,-100]]]},
+ {kind:'slough',width_m:10,line:[[300,-100],[300,100]]}
+]}};
 const fixture=`<!doctype html><button id="on">On</button><script type="module">
 import {createRecordedAudio} from '/js/recorded-audio.js';
 window.requestedRate=Number(new URL(location.href).searchParams.get('rate'));
 window.mode='wind';window.analyser=null;window.ctx=null;window.engine=null;
-const environment=()=>({season:'summer',camera:{position:{x:mode==='lake'?200:0,y:2,z:0}},
+const environment=()=>({season:mode==='wind'?'summer':'winter',camera:{position:{x:mode==='slough'?300:mode==='lake'?200:0,y:2,z:0}},
 terrain:{loaded:mode!=='wind',epochId:'test',heightfield:{contains:()=>true},
 isWater:x=>x>=20,lakeShore:{n0:-100,step:100,e:[100,100,100]}}});
 document.getElementById('on').onclick=()=>{
@@ -55,23 +61,31 @@ try {
   const first=await page.evaluate(()=>({rate:ctx.sampleRate,state:engine.state,peak:samplePeak()}));
   assert.equal(first.rate,rate);
   assert.equal(first.state.decodedBytes,4224000);
-  await page.evaluate(()=>{window.mode='river';engine.update();});
-  assert.deepEqual(await page.evaluate(()=>engine.state.voices),['wind'],'busy river proxy remains held');
-  assert.equal(await page.evaluate(()=>engine.state.decodedBytes),4224000);
-  assert(!requests.includes(catalog.assets.find(a=>a.id==='river').url),'held river media is never fetched');
-  for(const [mode,bytes] of [['lake',8448000]]) {
-   await page.evaluate(m=>{window.mode=m;engine.update();},mode);
+  const waterPeaks={};
+  for(const [mode,bytes] of [['river',8448000],['lake',12672000]]) {
+   await page.evaluate(m=>{window.mode=m;window.changedAt=ctx.currentTime;engine.update();},mode);
    await page.waitForFunction(m=>engine.state.voices.includes(m),mode,{timeout:30000});
+   // Winter removes wind; wait beyond the previous source's 1.5 s stop fade.
+   // A nonzero master signal now proves this water recording, not leftover wind.
+   await page.waitForFunction(()=>ctx.currentTime-changedAt>2&&samplePeak()>0.000001,null,{timeout:30000});
+   assert.deepEqual(await page.evaluate(()=>engine.state.voices),[mode]);
    assert.equal(await page.evaluate(()=>engine.state.decodedBytes),bytes);
+   waterPeaks[mode]=await page.evaluate(()=>samplePeak());
   }
   const all=await page.evaluate(()=>engine.state);
   assert.deepEqual(all.errors,[]);assert.deepEqual(errors,[]);
-  assert.equal(new Set(requests).size,2,'only the eligible wind and lake deliveries are requested');
+  assert.deepEqual([...new Set(requests)].sort(),catalog.assets.filter(a=>['wind','river','lake'].includes(a.id)).map(a=>a.url).sort(),
+   'only the three eligible environmental deliveries are requested');
+  assert(!requests.includes(heldRiver.url),'the rejected old recording is never fetched');
+  const count=requests.length;
+  await page.evaluate(()=>{window.mode='slough';engine.update();});
+  assert.deepEqual(await page.evaluate(()=>engine.state.voices),[],'sloughs do not borrow the new river or lake waves');
+  assert.equal(requests.length,count);
   await page.evaluate(()=>engine.sync({active:false,ambienceOn:true,musicOn:false,year:'1835'}));
   assert.equal(await page.evaluate(()=>engine.state.decodedBytes),0);
   await page.evaluate(async()=>{engine.dispose();await ctx.close();});
-  results.push({hardwareRate:rate,firstDecodedBytes:first.state.decodedBytes,firstPeak:first.peak,allDecodedBytes:all.decodedBytes,errors,deliveries:requests});
-  console.log('FIXED DECODE BROWSER PASS '+rate+'Hz: actual R2 wind/lake, held river not fetched, 4,224,000 bytes per22s loop, 8,448,000-byte cache, nonzero output, mute releases cache');
+  results.push({hardwareRate:rate,firstDecodedBytes:first.state.decodedBytes,firstPeak:first.peak,waterPeaks,allDecodedBytes:all.decodedBytes,heldRiverFetched:false,errors,deliveries:requests});
+  console.log('FIXED DECODE BROWSER PASS '+rate+'Hz: actual R2 wind/selected river/lake, rejected river not fetched, 4,224,000 bytes per22s loop, 12,672,000-byte cache, isolated nonzero water signals, slough quiet, mute releases cache');
   await page.close();
  }
  if (process.env.AUDIO_RATE_REPORT) await fs.writeFile(process.env.AUDIO_RATE_REPORT,JSON.stringify(results,null,2)+'\n');

@@ -441,6 +441,12 @@ def build():
             continue
         presence = {k: p['presence'][k] for k in ('from', 'to') if (p.get('presence') or {}).get(k)}
         b = {'state': 'standing', 'day': variants}
+        # T-3541: these visitors have no town home on some visiting days.
+        # A requested indoor pause is at a host's door, never 'go home' off-scene.
+        if pid in {'potawatomi_1812_mouth_girl_10', 'potawatomi_1812_mouth_man_1', 'potawatomi_1812_mouth_woman_1'}:
+            b['shelter'] = 'kinzie_house_1812'
+        elif pid == 'winnemeg':
+            b['shelter'] = 'first_fort_outer_agents_house'
         if presence:
             b['presence'] = presence
         records[pid] = {'behaviour': b}

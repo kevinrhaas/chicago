@@ -1,6 +1,12 @@
 /** T-2120: the arrival menu's line icons — engraved-plate shapes, one stroke, currentColor.
  *  Jaunt types, travel modes, quick starts and the three arrival choices draw from here. */
 const P = {
+  // Shared person actions: simple strokes remain clear at the phone's 18 px size.
+  greet: '<circle cx="9" cy="7" r="3"/><path d="M3 21v-3a6 6 0 0 1 12 0v3M17 5l2-2M18 9h3M17 13l2 2"/>',
+  chat: '<path d="M4 4h16v12H9l-5 4z"/><path d="M8 8h8M8 12h5"/>',
+  enter: '<path d="M13 3h7v18h-7M3 12h12M10 7l5 5-5 5"/>',
+  garden: '<path d="M12 21V11M12 15C5 15 3 11 3 6c6 0 9 3 9 9M12 11c0-5 3-8 9-8 0 5-3 8-9 8"/>',
+  food: '<path d="M3 12h18a9 9 0 0 1-18 0zM8 21h8M8 8V3M12 8V3M16 8V3"/>',
   // jaunt families (catalog `primary_family`)
   'Wayfinding': '<circle cx="12" cy="12" r="8.5"/><path d="M12 5.5l2.4 6.5-2.4 6.5-2.4-6.5z"/><path d="M12 2v1.5M12 20.5V22M2 12h1.5M20.5 12H22"/>',
   'Provisions': '<path d="M7.5 3.5h9c1.6 2.8 1.6 14.2 0 17h-9c-1.6-2.8-1.6-14.2 0-17z"/><path d="M6.4 8.5h11.2M6.4 15.5h11.2"/>',

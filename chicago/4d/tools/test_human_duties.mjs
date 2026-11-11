@@ -13,6 +13,7 @@ import assert from 'node:assert/strict';
 const here = new URL('../', import.meta.url);
 const data = (text) => `data:text/javascript;base64,${Buffer.from(text).toString('base64')}`;
 const js = async (name) => fs.readFile(new URL(`renderers/web/js/${name}`, here), 'utf8');
+const { createHumanDays } = await import(data(await js('human-days.js')));
 const { createHumanDuties, KNOT } = await import(data(await js('human-duties.js')));
 const three = { Vector3: class { constructor() { this.x = 0; this.y = 0; this.z = 0; } } };
 
@@ -166,21 +167,23 @@ assert.equal(snap.filter((g) => g.kind === 'knot').length, knots.size, 'every kn
   let clock = 23.5;
   const actors = records.map((r) => actorOf(r));
   const humans = { get actors() { return actors; } };
-  const duties = createHumanDuties({ humans, three, hour: () => clock });
-  for (let i = 0; i < 20; i++) duties.update(0.1);
+  const days = createHumanDays({ humans, three, hour: () => clock, date: () => '1812-08-14' });
+  const duties = createHumanDuties({ humans, three, hour: () => clock, held: a => days.isOccupied(a) });
+  const frame = () => { duties.update(0.1); days.update(0.1); };
+  for (let i = 0; i < 20; i++) frame();
   const soldiers = actors.filter((x) => x.instance.appearance.asset_id === 'private_first_infantry_1812');
   const out = soldiers.filter((x) => !x.indoors);
   const guard = soldiers.filter((x) => !x.instance.behaviour.hours);
   assert.deepEqual(out.map((x) => x.personId).sort(), guard.map((x) => x.personId).sort(), 'by night only the guard is out');
   assert(guard.length >= 4 && guard.length <= 6 && guard.some((x) => duty(x.instance)?.kind === 'beat'), `the night guard: ${guard.map((x) => x.personId)}`);
-  for (let i = 0; i < 200; i++) duties.update(0.1);
+  for (let i = 0; i < 200; i++) frame();
   const sentry = guard.find((x) => duty(x.instance)?.kind === 'beat');
   assert(sentry.e !== sentry.instance.placement.local_e || sentry.n !== sentry.instance.placement.local_n || true, 'a sentry keeps his post at night');
   clock = 14;
-  duties.update(0.1);
+  for (let i = 0; i < 20; i++) frame();
   assert(soldiers.every((x) => !x.indoors), 'by day everyone is out');
   clock = 5;
-  duties.update(0.1);
+  for (let i = 0; i < 20; i++) frame();
   assert(soldiers.filter((x) => !x.indoors).length === guard.length, 'before reveille only the guard');
 }
 console.log(`human duties: ${knots.size} knots, ${kinds.get('beat')} beats, a rank of ${kinds.get('rank')}; ${inside.length} men inside the pickets, ${loose.length} standing loose: PASS`);

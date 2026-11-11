@@ -3919,6 +3919,7 @@ async function boot() {
     hud.setPanel(true); hud.selectTab('people'); api.people.open?.(personId);
   });
   api.humans.on('role_open', ({ roleCard }) => showHumanRoleCard(roleCard));
+  api.humans.on('select', ({ instanceId }) => api.interactKey?.select(`person:${instanceId}`));
   // T-3404: a figure turns to a visitor who walks up to them (human-life.js, T-3402, where
   // its rig carries the life layer), and looks a while before going back to the street.
   api.humans.on('approach', ({ instanceId }) => {
@@ -3927,11 +3928,11 @@ async function boot() {
   });
   scene3d.add(api.humans.group);
   // T-3490: men at a shared duty — a knot talking, a sentry's beat, a rank (human-duties.js).
-  // Out by day, in quarters by night but for the guard (`behaviour.hours`, by the sun's clock).
+  // The day engine owns quarters and trips; the duty layer owns a person at their post.
   const sunHour = () => { const [h, m] = String(world.sunTime ?? '').split(':').map(Number); return Number.isFinite(h) ? h + (m || 0) / 60 : null; };
   api.duties = createHumanDuties({ humans: api.humans, three: THREE, hour: sunHour,
-    // T-3463: a man asked for at his quarters' door is out of his duty till he goes back in.
-    held: (actor) => api.days?.isCalled(actor) ?? false });
+    // Calls, requested activities, social breaks and jaunts temporarily release a duty.
+    held: (actor) => api.days?.isOccupied(actor) ?? false });
   // T-3463..T-3467 (owner, 2026-11-08: "some inside and others active and doing what they
   // would be doing as normal activities per time of day", "If they are inside I can walk to
   // door and ask for any person inside"): each person's day by the scene's date and hour,
@@ -3951,8 +3952,8 @@ async function boot() {
       daysScene === '1812' ? getOptional('humans/inside_1812.json') : null]);
     lodgeWalls = (doors?.structures ?? []).flatMap((row) => (row.walls ?? []).map((ring, i) => ({ id: `${row.structure}:walls${i + 1}`, pts: ring })));
     // The gathering's people who are carded and not drawn (inside_1812.json): a figure is
-    // built for one only when they are asked for at their lodge's door, from the dress their
-    // entry names, and taken away once they are back in.
+    // built for a small nearby rotation or a door call, from the dress their entry
+    // names, and taken away once they are back in. Their logical days need no meshes.
     const byPerson = new Map((people?.people ?? []).map((row) => [row.id, row]));
     const spawn = (entry, door) => {
       if (!entry.asset_id || !api.humans?.add) return null;
@@ -3969,6 +3970,7 @@ async function boot() {
     const dayClear = clearWayOf(footprints.concat(lodgeWalls));
     api.days = createHumanDays({ humans: api.humans, three: THREE, hour: sunHour, date: () => world.sunDate ?? null,
       doors, interactions, inside, spawn,
+      openCard: (actor) => api.humans.select(actor.id),
       held: (actor) => !!api.houseErrands?.get(actor.id)?.running,
       despawn: (actor) => api.humans?.remove?.(actor.id),
       visitor: () => (walker.state.flying ? null : { e: walker.state.e, n: walker.state.n }),
@@ -5853,6 +5855,10 @@ async function boot() {
   const interactKey = createInteractKey({ interactions,
     keyEl: document.getElementById('btn-interact'),
     moreEl: document.getElementById('interact-more'),
+    onExpand: (thing) => {
+      api.navigator?.dock?.();
+      return thing?.kind === 'person' ? api.days?.attend?.(thing.actor?.id) : null;
+    },
     where: () => ({ e: walker.state.e, n: walker.state.n, bearing: walker.bearingDeg, flying: walker.state.flying }),
     say: text => hud.say(text), enabled: () => !gateOpen, keys: window, isTyping,
   });

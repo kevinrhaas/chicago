@@ -38,7 +38,12 @@ for(const year of ['1812','1835','1904']) {
   assert.equal(windGain(year,'winter','lake',0),0,'no leaf rustle in the bare season');
 }
 assert(windGain('1904','summer',null)<windGain('1812','summer',null),'1904 town uses a quieter mix than open early Chicago');
-assert.equal(catalog.assets.find(a=>a.id==='river').runtime_enabled,false,'owner-rejected busy river recording is held from scenes');
+const selectedRiver=catalog.assets.find(a=>a.id==='river'),heldRiver=catalog.assets.find(a=>a.id==='river-held');
+assert.equal(selectedRiver.runtime_enabled,true,'owner-selected calmer river recording is enabled');
+assert.equal(selectedRiver.delivery.sha256,'6831b7ad102ec023194c4040776c5245b6cb47451d652a94a07dc742e28362af','the accepted recording is not silently substituted');
+assert.equal(heldRiver.runtime_enabled,false,'owner-rejected busy recording remains held under its own library id');
+assert.equal(heldRiver.delivery.sha256,'a63798768beaff4eba54e79293c89b81e9940d87d8742b45b0ac93130610bd5a');
+assert.notEqual(selectedRiver.url,heldRiver.url);
 const param = () => ({ value:0, setTargetAtTime(v) { this.value = v; } });
 function context() {
   const sources = [];
@@ -164,19 +169,43 @@ const flush = async () => { for(let i=0;i<12;i++) await Promise.resolve(); };
   engine.sync({active:false,ambienceOn:true,musicOn:true,year:'1835'});await flush();
   assert.equal(requests.length,0,'muted boot downloads nothing');
   engine.sync({active:true,ambienceOn:true,musicOn:true,year:'1835'});await flush();
-  assert.deepEqual(engine.state.voices,['wind']);assert.equal(engine.state.decodedBytes,4224000);
-  assert(!requests.some(url=>url.endsWith('/river.mp3')),'held river recording is not fetched, not merely turned down');
+  assert.deepEqual(engine.state.voices,['wind','river']);assert.equal(engine.state.decodedBytes,8448000);
+  assert(requests.some(url=>url.endsWith('/river.mp3')),'classified river edge requests the selected recording');
+  assert(!requests.some(url=>url.endsWith('/river-held.mp3')),'rejected recording is not fetched, not merely turned down');
   assert.equal(media.made.length,1);assert.match(media.made[0].src,/1835\/.*border.*ogg$/);
-  season='winter';engine.update();assert.deepEqual(engine.state.voices,[]);
+  season='winter';engine.update();assert.deepEqual(engine.state.voices,['river'],'bare-season suppression removes leaf rustle independently of water');
   activeTerrain={...terrain,lakeShore:{n0:-100,step:100,e:[0,0,0]}};
-  engine.update();await flush();assert.deepEqual(engine.state.voices,['lake'],'classified lake waves remain eligible while the river proxy is held');
+  engine.update();await flush();assert.deepEqual(engine.state.voices,['lake'],'lake geography selects the separate lake recording');
   assert(requests.some(url=>url.endsWith('/lake.mp3')));
+  assert.equal(engine.state.decodedBytes,12672000,'three environmental loops fit the existing 14 MiB cache');
+  const count=requests.length;
+  fixture.water_zones['1835'].features.unshift({kind:'slough',width_m:10,line:[[24,-10],[24,10]]});
+  engine.update();await flush();assert.deepEqual(engine.state.voices,[],'slough classification suppresses both water proxies');
+  assert.equal(requests.length,count,'slough entry does not fetch a substitute');
+  activeTerrain={...terrain,epochId:'other'};
+  engine.update();await flush();assert.deepEqual(engine.state.voices,[],'unclassified water stays quiet');
+  assert.equal(requests.length,count);
+  assert.deepEqual(engine.state.errors,[]);
   engine.sync({active:true,ambienceOn:true,musicOn:true,year:'1904'});await flush();
   assert.equal(media.made[0].src,'','scene switch releases the old stream');
   assert.match(media.made.at(-1).src,/1904\/.*waltz.*ogg$/);
   engine.sync({active:false,ambienceOn:true,musicOn:true,year:'1904'});await flush();
   assert.equal(engine.state.voices.length,0);assert.equal(engine.state.decodedBytes,0);assert.equal(engine.state.playing,false);
   engine.dispose();
+}
+{
+  // Exercise the runtime's exclusion guard independently of river-held's id:
+  // a rejected asset must remain silent even when occupying the target id.
+  const ctx=context(),requests=[];
+  const fixture={...catalog,assets:catalog.assets.filter(a=>a.id!=='river'&&a.id!=='river-held').concat({...heldRiver,id:'river'}),
+    water_zones:{'1835':{epoch:'test',features:[{kind:'river',polygon:[[[0,-100],[100,-100],[100,100],[0,100],[0,-100]]]}]}}};
+  const engine=createRecordedAudio({ctx,ambience:ctx.createGain(),music:ctx.createGain(),
+    environment:()=>({season:'summer',camera:{position:{x:0,y:2,z:0}},terrain}),
+    fetcher:async url=>{requests.push(String(url));return {ok:true,json:async()=>fixture,arrayBuffer:async()=>new ArrayBuffer(0)};}});
+  engine.sync({active:true,ambienceOn:true,musicOn:false,year:'1835'});await flush();
+  assert.deepEqual(engine.state.voices,['wind']);assert.equal(engine.state.decodedBytes,4224000);
+  assert(!requests.some(url=>url.endsWith('/river-held.mp3')),'runtime_enabled:false excludes fetching even for an otherwise selected river target');
+  assert.deepEqual(engine.state.errors,[]);engine.dispose();
 }
 {
   const ctx=context(), media=mediaFactory();let release;

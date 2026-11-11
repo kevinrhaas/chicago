@@ -1363,6 +1363,17 @@ body.is-touch .crosshair { display: none; }
 .quick-interact[data-menu="true"][aria-expanded="true"] .ik-what::after { content: " ▴"; }
 .interact-more .ik-what { white-space: normal; text-align: left; }
 .interact-more[hidden] { display: none; }
+.ik-person { display: flex; align-items: center; gap: 8px; padding: 2px 3px 5px; color: var(--ink-dim); font-size: 11px; }
+.ik-person > span { max-width: 22ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ik-dismiss { margin-left: auto; display: grid; place-items: center; padding: 5px; border: 0; border-radius: 5px; background: transparent; color: var(--ink-dim); cursor: pointer; }
+.ik-dismiss:hover, .ik-dismiss:focus-visible { color: var(--ink); background: var(--edge); }
+.interact-more .ik-icon { display: inline-flex; flex: none; color: var(--ik-tone, var(--accent)); }
+.interact-more > .quick-interact { color: var(--ink); border-color: var(--edge); }
+.interact-more > [data-tone="social"] { --ik-tone: #8dc8df; }
+.interact-more > [data-tone="task"] { --ik-tone: #93c9ac; }
+.interact-more > [data-tone="move"] { --ik-tone: #cab9e4; }
+.interact-more > [data-tone="return"] { --ik-tone: #d8ba86; }
+.interact-more > .ik-return-first { margin-top: 7px; }
 .interact-more > .quick-interact { animation: ik-more-in .2s ease-out; }
 @keyframes ik-more-in { from { opacity: 0; transform: translateX(8px); } }
 @media (prefers-reduced-motion: reduce) { .interact-more > .quick-interact { animation: none; } }

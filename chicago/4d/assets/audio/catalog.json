@@ -4255,9 +4255,9 @@
       }
     },
     {
-      "id": "river",
+      "id": "river-held",
       "kind": "environment",
-      "title": "Gentle riverbank lapping",
+      "title": "Previous river recording (held)",
       "creator": "TRP",
       "source_url": "https://freesound.org/people/TRP/sounds/577323/",
       "license": "CC0-1.0",
@@ -4271,13 +4271,38 @@
       "provenance": "Real-world recording per creator; HQ MP3 preview, not the lossless original. Chicago placement is reconstructed.",
       "processing": "24-second excerpt from 10s; mono; 2-second crossfade seam; wind gain +20 dB only; 48 kHz MP3 128 kbps.",
       "duration_s": 22,
-      "url": "river.mp3",
+      "url": "river-held.mp3",
       "delivery": {
         "bytes": 352940,
         "sha256": "a63798768beaff4eba54e79293c89b81e9940d87d8742b45b0ac93130610bd5a"
       },
       "runtime_enabled": false,
-      "review_note": "Held from scene playback after owner listening review, 2026-11-11: too much moving/babbling water for the nearly still river. Retained for audition; a calmer close-bank lapping recording is needed. Lake waves and slough classification remain separate."
+      "review_note": "Held from scene playback after owner listening review, 2026-11-11: too much moving/babbling water for the nearly still river. Retained for audition; replaced in the scene by the owner-selected calmer water recording. Lake waves and slough classification remain separate."
+    },
+    {
+      "id": "river",
+      "kind": "environment",
+      "title": "Light water on rocks",
+      "creator": "TRP",
+      "source_url": "https://freesound.org/people/TRP/sounds/575244/",
+      "license": "CC0-1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "acquired": "2026-11-11",
+      "original": "assets/audio/originals/575244_97550-hq.mp3",
+      "original_integrity": {
+        "bytes": 4995639,
+        "sha256": "8ab476464f7d1280514f6a405988550f423b572e9fe3900b29b776cfba77ab48"
+      },
+      "provenance": "Real lake-water field recording on rocks at Manitoulin, summer 2008, per creator; Freesound HQ MP3 preview, not the original download. Used as a reconstructed acoustic proxy for the nearly still Chicago River; rocky lake substrate is not evidence of the historical river bank.",
+      "processing": "Full preview decoded to mono 48 kHz before sample-index crop 121\u2013145 s; 2-second linear end-to-start overlap; 22-second loop; unity gain; MP3 128 kbps. No EQ, normalization, denoising, gating, stretching or synthesis.",
+      "duration_s": 22,
+      "url": "river.mp3",
+      "delivery": {
+        "bytes": 352940,
+        "sha256": "6831b7ad102ec023194c4040776c5245b6cb47451d652a94a07dc742e28362af"
+      },
+      "runtime_enabled": true,
+      "review_note": "Owner selected \"Light water on rocks\" from the three audition samples, 2026-11-11 (TRP575244). Exact accepted loop bytes retained. Lake waves, slough treatment and insects remain separate and unchanged."
     },
     {
       "id": "lake",

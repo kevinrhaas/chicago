@@ -41,6 +41,14 @@ with tempfile.TemporaryDirectory(prefix='habitat-regeneration-') as tmp:
     assert actual == expected, 'regeneration changed a delivery, provenance field or placement declaration'
     assert json.loads((authoring/'catalog.json').read_text()) == expected
     enabled = [a for a in actual['assets'] if a.get('runtime_enabled') is True]
-    assert sum(a['scene_placement']['mode'] in ['habitat-insects', 'distant-bird'] for a in enabled) == 3
-    assert sum(a['scene_placement']['mode'] == 'moving-transport' for a in enabled) == 2
-print('HABITAT REGENERATION PASS: existing preparation preserves all placement metadata and reproduces the same33 assets/40 delivery hashes')
+    assert sum(a.get('scene_placement', {}).get('mode') in ['habitat-insects', 'distant-bird'] for a in enabled) == 3
+    assert sum(a.get('scene_placement', {}).get('mode') == 'moving-transport' for a in enabled) == 2
+    approved_river = next(a for a in actual['assets'] if a['id'] == 'river')
+    assert approved_river['kind'] == 'environment' and approved_river['runtime_enabled'] is True
+    assert approved_river['delivery'] == {'bytes': 352940, 'sha256': '6831b7ad102ec023194c4040776c5245b6cb47451d652a94a07dc742e28362af'}
+    held_river = next(a for a in actual['assets'] if a['id'] == 'river-held')
+    assert held_river['runtime_enabled'] is False
+    assert held_river['delivery'] == {'bytes': 352940, 'sha256': 'a63798768beaff4eba54e79293c89b81e9940d87d8742b45b0ac93130610bd5a'}
+    asset_count = len(actual['assets'])
+    delivery_count = sum(2 if a['kind'] == 'music' else 1 for a in actual['assets'])
+print(f'HABITAT REGENERATION PASS: placement metadata preserved; {asset_count} assets/{delivery_count} delivery hashes reproduced')
