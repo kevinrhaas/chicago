@@ -55,7 +55,7 @@ let options;
 try { options = parseFixtureArgs(process.argv.slice(2)); }
 catch (error) {
   console.error(error.message);
-  console.error('usage: node tools/human_fixture.mjs [--write|--check] [--asset-ids <teamsters|nelson_charles_1904_coachman|settler_1812|Prairie child/teen IDs>]');
+  console.error('usage: node tools/human_fixture.mjs [--write|--check] [--asset-ids <the three teamsters|nelson_charles_1904_coachman|settler_1812|the five Prairie child/teen IDs>]');
   process.exit(2);
 }
 const MODE = options.mode;

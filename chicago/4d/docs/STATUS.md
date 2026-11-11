@@ -1,3 +1,35 @@
+## PR #1933 recovery and DEV integration — 11 November 2026
+
+The recovery integrates DEV 8a643db9, retaining the Prairie child/teen authoring
+job, its five-role fixture scope, household/audio work and both sets of history.
+The ordinary human browser checks retain the pinned Playwright container that
+passed on be1e1277; the separate authoring jobs retain DEV's mirror workaround.
+Mixed Prairie/clothing requests are refused before checkout.
+
+Capture 43072965533 passed its humans prerequisite and failed at the settler
+body normal readback: maximum 0.0028170957 exceeded the unchanged 0.001 bound.
+The opt-in clothing capture now explicitly uses the existing packed-normal
+adapter and retains its diagnostics even on failure. No tolerance override or
+global builder default changes. Local pinned Blender 4.5.3 trials read
+0.0000586337 and preserved mesh invariants.
+
+The first matched rear previews exposed a geometry defect in the original source
+candidate: projecting distinct shell/return layers to the same depth produced a
+jagged slit. The repair moves each rear column by its outer surface's required
+ease, preserving layer depth, topology, UVs and skin weights. A shallow convex
+crown stays within the existing maximum extra ease. The six source geometry
+controls pass, including the new two-layer negative-control regression. The
+revised eight exported MASTER/WEB LODs pass the container contract. Exploratory
+previews completed 104 views and 72 pose measurements across all four LODs and
+both viewports, with matching saved cameras and no sampled negative rear gaps.
+Inspected walking rear views at every LOD no longer show the slit. The final
+local browser inspector also passed all eight LOD/viewport inspections.
+
+These are local build and preview results. A successful immutable capture,
+complete matching idle/walk views, supported fixture remeasurement and published
+desktop/phone checks remain required before asset adoption and green DEV merge.
+T-1789 and broader clothing realism remain open. Production is unchanged.
+
 ### T1789 linen capture: browser dependency repair, 11 November 2026
 
 Source-only update; no replacement human assets or fit acceptance yet. Source
@@ -56,7 +88,6 @@ Native build, eight-file intake, original fixture remeasurement, before/after
 views and ordinary delivery checks remain required. T-1789 stays open. The saved
 coachman, apron and collar source candidates remain separate from this first
 linen increment. PR #1928 carries the preceding coat and routing delivery.
-
 ## T-3546, T-3547, T-3549, T-3550 — Prairie Avenue people and household routines (2026-11-11)
 
 The combined rollout covers 445 card entries across 71 households: 397 additional callable figures (362 adults and 35 children/teens), eight existing Glessner figures, five infants in household care, 23 absent former residents, nine aliases and three collective listings. Seventeen newly verified portraits have source crops, facial fits and model comparisons; unpictured appearances and conflicting birth dates remain explicit. The bounded search audit covers every entry and does not claim that an unidentified portrait does not exist.

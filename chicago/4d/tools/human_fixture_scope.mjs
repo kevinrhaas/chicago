@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 // Explicit native remeasurement scopes: rebuilt teamsters, Charles near coat,
-// and the five approved Prairie child/teen roles. Every other asset retains its
+// settler linen, and the five approved Prairie child/teen roles. Every other asset retains its
 // SHA and passing native baseline.
 export const TEAMSTER_IDS = Object.freeze(['bardwell_otis_1835', 'dufresne_joseph_1835', 'flynn_martin_1835']);
 export const CHARLES_COAT_ID = 'nelson_charles_1904_coachman';

@@ -88,6 +88,25 @@ class LinenSeat(unittest.TestCase):
             self.assertGreater(math.hypot(*after), 1e-12)
             self.assertGreaterEqual(math.fsum(a*b for a, b in zip(before, after)), 0.)
 
+    def test_distinct_rear_surface_layers_do_not_become_coplanar(self):
+        # Two closely spaced, triangulated cloth layers model the source's shell
+        # and return surfaces. A full hull projection collapsed both to one depth
+        # and showed visible fighting even while the triangle-normal test passed.
+        points = [[x, y, z] for z in (-.10, -.1015)
+                  for y in (.75, .90, 1.04) for x in (-.10, 0., .10)]
+        faces = []
+        for layer in (0, 9):
+            for row in range(2):
+                for column in range(2):
+                    a = layer+3*row+column
+                    faces.extend([[a, a+1, a+4], [a, a+4, a+3]])
+        mesh = {'positions_m': points, 'triangles': faces}
+        eased = linen_seat_ease(mesh, self.bones, self.height, .585, self.spec)
+        inner, outer = eased['positions_m'][4], eased['positions_m'][13]
+        self.assertEqual(inner[:2], outer[:2])
+        self.assertGreaterEqual(inner[2]-outer[2], points[4][2]-points[13][2]-1e-10)
+        self.assertLess(outer[2], inner[2])
+
     def test_inputs_and_other_garment_parameters_are_not_mutated(self):
         mesh = copy.deepcopy(self.previous)
         bones = copy.deepcopy(self.bones)

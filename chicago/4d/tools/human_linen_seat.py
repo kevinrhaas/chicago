@@ -58,6 +58,28 @@ def _rear_at(hull, x):
     return hull[-1][1]
 
 
+def _rear_surface(mesh, x, y):
+    """Nearest actual rear triangle at (x,y), including the original seat hollow."""
+    rear = -math.inf
+    for face in mesh['triangles']:
+        a, b, c = [mesh['positions_m'][i] for i in face]
+        if not min(a[0], b[0], c[0])-1e-12 <= x <= max(a[0], b[0], c[0])+1e-12:
+            continue
+        if not min(a[1], b[1], c[1])-1e-12 <= y <= max(a[1], b[1], c[1])+1e-12:
+            continue
+        denominator = (b[1]-c[1])*(a[0]-c[0])+(c[0]-b[0])*(a[1]-c[1])
+        if abs(denominator) < 1e-14:
+            continue
+        u = ((b[1]-c[1])*(x-c[0])+(c[0]-b[0])*(y-c[1]))/denominator
+        v = ((c[1]-a[1])*(x-c[0])+(a[0]-c[0])*(y-c[1]))/denominator
+        w = 1.-u-v
+        if min(u, v, w) >= -1e-10:
+            rear = max(rear, -(u*a[2]+v*b[2]+w*c[2]))
+    if not math.isfinite(rear):
+        raise ValueError('seat point has no actual rear surface support')
+    return rear
+
+
 def linen_seat_ease(mesh, bones, height, waist_fraction, spec):
     """Apply the recipe's bounded posterior ease without changing other dress.
 
@@ -106,7 +128,12 @@ def linen_seat_ease(mesh, bones, height, waist_fraction, spec):
         t = (y-levels[index])/(levels[index+1]-levels[index])
         support = ((1.-t)*_rear_at(hulls[index], x)
                    + t*_rear_at(hulls[index+1], x))
-        delta = gain*max(0., support+spec['extra_rear_ease_m']+z)
+        # Translate the column by the OUTER surface's required ease. Projecting
+        # each layer independently onto the hull collapses shell/return layers
+        # to one depth, which tears visibly when their skin weights deform.
+        original_rear = _rear_surface(mesh, x, y)
+        crown = max(0., 1.-(x/spec['half_width_m'])**2)
+        delta = gain*max(0., support+spec['extra_rear_ease_m']*crown-original_rear)
         if delta > 0:
             p[2] -= delta
             moved += 1
@@ -115,6 +142,7 @@ def linen_seat_ease(mesh, bones, height, waist_fraction, spec):
     out.setdefault('receipt', {})['linen_seat_ease'] = {
         'pattern': copy.deepcopy(spec), 'section_y_m': levels,
         'changed_vertices': moved, 'maximum_posterior_shift_m': maximum,
+        'source_layer_depth_preserved': True,
         'source_body_changed': False, 'topology_uvs_skin_weights_changed': False,
         'native_lod_and_posed_clearance_accepted': False,
         'scope': 'Reconstructed source cut; canonical bake, all LODs and movement/visual review remain pending',

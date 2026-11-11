@@ -114,6 +114,38 @@ class CaptureControls(unittest.TestCase):
             self.assertEqual(native.call_args.args[0],['producer','literal $(x);'])
             self.assertNotIn('shell',native.call_args.kwargs)
 
+    def test_master_uses_existing_adapter_without_relaxing_normal_guard(self):
+        family = self.root/'normal-build'; family.mkdir()
+        row = dict(zip(('recipe','variant','assembly','liberty'), C.FAMILIES[0]))
+        def producer(command, **kwargs):
+            self.assertIn('--experimental-normal-probes', command)
+            self.assertNotIn('--normal-tolerance', command)
+            temporary = Path(command[command.index('--normal-probe-receipts')+1])
+            self.assertTrue(temporary.is_relative_to(Path('/tmp')))
+            (temporary/'actual.json').write_text(json.dumps({
+                'status':'passed', 'mesh_invariant_unchanged':True,
+                'after':{'tolerance':1e-3,'maximum_raw_vector_delta':5.9e-5}}))
+        with patch.object(C, 'run', side_effect=producer) as runner:
+            C.build_master(Path('/never-executed'), row, family/'master.blend', family,
+                           family/'producer.log', self.app)
+            runner.assert_called_once()
+        self.assertTrue((family/'normal-evidence/actual.json').is_file())
+
+    def test_master_failure_retains_probe_diagnostics_and_does_not_retry(self):
+        import subprocess
+        family = self.root/'failed-normal-build'; family.mkdir()
+        row = dict(zip(('recipe','variant','assembly','liberty'), C.FAMILIES[0]))
+        def producer(command, **kwargs):
+            temporary = Path(command[command.index('--normal-probe-receipts')+1])
+            (temporary/'failure.json').write_text('{"status":"failed"}')
+            raise subprocess.CalledProcessError(1, command)
+        with patch.object(C, 'run', side_effect=producer) as runner:
+            with self.assertRaises(subprocess.CalledProcessError):
+                C.build_master(Path('/never-executed'), row, family/'master.blend', family,
+                               family/'producer.log', self.app)
+            runner.assert_called_once()
+        self.assertEqual(json.loads((family/'normal-evidence/failure.json').read_text())['status'], 'failed')
+
     def fixture_binding(self, request_doc, expected_hash=None, definition='a'*40):
         workflow=(C.REPO/'.github/workflows/chicago-4d-humans.yml').read_text()
         section=workflow.split('- name: Bind fixture prerequisite to actual clothing source',1)[1]
@@ -375,7 +407,8 @@ class CaptureControls(unittest.TestCase):
         section=workflow.split('- name: Validate opt-in study request before checkout',1)[1]
         source=re.search(r"python3 - <<'PY'\n(.*?)\n          PY",section,re.S).group(1)
         values=dict(SOURCE_REF='',DRESS_ENABLED='false',TEAMSTERS_ENABLED='false',SEATED_ENABLED='false',
-                    PRAIRIE_ENABLED='false',CLOTHING_ENABLED='false',CLOTHING_SOURCE='',CLOTHING_MANIFEST='',STILLS_ENABLED='false',LIBRARY_SOURCE_RUN='',
+                    CLOTHING_ENABLED='false',CLOTHING_SOURCE='',CLOTHING_MANIFEST='',STILLS_ENABLED='false',LIBRARY_SOURCE_RUN='',
+                    PRAIRIE_ENABLED='false',
                     GITHUB_OUTPUT=str(self.root/'github-output'))
         values.update(env)
         with patch.dict(os.environ,values,clear=True):exec(compile(textwrap.dedent(source),'actual-workflow-mode-validation','exec'),{})
@@ -385,12 +418,12 @@ class CaptureControls(unittest.TestCase):
         self.mode_validation(DRESS_ENABLED='true',SOURCE_REF='1cbb1817508593562f99ed378b6932368b5699b9')
         self.mode_validation(CLOTHING_ENABLED='true',CLOTHING_SOURCE='a'*40,CLOTHING_MANIFEST='b'*64)
         self.mode_validation(PRAIRIE_ENABLED='true')
-        for key in ('DRESS_ENABLED','TEAMSTERS_ENABLED','SEATED_ENABLED','PRAIRIE_ENABLED','STILLS_ENABLED'):
+        for key in ('DRESS_ENABLED','TEAMSTERS_ENABLED','SEATED_ENABLED','STILLS_ENABLED','PRAIRIE_ENABLED'):
             with self.subTest(key=key),self.assertRaises(SystemExit):
                 self.mode_validation(CLOTHING_ENABLED='true',CLOTHING_SOURCE='a'*40,CLOTHING_MANIFEST='b'*64,**{key:'true'})
         for key in ('DRESS_ENABLED','TEAMSTERS_ENABLED','SEATED_ENABLED','STILLS_ENABLED'):
-            with self.subTest(prairie_key=key),self.assertRaises(SystemExit):
-                self.mode_validation(PRAIRIE_ENABLED='true',**{key:'true'})
+            with self.subTest(prairie_conflict=key), self.assertRaises(SystemExit):
+                self.mode_validation(PRAIRIE_ENABLED='true', **{key:'true'})
         for values in ({'CLOTHING_SOURCE':'a'*40},{'CLOTHING_MANIFEST':'b'*64},
                        {'CLOTHING_ENABLED':'true','CLOTHING_SOURCE':'$(touch /tmp/NO)','CLOTHING_MANIFEST':'b'*64},
                        {'SOURCE_REF':'a'*40},{'DRESS_ENABLED':'true','SOURCE_REF':'a'*40}):

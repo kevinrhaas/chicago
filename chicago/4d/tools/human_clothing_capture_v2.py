@@ -7,7 +7,9 @@ import json
 import os
 from pathlib import Path
 import re
+import shutil
 import subprocess
+import tempfile
 
 APP = Path(__file__).resolve().parents[1]
 REPO = APP.parents[1]
@@ -46,6 +48,29 @@ def run(args, *, log=None, app=APP):
     with log.open('ab') as stream:
         stream.write((json.dumps(args)+'\n').encode())
         subprocess.run(args, cwd=app, stdout=stream, stderr=subprocess.STDOUT, check=True)
+
+
+def build_master(binary, row, master, family, log, source_app):
+    # This opt-in capture uses the existing packed-normal adapter. The canonical
+    # builder's RAW1e-3 audit still decides; no tolerance override is supplied.
+    # Its temporary probe path must be under /tmp even on hosted Actions runners.
+    with tempfile.TemporaryDirectory(prefix='t1789-normal-', dir='/tmp') as temporary:
+        try:
+            run([str(binary), '-b', '-noaudio', '--factory-startup', '--python-exit-code', '1',
+                 '--python', 'tools/human_teamster_blend.py', '--', '--recipe', row['recipe'],
+                 '--variant', row['variant'], '--liberty', row['liberty'],
+                 '--experimental-normal-probes', '--normal-probe-receipts', temporary,
+                 '--output', str(master)], log=log, app=source_app)
+        finally:
+            # Retain actual probe diagnostics on producer failures as well.
+            shutil.copytree(temporary, family/'normal-evidence')
+    reports = list((family/'normal-evidence').glob('*.json'))
+    need(len(reports) == 1, 'one actual settler body normal receipt required')
+    receipt = json.loads(reports[0].read_text())
+    need(receipt['status'] == 'passed' and receipt['mesh_invariant_unchanged'] is True
+         and receipt['after']['tolerance'] == 1e-3
+         and receipt['after']['maximum_raw_vector_delta'] <= 1e-3,
+         'unchanged RAW1e-3 normal and mesh-invariant acceptance required')
 
 
 def file_facts(path):
@@ -319,7 +344,7 @@ def execute_capture(args, doc, out, source_app, actual, driver_sha, canonical):
             parents = family/'parents/assets/humans'; parents.mkdir(parents=True); (parents/'web').mkdir()
             os.environ['HUMAN_EXPORT_EVIDENCE_DIR'] = str(family/'frame-evidence')
             log = family/'producer.log'
-            run([str(binary), '-b', '-noaudio', '--factory-startup', '--python-exit-code', '1', '--python', 'tools/human_teamster_blend.py', '--', '--recipe', row['recipe'], '--variant', asset, '--liberty', row['liberty'], '--output', str(master)], log=log, app=source_app)
+            build_master(binary, row, master, family, log, source_app)
             run([str(binary), '-b', '-noaudio', str(master), '--python-exit-code', '1', '--python', 'tools/human_export.py', '--', str(rawdir)], log=log, app=source_app)
             frame = family/'frame-evidence'
             need(frame.is_dir() and {p.name for p in frame.iterdir()} == {asset+'.lod'+str(lod)+suffix for lod in range(4) for suffix in ('.raw.glb', '.frame.json')}, 'complete existing rigid-frame evidence required')

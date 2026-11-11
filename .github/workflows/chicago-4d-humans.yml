@@ -58,10 +58,6 @@ on:
       - '.github/workflows/chicago-4d-humans.yml'
   workflow_dispatch:
     inputs:
-      build_prairie_children:
-        description: 'Build the five reconstructed 1904 child clothing assets from this PR; artifacts only'
-        type: boolean
-        default: false
       build_clothing_capture_v2:
         description: 'T1789 artifact-only canonical parent capture; no material/asset promotion'
         type: boolean
@@ -74,6 +70,10 @@ on:
         description: 'Reviewed deterministic external request SHA256; refreshed from this exact source/definition before producers'
         type: string
         default: ''
+      build_prairie_children:
+        description: 'Build the five reconstructed 1904 child clothing assets from this PR; artifacts only'
+        type: boolean
+        default: false
       build_teamsters:
         description: 'Build and inspect existing residents’ reconstructed 1835 workwear masters (prototype artifacts)'
         type: boolean
@@ -125,12 +125,12 @@ jobs:
           TEAMSTERS_ENABLED: ${{ inputs.build_teamsters }}
           SEATED_ENABLED: ${{ inputs.build_seated_driver_study }}
           SOURCE_REF: ${{ inputs.source_ref }}
-          PRAIRIE_ENABLED: ${{ inputs.build_prairie_children }}
           CLOTHING_ENABLED: ${{ inputs.build_clothing_capture_v2 }}
           CLOTHING_SOURCE: ${{ inputs.clothing_source_ref }}
           CLOTHING_MANIFEST: ${{ inputs.clothing_manifest_sha256 }}
           STILLS_ENABLED: ${{ inputs.render_library_stills }}
           LIBRARY_SOURCE_RUN: ${{ inputs.library_source_run }}
+          PRAIRIE_ENABLED: ${{ inputs.build_prairie_children }}
         run: |
           python3 - <<'PY'
           import os,re
@@ -139,14 +139,14 @@ jobs:
           clothing_source=os.environ['CLOTHING_SOURCE']
           clothing_manifest=os.environ['CLOTHING_MANIFEST']
           if clothing:
-              if any(os.environ[k]=='true' for k in ('DRESS_ENABLED','TEAMSTERS_ENABLED','SEATED_ENABLED','PRAIRIE_ENABLED','STILLS_ENABLED')) or source or os.environ['LIBRARY_SOURCE_RUN']:
+              if any(os.environ[k]=='true' for k in ('DRESS_ENABLED','TEAMSTERS_ENABLED','SEATED_ENABLED','STILLS_ENABLED','PRAIRIE_ENABLED')) or source or os.environ['LIBRARY_SOURCE_RUN']:
                   raise SystemExit('T1789 capture must run separately from every existing study/stills mode')
               if not re.fullmatch(r'[0-9a-f]{40}',clothing_source) or not re.fullmatch(r'[0-9a-f]{64}',clothing_manifest):
                   raise SystemExit('T1789 capture requires immutable source and manifest pins')
           elif clothing_source or clothing_manifest:
               raise SystemExit('T1789 capture fields require the explicit capture flag')
           dress=os.environ['DRESS_ENABLED']=='true'
-          if os.environ['PRAIRIE_ENABLED']=='true' and (dress or os.environ['TEAMSTERS_ENABLED']=='true' or os.environ['SEATED_ENABLED']=='true' or os.environ['STILLS_ENABLED']=='true'):
+          if os.environ['PRAIRIE_ENABLED']=='true' and (clothing or dress or os.environ['TEAMSTERS_ENABLED']=='true' or os.environ['SEATED_ENABLED']=='true' or os.environ['STILLS_ENABLED']=='true'):
               raise SystemExit('The Prairie children build must run separately from other authoring studies')
           if dress:
               if os.environ['TEAMSTERS_ENABLED']=='true' or os.environ['SEATED_ENABLED']=='true':
