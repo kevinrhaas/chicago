@@ -43535,3 +43535,16 @@ or a read bill of sale; a planting account locating the trees rather than merely
 **Basis:** Children's new clothing sources show other American children, not Prairie Avenue residents: Arthur Hewitt's Roosevelt sons, published 29 May 1904, and Frank Snyder's children in Oxford, Ohio, August 1904. Boys' jackets, knee trousers and stockings, girls' sleeved waisted frocks, teenage variants and toddler clothing are original simplified garments with reconstructed colours, ease, unseen details and fit. Pinned CC0 child/teenage graphical bodies supply age-appropriate proportions; individual heights are unmeasured. Equal upstream software shape-category blends are engineering, not ethnicity. New geometry requires canonical export and visible review before scene use. Infants must not become independently walking outdoor adults.
 
 **Recorded:** 2026-11-11.
+
+**T-3547 additional portraits, 2026-11-11:** Grace Murray Meeker and Albertine Huck Field use captioned photographs published in the Chicago Sunday Tribune on 3 March 1907. The exposures may be earlier; the figure uses the inferred 1904 birth-derived age. Landmark fits preserve the visible facial proportions, while exact waves in their hair, dress, jewellery, colour and unseen depth remain reconstructed. Gwendolyn Field's secondary birth dates disagree by a year (1901/1902); she is treated as a young child, not a default adult. Elizabeth Grey's difficult census age is retained as uncertain.
+
+### L-charles-near-wool-1789 — Charles Nelson's close-view livery wool
+
+**Decision:** Only the existing Charles1904 livery coat receives original periodic color, roughness and tangent-normal detail at LOD0/1. The green palette is retained. The wool twill/heather design, 32mm aggregate-area calibration and 20micrometre relief coefficient are reconstructed engineering choices, not a captured or surviving historical textile. One shared original coat material spans body and skirt with different UV densities: actual area-based periods are about57.54mm and24.01mm; local stretch remains. No UV repaint, new triangles, anatomy, identity or animation is authored. Vertex rows duplicate only where actual Mikk tangent groups require it, with every original triangle corner/skin/morph component retained. Existing macro wear, rumple and sheen remain; maps own only weave/heather and exact-name recolors keep inherited normal/ORM textures.
+
+**Basis:** Existing monochrome livery references in L-human-modular-dress-1789/T-3483 describe the outfit, not Nelson's exact cloth, color or face. Current GLB parents, their provenance and source image rights remain unchanged. No new historical source or retained unchanged Blender master is invented. The derivative recipe binds the existing parent GLBs and the current canonical export refuses protected body/UV/rig/clip/material/provenance changes before an active write.
+
+**How to resolve:** Matched source/published native views, actual clothing fit and phone budget checks must qualify any adoption. Current six-view research remains stylized; strict selected-published release remains NONPASS with7 retained completed-transfer request findings. Container/semantic proofs do not settle photographic likeness or fit.
+
+**Ticket:** T-1789.
+**Recorded:** 2026-11-10.

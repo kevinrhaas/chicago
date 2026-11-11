@@ -1,10 +1,27 @@
-## T-3546, T-3547, T-3548 — Prairie Avenue people (2026-11-11)
+## T-3546, T-3547, T-3549 — Prairie Avenue people (2026-11-11)
 
-Prepared for review: 445 card entries across 71 households, including five daughters separated from collective listings using existing census transcriptions. Fifteen newly verified portraits have crops, landmark fits and model stills. Other cards disclose the bounded portrait search and reconstructed appearance. Birth-date conflicts remain visible.
+Prepared for review: 445 card entries across 71 households, including five daughters separated from collective listings using existing census transcriptions. Seventeen newly verified portraits have crops, landmark fits and model stills. Other cards disclose the bounded portrait search and reconstructed appearance. Birth-date conflicts remain visible.
 
-The adult expansion currently supplies 364 callable residents with individual appearances and seasonal reconstructed days. Eight existing Glessner actors remain; aliases, collective labels and absent former residents do not create duplicate figures. All 71 homes have an explicit door or a disclosed reconstructed entrance. Thirty-eight younger residents are tracked separately while five age-specific clothing assets proceed through canonical remote authoring. No unexported child recipe is enabled in the scene.
+The adult expansion currently supplies 362 callable residents with individual appearances and seasonal reconstructed days. Eight existing Glessner actors remain; aliases, collective labels and absent former residents do not create duplicate figures. All 71 homes have an explicit door or a disclosed reconstructed entrance. Forty younger residents remain tracked under T-3550: 35 children/teens and five infants. Five age-specific clothing prototypes have canonical exports (run 42997832738), passed 40 mechanical browser inspections, and were captured in the published town on desktop and phone. Their first-role visual review and activation remain pending; no prototype is enabled in the scene. T-3548 is the split parent; T-3549 carries the adult rollout.
 
-All four local gate sections and representative published phone/desktop person checks passed. Full remote renderer checks, child exports and first-role visual review remain pending. Research inventory and identity rulings: `docs/RESEARCH/prairie-portraits-3546/`.
+All four local gate sections passed after integrating dev 900d9166 and the additional Tribune portraits (326, 326, 327 and 325 steps). The first integrated part 1 found unsupported rights/use enums on two text-only sources; those records were corrected, dataset validation passed, and the complete part was rerun successfully. Representative published phone/desktop person checks passed on the preceding revision. The full remote renderer suite passed all 15 stages on both viewports on 8c4f4355; required checks and mapped refinements passed on a229ee241. Fresh required checks and all 15 published renderer stages on both viewports are required for the final pushed revision; their exact commit and results are recorded on PR #1932 before merge. Research inventory and identity rulings: `docs/RESEARCH/prairie-portraits-3546/`.
+
+## T-1789 — preserve lazy 1812 startup routing (2026-11-11)
+
+Integration testing of PR #1928 found that blocked automatic 1812 routines
+bypassed the existing cold-grid day router and allocated the full town route
+grid. The ArrayBuffer increase matches its 443,309,659-byte grid plus routing
+heap. Automatic work, conversations and returns now use the guarded day router;
+clear paths still walk immediately and blocked paths wait safely for a usable
+route. Actual visitor requests and jaunt journeys retain full routing, including
+their return legs. Other years keep their existing routing policy.
+
+The real controller/router regression fails on the original integration and
+passes on this fix; the existing daily-life tests also pass. Actual published
+memory and renderer checks for the new revision remain required before merge.
+No actor, geometry, detail tier or memory ceiling was changed. Explicit routes
+can still warm the full grid. Clothing fit and photographic acceptance remain
+open on T-1789; this does not adopt the separate clothing-fit candidates.
 
 ## T-3540, T-3541, T-3543 — daily routines and persistent interactions (2026-11-10)
 
@@ -26852,3 +26869,8 @@ checkpoint, not a premature ticket closure.
 ### 2026-11-10 — T-3341 early masonry surface increment
 
 The remaining flat brick and chimney materials in 1812 and 1835 now bind the existing procedural brick or clay sheet by their recorded disposition. Already mapped fort recipes and 1904 materials are retained. The new brick shuffle reads the library's 20 by 48 running bond; Miller's mixed native stack primitive is partitioned without losing triangles or confidence. Actual desktop/default-phone before-and-after surfaces pass in both scenes (28 directly reviewed frames and two detail roundtrips). Official boot passes at 44.716135 MiB of 44.9; unchanged phone-memory gates pass at 305.664622 MiB of 350 (1812) and 509.227699 MiB of 550 (1835). All eight source-check parts and their aggregate pass on runtime `cab4514539`; PR #1918 records final protected-check and dev-merge state. See docs/RESEARCH/early-masonry-3341.md and L-early-masonry-surfaces-3341.
+
+
+### T-1789 - Charles near wool candidate
+
+The existing Charles1904 coat is the only proposed visible adoption. Four validated MASTER/WEB LOD0/1 children retain current geometry/UV/skin/rig/idle/walk/noncoat data and all four FAR baselines. Current source work adds transactional canonical-export finishing, immutable offline parent guards and a cheap derived registration owner. Eight actual-parent guards and nine scoped fixture parser controls passed under the original resource limits; actual integrated regeneration reproduced all four validated output hashes in40.138 seconds; actual four-row browser remeasurement now passes at both original viewports/30 frames while all 244 other rows remain exact. Fresh-blobless acquisition/offline/corruption controls and legitimate writer/isolation measurement pass. At this source freeze, no APP commit/PR or full gate has run for this candidate. The earlier selected-published research collected six views and ownership/meter readings but remains strict NONPASS; full published release, phone budgets, photographic likeness and clothing fit remain open. No extra views or new actors are claimed.

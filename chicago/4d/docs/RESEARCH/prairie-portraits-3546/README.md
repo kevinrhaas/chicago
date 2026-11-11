@@ -1,6 +1,6 @@
 # Prairie Avenue people: portraits, cards and figures
 
-T-3546, T-3547 and T-3548 implement the owner's request of 11 November 2026:
+T-3546, T-3547 and T-3548 (split into T-3549 adults and T-3550 younger residents) implement the owner's request of 11 November 2026:
 extend John and Frances Glessner's researched cards and portrait-guided figures
 to the people listed throughout Prairie Avenue.
 
@@ -35,38 +35,39 @@ named in the household census transcriptions have individual cards; their inferr
 continued residence stays explicit. Nine aliases retain their canonical links and
 three collective listings remain groups rather than invented people.
 
-Fifteen additional portraits were identified and visually inspected: fourteen men
+Seventeen additional portraits were identified and visually inspected: fourteen men
 from captioned or signed period books, and Harriet Sanger Pullman in Harris &
-Ewing’s 1908 photograph (LOC 90710921). The latter is explicitly later than the
-1904 scene. `portraits.json` records image identity, scan hashes, crops and hair
+Ewing’s 1908 photograph (LOC 90710921), plus Grace Murray Meeker and Albertine
+Huck Field in the Chicago Sunday Tribune of 3 March 1907. These later pictures
+are explicitly distinguished from the 1904 scene. `portraits.json` records image identity, scan hashes, crops and hair
 observations. The fitting records retain landmark uncertainty and single-view
 limitations. Unpictured people are labelled reconstructions, never historical
 likenesses. No owner acceptance of the new likenesses is asserted here.
 
-`demographics.json` records 105 structured age/birth rulings, chiefly re-read from
+`demographics.json` records 113 structured age/birth rulings, chiefly re-read from
 existing census transcriptions. Independent biographical corrections preserve
 conflicting census readings in the cards. `search-coverage.json` covers every
 entry and records the bounded book/museum searches and failed Commons requests;
 it is not an exhaustive claim that missing portraits do not exist.
 `rejected-candidates.json` preserves mistaken or ambiguous image leads.
 
-The current scene adds 364 adult residents through the existing portable role
+The current scene adds 362 adult residents through the existing portable role
 assets, with individual appearances, household doors, complete seasonal days,
 paired conversations and door calls. The eight existing Glessner actors retain
 their own authored interactions. Absent people, aliases and collective entries do
 not create duplicate actors. A nearby rotation is bounded to three additional
 autonomous figures; explicit calls can summon other available people.
 
-The 38 younger residents are still carded and currently await child-role export
-and review. Five new clothing recipes use pinned CC0 child/teenage bodies and
-identified 1904 clothing references. Infants must remain in household care rather
+The 40 younger residents are still carded and currently await first-role review
+and age-appropriate scene activation. Five new clothing recipes use pinned CC0
+child/teenage bodies and identified 1904 clothing references. Infants must remain in household care rather
 than being represented as independently walking adults. The remote workflow builds
 canonical masters and portable exports without automatically enabling them.
 
 ## Review and verification
 
 The working evidence is in `kevinrhaas/chicago-evidence`,
-`evidence/prairie-people-2026-11-11/`: original source scans, fifteen source/model
+`evidence/prairie-people-2026-11-11/`: original source scans, seventeen source/model
 pairs, comparison sheets and published-scene checks. Image rights and exact crops
 are recorded there and in `assets/LICENSES.md`.
 
@@ -88,13 +89,16 @@ All four local check sections passed, together with the focused person/card,
 portrait-body consistency, seasonal schedule and animation audits. The first
 canonical child build exposed a missing skin material in the clothing palette;
 the corrected recipes preserve the neutral textured-skin material, and a
-regression test rejects its omission. A successful child export remains pending.
+regression test rejects its omission. The corrected canonical export succeeded in
+run 42997832738; the final paragraph records its mechanical and town inspection evidence.
 The build uses the established child-body normal readback ceiling of 0.005 from
 `people-1812-dress/children.md`, section 4 (the same boy body measured 0.0036919).
 The default adult bound and exported geometry and animation checks are unchanged.
-Full remote renderer smoke is still pending.
-`source-budget.json` measures the complete Sources first-open payload at 71,323
-gzip bytes, within the unchanged 120,000-byte limit. Nine additional records
+The full remote renderer smoke passed on 8c4f4355, followed by the required
+checks and mapped refinements on a229ee241. Final integrated revision checks
+are recorded on PR #1932 and are required before merge.
+`source-budget.json` measures the complete Sources first-open payload at 71,687
+gzip bytes, within the unchanged 120,000-byte limit. Twelve additional records
 require the established 8 KB increment in the raw index allowance; no citation
 or field is cut. Other houses currently use the existing doorstep transition;
 Glessner’s animated door and stair passages remain separately tested and intact.
@@ -112,3 +116,9 @@ Glessner’s animated door and stair passages remain separately tested and intac
    gates run through `tools/check.sh`. Publication compacts JSON structurally and
    leaves authoring-only variation inputs in the repository; `check_published.mjs`
    compares all shipped values with their source.
+
+The later newspaper pass adds captioned 1907 portraits of Grace Murray Meeker and Albertine Huck Field, and eight birth rulings. Gwendolyn Field and Elizabeth Grey move from provisional adult casting to the child roster; their uncertain dates remain explicit. Frances Glessner Lee now uses her museum-documented 1878 birth instead of a default adult age. The Meeker secondary biography has an impossible marriage year, which is not used; its birth-date field is marked inferred.
+
+## Younger-resident review
+
+Five child/teen role prototypes exported successfully through canonical run 42997832738, source a229ee241fc1fd756f2be5b8a5190910e1ba52c5. Forty mechanical browser inspections passed, and desktop/phone town captures retain actual asset, runtime and camera hashes. First-role review under `data/people_match/README.md` and scene activation remain open on T-3550; mechanical success does not establish photographic acceptance. The evidence lives under `evidence/prairie-people-2026-11-11/child-prototypes/` in chicago-evidence. The adult rollout T-3549 does not close this remaining work.

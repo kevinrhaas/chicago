@@ -1,6 +1,7 @@
 {
   "not_a_reading": "Portrait selection and fit measurements; existing household identities are re-read, not counted as newly discovered residents.",
   "sources": [
+    "chicago_tribune_society_women_1907",
     "glessner_commercial_club_1910_keith_plate",
     "hall_successful_men_1896",
     "harris_ewing_pullman_1908",
@@ -308,6 +309,44 @@
       "hair_tone": "white_grey",
       "hair_tone_basis": "Light hair tone is visible; exact colour is reconstructed.",
       "identity_status": "catalogue_and_museum_crosscheck",
+      "matching_status": "not_yet_visually_accepted"
+    },
+    {
+      "person_id": "pa1904_meeker_mrs_arthur",
+      "source": "chicago_tribune_society_women_1907",
+      "scan": "https://archive.lib.msu.edu/DMC/tribune/trib00000000/trib00000000823.jpg",
+      "scan_sha256": "9b9546b27b10ab5ef031a2cabd150841ed8dba52e6b7f7ed320ad13ecbb19522",
+      "crop_px": [
+        6235,
+        8469,
+        8728,
+        11794
+      ],
+      "portrait": "assets/humans/web/portraits/pa1904_meeker_mrs_arthur_portrait.jpg",
+      "hair_cut": "swept_up_knot_1904",
+      "facial": "",
+      "hair_tone": "mid_brown",
+      "hair_tone_basis": "A dark gathered coiffure is visible; brown is a reconstructed colour and the exact waves are not reproduced.",
+      "identity_status": "original_caption_and_household_identity",
+      "matching_status": "not_yet_visually_accepted"
+    },
+    {
+      "person_id": "pa1904_field_mrs_marshall_jr",
+      "source": "chicago_tribune_society_women_1907",
+      "scan": "https://archive.lib.msu.edu/DMC/tribune/trib00000000/trib00000000823.jpg",
+      "scan_sha256": "9b9546b27b10ab5ef031a2cabd150841ed8dba52e6b7f7ed320ad13ecbb19522",
+      "crop_px": [
+        468,
+        2961,
+        2806,
+        6079
+      ],
+      "portrait": "assets/humans/web/portraits/pa1904_field_mrs_marshall_jr_portrait.jpg",
+      "hair_cut": "swept_up_knot_1904",
+      "facial": "",
+      "hair_tone": "mid_brown",
+      "hair_tone_basis": "A dark gathered coiffure is visible; brown is a reconstructed colour and the exact waves are not reproduced.",
+      "identity_status": "original_caption_and_household_identity",
       "matching_status": "not_yet_visually_accepted"
     }
   ]

@@ -1,0 +1,175 @@
+{
+  "format": "chicago4d_human_portrait_marks_v1",
+  "ticket": "T-3547",
+  "person_id": "pa1904_field_mrs_marshall_jr",
+  "scene": "1904",
+  "source": "chicago_tribune_society_women_1907",
+  "scan": "https://archive.lib.msu.edu/DMC/tribune/trib00000000/trib00000000823.jpg",
+  "scan_size_px": [
+    10391,
+    13847
+  ],
+  "crop_px": [
+    468,
+    2961,
+    2806,
+    6079
+  ],
+  "_doc": "Visible facial landmarks read from the captioned newspaper photograph. Grain and print contrast reflected in uncertainty; hidden crown is not marked.",
+  "base_body": "glessner_frances_m_1904",
+  "sex": "female",
+  "age_at_picture_years": 35,
+  "age_note": "Approximate age at 1907 publication, from an inferred birth date; the undated exposure may be earlier. The scene figure uses the 1904 age.",
+  "grade": "inferred",
+  "basis": "Caption identifies the sitter; one-view facial depth, exact grooming and colours remain reconstructed.",
+  "not_modelled": [
+    "Exact photographed dress and jewellery.",
+    "Unseen depth, photographic colour and personal measurements."
+  ],
+  "axes": [
+    "nose_length",
+    "nose_width",
+    "nose_depth",
+    "nose_hump",
+    "nose_curve",
+    "nose_tip",
+    "nose_tip_width",
+    "nostrils",
+    "nose_height",
+    "mouth_width",
+    "lip_upper",
+    "lip_lower",
+    "mouth_height",
+    "chin_prominence",
+    "chin_width",
+    "chin_height",
+    "jaw",
+    "prognathism",
+    "cheekbones",
+    "cheek_volume",
+    "cheek_inner",
+    "brow_height",
+    "brow_angle",
+    "brow_ridge",
+    "forehead_slope",
+    "temples",
+    "ear_size",
+    "ear_flap",
+    "ear_lobe",
+    "jowls",
+    "head_shape",
+    "forehead_height",
+    "mouth_corners"
+  ],
+  "marks": [
+    {
+      "landmark": "pupil_r",
+      "x": 1185,
+      "y": 1161,
+      "sigma_px": 23.4
+    },
+    {
+      "landmark": "pupil_l",
+      "x": 1617,
+      "y": 1360,
+      "sigma_px": 23.4
+    },
+    {
+      "landmark": "eye_outer_r",
+      "x": 1075,
+      "y": 1084,
+      "sigma_px": 27.3
+    },
+    {
+      "landmark": "eye_inner_r",
+      "x": 1270,
+      "y": 1193,
+      "sigma_px": 27.3
+    },
+    {
+      "landmark": "eye_inner_l",
+      "x": 1516,
+      "y": 1302,
+      "sigma_px": 27.3
+    },
+    {
+      "landmark": "eye_outer_l",
+      "x": 1726,
+      "y": 1411,
+      "sigma_px": 27.3
+    },
+    {
+      "landmark": "nasion",
+      "x": 1379,
+      "y": 1204,
+      "sigma_px": 35.1
+    },
+    {
+      "landmark": "nose_tip",
+      "x": 1181,
+      "y": 1454,
+      "sigma_px": 31.2
+    },
+    {
+      "landmark": "subnasale",
+      "x": 1177,
+      "y": 1559,
+      "sigma_px": 31.2
+    },
+    {
+      "landmark": "stomion",
+      "x": 1044,
+      "y": 1734,
+      "sigma_px": 31.2
+    },
+    {
+      "landmark": "menton",
+      "x": 916,
+      "y": 1972,
+      "sigma_px": 46.8
+    },
+    {
+      "landmark": "ear_top_r",
+      "x": 744,
+      "y": 1041,
+      "sigma_px": 46.8
+    },
+    {
+      "landmark": "ear_lobe_r",
+      "x": 655,
+      "y": 1395,
+      "sigma_px": 46.8
+    },
+    {
+      "landmark": "ear_lobe_l",
+      "x": 1574,
+      "y": 1910,
+      "sigma_px": 50.7
+    }
+  ],
+  "card": {
+    "_doc": "Captioned 1907 newspaper photograph and face fit; reconstructed 1904 day clothes, hair and colours.",
+    "portrait": "assets/humans/web/portraits/pa1904_field_mrs_marshall_jr_portrait.jpg",
+    "portrait_from_scan_px": [
+      468,
+      2961,
+      2806,
+      6079
+    ],
+    "model": "assets/humans/web/portraits/pa1904_field_mrs_marshall_jr_model.jpg",
+    "size_px": [
+      360,
+      480
+    ],
+    "body": "glessner_frances_m_1904",
+    "background": "#1c1b18",
+    "distance_m": 0.9,
+    "aim_above_head_m": 0.0,
+    "dress": true,
+    "hide": "^headwear|hat_plumes"
+  },
+  "read_by_eye": {
+    "values": {},
+    "basis": "Only visible landmarks constrain the fit; unseen form remains reconstructed."
+  }
+}

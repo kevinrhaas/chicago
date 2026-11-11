@@ -2,6 +2,7 @@
 // The second teamster sweep may replace exactly its 24 rebuilt source/web rows.
 // Everything outside that set must retain the SHA and passing native baseline.
 export const TEAMSTER_IDS = Object.freeze(['bardwell_otis_1835', 'dufresne_joseph_1835', 'flynn_martin_1835']);
+export const CHARLES_COAT_ID = 'nelson_charles_1904_coachman';
 const SHA = /^[a-f0-9]{64}$/;
 const need = (ok, message) => { if (!ok) throw Error(`human fixture scope: ${message}`); };
 const sameSet = (a, b) => a.size === b.size && [...a].every(value => b.has(value));
@@ -14,9 +15,10 @@ export function parseFixtureArgs(args) {
     } else if (args[i] === '--asset-ids') {
       need(assetIds === null && typeof args[i + 1] === 'string', 'one --asset-ids value required');
       assetIds = args[++i].split(',');
-      need(assetIds.length === 3 && new Set(assetIds).size === 3
-        && sameSet(new Set(assetIds), new Set(TEAMSTER_IDS)), 'scope must name exactly the three rebuilt teamster IDs');
-      assetIds = [...TEAMSTER_IDS];
+      const charles = assetIds.length === 1 && assetIds[0] === CHARLES_COAT_ID;
+      need(charles || assetIds.length === 3 && new Set(assetIds).size === 3
+        && sameSet(new Set(assetIds), new Set(TEAMSTER_IDS)), 'scope must name exactly the three rebuilt teamsters or the one Charles near-coat ID');
+      assetIds = charles ? [CHARLES_COAT_ID] : [...TEAMSTER_IDS];
     } else throw Error(`human fixture scope: unknown argument ${args[i]}`);
   }
   need(assetIds === null || mode === '--write', '--asset-ids requires --write; --check remains global');
@@ -28,6 +30,13 @@ export function teamsterFiles(assetIds) {
     && sameSet(new Set(assetIds), new Set(TEAMSTER_IDS)), 'scope must name exactly the three rebuilt teamster IDs');
   return ['assets/humans', 'assets/humans/web'].flatMap(dir => TEAMSTER_IDS.flatMap(id =>
     [0, 1, 2, 3].map(lod => `${dir}/${id}.lod${lod}.glb`)));
+}
+
+export function scopedFiles(assetIds) {
+  if (Array.isArray(assetIds) && assetIds.length === 1 && assetIds[0] === CHARLES_COAT_ID) {
+    return ['assets/humans', 'assets/humans/web'].flatMap(dir => [0, 1].map(lod => `${dir}/${CHARLES_COAT_ID}.lod${lod}.glb`));
+  }
+  return teamsterFiles(assetIds);
 }
 
 function checkedRows(rows) {
@@ -49,10 +58,10 @@ function checkedHashes(files, hashes) {
 }
 
 export function prepareFixtureScope({ baseline, files, hashes, assetIds }) {
-  const wanted = new Set(teamsterFiles(assetIds));
+  const wanted = new Set(scopedFiles(assetIds));
   const byFile = checkedRows(baseline?.files);
   checkedHashes(files, hashes);
-  need([...wanted].every(file => hashes.has(file)), 'all 24 rebuilt source/web LOD files are required');
+  need([...wanted].every(file => hashes.has(file)), `all ${wanted.size} rebuilt source/web LOD files are required`);
   const expected = new Set([...byFile.keys(), ...wanted]);
   need(sameSet(new Set(files), expected), 'complete inventory differs from baseline plus the explicit scope; unrelated additions or baseline removals forbidden');
   for (const file of files) if (!wanted.has(file)) {
@@ -60,7 +69,8 @@ export function prepareFixtureScope({ baseline, files, hashes, assetIds }) {
   }
   return { baseline, files: [...files], hashes: new Map(hashes), selectedFiles: files.filter(file => wanted.has(file)),
     unchangedCount: files.length - wanted.size,
-    addedCount: [...wanted].filter(file => !byFile.has(file)).length, assetIds: [...TEAMSTER_IDS] };
+    addedCount: [...wanted].filter(file => !byFile.has(file)).length,
+    assetIds: assetIds.length === 1 ? [CHARLES_COAT_ID] : [...TEAMSTER_IDS] };
 }
 
 export function mergeFixtureScope(scope, measured, files, hashes, date) {
@@ -68,7 +78,7 @@ export function mergeFixtureScope(scope, measured, files, hashes, date) {
   need(sameSet(new Set(files), new Set(scope.files)), 'file inventory changed during native measurement');
   for (const file of files) need(hashes.get(file) === scope.hashes.get(file), `asset changed during native measurement: ${file}`);
   const replacements = checkedRows(measured);
-  need(sameSet(new Set(replacements.keys()), new Set(scope.selectedFiles)), 'native results must cover exactly the 24 selected files');
+  need(sameSet(new Set(replacements.keys()), new Set(scope.selectedFiles)), `native results must cover exactly the ${scope.selectedFiles.length} selected files`);
   for (const [file, row] of replacements) {
     need(row.sha256 === hashes.get(file), `stale native result: ${file}`);
     const lod = Number(/\.lod([0-3])\.glb$/.exec(file)[1]);

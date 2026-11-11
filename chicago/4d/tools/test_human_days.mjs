@@ -640,3 +640,6 @@ console.log('paired household discussions: outdoor/indoor partners, arrivals, re
   assert(!ix.get(`door:${away.door}`).actions.shut.some(a => a.id === `ask:${away.person}`));
 }
 console.log('1812: all 804 routines, soldier ownership, Native door/activity/chat lifecycle, bounded rotation and date exclusions hold');
+
+// Keep the cold-grid and explicit-trip regression in the existing day-engine gate.
+await import('./test_human_days_routing.mjs');

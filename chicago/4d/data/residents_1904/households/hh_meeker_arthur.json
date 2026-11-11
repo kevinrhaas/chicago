@@ -74,17 +74,25 @@
       "sources": [
         "chicago_blue_book_1904",
         "wikipedia_arthur_meeker",
-        "chicago_blue_book_1905"
+        "chicago_blue_book_1905",
+        "jane_addams_grace_murray_meeker",
+        "chicago_tribune_society_women_1907"
       ],
       "printed_as": "1815 Mr. & Mrs. Arthur Meeker",
       "note": "The Blue Book prints her as Mrs. Arthur Meeker; her own name is from Wikipedia's article on her son.",
-      "portrait_research": {
-        "status": "not_identified",
-        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+      "born": {
+        "value": "1869-03-21",
+        "confidence": "inferred",
         "sources": [
-          "witherspoon_men_of_illinois_1902",
-          "leonard_book_of_chicagoans_1905"
-        ]
+          "jane_addams_grace_murray_meeker"
+        ],
+        "note": "Structured birth date in the Jane Addams Digital Edition; no primary birth record inspected. Its inconsistent marriage-date prose is not used."
+      },
+      "portrait": {
+        "image": "humans/web/portraits/pa1904_meeker_mrs_arthur_portrait.jpg",
+        "caption": "Grace Murray Meeker, Chicago Sunday Tribune, 3 March 1907, p. 4. MSU Libraries. Published three years after the scene.",
+        "grade": "attested",
+        "why": "Captioned on the original newspaper page; the modeled face uses the inferred 1904 age, with unseen depth and colours reconstructed."
       }
     },
     {

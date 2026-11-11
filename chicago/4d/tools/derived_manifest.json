@@ -2435,6 +2435,7 @@
         "chicago/4d/data/sidecars/1835/sources/chicago_tribune_1928_07_08_armour_famous_homes.json",
         "chicago/4d/data/sidecars/1835/sources/chicago_tribune_1928_07_29_famous_homes_corwith.json",
         "chicago/4d/data/sidecars/1835/sources/chicago_tribune_editorial_1880_02_15_dearborn_bridge.json",
+        "chicago/4d/data/sidecars/1835/sources/chicago_tribune_society_women_1907.json",
         "chicago/4d/data/sidecars/1835/sources/chicago_voter_lists_1833_1835_irad.json",
         "chicago/4d/data/sidecars/1835/sources/chicagoandcook_2017_1812_massacre_site.json",
         "chicago/4d/data/sidecars/1835/sources/chicagology_1612_prairie_photo.json",
@@ -2560,6 +2561,7 @@
         "chicago/4d/data/sidecars/1835/sources/gatlin_programme_1919_field_jr_plate.json",
         "chicago/4d/data/sidecars/1835/sources/gemmell_chicago_in_1820_lithograph.json",
         "chicago/4d/data/sidecars/1835/sources/geneanet_cook_baumgarten_1836.json",
+        "chicago/4d/data/sidecars/1835/sources/geneanet_field_family_dates.json",
         "chicago/4d/data/sidecars/1835/sources/ghm_blog_1721_dexter_c1888.json",
         "chicago/4d/data/sidecars/1835/sources/ghm_blog_pullman_completed.json",
         "chicago/4d/data/sidecars/1835/sources/ghm_george_glessner_ic_train_18th.json",
@@ -2663,6 +2665,7 @@
         "chicago/4d/data/sidecars/1835/sources/ipums_1840_chicago_households.json",
         "chicago/4d/data/sidecars/1835/sources/ipums_nhgis_1830_illinois_counties.json",
         "chicago/4d/data/sidecars/1835/sources/isa_public_domain_land_tract_sales.json",
+        "chicago/4d/data/sidecars/1835/sources/jane_addams_grace_murray_meeker.json",
         "chicago/4d/data/sidecars/1835/sources/john_moore_harness_catalog_1891.json",
         "chicago/4d/data/sidecars/1835/sources/joselodos_2025_horse_anatomy.json",
         "chicago/4d/data/sidecars/1835/sources/jsp_illinois_statutes_gale_imprint.json",
@@ -2999,6 +3002,25 @@
       "verify": [
         "python3",
         "tools/derive_horse_coats.py",
+        "--check"
+      ]
+    },
+    {
+      "why": "T-1789: register only the four reviewed near Charles material children and four byte-bound FAR passthroughs. Canonical generation is the explicit transactional human_export.sh stage, never an unconditional historical asset overwrite. This cheap owner writes only the derivation receipt; active assets, immutable parent recipe and reviewed admission are inputs. It reads no resident/pass output; source-use has an explicit collection whitelist and does not consume this material registration. Keep it below compile_source_use and outside the measured between-pass window. Actual writer and isolation measurements are recorded separately; this entry alone claims no execution. Its single gate wrapper serializes explicit acquisition of only two reviewed historical MASTER objects in real blobless CI before the unchanged independent check; offline cached inputs require no network.",
+      "command": [
+        "python3",
+        "tools/human_charles_coat.py"
+      ],
+      "resolves": [
+        "chicago/4d/data/humans/materials/charles-coat-woven-v1.derivation.json"
+      ],
+      "verify": [
+        "node",
+        "tools/check_human_charles_coat.mjs",
+        "--acquire-reviewed-parents",
+        "--",
+        "python3",
+        "tools/human_charles_coat.py",
         "--check"
       ]
     },

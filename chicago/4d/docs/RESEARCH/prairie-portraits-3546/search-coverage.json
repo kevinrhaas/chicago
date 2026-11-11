@@ -1859,7 +1859,15 @@
     "query_url": "https://commons.wikimedia.org/w/api.php?action=query&format=json&list=search&srnamespace=6&srlimit=5&srsearch=%22Albertine+Huck+Field%22",
     "status": "failed",
     "error": "HTTP Error 429: Too Many Requests"
-   }
+   },
+   "additional_hits": [
+    {
+     "source": "chicago_tribune_society_women_1907",
+     "locator": "3 March 1907, Part 7, p. 4; captioned photograph",
+     "status": "caption_verified",
+     "url": "https://lib.msu.edu/branches/dmc/tribune/detail.jsp?id=9696"
+    }
+   ]
   },
   {
    "person_id": "pa1904_field_marshall_iii",
@@ -3001,7 +3009,7 @@
      "File:Novella Nelson.png",
      "File:The Musical critic (IA acg2367.0002.001.umich.edu).pdf",
      "File:The Health Care Challenge - Acknowledging Disparity, Confronting Discrimination, and Ensuring Equality - Volume II - The Role of Federal Civil Rights Enforcement Efforts (September 1999) (IA healthcarechalle00uns).pdf",
-     "File:Army (ROKA) General Jang Jun-kyu \uc721\uad70\ub300\uc7a5 \uc7a5\uc900\uaddc (170523-A-XX123-001 Trilateral Engagement Between US, Republic of Korea, and Japanese Senior Army Leaders).jpg",
+     "File:Army (ROKA) General Jang Jun-kyu 육군대장 장준규 (170523-A-XX123-001 Trilateral Engagement Between US, Republic of Korea, and Japanese Senior Army Leaders).jpg",
      "File:GWU Cherry Tree yearbook 1920 original scans.djvu"
     ]
    }
@@ -6547,7 +6555,15 @@
     "query_url": "https://commons.wikimedia.org/w/api.php?action=query&format=json&list=search&srnamespace=6&srlimit=5&srsearch=%22Grace+Murray+Meeker%22",
     "status": "failed",
     "error": "HTTP Error 429: Too Many Requests"
-   }
+   },
+   "additional_hits": [
+    {
+     "source": "chicago_tribune_society_women_1907",
+     "locator": "3 March 1907, Part 7, p. 4; captioned photograph",
+     "status": "caption_verified",
+     "url": "https://lib.msu.edu/branches/dmc/tribune/detail.jsp?id=9696"
+    }
+   ]
   },
   {
    "person_id": "pa1904_meeker_arthur_jr",
@@ -7569,7 +7585,7 @@
    },
    "additional_search": {
     "query": "Mrs. Pullman photograph 1893",
-    "result": "LOC 90710921, 1908 Harris & Ewing photograph; Wikimedia image and metadata obtained; museum portrait cross-check identifies Florence Lowden\u2019s mother."
+    "result": "LOC 90710921, 1908 Harris & Ewing photograph; Wikimedia image and metadata obtained; museum portrait cross-check identifies Florence Lowden’s mother."
    }
   },
   {
@@ -10223,10 +10239,11 @@
   }
  ],
  "additional_verified_sources": [
-  "hall_successful_men_1896",
+  "buckingham_sturges_genealogy_1907",
+  "chicago_tribune_society_women_1907",
   "glessner_commercial_club_1910_keith_plate",
+  "hall_successful_men_1896",
   "harris_ewing_pullman_1908",
-  "smithsonian_harriet_sanger_pullman",
-  "buckingham_sturges_genealogy_1907"
+  "smithsonian_harriet_sanger_pullman"
  ]
 }

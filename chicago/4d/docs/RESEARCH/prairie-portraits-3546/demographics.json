@@ -1,10 +1,14 @@
 {
   "not_a_reading": "Re-reading existing census transcriptions into structured age fields, with independent period biographical corrections. No new census pages claimed.",
   "sources": [
-    "witherspoon_men_of_illinois_1902",
-    "leonard_book_of_chicagoans_1905",
+    "buckingham_sturges_genealogy_1907",
     "census_1900_chicago_t623_roll245",
-    "buckingham_sturges_genealogy_1907"
+    "census_1910_chicago_t624_roll241",
+    "geneanet_field_family_dates",
+    "glessner_house_family_page",
+    "jane_addams_grace_murray_meeker",
+    "leonard_book_of_chicagoans_1905",
+    "witherspoon_men_of_illinois_1902"
   ],
   "evidence": [
     {
@@ -938,6 +942,70 @@
       "value": "1870-09-09",
       "grade": "attested",
       "conflicting_census_year": "1862"
+    },
+    {
+      "person_id": "pa1904_meeker_mrs_arthur",
+      "field": "born",
+      "source": "jane_addams_grace_murray_meeker",
+      "locator": "Structured birth date in the Jane Addams Digital Edition; no primary birth record inspected. Its inconsistent marriage-date prose is not used.",
+      "value": "1869-03-21",
+      "grade": "inferred"
+    },
+    {
+      "person_id": "pa1904_field_mrs_marshall_jr",
+      "field": "born",
+      "source": "geneanet_field_family_dates",
+      "locator": "Provisional year from a compiled genealogy; no primary birth record inspected.",
+      "value": "1872",
+      "grade": "inferred"
+    },
+    {
+      "person_id": "pa1904_field_gwendolyn",
+      "field": "born",
+      "source": "geneanet_field_family_dates",
+      "locator": "Provisional year from Geneanet. The 2023 Peerage News family notice gives 1902 instead; about two to three on the scene date, not an adult. No primary birth record inspected.",
+      "value": "1901",
+      "grade": "inferred"
+    },
+    {
+      "person_id": "pa1904_lee_frances_glessner",
+      "field": "born",
+      "source": "glessner_house_family_page",
+      "locator": "The Glessner House family biography explicitly gives 25 March 1878. She is 26 on the scene date.",
+      "value": "1878-03-25",
+      "grade": "attested"
+    },
+    {
+      "person_id": "pa1904_grey_elizabeth_w",
+      "field": "born",
+      "source": "census_1910_chicago_t624_roll241",
+      "locator": "Re-reading the existing household note: the difficult 1910 age appears to be 14, implying about 1895-96. The reading may be wrong and is retained as uncertain; the Miss title is not enough to assume an adult in 1904.",
+      "value": "1896",
+      "grade": "inferred"
+    },
+    {
+      "person_id": "pa1904_keith_walter_w",
+      "field": "born",
+      "source": "census_1910_chicago_t624_roll241",
+      "locator": "Re-reading existing 1910 household note: age 40, ED 166, sheet 8B, lines 76-78, implying about 1869-70.",
+      "value": "1870",
+      "grade": "inferred"
+    },
+    {
+      "person_id": "pa1904_kellogg_mrs_lois",
+      "field": "born",
+      "source": "census_1910_chicago_t624_roll241",
+      "locator": "Re-reading existing 1910 household note: age 43, ED 167, sheet 6B, lines 75-76, implying about 1866-67.",
+      "value": "1867",
+      "grade": "inferred"
+    },
+    {
+      "person_id": "pa1904_jenkins_mrs_john_e",
+      "field": "born",
+      "source": "census_1910_chicago_t624_roll241",
+      "locator": "Re-reading existing 1910 household note: age 49, ED 166, sheet 6A, lines 9-11, implying about 1860-61.",
+      "value": "1861",
+      "grade": "inferred"
     }
   ]
 }

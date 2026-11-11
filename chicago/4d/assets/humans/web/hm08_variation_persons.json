@@ -67243,64 +67243,6 @@
     "grade": "reconstructed"
    }
   },
-  "pa1904_field_gwendolyn": {
-   "scene": "1904",
-   "record": "data/residents_1904/households/hh_field_marshall_jr.json",
-   "drawn_as": [
-    "data/humans/inside_1904.json#pa1904_field_gwendolyn"
-   ],
-   "looks": {
-    "complexion": {
-     "value": "fair",
-     "drawn": "fair",
-     "grade": "reconstructed"
-    },
-    "hair": {
-     "value": "dark brown",
-     "drawn": "dark_brown",
-     "cut": "swept_up_knot_1904",
-     "facial": [
-      "brows_fine",
-      "lashes_upper"
-     ],
-     "grade": "reconstructed"
-    },
-    "eyes": {
-     "value": "grey",
-     "drawn": "grey",
-     "grade": "reconstructed"
-    },
-    "stature": {
-     "inches": 66.6,
-     "grade": "reconstructed",
-     "basis": "Artistic body variation; no personal measurement located."
-    },
-    "height_scale": 1.0252,
-    "heritage": {
-     "origin": "not found"
-    },
-    "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty.An adult age is provisional because this record gives no birth year.",
-    "grade": "reconstructed",
-    "liberty": "L-prairie-likenesses-3547",
-    "file": "data/humans/variation/looks/pa1904_field_gwendolyn.json"
-   },
-   "dress": {
-    "colours": {
-     "garment_outer__lady_jacket_black": [
-      0.048,
-      0.047,
-      0.044
-     ],
-     "garment_lower__lady_skirt_black": [
-      0.048,
-      0.047,
-      0.044
-     ]
-    },
-    "worn": "charcoal day dress",
-    "grade": "reconstructed"
-   }
-  },
   "pa1904_field_marshall": {
    "scene": "1904",
    "record": "data/residents_1904/households/hh_field_marshall.json",
@@ -67798,6 +67740,71 @@
    "drawn_as": [
     "data/humans/inside_1904.json#pa1904_field_mrs_marshall_jr"
    ],
+   "age": {
+    "years": 32,
+    "grade": "inferred",
+    "sources": [
+     "geneanet_field_family_dates"
+    ],
+    "basis": "born 1872 (the person's record)"
+   },
+   "face": {
+    "grade": "inferred",
+    "sources": [
+     "chicago_tribune_society_women_1907"
+    ],
+    "basis": "Caption identifies the sitter; one-view facial depth, exact grooming and colours remain reconstructed.",
+    "values": {
+     "nose_length": 0.0,
+     "nose_width": -0.25,
+     "nose_depth": -0.027,
+     "nose_hump": -0.2,
+     "nose_curve": 0.001,
+     "nose_tip": 0.029,
+     "nose_tip_width": 0.0,
+     "nostrils": -0.2,
+     "nose_height": -0.03,
+     "mouth_width": -0.12,
+     "lip_upper": 0.12,
+     "lip_lower": 0.0,
+     "mouth_height": -0.261,
+     "chin_prominence": -0.009,
+     "chin_width": -0.151,
+     "chin_height": -0.042,
+     "jaw": -0.486,
+     "prognathism": -0.139,
+     "cheekbones": 0.2,
+     "cheek_volume": 0.15,
+     "cheek_inner": 0.0,
+     "brow_height": 0.002,
+     "brow_angle": 0.175,
+     "mouth_corners": 0.35,
+     "brow_ridge": -0.25,
+     "forehead_slope": 0.0,
+     "temples": 0.0,
+     "ear_size": -0.155,
+     "ear_flap": 0.054,
+     "ear_lobe": -0.047,
+     "jowls": -0.25,
+     "head_shape": 0.091,
+     "forehead_height": 0.0,
+     "head_shape.option": 5
+    },
+    "liberty": "L-human-variation-3412",
+    "not_modelled": [
+     "Exact photographed dress and jewellery.",
+     "Unseen depth, photographic colour and personal measurements."
+    ],
+    "card": {
+     "source_citation": "Chicago Sunday Tribune, 3 March 1907, Part 7/Special Features, p. 4, How Chicago Society Women Could Earn a Living if Thrown on Their Own Resources. Janet A. Ginsburg Chicago Tribune Collection, Michigan State University Libraries, item 9696.",
+     "source_url": "https://lib.msu.edu/branches/dmc/tribune/detail.jsp?id=9696",
+     "rms_mm": 5.6,
+     "marks": 14,
+     "portrait": "humans/web/portraits/pa1904_field_mrs_marshall_jr_portrait.jpg",
+     "model": "humans/web/portraits/pa1904_field_mrs_marshall_jr_model.jpg"
+    },
+    "fit": "data/humans/variation/fits/pa1904_field_mrs_marshall_jr.json"
+   },
    "looks": {
     "complexion": {
      "value": "ruddy",
@@ -67805,14 +67812,15 @@
      "grade": "reconstructed"
     },
     "hair": {
-     "value": "light brown",
-     "drawn": "light_brown",
+     "value": "mid brown",
+     "drawn": "mid_brown",
      "cut": "swept_up_knot_1904",
      "facial": [
       "brows_fine",
       "lashes_upper"
      ],
-     "grade": "reconstructed"
+     "grade": "inferred",
+     "basis": "A dark gathered coiffure is visible; brown is a reconstructed colour and the exact waves are not reproduced."
     },
     "eyes": {
      "value": "hazel",
@@ -67828,7 +67836,7 @@
     "heritage": {
      "origin": "not found"
     },
-    "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty.An adult age is provisional because this record gives no birth year.",
+    "basis": "Hair cut and facial hair follow the identified portrait; facial proportions have a separate photograph fit. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty.",
     "grade": "reconstructed",
     "liberty": "L-prairie-likenesses-3547",
     "file": "data/humans/variation/looks/pa1904_field_mrs_marshall_jr.json"
@@ -69481,64 +69489,6 @@
      ]
     },
     "worn": "slate day dress",
-    "grade": "reconstructed"
-   }
-  },
-  "pa1904_grey_elizabeth_w": {
-   "scene": "1904",
-   "record": "data/residents_1904/households/hh_grey_w_l.json",
-   "drawn_as": [
-    "data/humans/inside_1904.json#pa1904_grey_elizabeth_w"
-   ],
-   "looks": {
-    "complexion": {
-     "value": "fair",
-     "drawn": "fair",
-     "grade": "reconstructed"
-    },
-    "hair": {
-     "value": "sandy",
-     "drawn": "sandy",
-     "cut": "drawn_back_bun_1904",
-     "facial": [
-      "brows_fine",
-      "lashes_upper"
-     ],
-     "grade": "reconstructed"
-    },
-    "eyes": {
-     "value": "grey",
-     "drawn": "grey",
-     "grade": "reconstructed"
-    },
-    "stature": {
-     "inches": 65.5,
-     "grade": "reconstructed",
-     "basis": "Artistic body variation; no personal measurement located."
-    },
-    "height_scale": 1.0083,
-    "heritage": {
-     "origin": "not found"
-    },
-    "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty.An adult age is provisional because this record gives no birth year.",
-    "grade": "reconstructed",
-    "liberty": "L-prairie-likenesses-3547",
-    "file": "data/humans/variation/looks/pa1904_grey_elizabeth_w.json"
-   },
-   "dress": {
-    "colours": {
-     "garment_outer__lady_jacket_black": [
-      0.035,
-      0.06,
-      0.045
-     ],
-     "garment_lower__lady_skirt_black": [
-      0.035,
-      0.06,
-      0.045
-     ]
-    },
-    "worn": "dark green day dress",
     "grade": "reconstructed"
    }
   },
@@ -71747,6 +71697,14 @@
    "drawn_as": [
     "data/humans/inside_1904.json#pa1904_jenkins_mrs_john_e"
    ],
+   "age": {
+    "years": 43,
+    "grade": "inferred",
+    "sources": [
+     "census_1910_chicago_t624_roll241"
+    ],
+    "basis": "born 1861 (the person's record)"
+   },
    "looks": {
     "complexion": {
      "value": "olive",
@@ -71777,7 +71735,7 @@
     "heritage": {
      "origin": "not found"
     },
-    "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty.An adult age is provisional because this record gives no birth year.",
+    "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty.",
     "grade": "reconstructed",
     "liberty": "L-prairie-likenesses-3547",
     "file": "data/humans/variation/looks/pa1904_jenkins_mrs_john_e.json"
@@ -73832,6 +73790,14 @@
    "scene": "1904",
    "record": "data/residents_1904/households/hh_keith_mrs_edson.json",
    "drawn_as": [],
+   "age": {
+    "years": 34,
+    "grade": "inferred",
+    "sources": [
+     "census_1910_chicago_t624_roll241"
+    ],
+    "basis": "born 1870 (the person's record)"
+   },
    "looks": {
     "complexion": {
      "value": "ruddy",
@@ -73861,7 +73827,7 @@
     "heritage": {
      "origin": "not found"
     },
-    "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty.An adult age is provisional because this record gives no birth year.",
+    "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty.",
     "grade": "reconstructed",
     "liberty": "L-prairie-likenesses-3547",
     "file": "data/humans/variation/looks/pa1904_keith_walter_w.json"
@@ -74003,6 +73969,14 @@
    "drawn_as": [
     "data/humans/inside_1904.json#pa1904_kellogg_mrs_lois"
    ],
+   "age": {
+    "years": 37,
+    "grade": "inferred",
+    "sources": [
+     "census_1910_chicago_t624_roll241"
+    ],
+    "basis": "born 1867 (the person's record)"
+   },
    "looks": {
     "complexion": {
      "value": "fair",
@@ -74033,7 +74007,7 @@
     "heritage": {
      "origin": "not found"
     },
-    "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty.An adult age is provisional because this record gives no birth year.",
+    "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty.",
     "grade": "reconstructed",
     "liberty": "L-prairie-likenesses-3547",
     "file": "data/humans/variation/looks/pa1904_kellogg_mrs_lois.json"
@@ -75053,6 +75027,14 @@
    "drawn_as": [
     "data/humans/inside_1904.json#pa1904_lee_frances_glessner"
    ],
+   "age": {
+    "years": 26,
+    "grade": "attested",
+    "sources": [
+     "glessner_house_family_page"
+    ],
+    "basis": "born 1878-03-25 (the person's record)"
+   },
    "looks": {
     "complexion": {
      "value": "light",
@@ -75083,7 +75065,7 @@
     "heritage": {
      "origin": "not found"
     },
-    "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty.An adult age is provisional because this record gives no birth year.",
+    "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty.",
     "grade": "reconstructed",
     "liberty": "L-prairie-likenesses-3547",
     "file": "data/humans/variation/looks/pa1904_lee_frances_glessner.json"
@@ -78168,6 +78150,71 @@
    "drawn_as": [
     "data/humans/inside_1904.json#pa1904_meeker_mrs_arthur"
    ],
+   "age": {
+    "years": 35,
+    "grade": "inferred",
+    "sources": [
+     "jane_addams_grace_murray_meeker"
+    ],
+    "basis": "born 1869-03-21 (the person's record)"
+   },
+   "face": {
+    "grade": "inferred",
+    "sources": [
+     "chicago_tribune_society_women_1907"
+    ],
+    "basis": "Caption identifies the sitter; one-view facial depth, exact grooming and colours remain reconstructed.",
+    "values": {
+     "nose_length": 0.0,
+     "nose_width": -0.25,
+     "nose_depth": -0.05,
+     "nose_hump": -0.2,
+     "nose_curve": -0.024,
+     "nose_tip": 0.065,
+     "nose_tip_width": 0.0,
+     "nostrils": -0.2,
+     "nose_height": -0.037,
+     "mouth_width": -0.12,
+     "lip_upper": 0.12,
+     "lip_lower": 0.055,
+     "mouth_height": 0.026,
+     "chin_prominence": -0.015,
+     "chin_width": -0.151,
+     "chin_height": 0.052,
+     "jaw": -0.461,
+     "prognathism": -0.114,
+     "cheekbones": 0.2,
+     "cheek_volume": 0.15,
+     "cheek_inner": 0.0,
+     "brow_height": 0.0,
+     "brow_angle": 0.191,
+     "mouth_corners": 0.35,
+     "brow_ridge": -0.25,
+     "forehead_slope": 0.0,
+     "temples": 0.0,
+     "ear_size": -0.357,
+     "ear_flap": -0.026,
+     "ear_lobe": -0.161,
+     "jowls": -0.25,
+     "head_shape": 0.004,
+     "forehead_height": 0.0,
+     "head_shape.option": 6
+    },
+    "liberty": "L-human-variation-3412",
+    "not_modelled": [
+     "Exact photographed dress and jewellery.",
+     "Unseen depth, photographic colour and personal measurements."
+    ],
+    "card": {
+     "source_citation": "Chicago Sunday Tribune, 3 March 1907, Part 7/Special Features, p. 4, How Chicago Society Women Could Earn a Living if Thrown on Their Own Resources. Janet A. Ginsburg Chicago Tribune Collection, Michigan State University Libraries, item 9696.",
+     "source_url": "https://lib.msu.edu/branches/dmc/tribune/detail.jsp?id=9696",
+     "rms_mm": 3.4,
+     "marks": 13,
+     "portrait": "humans/web/portraits/pa1904_meeker_mrs_arthur_portrait.jpg",
+     "model": "humans/web/portraits/pa1904_meeker_mrs_arthur_model.jpg"
+    },
+    "fit": "data/humans/variation/fits/pa1904_meeker_mrs_arthur.json"
+   },
    "looks": {
     "complexion": {
      "value": "light",
@@ -78175,14 +78222,15 @@
      "grade": "reconstructed"
     },
     "hair": {
-     "value": "dark brown",
-     "drawn": "dark_brown",
-     "cut": "drawn_back_bun_1904",
+     "value": "mid brown",
+     "drawn": "mid_brown",
+     "cut": "swept_up_knot_1904",
      "facial": [
       "brows_fine",
       "lashes_upper"
      ],
-     "grade": "reconstructed"
+     "grade": "inferred",
+     "basis": "A dark gathered coiffure is visible; brown is a reconstructed colour and the exact waves are not reproduced."
     },
     "eyes": {
      "value": "hazel",
@@ -78198,7 +78246,7 @@
     "heritage": {
      "origin": "not found"
     },
-    "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty.An adult age is provisional because this record gives no birth year.",
+    "basis": "Hair cut and facial hair follow the identified portrait; facial proportions have a separate photograph fit. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty.",
     "grade": "reconstructed",
     "liberty": "L-prairie-likenesses-3547",
     "file": "data/humans/variation/looks/pa1904_meeker_mrs_arthur.json"

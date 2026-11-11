@@ -201,6 +201,14 @@
           "witherspoon_men_of_illinois_1902",
           "leonard_book_of_chicagoans_1905"
         ]
+      },
+      "born": {
+        "value": "1896",
+        "confidence": "inferred",
+        "sources": [
+          "census_1910_chicago_t624_roll241"
+        ],
+        "note": "Re-reading the existing household note: the difficult 1910 age appears to be 14, implying about 1895-96. The reading may be wrong and is retained as uncertain; the Miss title is not enough to assume an adult in 1904."
       }
     },
     {

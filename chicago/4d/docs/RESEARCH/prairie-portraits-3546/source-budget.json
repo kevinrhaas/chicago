@@ -3,8 +3,8 @@
   "files": [
     {
       "file": "data/sidecars/1835/sources/index.json",
-      "raw_bytes": 273559,
-      "gzip_bytes": 63947
+      "raw_bytes": 274714,
+      "gzip_bytes": 64311
     },
     {
       "file": "renderers/web/js/sources.js",
@@ -17,6 +17,6 @@
       "gzip_bytes": 774
     }
   ],
-  "gzip_total": 71323,
+  "gzip_total": 71687,
   "unchanged_wire_limit": 120000
 }

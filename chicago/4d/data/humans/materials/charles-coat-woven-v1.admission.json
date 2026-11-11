@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "asset_id": "nelson_charles_1904_coachman",
+  "recipe": "data/humans/materials/charles-coat-woven-v1.json",
+  "recipe_sha256": "2b604e409564a0340c497bd158307a22620aad3efaa542aecff55a2e0d8dc4d3",
+  "parent_revision": "fc5a52b6cab3eed78e2db5864aa811dff5df2795",
+  "outputs": [
+    {
+      "file": "assets/humans/nelson_charles_1904_coachman.lod0.glb",
+      "sha256": "ebb5594ce5aadf36da25f87676252e8026c3cd993760b2cbd9f1c6d3fb9351af",
+      "bytes": 9093740
+    },
+    {
+      "file": "assets/humans/nelson_charles_1904_coachman.lod1.glb",
+      "sha256": "f87895b5004268335f91a5d4b821b19beaf4ae917c90c7cde9410ddff5825aea",
+      "bytes": 7980556
+    },
+    {
+      "file": "assets/humans/web/nelson_charles_1904_coachman.lod0.glb",
+      "sha256": "8660b20793909061ecc0c81b31c4b6e4fd26c2da0afa04c7b741788495c28820",
+      "bytes": 4670520
+    },
+    {
+      "file": "assets/humans/web/nelson_charles_1904_coachman.lod1.glb",
+      "sha256": "86a5fdfa5d173c89a94e925424975f3f83ada548d2c5953106ac7c9b496cf4b6",
+      "bytes": 1714028
+    }
+  ],
+  "volatile_path_allowlist": [
+    {
+      "pointer": "/scenes/0/extras/chicago4d_human/master",
+      "type": "absolute_path_string",
+      "reason": "Historical authoring file location; no runtime consumer. All adjacent provenance, source IDs/hashes/versions/license/style and rig booleans remain protected."
+    }
+  ],
+  "source_recovery_patch_sha256": "368fbf7b387298b04d8bc389e675321c64963010aba8b9727ea4508dce0a8f75",
+  "qualification": {
+    "source_master_and_canonical_web": "actual raw/independent Mikk/pinnedcodec semantics PASS",
+    "official_gltf_validator": "all four near, 0 errors/0 warnings under2.0.0-dev.3.10",
+    "selected_published_research": "six views and ownership/meter observations; STRICT NONPASS with7 retained completed-transfer abort metadata findings",
+    "full_APP_gate": "PENDING",
+    "phone_budget": "PENDING",
+    "photographic_and_fit": "OPEN",
+    "DEV_adoption": "candidate only"
+  },
+  "implementation_sha256": {
+    "tools/human_charles_coat.py": "6c0c83d1f78cebe8023fadd3878bc85998ec7bc4b72751cbf5fc5e1cdecac607",
+    "tools/human_charles_coat.mjs": "2c25750a4f4bb7a1e8ca6756a44118392e42085f99eb01f351cef8d3994da328",
+    "tools/human_charles_coat_semantics.mjs": "4ca2d8a620de4756279141dec34e7c2831e1fda9fef7c25e3b1fc158edc62d4f",
+    "tools/human_charles_coat_web.sh": "ae60138591bc218e89adb6ff3f0ef8b1c566f8f7f0a5eb662b82b67bc3989e9d",
+    "tools/verify_human_charles_coat.py": "1ab655aa8b749c7d76642f117886b0075ce048dd90427f50ef8905a7315d7db1",
+    "tools/human_export.sh": "520bc004711e0125d7a2b231cc6fdb6be061aad4895a36f67b164b3e2a99a68e"
+  },
+  "runtime_sha256": {
+    "renderers/web/js/fabric.js": "0fa147af7b39a6fa748239d4a78aa50bf1097061d3f7d6679c8131d6b0d667e7",
+    "renderers/web/js/human-looks.js": "4350b1611df7b27a7c2dc08bbaac22b58eaa5d201cb8cd1ad358a09f51b46762"
+  },
+  "actual_reproduction_proof_sha256": "fc94f3a36c0631686be63299f4f073d1fda8b2ac9978aa9d850cbc0ef4d6cd6f",
+  "implementation_binding_basis": "Captured from the actual full integrated reproduction, whose four output bytes equal the previously validated children. Expected output hashes were not changed."
+}

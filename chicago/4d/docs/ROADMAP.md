@@ -1,6 +1,16 @@
-## T-3546, T-3547, T-3548 — Prairie Avenue portraits and people (2026-11-11)
+## T-3546, T-3547, T-3549 — Prairie Avenue portraits and people (2026-11-11)
 
-Extend the Glessner person-card and figure model across the complete Prairie Avenue roster. Resolve portrait identities and rights; fit visible proportions while declaring liberties; build age-appropriate household figures with existing routines, door calls and jaunts. Preserve canonical aliases, former residents and collective entries. STATUS.md and the linked research folder record validation and remaining geometry.
+Extend the Glessner person-card and figure model across the complete Prairie Avenue roster. Resolve portrait identities and rights; fit visible proportions while declaring liberties; build age-appropriate household figures with existing routines, door calls and jaunts. Preserve canonical aliases, former residents and collective entries. STATUS.md and the linked research folder record validation. T-3548 is split into adult rollout T-3549 and younger-resident review/activation T-3550; the latter remains open after the adult rollout.
+
+## T-1789 — 1812 startup routing during Charles coat integration (2026-11-11)
+
+Keep the existing lazy automatic-routing policy while integrating the daily-life
+delivery into PR #1928. Blocked automatic work and social returns must not build
+the full town grid at startup; clear routines, warmed detours, explicit visitor
+requests and jaunt ownership remain available. Qualify the resulting revision
+with the unchanged mobile and desktop memory ceilings and published renderer
+checks. Clothing fit, boarding and broader transport acceptance stay open on
+their existing tickets. STATUS.md records the integration finding and scope.
 
 ## T-3543 - persistent person interactions across years (2026-11-11)
 
@@ -6648,3 +6658,8 @@ checkpoint, not a premature ticket closure.
 ### 2026-11-10 — T-3341 early masonry surface increment
 
 The remaining flat brick and chimney materials in 1812 and 1835 now bind the existing procedural brick or clay sheet by their recorded disposition. Already mapped fort recipes and 1904 materials are retained. The new brick shuffle reads the library's 20 by 48 running bond; Miller's mixed native stack primitive is partitioned without losing triangles or confidence. Actual desktop/default-phone before-and-after surfaces pass in both scenes (28 directly reviewed frames and two detail roundtrips). Official boot passes at 44.716135 MiB of 44.9; unchanged phone-memory gates pass at 305.664622 MiB of 350 (1812) and 509.227699 MiB of 550 (1835). All eight source-check parts and their aggregate pass on runtime `cab4514539`; PR #1918 records final protected-check and dev-merge state. See docs/RESEARCH/early-masonry-3341.md and L-early-masonry-surfaces-3341.
+
+
+### T-1789 - existing Charles coat, near material terminal
+
+Candidate: reproduce the four already validated Charles near MASTER/WEB children through the real canonical-export terminal, protect unknown fresh/active body changes and all four FAR bytes, register the derivation and remeasure only four native fixture rows while retaining every other SHA. Actual integrated full reproduction is PASS with all four prior output hashes unchanged. Fresh-blobless bootstrap, legitimate writer/isolation measurement and actual four-row native fixture now pass with accepted original resource limits; all 244 other fixture rows stay exact. Complete APP gate and ordinary DEV review remain pending. Selected-published research remains strict NONPASS; photographic likeness, clothing fit and phone release budgets stay open. No Joseph placement, Otis/Hans clip replacement, unrelated resident change or new ticket is part of this increment.

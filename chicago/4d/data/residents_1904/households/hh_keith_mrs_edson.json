@@ -127,6 +127,14 @@
           "witherspoon_men_of_illinois_1902",
           "leonard_book_of_chicagoans_1905"
         ]
+      },
+      "born": {
+        "value": "1870",
+        "confidence": "inferred",
+        "sources": [
+          "census_1910_chicago_t624_roll241"
+        ],
+        "note": "Re-reading existing 1910 household note: age 40, ED 166, sheet 8B, lines 76-78, implying about 1869-70."
       }
     },
     {
