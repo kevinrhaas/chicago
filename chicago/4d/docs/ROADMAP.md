@@ -1,3 +1,13 @@
+## T-1789 — 1812 startup routing during Charles coat integration (2026-11-11)
+
+Keep the existing lazy automatic-routing policy while integrating the daily-life
+delivery into PR #1928. Blocked automatic work and social returns must not build
+the full town grid at startup; clear routines, warmed detours, explicit visitor
+requests and jaunt ownership remain available. Qualify the resulting revision
+with the unchanged mobile and desktop memory ceilings and published renderer
+checks. Clothing fit, boarding and broader transport acceptance stay open on
+their existing tickets. STATUS.md records the integration finding and scope.
+
 ## T-3543 - persistent person interactions across years (2026-11-11)
 
 Owner follow-up while the 1812 rollout was in validation: walking people must not

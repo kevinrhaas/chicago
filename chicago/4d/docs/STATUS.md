@@ -1,3 +1,20 @@
+## T-1789 — preserve lazy 1812 startup routing (2026-11-11)
+
+Integration testing of PR #1928 found that blocked automatic 1812 routines
+bypassed the existing cold-grid day router and allocated the full town route
+grid. The ArrayBuffer increase matches its 443,309,659-byte grid plus routing
+heap. Automatic work, conversations and returns now use the guarded day router;
+clear paths still walk immediately and blocked paths wait safely for a usable
+route. Actual visitor requests and jaunt journeys retain full routing, including
+their return legs. Other years keep their existing routing policy.
+
+The real controller/router regression fails on the original integration and
+passes on this fix; the existing daily-life tests also pass. Actual published
+memory and renderer checks for the new revision remain required before merge.
+No actor, geometry, detail tier or memory ceiling was changed. Explicit routes
+can still warm the full grid. Clothing fit and photographic acceptance remain
+open on T-1789; this does not adopt the separate clothing-fit candidates.
+
 ## T-3540, T-3541, T-3543 — daily routines and persistent interactions (2026-11-10)
 
 All 284 drawn people and all 520 callable household/lodge residents have explicit
