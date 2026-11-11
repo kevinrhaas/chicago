@@ -13,6 +13,7 @@
  *   --write --asset-ids nelson_charles_1904_coachman remeasure only its four near
  *                                          MASTER/WEB LOD0/1 files; retain all other passing rows
  *                                          only while their actual SHAs remain unchanged
+ *   --write --asset-ids settler_1812 remeasure its eight MASTER/WEB LOD0..3 files; retain every other actual hash
  *   node tools/human_fixture.mjs --check   no browser: every GLB has a measure entry whose
  *                                          sha256 is the file's, and every verdict is ok —
  *                                          so a rebuild that is not re-measured fails in
@@ -51,7 +52,7 @@ let options;
 try { options = parseFixtureArgs(process.argv.slice(2)); }
 catch (error) {
   console.error(error.message);
-  console.error('usage: node tools/human_fixture.mjs [--write|--check] [--asset-ids <the three teamsters|nelson_charles_1904_coachman>]');
+  console.error('usage: node tools/human_fixture.mjs [--write|--check] [--asset-ids <the three teamsters|nelson_charles_1904_coachman|settler_1812>]');
   process.exit(2);
 }
 const MODE = options.mode;

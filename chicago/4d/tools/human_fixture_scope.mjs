@@ -3,6 +3,7 @@
 // Everything outside that set must retain the SHA and passing native baseline.
 export const TEAMSTER_IDS = Object.freeze(['bardwell_otis_1835', 'dufresne_joseph_1835', 'flynn_martin_1835']);
 export const CHARLES_COAT_ID = 'nelson_charles_1904_coachman';
+export const SETTLER_ID = 'settler_1812';
 const SHA = /^[a-f0-9]{64}$/;
 const need = (ok, message) => { if (!ok) throw Error(`human fixture scope: ${message}`); };
 const sameSet = (a, b) => a.size === b.size && [...a].every(value => b.has(value));
@@ -16,9 +17,10 @@ export function parseFixtureArgs(args) {
       need(assetIds === null && typeof args[i + 1] === 'string', 'one --asset-ids value required');
       assetIds = args[++i].split(',');
       const charles = assetIds.length === 1 && assetIds[0] === CHARLES_COAT_ID;
-      need(charles || assetIds.length === 3 && new Set(assetIds).size === 3
-        && sameSet(new Set(assetIds), new Set(TEAMSTER_IDS)), 'scope must name exactly the three rebuilt teamsters or the one Charles near-coat ID');
-      assetIds = charles ? [CHARLES_COAT_ID] : [...TEAMSTER_IDS];
+      const settler = assetIds.length === 1 && assetIds[0] === SETTLER_ID;
+      need(charles || settler || assetIds.length === 3 && new Set(assetIds).size === 3
+        && sameSet(new Set(assetIds), new Set(TEAMSTER_IDS)), 'scope must name exactly the three rebuilt teamsters, the one Charles near-coat ID, or the one settler eight-file ID');
+      assetIds = charles ? [CHARLES_COAT_ID] : settler ? [SETTLER_ID] : [...TEAMSTER_IDS];
     } else throw Error(`human fixture scope: unknown argument ${args[i]}`);
   }
   need(assetIds === null || mode === '--write', '--asset-ids requires --write; --check remains global');
@@ -33,6 +35,9 @@ export function teamsterFiles(assetIds) {
 }
 
 export function scopedFiles(assetIds) {
+  if (Array.isArray(assetIds) && assetIds.length === 1 && assetIds[0] === SETTLER_ID) {
+    return ['assets/humans', 'assets/humans/web'].flatMap(dir => [0, 1, 2, 3].map(lod => `${dir}/${SETTLER_ID}.lod${lod}.glb`));
+  }
   if (Array.isArray(assetIds) && assetIds.length === 1 && assetIds[0] === CHARLES_COAT_ID) {
     return ['assets/humans', 'assets/humans/web'].flatMap(dir => [0, 1].map(lod => `${dir}/${CHARLES_COAT_ID}.lod${lod}.glb`));
   }
@@ -70,7 +75,7 @@ export function prepareFixtureScope({ baseline, files, hashes, assetIds }) {
   return { baseline, files: [...files], hashes: new Map(hashes), selectedFiles: files.filter(file => wanted.has(file)),
     unchangedCount: files.length - wanted.size,
     addedCount: [...wanted].filter(file => !byFile.has(file)).length,
-    assetIds: assetIds.length === 1 ? [CHARLES_COAT_ID] : [...TEAMSTER_IDS] };
+    assetIds: assetIds.length === 1 ? [...assetIds] : [...TEAMSTER_IDS] };
 }
 
 export function mergeFixtureScope(scope, measured, files, hashes, date) {

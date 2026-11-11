@@ -56,7 +56,7 @@
     "met_pixler_family_c1815",
     "quaife_1913"
   ],
-  "basis": "Original shells offset from the cleared adult body's own surface (the 1835 labourer's shirt, waistcoat and trousers, re-measured), a neckerchief lofted round its neck and a round hat rigid on the head, after the rural and working dress of 1811-15 in the recipe's pictures. Seams, ease, lengths and colours are reconstructed. Complete source anatomy remains unchanged beneath clothing.",
+  "basis": "Original shells offset from the cleared adult body's own surface (the 1835 labourer's shirt, waistcoat and trousers, re-measured), a neckerchief lofted round its neck and a round hat rigid on the head, after the rural and working dress of 1811-15 in the recipe's pictures. Seams, ease, lengths and colours are reconstructed. Complete source anatomy remains unchanged beneath clothing. The loose linen seat bridges the anatomical rear cleft with a reconstructed posterior section envelope and 12 mm extra ease, faded away at the waistband, upper thighs and outer hips; this is a garment-cut choice, not a body alteration or measured historical pattern.",
   "source_scope": "Krimmel's Black sawyers before the Bank of Pennsylvania (1811-13) show working men in shirt-sleeves, waistcoats, trousers and black round hats; his country inn (1811-13) rural men's dress; the Pixler family (about 1815) a rural American father's; Quaife (1913) that the settlers were armed as militia from the garrison store in their own clothes. No source describes any Chicago settler's or Black Jim's clothes in 1812; no pixels or traced shapes enter the asset.",
   "colors_linear_rgba": {
     "skin": [
@@ -187,7 +187,19 @@
         "added_section_ease": 0.016,
         "thigh_transition_fraction": 0.65,
         "hem_front_y": 0.066,
-        "hem_back_y": 0.034
+        "hem_back_y": 0.034,
+        "seat_ease": {
+          "id": "settler_linen_seat_ease_v1",
+          "extra_rear_ease_m": 0.012,
+          "half_width_m": 0.14,
+          "full_half_width_m": 0.095,
+          "lower_below_pelvis_m": 0.16,
+          "lower_full_below_pelvis_m": 0.105,
+          "upper_below_waist_m": 0.008,
+          "upper_full_below_waist_m": 0.05,
+          "rear_transition_m": 0.035,
+          "section_rows": 17
+        }
       },
       "round_hat": {
         "seat_below_top": 0.074,

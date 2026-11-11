@@ -1,3 +1,23 @@
+## T-1789 — fuller 1812 linen trouser seat: source preparation (2026-11-11)
+
+The existing settler role now has a model-specific fuller linen trouser seat.
+The source surface bridges the deep posterior crease with bounded ease, while
+preserving the waistband, lower legs, front, UVs, colors, topology and skin weights.
+The original native GLBs and fixture measurements remain unchanged at this source
+stage; no visible native fit or photographic result is claimed here.
+
+A strictly opt-in artifact capture reuses the existing canonical builder/exporter
+for this one family. One immutable source/definition revision and a separately
+reviewed deterministic request hash bind the run before any producer. Defaults
+are unchanged. The existing inspector gains an opt-in rear/seat image and real
+walking-pose observer; sampled contacts are diagnostic and missing hidden body
+geometry is unavailable evidence, rather than a model failure.
+
+Native build, eight-file intake, original fixture remeasurement, before/after
+views and ordinary delivery checks remain required. T-1789 stays open. The saved
+coachman, apron and collar source candidates remain separate from this first
+linen increment. PR #1928 carries the preceding coat and routing delivery.
+
 ## T-1789 — preserve lazy 1812 startup routing (2026-11-11)
 
 Integration testing of PR #1928 found that blocked automatic 1812 routines

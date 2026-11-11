@@ -1,3 +1,14 @@
+## T-1789 — first native clothing-fit increment: linen trousers (2026-11-11)
+
+Address the owner's visible 1812 casual-trouser seat crease on the existing
+settler asset. Preserve its clothing style and shared rig, and qualify one family
+through the existing canonical export path before taking the shared coat/apron/
+collar bundle. Source preparation leaves the existing native assets unchanged.
+Require all four rebuilt LODs, the original fixture writer, rear and quarter views,
+actual standing/walking samples, publication bindings and normal DEV checks.
+Sampled diagnostic rays do not certify general clothing fit. Keep broader human
+photographic acceptance on the existing T-1789 ticket. STATUS.md records this stage.
+
 ## T-1789 — 1812 startup routing during Charles coat integration (2026-11-11)
 
 Keep the existing lazy automatic-routing policy while integrating the daily-life
