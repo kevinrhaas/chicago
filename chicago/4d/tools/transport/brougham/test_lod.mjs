@@ -115,21 +115,22 @@ try {
  }
  pose(99.9);need(b.group.visible,'Full retains existing100m reach');pose(100);need(!b.group.visible,'Full hides at original100m boundary');
  await out.setTier('balanced');pose(64.9);need(b.group.visible,'Balanced retains original65m reach');pose(65);need(!b.group.visible,'Balanced hides at original65m boundary');
- const loadedCount=requests.length;await out.setTier('light');pose(3);need(out.instances.every(i=>!i.group.visible),'Light hides every authored vehicle');
+ const loadedCount=requests.length;await out.setTier('light');pose(3);need(out.instances.some(i=>i.group.visible),'T-3542: Light keeps the authored carriage near');pose(49.9);need(b.group.visible,'Light draws to 50 m');pose(50);need(!b.group.visible,'Light hides at its 50 m boundary');
  await out.setTier('full');pose(3);active('Full restores original near after Light','near');need(requests.length===loadedCount,'Tier changes reuse existing caches without another GLB load');
  const batchDisposals=[];out.group.traverse(n=>{if(n.geometry){const row={count:0};n.geometry.addEventListener('dispose',()=>row.count++);batchDisposals.push(row)}});
  await dispose(out);need(batchDisposals.every(r=>r.count===1),'Each near/mid/C02 merged buffer is disposed once');need(sourceDisposals.every(r=>r.count===1)&&sourceMaterials.every(r=>r.count===1),'Each cached source geometry and material is disposed once');
  need(!out.group.children.length&&!out.instances.length,'Disposal clears all active level ownership');
- const beforeLight=requests.length;const light=await createParkedTransport({...options,detail:'light'});objects.push(light);need(requests.length===beforeLight&&!light.instances.length,'Light boot does not fetch either Brougham level');await dispose(light);
+ const beforeLight=requests.length;const light=await createParkedTransport({...options,detail:'light'});objects.push(light);need(light.instances.length>0,'T-3542: a Light boot builds its authored vehicles too');await dispose(light);
  rejectMid=true;const failed=[];const fallback=await createParkedTransport({...options,problems:failed});objects.push(fallback);
  const retained=fallback.instances.find(i=>i.row.model==='studebaker_brougham_1893');need(retained&&!retained.lod&&count(retained.group)===45338&&failed.some(s=>s.includes('near retained')),'Actual failed mid fetch retains original near and reports failure');await dispose(fallback);rejectMid=false;
- need(requests.filter(u=>u.endsWith('/brougham-mid-delivery-v1.glb')).length===midRequestsBeforeCompat+2,'Each created transport caches its one mid request; failure control is distinct');
- // A Light boot returns its API before loading. Dispose during its actual pending
- // mid load, then let the real GLTF parse finish; no late model may be attached.
- const waiting=await createParkedTransport({...options,detail:'light',problems:[]});objects.push(waiting);
+ need(requests.filter(u=>u.endsWith('/brougham-mid-delivery-v1.glb')).length===midRequestsBeforeCompat+3,'Each created transport (T-3542: the Light boot too) caches its one mid request; failure control is distinct');
+ // A deferred boot (T-3300 loadWithin) returns its API before loading; T-3542: Light now
+ // loads too, so the eye's approach starts it. Dispose during its actual pending mid load,
+ // then let the real GLTF parse finish; no late model may be attached.
+ const waiting=await createParkedTransport({...options,detail:'light',loadWithin:60,problems:[]});objects.push(waiting);
  const started=new Promise(resolve=>{midStarted=resolve});holdMid=true;
- const pending=waiting.setTier('full');await started;waiting.dispose();releaseMid();await pending;holdMid=false;
- await Promise.resolve();await Promise.resolve();
+ waiting.update(camera);await started;waiting.dispose();releaseMid();holdMid=false;
+ await new Promise(resolve=>setTimeout(resolve,300));await Promise.resolve();await Promise.resolve();
  need(!waiting.group.children.length&&!waiting.instances.length,'Disposal during pending mid load never attaches a late model');
  need(sourceDisposals.every(r=>r.count===1)&&sourceMaterials.every(r=>r.count===1),'Pending and failed-mid paths retire every cached source resource once');
 
@@ -137,8 +138,8 @@ try {
  // malformed success is cached or parsed; legacy C02 still uses loadAsync.
  rejectNear=true;const missingProblems=[];const missing=await createParkedTransport({...options,problems:missingProblems});objects.push(missing);
  need(!missing.instances.some(i=>i.row.model==='studebaker_brougham_1893')&&missing.instances.some(i=>i.row.model==='carriage_c02')&&missingProblems.some(s=>s.includes('Brougham HTTP 404')),'Actual HTTP404 near failure is reported and leaves legacy C02');await dispose(missing);rejectNear=false;
- const aborted=await createParkedTransport({...options,detail:'light',problems:[]});objects.push(aborted);const abortStarted=new Promise(resolve=>{midStarted=resolve});holdMid=true;
- const abortLoad=aborted.setTier('full');await abortStarted;manager.abort();await abortLoad;holdMid=false;
+ const aborted=await createParkedTransport({...options,detail:'light',loadWithin:60,problems:[]});objects.push(aborted);const abortStarted=new Promise(resolve=>{midStarted=resolve});holdMid=true;
+ aborted.update(camera);await abortStarted;manager.abort();await aborted.ready();holdMid=false;
  const abortRetained=aborted.instances.find(i=>i.row.model==='studebaker_brougham_1893');need(abortRetained&&!abortRetained.lod,'Actual manager abort rejects pending mid and retains existing near fallback');await dispose(aborted);
  need(legacyRequests.every(u=>!u.includes('brougham-'))&&legacyRequests.some(u=>u.endsWith('/carriage-c02.glb')),'Legacy C02 retains loadAsync and both Brougham levels use direct body read');
  need(parseBases.length>1&&parseBases.every(u=>u.endsWith('/transport/parked-brougham/')),'Actual parseAsync resolves relative resources from original asset directory');

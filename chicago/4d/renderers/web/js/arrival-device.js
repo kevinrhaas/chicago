@@ -32,8 +32,10 @@ const SHARP_WORD = { 1: 'low', 1.5: 'medium', 2: 'high' };
  * @param {boolean} [o.lowMemory]   the memory diet is on (main.js `lowMem`)
  * @param {boolean} [o.steppedDown] crash-guard lowered this boot
  * @param {boolean} [o.chosen]      the visitor's own stored detail or sharpness
+ * @param {string} [o.keptAfter]   T-3542: the detail a failed switch wanted, when this level was kept for it
  */
-export function arrivalDeviceStatus({ profile, detail, sharpness, lowMemory = false, steppedDown = false, chosen = false } = {}) {
+export function arrivalDeviceStatus({ profile, detail, sharpness, lowMemory = false, steppedDown = false, chosen = false,
+  keptAfter = null } = {}) {
   const { score, grade } = scoreProfile(profile);
   const s = profile?.signals || {};
   const touch = !!profile?.touch;
@@ -54,7 +56,10 @@ export function arrivalDeviceStatus({ profile, detail, sharpness, lowMemory = fa
     tier === 'full' ? null : t(`arrival.device.eases.${tier}`),
     profile?.choice?.textures === 'light' ? t('arrival.device.textures') : null,
     lowMemory ? t('arrival.device.saver') : null,
-    steppedDown ? t('arrival.device.stepped') : chosen ? t('arrival.device.chosen') : null,
+    steppedDown ? t('arrival.device.stepped')
+      // T-3542: a level kept after a switch failed is said as that, not as the visitor's choice.
+      : keptAfter ? t('arrival.device.kept', { wanted: t(`arrival.device.detail.${keptAfter}`) || keptAfter })
+        : chosen ? t('arrival.device.chosen') : null,
   ].filter(Boolean);
   return { score, grade, assess, setup };
 }

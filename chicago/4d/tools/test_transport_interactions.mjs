@@ -133,7 +133,10 @@ console.log('transport interactions: keyboard/touch stop-resume, moving reach, c
 // A cold Find/Go to reads the real configured route/seat without importing a GLB.
 {
   const { readFile } = await import('node:fs/promises');
-  const { createTownTransport } = await import('../renderers/web/js/town-transport.js');
+  const { createTownTransport: createTownTransportDefault } = await import('../renderers/web/js/town-transport.js');
+  // T-3542: Light draws its teams by default now; this journey is about a tier that retires
+  // them, which any reach of 0 still is.
+  const createTownTransport = (options) => createTownTransportDefault({ reach: { full: 90, balanced: 60, light: 0 }, ...options });
   const { circleRoute, roundedBlockRoute, createTransportLoop } = await import('../renderers/web/js/transport-loop.js');
   const config = JSON.parse(await readFile(new URL('../data/transport/driven/loops.json', import.meta.url), 'utf8'));
   const row = config.rows.find(r => r.scene === '1835');

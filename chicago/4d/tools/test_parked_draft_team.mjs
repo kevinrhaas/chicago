@@ -153,7 +153,7 @@ try {
   assert.equal(mid.scene.getObjectByName(spec.pole_node).parent, originalMidParent);
   assert(!frame.getObjectByName(`${row.id}:stationary-team`));
   // The actual parked adapter adopts the same row, keeps body LOD batching,
-  // releases animal leases on Light/hidden and reacquires without duplicates.
+  // releases animal leases beyond Light's reach and when hidden, and reacquires without duplicates.
   const problems = [], camera = new THREE.PerspectiveCamera(55, 1.6, .1, 5000);
   camera.position.set(row.at_local_enu_m[0], 7, -row.at_local_enu_m[1] + 8);
   const layer = await createParkedTransport({ dataBase: new URL('data/', root), sceneId: '1904',
@@ -168,8 +168,12 @@ try {
     assert.equal(instance.draw_batches, 10, 'Eight preserved body batches and the two independent original pole primitives');
     assert.deepEqual(instance.group.position.toArray(), [1397.9, 5, 3240]);
     assert.equal(instance.row.belongs_to, null, 'No household ownership is silently assigned');
-    await layer.setTier('light'); assert.equal(instance.team, null);
-    layer.update(camera); assert.equal(instance.group.visible, false);
+    // T-3542: Light keeps the team near (owner, 2026-11-10); beyond its 50 m the leases go.
+    await layer.setTier('light'); layer.update(camera); await layer.ready();
+    assert(instance.team, 'Light keeps the near team'); assert.equal(instance.group.visible, true);
+    camera.position.z += 60; layer.update(camera);
+    assert.equal(instance.team, null); assert.equal(instance.group.visible, false);
+    camera.position.z -= 60;
     await layer.setTier('full'); layer.update(camera); await layer.ready();
     assert(instance.team, problems.join('\n')); assert.equal(instance.team.horses.length, 2);
     layer.setShown(false); assert.equal(instance.team, null);

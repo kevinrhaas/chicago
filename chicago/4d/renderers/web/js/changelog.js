@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 2878, ts: '2026-11-11T03:48:18.061Z', date: 'Nov 10, 2026, 9:48 PM CT', title: 'Switching Scene detail works in every season', kind: 'fix',
+    items: [
+      'Changing Scene detail in 1904 while it was autumn, winter or spring (a jaunt\'s night or snow included) failed with "Could not load full detail" and left the town frozen. The switch now finishes in every season.',
+    ] },
+  { v: 2877, ts: '2026-11-11T03:48:18.061Z', date: 'Nov 10, 2026, 9:48 PM CT', title: 'Phones keep their people, horses and carriages', kind: 'feature',
+    items: [
+      'Light detail, where every phone starts, now draws people as far as the other levels do and keeps the parked carriages, standing horses and moving teams, drawn a little nearer. The horses\' pictures are softer on a phone to pay for it.',
+      'A strong phone now starts at Balanced detail instead of Light. A phone that runs short of memory still steps down on its next visit.',
+    ] },
   { v: 2876, ts: '2026-11-11T01:14:28.303Z', date: 'Nov 10, 2026, 7:14 PM CT', title: 'Recorded sound and music for each era', kind: 'feature',
     items: [
       'Turn sound on from the loading screen. The old hums are gone; music has its own level in Settings.',
