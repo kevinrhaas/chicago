@@ -1,3 +1,7 @@
+## T-3551 — fill 1812 audio before extending 1904 (2026-11-11)
+
+Add sparse seasonal nature in the actual 1812 habitats, dirt hoof contacts with a declared softened snow proxy, and recorded impacts attached to visible scheduled work. Preserve existing music, calm water and 1835 insects. Validate the integrated town on mobile and desktop before DEV release; STATUS.md records current evidence. Next, extend appropriate sources and visible work to 1904 with its own street surfaces, activities and seasonal conditions. Dedicated snow recordings and additional visible trades remain future improvements.
+
 ## T-3546, T-3547, T-3549, T-3550 - Prairie Avenue people and household routines (2026-11-11)
 
 Complete the researched person cards, portrait fits and individual appearances across 71 homes. Activate the five owner-approved younger roles: 35 children/teens with seasonal days and household companions, plus indoor care for five infants. Preserve adults, identity rulings, door calls, returns and jaunt priority. Combined PR #1932 carries the rollout; STATUS.md records validation.

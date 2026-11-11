@@ -2860,3 +2860,12 @@ Owner-selected calmer river recording (T-3544, 2026-11-11):
 | `audio/originals/575244_97550-hq.mp3` | TRP — water on rocks, calm, manitoulin.mp3 — https://freesound.org/people/TRP/sounds/575244/ | CC0-1.0; HQ MP3 preview, not original download. |
 
 `audio/evidence/calm-river-water.json` is project-authored acquisition/license and owner-selection metadata. Source SHA-256 `8ab476464f7d1280514f6a405988550f423b572e9fe3900b29b776cfba77ab48`; the accepted `renderers/web/audio/river.mp3` derivative is `6831b7ad102ec023194c4040776c5245b6cb47451d652a94a07dc742e28362af`. The exact 22-second mono loop was selected as “Light water on rocks”; its crop and seam recipe are in the generated catalogue. The modern rocky-lake recording is a reconstructed river proxy. The previous TRP577323 source and its CC0 derivative remain under `river-held.mp3`, disabled in scenes; no existing rights are withdrawn.
+
+
+1812 seasonal audio and generated work kit (T-3551,2026-11-11):
+
+| Asset | Rights and provenance |
+|---|---|
+| `props/work_1812.glb` | CC0-1.0 original project geometry generated from `data/humans/work_1812.json` by `tools/generate_work_1812.py`. A reconstructed wooden packing chest/support and hand hammer, not an archival artifact scan. No third-party textures. |
+
+The six 1812 nature placements, two short dirt-hoof transients and hammer cue reuse the existing cleared recordings and immutable delivery bytes listed above. No newly downloaded audio or new audio license is asserted. Runtime crops/filtering retain the CC 0 source attribution; the snow treatment is a processed dirt-road recording. `data/sources/illinois_dnr_american_robin.json` is a textual ecological citation only; no Illinois DNR photograph or map is copied into an asset. Existing held recordings retain their licensing and review status.

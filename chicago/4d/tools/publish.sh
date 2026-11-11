@@ -838,6 +838,13 @@ if [ -d assets/humans/web ]; then
   node tools/share_glb_sheets.mjs "$SITE" --dir data/humans/web --source assets/humans/web --streams
 fi
 
+# Generated activity props are not human skeletons or structural building assets.
+rm -rf "$SITE/data/props"
+if [ -d assets/props ]; then
+  mkdir -p "$SITE/data/props"
+  cp -a assets/props/. "$SITE/data/props/"
+fi
+
 # T-3548: keep the larger neighborhood roster within the existing delivery budget.
 # Only JSON whitespace changes; check_published compares complete parsed values,
 # alongside the existing household-note and boot-sidecar transformations.
