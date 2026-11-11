@@ -8745,5 +8745,15 @@ step "Individual horse coats use stable source-bound identities and own only the
 step "Scoped teamster measurements retain every unmodified native fixture row and reject inventory drift (T-1789)" \
   node tools/test_human_fixture_scope.mjs --check
 
+step "Charles's coat registration and real-parent controls refuse body drift after one serialized input bootstrap (T-1789)" \
+  node tools/check_human_charles_coat.mjs --acquire-reviewed-parents -- python3 tools/human_charles_coat.py --check --then python3 tools/test_human_charles_coat_regeneration.py
+step "Portable Charles wool maps preserve exact recolor ownership and existing macro fabric (T-1789)" \
+  node tools/test_human_charles_coat.mjs
+step "Actual Charles MASTER and canonical WEB metadata retain exact glTF defaults and sampling semantics (T-1789)" \
+  node tools/test_human_charles_coat_defaults.mjs --check
+
+step "Charles immutable inputs require the exact recipe/tree and trusted promisor before any acquisition (T-1789)" \
+  node tools/test_human_charles_coat_inputs.mjs --check
+
 check_summary
 exit $CHECK_FAILED

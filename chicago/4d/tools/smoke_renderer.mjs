@@ -16788,6 +16788,11 @@ for (const [label, viewport, touch] of [
     // stop playback, and a hidden tab clears recorded voices. Levels, pose, the one-time
     // roam tip and tour offer are put back as found. Every wait is bounded
     // by the clock, not by a count of timer ticks a starved runner stretches.
+    // DOM/audio state only: keep simulation and browser layout live, but avoid
+    // software WebGL draws blocking trusted-input acknowledgement. Restore the
+    // real renderer before the Confidence budgets and graphical checks below.
+    await holdDraws(true);
+    try {
     await openSection('settings').catch(() => {});
     const soundTapSel = '#s-theme .seg-btn[aria-checked="true"]';
     const soundTap = await page.evaluate(async (s) => {
@@ -16843,8 +16848,11 @@ for (const [label, viewport, touch] of [
       api.welcome.show();
       return {loaded:true,first,beforeJourney,beforeEntry,saved};
     });
+    // Free roam changes this document's state; it does not navigate. Keep the
+    // trusted, actionability-checked click, then wait on the native entry/music
+    // assertions below instead of Playwright's post-click navigation epilogue.
     const soundRoamClick = soundSetup.loaded
-      ? await page.locator('#home-roam').click({ timeout: 30_000 }).then(() => null, (e) => e.message)
+      ? await page.locator('#home-roam').click({ timeout: 30_000, noWaitAfter: true }).then(() => null, (e) => e.message)
       : 'recorded sound did not load';
     const soundRead = await page.evaluate(async (setup) => {
       if (!setup.loaded) return setup;
@@ -16897,6 +16905,10 @@ for (const [label, viewport, touch] of [
     // T-2620: Settings is a Navigator app now, so closing it leaves the device docked on
     // Settings; give it back as found (Home, docked) for the Navigator's own checks below.
     await page.evaluate(async () => { await window.__chicago4d.navigator.select('home'); window.__chicago4d.navigator.dock(); });
+
+    } finally {
+      await holdDraws(false);
+    }
 
     // T-2647: the Confidence view is a Navigator app of four presets — the HUD's chip,
     // caret and checkbox menu are gone — and C still toggles BY GRADE.

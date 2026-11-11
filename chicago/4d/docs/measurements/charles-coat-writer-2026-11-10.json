@@ -1,0 +1,147 @@
+{
+  "schema": "charles_coat_actual_writer_and_isolation_measurement_v1",
+  "measured": "2026-11-10",
+  "scope": "Focused actual execution; no full APP gate, native renderer, phone, photo or fit acceptance.",
+  "writer": {
+    "status": "ACTUAL_CLEAN_INDEX_WRITER_TWICE_AND_CORRUPTION_REPAIR_PASS",
+    "fixture_files": 19,
+    "runs": [
+      {
+        "attempt": 1,
+        "before_mtime_ns": 1,
+        "after_mtime_ns": 1794347794145187779,
+        "bytes_reproduced": true,
+        "index_diff": []
+      },
+      {
+        "attempt": 2,
+        "before_mtime_ns": 1,
+        "after_mtime_ns": 1794347794972492719,
+        "bytes_reproduced": true,
+        "index_diff": []
+      }
+    ],
+    "perturbed_receipt_check_refused_without_repair": true,
+    "writer_repaired_exact_bytes": true,
+    "all_fixture_bytes_match_index": true,
+    "application_index_or_HEAD_mutated": false,
+    "fixture_HEAD_commit": false,
+    "source_before_after_unchanged": true
+  },
+  "step_isolation": {
+    "method": "Original tools/measure_step_isolation.mjs --tool executes exactly each declared check.sh command under the repository Python/Node probes.",
+    "rows": {
+      "tools/check_human_charles_coat.mjs": {
+        "wrote": [],
+        "wrote_ignored": []
+      },
+      "tools/test_human_charles_coat.mjs": {
+        "wrote": [],
+        "wrote_ignored": []
+      },
+      "tools/test_human_charles_coat_defaults.mjs": {
+        "wrote": [],
+        "wrote_ignored": []
+      },
+      "tools/test_human_charles_coat_inputs.mjs": {
+        "wrote": [],
+        "wrote_ignored": []
+      },
+      "tools/test_human_fixture_scope.mjs": {
+        "wrote": [],
+        "wrote_ignored": []
+      }
+    }
+  },
+  "input_controls": {
+    "offline_controls": 7,
+    "actual_fresh_blobless_controls": 13,
+    "actual_acquired_master_objects": 2,
+    "alternates": false,
+    "checkout": false,
+    "active_asset_writes": 0,
+    "corruption_condition": "After removing only acquisition-created fixture packs, Git was proved to return bad raw bytes before the unchanged wrapper refused them."
+  },
+  "supervisor": {
+    "returncode": 0,
+    "seconds": 17.900962377898395,
+    "command_seconds": 17.900578377069905,
+    "resource_pause_seconds": 0.0,
+    "command": [
+      "bash",
+      "/tmp/t1789-charles-input-writer-controls-20261110-02/cell.sh"
+    ],
+    "cwd": "/tmp/t1789-charles-coat-fc5-20261110/chicago/4d",
+    "main_child_pid": 1863759,
+    "timed_out": false,
+    "requested_timeout_seconds": 120.0,
+    "effective_timeout_seconds": 120.0,
+    "timeout_override_reason": null
+  },
+  "resources": {
+    "accepted": true,
+    "before": {
+      "accepted": true,
+      "checks": {
+        "exact_nonnegative_integers": true,
+        "same_restored_epoch": true,
+        "complete_event_keyset": true,
+        "all_nonmax_zero": true,
+        "max_not_below_new_epoch_baseline": true,
+        "available_components_agree": true,
+        "ram_floor": true,
+        "workspace_floor": true,
+        "tmp_floor": true
+      },
+      "baseline_sha256": "3f494df78dc3dfaeb0bc5d2c7b7c80d05b0dc82950b30375316a7125f886b3ff"
+    },
+    "after": {
+      "accepted": true,
+      "checks": {
+        "exact_nonnegative_integers": true,
+        "same_restored_epoch": true,
+        "complete_event_keyset": true,
+        "all_nonmax_zero": true,
+        "max_not_below_new_epoch_baseline": true,
+        "available_components_agree": true,
+        "ram_floor": true,
+        "workspace_floor": true,
+        "tmp_floor": true
+      },
+      "baseline_sha256": "3f494df78dc3dfaeb0bc5d2c7b7c80d05b0dc82950b30375316a7125f886b3ff"
+    },
+    "max_monotone_between_snapshots": true
+  },
+  "cleanup": {
+    "reaped_owned_descendants": [
+      {
+        "pid": 1863822,
+        "status": 0
+      },
+      {
+        "pid": 1863841,
+        "status": 0
+      },
+      {
+        "pid": 1863855,
+        "status": 0
+      }
+    ],
+    "remaining_owned_children": [],
+    "cleanup_complete": true
+  },
+  "artifacts_sha256": {
+    "command.log": "cfdc1fcdb2c21a219faf5e7f5ad299db2a2c4c62466662b93c248b14dd845006",
+    "command.result.json": "ab0692b35d1dddc692516c79c4579b850136ae328c972cb9a8abe7fd6683e98d",
+    "command.cleanup.json": "735ee0c64eff582bab00d8f4a9b81ab6b87f4c39cde21cd2b49317d0056ad277",
+    "WRITER-PROOF.json": "3613aa1856d94995703ae84d2a102ec2b0d8a6f591676f94244b302c4459daa4",
+    "resources.json": "122ff7d8331835b30e990f26357b924af75ced52a4041b1b5556cad055478871"
+  },
+  "retained_NONPASS": {
+    "attempt": "/tmp/t1789-charles-input-writer-controls-20261110-01",
+    "seconds": 4.734928924008273,
+    "reason": "Corruption fixture expected a loose shadow to win over a valid packed object; production check correctly read valid bytes.",
+    "production_guard_or_expected_output_relaxed": false
+  },
+  "APP_commit_or_PR": false
+}

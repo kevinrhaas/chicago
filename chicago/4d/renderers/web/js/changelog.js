@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2880, ts: '2026-11-11T10:14:24.451Z', date: 'Nov 11, 2026, 4:14 AM CT', title: 'Fine wool detail on Charles Nelson\'s coat', kind: 'change',
+    items: [
+      'Charles\'s existing green livery keeps its cut and movement, with a fine wool surface in close views.',
+      '1812 daily life uses less startup memory while keeping requested walks and conversations.',
+    ] },
   { v: 2879, ts: '2026-11-11T05:28:49.677Z', date: 'Nov 10, 2026, 11:28 PM CT', title: 'Daily life and easier interactions', kind: 'improvement',
     items: [
       'Meet civilians, soldiers and Native residents through a compact Interact menu, with short activity choices and Go inside.',

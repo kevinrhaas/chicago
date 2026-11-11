@@ -1,0 +1,213 @@
+{
+  "schema": 1,
+  "id": "charles-coat-woven-v1",
+  "status": "source_prototype_not_generated_or_adopted",
+  "asset_id": "nelson_charles_1904_coachman",
+  "parent_revision": "fc5a52b6cab3eed78e2db5864aa811dff5df2795",
+  "parents": [
+    {
+      "file": "assets/humans/nelson_charles_1904_coachman.lod0.glb",
+      "sha256": "cebfe41a82d2e4a1a9a4b4843ad232a25b7635b0aae99b66822aecf771056726",
+      "lod": 0,
+      "bytes": 8494684,
+      "joints": 56,
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.6
+        }
+      },
+      "gitBlob": "6aa04aabd160b18a8e86da56d569c4ec899355f8"
+    },
+    {
+      "file": "assets/humans/nelson_charles_1904_coachman.lod1.glb",
+      "sha256": "fb7ae160f4759d24c43d8e4caed401267757fbcf1f1c53f0239835ebf6ae7fc3",
+      "lod": 1,
+      "bytes": 7612636,
+      "joints": 56,
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.6
+        }
+      },
+      "gitBlob": "fa60d9d1e1c58302cccd430af96dfbd001fffc8d"
+    },
+    {
+      "file": "assets/humans/nelson_charles_1904_coachman.lod2.glb",
+      "sha256": "3fb93a10143ea395a98ea9a3d3491cd9de9a6037b24f1031af3d9a8b670d3836",
+      "lod": 2,
+      "bytes": 6859284,
+      "joints": 56,
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.6
+        }
+      },
+      "gitBlob": "4fae6a6eb65e9c26bd0be8b6dd0c8af033f57212"
+    },
+    {
+      "file": "assets/humans/nelson_charles_1904_coachman.lod3.glb",
+      "sha256": "e0d41e35abf47c93c39dca7b857b0aa4bd9e15c00a4ae1c5c372c01c19ba9aa3",
+      "lod": 3,
+      "bytes": 6530196,
+      "joints": 56,
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.6
+        }
+      },
+      "gitBlob": "f342d87849c112af384842b6159064ddbea22b3b"
+    },
+    {
+      "file": "assets/humans/web/nelson_charles_1904_coachman.lod0.glb",
+      "sha256": "b6cc798bf49f5b0d8eec41d177ff3ad67bcb53b502179f6719046a487829701e",
+      "lod": 0,
+      "bytes": 4625792,
+      "joints": 56,
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.6
+        }
+      },
+      "gitBlob": "70601f02501a5bd153b7938cada8592f345a2214"
+    },
+    {
+      "file": "assets/humans/web/nelson_charles_1904_coachman.lod1.glb",
+      "sha256": "5cafe1ac5170472e59149bc385ead5ce3106b563e522d98366d8d58a1c625302",
+      "lod": 1,
+      "bytes": 1680640,
+      "joints": 56,
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.6
+        }
+      },
+      "gitBlob": "910199495a58c09b648c1bc8d2dfa578b88df2a4"
+    },
+    {
+      "file": "assets/humans/web/nelson_charles_1904_coachman.lod2.glb",
+      "sha256": "97a28ae6ff5d6666464ca6b3d155e2c676b3f6088eeed13fda665b10e19da39a",
+      "lod": 2,
+      "bytes": 667536,
+      "joints": 56,
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.6
+        }
+      },
+      "gitBlob": "d7c6869ae87bbbc827447e0d3b48f354e66638b0"
+    },
+    {
+      "file": "assets/humans/web/nelson_charles_1904_coachman.lod3.glb",
+      "sha256": "50dd7f118c82148dd525e0cce0f62525e01cc195b3e7bd7bd9424e90389e4238",
+      "lod": 3,
+      "bytes": 328500,
+      "joints": 56,
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.6
+        }
+      },
+      "gitBlob": "f5d036b3eddc764ef16ce48da50b71b571449f8d"
+    }
+  ],
+  "material": "garment_outer__livery_coat_green_1904",
+  "near_lods": [
+    0,
+    1
+  ],
+  "profile": "wool",
+  "linear_color": [
+    0.014,
+    0.026,
+    0.019,
+    1
+  ],
+  "roughness": 0.86,
+  "metalness": 0,
+  "tile_px": 128,
+  "tile_side_m": 0.032,
+  "calibration": "LOD0 aggregate selected coat surface and UV area; same scalar repeat reused exactly at LOD1; report per-part achieved periods; not a UV-stretch correction",
+  "tangent": {
+    "implementation": "mikktspace",
+    "version": "1.1.1",
+    "license": "MIT",
+    "convention": "OpenGL glTF; negate Mikk returned w",
+    "split": "original index plus exact Float32 tangent bytes; no averaging, corner reorder or triangle removal"
+  },
+  "codec": {
+    "cli": "4.5.0",
+    "core": "4.5.0",
+    "functions": "4.5.0",
+    "extensions": "4.5.0",
+    "source": "tools/web_derivatives.sh",
+    "web_status": "SOURCE_REVIEW_REQUIRED_BEFORE_GENERATION"
+  },
+  "runtime_weave": "portable_maps_with_common_macro",
+  "grade": "reconstructed",
+  "license": "CC0-1.0",
+  "historical_texture": false,
+  "photo_quality_accepted": false,
+  "provenance_note": "Derivative of the exact current MASTER GLBs, not a retained or unchanged Blender master. Original authored periodic pixels; no historical textile capture. Existing livery style, color, identity and clips retained.",
+  "limits": [
+    "MASTER expanded triangle attributes and morphs must remain bit-exact; only tangent-required coat vertex splits permitted.",
+    "Existing WEB parents are comparison baselines, not append-only output parents; their quantized UV triangles include degeneracies.",
+    "No existing asset, source or runtime activation is performed by this recipe.",
+    "Native material/render, source/WEB loaded-geometry, fit, recolor, memory and photo qualification remain pending."
+  ]
+}

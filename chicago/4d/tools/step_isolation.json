@@ -2852,6 +2852,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/check_human_charles_coat.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/check_ironwork_kit.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -5979,6 +5983,18 @@
       "wrote_ignored": []
     },
     "tools/test_human_camera_fit.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_charles_coat.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_charles_coat_defaults.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_human_charles_coat_inputs.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

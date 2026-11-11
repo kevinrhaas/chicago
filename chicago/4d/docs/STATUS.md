@@ -1,3 +1,20 @@
+## T-1789 — preserve lazy 1812 startup routing (2026-11-11)
+
+Integration testing of PR #1928 found that blocked automatic 1812 routines
+bypassed the existing cold-grid day router and allocated the full town route
+grid. The ArrayBuffer increase matches its 443,309,659-byte grid plus routing
+heap. Automatic work, conversations and returns now use the guarded day router;
+clear paths still walk immediately and blocked paths wait safely for a usable
+route. Actual visitor requests and jaunt journeys retain full routing, including
+their return legs. Other years keep their existing routing policy.
+
+The real controller/router regression fails on the original integration and
+passes on this fix; the existing daily-life tests also pass. Actual published
+memory and renderer checks for the new revision remain required before merge.
+No actor, geometry, detail tier or memory ceiling was changed. Explicit routes
+can still warm the full grid. Clothing fit and photographic acceptance remain
+open on T-1789; this does not adopt the separate clothing-fit candidates.
+
 ## T-3540, T-3541, T-3543 — daily routines and persistent interactions (2026-11-10)
 
 All 284 drawn people and all 520 callable household/lodge residents have explicit
@@ -26860,3 +26877,7 @@ T-3544 control/travel steering: the loading-screen control is now an icon-only s
 T-3544 spacing follow-up: each Ambience/Effects description is grouped with its own label and slider, about 8 px below its slider and 18 px before the next control in the actual markup/style review at both widths. The owner-requested Music and general sound notes are removed; source/rights details remain in the audio library.
 
 T-3544 river selection follow-up (2026-11-11): the owner selected “Light water on rocks” from three loop auditions and uploaded the exact MP3. Full public verification passed for SHA-256, CORS, MIME and ranges. The generator now preserves the pinned source/crop/encoding and enables that 22-second river proxy; the earlier busy take remains disabled under river-held. Lake/slough classification and existing insects are unchanged. The library labels accepted environmental audio separately from held recordings and habitat candidates. Regeneration reproduces all 34 assets / 41 delivery hashes, preserving the 40 previous deliveries. Real R2 tests at 96/192 kHz output isolate nonzero selected-river and lake signals, keep the three-loop environmental cache at 12,672,000 bytes, never fetch the rejected take, leave sloughs quiet and release memory on mute. The source-library browser checks also pass at 390/1280: all 41 codec deliveries decode, accepted and held labels are correct, and filters/controls retain zero page errors. Final combined release validation is pending; no new live-deployment claim is made here.
+
+### T-1789 - Charles near wool candidate
+
+The existing Charles1904 coat is the only proposed visible adoption. Four validated MASTER/WEB LOD0/1 children retain current geometry/UV/skin/rig/idle/walk/noncoat data and all four FAR baselines. Current source work adds transactional canonical-export finishing, immutable offline parent guards and a cheap derived registration owner. Eight actual-parent guards and nine scoped fixture parser controls passed under the original resource limits; actual integrated regeneration reproduced all four validated output hashes in40.138 seconds; actual four-row browser remeasurement now passes at both original viewports/30 frames while all 244 other rows remain exact. Fresh-blobless acquisition/offline/corruption controls and legitimate writer/isolation measurement pass. At this source freeze, no APP commit/PR or full gate has run for this candidate. The earlier selected-published research collected six views and ownership/meter readings but remains strict NONPASS; full published release, phone budgets, photographic likeness and clothing fit remain open. No extra views or new actors are claimed.

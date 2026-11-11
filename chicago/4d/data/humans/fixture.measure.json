@@ -7078,13 +7078,13 @@
     },
     {
       "file": "assets/humans/nelson_charles_1904_coachman.lod0.glb",
-      "sha256": "cebfe41a82d2e4a1a9a4b4843ad232a25b7635b0aae99b66822aecf771056726",
+      "sha256": "ebb5594ce5aadf36da25f87676252e8026c3cd993760b2cbd9f1c6d3fb9351af",
       "lod": 0,
       "derivative_of": null,
-      "bytes": 8494684,
+      "bytes": 9093740,
       "meshopt": false,
       "triangles": 51106,
-      "vertices": 33849,
+      "vertices": 33856,
       "draw_calls": 14,
       "materials": 12,
       "textures": [
@@ -7102,6 +7102,11 @@
           "slot": "garment_upper__white_stock_1904",
           "w": 256,
           "h": 256
+        },
+        {
+          "slot": "garment_outer__livery_coat_green_1904",
+          "w": 128,
+          "h": 128
         },
         {
           "slot": "eyes__iris",
@@ -7130,12 +7135,12 @@
       "rest_height_m": 1.835,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 171.3,
-        "mobile": 218.2
+        "desktop": 1038.3,
+        "mobile": 1020.6
       },
       "frame_ms_median": {
-        "desktop": 0.1,
-        "mobile": 0.1
+        "desktop": 0.5,
+        "mobile": 1
       },
       "verdicts": [
         {
@@ -7196,7 +7201,7 @@
         {
           "check": "the texture decodes",
           "ok": true,
-          "got": "hair__makehuman_short04 2048x2057, skin 2048x2048, garment_upper__white_stock_1904 256x256, eyes__iris 512x256"
+          "got": "hair__makehuman_short04 2048x2057, skin 2048x2048, garment_upper__white_stock_1904 256x256, garment_outer__livery_coat_green_1904 128x128, eyes__iris 512x256"
         },
         {
           "check": "metric rest height",
@@ -7222,13 +7227,13 @@
     },
     {
       "file": "assets/humans/nelson_charles_1904_coachman.lod1.glb",
-      "sha256": "fb7ae160f4759d24c43d8e4caed401267757fbcf1f1c53f0239835ebf6ae7fc3",
+      "sha256": "f87895b5004268335f91a5d4b821b19beaf4ae917c90c7cde9410ddff5825aea",
       "lod": 1,
       "derivative_of": null,
-      "bytes": 7612636,
+      "bytes": 7980556,
       "meshopt": false,
       "triangles": 31028,
-      "vertices": 21042,
+      "vertices": 21062,
       "draw_calls": 14,
       "materials": 12,
       "textures": [
@@ -7246,6 +7251,11 @@
           "slot": "garment_upper__white_stock_1904",
           "w": 256,
           "h": 256
+        },
+        {
+          "slot": "garment_outer__livery_coat_green_1904",
+          "w": 128,
+          "h": 128
         },
         {
           "slot": "eyes__iris",
@@ -7274,12 +7284,12 @@
       "rest_height_m": 1.835,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 167.9,
-        "mobile": 284.8
+        "desktop": 889.2,
+        "mobile": 941.2
       },
       "frame_ms_median": {
-        "desktop": 0.1,
-        "mobile": 0.1
+        "desktop": 0.3,
+        "mobile": 0.4
       },
       "verdicts": [
         {
@@ -7340,7 +7350,7 @@
         {
           "check": "the texture decodes",
           "ok": true,
-          "got": "hair__makehuman_short04 2048x2057, skin 2048x2048, garment_upper__white_stock_1904 256x256, eyes__iris 512x256"
+          "got": "hair__makehuman_short04 2048x2057, skin 2048x2048, garment_upper__white_stock_1904 256x256, garment_outer__livery_coat_green_1904 128x128, eyes__iris 512x256"
         },
         {
           "check": "metric rest height",
@@ -24316,13 +24326,13 @@
     },
     {
       "file": "assets/humans/web/nelson_charles_1904_coachman.lod0.glb",
-      "sha256": "b6cc798bf49f5b0d8eec41d177ff3ad67bcb53b502179f6719046a487829701e",
+      "sha256": "8660b20793909061ecc0c81b31c4b6e4fd26c2da0afa04c7b741788495c28820",
       "lod": 0,
       "derivative_of": "assets/humans/nelson_charles_1904_coachman.lod0.glb",
-      "bytes": 4625792,
+      "bytes": 4670520,
       "meshopt": true,
       "triangles": 51106,
-      "vertices": 33849,
+      "vertices": 33856,
       "draw_calls": 14,
       "materials": 12,
       "textures": [
@@ -24340,6 +24350,11 @@
           "slot": "garment_upper__white_stock_1904",
           "w": 256,
           "h": 256
+        },
+        {
+          "slot": "garment_outer__livery_coat_green_1904",
+          "w": 128,
+          "h": 128
         },
         {
           "slot": "eyes__iris",
@@ -24368,12 +24383,12 @@
       "rest_height_m": 1.835,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 132,
-        "mobile": 157.8
+        "desktop": 416,
+        "mobile": 437.6
       },
       "frame_ms_median": {
-        "desktop": 0.1,
-        "mobile": 0.1
+        "desktop": 0.4,
+        "mobile": 0.4
       },
       "verdicts": [
         {
@@ -24434,7 +24449,7 @@
         {
           "check": "the texture decodes",
           "ok": true,
-          "got": "hair__makehuman_short04 2039x2048, skin 2048x2048, garment_upper__white_stock_1904 256x256, eyes__iris 512x256"
+          "got": "hair__makehuman_short04 2039x2048, skin 2048x2048, garment_upper__white_stock_1904 256x256, garment_outer__livery_coat_green_1904 128x128, eyes__iris 512x256"
         },
         {
           "check": "metric rest height",
@@ -24470,13 +24485,13 @@
     },
     {
       "file": "assets/humans/web/nelson_charles_1904_coachman.lod1.glb",
-      "sha256": "5cafe1ac5170472e59149bc385ead5ce3106b563e522d98366d8d58a1c625302",
+      "sha256": "86a5fdfa5d173c89a94e925424975f3f83ada548d2c5953106ac7c9b496cf4b6",
       "lod": 1,
       "derivative_of": "assets/humans/nelson_charles_1904_coachman.lod1.glb",
-      "bytes": 1680640,
+      "bytes": 1714028,
       "meshopt": true,
       "triangles": 31028,
-      "vertices": 21042,
+      "vertices": 21062,
       "draw_calls": 14,
       "materials": 12,
       "textures": [
@@ -24494,6 +24509,11 @@
           "slot": "garment_upper__white_stock_1904",
           "w": 256,
           "h": 256
+        },
+        {
+          "slot": "garment_outer__livery_coat_green_1904",
+          "w": 128,
+          "h": 128
         },
         {
           "slot": "eyes__iris",
@@ -24522,12 +24542,12 @@
       "rest_height_m": 1.835,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 47.5,
-        "mobile": 67.3
+        "desktop": 126.9,
+        "mobile": 217.7
       },
       "frame_ms_median": {
-        "desktop": 0.1,
-        "mobile": 0.1
+        "desktop": 0.3,
+        "mobile": 0.6
       },
       "verdicts": [
         {
@@ -24588,7 +24608,7 @@
         {
           "check": "the texture decodes",
           "ok": true,
-          "got": "hair__makehuman_short04 1020x1024, skin 1024x1024, garment_upper__white_stock_1904 256x256, eyes__iris 512x256"
+          "got": "hair__makehuman_short04 1020x1024, skin 1024x1024, garment_upper__white_stock_1904 256x256, garment_outer__livery_coat_green_1904 128x128, eyes__iris 512x256"
         },
         {
           "check": "metric rest height",
@@ -34718,5 +34738,16 @@
         }
       ]
     }
-  ]
+  ],
+  "scoped_remeasurement": {
+    "measured": "2026-11-10",
+    "asset_ids": [
+      "nelson_charles_1904_coachman"
+    ],
+    "measured_files": 4,
+    "added_files": 0,
+    "replaced_existing_files": 4,
+    "unchanged_files_sha256_verified": 244,
+    "scope": "Same native checks, both viewports and 30 timing frames; all other baseline file hashes unchanged before and after."
+  }
 }

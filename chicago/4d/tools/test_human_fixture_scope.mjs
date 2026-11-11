@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import test from 'node:test';
-import { TEAMSTER_IDS, parseFixtureArgs, teamsterFiles, prepareFixtureScope, mergeFixtureScope } from './human_fixture_scope.mjs';
+import { TEAMSTER_IDS, CHARLES_COAT_ID, parseFixtureArgs, teamsterFiles, scopedFiles, prepareFixtureScope, mergeFixtureScope } from './human_fixture_scope.mjs';
 
 // The gate's explicit check mode runs this same complete assertion suite.
 const cliArgs = process.argv.slice(2);
@@ -130,4 +130,23 @@ test('any asset mutation or inventory change during native measurement is refuse
   const files = [...state.files, 'assets/humans/late.lod0.glb'], hashes = new Map(state.hashes);
   hashes.set(files.at(-1), sha('late'));
   assert.throws(() => mergeFixtureScope(scope, rows, files, hashes, date), /inventory changed/);
+});
+
+test('the one reviewed Charles scope replaces only four near rows and holds FAR/all other SHAs', () => {
+  assert.deepEqual(parseFixtureArgs(['--write','--asset-ids',CHARLES_COAT_ID]), {mode:'--write',assetIds:[CHARLES_COAT_ID]});
+  const document=clone(baseline),files=document.files.map(r=>r.file),hashes=new Map(document.files.map(r=>[r.file,r.sha256]));
+  const wanted=scopedFiles([CHARLES_COAT_ID]);assert.equal(wanted.length,4);
+  for(const file of wanted)hashes.set(file,sha('Charles-native-scope-guard:'+file));
+  const scope=prepareFixtureScope({baseline:document,files,hashes,assetIds:[CHARLES_COAT_ID]});
+  assert.equal(scope.selectedFiles.length,4);assert.equal(scope.addedCount,0);assert.equal(scope.unchangedCount,files.length-4);
+  assert.deepEqual(scope.assetIds,[CHARLES_COAT_ID]);
+  const rows=measured(scope),merged=mergeFixtureScope(scope,rows,files,hashes,date);
+  assert.equal(merged.files.length,baseline.files.length);assert.equal(merged.measured,baseline.measured);
+  assert.equal(merged.scoped_remeasurement.measured_files,4);assert.equal(merged.scoped_remeasurement.replaced_existing_files,4);
+  for(const old of baseline.files.filter(r=>!wanted.includes(r.file)))assert.deepEqual(merged.files.find(r=>r.file===old.file),old);
+  const far=files.find(f=>f.includes('/'+CHARLES_COAT_ID+'.lod2.'));assert(far);
+  const bad=new Map(hashes);bad.set(far,sha('FAR-must-not-change'));
+  assert.throws(()=>prepareFixtureScope({baseline:document,files,hashes:bad,assetIds:[CHARLES_COAT_ID]}),/unscoped file changed/);
+  assert.throws(()=>mergeFixtureScope(scope,rows,files,bad,date),/asset changed during native measurement/);
+  for(const args of [['--write','--asset-ids',CHARLES_COAT_ID+','+TEAMSTER_IDS[0]],['--check','--asset-ids',CHARLES_COAT_ID],['--write','--asset-ids',CHARLES_COAT_ID+','+CHARLES_COAT_ID]])assert.throws(()=>parseFixtureArgs(args));
 });

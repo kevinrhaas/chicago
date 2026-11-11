@@ -9,8 +9,9 @@
  *                                          readings to data/humans/fixture.measure.json
  *   node tools/human_fixture.mjs --write   the same, and WRITE the measure file: run it
  *                                          after tools/human_export.sh moves any byte
- *   --write --asset-ids <the three teamster IDs> remeasure exactly their 24 rebuilt
- *                                          source/web LODs; retain all other passing rows
+ *   --write --asset-ids <the three teamster IDs> remeasure their 24 source/web LODs;
+ *   --write --asset-ids nelson_charles_1904_coachman remeasure only its four near
+ *                                          MASTER/WEB LOD0/1 files; retain all other passing rows
  *                                          only while their actual SHAs remain unchanged
  *   node tools/human_fixture.mjs --check   no browser: every GLB has a measure entry whose
  *                                          sha256 is the file's, and every verdict is ok —
@@ -50,7 +51,7 @@ let options;
 try { options = parseFixtureArgs(process.argv.slice(2)); }
 catch (error) {
   console.error(error.message);
-  console.error('usage: node tools/human_fixture.mjs [--write|--check] [--asset-ids bardwell_otis_1835,dufresne_joseph_1835,flynn_martin_1835]');
+  console.error('usage: node tools/human_fixture.mjs [--write|--check] [--asset-ids <the three teamsters|nelson_charles_1904_coachman>]');
   process.exit(2);
 }
 const MODE = options.mode;

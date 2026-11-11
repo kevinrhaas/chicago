@@ -1,3 +1,13 @@
+## T-1789 — 1812 startup routing during Charles coat integration (2026-11-11)
+
+Keep the existing lazy automatic-routing policy while integrating the daily-life
+delivery into PR #1928. Blocked automatic work and social returns must not build
+the full town grid at startup; clear routines, warmed detours, explicit visitor
+requests and jaunt ownership remain available. Qualify the resulting revision
+with the unchanged mobile and desktop memory ceilings and published renderer
+checks. Clothing fit, boarding and broader transport acceptance stay open on
+their existing tickets. STATUS.md records the integration finding and scope.
+
 ## T-3543 - persistent person interactions across years (2026-11-11)
 
 Owner follow-up while the 1812 rollout was in validation: walking people must not
@@ -6656,3 +6666,7 @@ T-3544 listening adjustment: preserve the owner-liked insects; lower town wind w
 T-3544 arrival refinement: compact icon-only sound control, examples beside Ambience and Effects, and period music only once in town. Time-travel/arrival scoring remains empty pending its own owner-selected track; the town playlists still repeat.
 
 T-3544 selected river follow-up: owner chose Light water on rocks; exact MP3 uploaded and public hash/CORS/MIME/ranges verified. Integrate its pinned loop at classified river edges, retain the previous take held, preserve lake/slough/insects and validate the combined audio update before DEV merge.
+
+### T-1789 - existing Charles coat, near material terminal
+
+Candidate: reproduce the four already validated Charles near MASTER/WEB children through the real canonical-export terminal, protect unknown fresh/active body changes and all four FAR bytes, register the derivation and remeasure only four native fixture rows while retaining every other SHA. Actual integrated full reproduction is PASS with all four prior output hashes unchanged. Fresh-blobless bootstrap, legitimate writer/isolation measurement and actual four-row native fixture now pass with accepted original resource limits; all 244 other fixture rows stay exact. Complete APP gate and ordinary DEV review remain pending. Selected-published research remains strict NONPASS; photographic likeness, clothing fit and phone release budgets stay open. No Joseph placement, Otis/Hans clip replacement, unrelated resident change or new ticket is part of this increment.
