@@ -1923,7 +1923,9 @@ async function boot() {
     api.arrivalDevice = paintArrivalDevice(document.getElementById('arrival-device'), {
       profile: device, detail: detailLevel, sharpness: bootQuality, lowMemory: lowMem,
       steppedDown: !!(crashBoot.lowered.detail || crashBoot.lowered.quality),
-      chosen: !!(readDetailPreference() || Number(readQualityPreference()) > 0) });
+      chosen: !!(readDetailPreference() || Number(readQualityPreference()) > 0),
+      keptAfter: (() => { try { const k = JSON.parse(localStorage.getItem('chicago4d.settings') || '{}')?.detailKept;
+        return k?.kept === detailLevel && DETAIL[k?.wanted] ? k.wanted : null; } catch { return null; } })() });
   } catch (err) { console.warn('[arrival device]', err); }
 
   /**
@@ -3570,7 +3572,12 @@ async function boot() {
       problems.push(`Glessner v4 detail: ${message}`);
       console.error(`[4D Chicago] ${message}`);
       hud.say(message, 9000);
+      // The level kept is stored, so the next visit does not walk into the same failure.
+      // T-3542: and it is marked as kept, not chosen (the owner, 2026-11-10: fine "as long as
+      // you tell the user that you are stepping it down"): the loading screen's device line
+      // says so until the visitor picks a Scene detail again (hud.js clears the mark).
       hud.settings.detail = retained;
+      hud.settings.detailKept = { wanted, kept: retained };
       const select = document.getElementById('s-detail');
       if (select) select.value = retained;
       try { window.localStorage.setItem('chicago4d.settings', JSON.stringify(hud.settings)); } catch { /* optional */ }

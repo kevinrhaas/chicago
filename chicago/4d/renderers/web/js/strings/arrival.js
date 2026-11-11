@@ -82,4 +82,5 @@ export default register('arrival', {
   'device.saver': 'memory saver on',
   'device.stepped': 'eased after the last visit ran short of memory',
   'device.chosen': 'your settings',
+  'device.kept': 'stepped down: {wanted} did not load last time',
 });

@@ -254,6 +254,8 @@ check('T-3539: the loading screen\'s panel names the shared memory and what a we
   assert.ok(ad.arrivalDeviceStatus({ profile: strong, detail: 'full', sharpness: 1.5, chosen: true }).setup.includes('your settings'));
   assert.ok(ad.arrivalDeviceStatus({ profile: strong, detail: 'balanced', sharpness: 1, steppedDown: true, chosen: true })
     .setup.at(-1).startsWith('eased after'), 'the step-down outranks "your settings"');
+  assert.equal(ad.arrivalDeviceStatus({ profile: strong, detail: 'balanced', sharpness: 2, chosen: true, keptAfter: 'full' }).setup.at(-1),
+    'stepped down: Full detail did not load last time', 'T-3542: a level kept after a failed switch is said, not passed off as a choice');
   for (const words of [st, ph].flatMap(x => [...x.assess, ...x.setup])) assert.doesNotMatch(words, /fail|poor|cannot|crash|error/i, 'never negative');
 });
 check('T-3539: every year\'s loading screen mounts the panel, painted from the boot\'s settings in force', () => {
