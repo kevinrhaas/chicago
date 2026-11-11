@@ -1019,14 +1019,20 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
   function startSocial(p, span) {
     const where = home(p);
     const currentOf = q => spanAt(dayOn(q.b, date(), keyOf(q)), hour());
+    const anchor = p.actor.indoors ? pt(span.at) : { e: p.actor.e, n: p.actor.n };
+    // A shared household/camp is not permission to recruit someone across town.
+    // Indoors, read the real exit rather than the actor's last outdoor position.
+    const exitOf = q => homeDoor(q, q.inside ?? home(q), anchor.e, anchor.n);
+    const distanceOf = q => q.actor.indoors
+      ? (exitOf(q) ? dist(pt(exitOf(q).step), anchor) : Infinity) : dist(q.actor, anchor);
     const candidates = people.filter((q) => q !== p && where
-      && (home(q) === where || (!q.actor.indoors && dist(q.actor, p.actor) < 18)
-        || (q.actor.instance?.scene === '1812' && q.actor.indoors && home(q) && dist(q.actor, p.actor) < 30))
+      && (q.actor.indoors ? ((q.inside ?? home(q)) === where
+        || (q.actor.instance?.scene === '1812' && distanceOf(q) < 30)) : distanceOf(q) < 18)
       && !unavailable(q) && !q.attending && !q.social && !q.called && !q.passing && !q.override
       && !currentOf(q)?.away
       && !(currentOf(q)?.duty && (q.b.duty?.kind === 'beat' || POST_RE.test(currentOf(q)?.doing ?? ''))));
     candidates.sort((a, b) => Number(a.actor.indoors) - Number(b.actor.indoors)
-      || dist(a.actor, p.actor) - dist(b.actor, p.actor));
+      || distanceOf(a) - distanceOf(b));
     let q = candidates[0];
     if (!q && p.actor.instance?.scene === '1812' && spawn && (!p.autonomousUntil || spawned.length < 3)) {
       const entry = insideOnly.find(x => x.person !== keyOf(p) && x.home === where
@@ -1037,7 +1043,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
       if (door) q = summon(entry, door.door);
     }
     if (!q) return { ok: false, why: 'Nobody is free to chat just now' };
-    const at = q.actor.indoors ? pt(span.at) : { e: q.actor.e, n: q.actor.n };
+    const at = q.actor.indoors ? anchor : { e: q.actor.e, n: q.actor.n };
     // Use a clear, nearby standing place; never put the partner through a wall.
     const next = [0, 90, 180, 270].map((h) => ({ e: at.e + Math.sin(h * Math.PI / 180) * 1.4,
       n: at.n + Math.cos(h * Math.PI / 180) * 1.4 })).find((to) => clear(at, to));

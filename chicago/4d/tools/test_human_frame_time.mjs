@@ -115,6 +115,13 @@ a.step(0,0); assert.equal(a.body.values.at(-1),0,'A held visual tick advances no
   w.recheck = 0; w.distanceForTest = 2; w.step(.05,.05); assert.equal(w.walks.length, 2, 'back in range: one walk that frame');
   w.step(.05,.05); assert.equal(w.walks.length, 3);
   const still = actor(); still.distanceForTest = 500; still.step(.05,.05); still.step(.05,.05); assert.equal(still.walks.length, 0, 'a figure with no route does nothing out of range'); }
+// T-3543: one-time requests also finish offscreen, with no double step on re-entry.
+{ const w = actor(); w.path = {};
+  w.distanceForTest = 500; w.step(.05,.05);
+  w.step(.05,.05); assert.deepEqual(w.walks, [.05], 'an offscreen one-time path keeps advancing');
+  assert.equal(w.body.values.length, 0, 'offscreen path movement does not animate the mesh');
+  w.recheck = 0; w.distanceForTest = 2; w.step(.05,.05);
+  assert.equal(w.walks.length, 2, 'a requested walk advances once on the re-entry frame'); }
 actorDispose.call(a); const disposedCount=a.body; assert.equal(a.step(.05,50),false); assert.equal(a.body,disposedCount);
 const layerUpdate = required(engine.match(/\n    update\(dt, camera, visitor = null, visualDt = dt\) \{([\s\S]*?)\n    \},\n\n    \/\*\* The selectable/), 'human layer update')[1];
 // T-3495: `kept` is the jaunt's hold on the everyday people; a held figure is not updated either.

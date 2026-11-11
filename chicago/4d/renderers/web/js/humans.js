@@ -726,7 +726,7 @@ export class HumanActor {
 
   /**
    * One frame. `camera` is a three.js camera (or anything with a world `position`).
-   * Returns false when the figure was out of range and nothing was done.
+   * Returns false when no visible figure update was needed.
    */
   update(dt, cameraPosition, visualDt = dt) {
     if (this.disposed) return false;
@@ -736,8 +736,15 @@ export class HumanActor {
     // T-3481: a figure on a looped route walks it out of range too, so she comes round again.
     // T-3497: a towed teamster is put beside his team first, so his range is read where he is.
     const e0 = this.e, n0 = this.n;
-    const walkedAway = !!this.tow || (!this.inRange && !!this.route);
-    if (walkedAway) this.walk(dt);
+    // Requested trips and doorway approaches must finish beyond drawing range too.
+    // They keep only their logical position/path; meshes and animation still stay culled.
+    const walkedAway = !!this.tow || (!this.inRange && (!!this.route || !!this.path));
+    if (walkedAway) {
+      this.walk(dt);
+      // A path's arrival may enter a building or retire a lazy resident. Do not
+      // immediately make that person visible again if the visitor has approached.
+      if (this.indoors || this.disposed) return false;
+    }
     if (!this.inRange && this.recheck > 0) return false;
     this.distance = cameraPosition.distanceTo(this.root.position);
     const lod = chooseHumanLod(this.distance, this.tier, this.lod, this.instance.lod);

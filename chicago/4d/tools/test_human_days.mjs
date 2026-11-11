@@ -565,7 +565,13 @@ console.log('paired household discussions: outdoor/indoor partners, arrivals, re
   assert(thing && ix.actionsOf(thing).some(a => a.label === 'Go inside'));
   assert(ix.actionsOf(thing).every(a => a.label.split(/\s+/).length <= 3 && actionStyle(a).icon), 'compact icon actions');
   const chat = layer.outdoorActivities(p.id).find(a => a.span.activity === 'talk');
+  // Sharing a camp/home does not make someone across town a nearby companion.
+  const farE = p.actor.e + 400, farN = p.actor.n + 400;
+  const distant = actorOf(rec('distant_lodge_neighbor', { day: [{ spans: [IN(0, 22, entry.home),
+    OUT(22, 24, farE, farN, 0, { activity: 'work' })] }] }, [farE, farN, 0]), 'Distant neighbor');
+  actors.push(distant); tick(2);
   assert(chat && layer.request(p.id, chat.id).ok, 'a Native lodge resident can request a real companion at night');
+  assert(!layer.people.find(q => q.actor === distant).social, 'a shared home never recruits an outdoor companion across town');
   tick(6);
   const pair = layer.people.filter(p => p.social);
   assert.equal(pair.length, 2);
@@ -582,6 +588,7 @@ console.log('paired household discussions: outdoor/indoor partners, arrivals, re
   assert(removed.includes(entry.person), 'the called resident goes inside and releases the mesh');
   assert(!ix.get(`person:${p.id}`), 'the dynamic interaction is released too');
   assert(!layer.people.some(p => p.social));
+  actors.splice(actors.indexOf(distant), 1); tick(1);
   let offered = false;
   for (let i = 0; i < 30; i++) {
     const actions = door.actions.shut;
