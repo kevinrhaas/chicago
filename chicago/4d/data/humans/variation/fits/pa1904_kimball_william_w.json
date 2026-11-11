@@ -1,0 +1,139 @@
+{
+ "format": "chicago4d_human_face_fit_v1",
+ "ticket": "T-3413",
+ "person_id": "pa1904_kimball_william_w",
+ "scene": "1904",
+ "generated_by": "tools/fit_portrait_face.py",
+ "_doc": "Regenerate with tools/fit_portrait_face.py from the portrait record; never edit by hand.",
+ "grade": "inferred",
+ "sources": [
+  "hall_successful_men_1896"
+ ],
+ "portrait": "data/humans/variation/portraits/pa1904_kimball_william_w.json",
+ "basis": "Identified caption/signature and biographical entry, plate facing p. 461. A single-view facial fit, with loose uncertainties for obscured features; the image identity is attested but unseen form is reconstructed.",
+ "liberty": "L-human-variation-3412",
+ "values": {
+  "nose_length": -0.239,
+  "nose_width": 0.0,
+  "nose_depth": 0.595,
+  "nose_hump": 0.0,
+  "nose_curve": 0.005,
+  "nose_tip": 0.096,
+  "nose_tip_width": 0.0,
+  "nostrils": 0.0,
+  "nose_height": 0.161,
+  "mouth_width": 0.0,
+  "lip_upper": -0.007,
+  "lip_lower": -0.012,
+  "mouth_height": 0.026,
+  "chin_prominence": -0.315,
+  "chin_width": 0.0,
+  "chin_height": 0.059,
+  "jaw": 0.0,
+  "prognathism": -0.146,
+  "cheekbones": 0.0,
+  "cheek_volume": 0.0,
+  "cheek_inner": 0.0,
+  "brow_height": -0.018,
+  "brow_angle": 0.079,
+  "brow_ridge": 0.0,
+  "forehead_slope": 0.25,
+  "temples": 0.0,
+  "ear_size": -0.037,
+  "ear_flap": -0.006,
+  "ear_lobe": -0.02,
+  "jowls": 0.0,
+  "head_shape": 0.004,
+  "forehead_height": -0.005,
+  "head_shape.option": 2
+ },
+ "read_from_picture": [
+  "chin_height",
+  "forehead_slope"
+ ],
+ "mostly_prior": [
+  "brow_angle",
+  "brow_height",
+  "brow_ridge",
+  "cheek_inner",
+  "cheek_volume",
+  "cheekbones",
+  "chin_prominence",
+  "chin_width",
+  "ear_flap",
+  "ear_lobe",
+  "ear_size",
+  "forehead_height",
+  "head_shape",
+  "jaw",
+  "jowls",
+  "lip_lower",
+  "lip_upper",
+  "mouth_height",
+  "mouth_width",
+  "nose_curve",
+  "nose_depth",
+  "nose_height",
+  "nose_hump",
+  "nose_length",
+  "nose_tip",
+  "nose_tip_width",
+  "nose_width",
+  "nostrils",
+  "prognathism",
+  "temples"
+ ],
+ "fit": {
+  "rms_px": 15.09,
+  "per_mark_px": {
+   "pupil_r": 10.6,
+   "eye_outer_r": 17.3,
+   "eye_inner_r": 8.2,
+   "nasion": 11.6,
+   "nose_tip": 14.0,
+   "subnasale": 19.4,
+   "stomion": 13.7,
+   "menton": 24.4,
+   "ear_top_r": 4.2,
+   "ear_lobe_r": 3.5,
+   "vertex": 22.5
+  },
+  "camera": {
+   "yaw_deg": 50.2,
+   "pitch_deg": -21.6,
+   "roll_deg": 6.0,
+   "px_per_m": 2696.9,
+   "shift_px": [
+    409.4,
+    386.2
+   ]
+  },
+  "landmark_vertices": {
+   "pupil_r": [
+    4868,
+    17
+   ],
+   "eye_outer_r": 17,
+   "eye_inner_r": 4868,
+   "nasion": 132,
+   "nose_tip": 297,
+   "subnasale": 5072,
+   "stomion": 523,
+   "menton": 5225,
+   "ear_top_r": 5413,
+   "ear_lobe_r": 5732,
+   "vertex": 881
+  }
+ },
+ "not_modelled": [
+  "Exact photographic date; skin, eye and clothing colours; height and build below the bust."
+ ],
+ "card": {
+  "source_citation": "Henry Hall, editor, America's Successful Men of Affairs, volume II: The United States at Large (New York: New York Tribune, 1896), William Wallace Kimball, pp. 461\u2013463 and signed portrait plate facing p. 461.",
+  "source_url": "https://archive.org/details/americassuccessf02hallrich",
+  "rms_mm": 5.6,
+  "marks": 11,
+  "portrait": "humans/web/portraits/pa1904_kimball_william_w_portrait.jpg",
+  "model": "humans/web/portraits/pa1904_kimball_william_w_model.jpg"
+ }
+}

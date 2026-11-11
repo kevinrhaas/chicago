@@ -148,6 +148,12 @@ export const FACIAL_HAIR = Object.freeze({
     region_cm: Object.freeze({ x: [0, 3.7], y: [-8.6, -6.8], z_min: .1, droop: .9 }), facing: 'front',
     length_cm: 1.6, fall: 1, outward: .5, lift_mm: Object.freeze({ root: 1.8, tip: 4 }), width_mm: 3, cover: 13, spread: .5,
   }),
+  // Captioned 1902 portraits of Buckingham and Otis: a short full chin beard.
+  // Its extent is reconstructed from one view, not a measured grooming record.
+  beard_short: Object.freeze({
+    region_cm: Object.freeze({ x: [0, 6.8], y: [-14, -8.5], z_min: -2.5 }), facing: 'front',
+    length_cm: 2.1, fall: 1, outward: .25, lift_mm: Object.freeze({ root: 1, tip: 3 }), width_mm: 2.2, cover: 8, spread: .55,
+  }),
   // An older man's brows (T-3440): fuller and coarser than brows_fine, a few hairs straying.
   brows_full: Object.freeze({
     region_cm: Object.freeze({ x: [1.1, 5], y: [1.45, 2.2], z_min: -1.8, droop: .6 }), facing: 'front',

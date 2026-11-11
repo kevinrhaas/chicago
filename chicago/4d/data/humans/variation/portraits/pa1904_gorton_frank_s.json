@@ -1,0 +1,145 @@
+{
+ "format": "chicago4d_human_portrait_marks_v1",
+ "ticket": "T-3547",
+ "person_id": "pa1904_gorton_frank_s",
+ "scene": "1904",
+ "source": "witherspoon_men_of_illinois_1902",
+ "scan": "https://archive.org/download/menofillinois01with/page/leaf188_w3000.jpg",
+ "scan_size_px": [
+  2482,
+  3951
+ ],
+ "crop_px": [
+  266,
+  2231,
+  849,
+  3008
+ ],
+ "_doc": "Landmarks read on the identified captioned plate. Original scan coordinates are reconstructed from the 1000-pixel-wide preview; uncertainty includes halftone screening, hair and occlusion. No invisible eye or concealed mouth outline is treated as precise.",
+ "age_at_picture_years": 55,
+ "age_note": "Undated photograph published 1902. Fit uses estimated age at publication; scene age is driven separately by the person record. For an undated or uncertain birth this is a modelling estimate, not an archival photographic date.",
+ "grade": "attested",
+ "basis": "Captioned portrait of this person in Men of Illinois (1902), p. 134, scan leaf 188. Identity cross-checked against household and biographical records. Facial proportions are fitted within the uncertainty of the visible landmarks; single-view depth remains prior-led.",
+ "not_modelled": [
+  "Colour of skin, eyes, hair and clothing: monochrome halftone.",
+  "Height and build below the bust.",
+  "Exact date of the original photograph and any intervening change in appearance."
+ ],
+ "axes": [
+  "nose_length",
+  "nose_width",
+  "nose_depth",
+  "nose_hump",
+  "nose_curve",
+  "nose_tip",
+  "nose_tip_width",
+  "nostrils",
+  "nose_height",
+  "mouth_width",
+  "lip_upper",
+  "lip_lower",
+  "mouth_height",
+  "chin_prominence",
+  "chin_width",
+  "chin_height",
+  "jaw",
+  "prognathism",
+  "cheekbones",
+  "cheek_volume",
+  "cheek_inner",
+  "brow_height",
+  "brow_angle",
+  "brow_ridge",
+  "forehead_slope",
+  "temples",
+  "ear_size",
+  "ear_flap",
+  "ear_lobe",
+  "jowls",
+  "head_shape",
+  "forehead_height"
+ ],
+ "marks": [
+  {
+   "landmark": "pupil_r",
+   "x": 230,
+   "y": 333,
+   "sigma_px": 7.4
+  },
+  {
+   "landmark": "pupil_l",
+   "x": 417,
+   "y": 328,
+   "sigma_px": 7.4
+  },
+  {
+   "landmark": "nasion",
+   "x": 327,
+   "y": 318,
+   "sigma_px": 12.4
+  },
+  {
+   "landmark": "nose_tip",
+   "x": 322,
+   "y": 442,
+   "sigma_px": 9.9
+  },
+  {
+   "landmark": "subnasale",
+   "x": 322,
+   "y": 474,
+   "sigma_px": 14.9
+  },
+  {
+   "landmark": "stomion",
+   "x": 327,
+   "y": 566,
+   "sigma_px": 22.3
+  },
+  {
+   "landmark": "menton",
+   "x": 327,
+   "y": 658,
+   "sigma_px": 29.8
+  },
+  {
+   "landmark": "ear_top_r",
+   "x": 59,
+   "y": 340,
+   "sigma_px": 17.4
+  },
+  {
+   "landmark": "ear_lobe_r",
+   "x": 77,
+   "y": 489,
+   "sigma_px": 17.4
+  },
+  {
+   "landmark": "vertex",
+   "x": 292,
+   "y": 112,
+   "sigma_px": 29.8
+  }
+ ],
+ "card": {
+  "_doc": "What the person's card shows (T-3413): `portrait` is cut from the scan at `portrait_from_scan_px` (left, top, right, bottom) and scaled to `size_px`; `model` is tools/portrait_still.mjs's render of the fitted face on `body`, turned to the fit's yaw and framed like the portrait. `dress` (T-3440): the still is dressed as humans.js dresses him in town, with his skin, his own hair and moustache (human-hair-styles.js) and his spectacles (human-spectacles.js). `hide` leaves out his derby: the portrait is bareheaded.",
+  "portrait": "assets/humans/web/portraits/pa1904_gorton_frank_s_portrait.jpg",
+  "portrait_from_scan_px": [
+   266,
+   2231,
+   849,
+   3008
+  ],
+  "model": "assets/humans/web/portraits/pa1904_gorton_frank_s_model.jpg",
+  "size_px": [
+   360,
+   480
+  ],
+  "body": "glessner_john_j_1904",
+  "background": "#1c1b18",
+  "distance_m": 0.9,
+  "aim_above_head_m": 0.0,
+  "dress": true,
+  "hide": "^headwear"
+ }
+}

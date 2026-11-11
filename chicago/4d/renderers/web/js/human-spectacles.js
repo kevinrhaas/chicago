@@ -25,6 +25,11 @@ import { headFrame, metricSurface } from './human-hair.js';
 
 /** Who wears spectacles, by the id their actor carries, and what is known of them. */
 export const PEOPLE_SPECTACLES = Object.freeze({
+  ...Object.fromEntries(['pa1904_mckinlock_george_a', 'pa1904_walker_henry_h'].map(id => [id, Object.freeze({
+    shape: 'round', lens_mm: 38, wire_mm: .9, metal: 'steel', grade: 'attested', dimensions_grade: 'reconstructed',
+    sources: Object.freeze(['witherspoon_men_of_illinois_1902']),
+    basis: 'Spectacles are visible in the captioned portrait in Men of Illinois (1902). Round wire rims are reconstructed; their exact dimensions and metal colour cannot be established from the halftone.',
+  })])),
   glessner_john_j: Object.freeze({
     shape: 'round', lens_mm: 38, wire_mm: .9, metal: 'gold',
     grade: 'attested',
