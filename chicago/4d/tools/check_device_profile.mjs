@@ -264,5 +264,12 @@ check('T-3539: every year\'s loading screen mounts the panel, painted from the b
   assert.match(main, /paintArrivalDevice\(document\.getElementById\('arrival-device'\), \{\s*profile: device, detail: detailLevel, sharpness: bootQuality, lowMemory: lowMem,/);
 });
 
+check('T-3545: the season re-grow a Scene detail switch chains on is always a promise', () => {
+  // 1904's woods are the empty layer (no setSeason), so a sync seasonPlants returned undefined
+  // and `.then` threw halfway through the switch's commit outside summer: a frozen town.
+  assert.match(main, /let seasonPlants = async \(\) => null;/);
+  assert.match(main, /\n  seasonPlants = async \(s\) => \{/);
+});
+
 console.log(`check_device_profile: ${checks.length} checks passed`);
 for (const c of checks) console.log(`  ok  ${c}`);
