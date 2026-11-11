@@ -1,3 +1,7 @@
+## T-3550 - activate the five owner-approved younger-resident roles (2026-11-11)
+
+The owner approved all five child/teen prototypes. Import and validate their exact canonical exports, then enable age-appropriate household days for 35 children/teens and household care for five infants. Preserve household identity, supervision, door calls, returns, seasonal routines, jaunt priority and the existing adults. The role admission and STATUS.md track the current checkpoint; approval is no longer pending.
+
 ## T-3546, T-3547, T-3549 — Prairie Avenue portraits and people (2026-11-11)
 
 Extend the Glessner person-card and figure model across the complete Prairie Avenue roster. Resolve portrait identities and rights; fit visible proportions while declaring liberties; build age-appropriate household figures with existing routines, door calls and jaunts. Preserve canonical aliases, former residents and collective entries. STATUS.md and the linked research folder record validation. T-3548 is split into adult rollout T-3549 and younger-resident review/activation T-3550; the latter remains open after the adult rollout.

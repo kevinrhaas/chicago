@@ -1291,3 +1291,8 @@ ordinary Full, Balanced, Ghost, inspection and draw-call limits retain the
 completed picture-group/current-dev values. Existing mapped fort recipes and
 1904 material bindings are preserved. See docs/RESEARCH/early-masonry-3341.md for
 the surface-disposition ruling and exact generation commands.
+
+
+## Approved younger Prairie residents — T-3550 (2026-11-11)
+
+The five owner-approved child and teen roles add about 5.26 MiB to the published tree after shared texture extraction. The preparation checkpoint measures 440.883 MiB against the adult rollout at 435.62 MiB. The storage allowance moves from 436 to 443 MiB for these exports and their younger-resident records. Using the existing allowance accounting, two 443 MiB trees plus the last measured 132.233 MiB of other content total 1018.233 MiB, below 1024 MiB. This is a storage allowance, not a new runtime load: figures remain lazy and the ordinary rotation remains bounded. Boot, Light, frame, memory, warning and duplicate checks retain their limits. Final integrated publication is measured again before merge.

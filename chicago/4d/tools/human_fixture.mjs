@@ -13,6 +13,9 @@
  *   --write --asset-ids nelson_charles_1904_coachman remeasure only its four near
  *                                          MASTER/WEB LOD0/1 files; retain all other passing rows
  *                                          only while their actual SHAs remain unchanged
+ *   --write --asset-ids <all five Prairie child/teen IDs> measures their 40
+ *                                          approved source/web LODs with the same checks;
+ *                                          every existing asset hash remains unchanged
  *   node tools/human_fixture.mjs --check   no browser: every GLB has a measure entry whose
  *                                          sha256 is the file's, and every verdict is ok —
  *                                          so a rebuild that is not re-measured fails in
