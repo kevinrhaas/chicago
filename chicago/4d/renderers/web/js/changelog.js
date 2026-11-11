@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 2882, ts: '2026-11-11T17:59:21.153Z', date: 'Nov 11, 2026, 11:59 AM CT', title: 'Prairie Avenue people gain portraits, individual looks and household routines', kind: 'feature',
+    items: [
+      'Person cards gain verified period portraits, source notes and clearer portrait-search limits.',
+      'Individual face fits, hair, facial hair and spectacles follow identified pictures; reconstructed features remain labelled.',
+      'Adults, children and teens follow seasonal routines, answer household door calls, take walks and chat with other people.',
+      'Small children come outside with a household adult, who stays nearby during interactions. Both return indoors after their outing.',
+      'Ask after an infant at the door to open their card and learn about their reconstructed household care.',
+    ] },
   { v: 2881, ts: '2026-11-11T13:16:02.113Z', date: 'Nov 11, 2026, 7:16 AM CT', title: 'Compact sound controls, continuous music and quieter town ambience', kind: 'feature',
     items: [
       'Period music keeps repeating in town, but stays silent during time travel and arrival. Ambience and effects remain independent.',
