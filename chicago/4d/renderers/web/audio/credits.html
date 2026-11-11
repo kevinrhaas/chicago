@@ -7,10 +7,10 @@
 <a href="../">← Chicago 4D</a><h1>Audio library</h1>
 <p>Recordings, music, sources and liberties for the three eras.</p>
 <p class="note">Environmental sounds are modern field recordings used as reconstructed acoustic proxies. They are not recordings of historic Chicago. River and lake recordings are separate; sloughs do not play surf. The owner's supplied score is Suno-generated music, authorized for use in this app. Its 1812 and 1835 collections remain separate.</p>
-<label>Collection <select id="era"><option value="all">All collections</option><option value="1812">1812 · Frontier</option><option value="1835">1835 · Border</option><option value="1904">1904 · Waltzes</option><option value="environment">Shared environment</option><option value="habitat">1835 · Habitat sounds</option><option value="candidate">New recordings · for review</option></select></label>
+<label>Collection <select id="era"><option value="all">All collections</option><option value="1812">1812 · Frontier</option><option value="1835">1835 · Border</option><option value="1904">1904 · Waltzes</option><option value="environment">Shared environment</option><option value="habitat">1835 · Habitat sounds</option><option value="transport">Moving teams · Harness and wagons</option><option value="candidate">New recordings · for review</option></select></label>
 <label>Search <input id="search" type="search" placeholder="Title or creator"></label>
 <p id="count" role="status">Loading catalogue…</p><div class="grid" id="list"></div>
-<p>Each recording names its source format. Most effects currently use Freesound HQ MP3 previews; the night-cricket source is a WAV download. The three habitat recordings play only in their qualified 1835 summer habitats and hours, with quiet gaps. Recordings marked “For review” can be auditioned here but do not yet play in the scene. Sources, edits, habitat references and placement notes are recorded in the catalogue.</p>
+<p>Each recording names its source format. Most effects currently use Freesound HQ MP3 previews; the night-cricket source is a WAV download. The three habitat recordings play only in their qualified 1835 summer habitats and hours, with quiet gaps. Harness and wooden-wagon sounds follow their visible moving teams and use the Effects control. Recordings marked “For review” can be auditioned here but do not yet play in the scene. Sources, edits, habitat references and placement notes are recorded in the catalogue.</p>
 <p><a href="catalog.json">Download the source and license catalogue</a></p>
 <script type="module">
 const $=id=>document.getElementById(id);let assets=[];
@@ -18,12 +18,15 @@ function paint(){
  const era=$('era').value,query=$('search').value.toLowerCase();
  for(const a of document.querySelectorAll('audio')){a.pause();a.removeAttribute('src');a.load();}
  $('list').replaceChildren();
- const rows=assets.filter(a=>(era==='all'||a.era===era||(era==='habitat'&&a.runtime_enabled===true)||(a.kind===era&&(era!=='candidate'||a.runtime_enabled!==true)))&&`${a.title} ${a.creator??''} ${a.category??''}`.toLowerCase().includes(query));
+ const rows=assets.filter(a=>(era==='all'||a.era===era||(era==='habitat'&&a.runtime_enabled===true&&['habitat-insects','distant-bird'].includes(a.scene_placement?.mode))||(era==='transport'&&a.runtime_enabled===true&&a.scene_placement?.mode==='moving-transport')||(a.kind===era&&(era!=='candidate'||a.runtime_enabled!==true)))&&`${a.title} ${a.creator??''} ${a.category??''}`.toLowerCase().includes(query));
  $('count').textContent=`${rows.length} sounds · audio loads only when you press Play`;
  for(const row of rows){
   const card=document.createElement('article'),title=document.createElement('h2'),tag=document.createElement('small'),note=document.createElement('p'),rights=document.createElement('p'),audio=document.createElement('audio');
-  title.textContent=row.title;tag.textContent=row.era?`${row.era} · Music`:row.runtime_enabled===true?'1835 · Habitat sound · reconstructed proxy':row.kind==='candidate'?`For review · ${row.category}`:`Shared · ${row.id}`;note.textContent=row.provenance;
+  title.textContent=row.title;
+  tag.textContent=row.era?`${row.era} · Music`:row.kind==='environment'?'Shared · Environment · reconstructed proxy':row.runtime_enabled===true?(row.scene_placement?.mode==='moving-transport'?`${row.approved_eras.join(' / ')} · Moving team · reconstructed proxy`:'1835 · Habitat sound · reconstructed proxy'):row.kind==='candidate'?`For review · ${row.category}`:`Shared · ${row.id}`;
+  note.textContent=row.provenance;
   if(row.scene_placement?.note)note.textContent+=' '+row.scene_placement.note;
+  if(row.review_note){if(row.runtime_enabled===false)tag.textContent='Held from scene playback';note.textContent+=' '+row.review_note;}
   rights.textContent=row.creator?`${row.creator} · ${row.license}`:row.rights;
   audio.controls=true;audio.preload='none';audio.setAttribute('aria-label',row.title);
   audio.src=row.url??(audio.canPlayType('audio/ogg; codecs="opus"')?row.opus:row.aac);

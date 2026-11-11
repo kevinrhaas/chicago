@@ -1773,6 +1773,7 @@ const loadSound = (early = false) => (api.soundReady ??= import('./sound.js')
     settings: () => api.hud?.settings ?? arrivalSoundSettings, scene: () => YEAR,
     environment: () => ({ camera: api.camera, terrain: api.terrain, season: api.season?.current ?? 'summer',
       flora: api.flora, faunaZones: api.fauna?.records, time: api.timeOfDay?.current,
+      transport: api.townTransport?.audioSources ?? [],
       sunElevation: api.world?.sun?.elevationDeg }),
   })))
   .catch(() => { api.soundReady = null; return null; }));
@@ -1788,7 +1789,7 @@ function paintSoundToggle() {
   if (soundToggle) {
     soundToggle.setAttribute('aria-pressed', String(on));
     soundToggle.setAttribute('aria-label', on ? 'Mute audio' : 'Enable audio');
-    soundToggle.querySelector('[data-sound-label]').textContent = on ? 'Sound on' : 'Sound off';
+    soundToggle.title = on ? 'Mute audio' : 'Enable audio';
   }
 }
 soundToggle?.addEventListener('click', () => {

@@ -2739,3 +2739,12 @@ audio/evidence/horse-harness.json
 audio/evidence/dirt-footstep.json
 audio/evidence/church-bell-proxy.json
 ```
+
+
+Owner-selected calmer river recording (T-3544, 2026-11-11):
+
+| File | Creator and source | Rights |
+|---|---|---|
+| `audio/originals/575244_97550-hq.mp3` | TRP — water on rocks, calm, manitoulin.mp3 — https://freesound.org/people/TRP/sounds/575244/ | CC0-1.0; HQ MP3 preview, not original download. |
+
+`audio/evidence/calm-river-water.json` is project-authored acquisition/license and owner-selection metadata. Source SHA-256 `8ab476464f7d1280514f6a405988550f423b572e9fe3900b29b776cfba77ab48`; the accepted `renderers/web/audio/river.mp3` derivative is `6831b7ad102ec023194c4040776c5245b6cb47451d652a94a07dc742e28362af`. The exact 22-second mono loop was selected as “Light water on rocks”; its crop and seam recipe are in the generated catalogue. The modern rocky-lake recording is a reconstructed river proxy. The previous TRP577323 source and its CC0 derivative remain under `river-held.mp3`, disabled in scenes; no existing rights are withdrawn.

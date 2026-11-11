@@ -49,6 +49,12 @@ assert(vehicle.getObjectByName('vehicle_wheel_front_left').rotation.x > 0);
 const expected = new THREE.Vector3(0, 1.58, .65).applyMatrix4(vehicle.matrixWorld);
 const actual = vehicle.getObjectByName('vehicle_seat_driver').getWorldPosition(new THREE.Vector3());
 assert(actual.distanceTo(expected) < 1e-12);
+const soundAnchors = actor.audioState.anchors;
+assert(actor.audioState.moving);
+assert.deepEqual(soundAnchors.wagon, { x: vehicle.position.x, y: vehicle.position.y, z: vehicle.position.z });
+const actualHorse = horse.root.getWorldPosition(new THREE.Vector3());
+assert.deepEqual(soundAnchors.harness, { x: actualHorse.x, y: actualHorse.y, z: actualHorse.z });
+assert(Math.hypot(soundAnchors.harness.x - soundAnchors.wagon.x, soundAnchors.harness.z - soundAnchors.wagon.z) > 4.9);
 actor.stop(); const before = horseDistance; actor.update(2);
 assert.equal(horseDistance, before); assert(stops > 0);
 actor.dispose(); actor.dispose();
@@ -61,6 +67,32 @@ let acquired = 0, pendingRelease = 0, resolve;
 const validRow = { id: 'a', name: 'Driver', scene: '1835', route: { center_enu_m: [0, 0], radius_m: 20 },
   speed_m_s: 1, wheelbase_m: 2.35, track_m: 1.21, root_ahead_of_rear_axle_m: 1.175,
   steering_limit_deg: 8, driver_local_m: [0, 1.58, .65], wheel_radii_m: [.685, .685, .535, .535] };
+{
+  // Sound bindings observe the same actual admission/visibility rules as town
+  // transport. This exercises both assembly roots, including the 1812 wrapper.
+  const ledVehicle = vehicle.clone(true), wrapper = new THREE.Group(), ledHorse = { root: new THREE.Group(), poseVehicle() {}, stop() {} };
+  const led = createTeamsterAssembly({ root: wrapper, vehicle: ledVehicle,
+    walker: { root: new THREE.Group(), update() {}, setState() {} }, horse: ledHorse,
+    walkerLocal_m: [2, 0, 4], horseOffset_m: [0, 0, 5], disposeVehicle() {} });
+  const town = createTownTransport({ rows: [{ ...validRow, hours: [6, 20] }], sceneId: '1835',
+    heightAt: () => 0, clear: () => true, makeAssembly: () => led });
+  assert.deepEqual(town.audioSources, []);
+  await town.ready(); const eye = { x: 20, z: 0 };
+  town.update(.1, eye, { hour: 12 });
+  assert(town.audioSources[0].moving);
+  const anchors = town.audioSources[0].anchors;
+  assert.deepEqual(anchors.wagon, { x: ledVehicle.position.x, y: ledVehicle.position.y, z: ledVehicle.position.z });
+  assert.notEqual(anchors.wagon.x, wrapper.position.x, 'teamster group origin is not vehicle position');
+  const horseWorld = ledHorse.root.getWorldPosition(new THREE.Vector3());
+  assert.deepEqual(anchors.harness, { x: horseWorld.x, y: horseWorld.y, z: horseWorld.z });
+  for (const flags of [{ hour: 22 }, { hidden: true }, { paused: true }, { reducedMotion: true }]) {
+    town.update(.1, eye, { hour: 12, ...flags }); assert(!town.audioSources[0].moving);
+    town.update(.1, eye, { hour: 12 }); assert(town.audioSources[0].moving);
+  }
+  town.update(.1, { x: 500, z: 500 }); assert(!town.audioSources[0].moving); assert.equal(town.audioSources[0].anchors, null);
+  await town.setTier('light'); assert.deepEqual(town.audioSources, []);
+  town.dispose(); assert.deepEqual(town.audioSources, []);
+}
 const layer = createTownTransport({ rows: [validRow], sceneId: '1835',
   makeAssembly: () => { acquired++; return new Promise(r => { resolve = r; }); },
   heightAt: () => 0, clear: () => true, detail: 'light' });

@@ -72,7 +72,7 @@
   <div class="gate-card">
     <!-- T-2617: on its back face (Home) the arrival device wears the Navigator's screen code. -->
     <div class="gate-code" aria-hidden="true"><span>NAVIGATOR MK II</span><span>SCR 01 · HOME</span></div>
-    <button id="arrival-sound" type="button" aria-label="Enable audio" aria-pressed="false" class="arrival-sound"><svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9h4l5-4v14l-5-4H3z"/><path class="sound-muted-icon" d="m16 9 5 6m0-6-5 6"/><path class="sound-playing-icon" d="M16 8c2 2 2 6 0 8m3-11c4 4 4 10 0 14"/></svg> <span data-sound-label>Sound off</span></button>
+    <button id="arrival-sound" type="button" aria-label="Enable audio" title="Enable audio" aria-pressed="false" class="arrival-sound"><svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9h4l5-4v14l-5-4H3z"/><path class="sound-muted-icon" d="m16 9 5 6m0-6-5 6"/><path class="sound-playing-icon" d="M16 8c2 2 2 6 0 8m3-11c4 4 4 10 0 14"/></svg></button>
     <p class="gate-eyebrow" data-str="arrival.eyebrow">4D Chicago · Arrival</p>
     <h1 id="gate-title" tabindex="-1" data-str="arrival.title.0">Preparing your arrival</h1>
     <!-- T-2164: the arrival as a portable machine — the front door's console in a
@@ -770,19 +770,27 @@
         <textarea class="pacing-read-out" id="pacing-read-out" readonly rows="12" hidden
           aria-label="Frame pacing reading"></textarea>
       </div>
-      <!-- T-2656: Settings › Sound. T-2659 (js/sound.js) makes the sounds; the note says what
-           each level covers, and that the ambience is mood, not a recording of the past. -->
+      <!-- Sound controls: brief examples distinguish Ambience from Effects. -->
       <div class="settings-group" id="s-sound">
         <h4 data-str="settings.sound">Sound</h4>
+        <div class="sound-control">
         <label class="field"><span><span data-str="settings.sound.master">Master</span> <b id="v-sound-master"></b></span>
           <input type="range" id="s-sound-master" min="0" max="1" step="0.05"></label>
+        </div>
+        <div class="sound-control">
         <label class="field"><span><span data-str="settings.sound.effects">Effects</span> <b id="v-sound-effects"></b></span>
-          <input type="range" id="s-sound-effects" min="0" max="1" step="0.05"></label>
+          <input type="range" id="s-sound-effects" min="0" max="1" step="0.05" aria-describedby="s-sound-effects-help"></label>
+        <p class="legend-note" id="s-sound-effects-help" data-str="settings.sound.effectsHelp">Nearby actions: wagon wheels and harness jingles from moving teams.</p>
+        </div>
+        <div class="sound-control">
         <label class="field"><span><span data-str="settings.sound.ambience">Ambience</span> <b id="v-sound-ambience"></b></span>
-          <input type="range" id="s-sound-ambience" min="0" max="1" step="0.05"></label>
+          <input type="range" id="s-sound-ambience" min="0" max="1" step="0.05" aria-describedby="s-sound-ambience-help"></label>
+        <p class="legend-note" id="s-sound-ambience-help" data-str="settings.sound.ambienceHelp">Background environment: wind, lake waves, birds and insects.</p>
+        </div>
+        <div class="sound-control">
         <label class="field"><span><span data-str="settings.sound.music">Music</span> <b id="v-sound-music"></b></span>
           <input type="range" id="s-sound-music" min="0" max="1" step="0.05"></label>
-        <p class="legend-note" id="s-sound-note" data-str="settings.sound.note">Off until you enable sound. Recorded ambience and era music; not a recording of the past.</p>
+        </div>
         <a href="./audio/credits.html" target="_blank" rel="noopener">Audio credits and liberties</a>
       </div>
       <div class="settings-group">

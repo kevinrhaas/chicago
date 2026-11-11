@@ -10,7 +10,7 @@ export function mayStartEarly({ nav = globalThis.navigator, transfer = false } =
   return !!transfer;
 }
 export function createSound({ audio = () => null, unlock = null, early = false,
-  settings = () => null, scene = () => '', environment = () => ({}),
+  settings = () => null, scene = () => '', environment = () => ({}), journey = null,
   storage = (() => { try { return globalThis.localStorage; } catch { return null; } })(),
   doc = globalThis.document ?? null, recordings = createRecordedAudio,
   every = (fn, ms) => setInterval(fn, ms), cancelEvery = clearInterval } = {}) {
@@ -32,7 +32,7 @@ export function createSound({ audio = () => null, unlock = null, early = false,
       master = ctx.createGain(); effects = ctx.createGain(); bed = ctx.createGain(); music = ctx.createGain();
       master.gain.value = 0; music.gain.value = 0;
       master.connect(ctx.destination); effects.connect(master); bed.connect(master); music.connect(master);
-      recorded = recordings({ ctx, ambience: bed, music, environment });
+      recorded = recordings({ ctx, ambience: bed, effects, music, environment });
       ctx.addEventListener?.('statechange', sync);
     }
     active = !!ctx && ctx.state === 'running' && levels.master > 0 && !doc?.hidden && doc?.visibilityState !== 'hidden';
@@ -40,7 +40,8 @@ export function createSound({ audio = () => null, unlock = null, early = false,
       master.gain.setTargetAtTime(active ? curve(levels.master) : 0, ctx.currentTime, .08);
       effects.gain.setTargetAtTime(curve(levels.effects), ctx.currentTime, .08);
       bed.gain.setTargetAtTime(curve(levels.ambience), ctx.currentTime, .08);
-      recorded.sync({ active, ambienceOn: levels.ambience > 0, musicOn: levels.music > 0,
+      const inTown = !journey || ['exploring', 'inspecting', 'on-jaunt', 'touring'].includes(journey.state);
+      recorded.sync({ active, ambienceOn: levels.ambience > 0, effectsOn: levels.effects > 0, musicOn: levels.music > 0 && inTown,
         musicLevel: levels.music, year: scene() });
     }
     return state();
@@ -53,6 +54,7 @@ export function createSound({ audio = () => null, unlock = null, early = false,
       recorded: recorded?.state ?? null };
   }
   doc?.addEventListener?.('visibilitychange', sync);
+  const offJourney = journey?.on?.(sync);
   if (early && mayStartEarly({ transfer: doc?.documentElement?.dataset?.transfer === 'true' }) && stored().soundMaster > 0) unlock?.();
   sync();
   const timer = every(sync, 250);
@@ -62,7 +64,7 @@ export function createSound({ audio = () => null, unlock = null, early = false,
     setSpeechActive: on => recorded?.setSpeechActive(on),
     get state() { return state(); },
     get nodes() { return ctx ? { master, effects, ambience: bed, music } : null; },
-    dispose() { disposed = true; cancelEvery(timer); recorded?.dispose();
+    dispose() { disposed = true; cancelEvery(timer); offJourney?.(); recorded?.dispose();
       doc?.removeEventListener?.('visibilitychange', sync); ctx?.removeEventListener?.('statechange', sync);
       // Let the environmental fade finish before releasing its destination.
       if (master) master.gain.setTargetAtTime(0, ctx.currentTime, .05);
