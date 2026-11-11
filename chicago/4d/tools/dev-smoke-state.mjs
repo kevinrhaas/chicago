@@ -99,6 +99,10 @@ const SMOKE_INPUTS = [
   'chicago/4d/data',
   'chicago/4d/assets',
   'chicago/4d/tools/smoke_renderer.mjs',
+  'chicago/4d/tools/audio_hosting.mjs',
+  'chicago/4d/tools/audio_smoke_replay.mjs',
+  'chicago/4d/tools/audio-hosting.json',
+  'chicago/4d/tools/audio-host-verification.json',
   'site/4d',
   // THE EXCLUSIONS BELOW ARE LOAD-BEARING, and getting them wrong is how this
   // whole idea fails silently rather than loudly. Each of these files changes on
@@ -146,6 +150,10 @@ const CHANGELOG_PARTS = [13];
  * normalised out, so two publishes of the same tree hash the same.
  */
 const STAMPED_INPUTS = ['site/4d/walk/index.html'];
+// The mirror is ignored, so the site/4d pathspec above contributes no blobs.
+// Its catalogue controls the actual audio requests, including the sparse bake
+// replay. Hash those bytes separately with no stamp normalization.
+const PUBLISHED_AUDIO_INPUTS = ['site/4d/walk/audio/catalog.json'];
 const STAMP_PATTERN = /build\s+[0-9a-f]{6,}\s+·[^<\n]*/g;
 // T-2380: publish writes these release numbers from the changelog. They feed
 // only whatsnew.js, so keep their actual values in the notes partition below.
@@ -188,7 +196,11 @@ function digest(paths, extra = [], metadata = []) {
 
 function treeHash() {
   try {
-    const tree = digest(SMOKE_INPUTS, STAMPED_INPUTS);
+    const publishedAudio = PUBLISHED_AUDIO_INPUTS.map(rel => {
+      const file = path.join(REPO, rel);
+      return [rel, fs.existsSync(file) ? fs.readFileSync(file, 'utf8') : null];
+    });
+    const tree = digest(SMOKE_INPUTS, STAMPED_INPUTS, publishedAudio);
     const metadata = STAMPED_INPUTS.map((rel) => {
       const file = path.join(REPO, rel);
       const exists = fs.existsSync(file);

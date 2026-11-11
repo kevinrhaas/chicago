@@ -1,0 +1,329 @@
+{
+  "provenance": {
+    "base_commit": "2c008d5d8113cf4641e30784fe987468c5cb9a47",
+    "main_sha256": "f731755ff5976a5c5bd8669a18c3320c22231146a2643453d79de5ab1f9b9083",
+    "mirror_main_sha256": "f731755ff5976a5c5bd8669a18c3320c22231146a2643453d79de5ab1f9b9083",
+    "budget_sha256": "d1df3648a77838463e09d86adbae485fc984d9f9d5a1ca48c1d6e63020ca94cf",
+    "mirror_budget_sha256": "d1df3648a77838463e09d86adbae485fc984d9f9d5a1ca48c1d6e63020ca94cf"
+  },
+  "receipts": [
+    {
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "result": {
+        "normal": {
+          "detail": "full",
+          "ghosting": false,
+          "triangles": 2028801,
+          "drawCalls": 2254,
+          "budget": {
+            "drawCalls": 7800,
+            "triangles": 3470000
+          },
+          "publicBudget": {
+            "drawCalls": 7800,
+            "triangles": 3470000
+          },
+          "position": [
+            122.5,
+            2.5549999999999997,
+            100
+          ],
+          "quaternion": [
+            -0.012485121641363532,
+            -0.9515401456684837,
+            0.038978127297979365,
+            -0.30478874406897577
+          ]
+        },
+        "xray": {
+          "detail": "full",
+          "ghosting": true,
+          "triangles": 2714412,
+          "drawCalls": 4553,
+          "budget": {
+            "drawCalls": 8900,
+            "triangles": 3760000
+          },
+          "publicBudget": {
+            "drawCalls": 8900,
+            "triangles": 3760000
+          },
+          "position": [
+            122.5,
+            2.5549999999999997,
+            100
+          ],
+          "quaternion": [
+            -0.012485121641363532,
+            -0.9515401456684837,
+            0.038978127297979365,
+            -0.30478874406897577
+          ]
+        },
+        "ghost40": {
+          "detail": "full",
+          "ghosting": true,
+          "triangles": 2499960,
+          "drawCalls": 4679,
+          "budget": {
+            "drawCalls": 8900,
+            "triangles": 3760000
+          },
+          "publicBudget": {
+            "drawCalls": 8900,
+            "triangles": 3760000
+          },
+          "position": [
+            122.5,
+            2.5549999999999997,
+            100
+          ],
+          "quaternion": [
+            -0.012485121641363532,
+            -0.9515401456684837,
+            0.038978127297979365,
+            -0.30478874406897577
+          ]
+        },
+        "balanced": {
+          "detail": "balanced",
+          "ghosting": true,
+          "triangles": 2070439,
+          "drawCalls": 4520,
+          "budget": {
+            "drawCalls": 7800,
+            "triangles": 2625000
+          },
+          "publicBudget": {
+            "drawCalls": 7800,
+            "triangles": 2625000
+          },
+          "position": [
+            122.5,
+            2.5549999999999997,
+            100
+          ],
+          "quaternion": [
+            -0.012485121641363532,
+            -0.9515401456684837,
+            0.038978127297979365,
+            -0.30478874406897577
+          ]
+        },
+        "light": {
+          "detail": "light",
+          "ghosting": true,
+          "triangles": 899177,
+          "drawCalls": 3959,
+          "budget": {
+            "drawCalls": 7800,
+            "triangles": 1190000
+          },
+          "publicBudget": {
+            "drawCalls": 7800,
+            "triangles": 1190000
+          },
+          "position": [
+            122.5,
+            2.5549999999999997,
+            100
+          ],
+          "quaternion": [
+            -0.012485121641363532,
+            -0.9515401456684837,
+            0.038978127297979365,
+            -0.30478874406897577
+          ]
+        },
+        "restored": {
+          "detail": "full",
+          "ghosting": false,
+          "triangles": 2028801,
+          "drawCalls": 2254,
+          "budget": {
+            "drawCalls": 7800,
+            "triangles": 3470000
+          },
+          "publicBudget": {
+            "drawCalls": 7800,
+            "triangles": 3470000
+          },
+          "position": [
+            122.5,
+            2.5549999999999997,
+            100
+          ],
+          "quaternion": [
+            -0.012485121641363532,
+            -0.9515401456684837,
+            0.038978127297979365,
+            -0.30478874406897577
+          ]
+        }
+      },
+      "errors": []
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 780
+      },
+      "result": {
+        "normal": {
+          "detail": "full",
+          "ghosting": false,
+          "triangles": 1400119,
+          "drawCalls": 924,
+          "budget": {
+            "drawCalls": 7800,
+            "triangles": 3470000
+          },
+          "publicBudget": {
+            "drawCalls": 7800,
+            "triangles": 3470000
+          },
+          "position": [
+            122.5,
+            2.5549999999999997,
+            100
+          ],
+          "quaternion": [
+            -0.012485121641363532,
+            -0.9515401456684837,
+            0.038978127297979365,
+            -0.30478874406897577
+          ]
+        },
+        "xray": {
+          "detail": "full",
+          "ghosting": true,
+          "triangles": 1825289,
+          "drawCalls": 2580,
+          "budget": {
+            "drawCalls": 8900,
+            "triangles": 3760000
+          },
+          "publicBudget": {
+            "drawCalls": 8900,
+            "triangles": 3760000
+          },
+          "position": [
+            122.5,
+            2.5549999999999997,
+            100
+          ],
+          "quaternion": [
+            -0.012485121641363532,
+            -0.9515401456684837,
+            0.038978127297979365,
+            -0.30478874406897577
+          ]
+        },
+        "ghost40": {
+          "detail": "full",
+          "ghosting": true,
+          "triangles": 1827214,
+          "drawCalls": 2717,
+          "budget": {
+            "drawCalls": 8900,
+            "triangles": 3760000
+          },
+          "publicBudget": {
+            "drawCalls": 8900,
+            "triangles": 3760000
+          },
+          "position": [
+            122.5,
+            2.5549999999999997,
+            100
+          ],
+          "quaternion": [
+            -0.012485121641363532,
+            -0.9515401456684837,
+            0.038978127297979365,
+            -0.30478874406897577
+          ]
+        },
+        "balanced": {
+          "detail": "balanced",
+          "ghosting": true,
+          "triangles": 1408922,
+          "drawCalls": 2563,
+          "budget": {
+            "drawCalls": 7800,
+            "triangles": 2625000
+          },
+          "publicBudget": {
+            "drawCalls": 7800,
+            "triangles": 2625000
+          },
+          "position": [
+            122.5,
+            2.5549999999999997,
+            100
+          ],
+          "quaternion": [
+            -0.012485121641363532,
+            -0.9515401456684837,
+            0.038978127297979365,
+            -0.30478874406897577
+          ]
+        },
+        "light": {
+          "detail": "light",
+          "ghosting": true,
+          "triangles": 523903,
+          "drawCalls": 2179,
+          "budget": {
+            "drawCalls": 7800,
+            "triangles": 1190000
+          },
+          "publicBudget": {
+            "drawCalls": 7800,
+            "triangles": 1190000
+          },
+          "position": [
+            122.5,
+            2.5549999999999997,
+            100
+          ],
+          "quaternion": [
+            -0.012485121641363532,
+            -0.9515401456684837,
+            0.038978127297979365,
+            -0.30478874406897577
+          ]
+        },
+        "restored": {
+          "detail": "full",
+          "ghosting": false,
+          "triangles": 1400119,
+          "drawCalls": 924,
+          "budget": {
+            "drawCalls": 7800,
+            "triangles": 3470000
+          },
+          "publicBudget": {
+            "drawCalls": 7800,
+            "triangles": 3470000
+          },
+          "position": [
+            122.5,
+            2.5549999999999997,
+            100
+          ],
+          "quaternion": [
+            -0.012485121641363532,
+            -0.9515401456684837,
+            0.038978127297979365,
+            -0.30478874406897577
+          ]
+        }
+      },
+      "errors": []
+    }
+  ]
+}

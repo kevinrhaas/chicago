@@ -26464,6 +26464,101 @@ The authoritative scene compiler changes only this blockhouse's overall evidence
 
 Current-dev integration preserves the landed three-building PR1903 (a0218d1aae9d4a004f8a13b5af38cd4e7c9efd54) and concurrent resident-cloth PR1904. This camera/badge increment requires no native rebuild; actual first-fort member GLBs and placements are proven identical to the existing dev assets. No new photo follow-up or original-ticket closure is introduced.
 
+### T-3532 — Recorded audio pilot (2026-11-10)
+
+The following entries preserve the audio pilot checkpoints before integration
+with the newer dev building and carriage changes. Storage figures and gate
+failures describe those checkpoints, not the final merged build. The current
+storage allowance is 433 MiB (SITE-BUDGET.md, section 17); the pilot used the
+earlier 432 MiB allowance.
+
+Implemented locally: loading-screen opt-in, independent music control, seven
+owner-authorized cues in separate era collections, three licensed environmental
+proxies, source/derivative catalogue and public audio browser. Synthetic hums,
+drones and interface sounds removed. River/lake/slough classification is explicit.
+No production promotion. Listening quality, historical placement at mouth
+boundaries, Safari playback and the full repository release gate are not yet
+signed off. See AUDIO.md for limits and remaining activity/voice batches.
+
+Focused checks passed: audio lifecycle/era/classification units, Settings,
+offline-pack exclusion, Chromium playback and all 17 codec deliveries at
+390×780 and 1280×800. The actual mobile arrival control starts the selected
+1835 cue with zero muted audio requests and no page errors. Published/source
+parity and page stripping pass after republishing. Part 1/4 of the full gate
+failed initially; licence path entries, a local ticket-clone symlink and the
+stale published page were corrected. A subsequent site validation still fails
+on storage alone: about 466 MiB versus the 432 MiB ceiling. The other three
+gate parts and full 3D smoke were not completed; no code commit, PR, merge or
+deployment is claimed. Audio hosting/storage must be resolved before release.
+Birds, insects and other fauna are specified by habitat/season/hour and historical
+plausibility in AUDIO.md, but are not yet scheduled or present in the library.
+
+Follow-on library work on 2026-11-10 supersedes that last library statement:
+23 additional recordings are now acquired, credited and available as compact
+audition files. The catalogue has 33 source assets and 40 codec deliveries;
+the delivery bytes total 41,173,377 (39.266 MiB). Actual decoding and catalogue
+filters pass in Chromium at 390×780 and 1280×800; lifecycle units, source-licence
+coverage and upload-package hashes pass. Candidate presence in the library does
+not schedule it in town. No listening-quality sign-off or full release gate is
+claimed. The owner approved the Italian cicada as an acoustic proxy.
+
+The owner activated Cloudflare R2 and reported CORS saved. A content-addressed
+upload bundle and provider-neutral catalogue are prepared, with a read-only host
+verifier. All 40 bucket objects now match their prepared SHA-256 hashes, and
+CORS, MIME types and HTTP 206 byte ranges pass. Chromium playback through Web
+Audio at the app origin passes for Opus, AAC/M4A and MP3. The generated development
+publication now uses verified hashed R2 URLs and omits all 40 media files from
+the site. Published-module browser checks pass at 390px and 1280px for real R2
+music, decoded wind, era changes, mute cleanup and catalogue layout. Lossless
+minification of published liberties JSON brings the app to 431.363 MiB within
+the unchanged 432 MiB ceiling. Full gates remain incomplete; no deployed
+integration is claimed. The r2.dev
+address is for development; production DNS remains
+separate because polecat.live currently delegates to GoDaddy. See
+AUDIO-HOSTING.md. No secrets were requested in chat, and no DNS delegation,
+production deployment or budget increase was performed.
+
+Final focused arrival checks pass on the actual generated app page at 390px
+and 1280px: no catalogue/media request while muted, trusted speaker click,
+nonzero samples from real R2 music through the master gain, correct button state,
+second-click mute, and zero page/media errors. Published/source parity passes.
+The latest part 1/4 source gate failed three steps: two geometry reproductions
+required Node22 instead of this workspace's Node24, and the new audio liberty
+entry lacked required field formatting/compiled output. Node22 was installed
+outside the repo; both geometry checks now pass individually. Both audio liberty
+entries now have proper fields and the regenerated data passes its check. The
+complete four-part gate has not been rerun to green.
+
+Published mobile smoke stage13 reached ready in155.4s with zero page errors,
+then stopped at the existing Hogan-card/building-navigation assertions: the
+current card offered disabled “Find this person” because the person was not out
+at that hour/season. Its result was52 passed/2 failed in9m02s and is filed in the
+standing smoke record. Its audio section was not reached. No assertion was
+relaxed; neither a clean-base reproduction of that failure nor the remaining
+full smoke stages are claimed. No commit, PR, merge or deployment is claimed.
+
+Release preparation corrected the People smoke to select the evidenced workplace
+action rather than the new Find/Follow button; the focused present/away regression
+passes. A quiet published mobile stage13 run reached ready in66.3s and passed its
+People navigation, recorded music/opt-in, independent music/master mute and hidden
+cleanup assertions. The run was intentionally stopped during later UI checks to
+move the complete matrix to CI; it is not a stage13 pass or a release-gate pass.
+Audio review also fixed water altitude attenuation and bounded environmental
+decoding to48kHz. Real R2 playback at96kHz and192kHz output passes with12,672,000
+decoded bytes for all three loops. Sparse bake smoke can replay verified hosted
+bytes without an unpublished source checkout, and its fingerprint includes the
+hosting inputs and actual published catalogue. Targeted replay, fingerprint and
+ticket/changelog mirror regression tests pass. The complete four-part source gate
+and both-viewport smoke matrix remain required before merge to dev.
+
+Pre-integration source checkpoint: all four source gate parts passed before
+commit `a265f37c`, with 321, 320, 320 and 319 selected steps respectively. The
+new hosting check is called directly by the publication gate, and both new tests
+have measured isolation rows. Draft PR #1912 is open. Integrating the newer dev
+head requires fresh source qualification and the full published desktop/phone
+smoke matrix; the earlier passes do not qualify that merged tree. No merge to dev
+or production deployment is claimed.
+
 
 ## T-2795 — a stationary team for the carriage outside Glessner House (2026-11-10)
 
@@ -26592,6 +26687,48 @@ rendering and its camera is outside both horse reach radii. Those facts do not
 establish noise, causality or a passing performance result. Fresh ordinary CI
 is required on the repaired head; no ceiling was changed.
 
+### T-3534 — Dated 1835 habitat audio (2026-11-10)
+
+Three existing R2 recordings now have explicit runtime placements for the researched
+1835-07-01 summer scene: the owner-approved Italian cicada proxy, Ontario field
+crickets and a distant Washington red-wing call. Actual fauna records, flora-zone
+geometry and the scene's solar date/hour qualify each phrase. The other twenty
+candidates remain audition-only. No new media bytes or bucket uploads are added.
+Other eras, viewing seasons and alternate jaunt dates remain quiet; near bird
+calls await visible wildlife actors. Source identities and proxy limitations stay
+visible in the catalogue and compiled liberties.
+
+The shared fixed 48 kHz decoder adds at most one 24-second mono habitat clip
+(4.608 MB) beside the existing 14 MiB environmental cache. Phrases have real gaps,
+fixed distant bird anchors and approach/view suppression. Master/Ambience mute,
+hidden-tab cleanup, stale decode cancellation and speech ducking use the existing
+mixer lifecycle. Actual surfaceHeight/groundHeight supplies the ground; the 4 m
+walking barrier over water is never treated as terrain. Marsh bird sources stay
+1.5 m above the higher of actual terrain or the Y=0 water plane.
+
+Habitat/mixer units and packaging regression pass. Regeneration preserves placements
+and all 33 assets/40 original delivery hashes; upload packages include enabled
+habitat clips even without review-only candidates. The earlier habitat checkpoint compiled 1,082 liberties. The subsequent
+integration of dev's individual horse coats rebuilt 1,083 entries, preserving
+both the incoming register and all three audio liberties.
+The corrected audio-only Chromium fixture completed at 390 px and 1280 px: all
+three live R2 recordings produce nonzero samples, buffers stay at 48 kHz on a
+96 kHz output context, and mute/cache/disposal checks pass with zero page errors.
+
+Actual-town source-overlay runs against the pre-coat-integration foundation
+snapshot site-integrated passed at 390×780 and 1280×800, reaching real readiness in 72.1 s
+and 124.1 s. Actual flora/terrain supplies wet prairie at E−684/N984 and marsh at
+E−504/N840. The integrated mixer plays cicada and respects Ambience mute; live
+cricket and red-wing phrases, actual hour/date/winter suppression, fixed rear
+habitat anchors, and near/far/in-view stopping pass with zero page errors. Actual
+wet slough, river and lake samples separately classify under the matching
+e1834_harbor_cut epoch; these readings establish classification, not audibility.
+
+These are source overlays on generated foundation geometry, with draws held only
+for data/audio checks while camera matrices update. They establish no pixel or
+regenerated-publication acceptance. Human mix/proxy listening, Safari, this PR's
+full source gates and generated-publication checks remain required. No merge or
+deployment of this habitat increment is claimed.
 ### T-3533 — 1904 household routines
 All eight drawn household members have full seasonal days; the existing day engine handles individual work, short gatherings, indoor periods and jaunt holds. Door callers may request any of the season's outdoor activities temporarily, regardless of hour, or ask someone to Go inside. Office work is an off-scene absence; a door request can recall him so everyone remains available. This is the reusable household model; other houses' figures are not added here. Validation is recorded in the PR.
 
@@ -26600,6 +26737,19 @@ All eight drawn household members have full seasonal days; the existing day engi
 Balanced now uses the existing conservative shadow-caster filter. At the failing 1835 West prairie view, 66,537 submitted triangles and 501 calls disappear with zero changed pixels; the 2,625,000 ceiling remains unchanged. Receipts: docs/RESEARCH/balanced-shadow-budget-3535/. Release smoke verification is recorded in the PR.
 
 The complete desktop settings smoke also measured Full X-RAY at 3,737,315 triangles. Its Full-only Ghost allowance is explicitly recalibrated to 3,760,000 (the reading plus the retained 18,059 margin, rounded to 5,000), per the documented higher-tier budget policy. Ordinary Full, Balanced, Light and draw-call limits remain unchanged; all budget assertions remain active.
+
+
+### Audio integration with current DEV (2026-11-10)
+
+PR #1912 integrates dev `b9a87a9a4`, including shared-asset publication,
+fort/tavern and Kinzie picture work, household and coachman routines,
+visible-pavement support, masonry surfaces and the lodging remainder. The
+audio/offline merge retains both alias catalogues and optional-media exclusion.
+The horse publication fixture copies the real audio-hosting helper required by
+the mirror checker; missing/corrupt-recipe controls remain intact. Earlier
+audio and renderer receipts remain historical checkpoints. Current source and
+published-browser qualification is recorded on PR #1912. Incoming budget
+policies are retained; this audio integration introduces no additional increase.
 
 
 ## 2026-11-10 T-2484 source checkpoint

@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2876, ts: '2026-11-11T01:14:28.303Z', date: 'Nov 10, 2026, 7:14 PM CT', title: 'Recorded sound and music for each era', kind: 'feature',
+    items: [
+      'Turn sound on from the loading screen. The old hums are gone; music has its own level in Settings.',
+      'Frontier reels accompany 1812, Border ballads 1835 and waltzes 1904. River and lake recordings follow the historical terrain; sloughs stay quiet.',
+      'Occasional recorded insects and distant marsh birds follow July 1835 habitats and time of day, with quiet intervals. The audio library identifies their proxy recordings.',
+    ] },
   { v: 2875, ts: '2026-11-10T23:33:18.287Z', date: 'Nov 10, 2026, 5:33 PM CT', title: 'Every loading screen reads your device', kind: 'feature',
     items: [
       'The Observatory\'s device meter now sits on each year\'s loading screen. It shows the same score, says why it reads that way (the graphics, shared memory, memory and cores), and lists what this device will draw: the detail level, the resolution and what is eased, such as thinner plants or the memory saver.',

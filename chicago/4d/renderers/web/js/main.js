@@ -1,3 +1,4 @@
+import { soundLevelsFrom } from './settings-app.js';
 /**
  * main.js — boot, loop, and the test harness handle.
  *
@@ -1765,15 +1766,48 @@ api.recall = recallHome;
 // T-2659: the Navigator's sounds (js/sound.js), off by default since T-2941. The module is fetched with the
 // first gesture, or on the way in when the jump that opened the page lets audio play
 // (sound.js § mayStartEarly), so it is never part of the boot payload.
+let arrivalSoundSettings = null;
 const loadSound = (early = false) => (api.soundReady ??= import('./sound.js')
   .then(({ createSound }) => (api.sound = createSound({
     audio: () => gesture.audio, unlock: () => gesture.unlockAudio(), early, journey,
-    settings: () => api.hud?.settings ?? null, scene: () => YEAR, navigator: () => api.navigator ?? null,
+    settings: () => api.hud?.settings ?? arrivalSoundSettings, scene: () => YEAR,
+    environment: () => ({ camera: api.camera, terrain: api.terrain, season: api.season?.current ?? 'summer',
+      flora: api.flora, faunaZones: api.fauna?.records, time: api.timeOfDay?.current,
+      sunElevation: api.world?.sun?.elevationDeg }),
   })))
   .catch(() => { api.soundReady = null; return null; }));
 const gesture = createGestureGate({ journey, tagEl: document.getElementById('look-tag'),
   onGesture: () => { void loadSound().then((sound) => sound?.sync()); } });
 api.gesture = gesture;
+// T-3532: the arrival's explicit speaker control works while the scene is loading.
+const soundToggle = document.getElementById('arrival-sound');
+function paintSoundToggle() {
+  let saved = {};
+  try { saved = JSON.parse(localStorage.getItem('chicago4d.settings') || '{}'); } catch {}
+  const on = (api.hud?.settings ?? arrivalSoundSettings ?? soundLevelsFrom(saved)).soundMaster > 0;
+  if (soundToggle) {
+    soundToggle.setAttribute('aria-pressed', String(on));
+    soundToggle.setAttribute('aria-label', on ? 'Mute audio' : 'Enable audio');
+    soundToggle.querySelector('[data-sound-label]').textContent = on ? 'Sound on' : 'Sound off';
+  }
+}
+soundToggle?.addEventListener('click', () => {
+  // Resume synchronously inside the trusted click, before the dynamic import.
+  gesture.unlockAudio();
+  let saved = {};
+  try { saved = JSON.parse(localStorage.getItem('chicago4d.settings') || '{}'); } catch {}
+  const current = api.hud?.settings ?? arrivalSoundSettings ?? soundLevelsFrom(saved);
+  const value = current.soundMaster > 0 ? 0 : (current.soundLastMaster || saved.soundLastMaster || .8);
+  const last = current.soundMaster > 0 ? current.soundMaster : value;
+  arrivalSoundSettings = { ...current, soundMaster: value, soundLastMaster: last, soundChosen: true };
+  if (api.hud?.settings) Object.assign(api.hud.settings, arrivalSoundSettings);
+  try { localStorage.setItem('chicago4d.settings', JSON.stringify({ ...saved, ...arrivalSoundSettings })); } catch {}
+  const slider = document.getElementById('s-sound-master');
+  if (api.hud && slider) { slider.value = String(value); slider.dispatchEvent(new Event('input', { bubbles: true })); }
+  paintSoundToggle(); void loadSound().then(sound => sound?.sync());
+});
+paintSoundToggle();
+
 if (document.documentElement.dataset.transfer === 'true') void loadSound(true);
 Object.defineProperty(api, 'audio', { get: () => gesture.audio, enumerable: true, configurable: true });
 // T-2624: the page's static words from the string table, before anything paints over them.
@@ -4144,7 +4178,7 @@ async function boot() {
       if (level === 'reconstructed' && confidence.hidden.reconstructed !== !!hide) resetVisualClock();
       confidence.setHidden(level, hide); gateFrame.invalidate(); api.welcome?.refresh?.(); },
     onSetting: (key, value) => {
-      api.sound?.setting(key); // T-2659: Settings › Sound's levels, live
+      api.sound?.setting(key); paintSoundToggle(); // T-3532: Settings › Sound's levels, live
       // A setting can write a value no material owns (a patched shader's
       // uniform), which the gate's signature cannot see: draw once regardless.
       gateFrame.invalidate();
@@ -4212,6 +4246,13 @@ async function boot() {
       }
     },
   });
+
+  // Carry an arrival choice even when browser storage is unavailable.
+  if (arrivalSoundSettings) {
+    Object.assign(hud.settings, arrivalSoundSettings);
+    const slider = document.getElementById('s-sound-master');
+    if (slider) { slider.value = String(hud.settings.soundMaster); slider.dispatchEvent(new Event('input', { bubbles: true })); }
+  }
 
   // The Evidence panel as a hub of topics rather than one scroll; it reorganises
   // the section's own static markup, so the mounts below keep their ids.
