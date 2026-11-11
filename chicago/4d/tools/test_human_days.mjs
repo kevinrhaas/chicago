@@ -16,7 +16,7 @@ const js = async (name) => fs.readFile(new URL(`renderers/web/js/${name}`, here)
 const days = await import(data(await js('human-days.js')));
 const { createHumanDays, onDate, spanAt, dayOn, inSpan, chanceDay, AWAY_DAY, ASK_PAGE, STAY_M, LEAVE_S, NEAR_M } = days;
 const { createHumanDuties } = await import(data(await js('human-duties.js')));
-const { createInteractions } = await import(data(await js('interact.js')));
+const { createInteractions, actionStyle } = await import('../renderers/web/js/interact.js');
 const doors = JSON.parse(await fs.readFile(new URL('data/humans/doors_1812.json', here), 'utf8'));
 const three = { Vector3: class { constructor() { this.x = 0; this.y = 0; this.z = 0; } } };
 
@@ -479,3 +479,157 @@ console.log('1904 seasonal coverage, door calls, temporary activities and jaunt 
   assert(asker.indoors, 'the remaining person resumes duties');
 }
 console.log('paired household discussions: outdoor/indoor partners, arrivals, return, timeouts and interruptions hold');
+
+// T-3540/3541: every 1812 person, including lazy lodge residents and the garrison.
+{
+  const root = new URL('data/humans/', here);
+  const index = JSON.parse(await fs.readFile(new URL('instances/1812/index.json', root)));
+  const records = await Promise.all(index.instances.map(id => fs.readFile(new URL(`instances/1812/${id}.json`, root)).then(JSON.parse)));
+  const inside = JSON.parse(await fs.readFile(new URL('inside_1812.json', root)));
+  assert.equal(records.length, 284);
+  assert.equal(inside.people.length, 520);
+  for (const [id, b] of [...records.map(r => [r.person_id, r.behaviour]), ...inside.people.map(e => [e.person, e])]) {
+    assert(b.day?.length, `${id} has a day, including all Native residents`);
+    for (const day of b.day) {
+      assert.equal(day.spans[0].from, 0, `${id} starts at midnight`);
+      assert.equal(day.spans.at(-1).to, 24, `${id} ends at midnight`);
+      day.spans.forEach((s, i) => {
+        if (i) assert.equal(s.from, day.spans[i - 1].to, `${id}: no gap or overlap`);
+        assert(s.indoors || s.at, `${id}: every outdoor task has a place`);
+      });
+    }
+  }
+  let h = 23, date = '1812-08-14', v = null;
+  const ix = createInteractions();
+  const actors = records.map(r => actorOf(r, r.person_id));
+  const humans = { actors, shown: true };
+  const removed = [], problems = [];
+  const layer = createHumanDays({ humans, hour: () => h, date: () => date, doors, inside, interactions: ix, problems,
+    visitor: () => v, spawn(entry, door) {
+      const a = actorOf(rec(entry.person, {}, [door.step.local_e, door.step.local_n, door.outward_deg]), entry.name);
+      a.instance.appearance = { asset_id: entry.asset_id }; actors.push(a); return a;
+    }, despawn(a) { assert(!a.disposed, 'despawn receives a live actor so disposal can release its GPU resources'); removed.push(a.personId); actors.splice(actors.indexOf(a), 1); } });
+  const duties = createHumanDuties({ humans, hour: () => h, held: a => layer.isOccupied(a) });
+  const tick = seconds => { for (let t = 0; t < seconds; t += 0.25) {
+    for (const a of actors) {
+      a.stopPath = () => { a.pending = null; a.path = null; };
+      if (a.pending) { const pending = a.pending; a.pending = null; a.e = pending.end.e; a.n = pending.end.n; pending.onArrive?.(); }
+    }
+    duties.update(0.25); layer.update(0.25); ix.update(0.25);
+  } };
+  tick(2);
+  assert.equal(ix.list.filter(t => t.kind === 'person').length, 284, 'all drawn people get controls');
+  const soldier = actors.find(a => a.personId === 'needs_john');
+  assert(soldier.indoors);
+  assert(layer.ask(soldier.id).ok);
+  tick(2);
+  const work = layer.outdoorActivities(soldier.id).find(a => a.span.activity === 'work');
+  assert(work && layer.request(soldier.id, work.id).ok, 'soldier can work outside his usual hours');
+  tick(10);
+  assert(!soldier.indoors && layer.isOccupied(soldier), 'duties cannot steal the temporary activity');
+  assert(layer.request(soldier.id).ok);
+  tick(5);
+  assert(soldier.indoors, 'Go inside holds him inside');
+  h = 14; tick(5);
+  assert(!soldier.indoors && !layer.isOccupied(soldier), 'next duty span resumes the original duty');
+
+  const comrade = actors.find(a => a.instance.behaviour.duty?.kind === 'knot');
+  const mate = actors.find(a => a !== comrade && a.instance.behaviour.duty?.id === comrade.instance.behaviour.duty.id);
+  humans.isHeld = a => a !== comrade && a !== mate;
+  const comradeChat = layer.outdoorActivities(comrade.id).find(a => a.span.activity === 'talk');
+  assert(comradeChat && layer.request(comrade.id, comradeChat.id).ok, 'ordinary duties can pause for a comrade chat even when everyone else is busy');
+  tick(5);
+  assert(layer.people.find(p => p.actor === mate).social, 'the other outdoor comrade joins');
+  tick(70); humans.isHeld = () => false; tick(5);
+  assert(!layer.isOccupied(comrade) && !layer.isOccupied(mate), 'both comrades return to their original duties');
+  let speaker = null;
+  for (let i = 0; i < 120 && !speaker; i++) { tick(1); speaker = actors.find(a => a.instance.behaviour.duty?.kind === 'knot' && a.actions.talking); }
+  assert(speaker, 'a duty conversation has a speaker');
+  layer.pause(speaker.id); tick(1);
+  assert(!speaker.actions.talking, 'greeting a soldier ends his old duty speech instead of leaving him talking alone');
+  h = 23; tick(5);
+  const sentry = actors.find(a => a.personId === 'adams_george');
+  const patrol = layer.outdoorActivities(sentry.id).find(a => a.span.activity === 'walk');
+  assert(patrol && layer.request(sentry.id, patrol.id).ok, 'normal sentry patrol is offered too');
+  const ends = new Set();
+  for (let i = 0; i < 100; i++) { tick(1); ends.add(`${sentry.e.toFixed(1)},${sentry.n.toFixed(1)}`); }
+  assert(ends.size >= 2 && layer.isOccupied(sentry), 'the requested patrol walks both ends without duty interference');
+  assert(layer.request(sentry.id).ok); tick(5);
+  assert(sentry.indoors, 'even a guard can go inside when requested');
+  const entry = inside.people.find(e => e.person.startsWith('gathering_') && /woman/.test(e.asset_id));
+  const door = ix.get(`door:${entry.door}`);
+  v = { e: door.at[0] + 3, n: door.at[1] + 3 };
+  assert(layer.ask(entry.person).ok); tick(5);
+  const p = layer.people.find(p => p.entry === entry);
+  const thing = ix.get(`person:${p.id}`);
+  assert(thing && ix.actionsOf(thing).some(a => a.label === 'Go inside'));
+  assert(ix.actionsOf(thing).every(a => a.label.split(/\s+/).length <= 3 && actionStyle(a).icon), 'compact icon actions');
+  const chat = layer.outdoorActivities(p.id).find(a => a.span.activity === 'talk');
+  assert(chat && layer.request(p.id, chat.id).ok, 'a Native lodge resident can request a real companion at night');
+  tick(6);
+  const pair = layer.people.filter(p => p.social);
+  assert.equal(pair.length, 2);
+  assert(pair.some(q => q === p));
+  assert(Math.hypot(pair[0].actor.e - pair[1].actor.e, pair[0].actor.n - pair[1].actor.n) <= 2.2);
+  assert.equal(pair.filter(p => p.actor.actions.talking).length, 1, 'one speaker after both arrive');
+  const session = p.social;
+  // An unrelated figure is added while they talk; their session survives recollection.
+  const passer = actorOf(rec('passer', {}), 'Passer'); actors.push(passer); tick(1);
+  assert.equal(p.social, session);
+  actors.splice(actors.indexOf(passer), 1);
+  tick(70);
+  assert.deepEqual(problems, [], 'resident retirement completes without resource errors');
+  assert(removed.includes(entry.person), 'the called resident goes inside and releases the mesh');
+  assert(!ix.get(`person:${p.id}`), 'the dynamic interaction is released too');
+  assert(!layer.people.some(p => p.social));
+  let offered = false;
+  for (let i = 0; i < 30; i++) {
+    const actions = door.actions.shut;
+    if (actions.some(a => a.id === `ask:${entry.person}`)) { offered = true; break; }
+    if (!actions.some(a => a.id === 'others')) break;
+    ix.act(door, 'others'); ix.update(0.1);
+  }
+  assert(offered, 'available among the paged names at their own lodge again');
+
+  // A lodge resident sent into a different nearby building stays callable there.
+  assert(layer.ask(entry.person).ok); tick(5);
+  const guestResident = layer.people.find(q => q.entry === entry);
+  const guestDoor = layer.doors.find(t => t.structure === 'first_fort_outer_agents_house');
+  guestResident.actor.e = guestDoor.at[0] + .2; guestResident.actor.n = guestDoor.at[1] + .2;
+  v = { e: guestResident.actor.e + 1, n: guestResident.actor.n };
+  assert(layer.request(guestResident.id, null, { inside: 'nearest' }).ok); tick(5);
+  assert(guestResident.actor.indoors && guestResident.inside === guestDoor.structure && !guestResident.actor.disposed,
+    'a Native guest remains in the building they entered, rather than silently returning home');
+  const guestCall = layer.ask(entry.person);
+  assert(guestCall.ok && guestCall.door === guestDoor.id, 'the guest answers their current door'); tick(5);
+  assert(layer.request(guestResident.id, null, { inside: 'home' }).ok); tick(6);
+  assert(guestResident.actor.disposed && !layer.people.includes(guestResident), 'Go home returns a lodge resident and retires their figure');
+  v = { e: door.at[0] + 3, n: door.at[1] + 3 };
+
+  h = 14; tick(5);
+  let max = 0;
+  const seenResidents = new Set();
+  for (let i = 0; i < 120; i++) { tick(5); max = Math.max(max, layer.insideOnly.out); for (const p of layer.people) if (p.entry) seenResidents.add(p.entry.person); }
+  assert(max <= 3 && seenResidents.size >= 3, `bounded rotating nearby routines: max ${max}, visited ${seenResidents.size}`);
+  humans.crowdKept = []; humans.isHeld = () => true;
+  const heldCount = layer.insideOnly.out; tick(20);
+  assert.equal(layer.insideOnly.out, heldCount, 'jaunts suspend nearby autonomous residents');
+  assert.equal(layer.ask(entry.person).ok, false, 'cannot summon a new resident through a held crowd');
+  humans.crowdKept = null; humans.isHeld = () => false;
+  date = '1812-02-15'; tick(5);
+  assert(!layer.people.some(p => p.entry?.person.startsWith('gathering_')), 'August gathering is absent in winter');
+  assert.equal(layer.ask(entry.person).ok, false);
+  const gardeners = actors.filter(a => a.instance.behaviour.day?.at(-1).spans.some(s => s.duty && /at work.*garden|at work.*cornfield/.test(s.doing ?? '')));
+  assert(gardeners.length >= 6 && gardeners.every(a => a.indoors), 'field workers tend stored supplies indoors in winter');
+  date = '1812-08-10'; h = 10; tick(5);
+  const guest = actors.find(a => a.personId === 'winnemeg');
+  assert(guest && !guest.indoors && layer.request(guest.id).ok, 'a visitor without a town home can go inside a host building');
+  tick(5);
+  assert(guest.indoors && layer.people.find(p => p.actor === guest).inside === 'first_fort_outer_agents_house');
+  assert(layer.ask(guest.id).ok, 'the visiting guest can be called back from that door');
+  date = '1812-08-15'; h = 10; tick(5);
+  const away = inside.people.find(e => spanAt(dayOn(e, date, e.person), h)?.away);
+  assert(away && !layer.ask(away.person).ok, 'battle-day absence cannot be recalled by an activity request');
+  assert(!ix.get(`door:${away.door}`).actions.shut.some(a => a.id === `ask:${away.person}`));
+}
+console.log('1812: all 804 routines, soldier ownership, Native door/activity/chat lifecycle, bounded rotation and date exclusions hold');

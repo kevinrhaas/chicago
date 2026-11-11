@@ -142,7 +142,7 @@ for (const scene of ['1812', '1835', '1904']) {
   let hour = 0;
   const visitor = () => ({ e: actors[0]?.e ?? 0, n: actors[0]?.n ?? 0 });
   const days = createHumanDays({ humans, three, hour: () => hour, date: () => date, doors, visitor: () => null });
-  const duties = createHumanDuties({ humans, three, hour: () => hour });
+  const duties = createHumanDuties({ humans, three, hour: () => hour, held: a => days.isOccupied(a) });
   // T-3520: the camps' lodge walls, as main.js hands them in (doors_1812.json `walls`).
   const walls = scene === '1812' ? doors.structures.flatMap((s) => (s.walls ?? []).map((pts, i) => ({ id: `${s.structure}:${i}`, pts }))) : [];
   const W = wallsFrom(walls);
