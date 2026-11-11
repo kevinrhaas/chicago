@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2879, ts: '2026-11-11T05:28:49.677Z', date: 'Nov 10, 2026, 11:28 PM CT', title: 'Daily life and easier interactions', kind: 'improvement',
+    items: [
+      'Meet civilians, soldiers and Native residents through a compact Interact menu, with short activity choices and Go inside.',
+      'Call someone from their lodge or house, ask for an outdoor task at any hour, or arrange a real companion chat before they return to their duties.',
+      'Soldiers follow quarters and duty schedules; lodge residents take turns at nearby tasks, with seasonal work and historical absences preserved.',
+      'Keep a walking person selected while choosing an action. Clean line icons and grouped Go inside and Go home choices make the shared menu easier to use.',
+    ] },
   { v: 2878, ts: '2026-11-11T03:48:18.061Z', date: 'Nov 10, 2026, 9:48 PM CT', title: 'Switching Scene detail works in every season', kind: 'fix',
     items: [
       'Changing Scene detail in 1904 while it was autumn, winter or spring (a jaunt\'s night or snow included) failed with "Could not load full detail" and left the town frozen. The switch now finishes in every season.',
