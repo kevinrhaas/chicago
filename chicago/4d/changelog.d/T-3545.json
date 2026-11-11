@@ -1,0 +1,7 @@
+{
+  "title": "Switching Scene detail works in every season",
+  "kind": "fix",
+  "items": [
+    "Changing Scene detail in 1904 while it was autumn, winter or spring (a jaunt's night or snow included) failed with \"Could not load full detail\" and left the town frozen. The switch now finishes in every season."
+  ]
+}

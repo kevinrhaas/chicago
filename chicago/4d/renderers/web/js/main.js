@@ -99,6 +99,7 @@ import { createWells } from './wells.js';
 import { createTimeStream } from './time-stream.js';
 import { createTelemetry } from './arrival-telemetry.js';
 import { paintArrivalDevice } from './arrival-device.js';
+import { setDraftHorseTextureCap } from './draft-horse-assets.js';
 import { t, applyStrings } from './strings/index.js';
 import './strings/arrival.js';
 import { createFlags } from './flags.js';
@@ -1911,6 +1912,10 @@ async function boot() {
    */
   const lowMem = coarse || !!device.choice?.lowMemory || !!crashGuard.state.stepdown;
   api.lowMemory = lowMem;
+  // T-3542: the horses' pictures are what keeping the teams on a phone costs it (six maps,
+  // about 22 MB): on a memory-saving device each is redrawn at 512 px (1024 on a computer)
+  // before the template is shared — blurrier up close, never gone (draft-horse-assets.js).
+  if (lowMem) setDraftHorseTextureCap(coarse ? 512 : 1024);
   // Resolve BEFORE the GLB fetch: a weak-machine boot must never download the
   // full inspection model simply to turn it down once Settings has mounted.
   // T-2547's step-down outranks everything; then the stored choice; then the
@@ -1952,7 +1957,9 @@ async function boot() {
     api.arrivalDevice = paintArrivalDevice(document.getElementById('arrival-device'), {
       profile: device, detail: detailLevel, sharpness: bootQuality, lowMemory: lowMem,
       steppedDown: !!(crashBoot.lowered.detail || crashBoot.lowered.quality),
-      chosen: !!(readDetailPreference() || Number(readQualityPreference()) > 0) });
+      chosen: !!(readDetailPreference() || Number(readQualityPreference()) > 0),
+      keptAfter: (() => { try { const k = JSON.parse(localStorage.getItem('chicago4d.settings') || '{}')?.detailKept;
+        return k?.kept === detailLevel && DETAIL[k?.wanted] ? k.wanted : null; } catch { return null; } })() });
   } catch (err) { console.warn('[arrival device]', err); }
 
   /**
@@ -2691,7 +2698,7 @@ async function boot() {
   // given back by api.season.restore() (a choice made by hand ends the hold).
   const seasonState = { season: 'summer', treesShown: seasonPref.treesShown, own: seasonPref.season, held: null };
   let structuresSeasoned = false;
-  let seasonPlants = () => null;
+  let seasonPlants = async () => null;
   /**
    * T-3399 — the 1812/1835 fenced ground (yards.js): a dooryard's green and a garden
    * bed's crop drills brown and take the fall's leaves and the winter's snow as a
@@ -3390,7 +3397,12 @@ async function boot() {
    * summer visit compiles and draws what it did. Read through `flora` and `trees`
    * as they stand, so a detail rebuild's new layers take it the same way.
    */
-  seasonPlants = (s) => {
+  /* T-3542: always a promise. 1904's grown woods are the empty layer (trees.js returns no
+   * setSeason when nothing is planted), so this returned undefined, and a Scene detail
+   * switch in any season but summer threw on `.then` HALFWAY through its commit, after the
+   * houses and plants were swapped: "Could not load full detail" and a frozen town (the
+   * owner's M5 Max, 2026-11-10, a jaunt holding winter). */
+  seasonPlants = async (s) => {
     const on = s !== 'summer';
     if (on) {
       flora.group.traverse((o) => {
@@ -3599,7 +3611,12 @@ async function boot() {
       problems.push(`Glessner v4 detail: ${message}`);
       console.error(`[4D Chicago] ${message}`);
       hud.say(message, 9000);
+      // The level kept is stored, so the next visit does not walk into the same failure.
+      // T-3542: and it is marked as kept, not chosen (the owner, 2026-11-10: fine "as long as
+      // you tell the user that you are stepping it down"): the loading screen's device line
+      // says so until the visitor picks a Scene detail again (hud.js clears the mark).
       hud.settings.detail = retained;
+      hud.settings.detailKept = { wanted, kept: retained };
       const select = document.getElementById('s-detail');
       if (select) select.value = retained;
       try { window.localStorage.setItem('chicago4d.settings', JSON.stringify(hud.settings)); } catch { /* optional */ }
@@ -4028,7 +4045,10 @@ async function boot() {
           ? (e, n) => streetGrid.carriagewayHeight(e, n)
           : smoothGround ?? ((e, n) => profiledGroundHeight(terrain, decks, e, n)),
         footprints: () => footprints, visitor: () => walker.state,
-        interactions, detail: detailLevel, coarse, problems,
+        interactions, detail: detailLevel, problems,
+        // T-3542: every memory-saving device (a phone, an integrated-GPU computer, Light) takes
+        // a row's lighter horse, vehicle and driver; it no longer means no team at all.
+        coarse: lowMem || detailLevel === 'light',
         // T-3475: Step back to let it pass walks the visitor to a clear stand, looking where they looked.
         blockedAt: (e, n) => api.router?.blockedAt(e, n) ?? false,
         placeVisitor: (e, n) => { if (!walker.state.flying) walker.teleport({ local_e: e, local_n: n,

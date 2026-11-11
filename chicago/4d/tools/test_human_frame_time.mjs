@@ -131,7 +131,7 @@ const horseSignature = horseUpdate[1].slice(0,horseUpdate[1].indexOf(' {\n')).re
 const horseBody = horseUpdate[1].slice(horseUpdate[1].indexOf(' {\n')+3);
 const horseTier = required(standing.match(/    async setTier\(next\) \{([\s\S]*?)\n    \},\n    pickAt/), 'horse tier change')[1];
 const horseReset = required(standing.match(/  const resetIdleClock = [\s\S]*?\n  motionPreference\?\.addEventListener\?\.\('change', resetIdleClock\);/), 'horse preference reset')[0];
-const reach = required(standing.match(/const REACH = [^;]+;/), 'horse reach')[0];
+const reach = required(standing.match(/const REACH = [^;]+;\nconst draws = [^;]+;/), 'horse reach')[0];
 const horseFactory = new Function('assert','globalThis',`return function(){
   ${reach}
   let tier='full', disposed=false, revision=0, active=null,lastCamera=null;
@@ -157,7 +157,9 @@ horse.group.visible=true; horse.frame(100,{visualFrame:true}); assert.equal(hors
 horse.frame(.2,{visualFrame:true}); horse.distance(100); horse.frame(100,{visualFrame:true}); assert.equal(horse.values.at(-1).dt,0);
 horse.distance(2); horse.frame(100,{visualFrame:true}); assert.equal(horse.values.at(-1).dt,0,'Horse range re-entry rebases idle');
 horse.frame(.2,{visualFrame:true}); await horse.tier('balanced'); horse.frame(100,{visualFrame:true}); assert.equal(horse.values.at(-1).dt,0,'Tier refresh does not prime a new real idle interval');
-horse.frame(.2,{visualFrame:true}); await horse.tier('light'); const last=horse.values.length; horse.frame(100,{visualFrame:true}); assert.equal(horse.values.length,last,'Phone-light tier has no standing development horse');
+horse.frame(.2,{visualFrame:true}); await horse.tier('light'); horse.frame(100,{visualFrame:true}); assert.equal(horse.values.at(-1).dt,0,'T-3542: Light keeps the standing horse, and its tier refresh primes nothing');
+horse.distance(40); const last=horse.values.length; horse.frame(100,{visualFrame:true}); assert.equal(horse.values.at(-1).visible,false,'Light draws the horse nearer: beyond its 30 m it is not shown'); assert.ok(horse.values.length>last);
+horse.distance(2);
 await horse.tier('balanced'); horse.frame(100,{visualFrame:true}); assert.equal(horse.values.at(-1).dt,0,'Reloaded owner has a separate activation clock');
 
 assert.throws(()=>horse.frame(NaN,{visualFrame:true}),/finite and nonnegative/);

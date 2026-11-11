@@ -68,7 +68,7 @@ export const DRAW_M = 140;
  * within DRAW_M of the fort, sixteen dresses among them, and a phone held every one of their
  * bodies and textures (+70 MB at spawn); at this distance it holds those near the visitor.
  */
-export const DRAW_M_BY_TIER = Object.freeze({ full: DRAW_M, balanced: DRAW_M, light: 60 });
+export const DRAW_M_BY_TIER = Object.freeze({ full: DRAW_M, balanced: DRAW_M, light: DRAW_M });
 /** T-3463: and the `light` tier gives LOD2 (its 1024 px dress sheet) way to LOD3 sooner. */
 export const LOD_BANDS_BY_TIER = Object.freeze({ light: Object.freeze([8, 20, 25]) });
 export const RECHECK_S = 0.5;

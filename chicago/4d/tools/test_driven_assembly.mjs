@@ -3,7 +3,12 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import * as THREE from '../renderers/web/vendor/three-0.185.1/three.module.js';
-import { createDrivenAssembly, createTeamsterAssembly, createTownTransport } from '../renderers/web/js/town-transport.js';
+import { createDrivenAssembly, createTeamsterAssembly, createTownTransport as createTownTransportDefault } from '../renderers/web/js/town-transport.js';
+// T-3542: since the owner's ruling (2026-11-10) Light draws its teams, nearer, so no default
+// tier draws none. These races are about a tier that retires every team, which the layer still
+// supports for any reach of 0, so they name that reach; the default is checked at the end.
+const NO_LIGHT_TEAMS = Object.freeze({ full: 90, balanced: 60, light: 0 });
+const createTownTransport = (options) => createTownTransportDefault({ reach: NO_LIGHT_TEAMS, ...options });
 import { circleRoute, createTransportLoop } from '../renderers/web/js/transport-loop.js';
 import { prepareHorseTemplate, applyHorseAppearance, loadHorseRecipe } from '../renderers/web/js/horse-appearance.js';
 
@@ -1098,3 +1103,17 @@ console.log('seated driver visual clock: stop, holds, range, Light restoration a
   }
 }
 console.log('LIGHT SCENE CALLBACK + HANS PUBLIC CARD PASS — native scene adapter has zero errors and preserves the named card API');
+
+// T-3542: by default Light acquires and draws its teams, nearer than Balanced — a phone
+// keeps its horses, carriages and wagons (owner, 2026-11-10).
+{
+  let made = 0, release;
+  const town = createTownTransportDefault({ rows: [validRow], sceneId: '1835',
+    makeAssembly: () => { made++; return new Promise(r => { release = r; }); },
+    heightAt: () => 0, clear: () => true, detail: 'light' });
+  assert.equal(town.ensureNear({ x: 0, z: 0 }, true), true, 'Light reaches the circuit it stands in');
+  await until(() => made === 1);
+  assert.equal(town.ensureNear({ x: 200, z: 0 }, true), false, 'and not one 180 m away (reach 45 m + 8)');
+  town.dispose(); release({ dispose() {} });
+}
+console.log('DEFAULT LIGHT KEEPS ITS TEAMS PASS — Light acquires the team within its 45 m reach (T-3542)');
