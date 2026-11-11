@@ -193,6 +193,8 @@ jobs:
       - name: Install Playwright
         run: |
           set -e
+          python3 .github/prepare-ubuntu-browser-mirrors.py --self-test
+          python3 .github/prepare-ubuntu-browser-mirrors.py
           npm install -g playwright@1.56.1
           node "$(npm root -g)/playwright/cli.js" install --with-deps chromium
 
@@ -395,6 +397,8 @@ jobs:
           done
       - name: Install Playwright
         run: |
+          python3 .github/prepare-ubuntu-browser-mirrors.py --self-test
+          python3 .github/prepare-ubuntu-browser-mirrors.py
           npm install -g playwright@1.56.1
           node "$(npm root -g)/playwright/cli.js" install --with-deps chromium
       - name: Audit declared resident animation time bounds before browser loading
@@ -612,6 +616,8 @@ jobs:
       - name: Install existing browser and validator pins on Ubuntu24.04
         run: |
           set -euo pipefail
+          python3 .github/prepare-ubuntu-browser-mirrors.py --self-test
+          python3 .github/prepare-ubuntu-browser-mirrors.py
           npm install -g playwright@1.56.1 gltf-validator@2.0.0-dev.3.10
           node "$(npm root -g)/playwright/cli.js" install --with-deps chromium
       - name: Audit actual new animation time bounds and hair contracts
