@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1104,
+  "count": 1105,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -71577,6 +71577,40 @@
       ],
       "work_refs": [
         "T-3524"
+      ]
+    },
+    {
+      "id": "L-prairie-front-passages-3554",
+      "title": "Every built 1904 front door and every back door opens and shuts as its household passes, up its own stoop",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-12",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the front door of each 1904 house whose model builds its leaf (46 of them: door leaf) is hung to swing for the people drawn going in and out (the walkthrough's house doors code § passages, `registerDoorPlans`), as “Glessner's court service door and Eighteenth Street side door open and shut as the household passes, up and down the stairs to them”'s are: the baked leaf is lifted out of the house's batch at load and hung on its right-hand jamb (seen from outside), swinging inward through 90 degrees in 1.2 s, an opening wider than 1.6 m (Hibbard's, Wheeler's, Moulton's) as a pair meeting in the middle, each leaf on its own jamb. Behind it is a dark vestibule like Glessner's (the house models are hollow behind their 0.8 m backing). Someone whose day takes them in walks to the foot of the stoop, up its treads to the door, which opens before them, through it, and is indoors only past the leaf; one answering a knock stands at the stoop's foot. The way is read off the built model (the derive doors scene tool stoop way): over a 0.1 m grid of what is built in front of the door, it climbs at most 0.26 m a step, passes nothing standing between a knee and a head over the tread, keeps 0.35 m (a skirt's half-width) off every drop, cheek and rail, and turns where a side stoop turns (Dent's, Keith's, the two Glessner children's). The owner, 2026-11-12: *\"make sure they are openable and closeable for a person to enter and make sure that people can walk up the stairs instead of vanishing into the staircase\"*. Each house's back door (“The 1904 back and side yards: back doors, terraces, walks, gangways, drying yards and kitchen gardens”'s, on its built rear wall) is hung the same way (the walkthrough's back yards code): its leaf on the jamb away from its knob, swinging OUT through 95 degrees in 1.2 s over its landing, because the house behind its wall is not modelled; behind it the wall is painted the dark of a doorway. Its way runs up the middle of its stoop, one waits 0.95 m out on the landing while the leaf swings past, and one answering stands 0.7 m beyond the stoop's foot."
+        },
+        {
+          "label": "What it stands on",
+          "text": "each front leaf, its sill and head, and every tread and landing are the house model's own, as its generator built them; each back door and stoop is “The 1904 back and side yards: back doors, terraces, walks, gangways, drying yards and kitchen gardens”'s. Nothing about the doors is measured from a source here."
+        },
+        {
+          "label": "What is invented",
+          "text": "the hinge side, that each front door swings inward and each back door outward, how far and how fast; a pair for a wide opening; the vestibule behind a front door and the dark behind a back one; the line walked up each stoop (the grid's cheapest, kept off its edges), the skirt's half-width, and the riser ease (0.12 m each side of a riser); where one answering stands."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a photograph of any of these doors open, or a plan of its entrance hall."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-12 (T-3554)."
+        }
+      ],
+      "work_refs": [
+        "T-3554"
       ]
     },
     {

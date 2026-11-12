@@ -157,6 +157,8 @@ export const LEAVE_S = 4;
 /** How many Ask for <name> a door offers at once. */
 export const ASK_PAGE = 6;
 const HEAD_M = 1.6;
+/** T-3554: two in a chat face each other to within this many degrees. */
+export const FACE = Object.freeze({ slack_deg: 20 });
 /** T-3504: a talk's ring: neighbours GAP_M apart, never nearer the middle than MIN_R_M; a knot
  *  whose people already stand SPREAD_M apart keeps their own places. */
 export const RING = Object.freeze({ gap_m: 0.95, min_r_m: 0.6, spread_m: 0.7 });
@@ -688,7 +690,11 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
 
   // ── T-3524: passages ──────────────────────────────────────────────────────────────
   /** The passage a door is (house-doors.js), or null for a door that is only stood at. */
-  const passageOf = (door) => (door?.id ? passages?.passage?.(door.id) ?? null : null);
+  const passageOf = (door) => {
+    const pass = door?.id ? passages?.passage?.(door.id) ?? null : null;
+    // A passage whose way is not laid (its fixtures not built) is only stood at.
+    return pass && pass.way()?.length >= 2 ? pass : null;
+  };
   /** Who is on each passage's way now: id -> [{ p, dir, at }]. */
   const onWays = new Map();
   /** Things waited on: [{ p, token, until, then, deadline }], looked at once a frame. */
@@ -1127,6 +1133,20 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
     }
   }
 
+  /** T-3554: the two of a chat turned to face each other (a turn under way is left to finish;
+   *  one already within FACE.slack_deg is left alone), and taking turns to talk. */
+  function chatFacing(s) {
+    for (const [i, m] of s.members.entries()) {
+      const a = m.actor, other = s.members[1 - i].actor;
+      if (a.path && !a.path.arrived) continue;
+      const want = bearing(other.e - a.e, other.n - a.n);
+      const off = Math.abs((((want - (a.heading ?? want)) % 360) + 540) % 360 - 180);
+      if (off > FACE.slack_deg && !a.path) a.turnTo?.(want);
+      talk(a, Math.floor((clock - (s.chatting ?? clock)) / 4) % 2 === i);
+      look(a, other, 1);
+    }
+  }
+
   function stepSocials() {
     for (const s of [...socials]) {
       const [p, q] = s.members;
@@ -1138,19 +1158,17 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
       if (s.members.some(m => m.attending)) { for (const m of s.members) talk(m.actor, false); continue; }
       const together = s.members.every((m) => m.mode === 'out' && !m.actor.indoors && !m.passing)
         && dist(p.actor, q.actor) <= 2.2;
-      if (s.outing && s.chatting !== null) { stepOuting(s); continue; }
+      if (s.outing && s.chatting !== null) {
+        stepOuting(s);
+        // T-3554 (owner, 2026-11-12: "have a conversation and not face each other"): between
+        // the outing's legs they stand turned to each other and talk, not side by side.
+        if (!s.moving && together) chatFacing(s);
+        continue;
+      }
       if (!together) { for (const m of s.members) talk(m.actor, false); continue; }
-      if (s.chatting === null) {
-        s.chatting = clock;
-        p.actor.turnTo?.(bearing(q.actor.e - p.actor.e, q.actor.n - p.actor.n));
-        q.actor.turnTo?.(bearing(p.actor.e - q.actor.e, p.actor.n - q.actor.n));
-      }
-      if (s.outing) { stepOuting(s); continue; }
-      for (const [i, m] of s.members.entries()) {
-        const other = s.members[1 - i].actor;
-        talk(m.actor, Math.floor((clock - s.chatting) / 4) % 2 === i);
-        look(m.actor, other, 1);
-      }
+      if (s.chatting === null) s.chatting = clock;
+      if (s.outing) { stepOuting(s); if (!s.moving) chatFacing(s); continue; }
+      chatFacing(s);
     }
   }
   /** The building of today's day whose door is nearest the span's place, within BREAK.reach_m. */
