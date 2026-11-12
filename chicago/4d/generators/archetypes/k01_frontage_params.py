@@ -7577,20 +7577,23 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     # and modillions), its flat top railed as a small balcony; k01_frontage.door_hood builds it
     if "hood" in door_kit_in:
         hd = door_kit_in["hood"]
-        need = {"soffit_m", "width_m", "out_m", "fascia_m", "cornice", "brackets", "railing"}
+        need = {"soffit_m", "width_m", "out_m", "fascia_m", "cornice", "brackets"}
         # T-2963: a hood may stand on columns (1816's porch) and rail its top in iron
         # T-3159: or be laid, columns, balustrade and all, in the front's stone (1729's portico)
         # T-3210: and turn round arches between them (1827's porch)
+        # T-3562: its top railed as a balcony, or gabled as a PEDIMENT (1815's, the square-on photograph)
         extra = {"columns", "railing_fabric", "fabric", "centre_v_m", "under_head_m", "arches", "splay"}
-        if not need <= set(hd) <= need | extra or set(hd["cornice"]) != {"height_m", "proud_m"} or \
-                set(hd["railing"]) != {"height_m", "post_m", "baluster_m", "pitch_m", "rail_m"}:
-            raise ParamError(f"entrance_kit.hood takes {sorted(need)}, its cornice height_m and proud_m, "
-                             f"its railing height_m, post_m, baluster_m, pitch_m and rail_m [width, depth]")
+        if not need <= set(hd) <= need | extra | {"railing", "pediment"} or \
+                ("railing" in hd) == ("pediment" in hd) or set(hd["cornice"]) != {"height_m", "proud_m"} or \
+                ("railing" in hd and set(hd["railing"]) != {"height_m", "post_m", "baluster_m", "pitch_m", "rail_m"}):
+            raise ParamError(f"entrance_kit.hood takes {sorted(need)}, its cornice height_m and proud_m, and "
+                             f"either a railing (height_m, post_m, baluster_m, pitch_m and rail_m [width, depth]) "
+                             f"or a pediment")
         bay = {v["id"]: v for v in json.loads(BAY_KIT.read_text())["variants"]}.get(hd["brackets"])
         if not bay or not bay.get("brackets"):
             raise ParamError(f"entrance_kit.hood.brackets: {hd['brackets']!r} is not a bracketed K08 variant")
         con, mod = bay["brackets"]["consoles"], bay["brackets"]["modillions"]
-        if con["reach_m"] > hd["out_m"]:
+        if con["reach_m"] > hd["out_m"] and "console_m" not in (hd.get("pediment") or {}):
             raise ParamError(f"entrance_kit.hood: {hd['brackets']}'s consoles reach {con['reach_m']} m, "
                              f"past the hood's {hd['out_m']} m")
         if mod["drop_m"] >= hd["fascia_m"]:
@@ -7599,9 +7602,43 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             raise ParamError("entrance_kit.hood: the door takes the hood or a K09 entrance, not both")
         door_kit["hood"] = {**{k: float(hd[k]) for k in ("soffit_m", "width_m", "out_m", "fascia_m")},
                             "cornice": {k: float(v) for k, v in hd["cornice"].items()},
-                            "railing": {k: ([float(x) for x in v] if isinstance(v, list) else float(v))
-                                        for k, v in hd["railing"].items()},
                             "brackets": hd["brackets"], "consoles": dict(con), "modillions": dict(mod)}
+        if "railing" in hd:
+            door_kit["hood"]["railing"] = {k: ([float(x) for x in v] if isinstance(v, list) else float(v))
+                                           for k, v in hd["railing"].items()}
+        else:
+            # T-3562: a pediment on the cornice slab in place of the railing: a tympanum rising
+            # `rise_m` from the slab's top to its apex over the hood's centre, set back to the
+            # fascia's face, under a raking cornice standing out to the slab's front, `rake_m`
+            # deep at the apex; and optionally a finial `finial_m` [width, height] on the apex
+            pd = hd["pediment"]
+            if not isinstance(pd, dict) or not {"rise_m", "rake_m"} <= set(pd) <= {"rise_m", "rake_m", "finial_m",
+                                                                                "console_m"} \
+                    or "columns" in hd or "railing_fabric" in hd:
+                raise ParamError("entrance_kit.hood.pediment takes rise_m and rake_m, and optionally finial_m "
+                                 "[width, height], on a bracketed hood (no columns, no railing)")
+            rise, rake = float(pd["rise_m"]), float(pd["rake_m"])
+            pitch = math.degrees(math.atan2(rise, float(hd["width_m"]) / 2))
+            if not 0.2 <= rise <= 1.5 or not 0.08 <= rake <= 0.4 or not 15.0 <= pitch <= 45.0:
+                raise ParamError(f"entrance_kit.hood.pediment: a 0.2-1.5 m rise pitched 15-45 degrees over the "
+                                 f"hood's half-width (here {pitch:.1f}), its raking cornice 0.08-0.4 m deep")
+            door_kit["hood"]["pediment"] = {"rise_m": rise, "rake_m": rake}
+            if "finial_m" in pd:
+                fw, fh = (float(x) for x in pd["finial_m"])
+                if not 0.08 <= fw <= 0.5 or not 0.1 <= fh <= 0.8:
+                    raise ParamError("entrance_kit.hood.pediment.finial_m: [0.08-0.5 m wide, 0.1-0.8 m high]")
+                door_kit["hood"]["pediment"]["finial_m"] = [fw, fh]
+            # T-3562: a door surround's carved brackets are smaller than a bay hood's: the
+            # consoles' reach, drop and thickness, in place of the K08 variant's, its profile kept
+            if "console_m" in pd:
+                cm = pd["console_m"]
+                if not isinstance(cm, dict) or set(cm) != {"reach_m", "drop_m", "thickness_m"} \
+                        or not 0.1 <= float(cm["reach_m"]) <= float(hd["out_m"]) \
+                        or not 0.2 <= float(cm["drop_m"]) <= 1.0 or not 0.08 <= float(cm["thickness_m"]) <= 0.3:
+                    raise ParamError("entrance_kit.hood.pediment.console_m takes reach_m (0.1 m to the hood's "
+                                     "out_m), drop_m 0.2-1.0 and thickness_m 0.08-0.3")
+                door_kit["hood"]["consoles"] = {**door_kit["hood"]["consoles"],
+                                                **{k: float(v) for k, v in cm.items()}}
         # T-2963: a porch, not a hood: a turned column on a square plinth at each front corner
         # of the deck, from the landing to the soffit, under a square capital block, and a
         # flat respond against the wall behind it. The landing has to reach under them
@@ -7726,9 +7763,9 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                                  "inside its ends")
             door_kit["hood"]["offset_m"] = round(off, 4)
         if "fabric" in hd:
-            if hd["fabric"] != "stone" or "columns" not in hd:
-                raise ParamError("entrance_kit.hood.fabric: stone, for a portico on columns, or leave it out "
-                                 "for the painted joinery")
+            if hd["fabric"] != "stone" or ("columns" not in hd and "pediment" not in hd):
+                raise ParamError("entrance_kit.hood.fabric: stone, for a portico on columns or a pedimented "
+                                 "hood (T-3562), or leave it out for the painted joinery")
             door_kit["hood"]["fabric"] = "stone"
         if "railing_fabric" in hd:
             # T-3159: or a stone balustrade, its posts, balusters and rail in the hood's stone
