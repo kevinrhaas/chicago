@@ -43678,7 +43678,12 @@ and the courtyard's south wall standing about 16.5 ft high from the alley to a b
 he identifies the Keith house's rear as having reached (19-20). On his ruling the Keith house
 (1808 Prairie) is now its full three storeys back to that rear, which is placed where the 1911
 sheet draws its brick main part ending (W 113.85; his reading by eye, about the stable wing's
-court face, is 12 ft west of it); the 9-ft court wall that stood on that line is withdrawn.
+court face, is 12 ft west of it); the 9-ft court wall that stood on that line is withdrawn. His photographs 21-22 (sent 2026-11-12) set the
+stable's south brick wall: one light high in the gable under the apex, four upper windows in a row
+(the three HABS sheet 3 draws, and a fourth at the west end where sheet 3 draws the c.1955 stair
+door, about twice its neighbours' width in the photograph), and over the court wall the top of a
+smooth stone header, which stands over the one first-floor opening HABS sheet 2 draws in that wall
+(W 139.8-148.3, read as three lights between two mullions).
 **What is invented.** All sizes are read off the photographs against known openings (+/- 0.05 m;
 the tall wall +/- 1 ft in height and +/- 2 ft in where it ends); the carving is modelled to the
 photograph's impression, not measured. The photographs show the surviving fabric: that each detail
@@ -43695,7 +43700,10 @@ gate and before the stable are left out.
 representation of the 1904 door, note it includes the man door ... and also the main coach house
 door can open", and of the loft door above (12): "that green should be what is represented". Two
 sage-green leaves under a casing, every panel boarded on the diagonal, a man door with a narrow
-fixed panel in the viewer's left leaf, and the loft door shut in the same green.
+fixed panel in the viewer's left leaf, and the loft door shut in the same green. On his note of
+2026-11-12 the man door is the wide panel at the jamb with its latch on its own free edge, and the
+fixed panel beside it is framed to the same head and bottom rail, so the two lower panels stand the
+same height, as photograph 11 shows them.
 **What is invented.** Leaf, stile, rail and man-door sizes, read off the photographs against the
 12-ft doorway (+/- 0.05 m). The glazed upper zone of the earlier owner-supplied view is superseded
 by this ruling. The present doors date from the 1946 replacement HABS records; carrying their

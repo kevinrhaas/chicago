@@ -2586,7 +2586,19 @@
                 "datum": "ng",
                 "items": [
                   {
-                    "what": "stable south upper windows, HABS sheet 3 plan gaps; excludes the c.1955 stair door",
+                    "what": "stable south gable light, one high under the apex (T-3564: the owner's 2026-11-10 photographs from the alley and the 1808 lot), centred on the rear ridge at W 141",
+                    "at": [
+                      139.75,
+                      142.25
+                    ],
+                    "z": [
+                      26.5,
+                      30.0
+                    ],
+                    "style": "courtyard_sash"
+                  },
+                  {
+                    "what": "stable south upper windows, HABS sheet 3 plan gaps",
                     "at": [
                       [
                         138.8,
@@ -2608,22 +2620,51 @@
                     "style": "courtyard_sash"
                   },
                   {
-                    "what": "stable south lower windows, reconstructed from the stable window rhythm",
+                    "what": "stable south upper window at the west end, the fourth of the row the owner's photographs show (T-3564); sheet 3 draws the c.1955 stair door in it, so its width is read off the photographs (about twice its neighbours'), reconstructed",
+                    "at": [
+                      153.0,
+                      157.9
+                    ],
+                    "z": [
+                      20.0,
+                      23.0
+                    ],
+                    "style": "courtyard_sash"
+                  },
+                  {
+                    "what": "stable south first-floor window head, a smooth stone header whose top shows over the court wall in the owner's 2026-11-12 photograph from the 1808 lot (T-3564)",
+                    "kind": "band",
+                    "at": [
+                      139.5,
+                      148.6
+                    ],
+                    "z": [
+                      15.9,
+                      17.2
+                    ]
+                  },
+                  {
+                    "what": "stable south first-floor triple window under that header, the one opening HABS sheet 2 draws in this wall (W 139.8-148.3, two mullions); sill height reconstructed",
                     "at": [
                       [
-                        130.5,
-                        134.0
+                        139.8,
+                        142.5
                       ],
                       [
-                        152.0,
-                        155.5
+                        142.65,
+                        145.45
+                      ],
+                      [
+                        145.6,
+                        148.3
                       ]
                     ],
                     "z": [
-                      7.0,
-                      11.0
+                      11.4,
+                      15.9
                     ],
-                    "style": "courtyard_sash"
+                    "style": "courtyard_sash",
+                    "lintel_course": true
                   }
                 ]
               },

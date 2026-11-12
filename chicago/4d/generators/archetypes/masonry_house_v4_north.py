@@ -93,16 +93,22 @@ def boarded_leaves(b, o, d):
         # Upper panel of the leaf, over the man door's head.
         v.slab(b,o,inner_l,inner_r,head,head+.06,-.30,-.245,conf,W)
         diagonal_boards(b,o,inner_l,inner_r,head+.06,hi-top,panel_front,d,reduced)
-        # The fixed narrow panel beside the man door.
-        diagonal_boards(b,o,fix_l,fix_r,lo+bot,head,panel_front,d,reduced)
+        # The fixed narrow panel beside the man door, framed to the man door's own
+        # head and bottom rail so the two lower panels stand the same height, as the
+        # owner's photograph shows them (his note of 2026-11-12).
+        fl,fr_=min(fix_l,fix_r),max(fix_l,fix_r)
+        for sl,sr,sb,stp in [(fl,fl+fr,lo,head),(fr_-fr,fr_,lo,head),(fl,fr_,head-fr,head),(fl,fr_,lo,lo+bot*.8)]:
+            v.slab(b,o,sl,sr,sb,stp,-.30,-.245,conf,W)
+        diagonal_boards(b,o,fl+fr,fr_-fr,lo+bot*.8,head-fr,panel_front,d,reduced)
         # The man door: its own frame and boarded panel, outlined by a dark gap.
         for sl,sr,sb,stp in [(ml,ml+fr,lo,head),(mr-fr,mr,lo,head),(ml,mr,head-fr,head),(ml,mr,lo,lo+bot*.8)]:
             v.slab(b,o,sl,sr,sb,stp,-.30,-.245,conf,W)
         diagonal_boards(b,o,ml+fr,mr-fr,lo+bot*.8,head-fr,panel_front,d,reduced)
         for sl,sr,sb,stp in [(ml-.004,ml+.004,lo,head),(mr-.004,mr+.004,lo,head),(ml,mr,head-.004,head+.004)]:
             v.slab(b,o,sl,sr,sb,stp,-.30,-.25,conf,v.DARK_GLASS)
-        # Its latch, on the free edge.
-        free=m_in+(.09 if m_in>m_out else -.09)
+        # Its latch, on its own free edge (the edge away from the hinge at the jamb),
+        # inside the man door, not on the fixed panel beside it.
+        free=m_in+(-.11 if m_in>m_out else .11)
         v.slab(b,o,free-.016,free+.016,z0+.98,z0+1.16,-.245,-.205,conf,v.IRON)
 
 
