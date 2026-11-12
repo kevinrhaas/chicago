@@ -320,6 +320,9 @@
       <button class="panel-tab" data-tab="controls" role="tab" aria-selected="false" title="Guide" data-str-title="hud.tab.guide"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 10h.01M11 10h.01M15 10h.01M7 14h10"/></svg><span class="tab-label" data-str="hud.tab.guide">Guide</span></button>
       <button class="panel-tab" data-tab="whatsnew" role="tab" aria-selected="false" title="What's new" data-str-title="hud.tab.whatsnew"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2H4.5z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><span class="tab-label" data-str="hud.tab.whatsnew">What's new</span><span class="tab-dot" id="whatsnew-dot" hidden aria-hidden="true"></span></button>
     </nav>
+    <!-- T-3563: the Settings card's own tabs, one row of icons over small labels like Inspect's
+         (T-3435). js/settings-app.js draws the buttons; shown while Settings or What's new is. -->
+    <nav class="set-tabs" id="settings-tabs" role="tablist" aria-label="Settings" hidden></nav>
     <header class="panel-head">
       <button class="panel-back" id="panel-back" type="button" aria-label="Back" hidden><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
       <h2 class="panel-title" id="panel-title">Go to</h2>
@@ -610,17 +613,7 @@
          and readouts stay terse; the reasoning lives in the source comments.
          Every id here is read by the smoke gate — keep them. -->
     <section class="panel-body" data-panel="settings" hidden>
-      <!-- T-2657: Researcher mode (js/researcher.js), off by default, remembered per device.
-           T-3022 (the owner, 2026-10-22: "be a setting for the user on can they see the expert
-           research or not in the navigator") names it Expert research and puts it first: it is
-           what adds Inspect's Research tab, the building card folded into the Navigator. -->
-      <div class="settings-group" id="s-research">
-        <h4 data-str="settings.research">Research</h4>
-        <label class="field row check-field"><span data-str="research.switch">Expert research</span>
-          <input type="checkbox" id="s-researcher"></label>
-        <p class="legend-note" id="s-researcher-note" data-str="research.switch.note">Adds a Research tab to every building.</p>
-      </div>
-      <div class="settings-group" id="s-display">
+      <div class="settings-group" id="s-display" data-set-pane="display">
         <h4 data-str="settings.display">Display</h4>
         <!-- T-2625 moved light / dark here from the HUD; T-2656 makes it a two-way choice. -->
         <div class="field row theme-row"><span data-str="settings.theme">Light or dark</span>
@@ -651,7 +644,20 @@
         <label class="field"><span>Road visibility <b id="v-road-aid"></b></span>
           <input type="range" id="s-road-aid" min="0" max="1" step="0.05"></label>
       </div>
-      <div class="settings-group">
+      <!-- T-2656: the four machines as preview tiles (js/skin.js fills them). -->
+      <div class="settings-group" id="s-machine" data-set-pane="display">
+        <h4 data-str="settings.machine">Machine</h4>
+        <div class="skin-tiles" id="s-skins" role="radiogroup" aria-label="Machine" data-str-label="settings.machine"></div>
+      </div>
+      <div class="settings-group" data-set-pane="display">
+        <h4>Units</h4>
+        <label class="field row"><span>Measurement units</span>
+          <select id="s-units">
+            <option value="imperial">Imperial — ft, mi, mph</option>
+            <option value="metric">Metric — m, km, km/h</option>
+          </select></label>
+      </div>
+      <div class="settings-group" data-set-pane="show">
         <h4>Show</h4>
         <label class="field row check-field"><span>Compass</span>
           <input type="checkbox" id="s-compass"></label>
@@ -715,21 +721,24 @@
             <option value="shown">Shown</option>
             <option value="hidden">Hidden</option>
           </select></label>
+      </div>
+      <!-- T-3563 (the owner, 2026-11-12: "could you add a setting to adjust the mouse sensitivity
+           for the app?"): how far the view turns for a move of the mouse, or of a finger on a
+           touch screen. 1x is the turn the app always had (js/controls/pointerlock.js, touch.js). -->
+      <div class="settings-group" id="s-look" data-set-pane="look">
+        <h4>Look</h4>
+        <label class="field"><span><span id="s-look-speed-label">Mouse sensitivity</span> <b id="v-look-speed"></b></span>
+          <input type="range" id="s-look-speed" min="0.2" max="3" step="0.1" aria-labelledby="s-look-speed-label"></label>
+      </div>
+      <div class="settings-group" data-set-pane="look">
+        <h4>Movement</h4>
+        <p class="legend-note"><span data-str="hud.move.note">Speeds, eye height and comfort:</span> <b data-str="hud.tab.move">Move</b>.</p>
         <!-- T-2661: the controls are Guide's, in the Navigator; this opens it there. -->
         <div class="field row"><span>Guide</span>
           <button class="setting-button" id="s-show-control-help" type="button">Show the controls</button>
         </div>
       </div>
-      <div class="settings-group">
-        <h4>Movement</h4>
-        <p class="legend-note"><span data-str="hud.move.note">Speeds, eye height and comfort:</span> <b data-str="hud.tab.move">Move</b>.</p>
-      </div>
-      <!-- T-2656: the four machines as preview tiles (js/skin.js fills them). -->
-      <div class="settings-group" id="s-machine">
-        <h4 data-str="settings.machine">Machine</h4>
-        <div class="skin-tiles" id="s-skins" role="radiogroup" aria-label="Machine" data-str-label="settings.machine"></div>
-      </div>
-      <div class="settings-group">
+      <div class="settings-group" data-set-pane="graphics">
         <h4>Performance</h4>
         <label class="field row"><span>Scene detail</span>
           <select id="s-detail">
@@ -771,7 +780,7 @@
           aria-label="Frame pacing reading"></textarea>
       </div>
       <!-- Sound controls: brief examples distinguish Ambience from Effects. -->
-      <div class="settings-group" id="s-sound">
+      <div class="settings-group" id="s-sound" data-set-pane="sound">
         <h4 data-str="settings.sound">Sound</h4>
         <div class="sound-control">
         <label class="field"><span><span data-str="settings.sound.master">Master</span> <b id="v-sound-master"></b></span>
@@ -793,24 +802,16 @@
         </div>
         <a href="./audio/credits.html" target="_blank" rel="noopener">Audio credits and liberties</a>
       </div>
-      <div class="settings-group">
-        <h4>Units</h4>
-        <label class="field row"><span>Measurement units</span>
-          <select id="s-units">
-            <option value="imperial">Imperial — ft, mi, mph</option>
-            <option value="metric">Metric — m, km, km/h</option>
-          </select></label>
-      </div>
       <!-- T-2629: About — the build stamp, and on a dev build the DEV mark (js/about.js).
            On a phone this is where they are: the arrival card's stamp and the dev
            preview's banner and pill are not drawn there. -->
-      <div class="settings-group about" id="s-about">
-        <h4 data-str="settings.about">About &amp; What's new</h4>
+      <div class="settings-group about" id="s-about" data-set-pane="about">
+        <h4 data-str="settings.about">About</h4>
         <p class="about-build"><span class="about-dev" id="s-about-dev" hidden data-str="hud.about.dev">DEV</span>
           <span id="s-about-build"></span></p>
         <p class="legend-note" id="s-about-dev-note" hidden><span data-str="hud.about.devNote">A preview build: not production, and not indexed.</span>
           <a href="/4d/" data-str="hud.about.production">Open production</a></p>
-        <!-- T-2656: What's new, from About. T-2657 adds Researcher mode below it. -->
+        <!-- T-2656: What's new, from About (T-3563: also its own tab, the next one along). -->
         <div class="field row"><span data-str="settings.whatsnew.line">Release notes</span>
           <button class="setting-button" id="s-open-whatsnew" type="button" data-str="hud.tab.whatsnew">What's new</button></div>
         <!-- T-2660: the field log (js/field-log.js, js/field-log-view.js): counts kept on this
@@ -823,6 +824,17 @@
             <button class="setting-button" id="s-field-log-clear" type="button" data-str="fieldlog.clear">Clear</button></div>
           <p class="legend-note" id="s-field-log-status" role="status"></p>
         </div>
+      </div>
+      <!-- T-2657: Researcher mode (js/researcher.js), off by default, remembered per device.
+           T-3022 (the owner, 2026-10-22: "be a setting for the user on can they see the expert
+           research or not in the navigator") names it Expert research: it is what adds Inspect's Research tab, the building card
+           folded into the Navigator. T-3563 (the owner, 2026-11-12: "the research mode should be
+           at the end") makes it the Settings card's last tab. -->
+      <div class="settings-group" id="s-research" data-set-pane="research">
+        <h4 data-str="settings.research">Research</h4>
+        <label class="field row check-field"><span data-str="research.switch">Expert research</span>
+          <input type="checkbox" id="s-researcher"></label>
+        <p class="legend-note" id="s-researcher-note" data-str="research.switch.note">Adds a Research tab to every building.</p>
       </div>
     </section>
     <section class="panel-body" data-panel="controls" hidden>
