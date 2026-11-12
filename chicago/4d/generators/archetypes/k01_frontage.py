@@ -3370,13 +3370,18 @@ class Assembly:
             # T-1890: a staged tower's ring is the stage's from its lowest corbel course up, wider
             # than the shaft's, so it is closed there across the stage's junctions
             sg = built.meta.get("stage")
-            if sg is not None:
+            if sg is not None and sg.get("whole"):
+                # T-3370: a square tower's whole stage stands clear over the roof, walled all
+                # round: its shaft's back is closed only up to the stage's foot
+                (x0, x1), (y0, y1) = closes[0]
+                closes = [c for c in (((x0, x1), (y0, min(y1, sg["bottom_m"]))),) if c[1][1] - c[1][0] > 1e-6]
+            elif sg is not None:
                 (x0, x1), (y0, y1) = closes[0]
                 y_c = max(y0, sg["bottom_m"])
                 closes = [c for c in (((x0, x1), (y0, y_c)), (tuple(sg["junctions_x"]), (y_c, y1)))
                           if c[1][1] - c[1][0] > 1e-6]
             # T-3156: a pavilion under a raised crown has no soffit of its own: the crown's is over it
-            if not shallow and "soffit" in built.prims:
+            if not shallow and "soffit" in built.prims and not (sg or {}).get("whole"):
                 on = [q[0] for q in built.prims["soffit"].pos if abs(q[2]) < 1e-6]
                 closes.append(((min(on), max(on)), (wall_top, eave)))
             for (x0, x1), (y0, y1) in closes:

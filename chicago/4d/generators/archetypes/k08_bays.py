@@ -66,7 +66,11 @@ variant as T-2308 will put one on a Prairie Avenue 1904 house:
                photograph 2): from one of its storey lines up, its ring is `radius_m` across
                where the shaft's below is the plan's, carried out over the shaft on `corbel_courses`
                stepped stone courses, and its eaves and cone are the stage's; the shaft is
-               capped under it, with no eaves or roof of its own
+               capped under it, with no eaves or roof of its own. T-3370: or a square tower's
+               WHOLE stage (`whole`, 1936's belvedere, square over the roof in its photograph
+               though its shaft stands 0.6 m into the front): from that storey line its ring is
+               the whole square, standing clear of the wall plane, on the shaft with no corbel
+               under it, carrying the tower's eaves, cap, balconies and brackets round every side
   shallow      (T-3047) a full-height projection too thin for its windows' recesses or its
                gable's copings (1801's south pavilion, 0.1 m proud on its 1911 sheet): the
                recesses run back through the wall plane (`host_holes`, which its host opens
@@ -399,6 +403,22 @@ def plan_of(v: dict):
             lines.append((a, e, (-e[1], e[0])))
         return runs, {"centre": (0.0, cz), "kind": "polygon", "lines": lines,
                                                       "ring": ring, "across_corner": p["across_corner"]}
+    if p["kind"] == "polygon" and p.get("whole"):
+        # T-3370: a square tower's stage standing clear of its house over the house's roof
+        # (1936's belvedere, square in its photograph from the main cornice up, though its
+        # shaft below stands 0.6 m into the front): its runs are the WHOLE ring, from its
+        # back-left corner round by the front and back to it, every corner mitred, the first
+        # run's start and the last run's end meeting as one; nothing of it is trimmed on the
+        # wall plane, and its cap is the whole ring's
+        n, R, cz = p["sides"], p["radius_m"], p["centre_proud_m"]
+        ring = polygon_vertices(n, R, cz, float(p.get("turned_deg", 0.0)))
+        runs = line_runs(ring + [ring[0]])
+        tau = turn(runs[-1].e, runs[0].e)
+        runs[0].start, runs[-1].end = ("corner", tau), ("corner", tau)
+        for r in runs:
+            r.whole = True
+        lines = [(r.A, r.e, r.n) for r in runs]
+        return runs, {"centre": (0.0, cz), "kind": "polygon", "lines": lines, "ring": ring, "whole": True}
     if p["kind"] == "polygon":
         n, R, cz = p["sides"], p["radius_m"], p["centre_proud_m"]
         ring = polygon_vertices(n, R, cz, float(p.get("turned_deg", 0.0)))
@@ -549,7 +569,9 @@ def bend(run: Run, flat: dict, out: dict, step, join_quads=False, keep_behind=()
                 # (T-3047: but a shallow bay's window recesses, which run back through it).
                 # T-3048: a chamfer's run stands behind it to the side wall, whose plane trims it
                 across = getattr(run, "across", None)
-                if across is not None:
+                if getattr(run, "whole", False):
+                    pass   # T-3370: a whole ring's stage stands clear of the wall plane
+                elif across is not None:
                     # T-3176: a ring across its house's corner stands outside the house on the
                     # wall's side of the corner (trimmed by the wall's plane) or past the end wall
                     # (trimmed by the end wall's plane), whichever side this run stands on
@@ -573,7 +595,8 @@ def bend(run: Run, flat: dict, out: dict, step, join_quads=False, keep_behind=()
                     s, y, z = q[0], q[1], q[2]
                     al, ou = run.frame(s)
                     p = run.world(s, y, z)
-                    if -0.01 < p[2] < 0.0 and "side" not in (run.start, run.end) and across is None:     # a mitre's end bent onto the curve: onto the wall plane
+                    if -0.01 < p[2] < 0.0 and "side" not in (run.start, run.end) and across is None \
+                            and not getattr(run, "whole", False):     # a mitre's end bent onto the curve: onto the wall plane
                         p = (p[0], p[1], 0.0)
                     pts.append(p)
                     nrms.append(_unit((q[3] * al[0] + q[5] * ou[0], q[4], q[3] * al[2] + q[5] * ou[2])))
@@ -1576,17 +1599,19 @@ class Bay:
                 self._modillions(flat, run, y_top + self._soffit_lift(prof), ov)
             if v.get("corbel_table"):
                 self._eave_corbel_table(flat, run, y_top, ov)
+            # T-3370: a whole ring has no first run: every corner is a corner between two
+            first = i == 0 and not self.plan.get("whole")
             if v.get("balcony"):
-                self._balcony(flat, run, y_e, ov, first=i == 0, idx=i)
+                self._balcony(flat, run, y_e, ov, first=first, idx=i)
             if v.get("storey_balcony"):
-                self._storey_balcony(flat, run, levels, first=i == 0, idx=i)
+                self._storey_balcony(flat, run, levels, first=first, idx=i)
             if v.get("floor_balcony"):
                 ((fi, fs),) = locate(self.runs, self.plan, {"at": [v["floor_balcony"]["at"]]})
                 if fi == i:
                     self._floor_balcony(flat, fs, cv)
             if not grade and v.get("apron"):
                 self._apron_face(flat, run, y0)
-            elif not grade:
+            elif not grade and not v.get("on_shaft"):
                 self._corbel_courses(flat, run, y0)
             bend(run, flat.prims, self.prims, run.seg_step(cv["max_seg_deg"]), join_quads=bool(v.get("masonry")),
                  keep_behind=WINDOW_ROLES if v.get("shallow") else ())
@@ -1595,7 +1620,7 @@ class Bay:
             self._chamfer_cheek(world, ct, y_top)
         if not grade and v.get("apron"):
             self._apron_bottom(world, y0, cv)
-        elif not grade:
+        elif not grade and not v.get("on_shaft"):   # T-3370: a whole stage stands on its shaft
             self._corbel_bottom(world, y0, cv)
         if not v.get("capped"):
             self._roof(world, y_e, ov, cv)
@@ -1623,6 +1648,8 @@ class Bay:
         its eaves, cone and finial are the tower's."""
         import copy
         v, st = self.v, self.v["stage"]
+        if st.get("whole"):
+            return self._build_whole_stage(board)
         k, R2, K = int(st["from_storey"]), float(st["radius_m"]), int(st["corbel_courses"])
         R1 = float(v["plan"]["radius_m"])
         if v["kind"] != "tower" or v["plan"]["kind"] != "circle" or v["base"] != "grade":
@@ -1662,6 +1689,71 @@ class Bay:
         self._sockets(0.0, upper.meta["eave_m"])
         if board:
             self._board(upper.meta["eave_m"])
+        return self
+
+    def _build_whole_stage(self, board):
+        """T-3370: a square tower whose shaft stands part way into its wall (1936's, 0.6 m into
+        the front on the 1911 sheet) and whose upper storeys stand clear over the house's roof,
+        square on every side (its photograph: the belvedere's south face lit beside its front,
+        its balcony and arched frames round it). As two of the kit's builds in one frame, as a
+        corbelled stage is (T-1890): the shaft is the plan's ring outside the wall, its storeys
+        under `from_storey`, capped; the stage is the same ring WHOLE (plan_of's `whole`), on
+        the shaft's storey line with no corbel under it (`on_shaft`: the shaft's walls carry
+        it at the front, the house's roof hides its foot behind), with every storey from
+        `from_storey` up, and the tower's eaves, cap, balconies and brackets. Its walls behind
+        the wall plane rise from the house's wall head inside its roof; the host closes the
+        shaft's back only up to the stage's foot (k01_frontage.bay)."""
+        import copy
+        v, st = self.v, self.v["stage"]
+        k = int(st["from_storey"])
+        if v["kind"] != "tower" or v["plan"]["kind"] != "polygon" or int(v["plan"]["sides"]) != 4 \
+                or v["plan"].get("across_corner") or v["base"] != "grade" or not 0 < k < len(v["storeys"]):
+            raise ValueError(f"{v['id']}: only a square tower on grade, a face to its street, takes a whole "
+                             f"stage, from one of its storey lines")
+        lo = copy.deepcopy(v)
+        lo.pop("stage")
+        for key in ("brackets", "balcony", "storey_balcony", "corbel_table"):
+            lo.pop(key, None)
+        lo["storeys"], lo["capped"] = lo["storeys"][:k], True
+        lower = Bay(lo, self.data, self.tier).build(board=False)
+        y_s = lower.meta["wall_top_m"]
+        hi = copy.deepcopy(v)
+        hi.pop("stage")
+        for key in ("door_hole", "entrance"):
+            hi.pop(key, None)
+        hi["storeys"], hi["base"], hi["on_shaft"] = hi["storeys"][k:], y_s, True
+        hi["plan"] = {**v["plan"], "whole": True}
+        if hi.get("storey_balcony") is not None:
+            if int(hi["storey_balcony"]["storey"]) <= k:
+                raise ValueError(f"{v['id']}: its storey balcony stands on its whole stage, over storey {k}")
+            hi["storey_balcony"] = {**hi["storey_balcony"], "storey": int(hi["storey_balcony"]["storey"]) - k}
+        upper = Bay(hi, self.data, self.tier).build(board=False)
+        # its floor behind the wall plane, where no shaft carries it: closed at its foot, in the
+        # role that closes a tower's back, so the stage is a shell over the house's roof
+        floor = clip_half(list(upper.plan["ring"]), lambda p: -p[1])
+        if len(floor) >= 3:
+            if area(floor) > 0:
+                floor.reverse()
+            fl = strip(f"{v['id']}|stage_floor")
+            fl.face("roof_back", [(p[0], y_s, p[1]) for p in floor], (0.0, -1.0, 0.0))
+            merge(upper.prims, fl.prims)
+        merge(self.prims, lower.prims)
+        merge(self.prims, upper.prims)
+        n = len(lower.runs)
+        for w in upper.windows:
+            w["run"], w["storey"] = w["run"] + n, w["storey"] + k
+        self.stage_runs = upper.runs
+        self.windows = lower.windows + upper.windows
+        self.meta = dict(upper.meta)
+        x = [round(lower.runs[0].world(0.0, 0, 0)[0], 4), round(lower.runs[-1].world(lower.runs[-1].L, 0, 0)[0], 4)]
+        # its lowest point: a corbel table under its first storey hangs below its foot
+        y_b = min(q[1] for pr in upper.prims.values() for q in pr.pos)
+        self.meta.update({"base_m": 0.0, "levels_m": lower.meta["levels_m"] + upper.meta["levels_m"][1:],
+                          "stage": {"base_m": round(y_s, 4), "whole": True, "from_storey": k,
+                                    "bottom_m": round(y_b, 4), "junctions_x": x}})
+        self._sockets(0.0, upper.meta["eave_m"])
+        if board:   # the host wall it is keyed to stops under the stage, which stands clear of it
+            self._board(y_b)
         return self
 
     # windows ---------------------------------------------------------------------------
@@ -1924,7 +2016,7 @@ class Bay:
             # standing out of the wall, never at one inside the house behind its plane
             ring = self.plan["lines"]
             pairs = [(ring[k], ring[(k + 1) % len(ring)]) for k in range(len(ring))
-                     if ring[(k + 1) % len(ring)][0][1] > 1e-6]
+                     if ring[(k + 1) % len(ring)][0][1] > 1e-6 or self.plan.get("whole")]
         elif self.plan["kind"] != "polyline":
             raise ValueError(f"{self.v['id']}: consoles stand at a polyline's or a tower's ring's corners")
         else:
@@ -2006,7 +2098,7 @@ class Bay:
             Re = R + ov / math.cos(math.pi / k)
             c = self.plan["centre"]
             dom = [(c[0] + (q[0] - c[0]) * Re / R, c[1] + (q[1] - c[1]) * Re / R) for q in ring]
-            if not self.plan.get("across_corner"):
+            if not self.plan.get("across_corner") and not self.plan.get("whole"):
                 dom = clip_half(dom, lambda p: p[1])
             # T-3176: a tower set across its corner stands past the main eave on both its walls,
             # so its cap is the whole ring's (as a corner turret's cone is, T-2900)
@@ -3173,7 +3265,7 @@ class Bay:
         if bl.get("to_frac") is not None:
             # T-1890: a bow's rail stopped part way round, against the face its bow runs into
             sb = sa + (sb - sa) * bl["to_frac"]
-        last = run is self.runs[-1]
+        last = run is self.runs[-1] and not self.plan.get("whole")   # T-3370: a ring has no last
         p0 = sa if first else None
         p1 = sb - pm if not square or last else sb - pm / 2
         # a canted top's runs meet at its corners, where the run before stood its end post
