@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2905, ts: '2026-11-12T21:16:32.072Z', date: 'Nov 12, 2026, 3:16 PM CT', title: 'Walking through crowded 1812 no longer stutters', kind: 'fix',
+    items: [
+      'Walking up to the fort or a busy yard no longer freezes the frame as people come into view: each figure is built in its turn, nearest first, and the shared work of fitting clothes to bodies is done once per outfit.',
+      'Walking past a wagon or a driver no longer stalls while the town replans everyone\'s day; that replan is now about seven times faster and gives the same day.',
+    ] },
   { v: 2904, ts: '2026-11-12T20:45:44.812Z', date: 'Nov 12, 2026, 2:45 PM CT', title: '1721 Prairie\'s old frame house stands behind its brick front', kind: 'feature',
     items: [
       'Behind Arthur Little\'s brick front at 1721 Prairie, the rear range is now the 1863 frame house it was: clapboarded walls, a slate gable roof and two tall brick chimneys, as the 1891 Inland Architect plate and the Detroit print of the Pullman house show it.',
