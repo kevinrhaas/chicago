@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2903, ts: '2026-11-12T20:35:42.632Z', date: 'Nov 12, 2026, 2:35 PM CT', title: 'Back doors in 1904 stand in their houses\' walls', kind: 'fix',
+    items: [
+      'Every back door and its steps now sit in the house\'s built rear wall. Before, 56 of 121 stood out in the yard, 1626 Prairie\'s 16 m from its house.',
+      '124 houses have a back door, terrace and walks laid against the wall that is really there.',
+      'A house whose rear has no clear stretch of wall gets no back door rather than one in the wrong place.',
+    ] },
   { v: 2902, ts: '2026-11-12T19:27:31.583Z', date: 'Nov 12, 2026, 1:27 PM CT', title: '1812 belts sit tight, silver is engraved, and backlit lips calm down', kind: 'fix',
     items: [
       'Potawatomi men\'s belts now sit on the shirt or blanket instead of floating round the waist, and the shirt below the waist no longer starts wider than the shirt above it. Belt, shirt and blanket now move together when a man walks or turns.',
