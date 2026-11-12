@@ -25217,10 +25217,13 @@ pendant) is T-1914's; a turned finial stands for the crest.
 
 **How to resolve:** T-1914 (S05B) details the front to the photograph and closes the image gate on this
 building; a reading of the rear or the flank would replace the invented openings there.
-**Covers:** `mayer_house_2009_prairie.as_mapped_1904.form.wall_thickness_front_m`, `mayer_house_2009_prairie.as_mapped_1904.form.wall_thickness_side_m`, `mayer_house_2009_prairie.as_mapped_1904.form.service_wall_brick`, `mayer_house_2009_prairie.as_mapped_1904.form.street_front_trim`, `mayer_house_2009_prairie.as_mapped_1904.form.roof_form`, `mayer_house_2009_prairie.as_mapped_1904.form.roof_pitch_deg`, `mayer_house_2009_prairie.as_mapped_1904.form.eave_overhang_m`, `mayer_house_2009_prairie.as_mapped_1904.form.stair_tread_m`, `mayer_house_2009_prairie.as_mapped_1904.form.stair_landing_depth_m`, `mayer_house_2009_prairie.as_mapped_1904.form.rear_bays`, `mayer_house_2009_prairie.as_mapped_1904.form.sash_by_storey`, `mayer_house_2009_prairie.as_mapped_1904.form.rainwater`, `mayer_house_2009_prairie.as_mapped_1904.form.yard`
+**Covers:** `mayer_house_2009_prairie.as_mapped_1904.form.wall_thickness_front_m`, `mayer_house_2009_prairie.as_mapped_1904.form.wall_thickness_side_m`, `mayer_house_2009_prairie.as_mapped_1904.form.street_front_trim`, `mayer_house_2009_prairie.as_mapped_1904.form.roof_form`, `mayer_house_2009_prairie.as_mapped_1904.form.roof_pitch_deg`, `mayer_house_2009_prairie.as_mapped_1904.form.eave_overhang_m`, `mayer_house_2009_prairie.as_mapped_1904.form.stair_tread_m`, `mayer_house_2009_prairie.as_mapped_1904.form.stair_landing_depth_m`, `mayer_house_2009_prairie.as_mapped_1904.form.rear_bays`, `mayer_house_2009_prairie.as_mapped_1904.form.sash_by_storey`, `mayer_house_2009_prairie.as_mapped_1904.form.rainwater`, `mayer_house_2009_prairie.as_mapped_1904.form.yard`
 **Ticket:** T-1913 (S05A).
 **Review:** `docs/RESEARCH/photo-match/mayer_house_2009_prairie/chicagology_photo-side-by-side.jpg`.
-**Recorded:** 2026-11-03 (T-1913).
+**Recorded:** 2026-11-03 (T-1913). Amended 2026-11-12 (T-3365): the side and rear walls' brick is no longer invented. It is read
+off the photograph's tone (both stacks and the north wall print as dark as the front's red-brown and
+darker than its brown sandstone, which a buff brick cannot do) and laid in the front's red-brown, inferred
+(the record's `service_wall_brick` note), so it leaves this entry's Covers.
 
 ### L-draft-prairie-20-22-east-2352 — The east side of Prairie Avenue, 20th to 22nd, stood up as a district draft: every height, roof, opening and feature reconstructed, and 2141 left open
 
@@ -39006,6 +39009,20 @@ camera reads the trees at 43.7 and 51.3 m 2.3-2.8 m west. **Chosen (reconstructe
 (the form's, above) and the height off 16554's top; its bole draws about 0.3 m, slighter than the 0.5 m
 16554 prints. **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_16554_from_south-side-by-side.jpg`,
 `pullman_house_1729_prairie_conservatory/inland_1894_plate-side-by-side.jpg`, `detroit_det_4a08066-side-by-side.jpg` and their match records.
+
+**Extended (T-3365, 2026-11-12, Prairie Avenue's east parkway before 2009 Prairie):** the stretch
+from 23.7 to 32.8 m along `prairie__prairie_calumet_20_21`, the run the Chicagology photograph of the
+Mayer-Meyer house (c. 1890s) sees, now holds the two trees it shows, at 24.6 m (before the house's north
+corner) and 31.2 m (before its southern neighbour), where the rule stood one grown elm at 30.0 m.
+**Read:** each trunk's x (247 and 1388 px) carried to the planting line through the photograph's solved
+camera; their habit off the same print, winter-bare: one straight leader clear to about 5 m under a
+narrow head to about 7.2-7.6 m, boles about 0.19-0.25 m. Monroe's 1896 plate, drawn from about the
+same place in leaf, draws the same pair either side of the front, its trunks meeting the line within
+1 m of the photograph's. **Chosen (reconstructed):** the `high_head` form at scale 0.4 for that habit
+(its heads a little wider and its twigs straighter than the print's); each tree on the planting line,
+where both feet read 1.4-1.6 m nearer the walk; that the trees of an undated 1890s print still stand,
+not much grown, in 1904. **Review:** `docs/RESEARCH/photo-match/mayer_house_2009_prairie/chicagology_photo-side-by-side.jpg`,
+`monroe_1896_plate-side-by-side.jpg` and their match records.
 
 ### L-pullman-terrace-tubs-1934 — The Pullman palm house's summer tub plants, stood where the 1894 Inland plate shows them
 

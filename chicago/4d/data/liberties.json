@@ -36319,12 +36319,6 @@
           "domain": "structure",
           "structure": "mayer_house_2009_prairie",
           "phase": "as_mapped_1904",
-          "aspect": "form.service_wall_brick"
-        },
-        {
-          "domain": "structure",
-          "structure": "mayer_house_2009_prairie",
-          "phase": "as_mapped_1904",
           "aspect": "form.stair_landing_depth_m"
         },
         {
@@ -36371,7 +36365,7 @@
         },
         {
           "label": "Covers",
-          "text": "`mayer_house_2009_prairie.as_mapped_1904.form.wall_thickness_front_m`, `mayer_house_2009_prairie.as_mapped_1904.form.wall_thickness_side_m`, `mayer_house_2009_prairie.as_mapped_1904.form.service_wall_brick`, `mayer_house_2009_prairie.as_mapped_1904.form.street_front_trim`, `mayer_house_2009_prairie.as_mapped_1904.form.roof_form`, `mayer_house_2009_prairie.as_mapped_1904.form.roof_pitch_deg`, `mayer_house_2009_prairie.as_mapped_1904.form.eave_overhang_m`, `mayer_house_2009_prairie.as_mapped_1904.form.stair_tread_m`, `mayer_house_2009_prairie.as_mapped_1904.form.stair_landing_depth_m`, `mayer_house_2009_prairie.as_mapped_1904.form.rear_bays`, `mayer_house_2009_prairie.as_mapped_1904.form.sash_by_storey`, `mayer_house_2009_prairie.as_mapped_1904.form.rainwater`, `mayer_house_2009_prairie.as_mapped_1904.form.yard`"
+          "text": "`mayer_house_2009_prairie.as_mapped_1904.form.wall_thickness_front_m`, `mayer_house_2009_prairie.as_mapped_1904.form.wall_thickness_side_m`, `mayer_house_2009_prairie.as_mapped_1904.form.street_front_trim`, `mayer_house_2009_prairie.as_mapped_1904.form.roof_form`, `mayer_house_2009_prairie.as_mapped_1904.form.roof_pitch_deg`, `mayer_house_2009_prairie.as_mapped_1904.form.eave_overhang_m`, `mayer_house_2009_prairie.as_mapped_1904.form.stair_tread_m`, `mayer_house_2009_prairie.as_mapped_1904.form.stair_landing_depth_m`, `mayer_house_2009_prairie.as_mapped_1904.form.rear_bays`, `mayer_house_2009_prairie.as_mapped_1904.form.sash_by_storey`, `mayer_house_2009_prairie.as_mapped_1904.form.rainwater`, `mayer_house_2009_prairie.as_mapped_1904.form.yard`"
         },
         {
           "label": "Review",
@@ -36379,7 +36373,7 @@
         },
         {
           "label": "Recorded",
-          "text": "2026-11-03 (T-1913)."
+          "text": "2026-11-03 (T-1913). Amended 2026-11-12 (T-3365): the side and rear walls' brick is no longer invented. It is read off the photograph's tone (both stacks and the north wall print as dark as the front's red-brown and darker than its brown sandstone, which a buff brick cannot do) and laid in the front's red-brown, inferred (the record's `service_wall_brick` note), so it leaves this entry's Covers."
         }
       ],
       "work_refs": [
@@ -65127,6 +65121,7 @@
       "title": "The parkway trees before the Pullman estate, placed off Taylor's 16555 and the 1894 Inland plate",
       "section": "per_subject",
       "subjects": [
+        "mayer_house_2009_prairie",
         "pullman_glasshouse_1800_calumet_pavilion",
         "pullman_house_1729_prairie",
         "pullman_house_1729_prairie_conservatory",
@@ -65318,13 +65313,26 @@
         },
         {
           "label": "Review",
-          "text": "an image in the research notes on photo match, George M. Pullman house (1729 Prairie Avenue): the palm house on its east range/the inland 1894 plate side by side image, the detroit det 4a08066 side by side image and their match records."
+          "text": "an image in the research notes on photo match, George M. Pullman house (1729 Prairie Avenue): the palm house on its east range/the inland 1894 plate side by side image, the detroit det 4a08066 side by side image and their match records. **Extended (2026-11-12, Prairie Avenue's east parkway before 2009 Prairie):** the stretch from 23.7 to 32.8 m along prairie__prairie calumet 20 21, the run the Chicagology photograph of the Mayer-Meyer house (c. 1890s) sees, now holds the two trees it shows, at 24.6 m (before the house's north corner) and 31.2 m (before its southern neighbour), where the rule stood one grown elm at 30.0 m."
+        },
+        {
+          "label": "Read",
+          "text": "each trunk's x (247 and 1388 px) carried to the planting line through the photograph's solved camera; their habit off the same print, winter-bare: one straight leader clear to about 5 m under a narrow head to about 7.2-7.6 m, boles about 0.19-0.25 m. Monroe's 1896 plate, drawn from about the same place in leaf, draws the same pair either side of the front, its trunks meeting the line within 1 m of the photograph's."
+        },
+        {
+          "label": "Chosen (reconstructed)",
+          "text": "the high head form at scale 0.4 for that habit (its heads a little wider and its twigs straighter than the print's); each tree on the planting line, where both feet read 1.4-1.6 m nearer the walk; that the trees of an undated 1890s print still stand, not much grown, in 1904."
+        },
+        {
+          "label": "Review",
+          "text": "an image in the research notes on photo match, the monroe 1896 plate side by side image and their match records."
         }
       ],
       "work_refs": [
         "T-1934",
         "T-3164",
-        "T-1881"
+        "T-1881",
+        "T-3365"
       ]
     },
     {

@@ -10,7 +10,9 @@
   "inland_1894_conservatory": {"camera": "data/reference_views/pullman_glasshouse_1800_calumet_pavilion/inland_1894_conservatory.json", "source_id": "inland_1894_pullman_conservatory", "date": "1894 (published)"},
   "lowe_c1897": {"camera": "data/reference_views/pullman_glasshouse_1800_calumet_pavilion/lowe_c1897_conservatory.json", "source_id": "aic_lowe_pullman_conservatory_c1897", "date": "c. 1897 (its view)"},
   "taylor_1445": {"camera": "data/reference_views/pullman_house_1729_prairie/taylor_1445_album.json", "source_id": "aic_taylor_1445_pullman_from_sw", "date": "1890s, after the 1892 additions (its content)"},
-  "detroit_4a08065": {"camera": "data/reference_views/pullman_house_1729_prairie/detroit_det_4a08065.json", "source_id": "loc_det_4a08065_pullman_residence", "date": "1897-1901 (the Detroit Photographic Co. imprint; the holder's 1890-1901)"}
+  "detroit_4a08065": {"camera": "data/reference_views/pullman_house_1729_prairie/detroit_det_4a08065.json", "source_id": "loc_det_4a08065_pullman_residence", "date": "1897-1901 (the Detroit Photographic Co. imprint; the holder's 1890-1901)"},
+  "chicagology_2009": {"camera": "data/reference_views/mayer_house_2009_prairie/chicagology_photo.json", "source_id": "chicagology_2009_prairie_meyer_photo", "date": "undated, c. 1890s (a halftone publication plate)"},
+  "monroe_1896_2009": {"camera": "data/reference_views/mayer_house_2009_prairie/monroe_1896_plate.json", "source_id": "monroe_1896_john_wellborn_root_meyer_plate", "date": "1896 (published; the drawing signed '96)"}
  },
  "stretches": [
   {
@@ -112,6 +114,17 @@
    "note": "Calumet Avenue's west parkway where it turns into 18th Street, before the east pier of the glasshouse ground's gate (T-3164).",
    "trees": [
     {"at_m": 266.9, "kind": "mature", "scale": 0.6, "form": "broad_head", "form_read": "inland_1894_conservatory x 560-1100, y 160-1160: one straight leader through the crown to the frame's top, its limbs leaving it from about 3.3 m (y 660) and spreading wide and low over the walk in an open, leafy head; lowe_c1897 the same head from about 2.6 m. Not the grown elm's forked fountain (T-3164).", "read": ["inland_1894_conservatory x 744 (base y 1160): 266.9 m, its foot 0.85 m nearer the curb than the planting line", "lowe_c1897 x 394 (base y 739): 267.5 m", "taylor_16554 x 537 (base y 590, the line's 591; a check, read after it was planted): 266.45 m"], "note": "Both pictures, a full-grown trunk before the east gate pier; planted at the plate's reading, the uncropped picture the estate's places are read from."}
+   ]
+  },
+  {
+   "face": "prairie__prairie_calumet_20_21",
+   "from_m": 23.7,
+   "to_m": 32.8,
+   "seen_by": ["chicagology_2009 x 55-1610 (23.7-32.8 m: the photograph's frame where it crosses the planting line)", "monroe_1896_2009 x 0-600 (20.3-34.5 m; a vignette, so a reading of its trees and not of its empty margins)"],
+   "note": "Prairie Avenue's east parkway before 2009 Prairie (the Mayer-Meyer house) and its neighbour to the south (T-3365). The Chicagology photograph, taken from the far side of the avenue, sees this parkway at 11-16 m, and each trunk's x is carried to the planting line through its solved camera; Monroe's 1896 plate, drawn from about the same place, draws the same two trees either side of the front, each within 1 m of the photograph's reading along the line (a drawing's camera, and its trunks' feet land 6-8 m off the line across it, so it is a cross-check, not a place). The rule stood one elm here, at 30.0 m, a full-grown tree with a 0.6 m bole; the photograph's two are young and slender. The rule's tree at 20.3 m stands outside the photograph's frame and is kept.",
+   "trees": [
+    {"at_m": 24.6, "kind": "mature", "scale": 0.4, "form": "high_head", "form_read": "chicagology_2009 (winter): a straight single leader, clear to about 4.8 m (its first limbs at y 820 over its foot at y 1875, 218 px a metre at 11.3 m), forking at about 6 m and topping out at about 7.2 m (y 300), the bole about 0.25 m across (55 px); monroe_1896_2009 (summer) draws a full head on one stem to about the oriel's top. A young tree on one leader clear to about two-thirds of its height under a narrow head: the high-headed elm's habit (clear to about half its height, a narrow head) at about 7 m, not the grown elm's 20 m fountain, which drew a 0.6 m bole and a crown over the gable through this camera (T-3365)", "read": ["chicagology_2009 x 247 (base y 1875): 24.6 m, its foot reading 1.4 m nearer the walk than the planting line", "monroe_1896_2009 x 140 (base y 584): 23.6 m"], "note": "Before the house's north corner, in the photograph's left foreground."},
+    {"at_m": 31.2, "kind": "mature", "scale": 0.4, "form": "high_head", "form_read": "chicagology_2009 (winter): a straight single leader, clear to about 5.2 m (its first limbs at y 860 over its foot at y 1830, 185 px a metre at 13.3 m), its twigs to about 7.6 m (y 420) against the neighbour's tower, the bole about 0.19 m across (35 px); monroe_1896_2009 (summer) draws a narrower head on one stem to the second floor's lights. Grown as the tree at 24.6 m", "read": ["chicagology_2009 x 1388 (base y 1830): 31.2 m, its foot reading 1.6 m nearer the walk than the planting line", "monroe_1896_2009 x 498 (base y 572): 32.1 m"], "note": "Before the neighbour's front, south of 2009's stoop, 1.1 m past where the rule's tree stood."}
    ]
   }
  ]

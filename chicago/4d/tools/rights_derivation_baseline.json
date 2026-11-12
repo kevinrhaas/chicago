@@ -3324,6 +3324,14 @@
       "sole_support": true,
       "confidence": "inferred"
     },
+    "mayer_house_2009_prairie/as_mapped_1904/form.service_wall_brick": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_2009_prairie_meyer_photo"
+      ],
+      "sole_support": false,
+      "confidence": "inferred"
+    },
     "mayer_house_2009_prairie/as_mapped_1904/form.shaped_gable": {
       "kind": "structure",
       "blocked_sources": [
