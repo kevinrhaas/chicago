@@ -1,0 +1,10 @@
+{
+  "title": "Mute keys on the Navigator, and a quieter lit state",
+  "kind": "feature",
+  "items": [
+    "Two keys in the Navigator's top bar: Mute all sound and Mute music. A second tap puts back the level you had.",
+    "They move the same levels as Settings › Sound, so a key and its slider always agree.",
+    "Lit controls are calmer on every appearance: a soft tint and outline in the machine's own colour instead of a solid fill.",
+    "The arrival's speaker no longer glows red when sound is on."
+  ]
+}

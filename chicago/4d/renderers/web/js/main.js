@@ -1,4 +1,5 @@
 import { soundLevelsFrom } from './settings-app.js';
+import { MUTE_KEYS, flipSound, isMuted } from './sound-keys.js';
 /**
  * main.js — boot, loop, and the test harness handle.
  *
@@ -102,6 +103,7 @@ import { paintArrivalDevice } from './arrival-device.js';
 import { setDraftHorseTextureCap } from './draft-horse-assets.js';
 import { t, applyStrings } from './strings/index.js';
 import './strings/arrival.js';
+import './strings/navigator.js'; // T-3571: the mute keys' titles
 import { createFlags } from './flags.js';
 import { createFortGates, gatesOnRoute } from './fort-gates.js';
 import { createHouseDoors } from './house-doors.js';
@@ -1787,32 +1789,48 @@ const gesture = createGestureGate({ journey, tagEl: document.getElementById('loo
   onGesture: () => { void loadSound().then((sound) => sound?.sync()); } });
 api.gesture = gesture;
 // T-3532: the arrival's explicit speaker control works while the scene is loading.
+// T-3571: the Navigator's MUTE ALL and MUTE MUSIC keys flip the same levels (sound-keys.js).
 const soundToggle = document.getElementById('arrival-sound');
-function paintSoundToggle() {
+const muteKeys = [['nav-mute-all', MUTE_KEYS.all, 'nav.mute.all'], ['nav-mute-music', MUTE_KEYS.music, 'nav.mute.music']]
+  .map(([id, key, str]) => ({ el: document.getElementById(id), key, str })).filter(k => k.el);
+function soundNow() {
   let saved = {};
   try { saved = JSON.parse(localStorage.getItem('chicago4d.settings') || '{}'); } catch {}
-  const on = (api.hud?.settings ?? arrivalSoundSettings ?? soundLevelsFrom(saved)).soundMaster > 0;
+  return { saved, current: api.hud?.settings ?? arrivalSoundSettings ?? soundLevelsFrom(saved) };
+}
+function paintSoundToggle() {
+  const { current } = soundNow();
+  const on = current.soundMaster > 0;
   if (soundToggle) {
     soundToggle.setAttribute('aria-pressed', String(on));
     soundToggle.setAttribute('aria-label', on ? 'Mute audio' : 'Enable audio');
     soundToggle.title = on ? 'Mute audio' : 'Enable audio';
   }
+  for (const k of muteKeys) {
+    const muted = isMuted(current, k.key);
+    k.el.setAttribute('aria-pressed', String(muted));
+    k.el.title = t(muted ? `${k.str}.off` : k.str);
+  }
 }
-soundToggle?.addEventListener('click', () => {
+function flipSoundKey(key) {
   // Resume synchronously inside the trusted click, before the dynamic import.
   gesture.unlockAudio();
-  let saved = {};
-  try { saved = JSON.parse(localStorage.getItem('chicago4d.settings') || '{}'); } catch {}
-  const current = api.hud?.settings ?? arrivalSoundSettings ?? soundLevelsFrom(saved);
-  const value = current.soundMaster > 0 ? 0 : (current.soundLastMaster || saved.soundLastMaster || .8);
-  const last = current.soundMaster > 0 ? current.soundMaster : value;
-  arrivalSoundSettings = { ...current, soundMaster: value, soundLastMaster: last, soundChosen: true };
-  if (api.hud?.settings) Object.assign(api.hud.settings, arrivalSoundSettings);
+  const { saved, current } = soundNow();
+  const change = flipSound({ ...saved, ...current }, key);
+  arrivalSoundSettings = { ...current, ...change };
+  if (api.hud?.settings) Object.assign(api.hud.settings, change);
   try { localStorage.setItem('chicago4d.settings', JSON.stringify({ ...saved, ...arrivalSoundSettings })); } catch {}
-  const slider = document.getElementById('s-sound-master');
-  if (api.hud && slider) { slider.value = String(value); slider.dispatchEvent(new Event('input', { bubbles: true })); }
+  const slider = document.getElementById(key === MUTE_KEYS.music ? 's-sound-music' : 's-sound-master');
+  if (api.hud && slider) { slider.value = String(change[key]); slider.dispatchEvent(new Event('input', { bubbles: true })); }
   paintSoundToggle(); void loadSound().then(sound => sound?.sync());
-});
+}
+soundToggle?.addEventListener('click', () => flipSoundKey(MUTE_KEYS.all));
+for (const k of muteKeys) {
+  // The keys sit in the Navigator's head: a press must not start a sheet drag, and a tap
+  // must not reach the head's own "open when docked" tap (as the close key, T-2742).
+  k.el.addEventListener('pointerdown', (e) => e.stopPropagation());
+  k.el.addEventListener('click', (e) => { e.stopPropagation(); flipSoundKey(k.key); });
+}
 paintSoundToggle();
 
 if (document.documentElement.dataset.transfer === 'true') void loadSound(true);
