@@ -1,6 +1,6 @@
 {
   "id": "mayer_house_2009_prairie",
-  "name": "2009 Prairie Avenue — the Max A. Meyer house, Burnham & Root's French Gothic rowhouse (T-1913; detailing T-1914)",
+  "name": "2009 Prairie Avenue \u2014 the Max A. Meyer house, Burnham & Root's French Gothic rowhouse (T-1913; detailing T-1914)",
   "aka": [
     "2009 S. Prairie Avenue"
   ],
@@ -11,7 +11,7 @@
     "sources": [
       "sanborn_1911_chicago_v3_sheet_35"
     ],
-    "note": "The 1911 sheet marks the building 'D' (dwelling): '2½B brick dwelling (D)'. Carried to 1904 on the T-1842 census ruling (present_as_mapped)."
+    "note": "The 1911 sheet marks the building 'D' (dwelling): '2\u00bdB brick dwelling (D)'. Carried to 1904 on the T-1842 census ruling (present_as_mapped)."
   },
   "built": {
     "value": 1888,
@@ -46,7 +46,7 @@
         "sources": [
           "sanborn_1911_chicago_v3_sheet_35"
         ],
-        "note": "The rear corner of the main body on its north side, read off the 1911 sheet 35 raster at full size (px 1055, 393: the outline's own dark line) through the T-1250 fit of the sheet, which carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, plus about a pixel (0.19 m) of reading on this copy. The draft's corner stood 0.13 m behind and 1.67 m south of this one: its rectangle fit stopped where the sheet's printed '2½B' and 'D' bite the traced outline. Rotation 179.389 degrees (the draft's) turns the plan's u axis onto the lot's own rear-to-street line.",
+        "note": "The rear corner of the main body on its north side, read off the 1911 sheet 35 raster at full size (px 1055, 393: the outline's own dark line) through the T-1250 fit of the sheet, which carries no independent check: its own fit residual is 0.05 m RMS on its control crossings, plus about a pixel (0.19 m) of reading on this copy. The draft's corner stood 0.13 m behind and 1.67 m south of this one: its rectangle fit stopped where the sheet's printed '2\u00bdB' and 'D' bite the traced outline. Rotation 179.389 degrees (the draft's) turns the plan's u axis onto the lot's own rear-to-street line.",
         "derivation": {
           "method": "not_derivable",
           "reason": "The four derivation methods re-derive from the 1835 files; this position is re-derived from the traced sheet and the 1904 parcel by tools/draft_prairie_1904.py --check instead."
@@ -75,7 +75,7 @@
         "sources": [
           "sanborn_1911_chicago_v3_sheet_35"
         ],
-        "note": "The main body, the 2½B brick block the sheet draws across the lot from the north passage to the party line with 2011: 26.02 m from the rear wall (px 1055) to the front (px 915) and 7.56 m along the front (rows 393-433.7), read at full size off the raster's own outline. The register's published 27 by 82 ft lead (8.2 by 25.0 m) is close but is not a survey; the sheet's 24.8 by 85.4 ft stands. The draft drew it 5.5 m wide because the trace takes the printed numerals for bites out of the house."
+        "note": "The main body, the 2\u00bdB brick block the sheet draws across the lot from the north passage to the party line with 2011: 26.02 m from the rear wall (px 1055) to the front (px 915) and 7.56 m along the front (rows 393-433.7), read at full size off the raster's own outline. The register's published 27 by 82 ft lead (8.2 by 25.0 m) is close but is not a survey; the sheet's 24.8 by 85.4 ft stands. The draft drew it 5.5 m wide because the trace takes the printed numerals for bites out of the house."
       },
       "form": {
         "stories": {
@@ -85,7 +85,7 @@
             "sanborn_1911_chicago_v3_sheet_35",
             "chicagology_2009_prairie_meyer_photo"
           ],
-          "note": "The sheet prints '2½B': two full storeys and a half. The photograph shows three tiers of street windows over the basement, the third (the paired light at 9.6-11.45 m) in a low storey whose side walls stop at the kneelers' 11.3 m, under the roof's slope: the sheet's half storey. K01 counts it a storey of 2.1 m."
+          "note": "The sheet prints '2\u00bdB': two full storeys and a half. The photograph shows three tiers of street windows over the basement, the third (the paired light at 9.6-11.45 m) in a low storey whose side walls stop at the kneelers' 11.3 m, under the roof's slope: the sheet's half storey. K01 counts it a storey of 2.22 m (T-3365; 2.1 m would leave the paired light's top over the gable slab's foot)."
         },
         "construction": {
           "value": "brick_with_stone_front",
@@ -94,7 +94,7 @@
             "sanborn_1911_chicago_v3_sheet_35",
             "chicagology_2009_prairie_meyer_photo"
           ],
-          "note": "The photograph: a rough, deeply textured brick front over a rock-faced brownstone basement, stone dressings and string courses; the sheet colours the building brick ('2½B', pink). The register names the brick 'rough red-brown' and the basement and copings brownstone."
+          "note": "The photograph: a rough, deeply textured brick front over a rock-faced brownstone basement, stone dressings and string courses; the sheet colours the building brick ('2\u00bdB', pink). The register names the brick 'rough red-brown' and the basement and copings brownstone."
         },
         "principal_floor_m": {
           "value": 2.0,
@@ -108,13 +108,13 @@
           "value": [
             3.3,
             3.9,
-            2.75
+            2.22
           ],
           "confidence": "inferred",
           "sources": [
             "chicagology_2009_prairie_meyer_photo"
           ],
-          "note": "Floors read from the photograph's openings and courses: the oriel's corbel foot at 5.05 m and its lights' sill at 6.0 m put the second floor at about 5.3 m; the string course at 9.1 m and the paired light's sill at 9.6 m the third at about 9.2 m; the kneeler stone at the north corner (11.35-11.95 m) the side walls' head at about 11.3 m."
+          "note": "Floors read from the photograph's openings and courses: the oriel's corbel foot at 5.05 m and its lights' sill at 6.0 m put the second floor at about 5.3 m; the string course at 9.1 m and the paired light's sill at 9.6 m the third at about 9.2 m; the kneeler stone at the north corner (11.35-11.95 m) the side walls' head at about 11.3 m. T-3365: the third storey taken down from 2.75 m to 2.22 m, putting the side walls' head at 11.42 m (it stood at 11.97 m, about 0.65 m over the north corner's head as the turned Chicagology camera reads it, 11.3 m); not the full 2.1 m because the paired light's top (11.0 m) has to stand under the gable slab's foot, which K01 starts 0.3 m under the eave's fascia, so 11.42 m is the lowest head that keeps the light where the print puts it; the 0.12 m over the print is under the bar."
         },
         "wall_thickness_front_m": {
           "value": 0.45,
@@ -259,13 +259,13 @@
               "height_m": 2.0
             },
             {
-              "sill_above_floor_m": 0.4,
+              "sill_above_floor_m": 0.05,
               "width_m": 0.8,
-              "height_m": 1.65
+              "height_m": 1.5
             }
           ],
           "confidence": "reconstructed",
-          "note": "The side and rear lights: the photograph's north-wall light is too foreshortened to measure, so the kit's ordinary sash, shortened in the low third storey."
+          "note": "The side and rear lights: the photograph's north-wall light is too foreshortened to measure, so the kit's ordinary sash, shortened in the low third storey. T-3365: the third storey's side and rear lights cut to the contract's shortest (1.5 m) on a 0.05 m sill, so their lintels clear the lowered eave's soffit."
         },
         "street_front_windows": {
           "value": {
@@ -291,8 +291,8 @@
                 "storey": 2,
                 "s_m": 4.02,
                 "width_m": 2.5,
-                "sill_m": 9.6,
-                "height_m": 1.85
+                "sill_m": 9.4,
+                "height_m": 1.6
               }
             ],
             "base_top_m": 1.84,
@@ -376,38 +376,38 @@
                     2.47,
                     5.57
                   ],
-                  "bed_m": 11.45,
-                  "top_m": 11.85,
+                  "bed_m": 11.0,
+                  "top_m": 11.3,
                   "proud_m": 0.08,
                   "stops": {
                     "width_m": 0.18,
-                    "drop_m": 0.55
+                    "drop_m": 0.4
                   }
                 },
                 "pendant": {
-                  "from_m": 11.85,
-                  "top_m": 12.96,
+                  "from_m": 11.3,
+                  "top_m": 12.15,
                   "stem_m": 0.16,
                   "proud_m": 0.1,
                   "tiers": [
                     [
-                      11.85,
-                      11.95,
+                      11.3,
+                      11.38,
                       0.36
                     ],
                     [
-                      12.18,
-                      12.32,
+                      11.55,
+                      11.66,
                       0.62
                     ],
                     [
-                      12.52,
-                      12.62,
+                      11.81,
+                      11.89,
                       0.48
                     ],
                     [
-                      12.66,
-                      12.96,
+                      11.92,
+                      12.15,
                       0.26
                     ]
                   ]
@@ -419,7 +419,7 @@
           "sources": [
             "chicagology_2009_prairie_meyer_photo"
           ],
-          "note": "Every street light read off the photograph at 100 px a metre from the north corner and the wall's foot: the ground floor's window, two lights on a mullion under a transom, at 2.98 m, 2.05 m clear, from 2.0 to about 4.4 m (built 2.25 m high, its head 0.15 m under the print's, so it clears the oriel's corbel); the small square-headed light beside the oriel at 6.32 m, 0.46 m across, 6.3-7.35 m; and the third storey's paired light at 4.02 m, 2.5 m across its two lights, 9.6-11.45 m. Each stands in a stone surround of long and short blocks, as the photograph shows round all three (K01's quoined surround, its returns and lintel the kit's). The oriel's three lights are its own (bays). T-1914: the carved panels over the door, between its pilasters (x 935-1125 px, about 4.5-5.2 m), under a thin course at about 5.25 m that runs across the front: a carved course of rings 4.8-5.3 m over the door (carved_bands, s 5.4-7.2 m), the print's foliage drawn as the kit's guilloche; T-3365: the carving is laid as a panel over the door's run alone (carved_bands panel, 4.65-5.25 m, s 5.4-7.2 m, its foot the pilasters' capitals), the brick running on beside it where K01 had laid a 0.5 m course across the whole front; the print's thin course at about 5.25 m (about 0.1 m) is not laid. T-3365: the north corner (x 380-440 px, read at 2x with the contrast stretched): brick from the stone sill course to the string course, then a pale stone strip about 0.5 m across from the string course's top (9.2 m, y 810 px) to the kneeler (11.75 m), one bed joint read near its middle; laid as stone courses about 0.6 m deep (corner_stone), their 0.3 m return on the north flank reconstructed (the camera sees the flank edge-on). T-3365: base_top_m 1.84, the smooth band's top read off the print (y 1542 px), where it had been 1.25 m. T-3365: the hoods, read at 2-4x with the contrast stretched at 99.9 px a metre from the north corner (x 390 px) and the wall's foot (y 1725 px): over the third storey's paired light a stone drip mould from s 2.47 to 5.57 m (x 637-945 px), its stone continuous from the light's head (11.45 m) to its top at about 11.85 m (y 542 px), its ends turned down past the head as label stops about 0.18 m wide to about 11.3 m; where the build's shaped gable's slab stands 0.12 m out of the wall from 11.5 m up, the mould stands 0.08 m proud of the slab, and off its crown a carved pendant (x 755-820 px) climbing to about 12.96 m (y 430 px): a stem under two pairs of arms (about 0.62 m across at 12.2-12.3 m, 0.48 m at 12.5-12.6 m) and a bud about 0.26 m across, its carving drawn as stepped blocks; under the oriel either side of the ground window two consoles (x 533-555 and 812-830 px, centres s 1.54 and 4.31 m) from about 4.2 m up into the oriel's corbel, widening upward, their scrolls drawn as tapered blocks; over the small light a splayed stone block 0.40 m across at its foot and 0.51 m at its top (x 999-1050 px), 7.35-7.73 m, in place of the surround's lintel course. The print's slight tilt (about 0.07 across the paired light) is read through by measuring each part against its own light's head. Each part's depth is reconstructed (the camera is square to the front)."
+          "note": "Every street light read off the photograph at 100 px a metre from the north corner and the wall's foot: the ground floor's window, two lights on a mullion under a transom, at 2.98 m, 2.05 m clear, from 2.0 to about 4.4 m (built 2.25 m high, its head 0.15 m under the print's, so it clears the oriel's corbel); the small square-headed light beside the oriel at 6.32 m, 0.46 m across, 6.3-7.35 m; and the third storey's paired light at 4.02 m, 2.5 m across its two lights, 9.6-11.45 m. Each stands in a stone surround of long and short blocks, as the photograph shows round all three (K01's quoined surround, its returns and lintel the kit's). The oriel's three lights are its own (bays). T-1914: the carved panels over the door, between its pilasters (x 935-1125 px, about 4.5-5.2 m), under a thin course at about 5.25 m that runs across the front: a carved course of rings 4.8-5.3 m over the door (carved_bands, s 5.4-7.2 m), the print's foliage drawn as the kit's guilloche; T-3365: the carving is laid as a panel over the door's run alone (carved_bands panel, 4.65-5.25 m, s 5.4-7.2 m, its foot the pilasters' capitals), the brick running on beside it where K01 had laid a 0.5 m course across the whole front; the print's thin course at about 5.25 m (about 0.1 m) is not laid. T-3365: the north corner (x 380-440 px, read at 2x with the contrast stretched): brick from the stone sill course to the string course, then a pale stone strip about 0.5 m across from the string course's top (9.2 m, y 810 px) to the kneeler (11.75 m), one bed joint read near its middle; laid as stone courses about 0.6 m deep (corner_stone), their 0.3 m return on the north flank reconstructed (the camera sees the flank edge-on). T-3365: base_top_m 1.84, the smooth band's top read off the print (y 1542 px), where it had been 1.25 m. T-3365: the hoods, read at 2-4x with the contrast stretched at 99.9 px a metre from the north corner (x 390 px) and the wall's foot (y 1725 px): over the third storey's paired light a stone drip mould from s 2.47 to 5.57 m (x 637-945 px), its stone continuous from the light's head (11.45 m) to its top at about 11.85 m (y 542 px), its ends turned down past the head as label stops about 0.18 m wide to about 11.3 m; where the build's shaped gable's slab stands 0.12 m out of the wall from 11.5 m up, the mould stands 0.08 m proud of the slab, and off its crown a carved pendant (x 755-820 px) climbing to about 12.96 m (y 430 px): a stem under two pairs of arms (about 0.62 m across at 12.2-12.3 m, 0.48 m at 12.5-12.6 m) and a bud about 0.26 m across, its carving drawn as stepped blocks; under the oriel either side of the ground window two consoles (x 533-555 and 812-830 px, centres s 1.54 and 4.31 m) from about 4.2 m up into the oriel's corbel, widening upward, their scrolls drawn as tapered blocks; over the small light a splayed stone block 0.40 m across at its foot and 0.51 m at its top (x 999-1050 px), 7.35-7.73 m, in place of the surround's lintel course. The print's slight tilt (about 0.07 across the paired light) is read through by measuring each part against its own light's head. Each part's depth is reconstructed (the camera is square to the front). T-3365 (2026-11-12): the paired light and its hood re-read through the photograph's re-solved, turned camera (the course and the hood's top read level there, 9.2 and 11.3 m at both ends): the light 9.4-11.0 m (was 9.6-11.45 m), its drip mould 11.0-11.3 m with its stops 0.4 m down (was 11.45-11.85 m), the pendant 11.3-12.15 m (was 11.85-12.96 m, its tiers kept in proportion)."
         },
         "basement_lights": {
           "value": {
@@ -473,13 +473,13 @@
               },
               "storeys": [
                 {
-                  "height_m": 3.9,
+                  "height_m": 2.8,
                   "windows": [
                     {
                       "opening": "k06.opening.sash_transom_flat",
                       "clear_width_m": 0.75,
-                      "clear_height_m": 2.2,
-                      "sill_m": 0.7,
+                      "clear_height_m": 1.55,
+                      "sill_m": 0.45,
                       "at": [
                         0.2375,
                         0.5,
@@ -509,8 +509,8 @@
                 }
               },
               "apron_band": {
-                "from_m": 0.25,
-                "to_m": 0.59,
+                "from_m": 0.0,
+                "to_m": 0.34,
                 "proud_m": 0.02,
                 "rosettes": {
                   "radius_m": 0.068,
@@ -562,12 +562,12 @@
                   ]
                 },
                 {
-                  "height_m": 2.75,
+                  "height_m": 2.22,
                   "windows": [
                     {
                       "opening": "k06.opening.sash_2over2_flat",
                       "clear_width_m": 0.8,
-                      "clear_height_m": 1.65,
+                      "clear_height_m": 1.5,
                       "sill_m": 0.4,
                       "at": [
                         0.5
@@ -589,14 +589,14 @@
             "monroe_1896_john_wellborn_root_meyer_plate",
             "sanborn_1911_chicago_v3_sheet_35"
           ],
-          "note": "The 'slightly bowed window group' of the register: a shallow bowed oriel on the street front over the ground-floor window, read off the photograph: 3.45 m across its stone frame (x 515-860 px), carried on a corbelled apron from 5.05 m, its three lights 6.0-8.25 m, a carved frieze over them to about 8.9 m and its cap at the string course (9.2 m). Its depth is not measurable square on: a flat front 3.2 m across with short cants to the wall, 0.38 m out on three corbel courses (their foot at 4.7 m, the photograph's at about 5.05 m), as Monroe's plate shows it standing a little proud; the register's 'slightly bowed' group is drawn canted, the kit's bow being too deep for three lights this wide. The carved frieze and apron are T-1914's. The north wall's projection: the sheet draws the main body's north line stepping out 1.3 m for 5.86 m, from 5.85 to 11.71 m behind the front (px 946-978, rows 386-393), read at full size; it rises to the wall head, where the photograph's camera puts a cornice on the north flank about 12 m up behind the front (y 715 px). A light a storey in its outer face is reconstructed. T-1914: the oriel's carved frieze over its lights (the print's about 8.3-8.9 m, under its moulded cap at 9.2 m) as a 0.75 m carved band round the oriel under its cap (cap_band), the print's foliage in three cartouches drawn as the kit's guilloche rings. T-3365: the carved apron under the lights, read off the photograph at 3x with its contrast stretched (100 px a metre): between the lights' sill course at about 5.94 m and a moulded roll over the corbel (about 5.27-5.55 m), a band from about 5.56 m carved with small four-lobed flowers about 0.15 m across in two staggered rows (centres about 5.84 and 5.66 m) at about 0.38 m along the front; laid as apron_band, 0.25-0.59 m over the oriel's floor (5.55-5.89 m, its top 10 mm under the lights' sill stones), rosettes of a boss and four petals 0.136 m across at 0.38 m in two rows, each row after the first half a pitch along."
+          "note": "The 'slightly bowed window group' of the register: a shallow bowed oriel on the street front over the ground-floor window, read off the photograph: 3.45 m across its stone frame (x 515-860 px), carried on a corbelled apron from 5.05 m, its three lights 6.0-8.25 m, a carved frieze over them to about 8.9 m and its cap at the string course (9.2 m). Its depth is not measurable square on: a flat front 3.2 m across with short cants to the wall, 0.38 m out on three corbel courses (their foot at 4.7 m, the photograph's at about 5.05 m), as Monroe's plate shows it standing a little proud; the register's 'slightly bowed' group is drawn canted, the kit's bow being too deep for three lights this wide. The carved frieze and apron are T-1914's. The north wall's projection: the sheet draws the main body's north line stepping out 1.3 m for 5.86 m, from 5.85 to 11.71 m behind the front (px 946-978, rows 386-393), read at full size; it rises to the wall head, where the photograph's camera puts a cornice on the north flank about 12 m up behind the front (y 715 px). A light a storey in its outer face is reconstructed. T-1914: the oriel's carved frieze over its lights (the print's about 8.3-8.9 m, under its moulded cap at 9.2 m) as a 0.75 m carved band round the oriel under its cap (cap_band), the print's foliage in three cartouches drawn as the kit's guilloche rings. T-3365: the carved apron under the lights, read off the photograph at 3x with its contrast stretched (100 px a metre): between the lights' sill course at about 5.94 m and a moulded roll over the corbel (about 5.27-5.55 m), a band from about 5.56 m carved with small four-lobed flowers about 0.15 m across in two staggered rows (centres about 5.84 and 5.66 m) at about 0.38 m along the front; laid as apron_band, 0.25-0.59 m over the oriel's floor (5.55-5.89 m, its top 10 mm under the lights' sill stones), rosettes of a boss and four petals 0.136 m across at 0.38 m in two rows, each row after the first half a pitch along. T-3365 (2026-11-12): re-read through the photograph's re-solved camera, turned 22.4 degrees south of square (data/reference_views/mayer_house_2009_prairie/chicagology_photo.json), which reads the front's north half about 5-8% lower than the square camera's uniform 100 px a metre did: the oriel stops at a moulded top about 8.45-8.5 m with about 0.5 m of brick between it and the string course (about 50 px on the print itself), its lights about 5.65-7.45 m, its apron about 5.05-5.5 m. So its storey is 2.8 m from the floor at 5.3 m (crown 8.45 m), its lights 0.45 m over the floor and 1.55 m clear, its apron 0-0.34 m over the floor (K01 lays it to the lights' sill stones, about 0.2 m over the print's). The figures above are the square camera's."
         },
         "shaped_gable": {
           "value": {
             "profile_m": [
               [
                 3.0,
-                11.97
+                11.45
               ],
               [
                 2.5,
@@ -643,14 +643,14 @@
                 16.3
               ]
             ],
-            "foot_m": 11.5,
+            "foot_m": 11.0,
             "thickness_m": 0.6,
             "proud_m": 0.02,
             "lights": {
               "variant": "k06.opening.casement_pair_mullioned",
-              "sill_m": 13.75,
+              "sill_m": 13.2,
               "width_m": 0.62,
-              "height_m": 0.82,
+              "height_m": 0.78,
               "at_m": [
                 0.0
               ]
@@ -665,7 +665,7 @@
               "radius_m": 0.3,
               "foot_m": 0.22
             },
-            "ledge_m": 11.97,
+            "ledge_m": 11.45,
             "takes_gutter": true,
             "run_on": {
               "wall": "k01.wall.side.north",
@@ -704,7 +704,7 @@
             "chicagology_2009_prairie_meyer_photo",
             "monroe_1896_john_wellborn_root_meyer_plate"
           ],
-          "note": "The ogee gable, the front carried up past the side walls into a concave-sided spire, read off the photograph at 100 px a metre: its coped outline's half-width at ten heights (the average of its two sides, about 1.86 m at 12.65 m, 1.24 m at 13.65 m, 0.83 m at 14.65 m, 0.51 m at 15.65 m), widened about 0.15 m through its middle where the render laid over the print through its camera stood inside the print's outline on both sides, rising to a flat top about 0.8 m across at about 16.3 m (the print's about 0.85 m) (the print's left shoulder at y 97 px, 16.30 m), on which the carved crest stands; it leaves the front's full width at the kneeler stone (11.4 m). Its two attic lights (a pair on a mullion, 0.62 m across, 13.75-14.57 m) under the apex. The north side's flare stops on the kneeler at 11.4 m; T-3365: the south side runs on down over the party wall (run_on), its coping's outer edge read row by row off the print at 99.9 px a metre (half-width 2.31 m at 12.34 m, 2.6 at 11.86, 3.0 at 11.26, 3.37 at 10.78, 3.62 at 10.46, the corner at 10.32 m), on a 0.45 m band, the corner cut down under it 0.9 m back to a brick cheek (what stands behind the coping is not in the print: L-k01-2009-meyer-gable-run-on-3365). T-3365: the crest is the print's carved block, not a turned finial: read at 6x with its contrast stretched, a stone about 0.6 m across (x 765-826 px) standing from the coping's inner line at about 16.07 m (y 120 px) to about 16.39 m (y 88 px), its top scrolled in two lobes either side of a boss between; drawn as K01's crest form, its three lobes the envelope of its top and each lobe's eye a boss (the carving's foliage itself is not drawn: liberty). The carved pendant over the paired light is street_front_windows.hoods' (T-3365). T-3365: takes_gutter — the print's front runs up into its gable with no gutter across it at the gable's foot (the hood over the paired light stands where K01's street gutter had run), so the street run is not built and the side runs die into the slab's base, as 1812's."
+          "note": "The ogee gable, the front carried up past the side walls into a concave-sided spire, read off the photograph at 100 px a metre: its coped outline's half-width at ten heights (the average of its two sides, about 1.86 m at 12.65 m, 1.24 m at 13.65 m, 0.83 m at 14.65 m, 0.51 m at 15.65 m), widened about 0.15 m through its middle where the render laid over the print through its camera stood inside the print's outline on both sides, rising to a flat top about 0.8 m across at about 16.3 m (the print's about 0.85 m) (the print's left shoulder at y 97 px, 16.30 m), on which the carved crest stands; it leaves the front's full width at the kneeler stone (11.4 m). Its two attic lights (a pair on a mullion, 0.62 m across, 13.75-14.57 m) under the apex. The north side's flare stops on the kneeler at 11.4 m; T-3365: the south side runs on down over the party wall (run_on), its coping's outer edge read row by row off the print at 99.9 px a metre (half-width 2.31 m at 12.34 m, 2.6 at 11.86, 3.0 at 11.26, 3.37 at 10.78, 3.62 at 10.46, the corner at 10.32 m), on a 0.45 m band, the corner cut down under it 0.9 m back to a brick cheek (what stands behind the coping is not in the print: L-k01-2009-meyer-gable-run-on-3365). T-3365: the crest is the print's carved block, not a turned finial: read at 6x with its contrast stretched, a stone about 0.6 m across (x 765-826 px) standing from the coping's inner line at about 16.07 m (y 120 px) to about 16.39 m (y 88 px), its top scrolled in two lobes either side of a boss between; drawn as K01's crest form, its three lobes the envelope of its top and each lobe's eye a boss (the carving's foliage itself is not drawn: liberty). The carved pendant over the paired light is street_front_windows.hoods' (T-3365). T-3365: takes_gutter \u2014 the print's front runs up into its gable with no gutter across it at the gable's foot (the hood over the paired light stands where K01's street gutter had run), so the street run is not built and the side runs die into the slab's base, as 1812's. T-3365 (2026-11-12): the attic light re-read through the photograph's re-solved, turned camera: two narrow lights 13.2-14.0 m (was 13.75-14.57 m), built from 13.2 m, 0.78 m high. The outline itself lies within 0.1-0.2 m of the print's from 13 m up through that camera, its crest about 0.3 m over it; the north corner's wall head under it reads about 11.3 m against the ledge's 11.97 m (open in the match record). T-3365: the ledge brought down from 11.97 m to 11.45 m with the side walls' head (K01 stands it at least 0.12 m over the eave's fascia), the outline's foot with it ([3.0, 11.45]) and the slab's foot to 11.0 m, level with the paired light's top (11.01 m left a 0.01 m sliver the K05 roof check reads as a doubled face)."
         },
         "roof_covering": {
           "value": {
@@ -724,7 +724,7 @@
               0.9,
               0.75
             ],
-            "top_above_ridge_m": 1.7,
+            "top_above_ridge_m": 0.75,
             "cap_proud_m": 0.06,
             "cap_depth_m": 0.25,
             "stacks": [
@@ -771,7 +771,7 @@
             "chicagology_2009_prairie_meyer_photo",
             "monroe_1896_john_wellborn_root_meyer_plate"
           ],
-          "note": "The register's 'tall chimneys': the photograph shows a tall brick stack rising at the north flank, its shaft (x 336-412 px) centred on the north wall's line about 2.4 m behind the front, about 0.84 m across, its top about 1.7 m over the ridge (17.4 m), which the camera's render puts within 0.1 m of the print's (y 116 px); Monroe's plate, from the north-west, draws it at the flank beside the gable's kneeler. It is built astride the north wall (T-3365): the wall's line through its middle and its outer half a breast carried up the wall's face from the ground, since a 0.1 m eave cannot carry it; both pictures hide the flank below the eave behind trees, so the breast's lower part is reconstructed (docs/LIBERTIES.md). It stands 0.1 m clear of the tall light 1.4 m behind the front corner. Its head as the photograph draws it: a thin band, a plain stage about 0.45 m deep standing a little proud of the shaft, and a cap about 0.25 m deep (its weathered top drawn flat). Monroe's plate draws a second, lower stack farther back on the same side, stood here 0.7 m inside the north wall at the main body's ridge height plus 1.7 m, with the same head. The far stack at the photograph's left edge (x 130-210 px) lies north of this lot through the camera and is read as 2005's."
+          "note": "The register's 'tall chimneys': the photograph shows a tall brick stack rising at the north flank, its shaft (x 336-412 px) centred on the north wall's line about 2.4 m behind the front, about 0.84 m across, its top about 1.7 m over the ridge (17.4 m), which the camera's render puts within 0.1 m of the print's (y 116 px); Monroe's plate, from the north-west, draws it at the flank beside the gable's kneeler. It is built astride the north wall (T-3365): the wall's line through its middle and its outer half a breast carried up the wall's face from the ground, since a 0.1 m eave cannot carry it; both pictures hide the flank below the eave behind trees, so the breast's lower part is reconstructed (docs/LIBERTIES.md). It stands 0.1 m clear of the tall light 1.4 m behind the front corner. Its head as the photograph draws it: a thin band, a plain stage about 0.45 m deep standing a little proud of the shaft, and a cap about 0.25 m deep (its weathered top drawn flat). Monroe's plate draws a second, lower stack farther back on the same side, stood here 0.7 m inside the north wall at the main body's ridge height plus 1.7 m, with the same head. The far stack at the photograph's left edge (x 130-210 px) lies north of this lot through the camera and is read as 2005's. T-3365: both stacks taken down with the wall head (the ridge falls 0.55 m with it) and their top over the ridge cut from 1.7 m to 0.75 m, so the near stack's top stands where the turned camera reads the print's, about 16.3 m at its place 2.4 m behind the front: its cap's top renders at y 108-121 px against the print's 107 px, where the stack ran past the frame's top before. Monroe's plate draws it about 0.8 m taller than that (its square-fitted camera); the photograph is read as the better witness."
         },
         "rainwater": {
           "value": {

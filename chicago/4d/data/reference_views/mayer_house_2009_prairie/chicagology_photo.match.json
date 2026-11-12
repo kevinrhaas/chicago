@@ -2,14 +2,14 @@
   "structure_id": "mayer_house_2009_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/mayer_house_2009_prairie__as_mapped_1904.glb",
-  "glb_sha256": "79e533edd65c1e6e4c4485220774634fc99b3ade128ec5c33531d35d5323f15a",
-  "camera_sha256": "78ec8f49f37566693a797fc7fa98ded24d4845ec40ef057129786224b8258d8a",
+  "glb_sha256": "15cc050a876e8fe9d19c971e8f0e3c2827f552524cc7ea6e92f303cd6979320d",
+  "camera_sha256": "1238760080c3b93d238fdccaf2d143bba11679e600b48422142b9eae5b4499ee",
   "photo_sha256": "03db894ab10dff078b747f611eba3dd8d9bc3b1f35aae50435017dcd4640b4a2",
   "side_by_side": "docs/RESEARCH/photo-match/mayer_house_2009_prairie/chicagology_photo-side-by-side.jpg",
   "verdict": "differs",
   "differences": [
     {
-      "what": "massing: the draft's 5.5 m box under a generic shaped gable is now the photograph's narrow party-wall front, 7.56 m across between the north corner and the party line with 2011, three tiers of lights over a raised stone basement, its side walls stopping at the kneelers (11.95 m)",
+      "what": "massing: the draft's 5.5 m box under a generic shaped gable is now the photograph's narrow party-wall front, 7.56 m across between the north corner and the party line with 2011, three tiers of lights over a raised stone basement, its side walls stopping at the kneelers (11.42 m since T-3365; 11.95 m before)",
       "status": "fixed"
     },
     {
@@ -45,7 +45,7 @@
       "status": "fixed"
     },
     {
-      "what": "the oriel's frieze band about 0.15 m higher than the print's, and its carving drawn as a run of rings where the print's is foliage in three large cartouches",
+      "what": "the oriel's carved band 7.7-8.45 m against the print's frieze about 7.75-8.35 m under its moulded top at about 8.45-8.5 m (through the turned camera), and its carving drawn as a run of rings where the print's is foliage in three large cartouches",
       "status": "within tolerance"
     },
     {
@@ -129,15 +129,39 @@
       "status": "fixed"
     },
     {
-      "what": "the course at about 9.1 m and the paired light's group over it fall to the south in the print (the hood top y 545 to 590 px across x 650-935; the course from about 9.84 m at x 500 px to a point at about 9.08 m at x 1055 px, short of the party line) while the front's verticals stand plumb, and Monroe's 1896 plate draws the same fall; the build lays them level, about 0.6 m under the print at the course's north end. Building or a sheared print is not settled: see monroe_1896_plate.match.json (T-3365)",
-      "status": "open"
+      "what": "the course at about 9.1 m and the paired light's group over it fall to the south in the print (the hood top y 545 to 590 px across x 650-935; the course from y 742 px at x 500 to y 818 px at x 1055) while the build lays them level: neither the building's nor a sheared print's, but the camera's. The print is a TURNED view (T-3365 re-solved the camera 22.4 degrees south of square: the coursing's fall is a straight line in its height, zero on the eye's level; 2011's flat front falls the same; the brick courses are 6.42 px apart at the north corner and 5.74 px at the party line). Through it the course reads 9.2 m at both ends and the hood's top 11.3 m at both ends, and the render falls with the print (0.16, 0.14, 0.12, 0.08 against the print's 0.15, 0.14, 0.12, 0.06 at the hood, the upper wall, the course and the oriel; level at the base)",
+      "status": "fixed"
+    },
+    {
+      "what": "the oriel's height, re-read through the turned camera (T-3365): the print's oriel stops at a moulded top about 8.45-8.5 m, with about 0.5 m of the front's brick between it and the course at 9.2 m (about 50 px on the print itself at x 560, whatever the camera), its lights about 5.65-7.45 m on a transom at about 7.0 m, its carved apron about 5.05-5.5 m; the build's ran its cap up into the course (9.2 m) on lights to 8.2 m. Built: its storey 2.8 m from the floor at 5.3 m (crown 8.45 m measured on the rectified render), its carved band 7.65-8.45 m, its lights 5.75-7.3 m, its apron 5.3-5.64 m (K01 lays it to the lights' sill stones, so it stands about 0.2 m over the print's)",
+      "status": "fixed"
+    },
+    {
+      "what": "the paired light's group, re-read through the turned camera (T-3365): the print's light 9.4-11.0 m (sill to head), its drip mould's top 11.3 m, its pendant to about 12.15 m; the build stood 0.2-0.8 m higher (9.6-11.45 m, hood to 11.85 m, pendant to 12.96 m). Built: the light 9.4-11.0 m, the hood 11.0-11.3 m with its stops 0.4 m down, the pendant 11.3-12.15 m (its four tiers kept in proportion)",
+      "status": "fixed"
+    },
+    {
+      "what": "the gable's attic light, re-read through the turned camera (T-3365): the print's two narrow lights 13.2-14.0 m, the build's 13.75-14.57 m. Built at 13.2 m, 0.78 m high",
+      "status": "fixed"
+    },
+    {
+      "what": "the gable's outline through the turned camera: from 13 m up its two slopes lie within 0.1 m (north) and 0.15-0.2 m (south, wider) of the print's, and its crest's top about 0.25-0.35 m over the print's (about 16.5 against 16.25 m)",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the near tall stack's top, re-read through the turned camera (T-3365): the print's top (y 107 px, x 330-415 px) is about 16.3 m at the stack's place 2.4 m behind the front, where the square camera read about 17.8 m and the build stands it (1.7 m over a ridge set by the 11.95 m wall head): the render's runs past the frame's top, about 1.5 m high. It wants lowering with the wall head below, not alone — T-3365: taken down with the wall head and its top over the ridge cut from 1.7 m to 0.75 m: the render's cap top now at y 108-121 px against the print's 107 px (about 0.1 m), the shaft inside the frame",
+      "status": "fixed"
+    },
+    {
+      "what": "the north corner's wall head: through the turned camera the print's front north of the gable stops at about 11.3 m (sky over it from v 0.95 m at 11.5 m), and the gable's north coping comes down to it about 0.9 m in from the corner; the build's ledge and wall head stand at 11.97 m (the third storey's 2.75 m, which the flanks and the roof share), about 0.65 m high. The square camera's uniform 100 px a metre read this end of the front about 8% high — T-3365: the third storey taken down to 2.22 m, the wall head and ledge to 11.42 and 11.45 m (0.55 m lower): the render's corner now stops at y 480 px against the print's 505 px, about 0.15-0.2 m over it, under the bar. Not to 11.3 m because the paired light's top (11.0 m) must stand under the gable slab's foot, which K01 starts 0.3 m under the fascia. Read again at 3x with the contrast stretched: the grey between the stack and the coping over the kneeler (y 505-545 px, x 410-480) is smooth and coursed, unlike the front's rough brick, so it may be the north slope's slate, which would put the corner's head on the kneeler at about 10.8 m and the coping's foot down on it at the corner, about 0.5 m under the build's; Monroe's plate draws the coping landing at about the hood's level, within about 0.2 m of the build, so the two pictures disagree there (within tolerance)",
+      "status": "fixed"
     },
     {
       "what": "the stoop: a straight flight between stone cheek walls from the walk to the door at the south end, on the print's place and width",
       "status": "fixed"
     },
     {
-      "what": "the near tall stack on the north flank: built astride the north wall where the print centres it (the render's shaft x 327-410 px against the print's 331-409), its top within 0.1 m of the print's, and its head a thin band, a stage standing a little proud and a stone cap where the print's cap is weathered to a low point (about 0.1 m)",
+      "what": "the near tall stack on the north flank: built astride the north wall where the print centres it (the render's shaft x 327-410 px against the print's 331-409), its top within 0.1 m of the print's, and its head a thin band, a stage standing a little proud and a stone cap where the print's cap is weathered to a low point (about 0.1 m) — its PLACE; its top, read through the square camera, is re-read through the turned one below (T-3365)",
       "status": "fixed"
     },
     {
@@ -163,6 +187,10 @@
     {
       "what": "colour: the print is monochrome; the brick is the register's rough red-brown and the basement its brownstone",
       "status": "not shown"
+    },
+    {
+      "what": "the gable's north coping: the print and Monroe's plate both bring it down to about the corner, where the build's stops about 0.78 m in from it (the outline's foot at 3.0 m from the centre on a 3.78 m half-front), the ledge's brick between; an earlier reading put the print's 0.9 m in, so the readings disagree (T-3365)",
+      "status": "within tolerance"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

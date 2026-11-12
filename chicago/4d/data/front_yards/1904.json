@@ -154,7 +154,7 @@
  "summary": {
   "lots": 149,
   "shrubs": 153,
-  "trees": 14,
+  "trees": 13,
   "beds": 11,
   "creeper_patches": 55,
   "attested_plants": 38,
@@ -4143,25 +4143,17 @@
     ],
     "width_m": 15.52
    },
-   "front_m": 8.86,
+   "front_m": 3.92,
    "doors": [
     [
-     9.4,
-     9.09
+     6.02,
+     9.27
     ]
    ],
    "scheme": "lawn",
    "grade": "reconstructed",
    "shrubs": [],
-   "trees": [
-    [
-     1386.68,
-     -3114.59,
-     "maple",
-     8.37,
-     3.95
-    ]
-   ],
+   "trees": [],
    "beds": [],
    "creeper": []
   },

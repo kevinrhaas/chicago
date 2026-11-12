@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "content_version": 12973844,
+  "content_version": 214491078,
   "category": "Build log",
   "featured": true,
   "review_required": false,
@@ -756,8 +756,8 @@
         "kind": "structure",
         "id": "law_house_1620_prairie_coach_house"
       },
-      "text": "Law coach house, 1620 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Known from maps or written records; no picture of it has been found. Next: Henderson House, 1816 Prairie.",
-      "read_s": 17,
+      "text": "Law coach house, 1620 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Known from maps or written records; no picture of it has been found. Next: 1712 Prairie.",
+      "read_s": 16,
       "evidence": [
         "stood-35",
         "tour"
@@ -775,10 +775,10 @@
       "id": "stop-36",
       "destination": {
         "kind": "structure",
-        "id": "henderson_house_1816_prairie"
+        "id": "house_1712_prairie"
       },
-      "text": "Henderson House, 1816 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: 2 of the pictures on the Images tab show it. Next: Pomeroy-Marsh House, 1824 Prairie.",
-      "read_s": 16,
+      "text": "1712 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: a picture on the Images tab shows it. Next: Henderson House, 1816 Prairie.",
+      "read_s": 14,
       "evidence": [
         "stood-36",
         "tour"
@@ -786,7 +786,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "henderson_house_1816_prairie",
+          "id": "house_1712_prairie",
           "label": "About this building"
         }
       ],
@@ -796,19 +796,18 @@
       "id": "stop-37",
       "destination": {
         "kind": "structure",
-        "id": "marsh_house_1824_prairie"
+        "id": "henderson_house_1816_prairie"
       },
-      "text": "Pomeroy-Marsh House, 1824 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: 4 of the pictures on the Images tab show it. RAZED in the 1940s. Next: 1828 Prairie.",
+      "text": "Henderson House, 1816 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: 2 of the pictures on the Images tab show it. Next: Pomeroy-Marsh House, 1824 Prairie.",
       "read_s": 16,
       "evidence": [
         "stood-37",
-        "razed-37",
         "tour"
       ],
       "links": [
         {
           "kind": "structure",
-          "id": "marsh_house_1824_prairie",
+          "id": "henderson_house_1816_prairie",
           "label": "About this building"
         }
       ],
@@ -818,18 +817,19 @@
       "id": "stop-38",
       "destination": {
         "kind": "structure",
-        "id": "house_1828_prairie"
+        "id": "marsh_house_1824_prairie"
       },
-      "text": "1828 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 2 solved pictures, 0 matching. Pictured: 3 of the pictures on the Images tab show it. Next: Elbridge Keith House, 1900 Prairie.",
-      "read_s": 15,
+      "text": "Pomeroy-Marsh House, 1824 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: 4 of the pictures on the Images tab show it. RAZED in the 1940s. Next: 1828 Prairie.",
+      "read_s": 16,
       "evidence": [
         "stood-38",
+        "razed-38",
         "tour"
       ],
       "links": [
         {
           "kind": "structure",
-          "id": "house_1828_prairie",
+          "id": "marsh_house_1824_prairie",
           "label": "About this building"
         }
       ],
@@ -839,9 +839,9 @@
       "id": "stop-39",
       "destination": {
         "kind": "structure",
-        "id": "elbridge_keith_house_1900_prairie"
+        "id": "house_1828_prairie"
       },
-      "text": "Elbridge Keith House, 1900 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: 6 of the pictures on the Images tab show it. Next: 1918 Prairie.",
+      "text": "1828 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 2 solved pictures, 0 matching. Pictured: 3 of the pictures on the Images tab show it. Next: Elbridge Keith House, 1900 Prairie.",
       "read_s": 15,
       "evidence": [
         "stood-39",
@@ -850,7 +850,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "elbridge_keith_house_1900_prairie",
+          "id": "house_1828_prairie",
           "label": "About this building"
         }
       ],
@@ -860,10 +860,10 @@
       "id": "stop-40",
       "destination": {
         "kind": "structure",
-        "id": "house_1918_prairie"
+        "id": "elbridge_keith_house_1900_prairie"
       },
-      "text": "1918 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: a picture on the Images tab shows it. Next: Mayer House, 2009 Prairie.",
-      "read_s": 14,
+      "text": "Elbridge Keith House, 1900 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: 6 of the pictures on the Images tab show it. Next: 1918 Prairie.",
+      "read_s": 15,
       "evidence": [
         "stood-40",
         "tour"
@@ -871,7 +871,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "house_1918_prairie",
+          "id": "elbridge_keith_house_1900_prairie",
           "label": "About this building"
         }
       ],
@@ -881,19 +881,18 @@
       "id": "stop-41",
       "destination": {
         "kind": "structure",
-        "id": "mayer_house_2009_prairie"
+        "id": "house_1918_prairie"
       },
-      "text": "Mayer House, 2009 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 2 solved pictures, 0 matching. Pictured: 2 of the pictures on the Images tab show it. RAZED 1955. Next: Dent House, 1823 Prairie.",
-      "read_s": 16,
+      "text": "1918 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 1 solved picture, 0 matching. Pictured: a picture on the Images tab shows it. Next: Mayer House, 2009 Prairie.",
+      "read_s": 14,
       "evidence": [
         "stood-41",
-        "razed-41",
         "tour"
       ],
       "links": [
         {
           "kind": "structure",
-          "id": "mayer_house_2009_prairie",
+          "id": "house_1918_prairie",
           "label": "About this building"
         }
       ],
@@ -903,9 +902,9 @@
       "id": "stop-42",
       "destination": {
         "kind": "structure",
-        "id": "dent_house_1823_prairie"
+        "id": "mayer_house_2009_prairie"
       },
-      "text": "Dent House, 1823 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 2 solved pictures, 0 matching. Pictured: 2 of the pictures on the Images tab show it. RAZED 1945. Next: Sears-Meeker House, 1815 Prairie.",
+      "text": "Mayer House, 2009 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 2 solved pictures, 0 matching. Pictured: 2 of the pictures on the Images tab show it. RAZED 1955. Next: Dent House, 1823 Prairie.",
       "read_s": 16,
       "evidence": [
         "stood-42",
@@ -915,7 +914,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "dent_house_1823_prairie",
+          "id": "mayer_house_2009_prairie",
           "label": "About this building"
         }
       ],
@@ -925,9 +924,9 @@
       "id": "stop-43",
       "destination": {
         "kind": "structure",
-        "id": "sears_meeker_house_1815_prairie"
+        "id": "dent_house_1823_prairie"
       },
-      "text": "Sears-Meeker House, 1815 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 2 solved pictures, 0 matching. Pictured: 5 of the pictures on the Images tab show it. RAZED 1967. Next: 1730 Prairie.",
+      "text": "Dent House, 1823 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 2 solved pictures, 0 matching. Pictured: 2 of the pictures on the Images tab show it. RAZED 1945. Next: Sears-Meeker House, 1815 Prairie.",
       "read_s": 16,
       "evidence": [
         "stood-43",
@@ -937,7 +936,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "sears_meeker_house_1815_prairie",
+          "id": "dent_house_1823_prairie",
           "label": "About this building"
         }
       ],
@@ -947,18 +946,19 @@
       "id": "stop-44",
       "destination": {
         "kind": "structure",
-        "id": "house_1730_prairie"
+        "id": "sears_meeker_house_1815_prairie"
       },
-      "text": "1730 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Pictured: a picture on the Images tab shows it. Next: 1726 Prairie.",
-      "read_s": 10,
+      "text": "Sears-Meeker House, 1815 Prairie. DETAIL 3/5: a kit build checked against its picture, not matching yet; 2 solved pictures, 0 matching. Pictured: 5 of the pictures on the Images tab show it. RAZED 1967. Next: 1730 Prairie.",
+      "read_s": 16,
       "evidence": [
         "stood-44",
+        "razed-44",
         "tour"
       ],
       "links": [
         {
           "kind": "structure",
-          "id": "house_1730_prairie",
+          "id": "sears_meeker_house_1815_prairie",
           "label": "About this building"
         }
       ],
@@ -968,10 +968,10 @@
       "id": "stop-45",
       "destination": {
         "kind": "structure",
-        "id": "house_1726_prairie"
+        "id": "house_1730_prairie"
       },
-      "text": "1726 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1712 Prairie.",
-      "read_s": 12,
+      "text": "1730 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Pictured: a picture on the Images tab shows it. Next: 1726 Prairie.",
+      "read_s": 10,
       "evidence": [
         "stood-45",
         "tour"
@@ -979,7 +979,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "house_1726_prairie",
+          "id": "house_1730_prairie",
           "label": "About this building"
         }
       ],
@@ -989,9 +989,9 @@
       "id": "stop-46",
       "destination": {
         "kind": "structure",
-        "id": "house_1712_prairie"
+        "id": "house_1726_prairie"
       },
-      "text": "1712 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1634 Prairie.",
+      "text": "1726 Prairie. DETAIL 2/5: a kit build, no picture solved against it yet. Known from maps or written records; no picture of it has been found. Next: 1634 Prairie.",
       "read_s": 12,
       "evidence": [
         "stood-46",
@@ -1000,7 +1000,7 @@
       "links": [
         {
           "kind": "structure",
-          "id": "house_1712_prairie",
+          "id": "house_1726_prairie",
           "label": "About this building"
         }
       ],
@@ -1563,6 +1563,15 @@
     },
     {
       "id": "stood-36",
+      "text": "1712 Prairie stood on 1 July 1904, as its structure record carries it.",
+      "sources": [
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "confidence": "inferred",
+      "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
+    },
+    {
+      "id": "stood-37",
       "text": "Henderson House, 1816 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28"
@@ -1571,7 +1580,7 @@
       "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped), and the photograph (after 1873) shows the same plan. Its building and loss dates are not read here."
     },
     {
-      "id": "stood-37",
+      "id": "stood-38",
       "text": "Pomeroy-Marsh House, 1824 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28",
@@ -1581,7 +1590,7 @@
       "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped). Built 1857 for Samuel B. Pomeroy (the marker), refaced in stone by George B. Marsh after he bought it in 1880 (the Glessner House Museum blog); the automobile photograph (about 1897-1906) shows the new front."
     },
     {
-      "id": "razed-37",
+      "id": "razed-38",
       "text": "Samuel B. Pomeroy Residence, 1824 S. Prairie Avenue: razed in the 1940s.",
       "confidence": "attested",
       "sources": [
@@ -1590,7 +1599,7 @@
       "locator": "The 1824 S. Prairie Avenue entry and its photograph caption."
     },
     {
-      "id": "stood-38",
+      "id": "stood-39",
       "text": "1828 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28"
@@ -1599,7 +1608,7 @@
       "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped), and Shipman is at 1828 in the 1904 directory (Chicagology's page). The automobile photograph (about 1897-1906) shows the house in or near 1904."
     },
     {
-      "id": "stood-39",
+      "id": "stood-40",
       "text": "Elbridge Keith House, 1900 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28",
@@ -1609,7 +1618,7 @@
       "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped). The museum's post dates the mansard and a rear addition to the 1880s, before the target; the house still stands."
     },
     {
-      "id": "stood-40",
+      "id": "stood-41",
       "text": "1918 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28",
@@ -1619,7 +1628,7 @@
       "reasoning": "The 1904 target to the 1911 sheet that draws the house: built 1869-70 (Tribune), the T-1841 census rules it present in 1904 (present_as_mapped), and it was razed in 1915 after the Hump Hairpin Company bought it in 1912."
     },
     {
-      "id": "stood-41",
+      "id": "stood-42",
       "text": "Mayer House, 2009 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_35",
@@ -1629,7 +1638,7 @@
       "reasoning": "Built 1888 (the marker) and drawn on the 1911 sheet, which the T-1842 census rules present in 1904 (present_as_mapped). The record claims the 1904 target to the sheet's date and no more."
     },
     {
-      "id": "razed-41",
+      "id": "razed-42",
       "text": "Max A. Meyer Residence, 2009 S. Prairie Avenue: razed 1955.",
       "confidence": "attested",
       "sources": [
@@ -1638,7 +1647,7 @@
       "locator": "The 2009 S. Prairie Avenue entry."
     },
     {
-      "id": "stood-42",
+      "id": "stood-43",
       "text": "Dent House, 1823 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28"
@@ -1647,7 +1656,7 @@
       "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped). The engraving is undated; the 1883 album vignette draws the same composition two years after the house was built, and nothing read so far records an alteration before 1904."
     },
     {
-      "id": "razed-42",
+      "id": "razed-43",
       "text": "Thomas Dent Residence, 1823 S. Prairie Avenue: razed 1945.",
       "confidence": "attested",
       "sources": [
@@ -1656,7 +1665,7 @@
       "locator": "The 1823 S. Prairie Avenue entry."
     },
     {
-      "id": "stood-43",
+      "id": "stood-44",
       "text": "Sears-Meeker House, 1815 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28"
@@ -1665,7 +1674,7 @@
       "reasoning": "The 1904 target to the 1911 sheet that draws the house: the T-1841 census rules it present in 1904 (present_as_mapped). The photographs are undated; their dating is in the match record."
     },
     {
-      "id": "razed-43",
+      "id": "razed-44",
       "text": "Joseph Sears Residence, 1815 S. Prairie Avenue: razed 1967.",
       "confidence": "attested",
       "sources": [
@@ -1674,7 +1683,7 @@
       "locator": "The 1815 S. Prairie Avenue entry."
     },
     {
-      "id": "stood-44",
+      "id": "stood-45",
       "text": "1730 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
@@ -1683,17 +1692,8 @@
       "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
     },
     {
-      "id": "stood-45",
-      "text": "1726 Prairie stood on 1 July 1904, as its structure record carries it.",
-      "sources": [
-        "sanborn_1911_chicago_v3_sheet_20"
-      ],
-      "confidence": "inferred",
-      "reasoning": "The draft claims the 1904 target and no more: the 1911 sheet draws the building and the T-1840 census rules it present in 1904 (present_as_mapped). Its building and loss dates are the per-building ticket's to read."
-    },
-    {
       "id": "stood-46",
-      "text": "1712 Prairie stood on 1 July 1904, as its structure record carries it.",
+      "text": "1726 Prairie stood on 1 July 1904, as its structure record carries it.",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_20"
       ],
