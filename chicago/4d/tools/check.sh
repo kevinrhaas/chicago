@@ -1461,6 +1461,13 @@ step "a K01 hooded dormer's shelf may be slated as its hood is (T-1890)" \
 step "a K01 mansard deck's cross roof may end under a slated hood, its finial on the apex (T-1890)" \
   python3 tools/test_k01_cross_roof_hood.py
 
+# T-1890. 1801 Prairie's south return (HABS photograph 1): the chamfer's stone cheek run back to
+# the slate with a light in it and a capped top, and the house's slate set back behind it over
+# the corner: bad returns and lights refused, no slate left in front of the return's back edge,
+# a chamfer without either as before.
+step "a K08 chamfer's cheek may run back as a return with a light, the K01 slate set back behind it (T-1890)" \
+  python3 tools/test_k01_chamfer_return.py
+
 # T-1890. 1801 Prairie's east range (HABS photograph 2): its 18th Street end pitched steeper
 # than its sides to an apex 2.7 m back, and a stone stack standing on that apex — the first a
 # K01 wing carries: bad ends, a stack outside the wall line or under the slate refused; an end

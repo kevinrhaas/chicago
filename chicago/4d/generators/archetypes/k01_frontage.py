@@ -4825,6 +4825,22 @@ class Assembly:
                        [(D - behind, s0 - 1.0), (D + 2.0, s0 - 1.0), (D + 2.0, s0 + along), (D + proud, s0 + along),
                         (D - behind, s0)])
                 out.append(k5.extrude(cut, yf - 0.5, top if ct is None else ct, P, "return", "wall", "wall"))
+                # T-1890: over a canted face stopped under its cornice, the house's slate set back
+                # behind the corner (1801's, HABS photograph 1: the mansard stands back behind the
+                # round bay's balcony and the pavilion's stone return runs out to it, where the
+                # build's slate came down at the wall plane in front of the return). The roof is cut
+                # from the cant's top to the curb on the plane through the hip's foot
+                # at the eave's corner and the return's back edge, `chamfer_return` back_m [at the cant's
+                # top, at the return's top] behind the wall's face, so the hip keeps its foot and the
+                # stone runs back to the slate; the cut's faces are in the covering. North of the
+                # return it reaches as deep as a light in the return is set, behind the stone and
+                # the cross roof's slated cheek, so the light's recess is clear
+                rb = b["variant"]["plan"].get("chamfer_return")
+                if rb is not None:
+                    if side != "right" or b["wall"] != "k01.wall.street_front" or ct is None:
+                        raise ValueError(f"{b['id']}: the slate is set back behind a right chamfer's return on "
+                                         f"the street front, over a canted face stopped under its cornice")
+                    out += self.return_setback(b, s1, along, ct, rb, k5)
                 # T-1890: and inside the canted face, as deep as a light's recess on it reaches
                 # (1801's over its round bay, HABS photograph 1), on hidden faces as the box's are:
                 # the cut above closes in the cant's own plane, over the light's opening. Up to
@@ -4867,6 +4883,57 @@ class Assembly:
             outer = [(D + proud, s0), (D + 2.0, s0), (D + 2.0, s1), (D + proud, s1)]
             out.append(k5.extrude(outer, yf - 0.5, self.p.eave_m + 0.3, P, "return", "wall", "wall"))
         return out
+
+    def return_setback(self, b, s1, along, ct, rb, k5):
+        """T-1890: the solid shallow_bay_cutters takes out of the roof over a right chamfer's
+        corner where the pavilion's stone return runs back to the slate (1801's, HABS photograph
+        1): between the cant's top and the pavilion's wall top, everything on the corner's side
+        of the plane through the eave's corner (the hip's foot, the eave overhang out from the
+        walls' corner) and the return's back edge, from `rb`[0] behind the wall's face at the
+        cant's top to `rb`[1] at the wall top. Two rings, each the box round the corner cut on
+        that plane's trace at its height; both must cut it the same way, so the faces are planar."""
+        from . import k08_bays as K8
+        D, E, o = self.p.depth_m, self.p.eave_m, self.p.eave_overhang_m
+        bv = b["variant"]
+        y_wt = float(rb["top_m"]) + (0.0 if bv.get("base", "grade") == "grade" else float(bv["base"]))
+        lt = bv["plan"].get("chamfer_light")
+        reach = (float(lt.get("recess_m", K8.part(bv, K8.load(), "recess")["depth_m"])) + 0.05
+                 if lt is not None else 0.02)
+        vc = s1 - along
+        c0 = (D + o, s1 + o, E)                                   # (u, v, y): the eave's corner
+        r0, r1 = (D - float(rb["back_m"][0]), vc, ct), (D - float(rb["back_m"][1]), vc, y_wt)
+        a = [r0[i] - c0[i] for i in range(3)]
+        e = [r1[i] - c0[i] for i in range(3)]
+        n = (a[1] * e[2] - a[2] * e[1], a[2] * e[0] - a[0] * e[2], a[0] * e[1] - a[1] * e[0])
+        side = lambda u, v, y: n[0] * (u - c0[0]) + n[1] * (v - c0[1]) + n[2] * (y - c0[2])
+        far = side(D + 2.0, s1 + 2.0, ct)
+
+        def solid(ya, yb, north):
+            box = [(D - 6.0, north), (D + 2.0, north), (D + 2.0, s1 + 2.0), (D - 6.0, s1 + 2.0)]
+            rings = []
+            for y in (ya, yb):
+                f = [side(u, v, y) * far for u, v in box]
+                ring = []
+                for i in range(4):
+                    (pu, pv), (qu, qv), fp, fq = box[i], box[(i + 1) % 4], f[i], f[(i + 1) % 4]
+                    if fp >= 0.0:
+                        ring.append((pu, pv))
+                    if (fp >= 0.0) != (fq >= 0.0):
+                        t = fp / (fp - fq)
+                        ring.append((pu + t * (qu - pu), pv + t * (qv - pv)))
+                rings.append((y, [(u, -v) for u, v in ring]))
+            if len(rings[0][1]) != len(rings[1][1]) or len(rings[0][1]) < 3:
+                raise ValueError(f"{b['id']}: the return's back edge {rb} m behind the wall cuts the roof's "
+                                 f"corner differently at {ya:.3f} and {yb:.3f} m")
+            return k5.ring_stack(rings, ["covering"], "covering", "covering")
+        # up to the wall top as deep as the light's recess, and on up over the return to the curb
+        # on the same plane, which leaves the slate there (no ceiling over the return's top)
+        y_curb = E + float(self.p.mansard["lower_rise_m"])
+        if not ct + 0.5 <= y_wt < y_curb - 0.5:
+            raise ValueError(f"{b['id']}: a return's slate set back stands between its cant's top and its "
+                             f"mansard's curb")
+        self.meta_return = {"plane_normal": [round(q, 4) for q in n]}
+        return [solid(ct - 0.01, y_wt, vc - reach), solid(y_wt - 0.01, y_curb - 0.05, vc - 0.02)]
 
     @staticmethod
     def chamfer_top(b):
