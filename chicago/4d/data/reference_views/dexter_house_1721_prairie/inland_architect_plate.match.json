@@ -2,7 +2,7 @@
   "structure_id": "dexter_house_1721_prairie",
   "view": "inland_architect_plate",
   "glb": "assets/gltf/dexter_house_1721_prairie__as_mapped_1904.glb",
-  "glb_sha256": "7fd31b1da5606084d7ee8532130e27ebfbd8b23e601c4a299d147c74d081b2f5",
+  "glb_sha256": "9fdc077f358c93b79b603c1a6b743bac9381cd88133336c96eb5bc3f554bbeb3",
   "camera_sha256": "3da664e85e8113d4743c4b2b60543e98cbe9fd9997109602c8a3215fff050000",
   "photo_sha256": "b461a8115204b2394f5a6d464842c508687a32ac6381408ef1a7d108ad01d442",
   "side_by_side": "docs/RESEARCH/photo-match/dexter_house_1721_prairie/inland_architect_plate-side-by-side.jpg",
@@ -54,7 +54,7 @@
       "how": "T-1879: the stack moved to v 4.6 m and its top to 16.9 m over grade (top at y 205 px through this camera)"
     },
     {
-      "what": "the north flank: one column of openings about 4 m back from the front corner \u2014 a window at the third floor, a small oval light at the second, a narrow slot at the principal floor \u2014 and blank wall otherwise, where the record had two columns of windows",
+      "what": "the north flank: one column of openings about 4 m back from the front corner — a window at the third floor, a small oval light at the second, a narrow slot at the principal floor — and blank wall otherwise, where the record had two columns of windows",
       "status": "fixed",
       "how": "T-1879: side_bays read off this picture (K01's south wall is this house's north wall in its frame)"
     },
@@ -99,15 +99,25 @@
       "how": "behind the street trees from x 1000 px on"
     },
     {
-      "what": "the south wall, the rear and the rear wing",
+      "what": "the low stone coping along the walk either side of the stair's foot, the walk straight in to the stair",
+      "status": "fixed",
+      "how": "T-3205: a low coping 0.4 m with 0.9 m posts at the opening, the flagged walk from the public walk to the stair; the render's coping meets the stair's cheeks as the plate's does, within about 0.3 m (docs/RESEARCH/house-boundaries-T-3205/AUDIT.md)"
+    },
+    {
+      "what": "the south wall and the rear",
       "status": "not shown",
       "how": "outside the picture"
     },
     {
-      "what": "the low stone coping along the walk either side of the stair's foot, the walk straight in to the stair",
+      "what": "the 1863 frame house at the left rear (x 345-440 px): clapboarded, with a two-storey bay window on its north side under a balustrade and a steep gable over it, where the record had a flat-decked brick wing",
       "status": "fixed",
-      "how": "T-3205: a low coping 0.4 m with 0.9 m posts at the opening, the flagged walk from the public walk to the stair; the render's coping meets the stair's cheeks as the plate's does, within about 0.3 m (docs/RESEARCH/house-boundaries-T-3205/AUDIT.md)"
+      "how": "T-3566: the rear range is now that frame house, clapboarded and gabled (rear_wings[].clapboard), seen past the north flank as the plate sees it"
+    },
+    {
+      "what": "the plate's frame block itself, its north bay window and the cross gable over it",
+      "status": "not shown",
+      "how": "in 1891 the brick front stood on the street line and this block was the frame house's front part, directly behind it; the 1901-02 removal of the front to the building line (Tribune, 28 Nov. 1901; the 1911 sheet draws it 9.7 m back) set it on this part, so in 1904 the bay and that gable stood where the brick block is. The range behind, which the record builds, is the 1911 sheet's"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }
