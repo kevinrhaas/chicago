@@ -228,6 +228,36 @@ for (const [key, d] of Object.entries(summary)) assert(Math.max(...d) - Math.min
   V.disposeVariants(sources);
   assert(disposed >= 4, 'disposeVariants frees them with their source'); }
 
+// T-3572: the fit a source keeps for all its wearers, and the bounded search for where a
+// garment sits on the varied body, give exactly what a first fit gives: a person built on a
+// source two others have worn is, to the bit, the same person built on a freshly parsed one.
+for (const [asset, lod] of [['potawatomi_man_1812', 2], ['flynn_mary_1835_dress_study', 0], ['private_first_infantry_1812', 3]]) {
+  const worn = await figure(asset, lod);
+  for (const key of ['t3572_a', 't3572_b']) V.applyVariation(SK.clone(worn), kit, V.personVariation({ kit, key, assetId: asset }));
+  const p = V.personVariation({ kit, key: 't3572_c', assetId: asset });
+  const again = SK.clone(worn), fresh = await figure(asset, lod);
+  V.applyVariation(again, kit, p); V.applyVariation(fresh, kit, p);
+  const geoms = (scene) => { const g = []; scene.traverse((o) => { if (o.isSkinnedMesh) g.push(o.geometry); }); return g; };
+  const ga = geoms(again), gb = geoms(fresh);
+  assert.equal(ga.length, gb.length);
+  ga.forEach((g, i) => { for (const att of ['position', 'normal']) assert.deepEqual(g.attributes[att].array, gb[i].attributes[att].array, `${asset} lod${lod}: ${att} of mesh ${i} as a first fit gives`); });
+  assert.equal(again.scale.x, fresh.scale.x);
+}
+// ...and nearestBounded is nearest, ties included, on a lattice with doubled points.
+{ const rand = V.seededRandom('t3572'), lattice = () => Math.round((rand() - 0.5) * 60) * 0.004;
+  const pts = new Float32Array(3000 * 3);
+  for (let i = 0; i < pts.length; i++) pts[i] = lattice();
+  for (let i = 0; i < 300; i++) pts.copyWithin((2700 + i) * 3, i * 3, i * 3 + 3);   // seam twins
+  const grid = V.pointGrid(pts, 3, 0.03), q = new Float32Array(2000 * 3);
+  for (let i = 0; i < q.length; i++) q[i] = lattice() * (i % 7 ? 1 : 4);
+  const bound2 = new Float64Array(2000);
+  for (let k = 0; k < 2000; k++) {
+    const j = Math.floor(rand() * 3000); let b = 0;
+    for (let c = 0; c < 3; c++) b += (pts[j * 3 + c] - q[k * 3 + c]) ** 2;
+    bound2[k] = k % 11 ? b : Infinity;
+  }
+  assert.deepEqual(V.nearestBounded(grid, q, bound2), V.nearest(grid, q), 'the bounded search finds what the full one finds'); }
+
 // Not an hm08 body (the CI fixture): left as drawn.
 { const scene = await figure('c4d_fixture', 0);
   assert.equal(V.applyVariation(scene, kit, V.personVariation({ kit, key: 'x' })), null); }

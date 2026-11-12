@@ -704,6 +704,17 @@
           "value": [
             {
               "id": "rear_wing",
+              "fabric": "frame",
+              "clapboard": {
+                "exposure_m": 0.115,
+                "butt_m": 0.018,
+                "corner_m": 0.15,
+                "paint": [
+                  0.4,
+                  0.36,
+                  0.27
+                ]
+              },
               "rect": [
                 -19.9,
                 0.0,
@@ -745,15 +756,51 @@
                 ]
               },
               "roof": {
-                "kind": "flat",
-                "overhang_m": 0.3,
-                "fascia_m": 0.35,
-                "covering": "painted_tin_sheet"
-              }
+                "kind": "gable",
+                "gable_to": "rear",
+                "pitch_deg": 45,
+                "overhang_m": 0.45,
+                "fascia_m": 0.3,
+                "covering": "slate_pennsylvania"
+              },
+              "stacks": [
+                {
+                  "u_m": -5.2,
+                  "v_m": 3.1,
+                  "plan_m": [
+                    0.7,
+                    1.1
+                  ],
+                  "top_m": 15.0,
+                  "cap_proud_m": 0.06,
+                  "cap_depth_m": 0.2
+                },
+                {
+                  "u_m": -15.6,
+                  "v_m": 3.1,
+                  "plan_m": [
+                    0.7,
+                    1.1
+                  ],
+                  "top_m": 15.0,
+                  "cap_proud_m": 0.06,
+                  "cap_depth_m": 0.2
+                }
+              ]
             },
             {
               "id": "rear_frame_piece",
               "fabric": "frame",
+              "clapboard": {
+                "exposure_m": 0.115,
+                "butt_m": 0.018,
+                "corner_m": 0.15,
+                "paint": [
+                  0.4,
+                  0.36,
+                  0.27
+                ]
+              },
               "rect": [
                 -22.4,
                 -19.9,
@@ -786,9 +833,12 @@
           ],
           "confidence": "inferred",
           "sources": [
-            "sanborn_1911_chicago_v3_sheet_20"
+            "sanborn_1911_chicago_v3_sheet_20",
+            "robinson_1886_chicago_plate_10",
+            "inland_architect_1891_06_dexter_plate",
+            "loc_det_4a08065_pullman_residence"
           ],
-          "note": "The 1911 sheet's 'long 2B brick rear wing with 1-storey frame pieces at both ends' (census s20-1721-a1): the brick wing from the main rear wall to u -19.9, from the north wall (v 0) to v 6.2; the frame pieces at its east end (trace p3, p4) as one frame room to u -22.4. Its windows are reconstructed: no picture shows it."
+          "note": "The rear range is Wirt Dexter's frame house of 1863, the part of it left standing behind Arthur Little's brick front (T-3566, the owner's request, 2026-11-12). PLAN: the 1911 sheet's long '2B' rear range (census s20-1721-a1), from the main rear wall to u -19.9 and from the north wall (v 0) to v 6.2, with the one-storey frame pieces at its east end (trace p3, p4) as one frame room to u -22.4. FABRIC: frame. Robinson's 1886 plate 10 colours the house yellow, its frame sign, a long house on the north lot line set back about 34 ft and running back about 100 ft, which is where this range stands; the 1891 Inland Architect plate draws its north side clapboarded behind the brick front's north flank; the Detroit print (1893-1901) shows it from the south-west, a two-storey clapboarded range under a slated gable with tall chimneys. The 1911 sheet colours the range brick: the sheet and the three pictures disagree, the pictures are read (docs/RESEARCH/k01-1721-frame-house-3566/README.md). FORM: two storeys under a gable whose ridge runs back from the main block to a gable on the rear wall, slated, eaves 0.45 m deep; two tall brick stacks astride the ridge, the Detroit print's tall chimneys. The pitch, the stacks' places and heights and the clapboards' exposure are reconstructed (liberty L-k01-1721-frame-house-3566); the paint is reconstructed, a stone drab such as a frame house of 1863 imitating stone wore, which both monochrome pictures read mid-light. Its windows are the record's earlier ones, reconstructed: the Detroit print sees this side through trees and the plate only its north end."
         },
         "window_shutters": {
           "value": {
