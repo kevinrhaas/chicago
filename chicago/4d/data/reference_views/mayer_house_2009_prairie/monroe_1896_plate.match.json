@@ -1,0 +1,69 @@
+{
+  "structure_id": "mayer_house_2009_prairie",
+  "view": "monroe_1896_plate",
+  "glb": "assets/gltf/mayer_house_2009_prairie__as_mapped_1904.glb",
+  "glb_sha256": "79e533edd65c1e6e4c4485220774634fc99b3ade128ec5c33531d35d5323f15a",
+  "camera_sha256": "d98181642ec45e22a99b63f7a01ac58f196c7f975e883c522bb83eb59bb2aa4a",
+  "photo_sha256": "089359f4783e3d4720a3f8d0eead6bbdd71f01925f321b74406a50454e10c3ca",
+  "side_by_side": "docs/RESEARCH/photo-match/mayer_house_2009_prairie/monroe_1896_plate-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "the front's composition and proportions: 23 points read on both pictures fit one scale and one level camera square to the front at 3.8 px RMS (0.13 m), so the plate draws the same front the photograph shows, and the build laid to the photograph stands on the plate's lines: the ogee gable's outline and crest, the attic light, the paired light, the oriel, the ground window, the door under its three pinnacles, the small light and the stoop overlay the pen lines within a few pixels (T-3365)",
+      "status": "fixed"
+    },
+    {
+      "what": "the crest's top and the three basement lights drawn about 0.28 m higher than the build's (8 px), the largest residuals of the fit; the oriel's lights about 0.25 m taller at their head",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the gable's south foot: the plate's coping runs on down past the paired light's hood to the party side at about the same place as the build's run-on, where the right-hand tree takes it",
+      "status": "fixed"
+    },
+    {
+      "what": "the gable's coping drawn as a heavy rolled band, broader than the build's, and the roof slope north of the gable read as the coping's own shading: a pen's weight, not a form",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the gable's pendant drawn as a foliate finial over the hood where the build draws stepped blocks, and the oriel's frieze as large carved cartouches where the build lays rings (the photograph's record holds both within tolerance)",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the basement's three lights drawn filled with scrolled ironwork where the photograph shows plain dark openings and the build glazed lights: the two pictures disagree, and the photograph is read as the better witness of a detail this small",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the near tall stack: on the build's place and width, its cap drawn about 0.5 m lower than the render's where the photograph's camera puts the top within 0.1 m: two pictures disagree",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the second north stack: the plate draws none over the gable's north slope, and from this camera the build's rear stack hides behind the near one as the plate has it (this is what fixed the eye's place; see the camera's solve)",
+      "status": "fixed"
+    },
+    {
+      "what": "the stack at the plate's left edge (x 165-185 px in the vignette): about 1.5 m or more north of the north wall through this camera, so 2005's, as the photograph's record reads its far stack",
+      "status": "not shown"
+    },
+    {
+      "what": "the north flank and the near stack's breast: the left-hand tree covers them",
+      "status": "not shown"
+    },
+    {
+      "what": "the paired light's group and the course under it: both pictures draw them falling to the south while the front's verticals stand plumb, so neither picture is turned. The photograph's hood top falls from y 545 to 590 px across x 650-935 (about 0.16) and the course from about 9.84 m at s 1.1 m (x 500, y 742 px) to a point at about 9.08 m at s 6.65 m (x 1055, y 818 px), short of the party line; the plate's hood falls about 0.06 and its course about 0.11, from about 9.8 m near the north corner (page x 425, y 723) to about 9.16 m at s 6.4 m. The build lays the hood level and the course level at 9.05-9.2 m across the whole front, so at the north end it stands about 0.6 m under the pictures'. The two are not independent witnesses of this: the plate is drawn from about the photograph's own place, perhaps from the photograph, and a sheared print would carry into it. Whether the front's upper courses really fall (a settled or a deliberately raking course) or the print is sheared is not settled by these two pictures; it wants a third picture of the front, or a reading of the brick's bed joints across the paired light's storey",
+      "status": "open"
+    },
+    {
+      "what": "the two leafy trees either side of the front: not this record's (the parkway's and the yard's trees)",
+      "status": "open"
+    },
+    {
+      "what": "colour: a pen drawing; the stacks' brick, the front's red-brown and the basement's brownstone are the photograph's record's and the register's to say",
+      "status": "not shown"
+    },
+    {
+      "what": "the walk, the parkway and the street before the house: the plate's ground, not this record's",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}
