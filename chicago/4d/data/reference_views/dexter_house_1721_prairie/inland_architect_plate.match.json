@@ -2,9 +2,50 @@
   "structure_id": "dexter_house_1721_prairie",
   "view": "inland_architect_plate",
   "glb": "assets/gltf/dexter_house_1721_prairie__as_mapped_1904.glb",
-  "glb_sha256": "9fdc077f358c93b79b603c1a6b743bac9381cd88133336c96eb5bc3f554bbeb3",
-  "camera_sha256": "3da664e85e8113d4743c4b2b60543e98cbe9fd9997109602c8a3215fff050000",
+  "glb_sha256": "4ffc1d518e87af00167dd65e3effc56a4c162034ddd363f4d36f25a7cd1d9829",
+  "camera_sha256": "5b375a5470416a2308a1d32f678eb41dda6d3b82c2291640fefe5ebaec9f3eec",
   "photo_sha256": "b461a8115204b2394f5a6d464842c508687a32ac6381408ef1a7d108ad01d442",
+  "rendered_members": [
+    {
+      "structure_id": "dexter_house_1721_prairie",
+      "glb": "assets/gltf/dexter_house_1721_prairie__as_mapped_1904.glb",
+      "placement": {
+        "local_e": 1432.826,
+        "local_n": -3132.173,
+        "rotation_deg": 179.607,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_mapped_1904"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "4ffc1d518e87af00167dd65e3effc56a4c162034ddd363f4d36f25a7cd1d9829"
+    },
+    {
+      "structure_id": "dexter_house_1721_prairie_frame_house",
+      "glb": "assets/gltf/dexter_house_1721_prairie_frame_house__as_standing_1904.glb",
+      "placement": {
+        "local_e": 1432.826,
+        "local_n": -3132.173,
+        "rotation_deg": 89.607,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_standing_1904"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation_y": 1.5707963267948966,
+      "glb_sha256": "8911bade035b44228ac7355dcfca04c6b3580dbbe101974ff68d55cc89d2907e"
+    }
+  ],
+  "group_sha256": "8e349d0158f40431ead901b33af84defd4f2beff171030a135f0b613ec75f5df",
   "side_by_side": "docs/RESEARCH/photo-match/dexter_house_1721_prairie/inland_architect_plate-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
@@ -109,15 +150,16 @@
       "how": "outside the picture"
     },
     {
-      "what": "the 1863 frame house at the left rear (x 345-440 px): clapboarded, with a two-storey bay window on its north side under a balustrade and a steep gable over it, where the record had a flat-decked brick wing",
+      "what": "the 1863 frame house at the left rear (x 345-440 px): clapboarded, two storeys, behind the brick front's north flank; built as its own record, dexter_house_1721_prairie_frame_house, rendered here",
       "status": "fixed",
       "how": "T-3566: the rear range is now that frame house, clapboarded and gabled (rear_wings[].clapboard), seen past the north flank as the plate sees it"
     },
     {
-      "what": "the plate's frame block itself, its north bay window and the cross gable over it",
+      "what": "the plate's frame block's north bay window under a balustrade and the steep cross gable over it, on the part of the frame house the brick front was moved onto in 1901-02",
       "status": "not shown",
       "how": "in 1891 the brick front stood on the street line and this block was the frame house's front part, directly behind it; the 1901-02 removal of the front to the building line (Tribune, 28 Nov. 1901; the 1911 sheet draws it 9.7 m back) set it on this part, so in 1904 the bay and that gable stood where the brick block is. The range behind, which the record builds, is the 1911 sheet's"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
+  "reviewed": "2026-11-12"
 }

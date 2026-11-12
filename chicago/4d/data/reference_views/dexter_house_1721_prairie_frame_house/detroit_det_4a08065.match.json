@@ -1,0 +1,187 @@
+{
+  "structure_id": "dexter_house_1721_prairie_frame_house",
+  "view": "detroit_det_4a08065",
+  "glb": "assets/gltf/dexter_house_1721_prairie_frame_house__as_standing_1904.glb",
+  "glb_sha256": "8911bade035b44228ac7355dcfca04c6b3580dbbe101974ff68d55cc89d2907e",
+  "camera_sha256": "43ac460f7a76509ca6c7598724e34cee16b45365d9d1b0ec68a7a75132e1e55c",
+  "photo_sha256": "60140932328aa19142c1545028a1b2afee6767d3aff79cff3d98cd27cbc87d8c",
+  "rendered_members": [
+    {
+      "structure_id": "dexter_house_1721_prairie_frame_house",
+      "glb": "assets/gltf/dexter_house_1721_prairie_frame_house__as_standing_1904.glb",
+      "placement": {
+        "local_e": 1432.826,
+        "local_n": -3132.173,
+        "rotation_deg": 89.607,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_standing_1904"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "8911bade035b44228ac7355dcfca04c6b3580dbbe101974ff68d55cc89d2907e"
+    },
+    {
+      "structure_id": "pullman_house_1729_prairie",
+      "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
+      "placement": {
+        "local_e": 1456.371,
+        "local_n": -3167.542,
+        "rotation_deg": 179.611,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_mapped_1904"
+      },
+      "position": [
+        35.529665263644176,
+        0,
+        -23.301846970860698
+      ],
+      "rotation_y": -1.5708661399649761,
+      "glb_sha256": "968ac3f1a0a55b4c5a44645336d4ce0b08a24dc1971398cb7d6a4181d557528b"
+    },
+    {
+      "structure_id": "dexter_house_1721_prairie_coach_house",
+      "glb": "assets/gltf/dexter_house_1721_prairie_coach_house__as_standing_1904.glb",
+      "placement": {
+        "local_e": 1477.678,
+        "local_n": -3138.326,
+        "rotation_deg": -0.393,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_standing_1904"
+      },
+      "position": [
+        6.460499170403911,
+        0,
+        -44.808740927069366
+      ],
+      "rotation_y": 1.5707963267948966,
+      "glb_sha256": "092e76dcde4f57f85b6803868ac97f553702cd02eea73151a1b85ae24c85947c"
+    }
+  ],
+  "group_sha256": "83f208728aae4264497f87fd77f8eee4d9cdbaa902987254619a8ba9a01f7fa9",
+  "rendered_flora": {
+    "season": "winter",
+    "creeper_in_leaf": true,
+    "lots": [
+      {
+        "parcel": "prairie_1729",
+        "shrubs": 29,
+        "trees": 3,
+        "beds": 0,
+        "creeper": 54
+      },
+      {
+        "parcel": "prairie_1721",
+        "shrubs": 1,
+        "trees": 0,
+        "beds": 0,
+        "creeper": 0
+      }
+    ],
+    "street_trees": 32,
+    "street_trees_m": 70
+  },
+  "flora_anchor": {
+    "local_e": 1432.826,
+    "local_n": -3132.173,
+    "rotation_deg": 89.607,
+    "scene": "1904",
+    "target_date": "1904-07-01",
+    "phase": "as_standing_1904"
+  },
+  "flora_renderer_sources": [
+    {
+      "file": "tools/photo_match.mjs",
+      "sha256": "75e452b467c22fc5d00cd4b512706c364c942d181869e504f7218ea25167a79c"
+    },
+    {
+      "file": "tools/photo_match_flora.mjs",
+      "sha256": "c973a45041a77a11ea32e30302cdc3eda3dc5516ad715fb0b1e14060f08b5c87"
+    },
+    {
+      "file": "renderers/web/js/front-yards.js",
+      "sha256": "1d76c4415a93713c9e01d4b8400d4dbb0175f88a8eadb3414a66b7666f3be2ff"
+    },
+    {
+      "file": "renderers/web/js/street-trees.js",
+      "sha256": "90d02b3e6b6ac5d1ab27a0eb3088f72719a8c1f59a7624dd833db80b127268f2"
+    },
+    {
+      "file": "renderers/web/js/tree-instances.js",
+      "sha256": "a103f17c2d5a18b12a39126c62c539dd69ad9a118939254589b0b579d4cb9c61"
+    },
+    {
+      "file": "renderers/web/js/tree-model.js",
+      "sha256": "1ec46dc2bfb15d13dab2260c022b31d4ee88b7302aab5be62069b2eaf5e198e2"
+    },
+    {
+      "file": "renderers/web/js/tree-surface.js",
+      "sha256": "23dec0e5dda80547d8ee2ae86f1400fb1a4af2bd54ca0b53d7fe8d52f088cc84"
+    },
+    {
+      "file": "renderers/web/js/season.js",
+      "sha256": "8407ba119eef8e26e1bfb4bf1d9dd2c4786d2981165f2d232fe53d2347a9bda7"
+    },
+    {
+      "file": "renderers/web/js/trees.js",
+      "sha256": "7429b5e761fd94cc348bcea6b781637f13f202da3111b102ffac8d9c3f7283fd"
+    }
+  ],
+  "flora_sha256": "b2959cea3f73ee321078d35e21cee6ffc5a659ad71ea8985080422c58c19186e",
+  "side_by_side": "docs/RESEARCH/photo-match/dexter_house_1721_prairie_frame_house/detroit_det_4a08065-side-by-side.jpg",
+  "verdict": "matches",
+  "differences": [
+    {
+      "what": "the south front's axis: the porch's middle, the door and the window over the porch (x about 168 px) and the two wings' gable peaks either side of it (x about 115 and 220 px, y 369 and 380), the front symmetrical about it as the owner read it",
+      "status": "fixed"
+    },
+    {
+      "what": "each wing a two-storey canted bay under a bracketed gable, paired sash in its front and a light in each cant on both storeys (the lower pairs at x 115-131 and 212-230 px)",
+      "status": "fixed"
+    },
+    {
+      "what": "the recessed middle: the arched porch on four posts across it, six risers up (its floor at y about 480), the door, and over the porch one window with louvred blinds (x 147-161, y 413-437 px)",
+      "status": "fixed"
+    },
+    {
+      "what": "the eaves at about 8.5 m (y about 402 px at the middle), the hipped main roof's ridge behind the gables (y about 379), boxed and bracketed",
+      "status": "fixed"
+    },
+    {
+      "what": "the stacks: the pair close either side of the middle (x 120-131 and 150-165 px, tops y 346-349) and the one over the east wing (x 185-200, top y 361)",
+      "status": "fixed"
+    },
+    {
+      "what": "the fourth stack, over the west wing, built to the owner's symmetry (x about 40-50 px)",
+      "status": "not shown"
+    },
+    {
+      "what": "the stacks are drawn a little broader than the print's (about 2 px each side)",
+      "status": "within tolerance"
+    },
+    {
+      "what": "how far the wings and their bays stand out from the middle: the print sees the front almost square on",
+      "status": "not shown"
+    },
+    {
+      "what": "the house's west end, the pale clapboarded part beside Little's front (x 20-110 px): the part the brick front was moved onto in 1901-02, not built for 1904; the moved brick front itself is left out of this render, which the print predates",
+      "status": "not shown"
+    },
+    {
+      "what": "the walls' and roof's colours: the print is monochrome",
+      "status": "not shown"
+    },
+    {
+      "what": "the porch's arched spandrels read as open fretwork in the print and are built as the kit's plain arcade",
+      "status": "within tolerance"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
+  "reviewed": "2026-11-12"
+}

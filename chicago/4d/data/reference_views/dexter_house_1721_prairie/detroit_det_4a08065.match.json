@@ -2,8 +2,8 @@
   "structure_id": "dexter_house_1721_prairie",
   "view": "detroit_det_4a08065",
   "glb": "assets/gltf/dexter_house_1721_prairie__as_mapped_1904.glb",
-  "glb_sha256": "9fdc077f358c93b79b603c1a6b743bac9381cd88133336c96eb5bc3f554bbeb3",
-  "camera_sha256": "df832f54e5e3b555b1331689f9670497ed1a8ef2133ed5e77a86e2f0f6abf4e4",
+  "glb_sha256": "4ffc1d518e87af00167dd65e3effc56a4c162034ddd363f4d36f25a7cd1d9829",
+  "camera_sha256": "9e424a60e35afb5a661d66ccd616ffe374c16cebe0f43c74d2edbcb5b9737a73",
   "photo_sha256": "60140932328aa19142c1545028a1b2afee6767d3aff79cff3d98cd27cbc87d8c",
   "rendered_members": [
     {
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "9fdc077f358c93b79b603c1a6b743bac9381cd88133336c96eb5bc3f554bbeb3"
+      "glb_sha256": "4ffc1d518e87af00167dd65e3effc56a4c162034ddd363f4d36f25a7cd1d9829"
     },
     {
       "structure_id": "pullman_house_1729_prairie",
@@ -62,9 +62,28 @@
       ],
       "rotation_y": 3.141592653589793,
       "glb_sha256": "092e76dcde4f57f85b6803868ac97f553702cd02eea73151a1b85ae24c85947c"
+    },
+    {
+      "structure_id": "dexter_house_1721_prairie_frame_house",
+      "glb": "assets/gltf/dexter_house_1721_prairie_frame_house__as_standing_1904.glb",
+      "placement": {
+        "local_e": 1432.826,
+        "local_n": -3132.173,
+        "rotation_deg": 89.607,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_standing_1904"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation_y": 1.5707963267948966,
+      "glb_sha256": "8911bade035b44228ac7355dcfca04c6b3580dbbe101974ff68d55cc89d2907e"
     }
   ],
-  "group_sha256": "93e0daff2ffa17f4214fde2bb05fa8ab67eb1e3edb19930db9fa56535ba7c0b5",
+  "group_sha256": "2c6c9b966fd37e9b1554ffd656689cf4acfe7394f5c7645b7a75f3b1b1ce36fa",
   "rendered_flora": {
     "season": "winter",
     "creeper_in_leaf": true,
@@ -138,29 +157,12 @@
   "verdict": "matches",
   "differences": [
     {
-      "what": "the 1863 frame house behind the brick front (x about 150-250 px): a two-storey range, its walls clapboarded and painted a mid tone a shade darker than Little's pale front, under a slated roof with tall brick chimneys, where the record had stood a flat-decked brick wing",
-      "status": "fixed",
-      "how": "T-3566: the 1911 sheet's rear range rebuilt as a frame wing lapped in clapboards (rear_wings[].clapboard, 0.115 m to the weather) under a 45 degree slated gable whose ridge runs back from the main block, with two brick stacks to 15.0 m astride the ridge; its eave lands within about 5 px of the print's"
+      "what": "the 1863 frame house behind the brick front (x about 110-250 px) is its own record, dexter_house_1721_prairie_frame_house, rendered here behind the 1904 front; its south front is matched to this print in that record's own view",
+      "status": "fixed"
     },
     {
-      "what": "the frame house's front half as the print shows it, west of x about 155 px: its columned porch, its two tallest chimneys and its south face as far as Little's front",
-      "status": "not shown",
-      "how": "the print is of 1893-1901, before the brick front was taken off the street line and set back to the building line (Tribune, 28 Nov. 1901: the sale required it rebuilt or moved back; the 1911 sheet draws it 9.7 m back). Set back, the front block stands on that part of the frame house, so in 1904 the porch and those stacks were gone or behind it; the record builds what the 1911 sheet keeps behind the block"
-    },
-    {
-      "what": "the print's frame house runs about 40 px (about 4 m at 113 m) further east than the rendered two-storey range, whose east end is the 1911 sheet's",
-      "status": "within tolerance",
-      "how": "a gap a pre-1902 picture and the post-1902 map disagree about, inside the sheet fit's own 3.08 m RMS; the sheet draws a one-storey frame room in that place, built as such, and is the nearer to 1904"
-    },
-    {
-      "what": "the roof's rise: the print's ridge behind the trees reads up to about 1 m lower than the 45 degree gable",
-      "status": "within tolerance",
-      "how": "the ridge is read through branches and is not legible to a metre; K04 slates nothing under 45 degrees on the 3 in headlap its slates are cut for, and the 1891 plate draws the frame house's gables steep"
-    },
-    {
-      "what": "the frame house's colour",
-      "status": "not shown",
-      "how": "a monochrome print: the stone drab is reconstructed (docs/LIBERTIES.md L-k01-1721-frame-house-3566), set by the print's reading the frame walls a little darker than the pale front"
+      "what": "the print shows the house before Little's front was moved back in 1901-02: in 1904 the brick front stands where the frame house's west end was, so the render's pale three-storey block covers what the print shows at x 85-155 px",
+      "status": "not shown"
     },
     {
       "what": "Little's brick front at the left edge (x 30-110 px) and the Pullman house",
@@ -168,5 +170,6 @@
       "how": "the front stands about 10 m further west in the print than in 1904 (the move above), and is the plate's view's business; the Pullman house is its own records' (data/reference_views/pullman_house_1729_prairie/)"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
+  "reviewed": "2026-11-12"
 }
