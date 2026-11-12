@@ -3683,9 +3683,9 @@
     "marsh_house_1824_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 5327656,
+      "bytes": 5098588,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "cebcabdcaae40b7c30c23672350ac5d4d5400d2f2057cca6d5261fd04904c183",
+      "inputs_sha256": "7cfe6da8ff07e3453d0b3d6c834a309d622dd2281fcfaf03064395847fc51819",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "marsh_house_1824_prairie"

@@ -35626,6 +35626,13 @@ builds what is open, and brings the match records to `matches`.
 **Ticket:** T-3167 (piece 2 of T-1887).
 **Review:** `docs/RESEARCH/k01-1824-marsh-3167/README.md`.
 **Recorded:** 2026-10-26 (T-3167).
+**The flanks' light finish built by T-1887 (2026-11-12):** the flanks, the rear range and the stacks are
+painted over their brick (`form.wall_finish`, opaque, K01's paint opened to a stone-fronted house), the
+stone front left as cut. Read: the Pomeroy photograph's light walls on the south flank and the lower
+block, and the automobile photograph's light south flank north of 1828's porch. Invented: the colour
+(both prints are monochrome; a pale stone colour, a little darker than the front, is RECONSTRUCTED) and
+whether it is paint or stucco (laid as paint over the brick's map). The rest of 'What is not built'
+above stands.
 
 ### L-pullman-1729-portico-3159 — 1729 Prairie's portico off the Detroit print: two columns and the flight read, the rest of the row and the balustrade's section reconstructed
 

@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2895, ts: '2026-11-12T16:12:55.438Z', date: 'Nov 12, 2026, 10:12 AM CT', title: '1824 Prairie\'s old villa walls painted light again', kind: 'improvement',
+    items: [
+      'In 1904, the sides and back of 1824 Prairie Avenue are now a pale stone colour instead of bare buff brick, and its chimneys match.',
+      'When the house got its new stone front around 1880, the rest of the 1857 villa was kept. An older photograph shows those walls light, and a photograph from about 1900 shows the south side still light. The exact colour is our reconstruction.',
+    ] },
   { v: 2894, ts: '2026-11-12T15:13:12.515Z', date: 'Nov 12, 2026, 9:13 AM CT', title: '1936 Prairie\'s railed roof deck sits where its photograph shows it', kind: 'improvement',
     items: [
       'In 1904, the railed lookout on top of the Thompson-Allerton house at 1936 Prairie Avenue is now smaller. It stops about a metre short of the front and well short of the north side, as the house\'s photograph shows it. It used to run almost the whole length of the roof.',
