@@ -138,6 +138,12 @@
       "asset": "gltf/forsyth_house_1635_prairie__draft_1904.glb"
     },
     {
+      "id": "fort_dearborn_massacre_monument_1893",
+      "name": "The Fort Dearborn Massacre monument (Carl Rohl-Smith, 1893), 18th Street at Calumet Avenue",
+      "sidecar": "sidecars/1904/fort_dearborn_massacre_monument_1893.json",
+      "asset": "gltf/fort_dearborn_massacre_monument_1893__on_18th_street_1893.glb"
+    },
+    {
       "id": "george_glessner_house_1706_prairie",
       "name": "1706 Prairie Avenue — George Glessner Georgian townhouse, south of the pair, K01 frontage assembly",
       "sidecar": "sidecars/1904/george_glessner_house_1706_prairie.json",

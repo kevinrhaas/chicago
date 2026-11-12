@@ -43648,3 +43648,31 @@ or a read bill of sale; a planting account locating the trees rather than merely
 
 **Ticket:** T-3551.
 **Recorded:** 2026-11-11.
+
+### L-fort-dearborn-monument-3567 — The Fort Dearborn Massacre monument in 1904: its depths, its figures' modelling, the lettering and the panels' reliefs
+
+**Decision:** Carl Rohl-Smith's bronze group *The Fort Dearborn Massacre* (1893) stands in the 1904
+scene on its granite pedestal at the east end of 18th Street's north walk, as
+`fort_dearborn_massacre_monument_1893` on a new pure-Python `monument` archetype. **That it stood
+there from 1893 to 1931, its five figures and their places, the pedestal's steps, die, panel and cap
+and their proportions are the photographs'** (the Barnes-Crosby view ICHi-19208, checked on J. W.
+Taylor's 1893 view), with the group's "about nine feet" from Wikipedia. **These are this project's:**
+
+- **The depths.** No picture used here sees the pedestal's sides squarely, so the base's, plinth's
+  and die's depths are the widths less margins the group needs (base 3.3 m, plinth 2.3, die 1.9).
+- **The figures' modelling.** Each figure is joined from tapered limbs and balls in the pose the
+  photographs show, at about 0.2 m; faces, hair, dress folds, the feathers' number, the weapons'
+  detail and the whole of the group's rear (no photograph used here shows it; the Inter Ocean's
+  rear sketch of 1892 bounds it) are not modelled. One bronze colour, a dark brown patina; the
+  photographs are monochrome.
+- **The panels' reliefs** are flat bronze plates, and **the lettering** under the front panel
+  (THE FORT DEARBORN MASSACRE / AUGUST 15, 1812 / BLACK PARTRIDGE SAVING MRS. HELM) is not cut.
+- **Its place** is good to about 3 m until cameras are solved on its photographs (T-3568).
+
+The figures are period sculpture, built as the sculptor made them; the record carries
+`review_required` with its reason, and the card says how the work was received.
+
+**Covers:** `fort_dearborn_massacre_monument_1893.on_18th_street_1893.form.base_d_m`, `fort_dearborn_massacre_monument_1893.on_18th_street_1893.form.plinth_d_m`, `fort_dearborn_massacre_monument_1893.on_18th_street_1893.form.die_d_m`, `fort_dearborn_massacre_monument_1893.on_18th_street_1893.form.lettering`.
+
+**Ticket:** T-3567 (piece 1 of T-3565).
+**Recorded:** 2026-11-12.
