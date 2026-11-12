@@ -2,7 +2,7 @@
   "structure_id": "house_1828_prairie",
   "view": "glessner_partial",
   "glb": "assets/gltf/house_1828_prairie__as_mapped_1904.glb",
-  "glb_sha256": "0e4dc9d12d64a45efb95fbf5c889a8d2d79074583cff249a9451e00949151062",
+  "glb_sha256": "c5bb8d99d9eabe2092c700272aba91af868cee8a47869a4c8843781eaac4dba9",
   "camera_sha256": "8f9167ca5a55f920dd6ede2b7a979f0e261e05fbd0e457e4d755c1c6d41d17a5",
   "photo_sha256": "c2b23da61891304ec9e26a3793b1ee7875a59cd816b51873e5cb684a28333334",
   "side_by_side": "docs/RESEARCH/photo-match/house_1828_prairie/glessner_partial-side-by-side.jpg",
@@ -29,7 +29,7 @@
       "how": "T-3168 raised the face from 3.6 to 4.5 m, the most K05/K01 give a one-storey (attic) face; through this camera the curb still renders about 25-30 px (about 1 m) under the print's. A two-storey face (4.5-7.5 m) would build an attic the print does not show, and how much of the gap is real rests on the 1.52 pixel aspect the camera's solve explains"
     },
     {
-      "what": "the street dormers: a tall light in a face about 1.4 m across, the one over the porch at x 110-162, y 110-175",
+      "what": "the street dormer over the porch: a tall light in a face about 1.4 m across, the one over the porch at x 110-162, y 110-175",
       "status": "fixed",
       "how": "T-3168: each light 1.0 x 1.9 m in a 0.2 m surround (from 0.8 x 1.4 in 0.15); the porch's renders at x 100-152 and its head about 20 px under the print's, with the curb"
     },
@@ -40,8 +40,8 @@
     },
     {
       "what": "the canted bay carried up through the cornice into the mansard with a dormer of its own (top left, x 0-35, y 45-140)",
-      "status": "open",
-      "how": "built as a dormer over the bay on the mansard's face (along 2.4 m); the bay's faces stop at the main cornice under their own hip"
+      "status": "fixed",
+      "how": "T-1887: the bay's own mansard crown (K08's, T-1881/T-3283), its face 4.5 m at 78 degrees as the main mansard's, slated as the house, iron cresting on its curb, and a round-headed dormer on its front face (a 0.6 x 1.6 m light in a 0.1 m surround, the most the front run clears of the crown's hips); the main face's dormer over the bay goes, as the print shows none beside the crown. Through this camera the crown's dormer renders at x 2-22, y 115-165 against the print's x 10-45, y 105-190: its face about 0.8 m across where the print's reads about 0.9, under a foot"
     },
     {
       "what": "the iron cresting along the mansard's curb (y 48-62 px)",

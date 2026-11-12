@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2887, ts: '2026-11-12T09:37:23.140Z', date: 'Nov 12, 2026, 3:37 AM CT', title: '1828 Prairie\'s bay rises into the roof as its photograph shows', kind: 'improvement',
+    items: [
+      'The Shipman house\'s canted front bay now carries on up past the cornice under its own slate mansard, with iron cresting round its top and a dormer of its own, as the Glessner House Museum\'s photograph of the house shows it.',
+      'The roof\'s dormer that stood over the bay is gone, since the photograph shows none beside the bay\'s crown.',
+    ] },
   { v: 2886, ts: '2026-11-12T08:17:56.881Z', date: 'Nov 12, 2026, 2:17 AM CT', title: '1936 Prairie\'s south side rises to its cornice', kind: 'improvement',
     items: [
       'In 1904, the Thompson-Allerton house at 1936 Prairie Avenue now carries its south bay up to the main cornice, as its photograph shows. The bay used to stop two storeys up under a small roof of its own.',
