@@ -97,8 +97,19 @@ LANDING_M = 1.1            # the landing at the door, out from the wall, where t
 SILL_MAX_M = 1.5           # a back door stands no higher than this over the house's bed
 DOOR_W_M = 0.95
 DOOR_H_M = 2.2
-GRADE_DOOR_H_M = 2.0       # a kitchen door at grade, under a high first floor's windows
+GRADE_DOOR_H_M = 1.9       # a kitchen door at grade, under a high first floor's windows (T-3554: a
+                           # basement kitchen's low door, its casing's head 0.14 m over the leaf
+                           # clearing a first-floor window sill at 2.3 m)
 WINDOW_CLEAR_M = 0.3       # a back door's leaf stands this far clear of a window's glass, in plan
+# T-3554 (owner, 2026-11-12): a back door stands IN its house's built wall. Nine level rays cast at
+# the door from the yard (three heights up the leaf, at its two jambs and its middle) all strike the
+# model's wall: within WALL_FLAT_M of one another, square to the yard within WALL_SQUARE_DEG, and on
+# no window. Before this, the rear profile was read off the district's house raster, which carries
+# the Sanborn trace as well as the model, and 56 of 121 doors stood 0.4-24 m out in the yard.
+WALL_FLAT_M = 0.06
+WALL_SQUARE_DEG = 4.0
+DOOR_ON_WALL_M = 0.12      # --check: each ray strikes the wall within this of the door's own plane
+NOT_WALL_MATS = ("glass", "sash", "window", "draft_glass", "k12_glass", "k16_glass", "door_leaf")
 SURFACE_LIFT_M = 0.03      # a yard surface's top over the terrain
 TURF_LIFT_M = 0.05         # ... over a kit's baked lawn (K14's LAWN_Y 0.035), so it is not buried in it
 TURN_COST = 6.0            # a walk's turn costs this many cells of straight run
@@ -161,6 +172,8 @@ class District:
         self.turf = np.zeros(plan.tall.shape, bool)             # a kit's baked lawn
         self.sids: list[str] = []
         self.meta: dict[str, dict] = {}
+        self.tris: dict[str, tuple] = {}
+        self.mass = np.zeros(plan.tall.shape, bool)              # every model's plan, solid
         tracked = F.tracked_models()
         for f in sorted(SIDECARS.glob("*.json")):
             sc = json.loads(f.read_text())
@@ -176,6 +189,14 @@ class District:
             self.sids.append(sc["id"])
             self.meta[sc["id"]] = self._meta(sc)
             self.meta[sc["id"]].update(self._lay(k, pl, F.read_glb(glb)))
+        # T-3554: the house raster is the models' walls AND the Sanborn trace; where a model stands
+        # and the trace reaches past it (a rear wing the model does not build), that is open yard in
+        # the scene. A trace with no model anywhere in it is kept whole (it is the only plan there).
+        mass = ndimage.binary_dilation(self.mass, iterations=1)
+        comp, _n = ndimage.label(self.house)
+        modelled = np.unique(comp[mass & (comp > 0)])
+        phantom = np.isin(comp, modelled[modelled > 0]) & ~mass & (self.owner < 0)
+        self.house = self.house & ~phantom
 
     def _meta(self, sc):
         sid, arch = sc["id"], sc.get("archetype") or ""
@@ -208,6 +229,8 @@ class District:
         e, n = place["local_e"], place["local_n"]
         glass, doors = [], []
         tall = np.zeros(plan.tall.shape, bool)
+        mass = np.zeros(plan.tall.shape, bool)
+        keep_t, keep_m = [], []
         for mat, pos, idx in prims:
             we = e + pos[:, 0] * cd - pos[:, 2] * sd
             wn = n - pos[:, 0] * sd - pos[:, 2] * cd
@@ -223,6 +246,11 @@ class District:
             stand = (lo < F.LOW_TOP_M) & (hi > F.FLAT_M) & (hi >= F.TALL_M)
             if stand.any():
                 plan.lay_triangles(tall, tri[stand])
+            up = hi > 1.0
+            if up.any():
+                plan.lay_triangles(mass, tri[up])
+            keep_t.append(np.concatenate([tri, ty[:, :, None]], axis=2).astype(np.float32))
+            keep_m.extend([name] * len(tri))
             if name in GLASS_MATS or name.endswith("_glass"):
                 c = tri.mean(axis=1)
                 for (ge, gn), a, b in zip(c, lo, hi):
@@ -231,6 +259,17 @@ class District:
                 for i in range(len(tri)):
                     doors.append((float(tri[i, :, 0].mean()), float(tri[i, :, 1].mean()), float(lo[i]), float(hi[i])))
         self.owner[tall & (self.owner < 0)] = k
+        rows, cols = np.nonzero(mass)
+        if len(rows):
+            # the closing and filling on the model's own window of the raster (the district's whole
+            # raster, once a model, cost a minute)
+            r0, r1 = max(0, rows.min() - 6), min(mass.shape[0], rows.max() + 7)
+            c0, c1 = max(0, cols.min() - 6), min(mass.shape[1], cols.max() + 7)
+            sub = mass[r0:r1, c0:c1]
+            sub = ndimage.binary_fill_holes(ndimage.binary_closing(sub, iterations=2)) | sub
+            self.mass[r0:r1, c0:c1] |= sub
+        T = np.concatenate(keep_t) if keep_t else np.zeros((0, 3, 3), np.float32)
+        self.tris[self.sids[k]] = (T, np.asarray(keep_m), T.min(axis=1), T.max(axis=1))
         # door leaves into one door each (their triangles' centres within 1.2 m)
         merged = []
         for de_, dn, lo, hi in doors:
@@ -299,6 +338,7 @@ class Lot:
         r = np.clip(np.floor((N - plan.n0) / RES).astype(int), 0, plan.h - 1)
         c = np.clip(np.floor((E - plan.e0) / RES).astype(int), 0, plan.w - 1)
         self.inlot = F.inside(E, N, poly)
+        self.r, self.c = r, c
         self.owner = dist.owner[r, c]
         self.house = dist.house[r, c]
         self.low = plan.low[r, c]
@@ -393,6 +433,97 @@ class Lot:
         return not out.any()
 
 
+
+# ---------------------------------------------------------------- a door in its wall (T-3554)
+
+def level_rays(model, origins, direction, reach=60.0):
+    """Level rays from `origins` [(e, n, y)] along the plan `direction` (de, dn) at `model`, a
+    District.tris entry, as far as `reach`: per ray (distance, plan normal facing back along the
+    ray, material), or (inf, None, None) where it strikes nothing."""
+    T, mats, tlo, thi = model
+    if not len(T) or not len(origins):
+        return [(math.inf, None, None)] * len(origins)
+    O = np.asarray(origins, float)                                    # (M, 3)
+    dv = np.array([direction[0], direction[1], 0.0])
+    # only the triangles the rays' sweep can meet
+    ends = O[:, :2] + reach * dv[:2]
+    lo = np.minimum(O[:, :2].min(axis=0), ends.min(axis=0)) - 0.05
+    hi = np.maximum(O[:, :2].max(axis=0), ends.max(axis=0)) + 0.05
+    near = ((thi[:, 0] >= lo[0]) & (tlo[:, 0] <= hi[0]) & (thi[:, 1] >= lo[1]) & (tlo[:, 1] <= hi[1])
+            & (thi[:, 2] >= O[:, 2].min()) & (tlo[:, 2] <= O[:, 2].max()))
+    if not near.any():
+        return [(math.inf, None, None)] * len(origins)
+    T, mats = T[near], mats[near]
+    v0 = T[:, 0].astype(np.float64)
+    e1 = (T[:, 1] - T[:, 0]).astype(np.float64)
+    e2 = (T[:, 2] - T[:, 0]).astype(np.float64)
+    ylo, yhi = T[:, :, 2].min(axis=1), T[:, :, 2].max(axis=1)
+    pv = np.cross(dv, e2)                                             # (N, 3), the same for every ray
+    det = (e1 * pv).sum(axis=1)
+    ok = np.abs(det) > 1e-9
+    inv = np.where(ok, 1.0 / np.where(ok, det, 1.0), 0.0)
+    sv = O[:, None, :] - v0[None, :, :]                               # (M, N, 3)
+    u = (sv * pv[None]).sum(axis=2) * inv[None]
+    qv = np.cross(sv, e1[None])
+    v = (qv * dv).sum(axis=2) * inv[None]
+    t = (qv * e2[None]).sum(axis=2) * inv[None]
+    span = (ylo[None] <= O[:, 2:3]) & (yhi[None] >= O[:, 2:3])
+    hit = ok[None] & span & (u >= 0) & (v >= 0) & (u + v <= 1) & (t > 1e-6)
+    tt = np.where(hit, t, np.inf)
+    first = np.argmin(tt, axis=1)
+    out = []
+    for m, i in enumerate(first):
+        if not math.isfinite(tt[m, i]):
+            out.append((math.inf, None, None))
+            continue
+        nrm = np.cross(e1[i], e2[i])[:2]
+        L = float(np.hypot(*nrm))
+        nrm = nrm / L if L > 1e-12 else np.zeros(2)
+        if nrm @ dv[:2] > 0:
+            nrm = -nrm
+        out.append((float(tt[m, i]), nrm, str(mats[i])))
+    return out
+
+
+def clip_model(model, e0, n0, e1, n1):
+    """A District.tris entry cut to the triangles whose plan box meets [e0, e1] x [n0, n1]."""
+    T, mats, lo, hi = model
+    if not len(T):
+        return model
+    keep = (hi[:, 0] >= e0) & (lo[:, 0] <= e1) & (hi[:, 1] >= n0) & (lo[:, 1] <= n1)
+    return T[keep], mats[keep], lo[keep], hi[keep]
+
+
+def door_rays(e, n, facing_deg, sill, height, width, back_m=3.0):
+    """The nine rays a door is checked with: from `back_m` out in the yard, at its jambs and middle,
+    at three heights up its leaf, cast square at the wall. -> (origins, direction)."""
+    f = math.radians(facing_deg)
+    ue, un = math.sin(f), math.cos(f)          # out of the wall
+    ae, an = un, -ue                           # along it
+    half = width / 2 - 0.08
+    origins = [(e + ue * back_m + ae * off, n + un * back_m + an * off, h)
+               for off in (-half, 0.0, half) for h in (sill + 0.3, sill + height * 0.55, sill + height - 0.2)]
+    return origins, (-ue, -un)
+
+
+def on_wall(model, e, n, facing_deg, sill, height, width, back_m=3.0):
+    """Whether a door at (e, n) facing `facing_deg` stands in `model`'s wall: every ray strikes it,
+    within WALL_FLAT_M of one another, square to the door within WALL_SQUARE_DEG, on no glass.
+    -> (ok, mean distance in from the door's plane (+ is into the house), why)."""
+    origins, dv = door_rays(e, n, facing_deg, sill, height, width, back_m)
+    hits = level_rays(model, origins, dv, reach=back_m + 1.5)
+    if any(not math.isfinite(t) for t, _nrm, _m in hits):
+        return False, None, "a ray through the door strikes no wall"
+    ts = np.array([t for t, _nrm, _m in hits]) - back_m
+    if any(any(w in m for w in NOT_WALL_MATS) for _t, _nrm, m in hits):
+        return False, float(ts.mean()), "a window or another door is in its way"
+    if float(ts.max() - ts.min()) > WALL_FLAT_M:
+        return False, float(ts.mean()), f"the wall is not flat across it ({ts.max() - ts.min():.2f} m)"
+    sq = min(float(-(nrm @ np.array(dv))) for _t, nrm, _m in hits)
+    if sq < math.cos(math.radians(WALL_SQUARE_DEG)):
+        return False, float(ts.mean()), "the wall is not square to it"
+    return True, float(ts.mean()), ""
+
 # ---------------------------------------------------------------- the pieces
 
 def back_door(L: Lot, rng):
@@ -410,6 +541,30 @@ def back_door(L: Lot, rng):
         rows = np.where(H[:, c])[0]
         rear_d[c] = L.D[rows.max(), c] + RES / 2
     s_of = L.S[0]
+    # T-3554: where the model's wall stands at a door's height, per column: a level ray from the yard
+    # at 1.0 m and at 2.5 m, the rearmost. The raster's rear is the house raster's (walls closed,
+    # trace and all); a column whose raster runs past that wall is cut back to it, so the door, its
+    # steps and its terrace are fitted against the wall that is built.
+    box = np.concatenate([np.asarray(L.p["polygon_local_m"], float)])
+    model = clip_model(DIST.tris[L.main], *(box.min(axis=0) - 2.0), *(box.max(axis=0) + 2.0))
+    for c in cols:
+        far = float(L.D[-1, c]) + 1.0
+        e0, n0 = L.world(float(s_of[c]), far)
+        hits = level_rays(model, [(e0, n0, 1.0), (e0, n0, 2.5)], (-float(L.nu[0]), -float(L.nu[1])),
+                          reach=far - float(L.front) + 1.0)
+        dw = max((far - t for t, _nrm, _m in hits if math.isfinite(t)), default=None)
+        if dw is None or dw >= rear_d[c] - RES:
+            continue
+        cut = H[:, c] & (L.D[:, c] > dw + RES / 2) & (L.owner[:, c] < 0)
+        if cut.any():
+            H[cut, c] = False
+            DIST.house[L.r[cut, c], L.c[cut, c]] = False     # --check reads the same plan
+            L.walls[cut, c] = False
+            L.blocked[cut, c] = L.low[cut, c] | L.other_lot[cut, c] | ~L.inlot[cut, c]
+            rows = np.where(H[:, c])[0]
+            rear_d[c] = L.D[rows.max(), c] + RES / 2 if len(rows) else np.nan
+    L.free_dist = ndimage.distance_transform_edt(~L.blocked) * RES
+    cols = np.where(H.any(axis=0))[0]
     # a model's own rear door: a leaf whose plan point stands within 1 m of the rear profile
     dist_doors = []
     for de_, dn, lo, hi in DIST.meta[L.main]["doors"]:
@@ -433,6 +588,7 @@ def back_door(L: Lot, rng):
     # flight or is clear of the first floor's windows, the door at grade a step up, under them
     # (the raised basement's kitchen door of a house whose first floor stands high).
     tries = [(sill, DOOR_H_M)] + ([(RISER_M, GRADE_DOOR_H_M)] if sill > 2 * RISER_M else [])
+    facing = L.bearing((0.0, 1.0))
     cands = []
     for sill, door_h in tries:
         n = max(1, int(round(sill / RISER_M)))
@@ -453,10 +609,15 @@ def back_door(L: Lot, rng):
             if len(gsd):
                 near = (np.abs(gsd[:, 1] - rd) < 0.7) & (np.abs(gsd[:, 0] - s) < half + WINDOW_CLEAR_M)
                 z = glass[:, 2:4]
-                hit = near & (z[:, 1] > sill - 0.05) & (z[:, 0] < sill + door_h + 0.15)
+                hit = near & (z[:, 1] > sill - 0.05) & (z[:, 0] < sill + door_h + (0.15 if door_h >= DOOR_H_M else 0.1))
                 if hit.any():
                     continue
-            cands.append((s, rd))
+            # T-3554: and the wall is really there, built, flat and square across the leaf
+            e_, n_ = L.world(s, rd)
+            ok, into, _why = on_wall(model, e_, n_, facing, sill, door_h, DOOR_W_M)
+            if not ok or abs(into) > 0.6:
+                continue
+            cands.append((s, rd, rd - into))
         if cands:
             break
     if not cands:
@@ -464,12 +625,15 @@ def back_door(L: Lot, rng):
     # the rearmost stretch (the kitchen's, in the rear wing) and, on it, nearest the side passage
     # the rearmost stretch (the kitchen's, in the rear wing) and, on it, nearest the side passage
     # the yard is widest on
-    rd_max = max(rd for _s, rd in cands)
-    back = [(s, rd) for s, rd in cands if rd >= rd_max - 0.3]
+    rd_max = max(rd for _s, rd, _w in cands)
+    back = [c for c in cands if c[1] >= rd_max - 0.3]
     wide_lo = L.s_lo > (L.width - L.s_hi)
     back.sort(key=lambda t: (t[0] if wide_lo else -t[0]))
     pick = back[min(len(back) - 1, int(len(back) * rng.uniform(0.0, 0.25)))]
-    return {"s": float(pick[0]), "d": float(pick[1]), "sill": sill, "leaf": True, "height": door_h}
+    # `d` is the raster's rear, where the yard's pieces are fitted from; `wall` is where the leaf
+    # stands, in the model's built wall (T-3554)
+    return {"s": float(pick[0]), "d": float(pick[1]), "wall": float(pick[2]), "sill": sill, "leaf": True,
+            "height": door_h}
 
 
 def stoop_extent(sill):
@@ -650,9 +814,10 @@ def lay_lot(p, laundry, disks):
         n, landing, out_m = stoop_extent(door["sill"])
         ds, dd = door["s"], door["d"]
         sw = 1.6 if landing else 1.2
+        dw = door.get("wall", dd)
         doors.append({
             "id": f"{pid}:back_door", "structure": L.main,
-            "e": L.world(ds, dd)[0], "n": L.world(ds, dd)[1],
+            "e": L.world(ds, dw)[0], "n": L.world(ds, dw)[1],
             "facing_deg": L.bearing((0.0, 1.0)),
             "sill_m": r2(door["sill"]), "width_m": DOOR_W_M, "height_m": door["height"],
             "leaf": door["leaf"],
@@ -1020,6 +1185,14 @@ def collisions(data, dist=None) -> list[str]:
                 out.append(f"{lot['parcel']} {dr['id']}: names no 1904 structure")
             if not 0.0 <= dr["sill_m"] <= SILL_MAX_M + 0.6:
                 out.append(f"{lot['parcel']} {dr['id']}: sill {dr['sill_m']} m")
+            # T-3554: a door the layer draws stands in its house's built wall, not out in the yard
+            if dr.get("leaf") and dr["structure"] in dist.tris:
+                ok, into, why = on_wall(clip_model(dist.tris[dr["structure"]], dr["e"] - 5, dr["n"] - 5,
+                                                   dr["e"] + 5, dr["n"] + 5), dr["e"], dr["n"], dr["facing_deg"],
+                                        dr["sill_m"], dr["height_m"], dr["width_m"])
+                if not ok or abs(into) > DOOR_ON_WALL_M:
+                    out.append(f"{lot['parcel']} {dr['id']}: not in its house's wall "
+                               f"({why or f'the wall is {into:+.2f} m from the door'})")
     return out
 
 
@@ -1044,6 +1217,11 @@ def self_test() -> int:
             polygon_local_m=[[x + 40.0, y] for x, y in d["lots"][d["lots"].index(lot)]["surfaces"][0]["polygon_local_m"]]),
         "an unknown material": lambda d: d["lots"][d["lots"].index(lot)]["surfaces"][0].update(material="marble"),
         "a door on no structure": lambda d: d["lots"][d["lots"].index(lot)]["doors"][0].update(structure="nobody"),
+        # T-3554: the fault the owner found at 1626 Prairie, a door and its steps out in the yard
+        "a back door stood out in the yard": lambda d: (lambda dr: dr.update(
+            e=dr["e"] + 2.0 * math.sin(math.radians(dr["facing_deg"])),
+            n=dr["n"] + 2.0 * math.cos(math.radians(dr["facing_deg"]))))(
+            next(x for l in d["lots"] for x in l["doors"] if x.get("leaf"))),
     }
     for name, plant in cases.items():
         d = json.loads(json.dumps(data))
