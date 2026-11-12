@@ -2075,7 +2075,7 @@
       "baked_ao": false,
       "bytes": 8613268,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "d49ceaba8c1ffe2b7ed7c4c1e69a342d822b01dda70ce0f66fa43d3a7a59f022",
+      "inputs_sha256": "e264bc121ebb8685a520046ec784f09e04696ef65c806c80fac71f10755f5cd6",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "house_1918_prairie"
@@ -3754,7 +3754,7 @@
       "baked_ao": false,
       "bytes": 4478080,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "0eb90d523001562c3f899808fa58603d5f6338b74c4f60c7d6f0c2753e20e932",
+      "inputs_sha256": "7798ebcaaf2da465e15e67cf24b0bee2c9b753c89bdc402b29ce5548bb310178",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "mayer_house_2009_prairie"
