@@ -2,6 +2,69 @@
   "note": "T-0216 — dev's standing smoke result, so a branch can answer \"is this red mine, or did I inherit it?\" from the record instead of re-running the stage on a clean worktree (three agents paid that price on one red on 2026-08-27; T-0215). Written by tools/dev-smoke-state.mjs, which parses a smoke log — local or from a chicago-4d-smoke.yml run. Every reading carries the CONDITIONS it was taken under, because a quiet CI runner does not predict a loaded steward box: T-0215 measured a factor of twenty on one tree. loadavg is sampled when the reading is filed, so it includes the smoke's own load. `treeHash` digests exactly what the smoke exercises (renderers, data, assets, smoke_renderer.mjs, the published mirror), so a reading whose hash matches yours is a reading OF YOUR TREE. A RECORD, NOT A BAR: nothing here gates anything. THE PART NUMBERS CHANGED ON 2026-08-30 (T-0346): part 4 was cut into 4, 5 and 6 and the old parts 5-9 became 7-11; then T-0173 halved part 7 (8-11 -> 9-12) and T-0170 halved part 10 (11-12 -> 12-13); on 2026-10-11 T-2337 halved part 10 again (11-14 -> 12-15). A reading filed before any of those is labelled in the OLD numbering of its day. Each of those also carries a treeHash that cannot match a tree containing the cut, so `ask` already reports them as not taken on your tree — but read the stage number as dated rather than current.",
   "readings": [
     {
+      "viewport": "desktop",
+      "stage": "3",
+      "parts": [
+        3
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 107,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 257,
+      "takenAt": "2026-11-12T07:44:56.504Z",
+      "ref": "steward/t3365-2009-monroe-1896-camera",
+      "commit": "c4170e261a45",
+      "devCommit": "01ab120cbb39",
+      "treeHash": "sha256:96c78520f2a7af74",
+      "treeDirty": false,
+      "changelogHash": "sha256:ce7d20f3a8763981",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.1,
+          4.5,
+          4.3
+        ]
+      },
+      "source": "/tmp/m/smoke_d3.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "3,15",
+      "parts": [
+        3,
+        15
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 128,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 402,
+      "takenAt": "2026-11-12T07:44:56.382Z",
+      "ref": "steward/t3365-2009-monroe-1896-camera",
+      "commit": "c4170e261a45",
+      "devCommit": "01ab120cbb39",
+      "treeHash": "sha256:96c78520f2a7af74",
+      "treeDirty": false,
+      "changelogHash": "sha256:ce7d20f3a8763981",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.1,
+          4.5,
+          4.3
+        ]
+      },
+      "source": "/tmp/m/smoke_m.log"
+    },
+    {
       "viewport": "mobile",
       "stage": "3-4",
       "parts": [
@@ -1642,60 +1705,6 @@
         "note": "GitHub-hosted ubuntu-latest; hardware/load not recovered from job log"
       },
       "source": "https://github.com/kevinrhaas/chicago/actions/runs/42851675727/job/129953743206"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "5",
-      "parts": [
-        5
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 30,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 437,
-      "takenAt": "2026-11-10T09:04:48Z",
-      "ref": "steward/t-3533-household-routines",
-      "commit": "2a426e4f91c1",
-      "devCommit": "9d293d140002",
-      "treeHash": "sha256:b1b243d50655c6b1",
-      "treeDirty": false,
-      "changelogHash": "sha256:832274654804b20a",
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-latest, load not recoverable from the log"
-      },
-      "source": "gh-run:42787676968 https://github.com/kevinrhaas/chicago/actions/runs/42787676968"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "5",
-      "parts": [
-        5
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 30,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 785,
-      "takenAt": "2026-11-10T09:04:43Z",
-      "ref": "steward/t-3533-household-routines",
-      "commit": "2a426e4f91c1",
-      "devCommit": "9d293d140002",
-      "treeHash": "sha256:b1b243d50655c6b1",
-      "treeDirty": false,
-      "changelogHash": "sha256:832274654804b20a",
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-latest, load not recoverable from the log"
-      },
-      "source": "gh-run:42787667033 https://github.com/kevinrhaas/chicago/actions/runs/42787667033"
     }
   ]
 }
