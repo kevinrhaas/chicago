@@ -19,7 +19,7 @@ export default register('settings', {
   'sound.effects': 'Effects',
   'sound.ambience': 'Ambience',
   'sound.music': 'Music',
-  'sound.effectsHelp': 'Nearby actions: wagon wheels and harness jingles from moving teams.',
+  'sound.effectsHelp': 'Nearby actions: hoofbeats, wagon wheels and hammering.',
   'sound.ambienceHelp': 'Background environment: wind, lake waves, birds and insects.',
   'sound.off': 'Off',
   'about': "About & What's new",

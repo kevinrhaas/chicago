@@ -14,6 +14,8 @@ import { loadLivery, dressInLivery } from './driver-livery.js';
 import { acquireDraftHorse } from './draft-horse-assets.js';
 import { applyHorseAppearance } from './horse-appearance.js';
 
+let nextHoofAssembly = 0;
+
 /** Actual portable assets, never an identity/wardrobe or idle-only fallback. */
 export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], humanAssets,
   confidence, heightAt, horseSpec, horseSupportDomain, coatRecipe = null, makeHitch, adoptPerson = () => () => {},
@@ -72,6 +74,7 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
   const makeTeam = (row, template, walk) => {
     const group = new THREE.Group(); group.name = `team:${row.id}`;
     const horses = [];
+    const hoofAssembly = ++nextHoofAssembly; let hoofEpoch = 0;
     const retireHorse = horse => {
       horse.appearance?.dispose();
       horse.mixer?.stopAllAction(); horse.mixer?.uncacheRoot(horse.root);
@@ -92,6 +95,9 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
       const action = mixer.clipAction(walk).setLoop(THREE.LoopRepeat, Infinity).play();
       action.paused = true; mixer.setTime(0);
       const savedHorse = row.initial_assembly_state?.horse?.[side === -1 ? 0 : 1];
+      horse.audioId = side === 1 ? 'left' : 'right';
+      horse.hoofNodes = Object.fromEntries(['fore_l', 'hind_r', 'fore_r', 'hind_l']
+        .map(foot => [foot, root.getObjectByName(`${foot}_hoof`)]));
       Object.assign(horse, { action, distance: savedHorse?.distance_m ?? 0, prior: null, x: root.position.x });
     } } catch (error) { for (const horse of horses) retireHorse(horse); throw error; }
     let teamDisposed = false;
@@ -121,7 +127,20 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
           horse.action.paused = true;
         }
       },
-      stop() {}, // Distance-driven mixers freeze at the existing phase, never snap to idle.
+      audioHoofState() {
+        if (sceneId !== '1812' || teamDisposed || !group.visible || horses.some(h => !h.support)) return null;
+        group.updateWorldMatrix(true, true);
+        return { epoch: `${hoofAssembly}:${hoofEpoch}`, horses: horses
+          .filter(h => h.root.visible && Object.values(h.hoofNodes).every(n => n?.isBone))
+          .map(h => ({ id: h.audioId, distanceM: h.distance, strideM: horseSpecCopy.stride_m,
+            modelSha256: horseSpecCopy.sha256, clipSha256: horseSpecCopy.walk_clip_sha256,
+            hooves: Object.fromEntries(Object.entries(h.hoofNodes).map(([foot, node]) => {
+              const p = node.getWorldPosition(new THREE.Vector3());
+              return [foot, { x: p.x, y: p.y, z: p.z }];
+            })),
+          })) };
+      },
+      stop() { hoofEpoch++; }, // Keep the gait phase; a hold invalidates audio crossings.
       snapshot() { return horses.map(horse => ({ distance_m: horse.distance, support: horse.support, ...(horse.appearance.identity ? { appearance: horse.appearance.identity } : {}) })); },
       dispose() {
         if (teamDisposed) return;
