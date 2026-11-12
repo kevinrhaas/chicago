@@ -1,4 +1,15 @@
 export const CHANGELOG = [ // newest first
+  { v: 2892, ts: '2026-11-12T13:05:04.554Z', date: 'Nov 12, 2026, 7:05 AM CT', title: '2009 Prairie\'s north corner and tall stack brought down to the photograph', kind: 'improvement',
+    items: [
+      'The Meyer house at 2009 Prairie is half a metre lower at its north corner. Its low top storey now stops where the old photograph shows the side walls ending, just over the paired window\'s hood.',
+      'The tall chimney on the north side no longer climbs past the top of the photograph. Its cap now stands where the picture puts it, about 16.3 m up.',
+    ] },
+  { v: 2891, ts: '2026-11-12T13:05:04.554Z', date: 'Nov 12, 2026, 7:05 AM CT', title: '1712 Prairie rebuilt to the 1893 drawing of it', kind: 'improvement',
+    items: [
+      'In 1904, 1712 Prairie Avenue is now built to the 1893 Rand McNally street drawing of it. Until now no picture of the house was known, so its front was a guess.',
+      'The door now stands in the middle under a balcony, and every front window is round-headed: paired on the main floor and in the basement, single upstairs. The basement stands higher.',
+      'The roof is a lower hip with no dormer and one tall chimney. It still stands taller than the drawing shows.',
+    ] },
   { v: 2890, ts: '2026-11-12T11:30:11.460Z', date: 'Nov 12, 2026, 5:30 AM CT', title: '1815 Prairie\'s cornice on its stone consoles, and its tall south stack', kind: 'improvement',
     items: [
       'The Sears house\'s main cornice now stands on a close row of carved stone consoles over a frieze, as both old photographs show, and the row turns the corner along the south side.',
