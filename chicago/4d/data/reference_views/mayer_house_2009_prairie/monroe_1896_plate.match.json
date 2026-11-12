@@ -2,7 +2,7 @@
   "structure_id": "mayer_house_2009_prairie",
   "view": "monroe_1896_plate",
   "glb": "assets/gltf/mayer_house_2009_prairie__as_mapped_1904.glb",
-  "glb_sha256": "79e533edd65c1e6e4c4485220774634fc99b3ade128ec5c33531d35d5323f15a",
+  "glb_sha256": "a29715a6766a56be34d4e0b74d15bf1e2c43ba97781a0758ec75c5ed809494e5",
   "camera_sha256": "d98181642ec45e22a99b63f7a01ac58f196c7f975e883c522bb83eb59bb2aa4a",
   "photo_sha256": "089359f4783e3d4720a3f8d0eead6bbdd71f01925f321b74406a50454e10c3ca",
   "side_by_side": "docs/RESEARCH/photo-match/mayer_house_2009_prairie/monroe_1896_plate-side-by-side.jpg",
@@ -49,8 +49,12 @@
       "status": "not shown"
     },
     {
-      "what": "the paired light's group and the course under it: both pictures draw them falling to the south while the front's verticals stand plumb, so neither picture is turned. The photograph's hood top falls from y 545 to 590 px across x 650-935 (about 0.16) and the course from about 9.84 m at s 1.1 m (x 500, y 742 px) to a point at about 9.08 m at s 6.65 m (x 1055, y 818 px), short of the party line; the plate's hood falls about 0.06 and its course about 0.11, from about 9.8 m near the north corner (page x 425, y 723) to about 9.16 m at s 6.4 m. The build lays the hood level and the course level at 9.05-9.2 m across the whole front, so at the north end it stands about 0.6 m under the pictures'. The two are not independent witnesses of this: the plate is drawn from about the photograph's own place, perhaps from the photograph, and a sheared print would carry into it. Whether the front's upper courses really fall (a settled or a deliberately raking course) or the print is sheared is not settled by these two pictures; it wants a third picture of the front, or a reading of the brick's bed joints across the paired light's storey",
-      "status": "open"
+      "what": "the paired light's group and the course under it fall to the south in the plate (its hood about 0.06, its course about 0.11) while this camera, fitted square to the front, renders them level: the photograph's camera, re-solved by T-3365, shows the fall is the view's, not the building's (a camera turned 22.4 degrees south of square; through it the course and hood are level at 9.2 and 11.3 m), and the plate, drawn from about the photograph's place, carries the same turn more gently. Two camera fits differ here, not the house: this camera is still the square fit, its scale taken in the photograph's former square metres, and a turned refit of it is owed",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the oriel's top: the plate draws its carved frieze up nearly to the course, about 0.5-0.6 m over the build's oriel crown (8.45 m), where the photograph shows about 0.5 m of brick between the oriel's moulded top and the course (T-3365); the two pictures disagree, and the photograph is read as the better witness, as for the basement lights",
+      "status": "within tolerance"
     },
     {
       "what": "the two leafy trees either side of the front: not this record's (the parkway's and the yard's trees)",

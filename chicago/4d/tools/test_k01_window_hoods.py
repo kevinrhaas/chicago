@@ -69,8 +69,12 @@ check(len(seats) == 3, f"each hood seated on the front ({len(seats)})")
 # face (its vertices on its bed line, which nothing else of the hood's shares)
 band_u = [q[0] for q in a.prims["limestone_trim"].pos if abs(q[1] - b["bed_m"]) < 1e-6
           and -b["s_m"][1] - 1e-6 < q[2] < -b["s_m"][0] + 1e-6]
-check(band_u and abs(max(band_u) - (p.depth_m + slab + b["proud_m"])) < 1e-6,
-      f"the band stands {b['proud_m']} m proud of the gable's slab, not inside it")
+# T-3365 (2026-11-12): re-read through the photograph's turned camera the band (11.0-11.3 m)
+# stops under the gable's foot (11.5 m), so it stands proud of the brick; a band reaching past
+# the foot stands proud of the slab's face (k01_frontage.window_hoods `face`)
+on = slab if b["top_m"] > p.shaped_gable["foot_m"] + 1e-6 else 0.0
+check(band_u and abs(max(band_u) - (p.depth_m + on + b["proud_m"])) < 1e-6,
+      f"the band stands {b['proud_m']} m proud of the face it is on ({'the gable slab' if on else 'the brick'}), not inside it")
 
 
 def refused(mutate, what):
