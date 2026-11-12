@@ -519,11 +519,14 @@ for (const phone of [true, false]) {
   assert.deepEqual([fakeHud.open, fakeHud.tab], [true, 'settings'], 'and its section is open');
   const visibleTabs = (d) => d.panel.children[0].children.filter((t) => !t.classList.contains('is-elsewhere')).map((t) => t.dataset.tab);
   assert.deepEqual(visibleTabs(dom), ['settings', 'whatsnew'], 'only its own tabs show — two, not eight');
+  // T-3563: Settings draws its own icon tabs (What's new among them), so the section row stands down.
+  assert(dom.panel.classList.contains('has-own-tabs'), 'Settings carries its own tab row');
   assert.equal(dom.byId.get('nav-code').textContent, 'SCR 10 · SETTINGS');
   await nav.select('move');
   assert.equal(dom.panel.parent, dom.byId.get('nav-app-move'), 'Move takes #panel next');
   assert.deepEqual([fakeHud.open, fakeHud.tab], [true, 'travel']);
   assert(dom.panel.classList.contains('has-one-section'), 'one section, no tab row');
+  assert(!dom.panel.classList.contains('has-own-tabs'), 'and Settings\' own row stands down with it');
   await nav.select('home');
   assert.equal(fakeHud.open, false, 'Home closes the section');
   // T-3021: Home's MOVE tile opens Move, and Back from it returns to the app it came from.

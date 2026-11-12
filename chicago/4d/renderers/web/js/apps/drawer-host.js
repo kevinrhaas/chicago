@@ -13,7 +13,8 @@
  *   Move      Travel
  *   People    People · Businesses         (1835; 1904 has its own People screen)
  *   Guide     Controls · Evidence         (Evidence is About this destination, T-2667)
- *   Settings  Settings · What's new       (What's new's dot rides the Settings icon)
+ *   Settings  Settings · What's new       (What's new's dot rides the Settings icon; T-3563:
+ *                                         the card's own icon tabs, What's new among them)
  *
  * Go to is not among them: it is the Jaunts app's own segment (T-2630), the arrival's
  * search lent to the device, so the drawer's Go to list retires with the drawer. Asking
@@ -35,6 +36,8 @@ export const APP_SECTIONS = Object.freeze(Object.entries(SECTION_HOME).reduce((m
 }, {}));
 
 const panelEl = (doc) => doc.getElementById('panel');
+/** The apps whose screen draws its own tab row over the sections (T-3563). */
+const OWN_TABS = new Set(['settings']);
 
 /** The tabs this app shows; the others are left in place but out of sight. */
 function paintTabs(doc, appId) {
@@ -47,6 +50,9 @@ function paintTabs(doc, appId) {
   }
   // One section needs no tab row of its own: the app's header already names it.
   panelEl(doc)?.classList.toggle('has-one-section', shown < 2);
+  // T-3563: Settings carries its own row of tabs (#settings-tabs, js/settings-app.js), What's
+  // new among them, so the section row stands down for it.
+  panelEl(doc)?.classList.toggle('has-own-tabs', OWN_TABS.has(appId));
 }
 
 /**

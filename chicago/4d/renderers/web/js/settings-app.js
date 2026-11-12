@@ -15,6 +15,14 @@
  *   About        the build stamp (js/about.js, T-2629) and What's new. T-2657 adds
  *                Researcher mode here.
  *
+ * T-3563 (the owner, 2026-11-12: "organize that settings card better with tabs and icons at the
+ * top like ... the inspect card ... move whats new to one of those tabs maybe one of the last and
+ * also the research mode should be at the end"): the groups are spread over one row of icon tabs
+ * styled like Inspect's (T-3435): Display (with Machine and Units) · Show · Look (the new mouse
+ * sensitivity, and Movement; not "Controls", which section 03 renamed Guide) · Graphics (Performance) · Sound · About · What's new ·
+ * Research. What's new is still its own HUD section (its key, dot and every route to it stay);
+ * its tab here selects that section, and the bar stays up over it.
+ *
  * Every choice is a key of the HUD's one settings object, stored the way the others are
  * (hud.js `store`, which swallows a refused storage), so nothing here persists on its own.
  * Light or dark keeps its own key, `chicago4d.theme`, which js/skin.js reads before paint.
@@ -62,6 +70,124 @@ export function normalVolume(value, fallback = 1) {
 export function volumeReadout(value) {
   const v = normalVolume(value, 0);
   return v <= 0 ? str('settings.sound.off') : `${Math.round(v * 100)} %`;
+}
+
+/**
+ * Look sensitivity (T-3563; the owner, 2026-11-12: "could you add a setting to adjust the mouse
+ * sensitivity for the app?"). A multiple of the turn the app has always made: the mouse's
+ * PointerLockControls.pointerSpeed (js/controls/pointerlock.js) and, on a touch screen, the
+ * drag-to-look rate (js/controls/touch.js). 1 is Standard, which leaves both as they were.
+ */
+export const LOOK_SPEED = Object.freeze({ min: 0.2, max: 3, step: 0.1, standard: 1 });
+export function normalLookSpeed(value) {
+  const n = Number(value);
+  if (value == null || value === '' || !Number.isFinite(n)) return LOOK_SPEED.standard;
+  return Math.round(Math.min(LOOK_SPEED.max, Math.max(LOOK_SPEED.min, n)) * 10) / 10;
+}
+export function lookSpeedReadout(value) {
+  const v = normalLookSpeed(value);
+  return v === LOOK_SPEED.standard ? str('settings.look.standard') : `${v.toFixed(1)}×`;
+}
+
+/**
+ * The card's tabs, in order (T-3563). Each group in the Settings section names its tab with
+ * `data-set-pane`; `whatsnew` is the HUD's own What's new section, and Research is last.
+ */
+export const SETTINGS_TABS = Object.freeze(['display', 'show', 'look', 'graphics', 'sound', 'about', 'whatsnew', 'research']);
+/** The HUD sections the bar stands over. */
+export const SETTINGS_SECTIONS = Object.freeze(['settings', 'whatsnew']);
+/** Each tab's glyph: single-colour line icons in currentColor, 24-unit box (as Inspect's). */
+const SET_TAB_ICON = Object.freeze({
+  display: '<rect x="3" y="4.5" width="18" height="12" rx="1.5"/><path d="M8.5 20h7M12 16.5V20"/>',
+  show: '<path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.8"/>',
+  look: '<rect x="6.5" y="3" width="11" height="18" rx="5.5"/><path d="M12 3v6.5M6.5 9.5h11"/>',
+  graphics: '<path d="M4.2 17.5a8.5 8.5 0 1 1 15.6 0"/><path d="m12 13.5 4-4.5"/><circle cx="12" cy="13.5" r="1.3"/>',
+  sound: '<path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/>',
+  about: '<circle cx="12" cy="12" r="8.5"/><path d="M12 11v5.5M12 7.6v.4"/>',
+  whatsnew: '<path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2H4.5z"/><path d="M10 20a2 2 0 0 0 4 0"/>',
+  research: '<path d="M9 3h6M10 3v6l-5 9.5A1.7 1.7 0 0 0 6.5 21h11a1.7 1.7 0 0 0 1.5-2.5L14 9V3"/><path d="M7.5 15h9"/>',
+});
+
+/**
+ * Draw and wire the tab bar (#settings-tabs). `selectSection(key)` is the HUD's selectTab and
+ * `section()` reads which HUD section is showing. Returns `paint(section)` (the HUD calls it on
+ * every section change), `select(tab)` and the tab in force, or null without the bar.
+ */
+export function wireSettingsTabs({ doc = globalThis.document, selectSection = () => {}, section = () => null } = {}) {
+  const bar = doc?.getElementById?.('settings-tabs') ?? null;
+  if (!bar) return null;
+  const body = doc.querySelector?.('.panel-body[data-panel="settings"]') ?? null;
+  let pane = SETTINGS_TABS[0];
+  if (!bar.querySelector?.('[data-set-tab]')) {
+    for (const key of SETTINGS_TABS) {
+      const b = doc.createElement('button');
+      b.type = 'button';
+      b.className = 'set-tab';
+      b.id = `set-tab-${key}`;
+      b.dataset.setTab = key;
+      b.setAttribute('role', 'tab');
+      b.innerHTML = `<svg class="set-tab-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${SET_TAB_ICON[key]}</svg>`;
+      const label = doc.createElement('span');
+      label.className = 'set-tab-label';
+      label.textContent = str(`settings.tab.${key}`);
+      b.append(label);
+      // What's new keeps its unread dot on its tab (hud.js paints it beside #whatsnew-dot).
+      if (key === 'whatsnew') {
+        const dot = doc.createElement('span');
+        dot.className = 'set-tab-dot';
+        dot.id = 'settings-whatsnew-dot';
+        dot.hidden = true;
+        dot.setAttribute('aria-hidden', 'true');
+        b.append(dot);
+      }
+      bar.append(b);
+    }
+  }
+  const buttons = () => [...bar.querySelectorAll('[data-set-tab]')];
+  const paint = (now = section()) => {
+    const shown = SETTINGS_SECTIONS.includes(now);
+    bar.hidden = !shown;
+    const sel = now === 'whatsnew' ? 'whatsnew' : pane;
+    for (const b of buttons()) {
+      const on = shown && b.dataset.setTab === sel;
+      b.setAttribute('aria-selected', String(on));
+      b.tabIndex = on ? 0 : -1;
+    }
+    for (const g of body?.querySelectorAll?.('.settings-group[data-set-pane]') ?? []) g.hidden = g.dataset.setPane !== pane;
+    return sel;
+  };
+  const select = (key) => {
+    if (!SETTINGS_TABS.includes(key)) return false;
+    if (key === 'whatsnew') {
+      if (section() !== 'whatsnew') selectSection('whatsnew');
+      paint('whatsnew');
+      return true;
+    }
+    pane = key;
+    if (section() !== 'settings') selectSection('settings');
+    paint('settings');
+    // A tab opens at its top, as Inspect's do.
+    const scroll = doc.getElementById?.('panel-scroll');
+    if (scroll) scroll.scrollTop = 0;
+    return true;
+  };
+  bar.addEventListener('click', (e) => {
+    const b = e.target?.closest?.('[data-set-tab]');
+    if (b) select(b.dataset.setTab);
+  });
+  bar.addEventListener('keydown', (e) => {
+    const step = { ArrowRight: 1, ArrowLeft: -1 }[e.key];
+    if (!step) return;
+    const list = buttons();
+    const i = list.indexOf(doc.activeElement);
+    if (i < 0) return;
+    e.preventDefault();
+    const next = list[(i + step + list.length) % list.length];
+    select(next.dataset.setTab);
+    next.focus?.();
+  });
+  paint();
+  return { paint, select, get pane() { return pane; } };
 }
 
 const DETAIL_WORD = Object.freeze({ full: 'Full', balanced: 'Balanced', light: 'Light' });
@@ -121,7 +247,7 @@ export function applyTextScale(root, value) {
  */
 export function wireSettingsApp({
   doc = globalThis.document, settings, device = null, save = () => {}, saveTheme = () => {},
-  onSetting = null, openWhatsNew = null,
+  onSetting = null, openWhatsNew = null, isTouch = false,
 } = {}) {
   const $ = (id) => doc?.getElementById?.(id) ?? null;
   const root = doc?.documentElement;
@@ -212,6 +338,24 @@ export function wireSettingsApp({
       paint();
       save();
       onSetting?.(key, settings[key]);
+    });
+  }
+
+  // ---- Look: mouse sensitivity (T-3563). A phone turns by a finger's drag, so it says Look.
+  settings.lookSpeed = normalLookSpeed(settings.lookSpeed);
+  const look = $('s-look-speed');
+  const lookOut = $('v-look-speed');
+  const lookLabel = $('s-look-speed-label');
+  if (lookLabel) lookLabel.textContent = str(isTouch ? 'settings.look.touch' : 'settings.look.mouse');
+  if (look) {
+    look.value = String(settings.lookSpeed);
+    const paintLook = () => { if (lookOut) lookOut.textContent = lookSpeedReadout(look.value); };
+    paintLook();
+    look.addEventListener('input', () => {
+      settings.lookSpeed = normalLookSpeed(look.value);
+      paintLook();
+      save();
+      onSetting?.('lookSpeed', settings.lookSpeed);
     });
   }
 

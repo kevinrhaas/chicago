@@ -252,8 +252,10 @@ body:is(.is-touch, .touch-first) .panel-close { margin-right: -6px; }
 .seg-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 .seg-btn.is-on, .seg-btn[aria-checked="true"],
 .seg-btn.is-on:hover, .seg-btn[aria-checked="true"]:hover {
-  background: var(--accent);
-  color: var(--accent-ink, #17140c);
+  /* T-3571: lit is the quiet kind (skins.css § LIT), not a solid fill. */
+  background: var(--lit-wash, color-mix(in srgb, var(--accent) 12%, transparent));
+  color: var(--lit-ink, var(--accent));
+  box-shadow: inset 0 0 0 1px var(--lit-edge, var(--accent));
 }
 
 /* --------------------------------------------------------- travel banner --- */

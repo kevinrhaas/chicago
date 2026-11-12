@@ -26,6 +26,8 @@ import { dressLooks, dressCloth, looksHairStyle } from '../renderers/web/js/huma
 import { dressHat } from '../renderers/web/js/human-hats.js';
 import { hairFor } from '../renderers/web/js/human-hair-styles.js';
 import { dressSpectacles } from '../renderers/web/js/human-spectacles.js';
+import { fitWaist } from '../renderers/web/js/human-waist.js';
+import { engraveSilver } from '../renderers/web/js/human-silver.js';
 
 const q = new URLSearchParams(location.search);
 const asset = q.get('asset') ?? 'bardwell_otis_1835', lod = Number(q.get('lod') ?? 0);
@@ -66,7 +68,11 @@ const assetOf = async (key) => {
   return inst ? (await fetch(`../${inst}`).then((r) => r.json())).appearance.asset_id : 'settler_1812';
 };
 const gltfs = new Map();
-const gltfFor = async (a) => { if (!gltfs.has(a)) gltfs.set(a, await loader.loadAsync(`../assets/humans/web/${a}.lod${lod}.glb`)); return gltfs.get(a); };
+// As humans.js parses a body (T-3553: the belted waist refitted and the silver engraved, once, before any clone); &waist=0 leaves both as drawn.
+const gltfFor = async (a) => {
+  if (!gltfs.has(a)) { const g = await loader.loadAsync(`../assets/humans/web/${a}.lod${lod}.glb`); if (q.get('waist') !== '0') { window.__waist = fitWaist(g.scene); engraveSilver(g.scene); } gltfs.set(a, g); }
+  return gltfs.get(a);
+};
 const bodyOf = new Map();
 for (const key of keys) bodyOf.set(key, await assetOf(key));
 const gltf = await gltfFor(bodyOf.get(keys[0]));

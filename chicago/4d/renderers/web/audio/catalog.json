@@ -1,6 +1,9 @@
 {
   "version": 1,
   "music_eras_separate": true,
+  "music_shuffle_eras": [
+    "1904"
+  ],
   "water_zones": {
     "1812": {
       "epoch": "e1830_natural",
@@ -4125,7 +4128,9 @@
           "bytes": 3562925,
           "sha256": "70ec7c3832c258f0ceae455177bbcdf5107d9e9c8cf0efe2fa4d5b93d6284101"
         }
-      }
+      },
+      "runtime_enabled": false,
+      "review_note": "Retired from 1904 playback by the owner, 2026-11-12, for the ten-track ragtime playlist. Original and verified deliveries retained."
     },
     {
       "id": "4-reel-of-the-frontier",
@@ -4177,7 +4182,9 @@
           "bytes": 2642084,
           "sha256": "3c0db2cf5680c19216ab64c9f3f401acef5b48bd0e2d098617f2133c6cd238fc"
         }
-      }
+      },
+      "runtime_enabled": false,
+      "review_note": "Retired from 1904 playback by the owner, 2026-11-12, for the ten-track ragtime playlist. Original and verified deliveries retained."
     },
     {
       "id": "6-reel-of-the-frontier-2",
@@ -4228,6 +4235,276 @@
         "aac": {
           "bytes": 3298507,
           "sha256": "d8442633401c65b582a8c9ee6ecf39b26600942f6c6dd1a14f25bb13459e2cbf"
+        }
+      }
+    },
+    {
+      "id": "ragtime-brass-trolley",
+      "kind": "music",
+      "era": "1904",
+      "title": "Brass Trolley",
+      "duration_s": 203.102,
+      "original": "assets/audio/originals/1904-ragtime/Brass-Trolley.mp3",
+      "original_integrity": {
+        "bytes": 4965092,
+        "sha256": "d764d5c3066598fff52da50145d41f44ceefdb1913dd894eb4f046ba70c5e3c5"
+      },
+      "provenance": "Owner-supplied MP3 (artist tag Kevin R Haas; album tag \"Made with Mozart\"). Period-style ragtime written for the app, not an archival performance or recording.",
+      "rights": "Owner authorized use and distribution in the app, 2026-11-12; no open asset licence asserted.",
+      "processing": "MP3 decoded to 48 kHz stereo; static gain -1.40 dB from -16.1 to -17.5 LUFS integrated; trailing silence trimmed to 0.4 s with 250 ms fade; Opus 64k VBR, AAC-LC 112k fallback. No compression, limiting or EQ.",
+      "opus": "1904/ragtime-brass-trolley.ogg",
+      "aac": "1904/ragtime-brass-trolley.m4a",
+      "delivery": {
+        "opus": {
+          "bytes": 2087328,
+          "sha256": "e8a0238561b85ad1d97925e8e5c6b42f8d768bf748dae7d08c6e0615b571c5eb"
+        },
+        "aac": {
+          "bytes": 2918088,
+          "sha256": "e47146f74decb92758cd54b87d27594de6c11b771671ccb23384a385b9f3f673"
+        }
+      }
+    },
+    {
+      "id": "ragtime-main-street-trot",
+      "kind": "music",
+      "era": "1904",
+      "title": "Main Street Trot",
+      "duration_s": 166.623,
+      "original": "assets/audio/originals/1904-ragtime/Main-Street-Trot.mp3",
+      "original_integrity": {
+        "bytes": 4374972,
+        "sha256": "0dd87fd0b73d16408ab3024f96616650a92172f8c6e4ee1cc1c1c6b3ccaab635"
+      },
+      "provenance": "Owner-supplied MP3 (artist tag Kevin R Haas; album tag \"Made with Mozart\"). Period-style ragtime written for the app, not an archival performance or recording.",
+      "rights": "Owner authorized use and distribution in the app, 2026-11-12; no open asset licence asserted.",
+      "processing": "MP3 decoded to 48 kHz stereo; static gain -1.50 dB from -16.0 to -17.5 LUFS integrated; trailing silence trimmed to 0.4 s with 250 ms fade; Opus 64k VBR, AAC-LC 112k fallback. No compression, limiting or EQ.",
+      "opus": "1904/ragtime-main-street-trot.ogg",
+      "aac": "1904/ragtime-main-street-trot.m4a",
+      "delivery": {
+        "opus": {
+          "bytes": 1730845,
+          "sha256": "5c47c52149482285cf8975e1c8862b52d1d828a6934d0cf2267cf691585ce11a"
+        },
+        "aac": {
+          "bytes": 2396200,
+          "sha256": "d7466236551c9ec9161708511a7c4c9d325aa78e59dc07894971f4c3ba851adb"
+        }
+      }
+    },
+    {
+      "id": "ragtime-nickel-stroll",
+      "kind": "music",
+      "era": "1904",
+      "title": "Nickel Stroll",
+      "duration_s": 97.974,
+      "original": "assets/audio/originals/1904-ragtime/Nickel-Stroll.mp3",
+      "original_integrity": {
+        "bytes": 3709346,
+        "sha256": "a7bbe59443626aa8d04fe44e0348037ab9a7d2f4b52c1150b41846e35099715e"
+      },
+      "provenance": "Owner-supplied MP3 (artist tag Kevin R Haas; album tag \"Made with Mozart\"). Period-style ragtime written for the app, not an archival performance or recording.",
+      "rights": "Owner authorized use and distribution in the app, 2026-11-12; no open asset licence asserted.",
+      "processing": "MP3 decoded to 48 kHz stereo; static gain +0.40 dB from -17.9 to -17.5 LUFS integrated; trailing silence trimmed to 0.4 s with 250 ms fade; Opus 64k VBR, AAC-LC 112k fallback. No compression, limiting or EQ.",
+      "opus": "1904/ragtime-nickel-stroll.ogg",
+      "aac": "1904/ragtime-nickel-stroll.m4a",
+      "delivery": {
+        "opus": {
+          "bytes": 1051080,
+          "sha256": "ed3b78d3cd2716902a32bace33a808661e0cd14cd1d5f1b6e5950c76eacb92fd"
+        },
+        "aac": {
+          "bytes": 1405184,
+          "sha256": "d5add33727803f0c1e5cca635cddac2f45895931b637f557a4fac2d300c4f6ef"
+        }
+      }
+    },
+    {
+      "id": "ragtime-patent-leather",
+      "kind": "music",
+      "era": "1904",
+      "title": "Patent Leather",
+      "duration_s": 205.253,
+      "original": "assets/audio/originals/1904-ragtime/Patent-Leather.mp3",
+      "original_integrity": {
+        "bytes": 4852615,
+        "sha256": "a95595b9df653ebbf9fd15536c88245435ec664496123d732ec587c912bd2014"
+      },
+      "provenance": "Owner-supplied MP3 (artist tag Kevin R Haas; album tag \"Made with Mozart\"). Period-style ragtime written for the app, not an archival performance or recording.",
+      "rights": "Owner authorized use and distribution in the app, 2026-11-12; no open asset licence asserted.",
+      "processing": "MP3 decoded to 48 kHz stereo; static gain -1.00 dB from -16.5 to -17.5 LUFS integrated; trailing silence trimmed to 0.4 s with 250 ms fade; Opus 64k VBR, AAC-LC 112k fallback. No compression, limiting or EQ.",
+      "opus": "1904/ragtime-patent-leather.ogg",
+      "aac": "1904/ragtime-patent-leather.m4a",
+      "delivery": {
+        "opus": {
+          "bytes": 1971205,
+          "sha256": "7e38ca64ebb86ea679c93fb303a96955c87df0508d0b2e1738ef7a3ffee498ed"
+        },
+        "aac": {
+          "bytes": 2958994,
+          "sha256": "d91f2e24549921e3d24c2edbebba5dcce9b30434cd6a1503a0780d7dcf6593e7"
+        }
+      }
+    },
+    {
+      "id": "ragtime-pocket-change",
+      "kind": "music",
+      "era": "1904",
+      "title": "Pocket Change",
+      "duration_s": 202.553,
+      "original": "assets/audio/originals/1904-ragtime/Pocket-Change.mp3",
+      "original_integrity": {
+        "bytes": 5120914,
+        "sha256": "22890e7edbc290d0067470c1e01eb3add51d98626aa1b5d9a21150d18e3ba3ee"
+      },
+      "provenance": "Owner-supplied MP3 (artist tag Kevin R Haas; album tag \"Made with Mozart\"). Period-style ragtime written for the app, not an archival performance or recording.",
+      "rights": "Owner authorized use and distribution in the app, 2026-11-12; no open asset licence asserted.",
+      "processing": "MP3 decoded to 48 kHz stereo; static gain -1.90 dB from -15.6 to -17.5 LUFS integrated; trailing silence trimmed to 0.4 s with 250 ms fade; Opus 64k VBR, AAC-LC 112k fallback. No compression, limiting or EQ.",
+      "opus": "1904/ragtime-pocket-change.ogg",
+      "aac": "1904/ragtime-pocket-change.m4a",
+      "delivery": {
+        "opus": {
+          "bytes": 2113138,
+          "sha256": "eb131133e0d54b35f76f0d9ddd27766fc67b679be27b9d3f7367eecb7d1a43f5"
+        },
+        "aac": {
+          "bytes": 2949581,
+          "sha256": "9631699a9dd265d978bd36ba50c8cfc5a06617074568311ee59ff0693522a597"
+        }
+      }
+    },
+    {
+      "id": "ragtime-ragtime-avenue",
+      "kind": "music",
+      "era": "1904",
+      "title": "Ragtime Avenue",
+      "duration_s": 170.697,
+      "original": "assets/audio/originals/1904-ragtime/Ragtime-Avenue.mp3",
+      "original_integrity": {
+        "bytes": 4485491,
+        "sha256": "bf02d8d0e9d46bad471037b040ee0ac019e84918d2fafc3530cb74fefef77226"
+      },
+      "provenance": "Owner-supplied MP3 (artist tag Kevin R Haas; album tag \"Made with Mozart\"). Period-style ragtime written for the app, not an archival performance or recording.",
+      "rights": "Owner authorized use and distribution in the app, 2026-11-12; no open asset licence asserted.",
+      "processing": "MP3 decoded to 48 kHz stereo; static gain -1.30 dB from -16.2 to -17.5 LUFS integrated; trailing silence trimmed to 0.4 s with 250 ms fade; Opus 64k VBR, AAC-LC 112k fallback. No compression, limiting or EQ.",
+      "opus": "1904/ragtime-ragtime-avenue.ogg",
+      "aac": "1904/ragtime-ragtime-avenue.m4a",
+      "delivery": {
+        "opus": {
+          "bytes": 1883617,
+          "sha256": "7569cca3bc4229500607abce78a785da65c34b3e90fec73445ede3fdd4242abc"
+        },
+        "aac": {
+          "bytes": 2482238,
+          "sha256": "0f7e1bbe03be93bde89ac3c655a1ab6c5c0c49759a9c256fee11d700b2d38060"
+        }
+      }
+    },
+    {
+      "id": "ragtime-sidewalk-ticker",
+      "kind": "music",
+      "era": "1904",
+      "title": "Sidewalk Ticker",
+      "duration_s": 111.125,
+      "original": "assets/audio/originals/1904-ragtime/Sidewalk-Ticker.mp3",
+      "original_integrity": {
+        "bytes": 3203615,
+        "sha256": "071db9d35ca93e7e385af85bfa40fce4e94f26af00c4dd53de8203b42cf05650"
+      },
+      "provenance": "Owner-supplied MP3 (artist tag Kevin R Haas; album tag \"Made with Mozart\"). Period-style ragtime written for the app, not an archival performance or recording.",
+      "rights": "Owner authorized use and distribution in the app, 2026-11-12; no open asset licence asserted.",
+      "processing": "MP3 decoded to 48 kHz stereo; static gain -2.50 dB from -15.0 to -17.5 LUFS integrated; trailing silence trimmed to 0.4 s with 250 ms fade; Opus 64k VBR, AAC-LC 112k fallback. No compression, limiting or EQ.",
+      "opus": "1904/ragtime-sidewalk-ticker.ogg",
+      "aac": "1904/ragtime-sidewalk-ticker.m4a",
+      "delivery": {
+        "opus": {
+          "bytes": 1025932,
+          "sha256": "b9113c4aca857cef2d6ce503df77668a082a4f5b409292d6f668ef172e284c94"
+        },
+        "aac": {
+          "bytes": 1594050,
+          "sha256": "99ffc36840ab027d27f8f5ab503f879f92768cd48cca5fa39d9b9e52a5d169d3"
+        }
+      }
+    },
+    {
+      "id": "ragtime-sunday-best",
+      "kind": "music",
+      "era": "1904",
+      "title": "Sunday Best",
+      "duration_s": 186.369,
+      "original": "assets/audio/originals/1904-ragtime/Sunday-Best.mp3",
+      "original_integrity": {
+        "bytes": 4833608,
+        "sha256": "68155ae559bcb36b34a315acbf30a32923cb66bac97b64d73dab4ddf210649b8"
+      },
+      "provenance": "Owner-supplied MP3 (artist tag Kevin R Haas; album tag \"Made with Mozart\"). Period-style ragtime written for the app, not an archival performance or recording.",
+      "rights": "Owner authorized use and distribution in the app, 2026-11-12; no open asset licence asserted.",
+      "processing": "MP3 decoded to 48 kHz stereo; static gain -0.60 dB from -16.9 to -17.5 LUFS integrated; trailing silence trimmed to 0.4 s with 250 ms fade; Opus 64k VBR, AAC-LC 112k fallback. No compression, limiting or EQ.",
+      "opus": "1904/ragtime-sunday-best.ogg",
+      "aac": "1904/ragtime-sunday-best.m4a",
+      "delivery": {
+        "opus": {
+          "bytes": 2034845,
+          "sha256": "b2d23e6aff03ecb8815e5a130e2d4f4b4151e1ab04fc6cdc2be9cb6eeb1481c6"
+        },
+        "aac": {
+          "bytes": 2683146,
+          "sha256": "21c92082ba54e3194e53f17f32bfc476a1dc82562f229374dbd119e62d7bd6bf"
+        }
+      }
+    },
+    {
+      "id": "ragtime-tin-pan-stroll",
+      "kind": "music",
+      "era": "1904",
+      "title": "Tin Pan Stroll",
+      "duration_s": 124.622,
+      "original": "assets/audio/originals/1904-ragtime/Tin-Pan-Stroll.mp3",
+      "original_integrity": {
+        "bytes": 3544040,
+        "sha256": "d7222c62cd30de699c3dff36f2e4e7e65319c16f923b23fd73e45579262d25c3"
+      },
+      "provenance": "Owner-supplied MP3 (artist tag Kevin R Haas; album tag \"Made with Mozart\"). Period-style ragtime written for the app, not an archival performance or recording.",
+      "rights": "Owner authorized use and distribution in the app, 2026-11-12; no open asset licence asserted.",
+      "processing": "MP3 decoded to 48 kHz stereo; static gain -0.70 dB from -16.8 to -17.5 LUFS integrated; trailing silence trimmed to 0.4 s with 250 ms fade; Opus 64k VBR, AAC-LC 112k fallback. No compression, limiting or EQ.",
+      "opus": "1904/ragtime-tin-pan-stroll.ogg",
+      "aac": "1904/ragtime-tin-pan-stroll.m4a",
+      "delivery": {
+        "opus": {
+          "bytes": 1269210,
+          "sha256": "6d8b250570bf2e3c231a44073ba6f1cf698d1824d7a81a64e51cfcaabbcf9f0f"
+        },
+        "aac": {
+          "bytes": 1797505,
+          "sha256": "aa87fa5de87bc87b8a337a8f380e305ed65ec341beabf6d53de34eb95296e97a"
+        }
+      }
+    },
+    {
+      "id": "ragtime-trolley-hop",
+      "kind": "music",
+      "era": "1904",
+      "title": "Trolley Hop",
+      "duration_s": 112.274,
+      "original": "assets/audio/originals/1904-ragtime/Trolley-Hop.mp3",
+      "original_integrity": {
+        "bytes": 3169182,
+        "sha256": "857302f638f20803ce163dedfa910c2bf837111c5af01b188085d7dc03fad090"
+      },
+      "provenance": "Owner-supplied MP3 (artist tag Kevin R Haas; album tag \"Made with Mozart\"). Period-style ragtime written for the app, not an archival performance or recording.",
+      "rights": "Owner authorized use and distribution in the app, 2026-11-12; no open asset licence asserted.",
+      "processing": "MP3 decoded to 48 kHz stereo; static gain -2.20 dB from -15.3 to -17.5 LUFS integrated; trailing silence trimmed to 0.4 s with 250 ms fade; Opus 64k VBR, AAC-LC 112k fallback. No compression, limiting or EQ.",
+      "opus": "1904/ragtime-trolley-hop.ogg",
+      "aac": "1904/ragtime-trolley-hop.m4a",
+      "delivery": {
+        "opus": {
+          "bytes": 1019852,
+          "sha256": "ca00e8c09d770b4e7c9928068ac62012c504210d65f4b26d52934ea24bd645da"
+        },
+        "aac": {
+          "bytes": 1607161,
+          "sha256": "f420da5dbb831bf604f04cba743eb25e99343baf28d06af276b0695889c03c1a"
         }
       }
     },

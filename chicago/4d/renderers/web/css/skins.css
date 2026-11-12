@@ -110,6 +110,19 @@ html[data-skin] {
   --shadow-button:0 2px 0 var(--signal-deep),0 6px 18px color-mix(in srgb,var(--signal) 35%,transparent);
   --glow-phosphor:0 0 12px var(--accent);
 }
+/* T-3571: LIT, the quiet kind, on every machine and in both tones. The owner, 2026-11-12:
+   "when lit don't make it too dark red ... more subtle so its noticeable but not shouty".
+   A chosen segment, a pressed pill and a lit key wear the accent as their word on a 12 %
+   wash of it with a hairline of it, not a solid fill and never the signal red. The ink is
+   the accent, deepened where it falls under 4.5:1 on that wash (the same two the Navigator
+   deepens, navigator.css § contrast); every pair clears 4.5:1 at 12 %. */
+html[data-skin] {
+  --lit-ink:var(--accent);
+  --lit-wash:color-mix(in srgb,var(--accent) 12%,transparent);
+  --lit-edge:color-mix(in srgb,var(--accent) 50%,transparent);
+}
+html[data-skin="worlds-fair"]:not([data-theme="dark"]) { --lit-ink:#0F7178; }
+html[data-skin="deep-space"][data-theme="light"] { --lit-ink:#0B6386; }
 html[data-skin="deep-space"] { --shadow-button:0 0 0 1px var(--signal),0 0 22px color-mix(in srgb,var(--signal) 40%,transparent); }
 
 /* ---- the renderer, under any machine ---- */

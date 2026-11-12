@@ -265,7 +265,7 @@
 }
 .ev-pill small { color: var(--ink-dim); font-size: 10px; font-variant-numeric: tabular-nums; }
 .ev-pill:hover { background: color-mix(in srgb, var(--ink) 9%, transparent); }
-.ev-pill[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--panel-solid); }
+.ev-pill[aria-pressed="true"] { background: var(--lit-wash, color-mix(in srgb, var(--accent) 12%, transparent)); border-color: var(--lit-edge, var(--accent)); color: var(--lit-ink, var(--accent)); } /* T-3571: skins.css § LIT */
 .ev-pill[aria-pressed="true"] small { color: inherit; opacity: .8; }
 .ev-pill:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 

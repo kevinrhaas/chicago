@@ -16,6 +16,7 @@
 
 import * as THREE from 'three';
 import { PointerLockControls } from 'three/addons/controls/PointerLockControls.js';
+import { lookScale } from './intent.js';
 
 const KEYS = {
   KeyW: 'ahead', ArrowUp: 'ahead',
@@ -45,14 +46,15 @@ export function isTyping(target) {
   return tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT';
 }
 
-export function createPointerLockBackend({ intent, domElement, onLockChange, holding = () => false }) {
+export function createPointerLockBackend({ intent, domElement, onLockChange, holding = () => false, lookSpeed = () => 1 }) {
   // PointerLockControls connects its document listeners in the constructor, so
   // enabling and disabling this backend flips `controls.enabled` rather than
   // reconnecting — connect() twice would double-register every listener.
   const rig = new THREE.Object3D();
   const controls = new PointerLockControls(rig, domElement);
   controls.enabled = false;
-  controls.pointerSpeed = 1.0;
+  // T-3563: Settings › Look › Mouse sensitivity scales this; 1 is the turn it always had.
+  controls.pointerSpeed = lookScale(lookSpeed);
   controls.minPolarAngle = Math.PI * 0.06;
   controls.maxPolarAngle = Math.PI * 0.94;
 
@@ -176,6 +178,8 @@ export function createPointerLockBackend({ intent, domElement, onLockChange, hol
       intent.rise = (held.has('up') ? 1 : 0) - (held.has('down') ? 1 : 0);
       intent.sprint = held.has('sprint');
 
+      // Read every frame, so a move of the slider takes at once.
+      controls.pointerSpeed = lookScale(lookSpeed);
       euler.setFromQuaternion(rig.quaternion, 'YXZ');
       intent.yawDelta += euler.y - prevYaw;
       intent.pitchDelta += euler.x - prevPitch;
