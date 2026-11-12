@@ -70,7 +70,7 @@
   white-space: nowrap;
 }
 .nav-label { color: var(--ink); }
-.nav-code { margin-left: auto; overflow: hidden; text-overflow: ellipsis; }
+.nav-code { margin-left: auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
 .nav-date { color: var(--accent); font-variant-numeric: tabular-nums; }
 /* T-2619: the closed device's year and the icon of the app it opens to; open, the
    header's date and screen code say the same and these stand down. */
@@ -141,6 +141,37 @@
 .nav-close svg { width: 20px; height: 20px; }
 .nav-close:hover { color: var(--ink); background: color-mix(in srgb, var(--ink) 7%, transparent); }
 .nav-close:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+/* T-3571: MUTE ALL and MUTE MUSIC, the close key's size and ink. Lit (pressed) means muted,
+   and lit is the quiet kind (the owner, 2026-11-12: "when lit don't make it too dark red
+   ... more subtle so its noticeable but not shouty"): skins.css § LIT, never the signal red. */
+.nav-mute {
+  position: relative;
+  flex: none;
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--ink-faint, var(--ink-dim));
+  cursor: pointer;
+  transition: background .12s, color .12s, border-color .12s;
+}
+.nav-mute::after { content: ""; position: absolute; inset: -7px -2px; }
+.nav-mute svg { width: 18px; height: 18px; }
+.nav-mute:hover { color: var(--ink); background: color-mix(in srgb, var(--ink) 7%, transparent); }
+.nav-mute:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.nav-mute[aria-pressed="true"], .nav-mute[aria-pressed="true"]:hover {
+  color: var(--lit-ink, var(--accent));
+  background: var(--lit-wash, color-mix(in srgb, var(--accent) 12%, transparent));
+  border-color: var(--lit-edge, var(--accent));
+}
+.nav-mute .mute-on { display: none; }
+.nav-mute[aria-pressed="true"] .mute-on { display: inline; }
+.nav-mute[aria-pressed="true"] .mute-off { display: none; }
+#nav-mute-all { margin-left: 2px; }
 
 /* ---- the contextual rail (T-2618): slide + glint in, slide out, both 240 ms ---- */
 .nav-app.is-entering { animation: nav-app-in .24s var(--ease-machine, ease) both; }
@@ -338,7 +369,7 @@ a.nav-jump:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px
     column-gap: 7px; row-gap: 2px; min-height: 0; padding: 0 10px 6px; font-size: 9px; letter-spacing: .02em;
   }
   .navigator[data-detent="dock"] .nav-lamp { justify-self: center; }
-  .navigator[data-detent="dock"] :is(.nav-code, .nav-date, .nav-screw, .nav-close) { display: none; }
+  .navigator[data-detent="dock"] :is(.nav-code, .nav-date, .nav-screw, .nav-close, .nav-mute) { display: none; }
   .navigator[data-detent="dock"] .nav-dock-app { display: grid; place-items: center; }
   .navigator[data-detent="dock"] .nav-dock-year { display: block; font-size: 12px; letter-spacing: .14em; }
   .navigator[data-detent="half"] { height: calc(var(--vh, 100vh) * .48); }
@@ -360,6 +391,8 @@ a.nav-jump:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px
   .nav-grip:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
   .nav-head { min-height: 38px; gap: 8px; padding: 0 16px; letter-spacing: .1em; border-bottom-color: transparent; touch-action: none; cursor: grab; }
   .navigator:not([data-detent="dock"]) .nav-head { border-bottom-color: var(--edge); }
+  /* T-3571: the mute keys take the screen code's room; the open screen names its app. */
+  .nav-head:has(.nav-mute) .nav-code { flex: 1 1 0; visibility: hidden; }
   .nav-rail { width: 52px; }
   .nav-collapse { display: none; }
   .navigator[data-detent="dock"] .nav-body { visibility: hidden; }
@@ -544,7 +577,7 @@ html[data-jaunt-active] .navigator:not([data-detent="dock"]):not([data-detent="r
 }
 .nav-preset:hover { border-color: var(--accent); }
 .nav-preset:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-.nav-preset[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink, var(--panel-solid)); }
+.nav-preset[aria-pressed="true"] { background: var(--lit-wash, color-mix(in srgb, var(--accent) 12%, transparent)); border-color: var(--lit-edge, var(--accent)); color: var(--lit-ink, var(--accent)); } /* T-3571: skins.css § LIT */
 .nav-grades { display: grid; gap: 6px; }
 /* T-2648: a grade is a card — its head (Show, swatch, name · the look, which opens the
    row · the count) and, one row at a time, its colour, look and opacity. */
@@ -588,7 +621,7 @@ html[data-jaunt-active] .navigator:not([data-detent="dock"]):not([data-detent="r
   font: 500 10.5px/1.15 var(--font-mono, ui-monospace, monospace); letter-spacing: .08em; text-transform: uppercase; cursor: pointer;
 }
 .nav-look:hover { border-color: var(--accent); }
-.nav-look[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink, var(--panel-solid)); }
+.nav-look[aria-pressed="true"] { background: var(--lit-wash, color-mix(in srgb, var(--accent) 12%, transparent)); border-color: var(--lit-edge, var(--accent)); color: var(--lit-ink, var(--accent)); } /* T-3571 */
 .nav-opacity { display: grid; grid-template-columns: auto minmax(0, 1fr) 4.5ch; align-items: center; gap: 10px; min-height: 44px; }
 .nav-opacity-k, .nav-opacity-value { color: var(--ink-dim); font: 400 10.5px/1 var(--font-mono, ui-monospace, monospace); letter-spacing: .08em; text-transform: uppercase; }
 .nav-opacity-value { text-align: right; font-variant-numeric: tabular-nums; color: var(--ink); }

@@ -1,4 +1,17 @@
 export const CHANGELOG = [ // newest first
+  { v: 2902, ts: '2026-11-12T19:27:31.583Z', date: 'Nov 12, 2026, 1:27 PM CT', title: '1812 belts sit tight, silver is engraved, and backlit lips calm down', kind: 'fix',
+    items: [
+      'Potawatomi men\'s belts now sit on the shirt or blanket instead of floating round the waist, and the shirt below the waist no longer starts wider than the shirt above it. Belt, shirt and blanket now move together when a man walks or turns.',
+      'Silver arm bands and brooches are engraved, with border lines, a zigzag and punched dots. You only see it up close, and it uses no extra memory.',
+      'Lips in every year are closer to the person\'s own skin tone, and where the lips meet is shaded. A face lit from behind no longer shows a pink line across the mouth.',
+    ] },
+  { v: 2901, ts: '2026-11-12T19:08:56.761Z', date: 'Nov 12, 2026, 1:08 PM CT', title: 'Mute keys on the Navigator, and a quieter lit state', kind: 'feature',
+    items: [
+      'Two keys in the Navigator\'s top bar: Mute all sound and Mute music. A second tap puts back the level you had.',
+      'They move the same levels as Settings › Sound, so a key and its slider always agree.',
+      'Lit controls are calmer on every appearance: a soft tint and outline in the machine\'s own colour instead of a solid fill.',
+      'The arrival\'s speaker no longer glows red when sound is on.',
+    ] },
   { v: 2900, ts: '2026-11-12T18:53:28.066Z', date: 'Nov 12, 2026, 12:53 PM CT', title: '1904 plays a ten-track ragtime playlist on shuffle', kind: 'change',
     items: [
       'Ten new ragtime tracks replace the two 1904 waltzes.',

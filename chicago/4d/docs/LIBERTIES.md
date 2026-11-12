@@ -43678,3 +43678,11 @@ The figures are period sculpture, built as the sculptor made them; the record ca
 
 **Ticket:** T-3567 (piece 1 of T-3565).
 **Recorded:** 2026-11-12.
+
+### L-1812-silver-engraving-3553 — The Potawatomi men's silver arm bands and brooches engraved
+
+**Decision:** the owner, 2026-11-12, of a man's arm band in the 1812 camp: *"that silver band should have detail? dont do that if it will blow things up"*. The body draws each band as a plain loft and each brooch as a plain disc. `renderers/web/js/human-silver.js` cuts a pattern into both in the shader (no texture, no geometry, nothing per person): on each band two engraved lines inside each edge, a row of punched dots, and a zigzag of wriggle-work down the middle; on each brooch an engraved ring, a ring of fourteen punched dots and a small inner ring; the cuts tarnished dark and the faces between worn bright (colour .62, metalness .8, after the garrison's silver). The motifs, their sizes and spacing, and the plain join where the band's ends meet are ours. No maker's mark, crest, animal or figure is drawn.
+**Not invented:** that the annual presents included *"silver-works (comprising arm-bands, bracelets, brooches; and ear-bobs)"* (Wau-Bun, already cited for the body). No band, brooch or picture of one belonging to anyone at the 1812 camp is known.
+**Re-opens on:** a described or pictured piece of trade silver from the Chicago gathering, or of the bands there, which replaces the pattern.
+**Ticket:** T-3553.
+**Recorded:** 2026-11-12.
