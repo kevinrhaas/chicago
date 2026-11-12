@@ -3,13 +3,30 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { createSound, curve } from '../renderers/web/js/sound.js';
 import { createJourney } from '../renderers/web/js/journey.js';
-import { createRecordedAudio, nearbyWater, waterKind, musicFor, windGain } from '../renderers/web/js/recorded-audio.js';
+import { createRecordedAudio, nearbyWater, waterKind, musicFor, windGain, playlistOrder } from '../renderers/web/js/recorded-audio.js';
 
 const catalog = JSON.parse(fs.readFileSync(new URL('../renderers/web/audio/catalog.json', import.meta.url)));
-assert.deepEqual(['1812','1835','1904'].map(y => musicFor(catalog,y).length), [3,2,2]);
+assert.deepEqual(['1812','1835','1904'].map(y => musicFor(catalog,y).length), [3,2,10]);
 assert(musicFor(catalog,'1812').every(t => t.title.includes('Frontier')));
 assert(musicFor(catalog,'1835').every(t => t.title.includes('Border')));
-assert(musicFor(catalog,'1904').every(t => t.title.includes('Waltz')));
+// T-3569: the owner's ten ragtime tracks replace the 1904 waltzes, which stay catalogued but retired.
+assert(musicFor(catalog,'1904').every(t => t.id.startsWith('ragtime-') && !t.title.includes('Waltz')));
+assert.deepEqual(catalog.assets.filter(a => a.kind==='music' && a.title.includes('Waltz')).map(a => a.runtime_enabled), [false,false]);
+assert.deepEqual(catalog.music_shuffle_eras, ['1904'], 'only 1904 shuffles; 1812/1835 keep their order');
+assert.deepEqual(playlistOrder(4,false,() => .99), [0,1,2,3]);
+{
+  // Fisher-Yates over a seeded generator: a permutation, random start, no repeat across a wrap.
+  let seed = 7; const rng = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  const starts = new Set();
+  for (let k = 0; k < 400; k++) {
+    const order = playlistOrder(10, true, rng, k % 10);
+    assert.deepEqual([...order].sort((a,b) => a-b), [...Array(10).keys()]);
+    assert.notEqual(order[0], k % 10, 'a fresh shuffle never reopens with the track that just ended');
+    starts.add(order[0]);
+  }
+  assert.equal(starts.size, 10, 'every track can open the playlist');
+  assert.deepEqual(playlistOrder(1,true,rng,0), [0]);
+}
 assert.equal(musicFor(catalog,'1888').length, 0, 'no cross-era music fallback');
 assert.equal(nearbyWater({ loaded: false }, {x:0,z:0}), null);
 const terrain = { epochId:'test', loaded: true, heightfield: { contains: () => true }, isWater: x => x >= 20 };
@@ -95,11 +112,12 @@ const flush = async () => { for(let i=0;i<12;i++) await Promise.resolve(); };
   const original=ctx.createMediaElementSource;
   ctx.createMediaElementSource=()=>{connects++;return original();};
   const engine=createRecordedAudio({ctx,ambience:ctx.createGain(),music:ctx.createGain(),
-    media:()=>media.make(),now:()=>0,fetcher:async()=>({ok:true,json:async()=>catalog})});
+    media:()=>media.make(),now:()=>0,random:()=>0,fetcher:async()=>({ok:true,json:async()=>catalog})});
   const sync=(year,active=true,musicOn=true)=>engine.sync({active,ambienceOn:false,musicOn,year});
-  for(const year of ['1835','1812','1904']) {
+  for(const year of ['1835','1812']) {
     sync(year);await flush();
     const list=musicFor(catalog,year),element=media.made.at(-1),before=media.made.length,links=connects;
+    assert.equal(engine.state.track,list[0].title,'unshuffled eras open on their first cue');
     for(let i=1;i<=list.length*2;i++) {
       element.paused=true;element.onended();await flush();
       assert.equal(engine.state.track,list[i%list.length].title);
@@ -112,6 +130,30 @@ const flush = async () => { for(let i=0;i<12;i++) await Promise.resolve(); };
     assert(!engine.state.playing,'Music off cannot be undone by a queued ending');
     sync(year);await flush();const restarted=media.made.at(-1);
     retired();assert.equal(media.made.at(-1),restarted);assert.equal(engine.state.track,list[0].title);
+  }
+  {
+    // T-3569: 1904 deals a shuffled order from a random start, plays all ten before any
+    // repeats, and every re-deal at the wrap avoids the track that just ended.
+    sync('1904');await flush();
+    const list=musicFor(catalog,'1904'),element=media.made.at(-1),before=media.made.length,links=connects;
+    const heard=[engine.state.track];
+    for(let i=1;i<=list.length*3;i++) {
+      element.paused=true;element.onended();await flush();
+      heard.push(engine.state.track);
+      assert(engine.state.playing);assert.equal(media.made.length,before);assert.equal(connects,links);
+    }
+    for(let r=0;r<3;r++) assert.equal(new Set(heard.slice(r*10,r*10+10)).size,10,`round ${r+1} plays every 1904 track once`);
+    for(let i=1;i<heard.length;i++) assert.notEqual(heard[i],heard[i-1],'no track plays twice in a row');
+    assert(heard.every(t=>!t.includes('Waltz')),'retired waltzes never play');
+  }
+  {
+    const random=[.95,.3,.6,.1,.8,.2,.7,.4,.5,.05,.9];let k=0;
+    const opener=seed=>{const m=mediaFactory(),c=context(),e=createRecordedAudio({ctx:c,ambience:c.createGain(),music:c.createGain(),
+      media:()=>m.make(),now:()=>0,random:()=>random[(k++ + seed)%random.length],fetcher:async()=>({ok:true,json:async()=>catalog})});
+      e.sync({active:true,ambienceOn:false,musicOn:true,year:'1904'});return e;};
+    const firsts=new Set();
+    for(let seed=0;seed<6;seed++){const e=opener(seed);await flush();firsts.add(e.state.track);e.dispose();}
+    assert(firsts.size>1,'1904 opens at a random track, not always the same one');
   }
   const retired=media.made.at(-1).onended;
   sync('1835');await flush();retired();assert.equal(engine.state.track,musicFor(catalog,'1835')[0].title);
@@ -188,7 +230,7 @@ const flush = async () => { for(let i=0;i<12;i++) await Promise.resolve(); };
   assert.deepEqual(engine.state.errors,[]);
   engine.sync({active:true,ambienceOn:true,musicOn:true,year:'1904'});await flush();
   assert.equal(media.made[0].src,'','scene switch releases the old stream');
-  assert.match(media.made.at(-1).src,/1904\/.*waltz.*ogg$/);
+  assert.match(media.made.at(-1).src,/1904\/ragtime-.*ogg$/,"1904 streams a ragtime cue, never a retired waltz");
   engine.sync({active:false,ambienceOn:true,musicOn:true,year:'1904'});await flush();
   assert.equal(engine.state.voices.length,0);assert.equal(engine.state.decodedBytes,0);assert.equal(engine.state.playing,false);
   engine.dispose();
@@ -234,7 +276,12 @@ const flush = async () => { for(let i=0;i<12;i++) await Promise.resolve(); };
   for(const a of catalog.assets) for(const file of a.kind==='music'?[a.opus,a.aac]:[a.url]) {
     const data=fs.readFileSync(new URL(file,root));total+=data.length;assert(data.length>1000);
   }
-  assert(total<40*1024*1024,`both codec alternatives fit 40 MiB: ${total}`);
+  // T-3569: the library left the Pages artifact for R2 (T-3532; publish ships only the
+  // catalogue), so this bounds the source tree, raised from 40 MiB for the owner's ten
+  // 1904 ragtime tracks. What a visitor holds is one streamed cue, bounded below.
+  assert(total<96*1024*1024,`both codec alternatives fit 96 MiB: ${total}`);
+  for(const a of catalog.assets.filter(a=>a.id.startsWith('ragtime-')))
+    assert(a.delivery.opus.bytes<2.5*1024*1024&&a.delivery.aac.bytes<3.5*1024*1024&&a.delivery.opus.bytes*8/a.duration_s<96000,`${a.id}: compact stream`);
   assert(catalog.assets.filter(a=>a.kind==='environment').every(a=>a.license==='CC0-1.0'&&a.source_url));
   const candidates=catalog.assets.filter(a=>a.kind==='candidate');
   assert(candidates.length>=17,'expanded library includes the acquired recordings');
