@@ -2,7 +2,7 @@
   "structure_id": "henderson_house_1816_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/henderson_house_1816_prairie__as_mapped_1904.glb",
-  "glb_sha256": "a9fab1bc33e69d1ec007ee345879669ad9d1afc8f8c830617daa3f1f778557d3",
+  "glb_sha256": "2948261d7c78bbd29a690f52559f541bf6a7e0101ad87de426b774ac7538e26d",
   "camera_sha256": "cd716f257362184bf542e8422a3b0549da4bde9351614c1cf035953b19b1371a",
   "photo_sha256": "6cf57cac7e3076af06121b104b57a02b9a25ac3830f01ddafe9ac2f27eb96ca8",
   "side_by_side": "docs/RESEARCH/photo-match/henderson_house_1816_prairie/chicagology_photo-side-by-side.jpg",
@@ -94,8 +94,19 @@
       "how": "T-2964: carving under a foot deep on a dormer 1.1 m wide; the dormers' size, place and pediment are built"
     },
     {
-      "what": "the window hoods carved, with a scrolled crest over each; built as K09's plain cornice-hood lintels",
-      "status": "open"
+      "what": "the window hoods carved, with a scrolled crest over each, on the flat front's windows; built as K09's plain cornice-hood lintels",
+      "status": "fixed",
+      "how": "T-1886: K09's carved crest (street_front_trim.crest, T-3270's palmette between two volutes, 1.0 m wide and 0.35 m high) stands on every cornice hood of both storeys; through the camera each renders over its hood where the print's raised crest stands"
+    },
+    {
+      "what": "the south flank's window under the front's crested hood, its consoles hanging past the jambs (x 350-385 px); built under a K03 brick segmental arch",
+      "status": "fixed",
+      "how": "T-1886: the flank window named in street_front_trim.lights on both storeys, so it wears its storey's K09 hood and crest in the brick (K01 now lets a brick side wall's named light take its K09 head)"
+    },
+    {
+      "what": "the crested hoods over the two canted bays' windows (x 140-215 and 490-560 px); built with K08's own plain hoods",
+      "status": "open",
+      "how": "T-1886: K08 dresses a bay's windows with its own hood and does not read street_front_trim's crest; a crest on a K08 hood is a kit change (L-k01-1816-henderson-1886)"
     },
     {
       "what": "the porch columns' carved capitals",
@@ -119,7 +130,8 @@
     },
     {
       "what": "the brick's tone: dark in the print on the street front and the south flank alike; built red on the front and the bays (T-3385's pressed red) and buff on the flank between them",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-1886: the south flank between the bays laid in the front's pressed red (face_brick.returns ['south'], a K01 key new here), with no brick string course on it, as the print draws none; through the camera the flank, the bays and the front now render one brick, as the print's median greys do (flank 169-184, bays 174-200). The red's depth against the print's grey is the palette's (T-3385)"
     },
     {
       "what": "the tall chimney stack behind the front's south end",

@@ -194,6 +194,10 @@ class K01FrontageParams:
     front_brick_roughness: float = 0.0
     side_brick_tone: tuple = ()
     side_brick_roughness: float = 0.0
+    # T-1886: the side walls ("north", "south") laid in the front's face brick rather than the
+    # common, a street-seen flank's brick returned from the front (1816's south flank, which its
+    # photograph draws in the front's tone); empty for every other house
+    face_brick_returns: tuple = ()
     # T-3244: the sash and frames in a record's own paint (1700/1706's white, every photograph),
     # where K01's are the kit's dark green; empty for the kit's
     sash_color: tuple = ()
@@ -6188,13 +6192,22 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     # its brick bays) in a face recipe, as street_front_brick does, on a brick front or over a
     # stone front's brick_above_m line; `sides` lays the side and rear walls, the stacks and
     # the area walls in a common one, its panel the record's service_wall_brick
+    # T-1886: `returns` lays the side walls it names ("north", "south") in the front's face
+    # brick, as a flank seen from the street was faced; it needs a `front` to return
     fb = val("face_brick", {}) or {}
-    front_rough, side_tone, side_rough = 0.0, (), 0.0
+    front_rough, side_tone, side_rough, brick_returns = 0.0, (), 0.0, ()
     if fb:
         from . import k03_brick
-        if not set(fb) <= {"front", "sides"} or not fb:
-            raise ParamError("face_brick is {\"front\": a face recipe, \"sides\": a common recipe} "
+        if not set(fb) <= {"front", "sides", "returns"} or not fb:
+            raise ParamError("face_brick is {\"front\": a face recipe, \"sides\": a common recipe, "
+                             "\"returns\": the side walls laid in the front's} "
                              "(data/components/prairie_1904/k03_face_brick.json)")
+        if "returns" in fb:
+            brick_returns = tuple(fb["returns"])
+            if not fb.get("front") or not brick_returns or not set(brick_returns) <= {"north", "south"} \
+                    or len(set(brick_returns)) != len(brick_returns):
+                raise ParamError("face_brick.returns names side walls (\"north\", \"south\"), each once, "
+                                 "laid in the face brick `front` names")
         try:
             if fb.get("front"):
                 if sfb:
@@ -8431,6 +8444,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         roof_form=roof_form, flat=flat_roof, mansard=mansard_roof, gable=gable_roof, shaped_gable=shaped, entrance_floor_m=ef, round_heads=rh,
         wall_paint=paint, wall_paint_opaque=paint_opaque, front_brick_tone=front_tone, front_brick_panel=front_panel,
         front_brick_roughness=front_rough, side_brick_tone=side_tone, side_brick_roughness=side_rough,
+        face_brick_returns=brick_returns,
         sash_color=sash_color, street_dress=street_dress, frontispiece=frontispiece, rear_section=rear_section,
         round_corner=round_corner, cant_corner=cant_corner, front_pier=front_pier, pavilions=pavilions, porte_cochere=porte_cochere,
         corner_porch=corner_porch, hip_deck=hip_deck, rear_veranda=rear_veranda, rear_terrace=rear_terrace, wall_lanterns=wall_lanterns, side_porch=side_porch, shutters=shutters,
