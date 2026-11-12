@@ -7526,7 +7526,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         # T-2963: a hood may stand on columns (1816's porch) and rail its top in iron
         # T-3159: or be laid, columns, balustrade and all, in the front's stone (1729's portico)
         # T-3210: and turn round arches between them (1827's porch)
-        extra = {"columns", "railing_fabric", "fabric", "centre_v_m", "under_head_m", "arches"}
+        extra = {"columns", "railing_fabric", "fabric", "centre_v_m", "under_head_m", "arches", "splay"}
         if not need <= set(hd) <= need | extra or set(hd["cornice"]) != {"height_m", "proud_m"} or \
                 set(hd["railing"]) != {"height_m", "post_m", "baluster_m", "pitch_m", "rail_m"}:
             raise ParamError(f"entrance_kit.hood takes {sorted(need)}, its cornice height_m and proud_m, "
@@ -7632,6 +7632,37 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                         raise ParamError(f"entrance_kit.hood.arches.over: distinct spans 0-{n_sp - 1} between the "
                                          f"columns, on an arcaded front")
                     door_kit["hood"]["arches"]["over"] = sorted(ov)
+            # T-1887: one end of the porch carried back on a diagonal from its front corner to
+            # `to_v_m`/`to_out_m`, where it meets a bay's canted cheek, on a third column at
+            # `column_v_m`/`column_out_m` in place of the flat respond (1828's south end, the
+            # automobile photograph): the end's arch, if one is turned, runs from that column
+            # to the end column on the diagonal, and the hood's slab, fascia and railing follow it
+            if "splay" in hd:
+                sp_ = hd["splay"]
+                if not isinstance(sp_, dict) or set(sp_) != {"side", "to_v_m", "to_out_m", "column_v_m",
+                                                             "column_out_m"} or sp_["side"] not in ("left", "right"):
+                    raise ParamError("entrance_kit.hood.splay takes side (left or right), to_v_m, to_out_m, "
+                                     "column_v_m and column_out_m")
+                k = -1.0 if sp_["side"] == "left" else 1.0
+                end_v = hs0 if k < 0 else hs1
+                cols_v = sorted(float(x) for x in co["at_v_m"]) if "at_v_m" in co else \
+                    [hs0 + pw / 2 + 0.05, hs1 - pw / 2 - 0.05]
+                end_col = cols_v[0] if k < 0 else cols_v[-1]
+                tv, to_, cv_, cvo = (float(sp_[x]) for x in ("to_v_m", "to_out_m", "column_v_m", "column_out_m"))
+                cd_ = float(hd["out_m"]) - pw / 2 - 0.05
+                if not (0.3 <= k * (tv - end_v) <= 2.5 and 0.0 <= to_ < float(hd["out_m"]) - 0.2):
+                    raise ParamError(f"entrance_kit.hood.splay: its end at v {tv}, {to_} m out, must stand 0.3-2.5 m "
+                                     f"past the hood's {sp_['side']} end (v {end_v:.3f}) and short of its front")
+                if not (-k * (end_col - cv_) >= pw + 0.3 and -k * (cv_ - tv) >= pw / 2 and
+                        0.3 <= cvo <= cd_ - 0.2):
+                    raise ParamError(f"entrance_kit.hood.splay: its column at v {cv_}, {cvo} m out, must stand a "
+                                     f"plinth and 0.3 m clear of the end column (v {end_col:.3f}), inside the "
+                                     f"diagonal's end and behind the front columns' line ({cd_:.3f} m)")
+                if (k < 0 and lo > cv_ - pw / 2 + 0.05) or (k > 0 and hi < cv_ + pw / 2 - 0.05):
+                    raise ParamError(f"entrance_kit.hood.splay: its column at v {cv_} stands on the landing or a "
+                                     f"terrace beside it, which reaches v {lo if k < 0 else hi:.3f}")
+                door_kit["hood"]["splay"] = {"side": sp_["side"], "to_s_m": round(tv - door_s, 4), "to_out_m": to_,
+                                             "column_s_m": round(cv_ - door_s, 4), "column_out_m": cvo}
         if "centre_v_m" in hd:
             # T-1871: the porch's centre along the front, the door under it but off its axis
             off = float(hd["centre_v_m"]) - door_s

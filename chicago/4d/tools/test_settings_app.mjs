@@ -14,7 +14,9 @@ import { fileURLToPath } from 'node:url';
 import {
   TEXT_SCALES, normalTextScale, applyTextScale, SOUND_DEFAULTS, soundLevelsFrom, normalVolume, volumeReadout,
   autoChoice, autoLine, onAuto, useAuto, themeOf, wireSettingsApp,
+  LOOK_SPEED, normalLookSpeed, lookSpeedReadout, SETTINGS_TABS, SETTINGS_SECTIONS, wireSettingsTabs,
 } from '../renderers/web/js/settings-app.js';
+import { lookScale } from '../renderers/web/js/controls/intent.js';
 import { decide } from '../renderers/web/js/device-profile.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -25,9 +27,25 @@ const settingsHtml = html.slice(html.indexOf('data-panel="settings"'), html.inde
 // ---- the markup: the design's order, and nothing the page or the smoke reads lost -------
 {
   const heads = [...settingsHtml.matchAll(/<h4[^>]*>([^<]*)<\/h4>/g)].map((m) => m[1].replace('&amp;', '&'));
-  // T-3022: Research (the Expert research switch) leads, ahead of the design's order.
-  assert.deepEqual(heads, ['Research', 'Display', 'Show', 'Movement', 'Machine', 'Performance', 'Sound', 'Units', "About & What's new"],
-    'Settings reads Research, then Display, Show, Movement, Machine, Performance, Sound, Units, About & What\'s new (DESIGN §07)');
+  // T-3563: the groups in the order of the card's tabs — Display (Display, Machine, Units), Show,
+  // Look (Look, Movement), Graphics (Performance), Sound, About — and Research last (the owner,
+  // 2026-11-12: "the research mode should be at the end").
+  assert.deepEqual(heads, ['Display', 'Machine', 'Units', 'Show', 'Look', 'Movement', 'Performance', 'Sound', 'About', 'Research'],
+    'Settings reads Display, Machine, Units, Show, Look, Movement, Performance, Sound, About, Research');
+  // Every group names its tab, the tabs come in the bar's order, and What's new (a HUD section of
+  // its own) sits between About and Research.
+  const panes = [...settingsHtml.matchAll(/<div class="settings-group[^"]*"[^>]*?data-set-pane="(\w+)"/g)].map((m) => m[1]);
+  assert.equal(panes.length, heads.length, 'every group names its tab');
+  assert.deepEqual([...new Set(panes)], SETTINGS_TABS.filter((k) => k !== 'whatsnew'), 'the groups follow the tabs\' order');
+  assert.deepEqual(SETTINGS_TABS, ['display', 'show', 'look', 'graphics', 'sound', 'about', 'whatsnew', 'research']);
+  assert.deepEqual(SETTINGS_TABS.slice(-2), ['whatsnew', 'research'], "What's new is one of the last tabs; Research is the last");
+  assert.deepEqual([...SETTINGS_SECTIONS], ['settings', 'whatsnew']);
+  assert.match(html, /<nav class="set-tabs" id="settings-tabs" role="tablist" aria-label="Settings" hidden><\/nav>/,
+    'the bar is on the page, empty until settings-app.js draws it');
+  // The mouse-sensitivity row is on the Look tab.
+  const controls = settingsHtml.slice(settingsHtml.indexOf('id="s-look"'));
+  assert(controls.indexOf('id="s-look-speed"') > 0 && controls.indexOf('id="s-look-speed"') < controls.indexOf('<h4>Movement</h4>'));
+  assert.match(settingsHtml, /<input type="range" id="s-look-speed" min="0\.2" max="3" step="0\.1"/);
   const kept = ['s-units', 's-fov', 'v-fov', 's-road-aid', 'v-road-aid', 's-brightness', 'v-brightness',
     's-detail', 's-quality', 's-governor', 'governor-line', 'device-line', 'pacing-read', 's-pacing-read',
     's-pacing-copy', 'pacing-read-status', 'pacing-read-out', 's-compass', 's-overview-map', 's-street-names',
@@ -35,13 +53,14 @@ const settingsHtml = html.slice(html.indexOf('data-panel="settings"'), html.inde
     's-lot-lines', 's-show-control-help', 's-about', 's-about-build', 's-about-dev', 's-about-dev-note'];
   const added = ['s-display', 's-theme', 's-text-size', 's-machine', 's-skins', 's-perf-auto', 's-perf-auto-line', 's-sound',
     's-sound-master', 's-sound-effects', 's-sound-ambience', 's-sound-music', 'v-sound-music', 'v-sound-master', 'v-sound-effects', 'v-sound-ambience',
-    's-sound-effects-help', 's-sound-ambience-help', 's-open-whatsnew'];
+    's-sound-effects-help', 's-sound-ambience-help', 's-open-whatsnew', 's-look-speed', 'v-look-speed', 's-look-speed-label',
+    's-look', 's-research', 's-researcher'];
   for (const id of [...kept, ...added]) {
     assert.equal((html.match(new RegExp(`id="${id}"`, 'g')) ?? []).length, 1, `#${id} is on the page once`);
     assert(settingsHtml.includes(`id="${id}"`), `#${id} is in Settings`);
   }
   // Display holds light or dark, text size, brightness, field of view and road visibility, in that order.
-  const display = settingsHtml.slice(settingsHtml.indexOf('id="s-display"'), settingsHtml.indexOf('<h4>Show</h4>'));
+  const display = settingsHtml.slice(settingsHtml.indexOf('id="s-display"'), settingsHtml.indexOf('id="s-machine"'));
   const at = ['s-theme', 's-text-size', 's-brightness', 's-fov', 's-road-aid'].map((id) => display.indexOf(`id="${id}"`));
   assert(at.every((i, k) => i > 0 && (k === 0 || i > at[k - 1])), `Display's rows in order: ${at}`);
   // Text size offers 100 % to 140 %, and only those.
@@ -124,6 +143,115 @@ const settingsHtml = html.slice(html.indexOf('data-panel="settings"'), html.inde
   assert.equal(onAuto({ detail: 'full', quality: '', governor: 'adaptive' }), false);
   assert.equal(onAuto({ detail: '', quality: '', governor: 'fixed' }), false);
   assert.deepEqual(useAuto({ detail: 'full', quality: 2, governor: 'fixed', fov: 80 }), { detail: '', quality: '', governor: 'adaptive', fov: 80 });
+  // T-3563: look sensitivity. 1 is Standard (the turn the app always had); kept to 0.2x..3x in tenths.
+  assert.deepEqual({ ...LOOK_SPEED }, { min: 0.2, max: 3, step: 0.1, standard: 1 });
+  assert.equal(normalLookSpeed(undefined), 1);
+  assert.equal(normalLookSpeed(''), 1);
+  assert.equal(normalLookSpeed('x'), 1);
+  assert.equal(normalLookSpeed('1.73'), 1.7);
+  assert.equal(normalLookSpeed(0), 0.2);
+  assert.equal(normalLookSpeed(9), 3);
+  assert.equal(lookSpeedReadout(1), 'Standard');
+  assert.equal(lookSpeedReadout(0.5), '0.5×');
+  assert.equal(lookSpeedReadout(2), '2.0×');
+  // The backends' own reading of it (controls/intent.js): unreadable is 1, never 0 or a runaway.
+  assert.equal(lookScale(() => 2.5), 2.5);
+  assert.equal(lookScale(() => undefined), 1);
+  assert.equal(lookScale(() => { throw new Error('no hud yet'); }), 1);
+  assert.equal(lookScale(() => 0), 1);
+  assert.equal(lookScale(() => 50), 3);
+  assert.equal(lookScale(null), 1);
+}
+
+// ---- the backends scale their turn by it (T-3563) ------------------------------------------
+{
+  const pl = fs.readFileSync(path.join(WEB, 'js/controls/pointerlock.js'), 'utf8');
+  assert.match(pl, /controls\.pointerSpeed = lookScale\(lookSpeed\);\n\s+euler\.setFromQuaternion/, 'the mouse reads it every frame');
+  const touch = fs.readFileSync(path.join(WEB, 'js/controls/touch.js'), 'utf8');
+  assert.match(touch, /const k = LOOK_SENSITIVITY \* lookScale\(lookSpeed\);/, 'the drag-to-look reads it on each move');
+  const main = fs.readFileSync(path.join(WEB, 'js/main.js'), 'utf8');
+  assert.equal((main.match(/lookSpeed: \(\) => hud\.settings\.lookSpeed,/g) ?? []).length, 2, 'main.js hands it to both backends');
+  const hud = fs.readFileSync(path.join(WEB, 'js/hud.js'), 'utf8');
+  assert.match(hud, /lookSpeed: 1,/, 'Standard is the default');
+}
+
+// ---- the tab bar, wired on a small page (T-3563) -----------------------------------------
+{
+  const byId = new Map();
+  const node = (tag, parent = null) => {
+    const attrs = new Map();
+    const listeners = {};
+    const n = {
+      tagName: tag.toUpperCase(), children: [], parentElement: parent, dataset: {}, hidden: false, className: '', id: '',
+      tabIndex: 0, innerHTML: '', textContent: '',
+      setAttribute(k, v) { attrs.set(k, String(v)); }, getAttribute(k) { return attrs.has(k) ? attrs.get(k) : null; },
+      append(...kids) { for (const k of kids) { k.parentElement = n; n.children.push(k); if (k.id) byId.set(k.id, k); } },
+      addEventListener(type, fn) { (listeners[type] ??= []).push(fn); },
+      fire(type, extra = {}) { for (const fn of listeners[type] ?? []) fn({ type, preventDefault() {}, ...extra }); },
+      all() { return n.children.flatMap((c) => [c, ...c.all()]); },
+      querySelectorAll(sel) {
+        if (sel === '[data-set-tab]') return n.all().filter((c) => c.dataset.setTab);
+        if (sel === '.settings-group[data-set-pane]') return n.all().filter((c) => c.dataset.setPane);
+        return [];
+      },
+      querySelector(sel) { return n.querySelectorAll(sel)[0] ?? null; },
+      closest(sel) { for (let c = n; c; c = c.parentElement) if (sel === '[data-set-tab]' && c.dataset.setTab) return c; return null; },
+      focus() { doc.activeElement = n; },
+    };
+    if (parent) parent.append(n);
+    return n;
+  };
+  const bar = node('nav'); bar.id = 'settings-tabs'; byId.set(bar.id, bar); bar.hidden = true;
+  const body = node('section');
+  const groups = {};
+  for (const key of ['display', 'display', 'show', 'look', 'graphics', 'sound', 'about', 'research']) {
+    const g = node('div', body);
+    g.dataset.setPane = key;
+    (groups[key] ??= []).push(g);
+  }
+  const scroll = { scrollTop: 240 }; byId.set('panel-scroll', scroll);
+  const doc = {
+    activeElement: null,
+    getElementById: (id) => byId.get(id) ?? null,
+    querySelector: (sel) => (sel === '.panel-body[data-panel="settings"]' ? body : null),
+    createElement: (tag) => node(tag),
+  };
+  let section = 'goto';
+  const asked = [];
+  const tabs = wireSettingsTabs({ doc, selectSection: (t) => { asked.push(t); section = t; tabs?.paint(t); }, section: () => section });
+  const buttons = bar.querySelectorAll('[data-set-tab]');
+  assert.deepEqual(buttons.map((b) => b.dataset.setTab), [...SETTINGS_TABS], 'one button a tab, in order');
+  assert.deepEqual(buttons.map((b) => b.children.find((c) => c.className === 'set-tab-label')?.textContent),
+    ['Display', 'Show', 'Look', 'Graphics', 'Sound', 'About', "What's new", 'Research']);
+  assert(buttons.every((b) => b.getAttribute('role') === 'tab' && /<svg class="set-tab-icon"[^>]*stroke="currentColor"/.test(b.innerHTML)),
+    'each an icon (one colour, currentColor) over its label');
+  assert(byId.get('settings-whatsnew-dot')?.hidden === true, "What's new carries its unread dot, hidden until there is news");
+  assert.equal(bar.hidden, true, 'out of sight while another section shows');
+  tabs.paint('settings'); section = 'settings';
+  assert.equal(bar.hidden, false, 'up over Settings');
+  const selected = () => buttons.filter((b) => b.getAttribute('aria-selected') === 'true').map((b) => b.dataset.setTab);
+  const shown = () => body.children.filter((g) => !g.hidden).map((g) => g.dataset.setPane);
+  assert.deepEqual(selected(), ['display']);
+  assert.deepEqual(shown(), ['display', 'display'], 'Display opens first, and only its groups show');
+  bar.fire('click', { target: buttons[2] });
+  assert.deepEqual([selected(), shown(), tabs.pane, scroll.scrollTop], [['look'], ['look'], 'look', 0], 'a tap shows its tab at its top');
+  assert.deepEqual(asked, [], 'a tab inside Settings asks the HUD for nothing');
+  tabs.select('whatsnew');
+  assert.deepEqual(asked, ['whatsnew'], "What's new is the HUD's own section, selected through it");
+  assert.deepEqual([bar.hidden, selected()], [false, ['whatsnew']], 'and the bar stays up over it');
+  tabs.select('research');
+  assert.deepEqual(asked, ['whatsnew', 'settings']);
+  assert.deepEqual([selected(), shown()], [['research'], ['research']], 'back to Settings, on Research');
+  tabs.paint('whatsnew');
+  tabs.paint('settings');
+  assert.deepEqual(selected(), ['research'], 'the tab in force is kept across a visit to What\'s new');
+  doc.activeElement = buttons.at(-1);
+  bar.fire('keydown', { key: 'ArrowRight' });
+  assert.deepEqual(selected(), ['display'], 'the arrow keys walk the row, round the end');
+  assert.equal(tabs.select('nonsense'), false);
+  tabs.paint('travel');
+  assert.equal(bar.hidden, true, 'and it goes with the Settings sections');
+  assert.equal(wireSettingsTabs({ doc: { getElementById: () => null } }), null, 'no bar, nothing wired');
 }
 
 // ---- wired: a small page of the Settings rows --------------------------------------------
@@ -172,6 +300,9 @@ function fakePage() {
     make('b', { id: `v-sound-${slug}`, parent: root });
   }
   make('button', { id: 's-open-whatsnew', parent: root });
+  make('input', { id: 's-look-speed', parent: root });
+  make('b', { id: 'v-look-speed', parent: root });
+  make('span', { id: 's-look-speed-label', parent: root });
   return { documentElement: root, getElementById: (id) => byId.get(id) ?? null, byId };
 }
 
@@ -241,6 +372,16 @@ function fakePage() {
   assert.equal($('v-sound-ambience').textContent, 'Off');
   assert.equal(JSON.parse(saved.at(-1)).soundAmbience, 0);
   assert.deepEqual(told.at(-1), ['soundAmbience', 0]);
+  // T-3563: look sensitivity — Standard until moved, then stored and handed on; a phone says Look.
+  assert.equal($('s-look-speed').value, '1');
+  assert.equal($('v-look-speed').textContent, 'Standard');
+  assert.equal($('s-look-speed-label').textContent, 'Mouse sensitivity');
+  $('s-look-speed').value = '2.3';
+  $('s-look-speed').fire('input');
+  assert.equal(settings.lookSpeed, 2.3);
+  assert.equal($('v-look-speed').textContent, '2.3×');
+  assert.deepEqual(told.at(-1), ['lookSpeed', 2.3]);
+  assert.equal(JSON.parse(saved.at(-1)).lookSpeed, 2.3);
   // What's new, from About.
   $('s-open-whatsnew').click();
   assert.equal(whatsNew, 1);
@@ -250,12 +391,16 @@ function fakePage() {
 {
   // No device profile: the Auto row stays out of sight rather than offering nothing.
   const doc = fakePage();
-  wireSettingsApp({ doc, settings: {}, device: null });
+  const bare = {};
+  wireSettingsApp({ doc, settings: bare, device: null, isTouch: true });
   assert.equal(doc.byId.get('s-perf-auto').closest('.field').hidden, true);
+  assert.equal(doc.byId.get('s-look-speed-label').textContent, 'Look sensitivity', 'a touch screen turns by a drag: Look');
+  assert.equal(bare.lookSpeed, 1);
   // A fake root without a style is left alone.
   assert.equal(applyTextScale(null, 1.2), 1.2);
 }
 
-console.log('SETTINGS APP PASS — Display, Show, Movement, Machine, Performance, Sound, Units, About & What\'s new in order with every id kept; '
+console.log('SETTINGS APP PASS — eight icon tabs (Display, Show, Look, Graphics, Sound, About, What\'s new, Research last) with every id kept; '
+  + 'mouse / look sensitivity (Standard 1x, 0.2-3x) stored and read by both backends; '
   + 'light or dark is a two-way choice; text size 100–140 % applies and persists; Auto names and restores the device\'s levels; '
   + 'Sound\'s four levels persist and say what each covers; the machine tiles are each machine\'s own colours');

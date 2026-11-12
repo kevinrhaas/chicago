@@ -19,7 +19,7 @@ import { migratePaceDefaults, PACE_DEFAULTS_VERSION } from './travel-settings.js
 import { GROUND_MODES, groundPace as groundOf, nextPace, moveView, travelModeFor, arriveOf } from './move-modes.js';
 import { jauntsFollowFrom } from './getting-there.js';
 import { versionBadge } from './structure-versions.js';
-import { wireSettingsApp, SOUND_DEFAULTS, soundLevelsFrom } from './settings-app.js';
+import { wireSettingsApp, wireSettingsTabs, SOUND_DEFAULTS, soundLevelsFrom } from './settings-app.js';
 import { t as str } from './strings/index.js';
 import './strings/hud.js';
 // T-2649: the colouring and the hidden set are kept in the Confidence view's one record,
@@ -94,6 +94,9 @@ const DEFAULT_SETTINGS = {
   jauntsFollowChoice: false,
   // T-2653: a drag to look on a touch screen turns in steps (Move › Comfort).
   snapTurn: false,
+  // T-3563: Settings › Look › Mouse (on a touch screen, Look) sensitivity, a multiple of
+  // the app's own turn rate (settings-app.js § LOOK_SPEED). 1 is Standard, the turn it always had.
+  lookSpeed: 1,
   // T-2656: Settings › Display › Text size, the Navigator's text at 100-140 %.
   textScale: 1,
   // T-2656: Settings › Sound, master, effects and ambience (0..1), for T-2659's sounds.
@@ -391,6 +394,7 @@ export function createHud({
     try { n = await unseenCount(); } catch { return; }
     whatsNewDot?.toggleAttribute('hidden', n === 0);
     helpDot?.toggleAttribute('hidden', n === 0);
+    $('settings-whatsnew-dot')?.toggleAttribute('hidden', n === 0);
     if (n > 0) {
       btnHelp?.setAttribute('title', str('hud.menu.unread', { n }));
     }
@@ -436,6 +440,8 @@ export function createHud({
   panelBack?.addEventListener('click', () => backAction?.());
 
   const panelScroll = $('panel-scroll');
+  /** T-3563: the Settings card's own tab bar (settings-app.js § wireSettingsTabs), wired below. */
+  let settingsTabs = null;
   function selectTab(want, { fromHost = false } = {}) {
     // A section the scene does not carry (T-1740) is never selected, by any route.
     // T-2620: Go to retired with the drawer; asking for it opens the Jaunts app's own Go to.
@@ -457,6 +463,7 @@ export function createHud({
     // Evidence list's depth must not carry over into Settings.
     if (panelScroll) panelScroll.scrollTop = 0;
     if (want === 'whatsnew') void openWhatsNew().catch(() => {});
+    settingsTabs?.paint(want);
     onTab?.(want);
     if (!fromHost && panelOpen()) host?.show?.(want);
   }
@@ -663,7 +670,11 @@ export function createHud({
     saveTheme: (tone) => store(THEME_KEY, tone),
     onSetting,
     openWhatsNew: () => selectTab('whatsnew'),
+    isTouch: !!isTouch,
   });
+  settingsTabs = wireSettingsTabs({ doc, selectSection: (tab) => selectTab(tab), section: () => currentTab });
+  // The dot may have been painted before the bar drew its tab.
+  void paintUnseen();
 
   // ---- Move: how you move, its speed, and how Go to takes you there (T-2651) ----
   //
@@ -852,6 +863,8 @@ export function createHud({
     settings,
     /** T-2656: the Settings app's rows (light or dark, Auto) for a test to read. */
     settingsApp,
+    /** T-3563: the Settings card's tabs — `select('sound')`, `pane`, `paint()`. */
+    get settingsTabs() { return settingsTabs; },
     setPanel,
     selectTab,
     setTitle,

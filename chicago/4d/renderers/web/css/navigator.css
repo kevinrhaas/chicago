@@ -481,6 +481,40 @@ button.nav-person:focus-visible { outline: 2px solid var(--accent); outline-offs
 .navigator .panel-tab.is-on::before { left: 8px; right: 8px; top: auto; bottom: 0; width: auto; height: 3px; border-radius: 3px 3px 0 0; }
 .navigator .panel-tab.is-elsewhere { display: none; }
 .navigator .hud-panel.has-one-section .panel-tabs { display: none; }
+/* T-3563 (the owner, 2026-11-12: "organize that settings card better with tabs and icons at the
+   top like ... the inspect card"): Settings' own row, drawn by js/settings-app.js, in the grid's
+   nav row where the section tabs were (they stand down for it, apps/drawer-host.js). The tabs
+   are Inspect's (css/inspect.css, T-3435): ONE ROW, each an icon over a small label, sharing the
+   width; only where they cannot fit does the row scroll sideways, never wrap (a raised Text size
+   wraps it, below). Only the chosen tab's groups show. */
+.navigator .hud-panel.has-own-tabs .panel-tabs { display: none; }
+.set-tabs { grid-area: nav; display: flex; flex-wrap: nowrap; gap: 0; margin: 0; padding: 4px 8px 0;
+  border-bottom: 1px solid var(--edge); overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none; }
+.set-tabs::-webkit-scrollbar { display: none; }
+.set-tabs[hidden] { display: none; }
+.set-tab { position: relative; flex: 1 0 auto; min-width: 38px; min-height: 48px; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 3px; padding: 4px 3px 3px; border: 0; border-bottom: 2px solid transparent;
+  background: transparent; color: var(--ink-dim); cursor: pointer;
+  font: 500 0.625rem/1 var(--font-body, inherit); letter-spacing: 0; white-space: nowrap; -webkit-tap-highlight-color: transparent; }
+.set-tab-icon { display: block; flex: 0 0 auto; }
+.set-tab-label { display: block; }
+.set-tab:hover { color: var(--ink); }
+.set-tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent, currentColor); }
+.set-tab[aria-selected="true"] .set-tab-icon { color: var(--accent, currentColor); }
+.set-tab:focus-visible { outline: 2px solid var(--accent, currentColor); outline-offset: -2px; }
+.set-tab-dot { position: absolute; top: 4px; left: calc(50% + 7px); width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent, currentColor); }
+.set-tab-dot[hidden] { display: none; }
+/* A phone's sheet is ~320 px beside the rail: the eight tabs fit it on one row at a smaller label. */
+@media (max-width: 620px) {
+  .set-tabs { padding: 4px 2px 0; }
+  .set-tab { min-width: 0; padding: 4px 1px 3px; font-size: 0.5625rem; }
+}
+.panel-body[data-panel="settings"] .settings-group[hidden] { display: none; }
+/* The rule between groups is drawn between the SHOWN ones: a tab's first group has none. */
+.panel-body[data-panel="settings"] .settings-group + .settings-group { margin-top: 0; padding-top: 0; border-top: 0; }
+.panel-body[data-panel="settings"] .settings-group:not([hidden]) ~ .settings-group:not([hidden]) {
+  margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--edge); }
 .navigator .panel-head { padding-left: 16px; }
 /* On a laptop the card and the Navigator stand on opposite edges: the card stays put. */
 @media (min-width: 621px) {
@@ -767,7 +801,7 @@ html[data-text-scale] .navigator :is(.jaunt-card h3, .jaunt-premise, .jaunt-cred
   white-space: normal; overflow: visible; text-overflow: clip; overflow-wrap: anywhere; }
 /* Go to's names wrap to two lines at 100 % (T-2632); above it a long name is shown whole. */
 html[data-text-scale] .navigator .welcome-destination strong { display: block; -webkit-line-clamp: unset; line-clamp: none; overflow: visible; }
-html[data-text-scale] .navigator :is(.insp-tabs, .jaunt-categories, .welcome-kinds, .people-fgroup, .pills) {
+html[data-text-scale] .navigator :is(.insp-tabs, .set-tabs, .jaunt-categories, .welcome-kinds, .people-fgroup, .pills) {
   flex-wrap: wrap; overflow-x: visible; }
 /* People's filter pills (css/people.css): a row of them is a sideways strip with a fade, and
    a short question's row does not shrink (flex: none), so on the desktop panel a raised

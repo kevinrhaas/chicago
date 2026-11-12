@@ -88,7 +88,14 @@ searchable Audio library are under `renderers/web/audio/`. Rebuild with
 the owner-supplied score is not licensed as an open sample collection.
 
 Music collections are deliberately disjoint: 1812 Frontier (3), 1835 Border (2),
-1904 Waltzes (2). Browser selection uses Ogg/Opus first and AAC when unsupported.
+1904 Ragtime (10; T-3569, the owner's own set, which replaced the two waltzes on
+2026-11-12). The waltzes stay catalogued with `runtime_enabled: false`. Eras listed in
+the catalogue's `music_shuffle_eras` (only 1904) open at a random track and play a
+shuffled order: every track once before any repeats, and a re-shuffle never reopens
+with the track that just ended. The ragtime deliveries are matched to -17.5 LUFS
+integrated by one static gain per track, with trailing silence cut to 0.4 s; Opus
+64 kbps VBR (1.0-2.1 MB a track) with AAC-LC 112 kbps fallback. `prepare_audio.py
+--ragtime-only` rebuilds just these, leaving every other verified delivery untouched. Browser selection uses Ogg/Opus first and AAC when unsupported.
 Only the active cue streams. Music cycles continuously through the selected era’s
 collection, wrapping to the first cue with no scheduled silence between tracks.
 Period music is permitted only while exploring, inspecting, on a jaunt or touring; time travel, landing, the arrival choices and recall keep it off without changing the ambience/effects sliders. The compact loading-screen speaker retains a 44 px touch target and accessible on/off labels. Settings keep only the requested Ambience and Effects examples, grouped close to their own sliders; the additional Music/general notes were removed on owner review.
