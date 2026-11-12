@@ -2,7 +2,7 @@
   "structure_id": "house_1712_prairie",
   "view": "rand_mcnally_1893_p233",
   "glb": "assets/gltf/house_1712_prairie__as_mapped_1904.glb",
-  "glb_sha256": "b3604722ff2cae623e85f304f75e38561c591fd91518eeef3d0695f3f3a485ed",
+  "glb_sha256": "eaae56613af4dd006ace54d5538791986431a937e6f278dd09b506db1f6fe2fe",
   "camera_sha256": "35513a2b03f8744d461a9a973498d0ccf76b166169561625397bbd92dc3beabe",
   "photo_sha256": "adf8c46b8b3fc3d5515f955a66591245d6b8fff568335a0c5842df367be7c5c4",
   "side_by_side": "docs/RESEARCH/photo-match/house_1712_prairie/rand_mcnally_1893_p233-side-by-side.jpg",
@@ -87,6 +87,11 @@
       "what": "the south face's openings, the frame porch on the south wall, the rear and the rear wing",
       "status": "not shown",
       "how": "hidden by 1720 and its trees, or behind the front"
+    },
+    {
+      "what": "the low coping along the street line and the cut in it the walk passes through",
+      "status": "not shown",
+      "how": "the strip draws the walks and lawns too small to read a coping or a gate off; T-1872 moved the cut onto the middle door's axis"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

@@ -482,11 +482,11 @@
       "chamfer_m": 0.05,
       "runs": [
        {
-        "to_s_m": 1.05,
+        "to_s_m": 4.425,
         "height_m": 0.35
        },
        {
-        "to_s_m": 2.85,
+        "to_s_m": 6.225,
         "opening": true
        },
        {
@@ -499,7 +499,7 @@
      "sources": [
       "sanborn_1911_chicago_v3_sheet_20"
      ],
-     "note": "T-3205 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). No picture of 1712's front in its own time is held: the 1893 Rand McNally strip is too small to read a boundary off, and the 1939-1942 views show the Kodak plant that replaced it. Built as the block's own boundary, a low squared stone coping on the street line (the 1904 parcel's, data/street_grid/1904.json, at the public walk's inner edge), 0.35 m, as 1700's (Chicagology's photograph), 1721's (the 1891 plate) and 1736's (the c. 1890 photograph and its curbstone, still in place in 2015) stand; cut 1.8 m for the walk square to the stair. RECONSTRUCTED: kind, height and cut are the block's (liberty L-k14-walks-1700-block-3205)."
+     "note": "T-3205 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). No picture of 1712's front in its own time is held: the 1893 Rand McNally strip is too small to read a boundary off, and the 1939-1942 views show the Kodak plant that replaced it. Built as the block's own boundary, a low squared stone coping on the street line (the 1904 parcel's, data/street_grid/1904.json, at the public walk's inner edge), 0.35 m, as 1700's (Chicagology's photograph), 1721's (the 1891 plate) and 1736's (the c. 1890 photograph and its curbstone, still in place in 2015) stand; cut 1.8 m for the walk square to the stair. RECONSTRUCTED: kind, height and cut are the block's (liberty L-k14-walks-1700-block-3205). T-1872: the cut in the coping moved with the door to the middle bay (s 4.425-6.225, centred on the door's 5.325 m), where the 1893 Rand McNally drawing runs the stoop straight out to the walk."
     },
     "yard": {
      "value": {
