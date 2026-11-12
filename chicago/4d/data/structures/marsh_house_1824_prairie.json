@@ -96,7 +96,7 @@
       "glessner_blog_1824_pomeroy_italianate",
       "chicagology_1828_shipman_automobile"
      ],
-     "note": "The 1911 sheet: '2½B; rear2B brick with stone front'; George B. Marsh bought the house in 1880 and 'soon gave it an entirely new stone façade' (the Glessner House Museum blog, with the Pomeroy photograph). The sheet draws the new front as a stone strip about 1.2 m deep across the old brick front. K01 lays stone on the street front only, so the flanks and rear stand in brick; the Pomeroy photograph shows them painted or stuccoed light, and the automobile photograph the south flank still light (open for T-3168)."
+     "note": "The 1911 sheet: '2½B; rear2B brick with stone front'; George B. Marsh bought the house in 1880 and 'soon gave it an entirely new stone façade' (the Glessner House Museum blog, with the Pomeroy photograph). The sheet draws the new front as a stone strip about 1.2 m deep across the old brick front. K01 lays stone on the street front only, so the flanks and rear stand in brick; the Pomeroy photograph shows them painted or stuccoed light, and the automobile photograph the south flank still light: `wall_finish` paints them (T-1887)."
     },
     "principal_floor_m": {
      "value": 2.0,
@@ -132,7 +132,25 @@
     "service_wall_brick": {
      "value": "common_buff_common_6",
      "confidence": "reconstructed",
-     "note": "K01 lays the flanks and the rear in brick, as the 1911 sheet colours them; buff for the light painted walls of the Pomeroy photograph (the Prairie library reads them as painted stucco) and the light south flank in the automobile photograph."
+     "note": "K01 lays the flanks and the rear in brick, as the 1911 sheet colours them; buff for the light painted walls of the Pomeroy photograph (the Prairie library reads them as painted stucco) and the light south flank in the automobile photograph. Under the light paint `wall_finish` lays over it (T-1887), opaque, so the panel no longer shows."
+    },
+    "wall_finish": {
+     "value": {
+      "paint": {
+       "color": [
+        0.74,
+        0.71,
+        0.64
+       ],
+       "opaque": true
+      }
+     },
+     "confidence": "inferred",
+     "sources": [
+      "glessner_blog_1824_pomeroy_italianate",
+      "chicagology_1828_shipman_automobile"
+     ],
+     "note": "The flanks, the rear range and the stacks painted or stuccoed light over their brick, the stone front left as cut (T-1887). The Pomeroy photograph (before about 1880) shows the 1857 villa's south flank, its front and its lower rear block all as light as the trim and much lighter than the dark sash, under the bracketed cornice; Marsh's refronting about 1880 replaced the front alone (T-1837's register keeps the main envelope and the service wing), and the automobile photograph (about 1897-1906) still shows a light wall north of 1828's porch under a frieze of small panels between brackets, which the construction note reads as this south flank. Opaque, as 1736's: no tint of the buff brick reaches a wall this light. The tone is read; the colour is not (both prints are monochrome): a pale stone-coloured paint, a little darker than the Bedford front so the refronting still reads, is RECONSTRUCTED. Whether it is paint or stucco the prints cannot say at their scale; it is laid as paint over the brick's map."
     },
     "stone_front": {
      "value": {
