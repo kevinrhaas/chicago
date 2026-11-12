@@ -13,8 +13,8 @@
  "rights_note": "Published in the United States in 1896: public domain by date.",
  "asset_use": "cross_check",
  "verified": true,
- "access_notes": "Read 2026-11-03 (T-1913) from the image store's display copy, 1050 x 1600 px, sha256 fdc5beaa81e6b9b8d5b5c837bd99062b6623c7e1c114e8314d1996948d18d704.",
- "note": "A pen drawing of the house's front: the ogee gable with its crest and attic lights, the paired light under it, the oriel on its corbel with the frieze over it, the ground-floor window, the arched door and the stoop at the south end, and a tall stack on the north side, between trees. Its proportions are a draughtsman's; it confirms the composition the photograph shows.",
+ "access_notes": "Read 2026-11-03 (T-1913) from the image store's display copy, 1050 x 1600 px, sha256 fdc5beaa81e6b9b8d5b5c837bd99062b6623c7e1c114e8314d1996948d18d704. T-3365: the vignette cropped unscaled from that copy (page x 200-800, y 480-1120) into meyer_2009_monroe_1896_vignette.jpg, 600 x 640 px, sha256 089359f4783e3d4720a3f8d0eead6bbdd71f01925f321b74406a50454e10c3ca, for the plate's camera; the vignette is signed 'MIELATZ 96' at its lower right.",
+ "note": "A pen drawing of the house's front: the ogee gable with its crest and attic lights, the paired light under it, the oriel on its corbel with the frieze over it, the ground-floor window, the arched door and the stoop at the south end, and a tall stack on the north side, between trees. Its proportions are a draughtsman's; it confirms the composition the photograph shows. T-3365: solved as a camera (data/reference_views/mayer_house_2009_prairie/monroe_1896_plate.json), its front fits the photograph's at one scale within 0.13 m RMS, and its eye stands about where the photograph's does, so the plate is a close perspective of the front from about the photograph's place, not a free sketch; for the same reason it is not an independent witness against the photograph.",
  "what_it_supplies": [
   "the front's composition, as a check on the photograph: the door and stoop at the south end, the oriel standing proud on its corbel, the gable's outline"
  ],
