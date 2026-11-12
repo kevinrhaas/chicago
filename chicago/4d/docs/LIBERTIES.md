@@ -27220,6 +27220,20 @@ depth), the crown's eave 0.5 m past it, its 52-degree faces (fitted to the print
 0.3 m), and the lights' K06 pattern. The pavilion is now 2.2 m wide and stands 0.3 m in from the
 north corner (K08's least pier to a corner, and clear of the entrance), so the attic stands about
 0.5-0.7 m north of the print's, which is centred over the door's north jamb.
+**The cornice's consoles and the south stack (T-3561, a piece of T-1893).** Read off the square-on
+print: a close row of carved stone consoles under the corona on a plain frieze, twelve across the main
+front south of the pavilion (about 0.49 m apart, 0.45 m high, 0.17 m wide, their feet at about 8.5 m),
+carried round the corner along the south flank on the oblique; built as K10's scrolled console
+(`wall_head.blocks`) on a 0.32 m frieze. Invented: the consoles' carving (the kit's generic scroll),
+their 0.19 m projection, and their feet 0.11 m lower than the print's (the upper lintels leave no more
+frieze); the rosettes over them are not built. The south stack is triangulated through both cameras:
+its west face about 1.6 m back from the front, its south face in line with the print's main south
+wall, its head's foot at about 13.7 m, its cap at about 14.4 m and its pots to about 15.2 m. Invented:
+it stands on the BUILD's south cornice (`on_cornice`), about 0.75 m south of where the print stands it,
+because the build's south wall is still flush with the corner bay (the open set-out); its 1.1 x 0.75 m
+plan, its K15 stone, three corbel courses and 0.15 m cap, and three of the kit's tall pots where the
+print shows three or four taller ones. The sunk panels the oblique draws on its south face are not
+built (K15 lays a panel's recess in brick). The north stack takes the same head.
 **What is not built.** The pavilion's full 4 m width (K01 cannot cut a door through a
 projection, so it stands 2.45 m wide north of the door), the door's pedimented hood on carved
 brackets, the stoop's newels and cheek walls, the narrow light over the door (built at the storey's
@@ -27239,7 +27253,7 @@ is built to the photographs, which is a choice, not a finding.
 **How to resolve:** a dated picture or permit for the remodel settles which front stood in 1904;
 the rest stands open on the two match records.
 **Covers:** `sears_meeker_house_1815_prairie.as_mapped_1904.form.wall_thickness_front_m`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.wall_thickness_side_m`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.service_wall_brick`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.roof_pitch_deg`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.stair_tread_m`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.stair_landing_depth_m`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.side_bays`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.rear_bays`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.rainwater`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.window_kit`
-**Ticket:** T-3155 (piece 1 of T-1893), T-3156 (piece 2).
+**Ticket:** T-3155 (piece 1 of T-1893), T-3156 (piece 2), T-3561 (the cornice's consoles and the south stack).
 **Review:** `docs/RESEARCH/k01-1815-sears-1893/README.md`.
 **Recorded:** 2026-10-25 (T-3155).
 

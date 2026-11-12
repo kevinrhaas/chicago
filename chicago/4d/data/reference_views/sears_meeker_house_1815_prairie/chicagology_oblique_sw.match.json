@@ -2,7 +2,7 @@
   "structure_id": "sears_meeker_house_1815_prairie",
   "view": "chicagology_oblique_sw",
   "glb": "assets/gltf/sears_meeker_house_1815_prairie__as_mapped_1904.glb",
-  "glb_sha256": "885b7a29381657f0296feca0ac21a66d250d9d92dc96355e551b87b87e9e0f4f",
+  "glb_sha256": "0ff5e1d36da7e0020c8a3ad25fa54a23d540a412632adf05bcd7d6b88cfdd2dd",
   "camera_sha256": "1fdf8d070c86fc16f704cbe37a69be533ca63697bb6705ac217de6e11bd34ec3",
   "photo_sha256": "39fbfc1c58b51ccd19997e89b76380d1445a6665485416a31ac489acf8522929",
   "side_by_side": "docs/RESEARCH/photo-match/sears_meeker_house_1815_prairie/chicagology_oblique_sw-side-by-side.jpg",
@@ -32,8 +32,8 @@
     },
     {
       "what": "the south flank's tall stack, carried up from the flank wall past the mansard with a panelled shaft and a corbelled head of flues (x 1740-1820 px)",
-      "status": "open",
-      "how": "the build's two stacks stand inside the main footprint; neither is this one"
+      "status": "fixed",
+      "how": "T-3561: rebuilt as the print's: K15's stone stack standing on the south cornice about 1.6 m back from the front, rising past the mansard to a corbelled head and cap at 14.45 m, with three tall pots in a row back from the street to about 15.2 m; measured from the cornice's corner it renders 83 px along the flank against the print's 73 px, and its pots' tops at y 75 px against 72 px"
     },
     {
       "what": "the mansard's curb and cresting: the print's curb, under its cresting, stands about 0.8 m higher on this view than the build's, and the gabled dormer on the south flank's mansard (x 1820-1880 px) is not built",
@@ -41,7 +41,8 @@
     },
     {
       "what": "the main cornice's stone consoles, round the corner onto the flank",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-3561: K10's scrolled consoles (wall_head.blocks) under the corona, 0.45 m high, 0.17 m wide, no more than 0.5 m apart, on a 0.32 m frieze; they render at y 405-440 px against the print's 400-432 px, and carry round the south-west corner and along the south flank as the oblique draws them"
     },
     {
       "what": "the door's pedimented hood, the stoop's stone newels, its arched underside and the basement doorway under the landing (x 1045-1260 px, y 960-1150 px)",
@@ -66,7 +67,22 @@
       "what": "the coping, posts and walk T-3206 lays",
       "status": "within tolerance",
       "how": "seen obliquely the low coping and posts read as the print's low line; read square-on in chicagology_square_on"
+    },
+    {
+      "what": "the stack's sunk panels on its south face (x 1765-1825 px, about 11.35-13.45 m)",
+      "status": "open",
+      "how": "not built: K15 lays a panel's recess in brick (k15_chimneys ROLE_MATERIAL 'panel'), which on a stone stack reads as brick strips; the kit module is an input to every K01 mesh, so the fix is a town rebake of its own"
+    },
+    {
+      "what": "the stack's pots: the print's stand about 1.1 m over the cap, three or four in a row",
+      "status": "open",
+      "how": "three of the kit's tallest pot (0.72 m) stand on it; the 1.1 m stack takes three of K15's 0.21 m flues"
+    },
+    {
+      "what": "the rosettes over the cornice's consoles",
+      "status": "within tolerance",
+      "how": "carved bosses about 0.12 m across in the cornice's bed, under the 0.3 m bar; not built"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }
