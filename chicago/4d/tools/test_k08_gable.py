@@ -246,8 +246,14 @@ def main() -> int:
         check(ridge and all(abs(q[0] - xc_) < 1e-9 for q in ridge)
               and abs(min(q[2] for q in ridge) + bh["run_back_m"]) < 1e-9,
               f"its ridge level at {bh['ridge_m']} m on the gable's middle, run back {bh['run_back_m']} m")
-        check(cb.meta["roof"]["planes"] == 0 and max(q[2] for q in rp) < 0.0,
-              "nothing of it in front of the wall plane (the parapet is the gable's face)")
+        # T-1890 (2026-11-12): but over a chamfer's return the slate behind its corner pier is
+        # hung on the right cheek's plane from the parapet's back out to the pier's back
+        # (k08_bays.Bay._gable_behind), over the return's top
+        crt = (cross["plan"].get("chamfer_return") or {}).get("top_m")
+        hung = lambda q: crt is not None and abs(q[0] - xr_) < 1e-9 and q[1] >= float(crt) - 1e-9
+        check(cb.meta["roof"]["planes"] == 0 and max(q[2] for q in rp if not hung(q)) < 0.0,
+              "nothing of it in front of the wall plane (the parapet is the gable's face), but the slate "
+              "behind a return's pier")
         check(bh["ridge_m"] <= cb.meta["roof"]["gable_top_m"] - 0.1 - 0.18,
               "its ridge under the copings' beds")
         feet = [bh["cheek_from_m"]] * 2 if not isinstance(bh["cheek_from_m"], list) else bh["cheek_from_m"]

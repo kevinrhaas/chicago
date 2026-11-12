@@ -1,0 +1,42 @@
+{
+ "structure_id": "dexter_house_1721_prairie",
+ "scene": "1904",
+ "also_render": [
+  "pullman_house_1729_prairie",
+  "dexter_house_1721_prairie_coach_house"
+ ],
+ "source_id": "loc_det_4a08065_pullman_residence",
+ "library_image": "a16-pullman-det-4a08065",
+ "photo": "../../sources/assets/pullman_1729_photo_t1880/loc_det_4a08065_pullman_residence.jpg",
+ "image_px": [
+  1024,
+  804
+ ],
+ "principal_px": [
+  512,
+  478
+ ],
+ "focal_px": 1093,
+ "near_m": 10,
+ "flora": {
+  "front_yards": [
+   "prairie_1729",
+   "prairie_1721"
+  ],
+  "street_trees_m": 70,
+  "season": "winter",
+  "creeper_in_leaf": true
+ },
+ "eye": [
+  65.0,
+  78.45,
+  1.6
+ ],
+ "yaw_deg": 245.0,
+ "sun_uvy": [
+  1.0,
+  0.8,
+  1.0
+ ],
+ "solve": "T-3566: the Pullman house's own camera on this photograph (data/reference_views/pullman_house_1729_prairie/detroit_det_4a08065.json, T-1880), carried into this house's footprint frame and nothing else: the two houses stand at rotation 179.611 and 179.607 in the 1904 scene, and the Pullman house's origin lies at u -23.30, v 35.53 in this frame (their sidecar placements, local e/n 1456.371/-3167.542 against 1432.826/-3132.173), so the eye (88.3, 42.93 in Pullman's frame) stands at u 65.0, v 78.45 at the same height and heading; the 0.004 degree between the two bearings is under a pixel at this range. The Pullman house and the coach house at the back of this lot are drawn with it. WHAT THE PICTURE CAN SAY: it is the Detroit Publishing negative of 1893-1901, before the 1901-02 removal of Little's front from the street line to the 20 ft building line (Tribune 28 Nov 1901), so the brick front stands about 10 m further west in it than in the 1904 record. The 1863 frame house behind that front is at the picture's left edge (x about 100-250 px): a two-storey clapboarded range with a gabled slate roof and tall chimneys, its long south side toward the camera. That range, the one part of the lot this picture shows clearly and the one the move did not touch, is what this view is kept to judge."
+}
