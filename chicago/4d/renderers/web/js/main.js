@@ -3940,6 +3940,9 @@ async function boot() {
     // field of view"): a person card already open stays until the visitor closes it or picks
     // someone else; only walking up to someone with no person card open opens theirs.
     if (approach && personCardOpen()) return;
+    // T-3573: following someone, the town is what to look at (Follow put the card away), so
+    // walking up behind them, or past anyone, opens no card.
+    if (approach && api.follow?.active) return;
     if (!draws('residents')) { void openPersonCard(personId); return; }
     hud.setPanel(true); hud.selectTab('people'); api.people.open?.(personId);
   });

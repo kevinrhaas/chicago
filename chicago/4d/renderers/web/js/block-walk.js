@@ -24,9 +24,11 @@
  * Nelson's written errand does.
  *
  * NO BLOCK (1812, or a house with no way in front of it within reach): a walk about the place,
- * a ring of RING.points points RING.radius_m out from the house, each one standing on open
- * ground the walker can stand on (`blockedAt`) and reached in a straight line from the one
- * before (`clearSegment`), the ones that are not dropped; three at least, or no walk.
+ * a ring of RING.points points out from the house, each one standing on open ground the walker
+ * can stand on (`blockedAt`) and reached in a straight line from the one before
+ * (`clearSegment`), the ones that are not dropped: the widest of RING.radii_m with three such
+ * points, else (a barracks in the fort's yard) the ring with most, walked there and back; two
+ * at least, or no walk.
  *
  * Nothing here knows THREE, the DOM or the day engine: it takes a router's `classAt`,
  * `blockedAt` and `clearSegment` and returns a human-days walk span's shape. Reconstructed:
@@ -34,7 +36,7 @@
  */
 
 export const BLOCK_WALK = Object.freeze({ reach_m: 320, step_m: 1.5, from_m: 2, snap_m: 9, min_m: 4 });
-export const RING = Object.freeze({ radius_m: 38, points: 8, min_points: 3 });
+export const RING = Object.freeze({ radii_m: Object.freeze([38, 26, 18, 12]), points: 8, min_points: 3 });
 
 /** The ways a walk round the block keeps to, by scene. */
 export const BLOCK_WAYS = Object.freeze({
@@ -138,20 +140,28 @@ export function blockLoop({ centre, frontDeg = 0, classAt = null, ways = null, b
       }
     }
   }
-  // No block: a walk about the place.
-  const ring = [];
-  for (let k = 0; k < RING.points; k++) {
-    const deg = front + (360 / RING.points) * k;
-    const p = { e: centre.e + Math.sin(deg * RAD) * RING.radius_m, n: centre.n + Math.cos(deg * RAD) * RING.radius_m };
-    if (blockedAt(p.e, p.n)) continue;
-    const prev = ring.at(-1);
-    if (prev && !clearSegment(prev.e, prev.n, p.e, p.n)) continue;
-    ring.push(p);
+  // No block: a walk about the place, on the widest ring that has room for one.
+  let best = null;
+  for (const radius of RING.radii_m) {
+    const ring = [];
+    for (let k = 0; k < RING.points; k++) {
+      const deg = front + (360 / RING.points) * k;
+      const p = { e: centre.e + Math.sin(deg * RAD) * radius, n: centre.n + Math.cos(deg * RAD) * radius };
+      if (blockedAt(p.e, p.n)) continue;
+      const prev = ring.at(-1);
+      if (prev && !clearSegment(prev.e, prev.n, p.e, p.n)) continue;
+      ring.push(p);
+    }
+    if (!best || ring.length > best.length) best = ring;
+    if (ring.length >= RING.min_points) break;
   }
-  if (ring.length < RING.min_points) return null;
-  if (clearSegment(ring.at(-1).e, ring.at(-1).n, ring[0].e, ring[0].n)) ring.push({ ...ring[0] });
+  // Two places at least: there and back between them (the fort's yard, a lodge by the river).
+  if (!best || best.length < 2) return null;
+  const ring = best;
+  const closes = ring.length >= RING.min_points && clearSegment(ring.at(-1).e, ring.at(-1).n, ring[0].e, ring[0].n);
+  if (closes) ring.push({ ...ring[0] });
   const length = ring.reduce((s, p, i) => (i ? s + Math.hypot(p.e - ring[i - 1].e, p.n - ring[i - 1].n) : 0), 0);
-  return { kind: 'ring', round: true, at: local(ring[0], bearingOf(ring[1].e - ring[0].e, ring[1].n - ring[0].n)),
+  return { kind: 'ring', round: closes, at: local(ring[0], bearingOf(ring[1].e - ring[0].e, ring[1].n - ring[0].n)),
     via: ring.slice(1, -1).map((p) => local(p)), to_point: local(ring.at(-1)), length_m: +length.toFixed(1) };
 }
 

@@ -67,6 +67,12 @@ const ring = blockLoop({ centre: { e: 0, n: 0 }, frontDeg: 0, classAt: () => 'op
 assert.equal(ring.kind, 'ring');
 assert([ring.at, ...ring.via].length >= 3);
 assert.equal(blockLoop({ centre: { e: 0, n: 0 }, blockedAt: () => true }), null, 'nowhere to stand: no walk');
+// A barracks in a yard 40 m across: a smaller ring, still a walk.
+const yard = blockLoop({ centre: { e: 0, n: 0 }, blockedAt: (e, n) => Math.hypot(e, n) > 20 || Math.hypot(e, n) < 6 });
+assert(yard && [yard.at, ...yard.via].map(P).every((q) => Math.hypot(q.e, q.n) <= 20), 'a ring inside the yard');
+// Room for two places only: there and back.
+const two = blockLoop({ centre: { e: 0, n: 0 }, blockedAt: (e, n) => !(Math.abs(e) < 1 && Math.abs(n) > 10) });
+assert.equal(two.kind, 'ring'); assert.equal(two.round, false, 'there and back between two places');
 const halfWater = blockLoop({ centre: { e: 0, n: 0 }, blockedAt: (e) => e > 5 });
 for (const q of [halfWater.at, ...halfWater.via, halfWater.to_point].map(P)) assert(q.e <= 5, 'never into the river');
 
