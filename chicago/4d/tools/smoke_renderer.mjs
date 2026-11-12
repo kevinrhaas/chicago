@@ -1774,7 +1774,10 @@ for (const [label, viewport, touch] of [
   // where the app holds two sections, by the section's own tab. Each is a hit-tested click.
   const SECTION_APP = { travel: 'move', people: 'people', businesses: 'people',
     controls: 'guide', evidence: 'guide', settings: 'settings', whatsnew: 'settings' };
-  const openSection = async (tab) => {
+  // T-3563: Settings draws its own icon tabs (#settings-tabs), What's new among them, and only
+  // the chosen tab's groups are drawn, so a check that hit-tests a Settings row names its tab
+  // (`pane`: display, show, look, graphics, sound, about, research) and it is clicked here.
+  const openSection = async (tab, pane = null) => {
     const opened = () => page.waitForFunction(() => {
       const r = document.getElementById('navigator')?.getBoundingClientRect();
       return r && (innerWidth > 620 ? r.width >= 380 : r.height >= innerHeight * 0.4);
@@ -1787,6 +1790,13 @@ for (const [label, viewport, touch] of [
     await opened();
     await page.waitForFunction(() => { const p = document.getElementById('panel'); return p && !p.hidden && !!p.closest('.nav-screen:not([hidden])'); },
       null, { timeout: 60_000, polling: 100 });
+    if (SECTION_APP[tab] === 'settings') {
+      const want = tab === 'whatsnew' ? 'whatsnew' : (pane ?? await page.evaluate(() => window.__chicago4d.hud.settingsTabs?.pane ?? 'display'));
+      if (await page.evaluate(() => window.__chicago4d.hud.tab) !== tab || (pane && await page.evaluate(() => window.__chicago4d.hud.settingsTabs?.pane) !== pane)) {
+        await clickChrome(`#settings-tabs [data-set-tab="${want}"]`);
+      }
+      return;
+    }
     if (await page.evaluate(() => window.__chicago4d.hud.tab) !== tab) await clickChrome(`.panel-tab[data-tab="${tab}"]`);
   };
   // T-2613: Home appears halfway through the landing's flip, not at ready (the old
@@ -14473,8 +14483,8 @@ for (const [label, viewport, touch] of [
     // The menu is built from the two runtime collections, not from a sampled
     // shortlist.  With an empty query every loaded structure and every compiled
     // control junction must have a button; a real search must narrow both kinds.
-    await openSection('settings');
-    // ---- T-2661: Settings' "Show the controls" opens Guide's sheet in the Navigator.
+    await openSection('settings', 'look');
+    // ---- T-2661: Settings' "Show the controls" opens Guide's sheet in the Navigator (Look tab, T-3563).
     await clickChrome('#s-show-control-help');
     // T-2620: the switch to Guide is immediate; its sheet is a lazy module that fills in
     // behind it, which on a starved desktop runner took longer than 10 s on a first open.
@@ -16487,6 +16497,7 @@ for (const [label, viewport, touch] of [
     // not drawn at a phone's width and still are on a desktop; the arrival card's build
     // stamp likewise (kept on a stalled arrival). Settings › About carries the stamp, and
     // the DEV mark exactly while the page is a dev build.
+    await openSection('settings', 'about'); // T-3563: About is its own tab
     const devChrome = await page.evaluate(() => {
       const api = window.__chicago4d;
       const planted = [];
@@ -16634,7 +16645,7 @@ for (const [label, viewport, touch] of [
       && settingsApp.sound === 4 && settingsApp.soundTotal === 4 && settingsApp.soundNotesAbsent
       && Object.values(settingsApp.soundHelp).every((h) => h.ownGroup && h.described)
       && /wind, lake waves, birds and insects/.test(settingsApp.soundHelp.ambience.text)
-      && /wagon wheels and harness jingles from moving teams/.test(settingsApp.soundHelp.effects.text)
+      && /^Nearby actions: hoofbeats, wagon wheels and hammering\.$/.test(settingsApp.soundHelp.effects.text)
       && settingsApp.whatsNew,
       JSON.stringify({ auto: settingsApp.auto, autoShown: settingsApp.autoShown, sound: settingsApp.sound,
         total: settingsApp.soundTotal, help: settingsApp.soundHelp, notesAbsent: settingsApp.soundNotesAbsent, whatsNew: settingsApp.whatsNew }));
@@ -16663,6 +16674,9 @@ for (const [label, viewport, touch] of [
       const keys = ['landed', 'firstInspect', 'time', 'tab', 'showMe', 'jauntStarted', 'jauntFinished', 'tourStep', 'confidencePreset'];
       const cells = () => Object.fromEntries(keys.map((k) => [k, cell(k)]));
       const stored = () => { try { return JSON.parse(localStorage.getItem('chicago4d.fieldLog') ?? 'null'); } catch { return 'unreadable'; } };
+      // T-3563: the field log is on Settings' About tab.
+      document.querySelector('#settings-tabs [data-set-tab="about"]')?.click();
+      await until(() => (document.getElementById('s-field-log')?.getBoundingClientRect().height ?? 0) > 0, 10000);
       const section = document.getElementById('s-field-log');
       const out = { inAbout: !!section?.closest('#s-about'), shown: (section?.getBoundingClientRect().height ?? 0) > 0,
         labels: [...document.querySelectorAll('#s-field-log-rows dt')].map((d) => d.textContent) };
@@ -16687,6 +16701,7 @@ for (const [label, viewport, touch] of [
       await n.select('settings');
       await until(() => { const p = document.getElementById('panel'); return p && !p.hidden && !!p.closest('.nav-screen:not([hidden])'); }, 30000);
       if (api.hud.tab !== 'settings') api.hud.selectTab('settings');
+      api.hud.settingsTabs?.select('about');
       await until(() => (document.getElementById('s-field-log')?.getBoundingClientRect().height ?? 0) > 0, 30000);
       out.after = cells();
       out.afterStore = stored();
@@ -16720,7 +16735,7 @@ for (const [label, viewport, touch] of [
       JSON.stringify({ sent: fieldSent.slice(0, 5), beacons: fieldLogRun.beacons, watched: fieldRequests.length }));
     // <<< T-2660
     // >>> T-2657: Researcher mode, the Settings switch (T-3022: Expert research, Settings ›
-    // Research, the first group; it was in About). Off by default: no RESEARCHER
+    // Research, the last tab since T-3563; it was in About). Off by default: no RESEARCHER
     // label, no [data-researcher] element drawn, the short "Why" hints shown and the full
     // essays not. The switch (a hit-tested click; a miss is this check's failure, read below,
     // and never aborts the part) turns it on: the label sits at the top, clear of the year
@@ -16751,10 +16766,12 @@ for (const [label, viewport, touch] of [
       };
     });
     const researchOff = await researchRead();
+    // T-3563: Expert research is the Settings card's last tab (the owner: "at the end").
+    await openSection('settings', 'research');
     const researchClick = await clickChrome('#s-researcher').then(() => null, (e) => page.evaluate(() => document.getElementById('s-researcher')?.click()).then(() => e.message));
     await page.waitForFunction(() => document.documentElement.hasAttribute('data-researcher-mode'), null, { timeout: 30_000, polling: 100 }).catch(() => {});
     const researchOn = await researchRead();
-    await openSection('settings');
+    await openSection('settings', 'research');
     const researchClick2 = await clickChrome('#s-researcher').then(() => null, (e) => page.evaluate(() => document.getElementById('s-researcher')?.click()).then(() => e.message));
     await page.waitForFunction(() => !document.documentElement.hasAttribute('data-researcher-mode'), null, { timeout: 30_000, polling: 100 }).catch(() => {});
     const researchBack = await researchRead();
@@ -16793,7 +16810,7 @@ for (const [label, viewport, touch] of [
     // real renderer before the Confidence budgets and graphical checks below.
     await holdDraws(true);
     try {
-    await openSection('settings').catch(() => {});
+    await openSection('settings', 'display').catch(() => {});
     const soundTapSel = '#s-theme .seg-btn[aria-checked="true"]';
     const soundTap = await page.evaluate(async (s) => {
       const el = document.querySelector(s);
@@ -17279,6 +17296,8 @@ for (const [label, viewport, touch] of [
       const device = document.getElementById('navigator');
       const inside = async (app, sel) => {
         await n.select(app);
+        // T-3563: light or dark is on Settings' Display tab.
+        if (app === 'settings') window.__chicago4d.hud.settingsTabs?.select('display');
         for (let i = 0; i < 40; i++) {
           const el = device.querySelector(sel);
           if (el && el.getBoundingClientRect().width > 0) return true;

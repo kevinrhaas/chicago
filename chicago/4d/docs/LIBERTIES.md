@@ -35400,6 +35400,8 @@ bay's carry into the mansard; a placement ruling for the wall south of the bay.
 
 **Revised 2026-11-12 (T-1887):** the front's canted bay is carried up past the main cornice under its own mansard crown, as the partial view shows it (K08's bay crown, T-1881/T-3283): the crown's face 4.5 m high at 78 degrees, taken from the main mansard rather than read separately, slated as the house, with the main curb's 0.5 m iron cresting carried round its curb; and one round-headed dormer on its front face, where the print shows one, so the main face's dormer over the bay is taken down. Invented there: the crown's face height and pitch (the main mansard's, which still reads about 1 m short of the print's curb), its hips, and the dormer's size: a 0.6 x 1.6 m light in a 0.1 m surround, the widest the bay's 1.92 m front clears of the crown's hips, against a print face about 0.9 m across seen foreshortened. The dormer is round-headed where the print's lights are square under a curved hood, as the main face's is. Still not built: the porch's third column against the bay's north cheek and the terrace it stands on, the print's front wall south of the bay, and the mansard's last metre.
 
+**Revised 2026-11-12 (T-1887, the porch's south end):** the porch's south end is carried back on a diagonal from its front corner, over the south column, to the canted bay's north cheek, on a third round column against the cheek (K01's splayed porch end): the entablature's end and the column are placed off the automobile photograph through its square-on camera (the entablature meeting the cheek at x 418 px, the column at x 443), and the south arch is turned on the diagonal between the two columns. Beneath it a terrace at the landing's height runs south of the stoop to the cheek, its front a stone parapet pierced by four upright slots, as the print shows it. Invented there: the diagonal's plan between those two readings (one camera fixes each point's bearing, not its depth: the depth is taken where the bearing meets the cheek), the third column's depth (0.92 m out), the terrace's depth (the landing's) and the parapet's slot size. The partial view's camera puts the third column about 0.5 m nearer the south column than this; the two fits disagree and the better-solved one places it. Its match record now reads `matches`: its last open item, the mansard's height, is re-read against the window under it and comes to about 0.3 m short, at the bar. Still open: the automobile print's front wall south of the bay.
+
 ### L-pullman-glasshouses-1800-calumet-3164 — Pullman's glasshouse ranges and lodge across 18th Street, read off the 1911 sheet and glazed from the K13 kit
 
 **Decision:** the 1904 scene gains the Pullman estate's glasshouse ground at 1800 S. Calumet Avenue,
@@ -35629,6 +35631,13 @@ builds what is open, and brings the match records to `matches`.
 **Ticket:** T-3167 (piece 2 of T-1887).
 **Review:** `docs/RESEARCH/k01-1824-marsh-3167/README.md`.
 **Recorded:** 2026-10-26 (T-3167).
+**The flanks' light finish built by T-1887 (2026-11-12):** the flanks, the rear range and the stacks are
+painted over their brick (`form.wall_finish`, opaque, K01's paint opened to a stone-fronted house), the
+stone front left as cut. Read: the Pomeroy photograph's light walls on the south flank and the lower
+block, and the automobile photograph's light south flank north of 1828's porch. Invented: the colour
+(both prints are monochrome; a pale stone colour, a little darker than the front, is RECONSTRUCTED) and
+whether it is paint or stucco (laid as paint over the brick's map). The rest of 'What is not built'
+above stands.
 
 ### L-pullman-1729-portico-3159 — 1729 Prairie's portico off the Detroit print: two columns and the flight read, the rest of the row and the balustrade's section reconstructed
 
@@ -42917,6 +42926,30 @@ and the rail's west end; a sharper copy of the plate would settle whether the st
 **Ticket:** T-3370 (piece 2 of T-3367).
 **Recorded:** 2026-11-08 (T-3370).
 
+### L-k01-1936-allerton-deck-3370 — 1936 Prairie's roof deck cut where its photograph draws it, and the north stack moved out of the photograph's sky
+
+**Decision:** the Chicagology photograph (`chicagology_1936_prairie_exterior_photo`) draws the deck's rail
+turning its south-east corner at x 1345 px and its east run ending at a post at x 1405-1418 px, with open sky
+beyond it where the build's rail ran on to x 1505 and the hip's north-east line falling away from the post's
+foot. The K01 hip deck gains `hip_deck.edges_m`: a deck edge named there stands where the record puts it, and
+its own face is pitched from the hip's eave line to it, so the level cut need not be centred on the hip. 1936
+Prairie's deck edges are set at east u 11.4 and north v 8.2, through the committed camera. The east face is
+then pitched about 21.7 deg and the north about 18.6 deg. The south and west faces keep the roof's 25 deg. The
+reconstructed north stack stood at u 9.0, v 14.9, where the camera draws it in the print's open sky. It is
+moved to u 14.0, where the camera puts it behind the tower's belvedere.
+**What is read, not invented.** The rail's south-east corner (u 11.29 on the south rail's line) and its east
+end (v 8.2 at the end post's outer face), both through the camera at the rail's 17.02 m top. The deck's
+north-east corner, which then projects to x 1421, y 302, where the print's hip line starts. That no stack
+stands right of the rail's end.
+**What is invented.** The faces' pitches follow from the edges, not from any reading of the slopes, which the
+print does not resolve. The deck's west edge is kept at the uniform cut's, which no picture shows. The north
+stack's new place is anywhere the belvedere hides it; u 14.0 is hidden behind the print's belvedere and the
+render's alike.
+**How to resolve:** a picture of the roof from the north or from above would show the deck's extent and
+whether a north stack stood, and where.
+**Ticket:** T-3370 (piece 2 of T-3367).
+**Recorded:** 2026-11-12 (T-3370).
+
 
 ### L-sauganash-ridge-join-and-shaft-section-2383 - Sauganash roof join and stack section
 
@@ -43618,3 +43651,19 @@ or a read bill of sale; a planting account locating the trees rather than merely
 
 **Ticket:** T-1789.
 **Recorded:** 2026-11-10.
+
+
+### L-1812-seasonal-audio-3551 — Seasonal nature, recorded hoof contacts and visible woodwork
+
+**Decision:** the owner asked for 1812 nature, dirt/snow hoofbeats and work sounds first, before extending 1904. Separate 1812 seasonal placements in `assets/audio/intake.json` use the actual natural-epoch flora zones and the existing April 15/August 14/October 15/February 15 viewing dates. These are ecological and acoustic reconstructions, not observations on those historical days. The existing 1835 July 1 habitat placements remain unchanged.
+
+**Nature:** spring robin and wetland redwing calls, restrained August redwing/cicada/cricket/katydid phrases, fall robin calls and rare distant prairie coyote nights share one voice and one bounded decoded recording. Winter insects remain silent. Illinois DNR's modern robin account, existing regional fauna research and its cited sources bound species/habitat choices; no 1835 fauna location is imported as an 1812 sighting. Individual callers are distant, fixed offscreen habitat sources, and disappear acoustically when approached or their habitat is no longer eligible. Coyote waits two to four minutes initially and five to ten minutes between phrases; these are sound-design choices, not historical frequencies. Unidentified frog audio remains held. Modern, sometimes nonlocal field recordings retain their original license and source records. Automated decoding is not listening approval.
+
+**Hooves:** two short transients from davilca's CC0 recording of two horses on a dirt road (Freesound 159498) follow the actual loaded 1812 teams' measured walk-clip phases. Source cuts at 3.297–3.425 s and 6.710–6.870 s are waveform-bounded individual-contact proxies; no perceptual identification of isolated horses or literal terrain collision is asserted. The existing renderer's global snow-look amount lowers gain toward 0.55 and low-passes toward 900 Hz. This is a damped dirt recording, not a snow recording or a measurement of snow depth beneath a hoof. Pauses, holds, culling and late observations do not queue catch-up beats. The existing four mechanical voices remain; 1812 adds at most two contact voices, with a 10 MiB decode cap accommodating a measured 8,824,988-byte transient peak and 55,296-byte retained cuts. Other eras retain four mechanical voices and 8 MiB. Seasonal dates extend only the 1812 visible-team bindings, as viewing reconstructions.
+
+**Visible work:** the existing unnamed militia worker's own day record supplies piazza repair from April 7 through August 13 and afternoon packing on August 14. An original generated hammer and wooden packing chest/support, a right-hand nailing action and a modern recorded hammer transient make a bounded reconstruction of those tasks. Neither sources nor schedule attest the individual tool, chest or nail stroke. Work occurs only at the actual dated work spot while the person, tool and accepted contact are visible; there is no sound on generic working states. Winter and fall do not invent the militia worker at an absent date. The CC0 apartment-recorded hammer (Julien_Matthey/Freesound 118341) is a short acoustic proxy with possible room coloration, not an outdoor 1812 recording. Its cut was selected by waveform analysis, not represented as a human audition.
+
+**How to resolve:** replace proxy recordings or contact/mix choices after in-scene listening and visual review; incorporate better species/seasonal evidence or actual activity/tool evidence without changing its confidence grade silently. Keep the same dated visible-source and lifecycle constraints.
+
+**Ticket:** T-3551.
+**Recorded:** 2026-11-11.

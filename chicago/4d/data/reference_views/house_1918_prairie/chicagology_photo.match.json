@@ -2,7 +2,7 @@
   "structure_id": "house_1918_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/house_1918_prairie__as_mapped_1904.glb",
-  "glb_sha256": "34004ef12d79e1ea4b5f6118ae0be83c4c5f55c8d3e486c5ab29470c5954f9a8",
+  "glb_sha256": "6852a396f206886d03d4e1ec91ddf1dea2fb80bf927c30e62727a51d36ca6ed0",
   "camera_sha256": "c5c49af27eec1d98bff1ffde086b8c22674806b06a0ed68eafa2bfba3072f1db",
   "photo_sha256": "7458a4902276cccdaa289b9767e8ab717b5dd0fcf06ba3969a97c4fa8d00e92a",
   "side_by_side": "docs/RESEARCH/photo-match/house_1918_prairie/chicagology_photo-side-by-side.jpg",
@@ -73,8 +73,8 @@
       "status": "fixed"
     },
     {
-      "what": "the deck's south-east corner (T-3370, fourth pass): the print's rail turns its south-east corner at x 1345 px, y 257; the build's turns at about x 1377, y 253, so the railed deck stands about 1 m further east along the south side than the print's (or, the camera being single, about 1 m further north); the hip's level cut sets the deck's rectangle, and moving its east edge alone is not yet a K01 hip deck's parameter",
-      "status": "open"
+      "what": "the deck's south-east corner (T-3370, fourth pass): the print's rail turns its south-east corner at x 1345 px, y 257; the build's turns at about x 1377, y 253, so the railed deck stands about 1 m further east along the south side than the print's (or, the camera being single, about 1 m further north); the hip's level cut sets the deck's rectangle, and moving its east edge alone is not yet a K01 hip deck's parameter T-3370 (seventh pass): the K01 hip deck now takes its edges where a picture puts them (hip_deck.edges_m), each face pitched from the hip's eave line to its own edge: the east edge at u 11.4 and the north at v 8.2, read through the camera at the rail's top (the south-east corner on the south rail's line at u 11.29; the east run's end post, x 1405-1418 px in the print, at v 8.2). The render's rail now turns its south-east corner over the print's and its east run ends at a post at about x 1416, where the print's does, with sky beyond it as in the print (the build's had run on to x 1505); the deck's north-east corner projects to x 1421, y 302, where the print's hip line starts. The faces' pitches follow from the edges (east about 21.7 deg, north 18.6), which the print does not resolve; liberty L-k01-1936-allerton-deck-3370",
+      "status": "fixed"
     },
     {
       "what": "the iron fence on its stone curb along the walk",
@@ -95,6 +95,14 @@
     {
       "what": "the dining range's south face's length (T-3370, third pass): through the re-solved camera the photograph's face runs from x 833 px to its dark east return at x 1125-1170, about 10.4 m, where the build's (the 1911 sheet's u 0-9.03) ends at x 1084 with its return to 1129; so the return, and the wall east of it, stand about 40 px (1.3 m) west of the print's, and the windows on the face, placed at the print's fractions of it, 7-30 px west of the print's. Either the range is longer than the sheet draws it or the camera's depth along the flank is off (its RESIDUAL TENSION at the south-east corner is the same sense); not settled here. T-3370 (fifth pass): the reception bay's front windows, further east on the same flank, render about 45 px west of the print's as well, so the whole flank east of the range's west end stands about one offset west: the 1911 sheet's 9.03 m and the single camera's 10.4 m reading disagree, and a gap two pictures disagree about is within tolerance (T-3153) until a second view of the flank settles it",
       "status": "within tolerance"
+    },
+    {
+      "what": "the north stack (T-3370, seventh pass): the reconstructed third stack, at u 9.0, v 14.9, rendered at x 1490-1535 px, y 263 against the print's open sky right of the deck's rail, where the print shows no stack; moved to u 14.0, behind the belvedere through the camera (x 1638-1691 px), so the render, like the print, shows sky there",
+      "status": "fixed"
+    },
+    {
+      "what": "the tower's breadth above the roof (found on T-3370's seventh pass, not built here): at y 200 px the print's belvedere spans x 1530-1744 and shows two faces, its south face lit pale at the left; the render's tower spans x 1617-1754 and shows one face, so above the main cornice it stands about 85 px (about 2.5 m through the camera) narrower at its south-west side than the print's, though the record's square plan (4 sides, radius 2.68 m, s 9.85, centre 0.595 m inside the street front) projects to x 1535-1754 through the same camera: the build's tower is not standing as its record states, or is turned on the camera; the print's balcony at the belvedere's foot and its south face's arched frames fall in the missing width",
+      "status": "open"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

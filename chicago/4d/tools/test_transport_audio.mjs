@@ -12,7 +12,10 @@ for (const a of selected) {
   assert.equal(a.license, 'CC0-1.0');
   assert.deepEqual(a.approved_eras, a.id === 'horse-harness' ? ['1812', '1835', '1904'] : ['1812', '1835']);
   for (const b of a.scene_placement.bindings) {
-    assert.equal(b.scene_date, read(`data/scenes/${b.scene}.json`).target_date);
+    if (b.scene === '1812' && b.season) {
+      const dates = { spring: '1812-04-15', fall: '1812-10-15', winter: '1812-02-15' };
+      assert.equal(b.scene_date, dates[b.season], 'only the existing 1812 seasonal viewing dates are added');
+    } else assert.equal(b.scene_date, read(`data/scenes/${b.scene}.json`).target_date);
     assert.deepEqual(b.actor_ids, rows.filter(r => r.scene === b.scene).map(r => r.id));
   }
 }
@@ -24,6 +27,12 @@ function env(year = '1835') {
 }
 {
   assert.equal(transportCandidates(catalog, env('1812'), '1812').length, 4);
+  for (const date of ['1812-04-15','1812-10-15','1812-02-15']) {
+    const seasonal = env('1812'); seasonal.time.date = date;
+    assert.equal(transportCandidates(catalog, seasonal, '1812').length, 4, 'visible seasonal teams retain both mechanical textures');
+  }
+  const unrelated = env('1812'); unrelated.time.date = '1812-08-15';
+  assert.deepEqual(transportCandidates(catalog, unrelated, '1812'), [], 'no battle-day or arbitrary-date transfer');
   assert.equal(transportCandidates(catalog, env('1904'), '1904').length, 1, 'brougham never uses wooden-wagon recording');
   const e = env(), near = transportCandidates(catalog, e, '1835');
   e.camera.position.x = 20;

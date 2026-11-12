@@ -3169,6 +3169,15 @@
       "sole_support": true,
       "confidence": "inferred"
     },
+    "marsh_house_1824_prairie/as_mapped_1904/form.wall_finish": {
+      "kind": "structure",
+      "blocked_sources": [
+        "chicagology_1828_shipman_automobile",
+        "glessner_blog_1824_pomeroy_italianate"
+      ],
+      "sole_support": true,
+      "confidence": "inferred"
+    },
     "marsh_house_1824_prairie/as_mapped_1904/form.wall_head": {
       "kind": "structure",
       "blocked_sources": [

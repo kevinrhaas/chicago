@@ -6166,8 +6166,12 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     paint = ()
     paint_opaque = False
     if wf:
-        if construction != "brick":
-            raise ParamError("wall_finish paints a brick house's walls; a stone front is not painted here")
+        # T-1887: or a stone-fronted house's brick flanks, rear and stacks, its stone front
+        # left as cut (1824's: the 1857 villa's light walls, kept when Marsh refronted it in
+        # stone about 1880, in the Pomeroy photograph and the automobile photograph alike).
+        # The paint lays on the brick slots alone, so the front's K02 stone never takes it
+        if construction == "stone":
+            raise ParamError("wall_finish paints brick walls; an all-stone house has none to paint")
         # T-2933: `opaque` paint covers the brick's map (1736's walls, near white in its
         # photograph, which no factor over the buff brick can reach); otherwise it tints it
         if set(wf) != {"paint"} or not {"color"} <= set(wf["paint"]) <= {"color", "opaque"}:
@@ -7522,7 +7526,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         # T-2963: a hood may stand on columns (1816's porch) and rail its top in iron
         # T-3159: or be laid, columns, balustrade and all, in the front's stone (1729's portico)
         # T-3210: and turn round arches between them (1827's porch)
-        extra = {"columns", "railing_fabric", "fabric", "centre_v_m", "under_head_m", "arches"}
+        extra = {"columns", "railing_fabric", "fabric", "centre_v_m", "under_head_m", "arches", "splay"}
         if not need <= set(hd) <= need | extra or set(hd["cornice"]) != {"height_m", "proud_m"} or \
                 set(hd["railing"]) != {"height_m", "post_m", "baluster_m", "pitch_m", "rail_m"}:
             raise ParamError(f"entrance_kit.hood takes {sorted(need)}, its cornice height_m and proud_m, "
@@ -7628,6 +7632,37 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                         raise ParamError(f"entrance_kit.hood.arches.over: distinct spans 0-{n_sp - 1} between the "
                                          f"columns, on an arcaded front")
                     door_kit["hood"]["arches"]["over"] = sorted(ov)
+            # T-1887: one end of the porch carried back on a diagonal from its front corner to
+            # `to_v_m`/`to_out_m`, where it meets a bay's canted cheek, on a third column at
+            # `column_v_m`/`column_out_m` in place of the flat respond (1828's south end, the
+            # automobile photograph): the end's arch, if one is turned, runs from that column
+            # to the end column on the diagonal, and the hood's slab, fascia and railing follow it
+            if "splay" in hd:
+                sp_ = hd["splay"]
+                if not isinstance(sp_, dict) or set(sp_) != {"side", "to_v_m", "to_out_m", "column_v_m",
+                                                             "column_out_m"} or sp_["side"] not in ("left", "right"):
+                    raise ParamError("entrance_kit.hood.splay takes side (left or right), to_v_m, to_out_m, "
+                                     "column_v_m and column_out_m")
+                k = -1.0 if sp_["side"] == "left" else 1.0
+                end_v = hs0 if k < 0 else hs1
+                cols_v = sorted(float(x) for x in co["at_v_m"]) if "at_v_m" in co else \
+                    [hs0 + pw / 2 + 0.05, hs1 - pw / 2 - 0.05]
+                end_col = cols_v[0] if k < 0 else cols_v[-1]
+                tv, to_, cv_, cvo = (float(sp_[x]) for x in ("to_v_m", "to_out_m", "column_v_m", "column_out_m"))
+                cd_ = float(hd["out_m"]) - pw / 2 - 0.05
+                if not (0.3 <= k * (tv - end_v) <= 2.5 and 0.0 <= to_ < float(hd["out_m"]) - 0.2):
+                    raise ParamError(f"entrance_kit.hood.splay: its end at v {tv}, {to_} m out, must stand 0.3-2.5 m "
+                                     f"past the hood's {sp_['side']} end (v {end_v:.3f}) and short of its front")
+                if not (-k * (end_col - cv_) >= pw + 0.3 and -k * (cv_ - tv) >= pw / 2 and
+                        0.3 <= cvo <= cd_ - 0.2):
+                    raise ParamError(f"entrance_kit.hood.splay: its column at v {cv_}, {cvo} m out, must stand a "
+                                     f"plinth and 0.3 m clear of the end column (v {end_col:.3f}), inside the "
+                                     f"diagonal's end and behind the front columns' line ({cd_:.3f} m)")
+                if (k < 0 and lo > cv_ - pw / 2 + 0.05) or (k > 0 and hi < cv_ + pw / 2 - 0.05):
+                    raise ParamError(f"entrance_kit.hood.splay: its column at v {cv_} stands on the landing or a "
+                                     f"terrace beside it, which reaches v {lo if k < 0 else hi:.3f}")
+                door_kit["hood"]["splay"] = {"side": sp_["side"], "to_s_m": round(tv - door_s, 4), "to_out_m": to_,
+                                             "column_s_m": round(cv_ - door_s, 4), "column_out_m": cvo}
         if "centre_v_m" in hd:
             # T-1871: the porch's centre along the front, the door under it but off its axis
             off = float(hd["centre_v_m"]) - door_s
@@ -7740,6 +7775,10 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         hip_deck_m = float(val("hip_deck")["deck_m"]) if val("hip_deck") else math.inf
 
         def hip_cover(u_, v_):   # T-3370: a hip's covering over a plan point, cut off at its deck
+            if val("hip_deck") and val("hip_deck").get("edges_m"):   # each face at its own pitch
+                from .k01_hip_deck import cover
+                return cover(val("hip_deck"), u_, v_, depth=depth, width=width, eave=pf + sum(heights),
+                             pitch=pitch, overhang=float(val("eave_overhang_m")))
             return min(round(pf + sum(heights), 4) + tp * max(0.0, min(u_, depth - u_, v_, width - v_)), hip_deck_m)
         for st_ in ch["stacks"]:
             u, v = float(st_["u_m"]), float(st_["v_m"])

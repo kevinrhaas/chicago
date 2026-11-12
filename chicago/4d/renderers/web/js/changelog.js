@@ -1,4 +1,30 @@
 export const CHANGELOG = [ // newest first
+  { v: 2898, ts: '2026-11-12T18:19:57.163Z', date: 'Nov 12, 2026, 12:19 PM CT', title: 'Meet the Glessner House opens in the owner\'s words', kind: 'polish',
+    items: [
+      'The tour\'s welcome now says "Let\'s start at the corner" and spells neighbors the American way.',
+    ] },
+  { v: 2897, ts: '2026-11-12T18:19:57.163Z', date: 'Nov 12, 2026, 12:19 PM CT', title: '1828 Prairie\'s porch reaches back to its bay on a third column', kind: 'feature',
+    items: [
+      '1828 Prairie\'s porch no longer stops short of the canted bay beside it: its south end now runs back on a diagonal to the bay\'s cheek, on a third round column, with its arch turned between the columns, as the automobile photograph shows it.',
+      'A terrace now runs south of the stoop under that arch, its stone front pierced by four slots.',
+    ] },
+  { v: 2896, ts: '2026-11-12T16:57:42.240Z', date: 'Nov 12, 2026, 10:57 AM CT', title: 'Seasonal nature and working sounds in 1812', kind: 'feature',
+    items: [
+      '1812 gains seasonal bird and insect calls, with quiet winters and rare distant coyotes at night.',
+      'Moving 1812 horses carry recorded hoofbeats timed to their gait, with softer sound over the winter snow view.',
+      'A visible militia worker hammers at his spring repair station or secures a packing chest on August 14.',
+      'The audio library lists the new 1812 placements; existing 1835 and 1904 sound rules remain separate.',
+    ] },
+  { v: 2895, ts: '2026-11-12T16:12:55.438Z', date: 'Nov 12, 2026, 10:12 AM CT', title: '1824 Prairie\'s old villa walls painted light again', kind: 'improvement',
+    items: [
+      'In 1904, the sides and back of 1824 Prairie Avenue are now a pale stone colour instead of bare buff brick, and its chimneys match.',
+      'When the house got its new stone front around 1880, the rest of the 1857 villa was kept. An older photograph shows those walls light, and a photograph from about 1900 shows the south side still light. The exact colour is our reconstruction.',
+    ] },
+  { v: 2894, ts: '2026-11-12T15:13:12.515Z', date: 'Nov 12, 2026, 9:13 AM CT', title: '1936 Prairie\'s railed roof deck sits where its photograph shows it', kind: 'improvement',
+    items: [
+      'In 1904, the railed lookout on top of the Thompson-Allerton house at 1936 Prairie Avenue is now smaller. It stops about a metre short of the front and well short of the north side, as the house\'s photograph shows it. It used to run almost the whole length of the roof.',
+      'The chimney on the north side of the roof has moved behind the tower. The photograph shows open sky where it used to stand.',
+    ] },
   { v: 2893, ts: '2026-11-12T14:09:12.177Z', date: 'Nov 12, 2026, 8:09 AM CT', title: '1816 Prairie\'s south side wears its front brick and carved hoods', kind: 'improvement',
     items: [
       'The Henderson house\'s south side is now the same red brick as its front, as its old photograph shows, not a paler brick.',

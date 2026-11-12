@@ -1,3 +1,29 @@
+## T-3563 — Settings in icon tabs, and a mouse sensitivity setting (2026-11-12)
+
+The owner (after meeting Bill Tyre) asked for a mouse-sensitivity setting and for the Settings
+card to be organised under a row of icon tabs like Inspect's, with What's new one of the last
+tabs and Research at the end. Settings now draws its own tab bar (#settings-tabs,
+js/settings-app.js § wireSettingsTabs) in the panel's nav row, styled as Inspect's (one row,
+icon over a small label): Display (Display, Machine, Units) · Show · Look (Look, Movement,
+Show the controls; not "Controls", which section 03 renamed Guide) · Graphics (Performance) · Sound · About · What's new · Research. Each
+group names its tab with `data-set-pane`; only the chosen tab's groups are drawn, and the
+tab in force is kept across a visit to What's new. What's new stays the HUD's own section
+(its key, the unread dot, About's button and every route to it are unchanged); its tab
+selects that section and carries the dot. The section-tab row stands down in the Settings
+app (`has-own-tabs`, apps/drawer-host.js). Settings › Look adds Mouse sensitivity (Look
+sensitivity on a touch screen), `lookSpeed`, 0.2x-3x in tenths, Standard 1x = the turn the
+app always had: the mouse's PointerLockControls.pointerSpeed and the drag-to-look rate both
+read it live through controls/intent.js § lookScale. Every id the page and the smoke read is
+kept; the smoke's `openSection(tab, pane)` clicks the tab a hit-tested row is on.
+
+## T-3551 — 1812 seasonal nature, hoofbeats and visible work (2026-11-11)
+
+1812 now has separate seasonal habitat placements for robin, redwing, cicada, cricket, katydid and rare distant nighttime coyote recordings. Winter insects stay silent. Existing 1835 placements and 1904 activation are unchanged. Actual moving teams emit short recorded dirt-hoof contacts at their measured gait phases; the rendered snow amount softens and filters those contacts. Snow remains a processed dirt-recording proxy, not a dedicated snow recording.
+
+One existing militia worker now visibly nails a generated wooden chest/support during his existing spring repair and August 14 afternoon packing routines. Hands, hammer and sound follow the actual normalized primary work position and tool contact. Other workers do not acquire generic hammer noise. His presence and schedule leave winter and fall work silent. The generated kit is 19,960 bytes; all audio reuses existing hosted recordings, with no additional upload. Nature shares one voice; transport allows four mechanical and two hoof voices in 1812; work adds one voice. Hoof cuts retain 55,296 decoded bytes and the hammer pulse 69,120 bytes.
+
+All 52 integrated focused ecology, gait, audio lifecycle, actual portable-rig contact and real day-source tests pass. Real-media browser fixtures pass at 390 and 1280 pixels for nature and hoof audio, including hash checks, high output sample rates, mute and stale decode cleanup. The original generated kit reproduces byte-for-byte. These are automated measurements, not physical listening or native-scene visual acceptance. Native published town checks pass at 390 pixels (Light) and 1280 pixels (Full), using real R2 recordings: four seasonal views, dirt and snow hoof contacts, both actual work tasks, effects mute, hidden people/confidence and visibility cleanup, with zero page errors. The source checkpoint is bound to staged tree f7a4e1d433f3c824912c09da23944a295f20f115 and published module/catalog hashes; its build stamp alone names the earlier parent commit. Wide rendered views were captured, but closer hand/tool visual inspection is not yet signed off at this checkpoint. The library check exposed horizontal overflow from the longer collection selector, corrected by bounding the label and control widths. The first local gate found the non-human work kit in the human skeleton asset folder; the kit now has a dedicated props directory, explicit publication mapping and missing-kit checks, while its geometry bytes remain unchanged. All four local gate parts, required CI and full mapped renderer coverage remain release requirements; the PR records their final results and the close-view review before DEV merge. L-1812-seasonal-audio-3551 records the reconstruction and recording limitations.
+
 ## PR #1933 native linen intake — 11 November 2026
 
 The working tree adopts the eight settler MASTER/WEB LODs from immutable source

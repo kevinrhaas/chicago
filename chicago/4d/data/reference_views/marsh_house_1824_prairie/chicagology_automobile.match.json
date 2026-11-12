@@ -2,7 +2,7 @@
   "structure_id": "marsh_house_1824_prairie",
   "view": "chicagology_automobile",
   "glb": "assets/gltf/marsh_house_1824_prairie__as_mapped_1904.glb",
-  "glb_sha256": "8f4b0524f399f95c2bf818427d6929c5c6b4c38ea111089a5efaebb0d40b5094",
+  "glb_sha256": "e7f499197501ea03b415539cbe561a034ff8b180015a1c8d7055ad3a22fe2d19",
   "camera_sha256": "e77f48605f00878ec01bfab6e225d92ea34c01a141a18abe2a5955a0c78bec36",
   "photo_sha256": "c758e387f00acae0068286d86a69065154ee0f03e3edb234ab9ad936aba2e957",
   "side_by_side": "docs/RESEARCH/photo-match/marsh_house_1824_prairie/chicagology_automobile-side-by-side.jpg",
@@ -41,12 +41,12 @@
     {
       "what": "south of the bay, a light street-facing wall about 4 m across (x 580-770) to a cornice about 11 m up (y 40-90) carrying a frieze of small panels between brackets, the street trees' shadows on it",
       "status": "open",
-      "how": "nothing of 1824 stands there through this camera: the sheet's main block starts the bay 0.3 m inside its south corner, so the build shows the south flank's brick obliquely at x 550-755. Whether the wall is 1824's own front run south of the bay (as 1828's print shows front wall south of its bay, which the sheet does not draw either) or its rear range's street face is the placement question above"
+      "how": "nothing of 1824 stands there through this camera: the sheet's main block starts the bay 0.3 m inside its south corner, so the build shows the south flank obliquely at x 550-755 (light since T-1887 paints it, as the print's wall is; the front's place and the frieze stay open). Whether the wall is 1824's own front run south of the bay (as 1828's print shows front wall south of its bay, which the sheet does not draw either) or its rear range's street face is the placement question above"
     },
     {
       "what": "the flanks' finish: light, painted or stuccoed",
-      "status": "open",
-      "how": "K01 lays the flanks in brick (T-3167's open list)"
+      "status": "fixed",
+      "how": "T-1887 paints the flanks, the rear range and the stacks an opaque light stone colour over their brick (K01's wall_finish, opened to a stone-fronted house), the stone front left as cut, as the Pomeroy photograph shows the 1857 villa's walls and this print the south flank; through this camera the flank at x 650-760 now renders light where the build had laid buff brick"
     },
     {
       "what": "the roof, the cupola question and the upper storey's head",
@@ -74,5 +74,5 @@
       "how": "T-3206 adds the K14 walk, stands the entrance gate open and narrows the 5.45 m single side leaf no picture shows to a 1.6 m gate, with a cinder walk down the passage"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

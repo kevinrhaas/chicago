@@ -4533,9 +4533,36 @@
             "actor_ids": [
               "prairie_driven_brougham_loop_1904"
             ]
+          },
+          {
+            "scene": "1812",
+            "scene_date": "1812-04-15",
+            "actor_ids": [
+              "fort_wagon_loop_1812",
+              "shore_road_wagon_haul_1812"
+            ],
+            "season": "spring"
+          },
+          {
+            "scene": "1812",
+            "scene_date": "1812-10-15",
+            "actor_ids": [
+              "fort_wagon_loop_1812",
+              "shore_road_wagon_haul_1812"
+            ],
+            "season": "fall"
+          },
+          {
+            "scene": "1812",
+            "scene_date": "1812-02-15",
+            "actor_ids": [
+              "fort_wagon_loop_1812",
+              "shore_road_wagon_haul_1812"
+            ],
+            "season": "winter"
           }
         ],
-        "note": "Reconstructed acoustic proxy attached only to the visible moving team; quiet during holds, stops, hidden layers and off-hours. Short unpitched excerpts follow actual vehicle position and speed. Modern recording, not evidence of this historical vehicle; listening quality remains to be reviewed."
+        "note": "Reconstructed acoustic proxy attached only to the visible moving team; quiet during holds, stops, hidden layers and off-hours. Short unpitched excerpts follow actual vehicle position and speed. Modern recording, not evidence of this historical vehicle; listening quality remains to be reviewed. The 1812 spring/fall/winter dates follow the existing seasonal viewing choices, only while those actual teams are visible and moving; this is not historical presence attestation on those dates."
       },
       "original_integrity": {
         "bytes": 3702000,
@@ -4757,14 +4784,16 @@
       "excerpt_start_s": 0,
       "excerpt_duration_s": 7.368,
       "source_format": "Freesound HQ MP3 preview; not a lossless master",
-      "status": "audition-and-placement-pending",
-      "runtime_enabled": false,
+      "status": "reconstructed-seasonal-placement; listening-review-pending",
+      "runtime_enabled": true,
       "candidate_eras": [
         "1812",
         "1835",
         "1904"
       ],
-      "approved_eras": [],
+      "approved_eras": [
+        "1812"
+      ],
       "seasons_proposed": [
         "summer",
         "fall"
@@ -4783,6 +4812,38 @@
           ],
           "july_vocalization": "silent",
           "july_presence": "not_perceptible"
+        }
+      ],
+      "seasonal_placements": [
+        {
+          "id": "1812_late_summer_katydid_summer",
+          "scene_id": "1812",
+          "season": "summer",
+          "confidence": "reconstructed",
+          "species_id": "pterophylla_camellifolia",
+          "flora_zone_ids": [
+            "z06_dense_forest"
+          ],
+          "active_periods": [
+            "night"
+          ],
+          "mode": "habitat-insects",
+          "gain": 0.065,
+          "gap_seconds": [
+            80,
+            160
+          ],
+          "note": "Reconstructed true-katydid calling on August 14 in actual 1812 north timber. Existing fauna dossier places onset around mid-July; this dates the reconstruction later than the July 1 silence, which remains unchanged. Phenology is an existing regional inference, not a newly verified species source. Creator identifies Pterophylla camellifolia in a late-summer chorus; locality unspecified, not independently identified by listening. Supplied temperature below 15 C suppresses calls; October/February stay silent. The 1812 scene already reconstructs natural timber/prairie/wetland cover on e1830_natural. Resolve its live flora zones; no July 1835 fauna layer or fixed historical animal is imported.",
+          "min_temperature_c": 15,
+          "require_dry_ground": true,
+          "source_ids": [
+            "chicagology_prefire273",
+            "wright_1834"
+          ],
+          "basis_records": [
+            "data/fauna/zones/f06_north_timber.json",
+            "docs/research/08-fauna.md"
+          ]
         }
       ],
       "original_integrity": {
@@ -4856,9 +4917,36 @@
             "actor_ids": [
               "western_hotel_driven_wagon_loop_1835"
             ]
+          },
+          {
+            "scene": "1812",
+            "scene_date": "1812-04-15",
+            "actor_ids": [
+              "fort_wagon_loop_1812",
+              "shore_road_wagon_haul_1812"
+            ],
+            "season": "spring"
+          },
+          {
+            "scene": "1812",
+            "scene_date": "1812-10-15",
+            "actor_ids": [
+              "fort_wagon_loop_1812",
+              "shore_road_wagon_haul_1812"
+            ],
+            "season": "fall"
+          },
+          {
+            "scene": "1812",
+            "scene_date": "1812-02-15",
+            "actor_ids": [
+              "fort_wagon_loop_1812",
+              "shore_road_wagon_haul_1812"
+            ],
+            "season": "winter"
           }
         ],
-        "note": "Reconstructed acoustic proxy attached only to the visible moving team; quiet during holds, stops, hidden layers and off-hours. Short unpitched excerpts follow actual vehicle position and speed. Modern recording, not evidence of this historical vehicle; listening quality remains to be reviewed. The source describes a large wooden wagon rolling downhill; use is a mechanical-texture proxy, not a claim about Chicago road surface. Excluded from the 1904 brougham."
+        "note": "Reconstructed acoustic proxy attached only to the visible moving team; quiet during holds, stops, hidden layers and off-hours. Short unpitched excerpts follow actual vehicle position and speed. Modern recording, not evidence of this historical vehicle; listening quality remains to be reviewed. The source describes a large wooden wagon rolling downhill; use is a mechanical-texture proxy, not a claim about Chicago road surface. Excluded from the 1904 brougham. The 1812 spring/fall/winter dates follow the existing seasonal viewing choices, only while those actual teams are visible and moving; this is not historical presence attestation on those dates."
       },
       "original_integrity": {
         "bytes": 245568,
@@ -4891,7 +4979,7 @@
       "excerpt_start_s": 0,
       "excerpt_duration_s": 24,
       "source_format": "Freesound HQ MP3 preview; not a lossless master",
-      "status": "reconstructed-placement; listening-review-pending",
+      "status": "reconstructed-seasonal-placement; listening-review-pending",
       "runtime_enabled": true,
       "candidate_eras": [
         "1812",
@@ -4899,6 +4987,7 @@
         "1904"
       ],
       "approved_eras": [
+        "1812",
         "1835"
       ],
       "seasons_proposed": [
@@ -4959,6 +5048,40 @@
         ],
         "note": "The owner-approved Italian recording is an acoustic proxy for the inferred annual-cicada habitat sound, not an identification as Neotibicen or an emergence claim. Summer, 1835-07-01 only, afternoon/day or dusk according to the scene sun and fauna records; complete recorded phrases with real quiet gaps."
       },
+      "seasonal_placements": [
+        {
+          "id": "1812_summer_cicada_proxy_summer",
+          "scene_id": "1812",
+          "season": "summer",
+          "confidence": "reconstructed",
+          "species_id": "neotibicen_spp",
+          "flora_zone_ids": [
+            "z01_wet_prairie",
+            "z02_mesic_prairie",
+            "z06_dense_forest"
+          ],
+          "active_periods": [
+            "day",
+            "dusk"
+          ],
+          "mode": "habitat-insects",
+          "gain": 0.055,
+          "gap_seconds": [
+            45,
+            95
+          ],
+          "note": "Reconstructed August annual-cicada habitat sound in 1812 natural prairie/timber, bounded by the existing July-September annual-cicada inference. The already owner-approved Italian recording is an acoustic proxy only: unspecified species, not identified Neotibicen or evidence of a periodical emergence. No measured 1812 weather is available; after-noon summer playback is seasonal sound design, and a supplied temperature below 18 C suppresses it. The 1812 scene already reconstructs natural timber/prairie/wetland cover on e1830_natural. Resolve its live flora zones; no July 1835 fauna layer or fixed historical animal is imported.",
+          "from_hour": 12,
+          "min_temperature_c": 18,
+          "require_dry_ground": true,
+          "source_ids": [
+            "chicagology_prefire273"
+          ],
+          "basis_records": [
+            "data/fauna/zones/f02_mesic_prairie.json"
+          ]
+        }
+      ],
       "original_integrity": {
         "bytes": 1109642,
         "sha256": "37392db070734b431000e90cf1edcccfba35746888ebbe824ac3573f403f464f"
@@ -4990,14 +5113,16 @@
       "excerpt_start_s": 0,
       "excerpt_duration_s": 24,
       "source_format": "Freesound HQ MP3 preview; not a lossless master",
-      "status": "audition-and-placement-pending",
-      "runtime_enabled": false,
+      "status": "reconstructed-seasonal-placement; listening-review-pending",
+      "runtime_enabled": true,
       "candidate_eras": [
         "1812",
         "1835",
         "1904"
       ],
-      "approved_eras": [],
+      "approved_eras": [
+        "1812"
+      ],
       "seasons_proposed": [
         "spring",
         "summer",
@@ -5006,6 +5131,72 @@
       "species_candidates": [],
       "placement_note": "Spokane, Washington; species and scene placement require review.",
       "fauna_references": [],
+      "seasonal_placements": [
+        {
+          "id": "1812_robin_calls_spring",
+          "scene_id": "1812",
+          "season": "spring",
+          "confidence": "reconstructed",
+          "species_id": "turdus_migratorius",
+          "flora_zone_ids": [
+            "z05_riverbank_timber",
+            "z06_dense_forest"
+          ],
+          "active_periods": [
+            "dawn",
+            "day",
+            "dusk"
+          ],
+          "mode": "distant-bird",
+          "gain": 0.12,
+          "gap_seconds": [
+            80,
+            160
+          ],
+          "note": "Modern Illinois DNR American robin account (new accompanying source illinois_dnr_american_robin) states statewide occurrence, April-July nesting, spring residential/woodland/park habitat, fall movement to wooded fruit-feeding areas, and several calls. Regional ecology bounds a reconstructed 1812 encounter, not historical attestation. Spokane 2022 creator-labelled American robin calls are a nonlocal modern proxy; no independent acoustic identification or listening is claimed. The 1812 scene already reconstructs natural timber/prairie/wetland cover on e1830_natural. Resolve its live flora zones; no July 1835 fauna layer or fixed historical animal is imported.",
+          "initial_gap_seconds": [
+            15,
+            35
+          ],
+          "require_dry_ground": true,
+          "source_ids": [
+            "illinois_dnr_american_robin",
+            "chicagology_prefire273"
+          ]
+        },
+        {
+          "id": "1812_robin_calls_fall",
+          "scene_id": "1812",
+          "season": "fall",
+          "confidence": "reconstructed",
+          "species_id": "turdus_migratorius",
+          "flora_zone_ids": [
+            "z05_riverbank_timber",
+            "z06_dense_forest"
+          ],
+          "active_periods": [
+            "dawn",
+            "day",
+            "dusk"
+          ],
+          "mode": "distant-bird",
+          "gain": 0.08,
+          "gap_seconds": [
+            120,
+            240
+          ],
+          "note": "Modern Illinois DNR American robin account (new accompanying source illinois_dnr_american_robin) states statewide occurrence, April-July nesting, spring residential/woodland/park habitat, fall movement to wooded fruit-feeding areas, and several calls. Regional ecology bounds a reconstructed 1812 encounter, not historical attestation. Spokane 2022 creator-labelled American robin calls are a nonlocal modern proxy; no independent acoustic identification or listening is claimed. The 1812 scene already reconstructs natural timber/prairie/wetland cover on e1830_natural. Resolve its live flora zones; no July 1835 fauna layer or fixed historical animal is imported.",
+          "initial_gap_seconds": [
+            15,
+            35
+          ],
+          "require_dry_ground": true,
+          "source_ids": [
+            "illinois_dnr_american_robin",
+            "chicagology_prefire273"
+          ]
+        }
+      ],
       "original_integrity": {
         "bytes": 614463,
         "sha256": "e63dab67aff707a1139dd20b091cd454861234e3a7aba4c64e7cc0e792779353"
@@ -5037,7 +5228,7 @@
       "excerpt_start_s": 0,
       "excerpt_duration_s": 3.816,
       "source_format": "Freesound HQ MP3 preview; not a lossless master",
-      "status": "reconstructed-placement; listening-review-pending",
+      "status": "reconstructed-seasonal-placement; listening-review-pending",
       "runtime_enabled": true,
       "candidate_eras": [
         "1812",
@@ -5045,6 +5236,7 @@
         "1904"
       ],
       "approved_eras": [
+        "1812",
         "1835"
       ],
       "seasons_proposed": [
@@ -5097,6 +5289,78 @@
         ],
         "note": "Modern Washington red-wing recording used as a reconstructed distant habitat call in the 1835 sedge meadow or marsh. The source stays at a fixed world point behind the listener, at least 36 m away, and stops if approached or brought into view. No near bird body or exact historical individual is implied. Long gaps honor reduced July song."
       },
+      "seasonal_placements": [
+        {
+          "id": "1812_redwing_call_spring",
+          "scene_id": "1812",
+          "season": "spring",
+          "confidence": "reconstructed",
+          "species_id": "agelaius_phoeniceus",
+          "flora_zone_ids": [
+            "z03_sedge_meadow",
+            "z04_marsh"
+          ],
+          "active_periods": [
+            "dawn",
+            "day",
+            "dusk"
+          ],
+          "mode": "distant-bird",
+          "gain": 0.14,
+          "gap_seconds": [
+            65,
+            140
+          ],
+          "note": "Reconstructed regional red-winged blackbird in actual 1812 sedge meadow/marsh, based on the existing regional wetland assemblage and corresponding natural habitat, not an 1812 sighting or automatic carry-over of July 1835 fauna. Spring supports a sparse wetland call; August is restrained late-summer calling, not a spring dawn chorus. The creator-labelled Washington phone recording is a modern processed proxy. The 1812 scene already reconstructs natural timber/prairie/wetland cover on e1830_natural. Resolve its live flora zones; no July 1835 fauna layer or fixed historical animal is imported.",
+          "initial_gap_seconds": [
+            15,
+            35
+          ],
+          "source_ids": [
+            "fpdcc_ecosystems"
+          ],
+          "basis_records": [
+            "docs/research/08-fauna.md",
+            "data/fauna/zones/f03_sedge_meadow.json",
+            "data/fauna/zones/f04_marsh.json"
+          ]
+        },
+        {
+          "id": "1812_redwing_call_summer",
+          "scene_id": "1812",
+          "season": "summer",
+          "confidence": "reconstructed",
+          "species_id": "agelaius_phoeniceus",
+          "flora_zone_ids": [
+            "z03_sedge_meadow",
+            "z04_marsh"
+          ],
+          "active_periods": [
+            "dawn",
+            "day",
+            "dusk"
+          ],
+          "mode": "distant-bird",
+          "gain": 0.1,
+          "gap_seconds": [
+            100,
+            190
+          ],
+          "note": "Reconstructed regional red-winged blackbird in actual 1812 sedge meadow/marsh, based on the existing regional wetland assemblage and corresponding natural habitat, not an 1812 sighting or automatic carry-over of July 1835 fauna. Spring supports a sparse wetland call; August is restrained late-summer calling, not a spring dawn chorus. The creator-labelled Washington phone recording is a modern processed proxy. The 1812 scene already reconstructs natural timber/prairie/wetland cover on e1830_natural. Resolve its live flora zones; no July 1835 fauna layer or fixed historical animal is imported.",
+          "initial_gap_seconds": [
+            15,
+            35
+          ],
+          "source_ids": [
+            "fpdcc_ecosystems"
+          ],
+          "basis_records": [
+            "docs/research/08-fauna.md",
+            "data/fauna/zones/f03_sedge_meadow.json",
+            "data/fauna/zones/f04_marsh.json"
+          ]
+        }
+      ],
       "original_integrity": {
         "bytes": 86832,
         "sha256": "ff61b66c94d4ab30ec01e0a9c0220b1f853916133981a56b44ca88a13d1af01a"
@@ -5128,7 +5392,7 @@
       "excerpt_start_s": 0,
       "excerpt_duration_s": 24,
       "source_format": "Freesound HQ MP3 preview; not a lossless master",
-      "status": "reconstructed-placement; listening-review-pending",
+      "status": "reconstructed-seasonal-placement; listening-review-pending",
       "runtime_enabled": true,
       "candidate_eras": [
         "1812",
@@ -5136,6 +5400,7 @@
         "1904"
       ],
       "approved_eras": [
+        "1812",
         "1835"
       ],
       "seasons_proposed": [
@@ -5173,6 +5438,37 @@
         ],
         "note": "Ontario field-cricket recording used as a reconstructed genus-level acoustic proxy in the 1835 wet-prairie habitat. Dusk/night only on the researched July scene date. Quiet gaps and low gain preserve the record's sparse early-July chorus; no individual insect is placed."
       },
+      "seasonal_placements": [
+        {
+          "id": "1812_summer_crickets_summer",
+          "scene_id": "1812",
+          "season": "summer",
+          "confidence": "reconstructed",
+          "species_id": "gryllus_spp",
+          "flora_zone_ids": [
+            "z01_wet_prairie"
+          ],
+          "active_periods": [
+            "dusk",
+            "night"
+          ],
+          "mode": "habitat-insects",
+          "gain": 0.05,
+          "gap_seconds": [
+            55,
+            115
+          ],
+          "note": "Reconstructed August 1812 wet-prairie cricket phrases, carrying the existing regional summer field-cricket inference independently onto this era's actual grass habitat. Ontario field crickets are a genus-level modern proxy. No historical density or temperature is claimed; supplied temperatures below 10 C suppress this warm-season recording. The 1812 scene already reconstructs natural timber/prairie/wetland cover on e1830_natural. Resolve its live flora zones; no July 1835 fauna layer or fixed historical animal is imported.",
+          "min_temperature_c": 10,
+          "require_dry_ground": true,
+          "source_ids": [
+            "chicagology_prefire273"
+          ],
+          "basis_records": [
+            "data/fauna/zones/f01_wet_prairie.json"
+          ]
+        }
+      ],
       "original_integrity": {
         "bytes": 2208144,
         "sha256": "1b908d851e4597a8ea78913f251a51588056d23d3182f47d2c80d185f71e422d"
@@ -5264,14 +5560,16 @@
       "excerpt_start_s": 0,
       "excerpt_duration_s": 24,
       "source_format": "Freesound HQ MP3 preview; not a lossless master",
-      "status": "audition-and-placement-pending",
-      "runtime_enabled": false,
+      "status": "reconstructed-seasonal-placement; listening-review-pending",
+      "runtime_enabled": true,
       "candidate_eras": [
         "1812",
         "1835",
         "1904"
       ],
-      "approved_eras": [],
+      "approved_eras": [
+        "1812"
+      ],
       "seasons_proposed": [
         "spring",
         "summer",
@@ -5321,6 +5619,148 @@
           ],
           "july_vocalization": "call_only",
           "july_presence": "visible_and_audible"
+        }
+      ],
+      "seasonal_placements": [
+        {
+          "id": "1812_coyote_distant_spring",
+          "scene_id": "1812",
+          "season": "spring",
+          "confidence": "reconstructed",
+          "species_id": "canis_latrans",
+          "flora_zone_ids": [
+            "z01_wet_prairie"
+          ],
+          "active_periods": [
+            "night"
+          ],
+          "mode": "distant-fauna",
+          "gain": 0.1,
+          "gap_seconds": [
+            300,
+            600
+          ],
+          "note": "Rare reconstructed prairie-wolf/coyote phrase in 1812 wet prairie. Andreas vol. 1 pp. 291/433 supports the existing regional resident interpretation; winter 1835-36 hunting and retrospective daytime howling do not attest a specific 1812 animal or July/August encounter. The earlier natural landscape supports a declared carry-back, not a shared 1835 placement. Modern creator-labelled night coyotes have unspecified locality/group size; no audition claim. Night-only follows the recording context. Timing, gain and terrestrial distant offscreen source are sound-design liberties, not historical frequency. Cold does not imply a resident mammal is absent; winter otherwise remains quiet. The 1812 scene already reconstructs natural timber/prairie/wetland cover on e1830_natural. Resolve its live flora zones; no July 1835 fauna layer or fixed historical animal is imported.",
+          "initial_gap_seconds": [
+            120,
+            240
+          ],
+          "listener_flora_zone_ids": [
+            "z01_wet_prairie"
+          ],
+          "require_dry_ground": true,
+          "source_ids": [
+            "andreas_1884_v1",
+            "chicagology_prefire273"
+          ],
+          "basis_records": [
+            "data/fauna/zones/f01_wet_prairie.json"
+          ]
+        },
+        {
+          "id": "1812_coyote_distant_summer",
+          "scene_id": "1812",
+          "season": "summer",
+          "confidence": "reconstructed",
+          "species_id": "canis_latrans",
+          "flora_zone_ids": [
+            "z01_wet_prairie"
+          ],
+          "active_periods": [
+            "night"
+          ],
+          "mode": "distant-fauna",
+          "gain": 0.1,
+          "gap_seconds": [
+            300,
+            600
+          ],
+          "note": "Rare reconstructed prairie-wolf/coyote phrase in 1812 wet prairie. Andreas vol. 1 pp. 291/433 supports the existing regional resident interpretation; winter 1835-36 hunting and retrospective daytime howling do not attest a specific 1812 animal or July/August encounter. The earlier natural landscape supports a declared carry-back, not a shared 1835 placement. Modern creator-labelled night coyotes have unspecified locality/group size; no audition claim. Night-only follows the recording context. Timing, gain and terrestrial distant offscreen source are sound-design liberties, not historical frequency. Cold does not imply a resident mammal is absent; winter otherwise remains quiet. The 1812 scene already reconstructs natural timber/prairie/wetland cover on e1830_natural. Resolve its live flora zones; no July 1835 fauna layer or fixed historical animal is imported.",
+          "initial_gap_seconds": [
+            120,
+            240
+          ],
+          "listener_flora_zone_ids": [
+            "z01_wet_prairie"
+          ],
+          "require_dry_ground": true,
+          "source_ids": [
+            "andreas_1884_v1",
+            "chicagology_prefire273"
+          ],
+          "basis_records": [
+            "data/fauna/zones/f01_wet_prairie.json"
+          ]
+        },
+        {
+          "id": "1812_coyote_distant_fall",
+          "scene_id": "1812",
+          "season": "fall",
+          "confidence": "reconstructed",
+          "species_id": "canis_latrans",
+          "flora_zone_ids": [
+            "z01_wet_prairie"
+          ],
+          "active_periods": [
+            "night"
+          ],
+          "mode": "distant-fauna",
+          "gain": 0.1,
+          "gap_seconds": [
+            300,
+            600
+          ],
+          "note": "Rare reconstructed prairie-wolf/coyote phrase in 1812 wet prairie. Andreas vol. 1 pp. 291/433 supports the existing regional resident interpretation; winter 1835-36 hunting and retrospective daytime howling do not attest a specific 1812 animal or July/August encounter. The earlier natural landscape supports a declared carry-back, not a shared 1835 placement. Modern creator-labelled night coyotes have unspecified locality/group size; no audition claim. Night-only follows the recording context. Timing, gain and terrestrial distant offscreen source are sound-design liberties, not historical frequency. Cold does not imply a resident mammal is absent; winter otherwise remains quiet. The 1812 scene already reconstructs natural timber/prairie/wetland cover on e1830_natural. Resolve its live flora zones; no July 1835 fauna layer or fixed historical animal is imported.",
+          "initial_gap_seconds": [
+            120,
+            240
+          ],
+          "listener_flora_zone_ids": [
+            "z01_wet_prairie"
+          ],
+          "require_dry_ground": true,
+          "source_ids": [
+            "andreas_1884_v1",
+            "chicagology_prefire273"
+          ],
+          "basis_records": [
+            "data/fauna/zones/f01_wet_prairie.json"
+          ]
+        },
+        {
+          "id": "1812_coyote_distant_winter",
+          "scene_id": "1812",
+          "season": "winter",
+          "confidence": "reconstructed",
+          "species_id": "canis_latrans",
+          "flora_zone_ids": [
+            "z01_wet_prairie"
+          ],
+          "active_periods": [
+            "night"
+          ],
+          "mode": "distant-fauna",
+          "gain": 0.08,
+          "gap_seconds": [
+            300,
+            600
+          ],
+          "note": "Rare reconstructed prairie-wolf/coyote phrase in 1812 wet prairie. Andreas vol. 1 pp. 291/433 supports the existing regional resident interpretation; winter 1835-36 hunting and retrospective daytime howling do not attest a specific 1812 animal or July/August encounter. The earlier natural landscape supports a declared carry-back, not a shared 1835 placement. Modern creator-labelled night coyotes have unspecified locality/group size; no audition claim. Night-only follows the recording context. Timing, gain and terrestrial distant offscreen source are sound-design liberties, not historical frequency. Cold does not imply a resident mammal is absent; winter otherwise remains quiet. The 1812 scene already reconstructs natural timber/prairie/wetland cover on e1830_natural. Resolve its live flora zones; no July 1835 fauna layer or fixed historical animal is imported.",
+          "initial_gap_seconds": [
+            120,
+            240
+          ],
+          "listener_flora_zone_ids": [
+            "z01_wet_prairie"
+          ],
+          "require_dry_ground": true,
+          "source_ids": [
+            "andreas_1884_v1",
+            "chicagology_prefire273"
+          ],
+          "basis_records": [
+            "data/fauna/zones/f01_wet_prairie.json"
+          ]
         }
       ],
       "original_integrity": {
@@ -5450,14 +5890,16 @@
       "excerpt_start_s": 0,
       "excerpt_duration_s": 10.631837,
       "source_format": "Freesound HQ MP3 preview; not a lossless master",
-      "status": "audition-and-placement-pending",
-      "runtime_enabled": false,
+      "status": "placed-reconstructed-recorded-proxy",
+      "runtime_enabled": true,
       "candidate_eras": [
         "1812",
         "1835",
         "1904"
       ],
-      "approved_eras": [],
+      "approved_eras": [
+        "1812"
+      ],
       "seasons_proposed": [
         "spring",
         "summer",
@@ -5465,8 +5907,70 @@
         "winter"
       ],
       "species_candidates": [],
-      "placement_note": "Two real horses on a dirt road. Not an isolated hoof contact; requires event editing and surface matching.",
+      "placement_note": "Runtime takes two waveform-bounded transients from the existing hosted recording (3.297\u20133.425s and6.710\u20136.870s), copies55,296float bytes at48kHz with2msedge fades and releases the full decode. No listening acceptance claimed; source contains two horses and the cuts are reconstructed individual-contact proxies. Snow uses gain/filter only, without synthesis, pitch shift or time stretch.",
       "fauna_references": [],
+      "scene_placement": {
+        "mode": "hoof-contact",
+        "gain": 0.24,
+        "max_distance_m": 32,
+        "bindings": [
+          {
+            "scene": "1812",
+            "scene_date": "1812-08-14",
+            "season": "summer",
+            "actor_ids": [
+              "fort_wagon_loop_1812",
+              "shore_road_wagon_haul_1812"
+            ]
+          },
+          {
+            "scene": "1812",
+            "scene_date": "1812-04-15",
+            "season": "spring",
+            "actor_ids": [
+              "fort_wagon_loop_1812",
+              "shore_road_wagon_haul_1812"
+            ]
+          },
+          {
+            "scene": "1812",
+            "scene_date": "1812-10-15",
+            "season": "fall",
+            "actor_ids": [
+              "fort_wagon_loop_1812",
+              "shore_road_wagon_haul_1812"
+            ]
+          },
+          {
+            "scene": "1812",
+            "scene_date": "1812-02-15",
+            "season": "winter",
+            "actor_ids": [
+              "fort_wagon_loop_1812",
+              "shore_road_wagon_haul_1812"
+            ]
+          }
+        ],
+        "note": "Reconstructed short dirt-contact proxies on the two visible moving 1812 wagon teams, timed by each actual horse gait. Non-summer dates are existing seasonal viewing reconstructions, not attested presence on those dates. Actual renderer snow-look amount damps and low-passes the dirt recording; this is not a real snow recording or measured local snow depth. No extra mechanical voices are removed."
+      },
+      "runtime_contact_processing": {
+        "delivery_sha256": "1e9d75c58b4bb7bc87bd8251433afd60ccdfbda20571efce62262b23d598836c",
+        "windows_s": [
+          [
+            3.297,
+            3.425
+          ],
+          [
+            6.71,
+            6.87
+          ]
+        ],
+        "fade_ms": 2,
+        "snow_gain_at_full_cover": 0.55,
+        "dry_lowpass_hz": 18000,
+        "snow_lowpass_hz": 900,
+        "listening_performed": false
+      },
       "original_integrity": {
         "bytes": 239314,
         "sha256": "213c175bd2b2c80e38180e519772f794a1559b149345baeb430f2a25ec31e999"
@@ -5480,7 +5984,7 @@
       "loop": false,
       "gain_applied": 0.7968029172642422,
       "processing": "Mono 48 kHz MP3 128 kbps; 10 ms edge fades; excerpt requires event editing.",
-      "provenance": "Freesound HQ MP3 preview; not a lossless master. Two real horses on a dirt road. Not an isolated hoof contact; requires event editing and surface matching."
+      "provenance": "Freesound HQ MP3 preview; not a lossless master. Runtime takes two waveform-bounded transients from the existing hosted recording (3.297\u20133.425s and6.710\u20136.870s), copies55,296float bytes at48kHz with2msedge fades and releases the full decode. No listening acceptance claimed; source contains two horses and the cuts are reconstructed individual-contact proxies. Snow uses gain/filter only, without synthesis, pitch shift or time stretch."
     },
     {
       "id": "hand-saw",
@@ -5546,14 +6050,16 @@
       "excerpt_start_s": 0,
       "excerpt_duration_s": 24,
       "source_format": "Freesound HQ MP3 preview; not a lossless master",
-      "status": "audition-and-placement-pending",
-      "runtime_enabled": false,
+      "status": "reconstructed-visible-work-proxy",
+      "runtime_enabled": true,
       "candidate_eras": [
         "1812",
         "1835",
         "1904"
       ],
-      "approved_eras": [],
+      "approved_eras": [
+        "1812"
+      ],
       "seasons_proposed": [
         "spring",
         "summer",
@@ -5561,8 +6067,68 @@
         "winter"
       ],
       "species_candidates": [],
-      "placement_note": "Recorded indoors in an apartment. Room coloration and individual strikes require review before exterior placement.",
+      "placement_note": "Recorded indoors in an apartment. Room coloration and individual strikes require review before exterior placement. The 1812 placement uses a waveform-bounded impact at delivery offset 21.526 seconds for 0.36 seconds, with an envelope, without pitch shift or synthetic sound. Source room coloration remains a proxy limitation; no human audition approval is claimed.",
       "fauna_references": [],
+      "scene_placement": {
+        "mode": "visible-work",
+        "gain": 0.14,
+        "max_distance_m": 20,
+        "cue": {
+          "offset_s": 21.526,
+          "duration_s": 0.36
+        },
+        "bindings": [
+          {
+            "scene": "1812",
+            "actor_ids": [
+              "hi_town_chicago_militia_unnamed_4_1812"
+            ],
+            "action_ids": [
+              "nail-wood"
+            ],
+            "task_ids": [
+              "militia-piazza-repair"
+            ],
+            "dates": {
+              "from": "1812-04-07",
+              "to": "1812-08-13"
+            },
+            "hours": [
+              [
+                6.5,
+                12
+              ],
+              [
+                13,
+                18
+              ]
+            ]
+          },
+          {
+            "scene": "1812",
+            "actor_ids": [
+              "hi_town_chicago_militia_unnamed_4_1812"
+            ],
+            "action_ids": [
+              "nail-wood"
+            ],
+            "task_ids": [
+              "militia-packing-chest"
+            ],
+            "dates": {
+              "from": "1812-08-14",
+              "to": "1812-08-14"
+            },
+            "hours": [
+              [
+                13,
+                18
+              ]
+            ]
+          }
+        ],
+        "note": "A reconstructed nailing gesture uses the existing militia worker\u2019s actual spring repair and August 14 afternoon packing spans. Only the generated hammer\u2019s visible contact serial triggers this short recorded impact. No generic working state, absent person, hidden tool, unscheduled date or independent hammer loop produces sound."
+      },
       "original_integrity": {
         "bytes": 455030,
         "sha256": "57672a993c43feedd529afcad290c851109ceff6ca3df2779be51e9d0e65f3c2"
@@ -5576,7 +6142,7 @@
       "loop": false,
       "gain_applied": 0.6250299067467008,
       "processing": "Mono 48 kHz MP3 128 kbps; 10 ms edge fades; excerpt requires event editing.",
-      "provenance": "Freesound HQ MP3 preview; not a lossless master. Recorded indoors in an apartment. Room coloration and individual strikes require review before exterior placement."
+      "provenance": "Freesound HQ MP3 preview; not a lossless master. Recorded indoors in an apartment. Room coloration and individual strikes require review before exterior placement. The 1812 placement uses a waveform-bounded impact at delivery offset 21.526 seconds for 0.36 seconds, with an envelope, without pitch shift or synthetic sound. Source room coloration remains a proxy limitation; no human audition approval is claimed."
     },
     {
       "id": "wood-fire",
