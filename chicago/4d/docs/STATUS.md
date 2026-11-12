@@ -1,3 +1,37 @@
+## PR #1933 native linen intake — 11 November 2026
+
+The working tree adopts the eight settler MASTER/WEB LODs from immutable source
+57151be9a3b1756718dfc1619a4dbc4a3b55fda6 and reviewed H5 request
+2475a311573dce18faa52e84799dc6f51c7b6837ac2c2ef2f16d85f28e3b08dd.
+The corrected canonical CLI ran locally with the source APP as cwd/PWD and the
+absolute driver script. Its CLOSED capture verified all 39 inventory files and
+both unchanged tracked-source snapshots. The actual body-normal maximum was
+0.0000586337 against the unchanged 0.001 bound; mesh invariants stayed unchanged.
+No GitHub capture success is claimed: the dispatch was rejected HTTP401 before
+any run, and the earlier GitHub normal failure and local script-lookup failure
+remain failures in their original receipts.
+
+The bound observer completed 104 matching-camera views and 72 idle/walk poses
+across all four LODs and both viewports, without mechanical failures or sampled
+negative rear gaps. Maximum camera-matrix difference from the saved baseline was
+1.11e-16. Retained-body coverage gaps remained at the baseline maximum of nine;
+these finite ray diagnostics are not a general cloth-clearance certificate.
+All garment views match the inspected fuller-seat candidate; the only three
+pixel differences across the full PNG comparison were in the inspector heading.
+The original collapsed-layer slit is absent; inherited seams and the lower
+crotch crease remain within the broader clothing-realism work.
+
+The supported fixture writer remeasured all eight adopted files at 1280x800 and
+390x780. Every one passed, and the other 280 baseline rows stayed deeply equal
+with their actual file hashes verified. This is acceptance of the bounded linen
+seat change, not general photographic or full-body fit acceptance. Body, front,
+waistband, lower legs, topology, UVs and skin weights retain the source controls.
+
+Source checkpoint 57151be9 passed all 16 local source parts (1,341 actual step
+executions), PR preflight and the ordinary remote gate. The adopted files are gated with the final asset/source suite and published
+desktop/mobile checks; the PR records their final results. DEV 8a643db9 is included. T-1789 remains open; merge only to DEV
+once the final checks are green. No production promotion is part of this PR.
+
 ## PR #1933 recovery and DEV integration — 11 November 2026
 
 The recovery integrates DEV 8a643db9, retaining the Prairie child/teen authoring
