@@ -14,7 +14,7 @@
       "baked_ao": false,
       "bytes": 4923128,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "a5cc8f4009f62617afb0aa9288cb76b64cfdbce2e1c3e1c2928d711694951884",
+      "inputs_sha256": "8eaffb9fd74f38509453d0b10d6fdff5b5cd944dfffd86f62dfd3a5d3852e881",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "armour_corwith_house_1945_prairie"
@@ -227,7 +227,7 @@
       "baked_ao": false,
       "bytes": 5831204,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "0421b8f59fe5bfecadcac34cc4949216e63cbc6e765783427f66b06915714a4d",
+      "inputs_sha256": "1ffdd7caaa935b5b34afd2d4d7efe83125499439ff68fd238f7cf50e4d491983",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "coleman_ames_house_1811_prairie"
@@ -274,7 +274,7 @@
       "baked_ao": false,
       "bytes": 6665872,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "f82821d218f81229fda20ffd54c4578c47bab7c91e5daaf160ccec7c1329db36",
+      "inputs_sha256": "b4f526498c9214d0e91931231047f4736e0e5d752f6ae46f228100b30ad1c84f",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "dent_house_1823_prairie"
@@ -284,7 +284,7 @@
       "baked_ao": false,
       "bytes": 5690452,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "4a826e0bb395d638b92c2cd2142161b6197a40b79ceacdc9cf3de8d61d6f5427",
+      "inputs_sha256": "949f2493f57fff97462b286a4ab7d0f40c19f81d3de8ad56071a7ac2fd75ecb9",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "dexter_house_1721_prairie"
@@ -304,7 +304,7 @@
       "baked_ao": false,
       "bytes": 9725736,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "073b9b6602fc6d017ab9ee7259b1c4e566c22117bcd632ec315f76082dde0260",
+      "inputs_sha256": "ea97e52b8c85737f427554a6bd2cf2c3e55fa1b7c8a4146d46f3c531a91abc58",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "doane_house_1827_prairie"
@@ -333,7 +333,7 @@
       "baked_ao": false,
       "bytes": 7454820,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "e4b8d8fa27d4bb91be933152f85df9104011de1eeda465b724ab3fe72fd893a2",
+      "inputs_sha256": "9cf43aa4b553251e28b403070403a40391ddf9b6278e00777f32790836b30bfe",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "edson_keith_house_1906_prairie"
@@ -353,7 +353,7 @@
       "baked_ao": false,
       "bytes": 4935380,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "fca945f35c81efff25078171ca141aecbd1813dfe19662994bc51db1fd83cdc0",
+      "inputs_sha256": "206f9ddea3a7ae8aa9232f6c9df2ab1f64835e01283814a6937aee3472fd7a7f",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "elbridge_keith_house_1900_prairie"
@@ -972,7 +972,7 @@
       "baked_ao": false,
       "bytes": 3483084,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "28607b69e29c76d45bac7f3e0755efa94f1b017d2346b3d5e8961996e434727c",
+      "inputs_sha256": "a9b860ecd15cf449f67023a8846deb2c9a53e74c60a411e48d6e0cbac83e24ee",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "george_glessner_house_1706_prairie"
@@ -1002,7 +1002,7 @@
       "baked_ao": false,
       "bytes": 3398796,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "ace1733788aa949a21e316c1064e0db2d2c7967ca72de1f1441ddae4dc3b38b0",
+      "inputs_sha256": "6c80ba1a1a3b49c5f50e3ab17b2f238aecbfcc6e0f8c61268854d9f88b967d20",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "glessner_lee_house_1700_prairie"
@@ -1022,7 +1022,7 @@
       "baked_ao": false,
       "bytes": 5263048,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "4f66d8f06f9aad8e6800f39d0fad89dc58fdc76098f9cc710a528673fa24c548",
+      "inputs_sha256": "6a3fa51b118d4fccebbadcf2853d962526b9e52ab68d07d21b938418cb4315be",
       "kind": "generated",
       "phase_id": "as_built_1869",
       "structure_id": "goodman_house_1612_prairie"
@@ -1116,7 +1116,7 @@
       "baked_ao": false,
       "bytes": 7753900,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "bffa2295a71767885d33b1e5ac186e84e8675bc18c52021cdd9eaabd1e472e55",
+      "inputs_sha256": "9fb3cae8723d5e1396b7893649ae3dcbe11f9686c218e14b7cb939425f234b35",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "henderson_house_1816_prairie"
@@ -1136,7 +1136,7 @@
       "baked_ao": false,
       "bytes": 8652308,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "8700fcbf7fefcf5c5414dc8ea232b019a106b8873adf7eb74f4a0cd20c1f62cd",
+      "inputs_sha256": "5966af37e376751f814d242e2c5def70a2ac7dc4d4631af30f642cdb592985e6",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "hibbard_house_1701_prairie"
@@ -1185,7 +1185,7 @@
       "baked_ao": false,
       "bytes": 4422248,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "e88ef903dafd7a242015e669be891d1f84c4547db4f63a284411aa73144a51b3",
+      "inputs_sha256": "4e92c03a7b249d25dd34b75fd9587e48a6c630faa60e082ba26c764142266527",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "house_1600_prairie"
@@ -1215,7 +1215,7 @@
       "baked_ao": false,
       "bytes": 4113572,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "44a55648b836866219dfe22b10b5b3f40f0fcf06f5bcc41ae93c1e57d5bbc045",
+      "inputs_sha256": "90ecee8d1c0b6ea7e49e5804e30cd678727c4c7e4e21aff66d2d16bb29cee468",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "house_1604_prairie"
@@ -1225,7 +1225,7 @@
       "baked_ao": false,
       "bytes": 3422768,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "5d3a42de791ec1d63b472ba67e9f7994144d3016f5dd722aa70cdb88c5318c04",
+      "inputs_sha256": "93cf11da7ecaf0928390886c087e242ee9459093c458a2bd5626e4a59f8ab8a6",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "house_1608_prairie"
@@ -1255,7 +1255,7 @@
       "baked_ao": false,
       "bytes": 2642128,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "b1b99638749ac8c83893e2c63dae0ff0912559326edae53c1cf5a87dabbbd0d8",
+      "inputs_sha256": "fbc8b8c0e0d67028f1dd784df9f0244a146a4039386ba2901ca82068315dd34a",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "house_1613_prairie"
@@ -1285,7 +1285,7 @@
       "baked_ao": false,
       "bytes": 2622044,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "07fec77d9b7f279a54798b15400391405240289c53e7a2a824425405d1072f5c",
+      "inputs_sha256": "c520a163a7d10cef748b8183b4b471cae93a3239834709fbe8f46ecaeea492d3",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "house_1615_prairie"
@@ -1295,7 +1295,7 @@
       "baked_ao": false,
       "bytes": 3363684,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "6eb85c32b7298bac34be8b4d832d660dd93a7c049baa7d5a9945d64d08dca417",
+      "inputs_sha256": "425098433fdb63ba21f99b14f7bd55dd5ff233c4659bd21a2c73cb2e3aed212d",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "house_1616_prairie"
@@ -1335,7 +1335,7 @@
       "baked_ao": false,
       "bytes": 5696680,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "316027dc22bd27ebda6f5b9943700c9014ccd58e1cd5a3663423ad55e12de645",
+      "inputs_sha256": "4219aef9caf7d88dcb4345314b527fb1c6fc2eafebda4de2b48da68541e02a7b",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "house_1619_prairie"
@@ -1345,7 +1345,7 @@
       "baked_ao": false,
       "bytes": 4389508,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "61207ad5a5a1ba163e9c6c23a558daf3cbaea37387da15ea87b1176fb4ccfa30",
+      "inputs_sha256": "1f2236fc60996a5c4e5a037efc5a3b763fe1487449962cc4df5e597f2d3e5d78",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "house_1621_prairie"
@@ -1375,7 +1375,7 @@
       "baked_ao": false,
       "bytes": 3849832,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "ed04dc7cd92696d41f85e85ade996ea756b7e1a4601f43c92af79e53026e25b4",
+      "inputs_sha256": "0dda99c4b3b1ad8c1d01a50aff2f429823cc6157291c29ad64652d054499c4ff",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "house_1623_prairie"
@@ -1385,7 +1385,7 @@
       "baked_ao": false,
       "bytes": 4361804,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "99f676c6ed2f3b8ed8b9dcd1a0827297512c3c70aa2f61acc65eb34b56cc3b70",
+      "inputs_sha256": "40955ebbb84848ff96e52b3242d99d4eb3a5b0bfe8bad4281e36614eb70651df",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "house_1625_prairie"
@@ -1395,7 +1395,7 @@
       "baked_ao": false,
       "bytes": 3376748,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "abff523f486c9020d2dba5a94808e86287778b9dbea6afd471056a572d5d7364",
+      "inputs_sha256": "8143f921fd6ddb72ae60e8824a338caa7b29e2e2ff7d31e19855472e25d3d769",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "house_1626_prairie"
@@ -1415,7 +1415,7 @@
       "baked_ao": false,
       "bytes": 3019272,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "ec72e891ca9c899f2dad05f95594deceb092f982dac94c7e3fa28b7b6fd65b60",
+      "inputs_sha256": "be2414e14d57463477e30a21d5c9a75b128f0e3ca2a2f0f223544f7f5e90988c",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "house_1628_prairie"
@@ -1455,7 +1455,7 @@
       "baked_ao": false,
       "bytes": 3977328,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "96aaf05ed70aeb16d418867114834a551722d1facd884189713e5f0cdca24e74",
+      "inputs_sha256": "a1ae4c5cb894e369748d73aaa93e5521d7fbc9972bb92f61b8ce12ecc7076e86",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "house_1634_prairie"
@@ -1465,7 +1465,7 @@
       "baked_ao": false,
       "bytes": 4108672,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "b97ccf4955c2316738ea5a644a5a0c70d7c5ec7316c4a0cad232ec30dccada2d",
+      "inputs_sha256": "4f0d4a4dc146483d1808a5a6863a84a5aeb65662e342f148f86baab8e4173ef2",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "house_1636_prairie"
@@ -1535,7 +1535,7 @@
       "baked_ao": false,
       "bytes": 3757412,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "97f73aef294ae653a4b85ff3194fa83053d53ae5a66de9e293678d9c7aac5f51",
+      "inputs_sha256": "4daa6c3c7535fddf0d68749844c32cce8d9504540085ba66c290ad1bf0147f54",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "house_1708_prairie"
@@ -1545,7 +1545,7 @@
       "baked_ao": false,
       "bytes": 4846448,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "143934433d163d27caec344f96d5d32b977ba30f8f701506292adf97ec0d7899",
+      "inputs_sha256": "7a1b99b509b27a72c549b467c70874a8227df120614bc5348c9ebd06599305fb",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "house_1712_prairie"
@@ -1585,7 +1585,7 @@
       "baked_ao": false,
       "bytes": 3497260,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "5f9205733448678989fa2308d3262231a5602aaf62fae19daf8dee79c1d93977",
+      "inputs_sha256": "fad66d9e961f587515ba69eec488ac897d933a146ab5eabcb7377115662d0cc6",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "house_1726_prairie"
@@ -1615,7 +1615,7 @@
       "baked_ao": false,
       "bytes": 3545268,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "0edbc52d46ff4e7d12f93f48d565633eb0cd2c3846a317244071bb7fac0779e7",
+      "inputs_sha256": "1c33e45c9eb7962848d7609372a63cb535319769f62bcf92caa117dc12877c0a",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "house_1730_prairie"
@@ -1645,7 +1645,7 @@
       "baked_ao": false,
       "bytes": 3662472,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "9bd0a9ad69268c1461eab9204d5bf7ec11dc88a88b796c2b6b1269d26fb660a7",
+      "inputs_sha256": "a2151558bc4cc9b0f252763698da2cf54ba2ca6a8579c4a09a4cc4bc398b135c",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "house_1736_prairie"
@@ -1825,7 +1825,7 @@
       "baked_ao": false,
       "bytes": 9705152,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "063963f650fe1d3ee301906f84352a2cf53f70de187a0add7ea3818dd153409f",
+      "inputs_sha256": "9e6a82b972d849bf696d97378fe0cd8ec04c68a4d6b58a4a2178c1a6670e5acc",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "house_1828_prairie"
@@ -2073,9 +2073,9 @@
     "house_1918_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 8613268,
+      "bytes": 8465324,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "2c05374aa879642463c698ad80e14561a37a4d606f69e602960cd0e474522bb6",
+      "inputs_sha256": "dd15fbcb6ae6f0c7b32f5fd994b180d2624484693e5fcf677ac2d82f93d684d5",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "house_1918_prairie"
@@ -2235,7 +2235,7 @@
       "baked_ao": false,
       "bytes": 3677820,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "cccc3d8dbd608156712691f8136590f05fd6348ffb810599c9efd846530333f9",
+      "inputs_sha256": "2f286c4f65ab47da506753dac1e7e8f0901808edaf73cf13575ed1902403f180",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "house_2001_prairie"
@@ -2255,7 +2255,7 @@
       "baked_ao": false,
       "bytes": 2813344,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "651706f900e0ced2db06e11f4310541c689d35c8d6668bf23e0bf94d9a21eb82",
+      "inputs_sha256": "aab36175da9f77b567aa9dfa55e67c2ed74c639cadc6fad0abf81475b416ab85",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "house_2003_prairie"
@@ -2285,7 +2285,7 @@
       "baked_ao": false,
       "bytes": 2868364,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "87cfea58aa4c6642b45ac7e099f8eeb1e291d757125ff1088df83c53841dec61",
+      "inputs_sha256": "4ea92135e332a2d31c1622f57022012a0d7476bfbd71b0ae43c6a3fe990293a6",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "house_2005_prairie"
@@ -3271,7 +3271,7 @@
       "baked_ao": false,
       "bytes": 5396776,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "2d347ff5cbade2ac6269aacae40ce1f1f677b0b7beacb0864b72bec9013f3fe3",
+      "inputs_sha256": "96c1f56bc1b8b036e9278b3647702a519827b2287ec2c022f3fe930d156fa74f",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "jones_house_1834_prairie"
@@ -3291,7 +3291,7 @@
       "baked_ao": false,
       "bytes": 7773080,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "4cfb8363bb4bb03d3c972b400ade396ca70145c84191e9f21a9425c58d506894",
+      "inputs_sha256": "293b5610ec52b61b91e4a647defa45cf016258de9c0b7ae326839278d9f2ad2a",
       "kind": "generated",
       "phase_id": "as_built_1886",
       "structure_id": "keith_house_1808_prairie"
@@ -3301,7 +3301,7 @@
       "baked_ao": false,
       "bytes": 6469664,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "4e9d546dab9e530dccce4831ab026bc404f1a15a56d5334c1290a4f93396f7b6",
+      "inputs_sha256": "d6bfa231c27a41a5db11544b3ecaa9f9099849c9d8f6ebc3daeaa781d1ff2f78",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "kellogg_house_1709_prairie"
@@ -3321,7 +3321,7 @@
       "baked_ao": false,
       "bytes": 6464728,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "a6c3c4acc1339e1893e9ec649c0a34937d2ca6efbe9a954ed63e2c35a09646c7",
+      "inputs_sha256": "da1be32c9a5ce378a07a0532f965d14a296c6575632b67aad25345da8b4c96db",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "kellogg_house_1923_prairie"
@@ -3350,7 +3350,7 @@
       "baked_ao": false,
       "bytes": 14236600,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "a23c665b9b9db10a86188d4986ad94fe08b0aeecec844bda7dfed7926c696c6b",
+      "inputs_sha256": "735f034e213ba55e4fa9c01c520c3ca78ff9bd595737e3456537828406161f79",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "kimball_house_1801_prairie"
@@ -3504,7 +3504,7 @@
       "baked_ao": false,
       "bytes": 7415508,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "a65ec5e6e08d8834b0038369072451334cc7151115010f95ca782568653b4b8c",
+      "inputs_sha256": "9193fc1d7bb50ab42143739bb20cd90dc64c3e01f586266fcffdcd5b0f6815c6",
       "kind": "generated",
       "phase_id": "restored_1904",
       "structure_id": "law_house_1620_prairie"
@@ -3685,7 +3685,7 @@
       "baked_ao": false,
       "bytes": 5327656,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "a5e9737987689b1ccc157c5392b7e779721c423f6f0d69a19f5caf5bdc96b883",
+      "inputs_sha256": "721d5fb59dd36a611bbd2605623d3b35b07111085a3941541ac97284840875de",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "marsh_house_1824_prairie"
@@ -3705,7 +3705,7 @@
       "baked_ao": false,
       "bytes": 10129372,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "693fff8b0ebf69cc6cca7e87ca6d50eba3563c6738cba3ed4d7b478db85b3680",
+      "inputs_sha256": "84a9fc3f2b1b19b827c7f7b80da93ae013e81b0f574e29d6ddf31b5e901012a8",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "marshall_field_house_1905_prairie"
@@ -3735,7 +3735,7 @@
       "baked_ao": false,
       "bytes": 8661584,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "2848f45a51f43817d8b56b71cb939c10e27e2f9edaaa938f1560998060f35374",
+      "inputs_sha256": "05147b7fc31ea1f5889a444c74261f784b21bc3f216d0938d0e30e99f6612434",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "marshall_field_jr_house_1919_prairie"
@@ -3754,7 +3754,7 @@
       "baked_ao": false,
       "bytes": 4431396,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "1770874299b7a2206c0ac91ca3bfa2a6af5dd8b3c22cfb296afdb03e4a4313b5",
+      "inputs_sha256": "5d402e386c64e7f34f8819f2c18d1311027077dfd47ffed97494325cbdcff226",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "mayer_house_2009_prairie"
@@ -3829,7 +3829,7 @@
       "baked_ao": false,
       "bytes": 12890324,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "953c8f18c7bfeb197915eeb01ea528da17618ed54f0cce7f216dadca5d3de788",
+      "inputs_sha256": "e0e00fae44b2c22048d95609145f417a88bc05e07e050d0aedc6481f865e5dac",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "moulton_lowden_house_1912_prairie"
@@ -4267,7 +4267,7 @@
       "baked_ao": false,
       "bytes": 18888416,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "81b26b013f1daf6cc66c96a44c5458e2d13c3d18d46deb927a365842407fa011",
+      "inputs_sha256": "c7e14e2d1274ac0215548b0db740787df2553802d9649775b07c10386629402e",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "pullman_house_1729_prairie"
@@ -4307,7 +4307,7 @@
       "baked_ao": false,
       "bytes": 11252084,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "2899b02a86228ea602904dce395af853e4a10666b837629ff3e0c669662888f3",
+      "inputs_sha256": "fc1ea3819664da4395221d041bd9f6379f09bc4f240b24cd7663f52e871b011b",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "ream_house_1901_prairie"
@@ -9214,7 +9214,7 @@
       "baked_ao": false,
       "bytes": 5299492,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "6e544308ad0c22710eddf511d669d9bde91330c07cad8eb45bc15dd52183f184",
+      "inputs_sha256": "cc15dadeeba318a74f20ee26caa0a6236752544d508888a2d8065239dcedfc1b",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "sears_meeker_house_1815_prairie"
@@ -9330,7 +9330,7 @@
       "baked_ao": false,
       "bytes": 5823640,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "c8a7ac45205391e987006ade6c797f3dbcec8e652b67ea467c9649d3c97c98cb",
+      "inputs_sha256": "9928522961886aa9f1e569f483b6f3567b7480064679f74b8e5bf919892994e4",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "spalding_house_1637_prairie"
@@ -9653,7 +9653,7 @@
       "baked_ao": false,
       "bytes": 4461616,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "d3906c1ad9aecd217394653e2305aabe296a8d6b2498e60c6acf4b824f1e568c",
+      "inputs_sha256": "88068ec4a36c70d4bb86ea38872a047882900ab8e75858a1aa952945135fa636",
       "kind": "generated",
       "phase_id": "as_built_1884",
       "structure_id": "wheeler_house_1812_prairie"
