@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2894, ts: '2026-11-12T15:13:12.515Z', date: 'Nov 12, 2026, 9:13 AM CT', title: '1936 Prairie\'s railed roof deck sits where its photograph shows it', kind: 'improvement',
+    items: [
+      'In 1904, the railed lookout on top of the Thompson-Allerton house at 1936 Prairie Avenue is now smaller. It stops about a metre short of the front and well short of the north side, as the house\'s photograph shows it. It used to run almost the whole length of the roof.',
+      'The chimney on the north side of the roof has moved behind the tower. The photograph shows open sky where it used to stand.',
+    ] },
   { v: 2893, ts: '2026-11-12T14:09:12.177Z', date: 'Nov 12, 2026, 8:09 AM CT', title: '1816 Prairie\'s south side wears its front brick and carved hoods', kind: 'improvement',
     items: [
       'The Henderson house\'s south side is now the same red brick as its front, as its old photograph shows, not a paler brick.',

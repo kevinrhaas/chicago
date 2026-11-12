@@ -7744,6 +7744,10 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         hip_deck_m = float(val("hip_deck")["deck_m"]) if val("hip_deck") else math.inf
 
         def hip_cover(u_, v_):   # T-3370: a hip's covering over a plan point, cut off at its deck
+            if val("hip_deck") and val("hip_deck").get("edges_m"):   # each face at its own pitch
+                from .k01_hip_deck import cover
+                return cover(val("hip_deck"), u_, v_, depth=depth, width=width, eave=pf + sum(heights),
+                             pitch=pitch, overhang=float(val("eave_overhang_m")))
             return min(round(pf + sum(heights), 4) + tp * max(0.0, min(u_, depth - u_, v_, width - v_)), hip_deck_m)
         for st_ in ch["stacks"]:
             u, v = float(st_["u_m"]), float(st_["v_m"])
