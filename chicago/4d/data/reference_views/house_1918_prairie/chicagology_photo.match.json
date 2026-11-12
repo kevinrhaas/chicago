@@ -2,7 +2,7 @@
   "structure_id": "house_1918_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/house_1918_prairie__as_mapped_1904.glb",
-  "glb_sha256": "440852fc737f69539531d151d683d2281697b6a37a5c0e02ffe31378d50c9202",
+  "glb_sha256": "8f9fb2e5daa8e3353c52df5b8908f18b3a470c5f1d976d12597d647d472a8c85",
   "camera_sha256": "c5c49af27eec1d98bff1ffde086b8c22674806b06a0ed68eafa2bfba3072f1db",
   "photo_sha256": "7458a4902276cccdaa289b9767e8ab717b5dd0fcf06ba3969a97c4fa8d00e92a",
   "side_by_side": "docs/RESEARCH/photo-match/house_1918_prairie/chicagology_photo-side-by-side.jpg",
@@ -45,8 +45,8 @@
       "status": "open"
     },
     {
-      "what": "the south side east of the dining range (T-3370, seen through the re-solved camera): the photograph's face between the dining range's dark east return (x 1125-1170 px) and the south-east corner (x 1425) runs full height to the main cornice with a pair of windows to each storey (x 1220-1315 px); the build has the reception room's half-octagonal bay there, two storeys under its own low roof, standing before a wall the cornice crosses higher up",
-      "status": "open"
+      "what": "the south side east of the dining range (T-3370, seen through the re-solved camera): the photograph's face between the dining range's dark east return (x 1125-1170 px) and the south-east corner (x 1425) runs full height to the main cornice with a pair of windows to each storey (x 1220-1315 px); the build has the reception room's half-octagonal bay there, two storeys under its own low roof, standing before a wall the cornice crosses higher up. T-3370 (fifth pass) carries the bay up through the attic to the main cornice, flat-topped under the dining range's bracketed eaves (k10.cornice.bracketed_timber), so the main cornice now runs unbroken across the face as the print draws it and the bay's low roof is gone, and sets two lights in its front to each principal storey (1.1 m sashes 1.9 m apart, at 0.368 and 0.632 of its developed plan): rendered at x 1118-1145 and 1178-1208 px against the print's 1220-1252 and 1280-1315, the same spacing (62 px to the print's 61) and the same westward offset, about 45 px, as the dining range's windows on the same flank (the item on the face's length). The Tribune's half-octagonal bay is kept; its cants fall in the dark band at x 1125-1170 the print shows there",
+      "status": "fixed"
     },
     {
       "what": "the dining range's south windows (T-3370): the photograph shows a single, a single and a pair to each storey on its south face (x 880-910, 965-995, 1040-1095 px), the build two singles; T-3370 (third pass): built as the print shows, a single, a single and a pair to each storey (the pair K06's paired sash, two 0.75 m lights on a 0.3 m mullion), at the print's fractions of the face (0.24, 0.53, 0.81), so the pair stands its own width short of the range's east corner as the print's does; they render at centres x 892, 965 and 1037 px for the print's 899, 983 and 1067, the face being shorter in the build (the item below)",
@@ -89,8 +89,8 @@
       "status": "not shown"
     },
     {
-      "what": "the dining range's south face's length (T-3370, third pass): through the re-solved camera the photograph's face runs from x 833 px to its dark east return at x 1125-1170, about 10.4 m, where the build's (the 1911 sheet's u 0-9.03) ends at x 1084 with its return to 1129; so the return, and the wall east of it, stand about 40 px (1.3 m) west of the print's, and the windows on the face, placed at the print's fractions of it, 7-30 px west of the print's. Either the range is longer than the sheet draws it or the camera's depth along the flank is off (its RESIDUAL TENSION at the south-east corner is the same sense); not settled here",
-      "status": "open"
+      "what": "the dining range's south face's length (T-3370, third pass): through the re-solved camera the photograph's face runs from x 833 px to its dark east return at x 1125-1170, about 10.4 m, where the build's (the 1911 sheet's u 0-9.03) ends at x 1084 with its return to 1129; so the return, and the wall east of it, stand about 40 px (1.3 m) west of the print's, and the windows on the face, placed at the print's fractions of it, 7-30 px west of the print's. Either the range is longer than the sheet draws it or the camera's depth along the flank is off (its RESIDUAL TENSION at the south-east corner is the same sense); not settled here. T-3370 (fifth pass): the reception bay's front windows, further east on the same flank, render about 45 px west of the print's as well, so the whole flank east of the range's west end stands about one offset west: the 1911 sheet's 9.03 m and the single camera's 10.4 m reading disagree, and a gap two pictures disagree about is within tolerance (T-3153) until a second view of the flank settles it",
+      "status": "within tolerance"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
