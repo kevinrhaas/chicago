@@ -70663,6 +70663,14 @@
    "drawn_as": [
     "data/humans/inside_1904.json#pa1904_grey_walter_c"
    ],
+   "age": {
+    "years": 28,
+    "grade": "attested",
+    "sources": [
+     "census_1900_chicago_t623_roll245"
+    ],
+    "basis": "born 1876 (the person's record)"
+   },
    "looks": {
     "complexion": {
      "value": "ruddy",
