@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2904, ts: '2026-11-12T20:45:44.812Z', date: 'Nov 12, 2026, 2:45 PM CT', title: '1721 Prairie\'s old frame house stands behind its brick front', kind: 'feature',
+    items: [
+      'Behind Arthur Little\'s brick front at 1721 Prairie, the rear range is now the 1863 frame house it was: clapboarded walls, a slate gable roof and two tall brick chimneys, as the 1891 Inland Architect plate and the Detroit print of the Pullman house show it.',
+      'Its stone-drab paint and roof pitch are liberties; the part of the frame house the brick front was moved onto in 1902 is not rebuilt.',
+    ] },
   { v: 2903, ts: '2026-11-12T20:35:42.632Z', date: 'Nov 12, 2026, 2:35 PM CT', title: 'Back doors in 1904 stand in their houses\' walls', kind: 'fix',
     items: [
       'Every back door and its steps now sit in the house\'s built rear wall. Before, 56 of 121 stood out in the yard, 1626 Prairie\'s 16 m from its house.',
