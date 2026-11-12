@@ -191,13 +191,23 @@
               "k01.wall.side.south",
               "k01.wall.street_front",
               "k01.wall.side.north"
-            ]
+            ],
+            "frieze": {
+              "height_m": 0.32,
+              "proud_m": 0.025
+            },
+            "blocks": {
+              "spacing_m": 0.5,
+              "height_m": 0.45,
+              "projection_m": 0.19,
+              "width_m": 0.17
+            }
           },
           "confidence": "inferred",
           "sources": [
             "chicagology_1815_sears_two_views"
           ],
-          "note": "A deep stone cornice on blocks over a dentil course at the second storey's head, y 357-430 px on the square-on photograph (the left of the two views, Chicagology; 71.5 px/m on the front's plane, grade at y 1040 px)."
+          "note": "A deep stone cornice on blocks over a dentil course at the second storey's head, y 357-430 px on the square-on photograph (the left of the two views, Chicagology; 71.5 px/m on the front's plane, grade at y 1040 px). T-3561: enlarged, the square-on print draws under the corona a close row of carved stone consoles, scrolled, with dark sunk panels between them and a rosette over each, standing on a plain frieze: twelve across the main front south of the pavilion (x 447-852 px, about 35 px or 0.49 m apart), each about 32 px (0.45 m) high and 12 px (0.17 m) wide, their feet at y 432 px (8.5 m) and the corona's soffit at about y 400 px (9.0 m); the oblique (the right print) carries the same row round the south-west corner and along the south flank. Built as K10's scrolled console in the walls' stone (wall_head.blocks, T-3186, as 1901's), 0.45 m high and 0.17 m wide at no more than 0.5 m apart, their tops under the corona's soffit, standing on a frieze 0.32 m under the cornice's foot, the most the upper storey's lintels leave under it, so the consoles' feet stand at 8.39 m against the print's 8.5 m (the build's corona stands about 0.15 m under the print's, within tolerance); the projection (0.19 m) is the most the corona's soffit covers, and the carving is the kit's generic scroll. The rosettes over the consoles are not built."
         },
         "roof_form": {
           "value": "mansard",
@@ -335,17 +345,49 @@
                 "top_m": 14.6
               },
               {
-                "u_m": 15.6,
-                "v_m": 9.75,
-                "top_m": 14.6
+                "u_m": 15.31,
+                "v_m": 10.4,
+                "top_m": 14.45,
+                "plan_m": [
+                  1.1,
+                  0.75
+                ],
+                "across": "x",
+                "flues": 3,
+                "on_cornice": true
               }
-            ]
+            ],
+            "k15": {
+              "kit": "data/components/prairie_1904/k15_chimneys.json",
+              "from": "k15.stack.stone",
+              "omit": [],
+              "flues": 2,
+              "pot": "tall",
+              "corbels": [
+                [
+                  0.15,
+                  0.04
+                ],
+                [
+                  0.2,
+                  0.08
+                ],
+                [
+                  0.2,
+                  0.12
+                ]
+              ],
+              "cap": {
+                "thickness_m": 0.15,
+                "projection_m": 0.15
+              }
+            }
           },
           "confidence": "inferred",
           "sources": [
             "chicagology_1815_sears_two_views"
           ],
-          "note": "Two tall stacks on the square-on photograph (the left of the two views, Chicagology; 71.5 px/m on the front's plane, grade at y 1040 px): the north one over the stair projection behind the pavilion (x 85-130 px) and the south one over the south flank near the front (x 785-820 px, also the oblique's broad stack). Their exact plans are reconstructed."
+          "note": "Two tall stacks on the square-on photograph (the left of the two views, Chicagology; 71.5 px/m on the front's plane, grade at y 1040 px): the north one over the stair projection behind the pavilion (x 85-130 px) and the south one over the south flank near the front (x 785-820 px, also the oblique's broad stack). Their exact plans are reconstructed. T-3561: the south stack read off both prints and rebuilt. Triangulated through the two solved cameras (its south-west arris at x 830 px on the square-on and x 1765 px on the oblique), its west face stands about 1.6 m back from the front and its south face in line with the print's main south wall, which the oblique shows standing about 0.75 m inside the corner bay's south face (the open set-out in the match records): so it is the stack 'carried up from the flank wall past the mansard' of the oblique, standing on the south cornice. The build's south wall is still flush with the bay, so the stack stands on that wall's cornice (on_cornice, v 10.4), its west face at u 15.86, and moves with the wall when the set-out is built. Its plan, 1.1 m along the flank by 0.75 m, is the oblique's 60 px south face and the square-on's 50 px west face at their depths. Its head is read off both prints: the corbelled head's foot at about 13.6-13.8 m, the cap's top at about 14.3-14.5 m (top_m 14.45), the kit's tall clay pot on each of three flues to about 15.2 m (the oblique's pots reach 15.16 m). The pots stand in a row back from the street, so the stack is turned (across 'x'), and it names its own three flues where the north stack keeps two. Both stacks are K15's stone stack, its courses overridden by the head the print draws (three corbel courses, a 0.15 m cap): the oblique's lit west face is as pale as the stone front and the square-on shows it coursed. The sunk panels the oblique draws on its south face are not built: K15 lays a panel's recess in brick, so on a stone stack they would read as brick strips (open in the match record)."
         },
         "rainwater": {
           "value": {
