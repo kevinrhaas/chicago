@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import test from 'node:test';
-import { TEAMSTER_IDS, CHARLES_COAT_ID, PRAIRIE_CHILD_IDS, parseFixtureArgs, teamsterFiles, scopedFiles, prepareFixtureScope, mergeFixtureScope } from './human_fixture_scope.mjs';
+import { TEAMSTER_IDS, CHARLES_COAT_ID, SETTLER_ID, PRAIRIE_CHILD_IDS, parseFixtureArgs, teamsterFiles, scopedFiles, prepareFixtureScope, mergeFixtureScope } from './human_fixture_scope.mjs';
 
 // The gate's explicit check mode runs this same complete assertion suite.
 const cliArgs = process.argv.slice(2);
@@ -156,6 +156,40 @@ test('the one reviewed Charles scope replaces only four near rows and holds FAR/
   for(const args of [['--write','--asset-ids',CHARLES_COAT_ID+','+TEAMSTER_IDS[0]],['--check','--asset-ids',CHARLES_COAT_ID],['--write','--asset-ids',CHARLES_COAT_ID+','+CHARLES_COAT_ID]])assert.throws(()=>parseFixtureArgs(args));
 });
 
+
+test('settler scope replaces all eight rows and retains every other current inventory SHA binding', () => {
+  assert.deepEqual(parseFixtureArgs(['--write','--asset-ids',SETTLER_ID]), {mode:'--write',assetIds:[SETTLER_ID]});
+  const document=clone(fullBaseline),files=document.files.map(r=>r.file),hashes=new Map(document.files.map(r=>[r.file,r.sha256]));
+  const wanted=scopedFiles([SETTLER_ID]);assert.equal(wanted.length,8);
+  for(const file of wanted)hashes.set(file,sha('settler-scope-synthetic-guard:'+file));
+  const scope=prepareFixtureScope({baseline:document,files,hashes,assetIds:[SETTLER_ID]});
+  assert.equal(scope.selectedFiles.length,8);assert.equal(scope.unchangedCount,files.length-8);assert.equal(scope.addedCount,0);
+  assert.deepEqual(scope.assetIds,[SETTLER_ID]);
+  const rows=measured(scope),merged=mergeFixtureScope(scope,rows,files,hashes,date);
+  assert.equal(merged.files.length,files.length);assert.equal(merged.scoped_remeasurement.measured_files,8);
+  assert.deepEqual(merged.scoped_remeasurement.asset_ids,[SETTLER_ID]);assert.equal(merged.scoped_remeasurement.unchanged_files_sha256_verified,files.length-8);
+  for(const old of document.files.filter(r=>!wanted.includes(r.file)))assert.deepEqual(merged.files.find(r=>r.file===old.file),old);
+  for(const args of [['--check','--asset-ids',SETTLER_ID],['--write','--asset-ids',SETTLER_ID+','+SETTLER_ID],
+    ['--write','--asset-ids',SETTLER_ID+','+CHARLES_COAT_ID],['--write','--asset-ids',SETTLER_ID+','+TEAMSTER_IDS[0]]])assert.throws(()=>parseFixtureArgs(args));
+});
+
+test('settler cannot hide missing or extra files, other-family changes, or partial native results', () => {
+  const document=clone(fullBaseline),files=document.files.map(r=>r.file),hashes=new Map(document.files.map(r=>[r.file,r.sha256]));
+  const state={baseline:document,files,hashes,assetIds:[SETTLER_ID]},wanted=scopedFiles([SETTLER_ID]);
+  for(const file of wanted)hashes.set(file,sha('settler-native-synthetic:'+file));
+  const scope=prepareFixtureScope(state),rows=measured(scope),other=files.find(f=>!wanted.includes(f));
+  const changed=new Map(hashes);changed.set(other,sha('foreign-change'));
+  assert.throws(()=>prepareFixtureScope({...state,hashes:changed}),/unscoped file changed/);
+  assert.throws(()=>mergeFixtureScope(scope,rows,files,changed,date),/asset changed/);
+  const missing=wanted.find(f=>f.includes('.lod3.')),shortFiles=files.filter(f=>f!==missing),shortHashes=new Map(hashes);shortHashes.delete(missing);
+  assert.throws(()=>prepareFixtureScope({...state,files:shortFiles,hashes:shortHashes}),/all 8/);
+  const extraFiles=[...files,'assets/humans/unreviewed.lod0.glb'],extraHashes=new Map(hashes);extraHashes.set(extraFiles.at(-1),sha('extra'));
+  assert.throws(()=>prepareFixtureScope({...state,files:extraFiles,hashes:extraHashes}),/inventory differs/);
+  for(const invalid of [rows.slice(1),rows.slice(0,4),[...rows,clone(rows[0])],rows.map((r,i)=>i?r:{...r,verdicts:[{ok:false}]}),rows.map((r,i)=>i?r:{...r,sha256:sha('stale')})])assert.throws(()=>mergeFixtureScope(scope,invalid,files,hashes,date));
+});
+
+// Keep the source-only seat observer controls in the existing fixture-owner gate.
+await import('./test_human_settler_seat_review.mjs');
 test('the five approved Prairie roles add exactly 40 rows and preserve every previous asset', () => {
   assert.deepEqual(parseFixtureArgs(['--write', '--asset-ids', [...PRAIRIE_CHILD_IDS].reverse().join(',')]),
     { mode: '--write', assetIds: [...PRAIRIE_CHILD_IDS] });

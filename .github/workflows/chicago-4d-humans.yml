@@ -58,6 +58,18 @@ on:
       - '.github/workflows/chicago-4d-humans.yml'
   workflow_dispatch:
     inputs:
+      build_clothing_capture_v2:
+        description: 'T1789 artifact-only canonical parent capture; no material/asset promotion'
+        type: boolean
+        default: false
+      clothing_source_ref:
+        description: 'Reviewed immutable full source SHA for T1789 capture only'
+        type: string
+        default: ''
+      clothing_manifest_sha256:
+        description: 'Reviewed deterministic external request SHA256; refreshed from this exact source/definition before producers'
+        type: string
+        default: ''
       build_prairie_children:
         description: 'Build the five reconstructed 1904 child clothing assets from this PR; artifacts only'
         type: boolean
@@ -96,11 +108,12 @@ permissions:
 
 jobs:
   humans:
-    if: github.event_name != 'workflow_dispatch' || !inputs.render_library_stills
+    if: github.event_name != 'workflow_dispatch' || !inputs.render_library_stills || inputs.build_clothing_capture_v2 || inputs.clothing_source_ref || inputs.clothing_manifest_sha256
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     outputs:
       dress_source_sha: ${{ steps.dress_binding.outputs.source_sha }}
+      clothing_source_sha: ${{ steps.clothing_binding.outputs.source_sha }}
     steps:
       # A separate definition ref may execute only this reviewed source commit.
       # Validate inputs before checkout; default/PR/push checkout remains unchanged.
@@ -112,13 +125,28 @@ jobs:
           TEAMSTERS_ENABLED: ${{ inputs.build_teamsters }}
           SEATED_ENABLED: ${{ inputs.build_seated_driver_study }}
           SOURCE_REF: ${{ inputs.source_ref }}
+          CLOTHING_ENABLED: ${{ inputs.build_clothing_capture_v2 }}
+          CLOTHING_SOURCE: ${{ inputs.clothing_source_ref }}
+          CLOTHING_MANIFEST: ${{ inputs.clothing_manifest_sha256 }}
+          STILLS_ENABLED: ${{ inputs.render_library_stills }}
+          LIBRARY_SOURCE_RUN: ${{ inputs.library_source_run }}
           PRAIRIE_ENABLED: ${{ inputs.build_prairie_children }}
         run: |
           python3 - <<'PY'
           import os,re
           source=os.environ['SOURCE_REF']
+          clothing=os.environ['CLOTHING_ENABLED']=='true'
+          clothing_source=os.environ['CLOTHING_SOURCE']
+          clothing_manifest=os.environ['CLOTHING_MANIFEST']
+          if clothing:
+              if any(os.environ[k]=='true' for k in ('DRESS_ENABLED','TEAMSTERS_ENABLED','SEATED_ENABLED','STILLS_ENABLED','PRAIRIE_ENABLED')) or source or os.environ['LIBRARY_SOURCE_RUN']:
+                  raise SystemExit('T1789 capture must run separately from every existing study/stills mode')
+              if not re.fullmatch(r'[0-9a-f]{40}',clothing_source) or not re.fullmatch(r'[0-9a-f]{64}',clothing_manifest):
+                  raise SystemExit('T1789 capture requires immutable source and manifest pins')
+          elif clothing_source or clothing_manifest:
+              raise SystemExit('T1789 capture fields require the explicit capture flag')
           dress=os.environ['DRESS_ENABLED']=='true'
-          if os.environ['PRAIRIE_ENABLED']=='true' and (dress or os.environ['TEAMSTERS_ENABLED']=='true' or os.environ['SEATED_ENABLED']=='true'):
+          if os.environ['PRAIRIE_ENABLED']=='true' and (clothing or dress or os.environ['TEAMSTERS_ENABLED']=='true' or os.environ['SEATED_ENABLED']=='true' or os.environ['STILLS_ENABLED']=='true'):
               raise SystemExit('The Prairie children build must run separately from other authoring studies')
           if dress:
               if os.environ['TEAMSTERS_ENABLED']=='true' or os.environ['SEATED_ENABLED']=='true':
@@ -129,14 +157,64 @@ jobs:
               raise SystemExit('source_ref applies only to the opt-in dress study')
           with open(os.environ['GITHUB_OUTPUT'],'a') as output:
               output.write('source_sha='+source+'\n')
+              output.write('clothing_source_sha='+clothing_source+'\n')
           PY
       - uses: actions/checkout@v4
-        if: github.event_name != 'workflow_dispatch' || !inputs.build_dress_study
+        if: github.event_name != 'workflow_dispatch' || (!inputs.build_dress_study && !inputs.build_clothing_capture_v2)
       - uses: actions/checkout@v4
         if: github.event_name == 'workflow_dispatch' && inputs.build_dress_study
         with:
           ref: ${{ steps.study_request.outputs.source_sha }}
           persist-credentials: false
+      - uses: actions/checkout@v4
+        if: github.event_name == 'workflow_dispatch' && inputs.build_clothing_capture_v2
+        with:
+          ref: ${{ steps.study_request.outputs.clothing_source_sha }}
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        if: github.event_name == 'workflow_dispatch' && inputs.build_clothing_capture_v2
+        with:
+          ref: ${{ github.workflow_sha }}
+          path: _t1789_capture_owner
+          persist-credentials: false
+      - name: Bind fixture prerequisite to actual clothing source
+        if: github.event_name == 'workflow_dispatch' && inputs.build_clothing_capture_v2
+        id: clothing_binding
+        env:
+          EXPECTED_SOURCE: ${{ steps.study_request.outputs.clothing_source_sha }}
+          EXPECTED_MANIFEST: ${{ inputs.clothing_manifest_sha256 }}
+          EXPECTED_DEFINITION: ${{ github.workflow_sha }}
+          DEFINITION_REF: ${{ github.workflow_ref }}
+        run: |
+          python3 - <<'PYCODE'
+          import hashlib,json,os,subprocess
+          from pathlib import Path
+          actual=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
+          if actual!=os.environ['EXPECTED_SOURCE']:
+              raise SystemExit('Fixture checkout differs from reviewed T1789 source')
+          owner=Path('_t1789_capture_owner')
+          definition=subprocess.check_output(['git','-C',str(owner),'rev-parse','HEAD'],text=True).strip()
+          if definition!=os.environ['EXPECTED_DEFINITION'] or definition!=actual:
+              raise SystemExit('T1789 source and definition must be the same immutable commit')
+          tool=owner/'chicago/4d/tools/human_clothing_capture_v2.py'
+          template=(owner/'chicago/4d/data/humans/studies/clothing-capture-v2.json').read_bytes()
+          request_dir=Path(os.environ['RUNNER_TEMP'])/'t1789-clothing-request'
+          common=['python3',str(tool),'--source',actual,'--source-app',str(Path('chicago/4d').resolve()),
+              '--definition-sha',definition,'--definition-ref',os.environ['DEFINITION_REF']]
+          subprocess.run(common+['--refresh-request','--manifest-sha256',hashlib.sha256(template).hexdigest(),
+              '--output',str(request_dir)],check=True)
+          request=request_dir/'clothing-capture-v2.json'
+          raw=request.read_bytes()
+          if hashlib.sha256(raw).hexdigest()!=os.environ['EXPECTED_MANIFEST']:
+              raise SystemExit('Runner-refreshed request differs from reviewed H before fixture producer')
+          if json.loads(raw).get('basis_revision')!=actual:
+              raise SystemExit('Runner-refreshed request basis differs before fixture producer')
+          subprocess.run(common+['--preflight-only','--request',str(request),
+              '--manifest-sha256',os.environ['EXPECTED_MANIFEST'],
+              '--output',str(Path(os.environ['RUNNER_TEMP'])/'t1789-fixture-validation-only')],check=True)
+          with open(os.environ['GITHUB_OUTPUT'],'a') as output:
+              output.write('source_sha='+actual+'\n')
+          PYCODE
       - name: Bind fixture verification to actual dress source
         if: github.event_name == 'workflow_dispatch' && inputs.build_dress_study
         id: dress_binding
@@ -188,30 +266,32 @@ jobs:
           BLENDER_CACHE: /opt/blender-dl
         run: ./tools/human_export.sh --verify
 
-      # Installed GLOBALLY, as chicago-4d-smoke.yml does: the tools resolve it through
-      # `npm root -g`.
-      - name: Install Playwright
+      # Keep the canonical Python/Blender fixture producer on the host. The exact
+      # Playwright 1.56.1 browser image already contains Chromium and its OS deps.
+      - name: Open every human GLB and drive the actor, at both viewports
         run: |
-          set -e
-          python3 .github/prepare-ubuntu-browser-mirrors.py --self-test
-          python3 .github/prepare-ubuntu-browser-mirrors.py
-          npm install -g playwright@1.56.1
-          node "$(npm root -g)/playwright/cli.js" install --with-deps chromium
-
-      - name: Open every human GLB in the browser, at both viewports
-        working-directory: chicago/4d
-        run: NODE_PATH="$(npm root -g)" node tools/human_fixture.mjs
-
-      - name: Drive the browser actor with the fixture, at both viewports
-        working-directory: chicago/4d
-        run: NODE_PATH="$(npm root -g)" node tools/human_actor.mjs
+          set -euo pipefail
+          docker run --rm --init --ipc=host \
+            --user pwuser \
+            --mount "type=bind,src=$GITHUB_WORKSPACE,dst=$GITHUB_WORKSPACE,readonly" \
+            --workdir "$GITHUB_WORKSPACE/chicago/4d" \
+            mcr.microsoft.com/playwright@sha256:42f02d323c310069b4d54c94bd91a608966a486c3492c48ae0b1cea747ec5ca2 \
+            bash -euo pipefail -c '
+              pw_private="$(mktemp -d /tmp/chicago-human-playwright.XXXXXX)"
+              pw_prefix="$pw_private/npm"
+              pw_cache="$pw_private/cache"
+              npm install --global --prefix "$pw_prefix" --cache "$pw_cache" playwright@1.56.1
+              export NODE_PATH="$(npm root --global --prefix "$pw_prefix")"
+              node tools/human_fixture.mjs
+              node tools/human_actor.mjs
+            '
 
   # Render the immutable, already fixture-qualified producer's masters. The
   # receipt distinguishes that source SHA from this renderer's own checkout.
   # Separate from the 30-minute canonical builder: no rebuild, export or writes
   # to the source tree, and the existing builder/fixture timeouts stay unchanged.
   library-stills:
-    if: github.event_name == 'workflow_dispatch' && inputs.render_library_stills
+    if: github.event_name == 'workflow_dispatch' && inputs.render_library_stills && !inputs.build_clothing_capture_v2 && !inputs.clothing_source_ref && !inputs.clothing_manifest_sha256
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     permissions:
@@ -701,6 +781,80 @@ jobs:
             chicago/4d/assets/humans/flynn_mary_1835_dress_study.lod[0-3].glb
             chicago/4d/assets/humans/web/flynn_mary_1835_dress_study.lod[0-3].glb
             /tmp/dress-study/
+
+  # Finite T1789 study: parent artifacts only; no active material/asset transaction.
+  clothing-capture-v2:
+    if: github.event_name == 'workflow_dispatch' && inputs.build_clothing_capture_v2
+    needs: humans
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.humans.outputs.clothing_source_sha }}
+          path: capture-source
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.workflow_sha }}
+          path: capture-driver
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: pip install --quiet jsonschema pyproj openpyxl pypdf numpy scipy Pillow
+      - name: Read unchanged Blender cache pin
+        id: pin
+        run: |
+          source capture-driver/chicago/4d/generators/blender.pin
+          echo "version=$BLENDER_VERSION" >> "$GITHUB_OUTPUT"
+      - uses: actions/cache@v4
+        with:
+          path: /opt/blender-dl
+          key: blender-${{ steps.pin.outputs.version }}
+      - name: Capture canonical parents without active writes
+        working-directory: capture-driver/chicago/4d
+        env:
+          BLENDER_CACHE: /opt/blender-dl
+          EXPECTED_SOURCE: ${{ needs.humans.outputs.clothing_source_sha }}
+          EXPECTED_MANIFEST: ${{ inputs.clothing_manifest_sha256 }}
+          DEFINITION_SHA: ${{ github.workflow_sha }}
+          DEFINITION_REF: ${{ github.workflow_ref }}
+        run: |
+          python3 - <<'PYCODE'
+          import hashlib,json,os,subprocess
+          from pathlib import Path
+          if os.environ['EXPECTED_SOURCE']!=os.environ['DEFINITION_SHA']:
+              raise SystemExit('Capture source and definition must be the same immutable commit')
+          tool='tools/human_clothing_capture_v2.py'
+          template=Path('data/humans/studies/clothing-capture-v2.json').read_bytes()
+          request_dir=Path(os.environ['RUNNER_TEMP'])/'t1789-clothing-request'
+          common=['python3',tool,'--source',os.environ['EXPECTED_SOURCE'],
+              '--source-app',str(Path(os.environ['GITHUB_WORKSPACE'])/'capture-source/chicago/4d'),
+              '--definition-sha',os.environ['DEFINITION_SHA'],'--definition-ref',os.environ['DEFINITION_REF']]
+          subprocess.run(common+['--refresh-request','--manifest-sha256',hashlib.sha256(template).hexdigest(),
+              '--output',str(request_dir)],check=True)
+          request=request_dir/'clothing-capture-v2.json'
+          raw=request.read_bytes()
+          if hashlib.sha256(raw).hexdigest()!=os.environ['EXPECTED_MANIFEST']:
+              raise SystemExit('Capture runner request differs from reviewed H before producer')
+          if json.loads(raw).get('basis_revision')!=os.environ['EXPECTED_SOURCE']:
+              raise SystemExit('Capture runner request source basis differs before producer')
+          subprocess.run(common+['--request',str(request),'--manifest-sha256',os.environ['EXPECTED_MANIFEST'],
+              '--output',str(Path(os.environ['RUNNER_TEMP'])/'t1789-clothing-capture-v2')],check=True)
+          PYCODE
+      - name: Retain capture and failure evidence; never promote
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: t1789-clothing-parents-${{ github.run_id }}-${{ needs.humans.outputs.clothing_source_sha }}
+          if-no-files-found: error
+          path: ${{ runner.temp }}/t1789-clothing-capture-v2/
 
   prairie-children:
     if: github.event_name == 'workflow_dispatch' && inputs.build_prairie_children && !inputs.render_library_stills

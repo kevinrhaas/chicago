@@ -40,6 +40,7 @@ import math
 from pathlib import Path
 
 from human_dress_components import need, digest
+from human_linen_seat import linen_seat_ease
 import human_labourer_1835 as L
 import human_coachman_1904 as C
 
@@ -58,7 +59,12 @@ TAILORING = dict(
     waistcoat=dict(ease=.021, armpit_extra=.008, hem_below_spine02=.095, top_below_neck=.020,
                    opening_half_width_hem=.006, opening_half_width_top=.050),
     trousers=dict(ease=.016, waist_height_fraction=.585, cuff_radius_ratio=.95, added_section_ease=.016,
-                  thigh_transition_fraction=.65, hem_front_y=.066, hem_back_y=.034),
+                  thigh_transition_fraction=.65, hem_front_y=.066, hem_back_y=.034,
+                  seat_ease=dict(id='settler_linen_seat_ease_v1', extra_rear_ease_m=.012,
+                                 half_width_m=.14, full_half_width_m=.095,
+                                 lower_below_pelvis_m=.16, lower_full_below_pelvis_m=.105,
+                                 upper_below_waist_m=.008, upper_full_below_waist_m=.05,
+                                 rear_transition_m=.035, section_rows=17)),
     round_hat=dict(seat_below_top=.074, ease=.008, crown_height=.100, brim=.074, droop=.022, side_lift=.004, thickness=.005),
 )
 
@@ -94,6 +100,8 @@ def construct(body):
                         'brown waistcoat, buttoned to the chest')
         legs = _renamed(L.trousers(body, bones, height), 'loose_trousers', 'garment_lower__trousers_linen_1810',
                         'loose natural linen trousers to the instep')
+        legs = linen_seat_ease(legs, bones, height, t['trousers']['waist_height_fraction'],
+                               t['trousers']['seat_ease'])
     with C._lent(L, slouch_hat=t['round_hat']):
         hat = _renamed(L.slouch_hat(body, bones, lod=1), 'headwear_round_hat', 'headwear__round_hat_black_1810',
                        'black felt round hat, a low round crown and a soft brim')
