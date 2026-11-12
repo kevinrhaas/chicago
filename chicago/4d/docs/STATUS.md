@@ -1,3 +1,21 @@
+## T-3563 — Settings in icon tabs, and a mouse sensitivity setting (2026-11-12)
+
+The owner (after meeting Bill Tyre) asked for a mouse-sensitivity setting and for the Settings
+card to be organised under a row of icon tabs like Inspect's, with What's new one of the last
+tabs and Research at the end. Settings now draws its own tab bar (#settings-tabs,
+js/settings-app.js § wireSettingsTabs) in the panel's nav row, styled as Inspect's (one row,
+icon over a small label): Display (Display, Machine, Units) · Show · Look (Look, Movement,
+Show the controls; not "Controls", which section 03 renamed Guide) · Graphics (Performance) · Sound · About · What's new · Research. Each
+group names its tab with `data-set-pane`; only the chosen tab's groups are drawn, and the
+tab in force is kept across a visit to What's new. What's new stays the HUD's own section
+(its key, the unread dot, About's button and every route to it are unchanged); its tab
+selects that section and carries the dot. The section-tab row stands down in the Settings
+app (`has-own-tabs`, apps/drawer-host.js). Settings › Look adds Mouse sensitivity (Look
+sensitivity on a touch screen), `lookSpeed`, 0.2x-3x in tenths, Standard 1x = the turn the
+app always had: the mouse's PointerLockControls.pointerSpeed and the drag-to-look rate both
+read it live through controls/intent.js § lookScale. Every id the page and the smoke read is
+kept; the smoke's `openSection(tab, pane)` clicks the tab a hit-tested row is on.
+
 ## T-3551 — 1812 seasonal nature, hoofbeats and visible work (2026-11-11)
 
 1812 now has separate seasonal habitat placements for robin, redwing, cicada, cricket, katydid and rare distant nighttime coyote recordings. Winter insects stay silent. Existing 1835 placements and 1904 activation are unchanged. Actual moving teams emit short recorded dirt-hoof contacts at their measured gait phases; the rendered snow amount softens and filters those contacts. Snow remains a processed dirt-recording proxy, not a dedicated snow recording.

@@ -4688,6 +4688,8 @@ async function boot() {
       cardTookPointer = false;
     },
     holding: () => !!popup.openId && !gateOpen,
+    // T-3563: Settings › Look › Mouse sensitivity, read each frame.
+    lookSpeed: () => hud.settings.lookSpeed,
   });
 
   const touch = createTouchBackend({
@@ -4704,6 +4706,8 @@ async function boot() {
     onViewport: () => resize(),
     // T-2653: Move › Comfort's snap-turn, read on each drag so a change takes at once.
     snapTurn: () => !!hud.settings.snapTurn,
+    // T-3563: Settings › Look › Look sensitivity, read on each drag.
+    lookSpeed: () => hud.settings.lookSpeed,
   });
 
   let gateOpen = true;
