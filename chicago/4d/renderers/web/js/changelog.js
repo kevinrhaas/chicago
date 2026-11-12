@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2886, ts: '2026-11-12T08:17:56.881Z', date: 'Nov 12, 2026, 2:17 AM CT', title: '1936 Prairie\'s south side rises to its cornice', kind: 'improvement',
+    items: [
+      'In 1904, the Thompson-Allerton house at 1936 Prairie Avenue now carries its south bay up to the main cornice, as its photograph shows. The bay used to stop two storeys up under a small roof of its own.',
+      'The bay\'s front now has two windows on each floor, where the photograph shows a pair. Before, it had one.',
+    ] },
   { v: 2885, ts: '2026-11-12T07:57:36.077Z', date: 'Nov 12, 2026, 1:57 AM CT', title: '2009 Prairie checked against Monroe\'s 1896 drawing', kind: 'chore',
     items: [
       'Nothing you can see changed in the scene: the Meyer house at 2009 Prairie now has a camera for Harriet Monroe\'s 1896 pen drawing, so it is checked against that picture as well as the photograph.',
