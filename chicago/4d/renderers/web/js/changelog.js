@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2906, ts: '2026-11-12T23:03:19.587Z', date: 'Nov 12, 2026, 5:03 PM CT', title: '1801 Prairie\'s south-west corner: its stone return, window and set-back slate', kind: 'improvement',
+    items: [
+      'Over the round bay\'s balcony on the Kimball house, the pavilion\'s stone side wall now runs back to the slate roof, as the 1965 south-west photograph shows it, where the slate used to come down in front of it.',
+      'That wall now has its window, a deep-set light beside the corner pilaster looking out over the balcony, and a moulded cap along its top.',
+      'The slate roof over the corner now stands back behind the balcony, and its corner line now falls where the photograph puts it.',
+    ] },
   { v: 2905, ts: '2026-11-12T21:16:32.072Z', date: 'Nov 12, 2026, 3:16 PM CT', title: 'Walking through crowded 1812 no longer stutters', kind: 'fix',
     items: [
       'Walking up to the fort or a busy yard no longer freezes the frame as people come into view: each figure is built in its turn, nearest first, and the shared work of fitting clothes to bodies is done once per outfit.',
