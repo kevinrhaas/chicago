@@ -6162,8 +6162,12 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     paint = ()
     paint_opaque = False
     if wf:
-        if construction != "brick":
-            raise ParamError("wall_finish paints a brick house's walls; a stone front is not painted here")
+        # T-1887: or a stone-fronted house's brick flanks, rear and stacks, its stone front
+        # left as cut (1824's: the 1857 villa's light walls, kept when Marsh refronted it in
+        # stone about 1880, in the Pomeroy photograph and the automobile photograph alike).
+        # The paint lays on the brick slots alone, so the front's K02 stone never takes it
+        if construction == "stone":
+            raise ParamError("wall_finish paints brick walls; an all-stone house has none to paint")
         # T-2933: `opaque` paint covers the brick's map (1736's walls, near white in its
         # photograph, which no factor over the buff brick can reach); otherwise it tints it
         if set(wf) != {"paint"} or not {"color"} <= set(wf["paint"]) <= {"color", "opaque"}:
