@@ -11422,7 +11422,8 @@
    "side": "east",
    "structures": [
     "dexter_house_1721_prairie",
-    "dexter_house_1721_prairie_coach_house"
+    "dexter_house_1721_prairie_coach_house",
+    "dexter_house_1721_prairie_frame_house"
    ],
    "scheme": "side_lawn",
    "grade": "reconstructed",
@@ -11435,20 +11436,20 @@
      "material": "yard_brick",
      "polygon_local_m": [
       [
-       1455.28,
-       -3135.21
+       1433.15,
+       -3145.28
       ],
       [
-       1455.34,
-       -3139.63
+       1433.22,
+       -3150.6
       ],
       [
-       1461.95,
-       -3139.55
+       1438.2,
+       -3150.54
       ],
       [
-       1461.9,
-       -3135.13
+       1438.14,
+       -3145.22
       ]
      ],
      "along_deg": 179.3,
@@ -11460,47 +11461,47 @@
     {
      "id": "prairie_1721:coach_walk:1",
      "kind": "coach_walk",
-     "material": "gravel",
+     "material": "yard_brick",
      "polygon_local_m": [
       [
-       1461.25,
-       -3134.5
+       1438.16,
+       -3147.03
       ],
       [
-       1461.29,
-       -3137.7
+       1438.18,
+       -3148.23
       ],
       [
-       1462.49,
-       -3137.68
+       1476.61,
+       -3147.76
       ],
       [
-       1462.45,
-       -3134.48
+       1476.6,
+       -3146.56
       ]
      ],
      "along_deg": 179.3,
      "lift_m": 0.03,
      "order": 1,
      "grade": "reconstructed",
-     "note": "The walk from the back door to the coach house, in gravel (L-prairie-back-yards-3488)."
+     "note": "The walk from the back door to the coach house, in brick paving, laid herringbone (L-prairie-back-yards-3488)."
     },
     {
      "id": "prairie_1721:coach_walk:2",
      "kind": "coach_walk",
-     "material": "gravel",
+     "material": "yard_brick",
      "polygon_local_m": [
       [
-       1461.25,
-       -3134.5
+       1475.25,
+       -3134.33
       ],
       [
-       1461.26,
-       -3135.7
+       1475.41,
+       -3147.78
       ],
       [
-       1476.46,
-       -3135.51
+       1476.61,
+       -3147.76
       ],
       [
        1476.45,
@@ -11511,29 +11512,29 @@
      "lift_m": 0.03,
      "order": 1,
      "grade": "reconstructed",
-     "note": "The walk from the back door to the coach house, in gravel (L-prairie-back-yards-3488)."
+     "note": "The walk from the back door to the coach house, in brick paving, laid herringbone (L-prairie-back-yards-3488)."
     }
    ],
    "doors": [
     {
      "id": "prairie_1721:back_door",
-     "structure": "dexter_house_1721_prairie",
-     "e": 1455.26,
-     "n": -3137.42,
+     "structure": "dexter_house_1721_prairie_frame_house",
+     "e": 1433.14,
+     "n": -3147.94,
      "facing_deg": 89.3,
-     "sill_m": 1.3,
+     "sill_m": 0.6,
      "width_m": 0.95,
      "height_m": 2.2,
      "leaf": true,
      "stoop": {
       "depth_m": 1.1,
       "width_m": 1.6,
-      "risers": 7,
-      "run_m": 2.78,
-      "material": "stone"
+      "risers": 3,
+      "run_m": 1.66,
+      "material": "wood"
      },
      "grade": "reconstructed",
-     "note": "The kitchen door on the rear wall: no picture shows this house's rear, and every house of the period had one; placed on a stretch of wall with no window in its way, its sill 1.30 m up, 7 steps down to the yard (L-prairie-back-yards-3488)."
+     "note": "The kitchen door on the rear wall: no picture shows this house's rear, and every house of the period had one; placed on a stretch of wall with no window in its way, its sill 0.60 m up, 3 steps down to the yard (L-prairie-back-yards-3488)."
     }
    ],
    "posts": [],

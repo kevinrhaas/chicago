@@ -689,6 +689,15 @@
         "hmdb_prairie_lost_houses_1600_1700"
       ],
       "note": "The marker: 'Wirt Dexter Residence. Built 1863'."
+    },
+    "part_of": {
+      "value": "1721 Prairie Avenue — Wirt Dexter house, Arthur Little's front of 1889, K01 frontage assembly",
+      "confidence": "inferred",
+      "sources": [
+        "inland_architect_1891_06_dexter_plate",
+        "loc_det_4a08065_pullman_residence"
+      ],
+      "note": "One dwelling with the brick front on Prairie Avenue: the Inland Architect plate shows the clapboarded block running on behind Little's front, and the owner (2026-11-12) reads the brick house as the frame house's addition. Its own porch opens on the side yard; the household's walk from the public walk is the brick front's."
     }
   },
   "residents": [],

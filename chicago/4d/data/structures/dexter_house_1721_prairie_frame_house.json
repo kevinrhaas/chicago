@@ -15,6 +15,15 @@
     ],
     "note": "The house Wirt Dexter built in 1863, lived in as one dwelling with the brick front Arthur Little added on its street end in 1889 (the owner, 2026-11-12: 'that house was there first and the other house facing prairie is technically the addition')."
   },
+  "part_of": {
+    "value": "dexter_house_1721_prairie",
+    "confidence": "inferred",
+    "sources": [
+      "inland_architect_1891_06_dexter_plate",
+      "loc_det_4a08065_pullman_residence"
+    ],
+    "note": "One dwelling with the brick front on Prairie Avenue: the Inland Architect plate shows the clapboarded block running on behind Little's front, and the owner (2026-11-12) reads the brick house as the frame house's addition. Its own porch opens on the side yard; the household's walk from the public walk is the brick front's."
+  },
   "built": {
     "value": 1863,
     "confidence": "attested",
