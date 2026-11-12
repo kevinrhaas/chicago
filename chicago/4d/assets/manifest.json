@@ -981,21 +981,21 @@
       "ao_occlusion_mean": 0.540005,
       "archetype": "masonry_house",
       "baked_ao": true,
-      "bytes": 209565832,
-      "inputs_sha256": "cc3d2bf86475e99b77d4ad072d6c5941c95af4763aff6e82c076b4304ea826ac",
+      "bytes": 208360792,
+      "inputs_sha256": "75bbbb62f9e771b280f2986d65449f569f189cbee4659ca120be76670ad176bc",
       "kind": "generated",
       "phase_id": "as_built_1887",
       "structure_id": "glessner_house",
       "web_lods": {
         "light": {
           "asset": "glessner_house__as_built_1887.light.glb",
-          "master_sha256": "a9e27df9ed629d2c21ec4393c4f5c3c8fe532348cef69c1101dccad53fc7b76b",
-          "output_sha256": "6014a4090f45e3e4a926f48e4e8d620c594d98a1c1effc5fbd9706ea2307a63b",
-          "recipe_sha256": "36e914eeb45c9f51f9bf45420d55a2be83b1bf7d399f1132275853dbe4f6ac55",
-          "triangles": 198417
+          "master_sha256": "20b19af4f6527ea6b383c25f6c2f9b28c8ab4b0d1ebef172d5a16fcb03bde18d",
+          "output_sha256": "61af37c12fcb45cd3e56a7b08745111ba919ec75c0da8dfcf15830231831536e",
+          "recipe_sha256": "5623f9594e5b987374b99c887d70262b184b240bdd79f97e71915df0a6213a9d",
+          "triangles": 198399
         }
       },
-      "web_master_sha256": "a9e27df9ed629d2c21ec4393c4f5c3c8fe532348cef69c1101dccad53fc7b76b"
+      "web_master_sha256": "20b19af4f6527ea6b383c25f6c2f9b28c8ab4b0d1ebef172d5a16fcb03bde18d"
     },
     "glessner_lee_house_1700_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
@@ -3289,9 +3289,9 @@
     "keith_house_1808_prairie__as_built_1886.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 7773080,
+      "bytes": 9151332,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "21447254554b84882bcdce58da5405f7feb16068e09dc7100e77e7c468b763ab",
+      "inputs_sha256": "b7e72365ab5350862f4d412252cc8686ce6e845615d4405b80de47195fcafa2e",
       "kind": "generated",
       "phase_id": "as_built_1886",
       "structure_id": "keith_house_1808_prairie"

@@ -114,10 +114,6 @@ IDENTICAL_ONLY = [("tools/research_spend_baseline.json", "raised"),
 # leaves the same key elsewhere held, and an entry whose key has left its file is
 # reported so it is deleted rather than left to excuse a later list.
 MULTISETS: dict[tuple[str, str], str] = {
-    ("data/structures/glessner_house.json", "ends"):
-        "what each end of a courtyard wall run meets, west end then east; both ends may meet the same (T-3564)",
-    ("data/sidecars/1904/glessner_house.json", "ends"):
-        "the record's courtyard wall run ends compiled onto its card: one per end (T-3564)",
     ("data/structures/george_glessner_house_1706_prairie.json", "by_storey"):
         "one K09 head per storey, read under brick_heads (T-3211)",
     ("data/sidecars/1904/george_glessner_house_1706_prairie.json", "by_storey"):

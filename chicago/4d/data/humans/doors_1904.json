@@ -1206,8 +1206,8 @@
    "structure": "keith_house_1808_prairie",
    "name": "Osborn R. Keith house (1808 Prairie Avenue), K01 frontage assembly",
    "placement": {
-    "local_e": 1369.959,
-    "local_n": -3250.476,
+    "local_e": 1353.261,
+    "local_n": -3250.67,
     "rotation_deg": -0.669
    },
    "doors": [
@@ -1226,7 +1226,7 @@
      "reconstructed": "Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed."
     }
    ],
-   "asset_sha256": "b0540e5073db2f881cee936bf62b2ae16288f7c4dabca64866d92fb18a9dbc7f"
+   "asset_sha256": "a6182a52cdf1c3c5734c2fe44688c307ea2fcb6c7c527e9f401f4248d69a2fc7"
   },
   {
    "structure": "kellogg_house_1709_prairie",

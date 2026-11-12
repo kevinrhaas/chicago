@@ -6,8 +6,8 @@
   "tiers": {
     "full": {
       "path": "assets/gltf/glessner_house__as_built_1887.glb",
-      "bytes": 209565832,
-      "sha256": "a9e27df9ed629d2c21ec4393c4f5c3c8fe532348cef69c1101dccad53fc7b76b",
+      "bytes": 208360792,
+      "sha256": "20b19af4f6527ea6b383c25f6c2f9b28c8ab4b0d1ebef172d5a16fcb03bde18d",
       "generator": "Khronos glTF Blender I/O v4.5.48",
       "extensions_required": [
         "KHR_texture_transform"
@@ -21,8 +21,8 @@
       "mesh": {
         "draw_primitives": 31,
         "materials": 31,
-        "triangles": 1473162,
-        "vertices": 3360636
+        "triangles": 1461880,
+        "vertices": 3338072
       },
       "texture": {
         "images": 38,
@@ -73,7 +73,7 @@
       },
       "faces": {
         "quantum_m": 0.001,
-        "degenerate": 3003,
+        "degenerate": 2991,
         "coincident": 0,
         "same_winding": 0,
         "back_to_back": 0,
@@ -340,8 +340,8 @@
     },
     "web": {
       "path": "assets/web/glessner_house__as_built_1887.glb",
-      "bytes": 46612040,
-      "sha256": "8426a98fe7330268d4214f258d46fc87dfcdd9f4e0e25faba2a98f3d574608e3",
+      "bytes": 46434744,
+      "sha256": "e387f3fd283f247706003245783a287351188bd6582c0b74840420b10175e8de",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -361,13 +361,13 @@
       "mesh": {
         "draw_primitives": 31,
         "materials": 31,
-        "triangles": 1473162,
-        "vertices": 2721527
+        "triangles": 1461880,
+        "vertices": 2698918
       },
       "texture": {
         "images": 37,
         "textures": 37,
-        "encoded_bytes": 17262410,
+        "encoded_bytes": 17262421,
         "pixels": 62390272,
         "gpu_rgba8_mip_bytes": 332748117,
         "largest_px": 2048
@@ -413,7 +413,7 @@
       },
       "faces": {
         "quantum_m": 0.001,
-        "degenerate": 4164,
+        "degenerate": 4182,
         "coincident": 5,
         "same_winding": 0,
         "back_to_back": 5,
@@ -430,7 +430,7 @@
             2.1336
           ],
           "uv_per_m_times_tile_m": 1.002,
-          "below_quantization_floor": 18671
+          "below_quantization_floor": 18523
         },
         "brick_buff": {
           "median_uv_per_m": 0.5219,
@@ -440,7 +440,7 @@
             2.1336
           ],
           "uv_per_m_times_tile_m": 1.002,
-          "below_quantization_floor": 4570
+          "below_quantization_floor": 4526
         },
         "brick_dark_red": {
           "median_uv_per_m": 0.5219,
@@ -450,7 +450,7 @@
             2.1336
           ],
           "uv_per_m_times_tile_m": 1.002,
-          "below_quantization_floor": 6455
+          "below_quantization_floor": 6407
         },
         "brick_smoky": {
           "median_uv_per_m": 0.5219,
@@ -460,7 +460,7 @@
             2.1336
           ],
           "uv_per_m_times_tile_m": 1.002,
-          "below_quantization_floor": 1845
+          "below_quantization_floor": 1833
         },
         "copper": {
           "median_uv_per_m": 0.4167,
@@ -487,7 +487,7 @@
         },
         "glessner_vines": {
           "median_uv_per_m": 0.131,
-          "below_quantization_floor": 33142
+          "below_quantization_floor": 33116
         },
         "granite": {
           "median_uv_per_m": 0.6249,
@@ -601,7 +601,7 @@
             2.4
           ],
           "uv_per_m_times_tile_m": 1.0007,
-          "below_quantization_floor": 18876
+          "below_quantization_floor": 18916
         },
         "painted_wood": {
           "median_uv_per_m": 0.7223,
@@ -687,8 +687,8 @@
     },
     "light": {
       "path": "assets/web/glessner_house__as_built_1887.light.glb",
-      "bytes": 15614208,
-      "sha256": "6014a4090f45e3e4a926f48e4e8d620c594d98a1c1effc5fbd9706ea2307a63b",
+      "bytes": 15613848,
+      "sha256": "61af37c12fcb45cd3e56a7b08745111ba919ec75c0da8dfcf15830231831536e",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -708,8 +708,8 @@
       "mesh": {
         "draw_primitives": 28,
         "materials": 28,
-        "triangles": 198417,
-        "vertices": 386878
+        "triangles": 198399,
+        "vertices": 386844
       },
       "texture": {
         "images": 37,
@@ -828,7 +828,7 @@
           "below_quantization_floor": 68
         },
         "flat_brick": {
-          "median_uv_per_m": 0.521,
+          "median_uv_per_m": 0.5211,
           "below_quantization_floor": 22
         },
         "glessner_vines": {
