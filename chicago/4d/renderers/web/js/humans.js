@@ -49,6 +49,8 @@ import { hairFor } from './human-hair-styles.js';
 import { dressLooks, dressCloth, looksHairStyle } from './human-looks.js';
 import { dressHat } from './human-hats.js';
 import { dressSpectacles } from './human-spectacles.js';
+import { fitWaist } from './human-waist.js';
+import { engraveSilver } from './human-silver.js';
 import { dressGarrison, garrisonCarry, createArmsPiles } from './human-garrison.js';
 import { clothHuman } from './fabric.js';
 
@@ -145,7 +147,12 @@ export function createHumanAssets({ assetBase, loader = registerKTX2(new GLTFLoa
       decoder ??= loadMeshoptDecoder();
       loader.setMeshoptDecoder(await decoder);
     }
-    return loader.parseAsync(buf, String(new URL('.', href)));
+    const gltf = await loader.parseAsync(buf, String(new URL('.', href)));
+    // T-3553: a belted waist sits on the body, and trade silver is engraved, once per parse,
+    // before any figure is cloned (human-waist.js, human-silver.js).
+    fitWaist(gltf.scene);
+    engraveSilver(gltf.scene);
+    return gltf;
   }
 
   return {

@@ -710,6 +710,8 @@ step "People on foot walk heel to toe at a real pace and stride, the stance foot
   node tools/test_human_gait.mjs
 step "A woman's skirt swings off her legs as she walks and never parts between them, the rest pose exact (T-3472)" \
   node tools/test_human_skirt.mjs
+step "A Potawatomi man's belt sits on his shirt or blanket at every level, standing and walking, the shirt's skirt under it; his trade silver engraved by shader, no texture (T-3553)" \
+  node tools/test_human_waist.mjs
 step "Each man of the 1812 garrison has his own complexion, hair, eyes and height from the period's registers, drawn on clones, on his card with a stand-in portrait (T-3491)" \
   node tools/test_human_looks.mjs
 step "1904 people use actual drawn pedestrian tops only beneath enabled terrain-cut masks, preserving decks, positive yards and other epochs (T-2795)" \
