@@ -811,6 +811,30 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
       if (greet >= 0 && brim?.touch) fingertip();
       settle();
     },
+    /** A visible generated work tool asks for two world-space hand holds AFTER
+     * the ordinary arm pass. Only a loaded working actor's controller calls this.
+     * Return the measured grip; the tool follows the hand, never an invented emitter. */
+    poseWorkHands({ rightGrip, leftWrist, fingers, palm } = {}) {
+      const valid = v => v && [v.x, v.y, v.z].every(Number.isFinite);
+      if (!bound || hold || ![rightGrip, leftWrist, fingers, palm].every(valid)) return null;
+      const f = fingers.clone().normalize(), p = palm.clone().normalize();
+      if (f.lengthSq() < .9 || p.lengthSq() < .9 || Math.abs(f.dot(p)) > .1) return null;
+      body.updateWorldMatrix(true, false);
+      body.getWorldQuaternion(sceneQ); sceneM.copy(body.matrixWorld);
+      const offset = f.clone().multiplyScalar(L.handLen * .4).addScaledVector(p, .015);
+      reach('r', rightGrip.clone().sub(offset), toWorldDir(new THREE.Vector3(-1, -.3, -.4)), 1);
+      bones.lowerarm_r.updateMatrixWorld(true);
+      orientHand('r', f, p, 1); curl('r', .75); thumbIn('r', .9);
+      reach('l', leftWrist, toWorldDir(new THREE.Vector3(1, -.3, -.4)), 1);
+      bones.lowerarm_l.updateMatrixWorld(true);
+      orientHand('l', f, toWorldDir(new THREE.Vector3(0, -1, 0)), 1);
+      curl('l', .12); thumbIn('l', .7);
+      for (const side of SIDES) shapeHand(side);
+      // Keep the next ordinary pass additive: do not bank this pose as its base.
+      settle(); body.updateMatrixWorld(true);
+      return { rightGrip: bones.hand_r.getWorldPosition(new THREE.Vector3()).add(offset),
+        leftWrist: bones.hand_l.getWorldPosition(new THREE.Vector3()) };
+    },
     snapshot() {
       return { pose, blend: +poseW.toFixed(3), greeting: greet >= 0, carrying: hold?.side ?? null, held: heldPose, talking, talk_w: +talkW.toFixed(3), swing_l_deg: +(swing.l / DEG).toFixed(2), swing_r_deg: +(swing.r / DEG).toFixed(2),
         gait_l_deg: +(gaitArm.l / DEG).toFixed(2), gait_r_deg: +(gaitArm.r / DEG).toFixed(2) };

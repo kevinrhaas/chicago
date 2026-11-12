@@ -5946,11 +5946,23 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_habitat_audio_1812.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_habitat_audio_package.py": {
       "wrote": [],
       "wrote_ignored": []
     },
     "tools/test_head_fit_distances.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_hoof_audio.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_hoof_contact_events.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -6951,6 +6963,18 @@
       "wrote_ignored": []
     },
     "tools/test_walker_passage.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_work_activity.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_work_audio.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_work_day_source.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

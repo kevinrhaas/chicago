@@ -116,7 +116,7 @@ import { createFrontYards } from './front-yards.js';
 import { createBackYards } from './back-yards.js';
 import { createGardens } from './gardens.js';
 import { TIME_NAMES, isTimeValue, minutesOf } from './time-of-day.js';
-import { SEASONS, SEASON_TREE_MODE, SEASON_CROWN, FOLIAGE, seasonDate, applySeasonLook, patchSeason, patchFoliage }
+import { SEASONS, SEASON_TREE_MODE, SEASON_CROWN, FOLIAGE, seasonDate, seasonUniforms, applySeasonLook, patchSeason, patchFoliage }
   from './season.js';
 import { createContext } from './context.js';
 import { createRailway } from './railway.js';
@@ -1772,9 +1772,15 @@ const loadSound = (early = false) => (api.soundReady ??= import('./sound.js')
     audio: () => gesture.audio, unlock: () => gesture.unlockAudio(), early, journey,
     settings: () => api.hud?.settings ?? arrivalSoundSettings, scene: () => YEAR,
     environment: () => ({ camera: api.camera, terrain: api.terrain, season: api.season?.current ?? 'summer',
+      snowCover: seasonUniforms.uChiSnow.value,
       flora: api.flora, faunaZones: api.fauna?.records, time: api.timeOfDay?.current,
       transport: api.townTransport?.audioSources ?? [],
       sunElevation: api.world?.sun?.elevationDeg }),
+    workEnvironment: () => {
+      const time = api.timeOfDay?.current, [h, m] = String(time?.hhmm ?? '').split(':').map(Number);
+      return { scene: YEAR, date: time?.date, hour: Number.isFinite(h) ? h + (m || 0) / 60 : null,
+        eye: api.camera?.position, sources: () => api.workActivity?.audioSources ?? [] };
+    },
   })))
   .catch(() => { api.soundReady = null; return null; }));
 const gesture = createGestureGate({ journey, tagEl: document.getElementById('look-tag'),
@@ -3986,6 +3992,19 @@ async function boot() {
       // T-3524: Glessner's court and side doors open as people pass, up and down their stairs.
       passages: api.houseDoors ?? null,
       problems: layerProblems('humans') });
+    // The kit is generated from its dated work record; only 1812 loads this
+    // controller. The small GLB is deferred until its actual worker is nearby.
+    if (daysScene === '1812') {
+      const [{ createWorkActivity }, workConfig] = await Promise.all([
+        import('./work-activity.js'), getOptional('humans/work_1812.json'),
+      ]);
+      if (workConfig) {
+        api.workActivity = createWorkActivity({ humans: api.humans, days: api.days, config: workConfig,
+          assetBase: bases.assetBase, sceneRoot: scene3d, confidence,
+          onError: message => problems.push({ layer: 'humans', error: message }) });
+        scene3d.add(api.workActivity.group);
+      }
+    }
   }
   // T-3504 (owner, 2026-11-08: "two people occupying the same space? Prevent that"): every year's
   // figures kept a body's width apart, standing or walking, after the layers above move them;
@@ -5877,6 +5896,7 @@ async function boot() {
     // Driver leases and standing transfers finish before the human asset cache
     // loses its remaining scene actors. BFCache pagehide keeps the scene alive.
     api.townTransport?.dispose();
+    api.workActivity?.dispose();
     api.humans?.dispose();
     interactKey.dispose();
   });
@@ -6341,6 +6361,9 @@ async function boot() {
       hour: (() => { const [h, m] = String(world.sunTime ?? '').split(':').map(Number); return Number.isFinite(h) ? h + (m || 0) / 60 : null; })(),
     });
     api.townTransport?.refreshInteractions();
+    // Contacts follow the loaded horses' accepted gait advance in this frame.
+    // Held/hidden frames clear the baseline rather than replaying missed steps.
+    api.sound?.transportFrame({ active: !visualHeld && visualDt > 0 });
     // T-3445: the first time the key offers something, once per device, what it is.
     if ((interactPaintAt += elapsed) >= .25) { interactPaintAt = 0; if (interactKey.refresh() && !interactHinted) interactHinted = hints.show('interact') || hints.seen('interact'); }
     if (shownLayers.vehicles) standingHorses.update(camera, visualDt, { paused: animationHold || gateOpen, visualFrame: true });
@@ -6366,6 +6389,11 @@ async function boot() {
     api.houseDoors?.update?.(frameDt);
     // T-3504: and then nobody stands in anybody else (human-spacing.js).
     api.spacing?.update(frameDt);
+    // The day and spacing engines have finished moving the person. Hands, tool
+    // and sound now share this frame's real contact, not a separate hammer timer.
+    api.workActivity?.update(frameDt, { paused: visualHeld || transportReducedMotion.matches,
+      scene: YEAR, date: world.sunDate, hour: sunHour() });
+    api.sound?.workFrame({ active: !visualHeld && frameDt > 0 && !transportReducedMotion.matches });
 
     // T-2113. Under the gate, draw only a frame that differs from the last one
     // drawn: the first, one a capture or a test asked for, or one in which
