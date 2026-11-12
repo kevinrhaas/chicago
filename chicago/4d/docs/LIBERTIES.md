@@ -43646,6 +43646,13 @@ or a read bill of sale; a planting account locating the trees rather than merely
 **Ticket:** T-1789.
 **Recorded:** 2026-11-10.
 
+### L-kimball-1801-south-return-1890 — 1801 Prairie's south return run back to the slate behind the round bay's balcony, its light and its capped top, and the house's slate set back behind it, read off HABS photograph 1
+
+**Decision:** the owner, 2026-11-08, on HABS photograph 1 (`habs_kimball_photo_01_sw_1965`), asked for the south-west corner's roof line to match the photograph. Read again on 2026-11-12 at full size, the photograph's stone return beside the pavilion's corner pier runs back about x 642-742 on the 1800 px copy, its back edge leaning (x 717 at the balustrade, 742 under its top), a moulded course along its top at about 11.7 m under the pier's capital, slate over it, and a deep-set light in it (x 643-687, y 437-497); the build's front slate came down at the wall plane in front of all but the return's first 0.8 m. (1) **The return.** p_south's chamfer cheek is laid as a run of its own (K08 `_cheek_return`): stone from the cant's top (10.1 m) to 11.7 m, its back edge 1.4 m behind the wall's face at its foot and 2.0 m at its top, capped by the floor band's course; the corner pier, 0.4 m deep, carried on up to the 12.3 m wall top, and slate hung behind it out to the cross roof's slated cheek. (2) **The light.** K06's two-over-two sash, 1.1 by 0.85 m clear on a 10.45 m sill, its middle 1.2 m behind the face, set 0.35 m deep in a plain reveal; the cross roof's slated cheek is opened round its recess. (3) **The slate.** K01 cuts the mansard over the corner, from the cant's top to the curb, on the plane through the eave's corner (the hip's foot) and the return's back edge, its faces in the covering: the hip keeps its foot and renders about where the photograph's does. **What is read.** The return's depth and lean, its top's height, the light's place and size, the slate's line beside it, all through the solved camera. **What is invented or held by the kit.** The light's glazing (not legible at the print's size; the house's two-over-two sash), its reveal depth and sill (the kit's); the cap's section (the floor band's); the slate's cut as one plane, which leaves a fold where it meets the front slope over the return's top that the photograph does not show; the pier's depth.
+**How to resolve:** the HABS drawings' south elevation and roof plan, if found, give the return, its light and the roof over the corner.
+**Ticket:** T-1890.
+**Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg` and its match record.
+**Recorded:** 2026-11-12 (T-1890).
 
 ### L-1812-seasonal-audio-3551 — Seasonal nature, recorded hoof contacts and visible woodwork
 
