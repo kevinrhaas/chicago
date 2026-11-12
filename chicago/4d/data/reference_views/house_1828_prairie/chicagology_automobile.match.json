@@ -2,7 +2,7 @@
   "structure_id": "house_1828_prairie",
   "view": "chicagology_automobile",
   "glb": "assets/gltf/house_1828_prairie__as_mapped_1904.glb",
-  "glb_sha256": "c5bb8d99d9eabe2092c700272aba91af868cee8a47869a4c8843781eaac4dba9",
+  "glb_sha256": "17970f57b6640880a03404f05a99b1a6bfd7d9b8b30f984930e3f32563109af7",
   "camera_sha256": "c5db781be13c8f38279e02b2deb16a970c6995b2397cc02e886addbafc8d281e",
   "photo_sha256": "c758e387f00acae0068286d86a69065154ee0f03e3edb234ab9ad936aba2e957",
   "side_by_side": "docs/RESEARCH/photo-match/house_1828_prairie/chicagology_automobile-side-by-side.jpg",
@@ -32,8 +32,12 @@
       "status": "fixed"
     },
     {
-      "what": "the third column at the porch's south-rear corner (x 440 px): through this camera it stands against the canted bay's north cheek, about 0.5 m south of where the build's flat respond on the recessed wall carries the south arch, and it is a round column with a capital, not a pilaster; K01's porch places columns only along its front (at_v_m), so it is not yet built",
-      "status": "open"
+      "what": "the third column at the porch's south-rear corner (x 440 px), a round column with a capital against the canted bay's north cheek, and the porch's south end carried back on a diagonal from its front corner over the south column (x 512) to the cheek (the entablature's end at x 418): T-1887 builds K01's splayed porch end, the hood's fascia, slab and balustrade returning on the diagonal to the cheek 1.06 m south of the hood's end and 0.95 m out, on a third column 0.92 m out at v 4.28, which renders at x 445; the south arch is turned on the diagonal from it to the south column",
+      "status": "fixed"
+    },
+    {
+      "what": "the terrace south of the stoop under the porch's south arch, its front a solid stone parapet pierced by a row of four upright slots (x 440-500, y 433-473): T-1887 lays it at the landing's height to v 4.0, its parapet 0.8 m high with four 0.1 x 0.2 m slots, which renders at x 444-500",
+      "status": "fixed"
     },
     {
       "what": "the porch's carving: the entablature's carved frieze, the spandrels over the arches, the columns' capitals",

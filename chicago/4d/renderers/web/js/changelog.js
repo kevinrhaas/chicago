@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 2898, ts: '2026-11-12T18:19:57.163Z', date: 'Nov 12, 2026, 12:19 PM CT', title: 'Meet the Glessner House opens in the owner\'s words', kind: 'polish',
+    items: [
+      'The tour\'s welcome now says "Let\'s start at the corner" and spells neighbors the American way.',
+    ] },
+  { v: 2897, ts: '2026-11-12T18:19:57.163Z', date: 'Nov 12, 2026, 12:19 PM CT', title: '1828 Prairie\'s porch reaches back to its bay on a third column', kind: 'feature',
+    items: [
+      '1828 Prairie\'s porch no longer stops short of the canted bay beside it: its south end now runs back on a diagonal to the bay\'s cheek, on a third round column, with its arch turned between the columns, as the automobile photograph shows it.',
+      'A terrace now runs south of the stoop under that arch, its stone front pierced by four slots.',
+    ] },
   { v: 2896, ts: '2026-11-12T16:57:42.240Z', date: 'Nov 12, 2026, 10:57 AM CT', title: 'Seasonal nature and working sounds in 1812', kind: 'feature',
     items: [
       '1812 gains seasonal bird and insect calls, with quiet winters and rare distant coyotes at night.',
