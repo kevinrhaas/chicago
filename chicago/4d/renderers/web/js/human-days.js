@@ -361,6 +361,29 @@ export function jobAbout(at, face, rand, clear = () => true, { out = 0, off = PO
 }
 
 /**
+ * T-3572: points ({e, n}) by square cell of side `size`: returns `near(p)`, the indices of every
+ * point in p's cell and the eight about it, ascending — every point within `size` of p, and some
+ * further, in the order the points were given.
+ */
+function cellIndex(points, size) {
+  const cells = new Map();
+  points.forEach((q, i) => {
+    const key = `${Math.floor(q.e / size)},${Math.floor(q.n / size)}`;
+    let list = cells.get(key);
+    if (!list) cells.set(key, (list = []));
+    list.push(i);
+  });
+  return (p) => {
+    const ce = Math.floor(p.e / size), cn = Math.floor(p.n / size), out = [];
+    for (let de = -1; de <= 1; de++) for (let dn = -1; dn <= 1; dn++) {
+      const list = cells.get(`${ce + de},${cn + dn}`);
+      if (list) for (const i of list) out.push(i);
+    }
+    return out.sort((x, y) => x - y);
+  };
+}
+
+/**
  * T-3504: how each out span of each person is played on `date`. `people` is [{ key, b }] (a
  * record's behaviour and its person's key, for `chance` days). Returns a Map span -> played span
  * (a copy: `at` moved onto the person's place in its ring, `activity`/`knot`/`spots` filled in);
@@ -378,15 +401,21 @@ export function planDay(people, date, { clear = () => true } = {}) {
   // Lone or in company: everyone standing (not at a post) is grouped with whoever else stands
   // within GROUP_M at an overlapping hour (single linkage).
   const standing = outs.filter((x) => (x.span.activity ?? 'stand') === 'stand' && !x.span.duty && !POST_RE.test(x.span.doing ?? ''));
+  // T-3572: each is asked only of those in its own GROUP_M cell and the eight about it (in
+  // the order of `standing`, as the whole list was asked before): 1812's town is some 1,100
+  // spans, and asking every pair cost a quarter of a second each time the town was re-planned.
+  const nearStanding = cellIndex(standing.map((x) => atOf(x.span)), GROUP_M);
   const seen = new Set();
   for (const first of standing) {
     if (seen.has(first)) continue;
     const group = [first];
     seen.add(first);
     for (let i = 0; i < group.length; i++) {
-      for (const o of standing) {
+      const a = atOf(group[i].span);
+      for (const k of nearStanding(a)) {
+        const o = standing[k];
         if (seen.has(o) || o.key === group[i].key) continue;
-        const a = atOf(group[i].span), c = atOf(o.span);
+        const c = atOf(o.span);
         if (Math.hypot(a.e - c.e, a.n - c.n) <= GROUP_M && overlaps(group[i].span, o.span)) { seen.add(o); group.push(o); }
       }
     }
@@ -440,19 +469,24 @@ export function planDay(people, date, { clear = () => true } = {}) {
   }
   const SHARE_M = 0.65;
   const taken = new Set();
+  // T-3572: the places by SHARE_M cell, so each is asked only of its neighbours (in the order
+  // of `works` and of each one's places, as before). A place is moved only once it is taken,
+  // and a taken one is never asked again, so the cells hold for the whole pass.
+  const placeOf = [];
+  works.forEach((w, j) => w.pts.forEach((q, b) => placeOf.push([j, b, pt(q)])));
+  const nearPlace = cellIndex(placeOf.map((x) => x[2]), SHARE_M);
   for (let i = 0; i < works.length; i++) {
     for (let a = 0; a < works[i].pts.length; a++) {
       const tag = `${i}:${a}`;
       if (taken.has(tag)) continue;
       const here = pt(works[i].pts[a]);
       const group = [{ w: i, k: a }];
-      for (let j = 0; j < works.length; j++) {
+      for (const m of nearPlace(here)) {
+        const [j, b] = placeOf[m];
         if (j === i || works[j].x.key === works[i].x.key || !overlaps(works[i].s, works[j].s)) continue;
-        for (let b = 0; b < works[j].pts.length; b++) {
-          if (taken.has(`${j}:${b}`) || dist(pt(works[j].pts[b]), here) >= SHARE_M) continue;
-          if (group.some((g) => g.w === j)) continue;
-          group.push({ w: j, k: b });
-        }
+        if (taken.has(`${j}:${b}`) || dist(pt(works[j].pts[b]), here) >= SHARE_M) continue;
+        if (group.some((g) => g.w === j)) continue;
+        group.push({ w: j, k: b });
       }
       if (group.length < 2) continue;
       for (const g of group) taken.add(`${g.w}:${g.k}`);
