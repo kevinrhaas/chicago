@@ -1,4 +1,38 @@
 export const CHANGELOG = [ // newest first
+  { v: 2902, ts: '2026-11-12T19:27:31.583Z', date: 'Nov 12, 2026, 1:27 PM CT', title: '1812 belts sit tight, silver is engraved, and backlit lips calm down', kind: 'fix',
+    items: [
+      'Potawatomi men\'s belts now sit on the shirt or blanket instead of floating round the waist, and the shirt below the waist no longer starts wider than the shirt above it. Belt, shirt and blanket now move together when a man walks or turns.',
+      'Silver arm bands and brooches are engraved, with border lines, a zigzag and punched dots. You only see it up close, and it uses no extra memory.',
+      'Lips in every year are closer to the person\'s own skin tone, and where the lips meet is shaded. A face lit from behind no longer shows a pink line across the mouth.',
+    ] },
+  { v: 2901, ts: '2026-11-12T19:08:56.761Z', date: 'Nov 12, 2026, 1:08 PM CT', title: 'Mute keys on the Navigator, and a quieter lit state', kind: 'feature',
+    items: [
+      'Two keys in the Navigator\'s top bar: Mute all sound and Mute music. A second tap puts back the level you had.',
+      'They move the same levels as Settings › Sound, so a key and its slider always agree.',
+      'Lit controls are calmer on every appearance: a soft tint and outline in the machine\'s own colour instead of a solid fill.',
+      'The arrival\'s speaker no longer glows red when sound is on.',
+    ] },
+  { v: 2900, ts: '2026-11-12T18:53:28.066Z', date: 'Nov 12, 2026, 12:53 PM CT', title: '1904 plays a ten-track ragtime playlist on shuffle', kind: 'change',
+    items: [
+      'Ten new ragtime tracks replace the two 1904 waltzes.',
+      'Music in 1904 starts on a random track and shuffles. Every track plays once before any repeats.',
+      'All ten play at the same loudness, and each streams as a small 1 to 2 MB file.',
+    ] },
+  { v: 2899, ts: '2026-11-12T18:49:28.637Z', date: 'Nov 12, 2026, 12:49 PM CT', title: 'Settings in tabs, with a mouse sensitivity slider', kind: 'feature',
+    items: [
+      'Settings now opens on a row of icon tabs, like a building\'s card: Display, Show, Look, Graphics, Sound, About, What\'s new and Research.',
+      'Look has a new Mouse sensitivity slider (Look sensitivity on a phone, for dragging to look). Standard is the turn you had before.',
+      'What\'s new is one of the last tabs and keeps its unread dot. The Expert research switch has moved to the last tab.',
+    ] },
+  { v: 2898, ts: '2026-11-12T18:19:57.163Z', date: 'Nov 12, 2026, 12:19 PM CT', title: 'Meet the Glessner House opens in the owner\'s words', kind: 'polish',
+    items: [
+      'The tour\'s welcome now says "Let\'s start at the corner" and spells neighbors the American way.',
+    ] },
+  { v: 2897, ts: '2026-11-12T18:19:57.163Z', date: 'Nov 12, 2026, 12:19 PM CT', title: '1828 Prairie\'s porch reaches back to its bay on a third column', kind: 'feature',
+    items: [
+      '1828 Prairie\'s porch no longer stops short of the canted bay beside it: its south end now runs back on a diagonal to the bay\'s cheek, on a third round column, with its arch turned between the columns, as the automobile photograph shows it.',
+      'A terrace now runs south of the stoop under that arch, its stone front pierced by four slots.',
+    ] },
   { v: 2896, ts: '2026-11-12T16:57:42.240Z', date: 'Nov 12, 2026, 10:57 AM CT', title: 'Seasonal nature and working sounds in 1812', kind: 'feature',
     items: [
       '1812 gains seasonal bird and insect calls, with quiet winters and rare distant coyotes at night.',

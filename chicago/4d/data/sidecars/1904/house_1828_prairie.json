@@ -400,6 +400,13 @@
               ],
               "spring_m": 5.45,
               "rise_m": 0.5
+            },
+            "splay": {
+              "side": "left",
+              "to_v_m": 3.84,
+              "to_out_m": 0.95,
+              "column_v_m": 4.28,
+              "column_out_m": 0.92
             }
           },
           "balustrade": {
@@ -458,6 +465,22 @@
                 1.0
               ]
             ]
+          },
+          "terrace": {
+            "side": "left",
+            "to_v_m": 4.0,
+            "parapet": {
+              "height_m": 0.8,
+              "thickness_m": 0.25,
+              "holes": [
+                1,
+                4
+              ],
+              "hole_m": [
+                0.1,
+                0.2
+              ]
+            }
           }
         }
       },
@@ -466,7 +489,7 @@
         "chicagology_1828_shipman_automobile",
         "glessner_blog_1828_shipman_partial"
       ],
-      "note": "The porch in both photographs: columns at its front corners on the stoop's head, a deep carved entablature over them (y 140-215 px, about 1.2 m; built 1.0 m) under a cornice, and a balustrade on its flat top (y 100-140 px) under the second-storey window over it; the arches' crowns, taken as the soffit, at y 215 px, about 6.0 m over grade through the automobile photograph's camera. K01's door hood on two columns (T-2963) is the porch, laid columns, entablature and balustrade in the front's stone (T-3159's portico fabric), as both prints show it: its balustrade heavier than the joinery railing it replaced, 0.3 m posts and 0.1 m balusters under a 0.25 m rail, about 0.65 m high (the automobile print's y 100-140 px). T-3168 lays the stoop's cheeks with a turned stone balustrade on their tops, newels 0.36 m square, a little proud of the 0.3 m cheeks, at the landing and at the foot (the automobile print's turned balusters over the solid cheeks and the newel at the foot; the partial view's blocks at the foot), 0.9 m over the nosings, its balusters' turning reconstructed. T-1887 turns the porch's round arches, on its front and its south side (K01's porch arcade, T-3210), off the automobile photograph through its camera (63 px/m at the porch's front, the horizon at y 496 px): the arches spring at y 245 px off the capitals (about 5.45 m over grade) and their crowns stand at y 212 (about 5.95 m), so each is a half ellipse 0.5 m high over its clear span, under the carved spandrel to the soffit. Its carving is within tolerance (relief under a foot)."
+      "note": "The porch in both photographs: columns at its front corners on the stoop's head, a deep carved entablature over them (y 140-215 px, about 1.2 m; built 1.0 m) under a cornice, and a balustrade on its flat top (y 100-140 px) under the second-storey window over it; the arches' crowns, taken as the soffit, at y 215 px, about 6.0 m over grade through the automobile photograph's camera. K01's door hood on two columns (T-2963) is the porch, laid columns, entablature and balustrade in the front's stone (T-3159's portico fabric), as both prints show it: its balustrade heavier than the joinery railing it replaced, 0.3 m posts and 0.1 m balusters under a 0.25 m rail, about 0.65 m high (the automobile print's y 100-140 px). T-3168 lays the stoop's cheeks with a turned stone balustrade on their tops, newels 0.36 m square, a little proud of the 0.3 m cheeks, at the landing and at the foot (the automobile print's turned balusters over the solid cheeks and the newel at the foot; the partial view's blocks at the foot), 0.9 m over the nosings, its balusters' turning reconstructed. T-1887 turns the porch's round arches, on its front and its south side (K01's porch arcade, T-3210), off the automobile photograph through its camera (63 px/m at the porch's front, the horizon at y 496 px): the arches spring at y 245 px off the capitals (about 5.45 m over grade) and their crowns stand at y 212 (about 5.95 m), so each is a half ellipse 0.5 m high over its clear span, under the carved spandrel to the soffit. Its carving is within tolerance (relief under a foot). T-1887 carries the porch's south end back on a diagonal to the canted bay's north cheek (K01's splayed porch end) on a third round column against the cheek, off the automobile photograph through its camera: the entablature's end meets the cheek at x 418 px (v 3.84, 0.95 m out) and the column stands at x 443 (v 4.28, 0.92 m out), the south arch turned on the diagonal between it and the south column; under it a terrace at the landing's height runs south of the stoop to v 4.0, its front a stone parapet 0.8 m high pierced by four upright slots (x 440-500, y 433-473 px). The diagonal's plan between those readings, the column's depth and the slots' size are reconstructed (docs/LIBERTIES.md)."
     },
     "boundary": {
       "value": {
