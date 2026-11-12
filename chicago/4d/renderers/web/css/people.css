@@ -101,10 +101,11 @@
 }
 .pill:hover { color: var(--ink); background: var(--step); }
 .pill:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+/* T-3571: lit is the quiet kind (skins.css § LIT), not a solid fill. */
 .pill[aria-pressed="true"], .pill[aria-pressed="true"]:hover {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: #17140c;
+  background: var(--lit-wash, color-mix(in srgb, var(--accent) 12%, transparent));
+  border-color: var(--lit-edge, var(--accent));
+  color: var(--lit-ink, var(--accent));
 }
 /* "All" pressed is the resting state of every row, so it is quiet — a surface
    step, not the accent — and the accent means a visitor chose something. */
@@ -482,13 +483,6 @@
 }
 
 /* ---------------------------------------------------------- light theme --- */
-/* The pressed pill's dark text is on an amber fill in both themes, and every
-   other colour is a token, so the only thing light mode needs is the fill of a
-   control that used a white veil in walk.css. */
-[data-theme="light"] .pill[aria-pressed="true"]:not([data-value=""]),
-[data-theme="light"] .pill[aria-pressed="true"]:not([data-value=""]):hover {
-  color: #fff;
-}
 
 /* THE FIRMS A PERSON KEPT (T-1325). A block on the person's card, between what
    kind of person they are and the household record below: one row a firm, the
