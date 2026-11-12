@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1103,
+  "count": 1104,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -73438,6 +73438,36 @@
       ],
       "work_refs": [
         "T-3551"
+      ]
+    },
+    {
+      "id": "L-1812-silver-engraving-3553",
+      "title": "The Potawatomi men's silver arm bands and brooches engraved",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-12",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-12, of a man's arm band in the 1812 camp: *\"that silver band should have detail? dont do that if it will blow things up\"*. The body draws each band as a plain loft and each brooch as a plain disc. the walkthrough's human silver code cuts a pattern into both in the shader (no texture, no geometry, nothing per person): on each band two engraved lines inside each edge, a row of punched dots, and a zigzag of wriggle-work down the middle; on each brooch an engraved ring, a ring of fourteen punched dots and a small inner ring; the cuts tarnished dark and the faces between worn bright (colour.62, metalness.8, after the garrison's silver). The motifs, their sizes and spacing, and the plain join where the band's ends meet are ours. No maker's mark, crest, animal or figure is drawn."
+        },
+        {
+          "label": "Not invented",
+          "text": "that the annual presents included *\"silver-works (comprising arm-bands, bracelets, brooches; and ear-bobs)\"* (Wau-Bun, already cited for the body). No band, brooch or picture of one belonging to anyone at the 1812 camp is known."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "a described or pictured piece of trade silver from the Chicago gathering, or of the bands there, which replaces the pattern."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-12."
+        }
+      ],
+      "work_refs": [
+        "T-3553"
       ]
     },
     {
