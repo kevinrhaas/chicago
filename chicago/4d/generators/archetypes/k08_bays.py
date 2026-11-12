@@ -2305,6 +2305,14 @@ class Bay:
             o = -1.0 if xs < xc else 1.0
             world.face("roof", [(xs, y_top, zb), (xc, y_rb, zb), (xc, y_rb, ze), (xs, y_top, ze)],
                        (o * (y_rb - y_top), abs(xc - xs), 0.0))
+            cr_ = getattr(self, "cheek_return", None)
+            if cr_ is not None and o > 0.0:
+                # T-1890: over a chamfer's return the slate behind the corner pier, from the pier's
+                # back out to this cheek, a centimetre inside the return's stone (1801's)
+                zp, yr = cr_[1], cr_[2]
+                if not (zb < zp and y0 < yr < y_top):
+                    raise ValueError(f"{self.v['id']}: a chamfer's return's pier stands behind the parapet's back")
+                world.face("roof", [(xs, yr, zb), (xs, y_top, zb), (xs, y_top, zp), (xs, yr, zp)], (o, 0.0, 0.0))
             if hole is not None and o > 0.0 and hole[0] < zb:
                 # T-1890: the slated cheek a centimetre behind the return's stone, opened round the
                 # recess of the light in it where the recess reaches back past the parapet (1801's,
@@ -2738,7 +2746,8 @@ class Bay:
             flat.face("wall", [flat.P(pier, rt, 0.0), flat.P(pier, y_top, 0.0), flat.P(pier, y_top, 0.01),
                                flat.P(pier, rt, 0.01)], (1.0, 0.0, 0.0))
             # and behind it the slate, hung a centimetre in, out to the cross roof's slated cheek
-            flat.plane("roof", rect(pier, p - zb, rt, y_top), 0.01)
+            # (_gable_behind, which knows where that cheek starts)
+            self.cheek_return = (x, p - pier, rt)
             self.meta["chamfer_return"] = {"back_m": [round(b0, 4), round(b1, 4)], "top_m": round(rt, 4),
                                            "pier_m": round(pier, 4), "run_m": round(s_b, 4)}
         # nothing to trim: the run stands clear of the wall plane's clip, which would cut its back
