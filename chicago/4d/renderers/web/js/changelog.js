@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2883, ts: '2026-11-12T01:07:16.592Z', date: 'Nov 11, 2026, 7:07 PM CT', title: 'Looser linen trousers for the 1812 settler', kind: 'fix',
+    items: [
+      'The settler’s linen trousers now have a fuller seat, with the waistband, front and lower legs kept in place. The fabric keeps its separate layers while walking.',
+    ] },
   { v: 2882, ts: '2026-11-11T17:59:21.153Z', date: 'Nov 11, 2026, 11:59 AM CT', title: 'Prairie Avenue people gain portraits, individual looks and household routines', kind: 'feature',
     items: [
       'Person cards gain verified period portraits, source notes and clearer portrait-search limits.',
