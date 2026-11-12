@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2893, ts: '2026-11-12T14:09:12.177Z', date: 'Nov 12, 2026, 8:09 AM CT', title: '1816 Prairie\'s south side wears its front brick and carved hoods', kind: 'improvement',
+    items: [
+      'The Henderson house\'s south side is now the same red brick as its front, as its old photograph shows, not a paler brick.',
+      'Its front and side windows now have carved crests on their stone hoods, as in the photograph.',
+    ] },
   { v: 2892, ts: '2026-11-12T13:05:04.554Z', date: 'Nov 12, 2026, 7:05 AM CT', title: '2009 Prairie\'s north corner and tall stack brought down to the photograph', kind: 'improvement',
     items: [
       'The Meyer house at 2009 Prairie is half a metre lower at its north corner. Its low top storey now stops where the old photograph shows the side walls ending, just over the paired window\'s hood.',
