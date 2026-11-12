@@ -40,7 +40,7 @@ import * as THREE from 'three';
 import { hairFor, HAIR_COLOURS } from './human-hair-styles.js';
 
 /** Strengths. Pores, lines and mottle are 0..1 multipliers; scatter the glow. */
-export const SKIN = Object.freeze({ pores: 1, lines: 1, mottle: 1, scatter: 1, oil: .14, fuzz: .05, roughness: .55 });
+export const SKIN = Object.freeze({ pores: 1, lines: 1, mottle: 1, scatter: 1, oil: .14, fuzz: .05, roughness: .55, lip_tone: .6 });
 export const HAIR = Object.freeze({ primary: .5, secondary: .45, shift: .12, roughness_floor: .82 });
 export const EYES = Object.freeze({ roughness: .08, sclera_value: .78, cornea_roughness: .1, cornea_sky: 2.5, cornea_radius_m: .0078, corner_shade: .45 });
 
@@ -112,6 +112,9 @@ ${NOISE}
 vec3 chiSkinN0 = vec3( 0.0, 0.0, 1.0 );
 float chiSkinH = 0.0;
 float chiSkinMatte = 0.0;
+float chiSkinLip = 0.0;
+float chiSkinCrease = 0.0;
+uniform float chiSkinLipTone; // how far a lip turns to the skin's hue (T-3553)
 vec3 chiSkinPerturb( vec3 surfPos, vec3 surfNorm, vec2 dHdxy, float faceDir ) {
   vec3 sx = dFdx( surfPos ), sy = dFdy( surfPos );
   vec3 r1 = cross( sy, surfNorm ), r2 = cross( surfNorm, sx );
@@ -131,6 +134,19 @@ const SKIN_COLOR = `
     // Small darker spots, sparse: moles and freckles at a millimetre or two.
     float spot = smoothstep( 0.80, 0.93, chiSkinNoise( p * 420.0 + 7.7 ) ) * clamp( 1.5 - pix * 420.0, 0.0, 1.0 );
     vec3 c = diffuseColor.rgb;
+    // Lips (Kevin, 2026-11-12: "when the sun is behind people their lips have a pink line too
+    // much"): the shared MakeHuman maps paint the lips a saturated pink, far redder than the
+    // skin round them (green over red 0.17 against the skin's 0.43, linear). Found by that
+    // ratio in the map's own colour (the complexion's tint divided out), and turned partway to
+    // the skin's own hue at the lip's own value, so a lip stays a little rosier and darker
+    // than the face but no longer reads as a painted pink line where it catches the sky.
+    {
+      vec3 tex = c / max( diffuse, vec3( 1e-3 ) );
+      chiSkinLip = smoothstep( 0.30, 0.55, 1.0 - tex.g / max( tex.r, 1e-3 ) / 0.43 );
+      vec3 skinHue = vec3( 1.0, 0.435, 0.19 ) * diffuse;
+      vec3 lw = vec3( 0.3, 0.59, 0.11 );
+      c = mix( c, skinHue * ( dot( c, lw ) / max( dot( skinHue, lw ), 1e-4 ) ), chiSkinLip * chiSkinLipTone );
+    }
     c *= 1.0 + chiSkin.z * ( vec3( 0.10, -0.03, -0.05 ) * blood + vec3( -0.06, -0.08, -0.11 ) * tone );
     c *= 1.0 - chiSkin.z * spot * vec3( 0.10, 0.14, 0.17 );
     // Pores: pits about half a millimetre across, a fraction of that deep.
@@ -156,6 +172,13 @@ const SKIN_COLOR = `
       float ax = abs( q.x ), y = q.y, A = chiFaceLook.x;
       float face = step( -1.5, q.z ) * step( abs( y ), 9.0 ) * step( ax, 7.0 );
       float cmPix = pix * 100.0;   // centimetres per pixel
+      // The lips' parting (T-3553): the top of the lower lip faces the sky, and nothing here
+      // knows the upper lip hangs over it, so with the sun behind a person (the face lit by
+      // the sky alone) it was the brightest thing on the face, a thin pink line. Lips in a
+      // band about the mouth's line whose surface turns up are taken as in the crease's shade.
+      vec3 fn = mat3( chiFace ) * cross( dFdx( p ), dFdy( p ) );
+      float up = fn.y / max( length( fn ), 1e-12 );
+      chiSkinCrease = chiSkinLip * face * ( 1.0 - smoothstep( 0.12, 0.4, abs( y - chiFaceMarks.y ) ) ) * smoothstep( 0.3, 0.75, up );
       // The brow's shade: a soft band beneath its hairs, the brow arching to its tail.
       float bt = clamp( ( ax - 1.3 ) / 3.3, 0.0, 1.0 );
       float bMid = 1.72 - 0.55 * bt * bt, bHalf = 0.24 * sqrt( 1.0 - 0.7 * bt * bt );
@@ -213,7 +236,7 @@ const SKIN_COLOR = `
 const SKIN_ROUGHNESS = `
   {
     float oil = smoothstep( 0.35, 0.8, chiSkinNoise( vChiSkinP * 14.0 + 11.3 ) );
-    roughnessFactor = clamp( min( roughnessFactor, chiSkinSheen.z ) - chiSkinSheen.x * oil + chiSkinMatte * 0.1, 0.3, 1.0 );
+    roughnessFactor = clamp( min( roughnessFactor, chiSkinSheen.z ) - chiSkinSheen.x * oil + chiSkinMatte * 0.1 + chiSkinLip * 0.15, 0.3, 1.0 );
   }`;
 const SKIN_NORMAL = `
   chiSkinN0 = normal;
@@ -239,6 +262,12 @@ const SKIN_FUZZ = `
   {
     float chiRim = pow( 1.0 - clamp( abs( dot( normalize( vViewPosition ), chiSkinN0 ) ), 0.0, 1.0 ), 4.0 );
     reflectedLight.indirectDiffuse += diffuseColor.rgb * chiSkinSheen.y * chiRim * 3.0;
+    // The lips' parting in the upper lip's shade (T-3553).
+    float shade = 1.0 - 0.7 * chiSkinCrease;
+    reflectedLight.indirectDiffuse *= shade;
+    reflectedLight.indirectSpecular *= shade;
+    reflectedLight.directDiffuse *= 1.0 - 0.4 * chiSkinCrease;
+    reflectedLight.directSpecular *= 1.0 - 0.6 * chiSkinCrease;
   }`;
 
 const HAIR_DECLARE = `
@@ -329,6 +358,7 @@ function patchSkin(material, rest, look = NO_LOOK) {
     chiSkinRest: { value: rest.clone() },
     chiSkin: { value: new THREE.Vector4(SKIN.pores, SKIN.lines, SKIN.mottle, SKIN.scatter) },
     chiSkinSheen: { value: new THREE.Vector3(SKIN.oil, SKIN.fuzz, SKIN.roughness) },
+    chiSkinLipTone: { value: SKIN.lip_tone },
     chiFace: { value: look.face.clone() },
     chiFaceLook: { value: new THREE.Vector4(look.age, look.brow, 0, 0) },
     chiFaceMarks: { value: new THREE.Vector4(...look.marks) },

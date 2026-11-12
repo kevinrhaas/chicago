@@ -49,6 +49,8 @@ import { hairFor } from './human-hair-styles.js';
 import { dressLooks, dressCloth, looksHairStyle } from './human-looks.js';
 import { dressHat } from './human-hats.js';
 import { dressSpectacles } from './human-spectacles.js';
+import { fitWaist } from './human-waist.js';
+import { engraveSilver } from './human-silver.js';
 import { dressGarrison, garrisonCarry, createArmsPiles } from './human-garrison.js';
 import { clothHuman } from './fabric.js';
 
@@ -145,7 +147,12 @@ export function createHumanAssets({ assetBase, loader = registerKTX2(new GLTFLoa
       decoder ??= loadMeshoptDecoder();
       loader.setMeshoptDecoder(await decoder);
     }
-    return loader.parseAsync(buf, String(new URL('.', href)));
+    const gltf = await loader.parseAsync(buf, String(new URL('.', href)));
+    // T-3553: a belted waist sits on the body, and trade silver is engraved, once per parse,
+    // before any figure is cloned (human-waist.js, human-silver.js).
+    fitWaist(gltf.scene);
+    engraveSilver(gltf.scene);
+    return gltf;
   }
 
   return {
@@ -189,6 +196,47 @@ export function createHumanAssets({ assetBase, loader = registerKTX2(new GLTFLoa
 /** Hit proxy: a figure is picked by an upright box at its rest height, never by its skin. */
 const PROXY_GEOMETRY = new THREE.BoxGeometry(0.6, 1, 0.45).translate(0, 0.5, 0);
 const PROXY_MATERIAL = new THREE.MeshBasicMaterial({ visible: false });
+
+/**
+ * T-3572: FIGURES ARE BUILT IN TURN, NEAREST FIRST, a few milliseconds of building a frame.
+ *
+ * The owner, 2026-11-12, on foot in 1812 by the factor's house and the officers' garden
+ * gate: jumpy frames and slow walking, in the same places every time, gone in flight. A
+ * level's build (its clone, the person's own body, hair, hat and looks) runs on the main
+ * thread, and it ran the moment its GLB was parsed — and one parse serves every wearer of
+ * that source, so the fort's Potawatomi men, or its privates, all built in the same task
+ * when their level's file came in: ten builds of 60 ms are a 600 ms frame. Now each
+ * waits its turn here; a frame runs builds until BUILD_SLICE_MS has gone (always at least
+ * one), the nearest figure first, and the rest wait for the next frame. A walk brings
+ * figures through their bands one at a time instead of a crowd at once.
+ */
+export const BUILD_SLICE_MS = 6;
+const buildQueue = [];
+let buildPumpDue = false;
+function pumpBuilds() {
+  buildPumpDue = false;
+  if (!buildQueue.length) return;
+  buildQueue.sort((a, b) => (a.actor.distance ?? Infinity) - (b.actor.distance ?? Infinity));
+  const t0 = performance.now();
+  do {
+    const job = buildQueue.shift();
+    try { job.resolve(job.run()); } catch (err) { job.reject(err); }
+  } while (buildQueue.length && performance.now() - t0 < BUILD_SLICE_MS);
+  if (buildQueue.length) duePump();
+}
+function duePump() {
+  if (buildPumpDue) return;
+  buildPumpDue = true;
+  // A hidden page draws no frames; its builds go on a timer, which the browser slows.
+  if (typeof requestAnimationFrame === 'function' && !globalThis.document?.hidden) requestAnimationFrame(pumpBuilds);
+  else setTimeout(pumpBuilds, 16);
+}
+/** Run `run()` (one level's build) in this figure's turn; resolves to what it returned. */
+function queueBuild(actor, run) {
+  return new Promise((resolve, reject) => { buildQueue.push({ actor, run, resolve, reject }); duePump(); });
+}
+/** T-3572: how many builds wait for their turn (the console and the walk probe read it). */
+export function pendingBuilds() { return buildQueue.length; }
 
 /**
  * One figure: an instance record (§ 11) bound to its person, drawn from one asset.
@@ -317,7 +365,9 @@ export class HumanActor {
     const assetId = this.instance.appearance.asset_id;
     const job = Promise.all([this.assets.acquire(assetId, lod), this.assets.variation?.() ?? null]).then(async ([gltf, variation]) => {
       if (this.disposed || this.wanted !== lod) { this.assets.release(assetId, lod); return this.body; }
-      const next = this.build(gltf, lod, variation);
+      // T-3572: built in its turn (queueBuild), and not at all if it is no longer wanted then.
+      const next = await queueBuild(this, () => (this.disposed || this.wanted !== lod ? null : this.build(gltf, lod, variation)));
+      if (!next) { this.assets.release(assetId, lod); return this.body; }
       if (this.prepare) {
         // Shadows as the level will be drawn, so the programs compiled are the ones it uses.
         for (const m of [...next.meshes, ...next.extras]) { m.castShadow = this.distance < SHADOW_M && lod <= 1; m.receiveShadow = this.distance < SHADOW_M; }

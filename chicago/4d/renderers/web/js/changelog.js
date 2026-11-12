@@ -1,4 +1,45 @@
 export const CHANGELOG = [ // newest first
+  { v: 2905, ts: '2026-11-12T21:16:32.072Z', date: 'Nov 12, 2026, 3:16 PM CT', title: 'Walking through crowded 1812 no longer stutters', kind: 'fix',
+    items: [
+      'Walking up to the fort or a busy yard no longer freezes the frame as people come into view: each figure is built in its turn, nearest first, and the shared work of fitting clothes to bodies is done once per outfit.',
+      'Walking past a wagon or a driver no longer stalls while the town replans everyone\'s day; that replan is now about seven times faster and gives the same day.',
+    ] },
+  { v: 2904, ts: '2026-11-12T20:45:44.812Z', date: 'Nov 12, 2026, 2:45 PM CT', title: '1721 Prairie\'s old frame house stands behind its brick front', kind: 'feature',
+    items: [
+      'Behind Arthur Little\'s brick front at 1721 Prairie, the rear range is now the 1863 frame house it was: clapboarded walls, a slate gable roof and two tall brick chimneys, as the 1891 Inland Architect plate and the Detroit print of the Pullman house show it.',
+      'Its stone-drab paint and roof pitch are liberties; the part of the frame house the brick front was moved onto in 1902 is not rebuilt.',
+    ] },
+  { v: 2903, ts: '2026-11-12T20:35:42.632Z', date: 'Nov 12, 2026, 2:35 PM CT', title: 'Back doors in 1904 stand in their houses\' walls', kind: 'fix',
+    items: [
+      'Every back door and its steps now sit in the house\'s built rear wall. Before, 56 of 121 stood out in the yard, 1626 Prairie\'s 16 m from its house.',
+      '124 houses have a back door, terrace and walks laid against the wall that is really there.',
+      'A house whose rear has no clear stretch of wall gets no back door rather than one in the wrong place.',
+    ] },
+  { v: 2902, ts: '2026-11-12T19:27:31.583Z', date: 'Nov 12, 2026, 1:27 PM CT', title: '1812 belts sit tight, silver is engraved, and backlit lips calm down', kind: 'fix',
+    items: [
+      'Potawatomi men\'s belts now sit on the shirt or blanket instead of floating round the waist, and the shirt below the waist no longer starts wider than the shirt above it. Belt, shirt and blanket now move together when a man walks or turns.',
+      'Silver arm bands and brooches are engraved, with border lines, a zigzag and punched dots. You only see it up close, and it uses no extra memory.',
+      'Lips in every year are closer to the person\'s own skin tone, and where the lips meet is shaded. A face lit from behind no longer shows a pink line across the mouth.',
+    ] },
+  { v: 2901, ts: '2026-11-12T19:08:56.761Z', date: 'Nov 12, 2026, 1:08 PM CT', title: 'Mute keys on the Navigator, and a quieter lit state', kind: 'feature',
+    items: [
+      'Two keys in the Navigator\'s top bar: Mute all sound and Mute music. A second tap puts back the level you had.',
+      'They move the same levels as Settings › Sound, so a key and its slider always agree.',
+      'Lit controls are calmer on every appearance: a soft tint and outline in the machine\'s own colour instead of a solid fill.',
+      'The arrival\'s speaker no longer glows red when sound is on.',
+    ] },
+  { v: 2900, ts: '2026-11-12T18:53:28.066Z', date: 'Nov 12, 2026, 12:53 PM CT', title: '1904 plays a ten-track ragtime playlist on shuffle', kind: 'change',
+    items: [
+      'Ten new ragtime tracks replace the two 1904 waltzes.',
+      'Music in 1904 starts on a random track and shuffles. Every track plays once before any repeats.',
+      'All ten play at the same loudness, and each streams as a small 1 to 2 MB file.',
+    ] },
+  { v: 2899, ts: '2026-11-12T18:49:28.637Z', date: 'Nov 12, 2026, 12:49 PM CT', title: 'Settings in tabs, with a mouse sensitivity slider', kind: 'feature',
+    items: [
+      'Settings now opens on a row of icon tabs, like a building\'s card: Display, Show, Look, Graphics, Sound, About, What\'s new and Research.',
+      'Look has a new Mouse sensitivity slider (Look sensitivity on a phone, for dragging to look). Standard is the turn you had before.',
+      'What\'s new is one of the last tabs and keeps its unread dot. The Expert research switch has moved to the last tab.',
+    ] },
   { v: 2898, ts: '2026-11-12T18:19:57.163Z', date: 'Nov 12, 2026, 12:19 PM CT', title: 'Meet the Glessner House opens in the owner\'s words', kind: 'polish',
     items: [
       'The tour\'s welcome now says "Let\'s start at the corner" and spells neighbors the American way.',
