@@ -342,11 +342,18 @@ def oak(painted=False):
     broad = gaussian_filter(a, (150, 12), mode="wrap")
     broad /= max(float(broad.std()), 1e-6)
     if painted:
-        rgb = np.array([.160, .230, .195]) + (.0045 * grain + .004 * broad)[..., None]
+        # T-3564 (owner, 2026-11-12, his photographs of 2026-11-10): the loft door
+        # over the coach-house doors, "that green should be what is represented".
+        # The coach-house doors, loft door and the 18th Street sash all wear it: a
+        # sage grey-green, read off the shaded doors and the sash (sRGB about
+        # 104/108/91 under the lintel, 109/127/128 on the loft door in skylight).
+        # It replaces the T-2211 dark green (.160/.230/.195). Reconstructed: the
+        # 1904 paint is not recorded; the owner chose today's colour.
+        rgb = np.array([.380, .440, .375]) + (.0045 * grain + .004 * broad)[..., None]
         h = .000025 * grain
         rough = .46 + .025 * grain
-        note = "Reconstructed muted dark green painted sash and carriage joinery; a thin "
-        note += "smooth coating with restrained grain telegraphing, not a sampled modern finish."
+        note = "Reconstructed sage grey-green painted sash, loft and carriage joinery (the owner's "
+        note += "2026-11-10 photographs); a thin smooth coating with restrained grain telegraphing."
     else:
         rgb = np.array([.380, .275, .165]) + (.014 * grain + .011 * broad)[..., None]
         h = .00006 * grain

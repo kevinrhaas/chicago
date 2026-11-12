@@ -43648,3 +43648,68 @@ or a read bill of sale; a planting account locating the trees rather than merely
 
 **Ticket:** T-3551.
 **Recorded:** 2026-11-11.
+
+### L-glessner-rock-faces-3564 — Glessner's rock-faced granite: three face profiles shared out by rule
+
+**Decision:** the owner, 2026-11-12, on his own close photographs of 2026-11-10 (chicago-evidence
+evidence/glessner-kevin-photos-2026-11-10/, 06 and 07): "they have a carved look, some of them are
+less carved but others pillow out the top 2/3 and then the bottom 1/3 is more sharp ... some are
+smoother ... you dont need every stone to match but match what is going on there". Each stone of
+the existing rock-face lattice takes one of three profiles by a hash of its place: pillowed, ledged
+(a pillow over the upper two-thirds and a sharp lip at the lower third) and smooth.
+**What is invented.** Which stone has which profile, and the shares (about two in five ledged, one
+in five smooth), the chin height and the lean of each pillow. They are read off the photographs as
+an impression, not measured stone by stone. The lattice and its triangle count are unchanged.
+**How to resolve:** a stone-by-stone survey of a wall, or rectified photographs of whole courses.
+**Ticket:** T-3564.
+**Recorded:** 2026-11-12.
+
+### L-glessner-photo-match-3564 — Glessner details matched to the owner's photographs of 2026-11-10
+
+**Decision:** the owner's own photographs of 2026-11-10 (chicago-evidence
+evidence/glessner-kevin-photos-2026-11-10/) and his notes on them set: the front-door tympanum's
+fuller, two-level roll and plant-like scrolled field (01); the green of the north sash (02-05); the
+bronze "35" address plate on the 18th Street entry cheek (08); the alley dormer's boarded hood with
+curved cheeks over a shut green loft door (13-17); the alley gate's framed, painted leaves with
+diagonal boards rising to the meeting stiles, the pier's humped capstone and its guard stone (18-19);
+and the courtyard's south wall standing about 16.5 ft high from the alley to a brick edge about
+36 ft in, where he identifies the Keith house's rear as having reached (19-20).
+**What is invented.** All sizes are read off the photographs against known openings (+/- 0.05 m;
+the tall wall +/- 1 ft in height and +/- 2 ft in where it ends); the carving is modelled to the
+photograph's impression, not measured. The photographs show the surviving fabric: that each detail
+(the plate above all, whose date is not established) stood in 1904 is the owner's ruling, not a
+dated source. Modern signs, ramps, rails, kick plates, vision lights and the iron fences over the
+gate and before the stable are left out.
+**How to resolve:** a dated photograph of any of these details before 1946 confirms or corrects it.
+**Ticket:** T-3564.
+**Recorded:** 2026-11-12.
+
+### L-glessner-coach-doors-3564 — The Glessner coach house's 18th Street doors as the owner ruled them
+
+**Decision:** the owner, 2026-11-12, of his photographs 10-11 of the present doors: "a reasonable
+representation of the 1904 door, note it includes the man door ... and also the main coach house
+door can open", and of the loft door above (12): "that green should be what is represented". Two
+sage-green leaves under a casing, every panel boarded on the diagonal, a man door with a narrow
+fixed panel in the viewer's left leaf, and the loft door shut in the same green.
+**What is invented.** Leaf, stile, rail and man-door sizes, read off the photographs against the
+12-ft doorway (+/- 0.05 m). The glazed upper zone of the earlier owner-supplied view is superseded
+by this ruling. The present doors date from the 1946 replacement HABS records; carrying their
+design to 1904 is the owner's ruling.
+**How to resolve:** a photograph of the doors before 1946.
+**Ticket:** T-3564.
+**Recorded:** 2026-11-12.
+
+### L-glessner-coach-drive-3564 — A carriage drive before the Glessner coach house's 18th Street doors
+
+**Decision:** the owner, 2026-11-12: "a horse and carriage can enter according to normal standards
+of how that would work ... i imagine there would be like a driveway to the coach house as well that
+should exist". Before the carriage doorway (W 134.9-147.0) the walk's paving runs from the lot line
+across the margin, the walk and the parkway at the doorway's 12-ft width, over the curb, and down
+the corner crossings' stone slab onto the roadway (data/street_section/1904.json, carriage_drives).
+**What is invented.** The drive's paving, width and slab: no source read shows it. They follow the
+corner crossings' rule (L-prairie-corner-crossings-3200) so a carriage has a way from the roadway
+to the doors.
+**How to resolve:** a photograph of 18th Street before the stable, such as the c. 1887 view from the
+north-west (cornell_adw_glessner_stable_1887), read for its drive and curb.
+**Ticket:** T-3564.
+**Recorded:** 2026-11-12.

@@ -142,10 +142,15 @@ def _construct(root, *, roof_details_reduced=True):
                 cx,cz=(x0+x1)/2,(y0+y1)/2
                 origin=point((0,0),0);along=d.norm(d.sub(point((1,0),0),origin))
                 up=d.norm(d.sub(point((0,1),0),origin))
+                # T-3564: the full tier's three rock faces, carried by the lean: a
+                # smooth stone leans little, a ledged one leans hard down its foot.
+                face=d.stone_profile(x0,y0,x1,y1) if large and rectangular else 'pillow'
+                lean_u,lean_up,lean_down={'smooth':(.18,.18,.18),'ledge':(.45,.30,.70)}.get(face,(PILLOW_LEAN,)*3)
                 def pillow(q):
                     tu=max(-1.0,min(1.0,(q[0]-cx)/max(.01,(x1-x0)/2)))
                     tz=max(-1.0,min(1.0,(q[1]-cz)/max(.01,(y1-y0)/2)))
-                    return d.norm(tuple(normal[k]+PILLOW_LEAN*(tu*along[k]+tz*up[k]) for k in range(3)))
+                    lz=lean_up if tz>0 else lean_down
+                    return d.norm(tuple(normal[k]+lean_u*tu*along[k]+lz*tz*up[k] for k in range(3)))
             for fragment in d.subtract(polygon,holes or []):
                 parts=getattr(point,'partition',lambda poly,conf,mat:[(poly,point)])(
                     [(*q,depth) for q in fragment],confidence,variant)

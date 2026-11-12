@@ -10,8 +10,107 @@ import math
 import random
 
 
+def viewer_right(o):
+    """+1 when `u` runs to the right of someone facing the wall, else -1."""
+    return 1 if (o['axis']=='x')==(o['sign']>0) else -1
+
+
+def diagonal_boards(b, o, u0, u1, z0, z1, front, spec, reduced=False, rise=None):
+    """T-3564: a panel of boards laid on the diagonal, rising to the viewer's right
+    as in the owner's photographs 10-12, each board a face of its own and the
+    V-joint between them a dark line set back behind it."""
+    from archetypes import masonry_house_v4_detail as v
+    if u1-u0<.02 or z1-z0<.02:
+        return
+    pitch,groove=spec['board_pitch_m'],spec['groove_m']
+    n=v.legacy._plane_dir(o)
+    if reduced:
+        v.slab(b,o,u0,u1,z0,z1,front-.02,front,1.0,v.PAINTED_WOOD)
+        return
+    v.slab(b,o,u0,u1,z0,z1,front-.03,front-.012,1.0,v.DARK_GLASS)
+    k=viewer_right(o) if rise is None else rise
+    # A board between the lines z = k*u + c and z = k*u + c + width (vertical width).
+    span=(u1-u0)+(z1-z0)
+    width=(pitch-groove)*math.sqrt(2)
+    c=(z0-k*u0 if k>0 else z0-k*u1)-span
+    stop=c+2*span+pitch*math.sqrt(2)
+    while c<stop:
+        far=(u1-u0)+1
+        strip=[(u0-far,k*(u0-far)+c),(u1+far,k*(u1+far)+c),(u1+far,k*(u1+far)+c+width),(u0-far,k*(u0-far)+c+width)]
+        piece=v.rect_clip(strip,u0,z0,u1,z1)
+        if piece and v.area(piece)>1e-5:
+            pts=[v.legacy._plane_point(o,u,z,front) for u,z in piece]
+            b.raw(pts,1.0,v.PAINTED_WOOD,n)
+        c+=pitch*math.sqrt(2)
+
+
+def boarded_leaves(b, o, d):
+    """T-3564: the coach-house doors as the owner photographed them and ruled them
+    "a reasonable representation of the 1904 door": two painted leaves under a
+    casing, every panel boarded on the diagonal, and in the leaf on the viewer's
+    left a man door, "that people can go in and out of", with a narrow fixed
+    panel beside it. The modern kick plates, vision light, signs and the ramp's
+    rail and post are left out. Leaf and man-door widths are read off photographs
+    10 and 11 against the 12-ft doorway (+/- 0.05 m); reconstructed."""
+    from archetypes import masonry_house_v4_detail as v
+    a,c,z0,z1=o['u0'],o['u1'],o['z0'],o['z1']
+    reduced=getattr(b,'reduced_sash',False)
+    W=v.PAINTED_WOOD;conf=1.0
+    cas=d['casing_m'];st=d['stile_m'];top=d['top_rail_m'];bot=d['bottom_rail_m'];mid=d['centre_stile_m']
+    # The casing round the doorway, proud of the leaves.
+    for l,r,lo,hi in [(a,a+cas,z0,z1),(c-cas,c,z0,z1),(a,c,z1-cas,z1)]:
+        v.slab(b,o,l,r,lo,hi,-.30,-.205,conf,W)
+    la,lc=a+cas,c-cas;lo,hi=z0+.012,z1-cas
+    centre=(la+lc)/2
+    leaves=((la,centre),(centre,lc))
+    panel_front=-.258
+    k=viewer_right(o)
+    for i,(l,r) in enumerate(leaves):
+        inner_l=l+(st if i==0 else mid/2);inner_r=r-(mid/2 if i==0 else st)
+        # Stiles and rails of the leaf.
+        for sl,sr,sb,stp in [(l,inner_l,lo,hi),(inner_r,r,lo,hi),(inner_l,inner_r,hi-top,hi),(inner_l,inner_r,lo,lo+bot)]:
+            v.slab(b,o,sl,sr,sb,stp,-.30,-.245,conf,W)
+        # The meeting joint between the leaves.
+        if i==0:
+            v.slab(b,o,r-.004,r+.004,lo,hi,-.30,-.25,conf,v.DARK_GLASS)
+        man=d.get('man_door')
+        # The man door hangs in the leaf on the viewer's left: the high-u leaf when
+        # u runs to the viewer's left, the low-u one otherwise.
+        has_man=man and ((i==1)==(k<0))
+        if not has_man:
+            diagonal_boards(b,o,inner_l,inner_r,lo+bot,hi-top,panel_front,d,reduced)
+            continue
+        head=z0+man['head_m'];share=man['width_share'];fr=man['frame_m']
+        span=r-l
+        # Outer edge of the leaf (hinge side of the pair) is the jamb side.
+        if k<0:   # leaf runs from centre (l) to jamb (r); man door against the jamb
+            m_out,m_in=r,r-span*share
+            fix_l,fix_r=inner_l,m_in
+        else:
+            m_out,m_in=l,l+span*share
+            fix_l,fix_r=m_in,inner_r
+        ml,mr=min(m_out,m_in),max(m_out,m_in)
+        # Upper panel of the leaf, over the man door's head.
+        v.slab(b,o,inner_l,inner_r,head,head+.06,-.30,-.245,conf,W)
+        diagonal_boards(b,o,inner_l,inner_r,head+.06,hi-top,panel_front,d,reduced)
+        # The fixed narrow panel beside the man door.
+        diagonal_boards(b,o,fix_l,fix_r,lo+bot,head,panel_front,d,reduced)
+        # The man door: its own frame and boarded panel, outlined by a dark gap.
+        for sl,sr,sb,stp in [(ml,ml+fr,lo,head),(mr-fr,mr,lo,head),(ml,mr,head-fr,head),(ml,mr,lo,lo+bot*.8)]:
+            v.slab(b,o,sl,sr,sb,stp,-.30,-.245,conf,W)
+        diagonal_boards(b,o,ml+fr,mr-fr,lo+bot*.8,head-fr,panel_front,d,reduced)
+        for sl,sr,sb,stp in [(ml-.004,ml+.004,lo,head),(mr-.004,mr+.004,lo,head),(ml,mr,head-.004,head+.004)]:
+            v.slab(b,o,sl,sr,sb,stp,-.30,-.25,conf,v.DARK_GLASS)
+        # Its latch, on the free edge.
+        free=m_in+(.09 if m_in>m_out else -.09)
+        v.slab(b,o,free-.016,free+.016,z0+.98,z0+1.16,-.245,-.205,conf,v.IRON)
+
+
 def carriage_doors(b, o, detail):
     from archetypes import masonry_house_v4_detail as v
+    if detail.get('carriage_leaves'):
+        boarded_leaves(b,o,detail['carriage_leaves'])
+        return
     a,c,z0,z1 = o['u0'],o['u1'],o['z0'],o['z1']
     conf=1.0
     board_top=detail['door_board_top']
@@ -51,6 +150,22 @@ def carriage_doors(b, o, detail):
 def loft_opening(b,o,detail):
     from archetypes import masonry_house_v4_detail as v
     a,c,z0,z1=o['u0'],o['u1'],o['z0'],o['z1'];w=detail['loft_frame']
+    shut=detail.get('loft_door')
+    if shut:
+        # T-3564 (owner, 2026-11-12, photograph 12): the high door over the
+        # carriage doors is shut and painted, "that green should be what is
+        # represented": a casing, a head board and one boarded leaf set back.
+        reduced=getattr(b,'reduced_sash',False)
+        for l,r,lo,hi in [(a,a+w,z0,z1),(c-w,c,z0,z1),(a,c,z0,z0+w),(a,c,z1-w,z1)]:
+            v.slab(b,o,l,r,lo,hi,-.30,-.18,1.0,v.PAINTED_WOOD)
+        hb=shut['head_board_m']
+        v.slab(b,o,a+w,c-w,z1-w-hb,z1-w,-.29,-.20,1.0,v.PAINTED_WOOD)
+        st=shut['stile_m']
+        lo,hi=z0+w,z1-w-hb;l,r=a+w,c-w
+        for sl,sr,sb,stp in [(l,l+st,lo,hi),(r-st,r,lo,hi),(l,r,hi-st,hi),(l,r,lo,lo+st)]:
+            v.slab(b,o,sl,sr,sb,stp,-.29,-.235,1.0,v.PAINTED_WOOD)
+        diagonal_boards(b,o,l+st,r-st,lo+st,hi-st,-.25,shut,reduced)
+        return
     # A loft aperture, not a domestic sash with a meeting rail and linen shade.
     leaves=detail.get('loft_leaves')
     depth=-1.10
@@ -160,3 +275,51 @@ def porch_cheek(b,d,landing):
         poly.append((left+r+r*math.cos(theta),hi-r+r*math.sin(theta)))
     plane={'axis':'y','sign':1,'at':yf}
     v.solid_polygon(b,plane,poly,-d['cheek_depth']-.035,.075,1.0,v.GRANITE)
+    if d.get('cheek_plaque'):
+        cheek_plaque(b,d['cheek_plaque'],plane,left,lo,hi,.075)
+
+
+# Old-style figures for an address plate, as strokes in a unit box (x 0..0.6, y 0..1):
+# each stroke a polyline the plate raises as a narrow fillet.
+def _arc(cx,cy,rx,ry,a0,a1,n=6):
+    return [(cx+rx*math.cos(math.radians(a0+(a1-a0)*i/n)),cy+ry*math.sin(math.radians(a0+(a1-a0)*i/n))) for i in range(n+1)]
+FIGURES={
+    '3':[_arc(.3,.76,.24,.22,150,-90)+_arc(.3,.29,.27,.27,90,-155)],
+    '5':[[(.52,.98),(.12,.98),(.08,.56)],_arc(.3,.31,.27,.29,140,-150)],
+}
+
+
+def cheek_plaque(b,spec,plane,end_u,lo,hi,face):
+    """T-3564: the bronze address plate on the street face of the entry cheek's coping, as
+    the owner photographed it (photograph 8): a small dark plate just in from the rounded
+    end, its raised border and figures. The figures are drawn as raised fillets."""
+    from archetypes import masonry_house_v4_detail as v
+    w,h=spec['width_m'],spec['height_m'];t=spec['thick_m'];relief=spec['relief_m']
+    cu=end_u+spec['from_end_m'];cz=hi-spec['below_top_m']
+    u0,u1,z0,z1=cu-w/2,cu+w/2,cz-h/2,cz+h/2
+    mat=v.IRON
+    v.slab(b,plane,u0,u1,z0,z1,face,face+t,1.0,mat)
+    if getattr(b,'reduced_sash',False):
+        return
+    front=face+t;rim=spec['rim_m']
+    for a,c,lo_,hi_ in ((u0,u1,z1-rim,z1),(u0,u1,z0,z0+rim),(u0,u0+rim,z0+rim,z1-rim),(u1-rim,u1,z0+rim,z1-rim)):
+        v.slab(b,plane,a,c,lo_,hi_,front,front+relief,1.0,mat)
+    text=spec['text'];fh=h*.62;fw=fh*.6;gap=fh*.18;stroke=fh*.11
+    total=len(text)*fw+(len(text)-1)*gap
+    x=cu-total/2;base=cz-fh/2
+    # The plate's u runs to the viewer's right when the plane faces +y with u = x reversed:
+    # draw figures so they read left to right from the street.
+    k=-1 if plane['sign']>0 and plane['axis']=='y' else 1
+    for ch in text:
+        for line in FIGURES[ch]:
+            pts=[(x+fw*px,base+fh*py) for px,py in line]
+            if k<0:
+                pts=[(2*cu-pu,pz) for pu,pz in pts]
+            for (pa,za),(pb,zb) in zip(pts,pts[1:]):
+                du,dz=pb-pa,zb-za;L=math.hypot(du,dz) or 1
+                nu,nz=-dz/L*stroke/2,du/L*stroke/2
+                quad=[(pa-nu,za-nz),(pb-nu,zb-nz),(pb+nu,zb+nz),(pa+nu,za+nz)]
+                if (quad[1][0]-quad[0][0])*(quad[2][1]-quad[0][1])-(quad[1][1]-quad[0][1])*(quad[2][0]-quad[0][0])<0:
+                    quad.reverse()
+                v.solid_polygon(b,plane,quad,front,front+relief,1.0,mat)
+        x+=fw+gap
