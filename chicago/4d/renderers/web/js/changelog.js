@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2890, ts: '2026-11-12T11:30:11.460Z', date: 'Nov 12, 2026, 5:30 AM CT', title: '1815 Prairie\'s cornice on its stone consoles, and its tall south stack', kind: 'improvement',
+    items: [
+      'The Sears house\'s main cornice now stands on a close row of carved stone consoles over a frieze, as both old photographs show, and the row turns the corner along the south side.',
+      'Its tall south chimney stands on the cornice and rises past the slate roof to a corbelled stone head with three clay pots in a row, read off both photographs.',
+      'Still to match: the entrance pavilion\'s width, the door\'s hood and stoop, the rough-stone south wall and the roof\'s cresting.',
+    ] },
   { v: 2889, ts: '2026-11-12T10:23:45.719Z', date: 'Nov 12, 2026, 4:23 AM CT', title: '1936 Prairie\'s south windows get their arched stone heads', kind: 'improvement',
     items: [
       'In 1904, the windows along the south side of the Thompson-Allerton house at 1936 Prairie Avenue are now round-topped, each framed in a carved brownstone arch, as the house\'s photograph shows them. They used to be plain square-topped windows.',
