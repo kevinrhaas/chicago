@@ -43634,3 +43634,19 @@ or a read bill of sale; a planting account locating the trees rather than merely
 
 **Ticket:** T-1789.
 **Recorded:** 2026-11-10.
+
+
+### L-1812-seasonal-audio-3551 — Seasonal nature, recorded hoof contacts and visible woodwork
+
+**Decision:** the owner asked for 1812 nature, dirt/snow hoofbeats and work sounds first, before extending 1904. Separate 1812 seasonal placements in `assets/audio/intake.json` use the actual natural-epoch flora zones and the existing April 15/August 14/October 15/February 15 viewing dates. These are ecological and acoustic reconstructions, not observations on those historical days. The existing 1835 July 1 habitat placements remain unchanged.
+
+**Nature:** spring robin and wetland redwing calls, restrained August redwing/cicada/cricket/katydid phrases, fall robin calls and rare distant prairie coyote nights share one voice and one bounded decoded recording. Winter insects remain silent. Illinois DNR's modern robin account, existing regional fauna research and its cited sources bound species/habitat choices; no 1835 fauna location is imported as an 1812 sighting. Individual callers are distant, fixed offscreen habitat sources, and disappear acoustically when approached or their habitat is no longer eligible. Coyote waits two to four minutes initially and five to ten minutes between phrases; these are sound-design choices, not historical frequencies. Unidentified frog audio remains held. Modern, sometimes nonlocal field recordings retain their original license and source records. Automated decoding is not listening approval.
+
+**Hooves:** two short transients from davilca's CC0 recording of two horses on a dirt road (Freesound 159498) follow the actual loaded 1812 teams' measured walk-clip phases. Source cuts at 3.297–3.425 s and 6.710–6.870 s are waveform-bounded individual-contact proxies; no perceptual identification of isolated horses or literal terrain collision is asserted. The existing renderer's global snow-look amount lowers gain toward 0.55 and low-passes toward 900 Hz. This is a damped dirt recording, not a snow recording or a measurement of snow depth beneath a hoof. Pauses, holds, culling and late observations do not queue catch-up beats. The existing four mechanical voices remain; 1812 adds at most two contact voices, with a 10 MiB decode cap accommodating a measured 8,824,988-byte transient peak and 55,296-byte retained cuts. Other eras retain four mechanical voices and 8 MiB. Seasonal dates extend only the 1812 visible-team bindings, as viewing reconstructions.
+
+**Visible work:** the existing unnamed militia worker's own day record supplies piazza repair from April 7 through August 13 and afternoon packing on August 14. An original generated hammer and wooden packing chest/support, a right-hand nailing action and a modern recorded hammer transient make a bounded reconstruction of those tasks. Neither sources nor schedule attest the individual tool, chest or nail stroke. Work occurs only at the actual dated work spot while the person, tool and accepted contact are visible; there is no sound on generic working states. Winter and fall do not invent the militia worker at an absent date. The CC0 apartment-recorded hammer (Julien_Matthey/Freesound 118341) is a short acoustic proxy with possible room coloration, not an outdoor 1812 recording. Its cut was selected by waveform analysis, not represented as a human audition.
+
+**How to resolve:** replace proxy recordings or contact/mix choices after in-scene listening and visual review; incorporate better species/seasonal evidence or actual activity/tool evidence without changing its confidence grade silently. Keep the same dated visible-source and lifecycle constraints.
+
+**Ticket:** T-3551.
+**Recorded:** 2026-11-11.

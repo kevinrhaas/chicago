@@ -10,7 +10,7 @@ export function mayStartEarly({ nav = globalThis.navigator, transfer = false } =
   return !!transfer;
 }
 export function createSound({ audio = () => null, unlock = null, early = false,
-  settings = () => null, scene = () => '', environment = () => ({}), journey = null,
+  settings = () => null, scene = () => '', environment = () => ({}), workEnvironment = () => ({}), journey = null,
   storage = (() => { try { return globalThis.localStorage; } catch { return null; } })(),
   doc = globalThis.document ?? null, recordings = createRecordedAudio,
   every = (fn, ms) => setInterval(fn, ms), cancelEvery = clearInterval } = {}) {
@@ -32,7 +32,7 @@ export function createSound({ audio = () => null, unlock = null, early = false,
       master = ctx.createGain(); effects = ctx.createGain(); bed = ctx.createGain(); music = ctx.createGain();
       master.gain.value = 0; music.gain.value = 0;
       master.connect(ctx.destination); effects.connect(master); bed.connect(master); music.connect(master);
-      recorded = recordings({ ctx, ambience: bed, effects, music, environment });
+      recorded = recordings({ ctx, ambience: bed, effects, music, environment, workEnvironment });
       ctx.addEventListener?.('statechange', sync);
     }
     active = !!ctx && ctx.state === 'running' && levels.master > 0 && !doc?.hidden && doc?.visibilityState !== 'hidden';
@@ -55,10 +55,19 @@ export function createSound({ audio = () => null, unlock = null, early = false,
   }
   doc?.addEventListener?.('visibilitychange', sync);
   const offJourney = journey?.on?.(sync);
+  const effectsFrameActive = () => !disposed && active && ctx?.state === 'running'
+    && levels.effects > 0 && !doc?.hidden && doc?.visibilityState !== 'hidden'
+    && (!journey || ['exploring', 'inspecting', 'on-jaunt', 'touring'].includes(journey.state));
   if (early && mayStartEarly({ transfer: doc?.documentElement?.dataset?.transfer === 'true' }) && stored().soundMaster > 0) unlock?.();
   sync();
   const timer = every(sync, 250);
   return { sync, apply: sync, setting: key => { if (key == null || /^sound/.test(key)) sync(); },
+    transportFrame({ active: visible = true } = {}) {
+      recorded?.transportFrame?.({ active: visible && effectsFrameActive() });
+    },
+    workFrame({ active: visible = true } = {}) {
+      recorded?.workFrame?.({ active: visible && effectsFrameActive() });
+    },
     // Compatibility with arrival callers; no synthetic replacement is played.
     ticker: () => 0, relay: () => false, land: () => false,
     setSpeechActive: on => recorded?.setSpeechActive(on),

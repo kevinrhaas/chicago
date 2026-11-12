@@ -46,10 +46,13 @@ try{
   assert(await page.evaluate(()=>sound.state.silent&&!sound.state.recorded.playing&&sound.state.recorded.decodedBytes===0));
   await page.evaluate(()=>sound.dispose());
   await page.goto(origin+'/audio/credits.html');await page.waitForSelector('article');
-  await page.selectOption('#era','candidate');assert.equal(await page.locator('article').count(),18);
-  await page.selectOption('#era','habitat');assert.equal(await page.locator('article').count(),3);
-  await page.selectOption('#era','transport');assert.equal(await page.locator('article').count(),2);
+  await page.selectOption('#era','candidate');assert.equal(await page.locator('article').count(),13);
+  await page.selectOption('#era','habitat');assert.equal(await page.locator('article').count(),6);
+  await page.selectOption('#era','transport');assert.equal(await page.locator('article').count(),3);
   assert((await page.locator('article small').allTextContents()).every(t=>t.includes('Moving team')&&t.includes('reconstructed proxy')));
+  await page.selectOption('#era','work'); assert.equal(await page.locator('article').count(),1);
+  assert((await page.locator('article small').innerText()).includes('1812 · Visible work'));
+  await page.selectOption('#era','1812'); assert.equal(await page.locator('article').count(),16);
   assert(!await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth));
   assert.deepEqual(errors,[]);
   console.log(`HOSTED AUDIO BROWSER PASS ${width}px: published modules, real R2 music/decoded wind, era changes, mute cleanup, no candidate autoplay, catalogue layout`);

@@ -106,6 +106,7 @@ const COPIES = [
   ['data/railway/', 'data/railway/'],
   ['data/frontage/', 'data/frontage/'],
   ['data/flora/', 'data/flora/'],
+  ['data/props/', 'assets/props/'],
   ['data/humans/web/', 'assets/humans/web/'],
   ['data/humans/', 'data/humans/'],
   ['data/fauna/', 'data/fauna/'],
@@ -385,6 +386,18 @@ if (existsSync(transportPolicyFile)) {
 
 // The driven layer fetches these at runtime. Checking only existing mirror
 // files would let an entirely omitted data family pass (and the app fetch 404).
+const workConfig = 'data/humans/work_1812.json';
+if (existsSync(path.join(REPO, workConfig))) {
+  const work = JSON.parse(readFileSync(path.join(REPO, workConfig), 'utf8'));
+  if (typeof work.asset !== 'string' || !/^props\/[a-z0-9_-]+\.glb$/.test(work.asset)) {
+    problems.push('The visible work kit must name a generated prop asset.');
+  } else {
+    for (const rel of [workConfig, `data/${work.asset}`]) {
+      if (!existsSync(path.join(SITE, rel))) problems.push(`${rel} is missing from the published visible-work kit.`);
+    }
+    if (!existsSync(path.join(REPO, 'assets', work.asset))) problems.push('The visible work prop source is missing.');
+  }
+}
 const coatRecipe = 'data/transport/horse-coats.json';
 if (existsSync(path.join(REPO, coatRecipe)) && !existsSync(path.join(SITE, coatRecipe))) {
   problems.push(`${coatRecipe} is missing from the published mirror; publish.sh must copy the horse appearance recipe.`);
