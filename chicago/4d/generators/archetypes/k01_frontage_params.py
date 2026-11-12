@@ -1234,8 +1234,21 @@ def _k15_heads(k: dict, stacks: list, chimneys: list, cover) -> None:
                                      f"face and height, and clear of its flues")
                 stg["vent"] = {"width_m": vw, "height_m": vh, "depth_m": vd}
             top = round(top - sh - sct, 4)
-        if sz / max(nfl, 1) < fo + 0.1:
-            raise ParamError(f"chimney at ({u}, {v}): {nfl} flues of {fo} m do not fit its {sz} m face")
+        # T-3561: a stack may be turned (`across: "x"`), its panelled faces the two facing the
+        # flanks and its flues in a row along u (1815's south stack in the Chicagology oblique:
+        # the sunk panels on its south face, the pots in a line back from the street); the
+        # default, "z", faces its panels to the street and rear and rows its flues across v
+        ax = st_.get("across", "z")
+        if ax not in ("z", "x"):
+            raise ParamError(f"chimney at ({u}, {v}): across is 'z' (the default) or 'x'")
+        wd, dp = (sz, sx) if ax == "z" else (sx, sz)
+        # T-3561: and may name its own flue count where its picture draws more pots than the
+        # house's other stacks carry (1815's south stack, its row of pots on the oblique)
+        n_st = int(st_.get("flues", nfl))
+        if not 1 <= n_st <= 8:
+            raise ParamError(f"chimney at ({u}, {v}): flues {n_st}: 1-8")
+        if wd / n_st < fo + 0.1:
+            raise ParamError(f"chimney at ({u}, {v}): {n_st} flues of {fo} m do not fit its {wd} m face")
         spec = {key: copy.deepcopy(x) for key, x in base.items()
                 if key not in ("x", "z", "width_m", "depth_m", "top_m", "flues", "panels") and key not in omit}
         if "corbels" in head_over:
@@ -1244,9 +1257,9 @@ def _k15_heads(k: dict, stacks: list, chimneys: list, cover) -> None:
             spec["cap"] = dict(spec["cap"], **head_over["cap"])
         if stage is not None:
             spec["stage"] = stg
-        spec.update(width_m=sz, depth_m=sx, across="z", top_m=top,
-                    flues=[{"at": round((i + 0.5) * sz / nfl - sz / 2, 4), **({"pot": pot} if pot else {})}
-                           for i in range(nfl)])
+        spec.update(width_m=wd, depth_m=dp, across=ax, top_m=top,
+                    flues=[{"at": round((i + 0.5) * wd / n_st - wd / 2, 4), **({"pot": pot} if pot else {})}
+                           for i in range(n_st)])
         hi = max(cover(u + a * sx / 2, v + b * sz / 2) for a in (-1, 0, 1) for b in (-1, 0, 1))
         y_head = top - spec["cap"]["thickness_m"] - sum(h for h, _ in spec["corbels"])
         if max(y_head - so["band_m"], hi + fl["upstand_m"] + 0.2) > y_head - 0.05:
@@ -1262,8 +1275,8 @@ def _k15_heads(k: dict, stacks: list, chimneys: list, cover) -> None:
             if ph < pn["min_height_m"]:
                 raise ParamError(f"chimney at ({u}, {v}): room for a {ph} m panel, under the {pn['min_height_m']} m "
                                  f"chimneys.k15.panels asks; mark the stack panelled: false")
-            if not 0.1 <= int(pn["count"]) * pn["width_m"] <= sz - 0.2:
-                raise ParamError(f"chimneys.k15.panels.width_m {pn['width_m']}: 0.1 m inside each edge of {sz} m")
+            if not 0.1 <= int(pn["count"]) * pn["width_m"] <= wd - 0.2:
+                raise ParamError(f"chimneys.k15.panels.width_m {pn['width_m']}: 0.1 m inside each edge of {wd} m")
             spec["panels"] = [int(pn["count"]), pn["width_m"], ph, pn["depth_m"], pn["above_roof_m"]]
         c["k15_head"] = spec
         c["cover_high_m"] = round(hi, 4)
