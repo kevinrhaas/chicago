@@ -814,9 +814,10 @@
                   "clear_height_m": 3.1,
                   "sill_m": 2.28,
                   "at": [
-                    0.5
+                    0.3679,
+                    0.6321
                   ],
-                  "why_not_ordinary": "the reception room's half-octagonal stone bay 'having a southern exposure' (Tribune 1869)"
+                  "why_not_ordinary": "the reception room's half-octagonal stone bay 'having a southern exposure' (Tribune 1869); two lights in its front, 1.9 m apart, as the photograph draws a pair to each storey on that face (x 1220-1315 px, T-3370)"
                 }
               ]
             },
@@ -829,17 +830,25 @@
                   "clear_height_m": 2.8,
                   "sill_m": 0.6,
                   "at": [
-                    0.5
+                    0.3679,
+                    0.6321
                   ],
-                  "why_not_ordinary": "the chamber over it, 'with a half-octagonal bay window on the south' (Tribune 1869)"
+                  "why_not_ordinary": "the chamber over it, 'with a half-octagonal bay window on the south' (Tribune 1869); two lights in its front, as the photograph draws them"
                 }
               ]
+            },
+            {
+              "height_m": 2.71,
+              "windows": []
             }
           ],
+          "eaves": {
+            "cornice": "k10.cornice.bracketed_timber"
+          },
           "roof": {
             "kind": "hip",
-            "pitch": 0.3,
-            "covering": "slate_pennsylvania"
+            "pitch": 0.0,
+            "covering": "tin_flat_seam_painted"
           }
         },
         {
