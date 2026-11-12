@@ -1489,6 +1489,12 @@ step "a K01 brick front's door may be cut round-headed under its round lights' a
 step "a canted bay's own mansard may carry dormers on its front run (T-3283)" \
   python3 tools/test_k08_canted_bay_dormers.py
 
+# T-1886. 1816 Prairie's canted bays' lights crested as the front's hoods are (Chicagology's
+# photograph): K09's carved crest on a bay light's lintel, in the front's ranges; refused on a
+# round head, over voussoirs, on a frame bay or past its storey; one per light, on its lintel.
+step "a bay light's lintel may carry the front's carved crest (T-1886)" \
+  python3 tools/test_k08_bay_crest.py
+
 # T-3283. 1945 Prairie's corner block under a mansard about a storey over the rest (the Tribune's
 # 1928 photograph): a crown over a stretch of the street front with no projection under it, cut
 # on a canted corner's line when it runs onto it, carrying its own street and cant dormers; the
