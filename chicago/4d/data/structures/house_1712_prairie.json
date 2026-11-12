@@ -14,7 +14,7 @@
   "note": "The 1911 sheet marks the building 'D' (dwelling): '2\u00bdB brick dwelling (D), stone (blue) front; small frame porch on its south wall'. Carried to 1904 on the T-1840 census ruling (present_as_mapped)."
  },
  "review_required": false,
- "research_note": "T-3187 (piece 1 of T-1872) refines the district draft (T-2334) in place under the same id: the house is rebuilt from the K01 frontage assembly and its kits \u2014 a K02 stone street front, K03 brick side and rear walls, K06 sash, K07 door and stoop, K08 projection, K10 moulded cornice, a K04/K05 hip with a K05 dormer \u2014 instead of the draft builder. What is read: the 1911 Sanborn sheet 20 (storeys '2\u00bdB', brick with a stone front across the whole street face, 'D', the small frame porch on the south wall and the '2B' rear wing with its one-storey frame end) through the T-1840 census, which rules it present in 1904. No photograph, plate or description of the house is known: the one picture the Prairie library files under 1712 (cgn-1712-tribune-1939-kodak-model) is the Chicago Tribune's 1939 photograph of the architects' model of the Eastman Kodak plant built on the 1712-1720 frontage after the house was gone, ruled not a picture of it in data/structure_grades.json. So every elevation is the kits' (liberty L-k01-1712-stone-front-map-led-3187); a later reading that finds a picture replaces the kit's choices here.",
+ "research_note": "T-3187 (piece 1 of T-1872) refines the district draft (T-2334) in place under the same id: the house is rebuilt from the K01 frontage assembly and its kits \u2014 a K02 stone street front, K03 brick side and rear walls, K06 sash, K07 door and stoop, K08 projection, K10 moulded cornice, a K04/K05 hip with a K05 dormer \u2014 instead of the draft builder. What is read: the 1911 Sanborn sheet 20 (storeys '2\u00bdB', brick with a stone front across the whole street face, 'D', the small frame porch on the south wall and the '2B' rear wing with its one-storey frame end) through the T-1840 census, which rules it present in 1904. No photograph, plate or description of the house is known: the one picture the Prairie library files under 1712 (cgn-1712-tribune-1939-kodak-model) is the Chicago Tribune's 1939 photograph of the architects' model of the Eastman Kodak plant built on the 1712-1720 frontage after the house was gone, ruled not a picture of it in data/structure_grades.json. So every elevation is the kits' (liberty L-k01-1712-stone-front-map-led-3187); a later reading that finds a picture replaces the kit's choices here. T-1872 (2026-11-12): a picture of the house IS known after all, the Rand McNally strip of the west side of Prairie Avenue (Bird's-Eye Views and Guide to Chicago, 1893, p. 233), which draws 1712 over its printed number between 1720 and 1702; it is now the house's reference view (data/reference_views/house_1712_prairie/rand_mcnally_1893_p233.json, source rand_mcnally_1893_views_prairie_west_1702_1812). Its front is rebuilt to the drawing: entered in the middle bay under a balcony, every street opening round-headed (paired lights on the principal floor and in the basement, one window a bay upstairs), a high basement, a low slated hip with no street dormer.",
  "phases": [
   {
    "id": "as_mapped_1904",
@@ -75,7 +75,7 @@
      "sources": [
       "sanborn_1911_chicago_v3_sheet_20"
      ],
-     "note": "'2\u00bdB' printed on the 1911 sheet over the front block (T-1840 census s20-1712-f, '2\u00bdB brick dwelling (D), stone (blue) front'): two full storeys of brick and a half storey in the roof, lit by a street dormer. The '2B' printed on the rear piece is the rear wing's (rear_wings); the draft had read that '2B' as the house's and built two storeys under a flat deck."
+     "note": "'2\u00bdB' printed on the 1911 sheet over the front block (T-1840 census s20-1712-f, '2\u00bdB brick dwelling (D), stone (blue) front'): two full storeys of brick and a half storey in the roof, lit by a street dormer. The '2B' printed on the rear piece is the rear wing's (rear_wings); the draft had read that '2B' as the house's and built two storeys under a flat deck. T-1872: the 1893 Rand McNally drawing draws the hip's street slope with no dormer, so the half storey the sheet's '1/2' records is an attic under the hip, not lit from the street; whether a dormer on another slope lit it is not known, and none is built."
     },
     "construction": {
      "value": "brick_with_stone_front",
@@ -86,17 +86,23 @@
      "note": "The sheet colours the house pink (brick) and its street front blue (stone): the census reads 'stone (blue) front'."
     },
     "principal_floor_m": {
-     "value": 1.7,
-     "confidence": "reconstructed",
-     "note": "RECONSTRUCTED: a high stoop (the T-1837 register's brief for 1712: 'foundation and high stoop'), the principal floor 1.7 m over grade on the stone basement with its area lights, as 1726's."
+     "value": 2.3,
+     "confidence": "inferred",
+     "sources": [
+      "rand_mcnally_1893_views_prairie_west_1702_1812"
+     ],
+     "note": "INFERRED from its proportion read off the 1893 Rand McNally strip over '1712' (p. 233, 'Prairie Avenue (Looking North West)'), read through its camera (data/reference_views/house_1712_prairie/rand_mcnally_1893_p233.json): the principal floor's string course is drawn 43 px over the front's foot (y 549 against 592 px), between a fifth and a quarter of the way to the cornice's crown, a high basement; at the camera's 17.92 px/m that is 2.4 m, built at 2.3 m (T-1872; it was 1.7 m, the K01 starting range, before the drawing was read). The drawing gives the proportion, not the size."
     },
     "storey_heights_m": {
      "value": [
-      4.0,
-      3.6
+      3.7,
+      4.7
      ],
-     "confidence": "reconstructed",
-     "note": "RECONSTRUCTED: two storeys inside RECONSTRUCTION-RULES.md's starting ranges, the principal storey the taller; the wall head stands at 9.3 m."
+     "confidence": "inferred",
+     "sources": [
+      "rand_mcnally_1893_views_prairie_west_1702_1812"
+     ],
+     "note": "INFERRED from their proportion read off the 1893 Rand McNally strip over '1712' (p. 233, 'Prairie Avenue (Looking North West)'), read through its camera (data/reference_views/house_1712_prairie/rand_mcnally_1893_p233.json): over the front's foot (y 592 px) the drawing puts the principal floor's string course at y 549 px, the second floor's line at the balcony's foot and the upstairs sills at about y 485 px, and the cornice's crown, K01's wall head, at y 400 px, its brackets hanging to y 420 px: 43, 107 and 192 px, which at the camera's 17.92 px/m are 2.4, 6.0 and 10.7 m. So the principal storey 3.7 m and the second 4.7 m, its windows' crowns about 2 m under the wall head where the drawing's frieze and brackets stand. The proportions are the drawing's; the size is the camera's scale, which no measurement of the house fixes (T-1872; the storeys were 4.0 and 3.6 m, the K01 starting range, before the drawing was read)."
     },
     "wall_thickness_front_m": {
      "value": 0.45,
@@ -132,22 +138,15 @@
      "confidence": "reconstructed",
      "note": "RECONSTRUCTED: the sheet says only stone (blue). K02's smooth Lemont limestone, the light stone of the post-1871 Prairie Avenue fronts, over two rusticated base courses to the area lights' heads; 1634 and 1636 up the block are brownstone, so this front reads light. No picture of the house is known; the stone, its dressing and its courses are the kit's."
     },
-    "street_front_trim": {
-     "value": {
-      "by_storey": [
-       "k09.surround.rowhouse_restrained",
-       "k09.surround.rowhouse_restrained"
-      ]
-     },
-     "confidence": "reconstructed",
-     "note": "RECONSTRUCTED: K09's restrained rowhouse surround round every street window on both storeys, an architrave under a cornice hood on consoles in the dressed stone; chosen so the front does not repeat 1726's plain cornice hoods or 1730's flat lintels. The sheet draws no opening."
-    },
     "wall_head": {
      "value": {
       "cornice": "k10.cornice.bracketed_timber"
      },
      "confidence": "reconstructed",
-     "note": "RECONSTRUCTED: K10's bracketed timber cornice at the eave under the hip (K10's moulded stone cornice stands only under a flat or gable roof); the sheet draws no cornice."
+     "note": "RECONSTRUCTED: K10's bracketed timber cornice at the eave under the hip (K10's moulded stone cornice stands only under a flat or gable roof); the sheet draws no cornice. T-1872: the 1893 Rand McNally drawing draws a bracketed cornice over a plain frieze under the hip, which this kit's bracketed cornice is.",
+     "sources": [
+      "rand_mcnally_1893_views_prairie_west_1702_1812"
+     ]
     },
     "roof_form": {
      "value": "hip",
@@ -155,9 +154,12 @@
      "note": "RECONSTRUCTED: a hip over the main body, its half storey in the roof under a street dormer: the sheet's '\u00bd' puts a storey in the roof, and the sheet draws no dashed curb line inside the walls, the mark that put a mansard on 1730 (T-2934), so a hip and not a mansard. No source reads this roof."
     },
     "roof_pitch_deg": {
-     "value": 38,
+     "value": 25,
      "confidence": "reconstructed",
-     "note": "RECONSTRUCTED: steep enough to hold the half storey the sheet's '\u00bd' records, 1726's pitch."
+     "sources": [
+      "rand_mcnally_1893_views_prairie_west_1702_1812"
+     ],
+     "note": "RECONSTRUCTED: a low hip, as the 1893 Rand McNally strip over '1712' draws it, at 25 degrees, the K01 contract's lowest. The drawing draws the hip's top about 32 px (1.8 m) over the cornice's crown (y 368 against 400 px), which over the 10.65 m front reads as about 20 degrees; a 25-degree hip draws about 0.7 m higher than that even with no recession, and more with the camera's. That gap is open in the view's match record: a hip below 25 degrees needs the K01 contract's ordinary pitch range widened, which is a decision for the component standard, not for one house (T-1872; the pitch was 38 degrees, steep enough for a lit half storey, before the drawing was read)."
     },
     "eave_overhang_m": {
      "value": 0.5,
@@ -171,24 +173,7 @@
       "caps": "copper_ridge_roll"
      },
      "confidence": "reconstructed",
-     "note": "RECONSTRUCTED: painted standing-seam tin on the hip, copper flashings and ridge roll, 1726's."
-    },
-    "dormer": {
-     "value": {
-      "width_m": 1.5,
-      "face_setback_m": 0.3,
-      "face_height_m": 2.1,
-      "face_thickness_m": 0.2,
-      "pitch_deg": 45,
-      "verge_m": 0.15,
-      "sash": {
-       "sill_m": 0.25,
-       "width_m": 0.85,
-       "height_m": 1.5
-      }
-     },
-     "confidence": "reconstructed",
-     "note": "RECONSTRUCTED: one gabled dormer on the street hip, the light of the attic the sheet's '\u00bd' records, so the half storey is seen from the street; 1726's dormer."
+     "note": "RECONSTRUCTED: painted standing-seam tin on the hip, copper flashings and ridge roll, 1726's. T-1872: the 1893 Rand McNally drawing hatches the hip in crossed lines, which reads no material in a line drawing; K04 slates are cut for a 45-degree roof and up, and the drawing's low hip takes the seamed metal, so the tin stays."
     },
     "stair_tread_m": {
      "value": 0.3,
@@ -206,9 +191,12 @@
      "note": "RECONSTRUCTED: the K07 stoop's, as 1634's."
     },
     "entrance_bay": {
-     "value": "south",
-     "confidence": "reconstructed",
-     "note": "RECONSTRUCTED: the door in the south bay of a three-bay front, the side the small frame porch stands on and the side the house's 4.2 m side yard is on; the sheet draws no stoop and no door. The draft rules had it at the south too."
+     "value": "middle",
+     "confidence": "inferred",
+     "sources": [
+      "rand_mcnally_1893_views_prairie_west_1702_1812"
+     ],
+     "note": "The door in the middle bay of the three, as the 1893 Rand McNally strip over '1712' (p. 233, 'Prairie Avenue (Looking North West)'), read through its camera (data/reference_views/house_1712_prairie/rand_mcnally_1893_p233.json) draws it: a round-headed door at the head of a stoop between the two pairs of principal-floor lights, under a balcony (T-1872; the kits had put it in the south bay before any picture of the house was known)."
     },
     "front_bays": {
      "value": [
@@ -216,8 +204,12 @@
       5.325,
       8.7
      ],
-     "confidence": "reconstructed",
-     "note": "RECONSTRUCTED: three bays across the 10.65 m front, south to north: the door with a window a storey over it, and two windows a storey; the sheet draws a flat front, with no bay."
+     "confidence": "inferred",
+     "sources": [
+      "rand_mcnally_1893_views_prairie_west_1702_1812",
+      "sanborn_1911_chicago_v3_sheet_20"
+     ],
+     "note": "Three bays across the 10.65 m front (the 1911 sheet's), south to north: a pair of lights, the door, a pair of lights on the principal floor, one window a bay upstairs. The 1893 Rand McNally strip over '1712' (p. 233, 'Prairie Avenue (Looking North West)'), read through its camera (data/reference_views/house_1712_prairie/rand_mcnally_1893_p233.json) centres the principal floor's pairs and door at x 1868, 1910 and 1948 px, 1.96, 5.54 and 8.78 m along the front at its 11.74 px/m; these bays put them at x 1868, 1907 and 1947 px. The upstairs windows are drawn about 0.7 m (south) and 0.35 m (north) in from the outer bays' centres; they are built over the bays, the drawing's placing at a guidebook's accuracy (T-1872)."
     },
     "side_bays": {
      "value": [
@@ -256,25 +248,25 @@
      "confidence": "reconstructed",
      "note": "RECONSTRUCTED: the K01 proof's two-storey sash, the principal storey's the taller, as 1726's."
     },
-    "basement_lights": {
-     "value": {
-      "sill_m": 0.35,
-      "width_m": 0.9,
-      "height_m": 0.65
-     },
-     "confidence": "reconstructed",
-     "note": "RECONSTRUCTED: area lights in the stone basement under the principal windows, 0.65 m high so two rusticated base courses and the coping reach their heads, as 1634's."
-    },
     "window_kit": {
      "value": {
       "k01.opening.sash_flat": "k06.opening.sash_2over2_flat",
       "k01.opening.area_light": {
        "variant": "k06.opening.area_light",
        "well": false
+      },
+      "k01.opening.arched_principal": "k06.opening.sash_paired_round",
+      "k01.opening.arched_upper": "k06.opening.sash_round_fanlight",
+      "k01.opening.arched_basement": {
+       "variant": "k06.opening.basement_round",
+       "well": false
       }
      },
-     "confidence": "reconstructed",
-     "note": "RECONSTRUCTED: K06 two-over-two double-hung sash in every wall; the basement lights the kit's area light. The kit's commonest forms, not a reading of this house."
+     "confidence": "inferred",
+     "sources": [
+      "rand_mcnally_1893_views_prairie_west_1702_1812"
+     ],
+     "note": "The street front's sash round-headed, as the 1893 Rand McNally strip over '1712' (p. 233, 'Prairie Avenue (Looking North West)'), read through its camera (data/reference_views/house_1712_prairie/rand_mcnally_1893_p233.json) draws them: K06's paired round-headed sash in the principal floor's outer bays, its single round-headed sash in each upstairs bay, its round-headed basement light in pairs under the outer bays (no area well: the drawing draws the basement lights in the front's face over the lawn). The side and rear walls keep the kit's two-over-two flat sash, which no picture shows (T-1872)."
     },
     "chimneys": {
      "value": {
@@ -289,15 +281,11 @@
        {
         "u_m": 3.6,
         "v_m": 9.9
-       },
-       {
-        "u_m": 8.6,
-        "v_m": 9.9
        }
       ]
      },
      "confidence": "reconstructed",
-     "note": "RECONSTRUCTED: two brick stacks in the north wall, the side close to 1708, over the walls between front, middle and back rooms; the sheet draws no flue."
+     "note": "RECONSTRUCTED: two brick stacks in the north wall, the side close to 1708, over the walls between front, middle and back rooms; the sheet draws no flue. T-1872: the 1893 Rand McNally drawing draws one tall stack rising behind the front near its north end (x 1928-1942 px), where this camera draws the rear stack in the north wall (x 1925-1937 px); the front one, which the camera would draw at x 1940-1952 px beside it, is not drawn, so one stack is built. That this house had one stack is the drawing's word at a guidebook's accuracy; the flues of its other rooms are not known."
     },
     "rainwater": {
      "value": {
@@ -330,12 +318,30 @@
     "entrance_kit": {
      "value": {
       "k01.opening.door_leaf": {
-       "variant": "k07.entrance.panel_door_stoop",
-       "front_yard_m": 8.96
+       "variant": "k07.entrance.double_door_deep_arch",
+       "front_yard_m": 8.96,
+       "cheeks": false,
+       "arch": {
+        "ring_m": 0.3,
+        "keystone_top_m": 5.45,
+        "keystone_m": [
+         0.22,
+         0.32
+        ]
+       },
+       "opening_m": [
+        1.3,
+        2.7
+       ],
+       "reveal_depth_m": 0.3
       }
      },
-     "confidence": "reconstructed",
-     "note": "RECONSTRUCTED: K07's panelled door at the head of a straight stoop, a high one (the principal floor at 1.7 m); the front wall stands 8.96 m from the draft's street line, the sheet's 8.96 m."
+     "confidence": "inferred",
+     "sources": [
+      "rand_mcnally_1893_views_prairie_west_1702_1812",
+      "sanborn_1911_chicago_v3_sheet_20"
+     ],
+     "note": "K07's round-headed entrance at the head of a straight stoop in the middle bay, its opening 1.3 m across (the drawing's door, about 15 px, 1.3 m, at the front's 11.74 px/m) and its head round under a voussoir ring like the windows' either side, the stoop open-sided with a rail each side and no stone cheeks, as the 1893 Rand McNally strip over '1712' (p. 233, 'Prairie Avenue (Looking North West)'), read through its camera (data/reference_views/house_1712_prairie/rand_mcnally_1893_p233.json) draws it (T-1872). The front wall stands 8.96 m from the draft's street line, the sheet's 8.96 m; the doors' leaves, panels, the reveal and the stoop's tread are the kit's."
     },
     "bays": {
      "value": [
@@ -521,6 +527,135 @@
       "sanborn_1911_chicago_v3_sheet_20"
      ],
      "note": "T-3205 (the owner, 2026-10-27: walks, gates and boundaries to the pictures). The walk in flags from the stair's foot through the coping's cut to the public walk, 1.5 m wide, and the lawn either side. RECONSTRUCTED: the walk's flags, their width and wear, the lawn and its bare strip are the K14 kit's (data/components/prairie_1904/k14_condition.json) aged from the phase's own year, as the kit's rule is; liberty L-k14-walks-1700-block-3205. No turf is laid (lawn 'none'): the yard's grass is the app's own ground, as at 1720, which keeps the turf sheet (about 180 KB a house) out of the published tree, then at its 416 MB budget."
+    },
+    "street_front_openings": {
+     "value": {
+      "rows": [
+       {
+        "component": "k01.opening.arched_basement",
+        "bays": [
+         0,
+         2
+        ],
+        "sill_m": 0.4,
+        "width_m": 0.7,
+        "height_m": 1.25,
+        "pair_pier_m": 0.3,
+        "arch_ring_m": 0.2,
+        "keystone_top_m": 1.9,
+        "keystone_m": [
+         0.18,
+         0.24
+        ]
+       },
+       {
+        "component": "k01.opening.arched_principal",
+        "bays": [
+         0,
+         2
+        ],
+        "storey": 0,
+        "sill_above_floor_m": 0.25,
+        "width_m": 1.9,
+        "height_m": 2.3,
+        "arch_ring_m": 0.3,
+        "keystone_top_m": 5.2,
+        "keystone_m": [
+         0.22,
+         0.32
+        ]
+       },
+       {
+        "component": "k01.opening.arched_upper",
+        "bays": [
+         0
+        ],
+        "storey": 1,
+        "sill_above_floor_m": 0.3,
+        "width_m": 1.1,
+        "height_m": 2.4,
+        "arch_ring_m": 0.25,
+        "keystone_top_m": 9.05,
+        "keystone_m": [
+         0.2,
+         0.3
+        ],
+        "offset_m": 0.5
+       },
+       {
+        "component": "k01.opening.arched_upper",
+        "bays": [
+         1
+        ],
+        "storey": 1,
+        "sill_above_floor_m": 0.3,
+        "width_m": 1.1,
+        "height_m": 2.4,
+        "arch_ring_m": 0.25,
+        "keystone_top_m": 9.05,
+        "keystone_m": [
+         0.2,
+         0.3
+        ]
+       },
+       {
+        "component": "k01.opening.arched_upper",
+        "bays": [
+         2
+        ],
+        "storey": 1,
+        "sill_above_floor_m": 0.3,
+        "width_m": 1.1,
+        "height_m": 2.4,
+        "arch_ring_m": 0.25,
+        "keystone_top_m": 9.05,
+        "keystone_m": [
+         0.2,
+         0.3
+        ],
+        "offset_m": -0.35
+       }
+      ]
+     },
+     "confidence": "inferred",
+     "sources": [
+      "rand_mcnally_1893_views_prairie_west_1702_1812"
+     ],
+     "note": "Every street opening round-headed, as the 1893 Rand McNally strip over '1712' (p. 233, 'Prairie Avenue (Looking North West)'), read through its camera (data/reference_views/house_1712_prairie/rand_mcnally_1893_p233.json) draws them. Basement: a pair of round-headed lights under each outer bay (drawn y 562-585 px, about 0.4 to 1.65 m over grade, each about 9 px, 0.75 m, across). Principal floor: in each outer bay a pair of round-headed lights under one arched head (drawn sills at the string course, y 546 px, crowns y 507 px; the pair about 22 px, 1.9 m, across), here K06's paired round sash 2.55 to 4.85 m over grade. Second storey: one round-arched window in each bay under its own arched head, the outer two drawn in toward the middle (their glass centred at x 1875 and 1942 px against the principal floor's pairs at 1868 and 1948 px), so set 0.5 m north of the south bay's centre and 0.35 m south of the north bay's (sills y 480 px, crowns y 437 px, about 15 px, 1.1-1.3 m, across), here 6.3 to 8.7 m over grade. The arched heads are laid as voussoir rings with a short key, the K02 stone front's way of building them; the drawing draws an arched hood over each and no key, so the keys are kept short. Sizes are the drawing's at the camera's two scales, a guidebook drawing's accuracy (T-1872)."
+    },
+    "street_front_dress": {
+     "value": {
+      "stoop_rails": {
+       "kit": "k11.rail.stoop_rail",
+       "scroll_m": 0.22
+      },
+      "base_top_m": 0.75
+     },
+     "confidence": "inferred",
+     "sources": [
+      "rand_mcnally_1893_views_prairie_west_1702_1812"
+     ],
+     "note": "The stoop's two rails, as the 1893 Rand McNally strip over '1712' (p. 233, 'Prairie Avenue (Looking North West)'), read through its camera (data/reference_views/house_1712_prairie/rand_mcnally_1893_p233.json) draws them, each a K11 stoop rail; their pattern is the kit's (T-1872). The rusticated plinth's top at 0.75 m, two courses under the coping, is the kit's (the stone front's rusticated base courses, covered by the house's liberty): the drawing draws the basement's face plain up to the string course."
+    },
+    "street_front_iron": {
+     "value": {
+      "balconettes": [
+       {
+        "from_s_m": 4.0,
+        "to_s_m": 6.65,
+        "floor_m": 5.25,
+        "proud_m": 0.75,
+        "height_m": 0.9,
+        "slab_m": 0.2,
+        "consoles": 2
+       }
+      ]
+     },
+     "confidence": "inferred",
+     "sources": [
+      "rand_mcnally_1893_views_prairie_west_1702_1812"
+     ],
+     "note": "The balcony over the door, as the 1893 Rand McNally strip over '1712' draws it: a railed balcony across the middle bay standing on the hood over the door, its rail drawn from y 497 to y 482 px (about 5.3 to 6.1 m over grade), its top at the second storey's middle sill. Built as a stone slab on two consoles with an iron guard under that sill; the drawing shows a railing and not what it was made of, so the guard's iron and its pattern are the kit's (T-1872)."
     }
    }
   }

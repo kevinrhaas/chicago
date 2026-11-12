@@ -1,0 +1,93 @@
+{
+  "structure_id": "house_1712_prairie",
+  "view": "rand_mcnally_1893_p233",
+  "glb": "assets/gltf/house_1712_prairie__as_mapped_1904.glb",
+  "glb_sha256": "b3604722ff2cae623e85f304f75e38561c591fd91518eeef3d0695f3f3a485ed",
+  "camera_sha256": "35513a2b03f8744d461a9a973498d0ccf76b166169561625397bbd92dc3beabe",
+  "photo_sha256": "adf8c46b8b3fc3d5515f955a66591245d6b8fff568335a0c5842df367be7c5c4",
+  "side_by_side": "docs/RESEARCH/photo-match/house_1712_prairie/rand_mcnally_1893_p233-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "massing: a flat three-bay front of two storeys over a high basement, its south face showing past its south corner",
+      "status": "fixed",
+      "how": "T-1872: the 1911 sheet's 10.65 m front at the camera's 11.74 px/m (x 1845-1970 px in both), its heights from the drawing's proportions: the principal floor's string course at y 549 px in the drawing and 551 in the render, the cornice's crown at y 400 and about 404"
+    },
+    {
+      "what": "the door in the middle bay, round-headed, at the head of a stoop running straight out to the walk",
+      "status": "fixed",
+      "how": "T-1872: was in the south bay, flat-headed; now K07's round-headed entrance under a voussoir ring in the middle bay, its crown at y 503-505 px in both, the stoop straight out from it"
+    },
+    {
+      "what": "the stoop's two rails",
+      "status": "fixed",
+      "how": "T-1872: K11 stoop rails each side of an open stoop (no stone cheeks), as drawn"
+    },
+    {
+      "what": "the principal floor's outer bays: a pair of round-headed lights under one arched head",
+      "status": "fixed",
+      "how": "T-1872: was one flat-headed sash in a K09 surround; now K06's paired round-headed sash under a voussoir ring, sills y 546 and 545 px, crowns y 507 in both"
+    },
+    {
+      "what": "the basement: a pair of round-headed lights under each outer bay",
+      "status": "fixed",
+      "how": "T-1872: was one square area light; now a pair of K06 round-headed basement lights, y 562-585 px in the drawing and 562-583 in the render"
+    },
+    {
+      "what": "the second storey: three round-arched windows, one a bay, the outer two drawn in toward the middle",
+      "status": "fixed",
+      "how": "T-1872: was three flat-headed sash; now K06 single round-headed sash, crowns y 437 and sills y 480 px in both, the outer two set 0.5 m and 0.35 m in, their glass at x 1868-1880 and 1937-1948 px in the render against 1866-1881 and 1935-1950 in the drawing"
+    },
+    {
+      "what": "the balcony over the door, its rail under the second storey's middle window",
+      "status": "fixed",
+      "how": "T-1872: was missing; now a stone slab on two consoles with an iron guard across the middle bay, its rail y 483-500 px in the render against 482-497 in the drawing"
+    },
+    {
+      "what": "the bracketed cornice over a plain frieze, its crown about 2 m over the upstairs windows' crowns",
+      "status": "fixed",
+      "how": "T-1872: the K10 bracketed timber cornice, its brackets hanging to y 418 px in the render and 420 in the drawing, once the second storey was raised to the drawing's proportion (the cornice had stood about 1 m low)"
+    },
+    {
+      "what": "no dormer on the hip's street slope",
+      "status": "fixed",
+      "how": "T-1872: the K05 street dormer is removed; the sheet's half storey is an attic under the hip"
+    },
+    {
+      "what": "one tall stack rising behind the front near its north end",
+      "status": "fixed",
+      "how": "T-1872: was two stacks in the north wall; the front one is removed, and the rear one draws at x 1925-1937 px against the drawing's 1927-1945"
+    },
+    {
+      "what": "the hip's height: the drawing draws the roof's top about 1.8 m over the cornice's crown (y 368 against 400 px), the render about 3.8 m (y 332); the stack's top follows it, about 1.8 m higher than drawn (y 310 against 342 px)",
+      "status": "open",
+      "how": "T-1872: the hip is at 25 degrees, the K01 contract's lowest for an ordinary roof; the drawing's roof reads as about 20 degrees, which the contract refuses (k01_contract.json roof pitch_deg ranges.ordinary [25, 45]). Closing it needs that range widened for a low Italianate hip, a decision for the component standard"
+    },
+    {
+      "what": "the bracketed cornice's projection and the frieze's depth",
+      "status": "within tolerance",
+      "how": "the drawing's crown stands at about the render's (y 400 against 404 px, 0.2 m) and its brackets end where the render's do; their exact profile is K10's"
+    },
+    {
+      "what": "the arched heads drawn as dark hood moulds without keystones; the render lays voussoir rings with short keys",
+      "status": "within tolerance",
+      "how": "the rings run round each head where the drawing's hoods do; the keys are 0.2-0.3 m wide, 2-3 px at the drawing's scale"
+    },
+    {
+      "what": "the drawing hatches the south part of the upper front",
+      "status": "within tolerance",
+      "how": "a cast shadow or the artist's shading across the lit front, not a recess: the front's face runs straight across it at every storey below"
+    },
+    {
+      "what": "material and colour: the stone front, the brick flanks, the tin roof",
+      "status": "not shown",
+      "how": "a line drawing"
+    },
+    {
+      "what": "the south face's openings, the frame porch on the south wall, the rear and the rear wing",
+      "status": "not shown",
+      "how": "hidden by 1720 and its trees, or behind the front"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}
