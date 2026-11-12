@@ -94,7 +94,16 @@ for (const marker of ['chiSkinH = - chiSkin.x * pore', 'roughnessFactor = clamp(
 // The wrapper must follow three's own definition, and the normal step the begin step.
 assert(s.fragmentShader.indexOf('#include <lights_physical_pars_fragment>') < s.fragmentShader.indexOf('void chiSkinDirect('));
 assert(s.vertexShader.includes('vChiSkinP = ( chiSkinRest * vec4( position, 1.0 ) ).xyz;'));
-assert.deepEqual(Object.keys(s.uniforms).sort(), ['chiBrowTint', 'chiFace', 'chiFaceLook', 'chiFaceMarks', 'chiSkin', 'chiSkinRest', 'chiSkinSheen']);
+assert.deepEqual(Object.keys(s.uniforms).sort(), ['chiBrowTint', 'chiFace', 'chiFaceLook', 'chiFaceMarks', 'chiSkin', 'chiSkinLipTone', 'chiSkinRest', 'chiSkinSheen']);
+// T-3553 (Kevin, 2026-11-12: "when the sun is behind people their lips have a pink line too much"):
+// lips found in the map's own colour (the complexion divided out) and turned partway to the skin's
+// hue; the parting shaded in the light step. Every skin, every period: one program.
+assert(SKIN.lip_tone > 0 && SKIN.lip_tone < 1, 'a lip keeps some of its own colour');
+assert.equal(s.uniforms.chiSkinLipTone.value, SKIN.lip_tone);
+for (const marker of ['vec3 tex = c / max( diffuse, vec3( 1e-3 ) );', 'chiSkinLip = smoothstep(', 'chiSkinLip * chiSkinLipTone',
+  'chiSkinCrease = chiSkinLip * face', 'reflectedLight.indirectDiffuse *= shade;'])
+  assert.equal(s.fragmentShader.split(marker).length, 2, `lips spliced once: ${marker}`);
+assert(s.fragmentShader.indexOf('chiSkinLip = smoothstep(') < s.fragmentShader.indexOf('chiSkinCrease = chiSkinLip'), 'the lip is found before its parting is shaded');
 // T-3493: a face's look is uniforms; a body with no face frame draws no age and no brow shade.
 assert.deepEqual(s.uniforms.chiFaceLook.value.toArray(), [0, 0, 0, 0]);
 for (const marker of ['float ageH = 0.0;', 'c = mix( c, c * chiBrowTint,', 'chiSkinH = - chiSkin.x * pore * 0.000035 - chiSkin.y * lines * 0.00002 + grain * 0.00007 + ageH;'])
