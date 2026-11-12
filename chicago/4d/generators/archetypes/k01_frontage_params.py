@@ -5010,6 +5010,14 @@ WING_HOST_MIN_M = 1.0
 WING_FABRICS = ("brick", "frame")
 #: T-2417: a frame wing's wall, studs and boards, for its windows' reveals (a brick wing takes the side walls')
 FRAME_WALL_M = 0.15
+#: T-3566: a frame wing's lapped clapboards (`rear_wings[].clapboard`): the exposure of each
+#: board, how far its butt stands proud of the one above, the corner boards' width, and the
+#: paint they wear (linear RGB) — 1721's 1863 frame house behind Little's brick front, the
+#: clapboards the 1891 Inland Architect plate draws on its north side
+CLAPBOARD_KEYS = {"exposure_m", "butt_m", "corner_m", "paint"}
+CLAPBOARD_EXPOSURE_M = (0.08, 0.2)
+CLAPBOARD_BUTT_M = (0.008, 0.03)
+CLAPBOARD_CORNER_M = (0.08, 0.25)
 
 
 def wing_walls(w: dict) -> dict:
@@ -5313,6 +5321,21 @@ def _rear_wings(entries, depth, width, openings, cw, ch, structure_id: str, ston
         if fabric not in WING_FABRICS:
             raise ParamError(f"rear_wings: {wid} is {fabric!r}; a K01 wing is laid in the K03 brick "
                              f"or framed in painted timber ({', '.join(WING_FABRICS)})")
+        cb = e.get("clapboard")
+        if cb is not None:
+            if fabric != "frame" or not isinstance(cb, dict) or set(cb) != CLAPBOARD_KEYS:
+                raise ParamError(f"rear_wings: {wid}'s clapboard is a frame wing's, and takes "
+                                 f"{', '.join(sorted(CLAPBOARD_KEYS))}")
+            ex, bt, cr = (float(cb[k]) for k in ("exposure_m", "butt_m", "corner_m"))
+            paint = tuple(float(x) for x in cb["paint"])
+            if not (CLAPBOARD_EXPOSURE_M[0] <= ex <= CLAPBOARD_EXPOSURE_M[1]
+                    and CLAPBOARD_BUTT_M[0] <= bt <= CLAPBOARD_BUTT_M[1]
+                    and CLAPBOARD_CORNER_M[0] <= cr <= CLAPBOARD_CORNER_M[1]
+                    and len(paint) == 3 and all(0.0 <= c <= 1.0 for c in paint)):
+                raise ParamError(f"rear_wings: {wid}'s clapboard: boards {CLAPBOARD_EXPOSURE_M} m to the "
+                                 f"weather, butts {CLAPBOARD_BUTT_M} m proud, corner boards {CLAPBOARD_CORNER_M} m "
+                                 f"wide, a linear RGB paint in 0-1")
+            cb = {"exposure_m": ex, "butt_m": bt, "corner_m": cr, "paint": paint}
         if abs(u1) < 1e-9:
             host, hv0, hv1, hwall = None, 0.0, width, "k01.wall.rear_service"
         else:
@@ -5503,6 +5526,7 @@ def _rear_wings(entries, depth, width, openings, cw, ch, structure_id: str, ston
                 "floors_m": tuple(floors), "top_m": top, "deck_m": deck, "overhang_m": ov, "fascia_m": fas,
                 "host_v_m": (hv0, hv1), "openings": tuple(ops), "roof": pitched or {"kind": "flat"},
                 **({"cornice": True} if cornice else {}),
+                **({"clapboard": cb} if cb else {}),
                 **({"past_host": past} if past else {})}
         stacks = _wing_stacks(wing, e.get("stacks"), stone)
         if stacks:
@@ -5512,6 +5536,9 @@ def _rear_wings(entries, depth, width, openings, cw, ch, structure_id: str, ston
                 raise ParamError(f"rear_wings: {wid}'s dressings are stone laid in a brick wing's walls")
             wing["dressings"] = _wing_dressings(wid, e["dressings"], walls, ops, top)
         out.append(wing)
+    paints = {w["clapboard"]["paint"] for w in out if w.get("clapboard")}
+    if len(paints) > 1:
+        raise ParamError("rear_wings: a K01 house's clapboarded wings wear one paint (the assembly's wing_clapboard)")
     slates = {w["roof"]["covering"] for w in out if w["roof"]["kind"] != "flat"}
     if len(slates) > 1:
         raise ParamError(f"rear_wings: the wings are slated in {', '.join(sorted(slates))}; a K01 house's "
