@@ -55,7 +55,23 @@
         "as_enumerated": "Longini, Abraham",
         "relation_as_enumerated": "Head"
       },
-      "note": "The 1900 census lists Abraham Longini here as head, born February 1847, in France, came to the United States in 1865, married, wholesale clothing (ED 36, sheet 2B, line 55, leaf n668)."
+      "note": "The 1900 census lists Abraham Longini here as head, born February 1847, in France, came to the United States in 1865, married, wholesale clothing (ED 36, sheet 2B, line 55, leaf n668).",
+      "born": {
+        "value": "1847",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The existing census transcription gives born February 1847. The year is carried into the age shown on this card."
+      },
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_longini_mrs_a",
@@ -75,7 +91,23 @@
         "as_enumerated": "Longini, Rose",
         "relation_as_enumerated": "Wife"
       },
-      "note": "The 1900 census lists Rose Longini here as wife, born July 1860, in Illinois, married (ED 36, sheet 2B, line 56, leaf n668)."
+      "note": "The 1900 census lists Rose Longini here as wife, born July 1860, in Illinois, married (ED 36, sheet 2B, line 56, leaf n668).",
+      "born": {
+        "value": "1860",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The existing census transcription gives born July 1860. The year is carried into the age shown on this card."
+      },
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_longini_daughter",
@@ -88,7 +120,15 @@
         "census_1910_chicago_t624_roll241"
       ],
       "printed_as": "1626 Mr. & Mrs. A. Longini & dr.",
-      "note": "The Blue Book prints '& dr.' after the household's name: an unmarried daughter at home, not named. 'Miss Longini' is the book's own form of address, not a recorded name. The 1900 census lists the unmarried daughter at home as Adele Longini (born March 1880, in Illinois, single; ED 36, sheet 2B, line 57, leaf n668). She is very likely the one the book means, but the book does not say. The 1910 census lists Adele L. Stix, 30, at 1626 as the widowed Rose Longini's daughter, married six years to Solomon H. Stix (ED 166, sheet 5A, lines 45-49): very likely the daughter at home in 1904, married soon after."
+      "note": "The Blue Book prints '& dr.' after the household's name: an unmarried daughter at home, not named. 'Miss Longini' is the book's own form of address, not a recorded name. The 1900 census lists the unmarried daughter at home as Adele Longini (born March 1880, in Illinois, single; ED 36, sheet 2B, line 57, leaf n668). She is very likely the one the book means, but the book does not say. The 1910 census lists Adele L. Stix, 30, at 1626 as the widowed Rose Longini's daughter, married six years to Solomon H. Stix (ED 166, sheet 5A, lines 45-49): very likely the daughter at home in 1904, married soon after.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_longini_a_c1900_jerome_b_longini",
@@ -121,7 +161,15 @@
         "as_enumerated": "Longini, Jerome B",
         "relation_as_enumerated": "Son"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a son of the head (asst. cr. clerk); born October 1882, in Illinois, single. The 1904 Blue Book names no children, so a child at home in 1900 is placed here in 1904 by inference."
+      "note": "Enumerated on 1 June 1900 in the house, as a son of the head (asst. cr. clerk); born October 1882, in Illinois, single. The 1904 Blue Book names no children, so a child at home in 1900 is placed here in 1904 by inference.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_longini_a_c1900_marcel_longini",
@@ -146,7 +194,15 @@
         "as_enumerated": "Longini, Marcel",
         "relation_as_enumerated": "Son"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a son of the head; born January 1890, in Illinois. The 1904 Blue Book names no children, so a child at home in 1900 is placed here in 1904 by inference."
+      "note": "Enumerated on 1 June 1900 in the house, as a son of the head; born January 1890, in Illinois. The 1904 Blue Book names no children, so a child at home in 1900 is placed here in 1904 by inference.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_longini_a_c1900_maggie_breen",
@@ -171,7 +227,15 @@
         "as_enumerated": "Breen, Maggie",
         "relation_as_enumerated": "Servant"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a servant; born December 1858 (the figures are hard to read), in Ireland, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+      "note": "Enumerated on 1 June 1900 in the house, as a servant; born December 1858 (the figures are hard to read), in Ireland, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     }
   ]
 }

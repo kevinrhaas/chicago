@@ -561,6 +561,8 @@ export function createHud({
     detail.value = (lowered?.detail ? '' : settings.detail) || resolvedDetail;
     detail.addEventListener('change', () => {
       settings.detail = detail.value;
+      // T-3542: a pick of the visitor's own clears a level kept after a failed switch.
+      delete settings.detailKept;
       onSetting?.('detail', settings.detail);
       store(SET_KEY, JSON.stringify(settings));
     });

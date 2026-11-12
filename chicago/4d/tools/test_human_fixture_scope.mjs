@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import test from 'node:test';
-import { TEAMSTER_IDS, parseFixtureArgs, teamsterFiles, prepareFixtureScope, mergeFixtureScope } from './human_fixture_scope.mjs';
+import { TEAMSTER_IDS, CHARLES_COAT_ID, SETTLER_ID, PRAIRIE_CHILD_IDS, parseFixtureArgs, teamsterFiles, scopedFiles, prepareFixtureScope, mergeFixtureScope } from './human_fixture_scope.mjs';
 
 // The gate's explicit check mode runs this same complete assertion suite.
 const cliArgs = process.argv.slice(2);
@@ -13,7 +13,11 @@ if (cliArgs.length > 1 || (cliArgs.length === 1 && cliArgs[0] !== '--check')) {
   process.exit(2);
 }
 
-const baseline = JSON.parse(readFileSync(new URL('../data/humans/fixture.measure.json', import.meta.url)));
+const fullBaseline = JSON.parse(readFileSync(new URL('../data/humans/fixture.measure.json', import.meta.url)));
+const childFiles = new Set(scopedFiles(PRAIRIE_CHILD_IDS));
+// Keep the original 248-file admission scenario intact after the separate child
+// admission adds its rows. The new scope below also checks the complete inventory.
+const baseline = { ...fullBaseline, files: fullBaseline.files.filter(row => !childFiles.has(row.file)) };
 const recipe = JSON.parse(readFileSync(new URL('../data/humans/recipes/worker_1835.json', import.meta.url)));
 const sha = value => createHash('sha256').update(value).digest('hex');
 const clone = value => JSON.parse(JSON.stringify(value));
@@ -29,7 +33,8 @@ function measured(scope) {
   const rows = new Map(scope.baseline.files.map(row => [row.file, row]));
   return scope.selectedFiles.map(file => {
     // New Joseph/Martin rows are synthetic guard inputs, never engine output.
-    const old = rows.get(file) ?? rows.get(file.replace(/dufresne_joseph_1835|flynn_martin_1835/, 'bardwell_otis_1835'));
+    const old = rows.get(file) ?? rows.get(file.replace(/dufresne_joseph_1835|flynn_martin_1835/, 'bardwell_otis_1835'))
+      ?? rows.get(file.replace(/(?:child_boy|child_girl|child_toddler|teen_boy|teen_girl)_1904/, 'child_boy_1812'));
     return { ...clone(old), file, sha256: scope.hashes.get(file), triangles: old.triangles + 1,
       derivative_of: file.includes('/web/') ? file.replace('/web/', '/') : null };
   });
@@ -130,4 +135,87 @@ test('any asset mutation or inventory change during native measurement is refuse
   const files = [...state.files, 'assets/humans/late.lod0.glb'], hashes = new Map(state.hashes);
   hashes.set(files.at(-1), sha('late'));
   assert.throws(() => mergeFixtureScope(scope, rows, files, hashes, date), /inventory changed/);
+});
+
+test('the one reviewed Charles scope replaces only four near rows and holds FAR/all other SHAs', () => {
+  assert.deepEqual(parseFixtureArgs(['--write','--asset-ids',CHARLES_COAT_ID]), {mode:'--write',assetIds:[CHARLES_COAT_ID]});
+  const document=clone(baseline),files=document.files.map(r=>r.file),hashes=new Map(document.files.map(r=>[r.file,r.sha256]));
+  const wanted=scopedFiles([CHARLES_COAT_ID]);assert.equal(wanted.length,4);
+  for(const file of wanted)hashes.set(file,sha('Charles-native-scope-guard:'+file));
+  const scope=prepareFixtureScope({baseline:document,files,hashes,assetIds:[CHARLES_COAT_ID]});
+  assert.equal(scope.selectedFiles.length,4);assert.equal(scope.addedCount,0);assert.equal(scope.unchangedCount,files.length-4);
+  assert.deepEqual(scope.assetIds,[CHARLES_COAT_ID]);
+  const rows=measured(scope),merged=mergeFixtureScope(scope,rows,files,hashes,date);
+  assert.equal(merged.files.length,baseline.files.length);assert.equal(merged.measured,baseline.measured);
+  assert.equal(merged.scoped_remeasurement.measured_files,4);assert.equal(merged.scoped_remeasurement.replaced_existing_files,4);
+  for(const old of baseline.files.filter(r=>!wanted.includes(r.file)))assert.deepEqual(merged.files.find(r=>r.file===old.file),old);
+  const far=files.find(f=>f.includes('/'+CHARLES_COAT_ID+'.lod2.'));assert(far);
+  const bad=new Map(hashes);bad.set(far,sha('FAR-must-not-change'));
+  assert.throws(()=>prepareFixtureScope({baseline:document,files,hashes:bad,assetIds:[CHARLES_COAT_ID]}),/unscoped file changed/);
+  assert.throws(()=>mergeFixtureScope(scope,rows,files,bad,date),/asset changed during native measurement/);
+  for(const args of [['--write','--asset-ids',CHARLES_COAT_ID+','+TEAMSTER_IDS[0]],['--check','--asset-ids',CHARLES_COAT_ID],['--write','--asset-ids',CHARLES_COAT_ID+','+CHARLES_COAT_ID]])assert.throws(()=>parseFixtureArgs(args));
+});
+
+
+test('settler scope replaces all eight rows and retains every other current inventory SHA binding', () => {
+  assert.deepEqual(parseFixtureArgs(['--write','--asset-ids',SETTLER_ID]), {mode:'--write',assetIds:[SETTLER_ID]});
+  const document=clone(fullBaseline),files=document.files.map(r=>r.file),hashes=new Map(document.files.map(r=>[r.file,r.sha256]));
+  const wanted=scopedFiles([SETTLER_ID]);assert.equal(wanted.length,8);
+  for(const file of wanted)hashes.set(file,sha('settler-scope-synthetic-guard:'+file));
+  const scope=prepareFixtureScope({baseline:document,files,hashes,assetIds:[SETTLER_ID]});
+  assert.equal(scope.selectedFiles.length,8);assert.equal(scope.unchangedCount,files.length-8);assert.equal(scope.addedCount,0);
+  assert.deepEqual(scope.assetIds,[SETTLER_ID]);
+  const rows=measured(scope),merged=mergeFixtureScope(scope,rows,files,hashes,date);
+  assert.equal(merged.files.length,files.length);assert.equal(merged.scoped_remeasurement.measured_files,8);
+  assert.deepEqual(merged.scoped_remeasurement.asset_ids,[SETTLER_ID]);assert.equal(merged.scoped_remeasurement.unchanged_files_sha256_verified,files.length-8);
+  for(const old of document.files.filter(r=>!wanted.includes(r.file)))assert.deepEqual(merged.files.find(r=>r.file===old.file),old);
+  for(const args of [['--check','--asset-ids',SETTLER_ID],['--write','--asset-ids',SETTLER_ID+','+SETTLER_ID],
+    ['--write','--asset-ids',SETTLER_ID+','+CHARLES_COAT_ID],['--write','--asset-ids',SETTLER_ID+','+TEAMSTER_IDS[0]]])assert.throws(()=>parseFixtureArgs(args));
+});
+
+test('settler cannot hide missing or extra files, other-family changes, or partial native results', () => {
+  const document=clone(fullBaseline),files=document.files.map(r=>r.file),hashes=new Map(document.files.map(r=>[r.file,r.sha256]));
+  const state={baseline:document,files,hashes,assetIds:[SETTLER_ID]},wanted=scopedFiles([SETTLER_ID]);
+  for(const file of wanted)hashes.set(file,sha('settler-native-synthetic:'+file));
+  const scope=prepareFixtureScope(state),rows=measured(scope),other=files.find(f=>!wanted.includes(f));
+  const changed=new Map(hashes);changed.set(other,sha('foreign-change'));
+  assert.throws(()=>prepareFixtureScope({...state,hashes:changed}),/unscoped file changed/);
+  assert.throws(()=>mergeFixtureScope(scope,rows,files,changed,date),/asset changed/);
+  const missing=wanted.find(f=>f.includes('.lod3.')),shortFiles=files.filter(f=>f!==missing),shortHashes=new Map(hashes);shortHashes.delete(missing);
+  assert.throws(()=>prepareFixtureScope({...state,files:shortFiles,hashes:shortHashes}),/all 8/);
+  const extraFiles=[...files,'assets/humans/unreviewed.lod0.glb'],extraHashes=new Map(hashes);extraHashes.set(extraFiles.at(-1),sha('extra'));
+  assert.throws(()=>prepareFixtureScope({...state,files:extraFiles,hashes:extraHashes}),/inventory differs/);
+  for(const invalid of [rows.slice(1),rows.slice(0,4),[...rows,clone(rows[0])],rows.map((r,i)=>i?r:{...r,verdicts:[{ok:false}]}),rows.map((r,i)=>i?r:{...r,sha256:sha('stale')})])assert.throws(()=>mergeFixtureScope(scope,invalid,files,hashes,date));
+});
+
+// Keep the source-only seat observer controls in the existing fixture-owner gate.
+await import('./test_human_settler_seat_review.mjs');
+test('the five approved Prairie roles add exactly 40 rows and preserve every previous asset', () => {
+  assert.deepEqual(parseFixtureArgs(['--write', '--asset-ids', [...PRAIRIE_CHILD_IDS].reverse().join(',')]),
+    { mode: '--write', assetIds: [...PRAIRIE_CHILD_IDS] });
+  const review = JSON.parse(readFileSync(new URL('../data/humans/role_reviews/prairie_children_1904.json', import.meta.url)));
+  assert.deepEqual(review.roles.map(row => row.asset_id).sort(), [...PRAIRIE_CHILD_IDS].sort());
+  const document = clone(baseline), files = [...document.files.map(row => row.file), ...childFiles];
+  const hashes = new Map(document.files.map(row => [row.file, row.sha256]));
+  for (const role of review.roles) for (const row of role.files) {
+    assert(childFiles.has(row.file));
+    const actual = sha(readFileSync(new URL('../' + row.file, import.meta.url)));
+    assert.equal(actual, row.sha256, 'admission must bind the approved exported bytes');
+    hashes.set(row.file, actual);
+  }
+  const state = { baseline: document, files, hashes, assetIds: [...PRAIRIE_CHILD_IDS] };
+  const scope = prepareFixtureScope(state);
+  assert.equal(scope.selectedFiles.length, 40); assert.equal(scope.addedCount, 40);
+  assert.equal(scope.unchangedCount, document.files.length);
+  const rows = measured(scope), merged = mergeFixtureScope(scope, rows, files, hashes, date);
+  for (const old of document.files) assert.deepEqual(merged.files.find(row => row.file === old.file), old);
+  assert.equal(merged.files.length, document.files.length + 40);
+  const changed = new Map(hashes); changed.set(document.files[0].file, sha('unrelated-byte-change'));
+  assert.throws(() => prepareFixtureScope({ ...state, hashes: changed }), /unscoped file changed/);
+  assert.throws(() => mergeFixtureScope(scope, rows.slice(1), files, hashes, date), /native results must cover exactly/);
+  for (const ids of [PRAIRIE_CHILD_IDS.slice(0, 4), [...PRAIRIE_CHILD_IDS, CHARLES_COAT_ID],
+    [PRAIRIE_CHILD_IDS[0], ...PRAIRIE_CHILD_IDS.slice(0, 4)]]) {
+    assert.throws(() => parseFixtureArgs(['--write', '--asset-ids', ids.join(',')]));
+  }
+  assert.throws(() => parseFixtureArgs(['--check', '--asset-ids', PRAIRIE_CHILD_IDS.join(',')]));
 });

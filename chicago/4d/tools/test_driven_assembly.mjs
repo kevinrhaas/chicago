@@ -3,7 +3,12 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import * as THREE from '../renderers/web/vendor/three-0.185.1/three.module.js';
-import { createDrivenAssembly, createTeamsterAssembly, createTownTransport } from '../renderers/web/js/town-transport.js';
+import { createDrivenAssembly, createTeamsterAssembly, createTownTransport as createTownTransportDefault } from '../renderers/web/js/town-transport.js';
+// T-3542: since the owner's ruling (2026-11-10) Light draws its teams, nearer, so no default
+// tier draws none. These races are about a tier that retires every team, which the layer still
+// supports for any reach of 0, so they name that reach; the default is checked at the end.
+const NO_LIGHT_TEAMS = Object.freeze({ full: 90, balanced: 60, light: 0 });
+const createTownTransport = (options) => createTownTransportDefault({ reach: NO_LIGHT_TEAMS, ...options });
 import { circleRoute, createTransportLoop } from '../renderers/web/js/transport-loop.js';
 import { prepareHorseTemplate, applyHorseAppearance, loadHorseRecipe } from '../renderers/web/js/horse-appearance.js';
 
@@ -44,6 +49,12 @@ assert(vehicle.getObjectByName('vehicle_wheel_front_left').rotation.x > 0);
 const expected = new THREE.Vector3(0, 1.58, .65).applyMatrix4(vehicle.matrixWorld);
 const actual = vehicle.getObjectByName('vehicle_seat_driver').getWorldPosition(new THREE.Vector3());
 assert(actual.distanceTo(expected) < 1e-12);
+const soundAnchors = actor.audioState.anchors;
+assert(actor.audioState.moving);
+assert.deepEqual(soundAnchors.wagon, { x: vehicle.position.x, y: vehicle.position.y, z: vehicle.position.z });
+const actualHorse = horse.root.getWorldPosition(new THREE.Vector3());
+assert.deepEqual(soundAnchors.harness, { x: actualHorse.x, y: actualHorse.y, z: actualHorse.z });
+assert(Math.hypot(soundAnchors.harness.x - soundAnchors.wagon.x, soundAnchors.harness.z - soundAnchors.wagon.z) > 4.9);
 actor.stop(); const before = horseDistance; actor.update(2);
 assert.equal(horseDistance, before); assert(stops > 0);
 actor.dispose(); actor.dispose();
@@ -56,6 +67,32 @@ let acquired = 0, pendingRelease = 0, resolve;
 const validRow = { id: 'a', name: 'Driver', scene: '1835', route: { center_enu_m: [0, 0], radius_m: 20 },
   speed_m_s: 1, wheelbase_m: 2.35, track_m: 1.21, root_ahead_of_rear_axle_m: 1.175,
   steering_limit_deg: 8, driver_local_m: [0, 1.58, .65], wheel_radii_m: [.685, .685, .535, .535] };
+{
+  // Sound bindings observe the same actual admission/visibility rules as town
+  // transport. This exercises both assembly roots, including the 1812 wrapper.
+  const ledVehicle = vehicle.clone(true), wrapper = new THREE.Group(), ledHorse = { root: new THREE.Group(), poseVehicle() {}, stop() {} };
+  const led = createTeamsterAssembly({ root: wrapper, vehicle: ledVehicle,
+    walker: { root: new THREE.Group(), update() {}, setState() {} }, horse: ledHorse,
+    walkerLocal_m: [2, 0, 4], horseOffset_m: [0, 0, 5], disposeVehicle() {} });
+  const town = createTownTransport({ rows: [{ ...validRow, hours: [6, 20] }], sceneId: '1835',
+    heightAt: () => 0, clear: () => true, makeAssembly: () => led });
+  assert.deepEqual(town.audioSources, []);
+  await town.ready(); const eye = { x: 20, z: 0 };
+  town.update(.1, eye, { hour: 12 });
+  assert(town.audioSources[0].moving);
+  const anchors = town.audioSources[0].anchors;
+  assert.deepEqual(anchors.wagon, { x: ledVehicle.position.x, y: ledVehicle.position.y, z: ledVehicle.position.z });
+  assert.notEqual(anchors.wagon.x, wrapper.position.x, 'teamster group origin is not vehicle position');
+  const horseWorld = ledHorse.root.getWorldPosition(new THREE.Vector3());
+  assert.deepEqual(anchors.harness, { x: horseWorld.x, y: horseWorld.y, z: horseWorld.z });
+  for (const flags of [{ hour: 22 }, { hidden: true }, { paused: true }, { reducedMotion: true }]) {
+    town.update(.1, eye, { hour: 12, ...flags }); assert(!town.audioSources[0].moving);
+    town.update(.1, eye, { hour: 12 }); assert(town.audioSources[0].moving);
+  }
+  town.update(.1, { x: 500, z: 500 }); assert(!town.audioSources[0].moving); assert.equal(town.audioSources[0].anchors, null);
+  await town.setTier('light'); assert.deepEqual(town.audioSources, []);
+  town.dispose(); assert.deepEqual(town.audioSources, []);
+}
 const layer = createTownTransport({ rows: [validRow], sceneId: '1835',
   makeAssembly: () => { acquired++; return new Promise(r => { resolve = r; }); },
   heightAt: () => 0, clear: () => true, detail: 'light' });
@@ -366,7 +403,7 @@ const actualDriverRow = actualRoutes.rows.find(r => r.scene === '1904');
 // T-3423: 1904 lists the standing-figure layer for its first woman (one instance record);
 // the drivers still come only through the transport rows, and no residents directory layer.
 assert(!actualScene1904.layers.includes('residents') && actualScene1904.layers.includes('humans'));
-assert.equal(actualPeople1904.people.length, 440); assert.equal(actualPeople1904.residents_root, 'data/residents_1904');
+assert.equal(actualPeople1904.people.length, 445); assert.equal(actualPeople1904.residents_root, 'data/residents_1904');
 assert.equal(actualDriverRow.person_id, 'pa1904_otis_f_r_c1900_hans_johnson');
 for (const id of ['1812', '1835', '1904', 1812, 1835, 1904]) assert(supportsTownTransport(id));
 for (const id of ['1880', '1905', null]) assert(!supportsTownTransport(id));
@@ -1098,3 +1135,17 @@ console.log('seated driver visual clock: stop, holds, range, Light restoration a
   }
 }
 console.log('LIGHT SCENE CALLBACK + HANS PUBLIC CARD PASS — native scene adapter has zero errors and preserves the named card API');
+
+// T-3542: by default Light acquires and draws its teams, nearer than Balanced — a phone
+// keeps its horses, carriages and wagons (owner, 2026-11-10).
+{
+  let made = 0, release;
+  const town = createTownTransportDefault({ rows: [validRow], sceneId: '1835',
+    makeAssembly: () => { made++; return new Promise(r => { release = r; }); },
+    heightAt: () => 0, clear: () => true, detail: 'light' });
+  assert.equal(town.ensureNear({ x: 0, z: 0 }, true), true, 'Light reaches the circuit it stands in');
+  await until(() => made === 1);
+  assert.equal(town.ensureNear({ x: 200, z: 0 }, true), false, 'and not one 180 m away (reach 45 m + 8)');
+  town.dispose(); release({ dispose() {} });
+}
+console.log('DEFAULT LIGHT KEEPS ITS TEAMS PASS — Light acquires the team within its 45 m reach (T-3542)');

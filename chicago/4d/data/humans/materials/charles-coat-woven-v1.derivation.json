@@ -1,0 +1,87 @@
+{
+  "schema": "charles_near_coat_registration_v1",
+  "recipe_sha256": "2b604e409564a0340c497bd158307a22620aad3efaa542aecff55a2e0d8dc4d3",
+  "admission_sha256": "43229c606820f66860d8b7ee0dd3838c461973beb8e4cc02658d2d12dc082745",
+  "parent_revision": "fc5a52b6cab3eed78e2db5864aa811dff5df2795",
+  "implementation_sha256": {
+    "tools/human_charles_coat.py": "6c0c83d1f78cebe8023fadd3878bc85998ec7bc4b72751cbf5fc5e1cdecac607",
+    "tools/human_charles_coat.mjs": "2c25750a4f4bb7a1e8ca6756a44118392e42085f99eb01f351cef8d3994da328",
+    "tools/human_charles_coat_semantics.mjs": "4ca2d8a620de4756279141dec34e7c2831e1fda9fef7c25e3b1fc158edc62d4f",
+    "tools/human_charles_coat_web.sh": "ae60138591bc218e89adb6ff3f0ef8b1c566f8f7f0a5eb662b82b67bc3989e9d",
+    "tools/verify_human_charles_coat.py": "1ab655aa8b749c7d76642f117886b0075ce048dd90427f50ef8905a7315d7db1",
+    "tools/human_export.sh": "520bc004711e0125d7a2b231cc6fdb6be061aad4895a36f67b164b3e2a99a68e"
+  },
+  "files": [
+    {
+      "file": "assets/humans/nelson_charles_1904_coachman.lod0.glb",
+      "sha256": "ebb5594ce5aadf36da25f87676252e8026c3cd993760b2cbd9f1c6d3fb9351af",
+      "bytes": 9093740,
+      "changed": true,
+      "canonical_parent_sha256": "cebfe41a82d2e4a1a9a4b4843ad232a25b7635b0aae99b66822aecf771056726",
+      "canonical_git_blob": "6aa04aabd160b18a8e86da56d569c4ec899355f8"
+    },
+    {
+      "file": "assets/humans/nelson_charles_1904_coachman.lod1.glb",
+      "sha256": "f87895b5004268335f91a5d4b821b19beaf4ae917c90c7cde9410ddff5825aea",
+      "bytes": 7980556,
+      "changed": true,
+      "canonical_parent_sha256": "fb7ae160f4759d24c43d8e4caed401267757fbcf1f1c53f0239835ebf6ae7fc3",
+      "canonical_git_blob": "fa60d9d1e1c58302cccd430af96dfbd001fffc8d"
+    },
+    {
+      "file": "assets/humans/nelson_charles_1904_coachman.lod2.glb",
+      "sha256": "3fb93a10143ea395a98ea9a3d3491cd9de9a6037b24f1031af3d9a8b670d3836",
+      "bytes": 6859284,
+      "changed": false,
+      "canonical_parent_sha256": "3fb93a10143ea395a98ea9a3d3491cd9de9a6037b24f1031af3d9a8b670d3836",
+      "canonical_git_blob": "4fae6a6eb65e9c26bd0be8b6dd0c8af033f57212"
+    },
+    {
+      "file": "assets/humans/nelson_charles_1904_coachman.lod3.glb",
+      "sha256": "e0d41e35abf47c93c39dca7b857b0aa4bd9e15c00a4ae1c5c372c01c19ba9aa3",
+      "bytes": 6530196,
+      "changed": false,
+      "canonical_parent_sha256": "e0d41e35abf47c93c39dca7b857b0aa4bd9e15c00a4ae1c5c372c01c19ba9aa3",
+      "canonical_git_blob": "f342d87849c112af384842b6159064ddbea22b3b"
+    },
+    {
+      "file": "assets/humans/web/nelson_charles_1904_coachman.lod0.glb",
+      "sha256": "8660b20793909061ecc0c81b31c4b6e4fd26c2da0afa04c7b741788495c28820",
+      "bytes": 4670520,
+      "changed": true,
+      "canonical_parent_sha256": "b6cc798bf49f5b0d8eec41d177ff3ad67bcb53b502179f6719046a487829701e",
+      "canonical_git_blob": "70601f02501a5bd153b7938cada8592f345a2214"
+    },
+    {
+      "file": "assets/humans/web/nelson_charles_1904_coachman.lod1.glb",
+      "sha256": "86a5fdfa5d173c89a94e925424975f3f83ada548d2c5953106ac7c9b496cf4b6",
+      "bytes": 1714028,
+      "changed": true,
+      "canonical_parent_sha256": "5cafe1ac5170472e59149bc385ead5ce3106b563e522d98366d8d58a1c625302",
+      "canonical_git_blob": "910199495a58c09b648c1bc8d2dfa578b88df2a4"
+    },
+    {
+      "file": "assets/humans/web/nelson_charles_1904_coachman.lod2.glb",
+      "sha256": "97a28ae6ff5d6666464ca6b3d155e2c676b3f6088eeed13fda665b10e19da39a",
+      "bytes": 667536,
+      "changed": false,
+      "canonical_parent_sha256": "97a28ae6ff5d6666464ca6b3d155e2c676b3f6088eeed13fda665b10e19da39a",
+      "canonical_git_blob": "d7c6869ae87bbbc827447e0d3b48f354e66638b0"
+    },
+    {
+      "file": "assets/humans/web/nelson_charles_1904_coachman.lod3.glb",
+      "sha256": "50dd7f118c82148dd525e0cce0f62525e01cc195b3e7bd7bd9424e90389e4238",
+      "bytes": 328500,
+      "changed": false,
+      "canonical_parent_sha256": "50dd7f118c82148dd525e0cce0f62525e01cc195b3e7bd7bd9424e90389e4238",
+      "canonical_git_blob": "f5d036b3eddc764ef16ce48da50b71b571449f8d"
+    }
+  ],
+  "runtime_sha256": {
+    "renderers/web/js/fabric.js": "0fa147af7b39a6fa748239d4a78aa50bf1097061d3f7d6679c8131d6b0d667e7",
+    "renderers/web/js/human-looks.js": "4350b1611df7b27a7c2dc08bbaac22b58eaa5d201cb8cd1ad358a09f51b46762"
+  },
+  "strict_selected_published_release": false,
+  "full_APP_gate": false,
+  "photographic_or_fit_accepted": false
+}

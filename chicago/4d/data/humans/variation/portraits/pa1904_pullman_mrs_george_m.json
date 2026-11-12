@@ -1,0 +1,175 @@
+{
+ "format": "chicago4d_human_portrait_marks_v1",
+ "ticket": "T-3547",
+ "person_id": "pa1904_pullman_mrs_george_m",
+ "scene": "1904",
+ "source": "harris_ewing_pullman_1908",
+ "scan": "https://upload.wikimedia.org/wikipedia/commons/6/63/Mrs._George_M._Pullman,_half-length_portrait,_seated,_facing_front_LCCN90710921.jpg",
+ "scan_size_px": [
+  3283,
+  4096
+ ],
+ "crop_px": [
+  1188,
+  778,
+  2150,
+  2060
+ ],
+ "_doc": "Visible landmarks read on the LOC portrait, with uncertainty for the soft photographic print. The crown is hidden by a hat and is not marked.",
+ "base_body": "glessner_frances_m_1904",
+ "sex": "female",
+ "age_at_picture_years": 66,
+ "age_note": "1908 photograph; born April 1842. Exact day of exposure is unknown. The figure uses age 62 in July 1904.",
+ "grade": "inferred",
+ "basis": "Identified Harris & Ewing photograph. Facial landmarks fitted against the female body; single-view depth and colours are reconstructed.",
+ "not_modelled": [
+  "Her 1908 hat, jewellery and exact dress.",
+  "Photographic colour, height, body measurements and unseen facial depth."
+ ],
+ "axes": [
+  "nose_length",
+  "nose_width",
+  "nose_depth",
+  "nose_hump",
+  "nose_curve",
+  "nose_tip",
+  "nose_tip_width",
+  "nostrils",
+  "nose_height",
+  "mouth_width",
+  "lip_upper",
+  "lip_lower",
+  "mouth_height",
+  "chin_prominence",
+  "chin_width",
+  "chin_height",
+  "jaw",
+  "prognathism",
+  "cheekbones",
+  "cheek_volume",
+  "cheek_inner",
+  "brow_height",
+  "brow_angle",
+  "brow_ridge",
+  "forehead_slope",
+  "temples",
+  "ear_size",
+  "ear_flap",
+  "ear_lobe",
+  "jowls",
+  "head_shape",
+  "forehead_height",
+  "mouth_corners",
+  "double_chin"
+ ],
+ "marks": [
+  {
+   "landmark": "pupil_r",
+   "x": 401,
+   "y": 426,
+   "sigma_px": 10.2
+  },
+  {
+   "landmark": "pupil_l",
+   "x": 622,
+   "y": 402,
+   "sigma_px": 10.2
+  },
+  {
+   "landmark": "eye_outer_r",
+   "x": 344,
+   "y": 443,
+   "sigma_px": 12.3
+  },
+  {
+   "landmark": "eye_inner_r",
+   "x": 454,
+   "y": 418,
+   "sigma_px": 12.3
+  },
+  {
+   "landmark": "eye_inner_l",
+   "x": 569,
+   "y": 410,
+   "sigma_px": 12.3
+  },
+  {
+   "landmark": "eye_outer_l",
+   "x": 680,
+   "y": 406,
+   "sigma_px": 12.3
+  },
+  {
+   "landmark": "nasion",
+   "x": 524,
+   "y": 422,
+   "sigma_px": 16.4
+  },
+  {
+   "landmark": "nose_tip",
+   "x": 541,
+   "y": 529,
+   "sigma_px": 12.3
+  },
+  {
+   "landmark": "subnasale",
+   "x": 545,
+   "y": 557,
+   "sigma_px": 16.4
+  },
+  {
+   "landmark": "stomion",
+   "x": 561,
+   "y": 652,
+   "sigma_px": 16.4
+  },
+  {
+   "landmark": "menton",
+   "x": 586,
+   "y": 811,
+   "sigma_px": 28.7
+  },
+  {
+   "landmark": "ear_top_r",
+   "x": 225,
+   "y": 516,
+   "sigma_px": 28.7
+  },
+  {
+   "landmark": "ear_lobe_r",
+   "x": 307,
+   "y": 701,
+   "sigma_px": 24.6
+  }
+ ],
+ "card": {
+  "_doc": "1908 identified photograph and fitted face in reconstructed 1904 day clothing. Her photographed hat and jewellery are not reproduced.",
+  "portrait": "assets/humans/web/portraits/pa1904_pullman_mrs_george_m_portrait.jpg",
+  "portrait_from_scan_px": [
+   1188,
+   778,
+   2150,
+   2060
+  ],
+  "model": "assets/humans/web/portraits/pa1904_pullman_mrs_george_m_model.jpg",
+  "size_px": [
+   360,
+   480
+  ],
+  "body": "glessner_frances_m_1904",
+  "background": "#1c1b18",
+  "distance_m": 0.9,
+  "aim_above_head_m": 0.0,
+  "dress": true,
+  "hide": "^headwear|hat_plumes"
+ },
+ "read_by_eye": {
+  "values": {
+   "cheek_volume": 0.4,
+   "jowls": 0.15,
+   "jaw": 0.05,
+   "double_chin": 0.2
+  },
+  "basis": "Full cheeks and a soft lower face are visible; these prior choices are visual reconstruction, not measured dimensions."
+ }
+}

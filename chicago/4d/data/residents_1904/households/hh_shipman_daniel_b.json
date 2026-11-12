@@ -44,7 +44,8 @@
       "sources": [
         "chicago_blue_book_1904",
         "chicago_blue_book_1905",
-        "census_1900_chicago_t623_roll245"
+        "census_1900_chicago_t623_roll245",
+        "witherspoon_men_of_illinois_1902"
       ],
       "printed_as": "1828 Daniel B. Shipman",
       "census_1900": {
@@ -54,7 +55,21 @@
         "as_enumerated": "Shipman, D. B.",
         "relation_as_enumerated": "Head"
       },
-      "note": "The 1900 census lists D. B. Shipman here as head, born July 1830, in Connecticut, wholesale () (ED 40, sheet 5A, line 16, leaf n802)."
+      "note": "The 1900 census lists D. B. Shipman here as head, born July 1830, in Connecticut, wholesale () (ED 40, sheet 5A, line 16, leaf n802).",
+      "born": {
+        "value": "1830",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The existing census transcription gives born July 1830. The year is carried into the age shown on this card."
+      },
+      "portrait": {
+        "image": "humans/web/portraits/pa1904_shipman_daniel_b_portrait.jpg",
+        "caption": "Daniel B. Shipman, undated photograph published in Men of Illinois (1902), p. 278.",
+        "grade": "attested",
+        "why": "Identified by the printed caption and checked against the household record. The monochrome photograph does not establish skin, eye or clothing colours."
+      }
     },
     {
       "id": "pa1904_shipman_daniel_b_c1900_annie_doherty",
@@ -87,7 +102,15 @@
         "as_enumerated": "Doherty, Annie",
         "relation_as_enumerated": "Servant"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a servant (ladies maid); born August 1872, in Ireland, came to the United States in 1892, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (ladies maid); born August 1872, in Ireland, came to the United States in 1892, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_shipman_daniel_b_c1900_julia_o_brien",
@@ -120,7 +143,15 @@
         "as_enumerated": "O'Brien, Julia",
         "relation_as_enumerated": "Servant"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a servant (waitress); born February 1865, in Illinois, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (waitress); born February 1865, in Illinois, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_shipman_daniel_b_c1900_may_howe",
@@ -153,7 +184,15 @@
         "as_enumerated": "Howe, May",
         "relation_as_enumerated": "Servant"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a servant (cook); born January 1871, in Ireland, came to the United States in 1888, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (cook); born January 1871, in Ireland, came to the United States in 1888, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_shipman_daniel_b_c1900_edward_carlson",
@@ -186,7 +225,15 @@
         "as_enumerated": "Carlson, Edward",
         "relation_as_enumerated": "Head"
       },
-      "note": "Enumerated on 1 June 1900 in the rear building behind the house, as the head of his own household there (coachman); born May 1867, in Sweden, married. Living with him: Emma Carlson (wife), Ernest Carlson (son). Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+      "note": "Enumerated on 1 June 1900 in the rear building behind the house, as the head of his own household there (coachman); born May 1867, in Sweden, married. Living with him: Emma Carlson (wife), Ernest Carlson (son). Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     }
   ]
 }

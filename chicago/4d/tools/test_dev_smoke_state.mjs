@@ -16,6 +16,8 @@ const here = path.dirname(fileURLToPath(import.meta.url));
 const root = fs.mkdtempSync(path.join(os.tmpdir(), 'c4d-smoke-hash-'));
 const tool = 'chicago/4d/tools/dev-smoke-state.mjs';
 const page = 'site/4d/walk/index.html';
+const audioCatalogue = 'site/4d/walk/audio/catalog.json';
+const audioBody = '{"assets":[{"url":"https://media.example/audio.mp3"}]}\n';
 const notes = 'chicago/4d/renderers/web/js/changelog.js';
 const meta = '<meta name="c4d-releases" content="1-3">';
 const html = `${meta}<p>build abcdef0 · initial</p><main>town</main>`;
@@ -39,9 +41,14 @@ try {
     'chicago/4d/data/town.json': '{"town":1}\n',
     'chicago/4d/assets/town.glb': 'fixture asset bytes',
     'chicago/4d/tools/smoke_renderer.mjs': '// fixture probe\n',
+    'chicago/4d/tools/audio_hosting.mjs': '// fixture publisher\n',
+    'chicago/4d/tools/audio_smoke_replay.mjs': '// fixture replay\n',
+    'chicago/4d/tools/audio-hosting.json': '{"public_base":"https://media.example/"}\n',
+    'chicago/4d/tools/audio-host-verification.json': '{"complete":true}\n',
   };
   for (const [name, body] of Object.entries(inputs)) write(name, body);
   write(page, html);
+  write(audioCatalogue, audioBody);
   git('init', '-q');
   git('add', '.');
   git('-c', 'user.name=Fixture', '-c', 'user.email=fixture@example.invalid',
@@ -79,6 +86,23 @@ try {
     });
   }
   write(page, html);
+  for (const body of [audioBody.replace('audio.mp3', 'different.mp3'), audioBody + ' ', '']) {
+    write(audioCatalogue, body);
+    check('ignored published audio catalogue changes the global hash only', () => {
+      const got = read();
+      assert.notEqual(got.hash, base.hash);
+      assert.equal(got.changelogHash, base.changelogHash);
+    });
+  }
+  const emptyAudioHash = read().hash;
+  fs.unlinkSync(path.join(root, audioCatalogue));
+  check('missing published audio catalogue differs from both existing and empty', () => {
+    const got = read();
+    assert.notEqual(got.hash, base.hash);
+    assert.notEqual(got.hash, emptyAudioHash);
+    assert.equal(got.changelogHash, base.changelogHash);
+  });
+  write(audioCatalogue, audioBody);
   write(notes, 'export const CHANGELOG = [{v: 4}];\n');
   git('add', notes);
   check('canonical notes change only their partition', () => {

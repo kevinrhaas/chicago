@@ -39,6 +39,7 @@ register(`data:text/javascript,${encodeURIComponent(`export function resolve(s, 
 const THREE = await import('three');
 const { footprintsFrom } = await import('../renderers/web/js/walker.js');
 const { createInteractions, createInteractKey } = await import('../renderers/web/js/interact.js');
+const { createHumanDays } = await import('../renderers/web/js/human-days.js');
 const { HumanActor } = await import('../renderers/web/js/humans.js');
 const { enuToWorld } = await import('../renderers/web/js/terrain.js');
 const { bearingToYaw } = await import('../renderers/web/js/angles.js');
@@ -155,7 +156,7 @@ visitor = { e: standBy.e, n: standBy.n };
 const key = createInteractKey({ interactions: ix, keyEl, moreEl, doc, keys,
   where: () => ({ ...visitor, bearing: (outward + 180) % 360, flying: false }), say: (t) => said.push(t) });
 ok(key.refresh() === thing && keyEl.textContent === 'Interact' && moreEl.hidden, 'person actions start collapsed');
-ok(key.choices.join() === 'greet,go_home,stroll:court,stroll:arch', 'all actions remain available');
+ok(key.choices.join() === 'greet,stroll:court,stroll:arch,go_home', 'all actions remain available');
 ok(HOUSE_STROLLS[plan.id].every((x) => anchorAt(x.anchor)), 'every walk goes to a stand the scene has');
 let prevented = 0;
 const press = (code) => keyListeners.keydown({ code, target: null, preventDefault: () => { prevented += 1; } });
@@ -164,8 +165,8 @@ ok(prevented === 0 && !thing.running, 'a number nothing answers to is left alone
 
 // ---------------------------------------------------------------- Greet
 press('KeyR');
-ok(!moreEl.hidden && moreEl.children.length === 4 && !thing.running, 'R opens the complete menu without greeting');
-ok(moreEl.children[1].children.find((c) => c.className === 'ik-what').textContent === 'Go inside', 'short Go inside label');
+ok(!moreEl.hidden && moreEl.children.length === 5 && !thing.running, 'R opens the complete menu without greeting');
+ok(moreEl.children.at(-1).children.find((c) => c.className === 'ik-what').textContent === 'Go home', 'residence action is clearly named and grouped last');
 press('Escape');
 ok(moreEl.hidden, 'Escape collapses the menu');
 press('Digit1');
@@ -194,8 +195,8 @@ function run(seconds, onFrame = null) {
 }
 const start = toPlan(john.e, john.n);
 press('KeyR');
-press('Digit2');
-ok(thing.running?.action.id === 'go_home', '2 sends him home');
+press('Digit4');
+ok(thing.running?.action.id === 'go_home', 'the last numbered action sends him home');
 const trail = run(30);
 ok(thing.state === 'home' && !thing.running, `he is home (${(trail.length / 60).toFixed(1)} s)`);
 ok(trail.every((t) => t.d <= start.d + 1e-6), 'walking only toward the door, never back to the sidewalk first');
@@ -352,6 +353,62 @@ ok(!john.root.visible && !john.inRange, 'nor drawn, nor in range to be met');
   a.jauntHost = false;
   a.setIndoors(false);
   ok(engine.actionsOf(errand).some(c => c.id === 'greet'), 'household interactions return after the guide lease is released');
+}
+
+// T-3543: the real walking actor pauses for choices, and nearby shelter differs from home.
+{
+  const indoor = (from, to, where) => ({ from, to, indoors: true, where });
+  const day = [{ spans: [indoor(0, 6, 'home'), { from: 6, to: 20, indoors: false,
+    at: { local_e: 9, local_n: 0 }, activity: 'work', doing: 'garden tasks' }, indoor(20, 24, 'home')] }];
+  const a = actorFor({ ...instance, id: 'menu-walker', placement: { local_e: 9, local_n: 0, heading_deg: 90 },
+    behaviour: { state: 'standing', day } }, person);
+  const b = actorFor({ ...instance, id: 'nearby-host', person_id: 'host', placement: { local_e: 10, local_n: 0, heading_deg: 0 },
+    behaviour: { day: [{ spans: [indoor(0, 24, 'nearby')] }] } }, { ...person, id: 'host' });
+  const doorData = { structures: ['home', 'nearby'].map((structure, i) => ({ structure, name: structure,
+    doors: [{ id: structure + ':door', step: { local_e: i * 10, local_n: -2 },
+      leaf: { local_e: i * 10, local_n: -1 }, outward_deg: 180 }] })) };
+  let h = 10;
+  const engine = createInteractions();
+  const layer = createHumanDays({ humans: { actors: [a, b] }, hour: () => h, date: () => '1904-07-01',
+    interactions: engine, doors: doorData, visitor: () => ({ e: 9, n: 0 }), clear: () => true });
+  const tick = seconds => { for (let i = 0; i < seconds * 20; i++) { a.walk(.05); b.walk(.05); layer.update(.05); } };
+  tick(2);
+  a.walkPath([{ e: a.e, n: a.n }, { e: 14, n: 0 }]); a.walk(.5);
+  const route = a.path, position = [a.e, a.n], release = layer.attend(a.id);
+  ok(typeof release === 'function' && layer.isOccupied(a), 'opening the menu temporarily owns the walker');
+  tick(10); assert.deepEqual([a.e, a.n], position, 'a real walking actor stays put while choices are open');
+  release(); ok(a.path === route, 'dismissal restores the same unfinished route');
+  a.walk(.5); ok(Math.hypot(a.e - position[0], a.n - position[1]) > .01, 'the walk continues after dismissal');
+  ok(layer.nearestEntrance(a.id)?.structure === 'nearby' && layer.residence(a.id) === 'home', 'nearest entrance and residence are distinct');
+  ok(layer.request(a.id, null, { inside: 'nearest' }).ok, 'Go inside accepts the nearby entrance'); tick(20);
+  ok(a.indoors && layer.people.find(p => p.actor === a).inside === 'nearby', 'Go inside reaches the nearby building');
+  ok(layer.doors.find(t => t.structure === 'nearby').actions.shut.some(x => x.id === `ask:${a.personId}`), 'the guest is callable at the building they actually entered');
+  ok(layer.request(a.id, null, { inside: 'home' }).ok, 'Go home accepts their residence while sheltered elsewhere');
+  tick(.1); ok(!a.indoors && a.e > 8, 'returning home first exits the nearby building, without teleporting home');
+  tick(30); ok(a.indoors && layer.people.find(p => p.actor === a).inside === 'home', 'Go home returns to the residence');
+  h = 21; tick(1); h = 10; tick(12);
+  const release2 = layer.attend(a.id); h = 21; tick(15); release2();
+  ok(a.indoors, 'closing a menu after the hour changes resumes the new daily duty');
+  h = 10; layer.ask(a.id); tick(12);
+  const release3 = layer.attend(a.id);
+  layer.host(a.id, { e: 12, n: 0 }, { heading: 90 }); const hostPath = a.path; release3();
+  ok(layer.isHosted(a) && a.path === hostPath, 'dismissing an older menu cannot undo a jaunt takeover');
+}
+
+// A selected person's return trip must finish after they leave drawing range.
+{
+  const a = actorFor({ ...instance, id: 'offscreen-return', placement: { local_e: 0, local_n: 0, heading_deg: 90 },
+    behaviour: { state: 'standing' } }, person);
+  let arrivals = 0;
+  a.walkPath([{ e: 0, n: 0 }, { e: 10, n: 0 }], { onArrive() { arrivals++; a.setIndoors(true); } });
+  const far = new THREE.Vector3(1000, BASE, 0);
+  for (let i = 0; i < 400 && !a.path?.arrived; i++) a.update(.05, far);
+  ok(a.path?.arrived && Math.abs(a.e - 10) < .001, 'an offscreen one-time walk still reaches its destination');
+  // The visitor returns on the arrival frame: finishing inside must win over LOD re-entry.
+  a.recheck = 0; a.update(.05, new THREE.Vector3(a.e, BASE, -a.n));
+  ok(arrivals === 1 && a.indoors && !a.inRange && !a.root.visible, 'arrival fires once and stays indoors even when the visitor returns');
+  ok(a.counters.animated === 0, 'finishing an offscreen walk does not animate an unseen body');
+  a.dispose();
 }
 
 doors.dispose();

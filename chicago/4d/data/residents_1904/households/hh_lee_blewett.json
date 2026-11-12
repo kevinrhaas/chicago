@@ -56,6 +56,14 @@
           "wikipedia_frances_glessner_lee"
         ],
         "note": "Wikipedia: Frances Glessner 'married a lawyer', Blewett Harrison Lee."
+      },
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
       }
     },
     {
@@ -70,7 +78,23 @@
         "chicago_blue_book_1905"
       ],
       "printed_as": "1700 Mr. & Mrs. Blewett Lee",
-      "note": "The Blue Book prints her as Mrs. Blewett Lee. The museum's family page puts the couple at 1700 S. Prairie Avenue 'within a few years' of the 1898 wedding; the marriage ended in divorce in 1914 (Wikipedia). Later the maker of the Nutshell Studies of Unexplained Death."
+      "note": "The Blue Book prints her as Mrs. Blewett Lee. The museum's family page puts the couple at 1700 S. Prairie Avenue 'within a few years' of the 1898 wedding; the marriage ended in divorce in 1914 (Wikipedia). Later the maker of the Nutshell Studies of Unexplained Death.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      },
+      "born": {
+        "value": "1878-03-25",
+        "confidence": "attested",
+        "sources": [
+          "glessner_house_family_page"
+        ],
+        "note": "The Glessner House family biography explicitly gives 25 March 1878. She is 26 on the scene date."
+      }
     },
     {
       "id": "pa1904_lee_john_glessner",
@@ -88,7 +112,15 @@
         ],
         "note": "Born 1898 (the museum's family page)."
       },
-      "note": "About six on the scene date. The family page names him among the Lees' three children; his place in his parents' house is inferred."
+      "note": "About six on the scene date. The family page names him among the Lees' three children; his place in his parents' house is inferred.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_lee_frances",
@@ -106,7 +138,15 @@
         ],
         "note": "Born 1903 (the museum's family page)."
       },
-      "note": "An infant on the scene date; her place in her parents' house is inferred. The third child, Martha, was born in 1906 and is not on the 1904 card."
+      "note": "An infant on the scene date; her place in her parents' house is inferred. The third child, Martha, was born in 1906 and is not on the 1904 card.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_lee_martha",
@@ -135,7 +175,15 @@
         "years": "born about 1906; here in 1910",
         "on_scene_date": "no"
       },
-      "note": "The youngest of Frances Glessner Lee's three children, born after the scene: the 1910 census lists her at 1700 with her mother, brother John and sister Frances, aged 3 (her mother had borne three children, all living; ED 166, sheet 8A, lines 44-47). Her father is not in the house that day; the marriage ended in 1914."
+      "note": "The youngest of Frances Glessner Lee's three children, born after the scene: the 1910 census lists her at 1700 with her mother, brother John and sister Frances, aged 3 (her mother had borne three children, all living; ED 166, sheet 8A, lines 44-47). Her father is not in the house that day; the marriage ended in 1914.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     }
   ]
 }

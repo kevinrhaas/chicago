@@ -1,0 +1,254 @@
+{
+  "public_base": "https://pub-f67d07c4cd6144e9b478b7f268f5495d.r2.dev/",
+  "origin": "https://chicago.polecat.live",
+  "verified": [
+    {
+      "key": "media/4a70efa676ad430f5b26e6ca7bddc8222190c701e5581efe7e03cea26fed6592.ogg",
+      "bytes": 3000260,
+      "content_type": "audio/ogg",
+      "cache_control": ""
+    },
+    {
+      "key": "media/d6c2f50e25cd727ec01ad8f2c51c37b4081fa992185bafa25c951249c94250c6.m4a",
+      "bytes": 3286358,
+      "content_type": "audio/x-m4a",
+      "cache_control": ""
+    },
+    {
+      "key": "media/2ea2791698f0f4488ae0a778515da033f67b2af4129561fed3fa606164a6b7b3.ogg",
+      "bytes": 2618969,
+      "content_type": "audio/ogg",
+      "cache_control": ""
+    },
+    {
+      "key": "media/8cea8a09e6d2b1cf2a2831ce4e72b97ff12c2425b466182c0ae156bf45847eaf.m4a",
+      "bytes": 2829210,
+      "content_type": "audio/x-m4a",
+      "cache_control": ""
+    },
+    {
+      "key": "media/77018628fc43d1b7e672606bf23023086319322aba28ff31d6f92dd6140fae4a.ogg",
+      "bytes": 3110084,
+      "content_type": "audio/ogg",
+      "cache_control": ""
+    },
+    {
+      "key": "media/70ec7c3832c258f0ceae455177bbcdf5107d9e9c8cf0efe2fa4d5b93d6284101.m4a",
+      "bytes": 3562925,
+      "content_type": "audio/x-m4a",
+      "cache_control": ""
+    },
+    {
+      "key": "media/927134897b4963d06888f5a123653a540efb52acfe26e5b8807b1e02b3d31948.ogg",
+      "bytes": 1124943,
+      "content_type": "audio/ogg",
+      "cache_control": ""
+    },
+    {
+      "key": "media/49cb7b226831ead003d50dbfa1b9ea3766fcd49ecf3a65c1c4b843a6a46d4c05.m4a",
+      "bytes": 1231836,
+      "content_type": "audio/x-m4a",
+      "cache_control": ""
+    },
+    {
+      "key": "media/44b90e10d92edc698bee63c61dadc1a6f4070e514207d7445f86adec1457cf49.ogg",
+      "bytes": 2348795,
+      "content_type": "audio/ogg",
+      "cache_control": ""
+    },
+    {
+      "key": "media/3c0db2cf5680c19216ab64c9f3f401acef5b48bd0e2d098617f2133c6cd238fc.m4a",
+      "bytes": 2642084,
+      "content_type": "audio/x-m4a",
+      "cache_control": ""
+    },
+    {
+      "key": "media/f8d4026492f1f181eef3b44e1b5c50b06968141123fbcfd99c22f78d3aa683a8.ogg",
+      "bytes": 1116249,
+      "content_type": "audio/ogg",
+      "cache_control": ""
+    },
+    {
+      "key": "media/2506a33a3e380dcae226373f42cacdce10d4e3a8f01b673bf5277766d6d4bdca.m4a",
+      "bytes": 1237226,
+      "content_type": "audio/x-m4a",
+      "cache_control": ""
+    },
+    {
+      "key": "media/ef0df9c031b158e58e6323fcef22d209779141dad4909dc858edc8d34c63b3c2.ogg",
+      "bytes": 3101235,
+      "content_type": "audio/ogg",
+      "cache_control": ""
+    },
+    {
+      "key": "media/d8442633401c65b582a8c9ee6ecf39b26600942f6c6dd1a14f25bb13459e2cbf.m4a",
+      "bytes": 3298507,
+      "content_type": "audio/x-m4a",
+      "cache_control": ""
+    },
+    {
+      "key": "media/59d1bbdb566ed21a14098fdeb565bdecf71b959fe64f355729332bb1de4c8a08.mp3",
+      "bytes": 352940,
+      "content_type": "audio/mpeg",
+      "cache_control": ""
+    },
+    {
+      "key": "media/a63798768beaff4eba54e79293c89b81e9940d87d8742b45b0ac93130610bd5a.mp3",
+      "bytes": 352940,
+      "content_type": "audio/mpeg",
+      "cache_control": ""
+    },
+    {
+      "key": "media/1bd611338977b9d524bef88882b6a5a05676f775467bb7a35fc7db70ee12108d.mp3",
+      "bytes": 352940,
+      "content_type": "audio/mpeg",
+      "cache_control": ""
+    },
+    {
+      "key": "media/cb75a869bc3314ee8644dccf3df3fcfcdcd29609c2f85b3d6b9a8a5d88d4adc7.mp3",
+      "bytes": 384812,
+      "content_type": "audio/mpeg",
+      "cache_control": ""
+    },
+    {
+      "key": "media/ba4071435f4cd2f6f15a551dbe71ee9edf3f842e1a88b7cb5d9a3b3ac756cbb9.mp3",
+      "bytes": 46892,
+      "content_type": "audio/mpeg",
+      "cache_control": ""
+    },
+    {
+      "key": "media/b3e0beeec393f3fe699e3608b9209bdc38742ec316f59b0baf229667b59c89b8.mp3",
+      "bytes": 158252,
+      "content_type": "audio/mpeg",
+      "cache_control": ""
+    },
+    {
+      "key": "media/52ba725b37f0f4fb1fcf892b095e56d1d9c225e678fed1c7ec89b51c8aa425a3.mp3",
+      "bytes": 384812,
+      "content_type": "audio/mpeg",
+      "cache_control": ""
+    },
+    {
+      "key": "media/f7f1cd7cddd81cd373da49ae4e5aab40cf8fe5249ad437bbbc052f099a7537cc.mp3",
+      "bytes": 10412,
+      "content_type": "audio/mpeg",
+      "cache_control": ""
+    },
+    {
+      "key": "media/f1eeac0954dcfee8bc624d5c177009123b6af9f7760621109c5637c8b699505e.mp3",
+      "bytes": 384812,
+      "content_type": "audio/mpeg",
+      "cache_control": ""
+    },
+    {
+      "key": "media/453ffe0489e0689cb5168db1f39c67a9e13d3b1d1c186af4a3fdc22b56c1e23d.mp3",
+      "bytes": 58028,
+      "content_type": "audio/mpeg",
+      "cache_control": ""
+    },
+    {
+      "key": "media/77f7d06ddbfe0b615d9599d2633ed8d4f7d8ef85543f1ba586211a4d9d1e6a59.mp3",
+      "bytes": 67628,
+      "content_type": "audio/mpeg",
+      "cache_control": ""
+    },
+    {
+      "key": "media/8bee6df16dd4da312d69140509d687e5f1fb0ef781483e272c8ed31621e657e7.mp3",
+      "bytes": 118316,
+      "content_type": "audio/mpeg",
+      "cache_control": ""
+    },
+    {
+      "key": "media/a6e23b53bc47c921f24071168efc104cac78a22488c9f95cbdcd43f737d3d5c8.mp3",
+      "bytes": 178604,
+      "content_type": "audio/mpeg",
+      "cache_control": ""
+    },
+    {
+      "key": "media/77da8a7629e19c07d93bf8bf71a0a7928d487321026a8bdd90a925e33f3bf374.mp3",
+      "bytes": 352940,
+      "content_type": "audio/mpeg",
+      "cache_control": ""
+    },
+    {
+      "key": "media/8af494ee4bbaa7a7815c99e9fffc49577992e6eefb178cceda3b68a77520725b.mp3",
+      "bytes": 384812,
+      "content_type": "audio/mpeg",
+      "cache_control": ""
+    },
+    {
+      "key": "media/58e98b3010c5653fe2a62a64539164520bf304bc815f1d0abd272521f40906f5.mp3",
+      "bytes": 61484,
+      "content_type": "audio/mpeg",
+      "cache_control": ""
+    },
+    {
+      "key": "media/4d7d1c101fabe17bfc009c3227b3f83acf2eacbd9c801fd2971e1984dd585080.mp3",
+      "bytes": 352940,
+      "content_type": "audio/mpeg",
+      "cache_control": ""
+    },
+    {
+      "key": "media/664f51fad5c630e800859d91307529ef18fdce808408efbdb878286afc834343.mp3",
+      "bytes": 352940,
+      "content_type": "audio/mpeg",
+      "cache_control": ""
+    },
+    {
+      "key": "media/a69a4ae66737a3e1c1fb1910787f06bbed38a58f4d2667f630512c9e045ff628.mp3",
+      "bytes": 384812,
+      "content_type": "audio/mpeg",
+      "cache_control": ""
+    },
+    {
+      "key": "media/b015300443c8639ac2d78d34572faa7e7a932a070f6c18201b36a8ef6de5f28f.mp3",
+      "bytes": 41132,
+      "content_type": "audio/mpeg",
+      "cache_control": ""
+    },
+    {
+      "key": "media/89811387c3e0b9ddc2cfa355d8f4a2b0c3bb878299511b9720de9b31d0edebf0.mp3",
+      "bytes": 172460,
+      "content_type": "audio/mpeg",
+      "cache_control": ""
+    },
+    {
+      "key": "media/1e9d75c58b4bb7bc87bd8251433afd60ccdfbda20571efce62262b23d598836c.mp3",
+      "bytes": 170540,
+      "content_type": "audio/mpeg",
+      "cache_control": ""
+    },
+    {
+      "key": "media/3406d2a9d4067d245c6c125d2bd52e2374fe7cb8dca0e42c77595bbb8177b4a9.mp3",
+      "bytes": 384812,
+      "content_type": "audio/mpeg",
+      "cache_control": ""
+    },
+    {
+      "key": "media/ef84f820c11c538ca8276e0303c89de16de02de30a643fe183e29ed39b34526c.mp3",
+      "bytes": 384812,
+      "content_type": "audio/mpeg",
+      "cache_control": ""
+    },
+    {
+      "key": "media/36769d8a592ab6473e9c3db2c8503fdb65e84406847af5b2d1c47ab1f028b3f7.mp3",
+      "bytes": 384812,
+      "content_type": "audio/mpeg",
+      "cache_control": ""
+    },
+    {
+      "key": "media/471a8b7957116e4685f899875cad806ea7bb40d274c847add3d5e719d34b4e28.mp3",
+      "bytes": 384812,
+      "content_type": "audio/mpeg",
+      "cache_control": ""
+    },
+    {
+      "key": "media/6831b7ad102ec023194c4040776c5245b6cb47451d652a94a07dc742e28362af.mp3",
+      "bytes": 352940,
+      "content_type": "audio/mpeg",
+      "cache_control": ""
+    }
+  ],
+  "errors": [],
+  "complete": true
+}

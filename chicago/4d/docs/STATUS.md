@@ -1,3 +1,194 @@
+## PR #1933 native linen intake — 11 November 2026
+
+The working tree adopts the eight settler MASTER/WEB LODs from immutable source
+57151be9a3b1756718dfc1619a4dbc4a3b55fda6 and reviewed H5 request
+2475a311573dce18faa52e84799dc6f51c7b6837ac2c2ef2f16d85f28e3b08dd.
+The corrected canonical CLI ran locally with the source APP as cwd/PWD and the
+absolute driver script. Its CLOSED capture verified all 39 inventory files and
+both unchanged tracked-source snapshots. The actual body-normal maximum was
+0.0000586337 against the unchanged 0.001 bound; mesh invariants stayed unchanged.
+No GitHub capture success is claimed: the dispatch was rejected HTTP401 before
+any run, and the earlier GitHub normal failure and local script-lookup failure
+remain failures in their original receipts.
+
+The bound observer completed 104 matching-camera views and 72 idle/walk poses
+across all four LODs and both viewports, without mechanical failures or sampled
+negative rear gaps. Maximum camera-matrix difference from the saved baseline was
+1.11e-16. Retained-body coverage gaps remained at the baseline maximum of nine;
+these finite ray diagnostics are not a general cloth-clearance certificate.
+All garment views match the inspected fuller-seat candidate; the only three
+pixel differences across the full PNG comparison were in the inspector heading.
+The original collapsed-layer slit is absent; inherited seams and the lower
+crotch crease remain within the broader clothing-realism work.
+
+The supported fixture writer remeasured all eight adopted files at 1280x800 and
+390x780. Every one passed, and the other 280 baseline rows stayed deeply equal
+with their actual file hashes verified. This is acceptance of the bounded linen
+seat change, not general photographic or full-body fit acceptance. Body, front,
+waistband, lower legs, topology, UVs and skin weights retain the source controls.
+
+Source checkpoint 57151be9 passed all 16 local source parts (1,341 actual step
+executions), PR preflight and the ordinary remote gate. The adopted files are gated with the final asset/source suite and published
+desktop/mobile checks; the PR records their final results. DEV 8a643db9 is included. T-1789 remains open; merge only to DEV
+once the final checks are green. No production promotion is part of this PR.
+
+## PR #1933 recovery and DEV integration — 11 November 2026
+
+The recovery integrates DEV 8a643db9, retaining the Prairie child/teen authoring
+job, its five-role fixture scope, household/audio work and both sets of history.
+The ordinary human browser checks retain the pinned Playwright container that
+passed on be1e1277; the separate authoring jobs retain DEV's mirror workaround.
+Mixed Prairie/clothing requests are refused before checkout.
+
+Capture 43072965533 passed its humans prerequisite and failed at the settler
+body normal readback: maximum 0.0028170957 exceeded the unchanged 0.001 bound.
+The opt-in clothing capture now explicitly uses the existing packed-normal
+adapter and retains its diagnostics even on failure. No tolerance override or
+global builder default changes. Local pinned Blender 4.5.3 trials read
+0.0000586337 and preserved mesh invariants.
+
+The first matched rear previews exposed a geometry defect in the original source
+candidate: projecting distinct shell/return layers to the same depth produced a
+jagged slit. The repair moves each rear column by its outer surface's required
+ease, preserving layer depth, topology, UVs and skin weights. A shallow convex
+crown stays within the existing maximum extra ease. The six source geometry
+controls pass, including the new two-layer negative-control regression. The
+revised eight exported MASTER/WEB LODs pass the container contract. Exploratory
+previews completed 104 views and 72 pose measurements across all four LODs and
+both viewports, with matching saved cameras and no sampled negative rear gaps.
+Inspected walking rear views at every LOD no longer show the slit. The final
+local browser inspector also passed all eight LOD/viewport inspections.
+
+These are local build and preview results. A successful immutable capture,
+complete matching idle/walk views, supported fixture remeasurement and published
+desktop/phone checks remain required before asset adoption and green DEV merge.
+T-1789 and broader clothing realism remain open. Production is unchanged.
+
+### T1789 linen capture: browser dependency repair, 11 November 2026
+
+Source-only update; no replacement human assets or fit acceptance yet. Source
+0a579798 passed all sixteen local source sections (1,337 executions) and the
+eight-part GitHub code gate. Its capture 43053758545 failed before geometry:
+the humans prerequisite could not resolve Ubuntu's package host while installing
+Playwright dependencies. The ordinary PR job and its one fresh-runner retry
+failed at that same DNS step. Those failures remain failures; no producer parents
+were accepted.
+
+The proposed browser-only step uses the official Playwright 1.56.1 Noble image,
+pinned by its linux/amd64 digest, with the image's pwuser and a read-only source
+mount. Both complete browser fixture and actor commands retain both viewports.
+Canonical Python/Blender work stays on the host; source/definition binding, tool
+pins, all assertions and the original 45/30-minute job limits are preserved.
+Static syntax/contract checks do not prove container compatibility: actual CI
+browser execution, new canonical assets, matching native views, fresh DEV
+integration and final published checks remain pending. Broader clothing realism
+and T1789 stay open. Production is unchanged.
+
+## Linen capture codec-pin correction — 11 November 2026
+
+The ordinary checks for draft PR #1933 pass on source c9990d8b. Its canonical
+capture 43018920928 passed the human browser and actor prerequisite, then stopped
+before geometry: the capture parser retained quotes around the existing codec
+version pins and rejected the correct `4.5.0` values. The verified Blender archive
+and exact `Blender 4.5.3 LTS` header passed. The parser correction preserves the
+canonical codec script and version, with controls using its actual pin syntax.
+No new parents were produced or adopted; the existing assets and fixture remain
+unchanged. Both failed capture receipts are retained. A new committed source,
+request and successful canonical capture must precede matched native comparisons,
+asset adoption and a normal green DEV merge. The 104 baseline views remain valid.
+PR #1928 is already verified on DEV; production and broader clothing acceptance
+remain unchanged. T-1789 remains open.
+
+## Linen seat build correction — 11 November 2026
+
+PR #1928 is merged and verified on public DEV (900d9166e); production is unchanged. The looser 1812 linen seat remains source-only in draft PR #1933. Its first canonical capture (43000644195) stopped before geometry: the checksum-verified Blender release reports `Blender 4.5.3 LTS`, while the capture guard expected the bare version. The guard now requires that exact LTS header and retains archive, binary and codec pins. The rear-view observer now writes compact JSON without removing fields or increasing caps; 104 baseline images across four LODs and both viewports are complete. A fresh committed source, request and canonical build are still required; no new native parents or linen fit acceptance exist. T-1789 clothing realism remains open.
+
+## T-1789 — fuller 1812 linen trouser seat: source preparation (2026-11-11)
+
+The existing settler role now has a model-specific fuller linen trouser seat.
+The source surface bridges the deep posterior crease with bounded ease, while
+preserving the waistband, lower legs, front, UVs, colors, topology and skin weights.
+The original native GLBs and fixture measurements remain unchanged at this source
+stage; no visible native fit or photographic result is claimed here.
+
+A strictly opt-in artifact capture reuses the existing canonical builder/exporter
+for this one family. One immutable source/definition revision and a separately
+reviewed deterministic request hash bind the run before any producer. Defaults
+are unchanged. The existing inspector gains an opt-in rear/seat image and real
+walking-pose observer; sampled contacts are diagnostic and missing hidden body
+geometry is unavailable evidence, rather than a model failure.
+
+Native build, eight-file intake, original fixture remeasurement, before/after
+views and ordinary delivery checks remain required. T-1789 stays open. The saved
+coachman, apron and collar source candidates remain separate from this first
+linen increment. PR #1928 carries the preceding coat and routing delivery.
+## T-3546, T-3547, T-3549, T-3550 — Prairie Avenue people and household routines (2026-11-11)
+
+The combined rollout covers 445 card entries across 71 households: 397 additional callable figures (362 adults and 35 children/teens), eight existing Glessner figures, five infants in household care, 23 absent former residents, nine aliases and three collective listings. Seventeen newly verified portraits have source crops, facial fits and model comparisons; unpictured appearances and conflicting birth dates remain explicit. The bounded search audit covers every entry and does not claim that an unidentified portrait does not exist.
+
+The owner approved the five child and teen prototypes as the basis for activation. Their admission binds that answer to canonical build 42997832738, recipe hashes and all 40 raw/web export hashes. Native inspection passed every export at desktop and phone sizes while preserving the 248 preceding fixture rows. Juvenile body proportions retain the approved models; personal stature and restrained facial variation are reconstructed, and adult aging and build targets are disabled. All 362 existing adult routine and appearance records are preserved.
+
+Children and teens have complete seasonal days. Small children go outside with an available adult from the same household for short walks, nearby play and conversation; their companion waits during an interaction and returns with them. The choice of caregivers and the daily timing are declared liberties. Infants have indoor feeding, play, nap and sleep schedules. “Ask after” opens their card and describes that care; no independently walking infant or substitute adult body is drawn. Jaunts retain priority, and the autonomous nearby rotation stays bounded.
+
+The integrated roster and appearance checks pass: 445 cards, 397 callable figures and five infants in household care. All 35 juvenile ages and statures are consistent, adult aging/build targets remain off, and all 362 prior adult routine and appearance records are unchanged. The full day-engine regression suite passes, including supervised calls, shared walks, menu/greeting pauses, caregiver duties, returns and jaunt interruption. The first published outing exposed separate grid detours separating a child and caregiver. Shared clear legs now remain direct at the same pace; the new regression fails on the previous implementation and passes on the fix, including refusal of blocked next legs. The corrected published behavior probe passes all five roles and all five infant door cards at 390×780 and 1280×800, with zero page errors; supervised walking gaps remain at most 1.4 m. Phone frames fit the ordinary Light allowance. The Walker desktop neighborhood frame measures 5,317,375 triangles (5,097,257 without people), exceeding the 4.7M close-view allowance but fitting the existing 6.67M Full district allowance. No runtime budget or standard smoke assertion was changed. The two initially tree-obstructed teen views were retaken and inspected on desktop and phone. The Cunningham desktop retake also uses the existing district allowance (5,054,836 triangles); no close-view pass is claimed for these two neighborhood stands. All four integrated local gate parts pass (326, 326, 326 and 327 steps, none red). The six source inputs bound to the focused browser demonstration are unchanged after the gate. Fresh required CI and the full mapped renderer coverage remain required before merge. Earlier adult checkpoint c7de594a7 passed its local gate, required CI and all 15 renderer stages on both viewports; its first desktop 14–15 run had one navigation handoff failure and its unchanged rerun passed all 165 checks. Those results are retained as earlier evidence. The final combined commit and its CI/renderer receipts are recorded on PR #1932 before merge. The PR records exact revisions and results. Research and source comparisons remain in `docs/RESEARCH/prairie-portraits-3546/`; approved prototypes and browser evidence are in chicago-evidence.
+
+## T-1789 — preserve lazy 1812 startup routing (2026-11-11)
+
+Integration testing of PR #1928 found that blocked automatic 1812 routines
+bypassed the existing cold-grid day router and allocated the full town route
+grid. The ArrayBuffer increase matches its 443,309,659-byte grid plus routing
+heap. Automatic work, conversations and returns now use the guarded day router;
+clear paths still walk immediately and blocked paths wait safely for a usable
+route. Actual visitor requests and jaunt journeys retain full routing, including
+their return legs. Other years keep their existing routing policy.
+
+The real controller/router regression fails on the original integration and
+passes on this fix; the existing daily-life tests also pass. Actual published
+memory and renderer checks for the new revision remain required before merge.
+No actor, geometry, detail tier or memory ceiling was changed. Explicit routes
+can still warm the full grid. Clothing fit and photographic acceptance remain
+open on T-1789; this does not adopt the separate clothing-fit candidates.
+
+## T-3540, T-3541, T-3543 — daily routines and persistent interactions (2026-11-10)
+
+All 284 drawn people and all 520 callable household/lodge residents have explicit
+full-day schedules. Existing dated and seasonal routines remain; 51 enlisted men
+now alternate duty, quarters, meals and equipment care, with winter changes and
+night guard shifts. Lodge residents use the existing reconstructed ordinary task
+repertoire at their own doors. Three additional nearby residents at most take
+short autonomous outings; requested visits remain independently available.
+
+Every 1812 actor, including newly summoned Native residents, has short icon actions
+under Interact: Greet, Go inside, outdoor tasks and Chat together. Requested chats
+reserve a real companion, prefer someone outside, wait for both to arrive and then
+return both to their day. Dynamic figures and their controls are released after
+returning inside. Jaunts retain priority. Historical absence cannot be overridden
+by a liberal activity menu; reference-only people and carried infants are not
+new standalone figures. All reconstructed timing is declared in liberty
+L-1812-everyday-routines-3541.
+
+The shared Interact control retains a passing person briefly and pins a deliberately
+selected person until dismissed or unavailable. Opening their menu pauses their
+walk; closing it or choosing an action releases that pause. A named close control
+and Escape dismiss selection. Actions use line icons with restrained color, and
+Go inside (nearest available entrance) and Go home (residence) are grouped last.
+Guests remain callable at the building they entered, then return through doors.
+Requested walks continue beyond drawing range without animating hidden figures,
+so a selected person can finish going inside after the visitor moves away.
+
+Focused checks cover all 804 schedules, paired conversations, soldier ownership,
+Native door calls, bounded rotation, spacing, seasonal absence, walking selection,
+menu pause/resume, offscreen arrivals and distinct indoor destinations. All four
+final local check partitions pass (324, 324, 324, 325 steps), as does preflight.
+
+Published 1812 Native household and 1904 walking-person sequences pass on phone
+and desktop, with no page errors and default-quality screenshots inspected.
+The full published smoke passes all 15 stages on both viewports (1,653 assertions)
+on runtime `sha256:27b7282625ca4d07`. Repository, human-model, moving-frame performance
+and build checks pass. [PR #1929](https://github.com/kevinrhaas/chicago/pull/1929)
+carries the change; [the verification record](RESEARCH/1812-routines-3540/README.md)
+links every smoke receipt to its tested build.
+
 ## T-3536 — compact interactions and paired household conversations (2026-11-10)
 
 Household actions open under Interact, with short labels and decorative icons. The
@@ -26464,6 +26655,101 @@ The authoritative scene compiler changes only this blockhouse's overall evidence
 
 Current-dev integration preserves the landed three-building PR1903 (a0218d1aae9d4a004f8a13b5af38cd4e7c9efd54) and concurrent resident-cloth PR1904. This camera/badge increment requires no native rebuild; actual first-fort member GLBs and placements are proven identical to the existing dev assets. No new photo follow-up or original-ticket closure is introduced.
 
+### T-3532 — Recorded audio pilot (2026-11-10)
+
+The following entries preserve the audio pilot checkpoints before integration
+with the newer dev building and carriage changes. Storage figures and gate
+failures describe those checkpoints, not the final merged build. The current
+storage allowance is 433 MiB (SITE-BUDGET.md, section 17); the pilot used the
+earlier 432 MiB allowance.
+
+Implemented locally: loading-screen opt-in, independent music control, seven
+owner-authorized cues in separate era collections, three licensed environmental
+proxies, source/derivative catalogue and public audio browser. Synthetic hums,
+drones and interface sounds removed. River/lake/slough classification is explicit.
+No production promotion. Listening quality, historical placement at mouth
+boundaries, Safari playback and the full repository release gate are not yet
+signed off. See AUDIO.md for limits and remaining activity/voice batches.
+
+Focused checks passed: audio lifecycle/era/classification units, Settings,
+offline-pack exclusion, Chromium playback and all 17 codec deliveries at
+390×780 and 1280×800. The actual mobile arrival control starts the selected
+1835 cue with zero muted audio requests and no page errors. Published/source
+parity and page stripping pass after republishing. Part 1/4 of the full gate
+failed initially; licence path entries, a local ticket-clone symlink and the
+stale published page were corrected. A subsequent site validation still fails
+on storage alone: about 466 MiB versus the 432 MiB ceiling. The other three
+gate parts and full 3D smoke were not completed; no code commit, PR, merge or
+deployment is claimed. Audio hosting/storage must be resolved before release.
+Birds, insects and other fauna are specified by habitat/season/hour and historical
+plausibility in AUDIO.md, but are not yet scheduled or present in the library.
+
+Follow-on library work on 2026-11-10 supersedes that last library statement:
+23 additional recordings are now acquired, credited and available as compact
+audition files. The catalogue has 33 source assets and 40 codec deliveries;
+the delivery bytes total 41,173,377 (39.266 MiB). Actual decoding and catalogue
+filters pass in Chromium at 390×780 and 1280×800; lifecycle units, source-licence
+coverage and upload-package hashes pass. Candidate presence in the library does
+not schedule it in town. No listening-quality sign-off or full release gate is
+claimed. The owner approved the Italian cicada as an acoustic proxy.
+
+The owner activated Cloudflare R2 and reported CORS saved. A content-addressed
+upload bundle and provider-neutral catalogue are prepared, with a read-only host
+verifier. All 40 bucket objects now match their prepared SHA-256 hashes, and
+CORS, MIME types and HTTP 206 byte ranges pass. Chromium playback through Web
+Audio at the app origin passes for Opus, AAC/M4A and MP3. The generated development
+publication now uses verified hashed R2 URLs and omits all 40 media files from
+the site. Published-module browser checks pass at 390px and 1280px for real R2
+music, decoded wind, era changes, mute cleanup and catalogue layout. Lossless
+minification of published liberties JSON brings the app to 431.363 MiB within
+the unchanged 432 MiB ceiling. Full gates remain incomplete; no deployed
+integration is claimed. The r2.dev
+address is for development; production DNS remains
+separate because polecat.live currently delegates to GoDaddy. See
+AUDIO-HOSTING.md. No secrets were requested in chat, and no DNS delegation,
+production deployment or budget increase was performed.
+
+Final focused arrival checks pass on the actual generated app page at 390px
+and 1280px: no catalogue/media request while muted, trusted speaker click,
+nonzero samples from real R2 music through the master gain, correct button state,
+second-click mute, and zero page/media errors. Published/source parity passes.
+The latest part 1/4 source gate failed three steps: two geometry reproductions
+required Node22 instead of this workspace's Node24, and the new audio liberty
+entry lacked required field formatting/compiled output. Node22 was installed
+outside the repo; both geometry checks now pass individually. Both audio liberty
+entries now have proper fields and the regenerated data passes its check. The
+complete four-part gate has not been rerun to green.
+
+Published mobile smoke stage13 reached ready in155.4s with zero page errors,
+then stopped at the existing Hogan-card/building-navigation assertions: the
+current card offered disabled “Find this person” because the person was not out
+at that hour/season. Its result was52 passed/2 failed in9m02s and is filed in the
+standing smoke record. Its audio section was not reached. No assertion was
+relaxed; neither a clean-base reproduction of that failure nor the remaining
+full smoke stages are claimed. No commit, PR, merge or deployment is claimed.
+
+Release preparation corrected the People smoke to select the evidenced workplace
+action rather than the new Find/Follow button; the focused present/away regression
+passes. A quiet published mobile stage13 run reached ready in66.3s and passed its
+People navigation, recorded music/opt-in, independent music/master mute and hidden
+cleanup assertions. The run was intentionally stopped during later UI checks to
+move the complete matrix to CI; it is not a stage13 pass or a release-gate pass.
+Audio review also fixed water altitude attenuation and bounded environmental
+decoding to48kHz. Real R2 playback at96kHz and192kHz output passes with12,672,000
+decoded bytes for all three loops. Sparse bake smoke can replay verified hosted
+bytes without an unpublished source checkout, and its fingerprint includes the
+hosting inputs and actual published catalogue. Targeted replay, fingerprint and
+ticket/changelog mirror regression tests pass. The complete four-part source gate
+and both-viewport smoke matrix remain required before merge to dev.
+
+Pre-integration source checkpoint: all four source gate parts passed before
+commit `a265f37c`, with 321, 320, 320 and 319 selected steps respectively. The
+new hosting check is called directly by the publication gate, and both new tests
+have measured isolation rows. Draft PR #1912 is open. Integrating the newer dev
+head requires fresh source qualification and the full published desktop/phone
+smoke matrix; the earlier passes do not qualify that merged tree. No merge to dev
+or production deployment is claimed.
+
 
 ## T-2795 — a stationary team for the carriage outside Glessner House (2026-11-10)
 
@@ -26592,6 +26878,48 @@ rendering and its camera is outside both horse reach radii. Those facts do not
 establish noise, causality or a passing performance result. Fresh ordinary CI
 is required on the repaired head; no ceiling was changed.
 
+### T-3534 — Dated 1835 habitat audio (2026-11-10)
+
+Three existing R2 recordings now have explicit runtime placements for the researched
+1835-07-01 summer scene: the owner-approved Italian cicada proxy, Ontario field
+crickets and a distant Washington red-wing call. Actual fauna records, flora-zone
+geometry and the scene's solar date/hour qualify each phrase. The other twenty
+candidates remain audition-only. No new media bytes or bucket uploads are added.
+Other eras, viewing seasons and alternate jaunt dates remain quiet; near bird
+calls await visible wildlife actors. Source identities and proxy limitations stay
+visible in the catalogue and compiled liberties.
+
+The shared fixed 48 kHz decoder adds at most one 24-second mono habitat clip
+(4.608 MB) beside the existing 14 MiB environmental cache. Phrases have real gaps,
+fixed distant bird anchors and approach/view suppression. Master/Ambience mute,
+hidden-tab cleanup, stale decode cancellation and speech ducking use the existing
+mixer lifecycle. Actual surfaceHeight/groundHeight supplies the ground; the 4 m
+walking barrier over water is never treated as terrain. Marsh bird sources stay
+1.5 m above the higher of actual terrain or the Y=0 water plane.
+
+Habitat/mixer units and packaging regression pass. Regeneration preserves placements
+and all 33 assets/40 original delivery hashes; upload packages include enabled
+habitat clips even without review-only candidates. The earlier habitat checkpoint compiled 1,082 liberties. The subsequent
+integration of dev's individual horse coats rebuilt 1,083 entries, preserving
+both the incoming register and all three audio liberties.
+The corrected audio-only Chromium fixture completed at 390 px and 1280 px: all
+three live R2 recordings produce nonzero samples, buffers stay at 48 kHz on a
+96 kHz output context, and mute/cache/disposal checks pass with zero page errors.
+
+Actual-town source-overlay runs against the pre-coat-integration foundation
+snapshot site-integrated passed at 390×780 and 1280×800, reaching real readiness in 72.1 s
+and 124.1 s. Actual flora/terrain supplies wet prairie at E−684/N984 and marsh at
+E−504/N840. The integrated mixer plays cicada and respects Ambience mute; live
+cricket and red-wing phrases, actual hour/date/winter suppression, fixed rear
+habitat anchors, and near/far/in-view stopping pass with zero page errors. Actual
+wet slough, river and lake samples separately classify under the matching
+e1834_harbor_cut epoch; these readings establish classification, not audibility.
+
+These are source overlays on generated foundation geometry, with draws held only
+for data/audio checks while camera matrices update. They establish no pixel or
+regenerated-publication acceptance. Human mix/proxy listening, Safari, this PR's
+full source gates and generated-publication checks remain required. No merge or
+deployment of this habitat increment is claimed.
 ### T-3533 — 1904 household routines
 All eight drawn household members have full seasonal days; the existing day engine handles individual work, short gatherings, indoor periods and jaunt holds. Door callers may request any of the season's outdoor activities temporarily, regardless of hour, or ask someone to Go inside. Office work is an off-scene absence; a door request can recall him so everyone remains available. This is the reusable household model; other houses' figures are not added here. Validation is recorded in the PR.
 
@@ -26600,6 +26928,19 @@ All eight drawn household members have full seasonal days; the existing day engi
 Balanced now uses the existing conservative shadow-caster filter. At the failing 1835 West prairie view, 66,537 submitted triangles and 501 calls disappear with zero changed pixels; the 2,625,000 ceiling remains unchanged. Receipts: docs/RESEARCH/balanced-shadow-budget-3535/. Release smoke verification is recorded in the PR.
 
 The complete desktop settings smoke also measured Full X-RAY at 3,737,315 triangles. Its Full-only Ghost allowance is explicitly recalibrated to 3,760,000 (the reading plus the retained 18,059 margin, rounded to 5,000), per the documented higher-tier budget policy. Ordinary Full, Balanced, Light and draw-call limits remain unchanged; all budget assertions remain active.
+
+
+### Audio integration with current DEV (2026-11-10)
+
+PR #1912 integrates dev `b9a87a9a4`, including shared-asset publication,
+fort/tavern and Kinzie picture work, household and coachman routines,
+visible-pavement support, masonry surfaces and the lodging remainder. The
+audio/offline merge retains both alias catalogues and optional-media exclusion.
+The horse publication fixture copies the real audio-hosting helper required by
+the mirror checker; missing/corrupt-recipe controls remain intact. Earlier
+audio and renderer receipts remain historical checkpoints. Current source and
+published-browser qualification is recorded on PR #1912. Incoming budget
+policies are retained; this audio integration introduces no additional increase.
 
 
 ## 2026-11-10 T-2484 source checkpoint
@@ -26654,3 +26995,23 @@ checkpoint, not a premature ticket closure.
 ### 2026-11-10 — T-3341 early masonry surface increment
 
 The remaining flat brick and chimney materials in 1812 and 1835 now bind the existing procedural brick or clay sheet by their recorded disposition. Already mapped fort recipes and 1904 materials are retained. The new brick shuffle reads the library's 20 by 48 running bond; Miller's mixed native stack primitive is partitioned without losing triangles or confidence. Actual desktop/default-phone before-and-after surfaces pass in both scenes (28 directly reviewed frames and two detail roundtrips). Official boot passes at 44.716135 MiB of 44.9; unchanged phone-memory gates pass at 305.664622 MiB of 350 (1812) and 509.227699 MiB of 550 (1835). All eight source-check parts and their aggregate pass on runtime `cab4514539`; PR #1918 records final protected-check and dev-merge state. See docs/RESEARCH/early-masonry-3341.md and L-early-masonry-surfaces-3341.
+
+### T-3544 — Recorded moving transport audio (2026-11-11)
+
+Implementation binds the existing CC0 harness and wooden-wagon recordings to actual loaded moving assemblies, using lightweight motion state and real horse/vehicle world anchors. Harness serves four teams across the three dated scenes; the rolling-wagon proxy serves the three wooden wagons only. Effects controls this bus independently of ambience/music. Two nearest teams, four voices, two mono 48 kHz buffers and 8 MiB bound the addition. Pause, stop, dwell, hidden/cull, reduced motion, off-hours and disposal make their source ineligible; mute retires sources and buffers. Delivery hashes are reused, with no new media upload.
+
+Focused transport lifecycle/spatial/memory tests pass, as do the existing sound, habitat and real assembly tests. All 33 assets and 40 delivery hashes regenerate unchanged. Real R2 browser playback passes at 390 and 1280 pixels with 96 kHz output and fixed-rate buffers. The generated actual 1835 town also passes at both sizes: loaded moving wagon/horse anchors, Effects-only playback, Stop/Continue, audible nearby Light-mode teams and out-of-range silence, 6,737,316 decoded bytes and zero page errors. Those town reads held draws during data/audio checks and do not claim pixel quality. The canonical 63-step derived tail settled again after integrating DEV. Full repository and published-smoke results belong to the PR. Human listening, Safari and physical mobile-device qualification are not established by these automated checks. Work strokes, hoof impacts, horse calls and dialogue still await their own visible activity/animation alignment.
+
+T-3544 owner steering (2026-11-11): music repeats continuously within its era instead of waiting fifteen seconds between cues. The player keeps the same streaming element and graph connection across natural endings, wraps the playlist, and guards retired callbacks after mute, scene change or disposal. Music-off clears a failed attempt so a deliberate re-enable can retry. Regression tests pass for two full playlist cycles in each era, stale endings after Music off/mute/era change/disposal, and deliberate retry after media failure. Real R2 browser checks at 390 and 1280 pixels pass natural end events (accelerated by seeking near the end), every era’s playlist wrap using one player without another click or scheduler tick, nonzero signal, and both 1835 AAC tracks plus mute cleanup.
+
+T-3544 listening feedback (2026-11-11): the owner liked the insects but found the constant wind too strong in 1904 and the river recording too busy for the visible slow water. The insect scheduler and gains are unchanged. Wind now has subdued era mix presets and a bounded lake-proximity increase; this is not a weather/building-occlusion simulation. The river proxy is held from scene playback and runtime fetching, with an explicit library review note pending a calmer recording. Lake waves remain separately classified. The sound/transport/habitat checks pass. Real R2 wind/lake playback at 96 and 192 kHz output retains the fixed 8,448,000-byte cache, emits nonzero samples, releases on mute and never fetches the held river recording. All 33 source assets and 40 delivery hashes regenerate unchanged.
+
+T-3544 control/travel steering: the loading-screen control is now an icon-only speaker with a 44 px touch target, mute/on glyphs, accessible label and tooltip. Settings separately describe background wind/lake/birds/insects and nearby wagon/harness effects. The owner clarified: “Only time-travel/arrival; keep period music in town.” The actual journey state now permits era music in exploring/inspecting/jaunt/tour states, suppresses it during time travel/arrival/recall, and leaves ambience/effects independent. Journey transition unit checks and the all-era real-media repeat/AAC checks pass. Published arrival checks and visual review pass at 390 and 1280 pixels: compact icon, no muted fetch, real R2 ambience without period music throughout arrival, mute/unmute, native Free roam entry starting Border Ballad, Settings examples and zero page/media errors. Full repository and published scene-smoke results belong to the PR.
+
+T-3544 spacing follow-up: each Ambience/Effects description is grouped with its own label and slider, about 8 px below its slider and 18 px before the next control in the actual markup/style review at both widths. The owner-requested Music and general sound notes are removed; source/rights details remain in the audio library.
+
+T-3544 river selection follow-up (2026-11-11): the owner selected “Light water on rocks” from three loop auditions and uploaded the exact MP3. Full public verification passed for SHA-256, CORS, MIME and ranges. The generator now preserves the pinned source/crop/encoding and enables that 22-second river proxy; the earlier busy take remains disabled under river-held. Lake/slough classification and existing insects are unchanged. The library labels accepted environmental audio separately from held recordings and habitat candidates. Regeneration reproduces all 34 assets / 41 delivery hashes, preserving the 40 previous deliveries. Real R2 tests at 96/192 kHz output isolate nonzero selected-river and lake signals, keep the three-loop environmental cache at 12,672,000 bytes, never fetch the rejected take, leave sloughs quiet and release memory on mute. The source-library browser checks also pass at 390/1280: all 41 codec deliveries decode, accepted and held labels are correct, and filters/controls retain zero page errors. Final combined release validation is pending; no new live-deployment claim is made here.
+
+### T-1789 - Charles near wool candidate
+
+The existing Charles1904 coat is the only proposed visible adoption. Four validated MASTER/WEB LOD0/1 children retain current geometry/UV/skin/rig/idle/walk/noncoat data and all four FAR baselines. Current source work adds transactional canonical-export finishing, immutable offline parent guards and a cheap derived registration owner. Eight actual-parent guards and nine scoped fixture parser controls passed under the original resource limits; actual integrated regeneration reproduced all four validated output hashes in40.138 seconds; actual four-row browser remeasurement now passes at both original viewports/30 frames while all 244 other rows remain exact. Fresh-blobless acquisition/offline/corruption controls and legitimate writer/isolation measurement pass. At this source freeze, no APP commit/PR or full gate has run for this candidate. The earlier selected-published research collected six views and ownership/meter readings but remains strict NONPASS; full published release, phone budgets, photographic likeness and clothing fit remain open. No extra views or new actors are claimed.

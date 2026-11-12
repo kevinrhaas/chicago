@@ -1,0 +1,1246 @@
+{
+  "schema": "t1789_clothing_capture_request_v2",
+  "status": "SOURCE_ONLY_LINEN_BINDING_DRAFT_NOT_DISPATCHABLE",
+  "basis_revision": null,
+  "scope": "Settler linen4file candidate only. Future actual committed source SHA is unknown; refresh via canonical capture owner before review/dispatch. Shared apron/collar/coachman and materialv2 deferred.",
+  "release": false,
+  "install": false,
+  "native_fit_accepted": false,
+  "material_admission": null,
+  "families": [
+    {
+      "recipe": "data/humans/recipes/settler_1812.json",
+      "variant": "settler_1812",
+      "assembly": "settler_1812_v1",
+      "liberty": "L418"
+    }
+  ],
+  "inputs": [
+    {
+      "file": "assets/authored/humans/makehuman_hm08/LICENSE.ASSETS.md",
+      "git_blob": "f3ede1fc3318f8d794e2cb51924186c62f02f71a",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/LICENSE.CODE.md",
+      "git_blob": "4ef32f0833975b98cb4080343c8fd60ab6d0f88c",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/LICENSE.md.gz",
+      "git_blob": "576ef97c3860914204ce5880ecbda7a09da96b7d",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/README.md",
+      "git_blob": "1f18904291cbbe4f8dd297a3ae144c581b41f588",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/SOURCE-child.json",
+      "git_blob": "b6bf73381346f55c2eec3a75930ae475427b6ba1",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/SOURCE-female.json",
+      "git_blob": "37ba0df125b9eba8fdcbc0326ce721fc82748b0d",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/SOURCE-variation.json",
+      "git_blob": "670d0049560ad498dad2a97239cc7bf15dcb1aa0",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/SOURCE.json",
+      "git_blob": "fbd40b1ba1c179056baaf11bbe8336da1e89e20c",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/adult_25.recipe.json",
+      "git_blob": "99b85a786062b09a9b35007e75747318e77d256c",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/adult_35.recipe.json",
+      "git_blob": "2b1a6f827de19b2641e3da9a2c7f2b89c483ce81",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/adult_female_25.recipe.json",
+      "git_blob": "ceb4009fb2f6b8e02e1b99a445492fae68b3679b",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/child_3.recipe.json",
+      "git_blob": "8a7a0940a4c8335cec62c7f4875b60e131ff650a",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/child_female_8.recipe.json",
+      "git_blob": "eb85c719d9bb232b640a93aad069f999883728dd",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/child_male_8.recipe.json",
+      "git_blob": "cf95a04677afa67e9ec09ff355226218384dcdb4",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/3dobjs/base.obj",
+      "git_blob": "d26635e9326e3cca30778fd7b9c00062b03cce09",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/rigs/default.mhskel",
+      "git_blob": "b02cbecae00143856410d7561adf006d83bf9b3e",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/rigs/default_weights.mhw",
+      "git_blob": "66185806afacf87749be8e5cf6dbf66496b2a6b0",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/skins/default.mhmat",
+      "git_blob": "2ff22cbdcc47c4933544a8c68f52e5e0a3a78fdc",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/cheek/l-cheek-bones-decr.target",
+      "git_blob": "f73509ca144f0c26df74f8023bcf9927a07ab89a",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/cheek/l-cheek-bones-incr.target",
+      "git_blob": "b239a7d2b2e186ac39628d30fa085e407e44894e",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/cheek/l-cheek-inner-decr.target",
+      "git_blob": "affa2db60b3f749658bff89412745a99231bef11",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/cheek/l-cheek-inner-incr.target",
+      "git_blob": "2be3502aad88713d5151d8d51cc95d18d1d40189",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/cheek/l-cheek-volume-decr.target",
+      "git_blob": "cfdffa3a12d995e7ab79fc29ccfb9a47e4ab4d42",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/cheek/l-cheek-volume-incr.target",
+      "git_blob": "829d1aa7ad776a878e8de244ac09f1e38598e5f7",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/cheek/r-cheek-bones-decr.target",
+      "git_blob": "601def048f75d6f985d4cb0dff7f9a8163f8fea8",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/cheek/r-cheek-bones-incr.target",
+      "git_blob": "6bfa79028e0a5cae65deb782c733e75c65ae020a",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/cheek/r-cheek-inner-decr.target",
+      "git_blob": "fde5e87fa424459278a00cfb45a002dba6ad05e6",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/cheek/r-cheek-inner-incr.target",
+      "git_blob": "1be9d09682e7dbee22229eb84d6ab8950bb8853e",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/cheek/r-cheek-volume-decr.target",
+      "git_blob": "b115fe9ecc0790daaf773d5f61e7ec51ebf71fb1",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/cheek/r-cheek-volume-incr.target",
+      "git_blob": "5fc4fda0ce4de86c630251050c17ff9e1da9d428",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/chin/chin-bones-decr.target",
+      "git_blob": "a95b8e6296f3147240bda356875b706c4359dfef",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/chin/chin-bones-incr.target",
+      "git_blob": "c4be5381866fafba57b499e83ba5712da284b592",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/chin/chin-height-decr.target",
+      "git_blob": "abf9afbfc1b45944f3984fa27f0da2f70ffd48c3",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/chin/chin-height-incr.target",
+      "git_blob": "16600f6a37c7bad1ba4c666d257e90091ad7286b",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/chin/chin-prognathism-decr.target",
+      "git_blob": "199d1d7f8b9f6b0fb344b674458104acd445e062",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/chin/chin-prognathism-incr.target",
+      "git_blob": "9cbb7901993784f82f97cf4573fddd246fd60a9c",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/chin/chin-prominent-decr.target",
+      "git_blob": "20b9007a5ee9bc671e54d70b5cb93d95314c0ef6",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/chin/chin-prominent-incr.target",
+      "git_blob": "06038d8062647d7845c9b14599c969d180062211",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/chin/chin-width-decr.target",
+      "git_blob": "5dcb2e236c7fe8c28b2e21b4ae5d0abd8510a2f4",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/chin/chin-width-incr.target",
+      "git_blob": "ce13cc1c443cf705c5ef50ac6360a73801315fd7",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/ears/l-ear-flap-decr.target",
+      "git_blob": "1d0a07b01fc528a50a17eb8fedac9ca05e3bd08b",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/ears/l-ear-flap-incr.target",
+      "git_blob": "8376c9cc298175668afca7bea11d2faccf2770fb",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/ears/l-ear-lobe-decr.target",
+      "git_blob": "b3fa688486a4cac953bb33947473f2a714799d86",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/ears/l-ear-lobe-incr.target",
+      "git_blob": "c354a770a1158468ea6b84d236160aed37085cdd",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/ears/l-ear-scale-decr.target",
+      "git_blob": "d38b06d1d504edbeb3ae4d3357b8bbe432a21a07",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/ears/l-ear-scale-incr.target",
+      "git_blob": "6f945f8353c0ff7433d67db92a7a6bee8156c566",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/ears/r-ear-flap-decr.target",
+      "git_blob": "40719ae13df31fd600fcfa0efdd1f27e42ebb8ff",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/ears/r-ear-flap-incr.target",
+      "git_blob": "c1fa5243f76730ee7bd26c11deee7e34a50f5ad0",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/ears/r-ear-lobe-decr.target",
+      "git_blob": "cbb1523f204d1885b5983d6fe05d60382f716daf",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/ears/r-ear-lobe-incr.target",
+      "git_blob": "5b55b7e486cc1bf72b3e621ffc782859a98119ea",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/ears/r-ear-scale-decr.target",
+      "git_blob": "64d5cc902d58f176b70f8860199469d5d8db5191",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/ears/r-ear-scale-incr.target",
+      "git_blob": "d795b17ef87c79e8fb4c0396405bfe17c49fc534",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/eyebrows/eyebrows-angle-down.target",
+      "git_blob": "277df665253475ad716d6e004231a6fd1ad173fe",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/eyebrows/eyebrows-angle-up.target",
+      "git_blob": "f48e6a51102baebf6504b86d945e6a199bbd2251",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/eyebrows/eyebrows-trans-backward.target",
+      "git_blob": "cd96dc010963a578df250028750a394c15f97b5b",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/eyebrows/eyebrows-trans-down.target",
+      "git_blob": "817a260d19e1b4a650e522f8d776d97973298ae6",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/eyebrows/eyebrows-trans-forward.target",
+      "git_blob": "11c1d10ea85926ab69c44ea6b408d510e4347472",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/eyebrows/eyebrows-trans-up.target",
+      "git_blob": "0301a19e92fefc665c266ab03ba6fbfa0187ddd3",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/forehead/forehead-nubian-decr.target",
+      "git_blob": "ec32fad4a141605581fe6adb16fac5fa33d0e18f",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/forehead/forehead-nubian-incr.target",
+      "git_blob": "64220c4f64d93cfb2b1d09dcb5d864d3130e1b54",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/forehead/forehead-scale-vert-decr.target",
+      "git_blob": "14f32072dfafe96483ef69176b6efe8d47837f87",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/forehead/forehead-scale-vert-incr.target",
+      "git_blob": "356167ebfb1f723f4dd01176f9974aad59588786",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/forehead/forehead-temple-decr.target",
+      "git_blob": "1687d0d3034f3c100e74da44c60326584e95e1b2",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/forehead/forehead-temple-incr.target",
+      "git_blob": "31f3e0d77040e21f8e7284a0be25fb93845f3779",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/head/head-age-decr.target",
+      "git_blob": "232a0d981159f9f7af7ba9eeefa5a394b135e3d9",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/head/head-age-incr.target",
+      "git_blob": "54440c85e23e77fa51bc0585e324806deac24e4f",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/head/head-diamond.target",
+      "git_blob": "dcf75f3a29750b2c984c48e81eb6dfcb781260e6",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/head/head-fat-decr.target",
+      "git_blob": "f373e9d9fcdf33261258fe5d0cc8752ed0d6da9c",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/head/head-fat-incr.target",
+      "git_blob": "529dac99fe294f54c39d0951ba3e4a8cefe2bf32",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/head/head-invertedtriangular.target",
+      "git_blob": "72e2f495ec58eac71a154286b5ccbd9c6111aed5",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/head/head-oval.target",
+      "git_blob": "66d8131706f7a95b763171c336801a76710f2971",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/head/head-rectangular.target",
+      "git_blob": "96e3a75213cd895da863a5c405106321f73f5007",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/head/head-round.target",
+      "git_blob": "86cde92780be65f10c267f2bee96ba3a1f1f4542",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/head/head-square.target",
+      "git_blob": "8d156ed42db13219844e01bf4ab3185d9205befa",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/head/head-triangular.target",
+      "git_blob": "58d3d74ce498c1415475776e7cfa81f29de7d3d2",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/african-female-baby.target",
+      "git_blob": "3acfecdfa7af0b09467da53519a31ea4a5863668",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/african-female-child.target",
+      "git_blob": "3c4860cc0c91875a231dceb0b2a5a324ad2460f0",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/african-female-old.target",
+      "git_blob": "d135b064567df7810b3a91396bdd5c2e76b10a9d",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/african-female-young.target",
+      "git_blob": "a7d2b130667cc81ecd1ca0598da9be27bec1864a",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/african-male-baby.target",
+      "git_blob": "f533e5325452aa62b7a0e944f54dbb3fc932a871",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/african-male-child.target",
+      "git_blob": "dd02a4f63d29097e0589b3b7d2436545f1db87d3",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/african-male-old.target",
+      "git_blob": "3e67c58f7e0f56495e7f4fbf20f0076ffb6f92ab",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/african-male-young.target",
+      "git_blob": "dd5743e48700267d76596f575bf17b4b5cc3b3e0",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/asian-female-baby.target",
+      "git_blob": "91fa4366037582ab9af31d945b70654dece1ff27",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/asian-female-child.target",
+      "git_blob": "260bf0ccffd331a597e2abd761ebc552fdc9b249",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/asian-female-old.target",
+      "git_blob": "a2afe59829cd0caa66c3eea160f2f05d15890e23",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/asian-female-young.target",
+      "git_blob": "f862c96add11c31ab1ca75c69e1c67ae5e0e3d5f",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/asian-male-baby.target",
+      "git_blob": "385d888efa256564c68785153cd7baecfa2ff1c0",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/asian-male-child.target",
+      "git_blob": "7d56f395d9133e226e8be25d88b1cd64e991bdbb",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/asian-male-old.target",
+      "git_blob": "d327b85e0b3de07b113cf4fc756f410668880359",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/asian-male-young.target",
+      "git_blob": "8cd3ef3e9ddb06ee2d166f75f9ac10871251f938",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/caucasian-female-baby.target",
+      "git_blob": "8812b2774f0424d1b9de3fd4269456da779b2fff",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/caucasian-female-child.target",
+      "git_blob": "ff74bbad4e2b3cfb68faff34f25b06d6017202a1",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/caucasian-female-old.target",
+      "git_blob": "2359bb525ddc620d43d309ba3dfea12b1fa88671",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/caucasian-female-young.target",
+      "git_blob": "9d1f0cbeedc9a6a51abe33f1ebb5fa7c5a7edbf1",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/caucasian-male-baby.target",
+      "git_blob": "9e60e823ce7137601a20ffbb743905981e60c2ec",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/caucasian-male-child.target",
+      "git_blob": "027c36a1fdb0e47efb33700c29ef012f8c6ccfe3",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/caucasian-male-old.target",
+      "git_blob": "07b1f5526a3139dbd528efe07452d0a454106d0d",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/caucasian-male-young.target",
+      "git_blob": "c3b82f92c5ced85599199cd184b0faf3b3fc6881",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/universal-female-young-averagemuscle-averageweight.target",
+      "git_blob": "3f92e2939e50403aa89607e4889639ab337bcead",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/universal-female-young-averagemuscle-maxweight.target",
+      "git_blob": "e0b442f75e36ad0980cd7ccda41b6b8d67b9f200",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/universal-female-young-averagemuscle-minweight.target",
+      "git_blob": "7b4dfc290b1228f48f00e7b121ffe8932a7bbb75",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/universal-female-young-maxmuscle-averageweight.target",
+      "git_blob": "91ca14d335389e4e4a964132fc6580ada688cb64",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/universal-female-young-minmuscle-averageweight.target",
+      "git_blob": "8d3c861b41dda1167fac41eae3dd6458cc28e8c8",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/universal-male-young-averagemuscle-averageweight.target",
+      "git_blob": "3f92e2939e50403aa89607e4889639ab337bcead",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/universal-male-young-averagemuscle-maxweight.target",
+      "git_blob": "15d495149eec197fed9ab8dda745cdfd4878ab2b",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/universal-male-young-averagemuscle-minweight.target",
+      "git_blob": "0a53c15a2d6cf23120c786d95b36d7a618c61acf",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/universal-male-young-maxmuscle-averageweight.target",
+      "git_blob": "b7c039c7f463fe1f1721b9ab269c7248d9c4f2f7",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/universal-male-young-minmuscle-averageweight.target",
+      "git_blob": "2b585bb27c88a0ef63972f0b2d480d61850c5889",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/mouth/mouth-angles-down.target",
+      "git_blob": "0dfa74a955adc067e7c5c59241a28b6c0b5063b8",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/mouth/mouth-angles-up.target",
+      "git_blob": "acf41bf7dc58f10bf1bae52e8935ee03712e4f80",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/mouth/mouth-lowerlip-volume-decr.target",
+      "git_blob": "7a7add98ca5e667cb14d1dab09ad67bd95661e2d",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/mouth/mouth-lowerlip-volume-incr.target",
+      "git_blob": "b3a27855023b20b8eee8b885d81033083d75feaa",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/mouth/mouth-scale-horiz-decr.target",
+      "git_blob": "10bf9d864e59ca075fe0ff195653a008c3a0afaa",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/mouth/mouth-scale-horiz-incr.target",
+      "git_blob": "d066e8ef5312242765c9ca3dd8cbbb04119da278",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/mouth/mouth-trans-down.target",
+      "git_blob": "058bd87c3ad1606eb31d01f5b530dd5dbcfe2af7",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/mouth/mouth-trans-up.target",
+      "git_blob": "c5bcfd832f0a990299e0d35854fba3a81aa1f7c5",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/mouth/mouth-upperlip-volume-decr.target",
+      "git_blob": "71712e691cac1ddcb4f3c23b5024cdaf54341cf6",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/mouth/mouth-upperlip-volume-incr.target",
+      "git_blob": "57261c7dab665aca7169d5bb7acddf0c002f6786",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/neck/neck-double-incr.target",
+      "git_blob": "e708b274e7d51f9f52aa232d4a86cb1c40dd3f7e",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/neck/neck-scale-horiz-decr.target",
+      "git_blob": "7219e99e46a000fca7d632115ff0e30f6ef11df8",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/neck/neck-scale-horiz-incr.target",
+      "git_blob": "c28f0aa0a5efcb149e90a36f98a252d8bc3f5db9",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/neck/neck-trans-backward.target",
+      "git_blob": "98ef072a8d536557b63b56e73316c21c18ae1990",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/neck/neck-trans-forward.target",
+      "git_blob": "5e8da10b3570aef4ebd3d8830b93fa8f202e1317",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-curve-concave.target",
+      "git_blob": "a88ad96f6b1a6a54a6bc17bea70d94642e18dcba",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-curve-convex.target",
+      "git_blob": "f6dd8ea23eb030e7d15d476643e145b1cedc6c1d",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-hump-decr.target",
+      "git_blob": "56080a5e4bbb575772865b1d621c3052a47c6436",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-hump-incr.target",
+      "git_blob": "771e672af9cde15ee4065cff688ed9e6a41ba3fd",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-nostrils-width-decr.target",
+      "git_blob": "b397e656f584bcc2c62cfd51ba78d5a93eca341a",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-nostrils-width-incr.target",
+      "git_blob": "a2384cdeabc8742afcb83033d3f5dc9738fe0acd",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-point-down.target",
+      "git_blob": "295f094b7f920a57ae87aa5d88a210a1a550e4ae",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-point-up.target",
+      "git_blob": "eed95dc4473457c3b0c83bfb61563fd139d29a5a",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-point-width-decr.target",
+      "git_blob": "a1d2e432bb5e9feef308a36795c9f7494a834a2c",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-point-width-incr.target",
+      "git_blob": "2f5e8f665ddcd504d0f7728b05dc0b69adb36ca7",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-scale-depth-decr.target",
+      "git_blob": "14d3d352991f2790a48126d6fa9ca257597f82a4",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-scale-depth-incr.target",
+      "git_blob": "3041ea16b94843a994fd43e40949ca4b6a928c96",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-scale-horiz-decr.target",
+      "git_blob": "1e1bdd6e53d61c7a03593ec643c8311d23df916b",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-scale-horiz-incr.target",
+      "git_blob": "abc36f4e9813600c89414fd64edcab332332c753",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-scale-vert-decr.target",
+      "git_blob": "6ae733a320701da48e11b080ae08df86e27aaa01",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-scale-vert-incr.target",
+      "git_blob": "27e807475d76583e5dfade11c24d6dfd33d7ba1b",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-trans-down.target",
+      "git_blob": "1a9c6bbff37c63e22054d7ffae40c7db5d514736",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-trans-up.target",
+      "git_blob": "d98d2f2e59599c673d0b285136745aa78c0b3dc0",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/makehuman/data/targets/stomach/stomach-pregnant-incr.target",
+      "git_blob": "32eea1fda909d471d1ffb7e7b6b06eeac3b55c06",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/prepared.json",
+      "git_blob": "5075f9a75912b111cea4288ec40d3b846a22c4ee",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/prepared.report.json",
+      "git_blob": "f513517c7c59f93e35073f1c650a960e0bdb8b9d",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/prepared_adult_25.json",
+      "git_blob": "7feafaad87cf18bca8d8f6f6ad27892410a6c0d3",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/prepared_adult_25.report.json",
+      "git_blob": "f3d971c73da127d8eb7397baee5efb801fc83d7d",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/prepared_adult_35.json",
+      "git_blob": "d71eaddee7355d8f9a301e5045c0cc2319e7c481",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/prepared_adult_35.report.json",
+      "git_blob": "477d32d886b6a3fb7e56cf96a5e60d28ca59d14b",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/prepared_adult_female_25.json",
+      "git_blob": "8006880b39d5f24b40616945cb375c34a36ae858",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/prepared_adult_female_25.report.json",
+      "git_blob": "7764a52196cd8079464d8e9627be8ad266237a03",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/prepared_child_3.json",
+      "git_blob": "fd49a0c4b59cfdeb5dd666e428cfee63df7acf8d",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/prepared_child_3.report.json",
+      "git_blob": "133c85ec9eba67473fe388df469e2f010b520d0c",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/prepared_child_female_8.json",
+      "git_blob": "b59d973887a1a3f376a4f4328b78d4d811919205",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/prepared_child_female_8.report.json",
+      "git_blob": "283e2337c62faee97ade2c533caf2eefaa58a527",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/prepared_child_male_8.json",
+      "git_blob": "d3ddd49434057d85204002672bfe66a3d27f6adc",
+      "mode": "100644"
+    },
+    {
+      "file": "assets/authored/humans/makehuman_hm08/prepared_child_male_8.report.json",
+      "git_blob": "84f94eb8ab6f4f5e3371aa149a710ecf5a27d255",
+      "mode": "100644"
+    },
+    {
+      "file": "data/humans/contract.json",
+      "git_blob": "6e1a74edede45b31b94ec0481727f8990a53cc7e",
+      "mode": "100644"
+    },
+    {
+      "file": "data/humans/recipes/settler_1812.json",
+      "git_blob": "997070f917e10f354fef56dcdbdc6f93397be9e1",
+      "mode": "100644"
+    },
+    {
+      "file": "generators/blender.pin",
+      "git_blob": "26c2ddf89c36505d949425280ccc5c7bd486bc2e",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_actor.html",
+      "git_blob": "e3294fded4716da135e46a06504e7b6bafb7f8d2",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_actor.mjs",
+      "git_blob": "845d1bd7c77d3749b59fd0cd9ea10c6e5f6b175b",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_base_prepare.py",
+      "git_blob": "1de707c1189d77d2a118bb2103545e09197149bd",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_body_ray_grid.mjs",
+      "git_blob": "f5732afd67417df8dd7ed434b2c9837baea8cd7c",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_charles_coat.mjs",
+      "git_blob": "1553f2e55d3c37c2f1fc2f34a2bb8aeac953e804",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_charles_coat.py",
+      "git_blob": "72e5633196eb111c5de52c4802e70307a9cac4e9",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_charles_coat_semantics.mjs",
+      "git_blob": "84c9ee07002b6a518b35ef420dde7ed4c958de4a",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_charles_coat_web.sh",
+      "git_blob": "f618dab96ee32126a896cf826f6fdcac867354f5",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_child_1812.py",
+      "git_blob": "e3d235e51855ec7e81fe84652437df7cc042acd8",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_coachman_1904.py",
+      "git_blob": "48d94f991229279cac37d23fde004ea0ea9c2877",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_contract.py",
+      "git_blob": "f0cdaf358ad5eff636f220563e4fac39b44224ec",
+      "mode": "100755"
+    },
+    {
+      "file": "tools/human_cook_1904.py",
+      "git_blob": "936394b28a18700c57147fc68676f39b328695bc",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_dress_components.py",
+      "git_blob": "e902e07fb93bf3d0fe65ccc29e599b3f4f748584",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_engage_1812.py",
+      "git_blob": "d42f1a42f3fc21a82c5b71aea366e170f4a4f0e4",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_era_study.sh",
+      "git_blob": "72a58edb16b6e21c34d785d8c928f7549373fdfc",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_era_study_1812.py",
+      "git_blob": "3921d2d3c1af33b9c74f5243f4ca754ad82f40e6",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_era_study_1904.py",
+      "git_blob": "6b693047ffb5326a5375e7ac1f4ccf850a9d8fab",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_era_study_blend.py",
+      "git_blob": "636965ca85624764b3ae1633789a32a73d507705",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_era_study_common.py",
+      "git_blob": "35fd521c62ea54e1b354255900175b906ae8bd0b",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_errand_1904.py",
+      "git_blob": "32236cdfc9a260cd4a31db57d504ede32b41abc2",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_export.py",
+      "git_blob": "78abba8250af6a2ac4fb301479b292a0ee2ec67d",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_export.sh",
+      "git_blob": "c7f9204fc976edfcb9dd504b28eb7bb7894c3326",
+      "mode": "100755"
+    },
+    {
+      "file": "tools/human_eye_components.py",
+      "git_blob": "456e16b5c19a51e749e20cea4649d1d98241017b",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_fixture.html",
+      "git_blob": "9f578f27f1f32252525c0d7c8f803497435e6c97",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_fixture.mjs",
+      "git_blob": "c96e7c5a52ad5073256bc82135c5767f8c779e70",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_fixture_blend.py",
+      "git_blob": "b62e5422683f3f85450f4bcf675a009d16661f02",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_fixture_scope.mjs",
+      "git_blob": "e998abf885073b739c6954329820c53749758814",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_frame_compare.js",
+      "git_blob": "970d636755479a3dfdccb54752004048889ce6bd",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_frame_residue.py",
+      "git_blob": "367ceb33dc97a511d53d5e1c106f9aa397d37f92",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_garment_retention.py",
+      "git_blob": "d413924e75fa4f864a0102552e9d4916c1d1a327",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_garment_retention_master.py",
+      "git_blob": "d51456de01deac851bd5fec1fa9ae08d5b8863d3",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_garment_retention_rebind_math.mjs",
+      "git_blob": "da6283462b5f91c7e0201857cad3ebfd4b452e54",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_garment_retention_web.mjs",
+      "git_blob": "3320c39cf676c053abd2bc6b6c95c1cfbe2a8b5b",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_garment_retention_web_helpers.mjs",
+      "git_blob": "3e10a16720a54899b6db9c20a9a3d37b38f6445d",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_gentleman_1904.py",
+      "git_blob": "1ad456fde8426fd8631c5346b71e4955dd5a1bb2",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_grounded_gait.py",
+      "git_blob": "76f1fddb0612419be169375a41655886bcb7a531",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_hair_proxy.py",
+      "git_blob": "8561a1af88042ab9371522dbb464f3edfff9f0f4",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_hair_runtime.mjs",
+      "git_blob": "b18e15cd6b3a7e5e2b2fed39115ee259293b000a",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_hair_short04.py",
+      "git_blob": "ff931640e64193ca79070c751109f35f79bc6ef5",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_hierarchy_control.py",
+      "git_blob": "febd9d2cea9a359cb3fa7541965035818c3af535",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_labourer_1835.py",
+      "git_blob": "2fe28f59b6cdc6f611812da8d9289b69d2ec873d",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_lady_1904.py",
+      "git_blob": "40f13ae740cdf8b07f004a112ecbedb7117f1cbc",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_library_stills.py",
+      "git_blob": "4ffa586ffdd23e874b0e60a8f98424a392338248",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_library_stills_intake.py",
+      "git_blob": "c615bfc68265de68a5a4c09b57e9834bed6841da",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_linen_seat.py",
+      "git_blob": "88c9991189708df132cd9199ef83d187597100b8",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_maid_1904.py",
+      "git_blob": "c37ac690b446ab36abde40df5bdb8bfacc201b52",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_merchant_1835.py",
+      "git_blob": "b144c05b29b600a4e7c0fe3a5bf90a10669c9192",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_natural_idle.py",
+      "git_blob": "b11724cfe55796d77994ff5610e37d5083b82252",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_natural_idle_cpu.cjs",
+      "git_blob": "9cae21ed69c4a1455602480ff531aee30a61f7d0",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_natural_idle_cpu.html",
+      "git_blob": "6195b3905027747ba7909c43c9dd7669badc8323",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_normal_probe.py",
+      "git_blob": "b17a0334a1f803b805a86db298adcd15309b12c7",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_normal_probe_math.py",
+      "git_blob": "af684eb7efff92fca8e1aac90343032f77540c05",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_officer_1812.py",
+      "git_blob": "696b5c0fbe4cbe899c15912ebdefe66c57e1d4a2",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_period_wardrobe.py",
+      "git_blob": "a890e68847c95c677711e01d36adc11c3a891ad4",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_potawatomi_man_1812.py",
+      "git_blob": "c53fac83596bfa38012075970d545576a5ae1b87",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_seated_driver.cjs",
+      "git_blob": "58f6f5b64fa937e416fc81a92d12a0636eaf44a2",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_seated_driver.html",
+      "git_blob": "23d1fdc89949ec6df2c7c881d2d2f4a3cb2b1a3c",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_seated_driver.mjs",
+      "git_blob": "ee99292f5b71f08fe23a8d7fdb2f7d632a5bee65",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_seated_look.py",
+      "git_blob": "b0f9fabb683face4530aecda3a44e6d5da4390d1",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_seated_runtime.mjs",
+      "git_blob": "bd52ca54239e948376ff4e6ca768f95a081ada5b",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_seated_study.py",
+      "git_blob": "93659a8ad809dff2900088b60fa55b8b5adaea52",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_seated_transfer.py",
+      "git_blob": "7448e87ff1e2ec9364fb7652e82b98fe4fa67120",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_settler_1812.py",
+      "git_blob": "89470b3416bae10fb3721e3847b1c636516455b1",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_skin_bald_scalp.py",
+      "git_blob": "52f021a80bdfe4f14234bd4b7f82233ef5bf7fff",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_skin_canonicalize.py",
+      "git_blob": "091df37da3a914052ad18079eab679fdaeb03f6e",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_skin_portrait.html",
+      "git_blob": "680d623fc958bbdcf50e79625b22035a9cabfd5b",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_skin_portrait.mjs",
+      "git_blob": "a12a2e8c0b5b74f1f57f72daaa3249c734184c77",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_soldier_1812.py",
+      "git_blob": "9d99677b1394fd94cfdc198a69170cd514cb67bc",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_sole_contact.mjs",
+      "git_blob": "5eb7de18fcc0f7faf9f8e0495f49bcd36e0f1ea9",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_source_normals.py",
+      "git_blob": "85d34fb31947e5368f000fa2bf09b88cb56926f2",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_stable_helper_1904.py",
+      "git_blob": "30bb9365152ad2aa84446569cb13a4094ac89a12",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_teamster.html",
+      "git_blob": "15c9ba1894e9bb93dc4bad5889c754801b889265",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_teamster.mjs",
+      "git_blob": "e9b1440d8d91ee3f64d675a48456c1fb6579ae9e",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_teamster_blend.py",
+      "git_blob": "6638e58e2f3f1080ef0629140daa0f78901d25c8",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_trader_1812.py",
+      "git_blob": "b603c7527a5d36feff46eab8978c0779a1c9d552",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_variation_kit.py",
+      "git_blob": "58c1201d2db41091f2ff87bc349abef19a7f572c",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_variation_lineup.html",
+      "git_blob": "1f2f79959698c242497cd7fa053e53f8cb9da5f5",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_walk_strip.html",
+      "git_blob": "ef3806b195c06cf84ab1b362fd4df31f3901c7d8",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_wardrobe.py",
+      "git_blob": "e355b6352a488e377911075c70dcb29846d5188c",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_web_texture_inputs.py",
+      "git_blob": "99dd317c9324e84ff4fbd591e802ad9e03e8a6cf",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_women_1812.py",
+      "git_blob": "1e272d0a32727fa869f574a02eca05f3ecaa8b75",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_working_driver_1904.py",
+      "git_blob": "be070af60f7d56406efe61d6d7865a428f9ac91c",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/human_workwear_fit.py",
+      "git_blob": "33375741be86585a1c78458398692f3add293b23",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/test_human_linen_seat.py",
+      "git_blob": "e95c4b616960ccea1723bc12cca03bf9d2d785e0",
+      "mode": "100644"
+    },
+    {
+      "file": "tools/web_derivatives.sh",
+      "git_blob": "f2763904b3f82673b37309cee319cb50ba63d792",
+      "mode": "100755"
+    }
+  ],
+  "input_binding_scope": "245 selected draft content digests from known59914+linen candidate; NOT an admitted Git tree. Whole actual source SHA and physical Git membership must be refreshed and reviewed after ROOT primary push."
+}

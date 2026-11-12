@@ -13,7 +13,9 @@ const quietContract = createQuietHeadNeckStandingContract({ qualificationSha256:
 const idleContract = spec => spec.runtime_asset.source_qualification_mode === QUIET_MODE
   ? quietContract : { validateHeader: validatePlantedStandingHeader, createIdle: createPlantedStandingHorseIdle };
 
-const REACH = { full: 70, balanced: 40, light: 0 };
+/** T-3542: Light draws the standing horse too, nearer (owner, 2026-11-10). */
+const REACH = { full: 70, balanced: 40, light: 30 };
+const draws = t => (REACH[t] ?? 0) > 0;
 const yawOf = bearing => Math.PI - bearing * Math.PI / 180;
 const sha256 = async bytes => Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', bytes)),
   b => b.toString(16).padStart(2, '0')).join('');
@@ -226,9 +228,9 @@ export async function createStandingHorses({ dataBase = null, sceneId, confidenc
       if (next !== tier) {
         resetIdleClock();
         tier = next; revision++;
-        if (tier === 'light') { abort?.abort(); retire(); }
+        if (!draws(tier)) { abort?.abort(); retire(); }
       }
-      if (tier !== 'light') await load();
+      if (draws(tier)) await load();
       if (lastCamera) out.update(lastCamera);
     },
     pickAt(ndc, camera) {
@@ -262,8 +264,8 @@ export async function createStandingHorses({ dataBase = null, sceneId, confidenc
     assert(rows.length <= 1, 'First standing-horse instance budget is one'); out.records = rows;
   } catch (error) { problems.push(`standing horses: ${error.message}`); return out; }
   async function load() {
-    if (disposed || tier === 'light' || active || !rows.length || !manifest || !withinReach()) return;
-    if (pending) { await pending; if (!disposed && tier !== 'light' && !active) await load(); return; }
+    if (disposed || !draws(tier) || active || !rows.length || !manifest || !withinReach()) return;
+    if (pending) { await pending; if (!disposed && draws(tier) && !active) await load(); return; }
     if (attemptedRevision === revision) return; // A failed load never silently retries.
     const mine = revision; attemptedRevision = mine;
     const job = (async () => {
@@ -274,7 +276,7 @@ export async function createStandingHorses({ dataBase = null, sceneId, confidenc
         const sidecarResponse = await fetch(new URL(model.sidecar, dataBase));
         assert(sidecarResponse.ok, `Horse sidecar HTTP${sidecarResponse.status}`);
         const spec = await sidecarResponse.json();
-        if (mine !== revision || disposed || tier === 'light') return;
+        if (mine !== revision || disposed || !draws(tier)) return;
         abort = new AbortController();
         const file = new URL(model.file, new URL('../', import.meta.url));
         const response = await fetch(file, { signal: abort.signal });
@@ -283,12 +285,12 @@ export async function createStandingHorses({ dataBase = null, sceneId, confidenc
         assert(bytes.byteLength <= 4 * 1024 * 1024, 'Horse download cap exceeded');
         assert(await sha256(bytes) === spec.runtime_asset.sha256, 'Horse runtime derivative hash mismatch');
         idleContract(spec).validateHeader(bytes, spec);
-        if (mine !== revision || disposed || tier === 'light') return;
+        if (mine !== revision || disposed || !draws(tier)) return;
         asset = await new GLTFLoader().parseAsync(bytes, new URL('.', file).href);
         const canonicalReceipt = inspectStanding(asset.scene, spec);
-        if (mine !== revision || disposed || tier === 'light') return;
+        if (mine !== revision || disposed || !draws(tier)) return;
         const coatRecipe = recipeFile ? await loadHorseRecipe(dataBase, recipeFile) : null;
-        if (mine !== revision || disposed || tier === 'light') return;
+        if (mine !== revision || disposed || !draws(tier)) return;
         const candidate = instantiate(asset, spec, row, confidence, groundHeight, coatRecipe, sceneId);
         candidate.receipt.canonical = canonicalReceipt;
         active = candidate; asset = null; group.add(active.group);

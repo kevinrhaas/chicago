@@ -4,6 +4,17 @@ import { routeFor, createTransportLoop, preflightTransportRouteAsync, TransportS
 const WHEELS = ['vehicle_wheel_rear_left', 'vehicle_wheel_rear_right',
   'vehicle_wheel_front_left', 'vehicle_wheel_front_right'];
 
+// The horse root follows the real team pose, including its hitch offset. The
+// vehicle root differs from the enclosing group for a teamster-led wagon.
+function audioAnchors(root, vehicle, horse) {
+  if (!root.visible || !vehicle.visible || !horse.root.visible) return null;
+  const point = node => {
+    const p = node.getWorldPosition(node.position.clone());
+    return { x: p.x, y: p.y, z: p.z };
+  };
+  return { harness: point(horse.root), wagon: point(vehicle) };
+}
+
 /**
  * Bind a separately owned, real GLTF scene, seated portable human and moving horse.
  * The loader retains responsibility for date/identity, contact and hitch validation;
@@ -49,6 +60,7 @@ export function createDrivenAssembly({ vehicle, driver, horse, confidence,
   let lastPose = null, posed = false;
   return {
     root,
+    audioAnchors: () => disposed ? null : audioAnchors(root, vehicle, horse),
     pose(pose) {
       if (disposed) return;
       lastPose = pose; posed = true;
@@ -157,6 +169,7 @@ export function createTeamsterAssembly({ root, vehicle, walker, horse, confidenc
   return {
     root,
     walker,
+    audioAnchors: () => disposed ? null : audioAnchors(root, vehicle, horse),
     pose(pose) {
       if (disposed) return;
       lastPose = pose; posed = true;
@@ -210,7 +223,10 @@ export function offHours(hours, hour) {
 /** One instance per scene. The static parked layer remains independently owned. */
 export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssembly = null, heightAt,
   clear, routeClear = clear, routeSupport = null, detail = 'full',
-  reach = { full: 90, balanced: 60, light: 0 }, problems = [], onActorsChanged = () => {} }) {
+  reach = { full: 90, balanced: 60, light: 45 }, problems = [], onActorsChanged = () => {} }) {
+  // T-3542: a tier draws the teams when its reach is above zero; since the owner's ruling
+  // (2026-11-10) Light's is, so a phone keeps its horses, carriages and wagons, nearer.
+  const draws = t => (reach[t] ?? 0) > 0;
   if (!Array.isArray(rows) || typeof makeAssembly !== 'function' || typeof clear !== 'function') throw Error('town transport: scene rows, assembly loader and clearance reader required');
   if (prepareAssembly !== null && typeof prepareAssembly !== 'function') throw Error('town transport: optional assembly preparation callback required');
   const actors = [], roots = [];
@@ -228,8 +244,9 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
   let lastUpdate = null;
   const out = {
     actors, roots,
+    get audioSources() { return disposed ? [] : actors.map(actor => ({ ...actor.audioState, scene: sceneId })); },
     async ready() {
-      if (disposed || tier === 'light') return;
+      if (disposed || !draws(tier)) return;
       if (load && loadGeneration === generation) return load;
       const ownGeneration = generation; loadGeneration = ownGeneration;
       load = (async () => {
@@ -255,12 +272,12 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
             }
             if (!routeReading) routeReading = await preflightTransportRouteAsync({ row, route, heightAt,
               clear: (from, to) => routeClear(row, from, to), support: routeSupport ? pose => routeSupport(row, pose) : null },
-              { yieldEvery: 128, cancelled: () => disposed || ownGeneration !== generation || tier === 'light' });
+              { yieldEvery: 128, cancelled: () => disposed || ownGeneration !== generation || !draws(tier) });
             if (routeReading.status === 'CANCELED_ROUTE_READING_NOT_PASS'
-              || disposed || ownGeneration !== generation || tier === 'light') break;
+              || disposed || ownGeneration !== generation || !draws(tier)) break;
             routeReadings.set(row.id, routeReading);
             assembly = await makeAssembly(liveRow);
-            if (disposed || ownGeneration !== generation || tier === 'light') { assembly.dispose(); break; }
+            if (disposed || ownGeneration !== generation || !draws(tier)) { assembly.dispose(); break; }
             const actor = createTransportLoop({ ...liveRow, route, assembly, heightAt,
               clear: (from, to) => clear(row, from, to) });
             actor.updateVisual = assembly.updateVisual;
@@ -277,7 +294,7 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
             if (lastUpdate) out.update(...lastUpdate);
           } catch (error) {
             assembly?.dispose();
-            if (disposed || ownGeneration !== generation || tier === 'light') break;
+            if (disposed || ownGeneration !== generation || !draws(tier)) break;
             // A typed spawn error from the static preflight is still fatal: only
             // the post-asset live visitor check may defer an otherwise qualified row.
             if (assembly && error instanceof TransportSpawnObstructedError) deferred.set(row.id, error.pose);
@@ -299,7 +316,7 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
     /** Called after the welcome closes. No asset or whole-route read begins until
      * the visitor actually approaches the circuit; Light remains the existing floor. */
     ensureNear(cameraPosition, enabled = true) {
-      if (disposed || !enabled || tier === 'light') return false;
+      if (disposed || !enabled || !draws(tier)) return false;
       const limit = (reach[tier] ?? 0) + 8;
       const near = circuits.some(circuit => Math.hypot(
         Math.max(circuit.west - cameraPosition.x, 0, cameraPosition.x - circuit.east),
@@ -326,14 +343,14 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
     },
     async setTier(next) {
       tier = next;
-      if (next === 'light') {
+      if (!draws(next)) {
         generation++; routeReadings.clear(); deferred.clear(); failed.clear();
         for (const actor of actors) { saved.set(actor.id, actor.snapshot()); actor.dispose(); }
         actors.length = 0; roots.length = 0; onActorsChanged([]);
         const pending = load; load = null;
         if (pending) await pending;
       }
-      if (next !== 'light' && lastUpdate && !lastUpdate[2].paused
+      if (draws(next) && lastUpdate && !lastUpdate[2].paused
         && out.ensureNear(lastUpdate[1], true)) await out.ready();
       if (lastUpdate) out.update(...lastUpdate);
     },

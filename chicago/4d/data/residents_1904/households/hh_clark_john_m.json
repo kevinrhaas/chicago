@@ -44,7 +44,9 @@
       "sources": [
         "chicago_blue_book_1904",
         "chicago_blue_book_1905",
-        "census_1900_chicago_t623_roll245"
+        "census_1900_chicago_t623_roll245",
+        "witherspoon_men_of_illinois_1902",
+        "leonard_book_of_chicagoans_1905"
       ],
       "printed_as": "2000 Mr. & Mrs. John M. Clark",
       "census_1900": {
@@ -54,7 +56,29 @@
         "as_enumerated": "Clark, John M.",
         "relation_as_enumerated": "Head"
       },
-      "note": "The 1900 census lists John M. Clark here as head, born August 1837 (the figures are hard to read), in Canada (as read), married, president (company) (ED 40, sheet 9A, line 45, leaf n810)."
+      "note": "The 1900 census lists John M. Clark here as head, born August 1837 (the figures are hard to read), in Canada (as read), married, president (company) (ED 40, sheet 9A, line 45, leaf n810).",
+      "born": {
+        "value": "1836-08-01",
+        "confidence": "attested",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ],
+        "note": "Biographical date from the cited period publication(s). The earlier census transcription on this card is retained as a separate reading; where it disagrees, this figure uses the independently published biographical date. The publication date is not the date the photograph was taken."
+      },
+      "card_facts": [
+        {
+          "label": "Full name",
+          "value": "John Marshall Clark",
+          "grade": "attested"
+        }
+      ],
+      "portrait": {
+        "image": "humans/web/portraits/pa1904_clark_john_m_portrait.jpg",
+        "caption": "John M. Clark, undated photograph published in Men of Illinois (1902), p. 474.",
+        "grade": "attested",
+        "why": "Identified by the printed caption and checked against the household record. The monochrome photograph does not establish skin, eye or clothing colours."
+      }
     },
     {
       "id": "pa1904_clark_mrs_john_m",
@@ -74,7 +98,23 @@
         "as_enumerated": "Clark, Louise",
         "relation_as_enumerated": "Wife"
       },
-      "note": "The 1900 census lists Louise Clark here as wife, born January 1850, in New York, married (ED 40, sheet 9A, line 46, leaf n810)."
+      "note": "The 1900 census lists Louise Clark here as wife, born January 1850, in New York, married (ED 40, sheet 9A, line 46, leaf n810).",
+      "born": {
+        "value": "1850",
+        "confidence": "attested",
+        "sources": [
+          "census_1900_chicago_t623_roll245"
+        ],
+        "note": "The existing census transcription gives born January 1850. The year is carried into the age shown on this card."
+      },
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_clark_bruce",
@@ -89,7 +129,15 @@
         "years": "1895",
         "on_scene_date": "no"
       },
-      "note": "Listed at 2000 under Mr. and Mrs. John M. Clark in the 1895 edition. That they were a son of the house is read from the shared surname at the number; the Blue Book does not print the relationship."
+      "note": "Listed at 2000 under Mr. and Mrs. John M. Clark in the 1895 edition. That they were a son of the house is read from the shared surname at the number; the Blue Book does not print the relationship.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_clark_john_m_c1900_berthe_riches",
@@ -122,7 +170,15 @@
         "as_enumerated": "Riches, Berthe",
         "relation_as_enumerated": "Servant"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a servant (ladies maid); born May 1872, in France, came to the United States in 1893, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (ladies maid); born May 1872, in France, came to the United States in 1893, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_clark_john_m_c1900_kate_lacey",
@@ -155,7 +211,15 @@
         "as_enumerated": "Lacey, Kate",
         "relation_as_enumerated": "Servant"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a servant (parlor maid); born February 1875, in Ireland, came to the United States in 1890, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (parlor maid); born February 1875, in Ireland, came to the United States in 1890, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_clark_john_m_c1900_mary_o_connell",
@@ -188,7 +252,15 @@
         "as_enumerated": "O'Connell, Mary",
         "relation_as_enumerated": "Servant"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a servant (laundress); born March 1845, in Ireland, came to the United States in 1880, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (laundress); born March 1845, in Ireland, came to the United States in 1880, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_clark_john_m_c1900_nellie_quinn",
@@ -221,7 +293,15 @@
         "as_enumerated": "Quinn, Nellie",
         "relation_as_enumerated": "Servant"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a servant (cook); born April 1870, in Illinois, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (cook); born April 1870, in Illinois, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     }
   ]
 }

@@ -118,6 +118,7 @@
 
 import http from 'node:http';
 import fs from 'node:fs';
+import { createAudioReplay } from './audio_smoke_replay.mjs';
 import path from 'node:path';
 import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
@@ -193,11 +194,17 @@ const ROOT = process.env.SMOKE_ROOT
 const ENTRY = process.env.SMOKE_ENTRY || (wantPublished ? '/walk/' : '/renderers/web/index.html');
 const MODULE_BASE = wantPublished ? '/walk/js/' : '/renderers/web/js/';
 
+// The bucket permits the deployed app origin, not localhost. Replay verified
+// delivery bytes here (local source, or lazy server-side fetch for the bake's
+// sparse artifact); test_hosted_audio_browser.mjs separately tests browser CORS.
+const audioReplay = wantPublished ? createAudioReplay({ site: ROOT }) : null;
+
 const TYPES = {
   '.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/javascript',
   '.css': 'text/css', '.json': 'application/json', '.glb': 'model/gltf-binary',
   '.bin': 'application/octet-stream', '.png': 'image/png', '.jpg': 'image/jpeg',
   '.svg': 'image/svg+xml', '.wasm': 'application/wasm', '.md': 'text/markdown',
+  '.ogg': 'audio/ogg', '.m4a': 'audio/mp4', '.mp3': 'audio/mpeg',
 };
 
 /**
@@ -1514,6 +1521,16 @@ for (const [label, viewport, touch] of [
     isMobile: false,          // isMobile forces mobile emulation Chromium-side
     deviceScaleFactor: touch ? 2 : 1,
   });
+  if (audioReplay?.size) {
+    await ctx.route(url => audioReplay.has(url.href), async route => {
+      const media = await audioReplay.get(route.request().url());
+      await route.fulfill({
+        ...media,
+        headers: { 'Access-Control-Allow-Origin': `http://127.0.0.1:${PORT}` },
+      });
+    });
+    console.log(`  audio: ${audioReplay.mode}; live R2/CORS is a separate browser check`);
+  }
   const page = await ctx.newPage();
   // A few checks import an app module directly to exercise a pure function. The
   // path to those modules differs between the source tree and the published
@@ -2647,7 +2664,7 @@ for (const [label, viewport, touch] of [
     // closed — the tier is decided before the scene is fetched, so nothing after
     // it is this check's subject.
     const forcedWant = touch
-      ? { weak: ['light', 1], strong: ['light', 1.5] }
+      ? { weak: ['light', 1], strong: ['balanced', 1.5] }
       : { weak: ['balanced', 1], strong: ['full', 2] };
     for (const [cls, [detail, sharp]] of Object.entries(forcedWant)) {
       const fctx = await browser.newContext({ viewport, hasTouch: touch, isMobile: false,
@@ -15618,14 +15635,16 @@ for (const [label, viewport, touch] of [
         + Object.values(pj.counts?.by_stage ?? {}).reduce((a, b) => a + b, 0);
       const opened = await dir.open('hogan_john_s_c');
       const card = document.getElementById('people-card');
-      // Town Find/Follow actions precede the distinct building destination.
-      const go = card?.querySelector('.people-go[data-structure="hogan_store"]');
+      // T-3531 keeps Find/Follow before the address actions even when the person
+      // is not out in town. This check is about the evidenced workplace, not the
+      // first action on the card; it must still ride to Hogan's store below.
+      const go = card?.querySelector('.people-go[data-go="works"][data-structure="hogan_store"]');
       out.card = { opened, hidden: card?.hasAttribute('hidden'), shown: card?.checkVisibility(),
         name: card?.querySelector('.people-card-name')?.textContent.trim() ?? '',
         title: document.getElementById('panel-title')?.textContent.trim() ?? '',
         backShown: !document.getElementById('panel-back')?.hasAttribute('hidden'),
-        go: go?.dataset.structure ?? null, goText: go?.textContent.replace(/\s+/g, ' ').trim() ?? '',
-        goDisabled: go?.disabled ?? true,
+        go: go?.dataset.structure ?? null, goDisabled: go?.disabled ?? true,
+        goText: go?.textContent.replace(/\s+/g, ' ').trim() ?? '',
         fields: !!card?.querySelector('.res-fields'),
         // T-1491. The seat, in words, under the actions block — and the bare
         // "No known address" it replaces, which must not be standing beside it.
@@ -15810,11 +15829,12 @@ for (const [label, viewport, touch] of [
     check(`${label}: opening a person shows their card with a way to their building`,
       people.card.opened && people.card.hidden === false && people.card.shown && /Hogan/.test(people.card.name)
       && people.card.title === people.card.name && people.card.backShown && people.card.go === 'hogan_store'
-      && /Go to where they/.test(people.card.goText) && people.card.goDisabled === false && people.card.fields,
+      && people.card.goDisabled === false
+      && /Go to where they/.test(people.card.goText) && people.card.fields,
       JSON.stringify(people.card));
     // Go there, on horseback: the drawer closes, the ride ends at Hogan's with its card.
     await page.evaluate(() => { window.__chicago4d.setTravelMode('horse'); window.__chicago4d.popup.close(); });
-    await clickChrome('#people-card .people-go[data-structure="hogan_store"]');
+    await clickChrome('#people-card .people-go[data-go="works"][data-structure="hogan_store"]');
     const goThere = await page.evaluate((FRAMED) => {
       const api = window.__chicago4d;
       const framed = eval(FRAMED);
@@ -16509,7 +16529,7 @@ for (const [label, viewport, touch] of [
     // >>> T-2656: the Settings app (DESIGN §07). Light or dark is Settings › Display's two-way
     // choice and the HUD holds no chip for it; the four machines are tiles, the one in use
     // marked, and a tap on another switches the machine and its tone; Auto names this device's
-    // levels; Sound has its three levels and says nothing plays yet; About opens What's new;
+    // levels; Sound has four levels and examples beside their own controls; About opens What's new;
     // and at Text size 140 % every Navigator app reflows with nothing past its edge and no line
     // cut short (QA-18), the choice stored. Everything is put back as found. Waits are generous:
     // a starved runner takes seconds between frames.
@@ -16525,8 +16545,19 @@ for (const [label, viewport, touch] of [
         skin: html.dataset.skin, tileOn: document.querySelector('#s-skins .skin-tile.is-on')?.dataset.skinChoice ?? null,
         auto: document.getElementById('s-perf-auto-line')?.textContent ?? '',
         autoShown: document.getElementById('s-perf-auto')?.closest('.field')?.hidden === false,
-        sound: ['master', 'effects', 'ambience'].filter((s) => document.getElementById(`s-sound-${s}`)?.type === 'range').length,
-        soundNote: document.getElementById('s-sound-note')?.textContent.trim() ?? '',
+        sound: ['master', 'effects', 'ambience', 'music'].filter((s) => document.getElementById(`s-sound-${s}`)?.type === 'range').length,
+        soundTotal: document.querySelectorAll('#s-sound input[type="range"]').length,
+        soundHelp: Object.fromEntries(['effects', 'ambience'].map((key) => {
+          const slider = document.getElementById(`s-sound-${key}`);
+          const help = document.getElementById(`s-sound-${key}-help`);
+          const group = slider?.closest('.sound-control');
+          return [key, { text: help?.textContent.trim() ?? '',
+            ownGroup: !!group && help?.closest('.sound-control') === group
+              && group.querySelectorAll('input[type="range"]').length === 1
+              && help.previousElementSibling?.contains(slider) === true,
+            described: !!help && slider?.getAttribute('aria-describedby') === help.id }];
+        })),
+        soundNotesAbsent: !document.querySelector('#s-sound-note, #s-sound-music-help'),
       };
       // Light or dark: the other tone, then back.
       const tone = html.dataset.theme === 'light' ? 'light' : 'dark';
@@ -16598,10 +16629,15 @@ for (const [label, viewport, touch] of [
       settingsApp.tiles.join(',') === 'control-room,brass,worlds-fair,deep-space' && settingsApp.tileOn === settingsApp.skin
       && settingsApp.switched && settingsApp.restored,
       JSON.stringify({ tiles: settingsApp.tiles, on: settingsApp.tileOn, skin: settingsApp.skin, switched: settingsApp.switched }));
-    check(`${label}: Auto names this device's levels, Sound has master, effects and ambience and says what each covers, About opens What's new (T-2656)`,
+    check(`${label}: Auto names this device's levels, Sound has four sliders with their own Ambience/Effects examples and no extra notes, About opens What's new (T-2656, T-3544)`,
       settingsApp.autoShown && /^Auto for this device: (Full|Balanced|Light) detail, (Low|Medium|High) sharpness, adaptive pacing\.$/.test(settingsApp.auto)
-      && settingsApp.sound === 3 && /not a recording of the past\./.test(settingsApp.soundNote) && settingsApp.whatsNew,  // the note: T-2659
-      JSON.stringify({ auto: settingsApp.auto, autoShown: settingsApp.autoShown, sound: settingsApp.sound, note: settingsApp.soundNote, whatsNew: settingsApp.whatsNew }));
+      && settingsApp.sound === 4 && settingsApp.soundTotal === 4 && settingsApp.soundNotesAbsent
+      && Object.values(settingsApp.soundHelp).every((h) => h.ownGroup && h.described)
+      && /wind, lake waves, birds and insects/.test(settingsApp.soundHelp.ambience.text)
+      && /wagon wheels and harness jingles from moving teams/.test(settingsApp.soundHelp.effects.text)
+      && settingsApp.whatsNew,
+      JSON.stringify({ auto: settingsApp.auto, autoShown: settingsApp.autoShown, sound: settingsApp.sound,
+        total: settingsApp.soundTotal, help: settingsApp.soundHelp, notesAbsent: settingsApp.soundNotesAbsent, whatsNew: settingsApp.whatsNew }));
     check(`${label}: at text size 140 % every Navigator app reflows, nothing past its edge and no line cut short, and the choice is stored (T-2656, QA-18)`,
       settingsApp.scale === '1.4' && settingsApp.storedScale === 1.4 && settingsApp.back
       && Object.keys(settingsApp.clipped).length >= 6 && Object.values(settingsApp.clipped).every((list) => list.length === 0),
@@ -16742,16 +16778,21 @@ for (const [label, viewport, touch] of [
     // T-2658's short "Why?" lines and Researcher mode's "Why this default" essays were dropped
     // by the owner (T-3445, 2026-11-07); the researcher check above holds that none is drawn,
     // and tools/test_short_why.mjs holds the page, the strings and the stylesheets.
-    // >>> T-2659: the Navigator's sounds (js/sound.js). The gesture is the visitor's own: a
+    // >>> T-3532: recorded sound (js/sound.js). The gesture is the visitor's own: a
     // TRUSTED tap (touchscreen on a phone, mouse on a desktop) at the centre of a Settings
     // control in the open Navigator — the tone already chosen, so nothing changes — hit-tested
     // in the page first. clickChrome's untrusted .click() is no gesture to a browser (or to
     // gesture-gate.js), which is why it must not be the instrument here. Then the graph is
-    // built on a running context, the device open hums and the destination's bed tone plays, a
-    // relay click and a ticker tick play, Settings › Sound's sliders move the real gains
-    // (Master at Off is silence, Ambience at Off stops the bed), a hidden tab stops the hum and
-    // the bed and they come back, and every level is put back as found. Every wait is bounded
+    // built on a running context. Period music waits for the native Free roam entry;
+    // then it streams and Settings sliders move the real gains. Master and Music mute
+    // stop playback, and a hidden tab clears recorded voices. Levels, pose, the one-time
+    // roam tip and tour offer are put back as found. Every wait is bounded
     // by the clock, not by a count of timer ticks a starved runner stretches.
+    // DOM/audio state only: keep simulation and browser layout live, but avoid
+    // software WebGL draws blocking trusted-input acknowledgement. Restore the
+    // real renderer before the Confidence budgets and graphical checks below.
+    await holdDraws(true);
+    try {
     await openSection('settings').catch(() => {});
     const soundTapSel = '#s-theme .seg-btn[aria-checked="true"]';
     const soundTap = await page.evaluate(async (s) => {
@@ -16776,93 +16817,98 @@ for (const [label, viewport, touch] of [
       if (touch) await page.touchscreen.tap(soundTap.x, soundTap.y);
       else await page.mouse.click(soundTap.x, soundTap.y);
     }
-    const soundRead = await page.evaluate(async () => {
+    const soundSetup = await page.evaluate(async () => {
       const api = window.__chicago4d;
-      const wait = (ms) => new Promise((r) => setTimeout(r, ms));
-      const until = async (fn, ms = 30000) => { const end = Date.now() + ms; while (Date.now() < end) { if (fn()) return true; await wait(100); } return !!fn(); };
-      const out = { loaded: await until(() => !!api.sound, 60000), gestured: !!api.gesture?.gestured };
-      if (!out.loaded) return out;
-      const sound = api.sound;
-      const near = (a, b) => Math.abs(a - b) < 0.03;
-      const gain = (k) => sound.nodes?.[k]?.gain?.value ?? null;
-      const slider = (k) => document.getElementById(`s-sound-${k}`);
-      const slide = (k, v) => { const el = slider(k); el.value = String(v); el.dispatchEvent(new Event('input', { bubbles: true })); };
-      const stored = () => { try { return JSON.parse(localStorage.getItem('chicago4d.settings') || '{}'); } catch { return {}; } };
-      out.running = await until(() => sound.state.context === 'running', 15000);
-      out.graph = !!sound.nodes?.master && !!sound.nodes?.effects && !!sound.nodes?.ambience;
-      out.year = String(api.scene?.target_date ?? '').slice(0, 4);
-      const was = { master: slider('master').value, effects: slider('effects').value, ambience: slider('ambience').value };
-      out.was = was;
-      // T-2941: sound is off by default. A fresh visitor's Master reads Off, and with the
-      // context running and the device open there is still no hum, no bed and no click.
-      await wait(600);
-      out.mutedAtFirst = was.master === '0' && sound.state.silent === true && !sound.state.hum && sound.state.ambience === null
-        && near(gain('master') ?? 0, 0) && document.getElementById('v-sound-master')?.textContent.trim() === 'Off';
-      out.mutedState = { silent: sound.state.silent, hum: sound.state.hum, ambience: sound.state.ambience, master: gain('master') };
-      // Master alone turns every sound on.
-      slide('master', 1);
-      out.hum = await until(() => sound.state.hum, 10000);
-      out.bed = await until(() => sound.state.ambience === out.year, 10000);
-      out.clunked = await until(() => sound.state.clunked, 5000);
-      out.storedChoice = stored().soundChosen === true && stored().soundMaster === 1;
-      for (const k of ['master', 'effects', 'ambience']) slide(k, 1);
-      out.full = await until(() => near(gain('master'), 1) && near(gain('effects'), 1) && near(gain('ambience'), 1), 10000);
-      await wait(60);
-      const clicks = sound.state.clicks;
-      out.relay = sound.relay() && sound.state.clicks === clicks + 1;
-      sound.ticker(2001);
-      out.tick = sound.ticker(2000) > 0;
-      slide('master', 0.5);
-      out.half = await until(() => near(gain('master'), 0.25), 10000);
-      out.storedHalf = stored().soundMaster === 0.5;
-      slide('effects', 0);
-      out.effectsOff = await until(() => near(gain('effects'), 0) && !sound.state.hum, 10000);
-      await wait(60);
-      out.noRelay = sound.relay() === false;
-      slide('ambience', 0);
-      out.bedOff = await until(() => sound.state.ambience === null, 10000);
-      slide('effects', 1); slide('ambience', 1); slide('master', 0);
-      out.silent = await until(() => near(gain('master'), 0) && sound.state.silent && !sound.state.hum && sound.state.ambience === null, 10000);
-      slide('master', 1);
-      out.back = await until(() => near(gain('master'), 1) && sound.state.hum && sound.state.ambience === out.year, 10000);
-      // A hidden tab: the page is told so, as the browser would tell it, then shown again.
-      const hide = (on) => {
-        for (const [k, v] of [['visibilityState', 'hidden'], ['hidden', true]]) {
-          if (on) Object.defineProperty(document, k, { configurable: true, get: () => v });
-          else delete document[k];
-        }
-        document.dispatchEvent(new Event('visibilitychange'));
+      const wait = ms => new Promise(r => setTimeout(r, ms));
+      const until = async (fn, ms) => {
+        const end = Date.now() + ms;
+        while (!fn() && Date.now() < end) await wait(100);
+        return !!fn();
       };
-      hide(true);
-      out.hidden = await until(() => !sound.state.hum && sound.state.ambience === null, 10000);
-      hide(false);
-      out.shown = await until(() => sound.state.hum && sound.state.ambience === out.year, 10000);
-      for (const k of ['master', 'effects', 'ambience']) slide(k, was[k]);
-      out.restored = ['Master', 'Effects', 'Ambience'].every((k) => String(stored()[`sound${k}`]) === String(Number(was[k.toLowerCase()])));
-      out.note = document.getElementById('s-sound-note')?.textContent.trim() ?? '';
-      out.state = sound.state;
-      return out;
+      await until(() => !!api.sound, 60000);
+      const sound=api.sound; if (!sound) return { loaded:false };
+      const keys=['master','effects','ambience','music'];
+      const slider=k=>document.getElementById(`s-sound-${k}`);
+      const was=Object.fromEntries(keys.map(k=>[k,slider(k).value]));
+      const slide=(k,v)=>{slider(k).value=String(v);slider(k).dispatchEvent(new Event('input',{bubbles:true}));};
+      const first=sound.state;
+      const w=api.walker;
+      const saved={ was, at:{local_e:w.state.e,local_n:w.state.n,yaw_deg:w.bearingDeg,
+        pitch_deg:w.state.pitch*180/Math.PI,altitude_m:w.state.flying?w.state.altitude:null},
+        tipStored:localStorage.getItem('chicago4d.roamTipSeen'),tipShowing:api.roamTip.showing,
+        offerStored:localStorage.getItem('chicago4d.tourOffer'),offerState:api.tourOffer.state,
+        backend:api.controlBackend };
+      const beforeJourney=api.journey.state;
+      slide('master',1);slide('music',.4);
+      await wait(400);
+      const beforeEntry=sound.state;
+      // Earlier stages can hide the gate without choosing an arrival action.
+      // Reopen the real card, then click its actual Free roam control below;
+      // never manufacture a journey transition just to make music eligible.
+      api.welcome.show();
+      return {loaded:true,first,beforeJourney,beforeEntry,saved};
     });
-    check(`${label}: sound is off by default — Master reads Off and the running graph makes no hum, bed or click until Master is raised, and that choice is stored (T-2941)`,
-      soundRead.loaded && soundRead.mutedAtFirst && soundRead.storedChoice,
-      JSON.stringify({ was: soundRead.was, muted: soundRead.mutedState, storedChoice: soundRead.storedChoice }));
-    check(`${label}: after a tap and Master raised, the Navigator's sound graph runs, the open device hums, the destination plays its bed tone, and a relay click and a ticker tick play (T-2659)`,
-      !soundTap.miss && soundRead.loaded && soundRead.running && soundRead.graph && soundRead.hum && soundRead.bed && soundRead.clunked
-      && soundRead.relay && soundRead.tick,
-      JSON.stringify({ tap: soundTap, gestured: soundRead.gestured, loaded: soundRead.loaded, running: soundRead.running, graph: soundRead.graph, hum: soundRead.hum, bed: soundRead.bed,
-        year: soundRead.year, clunked: soundRead.clunked, relay: soundRead.relay, tick: soundRead.tick, state: soundRead.state }));
-    check(`${label}: Settings › Sound's sliders move the real gains and are stored, Effects or Ambience at Off stops theirs, Master at Off is silence, a hidden tab stops the hum and the bed, all put back (T-2659)`,
-      soundRead.loaded && soundRead.full && soundRead.half && soundRead.storedHalf && soundRead.effectsOff && soundRead.noRelay
-      && soundRead.bedOff && soundRead.silent && soundRead.back && soundRead.hidden && soundRead.shown && soundRead.restored
-      && /Ambience is a mood tone, not a recording of the past\./.test(soundRead.note ?? ''), // T-3445
-      JSON.stringify({ full: soundRead.full, half: soundRead.half, storedHalf: soundRead.storedHalf, effectsOff: soundRead.effectsOff,
-        noRelay: soundRead.noRelay, bedOff: soundRead.bedOff, silent: soundRead.silent, back: soundRead.back, hidden: soundRead.hidden,
-        shown: soundRead.shown, restored: soundRead.restored, was: soundRead.was, note: soundRead.note }));
+    // Free roam changes this document's state; it does not navigate. Keep the
+    // trusted, actionability-checked click, then wait on the native entry/music
+    // assertions below instead of Playwright's post-click navigation epilogue.
+    const soundRoamClick = soundSetup.loaded
+      ? await page.locator('#home-roam').click({ timeout: 30_000, noWaitAfter: true }).then(() => null, (e) => e.message)
+      : 'recorded sound did not load';
+    const soundRead = await page.evaluate(async (setup) => {
+      if (!setup.loaded) return setup;
+      const api=window.__chicago4d,sound=api.sound;
+      const wait=ms=>new Promise(r=>setTimeout(r,ms));
+      const until=async(fn,ms)=>{const end=Date.now()+ms;while(!fn()&&Date.now()<end)await wait(100);return !!fn();};
+      const keys=['master','effects','ambience','music'];
+      const slide=(k,v)=>{const s=document.getElementById(`s-sound-${k}`);s.value=String(v);s.dispatchEvent(new Event('input',{bubbles:true}));};
+      let hiddenOverride=false;
+      try {
+        const entered=await until(()=>api.welcome.state==='world'&&api.journey.state==='exploring',30000);
+        await until(()=>sound.state.recorded?.playing,30000);
+        const on=sound.state;
+        slide('music',0);await wait(400);const musicOff=!sound.state.recorded?.playing;
+        slide('master',0);await wait(400);const muted=sound.state.silent&&!sound.state.recorded?.voices.length;
+        slide('master',1);slide('music',.4);await wait(500);
+        Object.defineProperty(document,'hidden',{configurable:true,get:()=>true});hiddenOverride=true;
+        document.dispatchEvent(new Event('visibilitychange'));await wait(400);
+        const hidden=sound.state.silent&&!sound.state.recorded?.playing&&!sound.state.recorded?.voices.length;
+        return {loaded:true,first:setup.first,beforeJourney:setup.beforeJourney,beforeEntry:setup.beforeEntry,
+          entered,journey:api.journey.state,on,musicOff,muted,hidden};
+      } finally {
+        if(hiddenOverride){delete document.hidden;document.dispatchEvent(new Event('visibilitychange'));}
+        for(const k of keys)slide(k,setup.saved.was[k]);
+        // Leave a failed click as a failed assertion, but let following checks run
+        // in the town. This is the welcome's native resume, not a journey override.
+        if(api.welcome.state==='welcome')api.welcome.close();
+        api.hud.setFly(setup.saved.at.altitude_m!==null,{announce:false});
+        api.walker.teleport(setup.saved.at);
+        api.roamTip.forget();
+        if(setup.saved.tipShowing)api.roamTip.show({touch:setup.saved.backend==='touch'});
+        api.tourOffer.forget();
+        if(setup.saved.offerState)api.tourOffer.spend(setup.saved.offerState);
+        for(const [key,value] of [['chicago4d.roamTipSeen',setup.saved.tipStored],['chicago4d.tourOffer',setup.saved.offerStored]]){
+          if(value===null)localStorage.removeItem(key);else localStorage.setItem(key,value);
+        }
+      }
+    }, soundSetup);
+    check(`${label}: recorded audio stays opt-in, waits through arrival, streams era music after native Free roam, and never starts the old hum (T-3532, T-3544)`,
+      !soundTap.miss && !soundRoamClick && soundRead.loaded && soundRead.first.silent && !soundRead.first.hum
+      && (soundRead.beforeJourney!=='landed'||!soundRead.beforeEntry.recorded?.playing)
+      && soundRead.entered && soundRead.journey==='exploring'
+      && soundRead.on.recorded?.playing && !soundRead.on.hum && !soundRead.on.recorded.errors.length,
+      JSON.stringify({tap:soundTap,roamClick:soundRoamClick,...soundRead}));
+    check(`${label}: independent music mute, Master mute and hidden-tab cleanup stop recorded audio (T-3532)`,
+      soundRead.musicOff && soundRead.muted && soundRead.hidden, JSON.stringify(soundRead));
     // <<< T-2659
+    await openSection('settings');
     await clickChrome('#panel-close');
     // T-2620: Settings is a Navigator app now, so closing it leaves the device docked on
     // Settings; give it back as found (Home, docked) for the Navigator's own checks below.
     await page.evaluate(async () => { await window.__chicago4d.navigator.select('home'); window.__chicago4d.navigator.dock(); });
+
+    } finally {
+      await holdDraws(false);
+    }
 
     // T-2647: the Confidence view is a Navigator app of four presets — the HUD's chip,
     // caret and checkbox menu are gone — and C still toggles BY GRADE.
@@ -18930,9 +18976,10 @@ for (const [label, viewport, touch] of [
     // The one thing this section must never imply. Nothing is drawn from the
     // layer — no animal geometry exists — so the panel says so in words, and the
     // day that stops being true this assertion is the one that should fail.
-    check(`${label}: the section says plainly that none of them is in the scene`,
+    check(`${label}: the wildlife section distinguishes undrawn bodies from reconstructed habitat sounds`,
       /None of them is drawn in the scene/.test(fauna.prose)
-      && /this is the research, not a population/i.test(fauna.prose),
+      && /Wildlife bodies are not drawn/.test(fauna.prose)
+      && /Selected recorded habitat sounds are reconstructed acoustic proxies/.test(fauna.prose),
       fauna.prose.slice(0, 200));
 
     // --- what grows here, in the same panel (T-0281) ------------------------

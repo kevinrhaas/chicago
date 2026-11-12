@@ -29,7 +29,7 @@ const recipe = validateHorseRecipe(json('data/transport/horse-coats.json'));
     const target = path.join(app, rel); fs.mkdirSync(path.dirname(target), { recursive: true }); fs.writeFileSync(target, bytes);
   };
   try {
-    for (const name of ['check_published.mjs', 'share_glb_sheets.mjs']) put('tools/'+name, read('tools/'+name));
+    for (const name of ['check_published.mjs', 'share_glb_sheets.mjs', 'audio_hosting.mjs']) put('tools/'+name, read('tools/'+name));
     const rel = 'data/transport/horse-coats.json';
     put(rel, read(rel));
     fs.mkdirSync(path.join(app, 'data/transport/parked'), { recursive: true });
@@ -283,10 +283,16 @@ console.log('Actual source/material guards PASS: geometry/joints/maps bound, nam
       privateMaterial.addEventListener('dispose', () => ownedDisposed++);
       assert.notEqual(privateMaterial, parsed.at(-1).sourceBody.material); assert.equal(parsed.at(-1).sourceBody.material.userData.chicagoHorseCoat, undefined);
       assert.equal(privateMaterial.map, parsed.at(-1).sourceBody.material.map, 'standing material borrows the original map handle');
-      await layer.setTier('light'); assert.equal(layer.instances.length, 0); assert.equal(ownedDisposed, 1); assert.equal(parsed.at(-1).disposed, 1); assert(parsed.at(-1).textureDisposals.every(count => count === 1), 'source owner disposes each borrowed map once');
+      // T-3542: Light keeps the standing horse (owner, 2026-11-10): the same individual, nothing released.
+      await layer.setTier('light'); assert.equal(layer.instances.length, 1); assert.equal(ownedDisposed, 0); assert.equal(parsed.at(-1).disposed, 0);
+      assert.deepEqual(bodyOf(layer.instances[0].root).material.userData.chicagoHorseCoat, identity, 'Light keeps the same individual');
       await layer.setTier('full'); await layer.ready; assert.equal(layer.instances.length, 1);
-      assert.deepEqual(bodyOf(layer.instances[0].root).material.userData.chicagoHorseCoat, identity, 'reacquisition retains the same individual');
-      layer.dispose(); layer.dispose(); assert.equal(parsed.at(-1).disposed, 1);
+      layer.dispose(); assert.equal(ownedDisposed, 1); assert.equal(parsed.at(-1).disposed, 1); assert(parsed.at(-1).textureDisposals.every(count => count === 1), 'source owner disposes each borrowed map once');
+      layer.dispose(); assert.equal(parsed.at(-1).disposed, 1);
+      const again = await invoke(createStandingHorses, () => dataBase, '1835', createConfidenceView(), 'light', () => problems, () => false, { drawnBaseHeightAt: () => 0 });
+      await load(again); assert.equal(again.instances.length, 1, 'a Light boot draws the horse within its 30 m');
+      assert.deepEqual(bodyOf(again.instances[0].root).material.userData.chicagoHorseCoat, identity, 'reacquisition retains the same individual');
+      again.dispose();
     }
     mode = 'missing'; const problems = [];
     const refused = await createStandingHorses({ ...baseOptions, dataBase: new URL('data/', root), problems, recipeFile: 'transport/horse-coats.json?missing' });
@@ -297,7 +303,8 @@ console.log('Actual source/material guards PASS: geometry/joints/maps bound, nam
     pending.update(camera);
     for (let i = 0; !releaseRecipe && i < 1000; i++) await new Promise(resolve => setTimeout(resolve, 2));
     assert(releaseRecipe, 'actual source parse reached the delayed recipe fetch');
-    await pending.setTier('light'); pending.dispose(); releaseRecipe(); await pending.ready;
+    // T-3542: Light keeps loading (it draws the horse), so the tier change waits on the recipe too.
+    const tiered = pending.setTier('light'); pending.dispose(); releaseRecipe(); await tiered; await pending.ready;
     assert.equal(pending.instances.length, 0); assert.deepEqual(pendingProblems, []); assert.equal(parsed.at(-1).disposed, 1, 'late recipe completion cannot mount or retain the source');
   } finally { globalThis.fetch = previousFetch; GLTFLoader.prototype.parseAsync = nativeParse; }
   console.log('Standing factory/main wiring PASS: legacy off, source/published recipe opt-in, actual source-owned cleanup, Light reacquisition, error and late disposal; images/WebGL separate');

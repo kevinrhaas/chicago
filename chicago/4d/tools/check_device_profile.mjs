@@ -42,7 +42,9 @@ check('weak and strong move detail and Sharpness the documented way, inside the 
   assert.equal(dp.decide('weak', { touch: false }).detail, 'balanced', 'T-3537: never Light, which drops horses and carriages');
   assert.equal(dp.decide('weak', { touch: false }).sharpness, 1);
   assert.equal(dp.decide('strong', { touch: false }).sharpness, 2);
-  assert.equal(dp.decide('strong', { touch: true }).detail, 'light', 'a phone never earns geometry (T-2546)');
+  assert.equal(dp.decide('strong', { touch: true }).detail, 'balanced', 'T-3542: a strong phone earns Balanced; weaker ones keep Light');
+  assert.equal(dp.decide('standard', { touch: true }).detail, 'light');
+  assert.equal(dp.decide('strong', { touch: true }).lowMemory, true, 'every phone keeps the memory diet');
   assert.equal(dp.decide('strong', { touch: true }).sharpness, 1.5);
   for (const cls of dp.DEVICE_CLASSES) for (const touch of [true, false]) {
     const c = dp.decide(cls, { touch, cores: 8 });
@@ -71,6 +73,22 @@ check('a software rasteriser keeps the platform default and is not benchmarked',
   const r = dp.classify(sw, { fill: 0.01, verts: 0.001 });
   assert.equal(r.cls, 'standard');
   assert.match(r.why, /software/);
+});
+check('T-3552: a visitor drawing in software boots as a modest computer; the harness keeps the default', () => {
+  const warp = { ...GPU, renderer: 'ANGLE (Microsoft, Microsoft Basic Render Driver Direct3D11 vs_5_0 ps_5_0, D3D11)' };
+  assert.ok(dp.isSoftwareRenderer(warp.renderer));
+  const visitor = dp.classify({ ...warp, automated: false }, null);
+  assert.equal(visitor.cls, 'weak');
+  assert.match(visitor.why, /software rasteriser: no graphics driver/);
+  const choice = dp.decide(visitor.cls);
+  assert.deepEqual([choice.detail, choice.sharpness, choice.lowMemory], ['balanced', 1, true]);
+  // The harness (navigator.webdriver) and an unknown reader keep the platform default.
+  assert.equal(dp.classify({ ...warp, automated: true }, null).cls, 'standard');
+  assert.equal(dp.classify(warp, null).cls, 'standard');
+  // The owner's Inspiron 3880 as Chrome on Windows names it: shared memory, weak, Balanced.
+  const uhd = { ...GPU, cores: 12, memoryGB: 8, automated: false,
+    renderer: 'ANGLE (Intel, Intel(R) UHD Graphics 630 (0x00009BC8) Direct3D11 vs_5_0 ps_5_0, D3D11)' };
+  assert.equal(dp.classify(uhd, { fill: 2, verts: 0.2 }).cls, 'weak');
 });
 check('the resource floors, then the benchmark bounds, decide a real GPU', () => {
   assert.equal(dp.classify({ ...GPU, cores: 2 }, { fill: 9, verts: 9 }).cls, 'weak');
@@ -228,6 +246,45 @@ check('the front door measures with the town\'s profile and never writes the tow
   assert.match(meter, /profileDevice\(\{ touch, storage: null,/);
   assert.match(portalHtml, /<script type="module" src="walk\/portal\/device-meter\.js"><\/script>/);
   assert.equal((portalHtml.match(/<i style="--i:\d+"><\/i>/g) || []).length, 20, 'twenty segments, four per grade');
+});
+
+// T-3539: the loading screen carries the meter, with why it reads so and what is drawn.
+const ad = await import(pathToFileURL(path.join(web, 'js/arrival-device.js')).href);
+check('T-3539: the loading screen\'s panel names the shared memory and what a weak computer draws', () => {
+  const inspiron = { cls: 'weak', touch: false, why: 'integrated graphics sharing the system\'s memory (Intel(R) UHD Graphics 630)',
+    signals: { webgl2: true, renderer: 'ANGLE (Intel, Intel(R) UHD Graphics 630 (0x00009BC5) Direct3D11 vs_5_0 ps_5_0, D3D11)', cores: 12, memoryGB: 8 },
+    bench: { fill: 6, verts: 0.6 }, choice: dp.decide('weak', { touch: false }) };
+  const st = ad.arrivalDeviceStatus({ profile: inspiron, detail: 'balanced', sharpness: 1, lowMemory: true });
+  assert.ok(st.score < 40 && st.score === dp.scoreProfile(inspiron).score, 'the Observatory\'s own number, in the weak band');
+  assert.deepEqual(st.assess, ['Intel UHD Graphics 630', 'shared memory', '8+ GB', '12 cores']);
+  assert.deepEqual(st.setup, ['Balanced detail', 'every street, building, person and carriage', 'resolution low',
+    'plants thinned', 'textures softer', 'memory saver on']);
+  const strong = { cls: 'strong', touch: false, signals: { ...GPU, cores: 12 }, bench: { fill: 20, verts: 2 }, choice: dp.decide('strong', { touch: false }) };
+  assert.deepEqual(ad.arrivalDeviceStatus({ profile: strong, detail: 'full', sharpness: 2 }).setup,
+    ['Full detail', 'every street, building, person and carriage', 'resolution high']);
+  const phone = { cls: 'standard', touch: true, signals: { renderer: 'Apple GPU', cores: 6 }, bench: null, choice: dp.decide('standard', { touch: true }) };
+  const ph = ad.arrivalDeviceStatus({ profile: phone, detail: 'light', sharpness: 1, lowMemory: true });
+  assert.ok(!ph.assess.includes('shared memory'), 'a phone is not flagged');
+  assert.ok(ph.setup.includes('every street, building, person and carriage'), 'T-3542: Light keeps people, horses and carriages');
+  assert.ok(ph.setup.includes('plants thinned further, carriages drawn nearer'), 'Light says what it eases, by name');
+  assert.ok(ad.arrivalDeviceStatus({ profile: strong, detail: 'full', sharpness: 1.5, chosen: true }).setup.includes('your settings'));
+  assert.ok(ad.arrivalDeviceStatus({ profile: strong, detail: 'balanced', sharpness: 1, steppedDown: true, chosen: true })
+    .setup.at(-1).startsWith('eased after'), 'the step-down outranks "your settings"');
+  assert.equal(ad.arrivalDeviceStatus({ profile: strong, detail: 'balanced', sharpness: 2, chosen: true, keptAfter: 'full' }).setup.at(-1),
+    'stepped down: Full detail did not load last time', 'T-3542: a level kept after a failed switch is said, not passed off as a choice');
+  for (const words of [st, ph].flatMap(x => [...x.assess, ...x.setup])) assert.doesNotMatch(words, /fail|poor|cannot|crash|error/i, 'never negative');
+});
+check('T-3539: every year\'s loading screen mounts the panel, painted from the boot\'s settings in force', () => {
+  assert.match(html, /<div id="arrival-device" class="arrival-device" data-state="reading"/);
+  assert.equal((html.match(/<span class="arrival-device-bar">((?:<i><\/i>)+)<\/span>/)?.[1].match(/<i>/g) || []).length, 20, 'twenty segments, as the Observatory');
+  assert.match(main, /paintArrivalDevice\(document\.getElementById\('arrival-device'\), \{\s*profile: device, detail: detailLevel, sharpness: bootQuality, lowMemory: lowMem,/);
+});
+
+check('T-3545: the season re-grow a Scene detail switch chains on is always a promise', () => {
+  // 1904's woods are the empty layer (no setSeason), so a sync seasonPlants returned undefined
+  // and `.then` threw halfway through the switch's commit outside summer: a frozen town.
+  assert.match(main, /let seasonPlants = async \(\) => null;/);
+  assert.match(main, /\n  seasonPlants = async \(s\) => \{/);
 });
 
 console.log(`check_device_profile: ${checks.length} checks passed`);

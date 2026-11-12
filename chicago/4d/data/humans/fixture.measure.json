@@ -7078,13 +7078,13 @@
     },
     {
       "file": "assets/humans/nelson_charles_1904_coachman.lod0.glb",
-      "sha256": "cebfe41a82d2e4a1a9a4b4843ad232a25b7635b0aae99b66822aecf771056726",
+      "sha256": "ebb5594ce5aadf36da25f87676252e8026c3cd993760b2cbd9f1c6d3fb9351af",
       "lod": 0,
       "derivative_of": null,
-      "bytes": 8494684,
+      "bytes": 9093740,
       "meshopt": false,
       "triangles": 51106,
-      "vertices": 33849,
+      "vertices": 33856,
       "draw_calls": 14,
       "materials": 12,
       "textures": [
@@ -7102,6 +7102,11 @@
           "slot": "garment_upper__white_stock_1904",
           "w": 256,
           "h": 256
+        },
+        {
+          "slot": "garment_outer__livery_coat_green_1904",
+          "w": 128,
+          "h": 128
         },
         {
           "slot": "eyes__iris",
@@ -7130,12 +7135,12 @@
       "rest_height_m": 1.835,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 171.3,
-        "mobile": 218.2
+        "desktop": 1038.3,
+        "mobile": 1020.6
       },
       "frame_ms_median": {
-        "desktop": 0.1,
-        "mobile": 0.1
+        "desktop": 0.5,
+        "mobile": 1
       },
       "verdicts": [
         {
@@ -7196,7 +7201,7 @@
         {
           "check": "the texture decodes",
           "ok": true,
-          "got": "hair__makehuman_short04 2048x2057, skin 2048x2048, garment_upper__white_stock_1904 256x256, eyes__iris 512x256"
+          "got": "hair__makehuman_short04 2048x2057, skin 2048x2048, garment_upper__white_stock_1904 256x256, garment_outer__livery_coat_green_1904 128x128, eyes__iris 512x256"
         },
         {
           "check": "metric rest height",
@@ -7222,13 +7227,13 @@
     },
     {
       "file": "assets/humans/nelson_charles_1904_coachman.lod1.glb",
-      "sha256": "fb7ae160f4759d24c43d8e4caed401267757fbcf1f1c53f0239835ebf6ae7fc3",
+      "sha256": "f87895b5004268335f91a5d4b821b19beaf4ae917c90c7cde9410ddff5825aea",
       "lod": 1,
       "derivative_of": null,
-      "bytes": 7612636,
+      "bytes": 7980556,
       "meshopt": false,
       "triangles": 31028,
-      "vertices": 21042,
+      "vertices": 21062,
       "draw_calls": 14,
       "materials": 12,
       "textures": [
@@ -7246,6 +7251,11 @@
           "slot": "garment_upper__white_stock_1904",
           "w": 256,
           "h": 256
+        },
+        {
+          "slot": "garment_outer__livery_coat_green_1904",
+          "w": 128,
+          "h": 128
         },
         {
           "slot": "eyes__iris",
@@ -7274,12 +7284,12 @@
       "rest_height_m": 1.835,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 167.9,
-        "mobile": 284.8
+        "desktop": 889.2,
+        "mobile": 941.2
       },
       "frame_ms_median": {
-        "desktop": 0.1,
-        "mobile": 0.1
+        "desktop": 0.3,
+        "mobile": 0.4
       },
       "verdicts": [
         {
@@ -7340,7 +7350,7 @@
         {
           "check": "the texture decodes",
           "ok": true,
-          "got": "hair__makehuman_short04 2048x2057, skin 2048x2048, garment_upper__white_stock_1904 256x256, eyes__iris 512x256"
+          "got": "hair__makehuman_short04 2048x2057, skin 2048x2048, garment_upper__white_stock_1904 256x256, garment_outer__livery_coat_green_1904 128x128, eyes__iris 512x256"
         },
         {
           "check": "metric rest height",
@@ -13534,10 +13544,10 @@
     },
     {
       "file": "assets/humans/settler_1812.lod0.glb",
-      "sha256": "62e993201aae1fdaeeeb295b78976c0a48d72733d6083120d0bb9d690c91f4d3",
+      "sha256": "a2a26b0ecf34595523f4808c052f45b562698b5118aaac0b4a547bb76ea239c9",
       "lod": 0,
       "derivative_of": null,
-      "bytes": 8977440,
+      "bytes": 8974032,
       "meshopt": false,
       "triangles": 44317,
       "vertices": 29446,
@@ -13586,12 +13596,12 @@
       "rest_height_m": 1.787,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 166,
-        "mobile": 170.8
+        "desktop": 492.9,
+        "mobile": 581
       },
       "frame_ms_median": {
-        "desktop": 0.1,
-        "mobile": 0.1
+        "desktop": 0.7,
+        "mobile": 0.6
       },
       "verdicts": [
         {
@@ -13678,13 +13688,13 @@
     },
     {
       "file": "assets/humans/settler_1812.lod1.glb",
-      "sha256": "2c7e0e884eb5f1ad11254fb1f6b4f9536bd8a1e6c9f665f9fb79dc9cce234da7",
+      "sha256": "afe8341213d460d5040a884452365da93a73397cce832b64c462a88433e9bc66",
       "lod": 1,
       "derivative_of": null,
-      "bytes": 8180920,
+      "bytes": 8182348,
       "meshopt": false,
       "triangles": 26956,
-      "vertices": 18040,
+      "vertices": 18063,
       "draw_calls": 11,
       "materials": 11,
       "textures": [
@@ -13730,12 +13740,12 @@
       "rest_height_m": 1.787,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 165.4,
-        "mobile": 209.1
+        "desktop": 645.2,
+        "mobile": 513.9
       },
       "frame_ms_median": {
-        "desktop": 0.1,
-        "mobile": 0.1
+        "desktop": 0.5,
+        "mobile": 0.3
       },
       "verdicts": [
         {
@@ -13822,13 +13832,13 @@
     },
     {
       "file": "assets/humans/settler_1812.lod2.glb",
-      "sha256": "66ef31f611077775fce0160af14567a8c135ea8e6070471e0a57842393af9601",
+      "sha256": "4c825a574ea2188f873dc131116cba91960ba414ad076410acf708e465e17075",
       "lod": 2,
       "derivative_of": null,
-      "bytes": 7520636,
+      "bytes": 7520036,
       "meshopt": false,
       "triangles": 13281,
-      "vertices": 9185,
+      "vertices": 9169,
       "draw_calls": 11,
       "materials": 11,
       "textures": [
@@ -13870,12 +13880,12 @@
       "rest_height_m": 1.7879,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 178.7,
-        "mobile": 204.5
+        "desktop": 336.2,
+        "mobile": 195.9
       },
       "frame_ms_median": {
-        "desktop": 0.1,
-        "mobile": 0.1
+        "desktop": 0.4,
+        "mobile": 0.3
       },
       "verdicts": [
         {
@@ -13947,10 +13957,10 @@
     },
     {
       "file": "assets/humans/settler_1812.lod3.glb",
-      "sha256": "e67d25a4a0d8ceb8b52b34f3eb2ab43ee838dac6ecd68f02544c4c47cd8626ce",
+      "sha256": "153ed7cb73b6398dce093e7e898c042b0994cddfaa62fa341a1177eb36e363c0",
       "lod": 3,
       "derivative_of": null,
-      "bytes": 7241320,
+      "bytes": 7241556,
       "meshopt": false,
       "triangles": 6428,
       "vertices": 4605,
@@ -13995,12 +14005,12 @@
       "rest_height_m": 1.7879,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 169.2,
-        "mobile": 158.4
+        "desktop": 354,
+        "mobile": 240.8
       },
       "frame_ms_median": {
-        "desktop": 0.1,
-        "mobile": 0.2
+        "desktop": 0.3,
+        "mobile": 0.3
       },
       "verdicts": [
         {
@@ -24316,13 +24326,13 @@
     },
     {
       "file": "assets/humans/web/nelson_charles_1904_coachman.lod0.glb",
-      "sha256": "b6cc798bf49f5b0d8eec41d177ff3ad67bcb53b502179f6719046a487829701e",
+      "sha256": "8660b20793909061ecc0c81b31c4b6e4fd26c2da0afa04c7b741788495c28820",
       "lod": 0,
       "derivative_of": "assets/humans/nelson_charles_1904_coachman.lod0.glb",
-      "bytes": 4625792,
+      "bytes": 4670520,
       "meshopt": true,
       "triangles": 51106,
-      "vertices": 33849,
+      "vertices": 33856,
       "draw_calls": 14,
       "materials": 12,
       "textures": [
@@ -24340,6 +24350,11 @@
           "slot": "garment_upper__white_stock_1904",
           "w": 256,
           "h": 256
+        },
+        {
+          "slot": "garment_outer__livery_coat_green_1904",
+          "w": 128,
+          "h": 128
         },
         {
           "slot": "eyes__iris",
@@ -24368,12 +24383,12 @@
       "rest_height_m": 1.835,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 132,
-        "mobile": 157.8
+        "desktop": 416,
+        "mobile": 437.6
       },
       "frame_ms_median": {
-        "desktop": 0.1,
-        "mobile": 0.1
+        "desktop": 0.4,
+        "mobile": 0.4
       },
       "verdicts": [
         {
@@ -24434,7 +24449,7 @@
         {
           "check": "the texture decodes",
           "ok": true,
-          "got": "hair__makehuman_short04 2039x2048, skin 2048x2048, garment_upper__white_stock_1904 256x256, eyes__iris 512x256"
+          "got": "hair__makehuman_short04 2039x2048, skin 2048x2048, garment_upper__white_stock_1904 256x256, garment_outer__livery_coat_green_1904 128x128, eyes__iris 512x256"
         },
         {
           "check": "metric rest height",
@@ -24470,13 +24485,13 @@
     },
     {
       "file": "assets/humans/web/nelson_charles_1904_coachman.lod1.glb",
-      "sha256": "5cafe1ac5170472e59149bc385ead5ce3106b563e522d98366d8d58a1c625302",
+      "sha256": "86a5fdfa5d173c89a94e925424975f3f83ada548d2c5953106ac7c9b496cf4b6",
       "lod": 1,
       "derivative_of": "assets/humans/nelson_charles_1904_coachman.lod1.glb",
-      "bytes": 1680640,
+      "bytes": 1714028,
       "meshopt": true,
       "triangles": 31028,
-      "vertices": 21042,
+      "vertices": 21062,
       "draw_calls": 14,
       "materials": 12,
       "textures": [
@@ -24494,6 +24509,11 @@
           "slot": "garment_upper__white_stock_1904",
           "w": 256,
           "h": 256
+        },
+        {
+          "slot": "garment_outer__livery_coat_green_1904",
+          "w": 128,
+          "h": 128
         },
         {
           "slot": "eyes__iris",
@@ -24522,12 +24542,12 @@
       "rest_height_m": 1.835,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 47.5,
-        "mobile": 67.3
+        "desktop": 126.9,
+        "mobile": 217.7
       },
       "frame_ms_median": {
-        "desktop": 0.1,
-        "mobile": 0.1
+        "desktop": 0.3,
+        "mobile": 0.6
       },
       "verdicts": [
         {
@@ -24588,7 +24608,7 @@
         {
           "check": "the texture decodes",
           "ok": true,
-          "got": "hair__makehuman_short04 1020x1024, skin 1024x1024, garment_upper__white_stock_1904 256x256, eyes__iris 512x256"
+          "got": "hair__makehuman_short04 1020x1024, skin 1024x1024, garment_upper__white_stock_1904 256x256, garment_outer__livery_coat_green_1904 128x128, eyes__iris 512x256"
         },
         {
           "check": "metric rest height",
@@ -31252,10 +31272,10 @@
     },
     {
       "file": "assets/humans/web/settler_1812.lod0.glb",
-      "sha256": "e62e36c65001240d60de0a3a1b7fc778de9b0c14799010a62b550f7595635033",
+      "sha256": "a69b062170225ef095691b0b529935cc7a3f9f342e478b48ab6642f7be8911ed",
       "lod": 0,
       "derivative_of": "assets/humans/settler_1812.lod0.glb",
-      "bytes": 4515508,
+      "bytes": 4515720,
       "meshopt": true,
       "triangles": 44317,
       "vertices": 29446,
@@ -31304,12 +31324,12 @@
       "rest_height_m": 1.7869,
       "soles_y_m": 0.0001,
       "load_ms": {
-        "desktop": 113.6,
-        "mobile": 141.4
+        "desktop": 180.5,
+        "mobile": 174.4
       },
       "frame_ms_median": {
-        "desktop": 0.1,
-        "mobile": 0.1
+        "desktop": 0.4,
+        "mobile": 0.3
       },
       "verdicts": [
         {
@@ -31406,13 +31426,13 @@
     },
     {
       "file": "assets/humans/web/settler_1812.lod1.glb",
-      "sha256": "7fe69ee0702622791e24aac7c5c6cf97cf3042f8246da030f69e2b6b655b9d9a",
+      "sha256": "7456daecaee0e6aa60715b24faa585a7211d43c2360df7972fd7bcc930604cf7",
       "lod": 1,
       "derivative_of": "assets/humans/settler_1812.lod1.glb",
-      "bytes": 1604968,
+      "bytes": 1605484,
       "meshopt": true,
       "triangles": 26956,
-      "vertices": 18040,
+      "vertices": 18063,
       "draw_calls": 11,
       "materials": 11,
       "textures": [
@@ -31458,12 +31478,12 @@
       "rest_height_m": 1.787,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 47.7,
-        "mobile": 55.7
+        "desktop": 63.1,
+        "mobile": 93.9
       },
       "frame_ms_median": {
-        "desktop": 0.1,
-        "mobile": 0.1
+        "desktop": 0.3,
+        "mobile": 0.3
       },
       "verdicts": [
         {
@@ -31560,13 +31580,13 @@
     },
     {
       "file": "assets/humans/web/settler_1812.lod2.glb",
-      "sha256": "474977ff5db52e36cdf476d79e738e465ed05fac9a8f08dfa9a43bfa5db84a61",
+      "sha256": "f796aca59277b881d18631e0451b80ca4153230175da160ff0ecc8dd9feea237",
       "lod": 2,
       "derivative_of": "assets/humans/settler_1812.lod2.glb",
-      "bytes": 628096,
+      "bytes": 628016,
       "meshopt": true,
       "triangles": 13281,
-      "vertices": 9185,
+      "vertices": 9169,
       "draw_calls": 11,
       "materials": 11,
       "textures": [
@@ -31608,12 +31628,12 @@
       "rest_height_m": 1.7879,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 32.6,
-        "mobile": 31.6
+        "desktop": 73.8,
+        "mobile": 48.6
       },
       "frame_ms_median": {
-        "desktop": 0.1,
-        "mobile": 0.1
+        "desktop": 0.3,
+        "mobile": 0.3
       },
       "verdicts": [
         {
@@ -31695,10 +31715,10 @@
     },
     {
       "file": "assets/humans/web/settler_1812.lod3.glb",
-      "sha256": "fad2e950f62c2efb0ee9204ddbf1cd7608d437b957bc3d4594e9806ca660bc1c",
+      "sha256": "fdffbfcf8df9168475a46babee8af0d006df64e6dc1acdca9abc068d1a828b5f",
       "lod": 3,
       "derivative_of": "assets/humans/settler_1812.lod3.glb",
-      "bytes": 302444,
+      "bytes": 302716,
       "meshopt": true,
       "triangles": 6428,
       "vertices": 4605,
@@ -31743,12 +31763,12 @@
       "rest_height_m": 1.7879,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 26.8,
-        "mobile": 27.1
+        "desktop": 50.3,
+        "mobile": 70
       },
       "frame_ms_median": {
-        "desktop": 0.1,
-        "mobile": 0.1
+        "desktop": 0.2,
+        "mobile": 0.4
       },
       "verdicts": [
         {
@@ -34717,6 +34737,5597 @@
           "got": "6333 tris"
         }
       ]
+    },
+    {
+      "file": "assets/humans/child_boy_1904.lod0.glb",
+      "sha256": "298a2ce63f98895c6f989476f7774a8e39414b55d76ff6d06f6929eb39494bb0",
+      "lod": 0,
+      "derivative_of": null,
+      "bytes": 8839040,
+      "meshopt": false,
+      "triangles": 40615,
+      "vertices": 26898,
+      "draw_calls": 11,
+      "materials": 11,
+      "textures": [
+        {
+          "slot": "hair__makehuman_short04",
+          "w": 2048,
+          "h": 2057
+        },
+        {
+          "slot": "skin",
+          "w": 2048,
+          "h": 2048
+        },
+        {
+          "slot": "garment_upper__child_jacket_1904",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 512,
+          "h": 256
+        }
+      ],
+      "joints": 56,
+      "morphs": [
+        "eyeBlinkLeft",
+        "eyeBlinkRight",
+        "jawOpen"
+      ],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.39701093546175337
+        }
+      },
+      "rest_height_m": 1.2105,
+      "soles_y_m": 0,
+      "load_ms": {
+        "desktop": 544.2,
+        "mobile": 515.1
+      },
+      "frame_ms_median": {
+        "desktop": 0.8,
+        "mobile": 0.7
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "11 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.3609 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.5937 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.6106 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.39701093546175337
+        },
+        {
+          "check": "morph eyeBlinkLeft moves",
+          "ok": true,
+          "got": "21.04 mm"
+        },
+        {
+          "check": "morph eyeBlinkRight moves",
+          "ok": true,
+          "got": "21.04 mm"
+        },
+        {
+          "check": "morph jawOpen moves",
+          "ok": true,
+          "got": "21.21 mm"
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "accessory__child_buttons_1904, accessory__child_collar_1904, eyes__iris, eyes__pupil, eyes__sclera, footwear__child_shoes_1904, garment_lower__child_stockings_1904, garment_lower__child_trousers_1904, garment_upper__child_jacket_1904, hair__makehuman_short04, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_short04 2048x2057, skin 2048x2048, garment_upper__child_jacket_1904 256x256, eyes__iris 512x256"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "1.2105 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "0 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "40615 tris, 11 draws"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/child_boy_1904.lod1.glb",
+      "sha256": "d2b8e7f740d65de7f921bb32b9e9a30ffb82d6315a86f7bf15ba44ad35d8140c",
+      "lod": 1,
+      "derivative_of": null,
+      "bytes": 8100512,
+      "meshopt": false,
+      "triangles": 24736,
+      "vertices": 16500,
+      "draw_calls": 11,
+      "materials": 11,
+      "textures": [
+        {
+          "slot": "hair__makehuman_short04",
+          "w": 2048,
+          "h": 2057
+        },
+        {
+          "slot": "skin",
+          "w": 2048,
+          "h": 2048
+        },
+        {
+          "slot": "garment_upper__child_jacket_1904",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 512,
+          "h": 256
+        }
+      ],
+      "joints": 56,
+      "morphs": [
+        "eyeBlinkLeft",
+        "eyeBlinkRight",
+        "jawOpen"
+      ],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.39701093546175337
+        }
+      },
+      "rest_height_m": 1.2105,
+      "soles_y_m": 0,
+      "load_ms": {
+        "desktop": 452.8,
+        "mobile": 403.6
+      },
+      "frame_ms_median": {
+        "desktop": 0.4,
+        "mobile": 0.4
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "11 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.3609 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.5937 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.6106 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.39701093546175337
+        },
+        {
+          "check": "morph eyeBlinkLeft moves",
+          "ok": true,
+          "got": "21.1 mm"
+        },
+        {
+          "check": "morph eyeBlinkRight moves",
+          "ok": true,
+          "got": "21.1 mm"
+        },
+        {
+          "check": "morph jawOpen moves",
+          "ok": true,
+          "got": "21.28 mm"
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "accessory__child_buttons_1904, accessory__child_collar_1904, eyes__iris, eyes__pupil, eyes__sclera, footwear__child_shoes_1904, garment_lower__child_stockings_1904, garment_lower__child_trousers_1904, garment_upper__child_jacket_1904, hair__makehuman_short04, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_short04 2048x2057, skin 2048x2048, garment_upper__child_jacket_1904 256x256, eyes__iris 512x256"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "1.2105 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "0 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "24736 tris, 11 draws"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/child_boy_1904.lod2.glb",
+      "sha256": "693289f825ef906a79c5fb4942e2e28174f18e252b411f936e73013559659624",
+      "lod": 2,
+      "derivative_of": null,
+      "bytes": 7489956,
+      "meshopt": false,
+      "triangles": 12245,
+      "vertices": 8627,
+      "draw_calls": 11,
+      "materials": 11,
+      "textures": [
+        {
+          "slot": "hair__makehuman_short04",
+          "w": 2048,
+          "h": 2057
+        },
+        {
+          "slot": "skin",
+          "w": 2048,
+          "h": 2048
+        },
+        {
+          "slot": "garment_upper__child_jacket_1904",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 512,
+          "h": 256
+        }
+      ],
+      "joints": 56,
+      "morphs": [],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.39701093546175337
+        }
+      },
+      "rest_height_m": 1.2105,
+      "soles_y_m": -0.0001,
+      "load_ms": {
+        "desktop": 301.6,
+        "mobile": 290.6
+      },
+      "frame_ms_median": {
+        "desktop": 1,
+        "mobile": 0.3
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "11 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.3608 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.5936 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.6104 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.39701093546175337
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "accessory__child_buttons_1904, accessory__child_collar_1904, eyes__iris, eyes__pupil, eyes__sclera, footwear__child_shoes_1904, garment_lower__child_stockings_1904, garment_lower__child_trousers_1904, garment_upper__child_jacket_1904, hair__makehuman_short04, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_short04 2048x2057, skin 2048x2048, garment_upper__child_jacket_1904 256x256, eyes__iris 512x256"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "1.2105 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "-0.0001 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "12245 tris, 11 draws"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/child_boy_1904.lod3.glb",
+      "sha256": "0ee5a96c667feb05b8a134b41c80684acbd2b90b5ce629a0d00e59dd452c71bb",
+      "lod": 3,
+      "derivative_of": null,
+      "bytes": 7235244,
+      "meshopt": false,
+      "triangles": 5981,
+      "vertices": 4452,
+      "draw_calls": 11,
+      "materials": 11,
+      "textures": [
+        {
+          "slot": "hair__makehuman_short04",
+          "w": 2048,
+          "h": 2057
+        },
+        {
+          "slot": "skin",
+          "w": 2048,
+          "h": 2048
+        },
+        {
+          "slot": "garment_upper__child_jacket_1904",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 512,
+          "h": 256
+        }
+      ],
+      "joints": 56,
+      "morphs": [],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.39701093546175337
+        }
+      },
+      "rest_height_m": 1.2105,
+      "soles_y_m": 0,
+      "load_ms": {
+        "desktop": 395.2,
+        "mobile": 379.8
+      },
+      "frame_ms_median": {
+        "desktop": 0.4,
+        "mobile": 0.2
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "11 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.3604 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.5928 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.6098 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.39701093546175337
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "accessory__child_buttons_1904, accessory__child_collar_1904, eyes__iris, eyes__pupil, eyes__sclera, footwear__child_shoes_1904, garment_lower__child_stockings_1904, garment_lower__child_trousers_1904, garment_upper__child_jacket_1904, hair__makehuman_short04, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_short04 2048x2057, skin 2048x2048, garment_upper__child_jacket_1904 256x256, eyes__iris 512x256"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "1.2105 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "0 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "5981 tris, 11 draws"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/child_girl_1904.lod0.glb",
+      "sha256": "568689f24618f50a51b9a8dbcfaf7bc6bb4e6d87fb038d0910ad98e6db2764f7",
+      "lod": 0,
+      "derivative_of": null,
+      "bytes": 8635152,
+      "meshopt": false,
+      "triangles": 39908,
+      "vertices": 26210,
+      "draw_calls": 10,
+      "materials": 10,
+      "textures": [
+        {
+          "slot": "hair__makehuman_short04",
+          "w": 2048,
+          "h": 2057
+        },
+        {
+          "slot": "skin",
+          "w": 2048,
+          "h": 2048
+        },
+        {
+          "slot": "garment_upper__child_frock_1904",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 512,
+          "h": 256
+        }
+      ],
+      "joints": 56,
+      "morphs": [
+        "eyeBlinkLeft",
+        "eyeBlinkRight",
+        "jawOpen"
+      ],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.3892856278658145
+        }
+      },
+      "rest_height_m": 1.2076,
+      "soles_y_m": 0,
+      "load_ms": {
+        "desktop": 337.6,
+        "mobile": 364.2
+      },
+      "frame_ms_median": {
+        "desktop": 0.2,
+        "mobile": 0.4
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "10 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.3709 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_r turns 78 deg; surface moves 0.6101 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_r turns 78 deg; surface moves 0.6266 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.3892856278658145
+        },
+        {
+          "check": "morph eyeBlinkLeft moves",
+          "ok": true,
+          "got": "21.01 mm"
+        },
+        {
+          "check": "morph eyeBlinkRight moves",
+          "ok": true,
+          "got": "21.01 mm"
+        },
+        {
+          "check": "morph jawOpen moves",
+          "ok": true,
+          "got": "21.86 mm"
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "accessory__child_collar_1904, eyes__iris, eyes__pupil, eyes__sclera, footwear__child_shoes_1904, garment_lower__child_frock_1904, garment_lower__child_stockings_1904, garment_upper__child_frock_1904, hair__makehuman_short04, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_short04 2048x2057, skin 2048x2048, garment_upper__child_frock_1904 256x256, eyes__iris 512x256"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "1.2076 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "0 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "39908 tris, 10 draws"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/child_girl_1904.lod1.glb",
+      "sha256": "593c8f7b8d4fdab2147cec450c234886c04f8cb9b95efa31e7aafa8f9efd7f9b",
+      "lod": 1,
+      "derivative_of": null,
+      "bytes": 7934448,
+      "meshopt": false,
+      "triangles": 24313,
+      "vertices": 16458,
+      "draw_calls": 10,
+      "materials": 10,
+      "textures": [
+        {
+          "slot": "hair__makehuman_short04",
+          "w": 2048,
+          "h": 2057
+        },
+        {
+          "slot": "skin",
+          "w": 2048,
+          "h": 2048
+        },
+        {
+          "slot": "garment_upper__child_frock_1904",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 512,
+          "h": 256
+        }
+      ],
+      "joints": 56,
+      "morphs": [
+        "eyeBlinkLeft",
+        "eyeBlinkRight",
+        "jawOpen"
+      ],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.3892856278658145
+        }
+      },
+      "rest_height_m": 1.2076,
+      "soles_y_m": 0,
+      "load_ms": {
+        "desktop": 315.1,
+        "mobile": 311.4
+      },
+      "frame_ms_median": {
+        "desktop": 0.4,
+        "mobile": 0.2
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "10 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.3709 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_r turns 78 deg; surface moves 0.6101 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_r turns 78 deg; surface moves 0.6266 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.3892856278658145
+        },
+        {
+          "check": "morph eyeBlinkLeft moves",
+          "ok": true,
+          "got": "21.04 mm"
+        },
+        {
+          "check": "morph eyeBlinkRight moves",
+          "ok": true,
+          "got": "21.04 mm"
+        },
+        {
+          "check": "morph jawOpen moves",
+          "ok": true,
+          "got": "21.86 mm"
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "accessory__child_collar_1904, eyes__iris, eyes__pupil, eyes__sclera, footwear__child_shoes_1904, garment_lower__child_frock_1904, garment_lower__child_stockings_1904, garment_upper__child_frock_1904, hair__makehuman_short04, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_short04 2048x2057, skin 2048x2048, garment_upper__child_frock_1904 256x256, eyes__iris 512x256"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "1.2076 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "0 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "24313 tris, 10 draws"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/child_girl_1904.lod2.glb",
+      "sha256": "1851e9654531d1838f273f94af2a75707a4557645a21488a916fe7dbd8ab5465",
+      "lod": 2,
+      "derivative_of": null,
+      "bytes": 7338360,
+      "meshopt": false,
+      "triangles": 12046,
+      "vertices": 8921,
+      "draw_calls": 10,
+      "materials": 10,
+      "textures": [
+        {
+          "slot": "hair__makehuman_short04",
+          "w": 2048,
+          "h": 2057
+        },
+        {
+          "slot": "skin",
+          "w": 2048,
+          "h": 2048
+        },
+        {
+          "slot": "garment_upper__child_frock_1904",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 512,
+          "h": 256
+        }
+      ],
+      "joints": 56,
+      "morphs": [],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.3892856278658145
+        }
+      },
+      "rest_height_m": 1.2076,
+      "soles_y_m": 0,
+      "load_ms": {
+        "desktop": 328.2,
+        "mobile": 322
+      },
+      "frame_ms_median": {
+        "desktop": 0.3,
+        "mobile": 0.3
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "10 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.3709 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_r turns 78 deg; surface moves 0.61 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_r turns 78 deg; surface moves 0.6263 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.3892856278658145
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "accessory__child_collar_1904, eyes__iris, eyes__pupil, eyes__sclera, footwear__child_shoes_1904, garment_lower__child_frock_1904, garment_lower__child_stockings_1904, garment_upper__child_frock_1904, hair__makehuman_short04, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_short04 2048x2057, skin 2048x2048, garment_upper__child_frock_1904 256x256, eyes__iris 512x256"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "1.2076 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "0 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "12046 tris, 10 draws"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/child_girl_1904.lod3.glb",
+      "sha256": "958724c76ceae7dd851b150dc3cc199d1773e7bb91c4eb71d6a2ae2a5220737b",
+      "lod": 3,
+      "derivative_of": null,
+      "bytes": 7071336,
+      "meshopt": false,
+      "triangles": 5898,
+      "vertices": 4496,
+      "draw_calls": 10,
+      "materials": 10,
+      "textures": [
+        {
+          "slot": "hair__makehuman_short04",
+          "w": 2048,
+          "h": 2057
+        },
+        {
+          "slot": "skin",
+          "w": 2048,
+          "h": 2048
+        },
+        {
+          "slot": "garment_upper__child_frock_1904",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 512,
+          "h": 256
+        }
+      ],
+      "joints": 56,
+      "morphs": [],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.3892856278658145
+        }
+      },
+      "rest_height_m": 1.2076,
+      "soles_y_m": 0,
+      "load_ms": {
+        "desktop": 350.1,
+        "mobile": 359.7
+      },
+      "frame_ms_median": {
+        "desktop": 0.3,
+        "mobile": 0.2
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "10 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.3704 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_r turns 78 deg; surface moves 0.6092 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_r turns 78 deg; surface moves 0.6257 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.3892856278658145
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "accessory__child_collar_1904, eyes__iris, eyes__pupil, eyes__sclera, footwear__child_shoes_1904, garment_lower__child_frock_1904, garment_lower__child_stockings_1904, garment_upper__child_frock_1904, hair__makehuman_short04, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_short04 2048x2057, skin 2048x2048, garment_upper__child_frock_1904 256x256, eyes__iris 512x256"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "1.2076 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "0 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "5898 tris, 10 draws"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/child_toddler_1904.lod0.glb",
+      "sha256": "6e936e90af6bf3e2eced766cf0857c19726eaea2a56bac3c43641d20e3303b3f",
+      "lod": 0,
+      "derivative_of": null,
+      "bytes": 8799652,
+      "meshopt": false,
+      "triangles": 39675,
+      "vertices": 26115,
+      "draw_calls": 10,
+      "materials": 10,
+      "textures": [
+        {
+          "slot": "hair__makehuman_short04",
+          "w": 2048,
+          "h": 2057
+        },
+        {
+          "slot": "skin",
+          "w": 2048,
+          "h": 2048
+        },
+        {
+          "slot": "garment_upper__child_frock_1904",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 512,
+          "h": 256
+        }
+      ],
+      "joints": 56,
+      "morphs": [
+        "eyeBlinkLeft",
+        "eyeBlinkRight",
+        "jawOpen"
+      ],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.2683586862392902
+        }
+      },
+      "rest_height_m": 0.9072,
+      "soles_y_m": 0,
+      "load_ms": {
+        "desktop": 244.5,
+        "mobile": 243.2
+      },
+      "frame_ms_median": {
+        "desktop": 0.2,
+        "mobile": 0.3
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "10 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.2855 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.4696 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.4797 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.2683586862392902
+        },
+        {
+          "check": "morph eyeBlinkLeft moves",
+          "ok": true,
+          "got": "21.07 mm"
+        },
+        {
+          "check": "morph eyeBlinkRight moves",
+          "ok": true,
+          "got": "21.07 mm"
+        },
+        {
+          "check": "morph jawOpen moves",
+          "ok": true,
+          "got": "21.45 mm"
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "accessory__child_collar_1904, eyes__iris, eyes__pupil, eyes__sclera, footwear__child_shoes_1904, garment_lower__child_frock_1904, garment_lower__child_stockings_1904, garment_upper__child_frock_1904, hair__makehuman_short04, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_short04 2048x2057, skin 2048x2048, garment_upper__child_frock_1904 256x256, eyes__iris 512x256"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "0.9072 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "0 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "39675 tris, 10 draws"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/child_toddler_1904.lod1.glb",
+      "sha256": "0cef8c52c6c77d51a0542a386043ffa015693f8121f3e95751be2f859fe23ecf",
+      "lod": 1,
+      "derivative_of": null,
+      "bytes": 8105636,
+      "meshopt": false,
+      "triangles": 24171,
+      "vertices": 16440,
+      "draw_calls": 10,
+      "materials": 10,
+      "textures": [
+        {
+          "slot": "hair__makehuman_short04",
+          "w": 2048,
+          "h": 2057
+        },
+        {
+          "slot": "skin",
+          "w": 2048,
+          "h": 2048
+        },
+        {
+          "slot": "garment_upper__child_frock_1904",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 512,
+          "h": 256
+        }
+      ],
+      "joints": 56,
+      "morphs": [
+        "eyeBlinkLeft",
+        "eyeBlinkRight",
+        "jawOpen"
+      ],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.2683586862392902
+        }
+      },
+      "rest_height_m": 0.9072,
+      "soles_y_m": 0,
+      "load_ms": {
+        "desktop": 261,
+        "mobile": 242.4
+      },
+      "frame_ms_median": {
+        "desktop": 0.1,
+        "mobile": 0.2
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "10 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.2855 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.4696 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.4797 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.2683586862392902
+        },
+        {
+          "check": "morph eyeBlinkLeft moves",
+          "ok": true,
+          "got": "21.16 mm"
+        },
+        {
+          "check": "morph eyeBlinkRight moves",
+          "ok": true,
+          "got": "21.16 mm"
+        },
+        {
+          "check": "morph jawOpen moves",
+          "ok": true,
+          "got": "21.45 mm"
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "accessory__child_collar_1904, eyes__iris, eyes__pupil, eyes__sclera, footwear__child_shoes_1904, garment_lower__child_frock_1904, garment_lower__child_stockings_1904, garment_upper__child_frock_1904, hair__makehuman_short04, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_short04 2048x2057, skin 2048x2048, garment_upper__child_frock_1904 256x256, eyes__iris 512x256"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "0.9072 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "0 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "24171 tris, 10 draws"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/child_toddler_1904.lod2.glb",
+      "sha256": "ee9f139a30940919d286ae18e212b47bad0e28173d2468be0aeb0ef21b2eb4fe",
+      "lod": 2,
+      "derivative_of": null,
+      "bytes": 7512012,
+      "meshopt": false,
+      "triangles": 11980,
+      "vertices": 9051,
+      "draw_calls": 10,
+      "materials": 10,
+      "textures": [
+        {
+          "slot": "hair__makehuman_short04",
+          "w": 2048,
+          "h": 2057
+        },
+        {
+          "slot": "skin",
+          "w": 2048,
+          "h": 2048
+        },
+        {
+          "slot": "garment_upper__child_frock_1904",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 512,
+          "h": 256
+        }
+      ],
+      "joints": 56,
+      "morphs": [],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.2683586862392902
+        }
+      },
+      "rest_height_m": 0.9073,
+      "soles_y_m": 0,
+      "load_ms": {
+        "desktop": 191.7,
+        "mobile": 254.6
+      },
+      "frame_ms_median": {
+        "desktop": 0.2,
+        "mobile": 0.2
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "10 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.2854 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.4695 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.4795 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.2683586862392902
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "accessory__child_collar_1904, eyes__iris, eyes__pupil, eyes__sclera, footwear__child_shoes_1904, garment_lower__child_frock_1904, garment_lower__child_stockings_1904, garment_upper__child_frock_1904, hair__makehuman_short04, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_short04 2048x2057, skin 2048x2048, garment_upper__child_frock_1904 256x256, eyes__iris 512x256"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "0.9073 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "0 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "11980 tris, 10 draws"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/child_toddler_1904.lod3.glb",
+      "sha256": "61056a4a046a7e8e5607170b14e1a760130091d953dc6c254528e985564f81d5",
+      "lod": 3,
+      "derivative_of": null,
+      "bytes": 7248132,
+      "meshopt": false,
+      "triangles": 5870,
+      "vertices": 4682,
+      "draw_calls": 10,
+      "materials": 10,
+      "textures": [
+        {
+          "slot": "hair__makehuman_short04",
+          "w": 2048,
+          "h": 2057
+        },
+        {
+          "slot": "skin",
+          "w": 2048,
+          "h": 2048
+        },
+        {
+          "slot": "garment_upper__child_frock_1904",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 512,
+          "h": 256
+        }
+      ],
+      "joints": 56,
+      "morphs": [],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.2683586862392902
+        }
+      },
+      "rest_height_m": 0.9072,
+      "soles_y_m": 0,
+      "load_ms": {
+        "desktop": 245.6,
+        "mobile": 308.3
+      },
+      "frame_ms_median": {
+        "desktop": 0.2,
+        "mobile": 0.2
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "10 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.2849 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.4687 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.4787 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.2683586862392902
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "accessory__child_collar_1904, eyes__iris, eyes__pupil, eyes__sclera, footwear__child_shoes_1904, garment_lower__child_frock_1904, garment_lower__child_stockings_1904, garment_upper__child_frock_1904, hair__makehuman_short04, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_short04 2048x2057, skin 2048x2048, garment_upper__child_frock_1904 256x256, eyes__iris 512x256"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "0.9072 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "0 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "5870 tris, 10 draws"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/teen_boy_1904.lod0.glb",
+      "sha256": "33962f211417826230968fa1ba9a8dccaaf8b010b9a29baa6651409f52036225",
+      "lod": 0,
+      "derivative_of": null,
+      "bytes": 8867964,
+      "meshopt": false,
+      "triangles": 41583,
+      "vertices": 27484,
+      "draw_calls": 11,
+      "materials": 11,
+      "textures": [
+        {
+          "slot": "hair__makehuman_short04",
+          "w": 2048,
+          "h": 2057
+        },
+        {
+          "slot": "skin",
+          "w": 2048,
+          "h": 2048
+        },
+        {
+          "slot": "garment_upper__child_jacket_1904",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 512,
+          "h": 256
+        }
+      ],
+      "joints": 56,
+      "morphs": [
+        "eyeBlinkLeft",
+        "eyeBlinkRight",
+        "jawOpen"
+      ],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.558265216528123
+        }
+      },
+      "rest_height_m": 1.6531,
+      "soles_y_m": 0,
+      "load_ms": {
+        "desktop": 248,
+        "mobile": 236.2
+      },
+      "frame_ms_median": {
+        "desktop": 0.2,
+        "mobile": 0.3
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "11 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.5036 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8284 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8538 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.558265216528123
+        },
+        {
+          "check": "morph eyeBlinkLeft moves",
+          "ok": true,
+          "got": "21.05 mm"
+        },
+        {
+          "check": "morph eyeBlinkRight moves",
+          "ok": true,
+          "got": "21.05 mm"
+        },
+        {
+          "check": "morph jawOpen moves",
+          "ok": true,
+          "got": "23.78 mm"
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "accessory__child_buttons_1904, accessory__child_collar_1904, eyes__iris, eyes__pupil, eyes__sclera, footwear__child_shoes_1904, garment_lower__child_stockings_1904, garment_lower__child_trousers_1904, garment_upper__child_jacket_1904, hair__makehuman_short04, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_short04 2048x2057, skin 2048x2048, garment_upper__child_jacket_1904 256x256, eyes__iris 512x256"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "1.6531 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "0 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "41583 tris, 11 draws"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/teen_boy_1904.lod1.glb",
+      "sha256": "721886f417995a9910926235c02286637d721151cac80c95bfc47818b36fa63a",
+      "lod": 1,
+      "derivative_of": null,
+      "bytes": 8115736,
+      "meshopt": false,
+      "triangles": 25317,
+      "vertices": 16757,
+      "draw_calls": 11,
+      "materials": 11,
+      "textures": [
+        {
+          "slot": "hair__makehuman_short04",
+          "w": 2048,
+          "h": 2057
+        },
+        {
+          "slot": "skin",
+          "w": 2048,
+          "h": 2048
+        },
+        {
+          "slot": "garment_upper__child_jacket_1904",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 512,
+          "h": 256
+        }
+      ],
+      "joints": 56,
+      "morphs": [
+        "eyeBlinkLeft",
+        "eyeBlinkRight",
+        "jawOpen"
+      ],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.558265216528123
+        }
+      },
+      "rest_height_m": 1.6531,
+      "soles_y_m": 0,
+      "load_ms": {
+        "desktop": 237.9,
+        "mobile": 234.7
+      },
+      "frame_ms_median": {
+        "desktop": 0.2,
+        "mobile": 0.3
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "11 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.5036 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8284 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8538 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.558265216528123
+        },
+        {
+          "check": "morph eyeBlinkLeft moves",
+          "ok": true,
+          "got": "20.95 mm"
+        },
+        {
+          "check": "morph eyeBlinkRight moves",
+          "ok": true,
+          "got": "20.95 mm"
+        },
+        {
+          "check": "morph jawOpen moves",
+          "ok": true,
+          "got": "23.78 mm"
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "accessory__child_buttons_1904, accessory__child_collar_1904, eyes__iris, eyes__pupil, eyes__sclera, footwear__child_shoes_1904, garment_lower__child_stockings_1904, garment_lower__child_trousers_1904, garment_upper__child_jacket_1904, hair__makehuman_short04, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_short04 2048x2057, skin 2048x2048, garment_upper__child_jacket_1904 256x256, eyes__iris 512x256"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "1.6531 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "0 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "25317 tris, 11 draws"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/teen_boy_1904.lod2.glb",
+      "sha256": "15baba1d32de7e150d972cabb1ed88f10e2160ea1dfcd3d50ad215cc4b066e55",
+      "lod": 2,
+      "derivative_of": null,
+      "bytes": 7492412,
+      "meshopt": false,
+      "triangles": 12516,
+      "vertices": 8628,
+      "draw_calls": 11,
+      "materials": 11,
+      "textures": [
+        {
+          "slot": "hair__makehuman_short04",
+          "w": 2048,
+          "h": 2057
+        },
+        {
+          "slot": "skin",
+          "w": 2048,
+          "h": 2048
+        },
+        {
+          "slot": "garment_upper__child_jacket_1904",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 512,
+          "h": 256
+        }
+      ],
+      "joints": 56,
+      "morphs": [],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.558265216528123
+        }
+      },
+      "rest_height_m": 1.6533,
+      "soles_y_m": -0.0002,
+      "load_ms": {
+        "desktop": 333.2,
+        "mobile": 300.1
+      },
+      "frame_ms_median": {
+        "desktop": 0.2,
+        "mobile": 0.2
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "11 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.5035 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8283 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8535 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.558265216528123
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "accessory__child_buttons_1904, accessory__child_collar_1904, eyes__iris, eyes__pupil, eyes__sclera, footwear__child_shoes_1904, garment_lower__child_stockings_1904, garment_lower__child_trousers_1904, garment_upper__child_jacket_1904, hair__makehuman_short04, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_short04 2048x2057, skin 2048x2048, garment_upper__child_jacket_1904 256x256, eyes__iris 512x256"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "1.6533 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "-0.0002 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "12516 tris, 11 draws"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/teen_boy_1904.lod3.glb",
+      "sha256": "2dfb4ee23762e21eeabe5411c1e57dd12d3d6476421d51ade4d7993a54b206bb",
+      "lod": 3,
+      "derivative_of": null,
+      "bytes": 7234020,
+      "meshopt": false,
+      "triangles": 6098,
+      "vertices": 4400,
+      "draw_calls": 11,
+      "materials": 11,
+      "textures": [
+        {
+          "slot": "hair__makehuman_short04",
+          "w": 2048,
+          "h": 2057
+        },
+        {
+          "slot": "skin",
+          "w": 2048,
+          "h": 2048
+        },
+        {
+          "slot": "garment_upper__child_jacket_1904",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 512,
+          "h": 256
+        }
+      ],
+      "joints": 56,
+      "morphs": [],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.558265216528123
+        }
+      },
+      "rest_height_m": 1.6541,
+      "soles_y_m": -0.001,
+      "load_ms": {
+        "desktop": 314.6,
+        "mobile": 289.1
+      },
+      "frame_ms_median": {
+        "desktop": 0.2,
+        "mobile": 0.3
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "11 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.503 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8274 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8528 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.558265216528123
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "accessory__child_buttons_1904, accessory__child_collar_1904, eyes__iris, eyes__pupil, eyes__sclera, footwear__child_shoes_1904, garment_lower__child_stockings_1904, garment_lower__child_trousers_1904, garment_upper__child_jacket_1904, hair__makehuman_short04, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_short04 2048x2057, skin 2048x2048, garment_upper__child_jacket_1904 256x256, eyes__iris 512x256"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "1.6541 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "-0.001 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "6098 tris, 11 draws"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/teen_girl_1904.lod0.glb",
+      "sha256": "8baa5e4c5c6a115f575b38c534348b4c5911d3d04e4715e3c153a62c0018cb2e",
+      "lod": 0,
+      "derivative_of": null,
+      "bytes": 8616616,
+      "meshopt": false,
+      "triangles": 39577,
+      "vertices": 26088,
+      "draw_calls": 10,
+      "materials": 10,
+      "textures": [
+        {
+          "slot": "hair__makehuman_short04",
+          "w": 2048,
+          "h": 2057
+        },
+        {
+          "slot": "skin",
+          "w": 2048,
+          "h": 2048
+        },
+        {
+          "slot": "garment_upper__child_frock_1904",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 512,
+          "h": 256
+        }
+      ],
+      "joints": 56,
+      "morphs": [
+        "eyeBlinkLeft",
+        "eyeBlinkRight",
+        "jawOpen"
+      ],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.5232561345959386
+        }
+      },
+      "rest_height_m": 1.5932,
+      "soles_y_m": 0,
+      "load_ms": {
+        "desktop": 363.6,
+        "mobile": 315.5
+      },
+      "frame_ms_median": {
+        "desktop": 0.5,
+        "mobile": 0.4
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "10 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.4788 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.7876 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8111 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.5232561345959386
+        },
+        {
+          "check": "morph eyeBlinkLeft moves",
+          "ok": true,
+          "got": "21.15 mm"
+        },
+        {
+          "check": "morph eyeBlinkRight moves",
+          "ok": true,
+          "got": "21.15 mm"
+        },
+        {
+          "check": "morph jawOpen moves",
+          "ok": true,
+          "got": "21.48 mm"
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "accessory__child_collar_1904, eyes__iris, eyes__pupil, eyes__sclera, footwear__child_shoes_1904, garment_lower__child_frock_1904, garment_lower__child_stockings_1904, garment_upper__child_frock_1904, hair__makehuman_short04, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_short04 2048x2057, skin 2048x2048, garment_upper__child_frock_1904 256x256, eyes__iris 512x256"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "1.5932 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "0 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "39577 tris, 10 draws"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/teen_girl_1904.lod1.glb",
+      "sha256": "0eb3f722105e2ca7f584ff6a0de13c2b8b852d59dab9000c72c6924a478af247",
+      "lod": 1,
+      "derivative_of": null,
+      "bytes": 7918896,
+      "meshopt": false,
+      "triangles": 24113,
+      "vertices": 16293,
+      "draw_calls": 10,
+      "materials": 10,
+      "textures": [
+        {
+          "slot": "hair__makehuman_short04",
+          "w": 2048,
+          "h": 2057
+        },
+        {
+          "slot": "skin",
+          "w": 2048,
+          "h": 2048
+        },
+        {
+          "slot": "garment_upper__child_frock_1904",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 512,
+          "h": 256
+        }
+      ],
+      "joints": 56,
+      "morphs": [
+        "eyeBlinkLeft",
+        "eyeBlinkRight",
+        "jawOpen"
+      ],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.5232561345959386
+        }
+      },
+      "rest_height_m": 1.5932,
+      "soles_y_m": 0,
+      "load_ms": {
+        "desktop": 211.1,
+        "mobile": 259.2
+      },
+      "frame_ms_median": {
+        "desktop": 0.4,
+        "mobile": 0.3
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "10 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.4788 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.7876 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8111 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.5232561345959386
+        },
+        {
+          "check": "morph eyeBlinkLeft moves",
+          "ok": true,
+          "got": "20.9 mm"
+        },
+        {
+          "check": "morph eyeBlinkRight moves",
+          "ok": true,
+          "got": "20.9 mm"
+        },
+        {
+          "check": "morph jawOpen moves",
+          "ok": true,
+          "got": "21.5 mm"
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "accessory__child_collar_1904, eyes__iris, eyes__pupil, eyes__sclera, footwear__child_shoes_1904, garment_lower__child_frock_1904, garment_lower__child_stockings_1904, garment_upper__child_frock_1904, hair__makehuman_short04, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_short04 2048x2057, skin 2048x2048, garment_upper__child_frock_1904 256x256, eyes__iris 512x256"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "1.5932 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "0 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "24113 tris, 10 draws"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/teen_girl_1904.lod2.glb",
+      "sha256": "1ce1294e197fbcd0a8ce2ae20feebd5affb6bf75f5c2b76343cf1c5dbee8d20a",
+      "lod": 2,
+      "derivative_of": null,
+      "bytes": 7329980,
+      "meshopt": false,
+      "triangles": 11954,
+      "vertices": 8775,
+      "draw_calls": 10,
+      "materials": 10,
+      "textures": [
+        {
+          "slot": "hair__makehuman_short04",
+          "w": 2048,
+          "h": 2057
+        },
+        {
+          "slot": "skin",
+          "w": 2048,
+          "h": 2048
+        },
+        {
+          "slot": "garment_upper__child_frock_1904",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 512,
+          "h": 256
+        }
+      ],
+      "joints": 56,
+      "morphs": [],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.5232561345959386
+        }
+      },
+      "rest_height_m": 1.5932,
+      "soles_y_m": -0.0001,
+      "load_ms": {
+        "desktop": 308.9,
+        "mobile": 265
+      },
+      "frame_ms_median": {
+        "desktop": 0.2,
+        "mobile": 0.1
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "10 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.4787 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.7874 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8107 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.5232561345959386
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "accessory__child_collar_1904, eyes__iris, eyes__pupil, eyes__sclera, footwear__child_shoes_1904, garment_lower__child_frock_1904, garment_lower__child_stockings_1904, garment_upper__child_frock_1904, hair__makehuman_short04, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_short04 2048x2057, skin 2048x2048, garment_upper__child_frock_1904 256x256, eyes__iris 512x256"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "1.5932 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "-0.0001 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "11954 tris, 10 draws"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/teen_girl_1904.lod3.glb",
+      "sha256": "6335f10e9e6e569968b2d67e85a7b03f76c61f981dd22707c6f2e3f7724cfff7",
+      "lod": 3,
+      "derivative_of": null,
+      "bytes": 7063952,
+      "meshopt": false,
+      "triangles": 5858,
+      "vertices": 4363,
+      "draw_calls": 10,
+      "materials": 10,
+      "textures": [
+        {
+          "slot": "hair__makehuman_short04",
+          "w": 2048,
+          "h": 2057
+        },
+        {
+          "slot": "skin",
+          "w": 2048,
+          "h": 2048
+        },
+        {
+          "slot": "garment_upper__child_frock_1904",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 512,
+          "h": 256
+        }
+      ],
+      "joints": 56,
+      "morphs": [],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.5232561345959386
+        }
+      },
+      "rest_height_m": 1.5932,
+      "soles_y_m": 0,
+      "load_ms": {
+        "desktop": 267.2,
+        "mobile": 348.5
+      },
+      "frame_ms_median": {
+        "desktop": 0.3,
+        "mobile": 0.2
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "10 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.4782 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.7866 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8102 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.5232561345959386
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "accessory__child_collar_1904, eyes__iris, eyes__pupil, eyes__sclera, footwear__child_shoes_1904, garment_lower__child_frock_1904, garment_lower__child_stockings_1904, garment_upper__child_frock_1904, hair__makehuman_short04, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_short04 2048x2057, skin 2048x2048, garment_upper__child_frock_1904 256x256, eyes__iris 512x256"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "1.5932 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "0 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "5858 tris, 10 draws"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/web/child_boy_1904.lod0.glb",
+      "sha256": "7ea92424f5f9559b6e4ec4365f4ebb5a8815c2546da5aa97b1d645ba34d5be02",
+      "lod": 0,
+      "derivative_of": "assets/humans/child_boy_1904.lod0.glb",
+      "bytes": 4481944,
+      "meshopt": true,
+      "triangles": 40615,
+      "vertices": 26898,
+      "draw_calls": 11,
+      "materials": 11,
+      "textures": [
+        {
+          "slot": "hair__makehuman_short04",
+          "w": 2039,
+          "h": 2048
+        },
+        {
+          "slot": "skin",
+          "w": 2048,
+          "h": 2048
+        },
+        {
+          "slot": "garment_upper__child_jacket_1904",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 512,
+          "h": 256
+        }
+      ],
+      "joints": 56,
+      "morphs": [
+        "eyeBlinkLeft",
+        "eyeBlinkRight",
+        "jawOpen"
+      ],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.39701093546175337
+        }
+      },
+      "rest_height_m": 1.2105,
+      "soles_y_m": 0,
+      "load_ms": {
+        "desktop": 361.7,
+        "mobile": 352.9
+      },
+      "frame_ms_median": {
+        "desktop": 0.3,
+        "mobile": 0.2
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "11 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.3609 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.5937 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.6106 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.39701093546175337
+        },
+        {
+          "check": "morph eyeBlinkLeft moves",
+          "ok": true,
+          "got": "21.02 mm"
+        },
+        {
+          "check": "morph eyeBlinkRight moves",
+          "ok": true,
+          "got": "21.02 mm"
+        },
+        {
+          "check": "morph jawOpen moves",
+          "ok": true,
+          "got": "21.25 mm"
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "accessory__child_buttons_1904, accessory__child_collar_1904, eyes__iris, eyes__pupil, eyes__sclera, footwear__child_shoes_1904, garment_lower__child_stockings_1904, garment_lower__child_trousers_1904, garment_upper__child_jacket_1904, hair__makehuman_short04, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_short04 2039x2048, skin 2048x2048, garment_upper__child_jacket_1904 256x256, eyes__iris 512x256"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "1.2105 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "0 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "40615 tris, 11 draws"
+        },
+        {
+          "check": "decoded frame matches its master",
+          "ok": true,
+          "got": "0.00 mm from child_boy_1904.lod0.glb"
+        },
+        {
+          "check": "same triangles, joints, morphs and clips as its master",
+          "ok": true,
+          "got": "40615 tris"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/web/child_boy_1904.lod1.glb",
+      "sha256": "0b148eb81393cd92448196d323cd43b8529e669f4d486ac84253b87ff9009cb2",
+      "lod": 1,
+      "derivative_of": "assets/humans/child_boy_1904.lod1.glb",
+      "bytes": 1579012,
+      "meshopt": true,
+      "triangles": 24736,
+      "vertices": 16500,
+      "draw_calls": 11,
+      "materials": 11,
+      "textures": [
+        {
+          "slot": "hair__makehuman_short04",
+          "w": 1020,
+          "h": 1024
+        },
+        {
+          "slot": "skin",
+          "w": 1024,
+          "h": 1024
+        },
+        {
+          "slot": "garment_upper__child_jacket_1904",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 512,
+          "h": 256
+        }
+      ],
+      "joints": 56,
+      "morphs": [
+        "eyeBlinkLeft",
+        "eyeBlinkRight",
+        "jawOpen"
+      ],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.39701093546175337
+        }
+      },
+      "rest_height_m": 1.2105,
+      "soles_y_m": 0,
+      "load_ms": {
+        "desktop": 104.9,
+        "mobile": 78.1
+      },
+      "frame_ms_median": {
+        "desktop": 0.1,
+        "mobile": 0.4
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "11 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.3609 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.5937 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.6106 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.39701093546175337
+        },
+        {
+          "check": "morph eyeBlinkLeft moves",
+          "ok": true,
+          "got": "21.06 mm"
+        },
+        {
+          "check": "morph eyeBlinkRight moves",
+          "ok": true,
+          "got": "21.06 mm"
+        },
+        {
+          "check": "morph jawOpen moves",
+          "ok": true,
+          "got": "21.28 mm"
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "accessory__child_buttons_1904, accessory__child_collar_1904, eyes__iris, eyes__pupil, eyes__sclera, footwear__child_shoes_1904, garment_lower__child_stockings_1904, garment_lower__child_trousers_1904, garment_upper__child_jacket_1904, hair__makehuman_short04, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_short04 1020x1024, skin 1024x1024, garment_upper__child_jacket_1904 256x256, eyes__iris 512x256"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "1.2105 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "0 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "24736 tris, 11 draws"
+        },
+        {
+          "check": "decoded frame matches its master",
+          "ok": true,
+          "got": "0.10 mm from child_boy_1904.lod1.glb"
+        },
+        {
+          "check": "same triangles, joints, morphs and clips as its master",
+          "ok": true,
+          "got": "24736 tris"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/web/child_boy_1904.lod2.glb",
+      "sha256": "f409241f436b76bbdc349a47282a8d2d9d8f2c4cc362fbdaa17e595c9b5eb8fe",
+      "lod": 2,
+      "derivative_of": "assets/humans/child_boy_1904.lod2.glb",
+      "bytes": 618280,
+      "meshopt": true,
+      "triangles": 12245,
+      "vertices": 8627,
+      "draw_calls": 11,
+      "materials": 11,
+      "textures": [
+        {
+          "slot": "hair__makehuman_short04",
+          "w": 510,
+          "h": 512
+        },
+        {
+          "slot": "skin",
+          "w": 512,
+          "h": 512
+        },
+        {
+          "slot": "garment_upper__child_jacket_1904",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 512,
+          "h": 256
+        }
+      ],
+      "joints": 56,
+      "morphs": [],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.39701093546175337
+        }
+      },
+      "rest_height_m": 1.2105,
+      "soles_y_m": -0.0001,
+      "load_ms": {
+        "desktop": 43.5,
+        "mobile": 55.5
+      },
+      "frame_ms_median": {
+        "desktop": 0.2,
+        "mobile": 0.2
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "11 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.3608 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.5936 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.6104 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.39701093546175337
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "accessory__child_buttons_1904, accessory__child_collar_1904, eyes__iris, eyes__pupil, eyes__sclera, footwear__child_shoes_1904, garment_lower__child_stockings_1904, garment_lower__child_trousers_1904, garment_upper__child_jacket_1904, hair__makehuman_short04, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_short04 510x512, skin 512x512, garment_upper__child_jacket_1904 256x256, eyes__iris 512x256"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "1.2105 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "-0.0001 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "12245 tris, 11 draws"
+        },
+        {
+          "check": "decoded frame matches its master",
+          "ok": true,
+          "got": "0.00 mm from child_boy_1904.lod2.glb"
+        },
+        {
+          "check": "same triangles, joints, morphs and clips as its master",
+          "ok": true,
+          "got": "12245 tris"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/web/child_boy_1904.lod3.glb",
+      "sha256": "4d75e2c426adf884fc1aa9d96f89481d71eb5b622d90445cf26a7f12e7caacdd",
+      "lod": 3,
+      "derivative_of": "assets/humans/child_boy_1904.lod3.glb",
+      "bytes": 302376,
+      "meshopt": true,
+      "triangles": 5981,
+      "vertices": 4452,
+      "draw_calls": 11,
+      "materials": 11,
+      "textures": [
+        {
+          "slot": "hair__makehuman_short04",
+          "w": 255,
+          "h": 256
+        },
+        {
+          "slot": "skin",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "garment_upper__child_jacket_1904",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 256,
+          "h": 128
+        }
+      ],
+      "joints": 56,
+      "morphs": [],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.39701093546175337
+        }
+      },
+      "rest_height_m": 1.2105,
+      "soles_y_m": -0.0001,
+      "load_ms": {
+        "desktop": 37.5,
+        "mobile": 47.2
+      },
+      "frame_ms_median": {
+        "desktop": 0.3,
+        "mobile": 0.2
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "11 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.3604 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.5928 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.6098 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.39701093546175337
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "accessory__child_buttons_1904, accessory__child_collar_1904, eyes__iris, eyes__pupil, eyes__sclera, footwear__child_shoes_1904, garment_lower__child_stockings_1904, garment_lower__child_trousers_1904, garment_upper__child_jacket_1904, hair__makehuman_short04, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_short04 255x256, skin 256x256, garment_upper__child_jacket_1904 256x256, eyes__iris 256x128"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "1.2105 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "-0.0001 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "5981 tris, 11 draws"
+        },
+        {
+          "check": "decoded frame matches its master",
+          "ok": true,
+          "got": "0.10 mm from child_boy_1904.lod3.glb"
+        },
+        {
+          "check": "same triangles, joints, morphs and clips as its master",
+          "ok": true,
+          "got": "5981 tris"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/web/child_girl_1904.lod0.glb",
+      "sha256": "b751d8ae3c48fbffb6f4d7dbc1ebcc57ec20788bfe6ac99cadbc28ca4cc64621",
+      "lod": 0,
+      "derivative_of": "assets/humans/child_girl_1904.lod0.glb",
+      "bytes": 4329156,
+      "meshopt": true,
+      "triangles": 39908,
+      "vertices": 26210,
+      "draw_calls": 10,
+      "materials": 10,
+      "textures": [
+        {
+          "slot": "hair__makehuman_short04",
+          "w": 2039,
+          "h": 2048
+        },
+        {
+          "slot": "skin",
+          "w": 2048,
+          "h": 2048
+        },
+        {
+          "slot": "garment_upper__child_frock_1904",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 512,
+          "h": 256
+        }
+      ],
+      "joints": 56,
+      "morphs": [
+        "eyeBlinkLeft",
+        "eyeBlinkRight",
+        "jawOpen"
+      ],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.3892856278658145
+        }
+      },
+      "rest_height_m": 1.2075,
+      "soles_y_m": 0,
+      "load_ms": {
+        "desktop": 242.2,
+        "mobile": 413.9
+      },
+      "frame_ms_median": {
+        "desktop": 0.1,
+        "mobile": 0.1
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "10 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.3709 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_r turns 78 deg; surface moves 0.6101 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_r turns 78 deg; surface moves 0.6266 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.3892856278658145
+        },
+        {
+          "check": "morph eyeBlinkLeft moves",
+          "ok": true,
+          "got": "21.01 mm"
+        },
+        {
+          "check": "morph eyeBlinkRight moves",
+          "ok": true,
+          "got": "21.01 mm"
+        },
+        {
+          "check": "morph jawOpen moves",
+          "ok": true,
+          "got": "21.86 mm"
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "accessory__child_collar_1904, eyes__iris, eyes__pupil, eyes__sclera, footwear__child_shoes_1904, garment_lower__child_frock_1904, garment_lower__child_stockings_1904, garment_upper__child_frock_1904, hair__makehuman_short04, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_short04 2039x2048, skin 2048x2048, garment_upper__child_frock_1904 256x256, eyes__iris 512x256"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "1.2075 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "0 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "39908 tris, 10 draws"
+        },
+        {
+          "check": "decoded frame matches its master",
+          "ok": true,
+          "got": "0.10 mm from child_girl_1904.lod0.glb"
+        },
+        {
+          "check": "same triangles, joints, morphs and clips as its master",
+          "ok": true,
+          "got": "39908 tris"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/web/child_girl_1904.lod1.glb",
+      "sha256": "b7fbd81d3a66a50ad60421cb173ab7d310788ab7c21db06c35c87a2744778edb",
+      "lod": 1,
+      "derivative_of": "assets/humans/child_girl_1904.lod1.glb",
+      "bytes": 1543672,
+      "meshopt": true,
+      "triangles": 24313,
+      "vertices": 16458,
+      "draw_calls": 10,
+      "materials": 10,
+      "textures": [
+        {
+          "slot": "hair__makehuman_short04",
+          "w": 1020,
+          "h": 1024
+        },
+        {
+          "slot": "skin",
+          "w": 1024,
+          "h": 1024
+        },
+        {
+          "slot": "garment_upper__child_frock_1904",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 512,
+          "h": 256
+        }
+      ],
+      "joints": 56,
+      "morphs": [
+        "eyeBlinkLeft",
+        "eyeBlinkRight",
+        "jawOpen"
+      ],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.3892856278658145
+        }
+      },
+      "rest_height_m": 1.2076,
+      "soles_y_m": 0,
+      "load_ms": {
+        "desktop": 83.8,
+        "mobile": 85.7
+      },
+      "frame_ms_median": {
+        "desktop": 0.4,
+        "mobile": 0.2
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "10 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.3709 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_r turns 78 deg; surface moves 0.6101 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_r turns 78 deg; surface moves 0.6266 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.3892856278658145
+        },
+        {
+          "check": "morph eyeBlinkLeft moves",
+          "ok": true,
+          "got": "21.03 mm"
+        },
+        {
+          "check": "morph eyeBlinkRight moves",
+          "ok": true,
+          "got": "21.03 mm"
+        },
+        {
+          "check": "morph jawOpen moves",
+          "ok": true,
+          "got": "21.88 mm"
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "accessory__child_collar_1904, eyes__iris, eyes__pupil, eyes__sclera, footwear__child_shoes_1904, garment_lower__child_frock_1904, garment_lower__child_stockings_1904, garment_upper__child_frock_1904, hair__makehuman_short04, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_short04 1020x1024, skin 1024x1024, garment_upper__child_frock_1904 256x256, eyes__iris 512x256"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "1.2076 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "0 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "24313 tris, 10 draws"
+        },
+        {
+          "check": "decoded frame matches its master",
+          "ok": true,
+          "got": "0.00 mm from child_girl_1904.lod1.glb"
+        },
+        {
+          "check": "same triangles, joints, morphs and clips as its master",
+          "ok": true,
+          "got": "24313 tris"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/web/child_girl_1904.lod2.glb",
+      "sha256": "81fd32602f2c27c675707f87ae62006a8cc2d686af16447eb81d74228a715e25",
+      "lod": 2,
+      "derivative_of": "assets/humans/child_girl_1904.lod2.glb",
+      "bytes": 613344,
+      "meshopt": true,
+      "triangles": 12046,
+      "vertices": 8921,
+      "draw_calls": 10,
+      "materials": 10,
+      "textures": [
+        {
+          "slot": "hair__makehuman_short04",
+          "w": 510,
+          "h": 512
+        },
+        {
+          "slot": "skin",
+          "w": 512,
+          "h": 512
+        },
+        {
+          "slot": "garment_upper__child_frock_1904",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 512,
+          "h": 256
+        }
+      ],
+      "joints": 56,
+      "morphs": [],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.3892856278658145
+        }
+      },
+      "rest_height_m": 1.2076,
+      "soles_y_m": 0,
+      "load_ms": {
+        "desktop": 48.2,
+        "mobile": 52.2
+      },
+      "frame_ms_median": {
+        "desktop": 0.2,
+        "mobile": 0.2
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "10 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.3708 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_r turns 78 deg; surface moves 0.6099 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_r turns 78 deg; surface moves 0.6263 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.3892856278658145
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "accessory__child_collar_1904, eyes__iris, eyes__pupil, eyes__sclera, footwear__child_shoes_1904, garment_lower__child_frock_1904, garment_lower__child_stockings_1904, garment_upper__child_frock_1904, hair__makehuman_short04, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_short04 510x512, skin 512x512, garment_upper__child_frock_1904 256x256, eyes__iris 512x256"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "1.2076 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "0 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "12046 tris, 10 draws"
+        },
+        {
+          "check": "decoded frame matches its master",
+          "ok": true,
+          "got": "0.00 mm from child_girl_1904.lod2.glb"
+        },
+        {
+          "check": "same triangles, joints, morphs and clips as its master",
+          "ok": true,
+          "got": "12046 tris"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/web/child_girl_1904.lod3.glb",
+      "sha256": "c12807e58f9c770c376ffd5315e8d78b3a41fb0388ba8af2db8283391b8195b9",
+      "lod": 3,
+      "derivative_of": "assets/humans/child_girl_1904.lod3.glb",
+      "bytes": 300260,
+      "meshopt": true,
+      "triangles": 5898,
+      "vertices": 4496,
+      "draw_calls": 10,
+      "materials": 10,
+      "textures": [
+        {
+          "slot": "hair__makehuman_short04",
+          "w": 255,
+          "h": 256
+        },
+        {
+          "slot": "skin",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "garment_upper__child_frock_1904",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 256,
+          "h": 128
+        }
+      ],
+      "joints": 56,
+      "morphs": [],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.3892856278658145
+        }
+      },
+      "rest_height_m": 1.2076,
+      "soles_y_m": 0,
+      "load_ms": {
+        "desktop": 32.7,
+        "mobile": 39.7
+      },
+      "frame_ms_median": {
+        "desktop": 0.2,
+        "mobile": 0.1
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "10 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.3704 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_r turns 78 deg; surface moves 0.6092 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_r turns 78 deg; surface moves 0.6257 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.3892856278658145
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "accessory__child_collar_1904, eyes__iris, eyes__pupil, eyes__sclera, footwear__child_shoes_1904, garment_lower__child_frock_1904, garment_lower__child_stockings_1904, garment_upper__child_frock_1904, hair__makehuman_short04, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_short04 255x256, skin 256x256, garment_upper__child_frock_1904 256x256, eyes__iris 256x128"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "1.2076 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "0 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "5898 tris, 10 draws"
+        },
+        {
+          "check": "decoded frame matches its master",
+          "ok": true,
+          "got": "0.10 mm from child_girl_1904.lod3.glb"
+        },
+        {
+          "check": "same triangles, joints, morphs and clips as its master",
+          "ok": true,
+          "got": "5898 tris"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/web/child_toddler_1904.lod0.glb",
+      "sha256": "8501bdec569f992900f48b59d3939b15036d44e06d815a129eedc243ce905952",
+      "lod": 0,
+      "derivative_of": "assets/humans/child_toddler_1904.lod0.glb",
+      "bytes": 4469692,
+      "meshopt": true,
+      "triangles": 39675,
+      "vertices": 26115,
+      "draw_calls": 10,
+      "materials": 10,
+      "textures": [
+        {
+          "slot": "hair__makehuman_short04",
+          "w": 2039,
+          "h": 2048
+        },
+        {
+          "slot": "skin",
+          "w": 2048,
+          "h": 2048
+        },
+        {
+          "slot": "garment_upper__child_frock_1904",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 512,
+          "h": 256
+        }
+      ],
+      "joints": 56,
+      "morphs": [
+        "eyeBlinkLeft",
+        "eyeBlinkRight",
+        "jawOpen"
+      ],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.2683586862392902
+        }
+      },
+      "rest_height_m": 0.9072,
+      "soles_y_m": 0,
+      "load_ms": {
+        "desktop": 265.5,
+        "mobile": 175.3
+      },
+      "frame_ms_median": {
+        "desktop": 0.3,
+        "mobile": 0.1
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "10 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.2855 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.4696 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.4797 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.2683586862392902
+        },
+        {
+          "check": "morph eyeBlinkLeft moves",
+          "ok": true,
+          "got": "21.09 mm"
+        },
+        {
+          "check": "morph eyeBlinkRight moves",
+          "ok": true,
+          "got": "21.09 mm"
+        },
+        {
+          "check": "morph jawOpen moves",
+          "ok": true,
+          "got": "21.46 mm"
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "accessory__child_collar_1904, eyes__iris, eyes__pupil, eyes__sclera, footwear__child_shoes_1904, garment_lower__child_frock_1904, garment_lower__child_stockings_1904, garment_upper__child_frock_1904, hair__makehuman_short04, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_short04 2039x2048, skin 2048x2048, garment_upper__child_frock_1904 256x256, eyes__iris 512x256"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "0.9072 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "0 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "39675 tris, 10 draws"
+        },
+        {
+          "check": "decoded frame matches its master",
+          "ok": true,
+          "got": "0.00 mm from child_toddler_1904.lod0.glb"
+        },
+        {
+          "check": "same triangles, joints, morphs and clips as its master",
+          "ok": true,
+          "got": "39675 tris"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/web/child_toddler_1904.lod1.glb",
+      "sha256": "c8f5160ae693c0dce51d93a0d155f3cead87706ed2db016084aecfac08d00d4f",
+      "lod": 1,
+      "derivative_of": "assets/humans/child_toddler_1904.lod1.glb",
+      "bytes": 1582096,
+      "meshopt": true,
+      "triangles": 24171,
+      "vertices": 16440,
+      "draw_calls": 10,
+      "materials": 10,
+      "textures": [
+        {
+          "slot": "hair__makehuman_short04",
+          "w": 1020,
+          "h": 1024
+        },
+        {
+          "slot": "skin",
+          "w": 1024,
+          "h": 1024
+        },
+        {
+          "slot": "garment_upper__child_frock_1904",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 512,
+          "h": 256
+        }
+      ],
+      "joints": 56,
+      "morphs": [
+        "eyeBlinkLeft",
+        "eyeBlinkRight",
+        "jawOpen"
+      ],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.2683586862392902
+        }
+      },
+      "rest_height_m": 0.9072,
+      "soles_y_m": 0,
+      "load_ms": {
+        "desktop": 80.2,
+        "mobile": 85.4
+      },
+      "frame_ms_median": {
+        "desktop": 0.8,
+        "mobile": 0.2
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "10 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.2855 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.4696 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.4797 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.2683586862392902
+        },
+        {
+          "check": "morph eyeBlinkLeft moves",
+          "ok": true,
+          "got": "21.15 mm"
+        },
+        {
+          "check": "morph eyeBlinkRight moves",
+          "ok": true,
+          "got": "21.15 mm"
+        },
+        {
+          "check": "morph jawOpen moves",
+          "ok": true,
+          "got": "21.47 mm"
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "accessory__child_collar_1904, eyes__iris, eyes__pupil, eyes__sclera, footwear__child_shoes_1904, garment_lower__child_frock_1904, garment_lower__child_stockings_1904, garment_upper__child_frock_1904, hair__makehuman_short04, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_short04 1020x1024, skin 1024x1024, garment_upper__child_frock_1904 256x256, eyes__iris 512x256"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "0.9072 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "0 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "24171 tris, 10 draws"
+        },
+        {
+          "check": "decoded frame matches its master",
+          "ok": true,
+          "got": "0.00 mm from child_toddler_1904.lod1.glb"
+        },
+        {
+          "check": "same triangles, joints, morphs and clips as its master",
+          "ok": true,
+          "got": "24171 tris"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/web/child_toddler_1904.lod2.glb",
+      "sha256": "56bb274f769c6c60637a71eadf53aa860ad7df6ebfd9fe2718739887c6b89d64",
+      "lod": 2,
+      "derivative_of": "assets/humans/child_toddler_1904.lod2.glb",
+      "bytes": 623944,
+      "meshopt": true,
+      "triangles": 11980,
+      "vertices": 9051,
+      "draw_calls": 10,
+      "materials": 10,
+      "textures": [
+        {
+          "slot": "hair__makehuman_short04",
+          "w": 510,
+          "h": 512
+        },
+        {
+          "slot": "skin",
+          "w": 512,
+          "h": 512
+        },
+        {
+          "slot": "garment_upper__child_frock_1904",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 512,
+          "h": 256
+        }
+      ],
+      "joints": 56,
+      "morphs": [],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.2683586862392902
+        }
+      },
+      "rest_height_m": 0.9072,
+      "soles_y_m": 0,
+      "load_ms": {
+        "desktop": 138.4,
+        "mobile": 56.3
+      },
+      "frame_ms_median": {
+        "desktop": 0.2,
+        "mobile": 0.2
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "10 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.2854 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.4695 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.4795 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.2683586862392902
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "accessory__child_collar_1904, eyes__iris, eyes__pupil, eyes__sclera, footwear__child_shoes_1904, garment_lower__child_frock_1904, garment_lower__child_stockings_1904, garment_upper__child_frock_1904, hair__makehuman_short04, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_short04 510x512, skin 512x512, garment_upper__child_frock_1904 256x256, eyes__iris 512x256"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "0.9072 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "0 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "11980 tris, 10 draws"
+        },
+        {
+          "check": "decoded frame matches its master",
+          "ok": true,
+          "got": "0.10 mm from child_toddler_1904.lod2.glb"
+        },
+        {
+          "check": "same triangles, joints, morphs and clips as its master",
+          "ok": true,
+          "got": "11980 tris"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/web/child_toddler_1904.lod3.glb",
+      "sha256": "50afb6e7b32acf37ffd2bbebd68e2900714bc77b8b2b23007b1a8e142e01d3f3",
+      "lod": 3,
+      "derivative_of": "assets/humans/child_toddler_1904.lod3.glb",
+      "bytes": 305396,
+      "meshopt": true,
+      "triangles": 5870,
+      "vertices": 4682,
+      "draw_calls": 10,
+      "materials": 10,
+      "textures": [
+        {
+          "slot": "hair__makehuman_short04",
+          "w": 255,
+          "h": 256
+        },
+        {
+          "slot": "skin",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "garment_upper__child_frock_1904",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 256,
+          "h": 128
+        }
+      ],
+      "joints": 56,
+      "morphs": [],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.2683586862392902
+        }
+      },
+      "rest_height_m": 0.9073,
+      "soles_y_m": 0,
+      "load_ms": {
+        "desktop": 35.3,
+        "mobile": 40.8
+      },
+      "frame_ms_median": {
+        "desktop": 0.1,
+        "mobile": 0.2
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "10 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.2849 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.4687 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.4787 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.2683586862392902
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "accessory__child_collar_1904, eyes__iris, eyes__pupil, eyes__sclera, footwear__child_shoes_1904, garment_lower__child_frock_1904, garment_lower__child_stockings_1904, garment_upper__child_frock_1904, hair__makehuman_short04, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_short04 255x256, skin 256x256, garment_upper__child_frock_1904 256x256, eyes__iris 256x128"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "0.9073 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "0 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "5870 tris, 10 draws"
+        },
+        {
+          "check": "decoded frame matches its master",
+          "ok": true,
+          "got": "0.10 mm from child_toddler_1904.lod3.glb"
+        },
+        {
+          "check": "same triangles, joints, morphs and clips as its master",
+          "ok": true,
+          "got": "5870 tris"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/web/teen_boy_1904.lod0.glb",
+      "sha256": "4058222d2cc0e70c9266c9251e2012e8141d2bb0b7d00b3ea46de5029a6e98ea",
+      "lod": 0,
+      "derivative_of": "assets/humans/teen_boy_1904.lod0.glb",
+      "bytes": 4487920,
+      "meshopt": true,
+      "triangles": 41583,
+      "vertices": 27484,
+      "draw_calls": 11,
+      "materials": 11,
+      "textures": [
+        {
+          "slot": "hair__makehuman_short04",
+          "w": 2039,
+          "h": 2048
+        },
+        {
+          "slot": "skin",
+          "w": 2048,
+          "h": 2048
+        },
+        {
+          "slot": "garment_upper__child_jacket_1904",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 512,
+          "h": 256
+        }
+      ],
+      "joints": 56,
+      "morphs": [
+        "eyeBlinkLeft",
+        "eyeBlinkRight",
+        "jawOpen"
+      ],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.558265216528123
+        }
+      },
+      "rest_height_m": 1.6531,
+      "soles_y_m": 0,
+      "load_ms": {
+        "desktop": 174.5,
+        "mobile": 178.5
+      },
+      "frame_ms_median": {
+        "desktop": 0.1,
+        "mobile": 0.2
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "11 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.5036 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8284 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8538 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.558265216528123
+        },
+        {
+          "check": "morph eyeBlinkLeft moves",
+          "ok": true,
+          "got": "21.04 mm"
+        },
+        {
+          "check": "morph eyeBlinkRight moves",
+          "ok": true,
+          "got": "21.04 mm"
+        },
+        {
+          "check": "morph jawOpen moves",
+          "ok": true,
+          "got": "23.75 mm"
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "accessory__child_buttons_1904, accessory__child_collar_1904, eyes__iris, eyes__pupil, eyes__sclera, footwear__child_shoes_1904, garment_lower__child_stockings_1904, garment_lower__child_trousers_1904, garment_upper__child_jacket_1904, hair__makehuman_short04, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_short04 2039x2048, skin 2048x2048, garment_upper__child_jacket_1904 256x256, eyes__iris 512x256"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "1.6531 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "0 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "41583 tris, 11 draws"
+        },
+        {
+          "check": "decoded frame matches its master",
+          "ok": true,
+          "got": "0.10 mm from teen_boy_1904.lod0.glb"
+        },
+        {
+          "check": "same triangles, joints, morphs and clips as its master",
+          "ok": true,
+          "got": "41583 tris"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/web/teen_boy_1904.lod1.glb",
+      "sha256": "99553d8f01f179c4d20bff0f953bdda54b2c26121b8f7fb15376459df7bce57d",
+      "lod": 1,
+      "derivative_of": "assets/humans/teen_boy_1904.lod1.glb",
+      "bytes": 1582792,
+      "meshopt": true,
+      "triangles": 25317,
+      "vertices": 16757,
+      "draw_calls": 11,
+      "materials": 11,
+      "textures": [
+        {
+          "slot": "hair__makehuman_short04",
+          "w": 1020,
+          "h": 1024
+        },
+        {
+          "slot": "skin",
+          "w": 1024,
+          "h": 1024
+        },
+        {
+          "slot": "garment_upper__child_jacket_1904",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 512,
+          "h": 256
+        }
+      ],
+      "joints": 56,
+      "morphs": [
+        "eyeBlinkLeft",
+        "eyeBlinkRight",
+        "jawOpen"
+      ],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.558265216528123
+        }
+      },
+      "rest_height_m": 1.6532,
+      "soles_y_m": 0,
+      "load_ms": {
+        "desktop": 70.6,
+        "mobile": 92
+      },
+      "frame_ms_median": {
+        "desktop": 0.2,
+        "mobile": 0.2
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "11 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.5036 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8284 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8538 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.558265216528123
+        },
+        {
+          "check": "morph eyeBlinkLeft moves",
+          "ok": true,
+          "got": "20.94 mm"
+        },
+        {
+          "check": "morph eyeBlinkRight moves",
+          "ok": true,
+          "got": "20.94 mm"
+        },
+        {
+          "check": "morph jawOpen moves",
+          "ok": true,
+          "got": "23.75 mm"
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "accessory__child_buttons_1904, accessory__child_collar_1904, eyes__iris, eyes__pupil, eyes__sclera, footwear__child_shoes_1904, garment_lower__child_stockings_1904, garment_lower__child_trousers_1904, garment_upper__child_jacket_1904, hair__makehuman_short04, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_short04 1020x1024, skin 1024x1024, garment_upper__child_jacket_1904 256x256, eyes__iris 512x256"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "1.6532 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "0 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "25317 tris, 11 draws"
+        },
+        {
+          "check": "decoded frame matches its master",
+          "ok": true,
+          "got": "0.10 mm from teen_boy_1904.lod1.glb"
+        },
+        {
+          "check": "same triangles, joints, morphs and clips as its master",
+          "ok": true,
+          "got": "25317 tris"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/web/teen_boy_1904.lod2.glb",
+      "sha256": "468bf473c5b252ead025458f4ad2482e2433c63da4a67af85c1d49e7c895aa5e",
+      "lod": 2,
+      "derivative_of": "assets/humans/teen_boy_1904.lod2.glb",
+      "bytes": 621400,
+      "meshopt": true,
+      "triangles": 12516,
+      "vertices": 8628,
+      "draw_calls": 11,
+      "materials": 11,
+      "textures": [
+        {
+          "slot": "hair__makehuman_short04",
+          "w": 510,
+          "h": 512
+        },
+        {
+          "slot": "skin",
+          "w": 512,
+          "h": 512
+        },
+        {
+          "slot": "garment_upper__child_jacket_1904",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 512,
+          "h": 256
+        }
+      ],
+      "joints": 56,
+      "morphs": [],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.558265216528123
+        }
+      },
+      "rest_height_m": 1.6533,
+      "soles_y_m": -0.0002,
+      "load_ms": {
+        "desktop": 63.6,
+        "mobile": 91.5
+      },
+      "frame_ms_median": {
+        "desktop": 0.2,
+        "mobile": 0.2
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "11 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.5035 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8283 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8535 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.558265216528123
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "accessory__child_buttons_1904, accessory__child_collar_1904, eyes__iris, eyes__pupil, eyes__sclera, footwear__child_shoes_1904, garment_lower__child_stockings_1904, garment_lower__child_trousers_1904, garment_upper__child_jacket_1904, hair__makehuman_short04, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_short04 510x512, skin 512x512, garment_upper__child_jacket_1904 256x256, eyes__iris 512x256"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "1.6533 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "-0.0002 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "12516 tris, 11 draws"
+        },
+        {
+          "check": "decoded frame matches its master",
+          "ok": true,
+          "got": "0.00 mm from teen_boy_1904.lod2.glb"
+        },
+        {
+          "check": "same triangles, joints, morphs and clips as its master",
+          "ok": true,
+          "got": "12516 tris"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/web/teen_boy_1904.lod3.glb",
+      "sha256": "878afd409c6f7cc8b545b149dd4afa8d1b05017fb4290f03dbce4c10656e90ab",
+      "lod": 3,
+      "derivative_of": "assets/humans/teen_boy_1904.lod3.glb",
+      "bytes": 303848,
+      "meshopt": true,
+      "triangles": 6098,
+      "vertices": 4400,
+      "draw_calls": 11,
+      "materials": 11,
+      "textures": [
+        {
+          "slot": "hair__makehuman_short04",
+          "w": 255,
+          "h": 256
+        },
+        {
+          "slot": "skin",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "garment_upper__child_jacket_1904",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 256,
+          "h": 128
+        }
+      ],
+      "joints": 56,
+      "morphs": [],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.558265216528123
+        }
+      },
+      "rest_height_m": 1.6542,
+      "soles_y_m": -0.001,
+      "load_ms": {
+        "desktop": 84.5,
+        "mobile": 36.7
+      },
+      "frame_ms_median": {
+        "desktop": 0.1,
+        "mobile": 0.1
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "11 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.503 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8274 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8528 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.558265216528123
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "accessory__child_buttons_1904, accessory__child_collar_1904, eyes__iris, eyes__pupil, eyes__sclera, footwear__child_shoes_1904, garment_lower__child_stockings_1904, garment_lower__child_trousers_1904, garment_upper__child_jacket_1904, hair__makehuman_short04, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_short04 255x256, skin 256x256, garment_upper__child_jacket_1904 256x256, eyes__iris 256x128"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "1.6542 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "-0.001 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "6098 tris, 11 draws"
+        },
+        {
+          "check": "decoded frame matches its master",
+          "ok": true,
+          "got": "0.10 mm from teen_boy_1904.lod3.glb"
+        },
+        {
+          "check": "same triangles, joints, morphs and clips as its master",
+          "ok": true,
+          "got": "6098 tris"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/web/teen_girl_1904.lod0.glb",
+      "sha256": "67a861998a73bd3c80b4b98ca10550d6227d79cae63fb47f7a9b33734a5ab3a0",
+      "lod": 0,
+      "derivative_of": "assets/humans/teen_girl_1904.lod0.glb",
+      "bytes": 4321272,
+      "meshopt": true,
+      "triangles": 39577,
+      "vertices": 26088,
+      "draw_calls": 10,
+      "materials": 10,
+      "textures": [
+        {
+          "slot": "hair__makehuman_short04",
+          "w": 2039,
+          "h": 2048
+        },
+        {
+          "slot": "skin",
+          "w": 2048,
+          "h": 2048
+        },
+        {
+          "slot": "garment_upper__child_frock_1904",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 512,
+          "h": 256
+        }
+      ],
+      "joints": 56,
+      "morphs": [
+        "eyeBlinkLeft",
+        "eyeBlinkRight",
+        "jawOpen"
+      ],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.5232561345959386
+        }
+      },
+      "rest_height_m": 1.5932,
+      "soles_y_m": 0,
+      "load_ms": {
+        "desktop": 184.9,
+        "mobile": 203.9
+      },
+      "frame_ms_median": {
+        "desktop": 0.2,
+        "mobile": 0.1
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "10 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.4788 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.7875 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8111 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.5232561345959386
+        },
+        {
+          "check": "morph eyeBlinkLeft moves",
+          "ok": true,
+          "got": "21.17 mm"
+        },
+        {
+          "check": "morph eyeBlinkRight moves",
+          "ok": true,
+          "got": "21.17 mm"
+        },
+        {
+          "check": "morph jawOpen moves",
+          "ok": true,
+          "got": "21.48 mm"
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "accessory__child_collar_1904, eyes__iris, eyes__pupil, eyes__sclera, footwear__child_shoes_1904, garment_lower__child_frock_1904, garment_lower__child_stockings_1904, garment_upper__child_frock_1904, hair__makehuman_short04, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_short04 2039x2048, skin 2048x2048, garment_upper__child_frock_1904 256x256, eyes__iris 512x256"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "1.5932 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "0 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "39577 tris, 10 draws"
+        },
+        {
+          "check": "decoded frame matches its master",
+          "ok": true,
+          "got": "0.10 mm from teen_girl_1904.lod0.glb"
+        },
+        {
+          "check": "same triangles, joints, morphs and clips as its master",
+          "ok": true,
+          "got": "39577 tris"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/web/teen_girl_1904.lod1.glb",
+      "sha256": "717bbbe3737c6448334a6649a8c90d49df9e5232ca7a29c3cd6d58019729d3da",
+      "lod": 1,
+      "derivative_of": "assets/humans/teen_girl_1904.lod1.glb",
+      "bytes": 1536416,
+      "meshopt": true,
+      "triangles": 24113,
+      "vertices": 16293,
+      "draw_calls": 10,
+      "materials": 10,
+      "textures": [
+        {
+          "slot": "hair__makehuman_short04",
+          "w": 1020,
+          "h": 1024
+        },
+        {
+          "slot": "skin",
+          "w": 1024,
+          "h": 1024
+        },
+        {
+          "slot": "garment_upper__child_frock_1904",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 512,
+          "h": 256
+        }
+      ],
+      "joints": 56,
+      "morphs": [
+        "eyeBlinkLeft",
+        "eyeBlinkRight",
+        "jawOpen"
+      ],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.5232561345959386
+        }
+      },
+      "rest_height_m": 1.5932,
+      "soles_y_m": -0.0001,
+      "load_ms": {
+        "desktop": 88.3,
+        "mobile": 81.8
+      },
+      "frame_ms_median": {
+        "desktop": 0.2,
+        "mobile": 0.2
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "10 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.4788 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.7876 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8111 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.5232561345959386
+        },
+        {
+          "check": "morph eyeBlinkLeft moves",
+          "ok": true,
+          "got": "20.87 mm"
+        },
+        {
+          "check": "morph eyeBlinkRight moves",
+          "ok": true,
+          "got": "20.87 mm"
+        },
+        {
+          "check": "morph jawOpen moves",
+          "ok": true,
+          "got": "21.47 mm"
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "accessory__child_collar_1904, eyes__iris, eyes__pupil, eyes__sclera, footwear__child_shoes_1904, garment_lower__child_frock_1904, garment_lower__child_stockings_1904, garment_upper__child_frock_1904, hair__makehuman_short04, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_short04 1020x1024, skin 1024x1024, garment_upper__child_frock_1904 256x256, eyes__iris 512x256"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "1.5932 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "-0.0001 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "24113 tris, 10 draws"
+        },
+        {
+          "check": "decoded frame matches its master",
+          "ok": true,
+          "got": "0.10 mm from teen_girl_1904.lod1.glb"
+        },
+        {
+          "check": "same triangles, joints, morphs and clips as its master",
+          "ok": true,
+          "got": "24113 tris"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/web/teen_girl_1904.lod2.glb",
+      "sha256": "29bfeb4f2c4070264b54c37219be091276007c5e53832e94a890d6342483a36e",
+      "lod": 2,
+      "derivative_of": "assets/humans/teen_girl_1904.lod2.glb",
+      "bytes": 610072,
+      "meshopt": true,
+      "triangles": 11954,
+      "vertices": 8775,
+      "draw_calls": 10,
+      "materials": 10,
+      "textures": [
+        {
+          "slot": "hair__makehuman_short04",
+          "w": 510,
+          "h": 512
+        },
+        {
+          "slot": "skin",
+          "w": 512,
+          "h": 512
+        },
+        {
+          "slot": "garment_upper__child_frock_1904",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 512,
+          "h": 256
+        }
+      ],
+      "joints": 56,
+      "morphs": [],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.5232561345959386
+        }
+      },
+      "rest_height_m": 1.5932,
+      "soles_y_m": -0.0001,
+      "load_ms": {
+        "desktop": 63.3,
+        "mobile": 56.7
+      },
+      "frame_ms_median": {
+        "desktop": 0.3,
+        "mobile": 0.2
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "10 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.4787 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.7874 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8108 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.5232561345959386
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "accessory__child_collar_1904, eyes__iris, eyes__pupil, eyes__sclera, footwear__child_shoes_1904, garment_lower__child_frock_1904, garment_lower__child_stockings_1904, garment_upper__child_frock_1904, hair__makehuman_short04, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_short04 510x512, skin 512x512, garment_upper__child_frock_1904 256x256, eyes__iris 512x256"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "1.5932 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "-0.0001 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "11954 tris, 10 draws"
+        },
+        {
+          "check": "decoded frame matches its master",
+          "ok": true,
+          "got": "0.10 mm from teen_girl_1904.lod2.glb"
+        },
+        {
+          "check": "same triangles, joints, morphs and clips as its master",
+          "ok": true,
+          "got": "11954 tris"
+        }
+      ]
+    },
+    {
+      "file": "assets/humans/web/teen_girl_1904.lod3.glb",
+      "sha256": "124eacfe69d9b12ddc558021e97ea3cda8d49ae5ac89d6021316018de9795912",
+      "lod": 3,
+      "derivative_of": "assets/humans/teen_girl_1904.lod3.glb",
+      "bytes": 296984,
+      "meshopt": true,
+      "triangles": 5858,
+      "vertices": 4363,
+      "draw_calls": 10,
+      "materials": 10,
+      "textures": [
+        {
+          "slot": "hair__makehuman_short04",
+          "w": 255,
+          "h": 256
+        },
+        {
+          "slot": "skin",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "garment_upper__child_frock_1904",
+          "w": 256,
+          "h": 256
+        },
+        {
+          "slot": "eyes__iris",
+          "w": 256,
+          "h": 128
+        }
+      ],
+      "joints": 56,
+      "morphs": [],
+      "clips": {
+        "idle": {
+          "duration_s": 2,
+          "tracks": 112,
+          "speed_m_s": null
+        },
+        "walk": {
+          "duration_s": 1.2,
+          "tracks": 112,
+          "speed_m_s": 0.5232561345959386
+        }
+      },
+      "rest_height_m": 1.5932,
+      "soles_y_m": 0,
+      "load_ms": {
+        "desktop": 55.8,
+        "mobile": 47.3
+      },
+      "frame_ms_median": {
+        "desktop": 0.1,
+        "mobile": 0.2
+      },
+      "verdicts": [
+        {
+          "check": "one skeleton under every primitive",
+          "ok": true,
+          "got": "10 skinned primitive(s), 1 skeleton(s)"
+        },
+        {
+          "check": "the whole contract skeleton",
+          "ok": true,
+          "got": "56 joints"
+        },
+        {
+          "check": "the required sockets on their bones",
+          "ok": true,
+          "got": "socket_hand_l, socket_hand_r, socket_head"
+        },
+        {
+          "check": "skinning deforms",
+          "ok": true,
+          "got": "0.4782 m at the left hand, upper arm raised 45 deg"
+        },
+        {
+          "check": "clip idle plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.7866 m"
+        },
+        {
+          "check": "clip walk plays",
+          "ok": true,
+          "got": "upperarm_l turns 78 deg; surface moves 0.8101 m"
+        },
+        {
+          "check": "walk states its ground speed",
+          "ok": true,
+          "got": 0.5232561345959386
+        },
+        {
+          "check": "the required material slots load",
+          "ok": true,
+          "got": "accessory__child_collar_1904, eyes__iris, eyes__pupil, eyes__sclera, footwear__child_shoes_1904, garment_lower__child_frock_1904, garment_lower__child_stockings_1904, garment_upper__child_frock_1904, hair__makehuman_short04, skin"
+        },
+        {
+          "check": "the texture decodes",
+          "ok": true,
+          "got": "hair__makehuman_short04 255x256, skin 256x256, garment_upper__child_frock_1904 256x256, eyes__iris 256x128"
+        },
+        {
+          "check": "metric rest height",
+          "ok": true,
+          "got": "1.5932 m"
+        },
+        {
+          "check": "soles on the ground",
+          "ok": true,
+          "got": "0 m"
+        },
+        {
+          "check": "faces +Z, the glTF front",
+          "ok": true,
+          "got": "+Z (toes forward)"
+        },
+        {
+          "check": "the same at 390x780",
+          "ok": true,
+          "got": "5858 tris, 10 draws"
+        },
+        {
+          "check": "decoded frame matches its master",
+          "ok": true,
+          "got": "0.10 mm from teen_girl_1904.lod3.glb"
+        },
+        {
+          "check": "same triangles, joints, morphs and clips as its master",
+          "ok": true,
+          "got": "5858 tris"
+        }
+      ]
     }
-  ]
+  ],
+  "scoped_remeasurement": {
+    "measured": "2026-11-11",
+    "asset_ids": [
+      "settler_1812"
+    ],
+    "measured_files": 8,
+    "added_files": 0,
+    "replaced_existing_files": 8,
+    "unchanged_files_sha256_verified": 280,
+    "scope": "Same native checks, both viewports and 30 timing frames; all other baseline file hashes unchanged before and after."
+  }
 }

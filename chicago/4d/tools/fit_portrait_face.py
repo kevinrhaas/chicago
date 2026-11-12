@@ -296,8 +296,13 @@ def fit(person):
         r = ((project(shape(v, option), cam) - obs) / sig[:, None]).ravel()
         return np.concatenate([r, (v - centre) / spreads])
 
-    # A starting camera from the two eyes' midpoints and spacing.
-    e = [names.index(n) for n in ('pupil_r', 'pupil_l')]
+    # A profile may hide the far eye. Use the visible crown/chin span for its
+    # initial scale instead of inventing a pupil. Full-face fits retain their
+    # original initialization and therefore their existing results.
+    pair = ('pupil_r', 'pupil_l') if all(n in names for n in ('pupil_r', 'pupil_l')) else ('vertex', 'menton')
+    if not all(n in names for n in pair):
+        raise ValueError('A portrait needs both visible pupils or visible crown and chin for camera initialization')
+    e = [names.index(n) for n in pair]
     s0 = np.linalg.norm(obs[e[1]] - obs[e[0]]) / np.linalg.norm(base[e[1]] - base[e[0]])
     t0 = obs.mean(0)
     best = None

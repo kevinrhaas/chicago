@@ -45,7 +45,15 @@
         "chicago_blue_book_1904",
         "chicago_blue_book_1905"
       ],
-      "printed_as": "2027 Mrs. J. J. Borland"
+      "printed_as": "2027 Mrs. J. J. Borland",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_borland_chauncey_blair",
@@ -57,7 +65,15 @@
         "chicago_blue_book_1905"
       ],
       "printed_as": "2027 Chauncey Blair Borland",
-      "note": "A son is read from the shared surname under the head's listing; the Blue Book does not state the relationship."
+      "note": "A son is read from the shared surname under the head's listing; the Blue Book does not state the relationship.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_borland_bruce",
@@ -69,7 +85,15 @@
         "chicago_blue_book_1905"
       ],
       "printed_as": "2027 Bruce Borland",
-      "note": "A son is read from the shared surname under the head's listing; the Blue Book does not state the relationship."
+      "note": "A son is read from the shared surname under the head's listing; the Blue Book does not state the relationship.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     }
   ]
 }

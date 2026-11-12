@@ -1,4 +1,60 @@
 export const CHANGELOG = [ // newest first
+  { v: 2884, ts: '2026-11-12T05:32:57.980Z', date: 'Nov 11, 2026, 11:32 PM CT', title: 'Built-in graphics held to a memory line in every year', kind: 'fix',
+    items: [
+      'A computer on built-in graphics, like an Intel UHD 630 desktop, is now held to a memory line in 1835 and 1812 as well as 1904. Each year keeps its people, horses and carriages.',
+      'A computer drawing without its graphics driver, such as Windows with only the Microsoft Basic Render Driver, now starts at Balanced with the memory saver on. Before, it started at Full.',
+    ] },
+  { v: 2883, ts: '2026-11-12T01:07:16.592Z', date: 'Nov 11, 2026, 7:07 PM CT', title: 'Looser linen trousers for the 1812 settler', kind: 'fix',
+    items: [
+      'The settler’s linen trousers now have a fuller seat, with the waistband, front and lower legs kept in place. The fabric keeps its separate layers while walking.',
+    ] },
+  { v: 2882, ts: '2026-11-11T17:59:21.153Z', date: 'Nov 11, 2026, 11:59 AM CT', title: 'Prairie Avenue people gain portraits, individual looks and household routines', kind: 'feature',
+    items: [
+      'Person cards gain verified period portraits, source notes and clearer portrait-search limits.',
+      'Individual face fits, hair, facial hair and spectacles follow identified pictures; reconstructed features remain labelled.',
+      'Adults, children and teens follow seasonal routines, answer household door calls, take walks and chat with other people.',
+      'Small children come outside with a household adult, who stays nearby during interactions. Both return indoors after their outing.',
+      'Ask after an infant at the door to open their card and learn about their reconstructed household care.',
+    ] },
+  { v: 2881, ts: '2026-11-11T13:16:02.113Z', date: 'Nov 11, 2026, 7:16 AM CT', title: 'Compact sound controls, continuous music and quieter town ambience', kind: 'feature',
+    items: [
+      'Period music keeps repeating in town, but stays silent during time travel and arrival. Ambience and effects remain independent.',
+      'Wind is much quieter in town, especially in 1904, with a modest increase by the lake. The owner-selected light water on rocks replaces the busy river recording; insects stay as they were.',
+      'With Sound on, nearby moving teams carry harness jingles; wooden wagons in 1812 and 1835 also rumble. Their sounds follow position and distance, and stop with the vehicle or when it is hidden.',
+      'The loading-screen speaker is a compact on/off icon. Settings explain Ambience (wind, waves, birds and insects) and Effects (nearby wagon wheels and harness jingles).',
+      'The audio library records sources and reconstructed placements. Transport reuses existing hosted files; the calmer river adds one small recorded loop.',
+    ] },
+  { v: 2880, ts: '2026-11-11T10:14:24.451Z', date: 'Nov 11, 2026, 4:14 AM CT', title: 'Fine wool detail on Charles Nelson\'s coat', kind: 'change',
+    items: [
+      'Charles\'s existing green livery keeps its cut and movement, with a fine wool surface in close views.',
+      '1812 daily life uses less startup memory while keeping requested walks and conversations.',
+    ] },
+  { v: 2879, ts: '2026-11-11T05:28:49.677Z', date: 'Nov 10, 2026, 11:28 PM CT', title: 'Daily life and easier interactions', kind: 'improvement',
+    items: [
+      'Meet civilians, soldiers and Native residents through a compact Interact menu, with short activity choices and Go inside.',
+      'Call someone from their lodge or house, ask for an outdoor task at any hour, or arrange a real companion chat before they return to their duties.',
+      'Soldiers follow quarters and duty schedules; lodge residents take turns at nearby tasks, with seasonal work and historical absences preserved.',
+      'Keep a walking person selected while choosing an action. Clean line icons and grouped Go inside and Go home choices make the shared menu easier to use.',
+    ] },
+  { v: 2878, ts: '2026-11-11T03:48:18.061Z', date: 'Nov 10, 2026, 9:48 PM CT', title: 'Switching Scene detail works in every season', kind: 'fix',
+    items: [
+      'Changing Scene detail in 1904 while it was autumn, winter or spring (a jaunt\'s night or snow included) failed with "Could not load full detail" and left the town frozen. The switch now finishes in every season.',
+    ] },
+  { v: 2877, ts: '2026-11-11T03:48:18.061Z', date: 'Nov 10, 2026, 9:48 PM CT', title: 'Phones keep their people, horses and carriages', kind: 'feature',
+    items: [
+      'Light detail, where every phone starts, now draws people as far as the other levels do and keeps the parked carriages, standing horses and moving teams, drawn a little nearer. The horses\' pictures are softer on a phone to pay for it.',
+      'A strong phone now starts at Balanced detail instead of Light. A phone that runs short of memory still steps down on its next visit.',
+    ] },
+  { v: 2876, ts: '2026-11-11T01:14:28.303Z', date: 'Nov 10, 2026, 7:14 PM CT', title: 'Recorded sound and music for each era', kind: 'feature',
+    items: [
+      'Turn sound on from the loading screen. The old hums are gone; music has its own level in Settings.',
+      'Frontier reels accompany 1812, Border ballads 1835 and waltzes 1904. River and lake recordings follow the historical terrain; sloughs stay quiet.',
+      'Occasional recorded insects and distant marsh birds follow July 1835 habitats and time of day, with quiet intervals. The audio library identifies their proxy recordings.',
+    ] },
+  { v: 2875, ts: '2026-11-10T23:33:18.287Z', date: 'Nov 10, 2026, 5:33 PM CT', title: 'Every loading screen reads your device', kind: 'feature',
+    items: [
+      'The Observatory\'s device meter now sits on each year\'s loading screen. It shows the same score, says why it reads that way (the graphics, shared memory, memory and cores), and lists what this device will draw: the detail level, the resolution and what is eased, such as thinner plants or the memory saver.',
+    ] },
   { v: 2874, ts: '2026-11-10T22:39:42.299Z', date: 'Nov 10, 2026, 4:39 PM CT', title: '1904 memory lines move for its people and carriages', kind: 'chore',
     items: [
       'The memory lines 1904 is held to rise: 1,300 to 1,425 MB on a capable computer, and 400 to 425 MB on a phone. They make room for the people, horse teams and household routines added this week. Computers with built-in graphics now open a lighter town, so the computer line no longer covers the machines that crashed.',

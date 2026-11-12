@@ -12,6 +12,7 @@
 # four files whose parsed values were identical (T-0933).
 set -euo pipefail
 cd "$(dirname "$0")/.."
+node tools/audio_hosting.mjs --validate
 
 # The three v4 GLBs (master, full web, light web) are losslessly packed in committed archive parts.
 # Restore only missing ignored outputs; divergent existing bytes fail with repack
@@ -89,6 +90,9 @@ mkdir -p "$SITE/data/gltf" "$SITE/data/sidecars"
 if [ -d renderers/web ]; then
   rm -rf "$SITE/walk"
   cp -a renderers/web "$SITE/walk"
+  # T-3532: only verified, content-addressed audio leaves this mirror. The
+  # source recordings remain local; the app catalogue points to the media host.
+  node tools/audio_hosting.mjs --publish "$SITE"
   # T-2793: these historical/canonical masters have no live model or demo
   # consumer. Keep every source byte for authoring and physical checks, while
   # shipping the selected web deliveries. Year packs are built later from this
@@ -348,7 +352,15 @@ mkdir -p "$SITE/data/comparisons/glessner"
 cp -f data/comparisons/glessner/*.json "$SITE/data/comparisons/glessner/"
 # The liberties list the Evidence panel reads. Derived from docs/LIBERTIES.md,
 # which itself stays out of the payload.
-cp -f data/liberties.json "$SITE/data/"
+# T-3532: preserve every evidence/liberty value while omitting JSON indentation
+# in delivery (about 700 KiB). The source remains readable; parity is structural.
+python3 - "$SITE/data/liberties.json" <<'COMPACT_LIBERTIES'
+import json
+from pathlib import Path
+import sys
+value = json.loads(Path('data/liberties.json').read_text())
+Path(sys.argv[1]).write_text(json.dumps(value, ensure_ascii=False, separators=(',', ':')) + '\n')
+COMPACT_LIBERTIES
 # The reader's overlay (T-2825): the edits that say each research note of the records a page
 # reads as authored — plants, wildlife, households and a person's card, a firm's record, a
 # building's card — without a ticket number, a record id or a file path. DERIVED HERE, not
@@ -784,7 +796,11 @@ rm -f "$SITE"/data/humans/*.measure.json
 # T-3500: each person's looks file is an input of tools/human_variation_kit.py, which carries
 # it into hm08_variation_persons.json (`looks`), the file the renderer reads; the 1812
 # gathering's 634 are 3 MB the page never fetches.
-rm -rf "$SITE/data/humans/variation/looks"
+# T-3548: the variation directory is authoring input. The renderer reads its
+# compiled values from web/hm08_variation_persons.json and web/hm08_variation_kit.*.
+# Portrait/model pictures remain in web/portraits; no evidence is removed there.
+rm -rf "$SITE/data/humans/variation"
+rm -f "$SITE/data/humans/prairie_1904.json"
 # T-3463: the people's instance records ship minified, as the residents do: the 1812 town's
 # 158 records are 0.86 MB of indentation a visitor never reads (humans.js fetches them with
 # response.json()). tools/check_published.mjs holds each to its source, value for value.
@@ -821,6 +837,18 @@ if [ -d assets/humans/web ]; then
   # (--streams), 2 KiB or more: the same bodies, hands and hair under different dress.
   node tools/share_glb_sheets.mjs "$SITE" --dir data/humans/web --source assets/humans/web --streams
 fi
+
+# T-3548: keep the larger neighborhood roster within the existing delivery budget.
+# Only JSON whitespace changes; check_published compares complete parsed values,
+# alongside the existing household-note and boot-sidecar transformations.
+python3 - "$SITE/data/humans" "$SITE/data/sidecars" <<'COMPACT_PEOPLE'
+import json, sys
+from pathlib import Path
+for folder in sys.argv[1:]:
+    for file in Path(folder).rglob('*.json'):
+        value = json.loads(file.read_text())
+        file.write_text(json.dumps(value, ensure_ascii=False, separators=(',', ':')) + '\n')
+COMPACT_PEOPLE
 
 # The animal layer (ROADMAP K51). Same argument as the residents above, and it
 # was open longer: 139 records across ten habitat zones, every one graded to

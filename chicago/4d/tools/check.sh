@@ -297,8 +297,18 @@ step "The Navigator docks, opens and snaps between its heights, Home reads the s
   node tools/test_navigator.mjs
 step "Settings lays out Display, Machine, Performance with Auto, Sound, Units and About & What's new, every id kept, every choice stored (T-2656)" \
   node tools/test_settings_app.mjs
-step "The Navigator's sounds: a tick per flipped digit at most 12 a second, nothing before the first tap, Master at 0 silent, a hidden tab stops the hum and the ambience, and Settings › Sound's levels reach the graph (T-2659)" \
+step "Recorded audio: era isolation, terrain water types, silent defaults, bounded memory, stale requests, mute and hidden-tab cleanup (T-3532)" \
   node tools/test_sound.mjs
+step "Hosted audio retains originals and binds published URLs to verified bytes without duplicate media (T-3532)" \
+  node tools/test_audio_hosting.mjs
+step "Dated habitat audio qualifies real fauna, leaves silence and bounds voices, buffers and stale work (T-3534)" \
+  node tools/test_habitat_audio.mjs
+step "Recorded transport follows moving dated actors with bounded spatial voices and mute cleanup (T-3544)" \
+  node tools/test_transport_audio.mjs
+step "Default audio packages include approved habitat clips and retain review-only opt-in (T-3534)" \
+  python3 tools/test_habitat_audio_package.py
+step "Published audio smoke verifies delivery bytes in full and sparse artifact checkouts (T-3532)" \
+  node tools/test_audio_smoke_replay.mjs
 step "Every Navigator app is legible at 4.5:1 or better in all four machines and both tones (T-2656, QA-21)" \
   node tools/check_navigator_contrast.mjs
 selftest "…and a token drifted toward its panel, or the device's overrides removed, is refused (T-2656)" \
@@ -430,6 +440,8 @@ step "Glessner's front door swings open, and a visitor and a drawn person walk u
   node tools/test_house_doors.mjs
 step "John J. Glessner on his front walk is greeted, and goes home up his steps, through his door and in (T-3443)" \
   node tools/test_house_errands.mjs
+step "Walking people keep their Interact menu, explicit picks persist, and dismissal releases them (T-3543)" \
+  node tools/test_person_interactions.mjs
 step "Glessner's court and side doors open and shut as people pass, up and down their stairs (T-3524)" \
   node tools/test_house_passages.mjs
 step "Loaded parade ground delegates to its native owner; failed assets and sundial geometry remain required (T-3041)" \
@@ -646,6 +658,12 @@ step "Each 1812 building's doors are where its model draws the leaf, and where o
   python3 tools/derive_doors_1812.py --check
 step "1812 people keep their day: off their dates nowhere (Lalime gone by 14 August, there in February), indoors or out by the hour, talking, at work, walking; a door offers Ask for whoever is inside, soldiers in quarters too, and the one asked for comes out to the visitor and goes back in (T-3463..T-3467)" \
   node tools/test_human_days.mjs
+step "Prairie Avenue roster casting, aliases, portraits and seasonal days remain consistent (T-3548)" \
+  python3 tools/test_prairie_people.py
+step "Prairie Avenue generated residents and appearance profiles reproduce (T-3547, T-3548)" \
+  python3 tools/prairie_people.py --check
+step "Prairie Avenue child source recipes match their pinned bodies (T-3548)" \
+  python3 tools/prairie_children_source.py --check
 step "Nobody stands in anybody else's place: a talk in a ring, people standing together talk, one alone is at a job, and every year's figures kept a body's width apart through the day, and nobody stands in a mat or bark lodge wall (T-3504, T-3520)" \
   node tools/test_human_spacing.mjs
 step "People keep busy all day: a talk gathers and parts again, each of its people at a job of their own or at play between, breaks indoors at their door and asked for there, every job's places clear of the buildings, the same round on every load; 1835 and 1904 too; most children indoors or by their own door, never a crowd of them without grown-ups (T-3505, T-3516, T-3520)" \
@@ -4897,7 +4915,7 @@ step "the boot sidecars rehydrate to the records at their own URLs (T-2315)" \
   node tools/pack_boot_sidecars.mjs --check
 
 step "publish.sh produces a mirror that matches its source" \
-  node tools/check_published.mjs
+  bash -c 'node tools/check_published.mjs && node tools/audio_hosting.mjs --check ../../site/4d'
 
 # T-3232: a texture sheet two or more published GLBs carry ships once, under
 # data/gltf/sheets/, and each GLB names it as an external buffer. The committed GLBs
@@ -8732,6 +8750,16 @@ step "Individual horse coats use stable source-bound identities and own only the
 
 step "Scoped teamster measurements retain every unmodified native fixture row and reject inventory drift (T-1789)" \
   node tools/test_human_fixture_scope.mjs --check
+
+step "Charles's coat registration and real-parent controls refuse body drift after one serialized input bootstrap (T-1789)" \
+  node tools/check_human_charles_coat.mjs --acquire-reviewed-parents -- python3 tools/human_charles_coat.py --check --then python3 tools/test_human_charles_coat_regeneration.py
+step "Portable Charles wool maps preserve exact recolor ownership and existing macro fabric (T-1789)" \
+  node tools/test_human_charles_coat.mjs
+step "Actual Charles MASTER and canonical WEB metadata retain exact glTF defaults and sampling semantics (T-1789)" \
+  node tools/test_human_charles_coat_defaults.mjs --check
+
+step "Charles immutable inputs require the exact recipe/tree and trusted promisor before any acquisition (T-1789)" \
+  node tools/test_human_charles_coat_inputs.mjs --check
 
 check_summary
 exit $CHECK_FAILED

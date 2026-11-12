@@ -32,6 +32,7 @@ import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { isDeepStrictEqual } from 'node:util';
 import { checkSheets } from './share_glb_sheets.mjs';
+import { checkAudio } from './audio_hosting.mjs';
 
 const HERE = path.dirname(new URL(import.meta.url).pathname);
 const REPO = path.resolve(HERE, '..');
@@ -138,6 +139,15 @@ for (const scene of existsSync(path.join(REPO, 'data/sidecars')) ? readdirSync(p
 }
 
 const TRANSFORMED = [
+  { re: /^data\/liberties\.json$/,
+    what: 'publish.sh removes JSON indentation from the liberty index; every parsed field and entry is retained',
+    gate: 'check_published.mjs compares the complete parsed source and published index, including every evidence note',
+    verify: rel => isDeepStrictEqual(JSON.parse(readFileSync(path.join(REPO,rel),'utf8')),JSON.parse(readFileSync(path.join(SITE,rel),'utf8')))
+      ? null : 'Published liberties differ from their source values' },
+  { re: /^walk\/audio\/catalog\.json$/,
+    what: 'audio_hosting.mjs rewrites media URLs to verified immutable R2 objects and minifies the catalogue; source audio stays outside the mirror',
+    gate: 'checkAudio verifies the complete published catalogue against source hashes, host policy and the recorded upload verification, and refuses duplicate local media',
+    verify: () => { try { checkAudio(SITE); } catch(e) { return e.message; } return null; } },
   { re: /^(?:\d{4}\/)?index\.html$/,
     what: 'the front doors — /4d/ and /4d/<year>/ on chicago.polecat.live. tools/write_entry_pages.mjs '
         + 'copies the temporal observatory to the root and writes year doors as the stamped renderer plus a base into walk/, so the address '
@@ -241,6 +251,11 @@ const TRANSFORMED = [
         + 'loader knows the packed copies exist without probing for them (T-2315)',
     gate: 'pack_boot_sidecars.mjs --check (check.sh) asserts the shipped index is its source plus exactly '
         + 'that key.' },
+  { re: /^data\/sidecars\/[^/]+\/.+\.json$/,
+    what: 'T-3548: remaining sidecars ship without JSON indentation; earlier transforms retain their own stronger checks',
+    gate: 'Every parsed field is compared with its source; no field is omitted or rewritten',
+    verify: rel => isDeepStrictEqual(JSON.parse(readFileSync(path.join(REPO, rel), 'utf8')),
+      JSON.parse(readFileSync(path.join(SITE, rel), 'utf8'))) ? null : `${rel}: compact sidecar differs from source` },
   { re: /^data\/gltf\/.*\.glb$/,
     what: 'gltf-transform meshopt derivative built by bake.sh from assets/gltf masters',
     gate: 'R-BUG3c-b: check.sh asserts the committed master against the heightfield and REPORTS the '
@@ -275,6 +290,15 @@ const TRANSFORMED = [
     gate: 'share_glb_sheets.mjs --dir data/humans/web --check: named by its own hash, held by two or more GLBs, '
         + 'and a re-deflated PNG draws its source\'s pixels with its source\'s other chunks (samePngPixels).' },
   // T-3463: the browser fixture's readings and the dress recipes are not shipped (publish.sh).
+  { re: /^data\/humans\/.+\.json$/,
+    what: 'T-3548: human runtime JSON ships without indentation; authoring-only variation inputs remain outside the mirror',
+    gate: 'Every parsed field equals its source, including all portraits, ages, dress, identities and daily schedules',
+    verify: rel => {
+      const src = rel.startsWith('data/humans/web/') ? rel.replace('data/humans/web/', 'assets/humans/web/') : rel;
+      if (!existsSync(path.join(REPO, src))) return `${rel}: no source for compact human record`;
+      return isDeepStrictEqual(JSON.parse(readFileSync(path.join(REPO, src), 'utf8')),
+        JSON.parse(readFileSync(path.join(SITE, rel), 'utf8'))) ? null : `${rel}: compact human record differs from source`;
+    } },
   { re: /^data\/humans\/instances\/.+\.json$/,
     what: 'publish.sh writes the people\'s instance records minified — the same JSON value on one line (T-3463)',
     gate: 'checked here: the SHIPPED file parses to a value deep-equal to its source data/humans/instances '
@@ -303,6 +327,8 @@ const walk = (dir, base = '') => {
 const sha = (p) => createHash('sha1').update(readFileSync(p)).digest('hex');
 
 const problems = [];
+if (existsSync(path.join(REPO,'tools/audio-hosting.json')) && !existsSync(path.join(SITE,'walk/audio/catalog.json')))
+  problems.push('Published audio catalogue is missing');
 const transformed = [];
 let identical = 0;
 const unmapped = [];

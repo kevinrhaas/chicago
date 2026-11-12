@@ -69,10 +69,28 @@ const date = '1812-08-14';
 const people = recs.filter((r) => Array.isArray(r.behaviour?.day))
   .map((r) => ({ key: r.person_id ?? r.id, b: r.behaviour, child: CHILD_RE.test(r.appearance?.asset_id ?? '') }));
 const plan = planDay(people, date, { clear });
-let rounds = 0, ownJobs = 0, ownPlaces = 0, plays = 0, lone = 0;
+let rounds = 0, ownJobs = 0, ownPlaces = 0, plays = 0, lone = 0, delegated = 0;
 for (const p of people) {
   for (const s0 of dayOn(p.b, date, p.key)?.spans ?? []) {
     if (s0.indoors || !s0.at) continue;
+    // T-3541: military posts keep human-duties' work/talk/beat cycles. Turning
+    // their declared duty into a civilian round would move the post and give it
+    // a second controller. Their played cycles and day handoffs are exercised
+    // in test_human_duties and test_human_days; ordinary gatherings below retain
+    // all their original movement, conversation and indoor-break requirements.
+    if (s0.duty) {
+      assert.equal(plan.has(s0), false, `${p.key}: a military post is not relocated into a civilian round`);
+      assert(p.b.quarters, `${p.key}: duty belongs to a soldier with declared quarters`);
+      if (p.b.duty?.kind === 'beat' || p.b.route?.length) {
+        assert.equal(s0.activity, 'walk', `${p.key}: the day declares a patrol`);
+        assert.deepEqual(s0.to_point, p.b.duty?.to ?? p.b.route.at(-1), `${p.key}: the declared patrol reaches its existing endpoint`);
+      } else if (p.b.duty?.kind === 'knot') {
+        assert.equal(s0.activity, 'talk', `${p.key}: the day declares the duty's conversation`);
+        assert.equal(s0.knot, p.b.duty.id, `${p.key}: the day names the existing duty group`);
+      } else assert(['stand', 'work'].includes(s0.activity), `${p.key}: the post declares its stationary work or watch`);
+      delegated++;
+      continue;
+    }
     const s = plan.get(s0) ?? s0;
     if (s.activity === 'talk') {
       assert(s.round?.own, `${p.key} ${s0.from}-${s0.to}: a talk is a round, with a job of their own between its gatherings`);
@@ -86,6 +104,7 @@ for (const p of people) {
     } else if (s.activity === 'work' && s !== s0 && !s0.activity?.startsWith?.('work')) lone++;
   }
 }
+assert(delegated >= 51, `all enlisted men's duty spans keep their controller (${delegated})`);
 assert(rounds > 150, `the town's talks are rounds (${rounds})`);
 assert(ownPlaces >= 1.6 * (ownJobs + plays), `nearly every job has its places, clear of buildings (${ownPlaces} for ${ownJobs + plays})`);
 assert(plays > 5, `the children play between gatherings (${plays})`);

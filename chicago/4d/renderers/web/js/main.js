@@ -1,3 +1,4 @@
+import { soundLevelsFrom } from './settings-app.js';
 /**
  * main.js — boot, loop, and the test harness handle.
  *
@@ -97,6 +98,8 @@ import { supportsTownTransport } from './transport-scenes.js';
 import { createWells } from './wells.js';
 import { createTimeStream } from './time-stream.js';
 import { createTelemetry } from './arrival-telemetry.js';
+import { paintArrivalDevice } from './arrival-device.js';
+import { setDraftHorseTextureCap } from './draft-horse-assets.js';
 import { t, applyStrings } from './strings/index.js';
 import './strings/arrival.js';
 import { createFlags } from './flags.js';
@@ -1763,15 +1766,49 @@ api.recall = recallHome;
 // T-2659: the Navigator's sounds (js/sound.js), off by default since T-2941. The module is fetched with the
 // first gesture, or on the way in when the jump that opened the page lets audio play
 // (sound.js § mayStartEarly), so it is never part of the boot payload.
+let arrivalSoundSettings = null;
 const loadSound = (early = false) => (api.soundReady ??= import('./sound.js')
   .then(({ createSound }) => (api.sound = createSound({
     audio: () => gesture.audio, unlock: () => gesture.unlockAudio(), early, journey,
-    settings: () => api.hud?.settings ?? null, scene: () => YEAR, navigator: () => api.navigator ?? null,
+    settings: () => api.hud?.settings ?? arrivalSoundSettings, scene: () => YEAR,
+    environment: () => ({ camera: api.camera, terrain: api.terrain, season: api.season?.current ?? 'summer',
+      flora: api.flora, faunaZones: api.fauna?.records, time: api.timeOfDay?.current,
+      transport: api.townTransport?.audioSources ?? [],
+      sunElevation: api.world?.sun?.elevationDeg }),
   })))
   .catch(() => { api.soundReady = null; return null; }));
 const gesture = createGestureGate({ journey, tagEl: document.getElementById('look-tag'),
   onGesture: () => { void loadSound().then((sound) => sound?.sync()); } });
 api.gesture = gesture;
+// T-3532: the arrival's explicit speaker control works while the scene is loading.
+const soundToggle = document.getElementById('arrival-sound');
+function paintSoundToggle() {
+  let saved = {};
+  try { saved = JSON.parse(localStorage.getItem('chicago4d.settings') || '{}'); } catch {}
+  const on = (api.hud?.settings ?? arrivalSoundSettings ?? soundLevelsFrom(saved)).soundMaster > 0;
+  if (soundToggle) {
+    soundToggle.setAttribute('aria-pressed', String(on));
+    soundToggle.setAttribute('aria-label', on ? 'Mute audio' : 'Enable audio');
+    soundToggle.title = on ? 'Mute audio' : 'Enable audio';
+  }
+}
+soundToggle?.addEventListener('click', () => {
+  // Resume synchronously inside the trusted click, before the dynamic import.
+  gesture.unlockAudio();
+  let saved = {};
+  try { saved = JSON.parse(localStorage.getItem('chicago4d.settings') || '{}'); } catch {}
+  const current = api.hud?.settings ?? arrivalSoundSettings ?? soundLevelsFrom(saved);
+  const value = current.soundMaster > 0 ? 0 : (current.soundLastMaster || saved.soundLastMaster || .8);
+  const last = current.soundMaster > 0 ? current.soundMaster : value;
+  arrivalSoundSettings = { ...current, soundMaster: value, soundLastMaster: last, soundChosen: true };
+  if (api.hud?.settings) Object.assign(api.hud.settings, arrivalSoundSettings);
+  try { localStorage.setItem('chicago4d.settings', JSON.stringify({ ...saved, ...arrivalSoundSettings })); } catch {}
+  const slider = document.getElementById('s-sound-master');
+  if (api.hud && slider) { slider.value = String(value); slider.dispatchEvent(new Event('input', { bubbles: true })); }
+  paintSoundToggle(); void loadSound().then(sound => sound?.sync());
+});
+paintSoundToggle();
+
 if (document.documentElement.dataset.transfer === 'true') void loadSound(true);
 Object.defineProperty(api, 'audio', { get: () => gesture.audio, enumerable: true, configurable: true });
 // T-2624: the page's static words from the string table, before anything paints over them.
@@ -1876,6 +1913,10 @@ async function boot() {
    */
   const lowMem = coarse || !!device.choice?.lowMemory || !!crashGuard.state.stepdown;
   api.lowMemory = lowMem;
+  // T-3542: the horses' pictures are what keeping the teams on a phone costs it (six maps,
+  // about 22 MB): on a memory-saving device each is redrawn at 512 px (1024 on a computer)
+  // before the template is shared — blurrier up close, never gone (draft-horse-assets.js).
+  if (lowMem) setDraftHorseTextureCap(coarse ? 512 : 1024);
   // Resolve BEFORE the GLB fetch: a weak-machine boot must never download the
   // full inspection model simply to turn it down once Settings has mounted.
   // T-2547's step-down outranks everything; then the stored choice; then the
@@ -1911,6 +1952,16 @@ async function boot() {
   const bootQuality = crashBoot.lowered.quality ? crashBoot.quality
     : resolveSharpness(readQualityPreference(), coarse, qualityGuess);
   const detailOpts = () => ({ detail: detailLevel });
+  // T-3539: the loading screen's device panel — the Observatory's score, why it reads so
+  // and what this boot will draw, from the settings in force (not only the profile's).
+  try {
+    api.arrivalDevice = paintArrivalDevice(document.getElementById('arrival-device'), {
+      profile: device, detail: detailLevel, sharpness: bootQuality, lowMemory: lowMem,
+      steppedDown: !!(crashBoot.lowered.detail || crashBoot.lowered.quality),
+      chosen: !!(readDetailPreference() || Number(readQualityPreference()) > 0),
+      keptAfter: (() => { try { const k = JSON.parse(localStorage.getItem('chicago4d.settings') || '{}')?.detailKept;
+        return k?.kept === detailLevel && DETAIL[k?.wanted] ? k.wanted : null; } catch { return null; } })() });
+  } catch (err) { console.warn('[arrival device]', err); }
 
   /**
    * MULTISAMPLING, ON EVERY DEVICE INCLUDING A PHONE (T-0157).
@@ -2648,7 +2699,7 @@ async function boot() {
   // given back by api.season.restore() (a choice made by hand ends the hold).
   const seasonState = { season: 'summer', treesShown: seasonPref.treesShown, own: seasonPref.season, held: null };
   let structuresSeasoned = false;
-  let seasonPlants = () => null;
+  let seasonPlants = async () => null;
   /**
    * T-3399 — the 1812/1835 fenced ground (yards.js): a dooryard's green and a garden
    * bed's crop drills brown and take the fall's leaves and the winter's snow as a
@@ -3347,7 +3398,12 @@ async function boot() {
    * summer visit compiles and draws what it did. Read through `flora` and `trees`
    * as they stand, so a detail rebuild's new layers take it the same way.
    */
-  seasonPlants = (s) => {
+  /* T-3542: always a promise. 1904's grown woods are the empty layer (trees.js returns no
+   * setSeason when nothing is planted), so this returned undefined, and a Scene detail
+   * switch in any season but summer threw on `.then` HALFWAY through its commit, after the
+   * houses and plants were swapped: "Could not load full detail" and a frozen town (the
+   * owner's M5 Max, 2026-11-10, a jaunt holding winter). */
+  seasonPlants = async (s) => {
     const on = s !== 'summer';
     if (on) {
       flora.group.traverse((o) => {
@@ -3556,7 +3612,12 @@ async function boot() {
       problems.push(`Glessner v4 detail: ${message}`);
       console.error(`[4D Chicago] ${message}`);
       hud.say(message, 9000);
+      // The level kept is stored, so the next visit does not walk into the same failure.
+      // T-3542: and it is marked as kept, not chosen (the owner, 2026-11-10: fine "as long as
+      // you tell the user that you are stepping it down"): the loading screen's device line
+      // says so until the visitor picks a Scene detail again (hud.js clears the mark).
       hud.settings.detail = retained;
+      hud.settings.detailKept = { wanted, kept: retained };
       const select = document.getElementById('s-detail');
       if (select) select.value = retained;
       try { window.localStorage.setItem('chicago4d.settings', JSON.stringify(hud.settings)); } catch { /* optional */ }
@@ -3858,6 +3919,7 @@ async function boot() {
     hud.setPanel(true); hud.selectTab('people'); api.people.open?.(personId);
   });
   api.humans.on('role_open', ({ roleCard }) => showHumanRoleCard(roleCard));
+  api.humans.on('select', ({ instanceId }) => api.interactKey?.select(`person:${instanceId}`));
   // T-3404: a figure turns to a visitor who walks up to them (human-life.js, T-3402, where
   // its rig carries the life layer), and looks a while before going back to the street.
   api.humans.on('approach', ({ instanceId }) => {
@@ -3866,11 +3928,11 @@ async function boot() {
   });
   scene3d.add(api.humans.group);
   // T-3490: men at a shared duty — a knot talking, a sentry's beat, a rank (human-duties.js).
-  // Out by day, in quarters by night but for the guard (`behaviour.hours`, by the sun's clock).
+  // The day engine owns quarters and trips; the duty layer owns a person at their post.
   const sunHour = () => { const [h, m] = String(world.sunTime ?? '').split(':').map(Number); return Number.isFinite(h) ? h + (m || 0) / 60 : null; };
   api.duties = createHumanDuties({ humans: api.humans, three: THREE, hour: sunHour,
-    // T-3463: a man asked for at his quarters' door is out of his duty till he goes back in.
-    held: (actor) => api.days?.isCalled(actor) ?? false });
+    // Calls, requested activities, social breaks and jaunts temporarily release a duty.
+    held: (actor) => api.days?.isOccupied(actor) ?? false });
   // T-3463..T-3467 (owner, 2026-11-08: "some inside and others active and doing what they
   // would be doing as normal activities per time of day", "If they are inside I can walk to
   // door and ask for any person inside"): each person's day by the scene's date and hour,
@@ -3887,11 +3949,11 @@ async function boot() {
     const getOptional = (rel) => fetch(new URL(rel, bases.dataBase), { cache: 'no-cache' })
       .then((r) => (r.ok ? r.json() : null)).catch(() => null);
     const [doors, inside] = await Promise.all([getOptional(`humans/doors_${daysScene}.json`),
-      daysScene === '1812' ? getOptional('humans/inside_1812.json') : null]);
+      ['1812', '1904'].includes(daysScene) ? getOptional(`humans/inside_${daysScene}.json`) : null]);
     lodgeWalls = (doors?.structures ?? []).flatMap((row) => (row.walls ?? []).map((ring, i) => ({ id: `${row.structure}:walls${i + 1}`, pts: ring })));
     // The gathering's people who are carded and not drawn (inside_1812.json): a figure is
-    // built for one only when they are asked for at their lodge's door, from the dress their
-    // entry names, and taken away once they are back in.
+    // built for a small nearby rotation or a door call, from the dress their entry
+    // names, and taken away once they are back in. Their logical days need no meshes.
     const byPerson = new Map((people?.people ?? []).map((row) => [row.id, row]));
     const spawn = (entry, door) => {
       if (!entry.asset_id || !api.humans?.add) return null;
@@ -3908,6 +3970,8 @@ async function boot() {
     const dayClear = clearWayOf(footprints.concat(lodgeWalls));
     api.days = createHumanDays({ humans: api.humans, three: THREE, hour: sunHour, date: () => world.sunDate ?? null,
       doors, interactions, inside, spawn,
+      openCard: (actor) => api.humans.select(actor.id),
+      openResident: (id) => openPersonCard(id),
       held: (actor) => !!api.houseErrands?.get(actor.id)?.running,
       despawn: (actor) => api.humans?.remove?.(actor.id),
       visitor: () => (walker.state.flying ? null : { e: walker.state.e, n: walker.state.n }),
@@ -3985,7 +4049,10 @@ async function boot() {
           ? (e, n) => streetGrid.carriagewayHeight(e, n)
           : smoothGround ?? ((e, n) => profiledGroundHeight(terrain, decks, e, n)),
         footprints: () => footprints, visitor: () => walker.state,
-        interactions, detail: detailLevel, coarse, problems,
+        interactions, detail: detailLevel, problems,
+        // T-3542: every memory-saving device (a phone, an integrated-GPU computer, Light) takes
+        // a row's lighter horse, vehicle and driver; it no longer means no team at all.
+        coarse: lowMem || detailLevel === 'light',
         // T-3475: Step back to let it pass walks the visitor to a clear stand, looking where they looked.
         blockedAt: (e, n) => api.router?.blockedAt(e, n) ?? false,
         placeVisitor: (e, n) => { if (!walker.state.flying) walker.teleport({ local_e: e, local_n: n,
@@ -4120,7 +4187,7 @@ async function boot() {
       if (level === 'reconstructed' && confidence.hidden.reconstructed !== !!hide) resetVisualClock();
       confidence.setHidden(level, hide); gateFrame.invalidate(); api.welcome?.refresh?.(); },
     onSetting: (key, value) => {
-      api.sound?.setting(key); // T-2659: Settings › Sound's levels, live
+      api.sound?.setting(key); paintSoundToggle(); // T-3532: Settings › Sound's levels, live
       // A setting can write a value no material owns (a patched shader's
       // uniform), which the gate's signature cannot see: draw once regardless.
       gateFrame.invalidate();
@@ -4188,6 +4255,13 @@ async function boot() {
       }
     },
   });
+
+  // Carry an arrival choice even when browser storage is unavailable.
+  if (arrivalSoundSettings) {
+    Object.assign(hud.settings, arrivalSoundSettings);
+    const slider = document.getElementById('s-sound-master');
+    if (slider) { slider.value = String(hud.settings.soundMaster); slider.dispatchEvent(new Event('input', { bubbles: true })); }
+  }
 
   // The Evidence panel as a hub of topics rather than one scroll; it reorganises
   // the section's own static markup, so the mounts below keep their ids.
@@ -5501,7 +5575,9 @@ async function boot() {
     if (!root || !id) return null;
     personStories ??= fetch(new URL(`${root}/stories.json`, resolveBases().dataBase), { cache: 'no-cache' })
       .then((res) => (res.ok ? res.json() : null)).then((doc) => doc?.stories ?? {}).catch(() => ({}));
-    return (await personStories)?.[id] ?? null;
+    const story = (await personStories)?.[id] ?? null;
+    const care = api.days?.careStatus?.(id);
+    return care ? [...(story ?? []), care.text + ' Daily care and the choice of caregivers are liberties; infants remain in household care rather than walking outside independently.'] : story;
   }
   // T-3413: a face fitted to a portrait of the person, for their card's Likeness section. The
   // file is the one the humans layer reads (assets/humans/web/hm08_variation_persons.json), read once.
@@ -5782,6 +5858,10 @@ async function boot() {
   const interactKey = createInteractKey({ interactions,
     keyEl: document.getElementById('btn-interact'),
     moreEl: document.getElementById('interact-more'),
+    onExpand: (thing) => {
+      api.navigator?.dock?.();
+      return thing?.kind === 'person' ? api.days?.attend?.(thing.actor?.id) : null;
+    },
     where: () => ({ e: walker.state.e, n: walker.state.n, bearing: walker.bearingDeg, flying: walker.state.flying }),
     say: text => hud.say(text), enabled: () => !gateOpen, keys: window, isTyping,
   });

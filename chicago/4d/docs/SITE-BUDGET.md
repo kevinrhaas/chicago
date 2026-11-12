@@ -1216,6 +1216,26 @@ Two 432 MiB allowances plus §14's 132.233 MiB stay under 1 GiB, and `dev` now h
 109 MB of headroom inside its allowance. The allowance is not lowered here, because
 production still ships the copies until the next promotion.
 
+## 16. Recorded audio moves to a shared bucket — T-3532
+
+The expanded audio library has 40 delivery files totaling 41,173,377 bytes
+(39.266 MiB). After full hash, CORS, MIME and byte-range verification, the local
+development publisher replaces those files with immutable R2 URLs in its small
+catalogue. Originals and authoring deliveries remain outside the published tree.
+Both app revisions can refer to the same bytes without duplicating them in Pages.
+
+The pre-integration audio pilot measured 432.044 MiB, slightly over its then-current
+432 MiB ceiling. Removing only indentation from the published `data/liberties.json`
+measured 431.363 MiB after compiling the audio liberties. `check_published.mjs`
+requires full parsed-value equality with the readable source; no evidence records
+or fields are dropped. The audio pilot did not raise the storage allowance. These
+are historical local app-tree measurements, not measurements of the merged dev
+build, the complete live deployment or a production promotion. The current storage
+allowance is 433 MiB under the separately measured picture-delivery change in
+section 17 below; the integrated audio/building tree must be measured again. The
+r2.dev host remains a development endpoint; production domain/cache work is
+described in AUDIO-HOSTING.md.
+
 
 ## 17. The four-building picture delivery: measured storage allowance, 2026-11-10
 
@@ -1271,3 +1291,8 @@ ordinary Full, Balanced, Ghost, inspection and draw-call limits retain the
 completed picture-group/current-dev values. Existing mapped fort recipes and
 1904 material bindings are preserved. See docs/RESEARCH/early-masonry-3341.md for
 the surface-disposition ruling and exact generation commands.
+
+
+## Approved younger Prairie residents — T-3550 (2026-11-11)
+
+The five owner-approved child and teen roles add about 5.26 MiB to the published tree after shared texture extraction. The preparation checkpoint measures 440.883 MiB against the adult rollout at 435.62 MiB. The storage allowance moves from 436 to 443 MiB for these exports and their younger-resident records. Using the existing allowance accounting, two 443 MiB trees plus the last measured 132.233 MiB of other content total 1018.233 MiB, below 1024 MiB. This is a storage allowance, not a new runtime load: figures remain lazy and the ordinary rotation remains bounded. Boot, Light, frame, memory, warning and duplicate checks retain their limits. The integrated publication with dev 62da0f4, all 35 younger figures and five care records measures 441.14 MiB; site validation passes with 1.86 MiB remaining under the allowance.

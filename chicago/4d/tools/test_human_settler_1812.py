@@ -9,6 +9,9 @@ from pathlib import Path
 import sys
 import unittest
 
+from test_human_linen_seat import LinenSeat
+from test_human_clothing_capture_v2 import CaptureControls
+
 sys.dont_write_bytecode = True
 import human_gentleman_1904 as G
 import human_settler_1812 as St

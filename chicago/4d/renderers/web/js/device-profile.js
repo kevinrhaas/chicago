@@ -130,6 +130,13 @@ export function classify(signals, bench, { forced = null, stepDown = 0, touch = 
     cls = forced; why = `forced by ?device=${forced}`;
   } else if (!signals.webgl2) {
     cls = 'weak'; why = 'no WebGL2 context could be read';
+  } else if (isSoftwareRenderer(signals.renderer) && signals.automated === false) {
+    // T-3552: a real visitor drawing in software (Windows with no graphics driver in
+    // use: "Microsoft Basic Render Driver"; graphics acceleration turned off) pays for
+    // every texture in the tab's own memory and every pixel on the CPU, so it boots as
+    // a modest computer: Balanced, its people and teams kept, on the memory diet. Only
+    // a browser that says it is automated (the harness) keeps the platform default.
+    cls = 'weak'; why = 'a software rasteriser: no graphics driver in use, not benchmarked';
   } else if (isSoftwareRenderer(signals.renderer)) {
     cls = 'standard'; why = 'a software rasteriser: the platform default, not benchmarked';
   } else if ((signals.cores && signals.cores <= 2) || (signals.memoryGB && signals.memoryGB <= 2)
@@ -175,22 +182,24 @@ export function shortGpu(renderer) {
 /**
  * What a class chooses, on a touch device or not. Pure.
  *
- * A phone or tablet keeps `light` detail at every class: the owner's phone
- * memory crashes (T-2546) are about geometry held, and until that meter reads
- * what `balanced` costs on a phone a stronger phone earns Sharpness, not
- * geometry. A weak desktop boots `balanced` at Low, and since T-3537 with the
+ * A phone or tablet starts at `light`, and since T-3542 a strong one at
+ * `balanced` (measured: 1904 525 MB, 1835 677, 1812 470 on the phone meter,
+ * against Light's 426 / 501 / 339), every phone still on the memory diet; a
+ * phone that runs out of memory steps down (crash-guard.js). Light itself no
+ * longer drops anything core: since the owner's ruling (2026-11-10) it draws
+ * people to 140 m and keeps its horses, carriages and wagons, nearer. A weak desktop boots `balanced` at Low, and since T-3537 with the
  * phone's memory diet: `balanced` alone still held 1904's every page array beside
  * the GPU's copy (1,009 MB), and a weak computer is mostly one on integrated
  * graphics, whose GPU copy comes out of the same RAM. Not `light`: the owner,
  * 2026-11-10, "I didn't want to lose people at lower computer settings ... or
- * horses or carriages or wagons" — `light` draws no horse or vehicle at all, and
- * its people only to 60 m. Blurrier is the price instead: Sharpness Low and the
+ * horses or carriages or wagons" — `light` then drew no horse or vehicle at all
+ * (T-3542 since draws them nearer). Blurrier is the price instead: Sharpness Low and the
  * light texture tier. A strong desktop is drawn at High.
  */
 export function decide(cls, { touch = false, cores = null, webgpu = false } = {}) {
   const c = DEVICE_CLASSES.includes(cls) ? cls : 'standard';
   const table = touch
-    ? { weak: ['light', 1], standard: ['light', 1], strong: ['light', 1.5] }
+    ? { weak: ['light', 1], standard: ['light', 1], strong: ['balanced', 1.5] }
     : { weak: ['balanced', 1], standard: ['full', 1.5], strong: ['full', 2] };
   const [detail, sharpness] = table[c];
   const textures = touch || c === 'weak' ? 'light' : 'full';
@@ -477,6 +486,8 @@ export async function profileDevice({
       ...read.signals,
       cores: Number(nav?.hardwareConcurrency) || null,
       memoryGB: Number(nav?.deviceMemory) || null,
+      // T-3552: an automated browser (Playwright, WebDriver) says so; a visitor's does not.
+      automated: nav ? !!nav.webdriver : null,
       screen: win?.screen ? [win.screen.width, win.screen.height] : null,
       dpr: Number(win?.devicePixelRatio) || 1,
     };

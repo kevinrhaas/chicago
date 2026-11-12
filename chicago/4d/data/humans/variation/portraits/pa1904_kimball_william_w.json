@@ -1,0 +1,149 @@
+{
+ "format": "chicago4d_human_portrait_marks_v1",
+ "ticket": "T-3547",
+ "person_id": "pa1904_kimball_william_w",
+ "scene": "1904",
+ "source": "hall_successful_men_1896",
+ "scan": "https://archive.org/download/americassuccessf02hallrich/page/leaf520_w3000.jpg",
+ "scan_size_px": [
+  2002,
+  2912
+ ],
+ "crop_px": [
+  567,
+  556,
+  1223,
+  1430
+ ],
+ "_doc": "Visible facial landmarks read by eye on the identified original plate. Coordinates are in the crop; sigma includes screening and occlusion. No hidden far eye is invented.",
+ "age_at_picture_years": 68,
+ "age_note": "Undated portrait; age is an approximate modelling estimate from the period of the plate. Scene age uses the separately sourced birth date. The printed presidency year for Keith is not a photographic date.",
+ "grade": "inferred",
+ "basis": "Identified caption/signature and biographical entry, plate facing p. 461. A single-view facial fit, with loose uncertainties for obscured features; the image identity is attested but unseen form is reconstructed.",
+ "not_modelled": [
+  "Exact photographic date; skin, eye and clothing colours; height and build below the bust."
+ ],
+ "axes": [
+  "nose_length",
+  "nose_width",
+  "nose_depth",
+  "nose_hump",
+  "nose_curve",
+  "nose_tip",
+  "nose_tip_width",
+  "nostrils",
+  "nose_height",
+  "mouth_width",
+  "lip_upper",
+  "lip_lower",
+  "mouth_height",
+  "chin_prominence",
+  "chin_width",
+  "chin_height",
+  "jaw",
+  "prognathism",
+  "cheekbones",
+  "cheek_volume",
+  "cheek_inner",
+  "brow_height",
+  "brow_angle",
+  "brow_ridge",
+  "forehead_slope",
+  "temples",
+  "ear_size",
+  "ear_flap",
+  "ear_lobe",
+  "jowls",
+  "head_shape",
+  "forehead_height"
+ ],
+ "marks": [
+  {
+   "landmark": "pupil_r",
+   "x": 423,
+   "y": 334,
+   "sigma_px": 11.1
+  },
+  {
+   "landmark": "eye_outer_r",
+   "x": 381,
+   "y": 329,
+   "sigma_px": 11.1
+  },
+  {
+   "landmark": "eye_inner_r",
+   "x": 456,
+   "y": 329,
+   "sigma_px": 11.1
+  },
+  {
+   "landmark": "nasion",
+   "x": 519,
+   "y": 314,
+   "sigma_px": 13.3
+  },
+  {
+   "landmark": "nose_tip",
+   "x": 576,
+   "y": 405,
+   "sigma_px": 8.9
+  },
+  {
+   "landmark": "subnasale",
+   "x": 512,
+   "y": 454,
+   "sigma_px": 13.3
+  },
+  {
+   "landmark": "stomion",
+   "x": 505,
+   "y": 516,
+   "sigma_px": 22.2
+  },
+  {
+   "landmark": "menton",
+   "x": 478,
+   "y": 632,
+   "sigma_px": 17.8
+  },
+  {
+   "landmark": "ear_top_r",
+   "x": 138,
+   "y": 352,
+   "sigma_px": 17.8
+  },
+  {
+   "landmark": "ear_lobe_r",
+   "x": 183,
+   "y": 492,
+   "sigma_px": 17.8
+  },
+  {
+   "landmark": "vertex",
+   "x": 260,
+   "y": 74,
+   "sigma_px": 33.4
+  }
+ ],
+ "card": {
+  "_doc": "What the person's card shows (T-3413): `portrait` is cut from the scan at `portrait_from_scan_px` (left, top, right, bottom) and scaled to `size_px`; `model` is tools/portrait_still.mjs's render of the fitted face on `body`, turned to the fit's yaw and framed like the portrait. `dress` (T-3440): the still is dressed as humans.js dresses him in town, with his skin, his own hair and moustache (human-hair-styles.js) and his spectacles (human-spectacles.js). `hide` leaves out his derby: the portrait is bareheaded.",
+  "portrait": "assets/humans/web/portraits/pa1904_kimball_william_w_portrait.jpg",
+  "portrait_from_scan_px": [
+   567,
+   556,
+   1223,
+   1430
+  ],
+  "model": "assets/humans/web/portraits/pa1904_kimball_william_w_model.jpg",
+  "size_px": [
+   360,
+   480
+  ],
+  "body": "glessner_john_j_1904",
+  "background": "#1c1b18",
+  "distance_m": 0.9,
+  "aim_above_head_m": 0.0,
+  "dress": true,
+  "hide": "^headwear"
+ }
+}

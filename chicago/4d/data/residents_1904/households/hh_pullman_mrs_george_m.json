@@ -38,13 +38,15 @@
   "persons": [
     {
       "id": "pa1904_pullman_mrs_george_m",
-      "name": "Mrs. George M. Pullman",
+      "name": "Harriet Sanger Pullman",
       "relationship": "head",
       "grade": "attested",
       "sources": [
         "chicago_blue_book_1904",
         "chicago_blue_book_1905",
-        "census_1900_chicago_t623_roll245"
+        "census_1900_chicago_t623_roll245",
+        "harris_ewing_pullman_1908",
+        "smithsonian_harriet_sanger_pullman"
       ],
       "printed_as": "1729 Mrs. Geo. M. Pullman",
       "census_1900": {
@@ -54,7 +56,21 @@
         "as_enumerated": "Pullman, G. M. Mrs.",
         "relation_as_enumerated": "Head"
       },
-      "note": "The 1900 census lists G. M. Pullman here as head, with the personal columns written 'Unknown' (ED 40, sheet 1A, line 1, leaf n794)."
+      "note": "The 1900 census lists G. M. Pullman here as head, with the personal columns written 'Unknown' (ED 40, sheet 1A, line 1, leaf n794).",
+      "born": {
+        "value": "1842-04-18",
+        "confidence": "attested",
+        "sources": [
+          "smithsonian_harriet_sanger_pullman"
+        ],
+        "note": "Smithsonian sitter record; the 1900 census leaves her personal columns unknown."
+      },
+      "portrait": {
+        "image": "humans/web/portraits/pa1904_pullman_mrs_george_m_portrait.jpg",
+        "caption": "Harriet Sanger Pullman, Harris & Ewing, 1908. Library of Congress. Four years after the scene.",
+        "grade": "attested",
+        "why": "Catalogue identity cross-checked with the Glessner House Museum account of Florence Lowden’s mother. The modeled face uses her age in 1904; unseen form remains reconstructed."
+      }
     },
     {
       "id": "pa1904_pullman_florence_at_1729",
@@ -81,7 +97,15 @@
         "on_scene_date": "no"
       },
       "own_card": "pa1904_lowden_mrs_frank_orren",
-      "note": "The Pullmans' elder daughter, who grew up in the house. The Blue Book prints the household as Mr. and Mrs. Geo. M. Pullman '& drs.' in 1890 and 1892 and '& dr.' in 1894, when she was the daughter still at home. She married Frank Lowden in 1896 in the house itself, two of George Pullman's brothers taking the service. In 1904 she lives across the street at 1912 with her husband and children, on their own card."
+      "note": "The Pullmans' elder daughter, who grew up in the house. The Blue Book prints the household as Mr. and Mrs. Geo. M. Pullman '& drs.' in 1890 and 1892 and '& dr.' in 1894, when she was the daughter still at home. She married Frank Lowden in 1896 in the house itself, two of George Pullman's brothers taking the service. In 1904 she lives across the street at 1912 with her husband and children, on their own card.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_pullman_harriett",
@@ -105,7 +129,15 @@
         "years": "1870s-about 1893",
         "on_scene_date": "no"
       },
-      "note": "The younger daughter, who grew up in the house. The Blue Book's '& drs.' (two daughters at home) runs to the 1892 edition and is '& dr.' by 1894, so she had left between the two. She married Frank J. Carolan of San Francisco (the museum's page); the year of the marriage is not in the sources read."
+      "note": "The younger daughter, who grew up in the house. The Blue Book's '& drs.' (two daughters at home) runs to the 1892 edition and is '& dr.' by 1894, so she had left between the two. She married Frank J. Carolan of San Francisco (the museum's page); the year of the marriage is not in the sources read.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_pullman_george_m_jr",
@@ -132,7 +164,15 @@
         "years": "1875-1898",
         "on_scene_date": "no"
       },
-      "note": "One of the twins. As boys the twins were schooled at home on Prairie Avenue, and the Blue Book lists him at 1729 in the 1897 and 1898 editions. He married on 30 September 1899 in Carson, Nevada, and died at Menlo Park, California, in November 1901, aged 26, long before the scene. The census of 1910 has his mother the mother of four children, two then living (ED 166, sheet 6A, line 28, leaf n1439)."
+      "note": "One of the twins. As boys the twins were schooled at home on Prairie Avenue, and the Blue Book lists him at 1729 in the 1897 and 1898 editions. He married on 30 September 1899 in Carson, Nevada, and died at Menlo Park, California, in November 1901, aged 26, long before the scene. The census of 1910 has his mother the mother of four children, two then living (ED 166, sheet 6A, line 28, leaf n1439).",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_pullman_w_sanger",
@@ -160,7 +200,15 @@
         "years": "1875-1898",
         "on_scene_date": "no"
       },
-      "note": "Walter Sanger Pullman, called Sanger, the other twin, schooled at home on Prairie Avenue with his brother. The Blue Book lists him at 1729 from 1895 to 1898. Like his brother he made his home in California, and he died there, at Belmont, on 14 August 1905."
+      "note": "Walter Sanger Pullman, called Sanger, the other twin, schooled at home on Prairie Avenue with his brother. The Blue Book lists him at 1729 from 1895 to 1898. Like his brother he made his home in California, and he died there, at Belmont, on 14 August 1905.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_robinson_miss_r_s",
@@ -171,7 +219,15 @@
         "chicago_blue_book_1905"
       ],
       "printed_as": "1729 Miss R. S. Robinson",
-      "note": "First listed at 1729 in the 1905 edition (canvass begun September 1904); the 1904 edition does not list her, so whether she lived here on 1 July 1904 is not documented. What she was to Mrs. Pullman (relative, companion or secretary) is not printed."
+      "note": "First listed at 1729 in the 1905 edition (canvass begun September 1904); the 1904 edition does not list her, so whether she lived here on 1 July 1904 is not documented. What she was to Mrs. Pullman (relative, companion or secretary) is not printed.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_pullman_mrs_george_m_c1900_emma_scott",
@@ -204,7 +260,15 @@
         "as_enumerated": "Scott, Emma Mrs.",
         "relation_as_enumerated": "Servant"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a servant (housekeeper); born October 1870 (the figures are hard to read), in England, came to the United States in 1880, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (housekeeper); born October 1870 (the figures are hard to read), in England, came to the United States in 1880, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_pullman_mrs_george_m_c1900_henry_windish",
@@ -237,7 +301,15 @@
         "as_enumerated": "Windish, Henry",
         "relation_as_enumerated": "Head"
       },
-      "note": "Enumerated on 1 June 1900 in the dwelling the enumerator visited next, which has no number of its own and follows 1729, as the head of his own household there (coachman); born March 1854, in Germany, came to the United States in 1885, married. Living with him: Mary Windish (wife), Louise Windish (daughter), George Windish (son), Friedrich Windish (son), May Windish (daughter), Marguerite Windish (daughter). Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+      "note": "Enumerated on 1 June 1900 in the dwelling the enumerator visited next, which has no number of its own and follows 1729, as the head of his own household there (coachman); born March 1854, in Germany, came to the United States in 1885, married. Living with him: Mary Windish (wife), Louise Windish (daughter), George Windish (son), Friedrich Windish (son), May Windish (daughter), Marguerite Windish (daughter). Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     },
     {
       "id": "pa1904_pullman_mrs_george_m_c1900_samuel_whatter_jr",
@@ -270,7 +342,15 @@
         "as_enumerated": "Whatter, Samuel Jr.",
         "relation_as_enumerated": "Servant"
       },
-      "note": "Enumerated on 1 June 1900 in the dwelling the enumerator visited next, which has no number of its own and follows 1729, as a servant (groom); born December 1865, in England, came to the United States in 1880, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading."
+      "note": "Enumerated on 1 June 1900 in the dwelling the enumerator visited next, which has no number of its own and follows 1729, as a servant (groom); born December 1865, in England, came to the United States in 1880, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. Part of the name is hard to read on the sheet; this is the best reading.",
+      "portrait_research": {
+        "status": "not_identified",
+        "note": "An individual portrait has not yet been verified in the period portrait books and Glessner House Museum article archive searched for this project. Any figure shown is a reconstruction, not an attested likeness.",
+        "sources": [
+          "witherspoon_men_of_illinois_1902",
+          "leonard_book_of_chicagoans_1905"
+        ]
+      }
     }
   ]
 }

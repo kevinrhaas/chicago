@@ -18,9 +18,10 @@ export default register('settings', {
   'sound.master': 'Master',
   'sound.effects': 'Effects',
   'sound.ambience': 'Ambience',
+  'sound.music': 'Music',
+  'sound.effectsHelp': 'Nearby actions: wagon wheels and harness jingles from moving teams.',
+  'sound.ambienceHelp': 'Background environment: wind, lake waves, birds and insects.',
   'sound.off': 'Off',
-  // T-2659: that the ambience is mood, not a recording; T-3445 cut it to that and Master.
-  'sound.note': 'Off until you raise Master. Ambience is a mood tone, not a recording of the past.',
   'about': "About & What's new",
   'whatsnew.line': 'Release notes',
 });

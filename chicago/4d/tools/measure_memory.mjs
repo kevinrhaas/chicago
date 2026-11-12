@@ -180,6 +180,11 @@ const VIEWPORTS = [
   // for (`--only shared`, or a list such as `desktop,shared`).
   { id: 'shared', label: 'integrated-GPU desktop 1920x1080 ?device=weak', width: 1920, height: 1080, dsf: 1,
     mobile: false, tier: null, query: 'device=weak' },
+  // T-3542: a strong phone (a recent iPhone or flagship Android), which the profile now
+  // starts above Light: the same phone with `?device=strong`. Read only when asked for
+  // (`--only phone-strong`).
+  { id: 'phone-strong', label: 'strong phone 390x780 dpr3 ?device=strong', width: 390, height: 780, dsf: 3,
+    mobile: true, tier: null, query: 'device=strong' },
 ].filter((v) => (SELF_TEST ? v.mobile
   : ONLY === 'both' ? v.id === 'desktop' || v.id === 'mobile' : ONLY.split(',').includes(v.id)));
 

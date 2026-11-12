@@ -115,6 +115,13 @@ a.step(0,0); assert.equal(a.body.values.at(-1),0,'A held visual tick advances no
   w.recheck = 0; w.distanceForTest = 2; w.step(.05,.05); assert.equal(w.walks.length, 2, 'back in range: one walk that frame');
   w.step(.05,.05); assert.equal(w.walks.length, 3);
   const still = actor(); still.distanceForTest = 500; still.step(.05,.05); still.step(.05,.05); assert.equal(still.walks.length, 0, 'a figure with no route does nothing out of range'); }
+// T-3543: one-time requests also finish offscreen, with no double step on re-entry.
+{ const w = actor(); w.path = {};
+  w.distanceForTest = 500; w.step(.05,.05);
+  w.step(.05,.05); assert.deepEqual(w.walks, [.05], 'an offscreen one-time path keeps advancing');
+  assert.equal(w.body.values.length, 0, 'offscreen path movement does not animate the mesh');
+  w.recheck = 0; w.distanceForTest = 2; w.step(.05,.05);
+  assert.equal(w.walks.length, 2, 'a requested walk advances once on the re-entry frame'); }
 actorDispose.call(a); const disposedCount=a.body; assert.equal(a.step(.05,50),false); assert.equal(a.body,disposedCount);
 const layerUpdate = required(engine.match(/\n    update\(dt, camera, visitor = null, visualDt = dt\) \{([\s\S]*?)\n    \},\n\n    \/\*\* The selectable/), 'human layer update')[1];
 // T-3495: `kept` is the jaunt's hold on the everyday people; a held figure is not updated either.
@@ -131,7 +138,7 @@ const horseSignature = horseUpdate[1].slice(0,horseUpdate[1].indexOf(' {\n')).re
 const horseBody = horseUpdate[1].slice(horseUpdate[1].indexOf(' {\n')+3);
 const horseTier = required(standing.match(/    async setTier\(next\) \{([\s\S]*?)\n    \},\n    pickAt/), 'horse tier change')[1];
 const horseReset = required(standing.match(/  const resetIdleClock = [\s\S]*?\n  motionPreference\?\.addEventListener\?\.\('change', resetIdleClock\);/), 'horse preference reset')[0];
-const reach = required(standing.match(/const REACH = [^;]+;/), 'horse reach')[0];
+const reach = required(standing.match(/const REACH = [^;]+;\nconst draws = [^;]+;/), 'horse reach')[0];
 const horseFactory = new Function('assert','globalThis',`return function(){
   ${reach}
   let tier='full', disposed=false, revision=0, active=null,lastCamera=null;
@@ -157,7 +164,9 @@ horse.group.visible=true; horse.frame(100,{visualFrame:true}); assert.equal(hors
 horse.frame(.2,{visualFrame:true}); horse.distance(100); horse.frame(100,{visualFrame:true}); assert.equal(horse.values.at(-1).dt,0);
 horse.distance(2); horse.frame(100,{visualFrame:true}); assert.equal(horse.values.at(-1).dt,0,'Horse range re-entry rebases idle');
 horse.frame(.2,{visualFrame:true}); await horse.tier('balanced'); horse.frame(100,{visualFrame:true}); assert.equal(horse.values.at(-1).dt,0,'Tier refresh does not prime a new real idle interval');
-horse.frame(.2,{visualFrame:true}); await horse.tier('light'); const last=horse.values.length; horse.frame(100,{visualFrame:true}); assert.equal(horse.values.length,last,'Phone-light tier has no standing development horse');
+horse.frame(.2,{visualFrame:true}); await horse.tier('light'); horse.frame(100,{visualFrame:true}); assert.equal(horse.values.at(-1).dt,0,'T-3542: Light keeps the standing horse, and its tier refresh primes nothing');
+horse.distance(40); const last=horse.values.length; horse.frame(100,{visualFrame:true}); assert.equal(horse.values.at(-1).visible,false,'Light draws the horse nearer: beyond its 30 m it is not shown'); assert.ok(horse.values.length>last);
+horse.distance(2);
 await horse.tier('balanced'); horse.frame(100,{visualFrame:true}); assert.equal(horse.values.at(-1).dt,0,'Reloaded owner has a separate activation clock');
 
 assert.throws(()=>horse.frame(NaN,{visualFrame:true}),/finite and nonnegative/);

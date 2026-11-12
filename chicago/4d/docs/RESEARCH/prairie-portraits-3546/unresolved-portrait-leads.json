@@ -1,0 +1,24 @@
+{
+  "not_a_reading": "Additional catalogue/search leads, not verified image matches and not used to infer a face.",
+  "searched": "2026-11-11",
+  "leads": [
+    {
+      "person_id": "pa1904_buckingham_kate_s",
+      "url": "https://archive.artic.edu/ryerson/making-history/2",
+      "catalogue_label": "Kate Buckingham, c.1930",
+      "status": "Catalogue text read; photograph and original publication/rights not verified. No image imported or fitted."
+    },
+    {
+      "name": "Florence Pullman Lowden",
+      "url": "https://www.pullman-museum.org/pshs/pshsFullRecord.php?collection=pshs&pointer=16828",
+      "catalogue_label": "Florence Pullman Photograph: studio portrait in winter fur coat and muff",
+      "status": "Search-result lead only. Date, rights and image identity remain unverified; no image imported or fitted."
+    },
+    {
+      "name": "Florence Pullman Lowden",
+      "url": "https://www.lib.uchicago.edu/ead/rlg/ICU.SPCL.LOWDENF.pdf",
+      "catalogue_label": "Finding-aid search lead: portrait of Florence Lowden, 1908",
+      "status": "Finding aid does not supply a cleared digital image. No image imported or fitted."
+    }
+  ]
+}

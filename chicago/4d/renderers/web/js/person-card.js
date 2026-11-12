@@ -122,7 +122,10 @@ export function looksOf(looks, assetBase = null) {
   const ref = looks.reference ?? null;
   return {
     grade: looks.grade ?? 'reconstructed',
-    rows: [['Complexion', looks.complexion.value], ['Hair', `${looks.hair.value}${(looks.hair.facial ?? []).length ? ', short side whiskers' : ''}`],
+    rows: [['Complexion', looks.complexion.value], ['Hair', [looks.hair.value, ...(looks.hair.facial ?? []).filter(x => !/^(brows|lashes)/.test(x)).map(x => ({
+      moustache: 'moustache', moustache_full: 'full moustache', beard_short: 'short beard',
+      side_whiskers_short: 'short side whiskers', side_whiskers: 'side whiskers', side_whiskers_full: 'full side whiskers',
+    }[x] ?? words(x)))].filter(Boolean).join(', ')],
       ['Eyes', looks.eyes?.value ?? ''], ['Height', feet ? `about ${feet}` : ''],
       // T-3522: what they wear on 14 August (their dress record's own words; reconstructed).
       ['Dress', looks.worn ? `${looks.worn[0].toUpperCase()}${looks.worn.slice(1)}` : '']].filter(([, v]) => v),
@@ -289,6 +292,10 @@ export function personModel({ row, person = null, household = null, citations = 
     fifteenth,
     nameBasis,
     portrait,
+    portraitResearch: p.portrait_research?.note ? String(p.portrait_research.note) : null,
+    individualCards: (Array.isArray(p.individual_cards) ? p.individual_cards : []).map(id => ({
+      id, name: household?.persons?.find(person => person.id === id)?.name ?? 'Family member',
+    })),
     away: lived?.on_scene_date === 'no',
     // T-3531: whether the record has them in town on the scene's day at all ('absent' for
     // Sauganash, who came to Chicago on 16 August 1812), and the day they came if it says.
@@ -516,6 +523,21 @@ export function renderPersonCard(doc, m, { dot = () => doc.createTextNode(''), o
     v.prepend(dot(doc, F.grade));
     sec.append(v);
     if (F.note) sec.append(el(doc, 'p', 'insp-person-note', F.note));
+    card.append(sec);
+  }
+
+  if (m.portraitResearch && !m.portrait && !m.likeness) {
+    const sec = el(doc, 'section', 'insp-sec insp-person-portrait-research');
+    sec.append(el(doc, 'h3', 'insp-h', 'Likeness'), el(doc, 'p', 'insp-person-note', m.portraitResearch));
+    card.append(sec);
+  }
+  if (m.individualCards?.length) {
+    const sec = el(doc, 'section', 'insp-sec');
+    sec.append(el(doc, 'h3', 'insp-h', 'Individual family members'));
+    for (const { id, name } of m.individualCards) {
+      const button = el(doc, 'button', 'nav-tile insp-person-link', name);
+      button.type = 'button'; button.dataset.person = id; sec.append(button);
+    }
     card.append(sec);
   }
 

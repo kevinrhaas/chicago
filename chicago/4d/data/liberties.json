@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1091,
+  "count": 1101,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -72876,6 +72876,82 @@
       ]
     },
     {
+      "id": "L-audio-3532",
+      "title": "Recorded acoustic proxies and an era-separated score (2026-11-10)",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-10",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "The owner requested recorded environmental effects, authorized suitable proxies, and supplied seven music cues with app-distribution permission. Frontier Reels are assigned to 1812, Border Ballads to 1835, and the two Waltzes to 1904; the early collections remain separate even where their styles overlap. File metadata says Suno-generated; the score is not a period composition/performance claim. Modern wind in leaves (o ciz), gentle PEI river lapping (TRP), and Lake Maggiore shore waves (BonnyOrbit) are acoustic analogues. Their licenses and alterations are in the catalog model and the public Audio library. No recording is represented as historic Chicago. HQ previews are used, not lossless originals. The former synthesized hums, drones and interface ticks are removed. Water audibility uses an 8 m radial sampling of the loaded epoch's terrain within 56 m. Type comes from existing river polygons and slough traces converted from UTM into the scene frame, plus the renderer's derived lake edge. Slough traces get their recorded half-width plus an 8 m acoustic classification tolerance; they take precedence and do not play either wave recording. Unclassified water is quiet. The river/lake mouth boundary inherits the derived lake-edge smoothing and is an approximation. Neither this tolerance nor the gain curve is a survey claim. Leaf rustle is suppressed in winter; weather and habitat detail remain to be added. Slough insects/frogs and reeds need locally appropriate recordings; quiet water is not filled with generic surf. The owner approved proxy selection but not invented species occurrence."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-10."
+        }
+      ],
+      "work_refs": [
+        "T-3532"
+      ]
+    },
+    {
+      "id": "L-audio-library-3532",
+      "title": "Expanded recordings and accepted acoustic proxies",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-10",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "The next 23 acquisitions are recordings for audition and scene authoring, not a claim that every sound is already emitted in every era. Source descriptions, licences, acquisition hashes and edits are in the intake model, the evidence model and the audio catalogue. Most sources are Freesound HQ previews; one cricket source is a WAV download declared public domain by its source page. The owner explicitly accepted a European cicada as a reasonable proxy. The selected recording was made in Italy and is not identified as a Chicago species or a periodical brood. Existing 1835 fauna records constrain future call type, habitat and hour; late-summer true katydids do not replace the record's silent July state. Other proxies include a mountain-reverberant French musket and a vintage steam traction-engine whistle proposed for 1904. Neither authenticates a particular local weapon or locomotive. The tavern chatter is a recorded human performance by one creator, not a historical crowd or Indigenous-language script. Worker, horse, door, wagon and interior playback still requires the scene-owned activity and animation contracts in the project's notes on audio. The public library identifies these as review candidates; catalogue inclusion is not scene placement."
+        },
+        {
+          "label": "grade",
+          "text": "reconstructed."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-10."
+        }
+      ],
+      "work_refs": [
+        "T-3532"
+      ]
+    },
+    {
+      "id": "L-habitat-audio-1835",
+      "title": "Recorded habitat phrases from the dated fauna records",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-10",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "use the already licensed modern recordings as reconstructed acoustic proxies on the 1835-07-01 scene date: the owner-approved Italian cicada in the wet prairie, mesic prairie and north timber; Ontario field crickets in the wet prairie; and the Washington red-wing call in sedge meadow or marsh. The actual flora-zone finder supplies the habitat, and the existing fauna record must permit audible presence, vocalization and the current period of day. The scene's solar date, hour and elevation are read directly, including jaunts. These placements do not carry to 1812, 1904 or the spring/fall/winter viewing dates. The Italian recording is not identified as the Neotibicen genus the habitat record describes. It stands for annual-cicada habitat sound under the owner's explicit proxy ruling, not for a named species or periodical emergence. The field cricket species is unspecified by its creator; genus-level similarity is a reconstruction, not a species identification. Robin calls and late-summer katydids remain unscheduled: the current fauna layer has no robin record and explicitly makes July katydids silent. One recorded phrase at a time plays at unchanged pitch with real gaps. The cicada's 35–80s, cricket's 45–100s and red-wing's 55–120s gaps, initial delay, gains and edge fades are sound-design choices, not historical measurements. A global 12–25 second gap between any two phrases preserves real silence even when several species qualify. Insects attenuate with height above actual ground and stop by 32 m; bird range and its rear-hemisphere rule use all three axes. The cicada starts after solar noon; twilight is the sun within 6 degrees of the horizon, rising before noon or setting after it. An available freezing-temperature value suppresses the layer; the current app has no temperature model, so the dated summer view is its fallback. Quiet early-July cricket phrases and long red-wing gaps avoid claiming a late-summer wall of insects or full spring song. The distant red-wing call is anchored to a live habitat point 44–84 m behind the listener for its entire phrase, never to a moving camera-relative point. It is suppressed within 36 m, outside 96 m, when brought toward view, or when its habitat record stops qualifying. This range and offscreen rule are liberties that avoid placing an audible near bird without a visible body. The selected point and 1.5 m height above the higher of the rendered terrain surface or water plane are reconstructed acoustic placement, not a surveyed bird. The walking barrier is not a terrain height for audio. Insect records are explicitly audible-only; no individual insect is placed."
+        },
+        {
+          "label": "Basis",
+          "text": "the f01 wet prairie data, the f02 mesic prairie data, the f03 sedge meadow data, the f04 marsh data, the f06 north timber data; each is dated 1835-07-01 and retains its own grades and source limitations. Recording sources, licences and hashes remain in the intake model and the public audio catalogue."
+        },
+        {
+          "label": "How to resolve",
+          "text": "period/local evidence can revise a habitat or call's eligibility; regional lossless recordings and listening review can replace an acoustic proxy. Near bird calls require a visible, appropriately animated animal. Other eras and seasons require their own habitat/date authoring rather than copying this July layer."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-10."
+        }
+      ],
+      "work_refs": []
+    },
+    {
       "id": "L-kinzie-house-completion-2484",
       "title": "The Kinzie house's whitewashed logs, taller end door and bounded green",
       "section": "per_subject",
@@ -73092,6 +73168,229 @@
       ],
       "work_refs": [
         "T-3341"
+      ]
+    },
+    {
+      "id": "L-1812-everyday-routines-3541",
+      "title": "Daily routines and visitor-requested activities for the whole 1812 population",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-10",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "The 51 enlisted men formerly governed only by a station or daytime hours now have explicit meals, quarters, equipment care and duty periods. The five night guards sleep after the watch and keep their existing posts during their duty spans. Cold-season equipment care is mostly indoors; garden and cornfield workers tend stored supplies instead. The 520 people listed at household and lodge doors have complete daily routines too, using the existing gathering's ordinary work repertoire and their own lodge doorway. Children play close to that doorway. Louis Fettle has household tasks and a shorter cold-season evening outdoors."
+        },
+        {
+          "label": "Compression",
+          "text": "Logical schedules do not require 520 additional figures at once. At most three additional nearby residents are drawn autonomously, one new figure at most every five seconds; each takes a short outing, returns through their own door, and another can take a turn. Calling for someone remains available independently. A requested conversation reserves two real people, prefers a nearby outdoor companion, otherwise brings someone out, waits for both to meet, and ends after about a minute. A requested task lasts about five minutes; Go inside lasts until the next scheduled span. These are visitor-paced reconstructions, not claims about precise historical hours or conversations."
+        },
+        {
+          "label": "Basis",
+          "text": "Existing station and gathering research in people-1812-3462/the place tool and gathering-people-1812-3500/the build tool, and their cited Quaife 1913 readings, establish the people and broader circumstances, not these individual routines. Work descriptions reuse that reconstructed repertoire. Existing Native names, identity grades, review explanations, arrival dates and battle-day absences remain. No dialogue, ceremony or fighting is added. People represented only by reference cards because their presence is absent or uncertain are not newly placed; carried infants remain with their household rather than being called outside alone."
+        },
+        {
+          "label": "How to resolve",
+          "text": "Replace a reconstructed activity, hour or household assignment when a contemporary account names it. Retain bounded rendering and real companion arrival as presentation behavior."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-10."
+        },
+        {
+          "label": "Visitor shelter",
+          "text": "On visiting dates without a town home, the three mouth-family visitors (potawatomi 1812 mouth man 1, potawatomi 1812 mouth woman 1, potawatomi 1812 mouth girl 10) may wait inside the Kinzie house at the visitor's request, and Winnemeg inside the agency. Their existing days already place them visiting those places. This is a reconstructed temporary indoor pause, not a change of home, arrival date or departure."
+        }
+      ],
+      "work_refs": [
+        "T-3540",
+        "T-3541"
+      ]
+    },
+    {
+      "id": "L-transport-audio-3544",
+      "title": "Recorded mechanical textures on moving teams",
+      "section": "per_subject",
+      "subjects": [
+        "western_hotel"
+      ],
+      "covers": [],
+      "recorded": "2026-11-11",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the CC0 horse-harness recording by o ciz (Freesound 475481) follows the loaded moving teams in the 1812-08-14, 1835-07-01 and 1904-07-01 scenes. The CC0 large wooden wagon rolling downhill recording by craigsmith (Freesound 675230) follows the two 1812 army wagons and the 1835 Western Hotel wagon. It does not represent the 1904 brougham. Exact actor ids and dates are in the intake model. The modern recordings are acoustic proxies, not evidence of a Chicago vehicle, its road surface or historical sound level."
+        },
+        {
+          "label": "What is reconstructed",
+          "text": "source positions use the actual horse and vehicle roots; no independent invisible actor is placed. Gains.15/.22, 32/40 metre reach, squared distance falloff, speed-scaled gain, four-to-six-second excerpts with.25–1 second gaps and short edge fades are sound-design choices. Pitch is unchanged. Two nearby teams and four simultaneous voices bound the mix. Stops, dwell, holds, hidden/cull, reduced motion, off-hours and disposal suppress their sound. These are mechanical textures, not individually synchronized hoof impacts, vocalizations or work strokes. Existing source and delivery license/integrity records remain in the audio catalogue; the bytes already uploaded to R2 are reused."
+        },
+        {
+          "label": "How to resolve",
+          "text": "replace a proxy or tune its placement after human listening in the scene; a period-specific mechanical recording or documented road surface can improve the choice. Automated decoding and signal checks do not establish listening quality. No production listening approval is claimed."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-11."
+        }
+      ],
+      "work_refs": [
+        "T-3544"
+      ]
+    },
+    {
+      "id": "L-calm-river-audio-3544",
+      "title": "Calm recorded water as the river's acoustic proxy",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-11",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "use the exact TRP575244 loop selected by the owner as “Light water on rocks” on 2026-11-11, under the existing classified-river audio placement. Retain the previous TRP577323 take as a disabled library recording with its owner review. Lake waves, slough treatment and the liked insects are unchanged."
+        },
+        {
+          "label": "What is reconstructed",
+          "text": "a modern Manitoulin lake recording of water lapping against rocks (summer 2008 per creator) stands in for the nearly still Chicago River. It is not a historical Chicago recording or evidence of a rocky historical river bank. The preview is decoded fully to mono 48 kHz before cropping source 121–145 s; a two-second linear end-to-start overlap produces the selected 22-second loop at unity gain, encoded as MP3 at 128 kb/s. No synthetic water, normalization, denoising, EQ, gating, time stretching or inserted silence is used. The existing river-edge gain and distance treatment are sound-design choices, not measured historical acoustic levels."
+        },
+        {
+          "label": "Basis",
+          "text": "TRP's source description and individual CC0 declaration at freesound.org; acquisition and license metadata are in the calm river water model. The source and accepted derivative hashes remain in the audio catalogue. Owner selection is recorded with the exact quoted label and date."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a suitable local recording and listening review may improve this acoustic proxy; historical bank-surface evidence may refine its geographic fit. The owner selected the offered loop; in-scene mix validation remains separate."
+        },
+        {
+          "label": "grade",
+          "text": "reconstructed."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-11."
+        }
+      ],
+      "work_refs": [
+        "T-3544"
+      ]
+    },
+    {
+      "id": "L-prairie-likenesses-3547",
+      "title": "Prairie Avenue appearances",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-11",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "Identified, captioned portraits constrain visible facial proportions, hair silhouette and facial hair. The pictured date may be unknown even when publication is dated. Single-view depth, skin and eye colours, stature, build, clothes and intervening ageing are reconstructed. A light tone in a monochrome portrait may guide a grey/white rendering without establishing exact colour. Unpictured people receive stable, individually varied reconstructions; the cards explicitly say that no verified portrait was found in the searched sources. No ancestry is inferred from surname, birthplace or photograph. Body presentation is a casting choice based on the recorded relationship and occupation, not a newly attested sex field. The original eight Glessner figures retain their earlier evidence and liberties."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-11."
+        }
+      ],
+      "work_refs": [
+        "T-3547"
+      ]
+    },
+    {
+      "id": "L-prairie-people-3548",
+      "title": "Household figures, doors and days",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-11",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "The 1904 household roster supplies identity, household, recorded birth and graded presence. A birth year alone is treated as a mid-year birthday for scene age. Unpictured adults reuse the already available period role bodies, with individual faces, colouring, stature, hair and cloth. Activities, daily times, seasons, company and short outings are reconstructed. Only a bounded nearby rotation needs meshes; door calls can request other available residents. Aliases and collective entries do not become additional actors; former residents remain on cards without appearing in 1904. For draft houses with no door mesh, an entrance at the middle of the street-facing front is explicitly reconstructed, not a survey reading."
+        },
+        {
+          "label": "Basis",
+          "text": "Children's new clothing sources show other American children, not Prairie Avenue residents: Arthur Hewitt's Roosevelt sons, published 29 May 1904, and Frank Snyder's children in Oxford, Ohio, August 1904. Boys' jackets, knee trousers and stockings, girls' sleeved waisted frocks, teenage variants and toddler clothing are original simplified garments with reconstructed colours, ease, unseen details and fit. Pinned CC0 child/teenage graphical bodies supply age-appropriate proportions; individual heights are unmeasured. Equal upstream software shape-category blends are engineering, not ethnicity. New geometry requires canonical export and visible review before scene use. Infants must not become independently walking outdoor adults."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-11."
+        },
+        {
+          "label": "Earlier work additional portraits, 2026-11-11",
+          "text": "Grace Murray Meeker and Albertine Huck Field use captioned photographs published in the Chicago Sunday Tribune on 3 March 1907. The exposures may be earlier; the figure uses the inferred 1904 birth-derived age. Landmark fits preserve the visible facial proportions, while exact waves in their hair, dress, jewellery, colour and unseen depth remain reconstructed. Gwendolyn Field's secondary birth dates disagree by a year (1901/1902); she is treated as a young child, not a default adult. Elizabeth Grey's difficult census age is retained as uncertain."
+        }
+      ],
+      "work_refs": [
+        "T-3548",
+        "T-3547"
+      ]
+    },
+    {
+      "id": "L-prairie-younger-3550",
+      "title": "Younger Prairie residents and household care",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-11",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "The owner approved the five child and teen prototypes presented in the review packet, saying “Approve these five prototypes.” The admission records the canonical build, recipe and export hashes. Thirty-five present residents aged two through seventeen use those approved toddler, child and teen bodies; the household records retain the evidence and uncertainty for their ages. Their clothes, colours, hair, stature and individual facial variation are reconstructions. Stature interpolates between the approved engineering bodies with small seeded variation, not personal measurements. Adult aging and body-build targets are disabled on these juvenile bodies. None of these figures claims an archival likeness without an identified portrait."
+        },
+        {
+          "label": "Activities and company",
+          "text": "Seasonal lessons or indoor occupations, meals, play, walks, family conversations and sleep are reconstructed daily routines. Children under twelve go outside with an available adult recorded in the same household. Recorded nurses or governesses and adult heads or spouses are preferred when available; these care assignments do not establish parentage or an attested historical duty. The two figures share the outing and return afterward, and a visitor's interaction keeps the caregiver nearby. Older children and teens may take their own short frontage walk and join an available person for conversation. These are short, bounded scene activities, not documented appointments or transcripts."
+        },
+        {
+          "label": "Infants",
+          "text": "Five residents younger than two have feeding, quiet play, naps and sleep within household care. “Ask after” at the door opens the infant's card and reports the current reconstructed care activity and household caregivers. No independent walking infant or substitute adult body is drawn; the approved prototypes do not include an infant figure. The choice of caregivers and daily timings is explicitly disclosed as a liberty on the card."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-11."
+        }
+      ],
+      "work_refs": [
+        "T-3550"
+      ]
+    },
+    {
+      "id": "L-charles-near-wool-1789",
+      "title": "Charles Nelson's close-view livery wool",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-10",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "Only the existing Charles1904 livery coat receives original periodic color, roughness and tangent-normal detail at LOD0/1. The green palette is retained. The wool twill/heather design, 32mm aggregate-area calibration and 20micrometre relief coefficient are reconstructed engineering choices, not a captured or surviving historical textile. One shared original coat material spans body and skirt with different UV densities: actual area-based periods are about57.54mm and24.01mm; local stretch remains. No UV repaint, new triangles, anatomy, identity or animation is authored. Vertex rows duplicate only where actual Mikk tangent groups require it, with every original triangle corner/skin/morph component retained. Existing macro wear, rumple and sheen remain; maps own only weave/heather and exact-name recolors keep inherited normal/ORM textures."
+        },
+        {
+          "label": "Basis",
+          "text": "Existing monochrome livery references in “Original modular adult dress study”/later work describe the outfit, not Nelson's exact cloth, color or face. Current GLB parents, their provenance and source image rights remain unchanged. No new historical source or retained unchanged Blender master is invented. The derivative recipe binds the existing parent GLBs and the current canonical export refuses protected body/UV/rig/clip/material/provenance changes before an active write."
+        },
+        {
+          "label": "How to resolve",
+          "text": "Matched source/published native views, actual clothing fit and phone budget checks must qualify any adoption. Current six-view research remains stylized; strict selected-published release remains NONPASS with7 retained completed-transfer request findings. Container/semantic proofs do not settle photographic likeness or fit."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-10."
+        }
+      ],
+      "work_refs": [
+        "T-3483",
+        "T-1789"
       ]
     },
     {

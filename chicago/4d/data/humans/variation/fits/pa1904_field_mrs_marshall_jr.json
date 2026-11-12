@@ -1,0 +1,152 @@
+{
+  "format": "chicago4d_human_face_fit_v1",
+  "ticket": "T-3413",
+  "person_id": "pa1904_field_mrs_marshall_jr",
+  "scene": "1904",
+  "generated_by": "tools/fit_portrait_face.py",
+  "_doc": "Regenerate with tools/fit_portrait_face.py from the portrait record; never edit by hand.",
+  "grade": "inferred",
+  "sources": [
+    "chicago_tribune_society_women_1907"
+  ],
+  "portrait": "data/humans/variation/portraits/pa1904_field_mrs_marshall_jr.json",
+  "basis": "Caption identifies the sitter; one-view facial depth, exact grooming and colours remain reconstructed.",
+  "liberty": "L-human-variation-3412",
+  "values": {
+    "nose_length": 0.0,
+    "nose_width": -0.25,
+    "nose_depth": -0.027,
+    "nose_hump": -0.2,
+    "nose_curve": 0.001,
+    "nose_tip": 0.029,
+    "nose_tip_width": 0.0,
+    "nostrils": -0.2,
+    "nose_height": -0.03,
+    "mouth_width": -0.12,
+    "lip_upper": 0.12,
+    "lip_lower": 0.0,
+    "mouth_height": -0.261,
+    "chin_prominence": -0.009,
+    "chin_width": -0.151,
+    "chin_height": -0.042,
+    "jaw": -0.486,
+    "prognathism": -0.139,
+    "cheekbones": 0.2,
+    "cheek_volume": 0.15,
+    "cheek_inner": 0.0,
+    "brow_height": 0.002,
+    "brow_angle": 0.175,
+    "mouth_corners": 0.35,
+    "brow_ridge": -0.25,
+    "forehead_slope": 0.0,
+    "temples": 0.0,
+    "ear_size": -0.155,
+    "ear_flap": 0.054,
+    "ear_lobe": -0.047,
+    "jowls": -0.25,
+    "head_shape": 0.091,
+    "forehead_height": 0.0,
+    "head_shape.option": 5
+  },
+  "read_from_picture": [
+    "ear_size"
+  ],
+  "mostly_prior": [
+    "brow_angle",
+    "brow_height",
+    "brow_ridge",
+    "cheek_inner",
+    "cheek_volume",
+    "cheekbones",
+    "chin_height",
+    "chin_prominence",
+    "chin_width",
+    "ear_flap",
+    "ear_lobe",
+    "forehead_height",
+    "forehead_slope",
+    "head_shape",
+    "jaw",
+    "jowls",
+    "lip_lower",
+    "lip_upper",
+    "mouth_corners",
+    "mouth_height",
+    "mouth_width",
+    "nose_curve",
+    "nose_depth",
+    "nose_height",
+    "nose_hump",
+    "nose_length",
+    "nose_tip",
+    "nose_tip_width",
+    "nose_width",
+    "nostrils",
+    "prognathism",
+    "temples"
+  ],
+  "read_by_eye": [],
+  "fit": {
+    "rms_px": 47.3,
+    "per_mark_px": {
+      "pupil_r": 41.9,
+      "pupil_l": 29.2,
+      "eye_outer_r": 25.6,
+      "eye_inner_r": 15.2,
+      "eye_inner_l": 38.6,
+      "eye_outer_l": 31.1,
+      "nasion": 17.4,
+      "nose_tip": 58.9,
+      "subnasale": 20.9,
+      "stomion": 61.3,
+      "menton": 32.7,
+      "ear_top_r": 50.4,
+      "ear_lobe_r": 8.2,
+      "ear_lobe_l": 117.1
+    },
+    "camera": {
+      "yaw_deg": -3.0,
+      "pitch_deg": -9.0,
+      "roll_deg": -30.7,
+      "px_per_m": 8404.9,
+      "shift_px": [
+        1230.6,
+        1414.4
+      ]
+    },
+    "landmark_vertices": {
+      "pupil_r": [
+        4868,
+        17
+      ],
+      "pupil_l": [
+        11486,
+        6801
+      ],
+      "eye_outer_r": 17,
+      "eye_inner_r": 4868,
+      "eye_inner_l": 11486,
+      "eye_outer_l": 6801,
+      "nasion": 132,
+      "nose_tip": 297,
+      "subnasale": 5072,
+      "stomion": 523,
+      "menton": 5225,
+      "ear_top_r": 5413,
+      "ear_lobe_r": 5732,
+      "ear_lobe_l": 12329
+    }
+  },
+  "not_modelled": [
+    "Exact photographed dress and jewellery.",
+    "Unseen depth, photographic colour and personal measurements."
+  ],
+  "card": {
+    "source_citation": "Chicago Sunday Tribune, 3 March 1907, Part 7/Special Features, p. 4, How Chicago Society Women Could Earn a Living if Thrown on Their Own Resources. Janet A. Ginsburg Chicago Tribune Collection, Michigan State University Libraries, item 9696.",
+    "source_url": "https://lib.msu.edu/branches/dmc/tribune/detail.jsp?id=9696",
+    "rms_mm": 5.6,
+    "marks": 14,
+    "portrait": "humans/web/portraits/pa1904_field_mrs_marshall_jr_portrait.jpg",
+    "model": "humans/web/portraits/pa1904_field_mrs_marshall_jr_model.jpg"
+  }
+}

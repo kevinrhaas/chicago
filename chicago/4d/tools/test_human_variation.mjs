@@ -233,3 +233,14 @@ for (const [key, d] of Object.entries(summary)) assert(Math.max(...d) - Math.min
   assert.equal(V.applyVariation(scene, kit, V.personVariation({ kit, key: 'x' })), null); }
 
 console.log(`ok human variation: ${kit.axes.length} axes, no two of 400 alike, seated face only, clothes outside the skin, LODs agree`);
+
+// T-3550: juvenile proportions stay on the approved bodies; only their face and
+// reconstructed stature vary, and the adult aging model cannot be applied to them.
+for (const assetId of ['child_boy_1904', 'child_girl_1904', 'child_toddler_1904', 'teen_boy_1904', 'teen_girl_1904']) {
+  assert.equal(header.assets[assetId].body_draw_scale, 0);
+  for (const key of ['young_1', 'young_2', 'young_3']) {
+    const p = V.personVariation({ kit, key, assetId });
+    for (const a of kit.axes) if (a.drive === 'age' || (a.scope === 'full' && a.id !== 'head_shape')) assert.equal(p.values[a.id], 0, `${assetId}: ${a.id} leaves the approved proportions intact`);
+    assert(faceAxes.some(a => Math.abs(p.values[a.id]) > .001), 'individual faces still vary');
+  }
+}

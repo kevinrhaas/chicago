@@ -7,6 +7,13 @@
     "not_a_writer": "gated with --check and declares no write mode; recorded so the audit stops reporting it"
   },
   "tools": {
+    "human_charles_coat.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-11-10",
+      "finding": "Reproduces: in a separate 19-file clean Git index fixture, two bare writes advanced the derivation receipt mtime and retained its exact bytes; a deliberately corrupt receipt failed the read-only check and was then repaired byte-exact by the writer. Every fixture file matched its own index after each write. No application index or HEAD commit was used. The original SUP120 closed in 17.901 seconds with accepted resource pair and complete cleanup. See docs/measurements/charles-coat-writer-2026-11-10.json.",
+      "placed": "Only the derivation receipt is owned; all eight installed assets, immutable recipe and admitted source/runtime bindings remain inputs. The explicit settled-tail step follows compile_source_use, whose collection whitelist does not consume the material registration, outside the measured between-pass window. Five actual declared gate tools were measured by the original isolation probes and wrote nothing in the live tree. This focused proof does not claim a full-manifest rederive --prove run."
+    },
     "derive_horse_coats.py": {
       "placement": "manifest",
       "write_mode": "(bare)",
@@ -2357,6 +2364,20 @@
       "write_mode": null,
       "measured": "2026-11-10",
       "finding": "The explicit --check mode and bare invocation run the same pure/real-HTTP contract fixture. Own temporary publication trees and local HTTP server are removed in finally; no committed derived output is written or owned. Actual --check completed 38 controls; the affected four-command CPU batch completed in 0.566 seconds under original SUP120/resource floors with zero remaining owned children, covering source corruption, catalogue retry, native three-year packs and logical Glessner LOD. This is an executable checker, not a rederive owner; no research report was regenerated from the sparse candidate."
+    },
+    "prairie_people.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-11-11",
+      "finding": "In an isolated fixture, two actual writes retained all 388 output hashes and advanced mtimes; a deliberately damaged output was restored. Application output hashes remained unchanged. Exact tool and output hashes are in docs/RESEARCH/prairie-portraits-3546/writer-measurement.json.",
+      "placed": "Prairie people follows compile_scene.py and portrait records and precedes human_variation_kit.py. Child recipes follow authored prepared bodies and precede remote canonical exports. These new ordering edges have not yet been inserted into the full rederive manifest."
+    },
+    "prairie_children_source.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-11-11",
+      "finding": "In an isolated fixture, two actual writes retained all 5 output hashes and advanced mtimes; a deliberately damaged output was restored. Application output hashes remained unchanged. Exact tool and output hashes are in docs/RESEARCH/prairie-portraits-3546/writer-measurement.json.",
+      "placed": "Prairie people follows compile_scene.py and portrait records and precedes human_variation_kit.py. Child recipes follow authored prepared bodies and precede remote canonical exports. These new ordering edges have not yet been inserted into the full rederive manifest."
     }
   }
 }

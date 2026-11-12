@@ -87,15 +87,14 @@ console.log(`parked transport empty scenes: ${checks} checks pass — 1812, 1880
       humans: { get assets() { assetReads++; return {}; }, withhold() { throw Error('Unexpected adoption'); } },
       heightAt: () => { heightReads++; return 0; }, footprints: () => [], visitor: () => null,
       interactions: { add() { throw Error('Unexpected Light interaction'); } }, detail: 'light', problems: localProblems });
-    await town.ready(); town.ensureNear(new THREE.Vector3(1335, 5, 3340), true);
-    assert.equal(town.driverAnchorForPerson('pa1904_otis_f_r_c1900_hans_johnson'), null, 'Light does not invent a mounted driver anchor');
+    // T-3542: Light keeps its teams (owner, 2026-11-10). Nothing opens at mount; the tools
+    // open only once the visitor nears an eligible route, as Balanced's do.
     assert.deepEqual(globalThis.__townLazyTools, { imports: 0, loader: 0, hitch: 0, factory: 0 });
     assert.equal(directoryReads, 0); assert.equal(assetReads, 0); assert.equal(heightReads, 0);
-    assert.equal(cardPreparations, 0, 'Light does not prepare a person card');
-    await town.setTier('balanced'); await town.ready();
+    await town.ready(); town.ensureNear(new THREE.Vector3(1335, 5, 3340), true); await town.ready();
     assert.deepEqual(globalThis.__townLazyTools, { imports: 2, loader: 1, hitch: 1, factory: 1 });
     assert.equal(directoryReads, 1); assert(localProblems.some(s => s.includes('ELIGIBLE_LAZY_ASSEMBLY_SENTINEL')));
-    assert.equal(cardPreparations, 1, 'eligible near assembly prepares its existing person card');
+    assert.equal(cardPreparations, 1, 'eligible near assembly prepares its existing person card at Light too');
     town.dispose();
 
     // Real supported-scene metadata with no eligible rows remains empty at every tier.
@@ -125,7 +124,7 @@ console.log(`parked transport empty scenes: ${checks} checks pass — 1812, 1880
     assert.deepEqual(emptyProblems, []); empty.dispose();
     assert.deepEqual(threeAddErrors, [], 'a drop to Light never hands Three an empty add (T-3427)');
   } finally { globalThis.fetch = previousFetch; console.error = previousError; delete globalThis.__townLazyTools; }
-  console.log('actual Light town scene: zero assembly imports/factories/directory/height queries; eligible route opens deferred tools only then; no empty Three add on a drop to Light (T-3427) PASS');
+  console.log('actual Light town scene (T-3542): nothing opens at mount; an eligible route opens the deferred tools at Light as at Balanced; no empty Three add on a drop to Light (T-3427) PASS');
 }
 
 // Execute main's actual town boot block with only the dynamic import boundary
@@ -153,7 +152,7 @@ console.log(`parked transport empty scenes: ${checks} checks pass — 1812, 1880
   assert.equal((block.match(/import\('\.\/town-transport-scene\.js'\)/g) ?? []).length, 1);
   const AsyncFunction = Object.getPrototypeOf(async function () {}).constructor;
   const boot = new AsyncFunction('YEAR', 'api', 'bases', 'people', 'peopleDirectory', 'confidence', 'streetGrid',
-    'profiledGroundHeight', 'terrain', 'decks', 'footprints', 'walker', 'interactions', 'detailLevel', 'coarse',
+    'profiledGroundHeight', 'terrain', 'decks', 'footprints', 'walker', 'interactions', 'detailLevel', 'lowMem',
     'problems', 'scene3d', 'supportsTownTransport', 'importTown', 'draws', 'prepareSceneDirectoryPerson', 'importGround',
     block.replace("import('./town-transport-scene.js')", 'importTown()').replace("import('./transport-ground.js')", 'importGround()'));
   const previousFetch = globalThis.fetch;
@@ -201,7 +200,7 @@ console.log(`parked transport empty scenes: ${checks} checks pass — 1812, 1880
           'the actual1835 resident layer keeps its existing cards;1904 gets optional preparation');
         assert.equal(options.sceneId, year); assert.equal(options.dataBase, bases.dataBase); assert.equal(options.people, people);
         assert.equal(options.humans, api.humans); assert.equal(options.confidence, confidence);
-        assert.equal(options.interactions, interactions); assert.equal(options.detail, 'balanced'); assert.equal(options.coarse, false);
+        assert.equal(options.interactions, interactions); assert.equal(options.detail, 'balanced'); assert.equal(options.coarse, false, 'T-3542: lighter teams follow the memory diet or Light, not the touch screen');
         assert.equal(options.problems, problems); assert.equal(options.footprints(), footprints); assert.equal(options.visitor(), walker.state);
         assert.equal(options.getPeople(), directory); assert.equal(directoryCalls, 1);
         assert.deepEqual(options.heightAt(2, 3), year === '1904' ? ['road', 2, 3] : year === '1812' ? ['smooth', 'ground', 2, 3] : ['ground', 2, 3]);
