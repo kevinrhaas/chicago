@@ -35629,6 +35629,13 @@ builds what is open, and brings the match records to `matches`.
 **Ticket:** T-3167 (piece 2 of T-1887).
 **Review:** `docs/RESEARCH/k01-1824-marsh-3167/README.md`.
 **Recorded:** 2026-10-26 (T-3167).
+**The flanks' light finish built by T-1887 (2026-11-12):** the flanks, the rear range and the stacks are
+painted over their brick (`form.wall_finish`, opaque, K01's paint opened to a stone-fronted house), the
+stone front left as cut. Read: the Pomeroy photograph's light walls on the south flank and the lower
+block, and the automobile photograph's light south flank north of 1828's porch. Invented: the colour
+(both prints are monochrome; a pale stone colour, a little darker than the front, is RECONSTRUCTED) and
+whether it is paint or stucco (laid as paint over the brick's map). The rest of 'What is not built'
+above stands.
 
 ### L-pullman-1729-portico-3159 — 1729 Prairie's portico off the Detroit print: two columns and the flight read, the rest of the row and the balustrade's section reconstructed
 
@@ -42916,6 +42923,30 @@ hip's level cut is kept.
 and the rail's west end; a sharper copy of the plate would settle whether the stage's openings pass through.
 **Ticket:** T-3370 (piece 2 of T-3367).
 **Recorded:** 2026-11-08 (T-3370).
+
+### L-k01-1936-allerton-deck-3370 — 1936 Prairie's roof deck cut where its photograph draws it, and the north stack moved out of the photograph's sky
+
+**Decision:** the Chicagology photograph (`chicagology_1936_prairie_exterior_photo`) draws the deck's rail
+turning its south-east corner at x 1345 px and its east run ending at a post at x 1405-1418 px, with open sky
+beyond it where the build's rail ran on to x 1505 and the hip's north-east line falling away from the post's
+foot. The K01 hip deck gains `hip_deck.edges_m`: a deck edge named there stands where the record puts it, and
+its own face is pitched from the hip's eave line to it, so the level cut need not be centred on the hip. 1936
+Prairie's deck edges are set at east u 11.4 and north v 8.2, through the committed camera. The east face is
+then pitched about 21.7 deg and the north about 18.6 deg. The south and west faces keep the roof's 25 deg. The
+reconstructed north stack stood at u 9.0, v 14.9, where the camera draws it in the print's open sky. It is
+moved to u 14.0, where the camera puts it behind the tower's belvedere.
+**What is read, not invented.** The rail's south-east corner (u 11.29 on the south rail's line) and its east
+end (v 8.2 at the end post's outer face), both through the camera at the rail's 17.02 m top. The deck's
+north-east corner, which then projects to x 1421, y 302, where the print's hip line starts. That no stack
+stands right of the rail's end.
+**What is invented.** The faces' pitches follow from the edges, not from any reading of the slopes, which the
+print does not resolve. The deck's west edge is kept at the uniform cut's, which no picture shows. The north
+stack's new place is anywhere the belvedere hides it; u 14.0 is hidden behind the print's belvedere and the
+render's alike.
+**How to resolve:** a picture of the roof from the north or from above would show the deck's extent and
+whether a north stack stood, and where.
+**Ticket:** T-3370 (piece 2 of T-3367).
+**Recorded:** 2026-11-12 (T-3370).
 
 
 ### L-sauganash-ridge-join-and-shaft-section-2383 - Sauganash roof join and stack section
