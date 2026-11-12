@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2899, ts: '2026-11-12T18:49:28.637Z', date: 'Nov 12, 2026, 12:49 PM CT', title: 'Settings in tabs, with a mouse sensitivity slider', kind: 'feature',
+    items: [
+      'Settings now opens on a row of icon tabs, like a building\'s card: Display, Show, Look, Graphics, Sound, About, What\'s new and Research.',
+      'Look has a new Mouse sensitivity slider (Look sensitivity on a phone, for dragging to look). Standard is the turn you had before.',
+      'What\'s new is one of the last tabs and keeps its unread dot. The Expert research switch has moved to the last tab.',
+    ] },
   { v: 2898, ts: '2026-11-12T18:19:57.163Z', date: 'Nov 12, 2026, 12:19 PM CT', title: 'Meet the Glessner House opens in the owner\'s words', kind: 'polish',
     items: [
       'The tour\'s welcome now says "Let\'s start at the corner" and spells neighbors the American way.',
