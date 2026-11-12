@@ -58,14 +58,13 @@
 }
 .jump-pill:hover { background: color-mix(in srgb, var(--ink) 11%, transparent); }
 .jump-pill:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+/* T-3571: lit is the quiet kind (skins.css § LIT), not a solid fill. */
 .jump-pill[aria-pressed="true"] {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: var(--accent-ink, #1d1a14);
+  background: var(--lit-wash, color-mix(in srgb, var(--accent) 12%, transparent));
+  border-color: var(--lit-edge, var(--accent));
+  color: var(--lit-ink, var(--accent));
   font-weight: 600;
 }
-/* The light theme's accent is a dark amber, so the pressed pill's text flips light. */
-[data-theme="light"] .jump-pill[aria-pressed="true"] { color: var(--accent-ink, #faf8f3); }
 .jump-pill:disabled { opacity: .45; cursor: default; }
 .jump-pill[hidden] { display: none; } /* T-2632: a kind with nothing in it is not offered */
 .jump-pill-n {

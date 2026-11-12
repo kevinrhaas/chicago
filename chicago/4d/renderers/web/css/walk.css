@@ -2609,8 +2609,10 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
 .gate:not([data-state="welcome"]) .gate-eyebrow { max-width:calc(100% - 48px); margin-inline-end:48px; }
 .gate[data-state="welcome"] .gate-code { padding-inline-end:48px; min-height:28px; }
 .gate[data-state="welcome"] .gate-eyebrow { padding-inline-end:44px; }
-.arrival-sound:focus-visible { outline:2px solid var(--signal, #f5bd59); outline-offset:3px; }
-.arrival-sound[aria-pressed="true"] { color:var(--signal, #f5bd59); }
+.arrival-sound:focus-visible { outline:2px solid var(--accent, #f5bd59); outline-offset:3px; }
+/* T-3571: lit is the quiet kind on every machine (skins.css § LIT), not the signal red. */
+.arrival-sound[aria-pressed="true"] { color:var(--lit-ink, #f5bd59);
+  background:var(--lit-wash, transparent); box-shadow:inset 0 0 0 1px var(--lit-edge, transparent); }
 
 .arrival-sound .sound-playing-icon { display:none; }
 .arrival-sound[aria-pressed="true"] .sound-playing-icon { display:initial; }

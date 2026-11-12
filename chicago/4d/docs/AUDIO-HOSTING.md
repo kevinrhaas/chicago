@@ -74,6 +74,7 @@ changes, decoded wind, mute cleanup and no candidate autoplay. This is local
 published-build integration, not a live deployment. Cache-Control
 headers were absent; production cache policy and the custom domain remain work.
 The 2026-11-11 owner-selected calmer river adds one separately verified 352,940-byte MP3. The combined receipt now covers 41 objects / 41,526,317 bytes; the original 40 verified rows are preserved. Its content-addressed object is `media/6831b7ad102ec023194c4040776c5245b6cb47451d652a94a07dc742e28362af.mp3`.
+The 2026-11-12 owner ragtime playlist for 1904 (T-3569) adds 20 objects (ten Opus, ten AAC), 38,979,199 bytes, uploaded by the owner through the R2 dashboard and verified the same day (full hashes, CORS, MIME, 206 ranges). The receipt now covers 61 objects / 80,505,516 bytes; earlier rows are preserved and the retired waltz objects stay in the bucket.
 
 For repeat verification use
 `tools/verify_audio_host.py --manifest <upload-manifest.json> --report <report.json>`

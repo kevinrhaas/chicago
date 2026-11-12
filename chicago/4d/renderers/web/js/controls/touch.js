@@ -26,6 +26,8 @@ const TAP_SLOP = 12;               // ...and moved less than this = a tap
 // Snap-turn (T-2653, a comfort setting under Move): with it on, a drag to look turns
 // the view in whole steps — SNAP_DEG for every SNAP_PX of sideways drag — rather than
 // smoothly. Pitch stays smooth: it is the sweep sideways that unsettles.
+import { lookScale } from './intent.js';
+
 export const SNAP_DEG = 30;
 export const SNAP_PX = 48;
 
@@ -42,7 +44,7 @@ export function snapYaw(carryPx, dxPx, { stepDeg = SNAP_DEG, px = SNAP_PX } = {}
   return { yaw: steps * stepDeg * (Math.PI / 180), carry };
 }
 
-export function createTouchBackend({ intent, domElement, ui = {}, onViewport, snapTurn = () => false }) {
+export function createTouchBackend({ intent, domElement, ui = {}, onViewport, snapTurn = () => false, lookSpeed = () => 1 }) {
   const { layer, stick, knob, risePad, riseUp, riseDown } = ui;
 
   /** pointerId -> { role, startX, startY, x, y, t0, moved } */
@@ -155,14 +157,16 @@ export function createTouchBackend({ intent, domElement, ui = {}, onViewport, sn
 
     if (p.role === 'look') {
       // Look is a DELTA, accumulated into the intent and consumed by the walker.
+      // T-3563: Settings › Look › Look sensitivity scales the drag (snap-turn keeps its steps).
+      const k = LOOK_SENSITIVITY * lookScale(lookSpeed);
       if (snapTurn()) {
         const step = snapYaw(p.carry ?? 0, x - p.x);
         p.carry = step.carry;
         intent.yawDelta += step.yaw;
       } else {
-        intent.yawDelta -= (x - p.x) * LOOK_SENSITIVITY;
+        intent.yawDelta -= (x - p.x) * k;
       }
-      intent.pitchDelta -= (y - p.y) * LOOK_SENSITIVITY;
+      intent.pitchDelta -= (y - p.y) * k;
     } else {
       let dx = x - p.startX;
       let dy = y - p.startY;
