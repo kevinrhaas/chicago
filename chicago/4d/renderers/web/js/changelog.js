@@ -1,4 +1,26 @@
 export const CHANGELOG = [ // newest first
+  { v: 2906, ts: '2026-11-12T23:03:19.587Z', date: 'Nov 12, 2026, 5:03 PM CT', title: '1801 Prairie\'s south-west corner: its stone return, window and set-back slate', kind: 'improvement',
+    items: [
+      'Over the round bay\'s balcony on the Kimball house, the pavilion\'s stone side wall now runs back to the slate roof, as the 1965 south-west photograph shows it, where the slate used to come down in front of it.',
+      'That wall now has its window, a deep-set light beside the corner pilaster looking out over the balcony, and a moulded cap along its top.',
+      'The slate roof over the corner now stands back behind the balcony, and its corner line now falls where the photograph puts it.',
+    ] },
+  { v: 2905, ts: '2026-11-12T21:16:32.072Z', date: 'Nov 12, 2026, 3:16 PM CT', title: 'Walking through crowded 1812 no longer stutters', kind: 'fix',
+    items: [
+      'Walking up to the fort or a busy yard no longer freezes the frame as people come into view: each figure is built in its turn, nearest first, and the shared work of fitting clothes to bodies is done once per outfit.',
+      'Walking past a wagon or a driver no longer stalls while the town replans everyone\'s day; that replan is now about seven times faster and gives the same day.',
+    ] },
+  { v: 2904, ts: '2026-11-12T20:45:44.812Z', date: 'Nov 12, 2026, 2:45 PM CT', title: '1721 Prairie\'s old frame house stands behind its brick front', kind: 'feature',
+    items: [
+      'Behind Arthur Little\'s brick front at 1721 Prairie, the rear range is now the 1863 frame house it was: clapboarded walls, a slate gable roof and two tall brick chimneys, as the 1891 Inland Architect plate and the Detroit print of the Pullman house show it.',
+      'Its stone-drab paint and roof pitch are liberties; the part of the frame house the brick front was moved onto in 1902 is not rebuilt.',
+    ] },
+  { v: 2903, ts: '2026-11-12T20:35:42.632Z', date: 'Nov 12, 2026, 2:35 PM CT', title: 'Back doors in 1904 stand in their houses\' walls', kind: 'fix',
+    items: [
+      'Every back door and its steps now sit in the house\'s built rear wall. Before, 56 of 121 stood out in the yard, 1626 Prairie\'s 16 m from its house.',
+      '124 houses have a back door, terrace and walks laid against the wall that is really there.',
+      'A house whose rear has no clear stretch of wall gets no back door rather than one in the wrong place.',
+    ] },
   { v: 2902, ts: '2026-11-12T19:27:31.583Z', date: 'Nov 12, 2026, 1:27 PM CT', title: '1812 belts sit tight, silver is engraved, and backlit lips calm down', kind: 'fix',
     items: [
       'Potawatomi men\'s belts now sit on the shirt or blanket instead of floating round the waist, and the shirt below the waist no longer starts wider than the shirt above it. Belt, shirt and blanket now move together when a man walks or turns.',

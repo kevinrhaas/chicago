@@ -2835,7 +2835,7 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             ch = q.get("chamfer")
             if ch is not None:
                 if not isinstance(ch, dict) or not {"corner", "along_m", "behind_m"} <= set(ch) \
-                        or set(ch) - {"corner", "along_m", "behind_m", "top_m"} \
+                        or set(ch) - {"corner", "along_m", "behind_m", "top_m", "light", "return"} \
                         or ch["corner"] not in ("left", "right") or not v.get("shallow") \
                         or e.get("flush_corner") != ch["corner"]:
                     raise ParamError(f"bays: {e['id']}'s chamfer takes corner (left or right), along_m and "
@@ -2859,6 +2859,34 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                 # the house's mansard carried down over it (1801's, HABS photograph 1); K08 bounds it
                 if "top_m" in ch:
                     v["plan"]["chamfer_top_m"] = float(ch["top_m"])
+                # T-1890: and the stone cheek carried up over that top may hold one light (1801's,
+                # HABS photograph 1: a deep-set light in the return beside the pavilion's corner
+                # pilaster); K08 bounds it on the cheek (k08_bays.Bay._cheek_light)
+                if "light" in ch:
+                    if "top_m" not in ch:
+                        raise ParamError(f"bays: {e['id']}'s chamfer light stands in the cheek over its top_m, "
+                                         f"so it needs one")
+                    v["plan"]["chamfer_light"] = copy.deepcopy(ch["light"])
+                # T-1890: and that cheek may run back past the cant as a RETURN (1801's, HABS
+                # photograph 1: the mansard stands back behind the round bay's balcony and the
+                # pavilion's stone return runs out to it): its back edge `back_m` [at the chamfer's
+                # top, at the return's top] behind the wall's face, its capped top at `top_m` over
+                # the bay's base, the front's corner pier `pier_m` deep carried on up over it to
+                # the wall top; K08 lays it (Bay._cheek_return), K01 sets the slate back behind it
+                if "return" in ch:
+                    rt = ch["return"]
+                    ok = isinstance(rt, dict) and set(rt) == {"back_m", "top_m", "pier_m"} \
+                        and isinstance(rt["back_m"], list) and len(rt["back_m"]) == 2
+                    if not ok or "top_m" not in ch or ch["corner"] != "right" \
+                            or not all(cb <= float(x) <= 3.0 for x in rt["back_m"]) \
+                            or not float(ch["top_m"]) + 1.0 <= float(rt["top_m"]) \
+                            or not 0.2 <= float(rt["pier_m"]) <= float(d):
+                        raise ParamError(f"bays: {e['id']}'s chamfer return takes back_m [at its foot, at its top], "
+                                         f"each {cb}-3.0 m behind the wall (past the cant's back), top_m a metre or "
+                                         f"more over the chamfer's top_m and pier_m 0.2 m up to the front's {d} m "
+                                         f"proud, on a right chamfer, not {rt}")
+                    v["plan"]["chamfer_return"] = {"back_m": [float(x) for x in rt["back_m"]],
+                                                   "top_m": float(rt["top_m"]), "pier_m": float(rt["pier_m"])}
         elif "plan" in e and v["kind"] == "tower":
             # T-2787: a tower read off a picture keeps the picture's radius and how far its
             # centre stands out of the wall; the kit's tower is the shape (its ring, its sides),
@@ -5010,6 +5038,14 @@ WING_HOST_MIN_M = 1.0
 WING_FABRICS = ("brick", "frame")
 #: T-2417: a frame wing's wall, studs and boards, for its windows' reveals (a brick wing takes the side walls')
 FRAME_WALL_M = 0.15
+#: T-3566: a frame wing's lapped clapboards (`rear_wings[].clapboard`): the exposure of each
+#: board, how far its butt stands proud of the one above, the corner boards' width, and the
+#: paint they wear (linear RGB) — 1721's 1863 frame house behind Little's brick front, the
+#: clapboards the 1891 Inland Architect plate draws on its north side
+CLAPBOARD_KEYS = {"exposure_m", "butt_m", "corner_m", "paint"}
+CLAPBOARD_EXPOSURE_M = (0.08, 0.2)
+CLAPBOARD_BUTT_M = (0.008, 0.03)
+CLAPBOARD_CORNER_M = (0.08, 0.25)
 
 
 def wing_walls(w: dict) -> dict:
@@ -5313,6 +5349,21 @@ def _rear_wings(entries, depth, width, openings, cw, ch, structure_id: str, ston
         if fabric not in WING_FABRICS:
             raise ParamError(f"rear_wings: {wid} is {fabric!r}; a K01 wing is laid in the K03 brick "
                              f"or framed in painted timber ({', '.join(WING_FABRICS)})")
+        cb = e.get("clapboard")
+        if cb is not None:
+            if fabric != "frame" or not isinstance(cb, dict) or set(cb) != CLAPBOARD_KEYS:
+                raise ParamError(f"rear_wings: {wid}'s clapboard is a frame wing's, and takes "
+                                 f"{', '.join(sorted(CLAPBOARD_KEYS))}")
+            ex, bt, cr = (float(cb[k]) for k in ("exposure_m", "butt_m", "corner_m"))
+            paint = tuple(float(x) for x in cb["paint"])
+            if not (CLAPBOARD_EXPOSURE_M[0] <= ex <= CLAPBOARD_EXPOSURE_M[1]
+                    and CLAPBOARD_BUTT_M[0] <= bt <= CLAPBOARD_BUTT_M[1]
+                    and CLAPBOARD_CORNER_M[0] <= cr <= CLAPBOARD_CORNER_M[1]
+                    and len(paint) == 3 and all(0.0 <= c <= 1.0 for c in paint)):
+                raise ParamError(f"rear_wings: {wid}'s clapboard: boards {CLAPBOARD_EXPOSURE_M} m to the "
+                                 f"weather, butts {CLAPBOARD_BUTT_M} m proud, corner boards {CLAPBOARD_CORNER_M} m "
+                                 f"wide, a linear RGB paint in 0-1")
+            cb = {"exposure_m": ex, "butt_m": bt, "corner_m": cr, "paint": paint}
         if abs(u1) < 1e-9:
             host, hv0, hv1, hwall = None, 0.0, width, "k01.wall.rear_service"
         else:
@@ -5503,6 +5554,7 @@ def _rear_wings(entries, depth, width, openings, cw, ch, structure_id: str, ston
                 "floors_m": tuple(floors), "top_m": top, "deck_m": deck, "overhang_m": ov, "fascia_m": fas,
                 "host_v_m": (hv0, hv1), "openings": tuple(ops), "roof": pitched or {"kind": "flat"},
                 **({"cornice": True} if cornice else {}),
+                **({"clapboard": cb} if cb else {}),
                 **({"past_host": past} if past else {})}
         stacks = _wing_stacks(wing, e.get("stacks"), stone)
         if stacks:
@@ -5512,6 +5564,9 @@ def _rear_wings(entries, depth, width, openings, cw, ch, structure_id: str, ston
                 raise ParamError(f"rear_wings: {wid}'s dressings are stone laid in a brick wing's walls")
             wing["dressings"] = _wing_dressings(wid, e["dressings"], walls, ops, top)
         out.append(wing)
+    paints = {w["clapboard"]["paint"] for w in out if w.get("clapboard")}
+    if len(paints) > 1:
+        raise ParamError("rear_wings: a K01 house's clapboarded wings wear one paint (the assembly's wing_clapboard)")
     slates = {w["roof"]["covering"] for w in out if w["roof"]["kind"] != "flat"}
     if len(slates) > 1:
         raise ParamError(f"rear_wings: the wings are slated in {', '.join(sorted(slates))}; a K01 house's "

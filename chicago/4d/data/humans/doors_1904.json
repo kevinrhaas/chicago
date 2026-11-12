@@ -717,11 +717,11 @@
     {
      "id": "dexter_house_1721_prairie:back",
      "leaf": {
-      "local_e": 1455.26,
+      "local_e": 1455.28,
       "local_n": -3137.42
      },
      "step": {
-      "local_e": 1458.74,
+      "local_e": 1458.76,
       "local_n": -3137.38
      },
      "outward_deg": 89.3,
@@ -731,7 +731,7 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1721:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "asset_sha256": "332de0a1f9049ae44860bebc0ad5acb970bfcab916d27f56cc148bea871f257f"
+   "asset_sha256": "9fdc077f358c93b79b603c1a6b743bac9381cd88133336c96eb5bc3f554bbeb3"
   },
   {
    "structure": "edson_keith_house_1906_prairie",
@@ -7477,7 +7477,7 @@
      "reconstructed": "Front leaf read from the built door material; the way up to it is read off the built stoop's treads (derive_doors_scene.py stoop_way), and one answering stands at its foot. The leaf opens and shuts as they pass (house-doors.js passages, T-3554); its hinge side and swing are reconstructed."
     }
    ],
-   "asset_sha256": "b93b8278faf4c7a2a0397201ad8c59c808d55c14244d03277bdcb84aab7bb3cd"
+   "asset_sha256": "21502077840a844cb02606b3668e41c1ead2969474c169df31bfdd2e55814d05"
   },
   {
    "structure": "law_house_1620_prairie",

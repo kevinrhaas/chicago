@@ -1592,7 +1592,7 @@ class Bay:
                  keep_behind=WINDOW_ROLES if v.get("shallow") else ())
         world = strip(f"{v['id']}|world")
         if ct is not None:
-            self._chamfer_cheek(world, ct, y_top)
+            self._chamfer_cheek(world, ct, y_top, recess, wall_t, cv)
         if not grade and v.get("apron"):
             self._apron_bottom(world, y0, cv)
         elif not grade:
@@ -2300,10 +2300,35 @@ class Bay:
             if side not in cham and zb < 0.0:
                 world.face("band", [(xs, y0, 0.0), (xs, y_top, 0.0), (xs, y_top, zb), (xs, y0, zb)],
                            (-1.0 if xs < xc else 1.0, 0.0, 0.0))
+        hole = getattr(self, "cheek_hole", None)   # T-1890: a chamfer return's light, on the right
         for xs, y0 in zip((xl, xr), y0s):
             o = -1.0 if xs < xc else 1.0
             world.face("roof", [(xs, y_top, zb), (xc, y_rb, zb), (xc, y_rb, ze), (xs, y_top, ze)],
                        (o * (y_rb - y_top), abs(xc - xs), 0.0))
+            cr_ = getattr(self, "cheek_return", None)
+            if cr_ is not None and o > 0.0:
+                # T-1890: over a chamfer's return the slate behind the corner pier, from the pier's
+                # back out to this cheek, a centimetre inside the return's stone (1801's)
+                zp, yr = cr_[1], cr_[2]
+                if not (zb < zp and y0 < yr < y_top):
+                    raise ValueError(f"{self.v['id']}: a chamfer's return's pier stands behind the parapet's back")
+                world.face("roof", [(xs, yr, zb), (xs, y_top, zb), (xs, y_top, zp), (xs, yr, zp)], (o, 0.0, 0.0))
+            if hole is not None and o > 0.0 and hole[0] < zb:
+                # T-1890: the slated cheek a centimetre behind the return's stone, opened round the
+                # recess of the light in it where the recess reaches back past the parapet (1801's,
+                # HABS photograph 1), in a grid of cells
+                za, zc_, ya, yc = hole[0], min(hole[1], zb), hole[2], hole[3]
+                if not (ze < za and y0 < ya < yc < y_top):
+                    raise ValueError(f"{self.v['id']}: the light in the chamfer's return reaches past the cross "
+                                     f"roof's slated cheek behind it")
+                zs, ys = [ze, za, zc_, zb], [y0, ya, yc, y_top]
+                for i in range(3):
+                    for j in range(3):
+                        if (i == 1 and j == 1) or zs[i + 1] - zs[i] < 1e-9:
+                            continue
+                        world.face("roof", [(xs, ys[j], zs[i + 1]), (xs, ys[j + 1], zs[i + 1]),
+                                            (xs, ys[j + 1], zs[i]), (xs, ys[j], zs[i])], (o, 0.0, 0.0))
+                continue
             world.face("roof", [(xs, y0, zb), (xs, y_top, zb), (xs, y_top, ze), (xs, y0, ze)], (o, 0.0, 0.0))
         world.face("roof", [(xl, y0s[0], ze), (xr, y0s[1], ze), (xr, y_top, ze), (xc, y_rb, ze), (xl, y_top, ze)],
                    (0.0, 0.0, -1.0))
@@ -2627,16 +2652,106 @@ class Bay:
         flat.face("band", [flat.P(0.0, ct, t), flat.P(run.L, ct, t), flat.P(run.L, ct, 0.0), flat.P(0.0, ct, 0.0)], Y)
         self.meta["chamfer_top"] = {"top_m": round(ct, 4), "cap_m": round(t, 4)}
 
-    def _chamfer_cheek(self, world, ct, y_top):
+    def _chamfer_cheek(self, world, ct, y_top, recess=None, wall_t=None, cv=None):
         """T-1890: over a canted face stopped under its cornice, the front's end carried on up
         as a stone cheek to its wall top, back to the wall plane and on past it as far as the
-        cant runs behind it (inside the house's slate that closes against it)."""
+        cant runs behind it (inside the house's slate that closes against it). It may run on
+        back as a RETURN (`plan.chamfer_return`) and hold one light (`plan.chamfer_light`):
+        see _cheek_return."""
         pts = self.v["plan"]["points"]
         right = self.v["plan"].get("side_end") == "right"
         x, p = (float(pts[2][0]), float(pts[2][1])) if right else (float(pts[1][0]), float(pts[1][1]))
         zb = float(pts[3][1] if right else pts[0][1])
+        lt, rb = self.v["plan"].get("chamfer_light"), self.v["plan"].get("chamfer_return")
+        if lt is not None or rb is not None:
+            self._cheek_return(lt, rb, x, p, zb, right, ct, y_top, recess, wall_t, cv)
+            return
         world.face("wall", [(x, ct, p), (x, y_top, p), (x, y_top, zb), (x, ct, zb)],
                    (1.0 if right else -1.0, 0.0, 0.0))
+
+    CHEEK_LIGHT_KEYS = {"opening", "clear_width_m", "clear_height_m", "sill_m", "back_m", "why_not_ordinary"}
+
+    def _cheek_return(self, lt, rb, x, p, zb, right, ct, y_top, recess, wall_t, cv):
+        """T-1890: a chamfer's stone cheek laid as a run of its own (1801's south pavilion, HABS
+        photograph 1: over the round bay's balcony the pavilion's south return runs back from
+        its corner pier to the house's slate, a deep-set light in it beside the pier and a
+        moulded course along its top, under the pier's capital, with slate over it). The run
+        starts at the front's end and runs back along the side, its face out to the side the
+        chamfer cuts. With a RETURN (`chamfer_return`) the stone stands from the chamfer's top
+        to the return's `top_m`, its back edge `back_m` [at its foot, at its top] behind the
+        wall's face, where the house's slate is set back behind it (k01_frontage
+        `return_setback`), capped by the floor band's course; over it the front's corner pier,
+        `pier_m` deep, is carried on up to the wall top and the slate behind the pier is hung a
+        centimetre inside the stone's plane, as the cross roof's slated cheek is, out to that
+        cheek. Without one the stone stands to the wall top and back to the cant's back.
+        Its LIGHT (`chamfer_light`) is K06's opening set in it as a run's lights are: `sill_m`
+        over the bay's base, its middle `back_m` behind the front's face, `recess_m` (or the
+        kit's recess) deep, clear of the stone's ends, over the chamfer's top and under its
+        top; the cross roof's slated cheek behind is cut round its recess (_gable_behind)."""
+        if not right:
+            raise ValueError(f"{self.v['id']}: a chamfer's return and light are laid on a right chamfer "
+                             f"(1801's); the left hand is not built")
+        if rb is not None:
+            (b0, b1), rt, pier = rb["back_m"], float(rb["top_m"]), float(rb["pier_m"])
+            if not (ct + 1.0 <= rt <= y_top - 0.3 and pier <= p):
+                raise ValueError(f"{self.v['id']}: a chamfer's return tops out a metre over its foot {ct:.3f} m and "
+                                 f"0.3 m under the wall top {y_top:.3f} m (has {rt:.3f}), its pier no deeper than "
+                                 f"the front stands proud ({p:.3f} m)")
+        else:
+            b0, b1, rt, pier = -zb, -zb, y_top, None
+        run = Run("line", ("corner", 0.0), ("corner", 0.0), A=(x, p), B=(x, -max(b0, b1)))
+        s_a, s_b = p + min(b0, b1), p + max(b0, b1)     # the square part's back, the sloped edge's far end
+        flat = strip(f"{self.v['id']}|cheek")
+        holes = []
+        if lt is not None:
+            if not isinstance(lt, dict) or not self.CHEEK_LIGHT_KEYS <= set(lt) \
+                    or set(lt) - self.CHEEK_LIGHT_KEYS - {"recess_m"}:
+                raise ValueError(f"{self.v['id']}: a chamfer's light takes {sorted(self.CHEEK_LIGHT_KEYS)} "
+                                 f"(and recess_m), not {sorted(lt) if isinstance(lt, dict) else lt}")
+            w = {k: lt[k] for k in ("opening", "clear_width_m", "clear_height_m", "sill_m", "why_not_ordinary")}
+            dep = float(lt.get("recess_m", recess))
+            s = float(lt["back_m"])
+            y_sill = float(lt["sill_m"])
+            o = window(w, s, y_sill, dep)
+            allp = [q for pr in o.prims.values() for q in pr.pos]
+            s_lo, s_hi = min(q[0] for q in allp), max(q[0] for q in allp)
+            y_lo, y_hi = min(q[1] for q in allp), max(q[1] for q in allp)
+            if not ((pier or 0.15) <= s_lo and s_hi <= s_a - 0.15 and ct + 0.05 <= y_lo
+                    and y_hi <= rt - (0.05 if rb is not None else 0.3) and 0.1 <= dep <= 0.5):
+                raise ValueError(f"{self.v['id']}: a chamfer's light, its sill and reveal stand clear of the "
+                                 f"pier and 0.15 m clear of the stone's back ({s_lo:.3f}..{s_hi:.3f} of "
+                                 f"0..{s_a:.3f}), from {ct:.3f} m to under its top {rt:.3f} m (has "
+                                 f"{y_lo:.3f}..{y_hi:.3f}), set 0.1-0.5 m deep")
+            for h in o.holes:
+                sh = [(q[0] + s, q[1] + o.O[1]) for q in h]
+                holes.append((sh[0][0], sh[1][0], sh[0][1], sh[2][1], sh[2:], len(sh) == 4))
+            drop = cv.get("drop_roles", ()) if self.tier == "light" else ()
+            merge(flat.prims, o.prims, drop)
+            self.windows.append(self._window_record(run, -1, len(self.v["storeys"]) - 1, w, s, o, wall_t))
+            # the slated cheek behind it is opened round the recess's whole extent, in (z, y)
+            bk = o.prims["backing"].pos
+            self.cheek_hole = (p - max(q[0] for q in bk), p - min(q[0] for q in bk),
+                               min(q[1] for q in bk), max(q[1] for q in bk))
+            self.meta["chamfer_light"] = {"s_m": round(s, 4), "sill_m": round(y_sill, 4), "recess_m": round(dep, 4),
+                                          "y_m": [round(y_lo, 4), round(y_hi, 4)]}
+        wall_cells(flat, "wall", holes, 0.0, s_a, ct, rt)
+        if s_b - s_a > 1e-6:   # the back edge leaning, up or down, out to the slate set back behind it
+            tri = [(s_a, ct), (s_b, ct), (s_a, rt)] if b0 > b1 else [(s_a, ct), (s_b, rt), (s_a, rt)]
+            flat.plane("wall", tri, 0.0)
+        if rb is not None:
+            band = part(self.v, self.data, "floor_band")
+            proud(flat, "band", _Span(run, pier, p + b1), rt - band["height_m"], rt, band["proud_m"])
+            # the corner pier on up to the wall top, its back face a centimetre deep to the slate
+            flat.plane("wall", rect(0.0, pier, rt, y_top), 0.0)
+            flat.face("wall", [flat.P(pier, rt, 0.0), flat.P(pier, y_top, 0.0), flat.P(pier, y_top, 0.01),
+                               flat.P(pier, rt, 0.01)], (1.0, 0.0, 0.0))
+            # and behind it the slate, hung a centimetre in, out to the cross roof's slated cheek
+            # (_gable_behind, which knows where that cheek starts)
+            self.cheek_return = (x, p - pier, rt)
+            self.meta["chamfer_return"] = {"back_m": [round(b0, 4), round(b1, 4)], "top_m": round(rt, 4),
+                                           "pier_m": round(pier, 4), "run_m": round(s_b, 4)}
+        # nothing to trim: the run stands clear of the wall plane's clip, which would cut its back
+        bend(run, flat.prims, self.prims, None, keep_behind=tuple(flat.prims))
 
     def _cap_band(self, flat, run, y_top, cb):
         """T-2815: a carved band round the bay under its cap (Keith's bow on the 1888 plate:

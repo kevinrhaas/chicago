@@ -324,6 +324,9 @@ MATERIALS["area_brick"] = dict(k03_brick.MATERIALS["brick"],
 MATERIALS["yard_turf"] = {"fabric": "turf", "color": (1.0, 1.0, 1.0), "roughness": 0.96}
 MATERIALS["yard_earth"] = {"color": (0.139, 0.102, 0.061), "roughness": 1.0}
 MATERIALS["yard_cinder"] = {"fabric": "gravel", "color": (0.52, 0.50, 0.47), "roughness": 0.93}
+# T-3566: a frame wing's lapped clapboards (rear_wings[].clapboard), a flat paint whose colour
+# the record gives (the assembly sets it); the boards' butts are geometry, so no map under it
+MATERIALS["wing_clapboard"] = {"color": (0.6, 0.57, 0.5), "roughness": 0.82}
 # T-2369: the white-painted panel behind a frieze light that reads white in its photograph
 MATERIALS["frieze_panel"] = {"color": (0.74, 0.73, 0.70), "roughness": 0.6}
 # T-2887: louvred shutters at a window over a bay (1637's), read dark in a monochrome
@@ -620,6 +623,9 @@ class Assembly:
         # T-2289: a coursed stone front lays its walling and its trim in K02 fabrics,
         # whose maps carry their own colour, so the factors go to white
         self.spec = {k: dict(v) for k, v in MATERIALS.items()}
+        for w in params.rear_wings:   # T-3566: the clapboards' one paint (k01_frontage_params)
+            if w.get("clapboard"):
+                self.spec["wing_clapboard"]["color"] = tuple(w["clapboard"]["paint"])
         # T-2369: a record that reads its cornice's paint off a source (1612's dark cornice)
         # paints the eave's timber — fascia, soffit, brackets, bed moulding, frieze — in it
         paint = (params.wall_head or {}).get("paint")
@@ -1219,10 +1225,13 @@ class Assembly:
             # T-3354: a mullioned group one hole to a light, the brick between them the mullion's core
             hs = [h for o in ops for h in self.group_holes(o)] + cover
             if frame_wing:
-                frame, t = self.wall(cid, "bay_frame", O, R, length, w["top_m"], FRAME_WALL_M, hs,
+                body = "wing_clapboard" if w.get("clapboard") else "bay_frame"
+                frame, t = self.wall(cid, body, O, R, length, w["top_m"], FRAME_WALL_M, hs,
                                      (w["top_m"],), construction="frame")
                 for o in ops:
-                    self.opening(o, frame, t, "bay_frame", "fascia")
+                    self.opening(o, frame, t, body, "fascia")
+                if w.get("clapboard"):
+                    self.clapboards(w, side, cid, frame, length, ops, cover)
                 continue
             if p.stone.get("all_round"):
                 # T-2788: an all-stone house's wing is coursed as its main walls are, on the
@@ -1257,6 +1266,48 @@ class Assembly:
             self.wing_deck(w)
         else:
             self.wing_roof(w)
+
+    def clapboards(self, w, side, cid, frame, length, ops, cover):
+        """T-3566: a frame wing's wall lapped in clapboards (`rear_wings[].clapboard`), 1721's
+        1863 frame house behind Little's brick front. From a stone water table at the first
+        floor's line less a board, each board runs from its butt, `butt_m` proud, up to where
+        the next one laps it, flush; a course stops at each opening's casing (0.1 m round its
+        hole) and at what stands on the wall, and between corner boards at the wing's outer
+        corners. Only the butts and their lips are geometry: the face of every board is one
+        sloped quad, two triangles a stretch."""
+        cb, p = w["clapboard"], self.p
+        O, R, N = frame
+        P = lambda s, y, d: _add(_add(_add(O, _mul(R, s)), _mul(Y, y)), _mul(N, d))
+        conf = p.worst_conf("footprint", "stories", "storey_heights_m", "construction")
+        seed = seed_of(self.sid, cid, 3566)
+        ex, bt, cr = cb["exposure_m"], cb["butt_m"], cb["corner_m"]
+        base, top = round(w["floors_m"][0] - 0.3, 4), w["top_m"]
+        # the outer corners: south's is at its rear end (s 0), north's at its rear end (s =
+        # length), the rear wall's at both; a front past its host has its own two
+        corners = {"south": (0.0,), "north": (length,), "rear": (0.0, length),
+                   "front": (0.0, length)}.get(side, ())
+        lo = cr if 0.0 in corners else 0.0
+        hi = length - cr if length in corners else length
+        for s0 in corners:
+            a = 0.0 if s0 == 0.0 else length - cr
+            self.proud_box("fascia", frame, a, a + cr, base, top, bt + 0.012, seed, conf)
+        # the water table: a stone course over the foundation, the wall below it left as laid
+        self.proud_box("limestone_trim", frame, 0.0, length, 0.0, base, bt + 0.02, seed, conf)
+        gaps = [(o.s_m - o.width_m / 2 - 0.1, o.s_m + o.width_m / 2 + 0.1, o.sill_m - 0.08, o.head_m + 0.12)
+                for o in ops] + [c[:4] for c in cover]
+        pr = self.prim("wing_clapboard")
+        b = self.basis("wing_clapboard", O, R, Y, seed)
+        bh = self.basis("wing_clapboard", O, R, N, seed)
+        n_face = _unit(_add(_mul(N, ex), _mul(Y, bt)))
+        down = _mul(Y, -1)
+        y0 = base
+        while y0 < top - 0.02:
+            y1 = min(top, round(y0 + ex, 6))
+            stops = [(a, b_) for a, b_, g0, g1 in gaps if g0 < y1 and y0 < g1]
+            for s0, s1 in _pieces(lo, hi, stops):
+                pr.face([P(s0, y0, bt), P(s1, y0, bt), P(s1, y1, 0.0), P(s0, y1, 0.0)], n_face, b, conf)
+                pr.face([P(s0, y0, 0.0), P(s1, y0, 0.0), P(s1, y0, bt), P(s0, y0, bt)], down, bh, conf)
+            y0 = y1
 
     def group_holes(self, o):
         """T-3354: an opening's holes in its wall — one, or for a rear wing's stone-mullioned
@@ -1503,7 +1554,7 @@ class Assembly:
         cut = k5.extrude([(u1, base - 1.0), (end, base - 1.0), (end, hi), (u1, hi)], c0, c1,
                          k5.frame("z"), "host_end", "host_end", "host_end")
         pts, tris = _weld_shell(*k5.close(k5.subtract(k5.union_all(k5._snap(solids)), k5._snap([cut])[0])))
-        walling = "bay_frame" if w.get("fabric") == "frame" else \
+        walling = ("wing_clapboard" if w.get("clapboard") else "bay_frame") if w.get("fabric") == "frame" else \
             "rough_stone_trim" if p.stone.get("all_round") else "brick"
         phase = (_k04_fabric(r["covering"]) or {}).get("course_phase_m", [0.0, 0.0])[1]
         planes = {}   # each covering plane's lowest point, its eave, where its courses start
@@ -4916,6 +4967,22 @@ class Assembly:
                        [(D - behind, s0 - 1.0), (D + 2.0, s0 - 1.0), (D + 2.0, s0 + along), (D + proud, s0 + along),
                         (D - behind, s0)])
                 out.append(k5.extrude(cut, yf - 0.5, top if ct is None else ct, P, "return", "wall", "wall"))
+                # T-1890: over a canted face stopped under its cornice, the house's slate set back
+                # behind the corner (1801's, HABS photograph 1: the mansard stands back behind the
+                # round bay's balcony and the pavilion's stone return runs out to it, where the
+                # build's slate came down at the wall plane in front of the return). The roof is cut
+                # from the cant's top to the curb on the plane through the hip's foot
+                # at the eave's corner and the return's back edge, `chamfer_return` back_m [at the cant's
+                # top, at the return's top] behind the wall's face, so the hip keeps its foot and the
+                # stone runs back to the slate; the cut's faces are in the covering. North of the
+                # return it reaches as deep as a light in the return is set, behind the stone and
+                # the cross roof's slated cheek, so the light's recess is clear
+                rb = b["variant"]["plan"].get("chamfer_return")
+                if rb is not None:
+                    if side != "right" or b["wall"] != "k01.wall.street_front" or ct is None:
+                        raise ValueError(f"{b['id']}: the slate is set back behind a right chamfer's return on "
+                                         f"the street front, over a canted face stopped under its cornice")
+                    out += self.return_setback(b, s1, along, ct, rb, k5)
                 # T-1890: and inside the canted face, as deep as a light's recess on it reaches
                 # (1801's over its round bay, HABS photograph 1), on hidden faces as the box's are:
                 # the cut above closes in the cant's own plane, over the light's opening. Up to
@@ -4958,6 +5025,57 @@ class Assembly:
             outer = [(D + proud, s0), (D + 2.0, s0), (D + 2.0, s1), (D + proud, s1)]
             out.append(k5.extrude(outer, yf - 0.5, self.p.eave_m + 0.3, P, "return", "wall", "wall"))
         return out
+
+    def return_setback(self, b, s1, along, ct, rb, k5):
+        """T-1890: the solid shallow_bay_cutters takes out of the roof over a right chamfer's
+        corner where the pavilion's stone return runs back to the slate (1801's, HABS photograph
+        1): between the cant's top and the pavilion's wall top, everything on the corner's side
+        of the plane through the eave's corner (the hip's foot, the eave overhang out from the
+        walls' corner) and the return's back edge, from `rb`[0] behind the wall's face at the
+        cant's top to `rb`[1] at the wall top. Two rings, each the box round the corner cut on
+        that plane's trace at its height; both must cut it the same way, so the faces are planar."""
+        from . import k08_bays as K8
+        D, E, o = self.p.depth_m, self.p.eave_m, self.p.eave_overhang_m
+        bv = b["variant"]
+        y_wt = float(rb["top_m"]) + (0.0 if bv.get("base", "grade") == "grade" else float(bv["base"]))
+        lt = bv["plan"].get("chamfer_light")
+        reach = (float(lt.get("recess_m", K8.part(bv, K8.load(), "recess")["depth_m"])) + 0.05
+                 if lt is not None else 0.02)
+        vc = s1 - along
+        c0 = (D + o, s1 + o, E)                                   # (u, v, y): the eave's corner
+        r0, r1 = (D - float(rb["back_m"][0]), vc, ct), (D - float(rb["back_m"][1]), vc, y_wt)
+        a = [r0[i] - c0[i] for i in range(3)]
+        e = [r1[i] - c0[i] for i in range(3)]
+        n = (a[1] * e[2] - a[2] * e[1], a[2] * e[0] - a[0] * e[2], a[0] * e[1] - a[1] * e[0])
+        side = lambda u, v, y: n[0] * (u - c0[0]) + n[1] * (v - c0[1]) + n[2] * (y - c0[2])
+        far = side(D + 2.0, s1 + 2.0, ct)
+
+        def solid(ya, yb, north):
+            box = [(D - 6.0, north), (D + 2.0, north), (D + 2.0, s1 + 2.0), (D - 6.0, s1 + 2.0)]
+            rings = []
+            for y in (ya, yb):
+                f = [side(u, v, y) * far for u, v in box]
+                ring = []
+                for i in range(4):
+                    (pu, pv), (qu, qv), fp, fq = box[i], box[(i + 1) % 4], f[i], f[(i + 1) % 4]
+                    if fp >= 0.0:
+                        ring.append((pu, pv))
+                    if (fp >= 0.0) != (fq >= 0.0):
+                        t = fp / (fp - fq)
+                        ring.append((pu + t * (qu - pu), pv + t * (qv - pv)))
+                rings.append((y, [(u, -v) for u, v in ring]))
+            if len(rings[0][1]) != len(rings[1][1]) or len(rings[0][1]) < 3:
+                raise ValueError(f"{b['id']}: the return's back edge {rb} m behind the wall cuts the roof's "
+                                 f"corner differently at {ya:.3f} and {yb:.3f} m")
+            return k5.ring_stack(rings, ["covering"], "covering", "covering")
+        # up to the wall top as deep as the light's recess, and on up over the return to the curb
+        # on the same plane, which leaves the slate there (no ceiling over the return's top)
+        y_curb = E + float(self.p.mansard["lower_rise_m"])
+        if not ct + 0.5 <= y_wt < y_curb - 0.5:
+            raise ValueError(f"{b['id']}: a return's slate set back stands between its cant's top and its "
+                             f"mansard's curb")
+        self.meta_return = {"plane_normal": [round(q, 4) for q in n]}
+        return [solid(ct - 0.01, y_wt, vc - reach), solid(y_wt - 0.01, y_curb - 0.05, vc - 0.02)]
 
     @staticmethod
     def chamfer_top(b):
