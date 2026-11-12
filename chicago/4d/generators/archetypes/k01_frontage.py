@@ -4158,6 +4158,39 @@ class Assembly:
         for k in range(n):
             a0 = s0 + mod["margin_m"] + k * (mw + gap) if n > 1 else c - mw / 2
             box(a0, a0 + mw, y1 - md, y1, out, out + mo, skip=("back", "top"))
+        # T-1887: an end carried back on a diagonal to a bay's cheek (1828's south end): a wing
+        # of the fascia box from the front corner to `to`, and the slab over it standing `proud_m`
+        # past its diagonal; its back runs to the wall inside the bay, so only its soffit, its
+        # diagonal and the short end where it meets the cheek are drawn
+        spl = h.get("splay")
+        if spl:
+            k = -1.0 if spl["side"] == "left" else 1.0
+            sx = s0 if k < 0 else s1
+            Sx = S0 if k < 0 else S1
+            A = (sx, out)
+            B = (op.s_m + spl["to_s_m"], spl["to_out_m"])
+            ln = math.hypot(B[0] - A[0], B[1] - A[1])
+            u = ((B[0] - A[0]) / ln, (B[1] - A[1]) / ln)
+            nv = (-u[1], u[0])
+            # outward: away from the hood's centre on the wall
+            if nv[0] * (A[0] - c) + nv[1] * A[1] < 0:
+                nv = (-nv[0], -nv[1])
+            wn = lambda v2: _unit(_add(_mul(R, v2[0]), _mul(N, v2[1])))
+            off = lambda q, t: (q[0] + nv[0] * t, q[1] + nv[1] * t)
+            Ao, Bo = off(A, cp), off(B, cp)
+            # where the slab's diagonal meets the rectangle slab's end
+            Ac = (Sx, Ao[1] + (Sx - Ao[0]) * (u[1] / u[0])) if abs(u[0]) > 1e-6 else Ao
+            side_n = _mul(R, k)
+            # the fascia wing: soffit, diagonal face, end
+            quad([P(sx, y0, 0.0), P(A[0], y0, A[1]), P(B[0], y0, B[1]), P(B[0], y0, 0.0)], down, bh)
+            quad([P(A[0], y0, A[1]), P(B[0], y0, B[1]), P(B[0], y1, B[1]), P(A[0], y1, A[1])], wn(nv), bf)
+            quad([P(B[0], y0, B[1]), P(B[0], y0, 0.0), P(B[0], y1, 0.0), P(B[0], y1, B[1])], side_n, be)
+            # the slab over it: top, underside past the fascia, diagonal face, end
+            quad([P(Sx, y2, 0.0), P(Ac[0], y2, Ac[1]), P(Bo[0], y2, Bo[1]), P(Bo[0], y2, 0.0)], up, bh)
+            quad([P(A[0], y1, A[1]), P(B[0], y1, B[1]), P(Bo[0], y1, Bo[1]), P(Ac[0], y1, Ac[1])], down, bh)
+            quad([P(Ac[0], y1, Ac[1]), P(Bo[0], y1, Bo[1]), P(Bo[0], y2, Bo[1]), P(Ac[0], y2, Ac[1])], wn(nv), bf)
+            quad([P(Bo[0], y1, Bo[1]), P(Bo[0], y1, 0.0), P(Bo[0], y2, 0.0), P(Bo[0], y2, Bo[1])], side_n, be)
+            quad([P(Bo[0], y1, B[1]), P(B[0], y1, B[1]), P(B[0], y1, 0.0), P(Bo[0], y1, 0.0)], down, bh)
         # a console under the soffit at each end: its top on the soffit, its back on the
         # wall, its underside a quarter ellipse from the soffit's front in and down to the wall
         Rr, Dd, t = con["reach_m"], con["drop_m"], con["thickness_m"]
@@ -4182,7 +4215,8 @@ class Assembly:
         # before the railing, which may change the material the boxes are laid in)
         cols = h.get("columns")
         if cols:
-            self._hood_columns(cols, op, P, quad, box, bf, bh, be, s0, s1, out, y0, R, N, seed, conf, h.get("arches"))
+            self._hood_columns(cols, op, P, quad, box, bf, bh, be, s0, s1, out, y0, R, N, seed, conf, h.get("arches"),
+                               splay=h.get("splay"))
         tri_fascia = len(pr.idx) // 3 - tri0
         # the railing on the slab: posts at the front corners and against the wall, a rail
         # over square balusters along the front and both returns. T-2963: in iron if the
@@ -4196,6 +4230,9 @@ class Assembly:
         e = 0.04                                   # the railing's line in from the slab's edge
         L, Rs, F = S0 + e, S1 - e, D - e           # its outer edges: left, right, front
         posts = [(L, F - pm), (Rs - pm, F - pm), (L, 0.0), (Rs - pm, 0.0)]
+        # T-1887: a splayed end's return runs on its diagonal instead (below), so no wall post there
+        sp_a = (L if spl["side"] == "left" else Rs - pm) if spl else None
+        posts = [q for q in posts if not (q[0] == sp_a and q[1] == 0.0)]
         for a0, d0 in posts:
             box(a0, a0 + pm, y2, y3, d0, d0 + pm, skip=("bottom",) + (("back",) if d0 == 0.0 else ()))
         yr = y3 - rd
@@ -4204,6 +4241,8 @@ class Assembly:
         fr = (F - pm / 2 - rw / 2, F - pm / 2 + rw / 2)
         box(L + pm, Rs - pm, yr, y3 - 0.02, *fr, skip=("left", "right"))
         for a in (L, Rs - pm):
+            if a == sp_a:
+                continue
             ac = (mid(a, a + pm) - rw / 2, mid(a, a + pm) + rw / 2)
             box(*ac, yr, y3 - 0.02, pm, F - pm, skip=("back", "front"))
 
@@ -4219,7 +4258,32 @@ class Assembly:
             return n
         nb = balusters(L + pm, Rs - pm, True, mid(*fr))
         for a in (L, Rs - pm):
-            nb += balusters(pm, F - pm, False, mid(a, a + pm))
+            if a != sp_a:
+                nb += balusters(pm, F - pm, False, mid(a, a + pm))
+        if spl:
+            # T-1887: the splayed end's return, from the front corner's post along the slab's
+            # diagonal to a post where it meets the cheek, a rail over square balusters
+            Pa = (mid(sp_a, sp_a + pm), F - pm / 2)
+            Pb = off(Bo, -(e + pm / 2))
+            Pb = (Pb[0] - u[0] * (pm / 2 + 0.02), Pb[1] - u[1] * (pm / 2 + 0.02))
+            box(Pb[0] - pm / 2, Pb[0] + pm / 2, y2, y3, Pb[1] - pm / 2, Pb[1] + pm / 2, skip=("bottom",))
+            dl = math.hypot(Pb[0] - Pa[0], Pb[1] - Pa[1])
+            ud = ((Pb[0] - Pa[0]) / dl, (Pb[1] - Pa[1]) / dl)
+            nd = (-ud[1], ud[0])
+            a0 = (Pa[0] + ud[0] * pm / 2, Pa[1] + ud[1] * pm / 2)
+            a1 = (Pb[0] - ud[0] * pm / 2, Pb[1] - ud[1] * pm / 2)
+            cn = [(q[0] + nd[0] * t, q[1] + nd[1] * t) for q in (a0, a1) for t in (-rw / 2, rw / 2)]
+            (p0m, p0p, p1m, p1p) = cn
+            for (qa, qb, t) in ((p0m, p1m, -1.0), (p0p, p1p, 1.0)):
+                quad([P(qa[0], yr, qa[1]), P(qb[0], yr, qb[1]), P(qb[0], y3 - 0.02, qb[1]), P(qa[0], y3 - 0.02, qa[1])],
+                     _unit(_add(_mul(R, nd[0] * t), _mul(N, nd[1] * t))), bf)
+            for yy, nn_ in ((yr, down), (y3 - 0.02, up)):
+                quad([P(p0m[0], yy, p0m[1]), P(p1m[0], yy, p1m[1]), P(p1p[0], yy, p1p[1]), P(p0p[0], yy, p0p[1])], nn_, bh)
+            nbd = max(1, math.floor((dl - pm) / rl["pitch_m"]))
+            for i in range(1, nbd + 1):
+                m = (a0[0] + (a1[0] - a0[0]) * i / (nbd + 1), a0[1] + (a1[1] - a0[1]) * i / (nbd + 1))
+                box(m[0] - bm / 2, m[0] + bm / 2, y2, yr, m[1] - bm / 2, m[1] + bm / 2, skip=("bottom", "top"))
+            nb += nbd
         self.trim_triangles["k01.hood.door_bracketed"] = (
             tri_fascia + len(pr.idx) // 3 - tri1 if h.get("railing_fabric") == "iron" else len(pr.idx) // 3 - tri0)
         self.seat(frame, [(s, y, 0.0) for s in (S0, S1) for y in (y0 - Dd, y3)], "k01.hood")
@@ -4230,14 +4294,17 @@ class Assembly:
                           **({"fabric": "stone"} if mat == "bay_stone" else {}),
                           **({"railing_fabric": h["railing_fabric"]} if h.get("railing_fabric") else {})}
 
-    def _hood_columns(self, co, op, P, quad, box, bf, bh, be, s0, s1, out, y0, R, N, seed, conf, arches=None):
+    def _hood_columns(self, co, op, P, quad, box, bf, bh, be, s0, s1, out, y0, R, N, seed, conf, arches=None,
+                      splay=None):
         """T-2963: two turned columns carrying a door hood as a porch (1816's): each a square
         plinth on the stoop's landing, a twelve-sided shaft and a square capital block under
         the soffit, at the deck's front corners, and a flat respond against the wall behind
         it. In the hood's own painted joinery. T-3159: or a row of them where a picture puts
         them (`at_s_m`, from the door's axis), on the landing and the terraces beside it.
         T-3186: or each capital carved, a bell of leaves under its abacus (`carved`).
-        T-3210: or under an arcade (`arches`), the capitals at its springing."""
+        T-3210: or under an arcade (`arches`), the capitals at its springing.
+        T-1887: and a third column at a splayed end's back (`splay`), against a bay's cheek,
+        with no respond behind it."""
         dia, (pw, ph), cap, rsp = co["diameter_m"], co["plinth_m"], co["capital_m"], co["respond_m"]
         cv = co.get("carved")
         yl = op.sill_m                                   # the landing, the door's own sill
@@ -4246,9 +4313,11 @@ class Assembly:
         cw = min(pw, dia + 0.14) / 2
         ys = arches["spring_m"] if arches else y0        # the capitals' top
         at = [op.s_m + a for a in co["at_s_m"]] if co.get("at_s_m") else (s0 + pw / 2 + 0.05, s1 - pw / 2 - 0.05)
-        for cs in at:
-            if not s0 + pw / 2 + 0.05 - 1e-6 <= cs <= s1 - pw / 2 - 0.05 + 1e-6:
+        spc = (op.s_m + splay["column_s_m"], splay["column_out_m"]) if splay else None
+        for cs, cd_ in [(x, cd) for x in at] + ([spc] if spc else []):
+            if (cs, cd_) != spc and not s0 + pw / 2 + 0.05 - 1e-6 <= cs <= s1 - pw / 2 - 0.05 + 1e-6:
                 raise ValueError(f"the hood's column at s {cs:.3f} stands past its ends ({s0:.3f}-{s1:.3f})")
+            cd = cd_
             box(cs - pw / 2, cs + pw / 2, yl, yl + ph, cd - pw / 2, cd + pw / 2, skip=("bottom",))
             box(cs - cw, cs + cw, ys - (cv["abacus_m"] if cv else cap), ys, cd - cw, cd + cw,
                 skip=("top",) if not arches else ())
@@ -4266,11 +4335,14 @@ class Assembly:
                 quad([P(q[0][0], ya, q[0][1]), P(q[1][0], ya, q[1][1]), P(q[1][0], yb, q[1][1]), P(q[0][0], yb, q[0][1])],
                      self._hood_dir(P, am), bf)
             # the respond: a flat pilaster on the wall behind the column, landing to soffit
-            box(cs - pw / 2 + 0.05, cs + pw / 2 - 0.05, yl, y0, 0.0, rsp, skip=("back", "bottom", "top"))
+            if (cs, cd_) != spc:
+                box(cs - pw / 2 + 0.05, cs + pw / 2 - 0.05, yl, y0, 0.0, rsp, skip=("back", "bottom", "top"))
+        cd = out - pw / 2 - 0.05
         if arches:
-            self._arch_count = self._hood_arcade(arches, P, quad, bf, bh, be, sorted(at), s0, s1, cd, cw, rsp, y0)
+            self._arch_count = self._hood_arcade(arches, P, quad, bf, bh, be, sorted(at), s0, s1, cd, cw, rsp, y0,
+                                                 splay=(splay["side"], spc) if splay else None)
 
-    def _hood_arcade(self, A, P, quad, bf, bh, be, at, s0, s1, cd, cw, rsp, y0):
+    def _hood_arcade(self, A, P, quad, bf, bh, be, at, s0, s1, cd, cw, rsp, y0, splay=None):
         """T-3210: round arches on a porch's columns (1827's, the Doane photograph). On the
         front a spandrel wall as thick as the capitals, on the columns' line from the hood's one
         end to the other and from the springing to the soffit, an arch cut in it between each
@@ -4331,6 +4403,22 @@ class Assembly:
         d1 = cd - cw if "front" in A["faces"] else cd + cw
         for side, cs in (("left", at[0]), ("right", at[-1])):
             if side not in A["faces"]:
+                continue
+            if splay and splay[0] == side:
+                # T-1887: a splayed end's wall runs on the diagonal from its third column (C) to
+                # the end column, its arch between their capitals; capped at C's back
+                C = splay[1]
+                lr = math.hypot(cs - C[0], cd - C[1])
+                ua = ((cs - C[0]) / lr, (cd - C[1]) / lr)
+                na = (-ua[1], ua[0])
+                run_v = _add(_mul(R_, ua[0]), _mul(N_, ua[1]))
+                nrm_v = _unit(_add(_mul(R_, na[0]), _mul(N_, na[1])))
+                diag = lambda x, y, t, vec=False, C=C, ua=ua, na=na, run_v=run_v: run_v if vec else \
+                    P(C[0] + ua[0] * x + na[0] * t, y, C[1] + ua[1] * x + na[1] * t)
+                wall([(cw, lr - cw)], -cw, lr, diag, -cw, cw, nrm_v, be)
+                quad([diag(-cw, ys, -cw), diag(-cw, ys, cw), diag(-cw, y0, cw), diag(-cw, y0, -cw)], _mul(run_v, -1.0), be)
+                quad([diag(-cw, ys, -cw), diag(0.0, ys, -cw), diag(0.0, ys, cw), diag(-cw, ys, cw)], _mul(Y_, -1.0), bh)
+                n += 1
                 continue
             end = lambda x, y, t, vec=False, cs=cs: N_ if vec else P(cs + t, y, x)
             wall([(rsp, cd - cw)], 0.0, d1, end, -cw, cw, R_, be)
