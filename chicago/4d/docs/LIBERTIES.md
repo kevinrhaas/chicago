@@ -28309,7 +28309,16 @@ steps, and the side-lawn trees, borders, creeper and lilacs are reconstructed.
 courtyard elevations, a Sanborn porch or areaway, a later HABS sheet) replaces that lot's rule; a
 rebaked house whose rear gains its own door or porch takes this file's door away (the tool keeps a
 model's door and draws only its steps).
-**Ticket:** T-3488.
+**Amended 2026-11-12 (T-3554):** the owner found a back door and its steps standing in the open yard
+behind 1626 Prairie. The tool had read each house's rear off the district's house raster, which
+carries the Sanborn trace as well as the model; where the trace reaches past the model (a rear wing
+the model does not build), 56 of 121 doors stood 0.4-24 m out in the yard. A back door now stands
+only where nine level rays cast at it from the yard all strike the model's own wall, flat across the
+leaf and square to it, on no window; the trace past a model's built wall is yard. `--check` refuses
+a door that is not in its wall. A house whose rear has no such stretch gets no back door rather than
+one in the wrong place (7 lots), and 10 lots the old rule left without one now have theirs (124 in all).
+The grade door under a high first floor's windows is 1.9 m (a basement kitchen's low door).
+**Ticket:** T-3488, T-3554.
 **Review:** `docs/RESEARCH/prairie_1904_back_yards.md`.
 **Recorded:** 2026-11-07 (T-3488).
 
