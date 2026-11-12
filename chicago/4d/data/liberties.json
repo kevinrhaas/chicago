@@ -73457,7 +73457,26 @@
         "dexter_house_1721_prairie",
         "dexter_house_1721_prairie_frame_house"
       ],
-      "covers": [],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "dexter_house_1721_prairie_frame_house",
+          "phase": "as_standing_1904",
+          "aspect": "form.construction"
+        },
+        {
+          "domain": "structure",
+          "structure": "dexter_house_1721_prairie_frame_house",
+          "phase": "as_standing_1904",
+          "aspect": "form.roof_covering"
+        },
+        {
+          "domain": "structure",
+          "structure": "dexter_house_1721_prairie_frame_house",
+          "phase": "as_standing_1904",
+          "aspect": "form.stories"
+        }
+      ],
       "recorded": "2026-11-12",
       "revised": null,
       "fields": [
@@ -73468,6 +73487,14 @@
         {
           "label": "How to resolve",
           "text": "a picture of the house between 1902 and 1911, a plan of the 1902 work, or the 1906 Sanborn sheet would settle what stood behind the moved front, how far the wings stood out, and its colour."
+        },
+        {
+          "label": "Also stated, not shown in full",
+          "text": "the roof's slate (the print gives a dark roof, not its material); the clapboard and the two storeys drawn as the kit's simplified frame walls and floors."
+        },
+        {
+          "label": "Covers",
+          "text": "`dexter_house_1721_prairie_frame_house.as_standing_1904.form.roof_covering`, `dexter_house_1721_prairie_frame_house.as_standing_1904.form.construction`, `dexter_house_1721_prairie_frame_house.as_standing_1904.form.stories`."
         },
         {
           "label": "Recorded",

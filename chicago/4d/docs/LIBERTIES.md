@@ -43691,6 +43691,7 @@ followed over it (docs/RESEARCH/k16-1721-frame-house-3566/README.md).
 **How to resolve:** a picture of the house between 1902 and 1911, a plan of the 1902 work, or the 1906
 Sanborn sheet would settle what stood behind the moved front, how far the wings stood out, and its colour.
 
+**Also stated, not shown in full:** the roof's slate (the print gives a dark roof, not its material); the clapboard and the two storeys drawn as the kit's simplified frame walls and floors. **Covers:** `dexter_house_1721_prairie_frame_house.as_standing_1904.form.roof_covering`, `dexter_house_1721_prairie_frame_house.as_standing_1904.form.construction`, `dexter_house_1721_prairie_frame_house.as_standing_1904.form.stories`.
 **Ticket:** T-3566.
 **Recorded:** 2026-11-12.
 
