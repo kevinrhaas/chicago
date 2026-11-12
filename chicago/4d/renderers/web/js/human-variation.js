@@ -275,6 +275,65 @@ export function nearest(grid, query) {
   return out;
 }
 
+/**
+ * T-3572: `nearest` in three dimensions for points that each come with an upper bound on their
+ * nearest distance — `bound2[p]`, squared: a point known to be that near (Infinity for none).
+ * The same shells are walked in the same order and the same lists read in the same order, but a
+ * cell that lies wholly further than the bound is passed over unread; every point that could be
+ * the nearest is in a cell that is read, so the answer is `nearest`'s, ties and all. A bound at
+ * or past the sixth ring's reach is not used (`nearest` gives up there and looks at every point).
+ */
+export function nearestBounded(grid, query, bound2) {
+  const { points, dim, cell, map } = grid, n = query.length / 3;
+  if (dim !== 3) return nearest(grid, query);
+  const out = new Uint32Array(n), reach2 = (5 * cell) ** 2;
+  let p = 0, best = -1, bd = Infinity;
+  const read = (k) => {
+    const list = map.get(k);
+    if (!list) return;
+    for (let li = 0; li < list.length; li++) {
+      const v = list[li];
+      let s = 0; for (let e = 0; e < 3; e++) { const z = points[v * 3 + e] - query[p * 3 + e]; s += z * z; }
+      if (s < bd) { bd = s; best = v; }
+    }
+  };
+  // How far a cell's extent lies from the query along one axis, squared (0 inside it).
+  const gap2 = (index, q) => { const lo = index * cell, hi = lo + cell, d = q < lo ? lo - q : q > hi ? q - hi : 0; return d * d; };
+  for (p = 0; p < n; p++) {
+    const qx = query[p * 3], qy = query[p * 3 + 1], qz = query[p * 3 + 2];
+    const cx = Math.floor(qx / cell), cy = Math.floor(qy / cell), cz = Math.floor(qz / cell);
+    const b = bound2[p];
+    const limit = b < reach2 ? b + b * 1e-6 + 1e-12 : Infinity;   // a hair over, for rounding
+    best = -1; bd = Infinity;
+    for (let ring = 0; ring <= 6 && (best < 0 || (ring - 1) * cell <= Math.sqrt(bd)); ring++) {
+      for (let x = -ring; x <= ring; x++) {
+        const dx = gap2(cx + x, qx);
+        if (dx > limit) continue;
+        const ex = x === -ring || x === ring, kx = (cx + x + KEY_MID) * KEY_SPAN;
+        for (let y = -ring; y <= ring; y++) {
+          const dxy = dx + gap2(cy + y, qy);
+          if (dxy > limit) continue;
+          const exy = ex || y === -ring || y === ring, kxy = (kx + (cy + y + KEY_MID)) * KEY_SPAN;
+          if (exy) {
+            for (let z = -ring; z <= ring; z++) if (dxy + gap2(cz + z, qz) <= limit) read(kxy + (cz + z + KEY_MID));
+          } else {
+            if (dxy + gap2(cz - ring, qz) <= limit) read(kxy + (cz - ring + KEY_MID));
+            if (ring && dxy + gap2(cz + ring, qz) <= limit) read(kxy + (cz + ring + KEY_MID));
+          }
+        }
+      }
+    }
+    if (best < 0) {
+      for (let v = 0; v < points.length / 3; v++) {
+        let s = 0; for (let e = 0; e < 3; e++) { const z = points[v * 3 + e] - query[p * 3 + e]; s += z * z; }
+        if (s < bd) { bd = s; best = v; }
+      }
+    }
+    out[p] = best < 0 ? 0 : best;
+  }
+  return out;
+}
+
 /** The quantisation map of a skinned mesh: bind position = M * attribute value. */
 function dequant(mesh) {
   const sk = mesh.skeleton;
@@ -334,15 +393,78 @@ export function disposeVariants(geometries) {
   }
 }
 
-/** A mesh's quantised and bind-space positions. */
-function meshPositions(mesh) {
-  const q = dequant(mesh), pos = mesh.geometry.attributes.position;
+/** A mesh's quantised and bind-space positions, through its quantisation map `q`. */
+function meshPositions(mesh, q = dequant(mesh)) {
+  const pos = mesh.geometry.attributes.position;
   if (!q || !pos) return null;
   const n = pos.count, bind = new Float32Array(n * 3), raw = new Float32Array(n * 3);
   for (let i = 0; i < n; i++) for (let c = 0; c < 3; c++) {
     const v = pos.getComponent(i, c); raw[i * 3 + c] = v; bind[i * 3 + c] = v * q.s + q.t[c];
   }
   return { q, n, raw, bind };
+}
+
+/**
+ * T-3572: THE FIT EVERY WEARER OF A SOURCE SHARES, kept with the source geometry.
+ *
+ * The owner, 2026-11-12, walking 1812 by the factor's house and the officers' garden gate:
+ * jumpy frames and slow walking, gone in flight and back in the same places. Each figure
+ * coming into range was given its own body here, on the main thread, at every level it was
+ * drawn at: 30 ms at LOD3 to 290 ms at LOD0 on a fast core, one figure after another as a
+ * walk brought the fort's eighty-odd people through their bands. About nine tenths of that
+ * was finding, for every vertex, which kit vertex and which body vertices it sits nearest —
+ * and none of it depends on the person. 1812's 284 figures wear 14 sources between them,
+ * so it was found again for every one of them.
+ *
+ * So it is found once per source and kept here: the body's kit map and rest normals, the
+ * grid of its rest surface, and for each garment its nearest body vertex and the weights it
+ * takes the body's delta by (`carryTable`). A person then only adds their own delta. What
+ * is drawn is unchanged to the bit (tools/test_human_variation.mjs compares the two paths).
+ * The entry goes with its source geometry (a WeakMap), as the variants do; it is asked
+ * again if the kit, the source's quantisation, or the body a garment was fitted over differ.
+ */
+const fits = new WeakMap();   // source geometry -> { kit, q, at, ... }
+const sameQ = (a, b) => !!a && !!b && a.s === b.s && a.t[0] === b.t[0] && a.t[1] === b.t[1] && a.t[2] === b.t[2];
+
+/** The body's delta under each point, weighted over the skin within CARRY_M (a cloth hem does not
+ * ripple with the vertices it happens to sit nearest): the weights, one table per source. */
+function carryTable(grid, ref, bind, n) {
+  const { points, cell, map } = grid, r = Math.ceil(CARRY_M / cell);
+  const sig2 = (CARRY_M / 2) ** 2;
+  const off = new Uint32Array(n + 1);
+  let cap = Math.max(64, n * 8), idx = new Uint32Array(cap), wts = new Float64Array(cap), k = 0;
+  for (let p = 0; p < n; p++) {
+    const x = bind[p * 3], y = bind[p * 3 + 1], z = bind[p * 3 + 2];
+    const cx = Math.floor(x / cell), cy = Math.floor(y / cell), cz = Math.floor(z / cell);
+    for (let i = -r; i <= r; i++) for (let j = -r; j <= r; j++) for (let l = -r; l <= r; l++) {
+      const list = map.get(((cx + i + KEY_MID) * KEY_SPAN + (cy + j + KEY_MID)) * KEY_SPAN + (cz + l + KEY_MID));
+      if (!list) continue;
+      for (const v of list) {
+        const dx = points[v * 3] - x, dy = points[v * 3 + 1] - y, dz = points[v * 3 + 2] - z, s = dx * dx + dy * dy + dz * dz;
+        if (s > CARRY_M * CARRY_M) continue;
+        if (k === cap) {
+          cap *= 2;
+          const i2 = new Uint32Array(cap); i2.set(idx); idx = i2;
+          const w2 = new Float64Array(cap); w2.set(wts); wts = w2;
+        }
+        idx[k] = ref[v]; wts[k] = Math.exp(-s / sig2); k++;
+      }
+    }
+    off[p + 1] = k;
+  }
+  return { off, idx: idx.slice(0, k), wts: wts.slice(0, k) };
+}
+
+/** Point `p`'s carried delta from its table; with no skin in reach, its nearest vertex's. */
+function carriedFromTable(t, d, p, ref, nearestIdx, out) {
+  const { off, idx, wts } = t;
+  let w = 0; out[0] = out[1] = out[2] = 0;
+  for (let k = off[p], end = off[p + 1]; k < end; k++) {
+    const wv = wts[k], m = idx[k] * 3;
+    out[0] += wv * d[m]; out[1] += wv * d[m + 1]; out[2] += wv * d[m + 2]; w += wv;
+  }
+  if (w > 0) { out[0] /= w; out[1] /= w; out[2] /= w; return; }
+  const m = ref[nearestIdx] * 3; out[0] = d[m]; out[1] = d[m + 1]; out[2] = d[m + 2];
 }
 
 /** The body: each vertex is the kit vertex with its texture coordinate (unique on hm08). */
@@ -361,7 +483,7 @@ function bodyMap(kit, mesh) {
 }
 
 /** A geometry like `src` with these positions (and its normals turned to match). */
-function variantGeometry(src, mesh, cacheKey, raw, out) {
+function variantGeometry(src, mesh, cacheKey, raw, out, before = null) {
   const n = raw.length / 3, pos = src.attributes.position;
   const g = new THREE.BufferGeometry();
   g.name = `${src.name || mesh.name}~${cacheKey}`;
@@ -376,7 +498,8 @@ function variantGeometry(src, mesh, cacheKey, raw, out) {
     // The authored normals keep their seams and creases; each is turned by the turn its
     // surface made (the shortest rotation from its computed normal before to after).
     const idx = src.index?.array ?? null;
-    const before = vertexNormals(raw, idx, n), after = vertexNormals(out, idx, n);
+    before ??= vertexNormals(raw, idx, n);
+    const after = vertexNormals(out, idx, n);
     const nv = new Float32Array(n * 3), a = new THREE.Vector3(), b = new THREE.Vector3(), turn = new THREE.Quaternion(), v = new THREE.Vector3();
     for (let i = 0; i < n; i++) {
       a.fromArray(before, i * 3); b.fromArray(after, i * 3);
@@ -405,26 +528,6 @@ function bindOf(attr, q) {
 
 const CLEAR_MIN_M = 0.0015, CLEAR_MAX_M = 0.03, CARRY_M = 0.025;
 
-/** The body's delta under a point, weighted over the skin within CARRY_M (a cloth hem does not ripple with the vertices it happens to sit nearest). */
-function carriedDelta(grid, ref, d, x, y, z, nearestIdx, out) {
-  const { points, cell, map } = grid, r = Math.ceil(CARRY_M / cell);
-  const cx = Math.floor(x / cell), cy = Math.floor(y / cell), cz = Math.floor(z / cell);
-  const sig2 = (CARRY_M / 2) ** 2;
-  let w = 0; out[0] = out[1] = out[2] = 0;
-  for (let i = -r; i <= r; i++) for (let j = -r; j <= r; j++) for (let k = -r; k <= r; k++) {
-    const list = map.get(((cx + i + KEY_MID) * KEY_SPAN + (cy + j + KEY_MID)) * KEY_SPAN + (cz + k + KEY_MID));
-    if (!list) continue;
-    for (const v of list) {
-      const dx = points[v * 3] - x, dy = points[v * 3 + 1] - y, dz = points[v * 3 + 2] - z, s = dx * dx + dy * dy + dz * dz;
-      if (s > CARRY_M * CARRY_M) continue;
-      const wv = Math.exp(-s / sig2), m = ref[v] * 3;
-      out[0] += wv * d[m]; out[1] += wv * d[m + 1]; out[2] += wv * d[m + 2]; w += wv;
-    }
-  }
-  if (w > 0) { out[0] /= w; out[1] /= w; out[2] /= w; return; }
-  const m = ref[nearestIdx] * 3; out[0] = d[m]; out[1] = d[m + 1]; out[2] = d[m + 2];
-}
-
 /**
  * Give a freshly cloned figure (bones still at rest) this person's body and face.
  * Returns { meshes, height, grade } or null where the figure is not an hm08 body.
@@ -449,11 +552,18 @@ export function applyVariation(scene, kit, variation, { scope = 'full' } = {}) {
   let touched = 0;
   const assign = (mesh, g) => { if (g) { mesh.geometry = g; touched++; } };
   // 1. The body, and its shape before and after for what it wears.
-  const pre = { pts: [], nrm: [], ref: [] }, post = { pts: [], nrm: [] };
+  const bodyFits = [], post = { pts: [], nrm: [] };
   for (const mesh of bodies) {
-    const src = mesh.geometry, at = meshPositions(mesh);
-    if (!at) return null;
-    const map = bodyMap(kit, mesh);
+    const src = mesh.geometry, q = dequant(mesh);
+    if (!q || !src.attributes.position) return null;
+    // T-3572: the body's positions, kit map and rest normals are the source's, not the person's.
+    let fit = fits.get(src);
+    if (!fit || fit.kit !== kit || !sameQ(fit.q, q)) {
+      const at = meshPositions(mesh, q), map = bodyMap(kit, mesh);
+      fit = { kit, q, at, map, nb: map ? vertexNormals(at.bind, src.index?.array ?? null, at.n) : null, rawNormals: null, pre: null };
+      fits.set(src, fit);
+    }
+    const { at, map } = fit;
     if (!map) return null;
     let g = cached(src, key);
     if (g === undefined) {
@@ -463,17 +573,32 @@ export function applyVariation(scene, kit, variation, { scope = 'full' } = {}) {
         const v = d[map[i] * 3 + c]; if (v) moved = true;
         out[i * 3 + c] = at.raw[i * 3 + c] + v / at.q.s;
       }
-      g = moved ? variantGeometry(src, mesh, key, at.raw, out) : null;
+      if (moved) fit.rawNormals ??= vertexNormals(at.raw, src.index?.array ?? null, at.n);
+      g = moved ? variantGeometry(src, mesh, key, at.raw, out, fit.rawNormals) : null;
       remember(src, key, g);
     }
     assign(mesh, g);
     const idx = src.index?.array ?? null;
     const after = g ? bindOf(g.attributes.position, at.q) : at.bind;
-    const nb = vertexNormals(at.bind, idx, at.n), na = vertexNormals(after, idx, at.n);
-    for (let i = 0; i < at.n * 3; i++) { pre.pts.push(at.bind[i]); pre.nrm.push(nb[i]); post.pts.push(after[i]); post.nrm.push(na[i]); }
-    for (let i = 0; i < at.n; i++) pre.ref.push(map[i]);
+    const na = g ? vertexNormals(after, idx, at.n) : fit.nb;
+    for (let i = 0; i < at.n * 3; i++) { post.pts.push(after[i]); post.nrm.push(na[i]); }
+    bodyFits.push(fit);
   }
-  const preGrid = pointGrid(Float32Array.from(pre.pts), 3, 0.03);
+  // The rest body as one surface (its points, normals, kit vertex and grid): the source's too,
+  // kept on the first body's fit for as long as the same bodies make it up.
+  const lead = bodyFits[0];
+  let pre = lead.pre;
+  if (!pre || pre.bodies.length !== bodyFits.length || pre.bodies.some((f, i) => f !== bodyFits[i])) {
+    let pts = lead.at.bind, nrm = lead.nb, ref = lead.map;   // one body (the usual): its own arrays
+    if (bodyFits.length > 1) {
+      let total = 0; for (const f of bodyFits) total += f.at.n;
+      pts = new Float32Array(total * 3); nrm = new Float32Array(total * 3); ref = new Uint32Array(total);
+      let o = 0;
+      for (const f of bodyFits) { pts.set(f.at.bind, o * 3); nrm.set(f.nb, o * 3); ref.set(f.map, o); o += f.at.n; }
+    }
+    pre = lead.pre = { bodies: bodyFits, pts, nrm, ref, grid: pointGrid(pts, 3, 0.03) };
+  }
+  const preGrid = pre.grid;
   let postGrid = null;
   // 2. What it wears.
   for (const mesh of skinned) {
@@ -481,10 +606,20 @@ export function applyVariation(scene, kit, variation, { scope = 'full' } = {}) {
     const src = mesh.geometry;
     const hit = cached(src, key);
     if (hit !== undefined) { assign(mesh, hit); continue; }
-    const at = meshPositions(mesh);
-    if (!at) continue;
-    const d = delta(), near = nearest(preGrid, at.bind), out = new Float32Array(at.n * 3);
+    const q = dequant(mesh);
+    if (!q || !src.attributes.position) continue;
     const eyes = /^eyes(__|$)/.test(mesh.material?.name ?? '');
+    // T-3572: where it sits on the rest body (its nearest body vertex, and the weights its
+    // delta is carried by) is the source's, found once for every wearer.
+    let fit = fits.get(src);
+    if (!fit || fit.pre !== pre || !sameQ(fit.q, q)) {
+      const at = meshPositions(mesh, q);
+      fit = { kit, q, at, pre, near: nearest(preGrid, at.bind), carry: null, rawNormals: null };
+      fits.set(src, fit);
+    }
+    if (!eyes) fit.carry ??= carryTable(preGrid, pre.ref, fit.at.bind, fit.at.n);
+    const { at, near } = fit;
+    const d = delta(), out = new Float32Array(at.n * 3);
     let moved = false;
     if (eyes) {
       const sum = { l: [0, 0, 0, 0], r: [0, 0, 0, 0] };
@@ -499,7 +634,7 @@ export function applyVariation(scene, kit, variation, { scope = 'full' } = {}) {
     } else {
       const moving = [], dv = [0, 0, 0];
       for (let i = 0; i < at.n; i++) {
-        carriedDelta(preGrid, pre.ref, d, at.bind[i * 3], at.bind[i * 3 + 1], at.bind[i * 3 + 2], near[i], dv);
+        carriedFromTable(fit.carry, d, i, pre.ref, near[i], dv);
         let any = false;
         for (let c = 0; c < 3; c++) { const v = dv[c]; if (v) any = true; out[i * 3 + c] = at.raw[i * 3 + c] + v / at.q.s; }
         if (any) { moved = true; moving.push(i); }
@@ -509,7 +644,14 @@ export function applyVariation(scene, kit, variation, { scope = 'full' } = {}) {
         const P = pre.pts, PN = pre.nrm, Q = post.pts, QN = post.nrm;
         const g2 = new Float32Array(moving.length * 3);
         moving.forEach((i, k) => { for (let c = 0; c < 3; c++) g2[k * 3 + c] = out[i * 3 + c] * at.q.s + at.q.t[c]; });
-        const nearPost = nearest(postGrid, g2);
+        // T-3572: each one's nearest before, where it is now, bounds the search (nearestBounded).
+        const bound2 = new Float64Array(moving.length), PP = postGrid.points;
+        moving.forEach((i, k) => {
+          const j = near[i]; let b = 0;
+          for (let c = 0; c < 3; c++) { const z = PP[j * 3 + c] - g2[k * 3 + c]; b += z * z; }
+          bound2[k] = b;
+        });
+        const nearPost = nearestBounded(postGrid, g2, bound2);
         moving.forEach((i, k) => {
           const j0 = near[i], j1 = nearPost[k];
           let s0 = 0, s1 = 0;
@@ -524,7 +666,8 @@ export function applyVariation(scene, kit, variation, { scope = 'full' } = {}) {
         });
       }
     }
-    const g = moved ? variantGeometry(src, mesh, key, at.raw, out) : null;
+    if (moved) fit.rawNormals ??= vertexNormals(at.raw, src.index?.array ?? null, at.n);
+    const g = moved ? variantGeometry(src, mesh, key, at.raw, out, fit.rawNormals) : null;
     remember(src, key, g);
     assign(mesh, g);
   }

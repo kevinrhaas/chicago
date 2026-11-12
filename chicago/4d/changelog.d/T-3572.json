@@ -1,0 +1,8 @@
+{
+  "title": "Walking through crowded 1812 no longer stutters",
+  "kind": "fix",
+  "items": [
+    "Walking up to the fort or a busy yard no longer freezes the frame as people come into view: each figure is built in its turn, nearest first, and the shared work of fitting clothes to bodies is done once per outfit.",
+    "Walking past a wagon or a driver no longer stalls while the town replans everyone's day; that replan is now about seven times faster and gives the same day."
+  ]
+}
