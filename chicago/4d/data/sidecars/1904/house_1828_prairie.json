@@ -621,9 +621,31 @@
           "roof": {
             "kind": "hip",
             "pitch": 0.25,
-            "covering": "slate_pennsylvania"
+            "covering": "slate_pennsylvania",
+            "mansard": {
+              "rise_m": 4.5,
+              "lower_pitch_deg": 78,
+              "cresting": {
+                "height_m": 0.5,
+                "inset_m": 0.08
+              }
+            },
+            "slated_as_house": true
           },
-          "plinth_m": 0.15
+          "plinth_m": 0.15,
+          "mansard_dormers": [
+            {
+              "sash": {
+                "variant": "k06.opening.sash_round_fanlight",
+                "width_m": 0.6,
+                "height_m": 1.6,
+                "sill_m": 0.15
+              },
+              "surround_m": 0.1,
+              "face_setback_m": 0.15,
+              "at_m": 0.0
+            }
+          ]
         },
         {
           "id": "south_round",
@@ -776,7 +798,7 @@
         "chicagology_1828_shipman_automobile",
         "glessner_blog_1828_shipman_partial"
       ],
-      "note": "Three K08 bays on the 1911 sheet's trace (s28fp-1828-b1), in the lot's frame: the street front's canted bay from v -2.7 to 1.84 (the sheet's from the south corner at -3.0; K01 keeps 0.3 m of pier), 1.25 m out from the recessed north part at u 46.3, its front 1.92 m (the sheet's v -1.59 to 0.33), carried through the basement and both storeys in the automobile photograph (Chicagology, about 1897) and the partial view (Glessner House Museum), with one window per storey in each cheek and in the front; on the south flank, a round bay at u 27.4-31.4 standing 1.6 m out on the sheet (K08's bow 1.2: within its range), and a stone-drawn canted bay at u 32.3-38.0, 0.95 m out. The flank bays' storeys, windows and roofs are reconstructed: no picture shows the flank. The front bay's own mansard and dormer, carried up past the cornice in the partial view, are open in the match record."
+      "note": "Three K08 bays on the 1911 sheet's trace (s28fp-1828-b1), in the lot's frame: the street front's canted bay from v -2.7 to 1.84 (the sheet's from the south corner at -3.0; K01 keeps 0.3 m of pier), 1.25 m out from the recessed north part at u 46.3, its front 1.92 m (the sheet's v -1.59 to 0.33), carried through the basement and both storeys in the automobile photograph (Chicagology, about 1897) and the partial view (Glessner House Museum), with one window per storey in each cheek and in the front; on the south flank, a round bay at u 27.4-31.4 standing 1.6 m out on the sheet (K08's bow 1.2: within its range), and a stone-drawn canted bay at u 32.3-38.0, 0.95 m out. The flank bays' storeys, windows and roofs are reconstructed: no picture shows the flank. The front bay is carried up past the main cornice under its own mansard crown, as the partial view shows it (T-1887): the crown's face 4.5 m at 78 degrees, the main mansard's, slated as the house with iron cresting on its curb, and one round-headed dormer on its front face, its light 0.6 x 1.6 m in a 0.1 m surround, the widest the crown's 1.92 m front clears of its hips (the print's dormer face reads about 0.9 m across, foreshortened)."
     },
     "mansard": {
       "value": {
@@ -785,18 +807,6 @@
         "bulge": 0.0,
         "lower_pitch_deg": 78,
         "dormers": [
-          {
-            "face": "street",
-            "along_m": 2.4,
-            "sash": {
-              "variant": "k06.opening.sash_round_fanlight",
-              "width_m": 1.0,
-              "height_m": 1.9,
-              "sill_m": 0.15
-            },
-            "surround_m": 0.2,
-            "face_setback_m": 0.15
-          },
           {
             "face": "street",
             "along_m": 6.1,
@@ -821,7 +831,7 @@
       "sources": [
         "glessner_blog_1828_shipman_partial"
       ],
-      "note": "The slated mansard in the partial view (Glessner House Museum), its lower face steep and nearly straight; two street dormers, one over the canted bay and one over the porch; iron cresting along its curb. T-3168 read it through the partial view's solved camera (data/reference_views/house_1828_prairie/glessner_partial.json): the curb stands about 125-145 px over the main cornice where T-3166's 3.6 m face rendered 85, so the face is raised to 4.5 m, the most a one-storey (attic) face takes; the dormers' faces read about 1.4 m across and their lights nearly as tall as the second storey's, so each light is 1.0 x 1.9 m in a 0.2 m surround (from 0.8 x 1.4 in 0.15); the cresting, a light iron railing about 0.5 m high (y 48-62 px over the curb), is K01's deck cresting. The print's dormer lights are square-headed under a curved hood; they are built round-headed, the K01 lower-face dormer that carries a curved head (the match record says so)."
+      "note": "The slated mansard in the partial view (Glessner House Museum), its lower face steep and nearly straight; a street dormer over the porch (the dormer over the canted bay stands on the bay's own crown, carried up past the cornice: see bays); iron cresting along its curb. T-3168 read it through the partial view's solved camera (data/reference_views/house_1828_prairie/glessner_partial.json): the curb stands about 125-145 px over the main cornice where T-3166's 3.6 m face rendered 85, so the face is raised to 4.5 m, the most a one-storey (attic) face takes; the dormers' faces read about 1.4 m across and their lights nearly as tall as the second storey's, so each light is 1.0 x 1.9 m in a 0.2 m surround (from 0.8 x 1.4 in 0.15); the cresting, a light iron railing about 0.5 m high (y 48-62 px over the curb), is K01's deck cresting. The print's dormer lights are square-headed under a curved hood; they are built round-headed, the K01 lower-face dormer that carries a curved head (the match record says so)."
     },
     "rear_wings": {
       "value": [
