@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 2884, ts: '2026-11-12T05:32:57.980Z', date: 'Nov 11, 2026, 11:32 PM CT', title: 'Built-in graphics held to a memory line in every year', kind: 'fix',
+    items: [
+      'A computer on built-in graphics, like an Intel UHD 630 desktop, is now held to a memory line in 1835 and 1812 as well as 1904. Each year keeps its people, horses and carriages.',
+      'A computer drawing without its graphics driver, such as Windows with only the Microsoft Basic Render Driver, now starts at Balanced with the memory saver on. Before, it started at Full.',
+    ] },
+  { v: 2883, ts: '2026-11-12T01:07:16.592Z', date: 'Nov 11, 2026, 7:07 PM CT', title: 'Looser linen trousers for the 1812 settler', kind: 'fix',
+    items: [
+      'The settler’s linen trousers now have a fuller seat, with the waistband, front and lower legs kept in place. The fabric keeps its separate layers while walking.',
+    ] },
   { v: 2882, ts: '2026-11-11T17:59:21.153Z', date: 'Nov 11, 2026, 11:59 AM CT', title: 'Prairie Avenue people gain portraits, individual looks and household routines', kind: 'feature',
     items: [
       'Person cards gain verified period portraits, source notes and clearer portrait-search limits.',

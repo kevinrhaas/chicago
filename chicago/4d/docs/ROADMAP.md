@@ -2,6 +2,121 @@
 
 Add sparse seasonal nature in the actual 1812 habitats, dirt hoof contacts with a declared softened snow proxy, and recorded impacts attached to visible scheduled work. Preserve existing music, calm water and 1835 insects. Validate the integrated town on mobile and desktop before DEV release; STATUS.md records current evidence. Next, extend appropriate sources and visible work to 1904 with its own street surfaces, activities and seasonal conditions. Dedicated snow recordings and additional visible trades remain future improvements.
 
+## PR #1933 native linen intake — 11 November 2026
+
+The working tree adopts the eight settler MASTER/WEB LODs from immutable source
+57151be9a3b1756718dfc1619a4dbc4a3b55fda6 and reviewed H5 request
+2475a311573dce18faa52e84799dc6f51c7b6837ac2c2ef2f16d85f28e3b08dd.
+The corrected canonical CLI ran locally with the source APP as cwd/PWD and the
+absolute driver script. Its CLOSED capture verified all 39 inventory files and
+both unchanged tracked-source snapshots. The actual body-normal maximum was
+0.0000586337 against the unchanged 0.001 bound; mesh invariants stayed unchanged.
+No GitHub capture success is claimed: the dispatch was rejected HTTP401 before
+any run, and the earlier GitHub normal failure and local script-lookup failure
+remain failures in their original receipts.
+
+The bound observer completed 104 matching-camera views and 72 idle/walk poses
+across all four LODs and both viewports, without mechanical failures or sampled
+negative rear gaps. Maximum camera-matrix difference from the saved baseline was
+1.11e-16. Retained-body coverage gaps remained at the baseline maximum of nine;
+these finite ray diagnostics are not a general cloth-clearance certificate.
+All garment views match the inspected fuller-seat candidate; the only three
+pixel differences across the full PNG comparison were in the inspector heading.
+The original collapsed-layer slit is absent; inherited seams and the lower
+crotch crease remain within the broader clothing-realism work.
+
+The supported fixture writer remeasured all eight adopted files at 1280x800 and
+390x780. Every one passed, and the other 280 baseline rows stayed deeply equal
+with their actual file hashes verified. This is acceptance of the bounded linen
+seat change, not general photographic or full-body fit acceptance. Body, front,
+waistband, lower legs, topology, UVs and skin weights retain the source controls.
+
+Source checkpoint 57151be9 passed all 16 local source parts (1,341 actual step
+executions), PR preflight and the ordinary remote gate. The adopted files are gated with the final asset/source suite and published
+desktop/mobile checks; the PR records their final results. DEV 8a643db9 is included. T-1789 remains open; merge only to DEV
+once the final checks are green. No production promotion is part of this PR.
+
+## PR #1933 recovery and DEV integration — 11 November 2026
+
+The recovery integrates DEV 8a643db9, retaining the Prairie child/teen authoring
+job, its five-role fixture scope, household/audio work and both sets of history.
+The ordinary human browser checks retain the pinned Playwright container that
+passed on be1e1277; the separate authoring jobs retain DEV's mirror workaround.
+Mixed Prairie/clothing requests are refused before checkout.
+
+Capture 43072965533 passed its humans prerequisite and failed at the settler
+body normal readback: maximum 0.0028170957 exceeded the unchanged 0.001 bound.
+The opt-in clothing capture now explicitly uses the existing packed-normal
+adapter and retains its diagnostics even on failure. No tolerance override or
+global builder default changes. Local pinned Blender 4.5.3 trials read
+0.0000586337 and preserved mesh invariants.
+
+The first matched rear previews exposed a geometry defect in the original source
+candidate: projecting distinct shell/return layers to the same depth produced a
+jagged slit. The repair moves each rear column by its outer surface's required
+ease, preserving layer depth, topology, UVs and skin weights. A shallow convex
+crown stays within the existing maximum extra ease. The six source geometry
+controls pass, including the new two-layer negative-control regression. The
+revised eight exported MASTER/WEB LODs pass the container contract. Exploratory
+previews completed 104 views and 72 pose measurements across all four LODs and
+both viewports, with matching saved cameras and no sampled negative rear gaps.
+Inspected walking rear views at every LOD no longer show the slit. The final
+local browser inspector also passed all eight LOD/viewport inspections.
+
+These are local build and preview results. A successful immutable capture,
+complete matching idle/walk views, supported fixture remeasurement and published
+desktop/phone checks remain required before asset adoption and green DEV merge.
+T-1789 and broader clothing realism remain open. Production is unchanged.
+
+### T1789 linen capture: browser dependency repair, 11 November 2026
+
+Source-only update; no replacement human assets or fit acceptance yet. Source
+0a579798 passed all sixteen local source sections (1,337 executions) and the
+eight-part GitHub code gate. Its capture 43053758545 failed before geometry:
+the humans prerequisite could not resolve Ubuntu's package host while installing
+Playwright dependencies. The ordinary PR job and its one fresh-runner retry
+failed at that same DNS step. Those failures remain failures; no producer parents
+were accepted.
+
+The proposed browser-only step uses the official Playwright 1.56.1 Noble image,
+pinned by its linux/amd64 digest, with the image's pwuser and a read-only source
+mount. Both complete browser fixture and actor commands retain both viewports.
+Canonical Python/Blender work stays on the host; source/definition binding, tool
+pins, all assertions and the original 45/30-minute job limits are preserved.
+Static syntax/contract checks do not prove container compatibility: actual CI
+browser execution, new canonical assets, matching native views, fresh DEV
+integration and final published checks remain pending. Broader clothing realism
+and T1789 stay open. Production is unchanged.
+
+## Linen capture codec-pin correction — 11 November 2026
+
+The ordinary checks for draft PR #1933 pass on source c9990d8b. Its canonical
+capture 43018920928 passed the human browser and actor prerequisite, then stopped
+before geometry: the capture parser retained quotes around the existing codec
+version pins and rejected the correct `4.5.0` values. The verified Blender archive
+and exact `Blender 4.5.3 LTS` header passed. The parser correction preserves the
+canonical codec script and version, with controls using its actual pin syntax.
+No new parents were produced or adopted; the existing assets and fixture remain
+unchanged. Both failed capture receipts are retained. A new committed source,
+request and successful canonical capture must precede matched native comparisons,
+asset adoption and a normal green DEV merge. The 104 baseline views remain valid.
+PR #1928 is already verified on DEV; production and broader clothing acceptance
+remain unchanged. T-1789 remains open.
+
+## Linen seat build correction — 11 November 2026
+
+PR #1928 is merged and verified on public DEV (900d9166e); production is unchanged. The looser 1812 linen seat remains source-only in draft PR #1933. Its first canonical capture (43000644195) stopped before geometry: the checksum-verified Blender release reports `Blender 4.5.3 LTS`, while the capture guard expected the bare version. The guard now requires that exact LTS header and retains archive, binary and codec pins. The rear-view observer now writes compact JSON without removing fields or increasing caps; 104 baseline images across four LODs and both viewports are complete. A fresh committed source, request and canonical build are still required; no new native parents or linen fit acceptance exist. T-1789 clothing realism remains open.
+
+## T-1789 — first native clothing-fit increment: linen trousers (2026-11-11)
+
+Address the owner's visible 1812 casual-trouser seat crease on the existing
+settler asset. Preserve its clothing style and shared rig, and qualify one family
+through the existing canonical export path before taking the shared coat/apron/
+collar bundle. Source preparation leaves the existing native assets unchanged.
+Require all four rebuilt LODs, the original fixture writer, rear and quarter views,
+actual standing/walking samples, publication bindings and normal DEV checks.
+Sampled diagnostic rays do not certify general clothing fit. Keep broader human
+photographic acceptance on the existing T-1789 ticket. STATUS.md records this stage.
 ## T-3546, T-3547, T-3549, T-3550 - Prairie Avenue people and household routines (2026-11-11)
 
 Complete the researched person cards, portrait fits and individual appearances across 71 homes. Activate the five owner-approved younger roles: 35 children/teens with seasonal days and household companions, plus indoor care for five infants. Preserve adults, identity rulings, door calls, returns and jaunt priority. Combined PR #1932 carries the rollout; STATUS.md records validation.

@@ -13544,10 +13544,10 @@
     },
     {
       "file": "assets/humans/settler_1812.lod0.glb",
-      "sha256": "62e993201aae1fdaeeeb295b78976c0a48d72733d6083120d0bb9d690c91f4d3",
+      "sha256": "a2a26b0ecf34595523f4808c052f45b562698b5118aaac0b4a547bb76ea239c9",
       "lod": 0,
       "derivative_of": null,
-      "bytes": 8977440,
+      "bytes": 8974032,
       "meshopt": false,
       "triangles": 44317,
       "vertices": 29446,
@@ -13596,12 +13596,12 @@
       "rest_height_m": 1.787,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 166,
-        "mobile": 170.8
+        "desktop": 492.9,
+        "mobile": 581
       },
       "frame_ms_median": {
-        "desktop": 0.1,
-        "mobile": 0.1
+        "desktop": 0.7,
+        "mobile": 0.6
       },
       "verdicts": [
         {
@@ -13688,13 +13688,13 @@
     },
     {
       "file": "assets/humans/settler_1812.lod1.glb",
-      "sha256": "2c7e0e884eb5f1ad11254fb1f6b4f9536bd8a1e6c9f665f9fb79dc9cce234da7",
+      "sha256": "afe8341213d460d5040a884452365da93a73397cce832b64c462a88433e9bc66",
       "lod": 1,
       "derivative_of": null,
-      "bytes": 8180920,
+      "bytes": 8182348,
       "meshopt": false,
       "triangles": 26956,
-      "vertices": 18040,
+      "vertices": 18063,
       "draw_calls": 11,
       "materials": 11,
       "textures": [
@@ -13740,12 +13740,12 @@
       "rest_height_m": 1.787,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 165.4,
-        "mobile": 209.1
+        "desktop": 645.2,
+        "mobile": 513.9
       },
       "frame_ms_median": {
-        "desktop": 0.1,
-        "mobile": 0.1
+        "desktop": 0.5,
+        "mobile": 0.3
       },
       "verdicts": [
         {
@@ -13832,13 +13832,13 @@
     },
     {
       "file": "assets/humans/settler_1812.lod2.glb",
-      "sha256": "66ef31f611077775fce0160af14567a8c135ea8e6070471e0a57842393af9601",
+      "sha256": "4c825a574ea2188f873dc131116cba91960ba414ad076410acf708e465e17075",
       "lod": 2,
       "derivative_of": null,
-      "bytes": 7520636,
+      "bytes": 7520036,
       "meshopt": false,
       "triangles": 13281,
-      "vertices": 9185,
+      "vertices": 9169,
       "draw_calls": 11,
       "materials": 11,
       "textures": [
@@ -13880,12 +13880,12 @@
       "rest_height_m": 1.7879,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 178.7,
-        "mobile": 204.5
+        "desktop": 336.2,
+        "mobile": 195.9
       },
       "frame_ms_median": {
-        "desktop": 0.1,
-        "mobile": 0.1
+        "desktop": 0.4,
+        "mobile": 0.3
       },
       "verdicts": [
         {
@@ -13957,10 +13957,10 @@
     },
     {
       "file": "assets/humans/settler_1812.lod3.glb",
-      "sha256": "e67d25a4a0d8ceb8b52b34f3eb2ab43ee838dac6ecd68f02544c4c47cd8626ce",
+      "sha256": "153ed7cb73b6398dce093e7e898c042b0994cddfaa62fa341a1177eb36e363c0",
       "lod": 3,
       "derivative_of": null,
-      "bytes": 7241320,
+      "bytes": 7241556,
       "meshopt": false,
       "triangles": 6428,
       "vertices": 4605,
@@ -14005,12 +14005,12 @@
       "rest_height_m": 1.7879,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 169.2,
-        "mobile": 158.4
+        "desktop": 354,
+        "mobile": 240.8
       },
       "frame_ms_median": {
-        "desktop": 0.1,
-        "mobile": 0.2
+        "desktop": 0.3,
+        "mobile": 0.3
       },
       "verdicts": [
         {
@@ -31272,10 +31272,10 @@
     },
     {
       "file": "assets/humans/web/settler_1812.lod0.glb",
-      "sha256": "e62e36c65001240d60de0a3a1b7fc778de9b0c14799010a62b550f7595635033",
+      "sha256": "a69b062170225ef095691b0b529935cc7a3f9f342e478b48ab6642f7be8911ed",
       "lod": 0,
       "derivative_of": "assets/humans/settler_1812.lod0.glb",
-      "bytes": 4515508,
+      "bytes": 4515720,
       "meshopt": true,
       "triangles": 44317,
       "vertices": 29446,
@@ -31324,12 +31324,12 @@
       "rest_height_m": 1.7869,
       "soles_y_m": 0.0001,
       "load_ms": {
-        "desktop": 113.6,
-        "mobile": 141.4
+        "desktop": 180.5,
+        "mobile": 174.4
       },
       "frame_ms_median": {
-        "desktop": 0.1,
-        "mobile": 0.1
+        "desktop": 0.4,
+        "mobile": 0.3
       },
       "verdicts": [
         {
@@ -31426,13 +31426,13 @@
     },
     {
       "file": "assets/humans/web/settler_1812.lod1.glb",
-      "sha256": "7fe69ee0702622791e24aac7c5c6cf97cf3042f8246da030f69e2b6b655b9d9a",
+      "sha256": "7456daecaee0e6aa60715b24faa585a7211d43c2360df7972fd7bcc930604cf7",
       "lod": 1,
       "derivative_of": "assets/humans/settler_1812.lod1.glb",
-      "bytes": 1604968,
+      "bytes": 1605484,
       "meshopt": true,
       "triangles": 26956,
-      "vertices": 18040,
+      "vertices": 18063,
       "draw_calls": 11,
       "materials": 11,
       "textures": [
@@ -31478,12 +31478,12 @@
       "rest_height_m": 1.787,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 47.7,
-        "mobile": 55.7
+        "desktop": 63.1,
+        "mobile": 93.9
       },
       "frame_ms_median": {
-        "desktop": 0.1,
-        "mobile": 0.1
+        "desktop": 0.3,
+        "mobile": 0.3
       },
       "verdicts": [
         {
@@ -31580,13 +31580,13 @@
     },
     {
       "file": "assets/humans/web/settler_1812.lod2.glb",
-      "sha256": "474977ff5db52e36cdf476d79e738e465ed05fac9a8f08dfa9a43bfa5db84a61",
+      "sha256": "f796aca59277b881d18631e0451b80ca4153230175da160ff0ecc8dd9feea237",
       "lod": 2,
       "derivative_of": "assets/humans/settler_1812.lod2.glb",
-      "bytes": 628096,
+      "bytes": 628016,
       "meshopt": true,
       "triangles": 13281,
-      "vertices": 9185,
+      "vertices": 9169,
       "draw_calls": 11,
       "materials": 11,
       "textures": [
@@ -31628,12 +31628,12 @@
       "rest_height_m": 1.7879,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 32.6,
-        "mobile": 31.6
+        "desktop": 73.8,
+        "mobile": 48.6
       },
       "frame_ms_median": {
-        "desktop": 0.1,
-        "mobile": 0.1
+        "desktop": 0.3,
+        "mobile": 0.3
       },
       "verdicts": [
         {
@@ -31715,10 +31715,10 @@
     },
     {
       "file": "assets/humans/web/settler_1812.lod3.glb",
-      "sha256": "fad2e950f62c2efb0ee9204ddbf1cd7608d437b957bc3d4594e9806ca660bc1c",
+      "sha256": "fdffbfcf8df9168475a46babee8af0d006df64e6dc1acdca9abc068d1a828b5f",
       "lod": 3,
       "derivative_of": "assets/humans/settler_1812.lod3.glb",
-      "bytes": 302444,
+      "bytes": 302716,
       "meshopt": true,
       "triangles": 6428,
       "vertices": 4605,
@@ -31763,12 +31763,12 @@
       "rest_height_m": 1.7879,
       "soles_y_m": 0,
       "load_ms": {
-        "desktop": 26.8,
-        "mobile": 27.1
+        "desktop": 50.3,
+        "mobile": 70
       },
       "frame_ms_median": {
-        "desktop": 0.1,
-        "mobile": 0.1
+        "desktop": 0.2,
+        "mobile": 0.4
       },
       "verdicts": [
         {
@@ -40322,16 +40322,12 @@
   "scoped_remeasurement": {
     "measured": "2026-11-11",
     "asset_ids": [
-      "child_boy_1904",
-      "child_girl_1904",
-      "child_toddler_1904",
-      "teen_boy_1904",
-      "teen_girl_1904"
+      "settler_1812"
     ],
-    "measured_files": 40,
-    "added_files": 40,
-    "replaced_existing_files": 0,
-    "unchanged_files_sha256_verified": 248,
+    "measured_files": 8,
+    "added_files": 0,
+    "replaced_existing_files": 8,
+    "unchanged_files_sha256_verified": 280,
     "scope": "Same native checks, both viewports and 30 timing frames; all other baseline file hashes unchanged before and after."
   }
 }
