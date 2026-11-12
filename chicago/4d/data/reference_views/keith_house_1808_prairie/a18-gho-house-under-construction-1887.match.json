@@ -2,8 +2,8 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-gho-house-under-construction-1887",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "b0540e5073db2f881cee936bf62b2ae16288f7c4dabca64866d92fb18a9dbc7f",
-  "camera_sha256": "58459d896bcda17e77a1d65e99b5f75388ece26d2bfab249167f85a0beaabbe2",
+  "glb_sha256": "a6182a52cdf1c3c5734c2fe44688c307ea2fcb6c7c527e9f401f4248d69a2fc7",
+  "camera_sha256": "49d70ecd548e975d3f1339d13008f8bd8ed859bbd8d7175a1adcc3668d03611d",
   "photo_sha256": "48c79bd2137cbdf170d15bf02dcdb9fb58009aed7a5c0f7355abb47b0e7bb064",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gho-house-under-construction-1887-side-by-side.jpg",
   "verdict": "matches",
@@ -68,6 +68,10 @@
       "what": "T-3321: 1808's alley wall (the Glessner court wall's return along the alley, 31 m behind 1808's front) draws in this render where the picture shows the Glessner house",
       "status": "not shown",
       "how": "this record renders 1808 alone; from this camera the Glessner house stands between the eye and the alley, so the picture cannot show the wall. The house itself is unchanged (re-rendered 2026-11-02: nothing else in the side-by-side moved)"
+    },
+    {
+      "what": "T-3564, reviewed on the deepened house: the main range now runs back its full three storeys to its brick rear on the 1911 Sanborn sheet (34.70 m, was 18.0 m), as the owner ruled from his 2026-11-10 photographs of the court's south wall; the 1888 plate's own first-floor plan draws the same long range, about three and a half fronts deep. The camera's eye moved +16.699 m in u with the footprint frame (the SW-corner origin went back), so it stands where it stood in the world, and the street front, bow, loggia, stair and parapet lie where they were matched. Where this house-only render draws the long brick north or south side, the picture has Glessner, a neighbour or trees in front of it; the side's openings are reconstructed (L-glessner-photo-match-3564).",
+      "status": "not shown"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
