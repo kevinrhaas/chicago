@@ -2,7 +2,7 @@
   "structure_id": "sears_meeker_house_1815_prairie",
   "view": "chicagology_square_on",
   "glb": "assets/gltf/sears_meeker_house_1815_prairie__as_mapped_1904.glb",
-  "glb_sha256": "885b7a29381657f0296feca0ac21a66d250d9d92dc96355e551b87b87e9e0f4f",
+  "glb_sha256": "0ff5e1d36da7e0020c8a3ad25fa54a23d540a412632adf05bcd7d6b88cfdd2dd",
   "camera_sha256": "cda2578ea5c93de1ed5400ca1f83da8339ea23c273224c6ad760394f98b0fdee",
   "photo_sha256": "39fbfc1c58b51ccd19997e89b76380d1445a6665485416a31ac489acf8522929",
   "side_by_side": "docs/RESEARCH/photo-match/sears_meeker_house_1815_prairie/chicagology_square_on-side-by-side.jpg",
@@ -91,7 +91,8 @@
     },
     {
       "what": "the main cornice: the print's is a deep bracketed one, a row of large stone consoles under a moulded crown (y 360-430 px); the build carries K10's moulded stone cornice with no consoles",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-3561: K10's scrolled consoles (wall_head.blocks) under the corona, 0.45 m high, 0.17 m wide, no more than 0.5 m apart, on a 0.32 m frieze; they render at y 405-440 px against the print's 400-432 px; the print's crown over the corona stands about 0.3 m taller than K10's section, the massing's line"
     },
     {
       "what": "the stone shoulders either side of the attic storey (y 285-330 px), where the pavilion's 4 m block stops under the narrower attic",
@@ -112,7 +113,17 @@
       "what": "a low iron fence set back on the north side",
       "status": "open",
       "how": "the print shows a low railing behind the coping north of the walk that no record explains; not built"
+    },
+    {
+      "what": "the rosettes over the cornice's consoles (y 388-398 px)",
+      "status": "within tolerance",
+      "how": "carved bosses about 0.12 m across in the cornice's bed, under the 0.3 m bar; not built"
+    },
+    {
+      "what": "the south stack (x 780-830 px, its cap at y 55-65 px, about 14.4 m)",
+      "status": "fixed",
+      "how": "T-3561: the stone stack on the south cornice, its head and pots as on the oblique; it stands on the build's south wall, about 0.75 m south of the print's main wall (the corner bay's set-out, open above)"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

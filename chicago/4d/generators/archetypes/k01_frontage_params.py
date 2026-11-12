@@ -194,6 +194,10 @@ class K01FrontageParams:
     front_brick_roughness: float = 0.0
     side_brick_tone: tuple = ()
     side_brick_roughness: float = 0.0
+    # T-1886: the side walls ("north", "south") laid in the front's face brick rather than the
+    # common, a street-seen flank's brick returned from the front (1816's south flank, which its
+    # photograph draws in the front's tone); empty for every other house
+    face_brick_returns: tuple = ()
     # T-3244: the sash and frames in a record's own paint (1700/1706's white, every photograph),
     # where K01's are the kit's dark green; empty for the kit's
     sash_color: tuple = ()
@@ -1234,8 +1238,21 @@ def _k15_heads(k: dict, stacks: list, chimneys: list, cover) -> None:
                                      f"face and height, and clear of its flues")
                 stg["vent"] = {"width_m": vw, "height_m": vh, "depth_m": vd}
             top = round(top - sh - sct, 4)
-        if sz / max(nfl, 1) < fo + 0.1:
-            raise ParamError(f"chimney at ({u}, {v}): {nfl} flues of {fo} m do not fit its {sz} m face")
+        # T-3561: a stack may be turned (`across: "x"`), its panelled faces the two facing the
+        # flanks and its flues in a row along u (1815's south stack in the Chicagology oblique:
+        # the sunk panels on its south face, the pots in a line back from the street); the
+        # default, "z", faces its panels to the street and rear and rows its flues across v
+        ax = st_.get("across", "z")
+        if ax not in ("z", "x"):
+            raise ParamError(f"chimney at ({u}, {v}): across is 'z' (the default) or 'x'")
+        wd, dp = (sz, sx) if ax == "z" else (sx, sz)
+        # T-3561: and may name its own flue count where its picture draws more pots than the
+        # house's other stacks carry (1815's south stack, its row of pots on the oblique)
+        n_st = int(st_.get("flues", nfl))
+        if not 1 <= n_st <= 8:
+            raise ParamError(f"chimney at ({u}, {v}): flues {n_st}: 1-8")
+        if wd / n_st < fo + 0.1:
+            raise ParamError(f"chimney at ({u}, {v}): {n_st} flues of {fo} m do not fit its {wd} m face")
         spec = {key: copy.deepcopy(x) for key, x in base.items()
                 if key not in ("x", "z", "width_m", "depth_m", "top_m", "flues", "panels") and key not in omit}
         if "corbels" in head_over:
@@ -1244,9 +1261,9 @@ def _k15_heads(k: dict, stacks: list, chimneys: list, cover) -> None:
             spec["cap"] = dict(spec["cap"], **head_over["cap"])
         if stage is not None:
             spec["stage"] = stg
-        spec.update(width_m=sz, depth_m=sx, across="z", top_m=top,
-                    flues=[{"at": round((i + 0.5) * sz / nfl - sz / 2, 4), **({"pot": pot} if pot else {})}
-                           for i in range(nfl)])
+        spec.update(width_m=wd, depth_m=dp, across=ax, top_m=top,
+                    flues=[{"at": round((i + 0.5) * wd / n_st - wd / 2, 4), **({"pot": pot} if pot else {})}
+                           for i in range(n_st)])
         hi = max(cover(u + a * sx / 2, v + b * sz / 2) for a in (-1, 0, 1) for b in (-1, 0, 1))
         y_head = top - spec["cap"]["thickness_m"] - sum(h for h, _ in spec["corbels"])
         if max(y_head - so["band_m"], hi + fl["upstand_m"] + 0.2) > y_head - 0.05:
@@ -1262,8 +1279,8 @@ def _k15_heads(k: dict, stacks: list, chimneys: list, cover) -> None:
             if ph < pn["min_height_m"]:
                 raise ParamError(f"chimney at ({u}, {v}): room for a {ph} m panel, under the {pn['min_height_m']} m "
                                  f"chimneys.k15.panels asks; mark the stack panelled: false")
-            if not 0.1 <= int(pn["count"]) * pn["width_m"] <= sz - 0.2:
-                raise ParamError(f"chimneys.k15.panels.width_m {pn['width_m']}: 0.1 m inside each edge of {sz} m")
+            if not 0.1 <= int(pn["count"]) * pn["width_m"] <= wd - 0.2:
+                raise ParamError(f"chimneys.k15.panels.width_m {pn['width_m']}: 0.1 m inside each edge of {wd} m")
             spec["panels"] = [int(pn["count"]), pn["width_m"], ph, pn["depth_m"], pn["above_roof_m"]]
         c["k15_head"] = spec
         c["cover_high_m"] = round(hi, 4)
@@ -6149,8 +6166,12 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     paint = ()
     paint_opaque = False
     if wf:
-        if construction != "brick":
-            raise ParamError("wall_finish paints a brick house's walls; a stone front is not painted here")
+        # T-1887: or a stone-fronted house's brick flanks, rear and stacks, its stone front
+        # left as cut (1824's: the 1857 villa's light walls, kept when Marsh refronted it in
+        # stone about 1880, in the Pomeroy photograph and the automobile photograph alike).
+        # The paint lays on the brick slots alone, so the front's K02 stone never takes it
+        if construction == "stone":
+            raise ParamError("wall_finish paints brick walls; an all-stone house has none to paint")
         # T-2933: `opaque` paint covers the brick's map (1736's walls, near white in its
         # photograph, which no factor over the buff brick can reach); otherwise it tints it
         if set(wf) != {"paint"} or not {"color"} <= set(wf["paint"]) <= {"color", "opaque"}:
@@ -6188,13 +6209,22 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     # its brick bays) in a face recipe, as street_front_brick does, on a brick front or over a
     # stone front's brick_above_m line; `sides` lays the side and rear walls, the stacks and
     # the area walls in a common one, its panel the record's service_wall_brick
+    # T-1886: `returns` lays the side walls it names ("north", "south") in the front's face
+    # brick, as a flank seen from the street was faced; it needs a `front` to return
     fb = val("face_brick", {}) or {}
-    front_rough, side_tone, side_rough = 0.0, (), 0.0
+    front_rough, side_tone, side_rough, brick_returns = 0.0, (), 0.0, ()
     if fb:
         from . import k03_brick
-        if not set(fb) <= {"front", "sides"} or not fb:
-            raise ParamError("face_brick is {\"front\": a face recipe, \"sides\": a common recipe} "
+        if not set(fb) <= {"front", "sides", "returns"} or not fb:
+            raise ParamError("face_brick is {\"front\": a face recipe, \"sides\": a common recipe, "
+                             "\"returns\": the side walls laid in the front's} "
                              "(data/components/prairie_1904/k03_face_brick.json)")
+        if "returns" in fb:
+            brick_returns = tuple(fb["returns"])
+            if not fb.get("front") or not brick_returns or not set(brick_returns) <= {"north", "south"} \
+                    or len(set(brick_returns)) != len(brick_returns):
+                raise ParamError("face_brick.returns names side walls (\"north\", \"south\"), each once, "
+                                 "laid in the face brick `front` names")
         try:
             if fb.get("front"):
                 if sfb:
@@ -7714,6 +7744,10 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         hip_deck_m = float(val("hip_deck")["deck_m"]) if val("hip_deck") else math.inf
 
         def hip_cover(u_, v_):   # T-3370: a hip's covering over a plan point, cut off at its deck
+            if val("hip_deck") and val("hip_deck").get("edges_m"):   # each face at its own pitch
+                from .k01_hip_deck import cover
+                return cover(val("hip_deck"), u_, v_, depth=depth, width=width, eave=pf + sum(heights),
+                             pitch=pitch, overhang=float(val("eave_overhang_m")))
             return min(round(pf + sum(heights), 4) + tp * max(0.0, min(u_, depth - u_, v_, width - v_)), hip_deck_m)
         for st_ in ch["stacks"]:
             u, v = float(st_["u_m"]), float(st_["v_m"])
@@ -8431,6 +8465,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         roof_form=roof_form, flat=flat_roof, mansard=mansard_roof, gable=gable_roof, shaped_gable=shaped, entrance_floor_m=ef, round_heads=rh,
         wall_paint=paint, wall_paint_opaque=paint_opaque, front_brick_tone=front_tone, front_brick_panel=front_panel,
         front_brick_roughness=front_rough, side_brick_tone=side_tone, side_brick_roughness=side_rough,
+        face_brick_returns=brick_returns,
         sash_color=sash_color, street_dress=street_dress, frontispiece=frontispiece, rear_section=rear_section,
         round_corner=round_corner, cant_corner=cant_corner, front_pier=front_pier, pavilions=pavilions, porte_cochere=porte_cochere,
         corner_porch=corner_porch, hip_deck=hip_deck, rear_veranda=rear_veranda, rear_terrace=rear_terrace, wall_lanterns=wall_lanterns, side_porch=side_porch, shutters=shutters,

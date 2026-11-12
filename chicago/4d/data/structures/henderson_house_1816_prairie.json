@@ -123,26 +123,50 @@
         },
         "face_brick": {
           "value": {
-            "front": "pressed_red"
+            "front": "pressed_red",
+            "returns": [
+              "south"
+            ]
           },
           "confidence": "reconstructed",
           "sources": [
             "chicagology_1816_henderson_photo"
           ],
-          "note": "T-3385: Chicagology's photograph reads the front's brick at 0.65-0.70 of its slate's reflectance (a red; a buff reads 1.5) and well under its white trim; the side wall paler. Pressed red front, common buff sides. Palette: data/components/prairie_1904/k03_face_brick.json; the reading: docs/RESEARCH/face-brick-1904-T-3385/README.md (L-k03-face-brick-3385)."
+          "note": "T-3385: Chicagology's photograph reads the front's brick at 0.65-0.70 of its slate's reflectance (a red; a buff reads 1.5) and well under its white trim; the side wall paler. Pressed red front, common buff sides. Palette: data/components/prairie_1904/k03_face_brick.json; the reading: docs/RESEARCH/face-brick-1904-T-3385/README.md (L-k03-face-brick-3385). T-1886: the south flank's brick returned from the front (`returns`): through the photograph's solved camera the flank wall between the two canted bays reads the same tone as the bays and the front (median grey 169-184 against the bays' 174-200, the stone 237), where the common buff rendered half again as light as the bays; so the flank is laid in the front's pressed red. The north flank, the rear and the rear range keep the common: no picture shows them (L-k01-1816-henderson-1886)."
         },
         "street_front_trim": {
           "value": {
             "by_storey": [
               "k09.trim.lintel_cornice_hood",
               "k09.trim.lintel_cornice_hood"
-            ]
+            ],
+            "lights": [
+              {
+                "wall": "k01.wall.side.south",
+                "s_m": 6.4,
+                "storey": 0
+              },
+              {
+                "wall": "k01.wall.side.south",
+                "s_m": 6.4,
+                "storey": 1
+              }
+            ],
+            "crest": {
+              "storeys": [
+                0,
+                1
+              ],
+              "width_m": 1.0,
+              "height_m": 0.35,
+              "proud_m": 0.1
+            }
           },
           "confidence": "inferred",
           "sources": [
             "chicagology_1816_henderson_photo"
           ],
-          "note": "Every street window under a stone hood on both storeys, as the photograph draws them: K09's cornice-hood lintel. The photograph's hoods are carved (a scrolled cresting over each), which the kit's hood does not carve: open on the match record for T-2964."
+          "note": "Every street window under a stone hood on both storeys, as the photograph draws them: K09's cornice-hood lintel. T-1886: the south flank's window (side_bays 6.4) wears the same hood on both storeys (`lights`), where the brick wall had arched it in brick: the photograph draws it with the front's hood, its consoles and its crest (x 350-385 px); and every such hood carries a carved crest (`crest`, K09's T-3270 palmette between two volutes), the print's raised scrolled cresting over each hood, about 1.0 m wide and 0.35 m high through the solved camera. The crest's carving is the kit's (the print resolves only a raised scrolled block); the canted bays' K08 windows keep the bays' own hoods, uncrested."
         },
         "wall_head": {
           "value": {

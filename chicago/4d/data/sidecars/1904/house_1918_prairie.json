@@ -269,13 +269,17 @@
           "roundel_m": 0.36,
           "pitch_m": 0.5,
           "from_u_m": 8.3
+        },
+        "edges_m": {
+          "east": 11.4,
+          "north": 8.2
         }
       },
       "confidence": "inferred",
       "sources": [
         "chicagology_1936_prairie_exterior_photo"
       ],
-      "note": "The hip cut off at a deck with a rail round it, in the photograph (y 260-300 px over the south-east corner, about 2.5 m over the cornice's top through the camera); K01's hip deck with 1906's pierced rail. Raised with the main cornice by T-3330, 15.0 to 16.22 m. T-3370 reads it on the photograph's re-solved camera (data/reference_views/house_1918_prairie/chicagology_photo.json): the rail's top over the deck's south-east corner (x 1345, y 257 px) stands at about 17.0 m, where the build's (16.22 m deck, 0.8 m rail) stands, so its height is kept; its corner reads about 0.5-1 m west and south of the build's. T-3370 (fourth pass): the photograph's rail runs from the deck's south-east corner (x 1345, y 257 px) west along the south side and passes behind the right stack (x 1228-1285), and does not come out west of it: there (x 1150-1225) the hip's pale slope rises to the stack with no rail on it. So the rail ends at u 8.3 (rail.from_u_m), where the south rail's line passes behind the stack through the camera (x 1255 px), closed by a cross-run that the camera puts behind the south rail's own panel; west of it the deck's edge is a curb, the rail's plinth. Where the deck itself ends west of the rail the photograph cannot say (it sees no deck surface from the street), so the hip's level cut is kept; liberty L-k01-1936-allerton-stage-3370."
+      "note": "The hip cut off at a deck with a rail round it, in the photograph (y 260-300 px over the south-east corner, about 2.5 m over the cornice's top through the camera); K01's hip deck with 1906's pierced rail. Raised with the main cornice by T-3330, 15.0 to 16.22 m. T-3370 reads it on the photograph's re-solved camera (data/reference_views/house_1918_prairie/chicagology_photo.json): the rail's top over the deck's south-east corner (x 1345, y 257 px) stands at about 17.0 m, where the build's (16.22 m deck, 0.8 m rail) stands, so its height is kept; its corner reads about 0.5-1 m west and south of the build's. T-3370 (fourth pass): the photograph's rail runs from the deck's south-east corner (x 1345, y 257 px) west along the south side and passes behind the right stack (x 1228-1285), and does not come out west of it: there (x 1150-1225) the hip's pale slope rises to the stack with no rail on it. So the rail ends at u 8.3 (rail.from_u_m), where the south rail's line passes behind the stack through the camera (x 1255 px), closed by a cross-run that the camera puts behind the south rail's own panel; west of it the deck's edge is a curb, the rail's plinth. Where the deck itself ends west of the rail the photograph cannot say (it sees no deck surface from the street), so the hip's level cut is kept; liberty L-k01-1936-allerton-stage-3370. T-3370 (seventh pass): the photograph's rail turns its south-east corner at x 1345 px, y 257 and its east run ends at a post at x 1405-1418, y 280-300, past which the print shows sky where the build's rail ran on to x 1505; the hip's north-east line falls away from the post's foot (x 1420, y 300). Through the committed camera at the rail's top (17.02 m) the south-east corner reads at u 11.29 on the south rail's line (v 5.38) and the post's outer face at v 8.2 on the east rail's line, so the deck's east edge stands at u 11.4 and its north edge at v 8.2 (edges_m), not the uniform 25 deg cut's 12.42 and 10.52: the east face pitched about 21.7 deg and the north about 18.6 deg from the hip's eave line, the south and west faces kept at 25. The deck's north-east corner then projects to x 1421, y 302, where the print's hip line starts; liberty L-k01-1936-allerton-deck-3370."
     },
     "window_kit": {
       "value": {
@@ -434,7 +438,7 @@
             }
           },
           {
-            "u_m": 9.0,
+            "u_m": 14.0,
             "v_m": 14.9
           }
         ],
@@ -477,7 +481,7 @@
       "sources": [
         "chicagology_1936_prairie_exterior_photo"
       ],
-      "note": "Tall corniced stacks over the roof in the photograph: one over the south flank's rear part (x 905-995 px) and one over its front part (x 1215-1290 px); the third, on the north side, is reconstructed. T-3370 places the two south stacks on the photograph's re-solved camera (data/reference_views/house_1918_prairie/chicagology_photo.json): held on the line v 0.9 the photograph's left stack (x 905-995 px) stands at u 1.7, over the flank's west end, not u 6.0 (about 125 px east of it in the photograph), and the right one (x 1215-1300 px) at u 11.7 (from 12.5; the final fit reads it at 12.3, the two fits' spread). Their tops read about 17.4 and 18.2 m on that line, the build's within about 0.9 m and 0.1 m; the stack right of the tower in the photograph (x 1820-1860 px) stands, through that camera, in front of the house's line, so it is the neighbour's, not this house's north stack. T-3370 (second pass) reads the two stacks' heights and heads through the same camera, at about 39 px a metre on the left one and 42 on the right: the left one's top stands at y 270 px, 17.33 m (built 18.22, so about 35 px high), so it stands at its own 17.35 m (a hip's stack read off a picture may, as a mansard's does, clearing the hip's covering under it by 0.6 m); the right one's top at y 185 px, 18.26 m, the build's 18.22. Each carries a heavy moulded head over a stone band: the left one's head y 270-305 px (16.43-17.33 m, about 0.9 m) standing about 12 px (0.3 m) out each side of its 65 px shaft, its band at y 318 (16.09 m, 1.7 m over the roof under it); the right one's band at y 267 (16.29 m), under it a sunk panel to y 303 (15.43 m) on its east face. So the three are dressed from the K15 kit's panelled form (chimneys.k15, k15.stack.sherman, without its corbel blocks, which the print does not resolve): its two stone bands 0.55 and 1.75 m over the roof under each stack, a sunk panel 0.45 m wide on the street and rear faces from 1.0 m over that roof to 1.08 m under the head (the right one's 15.37-16.29 m, the photograph's 15.43-16.29), the left one plain (its shaft under the head is too short for one and the print shows none), and a head of three corbelled courses (0.15, 0.15 and 0.2 m, out 0.06, 0.13 and 0.2 m) under a stone cap 0.35 m thick and 0.28 m out, 0.85 m in all, for the print's 0.9 m and 0.3 m. Courses and cap are read at the print's scale, not measured, so reconstructed (liberty L-k01-1936-allerton-1901). Still open: the right one's head is two-staged in the print, a broad moulded cap at 16.75-17.3 m with a narrower stage on it to the top at 18.26 m, where the build's one 0.85 m head stands at its top; and the left one's shaft reads about 65 px across where the build's 1.1 by 0.8 m stack spans 52 px, about 0.25 m broader, within the print's blur. T-3370 (fourth pass) builds the right stack's head as the print draws it (x 1215-1302, y 185-260 px, about 42 px a metre): the K15 head's corbels and broad cap stand lower, to 17.30 m (the print's broad moulded cap, y 225-248, 16.75-17.30 m), and on the cap a narrower stage (k15 stage) to the top at 18.22 m (the print's 18.26): a brick block 0.58 m high about the shaft's own width (x 1232-1285 against the shaft's 1228-1285, so 0.05 m in) under its own 0.34 m stone cap 0.1 m out (y 185-200), with the dark opening the print shows in its east face (x 1267-1282, y 203-215: about 0.36 m square) sunk 0.15 m into each broad face; its sunk panel stands 0.38 m under the lowered head (panel_under_head_m), so it runs from 1.0 m over the roof to just under the upper band, where the print draws it (to y 303, 15.43 m, under the band at y 267). The stack is moved to u 12.3, this camera's own reading of it (the committed fit; u 11.7 was the first fit's), which puts its shaft at x 1226-1283 for the print's 1228-1285. The stage's and vent's sizes are read off a blurred print and its sunk vent on the rear face is the street face's mirrored; liberty L-k01-1936-allerton-stage-3370."
+      "note": "Tall corniced stacks over the roof in the photograph: one over the south flank's rear part (x 905-995 px) and one over its front part (x 1215-1290 px); the third, on the north side, is reconstructed. T-3370 places the two south stacks on the photograph's re-solved camera (data/reference_views/house_1918_prairie/chicagology_photo.json): held on the line v 0.9 the photograph's left stack (x 905-995 px) stands at u 1.7, over the flank's west end, not u 6.0 (about 125 px east of it in the photograph), and the right one (x 1215-1300 px) at u 11.7 (from 12.5; the final fit reads it at 12.3, the two fits' spread). Their tops read about 17.4 and 18.2 m on that line, the build's within about 0.9 m and 0.1 m; the stack right of the tower in the photograph (x 1820-1860 px) stands, through that camera, in front of the house's line, so it is the neighbour's, not this house's north stack. T-3370 (second pass) reads the two stacks' heights and heads through the same camera, at about 39 px a metre on the left one and 42 on the right: the left one's top stands at y 270 px, 17.33 m (built 18.22, so about 35 px high), so it stands at its own 17.35 m (a hip's stack read off a picture may, as a mansard's does, clearing the hip's covering under it by 0.6 m); the right one's top at y 185 px, 18.26 m, the build's 18.22. Each carries a heavy moulded head over a stone band: the left one's head y 270-305 px (16.43-17.33 m, about 0.9 m) standing about 12 px (0.3 m) out each side of its 65 px shaft, its band at y 318 (16.09 m, 1.7 m over the roof under it); the right one's band at y 267 (16.29 m), under it a sunk panel to y 303 (15.43 m) on its east face. So the three are dressed from the K15 kit's panelled form (chimneys.k15, k15.stack.sherman, without its corbel blocks, which the print does not resolve): its two stone bands 0.55 and 1.75 m over the roof under each stack, a sunk panel 0.45 m wide on the street and rear faces from 1.0 m over that roof to 1.08 m under the head (the right one's 15.37-16.29 m, the photograph's 15.43-16.29), the left one plain (its shaft under the head is too short for one and the print shows none), and a head of three corbelled courses (0.15, 0.15 and 0.2 m, out 0.06, 0.13 and 0.2 m) under a stone cap 0.35 m thick and 0.28 m out, 0.85 m in all, for the print's 0.9 m and 0.3 m. Courses and cap are read at the print's scale, not measured, so reconstructed (liberty L-k01-1936-allerton-1901). Still open: the right one's head is two-staged in the print, a broad moulded cap at 16.75-17.3 m with a narrower stage on it to the top at 18.26 m, where the build's one 0.85 m head stands at its top; and the left one's shaft reads about 65 px across where the build's 1.1 by 0.8 m stack spans 52 px, about 0.25 m broader, within the print's blur. T-3370 (fourth pass) builds the right stack's head as the print draws it (x 1215-1302, y 185-260 px, about 42 px a metre): the K15 head's corbels and broad cap stand lower, to 17.30 m (the print's broad moulded cap, y 225-248, 16.75-17.30 m), and on the cap a narrower stage (k15 stage) to the top at 18.22 m (the print's 18.26): a brick block 0.58 m high about the shaft's own width (x 1232-1285 against the shaft's 1228-1285, so 0.05 m in) under its own 0.34 m stone cap 0.1 m out (y 185-200), with the dark opening the print shows in its east face (x 1267-1282, y 203-215: about 0.36 m square) sunk 0.15 m into each broad face; its sunk panel stands 0.38 m under the lowered head (panel_under_head_m), so it runs from 1.0 m over the roof to just under the upper band, where the print draws it (to y 303, 15.43 m, under the band at y 267). The stack is moved to u 12.3, this camera's own reading of it (the committed fit; u 11.7 was the first fit's), which puts its shaft at x 1226-1283 for the print's 1228-1285. The stage's and vent's sizes are read off a blurred print and its sunk vent on the rear face is the street face's mirrored; liberty L-k01-1936-allerton-stage-3370. T-3370 (seventh pass): the reconstructed north stack stood at u 9.0, v 14.9, which the committed camera draws at x 1490-1535 px, y 263 against the print's open sky right of the deck's rail, so the photograph says no stack stood there; it is moved to u 14.0, where the camera puts it (x 1638-1691 px, y 241) behind the tower's belvedere (the print's x 1530-1744, the render's 1617-1754), so the print can neither show it nor rule it out. Its place stays reconstructed; liberty L-k01-1936-allerton-deck-3370."
     },
     "rainwater": {
       "value": {
@@ -782,7 +786,7 @@
           "variant": "k08.bay.canted",
           "wall": "k01.wall.side.south",
           "s_m": 13.405,
-          "fabric": "front_stone",
+          "fabric": "brick",
           "plan": {
             "kind": "polyline",
             "points": [
@@ -814,9 +818,10 @@
                   "clear_height_m": 3.1,
                   "sill_m": 2.28,
                   "at": [
-                    0.5
+                    0.3679,
+                    0.6321
                   ],
-                  "why_not_ordinary": "the reception room's half-octagonal stone bay 'having a southern exposure' (Tribune 1869)"
+                  "why_not_ordinary": "the reception room's half-octagonal stone bay 'having a southern exposure' (Tribune 1869); two lights in its front, 1.9 m apart, as the photograph draws a pair to each storey on that face (x 1220-1315 px, T-3370)"
                 }
               ]
             },
@@ -824,23 +829,44 @@
               "height_m": 4.11,
               "windows": [
                 {
-                  "opening": "k06.opening.sash_2over2_flat",
+                  "opening": "k06.opening.sash_round_fanlight",
                   "clear_width_m": 1.1,
                   "clear_height_m": 2.8,
                   "sill_m": 0.6,
                   "at": [
-                    0.5
+                    0.3679,
+                    0.6321
                   ],
-                  "why_not_ordinary": "the chamber over it, 'with a half-octagonal bay window on the south' (Tribune 1869)"
+                  "why_not_ordinary": "the chamber over it, 'with a half-octagonal bay window on the south' (Tribune 1869); two lights in its front, as the photograph draws them; T-3370 (sixth pass): round-headed, as the photograph's chamber lights on the bay's front are (their arched heads at y 535-545 px, x 1225-1310), each in a moulded arched architrave on imposts under a keystone; the principal floor's under them stay flat-headed, as the print draws them",
+                  "architrave": {
+                    "band_m": 0.15,
+                    "proud_m": 0.08,
+                    "impost_m": [
+                      0.2,
+                      0.03
+                    ],
+                    "key_m": [
+                      0.25,
+                      0.3
+                    ]
+                  }
                 }
               ]
+            },
+            {
+              "height_m": 2.71,
+              "windows": []
             }
           ],
+          "eaves": {
+            "cornice": "k10.cornice.bracketed_timber"
+          },
           "roof": {
             "kind": "hip",
-            "pitch": 0.3,
-            "covering": "slate_pennsylvania"
-          }
+            "pitch": 0.0,
+            "covering": "tin_flat_seam_painted"
+          },
+          "plinth_m": 1.83
         },
         {
           "id": "dining_range",
@@ -848,7 +874,7 @@
           "wall": "k01.wall.side.south",
           "s_m": 4.515,
           "flush_corner": "left",
-          "fabric": "front_stone",
+          "fabric": "brick",
           "plan": {
             "width_m": 9.03,
             "proud_m": 1.55,
@@ -859,7 +885,7 @@
               "height_m": 6.33,
               "windows": [
                 {
-                  "opening": "k06.opening.sash_2over2_flat",
+                  "opening": "k06.opening.sash_round_fanlight",
                   "clear_width_m": 1.1,
                   "clear_height_m": 3.1,
                   "sill_m": 2.28,
@@ -867,10 +893,22 @@
                     0.306,
                     0.524
                   ],
-                  "why_not_ordinary": "the dining room 'lighted by two windows opening to the south' (Tribune 1869); T-3370: the photograph's south face of the dining range draws a single, a single and a pair to each storey (centres about x 899, 983 and 1067 px over both storeys, on a face running from x 833 to its dark east return at 1125); through its re-solved camera they stand at 0.24, 0.53 and 0.81 of that face, which the camera reads about 10.4 m long where the 1911 sheet gives 9.03, so those fractions of the built face are carried over (s 2.17, 4.81 and 7.34 m; an entry's at counts along both 1.55 m returns and the face): the two singles"
+                  "why_not_ordinary": "the dining room 'lighted by two windows opening to the south' (Tribune 1869); T-3370: the photograph's south face of the dining range draws a single, a single and a pair to each storey (centres about x 899, 983 and 1067 px over both storeys, on a face running from x 833 to its dark east return at 1125); through its re-solved camera they stand at 0.24, 0.53 and 0.81 of that face, which the camera reads about 10.4 m long where the 1911 sheet gives 9.03, so those fractions of the built face are carried over (s 2.17, 4.81 and 7.34 m; an entry's at counts along both 1.55 m returns and the face): the two singles T-3370 (sixth pass): round-headed, as the photograph draws every light on this face (the heads arched at y 545 and 735 px, x 880-1000), each in a moulded arched architrave on imposts under a keystone, standing for the print's brownstone hoods",
+                  "architrave": {
+                    "band_m": 0.22,
+                    "proud_m": 0.08,
+                    "impost_m": [
+                      0.28,
+                      0.05
+                    ],
+                    "key_m": [
+                      0.3,
+                      0.4
+                    ]
+                  }
                 },
                 {
-                  "opening": "k06.opening.sash_paired_flat",
+                  "opening": "k06.opening.sash_paired_round",
                   "clear_width_m": 1.8,
                   "clear_height_m": 3.1,
                   "sill_m": 2.28,
@@ -878,7 +916,16 @@
                   "at": [
                     0.733
                   ],
-                  "why_not_ordinary": "T-3370: the photograph's south face of the dining range draws a single, a single and a pair to each storey (centres about x 899, 983 and 1067 px over both storeys, on a face running from x 833 to its dark east return at 1125); through its re-solved camera they stand at 0.24, 0.53 and 0.81 of that face, which the camera reads about 10.4 m long where the 1911 sheet gives 9.03, so those fractions of the built face are carried over (s 2.17, 4.81 and 7.34 m; an entry's at counts along both 1.55 m returns and the face): the pair, its two lights about 0.55-0.6 m across each on a pier about half a metre broad in the print, built at the kit's least, two 0.75 m sashes on a 0.3 m mullion (1.8 m over all, the print's 1.6-1.9 m). The Tribune's 'two windows' are read as the two singles, the pair lighting the range's east end beside them; the undated photograph, with an electric lamp at the curb, is the later witness and nearer 1904, so its count is built"
+                  "why_not_ordinary": "T-3370: the photograph's south face of the dining range draws a single, a single and a pair to each storey (centres about x 899, 983 and 1067 px over both storeys, on a face running from x 833 to its dark east return at 1125); through its re-solved camera they stand at 0.24, 0.53 and 0.81 of that face, which the camera reads about 10.4 m long where the 1911 sheet gives 9.03, so those fractions of the built face are carried over (s 2.17, 4.81 and 7.34 m; an entry's at counts along both 1.55 m returns and the face): the pair, its two lights about 0.55-0.6 m across each on a pier about half a metre broad in the print, built at the kit's least, two 0.75 m sashes on a 0.3 m mullion (1.8 m over all, the print's 1.6-1.9 m). The Tribune's 'two windows' are read as the two singles, the pair lighting the range's east end beside them; the undated photograph, with an electric lamp at the curb, is the later witness and nearer 1904, so its count is built T-3370 (sixth pass): the pair's two lights round-headed, as the print draws them, under one enclosing moulded arch with its keystone (K08's T-3294 arch over a group), standing for the print's taller pedimented and scrolled hood over the pair (x 1035-1100 px, rising about 1.1 m over the lights' heads; the arch rises what the storey holds)",
+                  "architrave": {
+                    "band_m": 0.22,
+                    "proud_m": 0.08,
+                    "rise_m": 0.45,
+                    "key_m": [
+                      0.35,
+                      0.4
+                    ]
+                  }
                 }
               ]
             },
@@ -886,7 +933,7 @@
               "height_m": 4.11,
               "windows": [
                 {
-                  "opening": "k06.opening.sash_2over2_flat",
+                  "opening": "k06.opening.sash_round_fanlight",
                   "clear_width_m": 1.1,
                   "clear_height_m": 2.8,
                   "sill_m": 0.6,
@@ -894,10 +941,22 @@
                     0.306,
                     0.524
                   ],
-                  "why_not_ordinary": "the chambers over the dining room, as tall as the house's own chamber windows in the 13 ft 6 in second story (Tribune 1869); T-3370: the photograph's south face of the dining range draws a single, a single and a pair to each storey (centres about x 899, 983 and 1067 px over both storeys, on a face running from x 833 to its dark east return at 1125); through its re-solved camera they stand at 0.24, 0.53 and 0.81 of that face, which the camera reads about 10.4 m long where the 1911 sheet gives 9.03, so those fractions of the built face are carried over (s 2.17, 4.81 and 7.34 m; an entry's at counts along both 1.55 m returns and the face): the two singles"
+                  "why_not_ordinary": "the chambers over the dining room, as tall as the house's own chamber windows in the 13 ft 6 in second story (Tribune 1869); T-3370: the photograph's south face of the dining range draws a single, a single and a pair to each storey (centres about x 899, 983 and 1067 px over both storeys, on a face running from x 833 to its dark east return at 1125); through its re-solved camera they stand at 0.24, 0.53 and 0.81 of that face, which the camera reads about 10.4 m long where the 1911 sheet gives 9.03, so those fractions of the built face are carried over (s 2.17, 4.81 and 7.34 m; an entry's at counts along both 1.55 m returns and the face): the two singles T-3370 (sixth pass): round-headed, as the photograph draws every light on this face (the heads arched at y 545 and 735 px, x 880-1000), each in a moulded arched architrave on imposts under a keystone, standing for the print's brownstone hoods",
+                  "architrave": {
+                    "band_m": 0.22,
+                    "proud_m": 0.08,
+                    "impost_m": [
+                      0.28,
+                      0.05
+                    ],
+                    "key_m": [
+                      0.3,
+                      0.4
+                    ]
+                  }
                 },
                 {
-                  "opening": "k06.opening.sash_paired_flat",
+                  "opening": "k06.opening.sash_paired_round",
                   "clear_width_m": 1.8,
                   "clear_height_m": 2.8,
                   "sill_m": 0.6,
@@ -905,7 +964,12 @@
                   "at": [
                     0.733
                   ],
-                  "why_not_ordinary": "T-3370: the photograph's south face of the dining range draws a single, a single and a pair to each storey (centres about x 899, 983 and 1067 px over both storeys, on a face running from x 833 to its dark east return at 1125); through its re-solved camera they stand at 0.24, 0.53 and 0.81 of that face, which the camera reads about 10.4 m long where the 1911 sheet gives 9.03, so those fractions of the built face are carried over (s 2.17, 4.81 and 7.34 m; an entry's at counts along both 1.55 m returns and the face): the pair, its two lights about 0.55-0.6 m across each on a pier about half a metre broad in the print, built at the kit's least, two 0.75 m sashes on a 0.3 m mullion (1.8 m over all, the print's 1.6-1.9 m). The Tribune's 'two windows' are read as the two singles, the pair lighting the range's east end beside them; the undated photograph, with an electric lamp at the curb, is the later witness and nearer 1904, so its count is built"
+                  "why_not_ordinary": "T-3370: the photograph's south face of the dining range draws a single, a single and a pair to each storey (centres about x 899, 983 and 1067 px over both storeys, on a face running from x 833 to its dark east return at 1125); through its re-solved camera they stand at 0.24, 0.53 and 0.81 of that face, which the camera reads about 10.4 m long where the 1911 sheet gives 9.03, so those fractions of the built face are carried over (s 2.17, 4.81 and 7.34 m; an entry's at counts along both 1.55 m returns and the face): the pair, its two lights about 0.55-0.6 m across each on a pier about half a metre broad in the print, built at the kit's least, two 0.75 m sashes on a 0.3 m mullion (1.8 m over all, the print's 1.6-1.9 m). The Tribune's 'two windows' are read as the two singles, the pair lighting the range's east end beside them; the undated photograph, with an electric lamp at the curb, is the later witness and nearer 1904, so its count is built T-3370 (sixth pass): the pair's two lights round-headed, as the print draws them, under one enclosing moulded arch with its keystone (K08's T-3294 arch over a group), standing for the print's taller pedimented and scrolled hood over the pair (x 1035-1100 px, rising about 1.1 m over the lights' heads; the arch rises what the storey holds)",
+                  "architrave": {
+                    "band_m": 0.15,
+                    "proud_m": 0.08,
+                    "rise_m": 0.5
+                  }
                 }
               ]
             },
@@ -933,7 +997,8 @@
             "kind": "hip",
             "pitch": 0.0,
             "covering": "tin_flat_seam_painted"
-          }
+          },
+          "plinth_m": 1.83
         },
         {
           "id": "library_bay",
@@ -1007,7 +1072,7 @@
         "chicago_tribune_1869_10_30_thompson_residence",
         "chicagology_1936_prairie_exterior_photo"
       ],
-      "note": "The 1911 sheet's plan (trace s28fp-1918-b1) read with the 1869 Tribune's rooms: the 'bay4B' square tower on the front at v 5.95-9.74, 3.8 m across and 1.3 m before the north block's face, rising past the cornice to a belvedere; built square, as the photograph shows it (T-3318: K08's polygonal tower with four sides, a face to the avenue, 3.79 m across, radius 2.68 m, its centre 0.595 m inside the wall so its front stands the sheet's 1.3 m out), with one round-headed light to each face of the belvedere and a stone balustrade round its flat top over the cornice, as the photograph draws them; and (T-3324) a console at each of its two free corners under that cornice and a row of brackets 0.37 m apart along its faces (x 1530-1745, y 120-165 px), and at the belvedere's foot a corbelled stone balcony round its cheeks and front, its slab 0.55 m out and its floor the belvedere's, on three stepped courses, with a balustrade 0.75 m high (y 278-345 px), so the belvedere stands back over it, as the photograph draws them, their sizes read through its scale at the belvedere's lights (2.2 m over about 71 px) and so reconstructed (its back stands on the wall's plane over the roof; liberty L-k01-1936-allerton-1901) (the photograph; 'seventy-three feet high from the ground line', 22.25 m, to its top); the reception room's half-octagonal stone bay on the south wall (u 10.65-16.16, 1.55 m out); the dining room's range before the south wall's rear part (u 0-9.03, 1.55 m out); and the octagonal library's canted bay on the north wall (u 0.1-7.5, 1.3 m out). T-3330 re-proportioned the tower on the photograph's own vertical scale down its front (a level camera keeps one scale down a vertical plane: 39.6 px/m from the main cornice's top at y 380, the Tribune's 13.41 m, which puts the top balustrade's rail at y 30, the Tribune's 22.25 m): its third storey carried up to the main cornice's crown (2.97 m, to 13.41 m), where the main cornice runs round the tower as a corbel table, a 0.35 m stone course 0.5 m out over a row of 0.16 m blocks 0.37 m apart, 0.75 m deep (the photograph's moulded cornice and modillions, y 380-410 px; it shows no balcony at that level); the stage over it short and blind (1.78 m, to the balcony's floor at 15.19 m, y 310; its three lights withdrawn, the photograph showing plain stone between the cornice and the balcony's corbels, y 345-380); the belvedere 5.2 m, its lights 1.8 m high from 0.88 m over its floor (y 205-275); the top balustrade 1.1 m. Reconstructed to that scale (liberty L-k01-1936-allerton-1901). With the attic raised, the dining range's top storey is carried up with it (1.49 to 2.71 m), so its eaves stay the main cornice's. T-3345: the belvedere's own deep cornice, as the photograph draws it over the row of brackets (x 1480-1840, y 85-120 px, on the tower's 39.6 px/m from the main cornice's top at y 380): the wall head at 19.97 m (y 120), where the brackets hang in the frieze; a soffit rising 0.27 m from the kit's bed moulding to a corona 1.1 m out (its foot at y 107, 20.30 m) and 0.51 m deep (its top at y 87, 20.81 m); over it a skirt of the hip rising 0.55 m at a pitch of 0.6 to a flat deck (the balustrade's foot at y 62, 21.36 m) whose edge stands 0.18 m before the walls, and on it the balustrade 0.9 m high, its rail at the Tribune's 73 ft (22.25 m, y 30); the belvedere's storey is 4.78 m to its wall head, not 5.2 to a thin eave. Sizes read through the photograph's scale, so reconstructed (liberty L-k01-1936-allerton-1901). T-3397 (the owner, 2026-11-06: 'the fanciful tower just cannot be a thing'): the tower is the Tribune's and the photograph's, so it stands, but its top read as a flared slab: re-measured on the photograph across the belvedere (its walls x 1530-1744 px, 214 px, at y 200; the corona's tips x 1486-1787, 301 px; the balcony's x 1515-1770, 255 px; the top balustrade x 1532-1739), widths the same oblique view foreshortens alike, so their ratios hold on the 3.79 m face whatever the camera: the corona 0.8 m out, not 1.1 (1.41 x the walls; the house's own eave is 0.75 m), the hip's skirt at a pitch of 0.69 so its 0.55 m rise ends on the walls' line, where the photograph stands the balustrade, and the balcony 0.4 m out, not 0.55 (1.19 x); the front's light framed in an arched architrave on imposts under a keystone, about 1.9 m across (the cheeks', 1.3 m deep, in a 0.15 m one) (the photograph's arched frame x 1565-1645 px). Reconstructed to those ratios (liberty L-k01-1936-allerton-1901). The skirt is laid in slate, the Tribune's covering ('slate roof with copper flashings'), at 35 degrees, where the kit's tin had stood a tan band over the cornice that no picture shows. T-3370 moves the tower 2.0 m north along the front, to v 7.95-11.75 (s 9.85), off the 1911 sheet's v 5.95-9.74: through the photograph's re-solved camera (data/reference_views/house_1918_prairie/chicagology_photo.json) its main cornice's corbel table turns the tower's south-east corner at v about 7.6-9.0 and its porch's hood spans v about 8.6-11.9, and the verandah south of it runs about 8 m from the house's corner (its two columns at about 2.55 m centres), where the sheet leaves 5.6 m; the photograph's measure is built (rule 11), the sheet's place recorded in liberty L-k01-1936-allerton-1901. T-3370 (third pass): the dining range's south face is lit as the photograph draws it, a single, a single and a pair to each of its two principal storeys (centres about x 899, 983 and 1067 px), at the fractions of the face the photograph's re-solved camera reads for them (0.24, 0.53, 0.81; s 2.17, 4.81 and 7.34 m on the built 9.03 m face, the camera reading the photograph's face about 10.4 m long, an open item in its match record), the pair K06's paired sash at its least (two 0.75 m lights on a 0.3 m mullion, 1.8 m, the print's 1.6-1.9 m). The Tribune's 'two windows opening to the south' are read as the two singles; the pair's room is not named, reconstructed (liberty L-k01-1936-allerton-1901). The attic's two frieze lights are kept, the print not resolving them."
+      "note": "The 1911 sheet's plan (trace s28fp-1918-b1) read with the 1869 Tribune's rooms: the 'bay4B' square tower on the front at v 5.95-9.74, 3.8 m across and 1.3 m before the north block's face, rising past the cornice to a belvedere; built square, as the photograph shows it (T-3318: K08's polygonal tower with four sides, a face to the avenue, 3.79 m across, radius 2.68 m, its centre 0.595 m inside the wall so its front stands the sheet's 1.3 m out), with one round-headed light to each face of the belvedere and a stone balustrade round its flat top over the cornice, as the photograph draws them; and (T-3324) a console at each of its two free corners under that cornice and a row of brackets 0.37 m apart along its faces (x 1530-1745, y 120-165 px), and at the belvedere's foot a corbelled stone balcony round its cheeks and front, its slab 0.55 m out and its floor the belvedere's, on three stepped courses, with a balustrade 0.75 m high (y 278-345 px), so the belvedere stands back over it, as the photograph draws them, their sizes read through its scale at the belvedere's lights (2.2 m over about 71 px) and so reconstructed (its back stands on the wall's plane over the roof; liberty L-k01-1936-allerton-1901) (the photograph; 'seventy-three feet high from the ground line', 22.25 m, to its top); the reception room's half-octagonal stone bay on the south wall (u 10.65-16.16, 1.55 m out); the dining room's range before the south wall's rear part (u 0-9.03, 1.55 m out); and the octagonal library's canted bay on the north wall (u 0.1-7.5, 1.3 m out). T-3330 re-proportioned the tower on the photograph's own vertical scale down its front (a level camera keeps one scale down a vertical plane: 39.6 px/m from the main cornice's top at y 380, the Tribune's 13.41 m, which puts the top balustrade's rail at y 30, the Tribune's 22.25 m): its third storey carried up to the main cornice's crown (2.97 m, to 13.41 m), where the main cornice runs round the tower as a corbel table, a 0.35 m stone course 0.5 m out over a row of 0.16 m blocks 0.37 m apart, 0.75 m deep (the photograph's moulded cornice and modillions, y 380-410 px; it shows no balcony at that level); the stage over it short and blind (1.78 m, to the balcony's floor at 15.19 m, y 310; its three lights withdrawn, the photograph showing plain stone between the cornice and the balcony's corbels, y 345-380); the belvedere 5.2 m, its lights 1.8 m high from 0.88 m over its floor (y 205-275); the top balustrade 1.1 m. Reconstructed to that scale (liberty L-k01-1936-allerton-1901). With the attic raised, the dining range's top storey is carried up with it (1.49 to 2.71 m), so its eaves stay the main cornice's. T-3345: the belvedere's own deep cornice, as the photograph draws it over the row of brackets (x 1480-1840, y 85-120 px, on the tower's 39.6 px/m from the main cornice's top at y 380): the wall head at 19.97 m (y 120), where the brackets hang in the frieze; a soffit rising 0.27 m from the kit's bed moulding to a corona 1.1 m out (its foot at y 107, 20.30 m) and 0.51 m deep (its top at y 87, 20.81 m); over it a skirt of the hip rising 0.55 m at a pitch of 0.6 to a flat deck (the balustrade's foot at y 62, 21.36 m) whose edge stands 0.18 m before the walls, and on it the balustrade 0.9 m high, its rail at the Tribune's 73 ft (22.25 m, y 30); the belvedere's storey is 4.78 m to its wall head, not 5.2 to a thin eave. Sizes read through the photograph's scale, so reconstructed (liberty L-k01-1936-allerton-1901). T-3397 (the owner, 2026-11-06: 'the fanciful tower just cannot be a thing'): the tower is the Tribune's and the photograph's, so it stands, but its top read as a flared slab: re-measured on the photograph across the belvedere (its walls x 1530-1744 px, 214 px, at y 200; the corona's tips x 1486-1787, 301 px; the balcony's x 1515-1770, 255 px; the top balustrade x 1532-1739), widths the same oblique view foreshortens alike, so their ratios hold on the 3.79 m face whatever the camera: the corona 0.8 m out, not 1.1 (1.41 x the walls; the house's own eave is 0.75 m), the hip's skirt at a pitch of 0.69 so its 0.55 m rise ends on the walls' line, where the photograph stands the balustrade, and the balcony 0.4 m out, not 0.55 (1.19 x); the front's light framed in an arched architrave on imposts under a keystone, about 1.9 m across (the cheeks', 1.3 m deep, in a 0.15 m one) (the photograph's arched frame x 1565-1645 px). Reconstructed to those ratios (liberty L-k01-1936-allerton-1901). The skirt is laid in slate, the Tribune's covering ('slate roof with copper flashings'), at 35 degrees, where the kit's tin had stood a tan band over the cornice that no picture shows. T-3370 moves the tower 2.0 m north along the front, to v 7.95-11.75 (s 9.85), off the 1911 sheet's v 5.95-9.74: through the photograph's re-solved camera (data/reference_views/house_1918_prairie/chicagology_photo.json) its main cornice's corbel table turns the tower's south-east corner at v about 7.6-9.0 and its porch's hood spans v about 8.6-11.9, and the verandah south of it runs about 8 m from the house's corner (its two columns at about 2.55 m centres), where the sheet leaves 5.6 m; the photograph's measure is built (rule 11), the sheet's place recorded in liberty L-k01-1936-allerton-1901. T-3370 (third pass): the dining range's south face is lit as the photograph draws it, a single, a single and a pair to each of its two principal storeys (centres about x 899, 983 and 1067 px), at the fractions of the face the photograph's re-solved camera reads for them (0.24, 0.53, 0.81; s 2.17, 4.81 and 7.34 m on the built 9.03 m face, the camera reading the photograph's face about 10.4 m long, an open item in its match record), the pair K06's paired sash at its least (two 0.75 m lights on a 0.3 m mullion, 1.8 m, the print's 1.6-1.9 m). The Tribune's 'two windows opening to the south' are read as the two singles; the pair's room is not named, reconstructed (liberty L-k01-1936-allerton-1901). The attic's two frieze lights are kept, the print not resolving them. T-3370 (fifth pass): the reception room's half-octagonal bay is carried up through the attic (2.71 m, blind) to the main cornice, flat-topped under the dining range's bracketed eaves, where it had stood two storeys under its own low hip before a wall the cornice crossed higher up: through the re-solved camera the photograph's face between the dining range's east return and the south-east corner runs full height to the main cornice (x 1170-1425 px), with a pair of lights to each principal storey on it (x 1220-1252 and 1280-1315 px, about 1.2 m each with about 1 m between at the flank's 28 px a metre); the bay's front carries two 1.1 m sashes 1.9 m apart to each storey for them, where it had one. The Tribune's bay is kept, its cants in the print's dark band; its attic, flat top and the lights' spacing are read off the photograph and so reconstructed (liberty L-k01-1936-allerton-1901). T-3370 (sixth pass): the dining range and the reception bay laid in the house's brick on its brownstone basement (plinth to the basement's top, 1.83 m), not in the front's brownstone: the Tribune's 'Baltimore pressed brick' to every exterior wall above the basement, 'every window trimmed with brown stone', and the photograph draws their faces in the main walls' tone with paler dressings, so their sills, heads, bands and the round heads' architraves now stand in brownstone against the brick"
     },
     "rear_wings": {
       "value": [

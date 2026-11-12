@@ -1,4 +1,56 @@
 export const CHANGELOG = [ // newest first
+  { v: 2894, ts: '2026-11-12T15:13:12.515Z', date: 'Nov 12, 2026, 9:13 AM CT', title: '1936 Prairie\'s railed roof deck sits where its photograph shows it', kind: 'improvement',
+    items: [
+      'In 1904, the railed lookout on top of the Thompson-Allerton house at 1936 Prairie Avenue is now smaller. It stops about a metre short of the front and well short of the north side, as the house\'s photograph shows it. It used to run almost the whole length of the roof.',
+      'The chimney on the north side of the roof has moved behind the tower. The photograph shows open sky where it used to stand.',
+    ] },
+  { v: 2893, ts: '2026-11-12T14:09:12.177Z', date: 'Nov 12, 2026, 8:09 AM CT', title: '1816 Prairie\'s south side wears its front brick and carved hoods', kind: 'improvement',
+    items: [
+      'The Henderson house\'s south side is now the same red brick as its front, as its old photograph shows, not a paler brick.',
+      'Its front and side windows now have carved crests on their stone hoods, as in the photograph.',
+    ] },
+  { v: 2892, ts: '2026-11-12T13:05:04.554Z', date: 'Nov 12, 2026, 7:05 AM CT', title: '2009 Prairie\'s north corner and tall stack brought down to the photograph', kind: 'improvement',
+    items: [
+      'The Meyer house at 2009 Prairie is half a metre lower at its north corner. Its low top storey now stops where the old photograph shows the side walls ending, just over the paired window\'s hood.',
+      'The tall chimney on the north side no longer climbs past the top of the photograph. Its cap now stands where the picture puts it, about 16.3 m up.',
+    ] },
+  { v: 2891, ts: '2026-11-12T13:05:04.554Z', date: 'Nov 12, 2026, 7:05 AM CT', title: '1712 Prairie rebuilt to the 1893 drawing of it', kind: 'improvement',
+    items: [
+      'In 1904, 1712 Prairie Avenue is now built to the 1893 Rand McNally street drawing of it. Until now no picture of the house was known, so its front was a guess.',
+      'The door now stands in the middle under a balcony, and every front window is round-headed: paired on the main floor and in the basement, single upstairs. The basement stands higher.',
+      'The roof is a lower hip with no dormer and one tall chimney. It still stands taller than the drawing shows.',
+    ] },
+  { v: 2890, ts: '2026-11-12T11:30:11.460Z', date: 'Nov 12, 2026, 5:30 AM CT', title: '1815 Prairie\'s cornice on its stone consoles, and its tall south stack', kind: 'improvement',
+    items: [
+      'The Sears house\'s main cornice now stands on a close row of carved stone consoles over a frieze, as both old photographs show, and the row turns the corner along the south side.',
+      'Its tall south chimney stands on the cornice and rises past the slate roof to a corbelled stone head with three clay pots in a row, read off both photographs.',
+      'Still to match: the entrance pavilion\'s width, the door\'s hood and stoop, the rough-stone south wall and the roof\'s cresting.',
+    ] },
+  { v: 2889, ts: '2026-11-12T10:23:45.719Z', date: 'Nov 12, 2026, 4:23 AM CT', title: '1936 Prairie\'s south windows get their arched stone heads', kind: 'improvement',
+    items: [
+      'In 1904, the windows along the south side of the Thompson-Allerton house at 1936 Prairie Avenue are now round-topped, each framed in a carved brownstone arch, as the house\'s photograph shows them. They used to be plain square-topped windows.',
+      'The two wings on that side are now red brick over the stone basement, like the rest of the house, so their brownstone trim stands out. They used to be all brownstone.',
+    ] },
+  { v: 2888, ts: '2026-11-12T10:23:45.719Z', date: 'Nov 12, 2026, 4:23 AM CT', title: '2009 Prairie\'s upper front lowered to its photograph', kind: 'fix',
+    items: [
+      'The Meyer house at 2009 Prairie: the oriel now stops about half a metre under the string course with brick between, as the photograph shows, and the third-storey window, its hood and carved pendant and the small attic light in the gable all sit 0.2 to 0.8 m lower.',
+      'Why: the photograph was taken with the camera turned about 22 degrees to the south, not square to the house. The course that seemed to slope down to the south is level, and the old square reading had placed the north half\'s upper features too high. The chimney and the north corner\'s roofline read high too and are next.',
+    ] },
+  { v: 2887, ts: '2026-11-12T09:37:23.140Z', date: 'Nov 12, 2026, 3:37 AM CT', title: '1828 Prairie\'s bay rises into the roof as its photograph shows', kind: 'improvement',
+    items: [
+      'The Shipman house\'s canted front bay now carries on up past the cornice under its own slate mansard, with iron cresting round its top and a dormer of its own, as the Glessner House Museum\'s photograph of the house shows it.',
+      'The roof\'s dormer that stood over the bay is gone, since the photograph shows none beside the bay\'s crown.',
+    ] },
+  { v: 2886, ts: '2026-11-12T08:17:56.881Z', date: 'Nov 12, 2026, 2:17 AM CT', title: '1936 Prairie\'s south side rises to its cornice', kind: 'improvement',
+    items: [
+      'In 1904, the Thompson-Allerton house at 1936 Prairie Avenue now carries its south bay up to the main cornice, as its photograph shows. The bay used to stop two storeys up under a small roof of its own.',
+      'The bay\'s front now has two windows on each floor, where the photograph shows a pair. Before, it had one.',
+    ] },
+  { v: 2885, ts: '2026-11-12T07:57:36.077Z', date: 'Nov 12, 2026, 1:57 AM CT', title: '2009 Prairie checked against Monroe\'s 1896 drawing', kind: 'chore',
+    items: [
+      'Nothing you can see changed in the scene: the Meyer house at 2009 Prairie now has a camera for Harriet Monroe\'s 1896 pen drawing, so it is checked against that picture as well as the photograph.',
+      'The drawing lines up with the house as built, gable, oriel, door and stoop. Both pictures show the course over the oriel sloping down toward the south, so that is recorded as the next thing to settle.',
+    ] },
   { v: 2884, ts: '2026-11-12T05:32:57.980Z', date: 'Nov 11, 2026, 11:32 PM CT', title: 'Built-in graphics held to a memory line in every year', kind: 'fix',
     items: [
       'A computer on built-in graphics, like an Intel UHD 630 desktop, is now held to a memory line in 1835 and 1812 as well as 1904. Each year keeps its people, horses and carriages.',
