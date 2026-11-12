@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 2900, ts: '2026-11-12T18:53:28.066Z', date: 'Nov 12, 2026, 12:53 PM CT', title: '1904 plays a ten-track ragtime playlist on shuffle', kind: 'change',
+    items: [
+      'Ten new ragtime tracks replace the two 1904 waltzes.',
+      'Music in 1904 starts on a random track and shuffles. Every track plays once before any repeats.',
+      'All ten play at the same loudness, and each streams as a small 1 to 2 MB file.',
+    ] },
+  { v: 2899, ts: '2026-11-12T18:49:28.637Z', date: 'Nov 12, 2026, 12:49 PM CT', title: 'Settings in tabs, with a mouse sensitivity slider', kind: 'feature',
+    items: [
+      'Settings now opens on a row of icon tabs, like a building\'s card: Display, Show, Look, Graphics, Sound, About, What\'s new and Research.',
+      'Look has a new Mouse sensitivity slider (Look sensitivity on a phone, for dragging to look). Standard is the turn you had before.',
+      'What\'s new is one of the last tabs and keeps its unread dot. The Expert research switch has moved to the last tab.',
+    ] },
   { v: 2898, ts: '2026-11-12T18:19:57.163Z', date: 'Nov 12, 2026, 12:19 PM CT', title: 'Meet the Glessner House opens in the owner\'s words', kind: 'polish',
     items: [
       'The tour\'s welcome now says "Let\'s start at the corner" and spells neighbors the American way.',

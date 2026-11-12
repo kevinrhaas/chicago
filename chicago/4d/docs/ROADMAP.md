@@ -1,3 +1,10 @@
+## T-3563 — Settings card in icon tabs; mouse sensitivity (2026-11-12)
+
+Done: Settings is eight icon tabs like Inspect's (Display · Show · Look · Graphics · Sound ·
+About · What's new · Research last), and Look carries Mouse/Look sensitivity (0.2x-3x,
+Standard 1x). No follow-up is filed (the owner asked for none); a new Settings row joins a
+tab by `data-set-pane`.
+
 ## T-3551 — fill 1812 audio before extending 1904 (2026-11-11)
 
 Add sparse seasonal nature in the actual 1812 habitats, dirt hoof contacts with a declared softened snow proxy, and recorded impacts attached to visible scheduled work. Preserve existing music, calm water and 1835 insects. Validate the integrated town on mobile and desktop before DEV release; STATUS.md records current evidence. Next, extend appropriate sources and visible work to 1904 with its own street surfaces, activities and seasonal conditions. Dedicated snow recordings and additional visible trades remain future improvements.

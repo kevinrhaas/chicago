@@ -40,14 +40,18 @@ try{
   await page.goto(policy.origin+'/fixture');assert.equal(requests.length,0);await page.click('#on');
   for(const year of ['1835','1812','1904']){
    if(year!=='1835')await page.evaluate(y=>{window.year=y;sync();},year);
-   const list=catalog.assets.filter(a=>a.kind==='music'&&a.era===year);
-   await page.waitForFunction(title=>engine.state.track===title&&!player.paused&&Number.isFinite(player.duration)&&peak()>1e-6,list[0].title,{timeout:45000});
-   const made=await page.evaluate(()=>players.length);
+   // T-3569: 1904 is shuffled from a random start; other eras play in catalogue order.
+   const list=catalog.assets.filter(a=>a.kind==='music'&&a.era===year&&a.runtime_enabled!==false);
+   const shuffled=(catalog.music_shuffle_eras??[]).includes(year),titles=list.map(a=>a.title);
+   await page.waitForFunction(titles=>titles.includes(engine.state.track)&&!player.paused&&Number.isFinite(player.duration)&&peak()>1e-6,shuffled?titles:[titles[0]],{timeout:45000});
+   const made=await page.evaluate(()=>players.length),heard=[await page.evaluate(()=>engine.state.track)];
    for(let i=1;i<=list.length;i++){
     const ended=await page.evaluate(()=>{player.currentTime=player.duration-.12;return endings;});
-    await page.waitForFunction(({title,ended})=>endings>ended&&engine.state.track===title&&!player.paused&&Number.isFinite(player.duration)&&player.currentTime>0&&peak()>1e-6,{title:list[i%list.length].title,ended},{timeout:45000,polling:50});
+    await page.waitForFunction(({titles,prev,ended})=>endings>ended&&engine.state.track!==prev&&titles.includes(engine.state.track)&&!player.paused&&Number.isFinite(player.duration)&&player.currentTime>0&&peak()>1e-6,{titles:shuffled?titles:[titles[i%list.length]],prev:heard.at(-1),ended},{timeout:45000,polling:50});
+    heard.push(await page.evaluate(()=>engine.state.track));
     assert.equal(await page.evaluate(()=>players.length),made,'reuse one unlocked streaming element through playlist wrap');
    }
+   if(shuffled)assert.equal(new Set(heard.slice(0,list.length)).size,list.length,'every shuffled track plays once before any repeats');
    assert.deepEqual(await page.evaluate(()=>engine.state.errors),[]);
    console.log(`MUSIC REPEAT PASS ${width}px ${year}: natural ended events, all ${list.length} era tracks and wrap, one player, nonzero audio, no second gesture or timer tick`);
   }

@@ -297,6 +297,8 @@ step "The Navigator docks, opens and snaps between its heights, Home reads the s
   node tools/test_navigator.mjs
 step "Settings lays out Display, Machine, Performance with Auto, Sound, Units and About & What's new, every id kept, every choice stored (T-2656)" \
   node tools/test_settings_app.mjs
+step "The Navigator's MUTE ALL and MUTE MUSIC keys flip their levels, and lit is the quiet kind on every machine (T-3571)" \
+  node tools/test_sound_keys.mjs
 step "Recorded audio: era isolation, terrain water types, silent defaults, bounded memory, stale requests, mute and hidden-tab cleanup (T-3532)" \
   node tools/test_sound.mjs
 step "Hosted audio retains originals and binds published URLs to verified bytes without duplicate media (T-3532)" \

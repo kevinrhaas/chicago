@@ -35,9 +35,10 @@ try{
   assert.equal(requests.length,0);await page.click('#on');
   await page.waitForFunction(()=>sound.state.recorded?.playing&&sound.state.recorded.voices.includes('wind'),{},{timeout:30000});
   assert.equal(await page.evaluate(()=>sound.state.recorded.track),'Border Ballad');
-  for(const [era,title] of [['1812','Reel of the Frontier'],['1904','Salon Waltz']]){
+  const ragtime=catalog.assets.filter(a=>a.id.startsWith('ragtime-')).map(a=>a.title);
+  for(const [era,titles] of [['1812',['Reel of the Frontier']],['1904',ragtime]]){
    await page.evaluate(era=>{year=era;sound.sync();},era);
-   await page.waitForFunction(title=>sound.state.recorded?.playing&&sound.state.recorded.track===title,title);
+   await page.waitForFunction(titles=>sound.state.recorded?.playing&&titles.includes(sound.state.recorded.track),titles);
   }
   assert(requests.every(u=>/^https:\/\/[^/]+\/media\/[a-f0-9]{64}\.(ogg|m4a|mp3)$/.test(u)));
   const candidateURLs=new Set(catalog.assets.filter(a=>a.kind==='candidate').map(a=>a.url));
