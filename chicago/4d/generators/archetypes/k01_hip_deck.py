@@ -24,6 +24,13 @@ from __future__ import annotations
 import math
 
 KEYS = {"deck_m", "rail"}
+#: T-3370: optional — where one or more of the deck's edges stand in the footprint frame
+#: (u east, v north; metres), when a picture puts the level cut off the hip's centre: 1936
+#: Prairie's Chicagology photograph draws its railed deck's south-east corner about 1 m west
+#: of the uniform pitch's and its east rail ending about 2.4 m short of the uniform deck's
+#: north edge. An edge named here sets its own face's pitch (rise over the run from the eave
+#: line); an edge not named keeps the roof's pitch.
+EDGES = {"west", "east", "south", "north"}
 RAIL_KEYS = {"inset_m", "height_m", "post_m", "posts_every_m", "plinth_m", "coping_m", "thickness_m",
              "roundel_m", "pitch_m"}
 #: T-3370: optional — the rail's west end (1936 Prairie's Chicagology photograph: the rail runs
@@ -41,7 +48,7 @@ def resolve(spec, *, depth, width, eave, pitch, overhang, roof_form) -> dict:
     """The record's `hip_deck`, checked against the house's hip (module doc)."""
     if not spec:
         return {}
-    if not isinstance(spec, dict) or set(spec) != KEYS or not isinstance(spec["rail"], dict) \
+    if not isinstance(spec, dict) or not KEYS <= set(spec) <= KEYS | {"edges_m"} or not isinstance(spec["rail"], dict) \
             or not RAIL_KEYS <= set(spec["rail"]) <= RAIL_KEYS | RAIL_OPTIONAL:
         raise ParamError(f"hip_deck takes {sorted(KEYS)}, its rail {sorted(RAIL_KEYS)}")
     if roof_form != "hip":
@@ -52,7 +59,8 @@ def resolve(spec, *, depth, width, eave, pitch, overhang, roof_form) -> dict:
     deck = float(spec["deck_m"])
     rise = deck - he
     k = rise / t
-    if rise < 0.5 or k > half - 1.0:
+    edges = spec.get("edges_m") or {}
+    if rise < 0.5 or (not edges and k > half - 1.0):
         raise ParamError(f"hip_deck.deck_m {deck}: at least 0.5 m over the hip's eave ({he:.2f} m) and leaving "
                          f"a deck at least 2 m across under the {he + half * t:.2f} m ridge")
     r = {n: float(v) for n, v in spec["rail"].items()}
@@ -65,12 +73,51 @@ def resolve(spec, *, depth, width, eave, pitch, overhang, roof_form) -> dict:
                          "apart, a 0.04-0.3 m plinth and 0.04-0.2 m coping, a panel no thicker than a post, "
                          "its roundels clear of plinth and coping and of each other")
     X0, X1, Z0, Z1 = -overhang + k, depth + overhang - k, -width - overhang + k, overhang - k
+    slopes = {}
+    if edges:
+        if not isinstance(edges, dict) or not set(edges) <= EDGES or not edges:
+            raise ParamError(f"hip_deck.edges_m names one or more of {sorted(EDGES)}")
+        e = {n: float(v) for n, v in edges.items()}
+        X0, X1 = e.get("west", X0), e.get("east", X1)
+        Z0, Z1 = -e["north"] if "north" in e else Z0, -e["south"] if "south" in e else Z1
+        runs = {"west": X0 + overhang, "east": depth + overhang - X1,
+                "south": overhang - Z1, "north": width + overhang + Z0}   # eave line to the deck's edge
+        for n, run in runs.items():
+            if not 10.0 <= math.degrees(math.atan2(rise, max(run, 1e-9))) <= 45.0:
+                raise ParamError(f"hip_deck.edges_m: the {n} face rises {rise:.2f} m over {run:.2f} m, "
+                                 f"pitched outside 10-45 deg")
+        if X1 - X0 < 2.0 or Z1 - Z0 < 2.0:
+            raise ParamError("hip_deck.edges_m: a deck at least 2 m across each way")
+        slopes = {n: round(rise / run, 6) for n, run in runs.items()}
     if "from_u_m" in r and not X0 + r["inset_m"] + 1.0 <= r["from_u_m"] <= X1 - r["inset_m"] - 2.0:
         raise ParamError(f"hip_deck.rail.from_u_m {r['from_u_m']}: 1 m or more inside the deck's west edge "
                          f"({X0 + r['inset_m']:.2f}) and leaving a railed deck 2 m or more long "
                          f"(its east edge {X1 - r['inset_m']:.2f})")
-    return {"deck_m": round(deck, 4), "rise_m": round(rise, 4), "inset_m": round(k, 4),
-            "rect": [round(X0, 4), round(X1, 4), round(Z0, 4), round(Z1, 4)], "rail": r}
+    out = {"deck_m": round(deck, 4), "rise_m": round(rise, 4), "inset_m": round(k, 4),
+           "rect": [round(X0, 4), round(X1, 4), round(Z0, 4), round(Z1, 4)], "rail": r}
+    if slopes:
+        out["slopes"] = slopes
+    return out
+
+
+def cover(spec, u, v, *, depth, width, eave, pitch, overhang):
+    """T-3370: the hip's covering over plan point (u, v) (u east from the rear wall, v north from
+    the south wall), cut off at the deck; each face at its own pitch where `edges_m` moves the
+    deck's edge, rising from the hip's eave line `overhang` out from the wall."""
+    t = math.tan(math.radians(pitch))
+    deck = float(spec["deck_m"]) if spec else math.inf
+    if not spec or not spec.get("edges_m"):
+        return min(round(eave, 4) + t * max(0.0, min(u, depth - u, v, width - v)), deck)
+    he = eave - overhang * t                       # the eave line's height, as hip() builds it
+    e = {n: float(x) for n, x in spec["edges_m"].items()}
+    o, rise = overhang, deck - he
+    run = {"west": e["west"] + o if "west" in e else None,
+           "east": depth + o - e["east"] if "east" in e else None,
+           "south": e["south"] + o if "south" in e else None,
+           "north": width + o - e["north"] if "north" in e else None}
+    lift = [(max(0.0, d) + o) * (t if run[n] is None else rise / run[n])
+            for n, d in (("west", u), ("east", depth - u), ("south", v), ("north", width - v))]
+    return min(he + min(lift), deck)
 
 
 def hip(k5, x0, x1, z0, z1, eave_y, t, o, f, deck):
@@ -78,8 +125,12 @@ def hip(k5, x0, x1, z0, z1, eave_y, t, o, f, deck):
     hs, he = eave_y - o * t - f, eave_y - o * t
     X0, X1, Z0, Z1 = x0 - o, x1 + o, z0 - o, z1 + o
     rise = deck["deck_m"] - he
+    top = k5.inset_rect(X0, X1, Z0, Z1, rise / t)
+    if deck.get("slopes"):   # T-3370: the level cut where the record's edges put it
+        a, b, c, d = deck["rect"]
+        top = [(a, c), (b, c), (b, d), (a, d)]
     rings = [(hs, k5.inset_rect(X0, X1, Z0, Z1, 0.0)), (he, k5.inset_rect(X0, X1, Z0, Z1, 0.0)),
-             (he + rise, k5.inset_rect(X0, X1, Z0, Z1, rise / t))]
+             (he + rise, top)]
     return k5.ring_stack(rings, ["fascia", "covering"], "soffit"), hs
 
 
