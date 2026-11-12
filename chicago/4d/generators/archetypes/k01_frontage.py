@@ -297,10 +297,7 @@ MATERIALS.update({
     # sash's dark green paint on boards — over a brick plinth, its bands, sills and heads
     # the fascia's painted trim. No lap is modelled: a bay of the period was boarded and
     # panelled, and its boards are the texture's, not geometry (liberty L-k01-1626-*).
-    # T-3564: the library's painted joinery is now the Glessner coach house's sage green
-    # (the owner's ruling for THAT house); this factor (linear) holds the frame bays at the
-    # T-2211 dark green they were reconstructed in (sRGB .160/.230/.195 over .380/.440/.375).
-    "bay_frame": {"fabric": "painted_wood", "color": (0.188, 0.266, 0.282), "roughness": 0.78},
+    "bay_frame": {"fabric": "painted_wood", "color": (1.0, 1.0, 1.0), "roughness": 0.78},
     # T-2451: a frame bay's pilaster strips, painted light against its dark boards, as both of
     # 1620's pictures draw them; the colour is the reconstruction's (the pictures are monochrome)
     "bay_strip_paint": {"color": (0.74, 0.70, 0.60), "roughness": 0.74},
