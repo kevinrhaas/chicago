@@ -111,14 +111,12 @@ jobs:
       fail-fast: false
       matrix:
         year: ['1812', '1835', '1904']
-        viewport: [desktop, mobile]
+        # T-3537 / T-3552: `shared` is a desktop on integrated graphics (?device=weak:
+        # Balanced + the phone's memory diet), the owner's Inspiron 3880, every year.
+        viewport: [desktop, mobile, shared]
         include:
           - year: '1835'
             viewport: self-test
-          # T-3537: a desktop on integrated graphics (?device=weak: Balanced + the phone's
-          # memory diet), the heaviest year only — where the owner's Inspiron crashed.
-          - year: '1904'
-            viewport: shared
     steps:
       - uses: actions/checkout@v4
         with:

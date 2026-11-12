@@ -138,6 +138,25 @@
             }
           }
         }
+      },
+      "shared": {
+        "total_bytes": 576716800,
+        "reading_bytes": 502514047,
+        "tier": "balanced",
+        "reading_mb": {
+          "total": 479.2,
+          "js_heap": 96.7,
+          "arraybuffers": 111.2,
+          "gpu_buffers": 154.6,
+          "gpu_textures": 119.8
+        },
+        "set_by": {
+          "ticket": "T-3552",
+          "on": "2026-11-12T01:37:19.942Z",
+          "build": "5a7302d8d",
+          "reading": "docs/measurements/T-3552-memory-shared.json",
+          "note": "The owner's Inspiron 3880 (Intel UHD 630, 12 GB, Windows 11) on every year, not only 1904: a desktop on integrated graphics (?device=weak, 1920x1080) boots Balanced at Sharpness Low with the phone's memory diet, people, horses and carriages kept. 1812 read 479.2 MB here (1904 the same run: 545.9, under its 600). Reading x1.1 rounded up to 25 MiB = 550 MiB."
+        }
       }
     },
     "1835": {
@@ -179,6 +198,25 @@
           "reading": "docs/measurements/T-2786-memory.json",
           "note": "the buildings' source geometries let go once batched, and (1904) the railway's strip scratch emptied once laid; one invocation, all six rows. 581.5 -> 489.8 MB; x 1.1 rounded up to 25 MiB = 550 MiB.",
           "before": "T-2573, 2026-10-16: the buildings' batches picked on the GPU, keeping no position or index once uploaded. Read on this branch merged with dev after T-2588 landed, d6a7c1f60, one invocation: 581.5 MB (js heap 105.8, arraybuffers 198.3, gpu buffers 180.5, gpu textures 96.9; docs/measurements/T-2573-memory-merged.json). The change alone, on a98d32f5c the same hour on the same machine: 586.2 MB against dev's 612.2 (arraybuffers 225.0 -> 198.9; T-2573-memory.json, T-2573-memory-dev.json). 581.5 x 1.1 rounded up to 25 MiB = 650 MiB; the ?keep-geometry=1 self-test read 795.1 MB on T-2575 and stays over it. Before: T-2588, 2026-10-16: the wall relief's normal and orl as KTX2 (library sheets 4 KTX2 = 1.3 MB -> 8 KTX2 = 2.7 MB; structures' textures 6.7 -> 2.7 MB). Read on this branch merged with dev after T-2572 landed, ddb9e66d7, one invocation: 607.5 MB (js heap 105.7, arraybuffers 224.3, gpu buffers 180.5, gpu textures 96.9). The change alone, on 6679f7374 the same hour: 624.9 MB against dev's 628.5 (gpu textures 100.9 -> 96.9). 607.5 x 1.1 rounded up to 25 MiB = 675 MiB; the ?keep-geometry=1 self-test read 795.1 MB on T-2575 and stays over it. Before: T-2572, 2026-10-16: the plank walks, fences and yard goods picked on the GPU, keeping no position or index once uploaded; read on this branch merged with dev after T-2575 landed, c2b6ad1c7, one invocation: 630.0 MB (js heap 105.5, arraybuffers 223.0, gpu buffers 180.5, gpu textures 120.9). Each half alone read 645.3 (T-2572 on T-2574) and 646.3 (T-2575); together they save both. 630.0 x 1.1 rounded up to 25 MiB = 700 MiB. Before: T-2575, 2026-10-16: structures batch positions as Int16x4 (24 -> 20 B a vertex), read on this branch merged with dev, 8a7b3231c, one invocation: 646.3 MB (js heap 105.5, arraybuffers 239.3, gpu buffers 180.5, gpu textures 120.9). That reading also carries T-2574's packed scalars, which landed without lowering this ceiling; the still-frame workflow's self-test went red on this PR because ?keep-geometry=1 read 795.1 MB, under T-2569's 825 MiB. 646.3 x 1.1 rounded up to 25 MiB = 725 MiB. Before: T-2569, 2026-10-16: frontage, enclosures and yard in compact vertex formats. Read on this branch's mirror, a434872b9 + the change, one invocation: 745.5 MB against dev's 795.7 MB on the same machine the same hour (arraybuffers 332.6 -> 298.2, gpu buffers 236.0 -> 220.1). 745.5 x 1.1 rounded up to 25 MiB = 825 MiB."
+        }
+      },
+      "shared": {
+        "total_bytes": 786432000,
+        "reading_bytes": 714272300,
+        "tier": "balanced",
+        "reading_mb": {
+          "total": 681.2,
+          "js_heap": 106.2,
+          "arraybuffers": 161.5,
+          "gpu_buffers": 294.4,
+          "gpu_textures": 122.1
+        },
+        "set_by": {
+          "ticket": "T-3552",
+          "on": "2026-11-12T01:37:19.942Z",
+          "build": "5a7302d8d",
+          "reading": "docs/measurements/T-3552-memory-shared.json",
+          "note": "The owner's Inspiron 3880 (Intel UHD 630, 12 GB, Windows 11) on every year, not only 1904: a desktop on integrated graphics (?device=weak, 1920x1080) boots Balanced at Sharpness Low with the phone's memory diet, people, horses and carriages kept. 1835 read 681.2 MB here (1904 the same run: 545.9, under its 600). Reading x1.1 rounded up to 25 MiB = 750 MiB."
         }
       }
     },

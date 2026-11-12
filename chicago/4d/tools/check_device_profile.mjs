@@ -74,6 +74,22 @@ check('a software rasteriser keeps the platform default and is not benchmarked',
   assert.equal(r.cls, 'standard');
   assert.match(r.why, /software/);
 });
+check('T-3552: a visitor drawing in software boots as a modest computer; the harness keeps the default', () => {
+  const warp = { ...GPU, renderer: 'ANGLE (Microsoft, Microsoft Basic Render Driver Direct3D11 vs_5_0 ps_5_0, D3D11)' };
+  assert.ok(dp.isSoftwareRenderer(warp.renderer));
+  const visitor = dp.classify({ ...warp, automated: false }, null);
+  assert.equal(visitor.cls, 'weak');
+  assert.match(visitor.why, /software rasteriser: no graphics driver/);
+  const choice = dp.decide(visitor.cls);
+  assert.deepEqual([choice.detail, choice.sharpness, choice.lowMemory], ['balanced', 1, true]);
+  // The harness (navigator.webdriver) and an unknown reader keep the platform default.
+  assert.equal(dp.classify({ ...warp, automated: true }, null).cls, 'standard');
+  assert.equal(dp.classify(warp, null).cls, 'standard');
+  // The owner's Inspiron 3880 as Chrome on Windows names it: shared memory, weak, Balanced.
+  const uhd = { ...GPU, cores: 12, memoryGB: 8, automated: false,
+    renderer: 'ANGLE (Intel, Intel(R) UHD Graphics 630 (0x00009BC8) Direct3D11 vs_5_0 ps_5_0, D3D11)' };
+  assert.equal(dp.classify(uhd, { fill: 2, verts: 0.2 }).cls, 'weak');
+});
 check('the resource floors, then the benchmark bounds, decide a real GPU', () => {
   assert.equal(dp.classify({ ...GPU, cores: 2 }, { fill: 9, verts: 9 }).cls, 'weak');
   assert.equal(dp.classify({ ...GPU, memoryGB: 2 }, { fill: 9, verts: 9 }).cls, 'weak');

@@ -130,6 +130,13 @@ export function classify(signals, bench, { forced = null, stepDown = 0, touch = 
     cls = forced; why = `forced by ?device=${forced}`;
   } else if (!signals.webgl2) {
     cls = 'weak'; why = 'no WebGL2 context could be read';
+  } else if (isSoftwareRenderer(signals.renderer) && signals.automated === false) {
+    // T-3552: a real visitor drawing in software (Windows with no graphics driver in
+    // use: "Microsoft Basic Render Driver"; graphics acceleration turned off) pays for
+    // every texture in the tab's own memory and every pixel on the CPU, so it boots as
+    // a modest computer: Balanced, its people and teams kept, on the memory diet. Only
+    // a browser that says it is automated (the harness) keeps the platform default.
+    cls = 'weak'; why = 'a software rasteriser: no graphics driver in use, not benchmarked';
   } else if (isSoftwareRenderer(signals.renderer)) {
     cls = 'standard'; why = 'a software rasteriser: the platform default, not benchmarked';
   } else if ((signals.cores && signals.cores <= 2) || (signals.memoryGB && signals.memoryGB <= 2)
@@ -479,6 +486,8 @@ export async function profileDevice({
       ...read.signals,
       cores: Number(nav?.hardwareConcurrency) || null,
       memoryGB: Number(nav?.deviceMemory) || null,
+      // T-3552: an automated browser (Playwright, WebDriver) says so; a visitor's does not.
+      automated: nav ? !!nav.webdriver : null,
       screen: win?.screen ? [win.screen.width, win.screen.height] : null,
       dpr: Number(win?.devicePixelRatio) || 1,
     };
