@@ -1823,9 +1823,9 @@
     "house_1828_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 9666112,
+      "bytes": 9705152,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "4d2ca4030dbda958e928581595d73bec17aa0cdf6226591a118245195757206e",
+      "inputs_sha256": "4d82d6e0e355c7783a4a3f8180b0de6b63b2dde55da2520361da30e656ebf7ab",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "house_1828_prairie"
@@ -2073,9 +2073,9 @@
     "house_1918_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 8164956,
+      "bytes": 8613268,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "a52ee69325a5c73d00be4cacbdea008575c7f63e714be55f3cc2c07eb659fb4d",
+      "inputs_sha256": "d49ceaba8c1ffe2b7ed7c4c1e69a342d822b01dda70ce0f66fa43d3a7a59f022",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "house_1918_prairie"
@@ -3752,9 +3752,9 @@
     "mayer_house_2009_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 4478416,
+      "bytes": 4478080,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "7bba9de4b1936f26193410056028c0174e60d86e3b6f30682373a238a0e38f56",
+      "inputs_sha256": "0eb90d523001562c3f899808fa58603d5f6338b74c4f60c7d6f0c2753e20e932",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "mayer_house_2009_prairie"
@@ -9212,9 +9212,9 @@
     "sears_meeker_house_1815_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 4796848,
+      "bytes": 5299492,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "bc1c8b7d75eca09eb237511d65727b19493b4e82915c7f480120ac186a54559f",
+      "inputs_sha256": "20cc7da4a66eac313fe49f5918b6eff78f4b373b3c65b7d982405136b5f7cd24",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "sears_meeker_house_1815_prairie"
