@@ -297,6 +297,8 @@ step "The Navigator docks, opens and snaps between its heights, Home reads the s
   node tools/test_navigator.mjs
 step "Settings lays out Display, Machine, Performance with Auto, Sound, Units and About & What's new, every id kept, every choice stored (T-2656)" \
   node tools/test_settings_app.mjs
+step "The Navigator's MUTE ALL and MUTE MUSIC keys flip their levels, and lit is the quiet kind on every machine (T-3571)" \
+  node tools/test_sound_keys.mjs
 step "Recorded audio: era isolation, terrain water types, silent defaults, bounded memory, stale requests, mute and hidden-tab cleanup (T-3532)" \
   node tools/test_sound.mjs
 step "Hosted audio retains originals and binds published URLs to verified bytes without duplicate media (T-3532)" \
@@ -708,6 +710,8 @@ step "People on foot walk heel to toe at a real pace and stride, the stance foot
   node tools/test_human_gait.mjs
 step "A woman's skirt swings off her legs as she walks and never parts between them, the rest pose exact (T-3472)" \
   node tools/test_human_skirt.mjs
+step "A Potawatomi man's belt sits on his shirt or blanket at every level, standing and walking, the shirt's skirt under it; his trade silver engraved by shader, no texture (T-3553)" \
+  node tools/test_human_waist.mjs
 step "Each man of the 1812 garrison has his own complexion, hair, eyes and height from the period's registers, drawn on clones, on his card with a stand-in portrait (T-3491)" \
   node tools/test_human_looks.mjs
 step "1904 people use actual drawn pedestrian tops only beneath enabled terrain-cut masks, preserving decks, positive yards and other epochs (T-2795)" \
