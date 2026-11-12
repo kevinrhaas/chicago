@@ -103,13 +103,20 @@ const kinzie = actorOf(rec('kinzie_john_elder', {
   day: [{ spans: [IN(0, 7, 'kinzie_house_1812'), OUT(7, 12, 1150, 332, 180, { activity: 'work' }), IN(12, 24, 'kinzie_house_1812')] }] }), 'John Kinzie');
 const lalime = actorOf(rec('lalime_jean', { presence: { to: '1812-06-17' },
   day: [{ spans: [IN(0, 24, 'lalime_house_1812')] }] }), 'Jean Lalime');
-const actors = [kinzie, lalime];
+// A soldier off his hours, in quarters (human-duties.js has him in; only the day engine moves him out).
+const needs = actorOf(rec('needs_john', { hours: [20, 21], quarters: 'first_fort_dearborn_soldiers_barracks_se',
+  duty: { kind: 'beat', to: { local_e: 1158, local_n: 215 } } }, [1155, 215, 0]), 'John Needs');
+needs.setIndoors(true);
+const actors = [kinzie, lalime, needs];
 const spawned = [];
 const humans = { actors, shown: true };
 // A household's resident who is not drawn until asked for (inside_<year>.json).
 const kinzieDoor = doors.structures.find((s) => s.structure === 'kinzie_house_1812').doors[0];
 const inside = { people: [{ person: 'kinzie_cook_x', name: 'A cook', home: 'kinzie_house_1812', door: kinzieDoor.id, asset_id: 'woman_1812',
-  day: [{ spans: [IN(0, 24, 'kinzie_house_1812')] }] }] };
+  day: [{ spans: [IN(0, 24, 'kinzie_house_1812')] }] },
+  // A young child of the house, who goes out only with a grown-up of it (T-3548's supervised).
+  { person: 'kinzie_child_x', name: 'A child', home: 'kinzie_house_1812', door: kinzieDoor.id, asset_id: 'girl_1812',
+    supervised: true, caregivers: ['kinzie_cook_x'], day: [{ spans: [IN(0, 24, 'kinzie_house_1812')] }] }] };
 const spawn = (entry, door) => {
   const a = actorOf({ id: `hi_inside_${entry.person}`, person_id: entry.person, scene: '1812', appearance: { asset_id: entry.asset_id },
     placement: { local_e: door.step.local_e, local_n: door.step.local_n, heading_deg: door.outward_deg }, behaviour: { state: 'standing' } }, entry.name);
@@ -185,4 +192,38 @@ tick(0.25, Math.ceil(OUTING.for_s / 0.25) + 40);
 assert(!actors.includes(spawned[0]), 'back in, her figure is taken away');
 assert(life.homeNow('kinzie_cook_x'), 'and she is at home again');
 
-console.log('STEP OUT PASS: round the block by its sidewalks and corners, the front and both ends where there is no street behind, past an alley; a walk about the place with no blocks; at home today vs away; out by their own door, on while followed, back in after; an undrawn resident built at her door and taken away again');
+// A soldier in quarters comes out by their door, and goes back in by it before his duty has him.
+assert.deepEqual(life.homeNow('needs_john'), { structure: 'first_fort_dearborn_soldiers_barracks_se', name: 'John Needs' });
+const soldier = life.outing('needs_john', { loop });
+assert.equal(soldier.ok, true, soldier.why);
+assert(doors.structures.find((r) => r.structure === 'first_fort_dearborn_soldiers_barracks_se').doors.some((d) => d.id === soldier.door.id), 'his quarters\' door');
+assert.equal(soldier.start().ok, true);
+tick(0.25, 8);
+assert.equal(needs.indoors, false, 'out of quarters');
+assert(life.isOccupied(needs), 'his duty leaves him be while he walks');
+tick(0.25, Math.ceil(OUTING.for_s / 0.25) + 20);
+assert.equal(needs.indoors, true, 'back in quarters after the walk');
+assert.equal(life.isOccupied(needs), false, 'and his duty has him again');
+
+// A young child comes out with a grown-up of the house, and they walk it together.
+assert(life.homeNow('kinzie_child_x'), 'a child at home can be found');
+const child = life.outing('kinzie_child_x', { loop });
+assert.equal(child.ok, true, child.why);
+const before = spawned.length;
+const out = child.start();
+assert.equal(out.ok, true, out.why);
+assert.equal(spawned.length, before + 2, 'the child and her caregiver are both built');
+const [kid, carer] = spawned.slice(-2);
+assert.equal(out.with, carer, 'with the cook who cares for her');
+const apart = [];
+for (let i = 0; i < 600; i++) { tick(0.25, 1); if (!kid.indoors && !carer.indoors) apart.push(Math.hypot(kid.e - carer.e, kid.n - carer.n)); }
+assert(apart.length > 100, 'both out');
+assert(Math.max(...apart.slice(20)) < 3.5, `side by side (${Math.max(...apart.slice(20)).toFixed(2)} m at most)`);
+const placesKid = new Set();
+for (let i = 0; i < 200; i++) { tick(0.25, 1); placesKid.add(`${kid.e.toFixed(0)},${kid.n.toFixed(0)}`); }
+assert(placesKid.size >= 3, `they walk the loop together (${placesKid.size} places)`);
+tick(0.25, Math.ceil(OUTING.for_s / 0.25) + 60);
+assert(!actors.includes(kid) && !actors.includes(carer), 'both back in at the end, and taken away');
+
+console.log('STEP OUT PASS: soldier out of quarters and back before his duty; a child out with her caregiver, side by side;'
+  + ' round the block by its sidewalks and corners, the front and both ends where there is no street behind, past an alley; a walk about the place with no blocks; at home today vs away; out by their own door, on while followed, back in after; an undrawn resident built at her door and taken away again');
