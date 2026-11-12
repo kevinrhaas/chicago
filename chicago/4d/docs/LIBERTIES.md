@@ -28309,7 +28309,16 @@ steps, and the side-lawn trees, borders, creeper and lilacs are reconstructed.
 courtyard elevations, a Sanborn porch or areaway, a later HABS sheet) replaces that lot's rule; a
 rebaked house whose rear gains its own door or porch takes this file's door away (the tool keeps a
 model's door and draws only its steps).
-**Ticket:** T-3488.
+**Amended 2026-11-12 (T-3554):** the owner found a back door and its steps standing in the open yard
+behind 1626 Prairie. The tool had read each house's rear off the district's house raster, which
+carries the Sanborn trace as well as the model; where the trace reaches past the model (a rear wing
+the model does not build), 56 of 121 doors stood 0.4-24 m out in the yard. A back door now stands
+only where nine level rays cast at it from the yard all strike the model's own wall, flat across the
+leaf and square to it, on no window; the trace past a model's built wall is yard. `--check` refuses
+a door that is not in its wall. A house whose rear has no such stretch gets no back door rather than
+one in the wrong place (7 lots), and 10 lots the old rule left without one now have theirs (124 in all).
+The grade door under a high first floor's windows is 1.9 m (a basement kitchen's low door).
+**Ticket:** T-3488, T-3554.
 **Review:** `docs/RESEARCH/prairie_1904_back_yards.md`.
 **Recorded:** 2026-11-07 (T-3488).
 
@@ -43657,6 +43666,37 @@ or a read bill of sale; a planting account locating the trees rather than merely
 
 **Ticket:** T-3551.
 **Recorded:** 2026-11-11.
+
+### L-k01-1721-frame-house-3566 — 1721 Prairie's rear range built as the 1863 frame Dexter house: clapboarded, slated gable, two stacks, a chosen stone drab
+
+**Decision:** T-3566 (the owner's request, 2026-11-12: "on 1721 prairie there is a frame house to
+the rear of the building that should be standing you should be able to see images of it") rebuilds the
+1911 sheet's long two-storey rear range behind Arthur Little's brick front as what is left of Wirt
+Dexter's frame house of 1863: a frame wing (`fabric: frame`) lapped in clapboards (the K01 kit's new
+`rear_wings[].clapboard`: boards 0.115 m to the weather, butts 0.018 m proud, 0.15 m corner boards, a
+stone water table at the first floor's line) under a slated gable whose ridge runs back from the main
+block to a gable on the rear wall, with two brick stacks astride the ridge to 15.0 m. The one-storey
+frame room at its east end is clapboarded with it.
+**What is read, not invented.** That the range is frame: Robinson's 1886 plate 10 colours the house
+yellow, a long house on the north lot line set back about 34 ft; the 1891 Inland Architect plate draws
+it clapboarded behind the brick front's north flank; the Detroit print (1893-1901) shows it from the
+south-west, two storeys of clapboard under a slated roof with tall chimneys. Its plan, storeys and
+windows are the 1911 sheet's, as before.
+**What is invented.** The roof's 45 degree pitch (K04's slates are cut for nothing lower; the print's
+ridge is read through branches and the plate draws the house's gables steep), the gable's facing, the
+stacks' places and heights, the clapboards' exposure, and the paint: a stone drab (linear 0.40, 0.36,
+0.27) such as a frame house of 1863 imitating stone wore, a shade darker than Little's pale front as
+both monochrome pictures read it. The 1911 sheet colours this range brick; the three pictures and the
+1886 plate are read over it (docs/RESEARCH/k01-1721-frame-house-3566/README.md).
+**Not built.** The frame house's front part, with the porch and the two tallest chimneys of the print
+and the bay window and cross gable of the plate: in 1901-02 Little's front was taken off the street line
+and set back to the building line (Tribune, 28 Nov. 1901; the 1911 sheet draws it 9.7 m back), onto
+that part.
+**How to resolve:** a picture of the house between 1902 and 1911, or a permit for the 1902 work, would
+settle what of the frame house stood behind the moved front, its roof and its colour.
+
+**Ticket:** T-3566.
+**Recorded:** 2026-11-12.
 
 ### L-1812-silver-engraving-3553 — The Potawatomi men's silver arm bands and brooches engraved
 

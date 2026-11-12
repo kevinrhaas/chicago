@@ -61,17 +61,17 @@
         -6.460499170403904
       ],
       "rotation_y": -3.141592653589793,
-      "glb_sha256": "332de0a1f9049ae44860bebc0ad5acb970bfcab916d27f56cc148bea871f257f"
+      "glb_sha256": "9fdc077f358c93b79b603c1a6b743bac9381cd88133336c96eb5bc3f554bbeb3"
     }
   ],
-  "group_sha256": "2b381c8b93228c298fbcb9fd4b39bef8f579f8da9d573feb16b77dc5eb001522",
+  "group_sha256": "55cb76319a51e040c2a489a602edbebd4dc9b93c933746ca0f32e6df875b321f",
   "side_by_side": "docs/RESEARCH/photo-match/dexter_house_1721_prairie_coach_house/detroit_det_4a08065-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
     {
       "what": "the coach house itself: the photograph shows nothing of it. From the south-west corner of Prairie Avenue and 18th Street it stands about 130 m off, directly behind the Pullman house; its plan corners fall at x about 290-462 px and its eave and ridge at y about 415-445 px, inside the house's own silhouette, and the render, drawn with the Pullman and Dexter houses, shows none of it either",
       "status": "not shown",
-      "how": "Re-rendered 2026-11-03 (T-3316) after the Pullman house's GLB changed on dev: the coach house is still wholly inside the Pullman house's silhouette in the render, as in the photograph."
+      "how": "Re-rendered 2026-11-03 (T-3316) after the Pullman house's GLB changed on dev: the coach house is still wholly inside the Pullman house's silhouette in the render, as in the photograph. Re-rendered 2026-11-12 (T-3566) after the Dexter house's rear range was rebuilt as its frame house: the coach house is still wholly hidden."
     },
     {
       "what": "its walls' and roof's colours and its openings: the photograph is monochrome and the building is hidden",
