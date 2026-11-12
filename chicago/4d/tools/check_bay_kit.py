@@ -211,7 +211,30 @@ def _chamfer_cheek(b, v):
     pts = v["plan"]["points"]
     x, zb = (pts[2][0], pts[3][1]) if side == "right" else (pts[1][0], pts[0][1])
     top = b.meta["wall_top_m"]
+    rt = v["plan"].get("chamfer_return")
+    if rt is not None:
+        # T-1890 (2026-11-12): run back as a return to its back edge (k08_bays.Bay._cheek_return),
+        # where K01 sets the house's slate back behind it
+        zb = min(zb, -max(float(q) for q in rt["back_m"]))
     return lambda p: abs(p[0] - x) < 1e-6 and ct - 1e-6 <= p[1] <= top + 1e-6 and p[2] >= zb - 1e-6
+
+
+def _return_slab(b, v):
+    """T-1890 (2026-11-12): a chamfer's return (1801's, HABS photograph 1) and what stands on and
+    in it: the cap's course proud of its face, its light's recess and K06 kit behind it and the
+    slate hung a centimetre inside it, all within a slab about the cheek's plane as deep as the
+    light's recess (and 0.15 m out), back to the return's back edge and between the chamfer's
+    top and the wall top; K01 cuts the house's slate away behind it. None without a return."""
+    rt = v["plan"].get("chamfer_return")
+    if rt is None:
+        return None
+    pts = v["plan"]["points"]
+    x = pts[2][0]                                   # a return stands on a right chamfer only
+    ct, top = float(v["plan"]["chamfer_top_m"]), b.meta["wall_top_m"]
+    lt = v["plan"].get("chamfer_light") or {}
+    deep = float(lt.get("recess_m", b.meta["recess_m"])) + 0.05
+    zb = -max(float(q) for q in rt["back_m"])
+    return lambda p: x - deep - 1e-6 <= p[0] <= x + 0.15 and ct - 0.05 <= p[1] <= top + 1e-6 and p[2] >= zb - 1e-6
 
 
 def rule_keyed(b, v):
@@ -292,9 +315,10 @@ def rule_keyed(b, v):
     through = (*K.WINDOW_ROLES, "band") if v.get("shallow") else ()
     cant = _cant_inside(b)
     cheek = _chamfer_cheek(b, v)
+    slab = _return_slab(b, v)
     cut = (lambda p: (corner[0] <= p[0] <= corner[1] and p[2] >= corner[2])
            or (cant is not None and p[2] < 0.0 and cant(p[0], p[2]))
-           or (cheek is not None and cheek(p))) if corner else (lambda p: False)
+           or (cheek is not None and cheek(p)) or (slab is not None and slab(p))) if corner else (lambda p: False)
     worst = min(((p[2], role) for role, pr in b.prims.items()
                 if role not in K.BOARD_ROLES and role not in whole and role not in through for p in pr.pos
                 if not cut(p)), default=(0.0, None))
@@ -322,7 +346,7 @@ def rule_keyed(b, v):
     # the outer wall on the declared plan (T-1890: but a stopped cant's cheek, over it)
     off = 0.0
     for p in b.prims["wall"].pos:
-        if cheek is not None and cheek(p):
+        if (cheek is not None and cheek(p)) or (slab is not None and slab(p)):
             continue
         off = max(off, min(plan_distance(r, p) for r in b.runs + b.stage_runs))
     if off > 2e-4:
@@ -463,8 +487,11 @@ def rule_recesses(b, v, data):
             fails.append(f"recess: {w['opening']} recess {w['recess_m']} m is shallower than the kit's minimum")
         inside = _across_inside(b, -m)   # T-3176: across a corner, behind is inside the corner
         cant = _cant_inside(b)            # T-1890: a chamfer's light, inside its cant
+        slab = _return_slab(b, v)         # T-1890 (2026-11-12): or in its return
         for p in w["footprint"]:
             if cant is not None and cant(p[0], p[1]):
+                continue
+            if slab is not None and w["run"] == -1 and slab((p[0], b.meta["wall_top_m"], p[1])):
                 continue
             if (inside(p[0], p[1]) if inside is not None else p[1] < floor):
                 fails.append(f"recess: {w['opening']} (run {w['run']}) runs to z {p[1]:.3f}, behind or onto the host wall")
