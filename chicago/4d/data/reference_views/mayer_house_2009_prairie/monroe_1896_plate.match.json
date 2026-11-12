@@ -2,7 +2,7 @@
   "structure_id": "mayer_house_2009_prairie",
   "view": "monroe_1896_plate",
   "glb": "assets/gltf/mayer_house_2009_prairie__as_mapped_1904.glb",
-  "glb_sha256": "a29715a6766a56be34d4e0b74d15bf1e2c43ba97781a0758ec75c5ed809494e5",
+  "glb_sha256": "15cc050a876e8fe9d19c971e8f0e3c2827f552524cc7ea6e92f303cd6979320d",
   "camera_sha256": "d98181642ec45e22a99b63f7a01ac58f196c7f975e883c522bb83eb59bb2aa4a",
   "photo_sha256": "089359f4783e3d4720a3f8d0eead6bbdd71f01925f321b74406a50454e10c3ca",
   "side_by_side": "docs/RESEARCH/photo-match/mayer_house_2009_prairie/monroe_1896_plate-side-by-side.jpg",
@@ -33,7 +33,7 @@
       "status": "within tolerance"
     },
     {
-      "what": "the near tall stack: on the build's place and width, its cap drawn about 0.5 m lower than the render's where the photograph's camera puts the top within 0.1 m: two pictures disagree",
+      "what": "the near tall stack: on the build's place and width; since T-3365 lowered it (with the wall head, 0.75 m over the ridge) to where the photograph's turned camera puts its top within about 0.1 m, the plate draws its cap about 24 px (about 0.8 m) higher than the render's, through this square-fitted camera: two pictures disagree, and the photograph is read as the better witness",
       "status": "within tolerance"
     },
     {
@@ -67,6 +67,10 @@
     {
       "what": "the walk, the parkway and the street before the house: the plate's ground, not this record's",
       "status": "not shown"
+    },
+    {
+      "what": "the north corner (T-3365): the coping lands on it at about the paired light's hood level in the plate (y about 185-192 px) and the render's lowered corner stands at y about 193 px, within about 0.2 m",
+      "status": "within tolerance"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
