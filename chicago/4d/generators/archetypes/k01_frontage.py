@@ -1705,7 +1705,10 @@ class Assembly:
             self.wing_mullions(op, frame, stone_trim, seed, conf)
             return
         street_brick = p.street_front_trim.get("brick_heads") if op.wall == "k01.wall.street_front" else None
-        brick_head = op.wall != "k01.wall.street_front" or street_brick in ("segmental", "flat")
+        # T-1886: a side wall's light the record names in `street_front_trim.lights` wears its
+        # storey's K09 head in the brick too (1816's flank window, under the front's hood)
+        side_k09 = op.wall != "k01.wall.street_front" and k09_frontage.head(p, op) != k09_frontage.FLAT
+        brick_head = (op.wall != "k01.wall.street_front" and not side_k09) or street_brick in ("segmental", "flat")
         if MATERIALS[body_mat].get("courses") and not door and brick_head:
             # T-2291: a brick wall's opening takes a brick head, not the front's stone
             # lintel — two rowlock rings on a segmental arch, or a soldier flat head
@@ -6679,6 +6682,8 @@ def build(params, structure_id: str):
     # T-2788: an all-stone house lays its side and rear walls in the front's K02 stone too
     all_round = bool(p.stone.get("all_round"))
     side = "rough_stone_trim" if all_round else "brick"
+    # T-1886: a flank the record returns the front's face brick round (`face_brick.returns`)
+    flank = {w: a.front_brick if w in p.face_brick_returns and not all_round else side for w in ("north", "south")}
 
     def side_belts(which):   # T-2781: a side wall's stone belt, laid as the front's are
         return tuple((b["from_m"], b["to_m"], b["proud_m"]) for b in p.side_belts if b["wall"] == f"k01.wall.side.{which}") \
@@ -6691,9 +6696,9 @@ def build(params, structure_id: str):
         # T-3385: in its own face brick when the record names one (`face_brick.front`)
         "k01.wall.street_front": ("rough_stone_trim" if p.stone else a.front_brick, (D, 0.0, 0.0), (0.0, 0.0, -1.0),
                                   W, p.front_thickness_m, belts),
-        "k01.wall.side.north": (side, (D, 0.0, -W), (-1.0, 0.0, 0.0), D, p.side_thickness_m, side_belts("north")),
+        "k01.wall.side.north": (flank["north"], (D, 0.0, -W), (-1.0, 0.0, 0.0), D, p.side_thickness_m, side_belts("north")),
         "k01.wall.rear_service": (side, (0.0, 0.0, -W), (0.0, 0.0, 1.0), W, p.side_thickness_m, ()),
-        "k01.wall.side.south": (side, (0.0, 0.0, 0.0), (1.0, 0.0, 0.0), D, p.side_thickness_m, side_belts("south")),
+        "k01.wall.side.south": (flank["south"], (0.0, 0.0, 0.0), (1.0, 0.0, 0.0), D, p.side_thickness_m, side_belts("south")),
     }
     if cant:   # T-3186: the canted face, from the end of the wall before it to the start of the next
         (u0, v0), (u1, v1) = cant["ends"]
@@ -6841,6 +6846,9 @@ def build(params, structure_id: str):
         courses = []   # T-2788: no brick to run a brick course in; the front's belts go round
     # T-3305: a windowed side wall that names its own stone belts lays those in place of the brick course
     belted = {b["wall"] for b in p.side_belts}
+    # T-1886: and a flank laid in the front's face brick (`face_brick.returns`) is dressed as the
+    # front, which carries no brick course: 1816's photograph draws its south flank with none
+    belted |= {f"k01.wall.side.{w}" for w in p.face_brick_returns}
     courses = [c for c in courses if c[0] not in belted]
     for cid, s_from, s_to in courses:
         frame = frames[cid][0][0]
