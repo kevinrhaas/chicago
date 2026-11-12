@@ -699,6 +699,17 @@
       "value": [
         {
           "id": "rear_wing",
+          "fabric": "frame",
+          "clapboard": {
+            "exposure_m": 0.115,
+            "butt_m": 0.018,
+            "corner_m": 0.15,
+            "paint": [
+              0.4,
+              0.36,
+              0.27
+            ]
+          },
           "rect": [
             -19.9,
             0.0,
@@ -740,15 +751,51 @@
             ]
           },
           "roof": {
-            "kind": "flat",
-            "overhang_m": 0.3,
-            "fascia_m": 0.35,
-            "covering": "painted_tin_sheet"
-          }
+            "kind": "gable",
+            "gable_to": "rear",
+            "pitch_deg": 45,
+            "overhang_m": 0.45,
+            "fascia_m": 0.3,
+            "covering": "slate_pennsylvania"
+          },
+          "stacks": [
+            {
+              "u_m": -5.2,
+              "v_m": 3.1,
+              "plan_m": [
+                0.7,
+                1.1
+              ],
+              "top_m": 15.0,
+              "cap_proud_m": 0.06,
+              "cap_depth_m": 0.2
+            },
+            {
+              "u_m": -15.6,
+              "v_m": 3.1,
+              "plan_m": [
+                0.7,
+                1.1
+              ],
+              "top_m": 15.0,
+              "cap_proud_m": 0.06,
+              "cap_depth_m": 0.2
+            }
+          ]
         },
         {
           "id": "rear_frame_piece",
           "fabric": "frame",
+          "clapboard": {
+            "exposure_m": 0.115,
+            "butt_m": 0.018,
+            "corner_m": 0.15,
+            "paint": [
+              0.4,
+              0.36,
+              0.27
+            ]
+          },
           "rect": [
             -22.4,
             -19.9,
@@ -781,9 +828,12 @@
       ],
       "confidence": "inferred",
       "sources": [
-        "sanborn_1911_chicago_v3_sheet_20"
+        "sanborn_1911_chicago_v3_sheet_20",
+        "robinson_1886_chicago_plate_10",
+        "inland_architect_1891_06_dexter_plate",
+        "loc_det_4a08065_pullman_residence"
       ],
-      "note": "The 1911 sheet's 'long 2B brick rear wing with 1-storey frame pieces at both ends' (census s20-1721-a1): the brick wing from the main rear wall to u -19.9, from the north wall (v 0) to v 6.2; the frame pieces at its east end (trace p3, p4) as one frame room to u -22.4. Its windows are reconstructed: no picture shows it."
+      "note": "The rear range is Wirt Dexter's frame house of 1863, the part of it left standing behind Arthur Little's brick front (T-3566, the owner's request, 2026-11-12). PLAN: the 1911 sheet's long '2B' rear range (census s20-1721-a1), from the main rear wall to u -19.9 and from the north wall (v 0) to v 6.2, with the one-storey frame pieces at its east end (trace p3, p4) as one frame room to u -22.4. FABRIC: frame. Robinson's 1886 plate 10 colours the house yellow, its frame sign, a long house on the north lot line set back about 34 ft and running back about 100 ft, which is where this range stands; the 1891 Inland Architect plate draws its north side clapboarded behind the brick front's north flank; the Detroit print (1893-1901) shows it from the south-west, a two-storey clapboarded range under a slated gable with tall chimneys. The 1911 sheet colours the range brick: the sheet and the three pictures disagree, the pictures are read (docs/RESEARCH/k01-1721-frame-house-3566/README.md). FORM: two storeys under a gable whose ridge runs back from the main block to a gable on the rear wall, slated, eaves 0.45 m deep; two tall brick stacks astride the ridge, the Detroit print's tall chimneys. The pitch, the stacks' places and heights and the clapboards' exposure are reconstructed (liberty L-k01-1721-frame-house-3566); the paint is reconstructed, a stone drab such as a frame house of 1863 imitating stone wore, which both monochrome pictures read mid-light. Its windows are the record's earlier ones, reconstructed: the Detroit print sees this side through trees and the plate only its north end."
     },
     "window_shutters": {
       "value": {
@@ -956,6 +1006,40 @@
         "colour",
         "the south side, the rear and the long rear wing",
         "anything changed between 1891 and 1904"
+      ]
+    },
+    {
+      "source_id": "loc_det_4a08065_pullman_residence",
+      "citation": "Detroit Publishing Co. The Pullman residence, Chicago. Between1890 and1901. Library of Congress Prints and Photographs Division, LC-D4-12551; LC-DIG-det-4a08065; item2016801921.",
+      "url": "https://www.loc.gov/pictures/item/2016801921/",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the Pullman house's Prairie front and 18th Street flank from the south-west corner of the crossing, with a solved camera (T-1880)",
+        "the portico, the balcony over it, the stoop's place, the cornice and mansard heights, the dormers and the cresting, read through that camera"
+      ],
+      "what_it_does_not_supply": [
+        "Vehicle manufacturer, model, ownership or a carriage inventory",
+        "Full running gear, measured dimensions, or proof of vehicle survival/presence in1904",
+        "The house's colour (a monochrome print), its north flank, its rear, or the porte-cochere's depth"
+      ]
+    },
+    {
+      "source_id": "robinson_1886_chicago_plate_10",
+      "citation": "Robinson, E. Robinson's Atlas of the City of Chicago. New York: E. Robinson, 1886. Plate 10, \"Part of 2.39.14 Assessors Div.\"",
+      "url": "",
+      "archived_url": "",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "what_it_supplies": [
+        "The water's edge beside the Illinois Central from above 16th Street to 18th, as of 1886 -- a bound, from before, on the 1904 edge",
+        "Lot and subdivision lines, and the outlines of the houses at 1609-1611 and 1620 Prairie that Glessner House names as standing in 1904 and gone by 1911"
+      ],
+      "what_it_does_not_supply": [
+        "Street widths: its bands are not drawn to the widths it prints (Prairie printed 66, drawn about 55 ft)",
+        "Anything as of 1904 on its own authority",
+        "Elevations or grades"
       ]
     },
     {

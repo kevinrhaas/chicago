@@ -107,6 +107,25 @@ actor.dispose();
 assert.deepEqual(released.slice().sort(), acquired.slice().sort(), 'every level parsed is let go once per parse');
 assert.equal(acquired.length, released.length, 'every parse is let go');
 
+// T-3572: levels are built in turn, nearest figure first, and a level no longer wanted by its
+// turn is not built at all (its parse is let go). Several asked in one frame wait for the pump.
+{
+  const order = [];
+  class QueuedActor extends TestActor { build(gltf, lod) { order.push(this.id); return super.build(gltf, lod); } }
+  const make = (id, distance) => { const a = new QueuedActor({ instance: { ...instance, id, person_id: id }, assets }); a.distance = distance; return a; };
+  const far = make('far', 30), close = make('close', 5), mid = make('mid', 15), dropped = make('dropped', 1);
+  const builtBefore = built, releasedBefore = released.length;
+  const jobs = [far.setLod(2), close.setLod(2), mid.setLod(2), dropped.setLod(2)];
+  await Promise.resolve(); await Promise.resolve();
+  assert.equal(built, builtBefore, 'nothing is built in the task that asked for it');
+  dropped.wanted = 3;   // gone past the next band before its turn came
+  await Promise.all(jobs);
+  assert.deepEqual(order, ['close', 'mid', 'far'], 'the nearest figure is built first; one no longer wanted is not built');
+  assert.equal(dropped.body, null);
+  assert.equal(released.length - releasedBefore, 1, 'the dropped level\'s parse is let go');
+  for (const a of [far, close, mid, dropped]) a.dispose();
+}
+
 // Settings > Show > People, on the actual layer.
 const layerSource = slice('export function createHumanLayer(', '\n/**\n * THE SCENE PATH.');
 let updates = 0;
@@ -142,4 +161,4 @@ assert.equal(layer.pickAt(null, camera), null, 'hidden, nobody is picked');
 layer.setShown(true);
 assert.equal(driver.root.visible && otherDriver.root.visible && layer.group.visible, true);
 layer.update(.05, camera); assert.equal(updates, 2);
-console.log('PASS: distance levels are parked and reused, let go outside the tier, after PARK_S, out of range and on dispose; People hidden hides, stops and unpicks every figure and driver');
+console.log('PASS: distance levels are parked and reused, let go outside the tier, after PARK_S, out of range and on dispose; built in turn, nearest first; People hidden hides, stops and unpicks every figure and driver');
