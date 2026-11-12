@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2896, ts: '2026-11-12T16:57:42.240Z', date: 'Nov 12, 2026, 10:57 AM CT', title: 'Seasonal nature and working sounds in 1812', kind: 'feature',
+    items: [
+      '1812 gains seasonal bird and insect calls, with quiet winters and rare distant coyotes at night.',
+      'Moving 1812 horses carry recorded hoofbeats timed to their gait, with softer sound over the winter snow view.',
+      'A visible militia worker hammers at his spring repair station or secures a packing chest on August 14.',
+      'The audio library lists the new 1812 placements; existing 1835 and 1904 sound rules remain separate.',
+    ] },
   { v: 2895, ts: '2026-11-12T16:12:55.438Z', date: 'Nov 12, 2026, 10:12 AM CT', title: '1824 Prairie\'s old villa walls painted light again', kind: 'improvement',
     items: [
       'In 1904, the sides and back of 1824 Prairie Avenue are now a pale stone colour instead of bare buff brick, and its chimneys match.',

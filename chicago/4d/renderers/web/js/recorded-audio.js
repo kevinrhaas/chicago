@@ -2,6 +2,7 @@
 // T-3532. Small decoded environmental loops; one streamed music cue at a time.
 import { createHabitatAudio } from './habitat-audio.js';
 import { createTransportAudio } from './transport-audio.js';
+import { createWorkAudio } from './work-audio.js';
 
 export const AUDIO_BASE = new URL('../audio/', import.meta.url);
 export const MUSIC_YEARS = Object.freeze(['1812', '1835', '1904']);
@@ -72,7 +73,7 @@ export function waterKind(wet, terrain, zone) {
   return null; // Unknown water remains quiet until classified, never generic surf.
 }
 
-export function createRecordedAudio({ ctx, ambience, effects, music, environment = () => ({}),
+export function createRecordedAudio({ ctx, ambience, effects, music, environment = () => ({}), workEnvironment = () => ({}),
   fetcher = globalThis.fetch?.bind(globalThis), media = () => new Audio(),
   base = AUDIO_BASE, onStatus = () => {}, now = () => Date.now() } = {}) {
   let disposed = false, enabled = false, effectsOn = false, musicOn = false, catalog = null, pending = null;
@@ -87,9 +88,11 @@ export function createRecordedAudio({ ctx, ambience, effects, music, environment
     fetcher, base, now, decodeAudio: decode, onError: message => report(message) });
   const transport = createTransportAudio({ ctx, output: effects, catalog: () => catalog, environment,
     fetcher, base, now, decodeAudio: decode, onError: message => report(message) });
+  const work = createWorkAudio({ ctx, output: effects, catalog: () => catalog,
+    fetcher, base, decodeAudio: decode, onError: message => report(message) });
   function report(message) { if (message) errors.add(message); onStatus(state()); }
-  function state() { return { year, voices: [...voices.keys(), ...habitat.state.voices, ...transport.state.voices], decodedBytes: [...buffers.values()].reduce((n, b) => n + b.length * b.numberOfChannels * 4, 0) + habitat.state.decodedBytes + transport.state.decodedBytes,
-    track: track?.title ?? null, playing: !!player && !player.paused, errors: [...errors], loading: loads.size + (pending ? 1 : 0) + habitat.state.loading + transport.state.loading, habitat: habitat.state, transport: transport.state }; }
+  function state() { return { year, voices: [...voices.keys(), ...habitat.state.voices, ...transport.state.voices, ...work.state.voices], decodedBytes: [...buffers.values()].reduce((n, b) => n + b.length * b.numberOfChannels * 4, 0) + habitat.state.decodedBytes + transport.state.decodedBytes + work.state.decodedBytes,
+    track: track?.title ?? null, playing: !!player && !player.paused, errors: [...errors], loading: loads.size + (pending ? 1 : 0) + habitat.state.loading + transport.state.loading + work.state.loading, habitat: habitat.state, transport: transport.state, work: work.state }; }
   function fade(param, value) { param.setTargetAtTime(value, ctx.currentTime, 0.3); }
   function stopVoice(id) {
     const v = voices.get(id); if (!v) return;
@@ -102,7 +105,7 @@ export function createRecordedAudio({ ctx, ambience, effects, music, environment
     mediaNode?.disconnect(); player = null; mediaNode = null; track = null;
   }
   function reset() {
-    habitat.reset(); transport.reset();
+    habitat.reset(); transport.reset(); work.reset();
     generation++; controller?.abort(); controller = null; pending = null;
     loads.clear(); targets.clear(); failed.clear(); buffers.clear();
     decoder = null;
@@ -264,15 +267,23 @@ export function createRecordedAudio({ ctx, ambience, effects, music, environment
       const nextEffects = !!active && !!wantsEffects && !!effects;
       if ((!nextEnabled && !nextMusic && !nextEffects) && (enabled || musicOn || effectsOn)) reset();
       enabled = nextEnabled; musicOn = nextMusic; effectsOn = nextEffects; musicLevel = level;
+      if (!effectsOn) work.reset();
       fade(music.gain, Math.min(1, Math.max(0, level)) ** 2 * .5 * duck);
       if (!enabled) { targets.clear(); for (const id of [...voices.keys()]) stopVoice(id); }
       if (!musicOn) { stopMusic(); musicFailed = false; }
       update();
     },
     update,
+    transportFrame({ active = true } = {}) {
+      transport.frame?.({ enabled: active && effectsOn && !disposed, year });
+    },
+    workFrame({ active = true } = {}) {
+      if (!active || !effectsOn || disposed) { work.frame({ enabled: false }); return; }
+      work.frame({ ...workEnvironment(), enabled: true });
+    },
     // Future narration can duck both buses without coupling to a voice provider.
-    setSpeechActive(on) { duck = on ? .3 : 1; habitat.setDuck(duck); transport.setDuck(duck); fade(music.gain, musicLevel ** 2 * .5 * duck); for (const id of voices.keys()) applyVoice(id); },
+    setSpeechActive(on) { duck = on ? .3 : 1; habitat.setDuck(duck); transport.setDuck(duck); work.setDuck(duck); fade(music.gain, musicLevel ** 2 * .5 * duck); for (const id of voices.keys()) applyVoice(id); },
     get state() { return state(); },
-    dispose() { disposed = true; enabled = false; musicOn = false; effectsOn = false; reset(); habitat.dispose(); transport.dispose(); },
+    dispose() { disposed = true; enabled = false; musicOn = false; effectsOn = false; reset(); habitat.dispose(); transport.dispose(); work.dispose(); },
   };
 }

@@ -305,6 +305,18 @@ step "Dated habitat audio qualifies real fauna, leaves silence and bounds voices
   node tools/test_habitat_audio.mjs
 step "Recorded transport follows moving dated actors with bounded spatial voices and mute cleanup (T-3544)" \
   node tools/test_transport_audio.mjs
+step "1812 nature follows actual seasonal habitats with sparse wildlife and cold-season silence (T-3551)" \
+  node tools/test_habitat_audio_1812.mjs
+step "1812 hoof events follow actual gait crossings without paused-frame catch-up (T-3551)" \
+  node tools/test_hoof_contact_events.mjs
+step "Recorded dirt and snow hoof proxies preserve mechanics and bounded decode/voice budgets (T-3551)" \
+  node tools/test_hoof_audio.mjs
+step "The actual 1812 portable rig meets its generated visible work tool and contact markers (T-3551)" \
+  node tools/test_work_activity.mjs
+step "1812 visible work follows real normalized primary day jobs and historical presence (T-3551)" \
+  node tools/test_work_day_source.mjs
+step "1812 work impacts require real dated visible contacts and release stale audio safely (T-3551)" \
+  node tools/test_work_audio.mjs
 step "Default audio packages include approved habitat clips and retain review-only opt-in (T-3534)" \
   python3 tools/test_habitat_audio_package.py
 step "Published audio smoke verifies delivery bytes in full and sparse artifact checkouts (T-3532)" \

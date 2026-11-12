@@ -34,7 +34,7 @@ try{
   await page.route(policy.origin+'/**',async route=>{
    const name=new URL(route.request().url()).pathname.slice(1);
    if(name==='fixture')return route.fulfill({contentType:'text/html',body:fixture});
-   if(['recorded-audio.js','habitat-audio.js','transport-audio.js'].includes(name))return route.fulfill({contentType:'text/javascript',body:await fs.readFile(path.join(root,'renderers/web/js',name),'utf8')});
+   if(['recorded-audio.js','habitat-audio.js','transport-audio.js','habitat-seasons.js','hoof-contact-events.js','work-audio.js'].includes(name))return route.fulfill({contentType:'text/javascript',body:await fs.readFile(path.join(root,'renderers/web/js',name),'utf8')});
    return route.fulfill({status:404});
   });
   await page.goto(policy.origin+'/fixture');assert.equal(requests.length,0);await page.click('#on');

@@ -585,6 +585,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
   inside = null, spawn = null, despawn = null, openCard = () => {}, openResident = () => {}, clear = () => true, held = () => false, passages = null } = {}) {
   const Vec = three?.Vector3;
   let people = [];
+  const workSourcePeople = new Map();
   let seen = -1;
   let clock = 0;
   const talks = new Map();
@@ -810,7 +811,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
     for (const session of [...socials]) {
       if (session.members.some(p => !active.has(p.actor) || p.b !== p.actor.instance?.behaviour)) endSocial(session);
     }
-    people = [];
+    people = []; workSourcePeople.clear();
     for (const actor of actors) {
       if (spawned.some((q) => q.actor === actor)) continue;
       const b = actor.instance?.behaviour;
@@ -1779,6 +1780,21 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
     },
     /** Lazy residents and the number of their currently materialized figures. */
     get insideOnly() { return { listed: insideOnly.length, inCare: householdCare.length, out: spawned.length }; },
+    /** The live primary work place AFTER shared spots are separated. This is
+     * a source for a generated tool action, not permission to sound a generic job. */
+    workSource(id) {
+      let p = workSourcePeople.get(id);
+      if (!p) { p = people.find(q => q.id === id || q.actor.personId === id); if (p) workSourcePeople.set(id, p); }
+      const s = (p?.round ? p.cur : null) ?? p?.play ?? p?.span;
+      if (!p || p.absent || p.actor.indoors || p.mode !== 'out' || p.called || p.hosted || p.social
+        || p.override || p.passing || p.attending || held(p.actor) || humans.isHeld?.(p.actor)
+        || s?.activity !== 'work' || p.job?.kind !== 'work' || p.job.moving || p.job.at !== 0
+        || p.actor.state !== 'working' || !p.span?.at || !p.job.spots[0]) return null;
+      return { actorId: p.id, epoch: p.token ?? 0, active: true,
+        originalAt: { e: p.span.at.local_e, n: p.span.at.local_n },
+        at: { ...p.job.spots[0] }, heading: p.job.face ?? p.actor.heading,
+        from: p.span.from, to: p.span.to, doing: p.span.doing ?? null };
+    },
     /** Who is where, for the harness. */
     snapshot() {
       return people.map((p) => ({

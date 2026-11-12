@@ -238,12 +238,32 @@ const flush = async () => { for(let i=0;i<12;i++) await Promise.resolve(); };
   assert(catalog.assets.filter(a=>a.kind==='environment').every(a=>a.license==='CC0-1.0'&&a.source_url));
   const candidates=catalog.assets.filter(a=>a.kind==='candidate');
   assert(candidates.length>=17,'expanded library includes the acquired recordings');
-  assert.deepEqual(candidates.filter(a=>a.runtime_enabled).map(a=>a.id).sort(), ['horse-harness','redwing-call','summer-cicada-proxy','summer-crickets','wood-wagon']);
-  assert(candidates.every(a=>a.evidence&&a.source_url&&(a.runtime_enabled
-    ? a.scene_placement?.mode==='moving-transport'
-      ? a.approved_eras.length>0&&a.scene_placement.bindings.every(b=>a.approved_eras.includes(b.scene)&&b.scene_date.startsWith(b.scene+'-')&&b.actor_ids.length>0)
-      : a.approved_eras.length===1&&a.approved_eras[0]==='1835'&&a.scene_placement?.scene_date==='1835-07-01'
-    : a.approved_eras.length===0)), 'only explicit dated habitat or actor placements may leave audition-only intake');
+  assert.deepEqual(candidates.filter(a=>a.runtime_enabled).map(a=>a.id).sort(),
+    ['coyote-distant','hammer-nail','horse-harness','horse-walking','late-summer-katydid','redwing-call','robin-calls','summer-cicada-proxy','summer-crickets','wood-wagon']);
+  for (const asset of candidates) {
+    assert(asset.evidence && asset.source_url);
+    if (!asset.runtime_enabled) { assert.deepEqual(asset.approved_eras, []); continue; }
+    assert(asset.approved_eras.length > 0);
+    const p = asset.scene_placement;
+    if (['moving-transport','hoof-contact'].includes(p?.mode)) {
+      assert(p.bindings.length > 0 && p.bindings.every(b => asset.approved_eras.includes(b.scene)
+        && b.scene_date.startsWith(b.scene+'-') && b.actor_ids.length > 0));
+    } else if (p?.mode === 'visible-work') {
+      assert.deepEqual(asset.approved_eras, ['1812']);
+      assert(p.bindings.length > 0 && p.bindings.every(b => b.scene === '1812'
+        && b.dates.from.startsWith('1812-') && b.dates.to.startsWith('1812-')
+        && b.dates.from <= b.dates.to && b.hours.length && b.actor_ids.length && b.action_ids.length && b.task_ids.length));
+    } else {
+      if (asset.approved_eras.includes('1835')) assert.equal(p?.scene_date, '1835-07-01');
+      if (asset.approved_eras.includes('1812')) {
+        assert(asset.seasonal_placements.length > 0 && asset.seasonal_placements.every(p => p.scene_id === '1812'
+          && ['spring','summer','fall','winter'].includes(p.season) && p.confidence === 'reconstructed'
+          && p.flora_zone_ids.length && p.active_periods.length && p.source_ids.length
+          && p.source_ids.every(id => fs.existsSync(new URL('../data/sources/'+id+'.json', import.meta.url)))));
+      }
+      assert(asset.approved_eras.every(y => ['1812','1835'].includes(y)), 'nature does not spill into 1904');
+    }
+  }
   const sound=fs.readFileSync(new URL('../renderers/web/js/sound.js',import.meta.url),'utf8');
   assert.doesNotMatch(sound,/createOscillator|createBuffer\(/,'no generated hums or tones');
   const main=fs.readFileSync(new URL('../renderers/web/js/main.js',import.meta.url),'utf8');
