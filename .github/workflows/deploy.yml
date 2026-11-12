@@ -362,6 +362,9 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site
+          # The next owner release's artifact becomes the DEV-only anchor; the
+          # action's 1-day default expired the last anchor and froze /4d/dev/.
+          retention-days: 90
       - name: Recheck the live production anchor immediately before deployment
         if: env.DELIVERY_MODE == 'dev'
         run: |
