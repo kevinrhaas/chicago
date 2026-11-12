@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs5-entry",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "20b19af4f6527ea6b383c25f6c2f9b28c8ab4b0d1ebef172d5a16fcb03bde18d",
+  "glb_sha256": "bcb11da917b40dd748e326eb5746322e9fbdd597d4cea130463df67b6c969df4",
   "camera_sha256": "8912fa320f417bc61deeba8add0324e7cd2467ee644ef5c2fafef05eaba759a1",
   "photo_sha256": "1a921a9ac23470bc30223553c657dc50cf0348437e27e7f6fc529e66582c43a3",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs5-entry-side-by-side.jpg",
@@ -87,7 +87,11 @@
     {
       "what": "T-3564, reviewed from the rebaked master: the tympanum over the 18th Street door is recarved as Kevin asked from his 2026-11-10 photographs, more plant-like, with an inner level that bulges forward (L-glessner-photo-match-3564). The drawing's scrolls are read as that carving; the opening, voussoirs, lintel and door sit where they did.",
       "status": "owner ruling"
+    },
+    {
+      "what": "T-3564, re-reviewed on the rebake after the owner's 2026-11-12 notes: the coach man door's latch moves onto the man door's free edge and its fixed neighbour panel takes the same head and bottom rail; the stable's south brick wall (not seen from this camera) takes its gable light, four upper windows and a stone-headed first-floor triple window. Nothing this view draws moved.",
+      "status": "fixed"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }

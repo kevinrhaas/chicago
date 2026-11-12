@@ -6,8 +6,8 @@
   "tiers": {
     "full": {
       "path": "assets/gltf/glessner_house__as_built_1887.glb",
-      "bytes": 208397240,
-      "sha256": "8deca59f7b7950705d59d3bceb9b795b59b7d5c26c94cfef0e982f7582f89399",
+      "bytes": 208388340,
+      "sha256": "bcb11da917b40dd748e326eb5746322e9fbdd597d4cea130463df67b6c969df4",
       "generator": "Khronos glTF Blender I/O v4.5.48",
       "extensions_required": [
         "KHR_texture_transform"
@@ -21,13 +21,13 @@
       "mesh": {
         "draw_primitives": 31,
         "materials": 31,
-        "triangles": 1462373,
-        "vertices": 3339081
+        "triangles": 1462339,
+        "vertices": 3338955
       },
       "texture": {
         "images": 38,
         "textures": 73,
-        "encoded_bytes": 31381647,
+        "encoded_bytes": 31378732,
         "pixels": 68681032,
         "gpu_rgba8_mip_bytes": 366298837,
         "largest_px": 4096
@@ -340,8 +340,8 @@
     },
     "web": {
       "path": "assets/web/glessner_house__as_built_1887.glb",
-      "bytes": 46435648,
-      "sha256": "fb3157cd3a8eb86f094f3ea3d2ccc587b87984e5d12f941536d276ce0e1e0922",
+      "bytes": 46423980,
+      "sha256": "e2f4f913d38842985b29eba0765836b6150e6eb28f5087b1adb8d2c04aee9494",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -361,13 +361,13 @@
       "mesh": {
         "draw_primitives": 31,
         "materials": 31,
-        "triangles": 1462373,
+        "triangles": 1462339,
         "vertices": 2699601
       },
       "texture": {
         "images": 37,
         "textures": 37,
-        "encoded_bytes": 17250647,
+        "encoded_bytes": 17247468,
         "pixels": 62390272,
         "gpu_rgba8_mip_bytes": 332748117,
         "largest_px": 2048
@@ -430,7 +430,7 @@
             2.1336
           ],
           "uv_per_m_times_tile_m": 1.002,
-          "below_quantization_floor": 18668
+          "below_quantization_floor": 18671
         },
         "brick_buff": {
           "median_uv_per_m": 0.5219,
@@ -440,7 +440,7 @@
             2.1336
           ],
           "uv_per_m_times_tile_m": 1.002,
-          "below_quantization_floor": 4552
+          "below_quantization_floor": 4557
         },
         "brick_dark_red": {
           "median_uv_per_m": 0.5219,
@@ -450,7 +450,7 @@
             2.1336
           ],
           "uv_per_m_times_tile_m": 1.002,
-          "below_quantization_floor": 6447
+          "below_quantization_floor": 6457
         },
         "brick_smoky": {
           "median_uv_per_m": 0.5219,
@@ -591,7 +591,7 @@
             1.2
           ],
           "uv_per_m_times_tile_m": 1.0001,
-          "below_quantization_floor": 1856
+          "below_quantization_floor": 1855
         },
         "oak": {
           "median_uv_per_m": 0.7222,
@@ -654,14 +654,14 @@
           "below_quantization_floor": 13919
         },
         "rough_stone_trim": {
-          "median_uv_per_m": 0.8256,
+          "median_uv_per_m": 0.8255,
           "fabric": "limestone",
           "tile_m": [
             1.2,
             1.2
           ],
-          "uv_per_m_times_tile_m": 0.9907,
-          "below_quantization_floor": 9661
+          "uv_per_m_times_tile_m": 0.9906,
+          "below_quantization_floor": 9605
         }
       },
       "origin": {
@@ -687,8 +687,8 @@
     },
     "light": {
       "path": "assets/web/glessner_house__as_built_1887.light.glb",
-      "bytes": 15617200,
-      "sha256": "190f381fc9d04ffb7e03143b253157bcafd47bce6983213da75773387db54b12",
+      "bytes": 15618336,
+      "sha256": "0c5df9bea5eaeaaecc2dfa6df75425a6722c833926aa9600ca434788e3b9a455",
       "generator": "glTF-Transform v4.5.0",
       "extensions_required": [
         "EXT_meshopt_compression",
@@ -708,13 +708,13 @@
       "mesh": {
         "draw_primitives": 28,
         "materials": 28,
-        "triangles": 198493,
-        "vertices": 386935
+        "triangles": 198555,
+        "vertices": 387056
       },
       "texture": {
         "images": 37,
         "textures": 37,
-        "encoded_bytes": 12171961,
+        "encoded_bytes": 12172171,
         "pixels": 34078720,
         "gpu_rgba8_mip_bytes": 181753173,
         "largest_px": 1024
@@ -775,7 +775,7 @@
             2.1336
           ],
           "uv_per_m_times_tile_m": 1.002,
-          "below_quantization_floor": 12473
+          "below_quantization_floor": 12482
         },
         "brick_buff": {
           "median_uv_per_m": 0.5219,
@@ -785,7 +785,7 @@
             2.1336
           ],
           "uv_per_m_times_tile_m": 1.002,
-          "below_quantization_floor": 3099
+          "below_quantization_floor": 3102
         },
         "brick_dark_red": {
           "median_uv_per_m": 0.5219,
@@ -795,7 +795,7 @@
             2.1336
           ],
           "uv_per_m_times_tile_m": 1.002,
-          "below_quantization_floor": 4339
+          "below_quantization_floor": 4341
         },
         "brick_smoky": {
           "median_uv_per_m": 0.5219,
@@ -936,7 +936,7 @@
             1.2
           ],
           "uv_per_m_times_tile_m": 1.0001,
-          "below_quantization_floor": 1537
+          "below_quantization_floor": 1536
         },
         "oak": {
           "median_uv_per_m": 0.7214,

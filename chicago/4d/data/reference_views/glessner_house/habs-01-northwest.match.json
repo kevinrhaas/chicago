@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs-01-northwest",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "20b19af4f6527ea6b383c25f6c2f9b28c8ab4b0d1ebef172d5a16fcb03bde18d",
+  "glb_sha256": "bcb11da917b40dd748e326eb5746322e9fbdd597d4cea130463df67b6c969df4",
   "camera_sha256": "338f0d726e6c0e2d97069253e242a098ba4baae8344ce5a1fa224c2388e06bc0",
   "photo_sha256": "0db20640a9cd929e2df2db9895b6b824f7b59a58ca4fe99a51517ba3c3d9ffdc",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-01-northwest-side-by-side.jpg",
@@ -131,7 +131,11 @@
     {
       "what": "T-3564, reviewed from the rebaked master: the 18th Street coach doors are now the sage-green diagonal-board pair with a man door in the viewer's-left leaf, and the loft door is shut in the same green, as Kevin's own 2026-11-10 photographs show them and as he ruled them a reasonable representation of the 1904 doors (L-glessner-coach-doors-3564). Where this picture shows other leaves (the 1965 overhead garage door, or the earlier print's boards), the build follows the owner's ruling. Nothing else in this view moved: the walls, roofs, openings and stone courses lie where they did, and the rock-faced stones add no triangles.",
       "status": "owner ruling"
+    },
+    {
+      "what": "T-3564, re-reviewed on the rebake after the owner's 2026-11-12 notes: the coach man door's latch moves onto the man door's free edge and its fixed neighbour panel takes the same head and bottom rail; the stable's south brick wall (not seen from this camera) takes its gable light, four upper windows and a stone-headed first-floor triple window. Nothing this view draws moved.",
+      "status": "fixed"
     }
   ],
-  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} \u2014 open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
 }
