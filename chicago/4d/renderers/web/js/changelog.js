@@ -1,4 +1,14 @@
 export const CHANGELOG = [ // newest first
+  { v: 2889, ts: '2026-11-12T10:23:45.719Z', date: 'Nov 12, 2026, 4:23 AM CT', title: '1936 Prairie\'s south windows get their arched stone heads', kind: 'improvement',
+    items: [
+      'In 1904, the windows along the south side of the Thompson-Allerton house at 1936 Prairie Avenue are now round-topped, each framed in a carved brownstone arch, as the house\'s photograph shows them. They used to be plain square-topped windows.',
+      'The two wings on that side are now red brick over the stone basement, like the rest of the house, so their brownstone trim stands out. They used to be all brownstone.',
+    ] },
+  { v: 2888, ts: '2026-11-12T10:23:45.719Z', date: 'Nov 12, 2026, 4:23 AM CT', title: '2009 Prairie\'s upper front lowered to its photograph', kind: 'fix',
+    items: [
+      'The Meyer house at 2009 Prairie: the oriel now stops about half a metre under the string course with brick between, as the photograph shows, and the third-storey window, its hood and carved pendant and the small attic light in the gable all sit 0.2 to 0.8 m lower.',
+      'Why: the photograph was taken with the camera turned about 22 degrees to the south, not square to the house. The course that seemed to slope down to the south is level, and the old square reading had placed the north half\'s upper features too high. The chimney and the north corner\'s roofline read high too and are next.',
+    ] },
   { v: 2887, ts: '2026-11-12T09:37:23.140Z', date: 'Nov 12, 2026, 3:37 AM CT', title: '1828 Prairie\'s bay rises into the roof as its photograph shows', kind: 'improvement',
     items: [
       'The Shipman house\'s canted front bay now carries on up past the cornice under its own slate mansard, with iron cresting round its top and a dormer of its own, as the Glessner House Museum\'s photograph of the house shows it.',
