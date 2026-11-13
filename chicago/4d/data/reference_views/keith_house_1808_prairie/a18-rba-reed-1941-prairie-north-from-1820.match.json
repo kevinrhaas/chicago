@@ -2,8 +2,8 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-rba-reed-1941-prairie-north-from-1820",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "b0540e5073db2f881cee936bf62b2ae16288f7c4dabca64866d92fb18a9dbc7f",
-  "camera_sha256": "482684ed8d4b491c02678a2bd7c6f647abc4e4bf566c851c9cd4a588b8887b13",
+  "glb_sha256": "a6182a52cdf1c3c5734c2fe44688c307ea2fcb6c7c527e9f401f4248d69a2fc7",
+  "camera_sha256": "34d8e35aeddf1acabdcb16c15a70b6266006b38d40e288ff3a15821d852fa57e",
   "photo_sha256": "4ca702d54dc451fbf0822eb259c2baa2ad64a9ed651d5ab1be06a6ad64f9b212",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-rba-reed-1941-prairie-north-from-1820-side-by-side.jpg",
   "verdict": "matches",
@@ -58,6 +58,10 @@
     },
     {
       "what": "T-2882: re-rendered on the loggia with a respond on the wall behind each rear pair (a flat pier the rear pedestal's width, 0.25 m deep, from the pedestal's top to the ceiling; tools/keith_loggia_respond_read.py, docs/RESEARCH/photo-match/keith_house_1808_prairie/keith-loggia-respond-read.json), and read again beside the previous render and the picture: the render changes only at the loggia (x 348-350, y 421-461); the rear row stands behind the respond's face, and this picture does not read the rear row, for the reason T-2881's item above gives, so it does not read the respond either. Nothing it shows opens a difference; the verdict stands (matches).",
+      "status": "not shown"
+    },
+    {
+      "what": "T-3564, reviewed on the deepened house: the main range now runs back its full three storeys to its brick rear on the 1911 Sanborn sheet (34.70 m, was 18.0 m), as the owner ruled from his 2026-11-10 photographs of the court's south wall; the 1888 plate's own first-floor plan draws the same long range, about three and a half fronts deep. The camera's eye moved +16.699 m in u with the footprint frame (the SW-corner origin went back), so it stands where it stood in the world, and the street front, bow, loggia, stair and parapet lie where they were matched. Where this house-only render draws the long brick north or south side, the picture has Glessner, a neighbour or trees in front of it; the side's openings are reconstructed (L-glessner-photo-match-3564).",
       "status": "not shown"
     }
   ],

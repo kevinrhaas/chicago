@@ -12,7 +12,7 @@
   ],
   "focal_px": 809.4271597321342,
   "eye": [
-    46.228235694479714,
+    62.927236,
     -28.716063065081265,
     1.7
   ],
@@ -39,5 +39,5 @@
     -0.7,
     1.4
   ],
-  "solve": "T-1883 level rising-front camera, reconstructed 1.7 m eye height, yaw/focal length/principal point and small roll fitted to manually read controls; roll includes the printed page rotation where applicable. Coordinate RMS 7.37px; residuals include uncertain grade points and model proportions and are NOT an independent survey or a passing image verdict. World [[18.0, 0.0, 16.44], [18.0, 10.4, 16.44], [18.0, 0.0, 9.8], [18.0, 10.4, 9.8], [18.0, 0.0, 0.0], [18.0, 10.4, 0.0]]; pixels [[334.0, 20.0], [443.0, 84.0], [334.0, 168.0], [446.0, 204.0], [298.0, 356.0], [447.0, 364.0]]; projected [[332.16, 24.19], [453.73, 87.51], [323.35, 160.47], [446.52, 198.91], [310.34, 361.6], [435.89, 363.32]]. The camera is southeast looking northwest, contrary to the library direction text: 1812 is foreground left and Glessner recedes right. Cars obscure grade. Chimney, later iron fence and ageing are evidence of the 1950s, not automatically 1904."
+  "solve": "T-1883 level rising-front camera, reconstructed 1.7 m eye height, yaw/focal length/principal point and small roll fitted to manually read controls; roll includes the printed page rotation where applicable. Coordinate RMS 7.37px; residuals include uncertain grade points and model proportions and are NOT an independent survey or a passing image verdict. World [[18.0, 0.0, 16.44], [18.0, 10.4, 16.44], [18.0, 0.0, 9.8], [18.0, 10.4, 9.8], [18.0, 0.0, 0.0], [18.0, 10.4, 0.0]]; pixels [[334.0, 20.0], [443.0, 84.0], [334.0, 168.0], [446.0, 204.0], [298.0, 356.0], [447.0, 364.0]]; projected [[332.16, 24.19], [453.73, 87.51], [323.35, 160.47], [446.52, 198.91], [310.34, 361.6], [435.89, 363.32]]. The camera is southeast looking northwest, contrary to the library direction text: 1812 is foreground left and Glessner recedes right. Cars obscure grade. Chimney, later iron fence and ageing are evidence of the 1950s, not automatically 1904. T-3564: the eye's u is moved +16.699 m with the footprint frame, whose origin (the SW corner) went back that far when the house was deepened to its 1911 rear; the front, and so the camera's place in the world, did not move."
 }

@@ -2,8 +2,8 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "a18-gh-1800-block-looking-sw-c1888",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "b0540e5073db2f881cee936bf62b2ae16288f7c4dabca64866d92fb18a9dbc7f",
-  "camera_sha256": "750d123c485475d631bccadd32ea08df00f563e357d82d83499fbf2a640d0c51",
+  "glb_sha256": "a6182a52cdf1c3c5734c2fe44688c307ea2fcb6c7c527e9f401f4248d69a2fc7",
+  "camera_sha256": "8f3ce42de8b687248314ef16cccacd47cdee3c899c27f34f211f032991d4cad5",
   "photo_sha256": "3bc229a77fe705ac47ae9393f744b219bd11424c45da947bd532ab5e348271e6",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/a18-gh-1800-block-looking-sw-c1888-side-by-side.jpg",
   "verdict": "matches",
@@ -90,6 +90,10 @@
     },
     {
       "what": "T-2882: re-rendered on the loggia with a respond on the wall behind each rear pair (a flat pier the rear pedestal's width, 0.25 m deep, from the pedestal's top to the ceiling; tools/keith_loggia_respond_read.py, docs/RESEARCH/photo-match/keith_house_1808_prairie/keith-loggia-respond-read.json), and read again beside the previous render and the picture: the render changes only at the loggia (x 1029-1122, y 761-883); this print looks along the loggia's north flank behind Glessner's front and the tree, where the bays read as dark openings (T-2876, T-2881), so the respond is not read here. VERDICT SETTLED (T-2882): every item on this record is fixed or not shown, with reasons, and none is open; what the print shows of Keith (the crown with its lattice, pinnacles and coping, the third storey's arcade, the north return's courses and the cowl over it, the stoop T-2812 ruled this print cannot place against the plate and the slide) reads as built, so the verdict is matches.",
+      "status": "not shown"
+    },
+    {
+      "what": "T-3564, reviewed on the deepened house: the main range now runs back its full three storeys to its brick rear on the 1911 Sanborn sheet (34.70 m, was 18.0 m), as the owner ruled from his 2026-11-10 photographs of the court's south wall; the 1888 plate's own first-floor plan draws the same long range, about three and a half fronts deep. The camera's eye moved +16.699 m in u with the footprint frame (the SW-corner origin went back), so it stands where it stood in the world, and the street front, bow, loggia, stair and parapet lie where they were matched. Where this house-only render draws the long brick north or south side, the picture has Glessner, a neighbour or trees in front of it; the side's openings are reconstructed (L-glessner-photo-match-3564).",
       "status": "not shown"
     }
   ],
