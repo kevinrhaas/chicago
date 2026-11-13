@@ -2,6 +2,12 @@
   "schema_version": 1,
   "content_version": 8,
   "category": "Orientation",
+  "menu_group": "Places",
+  "menu_rank": 2,
+  "plate": {
+    "structure": "glessner_house",
+    "picture": "a18-cornell-adw-glessner"
+  },
   "featured": true,
   "review_required": false,
   "id": "prairie-avenue-orientation",

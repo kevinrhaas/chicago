@@ -2,6 +2,7 @@
   "schema_version": 1,
   "content_version": 3,
   "category": "Education",
+  "menu_group": "Errands",
   "review_required": false,
   "id": "schoolday-errand",
   "scene": "1835",
