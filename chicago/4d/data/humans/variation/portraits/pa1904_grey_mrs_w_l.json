@@ -2782,9 +2782,14 @@
    "nose_septum": -0.8,
    "nose_depth": 0.6,
    "nostril_angle": 0.5,
-   "brow_ridge": 0
+   "brow_ridge": 0,
+   "chin_prominence": 0.9,
+   "prognathism": 0.4,
+   "chin_height": 0.4,
+   "jowls": -0.3,
+   "chin_width": -0.2
   },
-  "basis": "Read by eye from the same picture, on axes the marks cannot measure from one near-frontal view or read wrongly through the render's painting: a nose of ordinary width and thin lips (her cheekbones, cheeks and jowls are now fitted from the sheet's front view instead). Her lower lip is thin in both its volume (lip_lower) and its height (lip_lower_height, MakeHuman's own lower-lip height target, added as a rest axis for this: the volume target alone left the painted lip as tall as before), and her nose is rounded, not pointed: a full round tip (nose_volume), its underside turned a little up to the lip (nose_tip, nose_septum, nostril_angle), its wings close and soft (nostrils, nose_tip_width), and less deep than the outline alone set it (nose_depth), where the sheet's front and profile show it. Her brow bone is flat (brow_ridge 0), not jutting over the lid as the outline alone set it, so her upper lids show light as on the sheet and not as a band in its shade. Those are HELD where they are read (`hold`), not fitted; the rest are priors the marks move. Owner, 2026-11-13: \"she has finer features\", \"she has a much more diminutive chin\", \"you need to trace it\", \"her nose is a little pointy\", \"her nostril area need some work\".",
+  "basis": "Read by eye from the same picture, on axes the marks cannot measure from one near-frontal view or read wrongly through the render's painting: a nose of ordinary width and thin lips (her cheekbones, cheeks and jowls are now fitted from the sheet's front view instead). Her lower lip is thin in both its volume (lip_lower) and its height (lip_lower_height, MakeHuman's own lower-lip height target, added as a rest axis for this: the volume target alone left the painted lip as tall as before), and her nose is rounded, not pointed: a full round tip (nose_volume), its underside turned a little up to the lip (nose_tip, nose_septum, nostril_angle), its wings close and soft (nostrils, nose_tip_width), and less deep than the outline alone set it (nose_depth), where the sheet's front and profile show it. Her brow bone is flat (brow_ridge 0), not jutting over the lid as the outline alone set it, so her upper lids show light as on the sheet and not as a band in its shade. Her chin, side by side with the sheet's profile, stands forward of where the fit set it and comes lower, small across (chin_prominence, prognathism, chin_height, chin_width), under a firm jaw line, not a full one (jowls). Those are HELD where they are read (`hold`), not fitted; the rest are priors the marks move. Owner, 2026-11-13: \"she has finer features\", \"she has a much more diminutive chin\", \"you need to trace it\", \"her nose is a little pointy\", \"her nostril area need some work\", \"her chin is still not pronounced enough compare those side by side\".",
   "hold": [
    "lip_lower",
    "lip_lower_height",
@@ -2795,7 +2800,12 @@
    "nose_septum",
    "nose_depth",
    "nostril_angle",
-   "brow_ridge"
+   "brow_ridge",
+   "chin_prominence",
+   "prognathism",
+   "chin_height",
+   "jowls",
+   "chin_width"
   ]
  },
  "card": {
@@ -2838,7 +2848,8 @@
      0.017
     ]
    },
-   "worn": "dark brown day dress with a white lace collar, as the stand-in portrait"
+   "worn": "dark brown day dress with a white lace collar, as the stand-in portrait",
+   "collar": {"piece": "lady_shirtwaist_collar", "lower_cm": 2, "band_cm": 4, "basis": "Owner, 2026-11-13: \"her clothing is going over her chin, it should just be her neck\". The lady's body stands its white collar up under the chin; the sheet's lace collar stands on her neck with the neck clear above it. Its top is brought 2 cm down over the top 4 cm of the band, and its front taken in to the neck (human-variation.js loweredCollar). A reading beside the sheet, not a measurement."}
   },
   "_doc": "What the figure takes from the stand-in, for tools/prairie_people.py: hair drawn up to a knot on the crown and its colour (human-hair-styles.js), complexion, and the dress's colour on the lady's body, whose white shirtwaist collar and lace jabot stand for the portrait's high lace collar. Reconstructed readings of a sepia picture.",
   "build": {
