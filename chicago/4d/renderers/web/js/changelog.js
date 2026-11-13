@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2907, ts: '2026-11-13T00:09:15.374Z', date: 'Nov 12, 2026, 6:09 PM CT', title: '1936 Prairie\'s tower stands square above the roof', kind: 'improvement',
+    items: [
+      'In 1904, the lookout at the top of the Thompson house\'s tower at 1936 Prairie Avenue is now a full square above the roof, as the old photograph shows it, instead of a thin slab against the front wall. Its south side now has its arched window, and its balcony and cornice run all the way round.',
+      'The photograph shows only the front and south sides. The windows on the other two sides are our reconstruction.',
+    ] },
   { v: 2906, ts: '2026-11-12T23:03:19.587Z', date: 'Nov 12, 2026, 5:03 PM CT', title: '1801 Prairie\'s south-west corner: its stone return, window and set-back slate', kind: 'improvement',
     items: [
       'Over the round bay\'s balcony on the Kimball house, the pavilion\'s stone side wall now runs back to the slate roof, as the 1965 south-west photograph shows it, where the slate used to come down in front of it.',
