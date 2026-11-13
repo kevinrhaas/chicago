@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2939, ts: '2026-11-13T18:40:26.185Z', date: 'Nov 13, 2026, 12:40 PM CT', title: 'The Glessner Household speaks: two narrators to choose from', kind: 'feature',
+    items: [
+      'The Glessner Household is voiced: the narrator reads the title and the background, then each person speaks at their own door.',
+      'Settings › Sound › Narrator picks the Cultivated Essayist (the default) or the Midwestern Storyteller.',
+      'The Navigator\'s header keeps its close key in view beside the three sound keys.',
+    ] },
   { v: 2938, ts: '2026-11-13T18:14:03.496Z', date: 'Nov 13, 2026, 12:14 PM CT', title: 'The dev preview moves to its own site, with room to grow', kind: 'change',
     items: [
       'The dev preview is now at dev.chicago.polecat.live/4d/dev/, a site of its own.',
