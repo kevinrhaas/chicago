@@ -27236,9 +27236,18 @@ because the build's south wall is still flush with the corner bay (the open set-
 plan, its K15 stone, three corbel courses and 0.15 m cap, and three of the kit's tall pots where the
 print shows three or four taller ones. The sunk panels the oblique draws on its south face are not
 built (K15 lays a panel's recess in brick). The north stack takes the same head.
+**The door's pediment and the stoop's newels (T-3562, a piece of T-1893).** Read off the square-on
+print: a stone pediment over the door on two small carved brackets beside the transom, its apex at
+about 5.86 m and a carved finial to about 6.27 m; and the stoop's cheek walls falling to a square
+stone newel at each foot under a cap and a ball knob. Built as K01's bracketed door hood with a
+pediment in place of its railing (`entrance_kit.hood.pediment`, a K01 option this ticket added) in the
+front's stone, and K07's swept cheeks with their newels. Invented: the pediment's width (1.72 m, where
+the print's is 2.55 m, held clear of the build's narrow pavilion), its 0.3 m projection, its plain
+tympanum (the print's is carved), the brackets' scroll (the kit's) and the finial's square block (the
+print's is a carved anthemion); the cheeks' sweep and the newels' heights within K07's ranges.
 **What is not built.** The pavilion's full 4 m width (K01 cannot cut a door through a
-projection, so it stands 2.45 m wide north of the door), the door's pedimented hood on carved
-brackets, the stoop's newels and cheek walls, the narrow light over the door (built at the storey's
+projection, so it stands 2.45 m wide north of the door), the basement doorway under the stoop's
+landing and the stoop's arched underside, the narrow light over the door (built at the storey's
 sash width), the dormer's finial and the roofs' cresting and cross finial, and the rock-faced south
 flank: open on the match record. The oblique print (camera solved by T-3156) also shows the corner bay running about 0.75 m
 south of the main front's south corner, as the square-on does, where the build sets it flush.
@@ -27255,7 +27264,7 @@ is built to the photographs, which is a choice, not a finding.
 **How to resolve:** a dated picture or permit for the remodel settles which front stood in 1904;
 the rest stands open on the two match records.
 **Covers:** `sears_meeker_house_1815_prairie.as_mapped_1904.form.wall_thickness_front_m`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.wall_thickness_side_m`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.service_wall_brick`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.roof_pitch_deg`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.stair_tread_m`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.stair_landing_depth_m`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.side_bays`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.rear_bays`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.rainwater`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.window_kit`
-**Ticket:** T-3155 (piece 1 of T-1893), T-3156 (piece 2), T-3561 (the cornice's consoles and the south stack).
+**Ticket:** T-3155 (piece 1 of T-1893), T-3156 (piece 2), T-3561 (the cornice's consoles and the south stack), T-3562 (the door's pediment and the stoop's newels).
 **Review:** `docs/RESEARCH/k01-1815-sears-1893/README.md`.
 **Recorded:** 2026-10-25 (T-3155).
 
