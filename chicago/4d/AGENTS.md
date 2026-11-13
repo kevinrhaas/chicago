@@ -790,7 +790,8 @@ straight to production.* The fleet pilot is `kevinrhaas/jobtracker.polecat.live`
     corrupted it on five consecutive merges in one day. So expect to rebase, and **finish
     the PR you open inside your own run** rather than leaving it to be swept.
 - **Merging into `dev` is STAGE, not ship.** It publishes only the integration preview at
-  `chicago.polecat.live/4d/dev/` — noindex, banner-marked, `build.json` says
+  `dev.chicago.polecat.live/4d/dev/` (its own Pages site since 2026-11-13, kevinrhaas/chicago-dev)
+  — noindex, banner-marked, `build.json` says
   `tier: dev`. Production is untouched.
 - **Production moves ONLY when the owner dispatches `chicago-4d-promote-to-prod.yml`.**
   No schedule, no agent. `walk/` changes reach `main` by that dispatch and no other route.

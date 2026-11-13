@@ -1,25 +1,40 @@
 {
-  "$comment": "T-3578: who reads each jaunt script, and how. tools/narrate_jaunts.mjs voices every script of the jaunts listed here whose words (or voice) changed since it was last voiced, and only those. A speaker is 'narrator' (a jaunt's opening, its endings and any stop with no host) or a stop's first host, by person id. A voice is an ElevenLabs voice id or the exact name of one of the owner's voices; null means not chosen yet, and that speaker's scripts are skipped (and listed in the run's report). docs/AUDIO.md § Narration.",
+  "$comment": "T-3578: who reads each jaunt script, and how. tools/narrate_jaunts.mjs voices every script of the jaunts listed here whose words (or voice) changed since it was last voiced, and only those. A narrator script (a jaunt's opening, its endings, any stop with no host) is voiced once for each narrator in `narrators`; visitors choose which they hear in Settings › Sound, and `essayist` is the default (owner, 2026-11-13). A stop is read by its first host, by person id, in `voices`. A voice is an ElevenLabs voice id or the exact name of one of the owner's voices; null means not chosen yet, and those scripts are skipped (and listed in the run's report). docs/AUDIO.md § Narration.",
   "version": 1,
   "model_id": "eleven_multilingual_v2",
   "output_format": "mp3_44100_64",
-  "voice_settings": { "stability": 0.5, "similarity_boost": 0.75, "style": 0, "use_speaker_boost": true },
+  "voice_settings": {
+    "stability": 0.5,
+    "similarity_boost": 0.75,
+    "style": 0,
+    "use_speaker_boost": true
+  },
   "bucket": "chicago-4d-media",
   "max_chars_per_run": 20000,
-  "jaunts": ["glessner-household-tour"],
+  "jaunts": [
+    "glessner-household-tour"
+  ],
+  "narrators": {
+    "essayist": {
+      "voice": "Narrator, Cultivated Essayist",
+      "label": "Cultivated Essayist"
+    },
+    "storyteller": {
+      "voice": "Narrator - Midwestern Storyteller",
+      "label": "Midwestern Storyteller"
+    }
+  },
   "voices": {
-    "narrator": null,
-    "glessner_john_j": null,
-    "glessner_frances_m": null,
-    "glessner_williamson_martha_l": null,
-    "pa1904_glessner_john_j_c1900_kate_ryan": null,
-    "pa1904_glessner_john_j_c1900_christine_nelson": null,
-    "pa1904_glessner_john_j_c1900_mary_reynolds": null,
-    "pa1904_glessner_john_j_c1900_charles_nelson": null,
-    "pa1904_glessner_john_j_c1900_august_billings": null
+    "glessner_john_j": "Character - Glessner, John",
+    "glessner_frances_m": "Character - Glessner, Frances",
+    "glessner_williamson_martha_l": "Character - Williamson, Mattie",
+    "pa1904_glessner_john_j_c1900_kate_ryan": "Character - Ryan, Kate",
+    "pa1904_glessner_john_j_c1900_christine_nelson": "Character - Nelson, Christine",
+    "pa1904_glessner_john_j_c1900_mary_reynolds": "Character - Reynolds, Mary",
+    "pa1904_glessner_john_j_c1900_charles_nelson": "Character - Nelson, Charles",
+    "pa1904_glessner_john_j_c1900_august_billings": "Character - Billings, August"
   },
   "speaker_names": {
-    "narrator": "Narrator",
     "glessner_john_j": "John J. Glessner",
     "glessner_frances_m": "Frances M. Glessner",
     "glessner_williamson_martha_l": "Mattie Williamson (cook)",

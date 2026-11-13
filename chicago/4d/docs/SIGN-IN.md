@@ -12,11 +12,13 @@ with some usage numbers.
   the Observatory's cards, the `/1812/` `/1835/` `/1904/` doors and `?year=` links — so
   the one gate stands in front of all of them. The panel takes the arrival device's
   place (`css/signin.css`), in every Appearance, at phone and desktop widths.
-- **Google.** Firebase Auth, `signInWithPopup` (a popup is what works on iPhone Safari
-  and Chrome; a blocked popup falls back to `signInWithRedirect`).
-- **Email.** Behind a small grey "No Google account? Sign in manually" link (the owner's
-  ruling: Google is the way in), Firebase anonymous sign-in plus the typed address, which is not verified.
-  The upgrade to verified email is Firebase's email-link sign-in on the same project.
+- **The ways in** (T-3580; `providers` in `js/sign-in-config.js`, each also switched on
+  in the console): **Continue with Google** first, then **Continue with Microsoft**, both
+  Firebase popups (a blocked popup falls back to a redirect). Behind a small grey link,
+  "No Google or Microsoft account? Sign in with email" (the owner: Google is the way in),
+  sits an **email and password** form (sign in, create an account, forgot password) and
+  **Just enter with my email**: Firebase anonymous sign-in plus the typed address, not
+  verified. The upgrade to verified email-only is Firebase's email-link sign-in.
 - **Once.** Firebase keeps the sign-in in the browser for the whole site, so the next
   year and the next visit pass straight through. An email visitor's address is kept in
   `localStorage` (`chicago4d.signin.email`) beside it.
@@ -29,7 +31,8 @@ with some usage numbers.
   `login` event and an `enter_year` event (year, method, device) beside its own page
   views, sessions, engagement time, countries and devices. No email goes to Analytics.
 - **Never a lockout.** Off unless `js/sign-in-config.js` has `enabled: true`, all four
-  Firebase values, and the page's host in `hosts`; off under automation
+  Firebase values, and the page's host in `hosts` (`chicago.polecat.live` and the dev
+  preview's `dev.chicago.polecat.live`); off under automation
   (`navigator.webdriver`: the smoke, photo-match, films); and if Firebase cannot load
   or answer, the visitor goes in. It is a front door, not a lock: the town's files are
   public on a static host, and the panel says why the email is asked for.
@@ -41,9 +44,10 @@ with some usage numbers.
 1. <https://console.firebase.google.com> → **Create a project** (e.g. `chicago-4d`).
    Leave Google Analytics **on** and pick or create an Analytics account.
 2. **Build → Authentication → Get started → Sign-in method**: enable **Google** (pick
-   the support email) and enable **Anonymous**.
+   the support email), **Email/Password** (leave "Email link" off until verified
+   email-only is built), **Anonymous**, and **Microsoft** (below).
 3. **Authentication → Settings → Authorized domains → Add domain**:
-   `chicago.polecat.live`.
+   `chicago.polecat.live` and `dev.chicago.polecat.live` (the dev preview).
 4. **Build → Firestore Database → Create database**: production mode, location
    `nam5 (us-central)`. Then the **Rules** tab: paste the rules below, put the owner's
    Google address where it says `OWNER_EMAIL`, and **Publish**.
@@ -54,6 +58,20 @@ with some usage numbers.
    public by design; the rules are what protect the list.
 
 All of it is on Firebase's free Spark plan; nothing needs a card.
+
+### Microsoft
+
+1. Firebase → Authentication → Sign-in method → Add new provider → **Microsoft**; copy the
+   callback URL it shows (`https://<project>.firebaseapp.com/__/auth/handler`).
+2. **portal.azure.com** (any Microsoft account; a free Azure account if asked) → **App
+   registrations → New registration**: name `4D Chicago`; supported account types
+   **any organizational directory and personal Microsoft accounts**; redirect URI
+   **Web** = the callback URL → Register.
+3. Copy the **Application (client) ID** from Overview.
+4. **Certificates & secrets → New client secret** (24 months) → copy its **Value**.
+5. Paste both into Firebase's Microsoft dialog, enable, Save. The secret expires in 24
+   months; renew it before then or Microsoft sign-in stops. A school's IT may block its
+   students from consenting to an unverified app; personal accounts always work.
 
 ## Firestore rules
 
