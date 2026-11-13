@@ -206,6 +206,71 @@ def rot(yaw, pitch, roll):
     return Rz @ Rx @ Ry
 
 
+def face_base(person, portrait, header, refs, axes, rows):
+    """The face the axes move, on the kit rows `rows`: the body's rest shape with the ageing, the
+    face_bias on axes the picture does not fit, the build and the axes held by eye; and the axes
+    left to fit, with the priors that hold them."""
+    # The face the deltas land on. By default the kit's own reference mesh (the men's base);
+    # a record naming `base_body` (T-3473) fits against that body's own rest shape instead, so
+    # a woman's face is read as departures from a woman's face, not from a man's, with the body's
+    # base age and its face_bias (on the axes the picture does not move) as the renderer adds them.
+    body = header['assets'].get(portrait['base_body'], {}) if portrait.get('base_body') else {}
+    base = (body_rest(portrait['base_body'])[rows] if portrait.get('base_body') else refs[rows]).copy()
+    # The ageing the renderer drives from the person's age at the picture (human-variation.js).
+    age = portrait['age_at_picture_years']
+    asset_age = body.get('base_age_years', 35)
+    for a in header['axes']:
+        if a.get('drive') != 'age':
+            continue
+        # Only the body's own sex's age blend (T-3423 added the female twin of each macro axis).
+        if a.get('sex', 'male') != portrait.get('sex', 'male'):
+            continue
+        if a['kind'] == 'age_macro':
+            v = float(np.clip((age - asset_age) * header['age']['per_year'], -0.5, 1))
+        else:
+            v = float(np.clip((age - asset_age) / (90 - asset_age) if age >= asset_age else (age - asset_age) / (asset_age - 25), -0.5, 1))
+        if a['kind'] == 'age_macro':
+            base += delta_at({**axes[a['id']], 'kind': 'signed'}, v, 0, rows)
+        else:
+            base += delta_at(axes[a['id']], v, 0, rows)
+    fitted = [a['id'] for a in header['axes'] if not a.get('drive') and a['id'] in portrait['axes']]
+    # What a reader sees in the picture that no mark measures (T-3493: Frances Glessner's full
+    # cheeks, jowls and broad jaw): `read_by_eye.values` replaces the body's face_bias as the
+    # prior on those axes, so a flat axis rests at what the picture shows, not at the body's lean.
+    eye = (portrait.get('read_by_eye') or {}).get('values', {})
+    for k in eye:
+        if k not in fitted:
+            sys.exit(f"{person}: read_by_eye names {k}, which is not one of the record's fitted axes")
+    prior = {**body.get('face_bias', {}), **eye}
+    for k, b in body.get('face_bias', {}).items():
+        if k not in fitted and k in axes:
+            base += delta_at(axes[k], max(-header['limit'], min(header['limit'], b)), 0, rows)
+    # T-3553: the build a stand-in's likeness gives (weight, muscle, a paunch, the neck), which
+    # moves the face too (a heavy man's fuller face): on the base, as the renderer adds it.
+    build = (portrait.get('likeness') or {}).get('build') or {}
+    for a in header['axes']:
+        k = a.get('draw_as', a['id'])
+        if k in ('weight', 'muscle', 'belly', 'neck_width', 'double_chin') and isinstance(build.get(k), (int, float)) \
+                and a.get('sex', portrait.get('sex', 'male')) == portrait.get('sex', 'male') and not a.get('drive'):
+            base += delta_at(axes[a['id']], max(-header['limit'], min(header['limit'], build[k])), 0, rows)
+    # T-3553: an axis a record HOLDS by eye (`read_by_eye.hold`) is not fitted at all but set
+    # where the reader put it: one the marks cannot see from a near-frontal view, or read
+    # wrongly through the renderer's own painting (a lip's height is its painted colour, which
+    # a volume target leaves as it was; a cheekbone's height is shading, not outline). The
+    # marks then fit the other axes around it. Owner, 2026-11-13, of Sarah Grey: "her
+    # cheekbones are higher ... she has finer features", and her thin lips.
+    held = {}
+    for k in (portrait.get('read_by_eye') or {}).get('hold', []):
+        if k not in eye:
+            sys.exit(f"{person}: read_by_eye holds {k} but gives it no value")
+        if axes[k]['kind'] == 'one_of':
+            sys.exit(f"{person}: read_by_eye cannot hold {k}, a choice of shapes")
+        held[k] = max(-1.0, min(1.0, eye[k]))   # the fitted axes' own bounds
+        base += delta_at(axes[k], held[k], 0, rows)
+        fitted.remove(k)
+    return base, fitted, prior, held, body
+
+
 def fit(person):
     portrait = json.loads((PORTRAITS / f'{person}.json').read_text())
     header, refs, axes = load_kit()
@@ -231,64 +296,10 @@ def fit(person):
             W[k, list(rows).index(kidx[v])] += 1 / len(m)
     obs = np.array([[m['x'], m['y']] for m in portrait['marks']], float)
     sig = np.array([m['sigma_px'] for m in portrait['marks']], float)
-    # The face the deltas land on. By default the kit's own reference mesh (the men's base);
-    # a record naming `base_body` (T-3473) fits against that body's own rest shape instead, so
-    # a woman's face is read as departures from a woman's face, not from a man's, with the body's
-    # base age and its face_bias (on the axes the picture does not move) as the renderer adds them.
-    body = header['assets'].get(portrait['base_body'], {}) if portrait.get('base_body') else {}
-    base = W @ (body_rest(portrait['base_body'])[rows] if portrait.get('base_body') else refs[rows])
-    # The ageing the renderer drives from the person's age at the picture (human-variation.js).
-    age = portrait['age_at_picture_years']
-    asset_age = body.get('base_age_years', 35)
-    for a in header['axes']:
-        if a.get('drive') != 'age':
-            continue
-        # Only the body's own sex's age blend (T-3423 added the female twin of each macro axis).
-        if a.get('sex', 'male') != portrait.get('sex', 'male'):
-            continue
-        if a['kind'] == 'age_macro':
-            v = float(np.clip((age - asset_age) * header['age']['per_year'], -0.5, 1))
-        else:
-            v = float(np.clip((age - asset_age) / (90 - asset_age) if age >= asset_age else (age - asset_age) / (asset_age - 25), -0.5, 1))
-        if a['kind'] == 'age_macro':
-            base += W @ delta_at({**axes[a['id']], 'kind': 'signed'}, v, 0, rows)
-        else:
-            base += W @ delta_at(axes[a['id']], v, 0, rows)
-    fitted = [a['id'] for a in header['axes'] if not a.get('drive') and a['id'] in portrait['axes']]
-    # What a reader sees in the picture that no mark measures (T-3493: Frances Glessner's full
-    # cheeks, jowls and broad jaw): `read_by_eye.values` replaces the body's face_bias as the
-    # prior on those axes, so a flat axis rests at what the picture shows, not at the body's lean.
-    eye = (portrait.get('read_by_eye') or {}).get('values', {})
-    for k in eye:
-        if k not in fitted:
-            sys.exit(f"{person}: read_by_eye names {k}, which is not one of the record's fitted axes")
-    prior = {**body.get('face_bias', {}), **eye}
-    for k, b in body.get('face_bias', {}).items():
-        if k not in fitted and k in axes:
-            base += W @ delta_at(axes[k], max(-header['limit'], min(header['limit'], b)), 0, rows)
-    # T-3553: the build a stand-in's likeness gives (weight, muscle, a paunch, the neck), which
-    # moves the face too (a heavy man's fuller face): on the base, as the renderer adds it.
-    build = (portrait.get('likeness') or {}).get('build') or {}
-    for a in header['axes']:
-        k = a.get('draw_as', a['id'])
-        if k in ('weight', 'muscle', 'belly', 'neck_width', 'double_chin') and isinstance(build.get(k), (int, float)) \
-                and a.get('sex', portrait.get('sex', 'male')) == portrait.get('sex', 'male') and not a.get('drive'):
-            base += W @ delta_at(axes[a['id']], max(-header['limit'], min(header['limit'], build[k])), 0, rows)
-    # T-3553: an axis a record HOLDS by eye (`read_by_eye.hold`) is not fitted at all but set
-    # where the reader put it: one the marks cannot see from a near-frontal view, or read
-    # wrongly through the renderer's own painting (a lip's height is its painted colour, which
-    # a volume target leaves as it was; a cheekbone's height is shading, not outline). The
-    # marks then fit the other axes around it. Owner, 2026-11-13, of Sarah Grey: "her
-    # cheekbones are higher ... she has finer features", and her thin lips.
-    held = {}
-    for k in (portrait.get('read_by_eye') or {}).get('hold', []):
-        if k not in eye:
-            sys.exit(f"{person}: read_by_eye holds {k} but gives it no value")
-        if axes[k]['kind'] == 'one_of':
-            sys.exit(f"{person}: read_by_eye cannot hold {k}, a choice of shapes")
-        held[k] = max(-1.0, min(1.0, eye[k]))   # the fitted axes' own bounds
-        base += W @ delta_at(axes[k], held[k], 0, rows)
-        fitted.remove(k)
+    base_rows, fitted, prior, held, body = face_base(person, portrait, header, refs, axes, rows)
+    base = W @ base_rows
+    if portrait.get('fit_views'):
+        return fit_views(person, portrait, header, refs, axes, spec, lm, names, members, obs, sig, kidx)
     # Each signed axis is piecewise linear; precompute its two halves at +-1 on the landmark rows.
     halves = {}
     for aid in fitted:
@@ -382,6 +393,260 @@ def fit(person):
     }
 
 
+# T-3553 (owner, 2026-11-13, of the Greys' stand-ins: "everyone's profiles are way off, their
+# noses is not as flat as you have them", "he has no chin and almost no nose", "her jaw is
+# ragged"): one near-frontal picture cannot say how far a nose, a chin or a cheek stands out,
+# and tracing the side view vertex by vertex on top of a face fitted from the front alone left
+# lumps where the two disagreed. A record's `fit_views` fits the axes to more pictures of the
+# same face AT ONCE, each with its own camera: further front views (`fronts`, MediaPipe's points
+# on another picture) and the side view of `trace.profile` (its eye and lips' marks place a side
+# camera; its silhouette, the face's line against the sky, is matched by the face's own outline
+# seen from that side). The depth axes (nose_depth, chin_prominence, prognathism) are then read,
+# and the face stays one smooth MakeHuman face. `extended_limits` lets an axis pass the slider's
+# +-1 where the picture asks for more (a nose that stands further out than MakeHuman's largest).
+PROFILE_ITERATIONS = 6     # the side view's outline is re-found this many times (closest points)
+PROFILE_REACH_PX = 25      # an outline vertex further than this from the picture's line is left out
+SIDE_EYE = ([33, 159, 145], [263, 386, 374])   # the visible eye's outer corner and lids
+
+
+def body_triangles(asset):
+    """The body skin's triangles, in the kit's vertex order (the unoptimised GLB)."""
+    import struct
+    blob = (ROOT / 'assets/humans' / f'{asset}.lod0.glb').read_bytes()
+    n = struct.unpack('<I', blob[12:16])[0]
+    gltf, binary = json.loads(blob[20:20 + n]), blob[28 + n:]
+    mesh = next(m for m in gltf['meshes'] if '_body_' in m['name'])
+    acc = gltf['accessors'][mesh['primitives'][0]['indices']]
+    view = gltf['bufferViews'][acc['bufferView']]
+    off = view.get('byteOffset', 0) + acc.get('byteOffset', 0)
+    dt = {5123: '<u2', 5125: '<u4'}[acc['componentType']]
+    return np.frombuffer(binary, dtype=dt, count=acc['count'], offset=off).reshape(-1, 3).astype(int)
+
+
+def fit_views(person, portrait, header, refs, axes, spec, lm, names, members, obs, sig, kidx):
+    import cv2
+    from scipy.spatial import cKDTree
+    cfg = portrait['fit_views']
+    asset = portrait['base_body']
+    rest = body_rest(asset)
+    table = json.loads(MP_TABLE.read_text())['bodies'][asset]
+    # The head's rows: from the nasion up and down to below the chin.
+    chin_y = rest[kidx[lm['menton']], 1]
+    nasion_y = rest[kidx[table['points']['mp_168']['vertex']], 1]
+    head = np.where(rest[:, 1] > chin_y - 0.6 * (nasion_y - chin_y))[0]
+    at = {int(r): i for i, r in enumerate(head)}
+
+    def wmat(groups):
+        W = np.zeros((len(groups), len(head)))
+        for k, g in enumerate(groups):
+            for v in g:
+                W[k, at[kidx[v]]] += 1 / len(g)
+        return W
+
+    base, fitted, prior, held, body = face_base(person, portrait, header, refs, axes, head)
+    halves = {}
+    for aid in fitted:
+        a = axes[aid]
+        if a['kind'] == 'one_of':
+            halves[aid] = [delta_at(a, 1.0, o, head) for o in range(len(a['opts_d']))]
+        else:
+            halves[aid] = (delta_at(a, 1.0, 0, head), delta_at(a, -1.0, 0, head))
+    spreads = np.array([spec[aid]['spread'] or 0.1 for aid in fitted]) * PRIOR_WIDEN * portrait.get('prior_widen', 1.0)
+    lim = header.get('limit', 1.0)
+    centre = np.array([max(-lim, min(lim, prior.get(aid, 0.0))) for aid in fitted])
+    centre_of = base.mean(0)
+
+    # Each axis's two halves stacked (a choice of shapes: its option's shape on both sides), so
+    # a face is two products, on the rows a residual needs.
+    one_of = np.array([axes[aid]['kind'] == 'one_of' for aid in fitted])
+
+    def stacks(option):
+        pos = np.stack([halves[aid][option] if one_of[k] else halves[aid][0] for k, aid in enumerate(fitted)])
+        neg = np.stack([halves[aid][option] if one_of[k] else halves[aid][1] for k, aid in enumerate(fitted)])
+        return pos, neg
+
+    def shape(v, option, rows=None, st=None):
+        pos, neg = st if st is not None else stacks(option)
+        if rows is not None:
+            pos, neg = pos[:, rows], neg[:, rows]
+        a = np.where(one_of, np.abs(v), np.maximum(v, 0.0))
+        b = np.where(one_of, 0.0, np.maximum(-v, 0.0))
+        return (base if rows is None else base[rows]) + np.tensordot(a, pos, 1) + np.tensordot(b, neg, 1)
+
+    def project(X, cam):
+        yaw, pitch, roll, s, tx, ty = cam
+        Y = (X - centre_of) @ rot(yaw, pitch, roll).T
+        return np.stack([tx + s * Y[:, 0], ty - s * Y[:, 1]], 1)
+
+    def solve_camera(W, ob, sg, yaws, prior_cam=None):
+        P = W @ base
+        best = None
+        for y0 in yaws:
+            c = np.array([y0, 0.0, 0.0, 1.0, 0.0, 0.0])
+            Q = project(P, c)
+            c[3] = np.linalg.norm(ob.max(0) - ob.min(0)) / max(np.linalg.norm(Q.max(0) - Q.min(0)), 1e-9)
+            c[4:] = ob.mean(0) - project(P, c).mean(0)
+
+            def res(q):
+                r = ((project(P, q) - ob) / (sg if sg.ndim == 2 else sg[:, None])).ravel()
+                return r if prior_cam is None else np.concatenate([r, prior_cam(q)])
+            r = least_squares(res, c, x_scale='jac')
+            if best is None or r.cost < best.cost:
+                best = r
+        return best.x
+
+    # The views: the portrait itself, further front pictures, and the side view.
+    fronts = [(wmat(members), obs, sig)]
+    eye_span = np.linalg.norm(obs[names.index('mp_33')] - obs[names.index('mp_263')])
+    ring0 = min(table['outline'], key=lambda o: abs(o['solved_yaw_deg']))
+    for fr in cfg.get('fronts', []):
+        pts = np.asarray(fr['points_px'], float)
+        skip = set(fr.get('skip_points', []))
+        groups, ob = [], []
+        for i in range(len(pts)):
+            if i not in skip and f'mp_{i}' in table['points']:
+                groups.append([table['points'][f'mp_{i}']['vertex']]); ob.append(pts[i])
+        for k, v in ring0['points'].items():
+            if int(k[4:]) not in skip:
+                groups.append([v['vertex']]); ob.append(pts[int(k[4:])])
+        scale = np.linalg.norm(pts[33] - pts[263]) / eye_span
+        fronts.append((wmat(groups), np.array(ob), np.full(len(ob), float(fr.get('sigma_px', 3.5)) * scale)))
+
+    prof = portrait['trace']['profile']
+    pv = cfg['profile']
+    mk = {int(k): np.array(v, float) for k, v in prof['marks_px'].items()}
+    eye = max(SIDE_EYE, key=lambda e: np.linalg.norm(mk[e[0]] - mk[{33: 133, 263: 362}[e[0]]]))
+    # The lips' meeting places the side camera too; under a moustache (`lips: "height"`) only its
+    # height counts: the landmark model finds the moustache's edge, which hangs in front of the lips.
+    groups = [[table['points'][f'mp_{i}']['vertex']] for i in list(eye) + [13]]
+    side_ob = np.array([mk[i] for i in eye] + [(mk[13] + mk[14]) / 2])
+    side_sg = np.array([[pv.get('eye_sigma_px', 3.0)] * 2] * len(eye) + [[40.0 if pv.get('lips') == 'height' else 2.5, 2.5]])
+    W_side = wmat(groups)
+    sil = np.asarray(prof['silhouette_px'], float)
+    facing = -1.0 if mk[4][0] < prof['tragus_px'][0] else 1.0
+    ymin = mk[10][1] - 5
+    ymax = mk[4][1] + (mk[13][1] - mk[4][1]) * 0.45 if pv.get('to') == 'nose' else sil[:, 1].max()
+    sil = sil[(sil[:, 1] > ymin) & (sil[:, 1] < ymax) & ((sil[:, 0] - prof['tragus_px'][0]) * facing > 0)]
+    tree = cKDTree(sil)
+    normals = []
+    for q in sil:
+        _, j = tree.query(q, k=7)
+        P = sil[j] - sil[j].mean(0)
+        n = np.linalg.eigh(P.T @ P)[1][:, 0]
+        normals.append(n if n[0] * facing >= 0 else -n)
+    normals = np.array(normals)
+    front_rows = np.where(rest[head, 2] > rest[prof['tragus_kit_vertex'], 2])[0]
+    tri = body_triangles(asset)
+    tri = np.array([[at[int(x)] for x in t] for t in tri if all(int(x) in at for x in t)])
+    # The side camera: the turn the record reads by eye, its nod free (a raised chin), from the marks.
+    turn = np.radians(prof['render_yaw_deg'])
+    cam_sigma = np.radians(pv.get('camera_sigma_deg', 3.0))
+    side0 = solve_camera(W_side, side_ob, side_sg, [turn], lambda q: [(q[0] - turn) / np.radians(1), q[1] / np.radians(1)])
+
+    def outline(X, cam, scale=4):
+        """The rows on the face's outline as the side camera sees it."""
+        P = project(X, cam)
+        lo = P.min(0) - 5
+        Q = ((P - lo) * scale).astype(np.int32)
+        m = np.zeros((Q[:, 1].max() + 10, Q[:, 0].max() + 10), np.uint8)
+        cv2.fillPoly(m, [Q[t] for t in tri], 1)
+        cs, _ = cv2.findContours(m, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+        c = max(cs, key=len)[:, 0, :] / scale + lo
+        c = c[(c[:, 1] > ymin) & (c[:, 1] < ymax)]
+        d, j = cKDTree(P[front_rows]).query(c)
+        return np.unique(front_rows[j[d < 2.5]])
+
+    nf = len(fronts)
+    ext = cfg.get('extended_limits', {})
+    lo = np.concatenate([[-1.4, -0.8, -0.6, 0, -1e6, -1e6] * nf, [-np.inf] * 6, -np.ones(len(fitted))])
+    hi = np.concatenate([[1.4, 0.8, 0.6, 1e6, 1e6, 1e6] * nf, [np.inf] * 6, np.ones(len(fitted))])
+    for k, aid in enumerate(fitted):
+        if aid in ext:
+            lo[6 * nf + 6 + k], hi[6 * nf + 6 + k] = -ext[aid], ext[aid]
+    if 'head_shape' in fitted:
+        lo[6 * nf + 6 + fitted.index('head_shape')] = 0
+    sil_sigma = pv.get('silhouette_sigma_px', 2.0)
+
+    used = np.unique(np.concatenate([np.nonzero(W.any(0))[0] for W, _, _ in fronts] + [np.nonzero(W_side.any(0))[0]]))
+
+    def residuals(p, option, srows, pairs, w, st):
+        v = p[6 * nf + 6:]
+        rows = np.concatenate([used, srows])
+        Xr = shape(v, option, rows, st)
+        Xu, Xs = Xr[:len(used)], Xr[len(used):]
+        out = [((project(W[:, used] @ Xu, p[6 * i:6 * i + 6]) - ob) / sg[:, None]).ravel() for i, (W, ob, sg) in enumerate(fronts)]
+        cs = p[6 * nf:6 * nf + 6]
+        out.append(((project(W_side[:, used] @ Xu, cs) - side_ob) / side_sg).ravel())
+        if len(srows):
+            out.append(np.sqrt(w) * ((project(Xs, cs) - pairs[0]) * pairs[1]).sum(1) / sil_sigma)
+        out.append([(cs[0] - turn) / cam_sigma, cs[1] / cam_sigma])   # turned as the sheet reads, not tipped; the nod is free
+        out.append((v - centre) / spreads)
+        return np.concatenate([np.ravel(o) for o in out])
+
+    best = None
+    options = range(len(axes['head_shape']['opts_d'])) if 'head_shape' in fitted else [0]
+    cams = [solve_camera(W, ob, sg, (-0.6, -0.3, 0.0, 0.3, 0.6)) for W, ob, sg in fronts]
+    def run(option, p, iterations):
+        st = stacks(option)
+        for _ in range(iterations):
+            X = shape(p[6 * nf + 6:], option, None, st)
+            cs = p[6 * nf:6 * nf + 6]
+            srows = outline(X, cs)
+            d, j = tree.query(project(X[srows], cs))
+            srows, j = srows[d < PROFILE_REACH_PX], j[d < PROFILE_REACH_PX]
+            pairs = (sil[j], normals[j])
+            w = 150.0 / max(len(srows), 1)      # the outline weighs as much as 150 marks, however finely the mesh draws it
+            r = least_squares(residuals, p, bounds=(lo, hi), args=(option, srows, pairs, w, st), x_scale='jac',
+                              max_nfev=4000, ftol=1e-12, xtol=1e-12, gtol=1e-12)
+            p = r.x
+        return r, option, srows, pairs, w
+
+    # The head's outline is a choice of shapes: each is tried briefly, the best refined.
+    start = np.concatenate([*cams, side0, centre])
+    for option in options:
+        trial = run(option, start, 2)
+        if best is None or trial[0].cost < best[0].cost - 1e-9:
+            best = trial
+    r, option, srows, pairs, w = run(best[1], best[0].x, PROFILE_ITERATIONS)
+    p = r.x
+    v = p[6 * nf + 6:]
+    X = shape(v, option)
+    cam = p[:6]
+    pix = project(fronts[0][0] @ X, cam) - obs
+    n_data = sum(2 * len(ob) for _, ob, _ in fronts) + 2 * len(side_ob) + len(srows)
+    J = r.jac[:n_data, 6 * nf + 6:]
+    info = (J ** 2).sum(0)
+    cs = p[6 * nf:6 * nf + 6]
+    side_miss = np.abs(((project(X[srows], cs) - pairs[0]) * pairs[1]).sum(1))
+    values = {aid: round(float(v[k]), 3) + 0.0 for k, aid in enumerate(fitted)}
+    values.update({k: round(float(x), 3) + 0.0 for k, x in held.items()})
+    if 'head_shape' in fitted:
+        values['head_shape.option'] = int(option)
+    base_lm = fronts[0][0] @ base
+    return {
+        'portrait': portrait, 'values': values, 'held': sorted(held),
+        'constrained': {aid: bool(info[k] > 1 / spreads[k] ** 2) for k, aid in enumerate(fitted)},
+        'info_ratio': {aid: float(info[k] * spreads[k] ** 2) for k, aid in enumerate(fitted)},
+        'camera': {'yaw_deg': round(float(np.degrees(cam[0])), 1), 'pitch_deg': round(float(np.degrees(cam[1])), 1),
+                   'roll_deg': round(float(np.degrees(cam[2])), 1), 'px_per_m': round(float(cam[3]), 1),
+                   'shift_px': [round(float(cam[4]), 1), round(float(cam[5]), 1)]},
+        'rms_px': round(float(np.sqrt((pix ** 2).sum(1).mean())), 2),
+        'per_mark_px': {n: round(float(np.hypot(*pix[i])), 1) for i, n in enumerate(names)},
+        'views': {
+            'fronts_rms_px': [round(float(np.sqrt((((project(W @ X, p[6 * i:6 * i + 6]) - ob)) ** 2).sum(1).mean())), 2)
+                              for i, (W, ob, _) in enumerate(fronts)],
+            'side_camera': {'yaw_deg': round(float(np.degrees(cs[0])), 1), 'pitch_deg': round(float(np.degrees(cs[1])), 1),
+                            'nod_deg': round(float(np.degrees(cs[2])), 1), 'px_per_m': round(float(cs[3]), 1)},
+            'side_outline_vertices': int(len(srows)),
+            'side_outline_miss_mm': round(float(side_miss.mean() / cs[3] * 1000), 2),
+        },
+        'landmarks': {n: lm[n] if isinstance(lm[n], int) else list(lm[n]) for n in names},
+        'projected': project(fronts[0][0] @ X, cam).tolist(),
+        'projected_unfitted': project(base_lm, cam).tolist(),
+        'obs': obs.tolist(), 'names': names,
+    }
+
+
 def record(person, f):
     p = f['portrait']
     if p.get('stand_in') and p['grade'] != 'reconstructed':
@@ -407,6 +672,7 @@ def record(person, f):
         **({'read_by_eye': sorted((p.get('read_by_eye') or {}).get('values', {}))} if p.get('read_by_eye') else {}),
         **({'held_by_eye': f['held']} if f['held'] else {}),
         'fit': {'rms_px': f['rms_px'], 'per_mark_px': f['per_mark_px'], 'camera': f['camera'],
+                **({'views': f['views']} if f.get('views') else {}),
                 'landmark_vertices': f['landmarks']},
         'not_modelled': p['not_modelled'],
         # What the person's card shows: the source as cited, the two pictures as published

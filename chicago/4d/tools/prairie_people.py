@@ -157,7 +157,6 @@ def looks_for(p, sex, portrait):
             'generated_by': 'tools/prairie_people.py', 'heritage': {'origin': 'not found'},
             'complexion': {'value': skin, 'drawn': skin, 'grade': 'reconstructed'},
             'hair': {'value': hair.replace('_', ' '), 'drawn': hair, 'cut': cut, 'facial': facial,
-                     **({'facial_drawn': portrait['facial_tone']} if stand_in and portrait.get('facial_tone') else {}),
                      'grade': 'inferred' if portrait and not stand_in else 'reconstructed',
                      **({'basis': portrait['hair_tone_basis']} if portrait and portrait.get('hair_tone_basis') else {})},
             'eyes': {'value': eyes, 'drawn': eyes, 'grade': 'reconstructed'},

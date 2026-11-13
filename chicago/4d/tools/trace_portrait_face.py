@@ -2,6 +2,11 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 """A face traced onto its portrait, beyond what the face axes can draw (T-3553).
 
+Withdrawn for the Greys on 2026-11-13 (owner: "her jaw is ragged", "he has no chin and almost no
+nose"): spot moves where one view disagreed with a face fitted from the other left lumps. Their
+side views now go into the fit itself (tools/fit_portrait_face.py, a portrait record's
+`fit_views`), and no trace file is written for them; the tool is kept for a later, smoothed use.
+
     python3 tools/trace_portrait_face.py DETECTIONS.json      add one pass to each person's trace
     python3 tools/trace_portrait_face.py --rebase PERSON      tie the trace to a refit, then run passes
     (tools/trace_portrait_profile.py adds side-view passes to the same trace, through profile_pass)

@@ -62,7 +62,10 @@
   "ear_lobe",
   "jowls",
   "head_shape",
-  "forehead_height"
+  "forehead_height",
+  "nose_depth",
+  "chin_prominence",
+  "prognathism"
  ],
  "marks": [
   {
@@ -2643,14 +2646,12 @@
  "read_by_eye": {
   "ticket": "T-3553",
   "values": {
-   "cheek_volume": 0.3,
-   "jowls": 0.2,
    "jaw": 0.2,
    "nose_width": 0.2,
    "brow_ridge": 0.15,
    "cheekbones": -0.1
   },
-  "basis": "Read by eye from the same picture, on axes the marks cannot measure from one three-quarter view: a broad, fleshy face, full cheeks with no hollow under the cheekbones, a heavy jaw under the beard, a nose broad at its wings, and the eyes set under a heavy brow. These replace the gentleman's body's own lean as the prior on those axes; the marks still move them where they can."
+  "basis": "Read by eye from the same picture, on axes the marks cannot measure from one three-quarter view: a broad face, a heavy jaw under the beard, a nose broad at its wings, and the eyes set under a heavy brow. These replace the gentleman's body's own lean as the prior on those axes; the marks still move them where they can. His cheeks and jowls are fitted with his side view instead (fit_views)."
  },
  "card": {
   "_doc": "What the person's card shows (T-3413, T-3478): `portrait` is cut from the copy at `portrait_from_scan_px` and scaled to `size_px` by tools/cut_portrait.py (a stand-in's label burned on it); `model` is tools/portrait_still.mjs's render of the fitted face on `body`, turned to the fit's yaw, dressed as humans.js dresses the person in town.",
@@ -2683,7 +2684,6 @@
    "brows_full_high_1904"
   ],
   "hair_tone": "ash_brown_grey",
-  "facial_tone": "grizzled_russet",
   "hair_tone_basis": "Re-read from the owner's turnaround sheet of the stand-in (2026-11-13), which is in colour: his hair a mid-to-dark brown with grey through it and a grey streak at the temple, drawn a brown going grey; his beard and moustache a grizzled russet, warmest at the moustache and greyest at the chin; his eyes a light blue-grey. Colours of a stand-in, not a record.",
   "complexion": "ruddy",
   "dress": {
@@ -2719,10 +2719,10 @@
  },
  "prior_widen": 2.0,
  "outline_yaw_deg": 18.2,
- "axes_note": "chin_prominence, prognathism and nose_depth are left out: they move the face toward or away from a camera that looks at it nearly square, so one near-frontal picture does not measure them, and with hundreds of marks the fit drove them to their limits (a receding chin and jutting nose in profile that the picture does not show). They stay at the body's own lean.",
+ "axes_note": "chin_prominence, prognathism and nose_depth move the face toward or away from a camera that looks at it nearly square, so one near-frontal picture does not measure them; they are read here from the side view in `fit_views` (T-3553, 2026-11-13).",
  "trace": {
   "points": "nose",
-  "basis": "Traced onto the portrait beyond the fitted axes (tools/trace_portrait_face.py; owner, 2026-11-13: \"focus on their noses a bit more they seem mis-traced\"): the nose alone, the eyes held, because his beard hides the jaw and mouth from the detector on both pictures. His nose is traced from his side view too, from the brow to under the nose (owner's turnaround sheet, 2026-11-13); the beard hides the rest of his profile.",
+  "basis": "The per-vertex trace (tools/trace_portrait_face.py) is withdrawn (owner, 2026-11-13: \"he looks like a caveman, totally squashed nose and no nose brim\", \"he has no chin and almost no nose\"): spot moves on the nose alone, over a face fitted from the front, could not bring the bridge and the chin with it. His side view (`profile`, the owner's turnaround sheet, from the brow to under the nose; the beard hides the rest) is now fitted together with the portrait (`fit_views`), so the nose's bridge and how far it stands out, and the chin under the beard, come from one smooth face.",
   "profile": {
    "scan": "kevinrhaas/chicago-evidence: evidence/grey-likenesses-2026-11-12/pa1904_grey_w_l/owner_william_grey_head_turnaround_2026-11-13.png (the owner's turnaround sheet as supplied 2026-11-13, 1254 x 1254)",
    "view": "the bottom-left head, his right side (facing the viewer's right), turned about 80 degrees",
@@ -4014,6 +4014,23 @@
     ]
    ],
    "_doc": "Sheet pixels. silhouette_px: the face's line against the sheet's white ground, from the forehead to the neck, every second pixel of its outline; marks_px: MediaPipe Face Landmarker points on the side view (the visible eye's corners and lids, the lips' meeting); tragus_px read by eye, with the skin vertex the render draws there (tragus_kit_vertex) (tools/trace_portrait_profile.py)."
+  }
+ },
+ "fit_views": {
+  "_doc": "T-3553: the axes are fitted to these pictures of the same stand-in at once, each with its own camera (tools/fit_portrait_face.py fit_views): `fronts`, MediaPipe Face Landmarker points (478, sheet pixels) on another front picture; `profile`, the side view of trace.profile (its visible eye's outer corner and lids and the lips' meeting place a side camera turned near render_yaw_deg, its nod free; its silhouette is matched by the face's own outline from that side, from the brow down `to` the neck or, under a beard, to just below the nose; `lips: height` keeps only the lips' height where a moustache hangs in front of them; `camera_sigma_deg` holds the side camera near the turn read by eye, not tipped). `extended_limits` lets an axis pass MakeHuman's +-1 where the side view asks for more.",
+  "profile": {
+   "to": "nose",
+   "lips": "height",
+   "eye_sigma_px": 3.0,
+   "silhouette_sigma_px": 2.0,
+   "camera_sigma_deg": 1.5
+  },
+  "extended_limits": {
+   "nose_depth": 2.0,
+   "nose_length": 2.0,
+   "nose_height": 2.0,
+   "nose_hump": 2.0,
+   "chin_prominence": 2.0
   }
  }
 }
