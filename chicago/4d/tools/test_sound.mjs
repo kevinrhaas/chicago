@@ -308,7 +308,16 @@ const flush = async () => { for(let i=0;i<12;i++) await Promise.resolve(); };
           && p.flora_zone_ids.length && p.active_periods.length && p.source_ids.length
           && p.source_ids.every(id => fs.existsSync(new URL('../data/sources/'+id+'.json', import.meta.url)))));
       }
-      assert(asset.approved_eras.every(y => ['1812','1835'].includes(y)), 'nature does not spill into 1904');
+      // T-3585: 1904 is approved only through its own reconstructed parkway-elm placements.
+      if (asset.approved_eras.includes('1904')) {
+        assert(asset.town_placements?.length > 0 && asset.town_placements.every(p => p.scene_id === '1904'
+          && ['spring','summer','fall','winter'].includes(p.season) && p.confidence === 'reconstructed'
+          && p.habitat === 'parkway_elms' && p.liberty === 'L-1904-nature-sounds-3585'
+          && p.active_periods.length && p.source_ids.length
+          && p.source_ids.every(id => fs.existsSync(new URL('../data/sources/'+id+'.json', import.meta.url)))),
+          `${asset.id}: 1904 nature needs its own town placements`);
+      } else assert(!asset.town_placements, `${asset.id}: town placements without 1904 approval`);
+      assert(asset.approved_eras.every(y => ['1812','1835','1904'].includes(y)), 'nature stays in the three scenes');
     }
   }
   const sound=fs.readFileSync(new URL('../renderers/web/js/sound.js',import.meta.url),'utf8');
