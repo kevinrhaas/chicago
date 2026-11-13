@@ -43788,6 +43788,25 @@ an impression, not measured stone by stone. The lattice and its triangle count a
 **Ticket:** T-3564.
 **Recorded:** 2026-11-12.
 
+### L-glessner-window-courses — Glessner's alley windows set on the granite's bed joints
+
+**Decision:** the owner, 2026-11-13, on his screenshot of the alley (west) wall's south broad
+light: "on the glessner windows when the stone was adjusted it looks like the borders around the
+window need to be realigned, check all the windows". The stable's eight alley lights had heads and
+sills standing part-way into granite courses, so the course stones were notched round each opening
+and a thin projecting sill slab came out in pieces under the rock faces. His photograph 17 of
+2026-11-10 (chicago-evidence evidence/glessner-kevin-photos-2026-11-10/) shows these lights cut
+square into the coursing, head and sill on bed joints, with no sill stone proud of the wall. Each
+head and sill is moved to the nearest bed joint of the house's course string, and the projecting
+sill is not built.
+**What is invented.** The heights were already reconstructed (T-1999, from the owner's elevation
+image, not survey evidence). The moves are 0.15-0.6 ft; the broad lights keep their height, the
+rear lights and the gable slits change by under 0.6 ft. Which joint each head and sill takes is
+this project's choice, the nearest one that keeps the opening's height.
+**How to resolve:** a measured elevation of the alley wall, or a rectified photograph of it.
+**Ticket:** none (the owner's request in the project thread, 2026-11-13).
+**Recorded:** 2026-11-13.
+
 ### L-glessner-photo-match-3564 — Glessner details matched to the owner's photographs of 2026-11-10
 
 **Decision:** the owner's own photographs of 2026-11-10 (chicago-evidence
