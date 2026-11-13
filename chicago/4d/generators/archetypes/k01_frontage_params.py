@@ -5382,12 +5382,16 @@ def _wing_stacks(w: dict, entries, stone: bool) -> tuple:
     slab, built in the wing's own roof solid so its shaft is cut where it leaves the slate;
     it stands inside the wing's wall line, rises from under the covering and stops at its
     own `top_m`, its cap clear of the covering under its plan and at least 0.3 m of shaft
-    showing on its low side (a stack astride an apex shows little on its high one)."""
+    showing on its low side (a stack astride an apex shows little on its high one).
+
+    T-1894: or on a flat wing's tin deck (1823 Dent's rear range, its Chicagology engraving and
+    the 1883 album vignette: a tall stack rising from the range behind the main body's flank).
+    There it stands on the deck, inside the wing's wall line as on a slate, its cap at least
+    0.3 m over the deck and its top no more than 8 m over it."""
     if not entries:
         return ()
     wid, r = w["id"], w["roof"]
-    if r["kind"] == "flat":
-        raise ParamError(f"rear_wings: {wid}'s stacks stand on a hipped or gabled wing's slate")
+    flat = r["kind"] == "flat"
     u0, u1, v0, v1 = w["rect"]
     out = []
     for st_ in entries:
@@ -5408,6 +5412,14 @@ def _wing_stacks(w: dict, entries, stone: bool) -> tuple:
             raise ParamError(f"{where}: its cap stands 0-0.4 m proud and 0.05-0.8 m deep")
         if fab not in ("brick", "stone") or (fab == "stone" and not stone):
             raise ParamError(f"{where}: fabric is 'brick', or 'stone' on a house with a stone front, not {fab!r}")
+        if flat:
+            deck = float(w["deck_m"])
+            if top - cd < deck + 0.3 - 1e-9 or top > deck + 8.0 + 1e-9:
+                raise ParamError(f"{where} tops at {top} m; on the flat deck at {deck} m its cap stands "
+                                 f"0.3 m or more over the deck and its top no more than 8 m over it")
+            out.append({"u_m": u, "v_m": v, "plan_m": (sx, sz), "top_m": top, "base_m": round(deck - 0.05, 4),
+                        "cap_proud_m": cp, "cap_depth_m": cd, "stone": fab == "stone", "on_deck": True})
+            continue
         under = [wing_cover_m(w, u + a * sx / 2, v + b * sz / 2) for a in (-1, 1) for b in (-1, 1)]
         if top - cd < max(under) + 0.05 - 1e-9 or top - cd < min(under) + 0.3 - 1e-9:
             raise ParamError(f"{where} tops at {top} m; its cap does not clear the covering under it "
@@ -6562,14 +6574,17 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                          "outside the contract's starting range only a source can place it")
     # T-2451: an upper storey whose street windows its picture draws off the bays below (1620's
     # window over the door, south of the door's own centre): that storey's own centres, one a
-    # bay, in order. Never the principal storey's, whose middle bay is the door
+    # bay, in order. The principal storey's only with its door's bay among them (T-1894: 1823
+    # Dent's narrow light between the door and the pavilion, its engraving), the door kept there
     fbs = {}
     for key, xs in (val("front_bays_by_storey") or {}).items():
         k = int(key)
         xs = tuple(float(x) for x in xs)
-        if sfo or not 1 <= k < stories:
-            raise ParamError(f"front_bays_by_storey names storey {key}: only an upper storey of a front "
+        if sfo or not 0 <= k < stories:
+            raise ParamError(f"front_bays_by_storey names storey {key}: only a storey of a front "
                              f"that does not name its own openings")
+        if k == 0 and not any(abs(x - door_bay) < 1e-6 for x in xs):
+            raise ParamError(f"front_bays_by_storey[0] keeps the door's bay ({door_bay} m) among its centres")
         if not xs or list(xs) != sorted(xs) or xs[0] < 0.6 or xs[-1] > width - 0.6:
             raise ParamError(f"front_bays_by_storey[{key}] is one centre a bay, south to north, inside the front")
         # T-2499: an upper storey may light its own number of bays — 1808's third storey runs six
@@ -6615,7 +6630,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         if k + 1 == stories and head + 0.30 > eave - drop - 0.25:
             raise ParamError("the top storey's lintels run into the soffit")
         for s in (() if sfo or sfw else fbs.get(k, front_bays)):
-            if k == 0 and s == door_bay:
+            if k == 0 and abs(s - door_bay) < 1e-6:
                 continue
             # T-1871: a principal-storey window behind a porch on columns (1700's and 1706's,
             # Chicagology's photograph) stands under the porch's soffit, square-headed

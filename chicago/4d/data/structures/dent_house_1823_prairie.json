@@ -286,6 +286,13 @@
         },
         "front_bays_by_storey": {
           "value": {
+            "0": [
+              1.6,
+              2.75,
+              3.9,
+              6.2,
+              7.4
+            ],
             "1": [
               1.6,
               2.75,
@@ -298,7 +305,7 @@
           "sources": [
             "chicagology_1823_dent_engraving"
           ],
-          "note": "The chamber storey repeats the triple group and adds a window over the door and the narrow light beside it (x 960-980 px, v 7.7-8.2 m) through the Chicagology engraving's camera as T-3163 re-solved it (data/reference_views/dent_house_1823_prairie/chicagology_engraving.json). The narrow light is laid at the storey's 0.75 m sash at v 7.4 m, clear of the pavilion's junction. The principal storey's narrow light beside the door is not built (K01 lays no window between the door and the pavilion there): open."
+          "note": "The chamber storey repeats the triple group and adds a window over the door and the narrow light beside it (x 960-980 px, v 7.7-8.2 m) through the Chicagology engraving's camera as T-3163 re-solved it (data/reference_views/dent_house_1823_prairie/chicagology_engraving.json). The narrow light is laid at the storey's 0.75 m sash at v 7.4 m, clear of the pavilion's junction. T-1894: the principal storey's narrow light beside the door (x 960-980 px) is laid the same way, at v 7.4 m and the storey's sash, the door's bay kept among the principal storey's centres."
         },
         "sash_by_storey": {
           "value": [
@@ -396,7 +403,7 @@
             "chicagology_1823_dent_engraving",
             "newberry_new_chicago_album_1883_residences"
           ],
-          "note": "The tall stack on the north flank: x 455-520 px, its top at y 20 px through the Chicagology engraving's camera as T-3163 re-solved it (data/reference_views/dent_house_1823_prairie/chicagology_engraving.json), at u 7.8 m and 17.5 m high, standing on the mansard's cornice over the north wall (K01's on-cornice stack, as 1620's), since the deck's cresting leaves no room for a stack across the curb. The second stands at the pavilion's back on the south wall's cornice, where the 1883 vignette draws a stack (its place reconstructed; its top at 17.7 m). The stack at the flank's rear (the engraving's x 170-235 px, the vignette's at the flank's rear corner) stands over the rear range, where K01 stands no stack: open."
+          "note": "The tall stack on the north flank: x 455-520 px, its top at y 20 px through the Chicagology engraving's camera as T-3163 re-solved it (data/reference_views/dent_house_1823_prairie/chicagology_engraving.json), at u 7.8 m and 17.5 m high, standing on the mansard's cornice over the north wall (K01's on-cornice stack, as 1620's), since the deck's cresting leaves no room for a stack across the curb. The second stands at the pavilion's back on the south wall's cornice, where the 1883 vignette draws a stack (its place reconstructed; its top at 17.7 m). The stack at the flank's rear (the engraving's x 170-235 px, the vignette's at the flank's rear corner) stands on the rear range's deck (rear_wings, T-1894)."
         },
         "entrance_kit": {
           "value": {
@@ -759,7 +766,18 @@
                 "overhang_m": 0.15,
                 "fascia_m": 0.3,
                 "covering": "painted_tin_sheet"
-              }
+              },
+              "stacks": [
+                {
+                  "u_m": -4.8,
+                  "v_m": 0.7,
+                  "plan_m": [
+                    0.9,
+                    0.75
+                  ],
+                  "top_m": 16.6
+                }
+              ]
             }
           ],
           "confidence": "inferred",
@@ -768,7 +786,7 @@
             "chicagology_1823_dent_engraving",
             "newberry_new_chicago_album_1883_residences"
           ],
-          "note": "The 1911 sheet's rear range ('rear2B'): its trace narrows the house on the south side behind lot u 20.8 (to lot v 4.4) and runs the north wall on unbroken to the rear at u 14.1, 6.7 m deep and 12.1 m wide, two storeys at the main body's floor heights under a flat tin roof. The engraving's north flank shows one window column over it (x 225-250 px, 1.15 m behind the main body; T-3163, which read the wall from x 140 to 225 px blank on every storey where T-3162 had laid three) and its cornice dropping a little where it begins; the 1883 vignette draws the mansard stopping short of the flank's rear over it. Its windows' places on the south flank and the rear are reconstruction."
+          "note": "The 1911 sheet's rear range ('rear2B'): its trace narrows the house on the south side behind lot u 20.8 (to lot v 4.4) and runs the north wall on unbroken to the rear at u 14.1, 6.7 m deep and 12.1 m wide, two storeys at the main body's floor heights under a flat tin roof. The engraving's north flank shows one window column over it (x 225-250 px, 1.15 m behind the main body; T-3163, which read the wall from x 140 to 225 px blank on every storey where T-3162 had laid three) and its cornice dropping a little where it begins; the 1883 vignette draws the mansard stopping short of the flank's rear over it. Its windows' places on the south flank and the rear are reconstruction. T-1894: the tall stack the engraving draws at the flank's rear (x 170-235 px, its top at y 188 px, a band about two-thirds up and a corbelled cap) and the vignette at the flank's rear corner stands on the range's deck, read through the engraving's camera at u -4.8 m, 0.3 m inside the north wall, 0.9 x 0.75 m in plan (the main stack's, which the same camera puts within 10 px of its own reading) and 16.6 m high; its band and corbelling are not modelled."
         },
         "boundary": {
           "value": {
