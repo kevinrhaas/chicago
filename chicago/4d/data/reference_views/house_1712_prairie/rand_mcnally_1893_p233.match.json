@@ -2,11 +2,11 @@
   "structure_id": "house_1712_prairie",
   "view": "rand_mcnally_1893_p233",
   "glb": "assets/gltf/house_1712_prairie__as_mapped_1904.glb",
-  "glb_sha256": "eaae56613af4dd006ace54d5538791986431a937e6f278dd09b506db1f6fe2fe",
+  "glb_sha256": "4f054e1d6c8ea37ac30b6755c7dcb33c353f76e0a9b0d4980e68b846be949c9a",
   "camera_sha256": "35513a2b03f8744d461a9a973498d0ccf76b166169561625397bbd92dc3beabe",
   "photo_sha256": "adf8c46b8b3fc3d5515f955a66591245d6b8fff568335a0c5842df367be7c5c4",
   "side_by_side": "docs/RESEARCH/photo-match/house_1712_prairie/rand_mcnally_1893_p233-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "massing: a flat three-bay front of two storeys over a high basement, its south face showing past its south corner",
@@ -59,9 +59,14 @@
       "how": "T-1872: was two stacks in the north wall; the front one is removed, and the rear one draws at x 1925-1937 px against the drawing's 1927-1945"
     },
     {
-      "what": "the hip's height: the drawing draws the roof's top about 1.8 m over the cornice's crown (y 368 against 400 px), the render about 3.8 m (y 332); the stack's top follows it, about 1.8 m higher than drawn (y 310 against 342 px)",
-      "status": "open",
-      "how": "T-1872: the hip is at 25 degrees, the K01 contract's lowest for an ordinary roof; the drawing's roof reads as about 20 degrees, which the contract refuses (k01_contract.json roof pitch_deg ranges.ordinary [25, 45]). Closing it needs that range widened for a low Italianate hip, a decision for the component standard"
+      "what": "the hip's pitch: the drawing draws the roof's top about 1.8 m over the cornice's crown (y 368 against 400 px), the render at 25 degrees about 3.8 m (y 332)",
+      "status": "fixed",
+      "how": "T-1872: the hip lowered from 25 to 18 degrees, inferred from the drawing (house_1712_prairie.json roof_pitch_deg): its apex stands 5.3 m behind the front, so however the strip draws depth it draws at least the hip's rise, and 1.8 m over a 10.65 m front is about 18.5 degrees at most. The hip now rises 1.73 m (31 px at 17.92 px/m) against the drawing's 1.8 m (32 px). K01 lets a pitch a source reads stand below its 25-degree ordinary floor, as it already let one stand above it (T-2542, T-3280)"
+    },
+    {
+      "what": "where the roof's apex and the stack's top draw: y 345 and 323 px in the render on this camera, against the drawing's 368 and 342",
+      "status": "within tolerance",
+      "how": "a gap two camera fits disagree about (README § The match record): it is recession, not height. This camera recedes depth at T-1877's walk-and-stoop rates (0.30 m left, 0.22 m up a metre), and the apex is 5.3 m back, so it draws 21 px over its rise. Refitted to how the strip draws this house's own depth (the rates x 0.25, eye [312.24, -17.175, 21.3], principal point [1643.4, 210.3], rendered by T-1872 and not committed), the apex draws at y 366 against 368 and the south face all but hides behind the corner as drawn, but the stoop then draws face-on where the strip runs it down and right, and the stack's top at y 349 against 342, about 2 m north of the drawn stack at x 1960-1969 against 1927-1945. The strip draws its stoops and walks with recession and this roof with almost none; no one camera holds both, and on each the roof's own rise is the drawing's"
     },
     {
       "what": "the bracketed cornice's projection and the frieze's depth",
