@@ -73708,6 +73708,36 @@
       ]
     },
     {
+      "id": "L-jaunt-voices-3578",
+      "title": "The jaunt scripts read aloud in synthetic voices",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-13",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-13: *\"I have some voices in eleven labs and I want to begin using those and having them read/play the narration or scripts like the meet the Glessner household\"*. A jaunt's opening, each of its stops and its endings can be heard as well as read: the narrate jaunts tool sends the exact words the panel shows to ElevenLabs text to speech in a voice the owner chose for each speaker (the voices data: a narrator, and each stop's first host by person id), and the walkthrough's narration code plays the clip whose key is those words' SHA-256. The voices are synthetic and chosen by ear; none is a recording of the person or claims to be their voice, accent or manner of speech, and the words are the jaunt's own (already declared written for the walk where the jaunt says so)."
+        },
+        {
+          "label": "Not invented",
+          "text": "the words, which are the jaunt's text unchanged, with their own sources and liberties."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "a recording or a contemporary description of how one of the speakers sounded, which would bound their voice."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-13."
+        }
+      ],
+      "work_refs": [
+        "T-3578"
+      ]
+    },
+    {
       "id": "L-kinzie-house-1812-2497",
       "title": "The Kinzie house in 1812: its size, its set-back, its piazza's measure, the green's corners and where its trees stand",
       "section": "resolved",

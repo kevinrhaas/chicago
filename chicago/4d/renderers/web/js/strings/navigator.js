@@ -20,6 +20,8 @@ export default register('nav', {
   'mute.music': 'Mute music',
   'mute.all.off': 'All sound muted: tap to turn it on',
   'mute.music.off': 'Music muted: tap to turn it on',
+  'mute.narration': 'Mute narration',
+  'mute.narration.off': 'Narration muted: tap to turn it on',
   'open.short': 'Open',
   'where.k': 'You are at',
   'where.looking': 'Looking for the street…',

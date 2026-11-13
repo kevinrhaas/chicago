@@ -6,16 +6,17 @@
  *
  *   all    soundMaster  every sound; lit while the master level is 0
  *   music  soundMusic   the period music only; lit while the music level is 0
+ *   narration soundNarration  the jaunt voices (T-3578); lit while the narration level is 0
  *
  * Pure: no DOM, no storage. js/main.js reads the levels, applies the change and paints.
  */
 import { SOUND_DEFAULTS, normalVolume } from './settings-app.js';
 
-export const MUTE_KEYS = Object.freeze({ all: 'soundMaster', music: 'soundMusic' });
+export const MUTE_KEYS = Object.freeze({ all: 'soundMaster', music: 'soundMusic', narration: 'soundNarration' });
 /** Where each level's last audible value is kept, to put back on unmute. */
-const LAST = Object.freeze({ soundMaster: 'soundLastMaster', soundMusic: 'soundLastMusic' });
+const LAST = Object.freeze({ soundMaster: 'soundLastMaster', soundMusic: 'soundLastMusic', soundNarration: 'soundLastNarration' });
 /** The level an unmute restores when nothing audible was ever kept. */
-const RESTORE = Object.freeze({ soundMaster: 0.8, soundMusic: SOUND_DEFAULTS.soundMusic });
+const RESTORE = Object.freeze({ soundMaster: 0.8, soundMusic: SOUND_DEFAULTS.soundMusic, soundNarration: SOUND_DEFAULTS.soundNarration });
 
 /** True while `key` is silent in `levels`. */
 export function isMuted(levels, key) {

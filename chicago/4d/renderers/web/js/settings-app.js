@@ -41,8 +41,9 @@ export function normalTextScale(value) {
  * move. Sound is OFF by default (T-2941; the owner, 2026-10-20: "the sound is a bit much, can
  * you default that to off for now"), reversing the 2026-10-16 ruling: Master starts at 0, and
  * Effects and Ambience stay up, so moving Master alone turns every sound on. */
-export const SOUND_KEYS = Object.freeze(['soundMaster', 'soundEffects', 'soundAmbience', 'soundMusic']);
-export const SOUND_DEFAULTS = Object.freeze({ soundMaster: 0, soundEffects: 1, soundAmbience: 1, soundMusic: 0.4 });
+// T-3578: Narration (jaunt voices) joins them; at 1, like Effects and Ambience, it plays once Master is up.
+export const SOUND_KEYS = Object.freeze(['soundMaster', 'soundEffects', 'soundAmbience', 'soundMusic', 'soundNarration']);
+export const SOUND_DEFAULTS = Object.freeze({ soundMaster: 0, soundEffects: 1, soundAmbience: 1, soundMusic: 0.4, soundNarration: 1 });
 /** The level every key had while sound was on by default (2026-10-16 to T-2941). */
 const SOUND_WAS_DEFAULT = 1;
 
@@ -52,12 +53,12 @@ const SOUND_WAS_DEFAULT = 1;
  * defaults stored beside their real choices, and those 1s are not a choice to keep. A stored
  * level is the visitor's own when `soundChosen` is set (a slider was moved since T-2941), or
  * when any level differs from the old default (it can only have got there by a slider).
- * Otherwise every level is the default, which is silence. Returns the four levels and
+ * Otherwise every level is the default, which is silence. Returns the five levels and
  * `soundChosen`; never touches storage.
  */
 export function soundLevelsFrom(saved) {
   const s = saved && typeof saved === 'object' ? saved : {};
-  const moved = SOUND_KEYS.filter(k => k !== 'soundMusic').some((k) => s[k] != null && normalVolume(s[k], SOUND_WAS_DEFAULT) !== SOUND_WAS_DEFAULT);
+  const moved = SOUND_KEYS.filter(k => k !== 'soundMusic' && k !== 'soundNarration').some((k) => s[k] != null && normalVolume(s[k], SOUND_WAS_DEFAULT) !== SOUND_WAS_DEFAULT);
   const chosen = s.soundChosen === true || moved;
   const out = { soundChosen: chosen };
   for (const k of SOUND_KEYS) out[k] = chosen ? normalVolume(s[k], SOUND_DEFAULTS[k]) : SOUND_DEFAULTS[k];
@@ -321,7 +322,7 @@ export function wireSettingsApp({
   for (const id of ['s-detail', 's-quality', 's-governor']) $(id)?.addEventListener('change', () => paintAuto());
   paintAuto();
 
-  // ---- Sound: four levels; main.js hands each move to js/sound.js (T-2659).
+  // ---- Sound: five levels; main.js hands each move to js/sound.js (T-2659).
   for (const key of SOUND_KEYS) {
     settings[key] = normalVolume(settings[key], SOUND_DEFAULTS[key]);
     const slug = key.replace(/^sound/, '').toLowerCase();
