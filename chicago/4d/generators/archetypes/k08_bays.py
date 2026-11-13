@@ -1242,6 +1242,38 @@ def tympanum(o, ty: dict, x0: float, x1: float, y0: float, cx: float, tier: str)
     return laid
 
 
+def crest(o, cr: dict, c: float, y0: float, width: float) -> float:
+    """T-1886: K09's carved crest (`k09_frontage._crest`, T-3270) standing on a bay light's
+    lintel, as the front's own stands on its cornice hoods (1816's canted bays in Chicagology's
+    photograph): a palmette at its middle between two scroll volutes on low sweeps, `width`
+    across (the spec's or the lintel's top, the narrower, decided by the caller), `height_m`
+    high and `proud_m` out of the face, its foot at `y0` on the lintel's top and its back a
+    little into the wall. The same shapes and proportions as the front's, so a bay's crest and
+    the front's read as one carver's. Drawn into the strip `o` (s along the face, y up, d
+    negative out of it). Returns the crest's top."""
+    h, d = cr["height_m"], cr["proud_m"]
+    W = width
+    pw = W / 6                                   # the palmette's half width
+    r = min(h * 0.4, W / 8)                      # each volute's radius
+    yb = y0 - 0.002                              # bedded into the lintel, never on its top
+    # each piece's back a little deeper in the wall than the last, its foot a little lower in
+    # the lintel, and each sweep's inner end inside the palmette, so no two pieces share a plane
+    prism(o, "carving", [(c - pw, yb), (c + pw, yb), (c + pw, y0 + 0.6 * h), (c, y0 + h),
+                         (c - pw, y0 + 0.6 * h)], -d, 0.004)
+    for sg in (-1, 1):
+        vc = c + sg * (W / 2 - r)
+        sweep = [(c + sg * pw * 0.7, yb - 0.002), (vc, yb - 0.002), (vc, y0 + 1.2 * r),
+                 (c + sg * pw * 0.7, y0 + 0.45 * h)]
+        prism(o, "carving", sweep if sg > 0 else sweep[::-1], -0.7 * d, 0.006)
+        ring = [(vc + r * math.cos(2 * math.pi * k / 8), y0 + r + r * math.sin(2 * math.pi * k / 8))
+                for k in range(8)]
+        prism(o, "carving", ring, -0.85 * d, 0.008)
+        eye = [(vc + r * 0.45 * math.cos(2 * math.pi * k / 8), y0 + r + r * 0.45 * math.sin(2 * math.pi * k / 8))
+               for k in range(8)]
+        prism(o, "carving", eye, -d, -0.85 * d + 0.002)
+    return y0 + h
+
+
 # -- a window: a K06 opening, its recess cut to the bay ------------------------------------------
 
 class _Cut:
@@ -1513,6 +1545,19 @@ class Bay:
                         tm["leaves"] += laid
                         if v.get("masonry"):
                             trim_holes.append((hx0 - .002, hx1 + .002, hy - .002, crown + .002, (), True))
+                    if w.get("crest"):
+                        # T-1886: K09's carved crest on the lintel's top, as the front's hoods carry it
+                        hp = o.prims["head"].pos
+                        hx0, hx1, hy = min(q[0] for q in hp), max(q[0] for q in hp), max(q[1] for q in hp)
+                        wd = min(w["crest"]["width_m"], hx1 - hx0)
+                        cx = (hx0 + hx1) / 2
+                        top = crest(flat, w["crest"], cx, hy, wd)
+                        if top > hi - (band["height_m"] / 2 if k + 1 < len(v["storeys"]) else 0.0) - 0.02:
+                            raise ValueError(f"{v['id']}: a crest at s = {s:.3f} rises to {top:.3f} m, "
+                                             f"into the band at {hi:.3f}")
+                        self.meta["crests"] = self.meta.get("crests", 0) + 1
+                        if v.get("masonry"):
+                            trim_holes.append((cx - wd / 2 - .002, cx + wd / 2 + .002, hy - .002, top + .002, (), True))
                     if v.get("masonry"):
                         for role in ("sill", "head"):
                             pts = o.prims[role].pos

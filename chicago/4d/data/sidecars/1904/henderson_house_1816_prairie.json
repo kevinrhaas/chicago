@@ -166,7 +166,7 @@
       "sources": [
         "chicagology_1816_henderson_photo"
       ],
-      "note": "Every street window under a stone hood on both storeys, as the photograph draws them: K09's cornice-hood lintel. T-1886: the south flank's window (side_bays 6.4) wears the same hood on both storeys (`lights`), where the brick wall had arched it in brick: the photograph draws it with the front's hood, its consoles and its crest (x 350-385 px); and every such hood carries a carved crest (`crest`, K09's T-3270 palmette between two volutes), the print's raised scrolled cresting over each hood, about 1.0 m wide and 0.35 m high through the solved camera. The crest's carving is the kit's (the print resolves only a raised scrolled block); the canted bays' K08 windows keep the bays' own hoods, uncrested."
+      "note": "Every street window under a stone hood on both storeys, as the photograph draws them: K09's cornice-hood lintel. T-1886: the south flank's window (side_bays 6.4) wears the same hood on both storeys (`lights`), where the brick wall had arched it in brick: the photograph draws it with the front's hood, its consoles and its crest (x 350-385 px); and every such hood carries a carved crest (`crest`, K09's T-3270 palmette between two volutes), the print's raised scrolled cresting over each hood, about 1.0 m wide and 0.35 m high through the solved camera. The crest's carving is the kit's (the print resolves only a raised scrolled block); the canted bays' K08 windows keep the bays' own lintels, crested with the same carving (bays[].storeys[].windows[].crest)."
     },
     "wall_head": {
       "value": {
@@ -517,7 +517,12 @@
                     0.826
                   ],
                   "recess_m": 0.4,
-                  "why_not_ordinary": "the photograph's tall principal-storey sash in the bays' faces, about 3.15 m high on the 4.8 m storey through its camera (the canted bay's south face at x 615-675 px, sill y 855 and head y 685 at 53.6 px/m)"
+                  "why_not_ordinary": "the photograph's tall principal-storey sash in the bays' faces, about 3.15 m high on the 4.8 m storey through its camera (the canted bay's south face at x 615-675 px, sill y 855 and head y 685 at 53.6 px/m)",
+                  "crest": {
+                    "width_m": 1.0,
+                    "height_m": 0.35,
+                    "proud_m": 0.1
+                  }
                 },
                 {
                   "opening": "k06.opening.sash_2over2_flat",
@@ -527,7 +532,12 @@
                     0.5
                   ],
                   "clear_height_m": 3.15,
-                  "why_not_ordinary": "the photograph's tall principal-storey sash in the bays' faces, about 3.15 m high on the 4.8 m storey through its camera (the canted bay's south face at x 615-675 px, sill y 855 and head y 685 at 53.6 px/m)"
+                  "why_not_ordinary": "the photograph's tall principal-storey sash in the bays' faces, about 3.15 m high on the 4.8 m storey through its camera (the canted bay's south face at x 615-675 px, sill y 855 and head y 685 at 53.6 px/m)",
+                  "crest": {
+                    "width_m": 1.0,
+                    "height_m": 0.35,
+                    "proud_m": 0.1
+                  }
                 }
               ]
             },
@@ -544,7 +554,12 @@
                     0.826
                   ],
                   "recess_m": 0.4,
-                  "why_not_ordinary": "the photograph's upper sash in the bays' faces, about 3.0 m high on the 5.3 m second storey through its camera (sill y 590 and head y 430 at 53.6 px/m)"
+                  "why_not_ordinary": "the photograph's upper sash in the bays' faces, about 3.0 m high on the 5.3 m second storey through its camera (sill y 590 and head y 430 at 53.6 px/m)",
+                  "crest": {
+                    "width_m": 1.0,
+                    "height_m": 0.35,
+                    "proud_m": 0.1
+                  }
                 },
                 {
                   "opening": "k06.opening.sash_2over2_flat",
@@ -554,7 +569,12 @@
                     0.5
                   ],
                   "clear_height_m": 3.0,
-                  "why_not_ordinary": "the photograph's upper sash in the bays' faces, about 3.0 m high on the 5.3 m second storey through its camera (sill y 590 and head y 430 at 53.6 px/m)"
+                  "why_not_ordinary": "the photograph's upper sash in the bays' faces, about 3.0 m high on the 5.3 m second storey through its camera (sill y 590 and head y 430 at 53.6 px/m)",
+                  "crest": {
+                    "width_m": 1.0,
+                    "height_m": 0.35,
+                    "proud_m": 0.1
+                  }
                 }
               ]
             }
@@ -672,7 +692,12 @@
                     0.869
                   ],
                   "recess_m": 0.4,
-                  "why_not_ordinary": "the photograph's tall principal-storey sash in the bays' faces, about 3.15 m high on the 4.8 m storey through its camera (the canted bay's south face at x 615-675 px, sill y 855 and head y 685 at 53.6 px/m)"
+                  "why_not_ordinary": "the photograph's tall principal-storey sash in the bays' faces, about 3.15 m high on the 4.8 m storey through its camera (the canted bay's south face at x 615-675 px, sill y 855 and head y 685 at 53.6 px/m)",
+                  "crest": {
+                    "width_m": 1.0,
+                    "height_m": 0.35,
+                    "proud_m": 0.1
+                  }
                 },
                 {
                   "opening": "k06.opening.sash_2over2_flat",
@@ -682,7 +707,12 @@
                     0.5
                   ],
                   "clear_height_m": 3.15,
-                  "why_not_ordinary": "the photograph's tall principal-storey sash in the bays' faces, about 3.15 m high on the 4.8 m storey through its camera (the canted bay's south face at x 615-675 px, sill y 855 and head y 685 at 53.6 px/m)"
+                  "why_not_ordinary": "the photograph's tall principal-storey sash in the bays' faces, about 3.15 m high on the 4.8 m storey through its camera (the canted bay's south face at x 615-675 px, sill y 855 and head y 685 at 53.6 px/m)",
+                  "crest": {
+                    "width_m": 1.0,
+                    "height_m": 0.35,
+                    "proud_m": 0.1
+                  }
                 }
               ]
             },
@@ -699,7 +729,12 @@
                     0.869
                   ],
                   "recess_m": 0.4,
-                  "why_not_ordinary": "the photograph's upper sash in the bays' faces, about 3.0 m high on the 5.3 m second storey through its camera (sill y 590 and head y 430 at 53.6 px/m)"
+                  "why_not_ordinary": "the photograph's upper sash in the bays' faces, about 3.0 m high on the 5.3 m second storey through its camera (sill y 590 and head y 430 at 53.6 px/m)",
+                  "crest": {
+                    "width_m": 1.0,
+                    "height_m": 0.35,
+                    "proud_m": 0.1
+                  }
                 },
                 {
                   "opening": "k06.opening.sash_2over2_flat",
@@ -709,7 +744,12 @@
                     0.5
                   ],
                   "clear_height_m": 3.0,
-                  "why_not_ordinary": "the photograph's upper sash in the bays' faces, about 3.0 m high on the 5.3 m second storey through its camera (sill y 590 and head y 430 at 53.6 px/m)"
+                  "why_not_ordinary": "the photograph's upper sash in the bays' faces, about 3.0 m high on the 5.3 m second storey through its camera (sill y 590 and head y 430 at 53.6 px/m)",
+                  "crest": {
+                    "width_m": 1.0,
+                    "height_m": 0.35,
+                    "proud_m": 0.1
+                  }
                 }
               ]
             }
@@ -755,7 +795,7 @@
         "sanborn_1911_chicago_v3_sheet_28",
         "chicagology_1816_henderson_photo"
       ],
-      "note": "Two canted bays, each on the 1911 sheet's plan (s28fp-1816-b1 p2) and in the photograph: the street front's at its south corner, 6.87 m at the wall and 1.65 m out with 2.4 m of front, and the south flank's near its rear, 4.85 m at the wall and 1.0 m out with 2.68 m of front, each two storeys over the basement with a window in each face. T-2964: in the photograph both are carried up past the cornice, the bracketed cornice run round each, into a mansard of their own: the front's a raised crown whose deck stands over the main curb, the flank's lower; each under its own iron cresting. K08's mansard bay roof (roof.mansard) builds them: 4.4 m of lower face on the front's and 4.0 m on the flank's at 76 degrees, then a deck at a tenth. The rises are read through the photograph's camera as fractions of the wall under them (the front's crown about a third of the corner's height from grade to cornice, the flank's about two-fifths), so the crown's deck stands 0.4 m over the main curb, and are good to about half a metre; the pitch is the main mansard's near enough. The dormers in the bays' own faces are not built (the match record). T-1886: both bays stand on the house's stone basement, as the photograph shows them (the pale ashlar run round their faces to the water table at 2.0 m, a barred light under each window it sees): laid in the front's stone with brick over a 2.0 m basement storey (fabric front_stone, brick_above_m 2.0, T-2914), their principal-storey sash unmoved (sills 0.6 m over the floor). Both crowns' lower faces in the main mansard's slate (roof.slated_as_house), as the print draws all three alike, and one pedimented dormer on each crown's front face (mansard_dormers): the front crown's on its street face, the flank crown's on its south face, where the print shows them (x 600-690 and 175-240 px). The flank crown's second dormer, in its south-east canted face, is not built: K08 lays a bay's dormers on its front face only (open on the match record; L-k01-1816-henderson-1886)."
+      "note": "Two canted bays, each on the 1911 sheet's plan (s28fp-1816-b1 p2) and in the photograph: the street front's at its south corner, 6.87 m at the wall and 1.65 m out with 2.4 m of front, and the south flank's near its rear, 4.85 m at the wall and 1.0 m out with 2.68 m of front, each two storeys over the basement with a window in each face. T-2964: in the photograph both are carried up past the cornice, the bracketed cornice run round each, into a mansard of their own: the front's a raised crown whose deck stands over the main curb, the flank's lower; each under its own iron cresting. K08's mansard bay roof (roof.mansard) builds them: 4.4 m of lower face on the front's and 4.0 m on the flank's at 76 degrees, then a deck at a tenth. The rises are read through the photograph's camera as fractions of the wall under them (the front's crown about a third of the corner's height from grade to cornice, the flank's about two-fifths), so the crown's deck stands 0.4 m over the main curb, and are good to about half a metre; the pitch is the main mansard's near enough. The dormers in the bays' own faces are not built (the match record). T-1886: both bays stand on the house's stone basement, as the photograph shows them (the pale ashlar run round their faces to the water table at 2.0 m, a barred light under each window it sees): laid in the front's stone with brick over a 2.0 m basement storey (fabric front_stone, brick_above_m 2.0, T-2914), their principal-storey sash unmoved (sills 0.6 m over the floor). Both crowns' lower faces in the main mansard's slate (roof.slated_as_house), as the print draws all three alike, and one pedimented dormer on each crown's front face (mansard_dormers): the front crown's on its street face, the flank crown's on its south face, where the print shows them (x 600-690 and 175-240 px). T-1886 (2026-11-12): every light of both bays' two storeys over the basement carries K09's carved crest on its lintel (crest, the front hoods' own: 1.0 m wide or the lintel's top, 0.35 m high, 0.1 m proud), as the photograph draws the bays' hoods crested as the front's are (x 140-215 and 490-560 px); the carving is the kit's, the print resolving only a raised scrolled block. The flank crown's second dormer, in its south-east canted face, is not built: K08 lays a bay's dormers on its front face only (open on the match record; L-k01-1816-henderson-1886)."
     },
     "mansard": {
       "value": {

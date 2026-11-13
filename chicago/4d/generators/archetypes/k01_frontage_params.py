@@ -3196,6 +3196,31 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                 ty = w.get("tympanum")
                 if ty is not None:
                     w["tympanum"] = tympanum_spec(ty, f"bays: {e['id']}'s tympanum", float(su["head_proud_m"]))
+        # T-1886: K09's carved crest standing on a bay light's lintel (1816's canted bays, whose
+        # hoods Chicagology's photograph draws crested as the front's are): the front's crest
+        # (`street_front_trim.crest`, T-3270) in the same ranges, on a flat-headed stone light
+        # whose lintel is its own (no voussoirs, tympanum or plinth for a head), inside its storey
+        for st in v["storeys"]:
+            for w in st["windows"]:
+                cr = w.get("crest")
+                if cr is None:
+                    continue
+                k06 = json.loads(WINDOW_KIT.read_text())
+                v6 = next((x for x in k06["variants"] if x["id"] == w["opening"]), {})
+                keys = {"width_m", "height_m", "proud_m"}
+                if not isinstance(cr, dict) or set(cr) != keys or v6.get("head", "flat") != "flat" \
+                        or any(k in w for k in ("voussoirs", "tympanum", "in_plinth", "door")) \
+                        or e.get("fabric", "stone") == "frame" \
+                        or not 0.4 <= float(cr["width_m"]) <= 2.0 or not 0.15 <= float(cr["height_m"]) <= 0.6 \
+                        or not 0.04 <= float(cr["proud_m"]) <= 0.2:
+                    raise ParamError(f"bays: {e['id']}'s crest takes width_m (0.4-2.0 m), height_m (0.15-0.6 m) "
+                                     f"and proud_m (0.04-0.2 m), on a flat-headed stone light's own lintel, not {cr}")
+                lintel = float((w.get("surround") or {}).get("head_m", k06["parts"]["head_band"]["width_m"]))
+                head = float(w["sill_m"]) + float(w.get("clear_height_m", v6.get("clear_height_m", 0.0)))
+                if head + lintel + float(cr["height_m"]) > float(st["height_m"]) - 0.05:
+                    raise ParamError(f"bays: {e['id']}'s crest rises to {head + lintel + float(cr['height_m']):.2f} m, "
+                                     f"past its {st['height_m']} m storey")
+                w["crest"] = {k: float(cr[k]) for k in sorted(keys)}
         # T-1881: a round-headed bay light framed by a moulded architrave, as K01 frames the
         # front's own (`street_front_windows.windows[k].architrave`): 1729's forward block's
         # light over the portico, which the 1890 Albertype plate draws under the same moulded

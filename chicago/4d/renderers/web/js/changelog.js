@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2925, ts: '2026-11-13T11:49:01.185Z', date: 'Nov 13, 2026, 5:49 AM CT', title: '1816 Prairie\'s bay windows crowned with carved crests', kind: 'improvement',
+    items: [
+      'The windows in both of 1816 Prairie\'s canted bays now carry the same carved, scrolled crest as the front\'s hoods, as the old photograph of the house shows them.',
+      'Still to come on this house: a second dormer in the side crown, the balcony\'s tall iron railing with a door onto it, and a reading of the 1874 engraving.',
+    ] },
   { v: 2924, ts: '2026-11-13T10:54:31.503Z', date: 'Nov 13, 2026, 4:54 AM CT', title: 'The Greys\' faces refitted to their portraits and side views', kind: 'improvement',
     items: [
       'William\'s moustache now falls only to the line of his mouth, so his lower lip shows, with a little bare skin under it before the beard begins; his beard\'s line runs up each cheek from the moustache\'s ends to the sideburns, as in his picture.',
