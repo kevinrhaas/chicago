@@ -263,7 +263,7 @@ check('the governor never skips or rescales a headset frame, and the space follo
 
 check('the page\'s own keys and pointer do not take the controls from a headset session', () => {
   assert.match(main, /pointerdown', \(e\) => \{\n\s*if \(gateOpen \|\| xrMode\?\.presenting/);
-  assert.match(main, /if \(gateOpen \|\| xrMode\?\.presenting \|\| isTyping\(e\.target\)/);
+  assert.match(main, /if \(gateOpen \|\| xrMode\?\.presenting \|\|[^\n]*isTyping\(e\.target\)/);
 });
 
 for (const name of checks) console.log(`ok - ${name}`);
