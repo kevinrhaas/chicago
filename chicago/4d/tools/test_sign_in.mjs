@@ -26,6 +26,7 @@ assert.equal(gateMode({ config: on, hostname: 'chicago.polecat.live', search: '?
 // The shipped config may be on or off, but on means complete.
 if (SIGN_IN.enabled) assert.ok(configured(SIGN_IN.firebase), 'sign-in-config.js is enabled without all four Firebase values');
 assert.ok(Array.isArray(SIGN_IN.hosts) && SIGN_IN.hosts.length, 'sign-in-config.js names its hosts');
+if (SIGN_IN.enabled) assert.ok(SIGN_IN.hosts.includes('dev.chicago.polecat.live'), 'the dev preview is gated too, so the gate can be tried there before a promote');
 
 // T-3580: the ways in, Google always first, and the grey link names the big buttons.
 assert.deepEqual(offered({ providers: ['email', 'password', 'microsoft', 'google'] }), ['google', 'microsoft', 'password', 'email']);

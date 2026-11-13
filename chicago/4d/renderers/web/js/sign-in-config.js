@@ -11,12 +11,14 @@
  * Firestore security rules in docs/SIGN-IN.md, which only the owner's Google account
  * can read through.
  *
- * `hosts` is where the gate runs. Anywhere else (a local serve, the smoke, a tool's
- * Playwright page) it stays off, so the gate never blocks a test or a film.
+ * `hosts` is where the gate runs: the site and its dev preview (served from
+ * dev.chicago.polecat.live since 2026-11-13). Anywhere else (a local serve, the smoke, a
+ * tool's Playwright page) it stays off, so the gate never blocks a test or a film. Each
+ * host must also be on Firebase's Authentication → Settings → Authorized domains.
  */
 export const SIGN_IN = {
   enabled: true,
-  hosts: ['chicago.polecat.live'],
+  hosts: ['chicago.polecat.live', 'dev.chicago.polecat.live'],
   // The ways in, each switched on in the Firebase console too (Authentication → Sign-in
   // method): 'google' and 'microsoft' are the big buttons; 'password' (email and password)
   // and 'email' (the email alone, Firebase's Anonymous provider) wait behind the grey link.
