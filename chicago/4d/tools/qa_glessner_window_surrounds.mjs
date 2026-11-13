@@ -12,7 +12,7 @@ const site=path.resolve(root,process.env.QA_SITE||'../../site/4d'),out=process.e
 const types={'.html':'text/html','.js':'text/javascript','.mjs':'text/javascript','.css':'text/css','.json':'application/json','.png':'image/png','.jpg':'image/jpeg','.glb':'model/gltf-binary','.svg':'image/svg+xml','.wasm':'application/wasm','.ktx2':'image/ktx2'};
 const server=http.createServer((req,res)=>{let p=path.join(site,decodeURIComponent(req.url.split('?')[0]));try{if(fs.statSync(p).isDirectory())p=path.join(p,'index.html');res.writeHead(200,{'Content-Type':types[path.extname(p)]||'application/octet-stream'});fs.createReadStream(p).pipe(res)}catch{res.writeHead(404);res.end('missing')}});
 await new Promise(r=>server.listen(0,'127.0.0.1',r));
-const browser=await chromium.launch({args:['--no-sandbox','--enable-unsafe-swiftshader']});
+const browser=await chromium.launch({executablePath:process.env.PW_EXECUTABLE||undefined,args:['--no-sandbox','--enable-unsafe-swiftshader']});
 const CAMERAS=[
  // the alley (west) stable wall: the owner's stand under the south broad light, and square on
  ['alley-broad-light-from-below',[-3.2,12.6,1.6],[0,15.3,3.6]],
