@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 2913, ts: '2026-11-13T03:42:00.893Z', date: 'Nov 12, 2026, 9:42 PM CT', title: 'Walk the town in a VR headset', kind: 'feature',
+    items: [
+      'A headset\'s browser, or a WebXR emulator on a computer, shows a VR key beside the fly key; press it to stand in the town in stereo and look round by turning your head.',
+      'The left stick walks where you look, through the same doors, decks and street edges as on foot; its click or the left grip runs.',
+      'The right stick turns in steps and, while flying, rises and descends; A or X takes off and lands.',
+      'No controller, as in Google Cardboard on Android: the headset\'s button starts walking where you look and stops it again. iPhones offer no WebXR, so the key does not appear there.',
+      'A Quest or Pico boots on the phone\'s settings with its people, horses and carriages kept, and draws the headset view at a lower resolution instead.',
+    ] },
   { v: 2912, ts: '2026-11-13T03:08:51.692Z', date: 'Nov 12, 2026, 9:08 PM CT', title: '1811 Prairie\'s north-west roof comes straight down to its corner', kind: 'fix',
     items: [
       'The Miner T. Ames house\'s big hipped roof now runs in one straight hip from its peak down to the north-west corner, without the small slate patch that sat over the corner.',
