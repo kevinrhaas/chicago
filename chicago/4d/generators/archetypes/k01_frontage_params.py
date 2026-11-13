@@ -382,6 +382,10 @@ STREET_WINDOW = "k01.opening.street_"
 #: under a transom), each a component the record's window_kit glazes with a flat-headed K06
 #: variant, cut one hole under a plain head like the wall's other read windows
 SIDE_WINDOW = "k01.opening.side_"
+#: T-1886: the light over the door made a door onto a railed door hood (1816's, Chicagology's
+#: photograph: its balcony's iron guard stands before the light's foot), a French window the
+#: record's window_kit glazes, cut from the storey's floor to the storey's own head
+BALCONY_DOOR = "k01.opening.balcony_door"
 
 #: T-2358: the one condition kit a record may name (K14, T-2324)
 CONDITION_KIT = "data/components/prairie_1904/k14_condition.json"
@@ -6619,6 +6623,12 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                 openings.append(Opening("k01.opening.sash_flat", "k01.wall.street_front", s, round(sill, 4), w,
                                         round(under[2] - sill, 4)))
                 continue
+            # T-1886: the light over the door opening onto the hood's deck (`hood.door_over`)
+            # as a door, from its storey's floor to the storey's own head
+            if k == 1 and s == door_bay and hd_.get("door_over"):
+                openings.append(Opening(BALCONY_DOOR, "k01.wall.street_front", s, round(floors[1], 4), w,
+                                        round(head - floors[1], 4), False))
+                continue
             comp = ROUND_HOODED if rh and k in rh["storeys"] else "k01.opening.sash_flat"
             openings.append(Opening(comp, "k01.wall.street_front", s, round(sill, 4), w, h))
         for s in val("side_bays"):
@@ -7652,7 +7662,8 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         # T-3159: or be laid, columns, balustrade and all, in the front's stone (1729's portico)
         # T-3210: and turn round arches between them (1827's porch)
         # T-3562: its top railed as a balcony, or gabled as a PEDIMENT (1815's, the square-on photograph)
-        extra = {"columns", "railing_fabric", "fabric", "centre_v_m", "under_head_m", "arches", "splay"}
+        extra = {"columns", "railing_fabric", "fabric", "centre_v_m", "under_head_m", "arches", "splay",
+                 "door_over"}
         if not need <= set(hd) <= need | extra | {"railing", "pediment"} or \
                 ("railing" in hd) == ("pediment" in hd) or set(hd["cornice"]) != {"height_m", "proud_m"} or \
                 ("railing" in hd and set(hd["railing"]) != {"height_m", "post_m", "baluster_m", "pitch_m", "rail_m"}):
@@ -7676,6 +7687,19 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         if "railing" in hd:
             door_kit["hood"]["railing"] = {k: ([float(x) for x in v] if isinstance(v, list) else float(v))
                                            for k, v in hd["railing"].items()}
+        # T-1886: the light over the door made a door onto the railed deck (1816's balcony, its
+        # guard about a metre high before the light's foot in Chicagology's photograph): the deck's
+        # top stands at most 0.3 m under the storey's floor the door opens from, never over it
+        if "door_over" in hd:
+            deck = float(hd["soffit_m"]) + float(hd["fascia_m"]) + float(hd["cornice"]["height_m"])
+            if hd["door_over"] is not True or "railing" not in hd or stories < 2 or sfo or sfw \
+                    or door_bay not in fbs.get(1, front_bays) or not floors[1] - 0.3 <= deck <= floors[1] \
+                    or not 0.6 <= float(hd["railing"]["height_m"]) <= 1.2:
+                raise ParamError(f"entrance_kit.hood.door_over: true, the light over the door made a door onto "
+                                 f"a railed deck (railing 0.6-1.2 m) whose top ({deck:.2f} m) stands within "
+                                 f"0.3 m under the floor over the door ({floors[1] if stories > 1 else '-'} m), "
+                                 f"on a front laid by front_bays")
+            door_kit["hood"]["door_over"] = True
         else:
             # T-3562: a pediment on the cornice slab in place of the railing: a tympanum rising
             # `rise_m` from the slab's top to its apex over the hood's centre, set back to the
