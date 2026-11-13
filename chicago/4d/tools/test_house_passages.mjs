@@ -25,6 +25,14 @@
  *     to the ground, and it shuts once they are clear; two at once go one behind the other and
  *     never meet on the stair; asked for at the door, they come down it.
  *
+ *
+ * T-3554 (owner, 2026-11-12: "make sure they are openable and closeable for a person to enter
+ * and make sure that people can walk up the stairs instead of vanishing into the staircase"):
+ * every 1904 house front whose leaf is built is a passage the same way, from the doors file
+ * (derive_doors_scene.py): its way starts on the ground at the foot of the stoop and only
+ * climbs, a riser at a time, to the sill; its leaf is lifted and swings (two leaves for a wide
+ * opening, each on its own jamb); and a person going in climbs it and is indoors only past it.
+ *
  *   node tools/test_house_passages.mjs
  */
 import assert from 'node:assert/strict';
@@ -41,7 +49,7 @@ const THREE = await import('three');
 const { enuToWorld } = await import('../renderers/web/js/terrain.js');
 const { bearingToYaw } = await import('../renderers/web/js/angles.js');
 const { glessnerCourtPlan, glessnerNorthEntryPlan, passagePlan, leafBox, takeDoorLeaf, doorLeafMaterial, createHouseDoors,
-  PASSAGE_SWING_S } = await import('../renderers/web/js/house-doors.js');
+  registerDoorPlans, doorPlansOf, leavesOf, PASSAGE_SWING_S } = await import('../renderers/web/js/house-doors.js');
 const { createHumanDays, PASSAGE } = await import('../renderers/web/js/human-days.js');
 const { createInteractions } = await import('../renderers/web/js/interact.js');
 
@@ -298,5 +306,99 @@ ok(Math.hypot(kate.e - visitor.e, kate.n - visitor.n) < 3, 'and up to the visito
 // The side door off Eighteenth Street is walked the same way.
 const sideWay = side.way();
 ok(sideWay.filter((p) => p.y !== null).length > 15 && near(sideWay.at(-1).y, BASE + plans[1].sill, 1e-3), 'the side door has its way up the alcove');
+
+// ---------------------------------------------------------------- T-3554: every built front
+const fronts = doors.structures.flatMap((row) => row.doors.filter((d) => d.plan).map((d) => ({ row, d })));
+ok(registerDoorPlans(doors) === fronts.length && fronts.length >= 40, `every built 1904 front is a passage (${fronts.length})`);
+for (const { row, d } of fronts) {
+  const sc = JSON.parse(fs.readFileSync(new URL(`data/sidecars/1904/${row.structure}.json`, ROOT), 'utf8'));
+  const plan = doorPlansOf({ id: row.structure, sidecar: sc }).find((p) => p.id === d.id);
+  ok(plan && plan.passage && plan.vestibule !== false, `${d.id}: a passage of its house, a dark vestibule behind it`);
+  const way = passagePlan(plan);
+  ok(way[0].y === null && way[way.door].y !== null && near(way.at(-1).y, plan.sill, 1e-9), `${d.id}: from the ground up to the sill`);
+  ok(Math.abs(way[way.door].y - plan.sill) <= 0.1, `${d.id}: the landing before the leaf is level with its sill (${way[way.door].y} / ${plan.sill})`);
+  for (let i = 1; i < way.length; i += 1) {
+    const a = way[i - 1], b = way[i];
+    const ya = a.y ?? 0, yb = b.y ?? 0;
+    ok(yb >= ya - 1e-9, `${d.id}: the way in only climbs (${i})`);
+    if (yb - ya > 1e-4) ok(yb - ya <= 0.26 && Math.hypot(b.u - a.u, b.v - a.v) <= 0.25, `${d.id}: a riser at a time, stepped up (${i})`);
+  }
+  // The answering place is the way's foot, in the world.
+  const [e, n] = [row.placement.local_e, row.placement.local_n];
+  const th = (row.placement.rotation_deg ?? 0) * Math.PI / 180;
+  const [fu, fv] = d.plan.way[0];
+  ok(near(e + fu * Math.cos(th) + fv * Math.sin(th), d.step.local_e, 0.02) && near(n - fu * Math.sin(th) + fv * Math.cos(th), d.step.local_n, 0.02),
+    `${d.id}: one answering stands at the foot of its way`);
+  ok(leavesOf(plan).length === (plan.leaf.s[1] - plan.leaf.s[0] > 1.6 ? 2 : 1), `${d.id}: ${leavesOf(plan).length} leaf/leaves for ${(plan.leaf.s[1] - plan.leaf.s[0]).toFixed(2)} m`);
+}
+// One with a pair (Hibbard's double door) and one with a single leaf: lifted, hung and swung.
+for (const sid of ['house_1626_prairie', 'hibbard_house_1701_prairie']) {
+  const sc = JSON.parse(fs.readFileSync(new URL(`data/sidecars/1904/${sid}.json`, ROOT), 'utf8'));
+  const rec = { id: sid, sidecar: sc };
+  const plan = doorPlansOf(rec)[0];
+  const pos = [];
+  const u = plan.origin[0] - 0.05, [s0, s1] = plan.leaf.s;
+  const z = (s) => -(plan.origin[1] + s);
+  quad(pos, [u, plan.leaf.foot, z(s0)], [u, plan.leaf.foot, z(s1)], [u, plan.leaf.top, z(s1)], [u, plan.leaf.top, z(s0)]);
+  // Its two halves, if a pair: a slab each side of the middle.
+  const m0 = (s0 + s1) / 2;
+  quad(pos, [u - 0.03, plan.leaf.foot, z(s0)], [u - 0.03, plan.leaf.foot, z(m0 - 0.01)], [u - 0.03, plan.leaf.top, z(m0 - 0.01)], [u - 0.03, plan.leaf.top, z(s0)]);
+  quad(pos, [u - 0.03, plan.leaf.foot, z(m0 + 0.01)], [u - 0.03, plan.leaf.foot, z(s1)], [u - 0.03, plan.leaf.top, z(s1)], [u - 0.03, plan.leaf.top, z(m0 + 0.01)]);
+  // The wall beside it and the dark backing behind it stay.
+  quad(pos, [u, 1, z(s1 + 1)], [u, 1, z(s1 + 2)], [u, 3, z(s1 + 2)], [u, 3, z(s1 + 1)]);
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+  geo.setIndex([...Array(pos.length / 3).keys()]);
+  geo.computeVertexNormals();
+  const mesh = new THREE.Mesh(geo, new THREE.MeshStandardMaterial({ name: 'door_leaf' }));
+  const got = takeDoorLeaf(rec, mesh, new THREE.Matrix4());
+  ok(got.length === leavesOf(plan).length && got.every((g) => g.doorId === plan.id) && mesh.geometry.getIndex().count === 6,
+    `${sid}: its leaf is lifted (${got.length} piece(s)), the wall stays`);
+  for (const g of got) g.material = doorLeafMaterial(mesh.material);
+  const pm = sc.placement;
+  const mx = new THREE.Matrix4().compose(enuToWorld(pm.local_e, pm.local_n, BASE),
+    new THREE.Quaternion().setFromEuler(new THREE.Euler(0, bearingToYaw(pm.rotation_deg ?? 0), 0)), new THREE.Vector3(1, 1, 1));
+  const lay = createHouseDoors({ registry: new Map([[sid, rec]]), buildings: { matrixOf: (id) => (id === sid ? mx : null), doorLeaves: new Map([[plan.id, got]]) },
+    footprints: [], decks: [], problems });
+  const front = lay.passage(plan.id);
+  ok(front && lay.group.getObjectByName(`house-door-vestibule:${plan.id}`), `${sid}: its front door hangs, a dark vestibule behind it`);
+  const holder = lay.group.getObjectByName(`house-door:${plan.id}`);
+  const pivots = holder.children.filter((c) => c.children.some((m) => m.name.startsWith('house-door-leaf')));
+  ok(pivots.length === leavesOf(plan).length, `${sid}: ${pivots.length} leaf/leaves on their hinges`);
+  front.hold('x');
+  for (let t = 0; t < PASSAGE_SWING_S * 1.1; t += 0.05) lay.update(0.05);
+  ok(front.isOpen() && pivots.every((p) => Math.abs(p.rotation.y) > 1.5), `${sid}: held, it opens`);
+  if (pivots.length === 2) ok(Math.sign(pivots[0].rotation.y) === -Math.sign(pivots[1].rotation.y), `${sid}: the pair swing apart`);
+  front.release('x');
+  for (let t = 0; t < PASSAGE_SWING_S * 1.1; t += 0.05) lay.update(0.05);
+  ok(front.state === 'closed' && pivots.every((p) => Math.abs(p.rotation.y) < 1e-9), `${sid}: let go, it shuts`);
+  if (sid !== 'house_1626_prairie') continue;
+  // A resident goes in at noon: up the stoop, through the open door, and only then indoors.
+  const w = front.way();
+  const foot = w[0];
+  const res = actorOf('resident', foot.e + 3, foot.n + 1);
+  res.instance.behaviour = dayOf([span(0, 12, { indoors: false, at: { local_e: foot.e + 3, local_n: foot.n + 1, heading_deg: 0 }, activity: 'stand', doing: 'out front' }),
+    span(12, 24, { indoors: true, where: sid })]);
+  const dp = [];
+  let hourNow = 11;
+  const visitorHere = { e: foot.e + 6, n: foot.n };
+  const resDays = createHumanDays({ humans: { actors: [res], shown: true }, three: THREE, hour: () => hourNow, date: () => '1904-07-01', doors,
+    interactions: createInteractions(), visitor: () => visitorHere, passages: lay, problems: dp });
+  for (let t = 0; t < 1; t += 0.05) { res.step(0.05); resDays.update(0.05); lay.update(0.05); }
+  hourNow = 12;
+  res.track = [];
+  for (let t = 0; t < 40 && !res.indoors; t += 0.05) {
+    res.step(0.05); resDays.update(0.05); lay.update(0.05);
+    const last = res.track.at(-1);
+    if (last) last.swing = front.swing;
+  }
+  ok(res.indoors, `${sid}: the resident went in (${dp.join('; ')})`);
+  const ys = res.track.filter((x) => x.y != null && !x.indoors).map((x) => x.y);
+  const sillW = BASE + plan.sill;
+  ok(ys.length && ys.every((y, i) => i === 0 || y >= ys[i - 1] - 1e-6) && ys.some((y) => near(y, sillW, 1e-3)), `${sid}: up the stoop to the sill, only climbing`);
+  const risers = new Set(plan.way.filter((p) => p[2] !== null).map((p) => p[2].toFixed(3)));
+  ok([...risers].every((y) => ys.some((h) => near(h, BASE + Number(y), 0.03))), `${sid}: stood on every tread (${risers.size})`);
+  ok(res.track.filter((x) => x.y != null && near(x.y, sillW, 1e-3)).some((x) => x.swing >= 0.9), `${sid}: through the open door`);
+}
 
 console.log(`PASS: ${checks} checks — Glessner's court and side doors open and shut as people pass, up and down their stairs (T-3524; passages ${PASSAGE.follow_s} s apart)`);

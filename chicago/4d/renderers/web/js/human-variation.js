@@ -127,7 +127,10 @@ export function personVariation({ kit, key, record = null, assetId = null, scene
   const childBody = asset.age_drive === false;
   const ageBand = record?.age?.band ?? (childBody ? [asset.base_age_years ?? 8, asset.base_age_years ?? 8] : kit.header.age.default_band_years);
   const ageDraw = rand();
-  const age = Number.isFinite(record?.age?.years) ? record.age.years : ageBand[0] + ageDraw * (ageBand[1] - ageBand[0]);
+  // A stand-in likeness may be drawn at the age its portrait shows (T-3553, `looks.drawn_age`):
+  // the record keeps the person's own age; the body, face and skin take the drawn one.
+  const drawnAge = record?.looks?.drawn_age?.years;
+  const age = Number.isFinite(drawnAge) ? drawnAge : Number.isFinite(record?.age?.years) ? record.age.years : ageBand[0] + ageDraw * (ageBand[1] - ageBand[0]);
   const base = asset.base_age_years ?? 35;
   for (const a of kit.axes) {
     if (a.drive !== 'age') continue;
@@ -142,7 +145,13 @@ export function personVariation({ kit, key, record = null, assetId = null, scene
   // A body may take a wider stature (T-3465: one child body stands for ages five to fourteen).
   const [hLo, hHi] = asset.height_clip ?? [0.88, 1.12];
   if (Number.isFinite(looks?.height_scale)) height = clip(looks.height_scale, hLo, hHi);
-  for (const k of ['weight', 'muscle']) if (Number.isFinite(looks?.build?.[k]) && k in values) values[k] = clip(looks.build[k], -L, L);
+  // T-3553: and a paunch, a neck's width and a double chin where a portrait shows them; each
+  // sex's twin of an axis (weight_female, T-3423) takes the same value.
+  for (const k of ['weight', 'muscle', 'belly', 'neck_width', 'double_chin']) {
+    if (!Number.isFinite(looks?.build?.[k]) || !(k in values)) continue;
+    values[k] = clip(looks.build[k], kit.axes.find((a) => a.id === k)?.kind === 'positive' ? 0 : -L, L);
+    for (const a of kit.axes) if (a.draw_as === k && !a.drive) values[a.id] = values[k];
+  }
   const face = record?.face;
   if (face?.values) {
     for (const [k, v] of Object.entries(face.values)) {

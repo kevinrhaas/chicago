@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1106,
+  "count": 1107,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -71588,6 +71588,40 @@
       ]
     },
     {
+      "id": "L-prairie-front-passages-3554",
+      "title": "Every built 1904 front door and every back door opens and shuts as its household passes, up its own stoop",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-12",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the front door of each 1904 house whose model builds its leaf (46 of them: door leaf) is hung to swing for the people drawn going in and out (the walkthrough's house doors code § passages, `registerDoorPlans`), as “Glessner's court service door and Eighteenth Street side door open and shut as the household passes, up and down the stairs to them”'s are: the baked leaf is lifted out of the house's batch at load and hung on its right-hand jamb (seen from outside), swinging inward through 90 degrees in 1.2 s, an opening wider than 1.6 m (Hibbard's, Wheeler's, Moulton's) as a pair meeting in the middle, each leaf on its own jamb. Behind it is a dark vestibule like Glessner's (the house models are hollow behind their 0.8 m backing). Someone whose day takes them in walks to the foot of the stoop, up its treads to the door, which opens before them, through it, and is indoors only past the leaf; one answering a knock stands at the stoop's foot. The way is read off the built model (the derive doors scene tool stoop way): over a 0.1 m grid of what is built in front of the door, it climbs at most 0.26 m a step, passes nothing standing between a knee and a head over the tread, keeps 0.35 m (a skirt's half-width) off every drop, cheek and rail, and turns where a side stoop turns (Dent's, Keith's, the two Glessner children's). The owner, 2026-11-12: *\"make sure they are openable and closeable for a person to enter and make sure that people can walk up the stairs instead of vanishing into the staircase\"*. Each house's back door (“The 1904 back and side yards: back doors, terraces, walks, gangways, drying yards and kitchen gardens”'s, on its built rear wall) is hung the same way (the walkthrough's back yards code): its leaf on the jamb away from its knob, swinging OUT through 95 degrees in 1.2 s over its landing, because the house behind its wall is not modelled; behind it the wall is painted the dark of a doorway. Its way runs up the middle of its stoop, one waits 0.95 m out on the landing while the leaf swings past, and one answering stands 0.7 m beyond the stoop's foot."
+        },
+        {
+          "label": "What it stands on",
+          "text": "each front leaf, its sill and head, and every tread and landing are the house model's own, as its generator built them; each back door and stoop is “The 1904 back and side yards: back doors, terraces, walks, gangways, drying yards and kitchen gardens”'s. Nothing about the doors is measured from a source here."
+        },
+        {
+          "label": "What is invented",
+          "text": "the hinge side, that each front door swings inward and each back door outward, how far and how fast; a pair for a wide opening; the vestibule behind a front door and the dark behind a back one; the line walked up each stoop (the grid's cheapest, kept off its edges), the skirt's half-width, and the riser ease (0.12 m each side of a riser); where one answering stands."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a photograph of any of these doors open, or a plan of its entrance hall."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-12 (T-3554)."
+        }
+      ],
+      "work_refs": [
+        "T-3554"
+      ]
+    },
+    {
       "id": "L-1812-garrison-dress-3523",
       "title": "The 1812 garrison dressed by rank and duty, and its muskets carried by duty",
       "section": "per_subject",
@@ -73317,10 +73351,16 @@
         {
           "label": "Recorded",
           "text": "2026-11-11."
+        },
+        {
+          "label": "Later work stand-ins chosen by the owner, 2026-11-12",
+          "text": "No photograph of William L. Grey or of Sarah Grey (2010 Prairie Avenue) was found. The owner supplied two sepia portraits and asked that they be used as the Greys' likenesses (\"since we do not have photos of them you can use these likenesses\"; \"their faces must match exactly\"; \"their build match is important\"). Their sitters, makers and dates are not recorded, so both are stand-ins, as the Glessner household's are, graded reconstructed, and each card shows its picture labelled \"STAND-IN, NOT\" the person. The faces are fitted to about 400 points a face-landmark model finds on each picture, each tied to a vertex of the body's face by rendering that face at five turns and finding the same points on the renders (the face landmark correspondence tool); the fitted face, rendered and measured the same way, lands within about 3% of the eye span of the picture's points. The depth of the chin, jaw and nose cannot be read from one near-frontal picture and are left at the body's own. Each is drawn at the age the picture shows (about 50 and 45), not their 1904 census ages of 64 and 54, so the face is the picture's; their records keep the census ages. Their builds are read by eye (he heavy-set and thick-necked, she slight). The hair (his long, wavy and swept back, with a full trimmed beard over the chin and cheeks and a full moustache; hers drawn up to a knot on the crown, the lady's body's own bun turned up from the nape), the brows set at the pictures' height over the eyes, the hair colours read from sepia tones, and the cloth colours (a dark brown three-piece suit; a dark brown day dress, its white lace collar the lady's own shirtwaist collar and jabot) follow the pictures. The cameo brooch, earrings, watch chain, the cut of the sack coat and sleeves, the skin's own marks and Sarah's thinner lower lip (the face kit cannot thin it below the body's) are not modelled."
         }
       ],
       "work_refs": [
-        "T-3547"
+        "T-3547",
+        "T-3553",
+        "T-3478"
       ]
     },
     {
