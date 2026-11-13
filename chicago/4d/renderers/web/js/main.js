@@ -48,6 +48,7 @@ import { createConfidenceLegend } from './confidence-legend.js';
 import { createIntent, createBackendSwitch } from './controls/intent.js';
 import { createPointerLockBackend, isTyping } from './controls/pointerlock.js';
 import { createTouchBackend, prefersTouch } from './controls/touch.js';
+import { createXRMode, isStandaloneHeadset, vrScale } from './controls/xr.js';
 import { createWalker, footprintsFrom, decksFrom, WALK, HEADROOM_MARGIN_M } from './walker.js';
 import { profiledGroundHeight, figureGroundHeight } from './deck-surface.js';
 import { passageGroundFrom } from './passage-ground.js';
@@ -1913,13 +1914,21 @@ async function boot() {
   await yieldToPaint();
   const bases = resolveBases();
   const coarse = prefersTouch();
+  /**
+   * T-3575: a standalone VR headset (the Quest's browser, Pico's) reports a fine pointer
+   * and a desktop-wide window, so it would boot as a computer; inside it is a phone. It
+   * takes the phone's choices — tier, Sharpness, textures and the memory diet, people,
+   * horses and carriages kept — and its controls stay the page's own until Enter VR.
+   */
+  const headset = isStandaloneHeadset(navigator.userAgent);
   // T-2559: read what the device offers and choose per device — see
   // device-profile.js. Before the scene is fetched, so a weak machine's tier
   // decides what is downloaded; a repeat visit reads its cached profile and pays
   // no benchmark. The touch screen still picks the controls and `lowSpec`; the
   // profile picks only the defaults below, and a stored choice beats both.
-  const device = await profileDevice({ touch: coarse, build: bootCell.build, storage: bootStorage,
+  const device = await profileDevice({ touch: coarse || headset, build: bootCell.build, storage: bootStorage,
     search: location.search });
+  if (headset) device.headset = true;
   api.device = device;
   /**
    * T-3537: THE PHONE'S MEMORY DIET, ON EVERY DEVICE THAT NEEDS IT. Until this,
@@ -1940,7 +1949,7 @@ async function boot() {
   // T-3542: the horses' pictures are what keeping the teams on a phone costs it (six maps,
   // about 22 MB): on a memory-saving device each is redrawn at 512 px (1024 on a computer)
   // before the template is shared — blurrier up close, never gone (draft-horse-assets.js).
-  if (lowMem) setDraftHorseTextureCap(coarse ? 512 : 1024);
+  if (lowMem) setDraftHorseTextureCap(coarse || headset ? 512 : 1024);
   // Resolve BEFORE the GLB fetch: a weak-machine boot must never download the
   // full inspection model simply to turn it down once Settings has mounted.
   // T-2547's step-down outranks everything; then the stored choice; then the
@@ -4745,7 +4754,7 @@ async function boot() {
   // touchscreen must not end up driving both.
   // The arrival and welcome are menus, so neither movement backend is live.
   window.addEventListener('pointerdown', (e) => {
-    if (gateOpen || e.target.closest?.('#jaunt-panel')) return;
+    if (gateOpen || xrMode?.presenting || e.target.closest?.('#jaunt-panel')) return;
     if (e.pointerType === 'touch') backends.activate(touch);
     else if (e.pointerType === 'mouse') backends.activate(pointerlock);
   }, { capture: true });
@@ -4754,13 +4763,39 @@ async function boot() {
     // to keyboard-and-mouse, and the first keystroke into the Go-to search box
     // was doing exactly that — taking a visitor who had been tapping their way
     // around a phone and handing them a control scheme with no on-screen stick.
-    if (gateOpen || isTyping(e.target) || e.target.closest?.('#jaunt-panel')) return;
+    if (gateOpen || xrMode?.presenting || isTyping(e.target) || e.target.closest?.('#jaunt-panel')) return;
     if (!e.metaKey && !e.ctrlKey) {
       backends.activate(pointerlock);
       // Not while a card holds the keyboard (T-2954): the arrows scroll the card.
       if (/^(Key[WASD]|Arrow(Up|Down|Left|Right))$/.test(e.code) && !popup.openId) pointerlock.lock();
     }
   }, { capture: true });
+
+  /**
+   * T-3575: Enter VR (js/controls/xr.js). The key shows only where the browser offers a
+   * headset; the session is the input backend while it runs and hands back to the
+   * page's own controls when it ends.
+   */
+  const vrKey = document.getElementById('btn-vr');
+  const xrMode = createXRMode({
+    THREE, renderer, walker, intent, backends,
+    fallback: () => (gateOpen ? null : (coarse ? touch : pointerlock)),
+    setFly: (on) => hud.setFly(on),
+    scale: vrScale({ headset, search: location.search }),
+    onChange: (on) => {
+      vrKey?.setAttribute('aria-pressed', String(on));
+      if (vrKey) { vrKey.textContent = on ? 'Exit VR' : 'VR'; vrKey.setAttribute('aria-label', on ? 'Exit VR' : 'Enter VR'); }
+      blackbox.log(on ? 'vr' : 'vr-end');
+      if (!on) { visualClockReset = true; resize(); hud.say('Back from the headset'); }
+    },
+  });
+  api.xr = xrMode;
+  xrMode.supported().then((ok) => { if (vrKey) vrKey.hidden = !ok; });
+  vrKey?.addEventListener('click', () => {
+    if (xrMode.presenting) { xrMode.exit(); return; }
+    hud.say('In the headset: left stick walks where you look, right stick turns, A or X flies; no controller, tap to walk');
+    xrMode.enter().then((ok) => { if (!ok) hud.say('The headset could not start VR here'); });
+  });
 
   canvas.addEventListener('click', () => {
     if (backends.active !== pointerlock || gateOpen) return;
@@ -5578,6 +5613,7 @@ async function boot() {
       gateOpen = true;
       visualClockReset = true;
       gateFrame.reset();
+      xrMode.exit(); // T-3575: the arrival is a page, and a headset cannot show it
       backends.activate(null);
       gesture.setLook({ inWorld: false });
       targetTag?.setEnabled(false);
@@ -6348,6 +6384,8 @@ async function boot() {
     }
     // T-3510: while a crossing runs, the visitor sits in the boat whatever the walk did.
     crossings.holdVisitor(walker, WALK);
+    // T-3575: in a headset, the reference space follows the walker (controls/xr.js).
+    if (xrMode.presenting) xrMode.sync();
     // Before the render, after the walker: the near plane is a function of where
     // the eye ended up this frame (R-BUG1, and the NEAR block above).
     setNearFor(walker.state.altitude);
@@ -6521,7 +6559,9 @@ async function boot() {
       governor.setTier(detailLevel);
       // A capture, the welcome and a held clock are still frames by definition,
       // and are drawn exactly as they were before the governor existed.
-      if (pendingCapture || gateOpen || animationHold) governor.rest();
+      // T-3575: a headset is drawn every frame it asks for — a skipped XR frame is a
+      // stale or black eye — and at its own framebuffer scale, never the governor's.
+      if (pendingCapture || gateOpen || animationHold || renderer.xr.isPresenting) governor.rest();
       else if (!governor.shouldDraw(t)) return;
       applyGovernor();
       tick();
