@@ -1,0 +1,11 @@
+{
+  "title": "Walk the town in a VR headset",
+  "kind": "feature",
+  "items": [
+    "A headset's browser, or a WebXR emulator on a computer, shows a VR key beside the fly key; press it to stand in the town in stereo and look round by turning your head.",
+    "The left stick walks where you look, through the same doors, decks and street edges as on foot; its click or the left grip runs.",
+    "The right stick turns in steps and, while flying, rises and descends; A or X takes off and lands.",
+    "No controller, as in Google Cardboard on Android: the headset's button starts walking where you look and stops it again. iPhones offer no WebXR, so the key does not appear there.",
+    "A Quest or Pico boots on the phone's settings with its people, horses and carriages kept, and draws the headset view at a lower resolution instead."
+  ]
+}
