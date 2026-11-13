@@ -5570,8 +5570,9 @@ async function boot() {
         onResume: () => { narration.prime(); return jauntRuntime.resume(); }, getSession: () => jauntRuntime?.state,
         onDismiss: () => jauntRuntime?.end(), // T-3432: Close on Outing complete
         // T-2631: each card's plate, a credited picture of its stops (pictures.js § plateFor).
-        plateFor: (row) => jauntPlate(jauntPictures, (row.destinations ?? [])
-          .map((d) => (d.kind === 'structure' ? d.id : destinations.resolve(d)?.structureId)).filter(Boolean)),
+        // T-3584: a route of anchors (the Glessner walks) names its building and picture itself.
+        plateFor: (row) => (row.plate ? jauntPlate(jauntPictures, [row.plate.structure], row.plate.picture) : jauntPlate(jauntPictures, (row.destinations ?? [])
+          .map((d) => (d.kind === 'structure' ? d.id : destinations.resolve(d)?.structureId)).filter(Boolean))),
         // T-2652/T-2727: with Jaunts use my choice on, the getting-there choice picks a Jaunt's
         // mode where the Jaunt allows it; one that cannot go that way keeps its own and says so.
         preferredMode: (jaunt) => jauntModeFor(hud.gettingThere, jaunt),

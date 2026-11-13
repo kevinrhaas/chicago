@@ -2,6 +2,7 @@
   "schema_version": 1,
   "content_version": 2,
   "category": "Household",
+  "menu_group": "Errands",
   "review_required": false,
   "id": "household-provisions",
   "scene": "1835",
