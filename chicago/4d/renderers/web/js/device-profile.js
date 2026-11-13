@@ -220,7 +220,7 @@ const SHARP_LABEL = { 1: 'Low', 1.5: 'Medium', 2: 'High' };
 /** "Your device: strong desktop, chosen Full detail at High sharpness." */
 export function describeProfile(profile) {
   if (!profile) return '';
-  const kind = profile.touch ? 'phone or tablet' : 'computer';
+  const kind = profile.headset ? 'VR headset' : profile.touch ? 'phone or tablet' : 'computer';
   const d = DETAIL_LABEL[profile.choice.detail] ?? profile.choice.detail;
   const s = SHARP_LABEL[profile.choice.sharpness] ?? String(profile.choice.sharpness);
   return `Your device: ${CLASS_LABEL[profile.cls] ?? profile.cls} ${kind}, chosen ${d} detail at ${s} sharpness.`;

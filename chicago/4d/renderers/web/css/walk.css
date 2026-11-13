@@ -859,6 +859,21 @@ html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(-
 .fly-key:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 /* A thumb still gets the 44 px touch floor: the key draws at 28, and answers 8 px past its rim. */
 body:is(.is-touch, .touch-first) .fly-key::before { content: ""; position: absolute; inset: -8px; border-radius: 50%; }
+/* T-3575: the Enter VR key, the fly key's size and rim, a word instead of an arrow. Hidden
+   unless the browser offers a headset. */
+.vr-key {
+  pointer-events: auto;
+  display: inline-grid; place-items: center;
+  height: 28px; min-width: 34px; padding: 0 8px;
+  border: 1px solid var(--edge); border-radius: 999px;
+  background: var(--panel); color: var(--ink);
+  font: 600 11px/1 var(--font-mono, ui-monospace, monospace); letter-spacing: .06em;
+  box-shadow: var(--shadow); cursor: pointer;
+}
+.vr-key[hidden] { display: none; }
+.vr-key[aria-pressed="true"] { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 55%, var(--edge)); }
+.vr-key:hover { border-color: color-mix(in srgb, var(--accent) 55%, var(--edge)); }
+.vr-key:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 /* T-2741: where you stand, then and today, hung under the instrument's right edge so its
    width never shifts the round face. Terse machine status: a year tag, the era street;
    a TODAY tag, today's street, corner or house number. */
