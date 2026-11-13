@@ -163,13 +163,19 @@
             "trim_fabric": "dressed_trim",
             "rusticated_base_courses": 2,
             "coping_height_m": 0.25,
-            "corner_bond": []
+            "corner_bond": [],
+            "flanks": {
+              "walls": [
+                "north"
+              ],
+              "dressing": "rock_faced"
+            }
           },
           "confidence": "inferred",
           "sources": [
             "chicagology_1815_sears_two_views"
           ],
-          "note": "Smooth coursed ashlar in light stone across the whole street front on the square-on photograph (the left of the two views, Chicagology; 71.5 px/m on the front's plane, grade at y 1040 px), its basement storey laid in two broad courses under a plinth course at the principal floor (K02's channelled base, its channels 18 mm: a finer joint than the print can show, within tolerance). The fabric is K02's Lemont limestone for the 1973 landmarks report's 'yellow limestone' (a secondary reading); its exact quarry is reconstructed."
+          "note": "Smooth coursed ashlar in light stone across the whole street front on the square-on photograph (the left of the two views, Chicagology; 71.5 px/m on the front's plane, grade at y 1040 px), its basement storey laid in two broad courses under a plinth course at the principal floor (K02's channelled base, its channels 18 mm: a finer joint than the print can show, within tolerance). The fabric is K02's Lemont limestone for the 1973 landmarks report's 'yellow limestone' (a secondary reading); its exact quarry is reconstructed. T-3562: the south flank (K01's north wall) is the same stone, rock-faced: on the oblique photograph (the right of the two views, x 1605-1790 px) it reads dark and broken against the smooth front, its faces catching the light stone by stone, where the build laid it in buff common brick. It is laid on the front's beds in the profile's rock face (stone_front.flanks); the print lays it as broken-coursed random ashlar, the build as even courses on the front's lines, a joint pattern under a visitor's notice. That the flank is the front's Lemont stone and not another is inferred from the one reading of the fabric."
         },
         "street_front_trim": {
           "value": {
@@ -783,7 +789,7 @@
               },
               {
                 "face": "north",
-                "along_m": 9.0,
+                "along_m": 13.9,
                 "sash": {
                   "variant": "k06.opening.sash_2over2_flat",
                   "width_m": 0.9,
@@ -810,7 +816,7 @@
           "sources": [
             "chicagology_1815_sears_two_views"
           ],
-          "note": "The slated mansard's curb under its cresting at y 150 px (12.4 m) on the square-on photograph (the left of the two views, Chicagology; 71.5 px/m on the front's plane, grade at y 1040 px), 2.9 m over the wall head; the gabled dormer centred at x 535 px, its sash x 498-580 px and y 345-230 px; a gabled dormer on the south flank in the oblique. The pavilion's steep roof (apex y 75 px, 13.5 m) is K01's hipped crown over it, raised by T-3156 onto the attic storey's wall head: its eave at y 210 px (11.6 m, 2.35 m over the main eave), the crown's eave 0.5 m past the attic's face (the print's x 165-360 px), its faces at 52 degrees so the apex stands about 13.8 m (the print's apex 13.5 m, read in front of the ridge's set-back)."
+          "note": "The slated mansard's curb under its cresting at y 150 px (12.4 m) on the square-on photograph (the left of the two views, Chicagology; 71.5 px/m on the front's plane, grade at y 1040 px), 2.9 m over the wall head; the gabled dormer centred at x 535 px, its sash x 498-580 px and y 345-230 px; a gabled dormer on the south flank in the oblique. The pavilion's steep roof (apex y 75 px, 13.5 m) is K01's hipped crown over it, raised by T-3156 onto the attic storey's wall head: its eave at y 210 px (11.6 m, 2.35 m over the main eave), the crown's eave 0.5 m past the attic's face (the print's x 165-360 px), its faces at 52 degrees so the apex stands about 13.8 m (the print's apex 13.5 m, read in front of the ridge's set-back). T-3562: the south flank's dormer read off the oblique, where it stands just east of the tall south stack (the stack's shaft x 1740-1820 px, the dormer's gable x 1820-1880 px): its centre about 1.4 m behind the stack's (the stack's 1.1 m shaft spans 80 px there), at 13.9 m from the rear, its body clear of the stack (it stood at 9.0 m, read off no picture, and so out of the oblique's frame)."
         },
         "rear_wings": {
           "value": [

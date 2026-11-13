@@ -37,6 +37,7 @@ OUT_BIN = ROOT / 'assets/humans/web/hm08_variation_kit.bin'
 OUT_JSON = ROOT / 'assets/humans/web/hm08_variation_kit.json'
 PERSONS = ROOT / 'assets/humans/web/hm08_variation_persons.json'  # beside the kit: humans.js reads both from its asset base
 FITS = ROOT / 'data/humans/variation/fits'
+TRACES = ROOT / 'data/humans/variation/traces'   # T-3553
 LOOKS = ROOT / 'data/humans/variation/looks'   # T-3491: complexion, hair, eyes, stature
 DRESS = ROOT / 'data/humans/variation'   # T-3506/T-3522: dress_1812_*.json, each person's own dress, hat and hair
 RESIDENTS = {'1812': ROOT / 'data/residents_1812', '1835': ROOT / 'data/residents', '1904': ROOT / 'data/residents_1904'}
@@ -315,6 +316,16 @@ def persons():
             f = json.loads(fit.read_text())
             rec['face'] = {k: f[k] for k in ('grade', 'sources', 'basis', 'values', 'liberty', 'not_modelled', 'card') if f.get(k) is not None}
             rec['face']['fit'] = str(fit.relative_to(ROOT))
+            # T-3553: the face traced onto its portrait beyond the axes (tools/trace_portrait_face.py),
+            # only on the fit it was traced on.
+            trace = TRACES / f'{pid}.json'
+            if trace.exists():
+                t = json.loads(trace.read_text())
+                if t['fit_sha256'] != hashlib.sha256(fit.read_text().encode()).hexdigest():
+                    raise SystemExit(f'{trace.relative_to(ROOT)} was traced on another fit: run tools/trace_portrait_face.py again')
+                if t['unit_m'] != 1e-5:
+                    raise SystemExit(f'{trace.relative_to(ROOT)}: unit_m must be the kit delta unit')
+                rec['face']['trace'] = {'file': str(trace.relative_to(ROOT)), 'vertices': t['vertices'], 'delta': t['delta']}
         looks = LOOKS / f'{pid}.json'
         if looks.exists():
             lk = json.loads(looks.read_text())

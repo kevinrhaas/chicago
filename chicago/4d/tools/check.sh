@@ -885,6 +885,8 @@ step "the haystacks are the bytes their records build (T-2510)" \
   python3 generators/haystack_emit.py --check
 step "the Potawatomi camp's groups are the bytes their records build (T-3342)" \
   python3 generators/lodge_camp_emit.py --check
+step "the monuments are the bytes their records build (T-3567)" \
+  python3 generators/monument_emit.py --check
 
 # T-0763. The gate's own OUTPUT is a gate. 114 of the steps below prove a derivation by
 # breaking it and require its assertions to fire, so a green run prints dozens of lines
@@ -1540,6 +1542,12 @@ step "a K01 brick front's door may be cut round-headed under its round lights' a
 # curb, hooded, with no mansard or on an unsymmetrical cant; a square projection's rule unchanged.
 step "a canted bay's own mansard may carry dormers on its front run (T-3283)" \
   python3 tools/test_k08_canted_bay_dormers.py
+
+# T-1886. 1816 Prairie's canted bays' lights crested as the front's hoods are (Chicagology's
+# photograph): K09's carved crest on a bay light's lintel, in the front's ranges; refused on a
+# round head, over voussoirs, on a frame bay or past its storey; one per light, on its lintel.
+step "a bay light's lintel may carry the front's carved crest (T-1886)" \
+  python3 tools/test_k08_bay_crest.py
 
 # T-3283. 1945 Prairie's corner block under a mansard about a storey over the rest (the Tribune's
 # 1928 photograph): a crown over a stretch of the street front with no projection under it, cut

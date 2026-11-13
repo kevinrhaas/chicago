@@ -2,11 +2,72 @@
   "structure_id": "mayer_house_2009_prairie",
   "view": "monroe_1896_plate",
   "glb": "assets/gltf/mayer_house_2009_prairie__as_mapped_1904.glb",
-  "glb_sha256": "15cc050a876e8fe9d19c971e8f0e3c2827f552524cc7ea6e92f303cd6979320d",
-  "camera_sha256": "d98181642ec45e22a99b63f7a01ac58f196c7f975e883c522bb83eb59bb2aa4a",
+  "glb_sha256": "b561f8ec877a5e60cf2f40aad1fdaf83d0d4ab544f5baab21c22e349b71b528a",
+  "camera_sha256": "9221c11528db24c0b82e5bf4d7ea96f74fc3d0927a2490bd00a0576877b83982",
   "photo_sha256": "089359f4783e3d4720a3f8d0eead6bbdd71f01925f321b74406a50454e10c3ca",
+  "rendered_flora": {
+    "season": "summer",
+    "lots": [
+      {
+        "parcel": "prairie_2009",
+        "shrubs": 0,
+        "trees": 0,
+        "beds": 0,
+        "creeper": 0
+      }
+    ],
+    "street_trees": 11,
+    "street_trees_m": 40
+  },
+  "flora_anchor": {
+    "local_e": 1448.216,
+    "local_n": -3504.619,
+    "rotation_deg": 179.389,
+    "scene": "1904",
+    "target_date": "1904-07-01",
+    "phase": "as_mapped_1904"
+  },
+  "flora_renderer_sources": [
+    {
+      "file": "tools/photo_match.mjs",
+      "sha256": "75e452b467c22fc5d00cd4b512706c364c942d181869e504f7218ea25167a79c"
+    },
+    {
+      "file": "tools/photo_match_flora.mjs",
+      "sha256": "c973a45041a77a11ea32e30302cdc3eda3dc5516ad715fb0b1e14060f08b5c87"
+    },
+    {
+      "file": "renderers/web/js/front-yards.js",
+      "sha256": "1d76c4415a93713c9e01d4b8400d4dbb0175f88a8eadb3414a66b7666f3be2ff"
+    },
+    {
+      "file": "renderers/web/js/street-trees.js",
+      "sha256": "90d02b3e6b6ac5d1ab27a0eb3088f72719a8c1f59a7624dd833db80b127268f2"
+    },
+    {
+      "file": "renderers/web/js/tree-instances.js",
+      "sha256": "a103f17c2d5a18b12a39126c62c539dd69ad9a118939254589b0b579d4cb9c61"
+    },
+    {
+      "file": "renderers/web/js/tree-model.js",
+      "sha256": "1ec46dc2bfb15d13dab2260c022b31d4ee88b7302aab5be62069b2eaf5e198e2"
+    },
+    {
+      "file": "renderers/web/js/tree-surface.js",
+      "sha256": "23dec0e5dda80547d8ee2ae86f1400fb1a4af2bd54ca0b53d7fe8d52f088cc84"
+    },
+    {
+      "file": "renderers/web/js/season.js",
+      "sha256": "8407ba119eef8e26e1bfb4bf1d9dd2c4786d2981165f2d232fe53d2347a9bda7"
+    },
+    {
+      "file": "renderers/web/js/trees.js",
+      "sha256": "7429b5e761fd94cc348bcea6b781637f13f202da3111b102ffac8d9c3f7283fd"
+    }
+  ],
+  "flora_sha256": "4141897d052c7e6d2ab415751339ed3e3255d0f88419203e07431c5be5a5e410",
   "side_by_side": "docs/RESEARCH/photo-match/mayer_house_2009_prairie/monroe_1896_plate-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "the front's composition and proportions: 23 points read on both pictures fit one scale and one level camera square to the front at 3.8 px RMS (0.13 m), so the plate draws the same front the photograph shows, and the build laid to the photograph stands on the plate's lines: the ogee gable's outline and crest, the attic light, the paired light, the oriel, the ground window, the door under its three pinnacles, the small light and the stoop overlay the pen lines within a few pixels (T-3365)",
@@ -57,8 +118,8 @@
       "status": "within tolerance"
     },
     {
-      "what": "the two leafy trees either side of the front: not this record's (the parkway's and the yard's trees)",
-      "status": "open"
+      "what": "the two leafy trees either side of the front: the review drew none. T-3365 plants the two young trees the Chicagology photograph places on the parkway (24.6 and 31.2 m along it), in leaf for this plate; the plate's trunks at x 140 and x 498, carried through this camera, meet the planting line at 23.6 and 32.1 m, within 1 m of the photograph's, and the render's trunks stand either side of the front, the left before the north corner and the right south of the stoop, as the plate's do",
+      "status": "fixed"
     },
     {
       "what": "colour: a pen drawing; the stacks' brick, the front's red-brown and the basement's brownstone are the photograph's record's and the register's to say",
@@ -71,6 +132,14 @@
     {
       "what": "the north corner (T-3365): the coping lands on it at about the paired light's hood level in the plate (y about 185-192 px) and the render's lowered corner stands at y about 193 px, within about 0.2 m",
       "status": "within tolerance"
+    },
+    {
+      "what": "the trees' heads: the plate draws them fuller and lower-limbed than the render's narrow heads (the left's foliage from about the basement to the oriel's top, the right's from the ground floor to the gable's foot), a pen's foliage; the photograph measures the trees' habit and height, and the render grows those, in leaf",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the rule's grown elm at 20.3 m along the parkway: its trunk at the render's left edge and its crown across the top left, where the plate's vignette fades out and draws nothing",
+      "status": "not shown"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

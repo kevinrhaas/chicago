@@ -1,4 +1,61 @@
 export const CHANGELOG = [ // newest first
+  { v: 2928, ts: '2026-11-13T12:47:27.112Z', date: 'Nov 13, 2026, 6:47 AM CT', title: '1815 Prairie\'s south side is rock-faced stone, with its dormer', kind: 'improvement',
+    items: [
+      'The south side of the Sears house at 1815 Prairie is now rough rock-faced stone, as the old photograph from the south-west shows it, where it used to be plain brick.',
+      'The gabled dormer on that side of the roof now stands just behind the tall chimney, where the photograph puts it.',
+    ] },
+  { v: 2927, ts: '2026-11-13T12:44:29.402Z', date: 'Nov 13, 2026, 6:44 AM CT', title: 'The Fort Dearborn monument moved to where its photographs put it', kind: 'fix',
+    items: [
+      'The Fort Dearborn Massacre monument on 18th Street now stands about 5 m further east, by the curve into Calumet Avenue, where the Detroit Publishing print of the Pullman house puts it.',
+      'Its granite pedestal is slimmer front to back (the base 2.85 m deep, not 3.3 m), measured off J. W. Taylor\'s 1893 photograph, the one picture that shows its side.',
+      'Its card now shows the Barnes-Crosby photograph of about 1900, Taylor\'s of 1893 and the Detroit print, each set side by side with the model from the photographer\'s own position.',
+      'Still to do: the five bronze figures are simple stand-ins and do not yet look like Rohl-Smith\'s sculpture. The Detroit print shows the pedestal with no figures on it, which is not yet explained.',
+    ] },
+  { v: 2926, ts: '2026-11-13T12:10:51.138Z', date: 'Nov 13, 2026, 6:10 AM CT', title: 'The Greys\' hair, eyes and William\'s brows matched to the colour sheets', kind: 'improvement',
+    items: [
+      'William\'s hair is a light ash going silver at the sides, as on his colour turnaround sheet, where it had read too dark.',
+      'Sarah\'s hair is an ash brown with fair and grey streaks, and her eyes a pale grey rather than a bright blue.',
+      'William\'s brows sit lower, close over his eyes on the brow bone, where they had floated above the lids.',
+    ] },
+  { v: 2925, ts: '2026-11-13T11:49:01.185Z', date: 'Nov 13, 2026, 5:49 AM CT', title: '1816 Prairie\'s bay windows crowned with carved crests', kind: 'improvement',
+    items: [
+      'The windows in both of 1816 Prairie\'s canted bays now carry the same carved, scrolled crest as the front\'s hoods, as the old photograph of the house shows them.',
+      'Still to come on this house: a second dormer in the side crown, the balcony\'s tall iron railing with a door onto it, and a reading of the 1874 engraving.',
+    ] },
+  { v: 2924, ts: '2026-11-13T10:54:31.503Z', date: 'Nov 13, 2026, 4:54 AM CT', title: 'The Greys\' faces refitted to their portraits and side views', kind: 'improvement',
+    items: [
+      'William\'s moustache now falls only to the line of his mouth, so his lower lip shows, with a little bare skin under it before the beard begins; his beard\'s line runs up each cheek from the moustache\'s ends to the sideburns, as in his picture.',
+      'Both Greys\' faces are fitted to their portraits and to the side views of the owner\'s turnaround sheets at once, so how far the nose, chin and mouth stand out comes from the side view while the face stays smooth.',
+      'William\'s nose now stands out from a high bridge as in his side view, his chin comes forward under the beard, and his mouth no longer juts; his brows sit on the brow bone close over his eyes.',
+      'Sarah is fitted to the sheet\'s square-on front view as well, where her cheeks show best; the lumps beside her mouth and along her jaw are gone, and her nose runs straight to a level tip.',
+      'Sarah\'s lips are thin and her eyes blue-grey; William\'s hair falls in fuller waves to his collar, a brown going grey, and his grizzled beard lies close at the jaw and runs longer to the chin, as on the owner\'s sheets.',
+    ] },
+  { v: 2923, ts: '2026-11-13T10:27:43.348Z', date: 'Nov 13, 2026, 4:27 AM CT', title: 'The Fort Dearborn Massacre monument stands on 18th Street', kind: 'feature',
+    items: [
+      'In 1904, Carl Rohl-Smith\'s bronze group of 1893 now stands at the east end of 18th Street, by Calumet Avenue, in front of the Pullman estate\'s wall.',
+      'Its granite pedestal is built to the proportions of a photograph from about 1900: the stage base, the plinth, the die with its bronze panels, and the cap.',
+      'The five figures stand in the poses the photographs show, in simplified form. Matching them to the photographs is the next step.',
+      'Its card covers the monument\'s history: Pullman\'s gift, the 1931 move to the Historical Society, the protests of the 1970s, and its years in storage.',
+    ] },
+  { v: 2922, ts: '2026-11-13T08:42:40.894Z', date: 'Nov 13, 2026, 2:42 AM CT', title: 'Glessner House matched to Kevin\'s new photographs', kind: 'improvement',
+    items: [
+      'The rock-faced granite varies like the real wall: some stones pillow over a sharp lower lip, some are smoother.',
+      'The carving over the front door bulges in two levels, and its field grows in leafy scrolls.',
+      'The coach house on 18th Street has green diagonal-boarded doors, the latch on the man door beside the hinge-side jamb, a shut green loft door, and a driveway over the curb.',
+      'The alley dormer has its boarded hood with curved cheeks over a green loft door, and a bronze 35 plate sits on the 18th Street entry.',
+      'At the alley the courtyard wall stands tall to the brick edge, and the Keith house next door now runs back its full three storeys to it, beside a framed green gate.',
+      'The stable\'s south wall and the tall alley wall are buff Chicago common brick, and the stable wall has its high gable window over a centred row of four windows and a stone-headed triple window on the ground floor.',
+    ] },
+  { v: 2921, ts: '2026-11-13T08:42:40.894Z', date: 'Nov 13, 2026, 2:42 AM CT', title: '2009 Prairie\'s chimneys in red-brown brick, and its two young street trees', kind: 'improvement',
+    items: [
+      'The Mayer-Meyer house\'s tall chimneys and side walls are now the same dark red-brown brick as its front, as its old photograph shows them, not a pale buff.',
+      'The two slender young elms the photograph shows on the grass strip in front of the house now stand there, one by its north corner and one south of its steps, replacing a single full-grown elm.',
+    ] },
+  { v: 2920, ts: '2026-11-13T08:32:24.341Z', date: 'Nov 13, 2026, 2:32 AM CT', title: '1824 Prairie\'s eaves sit on paired brackets over a frieze', kind: 'improvement',
+    items: [
+      'In 1904, the old villa at 1824 Prairie Avenue now has its deep eaves on brackets set in pairs, with a frieze band running under them all the way round. Before, the brackets were single and evenly spaced. Two photographs from about 1900 and one from before 1880 all show the pairs and the frieze.',
+      'The small sunk panels between the pairs are not carved. The pairs\' spacing and the brackets\' size are measured from the older photograph.',
+    ] },
   { v: 2919, ts: '2026-11-13T06:54:05.190Z', date: 'Nov 13, 2026, 12:54 AM CT', title: 'Jaunts can be heard: stops read aloud in chosen voices', kind: 'feature',
     items: [
       'A voiced jaunt shows Listen on its welcome, each stop and its ending. With sound on, each stop\'s voice starts as you arrive, after the one still speaking.',

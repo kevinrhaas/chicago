@@ -25219,10 +25219,13 @@ pendant) is T-1914's; a turned finial stands for the crest.
 
 **How to resolve:** T-1914 (S05B) details the front to the photograph and closes the image gate on this
 building; a reading of the rear or the flank would replace the invented openings there.
-**Covers:** `mayer_house_2009_prairie.as_mapped_1904.form.wall_thickness_front_m`, `mayer_house_2009_prairie.as_mapped_1904.form.wall_thickness_side_m`, `mayer_house_2009_prairie.as_mapped_1904.form.service_wall_brick`, `mayer_house_2009_prairie.as_mapped_1904.form.street_front_trim`, `mayer_house_2009_prairie.as_mapped_1904.form.roof_form`, `mayer_house_2009_prairie.as_mapped_1904.form.roof_pitch_deg`, `mayer_house_2009_prairie.as_mapped_1904.form.eave_overhang_m`, `mayer_house_2009_prairie.as_mapped_1904.form.stair_tread_m`, `mayer_house_2009_prairie.as_mapped_1904.form.stair_landing_depth_m`, `mayer_house_2009_prairie.as_mapped_1904.form.rear_bays`, `mayer_house_2009_prairie.as_mapped_1904.form.sash_by_storey`, `mayer_house_2009_prairie.as_mapped_1904.form.rainwater`, `mayer_house_2009_prairie.as_mapped_1904.form.yard`
+**Covers:** `mayer_house_2009_prairie.as_mapped_1904.form.wall_thickness_front_m`, `mayer_house_2009_prairie.as_mapped_1904.form.wall_thickness_side_m`, `mayer_house_2009_prairie.as_mapped_1904.form.street_front_trim`, `mayer_house_2009_prairie.as_mapped_1904.form.roof_form`, `mayer_house_2009_prairie.as_mapped_1904.form.roof_pitch_deg`, `mayer_house_2009_prairie.as_mapped_1904.form.eave_overhang_m`, `mayer_house_2009_prairie.as_mapped_1904.form.stair_tread_m`, `mayer_house_2009_prairie.as_mapped_1904.form.stair_landing_depth_m`, `mayer_house_2009_prairie.as_mapped_1904.form.rear_bays`, `mayer_house_2009_prairie.as_mapped_1904.form.sash_by_storey`, `mayer_house_2009_prairie.as_mapped_1904.form.rainwater`, `mayer_house_2009_prairie.as_mapped_1904.form.yard`
 **Ticket:** T-1913 (S05A).
 **Review:** `docs/RESEARCH/photo-match/mayer_house_2009_prairie/chicagology_photo-side-by-side.jpg`.
-**Recorded:** 2026-11-03 (T-1913).
+**Recorded:** 2026-11-03 (T-1913). Amended 2026-11-12 (T-3365): the side and rear walls' brick is no longer invented. It is read
+off the photograph's tone (both stacks and the north wall print as dark as the front's red-brown and
+darker than its brown sandstone, which a buff brick cannot do) and laid in the front's red-brown, inferred
+(the record's `service_wall_brick` note), so it leaves this entry's Covers.
 
 ### L-draft-prairie-20-22-east-2352 — The east side of Prairie Avenue, 20th to 22nd, stood up as a district draft: every height, roof, opening and feature reconstructed, and 2141 left open
 
@@ -27207,9 +27210,8 @@ the principal floor, the storey heights and the wall head, the street windows' p
 the pavilion's width and its roof's apex, the corner bay's cheek, front and balcony, the dormer, the
 mansard's curb, the stacks. Every height rests on the print's own scale across the front (its `solve`).
 **What is invented.** The walls' thickness; the stone (K02's Lemont limestone for the 1973 landmarks
-report's 'yellow limestone') and its two-course base; the flanks and rear in brick, where the sheet
-colours the whole house stone and the oblique shows a rock-faced south flank (K01 lays stone on the
-street front only); the stair projection's 1.2 m (the sheet's 1.55, past K08's deepest pavilion);
+report's 'yellow limestone') and its two-course base; the north flank and the rear in brick, where
+the sheet colours the whole house stone (the south flank is stone since T-3562, below); the stair projection's 1.2 m (the sheet's 1.55, past K08's deepest pavilion);
 the south flank bay's two storeys; the north flank's, the rear's and the rear range's windows (no
 picture sees them); the rear range's three storeys and flat deck; the mansard's deck; the stacks'
 plans; the rainwater; the sash pattern.
@@ -27248,9 +27250,17 @@ print's is a carved anthemion); the cheeks' sweep and the newels' heights within
 **What is not built.** The pavilion's full 4 m width (K01 cannot cut a door through a
 projection, so it stands 2.45 m wide north of the door), the basement doorway under the stoop's
 landing and the stoop's arched underside, the narrow light over the door (built at the storey's
-sash width), the dormer's finial and the roofs' cresting and cross finial, and the rock-faced south
-flank: open on the match record. The oblique print (camera solved by T-3156) also shows the corner bay running about 0.75 m
+sash width), the dormer's finial and the roofs' cresting and cross finial: open on the match record. The oblique print (camera solved by T-3156) also shows the corner bay running about 0.75 m
 south of the main front's south corner, as the square-on does, where the build sets it flush.
+**The rock-faced south flank and its dormer (T-3562, a piece of T-1893).** Read off the oblique print:
+the south flank is stone, rock-faced and dark against the smooth front, its windows dressed in smooth
+stone; and a gabled dormer stands in the flank's mansard just behind the tall south stack. Built as the
+front's K02 stone laid round the flank on the front's own beds in the profile's rock face
+(`stone_front.flanks`, a K01 option this ticket added), and the flank dormer moved from 9.0 m, where no
+picture put it, to 13.9 m from the rear. Invented: that the flank is the front's Lemont stone (the print
+is monochrome and draws it darker, which a different stone, soot or the light could each explain); its
+even courses on the front's lines, where the print lays broken-coursed random ashlar; and the dormer's
+sash and gable, about 1 m lower than the print's with the mansard's curb (open on the match record).
 **Which front stood in 1904 (T-3156).** The house was SOLD by Joseph Sears to Mrs. Grace Murray
 Meeker in March 1902, a "three-story stone building of fifteen rooms" (Inter Ocean, 28 March 1902),
 not owned by the Meekers from 1893 as this record's name says; in May 1915 it had "twenty-one rooms"
@@ -39037,6 +39047,20 @@ camera reads the trees at 43.7 and 51.3 m 2.3-2.8 m west. **Chosen (reconstructe
 16554 prints. **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_16554_from_south-side-by-side.jpg`,
 `pullman_house_1729_prairie_conservatory/inland_1894_plate-side-by-side.jpg`, `detroit_det_4a08066-side-by-side.jpg` and their match records.
 
+**Extended (T-3365, 2026-11-12, Prairie Avenue's east parkway before 2009 Prairie):** the stretch
+from 23.7 to 32.8 m along `prairie__prairie_calumet_20_21`, the run the Chicagology photograph of the
+Mayer-Meyer house (c. 1890s) sees, now holds the two trees it shows, at 24.6 m (before the house's north
+corner) and 31.2 m (before its southern neighbour), where the rule stood one grown elm at 30.0 m.
+**Read:** each trunk's x (247 and 1388 px) carried to the planting line through the photograph's solved
+camera; their habit off the same print, winter-bare: one straight leader clear to about 5 m under a
+narrow head to about 7.2-7.6 m, boles about 0.19-0.25 m. Monroe's 1896 plate, drawn from about the
+same place in leaf, draws the same pair either side of the front, its trunks meeting the line within
+1 m of the photograph's. **Chosen (reconstructed):** the `high_head` form at scale 0.4 for that habit
+(its heads a little wider and its twigs straighter than the print's); each tree on the planting line,
+where both feet read 1.4-1.6 m nearer the walk; that the trees of an undated 1890s print still stand,
+not much grown, in 1904. **Review:** `docs/RESEARCH/photo-match/mayer_house_2009_prairie/chicagology_photo-side-by-side.jpg`,
+`monroe_1896_plate-side-by-side.jpg` and their match records.
+
 ### L-pullman-terrace-tubs-1934 — The Pullman palm house's summer tub plants, stood where the 1894 Inland plate shows them
 
 **Decision:** three plantings on the 1729 Prairie lot are stood where the 1894 Inland Architect
@@ -42389,7 +42413,7 @@ the match record. The 1874 Land Owner engraving is not read.
 K01 door hood.
 **Ticket:** T-1886.
 **Recorded:** 2026-11-07 (T-1886).
-**Revised:** 2026-11-12 (T-1886): the south flank's brick, the flat front's hoods and the flank window's hood are built. Through the solved camera the flank wall between the two canted bays reads the same grey as the bays and the front (median 169-184 against the bays' 174-200, the stone 237), where the common buff rendered half again as light as the bays, so the flank is laid in the front's pressed red: a new K01 key, `face_brick.returns` (the side walls named laid in the front's face brick), with no K03 string course on that wall, since the print draws none. The flank window (`side_bays` 6.4) wears the front's K09 cornice hood on both storeys (`street_front_trim.lights`; K01 now lets a brick side wall's named light take its K09 head rather than a brick arch), and every such hood carries K09's carved crest (`street_front_trim.crest`, 1.0 by 0.35 m, 0.1 m proud). **Still invented:** the crest's carving (the kit's palmette between two volutes; the print resolves only a raised scrolled block) and its size, read to about 0.1 m; the brick of the north flank, the rear and the rear range, kept in the common because no picture shows them; the red's depth against a monochrome print (the T-3385 palette's). **Still not built:** the crests over the canted bays' K08 hoods; the flank crown's dormer in its south-east canted face; the balcony's railing and the door onto it. The 1874 Land Owner engraving is still not read.
+**Revised:** 2026-11-12 (T-1886): the south flank's brick, the flat front's hoods and the flank window's hood are built. Through the solved camera the flank wall between the two canted bays reads the same grey as the bays and the front (median 169-184 against the bays' 174-200, the stone 237), where the common buff rendered half again as light as the bays, so the flank is laid in the front's pressed red: a new K01 key, `face_brick.returns` (the side walls named laid in the front's face brick), with no K03 string course on that wall, since the print draws none. The flank window (`side_bays` 6.4) wears the front's K09 cornice hood on both storeys (`street_front_trim.lights`; K01 now lets a brick side wall's named light take its K09 head rather than a brick arch), and every such hood carries K09's carved crest (`street_front_trim.crest`, 1.0 by 0.35 m, 0.1 m proud). The canted bays' lights over the basement carry the same crest on their lintels: K08 gains a bay light's `crest` (the front's palmette in the front's ranges, laid by `k08_bays.crest`), since the print draws the bays' hoods crested as the front's are (x 140-215 and 490-560 px). **Still invented:** the crest's carving, on the front's hoods and the bays' lintels alike (the kit's palmette between two volutes; the print resolves only a raised scrolled block) and its size, read to about 0.1 m; the brick of the north flank, the rear and the rear range, kept in the common because no picture shows them; the red's depth against a monochrome print (the T-3385 palette's). **Still not built:** the bays' hoods' eared ends (about 0.25 m, under the bar: the bays wear K06's square lintel under the crest); the flank crown's dormer in its south-east canted face; the balcony's railing and the door onto it. The 1874 Land Owner engraving is still not read.
 
 ### L-k01-2009-meyer-north-stack-3365 — 2009 Prairie's near north stack built astride the north wall, its breast carried up the flank from the ground, and its head as its photograph draws it
 
@@ -43654,7 +43678,7 @@ or a read bill of sale; a planting account locating the trees rather than merely
 
 **Recorded:** 2026-11-11.
 
-**T-3553 stand-ins chosen by the owner, 2026-11-12:** No photograph of William L. Grey or of Sarah Grey (2010 Prairie Avenue) was found. The owner supplied two sepia portraits and asked that they be used as the Greys' likenesses ("since we do not have photos of them you can use these likenesses"; "their faces must match exactly"; "their build match is important"). Their sitters, makers and dates are not recorded, so both are stand-ins, as the Glessner household's are (T-3478), graded reconstructed, and each card shows its picture labelled "STAND-IN, NOT" the person. The faces are fitted to about 400 points a face-landmark model finds on each picture, each tied to a vertex of the body's face by rendering that face at five turns and finding the same points on the renders (tools/face_landmark_correspondence.py); the fitted face, rendered and measured the same way, lands within about 3% of the eye span of the picture's points. The depth of the chin, jaw and nose cannot be read from one near-frontal picture and are left at the body's own. Each is drawn at the age the picture shows (about 50 and 45), not their 1904 census ages of 64 and 54, so the face is the picture's; their records keep the census ages. Their builds are read by eye (he heavy-set and thick-necked, she slight). The hair (his long, wavy and swept back, with a full trimmed beard over the chin and cheeks and a full moustache; hers drawn up to a knot on the crown, the lady's body's own bun turned up from the nape), the brows set at the pictures' height over the eyes, the hair colours read from sepia tones, and the cloth colours (a dark brown three-piece suit; a dark brown day dress, its white lace collar the lady's own shirtwaist collar and jabot) follow the pictures. The cameo brooch, earrings, watch chain, the cut of the sack coat and sleeves, the skin's own marks and Sarah's thinner lower lip (the face kit cannot thin it below the body's) are not modelled.
+**T-3553 stand-ins chosen by the owner, 2026-11-12:** No photograph of William L. Grey or of Sarah Grey (2010 Prairie Avenue) was found. The owner supplied two sepia portraits and asked that they be used as the Greys' likenesses ("since we do not have photos of them you can use these likenesses"; "their faces must match exactly"; "their build match is important"). Their sitters, makers and dates are not recorded, so both are stand-ins, as the Glessner household's are (T-3478), graded reconstructed, and each card shows its picture labelled "STAND-IN, NOT" the person. The faces are fitted to about 400 points a face-landmark model finds on each picture, each tied to a vertex of the body's face by rendering that face at five turns and finding the same points on the renders (tools/face_landmark_correspondence.py); the fitted face, rendered and measured the same way, lands within about 3% of the eye span of the picture's points. The owner then supplied turnaround sheets of both stand-ins (2026-11-13, "These might help": each head from the front, both sides and behind, and the whole dressed figure the same way; kevinrhaas/chicago-evidence, beside the portraits); the sheets' faces are taken as the same stand-ins as the portraits, which they plainly are. A per-vertex trace was tried first (tools/trace_portrait_face.py and tools/trace_portrait_profile.py: the points' misses on a render, and the render's line against the sky on the side view, each moving the skin near it) and is withdrawn (owner, 2026-11-13: "her jaw is ragged and her nose is bad, and he looks like a caveman, totally squashed nose and no nose brim"; "he has no chin and almost no nose"): the profile line landed within about a millimetre, but spot moves made where one view disagreed with a face fitted from the other left lumps beside the line (a pout beside her mouth, a stepped jaw, his nose standing out from a flat face). Instead the face's shapes are fitted to the pictures together, each with its own camera (tools/fit_portrait_face.py, `fit_views` in the portrait record): the portrait's points; for Sarah the sheet's square-on front view as well (owner: "her cheeks are seen well in the face on view"); and each sheet's side view, placed by the visible eye and the lips' height and turned as the sheet reads by eye, its outline matched by the face's own outline seen from that side, from the brow down to the neck for her and to just under the nose for him (his beard hides the rest). The side view reads what one near-frontal picture cannot: how far the nose, the chin and the mouth stand out (nose_depth, chin_prominence, prognathism, fitted now, the nose allowed past MakeHuman's largest where the side view asks for it). Her cheek and jowl shapes, which had been set by eye, and his, are fitted from these views too. The faces stay MakeHuman faces, smooth everywhere: the side outline lands within about 1.1 mm (hers) and 0.4 mm (his, brow to nose), the front points within about 3.4 px on the portraits. What no view of these pictures shows (the cheeks' depth between the front and the side) is the face shapes' and the reader's. The brows are not fitted (the model finds their hairs, not the skin under them); they are set by eye over the refitted faces, his on the brow bone close over the eyes as the sheet shows. Sarah's lips are held by eye: thin, the lower one thinned in height by MakeHuman's own lower-lip height target, added to the face kit for her as an axis nobody else draws (the painted lip keeps its height under the volume targets), and her nose tip level, not turned up. Each is drawn at the age the picture shows (about 50 and 45), not their 1904 census ages of 64 and 54, so the face is the picture's; their records keep the census ages. Their builds are read by eye (he heavy-set and thick-necked, she full and sturdy). The hair (his swept back from the brow and falling in loose waves over the ears to below the jaw and the collar, full at the sides, with a full trimmed beard, close at the sides of the jaw and longer to a rounded point at the chin as the turnaround sheet shows it (owner, 2026-11-13: "make sure their jaw lines are correct too"), and a heavy moustache drawn hair by hair, curling, a share of them grey, and thinning to stubble up the cheeks, in a grizzled russet a shade warmer and lighter than his hair, the moustache falling over the upper lip to the mouth's line, the lower lip and the skin under it left clear, and the beard's line running up the cheek from the moustache's ends to the sideburns (owner, 2026-11-13: "the beards in particular could be improved significantly"; "his lips are covered with hair and there is no space around his chin"; "look at the beard line"); hers drawn up to a knot on the crown, the lady's body's own bun turned up from the nape, its brown cap greyed toward the picture's), the brows set at the pictures' height over the eyes, the hair colours read from sepia tones and then from the turnaround sheets, which are in colour (his hair a mid-to-dark brown going grey, her eyes blue-grey, his blue-grey), and the cloth colours (a dark brown three-piece suit; a dark brown day dress, its white lace collar the lady's own shirtwaist collar and jabot) follow the pictures. The cameo brooch, earrings, watch chain, the cut of the sack coat and sleeves and the skin's own marks are not modelled.
 
 ### L-prairie-people-3548 — Household figures, doors and days (T-3548, 2026-11-11)
 
@@ -43710,6 +43734,117 @@ or a read bill of sale; a planting account locating the trees rather than merely
 
 **Ticket:** T-3551.
 **Recorded:** 2026-11-11.
+
+### L-fort-dearborn-monument-3567 — The Fort Dearborn Massacre monument in 1904: its depths, its figures' modelling, the lettering and the panels' reliefs
+
+**Decision:** Carl Rohl-Smith's bronze group *The Fort Dearborn Massacre* (1893) stands in the 1904
+scene on its granite pedestal at the east end of 18th Street's north walk, as
+`fort_dearborn_massacre_monument_1893` on a new pure-Python `monument` archetype. **That it stood
+there from 1893 to 1931, its five figures and their places, the pedestal's steps, die, panel and cap
+and their proportions are the photographs'** (the Barnes-Crosby view ICHi-19208, checked on J. W.
+Taylor's 1893 view), with the group's "about nine feet" from Wikipedia. **These are this project's:**
+
+- **The depths** were the widths less margins until T-3568 read them through a camera on Taylor's 1893
+  view (base 2.85 m, plinth 1.8, die 1.6): that part of this liberty is retired.
+- **The figures' modelling.** Each figure is joined from tapered limbs and balls in the pose the
+  photographs show, at about 0.2 m; faces, hair, dress folds, the feathers' number, the weapons'
+  detail and the whole of the group's rear (no photograph used here shows it; the Inter Ocean's
+  rear sketch of 1892 bounds it) are not modelled. One bronze colour, a dark brown patina; the
+  photographs are monochrome.
+- **The panels' reliefs** are flat bronze plates, and **the lettering** under the front panel
+  (THE FORT DEARBORN MASSACRE / AUGUST 15, 1812 / BLACK PARTRIDGE SAVING MRS. HELM) is not cut.
+- **Its place** is set by T-3568 through cameras on the Detroit print (east and west) and ICHi-19208
+  (north and south), good to about 1.5 m; the Pullman stable's draft stands about 6 m east of where
+  ICHi-19208 shows its end, which is open in that view's match record.
+
+The figures are period sculpture, built as the sculptor made them; the record carries
+`review_required` with its reason, and the card says how the work was received.
+
+**Covers:** `fort_dearborn_massacre_monument_1893.on_18th_street_1893.form.lettering`.
+
+**Ticket:** T-3567 (piece 1 of T-3565); the depths retired by T-3568.
+**Recorded:** 2026-11-12.
+
+### L-glessner-rock-faces-3564 — Glessner's rock-faced granite: three face profiles shared out by rule
+
+**Decision:** the owner, 2026-11-12, on his own close photographs of 2026-11-10 (chicago-evidence
+evidence/glessner-kevin-photos-2026-11-10/, 06 and 07): "they have a carved look, some of them are
+less carved but others pillow out the top 2/3 and then the bottom 1/3 is more sharp ... some are
+smoother ... you dont need every stone to match but match what is going on there". Each stone of
+the existing rock-face lattice takes one of three profiles by a hash of its place: pillowed, ledged
+(a pillow over the upper two-thirds and a sharp lip at the lower third) and smooth.
+**What is invented.** Which stone has which profile, and the shares (about two in five ledged, one
+in five smooth), the chin height and the lean of each pillow. They are read off the photographs as
+an impression, not measured stone by stone. The lattice and its triangle count are unchanged.
+**How to resolve:** a stone-by-stone survey of a wall, or rectified photographs of whole courses.
+**Ticket:** T-3564.
+**Recorded:** 2026-11-12.
+
+### L-glessner-photo-match-3564 — Glessner details matched to the owner's photographs of 2026-11-10
+
+**Decision:** the owner's own photographs of 2026-11-10 (chicago-evidence
+evidence/glessner-kevin-photos-2026-11-10/) and his notes on them set: the front-door tympanum's
+fuller, two-level roll and plant-like scrolled field (01); the green of the north sash (02-05); the
+bronze "35" address plate on the 18th Street entry cheek (08); the alley dormer's boarded hood with
+curved cheeks over a shut green loft door (13-17); the alley gate's framed, painted leaves with
+diagonal boards rising to the meeting stiles, the pier's humped capstone and its guard stone (18-19);
+and the courtyard's south wall standing about 16.5 ft high from the alley to a brick edge, where
+he identifies the Keith house's rear as having reached (19-20). On his ruling the Keith house
+(1808 Prairie) is now its full three storeys back to that rear, which is placed where the 1911
+sheet draws its brick main part ending (W 113.85; his reading by eye, about the stable wing's
+court face, is 12 ft west of it); the 9-ft court wall that stood on that line is withdrawn. His photographs 21-22 (sent 2026-11-12) set the
+stable's south brick wall: one light high in the gable under the apex, four upper windows in a row,
+and over the court wall the top of a smooth stone header, which stands over the one first-floor
+opening HABS sheet 2 draws in that wall (8.5 ft, read as three lights between two mullions). On
+his ruling of 2026-11-12 the upper row (sheet 3's 2.6-ft openings at 2-ft piers) and the
+first-floor window under its header are centred on the gable light and the ridge at W 141, as
+the photographs show them, not at sheet 3's and sheet 2's positions west of it (W 138.8-150.4 and
+W 139.8-148.3), which put the row's west end under the lower west roof's rake. He identified the
+brick of that wall and of the court wall's tall alley run as buff Chicago common brick, and both
+are laid in it rather than the court's light pink (HABS 1963 'light pink brick', which the rest
+of the court keeps); its value is reconstructed from photograph 22's channel ratios.
+**What is invented.** All sizes are read off the photographs against known openings (+/- 0.05 m;
+the tall wall +/- 1 ft in height and +/- 2 ft in where it ends); the carving is modelled to the
+photograph's impression, not measured. The photographs show the surviving fabric: that each detail
+(the plate above all, whose date is not established) stood in 1904 is the owner's ruling, not a
+dated source. Modern signs, ramps, rails, kick plates, vision lights and the iron fences over the
+gate and before the stable are left out.
+**How to resolve:** a dated photograph of any of these details before 1946 confirms or corrects it.
+**Ticket:** T-3564.
+**Recorded:** 2026-11-12.
+
+### L-glessner-coach-doors-3564 — The Glessner coach house's 18th Street doors as the owner ruled them
+
+**Decision:** the owner, 2026-11-12, of his photographs 10-11 of the present doors: "a reasonable
+representation of the 1904 door, note it includes the man door ... and also the main coach house
+door can open", and of the loft door above (12): "that green should be what is represented". Two
+sage-green leaves under a casing, every panel boarded on the diagonal, a man door with a narrow
+fixed panel in the viewer's left leaf, and the loft door shut in the same green. On his note of
+2026-11-12 the man door is the wide panel at the jamb with its latch on its own free edge, and the
+fixed panel beside it is framed to the same head and bottom rail, so the two lower panels stand the
+same height, as photograph 11 shows them.
+**What is invented.** Leaf, stile, rail and man-door sizes, read off the photographs against the
+12-ft doorway (+/- 0.05 m). The glazed upper zone of the earlier owner-supplied view is superseded
+by this ruling. The present doors date from the 1946 replacement HABS records; carrying their
+design to 1904 is the owner's ruling.
+**How to resolve:** a photograph of the doors before 1946.
+**Ticket:** T-3564.
+**Recorded:** 2026-11-12.
+
+### L-glessner-coach-drive-3564 — A carriage drive before the Glessner coach house's 18th Street doors
+
+**Decision:** the owner, 2026-11-12: "a horse and carriage can enter according to normal standards
+of how that would work ... i imagine there would be like a driveway to the coach house as well that
+should exist". Before the carriage doorway (W 134.9-147.0) the walk's paving runs from the lot line
+across the margin, the walk and the parkway at the doorway's 12-ft width, over the curb, and down
+the corner crossings' stone slab onto the roadway (data/street_section/1904.json, carriage_drives).
+**What is invented.** The drive's paving, width and slab: no source read shows it. They follow the
+corner crossings' rule (L-prairie-corner-crossings-3200) so a carriage has a way from the roadway
+to the doors.
+**How to resolve:** a photograph of 18th Street before the stable, such as the c. 1887 view from the
+north-west (cornell_adw_glessner_stable_1887), read for its drive and curb.
+**Ticket:** T-3564.
+**Recorded:** 2026-11-12.
 
 ### L-k16-1721-frame-house-3566 — Wirt Dexter's frame house of 1863 standing behind 1721 Prairie's brick front, its south front read off the Detroit print
 

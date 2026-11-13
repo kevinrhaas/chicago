@@ -2311,6 +2311,23 @@ def _k02(front: dict) -> dict:
         if not float(f["corner_bond"]["return_m"][1]) < south_return <= 4.0:
             raise ParamError(f"stone_front.south_return_m = {south_return} must be longer than {fab}'s "
                              f"longest quoin ({f['corner_bond']['return_m'][1]} m) and at most 4 m")
+    # T-3562: a side wall laid in the front's stone, coursed on the front's beds as an
+    # all-stone house's flanks are, in a dressing of its own: 1815's south flank on the
+    # oblique photograph, rock-faced against the smooth front (K01 calls it north)
+    flanks = front.get("flanks")
+    if flanks is not None:
+        walls_ = tuple(flanks.get("walls", ()))
+        if set(flanks) != {"walls", "dressing"} or not walls_ or not set(walls_) <= {"north", "south"} \
+                or len(set(walls_)) != len(walls_):
+            raise ParamError("stone_front.flanks is {\"walls\": side walls (\"north\", \"south\"), each "
+                             "once, \"dressing\": rock_faced or smooth}")
+        if flanks["dressing"] not in ("rock_faced", "smooth"):
+            raise ParamError("stone_front.flanks.dressing is rock_faced or smooth")
+        if flanks["dressing"] == "rock_faced" and rock[1] <= 0.0:
+            raise ParamError(f"{fab} has no rock-faced projection in its profile: its flanks cannot be laid rock_faced")
+        if corners or south_return is not None or "brick_above_m" in front:
+            raise ParamError("stone_front.flanks lays a side wall in the front's courses: a front that "
+                             "returns quoins, a strip or brick over its stone names none")
     if t["coping"] is None:
         raise ParamError("dressed_trim declares no coping")
     coping_h = float(front.get("coping_height_m", 0.0))
@@ -2362,6 +2379,8 @@ def _k02(front: dict) -> dict:
         "trim_course_m": tuple(t["course_height_m"]), "trim_block_m": tuple(t["block_length_m"]),
         "quoin_return_m": tuple(f["corner_bond"]["return_m"]), "corners": corners,
         **({"south_return_m": south_return} if south_return is not None else {}),
+        **({"flanks": tuple(flanks["walls"]), "flank_dressing": flanks["dressing"],
+            "flank_rock_m": rock if flanks["dressing"] == "rock_faced" else (0.0, 0.0)} if flanks else {}),
         "base_courses": base, "channel_m": f["rusticated_base"]["channel_width_m"],
         "channel_depth_m": f["rusticated_base"]["channel_depth_m"],
         **({"coursing": dict(coursing)} if coursing else {}),
@@ -3196,6 +3215,31 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                 ty = w.get("tympanum")
                 if ty is not None:
                     w["tympanum"] = tympanum_spec(ty, f"bays: {e['id']}'s tympanum", float(su["head_proud_m"]))
+        # T-1886: K09's carved crest standing on a bay light's lintel (1816's canted bays, whose
+        # hoods Chicagology's photograph draws crested as the front's are): the front's crest
+        # (`street_front_trim.crest`, T-3270) in the same ranges, on a flat-headed stone light
+        # whose lintel is its own (no voussoirs, tympanum or plinth for a head), inside its storey
+        for st in v["storeys"]:
+            for w in st["windows"]:
+                cr = w.get("crest")
+                if cr is None:
+                    continue
+                k06 = json.loads(WINDOW_KIT.read_text())
+                v6 = next((x for x in k06["variants"] if x["id"] == w["opening"]), {})
+                keys = {"width_m", "height_m", "proud_m"}
+                if not isinstance(cr, dict) or set(cr) != keys or v6.get("head", "flat") != "flat" \
+                        or any(k in w for k in ("voussoirs", "tympanum", "in_plinth", "door")) \
+                        or e.get("fabric", "stone") == "frame" \
+                        or not 0.4 <= float(cr["width_m"]) <= 2.0 or not 0.15 <= float(cr["height_m"]) <= 0.6 \
+                        or not 0.04 <= float(cr["proud_m"]) <= 0.2:
+                    raise ParamError(f"bays: {e['id']}'s crest takes width_m (0.4-2.0 m), height_m (0.15-0.6 m) "
+                                     f"and proud_m (0.04-0.2 m), on a flat-headed stone light's own lintel, not {cr}")
+                lintel = float((w.get("surround") or {}).get("head_m", k06["parts"]["head_band"]["width_m"]))
+                head = float(w["sill_m"]) + float(w.get("clear_height_m", v6.get("clear_height_m", 0.0)))
+                if head + lintel + float(cr["height_m"]) > float(st["height_m"]) - 0.05:
+                    raise ParamError(f"bays: {e['id']}'s crest rises to {head + lintel + float(cr['height_m']):.2f} m, "
+                                     f"past its {st['height_m']} m storey")
+                w["crest"] = {k: float(cr[k]) for k in sorted(keys)}
         # T-1881: a round-headed bay light framed by a moulded architrave, as K01 frames the
         # front's own (`street_front_windows.windows[k].architrave`): 1729's forward block's
         # light over the portico, which the 1890 Albertype plate draws under the same moulded

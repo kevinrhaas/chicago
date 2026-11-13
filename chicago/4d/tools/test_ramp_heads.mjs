@@ -50,7 +50,7 @@ if (!/nearPolygon\(e, n, x\.ramp, RAMP_EDGE_M\)/.test(src)) {
 const { pointInPolygon, nearPolygon } = new Function(
   `${slice('pointInPolygon')}\n${slice('nearPolygon')}\nreturn { pointInPolygon, nearPolygon };`)();
 
-const crossings = section.corner_crossings?.crossings ?? [];
+const crossings = [...(section.corner_crossings?.crossings ?? []), ...(section.carriage_drives?.drives ?? [])];
 if (!crossings.length) { console.log('FAIL no corner crossings in data/street_section/1904.json'); process.exit(1); }
 const test = selfTest ? (e, n, poly) => pointInPolygon(e, n, poly) : (e, n, poly) => nearPolygon(e, n, poly, eps);
 const missed = [];

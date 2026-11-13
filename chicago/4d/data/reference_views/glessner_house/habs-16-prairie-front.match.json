@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs-16-prairie-front",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "78857b7fb778e8c658297fa3e5119c6281993144b816fb66943e3de8c80f0872",
+  "glb_sha256": "d7c9d9cc88d9da40b5b34cd6a4912bc681a3e4ad7ecc1e28189a43d3c686494b",
   "camera_sha256": "a6cab11dcafff11f11d93e858c37ba17f45a1f59a8a82f28cf0431c025755e50",
   "photo_sha256": "c48a056ae87e4e31d21aa95956cf7c1b57b00df4ded49323f5daca424107f8d8",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-16-prairie-front-side-by-side.jpg",
@@ -82,6 +82,18 @@
     },
     {
       "what": "T-3392: no stone sill lies across the carriage passage's mouth over its sunk floor; the paving runs in under the leaves.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3564, reviewed from the rebaked master: nothing this view draws moved. The rock-faced stones are re-profiled per stone (pillow, ledge, smooth) with no added triangles, and the frame trim keeps its place; the walls, roofs and openings lie where they were matched.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3564, re-reviewed on the rebake after the owner's 2026-11-12 notes: the coach man door's latch moves onto the man door's free edge and its fixed neighbour panel takes the same head and bottom rail; the stable's south brick wall (not seen from this camera) takes its gable light, four upper windows and a stone-headed first-floor triple window. Nothing this view draws moved.",
+      "status": "fixed"
+    },
+    {
+      "what": "T-3564, re-reviewed on the rebake after the owner's later 2026-11-12 notes: the stable's south-wall windows (four upper, the first-floor triple and its header) are centred on the gable at W 141, and that wall and the court wall's tall alley run are laid in buff Chicago common brick. This camera does not see those faces; nothing it draws moved.",
       "status": "fixed"
     }
   ],

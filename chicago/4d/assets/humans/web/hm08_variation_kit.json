@@ -9,10 +9,10 @@
  "ref_unit_m": 0.0001,
  "delta_unit_m": 1e-05,
  "bin": "hm08_variation_kit.bin",
- "bin_bytes": 927482,
- "bin_sha256": "6eaa8ea253b2e7f63e0974318ef4f67a7558da4c985e33cd9c8264930782780b",
- "axes_sha256": "c2b1f87d191fbd6a3ea73c429ac3bc74a2763230af3f5197b48db1e853f7accc",
- "manifest_sha256": "80087621bf4d5b3185430dda3d8a08ed8c81a9286c91d4ad92a84d6a8d2847d1",
+ "bin_bytes": 929002,
+ "bin_sha256": "628c19cc402815af2245255b6a04aa047cca806b882e04c49c593b112808bc9d",
+ "axes_sha256": "c84a256d02710a348166fd5b82d056ecd8e162e68b058e9d30671fcfeecc5c8a",
+ "manifest_sha256": "62a0051962fe3d83b8a2049ddd8dc5d636401da1f8377d12daaacee5e86729df",
  "limit": 0.6,
  "height": {
   "spread": 0.035,
@@ -968,20 +968,39 @@
    }
   },
   {
+   "id": "lip_lower_height",
+   "scope": "face",
+   "spread": 0,
+   "rest": true,
+   "kind": "signed",
+   "pos": {
+    "count": 64,
+    "index": 262410,
+    "delta": 262538,
+    "max_m": 0.00637
+   },
+   "neg": {
+    "count": 126,
+    "index": 262922,
+    "delta": 263174,
+    "max_m": 0.0048
+   }
+  },
+  {
    "id": "brow_ridge",
    "scope": "face",
    "spread": 0.227,
    "kind": "signed",
    "pos": {
     "count": 292,
-    "index": 262410,
-    "delta": 262994,
+    "index": 263930,
+    "delta": 264514,
     "max_m": 0.01714
    },
    "neg": {
     "count": 177,
-    "index": 264746,
-    "delta": 265100,
+    "index": 266266,
+    "delta": 266620,
     "max_m": 0.00471
    }
   },
@@ -992,14 +1011,14 @@
    "kind": "signed",
    "pos": {
     "count": 290,
-    "index": 266162,
-    "delta": 266742,
+    "index": 267682,
+    "delta": 268262,
     "max_m": 0.06157
    },
    "neg": {
     "count": 280,
-    "index": 268482,
-    "delta": 269042,
+    "index": 270002,
+    "delta": 270562,
     "max_m": 0.04661
    }
   },
@@ -1010,14 +1029,14 @@
    "kind": "signed",
    "pos": {
     "count": 258,
-    "index": 270722,
-    "delta": 271238,
+    "index": 272242,
+    "delta": 272758,
     "max_m": 0.00679
    },
    "neg": {
     "count": 90,
-    "index": 272786,
-    "delta": 272966,
+    "index": 274306,
+    "delta": 274486,
     "max_m": 0.00846
    }
   },
@@ -1028,14 +1047,14 @@
    "kind": "signed",
    "pos": {
     "count": 1028,
-    "index": 273506,
-    "delta": 275562,
+    "index": 275026,
+    "delta": 277082,
     "max_m": 0.01133
    },
    "neg": {
     "count": 1022,
-    "index": 281730,
-    "delta": 283774,
+    "index": 283250,
+    "delta": 285294,
     "max_m": 0.01099
    }
   },
@@ -1046,14 +1065,14 @@
    "kind": "signed",
    "pos": {
     "count": 566,
-    "index": 289906,
-    "delta": 291038,
+    "index": 291426,
+    "delta": 292558,
     "max_m": 0.01734
    },
    "neg": {
     "count": 526,
-    "index": 294434,
-    "delta": 295486,
+    "index": 295954,
+    "delta": 297006,
     "max_m": 0.00721
    }
   },
@@ -1064,14 +1083,14 @@
    "kind": "signed",
    "pos": {
     "count": 52,
-    "index": 298642,
-    "delta": 298746,
+    "index": 300162,
+    "delta": 300266,
     "max_m": 0.01002
    },
    "neg": {
     "count": 78,
-    "index": 299058,
-    "delta": 299214,
+    "index": 300578,
+    "delta": 300734,
     "max_m": 0.00743
    }
   },
@@ -1082,14 +1101,14 @@
    "kind": "signed",
    "pos": {
     "count": 769,
-    "index": 299682,
-    "delta": 301220,
+    "index": 301202,
+    "delta": 302740,
     "max_m": 0.01487
    },
    "neg": {
     "count": 790,
-    "index": 305834,
-    "delta": 307414,
+    "index": 307354,
+    "delta": 308934,
     "max_m": 0.00776
    }
   },
@@ -1100,14 +1119,14 @@
    "kind": "signed",
    "pos": {
     "count": 2670,
-    "index": 312154,
-    "delta": 317494,
+    "index": 313674,
+    "delta": 319014,
     "max_m": 0.00342
    },
    "neg": {
     "count": 3451,
-    "index": 333514,
-    "delta": 340416,
+    "index": 335034,
+    "delta": 341936,
     "max_m": 0.0057
    }
   },
@@ -1119,44 +1138,44 @@
    "options": [
     {
      "count": 1942,
-     "index": 361122,
-     "delta": 365006,
+     "index": 362642,
+     "delta": 366526,
      "max_m": 0.01355
     },
     {
      "count": 1843,
-     "index": 376658,
-     "delta": 380344,
+     "index": 378178,
+     "delta": 381864,
      "max_m": 0.01259
     },
     {
      "count": 529,
-     "index": 391402,
-     "delta": 392460,
+     "index": 392922,
+     "delta": 393980,
      "max_m": 0.01153
     },
     {
      "count": 484,
-     "index": 395634,
-     "delta": 396602,
+     "index": 397154,
+     "delta": 398122,
      "max_m": 0.01525
     },
     {
      "count": 598,
-     "index": 399506,
-     "delta": 400702,
+     "index": 401026,
+     "delta": 402222,
      "max_m": 0.01384
     },
     {
      "count": 2021,
-     "index": 404290,
-     "delta": 408332,
+     "index": 405810,
+     "delta": 409852,
      "max_m": 0.00836
     },
     {
      "count": 550,
-     "index": 420458,
-     "delta": 421558,
+     "index": 421978,
+     "delta": 423078,
      "max_m": 0.01766
     }
    ]
@@ -1168,14 +1187,14 @@
    "kind": "signed",
    "pos": {
     "count": 146,
-    "index": 424858,
-    "delta": 425150,
+    "index": 426378,
+    "delta": 426670,
     "max_m": 0.03959
    },
    "neg": {
     "count": 146,
-    "index": 426026,
-    "delta": 426318,
+    "index": 427546,
+    "delta": 427838,
     "max_m": 0.02277
    }
   },
@@ -1186,14 +1205,14 @@
    "kind": "signed",
    "pos": {
     "count": 574,
-    "index": 427194,
-    "delta": 428342,
+    "index": 428714,
+    "delta": 429862,
     "max_m": 0.01232
    },
    "neg": {
     "count": 470,
-    "index": 431786,
-    "delta": 432726,
+    "index": 433306,
+    "delta": 434246,
     "max_m": 0.01034
    }
   },
@@ -1204,8 +1223,8 @@
    "kind": "positive",
    "pos": {
     "count": 209,
-    "index": 435546,
-    "delta": 435964,
+    "index": 437066,
+    "delta": 437484,
     "max_m": 0.01381
    }
   },
@@ -1217,14 +1236,14 @@
    "kind": "signed",
    "pos": {
     "count": 3941,
-    "index": 437218,
-    "delta": 445100,
+    "index": 438738,
+    "delta": 446620,
     "max_m": 0.02995
    },
    "neg": {
     "count": 3804,
-    "index": 468746,
-    "delta": 476354,
+    "index": 470266,
+    "delta": 477874,
     "max_m": 0.02655
    }
   },
@@ -1237,14 +1256,14 @@
    "kind": "signed",
    "pos": {
     "count": 3493,
-    "index": 499178,
-    "delta": 506164,
+    "index": 500698,
+    "delta": 507684,
     "max_m": 0.02217
    },
    "neg": {
     "count": 4312,
-    "index": 527122,
-    "delta": 535746,
+    "index": 528642,
+    "delta": 537266,
     "max_m": 0.03145
    }
   },
@@ -1256,14 +1275,14 @@
    "kind": "signed",
    "pos": {
     "count": 4156,
-    "index": 561618,
-    "delta": 569930,
+    "index": 563138,
+    "delta": 571450,
     "max_m": 0.04184
    },
    "neg": {
     "count": 3768,
-    "index": 594866,
-    "delta": 602402,
+    "index": 596386,
+    "delta": 603922,
     "max_m": 0.05221
    }
   },
@@ -1276,14 +1295,14 @@
    "kind": "signed",
    "pos": {
     "count": 4002,
-    "index": 625010,
-    "delta": 633014,
+    "index": 626530,
+    "delta": 634534,
     "max_m": 0.02843
    },
    "neg": {
     "count": 2871,
-    "index": 657026,
-    "delta": 662768,
+    "index": 658546,
+    "delta": 664288,
     "max_m": 0.03563
    }
   },
@@ -1294,8 +1313,8 @@
    "kind": "positive",
    "pos": {
     "count": 346,
-    "index": 679994,
-    "delta": 680686,
+    "index": 681514,
+    "delta": 682206,
     "max_m": 0.10239
    }
   },
@@ -1306,14 +1325,14 @@
    "kind": "signed",
    "pos": {
     "count": 679,
-    "index": 682762,
-    "delta": 684120,
+    "index": 684282,
+    "delta": 685640,
     "max_m": 0.02089
    },
    "neg": {
     "count": 877,
-    "index": 688194,
-    "delta": 689948,
+    "index": 689714,
+    "delta": 691468,
     "max_m": 0.02089
    }
   },
@@ -1325,8 +1344,8 @@
    "kind": "age_macro",
    "pos": {
     "count": 14517,
-    "index": 695210,
-    "delta": 724244,
+    "index": 696730,
+    "delta": 725764,
     "max_m": 0.07593
    }
   },
@@ -1339,8 +1358,8 @@
    "kind": "age_macro",
    "pos": {
     "count": 14517,
-    "index": 811346,
-    "delta": 840380,
+    "index": 812866,
+    "delta": 841900,
     "max_m": 0.0859
    }
   }
