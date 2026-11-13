@@ -1,0 +1,144 @@
+{
+  "id": "fort_dearborn_massacre_monument_1893",
+  "scene": "1904",
+  "name": "The Fort Dearborn Massacre monument",
+  "address": "18th Street at Calumet Avenue",
+  "status": {
+    "text": "Moved in 1931",
+    "today": "In city storage, off public view",
+    "grade": "attested",
+    "sources": [
+      "karamanski_2004_monuments_lost_nation",
+      "chicagoandcook_2017_1812_massacre_site"
+    ],
+    "note": "It went to a museum in 1931. The city later brought it back near here. Then the city put it away."
+  },
+  "built": {
+    "year": 1893,
+    "grade": "attested",
+    "sources": [
+      "wikipedia_fort_dearborn_massacre_monument",
+      "chicagoandcook_2017_1812_massacre_site"
+    ]
+  },
+  "use": "Monument",
+  "summary": "A bronze group by Carl Rohl-Smith, paid for by George M. Pullman and set up beside his house in 1893. It shows the Potawatomi leader Black Partridge saving Margaret Helm during the battle of August 1812. American Indian groups long objected to how it showed their people.",
+  "key": [
+    {
+      "label": "Sculptor",
+      "value": "Carl Rohl-Smith",
+      "grade": "attested",
+      "sources": [
+        "wikipedia_fort_dearborn_massacre_monument"
+      ]
+    },
+    {
+      "label": "Paid for by",
+      "value": "George M. Pullman",
+      "grade": "attested",
+      "sources": [
+        "wikipedia_fort_dearborn_massacre_monument",
+        "chicagoandcook_2017_1812_massacre_site"
+      ]
+    },
+    {
+      "label": "Height",
+      "value": "About nine feet, on a granite pedestal",
+      "grade": "attested",
+      "sources": [
+        "wikipedia_fort_dearborn_massacre_monument",
+        "chm_barnes_crosby_ichi_19208_fort_dearborn_monument"
+      ]
+    }
+  ],
+  "residents": [],
+  "lookFor": [],
+  "notable": [
+    {
+      "text": "Five figures fill the group: an attacker, Margaret Helm, Black Partridge, a wounded surgeon and a child.",
+      "about": "structure",
+      "visible_from_street": true,
+      "grade": "attested",
+      "sources": [
+        "chm_barnes_crosby_ichi_19208_fort_dearborn_monument"
+      ]
+    },
+    {
+      "text": "In 1973 dozens of protesters objected to the statue. One said that Wounded Knee was a massacre too.",
+      "about": "structure",
+      "surprising": true,
+      "grade": "attested",
+      "sources": [
+        "karamanski_2004_monuments_lost_nation"
+      ]
+    },
+    {
+      "text": "In 1972 the museum gave it a new name: The Potawatomi Rescue.",
+      "about": "structure",
+      "grade": "attested",
+      "sources": [
+        "karamanski_2004_monuments_lost_nation"
+      ]
+    }
+  ],
+  "style": null,
+  "story": [
+    {
+      "date": "1812-08-15",
+      "text": "The battle near Fort Dearborn is fought along the lake shore, close to this spot.",
+      "era": "1904",
+      "grade": "attested",
+      "sources": [
+        "chicagoandcook_2017_1812_massacre_site"
+      ]
+    },
+    {
+      "date": "1893",
+      "text": "George M. Pullman sets up the bronze group beside his house.",
+      "era": "1904",
+      "grade": "attested",
+      "sources": [
+        "wikipedia_fort_dearborn_massacre_monument",
+        "chicagoandcook_2017_1812_massacre_site"
+      ]
+    },
+    {
+      "date": "1931",
+      "text": "The group moves to the Chicago Historical Society.",
+      "era": "1904",
+      "grade": "attested",
+      "sources": [
+        "wikipedia_fort_dearborn_massacre_monument",
+        "chicagoandcook_2017_1812_massacre_site"
+      ]
+    },
+    {
+      "date": "1972",
+      "text": "The Society adds the name The Potawatomi Rescue.",
+      "era": "1904",
+      "grade": "attested",
+      "sources": [
+        "karamanski_2004_monuments_lost_nation"
+      ]
+    },
+    {
+      "date": "1973",
+      "text": "Protesters object to the statue.",
+      "era": "1904",
+      "grade": "attested",
+      "sources": [
+        "karamanski_2004_monuments_lost_nation"
+      ]
+    },
+    {
+      "date": "1973",
+      "text": "Later the city returns it near Prairie Avenue, then puts it in storage.",
+      "era": "1904",
+      "grade": "attested",
+      "sources": [
+        "karamanski_2004_monuments_lost_nation"
+      ],
+      "note": "Karamanski gives no year for either step, so the entry stands under the last year he dates."
+    }
+  ]
+}

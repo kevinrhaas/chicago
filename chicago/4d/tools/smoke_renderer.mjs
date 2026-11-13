@@ -20603,7 +20603,10 @@ for (const [label, viewport, touch] of [
           // T-3269 (#1519) stood 1905 Prairie's conservatory as a record of its own on the
           // house's stone bow and left it off this list, so this check was red at both
           // viewports on every branch off dev until T-3275 added it.
-          'marshall_field_house_1905_prairie_conservatory'].sort();
+          'marshall_field_house_1905_prairie_conservatory',
+          // T-3567 stood Rohl-Smith's Fort Dearborn Massacre group (1893) on its pedestal at the
+          // east end of 18th Street's north walk.
+          'fort_dearborn_massacre_monument_1893'].sort();
         // T-3275: this list has drifted four times (T-2331, T-2468, T-3164, T-3275), and each time the
         // only clue was the whole placed list printed beside this one. Name the difference.
         const missing1904 = PLACED_1904.filter((id) => !at.placed.includes(id));
@@ -21290,8 +21293,19 @@ for (const [label, viewport, touch] of [
           && Object.values(about1904.tiles).every((t) => t.length > 0) && about1904.tiles.living?.includes('ground'),
           JSON.stringify(about1904));
         // <<< T-2667
-        check(`${label}: the 1904 boot raises no loader problem (T-1739)`, at.problems.length === 0,
-          at.problems.slice(0, 3).join(' | '));
+        // T-3567: the Fort Dearborn Massacre monument is the 1904 scene's first record carrying
+        // `review_required`. The loader retains that annotation as a problem line (owner ruling
+        // 2026-10-16: it does not block release), so — as the 1835 boot does — pin the exact
+        // annotated records first, and only then hold everything else to zero.
+        const REVIEWED_1904 = ['fort_dearborn_massacre_monument_1893'];
+        const reviews1904 = at.problems.filter((p) => /review_required is set/.test(p))
+          .map((p) => p.split(':', 1)[0]).sort();
+        check(`${label}: the 1904 scene declares its exact review annotations (T-3567)`,
+          JSON.stringify(reviews1904) === JSON.stringify(REVIEWED_1904),
+          `reported ${JSON.stringify(reviews1904)}, expected ${JSON.stringify(REVIEWED_1904)}`);
+        const hard1904 = at.problems.filter((p) => !/review_required is set/.test(p));
+        check(`${label}: the 1904 boot raises no loader problem (T-1739)`, hard1904.length === 0,
+          hard1904.slice(0, 3).join(' | '));
         check(`${label}: the frame at the 1904 spawn is inside the draw budget (T-1739)`, at.budget.within === true,
           `${at.budget.calls} draw calls, ${at.budget.triangles} triangles against `
           + `${JSON.stringify(at.budget.ceiling)}, ${at.budget.fps} fps`, true);
