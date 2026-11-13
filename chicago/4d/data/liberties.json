@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1111,
+  "count": 1112,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -57727,11 +57727,15 @@
       "subjects": [],
       "covers": [],
       "recorded": "2026-10-24",
-      "revised": null,
+      "revised": "2026-11-12",
       "fields": [
         {
           "label": "Decision",
           "text": "The front's north end at 1811 Prairie (K01's low-s end, v 0 to 0.93) is built as a pier capped below the bay's cornice (form.front pier): its rock-faced courses unbroken from the base course to a dressed band at 7.10-7.22 m, one rock-faced course, and a moulded cap at 7.52-7.72 m, the band 0.05 m and the cap 0.12 m proud. The band, the cap and the slate top over them are read off the Chicagology photograph through earlier work's camera, and checked on the 1888 plate through earlier work's camera, so the record grades them `inferred`. Four things about it are invented. (1) No picture sees the weathering's pitch behind its front edge. It is slated at 42 degrees from the cap's front edge, which is the pitch whose render meets the print's slate at the bay's cornice. (2) No picture sees how the hipped roof meets the pier. So the front's wall head, the moulded cornice and the roof's street and side eaves are cut back over the pier's width to the weathering's slope, the side wall under it is stepped down below that slope, and the cut's face against the rest of the roof is slated. Earlier work (2026-11-09, the owner's phone shot from the north-west: \"see the big gash in it\"): that face no longer stands upright along the pier's inner edge for 3.4 m back along the north eave, which read as a slot cut into the hip. It runs on a diagonal from the pier's inner corner on the weathering back to 0.6 m behind where the weathering meets the north eave, leaning 75 degrees, so the cut is widest over the pier and dies out at the eave. The diagonal, the lean and the 0.6 m are ours, set so that every camera that sees the pier still shows sky over the cap. From the north it reads as the hip coming down to the pier. (3) The band and the cap are returned along the north side wall only as far back as the weathering over them stands under the soffit (about 0.6 m). The side wall stays brick. (4) The cap's moulding is two dressed boxes, a fillet over a narrower member, not the print's ogee and cove. The new downpipe at the pier's junction with the cheek takes its head, straps and shoe from K04, like the other two."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-11-12, T-1890, by the owner's ruling, looking at the north-west corner on his phone: *\"the roof would be simpler and I think you can make that happen by controlling the side and front a bit look at my pink lines, the roof peak would be straight there\"*, *\"You may need to adjust some wall heights to get it to match photo\"*. His line ran from the hip mass's apex straight down to the corner. So the pier's low head is withdrawn: `form.front_pier` is gone from the record, the front's stone runs to the north corner at its full height under the moulded cornice, the roof is no longer cut over it, and the north-west hip comes down to that corner as a plain hip. The pier's downpipe stays at the cheek's junction, its head raised to 7.85 m under the cornice like the other two. This departs on purpose from all three pictures, which cap the pier below the bay's cornice with sky over it; from the street the build now shows the cornice and the hip's foot there, about 1 m higher. Each view's match record carries it as `owner ruling`. Items (1) to (4) above describe the pier as T-3112 built it and no longer stand."
         },
         {
           "label": "Re-opens on",
@@ -73676,6 +73680,36 @@
       ],
       "work_refs": [
         "T-3553"
+      ]
+    },
+    {
+      "id": "L-t3573-step-out",
+      "title": "Someone at home, found or followed, comes out for a walk round their block",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-12",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-12: *\"if someone is in one of the houses and in town they should be able to be go to find or followed and if they are in their house they come outside and do a daily task outside so you can follow them, something meaningful like a walk around the block or something else with some movement ideally\"*. Find this person and Follow stay live for anyone present in town today who is indoors (a drawn figure gone in, or a household's resident listed in the inside <year> data, who is drawn only once out). Asked for, the visitor is taken to the door they will come out by, and on arriving they come out of it (the walkthrough's human days code `outing`) for seven minutes, longer while followed, then go back in by their door. Where their own day has a walk at least 40 m long (Christine Nelson's errand round the block), that is the walk; else the walkthrough's block walk code lays one round their block: out from the middle of the house square to its front, right, back and left to the first sidewalk each meets (1904; 1835's plank walks and street corridors), and round by the corners those make, the router keeping to the walks between; a side that is not met within 320 m makes it a walk along the front and round its ends, there and back. A young child comes out with a grown-up of the household (their caregiver where the household record names one), and the two walk it side by side at the child's pace. A soldier off his hours comes out of his quarters' door and goes back in by it before his duty has him again. A baby in the household's care has no figure of its own and stays in. With no block (1812), a walk about the place: a ring 12 to 38 m out on clear ground, the widest with room, or there and back between two places in a tight yard. It is called a morning walk, an errand or an evening walk round the block by the hour."
+        },
+        {
+          "label": "Not invented",
+          "text": "who is in town on the date and at home at the hour (their records and days, as before); their house and door."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "a source that says what one of them did out of doors at a given hour, which goes into their day and is then walked as written."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-12."
+        }
+      ],
+      "work_refs": [
+        "T-3573"
       ]
     },
     {
