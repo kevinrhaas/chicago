@@ -91,7 +91,8 @@ import { mountHumans } from './humans.js';
 import { createHumanDuties } from './human-duties.js';
 import { createHumanDays, createDayRouter, clearWayOf } from './human-days.js';
 import { createJauntHosts } from './jaunt-hosts.js';
-import { createHumanSpacing } from './human-spacing.js';
+import { createHumanSpacing, BODY_R_M } from './human-spacing.js';
+import { createHouseBarriers } from './house-barriers.js';
 import { createInteractions, createInteractKey } from './interact.js';
 import { createFollow } from './follow.js';
 import { createPeopleLook } from './people-look.js';
@@ -3975,6 +3976,7 @@ async function boot() {
   // camp lodge's walls where they meet the ground (doors_1812.json `walls`, read off the camp's
   // model), kept clear by a day's job places and by the spacing pass below.
   let lodgeWalls = [];
+  let houseBarriers = null;
   // T-3516 (owner, 2026-11-08: "This is for all years starting with 1812, give all people a
   // purpose and something to do"): every year's people keep a day, by its own doors file.
   const daysScene = String(loaded.scene.id ?? YEAR);
@@ -3984,6 +3986,10 @@ async function boot() {
     const [doors, inside] = await Promise.all([getOptional(`humans/doors_${daysScene}.json`),
       ['1812', '1904'].includes(daysScene) ? getOptional(`humans/inside_${daysScene}.json`) : null]);
     lodgeWalls = (doors?.structures ?? []).flatMap((row) => (row.walls ?? []).map((ring, i) => ({ id: `${row.structure}:walls${i + 1}`, pts: ring })));
+    // T-3554: a 1904 house's stoop, area walls, railings and bays, which a day's walk keeps a
+    // skirt's width off and nobody is stepped aside into (house-barriers.js).
+    houseBarriers = daysScene === '1904' ? createHouseBarriers([...(doors?.structures ?? []), ...(doors?.barriers ?? [])]) : null;
+    api.houseBarriers = houseBarriers;
     // The gathering's people who are carded and not drawn (inside_1812.json): a figure is
     // built for a small nearby rotation or a door call, from the dress their entry
     // names, and taken away once they are back in. Their logical days need no meshes.
@@ -4000,7 +4006,7 @@ async function boot() {
       };
       return api.humans.add(rec, { person: byPerson.get(entry.person) ?? { id: entry.person, name: entry.name } });
     };
-    const dayClear = clearWayOf(footprints.concat(lodgeWalls));
+    const dayClear = clearWayOf(footprints.concat(lodgeWalls), { barriers: houseBarriers });
     api.days = createHumanDays({ humans: api.humans, three: THREE, hour: sunHour, date: () => world.sunDate ?? null,
       doors, interactions, inside, spawn,
       openCard: (actor) => api.humans.select(actor.id),
@@ -4038,7 +4044,7 @@ async function boot() {
   // never into a building, by the router's grid once something has built it.
   api.spacing = createHumanSpacing({ humans: api.humans,
     visitor: () => ({ e: walker.state.e, n: walker.state.n }),
-    blockedAt: (e, n) => (api.router?.built ? api.router.blockedAt(e, n) : false),
+    blockedAt: (e, n) => !!houseBarriers?.near(e, n, BODY_R_M) || (api.router?.built ? api.router.blockedAt(e, n) : false),
     keepOut: lodgeWalls });
   /**
    * T-3439 (owner, 2026-11-07): Settings › Show › People and › Carriages and horses. A

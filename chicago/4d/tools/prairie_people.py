@@ -157,13 +157,73 @@ def looks_for(p, sex, portrait):
             'grade': 'reconstructed', 'basis': basis, 'liberty': CHILD_LIBERTY if young else LOOKS_LIBERTY}
 
 
-def routine(pid, home, door, role, age=None):
-    # All outdoor points are beyond the answering place, along its frontage.
+# T-3554 (owner, 2026-11-12: "people should not be able to walk through walls or barriers"): a
+# day's outdoor place stands STAND_M off every house wall and every barrier a house builds outside
+# them (stoop, area walls, railings, bays: tools/prairie_barriers.py), and the walks out to it and
+# along the frontage keep a skirt's half-width (prairie_barriers.SKIRT_M) off them the whole way.
+STAND_M = 0.55       # human-days.js clearWayOf stands a body 0.5 m off a wall; a hair more here
+OUT_M = (0.8, 1.2, 1.6, 2.0, 2.5, 3.0, 3.5, 4.0, 5.0, 6.0)   # how far out from the answering place
+SIDE_M = tuple(x / 2 for x in range(-6, 7))                    # and along the frontage
+WALK_M = (3.0, 2.0)                                             # the length of a frontage walk
+CORE_M = 0.15        # where no walk keeps a skirt's width (a narrow front gate), the body itself still clears
+
+
+def outdoor_points(pid, door, rings):
+    """Where `pid`'s outdoor spans stand and walk to: (at, end) in local E/N, the seeded
+    first choice (0.8 m out, up to 1.5 m along, a 3 m walk along the frontage) where it is clear,
+    else the nearest clear one; where no way out from the door keeps a skirt's width (a narrow
+    gate in a front railing), the nearest whose way out keeps the body itself clear (CORE_M);
+    None when the frontage has none."""
     angle = math.radians(door['outward_deg']); de, dn = math.sin(angle), math.cos(angle)
-    base = door['step']; side = (draw(pid, 'side') - .5) * 3
-    at = {'local_e': round(base['local_e'] + .8 * de + side * dn, 2),
-          'local_n': round(base['local_n'] + .8 * dn - side * de, 2), 'heading_deg': door['outward_deg']}
-    end = {'local_e': round(at['local_e'] + 3 * dn, 2), 'local_n': round(at['local_n'] - 3 * de, 2)}
+    base = (door['step']['local_e'], door['step']['local_n'])
+    side = (draw(pid, 'side') - .5) * 3
+    pt = lambda o, s: (round(base[0] + o * de + s * dn, 2), round(base[1] + o * dn - s * de, 2))
+    sides = sorted({round(side, 6), *SIDE_M}, key=lambda s: (abs(s - side), s))
+    for r in (None, CORE_M):
+        leg = (lambda a, b: rings.clear_leg(a, b)) if r is None else (lambda a, b: rings.clear_leg(a, b, r))
+        for o in OUT_M:
+            for s in sides:
+                at = pt(o, s)
+                if not rings.clear_point(at, STAND_M) or not leg(base, at):
+                    continue
+                for length in WALK_M:
+                    for sign in (1, -1):
+                        end = (round(at[0] + sign * length * dn, 2), round(at[1] - sign * length * de, 2))
+                        if rings.clear_point(end, STAND_M) and rings.clear_leg(at, end):
+                            return at, end
+    return None
+
+
+def scene_rings(door_data):
+    """Every 1904 building's walls and every Prairie house's barriers, as prairie_barriers.Rings."""
+    import prairie_barriers as pb
+    rings = []
+    for f in sorted((ROOT / 'data/sidecars/1904').glob('*.json')):
+        try:
+            sc = json.loads(f.read_text())
+        except ValueError:
+            continue
+        poly = (sc.get('footprint') or {}).get('polygon') if isinstance(sc, dict) else None
+        pl = sc.get('placement') if isinstance(sc, dict) else None
+        if poly and len(poly) >= 3 and pl and pl.get('vertical_anchor') != 'water':
+            rings.append([pb.d1812.to_world(float(u), float(v), pl) for u, v in poly])
+    for row in door_data['structures'] + door_data.get('barriers', []):
+        rings += pb.rings_from_plan(row.get('barrier'), row['placement'])
+    return pb.Rings(rings)
+
+
+def routine(pid, home, door, role, age=None, rings=None):
+    # All outdoor points are beyond the answering place, along its frontage, clear of what is built there.
+    got = outdoor_points(pid, door, rings) if rings is not None else None
+    if got is None and rings is not None:
+        raise ValueError(f'{pid}: no clear outdoor place before {door["id"]}')
+    if got is None:
+        angle = math.radians(door['outward_deg']); de, dn = math.sin(angle), math.cos(angle)
+        base = door['step']; side = (draw(pid, 'side') - .5) * 3
+        got = ((round(base['local_e'] + .8 * de + side * dn, 2), round(base['local_n'] + .8 * dn - side * de, 2)), None)
+        got = (got[0], (round(got[0][0] + 3 * dn, 2), round(got[0][1] - 3 * de, 2)))
+    at = {'local_e': got[0][0], 'local_n': got[0][1], 'heading_deg': door['outward_deg']}
+    end = {'local_e': got[1][0], 'local_n': got[1][1]}
     if role in CHILD_HEIGHT:
         def inside(a, b, doing):
             return {'from': a, 'to': b, 'indoors': True, 'where': home, 'doing': doing}
@@ -268,6 +328,7 @@ def generate():
     if errors:
         raise ValueError(errors)
     byhome = {x['structure']: x['doors'] for x in door_data['structures']}
+    rings = scene_rings(door_data)
     roles = {x['person']: x.get('role') for x in catalog}
     for entry in inside + care:
         ds = byhome[entry['home']]
@@ -276,7 +337,7 @@ def generate():
         if entry.get('care_only'):
             entry['day'] = [{'spans': [{'from': a, 'to': b, 'indoors': True, 'where': entry['home'], 'doing': doing} for a, b, doing in [(0, 7, 'sleeping in household care'), (7, 10, 'being fed and cared for'), (10, 12, 'playing quietly in household care'), (12, 15, 'being fed or taking a nap'), (15, 18, 'awake with a household caregiver'), (18, 24, 'receiving evening care or sleeping')]]}]
         else:
-            entry['day'] = routine(entry['person'], entry['home'], door, roles[entry['person']], entry.get('age_1904'))
+            entry['day'] = routine(entry['person'], entry['home'], door, roles[entry['person']], entry.get('age_1904'), rings)
         entry.setdefault('routine_liberty', LIBERTY)
     # Keep the door compiler's canonical byte representation as well as its values.
     outputs['data/humans/doors_1904.json'] = json.dumps(door_data, indent=1) + '\n'

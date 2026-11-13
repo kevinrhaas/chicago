@@ -43737,3 +43737,28 @@ settle what of the frame house stood behind the moved front, its roof and its co
 **Re-opens on:** a described or pictured piece of trade silver from the Chicago gathering, or of the bands there, which replaces the pattern.
 **Ticket:** T-3553.
 **Recorded:** 2026-11-12.
+
+### L-prairie-barriers-3554 — 1904 residents keep a skirt's width off every stoop, railing and bay, and the drafts' drawn front doors open
+
+**Decision:** the owner, 2026-11-12: *"when people walk they dont cut themselves and swipe though a sidewalk their
+dresses are wide and they walk their path sometimes cuts through a wall or barrier people should not be able to walk
+through walls or barriers"*. A house's footprint kept people out of its walls, but its stoop, area and coping walls,
+iron railings and bays stand outside the footprint, and 227 of the 786 walks the Prairie residents took out of their
+doors and along their frontages passed through one. Each 1904 Prairie house model is now read for whatever it builds
+between a knee (0.25 m) and a head (1.8 m) over the ground outside its footprint (`tools/prairie_barriers.py`, written
+into `data/humans/doors_1904.json` by `tools/derive_doors_scene.py`), and every resident's outdoor place stands 0.55 m
+off those barriers and off every building's walls, with the walk out from the door and the walk along the frontage
+keeping 0.3 m (a skirt's half-width, less the half cell the barriers are read on) off them the whole way; where a
+narrow front gate in a railing leaves no such way (four walks), the body itself still clears the rails by 0.15 m. The
+scene's own step-aside and gathering places refuse the same barriers (`renderers/web/js/house-barriers.js`). A draft
+house's drawn front door (`draft_door`) is hung to swing like a built one where the draft's stoop reaches it (seven
+houses), and every door's answering place stands clear of the draft's front rooms and bays, which reach past its
+footprint.
+**What it stands on:** the house models as their generators and drafts built them; the residents' days are
+L-prairie-people-3548's.
+**What is invented:** the knee and head heights, the 0.55 m and 0.3 m clearances, and which nearby clear place a
+resident takes when the first choice is blocked (the nearest out from the door, then along the frontage); a draft
+door's hinge and swing, as L-prairie-front-passages-3554's.
+**How to resolve:** a drawn front for any draft house, or a photograph of a resident's front walk and railing.
+**Ticket:** T-3554.
+**Recorded:** 2026-11-13 (T-3554).
