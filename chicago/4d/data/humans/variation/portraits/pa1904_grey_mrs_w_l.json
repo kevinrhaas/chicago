@@ -2812,7 +2812,7 @@
    "lashes_upper"
   ],
   "hair_tone": "light_grey_brown",
-  "hair_tone_basis": "The stand-in portrait is sepia: her hair reads a light-to-mid brown with paler streaks through it, drawn a light brown going grey for that and her 54 years. A reading of a monochrome tone, not a record.",
+  "hair_tone_basis": "The stand-in portrait is sepia: her hair reads a light-to-mid brown with paler streaks through it, drawn a light brown going grey for that and her 54 years; the owner's turnaround sheet of her (2026-11-13, in colour) shows the same, an ash brown with grey and fair streaks, worn up in a full knot on the crown, and her eyes a blue-grey. Colours of a stand-in, not a record.",
   "complexion": "fair",
   "dress": {
    "colours": {
@@ -2840,18 +2840,19 @@
    "years": 45,
    "grade": "reconstructed",
    "basis": "Drawn at the age the stand-in portrait shows (about 45), not her recorded age of 54 in 1904, so the face matches the picture the owner chose (\"their faces must match exactly\"). A reading by eye of an undated picture; the record's age is unchanged."
-  }
+  },
+  "eyes": "blue"
  },
  "prior_widen": 2.0,
  "outline_yaw_deg": -12.4,
  "axes_note": "chin_prominence, prognathism and nose_depth are left out: they move the face toward or away from a camera that looks at it nearly square, so one near-frontal picture does not measure them, and with hundreds of marks the fit drove them to their limits (a receding chin and jutting nose in profile that the picture does not show). They stay at the body's own lean.",
  "trace": {
   "points": "all",
-  "basis": "Traced onto the portrait beyond the fitted axes (tools/trace_portrait_face.py; owner, 2026-11-13: \"she needs a more serious match to her features from the original photo, you need to trace it\"): her whole face, outline included. Her profile is traced from her side view, from the brow to the chin's point (owner's turnaround sheet, 2026-11-13: \"These might help\"): the nose's length and how far it stands out, the lips, and the small chin.",
+  "basis": "Traced onto the portrait beyond the fitted axes (tools/trace_portrait_face.py; owner, 2026-11-13: \"she needs a more serious match to her features from the original photo, you need to trace it\"): her whole face, outline included. Her profile is traced from her side view, from the brow to the chin's point (owner's turnaround sheet, 2026-11-13: \"These might help\"): the nose's length and how far it stands out, the lips, and the small chin. Her front is then traced onto the sheet's own front view as well (owner, 2026-11-13: \"her cheeks are seen well in the face on view\"; \"you have her face very flat\"), square-on and evenly lit, at the turn that best lays a render on it (4.5 degrees, head 6 degrees down); the last front passes are made on it, so she follows the sheet where it and the sepia portrait differ.",
   "profile": {
    "scan": "kevinrhaas/chicago-evidence: evidence/grey-likenesses-2026-11-12/pa1904_grey_mrs_w_l/owner_sarah_grey_head_turnaround_2026-11-13.png (the owner's turnaround sheet as supplied 2026-11-13, 1254 x 1254)",
    "view": "the top-right head, her left profile (facing the viewer's left)",
-   "points": "chin",
+   "points": "neck",
    "render_yaw_deg": -88,
    "tragus_px": [
     930.5,
@@ -4006,7 +4007,8 @@
      552.5
     ]
    ],
-   "_doc": "Sheet pixels. silhouette_px: the face's line against the sheet's white ground, from the forehead to the neck, every second pixel of its outline; marks_px: MediaPipe Face Landmarker points on the side view (the visible eye's corners and lids, the lips' meeting); tragus_px read by eye, with the skin vertex the render draws there (tragus_kit_vertex) (tools/trace_portrait_profile.py)."
+   "_doc": "Sheet pixels. silhouette_px: the face's line against the sheet's white ground, from the forehead to the neck, every second pixel of its outline; marks_px: MediaPipe Face Landmarker points on the side view (the visible eye's corners and lids, the lips' meeting); tragus_px read by eye, with the skin vertex the render draws there (tragus_kit_vertex) (tools/trace_portrait_profile.py).",
+   "neck_to": 1.2
   }
  }
 }

@@ -3,6 +3,7 @@
 """A face traced onto its portrait, beyond what the face axes can draw (T-3553).
 
     python3 tools/trace_portrait_face.py DETECTIONS.json      add one pass to each person's trace
+    python3 tools/trace_portrait_face.py --rebase PERSON      tie the trace to a refit, then run passes
     (tools/trace_portrait_profile.py adds side-view passes to the same trace, through profile_pass)
 
 The owner, 2026-11-13, of the Greys' stand-in likenesses: "she needs a more serious match to
@@ -16,7 +17,8 @@ of the fitted axes, that carries the points the face-landmark model finds on a r
 fitted figure onto the points it finds on the portrait.
 
 DETECTIONS.json is {"<person>": {"portrait": [[x, y] x 478], "model": [[x, y] x 478],
-"pose": {"yaw_deg", "pitch_deg", "roll_deg"}}}:
+"pose": {"yaw_deg", "pitch_deg", "roll_deg"}, "view": optional name of another front picture of the
+same stand-in traced instead of the portrait, such as a turnaround sheet's front view}}:
 MediaPipe Face Landmarker (float16 v1, the same detector tools/face_landmark_correspondence.py
 uses) run on the portrait and on a render of the person as the renderer draws them now
 (tools/human_variation_lineup.html, keys=<person>, dress=1, turned by `pose`: the fit camera's
@@ -41,8 +43,11 @@ portrait's; the trace already written is in that render). A pass:
      that much).
 
 A record limits what is traced with its portrait record's `trace.points`: `all`, `inner` (no
-outline ring), or `nose` (the nose alone, the eyes held: a beard hides the jaw and mouth from
-the detector on both pictures, and its hairs read as folds in the skin). The trace is
+outline ring), `nose` (the nose alone, the eyes held: a beard hides the jaw and mouth from
+the detector on both pictures, and its hairs read as folds in the skin), or `nose_outline` (the
+nose and the face's outline: on a bearded face the outline the detector finds is the beard's
+on both pictures, so tracing it brings the jaw under the beard to the line that gives the
+picture's beard outline). The trace is
 written to data/humans/variation/traces/<person>.json in the kit's vertex order and units, with
 the sha256 of the fit it was traced on; tools/human_variation_kit.py carries it into the
 persons file and refuses one traced on another fit (re-run this after a refit). A reading,
@@ -107,9 +112,9 @@ def trace_pass(person, det):
     scope = (portrait.get('trace') or {}).get('points', 'all')
     table = json.loads(TABLE.read_text())['bodies'][asset]
     points = {int(n[3:]): p['vertex'] for n, p in table['points'].items()}
-    if scope == 'nose':
+    if scope in ('nose', 'nose_outline'):
         points = {i: v for i, v in points.items() if i in NOSE or i in EYES}
-    if scope == 'all':
+    if scope in ('all', 'nose_outline'):
         ring = min(table['outline'], key=lambda o: abs(o['render_yaw_deg'] - pose['yaw_deg']))
         points.update({int(n[4:]): p['vertex'] for n, p in ring['points'].items()})
     kidx = fpf.kit_index()
@@ -166,6 +171,8 @@ def trace_pass(person, det):
     info = {'render_pose_deg': {k: round(float(pose[k]), 1) for k in ('yaw_deg', 'pitch_deg', 'roll_deg')},
             'miss_before_px': {'rms': round(float(np.sqrt((miss[used] ** 2).sum(1).mean())), 2),
                                'eye_span': round(float(np.linalg.norm(b[33] - b[263])), 1)}}
+    if det.get('view'):
+        info['front_view'] = det['view']
     add_to_trace(person, fit_text, fit, asset, rest, C, D, Wt, info, 'passes', scope)
 
 
@@ -210,6 +217,9 @@ def add_to_trace(person, fit_text, fit, asset, rest, C, D, Wt, info, counter, sc
         'vertices': [int(i) for i in keep],
         'delta': [int(v) for v in q[keep].ravel()],
     }
+    for k in ('rebased', 'front_view'):
+        if (old or {}).get(k) and k not in info:
+            rec[k] = old[k]
     rec[counter] = rec[counter] + 1
     rec.update(rec_info)
     if not rec['profile_passes']:
@@ -243,8 +253,23 @@ def profile_pass(person, d):
                  (portrait.get('trace') or {}).get('points', 'all'))
 
 
+def rebase(person):
+    """After a refit, tie the person's trace to the new fit: the trace is a correction on top
+    of the fitted face, so it stays roughly right; fresh front and side passes then correct
+    what the refit moved."""
+    out = TRACES / f'{person}.json'
+    rec = json.loads(out.read_text())
+    rec['fit_sha256'] = hashlib.sha256((fpf.FITS / f'{person}.json').read_text().encode()).hexdigest()
+    rec['rebased'] = rec.get('rebased', 0) + 1
+    out.write_text(json.dumps(rec, separators=(',', ':')).replace(',"vertices"', ',\n"vertices"').replace(',"delta"', ',\n"delta"') + '\n')
+    print(f'{person}: trace tied to the refit (rebased {rec["rebased"]})')
+
+
 def main():
     args = sys.argv[1:]
+    if len(args) == 2 and args[0] == '--rebase':
+        rebase(args[1])
+        return
     if len(args) == 2 and args[0] == '--profile':
         for person, d in json.loads(pathlib.Path(args[1]).read_text()).items():
             profile_pass(person, d)

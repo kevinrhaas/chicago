@@ -66,9 +66,12 @@ export const HAIR_CUTS = Object.freeze({
   // T-3553: William L. Grey's hair as the owner's stand-in portrait shows it (a reconstructed
   // likeness, not a picture of him): thick and wavy, worn long over the ears to the collar and
   // swept straight back off a high forehead, with no parting, standing full at the sides.
+  // T-3553, 2026-11-13: re-read from the owner's turnaround sheet of the stand-in: swept back
+  // from the brow and falling in loose waves over the ears to below the jaw and the collar
+  // behind, full at the sides.
   swept_back_wavy_1904: Object.freeze({
-    flow: 'swept_back', part_cm: 0, lengths_cm: Object.freeze({ top: 9, side: 8.5, back: 11 }),
-    lift_mm: Object.freeze({ root: 2.6, tip: 7 }), density: 3.2, curl: .3, hang: true, card_mm: 4.5, cap_tint: 12,
+    flow: 'swept_back', part_cm: 0, lengths_cm: Object.freeze({ top: 11, side: 12.5, back: 15 }),
+    lift_mm: Object.freeze({ root: 5, tip: 14 }), density: 5, curl: .35, hang: true, card_mm: 6.5, cap_tint: 12,
   }),
   // A soldier's crop of 1812 (T-3491, a reconstructed choice): short all round, a little
   // longer on top and brushed forward to the brow, close over the ears and at the nape.
@@ -185,14 +188,14 @@ export const FACIAL_HAIR = Object.freeze({
   // from the moustache's ends at the corners of the mouth to the sideburns before the ears.
   beard_full_1904: Object.freeze({
     region_cm: Object.freeze({ x: [0, 6.4], y: [-15, -6.4], z_min: -3.8, top: [[0, -9.2], [1.9, -9.15], [2.8, -8.5], [3.3, -8.1], [4.5, -7.1], [6.4, -5.4]] }), facing: 'front',
-    length_cm: 2.6, fall: 1, outward: .12, lift_mm: Object.freeze({ root: 1.4, tip: 5 }), width_mm: 1, cover: 20, spread: .6, curl: .5,
+    length_cm: 3.8, fall: 1, outward: .03, lift_mm: Object.freeze({ root: 1.1, tip: 3.2 }), width_mm: 1, cover: 20, spread: .6, curl: .5,
     jitter_deg: 28, loft: 1.4, grey: .22, feather_cm: Object.freeze({ top: .5, bottom: 1.6 }),
   }),
   // The sides: from the jaw up the cheek's diagonal line to the sideburns before the ears,
   // where the long hair hangs over them.
   beard_cheeks_1904: Object.freeze({
     region_cm: Object.freeze({ x: [5, 8.6], y: [-13.5, 1], z_min: -7.6, z_max: -.3, top: [[5, -6.6], [6, -5.6], [7, -4.4], [7.8, -2.4], [8.6, -1]] }), facing: 'side',
-    length_cm: 1.5, fall: 1, outward: .15, lift_mm: Object.freeze({ root: .9, tip: 3 }), width_mm: .9, cover: 16, spread: .6, curl: .45,
+    length_cm: 1.1, fall: 1, outward: .06, lift_mm: Object.freeze({ root: .7, tip: 2.2 }), width_mm: .9, cover: 16, spread: .6, curl: .45,
     jitter_deg: 32, loft: 1, grey: .2, feather_cm: Object.freeze({ top: 1.8, out: 1.4 }),
   }),
   // The front of the cheeks, below the line from the corners of the moustache out and up
@@ -292,6 +295,11 @@ export const HAIR_COLOURS = Object.freeze({
   // Sandy brown going grey (T-3553, William L. Grey's stand-in): a light brown with red in it
   // and grey through it, as the sepia portrait's mid tone with paler streaks reads.
   sandy_grey: Object.freeze([.2, .135, .085]),
+  // Re-read from the owner's turnaround sheets (T-3553, 2026-11-13), which are in colour: his
+  // hair a mid-to-dark brown, grey through it and at the temples; his beard a grizzled russet,
+  // the moustache warmest and the chin greyest.
+  ash_brown_grey: Object.freeze([.12, .095, .078]),
+  grizzled_russet: Object.freeze([.3, .2, .14]),
   // His beard and moustache (T-3553): warmer than his hair, a reddish sand, as the portrait's
   // beard reads a shade redder and lighter than the hair above it.
   sandy_red: Object.freeze([.26, .14, .075]),

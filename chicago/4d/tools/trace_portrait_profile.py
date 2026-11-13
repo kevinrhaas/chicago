@@ -28,7 +28,8 @@ device pixel ratio 2) and that page's `window.__vertexDump()` beside it. A pass:
      portraitist lays one profile on another).
   2. Each point of the render's silhouette from the brow to the chin's point (`points`: `chin`;
      or, `nose`, from the bridge below the nasion to under the nose, where a beard hides the
-     rest and the nasion is held with the forehead) moves to the nearest point of
+     rest and the nasion is held with the forehead; or, `neck`, on under the jaw to the neck,
+     from a render with the clothes hidden, hide=^headwear|^garment) moves to the nearest point of
      the picture's; the skin vertex drawn there takes that move, read into the head's own
      frame. The forehead's silhouette is held still, and a side view sees no sideways move.
   3. tools/trace_portrait_face.py's profile pass spreads the moves over the face (each shared
@@ -143,6 +144,8 @@ def read_pass(person, render_png, dump_path):
     near_chin = band(c, ny + F * 0.7, ny + F * 1.3)
     if prof.get('points', 'chin') == 'nose':
         bottom = xy[at[2]][1] + F * 0.03
+    elif prof['points'] == 'neck':
+        bottom = ny + F * prof.get('neck_to', 1.35)            # on under the jaw to the neck
     else:
         bottom = near_chin[np.argmin(sgn * near_chin[:, 0])][1] + F * 0.06
     if prof.get('points', 'chin') == 'nose':     # the nose alone: the forehead and the nasion held

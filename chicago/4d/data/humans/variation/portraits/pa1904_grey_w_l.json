@@ -2682,9 +2682,9 @@
    "moustache_heavy_1904",
    "brows_full_high_1904"
   ],
-  "hair_tone": "sandy_grey",
-  "facial_tone": "sandy_red",
-  "hair_tone_basis": "The stand-in portrait is sepia: its hair and beard read a light-to-mid brown with paler grey streaks, drawn sandy brown going grey. Their colour is a reading of a monochrome tone, not a record. His beard, moustache and brows read a shade warmer and lighter than his hair, drawn a reddish sand, a share of the hairs grey.",
+  "hair_tone": "ash_brown_grey",
+  "facial_tone": "grizzled_russet",
+  "hair_tone_basis": "Re-read from the owner's turnaround sheet of the stand-in (2026-11-13), which is in colour: his hair a mid-to-dark brown with grey through it and a grey streak at the temple, drawn a brown going grey; his beard and moustache a grizzled russet, warmest at the moustache and greyest at the chin; his eyes a light blue-grey. Colours of a stand-in, not a record.",
   "complexion": "ruddy",
   "dress": {
    "colours": {
@@ -2714,7 +2714,8 @@
    "years": 50,
    "grade": "reconstructed",
    "basis": "Drawn at the age the stand-in portrait shows (about 50), not him recorded age of 64 in 1904, so the face matches the picture the owner chose (\"their faces must match exactly\"). A reading by eye of an undated picture; the record's age is unchanged."
-  }
+  },
+  "eyes": "grey"
  },
  "prior_widen": 2.0,
  "outline_yaw_deg": 18.2,
