@@ -2,7 +2,7 @@
   "structure_id": "fort_dearborn_massacre_monument_1893",
   "view": "aic_taylor_1893",
   "glb": "assets/gltf/fort_dearborn_massacre_monument_1893__on_18th_street_1893.glb",
-  "glb_sha256": "ab1b6e7d4eaabe38f44d5a12d558ca0d4ed35cba15af4659ca8b5fd1b9777e5b",
+  "glb_sha256": "0094605bbdac0e5c979941817fd628c52c724b789dd68adffa4c6762662f0dab",
   "camera_sha256": "7b063a09f2205f420cce6176a8c7382a45287add0bdab32956f5b5b330a11419",
   "photo_sha256": "4a3526daf3d99feda753e5fbcb7b704429949d7ab39f93d3dfef84d1a2189029",
   "side_by_side": "docs/RESEARCH/photo-match/fort_dearborn_massacre_monument_1893/aic_taylor_1893-side-by-side.jpg",
@@ -37,36 +37,36 @@
       "status": "open"
     },
     {
-      "what": "the warrior (left): in the print he lunges to the left, crouched, his weight on a bent right leg with the left stretched back, his body twisted toward the woman and his head at Black Partridge's shoulder, the tomahawk raised over his head in his right hand and a feather in his hair; the render stands him upright on straight legs, so his head and the tomahawk's head stand about 0.35-0.4 m higher than the sculpture's and his stride is lost",
-      "status": "open"
+      "what": "the warrior (left): in the print he lunges to the left, crouched, his weight on a bent right leg with the left stretched back, his body twisted toward the woman and his head at Black Partridge's shoulder, the tomahawk raised over his head in his right hand and a feather in his hair; the render stands him upright on straight legs, so his head and the tomahawk's head stand about 0.35-0.4 m higher than the sculpture's and his stride is lost [T-3582: re-posed joint by joint on this picture: the lunge to the left on the bent right knee with the left leg stretched back to the rock's west edge, the body twisted to the woman with the head down at Black Partridge's shoulder, the tomahawk raised in the right hand with its head below the grip, the left arm across to her, the feather in his hair and the fringed ornament at his left hip]",
+      "status": "fixed"
     },
     {
-      "what": "Margaret Helm (centre): in the print she staggers, leaning back against Black Partridge, her head turned, her right arm reaching across to the warrior, her dress falling in folds to the rock with a cloak loose behind; the render is an upright figure in a smooth cone of skirt with her arms out to the sides",
-      "status": "open"
+      "what": "Margaret Helm (centre): in the print she staggers, leaning back against Black Partridge, her head turned, her right arm reaching across to the warrior, her dress falling in folds to the rock with a cloak loose behind; the render is an upright figure in a smooth cone of skirt with her arms out to the sides [T-3582: re-posed on this picture: leaning back against Black Partridge, the right arm across to the warrior's waist, the left hand back at Black Partridge's chest, the hair in a knot, the skirt falling to the rock and the cloak hanging from the right arm; the folds themselves are T-3583's]",
+      "status": "fixed"
     },
     {
-      "what": "Black Partridge (behind her, right): in the print his left arm is raised high and out to the upper left with the palm open against the blow, his head in a headdress with a long feather streaming back, the musket slanting down past his right side; the render raises a straight arm ending in a long bar and carries a stick at his right, without the open hand, the headdress or the musket's shape",
-      "status": "open"
+      "what": "Black Partridge (behind her, right): in the print his left arm is raised high and out to the upper left with the palm open against the blow, his head in a headdress with a long feather streaming back, the musket slanting down past his right side; the render raises a straight arm ending in a long bar and carries a stick at his right, without the open hand, the headdress or the musket's shape [T-3582: re-posed on this picture: the left arm raised high and out to the upper left ending in an open hand, the feather standing from the headband and the long one streaming back, the right arm round Mrs. Helm, the musket slanting from behind the left shoulder past the right hip to its butt, the stride to the right]",
+      "status": "fixed"
     },
     {
-      "what": "the post surgeon (under them): in the print he lies across the front of the rock under the woman's skirt, his legs out toward the child; the render is a low lump with a ball for a head at the woman's left",
-      "status": "open"
+      "what": "the post surgeon (under them): in the print he lies across the front of the rock under the woman's skirt, his legs out toward the child; the render is a low lump with a ball for a head at the woman's left [T-3582: re-posed on this picture: half-lying back across the rock under Mrs. Helm's skirt, his head at the warrior's bent knee, propped on one arm, one leg stretched out to the west edge (the second picture shows it reaching the foot beside the warrior's; the reading 'legs toward the child' was the old record's)]",
+      "status": "fixed"
     },
     {
-      "what": "the child (right front): in the print he kneels at the rock's right edge reaching out with both arms; the render stands him upright in a cone with one arm out",
-      "status": "open"
+      "what": "the child (right front): in the print he kneels at the rock's right edge reaching out with both arms; the render stands him upright in a cone with one arm out [T-3582: re-posed on this picture: kneeling at the rock's edge, both arms reaching out to the right]",
+      "status": "fixed"
     },
     {
-      "what": "the rock: a rough, broken mound rising under the figures' feet in the picture; a low smooth swell in the render",
-      "status": "open"
+      "what": "the rock: a rough, broken mound rising under the figures' feet in the picture; a low smooth swell in the render [T-3582: a broken field of many small lumps over a few large ones, every point knocked up or down a few centimetres, rising under the feet; its ledges are the generator's, not the cast's stone by stone]",
+      "status": "fixed"
     },
     {
       "what": "the faces, hair, dress and undress, ornaments and weapons as sculpted: not modelled (the figures are joined from tapered limbs and balls, L-fort-dearborn-monument-3567)",
       "status": "open"
     },
     {
-      "what": "the group's outline as a whole: the print's rises from the rock at about y 690 to the tomahawk at y 175 (orig. px) and spans x 350-830; the render's spans x 330-900 and its tomahawk stands at y 135, the warrior's upright stance and Black Partridge's long bar (above)",
-      "status": "open"
+      "what": "the group's outline as a whole: the print's rises from the rock at about y 690 to the tomahawk at y 175 (orig. px) and spans x 350-830; the render's spans x 330-900 and its tomahawk stands at y 135, the warrior's upright stance and Black Partridge's long bar (above) [T-3582: the five figures re-posed (above), so the render's outline now follows the print's figure by figure; what is left is the group's height, below]",
+      "status": "within tolerance"
     },
     {
       "what": "the estate wall and its coped pier behind at right, and the young street tree: not drawn by this review",
@@ -75,6 +75,14 @@
     {
       "what": "colour: a toned monochrome print",
       "status": "not shown"
+    },
+    {
+      "what": "the group's height through this camera: every joint of the figures reads 25-85 px higher in the print than in the render, and the rock's top 25-30 px, at any depth a joint could stand at (T-3582 tried them all), so through this camera the group is about 10 per cent taller than through ICHi-19208 (about 2.35 m of figures against 2.13). The two camera fits disagree: this one is fitted on the base, plinth and die alone, below the group; ICHi-19208 is the square-on view the record takes (form.group_h_m says both)",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the figures' masses (T-3583): each figure is still joined from tapered round limbs, balls and a cone of skirt, so the musculature, Mrs. Helm's drapery and cloak, the breechcloths and leggings, Black Partridge's headband and the child's dress read as smooth masses, and Black Partridge's torso reads broader and squarer than the picture's; any figure that departs from the sculpture is open",
+      "status": "open"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

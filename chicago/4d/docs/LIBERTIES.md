@@ -43744,12 +43744,13 @@ scene on its granite pedestal at the east end of 18th Street's north walk, as
 `fort_dearborn_massacre_monument_1893` on a new pure-Python `monument` archetype. **That it stood
 there from 1893 to 1931, its five figures and their places, the pedestal's steps, die, panel and cap
 and their proportions are the photographs'** (the Barnes-Crosby view ICHi-19208, checked on J. W.
-Taylor's 1893 view), with the group's "about nine feet" from Wikipedia. **These are this project's:**
+Taylor's 1893 view), with the group's height read through ICHi-19208's camera (2.43 m with the rock; Taylor's camera reads it about a tenth taller, nearer Wikipedia's "about nine feet"). **These are this project's:**
 
 - **The depths** were the widths less margins until T-3568 read them through a camera on Taylor's 1893
   view (base 2.85 m, plinth 1.8, die 1.6): that part of this liberty is retired.
 - **The figures' modelling.** Each figure is joined from tapered limbs and balls in the pose the
-  photographs show, at about 0.2 m; faces, hair, dress folds, the feathers' number, the weapons'
+  photographs show, every joint read on ICHi-19208 through its camera and put in depth by
+  Taylor's, to about 0.15 m in depth (T-3582); faces, hair, dress folds, the feathers' number, the weapons'
   detail and the whole of the group's rear (no photograph used here shows it; the Inter Ocean's
   rear sketch of 1892 bounds it) are not modelled. One bronze colour, a dark brown patina; the
   photographs are monochrome.
@@ -43764,7 +43765,7 @@ The figures are period sculpture, built as the sculptor made them; the record ca
 
 **Covers:** `fort_dearborn_massacre_monument_1893.on_18th_street_1893.form.lettering`.
 
-**Ticket:** T-3567 (piece 1 of T-3565); the depths retired by T-3568.
+**Ticket:** T-3567 (piece 1 of T-3565); the depths retired by T-3568; the poses read joint by joint by T-3582.
 **Recorded:** 2026-11-12.
 
 ### L-glessner-rock-faces-3564 — Glessner's rock-faced granite: three face profiles shared out by rule
