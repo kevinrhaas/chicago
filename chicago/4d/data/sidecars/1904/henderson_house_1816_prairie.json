@@ -357,10 +357,11 @@
         "k01.opening.area_light": {
           "variant": "k06.opening.area_light",
           "well": false
-        }
+        },
+        "k01.opening.balcony_door": "k06.opening.french_pair_transom"
       },
       "confidence": "reconstructed",
-      "note": "RECONSTRUCTED: the K06 two-over-two flat sash and area lights 1620 wears; the photograph shows two-over-two sash in the principal windows."
+      "note": "RECONSTRUCTED: the K06 two-over-two flat sash and area lights 1620 wears; the photograph shows two-over-two sash in the principal windows. T-1886: the light over the door, opening onto the porch's balcony, is K06's French window (two casement leaves to the floor under a transom), the kit's own reconstruction of a balcony door (1637's, T-2534); its foot is behind the balcony's guard in the photograph, which shows its head and upper glass only."
     },
     "entrance_kit": {
       "value": {
@@ -378,10 +379,10 @@
             },
             "brackets": "k08.bay.canted_hooded",
             "railing": {
-              "height_m": 0.6,
+              "height_m": 0.95,
               "post_m": 0.1,
               "baluster_m": 0.03,
-              "pitch_m": 0.12,
+              "pitch_m": 0.08,
               "rail_m": [
                 0.08,
                 0.06
@@ -396,7 +397,8 @@
               "capital_m": 0.35,
               "respond_m": 0.12
             },
-            "railing_fabric": "iron"
+            "railing_fabric": "iron",
+            "door_over": true
           }
         }
       },
@@ -405,7 +407,7 @@
         "chicagology_1816_henderson_photo",
         "sanborn_1911_chicago_v3_sheet_28"
       ],
-      "note": "The photograph's porch: the door behind a flight straight down to the walk, two turned columns on plinths at the landing's front corners and a respond against the wall behind each, an entablature over them about 0.6 m deep under a moulded cornice, and on it an iron balcony railing. Built on the K01 door hood (T-2480) widened to the 1911 sheet's 3.1 m porch and standing 2.0 m out on columns (T-2963, `hood.columns`); its soffit 5.9 m over grade is read through the camera. The capitals are carved in the print (open on the match record) and the railing's pierced iron panels are the kit's square balusters in iron. The sheet colours the porch frame, so the columns and entablature are painted timber."
+      "note": "The photograph's porch: the door behind a flight straight down to the walk, two turned columns on plinths at the landing's front corners and a respond against the wall behind each, an entablature over them about 0.6 m deep under a moulded cornice, and on it an iron balcony railing. Built on the K01 door hood (T-2480) widened to the 1911 sheet's 3.1 m porch and standing 2.0 m out on columns (T-2963, `hood.columns`); its soffit 5.9 m over grade is read through the camera. The capitals are carved in the print (open on the match record) and the railing's pierced iron panels are the kit's square balusters in iron. The sheet colours the porch frame, so the columns and entablature are painted timber. T-1886 (2026-11-13): the balcony's guard raised to 0.95 m, about a metre as the print's pierced panels stand, its balusters at 0.08 m so the guard reads as the print's dense iron band rather than a sparse row; and the light over the door made a door onto the deck (`hood.door_over`): in the print the window over the porch runs down behind the guard, its foot hidden, where the 0.6 m railing had stood under the window's sill at 7.5 m. Its leaves are the kit's French window (window_kit) from the second floor at 6.8 m, 0.05 m over the deck, to the storey's own head at 10.5 m, under the storey's crested cornice hood; the leaves themselves are behind the guard and out of the print, so their glazing is the kit's (L-k01-1816-henderson-1886)."
     },
     "boundary": {
       "value": {

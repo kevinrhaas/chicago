@@ -2,7 +2,7 @@
   "structure_id": "henderson_house_1816_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/henderson_house_1816_prairie__as_mapped_1904.glb",
-  "glb_sha256": "6580a9e64a1fa6df3b0dec7136789216e7f9f1f410ebbdc7a0408c2ad5bec9cc",
+  "glb_sha256": "210d9aed7d7a343bfef9c0b77afccf009041fab95953b0aee085f73e74a53f67",
   "camera_sha256": "cd716f257362184bf542e8422a3b0549da4bde9351614c1cf035953b19b1371a",
   "photo_sha256": "6cf57cac7e3076af06121b104b57a02b9a25ac3830f01ddafe9ac2f27eb96ca8",
   "side_by_side": "docs/RESEARCH/photo-match/henderson_house_1816_prairie/chicagology_photo-side-by-side.jpg",
@@ -120,8 +120,13 @@
     },
     {
       "what": "the balcony's railing about 1 m high with pierced iron panels, and the window over the door opening onto it as a door; built as a 0.6 m railing of square balusters in front of a window",
-      "status": "open",
-      "how": "T-2964 tried the railing at 0.95 m: K01's door hood then runs into the sill of the window over the door (7.5 m), so the two are one change — that window made a door to the balcony floor, which K01 does not yet build"
+      "status": "fixed",
+      "how": "T-1886 (2026-11-13): the light over the door made a door onto the deck (K01 entrance_kit hood.door_over, new here): K06's French window from the second floor, 0.05 m over the deck, to the storey's own head, under the storey's crested cornice hood (K09 dresses it as the storey's lights), so the guard no longer meets a sill; the guard raised to 0.95 m. Through the camera the guard now stands about as high over the deck as the print's (its top before the light's lower glass, the light running down behind it), where the 0.6 m railing stood about half the print's height"
+    },
+    {
+      "what": "the balcony guard's pierced scroll panels; built as the kit's square iron balusters, set close (0.08 m) so the guard reads as a dense dark band",
+      "status": "within tolerance",
+      "how": "T-1886: a pattern inside an iron guard of the right height, place and line, as the fence's scrollwork is ruled (T-3153 bar)"
     },
     {
       "what": "the fence's scrolled cast-iron panels and its tall posts; built as the kit's spears",
