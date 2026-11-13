@@ -31,7 +31,8 @@ with some usage numbers.
   `login` event and an `enter_year` event (year, method, device) beside its own page
   views, sessions, engagement time, countries and devices. No email goes to Analytics.
 - **Never a lockout.** Off unless `js/sign-in-config.js` has `enabled: true`, all four
-  Firebase values, and the page's host in `hosts`; off under automation
+  Firebase values, and the page's host in `hosts` (`chicago.polecat.live` and the dev
+  preview's `dev.chicago.polecat.live`); off under automation
   (`navigator.webdriver`: the smoke, photo-match, films); and if Firebase cannot load
   or answer, the visitor goes in. It is a front door, not a lock: the town's files are
   public on a static host, and the panel says why the email is asked for.
@@ -46,7 +47,7 @@ with some usage numbers.
    the support email), **Email/Password** (leave "Email link" off until verified
    email-only is built), **Anonymous**, and **Microsoft** (below).
 3. **Authentication → Settings → Authorized domains → Add domain**:
-   `chicago.polecat.live`.
+   `chicago.polecat.live` and `dev.chicago.polecat.live` (the dev preview).
 4. **Build → Firestore Database → Create database**: production mode, location
    `nam5 (us-central)`. Then the **Rules** tab: paste the rules below, put the owner's
    Google address where it says `OWNER_EMAIL`, and **Publish**.
