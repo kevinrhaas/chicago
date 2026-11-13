@@ -1,0 +1,141 @@
+name: Chicago 4D — voice jaunt narration
+
+# T-3578 (owner, 2026-11-13): the jaunt scripts are read aloud in the owner's ElevenLabs
+# voices, made by a build step rather than by copying text out of the app.
+#
+# tools/narrate_jaunts.mjs reads the compiled jaunts listed in data/narration/voices.json,
+# keys every script by the SHA-256 of its words, and voices ONLY the scripts the media
+# host's narration index has no clip for (or has one made with another voice or settings).
+# An unchanged jaunt sends nothing to ElevenLabs and costs no credits. The clips go to the
+# R2 media bucket as content-addressed MP3s (narration/<sha256>.mp3, immutable), then the
+# index (narration/index.json, no-cache), and the run checks both are served. The app
+# finds a stop's clip by the same key, so changed words are silent until voiced again.
+#
+# Runs when a voiced jaunt or the voice choices reach dev, or by hand (Actions → this
+# workflow → Run workflow): "plan" says what it would voice and the characters it would
+# spend; "voice" voices and uploads; "list-voices" prints your ElevenLabs voices and ids.
+#
+# NEEDS four repository secrets: ELEVENLABS_API_KEY, and an R2 API token's
+# R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY and R2_ENDPOINT (https://<account>.r2.cloudflarestorage.com),
+# Object Read & Write on the media bucket. Without them a push run explains and stops green.
+#
+# ONE AT A TIME, NEVER CANCELLED: two runs racing would each write an index without the
+# other's clips.
+on:
+  push:
+    branches: [dev]
+    paths:
+      - 'chicago/4d/data/narration/**'
+      - 'chicago/4d/data/sidecars/*/jaunts/**'
+      - 'chicago/4d/renderers/web/js/narration.js'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'plan (what it would voice), voice (voice and upload), or list-voices'
+        type: choice
+        options: [plan, voice, list-voices]
+        default: plan
+      jaunt:
+        description: 'Only this jaunt id (blank: every jaunt in data/narration/voices.json)'
+        required: false
+        default: ''
+      max_chars:
+        description: 'Refuse to spend more characters than this (blank: the config cap)'
+        required: false
+        default: ''
+
+concurrency:
+  group: chicago-4d-narration
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  narrate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      MODE: ${{ github.event_name == 'push' && 'voice' || inputs.mode }}
+      JAUNT: ${{ inputs.jaunt }}
+      MAX_CHARS: ${{ inputs.max_chars }}
+      ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+      HAVE_R2: ${{ secrets.R2_ACCESS_KEY_ID != '' && secrets.R2_SECRET_ACCESS_KEY != '' && secrets.R2_ENDPOINT != '' }}
+    steps:
+      - name: Check the secrets before doing anything
+        id: secrets
+        run: |
+          missing=""
+          [ -n "$ELEVENLABS_API_KEY" ] || missing="$missing ELEVENLABS_API_KEY"
+          if [ "$MODE" = voice ] && [ "$HAVE_R2" != true ]; then missing="$missing R2_ACCESS_KEY_ID/R2_SECRET_ACCESS_KEY/R2_ENDPOINT"; fi
+          if [ "$MODE" = plan ] || [ -z "$missing" ]; then echo "ok=true" >> "$GITHUB_OUTPUT"; exit 0; fi
+          echo "ok=false" >> "$GITHUB_OUTPUT"
+          msg="Narration needs these repository secrets:$missing (docs/AUDIO.md § Narration)."
+          echo "### Narration not voiced" >> "$GITHUB_STEP_SUMMARY"; echo "$msg" >> "$GITHUB_STEP_SUMMARY"
+          if [ "${{ github.event_name }}" = push ]; then echo "::notice::$msg"; else echo "::error::$msg"; exit 1; fi
+      - uses: actions/checkout@v4
+        if: steps.secrets.outputs.ok == 'true'
+        with:
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /chicago/4d/data/narration/
+            /chicago/4d/data/jaunts/
+            /chicago/4d/data/sidecars/*/jaunts/
+            /chicago/4d/tools/narrate_jaunts.mjs
+            /chicago/4d/tools/audio-hosting.json
+            /chicago/4d/renderers/web/js/narration.js
+      - uses: actions/setup-node@v4
+        if: steps.secrets.outputs.ok == 'true'
+        with:
+          node-version: 22
+      - name: List voices
+        if: steps.secrets.outputs.ok == 'true' && env.MODE == 'list-voices'
+        working-directory: chicago/4d
+        run: node tools/narrate_jaunts.mjs --list-voices
+      - name: Plan
+        if: steps.secrets.outputs.ok == 'true' && env.MODE == 'plan'
+        working-directory: chicago/4d
+        run: node tools/narrate_jaunts.mjs --plan ${JAUNT:+--jaunt "$JAUNT"} ${MAX_CHARS:+--max-chars "$MAX_CHARS"}
+      - name: Voice what changed
+        if: steps.secrets.outputs.ok == 'true' && env.MODE == 'voice'
+        working-directory: chicago/4d
+        run: node tools/narrate_jaunts.mjs --voice --out "$RUNNER_TEMP/narration-out" ${JAUNT:+--jaunt "$JAUNT"} ${MAX_CHARS:+--max-chars "$MAX_CHARS"}
+      - name: Upload to the media bucket (clips first, the index last)
+        if: steps.secrets.outputs.ok == 'true' && env.MODE == 'voice'
+        working-directory: chicago/4d
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_ENDPOINT: ${{ secrets.R2_ENDPOINT }}
+          AWS_DEFAULT_REGION: auto
+          # R2 does not take the newer AWS CLI's default checksum headers.
+          AWS_REQUEST_CHECKSUM_CALCULATION: when_required
+          AWS_RESPONSE_CHECKSUM_VALIDATION: when_required
+        run: |
+          out="$RUNNER_TEMP/narration-out"
+          bucket=$(node -e "console.log(JSON.parse(require('fs').readFileSync('data/narration/voices.json','utf8')).bucket)")
+          made=$(node -e "console.log(JSON.parse(require('fs').readFileSync('$out/made.json','utf8')).join('\n'))")
+          if [ -z "$made" ]; then echo "Nothing new to upload."; exit 0; fi
+          for f in $made; do
+            aws s3 cp "$out/$f" "s3://$bucket/$f" --endpoint-url "$R2_ENDPOINT" \
+              --content-type audio/mpeg --cache-control "public, max-age=31536000, immutable" --only-show-errors
+            echo "uploaded $f"
+          done
+          aws s3 cp "$out/narration/index.json" "s3://$bucket/narration/index.json" --endpoint-url "$R2_ENDPOINT" \
+            --content-type application/json --cache-control "no-cache" --only-show-errors
+          echo "uploaded narration/index.json"
+      - name: Verify on the public host
+        if: steps.secrets.outputs.ok == 'true' && env.MODE == 'voice'
+        working-directory: chicago/4d
+        run: |
+          out="$RUNNER_TEMP/narration-out"
+          if [ "$(cat "$out/made.json")" = "[]" ]; then echo "Nothing new to verify."; exit 0; fi
+          node tools/narrate_jaunts.mjs --verify "$out"
+      - name: Keep the clips with the run
+        if: steps.secrets.outputs.ok == 'true' && env.MODE == 'voice'
+        uses: actions/upload-artifact@v4
+        with:
+          name: narration-clips
+          path: ${{ runner.temp }}/narration-out
+          if-no-files-found: ignore
+          retention-days: 30

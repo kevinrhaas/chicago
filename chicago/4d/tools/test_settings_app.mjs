@@ -112,20 +112,20 @@ const settingsHtml = html.slice(html.indexOf('data-panel="settings"'), html.inde
   assert.equal(normalTextScale('1.4'), 1.4);
   assert.equal(normalTextScale(1.5), 1);
   assert.equal(normalTextScale(undefined), 1);
-  assert.deepEqual(SOUND_DEFAULTS, { soundMaster: 0, soundEffects: 1, soundMusic: 0.4, soundAmbience: 1 }, 'sound is off by default: Master at 0 (owner, 2026-10-20, T-2941)');
+  assert.deepEqual(SOUND_DEFAULTS, { soundMaster: 0, soundEffects: 1, soundMusic: 0.4, soundAmbience: 1, soundNarration: 1 }, 'sound is off by default: Master at 0 (owner, 2026-10-20, T-2941)');
   // T-2941: a first visit is silent; the old all-on defaults a whole-object save stored are not
   // a choice; a level moved off them, or any level once `soundChosen`, is kept.
-  const silent = { soundChosen: false, soundMaster: 0, soundEffects: 1, soundMusic: 0.4, soundAmbience: 1 };
+  const silent = { soundChosen: false, soundMaster: 0, soundEffects: 1, soundMusic: 0.4, soundAmbience: 1, soundNarration: 1 };
   assert.deepEqual(soundLevelsFrom({}), silent, 'a first visit starts muted');
   assert.deepEqual(soundLevelsFrom(null), silent);
   assert.deepEqual(soundLevelsFrom({ soundMaster: 1, soundEffects: 1, soundMusic: 0.4, soundAmbience: 1, fov: 70 }), silent,
     'the old defaults stored beside another setting are no sound choice');
   assert.deepEqual(soundLevelsFrom({ soundMaster: 0.5, soundEffects: 1, soundMusic: 0.4, soundAmbience: 1 }),
-    { soundChosen: true, soundMaster: 0.5, soundEffects: 1, soundMusic: 0.4, soundAmbience: 1 }, 'a moved Master is kept');
+    { soundChosen: true, soundMaster: 0.5, soundEffects: 1, soundMusic: 0.4, soundAmbience: 1, soundNarration: 1 }, 'a moved Master is kept');
   assert.deepEqual(soundLevelsFrom({ soundMaster: 1, soundEffects: 1, soundMusic: 0.4, soundAmbience: 0 }),
-    { soundChosen: true, soundMaster: 1, soundEffects: 1, soundMusic: 0.4, soundAmbience: 0 }, 'a moved Ambience keeps every level');
+    { soundChosen: true, soundMaster: 1, soundEffects: 1, soundMusic: 0.4, soundAmbience: 0, soundNarration: 1 }, 'a moved Ambience keeps every level');
   assert.deepEqual(soundLevelsFrom({ soundChosen: true, soundMaster: 1, soundEffects: 1, soundMusic: 0.4, soundAmbience: 1 }),
-    { soundChosen: true, soundMaster: 1, soundEffects: 1, soundMusic: 0.4, soundAmbience: 1 }, 'sound turned on in Settings is remembered');
+    { soundChosen: true, soundMaster: 1, soundEffects: 1, soundMusic: 0.4, soundAmbience: 1, soundNarration: 1 }, 'sound turned on in Settings is remembered');
   assert.deepEqual(soundLevelsFrom({ soundChosen: true }), { soundChosen: true, ...SOUND_DEFAULTS });
   assert.equal(normalVolume('0.35'), 0.35);
   assert.equal(normalVolume(7), 1);

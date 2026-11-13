@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2919, ts: '2026-11-13T06:54:05.190Z', date: 'Nov 13, 2026, 12:54 AM CT', title: 'Jaunts can be heard: stops read aloud in chosen voices', kind: 'feature',
+    items: [
+      'A voiced jaunt shows Listen on its welcome, each stop and its ending. With sound on, each stop\'s voice starts as you arrive, after the one still speaking.',
+      'Music and ambience drop while a voice speaks. Settings › Sound has a Narration level, and the Navigator has a Mute narration key beside Mute music.',
+      'The Glessner Household is the first jaunt set up for voices. Its clips appear once the voicing run has made them.',
+      'The voices are synthetic and are not recordings of the people. A stop whose words change stays silent until it is voiced again.',
+    ] },
   { v: 2918, ts: '2026-11-13T06:29:47.498Z', date: 'Nov 13, 2026, 12:29 AM CT', title: '1904 people walk round stoops and railings, and draft doors open', kind: 'fix',
     items: [
       'Prairie Avenue residents no longer walk through stoops, area walls, iron railings or bays: every walk out of a door and along a frontage keeps a skirt\'s width off them.',
