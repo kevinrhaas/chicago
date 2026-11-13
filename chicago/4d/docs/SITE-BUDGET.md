@@ -1304,3 +1304,42 @@ The owner identified the stable's south wall and the court wall's tall alley run
 ## Dev's growth under a waiting PR, 444 -> 445 MiB (2026-11-13, pending the owner's go)
 
 #1964 waited through nine merges into dev. Merged onto dev 9af90330e, its published tree measured 444.2 MiB (local `publish.sh` + `validate.py --all`; CI gate part 7/8 read the same on 7a03e0db2), so the allowance moves to 445 MiB. Two 445 MiB trees plus the last measured 132.233 MiB of other content total 1022.233 MiB, 1.767 MiB under 1024 MiB. This is the last whole-MiB raise that fits under the accounting ceiling: the next growth needs a cut first, and the largest measured lever is still each KTX2 kit sheet shipped once instead of embedded in every house's GLB (T-3232). Boot, Light, frame, memory, warning and duplicate checks keep their limits.
+
+## 19. One tree per site: the dev preview moves out, 445 -> 740 MiB (T-3581, 2026-11-13)
+
+Every allowance since §8 was set by `2 x cap + other content <= 1 GiB`, because one GitHub
+Pages site carried two copies of this tree: production at `/4d/` and the `dev` preview at
+`/4d/dev/`. At 445 MiB that arithmetic was spent, and the dev preview had also frozen
+twice in two days. Each dev deploy re-downloaded the live production artifact so it
+could leave production untouched, and when that artifact expired every dev deploy
+failed at `Ambiguous baseline artifacts`.
+
+The owner chose to give the preview its own Pages site (thread "Lift the site size limit
+on hosting"; Cloudflare Pages is the later step, compared in the project's hosting
+plan):
+
+| site | repository | serves | deployed by |
+|---|---|---|---|
+| `chicago.polecat.live` | kevinrhaas/chicago | `/4d/` production, the landing page, `/pre-fire/`, `/prairie-1904/`, `/rebuilding-1870s/` | `deploy.yml`, on an owner promotion only (#1994) |
+| `dev.chicago.polecat.live` | kevinrhaas/chicago-dev | `/4d/dev/`, the `dev` branch's tree | that repository's `deploy-dev-preview.yml`, after each dev push and every 15 minutes |
+
+**The ceiling, measured 2026-11-13.** Production's site carries this tree once plus
+190.935 MiB of other content:
+
+| other content | MiB |
+|---|---:|
+| landing films `site/media/` (#1829, 2026-11-07; the earlier 132.233 never counted them) | 58.589 |
+| `/pre-fire/` | 47.880 |
+| `/prairie-1904/` as `deploy.yml` republishes it | 46.974 |
+| `/rebuilding-1870s/` | 37.333 |
+| landing page, css, js, notes, research | 0.159 |
+
+The deploy refuses an artifact over 1,000,000,000 bytes (953.674 MiB), so this tree can
+be at most 762.7 MiB. **The allowance is 740 MiB**, which leaves 22.7 MiB for the landing
+page to grow. The dev site carries only this tree, so it is never the binding one. On
+2026-11-13 (`dev` e81a3106d) the tree measured 444.6 MiB in 7,083 files. At the last
+two weeks' net rate of about 7.5 MiB a day, the room lasts about six weeks.
+
+Storage only: the boot payload budget, the frame, Light and memory limits, the 90 %
+warning and the duplicate guard are unchanged. A tree over 740 MiB needs a cut or the
+host move, not another raise.
