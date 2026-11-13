@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2950, ts: '2026-11-13T22:15:07.403Z', date: 'Nov 13, 2026, 4:15 PM CT', title: '1815 Prairie\'s north chimney stands where its photograph shows it', kind: 'fix',
+    items: [
+      'The north chimney moves out onto the north wall over the stair projection, where the street-front photograph shows it, and loses the two clay pots it never had.',
+    ] },
   { v: 2949, ts: '2026-11-13T21:48:10.864Z', date: 'Nov 13, 2026, 3:48 PM CT', title: 'The narrator speaks first, and Next Stop stops the voice', kind: 'fix',
     items: [
       'Starting The Glessner Household, the narrator reads the title and Background, then John Glessner speaks, even when the flight lands before the voices have loaded.',
