@@ -1,0 +1,2841 @@
+{
+ "format": "chicago4d_human_portrait_marks_v1",
+ "ticket": "T-3553",
+ "person_id": "pa1904_grey_mrs_w_l",
+ "scene": "1904",
+ "source": "owner_grey_likeness_sarah_2026",
+ "scan": "kevinrhaas/chicago-evidence: evidence/grey-likenesses-2026-11-12/pa1904_grey_mrs_w_l/owner_sarah_grey_likeness.png (the owner's picture as supplied, 1122 x 1402)",
+ "scan_size_px": [
+  1122,
+  1402
+ ],
+ "crop_px": [
+  430,
+  150,
+  730,
+  450
+ ],
+ "_doc": "Where the STAND-IN's face was marked, in pixels of the crop `crop_px` of the copy named in `scan` (T-3553; the owner: \"their faces must match exactly\"). The `mp_<index>` marks are MediaPipe Face Landmarker's (float16 v1) points on the owner's picture, every one the correspondence table (data/humans/variation/mediapipe_hm08_landmarks.json) puts on a skin vertex, and the face's outline ring (`mpo_<index>`) on the vertices it falls on in the calibration render turned as the portrait is (`outline_yaw_deg`, the yaw of a first fit without it), at 8 px where the forehead's edge is under the hair; they were checked by eye on a 3x enlargement. The pupils are the model's iris centres; the ears were read by eye on a gridded enlargement. `prior_widen` 2 lets this many points hold the face instead of the town's average. She sits turned a little to her right; her right ear is in shadow under the hair, so only its lobe (where the hoop hangs) is marked. `base_body` fits against the lady's body's rest face.",
+ "base_body": "glessner_frances_m_1904",
+ "sex": "female",
+ "age_at_picture_years": 45,
+ "age_note": "The picture is undated and its sitter unnamed; the sitter looks about 45. The owner gave it as Sarah Grey's likeness for 1904, when Sarah was 54 (1900 census). The face is fitted as a face of 45, and the figure is drawn at that age (`likeness.drawn_age`), so the town shows the portrait's face rather than one aged 9 years past it; the person's record keeps 54.",
+ "grade": "reconstructed",
+ "basis": "No photograph of Sarah Grey is known. The owner supplied this sepia cabinet-style portrait on 2026-11-12 as the likeness to use for her in 1904 (\"since we do not have photos of them you can use these likenesses\"). Who sat for it and when it was made are not recorded, so it is a stand-in: her face's proportions, hair and dress follow it, and none of it is evidence of how Sarah Grey looked.",
+ "not_modelled": [
+  "her own face (no photograph of her is known; this is the owner's stand-in)",
+  "the colouring (the picture is sepia; hair and eye colours are readings of its tones)",
+  "the cameo brooch, the hoop earrings and the wedding ring (no jewellery is modelled on the town's figures)",
+  "the dress's pin-tucked bodice, its buttons and its leg-of-mutton sleeves (the lady's body keeps its own jacket, coloured as hers)"
+ ],
+ "stand_in": {
+  "label": "STAND-IN, NOT SARAH GREY",
+  "card_note": "No photograph of Sarah Grey is known. This is a stand-in the project's owner chose as her likeness: a sepia portrait of a woman in a dark day dress with a lace collar and a cameo brooch, her hair drawn up to a knot on the crown. Its sitter is not recorded. Her face, hair and dress are the model's guide; it is not Sarah Grey."
+ },
+ "axes": [
+  "nose_length",
+  "nose_width",
+  "nose_hump",
+  "nose_curve",
+  "nose_tip",
+  "nose_tip_width",
+  "nostrils",
+  "nose_height",
+  "mouth_width",
+  "lip_upper",
+  "lip_lower",
+  "mouth_height",
+  "chin_width",
+  "chin_height",
+  "jaw",
+  "cheekbones",
+  "cheek_volume",
+  "cheek_inner",
+  "brow_height",
+  "brow_angle",
+  "brow_ridge",
+  "forehead_slope",
+  "temples",
+  "ear_size",
+  "ear_flap",
+  "ear_lobe",
+  "jowls",
+  "head_shape",
+  "forehead_height"
+ ],
+ "marks": [
+  {
+   "landmark": "pupil_r",
+   "x": 99.3,
+   "y": 116.0,
+   "sigma_px": 3
+  },
+  {
+   "landmark": "pupil_l",
+   "x": 187.6,
+   "y": 105.1,
+   "sigma_px": 3
+  },
+  {
+   "landmark": "ear_top_l",
+   "x": 277,
+   "y": 111,
+   "sigma_px": 5
+  },
+  {
+   "landmark": "ear_lobe_l",
+   "x": 266,
+   "y": 181,
+   "sigma_px": 4
+  },
+  {
+   "landmark": "ear_lobe_r",
+   "x": 75,
+   "y": 202,
+   "sigma_px": 6
+  },
+  {
+   "landmark": "mp_0",
+   "x": 142.7,
+   "y": 191.2,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_1",
+   "x": 133.5,
+   "y": 160.2,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_2",
+   "x": 138.5,
+   "y": 169.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_3",
+   "x": 126.3,
+   "y": 135.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_4",
+   "x": 132.0,
+   "y": 151.5,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_5",
+   "x": 132.0,
+   "y": 141.1,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_6",
+   "x": 133.6,
+   "y": 116.7,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_7",
+   "x": 85.5,
+   "y": 121.4,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_8",
+   "x": 132.6,
+   "y": 100.3,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_9",
+   "x": 131.2,
+   "y": 90.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_11",
+   "x": 143.3,
+   "y": 194.4,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_12",
+   "x": 144.2,
+   "y": 197.3,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_13",
+   "x": 145.0,
+   "y": 199.5,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_14",
+   "x": 145.3,
+   "y": 199.9,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_15",
+   "x": 145.5,
+   "y": 203.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_16",
+   "x": 146.1,
+   "y": 207.1,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_17",
+   "x": 146.9,
+   "y": 211.7,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_18",
+   "x": 149.7,
+   "y": 222.6,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_19",
+   "x": 135.5,
+   "y": 165.3,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_20",
+   "x": 129.6,
+   "y": 166.7,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_22",
+   "x": 106.5,
+   "y": 125.2,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_23",
+   "x": 99.2,
+   "y": 126.9,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_24",
+   "x": 92.1,
+   "y": 128.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_25",
+   "x": 83.0,
+   "y": 125.7,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_26",
+   "x": 112.7,
+   "y": 122.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_27",
+   "x": 92.1,
+   "y": 106.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_28",
+   "x": 101.1,
+   "y": 105.6,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_29",
+   "x": 84.7,
+   "y": 108.6,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_30",
+   "x": 80.7,
+   "y": 112.3,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_31",
+   "x": 77.8,
+   "y": 132.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_32",
+   "x": 123.3,
+   "y": 242.2,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_33",
+   "x": 82.9,
+   "y": 120.2,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_35",
+   "x": 70.6,
+   "y": 130.1,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_36",
+   "x": 101.5,
+   "y": 161.1,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_37",
+   "x": 132.2,
+   "y": 190.7,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_38",
+   "x": 135.2,
+   "y": 198.5,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_39",
+   "x": 123.5,
+   "y": 194.7,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_40",
+   "x": 118.1,
+   "y": 199.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_41",
+   "x": 128.1,
+   "y": 200.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_42",
+   "x": 122.7,
+   "y": 201.9,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_43",
+   "x": 112.1,
+   "y": 214.1,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_44",
+   "x": 127.0,
+   "y": 161.2,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_45",
+   "x": 124.8,
+   "y": 152.7,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_46",
+   "x": 70.8,
+   "y": 109.9,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_47",
+   "x": 115.5,
+   "y": 138.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_48",
+   "x": 111.9,
+   "y": 162.1,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_49",
+   "x": 111.7,
+   "y": 157.9,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_50",
+   "x": 80.5,
+   "y": 164.4,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_51",
+   "x": 125.2,
+   "y": 143.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_52",
+   "x": 85.3,
+   "y": 99.4,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_53",
+   "x": 75.9,
+   "y": 103.3,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_55",
+   "x": 118.4,
+   "y": 101.7,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_56",
+   "x": 109.3,
+   "y": 107.6,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_57",
+   "x": 104.7,
+   "y": 206.9,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_59",
+   "x": 118.7,
+   "y": 166.2,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_60",
+   "x": 125.4,
+   "y": 168.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_61",
+   "x": 113.0,
+   "y": 206.2,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_62",
+   "x": 115.0,
+   "y": 205.5,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_63",
+   "x": 72.5,
+   "y": 99.4,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_64",
+   "x": 113.0,
+   "y": 166.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_65",
+   "x": 99.3,
+   "y": 98.4,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_69",
+   "x": 92.3,
+   "y": 73.9,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_70",
+   "x": 67.8,
+   "y": 107.6,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_71",
+   "x": 66.1,
+   "y": 104.3,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_72",
+   "x": 133.4,
+   "y": 194.9,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_73",
+   "x": 125.8,
+   "y": 197.6,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_74",
+   "x": 120.3,
+   "y": 200.4,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_75",
+   "x": 121.1,
+   "y": 167.6,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_76",
+   "x": 114.0,
+   "y": 205.9,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_77",
+   "x": 117.5,
+   "y": 206.6,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_78",
+   "x": 116.2,
+   "y": 205.3,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_79",
+   "x": 120.7,
+   "y": 162.9,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_80",
+   "x": 124.7,
+   "y": 202.7,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_81",
+   "x": 130.2,
+   "y": 201.3,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_82",
+   "x": 137.0,
+   "y": 200.3,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_83",
+   "x": 139.1,
+   "y": 223.9,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_84",
+   "x": 137.1,
+   "y": 212.6,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_85",
+   "x": 136.5,
+   "y": 207.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_86",
+   "x": 136.5,
+   "y": 204.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_87",
+   "x": 137.1,
+   "y": 200.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_88",
+   "x": 124.5,
+   "y": 203.2,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_89",
+   "x": 123.2,
+   "y": 204.9,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_90",
+   "x": 122.0,
+   "y": 207.3,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_91",
+   "x": 121.3,
+   "y": 210.1,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_92",
+   "x": 109.7,
+   "y": 190.3,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_94",
+   "x": 137.0,
+   "y": 167.7,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_95",
+   "x": 120.5,
+   "y": 204.3,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_96",
+   "x": 119.0,
+   "y": 205.5,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_97",
+   "x": 128.1,
+   "y": 171.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_98",
+   "x": 117.3,
+   "y": 170.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_99",
+   "x": 126.8,
+   "y": 169.7,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_100",
+   "x": 108.3,
+   "y": 144.1,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_101",
+   "x": 96.6,
+   "y": 151.6,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_102",
+   "x": 111.6,
+   "y": 162.1,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_104",
+   "x": 78.3,
+   "y": 80.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_105",
+   "x": 82.4,
+   "y": 93.9,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_106",
+   "x": 119.5,
+   "y": 218.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_107",
+   "x": 113.9,
+   "y": 91.9,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_108",
+   "x": 108.9,
+   "y": 69.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_110",
+   "x": 86.4,
+   "y": 127.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_111",
+   "x": 71.2,
+   "y": 140.4,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_112",
+   "x": 116.5,
+   "y": 120.2,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_113",
+   "x": 75.1,
+   "y": 117.9,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_114",
+   "x": 120.0,
+   "y": 131.9,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_115",
+   "x": 115.1,
+   "y": 158.2,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_116",
+   "x": 65.8,
+   "y": 149.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_117",
+   "x": 75.3,
+   "y": 144.7,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_118",
+   "x": 84.1,
+   "y": 145.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_119",
+   "x": 98.1,
+   "y": 142.1,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_120",
+   "x": 108.2,
+   "y": 137.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_121",
+   "x": 115.6,
+   "y": 132.1,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_122",
+   "x": 126.9,
+   "y": 119.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_123",
+   "x": 67.2,
+   "y": 165.9,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_124",
+   "x": 70.4,
+   "y": 119.2,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_125",
+   "x": 131.5,
+   "y": 165.6,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_126",
+   "x": 115.7,
+   "y": 145.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_128",
+   "x": 120.8,
+   "y": 126.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_129",
+   "x": 112.2,
+   "y": 163.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_130",
+   "x": 80.1,
+   "y": 121.7,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_131",
+   "x": 115.2,
+   "y": 153.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_133",
+   "x": 116.6,
+   "y": 117.2,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_134",
+   "x": 119.8,
+   "y": 147.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_137",
+   "x": 66.8,
+   "y": 171.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_140",
+   "x": 124.0,
+   "y": 251.6,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_141",
+   "x": 133.9,
+   "y": 168.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_142",
+   "x": 109.9,
+   "y": 153.1,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_143",
+   "x": 66.5,
+   "y": 133.3,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_144",
+   "x": 92.1,
+   "y": 122.4,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_145",
+   "x": 98.3,
+   "y": 121.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_146",
+   "x": 116.6,
+   "y": 208.5,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_147",
+   "x": 70.9,
+   "y": 183.1,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_151",
+   "x": 128.7,
+   "y": 66.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_153",
+   "x": 104.5,
+   "y": 120.5,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_154",
+   "x": 110.5,
+   "y": 119.1,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_155",
+   "x": 114.7,
+   "y": 118.2,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_156",
+   "x": 67.2,
+   "y": 119.3,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_157",
+   "x": 109.2,
+   "y": 112.6,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_158",
+   "x": 102.4,
+   "y": 111.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_159",
+   "x": 95.5,
+   "y": 111.2,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_160",
+   "x": 89.1,
+   "y": 113.3,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_161",
+   "x": 85.6,
+   "y": 116.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_163",
+   "x": 88.1,
+   "y": 122.1,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_164",
+   "x": 140.2,
+   "y": 177.1,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_165",
+   "x": 115.8,
+   "y": 183.9,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_166",
+   "x": 118.0,
+   "y": 164.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_167",
+   "x": 129.1,
+   "y": 178.9,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_168",
+   "x": 133.8,
+   "y": 108.5,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_169",
+   "x": 103.4,
+   "y": 238.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_170",
+   "x": 113.4,
+   "y": 245.2,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_171",
+   "x": 137.6,
+   "y": 255.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_173",
+   "x": 114.2,
+   "y": 115.3,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_174",
+   "x": 122.7,
+   "y": 132.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_175",
+   "x": 154.8,
+   "y": 254.4,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_178",
+   "x": 130.1,
+   "y": 202.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_179",
+   "x": 129.0,
+   "y": 204.4,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_180",
+   "x": 128.4,
+   "y": 207.7,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_181",
+   "x": 128.3,
+   "y": 212.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_182",
+   "x": 128.3,
+   "y": 221.7,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_183",
+   "x": 118.5,
+   "y": 203.7,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_184",
+   "x": 116.5,
+   "y": 203.4,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_185",
+   "x": 114.8,
+   "y": 202.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_186",
+   "x": 105.5,
+   "y": 198.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_187",
+   "x": 78.0,
+   "y": 184.6,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_188",
+   "x": 123.6,
+   "y": 125.3,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_189",
+   "x": 120.7,
+   "y": 111.4,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_190",
+   "x": 116.6,
+   "y": 112.4,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_191",
+   "x": 120.7,
+   "y": 204.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_193",
+   "x": 125.9,
+   "y": 111.2,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_194",
+   "x": 125.6,
+   "y": 232.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_195",
+   "x": 132.6,
+   "y": 132.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_196",
+   "x": 126.6,
+   "y": 127.7,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_197",
+   "x": 133.0,
+   "y": 125.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_198",
+   "x": 118.4,
+   "y": 146.3,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_199",
+   "x": 152.5,
+   "y": 244.9,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_200",
+   "x": 151.1,
+   "y": 233.4,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_201",
+   "x": 137.7,
+   "y": 234.3,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_202",
+   "x": 106.7,
+   "y": 219.3,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_203",
+   "x": 107.5,
+   "y": 171.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_204",
+   "x": 115.7,
+   "y": 227.1,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_205",
+   "x": 91.0,
+   "y": 173.1,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_206",
+   "x": 101.8,
+   "y": 180.9,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_207",
+   "x": 87.1,
+   "y": 188.5,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_208",
+   "x": 136.5,
+   "y": 245.9,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_209",
+   "x": 115.2,
+   "y": 151.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_210",
+   "x": 102.4,
+   "y": 227.7,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_211",
+   "x": 113.1,
+   "y": 235.5,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_212",
+   "x": 98.4,
+   "y": 209.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_213",
+   "x": 75.3,
+   "y": 197.9,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_214",
+   "x": 91.0,
+   "y": 213.2,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_216",
+   "x": 97.7,
+   "y": 193.3,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_217",
+   "x": 119.5,
+   "y": 139.1,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_218",
+   "x": 117.9,
+   "y": 161.6,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_219",
+   "x": 114.5,
+   "y": 164.5,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_220",
+   "x": 119.4,
+   "y": 155.1,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_221",
+   "x": 114.0,
+   "y": 105.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_222",
+   "x": 100.5,
+   "y": 102.9,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_223",
+   "x": 89.2,
+   "y": 103.4,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_224",
+   "x": 80.7,
+   "y": 106.4,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_225",
+   "x": 75.9,
+   "y": 111.2,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_226",
+   "x": 76.0,
+   "y": 125.6,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_228",
+   "x": 81.5,
+   "y": 135.1,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_229",
+   "x": 88.8,
+   "y": 136.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_230",
+   "x": 98.5,
+   "y": 134.2,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_231",
+   "x": 107.7,
+   "y": 130.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_232",
+   "x": 114.8,
+   "y": 127.2,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_233",
+   "x": 119.4,
+   "y": 123.9,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_235",
+   "x": 115.8,
+   "y": 166.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_236",
+   "x": 121.9,
+   "y": 139.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_237",
+   "x": 122.2,
+   "y": 161.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_238",
+   "x": 128.0,
+   "y": 165.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_239",
+   "x": 123.3,
+   "y": 162.7,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_240",
+   "x": 118.8,
+   "y": 169.3,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_241",
+   "x": 129.0,
+   "y": 165.5,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_242",
+   "x": 131.3,
+   "y": 167.5,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_243",
+   "x": 118.9,
+   "y": 117.3,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_244",
+   "x": 122.6,
+   "y": 118.9,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_245",
+   "x": 124.2,
+   "y": 120.1,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_246",
+   "x": 84.0,
+   "y": 118.2,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_247",
+   "x": 78.8,
+   "y": 116.7,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_248",
+   "x": 140.1,
+   "y": 133.1,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_249",
+   "x": 198.5,
+   "y": 108.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_250",
+   "x": 145.7,
+   "y": 164.4,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_252",
+   "x": 175.7,
+   "y": 116.1,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_253",
+   "x": 183.7,
+   "y": 116.4,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_254",
+   "x": 192.1,
+   "y": 115.6,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_255",
+   "x": 203.3,
+   "y": 111.2,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_256",
+   "x": 168.4,
+   "y": 115.2,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_257",
+   "x": 183.9,
+   "y": 94.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_258",
+   "x": 174.6,
+   "y": 95.9,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_259",
+   "x": 193.0,
+   "y": 94.6,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_260",
+   "x": 199.7,
+   "y": 97.2,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_261",
+   "x": 211.7,
+   "y": 116.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_263",
+   "x": 201.7,
+   "y": 106.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_265",
+   "x": 222.0,
+   "y": 111.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_266",
+   "x": 184.5,
+   "y": 150.6,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_267",
+   "x": 154.1,
+   "y": 187.7,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_268",
+   "x": 154.9,
+   "y": 195.6,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_269",
+   "x": 166.7,
+   "y": 189.1,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_270",
+   "x": 176.1,
+   "y": 191.4,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_271",
+   "x": 164.9,
+   "y": 195.1,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_272",
+   "x": 173.4,
+   "y": 195.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_273",
+   "x": 191.1,
+   "y": 204.4,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_274",
+   "x": 140.8,
+   "y": 159.3,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_275",
+   "x": 140.6,
+   "y": 150.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_276",
+   "x": 210.1,
+   "y": 92.5,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_277",
+   "x": 164.0,
+   "y": 131.6,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_278",
+   "x": 166.1,
+   "y": 155.2,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_280",
+   "x": 212.3,
+   "y": 147.6,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_281",
+   "x": 139.9,
+   "y": 140.9,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_282",
+   "x": 184.9,
+   "y": 86.2,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_283",
+   "x": 199.0,
+   "y": 87.6,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_285",
+   "x": 148.6,
+   "y": 97.4,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_286",
+   "x": 167.3,
+   "y": 99.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_287",
+   "x": 197.4,
+   "y": 195.4,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_289",
+   "x": 160.7,
+   "y": 160.9,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_290",
+   "x": 153.6,
+   "y": 164.4,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_291",
+   "x": 188.1,
+   "y": 195.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_292",
+   "x": 185.9,
+   "y": 195.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_293",
+   "x": 202.9,
+   "y": 82.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_294",
+   "x": 168.2,
+   "y": 159.1,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_295",
+   "x": 168.2,
+   "y": 89.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_296",
+   "x": 168.3,
+   "y": 82.6,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_299",
+   "x": 170.3,
+   "y": 62.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_300",
+   "x": 215.3,
+   "y": 88.9,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_301",
+   "x": 222.8,
+   "y": 82.2,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_302",
+   "x": 154.7,
+   "y": 192.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_303",
+   "x": 165.7,
+   "y": 192.3,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_304",
+   "x": 174.8,
+   "y": 193.2,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_305",
+   "x": 159.2,
+   "y": 162.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_306",
+   "x": 187.2,
+   "y": 195.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_307",
+   "x": 181.9,
+   "y": 197.5,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_308",
+   "x": 184.8,
+   "y": 195.9,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_309",
+   "x": 153.9,
+   "y": 158.3,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_310",
+   "x": 172.4,
+   "y": 196.2,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_311",
+   "x": 164.2,
+   "y": 196.6,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_312",
+   "x": 154.9,
+   "y": 197.9,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_313",
+   "x": 161.5,
+   "y": 220.9,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_314",
+   "x": 157.9,
+   "y": 209.4,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_315",
+   "x": 156.9,
+   "y": 204.9,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_316",
+   "x": 156.0,
+   "y": 200.9,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_317",
+   "x": 155.1,
+   "y": 198.3,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_318",
+   "x": 172.5,
+   "y": 196.4,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_319",
+   "x": 173.9,
+   "y": 197.5,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_320",
+   "x": 175.4,
+   "y": 199.5,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_321",
+   "x": 177.0,
+   "y": 201.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_322",
+   "x": 182.4,
+   "y": 181.2,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_324",
+   "x": 178.9,
+   "y": 196.1,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_325",
+   "x": 180.1,
+   "y": 196.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_326",
+   "x": 151.1,
+   "y": 168.1,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_327",
+   "x": 166.5,
+   "y": 164.9,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_328",
+   "x": 152.3,
+   "y": 166.5,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_329",
+   "x": 174.2,
+   "y": 135.3,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_330",
+   "x": 189.1,
+   "y": 139.5,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_331",
+   "x": 169.6,
+   "y": 154.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_333",
+   "x": 191.8,
+   "y": 64.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_334",
+   "x": 186.6,
+   "y": 80.1,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_335",
+   "x": 183.1,
+   "y": 210.4,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_336",
+   "x": 149.1,
+   "y": 86.6,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_337",
+   "x": 150.1,
+   "y": 63.4,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_339",
+   "x": 199.3,
+   "y": 113.9,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_340",
+   "x": 222.3,
+   "y": 121.5,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_341",
+   "x": 163.8,
+   "y": 113.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_342",
+   "x": 209.6,
+   "y": 101.3,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_343",
+   "x": 156.5,
+   "y": 126.9,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_344",
+   "x": 158.4,
+   "y": 152.6,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_345",
+   "x": 234.2,
+   "y": 126.9,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_346",
+   "x": 215.9,
+   "y": 126.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_347",
+   "x": 203.9,
+   "y": 130.2,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_348",
+   "x": 187.0,
+   "y": 130.4,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_349",
+   "x": 174.5,
+   "y": 128.2,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_350",
+   "x": 164.8,
+   "y": 125.4,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_351",
+   "x": 142.1,
+   "y": 117.7,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_352",
+   "x": 235.9,
+   "y": 144.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_353",
+   "x": 216.7,
+   "y": 100.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_354",
+   "x": 139.8,
+   "y": 164.4,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_355",
+   "x": 163.8,
+   "y": 139.5,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_357",
+   "x": 157.2,
+   "y": 121.7,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_358",
+   "x": 171.5,
+   "y": 155.7,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_359",
+   "x": 206.0,
+   "y": 106.5,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_360",
+   "x": 159.0,
+   "y": 147.4,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_362",
+   "x": 163.7,
+   "y": 111.1,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_363",
+   "x": 149.2,
+   "y": 143.2,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_366",
+   "x": 249.2,
+   "y": 149.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_368",
+   "x": 232.6,
+   "y": 95.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_369",
+   "x": 189.9,
+   "y": 245.9,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_370",
+   "x": 140.5,
+   "y": 166.9,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_371",
+   "x": 173.1,
+   "y": 145.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_372",
+   "x": 230.6,
+   "y": 112.4,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_373",
+   "x": 189.9,
+   "y": 110.3,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_374",
+   "x": 183.1,
+   "y": 111.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_375",
+   "x": 183.5,
+   "y": 198.7,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_376",
+   "x": 238.5,
+   "y": 162.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_380",
+   "x": 176.4,
+   "y": 111.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_381",
+   "x": 170.2,
+   "y": 111.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_382",
+   "x": 166.0,
+   "y": 111.2,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_383",
+   "x": 223.8,
+   "y": 99.1,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_384",
+   "x": 170.4,
+   "y": 104.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_385",
+   "x": 176.8,
+   "y": 101.6,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_386",
+   "x": 183.7,
+   "y": 100.3,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_387",
+   "x": 191.0,
+   "y": 100.9,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_388",
+   "x": 196.2,
+   "y": 102.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_390",
+   "x": 194.9,
+   "y": 109.3,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_391",
+   "x": 171.7,
+   "y": 176.9,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_392",
+   "x": 159.8,
+   "y": 159.3,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_393",
+   "x": 153.1,
+   "y": 175.9,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_395",
+   "x": 203.5,
+   "y": 237.4,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_396",
+   "x": 173.2,
+   "y": 252.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_398",
+   "x": 165.8,
+   "y": 108.5,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_399",
+   "x": 148.6,
+   "y": 129.4,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_402",
+   "x": 164.4,
+   "y": 196.9,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_403",
+   "x": 165.6,
+   "y": 199.1,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_404",
+   "x": 167.0,
+   "y": 202.2,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_405",
+   "x": 168.2,
+   "y": 205.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_406",
+   "x": 173.5,
+   "y": 216.3,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_407",
+   "x": 180.6,
+   "y": 195.4,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_408",
+   "x": 181.8,
+   "y": 194.5,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_409",
+   "x": 183.2,
+   "y": 193.7,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_410",
+   "x": 191.7,
+   "y": 187.5,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_411",
+   "x": 224.7,
+   "y": 166.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_412",
+   "x": 149.0,
+   "y": 121.7,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_413",
+   "x": 154.7,
+   "y": 106.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_414",
+   "x": 161.2,
+   "y": 106.5,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_415",
+   "x": 178.8,
+   "y": 196.1,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_417",
+   "x": 145.0,
+   "y": 108.5,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_418",
+   "x": 180.3,
+   "y": 226.4,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_419",
+   "x": 141.1,
+   "y": 125.7,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_420",
+   "x": 156.7,
+   "y": 141.1,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_421",
+   "x": 165.9,
+   "y": 231.6,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_422",
+   "x": 200.3,
+   "y": 208.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_423",
+   "x": 180.1,
+   "y": 162.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_424",
+   "x": 191.4,
+   "y": 218.9,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_425",
+   "x": 200.7,
+   "y": 159.5,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_426",
+   "x": 190.2,
+   "y": 170.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_427",
+   "x": 212.1,
+   "y": 173.4,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_428",
+   "x": 170.3,
+   "y": 242.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_429",
+   "x": 164.1,
+   "y": 145.5,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_430",
+   "x": 209.7,
+   "y": 216.6,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_431",
+   "x": 198.4,
+   "y": 227.2,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_432",
+   "x": 206.2,
+   "y": 197.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_433",
+   "x": 239.3,
+   "y": 178.6,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_434",
+   "x": 219.3,
+   "y": 199.1,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_436",
+   "x": 200.2,
+   "y": 180.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_437",
+   "x": 156.0,
+   "y": 134.3,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_438",
+   "x": 155.7,
+   "y": 156.4,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_439",
+   "x": 163.5,
+   "y": 158.3,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_440",
+   "x": 149.6,
+   "y": 151.1,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_441",
+   "x": 159.6,
+   "y": 99.9,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_442",
+   "x": 171.9,
+   "y": 93.5,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_443",
+   "x": 183.9,
+   "y": 91.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_444",
+   "x": 195.0,
+   "y": 91.7,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_445",
+   "x": 203.8,
+   "y": 95.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_446",
+   "x": 212.7,
+   "y": 108.8,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_448",
+   "x": 206.8,
+   "y": 119.5,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_449",
+   "x": 197.3,
+   "y": 122.1,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_450",
+   "x": 185.7,
+   "y": 122.9,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_451",
+   "x": 174.9,
+   "y": 122.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_452",
+   "x": 166.4,
+   "y": 120.2,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_453",
+   "x": 160.0,
+   "y": 118.4,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_455",
+   "x": 164.6,
+   "y": 160.7,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_456",
+   "x": 148.1,
+   "y": 136.2,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_457",
+   "x": 148.0,
+   "y": 157.5,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_458",
+   "x": 145.1,
+   "y": 162.7,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_459",
+   "x": 149.4,
+   "y": 159.3,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_460",
+   "x": 163.2,
+   "y": 163.9,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_461",
+   "x": 143.0,
+   "y": 163.5,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_462",
+   "x": 143.7,
+   "y": 166.0,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_463",
+   "x": 160.3,
+   "y": 111.7,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_464",
+   "x": 154.9,
+   "y": 114.5,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_465",
+   "x": 151.1,
+   "y": 116.4,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_466",
+   "x": 199.3,
+   "y": 104.5,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mp_467",
+   "x": 204.9,
+   "y": 101.2,
+   "sigma_px": 3.5
+  },
+  {
+   "landmark": "mpo_10",
+   "x": 127.2,
+   "y": 47.0,
+   "sigma_px": 8
+  },
+  {
+   "landmark": "mpo_21",
+   "x": 64.3,
+   "y": 100.2,
+   "sigma_px": 8
+  },
+  {
+   "landmark": "mpo_54",
+   "x": 67.0,
+   "y": 83.6,
+   "sigma_px": 8
+  },
+  {
+   "landmark": "mpo_58",
+   "x": 84.1,
+   "y": 216.7,
+   "sigma_px": 4
+  },
+  {
+   "landmark": "mpo_67",
+   "x": 87.8,
+   "y": 58.9,
+   "sigma_px": 8
+  },
+  {
+   "landmark": "mpo_93",
+   "x": 73.0,
+   "y": 176.2,
+   "sigma_px": 4
+  },
+  {
+   "landmark": "mpo_103",
+   "x": 74.4,
+   "y": 69.9,
+   "sigma_px": 8
+  },
+  {
+   "landmark": "mpo_109",
+   "x": 105.0,
+   "y": 51.7,
+   "sigma_px": 8
+  },
+  {
+   "landmark": "mpo_127",
+   "x": 67.3,
+   "y": 138.2,
+   "sigma_px": 8
+  },
+  {
+   "landmark": "mpo_132",
+   "x": 77.5,
+   "y": 196.2,
+   "sigma_px": 4
+  },
+  {
+   "landmark": "mpo_136",
+   "x": 98.7,
+   "y": 241.2,
+   "sigma_px": 4
+  },
+  {
+   "landmark": "mpo_148",
+   "x": 141.0,
+   "y": 261.9,
+   "sigma_px": 4
+  },
+  {
+   "landmark": "mpo_149",
+   "x": 118.6,
+   "y": 254.8,
+   "sigma_px": 4
+  },
+  {
+   "landmark": "mpo_150",
+   "x": 109.3,
+   "y": 249.4,
+   "sigma_px": 4
+  },
+  {
+   "landmark": "mpo_152",
+   "x": 157.5,
+   "y": 261.5,
+   "sigma_px": 4
+  },
+  {
+   "landmark": "mpo_162",
+   "x": 64.8,
+   "y": 117.5,
+   "sigma_px": 8
+  },
+  {
+   "landmark": "mpo_172",
+   "x": 91.2,
+   "y": 231.6,
+   "sigma_px": 4
+  },
+  {
+   "landmark": "mpo_176",
+   "x": 128.6,
+   "y": 259.1,
+   "sigma_px": 4
+  },
+  {
+   "landmark": "mpo_234",
+   "x": 70.4,
+   "y": 157.2,
+   "sigma_px": 4
+  },
+  {
+   "landmark": "mpo_251",
+   "x": 231.5,
+   "y": 75.7,
+   "sigma_px": 8
+  },
+  {
+   "landmark": "mpo_288",
+   "x": 252.4,
+   "y": 197.7,
+   "sigma_px": 4
+  },
+  {
+   "landmark": "mpo_297",
+   "x": 175.1,
+   "y": 44.9,
+   "sigma_px": 8
+  },
+  {
+   "landmark": "mpo_323",
+   "x": 256.2,
+   "y": 153.1,
+   "sigma_px": 4
+  },
+  {
+   "landmark": "mpo_338",
+   "x": 152.1,
+   "y": 43.9,
+   "sigma_px": 8
+  },
+  {
+   "landmark": "mpo_356",
+   "x": 249.4,
+   "y": 113.1,
+   "sigma_px": 8
+  },
+  {
+   "landmark": "mpo_361",
+   "x": 256.4,
+   "y": 174.9,
+   "sigma_px": 4
+  },
+  {
+   "landmark": "mpo_365",
+   "x": 232.1,
+   "y": 228.9,
+   "sigma_px": 4
+  },
+  {
+   "landmark": "mpo_377",
+   "x": 175.3,
+   "y": 259.2,
+   "sigma_px": 4
+  },
+  {
+   "landmark": "mpo_378",
+   "x": 204.2,
+   "y": 248.2,
+   "sigma_px": 4
+  },
+  {
+   "landmark": "mpo_379",
+   "x": 217.2,
+   "y": 240.5,
+   "sigma_px": 4
+  },
+  {
+   "landmark": "mpo_389",
+   "x": 241.6,
+   "y": 92.0,
+   "sigma_px": 8
+  },
+  {
+   "landmark": "mpo_397",
+   "x": 243.5,
+   "y": 215.8,
+   "sigma_px": 4
+  },
+  {
+   "landmark": "mpo_400",
+   "x": 190.3,
+   "y": 254.3,
+   "sigma_px": 4
+  },
+  {
+   "landmark": "mpo_454",
+   "x": 253.4,
+   "y": 132.9,
+   "sigma_px": 4
+  }
+ ],
+ "read_by_eye": {
+  "ticket": "T-3553",
+  "values": {
+   "jaw": 0.15,
+   "chin_width": 0.1,
+   "cheekbones": 0.1,
+   "jowls": 0.1,
+   "cheek_inner": 0.1,
+   "nose_width": 0.05
+  },
+  "basis": "Read by eye from the same picture, on axes the marks cannot measure from one near-frontal view: a firm, squarish jaw and a broad chin, cheekbones set high and full, deep lines from the nose to the corners of the mouth with the lower cheek a little full (a woman past fifty, not the lady's body's young lean), and a nose of ordinary width. These replace the lady's body's own face_bias as the prior on those axes; the marks still move them where they can."
+ },
+ "card": {
+  "_doc": "What the person's card shows (T-3413, T-3478): `portrait` is cut from the copy at `portrait_from_scan_px` and scaled to `size_px` by tools/cut_portrait.py (a stand-in's label burned on it); `model` is tools/portrait_still.mjs's render of the fitted face on `body`, turned to the fit's yaw, dressed as humans.js dresses the person in town.",
+  "portrait": "assets/humans/web/portraits/pa1904_grey_mrs_w_l_portrait.jpg",
+  "portrait_from_scan_px": [
+   372,
+   60,
+   822,
+   660
+  ],
+  "model": "assets/humans/web/portraits/pa1904_grey_mrs_w_l_model.jpg",
+  "size_px": [
+   360,
+   480
+  ],
+  "body": "glessner_frances_m_1904",
+  "background": "#1c1b18",
+  "distance_m": 1.05,
+  "aim_above_head_m": 0.03,
+  "dress": true,
+  "hide": "^headwear|hat_plumes"
+ },
+ "likeness": {
+  "hair_cut": "swept_up_topknot_1904",
+  "facial": [
+   "brows_fine_low_1904",
+   "lashes_upper"
+  ],
+  "hair_tone": "light_grey_brown",
+  "hair_tone_basis": "The stand-in portrait is sepia: her hair reads a light-to-mid brown with paler streaks through it, drawn a light brown going grey for that and her 54 years. A reading of a monochrome tone, not a record.",
+  "complexion": "fair",
+  "dress": {
+   "colours": {
+    "garment_outer__lady_jacket_black": [
+     0.03,
+     0.021,
+     0.017
+    ],
+    "garment_lower__lady_skirt_black": [
+     0.03,
+     0.021,
+     0.017
+    ]
+   },
+   "worn": "dark brown day dress with a white lace collar, as the stand-in portrait"
+  },
+  "_doc": "What the figure takes from the stand-in, for tools/prairie_people.py: hair drawn up to a knot on the crown and its colour (human-hair-styles.js), complexion, and the dress's colour on the lady's body, whose white shirtwaist collar and lace jabot stand for the portrait's high lace collar. Reconstructed readings of a sepia picture.",
+  "build": {
+   "weight": 0.25,
+   "muscle": 0.0,
+   "grade": "reconstructed",
+   "basis": "Read by eye from the stand-in portrait (owner, 2026-11-12: \"their build match is important\"): a woman of full, sturdy build, broad in the shoulders and full in the bust and waist under a fitted bodice. A reading of a seated three-quarter portrait, not a measurement."
+  },
+  "drawn_age": {
+   "years": 45,
+   "grade": "reconstructed",
+   "basis": "Drawn at the age the stand-in portrait shows (about 45), not her recorded age of 54 in 1904, so the face matches the picture the owner chose (\"their faces must match exactly\"). A reading by eye of an undated picture; the record's age is unchanged."
+  }
+ },
+ "prior_widen": 2.0,
+ "outline_yaw_deg": -12.4,
+ "axes_note": "chin_prominence, prognathism and nose_depth are left out: they move the face toward or away from a camera that looks at it nearly square, so one near-frontal picture does not measure them, and with hundreds of marks the fit drove them to their limits (a receding chin and jutting nose in profile that the picture does not show). They stay at the body's own lean."
+}
