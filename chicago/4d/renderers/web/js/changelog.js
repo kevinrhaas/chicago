@@ -1,4 +1,35 @@
 export const CHANGELOG = [ // newest first
+  { v: 2952, ts: '2026-11-13T23:22:11.137Z', date: 'Nov 13, 2026, 5:22 PM CT', title: '1801 Prairie\'s slate over its south return is one face, as photographed', kind: 'improvement',
+    items: [
+      'On the Kimball house at 1801 Prairie, the slate over the stone return beside the round bay\'s balcony now rises as one face from the return\'s capped top to the corner of the roof, and the roof\'s corner line runs straight down from the hood on the deck past the return to the balcony, as the 1965 survey photograph shows. The extra fold of slate and the upright slate strip that stood over the return are gone.',
+    ] },
+  { v: 2951, ts: '2026-11-13T22:35:46.036Z', date: 'Nov 13, 2026, 4:35 PM CT', title: 'Glessner\'s windows sit square in their stone courses', kind: 'fix',
+    items: [
+      'The stable\'s alley windows and its 18th Street loft lights now stand on the stone joints, so the stones around them are no longer notched or split.',
+      'The loose sill pieces under the alley windows are gone; as Kevin\'s photograph shows, the course stone below each opening is its sill.',
+      'The front walk on Prairie Avenue runs down flush onto the public sidewalk, with no raised lip and no grass showing along the seam.',
+    ] },
+  { v: 2950, ts: '2026-11-13T22:15:07.403Z', date: 'Nov 13, 2026, 4:15 PM CT', title: '1815 Prairie\'s north chimney stands where its photograph shows it', kind: 'fix',
+    items: [
+      'The north chimney moves out onto the north wall over the stair projection, where the street-front photograph shows it, and loses the two clay pots it never had.',
+    ] },
+  { v: 2949, ts: '2026-11-13T21:48:10.864Z', date: 'Nov 13, 2026, 3:48 PM CT', title: 'The narrator speaks first, and Next Stop stops the voice', kind: 'fix',
+    items: [
+      'Starting The Glessner Household, the narrator reads the title and Background, then John Glessner speaks, even when the flight lands before the voices have loaded.',
+      'Next Stop, Previous Stop and End Jaunt stop the voice that is speaking.',
+      'Mattie Williamson now says her kitchen is through the wall beside her, its window in the great arch on Eighteenth Street; her voice is recorded again.',
+    ] },
+  { v: 2948, ts: '2026-11-13T21:33:14.009Z', date: 'Nov 13, 2026, 3:33 PM CT', title: 'The wind you hear now follows the trees', kind: 'feature',
+    items: [
+      'Gusts now cross the town from the south-west: the trees, vines and grass sway harder as one passes, and calm between.',
+      'With Ambience on, the rustle of leaves swells with each gust where you stand and drops in the lulls.',
+      'Nothing sways farther than before, and the wind stays as quiet on average. In 1812, 1835 and 1904.',
+    ] },
+  { v: 2947, ts: '2026-11-13T21:33:14.009Z', date: 'Nov 13, 2026, 3:33 PM CT', title: '1828 Prairie\'s stone runs round its corners', kind: 'improvement',
+    items: [
+      'The Shipman house at 1828 Prairie now has light stone walls down both sides of its main block, matching its front, where the sides used to be buff brick. That is how the 1911 fire-insurance map colours them, and the old automobile photograph shows the same light stone round the corner.',
+      'The angled bay on its south side is now stone too, and only the lower range at the back stays brick.',
+    ] },
   { v: 2946, ts: '2026-11-13T20:30:24.473Z', date: 'Nov 13, 2026, 2:30 PM CT', title: 'Jaunts sorted into clear groups, Glessner walks first', kind: 'improvement',
     items: [
       'The Jaunts menu now sorts every year into the same groups: Places, People, Architecture, Stories, Errands, Work and Build log. Each filter shows its name.',

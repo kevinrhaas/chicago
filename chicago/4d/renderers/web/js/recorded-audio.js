@@ -3,6 +3,7 @@
 import { createHabitatAudio } from './habitat-audio.js';
 import { createTransportAudio } from './transport-audio.js';
 import { createWorkAudio } from './work-audio.js';
+import { gustAtScene, windGustGain } from './wind-gust.js';
 
 export const AUDIO_BASE = new URL('../audio/', import.meta.url);
 export const MUSIC_YEARS = Object.freeze(['1812', '1835', '1904']);
@@ -264,7 +265,9 @@ export function createRecordedAudio({ ctx, ambience, effects, music, environment
       targets = new Map();
       const wet = nearbyWater(env.terrain, eye);
       const kind = waterKind(wet, env.terrain, catalog.water_zones?.[year]);
-      const wind = windGain(year, env.season, kind, wet?.distance);
+      // T-3586: the leaf rustle swells with the gust where the listener stands, the
+      // same gust that bends the crowns and grass round them; never above its old level.
+      const wind = windGain(year, env.season, kind, wet?.distance) * windGustGain(gustAtScene(eye.x, eye.z));
       if (wind > 0) targets.set('wind', { gain: wind });
       // A recording rejected in listening review remains auditionable in the
       // library, but cannot imply water movement absent from the scene.
