@@ -1,4 +1,15 @@
 export const CHANGELOG = [ // newest first
+  { v: 2918, ts: '2026-11-13T06:29:47.498Z', date: 'Nov 13, 2026, 12:29 AM CT', title: '1904 people walk round stoops and railings, and draft doors open', kind: 'fix',
+    items: [
+      'Prairie Avenue residents no longer walk through stoops, area walls, iron railings or bays: every walk out of a door and along a frontage keeps a skirt\'s width off them.',
+      'People stepping aside or gathering to talk are never placed inside a stoop or railing.',
+      'Seven more draft houses\' front doors swing open as their people go in and out, and every door\'s answering place stands on open ground.',
+    ] },
+  { v: 2917, ts: '2026-11-13T06:29:47.498Z', date: 'Nov 13, 2026, 12:29 AM CT', title: '1936 Prairie\'s belvedere gets its corner pilasters and columned window frames', kind: 'improvement',
+    items: [
+      'The lookout at the top of 1936 Prairie\'s tower now has a stone pilaster at every corner, running from its balcony up to the brackets under its cornice, as the old Chicagology photograph of the house shows. The storey below stays plain, as it is in the photograph.',
+      'Each of the lookout\'s four round-headed windows now sits in an arched frame with a slender column on each side, carrying the arch.',
+    ] },
   { v: 2916, ts: '2026-11-13T05:14:59.361Z', date: 'Nov 12, 2026, 11:14 PM CT', title: 'Window mode: look into the year from where you stand', kind: 'feature',
     items: [
       'On a phone or iPad, the Window key sets you down at your real spot in the year you chose, by the device\'s location.',
