@@ -324,9 +324,6 @@ MATERIALS["area_brick"] = dict(k03_brick.MATERIALS["brick"],
 MATERIALS["yard_turf"] = {"fabric": "turf", "color": (1.0, 1.0, 1.0), "roughness": 0.96}
 MATERIALS["yard_earth"] = {"color": (0.139, 0.102, 0.061), "roughness": 1.0}
 MATERIALS["yard_cinder"] = {"fabric": "gravel", "color": (0.52, 0.50, 0.47), "roughness": 0.93}
-# T-3566: a frame wing's lapped clapboards (rear_wings[].clapboard), a flat paint whose colour
-# the record gives (the assembly sets it); the boards' butts are geometry, so no map under it
-MATERIALS["wing_clapboard"] = {"color": (0.6, 0.57, 0.5), "roughness": 0.82}
 # T-2369: the white-painted panel behind a frieze light that reads white in its photograph
 MATERIALS["frieze_panel"] = {"color": (0.74, 0.73, 0.70), "roughness": 0.6}
 # T-2887: louvred shutters at a window over a bay (1637's), read dark in a monochrome
@@ -623,9 +620,6 @@ class Assembly:
         # T-2289: a coursed stone front lays its walling and its trim in K02 fabrics,
         # whose maps carry their own colour, so the factors go to white
         self.spec = {k: dict(v) for k, v in MATERIALS.items()}
-        for w in params.rear_wings:   # T-3566: the clapboards' one paint (k01_frontage_params)
-            if w.get("clapboard"):
-                self.spec["wing_clapboard"]["color"] = tuple(w["clapboard"]["paint"])
         # T-2369: a record that reads its cornice's paint off a source (1612's dark cornice)
         # paints the eave's timber — fascia, soffit, brackets, bed moulding, frieze — in it
         paint = (params.wall_head or {}).get("paint")
@@ -1225,13 +1219,10 @@ class Assembly:
             # T-3354: a mullioned group one hole to a light, the brick between them the mullion's core
             hs = [h for o in ops for h in self.group_holes(o)] + cover
             if frame_wing:
-                body = "wing_clapboard" if w.get("clapboard") else "bay_frame"
-                frame, t = self.wall(cid, body, O, R, length, w["top_m"], FRAME_WALL_M, hs,
+                frame, t = self.wall(cid, "bay_frame", O, R, length, w["top_m"], FRAME_WALL_M, hs,
                                      (w["top_m"],), construction="frame")
                 for o in ops:
-                    self.opening(o, frame, t, body, "fascia")
-                if w.get("clapboard"):
-                    self.clapboards(w, side, cid, frame, length, ops, cover)
+                    self.opening(o, frame, t, "bay_frame", "fascia")
                 continue
             if p.stone.get("all_round"):
                 # T-2788: an all-stone house's wing is coursed as its main walls are, on the
@@ -1266,48 +1257,6 @@ class Assembly:
             self.wing_deck(w)
         else:
             self.wing_roof(w)
-
-    def clapboards(self, w, side, cid, frame, length, ops, cover):
-        """T-3566: a frame wing's wall lapped in clapboards (`rear_wings[].clapboard`), 1721's
-        1863 frame house behind Little's brick front. From a stone water table at the first
-        floor's line less a board, each board runs from its butt, `butt_m` proud, up to where
-        the next one laps it, flush; a course stops at each opening's casing (0.1 m round its
-        hole) and at what stands on the wall, and between corner boards at the wing's outer
-        corners. Only the butts and their lips are geometry: the face of every board is one
-        sloped quad, two triangles a stretch."""
-        cb, p = w["clapboard"], self.p
-        O, R, N = frame
-        P = lambda s, y, d: _add(_add(_add(O, _mul(R, s)), _mul(Y, y)), _mul(N, d))
-        conf = p.worst_conf("footprint", "stories", "storey_heights_m", "construction")
-        seed = seed_of(self.sid, cid, 3566)
-        ex, bt, cr = cb["exposure_m"], cb["butt_m"], cb["corner_m"]
-        base, top = round(w["floors_m"][0] - 0.3, 4), w["top_m"]
-        # the outer corners: south's is at its rear end (s 0), north's at its rear end (s =
-        # length), the rear wall's at both; a front past its host has its own two
-        corners = {"south": (0.0,), "north": (length,), "rear": (0.0, length),
-                   "front": (0.0, length)}.get(side, ())
-        lo = cr if 0.0 in corners else 0.0
-        hi = length - cr if length in corners else length
-        for s0 in corners:
-            a = 0.0 if s0 == 0.0 else length - cr
-            self.proud_box("fascia", frame, a, a + cr, base, top, bt + 0.012, seed, conf)
-        # the water table: a stone course over the foundation, the wall below it left as laid
-        self.proud_box("limestone_trim", frame, 0.0, length, 0.0, base, bt + 0.02, seed, conf)
-        gaps = [(o.s_m - o.width_m / 2 - 0.1, o.s_m + o.width_m / 2 + 0.1, o.sill_m - 0.08, o.head_m + 0.12)
-                for o in ops] + [c[:4] for c in cover]
-        pr = self.prim("wing_clapboard")
-        b = self.basis("wing_clapboard", O, R, Y, seed)
-        bh = self.basis("wing_clapboard", O, R, N, seed)
-        n_face = _unit(_add(_mul(N, ex), _mul(Y, bt)))
-        down = _mul(Y, -1)
-        y0 = base
-        while y0 < top - 0.02:
-            y1 = min(top, round(y0 + ex, 6))
-            stops = [(a, b_) for a, b_, g0, g1 in gaps if g0 < y1 and y0 < g1]
-            for s0, s1 in _pieces(lo, hi, stops):
-                pr.face([P(s0, y0, bt), P(s1, y0, bt), P(s1, y1, 0.0), P(s0, y1, 0.0)], n_face, b, conf)
-                pr.face([P(s0, y0, 0.0), P(s1, y0, 0.0), P(s1, y0, bt), P(s0, y0, bt)], down, bh, conf)
-            y0 = y1
 
     def group_holes(self, o):
         """T-3354: an opening's holes in its wall — one, or for a rear wing's stone-mullioned
@@ -1554,7 +1503,7 @@ class Assembly:
         cut = k5.extrude([(u1, base - 1.0), (end, base - 1.0), (end, hi), (u1, hi)], c0, c1,
                          k5.frame("z"), "host_end", "host_end", "host_end")
         pts, tris = _weld_shell(*k5.close(k5.subtract(k5.union_all(k5._snap(solids)), k5._snap([cut])[0])))
-        walling = ("wing_clapboard" if w.get("clapboard") else "bay_frame") if w.get("fabric") == "frame" else \
+        walling = "bay_frame" if w.get("fabric") == "frame" else \
             "rough_stone_trim" if p.stone.get("all_round") else "brick"
         phase = (_k04_fabric(r["covering"]) or {}).get("course_phase_m", [0.0, 0.0])[1]
         planes = {}   # each covering plane's lowest point, its eave, where its courses start
@@ -4094,17 +4043,33 @@ class Assembly:
         y1 = y0 + h["fascia_m"]
         cp = h["cornice"]["proud_m"]
         y2 = y1 + h["cornice"]["height_m"]
-        rl = h["railing"]
-        y3 = y2 + rl["height_m"]
+        rl, ped = h.get("railing"), h.get("pediment")   # T-3562: a railed top, or a pediment
         s0, s1 = c - W / 2, c + W / 2
+        if ped:
+            y_in = y2 + ped["rise_m"]                    # the tympanum's apex
+            y_out = y_in + ped["rake_m"]                 # the raking cornice's top at the apex
+            y3 = y_out + (ped["finial_m"][1] if ped.get("finial_m") else 0.0)
+        else:
+            y3 = y2 + rl["height_m"]
         S0, S1, D = s0 - cp, s1 + cp, out + cp          # the slab's plan
         if y0 < op.head_m + 0.30 + 0.05:
             raise ValueError(f"the door hood's soffit ({y0} m) is not clear of the door's lintel")
         for o in p.openings:   # nothing on the front it stands before
             if h.get("columns") and o.head_m + 0.30 <= y0:
                 continue   # T-1871: a window behind a porch on columns, its lintel under the soffit
+            top = y3
+            if ped and o.wall == op.wall and o is not op:
+                # T-3562: a pediment falls from its apex to its ends: the hood's top over the
+                # opening is the raking cornice's over the opening's nearest edge, and the
+                # finial's only where the opening stands over it
+                o0, o1 = o.s_m - o.width_m / 2 - 0.08, o.s_m + o.width_m / 2 + 0.08
+                near = 0.0 if o0 <= c <= o1 else min(abs(o0 - c), abs(o1 - c))
+                top = y2 + (y_out - y2) * max(0.0, 1.0 - near / (c - S0))
+                fw = ped["finial_m"][0] / 2 if ped.get("finial_m") else 0.0
+                if fw and o0 < c + fw and o1 > c - fw:
+                    top = y3
             if o.wall == op.wall and o is not op and o.s_m + o.width_m / 2 + 0.08 > S0 \
-                    and o.s_m - o.width_m / 2 - 0.08 < S1 and o.sill_m - 0.12 < y3 and o.head_m > y0 - 1.0:
+                    and o.s_m - o.width_m / 2 - 0.08 < S1 and o.sill_m - 0.12 < top and o.head_m > y0 - 1.0:
                 raise ValueError(f"the door hood ({S0:.2f}-{S1:.2f} m, {y0}-{y3:.2f} m) runs into "
                                  f"the opening at s = {o.s_m}")
         # T-1881: a front step stands behind the forward block the door is cut in, so a hood
@@ -4127,7 +4092,9 @@ class Assembly:
                 raise ValueError(f"the door hood ({S0:.2f}-{S1:.2f} m) runs into {b['id']}")
         con, mod = h["consoles"], h["modillions"]
         seed = self.instance("k01.hood.door_bracketed", "hood",
-                             {"width_m": W, "out_m": out, "soffit_m": y0, "top_m": y2, "railing_m": rl["height_m"],
+                             {"width_m": W, "out_m": out, "soffit_m": y0, "top_m": y2,
+                              **({"railing_m": rl["height_m"]} if rl else
+                                 {"pediment_rise_m": ped["rise_m"], "pediment_rake_m": ped["rake_m"]}),
                               "k08_brackets": h["brackets"]},
                              {"soffit": P(c, y0, 0.0), "deck": P(c, y2, 0.0)})
         bf = self.basis(mat, O, R, Y, seed)          # faces along the wall
@@ -4223,6 +4190,14 @@ class Assembly:
             self._hood_columns(cols, op, P, quad, box, bf, bh, be, s0, s1, out, y0, R, N, seed, conf, h.get("arches"),
                                splay=h.get("splay"))
         tri_fascia = len(pr.idx) // 3 - tri0
+        if ped:
+            self._hood_pediment(ped, P, quad, box, bf, bh, be, c, s0, s1, S0, S1, out, D, y2, y_in, y_out, R, N)
+            self.trim_triangles["k01.hood.door_bracketed"] = len(pr.idx) // 3 - tri0
+            self.seat(frame, [(s, y, 0.0) for s in (S0, S1) for y in (y0 - Dd, y2)] + [(c, y3, 0.0)], "k01.hood")
+            self.hood_meta = {"modillions": n, "consoles": 2, "pediment": {"apex_m": round(y_out, 4),
+                                                                          "top_m": round(y3, 4)},
+                              **({"fabric": "stone"} if mat == "bay_stone" else {})}
+            return
         # the railing on the slab: posts at the front corners and against the wall, a rail
         # over square balusters along the front and both returns. T-2963: in iron if the
         # record says so (1816's balcony), the K01 iron every other railing wears
@@ -4298,6 +4273,35 @@ class Assembly:
                           **({"arches": self._arch_count} if cols and h.get("arches") else {}),
                           **({"fabric": "stone"} if mat == "bay_stone" else {}),
                           **({"railing_fabric": h["railing_fabric"]} if h.get("railing_fabric") else {})}
+
+    def _hood_pediment(self, ped, P, quad, box, bf, bh, be, c, s0, s1, S0, S1, out, D, y2, y_in, y_out, R, N):
+        """T-3562: a pediment on the door hood's cornice slab (1815's, the square-on photograph):
+        the tympanum a triangle on the slab from s0 to s1 rising to `y_in` over the centre, its
+        face set back to the fascia's (`out`); over it the raking cornice, from the slab's ends
+        (S0, S1) at its top to `y_out` over the centre, standing out to the slab's front (`D`),
+        its soffit the tympanum's raking line; and a square finial on the apex. Faces against the
+        wall are not drawn, and the cornice dies into the slab's top at each end."""
+        W2 = (s1 - s0) / 2
+        fwd = N
+        # the tympanum's face, and its two raking faces from its face back to the wall are under
+        # the cornice and not seen: only the face is drawn
+        quad([P(s0, y2, out), P(s1, y2, out), P(c, y_in, out)], fwd, bf)
+        for k in (-1.0, 1.0):
+            si, So = (s0, S0) if k < 0 else (s1, S1)
+            # the raking cornice's front: from its foot on the slab to the apex
+            quad([P(So, y2, D), P(si, y2, D), P(c, y_in, D), P(c, y_out, D)], fwd, bf)
+            # its soffit, over the tympanum's raking line, from the tympanum's face to the front
+            ln = math.hypot(W2, y_in - y2)
+            sn = _unit(_add(_mul(R, -k * (y_in - y2) / ln), _mul(Y, -W2 / ln)))
+            quad([P(si, y2, out), P(c, y_in, out), P(c, y_in, D), P(si, y2, D)], sn, bh)
+            # its top, from the wall to the front
+            lo = math.hypot(c - So, y_out - y2)
+            tn = _unit(_add(_mul(R, k * (y_out - y2) / lo), _mul(Y, abs(c - So) / lo)))
+            quad([P(So, y2, 0.0), P(c, y_out, 0.0), P(c, y_out, D), P(So, y2, D)], tn, bh)
+        fin = ped.get("finial_m")
+        if fin:
+            fw, fh = fin
+            box(c - fw / 2, c + fw / 2, y_out - 0.02, y_out + fh, D - fw - 0.02, D - 0.02, skip=("bottom",))
 
     def _hood_columns(self, co, op, P, quad, box, bf, bh, be, s0, s1, out, y0, R, N, seed, conf, arches=None,
                       splay=None):

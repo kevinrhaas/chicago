@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1107,
+  "count": 1111,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -136,6 +136,10 @@
     {
       "id": "dexter_house_1721_prairie_coach_house",
       "name": "1721 Prairie Avenue: the two-storey brick stable by the tracks"
+    },
+    {
+      "id": "dexter_house_1721_prairie_frame_house",
+      "name": "1721 Prairie Avenue: Wirt Dexter's frame house of 1863 behind Little's brick front"
     },
     {
       "id": "doane_house_1827_prairie",
@@ -42157,7 +42161,7 @@
       "fields": [
         {
           "label": "Decision",
-          "text": "the house at 1815 Prairie Avenue, Joseph Sears's (Arthur Meeker's from 1893;, piece 1), is no longer a district draft. It stands, under the draft's own id 1815 Prairie Avenue — Joseph Sears house (Arthur Meeker's from 1893), as a k01 frontage record built by the k01 emit generator, against the two photographs Chicagology prints side by side ([1815 S. Prairie Ave. (Joseph Sears house, undated; rights check required: forms and proportions only): a smooth light ashlar front two storeys over a raised basement under a slated mansard with a gabled dormer, a pavilion at the front's north end under a steep hipped roof, the door up a stoop in the pavilion's south half, a one-storey corner bay at the south-west corner with a pierced stone balcony on it, a moulded stone cornice, and two tall stacks. **What is read, not invented.** From the 1911 Sanborn sheet 28 (trace s28fp-1815-b1, census s28-1815-front): the front block's place and plan (10.47 m along the front between the north wall at lot v -7.12 and the south wall at 3.35), the stair projection on the north flank and the canted bay on the south flank, the house's depth to the coach house, 'stone', '3B'. From the square-on photograph, through its camera (the chicagology square on data): the principal floor, the storey heights and the wall head, the street windows' places and heights, the pavilion's width and its roof's apex, the corner bay's cheek, front and balcony, the dormer, the mansard's curb, the stacks. Every height rests on the print's own scale across the front (its `solve`). **What is invented.** The walls' thickness; the stone (K02's Lemont limestone for the 1973 landmarks report's 'yellow limestone') and its two-course base; the flanks and rear in brick, where the sheet colours the whole house stone and the oblique shows a rock-faced south flank (K01 lays stone on the street front only); the stair projection's 1.2 m (the sheet's 1.55, past K08's deepest pavilion); the south flank bay's two storeys; the north flank's, the rear's and the rear range's windows (no picture sees them); the rear range's three storeys and flat deck; the mansard's deck; the stacks' plans; the rainwater; the sash pattern. **The attic storey.** The pavilion is carried up an attic storey past the main cornice, its paired transomed lights in its face, and the hipped crown is raised onto its wall head (mansard.crown.attic (m), a K01 option this piece of work added): read off the square-on print, the lights at x 200-325 px and y 390-250 px (9.15-11.0 m), the crown's eave at y 210 px (11.6 m). Invented: the pavilion's 0.45 m projection carried up (the print shows the attic's face, not its depth), the crown's eave 0.5 m past it, its 52-degree faces (fitted to the print's apex within about 0.3 m), and the lights' K06 pattern. The pavilion is now 2.2 m wide and stands 0.3 m in from the north corner (K08's least pier to a corner, and clear of the entrance), so the attic stands about 0.5-0.7 m north of the print's, which is centred over the door's north jamb. **The cornice's consoles and the south stack.** Read off the square-on print: a close row of carved stone consoles under the corona on a plain frieze, twelve across the main front south of the pavilion (about 0.49 m apart, 0.45 m high, 0.17 m wide, their feet at about 8.5 m), carried round the corner along the south flank on the oblique; built as K10's scrolled console (wall head blocks) on a 0.32 m frieze. Invented: the consoles' carving (the kit's generic scroll), their 0.19 m projection, and their feet 0.11 m lower than the print's (the upper lintels leave no more frieze); the rosettes over them are not built. The south stack is triangulated through both cameras: its west face about 1.6 m back from the front, its south face in line with the print's main south wall, its head's foot at about 13.7 m, its cap at about 14.4 m and its pots to about 15.2 m. Invented: it stands on the BUILD's south cornice (on cornice), about 0.75 m south of where the print stands it, because the build's south wall is still flush with the corner bay (the open set-out); its 1.1 x 0.75 m plan, its K15 stone, three corbel courses and 0.15 m cap, and three of the kit's tall pots where the print shows three or four taller ones. The sunk panels the oblique draws on its south face are not built (K15 lays a panel's recess in brick). The north stack takes the same head. **What is not built.** The pavilion's full 4 m width (K01 cannot cut a door through a projection, so it stands 2.45 m wide north of the door), the door's pedimented hood on carved brackets, the stoop's newels and cheek walls, the narrow light over the door (built at the storey's sash width), the dormer's finial and the roofs' cresting and cross finial, and the rock-faced south flank: open on the match record. The oblique print (camera) also shows the corner bay running about 0.75 m south of the main front's south corner, as the square-on does, where the build sets it flush. **Which front stood in 1904.** The house was SOLD by Joseph Sears to Mrs. Grace Murray Meeker in March 1902, a \"three-story stone building of fifteen rooms\" (Inter Ocean, 28 March 1902), not owned by the Meekers from 1893 as this record's name says; in May 1915 it had \"twenty-one rooms\" and had \"about ten years ago\" been \"purchased by Mr. Meeker and extensively remodeled by him\" (Chicago Tribune, 1 May 1915; both as transcribed on Chicagology's 1815 page, which names Arthur Heun as the remodelling architect). So the remodel falls between March 1902 and about 1905, and whether it came before 1 July 1904 is not known. The photographs show the Sears house (the interpretive panel draws the 1882 house the same way); the 1911 sheet, which draws a one-storey projection north of the front's centre and no corner bay, is the remodelled house. The 1904 phase is built to the photographs, which is a choice, not a finding."
+          "text": "the house at 1815 Prairie Avenue, Joseph Sears's (Arthur Meeker's from 1893;, piece 1), is no longer a district draft. It stands, under the draft's own id 1815 Prairie Avenue — Joseph Sears house (Arthur Meeker's from 1893), as a k01 frontage record built by the k01 emit generator, against the two photographs Chicagology prints side by side ([1815 S. Prairie Ave. (Joseph Sears house, undated; rights check required: forms and proportions only): a smooth light ashlar front two storeys over a raised basement under a slated mansard with a gabled dormer, a pavilion at the front's north end under a steep hipped roof, the door up a stoop in the pavilion's south half, a one-storey corner bay at the south-west corner with a pierced stone balcony on it, a moulded stone cornice, and two tall stacks. **What is read, not invented.** From the 1911 Sanborn sheet 28 (trace s28fp-1815-b1, census s28-1815-front): the front block's place and plan (10.47 m along the front between the north wall at lot v -7.12 and the south wall at 3.35), the stair projection on the north flank and the canted bay on the south flank, the house's depth to the coach house, 'stone', '3B'. From the square-on photograph, through its camera (the chicagology square on data): the principal floor, the storey heights and the wall head, the street windows' places and heights, the pavilion's width and its roof's apex, the corner bay's cheek, front and balcony, the dormer, the mansard's curb, the stacks. Every height rests on the print's own scale across the front (its `solve`). **What is invented.** The walls' thickness; the stone (K02's Lemont limestone for the 1973 landmarks report's 'yellow limestone') and its two-course base; the flanks and rear in brick, where the sheet colours the whole house stone and the oblique shows a rock-faced south flank (K01 lays stone on the street front only); the stair projection's 1.2 m (the sheet's 1.55, past K08's deepest pavilion); the south flank bay's two storeys; the north flank's, the rear's and the rear range's windows (no picture sees them); the rear range's three storeys and flat deck; the mansard's deck; the stacks' plans; the rainwater; the sash pattern. **The attic storey.** The pavilion is carried up an attic storey past the main cornice, its paired transomed lights in its face, and the hipped crown is raised onto its wall head (mansard.crown.attic (m), a K01 option this piece of work added): read off the square-on print, the lights at x 200-325 px and y 390-250 px (9.15-11.0 m), the crown's eave at y 210 px (11.6 m). Invented: the pavilion's 0.45 m projection carried up (the print shows the attic's face, not its depth), the crown's eave 0.5 m past it, its 52-degree faces (fitted to the print's apex within about 0.3 m), and the lights' K06 pattern. The pavilion is now 2.2 m wide and stands 0.3 m in from the north corner (K08's least pier to a corner, and clear of the entrance), so the attic stands about 0.5-0.7 m north of the print's, which is centred over the door's north jamb. **The cornice's consoles and the south stack.** Read off the square-on print: a close row of carved stone consoles under the corona on a plain frieze, twelve across the main front south of the pavilion (about 0.49 m apart, 0.45 m high, 0.17 m wide, their feet at about 8.5 m), carried round the corner along the south flank on the oblique; built as K10's scrolled console (wall head blocks) on a 0.32 m frieze. Invented: the consoles' carving (the kit's generic scroll), their 0.19 m projection, and their feet 0.11 m lower than the print's (the upper lintels leave no more frieze); the rosettes over them are not built. The south stack is triangulated through both cameras: its west face about 1.6 m back from the front, its south face in line with the print's main south wall, its head's foot at about 13.7 m, its cap at about 14.4 m and its pots to about 15.2 m. Invented: it stands on the BUILD's south cornice (on cornice), about 0.75 m south of where the print stands it, because the build's south wall is still flush with the corner bay (the open set-out); its 1.1 x 0.75 m plan, its K15 stone, three corbel courses and 0.15 m cap, and three of the kit's tall pots where the print shows three or four taller ones. The sunk panels the oblique draws on its south face are not built (K15 lays a panel's recess in brick). The north stack takes the same head. **The door's pediment and the stoop's newels.** Read off the square-on print: a stone pediment over the door on two small carved brackets beside the transom, its apex at about 5.86 m and a carved finial to about 6.27 m; and the stoop's cheek walls falling to a square stone newel at each foot under a cap and a ball knob. Built as K01's bracketed door hood with a pediment in place of its railing (entrance kit hood pediment, a K01 option this piece of work added) in the front's stone, and K07's swept cheeks with their newels. Invented: the pediment's width (1.72 m, where the print's is 2.55 m, held clear of the build's narrow pavilion), its 0.3 m projection, its plain tympanum (the print's is carved), the brackets' scroll (the kit's) and the finial's square block (the print's is a carved anthemion); the cheeks' sweep and the newels' heights within K07's ranges. **What is not built.** The pavilion's full 4 m width (K01 cannot cut a door through a projection, so it stands 2.45 m wide north of the door), the basement doorway under the stoop's landing and the stoop's arched underside, the narrow light over the door (built at the storey's sash width), the dormer's finial and the roofs' cresting and cross finial, and the rock-faced south flank: open on the match record. The oblique print (camera) also shows the corner bay running about 0.75 m south of the main front's south corner, as the square-on does, where the build sets it flush. **Which front stood in 1904.** The house was SOLD by Joseph Sears to Mrs. Grace Murray Meeker in March 1902, a \"three-story stone building of fifteen rooms\" (Inter Ocean, 28 March 1902), not owned by the Meekers from 1893 as this record's name says; in May 1915 it had \"twenty-one rooms\" and had \"about ten years ago\" been \"purchased by Mr. Meeker and extensively remodeled by him\" (Chicago Tribune, 1 May 1915; both as transcribed on Chicagology's 1815 page, which names Arthur Heun as the remodelling architect). So the remodel falls between March 1902 and about 1905, and whether it came before 1 July 1904 is not known. The photographs show the Sears house (the interpretive panel draws the 1882 house the same way); the 1911 sheet, which draws a one-storey projection north of the front's centre and no corner bay, is the remodelled house. The 1904 phase is built to the photographs, which is a choice, not a finding."
         },
         {
           "label": "How to resolve",
@@ -42180,7 +42184,8 @@
         "T-3155",
         "T-1893",
         "T-3156",
-        "T-3561"
+        "T-3561",
+        "T-3562"
       ]
     },
     {
@@ -57726,11 +57731,15 @@
       "subjects": [],
       "covers": [],
       "recorded": "2026-10-24",
-      "revised": null,
+      "revised": "2026-11-12",
       "fields": [
         {
           "label": "Decision",
           "text": "The front's north end at 1811 Prairie (K01's low-s end, v 0 to 0.93) is built as a pier capped below the bay's cornice (form.front pier): its rock-faced courses unbroken from the base course to a dressed band at 7.10-7.22 m, one rock-faced course, and a moulded cap at 7.52-7.72 m, the band 0.05 m and the cap 0.12 m proud. The band, the cap and the slate top over them are read off the Chicagology photograph through earlier work's camera, and checked on the 1888 plate through earlier work's camera, so the record grades them `inferred`. Four things about it are invented. (1) No picture sees the weathering's pitch behind its front edge. It is slated at 42 degrees from the cap's front edge, which is the pitch whose render meets the print's slate at the bay's cornice. (2) No picture sees how the hipped roof meets the pier. So the front's wall head, the moulded cornice and the roof's street and side eaves are cut back over the pier's width to the weathering's slope, the side wall under it is stepped down below that slope, and the cut's face against the rest of the roof is slated. Earlier work (2026-11-09, the owner's phone shot from the north-west: \"see the big gash in it\"): that face no longer stands upright along the pier's inner edge for 3.4 m back along the north eave, which read as a slot cut into the hip. It runs on a diagonal from the pier's inner corner on the weathering back to 0.6 m behind where the weathering meets the north eave, leaning 75 degrees, so the cut is widest over the pier and dies out at the eave. The diagonal, the lean and the 0.6 m are ours, set so that every camera that sees the pier still shows sky over the cap. From the north it reads as the hip coming down to the pier. (3) The band and the cap are returned along the north side wall only as far back as the weathering over them stands under the soffit (about 0.6 m). The side wall stays brick. (4) The cap's moulding is two dressed boxes, a fillet over a narrower member, not the print's ogee and cove. The new downpipe at the pier's junction with the cheek takes its head, straps and shoe from K04, like the other two."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-11-12, T-1890, by the owner's ruling, looking at the north-west corner on his phone: *\"the roof would be simpler and I think you can make that happen by controlling the side and front a bit look at my pink lines, the roof peak would be straight there\"*, *\"You may need to adjust some wall heights to get it to match photo\"*. His line ran from the hip mass's apex straight down to the corner. So the pier's low head is withdrawn: `form.front_pier` is gone from the record, the front's stone runs to the north corner at its full height under the moulded cornice, the roof is no longer cut over it, and the north-west hip comes down to that corner as a plain hip. The pier's downpipe stays at the cheek's junction, its head raised to 7.85 m under the cornice like the other two. This departs on purpose from all three pictures, which cap the pier below the bay's cornice with sky over it; from the street the build now shows the cornice and the hip's foot there, about 1 m higher. Each view's match record carries it as `owner ruling`. Items (1) to (4) above describe the pier as T-3112 built it and no longer stand."
         },
         {
           "label": "Re-opens on",
@@ -73518,21 +73527,51 @@
       ]
     },
     {
-      "id": "L-k01-1721-frame-house-3566",
-      "title": "1721 Prairie's rear range built as the 1863 frame Dexter house: clapboarded, slated gable, two stacks, a chosen stone drab",
+      "id": "L-k16-1721-frame-house-3566",
+      "title": "Wirt Dexter's frame house of 1863 standing behind 1721 Prairie's brick front, its south front read off the Detroit print",
       "section": "per_subject",
-      "subjects": [],
-      "covers": [],
+      "subjects": [
+        "dexter_house_1721_prairie",
+        "dexter_house_1721_prairie_frame_house"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "dexter_house_1721_prairie_frame_house",
+          "phase": "as_standing_1904",
+          "aspect": "form.construction"
+        },
+        {
+          "domain": "structure",
+          "structure": "dexter_house_1721_prairie_frame_house",
+          "phase": "as_standing_1904",
+          "aspect": "form.roof_covering"
+        },
+        {
+          "domain": "structure",
+          "structure": "dexter_house_1721_prairie_frame_house",
+          "phase": "as_standing_1904",
+          "aspect": "form.stories"
+        }
+      ],
       "recorded": "2026-11-12",
       "revised": null,
       "fields": [
         {
           "label": "Decision",
-          "text": "This work (the owner's request, 2026-11-12: \"on 1721 prairie there is a frame house to the rear of the building that should be standing you should be able to see images of it\") rebuilds the 1911 sheet's long two-storey rear range behind Arthur Little's brick front as what is left of Wirt Dexter's frame house of 1863: a frame wing (`fabric: frame`) lapped in clapboards (the K01 kit's new rear wings[].clapboard: boards 0.115 m to the weather, butts 0.018 m proud, 0.15 m corner boards, a stone water table at the first floor's line) under a slated gable whose ridge runs back from the main block to a gable on the rear wall, with two brick stacks astride the ridge to 15.0 m. The one-storey frame room at its east end is clapboarded with it. **What is read, not invented.** That the range is frame: Robinson's 1886 plate 10 colours the house yellow, a long house on the north lot line set back about 34 ft; the 1891 Inland Architect plate draws it clapboarded behind the brick front's north flank; the Detroit print (1893-1901) shows it from the south-west, two storeys of clapboard under a slated roof with tall chimneys. Its plan, storeys and windows are the 1911 sheet's, as before. **What is invented.** The roof's 45 degree pitch (K04's slates are cut for nothing lower; the print's ridge is read through branches and the plate draws the house's gables steep), the gable's facing, the stacks' places and heights, the clapboards' exposure, and the paint: a stone drab (linear 0.40, 0.36, 0.27) such as a frame house of 1863 imitating stone wore, a shade darker than Little's pale front as both monochrome pictures read it. The 1911 sheet colours this range brick; the three pictures and the 1886 plate are read over it (the research notes on 1721 frame house). **Not built.** The frame house's front part, with the porch and the two tallest chimneys of the print and the bay window and cross gable of the plate: in 1901-02 Little's front was taken off the street line and set back to the building line (Tribune, 28 Nov. 1901; the 1911 sheet draws it 9.7 m back), onto that part."
+          "text": "This work (the owner, 2026-11-12, after a meeting with Bill Tyre: \"on 1721 prairie there is a frame house to the rear of the building that should be standing you should be able to see images of it\"; then, of his crop of the Detroit print: \"you are missing the whole front entrance... it has two hipped gable front on the left and right and a center area that has a front porch and door that house was there first and the other house facing prairie is technically the addition... photo match that rear house to perfect\", \"Chimneys, windows, everything\", \"the house seems likely to be symmetrical\") builds the frame house as its own record, 1721 Prairie Avenue: Wirt Dexter's frame house of 1863 behind Little's brick front, in the K16 timber kit, in place of the brick K01 rear range the 1911 sheet draws: a two-storey range on the north lot line, from the brick block's rear wall 23.9 m east, and on its south side two gabled wings, each a two-storey canted bay, either side of a recessed middle with an arched porch on four posts, the front door and one window over the porch with louvred blinds; bracketed boxed eaves, a hipped main roof, four tall stacks. **What is read, not invented.** Through the Pullman house's solved camera on the Detroit print (1893-1901; the detroit det 4a08065 data): the wings' gable peaks (about 10.9 m), the porch's middle and the window over it (all three on one axis, the two gables 13.5 m apart about it), the eaves at about 8.5 m, the ground and upper windows' sills and heads, the porch floor six risers up, and three of the four stacks, their places and tops. That it is frame: Robinson's 1886 plate colours the house yellow and draws its south side stepped; the 1891 plate and the print show clapboard. **What is invented.** The depth the wings stand out (2.2 m, and the bays 0.8 m more: the print sees the front almost square on), the bays' plan, the fourth stack (the owner's symmetry; the print's elm hides where it would stand), every window on the north, east and wing-side walls, the paint's hues, the roof's wood shingles, and the house's place in 1904: the print shows it before the brick front was moved back in 1901-02 (Tribune, 28 Nov. 1901), and the house is kept where the print puts its front, 4 m east of the 1911 sheet's range, the part of it the moved front now stands on not built. The 1911 sheet colours its range brick and draws it 6.2 m deep with no wings; the print, the 1886 plate and the owner's ruling are followed over it (the research notes on 1721 frame house). **The paint** (the owner, 2026-11-13: *\"I am not convinced the color of the building is white... Given the Victorian style I imagine a main color and a couple detail colors\"*). Every picture of the house is black and white, so only its tones are read: on the Detroit print the clapboard stands at about the value of Little's buff brick beside it, a step lighter than the Pullman house's stone and far darker than the walks, and the eaves, casings and blinds read well darker than the body. The hues are chosen for that pattern in the three-colour manner of a frame house repainted in the 1880s beside a buff brick front: a fawn drab body, seal-brown trim (casings, cornice, brackets, porch, bay skirts) and deep bronze-green sash and blinds; the stacks and underpinning a buff Chicago common brick (they read lighter than the clapboard, as buff brick does on such a plate and red does not), the roof weathered wood shingle (a mid-dark tone, too light for slate). No source names a colour or a roofing."
         },
         {
           "label": "How to resolve",
-          "text": "a picture of the house between 1902 and 1911, or a permit for the 1902 work, would settle what of the frame house stood behind the moved front, its roof and its colour."
+          "text": "a picture of the house between 1902 and 1911, a plan of the 1902 work, or the 1906 Sanborn sheet would settle what stood behind the moved front, how far the wings stood out, and its colour."
+        },
+        {
+          "label": "Also stated, not shown in full",
+          "text": "the roof's wood shingles (the print gives a mid-dark roof, not its material); the clapboard and the two storeys drawn as the kit's simplified frame walls and floors."
+        },
+        {
+          "label": "Covers",
+          "text": "`dexter_house_1721_prairie_frame_house.as_standing_1904.form.roof_covering`, `dexter_house_1721_prairie_frame_house.as_standing_1904.form.construction`, `dexter_house_1721_prairie_frame_house.as_standing_1904.form.stories`."
         },
         {
           "label": "Recorded",
@@ -73571,6 +73610,131 @@
       ],
       "work_refs": [
         "T-3553"
+      ]
+    },
+    {
+      "id": "L-prairie-barriers-3554",
+      "title": "1904 residents keep a skirt's width off every stoop, railing and bay, and the drafts' drawn front doors open",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-13",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-12: *\"when people walk they dont cut themselves and swipe though a sidewalk their dresses are wide and they walk their path sometimes cuts through a wall or barrier people should not be able to walk through walls or barriers\"*. A house's footprint kept people out of its walls, but its stoop, area and coping walls, iron railings and bays stand outside the footprint, and 227 of the 786 walks the Prairie residents took out of their doors and along their frontages passed through one. Each 1904 Prairie house model is now read for whatever it builds between a knee (0.25 m) and a head (1.8 m) over the ground outside its footprint (the prairie barriers tool, written into the doors 1904 data by the derive doors scene tool), and every resident's outdoor place stands 0.55 m off those barriers and off every building's walls, with the walk out from the door and the walk along the frontage keeping 0.3 m (a skirt's half-width, less the half cell the barriers are read on) off them the whole way; where a narrow front gate in a railing leaves no such way (four walks), the body itself still clears the rails by 0.15 m. The scene's own step-aside and gathering places refuse the same barriers (the walkthrough's house barriers code). A draft house's drawn front door (draft door) is hung to swing like a built one where the draft's stoop reaches it (seven houses), and every door's answering place stands clear of the draft's front rooms and bays, which reach past its footprint."
+        },
+        {
+          "label": "What it stands on",
+          "text": "the house models as their generators and drafts built them; the residents' days are “Household figures, doors and days”'s."
+        },
+        {
+          "label": "What is invented",
+          "text": "the knee and head heights, the 0.55 m and 0.3 m clearances, and which nearby clear place a resident takes when the first choice is blocked (the nearest out from the door, then along the frontage); a draft door's hinge and swing, as “Every built 1904 front door and every back door opens and shuts as its household passes, up its own stoop”'s."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a drawn front for any draft house, or a photograph of a resident's front walk and railing."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-13 (T-3554)."
+        }
+      ],
+      "work_refs": [
+        "T-3554"
+      ]
+    },
+    {
+      "id": "L-t3573-step-out",
+      "title": "Someone at home, found or followed, comes out for a walk round their block",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-12",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-12: *\"if someone is in one of the houses and in town they should be able to be go to find or followed and if they are in their house they come outside and do a daily task outside so you can follow them, something meaningful like a walk around the block or something else with some movement ideally\"*. Find this person and Follow stay live for anyone present in town today who is indoors (a drawn figure gone in, or a household's resident listed in the inside <year> data, who is drawn only once out). Asked for, the visitor is taken to the door they will come out by, and on arriving they come out of it (the walkthrough's human days code `outing`) for seven minutes, longer while followed, then go back in by their door. Where their own day has a walk at least 40 m long (Christine Nelson's errand round the block), that is the walk; else the walkthrough's block walk code lays one round their block: out from the middle of the house square to its front, right, back and left to the first sidewalk each meets (1904; 1835's plank walks and street corridors), and round by the corners those make, the router keeping to the walks between; a side that is not met within 320 m makes it a walk along the front and round its ends, there and back. A young child comes out with a grown-up of the household (their caregiver where the household record names one), and the two walk it side by side at the child's pace. A soldier off his hours comes out of his quarters' door and goes back in by it before his duty has him again. A baby in the household's care has no figure of its own and stays in. With no block (1812), a walk about the place: a ring 12 to 38 m out on clear ground, the widest with room, or there and back between two places in a tight yard. It is called a morning walk, an errand or an evening walk round the block by the hour."
+        },
+        {
+          "label": "Not invented",
+          "text": "who is in town on the date and at home at the hour (their records and days, as before); their house and door."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "a source that says what one of them did out of doors at a given hour, which goes into their day and is then walked as written."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-12."
+        }
+      ],
+      "work_refs": [
+        "T-3573"
+      ]
+    },
+    {
+      "id": "L-hanging-cloth-3553",
+      "title": "Every hanging garment hangs as one piece over the walking legs",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-13",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-13, following a coated man on 18th Street in 1904: *\"no one should have their legs break through their clothing like that\"*. The exporter skins every garment to the pelvis and to each thigh and calf, so on the walk a frock coat's skirts, a coachman's livery, a soldier's tails, an 1812 capote, shirt tail, blanket or breechcloth, a girl's frock and a woman's petticoat each parted like trousers and the other knee or shin came through. the walkthrough's human skirt code, which hung the women's skirts as one bell, now sorts each leg-weighted garment by its piece name and by how far its lower part hangs from the legs, and hangs every one that hangs (never trousers, breeches, stockings, leggings or boots) from the waist as one piece that the legs push open where they press. A coat's skirts and tails are hung stiffer and closer than a skirt: they carry little of a push round the body, keep no flare and fall straight back. How far a coat swings, how fast it follows and how much it trails are ours."
+        },
+        {
+          "label": "Not invented",
+          "text": "the garments, their cut and their length, which are the assets as drawn; standing, every one is exactly as drawn."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "a cloth simulation the fleet can afford on a phone, which replaces the panels."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-13."
+        }
+      ],
+      "work_refs": [
+        "T-3472",
+        "T-3553"
+      ]
+    },
+    {
+      "id": "L-jaunt-voices-3578",
+      "title": "The jaunt scripts read aloud in synthetic voices",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-13",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-13: *\"I have some voices in eleven labs and I want to begin using those and having them read/play the narration or scripts like the meet the Glessner household\"*. A jaunt's opening, each of its stops and its endings can be heard as well as read: the narrate jaunts tool sends the exact words the panel shows to ElevenLabs text to speech in a voice the owner chose for each speaker (the voices data: a narrator, and each stop's first host by person id), and the walkthrough's narration code plays the clip whose key is those words' SHA-256. The voices are synthetic and chosen by ear; none is a recording of the person or claims to be their voice, accent or manner of speech, and the words are the jaunt's own (already declared written for the walk where the jaunt says so)."
+        },
+        {
+          "label": "Not invented",
+          "text": "the words, which are the jaunt's text unchanged, with their own sources and liberties."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "a recording or a contemporary description of how one of the speakers sounded, which would bound their voice."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-13."
+        }
+      ],
+      "work_refs": [
+        "T-3578"
       ]
     },
     {

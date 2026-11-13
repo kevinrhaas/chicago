@@ -25,7 +25,7 @@ const read = (p) => fs.readFileSync(path.join(WEB, p), 'utf8');
 
 // ---- the flip -------------------------------------------------------------------------
 {
-  assert.deepEqual(MUTE_KEYS, { all: 'soundMaster', music: 'soundMusic' });
+  assert.deepEqual(MUTE_KEYS, { all: 'soundMaster', music: 'soundMusic', narration: 'soundNarration' });
   const fresh = soundLevelsFrom({});
   assert.equal(isMuted(fresh, MUTE_KEYS.all), true, 'sound is off by default (T-2941), so MUTE ALL starts lit');
   assert.equal(isMuted(fresh, MUTE_KEYS.music), false, 'music has its own default level, so MUTE MUSIC starts dark');
@@ -44,6 +44,10 @@ const read = (p) => fs.readFileSync(path.join(WEB, p), 'utf8');
   assert.equal(flipSound({ soundMusic: 0, soundLastMusic: 0 }, MUTE_KEYS.music).soundMusic, SOUND_DEFAULTS.soundMusic,
     'a kept 0 is not a level to restore');
   assert.equal(Object.hasOwn(flipSound(fresh, MUTE_KEYS.music), 'soundMaster'), false, 'MUTE MUSIC never touches the master');
+  // T-3578: MUTE NARRATION flips the jaunt voices alone; narration starts audible (under Master).
+  assert.equal(isMuted(fresh, MUTE_KEYS.narration), false, 'narration has its own level, so MUTE NARRATION starts dark');
+  assert.deepEqual(flipSound({ soundNarration: 0.7 }, MUTE_KEYS.narration), { soundNarration: 0, soundLastNarration: 0.7, soundChosen: true });
+  assert.equal(flipSound({ soundNarration: 0 }, MUTE_KEYS.narration).soundNarration, SOUND_DEFAULTS.soundNarration);
   assert.throws(() => flipSound(fresh, 'soundEffects'), /no mute/);
 }
 
@@ -51,16 +55,16 @@ const read = (p) => fs.readFileSync(path.join(WEB, p), 'utf8');
 {
   const html = read('index.html');
   const head = html.slice(html.indexOf('<header class="nav-head"'), html.indexOf('</header>', html.indexOf('<header class="nav-head"')));
-  for (const id of ['nav-mute-all', 'nav-mute-music']) {
+  for (const id of ['nav-mute-all', 'nav-mute-music', 'nav-mute-narration']) {
     const tag = new RegExp(`<button[^>]*id="${id}"[^>]*>`).exec(head)?.[0];
     assert.ok(tag, `#${id} stands in the Navigator's head`);
     assert.match(tag, /type="button"/);
     assert.match(tag, /aria-pressed="(true|false)"/, `#${id} is a toggle`);
-    assert.match(tag, /aria-label="Mute (all sound|music)"/);
+    assert.match(tag, /aria-label="Mute (all sound|music|narration)"/);
   }
   assert.ok(head.indexOf('nav-mute-music') < head.indexOf('id="nav-close"'), 'the mute keys sit before the close key');
   const strings = read('js/strings/navigator.js');
-  for (const k of ['mute.all', 'mute.music', 'mute.all.off', 'mute.music.off']) assert.ok(strings.includes(`'${k}'`), `nav.${k} is in the string table`);
+  for (const k of ['mute.all', 'mute.music', 'mute.narration', 'mute.all.off', 'mute.music.off', 'mute.narration.off']) assert.ok(strings.includes(`'${k}'`), `nav.${k} is in the string table`);
   const main = read('js/main.js');
   assert.match(main, /from '\.\/sound-keys\.js'/);
   assert.match(main, /flipSoundKey\(k\.key\)/, 'main.js wires both mute keys');

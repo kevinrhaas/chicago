@@ -339,6 +339,7 @@ function filterSpecs(people) {
  * @param {string} o.sceneId              which scene's citation join to read
  * @param {(target: object) => void} o.onGoTo   travel to a person's building
  * @param {(id: string) => boolean} [o.inTown]  T-3404: is this person placed in town now
+ * @param {(id: string) => boolean} [o.atHome]  T-3573: in town and at home now (they come out)
  *                                             (a driver on their round)? Their card then
  *                                             offers Find in town and Follow.
  * @param {(id: string) => void} [o.onFollow]   walk alongside them
@@ -355,7 +356,7 @@ function filterSpecs(people) {
  */
 export async function mountPeople({
   mount, people, registry, dataBase, sceneId, onGoTo, onTitle = null,
-  firmsByPerson = null, onBusiness = null, problems = [], inTown = null, onFollow = null,
+  firmsByPerson = null, onBusiness = null, problems = [], inTown = null, atHome = null, onFollow = null,
 } = {}) {
   const idle = { search() {}, open() { return Promise.resolve(false); }, close() {}, filter() {}, get state() { return null; } };
   if (!mount) return { people: 0, error: 'no mount', ...idle };
@@ -754,7 +755,9 @@ export async function mountPeople({
     }
     const follow = typeof onFollow === 'function'
       ? '<button type="button" class="people-go people-follow" data-follow=""><span class="people-go-verb">Follow</span><span class="people-go-title">Walk alongside them</span></button>' : '';
-    return `<button type="button" class="people-go people-find" data-go="town"><span class="people-go-verb">Find this person</span><span class="people-go-title">Where they are in town now</span></button>${follow}`;
+    // T-3573: at home now, Find goes to their door and out they come on a walk.
+    const where = typeof atHome === 'function' && atHome(r.id) ? 'At home now: they come out to meet you' : 'Where they are in town now';
+    return `<button type="button" class="people-go people-find" data-go="town"><span class="people-go-verb">Find this person</span><span class="people-go-title">${where}</span></button>${follow}`;
   }
 
   function actionsHtml(r) {
