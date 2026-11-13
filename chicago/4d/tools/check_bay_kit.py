@@ -319,9 +319,13 @@ def rule_keyed(b, v):
     cut = (lambda p: (corner[0] <= p[0] <= corner[1] and p[2] >= corner[2])
            or (cant is not None and p[2] < 0.0 and cant(p[0], p[2]))
            or (cheek is not None and cheek(p)) or (slab is not None and slab(p))) if corner else (lambda p: False)
+    # T-3370: a square tower's whole stage stands clear of the wall plane, over the house's roof,
+    # from its lowest point (its corbel table under its foot) up
+    sg = b.meta.get("stage") or {}
+    clear = (lambda p: p[1] >= sg["bottom_m"] - 1e-6) if sg.get("whole") else (lambda p: False)
     worst = min(((p[2], role) for role, pr in b.prims.items()
                 if role not in K.BOARD_ROLES and role not in whole and role not in through for p in pr.pos
-                if not cut(p)), default=(0.0, None))
+                if not cut(p) and not clear(p)), default=(0.0, None))
     if worst[0] < -1e-6:
         fails.append(f"behind: a {worst[1]} vertex stands {-worst[0]:.4f} m behind the host wall's face")
     if through:
@@ -488,6 +492,9 @@ def rule_recesses(b, v, data):
         inside = _across_inside(b, -m)   # T-3176: across a corner, behind is inside the corner
         cant = _cant_inside(b)            # T-1890: a chamfer's light, inside its cant
         slab = _return_slab(b, v)         # T-1890 (2026-11-12): or in its return
+        sg = b.meta.get("stage") or {}
+        if sg.get("whole") and w["storey"] >= sg["from_storey"]:
+            continue   # T-3370: a light in a whole stage, clear of the wall plane over the roof
         for p in w["footprint"]:
             if cant is not None and cant(p[0], p[1]):
                 continue
@@ -570,7 +577,12 @@ def rule_curves(b, data, tier):
 def rule_support(b, v, data):
     fails = []
     sg = b.meta.get("stage")
-    if sg is not None:
+    if sg is not None and sg.get("whole"):
+        # T-3370: a square tower's whole stage stands on its shaft's walls, its own ring the
+        # shaft's square carried whole: the shaft must reach the stage's foot
+        if abs(b.meta["levels_m"][0]) > 1e-6 or not any(abs(y - sg["base_m"]) < 1e-4 for y in b.meta["levels_m"]):
+            fails.append(f"support: the whole stage's foot at {sg['base_m']} m is none of the tower's storey lines")
+    elif sg is not None:
         # T-1890: a staged tower's corbel courses carry its stage back to its shaft
         cb = K.part(v, data, "corbel")
         if sg["step_m"] > cb["max_oversail_ratio"] * sg["course_height_m"] + 1e-6:
