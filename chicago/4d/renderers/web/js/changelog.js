@@ -1,4 +1,30 @@
 export const CHANGELOG = [ // newest first
+  { v: 2943, ts: '2026-11-13T19:49:18.161Z', date: 'Nov 13, 2026, 1:49 PM CT', title: '1936 Prairie\'s front windows get their carved crests', kind: 'change',
+    items: [
+      'In 1904, the upstairs windows on 1936 Prairie Avenue\'s front now carry the carved scrolled crests the old photograph shows over their stone hoods, and the tower\'s pair of windows over the front door stands in moulded stone frames crested the same way.',
+      'The crests\' sizes are measured from the photograph; their carving is simplified.',
+    ] },
+  { v: 2942, ts: '2026-11-13T19:47:55.601Z', date: 'Nov 13, 2026, 1:47 PM CT', title: 'Sarah Grey\'s jaw narrower and collar lowered, William\'s hair combed', kind: 'fix',
+    items: [
+      'Sarah\'s jaw is narrower from the front, her chin\'s profile as it was.',
+      'Her white collar now sits on her neck, below her chin, instead of riding up over it.',
+      'No straight shading line crosses a long chin any more.',
+      'William\'s hair lies in combed waves that run together, a deeper ash brown, ending at his collar.',
+    ] },
+  { v: 2941, ts: '2026-11-13T19:47:55.601Z', date: 'Nov 13, 2026, 1:47 PM CT', title: 'The Fort Dearborn monument\'s five figures take the sculpture\'s poses', kind: 'improvement',
+    items: [
+      'The bronze group on 18th Street now stands as Rohl-Smith posed it: the warrior in a long lunge with the tomahawk raised, Mrs. Helm staggering back with her arm across to him, Black Partridge behind her with his open hand raised against the blow and his musket slanting past his hip, the surgeon fallen under them, and the child kneeling at the front with both arms out.',
+      'Each figure\'s joints were read off the Barnes-Crosby photograph of about 1900 and set in depth using J. W. Taylor\'s 1893 view, so the group\'s outline from the walk now follows the photograph.',
+      'The cast rock under their feet is rough and broken, as in both photographs, where it used to be a smooth swell.',
+      'Still to do: faces, hair, drapery and weapons are not yet modelled, and the inscription is not yet cut.',
+    ] },
+  { v: 2940, ts: '2026-11-13T19:47:55.601Z', date: 'Nov 13, 2026, 1:47 PM CT', title: 'Birds and insects on the 1904 street', kind: 'feature',
+    items: [
+      'With Ambience on, robins now sing from the Prairie Avenue elms in spring and summer, and now and then in fall.',
+      'Summer afternoons bring cicadas in the elms; summer dusk and night bring crickets in the parkway grass.',
+      'Katydids join on late-summer nights from 20 July. Winter stays quiet.',
+      'No starlings: they had not reached Chicago by 1904.',
+    ] },
   { v: 2939, ts: '2026-11-13T18:40:26.185Z', date: 'Nov 13, 2026, 12:40 PM CT', title: 'The Glessner Household speaks: two narrators to choose from', kind: 'feature',
     items: [
       'The Glessner Household is voiced: the narrator reads the title and the background, then each person speaks at their own door.',

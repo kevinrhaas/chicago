@@ -76,10 +76,13 @@ export const HAIR_CUTS = Object.freeze({
   // from the brow and falling in loose waves over the ears to below the jaw and the collar
   // behind, full at the sides. Drawn beside the sheet's four views (owner, 2026-11-13, the
   // gaps to his sheet: "all of them"): the strands wave (`wave`, human-hair.js layCard), stand
-  // fuller off the head (lift) and end at the collar, not in long wisps below it.
+  // fuller off the head (lift) and end at the collar, not in long wisps below it. Owner,
+  // 2026-11-13: "his looks very unkempt": the waves now run together, 6 cm crest to crest
+  // (`wave_cm`), with less curl and lift, closer cards, a deeper ash brown, and no strand hangs
+  // past the cap's edge (`hang: false`), so the cut ends cleanly at the collar.
   swept_back_wavy_1904: Object.freeze({
-    flow: 'swept_back', part_cm: 0, lengths_cm: Object.freeze({ top: 11, side: 10.5, back: 11.5 }),
-    lift_mm: Object.freeze({ root: 7, tip: 24 }), density: 7, curl: .2, wave: .25, hang: true, card_mm: 8, cap_tint: 12,
+    flow: 'swept_back', part_cm: 0, lengths_cm: Object.freeze({ top: 10, side: 8.5, back: 9 }),
+    lift_mm: Object.freeze({ root: 4, tip: 13 }), density: 7, curl: .05, wave: .5, wave_cm: 6, hang: false, card_mm: 10, cap_tint: 16,
   }),
   // A soldier's crop of 1812 (T-3491, a reconstructed choice): short all round, a little
   // longer on top and brushed forward to the brow, close over the ears and at the nape.
@@ -312,8 +315,9 @@ export const HAIR_COLOURS = Object.freeze({
   // Matched to the sheets' colour once more (T-3553, owner 2026-11-13: "keep going so they match
   // perfectly"): drawn beside them, his hair read too dark and hers too dark and warm. His is a
   // light ash going silver at the sides; hers an ash brown with fair and grey streaks through it.
-  // Beside the four views (2026-11-13) his cards read near silver: taken to the sheet's ash brown.
-  light_ash_grey: Object.freeze([.16, .125, .09]),
+  // Beside the four views (2026-11-13) his cards read near silver: taken to the sheet's ash brown,
+  // and once more darker (the owner the same day: "his looks very unkempt"; pale cards read as frizz).
+  light_ash_grey: Object.freeze([.11, .08, .055]),
   ash_fair_grey: Object.freeze([.2, .16, .125]),
   // His beard and moustache (T-3553): warmer than his hair, a reddish sand, as the portrait's
   // beard reads a shade redder and lighter than the hair above it.

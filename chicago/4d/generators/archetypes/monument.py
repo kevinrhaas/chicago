@@ -19,16 +19,19 @@ rock. One granite material and one bronze one: two draw calls.
 
 Five figures, built as the sculptor posed them and no more finely than a visitor on the
 walk 5-15 m off can read them: each figure is joined from tapered limbs and balls, its
-pose taken from the two photographs (`FIGURES` below, in metres off the rock's centre,
-x along the front to the right as the street sees it, y back from the front, z up, at
-the photographs' scale of about 2.2 m from the rock to the raised hands). The group is
-scaled as a whole to the record's `group_h_m` less the rock. From the left: the warrior
-with the tomahawk raised; Margaret Helm, staggering in her long skirt; Black Partridge
-behind her, one hand raised against the blow, the musket in the other; the post surgeon
-lying across the rock under them; the child at the right front reaching out. The faces,
-the dress's folds, the feathers' number and the panels' reliefs are not modelled
-(the record's liberty says so); the rear, which no photograph used here shows, is the
-same masses seen from behind.
+pose taken from the two photographs (`FIGURES` below, in pose units off the rock's centre,
+x along the front to the right as the street sees it, y back from the front, z up). Since
+T-3582 every joint is read on ICHi-19208 through its solved camera, so the front view
+holds the plate joint for joint, and put in depth by where J. W. Taylor's 1893 camera sees
+it across (the two are 15 degrees apart, so a depth is good to about 0.15 m and each is
+held inside its figure's band on the rock). The group is scaled as a whole to the
+record's `group_h_m` less the rock. From the left: the warrior in his long lunge, the
+tomahawk raised; Margaret Helm, staggering back in her long skirt, her arm across to him;
+Black Partridge behind her, his open hand raised against the blow, the musket slanting
+past his hip; the post surgeon fallen under them, one leg stretched to the west edge; the
+child kneeling at the right front, both arms out. The faces, the dress's folds, the
+feathers' number and the panels' reliefs are not modelled (the record's liberty says so);
+the rear, which no photograph used here shows, is the same masses seen from behind.
 """
 
 from __future__ import annotations
@@ -44,7 +47,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from archetypes.monument_params import MonumentParams  # noqa: E402
 
-GENERATOR = "chicago-4d generators/archetypes/monument.py (T-3567)"
+GENERATOR = "chicago-4d generators/archetypes/monument.py (T-3567, T-3582)"
 
 M_GRANITE, M_BRONZE = 0, 1
 # Name, linear base colour, roughness. The granite is the photographs' mid grey (the
@@ -58,112 +61,138 @@ MATERIALS = [
 LIMB_SIDES = 8
 BALL_RINGS = 5
 
-# The poses, off the ICHi-19208 front (about 135 px a metre at the group) and checked on
-# Taylor's 1893 three-quarter view. Each part: ("limb", a, b, ra, rb) a tapered round
-# member; ("ball", c, r); ("ell", c, (rx, ry, rz)); ("cone", top, bottom, r_top, r_bottom).
+# The poses (T-3582), in the pose frame below, each joint read on both photographs that
+# see the group and put in depth between them: ICHi-19208 square-on from the 18th Street
+# walk (x and z, about 140 px to a pose unit at the group) and J. W. Taylor's 1893
+# three-quarter view from the south-west (depth, through the 15 degrees between the two
+# cameras: about 0.15 m, so each figure's depths are evened over its own joints). Each
+# part: ("limb", a, b, ra, rb) a tapered round member; ("ball", c, r); ("ell", c, (rx, ry,
+# rz)); ("cone", top, bottom, r_top, r_bottom).
 FIGURES = {
+    # The warrior, left: crouched in a long lunge to the left, his left leg stretched back
+    # to the rock's west edge and his right knee bent forward, his body twisted to the woman
+    # and his head down at Black Partridge's shoulder; the tomahawk raised over his head in
+    # his right hand, its head below the grip; his left arm across to her shoulder; a
+    # feather in his hair and a fringed ornament hanging at his left hip.
     "warrior": [
-        ("ball", (-0.40, 0.05, 1.70), 0.115),
-        ("limb", (-0.45, 0.05, 1.52), (-0.41, 0.05, 1.63), 0.06, 0.055),
-        ("limb", (-0.64, 0.05, 0.98), (-0.48, 0.05, 1.48), 0.13, 0.17),
-        ("ball", (-0.62, 0.05, 0.97), 0.14),
-        ("cone", (-0.62, 0.02, 1.02), (-0.62, -0.02, 0.76), 0.145, 0.17),
-        # the right arm raised with the tomahawk
-        ("ball", (-0.45, 0.05, 1.50), 0.075),
-        ("limb", (-0.45, 0.05, 1.50), (-0.60, 0.00, 1.82), 0.065, 0.05),
-        ("ball", (-0.60, 0.00, 1.82), 0.05),
-        ("limb", (-0.60, 0.00, 1.82), (-0.56, 0.00, 2.04), 0.05, 0.04),
-        ("ball", (-0.56, 0.00, 2.04), 0.05),
-        ("limb", (-0.56, 0.00, 1.97), (-0.60, 0.00, 2.32), 0.018, 0.016),
-        ("ell", (-0.53, 0.00, 2.27), (0.075, 0.015, 0.04)),
-        # the left arm thrown back and out
-        ("ball", (-0.68, 0.05, 1.47), 0.075),
-        ("limb", (-0.68, 0.05, 1.47), (-0.86, 0.00, 1.22), 0.065, 0.05),
-        ("ball", (-0.86, 0.00, 1.22), 0.05),
-        ("limb", (-0.86, 0.00, 1.22), (-1.00, -0.05, 1.05), 0.05, 0.04),
-        ("ball", (-1.00, -0.05, 1.05), 0.05),
-        # the lunge: the left leg forward, the right braced back
-        ("limb", (-0.68, 0.05, 0.92), (-0.82, -0.05, 0.50), 0.095, 0.065),
-        ("ball", (-0.82, -0.05, 0.50), 0.065),
-        ("limb", (-0.82, -0.05, 0.50), (-0.95, -0.10, 0.07), 0.065, 0.045),
-        ("ell", (-0.97, -0.14, 0.04), (0.06, 0.11, 0.035)),
-        ("limb", (-0.56, 0.08, 0.92), (-0.42, 0.15, 0.50), 0.095, 0.065),
-        ("ball", (-0.42, 0.15, 0.50), 0.065),
-        ("limb", (-0.42, 0.15, 0.50), (-0.32, 0.20, 0.07), 0.065, 0.045),
-        ("ell", (-0.30, 0.16, 0.04), (0.06, 0.11, 0.035)),
+        ("ball", (-0.36, -0.28, 1.42), 0.085),
+        ("limb", (-0.36, -0.28, 1.42), (-0.27, -0.28, 1.57), 0.022, 0.006),
+        ("limb", (-0.52, -0.38, 1.25), (-0.36, -0.28, 1.42), 0.055, 0.05),
+        ("limb", (-0.60, -0.10, 0.93), (-0.52, -0.38, 1.25), 0.13, 0.16),
+        ("ball", (-0.60, -0.10, 0.93), 0.13),
+        ("ell", (-0.59, -0.10, 0.88), (0.15, 0.13, 0.10)),
+        ("limb", (-0.60, -0.10, 0.93), (-0.85, -0.10, 0.92), 0.035, 0.015),
+        ("ball", (-0.62, -0.25, 1.31), 0.075),
+        ("limb", (-0.62, -0.25, 1.31), (-0.71, -0.34, 1.60), 0.065, 0.05),
+        ("ball", (-0.71, -0.34, 1.60), 0.05),
+        ("limb", (-0.71, -0.34, 1.60), (-0.50, -0.03, 1.80), 0.05, 0.04),
+        ("ball", (-0.50, -0.03, 1.80), 0.045),
+        ("limb", (-0.53, -0.32, 1.82), (-0.39, 0.03, 1.62), 0.018, 0.016),
+        ("ell", (-0.37, 0.03, 1.71), (0.07, 0.015, 0.045)),
+        ("ball", (-0.44, -0.38, 1.19), 0.06999999999999999),
+        ("limb", (-0.44, -0.38, 1.19), (-0.29, -0.47, 1.11), 0.06, 0.05),
+        ("ball", (-0.29, -0.47, 1.11), 0.05),
+        ("limb", (-0.29, -0.47, 1.11), (-0.12, -0.60, 1.07), 0.05, 0.04),
+        ("ball", (-0.12, -0.60, 1.07), 0.045),
+        ("limb", (-0.66, -0.05, 0.89), (-0.73, 0.30, 0.53), 0.095, 0.065),
+        ("ball", (-0.73, 0.30, 0.53), 0.065),
+        ("limb", (-0.73, 0.30, 0.53), (-0.86, 0.39, 0.17), 0.065, 0.045),
+        ("limb", (-0.86, 0.39, 0.17), (-0.93, 0.36, 0.10), 0.045, 0.035),
+        ("limb", (-0.53, -0.15, 0.87), (-0.44, -0.60, 0.44), 0.095, 0.065),
+        ("ball", (-0.44, -0.60, 0.44), 0.065),
+        ("limb", (-0.44, -0.60, 0.44), (-0.43, -0.11, 0.11), 0.065, 0.045),
+        ("limb", (-0.43, -0.11, 0.11), (-0.49, -0.17, 0.05), 0.045, 0.035),
     ],
+    # Margaret Helm, front centre: staggering back against Black Partridge, her right arm
+    # reaching across to the warrior's waist, her left hand back at his chest, her hair in
+    # a knot, her long dress falling in folds to the rock and a cloak hanging loose from her
+    # right arm.
     "helm": [
-        ("ball", (0.12, -0.15, 1.58), 0.105),
-        ("ball", (0.09, -0.08, 1.64), 0.07),
-        ("limb", (0.08, -0.15, 1.42), (0.11, -0.15, 1.52), 0.05, 0.045),
-        ("limb", (0.02, -0.12, 1.04), (0.08, -0.15, 1.41), 0.12, 0.14),
-        ("cone", (0.02, -0.12, 1.06), (-0.04, -0.15, 0.03), 0.16, 0.40),
-        # one arm out toward the warrior's, the other back to Black Partridge
-        ("ball", (-0.08, -0.15, 1.41), 0.06),
-        ("limb", (-0.08, -0.15, 1.41), (-0.25, -0.20, 1.27), 0.055, 0.045),
-        ("ball", (-0.25, -0.20, 1.27), 0.045),
-        ("limb", (-0.25, -0.20, 1.27), (-0.38, -0.15, 1.22), 0.045, 0.035),
-        ("ball", (0.16, -0.12, 1.41), 0.06),
-        ("limb", (0.16, -0.12, 1.41), (0.30, -0.05, 1.30), 0.055, 0.045),
-        ("ball", (0.30, -0.05, 1.30), 0.045),
-        ("limb", (0.30, -0.05, 1.30), (0.38, 0.05, 1.35), 0.045, 0.035),
+        ("ball", (-0.01, -0.72, 1.31), 0.08),
+        ("ball", (0.05, -0.66, 1.39), 0.05),
+        ("limb", (0.03, -0.72, 1.14), (-0.01, -0.72, 1.31), 0.05, 0.045),
+        ("limb", (0.03, -0.72, 0.85), (0.03, -0.72, 1.14), 0.11, 0.13),
+        ("cone", (0.03, -0.72, 0.85), (0.06, -0.64, 0.06), 0.13, 0.33),
+        ("limb", (-0.17, -0.64, 0.96), (-0.24, -0.59, 0.60), 0.04, 0.09),
+        ("ball", (-0.24, -0.59, 0.60), 0.09),
+        ("ball", (-0.06, -0.72, 1.11), 0.060000000000000005),
+        ("limb", (-0.06, -0.72, 1.11), (-0.21, -0.64, 1.01), 0.05, 0.042),
+        ("ball", (-0.21, -0.64, 1.01), 0.042),
+        ("limb", (-0.21, -0.64, 1.01), (-0.45, -0.45, 0.98), 0.042, 0.033),
+        ("ball", (0.11, -0.72, 1.13), 0.060000000000000005),
+        ("limb", (0.11, -0.72, 1.13), (0.16, -0.62, 1.01), 0.05, 0.042),
+        ("ball", (0.16, -0.62, 1.01), 0.042),
+        ("limb", (0.16, -0.62, 1.01), (0.22, -0.52, 1.14), 0.042, 0.033),
     ],
+    # Black Partridge, behind her to the right: his left arm raised high and out to the
+    # upper left, the palm open against the blow; a feather standing from his headband and
+    # a long one streaming back; his right arm round her; the musket slanting from behind
+    # his left shoulder past his right hip; his legs striding to the right.
     "black_partridge": [
-        ("ball", (0.44, 0.35, 2.02), 0.12),
-        ("limb", (0.46, 0.38, 2.10), (0.62, 0.40, 2.32), 0.03, 0.006),
-        ("limb", (0.50, 0.40, 2.05), (0.75, 0.45, 1.85), 0.03, 0.006),
-        ("limb", (0.47, 0.35, 1.84), (0.45, 0.35, 1.95), 0.065, 0.06),
-        ("limb", (0.52, 0.35, 1.15), (0.48, 0.35, 1.80), 0.15, 0.19),
-        ("ball", (0.53, 0.35, 1.12), 0.16),
-        ("cone", (0.53, 0.33, 1.15), (0.53, 0.30, 0.82), 0.165, 0.20),
-        # the right hand raised against the blow, over Mrs. Helm
-        ("ball", (0.33, 0.33, 1.80), 0.085),
-        ("limb", (0.33, 0.33, 1.80), (0.05, 0.25, 1.98), 0.07, 0.055),
-        ("ball", (0.05, 0.25, 1.98), 0.055),
-        ("limb", (0.05, 0.25, 1.98), (-0.33, 0.20, 2.13), 0.055, 0.045),
-        ("ell", (-0.37, 0.19, 2.16), (0.05, 0.03, 0.08)),
-        # the left arm round her, the musket slanting down to the right
-        ("ball", (0.68, 0.35, 1.78), 0.085),
-        ("limb", (0.68, 0.35, 1.78), (0.75, 0.25, 1.45), 0.07, 0.055),
-        ("ball", (0.75, 0.25, 1.45), 0.055),
-        ("limb", (0.75, 0.25, 1.45), (0.60, 0.10, 1.32), 0.055, 0.045),
-        ("limb", (0.35, 0.25, 1.62), (0.98, 0.25, 0.95), 0.025, 0.025),
-        ("ell", (0.93, 0.25, 1.00), (0.08, 0.035, 0.05)),
-        # the stride
-        ("limb", (0.45, 0.38, 1.08), (0.42, 0.40, 0.58), 0.10, 0.07),
-        ("ball", (0.42, 0.40, 0.58), 0.07),
-        ("limb", (0.42, 0.40, 0.58), (0.40, 0.42, 0.07), 0.07, 0.05),
-        ("ell", (0.40, 0.37, 0.04), (0.065, 0.12, 0.035)),
-        ("limb", (0.62, 0.36, 1.08), (0.82, 0.30, 0.60), 0.10, 0.07),
-        ("ball", (0.82, 0.30, 0.60), 0.07),
-        ("limb", (0.82, 0.30, 0.60), (1.00, 0.25, 0.07), 0.07, 0.05),
-        ("ell", (1.03, 0.20, 0.04), (0.065, 0.12, 0.035)),
+        ("ball", (0.27, -0.55, 1.63), 0.09),
+        ("ball", (0.35, -0.50, 1.72), 0.055),
+        ("limb", (0.37, -0.55, 1.74), (0.27, -0.55, 1.91), 0.035, 0.008),
+        ("limb", (0.45, -0.45, 1.68), (0.62, -0.30, 1.55), 0.03, 0.022),
+        ("limb", (0.62, -0.30, 1.55), (0.74, -0.20, 1.50), 0.022, 0.01),
+        ("limb", (0.32, -0.53, 1.49), (0.27, -0.55, 1.63), 0.06, 0.055),
+        ("limb", (0.42, -0.62, 0.93), (0.32, -0.53, 1.49), 0.15, 0.19),
+        ("ball", (0.42, -0.62, 0.93), 0.15),
+        ("cone", (0.42, -0.62, 0.93), (0.48, -0.55, 0.76), 0.16, 0.20),
+        ("ball", (0.16, -0.46, 1.49), 0.08),
+        ("limb", (0.16, -0.46, 1.49), (-0.09, -0.63, 1.57), 0.07, 0.055),
+        ("ball", (-0.09, -0.63, 1.57), 0.055),
+        ("limb", (-0.09, -0.63, 1.57), (-0.31, -0.65, 1.69), 0.055, 0.042),
+        ("ell", (-0.31, -0.65, 1.69), (0.045, 0.018, 0.085)),
+        ("limb", (-0.31, -0.65, 1.69), (-0.29, -0.65, 1.77), 0.014, 0.01),
+        ("ball", (0.56, -0.58, 1.39), 0.08),
+        ("limb", (0.56, -0.58, 1.39), (0.63, -0.13, 1.26), 0.07, 0.055),
+        ("ball", (0.63, -0.13, 1.26), 0.055),
+        ("limb", (0.63, -0.13, 1.26), (0.27, -0.55, 1.18), 0.055, 0.045),
+        ("limb", (0.21, 0.30, 1.91), (0.72, -0.61, 0.69), 0.02, 0.022),
+        ("ell", (0.72, -0.61, 0.69), (0.035, 0.035, 0.09)),
+        ("limb", (0.51, -0.62, 0.85), (0.58, -0.44, 0.50), 0.1, 0.07),
+        ("ball", (0.58, -0.44, 0.50), 0.07),
+        ("limb", (0.58, -0.44, 0.50), (0.83, 0.26, 0.12), 0.07, 0.05),
+        ("limb", (0.83, 0.26, 0.12), (0.92, 0.20, 0.05), 0.05, 0.035),
+        ("limb", (0.33, -0.62, 0.85), (0.30, -0.47, 0.47), 0.1, 0.07),
+        ("ball", (0.30, -0.47, 0.47), 0.07),
+        ("limb", (0.30, -0.47, 0.47), (0.34, -0.32, 0.05), 0.07, 0.05),
+        ("limb", (0.34, -0.32, 0.05), (0.34, -0.40, 0.01), 0.05, 0.035),
     ],
+    # The post surgeon, fallen under them: half-lying back across the rock under Mrs.
+    # Helm's skirt, his head at the warrior's bent knee, propped on one arm, one leg
+    # stretched out to the west edge.
     "surgeon": [
-        ("limb", (-0.30, 0.10, 0.18), (0.25, 0.15, 0.25), 0.13, 0.15),
-        ("ball", (-0.45, 0.05, 0.22), 0.10),
-        ("ball", (-0.20, 0.05, 0.30), 0.06),
-        ("limb", (-0.20, 0.05, 0.30), (-0.15, -0.05, 0.55), 0.055, 0.045),
-        ("ball", (-0.15, -0.05, 0.55), 0.045),
-        ("limb", (-0.15, -0.05, 0.55), (-0.05, -0.10, 0.68), 0.045, 0.035),
-        ("limb", (0.30, 0.18, 0.20), (0.65, 0.15, 0.14), 0.09, 0.065),
-        ("limb", (0.65, 0.15, 0.14), (0.95, 0.05, 0.10), 0.065, 0.045),
-        ("limb", (0.30, 0.12, 0.18), (0.60, 0.00, 0.30), 0.09, 0.065),
-        ("ball", (0.60, 0.00, 0.30), 0.065),
-        ("limb", (0.60, 0.00, 0.30), (0.85, -0.05, 0.08), 0.065, 0.045),
+        ("ball", (-0.30, -0.15, 0.39), 0.075),
+        ("limb", (-0.22, -0.10, 0.35), (-0.04, 0.12, 0.21), 0.13, 0.14),
+        ("ball", (-0.22, -0.10, 0.35), 0.060000000000000005),
+        ("limb", (-0.22, -0.10, 0.35), (-0.18, -0.35, 0.17), 0.05, 0.04),
+        ("ball", (-0.18, -0.35, 0.17), 0.04),
+        ("limb", (-0.18, -0.35, 0.17), (-0.22, -0.42, 0.02), 0.04, 0.03),
+        ("limb", (-0.04, 0.12, 0.21), (-0.49, -0.05, 0.26), 0.09, 0.065),
+        ("ball", (-0.49, -0.05, 0.26), 0.065),
+        ("limb", (-0.49, -0.05, 0.26), (-0.73, -0.25, 0.08), 0.065, 0.045),
+        ("limb", (-0.73, -0.25, 0.08), (-0.81, -0.28, 0.04), 0.045, 0.035),
+        ("limb", (-0.04, 0.12, 0.21), (0.16, -0.10, 0.32), 0.09, 0.07),
+        ("limb", (0.16, -0.10, 0.32), (0.28, -0.22, 0.05), 0.065, 0.045),
     ],
+    # The child, right front: kneeling at the rock's edge, reaching out to the right with
+    # both arms.
     "child": [
-        ("ball", (0.97, -0.35, 0.62), 0.085),
-        ("limb", (0.92, -0.33, 0.30), (0.95, -0.35, 0.53), 0.08, 0.09),
-        ("cone", (0.92, -0.33, 0.38), (0.90, -0.33, 0.04), 0.09, 0.20),
-        ("limb", (1.00, -0.35, 0.50), (1.12, -0.38, 0.58), 0.035, 0.03),
-        ("limb", (1.12, -0.38, 0.58), (1.25, -0.40, 0.63), 0.03, 0.025),
-        ("limb", (0.98, -0.30, 0.50), (1.10, -0.42, 0.52), 0.035, 0.03),
-        ("limb", (1.10, -0.42, 0.52), (1.22, -0.45, 0.55), 0.03, 0.025),
+        ("ball", (0.55, -0.72, 0.37), 0.06),
+        ("limb", (0.56, -0.72, 0.11), (0.56, -0.72, 0.31), 0.08, 0.09),
+        ("cone", (0.56, -0.72, 0.23), (0.56, -0.72, 0.11), 0.09, 0.15),
+        ("limb", (0.60, -0.72, 0.29), (0.79, -0.51, 0.33), 0.032, 0.027),
+        ("limb", (0.79, -0.51, 0.33), (1.00, -0.30, 0.39), 0.027, 0.022),
+        ("limb", (0.52, -0.72, 0.28), (0.65, -0.72, 0.34), 0.032, 0.027),
+        ("limb", (0.65, -0.72, 0.34), (0.75, -0.72, 0.39), 0.027, 0.022),
+        ("limb", (0.56, -0.72, 0.11), (0.64, -0.45, 0.04), 0.05, 0.04),
+        ("limb", (0.64, -0.45, 0.04), (0.60, -0.52, -0.00), 0.04, 0.03),
     ],
 }
-#: Rock to the highest raised hand in the poses above, which `group_h_m` less the rock scales.
-POSE_TOP_M = 2.20
+#: The rock to the highest point of the poses above (the tip of Black Partridge's standing
+#: feather, ICHi-19208 y 130 px), which `group_h_m` less the rock scales (T-3582).
+POSE_TOP_M = 1.91
 
 
 def _sub(a, b):
@@ -284,27 +313,33 @@ def _panels(m: _Mesh, p: MonumentParams, cx: float, cy: float, die_z: float) -> 
 
 
 def _rock(m: _Mesh, p: MonumentParams, cx: float, cy: float, z0: float) -> None:
-    """The cast ground the group stands on: a lumpy field over the cap's top, highest
-    under the figures, skirted down to the granite at its edge."""
+    """The cast ground the group stands on: a broken field over the cap's top, highest
+    under the figures, skirted down to the granite at its edge. Both photographs show it
+    rough, in ledges and clefts rising under the feet (T-3582): many small lumps over a
+    few large ones, and every point of the field knocked up or down a few centimetres."""
     conf = p.worst_conf("rock_h_m")
     rng = random.Random(p.seed)
-    nx, ny = 16, 12
+    nx, ny = 26, 18
     w, d = p.die_w_m + p.cap_overhang_m * 0.4, p.die_d_m + p.cap_overhang_m * 0.4
     lumps = [(rng.uniform(-0.45, 0.45) * w, rng.uniform(-0.4, 0.4) * d, rng.uniform(0.15, 0.35),
               rng.uniform(0.25, 1.0)) for _ in range(9)]
+    lumps += [(rng.uniform(-0.48, 0.48) * w, rng.uniform(-0.45, 0.45) * d, rng.uniform(0.05, 0.12),
+               rng.uniform(-0.35, 0.45)) for _ in range(40)]
+    knock = {(i, j): rng.uniform(-1.0, 1.0) for j in range(ny + 1) for i in range(nx + 1)}
 
     def height(fx, fy):
         ex = 1.0 - (2 * abs(fx) / w) ** 4
         ey = 1.0 - (2 * abs(fy) / d) ** 4
         edge = max(0.0, min(ex, ey))
         bump = math.fsum(a * math.exp(-((fx - lx) ** 2 + (fy - ly) ** 2) / (2 * r * r)) for lx, ly, r, a in lumps)
-        return p.rock_h_m * (0.25 + 0.75 * edge * (0.55 + 0.45 * min(1.0, bump)))
+        return p.rock_h_m * (0.25 + 0.75 * edge * (0.55 + 0.45 * max(0.0, min(1.0, bump))))
 
     grid = {}
     for j in range(ny + 1):
         for i in range(nx + 1):
             fx, fy = (i / nx - 0.5) * w, (j / ny - 0.5) * d
-            grid[i, j] = (cx + fx, cy + fy, z0 + height(fx, fy))
+            rough = 0.0 if i in (0, nx) or j in (0, ny) else 0.035 * knock[i, j]
+            grid[i, j] = (cx + fx, cy + fy, z0 + max(0.02, height(fx, fy) + rough))
     for j in range(ny):
         for i in range(nx):
             a, b, c, e = grid[i, j], grid[i + 1, j], grid[i + 1, j + 1], grid[i, j + 1]
