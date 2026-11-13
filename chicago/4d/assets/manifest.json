@@ -860,6 +860,16 @@
       "phase_id": "brick_1816",
       "structure_id": "fort_dearborn_magazine"
     },
+    "fort_dearborn_massacre_monument_1893__on_18th_street_1893.glb": {
+      "archetype": "monument",
+      "baked_ao": false,
+      "bytes": 149508,
+      "generator": "generators/monument_emit.py",
+      "inputs_sha256": "6f1738c043d0eb10012550c2e738db2f2cc2e952618a082afe81b88e10458b04",
+      "kind": "generated",
+      "phase_id": "on_18th_street_1893",
+      "structure_id": "fort_dearborn_massacre_monument_1893"
+    },
     "fort_dearborn_officers_quarters__log_1816.glb": {
       "archetype": "fort_structure",
       "baked_ao": false,

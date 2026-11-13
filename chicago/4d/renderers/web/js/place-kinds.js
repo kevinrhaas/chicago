@@ -57,7 +57,7 @@ export const isReconstructed = (s) => structureGrade(s) === 'reconstructed';
 /** Ordered: the first table whose pattern matches wins. */
 const FUNCTION_TABLE = [
   ['waterfront', /river crossing|street crossing|harbou?r|pier|wharf|ferry|forwarding|commission|freight|warehouse|light$/],
-  ['public', /church|school|meeting|jail|council|agency|pound|barracks|quarters|magazine|guard house|block-?house|artillery|parade|flagstaff|military|sutler|palisade/],
+  ['public', /church|school|meeting|jail|council|agency|pound|barracks|quarters|magazine|guard house|block-?house|artillery|parade|flagstaff|military|sutler|palisade|monument/],
   ['taverns', /tavern|inn\b|hotel|boarding|lodging/],
   ['stores', /store|grocery|provision|drug|auction|trading house/],
   ['trades', /shop|smith|cooper|tannery|wheelwright|saddler|harness|tailor|shoemaker|barber|butcher|bakery|gunsmith|soap|candle|slaughter|packing|brickyard|sawpit|printing office|physician|office|workshop|manufactory|wash house/],
@@ -72,6 +72,7 @@ const ARCHETYPE_KIND = {
   frame_dwelling: 'homes', log_dwelling: 'homes', outbuilding: 'homes',
   camp: 'homes',
   lodge_camp: 'homes',
+  monument: 'public',
 };
 
 /** The anonymous programme's family letters, read off what each family's 1835 roofs were

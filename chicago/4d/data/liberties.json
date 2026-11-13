@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1115,
+  "count": 1116,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -384,6 +384,10 @@
     {
       "id": "fort_dearborn_magazine",
       "name": "Fort Dearborn — powder magazine"
+    },
+    {
+      "id": "fort_dearborn_massacre_monument_1893",
+      "name": "The Fort Dearborn Massacre monument (Carl Rohl-Smith, 1893), 18th Street at Calumet Avenue"
     },
     {
       "id": "fort_dearborn_officers_quarters",
@@ -73532,6 +73536,65 @@
       ],
       "work_refs": [
         "T-3551"
+      ]
+    },
+    {
+      "id": "L-fort-dearborn-monument-3567",
+      "title": "The Fort Dearborn Massacre monument in 1904: its depths, its figures' modelling, the lettering and the panels' reliefs",
+      "section": "per_subject",
+      "subjects": [
+        "fort_dearborn_massacre_monument_1893"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "fort_dearborn_massacre_monument_1893",
+          "phase": "on_18th_street_1893",
+          "aspect": "form.base_d_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "fort_dearborn_massacre_monument_1893",
+          "phase": "on_18th_street_1893",
+          "aspect": "form.die_d_m"
+        },
+        {
+          "domain": "structure",
+          "structure": "fort_dearborn_massacre_monument_1893",
+          "phase": "on_18th_street_1893",
+          "aspect": "form.lettering"
+        },
+        {
+          "domain": "structure",
+          "structure": "fort_dearborn_massacre_monument_1893",
+          "phase": "on_18th_street_1893",
+          "aspect": "form.plinth_d_m"
+        }
+      ],
+      "recorded": "2026-11-12",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "Carl Rohl-Smith's bronze group *The Fort Dearborn Massacre* (1893) stands in the 1904 scene on its granite pedestal at the east end of 18th Street's north walk, as The Fort Dearborn Massacre monument (Carl Rohl-Smith, 1893), 18th Street at Calumet Avenue on a new pure-Python `monument` archetype. **That it stood there from 1893 to 1931, its five figures and their places, the pedestal's steps, die, panel and cap and their proportions are the photographs'** (the Barnes-Crosby view ICHi-19208, checked on J. W. Taylor's 1893 view), with the group's \"about nine feet\" from Wikipedia."
+        },
+        {
+          "label": "These are this project's",
+          "text": "- **The depths.** No picture used here sees the pedestal's sides squarely, so the base's, plinth's and die's depths are the widths less margins the group needs (base 3.3 m, plinth 2.3, die 1.9). - **The figures' modelling.** Each figure is joined from tapered limbs and balls in the pose the photographs show, at about 0.2 m; faces, hair, dress folds, the feathers' number, the weapons' detail and the whole of the group's rear (no photograph used here shows it; the Inter Ocean's rear sketch of 1892 bounds it) are not modelled. One bronze colour, a dark brown patina; the photographs are monochrome. - **The panels' reliefs** are flat bronze plates, and **the lettering** under the front panel (THE FORT DEARBORN MASSACRE / AUGUST 15, 1812 / BLACK PARTRIDGE SAVING MRS. HELM) is not cut. - **Its place** is good to about 3 m until cameras are solved on its photographs. The figures are period sculpture, built as the sculptor made them; the record carries review required with its reason, and the card says how the work was received."
+        },
+        {
+          "label": "Covers",
+          "text": "`fort_dearborn_massacre_monument_1893.on_18th_street_1893.form.base_d_m`, `fort_dearborn_massacre_monument_1893.on_18th_street_1893.form.plinth_d_m`, `fort_dearborn_massacre_monument_1893.on_18th_street_1893.form.die_d_m`, `fort_dearborn_massacre_monument_1893.on_18th_street_1893.form.lettering`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-12."
+        }
+      ],
+      "work_refs": [
+        "T-3568",
+        "T-3567",
+        "T-3565"
       ]
     },
     {

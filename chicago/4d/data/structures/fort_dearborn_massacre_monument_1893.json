@@ -1,0 +1,218 @@
+{
+  "id": "fort_dearborn_massacre_monument_1893",
+  "name": "The Fort Dearborn Massacre monument (Carl Rohl-Smith, 1893), 18th Street at Calumet Avenue",
+  "aka": [
+    "Black Partridge saving Mrs. Helm",
+    "The Fort Dearborn Massacre",
+    "The Potawatomi Rescue (subtitle from 1972)"
+  ],
+  "archetype": "monument",
+  "function": {
+    "value": "monument",
+    "confidence": "attested",
+    "sources": [
+      "wikipedia_fort_dearborn_massacre_monument",
+      "chicagoandcook_2017_1812_massacre_site"
+    ],
+    "note": "A bronze group commissioned by George M. Pullman and placed near his house in 1893, near where the battle of 15 August 1812 was believed to have been fought."
+  },
+  "built": {
+    "value": 1893,
+    "confidence": "attested",
+    "sources": [
+      "wikipedia_fort_dearborn_massacre_monument",
+      "chicagoandcook_2017_1812_massacre_site"
+    ],
+    "note": "Wikipedia: placed in 1893 'near the intersection of Prairie Avenue and 18th Street'; Chicago and Cook County Cemeteries: Pullman commissioned it in 1893 and it was removed in 1931."
+  },
+  "review_required": true,
+  "research_note": "THE FORT DEARBORN MASSACRE MONUMENT, built by T-3567 (piece 1 of T-3565, the owner's request of 2026-11-12 after a meeting with Bill Tyre). This record carries review_required because it depicts the battle of 15 August 1812 and Potawatomi people, in a work American Indian protesters objected to from the 1970s (karamanski_2004_monuments_lost_nation); the figures are built as the sculptor made them, as period sculpture, and the card says how the work was received. The fighting is not staged: this is the statue that stood on 18th Street, not the event. WHERE: the photographs put it at the east end of 18th Street's north walk, by the curve into Calumet Avenue, before the Pullman estate's 18th Street wall and just east of the stable's end (ICHi-19208 is captioned 'at Calumet Street and 18th' and shows the stable's rock-faced end at left; the Detroit Publishing view LC-D4-12552 shows it beyond the stable's hydrant at the curb). The texts disagree: the 1893 Rand, McNally guide has it 'at the foot of Eighteenth Street', the 1905 Views of Chicago and later accounts 'at Eighteenth Street and Prairie Avenue', a 1929 Tribune 'a few feet from Prairie avenue on 18th street' (all quoted on Chicagology, no source records); the photographs are followed. LATER: moved in 1931 to the Chicago Historical Society (chicagoandcook_2017_1812_massacre_site, wikipedia_fort_dearborn_massacre_monument), subtitled 'The Potawatomi Rescue' in 1972, protested in 1973, returned by the city to the Prairie Avenue district and later put into storage (karamanski_2004_monuments_lost_nation). Cameras on ICHi-19208, Taylor's 1893 view and the Detroit print, and the side-by-sides, are T-3568.",
+  "phases": [
+    {
+      "id": "on_18th_street_1893",
+      "documented_range": {
+        "from": "1893-01-01",
+        "to": "1931-12-31",
+        "confidence": "inferred",
+        "sources": [
+          "wikipedia_fort_dearborn_massacre_monument",
+          "chicagoandcook_2017_1812_massacre_site"
+        ],
+        "note": "Placed in 1893 and moved to the Chicago Historical Society in 1931; neither the day it was set up nor the day it was taken down is read here, so the range is the two years whole. It covers the 1904 scene and neither 1812 nor 1835."
+      },
+      "position": {
+        "utm_e": 448567.311,
+        "utm_n": 4634195.387,
+        "rotation_deg": 359.62,
+        "symbolic_location": "The north walk of E. 18th Street at its east end, where it curves into Calumet Avenue: before the Pullman estate's 18th Street wall, east of the Pullman stable's end (local E 1496.5, N -3198.75 at the base's centre).",
+        "confidence": "inferred",
+        "sources": [
+          "chm_barnes_crosby_ichi_19208_fort_dearborn_monument",
+          "loc_det_4a08066_pullman_residence"
+        ],
+        "note": "The base's south-west corner. The base's centre is set 3.25 m south of the parcel's 18th Street line (prairie_1729's south edge, N -3195.5 in data/street_grid/1904.json) and 3.7 m east of the stable's east wall (u -36.4 in the Pullman house's frame, E 1492.8): ICHi-19208, looking north at the monument, has the stable's end at its left and the estate wall close behind; the Detroit print (LC-D4-12552) shows it nearer the camera than the pictured hydrant at the curb (hydrant.pictured.pullman_stable, E 1492.9) and to its right, at the corner where the curb sweeps round. Its place is good to about 3 m: the Detroit camera, fitted on the house 80-90 m off, does not hold its foreground (its record), and no camera is yet solved on ICHi-19208 (T-3568). Rotation 359.62 degrees squares its front to 18th Street's line (bearing 89.62 degrees).",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "Placed from the photographs against the 1904 street grid's parcel line and the Pullman stable's record; no platted corner or traced frontage carries a monument."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            3.8,
+            0
+          ],
+          [
+            3.8,
+            3.3
+          ],
+          [
+            0,
+            3.3
+          ]
+        ],
+        "confidence": "inferred",
+        "sources": [
+          "chm_barnes_crosby_ichi_19208_fort_dearborn_monument"
+        ],
+        "note": "The stage base's rectangle (form.base_w_m by form.base_d_m); the generator stands the plinth, die, cap and group on its centre."
+      },
+      "form": {
+        "base_w_m": {
+          "value": 3.8,
+          "confidence": "inferred",
+          "sources": [
+            "chm_barnes_crosby_ichi_19208_fort_dearborn_monument"
+          ],
+          "note": "Read off ICHi-19208 at the die's plane, taking the die's front as 2.4 m (form.die_w_m): the die's body is 155 px high (y 430-585 of the side-by-side's half-size copy) on 300 px of width, the stage base 80 px, the plinth 60, the cap 35, the group about 270 over the cap. The pedestal so read is 2.7 m to the cap's top and 3.0 m to the rock's, which is the Inter Ocean's 'ten feet' (15 September 1892, quoted on Chicagology; no source record, so a check, not a citation) if its pedestal counts the rock. Width: the base reads 510 px on that 300 px die, 1.7 times it, less the nearer face's perspective (about 9.0 m against the die's 9.6 m): 3.8 m. The WBEZ account's 'eight by nine feet' (2.4 x 2.7 m, no source record) is about the die's size, not the stage the photographs show."
+        },
+        "base_d_m": {
+          "value": 3.3,
+          "confidence": "reconstructed",
+          "sources": [
+            "chm_barnes_crosby_ichi_19208_fort_dearborn_monument"
+          ],
+          "note": "No photograph used here sees the base's depth squarely: taken as its width less the 0.5 m by which Taylor's 1893 view (a check, link-only rights) shows the side shorter than the front. L-fort-dearborn-monument-3567"
+        },
+        "base_h_m": {
+          "value": 0.65,
+          "confidence": "inferred",
+          "sources": [
+            "chm_barnes_crosby_ichi_19208_fort_dearborn_monument"
+          ],
+          "note": "Read off ICHi-19208 at the die's plane, taking the die's front as 2.4 m (form.die_w_m): the die's body is 155 px high (y 430-585 of the side-by-side's half-size copy) on 300 px of width, the stage base 80 px, the plinth 60, the cap 35, the group about 270 over the cap. The pedestal so read is 2.7 m to the cap's top and 3.0 m to the rock's, which is the Inter Ocean's 'ten feet' (15 September 1892, quoted on Chicagology; no source record, so a check, not a citation) if its pedestal counts the rock. The stage base, 80 px with its washed top: 0.65 m."
+        },
+        "base_wash_m": {
+          "value": 0.2,
+          "confidence": "inferred",
+          "sources": [
+            "chm_barnes_crosby_ichi_19208_fort_dearborn_monument"
+          ],
+          "note": "The sloped top of the stage base, which Taylor's view shows chamfered at its corners and ICHi-19208 as a pale band (y 785-810 px), about 0.25 m."
+        },
+        "plinth_w_m": {
+          "value": 2.8,
+          "confidence": "inferred",
+          "sources": [
+            "chm_barnes_crosby_ichi_19208_fort_dearborn_monument"
+          ],
+          "note": "Read off ICHi-19208 at the die's plane, taking the die's front as 2.4 m (form.die_w_m): the die's body is 155 px high (y 430-585 of the side-by-side's half-size copy) on 300 px of width, the stage base 80 px, the plinth 60, the cap 35, the group about 270 over the cap. The pedestal so read is 2.7 m to the cap's top and 3.0 m to the rock's, which is the Inter Ocean's 'ten feet' (15 September 1892, quoted on Chicagology; no source record, so a check, not a citation) if its pedestal counts the rock. The plinth: 345 px wide on the die's 300, 2.8 m."
+        },
+        "plinth_d_m": {
+          "value": 2.3,
+          "confidence": "reconstructed",
+          "sources": [
+            "chm_barnes_crosby_ichi_19208_fort_dearborn_monument"
+          ],
+          "note": "The plinth's depth, the die's plus the same 0.4 m margin its width shows. L-fort-dearborn-monument-3567"
+        },
+        "plinth_h_m": {
+          "value": 0.5,
+          "confidence": "inferred",
+          "sources": [
+            "chm_barnes_crosby_ichi_19208_fort_dearborn_monument"
+          ],
+          "note": "Read off ICHi-19208 at the die's plane, taking the die's front as 2.4 m (form.die_w_m): the die's body is 155 px high (y 430-585 of the side-by-side's half-size copy) on 300 px of width, the stage base 80 px, the plinth 60, the cap 35, the group about 270 over the cap. The pedestal so read is 2.7 m to the cap's top and 3.0 m to the rock's, which is the Inter Ocean's 'ten feet' (15 September 1892, quoted on Chicagology; no source record, so a check, not a citation) if its pedestal counts the rock. The second step to the top of its fillet, 60 px: 0.48 m."
+        },
+        "die_w_m": {
+          "value": 2.4,
+          "confidence": "inferred",
+          "sources": [
+            "chm_barnes_crosby_ichi_19208_fort_dearborn_monument"
+          ],
+          "note": "The die's width, the scale of the other readings: its width over its height is 1.94 on ICHi-19208 and 1.82 on Taylor's 1893 view; 2.4 m is the WBEZ account's eight feet (no source record), the figure the group's 'about nine feet' (Wikipedia) also fits, at the photograph's group-to-die ratio."
+        },
+        "die_d_m": {
+          "value": 1.9,
+          "confidence": "reconstructed",
+          "sources": [
+            "chm_barnes_crosby_ichi_19208_fort_dearborn_monument"
+          ],
+          "note": "The die's depth: no picture used here measures it. Taken so that the group, about 1.5 m deep in Taylor's view, stands on its cap with the rock's margin round it. L-fort-dearborn-monument-3567"
+        },
+        "die_h_m": {
+          "value": 1.25,
+          "confidence": "inferred",
+          "sources": [
+            "chm_barnes_crosby_ichi_19208_fort_dearborn_monument"
+          ],
+          "note": "Read off ICHi-19208 at the die's plane, taking the die's front as 2.4 m (form.die_w_m): the die's body is 155 px high (y 430-585 of the side-by-side's half-size copy) on 300 px of width, the stage base 80 px, the plinth 60, the cap 35, the group about 270 over the cap. The pedestal so read is 2.7 m to the cap's top and 3.0 m to the rock's, which is the Inter Ocean's 'ten feet' (15 September 1892, quoted on Chicagology; no source record, so a check, not a citation) if its pedestal counts the rock. The die, from the plinth's fillet to the cap's cove: 1.25 m."
+        },
+        "cap_h_m": {
+          "value": 0.3,
+          "confidence": "inferred",
+          "sources": [
+            "chm_barnes_crosby_ichi_19208_fort_dearborn_monument"
+          ],
+          "note": "Read off ICHi-19208 at the die's plane, taking the die's front as 2.4 m (form.die_w_m): the die's body is 155 px high (y 430-585 of the side-by-side's half-size copy) on 300 px of width, the stage base 80 px, the plinth 60, the cap 35, the group about 270 over the cap. The pedestal so read is 2.7 m to the cap's top and 3.0 m to the rock's, which is the Inter Ocean's 'ten feet' (15 September 1892, quoted on Chicagology; no source record, so a check, not a citation) if its pedestal counts the rock. The moulded cap, 35 px: 0.28 m."
+        },
+        "cap_overhang_m": {
+          "value": 0.12,
+          "confidence": "inferred",
+          "sources": [
+            "chm_barnes_crosby_ichi_19208_fort_dearborn_monument"
+          ],
+          "note": "The cap's fillet stands about 10 px proud of the die each side on ICHi-19208 (x 408-785 against about 398-795)."
+        },
+        "rock_h_m": {
+          "value": 0.3,
+          "confidence": "inferred",
+          "sources": [
+            "chm_barnes_crosby_ichi_19208_fort_dearborn_monument"
+          ],
+          "note": "The cast rock between the cap's top (y 470 px) and the figures' feet (about y 430-445) on ICHi-19208: 25-40 px, about 0.3 m."
+        },
+        "group_h_m": {
+          "value": 2.75,
+          "confidence": "inferred",
+          "sources": [
+            "chm_barnes_crosby_ichi_19208_fort_dearborn_monument"
+          ],
+          "note": "The group with its rock, over the cap. Read off ICHi-19208 at the die's plane (the die's 155 px body is 1.25 m, form.die_h_m): the figures stand about 270 px over the cap, 2.2 m there, and the group stands about 1 m behind the die's front, which puts it at about 2.4 m, with the 0.3 m rock 2.7-2.75 m. That agrees with the 'about nine feet' Wikipedia gives (wikipedia_fort_dearborn_massacre_monument, cited for the text alone, its rights unresolved). The figures' places and poses are the generator's (generators/archetypes/monument.py FIGURES), read off ICHi-19208 and checked on Taylor's 1893 view, to about 0.2 m; faces, dress folds, feathers and the group's rear are reconstructed (L-fort-dearborn-monument-3567)."
+        },
+        "panels": {
+          "value": 4,
+          "confidence": "inferred",
+          "sources": [
+            "chm_barnes_crosby_ichi_19208_fort_dearborn_monument"
+          ],
+          "note": "A bronze panel on each face of the die: ICHi-19208 shows the front one (the column leaving the fort, in low relief) and Taylor's view the east side's; the Rand, McNally guide of 1893 (quoted on Chicagology, no source record) gives four. Their reliefs are not modelled. L-fort-dearborn-monument-3567"
+        },
+        "lettering": {
+          "value": "THE FORT DEARBORN MASSACRE / AUGUST 15, 1812 / BLACK PARTRIDGE SAVING MRS. HELM",
+          "confidence": "attested",
+          "sources": [
+            "chm_barnes_crosby_ichi_19208_fort_dearborn_monument"
+          ],
+          "geometry": "absent",
+          "note": "Cut in the die under the front panel, three lines (ICHi-19208, y 665-695 px). Not built: no letter in this town is modelled at this size; the die's face below the panel is plain. L-fort-dearborn-monument-3567"
+        }
+      },
+      "change_note": "Built T-3567 (2026-11-12): the monument stands in the 1904 scene, on the new pure-Python monument archetype."
+    }
+  ]
+}
