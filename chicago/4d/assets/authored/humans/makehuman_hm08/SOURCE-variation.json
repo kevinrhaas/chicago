@@ -250,6 +250,30 @@
    "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/eyebrows/eyebrows-trans-up.target"
   },
   {
+   "path": "makehuman/data/targets/eyes/l-eye-eyefold-down.target",
+   "sha256": "4cbc747fc0be444ccf1546387203370fb9d6a7fffb77ffd84a0ccb75449d7c46",
+   "bytes": 1733,
+   "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/eyes/l-eye-eyefold-down.target"
+  },
+  {
+   "path": "makehuman/data/targets/eyes/l-eye-eyefold-up.target",
+   "sha256": "489f12ab9ea1b528c0707dc656c863002a21bff2017880ed78407819ce6a12f3",
+   "bytes": 1060,
+   "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/eyes/l-eye-eyefold-up.target"
+  },
+  {
+   "path": "makehuman/data/targets/eyes/r-eye-eyefold-down.target",
+   "sha256": "44569bba940133d44e07cb66f2946c419e36ff59b45a0e24497930468b749b8a",
+   "bytes": 1653,
+   "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/eyes/r-eye-eyefold-down.target"
+  },
+  {
+   "path": "makehuman/data/targets/eyes/r-eye-eyefold-up.target",
+   "sha256": "bc5fac33b9ab5ee66c34c5a8d9449b9d561f2015155c34b5425c02ca9326ddca",
+   "bytes": 1015,
+   "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/eyes/r-eye-eyefold-up.target"
+  },
+  {
    "path": "makehuman/data/targets/forehead/forehead-nubian-decr.target",
    "sha256": "7475d8f15103e4319e5af3229e8333721055d0c9e145ab0473059b1a9b6ad07d",
    "bytes": 9083,
