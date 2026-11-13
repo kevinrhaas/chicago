@@ -19,6 +19,9 @@ holds the kit and the record to it:
     opened round the light's recess;
   * the house's roof keeps no slate in front of the return's back edge between the cant's
     top and the return's top, south of the return's plane; without a return it does;
+  * over the return's top the slate is one face leaning in to the deck's side (HABS
+    photograph 1's coursing): no upright slate cheek stands on the return's plane between
+    its top and the curb;
   * a chamfer without either builds its cheek as one plain face, as before.
 
     python3 tools/test_k01_chamfer_return.py
@@ -124,6 +127,31 @@ def slate_in_front(params):
 
 
 check(slate_in_front(p) == 0, "no slate stands in front of the return's back edge over the corner")
+
+
+def upright_cheek(params):
+    """Roof area (m2) in upright faces on the return's plane over its top, below the curb:
+    the slate cheek the leaning cut replaces (T-1890, HABS photograph 1)."""
+    a = K1.build(params, SID)
+    pts, tris = a.roof_shell
+    y_curb = p.eave_m + float(p.mansard["lower_rise_m"])
+    area = 0.0
+    for t in tris:
+        P = [(pts[i][0], -pts[i][2], pts[i][1]) for i in t[:3]]          # (u, v, y)
+        c = [sum(q[k] for q in P) / 3.0 for k in range(3)]
+        e0 = [P[1][k] - P[0][k] for k in range(3)]
+        e1 = [P[2][k] - P[0][k] for k in range(3)]
+        n = (e0[1] * e1[2] - e0[2] * e1[1], e0[2] * e1[0] - e0[0] * e1[2], e0[0] * e1[1] - e0[1] * e1[0])
+        A = sum(x * x for x in n) ** 0.5
+        if A < 1e-12:
+            continue
+        if rt + 0.1 < c[2] < y_curb - 0.3 and D - b1 < c[0] < D and abs(c[1] - (s1 - along)) < 0.08 \
+                and abs(n[2]) / A < 0.05 and abs(n[1]) / A > 0.9:
+            area += A / 2.0
+    return area
+
+
+check(upright_cheek(p) < 0.01, "over the return's top the slate leans in to the deck: no upright cheek on its plane")
 s_, ph_ = phase_with(lambda ch: (ch.pop("return"), ch.pop("light")))
 check(slate_in_front(KP.from_phase(ph_, s_)) > 0, "without a return the front slate comes down there, as before")
 _, plain = bay_of(KP.from_phase(ph_, s_))

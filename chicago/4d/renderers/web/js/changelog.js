@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2952, ts: '2026-11-13T23:22:11.137Z', date: 'Nov 13, 2026, 5:22 PM CT', title: '1801 Prairie\'s slate over its south return is one face, as photographed', kind: 'improvement',
+    items: [
+      'On the Kimball house at 1801 Prairie, the slate over the stone return beside the round bay\'s balcony now rises as one face from the return\'s capped top to the corner of the roof, and the roof\'s corner line runs straight down from the hood on the deck past the return to the balcony, as the 1965 survey photograph shows. The extra fold of slate and the upright slate strip that stood over the return are gone.',
+    ] },
   { v: 2951, ts: '2026-11-13T22:35:46.036Z', date: 'Nov 13, 2026, 4:35 PM CT', title: 'Glessner\'s windows sit square in their stone courses', kind: 'fix',
     items: [
       'The stable\'s alley windows and its 18th Street loft lights now stand on the stone joints, so the stones around them are no longer notched or split.',
