@@ -2032,7 +2032,7 @@ class Assembly:
         courses = self._course_plan((O, R, _cross(R, Y)), front, self._yf)[4]
         return sorted({y for ya, yb, _ in courses for y in (ya, yb)})
 
-    def stone_front(self, cid, O, R, length, E, yf, thickness, openings, beds=None, extra=()):
+    def stone_front(self, cid, O, R, length, E, yf, thickness, openings, beds=None, extra=(), dressing=None):
         """The street front as K02 coursed ashlar, laid round what the kits have already
         seated on it (`self.footprints`: K06 sills, K07's stoop, K09's heads, aprons and
         entrance, K08's bay). Course lines are struck on the base, the coping, every K06
@@ -2043,8 +2043,12 @@ class Assembly:
         proud), so every kit piece stands on a plane face, never on a rock face that
         would bury its foot. Returns the south corner's quoins for the side wall.
         T-2788: an all-stone house lays its flanks, rear and wings here too, each on the
-        front's `beds` (`_course_plan`), with no arched group, quoin or named window."""
+        front's `beds` (`_course_plan`), with no arched group, quoin or named window.
+        T-3562: `dressing` lays a side wall (`stone_front.flanks`) in a dressing of its own,
+        its rock face the profile's range, where the front's is another (1815's smooth front
+        and rock-faced south flank)."""
         p, k = self.p, self.p.stone
+        self._flank_rock = None if dressing is None else k["flank_rock_m"]
         N = _cross(R, Y)
         frame = (O, R, N)
         conf = p.worst_conf("footprint", "stories", "storey_heights_m", "construction", "stone_front")
@@ -2056,7 +2060,7 @@ class Assembly:
         cop_top = k["coping_top_m"]
         self.instance(cid, "wall", {"length_m": length, "height_m": E, "thickness_m": thickness,
                                     "construction": "masonry", "openings": len(openings),
-                                    "fabric": k["fabric"], "dressing": k["dressing"]},
+                                    "fabric": k["fabric"], "dressing": dressing or k["dressing"]},
                       {"base": O, "top": _add(O, _mul(Y, E))})
         holes, arches, seats, belts, courses, square, ytop = self._course_plan(frame, openings, yf, beds, extra)
         if beds is None:
@@ -2538,7 +2542,9 @@ class Assembly:
         range without a `coursing`; with one (T-2566), the upper half on a high course
         and the lower half on a low one, as the photograph's deep and shallow courses
         read, and the bottom `even_rock_share` of it on the even courses above
-        `even_above_m`."""
+        `even_above_m`. T-3562: a flank laid in its own dressing takes the profile's whole range."""
+        if getattr(self, "_flank_rock", None) is not None:
+            return self._flank_rock
         lo, hi = self.p.stone["rock_face_m"]
         c = self.p.stone.get("coursing")
         if not c or hi <= lo:
@@ -6832,6 +6838,10 @@ def build(params, structure_id: str):
     side = "rough_stone_trim" if all_round else "brick"
     # T-1886: a flank the record returns the front's face brick round (`face_brick.returns`)
     flank = {w: a.front_brick if w in p.face_brick_returns and not all_round else side for w in ("north", "south")}
+    # T-3562: a flank the record lays in the front's stone (`stone_front.flanks`), coursed on its beds
+    stone_flanks = {f"k01.wall.side.{w}" for w in (p.stone or {}).get("flanks", ())}
+    for w in (p.stone or {}).get("flanks", ()):
+        flank[w] = "rough_stone_trim"
 
     def side_belts(which):   # T-2781: a side wall's stone belt, laid as the front's are
         return tuple((b["from_m"], b["to_m"], b["proud_m"]) for b in p.side_belts if b["wall"] == f"k01.wall.side.{which}") \
@@ -6888,7 +6898,8 @@ def build(params, structure_id: str):
                 proud = max(z for _, z in pl["points"]) if pl.get("kind") == "polyline" else \
                     pl["centre_proud_m"] + pl["radius_m"] * math.cos(math.pi / int(pl["sides"]))
                 frame = (_add(O_, _mul(N_, proud)), R_, N_)
-            a.opening(op, frame, t, mat, "limestone_trim", coursed=all_round or op.wall == "k01.wall.street_front")
+            a.opening(op, frame, t, mat, "limestone_trim",
+                      coursed=all_round or op.wall == "k01.wall.street_front" or op.wall in stone_flanks)
         a._walls, a._yf = walls, yf   # T-2773: a bay coursed on the front's beds strikes them first
         for bay in p.bays:
             if not bay.get("wing"):   # T-2842: a wing's tower is laid before its wing, below
@@ -6908,7 +6919,7 @@ def build(params, structure_id: str):
         for cid, (mat, O, R, length, t, bands) in walls.items():
             if cid == "k01.wall.street_front":
                 continue
-            if all_round:
+            if all_round or cid in stone_flanks:
                 # T-2788: each face coursed on the front's beds, its K06 sills seated, a flat
                 # arch over every opening, its belts the front's run round, dressed where a
                 # kit stands and stopped where a rear wing stands on it
@@ -6918,7 +6929,9 @@ def build(params, structure_id: str):
                 # closed round them (`bay_holes`, above)
                 a.stone_front(cid, O, R, length, E, yf, t, [o for o in p.openings if o.wall == cid],
                               a.front_course_beds, [*stops(cid)[0], *stops(cid)[1],
-                                                    *(h for h in a.bay_holes.get(cid, ()) if h[2] < E)])
+                                                    *(h for h in a.bay_holes.get(cid, ()) if h[2] < E)],
+                              dressing=p.stone["flank_dressing"] if cid in stone_flanks else None)
+                a._flank_rock = None
                 if side_arch and side_arch["wall"] == cid:
                     k01_arched_front.side_arch(a, frames[cid][0][0], side_arch["group"])
                 continue
@@ -6997,6 +7010,7 @@ def build(params, structure_id: str):
     # T-1886: and a flank laid in the front's face brick (`face_brick.returns`) is dressed as the
     # front, which carries no brick course: 1816's photograph draws its south flank with none
     belted |= {f"k01.wall.side.{w}" for w in p.face_brick_returns}
+    belted |= stone_flanks   # T-3562: a flank in the front's stone carries no brick course
     courses = [c for c in courses if c[0] not in belted]
     for cid, s_from, s_to in courses:
         frame = frames[cid][0][0]
