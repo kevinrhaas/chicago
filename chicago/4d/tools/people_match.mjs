@@ -86,7 +86,7 @@ if (flag('--published')) {
   await new Promise(r => server.listen(0, '127.0.0.1', r));
   target = `http://127.0.0.1:${server.address().port}/walk/?year=${subject.scene}`;
 } else {
-  target = opt('--url', `https://chicago.polecat.live/4d/dev/walk/?year=${subject.scene}`);
+  target = opt('--url', `https://dev.chicago.polecat.live/4d/dev/walk/?year=${subject.scene}`);
 }
 console.log(`people_match: ${subject.id} against ${set.id}, target ${flag('--published') ? 'local published mirror' : target}`);
 
