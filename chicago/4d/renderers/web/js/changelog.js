@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2923, ts: '2026-11-13T10:27:43.348Z', date: 'Nov 13, 2026, 4:27 AM CT', title: 'The Fort Dearborn Massacre monument stands on 18th Street', kind: 'feature',
+    items: [
+      'In 1904, Carl Rohl-Smith\'s bronze group of 1893 now stands at the east end of 18th Street, by Calumet Avenue, in front of the Pullman estate\'s wall.',
+      'Its granite pedestal is built to the proportions of a photograph from about 1900: the stage base, the plinth, the die with its bronze panels, and the cap.',
+      'The five figures stand in the poses the photographs show, in simplified form. Matching them to the photographs is the next step.',
+      'Its card covers the monument\'s history: Pullman\'s gift, the 1931 move to the Historical Society, the protests of the 1970s, and its years in storage.',
+    ] },
   { v: 2922, ts: '2026-11-13T08:42:40.894Z', date: 'Nov 13, 2026, 2:42 AM CT', title: 'Glessner House matched to Kevin\'s new photographs', kind: 'improvement',
     items: [
       'The rock-faced granite varies like the real wall: some stones pillow over a sharp lower lip, some are smoother.',
