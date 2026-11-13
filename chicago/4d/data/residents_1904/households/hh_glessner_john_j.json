@@ -41,13 +41,14 @@
     }
   ],
   "not_in_this_household": {
-    "note": "WHO IS LEFT OUT, AND WHY. The two grown children are not here: the daughter Frances married Blewett Lee on 9 February 1898 and 'within a few years' moved one block north into 1700 S. Prairie Avenue, and the son George married Alice Hamlin in June 1898 and is listed at 1706 in the 1904 Blue Book; both households have cards of their own. Of the household staff the cook is here, with five more the 1900 census lists. The museum's account of her says she cooked for 'the live-in staff of eight' as well as the family; it names one other, Fanny Tynan, who worked for the Glessners 'on and off' for over twenty years without a date that reaches 1904, and the 1923 account says only that the passages were planned so that 'servants rarely are in evidence'. The 1900 census (ED 40, T623 roll 245) was read for this card. The five live-in staff it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. A coachman's wife and children in the rear building are named in his note rather than carded. Left off: J. J. Glessner (the family was at The Rocks, their New Hampshire farm; the line points to their own entry elsewhere). The children the Blue Book lists at the number from 1890 to 1911 are on the card with the years each was listed, whether or not they were at home in 1904. The 1910 census was not read for this card. A person goes on this card when a source names them, and not before.",
+    "note": "WHO IS LEFT OUT, AND WHY. The two grown children are not here: the daughter Frances married Blewett Lee on 9 February 1898 and 'within a few years' moved one block north into 1700 S. Prairie Avenue, and the son George married Alice Hamlin in June 1898 and is listed at 1706 in the 1904 Blue Book; both households have cards of their own. Of the household staff the cook, Mattie Williamson, is here, with four more the 1900 census lists. A fifth, Kate Ryan, enumerated as the cook on 1 June 1900, was the temporary summer cook while Mattie was at The Rocks with the family; the Glessners kept one cook at a time (Bill Tyre of Glessner House, relayed by the owner 2026-11-13), so her card says she was not living here in 1904. The museum's account of her says she cooked for 'the live-in staff of eight' as well as the family; it names one other, Fanny Tynan, who worked for the Glessners 'on and off' for over twenty years without a date that reaches 1904, and the 1923 account says only that the passages were planned so that 'servants rarely are in evidence'. The 1900 census (ED 40, T623 roll 245) was read for this card. The live-in staff it lists at the house on 1 June 1900 are on the card, graded inferred because the count was taken four years before the scene. A coachman's wife and children in the rear building are named in his note rather than carded. Left off: J. J. Glessner (the family was at The Rocks, their New Hampshire farm; the line points to their own entry elsewhere). The children the Blue Book lists at the number from 1890 to 1911 are on the card with the years each was listed, whether or not they were at home in 1904. The 1910 census was not read for this card. A person goes on this card when a source names them, and not before.",
     "sources": [
       "glessner_house_family_page",
       "glessner_story_of_a_house_1923",
       "glessner_house_blog_mattie_williamson_2020",
       "chicago_blue_book_1904",
-      "census_1900_chicago_t623_roll245"
+      "census_1900_chicago_t623_roll245",
+      "tyre_2026_glessner_one_cook"
     ]
   },
   "persons": [
@@ -230,7 +231,8 @@
       "relationship": "servant",
       "grade": "inferred",
       "sources": [
-        "census_1900_chicago_t623_roll245"
+        "census_1900_chicago_t623_roll245",
+        "tyre_2026_glessner_one_cook"
       ],
       "born": {
         "value": "1850",
@@ -244,9 +246,10 @@
         "value": "cook",
         "confidence": "attested",
         "sources": [
-          "census_1900_chicago_t623_roll245"
+          "census_1900_chicago_t623_roll245",
+          "tyre_2026_glessner_one_cook"
         ],
-        "note": "Written as \"Cook\" in the occupation column on 1 June 1900."
+        "note": "Written as \"Cook\" in the occupation column on 1 June 1900. A temporary summer cook, while the family and their own cook were in New Hampshire."
       },
       "census_1900": {
         "date": "1900-06-01",
@@ -255,7 +258,11 @@
         "as_enumerated": "Ryan, Kate",
         "relation_as_enumerated": "Servant"
       },
-      "note": "Enumerated on 1 June 1900 in the house, as a servant (cook); born April 1850, in Ireland, single. Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904. The family was at their New Hampshire farm on the census day, and the museum's account has Mattie Williamson as their cook in these years, so Kate Ryan may have cooked for the house while they were away."
+      "lived_here": {
+        "years": "summer 1900",
+        "on_scene_date": "no"
+      },
+      "note": "Enumerated on 1 June 1900 in the house, as a servant (cook); born April 1850, in Ireland, single. The family and their cook, Mattie Williamson, were at their New Hampshire farm on the census day. Bill Tyre of Glessner House says Kate Ryan was the temporary summer cook in Chicago while Mattie was away with the family, and that the Glessners only ever had one cook at a time, so she was not part of the household in 1904 and is not drawn in the town."
     },
     {
       "id": "pa1904_glessner_john_j_c1900_christine_nelson",

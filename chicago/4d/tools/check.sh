@@ -4579,6 +4579,11 @@ step "Jaunt schema, destinations and reachable state graph (T-1253)" \
 step "Jaunt refusal and data-only expansion fixtures (T-1253)" \
   python3 tools/test_compile_jaunts.py
 
+# T-3590: every jaunt's school grade band is measured from its own words (the mean of five
+# grade-level formulas); a jaunt for grades K-2 or 3-5 reads inside its band, any other within one.
+step "Jaunt grade bands match the reading level of their words (T-3590)" \
+  python3 tools/jaunt_reading_level.py --check
+
 # T-2039 (of T-1271): the LIBRARY, not one story — the 25 named premises, the six
 # priority jaunts featured, 4-8 stops, quiet outings, keepsake families and ranks
 # reachable without replay, and the owner's subjects each carried by a jaunt.

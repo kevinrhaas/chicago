@@ -69327,9 +69327,7 @@
   "pa1904_glessner_john_j_c1900_kate_ryan": {
    "scene": "1904",
    "record": "data/residents_1904/households/hh_glessner_john_j.json",
-   "drawn_as": [
-    "data/humans/instances/1904/hi_pa1904_glessner_john_j_c1900_kate_ryan_1904.json"
-   ],
+   "drawn_as": [],
    "age": {
     "years": 54,
     "grade": "attested",
@@ -69395,6 +69393,57 @@
      "stand_in": "No photograph of Kate Ryan is known. This is a stand-in: an unnamed Irish woman photographed at her spinning wheel on Achill Island in 1903, of about Kate Ryan's age and from her country. Her face is the model's guide; it is not Kate Ryan."
     },
     "fit": "data/humans/variation/fits/pa1904_glessner_john_j_c1900_kate_ryan.json"
+   },
+   "looks": {
+    "complexion": {
+     "value": "light",
+     "drawn": "light",
+     "grade": "reconstructed"
+    },
+    "hair": {
+     "value": "dark brown",
+     "drawn": "dark_brown",
+     "cut": "swept_up_knot_1904",
+     "facial": [
+      "brows_fine",
+      "lashes_upper"
+     ],
+     "grade": "reconstructed"
+    },
+    "eyes": {
+     "value": "blue",
+     "drawn": "blue",
+     "grade": "reconstructed"
+    },
+    "stature": {
+     "inches": 64.2,
+     "grade": "reconstructed",
+     "basis": "Artistic body variation; no personal measurement located."
+    },
+    "height_scale": 0.9883,
+    "heritage": {
+     "origin": "not found"
+    },
+    "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty.",
+    "grade": "reconstructed",
+    "liberty": "L-prairie-likenesses-3547",
+    "file": "data/humans/variation/looks/pa1904_glessner_john_j_c1900_kate_ryan.json"
+   },
+   "dress": {
+    "colours": {
+     "garment_upper__cook_print_dress": [
+      0.048,
+      0.047,
+      0.044
+     ],
+     "garment_lower__cook_print_skirt": [
+      0.048,
+      0.047,
+      0.044
+     ]
+    },
+    "worn": "charcoal cook working clothes",
+    "grade": "reconstructed"
    }
   },
   "pa1904_glessner_john_j_c1900_mary_reynolds": {

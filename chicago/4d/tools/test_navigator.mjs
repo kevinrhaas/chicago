@@ -727,13 +727,14 @@ for (const phone of [true, false]) {
   assert(list.hidden && !cardHost.hidden, 'a household opens its card over the list');
   const hh = cardHost.querySelector('.ppl-hh-card');
   const people = hh.querySelectorAll('.ppl-members .ppl-row');
-  // T-3258: the family first, then the staff (Mattie Williamson and the five the 1900 census names), by name.
+  // T-3258: the family first, then the staff (Mattie Williamson and those the 1900 census names), by name.
   // T-3382: their children, who lived here from 1887 until they married in 1898, after them.
+  // T-3590: Kate Ryan, the census's summer cook (Bill Tyre: one cook at a time), lived here only that summer.
   assert.deepEqual(people.map((p) => p.children[0].textContent), ['John J. Glessner', 'Frances M. Glessner',
-    'August Billings', 'Charles Nelson', 'Christine Nelson', 'Kate Ryan', 'Martha L. (Mattie) Williamson',
-    'Mary Reynolds', 'Frances Glessner', 'George M. Glessner'], 'the family, then the staff, then the children of other years');
-  assert.deepEqual(people.map((p) => p.children[1].textContent).filter((s, i) => [0, 1, 6, 8].includes(i)),
-    ['Head of the household \u00b7 Farm machinery executive', 'Wife', 'Cook', 'Daughter \u00b7 lived here 1887\u20131898'],
+    'August Billings', 'Charles Nelson', 'Christine Nelson', 'Martha L. (Mattie) Williamson',
+    'Mary Reynolds', 'Frances Glessner', 'George M. Glessner', 'Kate Ryan'], 'the family, then the staff, then those of other years');
+  assert.deepEqual(people.map((p) => p.children[1].textContent).filter((s, i) => [0, 1, 5, 7, 9].includes(i)),
+    ['Head of the household \u00b7 Farm machinery executive', 'Wife', 'Cook', 'Daughter \u00b7 lived here 1887\u20131898', 'Cook \u00b7 lived here summer 1900'],
     'their place and work, and their years here');
   cardHost.dispatch('click', { target: hh.querySelector('[data-ppl-inspect]') });
   assert.deepEqual(inspected, ['glessner_house'], 'Inspect house takes you to the house they live in');

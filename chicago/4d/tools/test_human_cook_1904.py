@@ -73,36 +73,23 @@ class Cook(unittest.TestCase):
         self.assertLess(max(p[1] for p in bib), self.bones['neck_01']['head_m'][1]-.1)
         self.assertGreater(min(p[2] for p in bib), .05)
 
-    def test_she_is_kate_ryan_in_her_own_household_record(self):
+    def test_the_cook_was_fitted_to_kate_ryan_who_is_not_drawn_in_1904(self):
+        # T-3590 (owner, 2026-11-13, relaying Bill Tyre of Glessner House): Kate Ryan was the
+        # temporary summer cook while Mattie was in New Hampshire with the family, and the
+        # Glessners kept one cook at a time. The cook asset keeps her as its fitted reference
+        # (the 1900 census record); her card says she was not living here in 1904, and no 1904
+        # instance draws her. The asset is worn by other houses' cooks (prairie_1904.json).
         v = self.variant
         self.assertEqual((v['person_reference_id'], v['component_assembly'], v['person_reference_grade']),
                          ('pa1904_glessner_john_j_c1900_kate_ryan', 'cook_1904_v1', 'inferred'))
         hh = json.loads((ROOT/v['person_reference_record']).read_text())
         person = next(p for p in hh['persons'] if p['id'] == v['person_reference_id'])
         self.assertEqual(person['occupation']['value'], 'cook')
-        found = list((ROOT/'data/humans/instances').rglob('hi_*kate_ryan*.json'))
-        self.assertEqual([p.relative_to(ROOT).as_posix() for p in found], [INSTANCE])
-        inst = json.loads(found[0].read_text())
-        self.assertEqual((inst['scene'], inst['person_id'], inst['appearance']['asset_id'], inst['display'], inst['behaviour']['state']),
-                         ('1904', v['person_reference_id'], v['id'], 'shown', 'standing'))
-        self.assertEqual(inst['interaction']['opens'], 'resident_card')
-        self.assertIn(inst['id'], json.loads((ROOT/'data/humans/instances/1904/index.json').read_text())['instances'])
-
-    def test_she_stands_at_the_foot_of_the_service_stair_in_the_court(self):
-        house = json.loads((ROOT/'data/structures/glessner_house.json').read_text())
-        stair = house['phases'][0]['form']['v4_detail']['value']['north_court_service_stair']
-        walk = next(w for w in house['phases'][0]['form']['courtyard_ground']['value']['finish']['walks'] if w['id'] == 'north-stair-approach')
-        p = json.loads((ROOT/INSTANCE).read_text())['placement']
-        # The house frame: W feet west of the Prairie face, S feet south of the Eighteenth Street face.
-        th = math.radians(-0.669); E0, N0 = 1338.687, -3240.420
-        dx, dy = p['local_e']-E0, p['local_n']-N0
-        x, y = dx*math.cos(th)+dy*math.sin(th), -dx*math.sin(th)+dy*math.cos(th)
-        W, S = 161.25-x/.3048, 74-y/.3048
-        Ws = [q[0] for q in walk['outline']]; Ss = [q[1] for q in walk['outline']]
-        self.assertTrue(min(Ws) < W < max(Ws) and min(Ss) < S < max(Ss), (W, S))   # on the walk from the stair
-        self.assertGreater(S, stair['flight_S'][1]+1)                               # off the flight's foot
-        self.assertGreater((W-stair['flight_W'][1])*.3048, .5)                       # clear of its west pier
-        self.assertLess(math.dist((W, S), (sum(stair['flight_W'])/2, stair['flight_S'][1])), 8)
+        self.assertEqual(person['lived_here']['on_scene_date'], 'no')
+        self.assertFalse((ROOT/INSTANCE).exists())
+        self.assertNotIn('hi_pa1904_glessner_john_j_c1900_kate_ryan_1904', json.loads((ROOT/'data/humans/instances/1904/index.json').read_text())['instances'])
+        cast = json.loads((ROOT/'data/humans/prairie_1904.json').read_text())['people']
+        self.assertTrue(any(c.get('asset_id') == v['id'] for c in cast), 'other cooks still wear the asset')
 
     def test_every_garment_carries_provenance(self):
         garments = self.recipe['cook_components']['garments']
