@@ -2311,6 +2311,23 @@ def _k02(front: dict) -> dict:
         if not float(f["corner_bond"]["return_m"][1]) < south_return <= 4.0:
             raise ParamError(f"stone_front.south_return_m = {south_return} must be longer than {fab}'s "
                              f"longest quoin ({f['corner_bond']['return_m'][1]} m) and at most 4 m")
+    # T-3562: a side wall laid in the front's stone, coursed on the front's beds as an
+    # all-stone house's flanks are, in a dressing of its own: 1815's south flank on the
+    # oblique photograph, rock-faced against the smooth front (K01 calls it north)
+    flanks = front.get("flanks")
+    if flanks is not None:
+        walls_ = tuple(flanks.get("walls", ()))
+        if set(flanks) != {"walls", "dressing"} or not walls_ or not set(walls_) <= {"north", "south"} \
+                or len(set(walls_)) != len(walls_):
+            raise ParamError("stone_front.flanks is {\"walls\": side walls (\"north\", \"south\"), each "
+                             "once, \"dressing\": rock_faced or smooth}")
+        if flanks["dressing"] not in ("rock_faced", "smooth"):
+            raise ParamError("stone_front.flanks.dressing is rock_faced or smooth")
+        if flanks["dressing"] == "rock_faced" and rock[1] <= 0.0:
+            raise ParamError(f"{fab} has no rock-faced projection in its profile: its flanks cannot be laid rock_faced")
+        if corners or south_return is not None or "brick_above_m" in front:
+            raise ParamError("stone_front.flanks lays a side wall in the front's courses: a front that "
+                             "returns quoins, a strip or brick over its stone names none")
     if t["coping"] is None:
         raise ParamError("dressed_trim declares no coping")
     coping_h = float(front.get("coping_height_m", 0.0))
@@ -2362,6 +2379,8 @@ def _k02(front: dict) -> dict:
         "trim_course_m": tuple(t["course_height_m"]), "trim_block_m": tuple(t["block_length_m"]),
         "quoin_return_m": tuple(f["corner_bond"]["return_m"]), "corners": corners,
         **({"south_return_m": south_return} if south_return is not None else {}),
+        **({"flanks": tuple(flanks["walls"]), "flank_dressing": flanks["dressing"],
+            "flank_rock_m": rock if flanks["dressing"] == "rock_faced" else (0.0, 0.0)} if flanks else {}),
         "base_courses": base, "channel_m": f["rusticated_base"]["channel_width_m"],
         "channel_depth_m": f["rusticated_base"]["channel_depth_m"],
         **({"coursing": dict(coursing)} if coursing else {}),
