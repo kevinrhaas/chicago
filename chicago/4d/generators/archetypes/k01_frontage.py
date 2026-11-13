@@ -1407,7 +1407,8 @@ class Assembly:
         conf = p.worst_conf("rear_wings", "footprint")
         seed = self.instance(f"k01.roof.wing.{w['id']}", "roof",
                              {"kind": "flat", "overhang_m": ov, "fascia_m": w["fascia_m"],
-                              "covering": "painted_tin_sheet", "deck_datum_m": yd},
+                              "covering": "painted_tin_sheet", "deck_datum_m": yd,
+                              **({"stacks": len(w["stacks"])} if w.get("stacks") else {})},
                              {"base": (u0, yt, -v1), "top": (u0, yd, -v1)})
         a0, a1, b0, b1 = u0 - ov, u1, v0 - ov, v1 + ov
         X = lambda u, y, v: (u, y, -v)
@@ -1428,6 +1429,40 @@ class Assembly:
             if c1 - c0 > 1e-6:
                 self.prim(fas).face([X(a1, yt, c0), X(a1, yt, c1), X(a1, yd, c1), X(a1, yd, c0)], E,
                                     edge(X(a1, yt, c1), (0.0, 0.0, 1.0)), conf)
+        if w.get("stacks"):
+            self.wing_deck_stacks(w, seed, conf)
+
+    def wing_deck_stacks(self, w, seed, conf):
+        """T-1894: a flat wing's stacks standing on its tin deck (rear_wings[].stacks; 1823
+        Dent's rear range, its engraving): T-2302's plain prism under its cap slab, as a slated
+        wing's (T-1890), its foot sunk 0.05 m under the deck so no seam shows where it stands."""
+        from . import k05_roofs as k5
+        P = k5.frame("z")
+        solids, stone_boxes = [], []
+        for c in w["stacks"]:
+            sx, sz = c["plan_m"]
+            u, z, stop = c["u_m"], -c["v_m"], c["top_m"]
+            cp, cd = c["cap_proud_m"], c["cap_depth_m"]
+            solids.append(k5.extrude([(u - sx / 2, c["base_m"]), (u + sx / 2, c["base_m"]), (u + sx / 2, stop - cd / 2),
+                                      (u - sx / 2, stop - cd / 2)], z - sz / 2, z + sz / 2, P,
+                                     lambda i, p_, q_: "chimney" if i not in (0, 2) else "hidden", "chimney", "chimney"))
+            solids.append(k5.extrude([(u - sx / 2 - cp, stop - cd), (u + sx / 2 + cp, stop - cd),
+                                      (u + sx / 2 + cp, stop), (u - sx / 2 - cp, stop)],
+                                     z - sz / 2 - cp, z + sz / 2 + cp, P, "coping", "coping", "coping"))
+            if c["stone"]:
+                stone_boxes.append((u - sx / 2 - 1e-3, u + sx / 2 + 1e-3, z - sz / 2 - 1e-3, z + sz / 2 + 1e-3))
+        pts, tris = _weld_shell(*k5.close(k5.union_all(k5._snap(solids))))
+        for a, b, c, role, n in tris:
+            if role == "hidden":
+                continue
+            tri = [pts[a], pts[b], pts[c]]
+            cx_, cz_ = (tri[0][0] + tri[1][0] + tri[2][0]) / 3, (tri[0][2] + tri[1][2] + tri[2][2]) / 3
+            mat = "limestone_trim" if role == "coping" else \
+                "rough_stone_trim" if any(b_[0] <= cx_ <= b_[1] and b_[2] <= cz_ <= b_[3] for b_ in stone_boxes) \
+                else "brick"
+            basis = self.basis(mat, (0.0, 0.0, 0.0), (1.0, 0.0, 0.0), (0.0, 0.0, 1.0), seed) if abs(n[1]) > 0.999 \
+                else self.basis(mat, (0.0, 0.0, 0.0), _unit(_cross(Y, n)), _cross(n, _unit(_cross(Y, n))), seed)
+            self.prim(mat).face(tri, n, basis, conf)
 
     def wing_roof(self, w):
         """T-2841: a wing's hipped or gabled roof, slated (rear_wings[].roof): K05's hip or
