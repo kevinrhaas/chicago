@@ -3,7 +3,7 @@
   "view": "chicagology_photo",
   "glb": "assets/gltf/henderson_house_1816_prairie__as_mapped_1904.glb",
   "glb_sha256": "210d9aed7d7a343bfef9c0b77afccf009041fab95953b0aee085f73e74a53f67",
-  "camera_sha256": "cd716f257362184bf542e8422a3b0549da4bde9351614c1cf035953b19b1371a",
+  "camera_sha256": "2ea53525aa34f1cd163e87bd7f44c9cc601ce935b97adcc7cf1007c41311355e",
   "photo_sha256": "6cf57cac7e3076af06121b104b57a02b9a25ac3830f01ddafe9ac2f27eb96ca8",
   "side_by_side": "docs/RESEARCH/photo-match/henderson_house_1816_prairie/chicagology_photo-side-by-side.jpg",
   "verdict": "differs",
@@ -69,9 +69,19 @@
       "how": "T-1886: one pedimented dormer on each crown's front face (K08 mansard_dormers, the main dormers' 40-degree gabled head, a 0.7 by 1.4 m sash); through the camera they render where the print's stand, the front crown's about 1 m north of the print's with the porch and bay (the within-tolerance item above)"
     },
     {
-      "what": "the flank crown's second dormer, in its south-east canted face (x 230-290 px)",
+      "what": "the flank crown's south-east canted face: plain slate in the print between its two hips (x 248 and 330 px, from under the curb at y 220-240 down to the crown's cornice at 395), with no dormer in it; the dormer to its right (x 335-385 px, its pediment's apex at about y 250) stands east of the crown, on the main mansard's south face. Recorded until 2026-11-13 as a second crown dormer wanted in that face (x 230-290 px)",
+      "status": "fixed",
+      "how": "T-1886 (2026-11-13): re-read at 2.6x over a pixel grid; no build change was needed: the crown's SE canted face renders as plain slate, as the print's, and its one dormer stands in the crown's south face. The main mansard's south dormer is the item below"
+    },
+    {
+      "what": "the main mansard's south dormer: in the print just east of the flank crown, at x 335-385 px with its sill on the cornice; through the corrected camera the build's (mansard.dormers[2], along_m 7.4) renders at about x 385-415 px. The bay's junction with the flank is itself about 25 px east of the print's (the plan against the print, the camera's solve), so measured from the bay the dormer stands about 15-25 px (0.3-0.5 m) too far east",
       "status": "open",
-      "how": "T-1886: K08 lays a bay's mansard dormers on its front face only; a dormer on a canted face is a kit change (L-k01-1816-henderson-1886)"
+      "how": "T-1886 (2026-11-13): measured, not built; moving it west along the south face is a data change and a bake"
+    },
+    {
+      "what": "the south flank bay's windows: through the corrected camera, with the bay's water table (y 885-890) and crown eave (y 395) both on the print's, the print draws the principal storey's lights from a sill at about y 872 to a head at about 735 px and the upper storey's from about 652 (on the belt course) to 525 px, lower in their storeys and shorter than the build's (sills about 850 and 590, heads about 695 and 440 px: some 0.4-0.9 m higher sills and 0.8-1.7 m higher heads at the bay's 50 px/m); and the bay's face turned most toward the camera (x 250-300 px) carries a light about 1.0 m wide where the build has a 0.6 m cant light and the 1.05 m light in its oblique south face",
+      "status": "open",
+      "how": "T-1886 (2026-11-13): measured, not built. Read at the scale the bay's own height gives (its water table to its eave, 495 px for 9.84 m), the print's lights are about 2.7 m (principal) and 2.5 m (upper) high, sills 0.36 m over the principal floor and on the belt course; read at the front bay's 53.6 px/m they move about 10% up. Which face carries the wide light (the plan's 1.475 m cant or its 2.68 m south face) needs the bay's plan re-read with them; the next piece of this ticket"
     },
     {
       "what": "both crowns' lower faces slated as the main mansard, the print drawing all three alike; built in a plain grey sheet",

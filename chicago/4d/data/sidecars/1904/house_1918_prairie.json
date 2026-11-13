@@ -184,14 +184,22 @@
           "k09.trim.lintel_cornice_hood",
           "k09.trim.lintel_cornice_hood",
           "k01.flat_lintel"
-        ]
+        ],
+        "crest": {
+          "storeys": [
+            1
+          ],
+          "width_m": 1.0,
+          "height_m": 0.5,
+          "proud_m": 0.12
+        }
       },
       "confidence": "inferred",
       "sources": [
         "chicago_tribune_1869_10_30_thompson_residence",
         "chicagology_1936_prairie_exterior_photo"
       ],
-      "note": "Every window 'trimmed with brown stone' (Tribune 1869): the photograph's heavy moulded hoods over the principal and chamber windows, plain heads on the frieze lights. Their pediments and scrolls are T-1902's."
+      "note": "Every window 'trimmed with brown stone' (Tribune 1869): the photograph's heavy moulded hoods over the principal and chamber windows, plain heads on the frieze lights. T-3370 (eleventh pass): the chamber storey's front lights, over the verandah and north of the tower (x about 1450-1820 px, y 480-560), stand under tall carved hoods whose tops the print draws crested with raised scrolled carving, the hood and its crest rising about 1.0 m over the lights' heads (the hood band at y about 520-535 px over heads at 540, the crest's top at about 500); each cornice-hood lintel on that storey carries K09's carved crest (`crest`, the T-3270 palmette between two volutes) 1.0 m wide and 0.5 m high. The principal storey's lights stand behind the verandah, where no picture shows their heads, and keep the plain hood. The crest's carving is the kit's (the print resolves only a raised scrolled block over each hood); its sizes are reconstructed off the print (liberty L-k01-1936-allerton-1901)."
     },
     "wall_head": {
       "value": {
@@ -688,7 +696,18 @@
                     0.524,
                     0.696
                   ],
-                  "why_not_ordinary": "the 1869 Tribune's dressing room in the tower, 'lighted by two windows over main entrance': paired over the door (T-3367), as the photograph draws two lights over the porch"
+                  "why_not_ordinary": "the 1869 Tribune's dressing room in the tower, 'lighted by two windows over main entrance': paired over the door (T-3367), as the photograph draws two lights over the porch. T-3370 (eleventh pass): the photograph draws the pair over the porch under heavy carved hoods crested as the front's chamber lights are (x about 1690-1810 px, y 500-540): each light in a moulded brownstone surround (K08's T-2931 jambs 0.1 m broad, as the pair's narrow pier between them allows, under a 0.25 m head 0.12 m proud) with K09's carved crest on its head, 0.9 m wide and 0.32 m high, as tall as the storey's band over it allows (K08 refuses a crest into the band); the print's hood and crest rise about 1.2 m over the lights' heads where the build's reach about 0.6 m, which stays open in the match record (sizes reconstructed off the print, liberty L-k01-1936-allerton-1901)",
+                  "crest": {
+                    "width_m": 0.9,
+                    "height_m": 0.32,
+                    "proud_m": 0.1
+                  },
+                  "surround": {
+                    "band_m": 0.1,
+                    "proud_m": 0.04,
+                    "head_m": 0.25,
+                    "head_proud_m": 0.12
+                  }
                 }
               ]
             },

@@ -215,6 +215,30 @@ for (const [key, d] of Object.entries(summary)) assert(Math.max(...d) - Math.min
   }
 }
 
+// T-3553: a standing collar worn lower (`dress.collar`, Sarah Grey: "her clothing is going over
+// her chin, it should just be her neck"): its top comes down by what it names, it stays outside
+// the skin, and a figure without one keeps the body's collar where it was.
+{ const key = 'pa1904_grey_mrs_w_l', rec = persons[key], collar = rec?.dress?.collar;
+  assert(collar?.piece === 'lady_shirtwaist_collar' && collar.lower_cm > 0, `${key} wears her collar lowered`);
+  const top = a => { let m = -Infinity; for (let i = 1; i < a.length; i += 3) m = Math.max(m, a[i]); return m; };
+  for (const lod of [0, 3]) {
+    const tops = [];
+    for (const r of [rec, { ...rec, dress: { ...rec.dress, collar: undefined } }]) {
+      const scene = await figure('glessner_frances_m_1904', lod), before = snapshot(scene);
+      V.applyVariation(scene, kit, V.personVariation({ kit, key, record: r, assetId: 'glessner_frances_m_1904' }), { scope: 'full' });
+      scene.scale.setScalar(1);
+      const after = snapshot(scene), name = [...after.keys()].find(n => /shirtwaist_collar/.test(after.get(n).mesh.name));
+      assert(name, `lod${lod}: the lady's body has its collar`);
+      const bodyA = [...after.values()].find(m => m.slot === 'skin'), s1 = inside(bodyA, after.get(name).pos);
+      const sunk = s1.filter(x => x < -0.002).length;
+      // (the body's own collar, under her chin, is what sank: only the lowered one is held to it)
+      if (r === rec) assert(sunk <= Math.max(3, s1.length * 0.003), `lod${lod}: ${sunk} collar vertices sank into the neck`);
+      tops.push(top(after.get(name).pos) - top(before.get(name).pos));
+    }
+    assert(tops[0] < tops[1] - collar.lower_cm / 100 * 0.6, `lod${lod}: the collar's top comes down (${tops.map(t => t.toFixed(4))})`);
+  }
+}
+
 // One variant per person and LOD: a second figure reuses it; freeing the source frees it.
 { const s1 = await figure('bardwell_otis_1835', 2);
   const clone = SK.clone(s1), sources = new Set(); clone.traverse(o => { if (o.isSkinnedMesh) sources.add(o.geometry); });
