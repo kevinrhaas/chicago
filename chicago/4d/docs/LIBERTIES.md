@@ -24615,6 +24615,8 @@ dark upright under it in its first two openings, a few pixels across, so the sec
 count are reconstructed and the iron is the dark tone's reading. The rear range is built to its second
 storey's head (9.45 m) under a flat roof, short of the Tribune's 37 ft cornice. T-3370 moves the tower 2.0 m north of the sheet, to v 7.95-11.75 (the sheet's v 5.95-9.74), with the door (s 10.65) and its landing, and runs the verandah from the corner to it, s 0-7.6 with three 1.9 m openings on 2.3 m centres, where the sheet's porch strip gives 5.6 m: the photograph's camera, re-solved at 12 px rms once its south-east corner was read at the cornice's nearest vertex (x 1425 px), puts the tower 1.6-2.7 m north of the sheet across its variants and the verandah's two columns about 2.55 m apart. The image gate builds the photograph; the sheet's place is kept here. On the same camera the two south stacks stand at u 1.7 and 11.7 (from 6.0 and 12.5). Their heads are read on the same camera at about 40 px a metre: the left stack stands at its own 17.35 m (the photograph's 17.33 m), under the kit's one height; all three are dressed from the K15 kit's panelled form (k15.stack.sherman less its corbel blocks), its two stone bands, a sunk panel 0.45 m wide where a stack's shaft has room for one (the right one's, the photograph's 15.43-16.29 m), and a head of three corbelled courses 0.15, 0.15 and 0.2 m high, out 0.06, 0.13 and 0.2 m, under a stone cap 0.35 m thick and 0.28 m out, for the photograph's moulded heads about 0.9 m tall and 0.3 m out; those courses, the cap and the panels' sizes are reconstructed, the moulded profiles the kit's square courses, and the north stack's dress is the south ones'. The right stack's narrower upper stage over its broad cap is not built. The dining range's south face is lit as the photograph draws it, a single, a single and a pair to each principal storey, placed at the fractions of the face the photograph's re-solved camera reads for them (0.24, 0.53 and 0.81, for a face it reads about 10.4 m long where the sheet gives 9.03 m); the pair is K06's paired sash at its least, two 0.75 m lights on a 0.3 m mullion, where the print's lights read about 0.55-0.6 m, so its sizes are reconstructed; the Tribune's 'two windows opening to the south' are read as the two singles and the pair's room is not named. The reception room's half-octagonal bay (the Tribune's, on the sheet) is carried up through the attic to the main cornice, flat-topped under the dining range's bracketed eaves, as the photograph's face there runs full height to the cornice, and its front carries two 1.1 m sashes 1.9 m apart to each principal storey for the photograph's pair (about 1.2 m lights 1 m apart); the attic storey's height, its blind face, the flat top and the lights' sizes and spacing are reconstructed, and the bay's cants stand where the print shows only a dark band. T-3370's sixth pass lays the dining range and the reception bay in the house's brick on its brownstone basement, as the Tribune walls every face above the basement, and rounds the heads the photograph draws round: the dining range's singles and pairs on both principal storeys and the bay's chamber lights, K06's round-headed sashes in K08's moulded arched architraves of brownstone, a single's on imposts under a keystone and a pair's one enclosing arch; the print's hoods are carved, a pair's a scrolled pediment rising about 1.1 m over its lights, so the architraves' bands, imposts, keystones and the arches' rises are reconstructed at what each storey holds.
 
+T-3370 (2026-11-12) resolves the tower's depth over the roof: from the main cornice's line (13.41 m) up, its blind stage and belvedere now stand on the whole 3.79 m square, clear of the front wall's plane (K08's whole stage), as the photograph shows them above the cornice, the shaft below keeping the sheet's 1.3 m projection. The belvedere's south face carries a light in an arched frame, as the photograph draws it; its west and north faces, which no picture shows, are lit and framed as the front is (reconstructed: a belvedere lit to every side), and its balcony, cornice, consoles and balustrade run round all four faces.
+
 **How to resolve:** T-1901's next piece re-solves the photograph's camera (its present fit is provisional:
 see `data/reference_views/house_1918_prairie/chicagology_photo.json`), settles the front's composition
 between the photograph and the sheet, and works the verandah, the entrance, the stacks' places and the window
@@ -42837,6 +42839,36 @@ side of a riser).
 any account of the household's comings and goings by the court.
 **Ticket:** T-3524.
 **Recorded:** 2026-11-08 (T-3524).
+
+### L-prairie-front-passages-3554 — Every built 1904 front door and every back door opens and shuts as its household passes, up its own stoop
+
+**Decision:** the front door of each 1904 house whose model builds its leaf (46 of them: `door_leaf`) is hung to
+swing for the people drawn going in and out (`renderers/web/js/house-doors.js` § passages, `registerDoorPlans`), as
+L-glessner-passages-3524's are: the baked leaf is lifted out of the house's batch at load and hung on its right-hand
+jamb (seen from outside), swinging inward through 90 degrees in 1.2 s, an opening wider than 1.6 m (Hibbard's,
+Wheeler's, Moulton's) as a pair meeting in the middle, each leaf on its own jamb. Behind it is a dark vestibule
+like Glessner's (the house models are hollow behind their 0.8 m backing). Someone whose day takes them in walks to the foot of the stoop, up its treads to
+the door, which opens before them, through it, and is indoors only past the leaf; one answering a knock stands at
+the stoop's foot. The way is read off the built model (`tools/derive_doors_scene.py` `stoop_way`): over a 0.1 m grid
+of what is built in front of the door, it climbs at most 0.26 m a step, passes nothing standing between a knee and a
+head over the tread, keeps 0.35 m (a skirt's half-width) off every drop, cheek and rail, and turns where a side
+stoop turns (Dent's, Keith's, the two Glessner children's). The owner, 2026-11-12: *"make sure they are openable and
+closeable for a person to enter and make sure that people can walk up the stairs instead of vanishing into the
+staircase"*. Each house's back door (L-prairie-back-yards-3488's, on its built rear wall) is hung the same way
+(`renderers/web/js/back-yards.js`): its leaf on the jamb away from its knob, swinging OUT through 95 degrees in 1.2 s
+over its landing, because the house behind its wall is not modelled; behind it the wall is painted the dark of a
+doorway. Its way runs up the middle of its stoop, one waits 0.95 m out on the landing while the leaf swings past,
+and one answering stands 0.7 m beyond the stoop's foot.
+**What it stands on:** each front leaf, its sill and head, and every tread and landing are the house model's own, as
+its generator built them; each back door and stoop is L-prairie-back-yards-3488's. Nothing about the doors is
+measured from a source here.
+**What is invented:** the hinge side, that each front door swings inward and each back door outward, how far and
+how fast; a pair for a wide opening; the vestibule behind a front door and the dark behind a back one;
+the line walked up each stoop (the grid's cheapest, kept off its edges), the skirt's half-width, and the riser ease
+(0.12 m each side of a riser); where one answering stands.
+**How to resolve:** a photograph of any of these doors open, or a plan of its entrance hall.
+**Ticket:** T-3554.
+**Recorded:** 2026-11-12 (T-3554).
 
 ### L-1812-garrison-dress-3523 — The 1812 garrison dressed by rank and duty, and its muskets carried by duty
 

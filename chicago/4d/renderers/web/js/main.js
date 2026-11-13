@@ -106,7 +106,7 @@ import './strings/arrival.js';
 import './strings/navigator.js'; // T-3571: the mute keys' titles
 import { createFlags } from './flags.js';
 import { createFortGates, gatesOnRoute } from './fort-gates.js';
-import { createHouseDoors } from './house-doors.js';
+import { createHouseDoors, registerDoorPlans } from './house-doors.js';
 import { createHouseErrands } from './house-errands.js';
 import { createNightLights } from './night-lights.js';
 import { createStreetGrid } from './street-grid.js';
@@ -2331,6 +2331,13 @@ async function boot() {
   // shared by every structure batch, old and rebuilt alike; applyShadowTier sets it.
   // T-3426: `subPixel` rides on the same switch (sub-pixel.js), set by the same tier.
   const farColourTier = { on: false, subPixel: false };
+  // T-3554: the doors drawn people open (house-doors.js passages) are hung from the doors
+  // file, and their baked leaves must be lifted out of the batches as the houses load.
+  if (String(loaded.scene.id ?? YEAR) === '1904') {
+    const doorsFile = await fetch(new URL('humans/doors_1904.json', bases.dataBase), { cache: 'no-cache' })
+      .then((r) => (r.ok ? r.json() : null)).catch(() => null);
+    registerDoorPlans(doorsFile);
+  }
   let buildings = await createBuildings({ registry: loaded.registry, confidence, terrain,
     shadowCasters,
     preserveMaterials: inspectionLod,
@@ -3095,6 +3102,8 @@ async function boot() {
     visitor: () => (walker.state.flying ? null : { e: walker.state.e, n: walker.state.n }),
     groundAt: (e, n) => profiledGroundHeight(terrain, decks, e, n), confidence, problems });
   scene3d.add(houseDoors.group);
+  // T-3554: the back doors the back yards hang swing with these, and people walk through them.
+  houseDoors.adopt(api.backYards?.passages);
   api.houseDoors = houseDoors;
   bootController.end('ground');
   bootController.start('flora');
