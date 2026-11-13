@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 2911, ts: '2026-11-13T03:04:00.752Z', date: 'Nov 12, 2026, 9:04 PM CT', title: 'Find and Follow reach people at home: they step out walking', kind: 'feature',
+    items: [
+      'Someone in town who has gone indoors keeps Find this person and Follow live; their card says they come out to meet you.',
+      'Find or Follow takes you to their door, and they come out of it on a walk round their block by the sidewalks, or on their own day\'s walk where they have one.',
+      'In 1812, with no blocks, it is a walk about the place.',
+      'A young child comes out with a grown-up of the house and they walk together; a soldier off duty comes out of his quarters.',
+      'The walk lasts about seven minutes and goes on while you follow; then they go back in by their door.',
+      'People away from town that day stay greyed with the reason.',
+    ] },
   { v: 2910, ts: '2026-11-13T02:09:10.308Z', date: 'Nov 12, 2026, 8:09 PM CT', title: '1815 Prairie\'s door gets its stone pediment, its stoop its newels', kind: 'improvement',
     items: [
       'On the Sears house at 1815 Prairie, a stone pediment on two small carved brackets now stands over the front door, with a finial at its peak, as the old square-on photograph shows it.',
