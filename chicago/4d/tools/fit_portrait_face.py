@@ -404,6 +404,7 @@ def fit(person):
 # seen from that side). The depth axes (nose_depth, chin_prominence, prognathism) are then read,
 # and the face stays one smooth MakeHuman face. `extended_limits` lets an axis pass the slider's
 # +-1 where the picture asks for more (a nose that stands further out than MakeHuman's largest).
+FIND_OUTLINE = False       # --find-outline: search the side outline afresh and write it into the record
 PROFILE_ITERATIONS = 6     # the side view's outline is re-found this many times (closest points)
 PROFILE_REACH_PX = 25      # an outline vertex further than this from the picture's line is left out
 SIDE_EYE = ([33, 159, 145], [263, 386, 374])   # the visible eye's outer corner and lids
@@ -610,16 +611,27 @@ def fit_views(person, portrait, header, refs, axes, spec, lm, names, members, ob
             p = r.x
         return r, option, srows, pairs, w
 
-    # The head's outline is a choice of shapes: each is tried briefly, the best refined. A record
-    # may name the one a full search chose (`head_shape_option`), which keeps the check quick.
+    # The side outline is found by closest points (ICP), re-found each pass, over every head outline
+    # option; that search stops wherever the numpy/BLAS build tips a vertex on or off the outline, so
+    # the record keeps what a search found (`head_shape_option`, `side_outline`: [vertex, silhouette
+    # point] pairs, written by --find-outline) and the fit solves once on those pairs, which every
+    # build lands alike.
     start = np.concatenate([*cams, side0, centre])
-    if 'head_shape_option' in cfg:
-        options = [cfg['head_shape_option']]
-    for option in options:
-        trial = run(option, start, 2)
-        if best is None or trial[0].cost < best[0].cost - 1e-9:
-            best = trial
-    r, option, srows, pairs, w = run(best[1], best[0].x, PROFILE_ITERATIONS)
+    if cfg.get('side_outline') and not FIND_OUTLINE:
+        option = cfg['head_shape_option']
+        srows = np.array([at[v] for v, _ in cfg['side_outline']])
+        j = np.array([k for _, k in cfg['side_outline']])
+        pairs = (sil[j], normals[j])
+        w = 150.0 / len(srows)
+        r = least_squares(residuals, start, bounds=(lo, hi), args=(option, srows, pairs, w, stacks(option)),
+                          x_scale='jac', max_nfev=20000, ftol=1e-14, xtol=1e-14, gtol=1e-14)
+    else:
+        for option in options:
+            trial = run(option, start, 2)
+            if best is None or trial[0].cost < best[0].cost - 1e-9:
+                best = trial
+        r, option, srows, pairs, w = run(best[1], best[0].x, PROFILE_ITERATIONS)
+        j = tree.query(pairs[0])[1]
     p = r.x
     v = p[6 * nf + 6:]
     X = shape(v, option)
@@ -656,6 +668,7 @@ def fit_views(person, portrait, header, refs, axes, spec, lm, names, members, ob
         'projected': project(fronts[0][0] @ X, cam).tolist(),
         'projected_unfitted': project(base_lm, cam).tolist(),
         'obs': obs.tolist(), 'names': names,
+        'found': {'head_shape_option': int(option), 'side_outline': [[int(head[a]), int(b)] for a, b in zip(srows, j)]},
     }
 
 
@@ -770,14 +783,36 @@ def differences(want, got, path='', loose=frozenset()):
 
 
 
+def write_found(path, found):
+    """The search's head outline option and side outline pairs, into the record's fit_views, the
+    rest of the record's text as it was."""
+    text = path.read_text()
+    lines = [f'  "{k}": {json.dumps(v, separators=(",", ":"))},' for k, v in found.items()]
+    kept = [ln for ln in text.split('\n') if not any(ln.startswith(f'  "{k}": ') for k in found)]
+    at = next(i for i, ln in enumerate(kept) if ln.startswith('  "extended_limits": '))
+    text = '\n'.join(kept[:at] + lines + kept[at:])
+    assert json.loads(text)['fit_views']['side_outline'] == found['side_outline']
+    path.write_text(text)
+    print(f'wrote the side outline found for {path.stem}: {len(found["side_outline"])} pairs, head outline {found["head_shape_option"]}')
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument('--check', action='store_true')
+    ap.add_argument('--find-outline', action='store_true',
+                    help='search each side view outline afresh and write it into its portrait record (fit_views)')
     ap.add_argument('--overlay', nargs=3, metavar=('OUT', 'PERSON', 'CROP_IMAGE'))
     args = ap.parse_args()
     if args.overlay:
         overlay(args.overlay[1], args.overlay[0], args.overlay[2])
         return 0
+    if args.find_outline:
+        global FIND_OUTLINE
+        FIND_OUTLINE = True
+        for path in sorted(PORTRAITS.glob('*.json')):
+            if json.loads(path.read_text()).get('fit_views'):
+                write_found(path, fit(path.stem)['found'])
+        FIND_OUTLINE = False
     bad = []
     for path in sorted(PORTRAITS.glob('*.json')):
         person = path.stem

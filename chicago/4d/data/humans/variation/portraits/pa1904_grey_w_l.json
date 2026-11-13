@@ -4017,7 +4017,7 @@
   }
  },
  "fit_views": {
-  "_doc": "T-3553: the axes are fitted to these pictures of the same stand-in at once, each with its own camera (tools/fit_portrait_face.py fit_views): `fronts`, MediaPipe Face Landmarker points (478, sheet pixels) on another front picture; `profile`, the side view of trace.profile (its visible eye's outer corner and lids and the lips' meeting place a side camera turned near render_yaw_deg, its nod free; its silhouette is matched by the face's own outline from that side, from the brow down `to` the neck or, under a beard, to just below the nose; `lips: height` keeps only the lips' height where a moustache hangs in front of them; `camera_sigma_deg` holds the side camera near the turn read by eye, not tipped). `extended_limits` lets an axis pass MakeHuman's +-1 where the side view asks for more. `head_shape_option` is the head outline a full search over all of them chose (2026-11-13), named so the fit check stays quick.",
+  "_doc": "T-3553: the axes are fitted to these pictures of the same stand-in at once, each with its own camera (tools/fit_portrait_face.py fit_views): `fronts`, MediaPipe Face Landmarker points (478, sheet pixels) on another front picture; `profile`, the side view of trace.profile (its visible eye's outer corner and lids and the lips' meeting place a side camera turned near render_yaw_deg, its nod free; its silhouette is matched by the face's own outline from that side, from the brow down `to` the neck or, under a beard, to just below the nose; `lips: height` keeps only the lips' height where a moustache hangs in front of them; `camera_sigma_deg` holds the side camera near the turn read by eye, not tipped). `extended_limits` lets an axis pass MakeHuman's +-1 where the side view asks for more. `head_shape_option` and `side_outline` ([mesh vertex, silhouette point] pairs) are what a full closest-point search over every head outline found (written by tools/fit_portrait_face.py --find-outline, 2026-11-13); the fit solves once on them, so every numpy build lands it alike and the check stays quick.",
   "profile": {
    "to": "nose",
    "lips": "height",
@@ -4026,6 +4026,7 @@
    "camera_sigma_deg": 1.5
   },
   "head_shape_option": 4,
+  "side_outline": [[149,35],[150,39],[152,42],[281,19],[282,20],[297,22],[298,24],[316,8],[321,12],[322,4],[323,4],[326,5],[5533,28],[5534,31],[7320,45],[7324,47],[7327,46],[7328,44],[7329,45],[7330,46],[7331,44],[7333,43],[7334,43],[7421,46],[7463,39],[7464,35],[7489,48],[7510,51],[7511,54],[7512,50],[7513,49],[7514,49],[7515,47],[7529,55],[7531,59],[7539,58],[7544,60],[7545,62],[7546,64],[7550,67],[7551,69],[7590,18],[7591,19],[7601,22],[7602,21],[7604,24],[7605,25],[7606,17],[7611,9],[7612,11],[7613,9],[7614,8],[7619,11],[7620,11],[7621,9],[7622,9],[7623,6],[7625,5],[7626,6],[7627,2],[7629,1],[7630,2],[7649,8],[7655,14],[7656,17],[8448,43],[8450,44],[11426,16],[11472,15],[11495,13],[11515,76],[11516,71],[11517,78],[11518,73],[11519,80],[12743,27],[12745,31],[12746,31],[12761,14]],
   "extended_limits": {
    "nose_depth": 2.0,
    "nose_length": 2.0,
