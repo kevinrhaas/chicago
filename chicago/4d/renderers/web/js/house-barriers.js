@@ -12,9 +12,18 @@
  * integers each (i0 i1 j0 j1, half-open), cell (i, j) centred on u0 + i*cell, v0 + j*cell of the
  * model's plan (u = x, v = -z), turned into local E/N by the house's placement.
  *
- * createHouseBarriers(rows) -> { near(e, n, r) , clearLeg(a, b, r), count }
+ * The owner, 2026-11-13, of a maid standing half inside the bottom steps of a front stoop: "she
+ * cannot stand where there are stairs like that, no one should be able to". A stoop's treads are
+ * barriers from its bottom one up (prairie_barriers.py KNEE_M), the back yards' stoops and 1835's
+ * street-front stoops are rows of their own (derive_doors_scene.py), and `clearOf` finds the
+ * nearest place a body stands clear of them all: human-days.js planDay moves every standing place
+ * there, and human-spacing.js steps anyone who still stands in one out of it.
+ *
+ * createHouseBarriers(rows) -> { near(e, n, r) , clearLeg(a, b, r), clearOf(e, n, r, ok), count }
  *   near      whether a body at (e, n) comes within r metres of a barrier
  *   clearLeg  whether walking a -> b ({e, n}) keeps r metres off every barrier the whole way
+ *   clearOf   null where a body at (e, n) stands r metres off every barrier; else the nearest
+ *             place ({e, n}) that does (and that `ok` allows), or null when none is in reach
  *
  * Plain math, no renderer dependency; tools/test_house_barriers.mjs runs it in node.
  */
@@ -22,6 +31,12 @@
 /** A skirt's half-width: how far a walk keeps off a barrier (prairie_barriers.py SKIRT_M less
  *  the half-cell the data is read on). */
 export const BARRIER_SKIRT_M = 0.3;
+/** T-3554: where a body STANDS (a talk, a job, a wait), it keeps a skirt's hem off every barrier. */
+export const BARRIER_STAND_M = 0.35;
+/** clearOf looks this far out, a ring every CLEAR_STEP_M, CLEAR_BEARINGS places a ring. */
+export const CLEAR_REACH_M = 4;
+const CLEAR_STEP_M = 0.1;
+const CLEAR_BEARINGS = 24;
 const BAND_M = 1;          // the rectangles are filed by bands of u this deep
 const STEP_M = 0.1;        // a leg is asked at points this far apart
 
@@ -118,5 +133,23 @@ export function createHouseBarriers(rows = []) {
     }
     return true;
   }
-  return { near, clearLeg, count: houses.length, rects: houses.reduce((a, h) => a + h.rects.length / 4, 0) };
+  function clearOf(e, n, r = BARRIER_STAND_M, ok = null) {
+    if (!houses.length || !near(e, n, r)) return null;
+    // Out from (e, n), ring by ring; on each ring the bearings from north, so the answer is the
+    // same on every load. A hair more than r, so the place found is not on the edge of it.
+    for (let k = 1; k * CLEAR_STEP_M <= CLEAR_REACH_M + 1e-9; k++) {
+      const d = k * CLEAR_STEP_M;
+      let best = null;
+      for (let b = 0; b < CLEAR_BEARINGS; b++) {
+        const t = (2 * Math.PI * b) / CLEAR_BEARINGS;
+        const q = { e: e + d * Math.sin(t), n: n + d * Math.cos(t) };
+        if (near(q.e, q.n, r + 0.02) || (ok && !ok(q))) continue;
+        best = q;
+        break;
+      }
+      if (best) return best;
+    }
+    return null;
+  }
+  return { near, clearLeg, clearOf, count: houses.length, rects: houses.reduce((a, h) => a + h.rects.length / 4, 0) };
 }

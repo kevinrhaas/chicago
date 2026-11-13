@@ -25,6 +25,11 @@
  *     stands in a wall the walker does not keep (`keepOut`: the camps' lodges, [{ pts }] in local
  *     E/N). A figure whose body would reach into one is moved out past its edge by BODY_R_M, as a
  *     pair is moved apart (a step at a time when drawn; up to WALL_MAX_M, past MAX_M).
+ *   - T-3554 (owner, 2026-11-13, of a maid standing half inside the bottom steps of a front stoop:
+ *     "she cannot stand where there are stairs like that, no one should be able to"): no one
+ *     stands in a stair. A figure standing (not walking, not on a way's treads) whose body reaches
+ *     into one (`clearOf`, house-barriers.js: a stoop, its rails, a coping, a bay) is stepped out
+ *     to the nearest place clear of it, as out of a wall; the passes after never push them back.
  *
  * Only figures within REACH_M of the visitor are spaced: no one further off is seen. Cost: a hash
  * of those figures into 1 m cells and a look at the nine cells about each, ~2 us a figure.
@@ -60,6 +65,8 @@ const fixed = (a) => a.standY != null || !!a.tow || a.state === 'seated';
  * @param {{ actors: object[], isHeld?: Function, external?: Function, shown?: boolean }} o.humans
  * @param {() => {e:number, n:number} | null} [o.visitor]   where the eye stands (local ENU)
  * @param {(e:number, n:number) => boolean} [o.blockedAt] true inside a building or water
+ * @param {(e:number, n:number) => ({e:number, n:number} | null)} [o.clearOf] T-3554: the nearest
+ *        place a standing body is clear of every stair, or null where (e, n) already is
  */
 /**
  * T-3520: where a point stands against a set of polygons: for one inside a polygon, or within
@@ -95,7 +102,7 @@ export function wallsFrom(list) {
   });
 }
 
-export function createHumanSpacing({ humans, visitor = () => null, blockedAt = null, keepOut = [] } = {}) {
+export function createHumanSpacing({ humans, visitor = () => null, blockedAt = null, keepOut = [], clearOf = null } = {}) {
   const walls = wallsFrom(keepOut);
   const stats = { figures: 0, pairs: 0, moved: 0, worst_m: 0 };
   const where = (a) => ({ e: a.e + (a.spaceE ?? 0), n: a.n + (a.spaceN ?? 0) });
@@ -172,6 +179,7 @@ export function createHumanSpacing({ humans, visitor = () => null, blockedAt = n
       if (off > cap) { se *= cap / off; sn *= cap / off; }
       if (walls.length && keepOutOf(walls, a.e + se, a.n + sn) && !keepOutOf(walls, a.e + a.spaceE, a.n + a.spaceN)) continue;
       if (blockedAt && blockedAt(a.e + se, a.n + sn) && !blockedAt(a.e + a.spaceE, a.n + a.spaceN)) continue;
+      if (clearOf && !walking(a) && clearOf(a.e + se, a.n + sn) && !clearOf(a.e + a.spaceE, a.n + a.spaceN)) continue;
       a.spaceE = se; a.spaceN = sn;
       a.place?.();
       stats.moved++;
@@ -202,6 +210,27 @@ export function createHumanSpacing({ humans, visitor = () => null, blockedAt = n
     }
   }
 
+  /** T-3554: anyone standing in a stair is stepped out to the nearest place clear of it. */
+  function clearStairs(list, dt) {
+    for (const a of list) {
+      if (fixed(a) || walking(a)) continue;
+      const p = where(a);
+      const q = clearOf(p.e, p.n);
+      if (!q) continue;
+      let e = q.e - p.e, n = q.n - p.n;
+      const len = Math.hypot(e, n), seen = a.root.visible && a.inRange;
+      const most = seen ? RATE_M_S * dt : Infinity;
+      if (len > most) { e *= most / len; n *= most / len; }
+      let se = a.spaceE + e, sn = a.spaceN + n;
+      const off = Math.hypot(se, sn);
+      if (off > WALL_MAX_M) { se *= WALL_MAX_M / off; sn *= WALL_MAX_M / off; }
+      a.spaceE = se; a.spaceN = sn;
+      a.place?.();
+      stats.moved++;
+      stats.stairs = (stats.stairs ?? 0) + 1;
+    }
+  }
+
   /** Walkers let their step aside go again, where that brings nobody too near. */
   function relax(list, grid, dt) {
     for (const a of list) {
@@ -212,7 +241,7 @@ export function createHumanSpacing({ humans, visitor = () => null, blockedAt = n
       const k = seen ? Math.max(0, off - RELAX_M_S * dt) / off : 0;
       const se = a.spaceE * k, sn = a.spaceN * k;
       const p = { e: a.e + se, n: a.n + sn };
-      let clear = !(walls.length && keepOutOf(walls, p.e, p.n));
+      let clear = !(walls.length && keepOutOf(walls, p.e, p.n)) && !(clearOf && !walking(a) && clearOf(p.e, p.n));
       for (const b of neighbours(grid, p)) {
         if (b === a) continue;
         const q = where(b);
@@ -232,10 +261,11 @@ export function createHumanSpacing({ humans, visitor = () => null, blockedAt = n
       if (!humans || humans.shown === false || !(dt >= 0)) return;
       const list = gather();
       stats.figures = list.length;
-      stats.moved = 0; stats.walls = 0;
+      stats.moved = 0; stats.walls = 0; stats.stairs = 0;
       let last = null;
       // Out of the walls first; the passes after never push anyone back into one.
       if (walls.length) clearWalls(list, dt);
+      if (clearOf) clearStairs(list, dt);
       // Figures not drawn are settled at once; a few passes take a crowd apart.
       for (let i = 0; i < ITERATIONS; i++) {
         last = pass(list, dt, i > 0);
