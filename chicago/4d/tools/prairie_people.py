@@ -118,14 +118,21 @@ def looks_for(p, sex, portrait):
         hair = choose(pid, 'grey', ['white_grey', 'grey_brown'])
     cut = ('swept_up_knot_1904' if draw(pid, 'cut') > .5 else 'drawn_back_bun_1904') if sex == 'female' else 'short_side_part_1904'
     facial = []
+    stand_in = bool(portrait and portrait.get('stand_in'))
     if portrait:
-        cut = portrait['hair_cut']; facial = [portrait['facial']] if portrait.get('facial') else []
+        cut = portrait['hair_cut']
+        facial = list(portrait['facial']) if isinstance(portrait.get('facial'), list) else [portrait['facial']] if portrait.get('facial') else []
         hair = portrait.get('hair_tone', hair)
     elif sex == 'male' and (age is None or age > 25) and draw(pid, 'moustache') > .65:
         facial = ['moustache']
-    facial += ['brows_fine', 'lashes_upper'] if sex == 'female' else ['brows_full']
+    if not any(f.startswith('brows_') for f in facial):   # a portrait's own brows stand in for the default
+        facial += ['brows_fine'] if sex == 'female' else ['brows_full']
+    if sex == 'female' and 'lashes_upper' not in facial:
+        facial += ['lashes_upper']
     skin = choose(pid, 'skin', ['fair', 'light', 'ruddy', 'olive'])
     eyes = choose(pid, 'eyes', ['blue', 'grey', 'hazel', 'brown'])
+    if stand_in:
+        skin = portrait.get('complexion', skin); eyes = portrait.get('eyes', eyes)
     inches = round((64 if sex == 'female' else 68) + (draw(pid, 'height') - .5) * 6, 1)
     young = age is not None and age < 18
     if young:
@@ -138,7 +145,8 @@ def looks_for(p, sex, portrait):
         hi = min((x for x in anchors if x[0] >= age), key=lambda x: x[0])
         metres = lo[1] if lo[0] == hi[0] else lo[1] + (hi[1] - lo[1]) * (age - lo[0]) / (hi[0] - lo[0])
         inches = round(metres * (1 + (draw(pid, 'height') - .5) * .035) / .0254, 1)
-    basis = ('Hair cut and facial hair follow the identified portrait; facial proportions have a separate photograph fit. ' if portrait else
+    basis = ('No photograph of this person is known. Face, hair cut, facial hair and dress follow a stand-in portrait the owner chose as the likeness (' + portrait['source'] + '); it is not a picture of them. ' if stand_in else
+             'Hair cut and facial hair follow the identified portrait; facial proportions have a separate photograph fit. ' if portrait else
              'No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. ')
     basis += 'Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty.'
     if young:
@@ -149,11 +157,13 @@ def looks_for(p, sex, portrait):
             'generated_by': 'tools/prairie_people.py', 'heritage': {'origin': 'not found'},
             'complexion': {'value': skin, 'drawn': skin, 'grade': 'reconstructed'},
             'hair': {'value': hair.replace('_', ' '), 'drawn': hair, 'cut': cut, 'facial': facial,
-                     'grade': 'inferred' if portrait else 'reconstructed',
+                     'grade': 'inferred' if portrait and not stand_in else 'reconstructed',
                      **({'basis': portrait['hair_tone_basis']} if portrait and portrait.get('hair_tone_basis') else {})},
             'eyes': {'value': eyes, 'drawn': eyes, 'grade': 'reconstructed'},
             'stature': {'inches': inches, 'grade': 'reconstructed', 'basis': 'Artistic body variation; no personal measurement located.'},
             'height_scale': round(inches * .0254 / (CHILD_HEIGHT[role_of(p, sex)] if young else (1.65 if sex == 'female' else 1.75)), 4),
+            **({'build': portrait['build']} if stand_in and portrait.get('build') else {}),
+            **({'drawn_age': portrait['drawn_age']} if stand_in and portrait.get('drawn_age') else {}),
             'grade': 'reconstructed', 'basis': basis, 'liberty': CHILD_LIBERTY if young else LOOKS_LIBERTY}
 
 
@@ -214,6 +224,14 @@ def generate():
     rows = read('data/sidecars/1904/people.json')['people']
     originals = {read(str(f.relative_to(ROOT)))['person_id'] for f in (ROOT / 'data/humans/instances/1904').glob('hi_*.json')}
     portraits = {x['person_id']: x for x in read('docs/RESEARCH/prairie-portraits-3546/portraits.json')['portraits']}
+    # T-3553: a stand-in the owner chose as someone's likeness where no photograph of them is
+    # known (data/humans/variation/portraits/<id>.json `stand_in` + `likeness`): its hair, facial
+    # hair, colouring and dress, labelled everywhere as not them.
+    stand_ins = {}
+    for f in sorted((ROOT / 'data/humans/variation/portraits').glob('pa1904_*.json')):
+        rec = json.loads(f.read_text())
+        if rec.get('stand_in') and rec.get('likeness') and rec['person_id'] not in portraits:
+            stand_ins[rec['person_id']] = {**rec['likeness'], 'stand_in': True, 'source': rec['source']}
     catalog, inside, care, dresses, outputs = [], [], [], {}, {}
     records = {}
     for row in rows:
@@ -224,13 +242,16 @@ def generate():
                   'absent' if row['present'] == 'absent' or p.get('lived_here', {}).get('on_scene_date') == 'no' else
                   'existing' if pid in originals else 'household_care' if age is not None and age < 2 else 'ready')
         item = {'person': pid, 'home': row['lives_at'], 'status': status, 'age_1904': age,
-                'portrait': 'verified' if pid in portraits or p.get('portrait') or (ROOT / f'data/humans/variation/fits/{pid}.json').exists() else 'not_identified'}
+                'portrait': 'stand_in' if pid in stand_ins else 'verified' if pid in portraits or p.get('portrait') or (ROOT / f'data/humans/variation/fits/{pid}.json').exists() else 'not_identified'}
         if status == 'alias':
             item['canonical'] = p['own_card']
         elif status not in ('collective', 'existing', 'household_care') and (age is None or age >= 2):
             item.update(asset_id=ASSETS[role], body_presentation=sex, casting_grade='reconstructed', role=role)
-            outputs[f'data/humans/variation/looks/{pid}.json'] = looks_for(p, sex, portraits.get(pid))
+            outputs[f'data/humans/variation/looks/{pid}.json'] = looks_for(p, sex, portraits.get(pid) or stand_ins.get(pid))
             dresses[pid] = dress_for(pid, role)
+            if pid in stand_ins and stand_ins[pid].get('dress'):
+                own = stand_ins[pid]['dress']
+                dresses[pid] = {**dresses[pid], 'colours': {**dresses[pid]['colours'], **own['colours']}, 'worn': own['worn']}
         if status == 'ready':
             inside.append({'person': pid, 'name': p['name'], 'home': row['lives_at'], 'door': row['lives_at'] + ':front',
                            'asset_id': ASSETS[role], 'ask_order': 10 if p['relationship'] != 'servant' else 30,

@@ -51,7 +51,7 @@ sheet's brick colour and its 6.2 m depth without wings are not followed: the pri
 `data/structures/dexter_house_1721_prairie_frame_house.json`, archetype `k16_timber` (a whole frame
 house, T-2357), in a frame turned 90 degrees from the brick house's so its u runs south to its own front:
 
-- `main`: the range 6.2 x 23.9 m under a 34 degree hip, walls to 8.35 m, the door on the axis and over
+- `main`: the range 6.2 x 23.9 m under a 34 degree hip of wood shingles, walls to 8.35 m, the door on the axis and over
   it a window with louvred blinds;
 - `pav_west`, `pav_east`: the wings, 7.0 m wide, standing 2.2 m out, each under a 29 degree gable with
   its ridge running back into the main roof, and on each face a two-storey canted bay (plan 4.2 m at the
@@ -61,7 +61,7 @@ house, T-2357), in a frame turned 90 degrees from the brick house's so its u run
 - four stacks, two either side of the middle and one over each wing.
 - painted from the print's tones (2026-11-13, the owner: "I am not convinced the color of the building is white"):
   the clapboard reads about the value of Little's buff brick and the trim and blinds well darker, so a fawn drab
-  body, seal-brown trim and deep bronze-green sash and blinds; the hues are a liberty, as every picture is monochrome.
+  body, seal-brown trim and deep bronze-green sash and blinds, the stacks buff common brick; the hues are a liberty, as every picture is monochrome.
 
 The K16 kit learned two things for it (`generators/archetypes/k16_timber.py`): a window's `shutters`
 (a pair of louvred blinds folded open beside the casing, in the sash's dark green) and a house's

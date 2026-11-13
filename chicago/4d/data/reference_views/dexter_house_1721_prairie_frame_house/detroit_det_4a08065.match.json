@@ -2,7 +2,7 @@
   "structure_id": "dexter_house_1721_prairie_frame_house",
   "view": "detroit_det_4a08065",
   "glb": "assets/gltf/dexter_house_1721_prairie_frame_house__as_standing_1904.glb",
-  "glb_sha256": "ef65b2d87659a242c1518de0d6cee497539999683913d3f937b2c6276452dab8",
+  "glb_sha256": "42d2b4ca63476a1cda178a9002e1df59b48f24ee1b53e6c7be891c6b95ea98d1",
   "camera_sha256": "43ac460f7a76509ca6c7598724e34cee16b45365d9d1b0ec68a7a75132e1e55c",
   "photo_sha256": "60140932328aa19142c1545028a1b2afee6767d3aff79cff3d98cd27cbc87d8c",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "ef65b2d87659a242c1518de0d6cee497539999683913d3f937b2c6276452dab8"
+      "glb_sha256": "42d2b4ca63476a1cda178a9002e1df59b48f24ee1b53e6c7be891c6b95ea98d1"
     },
     {
       "structure_id": "pullman_house_1729_prairie",
@@ -64,7 +64,7 @@
       "glb_sha256": "092e76dcde4f57f85b6803868ac97f553702cd02eea73151a1b85ae24c85947c"
     }
   ],
-  "group_sha256": "d3f7048eb7e890ae5bccb1119e883df43cc6ed32d9353bbbbfaf4dd7d609ebdb",
+  "group_sha256": "39500cbc55d629b5d624b9cd67718e1f3a4cf0c664e38eae34e69e46bdc3fa28",
   "rendered_flora": {
     "season": "winter",
     "creeper_in_leaf": true,
@@ -183,6 +183,10 @@
     },
     {
       "what": "the frame house's paint: on the print its clapboard reads about the value of Little's buff brick and a step lighter than the Pullman house's stone, its eaves, casings and blinds darker; the render now carries a mid-toned fawn body with dark brown trim and green blinds (the owner, 2026-11-13: not white)",
+      "status": "fixed"
+    },
+    {
+      "what": "the frame house's roof and stacks: the print gives the roof a mid-dark tone between the clapboard and the trim, now weathered wood shingle, and the stacks lighter than the clapboard, now buff common brick (the owner, 2026-11-13)",
       "status": "fixed"
     }
   ],

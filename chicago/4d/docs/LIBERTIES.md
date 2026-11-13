@@ -27236,9 +27236,18 @@ because the build's south wall is still flush with the corner bay (the open set-
 plan, its K15 stone, three corbel courses and 0.15 m cap, and three of the kit's tall pots where the
 print shows three or four taller ones. The sunk panels the oblique draws on its south face are not
 built (K15 lays a panel's recess in brick). The north stack takes the same head.
+**The door's pediment and the stoop's newels (T-3562, a piece of T-1893).** Read off the square-on
+print: a stone pediment over the door on two small carved brackets beside the transom, its apex at
+about 5.86 m and a carved finial to about 6.27 m; and the stoop's cheek walls falling to a square
+stone newel at each foot under a cap and a ball knob. Built as K01's bracketed door hood with a
+pediment in place of its railing (`entrance_kit.hood.pediment`, a K01 option this ticket added) in the
+front's stone, and K07's swept cheeks with their newels. Invented: the pediment's width (1.72 m, where
+the print's is 2.55 m, held clear of the build's narrow pavilion), its 0.3 m projection, its plain
+tympanum (the print's is carved), the brackets' scroll (the kit's) and the finial's square block (the
+print's is a carved anthemion); the cheeks' sweep and the newels' heights within K07's ranges.
 **What is not built.** The pavilion's full 4 m width (K01 cannot cut a door through a
-projection, so it stands 2.45 m wide north of the door), the door's pedimented hood on carved
-brackets, the stoop's newels and cheek walls, the narrow light over the door (built at the storey's
+projection, so it stands 2.45 m wide north of the door), the basement doorway under the stoop's
+landing and the stoop's arched underside, the narrow light over the door (built at the storey's
 sash width), the dormer's finial and the roofs' cresting and cross finial, and the rock-faced south
 flank: open on the match record. The oblique print (camera solved by T-3156) also shows the corner bay running about 0.75 m
 south of the main front's south corner, as the square-on does, where the build sets it flush.
@@ -27255,7 +27264,7 @@ is built to the photographs, which is a choice, not a finding.
 **How to resolve:** a dated picture or permit for the remodel settles which front stood in 1904;
 the rest stands open on the two match records.
 **Covers:** `sears_meeker_house_1815_prairie.as_mapped_1904.form.wall_thickness_front_m`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.wall_thickness_side_m`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.service_wall_brick`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.roof_pitch_deg`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.stair_tread_m`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.stair_landing_depth_m`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.side_bays`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.rear_bays`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.rainwater`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.window_kit`
-**Ticket:** T-3155 (piece 1 of T-1893), T-3156 (piece 2), T-3561 (the cornice's consoles and the south stack).
+**Ticket:** T-3155 (piece 1 of T-1893), T-3156 (piece 2), T-3561 (the cornice's consoles and the south stack), T-3562 (the door's pediment and the stoop's newels).
 **Review:** `docs/RESEARCH/k01-1815-sears-1893/README.md`.
 **Recorded:** 2026-10-25 (T-3155).
 
@@ -42840,6 +42849,36 @@ any account of the household's comings and goings by the court.
 **Ticket:** T-3524.
 **Recorded:** 2026-11-08 (T-3524).
 
+### L-prairie-front-passages-3554 — Every built 1904 front door and every back door opens and shuts as its household passes, up its own stoop
+
+**Decision:** the front door of each 1904 house whose model builds its leaf (46 of them: `door_leaf`) is hung to
+swing for the people drawn going in and out (`renderers/web/js/house-doors.js` § passages, `registerDoorPlans`), as
+L-glessner-passages-3524's are: the baked leaf is lifted out of the house's batch at load and hung on its right-hand
+jamb (seen from outside), swinging inward through 90 degrees in 1.2 s, an opening wider than 1.6 m (Hibbard's,
+Wheeler's, Moulton's) as a pair meeting in the middle, each leaf on its own jamb. Behind it is a dark vestibule
+like Glessner's (the house models are hollow behind their 0.8 m backing). Someone whose day takes them in walks to the foot of the stoop, up its treads to
+the door, which opens before them, through it, and is indoors only past the leaf; one answering a knock stands at
+the stoop's foot. The way is read off the built model (`tools/derive_doors_scene.py` `stoop_way`): over a 0.1 m grid
+of what is built in front of the door, it climbs at most 0.26 m a step, passes nothing standing between a knee and a
+head over the tread, keeps 0.35 m (a skirt's half-width) off every drop, cheek and rail, and turns where a side
+stoop turns (Dent's, Keith's, the two Glessner children's). The owner, 2026-11-12: *"make sure they are openable and
+closeable for a person to enter and make sure that people can walk up the stairs instead of vanishing into the
+staircase"*. Each house's back door (L-prairie-back-yards-3488's, on its built rear wall) is hung the same way
+(`renderers/web/js/back-yards.js`): its leaf on the jamb away from its knob, swinging OUT through 95 degrees in 1.2 s
+over its landing, because the house behind its wall is not modelled; behind it the wall is painted the dark of a
+doorway. Its way runs up the middle of its stoop, one waits 0.95 m out on the landing while the leaf swings past,
+and one answering stands 0.7 m beyond the stoop's foot.
+**What it stands on:** each front leaf, its sill and head, and every tread and landing are the house model's own, as
+its generator built them; each back door and stoop is L-prairie-back-yards-3488's. Nothing about the doors is
+measured from a source here.
+**What is invented:** the hinge side, that each front door swings inward and each back door outward, how far and
+how fast; a pair for a wide opening; the vestibule behind a front door and the dark behind a back one;
+the line walked up each stoop (the grid's cheapest, kept off its edges), the skirt's half-width, and the riser ease
+(0.12 m each side of a riser); where one answering stands.
+**How to resolve:** a photograph of any of these doors open, or a plan of its entrance hall.
+**Ticket:** T-3554.
+**Recorded:** 2026-11-12 (T-3554).
+
 ### L-1812-garrison-dress-3523 — The 1812 garrison dressed by rank and duty, and its muskets carried by duty
 
 **Decision:** the owner, 2026-11-08, beside an Ogden-style plate of the army about 1812: *"and all the men soldiers have the same hats? Dont the soldiers have different appearance based on rank? and none of them appear to have firearms?"* Every enlisted man of Heald's company stood in the one private's dress and nobody carried a musket. No new figure is made (the published site's 432 MB budget, the 1812 phone's 350 MB): `docs/RESEARCH/people-1812-3462/garrison_dress.py` (run by `place.py`) writes `data/humans/variation/dress_1812_garrison.json`, which recolours and hides pieces of the figures already drawn and names what `renderers/web/js/human-garrison.js` draws on each man's own bones at load. Six things are ours. (1) **Rank marks**: a sergeant's two white worsted epaulettes and a corporal's one on the right shoulder, read by analogy from the light dragoons' rule printed in 1814; the worsted's white and the epaulettes' size and fringe. (2) **Musicians**: the drummers' and fifers' coats red faced blue, read from Krimmel's volunteer drummer for the regulars; the drum's blue shell, red hoops and white cords; a fifer's fife case at the hip in place of the cartridge box. (3) **Officers**: the lieutenant's and the ensign's silver epaulette on the left shoulder (the ensign's is not recorded; he is given the lieutenant's), a crimson sash round the waist for the three line officers on the 14th as on a tour of duty, the surgeon's mate's black collar, cuffs and plume. (4) **Fatigue**: the men at their work (the gardens, the bake house, the armourer's, the wharf, the cornfield at the forks) in the issued fatigue clothes, drawn on the 1812 settler's working body recoloured to unbleached linen: a shirt, a white waistcoat on three in four, a black stock, loose linen trousers, a round hat of his own on one in three and the rest bareheaded; the frock itself is not drawn, and no fatigue cap (none was issued). The fatigue party drawn up on the parade to be told off stands in its coats. (5) **Arms and how they are carried**: a musket of the 1795 Springfield / Charleville pattern with its bayonet fixed, its stock, lock, bands and sling shaped by us to the arm's regulation length; sentries walking their posts and men walking out from the pickets at the shoulder (the butt in the left hand, the lock turned out), the guard's sergeant and corporal and the sentry by the south-east blockhouse at the order; men at chores without; the cornfield party's three muskets piled at the field's edge, the man walking back to the fort leaving his there. (6) **Who**: which man wears what follows his rank on the muster-roll and the station T-3462 gave him.
@@ -43614,6 +43653,8 @@ or a read bill of sale; a planting account locating the trees rather than merely
 
 **Recorded:** 2026-11-11.
 
+**T-3553 stand-ins chosen by the owner, 2026-11-12:** No photograph of William L. Grey or of Sarah Grey (2010 Prairie Avenue) was found. The owner supplied two sepia portraits and asked that they be used as the Greys' likenesses ("since we do not have photos of them you can use these likenesses"; "their faces must match exactly"; "their build match is important"). Their sitters, makers and dates are not recorded, so both are stand-ins, as the Glessner household's are (T-3478), graded reconstructed, and each card shows its picture labelled "STAND-IN, NOT" the person. The faces are fitted to about 400 points a face-landmark model finds on each picture, each tied to a vertex of the body's face by rendering that face at five turns and finding the same points on the renders (tools/face_landmark_correspondence.py); the fitted face, rendered and measured the same way, lands within about 3% of the eye span of the picture's points. The depth of the chin, jaw and nose cannot be read from one near-frontal picture and are left at the body's own. Each is drawn at the age the picture shows (about 50 and 45), not their 1904 census ages of 64 and 54, so the face is the picture's; their records keep the census ages. Their builds are read by eye (he heavy-set and thick-necked, she slight). The hair (his long, wavy and swept back, with a full trimmed beard over the chin and cheeks and a full moustache; hers drawn up to a knot on the crown, the lady's body's own bun turned up from the nape), the brows set at the pictures' height over the eyes, the hair colours read from sepia tones, and the cloth colours (a dark brown three-piece suit; a dark brown day dress, its white lace collar the lady's own shirtwaist collar and jabot) follow the pictures. The cameo brooch, earrings, watch chain, the cut of the sack coat and sleeves, the skin's own marks and Sarah's thinner lower lip (the face kit cannot thin it below the body's) are not modelled.
+
 ### L-prairie-people-3548 — Household figures, doors and days (T-3548, 2026-11-11)
 
 **Decision:** The 1904 household roster supplies identity, household, recorded birth and graded presence. A birth year alone is treated as a mid-year birthday for scene age. Unpictured adults reuse the already available period role bodies, with individual faces, colouring, stature, hair and cloth. Activities, daily times, seasons, company and short outings are reconstructed. Only a bounded nearby rotation needs meshes; door calls can request other available residents. Aliases and collective entries do not become additional actors; former residents remain on cards without appearing in 1904. For draft houses with no door mesh, an entrance at the middle of the street-facing front is explicitly reconstructed, not a survey reading.
@@ -43691,17 +43732,16 @@ Robinson's 1886 plate colours the house yellow and draws its south side stepped;
 print show clapboard.
 **What is invented.** The depth the wings stand out (2.2 m, and the bays 0.8 m more: the print sees the
 front almost square on), the bays' plan, the fourth stack (the owner's symmetry; the print's elm hides
-where it would stand), every window on the north, east and wing-side walls, the paint's hues, slate on the
-roof, and the house's place in 1904: the print shows it before the brick front was moved back in
+where it would stand), every window on the north, east and wing-side walls, the paint's hues, the roof's wood shingles, and the house's place in 1904: the print shows it before the brick front was moved back in
 1901-02 (Tribune, 28 Nov. 1901), and the house is kept where the print puts its front, 4 m east of the
 1911 sheet's range, the part of it the moved front now stands on not built. The 1911 sheet colours its
 range brick and draws it 6.2 m deep with no wings; the print, the 1886 plate and the owner's ruling are
 followed over it (docs/RESEARCH/k16-1721-frame-house-3566/README.md).
-**The paint** (the owner, 2026-11-13: *"I am not convinced the color of the building is white ... Given the Victorian style I imagine a main color and a couple detail colors"*). Every picture of the house is black and white, so only its tones are read: on the Detroit print the clapboard stands at about the value of Little's buff brick beside it, a step lighter than the Pullman house's stone and far darker than the walks, and the eaves, casings and blinds read well darker than the body. The hues are chosen for that pattern in the three-colour manner of a frame house repainted in the 1880s beside a buff brick front: a fawn drab body, seal-brown trim (casings, cornice, brackets, porch, bay skirts) and deep bronze-green sash and blinds. No source names a colour.
+**The paint** (the owner, 2026-11-13: *"I am not convinced the color of the building is white ... Given the Victorian style I imagine a main color and a couple detail colors"*). Every picture of the house is black and white, so only its tones are read: on the Detroit print the clapboard stands at about the value of Little's buff brick beside it, a step lighter than the Pullman house's stone and far darker than the walks, and the eaves, casings and blinds read well darker than the body. The hues are chosen for that pattern in the three-colour manner of a frame house repainted in the 1880s beside a buff brick front: a fawn drab body, seal-brown trim (casings, cornice, brackets, porch, bay skirts) and deep bronze-green sash and blinds; the stacks and underpinning a buff Chicago common brick (they read lighter than the clapboard, as buff brick does on such a plate and red does not), the roof weathered wood shingle (a mid-dark tone, too light for slate). No source names a colour or a roofing.
 **How to resolve:** a picture of the house between 1902 and 1911, a plan of the 1902 work, or the 1906
 Sanborn sheet would settle what stood behind the moved front, how far the wings stood out, and its colour.
 
-**Also stated, not shown in full:** the roof's slate (the print gives a dark roof, not its material); the clapboard and the two storeys drawn as the kit's simplified frame walls and floors. **Covers:** `dexter_house_1721_prairie_frame_house.as_standing_1904.form.roof_covering`, `dexter_house_1721_prairie_frame_house.as_standing_1904.form.construction`, `dexter_house_1721_prairie_frame_house.as_standing_1904.form.stories`.
+**Also stated, not shown in full:** the roof's wood shingles (the print gives a mid-dark roof, not its material); the clapboard and the two storeys drawn as the kit's simplified frame walls and floors. **Covers:** `dexter_house_1721_prairie_frame_house.as_standing_1904.form.roof_covering`, `dexter_house_1721_prairie_frame_house.as_standing_1904.form.construction`, `dexter_house_1721_prairie_frame_house.as_standing_1904.form.stories`.
 **Ticket:** T-3566.
 **Recorded:** 2026-11-12.
 
