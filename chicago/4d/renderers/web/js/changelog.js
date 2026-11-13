@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2928, ts: '2026-11-13T12:47:27.112Z', date: 'Nov 13, 2026, 6:47 AM CT', title: '1815 Prairie\'s south side is rock-faced stone, with its dormer', kind: 'improvement',
+    items: [
+      'The south side of the Sears house at 1815 Prairie is now rough rock-faced stone, as the old photograph from the south-west shows it, where it used to be plain brick.',
+      'The gabled dormer on that side of the roof now stands just behind the tall chimney, where the photograph puts it.',
+    ] },
   { v: 2927, ts: '2026-11-13T12:44:29.402Z', date: 'Nov 13, 2026, 6:44 AM CT', title: 'The Fort Dearborn monument moved to where its photographs put it', kind: 'fix',
     items: [
       'The Fort Dearborn Massacre monument on 18th Street now stands about 5 m further east, by the curve into Calumet Avenue, where the Detroit Publishing print of the Pullman house puts it.',
