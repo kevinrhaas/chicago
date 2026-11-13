@@ -43938,3 +43938,16 @@ door's hinge and swing, as L-prairie-front-passages-3554's.
 **Re-opens on:** a recording or a contemporary description of how one of the speakers sounded, which would bound their voice.
 **Ticket:** T-3578.
 **Recorded:** 2026-11-13.
+
+### L-1904-nature-sounds-3585 — Robins in the parkway elms, cicadas and crickets on the 1904 street
+
+**Decision:** the owner, 2026-11-13: *"i am in 1904 and when i have the ambience on i do not hear many birds this is in summer daytime and i would think there would be birds to hear"*, then *"and insects as well?"* and *"other appropriate nature ambiance"*. 1904 had no habitat sound at all, only a faint leaf rustle. Its nature sounds now come from the scene's own parkway elms (`data/street_trees/1904.json`), using recordings already licensed, verified and hosted for 1812 and 1835 (`assets/audio/intake.json` `town_placements`, read by `renderers/web/js/habitat-town.js`):
+- **American robin** at dawn, by day and at dusk in spring and summer, sparser in fall, never in winter: Woodruff's 1907 *Birds of the Chicago Area* has it "an abundant summer resident, arriving early in April, and departing in October", and the Illinois DNR account places it in residential areas. A phrase is anchored in the crown of one mature parkway elm 24-110 m away, 9 m above its ground, and begins only behind the listener. Turning toward the tree does not stop it, because the bird is inside a drawn crown, never a body in the open; walking within 24 m or beyond 110 m does.
+- **Annual cicadas** (the owner-approved Italian proxy) on summer afternoons, and **field crickets** (the Ontario proxy) at summer dusk and night, play only while the listener is within 45 m of a parkway elm, so the bed belongs to the tree-lined street and its grass.
+- **True katydid** on summer nights only from 20 July, so the scene's 1 July stays silent as the fauna record has it, and a later-dated 1904 jaunt stop can hear it.
+No insect sounds outside summer. Gains, gaps, the 9 m crown height and the 24/110/45 m distances are listening choices, not measurements; the single habitat voice and its 12-25 s global gap are unchanged, so the street keeps real silences.
+**Not invented:** the elms and where they stand (their own sources and L-prairie-parkway-elms-2473); the robin's season (woodruff_1907_birds_chicago_area, illinois_dnr_american_robin); the insects' phenology, carried from the dated fauna records (`data/fauna/zones/f06_north_timber.json`, `f01_wet_prairie.json`) as the 1812 reconstruction carries it.
+**Left out on purpose:** the house sparrow, the commonest street bird of 1904 (Woodruff's "imported sparrows"), has no licensed recording in the library yet, so it is not heard rather than faked with another bird. No European starling: it is not in Woodruff's 1907 list and reached Chicago later.
+**Re-opens on:** a licensed house-sparrow or chimney-swift recording, or a period account of Prairie Avenue's birds, insects or trees.
+**Ticket:** T-3585.
+**Recorded:** 2026-11-13.

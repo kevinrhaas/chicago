@@ -5958,6 +5958,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_habitat_audio_1904.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_habitat_audio_package.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -6454,11 +6458,11 @@
       "wrote": [],
       "wrote_ignored": []
     },
-    "tools/test_k08_stage_pilasters.py": {
+    "tools/test_k08_scrolled_pediment.py": {
       "wrote": [],
       "wrote_ignored": []
     },
-    "tools/test_k08_scrolled_pediment.py": {
+    "tools/test_k08_stage_pilasters.py": {
       "wrote": [],
       "wrote_ignored": []
     },

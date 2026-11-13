@@ -4,6 +4,8 @@
 // bird/mammal proxies are distant, offscreen calls with fixed world anchors.
 import { seasonalHabitatScene, seasonalHabitatPlacement, seasonalHabitatEligible, seasonalSourceProfile }
   from './habitat-seasons.js';
+import { TOWN_HABITAT, townHabitatScene, townHabitatPlacement, townHabitatEligible, parkwayElms, nearestElm }
+  from './habitat-town.js';
 export const HABITAT_AUDIO_LIMITS = Object.freeze({
   voices: 1, decodedBytes: 24 * 48000 * 4, sourceSeconds: 24, sampleRate: 48000,
   birdNearMetres: 36, birdFarMetres: 96,
@@ -35,9 +37,12 @@ function validScene(env, year) {
     && (env.temperatureC == null || (finite(env.temperatureC) && env.temperatureC > 0));
   const seasonal1812 = seasonalHabitatScene(env, year)
     && (env.temperatureC == null || finite(env.temperatureC));
+  const camera = finite(env?.camera?.position?.x) && finite(env?.camera?.position?.y) && finite(env?.camera?.position?.z);
+  // T-3585: 1904's habitat is its parkway elms, not a flora zone; it needs no zone finder.
+  if (townHabitatScene(env, year)) return env.terrain?.loaded === true && camera
+    && (env.temperatureC == null || finite(env.temperatureC));
   return (dated1835 || seasonal1812) && env?.terrain?.loaded === true
-    && typeof env.flora?.zoneAt === 'function'
-    && finite(env.camera?.position?.x) && finite(env.camera?.position?.y) && finite(env.camera?.position?.z);
+    && typeof env.flora?.zoneAt === 'function' && camera;
 }
 
 function zoneAt(env, x, z) {
@@ -97,6 +102,7 @@ function recordFor(env, placement, floraZone, period) {
 
 function placementFor(asset, year, env) {
   if (String(year) === '1812') return seasonalHabitatPlacement(asset, env, year);
+  if (String(year) === TOWN_HABITAT.scene) return townHabitatPlacement(asset, env, year);
   if (asset.runtime_enabled !== true || !asset.approved_eras?.includes(String(year))) return null;
   const p = asset.scene_placement;
   if (!p || (p.scene_id != null && p.scene_id !== '1835') || p.scene_date !== '1835-07-01' || !MODES.has(p.mode)
@@ -113,6 +119,7 @@ function placementFor(asset, year, env) {
  * At most 3 rings x 16 samples are asked for a bird, once per second while idle. */
 export function habitatCandidates(catalog, env, year, { birds = true, birdPhase = 0 } = {}) {
   if (!validScene(env, year)) return [];
+  if (String(year) === TOWN_HABITAT.scene) return townCandidates(catalog, env, year, { birds, birdPhase });
   const period = habitatPeriod(env), hour = hourOf(env.time.hhmm);
   if (!period) return [];
   const eye = env.camera.position, here = zoneAt(env, eye.x, eye.z), result = [];
@@ -153,8 +160,63 @@ export function habitatCandidates(catalog, env, year, { birds = true, birdPhase 
   return result;
 }
 
+/** T-3585: 1904 robins sing from one real parkway elm's crown, 24-110 m away and
+ * behind the listener when the phrase begins; insect beds need the listener on
+ * the parkway, near its trees. At most 415 trees are read, once per second. */
+function townCandidates(catalog, env, year, { birds, birdPhase }) {
+  const period = habitatPeriod(env), hour = hourOf(env.time.hhmm);
+  if (!period) return [];
+  const eye = env.camera.position, elms = parkwayElms(env), near = nearestElm(env, elms), result = [];
+  for (const asset of catalog?.assets ?? []) {
+    const p = placementFor(asset, year, env);
+    if (!p || !townHabitatEligible(p, env, period, hour)) continue;
+    if (p.mode === 'habitat-insects') {
+      const gain = near <= TOWN_HABITAT.insectReach ? insectGain(env, p) : 0;
+      if (gain > 0) result.push({ asset, placement: p, zone: TOWN_HABITAT.habitat, gain, mode: p.mode });
+      continue;
+    }
+    if (!birds) continue;
+    const perches = [];
+    for (const t of elms) {
+      const ground = groundAt(env.terrain, t.x, -t.z);
+      if (!finite(ground)) continue;
+      const y = Math.max(0, ground) + TOWN_HABITAT.crownHeight;
+      const distance = Math.hypot(t.x - eye.x, y - eye.y, t.z - eye.z);
+      if (distance < TOWN_HABITAT.birdNear || distance >= TOWN_HABITAT.birdFar) continue;
+      if (!behindListener(env.camera, t.x, y, t.z)) continue;
+      perches.push({ tree: t.id, x: t.x, y, z: t.z, distance });
+    }
+    if (!perches.length) continue;
+    const turn = ((birdPhase % (Math.PI * 2)) + Math.PI * 2) % (Math.PI * 2);
+    const perch = perches[Math.min(perches.length - 1, Math.floor(turn / (Math.PI * 2) * perches.length))];
+    result.push({ asset, placement: p, zone: TOWN_HABITAT.habitat, mode: p.mode, tree: perch.tree,
+      anchor: { x: perch.x, y: perch.y, z: perch.z },
+      gain: p.gain * (1 - perch.distance / TOWN_HABITAT.birdFar) ** 2 });
+  }
+  return result;
+}
+
+function townStillEligible(candidate, catalog, env, year) {
+  const asset = catalog?.assets?.find(a => a.id === candidate.asset.id);
+  const p = placementFor(asset, year, env), period = habitatPeriod(env), hour = hourOf(env.time.hhmm);
+  if (!p || !period || p.id !== candidate.placement.id || asset.delivery?.sha256 !== candidate.asset.delivery?.sha256
+    || !townHabitatEligible(p, env, period, hour)) return false;
+  if (p.mode === 'habitat-insects') {
+    candidate.gain = nearestElm(env) <= TOWN_HABITAT.insectReach ? insectGain(env, p) : 0;
+    return candidate.gain > 0;
+  }
+  // A phrase that began out of sight keeps singing if the visitor turns toward
+  // its tree: the bird is in a crown the scene draws, never a body in the open.
+  const { x, y, z } = candidate.anchor, eye = env.camera.position;
+  const distance = Math.hypot(x - eye.x, y - eye.y, z - eye.z);
+  if (distance < TOWN_HABITAT.birdNear || distance >= TOWN_HABITAT.birdFar) return false;
+  candidate.gain = p.gain * (1 - distance / TOWN_HABITAT.birdFar) ** 2;
+  return true;
+}
+
 function stillEligible(candidate, catalog, env, year) {
   if (!validScene(env, year)) return false;
+  if (String(year) === TOWN_HABITAT.scene) return townStillEligible(candidate, catalog, env, year);
   const currentAsset = String(year) === '1812'
     ? catalog?.assets?.find(a => a.id === candidate.asset.id) : candidate.asset;
   const p = placementFor(currentAsset, year, env), period = habitatPeriod(env), hour = hourOf(env.time.hhmm);

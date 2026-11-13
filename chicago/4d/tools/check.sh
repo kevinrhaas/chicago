@@ -319,6 +319,8 @@ step "Recorded transport follows moving dated actors with bounded spatial voices
   node tools/test_transport_audio.mjs
 step "1812 nature follows actual seasonal habitats with sparse wildlife and cold-season silence (T-3551)" \
   node tools/test_habitat_audio_1812.mjs
+step "1904 nature sounds perch in the parkway elms by season: robins, afternoon cicadas, dusk crickets, silent winter (T-3585)" \
+  node tools/test_habitat_audio_1904.mjs
 step "1812 hoof events follow actual gait crossings without paused-frame catch-up (T-3551)" \
   node tools/test_hoof_contact_events.mjs
 step "Recorded dirt and snow hoof proxies preserve mechanics and bounded decode/voice budgets (T-3551)" \

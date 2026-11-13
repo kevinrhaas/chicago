@@ -34,6 +34,19 @@ The owner uploaded the selected MP3, and full public verification passed for its
 
 Other audition candidates remain inactive: [McClintock Bay](https://freesound.org/people/SoundsLikeYukon/sounds/758708/) includes a possible faint dock cleat/flagpole clang; [Pier Lap](https://freesound.org/people/craigsmith/sounds/438839/) has wooden-dock character. The selected [Manitoulin recording](https://freesound.org/people/TRP/sounds/575244/) retains its rocky-lake provenance rather than being relabelled a historical Chicago recording.
 
+### 1904 nature sounds — T-3585 (2026-11-13)
+
+The owner heard few birds in 1904 summer daytime: 1904 had no habitat sound at all, only the 0.012 leaf rustle. It now has its own `town_placements` (catalogue and intake), read by `renderers/web/js/habitat-town.js` through the existing habitat scheduler, on four recordings already licensed and verified on R2, so no new bytes are uploaded or shipped:
+
+| Recording | 1904 seasons and hours | Where |
+|---|---|---|
+| robin-calls | spring and summer dawn/day/dusk (gaps 25–55 s, 20–45 s), fall dawn/day (90–180 s) | one mature parkway elm's crown, 9 m up, 24–110 m away, behind the listener when the phrase begins |
+| summer-cicada-proxy | summer, after noon, day/dusk | listener within 45 m of a parkway elm |
+| summer-crickets | summer dusk/night | listener within 45 m of a parkway elm |
+| late-summer-katydid | summer nights from 20 July only (silent on the scene's 1 July) | listener within 45 m of a parkway elm |
+
+The habitat is the scene's own `data/street_trees/1904.json` (main.js passes `streetTrees` into the audio environment); a date whose own season disagrees with the visitor's season stays quiet; winter is silent and no insect plays outside summer. The robin's season rests on Woodruff 1907 (`woodruff_1907_birds_chicago_area`: abundant summer resident, early April to October) and the Illinois DNR account. Unlike the 1835 red-wing, a robin phrase that has begun is not cut when the visitor turns toward its tree, since it sings inside a drawn crown. One habitat voice and the 12–25 s global gap are unchanged. The house sparrow, 1904's commonest street bird, has no licensed recording yet and is left silent rather than faked; the European starling is excluded (not in Woodruff's 1907 list). Liberty: L-1904-nature-sounds-3585. Test: `tools/test_habitat_audio_1904.mjs`.
+
 ### Pre-integration pilot checkpoints
 
 This is a local, reviewable foundation, not a completed town soundscape or a
