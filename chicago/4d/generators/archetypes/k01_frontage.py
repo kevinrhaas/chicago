@@ -5106,8 +5106,14 @@ class Assembly:
         if not v_deck < vc:
             raise ValueError(f"{b['id']}: the slate over a chamfer's return leans in to the side face's foot of "
                              f"the deck, which stands behind the return ({v_deck:.3f} of {vc:.3f})")
-        lean = lambda y: vc - 0.02 + (v_deck - vc) * (y - y_wt) / (y_curb - y_wt)
-        self.meta_return["over_top"] = {"deck_v_m": round(v_deck, 4)}
+        # It stops 0.05 m behind that foot at the curb, not 0.02: the side face the cut leaves
+        # between it and the front slope's trace narrows to its top, and at 0.02 that face was a
+        # 3 cm sliver whose triangles fanned to within the 1 mm weld of the trace and passed
+        # through the front slope's own (the K05 gate's crossing rule, 4 pairs); at 0.05 the
+        # face holds its width and nothing crosses, 3 cm the eye cannot take at the hood
+        v_top = v_deck - 0.05
+        lean = lambda y: vc - 0.02 + (v_top - (vc - 0.02)) * (y - y_wt) / (y_curb - y_wt)
+        self.meta_return["over_top"] = {"deck_v_m": round(v_deck, 4), "lean_top_v_m": round(v_top, 4)}
         return [solid(ct - 0.01, y_wt, vc - reach), solid(y_wt - 0.01, y_curb - 0.05, lean)]
 
     @staticmethod
