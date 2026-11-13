@@ -10786,9 +10786,9 @@
      "reconstructed": "Front leaf read from the built door material; the way up to it is read off the built stoop's treads (derive_doors_scene.py stoop_way), and one answering stands at its foot. The leaf opens and shuts as they pass (house-doors.js passages, T-3554); its hinge side and swing are reconstructed."
     }
    ],
-   "asset_sha256": "3809ab96a6f275ef70e55496a828c12a61127f98b6ffb3051e278fafd65499c3",
+   "asset_sha256": "7bf6166f27bb4479452504a156ea0620f989bf2182e78f7b998e92d00aeca73a",
    "barrier": {
-    "key": "3b83277781dbaf83",
+    "key": "af021b72204ba597",
     "cell": 0.1,
     "u0": -8.1,
     "v0": -1.4,

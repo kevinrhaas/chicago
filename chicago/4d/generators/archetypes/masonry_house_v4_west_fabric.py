@@ -33,5 +33,7 @@ def stable_window(b, o):
     for i in range(1,rows):
         z=z0+(z1-z0)*i/rows
         v.slab(b,o,a+frame,c-frame,z-.004,z+.004,-.247,-.235,conf,v.IRON)
-    if not dormer:
-        v.slab(b,o,a-.05,c+.05,z0-.055,z0+.005,-.025,.075,conf,v.GRANITE)
+    # The window-surround fix: no sill stone is laid proud of the wall here. The owner's
+    # 2026-11-10 photograph 17 shows these alley lights cut square into the coursing, a
+    # course stone's top their sill, and a 7.5 cm slab came out in pieces under the rock
+    # faces that bulge past it. Their heads and sills now stand on course joints.

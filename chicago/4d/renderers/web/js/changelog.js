@@ -1,4 +1,14 @@
 export const CHANGELOG = [ // newest first
+  { v: 2951, ts: '2026-11-13T22:35:46.036Z', date: 'Nov 13, 2026, 4:35 PM CT', title: 'Glessner\'s windows sit square in their stone courses', kind: 'fix',
+    items: [
+      'The stable\'s alley windows and its 18th Street loft lights now stand on the stone joints, so the stones around them are no longer notched or split.',
+      'The loose sill pieces under the alley windows are gone; as Kevin\'s photograph shows, the course stone below each opening is its sill.',
+      'The front walk on Prairie Avenue runs down flush onto the public sidewalk, with no raised lip and no grass showing along the seam.',
+    ] },
+  { v: 2950, ts: '2026-11-13T22:15:07.403Z', date: 'Nov 13, 2026, 4:15 PM CT', title: '1815 Prairie\'s north chimney stands where its photograph shows it', kind: 'fix',
+    items: [
+      'The north chimney moves out onto the north wall over the stair projection, where the street-front photograph shows it, and loses the two clay pots it never had.',
+    ] },
   { v: 2949, ts: '2026-11-13T21:48:10.864Z', date: 'Nov 13, 2026, 3:48 PM CT', title: 'The narrator speaks first, and Next Stop stops the voice', kind: 'fix',
     items: [
       'Starting The Glessner Household, the narrator reads the title and Background, then John Glessner speaks, even when the flight lands before the voices have loaded.',

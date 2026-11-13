@@ -784,6 +784,12 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                    ("curb_width_ft", "curb_height_ft", "corner_radius_ft", "joint_spacing_ft",
                     "joint_width_ft", "step_run_ft", "paving_joint_spacing_ft", "porte_threshold_depth_ft")},
                 "conf": cf("prairie_frontage"),
+                # The street end's own height and tuck under the public walk (2026-11-13),
+                # only where the record gives them, so older versions resolve as they did.
+                **({"street_end_z": fr.zval(fg["street_end_z"]),
+                    "street_end_tuck_m": float(fg.get("street_end_tuck_ft", 0.0)) * FT,
+                    "street_end_run_m": float(fg.get("street_end_run_ft", 0.0)) * FT}
+                   if "street_end_z" in fg else {}),
             }
         raw = val("v4_detail", {})
         es = raw.get("prairie_entry")
