@@ -863,9 +863,9 @@
     "fort_dearborn_massacre_monument_1893__on_18th_street_1893.glb": {
       "archetype": "monument",
       "baked_ao": false,
-      "bytes": 149508,
+      "bytes": 149512,
       "generator": "generators/monument_emit.py",
-      "inputs_sha256": "6f1738c043d0eb10012550c2e738db2f2cc2e952618a082afe81b88e10458b04",
+      "inputs_sha256": "e3f0aa8260c1412599782b27d7a760ddefb56a2721e00771d3fcc673de32868b",
       "kind": "generated",
       "phase_id": "on_18th_street_1893",
       "structure_id": "fort_dearborn_massacre_monument_1893"

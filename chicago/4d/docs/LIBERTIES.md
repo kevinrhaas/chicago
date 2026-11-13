@@ -43737,8 +43737,8 @@ there from 1893 to 1931, its five figures and their places, the pedestal's steps
 and their proportions are the photographs'** (the Barnes-Crosby view ICHi-19208, checked on J. W.
 Taylor's 1893 view), with the group's "about nine feet" from Wikipedia. **These are this project's:**
 
-- **The depths.** No picture used here sees the pedestal's sides squarely, so the base's, plinth's
-  and die's depths are the widths less margins the group needs (base 3.3 m, plinth 2.3, die 1.9).
+- **The depths** were the widths less margins until T-3568 read them through a camera on Taylor's 1893
+  view (base 2.85 m, plinth 1.8, die 1.6): that part of this liberty is retired.
 - **The figures' modelling.** Each figure is joined from tapered limbs and balls in the pose the
   photographs show, at about 0.2 m; faces, hair, dress folds, the feathers' number, the weapons'
   detail and the whole of the group's rear (no photograph used here shows it; the Inter Ocean's
@@ -43746,14 +43746,16 @@ Taylor's 1893 view), with the group's "about nine feet" from Wikipedia. **These 
   photographs are monochrome.
 - **The panels' reliefs** are flat bronze plates, and **the lettering** under the front panel
   (THE FORT DEARBORN MASSACRE / AUGUST 15, 1812 / BLACK PARTRIDGE SAVING MRS. HELM) is not cut.
-- **Its place** is good to about 3 m until cameras are solved on its photographs (T-3568).
+- **Its place** is set by T-3568 through cameras on the Detroit print (east and west) and ICHi-19208
+  (north and south), good to about 1.5 m; the Pullman stable's draft stands about 6 m east of where
+  ICHi-19208 shows its end, which is open in that view's match record.
 
 The figures are period sculpture, built as the sculptor made them; the record carries
 `review_required` with its reason, and the card says how the work was received.
 
-**Covers:** `fort_dearborn_massacre_monument_1893.on_18th_street_1893.form.base_d_m`, `fort_dearborn_massacre_monument_1893.on_18th_street_1893.form.plinth_d_m`, `fort_dearborn_massacre_monument_1893.on_18th_street_1893.form.die_d_m`, `fort_dearborn_massacre_monument_1893.on_18th_street_1893.form.lettering`.
+**Covers:** `fort_dearborn_massacre_monument_1893.on_18th_street_1893.form.lettering`.
 
-**Ticket:** T-3567 (piece 1 of T-3565).
+**Ticket:** T-3567 (piece 1 of T-3565); the depths retired by T-3568.
 **Recorded:** 2026-11-12.
 
 ### L-glessner-rock-faces-3564 — Glessner's rock-faced granite: three face profiles shared out by rule

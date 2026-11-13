@@ -12,9 +12,13 @@
   "scene": "1904",
   "target_date": "1904-07-01",
   "grade": {
-    "value": "inferred",
-    "why": "Known from maps or written records; no picture of it has been found.",
-    "pictures": []
+    "value": "attested",
+    "why": "Pictured: 3 of the pictures on the Images tab show it.",
+    "pictures": [
+      "a16-aic-taylor-fort-dearborn-monument-1893",
+      "a16-chm-ichi-19208-monument-pullman-wall",
+      "a16-pullman-det-4a08066"
+    ]
   },
   "documented_range": {
     "from": "1893-01-01",
@@ -26,18 +30,18 @@
     ],
     "note": "Placed in 1893 and moved to the Chicago Historical Society in 1931; neither the day it was set up nor the day it was taken down is read here, so the range is the two years whole. It covers the 1904 scene and neither 1812 nor 1835."
   },
-  "change_note": "Built T-3567 (2026-11-12): the monument stands in the 1904 scene, on the new pure-Python monument archetype.",
+  "change_note": "Built T-3567 (2026-11-12): the monument stands in the 1904 scene, on the new pure-Python monument archetype. Refined T-3568 (2026-11-13): the pedestal's depths read through a camera on Taylor's 1893 view (base 2.85 m, plinth 1.8, die 1.6, were 3.3, 2.3 and 1.9 reconstructed); cameras on ICHi-19208, Taylor 1893 and Detroit LC-D4-12552.",
   "placement": {
-    "local_e": 1494.611,
-    "local_n": -3200.413,
+    "local_e": 1499.4,
+    "local_n": -3200.188,
     "rotation_deg": 359.62,
     "position_confidence": "inferred",
     "position_sources": [
       "chm_barnes_crosby_ichi_19208_fort_dearborn_monument",
       "loc_det_4a08066_pullman_residence"
     ],
-    "position_note": "The base's south-west corner. The base's centre is set 3.25 m south of the parcel's 18th Street line (prairie_1729's south edge, N -3195.5 in data/street_grid/1904.json) and 3.7 m east of the stable's east wall (u -36.4 in the Pullman house's frame, E 1492.8): ICHi-19208, looking north at the monument, has the stable's end at its left and the estate wall close behind; the Detroit print (LC-D4-12552) shows it nearer the camera than the pictured hydrant at the curb (hydrant.pictured.pullman_stable, E 1492.9) and to its right, at the corner where the curb sweeps round. Its place is good to about 3 m: the Detroit camera, fitted on the house 80-90 m off, does not hold its foreground (its record), and no camera is yet solved on ICHi-19208 (T-3568). Rotation 359.62 degrees squares its front to 18th Street's line (bearing 89.62 degrees).",
-    "symbolic_location": "The north walk of E. 18th Street at its east end, where it curves into Calumet Avenue: before the Pullman estate's 18th Street wall, east of the Pullman stable's end (local E 1496.5, N -3198.75 at the base's centre).",
+    "position_note": "The base's south-west corner. Placed by T-3568 through two cameras. EAST AND WEST, the Detroit print LC-D4-12552 (data/reference_views/pullman_house_1729_prairie/detroit_det_4a08066.json, the Pullman house's camera, its heading fitted on the house at 2.4-2.6 px rms): the pedestal's centre stands at x 800 px of the 1024 px print, a bearing of 330.4 degrees from the eye, which crosses the base's centre line (N -3198.76) at E 1501.3, 4.8 m east of T-3567's place by eye (E 1496.5). NORTH AND SOUTH, ICHi-19208 (data/reference_views/fort_dearborn_massacre_monument_1893/chm_ichi_19208.json, fitted on the pedestal alone): the estate wall's foot runs behind the monument at y 775 px, 11.8 m from the eye, 4.1 m north of the base's front, against the parcel's 18th Street line at 4.7 m (prairie_1729's south edge, N -3195.5 in data/street_grid/1904.json); so the base's centre stays 3.25 m south of that line, where T-3567 set it. Good to about 1.5 m east and west (a 10 px error in the Detroit print's bearing is 0.7 m there) and 0.6 m north and south. Two things do not agree with it yet and are open in the match records: the Detroit camera, fitted on the house 80-90 m off, does not hold its foreground and draws the pedestal at about 0.57 of the size the print shows; and through ICHi-19208 the Pullman stable's draft (pullman_house_1729_prairie_ranges) stands about 6 m east of the end the print shows at its left edge. The texts disagree on the place (the 1893 Rand, McNally guide 'at the foot of Eighteenth Street'; the 1905 Views of Chicago 'at Eighteenth Street and Prairie Avenue'; all quoted on Chicagology, no source records); the photographs are followed. Rotation 359.62 degrees squares its front to 18th Street's line (bearing 89.62 degrees); the corner also moved 0.225 m north when the base's depth went from 3.3 m to 2.85 m, so that its centre stays on the line.",
+    "symbolic_location": "The north walk of E. 18th Street at its east end, where it curves into Calumet Avenue: before the Pullman estate's 18th Street wall, east of the Pullman stable's end (local E 1501.3, N -3198.76 at the base's centre).",
     "uncertainty_m": 20,
     "placement_provisional": false,
     "vertical_anchor": "terrain",
@@ -55,11 +59,11 @@
       ],
       [
         3.8,
-        3.3
+        2.85
       ],
       [
         0,
-        3.3
+        2.85
       ]
     ],
     "confidence": "inferred",
@@ -78,12 +82,13 @@
       "note": "Read off ICHi-19208 at the die's plane, taking the die's front as 2.4 m (form.die_w_m): the die's body is 155 px high (y 430-585 of the side-by-side's half-size copy) on 300 px of width, the stage base 80 px, the plinth 60, the cap 35, the group about 270 over the cap. The pedestal so read is 2.7 m to the cap's top and 3.0 m to the rock's, which is the Inter Ocean's 'ten feet' (15 September 1892, quoted on Chicagology; no source record, so a check, not a citation) if its pedestal counts the rock. Width: the base reads 510 px on that 300 px die, 1.7 times it, less the nearer face's perspective (about 9.0 m against the die's 9.6 m): 3.8 m. The WBEZ account's 'eight by nine feet' (2.4 x 2.7 m, no source record) is about the die's size, not the stage the photographs show."
     },
     "base_d_m": {
-      "value": 3.3,
-      "confidence": "reconstructed",
+      "value": 2.85,
+      "confidence": "inferred",
       "sources": [
+        "aic_taylor_1893_fort_dearborn_monument",
         "chm_barnes_crosby_ichi_19208_fort_dearborn_monument"
       ],
-      "note": "No photograph used here sees the base's depth squarely: taken as its width less the 0.5 m by which Taylor's 1893 view (a check, link-only rights) shows the side shorter than the front. L-fort-dearborn-monument-3567"
+      "note": "Fitted on J. W. Taylor's 1893 three-quarter view through its camera (data/reference_views/fort_dearborn_massacre_monument_1893/aic_taylor_1893.json, T-3568), the one picture used here that sees a side of the pedestal: fourteen corners of the base, plinth and die on the front and west faces, fitted together with the camera (level, eye free), with the base's front held at 3.8 m. The side faces read 85 px (base), 77 (plinth) and 61 (die) against fronts of 857, 596 and 546 px, and the fit gives base 2.81-2.89 m, plinth 1.74-1.85 m and die 1.51-1.69 m deep for any eye from 1.4 to 2.4 m over the walk (9.5-11.5 px rms on a die about 220 px a metre, so 0.05 m), and the plinth's and die's widths 2.73-2.75 and 2.47-2.50 m against the record's 2.8 and 2.4, inside the tolerance and left as they were. The base: 2.85 m. Replaces the reconstructed 3.3 m (the width less a margin), which the side shows 0.45 m too deep."
     },
     "base_h_m": {
       "value": 0.65,
@@ -110,12 +115,13 @@
       "note": "Read off ICHi-19208 at the die's plane, taking the die's front as 2.4 m (form.die_w_m): the die's body is 155 px high (y 430-585 of the side-by-side's half-size copy) on 300 px of width, the stage base 80 px, the plinth 60, the cap 35, the group about 270 over the cap. The pedestal so read is 2.7 m to the cap's top and 3.0 m to the rock's, which is the Inter Ocean's 'ten feet' (15 September 1892, quoted on Chicagology; no source record, so a check, not a citation) if its pedestal counts the rock. The plinth: 345 px wide on the die's 300, 2.8 m."
     },
     "plinth_d_m": {
-      "value": 2.3,
-      "confidence": "reconstructed",
+      "value": 1.8,
+      "confidence": "inferred",
       "sources": [
+        "aic_taylor_1893_fort_dearborn_monument",
         "chm_barnes_crosby_ichi_19208_fort_dearborn_monument"
       ],
-      "note": "The plinth's depth, the die's plus the same 0.4 m margin its width shows. L-fort-dearborn-monument-3567"
+      "note": "Fitted on J. W. Taylor's 1893 three-quarter view through its camera (data/reference_views/fort_dearborn_massacre_monument_1893/aic_taylor_1893.json, T-3568), the one picture used here that sees a side of the pedestal: fourteen corners of the base, plinth and die on the front and west faces, fitted together with the camera (level, eye free), with the base's front held at 3.8 m. The side faces read 85 px (base), 77 (plinth) and 61 (die) against fronts of 857, 596 and 546 px, and the fit gives base 2.81-2.89 m, plinth 1.74-1.85 m and die 1.51-1.69 m deep for any eye from 1.4 to 2.4 m over the walk (9.5-11.5 px rms on a die about 220 px a metre, so 0.05 m), and the plinth's and die's widths 2.73-2.75 and 2.47-2.50 m against the record's 2.8 and 2.4, inside the tolerance and left as they were. The plinth: 1.8 m. Replaces the reconstructed 2.3 m."
     },
     "plinth_h_m": {
       "value": 0.5,
@@ -134,12 +140,13 @@
       "note": "The die's width, the scale of the other readings: its width over its height is 1.94 on ICHi-19208 and 1.82 on Taylor's 1893 view; 2.4 m is the WBEZ account's eight feet (no source record), the figure the group's 'about nine feet' (Wikipedia) also fits, at the photograph's group-to-die ratio."
     },
     "die_d_m": {
-      "value": 1.9,
-      "confidence": "reconstructed",
+      "value": 1.6,
+      "confidence": "inferred",
       "sources": [
+        "aic_taylor_1893_fort_dearborn_monument",
         "chm_barnes_crosby_ichi_19208_fort_dearborn_monument"
       ],
-      "note": "The die's depth: no picture used here measures it. Taken so that the group, about 1.5 m deep in Taylor's view, stands on its cap with the rock's margin round it. L-fort-dearborn-monument-3567"
+      "note": "Fitted on J. W. Taylor's 1893 three-quarter view through its camera (data/reference_views/fort_dearborn_massacre_monument_1893/aic_taylor_1893.json, T-3568), the one picture used here that sees a side of the pedestal: fourteen corners of the base, plinth and die on the front and west faces, fitted together with the camera (level, eye free), with the base's front held at 3.8 m. The side faces read 85 px (base), 77 (plinth) and 61 (die) against fronts of 857, 596 and 546 px, and the fit gives base 2.81-2.89 m, plinth 1.74-1.85 m and die 1.51-1.69 m deep for any eye from 1.4 to 2.4 m over the walk (9.5-11.5 px rms on a die about 220 px a metre, so 0.05 m), and the plinth's and die's widths 2.73-2.75 and 2.47-2.50 m against the record's 2.8 and 2.4, inside the tolerance and left as they were. The die: 1.6 m, its side panel the narrow bronze plate Taylor's view shows on the west face. Replaces the reconstructed 1.9 m."
     },
     "die_h_m": {
       "value": 1.25,
@@ -220,6 +227,23 @@
   "residents": [],
   "citations": [
     {
+      "source_id": "aic_taylor_1893_fort_dearborn_monument",
+      "citation": "J. W. Taylor (Chicago), 'Fort Dearborn Monument', photograph, 1893: photo album no. 1, p. 88 (U525749). Art Institute of Chicago, Ryerson and Burnham Archives, Historic Architecture and Landscape Image Collection, Box 70.",
+      "url": "https://digital-libraries.artic.edu/digital/collection/mqc/id/38868",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the pedestal's depths (base, plinth, die)",
+        "the five figures seen from the south-west, in full detail",
+        "the die's west panel"
+      ],
+      "what_it_does_not_supply": [
+        "the group's rear and east side",
+        "colour"
+      ]
+    },
+    {
       "source_id": "chicagoandcook_2017_1812_massacre_site",
       "citation": "Chicago and Cook County Cemeteries, '1812 Massacre Site south of Fort Dearborn', 20 August 2017. Read 5 November 2026.",
       "url": "https://chicagoandcookcountycemeteries.com/2017/08/20/1812-massacre-site-south-of-fort-dearborn/",
@@ -247,7 +271,7 @@
         "what stood behind the monument: the estate wall, its piers and lamp, and the stable's end"
       ],
       "what_it_does_not_supply": [
-        "absolute sizes (no camera solved yet; T-3568)",
+        "absolute sizes (its camera takes its scale from the die's 2.4 m)",
         "colour",
         "the rear of the group and the side panels' reliefs"
       ]
@@ -284,7 +308,7 @@
       ]
     }
   ],
-  "research_note": "THE FORT DEARBORN MASSACRE MONUMENT, built by T-3567 (piece 1 of T-3565, the owner's request of 2026-11-12 after a meeting with Bill Tyre). This record carries review_required because it depicts the battle of 15 August 1812 and Potawatomi people, in a work American Indian protesters objected to from the 1970s (karamanski_2004_monuments_lost_nation); the figures are built as the sculptor made them, as period sculpture, and the card says how the work was received. The fighting is not staged: this is the statue that stood on 18th Street, not the event. WHERE: the photographs put it at the east end of 18th Street's north walk, by the curve into Calumet Avenue, before the Pullman estate's 18th Street wall and just east of the stable's end (ICHi-19208 is captioned 'at Calumet Street and 18th' and shows the stable's rock-faced end at left; the Detroit Publishing view LC-D4-12552 shows it beyond the stable's hydrant at the curb). The texts disagree: the 1893 Rand, McNally guide has it 'at the foot of Eighteenth Street', the 1905 Views of Chicago and later accounts 'at Eighteenth Street and Prairie Avenue', a 1929 Tribune 'a few feet from Prairie avenue on 18th street' (all quoted on Chicagology, no source records); the photographs are followed. LATER: moved in 1931 to the Chicago Historical Society (chicagoandcook_2017_1812_massacre_site, wikipedia_fort_dearborn_massacre_monument), subtitled 'The Potawatomi Rescue' in 1972, protested in 1973, returned by the city to the Prairie Avenue district and later put into storage (karamanski_2004_monuments_lost_nation). Cameras on ICHi-19208, Taylor's 1893 view and the Detroit print, and the side-by-sides, are T-3568.",
+  "research_note": "THE FORT DEARBORN MASSACRE MONUMENT, built by T-3567 (piece 1 of T-3565, the owner's request of 2026-11-12 after a meeting with Bill Tyre). This record carries review_required because it depicts the battle of 15 August 1812 and Potawatomi people, in a work American Indian protesters objected to from the 1970s (karamanski_2004_monuments_lost_nation); the figures are built as the sculptor made them, as period sculpture, and the card says how the work was received. The fighting is not staged: this is the statue that stood on 18th Street, not the event. WHERE: the photographs put it at the east end of 18th Street's north walk, by the curve into Calumet Avenue, before the Pullman estate's 18th Street wall and just east of the stable's end (ICHi-19208 is captioned 'at Calumet Street and 18th' and shows the stable's rock-faced end at left; the Detroit Publishing view LC-D4-12552 shows it beyond the stable's hydrant at the curb). The texts disagree: the 1893 Rand, McNally guide has it 'at the foot of Eighteenth Street', the 1905 Views of Chicago and later accounts 'at Eighteenth Street and Prairie Avenue', a 1929 Tribune 'a few feet from Prairie avenue on 18th street' (all quoted on Chicagology, no source records); the photographs are followed. LATER: moved in 1931 to the Chicago Historical Society (chicagoandcook_2017_1812_massacre_site, wikipedia_fort_dearborn_massacre_monument), subtitled 'The Potawatomi Rescue' in 1972, protested in 1973, returned by the city to the Prairie Avenue district and later put into storage (karamanski_2004_monuments_lost_nation). Cameras on ICHi-19208, Taylor's 1893 view and the Detroit print, and the side-by-sides, are T-3568's (data/reference_views/fort_dearborn_massacre_monument_1893/): the pedestal matches them; the figures, joined from tapered limbs, do not yet read as Rohl-Smith's sculpture, and their match records say figure by figure where they differ. The Detroit print (LC-D4-12552, c. 1900) shows the lettered pedestal with no group on it: see its match record.",
   "research_doc": "",
   "review_required": true,
   "review_reason": "This record carries review_required because it depicts the battle of 15 August 1812 and Potawatomi people, in a work American Indian protesters objected to from the 1970s (karamanski_2004_monuments_lost_nation); the figures are built as the sculptor made them, as period sculpture, and the card says how the work was received."
