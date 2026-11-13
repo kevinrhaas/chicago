@@ -416,7 +416,46 @@
       "value": {
         "k01.opening.door_leaf": {
           "variant": "k07.entrance.panel_door_stoop",
-          "front_yard_m": 9.33
+          "front_yard_m": 9.33,
+          "hood": {
+            "soffit_m": 4.85,
+            "width_m": 1.62,
+            "out_m": 0.3,
+            "fascia_m": 0.2,
+            "cornice": {
+              "height_m": 0.1,
+              "proud_m": 0.05
+            },
+            "brackets": "k08.bay.canted_hooded",
+            "pediment": {
+              "rise_m": 0.5,
+              "rake_m": 0.12,
+              "finial_m": [
+                0.2,
+                0.3
+              ],
+              "console_m": {
+                "reach_m": 0.22,
+                "drop_m": 0.4,
+                "thickness_m": 0.12
+              }
+            },
+            "fabric": "stone"
+          },
+          "cheek_form": {
+            "kind": "swept",
+            "head_m": 0.4,
+            "foot_m": 1.0,
+            "block_m": 0.5,
+            "newel": {
+              "width_m": 0.5,
+              "cap_m": [
+                0.12,
+                0.04
+              ],
+              "knob_m": 0.25
+            }
+          }
         }
       },
       "confidence": "inferred",
@@ -424,7 +463,7 @@
         "chicagology_1815_sears_two_views",
         "sanborn_1911_chicago_v3_sheet_28"
       ],
-      "note": "A panelled door under a transom (the house number '1815' on it) up a stoop between stone newels, on the square-on photograph (the left of the two views, Chicagology; 71.5 px/m on the front's plane, grade at y 1040 px). Over it the photograph draws a pedimented hood on carved brackets (x 245-430 px, y 700-615 px); K07's door hood is a flat balconied hood, so it is not built and is open in the match record. The front yard is the lot's: the street line at lot u 44.29 m, the front at 34.96 m."
+      "note": "A panelled door under a transom (the house number '1815' on it) up a stoop between stone newels, on the square-on photograph (the left of the two views, Chicagology; 71.5 px/m on the front's plane, grade at y 1040 px). T-3562: over the door the photograph draws a stone pediment on two small carved brackets: its raking cornice's apex at y 621 px (5.86 m over grade) under a carved finial to y 592 px (6.27 m), its foot at y 690 px (4.9 m), its ends at x 305 and 487 px (2.55 m apart), the brackets at y 720-745 px (4.1-4.5 m) beside the transom. Built as K01's bracketed door hood with a pediment in place of the railing, in the front's stone: soffit 4.85 m (K01's 0.35 m over the 2.70 m door's head), apex 5.77 m, finial to 6.07 m, the brackets 0.4 m deep. It is built 1.72 m wide, not 2.55 m, because the build's pavilion stands 2.2 m wide north of the door where the photograph's 4 m pavilion carries the door in its south half (open in the match record): a wider hood would run into the pavilion's south cheek. The stoop's cheeks sweep down to a square stone newel at each foot under a cap and a ball knob (x 230-265 and 445-480 px, about 0.5 m square), read off the same print; their heights reconstructed within K07's swept-cheek ranges. The front yard is the lot's: the street line at lot u 44.29 m, the front at 34.96 m."
     },
     "bays": {
       "value": [
