@@ -54,7 +54,7 @@
   .tile small { display: block; margin-top: 6px; color: var(--ink-faint); font-size: 12px; }
   h2 { margin: 0 0 10px; font: 600 16px/1.2 var(--font-body, inherit); }
   .bars { display: grid; gap: 6px; margin: 0; padding: 0; list-style: none; }
-  .bars li { display: grid; grid-template-columns: 90px 1fr 48px; gap: 10px; align-items: center; font-size: 13px; }
+  .bars li { display: grid; grid-template-columns: 120px 1fr 40px; gap: 10px; align-items: center; font-size: 13px; }
   .bars i { display: block; height: 10px; border-radius: 5px; background: var(--accent); min-width: 2px; }
   .bars b { text-align: right; font-weight: 600; }
   .split { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
@@ -92,6 +92,7 @@
   <section id="usage" class="split" hidden>
     <div class="panel"><h2>Entries by year · 30 days</h2><ul class="bars" id="by-year"></ul></div>
     <div class="panel"><h2>Entries by device · 30 days</h2><ul class="bars" id="by-device"></ul></div>
+    <div class="panel"><h2>People by sign-in</h2><ul class="bars" id="by-method"></ul></div>
     <div class="panel"><h2>Entries by day · 14 days</h2><ul class="bars" id="by-day"></ul></div>
   </section>
   <section id="people" class="panel" hidden>

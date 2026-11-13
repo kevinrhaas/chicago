@@ -6456,12 +6456,18 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     # reconstructed pitch keeps the ordinary band, as a reconstructed principal floor does.
     # T-3280: so may a hip read off a source (1919's, whose street hip rises to about 15.9 m
     # over a 9.5 m eave in its 1919 programme plate, solved camera, about 52 degrees)
+    # T-1872: and below it, down to the top of the flat band (anything lower is a deck, K05's
+    # flat roof): 1712's low Italianate hip, which the 1893 Rand McNally strip draws rising
+    # no more than about 1.8 m over a 10.65 m front, at most about 18 degrees.
+    # RECONSTRUCTION-RULES.md § Starting ranges, Main roof: "Street silhouette outranks the
+    # range"; the band stays the floor for every pitch no picture reads.
     rpa = form.get("roof_pitch_deg") or {}
     if band == "ordinary" and rpa.get("confidence", "reconstructed") != "reconstructed":
         if not rpa.get("sources"):
             raise ParamError(f"roof_pitch_deg is {rpa.get('confidence')} and names no source: "
                              "only a source can put a hip or a gable past the ordinary band")
-        prange = (prange[0], roof["parameters"]["pitch_deg"]["ranges"]["steep"][1])
+        prange = (roof["parameters"]["pitch_deg"]["ranges"]["flat"][1],
+                  roof["parameters"]["pitch_deg"]["ranges"]["steep"][1])
     _within(pitch, prange, "roof_pitch_deg")
     # T-2541: a gable's ridge runs along the street front (T-2459), so its length is the
     # front's and a front block wider than it is deep (1811's) has one; only a hip's runs

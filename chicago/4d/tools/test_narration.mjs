@@ -8,7 +8,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
-import { narrationScripts, openingScript, textKey, clipFor, silentWav, createNarration, NARRATOR } from '../renderers/web/js/narration.js';
+import { narrationScripts, openingScript, textKey, clipFor, clipKey, silentWav, createNarration, NARRATOR, NARRATORS, DEFAULT_NARRATOR } from '../renderers/web/js/narration.js';
 import { loadConfig, scriptsFor, voiceFor, plan, voice, synthesize, verify, ROOT } from './narrate_jaunts.mjs';
 
 const sha = s => createHash('sha256').update(s).digest('hex');
@@ -37,20 +37,37 @@ const jaunt = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/sidecars/1904/jau
   assert.equal(clipFor(index, k).file, 'narration/f.mp3');
   assert.equal(clipFor(index, 'bad'), null, 'an entry must name the words it was made for');
   assert.equal(clipFor(index, sha('changed words')), null, 'changed words have no clip');
+  // T-3578: two narrators; the visitor's choice, else the default (the essayist).
+  const w = sha('narrated');
+  const two = { version: 1, clips: { [`${w}~essayist`]: { text_sha256: w, file: 'narration/e.mp3' }, [`${w}~storyteller`]: { text_sha256: w, file: 'narration/s.mp3' } } };
+  assert.equal(DEFAULT_NARRATOR, 'essayist');
+  assert.equal(clipFor(two, w, NARRATOR, 'storyteller').file, 'narration/s.mp3', 'the chosen narrator reads');
+  assert.equal(clipFor(two, w, NARRATOR).file, 'narration/e.mp3', 'the essayist is the default');
+  assert.equal(clipFor({ clips: { [`${w}~essayist`]: two.clips[`${w}~essayist`] } }, w, NARRATOR, 'storyteller').file, 'narration/e.mp3', 'a narrator not yet voiced falls back to the default');
+  assert.equal(clipFor(two, w, 'glessner_john_j'), null, 'a person never reads with a narrator\'s clip');
+  assert.equal(clipKey(w, NARRATOR, 'nobody'), `${w}~essayist`);
+  const real = loadConfig();
+  assert.deepEqual(Object.keys(real.narrators), NARRATORS.map(n => n.id), 'voices.json voices every narrator the Settings choice offers');
+  assert.deepEqual(Object.values(real.narrators).map(n => n.label), NARRATORS.map(n => n.label));
+  const html = fs.readFileSync(path.join(ROOT, 'renderers/web/index.html'), 'utf8');
+  for (const n of NARRATORS) assert.ok(html.includes(`<option value="${n.id}">${n.label}</option>`), `Settings › Sound offers ${n.label}`);
+  for (const v of Object.values(real.voices)) assert.ok(v, 'every Glessner household voice is chosen (owner, 2026-11-13)');
   const wav = silentWav();
   assert.equal(String.fromCharCode(...wav.slice(0, 4)), 'RIFF'); assert.equal(wav.length, 844);
 }
 
 // ---- the plan: only what changed ---------------------------------------------------------
 {
-  const config = { ...loadConfig(), voices: { narrator: 'AAAAAAAAAAAAAAAAAAAA', glessner_john_j: { voice: 'BBBBBBBBBBBBBBBBBBBB', voice_settings: { style: 0.3 } }, glessner_frances_m: 'Frances Voice' } };
+  const config = { ...loadConfig(), narrators: { essayist: { voice: 'AAAAAAAAAAAAAAAAAAAA', label: 'Cultivated Essayist' }, storyteller: { voice: null, label: 'Midwestern Storyteller' } },
+    voices: { glessner_john_j: { voice: 'BBBBBBBBBBBBBBBBBBBB', voice_settings: { style: 0.3 } }, glessner_frances_m: 'Frances Voice' } };
   const scripts = await scriptsFor(config, { only: 'glessner-household-tour' });
-  assert.equal(scripts.length, 10);
+  assert.equal(scripts.length, 12, 'the opening and the ending once for each narrator, each stop once');
   const first = plan(scripts, config, { version: 1, clips: {} });
   assert.deepEqual(first.todo.map(s => s.id), ['opening', 'john', 'finish'], 'every chosen voice with no clip is voiced');
-  assert.equal(first.skipped.length, 7);
+  assert.deepEqual(first.todo.map(s => s.key.slice(64)), ['~essayist', '', '~essayist']);
+  assert.equal(first.skipped.length, 9);
   assert.match(first.skipped.find(s => s.id === 'frances').reason, /needs ELEVENLABS_API_KEY/, 'a voice name needs the key to resolve');
-  assert.equal(first.chars, scripts.filter(s => ['opening', 'john', 'finish'].includes(s.id)).reduce((n, s) => n + s.text.length, 0));
+  assert.equal(first.chars, first.todo.reduce((n, s) => n + s.text.length, 0));
   const named = plan(scripts, config, { version: 1, clips: {} }, new Map([['frances voice', 'CCCCCCCCCCCCCCCCCCCC']]));
   assert.equal(named.todo.find(s => s.id === 'frances').voice.params.voice_id, 'CCCCCCCCCCCCCCCCCCCC', 'a name resolves to its id');
   assert.equal(voiceFor(config, 'glessner_john_j').params.voice_settings.style, 0.3, 'a speaker may override the settings');
@@ -69,13 +86,14 @@ const jaunt = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/sidecars/1904/jau
   assert.equal(calls[0].key, 'test-key');
   assert.ok(index.clips.keep, 'the index only gains clips: an older build still finds its own');
   for (const file of made) assert.ok(fs.existsSync(path.join(out, file)));
-  const john = index.clips[scripts[1].text_sha256];
+  const john = index.clips[scripts.find(s => s.id === 'john').text_sha256];
   assert.equal(john.file, `narration/${john.sha256}.mp3`, 'a clip is named by its bytes');
-  assert.equal(clipFor(index, await textKey(narrationScripts(jaunt)[1].text)), john, 'the app finds the clip the tool made');
+  assert.equal(clipFor(index, await textKey(narrationScripts(jaunt)[1].text), 'glessner_john_j'), john, 'the app finds the clip the tool made');
+  assert.equal(clipFor(index, await textKey(narrationScripts(jaunt)[0].text), NARRATOR, 'storyteller').narrator, 'essayist', 'and the essayist\'s opening for a storyteller listener until the storyteller is voiced');
   assert.deepEqual(plan(scripts, config, index).todo, [], 'unchanged words and voices cost nothing');
-  const revoiced = plan(scripts, { ...config, voices: { ...config.voices, narrator: 'DDDDDDDDDDDDDDDDDDDD' } }, index);
-  assert.deepEqual(revoiced.todo.map(s => s.id), ['opening', 'finish'], 'a changed voice re-voices only its own scripts');
-  const edited = scripts.map(s => s.id === 'john' ? { ...s, text: s.text + ' Good day.', text_sha256: sha(s.text + ' Good day.') } : s);
+  const revoiced = plan(scripts, { ...config, narrators: { ...config.narrators, storyteller: { voice: 'DDDDDDDDDDDDDDDDDDDD' } } }, index);
+  assert.deepEqual(revoiced.todo.map(s => `${s.id}~${s.narrator}`), ['opening~storyteller', 'finish~storyteller'], 'a newly chosen narrator voices only its own scripts');
+  const edited = scripts.map(s => s.id === 'john' ? { ...s, text: s.text + ' Good day.', text_sha256: sha(s.text + ' Good day.'), key: sha(s.text + ' Good day.') } : s);
   assert.deepEqual(plan(edited, config, index).todo.map(s => s.id), ['john'], 'changed words re-voice only that stop');
   // Verify reads the public host: the bytes and the index must both be served.
   const served = new Map([...made.map(f => [f, fs.readFileSync(path.join(out, f))]), ['narration/index.json', fs.readFileSync(path.join(out, 'narration/index.json'))]]);
