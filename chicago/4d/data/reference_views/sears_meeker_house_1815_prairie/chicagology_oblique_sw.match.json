@@ -2,7 +2,7 @@
   "structure_id": "sears_meeker_house_1815_prairie",
   "view": "chicagology_oblique_sw",
   "glb": "assets/gltf/sears_meeker_house_1815_prairie__as_mapped_1904.glb",
-  "glb_sha256": "1e017c1b16f071533601be4ee786e8c5fad8381544565a7556b6ef9e0155d13c",
+  "glb_sha256": "3809ab96a6f275ef70e55496a828c12a61127f98b6ffb3051e278fafd65499c3",
   "camera_sha256": "1fdf8d070c86fc16f704cbe37a69be533ca63697bb6705ac217de6e11bd34ec3",
   "photo_sha256": "39fbfc1c58b51ccd19997e89b76380d1445a6665485416a31ac489acf8522929",
   "side_by_side": "docs/RESEARCH/photo-match/sears_meeker_house_1815_prairie/chicagology_oblique_sw-side-by-side.jpg",
@@ -28,7 +28,8 @@
     },
     {
       "what": "the south flank is rock-faced random ashlar, dark against the smooth front; the build lays it in buff common brick",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-3562: the flank laid in the front's K02 stone on the front's own beds, rock-faced to the profile's 25 mm (stone_front.flanks), its windows under flat arches and seated on stone sills; it renders as a broken stone face against the smooth front where it rendered buff brick. The print's broken-coursed random ashlar is laid as even courses on the front's lines: the joint pattern, under a visitor's notice"
     },
     {
       "what": "the south flank's tall stack, carried up from the flank wall past the mansard with a panelled shaft and a corbelled head of flues (x 1740-1820 px)",
@@ -36,7 +37,7 @@
       "how": "T-3561: rebuilt as the print's: K15's stone stack standing on the south cornice about 1.6 m back from the front, rising past the mansard to a corbelled head and cap at 14.45 m, with three tall pots in a row back from the street to about 15.2 m; measured from the cornice's corner it renders 83 px along the flank against the print's 73 px, and its pots' tops at y 75 px against 72 px"
     },
     {
-      "what": "the mansard's curb and cresting: the print's curb, under its cresting, stands about 0.8 m higher on this view than the build's, and the gabled dormer on the south flank's mansard (x 1820-1880 px) is not built",
+      "what": "the mansard's curb and cresting: the print's curb, under its cresting, stands about 0.8 m higher on this view than the build's; and the gabled dormer on the south flank's mansard (x 1820-1880 px), built by T-3562 just behind the stack (13.9 m from the rear, where it stood out of frame at 9.0 m), its sash and gable about 1 m lower than the print's with the curb",
       "status": "open"
     },
     {
@@ -87,6 +88,11 @@
       "what": "the rosettes over the cornice's consoles",
       "status": "within tolerance",
       "how": "carved bosses about 0.12 m across in the cornice's bed, under the 0.3 m bar; not built"
+    },
+    {
+      "what": "the south flank's tone: the print draws the rock-faced flank darker than the front; a monochrome print cannot say whether that is another stone, soot or the light",
+      "status": "not shown",
+      "how": "T-3562 lays it in the front's Lemont stone (L-k01-1815-sears-1893)"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

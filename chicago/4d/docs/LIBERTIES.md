@@ -27210,9 +27210,8 @@ the principal floor, the storey heights and the wall head, the street windows' p
 the pavilion's width and its roof's apex, the corner bay's cheek, front and balcony, the dormer, the
 mansard's curb, the stacks. Every height rests on the print's own scale across the front (its `solve`).
 **What is invented.** The walls' thickness; the stone (K02's Lemont limestone for the 1973 landmarks
-report's 'yellow limestone') and its two-course base; the flanks and rear in brick, where the sheet
-colours the whole house stone and the oblique shows a rock-faced south flank (K01 lays stone on the
-street front only); the stair projection's 1.2 m (the sheet's 1.55, past K08's deepest pavilion);
+report's 'yellow limestone') and its two-course base; the north flank and the rear in brick, where
+the sheet colours the whole house stone (the south flank is stone since T-3562, below); the stair projection's 1.2 m (the sheet's 1.55, past K08's deepest pavilion);
 the south flank bay's two storeys; the north flank's, the rear's and the rear range's windows (no
 picture sees them); the rear range's three storeys and flat deck; the mansard's deck; the stacks'
 plans; the rainwater; the sash pattern.
@@ -27251,9 +27250,17 @@ print's is a carved anthemion); the cheeks' sweep and the newels' heights within
 **What is not built.** The pavilion's full 4 m width (K01 cannot cut a door through a
 projection, so it stands 2.45 m wide north of the door), the basement doorway under the stoop's
 landing and the stoop's arched underside, the narrow light over the door (built at the storey's
-sash width), the dormer's finial and the roofs' cresting and cross finial, and the rock-faced south
-flank: open on the match record. The oblique print (camera solved by T-3156) also shows the corner bay running about 0.75 m
+sash width), the dormer's finial and the roofs' cresting and cross finial: open on the match record. The oblique print (camera solved by T-3156) also shows the corner bay running about 0.75 m
 south of the main front's south corner, as the square-on does, where the build sets it flush.
+**The rock-faced south flank and its dormer (T-3562, a piece of T-1893).** Read off the oblique print:
+the south flank is stone, rock-faced and dark against the smooth front, its windows dressed in smooth
+stone; and a gabled dormer stands in the flank's mansard just behind the tall south stack. Built as the
+front's K02 stone laid round the flank on the front's own beds in the profile's rock face
+(`stone_front.flanks`, a K01 option this ticket added), and the flank dormer moved from 9.0 m, where no
+picture put it, to 13.9 m from the rear. Invented: that the flank is the front's Lemont stone (the print
+is monochrome and draws it darker, which a different stone, soot or the light could each explain); its
+even courses on the front's lines, where the print lays broken-coursed random ashlar; and the dormer's
+sash and gable, about 1 m lower than the print's with the mansard's curb (open on the match record).
 **Which front stood in 1904 (T-3156).** The house was SOLD by Joseph Sears to Mrs. Grace Murray
 Meeker in March 1902, a "three-story stone building of fifteen rooms" (Inter Ocean, 28 March 1902),
 not owned by the Meekers from 1893 as this record's name says; in May 1915 it had "twenty-one rooms"
@@ -43737,8 +43744,8 @@ there from 1893 to 1931, its five figures and their places, the pedestal's steps
 and their proportions are the photographs'** (the Barnes-Crosby view ICHi-19208, checked on J. W.
 Taylor's 1893 view), with the group's "about nine feet" from Wikipedia. **These are this project's:**
 
-- **The depths.** No picture used here sees the pedestal's sides squarely, so the base's, plinth's
-  and die's depths are the widths less margins the group needs (base 3.3 m, plinth 2.3, die 1.9).
+- **The depths** were the widths less margins until T-3568 read them through a camera on Taylor's 1893
+  view (base 2.85 m, plinth 1.8, die 1.6): that part of this liberty is retired.
 - **The figures' modelling.** Each figure is joined from tapered limbs and balls in the pose the
   photographs show, at about 0.2 m; faces, hair, dress folds, the feathers' number, the weapons'
   detail and the whole of the group's rear (no photograph used here shows it; the Inter Ocean's
@@ -43746,14 +43753,16 @@ Taylor's 1893 view), with the group's "about nine feet" from Wikipedia. **These 
   photographs are monochrome.
 - **The panels' reliefs** are flat bronze plates, and **the lettering** under the front panel
   (THE FORT DEARBORN MASSACRE / AUGUST 15, 1812 / BLACK PARTRIDGE SAVING MRS. HELM) is not cut.
-- **Its place** is good to about 3 m until cameras are solved on its photographs (T-3568).
+- **Its place** is set by T-3568 through cameras on the Detroit print (east and west) and ICHi-19208
+  (north and south), good to about 1.5 m; the Pullman stable's draft stands about 6 m east of where
+  ICHi-19208 shows its end, which is open in that view's match record.
 
 The figures are period sculpture, built as the sculptor made them; the record carries
 `review_required` with its reason, and the card says how the work was received.
 
-**Covers:** `fort_dearborn_massacre_monument_1893.on_18th_street_1893.form.base_d_m`, `fort_dearborn_massacre_monument_1893.on_18th_street_1893.form.plinth_d_m`, `fort_dearborn_massacre_monument_1893.on_18th_street_1893.form.die_d_m`, `fort_dearborn_massacre_monument_1893.on_18th_street_1893.form.lettering`.
+**Covers:** `fort_dearborn_massacre_monument_1893.on_18th_street_1893.form.lettering`.
 
-**Ticket:** T-3567 (piece 1 of T-3565).
+**Ticket:** T-3567 (piece 1 of T-3565); the depths retired by T-3568.
 **Recorded:** 2026-11-12.
 
 ### L-glessner-rock-faces-3564 — Glessner's rock-faced granite: three face profiles shared out by rule

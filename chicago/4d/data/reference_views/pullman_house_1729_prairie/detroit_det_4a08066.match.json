@@ -3,7 +3,7 @@
   "view": "detroit_det_4a08066",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
   "glb_sha256": "968ac3f1a0a55b4c5a44645336d4ce0b08a24dc1971398cb7d6a4181d557528b",
-  "camera_sha256": "e1983a073ee8677c97941e6478f7753b65e26ab2fb1822cfacdd533053fc5e34",
+  "camera_sha256": "64ec7ec5f5fce5b7473419d4241d1a1d501bfdb5460e4ed7df484e84f4ebc1ca",
   "photo_sha256": "297e4d7b05312c70ddea6e5dbb24a74cffd0db743f3bb9cdcbb1f4c0edc5f4fb",
   "rendered_members": [
     {
@@ -62,9 +62,28 @@
       ],
       "rotation_y": 3.1490277562032887,
       "glb_sha256": "33753cacaa38e5035e8d72e0f568c4efa6c9770272b67ef2f03738313beeb916"
+    },
+    {
+      "structure_id": "fort_dearborn_massacre_monument_1893",
+      "glb": "assets/gltf/fort_dearborn_massacre_monument_1893__on_18th_street_1893.glb",
+      "placement": {
+        "local_e": 1499.4,
+        "local_n": -3200.188,
+        "rotation_deg": 359.62,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "on_18th_street_1893"
+      },
+      "position": [
+        -42.80636550246286,
+        0,
+        -32.937383464227544
+      ],
+      "rotation_y": -3.141749733222473,
+      "glb_sha256": "ab1b6e7d4eaabe38f44d5a12d558ca0d4ed35cba15af4659ca8b5fd1b9777e5b"
     }
   ],
-  "group_sha256": "97c44220255143b754cab98d3e79e8ab4042c862d8d7d36e56aac879df911ed3",
+  "group_sha256": "abe939e8b63752babfc062dbd8219b4cb3038ef58f20bafaf819d64ef7783273",
   "rendered_flora": {
     "season": "winter",
     "creeper_in_leaf": true,
@@ -136,16 +155,16 @@
     },
     {
       "file": "renderers/web/js/trees.js",
-      "sha256": "83513a6667d725328ce9e0c5ed00c0a69ab3b61e5f4dbc9dfaccf6e6122def73"
+      "sha256": "7429b5e761fd94cc348bcea6b781637f13f202da3111b102ffac8d9c3f7283fd"
     },
     {
       "file": "renderers/web/js/street-furniture.js",
       "sha256": "b838523b13e22a6c73a887a81abebcb7dd1bf7e827647117784c29505423fa59"
     }
   ],
-  "flora_sha256": "7f850622a0ef02f3220b499736b7671bc5d36796ca661cd7cfcdbdbc4b7ab958",
+  "flora_sha256": "429b9044c170c70f79b1a5f26cf88715c143f536d28ff9689d662976cb669a10",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08066-side-by-side.jpg",
-  "verdict": "matches",
+  "verdict": "differs",
   "differences": [
     {
       "what": "massing: the main block's flank east section and rear (east) face under the mansard, the south-east corner at x 393 (cornice y 352), the rear face's north end at x 545, the step's return at x 458, the 18th Street pavilion's east return at x 326-342 and the porte-cochere's deck from x 241 to 288: the camera's fitted points, within 1-6 px [T-1881, 2026-11-07: the camera re-solved with the pavilion's return and the porte-cochere's deck added, 2.6 px rms; the earlier camera drew the flank foreshortened, the return about 20 px and the porte-cochere about 40 px right]",
@@ -235,6 +254,10 @@
       "what": "[T-1934, 2026-11-08 (the 16555 sign-off)] re-rendered after data/front_yards/1904.json was regenerated: the court bed's three plants added, and the 18th Street flank's ivy re-laid on the rebaked house (the committed file was behind the models); against the previous render the ivy on the flank's east section shifts by 8 px at x 356-364",
       "status": "within tolerance",
       "how": "compared render against render at full size; nothing over the bar moved"
+    },
+    {
+      "what": "the Fort Dearborn Massacre monument (fort_dearborn_massacre_monument_1893, drawn with the house since T-3568), right foreground: at the print's bearing (x 787 against 800) but drawn at 0.57 of its size, because this camera does not hold its foreground (its solve), and with its bronze group, where the print shows the lettered pedestal with no group on it. Both are argued in the monument's own record for this print (data/reference_views/fort_dearborn_massacre_monument_1893/detroit_det_4a08066.match.json); nothing of the house changed",
+      "status": "open"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

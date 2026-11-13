@@ -234,8 +234,9 @@ export const FACIAL_HAIR = Object.freeze({
   // T-3553: the brows as the Greys' stand-in portraits set them, measured against the eyes on
   // the portrait and on a render of the fitted face by the same landmark model: Sarah's fine
   // brows sit 1.25 cm lower over the eyes than brows_fine draws them on the lady's body, and
-  // William's full brows 0.7 cm lower than brows_full, on the brow bone close over the eyes as his
-  // turnaround sheet shows them (re-measured 2026-11-13 on the faces refitted to the side views).
+  // William's full brows 1.45 cm lower than brows_full, on the brow bone close over the eyes as his
+  // turnaround sheet shows them (re-measured 2026-11-13 on the faces refitted to the side views, and
+  // lowered again when drawn beside the sheet, where they floated a finger's width above the lids).
   brows_fine_low_1904: Object.freeze({
     region_cm: Object.freeze({ x: [1.3, 4.6], y: [.27, .67], z_min: -1.5, droop: .55 }), facing: 'front',
     length_cm: .45, fall: -.1, fall_ends: Object.freeze([-1, .35]), outward: 1, taper: .35, curl: .04, even: .7, exact: true,
@@ -244,7 +245,7 @@ export const FACIAL_HAIR = Object.freeze({
   // His are drawn hair by hair, spaced evenly and lying flatter (`even`, `exact`), so they read
   // as the portrait's soft sandy brows rather than a painted band.
   brows_full_high_1904: Object.freeze({
-    region_cm: Object.freeze({ x: [1.1, 5], y: [.75, 1.5], z_min: -1.8, droop: .6 }), facing: 'front',
+    region_cm: Object.freeze({ x: [1.1, 5], y: [0, .75], z_min: -1.8, droop: .6 }), facing: 'front',
     length_cm: .7, fall: -.05, fall_ends: Object.freeze([-.8, .4]), outward: 1, taper: .3, curl: .08, even: .7, exact: true,
     lift_mm: Object.freeze({ root: .15, tip: .45 }), width_mm: .5, cover: 3.2, spread: .45, jitter_deg: 10,
   }),
@@ -300,6 +301,11 @@ export const HAIR_COLOURS = Object.freeze({
   // the moustache warmest and the chin greyest.
   ash_brown_grey: Object.freeze([.12, .095, .078]),
   grizzled_russet: Object.freeze([.3, .2, .14]),
+  // Matched to the sheets' colour once more (T-3553, owner 2026-11-13: "keep going so they match
+  // perfectly"): drawn beside them, his hair read too dark and hers too dark and warm. His is a
+  // light ash going silver at the sides; hers an ash brown with fair and grey streaks through it.
+  light_ash_grey: Object.freeze([.24, .205, .17]),
+  ash_fair_grey: Object.freeze([.2, .16, .125]),
   // His beard and moustache (T-3553): warmer than his hair, a reddish sand, as the portrait's
   // beard reads a shade redder and lighter than the hair above it.
   sandy_red: Object.freeze([.26, .14, .075]),
@@ -325,8 +331,8 @@ export const PEOPLE_HAIR = Object.freeze({
   // T-3553: William Grey's beard is warmer and greyer than his hair, as the owner's colour turnaround sheet
   // of the stand-in shows; the looks record (tools/prairie_people.py) gives his cut, beard and hair colour.
   pa1904_grey_w_l: Object.freeze({
-    cut: 'swept_back_wavy_1904', facial: Object.freeze([]), colour: 'ash_brown_grey', brow_colour: 'grizzled_russet', grade: 'reconstructed',
-    basis: 'Read from the owner\'s colour turnaround sheet of his stand-in (2026-11-13): hair brown going grey, beard and moustache a grizzled russet. Colours of a stand-in, not a record.',
+    cut: 'swept_back_wavy_1904', facial: Object.freeze([]), colour: 'light_ash_grey', brow_colour: 'grizzled_russet', grade: 'reconstructed',
+    basis: 'Read from the owner\'s colour turnaround sheet of his stand-in (2026-11-13): hair a light ash going silver at the sides, beard and moustache a grizzled russet. Colours of a stand-in, not a record.',
   }),
   glessner_john_j: Object.freeze({
     cut: 'bald_crown_fringe_1904', facial: Object.freeze(['moustache_full', 'brows_full']), colour: 'white_grey', grade: 'attested',
