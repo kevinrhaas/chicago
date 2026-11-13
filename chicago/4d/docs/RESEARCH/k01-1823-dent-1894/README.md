@@ -97,3 +97,22 @@ ticket is released with the records saying so (T-3153: no photo follow-up ticket
 - before: `before-t3162-chicagology_engraving.jpg` (T-3162's build through T-3162's camera)
 - after: `../photo-match/dent_house_1823_prairie/chicagology_engraving-side-by-side.jpg` and
   `album_1883-side-by-side.jpg`
+
+## T-1894 (reopened) — the rear stack and the door's narrow light
+
+Two of the six open differences, each a small addition to K01:
+
+- **The stack over the rear range.** A flat-decked wing may now carry `rear_wings[].stacks`
+  (until now only a slated wing could, T-1890): T-2302's plain prism under its cap, standing on
+  the tin deck 0.3 m or more inside the wing's walls. Read through the engraving's camera at
+  x 170-235 px with its top at y 188 px: u -4.8 m, v 0.7 m, 0.9 x 0.75 m (the main stack's plan,
+  which the same camera puts within 10 px of its own reading), 16.6 m high. The vignette draws it
+  at the flank's rear corner, in the same place. Its band about two-thirds up and its corbelled
+  cap are not modelled.
+- **The narrow light beside the door on the principal storey** (x 960-980 px). `front_bays_by_storey`
+  may now name the principal storey, provided the door's bay stays among its centres; the light is
+  laid at v 7.4 m on the storey's sash, as the chamber storey's above it.
+
+Still open, each needing K01 to do something it does not: the triple group's broad dormer whose
+pediment rises over the curb, the grilled arched doorway under the landing, the box bay's
+corbelled foot, and (on the vignette) the slated cheeks either side of the pavilion's attic.
