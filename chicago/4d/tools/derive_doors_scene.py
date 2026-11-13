@@ -30,6 +30,7 @@ person's day (`behaviour.day[].spans[].where`) in data/humans/instances/<year>/.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import heapq
 import json
 import math
@@ -41,6 +42,7 @@ import numpy as np
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 import derive_doors_1812 as d1812  # noqa: E402
+import prairie_barriers as pb  # noqa: E402
 
 FORMAT = "c4d-doors-scene/1"
 SCENES = ("1835", "1904")
@@ -51,7 +53,8 @@ STEP_M = d1812.STEP_M
 # and make sure that people can walk up the stairs instead of vanishing into the staircase"*).
 # A 1904 house's built front leaf becomes a passage (house-doors.js): it is hung to swing, and
 # the way up to it is read off the model's own stoop, tread by tread.
-LEAF_MATS = ('door_leaf', 'door', 'door_panel')
+LEAF_MATS = ('door_leaf', 'door', 'door_panel', 'draft_door')
+DRAFT_LEAF = 'draft_door'  # a draft's drawn door: hung where its stoop reaches it, else a reconstructed entrance
 WAY_CELL_M = 0.1           # the grid the way is found on
 WAY_RISE_M = 0.26          # the most one step of the way climbs (a riser here is 0.15-0.19 m)
 WAY_KNEE_M = 0.25          # anything from this far over the tread ...
@@ -64,7 +67,7 @@ PAIR_OVER_M = 1.6          # an opening wider than this is hung as a pair of lea
 GROUND_MATS = ('turf', 'earth', 'lawn', 'grass')
 
 
-def stoop_way(parts, front_u: float, vm: float, sill: float):
+def stoop_way(parts, front_u: float, vm: float, sill: float, free=lambda u, v: True):
     """The way from the ground, up the stoop, to WAY_BEFORE_M before the leaf at (front_u, vm),
     in the model's plan (u = x, v = -z, y up): ([[u, v, y | None], ...] outside to in, '') with
     y None on the ground, or (None, why). Found on a WAY_CELL_M grid over the tops of what is
@@ -138,7 +141,7 @@ def stoop_way(parts, front_u: float, vm: float, sill: float):
         g, cur = heapq.heappop(pq)
         if g > best[cur]:
             continue
-        if ground[cur] and not skirt[cur] and math.dist(cur, start) * WAY_CELL_M >= STEP_M:
+        if ground[cur] and not skirt[cur] and math.dist(cur, start) * WAY_CELL_M >= STEP_M and free(gu[cur[0]], gv[cur[1]]):
             goal = cur
             break
         for di in (-1, 0, 1):
@@ -179,7 +182,7 @@ def stoop_way(parts, front_u: float, vm: float, sill: float):
     return [[round(u, 3), round(v, 3), None if y is None else round(y, 3)] for u, v, y in simple], ''
 
 
-def passage_plan(sid: str, leaf_tris, parts, mats) -> tuple[dict | None, str]:
+def passage_plan(sid: str, leaf_tris, parts, mats, free=lambda u, v: True) -> tuple[dict | None, str]:
     """A built front leaf as house-doors.js hangs a passage (its header's plan), in the
     structure's frame: d out of the wall (+u, toward the street), s along it (+v)."""
     u, v, y = leaf_tris[:, :, 0], -leaf_tris[:, :, 2], leaf_tris[:, :, 1]
@@ -187,7 +190,7 @@ def passage_plan(sid: str, leaf_tris, parts, mats) -> tuple[dict | None, str]:
     jambs = [float(v.min()), float(v.max())]
     vm = (jambs[0] + jambs[1]) / 2
     sill, head = float(y.min()), float(y.max())
-    way, why = stoop_way(parts, front, vm, sill)
+    way, why = stoop_way(parts, front, vm, sill, free)
     if way is None:
         return None, why
     r = lambda x: round(float(x), 3)
@@ -223,16 +226,20 @@ def wheres(scene: str) -> set[str]:
     return out
 
 
-def prairie_doors(sc: dict, glb: Path) -> tuple[list[dict], list[str]]:
+def prairie_doors(sc: dict, glb: Path, parts=None, got=None) -> tuple[list[dict], list[str]]:
     """Prairie plans run u toward the street. Read the built front leaf and stoop.
 
     A built leaf is a passage (T-3554): its plan (house-doors.js) hangs it to swing, and its
-    way climbs the stoop read off the model; one answering stands at the way's foot. Draft
-    houses without a door mesh keep an explicitly reconstructed entrance on that front, never
-    a claim that the survey locates their door.
+    way climbs the stoop read off the model; one answering stands at the way's foot. A draft's
+    drawn door is hung the same way where its stoop reaches it. Draft houses without a door
+    mesh (or whose drawn door no stoop reaches) keep an explicitly reconstructed entrance on
+    that front, never a claim that the survey locates their door; its answering place stands
+    on open ground before everything the model builds there (prairie_barriers.py).
     """
     poly = np.asarray(sc['footprint']['polygon'], dtype=float)
-    parts = d1812.load_triangles(glb)
+    parts = d1812.load_triangles(glb) if parts is None else parts
+    # T-3554: where a body may stand, a skirt's width off whatever the model builds outside its walls.
+    free = pb.standing(pb.mask(parts, poly) if got is None else got)
     leaves = [(name.lower(), t) for name, t in parts if name.lower() in LEAF_MATS]
     floor = float(val(sc, 'principal_floor_m') or 2.5)
     candidates = []
@@ -254,10 +261,11 @@ def prairie_doors(sc: dict, glb: Path) -> tuple[list[dict], list[str]]:
     problems = []
     if candidates:
         (u, v), width, group = max(candidates, key=lambda x: x[0][0])
-        plan, why = passage_plan(sc['id'], tris[group], parts, set(names[group]))
-        if plan is None:
+        plan, why = passage_plan(sc['id'], tris[group], parts, set(names[group]), free)
+        drawn = set(names[group]) == {DRAFT_LEAF}
+        if plan is None and not drawn:
             problems.append(f"{sc['id']}: its front leaf has no way up to it ({why})")
-        else:
+        elif plan is not None:
             foot = plan['way'][0]
             door.update({'leaf': world(u, v), 'step': world(foot[0], foot[1]), 'outward_deg': round(angle, 1),
                          'width_m': round(float(width), 2), 'passage': True,
@@ -267,7 +275,10 @@ def prairie_doors(sc: dict, glb: Path) -> tuple[list[dict], list[str]]:
                                           "at its foot. The leaf opens and shuts as they pass (house-doors.js passages, "
                                           'T-3554); its hinge side and swing are reconstructed.'})
             return [door], problems
-    if candidates:
+    if candidates and drawn:
+        basis = ("The draft's drawn front door has no stoop in the draft that reaches it, so it is not hung to swing; "
+                 'the answering place is on open ground before the front. Walking and doorstep use are reconstructed.')
+    elif candidates:
         basis = 'Front leaf read from the built door material; the answering place is beyond its stoop. Walking and doorstep use are reconstructed.'
     else:
         u, v = float(poly[:, 0].max()), float((poly[:, 1].min() + poly[:, 1].max()) / 2)
@@ -281,7 +292,15 @@ def prairie_doors(sc: dict, glb: Path) -> tuple[list[dict], list[str]]:
         near = pts[(np.abs(-pts[:, 2] - v) < max(width, 2.5)) & (pts[:, 0] >= u)]
         if len(near):
             out_u = max(out_u, float(near[:, 0].max()))
-    door.update({'leaf': world(u, v), 'step': world(out_u + STEP_M, v), 'outward_deg': round(angle, 1),
+    # T-3554: the answering place stands clear of whatever the model builds before this front
+    # (a draft's front rooms and bays reach past its footprint), a skirt's width off it.
+    step_u = out_u + STEP_M
+    for _ in range(400):
+        if free(step_u, v):
+            break
+        step_u += pb.CELL_M
+    step_u = round(step_u, 2)
+    door.update({'leaf': world(u, v), 'step': world(step_u, v), 'outward_deg': round(angle, 1),
                  'width_m': round(float(width), 2), 'reconstructed': basis})
     return [door], problems
 
@@ -364,9 +383,61 @@ def glessner_doors(sc: dict) -> list[dict]:
     return out
 
 
+BARRIERS = "prairie_barriers/2"   # bump when prairie_barriers.py reads a model differently
+
+
+def barrier_cache(scene: str) -> dict:
+    """The walls the last run read, by structure, kept while the model, its placement and its
+    footprint are unchanged (reading them is the slow part of this tool)."""
+    f = ROOT / f"data/humans/doors_{scene}.json"
+    try:
+        old = json.loads(f.read_text())
+    except (OSError, ValueError):
+        return {}
+    if old.get("barriers_by") != BARRIERS:
+        return {}
+    return {r["structure"]: r for r in old.get("structures", []) + old.get("barriers", []) if "barrier" in r}
+
+
+def barrier_of(sc: dict, glb: Path, h: str, cache: dict, parts=None, got=None) -> dict | None:
+    key = hashlib.sha256(json.dumps([BARRIERS, h, d1812._placement(sc), sc["footprint"]["polygon"]], sort_keys=True).encode()).hexdigest()[:16]
+    hit = (cache.get(sc["id"]) or {}).get("barrier")
+    if hit and hit.get("key") == key:
+        return hit
+    if got is None:
+        got = pb.mask(d1812.load_triangles(glb) if parts is None else parts, sc["footprint"]["polygon"])
+    plan = pb.plan_of(got)
+    return {"key": key, **plan} if plan else None
+
+
+def barrier_rows(scene: str, rows: list, cache: dict) -> list[dict]:
+    """T-3554: the other built Prairie Avenue houses' barriers, which no day goes into but a
+    neighbour's day walks beside."""
+    have = {r["structure"] for r in rows}
+    out = []
+    for f in sorted((ROOT / f"data/sidecars/{scene}").glob("*.json")):
+        sid = f.stem
+        if sid in have or "prairie" not in sid or sid == "glessner_house":
+            continue
+        try:
+            sc = json.loads(f.read_text())
+        except ValueError:
+            continue
+        if not isinstance(sc, dict) or not sc.get("asset") or not (sc.get("footprint") or {}).get("polygon"):
+            continue
+        glb = ROOT / "assets" / sc["asset"]
+        if not glb.exists():
+            continue
+        plan = barrier_of(sc, glb, d1812.sha256(glb), cache)
+        if plan:
+            out.append({"structure": sid, "placement": d1812._placement(sc), "barrier": plan})
+    return out
+
+
 def derive(scene: str) -> tuple[dict, list[str]]:
     rows, problems = [], []
     backs = back_doors(scene) if scene == "1904" else {}
+    cache = barrier_cache(scene) if scene == "1904" else {}
     for sid in sorted(wheres(scene)):
         f = ROOT / f"data/sidecars/{scene}/{sid}.json"
         if not f.exists():
@@ -381,7 +452,14 @@ def derive(scene: str) -> tuple[dict, list[str]]:
                 problems.append(f"{sid}: its model {sc['asset']} is not built")
                 continue
             h = d1812.sha256(glb)
-            doors, p = prairie_doors(sc, glb) if scene == '1904' else d1812.doors_of(sc, glb)
+            plan = None
+            if scene == '1904':
+                parts = d1812.load_triangles(glb)
+                got = pb.mask(parts, sc['footprint']['polygon'])
+                doors, p = prairie_doors(sc, glb, parts, got)
+                plan = barrier_of(sc, glb, h, cache, parts, got)
+            else:
+                doors, p = d1812.doors_of(sc, glb)
             problems += p
             doors = [{k: (round(float(v), 2) if isinstance(v, float) or type(v).__name__.startswith("float") else v)
                       for k, v in x.items()} for x in doors]
@@ -396,14 +474,27 @@ def derive(scene: str) -> tuple[dict, list[str]]:
         row = {"structure": sid, "name": sc.get("name") or sid, "placement": d1812._placement(sc), "doors": doors}
         if h:
             row["asset_sha256"] = h
+        if plan:
+            # T-3554: what the model builds outside its walls (stoop, area walls, railings,
+            # bays), which a day's walk keeps a skirt's width off (human-days.js, human-spacing.js).
+            row["barrier"] = plan
         rows.append(row)
-    return {
+    out = {
         "format": FORMAT,
         "ticket": "T-3516",
         "generated_by": "tools/derive_doors_scene.py",
         "note": f"Where each {scene} building a drawn person's day goes into is entered, and where one who answers stands. Asking at a door, going in and out: renderers/web/js/human-days.js.",
         "structures": rows,
-    }, problems
+    }
+    if scene == "1904":
+        out["barriers_by"] = BARRIERS
+        out["barriers_note"] = ("T-3554: a `barrier` is what a house model builds outside its footprint between a "
+                                "knee and a head over the ground (tools/prairie_barriers.py): plan rectangles of its "
+                                "cells, `rects` four integers each (i0 i1 j0 j1, half-open), cell (i, j) centred on "
+                                "u0 + i*cell, v0 + j*cell of the model's plan (u = x, v = -z), turned into local E/N "
+                                "by the placement. `barriers` carries them for the built Prairie houses no day goes into.")
+        out["barriers"] = barrier_rows(scene, rows, cache)
+    return out, problems
 
 
 def main() -> int:
