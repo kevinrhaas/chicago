@@ -25,6 +25,19 @@ export const AUDIO_BASE = new URL('../audio/', import.meta.url);
 
 export const NARRATOR = 'narrator';
 export const INDEX_PATH = 'narration/index.json';
+/** The narrators a visitor chooses between in Settings › Sound (the owner, 2026-11-13: "i have
+ *  two narrators, people should be able to select which one they use the essayist is the
+ *  default"). The voicer voices every narrator script once for each; data/narration/voices.json
+ *  binds each to an ElevenLabs voice, and tools/test_narration.mjs holds the two lists equal. */
+export const NARRATORS = Object.freeze([
+  { id: 'essayist', label: 'Cultivated Essayist' },
+  { id: 'storyteller', label: 'Midwestern Storyteller' },
+]);
+export const DEFAULT_NARRATOR = 'essayist';
+export const normalNarrator = v => (NARRATORS.some(n => n.id === v) ? v : DEFAULT_NARRATOR);
+/** The index key of a script's clip: its words' key, and for the narrator's words, which narrator. */
+export const clipKey = (textSha, speaker, narrator = DEFAULT_NARRATOR) =>
+  textSha && (speaker === NARRATOR ? `${textSha}~${normalNarrator(narrator)}` : textSha);
 
 /** A jaunt's opening as it is read: the title, then the welcome's paragraphs (without the
  *  "JAUNT: ITS TITLE." its first paragraph leads with, which the title replaces). */
@@ -56,11 +69,17 @@ export async function textKey(text, subtle = globalThis.crypto?.subtle) {
   return hex(await subtle.digest('SHA-256', new TextEncoder().encode(String(text))));
 }
 
-/** The index's clip for these words, or null. Only a clip whose recorded key is these words'
- *  key is returned: the index is keyed by it, and the entry says so again. */
-export function clipFor(index, key) {
-  const clip = key && index?.clips?.[key];
-  return clip && clip.text_sha256 === key && typeof clip.file === 'string' ? clip : null;
+/** The index's clip for these words in this speaker's voice, or null. A narrator script takes
+ *  the chosen narrator, else the default one. Only an entry that names these words' key is
+ *  returned: changed words never play the old recording. */
+export function clipFor(index, textSha, speaker = null, narrator = DEFAULT_NARRATOR) {
+  if (!textSha) return null;
+  const keys = speaker === NARRATOR ? [clipKey(textSha, speaker, narrator), clipKey(textSha, speaker, DEFAULT_NARRATOR)] : [textSha];
+  for (const key of keys) {
+    const clip = index?.clips?.[key];
+    if (clip && clip.text_sha256 === textSha && typeof clip.file === 'string') return clip;
+  }
+  return null;
 }
 
 /** A 1/10 s silent WAV: played inside a tap, it lets the element speak later without one
@@ -92,11 +111,11 @@ export async function indexLocation({ fetcher, base = AUDIO_BASE } = {}) {
  * resolves once it is; `duck(on)` lowers music and ambience while a voice speaks.
  */
 export function createNarration({ fetcher = globalThis.fetch?.bind(globalThis), base = AUDIO_BASE,
-  speech = () => null, wake = async () => {}, duck = () => {}, media = () => new Audio(),
+  speech = () => null, wake = async () => {}, duck = () => {}, media = () => new Audio(), narrator = () => DEFAULT_NARRATOR,
   subtle = globalThis.crypto?.subtle, onChange = () => {}, location = null } = {}) {
   let index = null, indexUrl = null, loading = null, failed = false;
   let el = null, routed = null, primed = false, playing = null, queued = null, at = null, error = null;
-  const keys = new Map();          // `${jaunt}:${part}:${id}` → clip | null (null: none for these words)
+  const keys = new Map();          // `${jaunt}:${part}:${id}` → { sha, speaker } of the words shown there
   const prepared = new Map();      // jaunt id → the content it was prepared for
   const listeners = new Set([onChange]);
   const changed = () => { for (const fn of listeners) { try { fn(); } catch { /* a listener's own problem */ } } };
@@ -127,13 +146,14 @@ export function createNarration({ fetcher = globalThis.fetch?.bind(globalThis), 
     if (!found) return;
     let any = false;
     for (const script of narrationScripts(jaunt)) {
-      const clip = clipFor(found, await textKey(script.text, subtle));
-      keys.set(slot(jaunt, script.part, script.id), clip);
-      any ||= !!clip;
+      const words = { sha: await textKey(script.text, subtle), speaker: script.speaker };
+      keys.set(slot(jaunt, script.part, script.id), words);
+      any ||= !!clipFor(found, words.sha, words.speaker, narrator());
     }
     if (any) changed();
   }
-  const clip = (jaunt, part, id) => keys.get(slot(jaunt, part, id)) ?? null;
+  const clipAt = key => { const w = keys.get(key); return w ? clipFor(index, w.sha, w.speaker, narrator()) : null; };
+  const clip = (jaunt, part, id) => clipAt(slot(jaunt, part, id));
 
   function element() {
     if (el) return el;
@@ -166,7 +186,7 @@ export function createNarration({ fetcher = globalThis.fetch?.bind(globalThis), 
     return true;
   }
   function start(key) {
-    const c = keys.get(key); if (!c || !route()) return false;
+    const c = clipAt(key); if (!c || !route()) return false;
     const a = element(); queued = null; error = null;
     // A clip's file is named from the host's root, as the index's own path is (INDEX_PATH).
     a.src = new URL(c.file, new URL('../', indexUrl)).href;
@@ -199,7 +219,7 @@ export function createNarration({ fetcher = globalThis.fetch?.bind(globalThis), 
       const key = slot(jaunt, part, id);
       if (key === at) return;
       at = key;
-      if (!keys.get(key) || !speech()?.audible) return;
+      if (!clipAt(key) || !speech()?.audible) return;
       if (playing) { if (playing !== key) { queued = key; changed(); } }
       else start(key);
     },
