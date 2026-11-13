@@ -2,7 +2,7 @@
   "structure_id": "sears_meeker_house_1815_prairie",
   "view": "chicagology_oblique_sw",
   "glb": "assets/gltf/sears_meeker_house_1815_prairie__as_mapped_1904.glb",
-  "glb_sha256": "0ff5e1d36da7e0020c8a3ad25fa54a23d540a412632adf05bcd7d6b88cfdd2dd",
+  "glb_sha256": "1e017c1b16f071533601be4ee786e8c5fad8381544565a7556b6ef9e0155d13c",
   "camera_sha256": "1fdf8d070c86fc16f704cbe37a69be533ca63697bb6705ac217de6e11bd34ec3",
   "photo_sha256": "39fbfc1c58b51ccd19997e89b76380d1445a6665485416a31ac489acf8522929",
   "side_by_side": "docs/RESEARCH/photo-match/sears_meeker_house_1815_prairie/chicagology_oblique_sw-side-by-side.jpg",
@@ -45,7 +45,12 @@
       "how": "T-3561: K10's scrolled consoles (wall_head.blocks) under the corona, 0.45 m high, 0.17 m wide, no more than 0.5 m apart, on a 0.32 m frieze; they render at y 405-440 px against the print's 400-432 px, and carry round the south-west corner and along the south flank as the oblique draws them"
     },
     {
-      "what": "the door's pedimented hood, the stoop's stone newels, its arched underside and the basement doorway under the landing (x 1045-1260 px, y 960-1150 px)",
+      "what": "the door's pedimented hood and the stoop's stone cheeks",
+      "status": "fixed",
+      "how": "T-3562: the stone pediment on its brackets over the door, and the swept cheeks with a newel at each foot, as on the square-on (whose print shows both whole); here the tree's trunk crosses the hood"
+    },
+    {
+      "what": "the stoop's arched underside, the iron hand rail on its cheek and the basement doorway under the landing (x 1045-1260 px, y 960-1150 px)",
       "status": "open"
     },
     {
