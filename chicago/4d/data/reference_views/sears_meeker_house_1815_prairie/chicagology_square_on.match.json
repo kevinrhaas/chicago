@@ -2,7 +2,7 @@
   "structure_id": "sears_meeker_house_1815_prairie",
   "view": "chicagology_square_on",
   "glb": "assets/gltf/sears_meeker_house_1815_prairie__as_mapped_1904.glb",
-  "glb_sha256": "0ff5e1d36da7e0020c8a3ad25fa54a23d540a412632adf05bcd7d6b88cfdd2dd",
+  "glb_sha256": "1e017c1b16f071533601be4ee786e8c5fad8381544565a7556b6ef9e0155d13c",
   "camera_sha256": "cda2578ea5c93de1ed5400ca1f83da8339ea23c273224c6ad760394f98b0fdee",
   "photo_sha256": "39fbfc1c58b51ccd19997e89b76380d1445a6665485416a31ac489acf8522929",
   "side_by_side": "docs/RESEARCH/photo-match/sears_meeker_house_1815_prairie/chicagology_square_on-side-by-side.jpg",
@@ -48,10 +48,26 @@
     },
     {
       "what": "the door's pedimented hood on carved brackets (x 245-430 px, y 615-700 px) and the transom with the house number",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-3562: K01's bracketed door hood takes a pediment in place of its railing, in the front's stone: a tympanum under a raking cornice, its apex 5.77 m over grade under a finial to 6.07 m (the print's 5.86 and 6.27 m), on two small carved brackets 0.4 m deep beside the transom; the transom's number not built"
     },
     {
-      "what": "the stoop's stone newels and cheek walls and the basement doorway under the landing",
+      "what": "the pediment's width: the print's runs 2.55 m (x 305-487 px), the build's 1.72 m, held clear of the build's 2.2 m pavilion north of the door",
+      "status": "open",
+      "how": "one with the pavilion's width (above): the print's pavilion carries the door, so its hood has the room"
+    },
+    {
+      "what": "the stoop's stone cheek walls, falling to a square newel at each foot under a cap and a ball knob (x 230-265 and 445-480 px)",
+      "status": "fixed",
+      "how": "T-3562: K07's swept cheeks with a 0.5 m newel at each foot, its cap and knob (cheek_form.newel); they render on x 218-260 and 485-530 px, their heights within about 0.1 m"
+    },
+    {
+      "what": "the south newel renders about 40 px south of the print's",
+      "status": "within tolerance",
+      "how": "the newels stand some 4 m before the front, read through a camera fitted on the front's plane (as the corner bay's edge); the stoop's 2.6 m width is the record's"
+    },
+    {
+      "what": "the basement doorway under the stoop's landing, and the low iron rail down to it",
       "status": "open"
     },
     {
