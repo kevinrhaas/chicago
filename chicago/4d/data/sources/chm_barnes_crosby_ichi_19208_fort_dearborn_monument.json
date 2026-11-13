@@ -1,0 +1,28 @@
+{
+  "id": "chm_barnes_crosby_ichi_19208_fort_dearborn_monument",
+  "type": "photograph",
+  "citation": "Barnes-Crosby Company, 'Fort Dearborn Massacre Monument at Calumet Street and 18th Avenue', glass negative (11 x 14 in.), circa 1900. Chicago History Museum, Prints and Photographs, ICHi-19208 (Barnes-Crosby collection, BC-208).",
+  "author": "Barnes-Crosby Company",
+  "date": "circa 1900",
+  "describes_date": "circa 1900 (the Prairie library dates it 1895-1905)",
+  "repository": "Chicago History Museum, Prints and Photographs, through CARLI Digital Collections (chm_pp id 104). Prairie library image a16-chm-ichi-19208-monument-pullman-wall (1200 x 931 px, sha256 df1b103b0c3c5e80995e26e664732e3c4308929e385d1a44ab58fc30227ae326).",
+  "url": "https://collections.carli.illinois.edu/digital/collection/chm_pp/id/104",
+  "locator": "The whole plate: the monument square-on from the 18th Street walk, looking north. The stage base, the plinth with its fillet, the die with its bronze front panel and the lettering under it, the moulded cap, the cast rock and the five figures; behind, the Pullman estate's ashlar wall with square coped piers and a lamp standard at right, and at left the rock-faced end of the Pullman stable over a low coped planting bed.",
+  "tier": 1,
+  "rights_status": "no_known_restrictions",
+  "rights_note": "The holder's record: 'No known copyright restrictions' (Chicago History Museum), which the Prairie library records as its rights basis. Read for forms, places and proportions; no texture or mesh is derived from it.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "Read 2026-11-12 (T-3567) at the image store's copy (https://kevinrhaas.github.io/chicago-images/prairie-1904/files/a16-chm-ichi-19208-monument-pullman-wall.jpg), the image itself, not its summary. No camera is solved on it yet (T-3568).",
+  "note": "The front elevation of the monument. Read at the plate's 1200 x 931 px with the camera about at eye height in front of it: from the ground (y 912 px) the stage base to y 785 with its top washed in, the plinth to y 705 under a projecting fillet, the die to about y 520 with the bronze panel at y 548-650 across 0.82 of its width and three lines of lettering below it (THE FORT DEARBORN MASSACRE / AUGUST 15, 1812 / BLACK PARTRIDGE SAVING MRS. HELM), the cap to y 470, the rock to about y 440, and the group to the tomahawk's head at y 130. Widths: base 622 px, plinth 420, die 377. The group, left to right: the warrior lunging with the tomahawk raised; Margaret Helm; Black Partridge behind her, one hand raised and a musket slanting down from the other; the surgeon lying across the rock; the child at the right front.",
+  "what_it_supplies": [
+    "the pedestal's steps, die, panel, lettering and cap, in proportion",
+    "the five figures' places and poses seen from the front",
+    "what stood behind the monument: the estate wall, its piers and lamp, and the stable's end"
+  ],
+  "what_it_does_not_supply": [
+    "absolute sizes (no camera solved yet; T-3568)",
+    "colour",
+    "the rear of the group and the side panels' reliefs"
+  ]
+}

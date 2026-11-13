@@ -36,7 +36,7 @@ MATERIAL_NAMES=('granite','brick','limestone_trim','roof_plane','copper','glass'
  'lawn','drive','mortar','iron','glass_dark','granite_1','granite_2','granite_3','granite_4',
  'brick_dark_red','brick_buff','brick_smoky','roof_plane_1','roof_plane_2','roof_plane_3',
  'linen_blind','painted_wood','rough_stone_trim','turf_blade_dark','turf_blade_middle','turf_blade_light',
- 'rainwater_metal','glessner_vines','flat_brick')
+ 'rainwater_metal','glessner_vines','flat_brick','common_brick','common_brick_salmon','common_brick_dark')
 
 
 def _left_to_right_sum(iterable,start=0):
@@ -142,10 +142,15 @@ def _construct(root, *, roof_details_reduced=True):
                 cx,cz=(x0+x1)/2,(y0+y1)/2
                 origin=point((0,0),0);along=d.norm(d.sub(point((1,0),0),origin))
                 up=d.norm(d.sub(point((0,1),0),origin))
+                # T-3564: the full tier's three rock faces, carried by the lean: a
+                # smooth stone leans little, a ledged one leans hard down its foot.
+                face=d.stone_profile(x0,y0,x1,y1) if large and rectangular else 'pillow'
+                lean_u,lean_up,lean_down={'smooth':(.18,.18,.18),'ledge':(.45,.30,.70)}.get(face,(PILLOW_LEAN,)*3)
                 def pillow(q):
                     tu=max(-1.0,min(1.0,(q[0]-cx)/max(.01,(x1-x0)/2)))
                     tz=max(-1.0,min(1.0,(q[1]-cz)/max(.01,(y1-y0)/2)))
-                    return d.norm(tuple(normal[k]+PILLOW_LEAN*(tu*along[k]+tz*up[k]) for k in range(3)))
+                    lz=lean_up if tz>0 else lean_down
+                    return d.norm(tuple(normal[k]+lean_u*tu*along[k]+lz*tz*up[k] for k in range(3)))
             for fragment in d.subtract(polygon,holes or []):
                 parts=getattr(point,'partition',lambda poly,conf,mat:[(poly,point)])(
                     [(*q,depth) for q in fragment],confidence,variant)
@@ -256,6 +261,8 @@ def _construct(root, *, roof_details_reduced=True):
     vines=add_vines(b,params,reduced=True)
     b.components['vine_plants']=len(vines['plants'])
     b.components['vine_panels']=vines['added_faces']
+    from archetypes.masonry_house_v4_common_brick import remap as common_brick
+    common_brick(b)
     return b,params,materials
 
 
@@ -519,6 +526,7 @@ def build_light(master:Path,output:Path,*,root:Path,recipe_sha256:str)->dict:
     required=MATERIAL_NAMES[:29] if params.detail.get('rainwater') else MATERIAL_NAMES[:28]
     if params.detail.get('vines'):required+=MATERIAL_NAMES[29:30]
     if params.detail.get('surface_finish'):required+=MATERIAL_NAMES[30:31]
+    if params.detail.get('common_brick'):required+=MATERIAL_NAMES[31:34]
     if any(n not in names for n in required):raise ValueError('Full master does not contain the expected v4 material library')
     counts=_apertures(params)
     if counts!=owner['extras'].get('aperture_counts'):

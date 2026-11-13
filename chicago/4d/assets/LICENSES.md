@@ -1200,7 +1200,7 @@ Generated output of this repository's own Cycles bake (`generators/archetypes/ma
 
 ### Glessner House v4 original surface studies
 
-The following 43 files are original project material assets: eleven deterministic numeric PBR fabrics, three unchanged original generated albedo studies, their executable recipe and provenance. No historical, owner, Google or other third-party image pixels are sampled or embedded. Numeric maps are reproduced by `generate.py`; generated image prompts, hashes, methods and reconstructed confidence are preserved in the three provenance JSON files. Exact appearance is reconstructed, not historical evidence. Use, modification and redistribution with this project are permitted under the accompanying `LICENSE.txt`; retain provenance and confidence.
+The following 44 files are original project material assets: twelve deterministic numeric PBR fabrics, three unchanged original generated albedo studies, their executable recipe and provenance. No historical, owner, Google or other third-party image pixels are sampled or embedded. Numeric maps are reproduced by `generate.py`; generated image prompts, hashes, methods and reconstructed confidence are preserved in the three provenance JSON files. Exact appearance is reconstructed, not historical evidence. Use, modification and redistribution with this project are permitted under the accompanying `LICENSE.txt`; retain provenance and confidence.
 
 - `textures/glessner-v4/LICENSE.txt`
 - `textures/glessner-v4/README.md`
@@ -1208,6 +1208,7 @@ The following 43 files are original project material assets: eleven deterministi
 - `textures/glessner-v4/brick_normal.png`
 - `textures/glessner-v4/brick_roughness.png`
 - `textures/glessner-v4/court_brick_basecolor.jpg`
+- `textures/glessner-v4/common_brick_basecolor.jpg`
 - `textures/glessner-v4/copper_basecolor.jpg`
 - `textures/glessner-v4/copper_normal.png`
 - `textures/glessner-v4/copper_roughness.png`

@@ -293,7 +293,22 @@ WIDE_RANGE_YEARS = 12
 # younger-resident records. Two443 + last measured other-content132.233 =
 # 1018.233 MiB, below the established1024 MiB accounting ceiling. The assets
 # load on demand; boot, frame, Light, memory and duplicate gates are unchanged.
-SITE_BUDGET_MB = 443
+# T-3564, 2026-11-13: conscious measured storage re-budget, 443 -> 444 MiB. The
+# owner asked for the stable's south wall and the court wall's alley run in buff
+# Chicago common brick (his photographs, 2026-11-12): one albedo-only 2048 study
+# beside court brick's, 623,490 B KTX2 in the web master and 166,557 B in Light.
+# The published tree measured 443.1 MiB in a local part-2 gate. Two 444 + the
+# last documented 132.233 MiB other content = 1020.233 MiB, under the 1024 MiB
+# accounting ceiling. Boot, frame, Light, memory and duplicate gates unchanged.
+# 2026-11-13, 444 -> 445 MiB, pending the owner's go (thread "Merge green open PRs"):
+# merged onto dev 9af90330e, this branch's published tree measured 444.2 MiB
+# (local publish.sh + validate --all; CI part 7/8 read the same on 7a03e0db2). Nine
+# PRs landed on dev while this one waited, so the overrun is dev's growth under it,
+# not new bytes here. Two 445 + the last documented 132.233 MiB other content =
+# 1022.233 MiB, under the 1024 MiB accounting ceiling by 1.767: this is the LAST
+# whole-MiB raise that fits. The next one must be a cut (T-3232's lever: each KTX2
+# kit sheet shipped once). Boot, frame, Light, memory and duplicate gates unchanged.
+SITE_BUDGET_MB = 445
 # Warn at 90 % of it. See run_site_check for why this band exists (T-0722).
 SITE_WARN_FRACTION = 0.90
 # Identical files smaller than this are not worth a merge refusal (T-0722).

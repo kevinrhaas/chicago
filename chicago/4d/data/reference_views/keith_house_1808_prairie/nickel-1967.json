@@ -12,7 +12,7 @@
   ],
   "focal_px": 500.00000001694127,
   "eye": [
-    38.38098309521096,
+    55.079983,
     17.584975095134066,
     6.25843251295661
   ],
@@ -39,5 +39,5 @@
     -1,
     1.5
   ],
-  "solve": "T-1883. Six manually read flat-front corner controls, fixed principal point at image centre. Pixel-coordinate RMS 2.58px. World [[18.0, 0.0, 0.0], [18.0, 10.4, 0.0], [18.0, 0.0, 15.2], [18.0, 10.4, 15.2], [18.0, 0.17, 16.44], [18.0, 10.23, 16.44]]; image [[203, 755], [443, 763], [209, 405], [449, 395], [212, 377], [450, 367]]; projection [[203.21, 758.02], [444.67, 762.83], [210.54, 402.14], [448.23, 397.28], [214.91, 373.52], [444.53, 368.08]]. 1967 photograph credited to Richard Nickel via Glessner House Museum; evidence of its own date. The chimney over the south end, later iron infill, vegetation and changed neighbours are not carried back to 1904 without earlier evidence."
+  "solve": "T-1883. Six manually read flat-front corner controls, fixed principal point at image centre. Pixel-coordinate RMS 2.58px. World [[18.0, 0.0, 0.0], [18.0, 10.4, 0.0], [18.0, 0.0, 15.2], [18.0, 10.4, 15.2], [18.0, 0.17, 16.44], [18.0, 10.23, 16.44]]; image [[203, 755], [443, 763], [209, 405], [449, 395], [212, 377], [450, 367]]; projection [[203.21, 758.02], [444.67, 762.83], [210.54, 402.14], [448.23, 397.28], [214.91, 373.52], [444.53, 368.08]]. 1967 photograph credited to Richard Nickel via Glessner House Museum; evidence of its own date. The chimney over the south end, later iron infill, vegetation and changed neighbours are not carried back to 1904 without earlier evidence. T-3564: the eye's u is moved +16.699 m with the footprint frame, whose origin (the SW corner) went back that far when the house was deepened to its 1911 rear; the front, and so the camera's place in the world, did not move."
 }

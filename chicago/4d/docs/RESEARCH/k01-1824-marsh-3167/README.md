@@ -77,3 +77,21 @@ view; and a camera for 1824 on the automobile photograph and on the partial view
 
 No generator rule was changed: every part is the K01, K02, K06, K07, K08, K09, K10, K11 and K15 kits
 as they stand.
+
+## Since: the eaves paired, and the placement asked of the second picture (T-1887)
+
+- **The eaves are paired over a frieze.** The Pomeroy photograph's south flank, read against its
+  second-storey window (K01's 1.0 m sash), puts the brackets in pairs about 1.1 m apart, each about a
+  window-width deep, over a frieze with dark panels between the pairs; the automobile photograph and
+  the partial view show the same frieze on the south flank about 1897-1906. Built as K10's bracketed
+  cornice with `pairs`, `bracket_m` and a plain `frieze`, 0.55 m deep: the most that clears the
+  second storey's heads. The panels sunk between the pairs are relief and are not cut. The two
+  downpipes stand 0.5 m from the front corner, clear of the corner pairs.
+- **Where 1824 stands against 1828 was asked of the partial view.** Rendered through that view's
+  camera (solved on 1828 alone), 1824 on the 1911 sheet's trace puts its south flank where the
+  print shows it (x 220-390 against 195-385); moved 5.8 m back and 3.5 m south, as the automobile
+  photograph's 1824 camera asks, its front turns square to that camera where the print shows the
+  flank. The two pictures disagree, the partial view with the sheet, so 1824 stays on the sheet
+  and the automobile view's record carries it as within tolerance (T-3153).
+- **Still open:** the blank light wall south of the bay in the automobile print, whose frieze runs
+  at about 45 degrees to the front, and which wall of 1824 it is.
