@@ -137,7 +137,8 @@ def head(params, op) -> str:
         return t.get("entrance") or FLAT
     if op.component == "k01.opening.sash_round_hooded":   # T-2960: the hood its round_heads name
         return ((getattr(params, "round_heads", None) or {}).get("hood") or {}).get("variant") or FLAT
-    if op.component != "k01.opening.sash_flat":
+    # T-1886: a light over the door made a door onto its hood's deck wears its storey's head
+    if op.component not in ("k01.opening.sash_flat", "k01.opening.balcony_door"):
         return FLAT
     return t["by_storey"][_storey(params, op)]
 
@@ -228,7 +229,8 @@ def dress(a, op, frame, conf):
     if pil:
         _pilasters(a, kit, data, op, frame, conf, pil)
     cr = t.get("crest")
-    if cr and _storey(p, op) in cr["storeys"] and op.component == "k01.opening.sash_flat":
+    if cr and _storey(p, op) in cr["storeys"] and op.component in ("k01.opening.sash_flat",
+                                                                   "k01.opening.balcony_door"):
         _crest(a, var, op, frame, conf, cr, seed)
     return True
 

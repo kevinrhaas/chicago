@@ -70740,7 +70740,7 @@
       "subjects": [],
       "covers": [],
       "recorded": "2026-11-07",
-      "revised": "2026-11-12",
+      "revised": "2026-11-13",
       "fields": [
         {
           "label": "Decision",
@@ -70765,6 +70765,18 @@
         {
           "label": "Still not built",
           "text": "the bays' hoods' eared ends (about 0.25 m, under the bar: the bays wear K06's square lintel under the crest); the flank crown's dormer in its south-east canted face; the balcony's railing and the door onto it. The 1874 Land Owner engraving is still not read."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-11-13 (T-1886): the balcony is built. The window over the door now opens onto the porch's deck as a door: K01's door hood takes `door_over` (new here), which cuts the light over the door from the second floor (6.8 m, 0.05 m over the deck) to the storey's own head and glazes it with K06's French window (`k01.opening.balcony_door`, `k06.opening.french_pair_transom`), dressed by K09 as the storey's other lights (cornice hood and crest); the guard is raised from 0.6 to 0.95 m, its balusters set at 0.08 m. Through the solved camera the guard now stands about as high over the deck as the print's and the light runs down behind it, as in the print."
+        },
+        {
+          "label": "Still invented",
+          "text": "the door's leaves, transom and glazing (behind the guard and out of the print: the kit's French window, 1637's reconstruction); the guard's pattern (the print's pierced scroll panels built as square iron balusters, a pattern inside a guard of the right height and line)."
+        },
+        {
+          "label": "Still not built",
+          "text": "the flank crown's dormer in its south-east canted face. The 1874 Land Owner engraving is still not read."
         }
       ],
       "work_refs": [
