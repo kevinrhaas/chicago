@@ -34,6 +34,7 @@ import { fieldLog, count as countField } from './field-log.js'; // T-2660
 import { wireFieldLogView } from './field-log-view.js';
 import { recall as recallHome } from './recall.js';
 import { createGestureGate } from './gesture-gate.js';
+import { signInGate } from './sign-in.js';
 import { loadScene, resolveBases, hasInspectionLod, detailAssetUrl,
   createLatestDetailSwitch, disposeLoadedAsset, bootPoolFromSearch } from './scene-loader.js';
 import { readVersionRequest } from './structure-versions.js';
@@ -49,6 +50,7 @@ import { createIntent, createBackendSwitch } from './controls/intent.js';
 import { createPointerLockBackend, isTyping } from './controls/pointerlock.js';
 import { createTouchBackend, prefersTouch } from './controls/touch.js';
 import { createXRMode, isStandaloneHeadset, vrScale } from './controls/xr.js';
+import { createWindowMode, windowAt } from './controls/window.js';
 import { createWalker, footprintsFrom, decksFrom, WALK, HEADROOM_MARGIN_M } from './walker.js';
 import { profiledGroundHeight, figureGroundHeight } from './deck-surface.js';
 import { passageGroundFrom } from './passage-ground.js';
@@ -92,7 +94,8 @@ import { mountHumans } from './humans.js';
 import { createHumanDuties } from './human-duties.js';
 import { createHumanDays, createDayRouter, clearWayOf } from './human-days.js';
 import { createJauntHosts } from './jaunt-hosts.js';
-import { createHumanSpacing } from './human-spacing.js';
+import { createHumanSpacing, BODY_R_M } from './human-spacing.js';
+import { createHouseBarriers } from './house-barriers.js';
 import { createInteractions, createInteractKey } from './interact.js';
 import { createFollow } from './follow.js';
 import { createPeopleLook } from './people-look.js';
@@ -1911,6 +1914,9 @@ boot().catch((err) => {
 });
 
 async function boot() {
+  // T-3576: the sign-in gate, before a byte of the scene is asked for. Off (returns at
+  // once, loads nothing) until js/sign-in-config.js names a Firebase project.
+  api.signIn = await signInGate({ year: YEAR, gate });
   bootController.start('scene');
   await yieldToPaint();
   const bases = resolveBases();
@@ -3988,6 +3994,7 @@ async function boot() {
   // camp lodge's walls where they meet the ground (doors_1812.json `walls`, read off the camp's
   // model), kept clear by a day's job places and by the spacing pass below.
   let lodgeWalls = [];
+  let houseBarriers = null;
   // T-3516 (owner, 2026-11-08: "This is for all years starting with 1812, give all people a
   // purpose and something to do"): every year's people keep a day, by its own doors file.
   const daysScene = String(loaded.scene.id ?? YEAR);
@@ -3997,6 +4004,10 @@ async function boot() {
     const [doors, inside] = await Promise.all([getOptional(`humans/doors_${daysScene}.json`),
       ['1812', '1904'].includes(daysScene) ? getOptional(`humans/inside_${daysScene}.json`) : null]);
     lodgeWalls = (doors?.structures ?? []).flatMap((row) => (row.walls ?? []).map((ring, i) => ({ id: `${row.structure}:walls${i + 1}`, pts: ring })));
+    // T-3554: a 1904 house's stoop, area walls, railings and bays, which a day's walk keeps a
+    // skirt's width off and nobody is stepped aside into (house-barriers.js).
+    houseBarriers = daysScene === '1904' ? createHouseBarriers([...(doors?.structures ?? []), ...(doors?.barriers ?? [])]) : null;
+    api.houseBarriers = houseBarriers;
     // The gathering's people who are carded and not drawn (inside_1812.json): a figure is
     // built for a small nearby rotation or a door call, from the dress their entry
     // names, and taken away once they are back in. Their logical days need no meshes.
@@ -4013,7 +4024,7 @@ async function boot() {
       };
       return api.humans.add(rec, { person: byPerson.get(entry.person) ?? { id: entry.person, name: entry.name } });
     };
-    const dayClear = clearWayOf(footprints.concat(lodgeWalls));
+    const dayClear = clearWayOf(footprints.concat(lodgeWalls), { barriers: houseBarriers });
     api.days = createHumanDays({ humans: api.humans, three: THREE, hour: sunHour, date: () => world.sunDate ?? null,
       doors, interactions, inside, spawn,
       openCard: (actor) => api.humans.select(actor.id),
@@ -4053,7 +4064,7 @@ async function boot() {
   // never into a building, by the router's grid once something has built it.
   api.spacing = createHumanSpacing({ humans: api.humans,
     visitor: () => ({ e: walker.state.e, n: walker.state.n }),
-    blockedAt: (e, n) => (api.router?.built ? api.router.blockedAt(e, n) : false),
+    blockedAt: (e, n) => !!houseBarriers?.near(e, n, BODY_R_M) || (api.router?.built ? api.router.blockedAt(e, n) : false),
     keepOut: lodgeWalls });
   /**
    * T-3439 (owner, 2026-11-07): Settings › Show › People and › Carriages and horses. A
@@ -4762,7 +4773,7 @@ async function boot() {
   // touchscreen must not end up driving both.
   // The arrival and welcome are menus, so neither movement backend is live.
   window.addEventListener('pointerdown', (e) => {
-    if (gateOpen || xrMode?.presenting || e.target.closest?.('#jaunt-panel')) return;
+    if (gateOpen || xrMode?.presenting || windowMode?.on || e.target.closest?.('#jaunt-panel')) return;
     if (e.pointerType === 'touch') backends.activate(touch);
     else if (e.pointerType === 'mouse') backends.activate(pointerlock);
   }, { capture: true });
@@ -4771,7 +4782,7 @@ async function boot() {
     // to keyboard-and-mouse, and the first keystroke into the Go-to search box
     // was doing exactly that — taking a visitor who had been tapping their way
     // around a phone and handing them a control scheme with no on-screen stick.
-    if (gateOpen || xrMode?.presenting || isTyping(e.target) || e.target.closest?.('#jaunt-panel')) return;
+    if (gateOpen || xrMode?.presenting || windowMode?.on || isTyping(e.target) || e.target.closest?.('#jaunt-panel')) return;
     if (!e.metaKey && !e.ctrlKey) {
       backends.activate(pointerlock);
       // Not while a card holds the keyboard (T-2954): the arrows scroll the card.
@@ -4801,8 +4812,37 @@ async function boot() {
   xrMode.supported().then((ok) => { if (vrKey) vrKey.hidden = !ok; });
   vrKey?.addEventListener('click', () => {
     if (xrMode.presenting) { xrMode.exit(); return; }
+    windowMode.stop();
     hud.say('In the headset: left stick walks where you look, right stick turns, A or X flies; no controller, tap to walk');
     xrMode.enter().then((ok) => { if (!ok) hud.say('The headset could not start VR here'); });
+  });
+
+  /**
+   * T-3577: Window mode (js/controls/window.js) — the device's location sets the visitor
+   * down where they stand, its compass and motion sensors turn the view. Offered on a
+   * touch device (a phone or tablet, the owner's iPad) or where `?window-at=` names a
+   * spot; a computer sees nothing new.
+   */
+  const windowKey = document.getElementById('btn-window');
+  const windowMode = createWindowMode({
+    THREE, walker, intent, backends, datum: loaded.datum, surface: canvas,
+    fallback: () => (gateOpen ? null : (coarse ? touch : pointerlock)),
+    inBounds: (e, n) => terrain.inBounds(e, n),
+    say: (line) => hud.say(line),
+    search: location.search,
+    onChange: (on) => {
+      windowKey?.setAttribute('aria-pressed', String(on));
+      blackbox.log(on ? 'window' : 'window-end');
+      if (on) { travel.stop('input'); hud.setFly(false, { announce: false }); }
+      else hud.say('Window closed');
+    },
+  });
+  api.window = windowMode;
+  if (windowKey) windowKey.hidden = !((coarse || windowAt(location.search)) && windowMode.supported());
+  windowKey?.addEventListener('click', () => {
+    if (windowMode.on) { windowMode.stop(); return; }
+    if (xrMode.presenting) return;
+    windowMode.start();
   });
 
   canvas.addEventListener('click', () => {
@@ -5668,6 +5708,7 @@ async function boot() {
       visualClockReset = true;
       gateFrame.reset();
       xrMode.exit(); // T-3575: the arrival is a page, and a headset cannot show it
+      windowMode.stop(); // T-3577
       backends.activate(null);
       gesture.setLook({ inWorld: false });
       targetTag?.setEnabled(false);

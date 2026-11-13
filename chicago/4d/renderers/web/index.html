@@ -47,6 +47,7 @@
 <link rel="stylesheet" href="./css/card.css">
 <link rel="stylesheet" href="./css/recall.css">
 <link rel="stylesheet" href="./css/skins.css">
+<link rel="stylesheet" href="./css/signin.css">
 <script src="./js/skin.js"></script>
 
 <!--
@@ -57,7 +58,8 @@
 {
   "imports": {
     "three": "./vendor/three-0.185.1/three.module.js",
-    "three/addons/": "./vendor/three-0.185.1/addons/"
+    "three/addons/": "./vendor/three-0.185.1/addons/",
+    "https://www.gstatic.com/firebasejs/13.3.0/": "./vendor/firebase-13.3.0/"
   }
 }
 </script>
@@ -264,6 +266,9 @@
           <!-- T-3575: Enter VR, shown only where the browser offers a headset (js/controls/xr.js). -->
           <button type="button" class="vr-key" id="btn-vr" hidden aria-pressed="false"
             title="View in a VR headset" aria-label="Enter VR">VR</button>
+          <!-- T-3577: Window mode, on a phone or tablet: where you stand, which way you face (js/controls/window.js). -->
+          <button type="button" class="vr-key" id="btn-window" hidden aria-pressed="false"
+            title="Look through the screen from where you stand" aria-label="Window: look from where you stand">Window</button>
         </div>
         <!-- T-2741: where you stand, in the scene's year and today — the era street (none in
              1812) over today's street, corner or house number, read off the City's own

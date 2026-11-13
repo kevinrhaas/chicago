@@ -1,13 +1,19 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
-// A woman's skirt hangs as one bell on the walk (renderers/web/js/human-skirt.js), on the
-// real exports of the four women, on the CPU. It must: leave the men alone (a frock coat's
-// skirts are not a skirt); draw a standing woman exactly as the asset does; at a stride
-// (left thigh +30 deg, knee 10; right thigh -15, knee 40) and at mid-swing (knee 60), and on
-// the baked walk, hold every leg vertex below the hips inside the skirt on every ray from the
-// body's axis; keep the hem one ring (no panel past its neighbour, no hem edge torn open);
-// carry the front hem forward with the leading leg; leave the asset's shared geometry, and
-// every other figure wearing it, untouched; be deterministic; and keep its state across a
-// LOD swap.
+// Cloth that hangs below the hips hangs from the waist and gives way to the legs
+// (renderers/web/js/human-skirt.js), on the real exports, on the CPU. A woman's skirt
+// (T-3472), and since T-3553 every hanging garment of every body in the town: a frock or
+// livery coat's skirts, a tailcoat's or a soldier's tails, a petticoat, a child's frock, a
+// blanket, a breechcloth, a shirt's tail (Kevin, 2026-11-13, following the Glessners'
+// coachman on E 18th St: "no one should have their legs break through their clothing").
+// It must: leave a body in trousers alone; keep every tube (trousers, breeches, stockings,
+// leggings, boot shafts) on its leg; draw a standing figure exactly as the asset does; at a
+// stride (left thigh +30 deg, knee 10; right thigh -15, knee 40), at mid-swing (knee 60),
+// with the heel kicked up behind (thigh -10, knee 62), on the baked walk and on the gait
+// layer's stride, hold every leg vertex below the hips inside every hanging garment, on
+// every ray from the body's axis where that garment is; keep the hem one ring (no panel past
+// its neighbour, no hem edge torn open); carry the front hem forward with the leading leg;
+// leave the asset's shared geometry, and every other figure wearing it, untouched; be
+// deterministic; and keep its state across a LOD swap.
 import fs from 'node:fs/promises';
 import assert from 'node:assert/strict';
 const here = new URL('../', import.meta.url);
@@ -30,7 +36,7 @@ const SkeletonUtils = await import(utils.SkeletonUtils);
 await MeshoptDecoder.ready;
 globalThis.self ??= globalThis;
 const js = async (name) => (await fs.readFile(new URL(`renderers/web/js/${name}`, here), 'utf8')).replace("from 'three'", `from '${three}'`);
-const { createHumanSkirt, skirtMeshes, N_PANELS } = await import(data(await js('human-skirt.js')));
+const { createHumanSkirt, skirtMeshes, garmentKind, N_PANELS } = await import(data(await js('human-skirt.js')));
 
 function geometryOnly(bytes) {
   const n = bytes.readUInt32LE(12), doc = JSON.parse(bytes.subarray(20, 20 + n));
@@ -103,10 +109,12 @@ function setLegs(r, legs) {
  * Every leg vertex (body, weighted to a thigh or calf) below the hips, against the skirt on
  * the ray from the body's axis through it. Returns the least clearance (m; > 0 is inside).
  */
-function containment(r, skirt) {
-  const body = bodyOf(r), skel = body.skeleton;
+function containment(r, skirt, open = false) {
+  // The legs: the skin, and every tube worn over it (trousers, breeches, stockings, leggings,
+  // boot shafts), which stand off the skin by their ease.
+  const legMeshes = [bodyOf(r), ...(skirtMeshes(r.scene)?.tubes ?? [])];
   const hips = figure(r, world(r.bone('thigh_l')).add(world(r.bone('thigh_r'))).multiplyScalar(0.5));
-  const S = skinned(skirt), B = skinned(body), BINS = 180;
+  const S = skinned(skirt), BINS = 180;
   // The skirt's surface, not only its vertices: every triangle sampled every 1.2 cm.
   const bins = Array.from({ length: BINS }, () => []);
   const idx = skirt.geometry.index.array, P = [new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()], q = new THREE.Vector3();
@@ -119,31 +127,37 @@ function containment(r, skirt) {
       bins[((Math.floor((th / (2 * Math.PI)) * BINS) % BINS) + BINS) % BINS].push(p.y, Math.hypot(X, Z), th);
     }
   }
-  const si = body.geometry.attributes.skinIndex, sw = body.geometry.attributes.skinWeight;
-  const legIdx = new Set(skel.bones.map((b, i) => (/^(thigh|calf)_[lr]$/.test(b.name) ? i : -1)).filter(i => i >= 0));
   let worst = Infinity, at = null, n = 0;
   const win = 3 * Math.PI / 180;
-  for (let i = 0; i < si.count; i++) {
-    let w = 0; for (let c = 0; c < 4; c++) if (legIdx.has(si.getComponent(i, c))) w += sw.getComponent(i, c);
-    if (w < 0.5) continue;
-    const p = figure(r, new THREE.Vector3(B[i * 3], B[i * 3 + 1], B[i * 3 + 2]));
-    if (p.y > hips.y - 0.1) continue;
-    const X = p.x - hips.x, Z = p.z - hips.z, th = Math.atan2(X, Z), rl = Math.hypot(X, Z);
-    const b0 = Math.floor((th / (2 * Math.PI)) * BINS);
-    let rs = Infinity, hem = Infinity;
-    for (let d = -2; d <= 2; d++) {
-      const list = bins[(((b0 + d) % BINS) + BINS) % BINS];
-      for (let m = 0; m < list.length; m += 3) {
-        let dth = Math.abs(list[m + 2] - th); if (dth > Math.PI) dth = 2 * Math.PI - dth;
-        if (dth > win) continue;
-        hem = Math.min(hem, list[m]);
-        if (Math.abs(list[m] - p.y) < 0.012) rs = Math.min(rs, list[m + 1]);
+  for (const leg of legMeshes) {
+    const B = skinned(leg), skel = leg.skeleton;
+    const si = leg.geometry.attributes.skinIndex, sw = leg.geometry.attributes.skinWeight;
+    const legIdx = new Set(skel.bones.map((b, i) => (/^(thigh|calf)_[lr]$/.test(b.name) ? i : -1)).filter(i => i >= 0));
+    for (let i = 0; i < si.count; i++) {
+      let w = 0; for (let c = 0; c < 4; c++) if (legIdx.has(si.getComponent(i, c))) w += sw.getComponent(i, c);
+      if (w < 0.5) continue;
+      const p = figure(r, new THREE.Vector3(B[i * 3], B[i * 3 + 1], B[i * 3 + 2]));
+      if (p.y > hips.y - 0.1) continue;
+      const X = p.x - hips.x, Z = p.z - hips.z, th = Math.atan2(X, Z), rl = Math.hypot(X, Z);
+      const b0 = Math.floor((th / (2 * Math.PI)) * BINS);
+      let rs = Infinity, hem = Infinity;
+      for (let d = -2; d <= 2; d++) {
+        const list = bins[(((b0 + d) % BINS) + BINS) % BINS];
+        for (let m = 0; m < list.length; m += 3) {
+          let dth = Math.abs(list[m + 2] - th); if (dth > Math.PI) dth = 2 * Math.PI - dth;
+          if (dth > win) continue;
+          hem = Math.min(hem, list[m]);
+          if (Math.abs(list[m] - p.y) < 0.012) rs = Math.min(rs, list[m + 1]);
+        }
       }
+      if (p.y < hem + 0.03) continue; // below the hem: a shoe or an ankle shows, as it does
+      // An open garment (a coat's skirts open in front, a tailcoat's tails, an apron, a blanket
+      // wrapped and tucked): only where its cloth is, at that height and angle.
+      if (open && rs === Infinity) continue;
+      n++;
+      const c = (rs === Infinity ? 0 : rs) - rl;
+      if (c < worst) { worst = c; at = { y: +p.y.toFixed(3), th: +(th * 180 / Math.PI).toFixed(0), leg: +rl.toFixed(3), skirt: +rs.toFixed(3), on: leg === legMeshes[0] ? 'skin' : leg.name.replace(/_lod\d*$/, '') }; }
     }
-    if (p.y < hem + 0.03) continue; // below the hem: a shoe or an ankle shows, as it does
-    n++;
-    const c = (rs === Infinity ? 0 : rs) - rl;
-    if (c < worst) { worst = c; at = { y: +p.y.toFixed(3), th: +(th * 180 / Math.PI).toFixed(0), leg: +rl.toFixed(3), skirt: +rs.toFixed(3) }; }
   }
   return { worst, at, n };
 }
@@ -205,12 +219,33 @@ const step = (r, sk, dt, opts, legs = null) => {
   r.root.updateMatrixWorld(true);
 };
 
-// 1. The men are left alone, at every level; every woman binds at every level.
-for (const asset of ['glessner_john_j_1904', 'bardwell_otis_1835']) for (const lod of [0, 1, 2, 3]) {
-  const r = await rig(asset, lod);
-  assert.equal(createHumanSkirt({ id: asset, scene: r.scene }), null, `${asset} LOD${lod}: no skirt`);
+// 1. Every body in the town: which garments hang, which follow a leg. A body in trousers
+// alone has nothing to hang; every tube stays on its leg, at every level.
+const ASSETS = (await fs.readdir(new URL('assets/humans/web/', here))).filter(f => f.endsWith('.lod0.glb') && !f.startsWith('c4d_fixture')).map(f => f.replace('.lod0.glb', '')).sort();
+const TROUSERED = ['anonymous_working_driver_1904', 'bardwell_otis_1835', 'billings_august_1904_stable_helper', 'child_boy_1812', 'child_boy_1904', 'mahoney_patrick_1835', 'settler_1812', 'teen_boy_1904'];
+const TUBE_PIECE = /(^|_)(trousers?|breeches|pantaloons|overalls|stockings|leggings|garters|boot_shafts)(_|$)/;
+const HANG_PIECE = /(^|_)(skirts?|tails|petticoat|basque|apron|blanket|breechcloth)(_|$)/;
+const piece = (asset, m) => m.name.replace(`${asset}_`, '').replace(/_lod\d*$/, '');
+const HANGING = [];
+for (const asset of ASSETS) for (const lod of [0, 1, 2, 3]) {
+  const r = await rig(asset, lod), found = skirtMeshes(r.scene);
+  if (TROUSERED.includes(asset)) {
+    assert.equal(found, null, `${asset} LOD${lod}: nothing hangs`);
+    assert.equal(createHumanSkirt({ id: asset, scene: r.scene }), null, `${asset} LOD${lod}: no bell`);
+    continue;
+  }
+  assert(found, `${asset} LOD${lod}: its hanging cloth is found`);
+  const id = r.scene.userData?.chicago4d_human?.asset_id;
+  const all = []; r.scene.traverse(o => { if (o.isSkinnedMesh) all.push(o); });
+  for (const m of all) {
+    const name = piece(asset, m), kind = garmentKind(m, id).kind;
+    if (TUBE_PIECE.test(name) && kind) assert.equal(kind, 'tube', `${asset} LOD${lod} ${name}: a tube on its leg`);
+    if (HANG_PIECE.test(name) && !TUBE_PIECE.test(name) && kind && kind !== 'edge') assert.equal(kind, 'hang', `${asset} LOD${lod} ${name}: hangs from the waist`);
+    if (kind === 'tube') assert(!found.driven.includes(m), `${asset} LOD${lod} ${name}: a tube is never driven`);
+  }
+  if (lod === 0) HANGING.push([asset, found.hanging.map(m => piece(asset, m))]);
 }
-console.log('men (glessner_john_j_1904 with frock-coat skirts, bardwell_otis_1835), LOD0-3: no skirt: PASS');
+console.log(`${ASSETS.length} bodies, LOD0-3: ${TROUSERED.length} in trousers alone, nothing to hang; every tube on its leg; hanging: ${HANGING.map(([a, h]) => `${a} (${h.join(', ')})`).join('; ')}: PASS`);
 const WOMEN = ['glessner_frances_m_1904', 'reynolds_mary_1904_maid', 'williamson_mattie_1904_cook_study', 'flynn_mary_1835_dress_study'];
 const SKIRT = /skirt/;
 
@@ -309,6 +344,65 @@ for (const [asset, re] of [['williamson_mattie_1904_cook_study', /separate_plain
   console.log(`seated: the asset (${(dev * 1000).toFixed(3)} mm), the bell back on foot; past maxLod the asset, a nearer level binds: PASS`);
 }
 
+// 2d. Every other body with hanging cloth (the men's coats and tails, the 1812 women's
+// petticoats, the children's frocks, the Potawatomi blankets, breechcloths and wrapped
+// skirts), at every level: standing is the asset; at the stride, mid-swing, its mirror and
+// with the heel kicked up behind, every leg inside every hanging garment where its cloth is,
+// no hem torn; every tube exactly where the asset's own weights put it.
+const BACK = [['l', -10, 62], ['r', 18, 8]];
+// Two pieces of one body are held to less, and say why. The Potawatomi man's breechcloth is
+// a narrow flap front and back between the legs, under his blanket: the bell carries it off
+// the legs, but at the flap's lower corners a thigh can still pass over its edge by up to
+// about 3 cm at the end of a stride (on the asset's own weights, 11 cm). His shirt's tail
+// stands under the outer selvage of his leggings by 1.6 cm in the asset as drawn, standing;
+// the bell does not make it worse. Both must do better than the asset's own weights.
+const KNOWN = Object.freeze({ potawatomi_man_1812: Object.freeze(['breechcloth', 'trade_shirt_skirt']) });
+const known = (asset, name) => (KNOWN[asset] ?? []).includes(name);
+for (const [asset] of HANGING) {
+  if (WOMEN.includes(asset)) continue;
+  const lines = [];
+  for (const lod of [0, 1, 2, 3]) {
+    const r = await rig(asset, lod), twin = await rig(asset, lod);
+    const found = skirtMeshes(r.scene), sk = createHumanSkirt({ id: asset, scene: r.scene });
+    assert(sk && sk.bound, `${asset} LOD${lod}: binds`);
+    const twinOf = (m) => meshNamed(twin, new RegExp(`^${m.name}$`));
+    const gap = (meshes) => { let d = 0; for (const m of meshes) { const a = skinned(m), b = skinned(twinOf(m)); for (let i = 0; i < a.length; i++) d = Math.max(d, Math.abs(a[i] - b[i])); } return d; };
+    for (let i = 0; i < 30; i++) { step(r, sk, 1 / 30, { state: 'standing' }); twin.mixer.update(1 / 30); twin.root.updateMatrixWorld(true); }
+    const dev = gap(found.driven);
+    assert(dev < 0.001, `${asset} LOD${lod}: standing, the asset (${(dev * 1000).toFixed(3)} mm)`);
+    const rests = new Map(found.hanging.map(h => [h, restOf(r, h)]));
+    let least = Infinity, asIs = Infinity, tubes = 0;
+    for (const [label, legs] of [['stride', STRIDE], ['mid-swing', SWING], ['mirror', MIRROR], ['heel up', BACK]]) {
+      for (let i = 0; i < 45; i++) step(r, sk, 1 / 30, { state: 'walking' }, legs);
+      setLegs(twin, legs); twin.root.updateMatrixWorld(true);
+      for (const h of found.hanging) {
+        const c = containment(r, h, true), name = piece(asset, h), mine = containment(twin, twinOf(h), true).worst;
+        // (Heel up behind the flap's corner is past what a walk does: the walk below holds it.)
+        if (known(asset, name)) { if (label !== 'heel up') assert(c.worst > Math.min(0, mine), `${asset} LOD${lod} ${label}: the ${name} does worse than the asset (${(c.worst * 100).toFixed(1)} vs ${(mine * 100).toFixed(1)} cm)`); }
+        else {
+          assert(c.worst > 0, `${asset} LOD${lod} ${label}: a leg is ${(-c.worst * 100).toFixed(1)} cm outside the ${name} at ${JSON.stringify(c.at)}`);
+          least = Math.min(least, c.worst);
+          asIs = Math.min(asIs, mine);
+        }
+        // The main garment's hem stays one piece near to: no edge past twice its length and
+        // 3 cm (a short, close skirt, as a girl's wrapped stroud, stretches most). The
+        // simplified levels' long hem edges are let stretch further where a leg splays two panels.
+        if (h !== found.skirt || lod > 1) continue;
+        const ring = hemRing(r, h, rests.get(h));
+        assert(ring.worstEdge <= 0.01, `${asset} LOD${lod} ${label}: the ${name}'s hem tears open by ${(ring.worstEdge * 100).toFixed(1)} cm`);
+      }
+      tubes = Math.max(tubes, gap(found.tubes));
+      assert(tubes < 0.0001, `${asset} LOD${lod} ${label}: the tubes stay on the legs (${(tubes * 1000).toFixed(3)} mm off)`);
+    }
+    for (let i = 0; i < 120; i++) step(r, sk, 1 / 30, { state: 'standing' }, []);
+    setLegs(twin, []); twin.root.updateMatrixWorld(true);
+    const back = gap(found.driven);
+    assert(back < 0.001, `${asset} LOD${lod}: standing again, the asset (${(back * 1000).toFixed(3)} mm)`);
+    lines.push(`LOD${lod} clear ${(least * 100).toFixed(1)} cm (asset ${(asIs * 100).toFixed(1)})`);
+  }
+  console.log(`${asset} [${HANGING.find(([a]) => a === asset)[1].join(', ')}]: standing exact; ${lines.join(', ')}; tubes on the legs: PASS`);
+}
+
 // 3. The baked walk clip, two cycles: legs inside, the hem one ring, the hem swings.
 for (const asset of ['glessner_frances_m_1904', 'williamson_mattie_1904_cook_study']) {
   const r = await rig(asset, 0, 'walk');
@@ -359,6 +453,58 @@ for (const asset of ['glessner_frances_m_1904', 'williamson_mattie_1904_cook_stu
     assert(tear <= 0, `gait stride: hem edge torn ${(tear * 100).toFixed(1)} cm`);
     console.log(`${asset} LOD0 gait layer (stride ${gait.stride.toFixed(2)} m at ${gait.speed.toFixed(2)} m/s): least clearance ${(worst * 100).toFixed(1)} cm, front hem to +${((frontMax - frontHem(restR, skirtMeshes(restR.scene).skirt, rest)) * 100).toFixed(1)} cm, sway ${sk.snapshot().sway_deg.map(x => x.toFixed(2)).join('/')} deg: PASS`);
   }
+}
+
+// 4b. Every body with hanging cloth on the baked walk and on the gait layer's own stride,
+// as the town walks them: every leg inside every hanging garment where its cloth is, to
+// within the cloth's own thickness (TOUCH_M: the baked clip's hips swing a breeches' side a
+// few millimetres into a tail's lining at the top of the stride); the two KNOWN pieces to
+// within FLAP_M (on the asset's own weights they are 3 and 11 cm through).
+const TOUCH_M = 0.005, FLAP_M = 0.035;
+{
+  let createHumanGait = null;
+  try { ({ createHumanGait } = await import(data(await js('human-gait.js')))); } catch { /* not here yet */ }
+  const lines = [];
+  for (const [asset] of HANGING) for (const lod of [0, 2]) {
+    if (lod && WOMEN.includes(asset)) continue; // their levels are walked in 3 and 4 above
+    let worst = Infinity, at = null, flap = Infinity;
+    const r = await rig(asset, lod, 'walk'), found = skirtMeshes(r.scene), sk = createHumanSkirt({ id: asset, scene: r.scene });
+    for (let i = 0; i < 72; i++) {
+      step(r, sk, 1 / 30, { state: 'walking' });
+      if (i % 4) continue;
+      for (const h of found.hanging) {
+        const c = containment(r, h, true);
+        if (known(asset, piece(asset, h))) { flap = Math.min(flap, c.worst); continue; }
+        if (c.worst < worst) { worst = c.worst; at = { ...c.at, piece: piece(asset, h) }; }
+      }
+    }
+    assert(worst > -TOUCH_M, `${asset} LOD${lod} walk clip: a leg is ${(-worst * 100).toFixed(1)} cm outside at ${JSON.stringify(at)}`);
+    let gw = Infinity;
+    if (createHumanGait && lod === 0) {
+      const g = await rig(asset, lod, 'idle'), gf = skirtMeshes(g.scene), gk = createHumanSkirt({ id: asset, scene: g.scene });
+      const female = /woman|girl|lady|frances|mary|mattie|kate|christine/.test(asset), child = /child|teen/.test(asset);
+      const gait = createHumanGait({ id: asset, scene: g.scene, profile: { sex: female ? 'female' : 'male', age: child ? (/toddler/.test(asset) ? 2 : /teen/.test(asset) ? 14 : 7) : 40, skirt: female } });
+      const fwd = new THREE.Vector3(0, 0, 1).applyAxisAngle(new THREE.Vector3(0, 1, 0), g.root.rotation.y);
+      for (let i = 0; i < 150; i++) {
+        const dt = 1 / 30, moved = gait.speed * gait.pace * dt;
+        g.mixer.update(dt);
+        g.root.position.addScaledVector(fwd, moved); g.root.updateMatrixWorld(true);
+        gait.apply(dt, { state: 'walking', moved });
+        gk.apply(dt, { state: 'walking', root: g.root });
+        g.root.updateMatrixWorld(true);
+        if (i < 45 || i % 3) continue;
+        for (const h of gf.hanging) {
+          const c = containment(g, h, true);
+          if (known(asset, piece(asset, h))) { flap = Math.min(flap, c.worst); continue; }
+          if (c.worst < gw) { gw = c.worst; at = { ...c.at, piece: piece(asset, h) }; }
+        }
+      }
+      assert(gw > -TOUCH_M, `${asset} LOD${lod} gait stride: a leg is ${(-gw * 100).toFixed(1)} cm outside at ${JSON.stringify(at)}`);
+    }
+    if (Number.isFinite(flap)) assert(flap > -FLAP_M, `${asset} LOD${lod}: ${KNOWN[asset].join(' and ')} ${(-flap * 100).toFixed(1)} cm over a leg`);
+    lines.push(`${asset} L${lod} ${(worst * 100).toFixed(1)}/${Number.isFinite(gw) ? (gw * 100).toFixed(1) : '-'}${Number.isFinite(flap) ? ` (${KNOWN[asset].join(', ')} ${(flap * 100).toFixed(1)})` : ''}`);
+  }
+  console.log(`walk clip / gait stride, least clearance (cm): ${lines.join(', ')}: PASS`);
 }
 
 // 5. Shared geometry: a second figure in the same asset is untouched, and freeing gives back only ours.

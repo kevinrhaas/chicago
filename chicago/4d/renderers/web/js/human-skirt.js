@@ -1,18 +1,25 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 /**
- * human-skirt.js — a woman's skirt hangs as one bell on the walk, not as two trouser legs.
+ * human-skirt.js — hanging cloth hangs over the legs on the walk, never trousers in small.
  *
- * The women's full-length skirts (Frances Glessner's gored skirt and her jacket's basque,
- * Mary Reynolds's and Mattie Williamson's skirts and aprons, Mary Flynn's dress study) are
- * skinned by the exporter to the pelvis and to each thigh and calf, about two thirds leg
- * from the hip down. Standing that is right. On the walk each half of the skirt follows its
- * own leg, so the bell parts like trousers between the knees and the other shin comes
- * through the cloth. A walking skirt of 1835 or 1904 hangs from the waistband as one piece:
- * the leading knee and shin push the front panel forward and out, the hem comes after with
- * a little delay, the back panel trails, and the whole bell rides and sways with the hips.
+ * T-3472 made a woman's skirt one bell; T-3553 (Kevin: "no one should have their legs break
+ * through their clothing") makes every hanging garment one: a frock coat's or a greatcoat's
+ * skirts, a coachman's livery, a tailcoat's or a soldier's tails, an 1812 capote or shirt
+ * tail, a blanket, a breechcloth, a girl's frock, as well as the women's skirts, aprons and
+ * basques. The exporter skins them all to the pelvis and to each thigh and calf. Standing
+ * that is right. On the walk each half follows its own leg, so the cloth parts like
+ * trousers and the other knee or shin comes through it. Hanging cloth hangs from the waist
+ * as one piece: the leading knee and shin push it forward and out, the hem comes after
+ * with a little delay, the back trails, and the whole rides and sways with the hips.
  *
- * At bind, every garment of the figure that is weighted to the legs (the skirt, an apron
- * skirt, a basque, the lower edge of a bodice or a jacket; never the shoes) gets its own copy of its skin weights (the positions,
+ * Which cloth: `garmentKind` sorts each leg-weighted garment as 'tube' (trousers, breeches,
+ * stockings, leggings, boots: it is on its leg and keeps its own weights), 'hang' (it hangs
+ * clear of the legs below the hips: by its piece name, or by the share of its low vertices
+ * further than FAR_M from both legs' axes) or 'edge' (weighted to the legs only at the
+ * hips: a bodice's or a waistcoat's lower edge, which rides the waist). A figure with no
+ * hanging garment gets no bell. A coat (COAT_PIECE) takes the COAT style below.
+ *
+ * At bind, every hanging or edge garment of the figure gets its own copy of its skin weights (the positions,
  * normals and the rest stay shared with every other figure in the asset) and a skeleton
  * with N_PANELS procedural panels added under the pelvis: a waist bone at the skirt's own
  * waist at that angle round the body, and a hem bone below it at the knee. The cloth's
@@ -38,9 +45,10 @@
  * legs' job). The panels open at most MAX_WAIST_M at the knee and MAX_HEM_M at the hem;
  * the pendulum swings at most PENDULUM.maxDeg. Nothing else on the body moves.
  *
- * Cost: 36 leg samples, each tested on the rays it covers only when it has moved from where
- * it was drawn, and 2 x N_PANELS + 1 bone rotations, a figure a frame on the CPU: about 20 us
- * walking and 6 us standing (node, one core). On the GPU each driven garment skins with 16
+ * Cost: SAMPLES leg samples (the shin and the foot as three sections each, so a shin lying
+ * across the hem is caught), each tested on the rays it covers only when it has moved from
+ * where it was drawn, and 2 x N_PANELS + 1 bone rotations, a figure a frame on the CPU:
+ * about 28 us walking and 10 us standing (node, one core). On the GPU each driven garment skins with 16
  * more bones in its skeleton, the same four influences a vertex. No draw calls, no textures;
  * a copy of the skin weights (8 bytes a vertex) for each driven garment of each figure.
  * `maxLod` leaves the levels past it as the asset draws them.
@@ -61,14 +69,22 @@ const smooth = (t) => { t = clamp(t, 0, 1); return t * t * (3 - 2 * t); };
 export const N_PANELS = 8;     // panels round the body
 const RAYS = 48;               // azimuths the legs are measured on
 const ROWS = 30;               // heights of the cloth's rest profile
-export const MARGIN_M = 0.012; // the cloth kept off the leg
+export const MARGIN_M = 0.016; // the cloth kept off the leg
 const HANG = 0.6;              // share of the pelvis's tilt the bell takes out (it hangs)
 const SWING_MAX = 25 * DEG;    // the most pelvis tilt the hang answers
 const T_HIPS = 0.2;            // share of the length (waist to hem) over which pelvis gives way to the panels
 const T_KNEE = 0.13;           // half the share over which the waist bone gives way to the hem bone
 const FLARE = 0.35;            // below the knee a pushed panel keeps this much of its cone
 const SPREAD = 0.45;           // a panel's push carried to its neighbours
-const SHIFT = 1.2;             // the whole bell follows the mean push this much
+// A coat's skirts, a tailcoat's or a soldier's tails, a shirt's tail, a blanket or a
+// breechcloth is not a bell: heavier and stiffer cloth, cut close, that a leg pushes aside
+// where it presses and that falls straight back. It carries little of a push round the body,
+// keeps no cone and follows quicker than a skirt, so a walking man's coat does not flare
+// like a dress.
+export const COAT = Object.freeze({ spread: 0.12, flare: 0, omega: Object.freeze({ waist: 26, hem: 18 }), trail: 0.4 });
+const COAT_PIECE = /^(coat|tailcoat|tails?|livery|shirt|blanket|breechcloth|sash|turnbacks?)$/;
+const SHIFT = 1.2;             // the whole bell follows the mean push this much (a closed one)
+const OPEN_GAP = 140 * DEG;    // a garment with a gap wider than this round the body is open
 const TRAIL = { perMS: 0.022, max: 0.035 }; // the hem trails with the pace (m per m/s)
 const OMEGA = { waist: 16, hem: 9, pace: 4 }; // critically damped springs (1/s)
 export const MAX_WAIST_M = 0.32, MAX_HEM_M = 0.45;
@@ -80,8 +96,15 @@ const LEGS = ['thigh_l', 'thigh_r', 'calf_l', 'calf_r'];
 const NEEDED = ['pelvis', 'thigh_l', 'thigh_r', 'calf_l', 'calf_r', 'foot_l', 'foot_r'];
 const SIDES = ['l', 'r'];
 // Where on each leg the cloth is tested: along the thigh, the shin and the foot.
-const ALONG = Object.freeze({ thigh: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1], calf: [0.15, 0.35, 0.55, 0.75, 0.92, 1], foot: [0.5, 1] });
-const SAMPLES = 2 * (ALONG.thigh.length + ALONG.calf.length + ALONG.foot.length);
+const ALONG = Object.freeze({ thigh: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1], calf: [0.04, 0.15, 0.35, 0.55, 0.75, 0.92, 1], foot: [0.5, 1] });
+// Each place on the shin and foot is tested as a ball, by three level sections of it: at its
+// centre (the leg's whole girth) and above and below it (a shin swung back under a short
+// skirt or a coat's skirts lies nearly level, and its calf reaches up into the cloth over it
+// by its girth, where the cloth may be narrower). Offset up, share of radius. A thigh hangs
+// near upright under the cloth, and its sections are its centre's.
+const SECTIONS = Object.freeze([[0, 1], [0.6, 0.8], [-0.6, 0.8]]);
+const CENTRE = Object.freeze([SECTIONS[0]]);
+const SAMPLES = 2 * (ALONG.thigh.length + SECTIONS.length * (ALONG.calf.length + ALONG.foot.length));
 
 const materialName = (m) => (Array.isArray(m.material) ? m.material[0] : m.material)?.name ?? '';
 const isSkin = (m) => materialName(m).split('__')[0] === 'skin';
@@ -92,7 +115,7 @@ const owned = new WeakMap();       // a driven mesh -> its record here (the asse
 function hasLegWeights(mesh) {
   const g = owned.get(mesh)?.origGeometry ?? mesh.geometry;
   if (legWeighted.has(g)) return legWeighted.get(g);
-  const si = g.attributes.skinIndex, sw = g.attributes.skinWeight, bones = mesh.skeleton?.bones ?? [];
+  const si = g.attributes.skinIndex, sw = g.attributes.skinWeight, bones = (owned.get(mesh)?.origSkeleton ?? mesh.skeleton)?.bones ?? [];
   let found = false;
   if (si && sw) {
     const leg = new Set(bones.map((b, i) => (LEGS.includes(b?.name) ? i : -1)).filter((i) => i >= 0));
@@ -102,18 +125,101 @@ function hasLegWeights(mesh) {
   return found;
 }
 
+// T-3553: which garments hang from the waist and which follow a leg. A tube round one leg
+// (trousers, breeches, pantaloons, overalls, stockings, leggings, garters, boot shafts) is
+// the leg's own and stays on it, as the asset draws it. Cloth that hangs below the hips
+// round or between the legs (a skirt, a petticoat, a frock or livery coat's skirts, a
+// tailcoat's or a soldier's tails and turnbacks, a jacket's basque, an apron, a shirt's
+// tail, a blanket, a breechcloth, a sash's ends) hangs from the waist and only gives way
+// to the legs. Cloth weighted to the legs only at the hips (a coat's, waistcoat's,
+// bodice's or shirt's lower edge, a belt) rides the waist with the hanging cloth sewn to
+// it. The piece's name says it where it can; otherwise its shape: hanging cloth stands well
+// off both legs, a tube never does (measured on every body in the town: tubes at most 5 %
+// of their low vertices more than 13 cm from a leg's axis, hanging cloth 18 % or more).
+const TUBE = /^(trouser|breech(es)?$|pantaloon|overall|stocking|legging|garter|boot|shaft|gaiter)/;
+const HANGS = /^(skirt|tail|basque|apron|petticoat|blanket|breechcloth|turnback|gown|frock|sash|selvage|wrap|flap)/;
+export const FAR_M = 0.13;      // a hanging vertex stands this far off both legs' axes (per 0.85 m of leg)
+export const FAR_SHARE = 0.12;  // and this share of a garment's low vertices does
+const LOW_M = 0.1;              // low: this far under the hips (per 0.85 m of leg)
+const ADULT_LEG_M = 0.85;
+const kinds = new WeakMap();    // source geometry -> { kind, low }
+
+/** A garment's piece name, without the body's id and the level. */
+function pieceName(mesh, assetId) {
+  let n = mesh.name ?? '';
+  if (assetId && n.startsWith(`${assetId}_`)) n = n.slice(assetId.length + 1);
+  return n.replace(/_lod\d*$/, '');
+}
+const tokens = (name) => name.toLowerCase().split(/[_\s.-]+/).filter(Boolean);
+
 /**
- * The skirt of a figure, and every garment that must move with it, or null. A skirt is a
- * lower garment named for one and weighted to the legs: a frock coat's skirts and trousers
- * are not.
+ * What a garment does over the legs: 'hang', 'tube', 'edge' (weighted to the legs only at the
+ * hips), or null (skin, a shoe, or nothing on the legs). Cached per shared geometry.
+ */
+export function garmentKind(mesh, assetId = null) {
+  const rec = owned.get(mesh), g = rec?.origGeometry ?? mesh.geometry, sk = rec?.origSkeleton ?? mesh.skeleton;
+  if (kinds.has(g)) return kinds.get(g);
+  let out = { kind: null, low: Infinity, length: 0, count: 0 };
+  if (sk && !isSkin(mesh) && !isShoe(mesh) && hasLegWeights(mesh)) out = classify(mesh, g, sk, assetId);
+  kinds.set(g, out);
+  return out;
+}
+function classify(mesh, g, sk, assetId) {
+  const index = new Map(sk.bones.map((b, i) => [b?.name, i]));
+  if (!NEEDED.every((n) => index.has(n))) return { kind: null, low: Infinity, length: 0, count: 0 };
+  const Ip = sk.boneInverses[index.get('pelvis')];
+  const at = (n) => new THREE.Vector3().setFromMatrixPosition(new THREE.Matrix4().copy(Ip).multiply(sk.boneInverses[index.get(n)].clone().invert()));
+  const hip = { l: at('thigh_l'), r: at('thigh_r') }, knee = { l: at('calf_l'), r: at('calf_r') }, ankle = { l: at('foot_l'), r: at('foot_r') };
+  const O = hip.l.clone().add(hip.r).multiplyScalar(0.5);
+  const U = O.clone().sub(ankle.l.clone().add(ankle.r).multiplyScalar(0.5));
+  const leg = (hip.l.distanceTo(ankle.l) + hip.r.distanceTo(ankle.r)) / 2, scale = leg / ADULT_LEG_M;
+  U.normalize();
+  const M = new THREE.Matrix4().copy(Ip).multiply(mesh.bindMatrix);
+  const pos = g.attributes.position, si = g.attributes.skinIndex, sw = g.attributes.skinWeight;
+  const legIdx = new Set(LEGS.map((b) => index.get(b)));
+  const v = new THREE.Vector3(), d = new THREE.Vector3(), ab = new THREE.Vector3();
+  const segDist = (p, a, b) => { ab.subVectors(b, a); const t = clamp(d.subVectors(p, a).dot(ab) / ab.lengthSq(), 0, 1); return d.copy(a).addScaledVector(ab, t).distanceTo(p); };
+  let low = 0, far = 0, least = Infinity, top = -Infinity;
+  for (let i = 0; i < pos.count; i++) {
+    v.fromBufferAttribute(pos, i).applyMatrix4(M);
+    const h = d.subVectors(v, O).dot(U);
+    least = Math.min(least, h);
+    let w = 0; for (let c = 0; c < 4; c++) if (legIdx.has(si.getComponent(i, c))) w += sw.getComponent(i, c);
+    if (w > 0.01) top = Math.max(top, h);
+    if (w <= 0.01 || h > -LOW_M * scale) continue;
+    low++;
+    let near = Infinity;
+    for (const s of SIDES) near = Math.min(near, segDist(v, hip[s], knee[s]), segDist(v, knee[s], ankle[s]));
+    if (near > FAR_M * scale) far++;
+  }
+  const words = tokens(pieceName(mesh, assetId)), material = materialName(mesh);
+  const tube = words.some((t) => TUBE.test(t));
+  let kind;
+  if (!low) kind = tube || /^garment_lower/.test(material) ? 'tube' : 'edge';
+  else if (tube) kind = 'tube';
+  else kind = words.some((t) => HANGS.test(t)) || far / low >= FAR_SHARE ? 'hang' : 'tube';
+  return { kind, low: least, length: top - least, count: low };
+}
+
+/**
+ * The hanging cloth of a figure, and every garment that must move with it, or null when
+ * nothing hangs below its hips (trousers alone). `skirt` is the main hanging garment (the longest, waist to hem, and fullest),
+ * `hanging` all of them (the legs are kept inside every one), `driven` those and the
+ * garments sewn to them at the waist; `tubes` stay on the legs.
  */
 export function skirtMeshes(scene) {
   const all = [];
   scene?.traverse((o) => { if (o.isSkinnedMesh && o.skeleton) all.push(o); });
-  const skirt = all.find((m) => /skirt/i.test(m.name) && !/coat|apron/i.test(m.name) && /^garment_lower/.test(materialName(m)) && hasLegWeights(m));
-  if (!skirt) return null;
-  const driven = all.filter((m) => m === skirt || (!isSkin(m) && !isShoe(m) && hasLegWeights(m)));
-  return { skirt, driven, body: all.find(isSkin) ?? null };
+  const assetId = scene?.userData?.chicago4d_human?.asset_id ?? null;
+  const kind = new Map(all.map((m) => [m, garmentKind(m, assetId)]));
+  const hanging = all.filter((m) => kind.get(m).kind === 'hang');
+  if (!hanging.length) return null;
+  // The longest (within a fifth) and the fullest of them: a coat's skirts, not its turnbacks.
+  const longest = Math.max(...hanging.map((m) => kind.get(m).length));
+  const skirt = hanging.filter((m) => kind.get(m).length >= 0.8 * longest).reduce((a, m) => (kind.get(m).count > kind.get(a).count ? m : a));
+  const driven = all.filter((m) => kind.get(m).kind === 'hang' || kind.get(m).kind === 'edge');
+  const tubes = all.filter((m) => kind.get(m).kind === 'tube');
+  return { skirt, hanging, driven, tubes, body: all.find(isSkin) ?? null };
 }
 
 const bindings = new WeakMap(); // scene -> its binding (kept while the scene is parked)
@@ -132,7 +238,7 @@ function spring(x, v, i, target, omega, dt) {
 function makeBinding(scene) {
   const found = skirtMeshes(scene);
   if (!found) return null;
-  const { skirt, driven, body } = found;
+  const { skirt, hanging, driven, body } = found;
   const sk = skirt.skeleton, index = new Map(sk.bones.map((b, i) => [b.name, i]));
   if (!NEEDED.every((n) => index.has(n))) return null;
   const bone = (n) => sk.bones[index.get(n)];
@@ -171,13 +277,16 @@ function makeBinding(scene) {
     for (let i = 0; i < n; i++) for (let c = 0; c < 4; c++) if (legIdx.has(si.getComponent(i, c))) legW[i] += sw.getComponent(i, c);
     return { mesh, F, legW, n, Ipm, mIndex };
   });
-  const S = meshes.find((m) => m.mesh === skirt);
-  // The bell's length: from the top of the cloth the legs carried to the hem.
+  // The hanging cloth, every layer of it (a coat's skirts over a waistcoat's, an apron over
+  // a skirt, a blanket over a shirt's tail and a breechcloth): the legs stay inside them all.
+  // The longest of them sets the bell's length, from the top of the cloth the legs carried
+  // to its hem, and where the panels hang.
+  const hangs = meshes.filter((m) => hanging.includes(m.mesh)), S = meshes.find((m) => m.mesh === skirt);
   let yTop = -Infinity, yHem = Infinity;
   for (let i = 0; i < S.n; i++) { const y = S.F[i * 3 + 1]; if (S.legW[i] > 0.01) yTop = Math.max(yTop, y); yHem = Math.min(yHem, y); }
   const kneeY = (toF(knee.l, [0, 0, 0])[1] + toF(knee.r, [0, 0, 0])[1]) / 2;
   const len = yTop - yHem;
-  if (!(len > 0.2)) return null;
+  if (!(len > 0.12)) return null;
   const tMid = clamp((yTop - kneeY) / len, 0.35, 0.7);
   const yMid = yTop - tMid * len;
   const tB0 = tMid - T_KNEE, tB1 = tMid + T_KNEE, tA = Math.min(T_HIPS, tB0 - 0.02);
@@ -185,22 +294,49 @@ function makeBinding(scene) {
 
   // The cloth's rest surface: least and mean radius on RAYS x ROWS cells.
   const dy = len / (ROWS - 1), cells = RAYS * ROWS;
+  // The cloth's rest surface at each cell: the longest garment's, or a layer worn under it
+  // (a shirt's tail or a breechcloth under a blanket), whichever is innermost there, since
+  // that is the one a leg would come through first. A layer over it (an apron) is left out.
   const rMin = new Float32Array(cells).fill(Infinity), rSum = new Float32Array(cells), rN = new Uint16Array(cells);
+  const cellOf = (H, i) => {
+    const X = H.F[i * 3], y = H.F[i * 3 + 1], Z = H.F[i * 3 + 2];
+    const row = Math.round((y - yHem) / dy); if (row < 0 || row >= ROWS) return -1;
+    return row * RAYS + ((Math.round(Math.atan2(X, Z) / TAU * RAYS) % RAYS) + RAYS) % RAYS;
+  };
   for (let i = 0; i < S.n; i++) {
-    const X = S.F[i * 3], y = S.F[i * 3 + 1], Z = S.F[i * 3 + 2];
-    const row = Math.round((y - yHem) / dy); if (row < 0 || row >= ROWS) continue;
-    const j = ((Math.round(Math.atan2(X, Z) / TAU * RAYS) % RAYS) + RAYS) % RAYS, c = row * RAYS + j, r = Math.hypot(X, Z);
+    const c = cellOf(S, i); if (c < 0) continue;
+    const r = Math.hypot(S.F[i * 3], S.F[i * 3 + 2]);
     rMin[c] = Math.min(rMin[c], r); rSum[c] += r; rN[c]++;
   }
+  for (const H of hangs) {
+    if (H === S) continue;
+    const own = new Float32Array(cells).fill(Infinity);
+    for (let i = 0; i < H.n; i++) { const c = cellOf(H, i); if (c >= 0) own[c] = Math.min(own[c], Math.hypot(H.F[i * 3], H.F[i * 3 + 2])); }
+    let under = 0, over = 0;
+    for (let c = 0; c < cells; c++) if (own[c] < Infinity && rMin[c] < Infinity) { if (own[c] < rMin[c] - 0.002) under++; else over++; }
+    if (under > over) for (let c = 0; c < cells; c++) rMin[c] = Math.min(rMin[c], own[c]);
+  }
+  // Is the main garment closed round the body (a skirt, a petticoat, a buttoned frock coat)
+  // or open (a tailcoat's tails, a soldier's coat skirts, a wrap): the widest gap in it round
+  // the body, between a fifth and four fifths of its length. An open garment does not shift
+  // as a whole with the legs' mean push: moving its edges sideways would slide them off the
+  // leg beside them.
+  const around = [];
+  for (let i = 0; i < S.n; i++) { const t = (yTop - S.F[i * 3 + 1]) / len; if (t > 0.2 && t < 0.8) around.push(Math.atan2(S.F[i * 3], S.F[i * 3 + 2])); }
+  around.sort((p, q) => p - q);
+  let gap = around.length ? TAU - (around[around.length - 1] - around[0]) : TAU;
+  for (let i = 1; i < around.length; i++) gap = Math.max(gap, around[i] - around[i - 1]);
+  const closed = gap <= OPEN_GAP;
+  const coat = tokens(pieceName(skirt, scene.userData?.chicago4d_human?.asset_id)).some((t) => COAT_PIECE.test(t));
   const rMean = new Float32Array(cells).fill(NaN);
-  for (let c = 0; c < cells; c++) if (rN[c]) rMean[c] = rSum[c] / rN[c]; else rMin[c] = NaN;
+  for (let c = 0; c < cells; c++) { if (rN[c]) rMean[c] = rSum[c] / rN[c]; if (rMin[c] === Infinity) rMin[c] = NaN; }
   fillGrid(rMin); fillGrid(rMean);
   const rowAt = (y) => clamp((y - yHem) / dy, 0, ROWS - 1);
   const look = (grid, j, y) => { const f = rowAt(y), i0 = Math.min(ROWS - 2, Math.floor(f)), a = f - i0; return grid[i0 * RAYS + j] * (1 - a) + grid[(i0 + 1) * RAYS + j] * a; };
   const lookAngle = (grid, theta, y) => { const f = ((theta / TAU) * RAYS % RAYS + RAYS) % RAYS, j0 = Math.floor(f) % RAYS, a = f - Math.floor(f); return look(grid, j0, y) * (1 - a) + look(grid, (j0 + 1) % RAYS, y) * a; };
 
   // The legs' girth along each bone, from the body as drawn (or a woman's, without one).
-  const girth = legGirth(body, { hip, knee, ankle, toF });
+  const girth = legGirth(owned.get(skirt)?.origGeometry ?? skirt.geometry, [body, ...found.tubes].filter(Boolean), { hip, knee, ankle });
   // The legs as drawn: what the cloth already clears standing is never a push.
   const restExit = new Float32Array(cells).fill(-Infinity);
   const f3 = [0, 0, 0], c3 = new THREE.Vector3();
@@ -223,7 +359,7 @@ function makeBinding(scene) {
   const allow = new Float64Array(cells);
   for (let row = 0; row < ROWS; row++) for (let j = 0; j < RAYS; j++) {
     let e = -Infinity;
-    for (let dr = -1; dr <= 1; dr++) for (let dj = -1; dj <= 1; dj++) {
+    for (let dr = 0; dr <= 0; dr++) for (let dj = 0; dj <= 0; dj++) {
       const r2 = row + dr; if (r2 < 0 || r2 >= ROWS) continue;
       e = Math.max(e, restExit[r2 * RAYS + ((j + dj + RAYS) % RAYS)]);
     }
@@ -262,14 +398,22 @@ function makeBinding(scene) {
   const restS = new Float64Array(SAMPLES * 3);
   {
     let q = 0;
-    const put = (a, b, along) => { for (const u of along) { toF(c3.copy(a).lerp(b, u), f3); restS[q++] = f3[0]; restS[q++] = f3[1]; restS[q++] = f3[2]; } };
-    for (const s of SIDES) { put(hip[s], knee[s], ALONG.thigh); put(knee[s], ankle[s], ALONG.calf); put(ankle[s], ball[s] ?? ankle[s], ALONG.foot); }
+    const put = (a, b, along, g, secs) => {
+      for (const u of along) {
+        toF(c3.copy(a).lerp(b, u), f3);
+        const rho = girthAt(g, u) + MARGIN_M;
+        for (const [up] of secs) { restS[q++] = f3[0]; restS[q++] = f3[1] + up * rho; restS[q++] = f3[2]; }
+      }
+    };
+    for (const s of SIDES) { put(hip[s], knee[s], ALONG.thigh, girth[s].thigh, CENTRE); put(knee[s], ankle[s], ALONG.calf, girth[s].calf, SECTIONS); put(ankle[s], ball[s] ?? ankle[s], ALONG.foot, girth[s].foot, SECTIONS); }
   }
   const binding = {
     scene, pelvis, restS, hang, waist, hem, own, bones: { thigh: {}, calf: {}, foot: {}, ball: {} },
     O, U, Lf, Fw, Wc, P, Q, H, dir, yTop, yHem, yMid, len, tMid, tA, tB0, tB1, wA, wB, allow, rMin, rMean, girth,
     rayK, rayGain, raySin, rayCos, rowAllow, pelvisBindQ, upParent, hasParent: parentIdx !== undefined, lod: scene.userData?.chicago4d_human?.lod ?? null,
-    mode: 'bell', freed: false,
+    mode: 'bell', freed: false, shift: closed && !coat ? SHIFT : 0,
+    spread: coat ? COAT.spread : SPREAD, flare: coat ? COAT.flare : FLARE, trail: coat ? COAT.trail : 1,
+    omega: coat ? COAT.omega : OMEGA, coat,
   };
   for (const s of SIDES) {
     binding.bones.thigh[s] = bone(`thigh_${s}`); binding.bones.calf[s] = bone(`calf_${s}`); binding.bones.foot[s] = bone(`foot_${s}`);
@@ -319,39 +463,45 @@ function rayExit(X, Z, rho, theta) {
 
 const GIRTH_BINS = 8;
 const DEFAULT_GIRTH = { thigh: [0.085, 0.08, 0.075, 0.07, 0.065, 0.06, 0.057, 0.055], calf: [0.055, 0.057, 0.058, 0.055, 0.05, 0.045, 0.04, 0.036], foot: [0.045, 0.045, 0.042, 0.04, 0.038, 0.035, 0.032, 0.03] };
-const girthCache = new WeakMap(); // body geometry -> girth
+const girthCache = new WeakMap(); // the hanging cloth's geometry -> girth (one per body and level)
 
-/** The leg's radius along each bone (the most of the body's own skin about it, binned). */
-function legGirth(body, { hip, knee, ankle }) {
+/**
+ * The leg's radius along each bone: the most of the body's own skin about it, or of a tube
+ * worn over it (loose trousers, breeches, leggings stand off the skin), binned.
+ */
+function legGirth(key, meshes, { hip, knee, ankle }) {
   const fallback = { l: { ...DEFAULT_GIRTH }, r: { ...DEFAULT_GIRTH } };
-  if (!body) return fallback;
-  if (girthCache.has(body.geometry)) return girthCache.get(body.geometry);
-  const sk = body.skeleton, idx = new Map(sk.bones.map((b, i) => [b.name, i]));
-  if (!NEEDED.every((n) => idx.has(n))) return fallback;
-  const M = new THREE.Matrix4().copy(sk.boneInverses[idx.get('pelvis')]).multiply(body.bindMatrix);
-  const pos = body.geometry.attributes.position, si = body.geometry.attributes.skinIndex, sw = body.geometry.attributes.skinWeight;
+  if (!meshes.length) return fallback;
+  if (girthCache.has(key)) return girthCache.get(key);
   const out = { l: { thigh: new Array(GIRTH_BINS).fill(0), calf: new Array(GIRTH_BINS).fill(0), foot: DEFAULT_GIRTH.foot.slice() }, r: { thigh: new Array(GIRTH_BINS).fill(0), calf: new Array(GIRTH_BINS).fill(0), foot: DEFAULT_GIRTH.foot.slice() } };
-  const of = new Map();
-  for (const s of SIDES) { of.set(idx.get(`thigh_${s}`), [s, 'thigh', hip[s], knee[s]]); of.set(idx.get(`calf_${s}`), [s, 'calf', knee[s], ankle[s]]); }
   const v = new THREE.Vector3(), ab = new THREE.Vector3(), av = new THREE.Vector3();
-  for (let i = 0; i < pos.count; i++) {
-    let best = -1, bw = 0;
-    for (let c = 0; c < 4; c++) { const w = sw.getComponent(i, c), b = si.getComponent(i, c); if (w > bw && of.has(b)) { bw = w; best = b; } }
-    if (bw < 0.5) continue;
-    const [s, part, a, b] = of.get(best);
-    v.fromBufferAttribute(pos, i).applyMatrix4(M);
-    ab.subVectors(b, a); av.subVectors(v, a);
-    const u = av.dot(ab) / ab.lengthSq();
-    if (u < 0 || u > 1.05) continue;
-    const r = av.addScaledVector(ab, -clamp(u, 0, 1)).length();
-    const bin = Math.min(GIRTH_BINS - 1, Math.floor(clamp(u, 0, 0.999) * GIRTH_BINS));
-    if (r < 0.2) out[s][part][bin] = Math.max(out[s][part][bin], r);
+  for (const mesh of meshes) {
+    const rec = owned.get(mesh), sk = rec?.origSkeleton ?? mesh.skeleton, geo = rec?.origGeometry ?? mesh.geometry;
+    const idx = new Map(sk.bones.map((b, i) => [b.name, i]));
+    if (!NEEDED.every((n) => idx.has(n))) continue;
+    const M = new THREE.Matrix4().copy(sk.boneInverses[idx.get('pelvis')]).multiply(mesh.bindMatrix);
+    const pos = geo.attributes.position, si = geo.attributes.skinIndex, sw = geo.attributes.skinWeight;
+    const of = new Map();
+    for (const s of SIDES) { of.set(idx.get(`thigh_${s}`), [s, 'thigh', hip[s], knee[s]]); of.set(idx.get(`calf_${s}`), [s, 'calf', knee[s], ankle[s]]); }
+    for (let i = 0; i < pos.count; i++) {
+      let best = -1, bw = 0;
+      for (let c = 0; c < 4; c++) { const w = sw.getComponent(i, c), b = si.getComponent(i, c); if (w > bw && of.has(b)) { bw = w; best = b; } }
+      if (bw < 0.5) continue;
+      const [s, part, a, b] = of.get(best);
+      v.fromBufferAttribute(pos, i).applyMatrix4(M);
+      ab.subVectors(b, a); av.subVectors(v, a);
+      const u = av.dot(ab) / ab.lengthSq();
+      if (u < 0 || u > 1.05) continue;
+      const r = av.addScaledVector(ab, -clamp(u, 0, 1)).length();
+      const bin = Math.min(GIRTH_BINS - 1, Math.floor(clamp(u, 0, 0.999) * GIRTH_BINS));
+      if (r < 0.2) out[s][part][bin] = Math.max(out[s][part][bin], r);
+    }
   }
   for (const s of SIDES) for (const part of ['thigh', 'calf']) {
     const g = out[s][part];
     for (let k = 0; k < GIRTH_BINS; k++) if (!(g[k] > 0.015)) g[k] = DEFAULT_GIRTH[part][k];
   }
-  girthCache.set(body.geometry, out);
+  girthCache.set(key, out);
   return out;
 }
 /** A girth at `u` along its bone (the larger of the two bins about it). */
@@ -520,18 +670,19 @@ export function createHumanSkirt({ id = 'human', scene = null, maxLod = 3 } = {}
       pHip.setFromMatrixPosition(mT); pKnee.setFromMatrixPosition(mC); pAnk.setFromMatrixPosition(mF);
       const hasBall = !!b.bones.ball[s];
       if (hasBall) pBall.setFromMatrixPosition(chain(b.bones.ball[s], mB));
-      n = segment(b, pHip, pKnee, ALONG.thigh, b.girth[s].thigh, n);
-      n = segment(b, pKnee, pAnk, ALONG.calf, b.girth[s].calf, n);
-      n = segment(b, pAnk, hasBall ? pBall : pAnk, ALONG.foot, b.girth[s].foot, n);
+      n = segment(b, pHip, pKnee, ALONG.thigh, b.girth[s].thigh, n, CENTRE);
+      n = segment(b, pKnee, pAnk, ALONG.calf, b.girth[s].calf, n, SECTIONS);
+      n = segment(b, pAnk, hasBall ? pBall : pAnk, ALONG.foot, b.girth[s].foot, n, SECTIONS);
     }
     return n;
   }
-  function segment(b, a, c, along, g, n) {
+  function segment(b, a, c, along, g, n, secs) {
     for (let i = 0; i < along.length; i++) {
       const u = along[i];
       tmp.copy(a).lerp(c, u).sub(b.Wc).applyQuaternion(qHangInv).add(b.Wc);
       toFrame(b, tmp, f3);
-      sX[n] = f3[0]; sy[n] = f3[1]; sZ[n] = f3[2]; sR[n] = girthAt(g, u) + MARGIN_M; n++;
+      const rho = girthAt(g, u) + MARGIN_M;
+      for (const [up, share] of secs) { sX[n] = f3[0]; sy[n] = f3[1] + up * rho; sZ[n] = f3[2]; sR[n] = share * rho; n++; }
     }
     return n;
   }
@@ -606,12 +757,20 @@ export function createHumanSkirt({ id = 'human', scene = null, maxLod = 3 } = {}
     need.fill(0);
     const { allow, rayK, rayGain, raySin, rayCos, rowAllow, yHem, yTop, restS } = b;
     for (let s = 0; s < n; s++) {
-      const y = sy[s];
-      if (y < yHem + 0.01 || y > yTop - 0.01) continue;
       // Where it stood (the allowance clears it there): it cannot push by more than it moved.
-      const ex = sX[s] - restS[s * 3], ey = y - restS[s * 3 + 1], ez = sZ[s] - restS[s * 3 + 2];
+      const ex = sX[s] - restS[s * 3], ey = sy[s] - restS[s * 3 + 1], ez = sZ[s] - restS[s * 3 + 2];
       if (ex * ex + ey * ey + ez * ez < NEED_MIN * NEED_MIN) continue;
-      const X = sX[s], Z = sZ[s], rho = sR[s], rc = Math.hypot(X, Z);
+      // A leg just under the hem still reaches into the cloth by its own girth (the calf of a
+      // shin swung back under a coat's skirts): it pushes there with its section at the hem.
+      let y = sy[s], rho = sR[s];
+      if (y > yTop - 0.01) continue;
+      const ye = Math.max(y, yHem + 0.01);
+      if (ye !== y) {
+        const dy = ye - y;
+        if (Math.abs(dy) >= rho) continue;
+        rho = Math.sqrt(rho * rho - dy * dy); y = ye; sy[s] = ye; sR[s] = rho;
+      }
+      const X = sX[s], Z = sZ[s], rc = Math.hypot(X, Z);
       const f = clamp((y - yHem) / ((yTop - yHem) / (ROWS - 1)), 0, ROWS - 1), i0 = Math.min(ROWS - 2, Math.floor(f)), fa = f - i0;
       // Deep inside the cloth on every ray: nothing to do (most of the leg, most frames).
       if (rc + rho < Math.min(rowAllow[i0], rowAllow[i0 + 1]) + NEED_MIN) continue;
@@ -663,16 +822,16 @@ export function createHumanSkirt({ id = 'human', scene = null, maxLod = 3 } = {}
     const lamH = 1 / b.tMid;
     for (let k = 0; k < N_PANELS; k++) {
       const l = (k + N_PANELS - 1) % N_PANELS, r = (k + 1) % N_PANELS;
-      tgtQ[k] = Math.max(reqQ[k], SPREAD * Math.max(reqQ[l], reqQ[r]));
+      tgtQ[k] = Math.max(reqQ[k], b.spread * Math.max(reqQ[l], reqQ[r]));
     }
     for (let k = 0; k < N_PANELS; k++) {
       const l = (k + N_PANELS - 1) % N_PANELS, r = (k + 1) % N_PANELS;
-      tgtH[k] = Math.max(reqH[k], tgtQ[k] * (1 + FLARE * (lamH - 1)), SPREAD * Math.max(reqH[l], reqH[r]));
+      tgtH[k] = Math.max(reqH[k], tgtQ[k] * (1 + b.flare * (lamH - 1)), b.spread * Math.max(reqH[l], reqH[r]));
     }
     // The whole bell follows its mean push, and the hem trails with the pace.
     let sQx = 0, sQz = 0, sHx = 0, sHz = 0;
     for (let k = 0; k < N_PANELS; k++) { const [dx, dz] = b.dir[k]; sQx += tgtQ[k] * dx; sQz += tgtQ[k] * dz; sHx += tgtH[k] * dx; sHz += tgtH[k] * dz; }
-    const sh = SHIFT / N_PANELS, trail = Math.min(TRAIL.max, TRAIL.perMS * pace.x[0]);
+    const sh = b.shift / N_PANELS, trail = b.trail * Math.min(TRAIL.max, TRAIL.perMS * pace.x[0]);
     sQx *= sh; sQz *= sh; sHx *= sh; sHz = sHz * sh - trail; sQz -= trail * 0.5;
     // Nothing pushing and nothing still moving: the panels at rest (the asset as drawn).
     let still = trail === 0;
@@ -686,8 +845,8 @@ export function createHumanSkirt({ id = 'human', scene = null, maxLod = 3 } = {}
     for (let k = 0; k < N_PANELS; k++) {
       const [dx, dz] = b.dir[k], o = k * 4;
       if (dt > 0) {
-        spring(X, V, o, tgtQ[k] * dx + sQx, OMEGA.waist, dt); spring(X, V, o + 1, tgtQ[k] * dz + sQz, OMEGA.waist, dt);
-        spring(X, V, o + 2, tgtH[k] * dx + sHx, OMEGA.hem, dt); spring(X, V, o + 3, tgtH[k] * dz + sHz, OMEGA.hem, dt);
+        spring(X, V, o, tgtQ[k] * dx + sQx, b.omega.waist, dt); spring(X, V, o + 1, tgtQ[k] * dz + sQz, b.omega.waist, dt);
+        spring(X, V, o + 2, tgtH[k] * dx + sHx, b.omega.hem, dt); spring(X, V, o + 3, tgtH[k] * dz + sHz, b.omega.hem, dt);
       }
       // Contact is never late: the leg holds the panel out however the spring lags.
       hold(o, reqQ[k], MAX_WAIST_M, dx, dz); hold(o + 2, reqH[k], MAX_HEM_M, dx, dz);

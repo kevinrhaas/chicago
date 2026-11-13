@@ -1068,6 +1068,9 @@ def surround(o, su: dict, op, s: float, tier: str) -> list:
 ARCHITRAVE_PIECES = 12    # T-1881: an architrave's arch in this many straight pieces (K01's)
 ARCHITRAVE_INNER = 0.55   # T-1881: the inner fascia's share of the band, next the light (K01's)
 ARCHITRAVE_TUCK_M = 0.01  # T-1881: how far an architrave's band stands off the light's edge
+ARCHITRAVE_COLUMN_GROW_M = 0.03     # T-3370: how far a colonnette's base and capital stand past its shaft
+ARCHITRAVE_COLUMN_BASE_M = 0.12     # T-3370: a colonnette's base, high
+ARCHITRAVE_COLUMN_CAPITAL_M = 0.18  # T-3370: a colonnette's capital, high
 
 
 def architrave(o, ar: dict, op, s: float, tier: str) -> list:
@@ -1135,16 +1138,38 @@ def architrave(o, ar: dict, op, s: float, tier: str) -> list:
                 p0, p1 = at(k, ta), at(k, tb)
                 o.face("band", [o.P(p0[0], p0[1], 0.0), o.P(p1[0], p1[1], 0.0),
                                 o.P(p1[0], p1[1], -da), o.P(p0[0], p0[1], -da)], (0.0, hy, 0.0))
+    co = ar.get("columns")
     if ar.get("impost_m"):
         ih, io = ar["impost_m"]
+        out, pr_ = io, F + io
+        if co:
+            # T-3370: over colonnettes the impost reaches past their capitals and stands
+            # before them, so each capital sits under its block
+            out = max(io, co["width_m"] + ARCHITRAVE_COLUMN_GROW_M + 0.01)
+            pr_ = max(pr_, co["proud_m"] + ARCHITRAVE_COLUMN_GROW_M + 0.03)
         # raised ARCHITRAVE_TUCK_M, so its top is not drawn in the plane of K06's head band's
         # feet at the springing
-        for a0, a1 in ((x0 - e - b - io, x0 - 2 * e), (x1 + 2 * e, x1 + e + b + io)):
-            o.proud("band", rect(a0, a1, ys - ih + e, ys + e), F + io)
+        for a0, a1 in ((x0 - e - b - out, x0 - 2 * e), (x1 + 2 * e, x1 + e + b + out)):
+            o.proud("band", rect(a0, a1, ys - ih + e, ys + e), pr_)
+    if co:
+        # T-3370: a colonnette each side of the band (1936's belvedere frames, the Chicagology
+        # photograph: a slender shaft at each side of the arched surround, from the sill to the
+        # springing): a square shaft `width_m` across and `proud_m` out against the band's outer
+        # edge, 2 cm into it (so its side is not drawn in the band's outer face), on a base and
+        # under a capital ARCHITRAVE_COLUMN_GROW_M wider each side and prouder; the base buries
+        # its foot in the sill's horn and the capital its top 4 mm in the impost's underside
+        cw, cp, g = co["width_m"], co["proud_m"], ARCHITRAVE_COLUMN_GROW_M
+        y_t = ys - ar["impost_m"][0] + e + 0.004
+        hb, hc = ARCHITRAVE_COLUMN_BASE_M, ARCHITRAVE_COLUMN_CAPITAL_M
+        for a0, a1 in ((x0 - e - b - cw, x0 - e - b + 0.02), (x1 + e + b - 0.02, x1 + e + b + cw)):
+            # (the base's foot 4 mm under the band's, so the two undersides are not one plane)
+            for ya, yb, gr in ((y0 - 0.004, y0 + hb, g), (y0 + hb - 0.004, y_t - hc + 0.004, 0.0), (y_t - hc, y_t, g)):
+                o.proud("band", rect(a0 - gr, a1 + gr, ya, yb), cp + gr)
     if ar.get("key_m"):
         kw, kh = ar["key_m"]
         o.proud("band", rect(cx - kw / 2, cx + kw / 2, ys + r0, ys + r0 + kh), F + 0.03)
-    return [(x0 - b, x0, y0, ys), (x1, x1 + b, y0, ys)]
+    c_ = co["width_m"] + ARCHITRAVE_COLUMN_GROW_M if co else 0.0
+    return [(x0 - b - c_, x0, y0, ys), (x1, x1 + b + c_, y0, ys)]
 
 
 def tympanum(o, ty: dict, x0: float, x1: float, y0: float, cx: float, tier: str) -> int:
@@ -1359,8 +1384,10 @@ def window(w: dict, s: float, y_sill: float, recess: float):
         # T-1881: an architrave's jambs stand on the sill's horns, as a surround's do, the horns
         # running a little past the band (stood ARCHITRAVE_TUCK_M off the light) so their ends
         # are not drawn in its outer face's plane
+        co_ = w["architrave"].get("columns")   # T-3370: and under its colonnettes' bases
         data6["parts"]["sill"]["horn_m"] = max(data6["parts"]["sill"]["horn_m"],
-                                               w["architrave"]["band_m"] + ARCHITRAVE_TUCK_M + 0.03)
+                                               w["architrave"]["band_m"] + ARCHITRAVE_TUCK_M + 0.03
+                                               + (co_["width_m"] + 2 * ARCHITRAVE_COLUMN_GROW_M if co_ else 0.0))
     probe = K6.Opening(v6, data6).build()
     inner_glass = probe.meta["depth_backing_m"] - data6["parts"]["backing"]["depth_m"]
     data6["parts"]["backing"]["depth_m"] = recess - inner_glass
@@ -1757,7 +1784,7 @@ class Bay:
                              f"stage, from one of its storey lines")
         lo = copy.deepcopy(v)
         lo.pop("stage")
-        for key in ("brackets", "balcony", "storey_balcony", "corbel_table"):
+        for key in ("brackets", "balcony", "storey_balcony", "corbel_table", "pilasters"):
             lo.pop(key, None)
         lo["storeys"], lo["capped"] = lo["storeys"][:k], True
         lower = Bay(lo, self.data, self.tier).build(board=False)
@@ -1772,6 +1799,13 @@ class Bay:
             if int(hi["storey_balcony"]["storey"]) <= k:
                 raise ValueError(f"{v['id']}: its storey balcony stands on its whole stage, over storey {k}")
             hi["storey_balcony"] = {**hi["storey_balcony"], "storey": int(hi["storey_balcony"]["storey"]) - k}
+        if hi.get("pilasters") is not None:
+            # T-3370: pilasters on a whole stage (1936's belvedere's corners) stand in its storeys
+            # alone, on its ring's runs; numbered here from the stage's first storey
+            sy = hi["pilasters"].get("storeys")
+            if not sy or min(sy) < k:
+                raise ValueError(f"{v['id']}: its pilasters stand in its whole stage's storeys, from storey {k}")
+            hi["pilasters"] = {**hi["pilasters"], "storeys": [q - k for q in sy]}
         upper = Bay(hi, self.data, self.tier).build(board=False)
         # its floor behind the wall plane, where no shaft carries it: closed at its foot, in the
         # role that closes a tower's back, so the stage is a shell over the house's roof
@@ -3640,10 +3674,22 @@ class Bay:
         w, d, hc, hb = pl["width_m"], pl["proud_m"], pl["capital_m"], pl["base_m"]
         lz = pl.get("lozenges")
         n = len(levels) - 1
+        ks = [k for k in pl.get("storeys", range(n)) if k < n]   # T-3370: or in some storeys alone
+        # T-3370: a corner both of whose runs carry a pilaster there (1936's belvedere, every
+        # corner of its whole square): the end run's pilaster wraps the corner, as a lone one
+        # does, and the start run's begins at the corner with no wrap of its own, so the two
+        # never fill the corner square twice; the wrap keeps its back only behind its shaft (the
+        # base and capital beside it close the rest), and the start run's shaft stands 2 mm
+        # off the corner, so its end and the wrap's back are not one plane
+        nr = len(self.runs)
+        meets = lambda j, side: any(q["run"] == j and q["at"] in (side, "both") for q in pl["at"])
+        corner = lambda e: isinstance(e, tuple) and e[0] == "corner"
+        met = {"start": corner(run.start) and meets((i - 1) % nr, "end"),
+               "end": corner(run.end) and meets((i + 1) % nr, "start")}
         count = 0
         for at in ends:
             for side in (("start", "end") if at == "both" else (at,)):
-                for k in range(n):
+                for k in ks:
                     lo = pl.get("foot_m", y_wall0) if k == 0 else levels[k] + band_h / 2
                     hi = levels[k + 1] - band_h / 2 if k + 1 < n else levels[k + 1]
                     # each piece runs 4 mm into what it stands on and what stands on it (the
@@ -3663,10 +3709,15 @@ class Bay:
                         pieces.append((lo + hb - 0.004, hi - hc + 0.004, 0.0))
                     for ya, yb, grow in pieces:
                         dz = d + grow
-                        if side == "start":
+                        if side == "start" and met["start"]:
+                            a0 = run.s_start(0.0) + (0.002 if grow == 0.0 else 0.0)
+                            a1, c0, c1 = run.s_start(0.0) + w + grow, 0.0, 0.0
+                        elif side == "start":
                             a0, a1, c0, c1 = run.s_start(dz), run.s_start(0.0) + w + grow, run.s_start(dz), run.s_start(0.0)
                         else:
                             a0, a1, c0, c1 = run.s_end(0.0) - w - grow, run.s_end(dz), run.s_end(0.0), run.s_end(dz)
+                            if met["end"] and grow != 0.0:
+                                c1 = c0
                         flat.proud("band", rect(a0, a1, ya, yb), dz)
                         if c1 - c0 > 1e-6:
                             # round a corner: its back where it oversails the next run, over its
@@ -3693,7 +3744,7 @@ class Bay:
                                   -d - lz["relief_m"], -d + 0.004)
                             count += 1
         self.meta.setdefault("pilasters", {"shafts": 0, "lozenges": 0})
-        self.meta["pilasters"]["shafts"] += n * sum(2 if a == "both" else 1 for a in ends)
+        self.meta["pilasters"]["shafts"] += len(ks) * sum(2 if a == "both" else 1 for a in ends)
         self.meta["pilasters"]["lozenges"] += count
 
     def _pierced_panels(self, flat, role, pn, e0, e1, lo, hi, z, y0, y3):

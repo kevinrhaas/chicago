@@ -3235,11 +3235,11 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                 v6 = next((x for x in k06["variants"] if x["id"] == w["opening"]), {})
                 what = f"bays: {e['id']}'s architrave"
                 if not isinstance(ar, dict) or not {"band_m", "proud_m"} <= set(ar) <= {"band_m", "proud_m", "impost_m",
-                                                                                     "key_m", "rise_m"} \
+                                                                                     "key_m", "rise_m", "columns"} \
                         or v6.get("head") != "round" or e.get("fabric", "stone") == "frame" \
                         or any(k in w for k in ("surround", "voussoirs", "tympanum", "narrow")):
-                    raise ParamError(f"{what} takes band_m and proud_m, and optionally impost_m [height, out] and "
-                                     f"key_m [width, height], on a round-headed stone light without a surround, "
+                    raise ParamError(f"{what} takes band_m and proud_m, and optionally impost_m [height, out], "
+                                     f"key_m [width, height], rise_m and columns, on a round-headed stone light without a surround, "
                                      f"voussoirs or a tympanum, not {ar}")
                 b, pr = float(ar["band_m"]), float(ar["proud_m"])
                 wd = float(w.get("clear_width_m", v6.get("clear_width_m", 0.0)))
@@ -3258,6 +3258,19 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                         raise ParamError(f"{what}.key_m: a keystone 0.15-0.6 m across (at most half the light), "
                                          f"rising the band's depth to 0.4 m past it over the crown")
                     arc["key_m"] = key
+                if ar.get("columns") is not None:
+                    # T-3370: a colonnette each side of the band, from the sill to the impost, on a
+                    # base under a capital (1936's belvedere frames, the Chicagology photograph);
+                    # the impost it carries is that springing's (k08_bays.architrave)
+                    co = ar["columns"]
+                    ok = isinstance(co, dict) and set(co) == {"width_m", "proud_m"} and "impost_m" in arc
+                    if ok:
+                        cw, cp = float(co["width_m"]), float(co["proud_m"])
+                        ok = 0.08 <= cw <= 0.3 and pr + 0.02 <= cp <= 0.2
+                    if not ok:
+                        raise ParamError(f"{what}.columns: width_m (0.08-0.3 m) and proud_m (0.02 m past the "
+                                         f"band's {pr} m, up to 0.2 m), under an impost_m, not {co}")
+                    arc["columns"] = {"width_m": cw, "proud_m": cp}
                 if ar.get("rise_m") is not None:
                     # T-3294: a grouped light's ONE enclosing arch (1912's south pair, the photograph
                     # and the c. 1914 elevations): the arch's crown stands `rise_m` over the lights'
@@ -3452,7 +3465,24 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             keys = {"at", "width_m", "proud_m", "base_m", "capital_m"}
             lk = {"pitch_m", "gap_m", "margin_m", "relief_m"}
             runs_n = len(v["plan"]["points"]) - 1 if v["plan"]["kind"] == "polyline" else 1
-            ok = isinstance(pl, dict) and set(pl) - {"lozenges", "foot_m", "corbel_m", "bands"} == keys and e.get("fabric", "stone") != "frame" \
+            # T-3370: or in some storeys alone (`storeys`, the record's storey indices; 1936's
+            # belvedere, whose corner pilasters stand in its top storey only in the Chicagology
+            # photograph); all of them on a whole stage, they stand on its ring, every run of
+            # the square (k08_bays._build_whole_stage)
+            sy = pl.get("storeys") if isinstance(pl, dict) else None
+            if sy is not None:
+                n_st, ws = len(v["storeys"]), v.get("stage") or {}
+                if not isinstance(sy, list) or not sy or any(not isinstance(k, int) or isinstance(k, bool) for k in sy) \
+                        or sy != sorted(set(sy)) or not 0 <= sy[0] <= sy[-1] < n_st:
+                    raise ParamError(f"bays: {e['id']}'s pilasters' storeys are some of its storeys' indices "
+                                     f"(0-{n_st - 1}), ascending, not {sy}")
+                if ws.get("whole") and sy[0] >= ws["from_storey"]:
+                    runs_n = int(e["plan"]["sides"])
+                elif ws.get("whole"):
+                    raise ParamError(f"bays: {e['id']}'s pilasters stand on its whole stage, from storey "
+                                     f"{ws['from_storey']}, or not in that tower at all")
+            ok = isinstance(pl, dict) and set(pl) - {"lozenges", "foot_m", "corbel_m", "bands", "storeys"} == keys \
+                and e.get("fabric", "stone") != "frame" \
                 and v["base"] == "grade" and isinstance(pl["at"], list) and pl["at"] \
                 and all(set(q) == {"run", "at"} and 0 <= int(q["run"]) < runs_n
                         and q["at"] in ("start", "end", "both") for q in pl["at"])
@@ -3487,14 +3517,15 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                 raise ParamError(f"bays: {e['id']}'s pilasters' foot_m stands the lowest base over grade, half "
                                  f"a metre of shaft under its first storey's top, and corbel_m (0.1-0.6 m, under "
                                  f"a foot_m) hangs a corbel under it")
-            for st in v["storeys"]:
-                if st["height_m"] < hb + hc + 0.5:
+            for k_, st in enumerate(v["storeys"]):
+                if (sy is None or k_ in sy) and st["height_m"] < hb + hc + 0.5:
                     raise ParamError(f"bays: {e['id']}'s pilasters need half a metre of shaft in every storey "
                                      f"over their base and capital, not {st['height_m']} m")
             v["pilasters"] = {"at": [{"run": int(q["run"]), "at": q["at"]} for q in pl["at"]],
                               "width_m": w, "proud_m": d, "base_m": hb, "capital_m": hc,
                               **({"foot_m": ft} if ft is not None else {}),
                               **({"corbel_m": cm} if cm is not None else {}),
+                              **({"storeys": list(sy)} if sy is not None else {}),
                               **({"lozenges": {k: float(lz[k]) for k in sorted(lk)}} if lz else {}),
                               **({"bands": {k: float(bd[k]) for k in ("channel_m", "course_m")}} if bd else {})}
         if "finial" in e:
