@@ -994,10 +994,10 @@
   {
    "face": "south",
    "record": "v4_detail",
-   "what": "stable south upper windows, HABS sheet 3 plan gaps",
+   "what": "stable south upper windows, the row of four the owner's 2026-11-10 photographs show (T-3564), centred under the gable light on the rear ridge at W 141 per the owner's 2026-11-12 ruling; the HABS sheet 3 plan gaps are 2.6 ft wide at 2-ft piers, kept, but the row is moved east from the sheet 3 positions so no head runs into the lower west roof's rake",
    "at_ft": [
-    138.8,
-    141.4
+    132.8,
+    135.4
    ],
    "z_ft": [
     20.0,
@@ -1026,10 +1026,10 @@
   {
    "face": "south",
    "record": "v4_detail",
-   "what": "stable south first-floor window head, a smooth stone header whose top shows over the court wall in the owner's 2026-11-12 photograph from the 1808 lot (T-3564)",
+   "what": "stable south first-floor window head, a smooth stone header whose top shows over the court wall in the owner's 2026-11-12 photograph from the 1808 lot (T-3564), centred on W 141 under the upper row",
    "at_ft": [
-    139.5,
-    148.6
+    136.45,
+    145.55
    ],
    "z_ft": [
     15.9,
@@ -1041,6 +1041,102 @@
    "style": null,
    "sash": null,
    "built_as": "carved stone (band)",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026",
+    "habs_glessner_photo_14_north_inclined_1965",
+    "habs_glessner_photo_15_north_stable_1965",
+    "habs_glessner_house_il_1015_data_pages",
+    "taylor_2135_glessner_exterior_1887_1889",
+    "habs_glessner_photo_01_nw_1963",
+    "artic_glessner_sheet_23a_entrance_detail",
+    "habs_glessner_photo_17_ne_angled_1965"
+   ]
+  },
+  {
+   "face": "south",
+   "record": "v4_detail",
+   "what": "stable south first-floor triple window under that header, the opening HABS sheet 2 draws in this wall (two mullions, 8.5 ft overall), centred on W 141 with the rows above per the owner's 2026-11-12 ruling (sheet 2 draws it at W 139.8-148.3); sill height reconstructed",
+   "at_ft": [
+    136.75,
+    139.45
+   ],
+   "z_ft": [
+    11.4,
+    15.9
+   ],
+   "z_from": "item",
+   "lights": 1,
+   "kind": "window",
+   "style": "courtyard_sash",
+   "sash": null,
+   "built_as": "one-over-one double-hung, upper sash outside the lower, rock-faced limestone sill and lintel",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026",
+    "habs_glessner_photo_14_north_inclined_1965",
+    "habs_glessner_photo_15_north_stable_1965",
+    "habs_glessner_house_il_1015_data_pages",
+    "taylor_2135_glessner_exterior_1887_1889",
+    "habs_glessner_photo_01_nw_1963",
+    "artic_glessner_sheet_23a_entrance_detail",
+    "habs_glessner_photo_17_ne_angled_1965"
+   ]
+  },
+  {
+   "face": "south",
+   "record": "v4_detail",
+   "what": "stable south upper windows, the row of four the owner's 2026-11-10 photographs show (T-3564), centred under the gable light on the rear ridge at W 141 per the owner's 2026-11-12 ruling; the HABS sheet 3 plan gaps are 2.6 ft wide at 2-ft piers, kept, but the row is moved east from the sheet 3 positions so no head runs into the lower west roof's rake",
+   "at_ft": [
+    137.4,
+    140.0
+   ],
+   "z_ft": [
+    20.0,
+    23.0
+   ],
+   "z_from": "item",
+   "lights": 1,
+   "kind": "window",
+   "style": "courtyard_sash",
+   "sash": null,
+   "built_as": "one-over-one double-hung, upper sash outside the lower, rock-faced limestone sill and lintel",
+   "confidence": "reconstructed",
+   "sources": [
+    "habs_glessner_house_il_1015_drawings",
+    "habs_glessner_photo_05_court_c1923",
+    "owner_glessner_v4_reconstruction_brief_2026",
+    "habs_glessner_photo_14_north_inclined_1965",
+    "habs_glessner_photo_15_north_stable_1965",
+    "habs_glessner_house_il_1015_data_pages",
+    "taylor_2135_glessner_exterior_1887_1889",
+    "habs_glessner_photo_01_nw_1963",
+    "artic_glessner_sheet_23a_entrance_detail",
+    "habs_glessner_photo_17_ne_angled_1965"
+   ]
+  },
+  {
+   "face": "south",
+   "record": "v4_detail",
+   "what": "stable south first-floor triple window under that header, the opening HABS sheet 2 draws in this wall (two mullions, 8.5 ft overall), centred on W 141 with the rows above per the owner's 2026-11-12 ruling (sheet 2 draws it at W 139.8-148.3); sill height reconstructed",
+   "at_ft": [
+    139.6,
+    142.4
+   ],
+   "z_ft": [
+    11.4,
+    15.9
+   ],
+   "z_from": "item",
+   "lights": 1,
+   "kind": "window",
+   "style": "courtyard_sash",
+   "sash": null,
+   "built_as": "one-over-one double-hung, upper sash outside the lower, rock-faced limestone sill and lintel",
    "confidence": "reconstructed",
    "sources": [
     "habs_glessner_house_il_1015_drawings",
@@ -1090,74 +1186,10 @@
   {
    "face": "south",
    "record": "v4_detail",
-   "what": "stable south first-floor triple window under that header, the one opening HABS sheet 2 draws in this wall (W 139.8-148.3, two mullions); sill height reconstructed",
+   "what": "stable south upper windows, the row of four the owner's 2026-11-10 photographs show (T-3564), centred under the gable light on the rear ridge at W 141 per the owner's 2026-11-12 ruling; the HABS sheet 3 plan gaps are 2.6 ft wide at 2-ft piers, kept, but the row is moved east from the sheet 3 positions so no head runs into the lower west roof's rake",
    "at_ft": [
-    139.8,
-    142.5
-   ],
-   "z_ft": [
-    11.4,
-    15.9
-   ],
-   "z_from": "item",
-   "lights": 1,
-   "kind": "window",
-   "style": "courtyard_sash",
-   "sash": null,
-   "built_as": "one-over-one double-hung, upper sash outside the lower, rock-faced limestone sill and lintel",
-   "confidence": "reconstructed",
-   "sources": [
-    "habs_glessner_house_il_1015_drawings",
-    "habs_glessner_photo_05_court_c1923",
-    "owner_glessner_v4_reconstruction_brief_2026",
-    "habs_glessner_photo_14_north_inclined_1965",
-    "habs_glessner_photo_15_north_stable_1965",
-    "habs_glessner_house_il_1015_data_pages",
-    "taylor_2135_glessner_exterior_1887_1889",
-    "habs_glessner_photo_01_nw_1963",
-    "artic_glessner_sheet_23a_entrance_detail",
-    "habs_glessner_photo_17_ne_angled_1965"
-   ]
-  },
-  {
-   "face": "south",
-   "record": "v4_detail",
-   "what": "stable south first-floor triple window under that header, the one opening HABS sheet 2 draws in this wall (W 139.8-148.3, two mullions); sill height reconstructed",
-   "at_ft": [
-    142.65,
-    145.45
-   ],
-   "z_ft": [
-    11.4,
-    15.9
-   ],
-   "z_from": "item",
-   "lights": 1,
-   "kind": "window",
-   "style": "courtyard_sash",
-   "sash": null,
-   "built_as": "one-over-one double-hung, upper sash outside the lower, rock-faced limestone sill and lintel",
-   "confidence": "reconstructed",
-   "sources": [
-    "habs_glessner_house_il_1015_drawings",
-    "habs_glessner_photo_05_court_c1923",
-    "owner_glessner_v4_reconstruction_brief_2026",
-    "habs_glessner_photo_14_north_inclined_1965",
-    "habs_glessner_photo_15_north_stable_1965",
-    "habs_glessner_house_il_1015_data_pages",
-    "taylor_2135_glessner_exterior_1887_1889",
-    "habs_glessner_photo_01_nw_1963",
-    "artic_glessner_sheet_23a_entrance_detail",
-    "habs_glessner_photo_17_ne_angled_1965"
-   ]
-  },
-  {
-   "face": "south",
-   "record": "v4_detail",
-   "what": "stable south upper windows, HABS sheet 3 plan gaps",
-   "at_ft": [
-    143.5,
-    146.0
+    142.0,
+    144.6
    ],
    "z_ft": [
     20.0,
@@ -1186,10 +1218,10 @@
   {
    "face": "south",
    "record": "v4_detail",
-   "what": "stable south first-floor triple window under that header, the one opening HABS sheet 2 draws in this wall (W 139.8-148.3, two mullions); sill height reconstructed",
+   "what": "stable south first-floor triple window under that header, the opening HABS sheet 2 draws in this wall (two mullions, 8.5 ft overall), centred on W 141 with the rows above per the owner's 2026-11-12 ruling (sheet 2 draws it at W 139.8-148.3); sill height reconstructed",
    "at_ft": [
-    145.6,
-    148.3
+    142.55,
+    145.25
    ],
    "z_ft": [
     11.4,
@@ -1218,42 +1250,10 @@
   {
    "face": "south",
    "record": "v4_detail",
-   "what": "stable south upper windows, HABS sheet 3 plan gaps",
+   "what": "stable south upper windows, the row of four the owner's 2026-11-10 photographs show (T-3564), centred under the gable light on the rear ridge at W 141 per the owner's 2026-11-12 ruling; the HABS sheet 3 plan gaps are 2.6 ft wide at 2-ft piers, kept, but the row is moved east from the sheet 3 positions so no head runs into the lower west roof's rake",
    "at_ft": [
-    148.0,
-    150.4
-   ],
-   "z_ft": [
-    20.0,
-    23.0
-   ],
-   "z_from": "item",
-   "lights": 1,
-   "kind": "window",
-   "style": "courtyard_sash",
-   "sash": null,
-   "built_as": "one-over-one double-hung, upper sash outside the lower, rock-faced limestone sill and lintel",
-   "confidence": "reconstructed",
-   "sources": [
-    "habs_glessner_house_il_1015_drawings",
-    "habs_glessner_photo_05_court_c1923",
-    "owner_glessner_v4_reconstruction_brief_2026",
-    "habs_glessner_photo_14_north_inclined_1965",
-    "habs_glessner_photo_15_north_stable_1965",
-    "habs_glessner_house_il_1015_data_pages",
-    "taylor_2135_glessner_exterior_1887_1889",
-    "habs_glessner_photo_01_nw_1963",
-    "artic_glessner_sheet_23a_entrance_detail",
-    "habs_glessner_photo_17_ne_angled_1965"
-   ]
-  },
-  {
-   "face": "south",
-   "record": "v4_detail",
-   "what": "stable south upper window at the west end, the fourth of the row the owner's photographs show (T-3564), at the row's 2-ft spacing; sheet 3 draws the c.1955 stair door at about W 154.8-157.4, where the lower west roof's rake leaves no room for a window head at 23 ft, so the window stands east of it under the rake, reconstructed",
-   "at_ft": [
-    152.4,
-    155.0
+    146.6,
+    149.2
    ],
    "z_ft": [
     20.0,

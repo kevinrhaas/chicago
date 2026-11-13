@@ -4519,13 +4519,13 @@
           "what": "T-3564: brick laid as buff Chicago common brick, not the court's light pink. The owner's photographs 20-22 (Kevin Haas, 2026-11-10; chicago-evidence glessner-kevin-photos-2026-11-10) show the stable's south wall and the court wall's tall alley run in a buff-tan brick with salmon and darker units, which he identified as Chicago common brick (2026-11-12). Each area is a plan box (W, S feet); the brick faces whose centres stand in it take the common-brick slots. docs/LIBERTIES.md L-glessner-photo-match-3564.",
           "areas": [
             {
-              "what": "stable south wall, its face at S 59.75 from the east wall to the alley",
+              "what": "stable south wall, its face at S 59.75 from the east wall's corner to the alley, with its bricks' ends at that corner",
               "W": [
-                125.75,
+                125.7,
                 161.25
               ],
               "S": [
-                59.3,
+                58.3,
                 60.1
               ]
             },
@@ -4533,7 +4533,7 @@
               "what": "court wall, the tall alley run W 113.85-162 on S 74.0-75.1, both faces",
               "W": [
                 113.85,
-                162.0
+                162.05
               ],
               "S": [
                 73.8,
