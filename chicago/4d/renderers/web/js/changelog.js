@@ -1,4 +1,18 @@
 export const CHANGELOG = [ // newest first
+  { v: 2916, ts: '2026-11-13T05:14:59.361Z', date: 'Nov 12, 2026, 11:14 PM CT', title: 'Window mode: look into the year from where you stand', kind: 'feature',
+    items: [
+      'On a phone or iPad, the Window key sets you down at your real spot in the year you chose, by the device\'s location.',
+      'Turn the device and the view turns with it, by its compass and motion sensors, so the screen is a window onto the street as it was.',
+      'If the compass is off, drag sideways to line the view up with the street. GPS wander inside its own accuracy does not move you.',
+      'Outside this year\'s town, it tells you so and leaves you where you were. Computers see nothing new.',
+    ] },
+  { v: 2915, ts: '2026-11-13T05:14:59.361Z', date: 'Nov 12, 2026, 11:14 PM CT', title: 'Legs no longer poke through coats, tails or petticoats on the walk', kind: 'fix',
+    items: [
+      'Frock coats, overcoats, a coachman\'s livery, tails, 1812 capotes, shirt tails, blankets, breechcloths, girls\' frocks and petticoats now hang from the waist as one piece, so the stepping knee and shin push the cloth aside instead of coming through it.',
+      'Coats swing stiffer and closer than a skirt and fall straight back, so a walking man\'s coat doesn\'t flare like a dress.',
+      'Trousers, breeches, stockings and leggings stay on the leg as before, and standing figures are exactly as drawn.',
+      'Every figure in 1812, 1835 and 1904 is checked at every detail level, on phones and computers; nobody is cut at lower settings.',
+    ] },
   { v: 2914, ts: '2026-11-13T04:35:19.667Z', date: 'Nov 12, 2026, 10:35 PM CT', title: '1721 Prairie\'s frame house gets its whole front: wings, bays and porch', kind: 'feature',
     items: [
       'Wirt Dexter\'s 1863 frame house behind 1721 Prairie now shows the front the Detroit print of the Pullman house sees across the side yard: two gabled wings with two-storey bay windows either side of an arched porch and front door, a shuttered window over the porch, bracketed eaves and four tall chimneys, painted a fawn body with dark brown trim and green shutters under a wood-shingle roof, its chimneys buff brick.',
