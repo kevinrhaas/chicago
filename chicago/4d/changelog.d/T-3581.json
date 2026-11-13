@@ -1,9 +1,0 @@
-{
-  "title": "The dev preview moves to its own site, with room to grow",
-  "kind": "change",
-  "items": [
-    "The dev preview is now at dev.chicago.polecat.live/4d/dev/, a site of its own.",
-    "Production keeps chicago.polecat.live; old /4d/dev/ links forward to the new address after the next release.",
-    "Each site holds one copy of the town, so the storage allowance grows from 445 to 740 MiB."
-  ]
-}

@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2938, ts: '2026-11-13T18:14:03.496Z', date: 'Nov 13, 2026, 12:14 PM CT', title: 'The dev preview moves to its own site, with room to grow', kind: 'change',
+    items: [
+      'The dev preview is now at dev.chicago.polecat.live/4d/dev/, a site of its own.',
+      'Production keeps chicago.polecat.live; old /4d/dev/ links forward to the new address after the next release.',
+      'Each site holds one copy of the town, so the storage allowance grows from 445 to 740 MiB.',
+    ] },
   { v: 2937, ts: '2026-11-13T18:12:19.936Z', date: 'Nov 13, 2026, 12:12 PM CT', title: '1712 Prairie\'s roof is lowered to its 1893 drawing', kind: 'fix',
     items: [
       'The roof of 1712 Prairie Avenue is now a low hip at 18 degrees, as the 1893 Rand McNally view of the street draws it. It was 25 degrees, which stood about 2 m too tall in the comparison with the drawing.',
