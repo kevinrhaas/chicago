@@ -43967,6 +43967,15 @@ door's hinge and swing, as L-prairie-front-passages-3554's.
 **Ticket:** T-3578.
 **Recorded:** 2026-11-13.
 
+### L-kimball-1801-return-slate-lean-1890 — 1801 Prairie's slate over its south return leans in as one face to the deck, read off HABS photograph 1's coursing
+
+**Decision:** HABS photograph 1 (`habs_kimball_photo_01_sw_1965`), read at full size on 2026-11-13 for the one open difference on its match record: the slate courses over the south return run parallel to the return's moulded top (both falling to the right, as the long flank's do), so the slate over the return is a face turned the way the return faces, rising from the return's top to the hip and the deck's corner hood in one plane. The build (L-kimball-1801-south-return-1890) carried the set-back cut up to the curb with its side on the return's plane, which stood an upright slate cheek over the return and left a sliver of the front slope folded between the cheek and the set-back face. K01 `return_setback` now leans that side in, from the return's outer top edge (11.7 m) to the side face's foot of the deck at the curb (15.16 m), so the face over the return is one plane and the hip runs as one straight line from the hood down past the return's back end to the balcony.
+**Invented:** where the face's top meets the deck. The lean is taken to the side face's foot of the deck because that is the one level line the kit has there; the photograph's face reaches further to the left, up under a white coping below the cresting, so the build's face meets the front slope in a fold rising to the hood that the photograph does not show (open on the match record). The lean stops 0.05 m behind that foot at the curb, a margin the geometry needs and no picture can show: at 0.02 m the side face the cut leaves narrowed to a 3 cm sliver whose triangles passed through the front slope's (the K05 gate's crossing rule).
+**How to resolve:** the HABS drawings' south elevation and roof plan, if found, give the roof over the corner and the coping's height.
+**Ticket:** T-1890.
+**Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg` and its match record.
+**Recorded:** 2026-11-13 (T-1890).
+
 ### L-1904-nature-sounds-3585 — Robins in the parkway elms, cicadas and crickets on the 1904 street
 
 **Decision:** the owner, 2026-11-13: *"i am in 1904 and when i have the ambience on i do not hear many birds this is in summer daytime and i would think there would be birds to hear"*, then *"and insects as well?"* and *"other appropriate nature ambiance"*. 1904 had no habitat sound at all, only a faint leaf rustle. Its nature sounds now come from the scene's own parkway elms (`data/street_trees/1904.json`), using recordings already licensed, verified and hosted for 1812 and 1835 (`assets/audio/intake.json` `town_placements`, read by `renderers/web/js/habitat-town.js`):
