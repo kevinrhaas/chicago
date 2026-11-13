@@ -1162,7 +1162,8 @@ def architrave(o, ar: dict, op, s: float, tier: str) -> list:
         y_t = ys - ar["impost_m"][0] + e + 0.004
         hb, hc = ARCHITRAVE_COLUMN_BASE_M, ARCHITRAVE_COLUMN_CAPITAL_M
         for a0, a1 in ((x0 - e - b - cw, x0 - e - b + 0.02), (x1 + e + b - 0.02, x1 + e + b + cw)):
-            for ya, yb, gr in ((y0, y0 + hb, g), (y0 + hb - 0.004, y_t - hc + 0.004, 0.0), (y_t - hc, y_t, g)):
+            # (the base's foot 4 mm under the band's, so the two undersides are not one plane)
+            for ya, yb, gr in ((y0 - 0.004, y0 + hb, g), (y0 + hb - 0.004, y_t - hc + 0.004, 0.0), (y_t - hc, y_t, g)):
                 o.proud("band", rect(a0 - gr, a1 + gr, ya, yb), cp + gr)
     if ar.get("key_m"):
         kw, kh = ar["key_m"]
@@ -3629,6 +3630,17 @@ class Bay:
         lz = pl.get("lozenges")
         n = len(levels) - 1
         ks = [k for k in pl.get("storeys", range(n)) if k < n]   # T-3370: or in some storeys alone
+        # T-3370: a corner both of whose runs carry a pilaster there (1936's belvedere, every
+        # corner of its whole square): the end run's pilaster wraps the corner, as a lone one
+        # does, and the start run's begins at the corner with no wrap of its own, so the two
+        # never fill the corner square twice; the wrap keeps its back only behind its shaft (the
+        # base and capital beside it close the rest), and the start run's shaft stands 2 mm
+        # off the corner, so its end and the wrap's back are not one plane
+        nr = len(self.runs)
+        meets = lambda j, side: any(q["run"] == j and q["at"] in (side, "both") for q in pl["at"])
+        corner = lambda e: isinstance(e, tuple) and e[0] == "corner"
+        met = {"start": corner(run.start) and meets((i - 1) % nr, "end"),
+               "end": corner(run.end) and meets((i + 1) % nr, "start")}
         count = 0
         for at in ends:
             for side in (("start", "end") if at == "both" else (at,)):
@@ -3652,10 +3664,15 @@ class Bay:
                         pieces.append((lo + hb - 0.004, hi - hc + 0.004, 0.0))
                     for ya, yb, grow in pieces:
                         dz = d + grow
-                        if side == "start":
+                        if side == "start" and met["start"]:
+                            a0 = run.s_start(0.0) + (0.002 if grow == 0.0 else 0.0)
+                            a1, c0, c1 = run.s_start(0.0) + w + grow, 0.0, 0.0
+                        elif side == "start":
                             a0, a1, c0, c1 = run.s_start(dz), run.s_start(0.0) + w + grow, run.s_start(dz), run.s_start(0.0)
                         else:
                             a0, a1, c0, c1 = run.s_end(0.0) - w - grow, run.s_end(dz), run.s_end(0.0), run.s_end(dz)
+                            if met["end"] and grow != 0.0:
+                                c1 = c0
                         flat.proud("band", rect(a0, a1, ya, yb), dz)
                         if c1 - c0 > 1e-6:
                             # round a corner: its back where it oversails the next run, over its
