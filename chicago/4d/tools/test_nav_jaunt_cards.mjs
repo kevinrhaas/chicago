@@ -33,6 +33,11 @@ assert.equal(plate.credit, 'Library of Congress', 'the holder, as the card shows
 assert.match(plate.full, /HABS photographer/);
 assert.match(plate.full, /PUBLIC DOMAIN/, 'the whole credit and the rights ride along');
 assert.match(plate.alt, /^PHOTO: Glessner House/);
+// T-3584: a jaunt may name which held picture heads its card; an unknown one falls back to the first.
+doc.by_structure.glessner_house.push({ id: 'g2', kind: 'PHOTO', title: 'Glessner House, coach-house end', holder: 'Cornell', rights: 'public domain', held: { t: 'thumbs/g2.jpg' } });
+assert.equal(plateFor(doc, ['glessner_house'], 'g2').src, 'https://images.example.org/store/thumbs/g2.jpg', 'the picture the jaunt names');
+assert.equal(plateFor(doc, ['glessner_house'], 'gone').src, plate.src, 'a named picture not held: the first held one');
+doc.by_structure.glessner_house.pop();
 
 // ---- the cards, over a small DOM -----------------------------------------------------------
 function makeDom() {
@@ -117,7 +122,7 @@ console.log('test_nav_jaunt_cards: credited plates of the stops or none, keepsak
 // related outings together — by kind, featured first within it, then by name ---------------
 {
   const { jauntOrder, sortTitle, filterJaunts } = await import('../renderers/web/js/jaunt-menu.js');
-  const { FAMILIES } = await import('../renderers/web/js/menu-icons.js');
+  const { GROUPS, groupOf } = await import('../renderers/web/js/menu-icons.js');
   const { readFileSync } = await import('node:fs');
   const catalog = (y) => JSON.parse(readFileSync(new URL(`../data/sidecars/${y}/jaunts/catalog.json`, import.meta.url), 'utf8')).jaunts;
   assert.equal(sortTitle('A Letter Home'), 'Letter Home'); assert.equal(sortTitle('An Evening Stroll'), 'Evening Stroll');
@@ -128,11 +133,22 @@ console.log('test_nav_jaunt_cards: credited plates of the stops or none, keepsak
       assert(!/^(Prairie Avenue|Style walk):/.test(r.title), `${y}: "${r.title}" leads with what it shares, not what it is`);
       assert(r.title.length <= 34, `${y}: "${r.title}" is short enough for two lines on a phone`);
     }
-    const kinds = rows.map((r) => FAMILIES.indexOf(r.primary_family));
-    assert.deepEqual(kinds, [...kinds].sort((a, b) => a - b), `${y}: grouped by kind, in the pills' order`);
+    // T-3584: ranked jaunts lead; the rest are grouped in the pills' order, every row in a group.
+    for (const r of rows) assert(GROUPS.includes(r.menu_group), `${y}: ${r.id} has a menu group`);
+    const rest = rows.filter((r) => !Number.isInteger(r.menu_rank));
+    assert.deepEqual(rows.slice(0, rows.length - rest.length).map((r) => r.menu_rank), rows.filter((r) => Number.isInteger(r.menu_rank)).map((r) => r.menu_rank).sort((a, b) => a - b), `${y}: ranked jaunts lead, in rank order`);
+    const kinds = rest.map((r) => GROUPS.indexOf(groupOf(r)));
+    assert.deepEqual(kinds, [...kinds].sort((a, b) => a - b), `${y}: grouped, in the pills' order`);
     for (let i = 1; i < rows.length; i++) assert(jauntOrder(rows[i - 1], rows[i]) < 0, `${y}: ${rows[i - 1].title} before ${rows[i].title}`);
   }
-  const t1904 = filterJaunts(catalog('1904')).map((r) => r.title);
+  // T-3584 (owner, 2026-11-13): the household tour first, then the other Glessner jaunt, the
+  // build log last, and the two Glessner cards carry a picture of the house.
+  const r1904 = filterJaunts(catalog('1904'));
+  assert.deepEqual(r1904.slice(0, 2).map((r) => r.id), ['glessner-household-tour', 'prairie-avenue-orientation']);
+  assert.equal(r1904.at(-1).id, 'prairie-built-so-far');
+  for (const r of r1904.slice(0, 2)) assert.equal(r.plate?.structure, 'glessner_house', `${r.id} names its card picture`);
+  assert.deepEqual(filterJaunts(catalog('1904'), '', 'Architecture').map((r) => r.id).sort(), ['prairie-architects', 'prairie-style-italianate', 'prairie-style-romanesque', 'prairie-style-second-empire']);
+  const t1904 = r1904.map((r) => r.title);
   const styles = t1904.map((t, i) => (/ style walk$/.test(t) ? i : -1)).filter((i) => i >= 0);
   assert.deepEqual(styles.map((i) => t1904[i]), ['Italianate style walk', 'Romanesque style walk', 'Second Empire style walk']);
   assert.equal(styles[2] - styles[0], 2, 'the three style walks sit together');

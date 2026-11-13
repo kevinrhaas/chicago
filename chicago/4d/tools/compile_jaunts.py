@@ -216,6 +216,7 @@ class Compiler:
         require(not errors, 'schema: ' + (errors[0].message if errors else ''))
         require(doc['scene'] == self.scene_id, 'jaunt belongs to another scene')
         require(doc['default_mode'] in doc['allowed_modes'], 'default mode not allowed')
+        require(not doc.get('plate') or doc['plate']['structure'] in self.refs['structure'], f"plate names an unknown structure {doc.get('plate', {}).get('structure')}")
         stops, ends = unique(doc['stops'], 'stop'), unique(doc['endings'], 'ending')
         require(not (set(stops) & set(ends) or {'Previous', '$end'} & (set(stops) | set(ends))), 'duplicate/reserved node id')
         claims = unique(doc['evidence'], 'evidence')
@@ -389,6 +390,8 @@ class Compiler:
                 # openingLight), so a story jaunt of dated stops says its first scene's season.
                 light = opening_light(doc)
                 if light: row['ambience'] = light
+                # T-3584: the menu's group, the jaunts that lead it, and a card picture for an anchor-only route.
+                row.update(menu_group=doc['menu_group'], **{k: doc[k] for k in ('menu_rank', 'plate') if k in doc})
                 row.update(featured=doc.get('featured', False), stop_count=len(doc['stops']), primary_family=doc['keepsake']['family'], secondary_family=doc.get('secondary_family'),
                            timing={'opening_read_s': doc['opening']['read_s'], 'stops': [{'read_s': s['read_s'], 'action_s': s.get('action_s', 0), **leg_mode(doc, i)} for i, s in enumerate(doc['stops'])], 'endings_read_s': [e['read_s'] for e in doc['endings']]},
                            destinations=[s['destination'] for s in doc['stops']], availability='unavailable' if reasons else 'available', reason='; '.join(reasons) or None)

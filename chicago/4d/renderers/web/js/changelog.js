@@ -1,4 +1,14 @@
 export const CHANGELOG = [ // newest first
+  { v: 2945, ts: '2026-11-13T20:00:53.574Z', date: 'Nov 13, 2026, 2:00 PM CT', title: 'Meet the Glessner House is read aloud too', kind: 'feature',
+    items: [
+      'Meet the Glessner House now has a narrator at every stop, from the opening to the end of the walk.',
+      'It uses the narrator you chose in Settings › Sound, the Cultivated Essayist unless you pick the Midwestern Storyteller.',
+    ] },
+  { v: 2944, ts: '2026-11-13T20:00:53.574Z', date: 'Nov 13, 2026, 2:00 PM CT', title: '1816 Prairie\'s photograph lined up to the right height', kind: 'fix',
+    items: [
+      'Nothing you can see in the town changed: the camera we compare 1816 Prairie Avenue against its old photograph with sat about a metre too low, so the model drew above the picture everywhere.',
+      'With the horizon set where the photograph\'s stone basement runs level, the model\'s ground, basement and roof line now sit on the picture\'s, and the side-by-side shows the real differences: the south bay\'s windows sit lower and shorter in the photograph, and one roof dormer stands a little further west.',
+    ] },
   { v: 2943, ts: '2026-11-13T19:49:18.161Z', date: 'Nov 13, 2026, 1:49 PM CT', title: '1936 Prairie\'s front windows get their carved crests', kind: 'change',
     items: [
       'In 1904, the upstairs windows on 1936 Prairie Avenue\'s front now carry the carved scrolled crests the old photograph shows over their stone hoods, and the tower\'s pair of windows over the front door stands in moulded stone frames crested the same way.',
