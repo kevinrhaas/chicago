@@ -285,11 +285,11 @@
           {
             "polygon": [
               [
-                53.9405,
+                53.9893,
                 3.7643
               ],
               [
-                53.9405,
+                53.9893,
                 0.9601
               ],
               [
@@ -302,8 +302,8 @@
               ]
             ],
             "z_m": [
-              0.125,
-              0.125,
+              0.0351,
+              0.0351,
               -0.3536,
               -0.3536
             ]
@@ -1792,7 +1792,7 @@
               144.7
             ],
             "z": [
-              17.4,
+              17.229,
               24.4
             ],
             "style": "stable_loft_opening"
@@ -1810,8 +1810,8 @@
               ]
             ],
             "z": [
-              17.8,
-              22.9
+              18.2304,
+              22.8023
             ]
           }
         ]
@@ -1823,7 +1823,7 @@
         "habs_glessner_photo_01_nw_1963",
         "inland_architect_1888_02_glessner_exterior"
       ],
-      "note": "Positions from sheet 3 (W 137.5-144.7; 132.4-133.6; 149.1-150.3). Heights read off HABS photograph 1 (1963) against the printed 12'-0\" doorway: loft opening 17.4-24.4 ft, flanking lights 17.8-22.9 ft. HABS data p. 2 lists the loft door as 'closed up' in 1946, so it was an open loft door before; drawn as an opening. T-3564 (owner, 2026-11-12, photograph 12 of 2026-11-10): the loft door is drawn shut, one boarded leaf under a head board in a casing, painted the sage green he asked for ('that green should be what is represented'); the open loft of T-2207 is superseded. Reconstructed (owner ruling)."
+      "note": "Positions from sheet 3 (W 137.5-144.7; 132.4-133.6; 149.1-150.3). Heights read off HABS photograph 1 (1963) against the printed 12'-0\" doorway: loft opening 17.4-24.4 ft, flanking lights 17.8-22.9 ft. HABS data p. 2 lists the loft door as 'closed up' in 1946, so it was an open loft door before; drawn as an opening. T-3564 (owner, 2026-11-12, photograph 12 of 2026-11-10): the loft door is drawn shut, one boarded leaf under a head board in a casing, painted the sage green he asked for ('that green should be what is represented'); the open loft of T-2207 is superseded. Reconstructed (owner ruling). Window surrounds (owner, 2026-11-13: 'check all the windows'): the flanking lights' sills stood 0.43 ft under a granite bed joint and their heads 0.1 ft over one, so the courses were notched round them; they now stand on the joints, 18.2304-22.8023 ft (4.57 ft high, from 5.1). The loft door's foot stood 0.17 ft over a joint, leaving a 5-cm sliver of stone under it, and is lowered to the joint at 17.229 ft; its head stays under the HABS lintel stone. Reconstructed, under the photograph's own +/- 0.5 ft. L-glessner-window-courses."
     },
     "openings_stable_doors": {
       "value": {
@@ -1873,8 +1873,8 @@
               ]
             ],
             "z": [
-              8.75,
-              13.5
+              9.3044,
+              14.0939
             ],
             "style": "stable_leaded"
           },
@@ -1899,8 +1899,8 @@
               ]
             ],
             "z": [
-              8.75,
-              12.75
+              9.3044,
+              13.2667
             ],
             "style": "stable_leaded"
           },
@@ -1917,8 +1917,8 @@
               ]
             ],
             "z": [
-              21.5,
-              25.5
+              21.975,
+              26.1356
             ],
             "style": "stable_leaded"
           }
@@ -1930,7 +1930,7 @@
         "owner_glessner_v4_reconstruction_brief_2026",
         "cornell_adw_glessner_stable_1887"
       ],
-      "note": "The stable's granite alley wall, openings read as gaps on sheets 2-3 (+/- 0.4 ft). No sheet draws their heights: see opening_heights. T-1830: the upper opening at S43–50.3 belongs to the projecting dormer, not an opening cut in the lower alley wall. Its measured plan width bounds the rebuilt dormer. T-1999 replaces the eight alley aperture bounds with a proportional reconstruction of the owner-supplied straight west elevation image(2).png, read on 2026-10-02. The HABS 59.75-ft wall length remains the scale, but these positions deliberately supersede the earlier scaled plan readings: two broad lower lights, four equal narrow rear lights at 5.5-ft centers, and two upper slits. Heights and widths are reconstructed, not promoted to survey evidence. Lower lights share their sill course. See T-1999 dossier and liberty. T-2228 (2026-10-15): the owner requested historical northwest photographs to confirm these locations. The ca.1887 Cornell stable photograph (accession15/5/3090.00156, catalog ss:3874294) shows the southern upper slit farther north than the earlier owner elevation reconstruction. Move its center from S21.8 to S19.8, retaining its 1.8-ft width and existing heights. A west-plane diagnostic using the HABS59.75-ft wall and retained reconstructed eaves25.2/16.5ft reads about S19.8; alternate eave interpretations give approximately S17.8–20.5, so this remains reconstructed, not survey evidence. The other seven opening positions agree within about1ft and remain. The four principal windows and four rear slits are withheld from camera fitting. Earlier HABS loft-gap interpretations differed and were already superseded by T-1999; this photo correction supersedes only the southern upper slit. See L-glessner-west-slit-2228."
+      "note": "The stable's granite alley wall, openings read as gaps on sheets 2-3 (+/- 0.4 ft). No sheet draws their heights: see opening_heights. T-1830: the upper opening at S43–50.3 belongs to the projecting dormer, not an opening cut in the lower alley wall. Its measured plan width bounds the rebuilt dormer. T-1999 replaces the eight alley aperture bounds with a proportional reconstruction of the owner-supplied straight west elevation image(2).png, read on 2026-10-02. The HABS 59.75-ft wall length remains the scale, but these positions deliberately supersede the earlier scaled plan readings: two broad lower lights, four equal narrow rear lights at 5.5-ft centers, and two upper slits. Heights and widths are reconstructed, not promoted to survey evidence. Lower lights share their sill course. See T-1999 dossier and liberty. T-2228 (2026-10-15): the owner requested historical northwest photographs to confirm these locations. The ca.1887 Cornell stable photograph (accession15/5/3090.00156, catalog ss:3874294) shows the southern upper slit farther north than the earlier owner elevation reconstruction. Move its center from S21.8 to S19.8, retaining its 1.8-ft width and existing heights. A west-plane diagnostic using the HABS59.75-ft wall and retained reconstructed eaves25.2/16.5ft reads about S19.8; alternate eave interpretations give approximately S17.8–20.5, so this remains reconstructed, not survey evidence. The other seven opening positions agree within about1ft and remain. The four principal windows and four rear slits are withheld from camera fitting. Earlier HABS loft-gap interpretations differed and were already superseded by T-1999; this photo correction supersedes only the southern upper slit. See L-glessner-west-slit-2228. Window surrounds (owner, 2026-11-13, his screenshot of the south broad light: the borders around the window need to be realigned): every head and sill here stood part-way into a granite course (sills 0.55 ft above a joint, heads 0.2-0.6 ft into the course over them), so the course stones were notched round the opening and a thin projecting sill slab came out in pieces under the rock faces. His photograph 17 of 2026-11-10 shows these lights cut square into the coursing, head and sill on bed joints, with no sill stone proud of the wall. Each head and sill is moved to the nearest bed joint of the house's course string (ashlar_courses_m): the lower lights' shared sill 8.75 -> 9.3044 ft, the broad heads 13.5 -> 14.0939 ft (height kept, 4.79 ft), the rear heads 12.75 -> 13.2667 ft, the slits 21.5-25.5 -> 21.975-26.1356 ft. No move is over 0.6 ft; positions along the wall are unchanged. L-glessner-window-courses."
     },
     "openings_court": {
       "value": {
@@ -4638,6 +4638,12 @@
           0.21,
           "ng"
         ],
+        "street_end_z": [
+          -0.085,
+          "ng"
+        ],
+        "street_end_tuck_ft": 0.16,
+        "street_end_run_ft": 3.5,
         "lawn_z": [
           0.17,
           "ng"
@@ -4681,7 +4687,7 @@
         "habs_glessner_house_il_1015_data_pages",
         "artic_glessner_sheet_23a_entrance_detail"
       ],
-      "note": "T-2202. House-side lawn edging and access gaps are visible in Taylor 2135 (c.1887–89) and HABS sheets 2/6 (1963/1965); continuity in 1904 is inferred, not a dated survey. The 14.7-ft setback reuses the existing Sanborn-aligned placement; the final 1.02 ft crosses only the reconstructed public margin to meet T-1728's unchanged six-foot walk. Curbs stop at the main entry and porte and return to the house with rounded plan corners and dressed top edges. Profile height 1.05 ft, width 0.65 ft, 0.8-ft corner radius and 4-ft joint spacing are bounded reconstructions (+/-0.25 ft profile, +/-1.5 ft setback), not dimensions printed by HABS. The door sill retains sheet 6's 0.00 datum, 0.74 ft above its sidewalk; two low stone risers join the existing sill to the rendered approach. The rendered 0.21-ft paving lift includes the terrain/sidewalk display clearance, not a newly surveyed historical grade. Passage paving tapers to the existing 0.12-ft courtyard drive, with no grass or duplicated floor. Paving uses dressed stone at the entry and neutral mineral surfacing at the carriage approach/passage; historic composition and joint layout remain reconstructed. No later street pavement is imported. L-glessner-frontage-2202. T-2228 supersedes the two risers: one continuous broad threshold is built into the cutback entry at the retained sill datum. Approach/curb gap widens to9.6ft to clear the9.1ft threshold, bounded by HABS5 and the owner photograph; one6.36in rendered rise above the display-lifted approach. No added projecting upper tread. T-2976 supersedes the passage paving lift: the carriage passage's floor is sunk, as both HABS sheets draw it. Sheet 6 (read at its own printed 0.00 and 24.30, 75.3 px/ft) runs the porte-cochere's opening and both oak leaves down to 1.9 ft under the door datum, 1.16 ft under the sidewalk it prints at -0.74, the sidewalk line returning down into the opening at both jambs; sheet 4 draws the court mouth's floor 1.05 ft (103 px at 97.7 px/ft) under the court ground drawn beside it. So passage_front_z is the sheet-6 floor and passage_court_z is that depth under the model's 0.12-ft court drive. (T-2955: the court drive lies on the model's grade, not on north grade, so that depth is written on the door datum, -1.67 ft = -0.93 ft over the model's grade, and does not rise with the 18th Street grade.) With the floor where the sheets put it the passage clears 8.9 ft under the street head (sheet 6: 7.0 over the door datum) and 8.15 ft under the court lintel, against 7.0 ft when it was laid at the display-lifted sidewalk. The c.1888 photograph agrees: its leaves run down past the rounded stones at the jambs' feet. The carriage approach across the setback now falls from the walk to the sunk mouth (1.37 ft over about 15 ft), with a dressed stone retaining edge up to the ground along each side; where and how the 1904 approach fell is not drawn, so its line, fall and edging are reconstructed (docs/LIBERTIES.md L-glessner-passage-floor-2976). T-2978: passage_court_z is the court mouth opening's foot as sheet 4 draws it, 2.45 ft under the court face's zero (y 6097 against y 5858 at 97.7 px/ft) and 1.02 ft under the ground drawn beside the mouth, which the court's fall now lays: the passage clears 9.67 ft under the court lintel (sheet 9.65) and the floor falls 1.1 ft from the street mouth. L-glessner-court-fall-2978."
+      "note": "T-2202. House-side lawn edging and access gaps are visible in Taylor 2135 (c.1887–89) and HABS sheets 2/6 (1963/1965); continuity in 1904 is inferred, not a dated survey. The 14.7-ft setback reuses the existing Sanborn-aligned placement; the final 1.02 ft crosses only the reconstructed public margin to meet T-1728's unchanged six-foot walk. Curbs stop at the main entry and porte and return to the house with rounded plan corners and dressed top edges. Profile height 1.05 ft, width 0.65 ft, 0.8-ft corner radius and 4-ft joint spacing are bounded reconstructions (+/-0.25 ft profile, +/-1.5 ft setback), not dimensions printed by HABS. The door sill retains sheet 6's 0.00 datum, 0.74 ft above its sidewalk; two low stone risers join the existing sill to the rendered approach. The rendered 0.21-ft paving lift includes the terrain/sidewalk display clearance, not a newly surveyed historical grade. Passage paving tapers to the existing 0.12-ft courtyard drive, with no grass or duplicated floor. Paving uses dressed stone at the entry and neutral mineral surfacing at the carriage approach/passage; historic composition and joint layout remain reconstructed. No later street pavement is imported. L-glessner-frontage-2202. T-2228 supersedes the two risers: one continuous broad threshold is built into the cutback entry at the retained sill datum. Approach/curb gap widens to9.6ft to clear the9.1ft threshold, bounded by HABS5 and the owner photograph; one6.36in rendered rise above the display-lifted approach. No added projecting upper tread. T-2976 supersedes the passage paving lift: the carriage passage's floor is sunk, as both HABS sheets draw it. Sheet 6 (read at its own printed 0.00 and 24.30, 75.3 px/ft) runs the porte-cochere's opening and both oak leaves down to 1.9 ft under the door datum, 1.16 ft under the sidewalk it prints at -0.74, the sidewalk line returning down into the opening at both jambs; sheet 4 draws the court mouth's floor 1.05 ft (103 px at 97.7 px/ft) under the court ground drawn beside it. So passage_front_z is the sheet-6 floor and passage_court_z is that depth under the model's 0.12-ft court drive. (T-2955: the court drive lies on the model's grade, not on north grade, so that depth is written on the door datum, -1.67 ft = -0.93 ft over the model's grade, and does not rise with the 18th Street grade.) With the floor where the sheets put it the passage clears 8.9 ft under the street head (sheet 6: 7.0 over the door datum) and 8.15 ft under the court lintel, against 7.0 ft when it was laid at the display-lifted sidewalk. The c.1888 photograph agrees: its leaves run down past the rounded stones at the jambs' feet. The carriage approach across the setback now falls from the walk to the sunk mouth (1.37 ft over about 15 ft), with a dressed stone retaining edge up to the ground along each side; where and how the 1904 approach fell is not drawn, so its line, fall and edging are reconstructed (docs/LIBERTIES.md L-glessner-passage-floor-2976). T-2978: passage_court_z is the court mouth opening's foot as sheet 4 draws it, 2.45 ft under the court face's zero (y 6097 against y 5858 at 97.7 px/ft) and 1.02 ft under the ground drawn beside the mouth, which the court's fall now lays: the passage clears 9.67 ft under the court lintel (sheet 9.65) and the floor falls 1.1 ft from the street mouth. L-glessner-court-fall-2978. Street end (owner, 2026-11-13, his screenshot at the front door: 'where the sidewalk connects to the front walk some harsh lines and green lines and triangles should not have green peeling through and bad angles'): the paving ended level at walk_join_W, 0.21 ft ng, about 0.27 ft (8 cm) over the public walk the street grid draws there (measured in the app: its inner edge 0.045-0.05 m over the house's ground, falling outward), with no face under its lip, so the margin's grass showed along the seam and the paving's side skirts read as triangles. The front walk now falls over its last 3.5 ft (one paving joint) to -0.085 ft ng, just under the public walk's drawn top, and runs 0.16 ft on under that walk's edge, closed down into grade; the carriage approach starts its fall from the same street end. The renderer's walk band lies over the seam. Reconstructed: a display join, not a surveyed grade (the sheets print the sidewalk 0.74 ft under the door datum, which this does not move). L-glessner-frontage-2202."
     },
     "rainwater_details": {
       "value": {

@@ -35430,6 +35430,8 @@ bay's carry into the mansard; a placement ruling for the wall south of the bay.
 
 **Revised 2026-11-12 (T-1887, the porch's south end):** the porch's south end is carried back on a diagonal from its front corner, over the south column, to the canted bay's north cheek, on a third round column against the cheek (K01's splayed porch end): the entablature's end and the column are placed off the automobile photograph through its square-on camera (the entablature meeting the cheek at x 418 px, the column at x 443), and the south arch is turned on the diagonal between the two columns. Beneath it a terrace at the landing's height runs south of the stoop to the cheek, its front a stone parapet pierced by four upright slots, as the print shows it. Invented there: the diagonal's plan between those two readings (one camera fixes each point's bearing, not its depth: the depth is taken where the bearing meets the cheek), the third column's depth (0.92 m out), the terrace's depth (the landing's) and the parapet's slot size. The partial view's camera puts the third column about 0.5 m nearer the south column than this; the two fits disagree and the better-solved one places it. Its match record now reads `matches`: its last open item, the mansard's height, is re-read against the window under it and comes to about 0.3 m short, at the bar. Still open: the automobile print's front wall south of the bay.
 
+**Revised 2026-11-13 (T-1887, the flanks' stone):** the three-storey block's north and south flanks are laid in the front's Lemont ashlar for 14.0 m back from the front, and the canted bay on the south flank in the same stone (K01's `stone_front.flanks` with its new `to_m`): the 1911 sheet edges that block's north, east and south walls in one blue (stone) band with its brick inside a dashed line, and the two-storey range behind in plain pink, and the automobile photograph shows light coursed stone at its left edge, where the build had buff brick. The sheet's block is 13.9 m deep; the stone is held to 14.0 so it meets the flank bay the sheet draws inside the band. Read, not invented: which walls are stone and how far back. Invented there: the flanks' coursing and dressing (the front's, smooth; no picture sees a flank square-on), and the brick behind the stone, as before. Still open: the automobile print's face south of the bay, which reads frontal and windowless across its left edge where the stone flank recedes with its two windows.
+
 ### L-pullman-glasshouses-1800-calumet-3164 — Pullman's glasshouse ranges and lodge across 18th Street, read off the 1911 sheet and glazed from the K13 kit
 
 **Decision:** the 1904 scene gains the Pullman estate's glasshouse ground at 1800 S. Calumet Avenue,
@@ -43788,6 +43790,25 @@ an impression, not measured stone by stone. The lattice and its triangle count a
 **Ticket:** T-3564.
 **Recorded:** 2026-11-12.
 
+### L-glessner-window-courses — Glessner's alley windows set on the granite's bed joints
+
+**Decision:** the owner, 2026-11-13, on his screenshot of the alley (west) wall's south broad
+light: "on the glessner windows when the stone was adjusted it looks like the borders around the
+window need to be realigned, check all the windows". The stable's eight alley lights had heads and
+sills standing part-way into granite courses, so the course stones were notched round each opening
+and a thin projecting sill slab came out in pieces under the rock faces. His photograph 17 of
+2026-11-10 (chicago-evidence evidence/glessner-kevin-photos-2026-11-10/) shows these lights cut
+square into the coursing, head and sill on bed joints, with no sill stone proud of the wall. Each
+head and sill is moved to the nearest bed joint of the house's course string, and the projecting
+sill is not built.
+**What is invented.** The heights were already reconstructed (T-1999, from the owner's elevation
+image, not survey evidence). The moves are 0.15-0.6 ft; the broad lights keep their height, the
+rear lights and the gable slits change by under 0.6 ft. Which joint each head and sill takes is
+this project's choice, the nearest one that keeps the opening's height.
+**How to resolve:** a measured elevation of the alley wall, or a rectified photograph of it.
+**Ticket:** none (the owner's request in the project thread, 2026-11-13).
+**Recorded:** 2026-11-13.
+
 ### L-glessner-photo-match-3564 — Glessner details matched to the owner's photographs of 2026-11-10
 
 **Decision:** the owner's own photographs of 2026-11-10 (chicago-evidence
@@ -43946,6 +43967,15 @@ door's hinge and swing, as L-prairie-front-passages-3554's.
 **Ticket:** T-3578.
 **Recorded:** 2026-11-13.
 
+### L-kimball-1801-return-slate-lean-1890 — 1801 Prairie's slate over its south return leans in as one face to the deck, read off HABS photograph 1's coursing
+
+**Decision:** HABS photograph 1 (`habs_kimball_photo_01_sw_1965`), read at full size on 2026-11-13 for the one open difference on its match record: the slate courses over the south return run parallel to the return's moulded top (both falling to the right, as the long flank's do), so the slate over the return is a face turned the way the return faces, rising from the return's top to the hip and the deck's corner hood in one plane. The build (L-kimball-1801-south-return-1890) carried the set-back cut up to the curb with its side on the return's plane, which stood an upright slate cheek over the return and left a sliver of the front slope folded between the cheek and the set-back face. K01 `return_setback` now leans that side in, from the return's outer top edge (11.7 m) to the side face's foot of the deck at the curb (15.16 m), so the face over the return is one plane and the hip runs as one straight line from the hood down past the return's back end to the balcony.
+**Invented:** where the face's top meets the deck. The lean is taken to the side face's foot of the deck because that is the one level line the kit has there; the photograph's face reaches further to the left, up under a white coping below the cresting, so the build's face meets the front slope in a fold rising to the hood that the photograph does not show (open on the match record). The lean stops 0.05 m behind that foot at the curb, a margin the geometry needs and no picture can show: at 0.02 m the side face the cut leaves narrowed to a 3 cm sliver whose triangles passed through the front slope's (the K05 gate's crossing rule).
+**How to resolve:** the HABS drawings' south elevation and roof plan, if found, give the roof over the corner and the coping's height.
+**Ticket:** T-1890.
+**Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg` and its match record.
+**Recorded:** 2026-11-13 (T-1890).
+
 ### L-1904-nature-sounds-3585 — Robins in the parkway elms, cicadas and crickets on the 1904 street
 
 **Decision:** the owner, 2026-11-13: *"i am in 1904 and when i have the ambience on i do not hear many birds this is in summer daytime and i would think there would be birds to hear"*, then *"and insects as well?"* and *"other appropriate nature ambiance"*. 1904 had no habitat sound at all, only a faint leaf rustle. Its nature sounds now come from the scene's own parkway elms (`data/street_trees/1904.json`), using recordings already licensed, verified and hosted for 1812 and 1835 (`assets/audio/intake.json` `town_placements`, read by `renderers/web/js/habitat-town.js`):
@@ -43957,4 +43987,12 @@ No insect sounds outside summer. Gains, gaps, the 9 m crown height and the 24/11
 **Left out on purpose:** the house sparrow, the commonest street bird of 1904 (Woodruff's "imported sparrows"), has no licensed recording in the library yet, so it is not heard rather than faked with another bird. No European starling: it is not in Woodruff's 1907 list and reached Chicago later.
 **Re-opens on:** a licensed house-sparrow or chimney-swift recording, or a period account of Prairie Avenue's birds, insects or trees.
 **Ticket:** T-3585.
+**Recorded:** 2026-11-13.
+
+### L-wind-gusts-3586 — One gust rhythm for the swaying plants and the wind you hear
+
+**Decision:** the owner, 2026-11-13: *"it would be nice if the wind sound worked with the trees so it would be noticeable, to see when the trees blow"*, then *"yes lets fix the wind"* and *"assume this applies in all years"*. Every tree, wall vine and yard plant drawn through `tree-surface.js`, and the prairie and lawn plants of `flora.js`, used to sway at one constant strength. They now share one gust rhythm (`renderers/web/js/wind-gust.js`): a front that crosses the town from the south-west at 7 m/s, as the fort's flags already fly, its strength the sum of three slow swells (48, 30 and 20 s) repeating every 240 s, from 0.35 of the old sway in a lull to at most the old sway at a gust's top, so nothing swings farther than before and a wall vine stays off its wall. The recorded leaf rustle follows the same gust where the listener stands, from 0.3 to 1.6 times its old level, which on average stays under the quiet town mix the owner set on 2026-11-11. All three years.
+**Not invented:** the south-westerly, which flags.js L390 already reconstructs as Chicago's prevailing summer wind; the wind recording, its licence and its town levels.
+**Re-opens on:** a weather record for a scene date (a wind speed or a gusty day), which would set the swell and the rustle from it.
+**Ticket:** T-3586.
 **Recorded:** 2026-11-13.
