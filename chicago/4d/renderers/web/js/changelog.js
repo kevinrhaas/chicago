@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2936, ts: '2026-11-13T17:19:59.079Z', date: 'Nov 13, 2026, 11:19 AM CT', title: 'Sign in once to travel to any year', kind: 'feature',
+    items: [
+      'Before a year starts loading, sign in with Google or Microsoft.',
+      'No account with either? A small link offers email and password, or just your email.',
+      'One sign-in opens every year on that device, and the next visit goes straight in.',
+    ] },
   { v: 2935, ts: '2026-11-13T16:56:23.840Z', date: 'Nov 13, 2026, 10:56 AM CT', title: '1816 Prairie\'s balcony over the porch, with a door onto it', kind: 'improvement',
     items: [
       'The iron balcony on top of the Henderson house\'s porch at 1816 Prairie now stands about a metre high, as the old photograph shows it, where it used to be a low rail.',
