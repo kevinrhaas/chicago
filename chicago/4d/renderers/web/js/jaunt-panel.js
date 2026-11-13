@@ -87,7 +87,7 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
   root.addEventListener('keydown', e => e.stopPropagation());
   let state, key, overlayView = null, needsChoice = false;
   // T-3578: a voiced part shows Listen; the voice repaints the panel as it starts and stops.
-  const offNarration = narration?.on?.(() => { if (state?.jaunt && !root.hidden) render(state); });
+  const offNarration = narration?.on?.(() => { if (state?.jaunt) render(state); });
   function listen(part, id) {
     if (!narration?.clip(state.jaunt, part, id)) return null;
     const on = narration.isPlaying(state.jaunt, part, id);
