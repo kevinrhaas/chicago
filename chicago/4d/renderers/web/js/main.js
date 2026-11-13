@@ -1793,7 +1793,8 @@ api.gesture = gesture;
 // T-3532: the arrival's explicit speaker control works while the scene is loading.
 // T-3571: the Navigator's MUTE ALL and MUTE MUSIC keys flip the same levels (sound-keys.js).
 const soundToggle = document.getElementById('arrival-sound');
-const muteKeys = [['nav-mute-all', MUTE_KEYS.all, 'nav.mute.all'], ['nav-mute-music', MUTE_KEYS.music, 'nav.mute.music']]
+const muteKeys = [['nav-mute-all', MUTE_KEYS.all, 'nav.mute.all'], ['nav-mute-music', MUTE_KEYS.music, 'nav.mute.music'],
+  ['nav-mute-narration', MUTE_KEYS.narration, 'nav.mute.narration']]
   .map(([id, key, str]) => ({ el: document.getElementById(id), key, str })).filter(k => k.el);
 function soundNow() {
   let saved = {};
@@ -1822,7 +1823,7 @@ function flipSoundKey(key) {
   arrivalSoundSettings = { ...current, ...change };
   if (api.hud?.settings) Object.assign(api.hud.settings, change);
   try { localStorage.setItem('chicago4d.settings', JSON.stringify({ ...saved, ...arrivalSoundSettings })); } catch {}
-  const slider = document.getElementById(key === MUTE_KEYS.music ? 's-sound-music' : 's-sound-master');
+  const slider = document.getElementById(`s-sound-${key.replace(/^sound/, '').toLowerCase()}`);
   if (api.hud && slider) { slider.value = String(change[key]); slider.dispatchEvent(new Event('input', { bubbles: true })); }
   paintSoundToggle(); void loadSound().then(sound => sound?.sync());
 }
@@ -5498,7 +5499,7 @@ async function boot() {
     jauntRoot.append(message);
   }
   function ensureJaunts() {
-    return jauntReady ??= Promise.all([import('./jaunt-preview.js'), import('./jaunts.js'), import('./jaunt-panel.js'), import('./travel-estimate.js'), import('./jaunt-context.js'), import('./jaunt-cards.js')]).then(([preview, runtime, panel, estimates, context, cards]) => {
+    return jauntReady ??= Promise.all([import('./jaunt-preview.js'), import('./jaunts.js'), import('./jaunt-panel.js'), import('./travel-estimate.js'), import('./jaunt-context.js'), import('./jaunt-cards.js'), import('./narration.js')]).then(([preview, runtime, panel, estimates, context, cards, voices]) => {
       const resolveJaunt = target => {
         const resolved = destinations.resolve(target);
         return resolved?.structureId ? { kind: 'structure', id: resolved.structureId, label: resolved.label } : resolved;
@@ -5506,6 +5507,18 @@ async function boot() {
       const estimateOptions = mode => ({ resolve: target => {
         const resolved = resolveJaunt(target); return resolved && travel.destinationOf(resolved, { mode, card: false });
       }, settings: hud.settings, router: travel.router });
+      // T-3578: the jaunt voices. A Listen tap turns sound on (and Narration up) if it is off;
+      // with sound on, each stop's voice starts as you arrive.
+      const narration = api.narration = voices.createNarration({
+        speech: () => api.sound?.speech ?? null,
+        wake: () => {
+          if (isMuted(soundNow().current, MUTE_KEYS.all)) flipSoundKey(MUTE_KEYS.all);
+          if (isMuted(soundNow().current, MUTE_KEYS.narration)) flipSoundKey(MUTE_KEYS.narration);
+          gesture.unlockAudio();
+          return loadSound().then(sound => sound?.sync());
+        },
+        duck: on => api.sound?.setSpeechActive(on),
+      });
       jauntPreview = preview.createJauntPreview({ root: jauntRoot, scene: YEAR, dataBase: bases.dataBase, destinations, api: api.jaunts,
         onStart: (id, options) => jauntRuntime.start(id, options), onResume: () => jauntRuntime.resume(), getSession: () => jauntRuntime?.state,
         onDismiss: () => jauntRuntime?.end(), // T-3432: Close on Outing complete
@@ -5516,13 +5529,13 @@ async function boot() {
         // mode where the Jaunt allows it; one that cannot go that way keeps its own and says so.
         preferredMode: (jaunt) => jauntModeFor(hud.gettingThere, jaunt),
         modeNote: (jaunt) => jauntWay(jaunt).note,
-        license,
+        license, narration,
         estimate: (row, mode) => estimates.estimateJaunt(row, mode, estimateOptions(mode)) });
       const actions = Object.fromEntries(['next', 'prev', 'end', 'menu', 'choose', 'revise', 'retry', 'detail', 'returnFromDetail', 'setMode', 'straight', 'resumeRide', 'dismissContext'].map(name => [name, (...args) => jauntRuntime[name](...args)]));
       const jauntCards = cards.createJauntCards({ registry: loaded.registry, popup, hud, api,
         sources: () => { openSources(); return sourcesPromise; }, onReturn: () => jauntRuntime.returnFromDetail() });
       actions.closeOverlay = jauntCards.close;
-      jauntPanel = panel.createJauntPanel({ destinations, actions,
+      jauntPanel = panel.createJauntPanel({ destinations, actions, narration,
         catalogRow: (id) => api.jaunts.catalog?.find((row) => row.id === id) ?? null }); // T-3432: the welcome's kind and premise
       jauntRuntime = runtime.createJaunts({ scene: YEAR, load: jauntPreview.load, travel,
         preferredMode: (jaunt) => jauntModeFor(hud.gettingThere, jaunt),
