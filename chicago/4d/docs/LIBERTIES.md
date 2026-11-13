@@ -43968,3 +43968,12 @@ No insect sounds outside summer. Gains, gaps, the 9 m crown height and the 24/11
 **Re-opens on:** a weather record for a scene date (a wind speed or a gusty day), which would set the swell and the rustle from it.
 **Ticket:** T-3586.
 **Recorded:** 2026-11-13.
+
+### L-team-sounds-3587 — Horses and carriages loud enough to hear as they pass, in every year
+
+**Decision:** the owner, 2026-11-13: *"i think you have the horse trot sounds and carriage rolling sounds but i could barely hear them i would think they would make reasonable noise as they roll past"*. The driven teams' recorded harness, wheel and hoof sounds now play at 0.3 at the team (the 1904 brougham's wheels 0.18, a light carriage on paving), reach 48 m (hoofs 40 m) and fade as (1 − d/max)^1.5 instead of the square, so a passing team is plainly louder than the birds and wind and fades out down the block. Hoof contacts, which played only in 1812, now sound for the 1835 Western Hotel wagon team and the 1904 Prairie Avenue brougham, and every year's team is heard at its scene's spring, fall and winter viewing dates as well as summer, only while that actual team is visible and moving. The 1904 brougham, which had harness only, now rolls with the wooden-wagon recording at the lower level.
+**Not invented:** the recordings (CC0, already on R2 with pinned hashes), each horse's gait timing, the teams and their routes, and the seasonal viewing dates.
+**Liberties within it:** the levels and reach are listening choices, not measured sound pressure. A dirt hoof recording and a downhill wooden wagon stand in for hoofs and wheels on 1904 asphalt and brick; they are proxies, not recordings of those streets. Teams sounding on non-summer dates follow the existing seasonal viewing choices, not an attestation that those teams drove on those dates.
+**Re-opens on:** an owner listening pass, or a licensed recording of hoofs or carriage wheels on asphalt, brick or plank road.
+**Ticket:** T-3587.
+**Recorded:** 2026-11-13.
