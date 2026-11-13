@@ -40,10 +40,14 @@ export const HAIR_CUTS = Object.freeze({
   // (`bun_to_crown_deg`, human-hair.js bunToCrown). Like drawn_back_bun_1904 the cap carries its
   // own fine strands and grows no scalp cards; brows and lashes still grow from her face. Its
   // `cap_tint` takes the cap's brown to the sheet's ash: set by the hair's tone against the
-  // forehead's on the sheet and on a render (2026-11-13), where the cap had read dark and violet.
+  // forehead's on the sheet and on a render (2026-11-13), where the cap had read dark and violet,
+  // then once more beside the sheet's four views, where it read a light sand: an ash brown.
+  // `cap_puff` stands the cap, its patch and the knot off the skull (bunToCrown), as the sheet's
+  // full updo stands at the sides and back (owner, 2026-11-13: fuller hair at her sides), the
+  // knot larger (`bun_knot_scale`) as the sheet's is.
   swept_up_topknot_1904: Object.freeze({
     flow: 'swept_up', part_cm: 0, lengths_cm: Object.freeze({ top: 6, side: 5, back: 4 }),
-    knot_cm: Object.freeze({ up: 10, back: 8 }), scalp_cards: false, bun_to_crown_deg: 62, bun_knot_scale: .7, cap_tint: Object.freeze([1.4, 1.9, 1.75]),
+    knot_cm: Object.freeze({ up: 10, back: 8 }), scalp_cards: false, bun_to_crown_deg: 62, bun_knot_scale: .9, cap_puff: .15, cap_tint: Object.freeze([.95, 1.25, 1.3]),
     lift_mm: Object.freeze({ root: .6, tip: 1.4 }), density: 1, curl: .04, hang: false,
   }),
   // A woman's hair of the 1900s worn as a real bun (T-3434): her cap is a cleared bun hair
@@ -70,10 +74,12 @@ export const HAIR_CUTS = Object.freeze({
   // swept straight back off a high forehead, with no parting, standing full at the sides.
   // T-3553, 2026-11-13: re-read from the owner's turnaround sheet of the stand-in: swept back
   // from the brow and falling in loose waves over the ears to below the jaw and the collar
-  // behind, full at the sides.
+  // behind, full at the sides. Drawn beside the sheet's four views (owner, 2026-11-13, the
+  // gaps to his sheet: "all of them"): the strands wave (`wave`, human-hair.js layCard), stand
+  // fuller off the head (lift) and end at the collar, not in long wisps below it.
   swept_back_wavy_1904: Object.freeze({
-    flow: 'swept_back', part_cm: 0, lengths_cm: Object.freeze({ top: 11, side: 12.5, back: 15 }),
-    lift_mm: Object.freeze({ root: 5, tip: 14 }), density: 5, curl: .35, hang: true, card_mm: 6.5, cap_tint: 12,
+    flow: 'swept_back', part_cm: 0, lengths_cm: Object.freeze({ top: 11, side: 10.5, back: 11.5 }),
+    lift_mm: Object.freeze({ root: 7, tip: 24 }), density: 7, curl: .2, wave: .25, hang: true, card_mm: 8, cap_tint: 12,
   }),
   // A soldier's crop of 1812 (T-3491, a reconstructed choice): short all round, a little
   // longer on top and brushed forward to the brow, close over the ears and at the nape.
@@ -306,7 +312,8 @@ export const HAIR_COLOURS = Object.freeze({
   // Matched to the sheets' colour once more (T-3553, owner 2026-11-13: "keep going so they match
   // perfectly"): drawn beside them, his hair read too dark and hers too dark and warm. His is a
   // light ash going silver at the sides; hers an ash brown with fair and grey streaks through it.
-  light_ash_grey: Object.freeze([.24, .205, .17]),
+  // Beside the four views (2026-11-13) his cards read near silver: taken to the sheet's ash brown.
+  light_ash_grey: Object.freeze([.16, .125, .09]),
   ash_fair_grey: Object.freeze([.2, .16, .125]),
   // His beard and moustache (T-3553): warmer than his hair, a reddish sand, as the portrait's
   // beard reads a shade redder and lighter than the hair above it.
