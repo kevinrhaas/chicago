@@ -587,7 +587,8 @@ async function openPersonCard(pane, personId, ctx) {
   const sceneYear = Number(String(ctx?.scene?.id ?? ctx?.scene?.scene_id ?? '').slice(0, 4)) || null;
   const draw = (m) => {
     const card = renderPersonCard(doc, m, { dot, onFind: ctx?.actions?.findPerson ?? null,
-      onFollow: ctx?.actions?.followPerson ?? null, inTown: ctx?.actions?.inTown ?? null });
+      onFollow: ctx?.actions?.followPerson ?? null, inTown: ctx?.actions?.inTown ?? null,
+      atHome: ctx?.actions?.atHome ?? null });
     const was = pane.querySelector('.insp-person-card');
     if (was) was.replaceWith(card); else pane.append(card);
     return card;

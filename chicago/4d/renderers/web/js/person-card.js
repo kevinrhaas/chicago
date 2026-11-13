@@ -312,6 +312,9 @@ export function notFoundWhy(m) {
   return 'Not out in town at this hour or season';
 }
 
+/** T-3573: under Find and Follow for someone at home now. */
+export const AT_HOME_LINE = 'At home now: they come out to meet you';
+
 /**
  * T-3521: a line on what the work meant in a house like this one, for a census servant whose
  * card has no story written yet. It is about the work, said generally ("A cook in a house
@@ -415,7 +418,7 @@ function el(doc, tag, cls, text) {
 }
 
 /** Draw a model. `dot(doc, grade)` is Inspect's grade dot. */
-export function renderPersonCard(doc, m, { dot = () => doc.createTextNode(''), onFind = null, onFollow = null, inTown = null } = {}) {
+export function renderPersonCard(doc, m, { dot = () => doc.createTextNode(''), onFind = null, onFollow = null, inTown = null, atHome = null } = {}) {
   const card = el(doc, 'article', 'insp-person-card');
   card.dataset.personId = m.id ?? '';
   const back = el(doc, 'button', 'insp-person-back');
@@ -461,6 +464,8 @@ export function renderPersonCard(doc, m, { dot = () => doc.createTextNode(''), o
       card.append(follow);
     }
     if (!here) card.append(el(doc, 'p', 'nav-k insp-person-unfound', notFoundWhy(m)));
+    // T-3573: at home now: Find or Follow goes to their door, and out they come on a walk.
+    else if (typeof atHome === 'function' && atHome(m.id)) card.append(el(doc, 'p', 'nav-k insp-person-unfound insp-person-home', AT_HOME_LINE));
   }
   if (m.ownCard) {
     // T-3382: a grown child with a house of their own in the scene year has a card there too.

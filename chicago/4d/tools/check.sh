@@ -240,6 +240,9 @@ step "A phone starts at Image sharpness Low, a desktop at Medium, a stored choic
 step "The device profile chooses per device, and a stored choice still wins (T-2559)" \
   node tools/check_device_profile.mjs
 
+step "A VR headset walks the town through WebXR: hidden without one, booted as a phone, every headset frame drawn (T-3575)" \
+  node tools/check_xr_mode.mjs
+
 step "A patched plain lit material cannot be handed another layer's shader program (T-0053)" \
   node tools/test_program_cache_key.mjs
 
@@ -672,6 +675,8 @@ step "Each 1812 building's doors are where its model draws the leaf, and where o
   python3 tools/derive_doors_1812.py --check
 step "1812 people keep their day: off their dates nowhere (Lalime gone by 14 August, there in February), indoors or out by the hour, talking, at work, walking; a door offers Ask for whoever is inside, soldiers in quarters too, and the one asked for comes out to the visitor and goes back in (T-3463..T-3467)" \
   node tools/test_human_days.mjs
+step "Someone at home is found and followed: they come out of their own door on a walk round the block by its sidewalks (a walk about the place in 1812), on while followed, back in after; away people stay away (T-3573)" \
+  node tools/test_step_out.mjs
 step "Prairie Avenue roster casting, aliases, portraits and seasonal days remain consistent (T-3548)" \
   python3 tools/test_prairie_people.py
 step "Prairie Avenue generated residents and appearance profiles reproduce (T-3547, T-3548)" \

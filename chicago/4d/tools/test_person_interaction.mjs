@@ -304,18 +304,31 @@ const angleOff = (a, b) => Math.abs(((a - b + 540) % 360) - 180);
 // ---- main.js goToTarget: a standing figure, and a card's own address -------------------
 {
   const source = await readFile(new URL('../renderers/web/js/main.js', import.meta.url), 'utf8');
-  const begin = source.indexOf('  function goToTarget(target) {');
+  // From T-3573's outingLoop and meetAtDoor (someone at home: to their door, and out they come).
+  const begin = source.indexOf('  /**\n   * T-3573: the walk round a house');
   const end = source.indexOf('  /** The future welcome picker', begin);
   const body = source.slice(begin, end);
   const stand = { kind: 'intersection', local_e: 1, local_n: 2, label: 'House' };
   const visits = [];
   const figure = { id: 'hi_x', person: { name: 'Mary' }, position: { e: 10, n: 20, y: 0 }, heading: 0, root: { parent: {} }, disposed: false };
+  const said = [];
+  const home = { started: 0, plan: null };
+  const days = { outing(id, { loop }) {
+    if (id !== 'ann') return { ok: false, why: 'no such person' };
+    home.plan = { ok: true, structure: 'ann_house', name: 'Ann', doing: 'an errand round the block', loop,
+      door: { id: 'ann_house:front', step: { e: 50, n: 0 }, outward_deg: 90 }, start: () => { home.started++; return { ok: true }; } };
+    return home.plan;
+  } };
   const make = (blockedAt = () => false, driverAnchor = () => null) => Function('api', 'jauntRuntime', 'travel', 'router', 'hud', 'destinations', 'openBusiness', 'openBuilding',
+    'personInTown', 'atHome', 'footprints', 'footprintCentre', 'blockLoop', 'BLOCK_WAYS', 'walkDoing', 'loaded', 'YEAR', 'sunHour',
     body + '\nreturn goToTarget;')(
     { townTransport: { driverAnchorForPerson: driverAnchor, cancelDriverApproaches() {}, requestDriverApproach: () => ({ cancel() {} }) },
-      humans: { external: () => null, get: (id) => (id === 'mary' ? figure : null) } }, null,
-    { go: (t, cb) => { visits.push([t, cb]); return t; } }, { blockedAt }, { say() {}, setPanel() {}, selectTab() {} },
-    { resolve: () => stand, byId: () => null }, () => {}, () => {});
+      humans: { external: () => null, get: (id) => (id === 'mary' ? figure : null) }, days,
+      atHome: (id) => (id === 'ann' ? { structure: 'ann_house', name: 'Ann' } : null) }, null,
+    { go: (t, cb) => { visits.push([t, cb]); return t; } }, { blockedAt }, { say(x) { said.push(x); }, setPanel() {}, selectTab() {} },
+    { resolve: () => stand, byId: () => null }, () => {}, () => {},
+    (id) => (id === 'mary' ? figure : null), (id) => (id === 'ann' ? { structure: 'ann_house', name: 'Ann' } : null),
+    [], () => null, () => null, {}, () => 'x', { scene: { id: '1904' } }, 1904, () => 14);
   const go = make();
   const t = go({ kind: 'person', id: 'mary' });
   assert.equal(t.kind, 'intersection');
@@ -334,7 +347,19 @@ const angleOff = (a, b) => Math.abs(((a - b + 540) % 360) - 180);
   const found = drv({ kind: 'person', id: 'otis' });
   assert.equal(found.kind, 'intersection'); assert.equal(asked, 1, 'Find this person: the seat');
   assert(near(found.yaw_deg, 270), 'arrives facing the seat');
-  console.log('goToTarget: beside a standing figure facing them, router-guarded; card addresses go home PASS');
+  // T-3573: someone at home: to their door, a few metres out from its step facing it; on
+  // arriving, out they come, then whatever the asker wanted next (Follow).
+  let then = 0;
+  const door = go({ kind: 'person', id: 'ann', label: 'Ann', then: () => { then++; } });
+  assert.equal(door.kind, 'intersection');
+  assert(near(door.local_e, 55) && near(door.local_n, 0), 'before her door, out from its step');
+  assert(near(door.yaw_deg, 270), 'facing the door');
+  assert.equal(home.started, 0, 'she comes out when the visitor is there');
+  visits.at(-1)[1].onArrive();
+  assert.equal(home.started, 1); assert.equal(then, 1, 'then Follow starts');
+  assert(said.includes('Ann steps out for an errand round the block'), said.join(' | '));
+  assert.equal(make(() => true)({ kind: 'person', id: 'ann', label: 'Ann' }).kind, 'structure', 'no clear stand at the door: to the house');
+  console.log('goToTarget: beside a standing figure facing them, router-guarded; card addresses go home; someone at home met at their door and brought out (T-3573) PASS');
 }
 
 // ---- person-card.js offers Follow for someone in town ------------------------------------
@@ -362,6 +387,11 @@ const angleOff = (a, b) => Math.abs(((a - b + 540) % 360) - 180);
     household_name: 'Billy Caldwell (Sauganash), who came to Chicago on 16 August 1812' }, sceneYear: 1812 });
   const gone = all(renderPersonCard(mkDoc(), sau, { onFind() {}, onFollow() {}, inTown: () => false }));
   assert(gone.some((n) => /came to Chicago on 16 August 1812/.test(n.textContent ?? '')), 'absent: says when they came');
-  console.log('person card: Find and Follow live only for someone placed in town, greyed with the reason otherwise PASS');
+  // T-3573: someone at home in town: both live, and the card says they come out to meet you.
+  const home = all(renderPersonCard(mkDoc(), m, { onFind() {}, onFollow() {}, inTown: () => true, atHome: () => true }));
+  assert(home.filter((n) => /insp-person-(follow|find)/.test(n.className ?? '')).every((n) => !n.disabled && n.listeners.click), 'at home: Find and Follow live');
+  assert(home.some((n) => (n.className ?? '').includes('insp-person-home') && /come out to meet you/.test(n.textContent)), 'at home: says they come out');
+  assert(!yes.some((n) => (n.className ?? '').includes('insp-person-home')), 'out in town: no at-home line');
+  console.log('person card: Find and Follow live only for someone placed in town or at home in it (T-3573), greyed with the reason otherwise PASS');
 }
 console.log('ok person interaction (T-3404)');
