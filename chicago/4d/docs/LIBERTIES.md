@@ -43794,3 +43794,11 @@ door's hinge and swing, as L-prairie-front-passages-3554's.
 **Re-opens on:** a cloth simulation the fleet can afford on a phone, which replaces the panels.
 **Ticket:** T-3553.
 **Recorded:** 2026-11-13.
+
+### L-jaunt-voices-3578 — The jaunt scripts read aloud in synthetic voices
+
+**Decision:** the owner, 2026-11-13: *"I have some voices in eleven labs and I want to begin using those and having them read/play the narration or scripts like the meet the Glessner household"*. A jaunt's opening, each of its stops and its endings can be heard as well as read: `tools/narrate_jaunts.mjs` sends the exact words the panel shows to ElevenLabs text to speech in a voice the owner chose for each speaker (`data/narration/voices.json`: a narrator, and each stop's first host by person id), and `renderers/web/js/narration.js` plays the clip whose key is those words' SHA-256. The voices are synthetic and chosen by ear; none is a recording of the person or claims to be their voice, accent or manner of speech, and the words are the jaunt's own (already declared written for the walk where the jaunt says so).
+**Not invented:** the words, which are the jaunt's text unchanged, with their own sources and liberties.
+**Re-opens on:** a recording or a contemporary description of how one of the speakers sounded, which would bound their voice.
+**Ticket:** T-3578.
+**Recorded:** 2026-11-13.

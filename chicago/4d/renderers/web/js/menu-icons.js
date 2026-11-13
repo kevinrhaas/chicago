@@ -57,6 +57,9 @@ const P = {
   finish: '<path d="M5.5 21.5V3.5"/><path d="M5.5 4h13l-3 4 3 4h-13"/>',
   close: '<path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/>',
   done: '<circle cx="12" cy="12" r="8.5"/><path d="M8 12.3l2.8 2.8L16.3 9"/>',
+  // T-3578: a jaunt's Listen key, speaking (a voice, its waves) and stopped
+  listen: '<path d="M4 9.5h3.5L12 6v12l-4.5-3.5H4z"/><path d="M15.5 9c1.4 1.6 1.4 4.4 0 6m2.6-8.5c2.8 3 2.8 8 0 11"/>',
+  stop: '<rect x="7" y="7" width="10" height="10" rx="1.5"/>',
 };
 export function iconSvg(name, size = 20) {
   const body = P[name] || P.view;

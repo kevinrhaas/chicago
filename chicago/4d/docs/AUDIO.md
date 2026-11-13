@@ -60,6 +60,48 @@ first button is Find/Follow and can legitimately be disabled. A focused regressi
 test covers both a person present and a person away. The complete release gate
 still requires both viewports and every smoke stage.
 
+## Narration (T-3578)
+
+The owner, 2026-11-13, asked for the jaunt scripts (first *The Glessner Household*) to be read
+aloud in his ElevenLabs voices, made automatically rather than by copying text out of the app.
+
+**What is spoken.** `renderers/web/js/narration.js` § `narrationScripts` lists a jaunt's opening
+(its title, then the welcome's paragraphs), each stop (its `since` lead and text, read by the
+stop's first host, else the narrator) and each ending (the narrator). The app and the voicer
+both use that one function on the compiled jaunt the app loads, so what is voiced is exactly
+what the panel shows. Each script is keyed by the SHA-256 of its words.
+
+**Voices.** `data/narration/voices.json` lists the voiced jaunts and a voice per speaker: an
+ElevenLabs voice id, or the exact name of one of the owner's voices; `null` is not yet chosen
+and that speaker is skipped. Model, output format (`mp3_44100_64`, mono speech at 64 kbit/s,
+about 0.5 MB a minute), voice settings and a per-run character cap live there too.
+
+**Voicing.** `.github/workflows/chicago-4d-narration.yml` runs on a push to dev that touches a
+compiled jaunt, the voice file or the script function, and by hand (plan / voice / list-voices).
+`tools/narrate_jaunts.mjs` reads the media host's `narration/index.json` and sends ElevenLabs
+only the scripts with no clip for their words, or a clip made with another voice or settings:
+an unchanged jaunt costs nothing. Clips are uploaded to the R2 bucket as
+`narration/<sha256 of the bytes>.mp3` (immutable), then the index (no-cache), and the run
+fetches both back from the public host to verify them. The index only gains entries, so a
+build still showing older words (production before a promote) keeps finding its clips. The run
+keeps the clips as an artifact for 30 days. Secrets: `ELEVENLABS_API_KEY`, `R2_ACCESS_KEY_ID`,
+`R2_SECRET_ACCESS_KEY`, `R2_ENDPOINT` (an R2 API token with Object Read & Write on the
+bucket); without them a push run says so and stops green.
+
+**Playback.** The app finds the index beside the hosted media (`hosting.public_base` in the
+published catalogue; a local build looks beside its own audio). A part with a clip for its
+current words shows **Listen**; one without shows nothing, so changed words are silent until
+voiced again. One media element, primed with a moment of silence inside a tap (WebKit, so
+iPhone Chrome, then lets later stops start unprompted), streams through Settings › Sound's
+**Narration** bus under Master, and music, ambience and effects duck to 0.3 while it speaks.
+With sound on and Narration up, arriving at a stop starts its voice, or queues it behind the one
+still speaking; travelling on does not cut a voice off; muting Narration or all sound, hiding
+the page or leaving the jaunt ends it. A Listen tap with sound off turns it on. The
+Navigator's **Mute narration** key flips the Narration level as Mute music flips Music.
+
+**Liberty.** The voices are synthetic and chosen by ear, not the people's voices
+(L-jaunt-voices-3578). A stop's `narrative` and the road notes are not voiced yet.
+
 ## Implemented foundation
 
 The expanded catalogue now contains 34 source assets: seven era-specific music

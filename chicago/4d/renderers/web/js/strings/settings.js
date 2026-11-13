@@ -19,6 +19,8 @@ export default register('settings', {
   'sound.effects': 'Effects',
   'sound.ambience': 'Ambience',
   'sound.music': 'Music',
+  'sound.narration': 'Narration',
+  'sound.narrationHelp': 'Jaunt voices: each stop read aloud when you arrive.',
   'sound.effectsHelp': 'Nearby actions: hoofbeats, wagon wheels and hammering.',
   'sound.ambienceHelp': 'Background environment: wind, lake waves, birds and insects.',
   'sound.off': 'Off',

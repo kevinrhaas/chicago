@@ -1,0 +1,136 @@
+#!/usr/bin/env node
+// T-3578: jaunt narration. The words the app shows are the words voiced (one shared script
+// function, keyed by SHA-256); only changed words or voices are sent to ElevenLabs; the index
+// only gains clips; and the player follows the outing, queues behind a voice still speaking,
+// ducks the other buses, and stops when narration is muted.
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { createHash } from 'node:crypto';
+import { narrationScripts, openingScript, textKey, clipFor, silentWav, createNarration, NARRATOR } from '../renderers/web/js/narration.js';
+import { loadConfig, scriptsFor, voiceFor, plan, voice, synthesize, verify, ROOT } from './narrate_jaunts.mjs';
+
+const sha = s => createHash('sha256').update(s).digest('hex');
+const jaunt = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/sidecars/1904/jaunts/glessner-household-tour.json'), 'utf8'));
+
+// ---- the scripts -----------------------------------------------------------------------
+{
+  const scripts = narrationScripts(jaunt);
+  assert.deepEqual(scripts.map(s => `${s.part}:${s.id}`),
+    ['opening:opening', ...jaunt.stops.map(s => `stop:${s.id}`), ...jaunt.endings.map(e => `ending:${e.id}`)]);
+  assert.equal(scripts[1].speaker, 'glessner_john_j', 'a stop is read by its first host');
+  assert.equal(scripts[0].speaker, NARRATOR); assert.equal(scripts.at(-1).speaker, NARRATOR);
+  assert.equal(scripts[1].text, jaunt.stops[0].text, 'a stop is read as the panel shows it');
+  assert.ok(openingScript(jaunt).startsWith('The Glessner Household.\n\nA spring morning'), 'the opening reads its title, not "JAUNT: …"');
+  assert.ok(!openingScript(jaunt).includes('JAUNT:'));
+  const timed = narrationScripts({ stops: [{ id: 'a', since: 'Four hours later', text: 'Noon.' }, { id: 'b', text: '  ' }] });
+  assert.deepEqual(timed, [{ part: 'stop', id: 'a', speaker: NARRATOR, text: 'Four hours later. Noon.' }], 'a since is read with its stop; an empty script is none');
+  assert.equal(await textKey('abc'), sha('abc'), 'the app\'s key is SHA-256 of the words');
+  assert.equal(await textKey('x', null), null, 'no Web Crypto: no key, no narration');
+}
+
+// ---- the index -------------------------------------------------------------------------
+{
+  const k = sha('words');
+  const index = { version: 1, clips: { [k]: { text_sha256: k, file: 'narration/f.mp3' }, bad: { text_sha256: 'other', file: 'x.mp3' } } };
+  assert.equal(clipFor(index, k).file, 'narration/f.mp3');
+  assert.equal(clipFor(index, 'bad'), null, 'an entry must name the words it was made for');
+  assert.equal(clipFor(index, sha('changed words')), null, 'changed words have no clip');
+  const wav = silentWav();
+  assert.equal(String.fromCharCode(...wav.slice(0, 4)), 'RIFF'); assert.equal(wav.length, 844);
+}
+
+// ---- the plan: only what changed ---------------------------------------------------------
+{
+  const config = { ...loadConfig(), voices: { narrator: 'AAAAAAAAAAAAAAAAAAAA', glessner_john_j: { voice: 'BBBBBBBBBBBBBBBBBBBB', voice_settings: { style: 0.3 } }, glessner_frances_m: 'Frances Voice' } };
+  const scripts = await scriptsFor(config, { only: 'glessner-household-tour' });
+  assert.equal(scripts.length, 10);
+  const first = plan(scripts, config, { version: 1, clips: {} });
+  assert.deepEqual(first.todo.map(s => s.id), ['opening', 'john', 'finish'], 'every chosen voice with no clip is voiced');
+  assert.equal(first.skipped.length, 7);
+  assert.match(first.skipped.find(s => s.id === 'frances').reason, /needs ELEVENLABS_API_KEY/, 'a voice name needs the key to resolve');
+  assert.equal(first.chars, scripts.filter(s => ['opening', 'john', 'finish'].includes(s.id)).reduce((n, s) => n + s.text.length, 0));
+  const named = plan(scripts, config, { version: 1, clips: {} }, new Map([['frances voice', 'CCCCCCCCCCCCCCCCCCCC']]));
+  assert.equal(named.todo.find(s => s.id === 'frances').voice.params.voice_id, 'CCCCCCCCCCCCCCCCCCCC', 'a name resolves to its id');
+  assert.equal(voiceFor(config, 'glessner_john_j').params.voice_settings.style, 0.3, 'a speaker may override the settings');
+  // Voice it (with a stand-in ElevenLabs), then plan again: nothing to do.
+  const out = fs.mkdtempSync(path.join(os.tmpdir(), 'narration-'));
+  const calls = [];
+  const fake = async (url, init) => {
+    calls.push({ url, body: JSON.parse(init.body), key: init.headers['xi-api-key'] });
+    return new Response(Buffer.alloc(4000, calls.length), { status: 200 });
+  };
+  const old = { version: 1, clips: { keep: { text_sha256: 'keep', file: 'narration/old.mp3' } } };
+  const { index, made } = await voice(first.todo, old, out, 'test-key', { fetcher: fake, now: () => '2026-11-13T00:00:00Z' });
+  assert.equal(calls.length, 3);
+  assert.match(calls[0].url, /\/v1\/text-to-speech\/AAAAAAAAAAAAAAAAAAAA\?output_format=mp3_44100_64$/);
+  assert.equal(calls[0].body.text, scripts[0].text); assert.equal(calls[0].body.model_id, config.model_id);
+  assert.equal(calls[0].key, 'test-key');
+  assert.ok(index.clips.keep, 'the index only gains clips: an older build still finds its own');
+  for (const file of made) assert.ok(fs.existsSync(path.join(out, file)));
+  const john = index.clips[scripts[1].text_sha256];
+  assert.equal(john.file, `narration/${john.sha256}.mp3`, 'a clip is named by its bytes');
+  assert.equal(clipFor(index, await textKey(narrationScripts(jaunt)[1].text)), john, 'the app finds the clip the tool made');
+  assert.deepEqual(plan(scripts, config, index).todo, [], 'unchanged words and voices cost nothing');
+  const revoiced = plan(scripts, { ...config, voices: { ...config.voices, narrator: 'DDDDDDDDDDDDDDDDDDDD' } }, index);
+  assert.deepEqual(revoiced.todo.map(s => s.id), ['opening', 'finish'], 'a changed voice re-voices only its own scripts');
+  const edited = scripts.map(s => s.id === 'john' ? { ...s, text: s.text + ' Good day.', text_sha256: sha(s.text + ' Good day.') } : s);
+  assert.deepEqual(plan(edited, config, index).todo.map(s => s.id), ['john'], 'changed words re-voice only that stop');
+  // Verify reads the public host: the bytes and the index must both be served.
+  const served = new Map([...made.map(f => [f, fs.readFileSync(path.join(out, f))]), ['narration/index.json', fs.readFileSync(path.join(out, 'narration/index.json'))]]);
+  const host = async url => { const key = new URL(url).pathname.slice(1); return served.has(key) ? new Response(served.get(key)) : new Response('', { status: 404 }); };
+  assert.deepEqual(await verify(out, 'https://media.test/', host), []);
+  served.delete(made[0]);
+  assert.match((await verify(out, 'https://media.test/', host))[0], /HTTP 404/);
+  // A busy ElevenLabs is retried; a refusal is reported with its status.
+  let n = 0;
+  const busy = async () => (++n < 3 ? new Response('busy', { status: 429 }) : new Response(Buffer.alloc(2000), { status: 200 }));
+  assert.equal((await synthesize('k', first.todo[0], busy, { wait: async () => {} })).length, 2000);
+  await assert.rejects(synthesize('k', first.todo[0], async () => new Response('no', { status: 401 }), { wait: async () => {} }), /HTTP 401/);
+}
+
+// ---- the player ------------------------------------------------------------------------
+{
+  const k = await textKey(narrationScripts(jaunt)[1].text), k2 = await textKey(narrationScripts(jaunt)[2].text);
+  const index = { version: 1, clips: { [k]: { text_sha256: k, file: 'narration/a.mp3' }, [k2]: { text_sha256: k2, file: 'narration/b.mp3' } } };
+  const fetcher = async () => new Response(JSON.stringify(index));
+  class FakeAudio extends EventTarget { constructor() { super(); this.src = ''; this.paused = true; this.plays = []; }
+    play() { this.paused = false; this.plays.push(this.src); return Promise.resolve(); } pause() { this.paused = true; }
+    removeAttribute(n) { if (n === 'src') this.src = ''; } load() {} }
+  let el, audible = true, ducked = [], routedTo = null;
+  const ctx = { createMediaElementSource: e => ({ connect: bus => { routedTo = bus; }, disconnect() {} }) };
+  globalThis.URL.createObjectURL ??= () => 'blob:silence'; globalThis.URL.revokeObjectURL ??= () => {};
+  const n = createNarration({ fetcher, location: Promise.resolve(new URL('https://media.test/narration/index.json')),
+    media: () => (el = new FakeAudio()), speech: () => ({ ctx, bus: 'bus', audible }), duck: on => ducked.push(on) });
+  let changes = 0; n.on(() => changes++);
+  await n.prepare(jaunt);
+  assert.ok(n.clip(jaunt, 'stop', 'john')); assert.equal(n.clip(jaunt, 'stop', 'kate'), null, 'an unvoiced stop offers nothing');
+  assert.ok(changes > 0, 'finding clips repaints the panel');
+  n.at(jaunt, 'stop', 'john');
+  assert.equal(el.src, 'https://media.test/narration/a.mp3', 'arriving with narration audible plays the stop');
+  assert.equal(routedTo, 'bus', 'through the Narration bus'); assert.deepEqual(ducked, [true]);
+  assert.ok(n.isPlaying(jaunt, 'stop', 'john'));
+  n.at(jaunt, null); assert.ok(n.isPlaying(jaunt, 'stop', 'john'), 'travelling on does not cut a voice off');
+  n.at(jaunt, 'stop', 'frances');
+  assert.equal(n.state.queued, `${jaunt.id}:stop:frances`, 'the next stop waits for the voice still speaking');
+  el.dispatchEvent(new Event('ended'));
+  assert.equal(el.src, 'https://media.test/narration/b.mp3', 'and starts when it ends');
+  await n.toggle(jaunt, 'stop', 'frances'); assert.equal(n.state.playing, null, 'Listen again stops it'); assert.equal(ducked.at(-1), false);
+  n.at(jaunt, 'stop', 'frances'); assert.equal(n.state.playing, null, 'arriving where you already are does not restart it');
+  audible = false; n.at(jaunt, 'stop', 'john'); assert.equal(n.state.playing, null, 'with narration muted nothing starts by itself');
+  let woke = 0;
+  const m = createNarration({ fetcher, location: Promise.resolve(new URL('https://media.test/narration/index.json')),
+    media: () => (el = new FakeAudio()), speech: () => ({ ctx, bus: 'bus', audible }), wake: () => { woke++; audible = true; } });
+  await m.prepare(jaunt);
+  await m.toggle(jaunt, 'stop', 'john');
+  assert.equal(woke, 1, 'a Listen tap wakes sound'); assert.match(el.plays[0], /^blob:/, 'and primes the element inside the tap');
+  assert.ok(m.isPlaying(jaunt, 'stop', 'john'));
+  audible = false; el.dispatchEvent(new Event('timeupdate'));
+  assert.equal(m.state.playing, null, 'muting narration ends the voice');
+  const none = createNarration({ fetcher: async () => new Response('', { status: 404 }), location: Promise.resolve(new URL('https://media.test/narration/index.json')) });
+  await none.prepare(jaunt);
+  assert.equal(none.clip(jaunt, 'stop', 'john'), null); assert.equal(none.state.index, 'unavailable', 'no index: nothing offered, nothing thrown');
+}
+
+console.log('NARRATION PASS — one script for app and voicer, keyed by its words; only changed words or voices are voiced; the index only grows; the player follows, queues, ducks and stops on mute');
