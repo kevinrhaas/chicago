@@ -2470,6 +2470,8 @@ authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/universal-mal
 authored/humans/makehuman_hm08/makehuman/data/targets/macrodetails/universal-male-young-minmuscle-averageweight.target
 authored/humans/makehuman_hm08/makehuman/data/targets/mouth/mouth-angles-down.target
 authored/humans/makehuman_hm08/makehuman/data/targets/mouth/mouth-angles-up.target
+authored/humans/makehuman_hm08/makehuman/data/targets/mouth/mouth-lowerlip-height-decr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/mouth/mouth-lowerlip-height-incr.target
 authored/humans/makehuman_hm08/makehuman/data/targets/mouth/mouth-lowerlip-volume-decr.target
 authored/humans/makehuman_hm08/makehuman/data/targets/mouth/mouth-lowerlip-volume-incr.target
 authored/humans/makehuman_hm08/makehuman/data/targets/mouth/mouth-scale-horiz-decr.target

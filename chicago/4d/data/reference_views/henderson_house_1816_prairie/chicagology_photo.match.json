@@ -2,7 +2,7 @@
   "structure_id": "henderson_house_1816_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/henderson_house_1816_prairie__as_mapped_1904.glb",
-  "glb_sha256": "2948261d7c78bbd29a690f52559f541bf6a7e0101ad87de426b774ac7538e26d",
+  "glb_sha256": "6580a9e64a1fa6df3b0dec7136789216e7f9f1f410ebbdc7a0408c2ad5bec9cc",
   "camera_sha256": "cd716f257362184bf542e8422a3b0549da4bde9351614c1cf035953b19b1371a",
   "photo_sha256": "6cf57cac7e3076af06121b104b57a02b9a25ac3830f01ddafe9ac2f27eb96ca8",
   "side_by_side": "docs/RESEARCH/photo-match/henderson_house_1816_prairie/chicagology_photo-side-by-side.jpg",
@@ -105,8 +105,13 @@
     },
     {
       "what": "the crested hoods over the two canted bays' windows (x 140-215 and 490-560 px); built with K08's own plain hoods",
-      "status": "open",
-      "how": "T-1886: K08 dresses a bay's windows with its own hood and does not read street_front_trim's crest; a crest on a K08 hood is a kit change (L-k01-1816-henderson-1886)"
+      "status": "fixed",
+      "how": "T-1886 (2026-11-12): K08 now stands K09's carved crest on a bay light's lintel (bays[].storeys[].windows[].crest, the front hoods' own palmette between two volutes, 1.0 m wide or the lintel's top, 0.35 m high, 0.1 m proud), on every light of both bays' two storeys over the basement; through the camera each renders over its light's head where the print's raised, scrolled crown stands (the flank bay's at x 140-215 px, the front bay's at 490-560)"
+    },
+    {
+      "what": "the bays' hoods drawn as shouldered carved heads, their ends dropping about 0.25 m past the jambs beside the lights' heads and a medallion in the crown; built as K06's square lintel under the kit's crest",
+      "status": "within tolerance",
+      "how": "T-1886: the hood, its crown and its height over the light stand where the print's do; the ears' drop is under a foot and the medallion is carving inside a crest of the right size and place (T-3153 bar)"
     },
     {
       "what": "the porch columns' carved capitals",

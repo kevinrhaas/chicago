@@ -484,6 +484,18 @@
    "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/mouth/mouth-angles-up.target"
   },
   {
+   "path": "makehuman/data/targets/mouth/mouth-lowerlip-height-decr.target",
+   "sha256": "26503f3ae2e468d90e10a4c0cb73a17414051108c240b6a5c8079ad2e27f8d92",
+   "bytes": 2272,
+   "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/mouth/mouth-lowerlip-height-decr.target"
+  },
+  {
+   "path": "makehuman/data/targets/mouth/mouth-lowerlip-height-incr.target",
+   "sha256": "42181c0b02e0ed30d2d453ae15dbd87600da561d6e4df6fdbd7cc272bdbf5a98",
+   "bytes": 1682,
+   "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/mouth/mouth-lowerlip-height-incr.target"
+  },
+  {
    "path": "makehuman/data/targets/mouth/mouth-lowerlip-volume-decr.target",
    "sha256": "45f1fe355546cdaa86581512810ee1cd2c6971ac67ffb46d3391ac438e539d15",
    "bytes": 1828,
