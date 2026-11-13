@@ -695,12 +695,14 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # restaling on none of the shared rows.
 # 1043 -> 1044 on 2026-11-09 (T-3528): the 1812 Potawatomi lodges by the river, one asset on
 # the pure-Python `lodge_camp`, restaling on none of the shared rows.
-# 1044 -> 1045 on 2026-11-12 (T-3567): the Fort Dearborn Massacre monument of 1893 on 18th
+# 1044 -> 1045 on 2026-11-12 (T-3566): Wirt Dexter's 1863 frame house behind 1721 Prairie, one
+# asset on the pure-Python `k16_timber`, restaling on none of the shared rows.
+# 1045 -> 1046 on 2026-11-12 (T-3567): the Fort Dearborn Massacre monument of 1893 on 18th
 # Street, the first record of the new pure-Python `monument` archetype
 # (generators/monument_emit.py), restaling on none of the shared rows.
 #
 STATED = {
-    "assets": 1045,
+    "assets": 1046,
     "restales": {
         "generators/common/*.py": 742,
         "generators/common/__init__.py": 0,

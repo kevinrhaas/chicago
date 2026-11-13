@@ -43739,34 +43739,38 @@ The figures are period sculpture, built as the sculptor made them; the record ca
 **Ticket:** T-3567 (piece 1 of T-3565).
 **Recorded:** 2026-11-12.
 
-### L-k01-1721-frame-house-3566 — 1721 Prairie's rear range built as the 1863 frame Dexter house: clapboarded, slated gable, two stacks, a chosen stone drab
+### L-k16-1721-frame-house-3566 — Wirt Dexter's frame house of 1863 standing behind 1721 Prairie's brick front, its south front read off the Detroit print
 
-**Decision:** T-3566 (the owner's request, 2026-11-12: "on 1721 prairie there is a frame house to
-the rear of the building that should be standing you should be able to see images of it") rebuilds the
-1911 sheet's long two-storey rear range behind Arthur Little's brick front as what is left of Wirt
-Dexter's frame house of 1863: a frame wing (`fabric: frame`) lapped in clapboards (the K01 kit's new
-`rear_wings[].clapboard`: boards 0.115 m to the weather, butts 0.018 m proud, 0.15 m corner boards, a
-stone water table at the first floor's line) under a slated gable whose ridge runs back from the main
-block to a gable on the rear wall, with two brick stacks astride the ridge to 15.0 m. The one-storey
-frame room at its east end is clapboarded with it.
-**What is read, not invented.** That the range is frame: Robinson's 1886 plate 10 colours the house
-yellow, a long house on the north lot line set back about 34 ft; the 1891 Inland Architect plate draws
-it clapboarded behind the brick front's north flank; the Detroit print (1893-1901) shows it from the
-south-west, two storeys of clapboard under a slated roof with tall chimneys. Its plan, storeys and
-windows are the 1911 sheet's, as before.
-**What is invented.** The roof's 45 degree pitch (K04's slates are cut for nothing lower; the print's
-ridge is read through branches and the plate draws the house's gables steep), the gable's facing, the
-stacks' places and heights, the clapboards' exposure, and the paint: a stone drab (linear 0.40, 0.36,
-0.27) such as a frame house of 1863 imitating stone wore, a shade darker than Little's pale front as
-both monochrome pictures read it. The 1911 sheet colours this range brick; the three pictures and the
-1886 plate are read over it (docs/RESEARCH/k01-1721-frame-house-3566/README.md).
-**Not built.** The frame house's front part, with the porch and the two tallest chimneys of the print
-and the bay window and cross gable of the plate: in 1901-02 Little's front was taken off the street line
-and set back to the building line (Tribune, 28 Nov. 1901; the 1911 sheet draws it 9.7 m back), onto
-that part.
-**How to resolve:** a picture of the house between 1902 and 1911, or a permit for the 1902 work, would
-settle what of the frame house stood behind the moved front, its roof and its colour.
+**Decision:** T-3566 (the owner, 2026-11-12, after a meeting with Bill Tyre: "on 1721 prairie there is
+a frame house to the rear of the building that should be standing you should be able to see images of
+it"; then, of his crop of the Detroit print: "you are missing the whole front entrance ... it has two
+hipped gable front on the left and right and a center area that has a front porch and door that house
+was there first and the other house facing prairie is technically the addition ... photo match that
+rear house to perfect", "Chimneys, windows, everything", "the house seems likely to be symmetrical")
+builds the frame house as its own record, `dexter_house_1721_prairie_frame_house`, in the K16 timber kit,
+in place of the brick K01 rear range the 1911 sheet draws: a two-storey range on the north lot line,
+from the brick block's rear wall 23.9 m east, and on its south side two gabled wings, each a two-storey
+canted bay, either side of a recessed middle with an arched porch on four posts, the front door and one
+window over the porch with louvred blinds; bracketed boxed eaves, a hipped main roof, four tall stacks.
+**What is read, not invented.** Through the Pullman house's solved camera on the Detroit print (1893-1901;
+`data/reference_views/dexter_house_1721_prairie_frame_house/detroit_det_4a08065.json`): the wings'
+gable peaks (about 10.9 m), the porch's middle and the window over it (all three on one axis, the two
+gables 13.5 m apart about it), the eaves at about 8.5 m, the ground and upper windows' sills and heads,
+the porch floor six risers up, and three of the four stacks, their places and tops. That it is frame:
+Robinson's 1886 plate colours the house yellow and draws its south side stepped; the 1891 plate and the
+print show clapboard.
+**What is invented.** The depth the wings stand out (2.2 m, and the bays 0.8 m more: the print sees the
+front almost square on), the bays' plan, the fourth stack (the owner's symmetry; the print's elm hides
+where it would stand), every window on the north, east and wing-side walls, the paint's hues, the roof's wood shingles, and the house's place in 1904: the print shows it before the brick front was moved back in
+1901-02 (Tribune, 28 Nov. 1901), and the house is kept where the print puts its front, 4 m east of the
+1911 sheet's range, the part of it the moved front now stands on not built. The 1911 sheet colours its
+range brick and draws it 6.2 m deep with no wings; the print, the 1886 plate and the owner's ruling are
+followed over it (docs/RESEARCH/k16-1721-frame-house-3566/README.md).
+**The paint** (the owner, 2026-11-13: *"I am not convinced the color of the building is white ... Given the Victorian style I imagine a main color and a couple detail colors"*). Every picture of the house is black and white, so only its tones are read: on the Detroit print the clapboard stands at about the value of Little's buff brick beside it, a step lighter than the Pullman house's stone and far darker than the walks, and the eaves, casings and blinds read well darker than the body. The hues are chosen for that pattern in the three-colour manner of a frame house repainted in the 1880s beside a buff brick front: a fawn drab body, seal-brown trim (casings, cornice, brackets, porch, bay skirts) and deep bronze-green sash and blinds; the stacks and underpinning a buff Chicago common brick (they read lighter than the clapboard, as buff brick does on such a plate and red does not), the roof weathered wood shingle (a mid-dark tone, too light for slate). No source names a colour or a roofing.
+**How to resolve:** a picture of the house between 1902 and 1911, a plan of the 1902 work, or the 1906
+Sanborn sheet would settle what stood behind the moved front, how far the wings stood out, and its colour.
 
+**Also stated, not shown in full:** the roof's wood shingles (the print gives a mid-dark roof, not its material); the clapboard and the two storeys drawn as the kit's simplified frame walls and floors. **Covers:** `dexter_house_1721_prairie_frame_house.as_standing_1904.form.roof_covering`, `dexter_house_1721_prairie_frame_house.as_standing_1904.form.construction`, `dexter_house_1721_prairie_frame_house.as_standing_1904.form.stories`.
 **Ticket:** T-3566.
 **Recorded:** 2026-11-12.
 
