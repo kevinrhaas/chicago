@@ -5062,9 +5062,9 @@ class Assembly:
         side = lambda u, v, y: n[0] * (u - c0[0]) + n[1] * (v - c0[1]) + n[2] * (y - c0[2])
         far = side(D + 2.0, s1 + 2.0, ct)
 
-        def solid(ya, yb, north):
+        def solid(ya, yb, north, mid=()):
             rings = []
-            for y in (ya, yb):   # `north` may lean: a callable of the height
+            for y in (ya, *mid, yb):   # `north` may lean: a callable of the height
                 nv = north(y) if callable(north) else north
                 box = [(D - 6.0, nv), (D + 2.0, nv), (D + 2.0, s1 + 2.0), (D - 6.0, s1 + 2.0)]
                 f = [side(u, v, y) * far for u, v in box]
@@ -5077,10 +5077,10 @@ class Assembly:
                         t = fp / (fp - fq)
                         ring.append((pu + t * (qu - pu), pv + t * (qv - pv)))
                 rings.append((y, [(u, -v) for u, v in ring]))
-            if len(rings[0][1]) != len(rings[1][1]) or len(rings[0][1]) < 3:
+            if len({len(r[1]) for r in rings}) != 1 or len(rings[0][1]) < 3:
                 raise ValueError(f"{b['id']}: the return's back edge {rb} m behind the wall cuts the roof's "
                                  f"corner differently at {ya:.3f} and {yb:.3f} m")
-            return k5.ring_stack(rings, ["covering"], "covering", "covering")
+            return k5.ring_stack(rings, ["covering"] * (len(rings) - 1), "covering", "covering")
         # up to the wall top as deep as the light's recess, and on up over the return to the curb
         # on the same plane, so no ceiling shows over the return's top
         y_curb = E + float(self.p.mansard["lower_rise_m"])
@@ -5100,9 +5100,13 @@ class Assembly:
         if not v_deck < vc:
             raise ValueError(f"{b['id']}: the slate over a chamfer's return leans in to the side face's foot of "
                              f"the deck, which stands behind the return ({v_deck:.3f} of {vc:.3f})")
+        # the solid under it runs a centimetre past the wall top and wholly holds this one's
+        # foot there (where the two met on one plane with this one's side leaning, the set-back
+        # face they share closed concave and its slivers crossed); it stops 0.2 m under the
+        # curb, where its last slivers crossed the side face's, under the deck's corner hood
         lean = lambda y: vc - 0.02 + (v_deck - vc) * (y - y_wt) / (y_curb - y_wt)
         self.meta_return["over_top"] = {"deck_v_m": round(v_deck, 4)}
-        return [solid(ct - 0.01, y_wt, vc - reach), solid(y_wt - 0.01, y_curb - 0.05, lean)]
+        return [solid(ct - 0.01, y_wt + 0.01, vc - reach), solid(y_wt, y_curb - 0.2, lean)]
 
     @staticmethod
     def chamfer_top(b):
