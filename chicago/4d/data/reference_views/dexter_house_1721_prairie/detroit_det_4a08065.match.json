@@ -80,10 +80,10 @@
         0
       ],
       "rotation_y": 1.5707963267948966,
-      "glb_sha256": "8911bade035b44228ac7355dcfca04c6b3580dbbe101974ff68d55cc89d2907e"
+      "glb_sha256": "ef65b2d87659a242c1518de0d6cee497539999683913d3f937b2c6276452dab8"
     }
   ],
-  "group_sha256": "2c6c9b966fd37e9b1554ffd656689cf4acfe7394f5c7645b7a75f3b1b1ce36fa",
+  "group_sha256": "63c08c103c04eeab8b85a765b6b604637509b3c7284c5e3fdd9cf72462d3594a",
   "rendered_flora": {
     "season": "winter",
     "creeper_in_leaf": true,
@@ -171,5 +171,5 @@
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
-  "reviewed": "2026-11-12"
+  "reviewed": "2026-11-13"
 }

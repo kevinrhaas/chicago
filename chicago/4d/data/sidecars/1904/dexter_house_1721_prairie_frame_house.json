@@ -633,19 +633,24 @@
         ],
         "paint": {
           "body": [
-            0.47,
-            0.45,
-            0.4
+            0.34,
+            0.29,
+            0.19
           ],
           "trim": [
-            0.66,
-            0.63,
-            0.56
+            0.15,
+            0.1,
+            0.06
+          ],
+          "sash": [
+            0.05,
+            0.08,
+            0.05
           ],
           "foundation": [
-            0.56,
-            0.53,
-            0.48
+            0.4,
+            0.36,
+            0.3
           ]
         }
       },
@@ -656,7 +661,7 @@
         "sanborn_1911_chicago_v3_sheet_20",
         "inland_architect_1891_06_dexter_plate"
       ],
-      "note": "Read off the Detroit print of the Pullman house (det 4a08065, the owner's crop of its left edge) through the camera solved for the Pullman house: a symmetrical south front, two gabled wings each a two-storey canted bay, the recessed middle with an arched porch on four posts, the door and, over the porch, two windows with louvred blinds; bracketed eaves under a hipped main roof with four tall stacks on its ridge. Paint read from the print's tone; sash, casings and the north and east walls' windows reconstructed in the kit's measure."
+      "note": "Read off the Detroit print of the Pullman house (det 4a08065, the owner's crop of its left edge) through the camera solved for the Pullman house: a symmetrical south front, two gabled wings each a two-storey canted bay, the recessed middle with an arched porch on four posts, the door and, over the porch, two windows with louvred blinds; bracketed eaves under a hipped main roof with four tall stacks on its ridge. Paint (T-3566, the owner: 'I am not convinced the color of the building is white'): the print's tones put the clapboard at about the value of Little's buff brick beside it, a step lighter than the Pullman house's stone and far below the white of the walks, and the eaves, casings and blinds well darker than the body, so the house is not white but a mid-toned body with darker trim. The hues are reconstructed from the period's three-colour practice for a frame house repainted beside a buff brick front: a fawn drab body, seal-brown trim, deep bronze-green sash and blinds (liberty L-k16-1721-frame-house-3566); sash, casings and the north and east walls' windows reconstructed in the kit's measure."
     },
     "roof_covering": {
       "value": {

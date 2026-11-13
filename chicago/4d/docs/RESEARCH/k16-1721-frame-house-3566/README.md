@@ -59,6 +59,9 @@ house, T-2357), in a frame turned 90 degrees from the brick house's so its u run
   storeys;
 - the kit's porch across the middle on four posts with its arcade, six risers;
 - four stacks, two either side of the middle and one over each wing.
+- painted from the print's tones (2026-11-13, the owner: "I am not convinced the color of the building is white"):
+  the clapboard reads about the value of Little's buff brick and the trim and blinds well darker, so a fawn drab
+  body, seal-brown trim and deep bronze-green sash and blinds; the hues are a liberty, as every picture is monochrome.
 
 The K16 kit learned two things for it (`generators/archetypes/k16_timber.py`): a window's `shutters`
 (a pair of louvred blinds folded open beside the casing, in the sash's dark green) and a house's

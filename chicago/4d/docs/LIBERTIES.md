@@ -43691,12 +43691,13 @@ Robinson's 1886 plate colours the house yellow and draws its south side stepped;
 print show clapboard.
 **What is invented.** The depth the wings stand out (2.2 m, and the bays 0.8 m more: the print sees the
 front almost square on), the bays' plan, the fourth stack (the owner's symmetry; the print's elm hides
-where it would stand), every window on the north, east and wing-side walls, the paint, slate on the
+where it would stand), every window on the north, east and wing-side walls, the paint's hues, slate on the
 roof, and the house's place in 1904: the print shows it before the brick front was moved back in
 1901-02 (Tribune, 28 Nov. 1901), and the house is kept where the print puts its front, 4 m east of the
 1911 sheet's range, the part of it the moved front now stands on not built. The 1911 sheet colours its
 range brick and draws it 6.2 m deep with no wings; the print, the 1886 plate and the owner's ruling are
 followed over it (docs/RESEARCH/k16-1721-frame-house-3566/README.md).
+**The paint** (the owner, 2026-11-13: *"I am not convinced the color of the building is white ... Given the Victorian style I imagine a main color and a couple detail colors"*). Every picture of the house is black and white, so only its tones are read: on the Detroit print the clapboard stands at about the value of Little's buff brick beside it, a step lighter than the Pullman house's stone and far darker than the walks, and the eaves, casings and blinds read well darker than the body. The hues are chosen for that pattern in the three-colour manner of a frame house repainted in the 1880s beside a buff brick front: a fawn drab body, seal-brown trim (casings, cornice, brackets, porch, bay skirts) and deep bronze-green sash and blinds. No source names a colour.
 **How to resolve:** a picture of the house between 1902 and 1911, a plan of the 1902 work, or the 1906
 Sanborn sheet would settle what stood behind the moved front, how far the wings stood out, and its colour.
 

@@ -2,7 +2,7 @@
   "structure_id": "dexter_house_1721_prairie_frame_house",
   "view": "detroit_det_4a08065",
   "glb": "assets/gltf/dexter_house_1721_prairie_frame_house__as_standing_1904.glb",
-  "glb_sha256": "8911bade035b44228ac7355dcfca04c6b3580dbbe101974ff68d55cc89d2907e",
+  "glb_sha256": "ef65b2d87659a242c1518de0d6cee497539999683913d3f937b2c6276452dab8",
   "camera_sha256": "43ac460f7a76509ca6c7598724e34cee16b45365d9d1b0ec68a7a75132e1e55c",
   "photo_sha256": "60140932328aa19142c1545028a1b2afee6767d3aff79cff3d98cd27cbc87d8c",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "8911bade035b44228ac7355dcfca04c6b3580dbbe101974ff68d55cc89d2907e"
+      "glb_sha256": "ef65b2d87659a242c1518de0d6cee497539999683913d3f937b2c6276452dab8"
     },
     {
       "structure_id": "pullman_house_1729_prairie",
@@ -64,7 +64,7 @@
       "glb_sha256": "092e76dcde4f57f85b6803868ac97f553702cd02eea73151a1b85ae24c85947c"
     }
   ],
-  "group_sha256": "83f208728aae4264497f87fd77f8eee4d9cdbaa902987254619a8ba9a01f7fa9",
+  "group_sha256": "d3f7048eb7e890ae5bccb1119e883df43cc6ed32d9353bbbbfaf4dd7d609ebdb",
   "rendered_flora": {
     "season": "winter",
     "creeper_in_leaf": true,
@@ -180,8 +180,12 @@
     {
       "what": "the porch's arched spandrels read as open fretwork in the print and are built as the kit's plain arcade",
       "status": "within tolerance"
+    },
+    {
+      "what": "the frame house's paint: on the print its clapboard reads about the value of Little's buff brick and a step lighter than the Pullman house's stone, its eaves, casings and blinds darker; the render now carries a mid-toned fawn body with dark brown trim and green blinds (the owner, 2026-11-13: not white)",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs).",
-  "reviewed": "2026-11-12"
+  "reviewed": "2026-11-13"
 }
