@@ -1,4 +1,15 @@
 export const CHANGELOG = [ // newest first
+  { v: 2931, ts: '2026-11-13T14:59:22.203Z', date: 'Nov 13, 2026, 8:59 AM CT', title: '1823 Prairie gains its rear chimney and the light beside its door', kind: 'change',
+    items: [
+      'The Dent house at 1823 Prairie now has the tall chimney its 1880s engraving and the 1883 album drawing both show, rising from the rear wing behind the north side.',
+      'The narrow window beside the front door, between the door and the projecting south bay, is now on the main floor as well as the one above.',
+    ] },
+  { v: 2930, ts: '2026-11-13T14:59:22.203Z', date: 'Nov 13, 2026, 8:59 AM CT', title: 'The Greys\' noses rounded as their sheets show them', kind: 'fix',
+    items: [
+      'Sarah\'s nose has a full round tip, not a point, with soft close nostrils.',
+      'William\'s nose runs straight with no bump, to a broad round tip.',
+      'William\'s nostril wings show broad in profile, as on his sheet.',
+    ] },
   { v: 2929, ts: '2026-11-13T14:14:27.511Z', date: 'Nov 13, 2026, 8:14 AM CT', title: 'The Greys\' brows where their sheets set them, and Sarah\'s hair ash', kind: 'fix',
     items: [
       'Sarah\'s brows sit higher, clear of her lids, where the owner\'s sheet shows them.',
