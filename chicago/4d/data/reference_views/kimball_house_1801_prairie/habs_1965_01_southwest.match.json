@@ -2,7 +2,7 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "habs_1965_01_southwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "21502077840a844cb02606b3668e41c1ead2969474c169df31bfdd2e55814d05",
+  "glb_sha256": "9058edce72ae910366700aeeccd3eac4d1f7cd2cb9e39f687ed1663e82c321a7",
   "camera_sha256": "8905b7c0c16f33ae37bc28c6b7cb7335cd2a150bcfdaf55383b4647a5828c29f",
   "photo_sha256": "be2d21b595907011c7fe29c3e3765f754486cee1acdd321fed62f683ae6e0cbf",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg",
@@ -191,8 +191,13 @@
     },
     {
       "what": "the slate over the return's top (seen by T-1890, 2026-11-12): the print's slate over the return rises in one face from its capped top to the hip and the deck's corner hood; the build's set-back cut meets the front slope in a flashed fold from the return's top back corner up to the hip (about x 790-850, y 300-400), a second facet the print does not show",
+      "status": "fixed",
+      "how": "T-1890, 2026-11-13: the print's coursing over the return, read at full size, runs parallel to the return's moulded top (and the long flank's, both falling to the right), so the face over the return is a north-facing slope, not the front slope folded against an upright cheek. The set-back cut's north side over the wall top now leans in from the return's outer top edge (11.7 m) to the side face's foot of the deck at the curb (15.16 m) instead of standing upright on the return's plane: the slate over the return is one face from its top to the hip and the corner hood, and the hip runs as one straight line from the hood down past the return's back end to the balcony, as the print's does (render x about 735 at the return's top, print about 737). The flashed fold from the return's top back corner and the front slope's sliver behind the cheek are gone. tools/test_k01_chamfer_return.py gates it (no upright cheek on the return's plane over its top)."
+    },
+    {
+      "what": "the left edge of the slate over the return (seen by T-1890, 2026-11-13): the print carries the north-facing face over the return on to the left, up under the white coping below the cresting (about x 640-735, y 285-330 on the 1800 px copy), its top edge falling to the right toward the corner hood; the build's leaning face meets the front slope in a flashed fold rising from the return's top near the pier (about x 687, y 367) up to the hood (about x 737, y 250), with the front slope's slate left of it",
       "status": "open",
-      "how": "the cut is one plane through the eave's corner and the return's back edge, carried up to the curb so no ceiling shows over the return; where it leaves the front slope it folds. Over the return's top the slate wants to be one face from the cap to the hip (a cut whose upper face lies in the front slope's own plane past the return, or the front slope's foot set back over the corner)"
+      "how": "the north-facing face's top in the print is a level coping, not the deck's corner: the lean wants to reach a coping line at about the cross roof's ridge (the frontispiece's slated cheek, K08 _gable_behind), not the side face's foot of the deck, so its fold with the front slope runs along that coping rather than up to the hood"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

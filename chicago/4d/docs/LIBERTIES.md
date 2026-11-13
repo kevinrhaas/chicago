@@ -43900,3 +43900,12 @@ door's hinge and swing, as L-prairie-front-passages-3554's.
 **Re-opens on:** a recording or a contemporary description of how one of the speakers sounded, which would bound their voice.
 **Ticket:** T-3578.
 **Recorded:** 2026-11-13.
+
+### L-kimball-1801-return-slate-lean-1890 — 1801 Prairie's slate over its south return leans in as one face to the deck, read off HABS photograph 1's coursing
+
+**Decision:** HABS photograph 1 (`habs_kimball_photo_01_sw_1965`), read at full size on 2026-11-13 for the one open difference on its match record: the slate courses over the south return run parallel to the return's moulded top (both falling to the right, as the long flank's do), so the slate over the return is a face turned the way the return faces, rising from the return's top to the hip and the deck's corner hood in one plane. The build (L-kimball-1801-south-return-1890) carried the set-back cut up to the curb with its side on the return's plane, which stood an upright slate cheek over the return and left a sliver of the front slope folded between the cheek and the set-back face. K01 `return_setback` now leans that side in, from the return's outer top edge (11.7 m) to the side face's foot of the deck at the curb (15.16 m), so the face over the return is one plane and the hip runs as one straight line from the hood down past the return's back end to the balcony.
+**Invented:** where the face's top meets the deck. The lean is taken to the side face's foot of the deck because that is the one level line the kit has there; the photograph's face reaches further to the left, up under a white coping below the cresting, so the build's face meets the front slope in a fold rising to the hood that the photograph does not show (open on the match record).
+**How to resolve:** the HABS drawings' south elevation and roof plan, if found, give the roof over the corner and the coping's height.
+**Ticket:** T-1890.
+**Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg` and its match record.
+**Recorded:** 2026-11-13 (T-1890).
