@@ -230,9 +230,12 @@ function combed(cut, f, p, n) {
 }
 
 /** Lay one card: a ribbon from `root` along the comb, a few millimetres off the surface. */
-function layCard(out, { start, n0, length, segments, width, lift, dir, surface, nearest, reach, rand, curl, weights, seed, layer, hang = false }) {
+function layCard(out, { start, n0, length, segments, width, lift, dir, surface, nearest, reach, rand, curl, weights, seed, layer, hang = false, wave = 0 }) {
   const p = start.clone().addScaledVector(n0, lift.root), n = n0.clone();
   const step = length / segments, wob = (rand() - .5) * 2 * curl;
+  // T-3553: a wave (William Grey's sheet): the strand turns one way and back each step, its
+  // phase its own (drawn only for a cut that waves, so no other head's strands move).
+  const sway = wave ? wave * (.7 + .6 * rand()) * (rand() < .5 ? 1 : -1) : 0;
   const pts = [], nrm = [], tan = [];
   let d = dir(p, n);
   for (let s = 0; s <= segments; s++) {
@@ -244,7 +247,7 @@ function layCard(out, { start, n0, length, segments, width, lift, dir, surface, 
     pts.push(p.clone()); nrm.push(n.clone()); tan.push(t.lengthSq() > 1e-10 ? t.normalize() : d.clone());
     if (s === segments) break;
     // Turn a little about the normal (a curl), then step and settle back over the surface.
-    d.applyAxisAngle(n, wob * (1 + s * .3)).normalize();
+    d.applyAxisAngle(n, wob * (1 + s * .3) + (s % 2 ? -sway : sway) * (s ? 2 : 1)).normalize();
     p.addScaledVector(d, step);
     const vi = nearest(p.x, p.y, p.z);
     if (vi >= 0) {
@@ -389,9 +392,9 @@ export function growHair({ hair, skin = null, root, style, lod, seed = 'person' 
     const width = Math.max(.002, Math.min((cut.card_mm ?? level.width_mm) / 1000, level.width_mm / 1000, len * .35)) * (.8 + .4 * rand());
     laid += len * width * .8;
     layCard(out, {
-      start: s.p, n0: s.n, length: len, segments: Math.max(2, Math.min(level.segments, Math.round(len / .01) + 1)), width,
+      start: s.p, n0: s.n, length: len, segments: Math.max(2, Math.min(level.segments + (cut.wave ? 3 : 0), Math.round(len / .01) + 1)), width,
       lift: { root: cut.lift_mm.root / 1000 * (.6 + .8 * rand()), tip: cut.lift_mm.tip / 1000 * (.6 + .8 * rand()) },
-      dir: (p, n) => combed(cut, f, p, n), surface: scalp, nearest: nearScalp, reach: CARDS.shell_reach_m, rand, curl: cut.curl, hang: !!cut.hang && s.n.dot(f.z) < .25,  // never down over the brow
+      dir: (p, n) => combed(cut, f, p, n), surface: scalp, nearest: nearScalp, reach: CARDS.shell_reach_m, rand, curl: cut.curl, hang: !!cut.hang && s.n.dot(f.z) < .25, wave: cut.wave ?? 0,  // never down over the brow
       weights: weightsOf(hair, s.vertex, same), seed: rand(), layer: rand(),
     });
     grown.scalp++;
@@ -722,14 +725,14 @@ function sub(src, tris) {
  * share the cap's skeleton, material and texture, and are shared by every figure wearing that
  * cap and turn.
  */
-function bunToCrown(root, deg, knot = 1) {
+function bunToCrown(root, deg, knot = 1, puff = 0) {
   const caps = [];
   root.traverse(o => { if (o.isSkinnedMesh && /^hair($|__)/.test(o.material?.name ?? '')) caps.push(o); });
   for (const o of caps) {
     const src = o.geometry;
     let byDeg = turnedBuns.get(src);
     if (!byDeg) { byDeg = new Map(); turnedBuns.set(src, byDeg); }
-    let made = byDeg.get(`${deg}/${knot}`);
+    let made = byDeg.get(`${deg}/${knot}/${puff}`);
     if (!made) {
       const f = headFrame(o, root);
       if (!f) continue;
@@ -754,7 +757,7 @@ function bunToCrown(root, deg, knot = 1) {
         const d = v.fromBufferAttribute(p, i).applyMatrix4(R).sub(mid);
         if (d.length() > .085 && d.dot(f.z) < -.035) axis.add(d);
       }
-      if (!axis.lengthSq()) { byDeg.set(`${deg}/${knot}`, null); continue; }
+      if (!axis.lengthSq()) { byDeg.set(`${deg}/${knot}/${puff}`, null); continue; }
       axis.normalize();
       const cone = Math.cos(38 * Math.PI / 180);
       for (let i = 0; i < p.count; i++) {
@@ -771,7 +774,7 @@ function bunToCrown(root, deg, knot = 1) {
       const I = src.index ? src.index.array : Uint32Array.from({ length: p.count }, (_, i) => i);
       const tris = [];
       for (let t = 0; t < I.length; t += 3) if (inBun[I[t]] && inBun[I[t + 1]] && inBun[I[t + 2]]) tris.push(I[t], I[t + 1], I[t + 2]);
-      if (!tris.length) { byDeg.set(`${deg}/${knot}`, null); continue; }
+      if (!tris.length) { byDeg.set(`${deg}/${knot}/${puff}`, null); continue; }
       const q = new THREE.Quaternion().setFromAxisAngle(f.x, deg * Math.PI / 180);
       // The bun's own middle; the knot is drawn smaller than the low bun, and sits that much
       // nearer the skull.
@@ -819,10 +822,28 @@ function bunToCrown(root, deg, knot = 1) {
         const out = A.clone().add(B).add(C).multiplyScalar(1 / 3).sub(mid);
         if (B.sub(A).cross(C.sub(A)).dot(out) < 0) { const x = pi[t + 1]; pi[t + 1] = pi[t + 2]; pi[t + 2] = x; }
       }
+      // T-3553: hair worn full (`cap_puff`, Sarah Grey's updo on her sheet): the cap, its patch
+      // and the knot stand off the skull, as a fraction of their distance from the head's middle,
+      // most at the sides and back, none at the hairline over the brow and little at the nape. One field moves all
+      // three, so they still meet where they met.
+      if (puff) {
+        const d = new THREE.Vector3(), u = new THREE.Vector3();
+        for (const g of [cap, patch.geometry, geo]) {
+          const a = g.attributes.position;
+          for (let k = 0; k < a.count; k++) {
+            d.fromBufferAttribute(a, k).applyMatrix4(R).sub(mid);
+            u.copy(d).normalize();
+            const w = puff * (1 - smooth(-.1, .55, u.dot(f.z))) * smooth(-.75, -.25, u.dot(f.y));
+            d.multiplyScalar(1 + w).add(mid).applyMatrix4(Ri);
+            a.setXYZ(k, d.x, d.y, d.z);
+          }
+          g.computeBoundingSphere();
+        }
+      }
       patch.geometry.computeBoundingSphere();
       cap.computeBoundingSphere();
       made = { cap, knot: geo, patch: patch.geometry };
-      byDeg.set(`${deg}/${knot}`, made);
+      byDeg.set(`${deg}/${knot}/${puff}`, made);
     }
     if (!made) continue;
     o.geometry = made.cap;
@@ -852,7 +873,7 @@ export function dressHair(root, { lod = 0, person = null, year = null, style: gi
   if (HAIR_CUTS[style.cut]?.bald) root.traverse(o => { if (o.isMesh && /^hair($|__)/.test(o.material?.name ?? '')) o.visible = false; });
   // T-3553: a cut that wears the cap's own bun high on the crown (`bun_to_crown_deg`, Sarah
   // Grey's top knot) turns the bun up over the back of the head, at every level.
-  if (HAIR_CUTS[style.cut]?.bun_to_crown_deg) bunToCrown(root, HAIR_CUTS[style.cut].bun_to_crown_deg, HAIR_CUTS[style.cut].bun_knot_scale ?? 1);
+  if (HAIR_CUTS[style.cut]?.bun_to_crown_deg) bunToCrown(root, HAIR_CUTS[style.cut].bun_to_crown_deg, HAIR_CUTS[style.cut].bun_knot_scale ?? 1, HAIR_CUTS[style.cut].cap_puff ?? 0);
   if (!CARDS.lods[lod] || (CARDS.lods[lod].tail_only && !(style.tail_cm > 0 && HAIR_CUTS[style.cut]?.knot_cm))) return null;
   let hair = null, skin = null;
   root.traverse(o => {
