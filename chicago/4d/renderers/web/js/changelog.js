@@ -1,4 +1,17 @@
 export const CHANGELOG = [ // newest first
+  { v: 2909, ts: '2026-11-13T00:47:49.734Z', date: 'Nov 12, 2026, 6:47 PM CT', title: 'William and Sarah Grey of 2010 Prairie get faces from stand-in portraits', kind: 'improvement',
+    items: [
+      'No photograph of either Grey survives, so their faces are now fitted to two sepia portraits chosen as stand-ins, point by point over about 400 face points each, and drawn at the age the pictures show. Each card shows the portrait beside the model and marks it as a stand-in, not them.',
+      'William is heavy-set and thick-necked, with long wavy hair swept back, a full trimmed beard over his chin and cheeks, a full moustache and a dark brown three-piece suit.',
+      'Sarah is slight, her hair drawn up to a round knot high on her head, in a dark brown dress with a white lace collar.',
+    ] },
+  { v: 2908, ts: '2026-11-13T00:44:31.298Z', date: 'Nov 12, 2026, 6:44 PM CT', title: '1904 doors open and shut, people climb the stoops', kind: 'fix',
+    items: [
+      'Every built front door on Prairie Avenue now swings open as someone comes up to it and shuts behind them; wide doors open as a pair.',
+      'Back doors swing out over their landings the same way, with the dark of the doorway behind them.',
+      'People going in or coming out walk up and down each stoop tread by tread, side stoops too, instead of vanishing into the steps.',
+      'Two people talking turn to face each other, and turn back if something turned them away.',
+    ] },
   { v: 2907, ts: '2026-11-13T00:09:15.374Z', date: 'Nov 12, 2026, 6:09 PM CT', title: '1936 Prairie\'s tower stands square above the roof', kind: 'improvement',
     items: [
       'In 1904, the lookout at the top of the Thompson house\'s tower at 1936 Prairie Avenue is now a full square above the roof, as the old photograph shows it, instead of a thin slab against the front wall. Its south side now has its arched window, and its balcony and cornice run all the way round.',

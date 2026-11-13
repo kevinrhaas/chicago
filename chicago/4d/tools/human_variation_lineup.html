@@ -122,7 +122,9 @@ keys.forEach((key, i) => {
 const camera = new THREE.PerspectiveCamera(view === 'faces' ? 22 : 30, innerWidth / innerHeight, 0.05, 50);
 const span = keys.length * gap;
 const yaw = Number(q.get('yaw') ?? 0) * Math.PI / 180;
-scene.traverse((o) => { if (o.parent === scene && o.isGroup) o.rotation.y = yaw; });
+// &pitch, &roll (T-3553): the figure turned as a portrait's fitted camera is, degrees.
+const pitch = Number(q.get('pitch') ?? 0) * Math.PI / 180, roll = Number(q.get('roll') ?? 0) * Math.PI / 180;
+scene.traverse((o) => { if (o.parent === scene && o.isGroup) o.rotation.set(pitch, yaw, roll, 'ZXY'); });
 scene.updateMatrixWorld(true);
 const headBone = q.get('aim') === 'head' ? scene.getObjectByName('head') : null;
 if (headBone) {
@@ -133,5 +135,6 @@ if (headBone) {
 else { camera.position.set(0, 1.0, Math.max(3.2, span * 1.6)); camera.lookAt(0, 0.92, 0); }
 renderer.render(scene, camera);
 window.__scene = scene;
+window.__render = () => renderer.render(scene, camera);
 window.__lineupReady = true;
 </script></body></html>
