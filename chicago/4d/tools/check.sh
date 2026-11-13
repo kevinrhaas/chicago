@@ -710,7 +710,7 @@ step "No two 1812 townspeople dressed alike; each hat made for its wearer's head
   node tools/test_human_town_dress.mjs
 step "People on foot walk heel to toe at a real pace and stride, the stance foot planted, the pelvis turning and rising over it, deterministic across LOD swaps; a child at a child's pace and stride, never on its knees, even nudged aside (T-3472, T-3520, T-3529)" \
   node tools/test_human_gait.mjs
-step "A woman's skirt swings off her legs as she walks and never parts between them, the rest pose exact (T-3472)" \
+step "Every hanging garment (a skirt, a coat's skirts, tails, a capote, a breechcloth) swings off the legs on the walk and never parts between them, no leg through the cloth, trousers left on the leg, the rest pose exact (T-3472, T-3553)" \
   node tools/test_human_skirt.mjs
 step "A Potawatomi man's belt sits on his shirt or blanket at every level, standing and walking, the shirt's skirt under it; his trade silver engraved by shader, no texture (T-3553)" \
   node tools/test_human_waist.mjs
