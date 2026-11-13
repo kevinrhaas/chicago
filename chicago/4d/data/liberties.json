@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1108,
+  "count": 1109,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -73606,6 +73606,36 @@
       ],
       "work_refs": [
         "T-3554"
+      ]
+    },
+    {
+      "id": "L-t3573-step-out",
+      "title": "Someone at home, found or followed, comes out for a walk round their block",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-12",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-12: *\"if someone is in one of the houses and in town they should be able to be go to find or followed and if they are in their house they come outside and do a daily task outside so you can follow them, something meaningful like a walk around the block or something else with some movement ideally\"*. Find this person and Follow stay live for anyone present in town today who is indoors (a drawn figure gone in, or a household's resident listed in the inside <year> data, who is drawn only once out). Asked for, the visitor is taken to the door they will come out by, and on arriving they come out of it (the walkthrough's human days code `outing`) for seven minutes, longer while followed, then go back in by their door. Where their own day has a walk at least 40 m long (Christine Nelson's errand round the block), that is the walk; else the walkthrough's block walk code lays one round their block: out from the middle of the house square to its front, right, back and left to the first sidewalk each meets (1904; 1835's plank walks and street corridors), and round by the corners those make, the router keeping to the walks between; a side that is not met within 320 m makes it a walk along the front and round its ends, there and back. A young child comes out with a grown-up of the household (their caregiver where the household record names one), and the two walk it side by side at the child's pace. A soldier off his hours comes out of his quarters' door and goes back in by it before his duty has him again. A baby in the household's care has no figure of its own and stays in. With no block (1812), a walk about the place: a ring 12 to 38 m out on clear ground, the widest with room, or there and back between two places in a tight yard. It is called a morning walk, an errand or an evening walk round the block by the hour."
+        },
+        {
+          "label": "Not invented",
+          "text": "who is in town on the date and at home at the hour (their records and days, as before); their house and door."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "a source that says what one of them did out of doors at a given hour, which goes into their day and is then walked as written."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-12."
+        }
+      ],
+      "work_refs": [
+        "T-3573"
       ]
     },
     {

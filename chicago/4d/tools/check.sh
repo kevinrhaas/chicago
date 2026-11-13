@@ -674,6 +674,8 @@ step "Each 1812 building's doors are where its model draws the leaf, and where o
   python3 tools/derive_doors_1812.py --check
 step "1812 people keep their day: off their dates nowhere (Lalime gone by 14 August, there in February), indoors or out by the hour, talking, at work, walking; a door offers Ask for whoever is inside, soldiers in quarters too, and the one asked for comes out to the visitor and goes back in (T-3463..T-3467)" \
   node tools/test_human_days.mjs
+step "Someone at home is found and followed: they come out of their own door on a walk round the block by its sidewalks (a walk about the place in 1812), on while followed, back in after; away people stay away (T-3573)" \
+  node tools/test_step_out.mjs
 step "Prairie Avenue roster casting, aliases, portraits and seasonal days remain consistent (T-3548)" \
   python3 tools/test_prairie_people.py
 step "Prairie Avenue generated residents and appearance profiles reproduce (T-3547, T-3548)" \

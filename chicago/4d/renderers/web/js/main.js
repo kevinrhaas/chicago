@@ -109,6 +109,7 @@ import { createFlags } from './flags.js';
 import { createFortGates, gatesOnRoute } from './fort-gates.js';
 import { createHouseDoors, registerDoorPlans } from './house-doors.js';
 import { createHouseErrands } from './house-errands.js';
+import { blockLoop, footprintCentre, walkDoing, BLOCK_WAYS } from './block-walk.js';
 import { createNightLights } from './night-lights.js';
 import { createStreetGrid } from './street-grid.js';
 import { initKTX2, ktx2State } from './ktx2.js';
@@ -3949,6 +3950,9 @@ async function boot() {
     // field of view"): a person card already open stays until the visitor closes it or picks
     // someone else; only walking up to someone with no person card open opens theirs.
     if (approach && personCardOpen()) return;
+    // T-3573: following someone, the town is what to look at (Follow put the card away), so
+    // walking up behind them, or past anyone, opens no card.
+    if (approach && api.follow?.active) return;
     if (!draws('residents')) { void openPersonCard(personId); return; }
     hud.setPanel(true); hud.selectTab('people'); api.people.open?.(personId);
   });
@@ -4024,6 +4028,8 @@ async function boot() {
       clear: dayClear,
       // T-3524: Glessner's court and side doors open as people pass, up and down their stairs.
       passages: api.houseDoors ?? null,
+      // T-3573: someone who stepped out for Find or Follow walks on while the visitor follows.
+      followed: (actor) => !!api.follow?.personId && api.follow.personId === (actor.personId ?? actor.id),
       problems: layerProblems('humans') });
     // The kit is generated from its dated work record; only 1812 loads this
     // controller. The small GLB is deferred until its actual worker is nearby.
@@ -4464,6 +4470,8 @@ async function boot() {
     // T-3404: a person placed in town now (Otis Bardwell on his wagon) is found there and
     // can be followed. Read when the card paints; the round is known before the model.
     inTown: (id) => placedInTown(id),
+    // T-3573: at home now: Find and Follow bring them out (the card says so).
+    atHome: (id) => !!atHome(id),
     onFollow: (id) => followPerson(id),
     // The drawer's head shows the person's name with a back control while a card is open.
     onTitle: (text, onBack) => hud.setTitle(text, onBack),
@@ -5215,6 +5223,49 @@ async function boot() {
 
   /** One route for the complete search: frame a structure, stand at a verified
    * intersection, or use one of the authored scene viewpoints. */
+  /**
+   * T-3573: the walk round a house's block (block-walk.js) for someone stepping out of it by
+   * `door`; a walk about the place where the scene has no blocks (1812). The router's surface
+   * classes say what a sidewalk is; its own test which stands and straight lines are clear.
+   */
+  function outingLoop(structure, door) {
+    const step = door?.step ? { e: door.step.local_e ?? door.step.e, n: door.step.local_n ?? door.step.n } : null;
+    const centre = footprintCentre(footprints.filter((f) => f.id === structure)) ?? step;
+    const shape = blockLoop({ centre, frontDeg: door?.outward_deg ?? 0,
+      classAt: (e, n) => router.classAt(e, n), ways: BLOCK_WAYS[String(loaded.scene.id ?? YEAR)] ?? null,
+      blockedAt: (e, n) => router.blockedAt(e, n),
+      clearSegment: (ae, an, be, bn) => router.clearSegment(ae, an, be, bn) });
+    return shape ? { ...shape, doing: walkDoing(shape.kind, sunHour()) } : null;
+  }
+  /**
+   * T-3573: Find or Follow on someone at home. The visitor is taken to the door they will come
+   * out by (a few metres out from its step, facing it, on a stand the router calls clear), and
+   * on arriving they come out of it on a walk (human-days.js `outing`): their own day's walk,
+   * else round their block. Then `target.then` (Follow's start).
+   */
+  function meetAtDoor(target) {
+    const plan = api.days?.outing?.(target.id, { loop: outingLoop });
+    const label = target.label ?? plan?.name ?? 'They';
+    if (!plan?.ok) { hud.say(`${label}: ${plan?.why ?? 'not out in town now'}`); return false; }
+    const come = () => {
+      const r = plan.start();
+      if (!r.ok) { hud.say(`${label}: ${r.why}`); return; }
+      if (!r.already) hud.say(`${label} steps out for ${plan.doing}`);
+      target.then?.();
+    };
+    api.townTransport?.cancelDriverApproaches();
+    const { step, outward_deg: out } = plan.door;
+    const b = (Number.isFinite(out) ? out : 0) * Math.PI / 180;
+    for (const back of [5, 7, 9, 3.5]) for (const side of [0, 2, -2]) {
+      const e = step.e + Math.sin(b) * back + Math.cos(b) * side;
+      const n = step.n + Math.cos(b) * back - Math.sin(b) * side;
+      if (router.blockedAt(e, n)) continue;
+      const face = (Math.atan2(step.e - e, step.n - n) * 180 / Math.PI + 360) % 360;
+      return travel.go({ kind: 'intersection', local_e: e, local_n: n, yaw_deg: face, label }, { onArrive: come });
+    }
+    // No clear stand before the door: to the house, and out they come all the same.
+    return travel.go({ kind: 'structure', id: plan.structure, label }, { onArrive: come });
+  }
   function goToTarget(target) {
     if (jauntRuntime?.state.jaunt) jauntRuntime.explore();
     // Explicit coordinate viewpoints predate the shared picker and are used by
@@ -5255,10 +5306,13 @@ async function boot() {
       }
       hud.say('No clear place beside this driver'); return false;
     }
+    // T-3573: someone at home: to the door they will come out by, and out they come on a walk
+    // round their block as the visitor arrives (then whatever the asker wanted next: Follow).
+    if (findInTown && api.atHome?.(target.id)) return meetAtDoor(target);
     // T-3404: a standing or walking figure in town: set down a couple of metres in front of
     // them, else beside or behind, on a stand the router calls clear, facing them.
     const figure = findInTown ? api.humans?.get?.(target.id) : null;
-    if (figure && !figure.disposed && figure.root?.parent && !api.humans.external?.(target.id)) {
+    if (figure && !figure.disposed && figure.root?.parent && !figure.indoors && !api.humans.external?.(target.id)) {
       const { e: fe, n: fn } = figure.position;
       const b = (figure.heading ?? 0) * Math.PI / 180;
       // T-3521: in front first, then round them, then further out: someone in a lodge's
@@ -5681,7 +5735,8 @@ async function boot() {
     const at = [row.lives_at, row.works_at].find(s => s && loaded.registry.has(s)) ?? null;
     // T-3404: a driver on their round, or a figure standing or walking in town; T-3521: else
     // (and wherever no clear stand beside them is found) at the house they live or work in.
-    if (api.townTransport?.driverAnchorForPerson(id) || personInTown(id)) {
+    // T-3573: or at home: Find goes to their door, and they come out of it on a walk.
+    if (api.townTransport?.driverAnchorForPerson(id) || personInTown(id) || atHome(id)) {
       return goToTarget({ kind: 'person', id, label: row.name, home: at });
     }
     // T-3531: nobody in town to find (the card greys Find and says why); Go to house is the
@@ -5725,17 +5780,26 @@ async function boot() {
       return { e, n, heading_deg: driver.heading_deg, head_y: headOf(body), name: body?.person?.name ?? driver.name ?? null, driver, actor: body };
     }
     const a = api.humans?.get?.(id);
-    if (!a || a.disposed || !a.root?.parent) return null;
+    // T-3573: indoors is at home, not out in town (atHome below): Find and Follow bring them out.
+    if (!a || a.disposed || !a.root?.parent || a.indoors) return null;
     const at = a.position;
     return { e: at.e, n: at.n, heading_deg: a.heading ?? 0, head_y: headOf(a),
       name: a.person?.name ?? null, driver: null, actor: a };
   }
-  /** Placed in town at all, loaded or not yet (a driver's round is known before its model). */
-  const placedInTown = (id) => !!(personInTown(id) || api.townTransport?.driverAnchorForPerson?.(id));
+  /**
+   * T-3573: in town today and at home now (a figure gone indoors, or a household's resident
+   * not drawn until asked for): { structure, name } or null. The owner, 2026-11-12: "if
+   * someone is in one of the houses and in town they should be able to be go to find or
+   * followed and if they are in their house they come outside and do a daily task outside".
+   */
+  const atHome = (id) => (personInTown(id) ? null : api.days?.homeNow?.(id) ?? null);
+  /** Placed in town at all, loaded or not yet (a driver's round is known before its model),
+   *  or at home in it (T-3573). */
+  const placedInTown = (id) => !!(personInTown(id) || api.townTransport?.driverAnchorForPerson?.(id) || atHome(id));
   /** Walk alongside them (follow.js): at once when they are near, else Find them first. */
   function followPerson(id) {
     if (!placedInTown(id)) { hud.say('Not in town now'); return false; }
-    const name = personInTown(id)?.name ?? null;
+    const name = personInTown(id)?.name ?? atHome(id)?.name ?? null;
     const begin = () => {
       // A carriage Find asked to wait for the visitor is let go: Follow goes with it.
       api.townTransport?.cancelDriverApproaches();
@@ -5900,7 +5964,10 @@ async function boot() {
         }
       }
       if (state && why === 'start') { hud.say(`Following ${state.name ?? 'them'}`); hints.show('follow'); } // T-3445
-      else if (!state && why === 'gone') hud.say(`Lost sight of ${was?.name ?? 'them'}`);
+      else if (!state && why === 'gone') {
+        // T-3573: back in by their own door at the end of a walk, not lost.
+        hud.say(api.humans?.get?.(was?.personId)?.indoors ? `${was?.name ?? 'They'} went indoors` : `Lost sight of ${was?.name ?? 'them'}`);
+      }
       else if (!state && why !== 'switched') hud.say(`Stopped following ${was?.name ?? 'them'}`);
     },
   });
@@ -5909,6 +5976,7 @@ async function boot() {
   api.followPerson = followPerson;
   api.personInTown = personInTown;
   api.placedInTown = placedInTown;
+  api.atHome = atHome;
   // T-3521: a card's Find this person, by id (the harness tests it for everyone).
   api.findPerson = (id) => findSceneDirectoryPerson(id);
   const interactKey = createInteractKey({ interactions,
@@ -6113,6 +6181,8 @@ async function boot() {
         // T-3404: someone placed in town (a driver on their round) can be followed.
         followPerson: (id) => followPerson(id),
         inTown: (id) => placedInTown(id),
+        // T-3573: at home now: Find and Follow bring them out (the card says so).
+        atHome: (id) => !!atHome(id),
         // T-3265: a person's card reads their household's own record (the scene's
         // data/residents_<scene>/, published by publish.sh) and the citations it cites,
         // each once, when a card first asks.

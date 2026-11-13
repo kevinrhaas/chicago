@@ -346,7 +346,7 @@ async function drawPerson(st, id) {
     // Find and Follow are live for someone placed in town now, greyed with the reason for
     // anyone else (T-3531); Go to house is the way to where they live.
     const card = renderPersonCard(doc, m, { dot, onFind: a.findPerson ?? null,
-      onFollow: a.followPerson ?? null, inTown: a.inTown ?? null });
+      onFollow: a.followPerson ?? null, inTown: a.inTown ?? null, atHome: a.atHome ?? null });
     const b = card.querySelector('[data-person-back]');
     if (b) b.replaceWith(backButton(doc, backLabel(st)));
     const keys = houseKeys(st, row.lives_at && !away(row) ? row.lives_at : (h?.lives_at ?? row.lives_at));
