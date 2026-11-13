@@ -36,7 +36,7 @@ MATERIAL_NAMES=('granite','brick','limestone_trim','roof_plane','copper','glass'
  'lawn','drive','mortar','iron','glass_dark','granite_1','granite_2','granite_3','granite_4',
  'brick_dark_red','brick_buff','brick_smoky','roof_plane_1','roof_plane_2','roof_plane_3',
  'linen_blind','painted_wood','rough_stone_trim','turf_blade_dark','turf_blade_middle','turf_blade_light',
- 'rainwater_metal','glessner_vines','flat_brick')
+ 'rainwater_metal','glessner_vines','flat_brick','common_brick','common_brick_salmon','common_brick_dark')
 
 
 def _left_to_right_sum(iterable,start=0):
@@ -261,6 +261,8 @@ def _construct(root, *, roof_details_reduced=True):
     vines=add_vines(b,params,reduced=True)
     b.components['vine_plants']=len(vines['plants'])
     b.components['vine_panels']=vines['added_faces']
+    from archetypes.masonry_house_v4_common_brick import remap as common_brick
+    common_brick(b)
     return b,params,materials
 
 
@@ -524,6 +526,7 @@ def build_light(master:Path,output:Path,*,root:Path,recipe_sha256:str)->dict:
     required=MATERIAL_NAMES[:29] if params.detail.get('rainwater') else MATERIAL_NAMES[:28]
     if params.detail.get('vines'):required+=MATERIAL_NAMES[29:30]
     if params.detail.get('surface_finish'):required+=MATERIAL_NAMES[30:31]
+    if params.detail.get('common_brick'):required+=MATERIAL_NAMES[31:34]
     if any(n not in names for n in required):raise ValueError('Full master does not contain the expected v4 material library')
     counts=_apertures(params)
     if counts!=owner['extras'].get('aperture_counts'):

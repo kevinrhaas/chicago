@@ -43695,12 +43695,16 @@ he identifies the Keith house's rear as having reached (19-20). On his ruling th
 (1808 Prairie) is now its full three storeys back to that rear, which is placed where the 1911
 sheet draws its brick main part ending (W 113.85; his reading by eye, about the stable wing's
 court face, is 12 ft west of it); the 9-ft court wall that stood on that line is withdrawn. His photographs 21-22 (sent 2026-11-12) set the
-stable's south brick wall: one light high in the gable under the apex, four upper windows in a row
-(the three HABS sheet 3 draws, and a fourth at the west end at the row's spacing, east of where
-sheet 3 draws the c.1955 stair door, since the lower west roof's rake leaves no room there for a
-head in line with the row), and over the court wall the top of a
-smooth stone header, which stands over the one first-floor opening HABS sheet 2 draws in that wall
-(W 139.8-148.3, read as three lights between two mullions).
+stable's south brick wall: one light high in the gable under the apex, four upper windows in a row,
+and over the court wall the top of a smooth stone header, which stands over the one first-floor
+opening HABS sheet 2 draws in that wall (8.5 ft, read as three lights between two mullions). On
+his ruling of 2026-11-12 the upper row (sheet 3's 2.6-ft openings at 2-ft piers) and the
+first-floor window under its header are centred on the gable light and the ridge at W 141, as
+the photographs show them, not at sheet 3's and sheet 2's positions west of it (W 138.8-150.4 and
+W 139.8-148.3), which put the row's west end under the lower west roof's rake. He identified the
+brick of that wall and of the court wall's tall alley run as buff Chicago common brick, and both
+are laid in it rather than the court's light pink (HABS 1963 'light pink brick', which the rest
+of the court keeps); its value is reconstructed from photograph 22's channel ratios.
 **What is invented.** All sizes are read off the photographs against known openings (+/- 0.05 m;
 the tall wall +/- 1 ft in height and +/- 2 ft in where it ends); the carving is modelled to the
 photograph's impression, not measured. The photographs show the surviving fabric: that each detail

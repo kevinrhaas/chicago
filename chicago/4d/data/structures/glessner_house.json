@@ -2598,19 +2598,23 @@
                     "style": "courtyard_sash"
                   },
                   {
-                    "what": "stable south upper windows, HABS sheet 3 plan gaps",
+                    "what": "stable south upper windows, the row of four the owner's 2026-11-10 photographs show (T-3564), centred under the gable light on the rear ridge at W 141 per the owner's 2026-11-12 ruling; the HABS sheet 3 plan gaps are 2.6 ft wide at 2-ft piers, kept, but the row is moved east from the sheet 3 positions so no head runs into the lower west roof's rake",
                     "at": [
                       [
-                        138.8,
-                        141.4
+                        132.8,
+                        135.4
                       ],
                       [
-                        143.5,
-                        146.0
+                        137.4,
+                        140.0
                       ],
                       [
-                        148.0,
-                        150.4
+                        142.0,
+                        144.6
+                      ],
+                      [
+                        146.6,
+                        149.2
                       ]
                     ],
                     "z": [
@@ -2620,23 +2624,11 @@
                     "style": "courtyard_sash"
                   },
                   {
-                    "what": "stable south upper window at the west end, the fourth of the row the owner's photographs show (T-3564), at the row's 2-ft spacing; sheet 3 draws the c.1955 stair door at about W 154.8-157.4, where the lower west roof's rake leaves no room for a window head at 23 ft, so the window stands east of it under the rake, reconstructed",
-                    "at": [
-                      152.4,
-                      155.0
-                    ],
-                    "z": [
-                      20.0,
-                      23.0
-                    ],
-                    "style": "courtyard_sash"
-                  },
-                  {
-                    "what": "stable south first-floor window head, a smooth stone header whose top shows over the court wall in the owner's 2026-11-12 photograph from the 1808 lot (T-3564)",
+                    "what": "stable south first-floor window head, a smooth stone header whose top shows over the court wall in the owner's 2026-11-12 photograph from the 1808 lot (T-3564), centred on W 141 under the upper row",
                     "kind": "band",
                     "at": [
-                      139.5,
-                      148.6
+                      136.45,
+                      145.55
                     ],
                     "z": [
                       15.9,
@@ -2644,19 +2636,19 @@
                     ]
                   },
                   {
-                    "what": "stable south first-floor triple window under that header, the one opening HABS sheet 2 draws in this wall (W 139.8-148.3, two mullions); sill height reconstructed",
+                    "what": "stable south first-floor triple window under that header, the opening HABS sheet 2 draws in this wall (two mullions, 8.5 ft overall), centred on W 141 with the rows above per the owner's 2026-11-12 ruling (sheet 2 draws it at W 139.8-148.3); sill height reconstructed",
                     "at": [
                       [
-                        139.8,
-                        142.5
+                        136.75,
+                        139.45
                       ],
                       [
-                        142.65,
-                        145.45
+                        139.6,
+                        142.4
                       ],
                       [
-                        145.6,
-                        148.3
+                        142.55,
+                        145.25
                       ]
                     ],
                     "z": [
@@ -4222,6 +4214,33 @@
               "from_in": 11.5,
               "scale": 1.25,
               "lip_m": 0.09
+            },
+            "common_brick": {
+              "what": "T-3564: brick laid as buff Chicago common brick, not the court's light pink. The owner's photographs 20-22 (Kevin Haas, 2026-11-10; chicago-evidence glessner-kevin-photos-2026-11-10) show the stable's south wall and the court wall's tall alley run in a buff-tan brick with salmon and darker units, which he identified as Chicago common brick (2026-11-12). Each area is a plan box (W, S feet); the brick faces whose centres stand in it take the common-brick slots. docs/LIBERTIES.md L-glessner-photo-match-3564.",
+              "areas": [
+                {
+                  "what": "stable south wall, its face at S 59.75 from the east wall's corner to the alley, with its bricks' ends at that corner",
+                  "W": [
+                    125.7,
+                    161.25
+                  ],
+                  "S": [
+                    58.3,
+                    60.1
+                  ]
+                },
+                {
+                  "what": "court wall, the tall alley run W 113.85-162 on S 74.0-75.1, both faces",
+                  "W": [
+                    113.85,
+                    162.05
+                  ],
+                  "S": [
+                    73.8,
+                    75.3
+                  ]
+                }
+              ]
             }
           },
           "confidence": "reconstructed",

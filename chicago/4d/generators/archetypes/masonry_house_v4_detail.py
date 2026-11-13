@@ -2523,7 +2523,10 @@ def build(params,name):
         add_edges(b,params)
     from archetypes.masonry_house_v4_vines import add_vines
     vines=add_vines(b,params)
-    obj=b.to_object(build_materials(params.colours,params.detail.get('rainwater'),params.detail.get('vines'),params.detail.get('surface_finish')))
+    from archetypes.masonry_house_v4_common_brick import remap as common_brick
+    common_brick(b)
+    obj=b.to_object(build_materials(params.colours,params.detail.get('rainwater'),params.detail.get('vines'),
+                                    params.detail.get('surface_finish'),params.detail.get('common_brick')))
     assign_metric_uvs(obj,b.roof_uvs)
     _discard_export_scratch_uv(obj)
     # T-2400: the granite's stone-scale occlusion, on its own TEXCOORD_1.

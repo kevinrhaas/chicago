@@ -894,6 +894,10 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                 "finial_m": float(wd.get("finial_ft",0.0))*FT,
                 "hood_overhang_m": float(wd.get("hood_overhang_ft",.25/FT))*FT,
                 "conf": cf("v4_detail")}
+        # T-3564: plan areas whose brick is buff Chicago common brick (owner's photographs).
+        p.detail["common_brick"] = [{"x0": min(fr.x(w) for w in a["W"]), "x1": max(fr.x(w) for w in a["W"]),
+                                     "y0": min(fr.y(s) for s in a["S"]), "y1": max(fr.y(s) for s in a["S"])}
+                                    for a in raw.get("common_brick", {}).get("areas", [])] or None
         rework = raw.get("stable_roof_rework")
         if rework:
             west = next(r for r in p.ranges if r["name"] == "west_wing")
