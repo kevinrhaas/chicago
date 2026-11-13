@@ -293,7 +293,14 @@ WIDE_RANGE_YEARS = 12
 # younger-resident records. Two443 + last measured other-content132.233 =
 # 1018.233 MiB, below the established1024 MiB accounting ceiling. The assets
 # load on demand; boot, frame, Light, memory and duplicate gates are unchanged.
-SITE_BUDGET_MB = 443
+# T-3564, 2026-11-13: conscious measured storage re-budget, 443 -> 444 MiB. The
+# owner asked for the stable's south wall and the court wall's alley run in buff
+# Chicago common brick (his photographs, 2026-11-12): one albedo-only 2048 study
+# beside court brick's, 623,490 B KTX2 in the web master and 166,557 B in Light.
+# The published tree measured 443.1 MiB in a local part-2 gate. Two 444 + the
+# last documented 132.233 MiB other content = 1020.233 MiB, under the 1024 MiB
+# accounting ceiling. Boot, frame, Light, memory and duplicate gates unchanged.
+SITE_BUDGET_MB = 444
 # Warn at 90 % of it. See run_site_check for why this band exists (T-0722).
 SITE_WARN_FRACTION = 0.90
 # Identical files smaller than this are not worth a merge refusal (T-0722).
