@@ -19,6 +19,9 @@ const central = new Intl.DateTimeFormat('en-US', {
   timeZone: 'America/Chicago', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit',
 });
 const centralDay = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Chicago', year: 'numeric', month: '2-digit', day: '2-digit' });
+// T-3580: how each person signed in, in the words the table and the tiles use.
+export const METHOD_LABEL = { google: 'Google', microsoft: 'Microsoft', password: 'Email + password', email: 'Email only' };
+const methodLabel = m => METHOD_LABEL[m] || m || '—';
 const when = iso => (iso ? central.format(new Date(iso)) + ' CT' : '—');
 
 function tally(rows, key) {
@@ -47,7 +50,7 @@ function tiles(visitors, visits, now) {
   const people = ms => new Set(since(ms).map(v => v.uid)).size;
   const newPeople = ms => visitors.filter(v => v.firstSeen && now - Date.parse(v.firstSeen) < ms).length;
   const data = [
-    ['People', visitors.length, `${visitors.filter(v => v.method === 'google').length} Google · ${visitors.filter(v => v.method === 'email').length} email`],
+    ['People', visitors.length, tally(visitors, 'method').map(([m, n]) => `${n} ${methodLabel(m)}`).join(' · ')],
     ['Today', people(DAY), `${since(DAY).length} entries`],
     ['Last 7 days', people(7 * DAY), `${since(7 * DAY).length} entries · ${newPeople(7 * DAY)} new`],
     ['Last 30 days', people(30 * DAY), `${visits.length} entries · ${newPeople(30 * DAY)} new`],
@@ -69,7 +72,7 @@ function table(visitors) {
   $('rows').replaceChildren(...shown.map(v => {
     const tr = document.createElement('tr');
     const cells = [
-      [v.email || '—', 'email'], [v.name || '—'], [v.method === 'google' ? 'Google' : v.method === 'email' ? 'Email' : (v.method || '—')],
+      [v.email || '—', 'email'], [v.name || '—'], [methodLabel(v.method)],
       [when(v.firstSeen)], [when(v.lastSeen)], [String(v.visits ?? '—'), 'num'], [(v.years || []).slice().sort().join(', ') || '—'],
     ];
     for (const [text, cls] of cells) { const td = document.createElement('td'); td.textContent = text; if (cls) td.className = cls; tr.append(td); }
@@ -94,6 +97,7 @@ export function draw(visitors, visits, now = Date.now()) {
   tiles(visitors, visits, now);
   bars($('by-year'), tally(visits, 'year'));
   bars($('by-device'), tally(visits, 'device'));
+  bars($('by-method'), tally(visitors, 'method').map(([m, n]) => [methodLabel(m), n]));
   const days = [];
   for (let i = 13; i >= 0; i--) {
     const day = centralDay.format(new Date(now - i * DAY));
@@ -115,14 +119,14 @@ export function demoRows(now = Date.now()) {
   const visits = [];
   for (let i = 0; i < 9; i++) {
     const uid = `demo${i}`;
-    const method = i % 3 === 2 ? 'email' : 'google';
+    const method = ['google', 'google', 'email', 'microsoft', 'google', 'password'][i % 6];
     const first = new Date(now - (i * 3 + 1) * DAY).toISOString();
     const entered = years.filter((_, k) => (i + k) % 2 === 0 || k === i % 3);
     for (let k = 0; k <= i % 4; k++) {
       visits.push({ uid, email: `visitor${i + 1}@example.com`, year: entered[k % entered.length], device: devices[i % 3],
         method, at: new Date(now - (i * 2 + k) * DAY / 3).toISOString() });
     }
-    visitors.push({ id: uid, email: `visitor${i + 1}@example.com`, name: method === 'google' ? `Sample Visitor ${i + 1}` : '',
+    visitors.push({ id: uid, email: `visitor${i + 1}@example.com`, name: method === 'google' || method === 'microsoft' ? `Sample Visitor ${i + 1}` : '',
       method, firstSeen: first, lastSeen: new Date(now - i * DAY / 2).toISOString(), visits: (i % 4) + 1 + i, years: entered });
   }
   visits.sort((a, b) => b.at.localeCompare(a.at));

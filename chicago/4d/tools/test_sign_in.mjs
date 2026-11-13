@@ -4,7 +4,7 @@
 // Firestore rules allow.
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { configured, gateMode, validEmail, signInGate } from '../renderers/web/js/sign-in.js';
+import { configured, gateMode, validEmail, signInGate, offered, manualLabel, methodOf, AUTH_ERRORS } from '../renderers/web/js/sign-in.js';
 import { entryWrites, fromFields, deviceClass, autoId } from '../renderers/web/js/visitor-store.js';
 import { SIGN_IN } from '../renderers/web/js/sign-in-config.js';
 
@@ -26,6 +26,21 @@ assert.equal(gateMode({ config: on, hostname: 'chicago.polecat.live', search: '?
 // The shipped config may be on or off, but on means complete.
 if (SIGN_IN.enabled) assert.ok(configured(SIGN_IN.firebase), 'sign-in-config.js is enabled without all four Firebase values');
 assert.ok(Array.isArray(SIGN_IN.hosts) && SIGN_IN.hosts.length, 'sign-in-config.js names its hosts');
+
+// T-3580: the ways in, Google always first, and the grey link names the big buttons.
+assert.deepEqual(offered({ providers: ['email', 'password', 'microsoft', 'google'] }), ['google', 'microsoft', 'password', 'email']);
+assert.deepEqual(offered({ providers: ['google', 'facebook'] }), ['google'], 'an unknown provider is never drawn');
+assert.deepEqual(offered({}), ['google', 'email'], 'no list is the first build: Google and the email alone');
+assert.deepEqual(offered({ providers: [] }), ['google', 'email']);
+assert.deepEqual(offered(SIGN_IN), ['google', 'microsoft', 'password', 'email'], 'the shipped list is the owner\'s four (2026-11-13)');
+assert.equal(manualLabel(['google', 'microsoft', 'password']), 'No Google or Microsoft account? Sign in with email');
+assert.equal(manualLabel(['google', 'email']), 'No Google account? Sign in with email');
+assert.equal(methodOf({ isAnonymous: true }), 'email');
+assert.equal(methodOf({ providerData: [{ providerId: 'google.com' }] }), 'google');
+assert.equal(methodOf({ providerData: [{ providerId: 'microsoft.com' }] }), 'microsoft');
+assert.equal(methodOf({ providerData: [{ providerId: 'password' }] }), 'password');
+for (const code of ['auth/invalid-credential', 'auth/email-already-in-use', 'auth/account-exists-with-different-credential', 'auth/popup-closed-by-user'])
+  assert.ok(AUTH_ERRORS[code] && AUTH_ERRORS[code].split(' ').length <= 20, `${code} has a short visitor sentence`);
 
 // Emails.
 for (const good of ['a@b.co', 'kid.name+4d@school.k12.il.us', '  spaced@example.com ']) assert.ok(validEmail(good), good);

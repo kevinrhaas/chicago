@@ -1,4 +1,26 @@
 export const CHANGELOG = [ // newest first
+  { v: 2935, ts: '2026-11-13T16:56:23.840Z', date: 'Nov 13, 2026, 10:56 AM CT', title: '1816 Prairie\'s balcony over the porch, with a door onto it', kind: 'improvement',
+    items: [
+      'The iron balcony on top of the Henderson house\'s porch at 1816 Prairie now stands about a metre high, as the old photograph shows it, where it used to be a low rail.',
+      'The tall window above the front door now opens onto that balcony as a pair of glass doors, its carved hood and crest kept over it.',
+    ] },
+  { v: 2934, ts: '2026-11-13T16:26:06.938Z', date: 'Nov 13, 2026, 10:26 AM CT', title: 'The Greys\' hair fuller and wavier, as their sheets show', kind: 'fix',
+    items: [
+      'William\'s hair waves, a darker ash brown, full at the back to his collar.',
+      'Sarah\'s updo stands full at the sides and back, her top knot larger.',
+      'Sarah\'s hair reads the sheet\'s ash brown, not a light sandy tone.',
+    ] },
+  { v: 2933, ts: '2026-11-13T16:04:06.612Z', date: 'Nov 13, 2026, 10:04 AM CT', title: '1936 Prairie\'s paired windows get their tall carved hoods', kind: 'improvement',
+    items: [
+      'In 1904, the paired windows on the south side of 1936 Prairie Avenue\'s dining wing now stand under tall carved hoods: two scrolled arms curling in over each arch to a capped carving in the middle, about 1.15 m over the windows, as the old photograph shows them. Before, a plain arch with a keystone stood in their place.',
+      'The small attic windows above them now sit higher, up among the cornice\'s brackets, closer to where the photograph puts them.',
+      'The hoods\' sizes are measured from the photograph; their carving is simplified.',
+    ] },
+  { v: 2932, ts: '2026-11-13T15:37:23.432Z', date: 'Nov 13, 2026, 9:37 AM CT', title: 'The Greys\' upper lids light, not a reddish band', kind: 'fix',
+    items: [
+      'William\'s upper lids hood under the fold of his brow, as his sheet shows.',
+      'Sarah\'s brow bone sits flatter, so her lids show light, not shadowed.',
+    ] },
   { v: 2931, ts: '2026-11-13T14:59:22.203Z', date: 'Nov 13, 2026, 8:59 AM CT', title: '1823 Prairie gains its rear chimney and the light beside its door', kind: 'change',
     items: [
       'The Dent house at 1823 Prairie now has the tall chimney its 1880s engraving and the 1883 album drawing both show, rising from the rear wing behind the north side.',

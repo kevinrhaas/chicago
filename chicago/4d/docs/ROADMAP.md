@@ -1,3 +1,8 @@
+## T-3580 — Sign-in: Microsoft and email/password (2026-11-13)
+
+Built switched off with T-3576. Next by the owner: the Firebase config, and Microsoft's Azure
+app (docs/SIGN-IN.md § Microsoft). Later, if he asks: Apple, Facebook, verified email-only.
+
 ## T-3576 — Sign-in before a year (2026-11-13)
 
 Shipped switched off: the gate, the visitors page and the vendored Firebase SDK. Next, by the

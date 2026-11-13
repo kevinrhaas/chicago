@@ -1,3 +1,15 @@
+## T-3580 — Sign-in: Microsoft and email/password beside Google (2026-11-13)
+
+The owner chose Google, Microsoft, email/password and anonymous (email only) to start, Apple
+and Facebook perhaps later. The panel (js/sign-in.js) draws the ways `providers` names in
+js/sign-in-config.js: Continue with Google, Continue with Microsoft (Firebase OAuthProvider
+`microsoft.com`, popup then redirect), and behind the grey link an email and password form
+(sign in, create account, forgot password, which never says whether an account exists) and
+Just enter with my email. The visitor list records `method` google, microsoft, password or
+email; the visitors page counts people by sign-in. **Unverified:** still switched off (no
+project yet); checked with `?signin=preview` at 390×780 and 1280×800 in every mode, and
+tools/test_sign_in.mjs.
+
 ## T-3576 — Sign-in before a year, switched off until the Firebase project exists (2026-11-13)
 
 The owner asked for Google sign-in, or a typed email for anyone without Google (unverified
