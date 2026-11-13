@@ -34,6 +34,7 @@ import { fieldLog, count as countField } from './field-log.js'; // T-2660
 import { wireFieldLogView } from './field-log-view.js';
 import { recall as recallHome } from './recall.js';
 import { createGestureGate } from './gesture-gate.js';
+import { signInGate } from './sign-in.js';
 import { loadScene, resolveBases, hasInspectionLod, detailAssetUrl,
   createLatestDetailSwitch, disposeLoadedAsset, bootPoolFromSearch } from './scene-loader.js';
 import { readVersionRequest } from './structure-versions.js';
@@ -1910,6 +1911,9 @@ boot().catch((err) => {
 });
 
 async function boot() {
+  // T-3576: the sign-in gate, before a byte of the scene is asked for. Off (returns at
+  // once, loads nothing) until js/sign-in-config.js names a Firebase project.
+  api.signIn = await signInGate({ year: YEAR, gate });
   bootController.start('scene');
   await yieldToPaint();
   const bases = resolveBases();

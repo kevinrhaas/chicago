@@ -263,6 +263,8 @@ step "Boot phase readiness, failure and history contract (T-1246)" \
   node tools/test_boot_phases.mjs
 step "Crash-aware boot: a dead session steps down once, a lost context reloads at most once (T-2547)" \
   node tools/test_crash_guard.mjs
+step "The sign-in gate asks only where it is switched on, never locks a visitor out, and writes only what its Firestore rules allow (T-3576)" \
+  node tools/test_sign_in.mjs
 step "The black box keeps the page's last steps in local storage, and the next page shows a cut-off page's on the crash card (T-2826)" \
   node tools/test_blackbox.mjs
 step "A pick draws only the building batches its ray meets, and a phone's look-around answers from the parts' boxes without drawing (T-2827)" \
