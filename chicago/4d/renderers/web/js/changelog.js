@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2932, ts: '2026-11-13T15:37:23.432Z', date: 'Nov 13, 2026, 9:37 AM CT', title: 'The Greys\' upper lids light, not a reddish band', kind: 'fix',
+    items: [
+      'William\'s upper lids hood under the fold of his brow, as his sheet shows.',
+      'Sarah\'s brow bone sits flatter, so her lids show light, not shadowed.',
+    ] },
   { v: 2931, ts: '2026-11-13T14:59:22.203Z', date: 'Nov 13, 2026, 8:59 AM CT', title: '1823 Prairie gains its rear chimney and the light beside its door', kind: 'change',
     items: [
       'The Dent house at 1823 Prairie now has the tall chimney its 1880s engraving and the 1883 album drawing both show, rising from the rear wing behind the north side.',
