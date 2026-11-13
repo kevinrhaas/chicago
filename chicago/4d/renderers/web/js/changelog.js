@@ -1,4 +1,27 @@
 export const CHANGELOG = [ // newest first
+  { v: 2913, ts: '2026-11-13T03:42:00.893Z', date: 'Nov 12, 2026, 9:42 PM CT', title: 'Walk the town in a VR headset', kind: 'feature',
+    items: [
+      'A headset\'s browser, or a WebXR emulator on a computer, shows a VR key beside the fly key; press it to stand in the town in stereo and look round by turning your head.',
+      'The left stick walks where you look, through the same doors, decks and street edges as on foot; its click or the left grip runs.',
+      'The right stick turns in steps and, while flying, rises and descends; A or X takes off and lands.',
+      'No controller, as in Google Cardboard on Android: the headset\'s button starts walking where you look and stops it again. iPhones offer no WebXR, so the key does not appear there.',
+      'A Quest or Pico boots on the phone\'s settings with its people, horses and carriages kept, and draws the headset view at a lower resolution instead.',
+    ] },
+  { v: 2912, ts: '2026-11-13T03:08:51.692Z', date: 'Nov 12, 2026, 9:08 PM CT', title: '1811 Prairie\'s north-west roof comes straight down to its corner', kind: 'fix',
+    items: [
+      'The Miner T. Ames house\'s big hipped roof now runs in one straight hip from its peak down to the north-west corner, without the small slate patch that sat over the corner.',
+      'The stone front rises to the corner at full height under its cornice. On the owner\'s ruling, the low corner pier with its slate cap is gone, though the old photographs show it.',
+      'The corner\'s downpipe now starts under the cornice, like the other two on the front.',
+    ] },
+  { v: 2911, ts: '2026-11-13T03:04:00.752Z', date: 'Nov 12, 2026, 9:04 PM CT', title: 'Find and Follow reach people at home: they step out walking', kind: 'feature',
+    items: [
+      'Someone in town who has gone indoors keeps Find this person and Follow live; their card says they come out to meet you.',
+      'Find or Follow takes you to their door, and they come out of it on a walk round their block by the sidewalks, or on their own day\'s walk where they have one.',
+      'In 1812, with no blocks, it is a walk about the place.',
+      'A young child comes out with a grown-up of the house and they walk together; a soldier off duty comes out of his quarters.',
+      'The walk lasts about seven minutes and goes on while you follow; then they go back in by their door.',
+      'People away from town that day stay greyed with the reason.',
+    ] },
   { v: 2910, ts: '2026-11-13T02:09:10.308Z', date: 'Nov 12, 2026, 8:09 PM CT', title: '1815 Prairie\'s door gets its stone pediment, its stoop its newels', kind: 'improvement',
     items: [
       'On the Sears house at 1815 Prairie, a stone pediment on two small carved brackets now stands over the front door, with a finial at its peak, as the old square-on photograph shows it.',
