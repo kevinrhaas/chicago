@@ -15,7 +15,7 @@
   730,
   450
  ],
- "_doc": "Where the STAND-IN's face was marked, in pixels of the crop `crop_px` of the copy named in `scan` (T-3553; the owner: \"their faces must match exactly\"). The `mp_<index>` marks are MediaPipe Face Landmarker's (float16 v1) points on the owner's picture, every one the correspondence table (data/humans/variation/mediapipe_hm08_landmarks.json) puts on a skin vertex, and the face's outline ring (`mpo_<index>`) on the vertices it falls on in the calibration render turned as the portrait is (`outline_yaw_deg`, the yaw of a first fit without it), at 8 px where the forehead's edge is under the hair; they were checked by eye on a 3x enlargement. The pupils are the model's iris centres; the ears were read by eye on a gridded enlargement. `prior_widen` 2 lets this many points hold the face instead of the town's average. She sits turned a little to her right; her right ear is in shadow under the hair, so only its lobe (where the hoop hangs) is marked. `base_body` fits against the lady's body's rest face.",
+ "_doc": "Where the STAND-IN's face was marked, in pixels of the crop `crop_px` of the copy named in `scan` (T-3553; the owner: \"their faces must match exactly\"). The `mp_<index>` marks are MediaPipe Face Landmarker's (float16 v1) points on the owner's picture, every one the correspondence table (data/humans/variation/mediapipe_hm08_landmarks.json) puts on a skin vertex, and the face's outline ring (`mpo_<index>`) on the vertices it falls on in the calibration render turned as the portrait is (`outline_yaw_deg`, the yaw of a first fit without it), at 8 px where the forehead's edge is under the hair; they were checked by eye on a 3x enlargement. The pupils are the model's iris centres; the ears were read by eye on a gridded enlargement. `prior_widen` 2 lets this many points hold the face instead of the town's average. She sits turned a little to her right; her right ear is in shadow under the hair, so only its lobe (where the hoop hangs) is marked. `base_body` fits against the lady's body's rest face. The 18 outline marks below the nose were then moved once by what a render of the fitted face, turned as the portrait is and read by the same landmark model, put off them (up to 6 px; the render's chin sat about 5 px to her left and its jaw a little wide), so the next fit lands the drawn outline where the picture's is (T-3553, 2026-11-13). The lips' marks were moved the same way, once (T-3553, 2026-11-13, the owner: match her lips better): the render drew her lower lip's lower edge several pixels below the picture's.",
  "base_body": "glessner_frances_m_1904",
  "sex": "female",
  "age_at_picture_years": 45,
@@ -44,6 +44,7 @@
   "mouth_width",
   "lip_upper",
   "lip_lower",
+  "lip_lower_height",
   "mouth_height",
   "chin_width",
   "chin_height",
@@ -96,8 +97,8 @@
   },
   {
    "landmark": "mp_0",
-   "x": 142.7,
-   "y": 191.2,
+   "x": 142.1,
+   "y": 191.7,
    "sigma_px": 3.5
   },
   {
@@ -168,14 +169,14 @@
   },
   {
    "landmark": "mp_13",
-   "x": 145.0,
-   "y": 199.5,
+   "x": 144.9,
+   "y": 199.2,
    "sigma_px": 3.5
   },
   {
    "landmark": "mp_14",
-   "x": 145.3,
-   "y": 199.9,
+   "x": 144.8,
+   "y": 197.2,
    "sigma_px": 3.5
   },
   {
@@ -192,8 +193,8 @@
   },
   {
    "landmark": "mp_17",
-   "x": 146.9,
-   "y": 211.7,
+   "x": 146.6,
+   "y": 205.5,
    "sigma_px": 3.5
   },
   {
@@ -300,8 +301,8 @@
   },
   {
    "landmark": "mp_37",
-   "x": 132.2,
-   "y": 190.7,
+   "x": 131.5,
+   "y": 191.3,
    "sigma_px": 3.5
   },
   {
@@ -312,14 +313,14 @@
   },
   {
    "landmark": "mp_39",
-   "x": 123.5,
-   "y": 194.7,
+   "x": 123.2,
+   "y": 195.3,
    "sigma_px": 3.5
   },
   {
    "landmark": "mp_40",
-   "x": 118.1,
-   "y": 199.0,
+   "x": 118.3,
+   "y": 200.0,
    "sigma_px": 3.5
   },
   {
@@ -432,8 +433,8 @@
   },
   {
    "landmark": "mp_61",
-   "x": 113.0,
-   "y": 206.2,
+   "x": 115.2,
+   "y": 208.1,
    "sigma_px": 3.5
   },
   {
@@ -516,8 +517,8 @@
   },
   {
    "landmark": "mp_78",
-   "x": 116.2,
-   "y": 205.3,
+   "x": 118.1,
+   "y": 206.7,
    "sigma_px": 3.5
   },
   {
@@ -528,20 +529,20 @@
   },
   {
    "landmark": "mp_80",
-   "x": 124.7,
-   "y": 202.7,
+   "x": 125.5,
+   "y": 203.2,
    "sigma_px": 3.5
   },
   {
    "landmark": "mp_81",
-   "x": 130.2,
-   "y": 201.3,
+   "x": 130.8,
+   "y": 201.5,
    "sigma_px": 3.5
   },
   {
    "landmark": "mp_82",
-   "x": 137.0,
-   "y": 200.3,
+   "x": 137.3,
+   "y": 200.2,
    "sigma_px": 3.5
   },
   {
@@ -552,8 +553,8 @@
   },
   {
    "landmark": "mp_84",
-   "x": 137.1,
-   "y": 212.6,
+   "x": 138.2,
+   "y": 206.9,
    "sigma_px": 3.5
   },
   {
@@ -570,14 +571,14 @@
   },
   {
    "landmark": "mp_87",
-   "x": 137.1,
-   "y": 200.8,
+   "x": 137.2,
+   "y": 198.7,
    "sigma_px": 3.5
   },
   {
    "landmark": "mp_88",
-   "x": 124.5,
-   "y": 203.2,
+   "x": 125.2,
+   "y": 202.8,
    "sigma_px": 3.5
   },
   {
@@ -594,8 +595,8 @@
   },
   {
    "landmark": "mp_91",
-   "x": 121.3,
-   "y": 210.1,
+   "x": 123.9,
+   "y": 207.9,
    "sigma_px": 3.5
   },
   {
@@ -612,8 +613,8 @@
   },
   {
    "landmark": "mp_95",
-   "x": 120.5,
-   "y": 204.3,
+   "x": 121.4,
+   "y": 204.9,
    "sigma_px": 3.5
   },
   {
@@ -870,8 +871,8 @@
   },
   {
    "landmark": "mp_146",
-   "x": 116.6,
-   "y": 208.5,
+   "x": 119.1,
+   "y": 208.7,
    "sigma_px": 3.5
   },
   {
@@ -1014,8 +1015,8 @@
   },
   {
    "landmark": "mp_178",
-   "x": 130.1,
-   "y": 202.0,
+   "x": 130.4,
+   "y": 200.6,
    "sigma_px": 3.5
   },
   {
@@ -1032,8 +1033,8 @@
   },
   {
    "landmark": "mp_181",
-   "x": 128.3,
-   "y": 212.0,
+   "x": 130.5,
+   "y": 207.6,
    "sigma_px": 3.5
   },
   {
@@ -1056,8 +1057,8 @@
   },
   {
    "landmark": "mp_185",
-   "x": 114.8,
-   "y": 202.8,
+   "x": 115.9,
+   "y": 204.4,
    "sigma_px": 3.5
   },
   {
@@ -1092,8 +1093,8 @@
   },
   {
    "landmark": "mp_191",
-   "x": 120.7,
-   "y": 204.0,
+   "x": 121.9,
+   "y": 204.9,
    "sigma_px": 3.5
   },
   {
@@ -1506,8 +1507,8 @@
   },
   {
    "landmark": "mp_267",
-   "x": 154.1,
-   "y": 187.7,
+   "x": 153.5,
+   "y": 188.2,
    "sigma_px": 3.5
   },
   {
@@ -1518,14 +1519,14 @@
   },
   {
    "landmark": "mp_269",
-   "x": 166.7,
-   "y": 189.1,
+   "x": 166.3,
+   "y": 189.4,
    "sigma_px": 3.5
   },
   {
    "landmark": "mp_270",
-   "x": 176.1,
-   "y": 191.4,
+   "x": 176.2,
+   "y": 192.2,
    "sigma_px": 3.5
   },
   {
@@ -1633,7 +1634,7 @@
   {
    "landmark": "mp_291",
    "x": 188.1,
-   "y": 195.8,
+   "y": 197.6,
    "sigma_px": 3.5
   },
   {
@@ -1722,8 +1723,8 @@
   },
   {
    "landmark": "mp_308",
-   "x": 184.8,
-   "y": 195.9,
+   "x": 184.7,
+   "y": 197.2,
    "sigma_px": 3.5
   },
   {
@@ -1734,20 +1735,20 @@
   },
   {
    "landmark": "mp_310",
-   "x": 172.4,
-   "y": 196.2,
+   "x": 173.0,
+   "y": 196.3,
    "sigma_px": 3.5
   },
   {
    "landmark": "mp_311",
-   "x": 164.2,
-   "y": 196.6,
+   "x": 164.3,
+   "y": 196.3,
    "sigma_px": 3.5
   },
   {
    "landmark": "mp_312",
-   "x": 154.9,
-   "y": 197.9,
+   "x": 154.7,
+   "y": 197.6,
    "sigma_px": 3.5
   },
   {
@@ -1758,8 +1759,8 @@
   },
   {
    "landmark": "mp_314",
-   "x": 157.9,
-   "y": 209.4,
+   "x": 155.9,
+   "y": 203.5,
    "sigma_px": 3.5
   },
   {
@@ -1776,14 +1777,14 @@
   },
   {
    "landmark": "mp_317",
-   "x": 155.1,
-   "y": 198.3,
+   "x": 154.3,
+   "y": 195.6,
    "sigma_px": 3.5
   },
   {
    "landmark": "mp_318",
-   "x": 172.5,
-   "y": 196.4,
+   "x": 172.3,
+   "y": 195.4,
    "sigma_px": 3.5
   },
   {
@@ -1800,8 +1801,8 @@
   },
   {
    "landmark": "mp_321",
-   "x": 177.0,
-   "y": 201.8,
+   "x": 174.8,
+   "y": 199.4,
    "sigma_px": 3.5
   },
   {
@@ -1812,7 +1813,7 @@
   },
   {
    "landmark": "mp_324",
-   "x": 178.9,
+   "x": 179.2,
    "y": 196.1,
    "sigma_px": 3.5
   },
@@ -2076,7 +2077,7 @@
   },
   {
    "landmark": "mp_375",
-   "x": 183.5,
+   "x": 182.2,
    "y": 198.7,
    "sigma_px": 3.5
   },
@@ -2190,8 +2191,8 @@
   },
   {
    "landmark": "mp_402",
-   "x": 164.4,
-   "y": 196.9,
+   "x": 163.9,
+   "y": 194.8,
    "sigma_px": 3.5
   },
   {
@@ -2208,8 +2209,8 @@
   },
   {
    "landmark": "mp_405",
-   "x": 168.2,
-   "y": 205.8,
+   "x": 165.6,
+   "y": 201.2,
    "sigma_px": 3.5
   },
   {
@@ -2232,8 +2233,8 @@
   },
   {
    "landmark": "mp_409",
-   "x": 183.2,
-   "y": 193.7,
+   "x": 183.4,
+   "y": 195.1,
    "sigma_px": 3.5
   },
   {
@@ -2268,8 +2269,8 @@
   },
   {
    "landmark": "mp_415",
-   "x": 178.8,
-   "y": 196.1,
+   "x": 179.3,
+   "y": 196.8,
    "sigma_px": 3.5
   },
   {
@@ -2580,8 +2581,8 @@
   },
   {
    "landmark": "mpo_58",
-   "x": 84.1,
-   "y": 216.7,
+   "x": 85.3,
+   "y": 217.5,
    "sigma_px": 4
   },
   {
@@ -2592,8 +2593,8 @@
   },
   {
    "landmark": "mpo_93",
-   "x": 73.0,
-   "y": 176.2,
+   "x": 71.3,
+   "y": 178.1,
    "sigma_px": 4
   },
   {
@@ -2616,38 +2617,38 @@
   },
   {
    "landmark": "mpo_132",
-   "x": 77.5,
-   "y": 196.2,
+   "x": 77.1,
+   "y": 197.8,
    "sigma_px": 4
   },
   {
    "landmark": "mpo_136",
-   "x": 98.7,
-   "y": 241.2,
+   "x": 102.3,
+   "y": 240.1,
    "sigma_px": 4
   },
   {
    "landmark": "mpo_148",
-   "x": 141.0,
-   "y": 261.9,
+   "x": 146.9,
+   "y": 263.1,
    "sigma_px": 4
   },
   {
    "landmark": "mpo_149",
-   "x": 118.6,
-   "y": 254.8,
+   "x": 123.8,
+   "y": 254.2,
    "sigma_px": 4
   },
   {
    "landmark": "mpo_150",
-   "x": 109.3,
-   "y": 249.4,
+   "x": 113.8,
+   "y": 248.3,
    "sigma_px": 4
   },
   {
    "landmark": "mpo_152",
-   "x": 157.5,
-   "y": 261.5,
+   "x": 163.2,
+   "y": 263.2,
    "sigma_px": 4
   },
   {
@@ -2658,14 +2659,14 @@
   },
   {
    "landmark": "mpo_172",
-   "x": 91.2,
-   "y": 231.6,
+   "x": 93.7,
+   "y": 231.3,
    "sigma_px": 4
   },
   {
    "landmark": "mpo_176",
-   "x": 128.6,
-   "y": 259.1,
+   "x": 134.2,
+   "y": 259.4,
    "sigma_px": 4
   },
   {
@@ -2682,8 +2683,8 @@
   },
   {
    "landmark": "mpo_288",
-   "x": 252.4,
-   "y": 197.7,
+   "x": 253.1,
+   "y": 200.0,
    "sigma_px": 4
   },
   {
@@ -2712,32 +2713,32 @@
   },
   {
    "landmark": "mpo_361",
-   "x": 256.4,
-   "y": 174.9,
+   "x": 257.5,
+   "y": 177.9,
    "sigma_px": 4
   },
   {
    "landmark": "mpo_365",
-   "x": 232.1,
-   "y": 228.9,
+   "x": 232.8,
+   "y": 230.6,
    "sigma_px": 4
   },
   {
    "landmark": "mpo_377",
-   "x": 175.3,
-   "y": 259.2,
+   "x": 179.9,
+   "y": 261.2,
    "sigma_px": 4
   },
   {
    "landmark": "mpo_378",
-   "x": 204.2,
-   "y": 248.2,
+   "x": 206.6,
+   "y": 250.0,
    "sigma_px": 4
   },
   {
    "landmark": "mpo_379",
-   "x": 217.2,
-   "y": 240.5,
+   "x": 218.7,
+   "y": 242.2,
    "sigma_px": 4
   },
   {
@@ -2748,14 +2749,14 @@
   },
   {
    "landmark": "mpo_397",
-   "x": 243.5,
-   "y": 215.8,
+   "x": 243.9,
+   "y": 217.6,
    "sigma_px": 4
   },
   {
    "landmark": "mpo_400",
-   "x": 190.3,
-   "y": 254.3,
+   "x": 193.8,
+   "y": 256.2,
    "sigma_px": 4
   },
   {
@@ -2768,14 +2769,37 @@
  "read_by_eye": {
   "ticket": "T-3553",
   "values": {
-   "jaw": 0.15,
-   "chin_width": 0.1,
-   "cheekbones": 0.1,
-   "jowls": 0.1,
-   "cheek_inner": 0.1,
-   "nose_width": 0.05
+   "cheekbones": 0.9,
+   "jowls": -0.55,
+   "cheek_inner": -0.25,
+   "nose_width": 0.05,
+   "lip_lower": -0.6,
+   "cheek_volume": -0.1,
+   "nose_tip_width": -0.4,
+   "nostrils": -0.2,
+   "lip_upper": 0.25,
+   "lip_lower_height": -1.0,
+   "jaw": -0.35,
+   "chin_width": -0.25,
+   "chin_height": 0.4,
+   "mouth_height": -0.05
   },
-  "basis": "Read by eye from the same picture, on axes the marks cannot measure from one near-frontal view: a firm, squarish jaw and a broad chin, cheekbones set high and full, deep lines from the nose to the corners of the mouth with the lower cheek a little full (a woman past fifty, not the lady's body's young lean), and a nose of ordinary width. These replace the lady's body's own face_bias as the prior on those axes; the marks still move them where they can."
+  "basis": "Read by eye from the same picture, on axes the marks cannot measure from one near-frontal view or read wrongly through the render's painting. Owner, 2026-11-13: \"Sarah's cheekbones are higher in the model than what you have, she has finer features\", and her lips: so her cheekbones are set high and wide (0.9) over cheeks a little hollow beneath them, her jaw and chin narrower and her chin a little longer than the lady's body's, the tip and wings of her nose fine, and her lips thin, the upper lip a little full and the lower one thin in both its volume and its height (lip_lower_height, MakeHuman's own lower-lip height target, added as a rest axis for this: the volume target alone left the painted lip as tall as before). Each of these is HELD where it is read (`hold`), not fitted, and the marks fit the other axes around them; measured on a render at the portrait's pose against the picture, her lower lip is drawn within about 0.5 mm of it (was 2.5 mm too tall) and her chin within 1 mm. A reading by eye, not a measurement.",
+  "hold": [
+   "cheek_inner",
+   "cheek_volume",
+   "cheekbones",
+   "chin_height",
+   "chin_width",
+   "jaw",
+   "jowls",
+   "lip_lower",
+   "lip_lower_height",
+   "lip_upper",
+   "mouth_height",
+   "nose_tip_width",
+   "nostrils"
+  ]
  },
  "card": {
   "_doc": "What the person's card shows (T-3413, T-3478): `portrait` is cut from the copy at `portrait_from_scan_px` and scaled to `size_px` by tools/cut_portrait.py (a stand-in's label burned on it); `model` is tools/portrait_still.mjs's render of the fitted face on `body`, turned to the fit's yaw, dressed as humans.js dresses the person in town.",

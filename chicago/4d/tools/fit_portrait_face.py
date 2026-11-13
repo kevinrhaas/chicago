@@ -274,6 +274,21 @@ def fit(person):
         if k in ('weight', 'muscle', 'belly', 'neck_width', 'double_chin') and isinstance(build.get(k), (int, float)) \
                 and a.get('sex', portrait.get('sex', 'male')) == portrait.get('sex', 'male') and not a.get('drive'):
             base += W @ delta_at(axes[a['id']], max(-header['limit'], min(header['limit'], build[k])), 0, rows)
+    # T-3553: an axis a record HOLDS by eye (`read_by_eye.hold`) is not fitted at all but set
+    # where the reader put it: one the marks cannot see from a near-frontal view, or read
+    # wrongly through the renderer's own painting (a lip's height is its painted colour, which
+    # a volume target leaves as it was; a cheekbone's height is shading, not outline). The
+    # marks then fit the other axes around it. Owner, 2026-11-13, of Sarah Grey: "her
+    # cheekbones are higher ... she has finer features", and her thin lips.
+    held = {}
+    for k in (portrait.get('read_by_eye') or {}).get('hold', []):
+        if k not in eye:
+            sys.exit(f"{person}: read_by_eye holds {k} but gives it no value")
+        if axes[k]['kind'] == 'one_of':
+            sys.exit(f"{person}: read_by_eye cannot hold {k}, a choice of shapes")
+        held[k] = max(-1.0, min(1.0, eye[k]))   # the fitted axes' own bounds
+        base += W @ delta_at(axes[k], held[k], 0, rows)
+        fitted.remove(k)
     # Each signed axis is piecewise linear; precompute its two halves at +-1 on the landmark rows.
     halves = {}
     for aid in fitted:
@@ -349,11 +364,12 @@ def fit(person):
     # The same reading as a ratio (1 is the line); --check lets an axis near it change sides.
     info_ratio = {aid: float(info[k] * spreads[k] ** 2) for k, aid in enumerate(fitted)}
     values = {aid: round(float(v[k]), 3) + 0.0 for k, aid in enumerate(fitted)}   # + 0.0: no -0.0
+    values.update({k: round(float(x), 3) + 0.0 for k, x in held.items()})
     if 'head_shape' in fitted:
         values['head_shape.option'] = int(option)
     per_mark = {n: round(float(np.hypot(*pix[i])), 1) for i, n in enumerate(names)}
     return {
-        'portrait': portrait, 'values': values, 'constrained': constrained, 'info_ratio': info_ratio,
+        'portrait': portrait, 'values': values, 'held': sorted(held), 'constrained': constrained, 'info_ratio': info_ratio,
         'camera': {'yaw_deg': round(float(np.degrees(cam[0])), 1), 'pitch_deg': round(float(np.degrees(cam[1])), 1),
                    'roll_deg': round(float(np.degrees(cam[2])), 1), 'px_per_m': round(float(cam[3]), 1),
                    'shift_px': [round(float(cam[4]), 1), round(float(cam[5]), 1)]},
@@ -389,6 +405,7 @@ def record(person, f):
         'read_from_picture': sorted(k for k, c in f['constrained'].items() if c),
         'mostly_prior': sorted(k for k, c in f['constrained'].items() if not c),
         **({'read_by_eye': sorted((p.get('read_by_eye') or {}).get('values', {}))} if p.get('read_by_eye') else {}),
+        **({'held_by_eye': f['held']} if f['held'] else {}),
         'fit': {'rms_px': f['rms_px'], 'per_mark_px': f['per_mark_px'], 'camera': f['camera'],
                 'landmark_vertices': f['landmarks']},
         'not_modelled': p['not_modelled'],

@@ -139,5 +139,5 @@ export function looksHairStyle(looks, base = null) {
   const h = looks?.hair;
   if (!h?.drawn) return null;
   return { ...(base ?? {}), cut: h.cut ?? base?.cut, facial: [...(h.facial ?? []), ...((base?.facial ?? []).filter((f) => /^(brows|lashes)/.test(f)))],
-    colour: h.drawn, grade: looks.grade ?? 'reconstructed', basis: looks.basis ?? '' };
+    colour: h.drawn, ...(h.facial_drawn ? { brow_colour: h.facial_drawn } : {}), grade: looks.grade ?? 'reconstructed', basis: looks.basis ?? '' };
 }
