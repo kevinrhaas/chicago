@@ -1,3 +1,10 @@
+## T-3576 — Sign-in before a year (2026-11-13)
+
+Shipped switched off: the gate, the visitors page and the vendored Firebase SDK. Next, by the
+owner: create the Firebase project (docs/SIGN-IN.md § Setting up) and send its config; the PR
+that fills js/sign-in-config.js and turns it on carries the What's-New entry. Not built: a
+ping per sign-in (needs a Cloud Function), verified email (email-link sign-in).
+
 ## T-3563 — Settings card in icon tabs; mouse sensitivity (2026-11-12)
 
 Done: Settings is eight icon tabs like Inspect's (Display · Show · Look · Graphics · Sound ·

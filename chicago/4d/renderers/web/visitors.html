@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Visitors · 4D Chicago</title>
+<meta name="color-scheme" content="dark light">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2316150f'/%3E%3Cpath d='M30 16H17M17 16L7 6M17 16L7 26' stroke='%23d8a24a' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="./css/skins.css">
+<link rel="stylesheet" href="./css/signin.css">
+<script src="./js/skin.js"></script>
+<!-- T-3576: the owner's list of everyone who has signed in to enter a year. The rules in
+     docs/SIGN-IN.md let only the owner's Google account read it; anyone else who opens
+     this page sees "this account cannot read the visitor list". -->
+<script type="importmap">
+{
+  "imports": {
+    "https://www.gstatic.com/firebasejs/13.3.0/": "./vendor/firebase-13.3.0/"
+  }
+}
+</script>
+<style>
+  :root { color-scheme: dark light; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; padding: 24px 16px 48px;
+    background: var(--page, #0A1426); color: var(--ink, #ECE6D8);
+    font: 15px/1.45 var(--font-body, system-ui, sans-serif);
+  }
+  main { width: min(1100px, 100%); margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; }
+  main > *, .split > * { min-width: 0; }
+  header { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 12px; }
+  h1 { margin: 0; font: var(--display-weight, 300) clamp(28px, 6vw, 40px)/1 var(--font-display, inherit); letter-spacing: var(--display-tracking, 0); }
+  .eyebrow, th, .tile dt, .who {
+    font: var(--label-weight, 400) 11px/1.2 var(--font-label, var(--font-mono, monospace));
+    letter-spacing: var(--label-tracking, .14em); text-transform: uppercase; color: var(--ink-dim);
+  }
+  .eyebrow { margin: 0 0 6px; }
+  .who { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  button, select {
+    min-height: 40px; padding: 0 14px; border-radius: var(--r-control, 4px); cursor: pointer;
+    font: 600 14px/1 var(--font-body, inherit); color: var(--ink); background: transparent;
+    border: 1px solid var(--edge-strong, var(--edge));
+  }
+  button.primary { color: var(--accent-ink); background: var(--accent); border-color: var(--accent); }
+  .panel { padding: 16px; border: 1px solid var(--edge); border-radius: var(--r-screen, 10px); background: var(--panel-solid, var(--panel)); }
+  #status { margin: 0; color: var(--ink-dim); }
+  #status.bad { color: var(--alert, #E0457B); }
+  .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin: 0; }
+  .tile { padding: 12px 14px; border: 1px solid var(--edge); border-radius: var(--r-screen, 10px); background: var(--panel-solid, var(--panel)); }
+  .tile dt { margin: 0 0 6px; }
+  .tile dd { margin: 0; font: var(--display-weight, 300) 30px/1 var(--font-display, inherit); }
+  .tile small { display: block; margin-top: 6px; color: var(--ink-faint); font-size: 12px; }
+  h2 { margin: 0 0 10px; font: 600 16px/1.2 var(--font-body, inherit); }
+  .bars { display: grid; gap: 6px; margin: 0; padding: 0; list-style: none; }
+  .bars li { display: grid; grid-template-columns: 90px 1fr 48px; gap: 10px; align-items: center; font-size: 13px; }
+  .bars i { display: block; height: 10px; border-radius: 5px; background: var(--accent); min-width: 2px; }
+  .bars b { text-align: right; font-weight: 600; }
+  .split { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { padding: 9px 10px; text-align: left; border-bottom: 1px solid var(--edge); white-space: nowrap; }
+  td.email { white-space: normal; word-break: break-all; min-width: 180px; }
+  td.num { text-align: right; }
+  tbody tr:hover { background: var(--skin-glow, rgba(255,255,255,.04)); }
+  .tools { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+  input[type=search] {
+    min-height: 40px; padding: 0 12px; min-width: 0; flex: 1 1 200px; max-width: 360px;
+    border: 1px solid var(--edge-strong, var(--edge)); border-radius: var(--r-control, 4px);
+    font: 16px/1 var(--font-body, inherit); color: var(--ink); background: var(--panel-raised, transparent);
+  }
+  [hidden] { display: none !important; }
+  @media (max-width: 600px) {
+    th:nth-child(4), td:nth-child(4) { display: none; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div>
+      <p class="eyebrow">4D Chicago · Sign-ins</p>
+      <h1>Visitors</h1>
+    </div>
+    <div class="who"><span id="who"></span><button id="sign-in" class="primary" type="button" hidden>Sign in with Google</button><button id="sign-out" type="button" hidden>Sign out</button></div>
+  </header>
+  <p id="status" role="status" aria-live="polite">Loading…</p>
+  <section id="report" hidden>
+    <dl class="tiles" id="tiles"></dl>
+  </section>
+  <section id="usage" class="split" hidden>
+    <div class="panel"><h2>Entries by year · 30 days</h2><ul class="bars" id="by-year"></ul></div>
+    <div class="panel"><h2>Entries by device · 30 days</h2><ul class="bars" id="by-device"></ul></div>
+    <div class="panel"><h2>Entries by day · 14 days</h2><ul class="bars" id="by-day"></ul></div>
+  </section>
+  <section id="people" class="panel" hidden>
+    <div class="tools">
+      <h2>Everyone who has come in</h2>
+      <input id="filter" type="search" placeholder="Filter by email or name" aria-label="Filter visitors">
+      <button id="csv" type="button">Download CSV</button>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Email</th><th>Name</th><th>Signed in with</th><th>First seen</th><th>Last seen</th><th class="num">Entries</th><th>Years</th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+<script type="module" src="./js/visitors.js"></script>
+</body>
+</html>
