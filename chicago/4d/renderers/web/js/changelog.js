@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2914, ts: '2026-11-13T04:35:19.667Z', date: 'Nov 12, 2026, 10:35 PM CT', title: '1721 Prairie\'s frame house gets its whole front: wings, bays and porch', kind: 'feature',
+    items: [
+      'Wirt Dexter\'s 1863 frame house behind 1721 Prairie now shows the front the Detroit print of the Pullman house sees across the side yard: two gabled wings with two-storey bay windows either side of an arched porch and front door, a shuttered window over the porch, bracketed eaves and four tall chimneys, painted a fawn body with dark brown trim and green shutters under a wood-shingle roof, its chimneys buff brick.',
+      'Built in clapboard from the timber kit, which can now hang louvred shutters beside a window and give a house several chimneys; how far the wings stand out and the paint colours (the old photographs are black and white) are liberties, and the part the brick front was moved onto in 1902 is not rebuilt.',
+    ] },
   { v: 2913, ts: '2026-11-13T03:42:00.893Z', date: 'Nov 12, 2026, 9:42 PM CT', title: 'Walk the town in a VR headset', kind: 'feature',
     items: [
       'A headset\'s browser, or a WebXR emulator on a computer, shows a VR key beside the fly key; press it to stand in the town in stereo and look round by turning your head.',

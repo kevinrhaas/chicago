@@ -464,6 +464,20 @@ def frame_house_errors(fh: dict) -> list[str]:
     ch = fh.get("chimney")
     if ch is not None and not all(_num(ch.get(k)) for k in ("u_m", "v_m", "width_m", "depth_m", "above_ridge_m")):
         out.append("chimney needs u_m, v_m, width_m, depth_m and above_ridge_m")
+    for k, c in enumerate(fh.get("chimneys") or []):     # T-3566: a house of several stacks
+        if not all(_num(c.get(x)) for x in ("u_m", "v_m", "width_m", "depth_m", "above_ridge_m")):
+            out.append(f"chimneys[{k}] needs u_m, v_m, width_m, depth_m and above_ridge_m")
+        if "block" in c and c["block"] not in ids:
+            out.append(f"chimneys[{k}]: block names no block of this house")
+    for b in blocks:     # T-3566: louvred blinds beside a window
+        for w in b.get("walls") or []:
+            for x in w.get("windows") or []:
+                sh = x.get("shutters")
+                if sh is not None and not (_num(sh.get("width_m")) and 0.2 <= sh["width_m"] <= 0.8
+                                           and _num(sh.get("louvre_m")) and 0.04 <= sh["louvre_m"] <= 0.12
+                                           and set(sh) <= {"width_m", "louvre_m", "frame_m"}):
+                    out.append(f"{b.get('id')}.{w.get('side')}: shutters need width_m 0.2-0.8 and louvre_m 0.04-0.12 "
+                               "(frame_m optional)")
     out += _frame_upper_errors(fh)
     return out
 
