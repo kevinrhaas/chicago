@@ -168,6 +168,7 @@ import { resolveSharpness } from './sharpness.js';
 import { createFrameGovernor, describeGovernor } from './frame-governor.js';
 import { mountPacingRead } from './pacing-read.js';
 import { decide as deviceChoice, profileDevice, readCached as cachedDeviceProfile } from './device-profile.js';
+import { advanceGust, syncGustUniform } from './wind-gust.js';
 
 const VERSION = '0.1.0';
 
@@ -5579,7 +5580,12 @@ async function boot() {
         modeNote: (jaunt) => jauntWay(jaunt).note,
         license, narration,
         estimate: (row, mode) => estimates.estimateJaunt(row, mode, estimateOptions(mode)) });
-      const actions = Object.fromEntries(['next', 'prev', 'end', 'menu', 'choose', 'revise', 'retry', 'detail', 'returnFromDetail', 'setMode', 'straight', 'resumeRide', 'dismissContext'].map(name => [name, (...args) => { if (['next', 'prev', 'straight'].includes(name)) narration.prime(); return jauntRuntime[name](...args); }]));
+      const actions = Object.fromEntries(['next', 'prev', 'end', 'menu', 'choose', 'revise', 'retry', 'detail', 'returnFromDetail', 'setMode', 'straight', 'resumeRide', 'dismissContext'].map(name => [name, (...args) => {
+        // T-3578: Next, Previous and End are the visitor moving on: the voice still speaking stops
+        // (and nothing it had queued plays), rather than talking over the next part.
+        if (['next', 'prev', 'end'].includes(name)) narration.stop();
+        if (['next', 'prev', 'straight'].includes(name)) narration.prime();
+        return jauntRuntime[name](...args); }]));
       const jauntCards = cards.createJauntCards({ registry: loaded.registry, popup, hud, api,
         sources: () => { openSources(); return sourcesPromise; }, onReturn: () => jauntRuntime.returnFromDetail() });
       actions.closeOverlay = jauntCards.close;
@@ -6492,6 +6498,8 @@ async function boot() {
     else intent.clear();
     terrain.update(dt);
     nightLights.update(dt);
+    // T-3586: one gust clock for every swaying plant and the wind you hear.
+    advanceGust(dt); syncGustUniform();
     const asked = intent.takeInteract();
     if (asked && !gateOpen) travel.stop('input');
     interactions.update(frameDt);

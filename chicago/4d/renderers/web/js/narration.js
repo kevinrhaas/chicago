@@ -115,6 +115,8 @@ export function createNarration({ fetcher = globalThis.fetch?.bind(globalThis), 
   subtle = globalThis.crypto?.subtle, onChange = () => {}, location = null } = {}) {
   let index = null, indexUrl = null, loading = null, failed = false;
   let el = null, routed = null, primed = false, playing = null, queued = null, at = null, error = null;
+  let heard = false;               // the part `at` names has been played or queued once
+  let opening = null;              // an outing's opening it showed that has not been heard yet
   const keys = new Map();          // `${jaunt}:${part}:${id}` → { sha, speaker } of the words shown there
   const prepared = new Map();      // jaunt id → the content it was prepared for
   const listeners = new Set([onChange]);
@@ -187,6 +189,7 @@ export function createNarration({ fetcher = globalThis.fetch?.bind(globalThis), 
   }
   function start(key) {
     const c = clipAt(key); if (!c || !route()) return false;
+    if (key === opening) opening = null;
     const a = element(); queued = null; error = null;
     // A clip's file is named from the host's root, as the index's own path is (INDEX_PATH).
     a.src = new URL(c.file, new URL('../', indexUrl)).href;
@@ -214,13 +217,23 @@ export function createNarration({ fetcher = globalThis.fetch?.bind(globalThis), 
     /** The part an outing now shows. Arriving at a new one with narration audible plays it,
      *  or queues it behind a voice still speaking. Null (travelling) changes nothing. */
     at(jaunt, part, id) {
-      if (!jaunt) { at = null; stop(); return; }
+      if (!jaunt) { at = null; opening = null; stop(); return; }
       if (part == null) return;
       const key = slot(jaunt, part, id);
-      if (key === at) return;
-      at = key;
+      if (key === at && heard) return;
+      if (key !== at) { at = key; heard = false; }
+      if (part === 'opening') opening = key;
+      else if (opening && !opening.startsWith(`${jaunt.id}:`)) opening = null;
+      // Not decided yet when the clip is still being looked up (a jaunt's first Start: the index
+      // loads while the flight begins) or sound has not woken: the repaint that follows asks again.
       if (!clipAt(key) || !speech()?.audible) return;
+      heard = true;
+      // The owner (2026-11-13): the narrator reads the title and Background, then the first host
+      // speaks. A flight shorter than the index's load lands before the opening could start, so
+      // the first stop plays the unheard opening first and its own voice after it.
+      const first = part === 'stop' && opening && clipAt(opening) ? opening : null;
       if (playing) { if (playing !== key) { queued = key; changed(); } }
+      else if (first && start(first)) { queued = key; changed(); }
       else start(key);
     },
     /** A Listen tap: stop this voice, or start it now (waking sound if it is off). */
@@ -230,7 +243,8 @@ export function createNarration({ fetcher = globalThis.fetch?.bind(globalThis), 
       prime();
       return Promise.resolve(wake()).then(() => { if (playing) stop(); return start(key); });
     },
-    stop,
-    end() { at = null; stop(); },
+    /** Stop the voice; the visitor moving on (Next, Previous, End) also passes over an unheard opening. */
+    stop() { opening = null; stop(); },
+    end() { at = null; opening = null; stop(); },
   };
 }
