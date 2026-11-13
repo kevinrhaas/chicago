@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2920, ts: '2026-11-13T08:32:24.341Z', date: 'Nov 13, 2026, 2:32 AM CT', title: '1824 Prairie\'s eaves sit on paired brackets over a frieze', kind: 'improvement',
+    items: [
+      'In 1904, the old villa at 1824 Prairie Avenue now has its deep eaves on brackets set in pairs, with a frieze band running under them all the way round. Before, the brackets were single and evenly spaced. Two photographs from about 1900 and one from before 1880 all show the pairs and the frieze.',
+      'The small sunk panels between the pairs are not carved. The pairs\' spacing and the brackets\' size are measured from the older photograph.',
+    ] },
   { v: 2919, ts: '2026-11-13T06:54:05.190Z', date: 'Nov 13, 2026, 12:54 AM CT', title: 'Jaunts can be heard: stops read aloud in chosen voices', kind: 'feature',
     items: [
       'A voiced jaunt shows Listen on its welcome, each stop and its ending. With sound on, each stop\'s voice starts as you arrive, after the one still speaking.',

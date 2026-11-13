@@ -119,9 +119,13 @@
       "note": "A 13 in brick side wall, the contract's ordinary masonry thickness; no source measures it."
     },
     "service_wall_brick": {
-      "value": "common_buff_common_6",
-      "confidence": "reconstructed",
-      "note": "The side and rear walls in the K03 common brick of the avenue's other K01 houses: the photograph shows the north wall darker than the front's face brick but no closer than that."
+      "value": "rough_red_brown_running",
+      "confidence": "inferred",
+      "sources": [
+        "chicagology_2009_prairie_meyer_photo",
+        "monroe_1896_john_wellborn_root_meyer_plate"
+      ],
+      "note": "T-3365: the side and rear walls, and the stacks they carry up, in the K03 red-brown the front is laid in, not the avenue's buff common. The photograph prints both stacks as dark as the front's brick (the near stack's shaft at a mean grey of 111 and the far one's 133, against the front's 88-121 and the sky's 249) and darker than the brown sandstone of the front's dressings (142), which a buff brick cannot do on a blue- or orthochromatic plate; it shows the north wall darker than the front's face brick too, and Monroe's plate hatches the stacks as it hatches the front. The tone says a dark brick and not its hue: the red-brown is the brick this house is known to be faced in, carried round, as 1700-1706 Prairie's (T-3244)."
     },
     "stone_front": {
       "value": {

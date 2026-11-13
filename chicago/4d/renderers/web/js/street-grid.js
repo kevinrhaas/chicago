@@ -765,6 +765,37 @@ function cornerCrossingCard(x, face, grid, section) {
   };
 }
 
+/** T-3564: a coach house's carriage drive, from its street doorway over the curb to the roadway. */
+function carriageDriveCard(x, face, grid, section) {
+  const cd = section?.carriage_drives ?? {};
+  const street = grid.streets?.[face.street] ?? {};
+  return {
+    id: x.id,
+    sidecar: {
+      name: `${street.name_1904 ?? face.street} — the carriage drive into a coach house`,
+      phase: null,
+      change_note: `Paving ${x.width_m} m wide from the coach house's doorway across the walk and the parkway, `
+        + `over the curb, then one stone slab sloping ${x.run_m} m out onto the roadway.`,
+      placement: {
+        symbolic_location: face.where ?? face.street,
+        position_confidence: 'attested',
+        position_sources: [],
+        position_note: `Before the carriage doorway of ${x.structure} (${x.doorway}). ${x.note ?? ''}`.trim(),
+      },
+      attributes: {
+        kind: { value: 'carriage drive with stone ramp', confidence: 'reconstructed', sources: [], note: cd.note ?? '' },
+        size: {
+          value: `${x.width_m} m wide, ${x.run_m} m out, ${Math.round((x.slab_m ?? 0.15) * 100)} cm thick`, confidence: 'reconstructed', sources: [],
+          note: `The doorway's width; the slab as the corner crossings'. ${cd.liberty ?? ''}`.trim(),
+        },
+      },
+      citations: [],
+      research_doc: 'docs/RESEARCH/prairie_1904_street_section.md',
+      research_note: `Carriage drive ${x.id} of data/street_section/1904.json (T-3564).`,
+    },
+  };
+}
+
 /* -------------------------------------------------------------------------- */
 /* the layer                                                                   */
 /* -------------------------------------------------------------------------- */
@@ -867,7 +898,9 @@ export async function createStreetGrid({
   /** T-3200: the corner crossings, each face's walk carried on across the other street's
    *  parkway and over its curb, then one stone slab sloping from the curb's face out and
    *  down onto the roadway. */
-  const crossings = (section?.corner_crossings?.crossings ?? []).map((x) => {
+  // T-3564: a coach house's carriage drive is laid as a corner crossing is, from the lot line.
+  const crossings = [...(section?.corner_crossings?.crossings ?? []),
+    ...(section?.carriage_drives?.drives ?? [])].map((x) => {
     const b = bboxOf(x.ramp);
     return {
       x, whole: ccwOf([x.flat[0], x.flat[1], x.ramp[2], x.ramp[3]]),
@@ -1702,6 +1735,7 @@ export async function createStreetGrid({
     }
     if (spanId.startsWith('xf:') || spanId.startsWith('xr:')) {
       const hit = crossingById.get(spanId.slice(3));
+      if (hit?.x.kind === 'carriage_drive') return carriageDriveCard(hit.x, hit.face, grid, section);
       return hit ? cornerCrossingCard(hit.x, hit.face, grid, section) : null;
     }
     if (spanId.startsWith('cp:')) {

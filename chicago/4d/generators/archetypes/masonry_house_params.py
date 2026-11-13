@@ -894,6 +894,10 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                 "finial_m": float(wd.get("finial_ft",0.0))*FT,
                 "hood_overhang_m": float(wd.get("hood_overhang_ft",.25/FT))*FT,
                 "conf": cf("v4_detail")}
+        # T-3564: plan areas whose brick is buff Chicago common brick (owner's photographs).
+        p.detail["common_brick"] = [{"x0": min(fr.x(w) for w in a["W"]), "x1": max(fr.x(w) for w in a["W"]),
+                                     "y0": min(fr.y(s) for s in a["S"]), "y1": max(fr.y(s) for s in a["S"])}
+                                    for a in raw.get("common_brick", {}).get("areas", [])] or None
         rework = raw.get("stable_roof_rework")
         if rework:
             west = next(r for r in p.ranges if r["name"] == "west_wing")
@@ -959,6 +963,9 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                 dormer["style"] = wd.get("style")
                 dormer["crest_x"] = fr.x(wd["crest_W"])
                 dormer["hood_front"] = fr.x(wd["hood_front_W"])
+                # T-3564: the owner's photographs 13-17 of the alley dormer.
+                if wd.get("portal"):
+                    dormer["portal"] = dict(wd["portal"])
                 west["stable_roof"]["dormer"] = dormer
         alcove = raw.get("north_entry_alcove")
         if alcove:
@@ -983,6 +990,8 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                     (0 if "cheek_cap_top" in alcove else .10),
                 "cheek_depth": float(alcove.get("cheek_depth_ft", 1.75))*FT,
                 "cheek_corner_radius": float(alcove.get("cheek_corner_radius_ft", .45))*FT}
+            if alcove.get("cheek_plaque"):
+                p.detail["north_entry_alcove"]["cheek_plaque"] = alcove["cheek_plaque"]
             for o in p.openings:
                 if o["face"] == "north" and o["kind"] == "arch" and o["u1"]-o["u0"] > 3:
                     o["style"] = "north_entry_alcove"
@@ -1012,6 +1021,11 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                 # T-3030: the nose's own depth, read from the Cornell view.
                 p.detail["north_stable_fabric"]["hoist_stone"]["nose"] = \
                     hoist["nose_ft"]*FT
+            # T-3564: the owner's photographs' boarded carriage leaves and shut
+            # green loft door, carried in metres as the record writes them.
+            for key in ("carriage_leaves", "loft_door"):
+                if stable_fabric.get(key):
+                    p.detail["north_stable_fabric"][key] = dict(stable_fabric[key])
             leaves = stable_fabric.get("loft_leaves")
             if leaves:
                 p.detail["north_stable_fabric"]["loft_leaves"] = {

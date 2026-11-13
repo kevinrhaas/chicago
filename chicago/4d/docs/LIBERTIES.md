@@ -25219,10 +25219,13 @@ pendant) is T-1914's; a turned finial stands for the crest.
 
 **How to resolve:** T-1914 (S05B) details the front to the photograph and closes the image gate on this
 building; a reading of the rear or the flank would replace the invented openings there.
-**Covers:** `mayer_house_2009_prairie.as_mapped_1904.form.wall_thickness_front_m`, `mayer_house_2009_prairie.as_mapped_1904.form.wall_thickness_side_m`, `mayer_house_2009_prairie.as_mapped_1904.form.service_wall_brick`, `mayer_house_2009_prairie.as_mapped_1904.form.street_front_trim`, `mayer_house_2009_prairie.as_mapped_1904.form.roof_form`, `mayer_house_2009_prairie.as_mapped_1904.form.roof_pitch_deg`, `mayer_house_2009_prairie.as_mapped_1904.form.eave_overhang_m`, `mayer_house_2009_prairie.as_mapped_1904.form.stair_tread_m`, `mayer_house_2009_prairie.as_mapped_1904.form.stair_landing_depth_m`, `mayer_house_2009_prairie.as_mapped_1904.form.rear_bays`, `mayer_house_2009_prairie.as_mapped_1904.form.sash_by_storey`, `mayer_house_2009_prairie.as_mapped_1904.form.rainwater`, `mayer_house_2009_prairie.as_mapped_1904.form.yard`
+**Covers:** `mayer_house_2009_prairie.as_mapped_1904.form.wall_thickness_front_m`, `mayer_house_2009_prairie.as_mapped_1904.form.wall_thickness_side_m`, `mayer_house_2009_prairie.as_mapped_1904.form.street_front_trim`, `mayer_house_2009_prairie.as_mapped_1904.form.roof_form`, `mayer_house_2009_prairie.as_mapped_1904.form.roof_pitch_deg`, `mayer_house_2009_prairie.as_mapped_1904.form.eave_overhang_m`, `mayer_house_2009_prairie.as_mapped_1904.form.stair_tread_m`, `mayer_house_2009_prairie.as_mapped_1904.form.stair_landing_depth_m`, `mayer_house_2009_prairie.as_mapped_1904.form.rear_bays`, `mayer_house_2009_prairie.as_mapped_1904.form.sash_by_storey`, `mayer_house_2009_prairie.as_mapped_1904.form.rainwater`, `mayer_house_2009_prairie.as_mapped_1904.form.yard`
 **Ticket:** T-1913 (S05A).
 **Review:** `docs/RESEARCH/photo-match/mayer_house_2009_prairie/chicagology_photo-side-by-side.jpg`.
-**Recorded:** 2026-11-03 (T-1913).
+**Recorded:** 2026-11-03 (T-1913). Amended 2026-11-12 (T-3365): the side and rear walls' brick is no longer invented. It is read
+off the photograph's tone (both stacks and the north wall print as dark as the front's red-brown and
+darker than its brown sandstone, which a buff brick cannot do) and laid in the front's red-brown, inferred
+(the record's `service_wall_brick` note), so it leaves this entry's Covers.
 
 ### L-draft-prairie-20-22-east-2352 — The east side of Prairie Avenue, 20th to 22nd, stood up as a district draft: every height, roof, opening and feature reconstructed, and 2141 left open
 
@@ -39037,6 +39040,20 @@ camera reads the trees at 43.7 and 51.3 m 2.3-2.8 m west. **Chosen (reconstructe
 16554 prints. **Review:** `docs/RESEARCH/photo-match/pullman_house_1729_prairie/taylor_16554_from_south-side-by-side.jpg`,
 `pullman_house_1729_prairie_conservatory/inland_1894_plate-side-by-side.jpg`, `detroit_det_4a08066-side-by-side.jpg` and their match records.
 
+**Extended (T-3365, 2026-11-12, Prairie Avenue's east parkway before 2009 Prairie):** the stretch
+from 23.7 to 32.8 m along `prairie__prairie_calumet_20_21`, the run the Chicagology photograph of the
+Mayer-Meyer house (c. 1890s) sees, now holds the two trees it shows, at 24.6 m (before the house's north
+corner) and 31.2 m (before its southern neighbour), where the rule stood one grown elm at 30.0 m.
+**Read:** each trunk's x (247 and 1388 px) carried to the planting line through the photograph's solved
+camera; their habit off the same print, winter-bare: one straight leader clear to about 5 m under a
+narrow head to about 7.2-7.6 m, boles about 0.19-0.25 m. Monroe's 1896 plate, drawn from about the
+same place in leaf, draws the same pair either side of the front, its trunks meeting the line within
+1 m of the photograph's. **Chosen (reconstructed):** the `high_head` form at scale 0.4 for that habit
+(its heads a little wider and its twigs straighter than the print's); each tree on the planting line,
+where both feet read 1.4-1.6 m nearer the walk; that the trees of an undated 1890s print still stand,
+not much grown, in 1904. **Review:** `docs/RESEARCH/photo-match/mayer_house_2009_prairie/chicagology_photo-side-by-side.jpg`,
+`monroe_1896_plate-side-by-side.jpg` and their match records.
+
 ### L-pullman-terrace-tubs-1934 — The Pullman palm house's summer tub plants, stood where the 1894 Inland plate shows them
 
 **Decision:** three plantings on the 1729 Prairie lot are stood where the 1894 Inland Architect
@@ -43737,6 +43754,87 @@ The figures are period sculpture, built as the sculptor made them; the record ca
 **Covers:** `fort_dearborn_massacre_monument_1893.on_18th_street_1893.form.base_d_m`, `fort_dearborn_massacre_monument_1893.on_18th_street_1893.form.plinth_d_m`, `fort_dearborn_massacre_monument_1893.on_18th_street_1893.form.die_d_m`, `fort_dearborn_massacre_monument_1893.on_18th_street_1893.form.lettering`.
 
 **Ticket:** T-3567 (piece 1 of T-3565).
+**Recorded:** 2026-11-12.
+
+### L-glessner-rock-faces-3564 — Glessner's rock-faced granite: three face profiles shared out by rule
+
+**Decision:** the owner, 2026-11-12, on his own close photographs of 2026-11-10 (chicago-evidence
+evidence/glessner-kevin-photos-2026-11-10/, 06 and 07): "they have a carved look, some of them are
+less carved but others pillow out the top 2/3 and then the bottom 1/3 is more sharp ... some are
+smoother ... you dont need every stone to match but match what is going on there". Each stone of
+the existing rock-face lattice takes one of three profiles by a hash of its place: pillowed, ledged
+(a pillow over the upper two-thirds and a sharp lip at the lower third) and smooth.
+**What is invented.** Which stone has which profile, and the shares (about two in five ledged, one
+in five smooth), the chin height and the lean of each pillow. They are read off the photographs as
+an impression, not measured stone by stone. The lattice and its triangle count are unchanged.
+**How to resolve:** a stone-by-stone survey of a wall, or rectified photographs of whole courses.
+**Ticket:** T-3564.
+**Recorded:** 2026-11-12.
+
+### L-glessner-photo-match-3564 — Glessner details matched to the owner's photographs of 2026-11-10
+
+**Decision:** the owner's own photographs of 2026-11-10 (chicago-evidence
+evidence/glessner-kevin-photos-2026-11-10/) and his notes on them set: the front-door tympanum's
+fuller, two-level roll and plant-like scrolled field (01); the green of the north sash (02-05); the
+bronze "35" address plate on the 18th Street entry cheek (08); the alley dormer's boarded hood with
+curved cheeks over a shut green loft door (13-17); the alley gate's framed, painted leaves with
+diagonal boards rising to the meeting stiles, the pier's humped capstone and its guard stone (18-19);
+and the courtyard's south wall standing about 16.5 ft high from the alley to a brick edge, where
+he identifies the Keith house's rear as having reached (19-20). On his ruling the Keith house
+(1808 Prairie) is now its full three storeys back to that rear, which is placed where the 1911
+sheet draws its brick main part ending (W 113.85; his reading by eye, about the stable wing's
+court face, is 12 ft west of it); the 9-ft court wall that stood on that line is withdrawn. His photographs 21-22 (sent 2026-11-12) set the
+stable's south brick wall: one light high in the gable under the apex, four upper windows in a row,
+and over the court wall the top of a smooth stone header, which stands over the one first-floor
+opening HABS sheet 2 draws in that wall (8.5 ft, read as three lights between two mullions). On
+his ruling of 2026-11-12 the upper row (sheet 3's 2.6-ft openings at 2-ft piers) and the
+first-floor window under its header are centred on the gable light and the ridge at W 141, as
+the photographs show them, not at sheet 3's and sheet 2's positions west of it (W 138.8-150.4 and
+W 139.8-148.3), which put the row's west end under the lower west roof's rake. He identified the
+brick of that wall and of the court wall's tall alley run as buff Chicago common brick, and both
+are laid in it rather than the court's light pink (HABS 1963 'light pink brick', which the rest
+of the court keeps); its value is reconstructed from photograph 22's channel ratios.
+**What is invented.** All sizes are read off the photographs against known openings (+/- 0.05 m;
+the tall wall +/- 1 ft in height and +/- 2 ft in where it ends); the carving is modelled to the
+photograph's impression, not measured. The photographs show the surviving fabric: that each detail
+(the plate above all, whose date is not established) stood in 1904 is the owner's ruling, not a
+dated source. Modern signs, ramps, rails, kick plates, vision lights and the iron fences over the
+gate and before the stable are left out.
+**How to resolve:** a dated photograph of any of these details before 1946 confirms or corrects it.
+**Ticket:** T-3564.
+**Recorded:** 2026-11-12.
+
+### L-glessner-coach-doors-3564 — The Glessner coach house's 18th Street doors as the owner ruled them
+
+**Decision:** the owner, 2026-11-12, of his photographs 10-11 of the present doors: "a reasonable
+representation of the 1904 door, note it includes the man door ... and also the main coach house
+door can open", and of the loft door above (12): "that green should be what is represented". Two
+sage-green leaves under a casing, every panel boarded on the diagonal, a man door with a narrow
+fixed panel in the viewer's left leaf, and the loft door shut in the same green. On his note of
+2026-11-12 the man door is the wide panel at the jamb with its latch on its own free edge, and the
+fixed panel beside it is framed to the same head and bottom rail, so the two lower panels stand the
+same height, as photograph 11 shows them.
+**What is invented.** Leaf, stile, rail and man-door sizes, read off the photographs against the
+12-ft doorway (+/- 0.05 m). The glazed upper zone of the earlier owner-supplied view is superseded
+by this ruling. The present doors date from the 1946 replacement HABS records; carrying their
+design to 1904 is the owner's ruling.
+**How to resolve:** a photograph of the doors before 1946.
+**Ticket:** T-3564.
+**Recorded:** 2026-11-12.
+
+### L-glessner-coach-drive-3564 — A carriage drive before the Glessner coach house's 18th Street doors
+
+**Decision:** the owner, 2026-11-12: "a horse and carriage can enter according to normal standards
+of how that would work ... i imagine there would be like a driveway to the coach house as well that
+should exist". Before the carriage doorway (W 134.9-147.0) the walk's paving runs from the lot line
+across the margin, the walk and the parkway at the doorway's 12-ft width, over the curb, and down
+the corner crossings' stone slab onto the roadway (data/street_section/1904.json, carriage_drives).
+**What is invented.** The drive's paving, width and slab: no source read shows it. They follow the
+corner crossings' rule (L-prairie-corner-crossings-3200) so a carriage has a way from the roadway
+to the doors.
+**How to resolve:** a photograph of 18th Street before the stable, such as the c. 1887 view from the
+north-west (cornell_adw_glessner_stable_1887), read for its drive and curb.
+**Ticket:** T-3564.
 **Recorded:** 2026-11-12.
 
 ### L-k16-1721-frame-house-3566 — Wirt Dexter's frame house of 1863 standing behind 1721 Prairie's brick front, its south front read off the Detroit print

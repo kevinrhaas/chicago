@@ -151,18 +151,34 @@ def build_stair(b,params):
         b.service_posts.append({'x':x,'y':y,'seat':base,'plate_top':plate,'top':top,'foot_width':2*h})
 
 
-def _board_leaf(b,at,lo,hi,bottom,top,spec,conf):
+def _board_leaf(b,at,lo,hi,bottom,top,spec,conf,mat=None,sides=(-1,1)):
     from archetypes import masonry_house_v4_detail as d
+    mat=d.WOOD if mat is None else mat
     half=spec['leaf_thickness_m']/2;depth=spec['groove_depth_m']
-    _box(b,(at-half+depth,lo,bottom),(at+half-depth,hi,top),conf,d.WOOD)
+    _box(b,(at-half+depth,lo,bottom),(at+half-depth,hi,top),conf,mat)
     count=max(1,round((hi-lo)/spec['board_width_m']));pitch=(hi-lo)/count
     for i in range(count):
         a=lo+i*pitch+(spec['board_joint_m']/2 if i else 0)
         q=lo+(i+1)*pitch-(spec['board_joint_m']/2 if i<count-1 else 0)
-        for side in (-1,1):
+        for side in sides:
             outer=at+side*half;inner=at+side*(half-depth)
-            _box(b,(min(inner,outer),a,bottom),(max(inner,outer),q,top),conf,d.WOOD,
+            _box(b,(min(inner,outer),a,bottom),(max(inner,outer),q,top),conf,mat,
                  ('right',) if side<0 else ('left',))
+
+
+def _framed_front(b,at,lo,hi,bottom,top,rise,spec,conf):
+    """T-3564: the alley face of a leaf as the owner photographed the surviving gate:
+    a painted frame of stiles and rails proud of boards laid on the diagonal, which
+    rise toward the meeting stiles (`rise` +1 toward higher u, -1 toward lower)."""
+    from archetypes import masonry_house_v4_detail as d
+    from archetypes.masonry_house_v4_north import diagonal_boards
+    fr=spec['framed'];o={'axis':'x','at':at-spec['leaf_thickness_m']/2,'sign':-1}
+    st,tr,br,proud=fr['stile_m'],fr['top_rail_m'],fr['bottom_rail_m'],fr['frame_proud_m']
+    for a,q,z0,z1 in ((lo,lo+st,bottom,top),(hi-st,hi,bottom,top),
+                      (lo+st,hi-st,top-tr,top),(lo+st,hi-st,bottom,bottom+br)):
+        d.slab(b,o,a,q,z0,z1,0.0,proud,conf,d.PAINTED_WOOD)
+    diagonal_boards(b,o,lo+st,hi-st,bottom+br,top-tr,fr['board_front_m'],fr,
+                    getattr(b,'reduced_service_access',False),rise=rise)
 
 
 def build_jamb_piece(b,w):
@@ -198,14 +214,65 @@ def build_jamb_piece(b,w):
         finally:
             if had:b.block=original
             else:del b.block
-        over=.06
-        _box(b,(x0-over,w['u0']-over,w['z1']),
-             (x1+over,w['u1']+over,w['z1']+d.legacy.COPING_H),w['conf'],d.TRIM)
+        gate_spec=b.params.detail['service_access']['gate']
+        if w['kind']=='pier' and 'pier_cap' in gate_spec:
+            _humped_cap(b,w,x0,x1,gate_spec['pier_cap'],conf)
+            if 'guard_stone' in gate_spec:
+                _guard_stone(b,w,x0,u,gate_spec['guard_stone'],conf)
+        else:
+            over=.06
+            _box(b,(x0-over,w['u0']-over,w['z1']),
+                 (x1+over,w['u1']+over,w['z1']+d.legacy.COPING_H),w['conf'],d.TRIM)
     finally:
         b.decorate=old
     if not hasattr(b,'service_jambs'):b.service_jambs=[]
     b.service_jambs.append({'at':u,'normal':want,'x':[x0,x1],'top':w['z1'],'dressed':True})
     return True
+
+
+def _humped_cap(b,w,x0,x1,spec,conf):
+    """T-3564: one rough capstone, square below and humped above across the pier's
+    face, as on the surviving alley pier in the owner's photographs 18 and 19."""
+    from archetypes import masonry_house_v4_detail as d
+    over=spec['over_m'];base=w['z1'];h=spec['height_m'];crown=spec['crown_m'];n=spec['segments']
+    ua,ub=w['u0']-over,w['u1']+over
+    prof=[(ua,base),(ub,base),(ub,base+h)]
+    # A flattened arch, its ends a little below the square shoulder so the top reads
+    # as one weathered boulder rather than a moulding.
+    for i in range(1,n):
+        t=i/n
+        prof.append((ub-(ub-ua)*t,base+h+crown*math.sin(math.pi*t)**.7))
+    prof.append((ua,base+h))
+    xa,xb=x0-over,x1+over
+    front=[(xa,y,z) for y,z in prof];back=[(xb,y,z) for y,z in prof]
+    b.raw(front,conf,d.ROUGH_TRIM,(-1,0,0))
+    b.raw(list(reversed(back)),conf,d.ROUGH_TRIM,(1,0,0))
+    cy=sum(y for y,_ in prof)/len(prof);cz=sum(z for _,z in prof)/len(prof)
+    for i in range(1,len(prof)):
+        j=(i+1)%len(prof)
+        want=(0,(prof[i][0]+prof[j][0])/2-cy,(prof[i][1]+prof[j][1])/2-cz)
+        b.raw([front[i],front[j],back[j],back[i]],conf,d.ROUGH_TRIM,want)
+
+
+def _guard_stone(b,w,x0,jamb,spec,conf):
+    """T-3564: the rounded guard stone at the alley foot of the pier, on its gate
+    side, that keeps carriage wheels off the corner (owner's photograph 19)."""
+    from archetypes import masonry_house_v4_detail as d
+    h,proud,width=spec['height_m'],spec['proud_m'],spec['width_m']
+    inward=1 if abs(jamb-w['u0'])<1e-7 else -1
+    ua=jamb;ub=jamb+inward*min(width,w['u1']-w['u0'])
+    ua,ub=sorted((ua,ub))
+    # A boulder seen end-on: rounded off toward the alley and the top, flat on the pier.
+    prof=[(x0,0.0)]
+    for i in range(7):
+        t=i/6*math.pi/2
+        prof.append((x0-proud*math.cos(t)**.8,h*math.sin(t)**.8))
+    pts=prof;cx=x0-proud/3;cz=h/3
+    a=[(x,ua,z) for x,z in pts];c=[(x,ub,z) for x,z in pts]
+    b.raw(a,conf,d.GRANITE,(0,-1,0));b.raw(list(reversed(c)),conf,d.GRANITE,(0,1,0))
+    for i in range(1,len(pts)-1):
+        want=((pts[i][0]+pts[i+1][0])/2-cx,0,(pts[i][1]+pts[i+1][1])/2-cz)
+        b.raw([a[i],a[i+1],c[i+1],c[i]],conf,d.GRANITE,want)
 
 
 def _brace(b,at,back,low_y,high_y,low_z,high_z,width,conf):
@@ -235,8 +302,15 @@ def build_gate(b,w):
     leaves=[(u0+spec['jamb_gap_m'],mid-spec['centre_gap_m']/2,1),
             (mid+spec['centre_gap_m']/2,u1-spec['jamb_gap_m'],-1)]
     b.service_gate={'leaves':[],'hinges':[],'threshold_top':spec['threshold_top_m'],'threshold_bottom':spec['threshold_bottom_m']}
+    # The courtyard face keeps its oak boards, ledges and brace; the framed,
+    # painted face is the alley side the owner photographed.
+    framed='framed' in spec
     for lo,hi,direction in leaves:
-        _board_leaf(b,at,lo,hi,bottom,top,spec,conf)
+        if framed:
+            _board_leaf(b,at,lo,hi,bottom,top,spec,conf,sides=(1,))
+            _framed_front(b,at,lo,hi,bottom,top,direction,spec,conf)
+        else:
+            _board_leaf(b,at,lo,hi,bottom,top,spec,conf)
         back=at+spec['leaf_thickness_m']/2
         levels=[bottom+(top-bottom)*fraction for fraction in spec['hinge_fractions']]
         for z in levels:
