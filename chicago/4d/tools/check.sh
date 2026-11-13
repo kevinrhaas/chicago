@@ -269,6 +269,8 @@ step "Boot phase readiness, failure and history contract (T-1246)" \
   node tools/test_boot_phases.mjs
 step "Crash-aware boot: a dead session steps down once, a lost context reloads at most once (T-2547)" \
   node tools/test_crash_guard.mjs
+step "The sign-in gate asks only where it is switched on, never locks a visitor out, and writes only what its Firestore rules allow (T-3576)" \
+  node tools/test_sign_in.mjs
 step "The black box keeps the page's last steps in local storage, and the next page shows a cut-off page's on the crash card (T-2826)" \
   node tools/test_blackbox.mjs
 step "A pick draws only the building batches its ray meets, and a phone's look-around answers from the parts' boxes without drawing (T-2827)" \
@@ -464,6 +466,8 @@ step "Walking people keep their Interact menu, explicit picks persist, and dismi
   node tools/test_person_interactions.mjs
 step "Glessner's court and side doors, and every built 1904 front door, open and shut as people pass, up and down their stairs (T-3524, T-3554)" \
   node tools/test_house_passages.mjs
+step "Nobody walks through a 1904 house's stoop, area wall, railing or bay: every resident's outdoor place and walk keep a skirt's width off what the house builds outside its walls (T-3554)" \
+  node tools/test_house_barriers.mjs
 step "Loaded parade ground delegates to its native owner; failed assets and sundial geometry remain required (T-3041)" \
   node tools/test_parade_presence.mjs
 step "Jaunt daybook: idempotent keepsakes, data ranks, honest recovery (T-1258)" \
@@ -1442,6 +1446,14 @@ step "a K01 frontage carries a K08 tower past its eave, closed above the wall he
 # across the shaft's junctions and then the stage's; a stage or finial out of range refused.
 step "a K08 round tower carries a corbelled upper stage and a sized finial (T-1890)" \
   python3 tools/test_k08_tower_stage.py
+
+# T-3370. ...and a K08 bay's pilasters stand in some storeys alone, on a whole stage's ring, and
+# a K08 architrave stands on colonnettes (1936 Prairie's belvedere, off the Chicagology
+# photograph): eight shafts at its four corners between its floor line and its eaves, its four
+# frames on columns; storeys out of range or under the stage, and columns under no impost or no
+# prouder than their band, refused.
+step "a K08 belvedere carries corner pilasters and colonnetted frames (T-3370)" \
+  python3 tools/test_k08_stage_pilasters.py
 
 # T-1890. ...and a K08 storey stands on a corbel table, and a gable panel is carved as a fan
 # (1801 Prairie's 18th Street section, off the Taylor print and HABS photograph 2): the course
