@@ -38,10 +38,12 @@ export const HAIR_CUTS = Object.freeze({
   // likeness, not a picture of her): the cleared bun hair drawn up from the face all round, its
   // bun turned up over the back of the head to sit as a knot high on the crown
   // (`bun_to_crown_deg`, human-hair.js bunToCrown). Like drawn_back_bun_1904 the cap carries its
-  // own fine strands and grows no scalp cards; brows and lashes still grow from her face.
+  // own fine strands and grows no scalp cards; brows and lashes still grow from her face. Its
+  // `cap_tint` takes the cap's brown to the sheet's ash: set by the hair's tone against the
+  // forehead's on the sheet and on a render (2026-11-13), where the cap had read dark and violet.
   swept_up_topknot_1904: Object.freeze({
     flow: 'swept_up', part_cm: 0, lengths_cm: Object.freeze({ top: 6, side: 5, back: 4 }),
-    knot_cm: Object.freeze({ up: 10, back: 8 }), scalp_cards: false, bun_to_crown_deg: 62, bun_knot_scale: .7, cap_tint: Object.freeze([1.1, 1.3, 1.75]),
+    knot_cm: Object.freeze({ up: 10, back: 8 }), scalp_cards: false, bun_to_crown_deg: 62, bun_knot_scale: .7, cap_tint: Object.freeze([1.4, 1.9, 1.75]),
     lift_mm: Object.freeze({ root: .6, tip: 1.4 }), density: 1, curl: .04, hang: false,
   }),
   // A woman's hair of the 1900s worn as a real bun (T-3434): her cap is a cleared bun hair
@@ -231,21 +233,21 @@ export const FACIAL_HAIR = Object.freeze({
     length_cm: .45, fall: -.1, fall_ends: Object.freeze([-1, .35]), outward: 1, taper: .35, curl: .04, even: .7, exact: true,
     lift_mm: Object.freeze({ root: .12, tip: .25 }), width_mm: .55, cover: 2.2, spread: .3,
   }),
-  // T-3553: the brows as the Greys' stand-in portraits set them, measured against the eyes on
-  // the portrait and on a render of the fitted face by the same landmark model: Sarah's fine
-  // brows sit 1.25 cm lower over the eyes than brows_fine draws them on the lady's body, and
-  // William's full brows 1.45 cm lower than brows_full, on the brow bone close over the eyes as his
-  // turnaround sheet shows them (re-measured 2026-11-13 on the faces refitted to the side views, and
-  // lowered again when drawn beside the sheet, where they floated a finger's width above the lids).
+  // T-3553: the brows as the Greys' stand-in sheets set them, measured from the pupils on the
+  // owner's square-on turnaround views (the eyes' centres are the face frame's origin): Sarah's
+  // fine brows 1 to 1.5 cm above them, 0.45 cm lower than brows_fine draws them on the lady's
+  // body, and William's full brows 0.8 to 1.4 cm, on the brow bone close over the eyes. (Owner,
+  // 2026-11-13, of a lower placement: "her eyebrows are on her lids", "a little higher", and of
+  // his: "double eyebrows", a band so tall it ran over the brow bone's fold in two rows.)
   brows_fine_low_1904: Object.freeze({
-    region_cm: Object.freeze({ x: [1.3, 4.6], y: [.27, .67], z_min: -1.5, droop: .55 }), facing: 'front',
+    region_cm: Object.freeze({ x: [1.3, 4.6], y: [1, 1.5], z_min: -1.5, droop: .55 }), facing: 'front',
     length_cm: .45, fall: -.1, fall_ends: Object.freeze([-1, .35]), outward: 1, taper: .35, curl: .04, even: .7, exact: true,
     lift_mm: Object.freeze({ root: .12, tip: .25 }), width_mm: .55, cover: 2.2, spread: .3,
   }),
   // His are drawn hair by hair, spaced evenly and lying flatter (`even`, `exact`), so they read
   // as the portrait's soft sandy brows rather than a painted band.
   brows_full_high_1904: Object.freeze({
-    region_cm: Object.freeze({ x: [1.1, 5], y: [0, .75], z_min: -1.8, droop: .6 }), facing: 'front',
+    region_cm: Object.freeze({ x: [1.1, 5], y: [.8, 1.4], z_min: -1.8, droop: .6 }), facing: 'front',
     length_cm: .7, fall: -.05, fall_ends: Object.freeze([-.8, .4]), outward: 1, taper: .3, curl: .08, even: .7, exact: true,
     lift_mm: Object.freeze({ root: .15, tip: .45 }), width_mm: .5, cover: 3.2, spread: .45, jitter_deg: 10,
   }),
