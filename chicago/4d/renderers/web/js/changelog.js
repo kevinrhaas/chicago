@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2943, ts: '2026-11-13T19:49:18.161Z', date: 'Nov 13, 2026, 1:49 PM CT', title: '1936 Prairie\'s front windows get their carved crests', kind: 'change',
+    items: [
+      'In 1904, the upstairs windows on 1936 Prairie Avenue\'s front now carry the carved scrolled crests the old photograph shows over their stone hoods, and the tower\'s pair of windows over the front door stands in moulded stone frames crested the same way.',
+      'The crests\' sizes are measured from the photograph; their carving is simplified.',
+    ] },
   { v: 2942, ts: '2026-11-13T19:47:55.601Z', date: 'Nov 13, 2026, 1:47 PM CT', title: 'Sarah Grey\'s jaw narrower and collar lowered, William\'s hair combed', kind: 'fix',
     items: [
       'Sarah\'s jaw is narrower from the front, her chin\'s profile as it was.',
