@@ -35430,6 +35430,8 @@ bay's carry into the mansard; a placement ruling for the wall south of the bay.
 
 **Revised 2026-11-12 (T-1887, the porch's south end):** the porch's south end is carried back on a diagonal from its front corner, over the south column, to the canted bay's north cheek, on a third round column against the cheek (K01's splayed porch end): the entablature's end and the column are placed off the automobile photograph through its square-on camera (the entablature meeting the cheek at x 418 px, the column at x 443), and the south arch is turned on the diagonal between the two columns. Beneath it a terrace at the landing's height runs south of the stoop to the cheek, its front a stone parapet pierced by four upright slots, as the print shows it. Invented there: the diagonal's plan between those two readings (one camera fixes each point's bearing, not its depth: the depth is taken where the bearing meets the cheek), the third column's depth (0.92 m out), the terrace's depth (the landing's) and the parapet's slot size. The partial view's camera puts the third column about 0.5 m nearer the south column than this; the two fits disagree and the better-solved one places it. Its match record now reads `matches`: its last open item, the mansard's height, is re-read against the window under it and comes to about 0.3 m short, at the bar. Still open: the automobile print's front wall south of the bay.
 
+**Revised 2026-11-13 (T-1887, the flanks' stone):** the three-storey block's north and south flanks are laid in the front's Lemont ashlar for 14.0 m back from the front, and the canted bay on the south flank in the same stone (K01's `stone_front.flanks` with its new `to_m`): the 1911 sheet edges that block's north, east and south walls in one blue (stone) band with its brick inside a dashed line, and the two-storey range behind in plain pink, and the automobile photograph shows light coursed stone at its left edge, where the build had buff brick. The sheet's block is 13.9 m deep; the stone is held to 14.0 so it meets the flank bay the sheet draws inside the band. Read, not invented: which walls are stone and how far back. Invented there: the flanks' coursing and dressing (the front's, smooth; no picture sees a flank square-on), and the brick behind the stone, as before. Still open: the automobile print's face south of the bay, which reads frontal and windowless across its left edge where the stone flank recedes with its two windows.
+
 ### L-pullman-glasshouses-1800-calumet-3164 — Pullman's glasshouse ranges and lodge across 18th Street, read off the 1911 sheet and glazed from the K13 kit
 
 **Decision:** the 1904 scene gains the Pullman estate's glasshouse ground at 1800 S. Calumet Avenue,
@@ -42934,10 +42936,15 @@ and their servants (2012), a servants' Christmas (2012) and a home for servants 
 the greetings ("Hej", "Hallo"), the choice of facts and the hand-on from one person to the next are ours. That
 all eight are at home on one spring morning (15 April 1904): the census staff are graded inferred, counted four
 years before the scene. Each host's mark. The stable helper's chores (the harness, the carriage, the doves).
-Charles Nelson's unbroken service from 1880 to 1904 (the record has him in 1880, 1894 and 1900).
+Charles Nelson's morning visit: the museum dates his service as coachman from 1878 until 1902 (The Glessner
+Journal, August 2021), so in 1904 he is no longer the coachman, and the walk has him come back for the morning
+to show the visitor his old stable, and say so (the owner, 2026-11-13: *"if charles was not there then we should
+either replace him with whoever was or correct his script for the jaunt"*; no source read names the coachman of
+1902-1906, so his script was corrected, T-3584).
 **How to resolve:** a record of the staff in 1904 (Frances Glessner's servants' journal, the 1910 census for the
 house), or a photograph of any of them, replaces the matching line; a person found not to be there in 1904 is
-taken off the walk.
+taken off the walk, or, like Charles Nelson, told as a visitor. A record naming the coachman of 1902-1906 puts
+him at the stable stop.
 **Applies to:** `data/jaunts/glessner-household-tour.json`; the stop `hosts` field (`renderers/web/js/jaunt-hosts.js`).
 **Ticket:** T-3525.
 **Recorded:** 2026-11-08 (T-3525).
@@ -43952,4 +43959,12 @@ No insect sounds outside summer. Gains, gaps, the 9 m crown height and the 24/11
 **Left out on purpose:** the house sparrow, the commonest street bird of 1904 (Woodruff's "imported sparrows"), has no licensed recording in the library yet, so it is not heard rather than faked with another bird. No European starling: it is not in Woodruff's 1907 list and reached Chicago later.
 **Re-opens on:** a licensed house-sparrow or chimney-swift recording, or a period account of Prairie Avenue's birds, insects or trees.
 **Ticket:** T-3585.
+**Recorded:** 2026-11-13.
+
+### L-wind-gusts-3586 — One gust rhythm for the swaying plants and the wind you hear
+
+**Decision:** the owner, 2026-11-13: *"it would be nice if the wind sound worked with the trees so it would be noticeable, to see when the trees blow"*, then *"yes lets fix the wind"* and *"assume this applies in all years"*. Every tree, wall vine and yard plant drawn through `tree-surface.js`, and the prairie and lawn plants of `flora.js`, used to sway at one constant strength. They now share one gust rhythm (`renderers/web/js/wind-gust.js`): a front that crosses the town from the south-west at 7 m/s, as the fort's flags already fly, its strength the sum of three slow swells (48, 30 and 20 s) repeating every 240 s, from 0.35 of the old sway in a lull to at most the old sway at a gust's top, so nothing swings farther than before and a wall vine stays off its wall. The recorded leaf rustle follows the same gust where the listener stands, from 0.3 to 1.6 times its old level, which on average stays under the quiet town mix the owner set on 2026-11-11. All three years.
+**Not invented:** the south-westerly, which flags.js L390 already reconstructs as Chicago's prevailing summer wind; the wind recording, its licence and its town levels.
+**Re-opens on:** a weather record for a scene date (a wind speed or a gusty day), which would set the swell and the rustle from it.
+**Ticket:** T-3586.
 **Recorded:** 2026-11-13.

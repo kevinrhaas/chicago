@@ -48,6 +48,7 @@
 
 import * as THREE from 'three';
 import { onDaylight } from './time-of-day.js';
+import { GUST_GLSL, uGustClock } from './wind-gust.js';
 // The shrub archetype's LAYOUT, in a module that imports nothing, so
 // `tools/measure_spray_grain.mjs` can measure the grain without a browser and
 // without a second copy of the corner arithmetic. See K57.
@@ -8640,6 +8641,8 @@ function plantMaterial({ uniforms, billboard = false, membrane = 1.0, gpuNear = 
       uChiWind: uniforms.uChiWind,
       uChiSway: uniforms.uChiSway,
       uChiWaveK: uniforms.uChiWaveK,
+      // T-3586: the shared gust rhythm (wind-gust.js), the trees' and the wind sound's.
+      uGustClock,
     });
     Object.assign(shader.uniforms, {
       uChiSun: uniforms.uChiSun,
@@ -8660,6 +8663,8 @@ uniform float uChiTime;
 uniform vec2  uChiWind;
 uniform float uChiSway;
 uniform float uChiWaveK;
+uniform float uGustClock;
+${GUST_GLSL}
 varying vec3 vChiNW;        // world normal, unflipped
 varying vec3 vChiPW;        // world position
 varying float vChiLit;      // how much of the sky this point can see, 0..1.6
@@ -8761,7 +8766,8 @@ varying float vChiDither;   // this plant's own phase on the ordered dither
   // across the field plus a slow gust, both fixed at the base and free at the
   // tip. This is the "wind-combed" reading the sources give the wet prairie.
   float chiPh = dot(chiInst.xz, uChiWind) * uChiWaveK + uChiTime;
-  float chiGust = 0.62 + 0.38 * sin(chiPh * 0.31 + 1.7);
+  // T-3586: scaled by the town's shared gust, 1 at a gust's top (the sway it had).
+  float chiGust = (0.62 + 0.38 * sin(chiPh * 0.31 + 1.7)) * chiTownGust(chiInst);
   transformed.xz += uChiWind
     * (uChiSway * chiGust * sin(chiPh) * chiT * chiT * aFlora.x);
   `}

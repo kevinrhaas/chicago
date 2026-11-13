@@ -296,7 +296,9 @@
       "relationship": "servant",
       "grade": "inferred",
       "sources": [
-        "census_1900_chicago_t623_roll245"
+        "census_1900_chicago_t623_roll245",
+        "glessner_journal_2021_08",
+        "census_1910_chicago_t624_roll241"
       ],
       "born": {
         "value": "1848",
@@ -310,9 +312,10 @@
         "value": "coachman",
         "confidence": "attested",
         "sources": [
-          "census_1900_chicago_t623_roll245"
+          "census_1900_chicago_t623_roll245",
+          "glessner_journal_2021_08"
         ],
-        "note": "Written as \"Coachman\" in the occupation column on 1 June 1900."
+        "note": "Written as \"Coachman\" in the occupation column on 1 June 1900. The museum dates his service as coachman from 1878 until 1902."
       },
       "census_1900": {
         "date": "1900-06-01",
@@ -321,7 +324,7 @@
         "as_enumerated": "Nelson, Charles",
         "relation_as_enumerated": "Head"
       },
-      "note": "Enumerated on 1 June 1900 in the rear building behind the house, as the head of his own household there (coachman); born June 1848 (the figures are hard to read), in Sweden, came to the United States in 1871, married. Living with him: Martha Nelson (wife), Norman J. Nelson (son), Albert C. Nelson (son), Richard Nelson (son), Martin Nelson (son), Helen Nelson (daughter). Servants changed places often, so this records who worked here in 1900; no source read says whether this person was still here on 1 July 1904."
+      "note": "Enumerated on 1 June 1900 in the rear building behind the house, as the head of his own household there (coachman); born June 1848 (the figures are hard to read), in Sweden, came to the United States in 1871, married. Living with him: Martha Nelson (wife), Norman J. Nelson (son), Albert C. Nelson (son), Richard Nelson (son), Martin Nelson (son), Helen Nelson (daughter). The museum dates his service as the Glessners' coachman from 1878 until 1902 (The Glessner Journal, August 2021), so he was no longer their coachman on 1 July 1904; who drove for them from 1902 until they changed to motor cars in 1906 is not recorded in the sources read. The 1910 census (ED 166, sheet 1B, leaf n1430) finds a chauffeur, Peter O. Lorset, at 225 East Eighteenth Street beside the house, which is after the scene. The Glessner Household jaunt has him come back for the morning to show the stable, and says so."
     },
     {
       "id": "pa1904_glessner_john_j_c1900_august_billings",

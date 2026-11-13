@@ -2330,10 +2330,15 @@ def _k02(front: dict) -> dict:
     flanks = front.get("flanks")
     if flanks is not None:
         walls_ = tuple(flanks.get("walls", ()))
-        if set(flanks) != {"walls", "dressing"} or not walls_ or not set(walls_) <= {"north", "south"} \
-                or len(set(walls_)) != len(walls_):
+        if not {"walls", "dressing"} <= set(flanks) <= {"walls", "dressing", "to_m"} or not walls_ \
+                or not set(walls_) <= {"north", "south"} or len(set(walls_)) != len(walls_):
             raise ParamError("stone_front.flanks is {\"walls\": side walls (\"north\", \"south\"), each "
-                             "once, \"dressing\": rock_faced or smooth}")
+                             "once, \"dressing\": rock_faced or smooth, optionally \"to_m\"}")
+        # T-1887: the stone may stop part-way back, the rest of the flank the K01 brick: 1828's
+        # 1911 sheet draws its three-storey front block's flanks in stone and the range behind
+        # it in brick, inside the one K01 main body
+        if "to_m" in flanks and not (isinstance(flanks["to_m"], (int, float)) and flanks["to_m"] > 0.0):
+            raise ParamError("stone_front.flanks.to_m is how far back from the front the stone runs, in metres (> 0)")
         if flanks["dressing"] not in ("rock_faced", "smooth"):
             raise ParamError("stone_front.flanks.dressing is rock_faced or smooth")
         if flanks["dressing"] == "rock_faced" and rock[1] <= 0.0:
@@ -2393,6 +2398,7 @@ def _k02(front: dict) -> dict:
         "quoin_return_m": tuple(f["corner_bond"]["return_m"]), "corners": corners,
         **({"south_return_m": south_return} if south_return is not None else {}),
         **({"flanks": tuple(flanks["walls"]), "flank_dressing": flanks["dressing"],
+            **({"flank_to_m": float(flanks["to_m"])} if "to_m" in flanks else {}),
             "flank_rock_m": rock if flanks["dressing"] == "rock_faced" else (0.0, 0.0)} if flanks else {}),
         "base_courses": base, "channel_m": f["rusticated_base"]["channel_width_m"],
         "channel_depth_m": f["rusticated_base"]["channel_depth_m"],
