@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2929, ts: '2026-11-13T14:14:27.511Z', date: 'Nov 13, 2026, 8:14 AM CT', title: 'The Greys\' brows where their sheets set them, and Sarah\'s hair ash', kind: 'fix',
+    items: [
+      'Sarah\'s brows sit higher, clear of her lids, where the owner\'s sheet shows them.',
+      'William\'s brows are one band again on the brow bone, not two rows.',
+      'Sarah\'s hair reads the sheet\'s ash brown, where it had read dark and violet.',
+    ] },
   { v: 2928, ts: '2026-11-13T12:47:27.112Z', date: 'Nov 13, 2026, 6:47 AM CT', title: '1815 Prairie\'s south side is rock-faced stone, with its dormer', kind: 'improvement',
     items: [
       'The south side of the Sears house at 1815 Prairie is now rough rock-faced stone, as the old photograph from the south-west shows it, where it used to be plain brick.',
