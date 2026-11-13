@@ -261,6 +261,12 @@
           <button type="button" class="street-toggle" id="street-toggle" aria-pressed="true"
             aria-controls="street-readout" title="Street names: then and today"
             aria-label="Street names: then and today"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18"/><path d="M5 6h11l3 2.5L16 11H5z"/><path d="M19 13H8l-3 2.5L8 18h11z"/></svg></button>
+          <!-- T-3575: Enter VR, shown only where the browser offers a headset (js/controls/xr.js). -->
+          <button type="button" class="vr-key" id="btn-vr" hidden aria-pressed="false"
+            title="View in a VR headset" aria-label="Enter VR">VR</button>
+          <!-- T-3577: Window mode, on a phone or tablet: where you stand, which way you face (js/controls/window.js). -->
+          <button type="button" class="vr-key" id="btn-window" hidden aria-pressed="false"
+            title="Look through the screen from where you stand" aria-label="Window: look from where you stand">Window</button>
         </div>
         <!-- T-2741: where you stand, in the scene's year and today — the era street (none in
              1812) over today's street, corner or house number, read off the City's own

@@ -34810,6 +34810,7 @@ For the 1812 scene's Light tier alone, multiply the existing uniform woody accep
 
 **Decision:** The front's north end at 1811 Prairie (K01's low-s end, v 0 to 0.93) is built as a pier capped below the bay's cornice (T-3112, `form.front_pier`): its rock-faced courses unbroken from the base course to a dressed band at 7.10-7.22 m, one rock-faced course, and a moulded cap at 7.52-7.72 m, the band 0.05 m and the cap 0.12 m proud. The band, the cap and the slate top over them are read off the Chicagology photograph through T-3052's camera, and checked on the 1888 plate through T-2541's camera, so the record grades them `inferred`. Four things about it are invented. (1) No picture sees the weathering's pitch behind its front edge. It is slated at 42 degrees from the cap's front edge, which is the pitch whose render meets the print's slate at the bay's cornice. (2) No picture sees how the hipped roof meets the pier. So the front's wall head, the moulded cornice and the roof's street and side eaves are cut back over the pier's width to the weathering's slope, the side wall under it is stepped down below that slope, and the cut's face against the rest of the roof is slated. T-1890 (2026-11-09, the owner's phone shot from the north-west: "see the big gash in it"): that face no longer stands upright along the pier's inner edge for 3.4 m back along the north eave, which read as a slot cut into the hip. It runs on a diagonal from the pier's inner corner on the weathering back to 0.6 m behind where the weathering meets the north eave, leaning 75 degrees, so the cut is widest over the pier and dies out at the eave. The diagonal, the lean and the 0.6 m are ours, set so that every camera that sees the pier still shows sky over the cap. From the north it reads as the hip coming down to the pier. (3) The band and the cap are returned along the north side wall only as far back as the weathering over them stands under the soffit (about 0.6 m). The side wall stays brick. (4) The cap's moulding is two dressed boxes, a fillet over a narrower member, not the print's ogee and cove. The new downpipe at the pier's junction with the cheek takes its head, straps and shoe from K04, like the other two.
 
+**Revised:** 2026-11-12, T-1890, by the owner's ruling, looking at the north-west corner on his phone: *"the roof would be simpler and I think you can make that happen by controlling the side and front a bit look at my pink lines, the roof peak would be straight there"*, *"You may need to adjust some wall heights to get it to match photo"*. His line ran from the hip mass's apex straight down to the corner. So the pier's low head is withdrawn: `form.front_pier` is gone from the record, the front's stone runs to the north corner at its full height under the moulded cornice, the roof is no longer cut over it, and the north-west hip comes down to that corner as a plain hip. The pier's downpipe stays at the cheek's junction, its head raised to 7.85 m under the cornice like the other two. This departs on purpose from all three pictures, which cap the pier below the bay's cornice with sky over it; from the street the build now shows the cornice and the hip's foot there, about 1 m higher. Each view's match record carries it as `owner ruling`. Items (1) to (4) above describe the pier as T-3112 built it and no longer stand.
 **Re-opens on:** a photograph of the north side, or a drawing of the roof at the north corner.
 **Ticket:** T-3112.
 **Recorded:** 2026-10-24.
@@ -43710,34 +43711,38 @@ or a read bill of sale; a planting account locating the trees rather than merely
 **Ticket:** T-3551.
 **Recorded:** 2026-11-11.
 
-### L-k01-1721-frame-house-3566 — 1721 Prairie's rear range built as the 1863 frame Dexter house: clapboarded, slated gable, two stacks, a chosen stone drab
+### L-k16-1721-frame-house-3566 — Wirt Dexter's frame house of 1863 standing behind 1721 Prairie's brick front, its south front read off the Detroit print
 
-**Decision:** T-3566 (the owner's request, 2026-11-12: "on 1721 prairie there is a frame house to
-the rear of the building that should be standing you should be able to see images of it") rebuilds the
-1911 sheet's long two-storey rear range behind Arthur Little's brick front as what is left of Wirt
-Dexter's frame house of 1863: a frame wing (`fabric: frame`) lapped in clapboards (the K01 kit's new
-`rear_wings[].clapboard`: boards 0.115 m to the weather, butts 0.018 m proud, 0.15 m corner boards, a
-stone water table at the first floor's line) under a slated gable whose ridge runs back from the main
-block to a gable on the rear wall, with two brick stacks astride the ridge to 15.0 m. The one-storey
-frame room at its east end is clapboarded with it.
-**What is read, not invented.** That the range is frame: Robinson's 1886 plate 10 colours the house
-yellow, a long house on the north lot line set back about 34 ft; the 1891 Inland Architect plate draws
-it clapboarded behind the brick front's north flank; the Detroit print (1893-1901) shows it from the
-south-west, two storeys of clapboard under a slated roof with tall chimneys. Its plan, storeys and
-windows are the 1911 sheet's, as before.
-**What is invented.** The roof's 45 degree pitch (K04's slates are cut for nothing lower; the print's
-ridge is read through branches and the plate draws the house's gables steep), the gable's facing, the
-stacks' places and heights, the clapboards' exposure, and the paint: a stone drab (linear 0.40, 0.36,
-0.27) such as a frame house of 1863 imitating stone wore, a shade darker than Little's pale front as
-both monochrome pictures read it. The 1911 sheet colours this range brick; the three pictures and the
-1886 plate are read over it (docs/RESEARCH/k01-1721-frame-house-3566/README.md).
-**Not built.** The frame house's front part, with the porch and the two tallest chimneys of the print
-and the bay window and cross gable of the plate: in 1901-02 Little's front was taken off the street line
-and set back to the building line (Tribune, 28 Nov. 1901; the 1911 sheet draws it 9.7 m back), onto
-that part.
-**How to resolve:** a picture of the house between 1902 and 1911, or a permit for the 1902 work, would
-settle what of the frame house stood behind the moved front, its roof and its colour.
+**Decision:** T-3566 (the owner, 2026-11-12, after a meeting with Bill Tyre: "on 1721 prairie there is
+a frame house to the rear of the building that should be standing you should be able to see images of
+it"; then, of his crop of the Detroit print: "you are missing the whole front entrance ... it has two
+hipped gable front on the left and right and a center area that has a front porch and door that house
+was there first and the other house facing prairie is technically the addition ... photo match that
+rear house to perfect", "Chimneys, windows, everything", "the house seems likely to be symmetrical")
+builds the frame house as its own record, `dexter_house_1721_prairie_frame_house`, in the K16 timber kit,
+in place of the brick K01 rear range the 1911 sheet draws: a two-storey range on the north lot line,
+from the brick block's rear wall 23.9 m east, and on its south side two gabled wings, each a two-storey
+canted bay, either side of a recessed middle with an arched porch on four posts, the front door and one
+window over the porch with louvred blinds; bracketed boxed eaves, a hipped main roof, four tall stacks.
+**What is read, not invented.** Through the Pullman house's solved camera on the Detroit print (1893-1901;
+`data/reference_views/dexter_house_1721_prairie_frame_house/detroit_det_4a08065.json`): the wings'
+gable peaks (about 10.9 m), the porch's middle and the window over it (all three on one axis, the two
+gables 13.5 m apart about it), the eaves at about 8.5 m, the ground and upper windows' sills and heads,
+the porch floor six risers up, and three of the four stacks, their places and tops. That it is frame:
+Robinson's 1886 plate colours the house yellow and draws its south side stepped; the 1891 plate and the
+print show clapboard.
+**What is invented.** The depth the wings stand out (2.2 m, and the bays 0.8 m more: the print sees the
+front almost square on), the bays' plan, the fourth stack (the owner's symmetry; the print's elm hides
+where it would stand), every window on the north, east and wing-side walls, the paint's hues, the roof's wood shingles, and the house's place in 1904: the print shows it before the brick front was moved back in
+1901-02 (Tribune, 28 Nov. 1901), and the house is kept where the print puts its front, 4 m east of the
+1911 sheet's range, the part of it the moved front now stands on not built. The 1911 sheet colours its
+range brick and draws it 6.2 m deep with no wings; the print, the 1886 plate and the owner's ruling are
+followed over it (docs/RESEARCH/k16-1721-frame-house-3566/README.md).
+**The paint** (the owner, 2026-11-13: *"I am not convinced the color of the building is white ... Given the Victorian style I imagine a main color and a couple detail colors"*). Every picture of the house is black and white, so only its tones are read: on the Detroit print the clapboard stands at about the value of Little's buff brick beside it, a step lighter than the Pullman house's stone and far darker than the walks, and the eaves, casings and blinds read well darker than the body. The hues are chosen for that pattern in the three-colour manner of a frame house repainted in the 1880s beside a buff brick front: a fawn drab body, seal-brown trim (casings, cornice, brackets, porch, bay skirts) and deep bronze-green sash and blinds; the stacks and underpinning a buff Chicago common brick (they read lighter than the clapboard, as buff brick does on such a plate and red does not), the roof weathered wood shingle (a mid-dark tone, too light for slate). No source names a colour or a roofing.
+**How to resolve:** a picture of the house between 1902 and 1911, a plan of the 1902 work, or the 1906
+Sanborn sheet would settle what stood behind the moved front, how far the wings stood out, and its colour.
 
+**Also stated, not shown in full:** the roof's wood shingles (the print gives a mid-dark roof, not its material); the clapboard and the two storeys drawn as the kit's simplified frame walls and floors. **Covers:** `dexter_house_1721_prairie_frame_house.as_standing_1904.form.roof_covering`, `dexter_house_1721_prairie_frame_house.as_standing_1904.form.construction`, `dexter_house_1721_prairie_frame_house.as_standing_1904.form.stories`.
 **Ticket:** T-3566.
 **Recorded:** 2026-11-12.
 
@@ -43748,3 +43753,19 @@ settle what of the frame house stood behind the moved front, its roof and its co
 **Re-opens on:** a described or pictured piece of trade silver from the Chicago gathering, or of the bands there, which replaces the pattern.
 **Ticket:** T-3553.
 **Recorded:** 2026-11-12.
+
+### L-t3573-step-out — Someone at home, found or followed, comes out for a walk round their block
+
+**Decision:** the owner, 2026-11-12: *"if someone is in one of the houses and in town they should be able to be go to find or followed and if they are in their house they come outside and do a daily task outside so you can follow them, something meaningful like a walk around the block or something else with some movement ideally"*. Find this person and Follow stay live for anyone present in town today who is indoors (a drawn figure gone in, or a household's resident listed in `data/humans/inside_<year>.json`, who is drawn only once out). Asked for, the visitor is taken to the door they will come out by, and on arriving they come out of it (`renderers/web/js/human-days.js` `outing`) for seven minutes, longer while followed, then go back in by their door. Where their own day has a walk at least 40 m long (Christine Nelson's errand round the block), that is the walk; else `renderers/web/js/block-walk.js` lays one round their block: out from the middle of the house square to its front, right, back and left to the first sidewalk each meets (1904; 1835's plank walks and street corridors), and round by the corners those make, the router keeping to the walks between; a side that is not met within 320 m makes it a walk along the front and round its ends, there and back. A young child comes out with a grown-up of the household (their caregiver where the household record names one), and the two walk it side by side at the child's pace. A soldier off his hours comes out of his quarters' door and goes back in by it before his duty has him again. A baby in the household's care has no figure of its own and stays in. With no block (1812), a walk about the place: a ring 12 to 38 m out on clear ground, the widest with room, or there and back between two places in a tight yard. It is called a morning walk, an errand or an evening walk round the block by the hour.
+**Not invented:** who is in town on the date and at home at the hour (their records and days, as before); their house and door.
+**Re-opens on:** a source that says what one of them did out of doors at a given hour, which goes into their day and is then walked as written.
+**Ticket:** T-3573.
+**Recorded:** 2026-11-12.
+
+### L-hanging-cloth-3553 — Every hanging garment hangs as one piece over the walking legs
+
+**Decision:** the owner, 2026-11-13, following a coated man on 18th Street in 1904: *"no one should have their legs break through their clothing like that"*. The exporter skins every garment to the pelvis and to each thigh and calf, so on the walk a frock coat's skirts, a coachman's livery, a soldier's tails, an 1812 capote, shirt tail, blanket or breechcloth, a girl's frock and a woman's petticoat each parted like trousers and the other knee or shin came through. `renderers/web/js/human-skirt.js`, which hung the women's skirts as one bell (T-3472), now sorts each leg-weighted garment by its piece name and by how far its lower part hangs from the legs, and hangs every one that hangs (never trousers, breeches, stockings, leggings or boots) from the waist as one piece that the legs push open where they press. A coat's skirts and tails are hung stiffer and closer than a skirt: they carry little of a push round the body, keep no flare and fall straight back. How far a coat swings, how fast it follows and how much it trails are ours.
+**Not invented:** the garments, their cut and their length, which are the assets as drawn; standing, every one is exactly as drawn.
+**Re-opens on:** a cloth simulation the fleet can afford on a phone, which replaces the panels.
+**Ticket:** T-3553.
+**Recorded:** 2026-11-13.

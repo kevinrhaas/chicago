@@ -48,6 +48,8 @@ import { createConfidenceLegend } from './confidence-legend.js';
 import { createIntent, createBackendSwitch } from './controls/intent.js';
 import { createPointerLockBackend, isTyping } from './controls/pointerlock.js';
 import { createTouchBackend, prefersTouch } from './controls/touch.js';
+import { createXRMode, isStandaloneHeadset, vrScale } from './controls/xr.js';
+import { createWindowMode, windowAt } from './controls/window.js';
 import { createWalker, footprintsFrom, decksFrom, WALK, HEADROOM_MARGIN_M } from './walker.js';
 import { profiledGroundHeight, figureGroundHeight } from './deck-surface.js';
 import { passageGroundFrom } from './passage-ground.js';
@@ -108,6 +110,7 @@ import { createFlags } from './flags.js';
 import { createFortGates, gatesOnRoute } from './fort-gates.js';
 import { createHouseDoors, registerDoorPlans } from './house-doors.js';
 import { createHouseErrands } from './house-errands.js';
+import { blockLoop, footprintCentre, walkDoing, BLOCK_WAYS } from './block-walk.js';
 import { createNightLights } from './night-lights.js';
 import { createStreetGrid } from './street-grid.js';
 import { initKTX2, ktx2State } from './ktx2.js';
@@ -1913,13 +1916,21 @@ async function boot() {
   await yieldToPaint();
   const bases = resolveBases();
   const coarse = prefersTouch();
+  /**
+   * T-3575: a standalone VR headset (the Quest's browser, Pico's) reports a fine pointer
+   * and a desktop-wide window, so it would boot as a computer; inside it is a phone. It
+   * takes the phone's choices — tier, Sharpness, textures and the memory diet, people,
+   * horses and carriages kept — and its controls stay the page's own until Enter VR.
+   */
+  const headset = isStandaloneHeadset(navigator.userAgent);
   // T-2559: read what the device offers and choose per device — see
   // device-profile.js. Before the scene is fetched, so a weak machine's tier
   // decides what is downloaded; a repeat visit reads its cached profile and pays
   // no benchmark. The touch screen still picks the controls and `lowSpec`; the
   // profile picks only the defaults below, and a stored choice beats both.
-  const device = await profileDevice({ touch: coarse, build: bootCell.build, storage: bootStorage,
+  const device = await profileDevice({ touch: coarse || headset, build: bootCell.build, storage: bootStorage,
     search: location.search });
+  if (headset) device.headset = true;
   api.device = device;
   /**
    * T-3537: THE PHONE'S MEMORY DIET, ON EVERY DEVICE THAT NEEDS IT. Until this,
@@ -1940,7 +1951,7 @@ async function boot() {
   // T-3542: the horses' pictures are what keeping the teams on a phone costs it (six maps,
   // about 22 MB): on a memory-saving device each is redrawn at 512 px (1024 on a computer)
   // before the template is shared — blurrier up close, never gone (draft-horse-assets.js).
-  if (lowMem) setDraftHorseTextureCap(coarse ? 512 : 1024);
+  if (lowMem) setDraftHorseTextureCap(coarse || headset ? 512 : 1024);
   // Resolve BEFORE the GLB fetch: a weak-machine boot must never download the
   // full inspection model simply to turn it down once Settings has mounted.
   // T-2547's step-down outranks everything; then the stored choice; then the
@@ -3948,6 +3959,9 @@ async function boot() {
     // field of view"): a person card already open stays until the visitor closes it or picks
     // someone else; only walking up to someone with no person card open opens theirs.
     if (approach && personCardOpen()) return;
+    // T-3573: following someone, the town is what to look at (Follow put the card away), so
+    // walking up behind them, or past anyone, opens no card.
+    if (approach && api.follow?.active) return;
     if (!draws('residents')) { void openPersonCard(personId); return; }
     hud.setPanel(true); hud.selectTab('people'); api.people.open?.(personId);
   });
@@ -4018,6 +4032,8 @@ async function boot() {
       clear: dayClear,
       // T-3524: Glessner's court and side doors open as people pass, up and down their stairs.
       passages: api.houseDoors ?? null,
+      // T-3573: someone who stepped out for Find or Follow walks on while the visitor follows.
+      followed: (actor) => !!api.follow?.personId && api.follow.personId === (actor.personId ?? actor.id),
       problems: layerProblems('humans') });
     // The kit is generated from its dated work record; only 1812 loads this
     // controller. The small GLB is deferred until its actual worker is nearby.
@@ -4458,6 +4474,8 @@ async function boot() {
     // T-3404: a person placed in town now (Otis Bardwell on his wagon) is found there and
     // can be followed. Read when the card paints; the round is known before the model.
     inTown: (id) => placedInTown(id),
+    // T-3573: at home now: Find and Follow bring them out (the card says so).
+    atHome: (id) => !!atHome(id),
     onFollow: (id) => followPerson(id),
     // The drawer's head shows the person's name with a back control while a card is open.
     onTitle: (text, onBack) => hud.setTitle(text, onBack),
@@ -4745,7 +4763,7 @@ async function boot() {
   // touchscreen must not end up driving both.
   // The arrival and welcome are menus, so neither movement backend is live.
   window.addEventListener('pointerdown', (e) => {
-    if (gateOpen || e.target.closest?.('#jaunt-panel')) return;
+    if (gateOpen || xrMode?.presenting || windowMode?.on || e.target.closest?.('#jaunt-panel')) return;
     if (e.pointerType === 'touch') backends.activate(touch);
     else if (e.pointerType === 'mouse') backends.activate(pointerlock);
   }, { capture: true });
@@ -4754,13 +4772,68 @@ async function boot() {
     // to keyboard-and-mouse, and the first keystroke into the Go-to search box
     // was doing exactly that — taking a visitor who had been tapping their way
     // around a phone and handing them a control scheme with no on-screen stick.
-    if (gateOpen || isTyping(e.target) || e.target.closest?.('#jaunt-panel')) return;
+    if (gateOpen || xrMode?.presenting || windowMode?.on || isTyping(e.target) || e.target.closest?.('#jaunt-panel')) return;
     if (!e.metaKey && !e.ctrlKey) {
       backends.activate(pointerlock);
       // Not while a card holds the keyboard (T-2954): the arrows scroll the card.
       if (/^(Key[WASD]|Arrow(Up|Down|Left|Right))$/.test(e.code) && !popup.openId) pointerlock.lock();
     }
   }, { capture: true });
+
+  /**
+   * T-3575: Enter VR (js/controls/xr.js). The key shows only where the browser offers a
+   * headset; the session is the input backend while it runs and hands back to the
+   * page's own controls when it ends.
+   */
+  const vrKey = document.getElementById('btn-vr');
+  const xrMode = createXRMode({
+    THREE, renderer, walker, intent, backends,
+    fallback: () => (gateOpen ? null : (coarse ? touch : pointerlock)),
+    setFly: (on) => hud.setFly(on),
+    scale: vrScale({ headset, search: location.search }),
+    onChange: (on) => {
+      vrKey?.setAttribute('aria-pressed', String(on));
+      if (vrKey) { vrKey.textContent = on ? 'Exit VR' : 'VR'; vrKey.setAttribute('aria-label', on ? 'Exit VR' : 'Enter VR'); }
+      blackbox.log(on ? 'vr' : 'vr-end');
+      if (!on) { visualClockReset = true; resize(); hud.say('Back from the headset'); }
+    },
+  });
+  api.xr = xrMode;
+  xrMode.supported().then((ok) => { if (vrKey) vrKey.hidden = !ok; });
+  vrKey?.addEventListener('click', () => {
+    if (xrMode.presenting) { xrMode.exit(); return; }
+    windowMode.stop();
+    hud.say('In the headset: left stick walks where you look, right stick turns, A or X flies; no controller, tap to walk');
+    xrMode.enter().then((ok) => { if (!ok) hud.say('The headset could not start VR here'); });
+  });
+
+  /**
+   * T-3577: Window mode (js/controls/window.js) — the device's location sets the visitor
+   * down where they stand, its compass and motion sensors turn the view. Offered on a
+   * touch device (a phone or tablet, the owner's iPad) or where `?window-at=` names a
+   * spot; a computer sees nothing new.
+   */
+  const windowKey = document.getElementById('btn-window');
+  const windowMode = createWindowMode({
+    THREE, walker, intent, backends, datum: loaded.datum, surface: canvas,
+    fallback: () => (gateOpen ? null : (coarse ? touch : pointerlock)),
+    inBounds: (e, n) => terrain.inBounds(e, n),
+    say: (line) => hud.say(line),
+    search: location.search,
+    onChange: (on) => {
+      windowKey?.setAttribute('aria-pressed', String(on));
+      blackbox.log(on ? 'window' : 'window-end');
+      if (on) { travel.stop('input'); hud.setFly(false, { announce: false }); }
+      else hud.say('Window closed');
+    },
+  });
+  api.window = windowMode;
+  if (windowKey) windowKey.hidden = !((coarse || windowAt(location.search)) && windowMode.supported());
+  windowKey?.addEventListener('click', () => {
+    if (windowMode.on) { windowMode.stop(); return; }
+    if (xrMode.presenting) return;
+    windowMode.start();
+  });
 
   canvas.addEventListener('click', () => {
     if (backends.active !== pointerlock || gateOpen) return;
@@ -5209,6 +5282,49 @@ async function boot() {
 
   /** One route for the complete search: frame a structure, stand at a verified
    * intersection, or use one of the authored scene viewpoints. */
+  /**
+   * T-3573: the walk round a house's block (block-walk.js) for someone stepping out of it by
+   * `door`; a walk about the place where the scene has no blocks (1812). The router's surface
+   * classes say what a sidewalk is; its own test which stands and straight lines are clear.
+   */
+  function outingLoop(structure, door) {
+    const step = door?.step ? { e: door.step.local_e ?? door.step.e, n: door.step.local_n ?? door.step.n } : null;
+    const centre = footprintCentre(footprints.filter((f) => f.id === structure)) ?? step;
+    const shape = blockLoop({ centre, frontDeg: door?.outward_deg ?? 0,
+      classAt: (e, n) => router.classAt(e, n), ways: BLOCK_WAYS[String(loaded.scene.id ?? YEAR)] ?? null,
+      blockedAt: (e, n) => router.blockedAt(e, n),
+      clearSegment: (ae, an, be, bn) => router.clearSegment(ae, an, be, bn) });
+    return shape ? { ...shape, doing: walkDoing(shape.kind, sunHour()) } : null;
+  }
+  /**
+   * T-3573: Find or Follow on someone at home. The visitor is taken to the door they will come
+   * out by (a few metres out from its step, facing it, on a stand the router calls clear), and
+   * on arriving they come out of it on a walk (human-days.js `outing`): their own day's walk,
+   * else round their block. Then `target.then` (Follow's start).
+   */
+  function meetAtDoor(target) {
+    const plan = api.days?.outing?.(target.id, { loop: outingLoop });
+    const label = target.label ?? plan?.name ?? 'They';
+    if (!plan?.ok) { hud.say(`${label}: ${plan?.why ?? 'not out in town now'}`); return false; }
+    const come = () => {
+      const r = plan.start();
+      if (!r.ok) { hud.say(`${label}: ${r.why}`); return; }
+      if (!r.already) hud.say(`${label} steps out for ${plan.doing}`);
+      target.then?.();
+    };
+    api.townTransport?.cancelDriverApproaches();
+    const { step, outward_deg: out } = plan.door;
+    const b = (Number.isFinite(out) ? out : 0) * Math.PI / 180;
+    for (const back of [5, 7, 9, 3.5]) for (const side of [0, 2, -2]) {
+      const e = step.e + Math.sin(b) * back + Math.cos(b) * side;
+      const n = step.n + Math.cos(b) * back - Math.sin(b) * side;
+      if (router.blockedAt(e, n)) continue;
+      const face = (Math.atan2(step.e - e, step.n - n) * 180 / Math.PI + 360) % 360;
+      return travel.go({ kind: 'intersection', local_e: e, local_n: n, yaw_deg: face, label }, { onArrive: come });
+    }
+    // No clear stand before the door: to the house, and out they come all the same.
+    return travel.go({ kind: 'structure', id: plan.structure, label }, { onArrive: come });
+  }
   function goToTarget(target) {
     if (jauntRuntime?.state.jaunt) jauntRuntime.explore();
     // Explicit coordinate viewpoints predate the shared picker and are used by
@@ -5249,10 +5365,13 @@ async function boot() {
       }
       hud.say('No clear place beside this driver'); return false;
     }
+    // T-3573: someone at home: to the door they will come out by, and out they come on a walk
+    // round their block as the visitor arrives (then whatever the asker wanted next: Follow).
+    if (findInTown && api.atHome?.(target.id)) return meetAtDoor(target);
     // T-3404: a standing or walking figure in town: set down a couple of metres in front of
     // them, else beside or behind, on a stand the router calls clear, facing them.
     const figure = findInTown ? api.humans?.get?.(target.id) : null;
-    if (figure && !figure.disposed && figure.root?.parent && !api.humans.external?.(target.id)) {
+    if (figure && !figure.disposed && figure.root?.parent && !figure.indoors && !api.humans.external?.(target.id)) {
       const { e: fe, n: fn } = figure.position;
       const b = (figure.heading ?? 0) * Math.PI / 180;
       // T-3521: in front first, then round them, then further out: someone in a lodge's
@@ -5578,6 +5697,8 @@ async function boot() {
       gateOpen = true;
       visualClockReset = true;
       gateFrame.reset();
+      xrMode.exit(); // T-3575: the arrival is a page, and a headset cannot show it
+      windowMode.stop(); // T-3577
       backends.activate(null);
       gesture.setLook({ inWorld: false });
       targetTag?.setEnabled(false);
@@ -5675,7 +5796,8 @@ async function boot() {
     const at = [row.lives_at, row.works_at].find(s => s && loaded.registry.has(s)) ?? null;
     // T-3404: a driver on their round, or a figure standing or walking in town; T-3521: else
     // (and wherever no clear stand beside them is found) at the house they live or work in.
-    if (api.townTransport?.driverAnchorForPerson(id) || personInTown(id)) {
+    // T-3573: or at home: Find goes to their door, and they come out of it on a walk.
+    if (api.townTransport?.driverAnchorForPerson(id) || personInTown(id) || atHome(id)) {
       return goToTarget({ kind: 'person', id, label: row.name, home: at });
     }
     // T-3531: nobody in town to find (the card greys Find and says why); Go to house is the
@@ -5719,17 +5841,26 @@ async function boot() {
       return { e, n, heading_deg: driver.heading_deg, head_y: headOf(body), name: body?.person?.name ?? driver.name ?? null, driver, actor: body };
     }
     const a = api.humans?.get?.(id);
-    if (!a || a.disposed || !a.root?.parent) return null;
+    // T-3573: indoors is at home, not out in town (atHome below): Find and Follow bring them out.
+    if (!a || a.disposed || !a.root?.parent || a.indoors) return null;
     const at = a.position;
     return { e: at.e, n: at.n, heading_deg: a.heading ?? 0, head_y: headOf(a),
       name: a.person?.name ?? null, driver: null, actor: a };
   }
-  /** Placed in town at all, loaded or not yet (a driver's round is known before its model). */
-  const placedInTown = (id) => !!(personInTown(id) || api.townTransport?.driverAnchorForPerson?.(id));
+  /**
+   * T-3573: in town today and at home now (a figure gone indoors, or a household's resident
+   * not drawn until asked for): { structure, name } or null. The owner, 2026-11-12: "if
+   * someone is in one of the houses and in town they should be able to be go to find or
+   * followed and if they are in their house they come outside and do a daily task outside".
+   */
+  const atHome = (id) => (personInTown(id) ? null : api.days?.homeNow?.(id) ?? null);
+  /** Placed in town at all, loaded or not yet (a driver's round is known before its model),
+   *  or at home in it (T-3573). */
+  const placedInTown = (id) => !!(personInTown(id) || api.townTransport?.driverAnchorForPerson?.(id) || atHome(id));
   /** Walk alongside them (follow.js): at once when they are near, else Find them first. */
   function followPerson(id) {
     if (!placedInTown(id)) { hud.say('Not in town now'); return false; }
-    const name = personInTown(id)?.name ?? null;
+    const name = personInTown(id)?.name ?? atHome(id)?.name ?? null;
     const begin = () => {
       // A carriage Find asked to wait for the visitor is let go: Follow goes with it.
       api.townTransport?.cancelDriverApproaches();
@@ -5894,7 +6025,10 @@ async function boot() {
         }
       }
       if (state && why === 'start') { hud.say(`Following ${state.name ?? 'them'}`); hints.show('follow'); } // T-3445
-      else if (!state && why === 'gone') hud.say(`Lost sight of ${was?.name ?? 'them'}`);
+      else if (!state && why === 'gone') {
+        // T-3573: back in by their own door at the end of a walk, not lost.
+        hud.say(api.humans?.get?.(was?.personId)?.indoors ? `${was?.name ?? 'They'} went indoors` : `Lost sight of ${was?.name ?? 'them'}`);
+      }
       else if (!state && why !== 'switched') hud.say(`Stopped following ${was?.name ?? 'them'}`);
     },
   });
@@ -5903,6 +6037,7 @@ async function boot() {
   api.followPerson = followPerson;
   api.personInTown = personInTown;
   api.placedInTown = placedInTown;
+  api.atHome = atHome;
   // T-3521: a card's Find this person, by id (the harness tests it for everyone).
   api.findPerson = (id) => findSceneDirectoryPerson(id);
   const interactKey = createInteractKey({ interactions,
@@ -6107,6 +6242,8 @@ async function boot() {
         // T-3404: someone placed in town (a driver on their round) can be followed.
         followPerson: (id) => followPerson(id),
         inTown: (id) => placedInTown(id),
+        // T-3573: at home now: Find and Follow bring them out (the card says so).
+        atHome: (id) => !!atHome(id),
         // T-3265: a person's card reads their household's own record (the scene's
         // data/residents_<scene>/, published by publish.sh) and the citations it cites,
         // each once, when a card first asks.
@@ -6348,6 +6485,8 @@ async function boot() {
     }
     // T-3510: while a crossing runs, the visitor sits in the boat whatever the walk did.
     crossings.holdVisitor(walker, WALK);
+    // T-3575: in a headset, the reference space follows the walker (controls/xr.js).
+    if (xrMode.presenting) xrMode.sync();
     // Before the render, after the walker: the near plane is a function of where
     // the eye ended up this frame (R-BUG1, and the NEAR block above).
     setNearFor(walker.state.altitude);
@@ -6521,7 +6660,9 @@ async function boot() {
       governor.setTier(detailLevel);
       // A capture, the welcome and a held clock are still frames by definition,
       // and are drawn exactly as they were before the governor existed.
-      if (pendingCapture || gateOpen || animationHold) governor.rest();
+      // T-3575: a headset is drawn every frame it asks for — a skipped XR frame is a
+      // stale or black eye — and at its own framebuffer scale, never the governor's.
+      if (pendingCapture || gateOpen || animationHold || renderer.xr.isPresenting) governor.rest();
       else if (!governor.shouldDraw(t)) return;
       applyGovernor();
       tick();

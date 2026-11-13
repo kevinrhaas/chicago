@@ -240,6 +240,12 @@ step "A phone starts at Image sharpness Low, a desktop at Medium, a stored choic
 step "The device profile chooses per device, and a stored choice still wins (T-2559)" \
   node tools/check_device_profile.mjs
 
+step "A VR headset walks the town through WebXR: hidden without one, booted as a phone, every headset frame drawn (T-3575)" \
+  node tools/check_xr_mode.mjs
+
+step "Window mode sets a phone or iPad down where it stands and turns with it: the datum projection, the compass, the GPS hysteresis (T-3577)" \
+  node tools/check_window_mode.mjs
+
 step "A patched plain lit material cannot be handed another layer's shader program (T-0053)" \
   node tools/test_program_cache_key.mjs
 
@@ -672,6 +678,8 @@ step "Each 1812 building's doors are where its model draws the leaf, and where o
   python3 tools/derive_doors_1812.py --check
 step "1812 people keep their day: off their dates nowhere (Lalime gone by 14 August, there in February), indoors or out by the hour, talking, at work, walking; a door offers Ask for whoever is inside, soldiers in quarters too, and the one asked for comes out to the visitor and goes back in (T-3463..T-3467)" \
   node tools/test_human_days.mjs
+step "Someone at home is found and followed: they come out of their own door on a walk round the block by its sidewalks (a walk about the place in 1812), on while followed, back in after; away people stay away (T-3573)" \
+  node tools/test_step_out.mjs
 step "Prairie Avenue roster casting, aliases, portraits and seasonal days remain consistent (T-3548)" \
   python3 tools/test_prairie_people.py
 step "Prairie Avenue generated residents and appearance profiles reproduce (T-3547, T-3548)" \
@@ -708,7 +716,7 @@ step "No two 1812 townspeople dressed alike; each hat made for its wearer's head
   node tools/test_human_town_dress.mjs
 step "People on foot walk heel to toe at a real pace and stride, the stance foot planted, the pelvis turning and rising over it, deterministic across LOD swaps; a child at a child's pace and stride, never on its knees, even nudged aside (T-3472, T-3520, T-3529)" \
   node tools/test_human_gait.mjs
-step "A woman's skirt swings off her legs as she walks and never parts between them, the rest pose exact (T-3472)" \
+step "Every hanging garment (a skirt, a coat's skirts, tails, a capote, a breechcloth) swings off the legs on the walk and never parts between them, no leg through the cloth, trousers left on the leg, the rest pose exact (T-3472, T-3553)" \
   node tools/test_human_skirt.mjs
 step "A Potawatomi man's belt sits on his shirt or blanket at every level, standing and walking, the shirt's skirt under it; his trade silver engraved by shader, no texture (T-3553)" \
   node tools/test_human_waist.mjs

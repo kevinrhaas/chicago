@@ -284,7 +284,8 @@ export class HumanActor {
     // T-3472: the walk itself (human-gait.js): pelvis, legs and feet while walking, before
     // the life and arm layers, which read its phase.
     this.gait = null;
-    // T-3472: a woman's skirt hangs as one bell over the legs (human-skirt.js); null for men.
+    // T-3472 / T-3553: hanging cloth (a skirt, a coat's skirts, tails, a capote, a breechcloth)
+    // hangs as one bell over the legs (human-skirt.js); null for a figure with none (trousers).
     this.skirt = null;
     this.body = null;           // { lod, scene, meshes, mixer, clips, actions, faces }
     // T-3439: levels drawn before and kept for a swap back (lod -> body), on this clock.

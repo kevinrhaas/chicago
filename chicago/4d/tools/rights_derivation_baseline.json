@@ -41,14 +41,6 @@
       "sole_support": false,
       "confidence": "inferred"
     },
-    "coleman_ames_house_1811_prairie/as_mapped_1904/form.front_pier": {
-      "kind": "structure",
-      "blocked_sources": [
-        "chicagology_1811_ames_photo"
-      ],
-      "sole_support": false,
-      "confidence": "inferred"
-    },
     "coleman_ames_house_1811_prairie/as_mapped_1904/form.rear_wings": {
       "kind": "structure",
       "blocked_sources": [
@@ -4287,7 +4279,7 @@
         "glessner_blog_1637_spalding_remodel_engraving"
       ],
       "sole_support": false,
-      "confidence": "inferred"
+      "confidence": "reconstructed"
     },
     "spalding_house_1637_prairie/as_mapped_1904/form.chimneys": {
       "kind": "structure",
