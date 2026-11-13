@@ -424,7 +424,8 @@ def body_triangles(asset):
 
 
 def fit_views(person, portrait, header, refs, axes, spec, lm, names, members, obs, sig, kidx):
-    import cv2
+    from PIL import Image, ImageDraw
+    from scipy import ndimage
     from scipy.spatial import cKDTree
     cfg = portrait['fit_views']
     asset = portrait['base_body']
@@ -548,10 +549,18 @@ def fit_views(person, portrait, header, refs, axes, spec, lm, names, members, ob
         P = project(X, cam)
         lo = P.min(0) - 5
         Q = ((P - lo) * scale).astype(np.int32)
-        m = np.zeros((Q[:, 1].max() + 10, Q[:, 0].max() + 10), np.uint8)
-        cv2.fillPoly(m, [Q[t] for t in tri], 1)
-        cs, _ = cv2.findContours(m, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
-        c = max(cs, key=len)[:, 0, :] / scale + lo
+        im = Image.new('1', (int(Q[:, 0].max()) + 10, int(Q[:, 1].max()) + 10), 0)
+        draw = ImageDraw.Draw(im)
+        for t in Q[tri].tolist():
+            draw.polygon([tuple(q) for q in t], fill=1, outline=1)
+        m = np.array(im, bool)
+        # The largest piece, its holes filled: its edge pixels are the outline the camera sees.
+        parts, n = ndimage.label(m)
+        if n > 1:
+            m = parts == 1 + np.argmax(ndimage.sum(m, parts, range(1, n + 1)))
+        m = ndimage.binary_fill_holes(m)
+        yx = np.argwhere(m & ~ndimage.binary_erosion(m))
+        c = yx[:, ::-1] / scale + lo
         c = c[(c[:, 1] > ymin) & (c[:, 1] < ymax)]
         d, j = cKDTree(P[front_rows]).query(c)
         return np.unique(front_rows[j[d < 2.5]])
