@@ -230,17 +230,18 @@ export const FACIAL_HAIR = Object.freeze({
   }),
   // T-3553: the brows as the Greys' stand-in portraits set them, measured against the eyes on
   // the portrait and on a render of the fitted face by the same landmark model: Sarah's fine
-  // brows sit 0.9 cm lower over the eyes than brows_fine draws them on the lady's body, and
-  // William's full brows 0.25 cm higher than brows_full.
+  // brows sit 1.25 cm lower over the eyes than brows_fine draws them on the lady's body, and
+  // William's full brows 0.45 cm higher than brows_full (re-measured 2026-11-13 on the traced
+  // faces: hers had stood 3.5 mm too high, his 2 mm too low).
   brows_fine_low_1904: Object.freeze({
-    region_cm: Object.freeze({ x: [1.3, 4.6], y: [.62, 1.02], z_min: -1.5, droop: .55 }), facing: 'front',
+    region_cm: Object.freeze({ x: [1.3, 4.6], y: [.27, .67], z_min: -1.5, droop: .55 }), facing: 'front',
     length_cm: .45, fall: -.1, fall_ends: Object.freeze([-1, .35]), outward: 1, taper: .35, curl: .04, even: .7, exact: true,
     lift_mm: Object.freeze({ root: .12, tip: .25 }), width_mm: .55, cover: 2.2, spread: .3,
   }),
   // His are drawn hair by hair, spaced evenly and lying flatter (`even`, `exact`), so they read
   // as the portrait's soft sandy brows rather than a painted band.
   brows_full_high_1904: Object.freeze({
-    region_cm: Object.freeze({ x: [1.1, 5], y: [1.7, 2.45], z_min: -1.8, droop: .6 }), facing: 'front',
+    region_cm: Object.freeze({ x: [1.1, 5], y: [1.9, 2.65], z_min: -1.8, droop: .6 }), facing: 'front',
     length_cm: .7, fall: -.05, fall_ends: Object.freeze([-.8, .4]), outward: 1, taper: .3, curl: .08, even: .7, exact: true,
     lift_mm: Object.freeze({ root: .15, tip: .45 }), width_mm: .5, cover: 3.2, spread: .45, jitter_deg: 10,
   }),

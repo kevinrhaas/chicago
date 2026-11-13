@@ -2718,5 +2718,9 @@
  },
  "prior_widen": 2.0,
  "outline_yaw_deg": 18.2,
- "axes_note": "chin_prominence, prognathism and nose_depth are left out: they move the face toward or away from a camera that looks at it nearly square, so one near-frontal picture does not measure them, and with hundreds of marks the fit drove them to their limits (a receding chin and jutting nose in profile that the picture does not show). They stay at the body's own lean."
+ "axes_note": "chin_prominence, prognathism and nose_depth are left out: they move the face toward or away from a camera that looks at it nearly square, so one near-frontal picture does not measure them, and with hundreds of marks the fit drove them to their limits (a receding chin and jutting nose in profile that the picture does not show). They stay at the body's own lean.",
+ "trace": {
+  "points": "nose",
+  "basis": "Traced onto the portrait beyond the fitted axes (tools/trace_portrait_face.py; owner, 2026-11-13: \"focus on their noses a bit more they seem mis-traced\"): the nose alone, the eyes held, because his beard hides the jaw and mouth from the detector on both pictures."
+ }
 }

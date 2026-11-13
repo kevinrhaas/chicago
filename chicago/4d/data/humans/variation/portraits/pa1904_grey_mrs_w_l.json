@@ -2769,36 +2769,19 @@
  "read_by_eye": {
   "ticket": "T-3553",
   "values": {
-   "cheekbones": 0.9,
-   "jowls": -0.55,
-   "cheek_inner": -0.25,
+   "cheekbones": 0.1,
+   "jowls": 0.0,
+   "cheek_inner": 0.1,
    "nose_width": 0.05,
    "lip_lower": -0.6,
-   "cheek_volume": -0.1,
-   "nose_tip_width": -0.4,
-   "nostrils": -0.2,
-   "lip_upper": 0.25,
    "lip_lower_height": -1.0,
-   "jaw": -0.35,
-   "chin_width": -0.25,
-   "chin_height": 0.4,
-   "mouth_height": -0.05
+   "nose_tip": 0.0
   },
-  "basis": "Read by eye from the same picture, on axes the marks cannot measure from one near-frontal view or read wrongly through the render's painting. Owner, 2026-11-13: \"Sarah's cheekbones are higher in the model than what you have, she has finer features\", and her lips: so her cheekbones are set high and wide (0.9) over cheeks a little hollow beneath them, her jaw and chin narrower and her chin a little longer than the lady's body's, the tip and wings of her nose fine, and her lips thin, the upper lip a little full and the lower one thin in both its volume and its height (lip_lower_height, MakeHuman's own lower-lip height target, added as a rest axis for this: the volume target alone left the painted lip as tall as before). Each of these is HELD where it is read (`hold`), not fitted, and the marks fit the other axes around them; measured on a render at the portrait's pose against the picture, her lower lip is drawn within about 0.5 mm of it (was 2.5 mm too tall) and her chin within 1 mm. A reading by eye, not a measurement.",
+  "basis": "Read by eye from the same picture, on axes the marks cannot measure from one near-frontal view or read wrongly through the render's painting: cheekbones set high and full, deep lines from the nose to the corners of the mouth, a nose of ordinary width, and thin lips. Her lower lip is thin in both its volume (lip_lower) and its height (lip_lower_height, MakeHuman's own lower-lip height target, added as a rest axis for this: the volume target alone left the painted lip as tall as before), and the tip of her nose is level, not turned up (nose_tip 0: the marks had turned it up, showing the nostrils, which the picture does not). Those three are HELD where they are read (`hold`), not fitted; the rest are priors the marks move. What the axes still cannot draw is traced (`trace`, tools/trace_portrait_face.py). Owner, 2026-11-13: \"she has finer features\", \"she has a much more diminutive chin\", \"you need to trace it\".",
   "hold": [
-   "cheek_inner",
-   "cheek_volume",
-   "cheekbones",
-   "chin_height",
-   "chin_width",
-   "jaw",
-   "jowls",
    "lip_lower",
    "lip_lower_height",
-   "lip_upper",
-   "mouth_height",
-   "nose_tip_width",
-   "nostrils"
+   "nose_tip"
   ]
  },
  "card": {
@@ -2861,5 +2844,9 @@
  },
  "prior_widen": 2.0,
  "outline_yaw_deg": -12.4,
- "axes_note": "chin_prominence, prognathism and nose_depth are left out: they move the face toward or away from a camera that looks at it nearly square, so one near-frontal picture does not measure them, and with hundreds of marks the fit drove them to their limits (a receding chin and jutting nose in profile that the picture does not show). They stay at the body's own lean."
+ "axes_note": "chin_prominence, prognathism and nose_depth are left out: they move the face toward or away from a camera that looks at it nearly square, so one near-frontal picture does not measure them, and with hundreds of marks the fit drove them to their limits (a receding chin and jutting nose in profile that the picture does not show). They stay at the body's own lean.",
+ "trace": {
+  "points": "all",
+  "basis": "Traced onto the portrait beyond the fitted axes (tools/trace_portrait_face.py; owner, 2026-11-13: \"she needs a more serious match to her features from the original photo, you need to trace it\"): her whole face, outline included."
+ }
 }
