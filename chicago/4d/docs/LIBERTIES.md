@@ -43771,6 +43771,31 @@ Sanborn sheet would settle what stood behind the moved front, how far the wings 
 **Ticket:** T-3553.
 **Recorded:** 2026-11-12.
 
+### L-prairie-barriers-3554 — 1904 residents keep a skirt's width off every stoop, railing and bay, and the drafts' drawn front doors open
+
+**Decision:** the owner, 2026-11-12: *"when people walk they dont cut themselves and swipe though a sidewalk their
+dresses are wide and they walk their path sometimes cuts through a wall or barrier people should not be able to walk
+through walls or barriers"*. A house's footprint kept people out of its walls, but its stoop, area and coping walls,
+iron railings and bays stand outside the footprint, and 227 of the 786 walks the Prairie residents took out of their
+doors and along their frontages passed through one. Each 1904 Prairie house model is now read for whatever it builds
+between a knee (0.25 m) and a head (1.8 m) over the ground outside its footprint (`tools/prairie_barriers.py`, written
+into `data/humans/doors_1904.json` by `tools/derive_doors_scene.py`), and every resident's outdoor place stands 0.55 m
+off those barriers and off every building's walls, with the walk out from the door and the walk along the frontage
+keeping 0.3 m (a skirt's half-width, less the half cell the barriers are read on) off them the whole way; where a
+narrow front gate in a railing leaves no such way (four walks), the body itself still clears the rails by 0.15 m. The
+scene's own step-aside and gathering places refuse the same barriers (`renderers/web/js/house-barriers.js`). A draft
+house's drawn front door (`draft_door`) is hung to swing like a built one where the draft's stoop reaches it (seven
+houses), and every door's answering place stands clear of the draft's front rooms and bays, which reach past its
+footprint.
+**What it stands on:** the house models as their generators and drafts built them; the residents' days are
+L-prairie-people-3548's.
+**What is invented:** the knee and head heights, the 0.55 m and 0.3 m clearances, and which nearby clear place a
+resident takes when the first choice is blocked (the nearest out from the door, then along the frontage); a draft
+door's hinge and swing, as L-prairie-front-passages-3554's.
+**How to resolve:** a drawn front for any draft house, or a photograph of a resident's front walk and railing.
+**Ticket:** T-3554.
+**Recorded:** 2026-11-13 (T-3554).
+
 ### L-t3573-step-out — Someone at home, found or followed, comes out for a walk round their block
 
 **Decision:** the owner, 2026-11-12: *"if someone is in one of the houses and in town they should be able to be go to find or followed and if they are in their house they come outside and do a daily task outside so you can follow them, something meaningful like a walk around the block or something else with some movement ideally"*. Find this person and Follow stay live for anyone present in town today who is indoors (a drawn figure gone in, or a household's resident listed in `data/humans/inside_<year>.json`, who is drawn only once out). Asked for, the visitor is taken to the door they will come out by, and on arriving they come out of it (`renderers/web/js/human-days.js` `outing`) for seven minutes, longer while followed, then go back in by their door. Where their own day has a walk at least 40 m long (Christine Nelson's errand round the block), that is the walk; else `renderers/web/js/block-walk.js` lays one round their block: out from the middle of the house square to its front, right, back and left to the first sidewalk each meets (1904; 1835's plank walks and street corridors), and round by the corners those make, the router keeping to the walks between; a side that is not met within 320 m makes it a walk along the front and round its ends, there and back. A young child comes out with a grown-up of the household (their caregiver where the household record names one), and the two walk it side by side at the child's pace. A soldier off his hours comes out of his quarters' door and goes back in by it before his duty has him again. A baby in the household's care has no figure of its own and stays in. With no block (1812), a walk about the place: a ring 12 to 38 m out on clear ground, the widest with room, or there and back between two places in a tight yard. It is called a morning walk, an errand or an evening walk round the block by the hour.
@@ -43785,4 +43810,12 @@ Sanborn sheet would settle what stood behind the moved front, how far the wings 
 **Not invented:** the garments, their cut and their length, which are the assets as drawn; standing, every one is exactly as drawn.
 **Re-opens on:** a cloth simulation the fleet can afford on a phone, which replaces the panels.
 **Ticket:** T-3553.
+**Recorded:** 2026-11-13.
+
+### L-jaunt-voices-3578 — The jaunt scripts read aloud in synthetic voices
+
+**Decision:** the owner, 2026-11-13: *"I have some voices in eleven labs and I want to begin using those and having them read/play the narration or scripts like the meet the Glessner household"*. A jaunt's opening, each of its stops and its endings can be heard as well as read: `tools/narrate_jaunts.mjs` sends the exact words the panel shows to ElevenLabs text to speech in a voice the owner chose for each speaker (`data/narration/voices.json`: a narrator, and each stop's first host by person id), and `renderers/web/js/narration.js` plays the clip whose key is those words' SHA-256. The voices are synthetic and chosen by ear; none is a recording of the person or claims to be their voice, accent or manner of speech, and the words are the jaunt's own (already declared written for the walk where the jaunt says so).
+**Not invented:** the words, which are the jaunt's text unchanged, with their own sources and liberties.
+**Re-opens on:** a recording or a contemporary description of how one of the speakers sounded, which would bound their voice.
+**Ticket:** T-3578.
 **Recorded:** 2026-11-13.

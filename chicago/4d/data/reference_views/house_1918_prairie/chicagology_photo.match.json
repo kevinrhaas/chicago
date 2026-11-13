@@ -2,7 +2,7 @@
   "structure_id": "house_1918_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/house_1918_prairie__as_mapped_1904.glb",
-  "glb_sha256": "30612df328a4689ed686bae53128f7ebee033545e52ae54e00d6203ef1112e50",
+  "glb_sha256": "0b352aef38012f4f8912e40c98db386e4f526cd94423cbbc32647812f1e9657a",
   "camera_sha256": "c5c49af27eec1d98bff1ffde086b8c22674806b06a0ed68eafa2bfba3072f1db",
   "photo_sha256": "7458a4902276cccdaa289b9767e8ab717b5dd0fcf06ba3969a97c4fa8d00e92a",
   "side_by_side": "docs/RESEARCH/photo-match/house_1918_prairie/chicagology_photo-side-by-side.jpg",
@@ -37,8 +37,8 @@
       "status": "fixed"
     },
     {
-      "what": "the belvedere's corner pilasters and the columns of its arched frames (x 1530-1560 and 1690-1744 px; x 1565-1645): the kit's pilasters run the whole height of a bay, so the belvedere's alone are not built",
-      "status": "open"
+      "what": "the belvedere's corner pilasters and the columns of its arched frames (x 1530-1560 and 1690-1744 px; x 1565-1645): the kit's pilasters run the whole height of a bay, so the belvedere's alone are not built T-3370 (ninth pass): built. K08's pilasters now stand in some storeys alone (`storeys`) and on a whole stage's ring, so the belvedere carries one at each end of every face, wrapping its four corners, in its own storey only (0.45 m wide, 0.12 m proud, base 0.2 m, capital 0.3 m under the brackets); and K08's architrave takes colonnettes (`columns`), so each arched frame stands on a 0.16 m shaft each side, base and capital, carrying its impost (the frame now about 2.1 m across, the print's x 1561-1638 on the south face). In the overcast render they are cut in the wall's own stone and read by their edges and the frames' arcs, fainter than the print's dark joints; a sunlit render of the same build draws the pilasters and colonnettes plainly. The capitals' carving and the frames' finer mouldings are under the print's pixels (liberty L-k01-1936-allerton-1901)",
+      "status": "fixed"
     },
     {
       "what": "the window dressings on the south flank: the photograph's lights there are round-headed in carved brownstone hoods (the dining range's singles and pairs on both principal storeys, heads arched at y 545 and 735 px; the reception bay's chamber lights, y 535-545), the build's were flat-headed sashes under K09's corniced lintels, and the two bays laid in the front's brownstone, so no dressing stood out from its wall. T-3370 (sixth pass): those lights are K06's round-headed sashes in K08's moulded arched architraves (a single's on imposts under a keystone, a pair's one enclosing arch), and the dining range and the reception bay are laid in the house's brick on its brownstone basement, as the Tribune walls every face above the basement, so their heads, sills and bands stand in brownstone against the brick as the print's paler dressings do; the render's heads land on the print's within about 10 px (the face-length offset aside). The carving of the hoods is finer than the print's pixels; the bay's principal-floor lights stay flat-headed, as the print draws them",

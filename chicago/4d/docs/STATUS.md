@@ -1,3 +1,20 @@
+## T-3576 — Sign-in before a year, switched off until the Firebase project exists (2026-11-13)
+
+The owner asked for Google sign-in, or a typed email for anyone without Google (unverified
+for now), in front of every year before its download, once per device, with no server, a
+list of everyone who has come in, and some usage numbers. Built on Firebase (docs/SIGN-IN.md):
+`boot()` awaits `signInGate()` (js/sign-in.js) before the scene is fetched, so the
+Observatory's cards, the year doors and `?year=` links all pass it; Google is a popup
+(redirect if blocked), email is anonymous sign-in plus the address; each entry writes
+`visitors/<uid>` and `visits/<id>` over Firestore REST (js/visitor-store.js); the owner reads
+them at walk/visitors.html (counts by year, device and day; CSV); Analytics logs `login` and
+`enter_year`. The SDK (app, auth, analytics 13.3.0) is vendored and reached through the import
+map. **Unverified:** the gate ships OFF (`js/sign-in-config.js` has no project yet), so a real
+Google sign-in, the rules and the Firestore writes have not run against a live project; what
+has run is tools/test_sign_in.mjs and the panel by `?signin=preview` at 390×780 and 1280×800,
+where no scene data was requested until the visitor went in. It fails open: off-host, under
+automation, or with Firebase unreachable, the visitor goes straight in.
+
 ## T-3563 — Settings in icon tabs, and a mouse sensitivity setting (2026-11-12)
 
 The owner (after meeting Bill Tyre) asked for a mouse-sensitivity setting and for the Settings
