@@ -2989,7 +2989,29 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
         # T-1890: a round tower's corbelled upper stage (1801's, in the Taylor print and HABS
         # photograph 2): from one of its storey lines its ring is wider than its shaft's, carried
         # out on stepped corbel courses, its eaves and cone the stage's (k08_bays._build_staged)
-        if "stage" in e:
+        if "stage" in e and isinstance(e["stage"], dict) and e["stage"].get("whole") is not None:
+            # T-3370: or a square tower's WHOLE stage (1936's belvedere, square on every side over
+            # the roof in its photograph, its shaft 0.6 m into the front on the 1911 sheet): from
+            # one of its storey lines its ring is the whole square, standing clear of the wall
+            # plane over the house's roof (k08_bays._build_whole_stage)
+            sg = e["stage"]
+            q = e.get("plan") or {}
+            ok = set(sg) == {"from_storey", "whole"} and sg["whole"] is True and v["kind"] == "tower" \
+                and v["plan"]["kind"] == "polygon" and int(q.get("sides", 0)) == 4 \
+                and not e.get("corner") and not e.get("across_corner") \
+                and isinstance(sg["from_storey"], int) and 0 < sg["from_storey"] < len(v["storeys"])
+            if ok:
+                y_s = sum(float(st["height_m"]) for st in v["storeys"][:sg["from_storey"]])
+                # its foot at most half a metre under the house's eave (1936's on the main
+                # cornice's line, 0.35 m under its eave datum), so what of it stands behind the
+                # wall plane rises out of the house's wall head and roof, never out of a storey
+                ok = y_s >= eave - 0.5
+            if not ok:
+                raise ParamError(f"bays: {e['id']}'s whole stage takes from_storey (one of its storey lines, at most "
+                                 f"0.5 m under its wall's eave) and whole: true, on a square tower with a face to its "
+                                 f"street, not {sg}")
+            v["stage"] = {"from_storey": int(sg["from_storey"]), "whole": True}
+        elif "stage" in e:
             sg = e["stage"]
             ok = isinstance(sg, dict) and set(sg) == {"from_storey", "radius_m", "corbel_courses"} \
                 and v["kind"] == "tower" and v["plan"]["kind"] == "circle" and not e.get("corner")
