@@ -1781,6 +1781,8 @@ const loadSound = (early = false) => (api.soundReady ??= import('./sound.js')
     environment: () => ({ camera: api.camera, terrain: api.terrain, season: api.season?.current ?? 'summer',
       snowCover: seasonUniforms.uChiSnow.value,
       flora: api.flora, faunaZones: api.fauna?.records, time: api.timeOfDay?.current,
+      // T-3585: 1904's nature sounds perch in the parkway elms the scene draws.
+      streetTrees: api.streetTrees?.records,
       transport: api.townTransport?.audioSources ?? [],
       sunElevation: api.world?.sun?.elevationDeg }),
     workEnvironment: () => {
@@ -5558,9 +5560,14 @@ async function boot() {
           return loadSound().then(sound => sound?.sync());
         },
         duck: on => api.sound?.setSpeechActive(on),
+        // T-3578: Settings › Sound › Narrator (the essayist unless the visitor chose otherwise).
+        narrator: () => api.hud?.settings?.narrator ?? soundNow().saved.narrator,
       });
       jauntPreview = preview.createJauntPreview({ root: jauntRoot, scene: YEAR, dataBase: bases.dataBase, destinations, api: api.jaunts,
-        onStart: (id, options) => jauntRuntime.start(id, options), onResume: () => jauntRuntime.resume(), getSession: () => jauntRuntime?.state,
+        // T-3578: a jaunt's Start (or Continue) tap primes the narration, so its opening and each
+        // arrival can speak without another tap on an iPhone.
+        onStart: (id, options) => { narration.prime(); return jauntRuntime.start(id, options); },
+        onResume: () => { narration.prime(); return jauntRuntime.resume(); }, getSession: () => jauntRuntime?.state,
         onDismiss: () => jauntRuntime?.end(), // T-3432: Close on Outing complete
         // T-2631: each card's plate, a credited picture of its stops (pictures.js § plateFor).
         plateFor: (row) => jauntPlate(jauntPictures, (row.destinations ?? [])
@@ -5571,7 +5578,7 @@ async function boot() {
         modeNote: (jaunt) => jauntWay(jaunt).note,
         license, narration,
         estimate: (row, mode) => estimates.estimateJaunt(row, mode, estimateOptions(mode)) });
-      const actions = Object.fromEntries(['next', 'prev', 'end', 'menu', 'choose', 'revise', 'retry', 'detail', 'returnFromDetail', 'setMode', 'straight', 'resumeRide', 'dismissContext'].map(name => [name, (...args) => jauntRuntime[name](...args)]));
+      const actions = Object.fromEntries(['next', 'prev', 'end', 'menu', 'choose', 'revise', 'retry', 'detail', 'returnFromDetail', 'setMode', 'straight', 'resumeRide', 'dismissContext'].map(name => [name, (...args) => { if (['next', 'prev', 'straight'].includes(name)) narration.prime(); return jauntRuntime[name](...args); }]));
       const jauntCards = cards.createJauntCards({ registry: loaded.registry, popup, hud, api,
         sources: () => { openSources(); return sourcesPromise; }, onReturn: () => jauntRuntime.returnFromDetail() });
       actions.closeOverlay = jauntCards.close;

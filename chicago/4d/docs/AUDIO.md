@@ -34,6 +34,19 @@ The owner uploaded the selected MP3, and full public verification passed for its
 
 Other audition candidates remain inactive: [McClintock Bay](https://freesound.org/people/SoundsLikeYukon/sounds/758708/) includes a possible faint dock cleat/flagpole clang; [Pier Lap](https://freesound.org/people/craigsmith/sounds/438839/) has wooden-dock character. The selected [Manitoulin recording](https://freesound.org/people/TRP/sounds/575244/) retains its rocky-lake provenance rather than being relabelled a historical Chicago recording.
 
+### 1904 nature sounds — T-3585 (2026-11-13)
+
+The owner heard few birds in 1904 summer daytime: 1904 had no habitat sound at all, only the 0.012 leaf rustle. It now has its own `town_placements` (catalogue and intake), read by `renderers/web/js/habitat-town.js` through the existing habitat scheduler, on four recordings already licensed and verified on R2, so no new bytes are uploaded or shipped:
+
+| Recording | 1904 seasons and hours | Where |
+|---|---|---|
+| robin-calls | spring and summer dawn/day/dusk (gaps 25–55 s, 20–45 s), fall dawn/day (90–180 s) | one mature parkway elm's crown, 9 m up, 24–110 m away, behind the listener when the phrase begins |
+| summer-cicada-proxy | summer, after noon, day/dusk | listener within 45 m of a parkway elm |
+| summer-crickets | summer dusk/night | listener within 45 m of a parkway elm |
+| late-summer-katydid | summer nights from 20 July only (silent on the scene's 1 July) | listener within 45 m of a parkway elm |
+
+The habitat is the scene's own `data/street_trees/1904.json` (main.js passes `streetTrees` into the audio environment); a date whose own season disagrees with the visitor's season stays quiet; winter is silent and no insect plays outside summer. The robin's season rests on Woodruff 1907 (`woodruff_1907_birds_chicago_area`: abundant summer resident, early April to October) and the Illinois DNR account. Unlike the 1835 red-wing, a robin phrase that has begun is not cut when the visitor turns toward its tree, since it sings inside a drawn crown. One habitat voice and the 12–25 s global gap are unchanged. The house sparrow, 1904's commonest street bird, has no licensed recording yet and is left silent rather than faked; the European starling is excluded (not in Woodruff's 1907 list). Liberty: L-1904-nature-sounds-3585. Test: `tools/test_habitat_audio_1904.mjs`.
+
 ### Pre-integration pilot checkpoints
 
 This is a local, reviewable foundation, not a completed town soundscape or a
@@ -73,7 +86,12 @@ what the panel shows. Each script is keyed by the SHA-256 of its words.
 
 **Voices.** `data/narration/voices.json` lists the voiced jaunts and a voice per speaker: an
 ElevenLabs voice id, or the exact name of one of the owner's voices; `null` is not yet chosen
-and that speaker is skipped. Model, output format (`mp3_44100_64`, mono speech at 64 kbit/s,
+and that speaker is skipped. The owner chose his voices on 2026-11-13 by name ("Character -
+Glessner, John" and so on), and gave two narrators, the **Cultivated Essayist** (default) and the
+**Midwestern Storyteller**: every narrator script is voiced once in each (index key
+`<sha>~essayist`, `<sha>~storyteller`), and a visitor picks one in Settings › Sound › Narrator; a
+narrator not yet voiced falls back to the essayist. The two lists (`narration.js` `NARRATORS`,
+`voices.json` `narrators`) are held equal by `tools/test_narration.mjs`. Model, output format (`mp3_44100_64`, mono speech at 64 kbit/s,
 about 0.5 MB a minute), voice settings and a per-run character cap live there too.
 
 **Voicing.** `.github/workflows/chicago-4d-narration.yml` runs on a push to dev that touches a
@@ -96,7 +114,7 @@ iPhone Chrome, then lets later stops start unprompted), streams through Settings
 **Narration** bus under Master, and music, ambience and effects duck to 0.3 while it speaks.
 With sound on and Narration up, arriving at a stop starts its voice, or queues it behind the one
 still speaking; travelling on does not cut a voice off; muting Narration or all sound, hiding
-the page or leaving the jaunt ends it. A Listen tap with sound off turns it on. The
+the page or leaving the jaunt ends it. A Listen tap with sound off turns it on. A jaunt's Start, Continue, Next Stop and Straight-there taps also prime the element, so the opening (the title, then the Background) plays as the jaunt begins and John follows it at the first stop. The
 Navigator's **Mute narration** key flips the Narration level as Mute music flips Music.
 
 **Liberty.** The voices are synthetic and chosen by ear, not the people's voices

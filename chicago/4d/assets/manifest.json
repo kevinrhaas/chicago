@@ -863,9 +863,9 @@
     "fort_dearborn_massacre_monument_1893__on_18th_street_1893.glb": {
       "archetype": "monument",
       "baked_ao": false,
-      "bytes": 149512,
+      "bytes": 208680,
       "generator": "generators/monument_emit.py",
-      "inputs_sha256": "e3f0aa8260c1412599782b27d7a760ddefb56a2721e00771d3fcc673de32868b",
+      "inputs_sha256": "9e05b2c0375215b565632902f6eab9604e031237eb49d62b9f9b78cdf14de205",
       "kind": "generated",
       "phase_id": "on_18th_street_1893",
       "structure_id": "fort_dearborn_massacre_monument_1893"
@@ -2093,9 +2093,9 @@
     "house_1918_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 8772012,
+      "bytes": 8851272,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "61d0083847d773ffc50ff1a7d40706214368620519e628ec6cfe1b2897cad72b",
+      "inputs_sha256": "763fff05d2a9b7b0c257d1a09b3dd0627511a10f2a2846b6a8254c92134e3b45",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "house_1918_prairie"

@@ -26,7 +26,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
-import { narrationScripts, textKey, INDEX_PATH } from '../renderers/web/js/narration.js';
+import { narrationScripts, textKey, clipKey, INDEX_PATH, NARRATOR, NARRATORS, DEFAULT_NARRATOR } from '../renderers/web/js/narration.js';
 
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const API = 'https://api.elevenlabs.io';
@@ -36,35 +36,45 @@ const looksLikeId = v => /^[A-Za-z0-9]{20}$/.test(v);
 
 export function loadConfig(root = ROOT) {
   const config = read(path.join(root, 'data/narration/voices.json'));
-  if (config.version !== 1 || !Array.isArray(config.jaunts) || typeof config.voices !== 'object') throw Error('voices.json: unknown shape');
+  if (config.version !== 1 || !Array.isArray(config.jaunts) || typeof config.voices !== 'object' || typeof config.narrators !== 'object') throw Error('voices.json: unknown shape');
+  const ids = Object.keys(config.narrators).join(), app = NARRATORS.map(n => n.id).join();
+  if (ids !== app) throw Error(`voices.json narrators (${ids}) differ from the app's choices in narration.js (${app})`);
   return config;
 }
 export function publicBase(root = ROOT) {
   return new URL(read(path.join(root, 'tools/audio-hosting.json')).public_base).href;
 }
 
-/** Every script of the configured jaunts, with its words' key. */
+/** Every script of the configured jaunts, with its words' key and its clip's index key. A
+ *  narrator script is listed once for each narrator (`narrator` names which). */
 export async function scriptsFor(config, { root = ROOT, only = null } = {}) {
   const out = [];
   for (const id of config.jaunts) {
     if (only && id !== only) continue;
     const source = read(path.join(root, 'data/jaunts', `${id}.json`));
     const jaunt = read(path.join(root, 'data/sidecars', source.scene, 'jaunts', `${id}.json`));
-    for (const script of narrationScripts(jaunt)) out.push({ ...script, jaunt: id, scene: source.scene, text_sha256: await textKey(script.text) });
+    for (const script of narrationScripts(jaunt)) {
+      const text_sha256 = await textKey(script.text);
+      for (const narrator of script.speaker === NARRATOR ? Object.keys(config.narrators) : [null]) {
+        out.push({ ...script, jaunt: id, scene: source.scene, text_sha256, narrator,
+          key: clipKey(text_sha256, script.speaker, narrator ?? DEFAULT_NARRATOR) });
+      }
+    }
   }
   if (only && !out.length) throw Error(`${only}: not a jaunt listed in data/narration/voices.json`);
   return out;
 }
 
-/** A speaker's voice and settings, resolved to an id; `names` maps the owner's voice names to ids. */
-export function voiceFor(config, speaker, names = null) {
-  const raw = config.voices[speaker] ?? null;
+/** A speaker's voice and settings, resolved to an id; `names` maps the owner's voice names to ids.
+ *  The narrator's voice is the named narrator's. */
+export function voiceFor(config, speaker, names = null, narrator = DEFAULT_NARRATOR) {
+  const raw = speaker === NARRATOR ? config.narrators[narrator] ?? null : config.voices[speaker] ?? null;
   const entry = typeof raw === 'string' ? { voice: raw } : raw;
   if (!entry?.voice) return { missing: 'no voice chosen' };
   let id = entry.voice;
   if (!looksLikeId(id)) {
     if (!names) return { missing: `voice "${id}" is a name; resolving it needs ELEVENLABS_API_KEY` };
-    const hit = names.get(id.toLowerCase());
+    const hit = names.get(id.replace(/\s+/g, ' ').trim().toLowerCase());
     if (!hit) return { missing: `no voice named "${id}" in this ElevenLabs account` };
     id = hit;
   }
@@ -77,9 +87,9 @@ export function voiceFor(config, speaker, names = null) {
 export function plan(scripts, config, index, names = null) {
   const todo = [], current = [], skipped = [];
   for (const s of scripts) {
-    const v = voiceFor(config, s.speaker, names);
+    const v = voiceFor(config, s.speaker, names, s.narrator ?? DEFAULT_NARRATOR);
     if (v.missing) { skipped.push({ ...s, reason: v.missing }); continue; }
-    const have = index?.clips?.[s.text_sha256];
+    const have = index?.clips?.[s.key];
     (have?.settings_sha256 === v.settings_sha256 ? current : todo).push({ ...s, voice: v });
   }
   return { todo, current, skipped, chars: todo.reduce((n, s) => n + s.text.length, 0) };
@@ -120,21 +130,22 @@ export async function synthesize(key, script, fetcher = fetch, { tries = 4, wait
 }
 
 /** Voice the plan into out/narration/, and write the index the upload ends with. */
-export async function voice(work, index, out, key, { fetcher = fetch, now = () => new Date().toISOString() } = {}) {
+export async function voice(work, index, out, key, { fetcher = fetch, now = () => new Date().toISOString(), narrators = null } = {}) {
   const dir = path.join(out, 'narration');
   fs.mkdirSync(dir, { recursive: true });
   const next = { version: 1, updated: now(), clips: { ...index.clips } }, made = [];
+  if (narrators) next.narrators = narrators;
   for (const s of work) {
     const bytes = await synthesize(key, s, fetcher);
     const digest = sha(bytes), file = `narration/${digest}.mp3`;
     fs.writeFileSync(path.join(out, file), bytes);
-    next.clips[s.text_sha256] = { text_sha256: s.text_sha256, file, bytes: bytes.length, sha256: digest,
-      jaunt: s.jaunt, scene: s.scene, part: s.part, part_id: s.id, speaker: s.speaker, chars: s.text.length,
+    next.clips[s.key] = { text_sha256: s.text_sha256, file, bytes: bytes.length, sha256: digest,
+      jaunt: s.jaunt, scene: s.scene, part: s.part, part_id: s.id, speaker: s.speaker, ...(s.narrator ? { narrator: s.narrator } : {}), chars: s.text.length,
       voice_id: s.voice.params.voice_id, voice: s.voice.voice_name, model_id: s.voice.params.model_id,
       output_format: s.voice.params.output_format, settings_sha256: s.voice.settings_sha256,
       provider: 'ElevenLabs text to speech', generated: now() };
     made.push(file);
-    console.log(`voiced ${s.jaunt}/${s.part}:${s.id} (${s.speaker}, ${s.text.length} chars) → ${file} ${bytes.length} bytes`);
+    console.log(`voiced ${s.jaunt}/${s.part}:${s.id} (${s.narrator ? `narrator ${s.narrator}` : s.speaker}, ${s.text.length} chars) → ${file} ${bytes.length} bytes`);
   }
   fs.writeFileSync(path.join(out, INDEX_PATH), JSON.stringify(next, null, 1) + '\n');
   fs.writeFileSync(path.join(out, 'made.json'), JSON.stringify(made) + '\n');
@@ -156,11 +167,13 @@ export async function verify(out, base = publicBase(), fetcher = fetch) {
 }
 
 function report(p, scripts, config) {
-  const name = s => config.speaker_names?.[s] ?? s;
+  const name = s => (s.narrator ? `Narrator (${config.narrators[s.narrator]?.label ?? s.narrator})` : config.speaker_names?.[s.speaker] ?? s.speaker);
+  const voiceOf = s => (s.voice ? ` · voice "${s.voice.voice_name}"` : '');
   const lines = [`Narration plan: ${scripts.length} scripts in ${new Set(scripts.map(s => s.jaunt)).size} jaunt(s);`
     + ` ${p.current.length} already voiced, ${p.todo.length} to voice (${p.chars} characters), ${p.skipped.length} skipped.`];
-  for (const s of p.todo) lines.push(`  voice   ${s.jaunt}/${s.part}:${s.id}  ${name(s.speaker)}  ${s.text.length} chars`);
-  for (const s of p.skipped) lines.push(`  skip    ${s.jaunt}/${s.part}:${s.id}  ${name(s.speaker)}: ${s.reason}`);
+  for (const s of p.todo) lines.push(`  voice   ${s.jaunt}/${s.part}:${s.id}  ${name(s)}${voiceOf(s)}  ${s.text.length} chars`);
+  for (const s of p.current) lines.push(`  have    ${s.jaunt}/${s.part}:${s.id}  ${name(s)}${voiceOf(s)}`);
+  for (const s of p.skipped) lines.push(`  skip    ${s.jaunt}/${s.part}:${s.id}  ${name(s)}: ${s.reason}`);
   return lines.join('\n');
 }
 
@@ -183,8 +196,8 @@ async function main(argv) {
   const config = loadConfig();
   const scripts = await scriptsFor(config, { only: arg('--jaunt') });
   const index = await readIndex(arg('--index'));
-  const names = key && Object.values(config.voices).some(v => (typeof v === 'string' ? v : v?.voice) && !looksLikeId(typeof v === 'string' ? v : v.voice))
-    ? new Map((await listVoices(key)).map(v => [v.name.toLowerCase(), v.id])) : null;
+  const names = key && [...Object.values(config.voices), ...Object.values(config.narrators)].some(v => (typeof v === 'string' ? v : v?.voice) && !looksLikeId(typeof v === 'string' ? v : v.voice))
+    ? new Map((await listVoices(key)).map(v => [v.name.replace(/\s+/g, ' ').trim().toLowerCase(), v.id])) : null;
   const p = plan(scripts, config, index, names);
   note(report(p, scripts, config));
   const max = Number(arg('--max-chars') ?? config.max_chars_per_run);
@@ -193,7 +206,8 @@ async function main(argv) {
     if (!p.todo.length) { fs.mkdirSync(out, { recursive: true }); fs.writeFileSync(path.join(out, 'made.json'), '[]\n'); note('Nothing to voice.'); return; }
     if (!key) throw Error('--voice needs ELEVENLABS_API_KEY');
     if (p.chars > max) throw Error(`this run would spend ${p.chars} characters, over the ${max} cap; raise --max-chars (or max_chars_per_run) to allow it`);
-    const { made } = await voice(p.todo, index, out, key);
+    const { made } = await voice(p.todo, index, out, key, { narrators: { default: DEFAULT_NARRATOR,
+      choices: Object.fromEntries(Object.entries(config.narrators).map(([id, n]) => [id, n.label ?? id])) } });
     note(`Voiced ${made.length} clip(s), ${p.chars} characters.`);
   }
 }
