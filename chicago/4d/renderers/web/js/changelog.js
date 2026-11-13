@@ -1,4 +1,18 @@
 export const CHANGELOG = [ // newest first
+  { v: 2922, ts: '2026-11-13T08:42:40.894Z', date: 'Nov 13, 2026, 2:42 AM CT', title: 'Glessner House matched to Kevin\'s new photographs', kind: 'improvement',
+    items: [
+      'The rock-faced granite varies like the real wall: some stones pillow over a sharp lower lip, some are smoother.',
+      'The carving over the front door bulges in two levels, and its field grows in leafy scrolls.',
+      'The coach house on 18th Street has green diagonal-boarded doors, the latch on the man door beside the hinge-side jamb, a shut green loft door, and a driveway over the curb.',
+      'The alley dormer has its boarded hood with curved cheeks over a green loft door, and a bronze 35 plate sits on the 18th Street entry.',
+      'At the alley the courtyard wall stands tall to the brick edge, and the Keith house next door now runs back its full three storeys to it, beside a framed green gate.',
+      'The stable\'s south wall and the tall alley wall are buff Chicago common brick, and the stable wall has its high gable window over a centred row of four windows and a stone-headed triple window on the ground floor.',
+    ] },
+  { v: 2921, ts: '2026-11-13T08:42:40.894Z', date: 'Nov 13, 2026, 2:42 AM CT', title: '2009 Prairie\'s chimneys in red-brown brick, and its two young street trees', kind: 'improvement',
+    items: [
+      'The Mayer-Meyer house\'s tall chimneys and side walls are now the same dark red-brown brick as its front, as its old photograph shows them, not a pale buff.',
+      'The two slender young elms the photograph shows on the grass strip in front of the house now stand there, one by its north corner and one south of its steps, replacing a single full-grown elm.',
+    ] },
   { v: 2920, ts: '2026-11-13T08:32:24.341Z', date: 'Nov 13, 2026, 2:32 AM CT', title: '1824 Prairie\'s eaves sit on paired brackets over a frieze', kind: 'improvement',
     items: [
       'In 1904, the old villa at 1824 Prairie Avenue now has its deep eaves on brackets set in pairs, with a frieze band running under them all the way round. Before, the brackets were single and evenly spaced. Two photographs from about 1900 and one from before 1880 all show the pairs and the frieze.',
