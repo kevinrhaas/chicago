@@ -598,6 +598,18 @@
    "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/nose/nose-hump-incr.target"
   },
   {
+   "path": "makehuman/data/targets/nose/nose-nostrils-angle-down.target",
+   "sha256": "151478df5f37878b1ef5458990504c042f76dba5ea2b98d7b98def2ff0037f6c",
+   "bytes": 3393,
+   "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/nose/nose-nostrils-angle-down.target"
+  },
+  {
+   "path": "makehuman/data/targets/nose/nose-nostrils-angle-up.target",
+   "sha256": "d403a05ea2d3178d95060649cf273cce475b6428118032473535cd47e51402ba",
+   "bytes": 4046,
+   "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/nose/nose-nostrils-angle-up.target"
+  },
+  {
    "path": "makehuman/data/targets/nose/nose-nostrils-width-decr.target",
    "sha256": "381335aed6091e8b394092dabea983b89bc2e35f548ced6b5ab2eca6dabc8bd2",
    "bytes": 4128,
@@ -670,6 +682,18 @@
    "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/nose/nose-scale-vert-incr.target"
   },
   {
+   "path": "makehuman/data/targets/nose/nose-septumangle-decr.target",
+   "sha256": "8d31807fcba66c0089e9bbd4916bf1cd11bc16728f826504df910af554804a23",
+   "bytes": 6329,
+   "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/nose/nose-septumangle-decr.target"
+  },
+  {
+   "path": "makehuman/data/targets/nose/nose-septumangle-incr.target",
+   "sha256": "814b5bcb7fbb2dc0e5ba402d61f49dd77afe33884c0baf658ecd14b17dbcdd04",
+   "bytes": 5590,
+   "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/nose/nose-septumangle-incr.target"
+  },
+  {
    "path": "makehuman/data/targets/nose/nose-trans-down.target",
    "sha256": "6a4d970a97a1e1b3db113ca88cd1e75a6f950f296c7f456a4931f6b460c58dae",
    "bytes": 6689,
@@ -680,6 +704,18 @@
    "sha256": "4c1ee5897c22dfb66aee081f65fd9fb77173e8af5bc5c9e8676073dd9eda1d4a",
    "bytes": 8106,
    "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/nose/nose-trans-up.target"
+  },
+  {
+   "path": "makehuman/data/targets/nose/nose-volume-decr.target",
+   "sha256": "97251aecca039f94ab6ea6f996eaf0b232aa4c44b39671a13ba0bc6c8f4bf6bb",
+   "bytes": 1274,
+   "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/nose/nose-volume-decr.target"
+  },
+  {
+   "path": "makehuman/data/targets/nose/nose-volume-incr.target",
+   "sha256": "510730156376c91322f7391154a211c7222184c24c48f3345b7212dfbc583738",
+   "bytes": 3076,
+   "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/nose/nose-volume-incr.target"
   },
   {
    "path": "makehuman/data/targets/stomach/stomach-pregnant-incr.target",
