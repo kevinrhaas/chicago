@@ -1,0 +1,9 @@
+{
+  "title": "The narrator speaks first, and Next Stop stops the voice",
+  "kind": "fix",
+  "items": [
+    "Starting The Glessner Household, the narrator reads the title and Background, then John Glessner speaks, even when the flight lands before the voices have loaded.",
+    "Next Stop, Previous Stop and End Jaunt stop the voice that is speaking.",
+    "Mattie Williamson now says her kitchen is through the wall beside her, its window in the great arch on Eighteenth Street; her voice is recorded again."
+  ]
+}
