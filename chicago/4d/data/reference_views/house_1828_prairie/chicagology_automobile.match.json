@@ -2,7 +2,7 @@
   "structure_id": "house_1828_prairie",
   "view": "chicagology_automobile",
   "glb": "assets/gltf/house_1828_prairie__as_mapped_1904.glb",
-  "glb_sha256": "17970f57b6640880a03404f05a99b1a6bfd7d9b8b30f984930e3f32563109af7",
+  "glb_sha256": "55725c008a0c5947b83b90ed195f790c3b998d226d3a4fc24e2ce6e0e8b4bf3f",
   "camera_sha256": "c5db781be13c8f38279e02b2deb16a970c6995b2397cc02e886addbafc8d281e",
   "photo_sha256": "c758e387f00acae0068286d86a69065154ee0f03e3edb234ab9ad936aba2e957",
   "side_by_side": "docs/RESEARCH/photo-match/house_1828_prairie/chicagology_automobile-side-by-side.jpg",
@@ -60,9 +60,14 @@
       "how": "built as plain ashlar on the bay's angles and between its storeys at the print's places; the panels and the carved panels are surface relief of a few centimetres, under the T-3153 bar"
     },
     {
+      "what": "the walls round the corner from the front: light stone, as the front, at the print's left edge",
+      "status": "fixed",
+      "how": "T-1887: the build laid 1828's flanks in buff brick; the 1911 sheet draws the three-storey block's north, east and south walls in one blue (stone) band, the range behind it pink (brick), so both flanks are laid in the front's Lemont ashlar 14.0 m back (stone_front.flanks.to_m) and the stone-drawn canted bay on the south flank in the same stone"
+    },
+    {
       "what": "the light stone face south of the bay's cheek at the print's left edge (x 0-150 px) with a pilaster at x 40-60: the print shows front wall south of the bay, where the 1911 sheet's trace starts the bay's cheek at the house's south corner",
       "status": "open",
-      "how": "built to the sheet: the cheek from 0.3 m inside the corner, rendering about 50 px left of the print's junction (x 100 against 150)"
+      "how": "built to the sheet: the cheek from 0.3 m inside the corner, rendering about 50 px left of the print's junction (x 100 against 150). T-1887 lays the three-storey block's flanks in the front's stone 14 m back, as the 1911 sheet edges them in blue, so what renders at the print's left edge is now light coursed stone (the south flank receding from its corner pier, x 100-195, and the stone-drawn flank bay behind it, x 60-100) where it was brick; but the print's face still reads frontal there (its courses level, if anything falling to the right, across x 0-150, with no window in it), where the flank recedes to the left with its two windows, and the render's x 0-55 is the brick range and the sky. Still a plan question between the sheet and this print"
     },
     {
       "what": "the second storey and the mansard: the frame cuts them off",
