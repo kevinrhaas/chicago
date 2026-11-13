@@ -6,7 +6,7 @@ import { t } from './strings/index.js';
 import './strings/license.js';
 import { loadReaderText, readerCopy } from './reader-text.js';
 
-export function createJauntPreview({ root, scene = '1835', dataBase, destinations, api, fetcher = fetch, onStart, onResume, onDismiss = () => {}, getSession = () => null, estimate = () => null, storage, plateFor = () => null, preferredMode = () => null, modeNote = () => '', license = null }) {
+export function createJauntPreview({ root, scene = '1835', dataBase, destinations, api, fetcher = fetch, onStart, onResume, onDismiss = () => {}, getSession = () => null, estimate = () => null, storage, plateFor = () => null, preferredMode = () => null, modeNote = () => '', license = null, narration = null }) {
   const base = new URL(`sidecars/${encodeURIComponent(scene)}/jaunts/`, dataBase);
   let catalogPromise, daybookPromise, journal = null, serial = 0, outcomeSeen = null;
   const contents = new Map();
@@ -149,7 +149,21 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
         const more = node('details', '', 'jaunt-outcome-more');
         const summary = node('summary', ''); summary.append(node('span', fallback ? 'What happened' : 'The ending and keepsake'), icon('more', 16));
         // T-3355: a long ending is told in paragraphs, split at blank lines.
-        more.append(summary, ...String(session.outcome.text).split(/\n\s*\n/).map(text => node('p', text.trim())));
+        more.append(summary);
+        // T-3578: a voiced ending can be heard again (it starts by itself as the outing finishes).
+        if (narration?.clip(session.jaunt, 'ending', session.outcome.id)) {
+          const hear = button('', () => { void narration.toggle(session.jaunt, 'ending', session.outcome.id); });
+          hear.className = 'jaunt-listen'; hear.dataset.action = 'listen';
+          const paint = () => {
+            const on = narration.isPlaying(session.jaunt, 'ending', session.outcome.id);
+            hear.setAttribute('aria-pressed', String(on)); hear.replaceChildren(icon(on ? 'stop' : 'listen', 15), node('span', on ? 'Stop' : 'Listen'));
+            hear.title = on ? 'Stop the narration' : 'Listen: read aloud in a synthetic voice';
+          };
+          paint();
+          const off = narration.on(() => { if (!hear.isConnected) off(); else paint(); });
+          more.append(hear);
+        }
+        more.append(...String(session.outcome.text).split(/\n\s*\n/).map(text => node('p', text.trim())));
         const awarded = !fallback && awardNote(session);
         if (awarded) more.append(awarded);
         else if (!fallback) more.append(node('h4', session.jaunt.keepsake.title), node('p', session.jaunt.keepsake.text));

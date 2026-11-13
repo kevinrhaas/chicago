@@ -1,0 +1,32 @@
+{
+  "$comment": "T-3578: who reads each jaunt script, and how. tools/narrate_jaunts.mjs voices every script of the jaunts listed here whose words (or voice) changed since it was last voiced, and only those. A speaker is 'narrator' (a jaunt's opening, its endings and any stop with no host) or a stop's first host, by person id. A voice is an ElevenLabs voice id or the exact name of one of the owner's voices; null means not chosen yet, and that speaker's scripts are skipped (and listed in the run's report). docs/AUDIO.md § Narration.",
+  "version": 1,
+  "model_id": "eleven_multilingual_v2",
+  "output_format": "mp3_44100_64",
+  "voice_settings": { "stability": 0.5, "similarity_boost": 0.75, "style": 0, "use_speaker_boost": true },
+  "bucket": "chicago-4d-media",
+  "max_chars_per_run": 20000,
+  "jaunts": ["glessner-household-tour"],
+  "voices": {
+    "narrator": null,
+    "glessner_john_j": null,
+    "glessner_frances_m": null,
+    "glessner_williamson_martha_l": null,
+    "pa1904_glessner_john_j_c1900_kate_ryan": null,
+    "pa1904_glessner_john_j_c1900_christine_nelson": null,
+    "pa1904_glessner_john_j_c1900_mary_reynolds": null,
+    "pa1904_glessner_john_j_c1900_charles_nelson": null,
+    "pa1904_glessner_john_j_c1900_august_billings": null
+  },
+  "speaker_names": {
+    "narrator": "Narrator",
+    "glessner_john_j": "John J. Glessner",
+    "glessner_frances_m": "Frances M. Glessner",
+    "glessner_williamson_martha_l": "Mattie Williamson (cook)",
+    "pa1904_glessner_john_j_c1900_kate_ryan": "Kate Ryan (cook)",
+    "pa1904_glessner_john_j_c1900_christine_nelson": "Christine Nelson (parlor maid)",
+    "pa1904_glessner_john_j_c1900_mary_reynolds": "Mary Reynolds (house maid)",
+    "pa1904_glessner_john_j_c1900_charles_nelson": "Charles Nelson (coachman)",
+    "pa1904_glessner_john_j_c1900_august_billings": "August Billings (stable helper)"
+  }
+}

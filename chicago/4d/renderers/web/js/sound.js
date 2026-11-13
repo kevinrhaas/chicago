@@ -14,7 +14,7 @@ export function createSound({ audio = () => null, unlock = null, early = false,
   storage = (() => { try { return globalThis.localStorage; } catch { return null; } })(),
   doc = globalThis.document ?? null, recordings = createRecordedAudio,
   every = (fn, ms) => setInterval(fn, ms), cancelEvery = clearInterval } = {}) {
-  let ctx = null, master = null, effects = null, bed = null, music = null, recorded = null, disposed = false;
+  let ctx = null, master = null, effects = null, bed = null, music = null, speech = null, recorded = null, disposed = false;
   let levels = {}, active = false;
   const stored = () => { try { return soundLevelsFrom(JSON.parse(storage?.getItem?.('chicago4d.settings') || '{}')); } catch { return SOUND_DEFAULTS; } };
   function sync() {
@@ -23,15 +23,17 @@ export function createSound({ audio = () => null, unlock = null, early = false,
     levels = { master: normalVolume(s.soundMaster, SOUND_DEFAULTS.soundMaster),
       effects: normalVolume(s.soundEffects, SOUND_DEFAULTS.soundEffects),
       ambience: normalVolume(s.soundAmbience, SOUND_DEFAULTS.soundAmbience),
-      music: normalVolume(s.soundMusic, SOUND_DEFAULTS.soundMusic) };
+      music: normalVolume(s.soundMusic, SOUND_DEFAULTS.soundMusic),
+      // T-3578: jaunt narration has its own bus under Master (js/narration.js plays into it).
+      narration: normalVolume(s.soundNarration, SOUND_DEFAULTS.soundNarration) };
     const next = audio();
     if (next && next !== ctx) {
       recorded?.dispose();
-      for (const node of [master, effects, bed, music]) node?.disconnect();
+      for (const node of [master, effects, bed, music, speech]) node?.disconnect();
       ctx?.removeEventListener?.('statechange', sync); ctx = next;
-      master = ctx.createGain(); effects = ctx.createGain(); bed = ctx.createGain(); music = ctx.createGain();
+      master = ctx.createGain(); effects = ctx.createGain(); bed = ctx.createGain(); music = ctx.createGain(); speech = ctx.createGain();
       master.gain.value = 0; music.gain.value = 0;
-      master.connect(ctx.destination); effects.connect(master); bed.connect(master); music.connect(master);
+      master.connect(ctx.destination); effects.connect(master); bed.connect(master); music.connect(master); speech.connect(master);
       recorded = recordings({ ctx, ambience: bed, effects, music, environment, workEnvironment });
       ctx.addEventListener?.('statechange', sync);
     }
@@ -40,6 +42,7 @@ export function createSound({ audio = () => null, unlock = null, early = false,
       master.gain.setTargetAtTime(active ? curve(levels.master) : 0, ctx.currentTime, .08);
       effects.gain.setTargetAtTime(curve(levels.effects), ctx.currentTime, .08);
       bed.gain.setTargetAtTime(curve(levels.ambience), ctx.currentTime, .08);
+      speech.gain.setTargetAtTime(curve(levels.narration), ctx.currentTime, .08);
       const inTown = !journey || ['exploring', 'inspecting', 'on-jaunt', 'touring'].includes(journey.state);
       recorded.sync({ active, ambienceOn: levels.ambience > 0, effectsOn: levels.effects > 0, musicOn: levels.music > 0 && inTown,
         musicLevel: levels.music, year: scene() });
@@ -50,7 +53,7 @@ export function createSound({ audio = () => null, unlock = null, early = false,
     return { context: ctx?.state ?? 'none', levels: { ...levels }, silent: !active, hum: false,
       ambience: active && levels.ambience > 0 ? String(scene()) : null,
       gains: { master: master?.gain.value ?? null, effects: effects?.gain.value ?? null,
-        ambience: bed?.gain.value ?? null, music: music?.gain.value ?? null },
+        ambience: bed?.gain.value ?? null, music: music?.gain.value ?? null, narration: speech?.gain.value ?? null },
       recorded: recorded?.state ?? null };
   }
   doc?.addEventListener?.('visibilitychange', sync);
@@ -72,7 +75,10 @@ export function createSound({ audio = () => null, unlock = null, early = false,
     ticker: () => 0, relay: () => false, land: () => false,
     setSpeechActive: on => recorded?.setSpeechActive(on),
     get state() { return state(); },
-    get nodes() { return ctx ? { master, effects, ambience: bed, music } : null; },
+    get nodes() { return ctx ? { master, effects, ambience: bed, music, narration: speech } : null; },
+    /** T-3578: the context and bus narration plays into, and whether it would be heard now. */
+    // Audible is the visitor's levels and a visible page, not the context's state, which can lag a tap's resume.
+    get speech() { return ctx ? { ctx, bus: speech, audible: levels.master > 0 && levels.narration > 0 && !doc?.hidden && doc?.visibilityState !== 'hidden' } : null; },
     dispose() { disposed = true; cancelEvery(timer); offJourney?.(); recorded?.dispose();
       doc?.removeEventListener?.('visibilitychange', sync); ctx?.removeEventListener?.('statechange', sync);
       // Let the environmental fade finish before releasing its destination.

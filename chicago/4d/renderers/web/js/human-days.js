@@ -305,8 +305,10 @@ function insidePoly(p, pts) {
  * walk from a to b ({e, n}) and stand at b: b neither in a building nor within `margin_m` of
  * one, the way crossing none, nor a wall (an enclosure's, as fort-gates.js gives it). A parade is
  * ground. The footprints are read when asked (a layer may give one walls later).
+ * T-3554: `barriers` (house-barriers.js) are what a 1904 house builds outside its walls, its
+ * stoop, area walls and railings: the way keeps a skirt's width off them the whole way.
  */
-export function clearWayOf(footprints = [], { margin_m = 0.5 } = {}) {
+export function clearWayOf(footprints = [], { margin_m = 0.5, barriers = null } = {}) {
   const box = new WeakMap();
   const boxOf = (fp) => {
     if (!box.has(fp)) {
@@ -317,6 +319,7 @@ export function clearWayOf(footprints = [], { margin_m = 0.5 } = {}) {
     return box.get(fp);
   };
   return (a, b) => {
+    if (barriers && !barriers.clearLeg(a, b)) return false;
     const lo = { e: Math.min(a.e, b.e) - margin_m, n: Math.min(a.n, b.n) - margin_m };
     const hi = { e: Math.max(a.e, b.e) + margin_m, n: Math.max(a.n, b.n) + margin_m };
     for (const fp of footprints) {
