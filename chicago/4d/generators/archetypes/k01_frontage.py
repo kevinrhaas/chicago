@@ -6886,6 +6886,19 @@ def build(params, structure_id: str):
     stone_flanks = {f"k01.wall.side.{w}" for w in (p.stone or {}).get("flanks", ())}
     for w in (p.stone or {}).get("flanks", ()):
         flank[w] = "rough_stone_trim"
+    # T-1887: a stone flank that stops `flank_to_m` back from the front, the rest of the wall
+    # the K01 brick (1828's 1911 sheet: its three-storey front block in stone, the range behind
+    # it in brick): each split flank's (stone span, brick span) along its wall's own s
+    flank_split = {}
+    flank_to = (p.stone or {}).get("flank_to_m")
+    if flank_to is not None and flank_to < D:
+        for w in p.stone["flanks"]:
+            flank_split[f"k01.wall.side.{w}"] = ((D - flank_to, D), (0.0, D - flank_to)) if w == "south" \
+                else ((0.0, flank_to), (flank_to, D))
+
+    def in_flank_brick(op):
+        sp = flank_split.get(op.wall)
+        return sp is not None and sp[1][0] < op.s_m < sp[1][1]
 
     def side_belts(which):   # T-2781: a side wall's stone belt, laid as the front's are
         return tuple((b["from_m"], b["to_m"], b["proud_m"]) for b in p.side_belts if b["wall"] == f"k01.wall.side.{which}") \
@@ -6942,8 +6955,10 @@ def build(params, structure_id: str):
                 proud = max(z for _, z in pl["points"]) if pl.get("kind") == "polyline" else \
                     pl["centre_proud_m"] + pl["radius_m"] * math.cos(math.pi / int(pl["sides"]))
                 frame = (_add(O_, _mul(N_, proud)), R_, N_)
-            a.opening(op, frame, t, mat, "limestone_trim",
-                      coursed=all_round or op.wall == "k01.wall.street_front" or op.wall in stone_flanks)
+            brick_part = in_flank_brick(op)   # T-1887: a split flank's opening in its brick
+            a.opening(op, frame, t, side if brick_part else mat, "limestone_trim",
+                      coursed=all_round or op.wall == "k01.wall.street_front"
+                      or (op.wall in stone_flanks and not brick_part))
         a._walls, a._yf = walls, yf   # T-2773: a bay coursed on the front's beds strikes them first
         for bay in p.bays:
             if not bay.get("wing"):   # T-2842: a wing's tower is laid before its wing, below
@@ -6971,11 +6986,18 @@ def build(params, structure_id: str):
                 # front is (1801's 18th Street section, 0.1 m proud on its 1911 sheet: its lower
                 # storeys' lights run back through this wall's plane); over it the bay's back is
                 # closed round them (`bay_holes`, above)
-                a.stone_front(cid, O, R, length, E, yf, t, [o for o in p.openings if o.wall == cid],
+                split = flank_split.get(cid)
+                a.stone_front(cid, O, R, length, E, yf, t,
+                              [o for o in p.openings if o.wall == cid and not in_flank_brick(o)],
                               a.front_course_beds, [*stops(cid)[0], *stops(cid)[1],
-                                                    *(h for h in a.bay_holes.get(cid, ()) if h[2] < E)],
+                                                    *(h for h in a.bay_holes.get(cid, ()) if h[2] < E),
+                                                    *([(*split[1], 0.0, E)] if split else [])],
                               dressing=p.stone["flank_dressing"] if cid in stone_flanks else None)
                 a._flank_rock = None
+                if split:   # T-1887: and behind its stone, the flank's brick, cut where the stone stands
+                    breaks, cols = breaks_of(cid, side)
+                    a.wall(cid, side, O, R, length, E, t, holes(cid) + [(*split[0], 0.0, E)],
+                           breaks, bands, gaps[cid], cols)
                 if side_arch and side_arch["wall"] == cid:
                     k01_arched_front.side_arch(a, frames[cid][0][0], side_arch["group"])
                 continue
@@ -7054,8 +7076,12 @@ def build(params, structure_id: str):
     # T-1886: and a flank laid in the front's face brick (`face_brick.returns`) is dressed as the
     # front, which carries no brick course: 1816's photograph draws its south flank with none
     belted |= {f"k01.wall.side.{w}" for w in p.face_brick_returns}
-    belted |= stone_flanks   # T-3562: a flank in the front's stone carries no brick course
+    belted |= stone_flanks - set(flank_split)   # T-3562: a flank in the front's stone carries no brick course
     courses = [c for c in courses if c[0] not in belted]
+    # T-1887: a split flank's brick course runs along its brick alone, to where the stone begins
+    courses = [(cid, s0 if cid not in flank_split or flank_split[cid][1][0] == 0.0 else max(s0, flank_split[cid][1][0]),
+                s1 if cid not in flank_split or flank_split[cid][1][0] > 0.0 else min(s1, flank_split[cid][1][1]))
+               for cid, s0, s1 in courses]
     for cid, s_from, s_to in courses:
         frame = frames[cid][0][0]
         for s0, s1 in _pieces(s_from, s_to, gaps[cid]):   # T-2308: stopped against a bay

@@ -321,6 +321,8 @@ step "1812 nature follows actual seasonal habitats with sparse wildlife and cold
   node tools/test_habitat_audio_1812.mjs
 step "1904 nature sounds perch in the parkway elms by season: robins, afternoon cicadas, dusk crickets, silent winter (T-3585)" \
   node tools/test_habitat_audio_1904.mjs
+step "One gust rhythm: trees, vines and grass sway with the wind you hear, never past their old sway, seamless clock (T-3586)" \
+  node tools/test_wind_gust.mjs
 step "1812 hoof events follow actual gait crossings without paused-frame catch-up (T-3551)" \
   node tools/test_hoof_contact_events.mjs
 step "Recorded dirt and snow hoof proxies preserve mechanics and bounded decode/voice budgets (T-3551)" \
