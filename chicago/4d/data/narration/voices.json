@@ -12,7 +12,8 @@
   "bucket": "chicago-4d-media",
   "max_chars_per_run": 20000,
   "jaunts": [
-    "glessner-household-tour"
+    "glessner-household-tour",
+    "prairie-avenue-orientation"
   ],
   "narrators": {
     "essayist": {

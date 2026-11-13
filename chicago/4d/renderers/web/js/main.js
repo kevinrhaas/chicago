@@ -1781,6 +1781,8 @@ const loadSound = (early = false) => (api.soundReady ??= import('./sound.js')
     environment: () => ({ camera: api.camera, terrain: api.terrain, season: api.season?.current ?? 'summer',
       snowCover: seasonUniforms.uChiSnow.value,
       flora: api.flora, faunaZones: api.fauna?.records, time: api.timeOfDay?.current,
+      // T-3585: 1904's nature sounds perch in the parkway elms the scene draws.
+      streetTrees: api.streetTrees?.records,
       transport: api.townTransport?.audioSources ?? [],
       sunElevation: api.world?.sun?.elevationDeg }),
     workEnvironment: () => {

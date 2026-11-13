@@ -5069,7 +5069,8 @@
         "1904"
       ],
       "approved_eras": [
-        "1812"
+        "1812",
+        "1904"
       ],
       "seasons_proposed": [
         "summer",
@@ -5116,6 +5117,37 @@
           "source_ids": [
             "chicagology_prefire273",
             "wright_1834"
+          ],
+          "basis_records": [
+            "data/fauna/zones/f06_north_timber.json",
+            "docs/research/08-fauna.md"
+          ]
+        }
+      ],
+      "town_placements": [
+        {
+          "scene_id": "1904",
+          "confidence": "reconstructed",
+          "habitat": "parkway_elms",
+          "liberty": "L-1904-nature-sounds-3585",
+          "id": "1904_late_summer_katydid_summer",
+          "season": "summer",
+          "species_id": "pterophylla_camellifolia",
+          "active_periods": [
+            "night"
+          ],
+          "mode": "habitat-insects",
+          "from_month_day": "07-20",
+          "gain": 0.055,
+          "gap_seconds": [
+            80,
+            160
+          ],
+          "min_temperature_c": 15,
+          "note": "Reconstructed true-katydid calling in the parkway elms on 1904 summer nights from 20 July. The dated fauna record puts the timber katydid's onset around mid-July and keeps 1 July silent, so the scene's own date stays silent; a later-dated 1904 jaunt stop can hear it. Creator-identified Pterophylla camellifolia, locality unspecified. Plays only within 45 m of a parkway elm.",
+          "source_ids": [
+            "picturesque_chicago_1892_prairie_avenue",
+            "views_of_chicago_1905_prairie_michigan"
           ],
           "basis_records": [
             "data/fauna/zones/f06_north_timber.json",
@@ -5265,7 +5297,8 @@
       ],
       "approved_eras": [
         "1812",
-        "1835"
+        "1835",
+        "1904"
       ],
       "seasons_proposed": [
         "summer"
@@ -5359,6 +5392,38 @@
           ]
         }
       ],
+      "town_placements": [
+        {
+          "scene_id": "1904",
+          "confidence": "reconstructed",
+          "habitat": "parkway_elms",
+          "liberty": "L-1904-nature-sounds-3585",
+          "id": "1904_summer_cicada_proxy_summer",
+          "season": "summer",
+          "species_id": "neotibicen_spp",
+          "active_periods": [
+            "day",
+            "dusk"
+          ],
+          "mode": "habitat-insects",
+          "from_hour": 12,
+          "gain": 0.05,
+          "gap_seconds": [
+            50,
+            110
+          ],
+          "min_temperature_c": 18,
+          "note": "Reconstructed annual-cicada sound from the parkway elms' crowns on 1904 summer afternoons, carrying the dated fauna record's July-September canopy inference (f06_north_timber) onto the street's trees as the 1812 reconstruction carries it onto its woods. The owner-approved Italian recording is an acoustic proxy only: not an identified Neotibicen and no periodical emergence. Plays only within 45 m of a parkway elm.",
+          "source_ids": [
+            "picturesque_chicago_1892_prairie_avenue",
+            "views_of_chicago_1905_prairie_michigan"
+          ],
+          "basis_records": [
+            "data/fauna/zones/f06_north_timber.json",
+            "docs/research/08-fauna.md"
+          ]
+        }
+      ],
       "original_integrity": {
         "bytes": 1109642,
         "sha256": "37392db070734b431000e90cf1edcccfba35746888ebbe824ac3573f403f464f"
@@ -5398,7 +5463,8 @@
         "1904"
       ],
       "approved_eras": [
-        "1812"
+        "1812",
+        "1904"
       ],
       "seasons_proposed": [
         "spring",
@@ -5471,6 +5537,100 @@
           "source_ids": [
             "illinois_dnr_american_robin",
             "chicagology_prefire273"
+          ]
+        }
+      ],
+      "town_placements": [
+        {
+          "scene_id": "1904",
+          "confidence": "reconstructed",
+          "habitat": "parkway_elms",
+          "liberty": "L-1904-nature-sounds-3585",
+          "id": "1904_robin_calls_spring",
+          "season": "spring",
+          "species_id": "turdus_migratorius",
+          "active_periods": [
+            "dawn",
+            "day",
+            "dusk"
+          ],
+          "mode": "distant-bird",
+          "gain": 0.18,
+          "gap_seconds": [
+            25,
+            55
+          ],
+          "initial_gap_seconds": [
+            6,
+            14
+          ],
+          "note": "Reconstructed 1904 American robin in the Prairie Avenue district's parkway elms. Woodruff 1907 has the robin an abundant Chicago summer resident, arriving early in April and departing in October; the Illinois DNR account places it in residential areas. Each phrase is anchored in one mature elm's crown from data/street_trees/1904.json, 24-110 m away and behind the listener when it begins. The Spokane recording is a nonlocal modern proxy; no robin is attested at a particular house or hour. 15 April falls after Woodruff's early-April arrival.",
+          "source_ids": [
+            "woodruff_1907_birds_chicago_area",
+            "illinois_dnr_american_robin",
+            "picturesque_chicago_1892_prairie_avenue",
+            "views_of_chicago_1905_prairie_michigan"
+          ]
+        },
+        {
+          "scene_id": "1904",
+          "confidence": "reconstructed",
+          "habitat": "parkway_elms",
+          "liberty": "L-1904-nature-sounds-3585",
+          "id": "1904_robin_calls_summer",
+          "season": "summer",
+          "species_id": "turdus_migratorius",
+          "active_periods": [
+            "dawn",
+            "day",
+            "dusk"
+          ],
+          "mode": "distant-bird",
+          "gain": 0.2,
+          "gap_seconds": [
+            20,
+            45
+          ],
+          "initial_gap_seconds": [
+            6,
+            12
+          ],
+          "note": "Reconstructed 1904 American robin in the Prairie Avenue district's parkway elms. Woodruff 1907 has the robin an abundant Chicago summer resident, arriving early in April and departing in October; the Illinois DNR account places it in residential areas. Each phrase is anchored in one mature elm's crown from data/street_trees/1904.json, 24-110 m away and behind the listener when it begins. The Spokane recording is a nonlocal modern proxy; no robin is attested at a particular house or hour. 1 July lies inside the April-July nesting window, so singing is frequent.",
+          "source_ids": [
+            "woodruff_1907_birds_chicago_area",
+            "illinois_dnr_american_robin",
+            "picturesque_chicago_1892_prairie_avenue",
+            "views_of_chicago_1905_prairie_michigan"
+          ]
+        },
+        {
+          "scene_id": "1904",
+          "confidence": "reconstructed",
+          "habitat": "parkway_elms",
+          "liberty": "L-1904-nature-sounds-3585",
+          "id": "1904_robin_calls_fall",
+          "season": "fall",
+          "species_id": "turdus_migratorius",
+          "active_periods": [
+            "dawn",
+            "day"
+          ],
+          "mode": "distant-bird",
+          "gain": 0.1,
+          "gap_seconds": [
+            90,
+            180
+          ],
+          "initial_gap_seconds": [
+            15,
+            35
+          ],
+          "note": "Reconstructed 1904 American robin in the Prairie Avenue district's parkway elms. Woodruff 1907 has the robin an abundant Chicago summer resident, arriving early in April and departing in October; the Illinois DNR account places it in residential areas. Each phrase is anchored in one mature elm's crown from data/street_trees/1904.json, 24-110 m away and behind the listener when it begins. The Spokane recording is a nonlocal modern proxy; no robin is attested at a particular house or hour. 15 October is the month Woodruff has them leave, so calls are sparse and quieter.",
+          "source_ids": [
+            "woodruff_1907_birds_chicago_area",
+            "illinois_dnr_american_robin",
+            "picturesque_chicago_1892_prairie_avenue",
+            "views_of_chicago_1905_prairie_michigan"
           ]
         }
       ],
@@ -5678,7 +5838,8 @@
       ],
       "approved_eras": [
         "1812",
-        "1835"
+        "1835",
+        "1904"
       ],
       "seasons_proposed": [
         "summer",
@@ -5743,6 +5904,37 @@
           ],
           "basis_records": [
             "data/fauna/zones/f01_wet_prairie.json"
+          ]
+        }
+      ],
+      "town_placements": [
+        {
+          "scene_id": "1904",
+          "confidence": "reconstructed",
+          "habitat": "parkway_elms",
+          "liberty": "L-1904-nature-sounds-3585",
+          "id": "1904_summer_crickets_summer",
+          "season": "summer",
+          "species_id": "gryllus_spp",
+          "active_periods": [
+            "dusk",
+            "night"
+          ],
+          "mode": "habitat-insects",
+          "gain": 0.05,
+          "gap_seconds": [
+            45,
+            100
+          ],
+          "min_temperature_c": 10,
+          "note": "Reconstructed field-cricket phrases in the 1904 parkway grass at summer dusk and night, carrying the dated fauna record's sparse early-July field-cricket inference (f01_wet_prairie) onto the street's lawns. The Ontario recording is a genus-level modern proxy. Plays only within 45 m of a parkway elm.",
+          "source_ids": [
+            "picturesque_chicago_1892_prairie_avenue",
+            "views_of_chicago_1905_prairie_michigan"
+          ],
+          "basis_records": [
+            "data/fauna/zones/f01_wet_prairie.json",
+            "docs/research/08-fauna.md"
           ]
         }
       ],

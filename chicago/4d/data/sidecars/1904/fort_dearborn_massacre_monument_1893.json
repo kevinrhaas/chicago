@@ -181,12 +181,12 @@
       "note": "The cast rock between the cap's top (y 470 px) and the figures' feet (about y 430-445) on ICHi-19208: 25-40 px, about 0.3 m."
     },
     "group_h_m": {
-      "value": 2.75,
+      "value": 2.43,
       "confidence": "inferred",
       "sources": [
         "chm_barnes_crosby_ichi_19208_fort_dearborn_monument"
       ],
-      "note": "The group with its rock, over the cap. Read off ICHi-19208 at the die's plane (the die's 155 px body is 1.25 m, form.die_h_m): the figures stand about 270 px over the cap, 2.2 m there, and the group stands about 1 m behind the die's front, which puts it at about 2.4 m, with the 0.3 m rock 2.7-2.75 m. That agrees with the 'about nine feet' Wikipedia gives (wikipedia_fort_dearborn_massacre_monument, cited for the text alone, its rights unresolved). The figures' places and poses are the generator's (generators/archetypes/monument.py FIGURES), read off ICHi-19208 and checked on Taylor's 1893 view, to about 0.2 m; faces, dress folds, feathers and the group's rear are reconstructed (L-fort-dearborn-monument-3567)."
+      "note": "The group with its rock, over the cap: 0.3 m of rock and 2.13 m of figures to the tip of Black Partridge's standing feather. Read since T-3582 joint by joint on ICHi-19208 through its solved camera (data/reference_views/fort_dearborn_massacre_monument_1893/chm_ichi_19208.json), each joint put in depth by J. W. Taylor's 1893 camera (aic_taylor_1893.json): the feather's tip at y 130 px and the tomahawk's head at y 156 px stand 2.13 and 2.03 m over the rock's foot, the warrior's head 1.58 m. THE TWO CAMERAS DISAGREE ON THIS HEIGHT, and the record takes ICHi's: through Taylor's camera the same figures read about 10 per cent taller (every joint 25-85 px high in the print, the rock itself 25-30 px, at any depth the joint could stand at), which is about 2.35 m of figures. Taylor's camera is fitted on the base, plinth and die alone, so the group is above the last thing it holds; ICHi's is the square-on view a visitor on the walk has. The Inter Ocean's group 'about nine feet' (2.7 m, 15 September 1892, quoted on Chicagology; no source record, so a check, not a citation) and Wikipedia's 'about nine feet' (wikipedia_fort_dearborn_massacre_monument, cited for the text alone, its rights unresolved) sit nearer Taylor's reading than ICHi's if they count the rock. The figures' places and poses are the generator's (generators/archetypes/monument.py FIGURES), to about 0.15 m in depth; faces, dress folds, feathers and the group's rear are reconstructed (L-fort-dearborn-monument-3567). Was 2.75 m (T-3567), from the figures 270 px over the cap read at the die's scale and pushed back 1 m."
     },
     "panels": {
       "value": 4,
