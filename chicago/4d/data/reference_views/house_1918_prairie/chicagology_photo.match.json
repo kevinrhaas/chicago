@@ -2,7 +2,7 @@
   "structure_id": "house_1918_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/house_1918_prairie__as_mapped_1904.glb",
-  "glb_sha256": "8fa7b6da63fc28257e1cd48a9a0b105849238a2f2226a75252d211bd01020eb1",
+  "glb_sha256": "dcf7e08473c67caf619ed88082b63882cbfd3a355fc8ccff09d38744dab05751",
   "camera_sha256": "c5c49af27eec1d98bff1ffde086b8c22674806b06a0ed68eafa2bfba3072f1db",
   "photo_sha256": "7458a4902276cccdaa289b9767e8ab717b5dd0fcf06ba3969a97c4fa8d00e92a",
   "side_by_side": "docs/RESEARCH/photo-match/house_1918_prairie/chicagology_photo-side-by-side.jpg",
@@ -105,7 +105,11 @@
       "status": "fixed"
     },
     {
-      "what": "the street front's window dressings (seen on T-3370's tenth pass, not built here): the print's lights on the front, over the verandah and over the entrance porch (x about 1450-1820 px, y 480-700), stand under tall carved hoods with scrolled and pedimented crests, as the south flank's pairs now do; the build's are flat sashes under K09's plain corniced lintels, which a visitor on the avenue would see. K08's scrolled pediment (`architrave.pediment`, T-3370) or K01's own architraves are the kit for it",
+      "what": "the street front's window dressings (seen on T-3370's tenth pass): the print's lights on the front, over the verandah and over the entrance porch (x about 1450-1820 px, y 480-700), stand under tall carved hoods with scrolled and pedimented crests, as the south flank's pairs now do, where the build had flat sashes under K09's plain corniced lintels. T-3370 (eleventh pass): the chamber storey's cornice-hood lintels carry K09's carved crest (palmette between volutes, 1.0 by 0.5 m), hood and crest rising about 1.0 m over the lights' heads as the print's do (crest tops at y about 495-505 px against the print's 500), and the tower's pair over the porch stand in moulded brownstone surrounds crested the same way",
+      "status": "fixed"
+    },
+    {
+      "what": "the tower's pair over the entrance porch: the print's carved hoods and crests rise about 1.2 m over the lights' heads (the left crest's top at about y 510 px over heads near 555), into the blind stage over the storey; the build's surround head and crest reach about 0.6 m (crest tops at y about 523 px), because K08 stops a light's crest under the storey's band (a crest that crosses the band, as K08's scrolled pediment may, is a kit change)",
       "status": "open"
     }
   ],

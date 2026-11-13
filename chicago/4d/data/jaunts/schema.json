@@ -38,6 +38,42 @@
     "featured": {
       "type": "boolean"
     },
+    "menu_group": {
+      "enum": [
+        "Places",
+        "People",
+        "Architecture",
+        "Stories",
+        "Errands",
+        "Work",
+        "Build log"
+      ],
+      "description": "T-3584: the Jaunts menu's filter this jaunt sits under, the same seven in every year: Places (tours of buildings, streets and the river), People (the people who lived there), Architecture (styles and architects), Stories (legends and events told as a story), Errands (an everyday task in town), Work (a trade or a job of work), Build log (the project's own progress walk, listed last). Distinct from the keepsake family, which is the daybook's."
+    },
+    "menu_rank": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9,
+      "description": "T-3584: leads the menu, in this order, ahead of every group (owner, 2026-11-13: the household tour first, then the other Glessner jaunt)."
+    },
+    "plate": {
+      "type": "object",
+      "properties": {
+        "structure": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$"
+        },
+        "picture": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9_.-]+$"
+        }
+      },
+      "required": [
+        "structure"
+      ],
+      "additionalProperties": false,
+      "description": "T-3584: the building whose held picture heads the card when the stops are anchors rather than buildings, and optionally which of its pictures."
+    },
     "opening": {
       "type": "object",
       "properties": {
@@ -383,6 +419,7 @@
     "title",
     "premise",
     "category",
+    "menu_group",
     "scene",
     "opening",
     "default_mode",

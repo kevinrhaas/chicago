@@ -24615,7 +24615,7 @@ dark upright under it in its first two openings, a few pixels across, so the sec
 count are reconstructed and the iron is the dark tone's reading. The rear range is built to its second
 storey's head (9.45 m) under a flat roof, short of the Tribune's 37 ft cornice. T-3370 moves the tower 2.0 m north of the sheet, to v 7.95-11.75 (the sheet's v 5.95-9.74), with the door (s 10.65) and its landing, and runs the verandah from the corner to it, s 0-7.6 with three 1.9 m openings on 2.3 m centres, where the sheet's porch strip gives 5.6 m: the photograph's camera, re-solved at 12 px rms once its south-east corner was read at the cornice's nearest vertex (x 1425 px), puts the tower 1.6-2.7 m north of the sheet across its variants and the verandah's two columns about 2.55 m apart. The image gate builds the photograph; the sheet's place is kept here. On the same camera the two south stacks stand at u 1.7 and 11.7 (from 6.0 and 12.5). Their heads are read on the same camera at about 40 px a metre: the left stack stands at its own 17.35 m (the photograph's 17.33 m), under the kit's one height; all three are dressed from the K15 kit's panelled form (k15.stack.sherman less its corbel blocks), its two stone bands, a sunk panel 0.45 m wide where a stack's shaft has room for one (the right one's, the photograph's 15.43-16.29 m), and a head of three corbelled courses 0.15, 0.15 and 0.2 m high, out 0.06, 0.13 and 0.2 m, under a stone cap 0.35 m thick and 0.28 m out, for the photograph's moulded heads about 0.9 m tall and 0.3 m out; those courses, the cap and the panels' sizes are reconstructed, the moulded profiles the kit's square courses, and the north stack's dress is the south ones'. The right stack's narrower upper stage over its broad cap is not built. The dining range's south face is lit as the photograph draws it, a single, a single and a pair to each principal storey, placed at the fractions of the face the photograph's re-solved camera reads for them (0.24, 0.53 and 0.81, for a face it reads about 10.4 m long where the sheet gives 9.03 m); the pair is K06's paired sash at its least, two 0.75 m lights on a 0.3 m mullion, where the print's lights read about 0.55-0.6 m, so its sizes are reconstructed; the Tribune's 'two windows opening to the south' are read as the two singles and the pair's room is not named. The reception room's half-octagonal bay (the Tribune's, on the sheet) is carried up through the attic to the main cornice, flat-topped under the dining range's bracketed eaves, as the photograph's face there runs full height to the cornice, and its front carries two 1.1 m sashes 1.9 m apart to each principal storey for the photograph's pair (about 1.2 m lights 1 m apart); the attic storey's height, its blind face, the flat top and the lights' sizes and spacing are reconstructed, and the bay's cants stand where the print shows only a dark band. T-3370's sixth pass lays the dining range and the reception bay in the house's brick on its brownstone basement, as the Tribune walls every face above the basement, and rounds the heads the photograph draws round: the dining range's singles and pairs on both principal storeys and the bay's chamber lights, K06's round-headed sashes in K08's moulded arched architraves of brownstone, a single's on imposts under a keystone and a pair's one enclosing arch; the print's hoods are carved, a pair's a scrolled pediment rising about 1.1 m over its lights, so the architraves' bands, imposts, keystones and the arches' rises are reconstructed at what each storey holds.
 
-T-3370 (2026-11-12) resolves the tower's depth over the roof: from the main cornice's line (13.41 m) up, its blind stage and belvedere now stand on the whole 3.79 m square, clear of the front wall's plane (K08's whole stage), as the photograph shows them above the cornice, the shaft below keeping the sheet's 1.3 m projection. The belvedere's south face carries a light in an arched frame, as the photograph draws it; its west and north faces, which no picture shows, are lit and framed as the front is (reconstructed: a belvedere lit to every side), and its balcony, cornice, consoles and balustrade run round all four faces.
+T-3370 (2026-11-12) resolves the tower's depth over the roof: from the main cornice's line (13.41 m) up, its blind stage and belvedere now stand on the whole 3.79 m square, clear of the front wall's plane (K08's whole stage), as the photograph shows them above the cornice, the shaft below keeping the sheet's 1.3 m projection. The belvedere's south face carries a light in an arched frame, as the photograph draws it; its west and north faces, which no picture shows, are lit and framed as the front is (reconstructed: a belvedere lit to every side), and its balcony, cornice, consoles and balustrade run round all four faces. T-3370 (2026-11-13) dresses the street front's chamber-storey lights as the photograph draws them, under tall carved hoods with raised scrolled crests: the cornice-hood lintels on that storey and the tower's pair over the porch carry K09's carved crest (a palmette between two volutes, 1.0 by 0.5 m on the front, 0.9 by 0.32 m on the tower, whose storey band stops it about 0.5 m short of the print's, an open difference), and the tower's pair stand in moulded brownstone surrounds. The carving is the kit's, since the print resolves only a raised scrolled block over each hood, and the sizes are reconstructed off the print through its solved camera; the principal storey's lights behind the verandah, which no picture shows, keep the plain hood.
 
 **How to resolve:** T-1901's next piece re-solves the photograph's camera (its present fit is provisional:
 see `data/reference_views/house_1918_prairie/chicagology_photo.json`), settles the front's composition
@@ -35430,6 +35430,8 @@ bay's carry into the mansard; a placement ruling for the wall south of the bay.
 
 **Revised 2026-11-12 (T-1887, the porch's south end):** the porch's south end is carried back on a diagonal from its front corner, over the south column, to the canted bay's north cheek, on a third round column against the cheek (K01's splayed porch end): the entablature's end and the column are placed off the automobile photograph through its square-on camera (the entablature meeting the cheek at x 418 px, the column at x 443), and the south arch is turned on the diagonal between the two columns. Beneath it a terrace at the landing's height runs south of the stoop to the cheek, its front a stone parapet pierced by four upright slots, as the print shows it. Invented there: the diagonal's plan between those two readings (one camera fixes each point's bearing, not its depth: the depth is taken where the bearing meets the cheek), the third column's depth (0.92 m out), the terrace's depth (the landing's) and the parapet's slot size. The partial view's camera puts the third column about 0.5 m nearer the south column than this; the two fits disagree and the better-solved one places it. Its match record now reads `matches`: its last open item, the mansard's height, is re-read against the window under it and comes to about 0.3 m short, at the bar. Still open: the automobile print's front wall south of the bay.
 
+**Revised 2026-11-13 (T-1887, the flanks' stone):** the three-storey block's north and south flanks are laid in the front's Lemont ashlar for 14.0 m back from the front, and the canted bay on the south flank in the same stone (K01's `stone_front.flanks` with its new `to_m`): the 1911 sheet edges that block's north, east and south walls in one blue (stone) band with its brick inside a dashed line, and the two-storey range behind in plain pink, and the automobile photograph shows light coursed stone at its left edge, where the build had buff brick. The sheet's block is 13.9 m deep; the stone is held to 14.0 so it meets the flank bay the sheet draws inside the band. Read, not invented: which walls are stone and how far back. Invented there: the flanks' coursing and dressing (the front's, smooth; no picture sees a flank square-on), and the brick behind the stone, as before. Still open: the automobile print's face south of the bay, which reads frontal and windowless across its left edge where the stone flank recedes with its two windows.
+
 ### L-pullman-glasshouses-1800-calumet-3164 — Pullman's glasshouse ranges and lodge across 18th Street, read off the 1911 sheet and glazed from the K13 kit
 
 **Decision:** the 1904 scene gains the Pullman estate's glasshouse ground at 1800 S. Calumet Avenue,
@@ -42934,10 +42936,15 @@ and their servants (2012), a servants' Christmas (2012) and a home for servants 
 the greetings ("Hej", "Hallo"), the choice of facts and the hand-on from one person to the next are ours. That
 all eight are at home on one spring morning (15 April 1904): the census staff are graded inferred, counted four
 years before the scene. Each host's mark. The stable helper's chores (the harness, the carriage, the doves).
-Charles Nelson's unbroken service from 1880 to 1904 (the record has him in 1880, 1894 and 1900).
+Charles Nelson's morning visit: the museum dates his service as coachman from 1878 until 1902 (The Glessner
+Journal, August 2021), so in 1904 he is no longer the coachman, and the walk has him come back for the morning
+to show the visitor his old stable, and say so (the owner, 2026-11-13: *"if charles was not there then we should
+either replace him with whoever was or correct his script for the jaunt"*; no source read names the coachman of
+1902-1906, so his script was corrected, T-3584).
 **How to resolve:** a record of the staff in 1904 (Frances Glessner's servants' journal, the 1910 census for the
 house), or a photograph of any of them, replaces the matching line; a person found not to be there in 1904 is
-taken off the walk.
+taken off the walk, or, like Charles Nelson, told as a visitor. A record naming the coachman of 1902-1906 puts
+him at the stable stop.
 **Applies to:** `data/jaunts/glessner-household-tour.json`; the stop `hosts` field (`renderers/web/js/jaunt-hosts.js`).
 **Ticket:** T-3525.
 **Recorded:** 2026-11-08 (T-3525).
@@ -43744,12 +43751,13 @@ scene on its granite pedestal at the east end of 18th Street's north walk, as
 `fort_dearborn_massacre_monument_1893` on a new pure-Python `monument` archetype. **That it stood
 there from 1893 to 1931, its five figures and their places, the pedestal's steps, die, panel and cap
 and their proportions are the photographs'** (the Barnes-Crosby view ICHi-19208, checked on J. W.
-Taylor's 1893 view), with the group's "about nine feet" from Wikipedia. **These are this project's:**
+Taylor's 1893 view), with the group's height read through ICHi-19208's camera (2.43 m with the rock; Taylor's camera reads it about a tenth taller, nearer Wikipedia's "about nine feet"). **These are this project's:**
 
 - **The depths** were the widths less margins until T-3568 read them through a camera on Taylor's 1893
   view (base 2.85 m, plinth 1.8, die 1.6): that part of this liberty is retired.
 - **The figures' modelling.** Each figure is joined from tapered limbs and balls in the pose the
-  photographs show, at about 0.2 m; faces, hair, dress folds, the feathers' number, the weapons'
+  photographs show, every joint read on ICHi-19208 through its camera and put in depth by
+  Taylor's, to about 0.15 m in depth (T-3582); faces, hair, dress folds, the feathers' number, the weapons'
   detail and the whole of the group's rear (no photograph used here shows it; the Inter Ocean's
   rear sketch of 1892 bounds it) are not modelled. One bronze colour, a dark brown patina; the
   photographs are monochrome.
@@ -43764,7 +43772,7 @@ The figures are period sculpture, built as the sculptor made them; the record ca
 
 **Covers:** `fort_dearborn_massacre_monument_1893.on_18th_street_1893.form.lettering`.
 
-**Ticket:** T-3567 (piece 1 of T-3565); the depths retired by T-3568.
+**Ticket:** T-3567 (piece 1 of T-3565); the depths retired by T-3568; the poses read joint by joint by T-3582.
 **Recorded:** 2026-11-12.
 
 ### L-glessner-rock-faces-3564 — Glessner's rock-faced granite: three face profiles shared out by rule
@@ -43938,4 +43946,25 @@ door's hinge and swing, as L-prairie-front-passages-3554's.
 **Not invented:** the words, which are the jaunt's text unchanged, with their own sources and liberties.
 **Re-opens on:** a recording or a contemporary description of how one of the speakers sounded, which would bound their voice.
 **Ticket:** T-3578.
+**Recorded:** 2026-11-13.
+
+### L-1904-nature-sounds-3585 — Robins in the parkway elms, cicadas and crickets on the 1904 street
+
+**Decision:** the owner, 2026-11-13: *"i am in 1904 and when i have the ambience on i do not hear many birds this is in summer daytime and i would think there would be birds to hear"*, then *"and insects as well?"* and *"other appropriate nature ambiance"*. 1904 had no habitat sound at all, only a faint leaf rustle. Its nature sounds now come from the scene's own parkway elms (`data/street_trees/1904.json`), using recordings already licensed, verified and hosted for 1812 and 1835 (`assets/audio/intake.json` `town_placements`, read by `renderers/web/js/habitat-town.js`):
+- **American robin** at dawn, by day and at dusk in spring and summer, sparser in fall, never in winter: Woodruff's 1907 *Birds of the Chicago Area* has it "an abundant summer resident, arriving early in April, and departing in October", and the Illinois DNR account places it in residential areas. A phrase is anchored in the crown of one mature parkway elm 24-110 m away, 9 m above its ground, and begins only behind the listener. Turning toward the tree does not stop it, because the bird is inside a drawn crown, never a body in the open; walking within 24 m or beyond 110 m does.
+- **Annual cicadas** (the owner-approved Italian proxy) on summer afternoons, and **field crickets** (the Ontario proxy) at summer dusk and night, play only while the listener is within 45 m of a parkway elm, so the bed belongs to the tree-lined street and its grass.
+- **True katydid** on summer nights only from 20 July, so the scene's 1 July stays silent as the fauna record has it, and a later-dated 1904 jaunt stop can hear it.
+No insect sounds outside summer. Gains, gaps, the 9 m crown height and the 24/110/45 m distances are listening choices, not measurements; the single habitat voice and its 12-25 s global gap are unchanged, so the street keeps real silences.
+**Not invented:** the elms and where they stand (their own sources and L-prairie-parkway-elms-2473); the robin's season (woodruff_1907_birds_chicago_area, illinois_dnr_american_robin); the insects' phenology, carried from the dated fauna records (`data/fauna/zones/f06_north_timber.json`, `f01_wet_prairie.json`) as the 1812 reconstruction carries it.
+**Left out on purpose:** the house sparrow, the commonest street bird of 1904 (Woodruff's "imported sparrows"), has no licensed recording in the library yet, so it is not heard rather than faked with another bird. No European starling: it is not in Woodruff's 1907 list and reached Chicago later.
+**Re-opens on:** a licensed house-sparrow or chimney-swift recording, or a period account of Prairie Avenue's birds, insects or trees.
+**Ticket:** T-3585.
+**Recorded:** 2026-11-13.
+
+### L-wind-gusts-3586 — One gust rhythm for the swaying plants and the wind you hear
+
+**Decision:** the owner, 2026-11-13: *"it would be nice if the wind sound worked with the trees so it would be noticeable, to see when the trees blow"*, then *"yes lets fix the wind"* and *"assume this applies in all years"*. Every tree, wall vine and yard plant drawn through `tree-surface.js`, and the prairie and lawn plants of `flora.js`, used to sway at one constant strength. They now share one gust rhythm (`renderers/web/js/wind-gust.js`): a front that crosses the town from the south-west at 7 m/s, as the fort's flags already fly, its strength the sum of three slow swells (48, 30 and 20 s) repeating every 240 s, from 0.35 of the old sway in a lull to at most the old sway at a gust's top, so nothing swings farther than before and a wall vine stays off its wall. The recorded leaf rustle follows the same gust where the listener stands, from 0.3 to 1.6 times its old level, which on average stays under the quiet town mix the owner set on 2026-11-11. All three years.
+**Not invented:** the south-westerly, which flags.js L390 already reconstructs as Chicago's prevailing summer wind; the wind recording, its licence and its town levels.
+**Re-opens on:** a weather record for a scene date (a wind speed or a gusty day), which would set the swell and the rustle from it.
+**Ticket:** T-3586.
 **Recorded:** 2026-11-13.

@@ -1,4 +1,63 @@
 export const CHANGELOG = [ // newest first
+  { v: 2949, ts: '2026-11-13T21:48:10.864Z', date: 'Nov 13, 2026, 3:48 PM CT', title: 'The narrator speaks first, and Next Stop stops the voice', kind: 'fix',
+    items: [
+      'Starting The Glessner Household, the narrator reads the title and Background, then John Glessner speaks, even when the flight lands before the voices have loaded.',
+      'Next Stop, Previous Stop and End Jaunt stop the voice that is speaking.',
+      'Mattie Williamson now says her kitchen is through the wall beside her, its window in the great arch on Eighteenth Street; her voice is recorded again.',
+    ] },
+  { v: 2948, ts: '2026-11-13T21:33:14.009Z', date: 'Nov 13, 2026, 3:33 PM CT', title: 'The wind you hear now follows the trees', kind: 'feature',
+    items: [
+      'Gusts now cross the town from the south-west: the trees, vines and grass sway harder as one passes, and calm between.',
+      'With Ambience on, the rustle of leaves swells with each gust where you stand and drops in the lulls.',
+      'Nothing sways farther than before, and the wind stays as quiet on average. In 1812, 1835 and 1904.',
+    ] },
+  { v: 2947, ts: '2026-11-13T21:33:14.009Z', date: 'Nov 13, 2026, 3:33 PM CT', title: '1828 Prairie\'s stone runs round its corners', kind: 'improvement',
+    items: [
+      'The Shipman house at 1828 Prairie now has light stone walls down both sides of its main block, matching its front, where the sides used to be buff brick. That is how the 1911 fire-insurance map colours them, and the old automobile photograph shows the same light stone round the corner.',
+      'The angled bay on its south side is now stone too, and only the lower range at the back stays brick.',
+    ] },
+  { v: 2946, ts: '2026-11-13T20:30:24.473Z', date: 'Nov 13, 2026, 2:30 PM CT', title: 'Jaunts sorted into clear groups, Glessner walks first', kind: 'improvement',
+    items: [
+      'The Jaunts menu now sorts every year into the same groups: Places, People, Architecture, Stories, Errands, Work and Build log. Each filter shows its name.',
+      'In 1904 the Glessner Household tour comes first, then Meet the Glessner House, and both cards now have a photograph of the house. Every building modelled so far is listed last.',
+      'Charles Nelson, the Glessners\' coachman from 1878 to 1902, says in the household tour that he no longer drives for them in 1904. He has come back for the morning to show you his old stable.',
+    ] },
+  { v: 2945, ts: '2026-11-13T20:00:53.574Z', date: 'Nov 13, 2026, 2:00 PM CT', title: 'Meet the Glessner House is read aloud too', kind: 'feature',
+    items: [
+      'Meet the Glessner House now has a narrator at every stop, from the opening to the end of the walk.',
+      'It uses the narrator you chose in Settings › Sound, the Cultivated Essayist unless you pick the Midwestern Storyteller.',
+    ] },
+  { v: 2944, ts: '2026-11-13T20:00:53.574Z', date: 'Nov 13, 2026, 2:00 PM CT', title: '1816 Prairie\'s photograph lined up to the right height', kind: 'fix',
+    items: [
+      'Nothing you can see in the town changed: the camera we compare 1816 Prairie Avenue against its old photograph with sat about a metre too low, so the model drew above the picture everywhere.',
+      'With the horizon set where the photograph\'s stone basement runs level, the model\'s ground, basement and roof line now sit on the picture\'s, and the side-by-side shows the real differences: the south bay\'s windows sit lower and shorter in the photograph, and one roof dormer stands a little further west.',
+    ] },
+  { v: 2943, ts: '2026-11-13T19:49:18.161Z', date: 'Nov 13, 2026, 1:49 PM CT', title: '1936 Prairie\'s front windows get their carved crests', kind: 'change',
+    items: [
+      'In 1904, the upstairs windows on 1936 Prairie Avenue\'s front now carry the carved scrolled crests the old photograph shows over their stone hoods, and the tower\'s pair of windows over the front door stands in moulded stone frames crested the same way.',
+      'The crests\' sizes are measured from the photograph; their carving is simplified.',
+    ] },
+  { v: 2942, ts: '2026-11-13T19:47:55.601Z', date: 'Nov 13, 2026, 1:47 PM CT', title: 'Sarah Grey\'s jaw narrower and collar lowered, William\'s hair combed', kind: 'fix',
+    items: [
+      'Sarah\'s jaw is narrower from the front, her chin\'s profile as it was.',
+      'Her white collar now sits on her neck, below her chin, instead of riding up over it.',
+      'No straight shading line crosses a long chin any more.',
+      'William\'s hair lies in combed waves that run together, a deeper ash brown, ending at his collar.',
+    ] },
+  { v: 2941, ts: '2026-11-13T19:47:55.601Z', date: 'Nov 13, 2026, 1:47 PM CT', title: 'The Fort Dearborn monument\'s five figures take the sculpture\'s poses', kind: 'improvement',
+    items: [
+      'The bronze group on 18th Street now stands as Rohl-Smith posed it: the warrior in a long lunge with the tomahawk raised, Mrs. Helm staggering back with her arm across to him, Black Partridge behind her with his open hand raised against the blow and his musket slanting past his hip, the surgeon fallen under them, and the child kneeling at the front with both arms out.',
+      'Each figure\'s joints were read off the Barnes-Crosby photograph of about 1900 and set in depth using J. W. Taylor\'s 1893 view, so the group\'s outline from the walk now follows the photograph.',
+      'The cast rock under their feet is rough and broken, as in both photographs, where it used to be a smooth swell.',
+      'Still to do: faces, hair, drapery and weapons are not yet modelled, and the inscription is not yet cut.',
+    ] },
+  { v: 2940, ts: '2026-11-13T19:47:55.601Z', date: 'Nov 13, 2026, 1:47 PM CT', title: 'Birds and insects on the 1904 street', kind: 'feature',
+    items: [
+      'With Ambience on, robins now sing from the Prairie Avenue elms in spring and summer, and now and then in fall.',
+      'Summer afternoons bring cicadas in the elms; summer dusk and night bring crickets in the parkway grass.',
+      'Katydids join on late-summer nights from 20 July. Winter stays quiet.',
+      'No starlings: they had not reached Chicago by 1904.',
+    ] },
   { v: 2939, ts: '2026-11-13T18:40:26.185Z', date: 'Nov 13, 2026, 12:40 PM CT', title: 'The Glessner Household speaks: two narrators to choose from', kind: 'feature',
     items: [
       'The Glessner Household is voiced: the narrator reads the title and the background, then each person speaks at their own door.',

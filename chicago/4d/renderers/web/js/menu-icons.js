@@ -13,6 +13,11 @@ const P = {
   'Neighbors': '<path d="M3.5 11.5L12 5l8.5 6.5"/><path d="M5.5 10v10h13V10"/><path d="M10.5 20v-5h3v5"/><path d="M15.5 7.2V4h2v4.8"/>',
   'Livelihood': '<path d="M3.5 7.5h12c.3 2.4 2.2 3.4 5 3.4v1.4c-3 .1-4.8 1-5.3 3.2H9.6c-.3-3-2.5-4.9-6.1-5.4z"/><path d="M9.5 15.5v2.5M14.5 15.5v2.5M6.5 20.5h11"/>',
   'News & Knowledge': '<path d="M20 3.5C13 4.5 9 9.5 8 17"/><path d="M20 3.5c-.6 6.2-5 11.4-12 13.5"/><path d="M8 17l-2.5 3.5"/><path d="M12.5 20.5h7"/>',
+  // T-3584: the menu's groups (catalog `menu_group`), the same seven in every year. Places,
+  // Errands and Work share the compass, purse and anvil of the families they grew from.
+  'People': '<circle cx="9" cy="8" r="3"/><path d="M3.5 20v-1.5a5.5 5.5 0 0 1 11 0V20"/><circle cx="16.5" cy="9" r="2.4"/><path d="M15.6 14.1a4.6 4.6 0 0 1 4.9 4.6V20"/>',
+  'Architecture': '<path d="M3 8.5L12 3.5l9 5z"/><path d="M5.5 8.5v9M10 8.5v9M14 8.5v9M18.5 8.5v9"/><path d="M4 17.5h16M2.5 20.5h19"/>',
+  'Build log': '<path d="M3.5 3.5h11v17h-11z"/><path d="M3.5 9h11M3.5 14.5h11M9 3.5v17"/><path d="M17.5 4.5h3v12.5l-1.5 3-1.5-3z"/>',
   // travel modes (travel-settings PACES)
   walk: '<path d="M8.5 3.5h4v9l4.6 2.3c1.6.8 2.4 1.9 2.4 3.2v1.5h-14V16l3-3z"/><path d="M5.5 17.5h14"/>',
   wagon: '<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="1.6"/><path d="M12 4v6.4M12 13.6V20M4 12h6.4M13.6 12H20M6.3 6.3l4.6 4.6M13.1 13.1l4.6 4.6M17.7 6.3l-4.6 4.6M10.9 13.1l-4.6 4.6"/>',
@@ -68,6 +73,22 @@ export function iconSvg(name, size = 20) {
 export function icon(name, size) {
   const t = document.createElement('template'); t.innerHTML = iconSvg(name, size); return t.content.firstChild;
 }
+/**
+ * T-3584 (owner, 2026-11-13: "the button filters you have for 1904 dont really make sense ...
+ * use more accurate categories to divide the types of jaunts like famous buildings, styles,
+ * people, stories ... make it consistent and smart"): the menu files every jaunt under one of
+ * seven groups, the same in every year, in this order; a year shows the ones it has. The
+ * keepsake families below stay the daybook's own.
+ */
+export const GROUPS = ['Places', 'People', 'Architecture', 'Stories', 'Errands', 'Work', 'Build log'];
+const GROUP_ICON = { Places: 'Wayfinding', Stories: 'story', Errands: 'Provisions', Work: 'Livelihood' };
+export const groupIcon = group => GROUP_ICON[group] || (P[group] ? group : 'view');
+export const groupSlot = group => {
+  const i = GROUPS.indexOf(group); return i < 0 ? 'other' : ['way', 'neigh', 'news', 'story', 'prov', 'live', 'log'][i];
+};
+/** A catalog row's group; a row from an older catalog without one is read from its family. */
+const FROM_FAMILY = { Wayfinding: 'Places', Provisions: 'Errands', Neighbors: 'People', Livelihood: 'Work', 'News & Knowledge': 'Errands' };
+export const groupOf = row => row?.menu_group || FROM_FAMILY[row?.primary_family] || '';
 /** A jaunt's type: its catalog family, with the colour slot styles key on. */
 export const FAMILIES = ['Wayfinding', 'Provisions', 'Neighbors', 'Livelihood', 'News & Knowledge'];
 export const familySlot = family => {

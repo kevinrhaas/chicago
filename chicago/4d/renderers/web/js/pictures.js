@@ -49,9 +49,10 @@ function heldOf(doc, id) {
  * without it. Null where none of them has a held picture: the card keeps its family
  * icon, never a stand-in picture.
  */
-export function plateFor(doc, ids = []) {
+export function plateFor(doc, ids = [], picture = null) {
   for (const id of ids) {
-    const p = heldOf(doc, id)[0];
+    // T-3584: a jaunt may name which of its building's held pictures heads its card.
+    const held = heldOf(doc, id), p = (picture && held.find((h) => h.id === picture)) || held[0];
     if (!p) continue;
     const holder = String(p.holder ?? '').split(' — ')[0].trim();
     return {

@@ -239,7 +239,7 @@ def build():
     opening = (f'WALK: BUILT SO FAR. {scope} Most detailed first, one area at a time, so the route does not double back. '
                'It is rewritten from the building records whenever one gains detail.')
     ending = 'End of the walk so far. As more buildings are built out they join it, in their place by detail and area.'
-    doc = dict(schema_version=1, content_version=1, category='Build log', featured=True, review_required=False,
+    doc = dict(schema_version=1, content_version=1, category='Build log', menu_group='Build log', featured=False, review_required=False,
                id='prairie-built-so-far', scene=SCENE, title='Every building modelled so far',  # T-2944: the distinctive words first
                premise='Walk every building on Prairie Avenue modelled in detail so far, most detailed first, kept area by area. It grows as buildings are built out.',
                default_mode='walk', allowed_modes=['walk', 'fly', 'instantly'],
