@@ -1,4 +1,16 @@
 export const CHANGELOG = [ // newest first
+  { v: 2928, ts: '2026-11-13T12:47:27.112Z', date: 'Nov 13, 2026, 6:47 AM CT', title: '1815 Prairie\'s south side is rock-faced stone, with its dormer', kind: 'improvement',
+    items: [
+      'The south side of the Sears house at 1815 Prairie is now rough rock-faced stone, as the old photograph from the south-west shows it, where it used to be plain brick.',
+      'The gabled dormer on that side of the roof now stands just behind the tall chimney, where the photograph puts it.',
+    ] },
+  { v: 2927, ts: '2026-11-13T12:44:29.402Z', date: 'Nov 13, 2026, 6:44 AM CT', title: 'The Fort Dearborn monument moved to where its photographs put it', kind: 'fix',
+    items: [
+      'The Fort Dearborn Massacre monument on 18th Street now stands about 5 m further east, by the curve into Calumet Avenue, where the Detroit Publishing print of the Pullman house puts it.',
+      'Its granite pedestal is slimmer front to back (the base 2.85 m deep, not 3.3 m), measured off J. W. Taylor\'s 1893 photograph, the one picture that shows its side.',
+      'Its card now shows the Barnes-Crosby photograph of about 1900, Taylor\'s of 1893 and the Detroit print, each set side by side with the model from the photographer\'s own position.',
+      'Still to do: the five bronze figures are simple stand-ins and do not yet look like Rohl-Smith\'s sculpture. The Detroit print shows the pedestal with no figures on it, which is not yet explained.',
+    ] },
   { v: 2926, ts: '2026-11-13T12:10:51.138Z', date: 'Nov 13, 2026, 6:10 AM CT', title: 'The Greys\' hair, eyes and William\'s brows matched to the colour sheets', kind: 'improvement',
     items: [
       'William\'s hair is a light ash going silver at the sides, as on his colour turnaround sheet, where it had read too dark.',

@@ -1,0 +1,28 @@
+{
+ "structure_id": "fort_dearborn_massacre_monument_1893",
+ "source_id": "chm_barnes_crosby_ichi_19208_fort_dearborn_monument",
+ "library_image": "a16-chm-ichi-19208-monument-pullman-wall",
+ "photo": "../../sources/assets/fort_dearborn_monument_t3568/ichi_19208_barnes_crosby.jpg",
+ "image_px": [
+  1200,
+  931
+ ],
+ "principal_px": [
+  600,
+  527.5
+ ],
+ "focal_px": 1263.6,
+ "eye": [
+  1.964,
+  -7.701,
+  2.311
+ ],
+ "yaw_deg": 359.786,
+ "sky": "overcast",
+ "solve": "Solved by T-3568 (2026-11-13) on the image store's 1200 x 931 px copy of ICHi-19208 (Barnes-Crosby, c. 1900), in the monument's footprint frame (u east along the front from the base's south-west corner, v north, the base's front at v 0). The plate looks north at the monument square-on from the 18th Street walk, its verticals vertical (a view camera, level, its rising front putting the horizon low). READ OFF THE PLATE: the stage base's front face, x 282.5-905 between y 912.5 (its foot) and 827.5 (the top of its upright face, under the wash); the plinth's body, x 387.5-808.5, its foot at y 780; the die's front, x 406.5-782.5, from y 700 (over the plinth's moulding) to y 520 (under the cap). FITTED (level, principal x at the centre), least squares over those ten corners against the record's own pedestal (base 3.8 x 2.85 m, 0.45 m upright; plinth 2.8 x 1.8 m from 0.65 m; die 2.4 x 1.6 m, 1.15-2.40 m): eye u 1.964, v -7.701, 2.311 m over the walk, heading 359.79 degrees, focal 1263.6 px, horizon y 527.5; 4.7 px rms, every residual under 7.5 px. What is left is the record's, not the camera's: the base's upright face reads 0.52 m where it is built 0.45, and the die 1.19 m high where it is built 1.25 (0.07 and 0.06 m, inside the tolerance). THE EYE'S HEIGHT is weakly held by one picture of one block: an eye at 1.6 m fits at 5.4 px rms, at 2.0 m at 4.8, so the free fit is kept; it says the photographer stood on the walk about 7.7 m off with the camera high on its stand, and the base's washed top showing as a band (y 780-827) says the eye was well over it. THE SCALE is the record's die, 2.4 m wide (form.die_w_m), so this camera checks proportions, not absolute size. CHECKS NOT IN THE FIT: the bronze front panel at x 440-750, y 548-650 (the render's falls within 5 px of it); the estate wall's foot behind the monument at y 775, 11.8 m from the eye on the walk's plane, 4.1 m north of the base's front, against the parcel's 18th Street line 4.7 m north of it. The Pullman stable's draft and the house are drawn for context (scene 1904): see the match record. LIGHT: an overcast sky; nothing in the plate casts a shadow (the lamp post and the piers throw none on the walk), so sky 'overcast'.",
+ "scene": "1904",
+ "also_render": [
+  "pullman_house_1729_prairie_ranges",
+  "pullman_house_1729_prairie"
+ ]
+}

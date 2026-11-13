@@ -1,0 +1,189 @@
+{
+  "structure_id": "fort_dearborn_massacre_monument_1893",
+  "view": "detroit_det_4a08066",
+  "glb": "assets/gltf/fort_dearborn_massacre_monument_1893__on_18th_street_1893.glb",
+  "glb_sha256": "ab1b6e7d4eaabe38f44d5a12d558ca0d4ed35cba15af4659ca8b5fd1b9777e5b",
+  "camera_sha256": "f442661842cd73a16ed87d59d1b81b37aaf93a1f242e235c75f946dd56a5c401",
+  "photo_sha256": "297e4d7b05312c70ddea6e5dbb24a74cffd0db743f3bb9cdcbb1f4c0edc5f4fb",
+  "rendered_members": [
+    {
+      "structure_id": "fort_dearborn_massacre_monument_1893",
+      "glb": "assets/gltf/fort_dearborn_massacre_monument_1893__on_18th_street_1893.glb",
+      "placement": {
+        "local_e": 1499.4,
+        "local_n": -3200.188,
+        "rotation_deg": 359.62,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "on_18th_street_1893"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "ab1b6e7d4eaabe38f44d5a12d558ca0d4ed35cba15af4659ca8b5fd1b9777e5b"
+    },
+    {
+      "structure_id": "pullman_house_1729_prairie",
+      "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
+      "placement": {
+        "local_e": 1456.371,
+        "local_n": -3167.542,
+        "rotation_deg": 179.611,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_mapped_1904"
+      },
+      "position": [
+        -42.81153876643518,
+        0,
+        -32.93065904973707
+      ],
+      "rotation_y": 3.141749733222473,
+      "glb_sha256": "968ac3f1a0a55b4c5a44645336d4ce0b08a24dc1971398cb7d6a4181d557528b"
+    },
+    {
+      "structure_id": "pullman_house_1729_prairie_ranges",
+      "glb": "assets/gltf/pullman_house_1729_prairie_ranges__draft_1904.glb",
+      "placement": {
+        "local_e": 1456.387,
+        "local_n": -3169.972,
+        "rotation_deg": 179.611,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "draft_1904"
+      },
+      "position": [
+        -42.811655370490115,
+        0,
+        -30.50060637820814
+      ],
+      "rotation_y": 3.141749733222473,
+      "glb_sha256": "f165d4af7461c032c7c7fb87ba3af9e83c3b64a4b7946bea9b402993baa40cdf"
+    },
+    {
+      "structure_id": "pullman_house_1729_prairie_conservatory",
+      "glb": "assets/gltf/pullman_house_1729_prairie_conservatory__as_standing_1904.glb",
+      "placement": {
+        "local_e": 1467.58,
+        "local_n": -3167.464,
+        "rotation_deg": -0.815,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_standing_1904"
+      },
+      "position": [
+        -31.60226797750464,
+        0,
+        -32.93431697603589
+      ],
+      "rotation_y": 6.2907774894257615,
+      "glb_sha256": "33753cacaa38e5035e8d72e0f568c4efa6c9770272b67ef2f03738313beeb916"
+    }
+  ],
+  "group_sha256": "6dcd3666c8e551473a5530878611f35f2cae339b249c9ac28f254050b2c711ee",
+  "rendered_flora": {
+    "season": "winter",
+    "creeper_in_leaf": true,
+    "lots": [
+      {
+        "parcel": "prairie_1729",
+        "shrubs": 29,
+        "trees": 3,
+        "beds": 0,
+        "creeper": 54
+      }
+    ],
+    "street_furniture": [
+      "hydrant.mid.calumet__prairie_ic_16_18",
+      "hydrant.pictured.pullman_stable",
+      "lamp.pictured.pullman_court",
+      "lamp.rule.calumet__prairie_calumet_18_20#03",
+      "lamp.rule.calumet__prairie_ic_16_18#00",
+      "lamp.rule.calumet__prairie_ic_16_18#01"
+    ],
+    "street_furniture_m": 70
+  },
+  "flora_anchor": {
+    "local_e": 1499.4,
+    "local_n": -3200.188,
+    "rotation_deg": 359.62,
+    "scene": "1904",
+    "target_date": "1904-07-01",
+    "phase": "on_18th_street_1893"
+  },
+  "flora_renderer_sources": [
+    {
+      "file": "tools/photo_match.mjs",
+      "sha256": "75e452b467c22fc5d00cd4b512706c364c942d181869e504f7218ea25167a79c"
+    },
+    {
+      "file": "tools/photo_match_flora.mjs",
+      "sha256": "c973a45041a77a11ea32e30302cdc3eda3dc5516ad715fb0b1e14060f08b5c87"
+    },
+    {
+      "file": "renderers/web/js/front-yards.js",
+      "sha256": "1d76c4415a93713c9e01d4b8400d4dbb0175f88a8eadb3414a66b7666f3be2ff"
+    },
+    {
+      "file": "renderers/web/js/street-trees.js",
+      "sha256": "90d02b3e6b6ac5d1ab27a0eb3088f72719a8c1f59a7624dd833db80b127268f2"
+    },
+    {
+      "file": "renderers/web/js/tree-instances.js",
+      "sha256": "a103f17c2d5a18b12a39126c62c539dd69ad9a118939254589b0b579d4cb9c61"
+    },
+    {
+      "file": "renderers/web/js/tree-model.js",
+      "sha256": "1ec46dc2bfb15d13dab2260c022b31d4ee88b7302aab5be62069b2eaf5e198e2"
+    },
+    {
+      "file": "renderers/web/js/tree-surface.js",
+      "sha256": "23dec0e5dda80547d8ee2ae86f1400fb1a4af2bd54ca0b53d7fe8d52f088cc84"
+    },
+    {
+      "file": "renderers/web/js/season.js",
+      "sha256": "8407ba119eef8e26e1bfb4bf1d9dd2c4786d2981165f2d232fe53d2347a9bda7"
+    },
+    {
+      "file": "renderers/web/js/trees.js",
+      "sha256": "7429b5e761fd94cc348bcea6b781637f13f202da3111b102ffac8d9c3f7283fd"
+    },
+    {
+      "file": "renderers/web/js/street-furniture.js",
+      "sha256": "b838523b13e22a6c73a887a81abebcb7dd1bf7e827647117784c29505423fa59"
+    }
+  ],
+  "flora_sha256": "89096acafd67d0480a5ae883dc40b079dd008fed990a72faf2ea16e2f0b96705",
+  "side_by_side": "docs/RESEARCH/photo-match/fort_dearborn_massacre_monument_1893/detroit_det_4a08066-side-by-side.jpg",
+  "verdict": "differs",
+  "differences": [
+    {
+      "what": "the monument's place across the print: the pedestal's centre at x 800 px in the print, 787 in the render (about 0.9 m at its distance) [T-3568: the monument moved 4.8 m east, from E 1496.5 to 1501.3 at the base's centre, on this bearing; the render had drawn it at x 690-740]",
+      "status": "fixed"
+    },
+    {
+      "what": "the monument's size: the print's base is 184 px wide (x 708-892), the render's 105 px. The camera is the house's, fitted 80-90 m off, and does not hold its foreground (its solve): to draw it at the print's size from this eye the monument would have to stand 22 m nearer, in the middle of 18th Street, which ICHi-19208's view of it before the estate wall rules out. It is the camera's distance, not the monument, that is out, and it stays open until the house's camera is refitted with the pedestal as a near point",
+      "status": "open"
+    },
+    {
+      "what": "THE GROUP IS NOT ON THE PEDESTAL in this print: the lettered die stands with the stable's lit wall, a window and the tree's branches above it, and nothing over the cap; the render draws the group. Barnes-Crosby's ICHi-19208 (c. 1900), the 1905 Views of Chicago and the Detroit print LC-D4-12551 (detroit_det_4a08065, 1893-1901) all show it standing, so the print records a time the bronze was off its pedestal, which no text read here explains or dates (the Library of Congress dates the print c. 1900). The 1904 scene keeps the group; this stays open until the print's date or the reason is found",
+      "status": "open"
+    },
+    {
+      "what": "the pedestal's two faces seen: the lettered front at left, the east face with its bronze panel at right, and the stage base's wash: drawn",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the lettering on the front: not cut in the render",
+      "status": "open"
+    },
+    {
+      "what": "the young street tree in front of the monument (x 750-790) and the parkway's trees: not drawn by this review (the parkway trees about the monument stand where the print has one)",
+      "status": "not shown"
+    }
+  ],
+  "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
+}

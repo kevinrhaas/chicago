@@ -3,8 +3,49 @@
   "view": "detroit_det_4a08065",
   "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
   "glb_sha256": "968ac3f1a0a55b4c5a44645336d4ce0b08a24dc1971398cb7d6a4181d557528b",
-  "camera_sha256": "9899de4e97306a9d591d77b9ef34cf6387660f6973574193e6da723d78e179a8",
+  "camera_sha256": "7546f1e8f1cad6ce2aaeceabb14d1815eb7b7a6b948a234a2e7e9039df43a475",
   "photo_sha256": "60140932328aa19142c1545028a1b2afee6767d3aff79cff3d98cd27cbc87d8c",
+  "rendered_members": [
+    {
+      "structure_id": "pullman_house_1729_prairie",
+      "glb": "assets/gltf/pullman_house_1729_prairie__as_mapped_1904.glb",
+      "placement": {
+        "local_e": 1456.371,
+        "local_n": -3167.542,
+        "rotation_deg": 179.611,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "as_mapped_1904"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation_y": 0,
+      "glb_sha256": "968ac3f1a0a55b4c5a44645336d4ce0b08a24dc1971398cb7d6a4181d557528b"
+    },
+    {
+      "structure_id": "fort_dearborn_massacre_monument_1893",
+      "glb": "assets/gltf/fort_dearborn_massacre_monument_1893__on_18th_street_1893.glb",
+      "placement": {
+        "local_e": 1499.4,
+        "local_n": -3200.188,
+        "rotation_deg": 359.62,
+        "scene": "1904",
+        "target_date": "1904-07-01",
+        "phase": "on_18th_street_1893"
+      },
+      "position": [
+        -42.80636550246286,
+        0,
+        -32.937383464227544
+      ],
+      "rotation_y": -3.141749733222473,
+      "glb_sha256": "ab1b6e7d4eaabe38f44d5a12d558ca0d4ed35cba15af4659ca8b5fd1b9777e5b"
+    }
+  ],
+  "group_sha256": "66134458c7c9f9cffc59534613014714caedb872c24c185e50758ec9e5eddf08",
   "rendered_flora": {
     "season": "winter",
     "creeper_in_leaf": true,
@@ -63,10 +104,10 @@
     },
     {
       "file": "renderers/web/js/trees.js",
-      "sha256": "83513a6667d725328ce9e0c5ed00c0a69ab3b61e5f4dbc9dfaccf6e6122def73"
+      "sha256": "7429b5e761fd94cc348bcea6b781637f13f202da3111b102ffac8d9c3f7283fd"
     }
   ],
-  "flora_sha256": "446ec6ce434045b02be61e2fc8a1f19aed0945493c69a9818b58f53d9d61dc3d",
+  "flora_sha256": "9ffc3b7e7ba4f3f50f6bd20426f8e546c2325020959bfbac89382dce62fa9d04",
   "side_by_side": "docs/RESEARCH/photo-match/pullman_house_1729_prairie/detroit_det_4a08065-side-by-side.jpg",
   "verdict": "matches",
   "differences": [
@@ -341,6 +382,10 @@
       "what": "[T-1934, 2026-11-08 (the 16555 sign-off)] re-rendered after data/front_yards/1904.json was regenerated: the court bed's three plants added, and the 18th Street flank's ivy re-laid on the rebaked house (the committed file was behind the models); against the previous render 2 px of ivy at x 681 change",
       "status": "within tolerance",
       "how": "compared render against render at full size; nothing over the bar moved"
+    },
+    {
+      "what": "the Fort Dearborn Massacre monument (fort_dearborn_massacre_monument_1893, drawn with the house since T-3568) at the far end of 18th Street by Calumet: the print's pedestal and group at x about 912 px, the render's at about 915, a few pixels high at that distance",
+      "status": "within tolerance"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
