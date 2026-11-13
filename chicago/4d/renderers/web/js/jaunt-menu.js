@@ -3,23 +3,26 @@
  *  length — with Start on the row and the rest (travel mode, route preview) folded under it. */
 import { PACES } from './travel-settings.js';
 import { formatEstimate } from './travel-estimate.js';
-import { FAMILIES, familySlot, icon } from './menu-icons.js';
+import { GROUPS, groupIcon, groupOf, groupSlot, icon } from './menu-icons.js';
 import { TIME_NAMES } from './time-of-day.js';
 
 export const WINDOW_SIZE = 30;
-const SHORT = { 'News & Knowledge': 'News' };
 /** A title as it sorts: without a leading A, An or The, so "A Letter Home" sits under L. */
 export const sortTitle = (title = '') => String(title).replace(/^(?:a|an|the)\s+/i, '');
 /**
  * T-2944 (owner, 2026-10-20: "do keep them sorted together so they make snese"): related
- * outings sit together — by kind, in the family order the pills show (Wayfinding,
- * Provisions, Neighbors, Livelihood, News & Knowledge; anything else after) — then the
- * featured ones first within their kind (the old list led with every featured outing,
- * which split each kind in two), then by name without its article.
+ * outings sit together, by group in the order the pills show (T-3584: Places, People,
+ * Architecture, Stories, Errands, Work, Build log; anything else after), then the featured
+ * ones first within their group, then by name without its article. T-3584 (owner,
+ * 2026-11-13: "feature the household tour first and then the other glessner jaunt after
+ * that"): a jaunt with a `menu_rank` leads the whole list, in rank order, ahead of every
+ * group; the Build log (every building modelled so far) comes last.
  */
+const rank = (r) => (Number.isInteger(r.menu_rank) ? r.menu_rank : Infinity);
 export function jauntOrder(a, b) {
-  const kind = (r) => { const i = FAMILIES.indexOf(r.primary_family); return i < 0 ? FAMILIES.length : i; };
-  return kind(a) - kind(b) || (b.featured === true) - (a.featured === true)
+  const kind = (r) => { const i = GROUPS.indexOf(groupOf(r)); return i < 0 ? GROUPS.length : i; };
+  return (rank(a) === rank(b) ? 0 : rank(a) < rank(b) ? -1 : 1)
+    || kind(a) - kind(b) || (b.featured === true) - (a.featured === true)
     || sortTitle(a.title).localeCompare(sortTitle(b.title)) || String(a.id).localeCompare(String(b.id));
 }
 /** T-3377: the light an outing is walked in, as its card says it: "Dusk · Fall". */
@@ -29,10 +32,10 @@ export function ambienceLabel(ambience) {
   const season = ambience.season ? ambience.season[0].toUpperCase() + ambience.season.slice(1) : '';
   return [hour, season].filter(Boolean).join(' · ');
 }
-export function filterJaunts(rows, query = '', family = '') {
+export function filterJaunts(rows, query = '', group = '') {
   const words = query.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean);
-  return rows.filter(row => (!family || row.primary_family === family) && words.every(word =>
-    `${row.title} ${row.premise} ${row.category} ${row.primary_family}`.toLocaleLowerCase().includes(word)))
+  return rows.filter(row => (!group || groupOf(row) === group) && words.every(word =>
+    `${row.title} ${row.premise} ${row.category} ${groupOf(row)} ${row.primary_family}`.toLocaleLowerCase().includes(word)))
     .sort(jauntOrder);
 }
 
@@ -53,10 +56,10 @@ export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor =
     savedScroll = scroll.scrollTop; focusKey = { id, action, section };
   }
   function card(row, section) {
-    const slot = familySlot(row.primary_family), available = row.availability === 'available';
+    const group = groupOf(row), slot = groupSlot(group), available = row.availability === 'available';
     const el = node('article', '', `jaunt-card jaunt-type-${slot}`); el.dataset.jaunt = row.id; el.dataset.section = section;
-    const badge = node('span', '', 'jaunt-type'); badge.append(icon(FAMILIES.includes(row.primary_family) ? row.primary_family : 'view', 20));
-    badge.title = row.primary_family;
+    const badge = node('span', '', 'jaunt-type'); badge.append(icon(groupIcon(group), 20));
+    badge.title = group;
     // T-2631: a credited picture of the route's own stops, where the project holds one.
     // Never a stand-in: with none, the family icon stays.
     const plate = plateFor(row);
@@ -71,7 +74,7 @@ export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor =
     head.append(title);
     const length = node('span', '', 'jaunt-length'); length.dataset.jauntLength = row.id;
     const meta = node('p', '', 'jaunt-tags');
-    meta.append(node('span', SHORT[row.primary_family] || row.primary_family, 'jaunt-family'), node('span', `${row.stop_count} stops`), length);
+    meta.append(node('span', group, 'jaunt-family'), node('span', `${row.stop_count} stops`), length);
     const light = ambienceLabel(row.ambience);
     if (light) { const tag = node('span', light, 'jaunt-light'); tag.title = 'The jaunt sets this time of day and season, and gives yours back at the end'; meta.append(tag); }
     // T-2631: the keepsake, once earned, on the outing's own card.
@@ -113,7 +116,7 @@ export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor =
       mode.append(b);
     }
     price();
-    details.append(node('p', row.premise, 'jaunt-premise-full'), node('p', `${row.category} · ${row.primary_family}`, 'jaunt-meta'));
+    details.append(node('p', row.premise, 'jaunt-premise-full'), node('p', `${row.category} · ${group}`, 'jaunt-meta'));
     if (!available) {
       for (const b of mode.children) b.disabled = true;
       meta.append(node('span', 'Held', 'jaunt-held'));
@@ -144,7 +147,7 @@ export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor =
     return el;
   }
   function windowRows({ focus = false } = {}) {
-    // T-2944: grouped by kind, featured first within each (jauntOrder); no second sort here.
+    // T-2944/T-3584: ranked first, then by group, featured first within each (jauntOrder); no second sort here.
     const matches = filterJaunts(rows, query, family);
     offset = Math.min(offset, Math.max(0, Math.floor((matches.length - 1) / WINDOW_SIZE) * WINDOW_SIZE));
     list.replaceChildren(...matches.slice(offset, offset + WINDOW_SIZE).map(row => card(row, 'all')));
@@ -163,12 +166,12 @@ export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor =
     search = node('input'); search.type = 'search'; search.id = 'jaunt-menu-search';
     search.placeholder = 'Search outings'; search.autocomplete = 'off'; search.value = query;
     search.setAttribute('aria-label', 'Find an outing');
-    pills = node('div', '', 'jaunt-categories'); pills.setAttribute('role', 'group'); pills.setAttribute('aria-label', 'Jaunt types');
-    const present = FAMILIES.filter(f => rows.some(row => row.primary_family === f));
+    pills = node('div', '', 'jaunt-categories'); pills.setAttribute('role', 'group'); pills.setAttribute('aria-label', 'Jaunt groups');
+    const present = GROUPS.filter(g => rows.some(row => groupOf(row) === g));
     for (const name of ['', ...present]) {
-      const pill = button('', () => { family = family === name ? '' : name; offset = 0; windowRows(); }, `jaunt-pill${name ? ` jaunt-type-${familySlot(name)}` : ''}`);
-      if (name) { pill.append(icon(name, 15)); pill.title = name; }
-      pill.append(node('span', name ? (SHORT[name] || name) : 'All')); pill.setAttribute('aria-label', name || 'All types');
+      const pill = button('', () => { family = family === name ? '' : name; offset = 0; windowRows(); }, `jaunt-pill${name ? ` jaunt-type-${groupSlot(name)}` : ''}`);
+      if (name) { pill.append(icon(groupIcon(name), 15)); pill.title = name; }
+      pill.append(node('span', name || 'All')); pill.setAttribute('aria-label', name || 'All types');
       pill.dataset.family = name; pills.append(pill);
     }
     search.addEventListener('input', () => { query = search.value; offset = 0; windowRows(); });

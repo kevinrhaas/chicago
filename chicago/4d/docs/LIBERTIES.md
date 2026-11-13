@@ -42933,10 +42933,15 @@ and their servants (2012), a servants' Christmas (2012) and a home for servants 
 the greetings ("Hej", "Hallo"), the choice of facts and the hand-on from one person to the next are ours. That
 all eight are at home on one spring morning (15 April 1904): the census staff are graded inferred, counted four
 years before the scene. Each host's mark. The stable helper's chores (the harness, the carriage, the doves).
-Charles Nelson's unbroken service from 1880 to 1904 (the record has him in 1880, 1894 and 1900).
+Charles Nelson's morning visit: the museum dates his service as coachman from 1878 until 1902 (The Glessner
+Journal, August 2021), so in 1904 he is no longer the coachman, and the walk has him come back for the morning
+to show the visitor his old stable, and say so (the owner, 2026-11-13: *"if charles was not there then we should
+either replace him with whoever was or correct his script for the jaunt"*; no source read names the coachman of
+1902-1906, so his script was corrected, T-3584).
 **How to resolve:** a record of the staff in 1904 (Frances Glessner's servants' journal, the 1910 census for the
 house), or a photograph of any of them, replaces the matching line; a person found not to be there in 1904 is
-taken off the walk.
+taken off the walk, or, like Charles Nelson, told as a visitor. A record naming the coachman of 1902-1906 puts
+him at the stable stop.
 **Applies to:** `data/jaunts/glessner-household-tour.json`; the stop `hosts` field (`renderers/web/js/jaunt-hosts.js`).
 **Ticket:** T-3525.
 **Recorded:** 2026-11-08 (T-3525).

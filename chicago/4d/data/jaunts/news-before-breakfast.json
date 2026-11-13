@@ -2,6 +2,7 @@
   "schema_version": 1,
   "content_version": 3,
   "category": "Newspapers",
+  "menu_group": "Errands",
   "review_required": false,
   "id": "news-before-breakfast",
   "scene": "1835",

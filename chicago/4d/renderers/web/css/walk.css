@@ -2447,9 +2447,11 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
    colour, its length a small gauge; travel mode and the route fold out under the row. */
 :root {
   --fam-way: #6FB8CB; --fam-prov: #DDAA5C; --fam-neigh: #E2907A; --fam-live: #A2C47E; --fam-news: #B7A8EC;
+  --fam-story: #D98BB5; --fam-log: #9DAAB8; /* T-3584: the Stories and Build log groups */
 }
 :root[data-theme="light"] {
   --fam-way: #1C687C; --fam-prov: #87570E; --fam-neigh: #9A3D27; --fam-live: #476725; --fam-news: #58459A;
+  --fam-story: #8E2F63; --fam-log: #4A5866;
 }
 #welcome-jaunts-content { text-align: left; overflow-wrap: anywhere; }
 #welcome-jaunts-region { overflow-y: auto; overscroll-behavior: contain; padding-right: 4px; }
@@ -2457,15 +2459,15 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
 .jaunt-find-row { display: flex; gap: 6px; align-items: center; }
 .jaunt-daybook-chip { flex: none; display: inline-flex; align-items: center; gap: 5px; min-height: 42px; padding: 0 11px; font-size: 12px; border-radius: 999px; white-space: nowrap; color: var(--ink-dim); }
 .jaunt-daybook-chip .menu-icon { color: var(--accent); }
-.jaunt-categories { display: flex; gap: 5px; overflow-x: auto; scrollbar-width: none; }
+/* T-3584: every group pill says its name (icons alone did not say what the groups were), and
+   the row wraps rather than hiding pills off the edge of a phone. */
+.jaunt-categories { display: flex; flex-wrap: wrap; gap: 5px; }
 .jaunt-pill { flex: none; display: inline-flex; align-items: center; gap: 5px; min-height: 34px; min-width: 40px; padding: 0 10px; justify-content: center;
   border: 1px solid var(--edge); border-radius: 999px; background: none; color: var(--ink-dim); font: inherit; font-size: 12px; cursor: pointer; }
 .jaunt-pill .menu-icon { color: var(--fam, var(--accent)); }
 .jaunt-pill[aria-pressed="true"] { color: var(--ink); border-color: var(--fam, var(--accent)); background: color-mix(in srgb, var(--fam, var(--accent)) 18%, transparent); }
 .jaunt-clear { flex: none; min-height: 34px; padding: 0 8px; font-size: 12px; border: 0; color: var(--accent); }
 .jaunt-clear[hidden], .jaunt-window-nav [hidden] { display: none; }
-/* The types are icons; the one chosen also shows its name. */
-.jaunt-pill:not([aria-pressed="true"]) span:not(:only-child) { display: none; }
 #welcome-search:focus, .jaunt-filters input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 30%, transparent); }
 .jaunt-list { display: flex; flex-direction: column; gap: 6px; }
 .jaunt-card {
@@ -2477,7 +2479,7 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
 }
 .jaunt-type-way { --fam: var(--fam-way); } .jaunt-type-prov { --fam: var(--fam-prov); }
 .jaunt-type-neigh { --fam: var(--fam-neigh); } .jaunt-type-live { --fam: var(--fam-live); }
-.jaunt-type-news { --fam: var(--fam-news); }
+.jaunt-type-news { --fam: var(--fam-news); } .jaunt-type-story { --fam: var(--fam-story); } .jaunt-type-log { --fam: var(--fam-log); }
 .jaunt-type { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 9px; color: var(--fam);
   background: color-mix(in srgb, var(--fam) 15%, transparent); border: 1px solid color-mix(in srgb, var(--fam) 40%, transparent); }
 .jaunt-row-body { min-width: 0; }
