@@ -62,7 +62,10 @@
   "forehead_height",
   "nose_depth",
   "chin_prominence",
-  "prognathism"
+  "prognathism",
+  "nose_volume",
+  "nose_septum",
+  "nostril_angle"
  ],
  "marks": [
   {
@@ -2772,13 +2775,25 @@
    "nose_width": 0.05,
    "lip_lower": -0.6,
    "lip_lower_height": -1.0,
-   "nose_tip": 0.0
+   "nose_tip": 0.2,
+   "nose_tip_width": 0.3,
+   "nostrils": 0.2,
+   "nose_volume": 0.5,
+   "nose_septum": -0.8,
+   "nose_depth": 0.6,
+   "nostril_angle": 0.5
   },
-  "basis": "Read by eye from the same picture, on axes the marks cannot measure from one near-frontal view or read wrongly through the render's painting: a nose of ordinary width and thin lips (her cheekbones, cheeks and jowls are now fitted from the sheet's front view instead). Her lower lip is thin in both its volume (lip_lower) and its height (lip_lower_height, MakeHuman's own lower-lip height target, added as a rest axis for this: the volume target alone left the painted lip as tall as before), and the tip of her nose is level, not turned up (nose_tip 0: the marks had turned it up, showing the nostrils, which the picture does not). Those three are HELD where they are read (`hold`), not fitted; the rest are priors the marks move. Owner, 2026-11-13: \"she has finer features\", \"she has a much more diminutive chin\", \"you need to trace it\".",
+  "basis": "Read by eye from the same picture, on axes the marks cannot measure from one near-frontal view or read wrongly through the render's painting: a nose of ordinary width and thin lips (her cheekbones, cheeks and jowls are now fitted from the sheet's front view instead). Her lower lip is thin in both its volume (lip_lower) and its height (lip_lower_height, MakeHuman's own lower-lip height target, added as a rest axis for this: the volume target alone left the painted lip as tall as before), and her nose is rounded, not pointed: a full round tip (nose_volume), its underside turned a little up to the lip (nose_tip, nose_septum, nostril_angle), its wings close and soft (nostrils, nose_tip_width), and less deep than the outline alone set it (nose_depth), where the sheet's front and profile show it. Those are HELD where they are read (`hold`), not fitted; the rest are priors the marks move. Owner, 2026-11-13: \"she has finer features\", \"she has a much more diminutive chin\", \"you need to trace it\", \"her nose is a little pointy\", \"her nostril area need some work\".",
   "hold": [
    "lip_lower",
    "lip_lower_height",
-   "nose_tip"
+   "nose_tip",
+   "nose_tip_width",
+   "nostrils",
+   "nose_volume",
+   "nose_septum",
+   "nose_depth",
+   "nostril_angle"
   ]
  },
  "card": {

@@ -9,10 +9,10 @@
  "ref_unit_m": 0.0001,
  "delta_unit_m": 1e-05,
  "bin": "hm08_variation_kit.bin",
- "bin_bytes": 929002,
- "bin_sha256": "628c19cc402815af2245255b6a04aa047cca806b882e04c49c593b112808bc9d",
- "axes_sha256": "c84a256d02710a348166fd5b82d056ecd8e162e68b058e9d30671fcfeecc5c8a",
- "manifest_sha256": "62a0051962fe3d83b8a2049ddd8dc5d636401da1f8377d12daaacee5e86729df",
+ "bin_bytes": 938170,
+ "bin_sha256": "8c1e70930314be0b95901b314c1b2b3589f87f14574048ea9485a983b14b926a",
+ "axes_sha256": "ea4bc774b7f3d43f3fb8be5436f0331bcade9eeec57d4712c75c20b294f51470",
+ "manifest_sha256": "6ca36370c099aa4434e06f9b0a16601f4b25bd03bb37e8dab542607545994ebd",
  "limit": 0.6,
  "height": {
   "spread": 0.035,
@@ -968,6 +968,63 @@
    }
   },
   {
+   "id": "nose_septum",
+   "scope": "face",
+   "spread": 0,
+   "rest": true,
+   "kind": "signed",
+   "pos": {
+    "count": 291,
+    "index": 262410,
+    "delta": 262992,
+    "max_m": 0.00428
+   },
+   "neg": {
+    "count": 326,
+    "index": 264738,
+    "delta": 265390,
+    "max_m": 0.0047
+   }
+  },
+  {
+   "id": "nose_volume",
+   "scope": "face",
+   "spread": 0,
+   "rest": true,
+   "kind": "signed",
+   "pos": {
+    "count": 121,
+    "index": 267346,
+    "delta": 267588,
+    "max_m": 0.00538
+   },
+   "neg": {
+    "count": 48,
+    "index": 268314,
+    "delta": 268410,
+    "max_m": 0.00804
+   }
+  },
+  {
+   "id": "nostril_angle",
+   "scope": "face",
+   "spread": 0,
+   "rest": true,
+   "kind": "signed",
+   "pos": {
+    "count": 196,
+    "index": 268698,
+    "delta": 269090,
+    "max_m": 0.00453
+   },
+   "neg": {
+    "count": 164,
+    "index": 270266,
+    "delta": 270594,
+    "max_m": 0.00522
+   }
+  },
+  {
    "id": "lip_lower_height",
    "scope": "face",
    "spread": 0,
@@ -975,14 +1032,14 @@
    "kind": "signed",
    "pos": {
     "count": 64,
-    "index": 262410,
-    "delta": 262538,
+    "index": 271578,
+    "delta": 271706,
     "max_m": 0.00637
    },
    "neg": {
     "count": 126,
-    "index": 262922,
-    "delta": 263174,
+    "index": 272090,
+    "delta": 272342,
     "max_m": 0.0048
    }
   },
@@ -993,14 +1050,14 @@
    "kind": "signed",
    "pos": {
     "count": 292,
-    "index": 263930,
-    "delta": 264514,
+    "index": 273098,
+    "delta": 273682,
     "max_m": 0.01714
    },
    "neg": {
     "count": 177,
-    "index": 266266,
-    "delta": 266620,
+    "index": 275434,
+    "delta": 275788,
     "max_m": 0.00471
    }
   },
@@ -1011,14 +1068,14 @@
    "kind": "signed",
    "pos": {
     "count": 290,
-    "index": 267682,
-    "delta": 268262,
+    "index": 276850,
+    "delta": 277430,
     "max_m": 0.06157
    },
    "neg": {
     "count": 280,
-    "index": 270002,
-    "delta": 270562,
+    "index": 279170,
+    "delta": 279730,
     "max_m": 0.04661
    }
   },
@@ -1029,14 +1086,14 @@
    "kind": "signed",
    "pos": {
     "count": 258,
-    "index": 272242,
-    "delta": 272758,
+    "index": 281410,
+    "delta": 281926,
     "max_m": 0.00679
    },
    "neg": {
     "count": 90,
-    "index": 274306,
-    "delta": 274486,
+    "index": 283474,
+    "delta": 283654,
     "max_m": 0.00846
    }
   },
@@ -1047,14 +1104,14 @@
    "kind": "signed",
    "pos": {
     "count": 1028,
-    "index": 275026,
-    "delta": 277082,
+    "index": 284194,
+    "delta": 286250,
     "max_m": 0.01133
    },
    "neg": {
     "count": 1022,
-    "index": 283250,
-    "delta": 285294,
+    "index": 292418,
+    "delta": 294462,
     "max_m": 0.01099
    }
   },
@@ -1065,14 +1122,14 @@
    "kind": "signed",
    "pos": {
     "count": 566,
-    "index": 291426,
-    "delta": 292558,
+    "index": 300594,
+    "delta": 301726,
     "max_m": 0.01734
    },
    "neg": {
     "count": 526,
-    "index": 295954,
-    "delta": 297006,
+    "index": 305122,
+    "delta": 306174,
     "max_m": 0.00721
    }
   },
@@ -1083,14 +1140,14 @@
    "kind": "signed",
    "pos": {
     "count": 52,
-    "index": 300162,
-    "delta": 300266,
+    "index": 309330,
+    "delta": 309434,
     "max_m": 0.01002
    },
    "neg": {
     "count": 78,
-    "index": 300578,
-    "delta": 300734,
+    "index": 309746,
+    "delta": 309902,
     "max_m": 0.00743
    }
   },
@@ -1101,14 +1158,14 @@
    "kind": "signed",
    "pos": {
     "count": 769,
-    "index": 301202,
-    "delta": 302740,
+    "index": 310370,
+    "delta": 311908,
     "max_m": 0.01487
    },
    "neg": {
     "count": 790,
-    "index": 307354,
-    "delta": 308934,
+    "index": 316522,
+    "delta": 318102,
     "max_m": 0.00776
    }
   },
@@ -1119,14 +1176,14 @@
    "kind": "signed",
    "pos": {
     "count": 2670,
-    "index": 313674,
-    "delta": 319014,
+    "index": 322842,
+    "delta": 328182,
     "max_m": 0.00342
    },
    "neg": {
     "count": 3451,
-    "index": 335034,
-    "delta": 341936,
+    "index": 344202,
+    "delta": 351104,
     "max_m": 0.0057
    }
   },
@@ -1138,44 +1195,44 @@
    "options": [
     {
      "count": 1942,
-     "index": 362642,
-     "delta": 366526,
+     "index": 371810,
+     "delta": 375694,
      "max_m": 0.01355
     },
     {
      "count": 1843,
-     "index": 378178,
-     "delta": 381864,
+     "index": 387346,
+     "delta": 391032,
      "max_m": 0.01259
     },
     {
      "count": 529,
-     "index": 392922,
-     "delta": 393980,
+     "index": 402090,
+     "delta": 403148,
      "max_m": 0.01153
     },
     {
      "count": 484,
-     "index": 397154,
-     "delta": 398122,
+     "index": 406322,
+     "delta": 407290,
      "max_m": 0.01525
     },
     {
      "count": 598,
-     "index": 401026,
-     "delta": 402222,
+     "index": 410194,
+     "delta": 411390,
      "max_m": 0.01384
     },
     {
      "count": 2021,
-     "index": 405810,
-     "delta": 409852,
+     "index": 414978,
+     "delta": 419020,
      "max_m": 0.00836
     },
     {
      "count": 550,
-     "index": 421978,
-     "delta": 423078,
+     "index": 431146,
+     "delta": 432246,
      "max_m": 0.01766
     }
    ]
@@ -1187,14 +1244,14 @@
    "kind": "signed",
    "pos": {
     "count": 146,
-    "index": 426378,
-    "delta": 426670,
+    "index": 435546,
+    "delta": 435838,
     "max_m": 0.03959
    },
    "neg": {
     "count": 146,
-    "index": 427546,
-    "delta": 427838,
+    "index": 436714,
+    "delta": 437006,
     "max_m": 0.02277
    }
   },
@@ -1205,14 +1262,14 @@
    "kind": "signed",
    "pos": {
     "count": 574,
-    "index": 428714,
-    "delta": 429862,
+    "index": 437882,
+    "delta": 439030,
     "max_m": 0.01232
    },
    "neg": {
     "count": 470,
-    "index": 433306,
-    "delta": 434246,
+    "index": 442474,
+    "delta": 443414,
     "max_m": 0.01034
    }
   },
@@ -1223,8 +1280,8 @@
    "kind": "positive",
    "pos": {
     "count": 209,
-    "index": 437066,
-    "delta": 437484,
+    "index": 446234,
+    "delta": 446652,
     "max_m": 0.01381
    }
   },
@@ -1236,14 +1293,14 @@
    "kind": "signed",
    "pos": {
     "count": 3941,
-    "index": 438738,
-    "delta": 446620,
+    "index": 447906,
+    "delta": 455788,
     "max_m": 0.02995
    },
    "neg": {
     "count": 3804,
-    "index": 470266,
-    "delta": 477874,
+    "index": 479434,
+    "delta": 487042,
     "max_m": 0.02655
    }
   },
@@ -1256,14 +1313,14 @@
    "kind": "signed",
    "pos": {
     "count": 3493,
-    "index": 500698,
-    "delta": 507684,
+    "index": 509866,
+    "delta": 516852,
     "max_m": 0.02217
    },
    "neg": {
     "count": 4312,
-    "index": 528642,
-    "delta": 537266,
+    "index": 537810,
+    "delta": 546434,
     "max_m": 0.03145
    }
   },
@@ -1275,14 +1332,14 @@
    "kind": "signed",
    "pos": {
     "count": 4156,
-    "index": 563138,
-    "delta": 571450,
+    "index": 572306,
+    "delta": 580618,
     "max_m": 0.04184
    },
    "neg": {
     "count": 3768,
-    "index": 596386,
-    "delta": 603922,
+    "index": 605554,
+    "delta": 613090,
     "max_m": 0.05221
    }
   },
@@ -1295,14 +1352,14 @@
    "kind": "signed",
    "pos": {
     "count": 4002,
-    "index": 626530,
-    "delta": 634534,
+    "index": 635698,
+    "delta": 643702,
     "max_m": 0.02843
    },
    "neg": {
     "count": 2871,
-    "index": 658546,
-    "delta": 664288,
+    "index": 667714,
+    "delta": 673456,
     "max_m": 0.03563
    }
   },
@@ -1313,8 +1370,8 @@
    "kind": "positive",
    "pos": {
     "count": 346,
-    "index": 681514,
-    "delta": 682206,
+    "index": 690682,
+    "delta": 691374,
     "max_m": 0.10239
    }
   },
@@ -1325,14 +1382,14 @@
    "kind": "signed",
    "pos": {
     "count": 679,
-    "index": 684282,
-    "delta": 685640,
+    "index": 693450,
+    "delta": 694808,
     "max_m": 0.02089
    },
    "neg": {
     "count": 877,
-    "index": 689714,
-    "delta": 691468,
+    "index": 698882,
+    "delta": 700636,
     "max_m": 0.02089
    }
   },
@@ -1344,8 +1401,8 @@
    "kind": "age_macro",
    "pos": {
     "count": 14517,
-    "index": 696730,
-    "delta": 725764,
+    "index": 705898,
+    "delta": 734932,
     "max_m": 0.07593
    }
   },
@@ -1358,8 +1415,8 @@
    "kind": "age_macro",
    "pos": {
     "count": 14517,
-    "index": 812866,
-    "delta": 841900,
+    "index": 822034,
+    "delta": 851068,
     "max_m": 0.0859
    }
   }
