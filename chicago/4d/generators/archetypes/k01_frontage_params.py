@@ -2835,7 +2835,7 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
             ch = q.get("chamfer")
             if ch is not None:
                 if not isinstance(ch, dict) or not {"corner", "along_m", "behind_m"} <= set(ch) \
-                        or set(ch) - {"corner", "along_m", "behind_m", "top_m"} \
+                        or set(ch) - {"corner", "along_m", "behind_m", "top_m", "light", "return"} \
                         or ch["corner"] not in ("left", "right") or not v.get("shallow") \
                         or e.get("flush_corner") != ch["corner"]:
                     raise ParamError(f"bays: {e['id']}'s chamfer takes corner (left or right), along_m and "
@@ -2859,6 +2859,34 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                 # the house's mansard carried down over it (1801's, HABS photograph 1); K08 bounds it
                 if "top_m" in ch:
                     v["plan"]["chamfer_top_m"] = float(ch["top_m"])
+                # T-1890: and the stone cheek carried up over that top may hold one light (1801's,
+                # HABS photograph 1: a deep-set light in the return beside the pavilion's corner
+                # pilaster); K08 bounds it on the cheek (k08_bays.Bay._cheek_light)
+                if "light" in ch:
+                    if "top_m" not in ch:
+                        raise ParamError(f"bays: {e['id']}'s chamfer light stands in the cheek over its top_m, "
+                                         f"so it needs one")
+                    v["plan"]["chamfer_light"] = copy.deepcopy(ch["light"])
+                # T-1890: and that cheek may run back past the cant as a RETURN (1801's, HABS
+                # photograph 1: the mansard stands back behind the round bay's balcony and the
+                # pavilion's stone return runs out to it): its back edge `back_m` [at the chamfer's
+                # top, at the return's top] behind the wall's face, its capped top at `top_m` over
+                # the bay's base, the front's corner pier `pier_m` deep carried on up over it to
+                # the wall top; K08 lays it (Bay._cheek_return), K01 sets the slate back behind it
+                if "return" in ch:
+                    rt = ch["return"]
+                    ok = isinstance(rt, dict) and set(rt) == {"back_m", "top_m", "pier_m"} \
+                        and isinstance(rt["back_m"], list) and len(rt["back_m"]) == 2
+                    if not ok or "top_m" not in ch or ch["corner"] != "right" \
+                            or not all(cb <= float(x) <= 3.0 for x in rt["back_m"]) \
+                            or not float(ch["top_m"]) + 1.0 <= float(rt["top_m"]) \
+                            or not 0.2 <= float(rt["pier_m"]) <= float(d):
+                        raise ParamError(f"bays: {e['id']}'s chamfer return takes back_m [at its foot, at its top], "
+                                         f"each {cb}-3.0 m behind the wall (past the cant's back), top_m a metre or "
+                                         f"more over the chamfer's top_m and pier_m 0.2 m up to the front's {d} m "
+                                         f"proud, on a right chamfer, not {rt}")
+                    v["plan"]["chamfer_return"] = {"back_m": [float(x) for x in rt["back_m"]],
+                                                   "top_m": float(rt["top_m"]), "pier_m": float(rt["pier_m"])}
         elif "plan" in e and v["kind"] == "tower":
             # T-2787: a tower read off a picture keeps the picture's radius and how far its
             # centre stands out of the wall; the kit's tower is the shape (its ring, its sides),
@@ -2961,7 +2989,29 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
         # T-1890: a round tower's corbelled upper stage (1801's, in the Taylor print and HABS
         # photograph 2): from one of its storey lines its ring is wider than its shaft's, carried
         # out on stepped corbel courses, its eaves and cone the stage's (k08_bays._build_staged)
-        if "stage" in e:
+        if "stage" in e and isinstance(e["stage"], dict) and e["stage"].get("whole") is not None:
+            # T-3370: or a square tower's WHOLE stage (1936's belvedere, square on every side over
+            # the roof in its photograph, its shaft 0.6 m into the front on the 1911 sheet): from
+            # one of its storey lines its ring is the whole square, standing clear of the wall
+            # plane over the house's roof (k08_bays._build_whole_stage)
+            sg = e["stage"]
+            q = e.get("plan") or {}
+            ok = set(sg) == {"from_storey", "whole"} and sg["whole"] is True and v["kind"] == "tower" \
+                and v["plan"]["kind"] == "polygon" and int(q.get("sides", 0)) == 4 \
+                and not e.get("corner") and not e.get("across_corner") \
+                and isinstance(sg["from_storey"], int) and 0 < sg["from_storey"] < len(v["storeys"])
+            if ok:
+                y_s = sum(float(st["height_m"]) for st in v["storeys"][:sg["from_storey"]])
+                # its foot at most half a metre under the house's eave (1936's on the main
+                # cornice's line, 0.35 m under its eave datum), so what of it stands behind the
+                # wall plane rises out of the house's wall head and roof, never out of a storey
+                ok = y_s >= eave - 0.5
+            if not ok:
+                raise ParamError(f"bays: {e['id']}'s whole stage takes from_storey (one of its storey lines, at most "
+                                 f"0.5 m under its wall's eave) and whole: true, on a square tower with a face to its "
+                                 f"street, not {sg}")
+            v["stage"] = {"from_storey": int(sg["from_storey"]), "whole": True}
+        elif "stage" in e:
             sg = e["stage"]
             ok = isinstance(sg, dict) and set(sg) == {"from_storey", "radius_m", "corbel_courses"} \
                 and v["kind"] == "tower" and v["plan"]["kind"] == "circle" and not e.get("corner")
