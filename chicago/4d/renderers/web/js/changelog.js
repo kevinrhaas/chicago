@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2935, ts: '2026-11-13T16:56:23.840Z', date: 'Nov 13, 2026, 10:56 AM CT', title: '1816 Prairie\'s balcony over the porch, with a door onto it', kind: 'improvement',
+    items: [
+      'The iron balcony on top of the Henderson house\'s porch at 1816 Prairie now stands about a metre high, as the old photograph shows it, where it used to be a low rail.',
+      'The tall window above the front door now opens onto that balcony as a pair of glass doors, its carved hood and crest kept over it.',
+    ] },
   { v: 2934, ts: '2026-11-13T16:26:06.938Z', date: 'Nov 13, 2026, 10:26 AM CT', title: 'The Greys\' hair fuller and wavier, as their sheets show', kind: 'fix',
     items: [
       'William\'s hair waves, a darker ash brown, full at the back to his collar.',
