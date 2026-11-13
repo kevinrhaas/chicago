@@ -8,19 +8,23 @@
   "origin": "not found"
  },
  "complexion": {
-  "value": "fair",
-  "drawn": "fair",
+  "value": "ruddy",
+  "drawn": "ruddy",
   "grade": "reconstructed"
  },
  "hair": {
-  "value": "white grey",
-  "drawn": "white_grey",
-  "cut": "short_side_part_1904",
+  "value": "sandy grey",
+  "drawn": "sandy_grey",
+  "cut": "swept_back_wavy_1904",
   "facial": [
-   "moustache",
-   "brows_full"
+   "beard_full_1904",
+   "beard_cheeks_1904",
+   "beard_cheeks_front_1904",
+   "moustache_full",
+   "brows_full_high_1904"
   ],
-  "grade": "reconstructed"
+  "grade": "reconstructed",
+  "basis": "The stand-in portrait is sepia: its hair and beard read a light-to-mid brown with paler grey streaks, drawn sandy brown going grey. Their colour is a reading of a monochrome tone, not a record."
  },
  "eyes": {
   "value": "grey",
@@ -33,7 +37,20 @@
   "basis": "Artistic body variation; no personal measurement located."
  },
  "height_scale": 0.9768,
+ "build": {
+  "weight": 0.5,
+  "muscle": 0.25,
+  "belly": 0.35,
+  "neck_width": 0.35,
+  "grade": "reconstructed",
+  "basis": "Read by eye from the stand-in portrait (owner, 2026-11-12: \"their build match is important\"): a big, heavy-set man, broad through the shoulders and chest, the waistcoat full over a stomach, a thick neck in a wide collar. Axis values are a reading of a seated three-quarter portrait, not a measurement."
+ },
+ "drawn_age": {
+  "years": 50,
+  "grade": "reconstructed",
+  "basis": "Drawn at the age the stand-in portrait shows (about 50), not him recorded age of 64 in 1904, so the face matches the picture the owner chose (\"their faces must match exactly\"). A reading by eye of an undated picture; the record's age is unchanged."
+ },
  "grade": "reconstructed",
- "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty.",
+ "basis": "No photograph of this person is known. Face, hair cut, facial hair and dress follow a stand-in portrait the owner chose as the likeness (owner_grey_likeness_william_2026); it is not a picture of them. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty.",
  "liberty": "L-prairie-likenesses-3547"
 }

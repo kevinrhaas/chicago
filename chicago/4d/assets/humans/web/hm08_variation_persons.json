@@ -70286,6 +70286,62 @@
     ],
     "basis": "born 1850 (the person's record)"
    },
+   "face": {
+    "grade": "reconstructed",
+    "sources": [
+     "owner_grey_likeness_sarah_2026"
+    ],
+    "basis": "No photograph of Sarah Grey is known. The owner supplied this sepia cabinet-style portrait on 2026-11-12 as the likeness to use for her in 1904 (\"since we do not have photos of them you can use these likenesses\"). Who sat for it and when it was made are not recorded, so it is a stand-in: her face's proportions, hair and dress follow it, and none of it is evidence of how Sarah Grey looked.",
+    "values": {
+     "nose_length": -0.228,
+     "nose_width": 0.477,
+     "nose_hump": -0.119,
+     "nose_curve": 0.313,
+     "nose_tip": 0.247,
+     "nose_tip_width": 0.18,
+     "nostrils": 0.087,
+     "nose_height": 0.173,
+     "mouth_width": 0.588,
+     "lip_upper": 0.501,
+     "lip_lower": 0.0,
+     "mouth_height": 0.146,
+     "chin_width": 0.043,
+     "chin_height": 0.042,
+     "jaw": 0.304,
+     "cheekbones": -0.031,
+     "cheek_volume": 0.634,
+     "cheek_inner": 0.073,
+     "brow_height": -0.315,
+     "brow_angle": 0.155,
+     "brow_ridge": 0.293,
+     "forehead_slope": 0.002,
+     "temples": -0.732,
+     "ear_size": -0.297,
+     "ear_flap": -0.018,
+     "ear_lobe": 0.307,
+     "jowls": -0.41,
+     "head_shape": 0.222,
+     "forehead_height": 0.0,
+     "head_shape.option": 4
+    },
+    "liberty": "L-human-variation-3412",
+    "not_modelled": [
+     "her own face (no photograph of her is known; this is the owner's stand-in)",
+     "the colouring (the picture is sepia; hair and eye colours are readings of its tones)",
+     "the cameo brooch, the hoop earrings and the wedding ring (no jewellery is modelled on the town's figures)",
+     "the dress's pin-tucked bodice, its buttons and its leg-of-mutton sleeves (the lady's body keeps its own jacket, coloured as hers)"
+    ],
+    "card": {
+     "source_citation": "Sepia portrait supplied by the project owner, Kevin Haas, on 12 November 2026 as the likeness to use for Sarah Grey in the 1904 scene (\"Use these as the models for William and Sarah Grey ... since we do not have photos of them you can use these likenesses\"). Sitter, maker and date not recorded.",
+     "source_url": "https://github.com/kevinrhaas/chicago-evidence/blob/4c262dd37f52a0e783cd17fd23ecba849a49e5e9/evidence/grey-likenesses-2026-11-12/pa1904_grey_mrs_w_l/owner_sarah_grey_likeness.png",
+     "rms_mm": 2.3,
+     "marks": 450,
+     "portrait": "humans/web/portraits/pa1904_grey_mrs_w_l_portrait.jpg",
+     "model": "humans/web/portraits/pa1904_grey_mrs_w_l_model.jpg",
+     "stand_in": "No photograph of Sarah Grey is known. This is a stand-in the project's owner chose as her likeness: a sepia portrait of a woman in a dark day dress with a lace collar and a cameo brooch, her hair drawn up to a knot on the crown. Its sitter is not recorded. Her face, hair and dress are the model's guide; it is not Sarah Grey."
+    },
+    "fit": "data/humans/variation/fits/pa1904_grey_mrs_w_l.json"
+   },
    "looks": {
     "complexion": {
      "value": "fair",
@@ -70293,14 +70349,15 @@
      "grade": "reconstructed"
     },
     "hair": {
-     "value": "mid brown",
-     "drawn": "mid_brown",
-     "cut": "swept_up_knot_1904",
+     "value": "light grey brown",
+     "drawn": "light_grey_brown",
+     "cut": "swept_up_topknot_1904",
      "facial": [
-      "brows_fine",
+      "brows_fine_low_1904",
       "lashes_upper"
      ],
-     "grade": "reconstructed"
+     "grade": "reconstructed",
+     "basis": "The stand-in portrait is sepia: her hair reads a light-to-mid brown with paler streaks through it, drawn a light brown going grey for that and her 54 years. A reading of a monochrome tone, not a record."
     },
     "eyes": {
      "value": "hazel",
@@ -70313,10 +70370,16 @@
      "basis": "Artistic body variation; no personal measurement located."
     },
     "height_scale": 0.9637,
+    "build": {
+     "weight": 0.25,
+     "muscle": 0.0,
+     "grade": "reconstructed",
+     "basis": "Read by eye from the stand-in portrait (owner, 2026-11-12: \"their build match is important\"): a woman of full, sturdy build, broad in the shoulders and full in the bust and waist under a fitted bodice. A reading of a seated three-quarter portrait, not a measurement."
+    },
     "heritage": {
      "origin": "not found"
     },
-    "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty.",
+    "basis": "No photograph of this person is known. Face, hair cut, facial hair and dress follow a stand-in portrait the owner chose as the likeness (owner_grey_likeness_sarah_2026); it is not a picture of them. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty.",
     "grade": "reconstructed",
     "liberty": "L-prairie-likenesses-3547",
     "file": "data/humans/variation/looks/pa1904_grey_mrs_w_l.json"
@@ -70324,17 +70387,17 @@
    "dress": {
     "colours": {
      "garment_outer__lady_jacket_black": [
-      0.035,
-      0.06,
-      0.045
+      0.03,
+      0.021,
+      0.017
      ],
      "garment_lower__lady_skirt_black": [
-      0.035,
-      0.06,
-      0.045
+      0.03,
+      0.021,
+      0.017
      ]
     },
-    "worn": "dark green day dress",
+    "worn": "dark brown day dress with a white lace collar, as the stand-in portrait",
     "grade": "reconstructed"
    }
   },
@@ -70352,21 +70415,82 @@
     ],
     "basis": "born 1840 (the person's record)"
    },
+   "face": {
+    "grade": "reconstructed",
+    "sources": [
+     "owner_grey_likeness_william_2026"
+    ],
+    "basis": "No photograph of William L. Grey is known. The owner supplied this sepia cabinet-style portrait on 2026-11-12 as the likeness to use for him in 1904 (\"since we do not have photos of them you can use these likenesses\"). Who sat for it and when it was made are not recorded, so it is a stand-in: his face's proportions, hair, beard and dress follow it, and none of it is evidence of how William Grey looked.",
+    "values": {
+     "nose_length": -0.314,
+     "nose_width": 0.11,
+     "nose_hump": -0.166,
+     "nose_curve": 0.642,
+     "nose_tip": 0.576,
+     "nose_tip_width": -0.471,
+     "nostrils": 0.239,
+     "nose_height": 0.712,
+     "mouth_width": -0.272,
+     "lip_upper": -0.108,
+     "lip_lower": -0.247,
+     "mouth_height": 0.791,
+     "chin_width": 0.13,
+     "chin_height": 0.15,
+     "jaw": 0.194,
+     "cheekbones": -0.366,
+     "cheek_volume": 0.366,
+     "cheek_inner": 0.164,
+     "brow_height": -0.289,
+     "brow_angle": 0.202,
+     "brow_ridge": 0.344,
+     "forehead_slope": -0.225,
+     "temples": 0.942,
+     "ear_size": 0.225,
+     "ear_flap": -0.526,
+     "ear_lobe": -0.522,
+     "jowls": 0.366,
+     "head_shape": 0.231,
+     "forehead_height": 0.0,
+     "head_shape.option": 0
+    },
+    "liberty": "L-human-variation-3412",
+    "not_modelled": [
+     "his own face (no photograph of him is known; this is the owner's stand-in)",
+     "the colouring (the picture is sepia; hair, beard and eye colours are readings of its tones)",
+     "the freckles",
+     "the watch chain across the waistcoat (no jewellery is modelled on the town's figures)",
+     "the cut of the sack coat (the gentleman's body keeps its own frock coat, coloured as his suit)"
+    ],
+    "card": {
+     "source_citation": "Sepia portrait supplied by the project owner, Kevin Haas, on 12 November 2026 as the likeness to use for William L. Grey in the 1904 scene (\"Use these as the models for William and Sarah Grey ... since we do not have photos of them you can use these likenesses\"). Sitter, maker and date not recorded.",
+     "source_url": "https://github.com/kevinrhaas/chicago-evidence/blob/4c262dd37f52a0e783cd17fd23ecba849a49e5e9/evidence/grey-likenesses-2026-11-12/pa1904_grey_w_l/owner_william_grey_likeness.png",
+     "rms_mm": 3.0,
+     "marks": 429,
+     "portrait": "humans/web/portraits/pa1904_grey_w_l_portrait.jpg",
+     "model": "humans/web/portraits/pa1904_grey_w_l_model.jpg",
+     "stand_in": "No photograph of William L. Grey is known. This is a stand-in the project's owner chose as his likeness: a sepia portrait of a broad, full-bearded man with wavy hair worn long and swept back, in a dark three-piece suit with a watch chain. Its sitter is not recorded. His face, hair and dress are the model's guide; it is not William Grey."
+    },
+    "fit": "data/humans/variation/fits/pa1904_grey_w_l.json"
+   },
    "looks": {
     "complexion": {
-     "value": "fair",
-     "drawn": "fair",
+     "value": "ruddy",
+     "drawn": "ruddy",
      "grade": "reconstructed"
     },
     "hair": {
-     "value": "white grey",
-     "drawn": "white_grey",
-     "cut": "short_side_part_1904",
+     "value": "sandy grey",
+     "drawn": "sandy_grey",
+     "cut": "swept_back_wavy_1904",
      "facial": [
-      "moustache",
-      "brows_full"
+      "beard_full_1904",
+      "beard_cheeks_1904",
+      "beard_cheeks_front_1904",
+      "moustache_full",
+      "brows_full_high_1904"
      ],
-     "grade": "reconstructed"
+     "grade": "reconstructed",
+     "basis": "The stand-in portrait is sepia: its hair and beard read a light-to-mid brown with paler grey streaks, drawn sandy brown going grey. Their colour is a reading of a monochrome tone, not a record."
     },
     "eyes": {
      "value": "grey",
@@ -70379,10 +70503,18 @@
      "basis": "Artistic body variation; no personal measurement located."
     },
     "height_scale": 0.9768,
+    "build": {
+     "weight": 0.5,
+     "muscle": 0.25,
+     "belly": 0.35,
+     "neck_width": 0.35,
+     "grade": "reconstructed",
+     "basis": "Read by eye from the stand-in portrait (owner, 2026-11-12: \"their build match is important\"): a big, heavy-set man, broad through the shoulders and chest, the waistcoat full over a stomach, a thick neck in a wide collar. Axis values are a reading of a seated three-quarter portrait, not a measurement."
+    },
     "heritage": {
      "origin": "not found"
     },
-    "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty.",
+    "basis": "No photograph of this person is known. Face, hair cut, facial hair and dress follow a stand-in portrait the owner chose as the likeness (owner_grey_likeness_william_2026); it is not a picture of them. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty.",
     "grade": "reconstructed",
     "liberty": "L-prairie-likenesses-3547",
     "file": "data/humans/variation/looks/pa1904_grey_w_l.json"
@@ -70390,12 +70522,17 @@
    "dress": {
     "colours": {
      "garment_outer__frock_coat_black": [
-      0.035,
-      0.06,
-      0.045
+      0.03,
+      0.023,
+      0.019
+     ],
+     "garment_lower__trousers_grey_1904": [
+      0.03,
+      0.023,
+      0.019
      ]
     },
-    "worn": "dark green coat and trousers",
+    "worn": "dark brown three-piece suit, as the stand-in portrait",
     "grade": "reconstructed"
    }
   },
