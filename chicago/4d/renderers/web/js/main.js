@@ -168,6 +168,7 @@ import { resolveSharpness } from './sharpness.js';
 import { createFrameGovernor, describeGovernor } from './frame-governor.js';
 import { mountPacingRead } from './pacing-read.js';
 import { decide as deviceChoice, profileDevice, readCached as cachedDeviceProfile } from './device-profile.js';
+import { advanceGust, syncGustUniform } from './wind-gust.js';
 
 const VERSION = '0.1.0';
 
@@ -6492,6 +6493,8 @@ async function boot() {
     else intent.clear();
     terrain.update(dt);
     nightLights.update(dt);
+    // T-3586: one gust clock for every swaying plant and the wind you hear.
+    advanceGust(dt); syncGustUniform();
     const asked = intent.takeInteract();
     if (asked && !gateOpen) travel.stop('input');
     interactions.update(frameDt);

@@ -43960,3 +43960,11 @@ No insect sounds outside summer. Gains, gaps, the 9 m crown height and the 24/11
 **Re-opens on:** a licensed house-sparrow or chimney-swift recording, or a period account of Prairie Avenue's birds, insects or trees.
 **Ticket:** T-3585.
 **Recorded:** 2026-11-13.
+
+### L-wind-gusts-3586 — One gust rhythm for the swaying plants and the wind you hear
+
+**Decision:** the owner, 2026-11-13: *"it would be nice if the wind sound worked with the trees so it would be noticeable, to see when the trees blow"*, then *"yes lets fix the wind"* and *"assume this applies in all years"*. Every tree, wall vine and yard plant drawn through `tree-surface.js`, and the prairie and lawn plants of `flora.js`, used to sway at one constant strength. They now share one gust rhythm (`renderers/web/js/wind-gust.js`): a front that crosses the town from the south-west at 7 m/s, as the fort's flags already fly, its strength the sum of three slow swells (48, 30 and 20 s) repeating every 240 s, from 0.35 of the old sway in a lull to at most the old sway at a gust's top, so nothing swings farther than before and a wall vine stays off its wall. The recorded leaf rustle follows the same gust where the listener stands, from 0.3 to 1.6 times its old level, which on average stays under the quiet town mix the owner set on 2026-11-11. All three years.
+**Not invented:** the south-westerly, which flags.js L390 already reconstructs as Chicago's prevailing summer wind; the wind recording, its licence and its town levels.
+**Re-opens on:** a weather record for a scene date (a wind speed or a gusty day), which would set the swell and the rustle from it.
+**Ticket:** T-3586.
+**Recorded:** 2026-11-13.
