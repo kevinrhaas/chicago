@@ -2489,6 +2489,8 @@ authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-curve-concave.ta
 authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-curve-convex.target
 authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-hump-decr.target
 authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-hump-incr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-nostrils-angle-down.target
+authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-nostrils-angle-up.target
 authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-nostrils-width-decr.target
 authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-nostrils-width-incr.target
 authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-point-down.target
@@ -2501,8 +2503,12 @@ authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-scale-horiz-decr
 authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-scale-horiz-incr.target
 authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-scale-vert-decr.target
 authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-scale-vert-incr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-septumangle-decr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-septumangle-incr.target
 authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-trans-down.target
 authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-trans-up.target
+authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-volume-decr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/nose/nose-volume-incr.target
 authored/humans/makehuman_hm08/makehuman/data/targets/stomach/stomach-pregnant-incr.target
 humans/web/hm08_variation_kit.bin
 humans/web/hm08_variation_kit.json
