@@ -7687,19 +7687,6 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
         if "railing" in hd:
             door_kit["hood"]["railing"] = {k: ([float(x) for x in v] if isinstance(v, list) else float(v))
                                            for k, v in hd["railing"].items()}
-        # T-1886: the light over the door made a door onto the railed deck (1816's balcony, its
-        # guard about a metre high before the light's foot in Chicagology's photograph): the deck's
-        # top stands at most 0.3 m under the storey's floor the door opens from, never over it
-        if "door_over" in hd:
-            deck = float(hd["soffit_m"]) + float(hd["fascia_m"]) + float(hd["cornice"]["height_m"])
-            if hd["door_over"] is not True or "railing" not in hd or stories < 2 or sfo or sfw \
-                    or door_bay not in fbs.get(1, front_bays) or not floors[1] - 0.3 <= deck <= floors[1] \
-                    or not 0.6 <= float(hd["railing"]["height_m"]) <= 1.2:
-                raise ParamError(f"entrance_kit.hood.door_over: true, the light over the door made a door onto "
-                                 f"a railed deck (railing 0.6-1.2 m) whose top ({deck:.2f} m) stands within "
-                                 f"0.3 m under the floor over the door ({floors[1] if stories > 1 else '-'} m), "
-                                 f"on a front laid by front_bays")
-            door_kit["hood"]["door_over"] = True
         else:
             # T-3562: a pediment on the cornice slab in place of the railing: a tympanum rising
             # `rise_m` from the slab's top to its apex over the hood's centre, set back to the
@@ -7861,6 +7848,19 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                 raise ParamError("entrance_kit.hood.fabric: stone, for a portico on columns or a pedimented "
                                  "hood (T-3562), or leave it out for the painted joinery")
             door_kit["hood"]["fabric"] = "stone"
+        # T-1886: the light over the door made a door onto the railed deck (1816's balcony, its
+        # guard about a metre high before the light's foot in Chicagology's photograph): the deck's
+        # top stands at most 0.3 m under the storey's floor the door opens from, never over it
+        if "door_over" in hd:
+            deck = float(hd["soffit_m"]) + float(hd["fascia_m"]) + float(hd["cornice"]["height_m"])
+            if hd["door_over"] is not True or "railing" not in hd or stories < 2 or sfo or sfw \
+                    or door_bay not in fbs.get(1, front_bays) or not floors[1] - 0.3 <= deck <= floors[1] \
+                    or not 0.6 <= float(hd["railing"]["height_m"]) <= 1.2:
+                raise ParamError(f"entrance_kit.hood.door_over: true, the light over the door made a door onto "
+                                 f"a railed deck (railing 0.6-1.2 m) whose top ({deck:.2f} m) stands within "
+                                 f"0.3 m under the floor over the door ({floors[1] if stories > 1 else '-'} m), "
+                                 f"on a front laid by front_bays")
+            door_kit["hood"]["door_over"] = True
         if "railing_fabric" in hd:
             # T-3159: or a stone balustrade, its posts, balusters and rail in the hood's stone
             if hd["railing_fabric"] not in ("iron", "stone") or \
