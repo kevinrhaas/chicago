@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2926, ts: '2026-11-13T12:10:51.138Z', date: 'Nov 13, 2026, 6:10 AM CT', title: 'The Greys\' hair, eyes and William\'s brows matched to the colour sheets', kind: 'improvement',
+    items: [
+      'William\'s hair is a light ash going silver at the sides, as on his colour turnaround sheet, where it had read too dark.',
+      'Sarah\'s hair is an ash brown with fair and grey streaks, and her eyes a pale grey rather than a bright blue.',
+      'William\'s brows sit lower, close over his eyes on the brow bone, where they had floated above the lids.',
+    ] },
   { v: 2925, ts: '2026-11-13T11:49:01.185Z', date: 'Nov 13, 2026, 5:49 AM CT', title: '1816 Prairie\'s bay windows crowned with carved crests', kind: 'improvement',
     items: [
       'The windows in both of 1816 Prairie\'s canted bays now carry the same carved, scrolled crest as the front\'s hoods, as the old photograph of the house shows them.',
