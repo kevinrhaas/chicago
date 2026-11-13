@@ -4017,7 +4017,7 @@
   }
  },
  "fit_views": {
-  "_doc": "T-3553: the axes are fitted to these pictures of the same stand-in at once, each with its own camera (tools/fit_portrait_face.py fit_views): `fronts`, MediaPipe Face Landmarker points (478, sheet pixels) on another front picture; `profile`, the side view of trace.profile (its visible eye's outer corner and lids and the lips' meeting place a side camera turned near render_yaw_deg, its nod free; its silhouette is matched by the face's own outline from that side, from the brow down `to` the neck or, under a beard, to just below the nose; `lips: height` keeps only the lips' height where a moustache hangs in front of them; `camera_sigma_deg` holds the side camera near the turn read by eye, not tipped). `extended_limits` lets an axis pass MakeHuman's +-1 where the side view asks for more.",
+  "_doc": "T-3553: the axes are fitted to these pictures of the same stand-in at once, each with its own camera (tools/fit_portrait_face.py fit_views): `fronts`, MediaPipe Face Landmarker points (478, sheet pixels) on another front picture; `profile`, the side view of trace.profile (its visible eye's outer corner and lids and the lips' meeting place a side camera turned near render_yaw_deg, its nod free; its silhouette is matched by the face's own outline from that side, from the brow down `to` the neck or, under a beard, to just below the nose; `lips: height` keeps only the lips' height where a moustache hangs in front of them; `camera_sigma_deg` holds the side camera near the turn read by eye, not tipped). `extended_limits` lets an axis pass MakeHuman's +-1 where the side view asks for more. `head_shape_option` is the head outline a full search over all of them chose (2026-11-13), named so the fit check stays quick.",
   "profile": {
    "to": "nose",
    "lips": "height",
@@ -4025,6 +4025,7 @@
    "silhouette_sigma_px": 2.0,
    "camera_sigma_deg": 1.5
   },
+  "head_shape_option": 4,
   "extended_limits": {
    "nose_depth": 2.0,
    "nose_length": 2.0,

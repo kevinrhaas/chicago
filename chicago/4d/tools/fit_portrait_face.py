@@ -586,7 +586,7 @@ def fit_views(person, portrait, header, refs, axes, spec, lm, names, members, ob
     best = None
     options = range(len(axes['head_shape']['opts_d'])) if 'head_shape' in fitted else [0]
     cams = [solve_camera(W, ob, sg, (-0.6, -0.3, 0.0, 0.3, 0.6)) for W, ob, sg in fronts]
-    def run(option, p, iterations):
+    def run(option, p, iterations, nfev=4000):
         st = stacks(option)
         for _ in range(iterations):
             X = shape(p[6 * nf + 6:], option, None, st)
@@ -597,12 +597,15 @@ def fit_views(person, portrait, header, refs, axes, spec, lm, names, members, ob
             pairs = (sil[j], normals[j])
             w = 150.0 / max(len(srows), 1)      # the outline weighs as much as 150 marks, however finely the mesh draws it
             r = least_squares(residuals, p, bounds=(lo, hi), args=(option, srows, pairs, w, st), x_scale='jac',
-                              max_nfev=4000, ftol=1e-12, xtol=1e-12, gtol=1e-12)
+                              max_nfev=nfev, ftol=1e-12, xtol=1e-12, gtol=1e-12)
             p = r.x
         return r, option, srows, pairs, w
 
-    # The head's outline is a choice of shapes: each is tried briefly, the best refined.
+    # The head's outline is a choice of shapes: each is tried briefly, the best refined. A record
+    # may name the one a full search chose (`head_shape_option`), which keeps the check quick.
     start = np.concatenate([*cams, side0, centre])
+    if 'head_shape_option' in cfg:
+        options = [cfg['head_shape_option']]
     for option in options:
         trial = run(option, start, 2)
         if best is None or trial[0].cost < best[0].cost - 1e-9:
