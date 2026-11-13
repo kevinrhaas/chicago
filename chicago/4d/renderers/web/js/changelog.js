@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2946, ts: '2026-11-13T20:30:24.473Z', date: 'Nov 13, 2026, 2:30 PM CT', title: 'Jaunts sorted into clear groups, Glessner walks first', kind: 'improvement',
+    items: [
+      'The Jaunts menu now sorts every year into the same groups: Places, People, Architecture, Stories, Errands, Work and Build log. Each filter shows its name.',
+      'In 1904 the Glessner Household tour comes first, then Meet the Glessner House, and both cards now have a photograph of the house. Every building modelled so far is listed last.',
+      'Charles Nelson, the Glessners\' coachman from 1878 to 1902, says in the household tour that he no longer drives for them in 1904. He has come back for the morning to show you his old stable.',
+    ] },
   { v: 2945, ts: '2026-11-13T20:00:53.574Z', date: 'Nov 13, 2026, 2:00 PM CT', title: 'Meet the Glessner House is read aloud too', kind: 'feature',
     items: [
       'Meet the Glessner House now has a narrator at every stop, from the opening to the end of the walk.',
