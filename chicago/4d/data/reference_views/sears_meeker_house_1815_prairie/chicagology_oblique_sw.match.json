@@ -2,7 +2,7 @@
   "structure_id": "sears_meeker_house_1815_prairie",
   "view": "chicagology_oblique_sw",
   "glb": "assets/gltf/sears_meeker_house_1815_prairie__as_mapped_1904.glb",
-  "glb_sha256": "3809ab96a6f275ef70e55496a828c12a61127f98b6ffb3051e278fafd65499c3",
+  "glb_sha256": "7bf6166f27bb4479452504a156ea0620f989bf2182e78f7b998e92d00aeca73a",
   "camera_sha256": "1fdf8d070c86fc16f704cbe37a69be533ca63697bb6705ac217de6e11bd34ec3",
   "photo_sha256": "39fbfc1c58b51ccd19997e89b76380d1445a6665485416a31ac489acf8522929",
   "side_by_side": "docs/RESEARCH/photo-match/sears_meeker_house_1815_prairie/chicagology_oblique_sw-side-by-side.jpg",
@@ -82,7 +82,7 @@
     {
       "what": "the stack's pots: the print's stand about 1.1 m over the cap, three or four in a row",
       "status": "open",
-      "how": "three of the kit's tallest pot (0.72 m) stand on it; the 1.1 m stack takes three of K15's 0.21 m flues"
+      "how": "three of the kit's tallest pot (0.72 m) stand on it; the 1.1 m stack takes three of K15's 0.21 m flues. T-3562 re-read it: the dark pots stand about 63-73 px over the cap (x 1730-1800, y 72-145 px), about 1.0-1.1 m, slender and fluted, with a lit fourth shape nearest the street that may be a fourth pot or the lit side of the head. A longer pot is a new profile in K15's kit (k15_chimneys.json), which every K01 house hashes as a mesh input (generators/mesh_inputs.py), so it is a whole-district rebake rather than this house's: it stays open here"
     },
     {
       "what": "the rosettes over the cornice's consoles",
