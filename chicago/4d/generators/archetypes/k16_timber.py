@@ -81,6 +81,8 @@ ROLE_MATERIAL = {
     "door": "stained", "door_panel": "stained", "step_tread": "stained", "step_riser": "trim",
     # T-2425: 1638's arched entrance, its pierced spandrels painted with the porch's trim
     "spandrel": "trim",
+    # T-3566: louvred blinds beside a window, painted the sash's dark green
+    "shutter": "sash",
     # T-2457: the small carved stops at the springs of 1638's bay lights, dark in the print
     "stop": "sash",
     "roof_covering": "roof", "chimney": "foundation",   # the stack is the foundation's brick
@@ -818,6 +820,8 @@ class Sample:
             self.poly(F, "end_grain", [(s_e, ysb, 0), (s_e, ysb, zf), (s_e, yf_top, zf), (s_e, ys, 0)], (hs, 0, 0), tw)
         self.box(F, "apron", sa, sb, y_ap, ysb, 0, cth, skip=("back", "top"), tone=tw,
                  roles={"s0": "end_grain", "s1": "end_grain"})
+        if win.get("shutters"):     # T-3566: louvred blinds folded back beside the casing
+            self._shutters(F, win["shutters"], sa, sb, ys, ys + H + cs["head_m"])
         if win.get("surround") == "pointed":     # T-2423: the casing carried round the head
             return self._pointed_surround(F, c, hw, H, ys, sl, sa, sb, y_ap, y_start, tw,
                                           win.get("head_radius_ratio", 1.0), win.get("stops"))
@@ -841,6 +845,30 @@ class Sample:
                                "head_m": round(yHc - yH, 6), "on_course_lines": True}
         self.meta.setdefault("casings", []).append(self.meta["casing"])
         return hole, cut
+
+    def _shutters(self, F, sh, sa, sb, y0, y1):
+        """T-3566: a pair of louvred blinds standing open beside a cased window, 1721 Prairie's
+        frame house in the Detroit print: each leaf `width_m` wide from the casing's outer edge,
+        sill to head, a frame of stiles and rails `frame_m` wide round a run of slats
+        `louvre_m` apart, each slat a board falling outward, standing just proud of the clapboard
+        butts. The leaves take the sash's dark paint."""
+        w, fm, lv = sh["width_m"], sh.get("frame_m", 0.05), sh["louvre_m"]
+        z0 = self.data["trim"]["casing"]["thickness_m"] + 0.005
+        z1 = z0 + 0.03
+        for a, b in ((sa - w, sa), (sb, sb + w)):
+            self.box(F, "shutter", a, a + fm, y0, y1, z0, z1, skip=("back",))
+            self.box(F, "shutter", b - fm, b, y0, y1, z0, z1, skip=("back",))
+            self.box(F, "shutter", a + fm, b - fm, y0, y0 + fm * 1.6, z0, z1, skip=("back", "s0", "s1"))
+            self.box(F, "shutter", a + fm, b - fm, y1 - fm, y1, z0, z1, skip=("back", "s0", "s1"))
+            self.poly(F, "shutter", [(a + fm, y0, z0 - 0.004), (b - fm, y0, z0 - 0.004), (b - fm, y1, z0 - 0.004),
+                                     (a + fm, y1, z0 - 0.004)], (0, 0, 1))
+            n = int((y1 - y0 - fm * 2.6) / lv)
+            for k in range(n):
+                yt = y1 - fm - k * lv
+                self.poly(F, "shutter", [(a + fm, yt, z0 + 0.004), (b - fm, yt, z0 + 0.004),
+                                         (b - fm, yt - lv * 0.85, z1 - 0.004), (a + fm, yt - lv * 0.85, z1 - 0.004)],
+                          (0, 0.6, 0.8))
+        self.meta.setdefault("shutters", []).append({"s": [round(sa - w, 6), round(sb + w, 6)], "y": [y0, y1]})
 
     def _pointed_surround(self, F, c, hw, H, ys, sl, sa, sb, y_ap, y_start, tw, ratio=1.0, stops=None):
         """T-2423: a pointed sash's casing carried round its head instead of squared off: the
@@ -3508,13 +3536,14 @@ def frame_house(st: dict, phase: dict, data: dict | None = None) -> Sample:
             house.meta["front_gable"] = _front_gable(house, b, b["front_gable"], P_, fh_m)
     for bay in fh.get("bays") or []:
         house.meta.setdefault("bays", []).append(_frame_bay_trim(house, fh, bay, data))
-    ch = fh.get("chimney")
-    if ch:
-        yr = ridge[fh["blocks"][0]["id"]][0]
+    # T-3566: a house of several stacks lists them (`chimneys`), each over its own block's ridge
+    for ch in ([fh["chimney"]] if fh.get("chimney") else []) + list(fh.get("chimneys") or []):
+        blk = next((b for b in fh["blocks"] if b["id"] == ch.get("block")), fh["blocks"][0])
+        yr = ridge[blk["id"]][0]
         xc, zc = ch["u_m"], -ch["v_m"]
         hx, hz = ch["width_m"] / 2, ch["depth_m"] / 2
         y_top = yr + ch["above_ridge_m"]
-        y_foot = fh["blocks"][0]["wall_top_m"]
+        y_foot = blk["wall_top_m"]
         cap, ch_h = ch.get("cap_m", 0.05), ch.get("cap_height_m", 0.15)
         house.box(house.F, "chimney", xc - hx, xc + hx, y_foot, y_top - ch_h, zc - hz, zc + hz, skip=("bottom",),
                   roles={"top": "chimney"})
