@@ -34,6 +34,10 @@ The owner uploaded the selected MP3, and full public verification passed for its
 
 Other audition candidates remain inactive: [McClintock Bay](https://freesound.org/people/SoundsLikeYukon/sounds/758708/) includes a possible faint dock cleat/flagpole clang; [Pier Lap](https://freesound.org/people/craigsmith/sounds/438839/) has wooden-dock character. The selected [Manitoulin recording](https://freesound.org/people/TRP/sounds/575244/) retains its rocky-lake provenance rather than being relabelled a historical Chicago recording.
 
+### Wind follows the trees — T-3586 (2026-11-13)
+
+The leaf-rustle loop's gain is now `windGain(...) × windGustGain(gustAtScene(listener))` (`renderers/web/js/wind-gust.js`): the same gust rhythm that scales every tree, vine and plant's sway in its vertex shader. A gust front crosses the town from the south-west at 7 m/s; the sound runs 0.3× the old level in a lull to 1.6× at a gust's top, averaging about 0.69× (under the 2026-11-11 town mix). All years; winter still has no leaf rustle. Liberty L-wind-gusts-3586; test `tools/test_wind_gust.mjs`.
+
 ### 1904 nature sounds — T-3585 (2026-11-13)
 
 The owner heard few birds in 1904 summer daytime: 1904 had no habitat sound at all, only the 0.012 leaf rustle. It now has its own `town_placements` (catalogue and intake), read by `renderers/web/js/habitat-town.js` through the existing habitat scheduler, on four recordings already licensed and verified on R2, so no new bytes are uploaded or shipped:

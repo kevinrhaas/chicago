@@ -5089,8 +5089,11 @@ class Assembly:
         1): between the cant's top and the pavilion's wall top, everything on the corner's side
         of the plane through the eave's corner (the hip's foot, the eave overhang out from the
         walls' corner) and the return's back edge, from `rb`[0] behind the wall's face at the
-        cant's top to `rb`[1] at the wall top. Two rings, each the box round the corner cut on
-        that plane's trace at its height; both must cut it the same way, so the faces are planar."""
+        cant's top to `rb`[1] at the wall top; and on over the return to the curb, its north side
+        leaning in from the return's top edge to the side face's foot of the deck, so the slate
+        over the return is one face up to the hip. Two rings per solid, each the box round the
+        corner cut on that plane's trace at its height; both must cut it the same way, so the
+        faces are planar."""
         from . import k08_bays as K8
         D, E, o = self.p.depth_m, self.p.eave_m, self.p.eave_overhang_m
         bv = b["variant"]
@@ -5108,9 +5111,10 @@ class Assembly:
         far = side(D + 2.0, s1 + 2.0, ct)
 
         def solid(ya, yb, north):
-            box = [(D - 6.0, north), (D + 2.0, north), (D + 2.0, s1 + 2.0), (D - 6.0, s1 + 2.0)]
             rings = []
-            for y in (ya, yb):
+            for y in (ya, yb):   # `north` may lean: a callable of the height
+                nv = north(y) if callable(north) else north
+                box = [(D - 6.0, nv), (D + 2.0, nv), (D + 2.0, s1 + 2.0), (D - 6.0, s1 + 2.0)]
                 f = [side(u, v, y) * far for u, v in box]
                 ring = []
                 for i in range(4):
@@ -5126,13 +5130,33 @@ class Assembly:
                                  f"corner differently at {ya:.3f} and {yb:.3f} m")
             return k5.ring_stack(rings, ["covering"], "covering", "covering")
         # up to the wall top as deep as the light's recess, and on up over the return to the curb
-        # on the same plane, which leaves the slate there (no ceiling over the return's top)
+        # on the same plane, so no ceiling shows over the return's top
         y_curb = E + float(self.p.mansard["lower_rise_m"])
         if not ct + 0.5 <= y_wt < y_curb - 0.5:
             raise ValueError(f"{b['id']}: a return's slate set back stands between its cant's top and its "
                              f"mansard's curb")
         self.meta_return = {"plane_normal": [round(q, 4) for q in n]}
-        return [solid(ct - 0.01, y_wt, vc - reach), solid(y_wt - 0.01, y_curb - 0.05, vc - 0.02)]
+        # T-1890 (HABS photograph 1, its coursing read at full size): over the return's top the
+        # slate is ONE north-facing face, its courses parallel to the return's moulded top, rising
+        # from that top to the hip and the deck's corner hood. The cut's north side over the wall
+        # top is therefore not upright on the return's plane (which stood a slate cheek over the
+        # return and left a sliver of the front slope folded between it and the set-back face)
+        # but leans in, from the return's outer top edge to the side face's foot of the deck at
+        # the curb, so the face it leaves runs from the return's top to the hip in one plane
+        pt = math.tan(math.radians(float(self.p.mansard["lower_pitch_deg"])))
+        v_deck = s1 + o - (y_curb - E) / pt
+        if not v_deck < vc:
+            raise ValueError(f"{b['id']}: the slate over a chamfer's return leans in to the side face's foot of "
+                             f"the deck, which stands behind the return ({v_deck:.3f} of {vc:.3f})")
+        # It stops 0.05 m behind that foot at the curb, not 0.02: the side face the cut leaves
+        # between it and the front slope's trace narrows to its top, and at 0.02 that face was a
+        # 3 cm sliver whose triangles fanned to within the 1 mm weld of the trace and passed
+        # through the front slope's own (the K05 gate's crossing rule, 4 pairs); at 0.05 the
+        # face holds its width and nothing crosses, 3 cm the eye cannot take at the hood
+        v_top = v_deck - 0.05
+        lean = lambda y: vc - 0.02 + (v_top - (vc - 0.02)) * (y - y_wt) / (y_curb - y_wt)
+        self.meta_return["over_top"] = {"deck_v_m": round(v_deck, 4), "lean_top_v_m": round(v_top, 4)}
+        return [solid(ct - 0.01, y_wt, vc - reach), solid(y_wt - 0.01, y_curb - 0.05, lean)]
 
     @staticmethod
     def chamfer_top(b):
@@ -6884,6 +6908,19 @@ def build(params, structure_id: str):
     stone_flanks = {f"k01.wall.side.{w}" for w in (p.stone or {}).get("flanks", ())}
     for w in (p.stone or {}).get("flanks", ()):
         flank[w] = "rough_stone_trim"
+    # T-1887: a stone flank that stops `flank_to_m` back from the front, the rest of the wall
+    # the K01 brick (1828's 1911 sheet: its three-storey front block in stone, the range behind
+    # it in brick): each split flank's (stone span, brick span) along its wall's own s
+    flank_split = {}
+    flank_to = (p.stone or {}).get("flank_to_m")
+    if flank_to is not None and flank_to < D:
+        for w in p.stone["flanks"]:
+            flank_split[f"k01.wall.side.{w}"] = ((D - flank_to, D), (0.0, D - flank_to)) if w == "south" \
+                else ((0.0, flank_to), (flank_to, D))
+
+    def in_flank_brick(op):
+        sp = flank_split.get(op.wall)
+        return sp is not None and sp[1][0] < op.s_m < sp[1][1]
 
     def side_belts(which):   # T-2781: a side wall's stone belt, laid as the front's are
         return tuple((b["from_m"], b["to_m"], b["proud_m"]) for b in p.side_belts if b["wall"] == f"k01.wall.side.{which}") \
@@ -6940,8 +6977,10 @@ def build(params, structure_id: str):
                 proud = max(z for _, z in pl["points"]) if pl.get("kind") == "polyline" else \
                     pl["centre_proud_m"] + pl["radius_m"] * math.cos(math.pi / int(pl["sides"]))
                 frame = (_add(O_, _mul(N_, proud)), R_, N_)
-            a.opening(op, frame, t, mat, "limestone_trim",
-                      coursed=all_round or op.wall == "k01.wall.street_front" or op.wall in stone_flanks)
+            brick_part = in_flank_brick(op)   # T-1887: a split flank's opening in its brick
+            a.opening(op, frame, t, side if brick_part else mat, "limestone_trim",
+                      coursed=all_round or op.wall == "k01.wall.street_front"
+                      or (op.wall in stone_flanks and not brick_part))
         a._walls, a._yf = walls, yf   # T-2773: a bay coursed on the front's beds strikes them first
         for bay in p.bays:
             if not bay.get("wing"):   # T-2842: a wing's tower is laid before its wing, below
@@ -6969,11 +7008,18 @@ def build(params, structure_id: str):
                 # front is (1801's 18th Street section, 0.1 m proud on its 1911 sheet: its lower
                 # storeys' lights run back through this wall's plane); over it the bay's back is
                 # closed round them (`bay_holes`, above)
-                a.stone_front(cid, O, R, length, E, yf, t, [o for o in p.openings if o.wall == cid],
+                split = flank_split.get(cid)
+                a.stone_front(cid, O, R, length, E, yf, t,
+                              [o for o in p.openings if o.wall == cid and not in_flank_brick(o)],
                               a.front_course_beds, [*stops(cid)[0], *stops(cid)[1],
-                                                    *(h for h in a.bay_holes.get(cid, ()) if h[2] < E)],
+                                                    *(h for h in a.bay_holes.get(cid, ()) if h[2] < E),
+                                                    *([(*split[1], 0.0, E)] if split else [])],
                               dressing=p.stone["flank_dressing"] if cid in stone_flanks else None)
                 a._flank_rock = None
+                if split:   # T-1887: and behind its stone, the flank's brick, cut where the stone stands
+                    breaks, cols = breaks_of(cid, side)
+                    a.wall(cid, side, O, R, length, E, t, holes(cid) + [(*split[0], 0.0, E)],
+                           breaks, bands, gaps[cid], cols)
                 if side_arch and side_arch["wall"] == cid:
                     k01_arched_front.side_arch(a, frames[cid][0][0], side_arch["group"])
                 continue
@@ -7052,8 +7098,12 @@ def build(params, structure_id: str):
     # T-1886: and a flank laid in the front's face brick (`face_brick.returns`) is dressed as the
     # front, which carries no brick course: 1816's photograph draws its south flank with none
     belted |= {f"k01.wall.side.{w}" for w in p.face_brick_returns}
-    belted |= stone_flanks   # T-3562: a flank in the front's stone carries no brick course
+    belted |= stone_flanks - set(flank_split)   # T-3562: a flank in the front's stone carries no brick course
     courses = [c for c in courses if c[0] not in belted]
+    # T-1887: a split flank's brick course runs along its brick alone, to where the stone begins
+    courses = [(cid, s0 if cid not in flank_split or flank_split[cid][1][0] == 0.0 else max(s0, flank_split[cid][1][0]),
+                s1 if cid not in flank_split or flank_split[cid][1][0] > 0.0 else min(s1, flank_split[cid][1][1]))
+               for cid, s0, s1 in courses]
     for cid, s_from, s_to in courses:
         frame = frames[cid][0][0]
         for s0, s1 in _pieces(s_from, s_to, gaps[cid]):   # T-2308: stopped against a bay
