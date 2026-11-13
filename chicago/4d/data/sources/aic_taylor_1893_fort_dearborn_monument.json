@@ -1,0 +1,27 @@
+{
+  "id": "aic_taylor_1893_fort_dearborn_monument",
+  "type": "photograph",
+  "citation": "J. W. Taylor (Chicago), 'Fort Dearborn Monument', photograph, 1893: photo album no. 1, p. 88 (U525749). Art Institute of Chicago, Ryerson and Burnham Archives, Historic Architecture and Landscape Image Collection, Box 70.",
+  "author": "J. W. Taylor (Chicago)",
+  "date": "1893",
+  "describes_date": "1893, the monument newly set up (the holder dates the album print 1893; the Prairie library's range is 1893-1899)",
+  "repository": "Art Institute of Chicago, Ryerson and Burnham Archives (https://digital-libraries.artic.edu/digital/collection/mqc/id/38868). Prairie library image a16-aic-taylor-fort-dearborn-monument-1893; the image store's copy is committed at data/sources/assets/fort_dearborn_monument_t3568/taylor_1893_three_quarter.jpg.",
+  "url": "https://digital-libraries.artic.edu/digital/collection/mqc/id/38868",
+  "locator": "The whole print: the monument from the south-west, a little west of square-on to its lettered front, so that the west faces of the base, plinth and die show narrowly at the left; the five figures in full detail against the sky; behind, the Pullman estate's ashlar 18th Street wall with a coped pier and a young street tree at right. The camera (data/reference_views/fort_dearborn_massacre_monument_1893/aic_taylor_1893.json) says how far it can be measured.",
+  "tier": 1,
+  "rights_status": "public_domain",
+  "rights_note": "A commercial photograph of the 1890s, public domain by age: the owner's ruling of 2026-10-27 on T-3161 (answer a) for J. W. Taylor's 1890s prints, applied here as it was to his 1729 Prairie print (aic_taylor_1445_pullman_from_sw) and his 1801 Kimball print. The Art Institute asks to be contacted for publication. Read for forms, places, depths and proportions; no texture or mesh is derived from it.",
+  "asset_use": "cross_check",
+  "verified": true,
+  "access_notes": "Read 2026-11-13 (T-3568) from the image store's copy, committed unaltered: 1200 x 1551 px, 206053 bytes, sha256 4a3526daf3d99feda753e5fbcb7b704429949d7ab39f93d3dfef84d1a2189029 (the store's display copy of the holder's IIIF 1200 px derivative, whose original the library records as sha256 41b89a9c973495f440b4c65eb7f877e9c785e38176f58c7843d801a78dfb115d).",
+  "note": "The only picture used here that sees a side of the pedestal. Through its camera the side faces read 85 px (base), 77 (plinth) and 61 (die) against fronts of 857, 596 and 546 px: base 2.85 m, plinth 1.8 m and die 1.6 m deep. The die's west face carries a narrow bronze panel. The group, left to right as the street sees it: the warrior striding left with the tomahawk raised in his right hand and a feather in his hair; Margaret Helm between the two men, her right arm reaching across to the warrior, her skirt to the rock; Black Partridge behind her, his left arm raised with the palm open against the blow, the musket slanting down past his right side; the surgeon on his back across the rock under them; the child at the right front, kneeling with both arms out. Monochrome (a toned print).",
+  "what_it_supplies": [
+    "the pedestal's depths (base, plinth, die)",
+    "the five figures seen from the south-west, in full detail",
+    "the die's west panel"
+  ],
+  "what_it_does_not_supply": [
+    "the group's rear and east side",
+    "colour"
+  ]
+}
