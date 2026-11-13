@@ -172,6 +172,14 @@
 .nav-mute[aria-pressed="true"] .mute-on { display: inline; }
 .nav-mute[aria-pressed="true"] .mute-off { display: none; }
 #nav-mute-all { margin-left: 2px; }
+/* T-3578: with three sound keys the head ran past the close key (the owner, 2026-11-13: "this
+   panel is getting crowded up there you cant see the x"). The keys sit as one tight group, the
+   name and the screen code give way first, and the close key never shrinks or leaves. */
+.nav-mute + .nav-mute { margin-left: -6px; }
+.nav-head:has(.nav-mute) .nav-label { flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.nav-head:has(.nav-mute) .nav-code { flex: 1 1 0; min-width: 0; }
+.nav-head:has(.nav-mute) { gap: 8px; padding-right: 14px; }
+.nav-date { flex: none; }
 
 /* ---- the contextual rail (T-2618): slide + glint in, slide out, both 240 ms ---- */
 .nav-app.is-entering { animation: nav-app-in .24s var(--ease-machine, ease) both; }

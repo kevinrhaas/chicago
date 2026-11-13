@@ -1,4 +1,27 @@
 export const CHANGELOG = [ // newest first
+  { v: 2939, ts: '2026-11-13T18:40:26.185Z', date: 'Nov 13, 2026, 12:40 PM CT', title: 'The Glessner Household speaks: two narrators to choose from', kind: 'feature',
+    items: [
+      'The Glessner Household is voiced: the narrator reads the title and the background, then each person speaks at their own door.',
+      'Settings › Sound › Narrator picks the Cultivated Essayist (the default) or the Midwestern Storyteller.',
+      'The Navigator\'s header keeps its close key in view beside the three sound keys.',
+    ] },
+  { v: 2938, ts: '2026-11-13T18:14:03.496Z', date: 'Nov 13, 2026, 12:14 PM CT', title: 'The dev preview moves to its own site, with room to grow', kind: 'change',
+    items: [
+      'The dev preview is now at dev.chicago.polecat.live/4d/dev/, a site of its own.',
+      'Production keeps chicago.polecat.live; old /4d/dev/ links forward to the new address after the next release.',
+      'Each site holds one copy of the town, so the storage allowance grows from 445 to 740 MiB.',
+    ] },
+  { v: 2937, ts: '2026-11-13T18:12:19.936Z', date: 'Nov 13, 2026, 12:12 PM CT', title: '1712 Prairie\'s roof is lowered to its 1893 drawing', kind: 'fix',
+    items: [
+      'The roof of 1712 Prairie Avenue is now a low hip at 18 degrees, as the 1893 Rand McNally view of the street draws it. It was 25 degrees, which stood about 2 m too tall in the comparison with the drawing.',
+      'The house now matches its one known picture, and its chimney stands lower with the roof.',
+    ] },
+  { v: 2936, ts: '2026-11-13T17:19:59.079Z', date: 'Nov 13, 2026, 11:19 AM CT', title: 'Sign in once to travel to any year', kind: 'feature',
+    items: [
+      'Before a year starts loading, sign in with Google or Microsoft.',
+      'No account with either? A small link offers email and password, or just your email.',
+      'One sign-in opens every year on that device, and the next visit goes straight in.',
+    ] },
   { v: 2935, ts: '2026-11-13T16:56:23.840Z', date: 'Nov 13, 2026, 10:56 AM CT', title: '1816 Prairie\'s balcony over the porch, with a door onto it', kind: 'improvement',
     items: [
       'The iron balcony on top of the Henderson house\'s porch at 1816 Prairie now stands about a metre high, as the old photograph shows it, where it used to be a low rail.',

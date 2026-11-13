@@ -29,6 +29,7 @@
  */
 import { t as str } from './strings/index.js';
 import './strings/settings.js';
+import { NARRATORS, normalNarrator } from './narration.js';
 
 /** Text size: every Navigator app's text, 100 % to 140 % (QA-18). */
 export const TEXT_SCALES = Object.freeze([1, 1.1, 1.2, 1.3, 1.4]);
@@ -339,6 +340,19 @@ export function wireSettingsApp({
       paint();
       save();
       onSetting?.(key, settings[key]);
+    });
+  }
+
+  // ---- Sound: which narrator reads the jaunts (T-3578; the owner, 2026-11-13: "they can choose
+  // which narrator in settings"). The essayist is the default; the people keep their own voices.
+  const narrator = $('s-narrator');
+  settings.narrator = normalNarrator(settings.narrator);
+  if (narrator) {
+    narrator.replaceChildren(...NARRATORS.map(n => { const o = doc.createElement('option'); o.value = n.id; o.textContent = n.label; return o; }));
+    narrator.value = settings.narrator;
+    narrator.addEventListener('change', () => {
+      settings.narrator = normalNarrator(narrator.value); narrator.value = settings.narrator;
+      save(); onSetting?.('narrator', settings.narrator);
     });
   }
 
