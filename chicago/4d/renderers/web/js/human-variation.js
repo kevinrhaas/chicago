@@ -161,7 +161,7 @@ export function personVariation({ kit, key, record = null, assetId = null, scene
     }
   }
   return { key, assetId, sex: record?.sex ?? asset.sex ?? 'male', age, height, values, option,
-    grade: face?.grade ?? 'reconstructed', sceneYear };
+    trace: face?.trace ?? null, grade: face?.grade ?? 'reconstructed', sceneYear };
 }
 
 /** The axes a scope may use. */
@@ -185,6 +185,10 @@ export function denseDelta(kit, variation, scope = 'full') {
     else if (v > 0 || !a.neg) add(a.pos, v);
     else add(a.neg, -v);
   }
+  // T-3553: a face traced onto its portrait beyond the axes (tools/trace_portrait_face.py), in
+  // the kit's vertex order and delta unit, on every scope (it is the face).
+  const t = variation.trace;
+  if (t?.vertices?.length) add({ count: t.vertices.length, index: t.vertices, delta: t.delta }, 1);
   return D;
 }
 

@@ -460,13 +460,23 @@ export function growHair({ hair, skin = null, root, style, lod, seed = 'person' 
         continue;
       }
       const r = piece.region_cm;
+      // T-3553: \`top\` ([[x, y], …] cm, x rising) is a line the piece's roots stay below, run
+      // straight between its points: a beard's line up the cheek from the moustache's ends, or
+      // the bare skin it leaves under the lower lip.
+      const topAt = x => {
+        const T = r.top;
+        if (!T) return Infinity;
+        if (x <= T[0][0]) return T[0][1];
+        for (let k = 1; k < T.length; k++) if (x <= T[k][0]) return T[k - 1][1] + (T[k][1] - T[k - 1][1]) * (x - T[k - 1][0]) / (T[k][0] - T[k - 1][0]);
+        return T[T.length - 1][1];
+      };
       const keep = (c, n, _tri, m = 0) => {
         const l = c.clone().sub(f.o), x = Math.abs(l.dot(f.x)) * 100, y = l.dot(f.y) * 100, z = l.dot(f.z) * 100;
         if (x < r.x[0] - m || x > r.x[1] + m || z < r.z_min - m || z > (r.z_max ?? Infinity)) return false;
         // The band narrows toward its ends, and droops there by \`droop\` cm.
         const t = Math.min(1, Math.max(0, (x - r.x[0]) / (r.x[1] - r.x[0]))), mid = (r.y[0] + r.y[1]) / 2 - (r.droop ?? 0) * t * t;
         const half = (r.y[1] - r.y[0]) / 2 * Math.sqrt(Math.max(0, 1 - t * t * .75));
-        if (Math.abs(y - mid) > half + m) return false;
+        if (Math.abs(y - mid) > half + m || y > topAt(x) + m) return false;
         return piece.facing === 'front' ? n.dot(f.z) > .35 : Math.abs(n.dot(f.x)) > .3 && n.dot(f.z) > -.3;
       };
       // An exact piece (T-3456) is kept point by point, not by whole triangles: a band a few
@@ -488,6 +498,16 @@ export function growHair({ hair, skin = null, root, style, lod, seed = 'person' 
         let s = region.draw();
         for (let k = 0; spacing && s && k < 12 && roots.some(q => q.distanceToSquared(s.p) < spacing * spacing); k++) s = region.draw();
         if (!s) break;
+        // T-3553: a feathered piece (`feather_cm`: its top, bottom and outer edges) thins and
+        // shortens toward them, so a beard dies away up the cheek as stubble, not at a line.
+        let edge = 1;
+        if (piece.feather_cm) {
+          const l = s.p.clone().sub(f.o), x = Math.abs(l.dot(f.x)) * 100, y = l.dot(f.y) * 100, fc = piece.feather_cm;
+          const t = Math.min(1, Math.max(0, (x - r.x[0]) / (r.x[1] - r.x[0]))), mid = (r.y[0] + r.y[1]) / 2 - (r.droop ?? 0) * t * t;
+          const half = (r.y[1] - r.y[0]) / 2 * Math.sqrt(Math.max(0, 1 - t * t * .75));
+          edge = Math.max(0, Math.min(1, fc.top ? (Math.min(mid + half, topAt(x)) - y) / fc.top : 1, fc.bottom ? (y - mid + half) / fc.bottom : 1, fc.out ? (r.x[1] - x) / fc.out : 1));
+          if (rand() > Math.pow(edge, 1.6)) continue;
+        }
         if (spacing) roots.push(s.p);
         const across = s.p.clone().sub(f.o).dot(f.x);
         const out_ = f.x.clone().multiplyScalar(Math.sign(across) * piece.outward);
@@ -496,10 +516,16 @@ export function growHair({ hair, skin = null, root, style, lod, seed = 'person' 
         const fall = f.y.clone().multiplyScalar(-(piece.fall_ends ? piece.fall_ends[0] + (piece.fall_ends[1] - piece.fall_ends[0]) * t : piece.fall));
         const taper = piece.taper ? 1 - piece.taper * t : 1;
         const first = out.position.length / 3;
+        // T-3553: `jitter_deg` turns each hair its own way about the skin's normal (a beard's
+        // hairs do not all lie one way), `loft` stands some further off the skin (its volume),
+        // and `grey` is the share of the hairs that have gone grey.
+        const way = fall.clone().add(out_);
+        if (piece.jitter_deg) way.applyAxisAngle(s.n, (rand() - .5) * 2 * piece.jitter_deg * Math.PI / 180);
+        const loft = piece.loft ? 1 + piece.loft * rand() : 1, grey = piece.grey && rand() < piece.grey ? 2 : 0;
         layCard(out, {
-          start: s.p, n0: s.n, length: len * taper * (1 - (piece.spread ?? .3) / 2 + (piece.spread ?? .3) * rand()), segments: Math.max(2, level.segments - 2), width: width * (.8 + .4 * rand()),
-          lift: { root: piece.lift_mm.root / 1000, tip: piece.lift_mm.tip / 1000 }, dir: () => fall.clone().add(out_),
-          surface: face, nearest: nearFace, reach: .01, rand, curl: piece.curl ?? .12, weights: weightsOf(skin, s.vertex, toBones), seed: rand(), layer: rand(),
+          start: s.p, n0: s.n, length: len * taper * (.3 + .7 * edge) * (1 - (piece.spread ?? .3) / 2 + (piece.spread ?? .3) * rand()), segments: Math.max(2, level.segments - 2), width: width * (.8 + .4 * rand()),
+          lift: { root: piece.lift_mm.root / 1000, tip: piece.lift_mm.tip / 1000 * loft }, dir: () => way.clone(),
+          surface: face, nearest: nearFace, reach: .01, rand, curl: piece.curl ?? .12, weights: weightsOf(skin, s.vertex, toBones), seed: rand(), layer: grey + rand(),
         });
         out.cards.push({ first, last: out.position.length / 3, vertex: s.vertex, root: s.p });
         grown.facial[name] = (grown.facial[name] ?? 0) + 1;
@@ -611,7 +637,10 @@ const STRAND_COLOR = `
     // Darker at the roots and in the lower layers, lighter strand to strand.
     float root = mix( 0.5, 1.0, smoothstep( 0.0, 0.55, vChiCard.y ) );
     float streak = chiSkinNoise( vec3( s * 1.3, vChiCard.y * 3.0, vChiCard.z * 17.0 ) );
-    diffuseColor.rgb *= ( 0.8 + 0.3 * h2 + 0.25 * streak ) * root * mix( 0.8, 1.1, vChiCard.w );
+    // A layer of 2 or more (T-3553) is a grey hair: the same card, its colour gone to grey.
+    float greyHair = step( 1.5, vChiCard.w );
+    diffuseColor.rgb *= ( 0.8 + 0.3 * h2 + 0.25 * streak ) * root * mix( 0.8, 1.1, vChiCard.w - 2.0 * greyHair );
+    diffuseColor.rgb = mix( diffuseColor.rgb, vec3( 1.0, 0.93, 0.84 ) * ( dot( diffuseColor.rgb, vec3( 0.3, 0.59, 0.11 ) ) * 1.7 + 0.03 ), greyHair * 0.75 );
   }`;
 // A card is lit as the scalp under it: both faces take its outward normal.
 const STRAND_NORMAL = `
@@ -911,6 +940,18 @@ export function dressHair(root, { lod = 0, person = null, year = null, style: gi
   // Under the cards the cap is the scalp's colour: solid, not its own masked strands, so no
   // skin shows between the cards. (The far levels keep the cap as it was, alone.)
   if (entry.grown.scalp && hair.material?.alphaTest > CARDS.cap_alpha_test) hair.material.alphaTest = CARDS.cap_alpha_test;
+  // T-3553: a cut over a body whose cap is darker than its own hair (`cap_tint`: William Grey's
+  // sandy hair on the gentleman's dark cap; Sarah's greying light brown, worn as the cap itself)
+  // lightens the cap toward the hair's colour (a number: that many times the colour; three numbers:
+  // the cap's own texture multiplied by them), so no dark cap shows between the cards. Its own material, so the body's other wearers keep theirs.
+  const tint = HAIR_CUTS[style.cut]?.cap_tint;
+  if (tint && (entry.grown.scalp || HAIR_CUTS[style.cut].scalp_cards === false) && hair.material && !hair.userData.capTinted) {
+    // The cap's own top knot and the patch a turned bun leaves (bunToCrown) share its material.
+    const was = hair.material, tinted = was.clone();
+    tinted.color.setRGB(...(Array.isArray(tint) ? tint : colour.map(c => c * tint)), THREE.LinearSRGBColorSpace);
+    hair.parent.traverse(o => { if (o.isMesh && o.material === was) o.material = tinted; });
+    hair.userData.capTinted = true;
+  }
   // A hat put on later (driver-livery.js) cuts the strands above its band.
   let frame = 0, seen = null;
   const watch = mesh ?? face;

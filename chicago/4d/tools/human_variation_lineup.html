@@ -136,5 +136,20 @@ else { camera.position.set(0, 1.0, Math.max(3.2, span * 1.6)); camera.lookAt(0, 
 renderer.render(scene, camera);
 window.__scene = scene;
 window.__render = () => renderer.render(scene, camera);
+// T-3553: the body's skin as drawn, for a side-view trace (tools/trace_portrait_profile.py):
+// every vertex's world position (morphs, variation and pose applied), its kit index by
+// texture coordinate as applyVariation finds it, and the head bone the camera aims at.
+window.__vertexDump = async () => {
+  const { pointGrid, nearest } = await import('../renderers/web/js/human-variation.js');
+  let body = null;
+  scene.traverse((o) => { if (!body && o.isSkinnedMesh && (o.material?.name ?? '').split('__')[0] === 'skin') body = o; });
+  const uv = body.geometry.attributes.uv, n = uv.count, qy = new Float32Array(n * 2);
+  for (let i = 0; i < n; i++) { qy[i * 2] = uv.getX(i); qy[i * 2 + 1] = uv.getY(i); }
+  const map = nearest(pointGrid(kit.uvs, 2, 0.01), qy), v = new THREE.Vector3(), pos = [];
+  for (let i = 0; i < n; i++) { body.getVertexPosition(i, v); body.localToWorld(v); pos.push(+v.x.toFixed(5), +v.y.toFixed(5), +v.z.toFixed(5)); }
+  const h = scene.getObjectByName('head').getWorldPosition(new THREE.Vector3());
+  return { n, map: Array.from(map), pos, head: [h.x, h.y, h.z], look: Number(q.get('look') ?? 0.07), dist: Number(q.get('dist') ?? 0.9),
+    fov: camera.fov, size: [renderer.domElement.width, renderer.domElement.height] };
+};
 window.__lineupReady = true;
 </script></body></html>
