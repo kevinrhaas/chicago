@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1109,
+  "count": 1110,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -73640,6 +73640,37 @@
       ],
       "work_refs": [
         "T-3573"
+      ]
+    },
+    {
+      "id": "L-hanging-cloth-3553",
+      "title": "Every hanging garment hangs as one piece over the walking legs",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-13",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner, 2026-11-13, following a coated man on 18th Street in 1904: *\"no one should have their legs break through their clothing like that\"*. The exporter skins every garment to the pelvis and to each thigh and calf, so on the walk a frock coat's skirts, a coachman's livery, a soldier's tails, an 1812 capote, shirt tail, blanket or breechcloth, a girl's frock and a woman's petticoat each parted like trousers and the other knee or shin came through. the walkthrough's human skirt code, which hung the women's skirts as one bell, now sorts each leg-weighted garment by its piece name and by how far its lower part hangs from the legs, and hangs every one that hangs (never trousers, breeches, stockings, leggings or boots) from the waist as one piece that the legs push open where they press. A coat's skirts and tails are hung stiffer and closer than a skirt: they carry little of a push round the body, keep no flare and fall straight back. How far a coat swings, how fast it follows and how much it trails are ours."
+        },
+        {
+          "label": "Not invented",
+          "text": "the garments, their cut and their length, which are the assets as drawn; standing, every one is exactly as drawn."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "a cloth simulation the fleet can afford on a phone, which replaces the panels."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-13."
+        }
+      ],
+      "work_refs": [
+        "T-3472",
+        "T-3553"
       ]
     },
     {

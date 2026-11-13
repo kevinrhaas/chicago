@@ -43762,6 +43762,14 @@ Sanborn sheet would settle what stood behind the moved front, how far the wings 
 **Ticket:** T-3573.
 **Recorded:** 2026-11-12.
 
+### L-hanging-cloth-3553 — Every hanging garment hangs as one piece over the walking legs
+
+**Decision:** the owner, 2026-11-13, following a coated man on 18th Street in 1904: *"no one should have their legs break through their clothing like that"*. The exporter skins every garment to the pelvis and to each thigh and calf, so on the walk a frock coat's skirts, a coachman's livery, a soldier's tails, an 1812 capote, shirt tail, blanket or breechcloth, a girl's frock and a woman's petticoat each parted like trousers and the other knee or shin came through. `renderers/web/js/human-skirt.js`, which hung the women's skirts as one bell (T-3472), now sorts each leg-weighted garment by its piece name and by how far its lower part hangs from the legs, and hangs every one that hangs (never trousers, breeches, stockings, leggings or boots) from the waist as one piece that the legs push open where they press. A coat's skirts and tails are hung stiffer and closer than a skirt: they carry little of a push round the body, keep no flare and fall straight back. How far a coat swings, how fast it follows and how much it trails are ours.
+**Not invented:** the garments, their cut and their length, which are the assets as drawn; standing, every one is exactly as drawn.
+**Re-opens on:** a cloth simulation the fleet can afford on a phone, which replaces the panels.
+**Ticket:** T-3553.
+**Recorded:** 2026-11-13.
+
 ### L-jaunt-voices-3578 — The jaunt scripts read aloud in synthetic voices
 
 **Decision:** the owner, 2026-11-13: *"I have some voices in eleven labs and I want to begin using those and having them read/play the narration or scripts like the meet the Glessner household"*. A jaunt's opening, each of its stops and its endings can be heard as well as read: `tools/narrate_jaunts.mjs` sends the exact words the panel shows to ElevenLabs text to speech in a voice the owner chose for each speaker (`data/narration/voices.json`: a narrator, and each stop's first host by person id), and `renderers/web/js/narration.js` plays the clip whose key is those words' SHA-256. The voices are synthetic and chosen by ear; none is a recording of the person or claims to be their voice, accent or manner of speech, and the words are the jaunt's own (already declared written for the walk where the jaunt says so).
