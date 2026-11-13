@@ -146,6 +146,56 @@ const jaunt = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/sidecars/1904/jau
   assert.ok(m.isPlaying(jaunt, 'stop', 'john'));
   audible = false; el.dispatchEvent(new Event('timeupdate'));
   assert.equal(m.state.playing, null, 'muting narration ends the voice');
+  // The first Start: the panel names the opening before the index has loaded. The opening
+  // still plays once its clip is known, and the first stop's voice waits behind it.
+  {
+    const k0 = await textKey(narrationScripts(jaunt)[0].text);
+    const first = { version: 1, clips: { ...index.clips, [`${k0}~${DEFAULT_NARRATOR}`]: { text_sha256: k0, file: 'narration/o.mp3' } } };
+    audible = true;
+    const f = createNarration({ fetcher: async () => new Response(JSON.stringify(first)), location: Promise.resolve(new URL('https://media.test/narration/index.json')),
+      media: () => (el = new FakeAudio()), speech: () => ({ ctx, bus: 'bus', audible }) });
+    let repaint = () => {}; f.on(() => repaint());
+    const ready = f.prepare(jaunt);
+    f.at(jaunt, 'opening', 'opening');
+    assert.equal(f.state.playing, null, 'nothing to play before the index is read');
+    repaint = () => f.at(jaunt, 'opening', 'opening');      // what jaunt-panel.js does on a narration change
+    await ready;
+    assert.equal(f.state.playing, `${jaunt.id}:opening:opening`, 'the opening speaks once its clip is known');
+    assert.equal(el.src, 'https://media.test/narration/o.mp3');
+    repaint = () => {};
+    f.at(jaunt, null); f.at(jaunt, 'stop', 'john');
+    assert.equal(f.state.queued, `${jaunt.id}:stop:john`, 'landing at the first stop queues its host behind the opening');
+    el.dispatchEvent(new Event('ended'));
+    assert.equal(f.state.playing, `${jaunt.id}:stop:john`, 'and John speaks when the narrator finishes');
+    f.at(jaunt, 'stop', 'john'); el.dispatchEvent(new Event('ended'));
+    f.at(jaunt, 'stop', 'john'); assert.equal(f.state.playing, null, 'a repaint after he finishes does not start him again');
+  }
+  // A flight shorter than the index's load: the outing has landed at John before any clip is
+  // known. The narrator still reads the opening first, and John follows.
+  {
+    const k0 = await textKey(narrationScripts(jaunt)[0].text);
+    const first = { version: 1, clips: { ...index.clips, [`${k0}~${DEFAULT_NARRATOR}`]: { text_sha256: k0, file: 'narration/o.mp3' } } };
+    audible = true;
+    const g = createNarration({ fetcher: async () => new Response(JSON.stringify(first)), location: Promise.resolve(new URL('https://media.test/narration/index.json')),
+      media: () => (el = new FakeAudio()), speech: () => ({ ctx, bus: 'bus', audible }) });
+    let shown = ['opening', 'opening']; g.on(() => g.at(jaunt, ...shown));
+    const ready = g.prepare(jaunt);
+    g.at(jaunt, 'opening', 'opening'); g.at(jaunt, null);
+    shown = ['stop', 'john']; g.at(jaunt, 'stop', 'john');
+    await ready;
+    assert.equal(g.state.playing, `${jaunt.id}:opening:opening`, 'landing before the index loads still plays the opening first');
+    assert.equal(g.state.queued, `${jaunt.id}:stop:john`, 'with John after it');
+    el.dispatchEvent(new Event('ended'));
+    assert.equal(g.state.playing, `${jaunt.id}:stop:john`);
+    // Next Stop during the opening passes over it: the opening is not played again later.
+    const h = createNarration({ fetcher: async () => new Response(JSON.stringify(first)), location: Promise.resolve(new URL('https://media.test/narration/index.json')),
+      media: () => (el = new FakeAudio()), speech: () => ({ ctx, bus: 'bus', audible }) });
+    await h.prepare(jaunt);
+    h.at(jaunt, 'opening', 'opening'); assert.equal(h.state.playing, `${jaunt.id}:opening:opening`);
+    h.stop(); h.at(jaunt, 'stop', 'john');
+    assert.equal(h.state.playing, `${jaunt.id}:stop:john`, 'after Next the stop speaks, the opening does not come back');
+    h.stop(); assert.equal(h.state.playing, null, 'Next Stop cuts the voice off'); assert.equal(h.state.queued, null);
+  }
   const none = createNarration({ fetcher: async () => new Response('', { status: 404 }), location: Promise.resolve(new URL('https://media.test/narration/index.json')) });
   await none.prepare(jaunt);
   assert.equal(none.clip(jaunt, 'stop', 'john'), null); assert.equal(none.state.index, 'unavailable', 'no index: nothing offered, nothing thrown');
