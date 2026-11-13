@@ -2,11 +2,72 @@
   "structure_id": "mayer_house_2009_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/mayer_house_2009_prairie__as_mapped_1904.glb",
-  "glb_sha256": "15cc050a876e8fe9d19c971e8f0e3c2827f552524cc7ea6e92f303cd6979320d",
-  "camera_sha256": "1238760080c3b93d238fdccaf2d143bba11679e600b48422142b9eae5b4499ee",
+  "glb_sha256": "b561f8ec877a5e60cf2f40aad1fdaf83d0d4ab544f5baab21c22e349b71b528a",
+  "camera_sha256": "67792d35eba57dc3476456d66ae6c3b93f9b6ff9fa2aed952b89b79f1fcea2a3",
   "photo_sha256": "03db894ab10dff078b747f611eba3dd8d9bc3b1f35aae50435017dcd4640b4a2",
+  "rendered_flora": {
+    "season": "winter",
+    "lots": [
+      {
+        "parcel": "prairie_2009",
+        "shrubs": 0,
+        "trees": 0,
+        "beds": 0,
+        "creeper": 0
+      }
+    ],
+    "street_trees": 11,
+    "street_trees_m": 40
+  },
+  "flora_anchor": {
+    "local_e": 1448.216,
+    "local_n": -3504.619,
+    "rotation_deg": 179.389,
+    "scene": "1904",
+    "target_date": "1904-07-01",
+    "phase": "as_mapped_1904"
+  },
+  "flora_renderer_sources": [
+    {
+      "file": "tools/photo_match.mjs",
+      "sha256": "75e452b467c22fc5d00cd4b512706c364c942d181869e504f7218ea25167a79c"
+    },
+    {
+      "file": "tools/photo_match_flora.mjs",
+      "sha256": "c973a45041a77a11ea32e30302cdc3eda3dc5516ad715fb0b1e14060f08b5c87"
+    },
+    {
+      "file": "renderers/web/js/front-yards.js",
+      "sha256": "1d76c4415a93713c9e01d4b8400d4dbb0175f88a8eadb3414a66b7666f3be2ff"
+    },
+    {
+      "file": "renderers/web/js/street-trees.js",
+      "sha256": "90d02b3e6b6ac5d1ab27a0eb3088f72719a8c1f59a7624dd833db80b127268f2"
+    },
+    {
+      "file": "renderers/web/js/tree-instances.js",
+      "sha256": "a103f17c2d5a18b12a39126c62c539dd69ad9a118939254589b0b579d4cb9c61"
+    },
+    {
+      "file": "renderers/web/js/tree-model.js",
+      "sha256": "1ec46dc2bfb15d13dab2260c022b31d4ee88b7302aab5be62069b2eaf5e198e2"
+    },
+    {
+      "file": "renderers/web/js/tree-surface.js",
+      "sha256": "23dec0e5dda80547d8ee2ae86f1400fb1a4af2bd54ca0b53d7fe8d52f088cc84"
+    },
+    {
+      "file": "renderers/web/js/season.js",
+      "sha256": "8407ba119eef8e26e1bfb4bf1d9dd2c4786d2981165f2d232fe53d2347a9bda7"
+    },
+    {
+      "file": "renderers/web/js/trees.js",
+      "sha256": "7429b5e761fd94cc348bcea6b781637f13f202da3111b102ffac8d9c3f7283fd"
+    }
+  ],
+  "flora_sha256": "4bfa561b413830e763fe85a1a2fc9ad218ce92ebc0f4b26142f0526eb2b47049",
   "side_by_side": "docs/RESEARCH/photo-match/mayer_house_2009_prairie/chicagology_photo-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "massing: the draft's 5.5 m box under a generic shaped gable is now the photograph's narrow party-wall front, 7.56 m across between the north corner and the party line with 2011, three tiers of lights over a raised stone basement, its side walls stopping at the kneelers (11.42 m since T-3365; 11.95 m before)",
@@ -169,8 +230,8 @@
       "status": "not shown"
     },
     {
-      "what": "the stacks' brick: the side walls' buff, where the print draws both as dark as the front's rough brick (a tone, not a colour: the print is monochrome, so the brick wants a source that gives its colour)",
-      "status": "open"
+      "what": "the stacks' brick: built in the side walls' buff, where the print draws both stacks as dark as the front's rough brick (the near shaft's mean grey 111 and the far one's 133, against the front's 88-121, the brown sandstone dressings' 142 and the sky's 249). A buff brick cannot print darker than brown sandstone on a blue- or orthochromatic plate, so T-3365 lays the side and rear walls and the stacks they carry in the front's red-brown (service_wall_brick rough_red_brown_running, inferred, as 1700-1706 Prairie's, T-3244); the render's stacks now read with the front",
+      "status": "fixed"
     },
     {
       "what": "the north flank: its projection's front face and the tall light near the front corner, seen edge-on; the print's flank is mostly hidden by the parkway tree",
@@ -181,8 +242,8 @@
       "status": "not shown"
     },
     {
-      "what": "the two bare parkway trees: not this record's (the street's trees)",
-      "status": "open"
+      "what": "the two bare parkway trees (the print's trunks at x 247, foot y 1875, and x 1388, foot y 1830): the review drew none, and the scene's rule stood one grown elm at 30.0 m along Prairie's east parkway with a 0.6 m bole and a crown over the gable. T-3365 plants the two the print shows, read through this camera onto the planting line at 24.6 and 31.2 m (data/street_trees/pictured_1904.json), young trees on one leader clear to about 5 m under narrow heads to about 7.2-7.6 m, boles about 0.2-0.25 m (the high_head form at scale 0.4), bare; the rule's tree is withdrawn. The render's trunks stand within about 10 px of the print's and their tops within about 0.5 m",
+      "status": "fixed"
     },
     {
       "what": "colour: the print is monochrome; the brick is the register's rough red-brown and the basement its brownstone",
@@ -191,6 +252,14 @@
     {
       "what": "the gable's north coping: the print and Monroe's plate both bring it down to about the corner, where the build's stops about 0.78 m in from it (the outline's foot at 3.0 m from the centre on a 3.78 m half-front), the ledge's brick between; an earlier reading put the print's 0.9 m in, so the readings disagree (T-3365)",
       "status": "within tolerance"
+    },
+    {
+      "what": "the two trees' twigs: the render draws them as straight strokes in a fringe, where the print's are fine and forked, and the right tree's head a little wider; the places, heights, boles and the narrow heads agree, and a visitor sees two slender bare trees either side of the front in both",
+      "status": "within tolerance"
+    },
+    {
+      "what": "the rule's grown elm at 20.3 m along the parkway, north of the print's left edge: outside the frame, its crown not reaching into it in the render",
+      "status": "not shown"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
