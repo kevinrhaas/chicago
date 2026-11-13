@@ -2,7 +2,7 @@
   "structure_id": "house_1918_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/house_1918_prairie__as_mapped_1904.glb",
-  "glb_sha256": "6852a396f206886d03d4e1ec91ddf1dea2fb80bf927c30e62727a51d36ca6ed0",
+  "glb_sha256": "30612df328a4689ed686bae53128f7ebee033545e52ae54e00d6203ef1112e50",
   "camera_sha256": "c5c49af27eec1d98bff1ffde086b8c22674806b06a0ed68eafa2bfba3072f1db",
   "photo_sha256": "7458a4902276cccdaa289b9767e8ab717b5dd0fcf06ba3969a97c4fa8d00e92a",
   "side_by_side": "docs/RESEARCH/photo-match/house_1918_prairie/chicagology_photo-side-by-side.jpg",
@@ -101,8 +101,8 @@
       "status": "fixed"
     },
     {
-      "what": "the tower's breadth above the roof (found on T-3370's seventh pass, not built here): at y 200 px the print's belvedere spans x 1530-1744 and shows two faces, its south face lit pale at the left; the render's tower spans x 1617-1754 and shows one face, so above the main cornice it stands about 85 px (about 2.5 m through the camera) narrower at its south-west side than the print's, though the record's square plan (4 sides, radius 2.68 m, s 9.85, centre 0.595 m inside the street front) projects to x 1535-1754 through the same camera: the build's tower is not standing as its record states, or is turned on the camera; the print's balcony at the belvedere's foot and its south face's arched frames fall in the missing width",
-      "status": "open"
+      "what": "the tower's breadth above the roof (found on T-3370's seventh pass, not built here): at y 200 px the print's belvedere spans x 1530-1744 and shows two faces, its south face lit pale at the left; the render's tower spans x 1617-1754 and shows one face, so above the main cornice it stands about 85 px (about 2.5 m through the camera) narrower at its south-west side than the print's, though the record's square plan (4 sides, radius 2.68 m, s 9.85, centre 0.595 m inside the street front) projects to x 1535-1754 through the same camera: the build's tower is not standing as its record states, or is turned on the camera; the print's balcony at the belvedere's foot and its south face's arched frames fall in the missing width T-3370 (eighth pass): the record's square stood only where its shaft does, the part of the ring proud of the front (1.3 m of each cheek), its back closed on the wall plane: the 2.5 m of the square behind that plane, which the house's roof would have hidden at the foot but not above it, was never built. The tower now carries a whole stage (K08 stage.whole) from the main cornice's line (13.41 m) up: the blind stage, the balconied belvedere, its cornice, deck and balustrade stand on the full 3.8 m square, walled, lit and framed on every side, and the shaft below keeps the sheet's 1.3 m projection. At y 200 px the render's belvedere now spans x 1535-1754 against the print's 1530-1744 and shows its south face lit beside the front, with its arched frame and the balcony round it, as the print does; the remaining 5-10 px is inside the camera's spread",
+      "status": "fixed"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

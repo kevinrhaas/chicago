@@ -418,6 +418,15 @@ console.log('1904 seasonal coverage, door calls, temporary activities and jaunt 
   assert.equal([asker, worker].filter((a) => a.actions.talking).length, 1);
   assert(Math.hypot(asker.e - worker.e, asker.n - worker.n) <= 2.2, 'partners actually meet');
   assert(asker.looks && worker.looks, 'both attend to each other');
+  // T-3554 (owner, 2026-11-12: "people can come out of the house and have a conversation and
+  // not face each other"): each turns to the other, and turns back if turned away mid-chat.
+  const facing = (a, b) => {
+    const want = (Math.atan2(b.e - a.e, b.n - a.n) * 180 / Math.PI + 360) % 360;
+    return Math.abs((((want - a.heading) % 360) + 540) % 360 - 180) <= days.FACE.slack_deg;
+  };
+  assert(facing(asker, worker) && facing(worker, asker), 'the two face each other');
+  worker.heading = (worker.heading + 150) % 360; tick(0.5);
+  assert(facing(worker, asker), 'turned away mid-chat, they turn back to the other');
   const participant = layer.people.find(p => p.actor === asker), session = participant.social;
   const passerby = actorOf(rec('passing_driver', {}), 'Passing driver');
   actors.push(passerby); tick(0.25);
