@@ -4094,17 +4094,33 @@ class Assembly:
         y1 = y0 + h["fascia_m"]
         cp = h["cornice"]["proud_m"]
         y2 = y1 + h["cornice"]["height_m"]
-        rl = h["railing"]
-        y3 = y2 + rl["height_m"]
+        rl, ped = h.get("railing"), h.get("pediment")   # T-3562: a railed top, or a pediment
         s0, s1 = c - W / 2, c + W / 2
+        if ped:
+            y_in = y2 + ped["rise_m"]                    # the tympanum's apex
+            y_out = y_in + ped["rake_m"]                 # the raking cornice's top at the apex
+            y3 = y_out + (ped["finial_m"][1] if ped.get("finial_m") else 0.0)
+        else:
+            y3 = y2 + rl["height_m"]
         S0, S1, D = s0 - cp, s1 + cp, out + cp          # the slab's plan
         if y0 < op.head_m + 0.30 + 0.05:
             raise ValueError(f"the door hood's soffit ({y0} m) is not clear of the door's lintel")
         for o in p.openings:   # nothing on the front it stands before
             if h.get("columns") and o.head_m + 0.30 <= y0:
                 continue   # T-1871: a window behind a porch on columns, its lintel under the soffit
+            top = y3
+            if ped and o.wall == op.wall and o is not op:
+                # T-3562: a pediment falls from its apex to its ends: the hood's top over the
+                # opening is the raking cornice's over the opening's nearest edge, and the
+                # finial's only where the opening stands over it
+                o0, o1 = o.s_m - o.width_m / 2 - 0.08, o.s_m + o.width_m / 2 + 0.08
+                near = 0.0 if o0 <= c <= o1 else min(abs(o0 - c), abs(o1 - c))
+                top = y2 + (y_out - y2) * max(0.0, 1.0 - near / (c - S0))
+                fw = ped["finial_m"][0] / 2 if ped.get("finial_m") else 0.0
+                if fw and o0 < c + fw and o1 > c - fw:
+                    top = y3
             if o.wall == op.wall and o is not op and o.s_m + o.width_m / 2 + 0.08 > S0 \
-                    and o.s_m - o.width_m / 2 - 0.08 < S1 and o.sill_m - 0.12 < y3 and o.head_m > y0 - 1.0:
+                    and o.s_m - o.width_m / 2 - 0.08 < S1 and o.sill_m - 0.12 < top and o.head_m > y0 - 1.0:
                 raise ValueError(f"the door hood ({S0:.2f}-{S1:.2f} m, {y0}-{y3:.2f} m) runs into "
                                  f"the opening at s = {o.s_m}")
         # T-1881: a front step stands behind the forward block the door is cut in, so a hood
@@ -4127,7 +4143,9 @@ class Assembly:
                 raise ValueError(f"the door hood ({S0:.2f}-{S1:.2f} m) runs into {b['id']}")
         con, mod = h["consoles"], h["modillions"]
         seed = self.instance("k01.hood.door_bracketed", "hood",
-                             {"width_m": W, "out_m": out, "soffit_m": y0, "top_m": y2, "railing_m": rl["height_m"],
+                             {"width_m": W, "out_m": out, "soffit_m": y0, "top_m": y2,
+                              **({"railing_m": rl["height_m"]} if rl else
+                                 {"pediment_rise_m": ped["rise_m"], "pediment_rake_m": ped["rake_m"]}),
                               "k08_brackets": h["brackets"]},
                              {"soffit": P(c, y0, 0.0), "deck": P(c, y2, 0.0)})
         bf = self.basis(mat, O, R, Y, seed)          # faces along the wall
@@ -4223,6 +4241,14 @@ class Assembly:
             self._hood_columns(cols, op, P, quad, box, bf, bh, be, s0, s1, out, y0, R, N, seed, conf, h.get("arches"),
                                splay=h.get("splay"))
         tri_fascia = len(pr.idx) // 3 - tri0
+        if ped:
+            self._hood_pediment(ped, P, quad, box, bf, bh, be, c, s0, s1, S0, S1, out, D, y2, y_in, y_out, R, N)
+            self.trim_triangles["k01.hood.door_bracketed"] = len(pr.idx) // 3 - tri0
+            self.seat(frame, [(s, y, 0.0) for s in (S0, S1) for y in (y0 - Dd, y2)] + [(c, y3, 0.0)], "k01.hood")
+            self.hood_meta = {"modillions": n, "consoles": 2, "pediment": {"apex_m": round(y_out, 4),
+                                                                          "top_m": round(y3, 4)},
+                              **({"fabric": "stone"} if mat == "bay_stone" else {})}
+            return
         # the railing on the slab: posts at the front corners and against the wall, a rail
         # over square balusters along the front and both returns. T-2963: in iron if the
         # record says so (1816's balcony), the K01 iron every other railing wears
@@ -4298,6 +4324,35 @@ class Assembly:
                           **({"arches": self._arch_count} if cols and h.get("arches") else {}),
                           **({"fabric": "stone"} if mat == "bay_stone" else {}),
                           **({"railing_fabric": h["railing_fabric"]} if h.get("railing_fabric") else {})}
+
+    def _hood_pediment(self, ped, P, quad, box, bf, bh, be, c, s0, s1, S0, S1, out, D, y2, y_in, y_out, R, N):
+        """T-3562: a pediment on the door hood's cornice slab (1815's, the square-on photograph):
+        the tympanum a triangle on the slab from s0 to s1 rising to `y_in` over the centre, its
+        face set back to the fascia's (`out`); over it the raking cornice, from the slab's ends
+        (S0, S1) at its top to `y_out` over the centre, standing out to the slab's front (`D`),
+        its soffit the tympanum's raking line; and a square finial on the apex. Faces against the
+        wall are not drawn, and the cornice dies into the slab's top at each end."""
+        W2 = (s1 - s0) / 2
+        fwd = N
+        # the tympanum's face, and its two raking faces from its face back to the wall are under
+        # the cornice and not seen: only the face is drawn
+        quad([P(s0, y2, out), P(s1, y2, out), P(c, y_in, out)], fwd, bf)
+        for k in (-1.0, 1.0):
+            si, So = (s0, S0) if k < 0 else (s1, S1)
+            # the raking cornice's front: from its foot on the slab to the apex
+            quad([P(So, y2, D), P(si, y2, D), P(c, y_in, D), P(c, y_out, D)], fwd, bf)
+            # its soffit, over the tympanum's raking line, from the tympanum's face to the front
+            ln = math.hypot(W2, y_in - y2)
+            sn = _unit(_add(_mul(R, -k * (y_in - y2) / ln), _mul(Y, -W2 / ln)))
+            quad([P(si, y2, out), P(c, y_in, out), P(c, y_in, D), P(si, y2, D)], sn, bh)
+            # its top, from the wall to the front
+            lo = math.hypot(c - So, y_out - y2)
+            tn = _unit(_add(_mul(R, k * (y_out - y2) / lo), _mul(Y, abs(c - So) / lo)))
+            quad([P(So, y2, 0.0), P(c, y_out, 0.0), P(c, y_out, D), P(So, y2, D)], tn, bh)
+        fin = ped.get("finial_m")
+        if fin:
+            fw, fh = fin
+            box(c - fw / 2, c + fw / 2, y_out - 0.02, y_out + fh, D - fw - 0.02, D - 0.02, skip=("bottom",))
 
     def _hood_columns(self, co, op, P, quad, box, bf, bh, be, s0, s1, out, y0, R, N, seed, conf, arches=None,
                       splay=None):

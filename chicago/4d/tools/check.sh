@@ -456,7 +456,7 @@ step "John J. Glessner on his front walk is greeted, and goes home up his steps,
   node tools/test_house_errands.mjs
 step "Walking people keep their Interact menu, explicit picks persist, and dismissal releases them (T-3543)" \
   node tools/test_person_interactions.mjs
-step "Glessner's court and side doors open and shut as people pass, up and down their stairs (T-3524)" \
+step "Glessner's court and side doors, and every built 1904 front door, open and shut as people pass, up and down their stairs (T-3524, T-3554)" \
   node tools/test_house_passages.mjs
 step "Loaded parade ground delegates to its native owner; failed assets and sundial geometry remain required (T-3041)" \
   node tools/test_parade_presence.mjs

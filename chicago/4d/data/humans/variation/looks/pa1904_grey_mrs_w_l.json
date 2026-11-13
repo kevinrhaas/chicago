@@ -13,14 +13,15 @@
   "grade": "reconstructed"
  },
  "hair": {
-  "value": "mid brown",
-  "drawn": "mid_brown",
-  "cut": "swept_up_knot_1904",
+  "value": "light grey brown",
+  "drawn": "light_grey_brown",
+  "cut": "swept_up_topknot_1904",
   "facial": [
-   "brows_fine",
+   "brows_fine_low_1904",
    "lashes_upper"
   ],
-  "grade": "reconstructed"
+  "grade": "reconstructed",
+  "basis": "The stand-in portrait is sepia: her hair reads a light-to-mid brown with paler streaks through it, drawn a light brown going grey for that and her 54 years. A reading of a monochrome tone, not a record."
  },
  "eyes": {
   "value": "hazel",
@@ -33,7 +34,18 @@
   "basis": "Artistic body variation; no personal measurement located."
  },
  "height_scale": 0.9637,
+ "build": {
+  "weight": 0.25,
+  "muscle": 0.0,
+  "grade": "reconstructed",
+  "basis": "Read by eye from the stand-in portrait (owner, 2026-11-12: \"their build match is important\"): a woman of full, sturdy build, broad in the shoulders and full in the bust and waist under a fitted bodice. A reading of a seated three-quarter portrait, not a measurement."
+ },
+ "drawn_age": {
+  "years": 45,
+  "grade": "reconstructed",
+  "basis": "Drawn at the age the stand-in portrait shows (about 45), not her recorded age of 54 in 1904, so the face matches the picture the owner chose (\"their faces must match exactly\"). A reading by eye of an undated picture; the record's age is unchanged."
+ },
  "grade": "reconstructed",
- "basis": "No verified individual portrait is available. This is a distinct, seeded reconstruction, not a likeness. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty.",
+ "basis": "No photograph of this person is known. Face, hair cut, facial hair and dress follow a stand-in portrait the owner chose as the likeness (owner_grey_likeness_sarah_2026); it is not a picture of them. Skin, eye and hair colours, stature and build are artistic choices, not demographic facts or measurements. No ancestry is inferred from a surname or photograph. The body and clothes are selected from the recorded household role; exact clothes are a liberty.",
  "liberty": "L-prairie-likenesses-3547"
 }

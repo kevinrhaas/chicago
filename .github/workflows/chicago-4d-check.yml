@@ -57,6 +57,25 @@ on:
       - '.github/workflows/**'
   workflow_dispatch:
 
+# ONE GATE AT A TIME PER PR AND PER BRANCH (2026-11-12, owner-approved). Every push
+# to dev (each merge AND each changelog fold after it) queued a full 8-part run, and
+# none was ever superseded: on 2026-11-12 fifteen dev runs from 18:18-21:09 UTC sat
+# queued ahead of every PR's gate, so PRs waited hours for runners while dev's
+# stale commits were re-checked. Two rules, keyed so they never touch each other:
+#
+#   pull_request  grouped by PR number, cancel-in-progress. A run on a head the PR
+#                 has moved past can never make that PR mergeable; the new head's
+#                 run is the only one that counts. (The old head's `gate` job still
+#                 runs under always() and reports the cancellation as red ON THE
+#                 OLD SHA only, which no reader looks at.)
+#   push / dispatch  grouped by ref, NOT cancel-in-progress. The running dev gate
+#                 finishes, so dev always gets a verdict even when merges and folds
+#                 land minutes apart; GitHub keeps only the newest pending run and
+#                 drops the ones between, which are stale on arrival.
+concurrency:
+  group: chicago-4d-gate-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
   check-part:
     name: gate part ${{ matrix.part }}/8

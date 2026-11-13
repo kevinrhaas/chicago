@@ -468,7 +468,9 @@ def level_rays(model, origins, direction, reach=60.0):
     v = (qv * dv).sum(axis=2) * inv[None]
     t = (qv * e2[None]).sum(axis=2) * inv[None]
     span = (ylo[None] <= O[:, 2:3]) & (yhi[None] >= O[:, 2:3])
-    hit = ok[None] & span & (u >= 0) & (v >= 0) & (u + v <= 1) & (t > 1e-6)
+    # A ray along a shared edge strikes both triangles, whichever way the last bit rounds on the
+    # machine the gate runs on: the edges are taken in by a hair so it always does.
+    hit = ok[None] & span & (u >= -1e-7) & (v >= -1e-7) & (u + v <= 1 + 1e-7) & (t > 1e-6)
     tt = np.where(hit, t, np.inf)
     first = np.argmin(tt, axis=1)
     out = []
@@ -509,7 +511,9 @@ def door_rays(e, n, facing_deg, sill, height, width, back_m=3.0):
 def on_wall(model, e, n, facing_deg, sill, height, width, back_m=3.0):
     """Whether a door at (e, n) facing `facing_deg` stands in `model`'s wall: every ray strikes it,
     within WALL_FLAT_M of one another, square to the door within WALL_SQUARE_DEG, on no glass.
-    -> (ok, mean distance in from the door's plane (+ is into the house), why)."""
+    -> (ok, distance in from the door's plane (+ is into the house), why). The distance is the
+    rays' median, to the centimetre, so a ray that grazes a moulding's edge on one machine and
+    not another cannot move the door."""
     origins, dv = door_rays(e, n, facing_deg, sill, height, width, back_m)
     hits = level_rays(model, origins, dv, reach=back_m + 1.5)
     if any(not math.isfinite(t) for t, _nrm, _m in hits):
@@ -522,7 +526,7 @@ def on_wall(model, e, n, facing_deg, sill, height, width, back_m=3.0):
     sq = min(float(-(nrm @ np.array(dv))) for _t, nrm, _m in hits)
     if sq < math.cos(math.radians(WALL_SQUARE_DEG)):
         return False, float(ts.mean()), "the wall is not square to it"
-    return True, float(ts.mean()), ""
+    return True, round(float(np.median(ts)), 2), ""
 
 # ---------------------------------------------------------------- the pieces
 
