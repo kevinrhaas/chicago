@@ -1073,7 +1073,7 @@ ARCHITRAVE_COLUMN_BASE_M = 0.12     # T-3370: a colonnette's base, high
 ARCHITRAVE_COLUMN_CAPITAL_M = 0.18  # T-3370: a colonnette's capital, high
 
 
-def architrave(o, ar: dict, op, s: float, tier: str) -> list:
+def architrave(o, ar: dict, op, s: float, tier: str, out: dict | None = None) -> list:
     """T-1881: a round-headed light framed by a moulded architrave, as K01 frames a street
     front's named lights (k01_frontage.street_architrave; 1729 Prairie's pavilion lights in the
     1890 Albertype plate): a band `band_m` broad up each jamb from the sill to the springing and
@@ -1168,8 +1168,85 @@ def architrave(o, ar: dict, op, s: float, tier: str) -> list:
     if ar.get("key_m"):
         kw, kh = ar["key_m"]
         o.proud("band", rect(cx - kw / 2, cx + kw / 2, ys + r0, ys + r0 + kh), F + 0.03)
+    if ar.get("pediment"):
+        box = scrolled_pediment(o, ar["pediment"], cx, ys, r0 + e + b, r0 + e, max(q[1] for q in pts), tier)
+        if out is not None:
+            out["pediment"] = box
     c_ = co["width_m"] + ARCHITRAVE_COLUMN_GROW_M if co else 0.0
     return [(x0 - b - c_, x0, y0, ys), (x1, x1 + b + c_, y0, ys)]
+
+
+PEDIMENT_CARTOUCHE_M = 0.26   # T-3370: a scrolled pediment's cartouche, across
+PEDIMENT_CAP_M = (0.05, 0.08)  # T-3370: its cap: how far past the cartouche each side, and high
+PEDIMENT_PIECES = 12          # T-3370: each scrolled arm in this many straight pieces (the light tier half)
+
+
+def scrolled_pediment(o, pd: dict, cx: float, ys: float, r_out: float, r_in: float, head: float, tier: str):
+    """T-3370: a scrolled pediment over an arched architrave (1936 Prairie's dining range pairs,
+    the Chicagology photograph: a tall carved hood over each pair rising about 1.1-1.2 m over the
+    lights' heads, its two arms climbing from the arch's springings and curling in toward a
+    carved middle). Two arms `band_m` broad and `proud_m` out, each rising from beside the band
+    at the springing (`ys`), straight up and then bending in over the arch, to end in a volute,
+    a disc `scroll_m` in radius a little prouder; between the volutes a cartouche standing on
+    the arch's crown up to a cap, whose top is `rise_m` over the lights' heads (`head`). Each
+    arm is swept as one piece (no two of its pieces meet face to face) and has no back: it
+    stands on the wall. The arms stay clear of the band's outer edge (`r_out` round the arch's
+    centre) and of the cartouche; a pediment that cannot is refused. Drawn into the strip `o`;
+    returns its (s0, s1, y0, y1)."""
+    bw, pr, rv, top = pd["band_m"], pd["proud_m"], pd["scroll_m"], head + pd["rise_m"]
+    cw = PEDIMENT_CARTOUCHE_M
+    cap_out, cap_h = PEDIMENT_CAP_M
+    xv = cw / 2 + 0.03 + rv                     # each volute's centre, off the middle
+    yv = top - cap_h - 0.02 - rv                # its top under the cap's foot
+    foot = r_out + 0.02 + bw / 2                # each arm's centre line at its foot, off the middle
+    if yv - rv < ys + r_out + 0.05:
+        raise ValueError(f"a scrolled pediment rising {pd['rise_m']} m over its lights leaves its volutes on its arch")
+    n = PEDIMENT_PIECES if tier == "full" else PEDIMENT_PIECES // 2
+    for sg in (-1.0, 1.0):
+        p0, p3 = (cx + sg * foot, ys), (cx + sg * xv, yv)
+        p1 = (p0[0], ys + 0.65 * (yv - ys))
+        p2 = (p3[0] + sg * 0.5 * (foot - xv), yv)
+        cs, ts = [], []
+        for j in range(n + 1):
+            t = j / n
+            u = 1 - t
+            cs.append(tuple(u ** 3 * a + 3 * u * u * t * b_ + 3 * u * t * t * c + t ** 3 * d
+                            for a, b_, c, d in zip(p0, p1, p2, p3)))
+            ts.append(tuple(3 * u * u * (b_ - a) + 6 * u * t * (c - b_) + 3 * t * t * (d - c)
+                            for a, b_, c, d in zip(p0, p1, p2, p3)))
+        # each station's normal, turned to the arm's outer side (away from the middle at its
+        # foot, up at its head)
+        nm = []
+        for tx, ty in ts:
+            ln = math.hypot(tx, ty)
+            nx, ny = -ty / ln, tx / ln
+            if nx * sg + ny < 0:
+                nx, ny = -nx, -ny
+            nm.append((nx, ny))
+        outer = [(c[0] + q[0] * bw / 2, c[1] + q[1] * bw / 2) for c, q in zip(cs, nm)]
+        inner = [(c[0] - q[0] * bw / 2, c[1] - q[1] * bw / 2) for c, q in zip(cs, nm)]
+        for x_, y_ in inner:
+            if y_ >= ys and math.hypot(x_ - cx, y_ - ys) < r_out + 0.01:
+                raise ValueError(f"a scrolled pediment's arm at ({x_:.3f}, {y_:.3f}) runs onto its arch's band")
+        if abs(min(abs(q[0] - cx) for q in inner + outer)) < cw / 2 + 0.02:
+            raise ValueError("a scrolled pediment's arm runs onto its cartouche")
+        for j in range(n):
+            a0, a1, b0, b1 = outer[j], outer[j + 1], inner[j], inner[j + 1]
+            o.plane("band", [a0, a1, b1, b0] if sg > 0 else [b0, b1, a1, a0], -pr)
+            for (p, q), (hx, hy) in (((a0, a1), nm[j]), ((b0, b1), (-nm[j][0], -nm[j][1]))):
+                o.face("band", [o.P(p[0], p[1], 0.004), o.P(q[0], q[1], 0.004),
+                                o.P(q[0], q[1], -pr), o.P(p[0], p[1], -pr)], (hx, hy, 0.0))
+        # the arm's foot, square across it
+        o.face("band", [o.P(outer[0][0], outer[0][1], 0.004), o.P(inner[0][0], inner[0][1], 0.004),
+                        o.P(inner[0][0], inner[0][1], -pr), o.P(outer[0][0], outer[0][1], -pr)], (0.0, -1.0, 0.0))
+        # the volute over the arm's head (its end inside the disc)
+        m = 16 if tier == "full" else 8
+        o.proud("band", [(p3[0] + rv * math.cos(2 * math.pi * (i + 0.5) / m),
+                          p3[1] + rv * math.sin(2 * math.pi * (i + 0.5) / m)) for i in range(m)], pr + 0.02)
+    # the cartouche on the arch's crown (its foot inside the band), under its cap
+    o.proud("band", rect(cx - cw / 2, cx + cw / 2, ys + r_in + 0.02, top - cap_h + 0.01), pr + 0.03)
+    o.proud("band", rect(cx - cw / 2 - cap_out, cx + cw / 2 + cap_out, top - cap_h, top), pr + 0.05)
+    return (cx - foot - bw / 2, cx + foot + bw / 2, ys, top)
 
 
 def tympanum(o, ty: dict, x0: float, x1: float, y0: float, cx: float, tier: str) -> int:
@@ -1494,7 +1571,25 @@ class Bay:
                             trim_holes += [(a - .002, b + .002, c - .002, d + .002, (), True) for a, b, c, d in jambs]
                     if w.get("architrave"):
                         # T-1881: a round head's moulded architrave, as K01 frames the front's lights
-                        jambs = architrave(flat, w["architrave"], o, s, self.tier)
+                        ped = {}
+                        jambs = architrave(flat, w["architrave"], o, s, self.tier, ped)
+                        if "pediment" in ped:
+                            # T-3370: a scrolled pediment may rise past its storey's floor band
+                            # (1936's dining range pairs, the Chicagology photograph), never onto
+                            # a light of the storey over it
+                            px0, px1, py0, py1 = ped["pediment"]
+                            for w2, s2 in (per_run[i][k + 1] if k + 1 < len(v["storeys"]) else ()):
+                                o2 = window(w2, s2, levels[k + 1] + w2["sill_m"], w2.get("recess_m", recess))
+                                q2 = [q for pr_ in o2.prims.values() for q in pr_.pos]
+                                if min(q[0] for q in q2) < px1 + 0.05 and max(q[0] for q in q2) > px0 - 0.05 \
+                                        and min(q[1] for q in q2) < py1 + 0.05:
+                                    raise ValueError(f"{v['id']}: a scrolled pediment at s = {s:.3f} rises to "
+                                                     f"{py1:.3f} m, onto the light over it at s = {s2:.3f}")
+                            if py1 > hi + (levels[k + 2] - hi if k + 2 < len(levels) else 0.0) - 0.05:
+                                raise ValueError(f"{v['id']}: a scrolled pediment at s = {s:.3f} rises past the storey over it")
+                            if v.get("masonry"):
+                                trim_holes.append((px0 - .002, px1 + .002, py0 - .002, min(py1, hi) + .002, (), True))
+                            self.meta["pediments"] = self.meta.get("pediments", 0) + 1
                         if v.get("masonry"):
                             trim_holes += [(a - .002, b + .002, c - .002, d + .002, (), True) for a, b, c, d in jambs]
                         self.meta["architraves"] = self.meta.get("architraves", 0) + 1

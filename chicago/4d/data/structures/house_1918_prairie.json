@@ -940,15 +940,17 @@
            "at": [
             0.733
            ],
-           "why_not_ordinary": "T-3370: the photograph's south face of the dining range draws a single, a single and a pair to each storey (centres about x 899, 983 and 1067 px over both storeys, on a face running from x 833 to its dark east return at 1125); through its re-solved camera they stand at 0.24, 0.53 and 0.81 of that face, which the camera reads about 10.4 m long where the 1911 sheet gives 9.03, so those fractions of the built face are carried over (s 2.17, 4.81 and 7.34 m; an entry's at counts along both 1.55 m returns and the face): the pair, its two lights about 0.55-0.6 m across each on a pier about half a metre broad in the print, built at the kit's least, two 0.75 m sashes on a 0.3 m mullion (1.8 m over all, the print's 1.6-1.9 m). The Tribune's 'two windows' are read as the two singles, the pair lighting the range's east end beside them; the undated photograph, with an electric lamp at the curb, is the later witness and nearer 1904, so its count is built T-3370 (sixth pass): the pair's two lights round-headed, as the print draws them, under one enclosing moulded arch with its keystone (K08's T-3294 arch over a group), standing for the print's taller pedimented and scrolled hood over the pair (x 1035-1100 px, rising about 1.1 m over the lights' heads; the arch rises what the storey holds)",
+           "why_not_ordinary": "T-3370: the photograph's south face of the dining range draws a single, a single and a pair to each storey (centres about x 899, 983 and 1067 px over both storeys, on a face running from x 833 to its dark east return at 1125); through its re-solved camera they stand at 0.24, 0.53 and 0.81 of that face, which the camera reads about 10.4 m long where the 1911 sheet gives 9.03, so those fractions of the built face are carried over (s 2.17, 4.81 and 7.34 m; an entry's at counts along both 1.55 m returns and the face): the pair, its two lights about 0.55-0.6 m across each on a pier about half a metre broad in the print, built at the kit's least, two 0.75 m sashes on a 0.3 m mullion (1.8 m over all, the print's 1.6-1.9 m). The Tribune's 'two windows' are read as the two singles, the pair lighting the range's east end beside them; the undated photograph, with an electric lamp at the curb, is the later witness and nearer 1904, so its count is built T-3370 (sixth pass): the pair's two lights round-headed, as the print draws them, under one enclosing moulded arch with its keystone (K08's T-3294 arch over a group), standing for the print's taller pedimented and scrolled hood over the pair (x 1035-1100 px, rising about 1.1 m over the lights' heads; the arch rises what the storey holds) T-3370 (tenth pass): the print's scrolled pediment over the pair built: two arms rising from beside the arch's springings and curling in over it to volutes, and a capped cartouche between them on the arch's crown in place of its keystone, the cap 1.15 m over the lights' heads (the print's about 1.1-1.2 m: the upper's top at y 495 px over heads at 545, the lower's at 690 over 735); the hood rises past the storey's floor band, as the print's crosses where the build's band runs; sizes reconstructed off the print (liberty L-k01-1936-allerton-1901)",
            "architrave": {
             "band_m": 0.22,
             "proud_m": 0.08,
             "rise_m": 0.45,
-            "key_m": [
-             0.35,
-             0.4
-            ]
+            "pediment": {
+             "rise_m": 1.15,
+             "band_m": 0.16,
+             "proud_m": 0.14,
+             "scroll_m": 0.11
+            }
            }
           }
          ]
@@ -988,11 +990,17 @@
            "at": [
             0.733
            ],
-           "why_not_ordinary": "T-3370: the photograph's south face of the dining range draws a single, a single and a pair to each storey (centres about x 899, 983 and 1067 px over both storeys, on a face running from x 833 to its dark east return at 1125); through its re-solved camera they stand at 0.24, 0.53 and 0.81 of that face, which the camera reads about 10.4 m long where the 1911 sheet gives 9.03, so those fractions of the built face are carried over (s 2.17, 4.81 and 7.34 m; an entry's at counts along both 1.55 m returns and the face): the pair, its two lights about 0.55-0.6 m across each on a pier about half a metre broad in the print, built at the kit's least, two 0.75 m sashes on a 0.3 m mullion (1.8 m over all, the print's 1.6-1.9 m). The Tribune's 'two windows' are read as the two singles, the pair lighting the range's east end beside them; the undated photograph, with an electric lamp at the curb, is the later witness and nearer 1904, so its count is built T-3370 (sixth pass): the pair's two lights round-headed, as the print draws them, under one enclosing moulded arch with its keystone (K08's T-3294 arch over a group), standing for the print's taller pedimented and scrolled hood over the pair (x 1035-1100 px, rising about 1.1 m over the lights' heads; the arch rises what the storey holds)",
+           "why_not_ordinary": "T-3370: the photograph's south face of the dining range draws a single, a single and a pair to each storey (centres about x 899, 983 and 1067 px over both storeys, on a face running from x 833 to its dark east return at 1125); through its re-solved camera they stand at 0.24, 0.53 and 0.81 of that face, which the camera reads about 10.4 m long where the 1911 sheet gives 9.03, so those fractions of the built face are carried over (s 2.17, 4.81 and 7.34 m; an entry's at counts along both 1.55 m returns and the face): the pair, its two lights about 0.55-0.6 m across each on a pier about half a metre broad in the print, built at the kit's least, two 0.75 m sashes on a 0.3 m mullion (1.8 m over all, the print's 1.6-1.9 m). The Tribune's 'two windows' are read as the two singles, the pair lighting the range's east end beside them; the undated photograph, with an electric lamp at the curb, is the later witness and nearer 1904, so its count is built T-3370 (sixth pass): the pair's two lights round-headed, as the print draws them, under one enclosing moulded arch with its keystone (K08's T-3294 arch over a group), standing for the print's taller pedimented and scrolled hood over the pair (x 1035-1100 px, rising about 1.1 m over the lights' heads; the arch rises what the storey holds) T-3370 (tenth pass): the print's scrolled pediment over the pair built: two arms rising from beside the arch's springings and curling in over it to volutes, and a capped cartouche between them on the arch's crown in place of its keystone, the cap 1.15 m over the lights' heads (the print's about 1.1-1.2 m: the upper's top at y 495 px over heads at 545, the lower's at 690 over 735) (the attic's frieze light over it raised to clear it), its enclosing arch lowered 0.05 m to 0.45 m, the principal pair's, to leave its volutes room; the hood rises past the storey's floor band, as the print's crosses where the build's band runs; sizes reconstructed off the print (liberty L-k01-1936-allerton-1901)",
            "architrave": {
             "band_m": 0.15,
             "proud_m": 0.08,
-            "rise_m": 0.5
+            "rise_m": 0.45,
+            "pediment": {
+             "rise_m": 1.15,
+             "band_m": 0.12,
+             "proud_m": 0.13,
+             "scroll_m": 0.09
+            }
            }
           }
          ]
@@ -1004,12 +1012,12 @@
            "opening": "k06.opening.sash_2over2_flat",
            "clear_width_m": 0.9,
            "clear_height_m": 0.55,
-           "sill_m": 0.4,
+           "sill_m": 0.8,
            "at": [
             0.3,
             0.7
            ],
-           "why_not_ordinary": "the attic's frieze lights (Tribune 1869), low horizontal lights under the cornice as on the photograph's south flank"
+           "why_not_ordinary": "the attic's frieze lights (Tribune 1869), low horizontal lights under the cornice as on the photograph's south flank T-3370 (tenth pass): raised from 0.4 to 0.8 m over the attic's floor, toward the print's, where the frieze lights stand up among the cornice's brackets (a light at about x 977, y 448 px, the build's had rendered at y 490-510, about 1 m lower), and so clear of the chamber pair's scrolled pediment, whose top the print draws at y 495 px; the print's own height for them is not read more closely than its brackets' shadows allow (liberty L-k01-1936-allerton-1901)"
           }
          ]
         }
