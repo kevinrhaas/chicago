@@ -230,12 +230,15 @@ function combed(cut, f, p, n) {
 }
 
 /** Lay one card: a ribbon from `root` along the comb, a few millimetres off the surface. */
-function layCard(out, { start, n0, length, segments, width, lift, dir, surface, nearest, reach, rand, curl, weights, seed, layer, hang = false, wave = 0 }) {
+function layCard(out, { start, n0, length, segments, width, lift, dir, surface, nearest, reach, rand, curl, weights, seed, layer, hang = false, wave = 0, waveLen = .06 }) {
   const p = start.clone().addScaledVector(n0, lift.root), n = n0.clone();
   const step = length / segments, wob = (rand() - .5) * 2 * curl;
-  // T-3553: a wave (William Grey's sheet): the strand turns one way and back each step, its
-  // phase its own (drawn only for a cut that waves, so no other head's strands move).
-  const sway = wave ? wave * (.7 + .6 * rand()) * (rand() < .5 ? 1 : -1) : 0;
+  // T-3553: a wave (William Grey's sheet): the strand bends one way and back along its length,
+  // `waveLen` from crest to crest, every strand of the head nearly in step with its neighbours,
+  // so the hair lies in combed waves (the owner, 2026-11-13: "his looks very unkempt", of
+  // strands each zigzagging its own way). Drawn only for a cut that waves, so no other head's
+  // strands move.
+  const phase = wave ? (rand() - .5) * 1.2 : 0;
   const pts = [], nrm = [], tan = [];
   let d = dir(p, n);
   for (let s = 0; s <= segments; s++) {
@@ -247,7 +250,8 @@ function layCard(out, { start, n0, length, segments, width, lift, dir, surface, 
     pts.push(p.clone()); nrm.push(n.clone()); tan.push(t.lengthSq() > 1e-10 ? t.normalize() : d.clone());
     if (s === segments) break;
     // Turn a little about the normal (a curl), then step and settle back over the surface.
-    d.applyAxisAngle(n, wob * (1 + s * .3) + (s % 2 ? -sway : sway) * (s ? 2 : 1)).normalize();
+    const bend = wave ? wave * Math.cos(phase + 2 * Math.PI * (s + .5) * step / waveLen) : 0;
+    d.applyAxisAngle(n, wob * (1 + s * .3) + bend).normalize();
     p.addScaledVector(d, step);
     const vi = nearest(p.x, p.y, p.z);
     if (vi >= 0) {
@@ -394,7 +398,7 @@ export function growHair({ hair, skin = null, root, style, lod, seed = 'person' 
     layCard(out, {
       start: s.p, n0: s.n, length: len, segments: Math.max(2, Math.min(level.segments + (cut.wave ? 3 : 0), Math.round(len / .01) + 1)), width,
       lift: { root: cut.lift_mm.root / 1000 * (.6 + .8 * rand()), tip: cut.lift_mm.tip / 1000 * (.6 + .8 * rand()) },
-      dir: (p, n) => combed(cut, f, p, n), surface: scalp, nearest: nearScalp, reach: CARDS.shell_reach_m, rand, curl: cut.curl, hang: !!cut.hang && s.n.dot(f.z) < .25, wave: cut.wave ?? 0,  // never down over the brow
+      dir: (p, n) => combed(cut, f, p, n), surface: scalp, nearest: nearScalp, reach: CARDS.shell_reach_m, rand, curl: cut.curl, hang: !!cut.hang && s.n.dot(f.z) < .25, wave: cut.wave ?? 0, waveLen: (cut.wave_cm ?? 6) / 100,  // never down over the brow
       weights: weightsOf(hair, s.vertex, same), seed: rand(), layer: rand(),
     });
     grown.scalp++;

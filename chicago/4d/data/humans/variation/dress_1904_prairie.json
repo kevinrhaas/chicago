@@ -1934,7 +1934,13 @@
     ]
    },
    "hide": [],
-   "worn": "dark brown day dress with a white lace collar, as the stand-in portrait"
+   "worn": "dark brown day dress with a white lace collar, as the stand-in portrait",
+   "collar": {
+    "piece": "lady_shirtwaist_collar",
+    "lower_cm": 2,
+    "band_cm": 4,
+    "basis": "Owner, 2026-11-13: \"her clothing is going over her chin, it should just be her neck\". The lady's body stands its white collar up under the chin; the sheet's lace collar stands on her neck with the neck clear above it. Its top is brought 2 cm down over the top 4 cm of the band, and its front taken in to the neck (human-variation.js loweredCollar). A reading beside the sheet, not a measurement."
+   }
   },
   "pa1904_grey_w_l": {
    "asset": "glessner_john_j_1904",

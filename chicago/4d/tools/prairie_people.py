@@ -311,7 +311,8 @@ def generate():
             dresses[pid] = dress_for(pid, role)
             if pid in stand_ins and stand_ins[pid].get('dress'):
                 own = stand_ins[pid]['dress']
-                dresses[pid] = {**dresses[pid], 'colours': {**dresses[pid]['colours'], **own['colours']}, 'worn': own['worn']}
+                dresses[pid] = {**dresses[pid], 'colours': {**dresses[pid]['colours'], **own['colours']}, 'worn': own['worn'],
+                                **({'collar': own['collar']} if own.get('collar') else {})}
         if status == 'ready':
             inside.append({'person': pid, 'name': p['name'], 'home': row['lives_at'], 'door': row['lives_at'] + ':front',
                            'asset_id': ASSETS[role], 'ask_order': 10 if p['relationship'] != 'servant' else 30,

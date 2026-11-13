@@ -161,7 +161,9 @@ export function personVariation({ kit, key, record = null, assetId = null, scene
     }
   }
   return { key, assetId, sex: record?.sex ?? asset.sex ?? 'male', age, height, values, option,
-    trace: face?.trace ?? null, grade: face?.grade ?? 'reconstructed', sceneYear };
+    trace: face?.trace ?? null, grade: face?.grade ?? 'reconstructed', sceneYear,
+    // T-3553: a standing collar worn lower on the neck than the body's own (`dress.collar`).
+    collar: record?.dress?.collar ?? null };
 }
 
 /** The axes a scope may use. */
@@ -542,6 +544,57 @@ function bindOf(attr, q) {
 const CLEAR_MIN_M = 0.0015, CLEAR_MAX_M = 0.03, CARRY_M = 0.025;
 
 /**
+ * T-3553: a standing collar worn lower than the body's own. The owner, 2026-11-13, of Sarah
+ * Grey: "her clothing is going over her chin, it should just be her neck". `collar` names the
+ * piece (`<asset>_<piece>_lod<n>`), how far its top comes down and the height of its band; the
+ * band is shortened from the top (its foot, the front under the coat, stays), and where the
+ * body's collar was cut out from the throat to stand up under the chin (its front third), it is
+ * taken in to the neck it now stands on (that neck's own radius round it, at rest, and an ease): lowered as it
+ * is, it would stand out from the throat as a shelf. Its positions at rest and the band's foot,
+ * or null where the piece is not it.
+ */
+function loweredCollar(name, at, collar, body) {
+  const drop = (collar?.lower_cm ?? 0) / 100, band = (collar?.band_cm ?? 0) / 100, ease = (collar?.ease_cm ?? 0.5) / 100;
+  if (!(drop > 0) || !(band > drop) || !new RegExp(`(^|_)${String(collar.piece).replace(/[^a-z0-9_]/gi, '')}(_lod\\d+)?$`).test(name)) return null;
+  const B = at.bind, n = at.n;
+  let top = -Infinity;
+  for (let i = 0; i < n; i++) top = Math.max(top, B[i * 3 + 1]);
+  const foot = top - band, k = (band - drop) / band, out = Float32Array.from(B);
+  // The neck at rest round each lowered vertex: the body within 8 mm of its new height, its
+  // centre (midway from throat to nape) and its outer radius within 12 degrees of the vertex.
+  const P = body.pts, m = P.length / 3, H = 0.008, ARC = Math.PI / 15, FRONT = Math.PI / 3;
+  const near = [];
+  for (let v = 0; v < m; v++) { const y = P[v * 3 + 1]; if (y > foot - H && y < top - drop + H) near.push(v); }
+  const centre = new Map();
+  const zMid = (ny) => {
+    const key = Math.round(ny * 500);
+    if (centre.has(key)) return centre.get(key);
+    let a = Infinity, b = -Infinity;
+    for (const v of near) if (Math.abs(P[v * 3 + 1] - ny) < H && Math.abs(P[v * 3]) < 0.03) { a = Math.min(a, P[v * 3 + 2]); b = Math.max(b, P[v * 3 + 2]); }
+    const c = b > a ? (a + b) / 2 : NaN; centre.set(key, c); return c;
+  };
+  for (let i = 0; i < n; i++) {
+    const y = B[i * 3 + 1]; if (y <= foot) continue;
+    const ny = foot + (y - foot) * k, cz = zMid(ny);
+    out[i * 3 + 1] = ny;
+    if (!Number.isFinite(cz)) continue;
+    const x = B[i * 3], z = B[i * 3 + 2] - cz, t = Math.atan2(x, z), have = Math.hypot(x, z);
+    if (Math.abs(t) > FRONT) continue;   // only the front was cut up under the chin
+    let neck = 0;
+    for (const v of near) {
+      if (Math.abs(P[v * 3 + 1] - ny) >= H) continue;
+      const px = P[v * 3], pz = P[v * 3 + 2] - cz;
+      let d = Math.abs(Math.atan2(px, pz) - t); if (d > Math.PI) d = 2 * Math.PI - d;
+      if (d < ARC) neck = Math.max(neck, Math.hypot(px, pz));
+    }
+    if (!(neck > 0) || have <= neck + ease) continue;
+    const s = (neck + ease) / have;
+    out[i * 3] = x * s; out[i * 3 + 2] = cz + z * s;
+  }
+  return { bind: out, foot, ease };
+}
+
+/**
  * Give a freshly cloned figure (bones still at rest) this person's body and face.
  * Returns { meshes, height, grade } or null where the figure is not an hm08 body.
  *
@@ -646,10 +699,16 @@ export function applyVariation(scene, kit, variation, { scope = 'full' } = {}) {
       }
     } else {
       const moving = [], dv = [0, 0, 0];
+      // A collar worn lower takes the delta of the neck it now stands on, not of the chin above.
+      const low = variation.collar ? loweredCollar(mesh.name ?? '', at, variation.collar, pre) : null;
+      const sat = low ? nearest(preGrid, low.bind) : near, carry = low ? carryTable(preGrid, pre.ref, low.bind, at.n) : fit.carry;
       for (let i = 0; i < at.n; i++) {
-        carriedFromTable(fit.carry, d, i, pre.ref, near[i], dv);
-        let any = false;
-        for (let c = 0; c < 3; c++) { const v = dv[c]; if (v) any = true; out[i * 3 + c] = at.raw[i * 3 + c] + v / at.q.s; }
+        carriedFromTable(carry, d, i, pre.ref, sat[i], dv);
+        let any = !!low;
+        for (let c = 0; c < 3; c++) {
+          const v = dv[c]; if (v) any = true;
+          out[i * 3 + c] = (low ? (low.bind[i * 3 + c] - at.q.t[c]) / at.q.s : at.raw[i * 3 + c]) + v / at.q.s;
+        }
         if (any) { moved = true; moving.push(i); }
       }
       if (moving.length) {
@@ -660,7 +719,7 @@ export function applyVariation(scene, kit, variation, { scope = 'full' } = {}) {
         // T-3572: each one's nearest before, where it is now, bounds the search (nearestBounded).
         const bound2 = new Float64Array(moving.length), PP = postGrid.points;
         moving.forEach((i, k) => {
-          const j = near[i]; let b = 0;
+          const j = sat[i]; let b = 0;
           for (let c = 0; c < 3; c++) { const z = PP[j * 3 + c] - g2[k * 3 + c]; b += z * z; }
           bound2[k] = b;
         });
@@ -672,8 +731,11 @@ export function applyVariation(scene, kit, variation, { scope = 'full' } = {}) {
             s0 += (at.bind[i * 3 + c] - P[j0 * 3 + c]) * PN[j0 * 3 + c];
             s1 += (g2[k * 3 + c] - Q[j1 * 3 + c]) * QN[j1 * 3 + c];
           }
-          if (s0 < 0) return;   // already inside before (a tuck, a fold): left as authored
-          const want = Math.min(CLEAR_MAX_M, Math.max(CLEAR_MIN_M, s0));
+          // A lowered collar's band keeps its ease from the neck it now stands on, not the
+          // clearance it had from the chin.
+          const band = low && at.bind[i * 3 + 1] > low.foot;
+          if (s0 < 0 && !band) return;   // already inside before (a tuck, a fold): left as authored
+          const want = band ? Math.max(CLEAR_MIN_M, low.ease) : Math.min(CLEAR_MAX_M, Math.max(CLEAR_MIN_M, s0));
           if (s1 >= want) return;
           for (let c = 0; c < 3; c++) out[i * 3 + c] += (want - s1) * QN[j1 * 3 + c] / at.q.s;
         });
