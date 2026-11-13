@@ -2447,6 +2447,10 @@ authored/humans/makehuman_hm08/makehuman/data/targets/eyebrows/eyebrows-trans-ba
 authored/humans/makehuman_hm08/makehuman/data/targets/eyebrows/eyebrows-trans-down.target
 authored/humans/makehuman_hm08/makehuman/data/targets/eyebrows/eyebrows-trans-forward.target
 authored/humans/makehuman_hm08/makehuman/data/targets/eyebrows/eyebrows-trans-up.target
+authored/humans/makehuman_hm08/makehuman/data/targets/eyes/l-eye-eyefold-down.target
+authored/humans/makehuman_hm08/makehuman/data/targets/eyes/l-eye-eyefold-up.target
+authored/humans/makehuman_hm08/makehuman/data/targets/eyes/r-eye-eyefold-down.target
+authored/humans/makehuman_hm08/makehuman/data/targets/eyes/r-eye-eyefold-up.target
 authored/humans/makehuman_hm08/makehuman/data/targets/forehead/forehead-nubian-decr.target
 authored/humans/makehuman_hm08/makehuman/data/targets/forehead/forehead-nubian-incr.target
 authored/humans/makehuman_hm08/makehuman/data/targets/forehead/forehead-scale-vert-decr.target

@@ -68,7 +68,8 @@
   "prognathism",
   "nose_volume",
   "nose_septum",
-  "nostril_angle"
+  "nostril_angle",
+  "lid_fold"
  ],
  "marks": [
   {
@@ -2660,9 +2661,11 @@
    "nostril_angle": 0.5,
    "nose_septum": -0.8,
    "nose_tip": 0.3,
-   "nose_curve": 0
+   "nose_curve": 0,
+   "lid_fold": 1,
+   "lip_lower": 0
   },
-  "basis": "Read by eye from the same picture, on axes the marks cannot measure from one three-quarter view: a broad face, a heavy jaw under the beard, a nose broad at its wings, and the eyes set under a heavy brow. These replace the gentleman's body's own lean as the prior on those axes; the marks still move them where they can. His cheeks and jowls are fitted with his side view instead (fit_views). His nose is HELD (`hold`) as read: a straight bridge with no bump (nose_hump, nose_curve), and a full round tip whose wings are broad and plain in profile, its underside turned a little up (nose_volume, nose_tip_width, nostrils, nostril_angle, nose_septum, nose_tip). Owner, 2026-11-13: \"his nose has a bump in it\", \"his nostril too\".",
+  "basis": "Read by eye from the same picture, on axes the marks cannot measure from one three-quarter view: a broad face, a heavy jaw under the beard, a nose broad at its wings, and the eyes set under a heavy brow. These replace the gentleman's body's own lean as the prior on those axes; the marks still move them where they can. His cheeks and jowls are fitted with his side view instead (fit_views). His nose is HELD (`hold`) as read: a straight bridge with no bump (nose_hump, nose_curve), and a full round tip whose wings are broad and plain in profile, its underside turned a little up (nose_volume, nose_tip_width, nostrils, nostril_angle, nose_septum, nose_tip). Owner, 2026-11-13: \"his nose has a bump in it\", \"his nostril too\" His upper lids are hooded by the fold under the brow (lid_fold 1, HELD), as the sheet shows them, where his lids had shown as a reddish band deep in the brow's shade. His lower lip's fullness is held at 0 (lip_lower): the moustache hides it, so the marks cannot decide it, and a fit left it to the solver's build.",
   "hold": [
    "nose_hump",
    "nose_volume",
@@ -2671,7 +2674,9 @@
    "nostril_angle",
    "nose_septum",
    "nose_tip",
-   "nose_curve"
+   "nose_curve",
+   "lid_fold",
+   "lip_lower"
   ]
  },
  "card": {
