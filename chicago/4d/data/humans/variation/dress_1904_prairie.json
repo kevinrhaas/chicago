@@ -1923,30 +1923,35 @@
    "asset": "glessner_frances_m_1904",
    "colours": {
     "garment_outer__lady_jacket_black": [
-     0.035,
-     0.06,
-     0.045
+     0.03,
+     0.021,
+     0.017
     ],
     "garment_lower__lady_skirt_black": [
-     0.035,
-     0.06,
-     0.045
+     0.03,
+     0.021,
+     0.017
     ]
    },
    "hide": [],
-   "worn": "dark green day dress"
+   "worn": "dark brown day dress with a white lace collar, as the stand-in portrait"
   },
   "pa1904_grey_w_l": {
    "asset": "glessner_john_j_1904",
    "colours": {
     "garment_outer__frock_coat_black": [
-     0.035,
-     0.06,
-     0.045
+     0.03,
+     0.023,
+     0.019
+    ],
+    "garment_lower__trousers_grey_1904": [
+     0.03,
+     0.023,
+     0.019
     ]
    },
    "hide": [],
-   "worn": "dark green coat and trousers"
+   "worn": "dark brown three-piece suit, as the stand-in portrait"
   },
   "pa1904_grey_walter_c": {
    "asset": "glessner_john_j_1904",

@@ -27236,9 +27236,18 @@ because the build's south wall is still flush with the corner bay (the open set-
 plan, its K15 stone, three corbel courses and 0.15 m cap, and three of the kit's tall pots where the
 print shows three or four taller ones. The sunk panels the oblique draws on its south face are not
 built (K15 lays a panel's recess in brick). The north stack takes the same head.
+**The door's pediment and the stoop's newels (T-3562, a piece of T-1893).** Read off the square-on
+print: a stone pediment over the door on two small carved brackets beside the transom, its apex at
+about 5.86 m and a carved finial to about 6.27 m; and the stoop's cheek walls falling to a square
+stone newel at each foot under a cap and a ball knob. Built as K01's bracketed door hood with a
+pediment in place of its railing (`entrance_kit.hood.pediment`, a K01 option this ticket added) in the
+front's stone, and K07's swept cheeks with their newels. Invented: the pediment's width (1.72 m, where
+the print's is 2.55 m, held clear of the build's narrow pavilion), its 0.3 m projection, its plain
+tympanum (the print's is carved), the brackets' scroll (the kit's) and the finial's square block (the
+print's is a carved anthemion); the cheeks' sweep and the newels' heights within K07's ranges.
 **What is not built.** The pavilion's full 4 m width (K01 cannot cut a door through a
-projection, so it stands 2.45 m wide north of the door), the door's pedimented hood on carved
-brackets, the stoop's newels and cheek walls, the narrow light over the door (built at the storey's
+projection, so it stands 2.45 m wide north of the door), the basement doorway under the stoop's
+landing and the stoop's arched underside, the narrow light over the door (built at the storey's
 sash width), the dormer's finial and the roofs' cresting and cross finial, and the rock-faced south
 flank: open on the match record. The oblique print (camera solved by T-3156) also shows the corner bay running about 0.75 m
 south of the main front's south corner, as the square-on does, where the build sets it flush.
@@ -27255,7 +27264,7 @@ is built to the photographs, which is a choice, not a finding.
 **How to resolve:** a dated picture or permit for the remodel settles which front stood in 1904;
 the rest stands open on the two match records.
 **Covers:** `sears_meeker_house_1815_prairie.as_mapped_1904.form.wall_thickness_front_m`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.wall_thickness_side_m`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.service_wall_brick`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.roof_pitch_deg`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.stair_tread_m`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.stair_landing_depth_m`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.side_bays`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.rear_bays`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.rainwater`, `sears_meeker_house_1815_prairie.as_mapped_1904.form.window_kit`
-**Ticket:** T-3155 (piece 1 of T-1893), T-3156 (piece 2), T-3561 (the cornice's consoles and the south stack).
+**Ticket:** T-3155 (piece 1 of T-1893), T-3156 (piece 2), T-3561 (the cornice's consoles and the south stack), T-3562 (the door's pediment and the stoop's newels).
 **Review:** `docs/RESEARCH/k01-1815-sears-1893/README.md`.
 **Recorded:** 2026-10-25 (T-3155).
 
@@ -43643,6 +43652,8 @@ or a read bill of sale; a planting account locating the trees rather than merely
 **Decision:** Identified, captioned portraits constrain visible facial proportions, hair silhouette and facial hair. The pictured date may be unknown even when publication is dated. Single-view depth, skin and eye colours, stature, build, clothes and intervening ageing are reconstructed. A light tone in a monochrome portrait may guide a grey/white rendering without establishing exact colour. Unpictured people receive stable, individually varied reconstructions; the cards explicitly say that no verified portrait was found in the searched sources. No ancestry is inferred from surname, birthplace or photograph. Body presentation is a casting choice based on the recorded relationship and occupation, not a newly attested sex field. The original eight Glessner figures retain their earlier evidence and liberties.
 
 **Recorded:** 2026-11-11.
+
+**T-3553 stand-ins chosen by the owner, 2026-11-12:** No photograph of William L. Grey or of Sarah Grey (2010 Prairie Avenue) was found. The owner supplied two sepia portraits and asked that they be used as the Greys' likenesses ("since we do not have photos of them you can use these likenesses"; "their faces must match exactly"; "their build match is important"). Their sitters, makers and dates are not recorded, so both are stand-ins, as the Glessner household's are (T-3478), graded reconstructed, and each card shows its picture labelled "STAND-IN, NOT" the person. The faces are fitted to about 400 points a face-landmark model finds on each picture, each tied to a vertex of the body's face by rendering that face at five turns and finding the same points on the renders (tools/face_landmark_correspondence.py); the fitted face, rendered and measured the same way, lands within about 3% of the eye span of the picture's points. The depth of the chin, jaw and nose cannot be read from one near-frontal picture and are left at the body's own. Each is drawn at the age the picture shows (about 50 and 45), not their 1904 census ages of 64 and 54, so the face is the picture's; their records keep the census ages. Their builds are read by eye (he heavy-set and thick-necked, she slight). The hair (his long, wavy and swept back, with a full trimmed beard over the chin and cheeks and a full moustache; hers drawn up to a knot on the crown, the lady's body's own bun turned up from the nape), the brows set at the pictures' height over the eyes, the hair colours read from sepia tones, and the cloth colours (a dark brown three-piece suit; a dark brown day dress, its white lace collar the lady's own shirtwaist collar and jabot) follow the pictures. The cameo brooch, earrings, watch chain, the cut of the sack coat and sleeves, the skin's own marks and Sarah's thinner lower lip (the face kit cannot thin it below the body's) are not modelled.
 
 ### L-prairie-people-3548 — Household figures, doors and days (T-3548, 2026-11-11)
 

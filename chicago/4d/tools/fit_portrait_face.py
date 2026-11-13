@@ -53,6 +53,7 @@ KIT_JSON = ROOT / 'assets/humans/web/hm08_variation_kit.json'
 AXES = ROOT / 'data/humans/variation/axes.json'
 PORTRAITS = ROOT / 'data/humans/variation/portraits'
 FITS = ROOT / 'data/humans/variation/fits'
+MP_TABLE = ROOT / 'data/humans/variation/mediapipe_hm08_landmarks.json'
 # The prior on a fitted axis is MakeHuman's own spread of a face, before T-3412 narrowed the
 # seeded draws to 0.65 of it so that no stranger is a caricature: a real face read from a
 # picture may sit anywhere a real face does. Bounds are the sliders' own +-1.
@@ -210,8 +211,17 @@ def fit(person):
     header, refs, axes = load_kit()
     spec = {a['id']: a for a in json.loads(AXES.read_text())['axes']}
     lm = landmarks()
-    kidx = kit_index()
     names = [m['landmark'] for m in portrait['marks']]
+    # T-3553: MediaPipe's points (`mp_<index>`), each on the skin vertex the correspondence
+    # table names (tools/face_landmark_correspondence.py).
+    if any(n.startswith(('mp_', 'mpo_')) for n in names):
+        table = json.loads(MP_TABLE.read_text())['bodies'][portrait['base_body']]
+        lm = {**lm, **{k: v['vertex'] for k, v in table['points'].items()}}
+        # The face's outline (`mpo_<index>`) from the calibration render turned as the portrait is.
+        if 'outline_yaw_deg' in portrait:
+            ring = min(table['outline'], key=lambda o: abs(o['solved_yaw_deg'] - portrait['outline_yaw_deg']))
+            lm = {**lm, **{k: v['vertex'] for k, v in ring['points'].items()}}
+    kidx = kit_index()
     # A landmark is one vertex or the mean of several (a pupil, between the eye's corners).
     members = [[lm[n]] if isinstance(lm[n], int) else list(lm[n]) for n in names]
     rows = np.array(sorted({kidx[v] for m in members for v in m}))
@@ -256,6 +266,14 @@ def fit(person):
     for k, b in body.get('face_bias', {}).items():
         if k not in fitted and k in axes:
             base += W @ delta_at(axes[k], max(-header['limit'], min(header['limit'], b)), 0, rows)
+    # T-3553: the build a stand-in's likeness gives (weight, muscle, a paunch, the neck), which
+    # moves the face too (a heavy man's fuller face): on the base, as the renderer adds it.
+    build = (portrait.get('likeness') or {}).get('build') or {}
+    for a in header['axes']:
+        k = a.get('draw_as', a['id'])
+        if k in ('weight', 'muscle', 'belly', 'neck_width', 'double_chin') and isinstance(build.get(k), (int, float)) \
+                and a.get('sex', portrait.get('sex', 'male')) == portrait.get('sex', 'male') and not a.get('drive'):
+            base += W @ delta_at(axes[a['id']], max(-header['limit'], min(header['limit'], build[k])), 0, rows)
     # Each signed axis is piecewise linear; precompute its two halves at +-1 on the landmark rows.
     halves = {}
     for aid in fitted:
@@ -266,7 +284,9 @@ def fit(person):
             halves[aid] = (W @ delta_at(a, 1.0, 0, rows), W @ delta_at(a, -1.0, 0, rows))
     # A rest axis (never drawn, spread 0: the mouth's resting set) is fitted only where it is
     # read by eye, held there as tightly as the narrowest drawn axis.
-    spreads = np.array([spec[aid]['spread'] or 0.1 for aid in fitted]) * PRIOR_WIDEN
+    # A record may loosen its prior further (`prior_widen`, T-3553: a face marked at hundreds of
+    # points by a landmark model, which should be held by the picture, not by the town's average).
+    spreads = np.array([spec[aid]['spread'] or 0.1 for aid in fitted]) * PRIOR_WIDEN * portrait.get('prior_widen', 1.0)
     # A fitted value replaces the body's face_bias in the renderer, so an axis the picture says
     # little about is held towards the body's own lean (a woman's jaw), not towards the men's zero.
     lim = header.get('limit', 1.0)

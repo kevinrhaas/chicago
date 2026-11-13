@@ -2564,6 +2564,19 @@ humans/web/portraits/pa1904_glessner_john_j_c1900_kate_ryan_model.json
 humans/web/portraits/pa1904_glessner_john_j_c1900_kate_ryan_portrait.jpg
 ```
 
+`pa1904_grey_w_l_portrait.jpg` and `pa1904_grey_mrs_w_l_portrait.jpg` (T-3553) are cut and scaled from two sepia portraits the project owner supplied on 2026-11-12 as the likenesses to use for William L. and Sarah Grey (source records `owner_grey_likeness_william_2026`, `owner_grey_likeness_sarah_2026`; the full pictures are kept in kevinrhaas/chicago-evidence, `evidence/grey-likenesses-2026-11-12/`). They are STAND-INS, not the Greys: who sat for them and who made them are not recorded. Cleared by the owner for this project's own use and derivation; **not openly licensed** (all rights as the owner holds them). The stand-in label is burned on each picture. The crop boxes are recorded in
+`data/humans/variation/portraits/pa1904_grey_w_l.json` and `pa1904_grey_mrs_w_l.json`. The `_model.jpg` stills (and their `.json` sidecars) are
+rendered by `tools/portrait_still.mjs` as above, and are **CC0-1.0**.
+
+```text
+humans/web/portraits/pa1904_grey_mrs_w_l_model.jpg
+humans/web/portraits/pa1904_grey_mrs_w_l_model.json
+humans/web/portraits/pa1904_grey_mrs_w_l_portrait.jpg
+humans/web/portraits/pa1904_grey_w_l_model.jpg
+humans/web/portraits/pa1904_grey_w_l_model.json
+humans/web/portraits/pa1904_grey_w_l_portrait.jpg
+```
+
 `pa1904_glessner_john_j_c1900_christine_nelson_portrait.jpg` (T-3481) is cut and scaled from Bohusläns museum's copy of Ossian Berggren's cabinet card of the housemaid Anna Åkerman, 1890-1895 (UMFA53226:1855; source record `bhm_umfa53226_1855_hembitrade_anna_akerman`), a STAND-IN, not Christine Nelson; the museum marks it Public Domain Mark 1.0: **public domain**. The stand-in label is burned on the picture. The crop box is recorded in
 `data/humans/variation/portraits/pa1904_glessner_john_j_c1900_christine_nelson.json`. `pa1904_glessner_john_j_c1900_christine_nelson_model.jpg` (and its `.json` sidecar) is
 rendered by `tools/portrait_still.mjs` as above, and is **CC0-1.0**.
