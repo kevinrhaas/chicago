@@ -43761,3 +43761,11 @@ Sanborn sheet would settle what stood behind the moved front, how far the wings 
 **Re-opens on:** a source that says what one of them did out of doors at a given hour, which goes into their day and is then walked as written.
 **Ticket:** T-3573.
 **Recorded:** 2026-11-12.
+
+### L-hanging-cloth-3553 — Every hanging garment hangs as one piece over the walking legs
+
+**Decision:** the owner, 2026-11-13, following a coated man on 18th Street in 1904: *"no one should have their legs break through their clothing like that"*. The exporter skins every garment to the pelvis and to each thigh and calf, so on the walk a frock coat's skirts, a coachman's livery, a soldier's tails, an 1812 capote, shirt tail, blanket or breechcloth, a girl's frock and a woman's petticoat each parted like trousers and the other knee or shin came through. `renderers/web/js/human-skirt.js`, which hung the women's skirts as one bell (T-3472), now sorts each leg-weighted garment by its piece name and by how far its lower part hangs from the legs, and hangs every one that hangs (never trousers, breeches, stockings, leggings or boots) from the waist as one piece that the legs push open where they press. A coat's skirts and tails are hung stiffer and closer than a skirt: they carry little of a push round the body, keep no flare and fall straight back. How far a coat swings, how fast it follows and how much it trails are ours.
+**Not invented:** the garments, their cut and their length, which are the assets as drawn; standing, every one is exactly as drawn.
+**Re-opens on:** a cloth simulation the fleet can afford on a phone, which replaces the panels.
+**Ticket:** T-3553.
+**Recorded:** 2026-11-13.
