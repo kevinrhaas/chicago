@@ -13,6 +13,7 @@ import { clothHuman } from './fabric.js';
 import { loadLivery, dressInLivery } from './driver-livery.js';
 import { acquireDraftHorse } from './draft-horse-assets.js';
 import { applyHorseAppearance } from './horse-appearance.js';
+import { applyCoachwork } from './coachwork.js';
 
 let nextHoofAssembly = 0;
 
@@ -251,7 +252,7 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
       animation: { clip: driverClip, loop: true, phase: 0 }, lod: { policy: 'fixed', fixed: driverLod },
     };
     const identity = resolveHumanIdentity(instance, { sceneId, people, profiles });
-    let vehicle = null, actor = null, template = null, team = null, hitch = null, restore = null, inspectionLease = false;
+    let vehicle = null, actor = null, template = null, team = null, hitch = null, restore = null, inspectionLease = false, coachwork = null;
     try {
       const binding = row.driver_binding;
       if (!binding || binding.scene !== sceneId || binding.asset_id !== row.driver_asset
@@ -282,8 +283,12 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
       const extras = inspected.parser.json.scenes?.[0]?.extras;
       const metadata = extras?.chicago4d_human;
       const study = JSON.parse(extras?.driver_study_json ?? 'null');
-      if (metadata?.person_reference_scene !== sceneId || metadata.person_reference_id !== instance.person_id
-        || study?.scene !== sceneId || study.person_reference_id !== instance.person_id
+      // Kevin, 2026-11-13: more coachmen on the same brougham. A row may name the person its
+      // seated export (and so its seat, reins and livery fit) was proved for; the driver is
+      // still this row's own person, with his own face, looks and card.
+      const exportedFor = row.driver_export_person_id ?? instance.person_id;
+      if (metadata?.person_reference_scene !== sceneId || metadata.person_reference_id !== exportedFor
+        || study?.scene !== sceneId || study.person_reference_id !== exportedFor
         || study.vehicle_sidecar_sha256 !== binding.vehicle_sidecar_sha256
         || (study.vehicle_glb_sha256 && study.vehicle_glb_sha256 !== sha256)) throw Error('driven assembly: actual exported driver identity/date/vehicle metadata differs');
       // T-3412: a driver's own face; his body stays the one his seat, reins and livery were fitted to.
@@ -313,7 +318,7 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
       // tails swing each frame after the clip and the driver-life layer have moved him.
       const livery = acquired[3].value;
       if (livery && (livery.asset_id !== row.driver_asset || livery.body_master_sha256 !== row.driver_livery_body_sha256)) throw Error('driven assembly: livery was draped on another body');
-      const undress = livery && actor.body ? dressInLivery(actor.body, livery) : null;
+      const undress = livery && actor.body ? dressInLivery(actor.body, livery, { colours: row.driver_livery_colours ?? null }) : null;
       // T-1790: breathing, the ride, weight shifts, looking around and hands on the
       // reins, layered over the seated clip each frame (driver-life.js). Bound to the
       // clip's first pose; a rig that is not the contract skeleton is left as it was.
@@ -353,6 +358,9 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
       if (!hitch?.root || typeof hitch.update !== 'function' || typeof hitch.dispose !== 'function') throw Error('driven assembly: visible fitted hitch required');
       const updateHitch = hitch.update.bind(hitch);
       hitch.update = pose => { updatePalms(); return updateHitch(pose); };
+      // Kevin, 2026-11-13: each carriage its own paint, wear and marks (coachwork.js), on this
+      // assembly's own parse of the vehicle, before the hitch joins it.
+      coachwork = row.vehicle_finish ? applyCoachwork(vehicle.scene, row.vehicle_finish, { wheelRadius_m: row.wheel_radii_m[0] }) : null;
       vehicle.scene.add(hitch.root);
       vehicle.scene.traverse(node => {
         if (!node.isMesh || node.material?.visible === false) return;
@@ -369,7 +377,7 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
       });
       const assembly = createDrivenAssembly({ vehicle: vehicle.scene, driver, horse: team, hitch,
         confidence, driverSeat_m: row.driver_seat_node_m, driverRootOffset_m: [0, 0, 0],
-        horseOffset_m: row.horse_offset_m, disposeVehicle: () => disposeLoadedAsset(vehicle) });
+        horseOffset_m: row.horse_offset_m, disposeVehicle: () => { coachwork?.dispose(); disposeLoadedAsset(vehicle); } });
       restore = adoptPerson(instance, actor);
       const dispose = assembly.dispose;
       assembly.dispose = () => { dispose(); if (restore) { restore(); restore = null; } };
@@ -386,6 +394,7 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
       return assembly;
     } catch (error) {
       if (inspectionLease) humanAssets.release(row.driver_asset, driverLod);
+      coachwork?.dispose();
       hitch?.dispose(); team?.dispose(); actor?.dispose();
       if (template && !team) releaseHorse(template);
       if (vehicle) disposeLoadedAsset(vehicle);

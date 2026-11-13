@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 import { routeFor, createTransportLoop, preflightTransportRouteAsync, TransportSpawnObstructedError } from './transport-loop.js';
+import { createCrossings } from './transport-crossings.js';
 
 const WHEELS = ['vehicle_wheel_rear_left', 'vehicle_wheel_rear_right',
   'vehicle_wheel_front_left', 'vehicle_wheel_front_right'];
@@ -243,6 +244,11 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
       south: Math.min(...points.map(p => p.n)), north: Math.max(...points.map(p => p.n)) };
   });
   const rowById = new Map(circuits.map(circuit => [circuit.id, circuit.row]));
+  // Kevin, 2026-11-13: where two of the scene's teams can meet, one gives way to the other
+  // (transport-crossings.js). Read from the routes alone, once, when the first team loads.
+  let crossings = null;
+  const crossingsFor = () => (crossings ??= circuits.length > 1 && circuits.every(c => Array.isArray(c.row.envelope_local_xz_m))
+    ? createCrossings(circuits) : { gateFor: () => null, snapshot: () => ({}), zones: [] });
   let disposed = false, tier = detail, load = null, generation = 0, loadGeneration = -1;
   let lastUpdate = null;
   const out = {
@@ -282,7 +288,7 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
             assembly = await makeAssembly(liveRow);
             if (disposed || ownGeneration !== generation || !draws(tier)) { assembly.dispose(); break; }
             const actor = createTransportLoop({ ...liveRow, route, assembly, heightAt,
-              clear: (from, to) => clear(row, from, to) });
+              clear: (from, to) => clear(row, from, to), gate: crossingsFor().gateFor(row.id) });
             actor.updateVisual = assembly.updateVisual;
             // Consume only after this generation owns a successfully created actor.
             const approach = pendingApproaches.get(row.person_id);
@@ -358,6 +364,8 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
       if (lastUpdate) out.update(...lastUpdate);
     },
     snapshot() { return actors.map(actor => actor.snapshot()); },
+    /** Where the scene's teams can meet, and who holds or waits at each (transport-crossings.js). */
+    crossings() { return crossings ? { zones: crossings.zones.length, teams: crossings.snapshot() } : null; },
     pickDriverAt(ndc, camera) {
       let nearest = null;
       for (const actor of actors) {

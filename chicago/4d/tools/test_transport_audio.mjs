@@ -33,7 +33,8 @@ function env(year = '1835') {
   }
   const unrelated = env('1812'); unrelated.time.date = '1812-08-15';
   assert.deepEqual(transportCandidates(catalog, unrelated, '1812'), [], 'no battle-day or arbitrary-date transfer');
-  assert.equal(transportCandidates(catalog, env('1904'), '1904').length, 1, 'brougham never uses wooden-wagon recording');
+  const broughams = transportCandidates(catalog, env('1904'), '1904');
+  assert(broughams.length >= 1 && broughams.every(c => c.asset.id === 'horse-harness'), 'brougham never uses wooden-wagon recording');
   const e = env(), near = transportCandidates(catalog, e, '1835');
   e.camera.position.x = 20;
   assert(transportCandidates(catalog, e, '1835')[0].gain < near[0].gain);
