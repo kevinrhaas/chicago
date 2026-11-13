@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2910, ts: '2026-11-13T02:09:10.308Z', date: 'Nov 12, 2026, 8:09 PM CT', title: '1815 Prairie\'s door gets its stone pediment, its stoop its newels', kind: 'improvement',
+    items: [
+      'On the Sears house at 1815 Prairie, a stone pediment on two small carved brackets now stands over the front door, with a finial at its peak, as the old square-on photograph shows it.',
+      'The stoop\'s stone side walls now sweep down to a square newel at each foot, capped and topped with a ball, where they used to run straight down to the walk.',
+    ] },
   { v: 2909, ts: '2026-11-13T00:47:49.734Z', date: 'Nov 12, 2026, 6:47 PM CT', title: 'William and Sarah Grey of 2010 Prairie get faces from stand-in portraits', kind: 'improvement',
     items: [
       'No photograph of either Grey survives, so their faces are now fitted to two sepia portraits chosen as stand-ins, point by point over about 400 face points each, and drawn at the age the pictures show. Each card shows the portrait beside the model and marks it as a stand-in, not them.',
