@@ -43794,6 +43794,25 @@ an impression, not measured stone by stone. The lattice and its triangle count a
 **Ticket:** T-3564.
 **Recorded:** 2026-11-12.
 
+### L-glessner-window-courses — Glessner's alley windows set on the granite's bed joints
+
+**Decision:** the owner, 2026-11-13, on his screenshot of the alley (west) wall's south broad
+light: "on the glessner windows when the stone was adjusted it looks like the borders around the
+window need to be realigned, check all the windows". The stable's eight alley lights had heads and
+sills standing part-way into granite courses, so the course stones were notched round each opening
+and a thin projecting sill slab came out in pieces under the rock faces. His photograph 17 of
+2026-11-10 (chicago-evidence evidence/glessner-kevin-photos-2026-11-10/) shows these lights cut
+square into the coursing, head and sill on bed joints, with no sill stone proud of the wall. Each
+head and sill is moved to the nearest bed joint of the house's course string, and the projecting
+sill is not built.
+**What is invented.** The heights were already reconstructed (T-1999, from the owner's elevation
+image, not survey evidence). The moves are 0.15-0.6 ft; the broad lights keep their height, the
+rear lights and the gable slits change by under 0.6 ft. Which joint each head and sill takes is
+this project's choice, the nearest one that keeps the opening's height.
+**How to resolve:** a measured elevation of the alley wall, or a rectified photograph of it.
+**Ticket:** none (the owner's request in the project thread, 2026-11-13).
+**Recorded:** 2026-11-13.
+
 ### L-glessner-photo-match-3564 — Glessner details matched to the owner's photographs of 2026-11-10
 
 **Decision:** the owner's own photographs of 2026-11-10 (chicago-evidence
@@ -43951,6 +43970,15 @@ door's hinge and swing, as L-prairie-front-passages-3554's.
 **Re-opens on:** a recording or a contemporary description of how one of the speakers sounded, which would bound their voice.
 **Ticket:** T-3578.
 **Recorded:** 2026-11-13.
+
+### L-kimball-1801-return-slate-lean-1890 — 1801 Prairie's slate over its south return leans in as one face to the deck, read off HABS photograph 1's coursing
+
+**Decision:** HABS photograph 1 (`habs_kimball_photo_01_sw_1965`), read at full size on 2026-11-13 for the one open difference on its match record: the slate courses over the south return run parallel to the return's moulded top (both falling to the right, as the long flank's do), so the slate over the return is a face turned the way the return faces, rising from the return's top to the hip and the deck's corner hood in one plane. The build (L-kimball-1801-south-return-1890) carried the set-back cut up to the curb with its side on the return's plane, which stood an upright slate cheek over the return and left a sliver of the front slope folded between the cheek and the set-back face. K01 `return_setback` now leans that side in, from the return's outer top edge (11.7 m) to the side face's foot of the deck at the curb (15.16 m), so the face over the return is one plane and the hip runs as one straight line from the hood down past the return's back end to the balcony.
+**Invented:** where the face's top meets the deck. The lean is taken to the side face's foot of the deck because that is the one level line the kit has there; the photograph's face reaches further to the left, up under a white coping below the cresting, so the build's face meets the front slope in a fold rising to the hood that the photograph does not show (open on the match record). The lean stops 0.05 m behind that foot at the curb, a margin the geometry needs and no picture can show: at 0.02 m the side face the cut leaves narrowed to a 3 cm sliver whose triangles passed through the front slope's (the K05 gate's crossing rule).
+**How to resolve:** the HABS drawings' south elevation and roof plan, if found, give the roof over the corner and the coping's height.
+**Ticket:** T-1890.
+**Review:** `docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg` and its match record.
+**Recorded:** 2026-11-13 (T-1890).
 
 ### L-1904-nature-sounds-3585 — Robins in the parkway elms, cicadas and crickets on the 1904 street
 
