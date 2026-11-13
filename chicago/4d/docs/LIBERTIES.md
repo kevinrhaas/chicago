@@ -42406,7 +42406,7 @@ the match record. The 1874 Land Owner engraving is not read.
 K01 door hood.
 **Ticket:** T-1886.
 **Recorded:** 2026-11-07 (T-1886).
-**Revised:** 2026-11-12 (T-1886): the south flank's brick, the flat front's hoods and the flank window's hood are built. Through the solved camera the flank wall between the two canted bays reads the same grey as the bays and the front (median 169-184 against the bays' 174-200, the stone 237), where the common buff rendered half again as light as the bays, so the flank is laid in the front's pressed red: a new K01 key, `face_brick.returns` (the side walls named laid in the front's face brick), with no K03 string course on that wall, since the print draws none. The flank window (`side_bays` 6.4) wears the front's K09 cornice hood on both storeys (`street_front_trim.lights`; K01 now lets a brick side wall's named light take its K09 head rather than a brick arch), and every such hood carries K09's carved crest (`street_front_trim.crest`, 1.0 by 0.35 m, 0.1 m proud). **Still invented:** the crest's carving (the kit's palmette between two volutes; the print resolves only a raised scrolled block) and its size, read to about 0.1 m; the brick of the north flank, the rear and the rear range, kept in the common because no picture shows them; the red's depth against a monochrome print (the T-3385 palette's). **Still not built:** the crests over the canted bays' K08 hoods; the flank crown's dormer in its south-east canted face; the balcony's railing and the door onto it. The 1874 Land Owner engraving is still not read.
+**Revised:** 2026-11-12 (T-1886): the south flank's brick, the flat front's hoods and the flank window's hood are built. Through the solved camera the flank wall between the two canted bays reads the same grey as the bays and the front (median 169-184 against the bays' 174-200, the stone 237), where the common buff rendered half again as light as the bays, so the flank is laid in the front's pressed red: a new K01 key, `face_brick.returns` (the side walls named laid in the front's face brick), with no K03 string course on that wall, since the print draws none. The flank window (`side_bays` 6.4) wears the front's K09 cornice hood on both storeys (`street_front_trim.lights`; K01 now lets a brick side wall's named light take its K09 head rather than a brick arch), and every such hood carries K09's carved crest (`street_front_trim.crest`, 1.0 by 0.35 m, 0.1 m proud). The canted bays' lights over the basement carry the same crest on their lintels: K08 gains a bay light's `crest` (the front's palmette in the front's ranges, laid by `k08_bays.crest`), since the print draws the bays' hoods crested as the front's are (x 140-215 and 490-560 px). **Still invented:** the crest's carving, on the front's hoods and the bays' lintels alike (the kit's palmette between two volutes; the print resolves only a raised scrolled block) and its size, read to about 0.1 m; the brick of the north flank, the rear and the rear range, kept in the common because no picture shows them; the red's depth against a monochrome print (the T-3385 palette's). **Still not built:** the bays' hoods' eared ends (about 0.25 m, under the bar: the bays wear K06's square lintel under the crest); the flank crown's dormer in its south-east canted face; the balcony's railing and the door onto it. The 1874 Land Owner engraving is still not read.
 
 ### L-k01-2009-meyer-north-stack-3365 — 2009 Prairie's near north stack built astride the north wall, its breast carried up the flank from the ground, and its head as its photograph draws it
 
@@ -43737,8 +43737,8 @@ there from 1893 to 1931, its five figures and their places, the pedestal's steps
 and their proportions are the photographs'** (the Barnes-Crosby view ICHi-19208, checked on J. W.
 Taylor's 1893 view), with the group's "about nine feet" from Wikipedia. **These are this project's:**
 
-- **The depths.** No picture used here sees the pedestal's sides squarely, so the base's, plinth's
-  and die's depths are the widths less margins the group needs (base 3.3 m, plinth 2.3, die 1.9).
+- **The depths** were the widths less margins until T-3568 read them through a camera on Taylor's 1893
+  view (base 2.85 m, plinth 1.8, die 1.6): that part of this liberty is retired.
 - **The figures' modelling.** Each figure is joined from tapered limbs and balls in the pose the
   photographs show, at about 0.2 m; faces, hair, dress folds, the feathers' number, the weapons'
   detail and the whole of the group's rear (no photograph used here shows it; the Inter Ocean's
@@ -43746,14 +43746,16 @@ Taylor's 1893 view), with the group's "about nine feet" from Wikipedia. **These 
   photographs are monochrome.
 - **The panels' reliefs** are flat bronze plates, and **the lettering** under the front panel
   (THE FORT DEARBORN MASSACRE / AUGUST 15, 1812 / BLACK PARTRIDGE SAVING MRS. HELM) is not cut.
-- **Its place** is good to about 3 m until cameras are solved on its photographs (T-3568).
+- **Its place** is set by T-3568 through cameras on the Detroit print (east and west) and ICHi-19208
+  (north and south), good to about 1.5 m; the Pullman stable's draft stands about 6 m east of where
+  ICHi-19208 shows its end, which is open in that view's match record.
 
 The figures are period sculpture, built as the sculptor made them; the record carries
 `review_required` with its reason, and the card says how the work was received.
 
-**Covers:** `fort_dearborn_massacre_monument_1893.on_18th_street_1893.form.base_d_m`, `fort_dearborn_massacre_monument_1893.on_18th_street_1893.form.plinth_d_m`, `fort_dearborn_massacre_monument_1893.on_18th_street_1893.form.die_d_m`, `fort_dearborn_massacre_monument_1893.on_18th_street_1893.form.lettering`.
+**Covers:** `fort_dearborn_massacre_monument_1893.on_18th_street_1893.form.lettering`.
 
-**Ticket:** T-3567 (piece 1 of T-3565).
+**Ticket:** T-3567 (piece 1 of T-3565); the depths retired by T-3568.
 **Recorded:** 2026-11-12.
 
 ### L-glessner-rock-faces-3564 — Glessner's rock-faced granite: three face profiles shared out by rule

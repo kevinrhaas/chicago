@@ -1,4 +1,23 @@
 export const CHANGELOG = [ // newest first
+  { v: 2926, ts: '2026-11-13T12:10:51.138Z', date: 'Nov 13, 2026, 6:10 AM CT', title: 'The Greys\' hair, eyes and William\'s brows matched to the colour sheets', kind: 'improvement',
+    items: [
+      'William\'s hair is a light ash going silver at the sides, as on his colour turnaround sheet, where it had read too dark.',
+      'Sarah\'s hair is an ash brown with fair and grey streaks, and her eyes a pale grey rather than a bright blue.',
+      'William\'s brows sit lower, close over his eyes on the brow bone, where they had floated above the lids.',
+    ] },
+  { v: 2925, ts: '2026-11-13T11:49:01.185Z', date: 'Nov 13, 2026, 5:49 AM CT', title: '1816 Prairie\'s bay windows crowned with carved crests', kind: 'improvement',
+    items: [
+      'The windows in both of 1816 Prairie\'s canted bays now carry the same carved, scrolled crest as the front\'s hoods, as the old photograph of the house shows them.',
+      'Still to come on this house: a second dormer in the side crown, the balcony\'s tall iron railing with a door onto it, and a reading of the 1874 engraving.',
+    ] },
+  { v: 2924, ts: '2026-11-13T10:54:31.503Z', date: 'Nov 13, 2026, 4:54 AM CT', title: 'The Greys\' faces refitted to their portraits and side views', kind: 'improvement',
+    items: [
+      'William\'s moustache now falls only to the line of his mouth, so his lower lip shows, with a little bare skin under it before the beard begins; his beard\'s line runs up each cheek from the moustache\'s ends to the sideburns, as in his picture.',
+      'Both Greys\' faces are fitted to their portraits and to the side views of the owner\'s turnaround sheets at once, so how far the nose, chin and mouth stand out comes from the side view while the face stays smooth.',
+      'William\'s nose now stands out from a high bridge as in his side view, his chin comes forward under the beard, and his mouth no longer juts; his brows sit on the brow bone close over his eyes.',
+      'Sarah is fitted to the sheet\'s square-on front view as well, where her cheeks show best; the lumps beside her mouth and along her jaw are gone, and her nose runs straight to a level tip.',
+      'Sarah\'s lips are thin and her eyes blue-grey; William\'s hair falls in fuller waves to his collar, a brown going grey, and his grizzled beard lies close at the jaw and runs longer to the chin, as on the owner\'s sheets.',
+    ] },
   { v: 2923, ts: '2026-11-13T10:27:43.348Z', date: 'Nov 13, 2026, 4:27 AM CT', title: 'The Fort Dearborn Massacre monument stands on 18th Street', kind: 'feature',
     items: [
       'In 1904, Carl Rohl-Smith\'s bronze group of 1893 now stands at the east end of 18th Street, by Calumet Avenue, in front of the Pullman estate\'s wall.',

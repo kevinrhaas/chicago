@@ -14,7 +14,14 @@
  "focal_px": 1093,
  "near_m": 10,
  "scene": "1904",
- "flora": {"front_yards": ["prairie_1729"], "street_trees_m": 70, "season": "winter", "creeper_in_leaf": true},
+ "flora": {
+  "front_yards": [
+   "prairie_1729"
+  ],
+  "street_trees_m": 70,
+  "season": "winter",
+  "creeper_in_leaf": true
+ },
  "eye": [
   88.3,
   42.93,
@@ -26,5 +33,8 @@
   1.0,
   0.8,
   1.0
+ ],
+ "also_render": [
+  "fort_dearborn_massacre_monument_1893"
  ]
 }
