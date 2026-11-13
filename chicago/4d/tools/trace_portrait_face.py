@@ -3,6 +3,7 @@
 """A face traced onto its portrait, beyond what the face axes can draw (T-3553).
 
     python3 tools/trace_portrait_face.py DETECTIONS.json      add one pass to each person's trace
+    (tools/trace_portrait_profile.py adds side-view passes to the same trace, through profile_pass)
 
 The owner, 2026-11-13, of the Greys' stand-in likenesses: "she needs a more serious match to
 her features from the original photo, you need to trace it", and of both: "focus on their noses
@@ -35,7 +36,9 @@ portrait's; the trace already written is in that render). A pass:
      away 2 cm beyond the last point; the eyes' own points are held still, so the eyeballs,
      which ride the nearest skin, are not pulled out of shape. The brows' points are left out:
      the detector finds the brow hairs there, which the hair styles place, not the skin.
-  4. A damped share (0.8) is added to the person's trace.
+  4. A damped share (0.8) is added to the person's trace; no vertex is moved more than 16 mm
+     in all (a side view lengthened Sarah Grey's nose and brought its bridge forward by about
+     that much).
 
 A record limits what is traced with its portrait record's `trace.points`: `all`, `inner` (no
 outline ring), or `nose` (the nose alone, the eyes held: a beard hides the jaw and mouth from
@@ -77,7 +80,7 @@ SIGMA = 0.009        # the spread of a point's displacement over the skin, metre
 FADE = 2.0           # in sigmas: beyond about this far from every point the trace dies away
 DAMP = 0.8
 RIDGE_XY, RIDGE_Z = 0.05, 2.0
-CLIP = 0.008         # no vertex moves more than 8 mm in all
+CLIP = 0.016         # no vertex moves more than 16 mm in all
 
 
 def similarity(a, b):
@@ -160,6 +163,15 @@ def trace_pass(person, det):
             centres.append(pos[k]); moves.append(d if n == 0 else Mx @ d); weights.append(1.0)
     C, D, Wt = np.array(centres), np.array(moves), np.array(weights)
 
+    info = {'render_pose_deg': {k: round(float(pose[k]), 1) for k in ('yaw_deg', 'pitch_deg', 'roll_deg')},
+            'miss_before_px': {'rms': round(float(np.sqrt((miss[used] ** 2).sum(1).mean())), 2),
+                               'eye_span': round(float(np.linalg.norm(b[33] - b[263])), 1)}}
+    add_to_trace(person, fit_text, fit, asset, rest, C, D, Wt, info, 'passes', scope)
+
+
+def add_to_trace(person, fit_text, fit, asset, rest, C, D, Wt, info, counter, scope):
+    """Spread displacements at centres C (rest frame, metres) over the skin near them and add a
+    damped share to the person's trace; `counter` names the pass count to advance."""
     # Spread over the skin near the points.
     near = np.where(np.min(np.linalg.norm(rest[:, None, :] - C[None, :, :], axis=2), axis=1) < SIGMA * (FADE + 1.5))[0]
     K = np.exp(-np.sum((rest[near][:, None, :] - C[None, :, :]) ** 2, axis=2) / (2 * SIGMA ** 2)) * Wt
@@ -174,6 +186,7 @@ def trace_pass(person, det):
     total[near] += field
     mag = np.linalg.norm(total, axis=1)
     total *= np.minimum(1.0, CLIP / np.maximum(mag, 1e-12))[:, None]
+    rec_info = dict(info)
     q = np.round(total / UNIT).astype(int)
     keep = np.where(np.abs(q).max(1) >= 2)[0]                  # 0.02 mm and up
     rec = {
@@ -186,26 +199,59 @@ def trace_pass(person, det):
         'liberty': 'L-human-variation-3412',
         'body': asset,
         'points': scope,
-        'render_pose_deg': {k: round(float(pose[k]), 1) for k in ('yaw_deg', 'pitch_deg', 'roll_deg')},
+        'render_pose_deg': (old or {}).get('render_pose_deg'),
         'fit_sha256': hashlib.sha256(fit_text.encode()).hexdigest(),
-        'passes': (old['passes'] if old else 0) + 1,
-        'miss_before_px': {'rms': round(float(np.sqrt((miss[used] ** 2).sum(1).mean())), 2),
-                           'eye_span': round(float(np.linalg.norm(b[33] - b[263])), 1)},
+        'passes': (old or {}).get('passes', 0),
+        'miss_before_px': (old or {}).get('miss_before_px'),
+        'profile_passes': (old or {}).get('profile_passes', 0),
+        'profile_miss_mm': (old or {}).get('profile_miss_mm'),
         'max_mm': round(float(np.linalg.norm(q[keep] * UNIT, axis=1).max() * 1000), 2) if len(keep) else 0.0,
         'unit_m': UNIT,
         'vertices': [int(i) for i in keep],
         'delta': [int(v) for v in q[keep].ravel()],
     }
+    rec[counter] = rec[counter] + 1
+    rec.update(rec_info)
+    if not rec['profile_passes']:
+        del rec['profile_passes'], rec['profile_miss_mm']
     TRACES.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(rec, separators=(',', ':')).replace(',"vertices"', ',\n"vertices"').replace(',"delta"', ',\n"delta"') + '\n')
-    print(f"{person}: pass {rec['passes']}, miss before {rec['miss_before_px']['rms']} px rms "
-          f"(eye span {rec['miss_before_px']['eye_span']} px), {len(keep)} vertices, max {rec['max_mm']} mm")
+    print(f"{person}: {counter} {rec[counter]}, {json.dumps(rec_info)}, {len(keep)} vertices, max {rec['max_mm']} mm")
+
+
+def profile_pass(person, d):
+    """One pass from a side view: `d` holds the skin vertices on the render's silhouette (kit
+    order) and each one's move, metres in the rest frame, onto the picture's silhouette, as
+    tools/trace_portrait_profile.py reads them. A side view sees depth and height, not
+    sideways: each move is shared with the vertex's mirror; the eyes are held still."""
+    portrait = json.loads((fpf.PORTRAITS / f'{person}.json').read_text())
+    fit_text = (fpf.FITS / f'{person}.json').read_text()
+    fit = json.loads(fit_text)
+    asset = portrait['base_body']
+    rest = fpf.body_rest(asset)
+    kidx = fpf.kit_index()
+    table = json.loads(TABLE.read_text())['bodies'][asset]
+    eyes = [kidx[p['vertex']] for n, p in table['points'].items() if int(n[3:]) in EYES and p['vertex'] in kidx]
+    V = np.array(d['vertices'], int)
+    M = np.array(d['moves'], float).reshape(-1, 3) * np.array([0.0, 1.0, 1.0])
+    mirror = rest[V] * np.array([-1.0, 1.0, 1.0])
+    C = np.vstack([rest[V], mirror, rest[eyes]])
+    D = np.vstack([M, M, np.zeros((len(eyes), 3))])
+    Wt = np.concatenate([np.ones(len(V)), np.ones(len(V)), np.full(len(eyes), 3.0)])
+    info = {'profile_miss_mm': d.get('miss_mm')}
+    add_to_trace(person, fit_text, fit, asset, rest, C, D, Wt, info, 'profile_passes',
+                 (portrait.get('trace') or {}).get('points', 'all'))
 
 
 def main():
-    if len(sys.argv) != 2:
+    args = sys.argv[1:]
+    if len(args) == 2 and args[0] == '--profile':
+        for person, d in json.loads(pathlib.Path(args[1]).read_text()).items():
+            profile_pass(person, d)
+        return
+    if len(args) != 1:
         sys.exit(__doc__)
-    det = json.loads(pathlib.Path(sys.argv[1]).read_text())
+    det = json.loads(pathlib.Path(args[0]).read_text())
     for person, d in det.items():
         trace_pass(person, d)
 
