@@ -2,6 +2,7 @@
   "schema_version": 1,
   "content_version": 2,
   "category": "Taverns",
+  "menu_group": "Places",
   "featured": true,
   "review_required": false,
   "id": "taverns-of-chicago",

@@ -5,39 +5,77 @@
   "title": "Purse and basket fixture",
   "premise": "Exercise a fictional purchase, a bounded purse and a receipt ending.",
   "category": "Shopping",
+  "menu_group": "Errands",
   "scene": "1835",
   "opening": {
     "text": "This small fixture tests declared shopping resources without claiming a historical transaction. The purse, basket, prices, decision and receipt are invented solely to exercise the same bounded mechanics used by authored outings.",
     "read_s": 8
   },
   "default_mode": "walk",
-  "allowed_modes": ["walk", "instantly"],
+  "allowed_modes": [
+    "walk",
+    "instantly"
+  ],
   "variables": {
-    "money": { "min": 0, "max": 120, "initial": 120, "unit": "cents" },
-    "time": { "min": 0, "max": 60, "initial": 0, "unit": "minutes" }
+    "money": {
+      "min": 0,
+      "max": 120,
+      "initial": 120,
+      "unit": "cents"
+    },
+    "time": {
+      "min": 0,
+      "max": 60,
+      "initial": 0,
+      "unit": "minutes"
+    }
   },
   "inventory": {
-    "items": ["receipt", "parcel"],
+    "items": [
+      "receipt",
+      "parcel"
+    ],
     "initial": [],
     "capacity": 1
   },
   "stops": [
     {
       "id": "counter",
-      "destination": { "kind": "structure", "id": "peck_store" },
+      "destination": {
+        "kind": "structure",
+        "id": "peck_store"
+      },
       "text": "Stand outside the store and make one fictional choice. Buying the parcel spends seventy-five cents, takes ten story minutes and puts a receipt in the basket; browsing leaves every declared resource unchanged.",
       "read_s": 12,
-      "evidence": ["fixture"],
+      "evidence": [
+        "fixture"
+      ],
       "choices": [
         {
           "id": "buy",
           "label": "Buy the parcel",
           "consequence": "Spend seventy-five fictional cents and keep the receipt.",
-          "when": { "var": "money", "op": ">=", "value": 75 },
+          "when": {
+            "var": "money",
+            "op": ">=",
+            "value": 75
+          },
           "effects": [
-            { "op": "inc", "var": "money", "value": -75 },
-            { "op": "inc", "var": "time", "value": 10 },
-            { "op": "add", "item": "receipt", "value": 1 }
+            {
+              "op": "inc",
+              "var": "money",
+              "value": -75
+            },
+            {
+              "op": "inc",
+              "var": "time",
+              "value": 10
+            },
+            {
+              "op": "add",
+              "item": "receipt",
+              "value": 1
+            }
           ],
           "next": "$end"
         },
@@ -53,7 +91,9 @@
   "endings": [
     {
       "id": "receipt",
-      "when": { "has": "receipt" },
+      "when": {
+        "has": "receipt"
+      },
       "text": "The fictional receipt records the bounded purchase path.",
       "read_s": 5,
       "completion_eligible": true
@@ -82,5 +122,7 @@
     }
   ],
   "review_required": false,
-  "liberties": ["L-jaunt-pilot"]
+  "liberties": [
+    "L-jaunt-pilot"
+  ]
 }

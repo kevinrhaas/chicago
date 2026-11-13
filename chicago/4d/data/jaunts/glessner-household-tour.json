@@ -1,14 +1,20 @@
 {
  "schema_version": 1,
- "content_version": 1,
+ "content_version": 2,
  "category": "Neighbors",
+ "menu_group": "People",
+ "menu_rank": 1,
+ "plate": {
+  "structure": "glessner_house",
+  "picture": "a18-gh-cornell-glessner-rear-c1887"
+ },
  "featured": true,
  "review_required": false,
  "long_form": true,
  "id": "glessner-household-tour",
  "scene": "1904",
  "title": "The Glessner Household",
- "premise": "Spend a spring morning in 1904 round 1800 Prairie Avenue with the people who live and work there: the Glessners, their cooks and maids, the coachman and the stable boy, each at their own door.",
+ "premise": "Spend a spring morning in 1904 round 1800 Prairie Avenue with the people who live and work there: the Glessners, their cooks and maids, the stable boy, and the old coachman come back for the morning, each at their own door.",
  "default_mode": "walk",
  "allowed_modes": [
   "walk",
@@ -21,7 +27,7 @@
  },
  "opening": {
   "read_s": 30,
-  "text": "JAUNT: THE GLESSNER HOUSEHOLD. A spring morning, April 1904, at 1800 Prairie Avenue. On every other walk the people are out of your way. This time they are the walk.\n\nEight stops round the outside of the house, and at each one somebody who lives or works here is waiting at their own door: John and Frances Glessner, the two cooks, the parlor maid and the house maid, the coachman and the stable helper. Each tells you what they do here and sends you on to the next.\n\nThe people and the facts are from the house's own records: John Glessner's 1923 account of the house, the museum's research into Frances Glessner's journals, and the census of 1900. The words they say are written for this walk.\n\nMr. Glessner is on his front walk. Go and say good morning."
+  "text": "JAUNT: THE GLESSNER HOUSEHOLD. A spring morning, April 1904, at 1800 Prairie Avenue. On every other walk the people are out of your way. This time they are the walk.\n\nEight stops round the outside of the house, and at each one somebody who lives or works here is waiting at their own door: John and Frances Glessner, the two cooks, the parlor maid and the house maid, the stable helper, and the old coachman, who left the Glessners in 1902 and has come back this morning to show you his stable. Each tells you what they do here and sends you on to the next.\n\nThe people and the facts are from the house's own records: John Glessner's 1923 account of the house, the museum's research into Frances Glessner's journals, and the census of 1900. The words they say are written for this walk.\n\nMr. Glessner is on his front walk. Go and say good morning."
  },
  "stops": [
   {
@@ -213,7 +219,7 @@
      "local_n": -3209.32
     }
    ],
-   "text": "Hello, I'm Mary Reynolds, the house maid, and an Illinois girl. Welcome to our side of the house! Under the great arch is our own front door. We even have our own address, 35 Eighteenth Street, so our letters never mix with the family's. We women sleep up above the kitchen wing, four bedrooms off one hall, with a little porch over the street. The men live over the coach house, and there is no way through from their wing to ours. This door is also where the music gets smuggled in. On the twenty-fifth wedding anniversary Mr. Thomas brought the entire orchestra in this way and up the back stairs, and nobody upstairs knew a thing until they began to play. On New Year's Day last year a double quartet of horns crept up the same way. Charles will be at the stable doors, just along the street.",
+   "text": "Hello, I'm Mary Reynolds, the house maid, and an Illinois girl. Welcome to our side of the house! Under the great arch is our own front door. We even have our own address, 35 Eighteenth Street, so our letters never mix with the family's. We women sleep up above the kitchen wing, four bedrooms off one hall, with a little porch over the street. The men live over the coach house, and there is no way through from their wing to ours. This door is also where the music gets smuggled in. On the twenty-fifth wedding anniversary Mr. Thomas brought the entire orchestra in this way and up the back stairs, and nobody upstairs knew a thing until they began to play. On New Year's Day last year a double quartet of horns crept up the same way. Charles, our coachman until 1902, is back at the stable doors.",
    "evidence": [
     "voices",
     "outing",
@@ -247,11 +253,12 @@
      "local_n": -3211.63
     }
    ],
-   "text": "Good morning to you. Charles Nelson, coachman. I came from Sweden in 1871, and I've driven for Mr. Glessner since the old house on Washington Street, where Martha and I and little Norman lived over the coach house. Now there are five children, and we live here in the rear building. This is my stable: six stalls, and room in the carriage house for as many carriages, all white glazed brick so it can be washed down like a dairy. The furnace room is underneath, so the coal and ashes never come near the house itself. When they broke ground in June 1886, young George drove his father's horse and buggy to the site and threw the first soil with his sister. My helper August is round the corner at the courtyard gates in the alley.",
+   "text": "Good morning to you. Charles Nelson. I'll be honest with you: I'm not the coachman here in 1904. I drove for Mr. Glessner from 1878, back at the old house on Washington Street, until 1902, and I've come back this morning to show you my old stable. I came from Sweden in 1871, and by 1900 Martha and I had five children in the rear building here. Six stalls, and room in the carriage house for as many carriages, all white glazed brick so it can be washed down like a dairy. The furnace room is underneath, so coal and ashes never come near the house. When they broke ground in June 1886, young George drove his father's horse and buggy to the site and threw the first soil with his sister. Who holds the reins now, the records don't say. August is round the corner at the courtyard gates.",
    "evidence": [
     "voices",
     "outing",
     "charles",
+    "charles-1878-1902",
     "charles-1880",
     "charles-old-house",
     "stable-size",
@@ -267,7 +274,7 @@
     }
    ],
    "next": "august",
-   "read_s": 38
+   "read_s": 44
   },
   {
    "id": "august",
@@ -282,7 +289,7 @@
      "local_n": -3229.29
     }
    ],
-   "text": "Hallo! August Billings, the stable helper. I came over from Sweden in 1892, same year as Christine, and I sleep in the rear building with the other men. Charles has me at the harness and washing down the carriage, and I see to the doves too: the dovecotes hold near sixty, and their eggs go to the family's table. These gates are the back way into the court. They tell a story about them from before my time. In December 1887 the family brought every stick they owned in through here and into the house before the neighbours suspected even that they were about to move. That night they lit the new hearth with fire carried from the old one. That's the whole household. Thank you for coming round!",
+   "text": "Hallo! August Billings, the stable helper. I came over from Sweden in 1892, same year as Christine, and I sleep in the rear building with the other men. The coachman has me at the harness and washing down the carriage, and I see to the doves too: the dovecotes hold near sixty, and their eggs go to the family's table. These gates are the back way into the court. They tell a story about them from before my time. In December 1887 the family brought every stick they owned in through here and into the house before the neighbours suspected even that they were about to move. That night they lit the new hearth with fire carried from the old one. That's the whole household. Thank you for coming round!",
    "evidence": [
     "voices",
     "outing",
@@ -353,7 +360,7 @@
    "id": "finish",
    "completion_eligible": true,
    "read_s": 26,
-   "text": "Two years after this morning, in 1906, the Glessners gave up horses for motor cars, and the wall between Charles's stable and the carriage house came down. Mattie cooked here until 1912, when she left to marry in California; Frances Glessner wrote of her that she was 'one of the finest people that ever lived.' John and Frances lived in this house to the end of their lives, and in 1924 he signed a deed of gift for it. The rooms these people kept are a museum now."
+   "text": "Two years after this morning, in 1906, the Glessners gave up horses for motor cars, and the wall between the stable and the carriage house came down. Mattie cooked here until 1912, when she left to marry in California; Frances Glessner wrote of her that she was 'one of the finest people that ever lived.' John and Frances lived in this house to the end of their lives, and in 1924 he signed a deed of gift for it. The rooms these people kept are a museum now."
   }
  ],
  "keepsake": {
@@ -712,7 +719,7 @@
     "glessner_house_blog_servants_christmas_2012",
     "glessner_story_of_a_house_1923"
    ],
-   "reasoning": "The museum lists him as the Glessners' coachman at Christmas 1894 and reads the 1880 census as placing him over the coach house with his wife and son; the Glessners lived at Washington and Morgan Streets from 1875 to 1887 (Story of a House, HABS data page 11), so the coach house of 1880 is read as theirs. That he served them from then to 1904 without a break is not recorded."
+   "reasoning": "The museum lists him as the Glessners' coachman at Christmas 1894 and reads the 1880 census as placing him over the coach house with his wife and son; the Glessners lived at Washington and Morgan Streets from 1875 to 1887 (Story of a House, HABS data page 11), so the coach house of 1880 is read as theirs. The museum dates his service as coachman from 1878 until 1902 (claim charles-1878-1902)."
   },
   {
    "id": "charles-1880",
@@ -722,6 +729,15 @@
     "glessner_house_blog_servants_christmas_2012"
    ],
    "locator": "The post's list of the staff of Christmas 1894."
+  },
+  {
+   "id": "charles-1878-1902",
+   "text": "Charles Nelson, an immigrant from Sweden, was the Glessners' coachman from 1878 until 1902, so he was no longer in their service in 1904; who drove for them from 1902 is not recorded in the sources read.",
+   "confidence": "attested",
+   "sources": [
+    "glessner_journal_2021_08"
+   ],
+   "locator": "Page 3, 'Secrets of Glessner House, Part 19: The Coachman'."
   },
   {
    "id": "stable-size",

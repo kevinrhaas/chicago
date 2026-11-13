@@ -2,7 +2,7 @@ import { currentStop, choicesFor, canNext, choiceStatus, choiceConsequence, reso
 import { claimPresentation } from './jaunt-context.js';
 import { PACES } from './travel-settings.js';
 import { formatEstimate } from './travel-estimate.js';
-import { FAMILIES, familySlot, icon } from './menu-icons.js';
+import { groupIcon, groupOf, groupSlot, icon } from './menu-icons.js';
 import { ambienceLabel } from './jaunt-menu.js';
 
 /** T-3432: a jaunt's opening, in paragraphs, without the "JAUNT: ITS TITLE." its welcome
@@ -179,9 +179,10 @@ export function createJauntPanel({ destinations, actions, catalogRow = () => nul
    * at stop 1 later in the outing, the opening folds away.
    */
   function welcome(opening) {
-    const row = catalogRow(state.jaunt.id) || {}, family = row.primary_family;
-    const hero = node('header', '', `jaunt-welcome jaunt-type-${familySlot(family)}`);
-    const badge = node('span', '', 'jaunt-welcome-badge'); badge.append(icon(FAMILIES.includes(family) ? family : 'jaunts', 26));
+    // T-3584: the welcome names the jaunt's menu group, as its card does.
+    const row = catalogRow(state.jaunt.id) || {}, family = groupOf(row);
+    const hero = node('header', '', `jaunt-welcome jaunt-type-${groupSlot(family)}`);
+    const badge = node('span', '', 'jaunt-welcome-badge'); badge.append(icon(family ? groupIcon(family) : 'jaunts', 26));
     const words = node('div', '', 'jaunt-welcome-words');
     words.append(node('p', `Jaunt · ${state.jaunt.scene}${family ? ` · ${family}` : ''}`, 'jaunt-welcome-k'), node('h2', state.jaunt.title, 'jaunt-welcome-title'));
     hero.append(badge, words); body.append(hero);

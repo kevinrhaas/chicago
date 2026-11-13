@@ -170,7 +170,9 @@ const SKIN_COLOR = `
     {
       vec3 q = ( chiFace * vec4( p, 1.0 ) ).xyz;
       float ax = abs( q.x ), y = q.y, A = chiFaceLook.x;
-      float face = step( -1.5, q.z ) * step( abs( y ), 9.0 ) * step( ax, 7.0 );
+      // Its bounds fade over a couple of centimetres (T-3553: a long chin, Sarah Grey's, met the
+      // old hard edge 9 cm below the eyes as a straight line across it, sallow above, rosy below).
+      float face = smoothstep( -2.0, -1.0, q.z ) * ( 1.0 - smoothstep( 8.0, 11.0, abs( y ) ) ) * ( 1.0 - smoothstep( 6.5, 8.0, ax ) );
       float cmPix = pix * 100.0;   // centimetres per pixel
       // The lips' parting (T-3553): the top of the lower lip faces the sky, and nothing here
       // knows the upper lip hangs over it, so with the sun behind a person (the face lit by
@@ -186,6 +188,7 @@ const SKIN_COLOR = `
       brow *= 0.75 + 0.5 * chiSkinNoise( p * 900.0 );
       c = mix( c, c * chiBrowTint, clamp( brow * chiFaceLook.y * face, 0.0, 1.0 ) );
       if ( A > 0.0 && face > 0.0 ) {
+        vec3 c0 = c;   // the age is laid on as far as the face goes, fading at its bounds
         float ys = chiFaceMarks.x, ym = chiFaceMarks.y, mw = chiFaceMarks.z, nx = chiFaceMarks.w;
         // The fold from the nose's wing round to beyond the mouth's corner, bowed out a little.
         float t = clamp( ( ys + 0.7 - y ) / ( ys + 0.7 - ( ym - 0.5 ) ), 0.0, 1.0 );
@@ -224,7 +227,8 @@ const SKIN_COLOR = `
         c = mix( c, c * vec3( 1.03, 0.97, 0.88 ), 0.6 * A );
         c *= 1.0 + A * 0.6 * ( vec3( 0.06, -0.02, -0.04 ) * blood + vec3( -0.05, -0.07, -0.1 ) * tone );
         // Height, metres: grooves, and the fullness of the cheek above the fold and under the eye.
-        ageH = A * ( - 0.0009 * fold - 0.0005 * mar - 0.00045 * crease - 0.0001 * crow - 0.0001 * fl + 0.0015 * cheek + 0.0006 * bag );
+        ageH = face * A * ( - 0.0009 * fold - 0.0005 * mar - 0.00045 * crease - 0.0001 * crow - 0.0001 * fl + 0.0015 * cheek + 0.0006 * bag );
+        c = mix( c0, c, face );
       }
     }
     diffuseColor.rgb = c;
