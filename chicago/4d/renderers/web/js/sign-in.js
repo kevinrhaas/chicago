@@ -11,7 +11,9 @@
  * instruments, offering:
  *
  *   - Continue with Google: Firebase Auth, a popup (redirect when the popup is blocked);
- *   - or an email: Firebase anonymous sign-in plus the typed address, unverified for now.
+ *   - behind a small grey "No Google account? Sign in manually" link (the owner: "we
+ *     really want them to auth through Google"), an email: Firebase anonymous sign-in
+ *     plus the typed address, unverified for now.
  *     (Verified email later is Firebase's email-link sign-in on the same project.)
  *
  * Firebase keeps the sign-in on the device (IndexedDB) for the whole site, so the next
@@ -106,10 +108,10 @@ export function buildPanel(doc, { year }) {
   el.innerHTML = `
     <p class="signin-eyebrow"><span>Entry check</span><b></b></p>
     <h2 id="signin-title" class="signin-title" tabindex="-1">Sign in to travel</h2>
-    <p class="signin-lede">One sign-in opens every year. Use Google, or just leave your email.</p>
+    <p class="signin-lede">One sign-in opens every year.</p>
     <button type="button" class="signin-google">${GOOGLE_G}<span>Continue with Google</span></button>
-    <p class="signin-or" aria-hidden="true"><span>or</span></p>
-    <form class="signin-email" novalidate>
+    <button type="button" class="signin-manual" aria-expanded="false" aria-controls="signin-email-form">No Google account? Sign in manually</button>
+    <form id="signin-email-form" class="signin-email" novalidate hidden>
       <label class="visually-hidden" for="signin-email-input">Email</label>
       <input id="signin-email-input" type="email" name="email" inputmode="email" autocomplete="email"
              autocapitalize="off" spellcheck="false" placeholder="you@example.com" required>
@@ -121,6 +123,7 @@ export function buildPanel(doc, { year }) {
   return {
     el,
     google: el.querySelector('.signin-google'),
+    manual: el.querySelector('.signin-manual'),
     form: el.querySelector('.signin-email'),
     input: el.querySelector('#signin-email-input'),
     enter: el.querySelector('.signin-enter'),
@@ -165,6 +168,14 @@ function askVisitor({ gate, year, onGoogle, onEmail, storage }) {
       setBusy(false);
     };
     parts.google.addEventListener('click', () => attempt(onGoogle, 'google'));
+    // The owner, 2026-11-13: "we really want them to auth through Google", so the email
+    // box waits behind a small grey link and opens only when asked for.
+    parts.manual.addEventListener('click', () => {
+      parts.form.hidden = false;
+      parts.manual.hidden = true;
+      parts.manual.setAttribute('aria-expanded', 'true');
+      try { parts.input.focus({ preventScroll: true }); } catch { /* old browser */ }
+    });
     parts.form.addEventListener('submit', event => {
       event.preventDefault();
       const email = parts.input.value.trim();

@@ -14,7 +14,8 @@ with some usage numbers.
   place (`css/signin.css`), in every Appearance, at phone and desktop widths.
 - **Google.** Firebase Auth, `signInWithPopup` (a popup is what works on iPhone Safari
   and Chrome; a blocked popup falls back to `signInWithRedirect`).
-- **Email.** Firebase anonymous sign-in plus the typed address, which is not verified.
+- **Email.** Behind a small grey "No Google account? Sign in manually" link (the owner's
+  ruling: Google is the way in), Firebase anonymous sign-in plus the typed address, which is not verified.
   The upgrade to verified email is Firebase's email-link sign-in on the same project.
 - **Once.** Firebase keeps the sign-in in the browser for the whole site, so the next
   year and the next visit pass straight through. An email visitor's address is kept in
