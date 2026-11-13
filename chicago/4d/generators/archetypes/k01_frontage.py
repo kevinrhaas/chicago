@@ -4098,6 +4098,13 @@ class Assembly:
         for o in p.openings:   # nothing on the front it stands before
             if h.get("columns") and o.head_m + 0.30 <= y0:
                 continue   # T-1871: a window behind a porch on columns, its lintel under the soffit
+            if h.get("door_over") and o.component == "k01.opening.balcony_door" and o.wall == op.wall:
+                # T-1886: the door over the door opens onto the deck, behind its railing
+                if not (S0 + 0.1 < o.s_m - o.width_m / 2 and o.s_m + o.width_m / 2 < S1 - 0.1
+                        and y2 - 0.01 <= o.sill_m <= y2 + 0.3):
+                    raise ValueError(f"the door over the door (s {o.s_m}, sill {o.sill_m} m) does not open onto "
+                                     f"the hood's deck ({S0:.2f}-{S1:.2f} m, {y2:.2f} m)")
+                continue
             top = y3
             if ped and o.wall == op.wall and o is not op:
                 # T-3562: a pediment falls from its apex to its ends: the hood's top over the
