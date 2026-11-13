@@ -3258,7 +3258,8 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                 v6 = next((x for x in k06["variants"] if x["id"] == w["opening"]), {})
                 what = f"bays: {e['id']}'s architrave"
                 if not isinstance(ar, dict) or not {"band_m", "proud_m"} <= set(ar) <= {"band_m", "proud_m", "impost_m",
-                                                                                     "key_m", "rise_m", "columns"} \
+                                                                                     "key_m", "rise_m", "columns",
+                                                                                     "pediment"} \
                         or v6.get("head") != "round" or e.get("fabric", "stone") == "frame" \
                         or any(k in w for k in ("surround", "voussoirs", "tympanum", "narrow")):
                     raise ParamError(f"{what} takes band_m and proud_m, and optionally impost_m [height, out], "
@@ -3307,6 +3308,35 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                 crown = head + arc.get("rise_m", 0.0) + max(b, arc.get("key_m", [0.0, 0.0])[1])
                 if crown > float(st["height_m"]) - 0.05:
                     raise ParamError(f"{what} rises to {crown:.2f} m, past its {st['height_m']} m storey")
+                if ar.get("pediment") is not None:
+                    # T-3370: a scrolled pediment over the arch (1936's dining range pairs, the
+                    # Chicagology photograph: carved hoods rising about 1.1-1.2 m over the pairs'
+                    # heads): two arms `band_m` broad and `proud_m` out curling in to volutes
+                    # `scroll_m` in radius, a capped cartouche between them `rise_m` over the
+                    # lights' heads, in place of a keystone. It may rise past its storey's floor
+                    # band, never into the storey over it past that storey's lowest sill
+                    # (k08_bays.scrolled_pediment and the bay's check against the lights over it)
+                    pd = ar["pediment"]
+                    ok = isinstance(pd, dict) and set(pd) == {"rise_m", "band_m", "proud_m", "scroll_m"} \
+                        and "key_m" not in arc
+                    if ok:
+                        pd = {k: float(pd[k]) for k in sorted(pd)}
+                        ok = 0.1 <= pd["band_m"] <= 0.3 and pr + 0.02 <= pd["proud_m"] <= 0.25 \
+                            and pd["band_m"] / 2 + 0.02 <= pd["scroll_m"] <= 0.25 \
+                            and crown + 0.3 <= head + pd["rise_m"]
+                    if not ok:
+                        raise ParamError(f"{what}.pediment: rise_m (over the lights' heads, 0.3 m past the arch's "
+                                         f"crown), band_m (0.1-0.3 m), proud_m (0.02 m past the band's {pr} m, up to "
+                                         f"0.25 m) and scroll_m (past half the band, up to 0.25 m), with no key_m, "
+                                         f"not {ar['pediment']}")
+                    k_ = next(i_ for i_, x_ in enumerate(v["storeys"]) if x_ is st)
+                    up = v["storeys"][k_ + 1] if k_ + 1 < len(v["storeys"]) else None
+                    room = float(st["height_m"]) + (min((float(x["sill_m"]) for x in up["windows"]),
+                                                       default=float(up["height_m"])) - 0.1 if up else -0.05)
+                    if head + pd["rise_m"] > room:
+                        raise ParamError(f"{what}.pediment rises to {head + pd['rise_m']:.2f} m over its storey's "
+                                         f"floor, past {room:.2f} m (under the storey over it's lowest sill)")
+                    arc["pediment"] = pd
                 w["architrave"] = arc
         for st in v["storeys"]:
             for w in st["windows"]:
