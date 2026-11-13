@@ -122,6 +122,14 @@ def join_for(end, walks):
     (p0, p1), (q0, q1) = end["corners"], (hits[0][1], hits[1][1])
     dx = ((q0[0] - p0[0]) + (q1[0] - p1[0])) / 2
     dy = ((q0[1] - p0[1]) + (q1[1] - p1[1])) / 2
+    if hits[0][2] != hits[1][2]:
+        # A corner end whose two corners lie nearest two different streets' walks (Glessner's
+        # north lawn, whose north corner stands at the 18th Street walk): the average of the
+        # two ways out ran the join's side off at 45 degrees and left a triangle of grass by
+        # the front walk (owner, 2026-11-13). Square it to the face it is laid to.
+        k = 0 if hits[0][2] == rec["face"] else 1
+        (pk, qk) = ((p0, q0), (p1, q1))[k]
+        dx, dy = qk[0] - pk[0], qk[1] - pk[1]
     L = math.hypot(dx, dy) or 1.0
     ux, uy = dx / L, dy / L
     # each corner's own reach along that direction, to the band's edge

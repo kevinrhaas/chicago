@@ -2,7 +2,7 @@
   "structure_id": "glessner_house",
   "view": "habs-15-stable-detail",
   "glb": "assets/gltf/glessner_house__as_built_1887.glb",
-  "glb_sha256": "d7c9d9cc88d9da40b5b34cd6a4912bc681a3e4ad7ecc1e28189a43d3c686494b",
+  "glb_sha256": "16867b5bcc547baa0c258468fa80c29602cad378699f948d2fe7b0b8f2b71b31",
   "camera_sha256": "593c7c5e3fcdfd3278fef4c109d799b644e36c0db59f3245b3c9af3a0d8ed2f2",
   "photo_sha256": "b2606ba44eb608ed801cd9e2ead0d58a0d24a99b9a443fdac8c8023bf0636cbc",
   "side_by_side": "docs/RESEARCH/photo-match/glessner_house/habs-15-stable-detail-side-by-side.jpg",
@@ -90,6 +90,10 @@
     },
     {
       "what": "T-3564, re-reviewed on the rebake after the owner's later 2026-11-12 notes: the stable's south-wall windows (four upper, the first-floor triple and its header) are centred on the gable at W 141, and that wall and the court wall's tall alley run are laid in buff Chicago common brick. This camera does not see those faces; nothing it draws moved.",
+      "status": "fixed"
+    },
+    {
+      "what": "Window surrounds, 2026-11-13 (owner: 'check all the windows'), reviewed on the rebaked master: the stable's eight alley lights and the two 18th Street loft lights beside the loft door stand on the granite's bed joints (moves of 0.1-0.6 ft), the loft door's foot on the joint under it, and the alley lights' thin projecting sills are gone, as the Cornell print and the owner's photograph 17 show them cut square into the coursing. The Prairie front walk falls over its last paving joint to meet the public walk flush. Nothing else this view draws moved (L-glessner-window-courses).",
       "status": "fixed"
     }
   ],
