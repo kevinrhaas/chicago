@@ -1597,6 +1597,13 @@ step "a K01 light named in street_front_trim.lights wears its storey's head and 
 step "a K01 rear wing takes a slated hip or gable, its junction with the host closed above the host's top (T-2841)" \
   python3 tools/test_k01_wing_roof.py
 
+# T-1872. ...and a K01 hip or gable whose pitch a source reads may stand below the ordinary
+# band as well as above it (1712 Prairie's low hip, 18 degrees off the 1893 Rand McNally
+# strip), down to the top of the flat band; a reconstructed pitch keeps the 25-degree floor,
+# and an unsourced, a deck-low or a past-steep one is refused.
+step "a K01 hip a source reads may stand below the ordinary pitch band, to the flat band's top (T-1872)" \
+  python3 tools/test_k01_source_pitch.py
+
 # T-3063. ...and a K01 gable roof's rear slope falls steeply to a flat deck under a level
 # coped wall head (1811 Prairie's south wall behind its tall stack, level in both its
 # pictures): the deck under the coping, the line level to the fall's foot and clear of the

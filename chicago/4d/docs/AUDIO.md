@@ -86,7 +86,12 @@ what the panel shows. Each script is keyed by the SHA-256 of its words.
 
 **Voices.** `data/narration/voices.json` lists the voiced jaunts and a voice per speaker: an
 ElevenLabs voice id, or the exact name of one of the owner's voices; `null` is not yet chosen
-and that speaker is skipped. Model, output format (`mp3_44100_64`, mono speech at 64 kbit/s,
+and that speaker is skipped. The owner chose his voices on 2026-11-13 by name ("Character -
+Glessner, John" and so on), and gave two narrators, the **Cultivated Essayist** (default) and the
+**Midwestern Storyteller**: every narrator script is voiced once in each (index key
+`<sha>~essayist`, `<sha>~storyteller`), and a visitor picks one in Settings › Sound › Narrator; a
+narrator not yet voiced falls back to the essayist. The two lists (`narration.js` `NARRATORS`,
+`voices.json` `narrators`) are held equal by `tools/test_narration.mjs`. Model, output format (`mp3_44100_64`, mono speech at 64 kbit/s,
 about 0.5 MB a minute), voice settings and a per-run character cap live there too.
 
 **Voicing.** `.github/workflows/chicago-4d-narration.yml` runs on a push to dev that touches a
@@ -109,7 +114,7 @@ iPhone Chrome, then lets later stops start unprompted), streams through Settings
 **Narration** bus under Master, and music, ambience and effects duck to 0.3 while it speaks.
 With sound on and Narration up, arriving at a stop starts its voice, or queues it behind the one
 still speaking; travelling on does not cut a voice off; muting Narration or all sound, hiding
-the page or leaving the jaunt ends it. A Listen tap with sound off turns it on. The
+the page or leaving the jaunt ends it. A Listen tap with sound off turns it on. A jaunt's Start, Continue, Next Stop and Straight-there taps also prime the element, so the opening (the title, then the Background) plays as the jaunt begins and John follows it at the first stop. The
 Navigator's **Mute narration** key flips the Narration level as Mute music flips Music.
 
 **Liberty.** The voices are synthetic and chosen by ear, not the people's voices

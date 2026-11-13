@@ -308,7 +308,17 @@ WIDE_RANGE_YEARS = 12
 # 1022.233 MiB, under the 1024 MiB accounting ceiling by 1.767: this is the LAST
 # whole-MiB raise that fits. The next one must be a cut (T-3232's lever: each KTX2
 # kit sheet shipped once). Boot, frame, Light, memory and duplicate gates unchanged.
-SITE_BUDGET_MB = 445
+# T-3581, 2026-11-13, 445 -> 740 MiB: the owner split the dev preview onto its own
+# GitHub Pages site (kevinrhaas/chicago-dev, dev.chicago.polecat.live/4d/dev/; main
+# #1994). Each site now holds ONE copy of this tree, so the 2 x cap arithmetic above
+# no longer applies. The binding site is production's: this tree plus the other
+# content it carries (landing films 58.589, /pre-fire/ 47.880, /prairie-1904/ as
+# deploy.yml republishes it 46.974, /rebuilding-1870s/ 37.333, root pages 0.159 =
+# 190.935 MiB, measured 2026-11-13) must fit the deploy's 1,000,000,000-byte limit
+# (953.674 MiB). 740 + 190.935 = 930.935 MiB, 22.7 MiB under it, kept as room for the
+# landing page to grow. The dev site carries only this tree. docs/SITE-BUDGET.md §19.
+# Boot, frame, Light, memory, warning and duplicate gates unchanged.
+SITE_BUDGET_MB = 740
 # Warn at 90 % of it. See run_site_check for why this band exists (T-0722).
 SITE_WARN_FRACTION = 0.90
 # Identical files smaller than this are not worth a merge refusal (T-0722).
