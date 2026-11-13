@@ -319,14 +319,48 @@ export function glessnerNorthEntryPlan(sidecar) {
   return plan;
 }
 
-/** The door plans a record carries (none for any record not in HOUSE_DOORS). */
+/** T-3554: passages a doors file carries (derive_doors_scene.py), by structure id. */
+const registered = new Map();
+
+/**
+ * T-3554 (owner, 2026-11-12: *"make sure they are openable and closeable for a person to enter
+ * and make sure that people can walk up the stairs instead of vanishing into the staircase"*).
+ * The passages a scene's doors file (data/humans/doors_<scene>.json) carries as plans: a 1904
+ * house's built front leaf, hung to swing, with the way up its stoop read off the model
+ * (derive_doors_scene.py stoop_way). Called before the buildings load, so their leaves are
+ * lifted out of the batches. Replaces what an earlier call registered; returns how many.
+ */
+export function registerDoorPlans(doorsFile) {
+  registered.clear();
+  let n = 0;
+  for (const row of doorsFile?.structures ?? []) {
+    const plans = (row.doors ?? []).filter((d) => d?.passage && d.plan?.way?.length >= 2 && d.plan.leaf)
+      .map((d) => ({ treads: [], ...d.plan, id: d.id, structureId: row.structure, passage: true }));
+    if (plans.length) registered.set(row.structure, plans);
+    n += plans.length;
+  }
+  return n;
+}
+
+/** The door plans a record carries: HOUSE_DOORS' own, and the registered ones. */
 export function doorPlansOf(record) {
-  if (!record?.sidecar || !HOUSE_DOORS[record.id]) return [];
+  if (!record?.sidecar) return [];
+  const extra = registered.get(record.id) ?? [];
+  if (!HOUSE_DOORS[record.id]) return extra;
   if (record.id === 'glessner_house') {
-    return [glessnerFrontPlan(record.sidecar), glessnerCourtPlan(record.sidecar), glessnerNorthEntryPlan(record.sidecar)]
+    return [glessnerFrontPlan(record.sidecar), glessnerCourtPlan(record.sidecar), glessnerNorthEntryPlan(record.sidecar), ...extra]
       .filter(Boolean);
   }
-  return [];
+  return extra;
+}
+
+/** A plan's leaves, each { s: [s0, s1], hinge }: one, or a pair meeting in the middle, each
+ *  hung at its own jamb, for an opening wider than one leaf (plan.pair). */
+export function leavesOf(plan) {
+  const [s0, s1] = plan.leaf.s;
+  if (!plan.pair) return [{ s: [s0, s1], hinge: plan.hinge }];
+  const mid = (s0 + s1) / 2;
+  return [{ s: [s0, mid], hinge: 'left' }, { s: [mid, s1], hinge: 'right' }];
 }
 
 /**
@@ -337,6 +371,13 @@ export function doorPlansOf(record) {
  */
 export function passagePlan(plan) {
   const inner = planPoint(plan, plan.leaf.back - PASSAGE_IN_M, (plan.jambs[0] + plan.jambs[1]) / 2);
+  if (plan.way) {
+    // T-3554: a way read off the built stoop (derive_doors_scene.py), its risers eased there.
+    const out = plan.way.map(([u, v, y]) => ({ u, v, y: y ?? null }));
+    out.door = out.length - 1;
+    for (const [u, v] of [planPoint(plan, 0, (plan.jambs[0] + plan.jambs[1]) / 2), inner]) out.push({ u, v, y: plan.sill });
+    return out;
+  }
   const route = [...plan.route, planPoint(plan, 0, (plan.jambs[0] + plan.jambs[1]) / 2), inner];
   const doorAt = plan.route.length - 1;
   const reveal = (u, v) => {
@@ -393,19 +434,20 @@ export function planPoint(plan, d, s) {
     plan.origin[1] + plan.outward[1] * d + plan.along[1] * s];
 }
 
-/** The hinge (d, s) and the leaf's direction from it, shut, in (d, s). */
-function hingeOf(plan) {
-  const right = plan.hinge === 'right';
-  return { d: plan.leaf.back, s: right ? plan.leaf.s[1] : plan.leaf.s[0], toFree: right ? -1 : 1,
-    width: plan.leaf.s[1] - plan.leaf.s[0] };
+/** The hinge (d, s) and the leaf's direction from it, shut, in (d, s); `k` the leaf of a pair. */
+function hingeOf(plan, k = 0) {
+  const leaf = plan.pair ? leavesOf(plan)[k] : { s: plan.leaf.s, hinge: plan.hinge };
+  const right = leaf.hinge === 'right';
+  return { d: plan.leaf.back, s: right ? leaf.s[1] : leaf.s[0], toFree: right ? -1 : 1,
+    width: leaf.s[1] - leaf.s[0] };
 }
 
 /**
  * The leaf at swing fraction t (0 shut, 1 open) in (d, s): its hinge, the direction to its
  * free edge, and the direction its outer face looks. Inward is -d.
  */
-export function leafPose(plan, t) {
-  const h = hingeOf(plan);
+export function leafPose(plan, t, k = 0) {
+  const h = hingeOf(plan, k);
   const a = ((plan.openDeg ?? DOOR_OPEN_DEG) * Math.PI / 180) * Math.max(0, Math.min(1, t));
   // Shut the free edge lies along s (toFree); it turns toward -d (into the house).
   const dir = [-Math.sin(a), h.toFree * Math.cos(a)];
@@ -422,7 +464,7 @@ export function leafBox(plan) {
   const p1 = planPoint(plan, plan.leaf.front + 0.07, plan.jambs[1] - 0.004);
   return {
     x: [Math.min(p0[0], p1[0]), Math.max(p0[0], p1[0])],
-    y: [plan.sill + 0.003, plan.head + 0.015],
+    y: [Math.min(plan.sill + 0.003, plan.leaf.foot - 0.003), plan.head + 0.015],
     z: [-Math.max(p0[1], p1[1]), -Math.min(p0[1], p1[1])],
     // A triangle wholly behind this depth is the pane's backing, not the leaf.
     keepD: plan.leaf.back - 0.05,
@@ -440,7 +482,7 @@ export function takeDoorLeaf(record, mesh, matrix) {
   const plans = doorPlansOf(record);
   if (!plans.length || !mesh?.geometry) return [];
   const material = Array.isArray(mesh.material) ? mesh.material[0] : mesh.material;
-  if (!LEAF_MATERIALS.has(material?.name)) return [];
+  if (!LEAF_MATERIALS.has(material?.name) && !plans.some((p) => p.leafMaterials?.includes(material?.name))) return [];
   const geo = mesh.geometry;
   if (geo.userData.doorLeaves) return geo.userData.doorLeaves;
   const pos = geo.getAttribute('position');
@@ -465,15 +507,21 @@ export function takeDoorLeaf(record, mesh, matrix) {
       && world[3 * k + 2] >= box.z[0] && world[3 * k + 2] <= box.z[1];
     // Depth out from the face, for the plan's outward axis (x is u, z is -v).
     const depth = (k) => (world[3 * k] - plan.origin[0]) * plan.outward[0] + (-world[3 * k + 2] - plan.origin[1]) * plan.outward[1];
-    const tris = [];
+    // Along the face (s), to tell a pair's two leaves apart by where a triangle's middle is.
+    const along = (k) => (world[3 * k] - plan.origin[0]) * plan.along[0] + (-world[3 * k + 2] - plan.origin[1]) * plan.along[1];
+    const mid = plan.pair ? (plan.leaf.s[0] + plan.leaf.s[1]) / 2 : null;
+    const tris = [[], []];
     for (let t = 0; t < count / 3; t += 1) {
       if (lifted[t]) continue;
       const a = at(3 * t), b = at(3 * t + 1), c = at(3 * t + 2);
       if (!(inBox(a) && inBox(b) && inBox(c))) continue;
       lifted[t] = 1;
-      if (Math.min(depth(a), depth(b), depth(c)) >= box.keepD) tris.push(a, b, c);
+      if (Math.min(depth(a), depth(b), depth(c)) < box.keepD) continue;
+      tris[mid !== null && (along(a) + along(b) + along(c)) / 3 > mid ? 1 : 0].push(a, b, c);
     }
-    if (tris.length) out.push({ doorId: plan.id, geometry: subGeometry(geo, tris, matrix) });
+    tris.forEach((list, leaf) => {
+      if (list.length) out.push({ doorId: plan.id, leaf, geometry: subGeometry(geo, list, matrix) });
+    });
   }
   if (lifted.some(Boolean)) {
     const keep = [];
@@ -690,10 +738,9 @@ export function createHouseDoors({ registry, buildings, footprints = [], decks =
 
   /** A door's leaf pieces, from the buildings layer (which owns them), on the pivot. */
   function hangLeaf(entry, layer) {
-    for (const mesh of [...entry.pivot.children]) entry.pivot.remove(mesh);
+    const pivots = entry.pivots ?? [entry.pivot];
+    for (const pivot of pivots) for (const mesh of [...pivot.children]) pivot.remove(mesh);
     const pieces = layer?.doorLeaves?.get(entry.plan.id) ?? [];
-    const h = hingeOf(entry.plan);
-    const [hu, hv] = planPoint(entry.plan, h.d, h.s);
     const conf = { attested: 0, inferred: 0.5, reconstructed: 1 }[entry.plan.grades.leaf] ?? 0;
     for (const piece of pieces) {
       const n = piece.geometry.getAttribute('position').count;
@@ -706,12 +753,15 @@ export function createHouseDoors({ registry, buildings, footprints = [], decks =
       }
       const mesh = new THREE.Mesh(piece.geometry, piece.material);
       // The pieces are in the structure's frame; the pivot stands at the hinge.
+      const k = Math.min(piece.leaf ?? 0, pivots.length - 1);
+      const h = hingeOf(entry.plan, k);
+      const [hu, hv] = planPoint(entry.plan, h.d, h.s);
       mesh.position.set(-hu, 0, hv);
       mesh.name = `house-door-leaf:${entry.plan.id}:${piece.material.name}`;
       mesh.castShadow = true;
       mesh.receiveShadow = true;
       mesh.userData.structure_id = entry.plan.structureId;
-      entry.pivot.add(mesh);
+      pivots[k].add(mesh);
     }
     entry.holder.updateMatrixWorld(true);
     return pieces.length;
@@ -733,16 +783,22 @@ export function createHouseDoors({ registry, buildings, footprints = [], decks =
     holder.matrixAutoUpdate = false;
     holder.matrix.copy(m);
     group.add(holder);
-    const h = hingeOf(plan);
-    const [hu, hv] = planPoint(plan, h.d, h.s);
-    const pivot = new THREE.Object3D();
-    pivot.position.set(hu, 0, -hv);
-    holder.add(pivot);
-    const vestibule = new THREE.Mesh(vestibuleGeometry(plan), vestibuleMaterial);
-    vestibule.name = `house-door-vestibule:${plan.id}`;
-    vestibule.userData.structure_id = id;
-    holder.add(vestibule);
-    const entry = { plan, holder, pivot, matrix: m.clone() };
+    const pivots = leavesOf(plan).map((_, k) => {
+      const h = hingeOf(plan, k);
+      const [hu, hv] = planPoint(plan, h.d, h.s);
+      const pivot = new THREE.Object3D();
+      pivot.position.set(hu, 0, -hv);
+      holder.add(pivot);
+      return pivot;
+    });
+    // A built house's own dark backing stands behind its opening; others get the vestibule.
+    if (plan.vestibule !== false) {
+      const vestibule = new THREE.Mesh(vestibuleGeometry(plan), vestibuleMaterial);
+      vestibule.name = `house-door-vestibule:${plan.id}`;
+      vestibule.userData.structure_id = id;
+      holder.add(vestibule);
+    }
+    const entry = { plan, holder, pivot: pivots[0], pivots, matrix: m.clone() };
     hangLeaf(entry, buildings);
     const v3 = new THREE.Vector3();
     const enu = (u, v, y = 0) => { v3.set(u, y, -v).applyMatrix4(entry.matrix); return { e: v3.x, n: -v3.z, y: v3.y }; };
@@ -773,12 +829,14 @@ export function createHouseDoors({ registry, buildings, footprints = [], decks =
     passage.setSwing = (t) => {
       passage.swing = t;
       const eased = t * t * (3 - 2 * t);
-      const pose = leafPose(plan, eased);
-      const du = plan.outward[0] * pose.dir[0] + plan.along[0] * pose.dir[1];
-      const dv = plan.outward[1] * pose.dir[0] + plan.along[1] * pose.dir[1];
-      const shut0 = leafPose(plan, 0).dir;
-      const su = plan.outward[0] * shut0[0] + plan.along[0] * shut0[1], sv = plan.outward[1] * shut0[0] + plan.along[1] * shut0[1];
-      pivot.rotation.y = Math.atan2(dv, du) - Math.atan2(sv, su);
+      pivots.forEach((pivot, k) => {
+        const pose = leafPose(plan, eased, k);
+        const du = plan.outward[0] * pose.dir[0] + plan.along[0] * pose.dir[1];
+        const dv = plan.outward[1] * pose.dir[0] + plan.along[1] * pose.dir[1];
+        const shut0 = leafPose(plan, 0, k).dir;
+        const su = plan.outward[0] * shut0[0] + plan.along[0] * shut0[1], sv = plan.outward[1] * shut0[0] + plan.along[1] * shut0[1];
+        pivot.rotation.y = Math.atan2(dv, du) - Math.atan2(sv, su);
+      });
       holder.updateMatrixWorld(true);
     };
     passage.setSwing(0);
@@ -787,7 +845,8 @@ export function createHouseDoors({ registry, buildings, footprints = [], decks =
     passages.push(passage);
   }
 
-  for (const [id, sides] of Object.entries(HOUSE_DOORS)) {
+  for (const id of new Set([...Object.keys(HOUSE_DOORS), ...registered.keys()])) {
+    const sides = HOUSE_DOORS[id] ?? {};
     const record = registry.get(id);
     if (!record) continue;                            // not in this year's scene
     for (const plan of doorPlansOf(record)) {
@@ -933,6 +992,12 @@ export function createHouseDoors({ registry, buildings, footprints = [], decks =
     /** T-3524: the doors drawn people open (the header): by id, and all of them. */
     passages,
     passage: (id) => passages.find((x) => x.id === id) ?? null,
+    /** T-3554: passages another layer hangs (back-yards.js's back doors), swung and found here
+     *  with these. Each needs id, swing, holders, setSwing, hold, release, isOpen and way. */
+    adopt(list) {
+      for (const x of list ?? []) if (x?.id && !passages.some((y) => y.id === x.id)) passages.push(x);
+      return passages.length;
+    },
     /** One frame: each passage swings toward open while anyone holds it, else shut. */
     update(dt) {
       if (!(dt > 0)) return;

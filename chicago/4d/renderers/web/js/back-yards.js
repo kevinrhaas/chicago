@@ -118,6 +118,7 @@ export function texturePath(texture) {
 /** Paint for the fixtures (sRGB hex): a back door's leaf and its casing, its glazing, porch
  *  boards weathered grey, the skirt, a stone stoop's limestone, a pipe rail, a clothes post. */
 const PAINT = {
+  doorway: 0x0b0a09,
   leaf: 0x5b4636, casing: 0x8b7f68, glass: 0x2a3136, knob: 0x9c7a3c, sill: 0xa9a293,
   deck: 0x8a877e, tread: 0x8f8b82, riser: 0x9a958a, stringer: 0x7d7a72, skirt: 0x5d5a52,
   rail: 0x7f7b72, stone: 0xb5ad9c, pipe: 0x2b2b2a, post: 0x7a7266, line: 0x3a3a36,
@@ -385,16 +386,23 @@ export function stoopPlan(sillY, footY, depthM, wantRisers = null) {
   return { H, risers, rise, landingTop: sillY, treads, run: depthM + Math.max(0, risers - 1) * TREAD_M, rail: H > RAIL_RISE_M };
 }
 
-/** The door's leaf, casing and sill on the wall face (s = 0 is the face; s > 0 is out). */
-function buildDoorLeaf(buf, f, d, sillY, k, light, stone = { buf, tone: PAINT.sill }) {
+/** The door's leaf, casing and sill on the wall face (s = 0 is the face; s > 0 is out). With
+ *  `casing` false only the leaf; with `leaf` false the casing, the sill and the dark doorway
+ *  the leaf shuts over (T-3554: a passage's leaf is drawn on its hinge, `doorLeafGeometry`). */
+function buildDoorLeaf(buf, f, d, sillY, k, light, stone = { buf, tone: PAINT.sill }, { leaf = true, casing = true } = {}) {
   const W = d.width_m ?? 0.95; const Hh = d.height_m ?? 2.2;
   const hw = W / 2; const cw = 0.11; const cd = 0.055;
-  // the stone sill, a little proud of the wall and past the jambs
-  frameBox(stone.buf, f, -0.02, 0.07, -hw - cw - 0.04, hw + cw + 0.04, sillY - 0.06, sillY, varied(stone.tone, 9, 0.03), k);
-  // the casing: two jambs and the head (no transom)
-  frameBox(buf, f, 0, cd, -hw - cw, -hw, sillY, sillY + Hh + cw, PAINT.casing, k);
-  frameBox(buf, f, 0, cd, hw, hw + cw, sillY, sillY + Hh + cw, PAINT.casing, k);
-  frameBox(buf, f, 0, cd + 0.01, -hw - cw - 0.02, hw + cw + 0.02, sillY + Hh, sillY + Hh + cw + 0.03, PAINT.casing, k);
+  if (casing) {
+    // the stone sill, a little proud of the wall and past the jambs
+    frameBox(stone.buf, f, -0.02, 0.07, -hw - cw - 0.04, hw + cw + 0.04, sillY - 0.06, sillY, varied(stone.tone, 9, 0.03), k);
+    // the casing: two jambs and the head (no transom)
+    frameBox(buf, f, 0, cd, -hw - cw, -hw, sillY, sillY + Hh + cw, PAINT.casing, k);
+    frameBox(buf, f, 0, cd, hw, hw + cw, sillY, sillY + Hh + cw, PAINT.casing, k);
+    frameBox(buf, f, 0, cd + 0.01, -hw - cw - 0.02, hw + cw + 0.02, sillY + Hh, sillY + Hh + cw + 0.03, PAINT.casing, k);
+    // the dark of the doorway, on the wall behind the leaf: what shows when it stands open
+    if (!leaf) frameBox(buf, f, 0, 0.004, -hw, hw, sillY, sillY + Hh, PAINT.doorway, k);
+  }
+  if (!leaf) return;
   // the leaf, set back in its casing
   const lf = 0.025;
   frameBox(buf, f, 0, lf, -hw, hw, sillY, sillY + Hh, PAINT.leaf, k);
@@ -417,6 +425,63 @@ function buildDoorLeaf(buf, f, d, sillY, k, light, stone = { buf, tone: PAINT.si
   } else {
     frameBox(buf, f, lf, lf + 0.004, -hw + 0.12, hw - 0.12, sillY + Hh * 0.52, sillY + Hh - 0.13, PAINT.glass, k);
   }
+}
+
+/** How far a back door's leaf swings out (degrees) and how long it takes (s). Ours. */
+export const BACK_DOOR_OPEN_DEG = 95;
+export const BACK_DOOR_SWING_S = 1.2;
+/** Where one waits for the leaf to swing out past them, out from the face (its sweep at the
+ *  door's middle is under 0.85 m), and how far in they are when they are indoors. */
+const BACK_DOOR_WAIT_M = 0.95;
+const BACK_DOOR_IN_M = 0.6;
+const BACK_DOOR_STEP_M = 0.7;
+const BACK_DOOR_EASE_M = 0.12;
+
+/** A back door's leaf in its hinge's frame: x along the shut leaf from the hinge (its jamb
+ *  at w = -W/2) to its free edge, y up from the sill, -z out of the house. */
+export function doorLeafGeometry(d, k, light) {
+  const buf = new FixtureBuf();
+  buildDoorLeaf(buf, frameAt(0, 0, 0), d, 0, k, light, undefined, { casing: false });
+  const geo = buf.geometry();
+  geo.translate((d.width_m ?? 0.95) / 2, 0, 0);
+  geo.computeBoundingSphere();
+  return geo;
+}
+
+/**
+ * T-3554: the way in by a back door, outside to in, along the door's middle: [{ s, y }] with s
+ * out from the wall face and y the world height (null on the ground), from STEP out beyond the
+ * stoop's foot up every tread (each riser eased BACK_DOOR_EASE_M either side) onto the landing
+ * to BACK_DOOR_WAIT_M out (`door`, where one waits for the leaf), over the sill and
+ * BACK_DOOR_IN_M in. `p` is the stoop's plan (stoopPlan) or null, `depth` its landing's.
+ */
+export function backDoorWay(sillY, p, depth) {
+  const heightAt = (s) => {
+    if (s <= 0) return sillY;
+    if (!p || !p.risers) return s <= 0.3 ? sillY : null;
+    if (s <= depth) return sillY;
+    for (const t of p.treads) if (s >= t.s0 && s <= t.s1) return t.top;
+    return null;
+  };
+  const run = p?.risers ? p.run : 0.3;
+  const out = [];
+  const push = (s, y) => { if (!out.length || Math.abs(out.at(-1).s - s) > 1e-4) out.push({ s, y }); };
+  push(run + BACK_DOOR_STEP_M, null);
+  // every riser between, walked inward
+  const edges = [...new Set([run, ...(p?.treads ?? []).flatMap((t) => [t.s0, t.s1]), depth])].filter((s) => s > BACK_DOOR_WAIT_M && s <= run)
+    .sort((a, b) => b - a);
+  for (const e of edges) {
+    const before = heightAt(e + 0.01), after = heightAt(e - 0.01);
+    if (before === after) continue;
+    push(e + BACK_DOOR_EASE_M, before);
+    push(e - BACK_DOOR_EASE_M, after);
+  }
+  push(BACK_DOOR_WAIT_M, heightAt(BACK_DOOR_WAIT_M));
+  const door = out.length - 1;
+  push(0, sillY);
+  push(-BACK_DOOR_IN_M, sillY);
+  out.door = door;
+  return out;
 }
 
 /** The stoop from the wall out: landing, steps, and (over RAIL_RISE_M) the rails. */
@@ -862,6 +927,88 @@ export async function createBackYards({
     const y = d.structure ? bedOf?.(d.structure) : null;
     return Number.isFinite(y) ? y : groundAt(e, n);
   };
+
+  /* ---- T-3554: back doors that open (house-doors.js § passages) ---------------------- */
+  // The owner, 2026-11-12: "do a sweep of all of the front and rear doors and make sure they
+  // are openable and closeable for a person to enter". Each back door with a leaf is hung on
+  // the jamb away from its knob and swings out over its landing (the house behind it is not
+  // modelled, so it cannot swing in); the wall behind it is the dark of the doorway. Its way
+  // runs up the middle of its stoop. The leaves are one instanced mesh per size, re-posed as
+  // they swing; human-days.js walks people through them by `passages` (house-doors.js adopts
+  // them).
+  const passageId = (d) => (d.structure ? `${d.structure}:back` : null);
+  const passages = new Map();
+  const leafSets = new Map();     // `${W}x${H}` -> { mesh, doors: [passage] }
+  const m4 = new THREE.Matrix4(), q4 = new THREE.Quaternion(), up = new THREE.Vector3(0, 1, 0), one = new THREE.Vector3(1, 1, 1);
+  const hinge = new THREE.Vector3();
+  for (const lot of lots) {
+    for (const d of lot.doors ?? []) {
+      const id = passageId(d);
+      if (!id || d.leaf === false || !d.stoop || passages.has(id) || !Number.isFinite(d.e) || !Number.isFinite(d.n)) continue;
+      const holders = new Set();
+      const W = d.width_m ?? 0.95;
+      let at = null;            // { f, sillY, plan, depth, k, light }, set as the fixtures are built
+      const passage = {
+        id, structureId: d.structure, name: 'Back door', kind: 'passage', swing: 0, holders, door: d,
+        get state() { return this.swing <= 0 ? 'closed' : this.swing >= 1 ? 'open' : holders.size ? 'opening' : 'closing'; },
+        isOpen() { return this.swing >= 0.9; },
+        hold(key) { holders.add(key); return this; },
+        release(key) { holders.delete(key); return this; },
+        place(where) { at = where; },
+        /** The way through, outside to in, local ENU and world height (house-doors.js `way`). */
+        way() {
+          if (!at) return null;
+          const pts = backDoorWay(at.sillY, at.plan, at.depth);
+          const out = pts.map(({ s, y }) => { const [e, n] = at.f.plan(s, 0); return { e, n, y }; });
+          out.door = pts.door;
+          const [le, ln] = at.f.plan(0, 0);
+          out.leaf = { e: le, n: ln };
+          out.inward = ((d.facing_deg ?? 0) + 180) % 360;
+          return out;
+        },
+        setSwing(t) {
+          passage.swing = t;
+          const set = leafSets.get(passage.sizeKey);
+          if (!set || !at) return;
+          const eased = t * t * (3 - 2 * t);
+          const [x, y, z] = at.f.at(0, -W / 2, at.sillY);
+          hinge.set(x, y, z);
+          q4.setFromAxisAngle(up, eased * BACK_DOOR_OPEN_DEG * Math.PI / 180 - (d.facing_deg ?? 0) * Math.PI / 180);
+          set.mesh.setMatrixAt(passage.slot, m4.compose(hinge, q4, one));
+          set.mesh.instanceMatrix.needsUpdate = true;
+        },
+      };
+      passage.sizeKey = `${W}x${d.height_m ?? 2.2}`;
+      passages.set(id, passage);
+    }
+  }
+  out.passages = [...passages.values()];
+  /** The hung leaves, one instanced mesh per size, built again with the fixtures. */
+  const hangLeaves = () => {
+    for (const set of leafSets.values()) { group.remove(set.mesh); set.mesh.geometry.dispose(); set.mesh.dispose(); }
+    leafSets.clear();
+    stats.doorLeaves = 0;
+    const bySize = new Map();
+    for (const x of passages.values()) {
+      if (!bySize.has(x.sizeKey)) bySize.set(x.sizeKey, []);
+      bySize.get(x.sizeKey).push(x);
+    }
+    const light = detailNow === 'light' || lowSpec;
+    for (const [key, list] of bySize) {
+      const d0 = list[0].door;
+      const mesh = new THREE.InstancedMesh(doorLeafGeometry(d0, CONF[d0.grade] ?? 1, light), fixtureMat, list.length);
+      mesh.name = `back-yards-door-leaves:${key}`;
+      mesh.castShadow = !lowSpec && detailNow !== 'light';
+      mesh.receiveShadow = true;
+      mesh.frustumCulled = false;
+      leafSets.set(key, { mesh, doors: list });
+      list.forEach((x, i) => { x.slot = i; });
+      group.add(mesh);
+      for (const x of list) x.setSwing(x.swing);
+      stats.doorLeaves += list.length;
+    }
+  };
+  disposers.push(() => { for (const set of leafSets.values()) { set.mesh.geometry.dispose(); set.mesh.dispose(); } });
   const buildFixtures = () => {
     for (const mesh of fixtureMeshes) { group.remove(mesh); mesh.geometry.dispose(); for (const list of chunkMeshes.values()) { const at = list.indexOf(mesh); if (at >= 0) list.splice(at, 1); } }
     fixtureMeshes = [];
@@ -890,9 +1037,15 @@ export async function createBackYards({
         const sillY = doorBed(d, d.e, d.n) + (Number(d.sill_m) || 0);
         const [, buf] = fbuf(d.e, d.n);
         const stone = sbuf(d.e, d.n);
-        if (d.leaf !== false) { buildDoorLeaf(buf, f, d, sillY, k, light, stone); stats.doors += 1; }
+        const hung = d.leaf !== false && passages.has(passageId(d));
+        if (d.leaf !== false) { buildDoorLeaf(buf, f, d, sillY, k, light, stone, { leaf: !hung }); stats.doors += 1; }
         let plan = null;
         if (d.stoop) { plan = buildStoop(buf, f, d, sillY, groundAt, k, light, d.stoop.material === 'stone' ? stone : undefined); stats.stoops += 1; }
+        if (hung) {
+          const st = d.stoop ?? {};
+          const depth = (st.depth_m ?? 1.2) >= 0.05 ? st.depth_m ?? 1.2 : TREAD_M;
+          passages.get(passageId(d)).place({ f, sillY, plan, depth, k, light });
+        }
         const hw = Math.max(d.width_m ?? 0.95, d.stoop?.width_m ?? 0) / 2 + 0.12;
         const footY = plan ? sillY - plan.H : sillY;
         doorHits.push({ lot, index: i, item: d, f, s0: -0.05, s1: plan ? plan.run + 0.05 : 0.15, w0: -hw, w1: hw,
@@ -967,6 +1120,7 @@ export async function createBackYards({
     }
   };
   buildFixtures();
+  hangLeaves();
   disposers.push(() => { for (const m of fixtureMeshes) m.geometry.dispose(); lines?.geometry.dispose(); });
 
   /* ---- the crops: gardens.js's growers along the rows ------------------------------- */
@@ -1101,6 +1255,7 @@ export async function createBackYards({
     for (const list of chunkMeshes.values()) for (const m of list) if (m.visible) n += 1;
     if (lines?.visible) n += 1;
     if (crops) n += 2;
+    n += leafSets.size;
     stats.drawCalls = n;
   };
   const cull = (eye) => {
@@ -1135,9 +1290,10 @@ export async function createBackYards({
     if (!VIEW_M[d] || d === detailNow) return;
     const wasLight = detailNow === 'light';
     detailNow = d; stats.detail = d;
-    if (wasLight !== (d === 'light') && !lowSpec) { buildFixtures(); refreshBalls(); }
+    if (wasLight !== (d === 'light') && !lowSpec) { buildFixtures(); hangLeaves(); refreshBalls(); }
     const cast = !lowSpec && d !== 'light';
     for (const m of fixtureMeshes) m.castShadow = cast;
+    for (const set of leafSets.values()) set.mesh.castShadow = cast;
     if (crops) { crops.leaves.castShadow = cast; crops.solids.castShadow = cast; }
     if (lastEye) { cull(lastEye); dealCrops(lastEye); } else countDraws();
   };

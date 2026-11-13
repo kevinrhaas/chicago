@@ -42841,6 +42841,36 @@ any account of the household's comings and goings by the court.
 **Ticket:** T-3524.
 **Recorded:** 2026-11-08 (T-3524).
 
+### L-prairie-front-passages-3554 — Every built 1904 front door and every back door opens and shuts as its household passes, up its own stoop
+
+**Decision:** the front door of each 1904 house whose model builds its leaf (46 of them: `door_leaf`) is hung to
+swing for the people drawn going in and out (`renderers/web/js/house-doors.js` § passages, `registerDoorPlans`), as
+L-glessner-passages-3524's are: the baked leaf is lifted out of the house's batch at load and hung on its right-hand
+jamb (seen from outside), swinging inward through 90 degrees in 1.2 s, an opening wider than 1.6 m (Hibbard's,
+Wheeler's, Moulton's) as a pair meeting in the middle, each leaf on its own jamb. Behind it is a dark vestibule
+like Glessner's (the house models are hollow behind their 0.8 m backing). Someone whose day takes them in walks to the foot of the stoop, up its treads to
+the door, which opens before them, through it, and is indoors only past the leaf; one answering a knock stands at
+the stoop's foot. The way is read off the built model (`tools/derive_doors_scene.py` `stoop_way`): over a 0.1 m grid
+of what is built in front of the door, it climbs at most 0.26 m a step, passes nothing standing between a knee and a
+head over the tread, keeps 0.35 m (a skirt's half-width) off every drop, cheek and rail, and turns where a side
+stoop turns (Dent's, Keith's, the two Glessner children's). The owner, 2026-11-12: *"make sure they are openable and
+closeable for a person to enter and make sure that people can walk up the stairs instead of vanishing into the
+staircase"*. Each house's back door (L-prairie-back-yards-3488's, on its built rear wall) is hung the same way
+(`renderers/web/js/back-yards.js`): its leaf on the jamb away from its knob, swinging OUT through 95 degrees in 1.2 s
+over its landing, because the house behind its wall is not modelled; behind it the wall is painted the dark of a
+doorway. Its way runs up the middle of its stoop, one waits 0.95 m out on the landing while the leaf swings past,
+and one answering stands 0.7 m beyond the stoop's foot.
+**What it stands on:** each front leaf, its sill and head, and every tread and landing are the house model's own, as
+its generator built them; each back door and stoop is L-prairie-back-yards-3488's. Nothing about the doors is
+measured from a source here.
+**What is invented:** the hinge side, that each front door swings inward and each back door outward, how far and
+how fast; a pair for a wide opening; the vestibule behind a front door and the dark behind a back one;
+the line walked up each stoop (the grid's cheapest, kept off its edges), the skirt's half-width, and the riser ease
+(0.12 m each side of a riser); where one answering stands.
+**How to resolve:** a photograph of any of these doors open, or a plan of its entrance hall.
+**Ticket:** T-3554.
+**Recorded:** 2026-11-12 (T-3554).
+
 ### L-1812-garrison-dress-3523 — The 1812 garrison dressed by rank and duty, and its muskets carried by duty
 
 **Decision:** the owner, 2026-11-08, beside an Ogden-style plate of the army about 1812: *"and all the men soldiers have the same hats? Dont the soldiers have different appearance based on rank? and none of them appear to have firearms?"* Every enlisted man of Heald's company stood in the one private's dress and nobody carried a musket. No new figure is made (the published site's 432 MB budget, the 1812 phone's 350 MB): `docs/RESEARCH/people-1812-3462/garrison_dress.py` (run by `place.py`) writes `data/humans/variation/dress_1812_garrison.json`, which recolours and hides pieces of the figures already drawn and names what `renderers/web/js/human-garrison.js` draws on each man's own bones at load. Six things are ours. (1) **Rank marks**: a sergeant's two white worsted epaulettes and a corporal's one on the right shoulder, read by analogy from the light dragoons' rule printed in 1814; the worsted's white and the epaulettes' size and fringe. (2) **Musicians**: the drummers' and fifers' coats red faced blue, read from Krimmel's volunteer drummer for the regulars; the drum's blue shell, red hoops and white cords; a fifer's fife case at the hip in place of the cartridge box. (3) **Officers**: the lieutenant's and the ensign's silver epaulette on the left shoulder (the ensign's is not recorded; he is given the lieutenant's), a crimson sash round the waist for the three line officers on the 14th as on a tour of duty, the surgeon's mate's black collar, cuffs and plume. (4) **Fatigue**: the men at their work (the gardens, the bake house, the armourer's, the wharf, the cornfield at the forks) in the issued fatigue clothes, drawn on the 1812 settler's working body recoloured to unbleached linen: a shirt, a white waistcoat on three in four, a black stock, loose linen trousers, a round hat of his own on one in three and the rest bareheaded; the frock itself is not drawn, and no fatigue cap (none was issued). The fatigue party drawn up on the parade to be told off stands in its coats. (5) **Arms and how they are carried**: a musket of the 1795 Springfield / Charleville pattern with its bayonet fixed, its stock, lock, bands and sling shaped by us to the arm's regulation length; sentries walking their posts and men walking out from the pickets at the shoulder (the butt in the left hand, the lock turned out), the guard's sergeant and corporal and the sentry by the south-east blockhouse at the order; men at chores without; the cornfield party's three muskets piled at the field's edge, the man walking back to the fort leaving his there. (6) **Who**: which man wears what follows his rank on the muster-roll and the station T-3462 gave him.
@@ -43614,6 +43644,8 @@ or a read bill of sale; a planting account locating the trees rather than merely
 **Decision:** Identified, captioned portraits constrain visible facial proportions, hair silhouette and facial hair. The pictured date may be unknown even when publication is dated. Single-view depth, skin and eye colours, stature, build, clothes and intervening ageing are reconstructed. A light tone in a monochrome portrait may guide a grey/white rendering without establishing exact colour. Unpictured people receive stable, individually varied reconstructions; the cards explicitly say that no verified portrait was found in the searched sources. No ancestry is inferred from surname, birthplace or photograph. Body presentation is a casting choice based on the recorded relationship and occupation, not a newly attested sex field. The original eight Glessner figures retain their earlier evidence and liberties.
 
 **Recorded:** 2026-11-11.
+
+**T-3553 stand-ins chosen by the owner, 2026-11-12:** No photograph of William L. Grey or of Sarah Grey (2010 Prairie Avenue) was found. The owner supplied two sepia portraits and asked that they be used as the Greys' likenesses ("since we do not have photos of them you can use these likenesses"; "their faces must match exactly"; "their build match is important"). Their sitters, makers and dates are not recorded, so both are stand-ins, as the Glessner household's are (T-3478), graded reconstructed, and each card shows its picture labelled "STAND-IN, NOT" the person. The faces are fitted to about 400 points a face-landmark model finds on each picture, each tied to a vertex of the body's face by rendering that face at five turns and finding the same points on the renders (tools/face_landmark_correspondence.py); the fitted face, rendered and measured the same way, lands within about 3% of the eye span of the picture's points. The depth of the chin, jaw and nose cannot be read from one near-frontal picture and are left at the body's own. Each is drawn at the age the picture shows (about 50 and 45), not their 1904 census ages of 64 and 54, so the face is the picture's; their records keep the census ages. Their builds are read by eye (he heavy-set and thick-necked, she slight). The hair (his long, wavy and swept back, with a full trimmed beard over the chin and cheeks and a full moustache; hers drawn up to a knot on the crown, the lady's body's own bun turned up from the nape), the brows set at the pictures' height over the eyes, the hair colours read from sepia tones, and the cloth colours (a dark brown three-piece suit; a dark brown day dress, its white lace collar the lady's own shirtwaist collar and jabot) follow the pictures. The cameo brooch, earrings, watch chain, the cut of the sack coat and sleeves, the skin's own marks and Sarah's thinner lower lip (the face kit cannot thin it below the body's) are not modelled.
 
 ### L-prairie-people-3548 — Household figures, doors and days (T-3548, 2026-11-11)
 
