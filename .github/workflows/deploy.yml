@@ -12,20 +12,23 @@ name: Deploy to GitHub Pages
 # used to be one tenant of that monorepo, at custom.polecat.live/chicago/). The
 # custom domain is site/CNAME; custom.polecat.live/chicago/** now redirects here.
 #
-# ONE artifact, TWO tiers (chicago/4d/docs/PIPELINE.md):
-#   /4d/                  production = the last owner-published payload, indexed
-#   /4d/dev/              integration = the `dev` branch's site/4d/,
-#                         noindex, banner-marked, assembled by
-#                         .github/chicago-4d-dev-preview.mjs
-# Both tiers have the same front doors: /4d/<year>/ for every scene and planned
-# year (chicago/4d/tools/write_entry_pages.mjs), with ?year= and other query
-# parameters layered on top.
+# TWO SITES, ONE TIER EACH (2026-11-13; chicago/4d/docs/PIPELINE.md):
+#   chicago.polecat.live/4d/            production, THIS workflow, deployed only on
+#                                       an owner promotion
+#   dev.chicago.polecat.live/4d/dev/    the `dev` branch's preview, its own GitHub
+#                                       Pages site, deployed by kevinrhaas/chicago-dev
+# The preview used to be folded into this artifact at /4d/dev/. GitHub caps one
+# Pages site at 1 GB, and production + preview + the landing films + the older
+# viewers had reached it; every dev deploy also had to re-download the exact live
+# production artifact to leave production untouched, and when that artifact expired
+# the preview froze (2026-11-12 and again 2026-11-13). Now a dev push only asks
+# kevinrhaas/chicago-dev to rebuild, and this artifact carries small pages at
+# /4d/dev/ that send old links to the new address
+# (.github/chicago-4d-dev-redirect.mjs).
 #
-# Ordinary refreshes seed the immutable last-successful production payload and
-# replace DEV only. MAIN movement never changes production by itself. Explicit
-# production delivery requires a matching owner-promotion receipt and commit.
-# The live-production anchor intentionally fails closed after a later owner
-# release until its successful artifact is recorded; it never follows MAIN.
+# MAIN movement never changes production by itself. Production delivery requires
+# a matching owner-promotion receipt and commit (chicago-4d-promote-to-prod.yml
+# dispatches this workflow with mode=production); any other run deploys nothing.
 #
 # THE 4D TRIGGER IS `chicago/4d/**`, NOT ONLY `site/**` (T-0938). The published
 # mirror `site/4d/` is untracked and generated — this job publishes it below — so a
@@ -38,7 +41,7 @@ on:
       - 'site/**'
       - 'chicago/**'
       - '.github/workflows/deploy.yml'
-      - '.github/chicago-4d-dev-preview.mjs'
+      - '.github/chicago-4d-dev-redirect.mjs'
       - '.github/preserve_dev_only.py'
       - '.github/live-production.json'
   workflow_dispatch:
@@ -80,23 +83,36 @@ jobs:
   # preview assembled from the dev ref. workflow_dispatch is a documented
   # GITHUB_TOKEN-triggerable event and the dispatched run is on main, so it never
   # re-dispatches itself.
+  #
+  # Since 2026-11-13 the preview is kevinrhaas/chicago-dev's own Pages site, so a dev
+  # push asks THAT repository to rebuild. GITHUB_TOKEN cannot dispatch another
+  # repository's workflow, so this uses CHICAGO_DEV_DISPATCH, a fine-grained token
+  # with Actions: read and write on kevinrhaas/chicago-dev only. Without the secret,
+  # or if the call fails, chicago-dev's own 15-minute schedule picks the push up, so
+  # this step never fails the run.
   refresh-previews:
-    if: github.event_name == 'push' && github.ref != 'refs/heads/main'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/dev'
     runs-on: ubuntu-latest
-    permissions:
-      actions: write
+    permissions: {}
     steps:
-      - uses: actions/checkout@v4
-      - name: Re-run this deploy on main (rebuilds the /4d/dev/ preview)
+      - name: Ask kevinrhaas/chicago-dev to rebuild the dev preview
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.CHICAGO_DEV_DISPATCH }}
         run: |
-          echo "push to ${GITHUB_REF#refs/heads/} — dispatching deploy.yml on main to refresh the preview"
-          gh workflow run deploy.yml --ref main
+          if [ -z "$GH_TOKEN" ]; then
+            echo "::notice::CHICAGO_DEV_DISPATCH is not set; kevinrhaas/chicago-dev's 15-minute schedule will pick up ${GITHUB_SHA::9}"
+            exit 0
+          fi
+          gh workflow run deploy-dev-preview.yml --repo kevinrhaas/chicago-dev --ref main \
+            -f reason="dev push ${GITHUB_SHA::9}" \
+            || echo "::warning::dispatch to kevinrhaas/chicago-dev failed; its 15-minute schedule will pick up ${GITHUB_SHA::9}"
 
   deploy:
-    # Pages deploys run from main ONLY (see refresh-previews above).
-    if: github.ref == 'refs/heads/main'
+    # Pages deploys run from main ONLY (see refresh-previews above), and only for an
+    # owner promotion: production is the one tier this site holds now, and nothing
+    # else may change it. A push to main, or a dispatch without mode=production,
+    # skips this job.
+    if: github.ref == 'refs/heads/main' && github.event_name == 'workflow_dispatch' && inputs.mode == 'production'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
@@ -147,14 +163,14 @@ jobs:
         # freshness check.
         env:
           GITHUB_TOKEN: ${{ github.token }}
-        run: bash "$RUNNER_TEMP/chicago-4d-clone.sh" main dev
+        run: bash "$RUNNER_TEMP/chicago-4d-clone.sh" main
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Verify DEV-only publication controls
+      - name: Verify the promotion and publication controls
         run: python3 .github/test_preserve_dev_only.py
-      # Default dispatches and MAIN pushes refresh DEV from the exact live
-      # production payload. Moving MAIN cannot promote application bytes.
+      # The job runs only for an owner promotion (see its `if:`); this proves the
+      # dispatch names a real one before any bytes are built.
       - name: Validate an explicit owner promotion
         if: env.DELIVERY_MODE == 'production'
         run: |
@@ -169,30 +185,6 @@ jobs:
             --promotion-run "$PROMOTION_RUN_ID" --expected-sha "$PROMOTED_SHA" \
             --receipt "$RUNNER_TEMP/owner-promotion/promotion-receipt.json"
           git checkout --detach "$PROMOTED_SHA"
-      - name: Seed exact live production for DEV-only delivery
-        if: env.DELIVERY_MODE == 'dev'
-        run: |
-          curl --fail --silent --show-error --max-time 30 -H 'Cache-Control: no-cache' \
-            "https://chicago.polecat.live/4d/build.json?preserve=${GITHUB_RUN_ID}-seed-$(date +%s%N)" > "$RUNNER_TEMP/live-production-build.json"
-          python3 .github/preserve_dev_only.py metadata --live-build "$RUNNER_TEMP/live-production-build.json"
-          artifact_id="$(node -p "require('./.github/live-production.json').artifact_id")"
-          gh api "repos/${GITHUB_REPOSITORY}/actions/artifacts/${artifact_id}/zip" > "$RUNNER_TEMP/baseline.zip"
-          rm -rf site
-          python3 .github/preserve_dev_only.py seed --archive "$RUNNER_TEMP/baseline.zip" \
-            --live-build "$RUNNER_TEMP/live-production-build.json"
-          python3 .github/preserve_dev_only.py snapshot --inventory "$RUNNER_TEMP/nonDEV-before.json"
-          rm "$RUNNER_TEMP/baseline.zip"
-      # THE PRAIRIE AVENUE RESEARCH BROWSER IS PUBLISHED HERE TOO (T-1821). /prairie-1904/
-      # used to be only the COMMITTED copy site/prairie-1904/, and nothing regenerated it:
-      # publish.sh writes the /4d/ mirror alone, so a promotion carried the package's new
-      # viewer, image index and image files to main and production went on serving the old
-      # copy. Publishing from chicago/prairie_1904_v1/ at deploy time makes /prairie-1904/
-      # always the package on the branch being deployed. Built aside and swapped in only on
-      # success, so a failed publish keeps the committed copy rather than shipping a hole —
-      # the same not-fatal doctrine as the 4D step below. It runs BEFORE that step on purpose:
-      # publish.sh's serve_from_root.py (T-1828) moves out of the /4d/ mirror every asset
-      # directory identical at the root, so with the fresh copy already in place the image
-      # collection ships once, here, rather than twice.
       - name: Publish the Prairie Avenue research browser into the artifact
         if: env.DELIVERY_MODE == 'production'
         run: |
@@ -298,63 +290,14 @@ jobs:
       # no step of its own: `tools/publish.sh` above runs `ticket.mjs board` and copies
       # the result to site/4d/tickets.json. One writer, one place it is run.
 
-      # The /4d/dev/ integration preview. No-ops until the `dev` ref
-      # exists, so this workflow is safe on a repo that has never activated the
-      # pipeline. Scoped to the 4D app: the script copies only site/4d/.
-      - name: Assemble the 4D dev preview (no-op until the dev ref exists)
-        run: |
-          if git fetch origin dev 2>/dev/null; then
-            sha="$(git rev-parse --short FETCH_HEAD)"
-            # The dev HEAD's own commit date, so the preview gate can say how
-            # old the build is. NOT `date` here: this job also runs on deploys
-            # of main that leave dev untouched, and an assembly time would age
-            # the stamp on a branch that never moved.
-            when="$(git show -s --format=%cI FETCH_HEAD)"
-            git worktree add _dev-src FETCH_HEAD
-            # The preview copies _dev-src/site/4d wholesale, and that directory
-            # does not exist in a fresh worktree: the mirror is generated, not committed
-            # (T-0938; T-0937 for the board inside it). So the dev worktree gets its own
-            # publish, exactly as the production tree does above — otherwise /dev/ would
-            # be an empty preview while production looked fine, which is the failure this
-            # tier exists to catch. DEV-only delivery refuses any failure before
-            # upload; the explicit production mode retains its existing fallback.
-            if ! (cd _dev-src/chicago/4d && bash tools/publish.sh); then
-              if [ "$DELIVERY_MODE" = dev ]; then
-                echo '::error::DEV publication failed; refusing to upload a stale or partial preview'
-                exit 1
-              fi
-              echo '::warning::dev-preview: 4D publish failed in the dev worktree'
-            fi
-            node .github/chicago-4d-dev-preview.mjs _dev-src "$sha" "$when"
-            # T-2947: the preview step rewrites every page and build.json, so the dev
-            # packs are listed again from what it wrote, with dev's own tool.
-            if [ -f _dev-src/chicago/4d/tools/write_year_packs.mjs ] && [ -d site/4d/dev/packs ]; then
-              node _dev-src/chicago/4d/tools/write_year_packs.mjs site/4d/dev
-              if ! node _dev-src/chicago/4d/tools/write_year_packs.mjs --check site/4d/dev; then
-                if [ "$DELIVERY_MODE" = dev ]; then
-                  echo '::error::DEV year packs failed their owning check; refusing upload'
-                  exit 1
-                fi
-                echo '::warning::dev year packs do not match the preview'
-              fi
-            fi
-            git worktree remove --force _dev-src
-          else
-            if [ "$DELIVERY_MODE" = dev ]; then
-              echo '::error::DEV ref fetch failed; refusing to upload the old seeded preview'
-              exit 1
-            fi
-            echo "dev-preview: no 'dev' ref yet — skipping /4d/dev/"
-          fi
+      # The dev preview moved to its own Pages site (dev.chicago.polecat.live,
+      # kevinrhaas/chicago-dev) on 2026-11-13. The old /4d/dev/ addresses stay
+      # answerable: small pages that send a visitor on with the rest of the path, a
+      # root 404 page that does the same for deeper links, and a service worker that
+      # unregisters the old preview's offline copy.
+      - name: Point /4d/dev/ at the dev preview's own site
+        run: node .github/chicago-4d-dev-redirect.mjs site
 
-      - name: Verify exact nonDEV preservation and the current live anchor
-        if: env.DELIVERY_MODE == 'dev'
-        run: |
-          python3 .github/preserve_dev_only.py verify --inventory "$RUNNER_TEMP/nonDEV-before.json"
-          curl --fail --silent --show-error --max-time 30 -H 'Cache-Control: no-cache' \
-            "https://chicago.polecat.live/4d/build.json?preserve=${GITHUB_RUN_ID}-upload-$(date +%s%N)" > "$RUNNER_TEMP/live-production-build-before-upload.json"
-          cmp "$RUNNER_TEMP/live-production-build.json" "$RUNNER_TEMP/live-production-build-before-upload.json"
-          python3 .github/preserve_dev_only.py metadata --live-build "$RUNNER_TEMP/live-production-build-before-upload.json"
       - name: Require one fresh Pages upload
         run: python3 .github/preserve_dev_only.py fresh-upload
 
@@ -362,15 +305,9 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site
-          # The next owner release's artifact becomes the DEV-only anchor; the
-          # action's 1-day default expired the last anchor and froze /4d/dev/.
+          # Kept for 90 days so a release's exact bytes can be re-inspected; the
+          # action's default is 1 day.
           retention-days: 90
-      - name: Recheck the live production anchor immediately before deployment
-        if: env.DELIVERY_MODE == 'dev'
-        run: |
-          curl --fail --silent --show-error --max-time 30 -H 'Cache-Control: no-cache' \
-            "https://chicago.polecat.live/4d/build.json?preserve=${GITHUB_RUN_ID}-deploy-$(date +%s%N)" > "$RUNNER_TEMP/live-production-build-before-deploy.json"
-          cmp "$RUNNER_TEMP/live-production-build.json" "$RUNNER_TEMP/live-production-build-before-deploy.json"
       - id: deployment
         uses: actions/deploy-pages@v4
 
@@ -393,18 +330,3 @@ jobs:
           node .github/chicago-4d-url-check.mjs \
             --origin "${{ steps.deployment.outputs.page_url }}" \
             || echo "::warning::T-0968 URL smoke crashed — the deploy is unaffected; fix the checker"
-
-      # A successful Pages API response can still serve an older artifact.
-      # Verify the exact preview just uploaded; this happens AFTER deployment.
-      - name: Verify served DEV preview matches the uploaded artifact
-        run: |
-          node .github/chicago-4d-preview-freshness.mjs \
-            --origin "${{ steps.deployment.outputs.page_url }}" \
-            --preview-root site/4d/dev \
-            --out "$RUNNER_TEMP/chicago-dev-freshness.json"
-      - name: Verify production marker remains byte exact after DEV publication
-        if: env.DELIVERY_MODE == 'dev'
-        run: |
-          curl --fail --silent --show-error --max-time 30 -H 'Cache-Control: no-cache' \
-            "https://chicago.polecat.live/4d/build.json?preserve=${GITHUB_RUN_ID}-final-$(date +%s%N)" > "$RUNNER_TEMP/live-production-build-final.json"
-          cmp "$RUNNER_TEMP/live-production-build.json" "$RUNNER_TEMP/live-production-build-final.json"

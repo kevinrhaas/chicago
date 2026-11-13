@@ -91,46 +91,52 @@ class Preservation(unittest.TestCase):
             with self.assertRaises(AssertionError):guard.validate_promotion_authority(r,j,c,'promoted','kevinrhaas')
 
 class WorkflowPaths(unittest.TestCase):
-    def step_script(self, name):
-        lines=(BASE/'workflows/deploy.yml').read_text().splitlines()
-        start=lines.index('      - name: '+name)
-        end=next((i for i in range(start+1,len(lines)) if lines[i].startswith('      - ')),len(lines))
-        block=lines[start:end];run=block.index('        run: |')
-        body=[]
-        for line in block[run+1:]:
-            if line.strip() and not line.startswith('          '):break
-            body.append(line[10:] if line else '')
-        return '\n'.join(body)
-    def test_actual_delivery_expression_defaults_push_and_dispatch_to_dev(self):
-        text=(BASE/'workflows/deploy.yml').read_text()
-        expression=re.search(r'DELIVERY_MODE: \$\{\{ (.*?) \}\}',text)[1]
-        runner="const f=Function('github','inputs','return '+process.argv[1]); process.stdout.write(f(JSON.parse(process.argv[2]),JSON.parse(process.argv[3])));"
-        for event,inputs,expected in [('push',{},'dev'),('push',{'mode':'production'},'dev'),('workflow_dispatch',{},'dev'),('workflow_dispatch',{'mode':'dev'},'dev'),('workflow_dispatch',{'mode':'production'},'production')]:
-            with self.subTest(event=event,inputs=inputs):
-                result=subprocess.check_output([shutil.which('node'),'-e',runner,expression,json.dumps({'event_name':event}),json.dumps(inputs)],text=True)
-                self.assertEqual(result,expected)
-        self.assertIn('default: dev',text)
-        self.assertIn('group: pages\n  cancel-in-progress: false',text)
-    def assembly(self, failure):
+    """Since 2026-11-13 the dev preview is kevinrhaas/chicago-dev's own Pages site.
+    This site holds production only, deployed only for an owner promotion."""
+    def text(self):
+        return (BASE/'workflows/deploy.yml').read_text()
+    def job_if(self, job):
+        lines=self.text().splitlines();start=lines.index('  '+job+':')
+        return next(l.split('if: ',1)[1] for l in lines[start+1:start+12] if l.startswith('    if: '))
+    def evaluate(self, expression, github, inputs):
+        runner="const f=Function('github','inputs','return '+process.argv[1]); process.stdout.write(String(f(JSON.parse(process.argv[2]),JSON.parse(process.argv[3]))));"
+        js=expression.replace("'","\"")
+        return subprocess.check_output([shutil.which('node'),'-e',runner,js,json.dumps(github),json.dumps(inputs)],text=True)
+    def test_only_an_owner_promotion_deploys(self):
+        expression=self.job_if('deploy')
+        for github,inputs,expected in [
+            ({'ref':'refs/heads/main','event_name':'push'},{},'false'),
+            ({'ref':'refs/heads/main','event_name':'workflow_dispatch'},{},'false'),
+            ({'ref':'refs/heads/main','event_name':'workflow_dispatch'},{'mode':'dev'},'false'),
+            ({'ref':'refs/heads/dev','event_name':'workflow_dispatch'},{'mode':'production'},'false'),
+            ({'ref':'refs/heads/dev','event_name':'push'},{},'false'),
+            ({'ref':'refs/heads/main','event_name':'workflow_dispatch'},{'mode':'production'},'true')]:
+            with self.subTest(github=github,inputs=inputs):
+                self.assertEqual(self.evaluate(expression,github,inputs),expected)
+        self.assertIn('group: pages\n  cancel-in-progress: false',self.text())
+    def test_a_dev_push_dispatches_the_preview_site_and_never_fails(self):
+        expression=self.job_if('refresh-previews')
+        self.assertEqual(self.evaluate(expression,{'ref':'refs/heads/dev','event_name':'push'},{}),'true')
+        self.assertEqual(self.evaluate(expression,{'ref':'refs/heads/main','event_name':'push'},{}),'false')
+        text=self.text()
+        self.assertIn('gh workflow run deploy-dev-preview.yml --repo kevinrhaas/chicago-dev',text)
+        self.assertIn("|| echo \"::warning::dispatch to kevinrhaas/chicago-dev failed",text)
+    def test_production_artifact_no_longer_assembles_a_preview(self):
+        text=self.text()
+        for gone in ['chicago-4d-dev-preview.mjs _dev-src','Seed exact live production','preview-root site/4d/dev']:
+            self.assertNotIn(gone,text)
+        self.assertIn('node .github/chicago-4d-dev-redirect.mjs site',text)
+    def test_redirect_pages(self):
         with tempfile.TemporaryDirectory() as name:
-            root=Path(name);bin_dir=root/'bin';bin_dir.mkdir();tools=root/'_dev-src/chicago/4d/tools';tools.mkdir(parents=True)
-            (root/'site/4d/dev/packs').mkdir(parents=True)
-            (tools/'publish.sh').write_text('test "$FAILURE" != publish\n')
-            (tools/'write_year_packs.mjs').write_text('// fixture owning CLI marker\n')
-            (bin_dir/'git').write_text('#!/bin/sh\ncase "$1" in\nfetch) test "$FAILURE" != fetch;;\nrev-parse) echo 0e7803553;;\nshow) echo 2026-11-10T21:47:00Z;;\nworktree) exit 0;;\nesac\n')
-            (bin_dir/'node').write_text('#!/bin/sh\nprintf "%s\\n" "$*" >> "$CALLS"\ncase "$*" in *--check*) test "$FAILURE" != packs;; *) exit 0;; esac\n')
-            for p in bin_dir.iterdir():p.chmod(0o755)
-            env=dict(os.environ,PATH=str(bin_dir)+os.pathsep+os.environ['PATH'],FAILURE=failure,DELIVERY_MODE='dev',CALLS=str(root/'calls'))
-            result=subprocess.run(['bash','-e','-o','pipefail','-c',self.step_script('Assemble the 4D dev preview (no-op until the dev ref exists)')],cwd=root,env=env,capture_output=True,text=True)
-            calls=(root/'calls').read_text() if (root/'calls').exists() else ''
-            return result,calls
-    def test_dev_fetch_failure_refuses_stale_seed_before_assembler(self):
-        result,calls=self.assembly('fetch');self.assertNotEqual(result.returncode,0);self.assertEqual(calls,'')
-    def test_dev_publish_failure_refuses_partial_preview_before_assembler(self):
-        result,calls=self.assembly('publish');self.assertNotEqual(result.returncode,0);self.assertEqual(calls,'')
-    def test_dev_pack_failure_is_fatal(self):
-        result,calls=self.assembly('packs');self.assertNotEqual(result.returncode,0);self.assertIn('--check',calls)
-    def test_complete_dev_assembly_runs_the_owner_check(self):
-        result,calls=self.assembly('none');self.assertEqual(result.returncode,0,result.stderr);self.assertIn('--check',calls)
+            site=Path(name)/'site';(site/'4d/1835').mkdir(parents=True);(site/'4d/walk').mkdir()
+            subprocess.run([shutil.which('node'),str(BASE/'chicago-4d-dev-redirect.mjs'),str(site)],check=True,capture_output=True)
+            for rel in ['4d/dev/index.html','4d/dev/1835/index.html','4d/dev/walk/index.html','404.html']:
+                page=(site/rel).read_text()
+                self.assertIn('data-c4d-dev-moved',page);self.assertIn('https://dev.chicago.polecat.live',page)
+            self.assertIn('unregister()',(site/'4d/dev/sw.js').read_text())
+            self.assertFalse((site/'4d/dev/build.json').exists())
+            (site/'404.html').write_text('own page')
+            subprocess.run([shutil.which('node'),str(BASE/'chicago-4d-dev-redirect.mjs'),str(site)],check=True,capture_output=True)
+            self.assertEqual((site/'404.html').read_text(),'own page')
 
 if __name__=='__main__':unittest.main(verbosity=2)
