@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2937, ts: '2026-11-13T18:12:19.936Z', date: 'Nov 13, 2026, 12:12 PM CT', title: '1712 Prairie\'s roof is lowered to its 1893 drawing', kind: 'fix',
+    items: [
+      'The roof of 1712 Prairie Avenue is now a low hip at 18 degrees, as the 1893 Rand McNally view of the street draws it. It was 25 degrees, which stood about 2 m too tall in the comparison with the drawing.',
+      'The house now matches its one known picture, and its chimney stands lower with the roof.',
+    ] },
   { v: 2936, ts: '2026-11-13T17:19:59.079Z', date: 'Nov 13, 2026, 11:19 AM CT', title: 'Sign in once to travel to any year', kind: 'feature',
     items: [
       'Before a year starts loading, sign in with Google or Microsoft.',
