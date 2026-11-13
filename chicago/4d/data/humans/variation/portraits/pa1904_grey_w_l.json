@@ -65,7 +65,10 @@
   "forehead_height",
   "nose_depth",
   "chin_prominence",
-  "prognathism"
+  "prognathism",
+  "nose_volume",
+  "nose_septum",
+  "nostril_angle"
  ],
  "marks": [
   {
@@ -2649,9 +2652,27 @@
    "jaw": 0.2,
    "nose_width": 0.2,
    "brow_ridge": 0.15,
-   "cheekbones": -0.1
+   "cheekbones": -0.1,
+   "nose_hump": -0.2,
+   "nose_volume": 0.8,
+   "nose_tip_width": 0.4,
+   "nostrils": 0.7,
+   "nostril_angle": 0.5,
+   "nose_septum": -0.8,
+   "nose_tip": 0.3,
+   "nose_curve": 0
   },
-  "basis": "Read by eye from the same picture, on axes the marks cannot measure from one three-quarter view: a broad face, a heavy jaw under the beard, a nose broad at its wings, and the eyes set under a heavy brow. These replace the gentleman's body's own lean as the prior on those axes; the marks still move them where they can. His cheeks and jowls are fitted with his side view instead (fit_views)."
+  "basis": "Read by eye from the same picture, on axes the marks cannot measure from one three-quarter view: a broad face, a heavy jaw under the beard, a nose broad at its wings, and the eyes set under a heavy brow. These replace the gentleman's body's own lean as the prior on those axes; the marks still move them where they can. His cheeks and jowls are fitted with his side view instead (fit_views). His nose is HELD (`hold`) as read: a straight bridge with no bump (nose_hump, nose_curve), and a full round tip whose wings are broad and plain in profile, its underside turned a little up (nose_volume, nose_tip_width, nostrils, nostril_angle, nose_septum, nose_tip). Owner, 2026-11-13: \"his nose has a bump in it\", \"his nostril too\".",
+  "hold": [
+   "nose_hump",
+   "nose_volume",
+   "nose_tip_width",
+   "nostrils",
+   "nostril_angle",
+   "nose_septum",
+   "nose_tip",
+   "nose_curve"
+  ]
  },
  "card": {
   "_doc": "What the person's card shows (T-3413, T-3478): `portrait` is cut from the copy at `portrait_from_scan_px` and scaled to `size_px` by tools/cut_portrait.py (a stand-in's label burned on it); `model` is tools/portrait_still.mjs's render of the fitted face on `body`, turned to the fit's yaw, dressed as humans.js dresses the person in town.",
