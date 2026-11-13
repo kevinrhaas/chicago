@@ -1,0 +1,42 @@
+{
+  "structure_id": "dexter_house_1721_prairie_frame_house",
+  "scene": "1904",
+  "also_render": [
+    "pullman_house_1729_prairie",
+    "dexter_house_1721_prairie_coach_house"
+  ],
+  "source_id": "loc_det_4a08065_pullman_residence",
+  "library_image": "a16-pullman-det-4a08065",
+  "photo": "../../sources/assets/pullman_1729_photo_t1880/loc_det_4a08065_pullman_residence.jpg",
+  "image_px": [
+    1024,
+    804
+  ],
+  "principal_px": [
+    512,
+    478
+  ],
+  "focal_px": 1093,
+  "near_m": 10,
+  "flora": {
+    "front_yards": [
+      "prairie_1729",
+      "prairie_1721"
+    ],
+    "street_trees_m": 70,
+    "season": "winter",
+    "creeper_in_leaf": true
+  },
+  "eye": [
+    78.45,
+    -65.0,
+    1.6
+  ],
+  "yaw_deg": 335.0,
+  "sun_uvy": [
+    0.8,
+    -1.0,
+    1.0
+  ],
+  "solve": "T-3566: dexter_house_1721_prairie's camera on the print (the Pullman house's solved camera carried into that house's frame) carried once more into this record's frame, which shares its origin and is turned 90 degrees: u here is v there (south), v here is minus u there (east), so the eye (65.0, 78.45) becomes (78.45, -65.0), the heading 245 degrees becomes 335 and the sun (1, 0.8) becomes (0.8, -1). The print is the one the owner cropped (2026-11-12) to show the frame house's south front at its left edge."
+}
