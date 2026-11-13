@@ -2,8 +2,8 @@
   "structure_id": "keith_house_1808_prairie",
   "view": "cgn-1808-inland-1888-keith-copy",
   "glb": "assets/gltf/keith_house_1808_prairie__as_built_1886.glb",
-  "glb_sha256": "b0540e5073db2f881cee936bf62b2ae16288f7c4dabca64866d92fb18a9dbc7f",
-  "camera_sha256": "46115ac244cc65333d243964347a01814de2331453f82ea86651a33af8d4141a",
+  "glb_sha256": "a6182a52cdf1c3c5734c2fe44688c307ea2fcb6c7c527e9f401f4248d69a2fc7",
+  "camera_sha256": "c9ca9a754fc5d7ce6338c4079a2e95157df3117d8c6fbd5e49b9c6a5d29af903",
   "photo_sha256": "b32fe308a5bc60e7b93bc1ac750da382523cd5c293b435b827b5f0e898625ad1",
   "side_by_side": "docs/RESEARCH/photo-match/keith_house_1808_prairie/cgn-1808-inland-1888-keith-copy-side-by-side.jpg",
   "verdict": "matches",
@@ -99,6 +99,10 @@
     {
       "what": "T-2882: re-rendered on the loggia with a respond on the wall behind each rear pair (a flat pier the rear pedestal's width, 0.25 m deep, from the pedestal's top to the ceiling; tools/keith_loggia_respond_read.py, docs/RESEARCH/photo-match/keith_house_1808_prairie/keith-loggia-respond-read.json), and read again beside the previous render and the picture: the render changes only at the loggia (x 336-437, y 528-606); this copy reads the upright as the plate does at its own scale (the plate is read at its native 1559 px; inland-1888). Nothing opens; the verdict is matches.",
       "status": "fixed"
+    },
+    {
+      "what": "T-3564, reviewed on the deepened house: the main range now runs back its full three storeys to its brick rear on the 1911 Sanborn sheet (34.70 m, was 18.0 m), as the owner ruled from his 2026-11-10 photographs of the court's south wall; the 1888 plate's own first-floor plan draws the same long range, about three and a half fronts deep. The camera's eye moved +16.699 m in u with the footprint frame (the SW-corner origin went back), so it stands where it stood in the world, and the street front, bow, loggia, stair and parapet lie where they were matched. Where this house-only render draws the long brick north or south side, the picture has Glessner, a neighbour or trees in front of it; the side's openings are reconstructed (L-glessner-photo-match-3564).",
+      "status": "not shown"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."

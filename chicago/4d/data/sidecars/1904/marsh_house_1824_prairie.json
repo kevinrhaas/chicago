@@ -176,7 +176,19 @@
     },
     "wall_head": {
       "value": {
-        "cornice": "k10.cornice.bracketed_timber"
+        "cornice": "k10.cornice.bracketed_timber",
+        "pairs": {
+          "spacing_m": 1.1
+        },
+        "bracket_m": {
+          "height_m": 1.0,
+          "projection_m": 0.5,
+          "width_m": 0.16
+        },
+        "frieze": {
+          "height_m": 0.55,
+          "proud_m": 0.03
+        }
       },
       "confidence": "inferred",
       "sources": [
@@ -184,7 +196,7 @@
         "glessner_blog_1828_shipman_partial",
         "chicagology_1828_shipman_automobile"
       ],
-      "note": "The villa's deep bracketed cornice, its brackets paired over a frieze, round the main block and the lower range in the Pomeroy photograph (before 1880); the partial view and the automobile photograph show the same frieze with its panels and brackets still on the south flank about 1897-1906, so the 1880 front left the eaves. K10's bracketed timber cornice; the frieze's panels are open for T-3168."
+      "note": "The villa's deep bracketed cornice, its brackets paired over a frieze, round the main block and the lower range in the Pomeroy photograph (before 1880); the partial view and the automobile photograph show the same frieze with its panels and brackets still on the south flank about 1897-1906, so the 1880 front left the eaves. K10's bracketed timber cornice with its brackets in pairs over a plain frieze (T-1887), sized off the Pomeroy photograph's south flank against its second-storey window (K01's 1.0 m sash, sash_by_storey): the pairs about 1.1 window-widths apart (37-42 px against the window's 35 px), each bracket hanging about a window-width under the soffit, and the frieze with its dark panels between the pairs about 0.65-0.8 m deep there (20-25 px), built 0.55 m under the 11.0 m soffit: the most that clears the second storey's heads with their hoods (10.4 m), which the 1880 front's windows set (the brackets hang past its foot, as the photograph's do). The pairs' spacing and the brackets' size are read at that one photograph's scale; the brackets' projection is reconstructed inside the 0.6 m eave. The panels sunk in the frieze between the pairs are relief of a few centimetres and are not cut (under the T-3153 bar, as the bay's incised pilaster panels)."
     },
     "roof_form": {
       "value": "hip",
@@ -362,16 +374,16 @@
         "downpipes": [
           {
             "wall": "k01.wall.side.south",
-            "s_m": 0.4
+            "s_m": 0.5
           },
           {
             "wall": "k01.wall.side.north",
-            "s_m": 0.4
+            "s_m": 0.5
           }
         ]
       },
       "confidence": "reconstructed",
-      "note": "K01's copper gutter and two downpipes; no picture shows them."
+      "note": "K01's copper gutter and two downpipes; no picture shows them. Each stands 0.5 m along its flank from the front corner, clear of the paired corner brackets over it (T-1887)."
     },
     "entrance_kit": {
       "value": {

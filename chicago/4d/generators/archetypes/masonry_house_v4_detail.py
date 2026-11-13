@@ -192,6 +192,43 @@ def _inside(x, y, poly):
     return inside
 
 
+# T-3564 (owner, 2026-11-12, with his close photographs of 2026-11-10): the rock faces
+# "have a carved look, some of them are less carved but others pillow out the top 2/3
+# and then the bottom 1/3 is more sharp, there is variation in those, some are
+# smoother". Three faces, dealt to each wall stone by its own place so the full and
+# light tiers agree and no triangle is added (the lattice is the same 7.5 cm one):
+#   ledge  — crowned high, the face held full down to a broken chin a quarter to a
+#            third of the way up, where it drops sharply to a low, set-back foot band;
+#   pillow — the T-2208 bow, crowned a little under the middle;
+#   smooth — a low, quiet bow with half the chip.
+# Shares read off the twenty photographs (06 and 07 close, 02-05 at window height):
+# about two stones in five ledged, one in five smooth. Reconstructed; nothing was
+# measured off a stone. L-glessner-rock-faces-3564.
+STONE_PROFILE_SHARES = (('ledge', .42), ('smooth', .20), ('pillow', .38))
+LEDGE_CHIN = (.24, .36)       # chin height, share of the stone's height
+LEDGE_PEAK = (.58, .70)       # crown height, share of the stone's height
+LEDGE_DROP_M = .032           # the chin falls over this much of the face
+LEDGE_FOOT = .20              # the foot band's height, share of the crown
+SMOOTH_CROWN, SMOOTH_CHIP = .45, .55
+
+
+def _stone_hash(x0, y0, x1, y1, salt=0):
+    """A stable 0..1 number for one stone, from its own outline."""
+    k = (round(x0*1000)*73856093) ^ (round(y0*1000)*19349663) ^ (round(x1*1000)*83492791) ^ (round(y1*1000)*2654435761) ^ salt
+    k = (k ^ (k >> 13))*1274126177 & 0xffffffff
+    return ((k ^ (k >> 16)) & 0xffffff)/float(0x1000000)
+
+
+def stone_profile(x0, y0, x1, y1):
+    """T-3564: which of the three rock faces this stone is cut with."""
+    h = _stone_hash(x0, y0, x1, y1)
+    for name, share in STONE_PROFILE_SHARES:
+        if h < share:
+            return name
+        h -= share
+    return STONE_PROFILE_SHARES[-1][0]
+
+
 def fractured_stone(polygon, depth, rng, spacing=.075, crown=None, crown_scale=1.0, lip=None):
     """Reconstructed split-face stone, bounded to the existing block envelope.
 
@@ -212,8 +249,10 @@ def fractured_stone(polygon, depth, rng, spacing=.075, crown=None, crown_scale=1
                  len({round(q[1],6) for q in polygon})==2)
     # Random lattice values at two physical scales. Interpolation correlates
     # neighbours; the small independent term gives the exposed split planes.
+    profile=stone_profile(x0,y0,x1,y1) if rectangular and crown is None else 'pillow'
+    chip=SMOOTH_CHIP if profile=='smooth' else 1.0
     fields=[]
-    for scale,amplitude in ((.27,.011),(.115,.013)):
+    for scale,amplitude in ((.27,.011*chip),(.115,.013*chip)):
         values={(ix,iy):rng.uniform(-1,1)
                 for ix in range(-1,math.ceil((x1-x0)/scale)+3)
                 for iy in range(-1,math.ceil((y1-y0)/scale)+3)}
@@ -234,7 +273,32 @@ def fractured_stone(polygon, depth, rng, spacing=.075, crown=None, crown_scale=1
     if crown_scale!=1.0:
         height*=crown_scale
     height*=.86+.28*min(1.0,max(0.0,(depth-.008)/.038))
+    if profile=='smooth':
+        height*=SMOOTH_CROWN
+    elif profile=='ledge':
+        height=min(height*1.12,ROCK_FACE_MAX-PITCH_LINE-.012)
+        span=y1-y0
+        chin=y0+span*(LEDGE_CHIN[0]+(LEDGE_CHIN[1]-LEDGE_CHIN[0])*_stone_hash(x0,y0,x1,y1,1))
+        peak=y0+span*(LEDGE_PEAK[0]+(LEDGE_PEAK[1]-LEDGE_PEAK[0])*_stone_hash(x0,y0,x1,y1,2))
+        peak=max(peak,chin+LEDGE_DROP_M+.04)
+        wave=(_stone_hash(x0,y0,x1,y1,3)*6.283,_stone_hash(x0,y0,x1,y1,4)*6.283)
     def bow(x,y):
+        if profile=='ledge':
+            # The chin wanders along the stone like a split, not a ruled line.
+            c=chin+.022*math.sin(6.283*(x-x0)/.41+wave[0])+.012*math.sin(6.283*(x-x0)/.17+wave[1])
+            across=_rise(min(x-x0,x1-x)/reach_x)
+            if y>=peak:
+                up=_rise((y1-y)/max(.02,y1-peak))
+            elif y>=c+LEDGE_DROP_M:
+                up=1-.16*(peak-y)/max(.02,peak-c-LEDGE_DROP_M)
+            else:
+                foot=LEDGE_FOOT*_rise((y-y0)/max(.02,c-y0))
+                if y<=c:
+                    up=foot
+                else:
+                    t=(y-c)/LEDGE_DROP_M
+                    up=foot+(.84-foot)*t*t*(3-2*t)
+            return (across*up)**.85
         if rectangular:
             low,high=BOW_PEAK*(y1-y0),(1-BOW_PEAK)*(y1-y0)
             if lip is not None and lip<low:
@@ -2252,13 +2316,71 @@ def west_hood(b,p,d):
         want=(0,-1 if u==a else 1,0)
         if dot(legacy._normal(cheek),want)<0:cheek.reverse()
         b.tiles(cheek,conf)
-    opening(b,o)
+    portal=d.get('portal')
+    if portal:
+        hood_portal(b,pl,d,o,portal,conf)
+    else:
+        opening(b,o)
     # Outward fascia, sill and small hood brackets are visible from below.
     slab(b,pl,a-overhang,c+overhang,d['eave_z']-.10,d['eave_z'],-.02,d['front']-d['hood_front'],conf,23)
-    for u in (a+.1,c-.1):
-        slab(b,pl,u-.06,u+.06,d['eave_z']-.42,d['eave_z']-.08,0,.22,conf,23)
-    legacy._finial(b,d['crest_x'],(a+c)/2,d['apex_z'],d.get('finial_m',.41),conf,COPPER)
+    if not portal:
+        for u in (a+.1,c-.1):
+            slab(b,pl,u-.06,u+.06,d['eave_z']-.42,d['eave_z']-.08,0,.22,conf,23)
+    legacy._finial(b,d['crest_x'],(a+c)/2,d['apex_z'],d.get('finial_m',.41),conf,
+                   ROOF if portal and portal.get('finial')=='terracotta' else COPPER)
     b.decorate=old
+
+
+def hood_portal(b,pl,d,o,spec,conf):
+    """T-3564 (owner, 2026-11-12, his photographs 13-17 of 2026-11-10): the alley
+    dormer's front is a hay door, not a glazed light. Its hood stands out on two
+    deep side boards whose fronts sweep down from the hood's lip in a hollow
+    cove to straight posts, the whole painted green; the boarded loft door sits
+    back between them over a projecting sill board. Sizes are read off the
+    photographs against the dormer's 10-ft width, +/- 0.1 ft; reconstructed."""
+    from archetypes.masonry_house_v4_north import diagonal_boards
+    a,c=d['u0'],d['u1'];eave=d['eave_z']
+    H=d['front']-d['hood_front']                  # the hood's reach, outward
+    sill=o['z0']-spec['sill_drop_m']
+    post=spec['post_m'];t=spec['board_m']
+    rz=(eave-sill)*spec['cove_share']
+    n=24
+    # Each side board, in (outward, up): the hood lip, the hollow cove down to
+    # the post, the post to the sill, and back into the wall.
+    cove=[(H-H*math.sin(math.pi/2*i/n)+post*math.sin(math.pi/2*i/n),
+           eave-rz+rz*math.cos(math.pi/2*i/n)) for i in range(n+1)]
+    profile=[(-.04,sill),(-.04,eave),(H,eave)]+cove[1:]+[(post,sill)]
+    for u,inward in ((a,1),(c,-1)):
+        faces=[]
+        for side in (u,u+inward*t):
+            pts=[legacy._plane_point(pl,side,z,dd) for dd,z in profile]
+            want=(0,-inward if side==u else inward,0)
+            if dot(legacy._normal(pts),want)<0:pts.reverse()
+            b.raw(pts,conf,PAINTED_WOOD,want)
+        for (d0,z0),(d1,z1) in zip(profile,profile[1:]+profile[:1]):
+            quad=[legacy._plane_point(pl,u,z0,d0),legacy._plane_point(pl,u,z1,d1),
+                  legacy._plane_point(pl,u+inward*t,z1,d1),legacy._plane_point(pl,u+inward*t,z0,d0)]
+            mid=((d0+d1)/2,(z0+z1)/2)
+            # Outward from the board's middle, in (outward, up).
+            nd,nz=(z1-z0),-(d1-d0)
+            cx=sum(q[0] for q in profile)/len(profile);cz=sum(q[1] for q in profile)/len(profile)
+            if nd*(mid[0]-cx)+nz*(mid[1]-cz)<0:nd,nz=-nd,-nz
+            want=legacy._plane_point(pl,0,nz,nd);base=legacy._plane_point(pl,0,0,0)
+            want=tuple(want[k]-base[k] for k in range(3))
+            if dot(legacy._normal(quad),want)<0:quad.reverse()
+            b.raw(quad,conf,PAINTED_WOOD,want)
+    # The soffit under the hood, between the side boards.
+    slab(b,pl,a+t,c-t,eave-.10,eave-.07,-.02,H,conf,PAINTED_WOOD)
+    # The sill board, standing out under the door.
+    slab(b,pl,a,c,sill-spec['sill_board_m'],sill,-.04,spec['sill_reach_m'],conf,PAINTED_WOOD)
+    # The hay door: casing, a head board, and a boarded leaf.
+    l,r=a+t,c-t;lo,hi=sill,o['z1']
+    slab(b,pl,l,r,o['z1'],eave-.10,-.06,0.0,conf,PAINTED_WOOD)
+    fr=spec['door_frame_m']
+    for sl,sr,sb,stp in [(l,l+fr,lo,hi),(r-fr,r,lo,hi),(l,r,hi-fr,hi),(l,r,lo,lo+fr)]:
+        slab(b,pl,sl,sr,sb,stp,-.06,-.02,conf,PAINTED_WOOD)
+    door={**pl,'face':'west'}
+    diagonal_boards(b,door,l+fr,r-fr,lo+fr,hi-fr,-.035,spec,getattr(b,'reduced_sash',False))
 
 
 def supplemental(b,p):
@@ -2401,7 +2523,10 @@ def build(params,name):
         add_edges(b,params)
     from archetypes.masonry_house_v4_vines import add_vines
     vines=add_vines(b,params)
-    obj=b.to_object(build_materials(params.colours,params.detail.get('rainwater'),params.detail.get('vines'),params.detail.get('surface_finish')))
+    from archetypes.masonry_house_v4_common_brick import remap as common_brick
+    common_brick(b)
+    obj=b.to_object(build_materials(params.colours,params.detail.get('rainwater'),params.detail.get('vines'),
+                                    params.detail.get('surface_finish'),params.detail.get('common_brick')))
     assign_metric_uvs(obj,b.roof_uvs)
     _discard_export_scratch_uv(obj)
     # T-2400: the granite's stone-scale occlusion, on its own TEXCOORD_1.

@@ -222,5 +222,13 @@
    {"id": "prairie__prairie_calumet_21_22.x.e22nd", "face": "prairie__prairie_calumet_21_22", "walk_of": "e22nd__prairie_calumet_21_22", "origin": [1417.11, -3747.51], "out": [-0.99997, -0.00765], "flat": [[1414.979, -3747.845], [1414.993, -3749.674], [1412.859, -3749.705], [1412.845, -3747.876]], "ramp": [[1412.845, -3747.876], [1412.859, -3749.705], [1411.36, -3749.726], [1411.346, -3747.898]], "ramp_from_m": 4.267, "ramp_to_m": 5.767, "width_m": 1.829, "run_m": 1.5, "slab_m": 0.15, "lip_m": 0.05, "tier": "reconstructed"},
    {"id": "prairie__prairie_ic_16_18.x.e18th", "face": "prairie__prairie_ic_16_18", "walk_of": "e18th__prairie_ic_16_18", "origin": [1411.98, -3195.89], "out": [-0.99992, -0.01237], "flat": [[1409.85, -3196.209], [1409.873, -3198.038], [1407.739, -3198.052], [1407.717, -3196.223]], "ramp": [[1407.717, -3196.223], [1407.739, -3198.052], [1406.239, -3198.062], [1406.217, -3196.233]], "ramp_from_m": 4.267, "ramp_to_m": 5.767, "width_m": 1.829, "run_m": 1.5, "slab_m": 0.15, "lip_m": 0.05, "tier": "attested", "sources": ["loc_det_4a08065_pullman_residence"], "picture": "a16-pullman-det-4a08065", "note": "The Pullman corner: the walks carried across the parkway either side of a curbed grass corner with the lamp, down to the roadway at the curb."}
   ]
+ },
+ "carriage_drives": {
+  "ticket": "T-3564",
+  "liberty": "L-glessner-coach-drive-3564",
+  "note": "A coach house's carriage doorway on a street gets a drive: the walk's paving from the lot line across the margin, walk and parkway at the doorway's width, over the curb, and the corner crossings' stone slab down onto the roadway. The owner, 2026-11-12: a carriage enters the Glessner coach house there, and 'there would be like a driveway to the coach house as well that should exist'.",
+  "drives": [
+   {"id": "prairie_1800.carriage_drive", "kind": "carriage_drive", "face": "e18th__indiana_prairie_18_20", "parcel": "prairie_1800", "structure": "glessner_house", "doorway": "openings_stable_doors", "origin": [1344.61, -3217.793], "out": [-0.01165, 0.99993], "flat": [[1346.439, -3217.772], [1342.782, -3217.814], [1342.732, -3213.547], [1346.389, -3213.505]], "ramp": [[1346.389, -3213.505], [1342.732, -3213.547], [1342.714, -3212.047], [1346.372, -3212.005]], "ramp_from_m": 4.267, "ramp_to_m": 5.767, "width_m": 3.658, "run_m": 1.5, "slab_m": 0.15, "lip_m": 0.05, "tier": "reconstructed", "note": "Before the Glessner coach house's carriage doorway on 18th Street, its 12-ft width: the owner's ruling of 2026-11-12 that a carriage enters there and a driveway should exist (T-3564)."}
+  ]
  }
 }

@@ -171,20 +171,22 @@ def _bezier(points, depth, count=28):
              depth) for t in (i/count for i in range(count+1))]
 
 
-def _scroll(r, x, z, radius, depth, mirror=1, turn=0):
-    """Open curling stem with unequal leaves, rather than a regular rosette."""
+def _scroll(r, x, z, radius, depth, mirror=1, turn=0, stem=1.0, foliage=1.0):
+    """Open curling stem with unequal leaves, rather than a regular rosette.
+    ``stem`` and ``foliage`` thicken the stem and enlarge the leaves (T-3564's
+    tympanum scrolls, cut fuller than the colonnette capitals')."""
     path=[]
     for i in range(53):
         t=i/52;th=turn+mirror*(.12+1.72*math.pi*t)
         rr=radius*(1-.76*t)
         path.append((x+rr*math.cos(th),z+rr*math.sin(th),depth+.006*math.sin(math.pi*t)))
-    r.tube(path,lambda t:radius*(.058-.026*t),10)
+    r.tube(path,lambda t:radius*(.058-.026*t)*stem,10)
     for j, (t, size) in enumerate(((.13,1),(.31,.90),(.50,.77),(.69,.64),(.84,.47))):
         th=turn+mirror*(.12+1.72*math.pi*t)
         rr=radius*(1-.76*t)
         px,pz=x+rr*math.cos(th),z+rr*math.sin(th)
-        r.leaf(px,pz,th+mirror*(math.pi*.44),radius*.93*size,
-               radius*.61*size,depth+.003*j,lift=radius*.14,
+        r.leaf(px,pz,th+mirror*(math.pi*.44),radius*.93*size*foliage,
+               radius*.61*size*foliage,depth+.003*j,lift=radius*.14,
                curl=mirror*.24,phase=j*.6,steps=14)
 
 
@@ -401,6 +403,30 @@ def _carved_roll(r, cx, cz, a, b, base, bulge, count, stilt, low=False):
                        4 if low else 6)
 
 
+def _inner_torus(r, cx, cz, a, b, base, bulge, count, stilt, low=False):
+    """T-3564: the rim inside the carved roll, a round torus cut at the roll's joints
+    and wound with a twist of leaves (the owner's photograph 01, 2026-11-10)."""
+    depth = lambda fr: base+bulge*math.sin(math.pi*fr)**.7
+    gap = .018
+    for i, cell in enumerate(_cells(cx, cz, a, b, count, stilt)):
+        steps = 2 if low else 6
+        along = 1 if low else 3
+        for k in range(along):
+            _quad_faces(r, cell, 0, 1, gap+(1-2*gap)*k/along, gap+(1-2*gap)*(k+1)/along, depth, steps=steps)
+        _quad_faces(r, cell, .04, .96, 1-gap, 1, base-.02, DARK)
+        if low:
+            continue
+        _quad_faces(r, cell, .04, .96, 0, gap, base-.02, DARK)
+        # The twist: three leaves laid slantwise across each block, like a rope.
+        for j in range(3):
+            g = .2+.3*j
+            p, q = cell(.15, g), cell(.85, g+.16)
+            ang = math.atan2(q[1]-p[1], q[0]-p[0])
+            size = math.dist(p, q)
+            _leaf(r, low, p[0], p[1], ang, size*1.05, size*.42, depth(.5)-.010, size*.12,
+                  (.2 if j % 2 else -.2), False, i*.53+j, 8)
+
+
 def _field_fill(F, rings, pitch, keep_off, trunk, low_z=0., jitter=0.):
     """Points of the field's ground the rings and trunk leave bare, mirrored, on
     a staggered lattice of the given pitch (jittered by a share of it), down to
@@ -437,11 +463,14 @@ def bands_and_field(r, cx, cz, R, stilt, low=False):
     if not low:
         _annulus(r, cx, cz, R*.655, R*.872, -.045, -.020, 48)
         _legs(r, cx, cz, R*.655, R*.872, -.045, -.020, stilt)
-    _carved_roll(r, cx, cz, R*.660, R*.866, .000, .045, 13, stilt, low)
-    # The thin rim, plain and stepped out.
-    _annulus(r, cx, cz, R*.592, R*.648, -.045, .032, 12 if low else 48)
-    _legs(r, cx, cz, R*.592, R*.648, -.045, .032, stilt)
-    F = R*.585
+    # T-3564 (owner, 2026-11-12, his photograph 01 of 2026-11-10): "the mid detail and
+    # then another level that you have coming in and it more bulges out". The carved
+    # roll stands fuller, and inside it the plain rim is now a fat torus of its own,
+    # jointed with the roll's thirteen blocks and twisted with leaves, standing out
+    # past both the roll and the field, as the photograph's springing shows it.
+    _carved_roll(r, cx, cz, R*.660, R*.866, .000, .062, 13, stilt, low)
+    _inner_torus(r, cx, cz, R*.560, R*.652, -.045, .085, 13, stilt, low)
+    F = R*.553
     # The field's ground, cut back behind the carving and drilled through it to shadow.
     n = 16 if low else 40
     r.face([(cx+F, cz-stilt, -.020)]+[(cx+F*math.cos(math.pi*i/n), cz+F*math.sin(math.pi*i/n), -.020)
@@ -449,7 +478,8 @@ def bands_and_field(r, cx, cz, R, stilt, low=False):
     foot = cz-stilt
     # The trunk, broad at its root and tapering up the middle to a small rosette.
     trunk = [(cx, foot+F*.04+(cz+F*.80-foot-F*.04)*i/12, .024) for i in range(13)]
-    r.tube(trunk, lambda t: F*(.085-.045*t+.080*max(0, .25-t)/.25), 6 if low else 10)
+    # T-3564: the photograph's trunk is a slim stem, only a little swollen at its root.
+    r.tube(trunk, lambda t: F*(.052-.022*t+.040*max(0, .22-t)/.22), 6 if low else 10)
     rings = [(cx+x*F, cz+z*F, rr*F) for x, z, rr in FIELD_ROUNDELS]
     for j, (parent, child, up) in enumerate(FIELD_STEMS):
         x, z, rr = rings[child]
@@ -471,6 +501,29 @@ def bands_and_field(r, cx, cz, R, stilt, low=False):
             _leaf(r, low, mid[0], mid[1], ang+side*1.05, F*.15, F*.085, .016, .016, side*.16, True, j*.5+side, 10)
     for j, (x, z, rr) in enumerate(rings+[(cx, cz+F*.88, F*.075)]):
         d = .028 if j == len(rings) else .024+.002*(j % 3)
+        if low and j < len(rings):
+            # T-3564: the phone tier's scroll, as the full tier's: a flat raised
+            # stem wound inward on fourteen chords, five petals along it.
+            side = 1 if x > cx else -1
+            parent, up = next((pa, u) for pa, c, u in FIELD_STEMS if c == j)
+            p0 = rings[parent][:2] if parent >= 0 else (cx, cz+up*F)
+            start = math.atan2(p0[1]-z, p0[0]-x)
+            spiral = []
+            for k in range(15):
+                t = k/14; th = start-side*(.12+1.72*math.pi*t); rad = rr*1.04*(1-.76*t)
+                spiral.append((x+rad*math.cos(th), z+rad*math.sin(th), rr*(.11-.05*t)))
+            for (ax, az, aw), (bx, bz, bw) in zip(spiral, spiral[1:]):
+                l = math.hypot(bx-ax, bz-az) or 1.; nx, nz = -(bz-az)/l, (bx-ax)/l
+                band = [(ax+nx*aw, az+nz*aw), (bx+nx*bw, bz+nz*bw), (bx-nx*bw, bz-nz*bw), (ax-nx*aw, az-nz*aw)]
+                r.face([(*q, d+.010) for q in band][::side])
+                r.face([(*band[0], d-.01), (*band[1], d-.01), (*band[1], d+.010), (*band[0], d+.010)][::side], None,
+                       (nx, nz, 0))
+            for k, (t, size) in enumerate(((.13, 1), (.31, .90), (.50, .77), (.69, .64), (.84, .47))):
+                th = start-side*(.12+1.72*math.pi*t); rad = rr*1.04*(1-.76*t)
+                _petal(r, x+rad*math.cos(th), z+rad*math.sin(th), th-side*math.pi*.44, rr*1.1*size, rr*.7*size,
+                       d+.004, rr*.16)
+            r.bead(x, z, d+.012, rr*.14)
+            continue
         if low:
             # The ring as a flat raised band on sixteen chords.
             w = rr*.075
@@ -489,9 +542,21 @@ def bands_and_field(r, cx, cz, R, stilt, low=False):
                     _petal(r, x+rr*.30*math.cos(th), z+rr*.30*math.sin(th), th, rr*.62, rr*.46, .014, rr*.12)
             r.bead(x, z, d+.012, rr*.16)
             continue
-        _roundel(r, x, z, rr, d, j)
         if j == len(rings):
+            _roundel(r, x, z, rr, d, j)
             continue
+        # T-3564: "see how its like a plant?" Each branch ends not in a closed ring
+        # but in a leafy scroll curling back over itself, a rosette in its eye.
+        side = 1 if x > cx else -1
+        parent, up = next((pa, u) for pa, c, u in FIELD_STEMS if c == j)
+        p0 = rings[parent][:2] if parent >= 0 else (cx, cz+up*F)
+        start = math.atan2(p0[1]-z, p0[0]-x)
+        _scroll(r, x, z, rr*1.04, d, -side, start, stem=1.9, foliage=1.18)
+        for k in range(4):
+            th = math.pi/2+2*math.pi*k/4+j*.37
+            r.leaf(x+rr*.08*math.cos(th), z+rr*.08*math.sin(th), th, rr*.42, rr*.32, d+.004, rr*.10,
+                   (.2 if k % 2 else -.2), True, j+k*.5, 7)
+        r.bead(x, z, d+.012, rr*.12)
         # A second whorl of smaller leaves between the rosette's, so the ring
         # reads full of foliage pierced between, as photographed.
         for k in range(6):

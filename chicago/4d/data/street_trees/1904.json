@@ -29,7 +29,7 @@
   "note": "Every position off a pictured stretch is reconstructed: one file per face at about 30 ft, nearer the curb than the walk, kept 10.5 m from each face's end (about 6 m past the cross street's line) and 3.5 m of an alley mouth, with about one young replacement tree in twelve and one gap in twenty-five, as the photographs show such a file. Faces beyond the Prairie Avenue blocks the pictures show are planted the same way and are reconstructed outright."
  },
  "summary": {
-  "trees": 414,
+  "trees": 415,
   "faces": 31,
   "young": 30
  },
@@ -57,7 +57,7 @@
   {"face": "e22nd__indiana_prairie_21_22", "street": "e22nd", "length_m": 122.6, "trees": 9, "alley_mouths": ["alley_indiana_prairie_21_22"]},
   {"face": "prairie__indiana_prairie_21_22", "street": "prairie", "length_m": 137.4, "trees": 13, "alley_mouths": []},
   {"face": "e21st__indiana_prairie_21_22", "street": "e21st", "length_m": 122.6, "trees": 8, "alley_mouths": ["alley_indiana_prairie_21_22"]},
-  {"face": "prairie__prairie_calumet_20_21", "street": "prairie", "length_m": 121.5, "trees": 10, "alley_mouths": []},
+  {"face": "prairie__prairie_calumet_20_21", "street": "prairie", "length_m": 121.5, "trees": 11, "alley_mouths": []},
   {"face": "e21st__prairie_calumet_20_21", "street": "e21st", "length_m": 121.6, "trees": 9, "alley_mouths": ["alley_prairie_calumet_20_21"]},
   {"face": "calumet__prairie_calumet_20_21", "street": "calumet", "length_m": 121.4, "trees": 11, "alley_mouths": []},
   {"face": "e20th__prairie_calumet_20_21", "street": "e20th", "length_m": 121.6, "trees": 10, "alley_mouths": ["alley_prairie_calumet_20_21"]},
@@ -400,7 +400,6 @@
   {"id": "e21st__indiana_prairie_21_22#11", "face": "e21st__indiana_prairie_21_22", "e": 1287.49, "n": -3614.74, "kind": "mature", "variant": 6, "yaw_deg": 176.4, "scale": 0.992},
   {"id": "prairie__prairie_calumet_20_21#00", "face": "prairie__prairie_calumet_20_21", "e": 1411.77, "n": -3489.86, "kind": "mature", "variant": 10, "yaw_deg": 346.0, "scale": 1.077},
   {"id": "prairie__prairie_calumet_20_21#01", "face": "prairie__prairie_calumet_20_21", "e": 1411.84, "n": -3499.07, "kind": "mature", "variant": 2, "yaw_deg": 341.1, "scale": 1.026},
-  {"id": "prairie__prairie_calumet_20_21#02", "face": "prairie__prairie_calumet_20_21", "e": 1411.91, "n": -3508.8, "kind": "mature", "variant": 10, "yaw_deg": 340.3, "scale": 0.91},
   {"id": "prairie__prairie_calumet_20_21#03", "face": "prairie__prairie_calumet_20_21", "e": 1411.99, "n": -3519.14, "kind": "mature", "variant": 10, "yaw_deg": 290.0, "scale": 0.914},
   {"id": "prairie__prairie_calumet_20_21#04", "face": "prairie__prairie_calumet_20_21", "e": 1412.07, "n": -3530.03, "kind": "mature", "variant": 3, "yaw_deg": 321.9, "scale": 1.039},
   {"id": "prairie__prairie_calumet_20_21#05", "face": "prairie__prairie_calumet_20_21", "e": 1412.15, "n": -3539.56, "kind": "mature", "variant": 8, "yaw_deg": 242.1, "scale": 0.965},
@@ -408,6 +407,8 @@
   {"id": "prairie__prairie_calumet_20_21#08", "face": "prairie__prairie_calumet_20_21", "e": 1412.38, "n": -3569.66, "kind": "mature", "variant": 6, "yaw_deg": 102.4, "scale": 1.034},
   {"id": "prairie__prairie_calumet_20_21#09", "face": "prairie__prairie_calumet_20_21", "e": 1412.45, "n": -3579.38, "kind": "mature", "variant": 2, "yaw_deg": 31.7, "scale": 1.074},
   {"id": "prairie__prairie_calumet_20_21#10", "face": "prairie__prairie_calumet_20_21", "e": 1412.53, "n": -3589.13, "kind": "mature", "variant": 11, "yaw_deg": 303.0, "scale": 1.035},
+  {"id": "prairie__prairie_calumet_20_21#p00", "face": "prairie__prairie_calumet_20_21", "e": 1411.87, "n": -3503.36, "kind": "mature", "variant": 8, "yaw_deg": 111.8, "scale": 0.4, "form": "high_head", "placed": "pictured", "sources": ["chicagology_2009_prairie_meyer_photo", "monroe_1896_john_wellborn_root_meyer_plate"], "note": "Read off chicagology_2009 x 247 (base y 1875): 24.6 m, its foot reading 1.4 m nearer the walk than the planting line; monroe_1896_2009 x 140 (base y 584): 23.6 m. Before the house's north corner, in the photograph's left foreground. L-pullman-18th-street-trees-1934"},
+  {"id": "prairie__prairie_calumet_20_21#p01", "face": "prairie__prairie_calumet_20_21", "e": 1411.92, "n": -3509.96, "kind": "mature", "variant": 4, "yaw_deg": 293.1, "scale": 0.4, "form": "high_head", "placed": "pictured", "sources": ["chicagology_2009_prairie_meyer_photo", "monroe_1896_john_wellborn_root_meyer_plate"], "note": "Read off chicagology_2009 x 1388 (base y 1830): 31.2 m, its foot reading 1.6 m nearer the walk than the planting line; monroe_1896_2009 x 498 (base y 572): 32.1 m. Before the neighbour's front, south of 2009's stoop, 1.1 m past where the rule's tree stood. L-pullman-18th-street-trees-1934"},
   {"id": "e21st__prairie_calumet_20_21#01", "face": "e21st__prairie_calumet_20_21", "e": 1432.11, "n": -3600.07, "kind": "mature", "variant": 5, "yaw_deg": 1.2, "scale": 0.949},
   {"id": "e21st__prairie_calumet_20_21#02", "face": "e21st__prairie_calumet_20_21", "e": 1441.49, "n": -3599.96, "kind": "mature", "variant": 8, "yaw_deg": 274.4, "scale": 0.988},
   {"id": "e21st__prairie_calumet_20_21#03", "face": "e21st__prairie_calumet_20_21", "e": 1451.24, "n": -3599.85, "kind": "mature", "variant": 2, "yaw_deg": 97.6, "scale": 1.009},
