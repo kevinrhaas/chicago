@@ -243,6 +243,9 @@ step "The device profile chooses per device, and a stored choice still wins (T-2
 step "A VR headset walks the town through WebXR: hidden without one, booted as a phone, every headset frame drawn (T-3575)" \
   node tools/check_xr_mode.mjs
 
+step "Window mode sets a phone or iPad down where it stands and turns with it: the datum projection, the compass, the GPS hysteresis (T-3577)" \
+  node tools/check_window_mode.mjs
+
 step "A patched plain lit material cannot be handed another layer's shader program (T-0053)" \
   node tools/test_program_cache_key.mjs
 
