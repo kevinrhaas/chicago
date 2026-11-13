@@ -2,7 +2,7 @@
   "structure_id": "sears_meeker_house_1815_prairie",
   "view": "chicagology_square_on",
   "glb": "assets/gltf/sears_meeker_house_1815_prairie__as_mapped_1904.glb",
-  "glb_sha256": "3809ab96a6f275ef70e55496a828c12a61127f98b6ffb3051e278fafd65499c3",
+  "glb_sha256": "7bf6166f27bb4479452504a156ea0620f989bf2182e78f7b998e92d00aeca73a",
   "camera_sha256": "cda2578ea5c93de1ed5400ca1f83da8339ea23c273224c6ad760394f98b0fdee",
   "photo_sha256": "39fbfc1c58b51ccd19997e89b76380d1445a6665485416a31ac489acf8522929",
   "side_by_side": "docs/RESEARCH/photo-match/sears_meeker_house_1815_prairie/chicagology_square_on-side-by-side.jpg",
@@ -81,7 +81,13 @@
     },
     {
       "what": "the north stack stands about 0.8 m south of the print's (x 145-190 px): K01 stands a stack inside the main footprint and the print's rises from the stair projection",
-      "status": "open"
+      "status": "fixed",
+      "how": "T-3562: the stack stands on the north wall's cornice (on_cornice, v -0.075), astride the wall line over the stair projection, its outer face at the cornice's 0.45 m edge, the furthest out K01 stands a stack on a house without a side parapet; its centre renders at about x 182 px against the print's 168 px (x 145-192), about 0.2 m, inside the bar (it rendered about 0.8-1.0 m south before)"
+    },
+    {
+      "what": "the north stack's head: the print draws it bare, a stone cap over its corbelled head and no pot on it (x 145-192 px, y 60-75 px); the build stood the house's two tall clay pots on it",
+      "status": "fixed",
+      "how": "T-3562: the stack names its own pots (pot: false, a K15 per-stack override), so it stands bare as the print draws it"
     },
     {
       "what": "the mansard's cresting, the dormer's finial and the pavilion roof's cross finial (K01's deck cresting cannot stand on a mansard that carries a crown, k01_mansard_deck.resolve)",

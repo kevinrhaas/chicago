@@ -1226,7 +1226,7 @@ def _k15_heads(k: dict, stacks: list, chimneys: list, cover) -> None:
                                  "{thickness_m, projection_m} and optionally vent {width_m, height_m, depth_m}")
             sh, si = float(stage["height_m"]), float(stage["inset_m"])
             sct, scp = float(stage["cap"]["thickness_m"]), float(stage["cap"]["projection_m"])
-            if pot is not None or not (0.2 <= sh <= 1.5 and 0.0 <= si <= min(sx, sz) / 2 - fo / 2 - 0.1
+            if st_.get("pot", pot) not in (None, False) or not (0.2 <= sh <= 1.5 and 0.0 <= si <= min(sx, sz) / 2 - fo / 2 - 0.1
                                         and 0.05 <= sct <= 0.45 and 0.0 <= scp <= 0.3):
                 raise ParamError(f"chimney at ({u}, {v}): a stage 0.2-1.5 m high, 0 m or more in from the shaft "
                                  f"leaving room round its flues, its cap 0.05-0.45 m thick and 0-0.3 m out; no pots")
@@ -1253,6 +1253,15 @@ def _k15_heads(k: dict, stacks: list, chimneys: list, cover) -> None:
         # T-3561: and may name its own flue count where its picture draws more pots than the
         # house's other stacks carry (1815's south stack, its row of pots on the oblique)
         n_st = int(st_.get("flues", nfl))
+        # T-3562: and its own pots, one of the kit's profiles or none (false), where its picture
+        # draws them otherwise than the house's other stacks (1815's: the square-on prints the
+        # north stack's head bare, with no pot on it, where the south stack carries a row)
+        pot_st = st_.get("pot", pot)
+        if pot_st is False:
+            pot_st = None
+        elif pot_st is not None and pot_st not in kit["pot"]["profiles"]:
+            raise ParamError(f"chimney at ({u}, {v}): pot {pot_st!r} is false or one of the kit's pot profiles "
+                             f"{sorted(kit['pot']['profiles'])}")
         if not 1 <= n_st <= 8:
             raise ParamError(f"chimney at ({u}, {v}): flues {n_st}: 1-8")
         if wd / n_st < fo + 0.1:
@@ -1266,7 +1275,7 @@ def _k15_heads(k: dict, stacks: list, chimneys: list, cover) -> None:
         if stage is not None:
             spec["stage"] = stg
         spec.update(width_m=wd, depth_m=dp, across=ax, top_m=top,
-                    flues=[{"at": round((i + 0.5) * wd / n_st - wd / 2, 4), **({"pot": pot} if pot else {})}
+                    flues=[{"at": round((i + 0.5) * wd / n_st - wd / 2, 4), **({"pot": pot_st} if pot_st else {})}
                            for i in range(n_st)])
         hi = max(cover(u + a * sx / 2, v + b * sz / 2) for a in (-1, 0, 1) for b in (-1, 0, 1))
         y_head = top - spec["cap"]["thickness_m"] - sum(h for h, _ in spec["corbels"])
