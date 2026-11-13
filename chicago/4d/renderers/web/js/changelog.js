@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2933, ts: '2026-11-13T16:04:06.612Z', date: 'Nov 13, 2026, 10:04 AM CT', title: '1936 Prairie\'s paired windows get their tall carved hoods', kind: 'improvement',
+    items: [
+      'In 1904, the paired windows on the south side of 1936 Prairie Avenue\'s dining wing now stand under tall carved hoods: two scrolled arms curling in over each arch to a capped carving in the middle, about 1.15 m over the windows, as the old photograph shows them. Before, a plain arch with a keystone stood in their place.',
+      'The small attic windows above them now sit higher, up among the cornice\'s brackets, closer to where the photograph puts them.',
+      'The hoods\' sizes are measured from the photograph; their carving is simplified.',
+    ] },
   { v: 2932, ts: '2026-11-13T15:37:23.432Z', date: 'Nov 13, 2026, 9:37 AM CT', title: 'The Greys\' upper lids light, not a reddish band', kind: 'fix',
     items: [
       'William\'s upper lids hood under the fold of his brow, as his sheet shows.',

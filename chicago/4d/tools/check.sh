@@ -1459,6 +1459,13 @@ step "a K08 round tower carries a corbelled upper stage and a sized finial (T-18
 step "a K08 belvedere carries corner pilasters and colonnetted frames (T-3370)" \
   python3 tools/test_k08_stage_pilasters.py
 
+# T-3370. ...and a K08 architrave carries a scrolled pediment (1936 Prairie's dining range pairs,
+# off the Chicagology photograph): two arms curling in to volutes and a capped cartouche, its
+# cap rise_m over the lights' heads, past the floor band but never onto the light over it; a
+# pediment beside a keystone, too flat, too low or rising into the storey over it, refused.
+step "a K08 architrave carries a scrolled pediment over a pair (T-3370)" \
+  python3 tools/test_k08_scrolled_pediment.py
+
 # T-1890. ...and a K08 storey stands on a corbel table, and a gable panel is carved as a fan
 # (1801 Prairie's 18th Street section, off the Taylor print and HABS photograph 2): the course
 # under the storey line in place of its floor band, the corbels hung from it, the light tier
