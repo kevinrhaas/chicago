@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2949, ts: '2026-11-13T21:48:10.864Z', date: 'Nov 13, 2026, 3:48 PM CT', title: 'The narrator speaks first, and Next Stop stops the voice', kind: 'fix',
+    items: [
+      'Starting The Glessner Household, the narrator reads the title and Background, then John Glessner speaks, even when the flight lands before the voices have loaded.',
+      'Next Stop, Previous Stop and End Jaunt stop the voice that is speaking.',
+      'Mattie Williamson now says her kitchen is through the wall beside her, its window in the great arch on Eighteenth Street; her voice is recorded again.',
+    ] },
   { v: 2948, ts: '2026-11-13T21:33:14.009Z', date: 'Nov 13, 2026, 3:33 PM CT', title: 'The wind you hear now follows the trees', kind: 'feature',
     items: [
       'Gusts now cross the town from the south-west: the trees, vines and grass sway harder as one passes, and calm between.',
