@@ -1,0 +1,703 @@
+{
+  "id": "dexter_house_1721_prairie_frame_house",
+  "name": "1721 Prairie Avenue: Wirt Dexter's frame house of 1863 behind Little's brick front, K16 clapboard",
+  "aka": [
+    "1721 S. Prairie Avenue",
+    "1721 S. Prairie Avenue, the old frame house"
+  ],
+  "archetype": "k16_timber",
+  "function": {
+    "value": "residence",
+    "confidence": "inferred",
+    "sources": [
+      "sanborn_1911_chicago_v3_sheet_20",
+      "robinson_1886_chicago_plate_10"
+    ],
+    "note": "The house Wirt Dexter built in 1863, lived in as one dwelling with the brick front Arthur Little added on its street end in 1889 (the owner, 2026-11-12: 'that house was there first and the other house facing prairie is technically the addition')."
+  },
+  "part_of": {
+    "value": "dexter_house_1721_prairie",
+    "confidence": "inferred",
+    "sources": [
+      "inland_architect_1891_06_dexter_plate",
+      "loc_det_4a08065_pullman_residence"
+    ],
+    "note": "One dwelling with the brick front on Prairie Avenue: the Inland Architect plate shows the clapboarded block running on behind Little's front, and the owner (2026-11-12) reads the brick house as the frame house's addition. Its own porch opens on the side yard; the household's walk from the public walk is the brick front's."
+  },
+  "built": {
+    "value": 1863,
+    "confidence": "attested",
+    "sources": [
+      "hmdb_prairie_lost_houses_1600_1700"
+    ],
+    "note": "The marker: 'Wirt Dexter Residence. Built 1863'."
+  },
+  "review_required": false,
+  "research_note": "T-3566 (the owner, 2026-11-12, after a meeting with Bill Tyre): the frame house behind 1721's brick front should be standing, built to a photographic match of its south front in the Detroit print of the Pullman house (det 4a08065; the owner's crop of its left edge): two gabled wings, each a two-storey canted bay, either side of a recessed middle with the porch and front door, a shuttered window over the porch, bracketed eaves and tall stacks; symmetrical (the owner). Read through the Pullman house's solved camera on the print; Robinson's 1886 plate draws the house's south side stepped. Liberty L-k16-1721-frame-house-3566. Research note docs/RESEARCH/k16-1721-frame-house-3566/README.md.",
+  "phases": [
+    {
+      "id": "as_standing_1904",
+      "documented_range": {
+        "from": "1904-07-01",
+        "to": "1911-12-31",
+        "confidence": "inferred",
+        "sources": [
+          "sanborn_1911_chicago_v3_sheet_20",
+          "robinson_1886_chicago_plate_10",
+          "loc_det_4a08065_pullman_residence"
+        ],
+        "note": "STANDING IN 1904 on the owner's ruling (2026-11-12) and the maps either side of it: Robinson's 1886 plate draws the frame house on this lot's north line, the Detroit print (1893-1901) shows its south front, and the 1911 sheet draws a two-storey range in the same place behind the brick front. FROM: the record claims the 1904 target and no earlier day. TO: the last day of the year the sheet was published.",
+        "to_is": "seen"
+      },
+      "position": {
+        "utm_e": 448505.526,
+        "utm_n": 4634263.627,
+        "rotation_deg": 89.607,
+        "symbolic_location": "1721 S. Prairie Avenue, rear: behind the brick front, on the north lot line, parcel prairie_1721 (data/street_grid/1904.json), east side of Prairie Avenue, Prairie Avenue, 16th to 18th Street (Sanborn 1911 vol. 3 sheet 20).",
+        "confidence": "inferred",
+        "sources": [
+          "sanborn_1911_chicago_v3_sheet_20"
+        ],
+        "note": "The same origin as dexter_house_1721_prairie (the rear north corner of the brick front's main block, through the T-1250 fit of the sheet, 3.08 m RMS), turned 90 degrees so the kit's u runs SOUTH, toward the house's own front, and v EAST along the north lot line. The range starts 0.03 m behind the brick block's rear wall and runs 23.9 m east, the print's east eave (the 1911 sheet's 19.9 m range and the one-storey pieces at its end); the front's axis, 11.65 m east, is where the solved camera puts the print's porch, gables and window over the porch.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "Re-derived from the traced sheet through dexter_house_1721_prairie's own position, not from the 1835 files."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0.0,
+            0.03
+          ],
+          [
+            6.2,
+            0.03
+          ],
+          [
+            6.2,
+            1.4
+          ],
+          [
+            9.2,
+            1.4
+          ],
+          [
+            9.2,
+            8.4
+          ],
+          [
+            6.2,
+            8.4
+          ],
+          [
+            6.2,
+            14.9
+          ],
+          [
+            9.2,
+            14.9
+          ],
+          [
+            9.2,
+            21.9
+          ],
+          [
+            6.2,
+            21.9
+          ],
+          [
+            6.2,
+            23.9
+          ],
+          [
+            0.0,
+            23.9
+          ]
+        ],
+        "confidence": "inferred",
+        "sources": [
+          "sanborn_1911_chicago_v3_sheet_20",
+          "robinson_1886_chicago_plate_10",
+          "loc_det_4a08065_pullman_residence"
+        ],
+        "note": "u south from the north lot line, v east from the brick block's rear wall: the main range 6.2 m deep (the 1911 sheet's) and the two wings with their bays standing out on its south side, which Robinson's 1886 plate draws stepped; the wings' size and spacing are read from the Detroit print through its solved camera, their depth is reconstructed."
+      },
+      "form": {
+        "stories": {
+          "value": 2,
+          "confidence": "attested",
+          "sources": [
+            "sanborn_1911_chicago_v3_sheet_20",
+            "loc_det_4a08065_pullman_residence"
+          ],
+          "note": "'2' on the 1911 sheet's range; the print shows two full storeys over a raised floor, the porch about six risers over the yard.",
+          "geometry": "simplified"
+        },
+        "construction": {
+          "value": "frame",
+          "confidence": "inferred",
+          "sources": [
+            "robinson_1886_chicago_plate_10",
+            "loc_det_4a08065_pullman_residence",
+            "inland_architect_1891_06_dexter_plate"
+          ],
+          "note": "Robinson's 1886 plate colours the house yellow, its sign for frame; the 1891 plate and the Detroit print show clapboard. The 1911 sheet colours the range brick, which the record does not follow (liberty L-k16-1721-frame-house-3566). Built board by board from the K16 timber kit.",
+          "geometry": "simplified"
+        },
+        "frame_house": {
+          "value": {
+            "foundation_m": 1.3,
+            "return_m": 0.3,
+            "blocks": [
+              {
+                "id": "main",
+                "rect_uv": [
+                  0.0,
+                  0.03,
+                  6.2,
+                  23.9
+                ],
+                "wall_top_m": 8.35,
+                "frieze_m": 0.55,
+                "roof": {
+                  "kind": "hip",
+                  "pitch_deg": 34
+                },
+                "eave": {
+                  "projection_m": 0.6
+                },
+                "walls": [
+                  {
+                    "side": "east",
+                    "windows": [
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.1,
+                        "sill_m": 5.35,
+                        "centre_m": 11.62,
+                        "shutters": {
+                          "width_m": 0.5,
+                          "louvre_m": 0.07
+                        }
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.3,
+                        "sill_m": 2.1,
+                        "centre_m": 22.869999999999997
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.1,
+                        "sill_m": 5.35,
+                        "centre_m": 22.869999999999997
+                      }
+                    ],
+                    "doors": [
+                      {
+                        "centre_m": 11.62,
+                        "clear_width_m": 1.15,
+                        "clear_height_m": 2.75,
+                        "panels": [
+                          2,
+                          3
+                        ],
+                        "stile_m": 0.12,
+                        "top_rail_m": 0.12,
+                        "lock_rail_m": 0.2,
+                        "bottom_rail_m": 0.26,
+                        "panel_sink_m": 0.015
+                      }
+                    ]
+                  },
+                  {
+                    "side": "north",
+                    "windows": [
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.3,
+                        "sill_m": 2.1,
+                        "centre_m": 1.6
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.3,
+                        "sill_m": 2.1,
+                        "centre_m": 4.6
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.1,
+                        "sill_m": 5.35,
+                        "centre_m": 1.6
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.1,
+                        "sill_m": 5.35,
+                        "centre_m": 4.6
+                      }
+                    ]
+                  },
+                  {
+                    "side": "west",
+                    "windows": [
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.3,
+                        "sill_m": 2.1,
+                        "centre_m": 19.0
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.3,
+                        "sill_m": 2.1,
+                        "centre_m": 13.999999999999998
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.3,
+                        "sill_m": 2.1,
+                        "centre_m": 7.999999999999998
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.3,
+                        "sill_m": 2.1,
+                        "centre_m": 3.0
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.1,
+                        "sill_m": 5.35,
+                        "centre_m": 19.0
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.1,
+                        "sill_m": 5.35,
+                        "centre_m": 13.999999999999998
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.1,
+                        "sill_m": 5.35,
+                        "centre_m": 7.999999999999998
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.1,
+                        "sill_m": 5.35,
+                        "centre_m": 3.0
+                      }
+                    ]
+                  },
+                  {
+                    "side": "south",
+                    "windows": []
+                  }
+                ]
+              },
+              {
+                "id": "pav_west",
+                "rect_uv": [
+                  3.1,
+                  1.4,
+                  8.4,
+                  8.4
+                ],
+                "wall_top_m": 8.35,
+                "frieze_m": 0.55,
+                "against": "west",
+                "roof": {
+                  "kind": "gable",
+                  "ridge": "u",
+                  "pitch_deg": 29
+                },
+                "eave": {
+                  "projection_m": 0.6
+                },
+                "walls": [
+                  {
+                    "side": "south",
+                    "windows": [
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.3,
+                        "sill_m": 2.1,
+                        "centre_m": 4.199999999999999
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.1,
+                        "sill_m": 5.35,
+                        "centre_m": 4.199999999999999
+                      }
+                    ]
+                  },
+                  {
+                    "side": "east",
+                    "windows": []
+                  },
+                  {
+                    "side": "north",
+                    "windows": [
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.1,
+                        "sill_m": 5.35,
+                        "centre_m": 1.1
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "pav_east",
+                "rect_uv": [
+                  3.1,
+                  14.9,
+                  8.4,
+                  21.9
+                ],
+                "wall_top_m": 8.35,
+                "frieze_m": 0.55,
+                "against": "west",
+                "roof": {
+                  "kind": "gable",
+                  "ridge": "u",
+                  "pitch_deg": 29
+                },
+                "eave": {
+                  "projection_m": 0.6
+                },
+                "walls": [
+                  {
+                    "side": "south",
+                    "windows": [
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.1,
+                        "sill_m": 5.35,
+                        "centre_m": 4.199999999999999
+                      }
+                    ]
+                  },
+                  {
+                    "side": "east",
+                    "windows": []
+                  },
+                  {
+                    "side": "north",
+                    "windows": [
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.3,
+                        "sill_m": 2.1,
+                        "centre_m": 1.1
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.1,
+                        "sill_m": 5.35,
+                        "centre_m": 1.1
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "porch": {
+              "id": "k16.porch.1721_frame_south",
+              "kind": "porch",
+              "use": "porch",
+              "side": "east",
+              "half_width_m": 2.9,
+              "depth_m": 2.0,
+              "centre_m": 11.62,
+              "basement_m": 0.7,
+              "post_m": 0.18,
+              "plate": {
+                "clear_m": 3.0
+              },
+              "roof_m": 0.13,
+              "inner_posts_m": [
+                1.0
+              ],
+              "steps": {
+                "centre_m": 11.62,
+                "width_m": 1.8,
+                "going_m": 0.3,
+                "max_riser_m": 0.2,
+                "cheek": {
+                  "width_m": 0.14,
+                  "string_above_m": 0.14,
+                  "height_m": 0.65,
+                  "rail_m": 0.08,
+                  "rail_width_m": 0.11,
+                  "baluster_m": 0.07,
+                  "pitch_m": 0.17,
+                  "newel_m": 0.2,
+                  "newel_above_m": 0.12
+                }
+              },
+              "arcade": {
+                "spring_below_plate_m": 0.45,
+                "rise_m": 0.21,
+                "middle_rise_m": 0.15
+              },
+              "skirt": "open",
+              "block": "main"
+            },
+            "bays": [
+              {
+                "side": "east",
+                "block": "pav_west",
+                "plan": [
+                  [
+                    1.4,
+                    0.0
+                  ],
+                  [
+                    2.2,
+                    0.8
+                  ],
+                  [
+                    4.8,
+                    0.8
+                  ],
+                  [
+                    5.6,
+                    0.0
+                  ]
+                ],
+                "floor_m": 0.05,
+                "base_m": 1.45,
+                "wall_top_m": 7.9,
+                "frieze_m": 0.4,
+                "post_m": 0.12,
+                "cap_rise_m": 0.35,
+                "faces": [
+                  {
+                    "windows": [
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.3,
+                        "sill_m": 2.1,
+                        "centre_m": 0.565685424949238,
+                        "clear_width_m": 0.6
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.1,
+                        "sill_m": 5.35,
+                        "centre_m": 0.565685424949238,
+                        "clear_width_m": 0.6
+                      }
+                    ]
+                  },
+                  {
+                    "windows": [
+                      {
+                        "k06_variant": "k06.opening.sash_paired_flat",
+                        "clear_height_m": 2.3,
+                        "sill_m": 2.1,
+                        "centre_m": 1.3,
+                        "clear_width_m": 1.8
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_paired_flat",
+                        "clear_height_m": 2.1,
+                        "sill_m": 5.35,
+                        "centre_m": 1.3,
+                        "clear_width_m": 1.8
+                      }
+                    ]
+                  },
+                  {
+                    "windows": [
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.3,
+                        "sill_m": 2.1,
+                        "centre_m": 0.565685424949238,
+                        "clear_width_m": 0.6
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.1,
+                        "sill_m": 5.35,
+                        "centre_m": 0.565685424949238,
+                        "clear_width_m": 0.6
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "side": "east",
+                "block": "pav_east",
+                "plan": [
+                  [
+                    1.4,
+                    0.0
+                  ],
+                  [
+                    2.2,
+                    0.8
+                  ],
+                  [
+                    4.8,
+                    0.8
+                  ],
+                  [
+                    5.6,
+                    0.0
+                  ]
+                ],
+                "floor_m": 0.05,
+                "base_m": 1.45,
+                "wall_top_m": 7.9,
+                "frieze_m": 0.4,
+                "post_m": 0.12,
+                "cap_rise_m": 0.35,
+                "faces": [
+                  {
+                    "windows": [
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.3,
+                        "sill_m": 2.1,
+                        "centre_m": 0.565685424949238,
+                        "clear_width_m": 0.6
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.1,
+                        "sill_m": 5.35,
+                        "centre_m": 0.565685424949238,
+                        "clear_width_m": 0.6
+                      }
+                    ]
+                  },
+                  {
+                    "windows": [
+                      {
+                        "k06_variant": "k06.opening.sash_paired_flat",
+                        "clear_height_m": 2.3,
+                        "sill_m": 2.1,
+                        "centre_m": 1.3,
+                        "clear_width_m": 1.8
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_paired_flat",
+                        "clear_height_m": 2.1,
+                        "sill_m": 5.35,
+                        "centre_m": 1.3,
+                        "clear_width_m": 1.8
+                      }
+                    ]
+                  },
+                  {
+                    "windows": [
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.3,
+                        "sill_m": 2.1,
+                        "centre_m": 0.565685424949238,
+                        "clear_width_m": 0.6
+                      },
+                      {
+                        "k06_variant": "k06.opening.sash_2over2_flat",
+                        "clear_height_m": 2.1,
+                        "sill_m": 5.35,
+                        "centre_m": 0.565685424949238,
+                        "clear_width_m": 0.6
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "chimneys": [
+              {
+                "u_m": 3.1,
+                "v_m": 2.6,
+                "width_m": 0.8,
+                "depth_m": 1.0,
+                "above_ridge_m": 2.5
+              },
+              {
+                "u_m": 5.0,
+                "v_m": 9.8,
+                "width_m": 1.0,
+                "depth_m": 1.2,
+                "above_ridge_m": 2.75
+              },
+              {
+                "u_m": 5.0,
+                "v_m": 13.5,
+                "width_m": 1.0,
+                "depth_m": 1.2,
+                "above_ridge_m": 2.75
+              },
+              {
+                "u_m": 3.1,
+                "v_m": 20.7,
+                "width_m": 0.8,
+                "depth_m": 1.0,
+                "above_ridge_m": 2.5
+              }
+            ],
+            "paint": {
+              "body": [
+                0.34,
+                0.29,
+                0.19
+              ],
+              "trim": [
+                0.15,
+                0.1,
+                0.06
+              ],
+              "sash": [
+                0.05,
+                0.08,
+                0.05
+              ],
+              "foundation": [
+                0.55,
+                0.44,
+                0.29
+              ]
+            }
+          },
+          "confidence": "inferred",
+          "sources": [
+            "loc_det_4a08065_pullman_residence",
+            "robinson_1886_chicago_plate_10",
+            "sanborn_1911_chicago_v3_sheet_20",
+            "inland_architect_1891_06_dexter_plate"
+          ],
+          "note": "Read off the Detroit print of the Pullman house (det 4a08065, the owner's crop of its left edge) through the camera solved for the Pullman house: a symmetrical south front, two gabled wings each a two-storey canted bay, the recessed middle with an arched porch on four posts, the door and, over the porch, two windows with louvred blinds; bracketed eaves under a hipped main roof with four tall stacks on its ridge. Paint (T-3566, the owner: 'I am not convinced the color of the building is white'): the print's tones put the clapboard at about the value of Little's buff brick beside it, a step lighter than the Pullman house's stone and far below the white of the walks, and the eaves, casings and blinds well darker than the body, so the house is not white but a mid-toned body with darker trim. The hues are reconstructed from the period's three-colour practice for a frame house repainted beside a buff brick front: a fawn drab body, seal-brown trim, deep bronze-green sash and blinds; the stacks and the underpinning a buff Chicago common brick, the stacks reading lighter than the clapboard on the print as a buff brick would and a red one would not (the owner, 2026-11-13: 'maybe beige Chicago common like brick') (liberty L-k16-1721-frame-house-3566); sash, casings and the north and east walls' windows reconstructed in the kit's measure."
+        },
+        "roof_covering": {
+          "value": {
+            "material": "wood shingle",
+            "color": [
+              0.13,
+              0.11,
+              0.095
+            ]
+          },
+          "confidence": "reconstructed",
+          "sources": [
+            "loc_det_4a08065_pullman_residence"
+          ],
+          "note": "The print shows the roof a mid-dark tone, darker than the clapboard and lighter than the eaves' trim, too light for slate; weathered wood shingles, the usual covering of a frame house of 1863 and the owner's reading (2026-11-13: 'Probably shingles?'), in the colour the other Prairie frame houses' shingles carry. Reconstructed."
+        }
+      }
+    }
+  ]
+}
