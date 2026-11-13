@@ -1,4 +1,15 @@
 export const CHANGELOG = [ // newest first
+  { v: 2948, ts: '2026-11-13T21:33:14.009Z', date: 'Nov 13, 2026, 3:33 PM CT', title: 'The wind you hear now follows the trees', kind: 'feature',
+    items: [
+      'Gusts now cross the town from the south-west: the trees, vines and grass sway harder as one passes, and calm between.',
+      'With Ambience on, the rustle of leaves swells with each gust where you stand and drops in the lulls.',
+      'Nothing sways farther than before, and the wind stays as quiet on average. In 1812, 1835 and 1904.',
+    ] },
+  { v: 2947, ts: '2026-11-13T21:33:14.009Z', date: 'Nov 13, 2026, 3:33 PM CT', title: '1828 Prairie\'s stone runs round its corners', kind: 'improvement',
+    items: [
+      'The Shipman house at 1828 Prairie now has light stone walls down both sides of its main block, matching its front, where the sides used to be buff brick. That is how the 1911 fire-insurance map colours them, and the old automobile photograph shows the same light stone round the corner.',
+      'The angled bay on its south side is now stone too, and only the lower range at the back stays brick.',
+    ] },
   { v: 2946, ts: '2026-11-13T20:30:24.473Z', date: 'Nov 13, 2026, 2:30 PM CT', title: 'Jaunts sorted into clear groups, Glessner walks first', kind: 'improvement',
     items: [
       'The Jaunts menu now sorts every year into the same groups: Places, People, Architecture, Stories, Errands, Work and Build log. Each filter shows its name.',
