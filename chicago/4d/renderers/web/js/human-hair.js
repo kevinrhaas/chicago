@@ -209,6 +209,13 @@ function combed(cut, f, p, n) {
     const sides = down.clone().addScaledVector(f.z, -.12).addScaledVector(f.x, (lx >= 0 ? 1 : -1) * .08).normalize();
     return onTop.multiplyScalar(top).add(sides.multiplyScalar(1 - top)).normalize();
   }
+  if (cut.flow === 'swept_back') {
+    // T-3553: swept straight back off the brow with no parting, a little out to either side on
+    // top, and down and back over the ears and at the nape (hair worn long to the collar).
+    const onTop = f.z.clone().negate().addScaledVector(f.x, (lx >= 0 ? 1 : -1) * .18).normalize();
+    const sides = down.clone().addScaledVector(f.z, -.55).addScaledVector(f.x, (lx >= 0 ? 1 : -1) * .1).normalize();
+    return onTop.multiplyScalar(top).add(sides.multiplyScalar(1 - top)).normalize();
+  }
   if (cut.flow === 'swept_up') {
     // Drawn up and back from the face all round to a knot high on the crown (the 1900s,
     // T-3423): every strand runs toward the knot, with no parting.
@@ -659,6 +666,147 @@ function hatBand(hat, hair, root, frame) {
   return Number.isFinite(low) ? low : NO_CLIP;
 }
 
+// The hair_bun cap's texture: where clean hair lies (uv centre) and how much of it a radian
+// round the head takes (T-3553, the place a bun turned to the crown left behind).
+const BUN_PATCH_UV = Object.freeze({ u: .74, v: .29, span: .09 });
+const turnedBuns = new WeakMap();
+
+/** A geometry of `src`'s triangles `tris` (indices into src) alone; `from` maps its points back to src's. */
+function sub(src, tris) {
+  const from = [...new Set(tris)], at = new Map(from.map((i, k) => [i, k]));
+  const geometry = new THREE.BufferGeometry();
+  for (const [name, attr] of Object.entries(src.attributes)) {
+    const out = new attr.array.constructor(from.length * attr.itemSize);
+    from.forEach((i, k) => { for (let c = 0; c < attr.itemSize; c++) out[k * attr.itemSize + c] = attr.array[i * attr.itemSize + c]; });
+    geometry.setAttribute(name, new THREE.BufferAttribute(out, attr.itemSize, attr.normalized));
+  }
+  geometry.setIndex(tris.map(i => at.get(i)));
+  return { geometry, from };
+}   // source cap geometry -> Map(degrees -> { cap, knot })
+
+/**
+ * T-3553: wear the hair cap's own bun high on the crown, where a portrait shows a top knot.
+ * The bun is the cap beyond 11 cm from the middle of the head (the skull's own hair lies inside
+ * that). Its triangles are copied whole into a knot of their own, turned rigidly by `deg` about
+ * the face's x axis through the middle of the head, up over the back to the crown; in the cap's
+ * copy the bun's points are laid down on the skull, so no second knot stays behind. Both copies
+ * share the cap's skeleton, material and texture, and are shared by every figure wearing that
+ * cap and turn.
+ */
+function bunToCrown(root, deg, knot = 1) {
+  const caps = [];
+  root.traverse(o => { if (o.isSkinnedMesh && /^hair($|__)/.test(o.material?.name ?? '')) caps.push(o); });
+  for (const o of caps) {
+    const src = o.geometry;
+    let byDeg = turnedBuns.get(src);
+    if (!byDeg) { byDeg = new Map(); turnedBuns.set(src, byDeg); }
+    let made = byDeg.get(`${deg}/${knot}`);
+    if (!made) {
+      const f = headFrame(o, root);
+      if (!f) continue;
+      const R = restMatrix(o, root), Ri = R.clone().invert(), Rn = new THREE.Matrix3().getNormalMatrix(R), Rni = new THREE.Matrix3().getNormalMatrix(Ri);
+      const mid = f.o.clone().addScaledVector(f.y, .03).addScaledVector(f.z, -.085);
+      const p = src.attributes.position, v = new THREE.Vector3();
+      // The bun is the hair within 38 degrees of its own axis, seen from the middle of the head
+      // (the axis runs to the middle of the hair standing more than 8.5 cm out behind): its
+      // coil and the foot it is pinned to the skull by. The cap has no hair of its own under
+      // it. The scalp is the skin's points round the head.
+      let skin = null;
+      root.traverse(m => { if (!skin && m.isSkinnedMesh && /^skin($|__)/.test(m.material?.name ?? '')) skin = m; });
+      if (!skin) continue;
+      const Rs = restMatrix(skin, root), sp = skin.geometry.attributes.position, scalp = [];
+      for (let i = 0; i < sp.count; i++) {
+        v.fromBufferAttribute(sp, i).applyMatrix4(Rs);
+        if (v.distanceTo(mid) < .13 && v.clone().sub(mid).dot(f.y) > -.07) scalp.push(v.x, v.y, v.z);
+      }
+      const near = new Int32Array(p.count), inBun = new Uint8Array(p.count);
+      const axis = new THREE.Vector3();
+      for (let i = 0; i < p.count; i++) {
+        const d = v.fromBufferAttribute(p, i).applyMatrix4(R).sub(mid);
+        if (d.length() > .085 && d.dot(f.z) < -.035) axis.add(d);
+      }
+      if (!axis.lengthSq()) { byDeg.set(`${deg}/${knot}`, null); continue; }
+      axis.normalize();
+      const cone = Math.cos(38 * Math.PI / 180);
+      for (let i = 0; i < p.count; i++) {
+        const d = v.fromBufferAttribute(p, i).applyMatrix4(R).sub(mid);
+        inBun[i] = d.dot(axis) > cone * d.length() ? 1 : 0;
+        if (!inBun[i]) continue;
+        d.add(mid);
+        let best = Infinity;
+        for (let k = 0; k < scalp.length; k += 3) {
+          const dx = scalp[k] - d.x, dy = scalp[k + 1] - d.y, dz = scalp[k + 2] - d.z, d2 = dx * dx + dy * dy + dz * dz;
+          if (d2 < best) { best = d2; near[i] = k; }
+        }
+      }
+      const I = src.index ? src.index.array : Uint32Array.from({ length: p.count }, (_, i) => i);
+      const tris = [];
+      for (let t = 0; t < I.length; t += 3) if (inBun[I[t]] && inBun[I[t + 1]] && inBun[I[t + 2]]) tris.push(I[t], I[t + 1], I[t + 2]);
+      if (!tris.length) { byDeg.set(`${deg}/${knot}`, null); continue; }
+      const q = new THREE.Quaternion().setFromAxisAngle(f.x, deg * Math.PI / 180);
+      // The bun's own middle; the knot is drawn smaller than the low bun, and sits that much
+      // nearer the skull.
+      const c = new THREE.Vector3(); let nc = 0;
+      for (let i = 0; i < p.count; i++) if (inBun[i]) { c.add(v.fromBufferAttribute(p, i).applyMatrix4(R)); nc++; }
+      c.multiplyScalar(1 / nc);
+      const toC = c.clone().sub(mid), scale = knot ?? 1, inward = 1 - (1 - scale) * .45;
+      // The knot: the bun's triangles, turned whole.
+      const geo = sub(src, tris).geometry;
+      const kp = geo.attributes.position, kn = geo.attributes.normal;
+      for (let k = 0; k < kp.count; k++) {
+        v.fromBufferAttribute(kp, k).applyMatrix4(R).sub(c).multiplyScalar(scale).addScaledVector(toC, inward).applyQuaternion(q).add(mid).applyMatrix4(Ri);
+        kp.setXYZ(k, v.x, v.y, v.z);
+        if (kn) { v.fromBufferAttribute(kn, k).applyMatrix3(Rn).applyQuaternion(q).applyMatrix3(Rni).normalize(); kn.setXYZ(k, v.x, v.y, v.z); }
+      }
+      geo.computeBoundingSphere();
+      // Where the bun stood, out to 50 degrees from its axis, the cap's texture is dark with the
+      // hair running into the bun's foot. The cap leaves those triangles out; a patch of its own
+      // takes them, the bun's points laid down on the scalp 7 mm off its nearest point, worn as
+      // plain hair drawn up to the knot: a piece of the cap's texture (BUN_PATCH_UV, clean hair
+      // on the cap's right half) laid flat across the back of the head.
+      const wide = Math.cos(50 * Math.PI / 180), side = f.x, upward = axis.clone().cross(f.x).normalize();
+      if (upward.dot(f.y) < 0) upward.negate();
+      const inPatch = new Uint8Array(p.count);
+      for (let i = 0; i < p.count; i++) { const d = v.fromBufferAttribute(p, i).applyMatrix4(R).sub(mid); inPatch[i] = d.dot(axis) > wide * d.length() ? 1 : 0; }
+      const capTris = [], patchTris = [];
+      for (let t = 0; t < I.length; t += 3) (inPatch[I[t]] || inPatch[I[t + 1]] || inPatch[I[t + 2]] ? patchTris : capTris).push(I[t], I[t + 1], I[t + 2]);
+      const cap = src.clone();
+      cap.setIndex(capTris);
+      const patch = sub(src, patchTris), pp = patch.geometry.attributes.position, pu = patch.geometry.attributes.uv, pn = patch.geometry.attributes.normal, s = new THREE.Vector3();
+      patch.from.forEach((i, k) => {
+        const d = v.fromBufferAttribute(p, i).applyMatrix4(R).sub(mid).normalize();
+        if (pu) pu.setXY(k, BUN_PATCH_UV.u + d.dot(side) * BUN_PATCH_UV.span, BUN_PATCH_UV.v - d.dot(upward) * BUN_PATCH_UV.span);
+        if (!inBun[i]) return;
+        s.fromArray(scalp, near[i]);
+        v.copy(s).sub(mid).setLength(.007).add(s).applyMatrix4(Ri);
+        pp.setXYZ(k, v.x, v.y, v.z);
+        if (pn) { v.copy(s).sub(mid).applyMatrix3(Rni).normalize(); pn.setXYZ(k, v.x, v.y, v.z); }
+      });
+      // Every laid-down triangle faces out (a bun's inner coil, laid flat, would show its back,
+      // and a double-sided back face is lit dark).
+      const pi = patch.geometry.index.array, A = new THREE.Vector3(), B = new THREE.Vector3(), C = new THREE.Vector3();
+      for (let t = 0; t < pi.length; t += 3) {
+        A.fromBufferAttribute(pp, pi[t]).applyMatrix4(R); B.fromBufferAttribute(pp, pi[t + 1]).applyMatrix4(R); C.fromBufferAttribute(pp, pi[t + 2]).applyMatrix4(R);
+        const out = A.clone().add(B).add(C).multiplyScalar(1 / 3).sub(mid);
+        if (B.sub(A).cross(C.sub(A)).dot(out) < 0) { const x = pi[t + 1]; pi[t + 1] = pi[t + 2]; pi[t + 2] = x; }
+      }
+      patch.geometry.computeBoundingSphere();
+      cap.computeBoundingSphere();
+      made = { cap, knot: geo, patch: patch.geometry };
+      byDeg.set(`${deg}/${knot}`, made);
+    }
+    if (!made) continue;
+    o.geometry = made.cap;
+    for (const [g, name] of [[made.knot, 'top_knot'], [made.patch, 'bun_patch']]) {
+      const k = new THREE.SkinnedMesh(g, o.material);
+      k.name = `${o.name}_${name}`;
+      k.bind(o.skeleton, o.bindMatrix);
+      k.frustumCulled = o.frustumCulled;
+      o.parent.add(k);
+    }
+  }
+}
+
 const built = new WeakMap();   // source geometry -> Map(person key -> geometry)
 
 /**
@@ -673,6 +821,9 @@ export function dressHair(root, { lod = 0, person = null, year = null, style: gi
   // A bald crown (T-3440): the cap, a full head of hair in its own texture, is never drawn;
   // the fringe is cards over the skin (near levels), and far off the head reads bare.
   if (HAIR_CUTS[style.cut]?.bald) root.traverse(o => { if (o.isMesh && /^hair($|__)/.test(o.material?.name ?? '')) o.visible = false; });
+  // T-3553: a cut that wears the cap's own bun high on the crown (`bun_to_crown_deg`, Sarah
+  // Grey's top knot) turns the bun up over the back of the head, at every level.
+  if (HAIR_CUTS[style.cut]?.bun_to_crown_deg) bunToCrown(root, HAIR_CUTS[style.cut].bun_to_crown_deg, HAIR_CUTS[style.cut].bun_knot_scale ?? 1);
   if (!CARDS.lods[lod] || (CARDS.lods[lod].tail_only && !(style.tail_cm > 0 && HAIR_CUTS[style.cut]?.knot_cm))) return null;
   let hair = null, skin = null;
   root.traverse(o => {

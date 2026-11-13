@@ -1,0 +1,32 @@
+{
+ "id": "owner_grey_likeness_william_2026",
+ "type": "photograph",
+ "citation": "Sepia portrait supplied by the project owner, Kevin Haas, on 12 November 2026 as the likeness to use for William L. Grey in the 1904 scene (\"Use these as the models for William and Sarah Grey ... since we do not have photos of them you can use these likenesses\"). Sitter, maker and date not recorded.",
+ "author": "not recorded (supplied by the project owner)",
+ "date": "not recorded",
+ "describes_date": "not recorded; styled as a portrait of about 1895-1905",
+ "repository": "the project owner; kept verbatim in kevinrhaas/chicago-evidence at evidence/grey-likenesses-2026-11-12/pa1904_grey_w_l/owner_william_grey_likeness.png (SHA-256 a1cb561f8da3f8925471234b0143e87d134a684b8a7332bcaed34d6331f44fb8, 1122 x 1402 px)",
+ "url": "https://github.com/kevinrhaas/chicago-evidence/blob/4c262dd37f52a0e783cd17fd23ecba849a49e5e9/evidence/grey-likenesses-2026-11-12/pa1904_grey_w_l/owner_william_grey_likeness.png",
+ "locator": "the full frame; the face is marked inside the crop recorded in data/humans/variation/portraits/pa1904_grey_w_l.json",
+ "tier": 5,
+ "rights_status": "cleared",
+ "rights_note": "Supplied by the project owner for this project's own use as a likeness. The card shows a cut of it with a stand-in label burned on; the full picture is kept in the evidence repository, not served from the site.",
+ "rights_checked": {
+  "date": "2026-11-12",
+  "method": "Supplied directly by the owner in the project thread with the instruction to use it as the likeness.",
+  "outcome": "cleared for this project's use and derivation by the owner's instruction; the sitter and maker are not recorded"
+ },
+ "asset_use": "cross_check",
+ "verified": true,
+ "access_notes": "Read by eye at full size and at 3x on the face. The file carries no capture or software metadata (EXIF: orientation and 72 dpi only), so where and when the picture was made cannot be read from it. asset_use is cross_check, not geometry: a tier-5 picture is not evidence of anyone's outline (docs/PROVENANCE.md). The model's face is fitted to it only because the owner chose it as the stand-in likeness; that face is a liberty graded reconstructed (docs/LIBERTIES.md, L-prairie-likenesses-3547), not a measurement of the person.",
+ "note": "THIS IS NOT A PHOTOGRAPH OF WILLIAM L. GREY. No photograph of William L. Grey has been found (the household record's portrait search, docs/RESEARCH/prairie-portraits-3546). The owner chose this picture as the stand-in for William L. Grey's face, hair and dress, as the Glessner household's stand-ins were chosen (T-3478). A sepia cabinet-style portrait, three-quarter length: a broad-faced, freckled man of middle age seated in a carved armchair before a painted studio backdrop (foliage at left, a column at right), his wavy hair worn long over the ears and swept back from a high forehead, a full trimmed beard and moustache, in a dark three-piece suit, a white standing collar and a dark patterned four-in-hand tie, a watch chain looped across the waistcoat. His face is turned a little to his left and lit from the left, both eyes and his right ear showing; about 120 px between the pupils.",
+ "what_it_supplies": [
+  "the proportions of the face the model of William L. Grey is drawn with, a stand-in chosen by the owner",
+  "the hair, facial hair and dress the figure is drawn in"
+ ],
+ "what_it_does_not_supply": [
+  "William L. Grey's own face, age, colouring or appearance: the sitter is not recorded",
+  "any colour (the picture is sepia)",
+  "the face's depth (one view only)"
+ ]
+}
