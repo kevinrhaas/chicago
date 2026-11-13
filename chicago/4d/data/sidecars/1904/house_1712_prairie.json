@@ -153,12 +153,12 @@
       "note": "RECONSTRUCTED: a hip over the main body, its half storey in the roof under a street dormer: the sheet's '½' puts a storey in the roof, and the sheet draws no dashed curb line inside the walls, the mark that put a mansard on 1730 (T-2934), so a hip and not a mansard. No source reads this roof."
     },
     "roof_pitch_deg": {
-      "value": 25,
-      "confidence": "reconstructed",
+      "value": 18,
+      "confidence": "inferred",
       "sources": [
         "rand_mcnally_1893_views_prairie_west_1702_1812"
       ],
-      "note": "RECONSTRUCTED: a low hip, as the 1893 Rand McNally strip over '1712' draws it, at 25 degrees, the K01 contract's lowest. The drawing draws the hip's top about 32 px (1.8 m) over the cornice's crown (y 368 against 400 px), which over the 10.65 m front reads as about 20 degrees; a 25-degree hip draws about 0.7 m higher than that even with no recession, and more with the camera's. That gap is open in the view's match record: a hip below 25 degrees needs the K01 contract's ordinary pitch range widened, which is a decision for the component standard, not for one house (T-1872; the pitch was 38 degrees, steep enough for a lit half storey, before the drawing was read)."
+      "note": "INFERRED from the drawing: a low hip, as the 1893 Rand McNally strip over '1712' draws it. The strip draws the roof's top about 32 px over the cornice's crown (y 368 against 400 px), 1.8 m at the camera's 17.92 px/m height scale (data/reference_views/house_1712_prairie/rand_mcnally_1893_p233.json). A hip over the 10.65 m front rises 5.325 m x tan(pitch) to its apex, and the apex stands 5.3 m behind the front, so however the strip draws depth the apex draws at least that rise over the crown: 1.8 m or less is a pitch of about 18.5 degrees or less. 18 degrees is that reading, about the steepest the drawing allows (its 3 px, 0.17 m, uncertainty is 17-20 degrees); a hip drawn with any recession would be lower still. Below the K01 contract's 25-degree ordinary floor, which only a source may go past (T-1872; RECONSTRUCTION-RULES.md § Starting ranges, Main roof: 'Street silhouette outranks the range'). Was 25 (the floor) under T-1872's first pass, 38 before the drawing was read."
     },
     "eave_overhang_m": {
       "value": 0.5,
