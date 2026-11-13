@@ -88,7 +88,7 @@
         "glessner_blog_1828_shipman_partial",
         "sanborn_1911_chicago_v3_sheet_28"
       ],
-      "note": "The 1911 sheet: '3B; rear2B brick with stone front'; both photographs show a light ashlar street front (the Inter Ocean's tour: 'the light stone-front house, No. 1828'). K01 lays stone on the street front only, so the flanks and rear stand in brick, as the sheet colours them."
+      "note": "The 1911 sheet: '3B; rear2B brick with stone front'; both photographs show a light ashlar street front (the Inter Ocean's tour: 'the light stone-front house, No. 1828'). The sheet edges the three-storey block's flanks in the same blue as its front, so its stone is laid round both corners 14 m back (stone_front.flanks, T-1887); the rest of the flanks and the rear stand in brick, as the sheet colours them."
     },
     "principal_floor_m": {
       "value": 2.3,
@@ -123,7 +123,7 @@
     "service_wall_brick": {
       "value": "common_buff_common_6",
       "confidence": "reconstructed",
-      "note": "K01 lays the flanks and the rear in brick, as the 1911 sheet colours them; buff for the light stone front beside it. No picture shows them."
+      "note": "K01 lays the rear and the flanks behind the stone (stone_front.flanks) in brick, as the 1911 sheet colours them; buff for the light stone front beside it. No picture shows them."
     },
     "stone_front": {
       "value": {
@@ -132,14 +132,23 @@
         "trim_fabric": "dressed_trim",
         "rusticated_base_courses": 2,
         "coping_height_m": 0.25,
-        "corner_bond": []
+        "corner_bond": [],
+        "flanks": {
+          "walls": [
+            "north",
+            "south"
+          ],
+          "dressing": "smooth",
+          "to_m": 14.0
+        }
       },
       "confidence": "inferred",
       "sources": [
         "chicagology_1828_shipman_automobile",
-        "glessner_blog_1828_shipman_partial"
+        "glessner_blog_1828_shipman_partial",
+        "sanborn_1911_chicago_v3_sheet_28"
       ],
-      "note": "Smooth light ashlar across the street front in the automobile photograph (Chicagology, about 1897) (it reads mottled in the smaller partial view, a print effect or weathering), its basement storey under a sill course. K02's Lemont limestone stands for the 'light stone' of the Inter Ocean's tour; the quarry is reconstructed."
+      "note": "Smooth light ashlar across the street front in the automobile photograph (Chicagology, about 1897) (it reads mottled in the smaller partial view, a print effect or weathering), its basement storey under a sill course. K02's Lemont limestone stands for the 'light stone' of the Inter Ocean's tour; the quarry is reconstructed. T-1887: the same ashlar turns both corners and runs 14.0 m back along each flank, to the three-storey block's back wall: the 1911 sheet edges that block's north, east and south walls in blue (stone) with the brick drawn inside a dashed line, and the two-storey range behind it in plain pink (brick), where 1824 next door is blue across its front alone; the sheet's block is 13.9 m deep (275 px at its fit's 0.0506 m/px), held to 14.0 so the stone meets the south flank's canted bay, which the sheet draws inside the same band. The automobile photograph shows that stone at its left edge, light and coursed as the front, where the build had brick. The flanks' dressing is the front's (no picture shows them square-on)."
     },
     "street_front_trim": {
       "value": {
@@ -728,7 +737,7 @@
           "variant": "k08.bay.canted",
           "wall": "k01.wall.side.south",
           "s_m": 8.2,
-          "fabric": "brick",
+          "fabric": "front_stone",
           "plan": {
             "kind": "polyline",
             "points": [
@@ -821,7 +830,7 @@
         "chicagology_1828_shipman_automobile",
         "glessner_blog_1828_shipman_partial"
       ],
-      "note": "Three K08 bays on the 1911 sheet's trace (s28fp-1828-b1), in the lot's frame: the street front's canted bay from v -2.7 to 1.84 (the sheet's from the south corner at -3.0; K01 keeps 0.3 m of pier), 1.25 m out from the recessed north part at u 46.3, its front 1.92 m (the sheet's v -1.59 to 0.33), carried through the basement and both storeys in the automobile photograph (Chicagology, about 1897) and the partial view (Glessner House Museum), with one window per storey in each cheek and in the front; on the south flank, a round bay at u 27.4-31.4 standing 1.6 m out on the sheet (K08's bow 1.2: within its range), and a stone-drawn canted bay at u 32.3-38.0, 0.95 m out. The flank bays' storeys, windows and roofs are reconstructed: no picture shows the flank. The front bay is carried up past the main cornice under its own mansard crown, as the partial view shows it (T-1887): the crown's face 4.5 m at 78 degrees, the main mansard's, slated as the house with iron cresting on its curb, and one round-headed dormer on its front face, its light 0.6 x 1.6 m in a 0.1 m surround, the widest the crown's 1.92 m front clears of its hips (the print's dormer face reads about 0.9 m across, foreshortened)."
+      "note": "Three K08 bays on the 1911 sheet's trace (s28fp-1828-b1), in the lot's frame: the street front's canted bay from v -2.7 to 1.84 (the sheet's from the south corner at -3.0; K01 keeps 0.3 m of pier), 1.25 m out from the recessed north part at u 46.3, its front 1.92 m (the sheet's v -1.59 to 0.33), carried through the basement and both storeys in the automobile photograph (Chicagology, about 1897) and the partial view (Glessner House Museum), with one window per storey in each cheek and in the front; on the south flank, a round bay at u 27.4-31.4 standing 1.6 m out on the sheet (K08's bow 1.2: within its range), and a stone-drawn canted bay at u 32.3-38.0, 0.95 m out, laid in the front's stone as the sheet draws it inside the block's blue band (T-1887). The flank bays' storeys, windows and roofs are reconstructed: no picture shows the flank. The front bay is carried up past the main cornice under its own mansard crown, as the partial view shows it (T-1887): the crown's face 4.5 m at 78 degrees, the main mansard's, slated as the house with iron cresting on its curb, and one round-headed dormer on its front face, its light 0.6 x 1.6 m in a 0.1 m surround, the widest the crown's 1.92 m front clears of its hips (the print's dormer face reads about 0.9 m across, foreshortened)."
     },
     "mansard": {
       "value": {
