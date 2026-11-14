@@ -103,9 +103,22 @@ export const HOOF_RECORDING = Object.freeze({
     Object.freeze({ start: 6.710, end: 6.870 }),
   ]),
 });
-const VIEW_DATES_1812 = Object.freeze({ summer: '1812-08-14', spring: '1812-04-15',
-  fall: '1812-10-15', winter: '1812-02-15' });
-const ACTORS_1812 = new Set(['fort_wagon_loop_1812', 'shore_road_wagon_haul_1812']);
+// T-3587 (owner, 2026-11-13: "i could barely hear them"): every driven team in every
+// year, at each scene's own Season dates (season.js SEASON_DAY over its target date).
+const VIEW_DATES = Object.freeze({
+  1812: Object.freeze({ summer: '1812-08-14', spring: '1812-04-15', fall: '1812-10-15', winter: '1812-02-15' }),
+  1835: Object.freeze({ summer: '1835-07-01', spring: '1835-04-15', fall: '1835-10-15', winter: '1835-02-15' }),
+  1904: Object.freeze({ summer: '1904-07-01', spring: '1904-04-15', fall: '1904-10-15', winter: '1904-02-15' }),
+});
+const ACTORS = Object.freeze({
+  1812: new Set(['fort_wagon_loop_1812', 'shore_road_wagon_haul_1812']),
+  1835: new Set(['western_hotel_driven_wagon_loop_1835']),
+  1904: new Set(['prairie_driven_brougham_loop_1904']),
+});
+/** T-3587: a team is heard to 40-48 m and falls off as (1 - d/max)^1.5 rather than
+ *  ^2, so it is clearly louder than a robin while it passes within a street's width
+ *  and fades as it goes. A listening choice (L-team-sounds-3587), not a measurement. */
+export const TEAM_FALLOFF = 1.5;
 const clamp01 = n => Math.max(0, Math.min(1, n));
 
 /** Uses the ground renderer's actual snow-look amount, not a month heuristic.
@@ -118,9 +131,9 @@ export function hoofSurfaceProfile(snowCover) {
     surface: amount > 0 ? 'snow-damped-dirt-recording-proxy' : 'recorded-dirt-contact-proxy' };
 }
 
-export function hoofRecording(catalog) {
+export function hoofRecording(catalog, year = '1812') {
   return (catalog?.assets ?? []).find(a => a.id === HOOF_RECORDING.id
-    && a.runtime_enabled === true && a.approved_eras?.includes('1812')
+    && a.runtime_enabled === true && a.approved_eras?.includes(String(year))
     && a.scene_placement?.mode === 'hoof-contact'
     && a.delivery?.sha256 === HOOF_RECORDING.sha256
     && a.delivery?.bytes === HOOF_RECORDING.encodedBytes
@@ -133,16 +146,17 @@ export function hoofRecording(catalog) {
 export function hoofCandidates(asset, env, year) {
   const eye = env?.camera?.position, p = asset?.scene_placement;
   const season = env?.season ?? 'summer';
-  if (String(year) !== '1812' || !asset || !point(eye) || !Array.isArray(env?.transport)
-    || VIEW_DATES_1812[season] !== env.time?.date
+  const scene = String(year), dates = VIEW_DATES[scene], actors = ACTORS[scene];
+  if (!dates || !actors || !asset || !point(eye) || !Array.isArray(env?.transport)
+    || dates[season] !== env.time?.date
     || !finite(p?.gain) || p.gain <= 0 || p.gain > .3
     || !finite(p.max_distance_m) || p.max_distance_m <= 0 || p.max_distance_m > 48) return [];
-  const binding = p.bindings?.find(b => b.scene === '1812' && b.scene_date === env.time.date && b.season === season);
+  const binding = p.bindings?.find(b => b.scene === scene && b.scene_date === env.time.date && b.season === season);
   if (!Array.isArray(binding?.actor_ids)) return [];
   const out = [];
   for (const actor of env.transport) {
     const team = actor.anchors?.hoof;
-    if (actor.scene !== '1812' || !ACTORS_1812.has(actor.id) || !binding.actor_ids.includes(actor.id)
+    if (actor.scene !== scene || !actors.has(actor.id) || !binding.actor_ids.includes(actor.id)
       || actor.moving !== true || !finite(actor.speed) || actor.speed <= 0
       || !team || typeof team.epoch !== 'string' || !team.epoch || !Array.isArray(team.horses)) continue;
     const horses = team.horses.filter(h => h.modelSha256 === WALK_V2_CONTACTS.modelSha256
@@ -155,7 +169,7 @@ export function hoofCandidates(asset, env, year) {
     })));
     if (distance >= p.max_distance_m) continue;
     out.push({ kind: 'hoof', key: `${actor.id}:${asset.id}`, actor: actor.id, epoch: team.epoch,
-      horses, asset, distance, gain: p.gain * (1 - distance / p.max_distance_m) ** 2 });
+      horses, asset, distance, gain: p.gain * (1 - distance / p.max_distance_m) ** TEAM_FALLOFF });
   }
   return out.sort((a, b) => a.distance - b.distance || a.key.localeCompare(b.key)).slice(0, 2);
 }

@@ -1,4 +1,14 @@
 export const CHANGELOG = [ // newest first
+  { v: 2955, ts: '2026-11-14T01:15:53.623Z', date: 'Nov 13, 2026, 7:15 PM CT', title: '1936 Prairie\'s tower windows crowned as the photograph shows', kind: 'improve',
+    items: [
+      'The pair of windows over 1936 Prairie\'s entrance porch now wears the photograph\'s tall carved hoods: a deeper stone hood with a carved crest that rises past the floor band into the blind stage above, about a metre over the windows, where it had stopped short at half that.',
+    ] },
+  { v: 2954, ts: '2026-11-14T00:51:53.436Z', date: 'Nov 13, 2026, 6:51 PM CT', title: 'Horses and carriages you can hear as they pass', kind: 'feature',
+    items: [
+      'Driven teams are now clearly audible as they roll by, louder than the birds and wind, and fade out down the block.',
+      'Hoofbeats now sound in 1835 and 1904 too, not only 1812, timed to each horse\'s steps.',
+      'The 1904 Prairie Avenue carriage now has its wheels, quieter than a loaded wagon. Teams are heard in every season, not only summer.',
+    ] },
   { v: 2953, ts: '2026-11-14T00:08:14.282Z', date: 'Nov 13, 2026, 6:08 PM CT', title: 'Find and Follow wait outside for someone to come out', kind: 'fix',
     items: [
       'Finding or following someone at home now sets you down outside their front door, facing it, never inside the house.',

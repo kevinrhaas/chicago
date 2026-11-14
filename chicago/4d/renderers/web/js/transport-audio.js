@@ -1,12 +1,13 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 // Recorded mechanical textures and 1812 gait contacts, never synthetic hoofs.
 import { createHoofContactEvents, hoofRecording, hoofCandidates, hoofSurfaceProfile,
-  extractHoofBuffers, HOOF_RECORDING, WALK_V2_CONTACTS } from './hoof-contact-events.js';
+  extractHoofBuffers, HOOF_RECORDING, WALK_V2_CONTACTS, TEAM_FALLOFF } from './hoof-contact-events.js';
 export const TRANSPORT_AUDIO_LIMITS = Object.freeze({ actors: 2, voices: 4,
   decodedBytes: 8 * 1024 * 1024, sampleRate: 48000, sourceSeconds: 24,
-  // 1812 seasonal audio: retain all four mechanical voices, add two short hoofs.
-  // Measured peak including original decode + copied cuts is 8,824,988 bytes;
-  // retained cuts are 55,296 bytes. Other eras keep their existing 4 / 8MiB.
+  // Hoofbeats (1812 first; every year since T-3587): retain all four mechanical
+  // voices, add two short hoofs. Measured peak including original decode + copied
+  // cuts is 8,824,988 bytes; retained cuts are 55,296 bytes. A year with no
+  // approved hoof recording keeps 4 voices / 8 MiB.
   voices1812: 6, decodedBytes1812: 10 * 1024 * 1024,
   contactVoices: 2, contactBytes: 256 * 1024 });
 const finite = Number.isFinite;
@@ -28,6 +29,9 @@ export function transportCandidates(catalog, env, year) {
       || !Array.isArray(p.bindings) || !asset.delivery?.sha256 || typeof asset.url !== 'string') continue;
     const binding = p.bindings.find(b => b.scene === String(year) && b.scene_date === env.time?.date);
     if (!Array.isArray(binding?.actor_ids)) continue;
+    // T-3587: a binding may carry its own level (a light 1904 brougham's wheels
+    // are quieter than a loaded wagon's), never above the placement's own cap.
+    const level = finite(binding.gain) && binding.gain > 0 && binding.gain <= p.gain ? binding.gain : p.gain;
     for (const actor of env.transport) {
       const anchor = actor.anchors?.[p.anchor];
       if (actor.scene !== String(year) || actor.moving !== true || !finite(actor.speed) || actor.speed <= 0
@@ -35,7 +39,7 @@ export function transportCandidates(catalog, env, year) {
       const distance = Math.hypot(anchor.x - eye.x, anchor.y - eye.y, anchor.z - eye.z);
       if (distance >= p.max_distance_m) continue;
       candidates.push({ key: `${actor.id}:${asset.id}`, actor: actor.id, asset, anchor, distance,
-        gain: p.gain * (1 - distance / p.max_distance_m) ** 2 * clamp(actor.speed / 1.3, 0, 1) });
+        gain: level * (1 - distance / p.max_distance_m) ** TEAM_FALLOFF * clamp(actor.speed / 1.3, 0, 1) });
     }
   }
   candidates.sort((a, b) => a.distance - b.distance || a.key.localeCompare(b.key));
@@ -58,8 +62,10 @@ export function createTransportAudio({ ctx, output, catalog, environment, decode
   const bufferBytes = b => b.length * b.numberOfChannels * 4;
   const contactBytes = () => hoofBuffers.reduce((n, b) => n + bufferBytes(b), 0);
   const bytes = () => [...buffers.values()].reduce((n, b) => n + bufferBytes(b), contactBytes());
-  const byteLimit = () => year === '1812' ? TRANSPORT_AUDIO_LIMITS.decodedBytes1812 : TRANSPORT_AUDIO_LIMITS.decodedBytes;
-  const voiceLimit = () => year === '1812' ? TRANSPORT_AUDIO_LIMITS.voices1812 : TRANSPORT_AUDIO_LIMITS.voices;
+  // T-3587: the hoof allowance follows an approved hoof recording, in any year.
+  const hoofs = () => !!hoofRecording(catalog?.(), year);
+  const byteLimit = () => hoofs() ? TRANSPORT_AUDIO_LIMITS.decodedBytes1812 : TRANSPORT_AUDIO_LIMITS.decodedBytes;
+  const voiceLimit = () => hoofs() ? TRANSPORT_AUDIO_LIMITS.voices1812 : TRANSPORT_AUDIO_LIMITS.voices;
   const countVoices = kind => [...voices.values()].filter(v => v.kind === kind).length;
   const jitter = (a, b) => a + clamp(random(), 0, 1) * (b - a);
   function release(key, v) {
@@ -93,7 +99,7 @@ export function createTransportAudio({ ctx, output, catalog, environment, decode
   function start(candidate, buffer) {
     const hoof = candidate.kind === 'hoof', kind = hoof ? 'hoof' : 'mechanical';
     if (!active || disposed || voices.has(candidate.key) || voices.size >= voiceLimit()
-      || (hoof && year !== '1812') || countVoices(kind) >= (hoof ? TRANSPORT_AUDIO_LIMITS.contactVoices : TRANSPORT_AUDIO_LIMITS.voices)) return;
+      || (hoof && !hoofAsset) || countVoices(kind) >= (hoof ? TRANSPORT_AUDIO_LIMITS.contactVoices : TRANSPORT_AUDIO_LIMITS.voices)) return;
     const source = ctx.createBufferSource(), envelope = ctx.createGain(), gain = ctx.createGain(), pan = ctx.createPanner();
     const filter = hoof ? ctx.createBiquadFilter() : null;
     source.buffer = buffer; source.loop = false; gain.gain.value = candidate.gain * duck;
@@ -122,7 +128,7 @@ export function createTransportAudio({ ctx, output, catalog, environment, decode
   }
   async function load(candidate) {
     const hoof = candidate.kind === 'hoof';
-    if (loading || failed.has(candidate.asset.id) || (hoof ? hoofBuffers.length > 0 || year !== '1812' : buffers.size >= 2)) return;
+    if (loading || failed.has(candidate.asset.id) || (hoof ? hoofBuffers.length > 0 || !hoofAsset : buffers.size >= 2)) return;
     const own = generation, token = {}, abort = new AbortController();
     loading = token; controller = abort;
     try {
@@ -177,7 +183,7 @@ export function createTransportAudio({ ctx, output, catalog, environment, decode
       if (disposed) return;
       // Do not traverse horse matrices while muted, in other eras, or before
       // catalog eligibility. Door audio uses a separate cheap environment read.
-      if (!active || !enabled || year !== '1812' || String(nextYear) !== year || !hoofAsset) {
+      if (!active || !enabled || String(nextYear) !== year || !hoofAsset) {
         stopContacts(); return;
       }
       const env = environment() ?? {}, t = now();
@@ -212,7 +218,7 @@ export function createTransportAudio({ ctx, output, catalog, environment, decode
       scope = nextScope; year = next; active = willRun; lastNow = t; duck = clamp(nextDuck, 0, 1);
       if (!active) return;
       const currentCatalog = catalog();
-      hoofAsset = year === '1812' ? hoofRecording(currentCatalog) : null;
+      hoofAsset = hoofRecording(currentCatalog, year);
       targets = new Map(transportCandidates(currentCatalog, env, year).map(c => [c.key, c]));
       const liveHoofs = hoofAsset ? hoofCandidates(hoofAsset, env, year) : [];
       for (const [key, v] of voices) {

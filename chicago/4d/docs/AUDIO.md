@@ -15,7 +15,7 @@ textures using the existing verified R2 files. The owner-selected calmer river a
 
 Moving transport uses the Effects bus: actual mesh anchors and accepted travelled
 metres drive direction, distance and intensity. Harness jingles serve four loaded
-moving teams; rolling wood serves the three 1812/1835 wagons, not the 1904 brougham.
+moving teams; rolling wood serves the three 1812/1835 wagons and, quieter, the 1904 brougham (T-3587).
 The catalogue names each actor and scene date. Stop, dwell, pause, reduced motion,
 hidden/cull, off-hours and disposal silence those sources. Two nearest teams share
 two mono 48 kHz buffers (6,737,316 decoded bytes, 8 MiB ceiling) across four finite
@@ -33,6 +33,10 @@ The owner selected **Light water on rocks** (TRP575244) from three actual loop a
 The owner uploaded the selected MP3, and full public verification passed for its exact hash, CORS, MIME and byte ranges. It adds 352,940 transferred bytes. Three eligible 22-second environmental buffers use 12,672,000 decoded bytes within the 14 MiB environmental cache. Habitat and transport have their separate existing bounds; insects remain unchanged.
 
 Other audition candidates remain inactive: [McClintock Bay](https://freesound.org/people/SoundsLikeYukon/sounds/758708/) includes a possible faint dock cleat/flagpole clang; [Pier Lap](https://freesound.org/people/craigsmith/sounds/438839/) has wooden-dock character. The selected [Manitoulin recording](https://freesound.org/people/TRP/sounds/575244/) retains its rocky-lake provenance rather than being relabelled a historical Chicago recording.
+
+### Horses and carriages you can hear — T-3587 (2026-11-13)
+
+The owner could barely hear the teams roll past. Hoofbeats played only in 1812, the 1904 brougham had no wheel sound, the 1835 and 1904 teams were silent outside summer, and every team was set low (harness 0.15, wheels 0.22, hoofs 0.24) and faded as (1 − d/max)², so a team ten metres off was near a robin's level. Now: hoof contacts (`horse-walking`, timed by each horse's own gait) sound for the 1835 Western Hotel wagon team and the 1904 Prairie Avenue brougham pair as well as the two 1812 teams; harness, wheels and hoofs are bound at each scene's four seasonal viewing dates; levels are 0.3 at the team (wheels 0.18 for the light 1904 brougham on paving, a per-binding gain that can only lower the placement's); reach is 48 m (hoofs 40 m) and the fade is (1 − d/max)^1.5 (`TEAM_FALLOFF`). A team passing five metres off is about 0.2–0.3, clearly over the birds (about 0.05–0.12) and the 1904 wind (at most 0.019); across a 20 m street it is still about 0.1, and beyond its reach it is gone. Any year with an approved hoof recording takes the 1812 six-voice / 10 MiB transport budget (peak 8,824,988 decoded bytes). No new recording or upload: the same three R2 files. The dirt hoof and downhill-wagon recordings on 1904 asphalt and brick are declared proxies. Liberty L-team-sounds-3587.
 
 ### Wind follows the trees — T-3586 (2026-11-13)
 
