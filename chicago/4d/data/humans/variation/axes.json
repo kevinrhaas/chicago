@@ -10,6 +10,22 @@
     "basis": "A seeded uniform scale of the figure about its feet, sd 3.5 % (about 6 cm on the 1.75 m engineering body), clipped at 7 %. Reconstructed: it spreads the town's adults about the body every figure shares; no measured stature of any resident is asserted."
   },
   "limit": 0.6,
+  "expressions": {
+    "ticket": "T-3553",
+    "units": [
+      "expression/units/caucasian/mouth-corner-puller.target",
+      "expression/units/caucasian/mouth-depression.target",
+      "expression/units/caucasian/mouth-depression-retraction.target",
+      "expression/units/caucasian/mouth-elevation.target",
+      "expression/units/caucasian/mouth-eversion.target",
+      "expression/units/caucasian/mouth-parling.target",
+      "expression/units/caucasian/mouth-part-later.target",
+      "expression/units/caucasian/mouth-retraction.target",
+      "expression/units/caucasian/mouth-upward-retraction.target",
+      "mouth/mouth-scale-horiz-incr.target"
+    ],
+    "basis": "T-3553: MakeHuman's expression units for the mouth (CC0, pinned with the axes' targets), and its mouth-widening target again. Not axes: nobody's face is drawn or fitted along them, and the kit does not carry them. tools/bake_likeness_skin.py reads them to fit a smile to a front picture whose mouth is open (a skin record's view with `mouth: open`): each side of the mouth takes its own share of each unit, and what the units leave is taken up in the picture's own plane. The smile is kept per person (data/humans/variation/smiles/) and the figure moves into it; its face at rest is the fitted one. Owner, 2026-11-13: \"add what is needed to the face model to make it work and eventually speak\"."
+  },
   "age": {
     "per_year": 0.015384615384615385,
     "basis": "MakeHuman's own macro age model: its old targets stand at age 90 and young at 25, so each year moves the young-to-old blend by 1/65. The three upstream shape categories are blended equally, as in the engineering bodies' own recipes; category names are software provenance, not ancestry.",

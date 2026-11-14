@@ -863,9 +863,9 @@
     "fort_dearborn_massacre_monument_1893__on_18th_street_1893.glb": {
       "archetype": "monument",
       "baked_ao": false,
-      "bytes": 1514996,
+      "bytes": 1546016,
       "generator": "generators/monument_emit.py",
-      "inputs_sha256": "3a54a85a338875e4d0e04d0de209a6f061d9a8a67a5183d280a2b9819233884b",
+      "inputs_sha256": "c82872b38f125617863511579f84255027e172b93cbd1df7e550225c5b8e5df7",
       "kind": "generated",
       "phase_id": "on_18th_street_1893",
       "structure_id": "fort_dearborn_massacre_monument_1893"
@@ -1843,9 +1843,9 @@
     "house_1828_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 10437580,
+      "bytes": 10381632,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "148ec81da63b7fec827fb438df798220b764274243cca01e025894aaf35f952f",
+      "inputs_sha256": "2cedc2ddeffdb6b032993b61094d1a5f43bcab41c0eaeefb63d543ac6c4115d0",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "house_1828_prairie"
@@ -9232,9 +9232,9 @@
     "sears_meeker_house_1815_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 5930848,
+      "bytes": 5975380,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "fd9c76a9016aaa1702671f30a8112341dfb6e0b97c6762a451a66327444b49df",
+      "inputs_sha256": "c3f024506c80c989c6652dac9445eeb0ba03fe9fd0c24c008f832d3bd1b49498",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "sears_meeker_house_1815_prairie"

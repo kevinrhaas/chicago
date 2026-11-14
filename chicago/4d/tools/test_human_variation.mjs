@@ -239,6 +239,50 @@ for (const [key, d] of Object.entries(summary)) assert(Math.max(...d) - Math.min
   }
 }
 
+// T-3553: a smile the face moves into (`skin.smile`, William Grey). At a level whose face moves
+// it is one more morph target of the body after the body's own, each vertex its kit vertex's
+// move, named on the mesh and resting; the source's targets are not touched; a far level, and
+// anyone without a smile, gets none.
+{ const key = 'pa1904_grey_w_l', asset = 'glessner_john_j_1904', rec = persons[key], sm = rec?.skin?.smile;
+  assert(sm?.vertices?.length > 100 && sm.delta.length === sm.vertices.length * 3, `${key} has a smile`);
+  const sheets = { ...kit, base: 'http://localhost/assets/humans/web/hm08_variation_kit.json' };   // a kit read from a URL (likenessSkin)
+  let most = 0;
+  for (let j = 0; j < sm.delta.length; j += 3) most = Math.max(most, Math.hypot(sm.delta[j], sm.delta[j + 1], sm.delta[j + 2]) * kit.unit);
+  const skinOf = scene => { let m = null; scene.traverse(o => { if (o.isSkinnedMesh && o.material.name.split('__')[0] === 'skin') m = o; }); return m; };
+  for (const lod of [0, 1, 3]) {
+    const scene = await figure(asset, lod), body = skinOf(scene), src = body.geometry;
+    const had = Object.keys(body.morphTargetDictionary ?? {}).length, own = src.morphAttributes.position?.slice() ?? [];
+    V.applyVariation(scene, sheets, V.personVariation({ kit, key, record: rec, assetId: asset }), { scope: 'full' });
+    const g = body.geometry, at = body.morphTargetDictionary?.[V.SMILE];
+    if (!had) { assert.equal(at, undefined, `lod${lod}: a face that does not move gets no smile`); continue; }
+    assert.equal(at, had, `lod${lod}: the smile follows the body's own targets`);
+    assert.equal(body.morphTargetInfluences.length, had + 1);
+    assert.equal(body.morphTargetInfluences[at], 0, 'and rests');
+    assert.equal(g.morphAttributes.position.length, had + 1);
+    assert.equal(g.morphAttributes.normal?.length ?? had + 1, had + 1, 'a normal for every target');
+    assert.deepEqual(src.morphAttributes.position, own, "the source's own targets are as they were");
+    const t = g.morphAttributes.position[at], sk = body.skeleton;
+    assert.equal(t.count, g.attributes.position.count);
+    const scale = new THREE.Matrix4().multiplyMatrices(sk.bones[0].matrixWorld, sk.boneInverses[0]).multiply(body.bindMatrix).elements[0] / scene.scale.x;
+    let far = 0, movers = 0;
+    for (let i = 0; i < t.count; i++) { const d = Math.hypot(t.getX(i), t.getY(i), t.getZ(i)) * scale; far = Math.max(far, d); if (d > 1e-5) movers++; }
+    // A simplified level has fewer of the lips' vertices, but its furthest is one of the record's.
+    assert(far <= most * 1.001 && far > most * (lod ? .5 : .999), `lod${lod}: the furthest move is the record's (${far.toFixed(5)} of ${most.toFixed(5)} m)`);
+    assert(movers > 100 && movers < t.count * .25, `lod${lod}: only the face round the mouth moves (${movers} of ${t.count})`);
+    // Its second figure shares the geometry and is named the same way.
+    const again = await figure(asset, lod), twin = skinOf(again);
+    twin.geometry = src;
+    V.applyVariation(again, sheets, V.personVariation({ kit, key, record: rec, assetId: asset }), { scope: 'full' });
+    assert(twin.geometry === g && twin.morphTargetDictionary[V.SMILE] === at && twin.morphTargetInfluences.length === had + 1, `lod${lod}: a second figure of him smiles the same way`);
+  }
+  for (const [who, k, r] of [['a neighbour', 'crowd_3', null], ['his wife', 'pa1904_grey_mrs_w_l', persons.pa1904_grey_mrs_w_l]]) {
+    const scene = await figure(asset, 0), body = skinOf(scene);
+    V.applyVariation(scene, sheets, V.personVariation({ kit, key: k, record: r, assetId: asset }), { scope: 'full' });
+    assert.equal(body.morphTargetDictionary[V.SMILE], undefined, `${who} has no smile`);
+    assert.equal(body.geometry.morphAttributes.position.length, 3);
+  }
+}
+
 // One variant per person and LOD: a second figure reuses it; freeing the source frees it.
 { const s1 = await figure('bardwell_otis_1835', 2);
   const clone = SK.clone(s1), sources = new Set(); clone.traverse(o => { if (o.isSkinnedMesh) sources.add(o.geometry); });

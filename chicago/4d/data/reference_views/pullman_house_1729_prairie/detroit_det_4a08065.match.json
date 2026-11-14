@@ -42,10 +42,10 @@
         -32.937383464227544
       ],
       "rotation_y": -3.141749733222473,
-      "glb_sha256": "24758ee21bab612766d50619e0fb6b937dcb49ada9c29d05dedea0f8f7e03764"
+      "glb_sha256": "89eb9376384069ae04fc2e7e34581a88278b89833f9a62083c9823e64766b46b"
     }
   ],
-  "group_sha256": "78ce5e9897487657a97d39f68b663ec7f37dfe372353b7d8687103ccce0edc8d",
+  "group_sha256": "6cbc408fdcbc12f5fce6b7a9102c3b2d9da9c586e6dced0afe2d21cd4dc19aac",
   "rendered_flora": {
     "season": "winter",
     "creeper_in_leaf": true,
@@ -384,7 +384,7 @@
       "how": "compared render against render at full size; nothing over the bar moved"
     },
     {
-      "what": "the Fort Dearborn Massacre monument (fort_dearborn_massacre_monument_1893, drawn with the house since T-3568) at the far end of 18th Street by Calumet: the print's pedestal and group at x about 912 px, the render's at about 915, a few pixels high at that distance",
+      "what": "the Fort Dearborn Massacre monument (fort_dearborn_massacre_monument_1893, drawn with the house since T-3568) at the far end of 18th Street by Calumet: the print's pedestal and group at x about 912 px, the render's at about 915, a few pixels high at that distance [T-3589: the monument's inscription and pale panels are drawn since; nothing else in this view moved]",
       "status": "within tolerance"
     }
   ],

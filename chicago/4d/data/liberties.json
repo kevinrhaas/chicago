@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1125,
+  "count": 1126,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -73612,19 +73612,12 @@
     },
     {
       "id": "L-fort-dearborn-monument-3567",
-      "title": "The Fort Dearborn Massacre monument in 1904: its depths, its figures' modelling, the lettering and the panels' reliefs",
+      "title": "The Fort Dearborn Massacre monument in 1904: its depths, its figures' modelling, the lettering's face and the panels' reliefs and tone",
       "section": "per_subject",
       "subjects": [
         "fort_dearborn_massacre_monument_1893"
       ],
-      "covers": [
-        {
-          "domain": "structure",
-          "structure": "fort_dearborn_massacre_monument_1893",
-          "phase": "on_18th_street_1893",
-          "aspect": "form.lettering"
-        }
-      ],
+      "covers": [],
       "recorded": "2026-11-12",
       "revised": null,
       "fields": [
@@ -73638,11 +73631,7 @@
         },
         {
           "label": "Two placings are ours outright",
-          "text": "Mrs. Helm's legs, under her skirt in both photographs, stand under its hem, and the surgeon's left arm, which neither photograph shows, lies along his side. Faces, hair, dress folds, the feathers' number, the weapons' detail and the whole of the group's rear (no photograph used here shows it; the Inter Ocean's rear sketch of 1892 bounds it) are not modelled to the sculpture. One bronze colour, a dark brown patina; the photographs are monochrome. - **The panels' reliefs** are flat bronze plates, and **the lettering** under the front panel (THE FORT DEARBORN MASSACRE / AUGUST 15, 1812 / BLACK PARTRIDGE SAVING MRS. HELM) is not cut. - **Its place** is set by later work through cameras on the Detroit print (east and west) and ICHi-19208 (north and south), good to about 1.5 m; the Pullman stable's draft stands about 6 m east of where ICHi-19208 shows its end, which is open in that view's match record. The figures are period sculpture, built as the sculptor made them; the record carries review required with its reason, and the card says how the work was received."
-        },
-        {
-          "label": "Covers",
-          "text": "`fort_dearborn_massacre_monument_1893.on_18th_street_1893.form.lettering`."
+          "text": "Mrs. Helm's legs, under her skirt in both photographs, stand under its hem, and the surgeon's left arm, which neither photograph shows, lies along his side. Faces, hair, dress folds, the feathers' number, the weapons' detail and the whole of the group's rear (no photograph used here shows it; the Inter Ocean's rear sketch of 1892 bounds it) are not modelled to the sculpture. One bronze colour, a dark brown patina; the photographs are monochrome. - **The panels' reliefs** are flat plates. Since later work they are drawn pale, as ICHi-19208 (c. 1900) shows them weathered lighter than the die, where Taylor's 1893 print has them fresh and dark: the 1904 scene takes the later plate. Their faint green-grey is ours; the plate is monochrome. - **The lettering** under the front panel (THE FORT DEARBORN MASSACRE / AUGUST 15, 1812 / BLACK PARTRIDGE SAVING MRS. HELM) is cut since later work at the widths, heights and places ICHi-19208 gives each line, pale on the granite. The letters are the town's block capitals squeezed to those widths, not the cutter's seriffed roman, and they stand flat on the die rather than sunk into it. The second line is about 4 px tall on the plate; its words are the record's. - **Its place** is set by later work through cameras on the Detroit print (east and west) and ICHi-19208 (north and south), good to about 1.5 m; the Pullman stable's draft stands about 6 m east of where ICHi-19208 shows its end, which is open in that view's match record. The figures are period sculpture, built as the sculptor made them; the record carries review required with its reason, and the card says how the work was received."
         },
         {
           "label": "Recorded",
@@ -73653,6 +73642,7 @@
         "T-3582",
         "T-3568",
         "T-3588",
+        "T-3589",
         "T-3567",
         "T-3565"
       ]
@@ -74079,7 +74069,7 @@
       "fields": [
         {
           "label": "Decision",
-          "text": "the owner, 2026-11-13: *\"for 1904 we should have another 2 carriages going on different loops around prairie avenue and at least one of them should be counter clockwise and they should potentially cross paths and one will wait for the other to cross while they proceed\"*, then *\"make the carriages look differnt... the horses will vary and the coachmen will vary and be as real as possible... i imagine they were typically black\"*. Two more driven broughams now go round the blocks either side of Hans Johnson's (Indiana–18th–Prairie–20th): Henry Windish round Indiana–16th–Prairie–18th and Joseph Daniels round Indiana–20th–Prairie–22nd, laid by the lay driven carriages 1904 tool into the loops data. All three go counter-clockwise, keeping to the right of the road, so every corner is a left turn across the crossing street; a clockwise loop's right turns would hug the inside kerb tighter than the brougham's 8° steering and 18 m corners allow. Where two loops' turns cross (Indiana and Prairie at 18th and at 20th), whichever team reaches the crossing first goes and the other pulls up and waits until it is clear (the walkthrough's transport crossings code). Each coachman pulls up for about 45 seconds at his employer's door. Each coach has its own paint, gloss, road dust, wheel mud and scuffs (vehicle finish, the walkthrough's coachwork code): the Pullmans' black with deep claret panels, carmine running gear and gilt trim, kept clean; the Armours' all black with blue-black panels and nickel trim, dulled and dirtier; Hans's keeps its catalogue green and black with the road on it. Each coachman wears the box coat of the shared draped livery in his own house colour; the horses are a dark-bay pair (Pullman) and a chestnut pair (Armour) under the existing coat rules (“individual coats and markings (1812, 1835, 1904)”)."
+          "text": "the owner, 2026-11-13: *\"for 1904 we should have another 2 carriages going on different loops around prairie avenue and at least one of them should be counter clockwise and they should potentially cross paths and one will wait for the other to cross while they proceed\"*, then *\"make the carriages look differnt... the horses will vary and the coachmen will vary and be as real as possible... i imagine they were typically black\"*. Two more driven broughams now go round the blocks either side of Hans Johnson's (Indiana–18th–Prairie–20th): Henry Windish round Indiana–16th–Prairie–18th and Joseph Daniels round Prairie–20th–Calumet–22nd, laid by the lay driven carriages 1904 tool into the loops data. Then, 2026-11-14: *\"fix the brougham and allow it to make right turns and make one of those loops clockwise\"*. Every team keeps to the right of the road. Hans's and Henry Windish's rounds go counter-clockwise (every corner a left turn, 18 m); Joseph Daniels's goes clockwise round the block east of Prairie (every corner a right turn, 11 m, his lanes 2 m right of the crown), so he shares no lane with the counter-clockwise rounds beside it. The brougham's steering was an authored 8° (an 18 m turn); its front wheels clear its body to about 18° of lock on the GLB's own surfaces, so it now steers to 15° (an 8.6 m turn), and its team swings with the front axle and pole about the king-pin (the walkthrough's town transport code). The layer tool walks every road at quarter-metre steps and refuses one where a wheel or a hoof leaves the 1904 carriageways; each row's clearance envelope is its measured one with the fore-carriage swung to that road's sharpest lock. Where two loops' turns cross (Hans's and Henry's, at Indiana and Prairie on 18th), whichever team reaches the crossing first goes and the other pulls up and waits until it is clear (the walkthrough's transport crossings code). Each coachman pulls up for about 45 seconds at his employer's door. Each coach has its own paint, gloss, road dust, wheel mud and scuffs (vehicle finish, the walkthrough's coachwork code): the Pullmans' black with deep claret panels, carmine running gear and gilt trim, kept clean; the Armours' all black with blue-black panels and nickel trim, dulled and dirtier; Hans's keeps its catalogue green and black with the road on it. Each coachman wears the box coat of the shared draped livery in his own house colour; the horses are a dark-bay pair (Pullman) and a chestnut pair (Armour) under the existing coat rules (“individual coats and markings (1812, 1835, 1904)”)."
         },
         {
           "label": "Not invented",
@@ -74087,7 +74077,7 @@
         },
         {
           "label": "Reconstructed",
-          "text": "that these men drove these coaches in 1904 (the census is four years before the scene), the coaches themselves, their colours and wear, the horses, the livery colours, the rounds, the door stops and the timing. The two coachmen sit the seated export proved for Hans's body; their seat, reins and coat fit that body, which is the same model for all three, and their faces, hair, skin and age are their own."
+          "text": "that these men drove these coaches in 1904 (the census is four years before the scene), the coaches themselves, their colours and wear, the horses, the livery colours, the rounds and their directions, the door stops and the timing; the 15° lock is read off the model's clearance, not a measured brougham's. The two coachmen sit the seated export proved for Hans's body; their seat, reins and coat fit that body, which is the same model for all three, and their faces, hair, skin and age are their own."
         },
         {
           "label": "Re-opens on",
@@ -74095,7 +74085,7 @@
         },
         {
           "label": "Recorded",
-          "text": "2026-11-13."
+          "text": "2026-11-13; right turns and the clockwise round 2026-11-14."
         }
       ],
       "work_refs": [
@@ -74227,6 +74217,40 @@
         {
           "label": "Re-opens on",
           "text": "a photograph of either Grey; the owner withdrawing the pictures; a refit of the head's shape or new pictures, after which the cameras are lined up and the sheets baked again."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-14."
+        }
+      ],
+      "work_refs": [
+        "T-3553"
+      ]
+    },
+    {
+      "id": "L-grey-smile-3553",
+      "title": "William Grey rests with his mouth shut and smiles into his front photograph's grin, with its teeth",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-14",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner asked that both Greys be \"photographic matched\", and for \"what is needed to the face model to make it work and eventually speak\" (2026-11-13; “The Greys wear their stand-ins' photographs as skin, hair and eyes”). That entry and “The Greys' hair measured from four photographs lined up together and fitted to their outlines, on a finer head” left out \"his open grin\". Of the four pictures of his stand-in the two from the side show the mouth shut, the one from behind shows no mouth, and the front one shows a broad grin with the upper teeth showing; the portrait on his card has the mouth shut as well. One still face cannot be both. So the face rests as it was fitted, mouth shut, and the grin is a move it makes. the likeness skin generator (fit smile) fits that move to the front picture: first as much of ten of MakeHuman's own mouth shapes (nine of its expression units and the mouth's width; CC0, pinned in the SOURCE variation data) as brings the lips' outline nearest the picture's while the nose stays where the picture has it, each shape free to pull more on one side of the face than the other (fitted to the lips alone, those shapes carried the base of his nose a centimetre up and outward, and the picture laid on that face showed a dark band under it); then the rest of the face, moved within the picture's own plane, onto the points a face detector finds in the picture (the cheeks, the wings of the nose and the lids: 312 points, 4.2 mm from the picture's on the resting face and 1.8 mm on the smiling one, the lids keeping their distance from the eyes); then the lips again, until the opening between them is the picture's (the two share 91 percent of their area, and their edges lie half a millimetre apart on average). The front picture is laid on the smiling face and the other three on the resting one. Behind the lips stands a strip of 17 by 5 points from one corner of the mouth to the other, at least 2.5 mm behind every point of the lips' inner edge, coloured from the picture's own opening, so the teeth are his stand-in's; the inside of his mouth is drawn dark, and the teeth lie in that shade while his mouth is shut (his resting lips do not quite seal) and take the light as he begins to smile. In the app (the walkthrough's human variation code, the walkthrough's human mouth code) the move is one more shape of his face beside the blink. He gives it to a visitor who stands within 3.2 m in front of him (to 60 degrees either side) and with his greeting, keeps four tenths of it while he talks, and his jaw then opens and shuts in an uneven run of syllables, with no words. His card's still keeps the resting face, beside the shut-mouthed portrait it was fitted to. Sarah Grey's pictures show her mouth shut wherever they show it (the front and both sides); she has no smile and no teeth, and is unchanged."
+        },
+        {
+          "label": "Not invented",
+          "text": "the pictures; the fitted face under the skin (“Prairie Avenue appearances”); MakeHuman's shapes; who the Greys were."
+        },
+        {
+          "label": "Liberties within it",
+          "text": "all of it is the stand-in's appearance, graded reconstructed, and no evidence of how William Grey smiled or whether he did. When he smiles, for how long, how much of it he keeps while talking and the jaw's rhythm are ours. The teeth are a curved strip with a picture of teeth on it: from the front they are the picture's, from the side a strip. One picture shows where the smiling cheeks, nose and lids lie across it and not how far they come forward, so they move in that picture's plane only. The lower teeth and the tongue are not modelled. The resting lips are in part the front picture's parted lips, brought together."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "a photograph of William Grey; the owner withdrawing the pictures or asking for one fixed expression; a refit of the head, after which the smile is fitted and the sheet baked again; a voice for him, which the jaw then follows (`mouth.say`)."
         },
         {
           "label": "Recorded",

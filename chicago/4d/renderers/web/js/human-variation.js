@@ -91,6 +91,29 @@ export function likenessSkin(kit, variation) {
 }
 
 /**
+ * T-3553: a smile the face moves into. A person whose front picture grins rests with their
+ * mouth shut, as their other pictures show it, and their row (`skin.smile`, fitted to the front
+ * picture by tools/bake_likeness_skin.py) holds how the face moves from there into the grin: a
+ * move for each of the kit's vertices it reaches, in the kit's order and unit. applyVariation
+ * makes it one more morph target of the body, named SMILE, beside the blink's, at the levels
+ * whose faces move; human-mouth.js plays it.
+ */
+export const SMILE = 'chiSmile';
+
+/** A row's smile as a field over the kit's vertices, metres; null where it does not parse. */
+function smileField(kit, smile) {
+  const { vertices, delta } = smile ?? {};
+  if (!Array.isArray(vertices) || !Array.isArray(delta) || !vertices.length || delta.length !== vertices.length * 3) return null;
+  const D = new Float32Array(kit.N * 3), u = kit.unit;
+  for (let j = 0; j < vertices.length; j++) {
+    const i = vertices[j];
+    if (!Number.isInteger(i) || i < 0 || i >= kit.N) return null;
+    for (let c = 0; c < 3; c++) D[i * 3 + c] = delta[j * 3 + c] * u;
+  }
+  return D;
+}
+
+/**
  * A person's values. `key` is the person id (or an instance id for someone unnamed);
  * `record` is their persons.json row (age, a fitted face), `assetId` the body they wear.
  */
@@ -543,6 +566,44 @@ function variantGeometry(src, mesh, cacheKey, raw, out, before = null, morphs = 
   return g;
 }
 
+/**
+ * T-3553: `g` (a body's variant, resting at `out`) with the smile as one more morph target: `S`
+ * is each vertex's move in the geometry's own numbers, and each normal turns as its surface
+ * does between the resting face and the smiling one. The targets `g` had are kept as they are
+ * (the lists are copied, never the source's own changed); the new one's place is `userData[SMILE]`.
+ * It is always the last: the skin's shader reads the last target's weight as the smile where a
+ * face has teeth to show (human-skin.js, `vChiSmile`), so nothing is to be appended after it.
+ */
+function addSmile(g, src, S, out, n) {
+  const ma = g.morphAttributes, at = ma.position.length;
+  const next = { ...ma, position: [...ma.position, Object.assign(new THREE.BufferAttribute(S, 3), { name: SMILE })] };
+  if (ma.normal) {
+    const idx = src.index?.array ?? null, smiling = new Float32Array(n * 3);
+    for (let i = 0; i < n * 3; i++) smiling[i] = out[i] + S[i];
+    const A = vertexNormals(out, idx, n), B = vertexNormals(smiling, idx, n), nrm = g.attributes.normal;
+    const D = new Float32Array(n * 3), a = new THREE.Vector3(), b = new THREE.Vector3(), v = new THREE.Vector3(), w = new THREE.Vector3(), turn = new THREE.Quaternion();
+    for (let i = 0; i < n; i++) {
+      a.fromArray(A, i * 3); b.fromArray(B, i * 3);
+      if (!nrm || a.lengthSq() < 0.5 || b.lengthSq() < 0.5 || a.distanceToSquared(b) < 1e-10) continue;
+      v.set(nrm.getX(i), nrm.getY(i), nrm.getZ(i));
+      w.copy(v).applyQuaternion(turn.setFromUnitVectors(a, b)).sub(v).toArray(D, i * 3);
+    }
+    next.normal = [...ma.normal, Object.assign(new THREE.BufferAttribute(D, 3), { name: SMILE })];
+  }
+  g.morphAttributes = next;
+  g.userData = { ...g.userData, [SMILE]: at };
+}
+
+/** A mesh that draws a geometry with the smile knows it by name, resting (its weight 0). */
+function nameSmile(mesh, g) {
+  const at = g?.userData?.[SMILE];
+  if (!(at >= 0) || (mesh.morphTargetDictionary?.[SMILE] === at && mesh.morphTargetInfluences?.length > at)) return;
+  mesh.morphTargetDictionary = { ...(mesh.morphTargetDictionary ?? {}), [SMILE]: at };
+  const w = Array.from(mesh.morphTargetInfluences ?? []);
+  while (w.length <= at) w.push(0);
+  mesh.morphTargetInfluences = w;
+}
+
 function cached(src, key) { return variants.get(src)?.get(key); }
 function remember(src, key, g) {
   let m = variants.get(src); if (!m) variants.set(src, (m = new Map()));
@@ -641,6 +702,9 @@ export function applyVariation(scene, kit, variation, { scope = 'full' } = {}) {
   if (!bodies.length) return null;
   let D = null;
   const delta = () => (D ??= denseDelta(kit, variation, scope));
+  // T-3553: the smile this face moves into, where its row has one (smileField).
+  let grin;
+  const smile = () => (grin === undefined ? (grin = like?.smile ? smileField(kit, like.smile) : null) : grin);
   let touched = 0;
   const assign = (mesh, g) => { if (g) { mesh.geometry = g; touched++; } };
   // 1. The body, and its shape before and after for what it wears.
@@ -672,11 +736,24 @@ export function applyVariation(scene, kit, variation, { scope = 'full' } = {}) {
         moved = true;
         for (const t of lids.targets) for (let i = 0; i < at.n; i++) for (let c = 0; c < 3; c++) out[i * 3 + c] += lids.rest * t.getComponent(i, c);
       }
+      // T-3553: and its smile, at a level whose face moves (the body's own targets are moves).
+      let S = null;
+      const sm = src.morphAttributes?.position?.length && src.morphTargetsRelative ? smile() : null;
+      if (sm) {
+        S = new Float32Array(at.n * 3);
+        let any = false;
+        for (let i = 0; i < at.n; i++) for (let c = 0; c < 3; c++) {
+          const v = sm[map[i] * 3 + c]; if (v) { any = true; S[i * 3 + c] = v / at.q.s; }
+        }
+        if (any) moved = true; else S = null;
+      }
       if (moved) fit.rawNormals ??= vertexNormals(at.raw, src.index?.array ?? null, at.n);
       g = moved ? variantGeometry(src, mesh, key, at.raw, out, fit.rawNormals, lids?.morphAttributes) : null;
+      if (g && S) addSmile(g, src, S, out, at.n);
       remember(src, key, g);
     }
     assign(mesh, g);
+    nameSmile(mesh, g);
     const idx = src.index?.array ?? null;
     const after = g ? bindOf(g.attributes.position, at.q) : at.bind;
     const na = g ? vertexNormals(after, idx, at.n) : fit.nb;

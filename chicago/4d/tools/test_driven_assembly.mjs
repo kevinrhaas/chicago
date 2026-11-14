@@ -144,6 +144,27 @@ assert.equal(teamStops, 1); assert(teamPoses > 1);
 drivenTeam.resume(); drivenTeam.update(.1); drivenTeam.update(.1, { drawn: false });
 assert.equal(teamStops, 2); drivenTeam.dispose();
 
+// Kevin, 2026-11-14 ("allow it to make right turns"): the team rides the fore-carriage. On a
+// turn it swings with the front axle about the axle's king-pin, abreast of the pole, both ways;
+// straight ahead it stands where it always stood.
+{
+  const swingVehicle = vehicle.clone(true), team = { root: new THREE.Group(), poseVehicle() {}, stop() {} };
+  const swung = createDrivenAssembly({ vehicle: swingVehicle, driver: { root: new THREE.Group() }, horse: team,
+    driverSeat_m: [0, 1.58, .65], horseOffset_m: [0, 0, 3.4987], disposeVehicle() {} });
+  const axle = swingVehicle.getObjectByName('vehicle_steer_front').position;
+  const base = { e: 0, n: 0, yaw: 0, height: 0, rootAhead: 1.175, curvature: 0, wheelRotation: [0, 0, 0, 0] };
+  swung.pose({ ...base, steering: 0 });
+  assert.deepEqual(team.root.position.toArray().map(v => +v.toFixed(9)), [0, 0, 3.4987]);
+  for (const steering of [.25, -.25]) {
+    swung.pose({ ...base, steering, curvature: Math.tan(steering) / 2.35 });
+    const p = team.root.position, reach = 3.4987 - axle.z;
+    assert(Math.abs(Math.hypot(p.x - axle.x, p.z - axle.z) - reach) < 1e-9, 'the team keeps its distance from the king-pin');
+    assert(Math.abs(Math.atan2(p.x - axle.x, p.z - axle.z) - steering) < 1e-9, 'and swings with the axle');
+    assert(Math.abs(team.root.rotation.y - steering) < 1e-9, 'abreast of the pole');
+  }
+  swung.dispose();
+}
+
 // A Light switch while the first cooperative yield is pending cancels before
 // any ground read, support sample or asset acquisition; an eligible scene only.
 let earlyGround = 0, earlySupport = 0, earlyAssets = 0;

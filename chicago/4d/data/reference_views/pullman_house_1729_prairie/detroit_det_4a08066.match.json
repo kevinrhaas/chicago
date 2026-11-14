@@ -80,10 +80,10 @@
         -32.937383464227544
       ],
       "rotation_y": -3.141749733222473,
-      "glb_sha256": "24758ee21bab612766d50619e0fb6b937dcb49ada9c29d05dedea0f8f7e03764"
+      "glb_sha256": "89eb9376384069ae04fc2e7e34581a88278b89833f9a62083c9823e64766b46b"
     }
   ],
-  "group_sha256": "7ec00ce76953d08477431f80946c6f242634f8ce49049156f0ce7be52d17abc6",
+  "group_sha256": "19b01c9464d164b38fb09d294fcd0a91246f9a20df605ec30bc5d45cc347ed88",
   "rendered_flora": {
     "season": "winter",
     "creeper_in_leaf": true,
@@ -256,7 +256,7 @@
       "how": "compared render against render at full size; nothing over the bar moved"
     },
     {
-      "what": "the Fort Dearborn Massacre monument (fort_dearborn_massacre_monument_1893, drawn with the house since T-3568), right foreground: at the print's bearing (x 787 against 800) but drawn at 0.57 of its size, because this camera does not hold its foreground (its solve), and with its bronze group, where the print shows the lettered pedestal with no group on it. Both are argued in the monument's own record for this print (data/reference_views/fort_dearborn_massacre_monument_1893/detroit_det_4a08066.match.json); nothing of the house changed",
+      "what": "the Fort Dearborn Massacre monument (fort_dearborn_massacre_monument_1893, drawn with the house since T-3568), right foreground: at the print's bearing (x 787 against 800) but drawn at 0.57 of its size, because this camera does not hold its foreground (its solve), and with its bronze group, where the print shows the lettered pedestal with no group on it. Both are argued in the monument's own record for this print (data/reference_views/fort_dearborn_massacre_monument_1893/detroit_det_4a08066.match.json); nothing of the house changed [T-3589: the monument's inscription and pale panels are drawn since; nothing else in this view moved]",
       "status": "open"
     }
   ],

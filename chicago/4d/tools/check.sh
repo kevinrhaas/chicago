@@ -754,6 +754,8 @@ step "Every person's skin has pores, blood and a glow, hair a strand sheen and e
   node tools/test_human_skin.mjs
 step "Where a person's hair stands out of their skin the near levels draw it finer: the body's rows kept, closed across seams, freed with its source (T-3553)" \
   node tools/test_human_fine.mjs
+step "A mouth that opens: the teeth a strip of their own behind the lips, the smile given to a visitor in front, the jaw moving with talk (T-3553)" \
+  node tools/test_human_mouth.mjs
 step "Near people grow strand-card hair, beards and whiskers from their own scalp and face, cut under a hat, and their eyes a cornea: no texture (T-3414)" \
   node tools/test_human_hair.mjs
 step "Every wardrobe file matches its recipe, each garment sourced or a liberty, clear of its seated body and vehicle, and is the one its row binds (T-3398, T-3409)" \
@@ -1772,6 +1774,11 @@ step "a stone cornice runs under a mansard; a K08 head frieze and gable panel (T
 # stands in the coursing under no flat arch, its spandrels in the wall's stone.
 step "side_bays take read windows; a read round head on a stone side face has no flat arch (T-3097)" \
   python3 tools/test_k01_side_read_windows.py
+
+# T-3562. ...and the street front's upper storeys the same way: 1815 Prairie's narrow light
+# over the door, read off the square-on photograph, laid once at its own sill and size.
+step "front_bays_by_storey takes a light read off the picture on an upper storey (T-3562)" \
+  python3 tools/test_k01_front_read_light.py
 
 # T-2900. ...and what 1801 Prairie's east range needed, held on its record: a K01 wing may run
 # past its host wall's ends when it says `past_host` (still standing on 1.0 m of that wall),

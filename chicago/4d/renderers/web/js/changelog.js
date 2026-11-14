@@ -1,4 +1,27 @@
 export const CHANGELOG = [ // newest first
+  { v: 2971, ts: '2026-11-14T11:35:07.177Z', date: 'Nov 14, 2026, 5:35 AM CT', title: 'William Grey smiles with his photograph\'s own teeth', kind: 'feature',
+    items: [
+      'William Grey of 2010 Prairie (1904) now rests with his mouth shut, as his side photographs and his portrait show it, and breaks into the front photograph\'s grin when you stand in front of him or he greets you.',
+      'Behind his lips are the photograph\'s own teeth, and the smile was fitted to the whole photograph: his lips\' opening matches it to half a millimetre, and his cheeks, nose and eyelids move with it to within two.',
+      'When he talks his jaw moves with it, the groundwork for giving him a voice later.',
+      'Sarah Grey\'s photographs show her mouth shut, so she is unchanged.',
+      'Still short of the photographs: the hair beside his face and his ears seen from the front, the lower edge of his beard, and his eyes.',
+    ] },
+  { v: 2970, ts: '2026-11-14T11:17:00.360Z', date: 'Nov 14, 2026, 5:17 AM CT', title: 'The 1904 brougham turns right, and one carriage goes round clockwise', kind: 'improvement',
+    items: [
+      'The brougham\'s front wheels now turn up to 15°, about as far as they can before they would meet the body, so it can take a right turn at a street corner.',
+      'Its horses swing with the front axle and the pole on a turn, instead of carrying straight on while the pole turned.',
+      'The Armour carriage now goes round clockwise, up Prairie past the Armour house and right along 20th, Calumet and 22nd, every corner a right turn.',
+      'The Pullman carriage drives a little slower, so it meets Hans\'s at the 18th Street crossings more often, and one waits for the other.',
+    ] },
+  { v: 2969, ts: '2026-11-14T10:44:33.077Z', date: 'Nov 14, 2026, 4:44 AM CT', title: '1815 Prairie\'s narrow window over the door, at its true size', kind: 'fix',
+    items: [
+      'The small window above 1815 Prairie\'s front door is now the narrow single light its photograph shows, set over the door\'s hood, where a full-size sash stood before.',
+    ] },
+  { v: 2968, ts: '2026-11-14T10:24:48.497Z', date: 'Nov 14, 2026, 4:24 AM CT', title: '1828 Prairie\'s south flank stands blank by its front corner', kind: 'improvement',
+    items: [
+      '1828 Prairie, the Shipman house: the two windows on its south flank between the front corner and the flank\'s canted bay are gone. The automobile photograph shows plain coursed light stone at that edge with no opening in it, and those windows fell there. The flank\'s first 8 m now stand in blank stone, as the picture shows.',
+    ] },
   { v: 2967, ts: '2026-11-14T09:07:13.517Z', date: 'Nov 14, 2026, 3:07 AM CT', title: 'The Greys\' hair follows their photographs from every side', kind: 'feature',
     items: [
       'Sarah Grey\'s top knot now stands whole above her head, and William Grey\'s curls behind the ears and on the collar and his beard fill out to the outlines of all four photographs (2010 Prairie, 1904).',
