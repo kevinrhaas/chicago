@@ -6657,10 +6657,20 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     # window over the door, south of the door's own centre): that storey's own centres, one a
     # bay, in order. The principal storey's only with its door's bay among them (T-1894: 1823
     # Dent's narrow light between the door and the pavilion, its engraving), the door kept there
-    fbs = {}
+    # T-3562: an upper storey's entry may be one light read off the picture rather than a
+    # column ({s_m, sill_m, width_m, height_m, head, why_not_ordinary}: 1815's narrow light
+    # over the door's south jamb, the square-on photograph), laid once on the street front
+    # at its own sill and size with the side walls' read windows below, the storey's plain
+    # numbers still its columns
+    fbs, front_read = {}, []
     for key, xs in (val("front_bays_by_storey") or {}).items():
         k = int(key)
-        xs = tuple(float(x) for x in xs)
+        read_ = [x for x in xs if isinstance(x, dict)]
+        if read_ and (k == 0 or sfo or sfw):
+            raise ParamError(f"front_bays_by_storey[{key}] reads a light off its picture on an upper storey "
+                             f"of a front laid by front_bays only")
+        front_read += [(f"front_bays_by_storey[{key}]", "k01.wall.street_front", j, e) for j, e in enumerate(read_)]
+        xs = tuple(float(x) for x in xs if not isinstance(x, dict))
         if sfo or not 0 <= k < stories:
             raise ParamError(f"front_bays_by_storey names storey {key}: only a storey of a front "
                              f"that does not name its own openings")
@@ -6752,9 +6762,11 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
     for attr, wall_id, j, e in [("north_bays", "k01.wall.side.north", j, e)
                                 for j, e in enumerate(val("north_bays") or ())] + \
             [("side_bays", "k01.wall.side.south", j, e) for j, e in enumerate(val("side_bays") or ())] + \
-            [("rear_bays", "k01.wall.rear_service", j, e) for j, e in enumerate(val("rear_bays") or ())]:
+            [("rear_bays", "k01.wall.rear_service", j, e) for j, e in enumerate(val("rear_bays") or ())] + \
+            front_read:
         if not isinstance(e, dict):
             continue
+        span = width if wall_id == "k01.wall.street_front" else depth   # T-3562: the front's own length
         what = f"{attr}[{j}]"
         if not {"s_m", "sill_m", "width_m", "height_m"} <= set(e) <= {"s_m", "sill_m", "width_m", "height_m",
                                                                      "head", "why_not_ordinary", "component"}:
@@ -6780,7 +6792,7 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
                                  f"1.0-3.6 m high, its sill at least 0.3 m up")
             if sill + h + 0.30 > soffit - 0.05:
                 raise ParamError(f"{what}'s lintel runs into the soffit at {soffit:.2f} m")
-            if s - wd / 2 < 0.45 or s + wd / 2 > depth - 0.45:
+            if s - wd / 2 < 0.45 or s + wd / 2 > span - 0.45:
                 raise ParamError(f"{what} stands within 0.45 m of the wall's ends")
             for a0, a1, b0, b1 in read.setdefault(wall_id, []):
                 if s - wd / 2 < a1 + 0.3 and s + wd / 2 > a0 - 0.3 and sill < b1 + 0.45 and sill + h > b0 - 0.45:
@@ -6811,11 +6823,19 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             raise ParamError(f"{what}: a round head's spring stands at least 0.2 m over its sill")
         if sill + h + 0.30 > soffit - 0.05:
             raise ParamError(f"{what}'s lintel runs into the soffit at {soffit:.2f} m")
-        if s - wd / 2 < 0.45 or s + wd / 2 > depth - 0.45:
+        if s - wd / 2 < 0.45 or s + wd / 2 > span - 0.45:
             raise ParamError(f"{what} stands within 0.45 m of the wall's ends")
         for a0, a1, b0, b1 in read.setdefault(wall_id, []):
             if s - wd / 2 < a1 + 0.3 and s + wd / 2 > a0 - 0.3 and sill < b1 + 0.45 and sill + h > b0 - 0.45:
                 raise ParamError(f"{what} meets another read window, or its lintel")
+        # T-3562: on the street front, clear of the columns' windows and the door laid there
+        if wall_id == "k01.wall.street_front" and any(
+                s - wd / 2 < o.s_m + o.width_m / 2 + 0.3 and s + wd / 2 > o.s_m - o.width_m / 2 - 0.3
+                and sill < o.head_m + 0.45 and sill + h > o.sill_m - 0.45
+                for o in openings if o.wall == wall_id) or (wall_id == "k01.wall.street_front"
+                                                            and sill < floors[0] + 2.70 + 0.45
+                                                            and abs(s - door_s) < wd / 2 + 0.6 + 0.3):
+            raise ParamError(f"{what} meets a window or the door on the street front, or its lintel")
         read[wall_id].append((s - wd / 2, s + wd / 2, sill, sill + h))
         openings.append(Opening(ROUND_PLAIN if head == "round" else "k01.opening.sash_flat", wall_id,
                                 s, round(sill, 4), wd, h, head != "round", plain=head is not None, narrow=narrow))
