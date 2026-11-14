@@ -5174,7 +5174,7 @@ class Assembly:
         # band under the hood, x 732-790)
         xr_ = (self.p.mansard.get("deck") or {}).get("cross_roof")
         if xr_ is not None and xr_.get("over_bay") == b["id"]:
-            y_xt = sum(float(s_["height_m"]) for s_ in bv["storeys"]) + \
+            y_xt = math.fsum(float(s_["height_m"]) for s_ in bv["storeys"]) + \
                 (0.0 if bv.get("base", "grade") == "grade" else float(bv["base"]))
             v_hi, v_mid, y_rg = float(xr_["v_m"][1]), float(xr_["ridge_v_m"]), float(xr_["ridge_m"])
             yt = y_curb - 0.05
