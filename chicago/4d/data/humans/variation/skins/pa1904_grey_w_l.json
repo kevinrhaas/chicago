@@ -5807,41 +5807,113 @@
  ],
  "grow": {
   "max_cm": 7,
-  "beard": true
+  "beard": true,
+  "ear_cm": 1.4,
+  "beard_cm": 3.0,
+  "cheek_cm": 0.4,
+  "rise": 2.5
  },
  "cameras": {
   "front": {
-   "yaw_deg": 11.1,
-   "pitch_deg": -7.4,
-   "roll_deg": -3.1,
+   "yaw_deg": 11.6,
+   "pitch_deg": -10.4,
+   "roll_deg": -2.9,
    "px_per_m": 1806.6,
    "miss_mm": 2.65,
+   "lined_up": {
+    "moved": [
+     0.5,
+     -3.0,
+     0.25,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "unshadowed_cm2": [
+     1.5,
+     0.6
+    ],
+    "miss_mm": [
+     2.65,
+     2.8
+    ]
+   },
    "clothing_px": 63734,
    "jewellery_px": 0
   },
   "left": {
-   "yaw_deg": -66.5,
-   "pitch_deg": -9.1,
-   "roll_deg": -11.5,
-   "px_per_m": 1808.4,
-   "miss_mm": 3.22,
+   "yaw_deg": -65.0,
+   "pitch_deg": -2.3,
+   "roll_deg": -4.8,
+   "px_per_m": 1713.8,
+   "miss_mm": 1.19,
+   "lined_up": {
+    "moved": [
+     1.5,
+     1.5,
+     0.0,
+     0.0,
+     1.0,
+     -1.0
+    ],
+    "unshadowed_cm2": [
+     18.1,
+     2.0
+    ],
+    "miss_mm": [
+     1.16,
+     1.05
+    ]
+   },
    "clothing_px": 58735,
    "jewellery_px": 0
   },
   "right": {
-   "yaw_deg": 66.5,
-   "pitch_deg": -7.2,
-   "roll_deg": 13.9,
-   "px_per_m": 1806.3,
-   "miss_mm": 2.83,
+   "yaw_deg": 66.2,
+   "pitch_deg": 2.2,
+   "roll_deg": 9.0,
+   "px_per_m": 1750.0,
+   "miss_mm": 1.05,
+   "lined_up": {
+    "moved": [
+     -0.25,
+     5.0,
+     0.0,
+     -0.5,
+     -0.25,
+     0.0
+    ],
+    "unshadowed_cm2": [
+     16.9,
+     2.6
+    ],
+    "miss_mm": [
+     1.04,
+     0.93
+    ]
+   },
    "clothing_px": 65451,
    "jewellery_px": 0
   },
   "back": {
-   "yaw_deg": 180.0,
-   "pitch_deg": 0.0,
-   "roll_deg": 0.0,
-   "px_per_m": 1807.3,
+   "yaw_deg": 181.0,
+   "pitch_deg": 5.5,
+   "roll_deg": -2.0,
+   "px_per_m": 1701.5,
+   "lined_up": {
+    "moved": [
+     1.0,
+     5.5,
+     -2.0,
+     -2.0,
+     -2.0,
+     -1.0
+    ],
+    "unshadowed_cm2": [
+     13.0,
+     3.9
+    ]
+   },
    "clothing_px": 86953,
    "jewellery_px": 0
   }
@@ -5853,8 +5925,8 @@
    768,
    1024
   ],
-  "sha256": "7aba5bf68cccad25d0cefcd7741f7f0f43f5d69b23f55a9674bce2f1fd5970dd",
-  "bytes": 160767,
+  "sha256": "e3dba4761b5d8b98ae64203fa38bce99bdc72e1d7fdc2cc27cb79b2b0d6b26ae",
+  "bytes": 179376,
   "rects": [
    {
     "name": "head",
@@ -5910,44 +5982,50 @@
    "scale": 0.25
   },
   "tone_linear": [
-   0.38,
-   0.1531,
+   0.3799,
+   0.1532,
    0.1092
   ],
   "base_tone_linear": [
-   0.8191,
+   0.819,
    0.4204,
-   0.2413
+   0.2412
   ],
   "tint": [
-   0.4639,
-   0.3642,
-   0.4527
+   0.4638,
+   0.3645,
+   0.4529
   ],
   "grow": {
-   "reach_m": 0.0484,
+   "reach_m": 0.07,
    "from_m": [
     0.0,
     1.6389,
     0.0317
    ],
+   "axis_m": 0.07,
    "normal_px": [
     528,
     566
    ],
    "read": {
     "skin_lab": [
-     43.4,
-     17.7,
-     16.5
+     51.1,
+     18.8,
+     17.4
     ],
-    "hair_px": 96433
+    "hair_px": 103425
+   },
+   "fine": {
+    "cell_px": 16,
+    "edge_m": 0.008,
+    "cells": "AAP/wAAAAD//wAAAAP//wAAAA///4AAAB///4AAAD///4AAAH///8AAAP///8AAAf///+AAAf///+AAA////+ABw////8APw////8APw////8APA////4AHA////4AAA////4AAA////wAAA////gAAA///jwAAA///j4AAA///j4AAA///j4AAA///D4AAA//+D/gAA//wB/wAA/+AB/wAAf+AB/4AAf+AB/4AAP+AB/4AAH+AA/4AAD+AAf4AAD+AB/4AAH+AB/4AAP+AB/4AAf+AB/4AAf+AB/4AA/+AB/wAA//4D/wAA//4D/gAA///D8AAA///n8AAA///n8AAA///n4AAA///74AAA////4AAA////4AAA////4AAA////4AAA////4AAA////4AAA////4AAA////4AAAf///4AAAf///4AAAP///4AAAP///4AAAH///4AAAD///4AAAB///4AAAAf//4AAAAP//4AAAAD//wAAAAAH/wAAA"
    }
   },
   "lids": {
    "picture_open_mm": [
     5.8,
-    5.4
+    5.3
    ],
    "fitted_open_mm": [
     7.9,

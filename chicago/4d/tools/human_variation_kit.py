@@ -345,7 +345,10 @@ def persons():
             g = t.get('grow') or {}
             if g.get('reach_m', 0) > 0:
                 # ...and how far its hair stands out from the fitted skin (the sheet's mask says where).
-                rec['skin']['grow'] = {'reach_m': g['reach_m'], 'from_m': g['from_m'], 'normal_px': g['normal_px']}
+                # `axis_m`: the upright line it stands out from; `fine`: the cells of the sheet it stands
+                # out in, where the near levels draw the skin finer (renderers/web/js/human-fine.js).
+                rec['skin']['grow'] = {'reach_m': g['reach_m'], 'from_m': g['from_m'], 'normal_px': g['normal_px'],
+                                       **{k: g[k] for k in ('axis_m', 'fine') if g.get(k)}}
             if (t.get('lids') or {}).get('rest', 0) > 0:
                 rec['skin']['lid'] = t['lids']['rest']   # ...and how far its lids rest shut, as its front picture's do
             if t.get('eyes'):

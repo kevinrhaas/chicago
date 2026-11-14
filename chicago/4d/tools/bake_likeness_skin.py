@@ -27,7 +27,12 @@ fitted head:
     mediapipe_hm08_landmarks.json; `camera: "upper_face"` uses only the points above the nose's
     base, for a front view that smiles), a side turned as the fit turned its own side view (the
     record's `turn_deg` where the fit has none) and placed by its near-side points and the
-    face's line against the sheet's white ground, the back from the hair's top and the collar;
+    face's line against the sheet's white ground (down to the chin, or to the nose's base for a
+    face with a beard, whose outline is not the jaw's), the back from the hair's top and the
+    collar. Then the four are lined up with each other (`line_up`): every view shows the hair's
+    outline, and the cameras are moved together until the solid the four outlines allow
+    shadows as much of each outline as it can, each camera held by what it was solved on (a
+    front view's points hardly say how far the head tilts toward the camera; the outlines do);
   - the lids come first (`rest_lids`): the fitted face's eyes stand wider open than the
     pictures', so the blink's own shape (renderers/web/js/human-skin.js shapeBlink, read here by
     `blink_shape`) is taken as far as closes them to the front picture's opening, between the
@@ -35,18 +40,34 @@ fitted head:
     renderer to rest the lids the same;
   - the front view is then warped a little (a thin-plate spline through the points), so the
     picture's own lips, lids, nostrils and brows land on the mesh's;
-  - the hair (`hair_shown`, `grow`): each skin vertex is read as hair or skin by the pictures'
-    colour at it (the face's own skin tone against the tones outside the bare head's outline),
-    and where it is hair the skin is moved out, along the line from the head's middle, to the
-    pictures' outline: in each view the line's length inside the picture's head less its length
-    inside the bare head's own outline, the views weighed by how squarely they see that line,
-    never past any view's outline, off the face and clear of the ears. The pictures are laid on
-    that grown head;
+  - the head is made finer first (`refine`: the scalp's triangles are 13 to 35 mm wide, too
+    coarse to carry a knot's or a curl's outline), and then the hair (`hair_shown`, `grow`):
+    each skin vertex is read as hair or skin by the pictures' colour at it (the face's own skin
+    tone against the tones outside the bare head's outline), and the skin is moved out, along
+    the line from the head's upright middle (`away`), by the hair's depth there: how far that
+    line runs inside the solid the pictures' four outlines allow, less how far it runs inside
+    the solid the bare head's own four outlines allow. It grows where the pictures show hair
+    (by its colour, or by the outlines standing well outside the bare head: grey hair is the
+    skin's colour), on a beard's ground for a record that has one where the lower face reads
+    as hair, never on the face or the ears. Four outlines cannot say where a width is: hair
+    that hangs behind the ears widens the front and back pictures beside the jaw and the
+    temples, and the solid lays it on the cheeks and temples too. A record with
+    `grow.cheek_cm` measures the face in front of the ears in a narrower solid and grows hair
+    there only where its colour shows it. Then the grown head is fitted to the pictures
+    (`fit_outlines`): drawn as each camera sees it, the points on its outline are moved along
+    their lines to the picture's outline, and hair that stands in front of skin a picture
+    shows (an ear, the neck under it) is drawn back. The pictures are laid on that grown head,
+    and the record keeps where the hair stands out as cells of the sheet
+    (`texture.grow.fine`), where the renderer splits the body's skin as finely
+    (renderers/web/js/human-fine.js);
   - every texel of the head, eye sockets and neck in the body's own UV layout takes the view that sees
-    it best: the front inside the outer corners of the eyes (and wherever the hair stands out
-    toward it), a side beyond them, the back behind the ears; what no view sees (the crown,
-    behind an ear) is filled from around it. Clothing (the collar and all below it) is left
-    out, and earrings are painted over from the skin beside them;
+    it best. Within the face's own width the front goes first and the others share what it
+    leaves. Past it, hair that stands out goes to whichever view sees it most squarely (the
+    front counting for a fifth from the ears' lobes up, where it looks along the hair), skin
+    (an ear) to its own side's picture, and hair at a temple to the side pictures. What no
+    view sees (the crown, behind an ear) is filled from around it, hair from hair. Clothing
+    (the collar and all below it) is left out, and earrings are painted over from the skin
+    beside them;
   - each iris (`read_eyes`) is read from the front picture as rings about its centre and drawn
     whole, with the colour of the whites beside it;
   - the result is one JPEG, assets/humans/web/likeness/<PERSON>_skin.jpg: `RECTS` place the
@@ -73,6 +94,7 @@ bake recorded of the hair, lids and eyes, and the fitted values the bake was mad
 means a rebake). It needs no picture.
 """
 import argparse
+import base64
 import hashlib
 import json
 import pathlib
@@ -103,9 +125,21 @@ SHAPE_PX = (528, 566)                         # ...and under it, as large, which
 JPEG_QUALITY = 88
 HEAD_DROP_M = 0.36                            # the triangles within this of the crown are the head and neck
 GROW_STEP_M = 0.001                           # the step the hair's outline is felt for, out from the skin
-GROW_FEEL_M = 0.25                            # ...and how far out it is felt for
+GROW_GRID_M = 0.002                           # ...in a solid of the pictures' outlines kept on a grid this fine
+GROW_AXIS_M = 0.07                            # the hair stands out from a line this long, down from the middle between the ears' tops (the record's `grow.axis_m`, which the renderer reads)
+GROW_SURE_M = (0.006, 0.014)                  # the outlines standing this far outside the bare head are hair, whatever its colour reads
+BEARD_FROM_EAR_M = 0.015                      # a beard grows forward of this much in front of the ears' lobes
 HAIR_SKIN_SPREAD = np.array([10.0, 4.0, 4.0])   # the least spread (L*, a*, b*) the skin's colour is given
 HAIR_COLOURS = 4                              # the hair's colours are read as this many
+FIT_ROUNDS = 10                               # the grown hair is then fitted to the pictures' outlines, this many times over
+FIT_STEP = 0.8                                # ...each time by this share of what an outline still shows beyond it (or short of it)
+FIT_REACH_M = 0.03                            # ...felt for this far, either way, along the hair's own line as the picture sees it
+FIT_EDGE_M = 0.006                            # ...by the points that stand within this of the head's own outline in that picture
+FIT_IN_PLANE = 0.5                            # ...whose line the picture sees at least this much of
+FIT_SKIN = 0.25                               # a picture shows skin where it reads under this much hair, all round the pixel
+FIT_BACK = 0.7                                # ...and hair that stands in front of skin a picture shows is drawn in to this share, each time
+FIT_CELL_PX = 12                              # ...by a depth of the grown head kept on cells this wide
+HAIR_GROUND = (0.86, 0.06)                    # the sheet's white ground, seen through a knot or between curls: this bright, and this near to grey
 HAIR_GROWS = (0.35, 0.65)                     # hair stands out from the skin where the pictures read this much hair
 LID_PAIRS = ((159, 145), (386, 374))          # MediaPipe: the middle of each eye's upper and lower lid
 LID_EDGE_M = (0.0025, 0.012, 0.02)            # a lid's edge at its middle: the open boundary within this of it (across, up, back)
@@ -120,6 +154,7 @@ EYE_RIMS = (                                  # MediaPipe: each eye's opening, i
     ((33, 7, 163, 144, 145, 153, 154, 155, 133, 173, 157, 158, 159, 160, 161, 246), 468, (469, 470, 471, 472)),
 )
 LIPS = (61, 146, 91, 181, 84, 17, 314, 405, 321, 375, 291, 409, 270, 269, 267, 0, 37, 39, 40, 185)   # MediaPipe's outer lip ring
+SIDE_SCALE_TIE = 0.03                         # a side view's scale is held this near the front's until the views are lined up
 NECK_KEEP_M = (-0.004, 0.012)                 # the head is whole from here above the chin's point
 
 
@@ -167,8 +202,63 @@ def base_map(asset):
     return np.asarray(Image.open(io.BytesIO(binary[off:off + view['byteLength']])).convert('RGB')).astype(np.float32) / 255
 
 
+FINE_EDGE_M = 0.008                           # the head's triangles are split until none of theirs is longer than this
+FINE_REACH_M = 0.17                           # ...within this of the middle between the ears' tops
+FINE_ROUNDS = 3
+FINE_CELL_PX = 16                             # where the hair stands out, kept for the renderer as cells of the sheet this wide
+FINE_STAND_M = 0.002                          # ...a cell counts where the hair stands out this far in it
+
+
+def refine(X, rest, uv, tri, lm):
+    """The head's skin finer: its triangles within `FINE_REACH_M` of the middle between the
+    ears' tops are split in four until no edge of theirs is longer than `FINE_EDGE_M` (the
+    scalp's are 13 to 35 mm, too coarse to carry a knot's or a curl's outline), and whatever
+    borders a split triangle is split along the shared edge, so no seam opens. A new vertex is
+    the middle of its edge in every attribute; the vertices that were there keep their rows.
+    renderers/web/js/human-fine.js splits the body's own skin the same way where the sheet
+    says hair stands out (`texture.grow.fine`), so the app's head carries what is baked here."""
+    mid = (X[lm['ear_top_l']] + X[lm['ear_top_r']]) / 2
+    for _ in range(FINE_ROUNDS):
+        group = weld(rest)
+        e = np.stack([tri[:, [0, 1]], tri[:, [1, 2]], tri[:, [2, 0]]], 1)                 # (triangle, edge, end)
+        length = np.linalg.norm(X[e[:, :, 0]] - X[e[:, :, 1]], axis=2)
+        near = np.linalg.norm(X[tri].mean(1) - mid, axis=1) < FINE_REACH_M
+        whole = near & (length.max(1) > FINE_EDGE_M)
+        if not whole.any():
+            break
+        key = np.sort(group[e], 2)
+        key = key[:, :, 0].astype(np.int64) * len(X) + key[:, :, 1]
+        marked = np.isin(key, np.unique(key[whole]))                                      # by place, so both sides of a UV seam split
+        pair = np.sort(e, 2)
+        pk = pair[:, :, 0].astype(np.int64) * len(X) + pair[:, :, 1]
+        uniq, first = np.unique(pk[marked], return_index=True)
+        ends = pair[marked][first]
+        new = len(X) + np.arange(len(uniq))
+        X = np.concatenate([X, (X[ends[:, 0]] + X[ends[:, 1]]) / 2])
+        rest = np.concatenate([rest, (rest[ends[:, 0]] + rest[ends[:, 1]]) / 2])
+        uv = np.concatenate([uv, (uv[ends[:, 0]] + uv[ends[:, 1]]) / 2])
+        m = np.full(pk.shape, -1)
+        m[marked] = new[np.searchsorted(uniq, pk[marked])]
+        out = [tri[~marked.any(1)]]
+        for t, mm in zip(tri[marked.any(1)], m[marked.any(1)]):
+            n = int((mm >= 0).sum())
+            if n == 3:
+                out.append(np.array([[t[0], mm[0], mm[2]], [mm[0], t[1], mm[1]], [mm[2], mm[1], t[2]], [mm[0], mm[1], mm[2]]]))
+                continue
+            k = int(np.argmax(mm >= 0)) if n == 1 else int(np.argmax(mm < 0))            # the one edge split, or the one not
+            a, b, c = t[k], t[(k + 1) % 3], t[(k + 2) % 3]
+            if n == 1:
+                out.append(np.array([[a, mm[k], c], [mm[k], b, c]]))
+            else:
+                mb, mc = mm[(k + 1) % 3], mm[(k + 2) % 3]                                 # on b-c and on c-a; a-b is whole
+                out.append(np.array([[c, mc, mb], [mc, a, b], [mc, b, mb]]))
+        tri = np.concatenate(out)
+    return X, rest, uv, tri
+
+
 def fitted_head(person):
-    """The body's skin with the person's fitted face on it, in the kit's vertex order (metres)."""
+    """The body's skin with the person's fitted face on it (metres): the kit's vertices in the
+    kit's order, then the vertices `refine` adds to the head."""
     portrait = json.loads((F.PORTRAITS / f'{person}.json').read_text())
     fit = json.loads((F.FITS / f'{person}.json').read_text())
     header, refs, axes = F.load_kit()
@@ -185,7 +275,11 @@ def fitted_head(person):
     table = json.loads(F.MP_TABLE.read_text())['bodies'][asset]
     kidx = F.kit_index()
     side = (fit.get('fit', {}).get('views') or {}).get('side_camera') or {}
-    return {'X': X, 'rest': rest, 'tri': F.body_triangles(asset), 'uv': glb_attribute(asset, 'TEXCOORD_0'), 'asset': asset,
+    lm = {k: kidx[v] for k, v in F.landmarks().items() if isinstance(v, int)}
+    tri, uv = F.body_triangles(asset), glb_attribute(asset, 'TEXCOORD_0')
+    if FINE_EDGE_M:
+        X, rest, uv, tri = refine(X, rest, uv, tri, lm)
+    return {'X': X, 'rest': rest, 'tri': tri, 'uv': uv, 'asset': asset,
             'side_turn_deg': abs(side['yaw_deg']) if 'yaw_deg' in side else None,
             'mp': {int(k[3:]): kidx[v['vertex']] for k, v in table['points'].items()},
             'lm': {k: kidx[v] for k, v in F.landmarks().items() if isinstance(v, int)}}
@@ -305,13 +399,15 @@ def diffuse_fill(img, hole, known=None):
     return out
 
 
-def side_camera(head, T, pts, fg, turn_deg, centre, size, scale):
+def side_camera(head, T, pts, fg, turn_deg, centre, size, scale, lower='menton'):
     """A side view's camera: its near-side points, and the face's line against the white ground
     matched by the head's own outline from that side (closest points, re-found each pass). The
-    turn is the record's, read from the picture by eye, and is held: left free it settles some
-    twenty degrees short of a profile, a fitted nose a little too long read as a head not quite
-    side-on, which lays the back of the head and the hair in the wrong place. The scale stays
-    near the front view's (one sheet, one camera distance)."""
+    line runs from the brow down to `lower`: the chin's point, or the nose's base for a face
+    with a beard (a beard's outline is not the jaw's: matched to it, the head tipped ten degrees
+    and the ears sat a centimetre low). The turn starts as the fit's own side view's (the
+    record's by eye where there is none) and the scale near the front's; both are loosely held
+    by a line this short, and `line_up` settles them against the other views. Returns the
+    camera, its mean miss on the line (mm), and what it was solved on."""
     from scipy import ndimage
     from scipy.optimize import least_squares
     from scipy.spatial import cKDTree
@@ -334,7 +430,7 @@ def side_camera(head, T, pts, fg, turn_deg, centre, size, scale):
         d, j = cKDTree(Pm[hv]).query(np.stack([xx, yy], 1) + 0.5)
         rows = np.unique(hv[j[d < 1.5]])
         # the brow to the chin, forward of the ear: the line the hair and the collar do not cover
-        rows = rows[(X[rows, 2] > ear_z + 0.03) & (X[rows, 1] < X[mp[168], 1] + 0.065) & (X[rows, 1] > X[lm['menton'], 1] - 0.005)]
+        rows = rows[(X[rows, 2] > ear_z + 0.03) & (X[rows, 1] < X[mp[168], 1] + 0.065) & (X[rows, 1] > X[lm[lower], 1] - 0.005)]
         d, j = cKDTree(E).query(Pm[rows])
         rows, target = rows[d < 14], E[j[d < 14]]
         w = np.sqrt(120.0 / max(len(rows), 1))
@@ -343,10 +439,10 @@ def side_camera(head, T, pts, fg, turn_deg, centre, size, scale):
             c = np.concatenate([[turn], q])
             a = (project(P, c, centre)[0] - ob) / 6.0
             b = (project(X[rows], c, centre)[0] - target) * w / 2.0
-            return np.concatenate([np.tanh(a.ravel() / 3) * 3, b.ravel(), [(c[3] / scale - 1) / 0.01 * 3]])
+            return np.concatenate([np.tanh(a.ravel() / 3) * 3, b.ravel(), [(c[3] / scale - 1) / SIDE_SCALE_TIE * 3]])
         cam = np.concatenate([[turn], least_squares(res, cam[1:], x_scale='jac').x])
     miss = np.linalg.norm(project(X[rows], cam, centre)[0] - target, axis=1).mean() / cam[3] * 1000
-    return cam, float(miss)
+    return cam, float(miss), {'rows': rows, 'edge': E}
 
 
 def read_views(rec, sheet, head):
@@ -370,13 +466,15 @@ def read_views(rec, sheet, head):
             use = [i for i in idx if spec.get('camera') != 'upper_face' or X[mp[i], 1] > X[lm['subnasale'], 1] + 0.004]
             v['cam'] = solve_camera(X[[mp[i] for i in use]], pts[use], centre, (-0.3, 0.0, 0.3))
             v['miss_mm'] = float(np.sqrt(((project(X[[mp[i] for i in use]], v['cam'], centre)[0] - pts[use]) ** 2).sum(1).mean()) / v['cam'][3] * 1000)
+            v['fit'] = {'rows': np.array([mp[i] for i in use]), 'at': pts[use]}
         elif spec['name'] == 'back':
             v['cam'] = np.array([np.pi, 0.0, 0.0, np.mean([w['cam'][3] for w in views if w['name'] in ('left', 'right')]), 0.0, 0.0])
         else:
             # A side view is turned as the fit placed its own side view (the face was shaped to
             # match the picture from there); with no such fit, as the record reads it by eye.
             turn = np.copysign(head['side_turn_deg'] or abs(spec['turn_deg']), spec['turn_deg'])
-            v['cam'], v['miss_mm'] = side_camera(head, T, pts, fg, turn, centre, size, views[0]['cam'][3])
+            v['cam'], v['miss_mm'], v['fit'] = side_camera(head, T, pts, fg, turn, centre, size, views[0]['cam'][3],
+                                                           'subnasale' if (rec.get('grow') or {}).get('beard') else 'menton')
         views.append(v)
     for v in views:
         img, fg, cam = v['img'], v['fg'], v['cam']
@@ -441,6 +539,8 @@ def read_views(rec, sheet, head):
         v['good'] = (ndimage.binary_erosion(fg, iterations=6) & ~cloth).astype(np.float32)   # in from the white ground's halo
         v['head'] = fg & ~cloth                  # the head and its hair, down to the collar
         v['left_out'] = {'clothing_px': int((cloth & fg).sum()), 'jewellery_px': int(jewel.sum())}
+    if len(views) > 2 and rec.get('line_up', True):
+        line_up(views, X, np.unique(T), lm, centre, (rec.get('grow') or {}).get('max_cm', 8) / 100)
     return views, T, centre, xmid
 
 
@@ -691,9 +791,11 @@ def hair_shown(views, head, T, centre):
     mu = np.median(skin_px, 0)
     sd = np.maximum(1.4826 * np.median(np.abs(skin_px - mu), 0), HAIR_SKIN_SPREAD)
     hair_px = hair_px[(((hair_px - mu) / sd) ** 2).sum(1) > 9]
+    head['tones'] = None
     if len(hair_px) < 200:
         return np.zeros(len(X)), {'skin_lab': [round(float(c), 1) for c in mu], 'hair_px': int(len(hair_px))}
     cen, _ = kmeans2(hair_px[::max(1, len(hair_px) // 20000)], HAIR_COLOURS, minit='++', seed=7)
+    head['tones'] = (mu, sd, cen)
     num, den = np.zeros(len(hv)), np.zeros(len(hv))
     for vis, nz, col, bare in seen:
         ds = (((col - mu) / sd) ** 2).sum(1)
@@ -729,19 +831,294 @@ def hair_shown(views, head, T, centre):
     return out, {'skin_lab': [round(float(c), 1) for c in mu], 'hair_px': int(len(hair_px))}
 
 
+def away(X, mid):
+    """Which way the hair stands out from each point of the skin: from the head's upright middle
+    line (from the ears' tops `GROW_AXIS_M` down), so the crown's hair rises, the hair at the
+    back and sides stands straight out, and a beard and the hair on the neck stand out and down.
+    renderers/web/js/human-skin.js moves the skin the same way (`chiLikeAxis`, the record's `axis_m`)."""
+    o = np.stack([np.full(len(X), mid[0]), np.clip(X[:, 1], mid[1] - GROW_AXIS_M, mid[1]), np.full(len(X), mid[2])], 1)
+    U = X - o
+    return U / np.maximum(np.linalg.norm(U, axis=1, keepdims=True), 1e-9)
+
+
+def outline_holds(masks, cams, centre, lo, shape):
+    """The points inside every view's outline (a grid of `GROW_GRID_M`)."""
+    ax = [lo[c] + GROW_GRID_M * np.arange(shape[c]) for c in range(3)]
+    gx, gy, gz = np.meshgrid(*ax, indexing='ij')
+    pts = np.stack([gx.ravel(), gy.ravel(), gz.ravel()], 1)
+    occ = np.ones(len(pts), bool)
+    for m, cam in zip(masks, cams):
+        H, W = m.shape
+        P = project(pts, cam, centre)[0]
+        xi, yi = np.floor(P[:, 0]).astype(int), np.floor(P[:, 1]).astype(int)
+        occ &= (xi >= 0) & (xi < W) & (yi >= 0) & (yi < H) & m[np.clip(yi, 0, H - 1), np.clip(xi, 0, W - 1)]
+    return occ.reshape(shape)
+
+
+def rounded(occ):
+    """The solid the outlines allow: what `outline_holds`, each level slice of it rounded to the
+    ellipse its extent holds (four views leave a slice its corners; a head and its hair have none)."""
+    from scipy import ndimage
+    shape = occ.shape
+    solid = np.zeros_like(occ)
+    ix, iz = np.arange(shape[0])[:, None], np.arange(shape[2])[None, :]
+    for j in range(shape[1]):
+        lab, n = ndimage.label(occ[:, j, :])
+        for k, sl in enumerate(ndimage.find_objects(lab), 1):
+            a, b = (sl[0].stop - sl[0].start) / 2, (sl[1].stop - sl[1].start) / 2
+            cx, cz = (sl[0].start + sl[0].stop - 1) / 2, (sl[1].start + sl[1].stop - 1) / 2
+            solid[:, j, :] |= (lab == k) & (((ix - cx) / a) ** 2 + ((iz - cz) / b) ** 2 <= 1)
+    return solid
+
+
+def leaves(solid, lo, P, U, most):
+    """How far along its line each point goes before it leaves the solid (0 for one outside it)."""
+    steps = np.arange(0, most + GROW_STEP_M / 2, GROW_STEP_M)
+    shape = np.array(solid.shape)
+    out = np.zeros(len(P))
+    for a in range(0, len(P), 2000):
+        p = P[a:a + 2000, None, :] + steps[None, :, None] * U[a:a + 2000, None, :]
+        i = np.round((p - lo) / GROW_GRID_M).astype(int)
+        ok = ((i >= 0) & (i < shape)).all(2)
+        i = np.clip(i, 0, shape - 1)
+        inside = ok & solid[i[..., 0], i[..., 1], i[..., 2]]
+        first = np.where(inside.all(1), len(steps), np.argmin(inside, 1))
+        out[a:a + 2000] = steps[np.maximum(first - 1, 0)]
+    return out
+
+
+LINE_UP_GRID_M = 0.003
+LINE_UP_SMALLER = 3
+LINE_UP_STEP = np.array([2.0, 2.0, 2.0, 1.0, 2.0, 2.0])       # a camera's turn, tilt and roll (degrees), scale (percent), and place across and down (mm): the first steps tried
+LINE_UP_HOLD = np.array([0.02, 0.02, 0.02, 0.1, 0.02, 0.02])  # what a unit of each, squared, costs (cm2 of outline)
+LINE_UP_FIT = 10.0                                             # ...and a millimetre more of miss on what the camera was solved on
+
+
+def moved(cam, d):
+    """A camera turned, tilted and rolled by d[0:3] degrees, its scale changed by d[3] percent,
+    and its picture's place by d[4:6] mm."""
+    c = np.array(cam, float)
+    c[:3] += np.radians(d[:3])
+    c[3] *= 1 + d[3] / 100
+    c[4:6] += d[4:6] / 1000 * cam[3]
+    return c
+
+
+def line_up(views, X, hv, lm, centre, most):
+    """The cameras together. Each was solved on its own picture: the front's on the face's
+    points, which hardly say how far the head is tilted to or from the camera; a side's on the
+    face's line; the back's by rule (it has no face). So the hair's outline, which every view
+    shows, sat a few degrees and millimetres apart between them, and the solid all four
+    outlines allow lost whatever any one disagreed on (a top knot lost its top 2 cm). Here the
+    cameras are moved together until that solid shadows as much of every outline as it can. A
+    move costs what it loses of the fit the camera was solved on (`LINE_UP_FIT` a millimetre)
+    and a little besides (`LINE_UP_HOLD`), so a camera its own picture places firmly stays
+    and one it places loosely gives. Changes `v['cam']` in place, and notes the move, and the
+    outlines' area above the chin left unshadowed before and after (cm2 a view)."""
+    from scipy import ndimage
+    from scipy.spatial import cKDTree
+    g, q = LINE_UP_GRID_M, LINE_UP_SMALLER
+    lo = X[hv].min(0) - most - g
+    shape = np.ceil((X[hv].max(0) + most + g - lo) / g).astype(int) + 1
+    pts = np.stack([a.ravel() for a in np.meshgrid(*[lo[c] + g * np.arange(shape[c]) for c in range(3)], indexing='ij')], 1)
+    floor = X[lm['menton'], 1] - 0.01                      # above the chin: the collar's line differs view to view
+    pts = pts[pts[:, 1] > floor - 0.03]
+    n = len(views)
+    cam0 = [np.array(v['cam'], float) for v in views]
+    masks, counted, fits = [], [], []
+    for v, c in zip(views, cam0):
+        m = v['head']
+        H, W = m.shape
+        small = m[:H // q * q, :W // q * q].reshape(H // q, q, W // q, q).mean((1, 3)) > 0.5
+        above = np.zeros(small.shape, bool)
+        above[:max(1, int((c[5] - c[3] * (floor - centre[1])) / q) - 2)] = True
+        masks.append(small)
+        counted.append(small & above)
+        f = v.get('fit')
+        fits.append(None if f is None else ('points', f['rows'], f['at']) if 'at' in f else ('outline', f['rows'], cKDTree(f['edge'])))
+    # only the points the first outline could come to hold
+    P = project(pts, cam0[0], centre)[0] / q
+    wide = ndimage.binary_dilation(masks[0], iterations=int(np.ceil(0.02 * cam0[0][3] / q)))
+    xi, yi = np.floor(P[:, 0]).astype(int), np.floor(P[:, 1]).astype(int)
+    ok = (xi >= 0) & (xi < wide.shape[1]) & (yi >= 0) & (yi < wide.shape[0])
+    pts = pts[ok & wide[np.clip(yi, 0, wide.shape[0] - 1), np.clip(xi, 0, wide.shape[1] - 1)]]
+
+    def seen(i, c):
+        m = masks[i]
+        P = project(pts, c, centre)[0] / q
+        xi, yi = np.floor(P[:, 0]).astype(int), np.floor(P[:, 1]).astype(int)
+        ok = (xi >= 0) & (xi < m.shape[1]) & (yi >= 0) & (yi < m.shape[0])
+        xi, yi = np.clip(xi, 0, m.shape[1] - 1), np.clip(yi, 0, m.shape[0] - 1)
+        return xi, yi, ok & m[yi, xi]
+
+    def miss(i, c):
+        """How far the camera is from what it was solved on, mm."""
+        if fits[i] is None:
+            return 0.0
+        kind, rows, at = fits[i]
+        P = project(X[rows], c, centre)[0]
+        if kind == 'points':
+            return float(np.sqrt(((P - at) ** 2).sum(1).mean()) / c[3] * 1000)
+        return float(np.minimum(at.query(P)[0], 14.0).mean() / c[3] * 1000)
+
+    def missed(pix):
+        inside = np.ones(len(pts), bool)
+        for x, y, on in pix:
+            inside &= on
+        out = []
+        for i, (x, y, on) in enumerate(pix):
+            sh = np.zeros(masks[i].shape, bool)
+            sh[y[inside], x[inside]] = True
+            sh = ndimage.binary_closing(sh, iterations=2)
+            out.append((counted[i] & ~sh).sum() / (cam0[i][3] / q) ** 2 * 1e4)
+        return np.array(out)
+
+    miss0 = [miss(i, cam0[i]) for i in range(n)]
+    pix = [seen(i, cam0[i]) for i in range(n)]
+    before = missed(pix)
+    d = np.zeros((n, len(LINE_UP_STEP)))
+    price = lambda i, di, c: LINE_UP_FIT * (miss(i, c) - miss0[i]) + float(LINE_UP_HOLD @ di ** 2)
+    prices = [0.0] * n
+    best = float(before.sum())
+    step = np.tile(LINE_UP_STEP, (n, 1)).astype(float)
+    # A pattern search (the cost is a count of pixels, so it has no slope to follow): each
+    # move in turn is tried a step either way and the better kept; when none helps the steps halve.
+    while (step > LINE_UP_STEP / 16 + 1e-12).any():
+        better = False
+        for i in range(n):
+            for k in range(d.shape[1]):
+                for sgn in (1.0, -1.0):
+                    di = d[i].copy()
+                    di[k] += sgn * step[i, k]
+                    c = moved(cam0[i], di)
+                    trial = pix[:i] + [seen(i, c)] + pix[i + 1:]
+                    pr = price(i, di, c)
+                    cost = float(missed(trial).sum()) + sum(prices) - prices[i] + pr
+                    if cost < best - 1e-9:
+                        d[i], pix, prices[i], best, better = di, trial, pr, cost, True
+                        break
+        if not better:
+            step /= 2
+    after = missed(pix)
+    for i, v in enumerate(views):
+        c = moved(cam0[i], d[i])
+        v['cam'] = c
+        v['lined_up'] = {'moved': [round(float(a), 2) for a in d[i]], 'unshadowed_cm2': [round(float(before[i]), 1), round(float(after[i]), 1)],
+                         **({'miss_mm': [round(miss0[i], 2), round(miss(i, c), 2)]} if fits[i] is not None else {})}
+    return d, before, after
+
+
+def filled(P, tri, size):
+    """The outline of triangles `tri` of the pixel points P, filled: a (H, W) mask."""
+    from PIL import Image, ImageDraw
+    im = Image.new('1', size, 0)
+    draw = ImageDraw.Draw(im)
+    for q in P[tri].reshape(-1, 6).tolist():
+        draw.polygon(q, fill=1)
+    return np.asarray(im, bool)
+
+
+def reads_skin(views, tones):
+    """Where each picture shows bare skin (not hair, clothing or its ground): by the tones
+    `hair_shown` read, with no hair within two pixels."""
+    from scipy import ndimage
+    mu, sd, cen = tones
+    out = []
+    for v in views:
+        H, W = v['fg'].shape
+        lab = to_lab(np.stack([ndimage.gaussian_filter(v['img'][:, :, c], 1.5) for c in range(3)], -1).reshape(-1, 3))
+        ds = (((lab - mu) / sd) ** 2).sum(1)
+        dh = (((lab[:, None, :] - cen[None]) / sd) ** 2).sum(2).min(1)
+        r = np.where(v['good'].ravel() > 0.5, ds / np.maximum(ds + dh, 1e-9), 1.0).reshape(H, W)
+        out.append(ndimage.maximum_filter(r, 5) < FIT_SKIN)
+    return out
+
+
+def fit_outlines(t, Xg, U, Tg, views, centre, free, sides_only, limit, A, deg, skin=None):
+    """The grown hair fitted to the pictures' outlines. The solids `grow` measures in are what
+    four outlines allow, less what they allow the bare head, and that falls short where the bare
+    head's own solid is loose (behind the ears, whose width it carries back along the skull)
+    and wherever the mesh cannot reach. So the head is drawn again as each picture's camera
+    sees it, hair and all, and each point that stands on its outline there (and whose line the
+    camera sees) is moved along its line by what the picture's outline shows beyond it, or
+    back by what it stands outside; a point takes the least any picture gives it, its
+    neighbours follow, and `limit` (the caps and the rise from the hair's edge) holds
+    throughout. Only `free` points move; `sides_only` ones are fitted to the side pictures
+    alone (in front of the ears a front or back picture's width is hair that hangs behind them).
+    And inside the outlines: hair that stands, nearest a camera, where its picture shows bare
+    skin (`skin`: an ear, the neck under it) is drawn in until it no longer covers it. Curls
+    that hang clear of a neck are, on this skin, a bank standing from it; drawn in so, the
+    bank's face lies along the side picture's own line of sight and faces the front picture."""
+    from scipy import ndimage
+    for _ in range(FIT_ROUNDS):
+        Xc = Xg + U * t[:, None]
+        gap = np.full(len(Xg), np.inf)
+        covers = np.zeros(len(Xg), bool)
+        for i, v in enumerate(views):
+            W, H = v['size']
+            s = v['cam'][3]
+            P, z = project(Xc, v['cam'], centre)
+            if skin is not None:
+                xi, yi = np.floor(P[:, 0]).astype(int), np.floor(P[:, 1]).astype(int)
+                on = (xi >= 0) & (xi < W) & (yi >= 0) & (yi < H)
+                xi, yi = np.clip(xi, 0, W - 1), np.clip(yi, 0, H - 1)
+                wc = W // FIT_CELL_PX + 1
+                cell = (yi // FIT_CELL_PX) * wc + xi // FIT_CELL_PX
+                near = np.full((H // FIT_CELL_PX + 1) * wc, -np.inf)
+                np.maximum.at(near, cell[on], z[on])
+                near = ndimage.maximum_filter(near.reshape(-1, wc), 3).ravel()
+                covers |= free & on & (t > 0.002) & (z > near[cell] - 0.012) & skin[i][yi, xi]
+            D = project(Xc + U * 0.01, v['cam'], centre)[0] - P
+            n = np.linalg.norm(D, axis=1)
+            seen = n / (0.01 * s)
+            ok = free & (seen > FIT_IN_PLANE)
+            if v['name'] in ('front', 'back'):
+                ok &= ~sides_only
+            k = np.nonzero(ok)[0]
+            if not len(k):
+                continue
+            mesh = filled(P, Tg, (W, H))
+            d = D[k] / n[k, None]
+            js = np.arange(int(np.ceil(FIT_REACH_M * s)) + 1)
+
+            def first(mask, sign, want):
+                q = P[k, None, :] + sign * d[:, None, :] * js[None, :, None]
+                xi, yi = np.floor(q[..., 0]).astype(int), np.floor(q[..., 1]).astype(int)
+                hit = ((xi >= 0) & (xi < W) & (yi >= 0) & (yi < H) & mask[np.clip(yi, 0, H - 1), np.clip(xi, 0, W - 1)]) == want
+                return np.where(hit.any(1), np.argmax(hit, 1), len(js))
+
+            mesh_out = first(mesh, 1, False)
+            xi, yi = np.clip(np.floor(P[k, 0]).astype(int), 0, W - 1), np.clip(np.floor(P[k, 1]).astype(int), 0, H - 1)
+            on_head, on_figure = v['head'][yi, xi], v['fg'][yi, xi]
+            px = np.where(on_head, first(v['head'], 1, False) - mesh_out, np.where(on_figure, 0, -first(v['fg'], -1, True))).astype(float)
+            use = (mesh_out <= FIT_EDGE_M * s) & (on_head | ~on_figure)
+            g = px / (s * seen[k])
+            gap[k[use]] = np.minimum(gap[k[use]], g[use])
+        has = np.isfinite(gap)
+        if not has.any() and not covers.any():
+            break
+        d_, w_ = np.where(has, np.clip(gap, -0.015, 0.015), 0.0), has.astype(float)
+        for _ in range(2):
+            d_, w_ = 0.5 * d_ + 0.5 * (A @ d_) / deg, 0.5 * w_ + 0.5 * (A @ w_) / deg
+        t = np.clip(t + FIT_STEP * np.where(free & ~covers, d_ / np.maximum(w_, 0.5), 0.0), 0, limit)
+        t[covers] *= FIT_BACK
+    return t
+
+
 def grow(rec, views, head, T, centre):
     """How far the stand-in's hair (and a beard) stands out from the fitted skin: a distance for
-    each kit vertex of the head, metres, along the line from the middle of the head out through
-    that vertex, and that middle. The pictures give it. Pushed out along its line, a vertex
-    leaves the fitted head's own outline in a view after one distance and the picture's outline
-    after another; the difference, foreshortened by how far the line leans toward that camera,
-    is the hair's depth there (exactly so on a round head, and on any head where the line runs
-    across the view, at the outline itself). Each view's reading counts by how squarely it sees
-    the line from the side; the answer never passes the hull the four outlines allow (a point of
-    the hair is inside the figure in every view), is smoothed a little, and nothing is grown on
-    the face, the lips or the ears. Measuring from the head's own outline is what keeps an ear
-    from being read as hair in front of it. With no `grow` in the record nothing is grown."""
+    each vertex of the head (the finer one's), metres, along `away`, and the middle `away` is measured from.
+    The pictures give it. Their four outlines allow one solid (`outline_holds`, `rounded`: the figure down
+    to the collar); the bare fitted head, seen by the same four cameras, allows another, made
+    the same way; a point of the skin leaves the head's own solid after one distance along its
+    line and the pictures' after another, and the difference is the hair's depth there (the two
+    solids are built alike, so what four views cannot tell of a shape is taken off both). It
+    grows only where the pictures show hair, not on the face, the lips or the ears, no faster
+    from the hair's edge than `rise`, and is smoothed a little; then it is fitted to the
+    pictures' own outlines (`fit_outlines`; `fit: false` in the record leaves that out), and a
+    point off the sheet stays where it is. With no `grow` in the record nothing is grown."""
     from scipy import sparse
+    from scipy.sparse.csgraph import dijkstra
     X, mp, lm = head['X'], head['mp'], head['lm']
     spec = rec.get('grow')
     mid = (X[lm['ear_top_l']] + X[lm['ear_top_r']]) / 2
@@ -755,64 +1132,108 @@ def grow(rec, views, head, T, centre):
     Xg = np.zeros((G, 3))
     np.add.at(Xg, gi, X[hv])
     Xg /= np.bincount(gi, minlength=G)[:, None]
-    U = Xg - mid
-    U /= np.maximum(np.linalg.norm(U, axis=1, keepdims=True), 1e-9)
+    U = away(Xg, mid)
     most = spec['max_cm'] / 100
-    steps = np.arange(0, GROW_FEEL_M + GROW_STEP_M / 2, GROW_STEP_M)
-    hull = np.full(G, most)
-    num, den = np.zeros(G), np.zeros(G)
+    lo = X[hv].min(0) - most - GROW_GRID_M
+    shape = tuple(np.ceil((X[hv].max(0) + most + GROW_GRID_M - lo) / GROW_GRID_M).astype(int) + 1)
+    cams = [v['cam'] for v in views]
+    own = []
     for v in views:
-        W, H = v['size']
         P, z = project(X, v['cam'], centre)
-        own = raster(P, z, T, v['size'])[1] >= 0
-        P0 = project(Xg, v['cam'], centre)[0]
-        dP = project(Xg + U, v['cam'], centre)[0] - P0
-        px = P0[:, None, :] + steps[None, :, None] * dP[:, None, :]
-        xi, yi = np.floor(px[:, :, 0]).astype(int), np.floor(px[:, :, 1]).astype(int)
-        within = (xi >= 0) & (xi < W) & (yi >= 0) & (yi < H)
-        xi, yi = np.clip(xi, 0, W - 1), np.clip(yi, 0, H - 1)
-
-        def reach(mask):
-            # the last step still inside; a vertex that starts outside is not pushed at all
-            inside = within & mask[yi, xi]
-            first = np.where(inside.all(1), len(steps), np.argmin(inside, 1))
-            return steps[np.maximum(first - 1, 0)]
-        far, near = reach(v['head']), reach(own)
-        across = np.sqrt(np.clip(1 - (U @ F.rot(*v['cam'][:3])[2]) ** 2, 0, 1))
-        w = across ** spec.get('view_power', 6) * (far < steps[-1])
-        num += w * np.clip(far - near, 0, None) * across
-        den += w
-        hull = np.minimum(hull, far)
-    t = np.minimum(num / np.maximum(den, 1e-9), hull)
+        own.append(raster(P, z, T, v['size'])[1] >= 0)
+    held = outline_holds(own, cams, centre, lo, shape)
+    in_bare = leaves(rounded(held), lo, Xg, U, most)
+    t = np.clip(leaves(rounded(outline_holds([v['head'] for v in views], cams, centre, lo, shape)), lo, Xg, U, most) - in_bare, 0, None)
+    # In front of the ears and below their tops, four views cannot say where a width is: hair
+    # that hangs behind the ears widens the front and back pictures beside the jaw, and the
+    # solid above lays that width on the cheeks too. For a record with `cheek_cm` the face there
+    # is measured in a second solid: the side pictures' outlines whole, the front and back
+    # pictures' no wider than the bare head's own a `cheek_cm` out (and as far down as a beard
+    # hangs), and behind the ears the bare head itself. The hair there is no deeper than that.
+    low, ahead = np.zeros(G), np.zeros(G)
+    if spec.get('cheek_cm') is not None:
+        from scipy import ndimage
+        ears_z = max(X[lm[k], 2] for k in ('ear_top_l', 'ear_top_r', 'ear_lobe_l', 'ear_lobe_r'))
+        tops_y = min(X[lm['ear_top_l'], 1], X[lm['ear_top_r'], 1])
+        narrow = []
+        for v, o in zip(views, own):
+            if v['name'] in ('front', 'back'):
+                bx, by = (max(1, int(round(c / 100 * v['cam'][3]))) for c in (spec['cheek_cm'], spec.get('beard_cm', 1.5)))
+                narrow.append(v['head'] & ndimage.binary_dilation(o, structure=np.ones((2 * by + 1, 2 * bx + 1), bool)))
+            else:
+                narrow.append(v['head'])
+        face = outline_holds(narrow, cams, centre, lo, shape)
+        k = int(np.ceil((ears_z - lo[2]) / GROW_GRID_M))
+        face[:, :, :k] = held[:, :, :k]
+        ahead = smooth(ears_z, ears_z + 0.01, Xg[:, 2])
+        low = ahead * (1 - smooth(tops_y - 0.015, tops_y, Xg[:, 1]))
+        t -= low * np.clip(t - np.clip(leaves(rounded(face), lo, Xg, U, most) - in_bare, 0, None), 0, None)
     # Only where the pictures show hair: skin does not stand out from itself.
     hair = np.zeros(G)
     np.maximum.at(hair, gi, head['hair'][hv])
-    t = t * smooth(HAIR_GROWS[0], HAIR_GROWS[1], hair)
+    # ...or where the pictures' solid stands so far outside the head's own that only hair can be
+    # there (grey hair is the skin's own colour to the reading above).
+    # (Not in front of the ears, for a record with `cheek_cm`: a temple the side pictures show
+    # bare stood out with the hair that is swept back over the ear behind it.)
+    shown = np.maximum(smooth(HAIR_GROWS[0], HAIR_GROWS[1], hair), smooth(GROW_SURE_M[0], GROW_SURE_M[1], t) * (1 - ahead))
+    if spec.get('beard'):
+        # ...and a beard, where the lower face reads as hair, no deeper than the record gives it.
+        # (Grey stubble on a cheek reads as skin and stays the skin's: it is a few millimetres deep,
+        # and made to stand out wherever the outlines allowed, it stood as a shelf beside the mouth.)
+        lobes_z = max(X[lm['ear_lobe_l'], 2], X[lm['ear_lobe_r'], 2])
+        beard = (Xg[:, 1] < X[lm['subnasale'], 1] - 0.002) & (Xg[:, 2] > lobes_z + BEARD_FROM_EAR_M)
+        t = np.where(beard, np.minimum(t, spec.get('beard_cm', 1.5) / 100), t)
+    t = t * shown
     # Nothing grows on the face (inside the points MediaPipe reads on it), the lips, or the ears.
     front = next(v for v in views if v['name'] == 'front')
     Pf = project(Xg, front['cam'], centre)[0]
     idx = sorted(mp)
-    face = inside_hull(project(X[[mp[i] for i in idx]], front['cam'], centre)[0], Pf) & (U[:, 2] > 0.15)
+    R = Xg - mid
+    face = inside_hull(project(X[[mp[i] for i in idx]], front['cam'], centre)[0], Pf) & (R[:, 2] / np.maximum(np.linalg.norm(R, axis=1), 1e-9) > 0.15)
     if spec.get('beard'):
         # ...but a beard does, below the nose's base, off the lips.
         lips = inside_hull(project(X[[mp[i] for i in LIPS if i in mp]], front['cam'], centre)[0], Pf)
         face &= (Xg[:, 1] > X[lm['subnasale'], 1] - 0.002) | lips
     still = face.copy()
     for side_ in 'lr':
-        ear = (X[lm[f'ear_top_{side_}']] + X[lm[f'ear_lobe_{side_}']]) / 2
-        still |= np.linalg.norm(Xg - ear, axis=1) < spec.get('ear_cm', 2.6) / 100
+        # an ear: within `ear_cm` of its line from top to lobe
+        a, b = X[lm[f'ear_top_{side_}']], X[lm[f'ear_lobe_{side_}']]
+        along = np.clip((Xg - a) @ (b - a) / ((b - a) @ (b - a)), 0, 1)
+        still |= np.linalg.norm(Xg - a - along[:, None] * (b - a), axis=1) < spec.get('ear_cm', 2.2) / 100
     t[still] = 0
-    # ...and it is smoothed over the mesh, still inside the hull.
     loc = np.full(len(X), -1)
     loc[hv] = gi
     e = np.concatenate([loc[T[:, [0, 1]]], loc[T[:, [1, 2]]], loc[T[:, [2, 0]]]])
     e = np.unique(np.sort(e[e[:, 0] != e[:, 1]], 1), axis=0)
-    A = sparse.coo_matrix((np.ones(2 * len(e)), (np.concatenate([e[:, 0], e[:, 1]]), np.concatenate([e[:, 1], e[:, 0]]))), shape=(G, G)).tocsr()
+    rows, cols = np.concatenate([e[:, 0], e[:, 1]]), np.concatenate([e[:, 1], e[:, 0]])
+    # The hair rises from its edge: no further out than `rise` times the way along the skin to bare skin.
+    length = np.linalg.norm(Xg[e[:, 0]] - Xg[e[:, 1]], axis=1)
+    edge = still | (shown < 0.5)
+    limit = np.full(G, most)
+    if spec.get('beard'):
+        limit[beard] = spec.get('beard_cm', 1.5) / 100
+    if edge.any():
+        way = dijkstra(sparse.coo_matrix((np.concatenate([length, length]), (rows, cols)), shape=(G, G)).tocsr(), indices=np.nonzero(edge)[0], min_only=True)
+        limit = np.minimum(limit, spec.get('rise', 1.5) * way)
+    limit[still] = 0
+    t = np.minimum(t, limit)
+    # ...and it is smoothed over the mesh.
+    A = sparse.coo_matrix((np.ones(len(rows)), (rows, cols)), shape=(G, G)).tocsr()
     deg = np.maximum(np.asarray(A.sum(1)).ravel(), 1)
-    for _ in range(spec.get('smooth', 3)):
-        t = np.clip(0.5 * t + 0.5 * (A @ t) / deg, 0, hull)
+    for _ in range(spec.get('smooth', 2)):
+        t = 0.5 * t + 0.5 * (A @ t) / deg
         t[still] = 0
+    # ...and fitted to the pictures' own outlines.
+    if spec.get('fit', True):
+        t = fit_outlines(t, Xg, U, loc[T], views, centre, (shown >= 0.5) & ~still, low >= 0.5, limit, A, deg,
+                         reads_skin(views, head['tones']) if head.get('tones') else None)
     out[hv] = t[gi]
+    # A vertex off the sheet (the inside of the mouth) has no mask to stand out by: the renderer
+    # leaves it where it is, and so does this.
+    on = np.zeros(len(X), bool)
+    for r in RECTS:
+        on |= (head['uv'][:, 0] >= r['uv'][0]) & (head['uv'][:, 0] <= r['uv'][2]) & (head['uv'][:, 1] >= r['uv'][1]) & (head['uv'][:, 1] <= r['uv'][3])
+    out[~on] = 0
     return out, mid
 
 
@@ -835,8 +1256,7 @@ def bake(rec, sheet, head):
     # laid on that (the cameras were found on the bare, fitted head).
     head['hair'], read = hair_shown(views, head, T, centre)
     thick, mid = grow(rec, views, head, T, centre)
-    out = X0 - mid
-    X = X0 + out / np.maximum(np.linalg.norm(out, axis=1, keepdims=True), 1e-9) * thick[:, None]
+    X = X0 + away(X0, mid) * thick[:, None]
     group = weld(head['rest'])
     N = np.zeros_like(X)
     np.add.at(N, group, vertex_normals(X, head['tri']))
@@ -851,7 +1271,9 @@ def bake(rec, sheet, head):
             # The picture's own features onto the mesh's: a thin-plate spline through the points.
             src, dst = P[[mp[i] for i in idx]], v['pts'][idx]
             Pw[hv] = P[hv] + RBFInterpolator(src, dst - src, kernel='thin_plate_spline', smoothing=2.0)(P[hv])
-        v.update(P=P, Pw=Pw, z=z, zb=ndimage.maximum_filter(zb, 3), nz=(N @ F.rot(*v['cam'][:3]).T)[:, 2])
+        low = v['img'].min(2)
+        ground = ndimage.binary_dilation((low > HAIR_GROUND[0]) & (v['img'].max(2) - low < HAIR_GROUND[1]), iterations=2)
+        v.update(P=P, Pw=Pw, z=z, zb=ndimage.maximum_filter(zb, 3), nz=(N @ F.rot(*v['cam'][:3]).T)[:, 2], ground=ground.astype(np.float32))
     TW, TH = TEXTURE_PX
     tex = np.zeros((TH, TW, 3), np.float32)
     alpha = np.zeros((TH, TW), np.float32)
@@ -864,6 +1286,9 @@ def bake(rec, sheet, head):
     hairy = np.zeros((TH, TW), np.float32)
     facing = np.zeros((TH, TW, 3), np.float32)
     chin = X[lm['menton'], 1]
+    ears_z = max(X0[lm[k], 2] for k in ('ear_top_l', 'ear_top_r', 'ear_lobe_l', 'ear_lobe_r'))
+    tops_y = min(X0[lm['ear_top_l'], 1], X0[lm['ear_top_r'], 1])
+    lobes_y = max(X0[lm['ear_lobe_l'], 1], X0[lm['ear_lobe_r'], 1])
     for r in RECTS:
         (u0, v0, u1, v1), (x0, y0, x1, y1) = r['uv'], r['px']
         tuv = uv[T]
@@ -877,7 +1302,7 @@ def bake(rec, sheet, head):
         pos = (X[t] * b[:, :, None]).sum(1)
         lat = np.abs(pos[:, 0] - xmid)
         th = (thick[t] * b).sum(1)
-        raw, cols = [], []
+        raw, square, cols = [], [], []
         for v in views:
             W, H = v['size']
             p = (v['P'][t] * b[:, :, None]).sum(1)
@@ -886,26 +1311,51 @@ def bake(rec, sheet, head):
             xi, yi = np.clip(p[:, 0].astype(int), 0, W - 1), np.clip(p[:, 1].astype(int), 0, H - 1)
             w = (zz > v['zb'][yi, xi] - 0.012) * ((pw[:, 0] > 1) & (pw[:, 0] < W - 1) & (pw[:, 1] > 1) & (pw[:, 1] < H - 1))
             w = w * smooth(0.6, 1.0, sample(v['good'][:, :, None], pw)[:, 0])
+            # ...and where the hair stands out, not the sheet's white ground seen through it
+            w = w * (1 - smooth(0.002, 0.004, th) * smooth(0.1, 0.4, sample(v['ground'][:, :, None], pw)[:, 0]))
             if v['name'] == 'front':
-                # ...the face's own width of it, and past that only hair that stands out and faces it
-                w = w * smooth(0.12, 0.45, nz) * (1 - smooth(0.050, 0.066, lat) * (1 - smooth(0.003, 0.010, th)))
+                w = w * smooth(0.12, 0.45, nz)
             elif v['name'] == 'back':
                 w = w * smooth(0.10, 0.5, nz)
             else:
                 w = w * smooth(0.08, 0.4, nz) * smooth(-0.005, 0.02, (1.0 if v['name'] == 'left' else -1.0) * (pos[:, 0] - xmid))
             raw.append(w)
+            square.append(np.clip(nz, 0, 1))
             cols.append(sample(v['img'], pw))
-        # The front first; what it leaves goes to whichever other view sees the texel best.
-        wf = raw[0]
-        others = np.stack(raw[1:], 1)
+        raw, square = np.stack(raw, 1), np.stack(square, 1)
+        # Hair beside the face, in front of the ears and above their lobes (a temple's), is the
+        # side pictures' wherever one sees it: the front picture looks along it, into its shadow,
+        # and laid on the hair's own front it stood as a dark strip down the temple from the side.
+        temple = (smooth(ears_z - 0.01, ears_z + 0.005, pos[:, 2]) * smooth(0.035, 0.05, lat) * smooth(0.001, 0.004, th)
+                  * smooth(tops_y - 0.035, tops_y - 0.015, pos[:, 1]))
+        raw[:, 0] *= 1 - temple * smooth(0.05, 0.25, raw[:, 1:3].max(1))
+        # Within the face's own width the front goes first, and what it leaves goes to whichever
+        # other view sees the texel best...
+        wf = raw[:, 0]
+        others = raw[:, 1:]
         share = others ** 2
         share = share / np.maximum(share.sum(1, keepdims=True), 1e-9) * np.clip(others.max(1, keepdims=True) * 3, 0, 1)
-        ws = np.concatenate([wf[:, None], (1 - wf)[:, None] * share], 1)
+        first = np.concatenate([wf[:, None], (1 - wf)[:, None] * share], 1)
+        # ...and past it the hair that stands out goes to whichever view sees it most squarely
+        # (the curls that hang below the ears face the front picture, and are its), the front
+        # picture counting for less from the ears' lobes up (it looks along the hair swept back
+        # over an ear, and what it shows there, laid on hair a side picture also sees, stood as
+        # scraps of another colour round the ear), and the skin, an ear above all, to its own
+        # side's picture before any other.
+        less = np.ones((len(pos), 4))
+        less[:, 0] = 1 - 0.8 * smooth(lobes_y - 0.01, lobes_y + 0.005, pos[:, 1])
+        each = (raw * square ** 2 * less) ** 2
+        side = (raw * np.array([0.2, 1.0, 1.0, 0.2])) ** 2
+        stands = smooth(0.002, 0.006, th)[:, None]
+        each = each / np.maximum(each.sum(1, keepdims=True), 1e-9) * stands + side / np.maximum(side.sum(1, keepdims=True), 1e-9) * (1 - stands)
+        each = each * np.clip(raw.max(1, keepdims=True) * 3, 0, 1)
+        wide = smooth(0.050, 0.066, lat)[:, None]
+        ws = first * (1 - wide) + each * wide
         tot = ws.sum(1)
         tex[y0:y1, x0:x1][m] = sum(cols[k] * ws[:, k:k + 1] for k in range(len(views))) / np.maximum(tot, 1e-6)[:, None]
         seen[y0:y1, x0:x1][m] = np.clip(tot, 0, 1)
         cover[y0:y1, x0:x1][m] = True
-        front[y0:y1, x0:x1][m] = wf
+        front[y0:y1, x0:x1][m] = ws[:, 0]
         lateral[y0:y1, x0:x1][m] = lat
         height[y0:y1, x0:x1][m] = pos[:, 1]
         stand[y0:y1, x0:x1][m] = th
@@ -914,7 +1364,17 @@ def bake(rec, sheet, head):
         # The head above the chin is whole; of the neck, only what a picture shows.
         whole = smooth(chin + NECK_KEEP_M[0], chin + NECK_KEEP_M[1], pos[:, 1]) if r['name'] != 'neck' else 0.0
         alpha[y0:y1, x0:x1][m] = np.maximum(np.clip(tot, 0, 1), whole)
+    # Where the hair stands out, as cells of the sheet: the renderer splits the skin's triangles there.
+    cw, ch = TW // FINE_CELL_PX, TH // FINE_CELL_PX
+    cells = ((stand > FINE_STAND_M) & cover).reshape(ch, FINE_CELL_PX, cw, FINE_CELL_PX).any((1, 3))
+    cells = ndimage.binary_dilation(cells, structure=np.ones((3, 3), bool))
     hole = cover & (seen < 0.35) & (alpha > 0.5)
+    # What no picture shows takes its neighbours' colour: hair from hair first (behind an ear the
+    # skin beside it is the ear's), then the rest.
+    hairs = cover & (stand > FINE_STAND_M)
+    if (hole & hairs).any() and (hairs & ~hole).any():
+        tex = diffuse_fill(tex, hole & hairs, known=hairs & ~hole)
+        hole &= ~hairs
     tex = diffuse_fill(tex, hole | ~cover, known=cover & ~hole)
     # The mask draws in from where the pictures stop, feathered, and bleeds past each island's edge.
     alpha = np.where(cover, ndimage.minimum_filter(np.where(cover, alpha, 1.0), 9), 0)
@@ -943,8 +1403,9 @@ def bake(rec, sheet, head):
     head['grown'] = X
     cams = {v['name']: {'yaw_deg': round(float(np.degrees(v['cam'][0])), 1), 'pitch_deg': round(float(np.degrees(v['cam'][1])), 1),
                         'roll_deg': round(float(np.degrees(v['cam'][2])), 1), 'px_per_m': round(float(v['cam'][3]), 1),
-                        **({'miss_mm': round(v['miss_mm'], 2)} if 'miss_mm' in v else {}), **v['left_out']} for v in views}
-    return tex, soft, tone, cams, {'stand': stand, 'hair': hairy, 'facing': facing, 'mid': mid, 'max_m': float(thick.max()), 'read': read, 'lids': lids, 'eyes': eyes}
+                        **({'miss_mm': round(v['miss_mm'], 2)} if 'miss_mm' in v else {}),
+                        **({'lined_up': v['lined_up']} if 'lined_up' in v else {}), **v['left_out']} for v in views}
+    return tex, soft, tone, cams, {'stand': stand, 'hair': hairy, 'facing': facing, 'mid': mid, 'max_m': float(thick.max()), 'read': read, 'lids': lids, 'eyes': eyes, 'cells': cells}
 
 
 def srgb_to_linear(c):
@@ -1053,8 +1514,13 @@ def texture_block(person, image_path, tone, grown):
         # The hair's standing out from the skin (the mask's red): its greatest, metres, the
         # middle of the head it is measured out from (the body's rest frame, metres), where on
         # the sheet the grown surface's facing is kept, and what the pictures' colours read as.
-        'grow': {'reach_m': round(grown['max_m'], 4), 'from_m': [round(float(x), 4) for x in grown['mid']],
-                 'normal_px': list(SHAPE_PX), 'read': grown['read']},
+        # ...and, where it stands out at all, the cells of the sheet it stands out in (rows of
+        # `FINE_CELL_PX` cells, a bit a cell, the first cell a byte's high bit, base64): there
+        # the renderer splits the skin's triangles down to `edge_m`, as `refine` did here.
+        'grow': {'reach_m': round(grown['max_m'], 4), 'from_m': [round(float(x), 4) for x in grown['mid']], 'axis_m': GROW_AXIS_M,
+                 'normal_px': list(SHAPE_PX), 'read': grown['read'],
+                 **({'fine': {'cell_px': FINE_CELL_PX, 'edge_m': FINE_EDGE_M,
+                              'cells': base64.b64encode(np.packbits(grown['cells'].ravel()).tobytes()).decode()}} if grown['max_m'] > 0 else {})},
         # How far the lids rest shut, so the eyes open as the front picture's do (0: as fitted).
         **({'lids': grown['lids']} if grown['lids'] else {}),
         # Each eye's own iris from the front picture (two squares side by side, the body's left
@@ -1110,8 +1576,12 @@ def check():
         if any(t.get(k) != v for k, v in layout.items()):
             bad.append(f'{person}: the texture layout in the record is not this tool\'s; bake again')
         g = t.get('grow') or {}
-        if g.get('normal_px') != list(SHAPE_PX) or not (0 <= g.get('reach_m', -1) < 0.2) or len(g.get('from_m') or []) != 3:
+        if g.get('normal_px') != list(SHAPE_PX) or not (0 <= g.get('reach_m', -1) < 0.2) or len(g.get('from_m') or []) != 3 or g.get('axis_m') != GROW_AXIS_M:
             bad.append(f'{person}: the hair\'s standing out is not recorded as this tool records it; bake again')
+        fine = g.get('fine')
+        if g.get('reach_m', 0) > 0 and not (isinstance(fine, dict) and fine.get('cell_px') == FINE_CELL_PX and fine.get('edge_m') == FINE_EDGE_M
+                                            and len(base64.b64decode(fine.get('cells', ''))) * 8 == (TEXTURE_PX[0] // FINE_CELL_PX) * (TEXTURE_PX[1] // FINE_CELL_PX)):
+            bad.append(f'{person}: where the hair stands out is not recorded as this tool records it; bake again')
         lids = t.get('lids')
         if lids is not None and not (0 <= lids.get('rest', -1) <= LID_REST_MOST):
             bad.append(f'{person}: the lids\' rest is not one this tool gives; bake again')
@@ -1132,6 +1602,11 @@ def check():
             bad.append(f"{person}: source {rec['source']} is not rights-cleared; no asset may be derived from it")
         elif json.loads(src.read_text()).get('asset_use') != 'texture':
             bad.append(f"{person}: source {rec['source']} does not say its pixels are used as a texture (asset_use)")
+    # The renderer moves the skin out along the same line the bake measured along, and splits it as finely.
+    js = (ROOT / 'renderers/web/js/human-skin.js').read_text()
+    for needs in ('from.y = clamp( vChiSkinP.y, from.y - chiLikeAxis, from.y );', 'g.axis_m > 0 ? g.axis_m : 0', 'fineCells(g.fine, skin.size_px)'):
+        if needs not in js:
+            bad.append(f'renderers/web/js/human-skin.js no longer reads the record as this tool writes it: {needs}')
     for b in bad:
         print('FAIL', b)
     if bad:

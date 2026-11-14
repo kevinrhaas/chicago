@@ -36,6 +36,8 @@
  * person has one (two stand-ins, William and Sarah Grey: tools/bake_likeness_skin.py lays
  * the owner's pictures of each stand-in on the face fitted to them). It is fetched when
  * that person is first drawn, never at boot, and is still a uniform: the program is shared.
+ * Where that person's hair stands out of the skin, the near levels' skin is drawn in finer
+ * triangles (human-fine.js), so a top knot or a curl has vertices of its own.
  *
  * Per-body differences are UNIFORMS, never code, so every body shares one skin
  * program and one hair program. The cache key names the chain beneath, as
@@ -44,6 +46,7 @@
 import * as THREE from 'three';
 import { hairFor, HAIR_COLOURS } from './human-hair-styles.js';
 import { setLidRest } from './human-variation.js';
+import { fineCells, fineOf } from './human-fine.js';
 
 /** Strengths. Pores, lines and mottle are 0..1 multipliers; scatter the glow. */
 export const SKIN = Object.freeze({ pores: 1, lines: 1, mottle: 1, scatter: 1, oil: .14, fuzz: .05, roughness: .55, lip_tone: .6 });
@@ -71,9 +74,11 @@ const VERTEX = `
   vChiSkinP = ( chiSkinRest * vec4( position, 1.0 ) ).xyz;
   vChiSkinN = normalize( mat3( chiSkinRest ) * normal );`;
 // T-3553: a person's own skin sheet also says how far their hair (and a beard) stands out from
-// the fitted skin. The skin's own vertices are moved out that far, along the line from the
-// middle of the head (the sheet's mask, red: a share of the record's reach), so the pictures'
-// hair has the pictures' outline. The bind-pose position the fragment's pores and lines are
+// the fitted skin. The skin's own vertices are moved out that far, away from the head's upright
+// middle line (from the middle between the ears' tops, the record's `axis_m` down: the crown's
+// hair rises, the sides' and the back's stands straight out, a beard and the nape's out and
+// down; the sheet's mask, red: a share of the record's reach), so the pictures' hair has the
+// pictures' outline, as the bake measured it. The bind-pose position the fragment's pores and lines are
 // placed by stays the bare skin's. The rest frame's own x and y, as they stand in view, go to
 // the fragment: the grown surface's facing is kept on the sheet in that frame.
 const LIKE_VERTEX_DECLARE = `
@@ -83,6 +88,7 @@ uniform vec4 chiLikeMap[ 3 ];
 uniform vec4 chiLikeMask;
 uniform vec4 chiLikeGrow;
 uniform vec4 chiLikeHat;
+uniform float chiLikeAxis;
 uniform mat3 chiLikeBack;
 varying vec3 vChiLikeX;
 varying vec3 vChiLikeY;
@@ -103,7 +109,9 @@ const LIKE_VERTEX = `
     float stand = on * textureLod( chiLike, chiLikeMask.xy + st * chiLikeMask.z, 0.0 ).r * chiLikeGrow.w;
     // Under a worn hat the hair lies flat: above its band, no further out than the hat allows.
     stand = min( stand, mix( 1.0, chiLikeHat.y, smoothstep( chiLikeHat.x - 0.02, chiLikeHat.x, vChiSkinP.y ) ) );
-    vec3 away = vChiSkinP - chiLikeGrow.xyz;
+    vec3 from = chiLikeGrow.xyz;
+    from.y = clamp( vChiSkinP.y, from.y - chiLikeAxis, from.y );
+    vec3 away = vChiSkinP - from;
     transformed += chiLikeBack * ( away * ( stand / max( length( away ), 1e-5 ) ) );
     vec3 ax = chiLikeBack * vec3( 1.0, 0.0, 0.0 ), ay = chiLikeBack * vec3( 0.0, 1.0, 0.0 );
     #ifdef USE_SKINNING
@@ -472,6 +480,7 @@ function patchSkin(material, rest, look = NO_LOOK) {
     chiLikeTint: { value: new THREE.Vector4(1, 1, 1, 1) },
     chiLikeGrow: { value: new THREE.Vector4() },
     chiLikeHat: { value: new THREE.Vector4(NO_HAT, LIKENESS.under_hat_m, 0, 0) },
+    chiLikeAxis: { value: 0 },
     chiLikeBack: { value: new THREE.Matrix3().setFromMatrix4(rest).invert() },
   };
   setLikeness(uniforms, look.like);
@@ -852,8 +861,11 @@ function setLook(uniforms, look) {
  * tools/human_variation_kit.py writes it and human-variation.js hands it on with its address:
  * { url, size_px, rects: [{ uv, px }], mask: { px, scale }, tint, gain }. Up to three rects.
  * Returns what the shader needs, or null where there is no sheet or it does not parse.
+ * `fine_lods`: how many of the nearest levels draw the skin finer under the hair.
  */
-export const LIKENESS = Object.freeze({ rects: 3, small_px: 700, under_hat_m: .006 });
+export const LIKENESS = Object.freeze({ rects: 3, small_px: 700, under_hat_m: .006, fine_lods: 2 });
+/** A phone: it keeps a sheet at half size, and the skin under the hair as the body drew it. */
+const smallScreen = () => typeof screen !== 'undefined' && (navigator?.maxTouchPoints ?? 0) > 0 && Math.min(screen.width, screen.height) < LIKENESS.small_px;
 const NO_HAT = 1e6;
 export function likenessLayout(skin) {
   const [W, H] = skin?.size_px ?? [];
@@ -879,6 +891,8 @@ export function likenessLayout(skin) {
     && Array.isArray(e.white_srgb) && e.white_srgb.length === 3 && e.white_srgb.every(Number.isFinite);
   return { url: skin.url, uv, map, mask: [m.px[0] / W, m.px[1] / H, m.scale, 1], tint: [...tint, Number.isFinite(skin.gain) ? skin.gain : 1],
     grow: grows ? [...g.from_m, g.reach_m] : [0, 0, 0, 0], facing: grows ? [g.normal_px[0] / W, g.normal_px[1] / H] : [0, 0],
+    // The upright line the hair stands out from (its length down from `grow`), and the cells of the sheet it stands out in.
+    axis: grows && g.axis_m > 0 ? g.axis_m : 0, fine: grows ? fineCells(g.fine, skin.size_px) : null,
     eyes: eyed ? { rect: [e.px[0] / W, e.px[1] / H, 2 * e.size / W, e.size / H], white: e.white_srgb.slice() } : null };
 }
 
@@ -902,8 +916,7 @@ function likenessSheet(url) {
   const arrival = new Promise((done) => {
     new THREE.ImageLoader().load(url, (img) => {
       // A phone keeps the sheet at half size (a quarter of the memory): its screen cannot show more.
-      const small = typeof screen !== 'undefined' && (navigator?.maxTouchPoints ?? 0) > 0 && Math.min(screen.width, screen.height) < LIKENESS.small_px;
-      if (small) {
+      if (smallScreen()) {
         const c = document.createElement('canvas');
         c.width = img.width >> 1; c.height = img.height >> 1;
         c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
@@ -982,6 +995,23 @@ function setLikeness(uniforms, like) {
   uniforms.chiLikeTint.value.set(...(like?.tint ?? [1, 1, 1, 1]));
   uniforms.chiLikeGrow.value.set(...(like?.grow ?? [0, 0, 0, 0]));
   uniforms.chiLikeHat.value.set(NO_HAT, LIKENESS.under_hat_m, ...(like?.facing ?? [0, 0]));
+  uniforms.chiLikeAxis.value = like?.axis ?? 0;
+}
+
+/**
+ * T-3553: where a person's hair stands out of their skin, the skin is drawn finer (human-fine.js):
+ * at the near levels, never on a phone. The fine geometry is the person's own at that level
+ * (one for each of their varied geometries), with the body's vertices first and in order.
+ */
+function fineSkin(mesh, root, like) {
+  const lod = Number(/_lod(\d+)$/.exec(mesh.name)?.[1] ?? NaN);
+  if (!like?.fine || !(lod < LIKENESS.fine_lods) || Array.isArray(mesh.material) || smallScreen()) return false;
+  const g = fineOf(mesh.geometry, like.url, { metres: restMatrix(mesh, root), layout: like, cells: like.fine });
+  if (!g || g === mesh.geometry) return false;
+  // Its blink is the shaped one's, a vertex more for each edge split: not to be shaped again.
+  for (const t of g.morphAttributes.position ?? []) if (t) blinked.add(t);
+  mesh.geometry = g;
+  return true;
 }
 
 /**
@@ -1065,6 +1095,7 @@ export function dressSkin(root, person = {}) {
           if (!Array.isArray(mesh.material)) mesh.material = twin;
         }
         shapeBlink(mesh, root);
+        fineSkin(mesh, root, look.like);
         watchHat(mesh, root, look);
         dressed[m.name] = surface;
         continue;
