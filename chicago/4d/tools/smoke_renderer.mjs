@@ -5429,10 +5429,19 @@ for (const [label, viewport, touch] of [
       // so the exclusion is gone and the wharf decks are back in this probe: if
       // a board ever returns under a dock the band reads it as sunk half a
       // metre, and `underWharf` below names the dock it is under.
+      // T-3553 — the stairs' merged decks (house-floors.js) answer per point by
+      // `heightAt` over an outline that files every stoop in town, and their walls
+      // deck is a rail people are never stood on: read them as the walker does.
       const deckAt = (e, n) => {
         let y = null;
         for (const d of a.decks ?? []) {
           if (/__footway_\d+$/.test(d.id)) continue;
+          if (d.wall) continue;
+          if (d.heightAt) {
+            const h = d.heightAt(e, n);
+            if (typeof h === 'number' && (y === null || h > y)) y = h;
+            continue;
+          }
           if (y !== null && d.y <= y) continue;
           let hit = false;
           const pts = d.pts;
