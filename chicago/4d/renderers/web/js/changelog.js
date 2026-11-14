@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2962, ts: '2026-11-14T04:51:35.054Z', date: 'Nov 13, 2026, 10:51 PM CT', title: '1816 Prairie\'s side bay and dormers redrawn to its photograph', kind: 'change',
+    items: [
+      '1816 Prairie\'s side bay now matches the old photograph. Its corner face, which looks toward the street, is broader and holds a wide window, and its windows sit lower and are shorter. Its little mansard is shorter, and every dormer on the roof now rests on the cornice, as the photograph shows.',
+    ] },
   { v: 2961, ts: '2026-11-14T03:56:05.406Z', date: 'Nov 13, 2026, 9:56 PM CT', title: 'Glessner household tour for grades 3–5; jaunts tagged by grade', kind: 'feature',
     items: [
       'New: The Glessner Household, Grades 3–5 — the same seven people, doors and facts in plain words, listed right after the household tour.',
