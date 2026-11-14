@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2968, ts: '2026-11-14T10:24:48.497Z', date: 'Nov 14, 2026, 4:24 AM CT', title: '1828 Prairie\'s south flank stands blank by its front corner', kind: 'improvement',
+    items: [
+      '1828 Prairie, the Shipman house: the two windows on its south flank between the front corner and the flank\'s canted bay are gone. The automobile photograph shows plain coursed light stone at that edge with no opening in it, and those windows fell there. The flank\'s first 8 m now stand in blank stone, as the picture shows.',
+    ] },
   { v: 2967, ts: '2026-11-14T09:07:13.517Z', date: 'Nov 14, 2026, 3:07 AM CT', title: 'The Greys\' hair follows their photographs from every side', kind: 'feature',
     items: [
       'Sarah Grey\'s top knot now stands whole above her head, and William Grey\'s curls behind the ears and on the collar and his beard fill out to the outlines of all four photographs (2010 Prairie, 1904).',
