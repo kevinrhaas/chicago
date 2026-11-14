@@ -65,9 +65,28 @@ fitted head:
     leaves. Past it, hair that stands out goes to whichever view sees it most squarely (the
     front counting for a fifth from the ears' lobes up, where it looks along the hair), skin
     (an ear) to its own side's picture, and hair at a temple to the side pictures. What no
-    view sees (the crown, behind an ear) is filled from around it, hair from hair. Clothing
-    (the collar and all below it) is left out, and earrings are painted over from the skin
-    beside them;
+    view sees squarely (the underside of a beard, which the front picture looks along) takes
+    the picture that sees it at all (`GRAZE`). What no view sees (the crown, behind an ear) is
+    filled from around it: hair with the hair beside it, mirrored in the hole's edge so it
+    keeps its curl (`mirror_fill`), then the rest with its neighbours' colour, the texels the
+    mask leaves out too (the mask is feathered, and left black they darkened its edge). Hair
+    that stands out is covered wherever it stands (`HAIR_WHOLE_M`). Clothing (the collar and
+    all below it) is left out, and earrings are painted over from the skin beside them;
+  - one colour for each texel cannot be right from two sides. Hair beside the face is seen
+    from the front as locks hanging down and from the side as the hair swept back over the
+    ear, and the same surface carries both; laid with the side pictures (which it must be,
+    or a dark strip stands down the temple from the side) the head seen from the front was
+    not the front picture's. So the front picture is also kept whole (`front_layer`,
+    assets/humans/web/likeness/<PERSON>_front.jpg): the square of it round the head, its
+    white ground and the clothing filled from the head beside them, and beside it a block
+    that says where it is shown, which is where the sheet took another picture and outside
+    the face's own oval (there the sheet is the front picture already, laid on the smiling
+    face), and one that says where it shows hair and where skin (it is laid on by where a
+    place stands, and hair that stands behind an ear is not the ear). `texture.front` gives the renderer the picture's camera as two rows (`u`, `v`: a
+    place on the grown head at rest to a place in the square) and the way it looks
+    (`toward`); renderers/web/js/human-skin.js lays it on the skin by each vertex's own
+    place at rest, for an eye near that line and on what faces it (FRONT_VIEW), and the
+    sheet takes over as the eye moves round;
   - each iris (`read_eyes`) is read from the front picture as rings about its centre and drawn
     whole, with the colour of the whites beside it;
   - a front picture that grins shows its teeth, and its lips were being squeezed onto a mouth
@@ -168,6 +187,11 @@ FIT_BACK = 0.7                                # ...and hair that stands in front
 FIT_CELL_PX = 12                              # ...by a depth of the grown head kept on cells this wide
 HAIR_GROUND = (0.86, 0.06)                    # the sheet's white ground, seen through a knot or between curls: this bright, and this near to grey
 HAIR_GROWS = (0.35, 0.65)                     # hair stands out from the skin where the pictures read this much hair
+HAIR_TEMPLE = 1.0                             # hair at a temple goes this far to the side pictures, where one sees it
+TEMPLE_SHADE = (0.20, 0.40)                   # ...and what the front picture shows there this dark (its brightest channel) is the shade between the locks, not the hair
+HAIR_FRONT_LESS = 0.8                         # past the face's width the front picture counts this much less from the ears' lobes up
+HAIR_WHOLE_M = (0.002, 0.006)                 # the sheet covers hair that stands out this far, whether a picture shows it or not
+GRAZE = (0.02, 0.10)                          # a texel no picture sees squarely takes the picture that sees it at all: one it faces by this much
 LID_PAIRS = ((159, 145), (386, 374))          # MediaPipe: the middle of each eye's upper and lower lid
 LID_EDGE_M = (0.0025, 0.012, 0.02)            # a lid's edge at its middle: the open boundary within this of it (across, up, back)
 LID_REST_MOST = 0.5                           # the lids never rest more than half shut
@@ -207,6 +231,15 @@ SMILE_FACE_SMOOTH = 300.0                     # the rest of the face follows its
 SMILE_FACE_M = (0.008, 0.022)                 # ...where the skin is this near one of them, fading out between the two
 SMILE_EYE_M = (0.016, 0.024)                  # ...and skin this near an eye's middle keeps its distance from it (the lids stay on the eye)
 SMILE_FACE_HOLDS_MM = 2.5                     # a smile is baked only where the face's other points end within this of the picture's (mm, rms)
+FRONT = {'px': 512, 'alpha_px': 128,           # the front picture, kept for the renderer to show from the front: the head's square of it at this size, and beside it where it is shown
+         'pad_px': 10,                         # ...the square standing this far outside the head's outline (the picture's pixels)
+         'face_in_px': 12,                     # ...shown outside the face's own outline drawn in by this much (inside it the sheet is the front picture already, laid on the smiling face)
+         'soft_px': 2.0,                       # ...its edge this soft
+         'outline_in_px': 6,                   # ...and the picture's own pixels taken from this far inside the head's outline (its blur into the white ground)
+         'rim_px': 16, 'rim_pale': 0.62,       # ...nothing this pale (its darkest channel) within this far of the outline
+         'mirror_px': 24}                      # ...and past them the picture mirrored in their edge for this far, their nearest colour beyond
+FRONT_OVAL = (10, 338, 297, 332, 284, 251, 389, 356, 454, 323, 361, 288, 397, 365, 379, 378, 400, 377,
+              152, 148, 176, 149, 150, 136, 172, 58, 132, 93, 234, 127, 162, 21, 54, 103, 67, 109)   # MediaPipe: the face's outline
 TEETH = {'px': (444, 0, 508, 160),            # the teeth's patch: a free corner of the head's part of the sheet
          'grid': (17, 5),                     # the strip behind the lips: points across and down
          'back_m': 0.0025,                    # ...set back this far behind the lips' inner edge
@@ -457,6 +490,31 @@ def diffuse_fill(img, hole, known=None):
         for _ in range(12):
             blur = np.stack([ndimage.uniform_filter(out[:, :, c], 2 * s + 1) for c in range(out.shape[2])], -1)
             out[hole] = blur[hole]
+    return out
+
+
+def mirror_fill(img, hole, known, reach=None):
+    """`hole` pixels of img filled with the known ones' own grain: each takes the known pixel
+    that lies as far past the nearest known one as it lies short of it (the picture mirrored in
+    the hole's edge), or that nearest one where the mirrored place is not known (or the hole's
+    edge is more than `reach` pixels off), and the seam is smoothed a little, among the known
+    and the filled pixels alone (whatever else lies beside them, an island's unwritten edge,
+    stays out of it). Hair no picture shows (the underside of a beard) is then hair, with the
+    curl of the hair beside it, where the nearest colours drawn out and blurred were a smear."""
+    from scipy import ndimage
+    H, W = hole.shape
+    far, idx = ndimage.distance_transform_edt(~known, return_indices=True)
+    ys, xs = np.nonzero(hole)
+    by, bx = idx[0][ys, xs], idx[1][ys, xs]
+    my, mx = np.clip(2 * by - ys, 0, H - 1), np.clip(2 * bx - xs, 0, W - 1)
+    ok = known[my, mx] & (far[ys, xs] <= (reach if reach is not None else np.inf))
+    out = img.copy()
+    out[ys, xs] = np.where(ok[:, None], img[my, mx], img[by, bx])
+    own = (known | hole).astype(np.float32)
+    share = np.maximum(ndimage.uniform_filter(own, 3), 1e-6)[:, :, None]
+    for _ in range(2):
+        blur = np.stack([ndimage.uniform_filter(out[:, :, c] * own, 3) for c in range(out.shape[2])], -1) / share
+        out[hole] = blur[hole]
     return out
 
 
@@ -1769,6 +1827,77 @@ def teeth_patch(strip, v):
     return box, np.stack([x0 + q[:, 1], y0 + (crop.shape[1] - q[:, 0])], 1)
 
 
+def front_layer(v, X, head, T, centre, share):
+    """The front picture as the renderer shows it to someone standing in front of the face.
+
+    The sheet gives each texel one colour, and hair that stands beside a face is seen from the
+    front and from the side: the two pictures show two different things there (the locks'
+    fronts; the hair swept back over the ear), and whichever the sheet takes is wrong from the
+    other side. So the front picture is kept as well, as a picture: the square of it round the
+    head, its ground and clothing filled from the head beside them, and beside it where it is
+    to be shown (`share`: the front picture's own share of each texel of the sheet, none of
+    one that was filled, drawn as the front camera sees the grown head at rest; the picture
+    is shown where that is low, outside the face's own outline drawn in a little). The
+    renderer lays it on the skin by
+    where each point stands (`u`, `v`: the picture's across and down, 0..1, from a place in
+    the body's rest frame, metres), for an eye near the line the picture was taken along
+    (`toward`), and the sheet's own colour from anywhere else."""
+    from PIL import Image, ImageDraw
+    from scipy import ndimage
+    W, H = v['size']
+    n, na, pad = FRONT['px'], FRONT['alpha_px'], FRONT['pad_px']
+    ys, xs = np.nonzero(v['head'])
+    side = float(max(xs.max() - xs.min(), ys.max() - ys.min()) + 1 + 2 * pad)
+    bx, by = (xs.min() + xs.max() + 1 - side) / 2, (ys.min() + ys.max() + 1 - side) / 2
+    # Where the sheet is the front picture already, as the front camera sees the head at rest.
+    P, z = project(X, v['cam'], centre)
+    _, tb, bary = raster(P, z, T, (W, H))
+    m = tb >= 0
+    t, b = T[tb[m]], bary[m].astype(np.float64)
+    uvp = (head['uv'][t] * b[:, :, None]).sum(1)
+    (u0, v0, u1, v1), (x0, y0, x1, y1) = RECTS[0]['uv'], RECTS[0]['px']
+    inside = (uvp[:, 0] >= u0) & (uvp[:, 0] <= u1) & (uvp[:, 1] >= v0) & (uvp[:, 1] <= v1)
+    at = np.stack([x0 + (uvp[:, 0] - u0) / (u1 - u0) * (x1 - x0), y0 + (uvp[:, 1] - v0) / (v1 - v0) * (y1 - y0)], 1)
+    other = np.zeros((H, W), np.float32)
+    other[m] = np.where(inside, 1 - sample(share[:, :, None], at)[:, 0], 0.0)
+    # ...carried out past the drawn head's own outline (the renderer's stands a little apart).
+    near = ndimage.distance_transform_edt(~m, return_distances=False, return_indices=True)
+    other = other[near[0], near[1]]
+    oval = Image.new('L', (W, H), 0)
+    ImageDraw.Draw(oval).polygon([tuple(q) for q in v['pts'][list(FRONT_OVAL)]], fill=1)
+    face = ndimage.binary_erosion(np.asarray(oval, bool), iterations=FRONT['face_in_px'])
+    alpha = ndimage.gaussian_filter(other * ~face, FRONT['soft_px'])
+    # ...and what the picture shows at each place, hair or skin: the renderer lays it on by
+    # where a place stands, not by what the camera saw, so hair that stands behind an ear took
+    # the ear's skin (pale scraps in the hair, to someone a little to one side). It shows the
+    # picture's hair on hair and its skin on skin.
+    kind = np.zeros((H, W), np.float32)
+    kind[m] = (head['hair'][t] * b).sum(1)
+    kind = kind[near[0], near[1]]
+    # ...the picture's own pixels, less its white ground: round the head, in the outline's own
+    # blur (as far in as the sheet leaves it out), and through the hair. Past the outline the
+    # picture goes on as the hair inside it does, mirrored in the outline: the renderer's head
+    # stands a little outside the picture's in places, and filled pale from the outline's blur
+    # it showed pale scraps in the hair there to someone a little to one side.
+    keep = ndimage.binary_erosion(v['head'], iterations=FRONT['outline_in_px']) & ~(v['ground'] > 0.5)
+    # ...and next to the outline nothing pale: the ground between wisps of hair, an earring's glint.
+    keep &= ndimage.binary_erosion(v['head'], iterations=FRONT['rim_px']) | (v['img'].min(2) < FRONT['rim_pale'])
+    colour = mirror_fill(v['img'], ~keep, keep, reach=FRONT['mirror_px'])
+    gx, gy = np.meshgrid(bx + (np.arange(n) + 0.5) * side / n, by + (np.arange(n) + 0.5) * side / n)
+    grid = np.stack([gx.ravel(), gy.ravel()], 1)
+    out = np.zeros((n, n + na, 3), np.float32)
+    out[:, :n] = sample(colour, grid).reshape(n, n, 3)
+    a = sample(alpha[:, :, None], grid).reshape(n, n)
+    block = lambda q: q.reshape(na, n // na, na, n // na).mean((1, 3))[:, :, None]
+    out[:na, n:] = block(a)
+    out[na:2 * na, n:] = block(sample(kind[:, :, None], grid).reshape(n, n))
+    R, s = F.rot(*v['cam'][:3]), v['cam'][3]
+    return {'image': out,
+            'u': [float(c) for c in s * R[0] / side] + [float((v['cam'][4] - bx - s * R[0] @ centre) / side)],
+            'v': [float(c) for c in -s * R[1] / side] + [float((v['cam'][5] - by + s * R[1] @ centre) / side)],
+            'toward': [float(c) for c in R[2]], 'shown': float(a.mean())}
+
+
 def bake(rec, sheet, head):
     from PIL import Image, ImageDraw
     from scipy import ndimage
@@ -1864,7 +1993,7 @@ def bake(rec, sheet, head):
         pos = (X[t] * b[:, :, None]).sum(1)
         lat = np.abs(pos[:, 0] - xmid)
         th = (thick[t] * b).sum(1)
-        raw, square, cols = [], [], []
+        raw, square, cols, graze = [], [], [], []
         for v in views:
             W, H = v['size']
             p = (v['P'][t] * b[:, :, None]).sum(1)
@@ -1875,6 +2004,7 @@ def bake(rec, sheet, head):
             w = w * smooth(0.6, 1.0, sample(v['good'][:, :, None], pw)[:, 0])
             # ...and where the hair stands out, not the sheet's white ground seen through it
             w = w * (1 - smooth(0.002, 0.004, th) * smooth(0.1, 0.4, sample(v['ground'][:, :, None], pw)[:, 0]))
+            graze.append(w * smooth(GRAZE[0], GRAZE[1], nz) * (1 - sample(v['open_px'][:, :, None], pw)[:, 0] if 'open_px' in v else 1.0))
             if v['name'] == 'front':
                 w = w * smooth(0.12, 0.45, nz)
                 if 'open_px' in v:
@@ -1892,7 +2022,17 @@ def bake(rec, sheet, head):
         # and laid on the hair's own front it stood as a dark strip down the temple from the side.
         temple = (smooth(ears_z - 0.01, ears_z + 0.005, pos[:, 2]) * smooth(0.035, 0.05, lat) * smooth(0.001, 0.004, th)
                   * smooth(tops_y - 0.035, tops_y - 0.015, pos[:, 1]))
-        raw[:, 0] *= 1 - temple * smooth(0.05, 0.25, raw[:, 1:3].max(1))
+        raw[:, 0] *= 1 - HAIR_TEMPLE * temple * smooth(0.05, 0.25, raw[:, 1:3].max(1))
+        # ...and what the front picture shows of it as shade (it looks past the locks, into the
+        # hair's own shadow: laid on the hair, a black notch at the hairline from the side) is
+        # no picture's, and the hair there takes the hair's beside it.
+        # The same of the skin under the hairline there, above the brows: the hair's shadow on
+        # it, which the side picture shows lit.
+        corner = (smooth(ears_z - 0.01, ears_z + 0.005, pos[:, 2]) * smooth(0.035, 0.05, lat)
+                  * smooth(tops_y + 0.010, tops_y + 0.025, pos[:, 1]))
+        shade = np.maximum(temple, corner) * (1 - smooth(TEMPLE_SHADE[0], TEMPLE_SHADE[1], cols[0].max(1)))
+        raw[:, 0] *= 1 - shade
+        graze[0] = graze[0] * (1 - shade)
         # Within the face's own width the front goes first, and what it leaves goes to whichever
         # other view sees the texel best...
         wf = raw[:, 0]
@@ -1907,7 +2047,7 @@ def bake(rec, sheet, head):
         # scraps of another colour round the ear), and the skin, an ear above all, to its own
         # side's picture before any other.
         less = np.ones((len(pos), 4))
-        less[:, 0] = 1 - 0.8 * smooth(lobes_y - 0.01, lobes_y + 0.005, pos[:, 1])
+        less[:, 0] = 1 - HAIR_FRONT_LESS * smooth(lobes_y - 0.01, lobes_y + 0.005, pos[:, 1])
         each = (raw * square ** 2 * less) ** 2
         side = (raw * np.array([0.2, 1.0, 1.0, 0.2])) ** 2
         stands = smooth(0.002, 0.006, th)[:, None]
@@ -1915,6 +2055,12 @@ def bake(rec, sheet, head):
         each = each * np.clip(raw.max(1, keepdims=True) * 3, 0, 1)
         wide = smooth(0.050, 0.066, lat)[:, None]
         ws = first * (1 - wide) + each * wide
+        # What no picture sees squarely (the underside of a beard, which the front picture looks
+        # along) takes the picture that sees it at all, the one it most nearly faces, for as
+        # much as the others leave: its own colour there, drawn out, before its neighbours'.
+        graze = np.stack(graze, 1)
+        most = graze.argmax(1)
+        ws[np.arange(len(ws)), most] += graze.max(1) * (1 - smooth(0.0, 0.35, ws.sum(1)))
         tot = ws.sum(1)
         tex[y0:y1, x0:x1][m] = sum(cols[k] * ws[:, k:k + 1] for k in range(len(views))) / np.maximum(tot, 1e-6)[:, None]
         seen[y0:y1, x0:x1][m] = np.clip(tot, 0, 1)
@@ -1925,19 +2071,28 @@ def bake(rec, sheet, head):
         stand[y0:y1, x0:x1][m] = th
         hairy[y0:y1, x0:x1][m] = (head['hair'][t] * b).sum(1)
         facing[y0:y1, x0:x1][m] = (N[t] * b[:, :, None]).sum(1)
-        # The head above the chin is whole; of the neck, only what a picture shows.
+        # The head above the chin is whole; of the neck, only what a picture shows. Hair that
+        # stands out is whole wherever it stands (no picture looks up at a beard from under
+        # the chin, and the skin it grows from was left the body's own, pushed out).
         whole = smooth(chin + NECK_KEEP_M[0], chin + NECK_KEEP_M[1], pos[:, 1]) if r['name'] != 'neck' else 0.0
-        alpha[y0:y1, x0:x1][m] = np.maximum(np.clip(tot, 0, 1), whole)
+        alpha[y0:y1, x0:x1][m] = np.maximum(np.maximum(np.clip(tot, 0, 1), whole), smooth(HAIR_WHOLE_M[0], HAIR_WHOLE_M[1], th))
     # Where the hair stands out, as cells of the sheet: the renderer splits the skin's triangles there.
     cw, ch = TW // FINE_CELL_PX, TH // FINE_CELL_PX
     cells = ((stand > FINE_STAND_M) & cover).reshape(ch, FINE_CELL_PX, cw, FINE_CELL_PX).any((1, 3))
     cells = ndimage.binary_dilation(cells, structure=np.ones((3, 3), bool))
-    hole = cover & (seen < 0.35) & (alpha > 0.5)
     # What no picture shows takes its neighbours' colour: hair from hair first (behind an ear the
-    # skin beside it is the ear's), then the rest.
+    # skin beside it is the ear's), then the rest. That is every such texel, the ones the mask
+    # leaves out too: the mask is feathered, and left black they darkened its edge (a dark
+    # band along the underside of a beard).
+    hole = cover & (seen < 0.35)
     hairs = cover & (stand > FINE_STAND_M)
+    # ...and hair that took the sheet's white ground (seen between the curls at an outline) is
+    # filled as what no picture shows is: laid on the hair it stood as white scraps on the crown.
+    low = tex.min(2)
+    hole |= hairs & ndimage.binary_dilation(hairs & (low > HAIR_GROUND[0]) & (tex.max(2) - low < HAIR_GROUND[1]))
+    filled = hole.copy()
     if (hole & hairs).any() and (hairs & ~hole).any():
-        tex = diffuse_fill(tex, hole & hairs, known=hairs & ~hole)
+        tex = mirror_fill(tex, hole & hairs, hairs & ~hole)
         hole &= ~hairs
     tex = diffuse_fill(tex, hole | ~cover, known=cover & ~hole)
     # The mask draws in from where the pictures stop, feathered, and bleeds past each island's edge.
@@ -1986,12 +2141,15 @@ def bake(rec, sheet, head):
         head['smiling'] = X + smile['delta']
         head['teeth'] = teeth
     head['grown'] = X
+    # The front picture itself, for the renderer to show from the front where the sheet took another picture.
+    # (A texel that was filled holds no picture's colour: the front picture has no share of it.)
+    layer = front_layer(views[0], X, head, T, centre, np.where(filled, 0.0, front / np.maximum(seen, 1e-3)))
     cams = {v['name']: {'yaw_deg': round(float(np.degrees(v['cam'][0])), 1), 'pitch_deg': round(float(np.degrees(v['cam'][1])), 1),
                         'roll_deg': round(float(np.degrees(v['cam'][2])), 1), 'px_per_m': round(float(v['cam'][3]), 1),
                         **({'miss_mm': round(v['miss_mm'], 2)} if 'miss_mm' in v else {}),
                         **({'lined_up': v['lined_up']} if 'lined_up' in v else {}), **v['left_out']} for v in views}
     return tex, soft, tone, cams, {'stand': stand, 'hair': hairy, 'facing': facing, 'mid': mid, 'max_m': float(thick.max()), 'read': read, 'lids': lids, 'eyes': eyes, 'cells': cells,
-                                 'teeth': teeth, 'smile': smile}
+                                 'teeth': teeth, 'smile': smile, 'front': layer}
 
 
 def srgb_to_linear(c):
@@ -2097,6 +2255,25 @@ def detect(rec, sheet_path, model):
     det.close()
 
 
+def front_path(person):
+    return OUT_DIR / f'{person}_front.jpg'
+
+
+def write_front(person, layer):
+    """The front picture's file: the picture's square, and beside it where it is shown and,
+    under that, where it shows hair (coded as the sheet's own blocks are, so a reader that
+    decodes colours gets the shares themselves)."""
+    from PIL import Image
+    img, n = layer['image'].copy(), FRONT['px']
+    img[:, n:] = linear_to_srgb(img[:, n:])
+    Image.fromarray((np.clip(img, 0, 1) * 255 + 0.5).astype(np.uint8)).save(front_path(person), quality=JPEG_QUALITY, subsampling=0, optimize=True)
+
+
+def front_layout():
+    n, na = FRONT['px'], FRONT['alpha_px']
+    return {'size_px': [n + na, n], 'colour_px': [0, 0, n, n], 'shown_px': [n, 0, n + na, na], 'kind_px': [n, na, n + na, 2 * na]}
+
+
 def texture_block(person, image_path, tone, grown):
     return {
         'file': str(image_path.relative_to(ROOT)),
@@ -2138,6 +2315,14 @@ def texture_block(person, image_path, tone, grown):
             'teeth': {'px': list(TEETH['px']), 'grid': list(TEETH['grid']), 'bone': 'head', 'shown': grown['teeth']['shown'],
                       'at_m': [[round(float(c), 5) for c in q] for q in grown['teeth']['at']],
                       'uv': [[round(float(c), 5) for c in q] for q in grown['teeth']['uv']]}} if grown.get('smile') else {}),
+        # The front picture as a picture (`front_layer`), which the renderer shows from the front
+        # where the sheet took another picture: its file, the picture's square and the square
+        # that says where it is shown (pixels of the file), the picture's across and down (0..1)
+        # from a place in the body's rest frame (metres; three numbers to multiply by, one to
+        # add), the line it was taken along, and the share of the square it is shown in.
+        'front': {'file': str(front_path(person).relative_to(ROOT)), 'sha256': sha256(front_path(person)), 'bytes': front_path(person).stat().st_size,
+                  **front_layout(), 'u': [round(c, 5) for c in grown['front']['u']], 'v': [round(c, 5) for c in grown['front']['v']],
+                  'toward': [round(c, 5) for c in grown['front']['toward']], 'shown': round(grown['front']['shown'], 3)},
     }
 
 
@@ -2170,6 +2355,7 @@ def run(person, sheet_path, model=None, preview_path=None):
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     out = OUT_DIR / f'{person}_skin.jpg'
     compose(tex, soft, grown).save(out, quality=JPEG_QUALITY, subsampling=0, optimize=True)
+    write_front(person, grown['front'])
     rec['sheet']['sha256'] = sha256(sheet_path)
     rec['cameras'] = cams
     rec['fit_values_sha256'] = values_sha(person)
@@ -2246,6 +2432,12 @@ def check():
                     or sorted(kept.get('units') or {}) != sorted(pathlib.PurePosixPath(u).stem for u in units)
                     or not all(0 <= w <= SMILE_MOST + 1e-6 for pair in kept['units'].values() for w in pair)):
                 bad.append(f"{person}: {smile_path(person).relative_to(ROOT)} is not the smile this skin was baked with; bake again")
+        fr = t.get('front') or {}
+        if (any(fr.get(k) != v for k, v in front_layout().items()) or not all(isinstance(fr.get(k), list) and len(fr[k]) == m for k, m in (('u', 4), ('v', 4), ('toward', 3)))
+                or abs(float(np.linalg.norm(fr['toward'])) - 1) > 1e-3 or not 0 < fr.get('shown', 0) < 1):
+            bad.append(f'{person}: the front picture is not recorded as this tool records it; bake again')
+        elif not (ROOT / fr['file']).exists() or sha256(ROOT / fr['file']) != fr.get('sha256'):
+            bad.append(f"{person}: {fr['file']} is not the front picture the record baked (missing, or its SHA-256 differs)")
         if not rec.get('liberty') or f"### {rec['liberty']} " not in (ROOT / 'docs/LIBERTIES.md').read_text():
             bad.append(f"{person}: the record names no liberty that docs/LIBERTIES.md holds")
         if not (isinstance(t.get('tint'), list) and len(t['tint']) == 3 and all(0.2 < x < 5 for x in t['tint'])):
@@ -2262,7 +2454,9 @@ def check():
     # The renderer moves the skin out along the same line the bake measured along, and splits it as finely.
     js = (ROOT / 'renderers/web/js/human-skin.js').read_text()
     for needs in ('from.y = clamp( vChiSkinP.y, from.y - chiLikeAxis, from.y );', 'g.axis_m > 0 ? g.axis_m : 0', 'fineCells(g.fine, skin.size_px)',
-                  'teethStrip(skin.teeth)', f'MOUTH_SHADE = Object.freeze({{ u0: {MOUTH_BAG_UV[0]}, u1: {MOUTH_BAG_UV[2]}, v0: {MOUTH_BAG_UV[1]},', 'float bag = step( ${MOUTH_SHADE.u0}, vMapUv.x )'):
+                  'teethStrip(skin.teeth)', f'MOUTH_SHADE = Object.freeze({{ u0: {MOUTH_BAG_UV[0]}, u1: {MOUTH_BAG_UV[2]}, v0: {MOUTH_BAG_UV[1]},', 'float bag = step( ${MOUTH_SHADE.u0}, vMapUv.x )',
+                  'vChiLikeFront = vec2( dot( chiLikeFrontU.xyz, chiGrown ) + chiLikeFrontU.w, dot( chiLikeFrontV.xyz, chiGrown ) + chiLikeFrontV.w );',
+                  'front: grows ? frontPicture(skin.front) : null', 'four(front.colour_px) || !four(front.shown_px) || !four(front.kind_px)'):
         if needs not in js:
             bad.append(f'renderers/web/js/human-skin.js no longer reads the record as this tool writes it: {needs}')
     for b in bad:
