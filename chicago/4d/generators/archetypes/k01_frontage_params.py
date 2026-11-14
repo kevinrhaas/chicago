@@ -7979,10 +7979,13 @@ def from_phase(phase: dict, record: dict | None = None) -> K01FrontageParams:
             door_kit["hood"]["door_over"] = True
         if "railing_fabric" in hd:
             # T-3159: or a stone balustrade, its posts, balusters and rail in the hood's stone
-            if hd["railing_fabric"] not in ("iron", "stone") or \
-                    (hd["railing_fabric"] == "stone" and hd.get("fabric") != "stone"):
-                raise ParamError("entrance_kit.hood.railing_fabric: iron, or stone on a stone hood, or leave it "
-                                 "out for the painted joinery")
+            # T-3370: or, on a stone hood before a stone front, in the front's trim stone (1936's
+            # porch balcony, pale over its cornice in the print as the window dressings are)
+            if hd["railing_fabric"] not in ("iron", "stone", "trim") or \
+                    (hd["railing_fabric"] in ("stone", "trim") and hd.get("fabric") != "stone") or \
+                    (hd["railing_fabric"] == "trim" and not val("stone_front")):
+                raise ParamError("entrance_kit.hood.railing_fabric: iron, or stone (or trim, before a stone "
+                                 "front) on a stone hood, or leave it out for the painted joinery")
             door_kit["hood"]["railing_fabric"] = hd["railing_fabric"]
     # T-2463: a stoop whose axis is not its door's (1620's, the door at the south end of a
     # landing that runs on north into the porch): the stoop's centre along the front, in the
