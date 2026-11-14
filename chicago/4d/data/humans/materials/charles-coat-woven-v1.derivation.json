@@ -1,7 +1,7 @@
 {
   "schema": "charles_near_coat_registration_v1",
   "recipe_sha256": "2b604e409564a0340c497bd158307a22620aad3efaa542aecff55a2e0d8dc4d3",
-  "admission_sha256": "43229c606820f66860d8b7ee0dd3838c461973beb8e4cc02658d2d12dc082745",
+  "admission_sha256": "a2c5f13ca9785ee430205d1cb75531f790ecddaf5e8f36afb10bfcd5cf769b54",
   "parent_revision": "fc5a52b6cab3eed78e2db5864aa811dff5df2795",
   "implementation_sha256": {
     "tools/human_charles_coat.py": "6c0c83d1f78cebe8023fadd3878bc85998ec7bc4b72751cbf5fc5e1cdecac607",
@@ -78,8 +78,8 @@
     }
   ],
   "runtime_sha256": {
-    "renderers/web/js/fabric.js": "0fa147af7b39a6fa748239d4a78aa50bf1097061d3f7d6679c8131d6b0d667e7",
-    "renderers/web/js/human-looks.js": "4350b1611df7b27a7c2dc08bbaac22b58eaa5d201cb8cd1ad358a09f51b46762"
+    "renderers/web/js/fabric.js": "cf602e7fcd66101679749245ddd8ef51abf9cd523156cfec22496c913d22cfe5",
+    "renderers/web/js/human-looks.js": "77607a2af12169e7b52ab1c118e1afedf94a9cd114f3e49eeec7be5cda21d00d"
   },
   "strict_selected_published_release": false,
   "full_APP_gate": false,
