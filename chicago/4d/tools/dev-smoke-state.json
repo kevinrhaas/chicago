@@ -2,6 +2,101 @@
   "note": "T-0216 — dev's standing smoke result, so a branch can answer \"is this red mine, or did I inherit it?\" from the record instead of re-running the stage on a clean worktree (three agents paid that price on one red on 2026-08-27; T-0215). Written by tools/dev-smoke-state.mjs, which parses a smoke log — local or from a chicago-4d-smoke.yml run. Every reading carries the CONDITIONS it was taken under, because a quiet CI runner does not predict a loaded steward box: T-0215 measured a factor of twenty on one tree. loadavg is sampled when the reading is filed, so it includes the smoke's own load. `treeHash` digests exactly what the smoke exercises (renderers, data, assets, smoke_renderer.mjs, the published mirror), so a reading whose hash matches yours is a reading OF YOUR TREE. A RECORD, NOT A BAR: nothing here gates anything. THE PART NUMBERS CHANGED ON 2026-08-30 (T-0346): part 4 was cut into 4, 5 and 6 and the old parts 5-9 became 7-11; then T-0173 halved part 7 (8-11 -> 9-12) and T-0170 halved part 10 (11-12 -> 12-13); on 2026-10-11 T-2337 halved part 10 again (11-14 -> 12-15). A reading filed before any of those is labelled in the OLD numbering of its day. Each of those also carries a treeHash that cannot match a tree containing the cut, so `ask` already reports them as not taken on your tree — but read the stage number as dated rather than current.",
   "readings": [
     {
+      "viewport": "mobile",
+      "stage": "15",
+      "parts": [
+        15
+      ],
+      "verdict": "fail",
+      "target": "published",
+      "passed": 33,
+      "failed": 1,
+      "failures": [
+        "mobile 390x780: zero page errors — part 15 console.error: Access to fetch at 'https://pub-f67d07c4cd6144e9b478b7f268f5495d.r2.dev/narration/index.json' from origin 'http://127.0.0.1:4187' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource."
+      ],
+      "wallSeconds": 565,
+      "takenAt": "2026-11-14T03:50:43.568Z",
+      "ref": "steward/t1890-return-slate-coping",
+      "commit": "3a0515d2efeb",
+      "devCommit": "4f787cbc5dfa",
+      "treeHash": "sha256:50f953943223081c",
+      "treeDirty": false,
+      "changelogHash": "sha256:826f6c4bfd43b9c2",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.7,
+          4.1,
+          4
+        ]
+      },
+      "source": "/tmp/kmw/smoke_m15.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "3",
+      "parts": [
+        3
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 107,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 448,
+      "takenAt": "2026-11-14T03:50:43.415Z",
+      "ref": "steward/t1890-return-slate-coping",
+      "commit": "3a0515d2efeb",
+      "devCommit": "4f787cbc5dfa",
+      "treeHash": "sha256:50f953943223081c",
+      "treeDirty": false,
+      "changelogHash": "sha256:826f6c4bfd43b9c2",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.7,
+          4.1,
+          4
+        ]
+      },
+      "source": "/tmp/kmw/smoke_d3.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "3",
+      "parts": [
+        3
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 107,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 192,
+      "takenAt": "2026-11-14T03:50:43.266Z",
+      "ref": "steward/t1890-return-slate-coping",
+      "commit": "3a0515d2efeb",
+      "devCommit": "4f787cbc5dfa",
+      "treeHash": "sha256:50f953943223081c",
+      "treeDirty": false,
+      "changelogHash": "sha256:826f6c4bfd43b9c2",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.7,
+          4.1,
+          4
+        ]
+      },
+      "source": "/tmp/kmw/smoke_m3.log"
+    },
+    {
       "viewport": "desktop",
       "stage": "1",
       "parts": [
@@ -1629,89 +1724,6 @@
         "note": "GitHub-hosted ubuntu-latest; hardware/load not recovered from job log"
       },
       "source": "https://github.com/kevinrhaas/chicago/actions/runs/42851675727/job/129953743041"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "13",
-      "parts": [
-        13
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 158,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 4550,
-      "takenAt": "2026-11-10T16:09:19.4205653Z",
-      "ref": "steward/t-3536-household-interact-social-breaks",
-      "commit": "3438c7c74fd1",
-      "devCommit": "b9a87a9a4ac1",
-      "treeHash": "sha256:021a56065f497ab4",
-      "treeDirty": true,
-      "changelogHash": "sha256:6371fb14b303cd87",
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-latest; hardware/load not recovered from job log"
-      },
-      "source": "https://github.com/kevinrhaas/chicago/actions/runs/42851675727/job/129953742674"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "1-2",
-      "parts": [
-        1,
-        2
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 198,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 706,
-      "takenAt": "2026-11-10T16:09:19.3660272Z",
-      "ref": "steward/t-3536-household-interact-social-breaks",
-      "commit": "3438c7c74fd1",
-      "devCommit": "b9a87a9a4ac1",
-      "treeHash": "sha256:021a56065f497ab4",
-      "treeDirty": true,
-      "changelogHash": "sha256:6371fb14b303cd87",
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-latest; hardware/load not recovered from job log"
-      },
-      "source": "https://github.com/kevinrhaas/chicago/actions/runs/42851675727/job/129953743171"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "5-6",
-      "parts": [
-        5,
-        6
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 41,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 709,
-      "takenAt": "2026-11-10T16:09:19.3472146Z",
-      "ref": "steward/t-3536-household-interact-social-breaks",
-      "commit": "3438c7c74fd1",
-      "devCommit": "b9a87a9a4ac1",
-      "treeHash": "sha256:021a56065f497ab4",
-      "treeDirty": true,
-      "changelogHash": "sha256:6371fb14b303cd87",
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-latest; hardware/load not recovered from job log"
-      },
-      "source": "https://github.com/kevinrhaas/chicago/actions/runs/42851675727/job/129953743502"
     }
   ]
 }
