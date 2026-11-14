@@ -697,6 +697,9 @@ export function applyVariation(scene, kit, variation, { scope = 'full' } = {}) {
   // T-3553: the skin sheet goes with the fitted face, at every level of detail (human-skin.js reads it).
   const like = likenessSkin(kit, variation);
   if (like) scene.userData.chiLikenessSkin = like;
+  // ...and who this is (a person's id, or an unnamed figure's own): human-skin.js draws an
+  // unnamed figure's teeth and the run of its talk by it, so two strangers differ.
+  if (typeof variation.key === 'string') scene.userData.chiVariationKey = variation.key;
   scene.updateMatrixWorld(true);
   const key = `${variation.key}|${scope}|${kit.header.bin_sha256.slice(0, 12)}${like?.lid > 0 ? `|lid${like.lid}` : ''}`;
   const skinned = [];
