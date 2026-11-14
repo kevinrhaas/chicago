@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2978, ts: '2026-11-14T16:12:57.530Z', date: 'Nov 14, 2026, 10:12 AM CT', title: '1801 Prairie\'s slate over its south return runs on to the gable', kind: 'improvement',
+    items: [
+      'On the Kimball house at 1801 Prairie, the slate over the stone return beside the round bay\'s balcony now runs on as one face to the gable, topped by the ridge of the short roof behind the gable, as the 1965 survey photograph shows. The extra fold of slate that rose from the return to the hood beside the gable is gone.',
+    ] },
   { v: 2977, ts: '2026-11-14T16:04:02.931Z', date: 'Nov 14, 2026, 10:04 AM CT', title: 'People are solid: you walk round them, never into them', kind: 'fix',
     items: [
       'Walking into someone in any year no longer puts the camera inside their head or body. You stop at arm\'s length and slide round them, on computers and phones alike.',
