@@ -91,9 +91,9 @@ for (const [scene, rows] of Object.entries(parked.scenes)) for (const row of row
 }
 assert.equal(loops.horse_appearance.recipe_file, 'transport/horse-coats.json');
 assert.equal(standing.horse_appearance, undefined, 'frozen selected placement metadata is not an appearance configuration');
-assert.deepEqual(Object.fromEntries(recipe.scenes.map(scene => [scene, individuals.filter(i => i.scene === scene).length])), { 1812: 4, 1835: 3, 1904: 4 });
+assert.deepEqual(Object.fromEntries(recipe.scenes.map(scene => [scene, individuals.filter(i => i.scene === scene).length])), { 1812: 4, 1835: 3, 1904: 8 });
 const identities = individuals.map(i => horseIdentity(recipe, i));
-assert.equal(new Set(identities.map(i => i.key)).size, 11);
+assert.equal(new Set(identities.map(i => i.key)).size, 15);
 for (let n = 0; n < identities.length; n++) {
   assert.deepEqual(horseIdentity(clone(recipe), individuals[n]), identities[n], 'reload changes no marking');
   assert.equal(identities[n].historical_individual, false);
@@ -113,7 +113,7 @@ for (const mutate of [r => r.grade = 'attested', r => r.body_material = 'renamed
   const bad = clone(recipe); mutate(bad); assert.throws(() => validateHorseRecipe(bad), /horse appearance:/);
 }
 assert.throws(() => horseIdentity(recipe, { scene: '2000', row: 'row', individual: 'left' }), /stable scene/);
-console.log('Coat identities PASS: 11 source-routed individuals, three eras, stable matched palettes/distinct markings; invalid contracts refused');
+console.log('Coat identities PASS: 15 source-routed individuals, three eras, stable matched palettes/distinct markings; invalid contracts refused');
 
 const vendor = new URL('renderers/web/vendor/three-0.185.1/', root).href;
 register(`data:text/javascript,${encodeURIComponent(`export async function resolve(s,c,n){

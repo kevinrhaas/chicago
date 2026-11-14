@@ -1,6 +1,10 @@
 {
   "schema": "town_driven_transport_candidates_v1",
-  "horse_appearance": {"recipe_file": "transport/horse-coats.json", "grade": "reconstructed", "liberty": "L-horse-individual-coats-2795"},
+  "horse_appearance": {
+    "recipe_file": "transport/horse-coats.json",
+    "grade": "reconstructed",
+    "liberty": "L-horse-individual-coats-2795"
+  },
   "status": "SOURCE_DERIVED_CANDIDATES_RENDERED_GROUND_COLLISION_AND_BROWSER_UNRUN",
   "corridor_line": "reconstructed",
   "corridor_line_why": "The 1835 demonstration uses reconstructed level ground southwest of town. The 1904 candidate uses a reconstructed lane within existing inferred carriageways; source triangle support assessment does not establish posed world contact or an archival trip.",
@@ -410,7 +414,649 @@
         4.622850165367126
       ],
       "envelope_basis": "Actual native assembled mesh vertices incl hitch instances, both driverLOD0+3, steering-8/0/+8, WALK0/.5/1.3/1.6. Add clearance15cm margin; actual world/between-sample envelope remains a qualification question.",
-      "liberty": "L-driven-town-circuits-2804"
+      "liberty": "L-driven-town-circuits-2804",
+      "vehicle_finish": {
+        "seed": "otis-brougham-1904",
+        "gloss": 0.85,
+        "dust": 0.4,
+        "scuffs": 0.3,
+        "grade": "reconstructed",
+        "liberty": "L-1904-more-carriages-3555"
+      }
+    },
+    {
+      "speed_m_s": 1.25,
+      "steering_limit_deg": 8,
+      "track_m": 1.34,
+      "wheelbase_m": 2.3,
+      "root_ahead_of_rear_axle_m": 1.15,
+      "driver_local_m": [
+        0,
+        1.77585,
+        0.76
+      ],
+      "wheel_radii_m": [
+        0.65,
+        0.65,
+        0.528,
+        0.528
+      ],
+      "team_half_spacing_m": 0.65,
+      "id": "prairie_driven_brougham_north_loop_1904",
+      "name": "Carriage driver on Prairie Avenue, 16th to 18th Street",
+      "scene": "1904",
+      "route": {
+        "kind": "path",
+        "corner_radius_m": 18,
+        "points_enu_m": [
+          [
+            1262.41,
+            -3211.53
+          ],
+          [
+            1404.4,
+            -3209.9
+          ],
+          [
+            1401.24,
+            -2942.41
+          ],
+          [
+            1259.65,
+            -2943.53
+          ]
+        ]
+      },
+      "vehicle_file": "transport/parked-brougham/brougham-near.glb",
+      "driver_asset": "anonymous_working_driver_1904",
+      "driver_clip": "sit_drive_look_v2",
+      "person_id": "pa1904_pullman_mrs_george_m_c1900_henry_windish",
+      "driver_seat_node_m": [
+        0,
+        1.77585,
+        0.76
+      ],
+      "source_ids": [
+        "studebaker_1893_illustrated_souvenir",
+        "census_1900_chicago_t623_roll245",
+        "chicago_revised_municipal_code_1905",
+        "sanborn_1911_chicago_v3_sheet_28",
+        "sanborn_1911_chicago_v3_sheet_20"
+      ],
+      "note": "Henry Windish, coachman in Mrs. George M. Pullman's household at 1729 Prairie Avenue in the 1900 census, drives a brougham round Prairie, 16th Street and Indiana. The census names him there four years before the scene; this coach, its colours, its team, his livery and the round are reconstructed.",
+      "horse_offset_m": [
+        0,
+        0,
+        3.08
+      ],
+      "driver_binding": {
+        "scene": "1904",
+        "asset_id": "anonymous_working_driver_1904",
+        "vehicle_file": "transport/parked-brougham/brougham-near.glb",
+        "vehicle_glb_sha256": "3d2f3a802f4b32dba6a3e61f2c188dddce4db05cecfcbba81e1e8d369d5dfe89",
+        "vehicle_sidecar_sha256": "768f849182bb8ca7aa9d28db98a5d2cb3d502ea6c23c6f0b8fbf2a5b329e541f",
+        "root_offset_m": [
+          0,
+          0,
+          0
+        ]
+      },
+      "driver_instance": {
+        "person_id": "pa1904_pullman_mrs_george_m_c1900_henry_windish",
+        "interaction": {
+          "opens": "resident_card",
+          "selectable": true
+        },
+        "provenance": {
+          "grade": "reconstructed",
+          "basis": "Henry Windish, coachman in Mrs. George M. Pullman's household at 1729 Prairie Avenue in the 1900 census, drives a brougham round Prairie, 16th Street and Indiana. The census names him there four years before the scene; this coach, its colours, its team, his livery and the round are reconstructed.",
+          "liberty": "L-1904-more-carriages-3555"
+        },
+        "review_required": false
+      },
+      "horse_model": "current26_walk_v2",
+      "hitch": {
+        "harness_file": "transport/driven-hitch/current26-collar-girth-v2.glb",
+        "units_file": "transport/driven-hitch/connection-units-v1.glb",
+        "bindings_file": "transport/driven/hitch-bindings-v2.json",
+        "vehicle_binding": "studebaker_brougham_1893",
+        "web_assets": true
+      },
+      "driver_livery_file": "transport/driven/driver-livery-1904.json",
+      "driver_livery_sha256": "95ca007afd5677d88afc063c7320fcb7740c2ed7cf585d83d4e72d9a2b9cded9",
+      "driver_livery_body_sha256": "c3b285d0305559ee5fbe13695985df86cde4c38ca8d7efd8419fcdd2d97bc4b8",
+      "driver_palm_bindings_by_lod": {
+        "0": {
+          "l": {
+            "scene": "1904",
+            "asset_id": "anonymous_working_driver_1904",
+            "web": true,
+            "lod": 0,
+            "asset_sha256": "49a84c1d858f67359ff33e56762336ade56db1dcbbb1cbe923846d95825c9547",
+            "side": "l",
+            "actual_body_mesh": "anonymous_working_driver_1904_body_0_lod0",
+            "actual_point_vehicle_local_m": [
+              0.16613275455330426,
+              2.125940669929468,
+              1.3020159104816145
+            ],
+            "actual_triangle_indices": [
+              12482,
+              12478,
+              12483
+            ],
+            "barycentric": [
+              0.6747075445278921,
+              0.003801117992967784,
+              0.3214913374791401
+            ],
+            "source_palm_surface_seed_m": [
+              0.16612975079143671,
+              2.1259261717219884,
+              1.3020162104308726
+            ],
+            "source_seed_distance_m": 0.000014809138227174935,
+            "pose": "sit_drive",
+            "time_s": 0.5,
+            "closed_finger_grip_verified": false,
+            "source_palm_proof_sha256": "af14a6741f4112a6e4bfab7dfbf9271a517b34eec54b305c5214d9a06e96337b"
+          },
+          "r": {
+            "scene": "1904",
+            "asset_id": "anonymous_working_driver_1904",
+            "web": true,
+            "lod": 0,
+            "asset_sha256": "49a84c1d858f67359ff33e56762336ade56db1dcbbb1cbe923846d95825c9547",
+            "side": "r",
+            "actual_body_mesh": "anonymous_working_driver_1904_body_0_lod0",
+            "actual_point_vehicle_local_m": [
+              -0.16613275455330428,
+              2.125940669929468,
+              1.3020159104816145
+            ],
+            "actual_triangle_indices": [
+              7726,
+              7730,
+              7731
+            ],
+            "barycentric": [
+              0.0038011179929643424,
+              0.674707544527892,
+              0.32149133747914366
+            ],
+            "source_palm_surface_seed_m": [
+              -0.16612975079143671,
+              2.1259261717219884,
+              1.3020162104308726
+            ],
+            "source_seed_distance_m": 0.000014809138227180565,
+            "pose": "sit_drive",
+            "time_s": 0.5,
+            "closed_finger_grip_verified": false,
+            "source_palm_proof_sha256": "af14a6741f4112a6e4bfab7dfbf9271a517b34eec54b305c5214d9a06e96337b"
+          }
+        },
+        "3": {
+          "l": {
+            "scene": "1904",
+            "asset_id": "anonymous_working_driver_1904",
+            "web": true,
+            "lod": 3,
+            "asset_sha256": "6c5182d709ce9de5be003a650c4f7f69b90ae9591d0865174d4303103bd97de4",
+            "side": "l",
+            "actual_body_mesh": "anonymous_working_driver_1904_body_0_lod3",
+            "actual_point_vehicle_local_m": [
+              0.16601491981319236,
+              2.1252945934052874,
+              1.302017317600189
+            ],
+            "actual_triangle_indices": [
+              1678,
+              1677,
+              1679
+            ],
+            "barycentric": [
+              0.21410503822600924,
+              0.7192326792834032,
+              0.06666228249058762
+            ],
+            "source_palm_surface_seed_m": [
+              0.16612975079143671,
+              2.1259261717219884,
+              1.3020162104308726
+            ],
+            "source_seed_distance_m": 0.0006419334463286249,
+            "pose": "sit_drive",
+            "time_s": 0.5,
+            "closed_finger_grip_verified": false,
+            "source_palm_proof_sha256": "af14a6741f4112a6e4bfab7dfbf9271a517b34eec54b305c5214d9a06e96337b"
+          },
+          "r": {
+            "scene": "1904",
+            "asset_id": "anonymous_working_driver_1904",
+            "web": true,
+            "lod": 3,
+            "asset_sha256": "6c5182d709ce9de5be003a650c4f7f69b90ae9591d0865174d4303103bd97de4",
+            "side": "r",
+            "actual_body_mesh": "anonymous_working_driver_1904_body_0_lod3",
+            "actual_point_vehicle_local_m": [
+              -0.16601491981319236,
+              2.125294593405288,
+              1.302017317600189
+            ],
+            "actual_triangle_indices": [
+              1149,
+              1150,
+              1151
+            ],
+            "barycentric": [
+              0.7192326792834027,
+              0.2141050382260076,
+              0.06666228249058972
+            ],
+            "source_palm_surface_seed_m": [
+              -0.16612975079143671,
+              2.1259261717219884,
+              1.3020162104308726
+            ],
+            "source_seed_distance_m": 0.000641933446328188,
+            "pose": "sit_drive",
+            "time_s": 0.5,
+            "closed_finger_grip_verified": false,
+            "source_palm_proof_sha256": "af14a6741f4112a6e4bfab7dfbf9271a517b34eec54b305c5214d9a06e96337b"
+          }
+        }
+      },
+      "envelope_local_xz_m": [
+        -1.1971540112566856,
+        -1.8365528583526611,
+        1.1971540112566856,
+        4.622850165367126
+      ],
+      "envelope_basis": "Actual native assembled mesh vertices incl hitch instances, both driverLOD0+3, steering-8/0/+8, WALK0/.5/1.3/1.6. Add clearance15cm margin; actual world/between-sample envelope remains a qualification question.",
+      "liberty": "L-1904-more-carriages-3555",
+      "stops": [
+        {
+          "label": "the Pullman house's door",
+          "distance_m": 180.75,
+          "dwell_s": 45
+        }
+      ],
+      "initial_distance_m": 561,
+      "driver_export_person_id": "pa1904_otis_f_r_c1900_hans_johnson",
+      "driver_livery_colours": {
+        "garment_outer__box_coat_wool": [
+          0.062,
+          0.028,
+          0.042
+        ],
+        "garment_lower__highwaist_pantaloons": [
+          0.03,
+          0.028,
+          0.03
+        ],
+        "accessory__brass_livery_buttons": [
+          0.72,
+          0.72,
+          0.7
+        ],
+        "accessory__pale_driving_gloves": [
+          0.16,
+          0.09,
+          0.05
+        ]
+      },
+      "vehicle_finish": {
+        "seed": "pullman-brougham-1904",
+        "panels": [
+          0.03,
+          0.005,
+          0.008
+        ],
+        "timber": [
+          0.005,
+          0.005,
+          0.006
+        ],
+        "gear": [
+          0.2,
+          0.012,
+          0.012
+        ],
+        "quarter": [
+          0.006,
+          0.005,
+          0.006
+        ],
+        "upholstery": [
+          0.02,
+          0.035,
+          0.026
+        ],
+        "trim": [
+          0.62,
+          0.46,
+          0.2
+        ],
+        "trim_metalness": 0.9,
+        "gloss": 0.92,
+        "dust": 0.28,
+        "scuffs": 0.18,
+        "grade": "reconstructed",
+        "liberty": "L-1904-more-carriages-3555"
+      }
+    },
+    {
+      "speed_m_s": 1.35,
+      "steering_limit_deg": 8,
+      "track_m": 1.34,
+      "wheelbase_m": 2.3,
+      "root_ahead_of_rear_axle_m": 1.15,
+      "driver_local_m": [
+        0,
+        1.77585,
+        0.76
+      ],
+      "wheel_radii_m": [
+        0.65,
+        0.65,
+        0.528,
+        0.528
+      ],
+      "team_half_spacing_m": 0.65,
+      "id": "prairie_driven_brougham_south_loop_1904",
+      "name": "Carriage driver on Prairie Avenue, 20th to 22nd Street",
+      "scene": "1904",
+      "route": {
+        "kind": "path",
+        "corner_radius_m": 18,
+        "points_enu_m": [
+          [
+            1268.45,
+            -3762.94
+          ],
+          [
+            1409.63,
+            -3760.91
+          ],
+          [
+            1407.18,
+            -3469.02
+          ],
+          [
+            1265.52,
+            -3470.44
+          ]
+        ]
+      },
+      "vehicle_file": "transport/parked-brougham/brougham-near.glb",
+      "driver_asset": "anonymous_working_driver_1904",
+      "driver_clip": "sit_drive_look_v2",
+      "person_id": "pa1904_armour_mrs_philip_d_c1900_joseph_daniels",
+      "driver_seat_node_m": [
+        0,
+        1.77585,
+        0.76
+      ],
+      "source_ids": [
+        "studebaker_1893_illustrated_souvenir",
+        "census_1900_chicago_t623_roll245",
+        "chicago_revised_municipal_code_1905",
+        "sanborn_1911_chicago_v3_sheet_35",
+        "sanborn_1911_chicago_v3_sheet_28"
+      ],
+      "note": "Joseph Daniels, coachman in Mrs. Philip D. Armour's household at 2115 Prairie Avenue in the 1900 census, drives a brougham round Prairie, 20th Street and Indiana. The census names him there four years before the scene; this coach, its colours, its team, his livery and the round are reconstructed.",
+      "horse_offset_m": [
+        0,
+        0,
+        3.08
+      ],
+      "driver_binding": {
+        "scene": "1904",
+        "asset_id": "anonymous_working_driver_1904",
+        "vehicle_file": "transport/parked-brougham/brougham-near.glb",
+        "vehicle_glb_sha256": "3d2f3a802f4b32dba6a3e61f2c188dddce4db05cecfcbba81e1e8d369d5dfe89",
+        "vehicle_sidecar_sha256": "768f849182bb8ca7aa9d28db98a5d2cb3d502ea6c23c6f0b8fbf2a5b329e541f",
+        "root_offset_m": [
+          0,
+          0,
+          0
+        ]
+      },
+      "driver_instance": {
+        "person_id": "pa1904_armour_mrs_philip_d_c1900_joseph_daniels",
+        "interaction": {
+          "opens": "resident_card",
+          "selectable": true
+        },
+        "provenance": {
+          "grade": "reconstructed",
+          "basis": "Joseph Daniels, coachman in Mrs. Philip D. Armour's household at 2115 Prairie Avenue in the 1900 census, drives a brougham round Prairie, 20th Street and Indiana. The census names him there four years before the scene; this coach, its colours, its team, his livery and the round are reconstructed.",
+          "liberty": "L-1904-more-carriages-3555"
+        },
+        "review_required": false
+      },
+      "horse_model": "current26_walk_v2",
+      "hitch": {
+        "harness_file": "transport/driven-hitch/current26-collar-girth-v2.glb",
+        "units_file": "transport/driven-hitch/connection-units-v1.glb",
+        "bindings_file": "transport/driven/hitch-bindings-v2.json",
+        "vehicle_binding": "studebaker_brougham_1893",
+        "web_assets": true
+      },
+      "driver_livery_file": "transport/driven/driver-livery-1904.json",
+      "driver_livery_sha256": "95ca007afd5677d88afc063c7320fcb7740c2ed7cf585d83d4e72d9a2b9cded9",
+      "driver_livery_body_sha256": "c3b285d0305559ee5fbe13695985df86cde4c38ca8d7efd8419fcdd2d97bc4b8",
+      "driver_palm_bindings_by_lod": {
+        "0": {
+          "l": {
+            "scene": "1904",
+            "asset_id": "anonymous_working_driver_1904",
+            "web": true,
+            "lod": 0,
+            "asset_sha256": "49a84c1d858f67359ff33e56762336ade56db1dcbbb1cbe923846d95825c9547",
+            "side": "l",
+            "actual_body_mesh": "anonymous_working_driver_1904_body_0_lod0",
+            "actual_point_vehicle_local_m": [
+              0.16613275455330426,
+              2.125940669929468,
+              1.3020159104816145
+            ],
+            "actual_triangle_indices": [
+              12482,
+              12478,
+              12483
+            ],
+            "barycentric": [
+              0.6747075445278921,
+              0.003801117992967784,
+              0.3214913374791401
+            ],
+            "source_palm_surface_seed_m": [
+              0.16612975079143671,
+              2.1259261717219884,
+              1.3020162104308726
+            ],
+            "source_seed_distance_m": 0.000014809138227174935,
+            "pose": "sit_drive",
+            "time_s": 0.5,
+            "closed_finger_grip_verified": false,
+            "source_palm_proof_sha256": "af14a6741f4112a6e4bfab7dfbf9271a517b34eec54b305c5214d9a06e96337b"
+          },
+          "r": {
+            "scene": "1904",
+            "asset_id": "anonymous_working_driver_1904",
+            "web": true,
+            "lod": 0,
+            "asset_sha256": "49a84c1d858f67359ff33e56762336ade56db1dcbbb1cbe923846d95825c9547",
+            "side": "r",
+            "actual_body_mesh": "anonymous_working_driver_1904_body_0_lod0",
+            "actual_point_vehicle_local_m": [
+              -0.16613275455330428,
+              2.125940669929468,
+              1.3020159104816145
+            ],
+            "actual_triangle_indices": [
+              7726,
+              7730,
+              7731
+            ],
+            "barycentric": [
+              0.0038011179929643424,
+              0.674707544527892,
+              0.32149133747914366
+            ],
+            "source_palm_surface_seed_m": [
+              -0.16612975079143671,
+              2.1259261717219884,
+              1.3020162104308726
+            ],
+            "source_seed_distance_m": 0.000014809138227180565,
+            "pose": "sit_drive",
+            "time_s": 0.5,
+            "closed_finger_grip_verified": false,
+            "source_palm_proof_sha256": "af14a6741f4112a6e4bfab7dfbf9271a517b34eec54b305c5214d9a06e96337b"
+          }
+        },
+        "3": {
+          "l": {
+            "scene": "1904",
+            "asset_id": "anonymous_working_driver_1904",
+            "web": true,
+            "lod": 3,
+            "asset_sha256": "6c5182d709ce9de5be003a650c4f7f69b90ae9591d0865174d4303103bd97de4",
+            "side": "l",
+            "actual_body_mesh": "anonymous_working_driver_1904_body_0_lod3",
+            "actual_point_vehicle_local_m": [
+              0.16601491981319236,
+              2.1252945934052874,
+              1.302017317600189
+            ],
+            "actual_triangle_indices": [
+              1678,
+              1677,
+              1679
+            ],
+            "barycentric": [
+              0.21410503822600924,
+              0.7192326792834032,
+              0.06666228249058762
+            ],
+            "source_palm_surface_seed_m": [
+              0.16612975079143671,
+              2.1259261717219884,
+              1.3020162104308726
+            ],
+            "source_seed_distance_m": 0.0006419334463286249,
+            "pose": "sit_drive",
+            "time_s": 0.5,
+            "closed_finger_grip_verified": false,
+            "source_palm_proof_sha256": "af14a6741f4112a6e4bfab7dfbf9271a517b34eec54b305c5214d9a06e96337b"
+          },
+          "r": {
+            "scene": "1904",
+            "asset_id": "anonymous_working_driver_1904",
+            "web": true,
+            "lod": 3,
+            "asset_sha256": "6c5182d709ce9de5be003a650c4f7f69b90ae9591d0865174d4303103bd97de4",
+            "side": "r",
+            "actual_body_mesh": "anonymous_working_driver_1904_body_0_lod3",
+            "actual_point_vehicle_local_m": [
+              -0.16601491981319236,
+              2.125294593405288,
+              1.302017317600189
+            ],
+            "actual_triangle_indices": [
+              1149,
+              1150,
+              1151
+            ],
+            "barycentric": [
+              0.7192326792834027,
+              0.2141050382260076,
+              0.06666228249058972
+            ],
+            "source_palm_surface_seed_m": [
+              -0.16612975079143671,
+              2.1259261717219884,
+              1.3020162104308726
+            ],
+            "source_seed_distance_m": 0.000641933446328188,
+            "pose": "sit_drive",
+            "time_s": 0.5,
+            "closed_finger_grip_verified": false,
+            "source_palm_proof_sha256": "af14a6741f4112a6e4bfab7dfbf9271a517b34eec54b305c5214d9a06e96337b"
+          }
+        }
+      },
+      "envelope_local_xz_m": [
+        -1.1971540112566856,
+        -1.8365528583526611,
+        1.1971540112566856,
+        4.622850165367126
+      ],
+      "envelope_basis": "Actual native assembled mesh vertices incl hitch instances, both driverLOD0+3, steering-8/0/+8, WALK0/.5/1.3/1.6. Add clearance15cm margin; actual world/between-sample envelope remains a qualification question.",
+      "liberty": "L-1904-more-carriages-3555",
+      "stops": [
+        {
+          "label": "the Armour house's door",
+          "distance_m": 240.25,
+          "dwell_s": 40
+        }
+      ],
+      "initial_distance_m": 324,
+      "driver_export_person_id": "pa1904_otis_f_r_c1900_hans_johnson",
+      "driver_livery_colours": {
+        "garment_outer__box_coat_wool": [
+          0.05,
+          0.058,
+          0.07
+        ],
+        "garment_lower__highwaist_pantaloons": [
+          0.07,
+          0.06,
+          0.045
+        ]
+      },
+      "vehicle_finish": {
+        "seed": "armour-brougham-1904",
+        "panels": [
+          0.006,
+          0.008,
+          0.016
+        ],
+        "timber": [
+          0.006,
+          0.006,
+          0.006
+        ],
+        "gear": [
+          0.008,
+          0.008,
+          0.008
+        ],
+        "quarter": [
+          0.007,
+          0.007,
+          0.008
+        ],
+        "upholstery": [
+          0.11,
+          0.065,
+          0.033
+        ],
+        "trim": [
+          0.5,
+          0.5,
+          0.48
+        ],
+        "trim_metalness": 0.85,
+        "gloss": 0.7,
+        "dust": 0.62,
+        "scuffs": 0.55,
+        "grade": "reconstructed",
+        "liberty": "L-1904-more-carriages-3555"
+      }
     },
     {
       "speed_m_s": 1.3,
