@@ -484,6 +484,40 @@ export function backDoorWay(sillY, p, depth) {
   return out;
 }
 
+/**
+ * The owner, 2026-11-14: "Anywhere there are stairs I should be able to climb". A back stoop as
+ * walker decks (house-floors.js mergeDecks files them): its landing and treads, at the tops
+ * buildStoop draws them, a tread at a time; and, where it has rails, a wall along each (a metre
+ * over the landing, past any step), so one climbs between them rather than through them.
+ * `f` is the door's frame (frameAt), `p` the stoop's plan (stoopPlan).
+ */
+export function stoopDecks(id, f, d, sillY, p) {
+  if (!p) return [];
+  const st = d.stoop ?? {};
+  const depth = (st.depth_m ?? 1.2) >= 0.05 ? st.depth_m ?? 1.2 : TREAD_M;
+  const hw = Math.max(d.width_m ?? 0.95, st.width_m ?? 1.6) / 2;
+  const top = sillY - 0.012;
+  const run = Math.max(depth, p.run);
+  const [e0, n0] = f.plan(0, 0);
+  const rect = (s0, s1, w0, w1) => [[s0, w0], [s1, w0], [s1, w1], [s0, w1]].map(([s, w]) => f.plan(s, w));
+  const heightAt = (e, n) => {
+    const de = e - e0, dn = n - n0;
+    const s = de * f.o[0] + dn * f.o[1], w = de * f.t[0] + dn * f.t[1];
+    if (s < -0.02 || s > run || Math.abs(w) > hw) return null;
+    if (s <= depth) return top;
+    for (const t of p.treads) if (s >= t.s0 - 1e-6 && s <= t.s1 + 1e-6) return t.top;
+    return null;
+  };
+  const out = [{ id: `${id}:stoop`, y: Math.min(top, ...p.treads.map((t) => t.top)), pts: rect(-0.02, run, -hw, hw), heightAt }];
+  if (p.rail) {
+    for (const side of [-1, 1]) {
+      const w = side * (hw - 0.045);
+      out.push({ id: `${id}:rail${side < 0 ? 'L' : 'R'}`, y: top + 1, pts: rect(0, run - TREAD_M * 0.5, w - 0.06, w + 0.06), wall: true });
+    }
+  }
+  return out;
+}
+
 /** The stoop from the wall out: landing, steps, and (over RAIL_RISE_M) the rails. */
 function buildStoop(buf, f, d, sillY, groundAt, k, light, stoneBuf = { buf, tone: PAINT.stone }) {
   const st = d.stoop ?? {};
@@ -745,6 +779,8 @@ export async function createBackYards({
   const out = {
     group, stats, records: [], doc: null,
     pickAt: () => null, cardFor: () => null, update() {}, setDetail() {}, setSeason() {}, settle() {}, dispose() {},
+    /** The stoops as walker decks (stoopDecks), laid once with the first fixtures. */
+    stairDecks: [],
   };
   if ((!dataBase && !given) || !terrain) return out;
   let doc = given;
@@ -1041,6 +1077,7 @@ export async function createBackYards({
         if (d.leaf !== false) { buildDoorLeaf(buf, f, d, sillY, k, light, stone, { leaf: !hung }); stats.doors += 1; }
         let plan = null;
         if (d.stoop) { plan = buildStoop(buf, f, d, sillY, groundAt, k, light, d.stoop.material === 'stone' ? stone : undefined); stats.stoops += 1; }
+        if (plan && !stairsLaid) out.stairDecks.push(...stoopDecks(d.id ?? passageId(d), f, d, sillY, plan));
         if (hung) {
           const st = d.stoop ?? {};
           const depth = (st.depth_m ?? 1.2) >= 0.05 ? st.depth_m ?? 1.2 : TREAD_M;
@@ -1119,7 +1156,9 @@ export async function createBackYards({
       group.add(lines);
     }
   };
+  let stairsLaid = false;
   buildFixtures();
+  stairsLaid = true;
   hangLeaves();
   disposers.push(() => { for (const m of fixtureMeshes) m.geometry.dispose(); lines?.geometry.dispose(); });
 

@@ -474,6 +474,8 @@ step "Glessner's court and side doors, and every built 1904 front door, open and
   node tools/test_house_passages.mjs
 step "Nobody walks through a 1904 house's stoop, area wall, railing or bay: every resident's outdoor place and walk keep a skirt's width off what the house builds outside its walls (T-3554)" \
   node tools/test_house_barriers.mjs
+step "The visitor climbs every stair: each 1904 front stoop with a hung door to the door, every back stoop to its landing, a tread at a time, and rails and cheeks turn one back (owner, 2026-11-14)" \
+  node tools/test_house_floors.mjs
 step "Loaded parade ground delegates to its native owner; failed assets and sundial geometry remain required (T-3041)" \
   node tools/test_parade_presence.mjs
 step "Jaunt daybook: idempotent keepsakes, data ranks, honest recovery (T-1258)" \
@@ -750,6 +752,8 @@ step "A driver's plain garments read as cloth: weave, heather and sheen by shade
   node tools/test_fabric.mjs
 step "Every person's skin has pores, blood and a glow, hair a strand sheen and eyes a wet glint: shader patch, no texture (T-3400)" \
   node tools/test_human_skin.mjs
+step "Where a person's hair stands out of their skin the near levels draw it finer: the body's rows kept, closed across seams, freed with its source (T-3553)" \
+  node tools/test_human_fine.mjs
 step "Near people grow strand-card hair, beards and whiskers from their own scalp and face, cut under a hat, and their eyes a cornea: no texture (T-3414)" \
   node tools/test_human_hair.mjs
 step "Every wardrobe file matches its recipe, each garment sourced or a liberty, clear of its seated body and vehicle, and is the one its row binds (T-3398, T-3409)" \
