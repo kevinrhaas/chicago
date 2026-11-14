@@ -60,6 +60,18 @@ export function createDrivenAssembly({ vehicle, driver, horse, confidence,
   });
   const wheelRest = wheels.map(node => node.rotation.x), steerRest = steer.rotation.y;
   const horseRestYaw = horse.root.rotation.y;
+  // The fore-carriage (Kevin, 2026-11-14: "allow it to make right turns"): the team is
+  // hitched to the pole, and the pole to the front axle (draft-hitch.js re-seats it on a
+  // pivot under vehicle_steer_front), so the horses swing with the axle about its king-pin
+  // and stay abreast of the pole however sharp the turn. The pivot is the axle's place in
+  // the vehicle's own frame.
+  const pivot = steer.position.clone();
+  for (let node = steer.parent; node && node !== root; node = node.parent) { node.updateMatrix(); pivot.applyMatrix4(node.matrix); }
+  const swing = steering => {
+    const c = Math.cos(steering), s = Math.sin(steering);
+    const dx = horseOffset_m[0] - pivot.x, dz = horseOffset_m[2] - pivot.z;
+    horse.root.position.set(pivot.x + c * dx + s * dz, horseOffset_m[1], pivot.z - s * dx + c * dz);
+  };
   let priorHorse = null, stopped = true, disposed = false, visualReset = true;
   let lastPose = null, posed = false;
   return {
@@ -70,10 +82,12 @@ export function createDrivenAssembly({ vehicle, driver, horse, confidence,
       lastPose = pose; posed = true;
       root.position.set(pose.e, pose.height, -pose.n); root.rotation.y = pose.yaw;
       steer.rotation.y = steerRest + pose.steering;
+      swing(pose.steering);
       if (!horse.poseVehicle) {
-        const rearAhead = horseOffset_m[2] + pose.rootAhead;
-        horse.root.rotation.y = horseRestYaw + Math.atan2(pose.curvature * rearAhead, 1 - pose.curvature * horseOffset_m[0]);
-      }
+        // A lone horse heads where its own place on the turning vehicle is going.
+        const at = horse.root.position, rearAhead = at.z + pose.rootAhead;
+        horse.root.rotation.y = horseRestYaw + Math.atan2(pose.curvature * rearAhead, 1 - pose.curvature * at.x);
+      } else horse.root.rotation.y = horseRestYaw + pose.steering;
       wheels.forEach((node, i) => { node.rotation.x = wheelRest[i] + pose.wheelRotation[i]; });
       root.updateMatrixWorld(true);
       if (horse.poseVehicle) {
