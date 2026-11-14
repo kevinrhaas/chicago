@@ -44078,7 +44078,6 @@ Sarah Grey's pictures show her mouth shut wherever they show it (the front and b
 
 ### L-k01-1815-roof-iron-3562 — 1815 Prairie's roof iron: the curb's cresting, the pavilion's cross and the street dormer's finial read off the square-on print, their patterns reconstructed
 
-**Covers:** `sears_meeker_house_1815_prairie.as_mapped_1904.form.mansard`
 **Decision:** the mansard of Joseph Sears's house at 1815 Prairie (T-3562, piece 2 of T-1893) takes
 the iron the square-on photograph (`chicagology_1815_sears_two_views`, the left print) shows on its
 roof, where the build had none of it, and its street dormer is re-read to the print's height.
