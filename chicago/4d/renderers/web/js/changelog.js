@@ -1,4 +1,18 @@
 export const CHANGELOG = [ // newest first
+  { v: 2975, ts: '2026-11-14T15:17:00.730Z', date: 'Nov 14, 2026, 9:17 AM CT', title: 'From the front, the Greys show their front photographs', kind: 'improvement',
+    items: [
+      'William and Sarah Grey of 2010 Prairie (1904): stand in front of either and the hair beside the face and the ears are now the front photograph itself, lock for lock. Walk round and the side photographs take over, as before.',
+      'William\'s beard no longer ends in a dark band: its underside carries the beard\'s own grizzle and takes the light as its sides do.',
+      'The black notch at William\'s hairline, seen from the side, is gone, and what no photograph shows (the crown, behind the ears, under the beard) is filled with hair that keeps its curl.',
+      'Both cards\' model pictures are taken again.',
+      'Still short of the photographs: William\'s eyes, which are dark and narrow; the smile lines his cheeks keep at rest; and the blocky outline of his beard from the side.',
+    ] },
+  { v: 2974, ts: '2026-11-14T14:46:46.895Z', date: 'Nov 14, 2026, 8:46 AM CT', title: 'On a phone, the map sits in its corner again', kind: 'fix',
+    items: [
+      'The Window key is now a small round phone icon beside the fly key, so the round map and compass stay tucked into the top-right corner instead of drifting 57 px in.',
+      'With the map back in place, the RESEARCHER label no longer runs into the year chip, and the controls take up less of a phone\'s screen again (9.7 %, down from just over the 10 % limit).',
+      'The checks for Settings › Sound now expect the Narration slider that jaunt voices brought.',
+    ] },
   { v: 2973, ts: '2026-11-14T14:09:04.733Z', date: 'Nov 14, 2026, 8:09 AM CT', title: '1816 Prairie\'s south flank window, upper storey only, as photographed', kind: 'fix',
     items: [
       'The south flank of 1816 Prairie now has one window, on the upper storey under its carved, crested hood, with plain brick below it down to the stone base, as the Chicagology photograph shows. The build had a window on each storey there.',
