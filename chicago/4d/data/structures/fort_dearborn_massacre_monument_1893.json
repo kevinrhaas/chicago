@@ -203,7 +203,7 @@
           "sources": [
             "chm_barnes_crosby_ichi_19208_fort_dearborn_monument"
           ],
-          "note": "A bronze panel on each face of the die: ICHi-19208 shows the front one (the column leaving the fort, in low relief) and Taylor's view the east side's; the Rand, McNally guide of 1893 (quoted on Chicagology, no source record) gives four. Their reliefs are not modelled. L-fort-dearborn-monument-3567"
+          "note": "A bronze panel on each face of the die: ICHi-19208 shows the front one (the column leaving the fort, in low relief) and Taylor's view the east side's; the Rand, McNally guide of 1893 (quoted on Chicagology, no source record) gives four. Their reliefs are not modelled. L-fort-dearborn-monument-3567 Since T-3589 the panels are drawn in the pale tone ICHi-19208 (c. 1900) shows them in, their relief weathered lighter than the die's granite (0.71 of white on the plate against 0.46 for the plinth's face); Taylor's 1893 print shows them fresh and dark, and the 1904 scene takes the later plate. The plate is monochrome, so the panels' green-grey is reconstructed."
         },
         "lettering": {
           "value": "THE FORT DEARBORN MASSACRE / AUGUST 15, 1812 / BLACK PARTRIDGE SAVING MRS. HELM",
@@ -211,8 +211,7 @@
           "sources": [
             "chm_barnes_crosby_ichi_19208_fort_dearborn_monument"
           ],
-          "geometry": "absent",
-          "note": "Cut in the die under the front panel, three lines (ICHi-19208, y 665-695 px). Not built: no letter in this town is modelled at this size; the die's face below the panel is plain. L-fort-dearborn-monument-3567"
+          "note": "Cut in the die under the front panel, three lines, pale on the granite (ICHi-19208, y 667-696 px on its 1200 x 931 px copy). Built since T-3589 by generators/archetypes/monument.py (LETTER_LINES): each line centred on the die at the width and height the plate gives it, line 1 0.62 of the die's width and about 0.08 m tall, line 2 the smallest (0.11 of the width, about 0.03 m), line 3 0.37 of the width and about 0.045 m; the letters are the town's block capitals squeezed to those widths, not the cutter's face, and stand flat on the die rather than cut into it. The second line is about 4 px tall on the plate and its words are taken as the record reads them. L-fort-dearborn-monument-3567"
         }
       },
       "change_note": "Built T-3567 (2026-11-12): the monument stands in the 1904 scene, on the new pure-Python monument archetype. Refined T-3568 (2026-11-13): the pedestal's depths read through a camera on Taylor's 1893 view (base 2.85 m, plinth 1.8, die 1.6, were 3.3, 2.3 and 1.9 reconstructed); cameras on ICHi-19208, Taylor 1893 and Detroit LC-D4-12552."

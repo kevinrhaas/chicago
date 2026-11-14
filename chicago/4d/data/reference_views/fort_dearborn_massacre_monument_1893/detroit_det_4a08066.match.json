@@ -2,7 +2,7 @@
   "structure_id": "fort_dearborn_massacre_monument_1893",
   "view": "detroit_det_4a08066",
   "glb": "assets/gltf/fort_dearborn_massacre_monument_1893__on_18th_street_1893.glb",
-  "glb_sha256": "24758ee21bab612766d50619e0fb6b937dcb49ada9c29d05dedea0f8f7e03764",
+  "glb_sha256": "89eb9376384069ae04fc2e7e34581a88278b89833f9a62083c9823e64766b46b",
   "camera_sha256": "f442661842cd73a16ed87d59d1b81b37aaf93a1f242e235c75f946dd56a5c401",
   "photo_sha256": "297e4d7b05312c70ddea6e5dbb24a74cffd0db743f3bb9cdcbb1f4c0edc5f4fb",
   "rendered_members": [
@@ -23,7 +23,7 @@
         0
       ],
       "rotation_y": 0,
-      "glb_sha256": "24758ee21bab612766d50619e0fb6b937dcb49ada9c29d05dedea0f8f7e03764"
+      "glb_sha256": "89eb9376384069ae04fc2e7e34581a88278b89833f9a62083c9823e64766b46b"
     },
     {
       "structure_id": "pullman_house_1729_prairie",
@@ -83,7 +83,7 @@
       "glb_sha256": "33753cacaa38e5035e8d72e0f568c4efa6c9770272b67ef2f03738313beeb916"
     }
   ],
-  "group_sha256": "79beaf2366551f26735046f1ad8b9c8b36be491bf4926481fc9a50e3445765c6",
+  "group_sha256": "a40b2ffeb8f2e145bc3d26ba98eabed2a0ce3965af940560ad298a44eb71c91c",
   "rendered_flora": {
     "season": "winter",
     "creeper_in_leaf": true,
@@ -177,8 +177,8 @@
       "status": "within tolerance"
     },
     {
-      "what": "the lettering on the front: not cut in the render",
-      "status": "open"
+      "what": "the lettering on the front: not cut in the render [T-3589: cut since; at this distance the render draws the pale band of lines on the die's front where the print has it]",
+      "status": "fixed"
     },
     {
       "what": "the young street tree in front of the monument (x 750-790) and the parkway's trees: not drawn by this review (the parkway trees about the monument stand where the print has one)",
