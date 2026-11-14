@@ -43744,7 +43744,7 @@ or a read bill of sale; a planting account locating the trees rather than merely
 **Ticket:** T-3551.
 **Recorded:** 2026-11-11.
 
-### L-fort-dearborn-monument-3567 — The Fort Dearborn Massacre monument in 1904: its depths, its figures' modelling, the lettering and the panels' reliefs
+### L-fort-dearborn-monument-3567 — The Fort Dearborn Massacre monument in 1904: its depths, its figures' modelling, the lettering's face and the panels' reliefs and tone
 
 **Decision:** Carl Rohl-Smith's bronze group *The Fort Dearborn Massacre* (1893) stands in the 1904
 scene on its granite pedestal at the east end of 18th Street's north walk, as
@@ -43772,8 +43772,15 @@ Taylor's 1893 view), with the group's height read through ICHi-19208's camera (2
   whole of the group's rear (no photograph used here shows it; the Inter Ocean's rear sketch of
   1892 bounds it) are not modelled to the sculpture. One bronze colour, a dark brown patina; the
   photographs are monochrome.
-- **The panels' reliefs** are flat bronze plates, and **the lettering** under the front panel
-  (THE FORT DEARBORN MASSACRE / AUGUST 15, 1812 / BLACK PARTRIDGE SAVING MRS. HELM) is not cut.
+- **The panels' reliefs** are flat plates. Since T-3589 they are drawn pale, as ICHi-19208
+  (c. 1900) shows them weathered lighter than the die, where Taylor's 1893 print has them fresh
+  and dark: the 1904 scene takes the later plate. Their faint green-grey is ours; the plate is
+  monochrome.
+- **The lettering** under the front panel (THE FORT DEARBORN MASSACRE / AUGUST 15, 1812 / BLACK
+  PARTRIDGE SAVING MRS. HELM) is cut since T-3589 at the widths, heights and places ICHi-19208
+  gives each line, pale on the granite. The letters are the town's block capitals squeezed to
+  those widths, not the cutter's seriffed roman, and they stand flat on the die rather than
+  sunk into it. The second line is about 4 px tall on the plate; its words are the record's.
 - **Its place** is set by T-3568 through cameras on the Detroit print (east and west) and ICHi-19208
   (north and south), good to about 1.5 m; the Pullman stable's draft stands about 6 m east of where
   ICHi-19208 shows its end, which is open in that view's match record.
@@ -43781,9 +43788,7 @@ Taylor's 1893 view), with the group's height read through ICHi-19208's camera (2
 The figures are period sculpture, built as the sculptor made them; the record carries
 `review_required` with its reason, and the card says how the work was received.
 
-**Covers:** `fort_dearborn_massacre_monument_1893.on_18th_street_1893.form.lettering`.
-
-**Ticket:** T-3567 (piece 1 of T-3565); the depths retired by T-3568; the poses read joint by joint by T-3582; the bodies on the people rigs by T-3588.
+**Ticket:** T-3567 (piece 1 of T-3565); the depths retired by T-3568; the poses read joint by joint by T-3582; the bodies on the people rigs by T-3588; the lettering cut and the panels' c. 1900 tone by T-3589.
 **Recorded:** 2026-11-12.
 
 ### L-glessner-rock-faces-3564 — Glessner's rock-faced granite: three face profiles shared out by rule
