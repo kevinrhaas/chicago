@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2970, ts: '2026-11-14T11:17:00.360Z', date: 'Nov 14, 2026, 5:17 AM CT', title: 'The 1904 brougham turns right, and one carriage goes round clockwise', kind: 'improvement',
+    items: [
+      'The brougham\'s front wheels now turn up to 15°, about as far as they can before they would meet the body, so it can take a right turn at a street corner.',
+      'Its horses swing with the front axle and the pole on a turn, instead of carrying straight on while the pole turned.',
+      'The Armour carriage now goes round clockwise, up Prairie past the Armour house and right along 20th, Calumet and 22nd, every corner a right turn.',
+      'The Pullman carriage drives a little slower, so it meets Hans\'s at the 18th Street crossings more often, and one waits for the other.',
+    ] },
   { v: 2969, ts: '2026-11-14T10:44:33.077Z', date: 'Nov 14, 2026, 4:44 AM CT', title: '1815 Prairie\'s narrow window over the door, at its true size', kind: 'fix',
     items: [
       'The small window above 1815 Prairie\'s front door is now the narrow single light its photograph shows, set over the door\'s hood, where a full-size sash stood before.',
