@@ -129,27 +129,39 @@ console.log('test_nav_jaunt_cards: credited plates of the stops or none, keepsak
   assert.equal(sortTitle('The architects'), 'architects'); assert.equal(sortTitle('Taverns of Chicago'), 'Taverns of Chicago');
   for (const y of ['1835', '1904']) {
     const rows = filterJaunts(catalog(y));
+    // T-3590: a version for another grade band takes the place of the jaunt it retells.
+    const byId = new Map(rows.map((r) => [r.id, r])), place = (r) => (r.version_of ? byId.get(r.version_of) : r);
     for (const r of rows) {
       assert(!/^(Prairie Avenue|Style walk):/.test(r.title), `${y}: "${r.title}" leads with what it shares, not what it is`);
       assert(r.title.length <= 34, `${y}: "${r.title}" is short enough for two lines on a phone`);
     }
     // T-3584: ranked jaunts lead; the rest are grouped in the pills' order, every row in a group.
     for (const r of rows) assert(GROUPS.includes(r.menu_group), `${y}: ${r.id} has a menu group`);
-    const rest = rows.filter((r) => !Number.isInteger(r.menu_rank));
-    assert.deepEqual(rows.slice(0, rows.length - rest.length).map((r) => r.menu_rank), rows.filter((r) => Number.isInteger(r.menu_rank)).map((r) => r.menu_rank).sort((a, b) => a - b), `${y}: ranked jaunts lead, in rank order`);
+    const rest = rows.filter((r) => !Number.isInteger(place(r).menu_rank));
+    assert.deepEqual(rows.slice(0, rows.length - rest.length).map((r) => place(r).menu_rank), rows.filter((r) => Number.isInteger(place(r).menu_rank)).map((r) => place(r).menu_rank).sort((a, b) => a - b), `${y}: ranked jaunts lead, in rank order`);
     const kinds = rest.map((r) => GROUPS.indexOf(groupOf(r)));
     assert.deepEqual(kinds, [...kinds].sort((a, b) => a - b), `${y}: grouped, in the pills' order`);
-    for (let i = 1; i < rows.length; i++) assert(jauntOrder(rows[i - 1], rows[i]) < 0, `${y}: ${rows[i - 1].title} before ${rows[i].title}`);
+    for (let i = 1; i < rows.length; i++) assert(jauntOrder(rows[i - 1], rows[i], (r) => byId.get(r.version_of)) < 0, `${y}: ${rows[i - 1].title} before ${rows[i].title}`);
   }
   // T-3584 (owner, 2026-11-13): the household tour first, then the other Glessner jaunt, the
   // build log last, and the two Glessner cards carry a picture of the house.
   const r1904 = filterJaunts(catalog('1904'));
-  assert.deepEqual(r1904.slice(0, 2).map((r) => r.id), ['glessner-household-tour', 'prairie-avenue-orientation']);
+  // T-3590: the household tour retold for grades 3-5 sits right after it.
+  assert.deepEqual(r1904.slice(0, 3).map((r) => r.id), ['glessner-household-tour', 'glessner-household-tour-grades-3-5', 'prairie-avenue-orientation']);
   assert.equal(r1904.at(-1).id, 'prairie-built-so-far');
-  for (const r of r1904.slice(0, 2)) assert.equal(r.plate?.structure, 'glessner_house', `${r.id} names its card picture`);
+  for (const r of r1904.slice(0, 3)) assert.equal(r.plate?.structure, 'glessner_house', `${r.id} names its card picture`);
   assert.deepEqual(filterJaunts(catalog('1904'), '', 'Architecture').map((r) => r.id).sort(), ['prairie-architects', 'prairie-style-italianate', 'prairie-style-romanesque', 'prairie-style-second-empire']);
   const t1904 = r1904.map((r) => r.title);
   const styles = t1904.map((t, i) => (/ style walk$/.test(t) ? i : -1)).filter((i) => i >= 0);
   assert.deepEqual(styles.map((i) => t1904[i]), ['Italianate style walk', 'Romanesque style walk', 'Second Empire style walk']);
   assert.equal(styles[2] - styles[0], 2, 'the three style walks sit together');
+  // T-3590: every jaunt names its school grade band; the household tour reads at 6-8 and its retelling at 3-5.
+  const { GRADE_BANDS, gradeLabel } = await import('../renderers/web/js/jaunt-menu.js');
+  for (const y of ['1812', '1835', '1904']) for (const r of catalog(y)) assert(GRADE_BANDS.includes(r.grade_band), `${y}: ${r.id} has a grade band`);
+  const band = Object.fromEntries(r1904.map((r) => [r.id, r.grade_band]));
+  assert.equal(band['glessner-household-tour'], '6-8');
+  assert.equal(band['glessner-household-tour-grades-3-5'], '3-5');
+  assert.equal(r1904[1].version_of, 'glessner-household-tour');
+  assert.equal(gradeLabel('3-5'), 'Grades 3–5'); assert.equal(gradeLabel('9-10'), 'Grades 9–10'); assert.equal(gradeLabel(undefined), '');
+  assert.deepEqual(filterJaunts(catalog('1904'), 'grades 3–5').map((r) => r.id), ['glessner-household-tour-grades-3-5'], 'the grade band is searchable');
 }

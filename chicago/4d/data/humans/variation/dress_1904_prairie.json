@@ -5235,6 +5235,23 @@
    "hide": [],
    "worn": "slate cook working clothes"
   },
+  "pa1904_glessner_john_j_c1900_kate_ryan": {
+   "asset": "ryan_kate_1904_cook",
+   "colours": {
+    "garment_upper__cook_print_dress": [
+     0.048,
+     0.047,
+     0.044
+    ],
+    "garment_lower__cook_print_skirt": [
+     0.048,
+     0.047,
+     0.044
+    ]
+   },
+   "hide": [],
+   "worn": "charcoal cook working clothes"
+  },
   "pa1904_armour_mrs_philip_d_c1900_lizzie_ryan": {
    "asset": "reynolds_mary_1904_maid",
    "colours": {
