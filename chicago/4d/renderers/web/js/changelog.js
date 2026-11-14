@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2986, ts: '2026-11-14T23:48:02.126Z', date: 'Nov 14, 2026, 5:48 PM CT', title: 'The checks on the Settings and Navigator screens stop drawing the town', kind: 'fix',
+    items: [
+      'Nothing you can see changes. One part of the checks that run on every change kept running out of time on the test machines: it went through Settings, the Navigator, Jump, the Field Check and Go to, and every step also waited for the whole 3D town to be redrawn, which takes several seconds a picture there. None of those checks looks at the picture, so they now pause the drawing while they read the screens, as the People, Businesses and Evidence checks already do. The town is drawn again before any check that does look at it.',
+    ] },
   { v: 2985, ts: '2026-11-14T23:19:18.084Z', date: 'Nov 14, 2026, 5:19 PM CT', title: 'Prairie Avenue\'s ladies dress in their own fine, seasonal clothes', kind: 'feature',
     items: [
       'Every lady of 1904 has her own dress: silk afternoon dresses, white lingerie dresses, walking suits, velvets and shirtwaists.',
