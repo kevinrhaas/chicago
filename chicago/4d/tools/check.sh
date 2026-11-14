@@ -750,6 +750,8 @@ step "A driver's plain garments read as cloth: weave, heather and sheen by shade
   node tools/test_fabric.mjs
 step "Every person's skin has pores, blood and a glow, hair a strand sheen and eyes a wet glint: shader patch, no texture (T-3400)" \
   node tools/test_human_skin.mjs
+step "Where a person's hair stands out of their skin the near levels draw it finer: the body's rows kept, closed across seams, freed with its source (T-3553)" \
+  node tools/test_human_fine.mjs
 step "Near people grow strand-card hair, beards and whiskers from their own scalp and face, cut under a hat, and their eyes a cornea: no texture (T-3414)" \
   node tools/test_human_hair.mjs
 step "Every wardrobe file matches its recipe, each garment sourced or a liberty, clear of its seated body and vehicle, and is the one its row binds (T-3398, T-3409)" \
