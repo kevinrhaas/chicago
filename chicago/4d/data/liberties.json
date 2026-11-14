@@ -73611,7 +73611,11 @@
         },
         {
           "label": "These are this project's",
-          "text": "- **The depths** were the widths less margins until later work read them through a camera on Taylor's 1893 view (base 2.85 m, plinth 1.8, die 1.6): that part of this liberty is retired. - **The figures' modelling.** Each figure is joined from tapered limbs and balls in the pose the photographs show, every joint read on ICHi-19208 through its camera and put in depth by Taylor's, to about 0.15 m in depth; faces, hair, dress folds, the feathers' number, the weapons' detail and the whole of the group's rear (no photograph used here shows it; the Inter Ocean's rear sketch of 1892 bounds it) are not modelled. One bronze colour, a dark brown patina; the photographs are monochrome. - **The panels' reliefs** are flat bronze plates, and **the lettering** under the front panel (THE FORT DEARBORN MASSACRE / AUGUST 15, 1812 / BLACK PARTRIDGE SAVING MRS. HELM) is not cut. - **Its place** is set by later work through cameras on the Detroit print (east and west) and ICHi-19208 (north and south), good to about 1.5 m; the Pullman stable's draft stands about 6 m east of where ICHi-19208 shows its end, which is open in that view's match record. The figures are period sculpture, built as the sculptor made them; the record carries review required with its reason, and the card says how the work was received."
+          "text": "- **The depths** were the widths less margins until later work read them through a camera on Taylor's 1893 view (base 2.85 m, plinth 1.8, die 1.6): that part of this liberty is retired. - **The figures' modelling.** Each figure stands in the pose the photographs show, every joint read on ICHi-19208 through its camera and put in depth by Taylor's, to about 0.15 m in depth. Since later work each BODY is one of the project's people rigs (MakeHuman hm08: the warrior and Black Partridge on potawatomi man 1812, Mrs. Helm on lady 1812, the surgeon on surgeons mate first infantry 1812, the child on child boy 1812), posed bone by bone to those joints and baked to bronze (the monument figures generator), as the owner suggested on 2026-11-13. The rigs are an armature and a body only: their faces are the rig's neutral face, not the sculpted ones and not anyone's portrait; of their dress only what the sculpture also shows is kept (the breechcloths, Black Partridge's leggings, Mrs. Helm's gown under the full skirt the poses keep, the surgeon's coat and pantaloons, the child's jacket and trousers), as starting shapes, not as the sculpted drapery; the project's Native dress rules do not apply to a sculpture."
+        },
+        {
+          "label": "Two placings are ours outright",
+          "text": "Mrs. Helm's legs, under her skirt in both photographs, stand under its hem, and the surgeon's left arm, which neither photograph shows, lies along his side. Faces, hair, dress folds, the feathers' number, the weapons' detail and the whole of the group's rear (no photograph used here shows it; the Inter Ocean's rear sketch of 1892 bounds it) are not modelled to the sculpture. One bronze colour, a dark brown patina; the photographs are monochrome. - **The panels' reliefs** are flat bronze plates, and **the lettering** under the front panel (THE FORT DEARBORN MASSACRE / AUGUST 15, 1812 / BLACK PARTRIDGE SAVING MRS. HELM) is not cut. - **Its place** is set by later work through cameras on the Detroit print (east and west) and ICHi-19208 (north and south), good to about 1.5 m; the Pullman stable's draft stands about 6 m east of where ICHi-19208 shows its end, which is open in that view's match record. The figures are period sculpture, built as the sculptor made them; the record carries review required with its reason, and the card says how the work was received."
         },
         {
           "label": "Covers",
@@ -73625,6 +73629,7 @@
       "work_refs": [
         "T-3582",
         "T-3568",
+        "T-3588",
         "T-3567",
         "T-3565"
       ]

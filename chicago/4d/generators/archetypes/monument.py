@@ -18,8 +18,9 @@ rock. One granite material and one bronze one: two draw calls.
 ## The group (Rohl-Smith, 1893)
 
 Five figures, built as the sculptor posed them and no more finely than a visitor on the
-walk 5-15 m off can read them: each figure is joined from tapered limbs and balls, its
-pose taken from the two photographs (`FIGURES` below, in pose units off the rock's centre,
+walk 5-15 m off can read them: since T-3583 each body is one of the people rigs, posed to
+its joints and baked to bronze by `monument_figures` (the owner's suggestion); before it,
+each was joined from tapered limbs and balls. The pose is taken from the two photographs (`FIGURES` below, in pose units off the rock's centre,
 x along the front to the right as the street sees it, y back from the front, z up). Since
 T-3582 every joint is read on ICHi-19208 through its solved camera, so the front view
 holds the plate joint for joint, and put in depth by where J. W. Taylor's 1893 camera sees
@@ -29,8 +30,10 @@ record's `group_h_m` less the rock. From the left: the warrior in his long lunge
 tomahawk raised; Margaret Helm, staggering back in her long skirt, her arm across to him;
 Black Partridge behind her, his open hand raised against the blow, the musket slanting
 past his hip; the post surgeon fallen under them, one leg stretched to the west edge; the
-child kneeling at the right front, both arms out. The faces, the dress's folds, the
-feathers' number and the panels' reliefs are not modelled (the record's liberty says so);
+child kneeling at the right front, both arms out. The feathers, the tomahawk, the musket,
+the cloak and Mrs. Helm's full skirt are still the members below (`monument_figures.PROPS`).
+The sculpted faces, the dress's folds, the feathers' number and the panels' reliefs are
+not modelled (the record's liberty says so);
 the rear, which no photograph used here shows, is the same masses seen from behind.
 """
 
@@ -45,9 +48,10 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
+from archetypes import monument_figures  # noqa: E402
 from archetypes.monument_params import MonumentParams  # noqa: E402
 
-GENERATOR = "chicago-4d generators/archetypes/monument.py (T-3567, T-3582)"
+GENERATOR = "chicago-4d generators/archetypes/monument.py (T-3567, T-3582, T-3583)"
 
 M_GRANITE, M_BRONZE = 0, 1
 # Name, linear base colour, roughness. The granite is the photographs' mid grey (the
@@ -220,6 +224,15 @@ class _Mesh:
         part["nrm"].append(n)
         part["conf"].append(conf)
         return len(part["pos"]) - 1
+
+    def mesh(self, mat, pos, nrm, idx, conf) -> None:
+        """A whole indexed mesh at once (a posed figure, T-3583)."""
+        part = self.parts[mat]
+        base = len(part["pos"])
+        part["pos"] += pos
+        part["nrm"] += nrm
+        part["conf"] += [conf] * len(pos)
+        part["idx"] += [base + i for i in idx]
 
     def tri(self, mat, a, b, c) -> None:
         self.parts[mat]["idx"] += [a, b, c]
@@ -409,12 +422,19 @@ def _cone(m, top, bottom, rt, rb, conf, sides=12):
 
 
 def _group(m: _Mesh, p: MonumentParams, cx: float, cy: float, z0: float) -> None:
+    """The five figures: each body a people rig posed to its joints (T-3583,
+    `monument_figures`), and the parts of `FIGURES` the rigs have not got (feathers,
+    weapons, the cloak, the knot of hair) as they were."""
     conf = p.worst_conf("group_h_m")
     k = (p.group_h_m - p.rock_h_m) / POSE_TOP_M
     # the poses' y runs back from the front, which is the archetype's +y (north)
     place = lambda q: (cx + k * q[0], cy + k * q[1], z0 + k * q[2])  # noqa: E731
     for name in ("warrior", "helm", "black_partridge", "surgeon", "child"):
-        for part in FIGURES[name]:
+        pos, nrm, tri = monument_figures.pose(name, k)
+        m.mesh(M_BRONZE, [(cx + float(v[0]), cy + float(v[1]), z0 + float(v[2])) for v in pos],
+               [(float(n[0]), float(n[1]), float(n[2])) for n in nrm], tri.tolist(), conf)
+        for i in monument_figures.PROPS[name]:
+            part = FIGURES[name][i]
             kind = part[0]
             if kind == "limb":
                 _limb(m, place(part[1]), place(part[2]), k * part[3], k * part[4], conf)
