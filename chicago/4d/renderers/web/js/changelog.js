@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2966, ts: '2026-11-14T07:56:30.574Z', date: 'Nov 14, 2026, 1:56 AM CT', title: 'Climb any stoop to the door', kind: 'feature',
+    items: [
+      'On foot you can now walk up every 1904 house\'s front steps, a tread at a time, to the door, and knock to ask who is home.',
+      'Porches, landings and the back yards\' stoops are climbable too, as are 1835\'s shop stoops and mounting blocks.',
+      'Rails, cheek walls and the steps\' sides now stop you, so you climb between them rather than walking through them.',
+    ] },
   { v: 2965, ts: '2026-11-14T07:25:43.614Z', date: 'Nov 14, 2026, 1:25 AM CT', title: '1835 on a phone holds less memory', kind: 'fix',
     items: [
       '1835 could close itself on a phone a little after it loaded. The plank walks and the road now let go of about 26 MB the phone kept for nothing, and more is freed as you walk.',

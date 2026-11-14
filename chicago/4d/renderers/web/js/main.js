@@ -111,6 +111,7 @@ import './strings/navigator.js'; // T-3571: the mute keys' titles
 import { createFlags } from './flags.js';
 import { createFortGates, gatesOnRoute } from './fort-gates.js';
 import { createHouseDoors, registerDoorPlans } from './house-doors.js';
+import { floorDecks, stairSurface } from './house-floors.js';
 import { createHouseErrands } from './house-errands.js';
 import { blockLoop, footprintCentre, walkDoing, BLOCK_WAYS } from './block-walk.js';
 import { createNightLights } from './night-lights.js';
@@ -2353,10 +2354,11 @@ async function boot() {
   const farColourTier = { on: false, subPixel: false };
   // T-3554: the doors drawn people open (house-doors.js passages) are hung from the doors
   // file, and their baked leaves must be lifted out of the batches as the houses load.
+  let doorsFile1904 = null;
   if (String(loaded.scene.id ?? YEAR) === '1904') {
-    const doorsFile = await fetch(new URL('humans/doors_1904.json', bases.dataBase), { cache: 'no-cache' })
+    doorsFile1904 = await fetch(new URL('humans/doors_1904.json', bases.dataBase), { cache: 'no-cache' })
       .then((r) => (r.ok ? r.json() : null)).catch(() => null);
-    registerDoorPlans(doorsFile);
+    registerDoorPlans(doorsFile1904);
   }
   let buildings = await createBuildings({ registry: loaded.registry, confidence, terrain,
     shadowCasters,
@@ -3124,6 +3126,19 @@ async function boot() {
   scene3d.add(houseDoors.group);
   // T-3554: the back doors the back yards hang swing with these, and people walk through them.
   houseDoors.adopt(api.backYards?.passages);
+  // The owner, 2026-11-14: "Anywhere there are stairs I should be able to climb". Every 1904
+  // house's stoop and porch tops, and the rails and cheeks beside them, as decks the walker
+  // climbs a tread at a time (house-floors.js); the back yards' stoops and 1835's street-front
+  // stoops and mounting blocks the same (back-yards.js, frontage.js `stairDecks`).
+  const stairDecks = [
+    ...floorDecks([...(doorsFile1904?.structures ?? []), ...(doorsFile1904?.barriers ?? [])],
+      (id) => buildings.matrixOf(id)?.elements ?? null),
+    ...(api.backYards?.stairDecks ?? []),
+    ...(frontage.stairDecks ?? []),
+  ];
+  // Filed as two decks (floors, walls) so the walker and every figure's feet ask a few.
+  api.stairDecks = stairDecks;
+  decks.push(...stairSurface(stairDecks));
   api.houseDoors = houseDoors;
   bootController.end('ground');
   bootController.start('flora');
@@ -4183,7 +4198,9 @@ async function boot() {
   // HUD exists (it paints through it); the HUD's callbacks below reach it through
   // the binding, which is settled long before the first frame.
   const router = createRouter({
-    terrain, streets, footprints, decks, surfaceAt: (e, n) => walker.surfaceAt?.(e, n) ?? terrain.surfaceHeight(e, n),
+    // The stoops' floors are the walker's to climb (house-floors.js); the routes keep to the
+    // ground and the planks they always planned over.
+    terrain, streets, footprints, decks: decks.filter((d) => !d.heightAt), surfaceAt: (e, n) => walker.surfaceAt?.(e, n) ?? terrain.surfaceHeight(e, n),
     streetGrid: streetGrid.grid, walks: frontage.walks,
     // T-3263: the trunks and posts a stand must see past — the parkway elms, the lamps
     // and poles, and the grown timber's trunks (re-read when a detail change re-grows it).
