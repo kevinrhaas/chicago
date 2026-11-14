@@ -43779,12 +43779,13 @@ Taylor's 1893 view), with the group's height read through ICHi-19208's camera (2
   joints and baked to bronze (`generators/archetypes/monument_figures.py`), as the owner suggested
   on 2026-11-13. The rigs are an armature and a body only: their faces are the rig's neutral face,
   not the sculpted ones and not anyone's portrait; of their dress only what the sculpture also
-  shows is kept (the breechcloths, Black Partridge's leggings, Mrs. Helm's gown under the full
-  skirt the poses keep, the surgeon's coat and pantaloons, the child's jacket and trousers), as
+  shows is kept (the breechcloths, Black Partridge's leggings, Mrs. Helm's gown under the
+  skirt, overskirt and cloak later work models in folds as both photographs show them (the
+  folds' count and depth are this project's, the hems' places and widths the plate's), the surgeon's coat and pantaloons, the child's jacket and trousers), as
   starting shapes, not as the sculpted drapery; the project's Native dress rules do not apply to a
   sculpture. **Two placings are ours outright:** Mrs. Helm's legs, under her skirt in both
   photographs, stand under its hem, and the surgeon's left arm, which neither photograph shows,
-  lies along his side. Faces, hair, dress folds, the feathers' number, the weapons' detail and the
+  lies along his side. Faces, hair, the dress folds of every figure but Mrs. Helm, the feathers' number, the weapons' detail and the
   whole of the group's rear (no photograph used here shows it; the Inter Ocean's rear sketch of
   1892 bounds it) are not modelled to the sculpture. One bronze colour, a dark brown patina; the
   photographs are monochrome.
