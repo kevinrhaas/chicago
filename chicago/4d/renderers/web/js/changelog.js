@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2958, ts: '2026-11-14T02:27:55.054Z', date: 'Nov 13, 2026, 8:27 PM CT', title: 'Nobody stands inside a stoop\'s steps any more', kind: 'fix',
+    items: [
+      'In 1904, people no longer stand inside the bottom steps of a front stoop or beside its rails. Every stair counts from its first step now.',
+      'The back steps behind the Prairie Avenue houses and the 1835 shop stoops and mounting blocks are kept clear too.',
+      'Talk circles, chat partners and work spots that would have landed on a stair move to the nearest open ground.',
+      'Anyone found standing in a stair steps off it.',
+    ] },
   { v: 2957, ts: '2026-11-14T01:39:44.553Z', date: 'Nov 13, 2026, 7:39 PM CT', title: 'The 1904 check counts 1721 Prairie\'s frame house; narration stands in', kind: 'chore',
     items: [
       'The automated walk-through\'s list of what stands in 1904 now includes Wirt Dexter\'s 1863 frame house behind 1721 Prairie\'s brick front, which arrived without its entry.',
