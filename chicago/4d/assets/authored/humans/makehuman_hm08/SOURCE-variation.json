@@ -214,6 +214,60 @@
    "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/ears/r-ear-scale-incr.target"
   },
   {
+   "path": "makehuman/data/targets/expression/units/caucasian/mouth-corner-puller.target",
+   "sha256": "75ec1f2356c381aa44065f2b812daafae85c5a918843b978d04cf6d8bc79dbe4",
+   "bytes": 15163,
+   "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/caucasian/mouth-corner-puller.target"
+  },
+  {
+   "path": "makehuman/data/targets/expression/units/caucasian/mouth-depression-retraction.target",
+   "sha256": "0ebefb40c4374e628c9595a74f5222bff6323474c87d2d93d1249593806bdc23",
+   "bytes": 10224,
+   "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/caucasian/mouth-depression-retraction.target"
+  },
+  {
+   "path": "makehuman/data/targets/expression/units/caucasian/mouth-depression.target",
+   "sha256": "906a614c24a63a126abeb28b2adbc84efb5f08b49d76fe8ce79fbd0ca9732f9f",
+   "bytes": 12263,
+   "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/caucasian/mouth-depression.target"
+  },
+  {
+   "path": "makehuman/data/targets/expression/units/caucasian/mouth-elevation.target",
+   "sha256": "0b306cea4b0bb372d408b69a55332b8ddb252b3f2d4bfdd6b9d5c34da0f90e32",
+   "bytes": 11104,
+   "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/caucasian/mouth-elevation.target"
+  },
+  {
+   "path": "makehuman/data/targets/expression/units/caucasian/mouth-eversion.target",
+   "sha256": "80ab01c962f5ed9d70492e2fe5802bd5106867c21969bb71ddb19e66c5d6ae9b",
+   "bytes": 8071,
+   "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/caucasian/mouth-eversion.target"
+  },
+  {
+   "path": "makehuman/data/targets/expression/units/caucasian/mouth-parling.target",
+   "sha256": "2da1d3143b3fcf4193629fc5c26b015b8c505cc3258dc41ecd3e20d598b65ccb",
+   "bytes": 4095,
+   "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/caucasian/mouth-parling.target"
+  },
+  {
+   "path": "makehuman/data/targets/expression/units/caucasian/mouth-part-later.target",
+   "sha256": "5128d051612b61a4cf15b664c3c5439e10718b98cc3411be5cad363cae5b4b02",
+   "bytes": 17879,
+   "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/caucasian/mouth-part-later.target"
+  },
+  {
+   "path": "makehuman/data/targets/expression/units/caucasian/mouth-retraction.target",
+   "sha256": "245fe1fa08e91091a2f236b88f4117e78157a4c17cff0a125e819e2a237e0048",
+   "bytes": 13698,
+   "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/caucasian/mouth-retraction.target"
+  },
+  {
+   "path": "makehuman/data/targets/expression/units/caucasian/mouth-upward-retraction.target",
+   "sha256": "aaaed4ee0c13401352b4b6dc8d0bccb61bfda0996ed2718a456a0c32e5f32d0a",
+   "bytes": 15436,
+   "url": "https://raw.githubusercontent.com/makehumancommunity/makehuman/a8bc2d54ff0ac92e78ff71431b1023eda42bf482/makehuman/data/targets/expression/units/caucasian/mouth-upward-retraction.target"
+  },
+  {
    "path": "makehuman/data/targets/eyebrows/eyebrows-angle-down.target",
    "sha256": "ec30979a4b998f4054f0d72c8e7e3b204ca12417f07e02669f4f8c8566f8e4f6",
    "bytes": 8604,
