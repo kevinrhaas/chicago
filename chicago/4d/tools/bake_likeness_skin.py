@@ -70,6 +70,27 @@ fitted head:
     beside them;
   - each iris (`read_eyes`) is read from the front picture as rings about its centre and drawn
     whole, with the colour of the whites beside it;
+  - a front picture that grins shows its teeth, and its lips were being squeezed onto a mouth
+    fitted shut while the side pictures, taken with the mouth shut, were laid on the same
+    face. A front view marked `mouth: "open"` is a smile, and the face is fitted into it
+    (`fit_smile`): MakeHuman's expression units for the mouth (axes.json `expressions`, pinned
+    CC0 targets), each side of the mouth taking its own share of each, carry the lips back
+    over the teeth and the corners out; what they leave, a few millimetres, is taken up in the
+    picture's own plane, until the drawn lips lie on the picture's outer lip ring and the
+    opening the front camera sees between them is the picture's inner ring. The smile is kept
+    as a move of the kit's vertices (data/humans/variation/smiles/<PERSON>.json;
+    tools/human_variation_kit.py carries it into the persons file): the figure rests as
+    fitted, mouth shut, as the side pictures show it, and moves into the smile
+    (renderers/web/js/human-variation.js gives the face the move; human-mouth.js plays it).
+    Each picture is laid on the face as it was when the picture was taken: the front on the
+    smiling face, the others on the face at rest. The lips take the picture's lips, never its
+    teeth (`open_px`), and behind them stands a strip (`teeth_strip`: bent as the lips' inner
+    edge is, set behind it, from corner to corner and a little past the lips' edges) that
+    takes the picture's own pixels, opening to opening, kept as a patch in a free corner of
+    the head's part of the sheet (`TEETH`). `texture.teeth` gives the renderer the strip
+    (renderers/web/js/human-mouth.js adds it to the body's skin, on the head's bone);
+    `texture.smile` records the units' shares and how nearly the smiling face's opening is
+    the picture's;
   - the result is one JPEG, assets/humans/web/likeness/<PERSON>_skin.jpg: `RECTS` place the
     head, eye sockets and neck on it, and its spare column holds three blocks of the tool's own.
     The mask (`MASK`, a quarter the sheet's size): green where the sheet covers, red how far the
@@ -156,6 +177,30 @@ EYE_RIMS = (                                  # MediaPipe: each eye's opening, i
 LIPS = (61, 146, 91, 181, 84, 17, 314, 405, 321, 375, 291, 409, 270, 269, 267, 0, 37, 39, 40, 185)   # MediaPipe's outer lip ring
 SIDE_SCALE_TIE = 0.03                         # a side view's scale is held this near the front's until the views are lined up
 NECK_KEEP_M = (-0.004, 0.012)                 # the head is whole from here above the chin's point
+LIPS_UPPER = (191, 80, 81, 82, 13, 312, 311, 310, 415)   # MediaPipe's inner lip ring: the upper lip's edge, from the corner at the picture's left to the one at its right
+LIPS_LOWER = (95, 88, 178, 87, 14, 317, 402, 318, 324)   # ...the lower lip's, the same way
+LIPS_CORNERS = (78, 308)                                 # ...and the two corners between them
+MOUTH_NEAR_M = 0.06                           # the mouth is drawn from the triangles within this of the lips' middle, and the inner mouth
+MOUTH_BAG_UV = (0.75, 0.86, 0.93, 1.0)        # the inner mouth's own island of the body's map (u0, v0, u1, v1)
+MOUTH_PAD_PX = 24                             # ...in a window of the picture this much wider than its lips
+MOUTH_ZOOM = 2                                # ...drawn at this many times the picture's size
+MOUTH_HOLDS = (1.5, 4.0)                      # an open mouth is baked only where the drawn opening's edge lies within this of the picture's (mm), and the lips' outer ring within this (mm, rms)
+SMILES = ROOT / 'data/humans/variation/smiles'
+SMILE_FORMAT = 'chicago4d_human_smile_v1'
+SMILE_UNIT_M = 1e-5                           # a smile's moves are kept in the kit's own delta unit
+SMILE_MOST = 1.25                             # neither side of the mouth takes more than this much of an expression unit
+SMILE_RIDGE_MM = 0.25                         # ...and a unit taken whole costs as much as this miss on every point of the lips
+SMILE_SIDE_M = 0.008                          # the two sides share a unit across this much of the midline, each way
+SMILE_ROUNDS = 4                              # the drawn opening's edge is read again this many times
+SMILE_REST_M = (0.022, 0.034)                 # what the units leave is taken up in the picture's plane this near the lips, fading out between the two
+SMILE_NEAR_M = (0.05, 0.065)                  # ...and this near them in depth (the back of the head lies behind them in the picture)
+SMILE_DROP_M = 5e-5                           # a vertex the smile moves less than this is left out of its record
+TEETH = {'px': (444, 0, 508, 160),            # the teeth's patch: a free corner of the head's part of the sheet
+         'grid': (17, 5),                     # the strip behind the lips: points across and down
+         'back_m': 0.0025,                    # ...set back this far behind the lips' inner edge
+         'over_m': (0.003, 0.002, 0.002),     # ...standing this far above that edge, below it and past its corners
+         'pad_px': 8,                         # the patch keeps this much of the picture round the strip's own pixels
+         'shown': 0.9}                        # ...and the front camera must see the strip, not the inner mouth, in this share of the opening
 
 
 def smooth(a, b, x):
@@ -218,6 +263,7 @@ def refine(X, rest, uv, tri, lm):
     renderers/web/js/human-fine.js splits the body's own skin the same way where the sheet
     says hair stands out (`texture.grow.fine`), so the app's head carries what is baked here."""
     mid = (X[lm['ear_top_l']] + X[lm['ear_top_r']]) / 2
+    splits = []
     for _ in range(FINE_ROUNDS):
         group = weld(rest)
         e = np.stack([tri[:, [0, 1]], tri[:, [1, 2]], tri[:, [2, 0]]], 1)                 # (triangle, edge, end)
@@ -237,6 +283,7 @@ def refine(X, rest, uv, tri, lm):
         X = np.concatenate([X, (X[ends[:, 0]] + X[ends[:, 1]]) / 2])
         rest = np.concatenate([rest, (rest[ends[:, 0]] + rest[ends[:, 1]]) / 2])
         uv = np.concatenate([uv, (uv[ends[:, 0]] + uv[ends[:, 1]]) / 2])
+        splits.append(ends)
         m = np.full(pk.shape, -1)
         m[marked] = new[np.searchsorted(uniq, pk[marked])]
         out = [tri[~marked.any(1)]]
@@ -253,12 +300,13 @@ def refine(X, rest, uv, tri, lm):
                 mb, mc = mm[(k + 1) % 3], mm[(k + 2) % 3]                                 # on b-c and on c-a; a-b is whole
                 out.append(np.array([[c, mc, mb], [mc, a, b], [mc, b, mb]]))
         tri = np.concatenate(out)
-    return X, rest, uv, tri
+    return X, rest, uv, tri, splits
 
 
 def fitted_head(person):
     """The body's skin with the person's fitted face on it (metres): the kit's vertices in the
-    kit's order, then the vertices `refine` adds to the head."""
+    kit's order (`kit_n` of them), then the vertices `refine` adds to the head (`splits`: the
+    two ends each was the middle of, a round at a time)."""
     portrait = json.loads((F.PORTRAITS / f'{person}.json').read_text())
     fit = json.loads((F.FITS / f'{person}.json').read_text())
     header, refs, axes = F.load_kit()
@@ -277,9 +325,10 @@ def fitted_head(person):
     side = (fit.get('fit', {}).get('views') or {}).get('side_camera') or {}
     lm = {k: kidx[v] for k, v in F.landmarks().items() if isinstance(v, int)}
     tri, uv = F.body_triangles(asset), glb_attribute(asset, 'TEXCOORD_0')
+    kit_n, splits = len(rest), []
     if FINE_EDGE_M:
-        X, rest, uv, tri = refine(X, rest, uv, tri, lm)
-    return {'X': X, 'rest': rest, 'tri': tri, 'uv': uv, 'asset': asset,
+        X, rest, uv, tri, splits = refine(X, rest, uv, tri, lm)
+    return {'X': X, 'rest': rest, 'tri': tri, 'uv': uv, 'asset': asset, 'person': person, 'kit_n': kit_n, 'splits': splits,
             'side_turn_deg': abs(side['yaw_deg']) if 'yaw_deg' in side else None,
             'mp': {int(k[3:]): kidx[v['vertex']] for k, v in table['points'].items()},
             'lm': {k: kidx[v] for k, v in F.landmarks().items() if isinstance(v, int)}}
@@ -461,7 +510,7 @@ def read_views(rec, sheet, head):
         size = (x1 - x0, y1 - y0)
         fg = figure_mask(img)
         pts = np.asarray(spec['points_px'], float) - np.array([x0, y0]) if spec.get('points_px') else None
-        v = {'name': spec['name'], 'img': img, 'fg': fg, 'size': size, 'pts': pts}
+        v = {'name': spec['name'], 'img': img, 'fg': fg, 'size': size, 'pts': pts, 'mouth': spec.get('mouth')}
         if spec['name'] == 'front':
             use = [i for i in idx if spec.get('camera') != 'upper_face' or X[mp[i], 1] > X[lm['subnasale'], 1] + 0.004]
             v['cam'] = solve_camera(X[[mp[i] for i in use]], pts[use], centre, (-0.3, 0.0, 0.3))
@@ -1237,7 +1286,411 @@ def grow(rec, views, head, T, centre):
     return out, mid
 
 
+# ---------------------------------------------------------------- an open mouth
+
+def spread(head, field):
+    """A field on the kit's vertices carried to the vertices `refine` added: each takes the
+    middle of its edge's two ends, as it did in every other attribute."""
+    out = np.asarray(field, float)
+    for ends in head.get('splits', ()):
+        out = np.concatenate([out, (out[ends[:, 0]] + out[ends[:, 1]]) / 2])
+    return out
+
+
+def mouth_parts(head, X):
+    """The triangles round the mouth of the head X, and which of them are the inner mouth (its own
+    island of the body's map, behind the lips)."""
+    tri, uv, mp = head['tri'], head['uv'], head['mp']
+    u0, v0, u1, v1 = MOUTH_BAG_UV
+    at = uv[tri[:, 0]]
+    bag = (at[:, 0] > u0) & (at[:, 0] < u1) & (at[:, 1] > v0) & (at[:, 1] < v1)
+    near = (np.linalg.norm(X[tri].mean(1) - X[[mp[i] for i in LIPS]].mean(0), axis=1) < MOUTH_NEAR_M) | bag
+    return tri[near], bag[near]
+
+
+def mouth_opening(X, head, cam, centre, pts):
+    """Where a camera sees between the lips of the head X into its mouth: a mask over a window
+    of the picture round the picture's own lips (points `pts`), MOUTH_ZOOM times the picture's
+    size, and the window's corner in the picture."""
+    T, bag = mouth_parts(head, X)
+    ring = pts[list(LIPS)]
+    lo = np.floor(ring.min(0)) - MOUTH_PAD_PX
+    size = tuple(int(n) for n in (np.ceil(ring.max(0)) + MOUTH_PAD_PX - lo) * MOUTH_ZOOM)
+    P, z = project(X, cam, centre)
+    _, tb, _ = raster((P - lo) * MOUTH_ZOOM, z, T, size)
+    return (tb >= 0) & bag[np.clip(tb, 0, None)], lo
+
+
+def mouth_ring(pts):
+    """The picture's inner lip ring, in order round the opening."""
+    return pts[[LIPS_CORNERS[0], *LIPS_UPPER, LIPS_CORNERS[1], *LIPS_LOWER[::-1]]]
+
+
+def mouth_shown(pts, lo, shape, zoom=MOUTH_ZOOM):
+    """The picture's own opening, inside its inner lip ring, on a window like mouth_opening's."""
+    from PIL import Image, ImageDraw
+    im = Image.new('L', (shape[1], shape[0]), 0)
+    ImageDraw.Draw(im).polygon([tuple(q) for q in (mouth_ring(pts) - lo) * zoom], fill=1)
+    return np.asarray(im, bool)
+
+
+def mouth_measure(X, head, cam, centre, pts):
+    """How nearly the mouth of the head X is open as the picture's is: the two openings' sizes,
+    how far the drawn one's edge lies from the picture's on average (the area one covers and
+    the other does not, over the picture's ring's length), how much of the two the drawn one
+    shares with the picture's, and how far the lips' outer ring lies from the picture's (rms),
+    in millimetres of the face."""
+    got, lo = mouth_opening(X, head, cam, centre, pts)
+    want = mouth_shown(pts, lo, got.shape)
+    mm = 1000 / cam[3]
+    ring = mouth_ring(pts)
+    around = np.linalg.norm(np.diff(np.vstack([ring, ring[:1]]), axis=0), axis=1).sum() * mm
+    off = (pts[list(LIPS)] - project(X[[head['mp'][i] for i in LIPS]], cam, centre)[0]) * mm
+    cell = (mm / MOUTH_ZOOM) ** 2
+    return {'picture_mm2': round(float(want.sum() * cell), 1), 'drawn_mm2': round(float(got.sum() * cell), 1),
+            'edge_off_mm': round(float((got ^ want).sum() * cell / around), 2), 'shared': round(float((got & want).sum() / max(1, (got | want).sum())), 3),
+            'ring_off_mm': round(float(np.sqrt((off ** 2).sum(1).mean())), 2)}
+
+
+def mouth_edges(mask):
+    """The drawn opening's own edges: its columns (window pixels), and its upper and lower edge
+    down each, a little smoothed. None where the mouth is shut."""
+    from scipy import ndimage
+    cols = np.nonzero(mask.any(0))[0]
+    if len(cols) < 8 * MOUTH_ZOOM:
+        return None
+    top = ndimage.uniform_filter1d(np.argmax(mask, 0)[cols].astype(float), 5, mode='nearest')
+    bottom = ndimage.uniform_filter1d((mask.shape[0] - np.argmax(mask[::-1], 0))[cols].astype(float), 5, mode='nearest')
+    return cols, top, bottom
+
+
+def mouth_edge(mask, lo, pts):
+    """Where each point of the picture's inner lip ring lies on the drawn opening's own edge
+    ({point: picture pixel}): as far across the drawn opening as the point is across the
+    picture's, on its upper edge for the upper lip's points and its lower for the lower lip's.
+    The correspondence table cannot say (it was read on a shut mouth, where the two lips'
+    edges are one line)."""
+    edges = mouth_edges(mask)
+    if edges is None:
+        sys.exit("the smiling face's mouth is shut where the record says its front picture's is open")
+    cols, top, bottom = edges
+    a, b = pts[LIPS_CORNERS[0], 0], pts[LIPS_CORNERS[1], 0]
+    out = {}
+    for ids, edge in ((LIPS_UPPER, top), (LIPS_LOWER, bottom), (LIPS_CORNERS, (top + bottom) / 2)):
+        for i in ids:
+            x = cols[0] + np.clip((pts[i, 0] - a) / (b - a), 0, 1) * (cols[-1] - cols[0])
+            out[i] = np.array([x + 0.5, np.interp(x, cols, edge)]) / MOUTH_ZOOM + lo
+    return out
+
+
+def lip_rim(head, X, ring=False):
+    """The lips' inner edge: the vertices on the open boundary of the head's own island that are
+    one point of the body with a vertex of the inner mouth (where the lips turn in and the
+    inner mouth begins). With `ring`, the edges between them as well."""
+    tri, uv = head['tri'], head['uv']
+    (u0, v0, u1, v1) = RECTS[0]['uv']
+    T, bag = mouth_parts(head, X)
+    group = weld(head['rest'])
+    inner = set(group[np.unique(T[bag])].tolist())
+    T = T[~bag]
+    T = T[((uv[T][:, :, 0] >= u0) & (uv[T][:, :, 0] <= u1) & (uv[T][:, :, 1] >= v0) & (uv[T][:, :, 1] <= v1)).all(1)]
+    edges = open_edges(T)
+    rim = np.unique(np.array(edges))
+    rim = np.array([i for i in rim if int(group[i]) in inner])
+    if len(rim) < 12:
+        sys.exit("the lips' inner edge was not found on this body")
+    if ring:
+        on = set(rim.tolist())
+        return rim, [e for e in edges if e[0] in on and e[1] in on]
+    return rim
+
+
+def lip_arcs(head, X):
+    """The lips' inner edge of the head X (`lip_rim`) as its two arcs, the upper lip's first:
+    each the edge's vertices in order across the face, from one corner of the mouth to the
+    other, both corners in both. The edge is one ring round the mouth by the skin's own edges,
+    and the corners are its two ends across the face; of the two ways round, the higher is the
+    upper lip's. (`lip_sides` does not say this of the edge itself: by a corner the lower lip's
+    edge is nearer over the skin to the upper lip's middle than to its own.) Read on an open
+    mouth; on a shut one the two arcs lie on one line."""
+    rim, edges = lip_rim(head, X, ring=True)
+    nxt = {int(i): [] for i in rim}
+    for a, b in edges:
+        nxt[a].append(b)
+        nxt[b].append(a)
+    if any(len(v) != 2 for v in nxt.values()):
+        sys.exit("the lips' inner edge is not one ring on this body")
+    start = int(rim[np.argmin(X[rim, 0])])
+    order, prev = [start], None
+    while True:
+        a, b = nxt[order[-1]]
+        step = b if a == prev else a
+        prev = order[-1]
+        if step == start:
+            break
+        order.append(step)
+    if len(order) != len(rim):
+        sys.exit("the lips' inner edge is not one ring on this body")
+    order = np.array(order)
+    far = int(np.argmax(X[order, 0]))
+    one, other = order[:far + 1], np.concatenate([order[far:], order[:1]])[::-1]
+    return (one, other) if X[one, 1].mean() >= X[other, 1].mean() else (other, one)
+
+
+def lip_sides(head, X):
+    """Which lip each vertex of the skin round the mouth is on, read on the face at rest X: +1
+    the upper, -1 the lower, 0 for the inner mouth and whatever the skin does not reach. A
+    vertex is on the lip whose outer edge is nearer to it over the skin (MediaPipe's outer lip
+    ring, its upper and lower middles): the lips' inner edges lie on one line when the mouth is
+    shut, and each turns in behind its own lip, so neither height nor the skin beside an edge
+    says which is which, but from one lip's inner edge to the other lip's outer edge the skin
+    goes round by a corner."""
+    from scipy.sparse import coo_matrix
+    from scipy.sparse.csgraph import dijkstra
+    T, bag = mouth_parts(head, X)
+    skin = T[~bag]
+    group = weld(head['rest'])                     # by place: a seam of the map is no edge of the skin
+    e = np.concatenate([skin[:, [0, 1]], skin[:, [1, 2]], skin[:, [2, 0]]])
+    w = np.linalg.norm(X[e[:, 0]] - X[e[:, 1]], axis=1) + 1e-9
+    n = len(X)
+    g = coo_matrix((np.concatenate([w, w]), (np.concatenate([group[e[:, 0]], group[e[:, 1]]]), np.concatenate([group[e[:, 1]], group[e[:, 0]]]))), shape=(n, n)).tocsr()
+    mp = head['mp']
+    far = [dijkstra(g, indices=[int(group[mp[i]]) for i in ids], min_only=True) for ids in ((37, 0, 267), (84, 17, 314))]
+    on = np.zeros(n, int)
+    used = np.unique(skin)
+    reach = np.isfinite(far[0][group[used]]) | np.isfinite(far[1][group[used]])
+    used = used[reach]
+    on[used] = np.where(far[0][group[used]] <= far[1][group[used]], 1, -1)
+    return on
+
+
+def smile_units(head):
+    """The expression units a smile is fitted with (axes.json `expressions.units`, pinned CC0
+    MakeHuman targets), each as it moves this head's vertices (metres)."""
+    import human_variation_kit as K
+    names = json.loads(F.AXES.read_text())['expressions']['units']
+    delta, _, _ = K.target_deltas()
+    return {pathlib.PurePosixPath(n).stem: spread(head, delta([n])) for n in names}
+
+
+def fit_smile(head, v, centre, X0):
+    """The smile a front picture shows (`mouth: open`), as a move of the face's vertices from
+    the head X0 (the fitted face, mouth shut, with its hair stood out): the figure rests as
+    fitted and moves into this.
+
+    The picture says where the lips are: MediaPipe's outer lip ring, on the vertices the
+    correspondence table names, and its inner ring, which is the opening's own edge. No table
+    can name that edge's vertices (it was read on a shut mouth, where the two lips' edges are
+    one line), so they are read off the face as it is drawn: at first the lips' inner edge
+    itself, as far across it as each point is across the picture's, and then, each round, the
+    vertices that draw the opening's edge as the front camera sees it.
+
+    Two things move the lips onto those points. First MakeHuman's expression units for the
+    mouth (`smile_units`), each side of the mouth taking its own share of each (a smile is
+    rarely even, and the head is turned), none past SMILE_MOST and each held back a little:
+    they carry the lips back over the teeth and the corners out and up in depth as well as
+    across. Then what the units leave, a few millimetres, is taken up in the picture's own
+    plane, smoothly (a thin-plate spline through the lips' points, dying away SMILE_REST_M from
+    them), so the drawn lips lie on the picture's. Returns the move for every vertex of the
+    head, the kit's vertices it moves (those and their moves in SMILE_UNIT_M are the smile's
+    record), each unit's two shares, and how nearly the opening is the picture's."""
+    from PIL import Image, ImageDraw
+    from scipy import ndimage
+    from scipy.interpolate import RBFInterpolator
+    from scipy.optimize import lsq_linear
+    mp, pts, cam = head['mp'], v['pts'], v['cam']
+    s, R = cam[3], F.rot(*cam[:3])
+    mm = 1000 / s
+    units = smile_units(head)
+    names = sorted(units)
+    xmid = float(X0[[mp[i] for i in (13, 14, 0, 17)], 0].mean())
+    left = smooth(-SMILE_SIDE_M, SMILE_SIDE_M, X0[:, 0] - xmid)[:, None]
+    D = [units[n] * w for n in names for w in (left, 1 - left)]
+    on = lip_sides(head, X0)
+    lips = {1: np.nonzero(on > 0)[0], -1: np.nonzero(on < 0)[0]}
+    rim = lip_rim(head, X0)
+    outer = [(mp[i], pts[i]) for i in LIPS]
+    ring = pts[list(LIPS)]
+    middle = X0[[mp[i] for i in LIPS]].mean(0)
+    near = 1 - smooth(SMILE_NEAR_M[0], SMILE_NEAR_M[1], np.linalg.norm(X0 - middle, axis=1))
+    reach = SMILE_REST_M[1] * s
+    # How far each pixel is from the picture's lips, for the fade of what the units leave.
+    lo = np.floor(ring.min(0) - reach - 4)
+    W, H = (int(n) for n in np.ceil(ring.max(0) + reach + 4) - lo)
+    im = Image.new('L', (W, H), 0)
+    ImageDraw.Draw(im).polygon([tuple(q) for q in ring - lo], fill=1)
+    far = ndimage.distance_transform_edt(np.asarray(im) == 0).astype(np.float32) / s
+    c2 = ring.mean(0)
+    out2 = ring - c2
+    anchors = ring + out2 / np.linalg.norm(out2, axis=1, keepdims=True) * reach
+    proj = lambda X: project(X, cam, centre)[0]
+
+    def inner(X):
+        """The picture's inner ring, each point with the vertex that should lie on it: on a
+        shut mouth the lips' inner edge itself, on an open one the vertex nearest the drawn
+        opening's edge there, of that lip."""
+        P = proj(X)
+        mask, wlo = mouth_opening(X, head, cam, centre, pts)
+        if mouth_edges(mask) is None:
+            a, b = pts[LIPS_CORNERS[0], 0], pts[LIPS_CORNERS[1], 0]
+            cons = []
+            for ids, side in ((LIPS_UPPER, 1), (LIPS_LOWER, -1)):
+                r = rim[on[rim] == side]
+                r = r[np.argsort(P[r, 0])]
+                cons += [(int(r[int(round(np.clip((pts[i, 0] - a) / (b - a), 0, 1) * (len(r) - 1)))]), pts[i]) for i in ids]
+            r = rim[np.argsort(P[rim, 0])]
+            return cons + [(int(r[0]), pts[LIPS_CORNERS[0]]), (int(r[-1]), pts[LIPS_CORNERS[1]])]
+        cons = []
+        for i, at in mouth_edge(mask, wlo, pts).items():
+            among = lips[1] if i in LIPS_UPPER else lips[-1] if i in LIPS_LOWER else rim
+            cons.append((int(among[np.argmin(((P[among] - at) ** 2).sum(1))]), pts[i]))
+        return cons
+
+    def by_units(cons):
+        # one target a vertex: where several of the picture's points fall to one, their middle
+        rows = sorted({j for j, _ in cons})
+        want = np.array([np.mean([q for j, q in cons if j == r], axis=0) for r in rows])
+        rows = np.array(rows)
+        A = np.stack([((d[rows] @ R.T)[:, :2] * np.array([s, -s]) * mm).ravel() for d in D], 1)
+        miss = ((want - proj(X0)[rows]) * mm).ravel()
+        ridge = SMILE_RIDGE_MM * np.sqrt(len(rows)) * np.eye(len(D))
+        w = lsq_linear(np.vstack([A, ridge]), np.concatenate([miss, np.zeros(len(D))]), bounds=(0, SMILE_MOST)).x
+        return w, X0 + sum(wk * d for wk, d in zip(w, D))
+
+    def in_plane(X):
+        """What is left, taken up in the picture's plane: the lips' outer ring from where its
+        vertices are drawn, the inner ring from where the opening's edge is drawn (whichever
+        part of a lip draws it), smoothly between, and nothing SMILE_REST_M from the lips."""
+        P = proj(X)
+        at = [P[mp[i]] for i in LIPS]
+        to = [pts[i] for i in LIPS]
+        mask, wlo = mouth_opening(X, head, cam, centre, pts)
+        if mouth_edges(mask) is not None:
+            for i, e in mouth_edge(mask, wlo, pts).items():
+                at.append(e)
+                to.append(pts[i])
+        at, to = np.array(at), np.array(to)
+        left_over = RBFInterpolator(np.vstack([at, anchors]), np.vstack([to - at, np.zeros_like(anchors)]), kernel='thin_plate_spline', smoothing=1.0)
+        q = P - lo
+        k = np.nonzero((near > 0) & (q[:, 0] > 1) & (q[:, 0] < W - 2) & (q[:, 1] > 1) & (q[:, 1] < H - 2))[0]
+        fade = near[k] * (1 - smooth(SMILE_REST_M[0], SMILE_REST_M[1], sample(far[:, :, None], q[k])[:, 0]))
+        k, fade = k[fade > 0], fade[fade > 0]
+        d = left_over(P[k]) * fade[:, None] / s
+        X = X.copy()
+        X[k] += np.stack([d[:, 0], -d[:, 1], np.zeros(len(k))], 1) @ R
+        return X
+
+    # The units first, twice: on the lips' inner edge, then on the vertices that draw the opening.
+    w, X = by_units(outer + inner(X0))
+    w, X = by_units(outer + inner(X))
+    best = None
+    for _ in range(SMILE_ROUNDS):
+        X = in_plane(X)
+        m = mouth_measure(X, head, cam, centre, pts)
+        if best is None or m['edge_off_mm'] ** 2 + 0.25 * m['ring_off_mm'] ** 2 < best[0]:
+            best = (m['edge_off_mm'] ** 2 + 0.25 * m['ring_off_mm'] ** 2, X)
+    X = best[1]
+    # As the record keeps it and the renderer draws it: the kit's vertices, in the kit's unit.
+    n = head['kit_n']
+    d = X[:n] - X0[:n]
+    moved = np.nonzero(np.linalg.norm(d, axis=1) >= SMILE_DROP_M)[0]
+    q = np.round(d[moved] / SMILE_UNIT_M).astype(int)
+    if np.abs(q).max(initial=0) >= 32767:
+        sys.exit('a smile moves a vertex further than its record can hold')
+    kept = np.zeros((n, 3))
+    kept[moved] = q * SMILE_UNIT_M
+    delta = spread(head, kept)
+    return {'delta': delta, 'vertices': moved, 'moves': q,
+            'units': {name: [round(float(w[2 * k]), 3), round(float(w[2 * k + 1]), 3)] for k, name in enumerate(names)},
+            'most_m': round(float(np.linalg.norm(kept, axis=1).max(initial=0)), 5),
+            'measured': mouth_measure(X0 + delta, head, cam, centre, pts)}
+
+
+def teeth_strip(X, head, v, centre):
+    """The teeth of an open mouth, as the front picture shows them: a strip of TEETH['grid']
+    points behind the lips of the smiling head X. Across, it follows the lips' inner edge from
+    corner to corner (a parabola through `lip_rim`, back from the middle to the corners), set
+    behind every point of that edge by TEETH['back_m'] at the least; it stands TEETH['over_m']
+    above the upper lip's edge, below the lower lip's and past the corners, hidden there in
+    the lips, so a mouth that shuts or a jaw that drops never shows its end. Its colour is the
+    front picture's: each point, as the front camera sees it in the drawn opening, takes the
+    picture's pixel as far across the picture's opening and as far down between its lips.
+    Returns the points (metres, the body's rest frame), their pixels in the front picture,
+    and the share of the drawn opening in which the
+    camera sees the strip and not the inner mouth behind it."""
+    cam, pts = v['cam'], v['pts']
+    rim = lip_rim(head, X)
+    xm = float(X[rim, 0].mean())
+    (a, b), *_ = np.linalg.lstsq(np.stack([np.ones(len(rim)), (X[rim, 0] - xm) ** 2], 1), X[rim, 2], rcond=None)
+    b = min(float(b), 0.0)
+    behind = max(0.0, float((a + b * (X[rim, 0] - xm) ** 2 - X[rim, 2]).max()))
+    nc, nr = TEETH['grid']
+    up, down, past = TEETH['over_m']
+    xs = np.linspace(X[rim, 0].min() - past, X[rim, 0].max() + past, nc)
+
+    def edge(arc):
+        r = arc[np.argsort(X[arc, 0])]
+        return np.interp(xs, X[r, 0], X[r, 1])
+
+    yu, yl = (edge(arc) for arc in lip_arcs(head, X))
+    ym = (yu + yl) / 2
+    top, bottom = np.maximum(yu, ym + 0.001) + up, np.minimum(yl, ym - 0.001) - down
+    zs = a - TEETH['back_m'] - behind + b * (xs - xm) ** 2
+    at = np.stack([np.repeat(xs[None], nr, 0), top[None] + (bottom - top)[None] * np.linspace(0, 1, nr)[:, None], np.repeat(zs[None], nr, 0)], -1).reshape(-1, 3)
+    # The picture's pixel for each point: opening to opening.
+    mask, lo = v['opening']
+    cols, etop, ebottom = mouth_edges(mask)
+    cx, ty, by = (cols + 0.5) / MOUTH_ZOOM + lo[0], etop / MOUTH_ZOOM + lo[1], ebottom / MOUTH_ZOOM + lo[1]
+    pa, pb = pts[LIPS_CORNERS[0]], pts[LIPS_CORNERS[1]]
+    upper, lower = pts[[LIPS_CORNERS[0], *LIPS_UPPER, LIPS_CORNERS[1]]], pts[[LIPS_CORNERS[0], *LIPS_LOWER, LIPS_CORNERS[1]]]
+    upper, lower = upper[np.argsort(upper[:, 0])], lower[np.argsort(lower[:, 0])]
+    P = project(at, cam, centre)[0]
+    px = pa[0] + (P[:, 0] - cx[0]) / (cx[-1] - cx[0]) * (pb[0] - pa[0])
+    t0, b0 = np.interp(P[:, 0], cx, ty), np.interp(P[:, 0], cx, by)
+    t1, b1 = np.interp(px, upper[:, 0], upper[:, 1]), np.interp(px, lower[:, 0], lower[:, 1])
+    share = (P[:, 1] - t0) / np.maximum(b0 - t0, 1.0)
+    py = np.where(P[:, 1] < t0, t1 - (t0 - P[:, 1]), np.where(P[:, 1] > b0, b1 + (P[:, 1] - b0), t1 + share * (b1 - t1)))
+    # What the front camera sees in the opening: the strip, or the inner mouth in front of it.
+    T, bag = mouth_parts(head, X)
+    grid = np.arange(nc * nr).reshape(nr, nc) + len(X)
+    cells = np.stack([grid[:-1, :-1], grid[1:, :-1], grid[:-1, 1:], grid[:-1, 1:], grid[1:, :-1], grid[1:, 1:]], -1).reshape(-1, 3)
+    Pa, za = project(np.vstack([X, at]), cam, centre)
+    _, tb, _ = raster((Pa - lo) * MOUTH_ZOOM, za, np.vstack([T, cells]), mask.shape[::-1])
+    strip, inner = tb >= len(T), (tb >= 0) & (tb < len(T)) & bag[np.clip(tb, 0, len(T) - 1)]
+    return {'at': at, 'px': np.stack([px, py], 1), 'rim': len(rim), 'behind_m': round(behind, 5),
+            'shown': round(float(strip.sum() / max(1, (strip | inner).sum())), 3)}
+
+
+def teeth_patch(strip, v):
+    """The front picture's pixels the strip takes, as a patch for the sheet, and each of the
+    strip's points on it (sheet pixels). The picture's own opening is kept; round it, where the
+    strip stands hidden in the lips, the teeth's colours are carried outward (the lips' are
+    not: a jaw that drops shows a little more of the strip, never a lip painted on teeth). The
+    patch is turned a quarter (the mouth's width down the sheet) to fit TEETH['px']."""
+    from PIL import Image
+    from scipy import ndimage
+    x0, y0, x1, y1 = TEETH['px']
+    lo = np.floor(strip['px'].min(0)).astype(int) - TEETH['pad_px']
+    hi = np.ceil(strip['px'].max(0)).astype(int) + TEETH['pad_px']
+    W, H = v['size']
+    if lo.min() < 0 or hi[0] > W or hi[1] > H:
+        sys.exit("the front picture's mouth lies off its quadrant")
+    crop = v['img'][lo[1]:hi[1], lo[0]:hi[0]].copy()
+    inside = ndimage.binary_erosion(mouth_shown(v['pts'], lo.astype(float), crop.shape[:2], 1), iterations=1)
+    crop = diffuse_fill(crop, ~inside, known=inside)
+    w, h = hi - lo
+    scale = min(1.0, (x1 - x0) / h, (y1 - y0) / w)
+    if scale < 1:
+        crop = np.asarray(Image.fromarray((np.clip(crop, 0, 1) * 255).astype(np.uint8)).resize((max(1, int(w * scale)), max(1, int(h * scale))), Image.LANCZOS)).astype(np.float32) / 255
+    turned = np.rot90(crop)                       # the picture's right edge at the top
+    th, tw = turned.shape[:2]
+    box = np.pad(turned, ((0, (y1 - y0) - th), (0, (x1 - x0) - tw), (0, 0)), mode='edge')
+    q = (strip['px'] - lo) * scale
+    return box, np.stack([x0 + q[:, 1], y0 + (crop.shape[1] - q[:, 0])], 1)
+
+
 def bake(rec, sheet, head):
+    from PIL import Image, ImageDraw
     from scipy import ndimage
     from scipy.interpolate import RBFInterpolator
     views, T, centre, xmid = read_views(rec, sheet, head)
@@ -1258,22 +1711,51 @@ def bake(rec, sheet, head):
     thick, mid = grow(rec, views, head, T, centre)
     X = X0 + away(X0, mid) * thick[:, None]
     group = weld(head['rest'])
-    N = np.zeros_like(X)
-    np.add.at(N, group, vertex_normals(X, head['tri']))
-    N = (N / np.maximum(np.linalg.norm(N, axis=1, keepdims=True), 1e-12))[group]
+
+    def normals(Xs):
+        n = np.zeros_like(Xs)
+        np.add.at(n, group, vertex_normals(Xs, head['tri']))
+        return (n / np.maximum(np.linalg.norm(n, axis=1, keepdims=True), 1e-12))[group]
+
+    N = normals(X)
+    # A front picture whose mouth is open shows a smile: the face is fitted into it (the figure
+    # rests as fitted, mouth shut, and moves into the smile), and that picture is laid on the
+    # smiling face; the others, on the face at rest they were taken of.
+    smile = fit_smile(head, views[0], centre, X) if views[0].get('mouth') == 'open' else None
     idx = sorted(mp)
     hv = np.unique(T)
     for v in views:
-        P, z = project(X, v['cam'], centre)
+        smiling = smile is not None and v['name'] == 'front'
+        Xv = X + smile['delta'] if smiling else X
+        P, z = project(Xv, v['cam'], centre)
         zb, _, _ = raster(P, z, T, v['size'])
         Pw = P.copy()
         if v['name'] == 'front':
             # The picture's own features onto the mesh's: a thin-plate spline through the points.
-            src, dst = P[[mp[i] for i in idx]], v['pts'][idx]
-            Pw[hv] = P[hv] + RBFInterpolator(src, dst - src, kernel='thin_plate_spline', smoothing=2.0)(P[hv])
+            use = list(idx)
+            if smiling:
+                # ...its inner lip ring onto the edge of the opening the drawn lips leave, and
+                # the points the detector spreads over the lips between its two rings left out
+                # (the table read them on a shut mouth, some on the other lip).
+                v['opening'] = mouth_opening(Xv, head, v['cam'], centre, v['pts'])
+                edge = mouth_edge(*v['opening'], v['pts'])
+                im = Image.new('L', v['size'], 0)
+                ImageDraw.Draw(im).polygon([tuple(q) for q in v['pts'][list(LIPS)]], fill=1)
+                on_lips = np.asarray(im, bool)
+                W_, H_ = v['size']
+                between = lambda i: on_lips[int(np.clip(v['pts'][i, 1], 0, H_ - 1)), int(np.clip(v['pts'][i, 0], 0, W_ - 1))]
+                use = [i for i in idx if i in edge or i in LIPS or not between(i)]
+                # The picture's own opening: its pixels are the teeth's, never the lips'.
+                v['open_px'] = ndimage.binary_dilation(mouth_shown(v['pts'], np.zeros(2), (H_, W_), 1), iterations=1).astype(np.float32)
+            src, dst = P[[mp[i] for i in use]], v['pts'][use]
+            if smiling:
+                for i, at in edge.items():
+                    src[use.index(i)] = at
+            v['warp'] = RBFInterpolator(src, dst - src, kernel='thin_plate_spline', smoothing=2.0)
+            Pw[hv] = P[hv] + v['warp'](P[hv])
         low = v['img'].min(2)
         ground = ndimage.binary_dilation((low > HAIR_GROUND[0]) & (v['img'].max(2) - low < HAIR_GROUND[1]), iterations=2)
-        v.update(P=P, Pw=Pw, z=z, zb=ndimage.maximum_filter(zb, 3), nz=(N @ F.rot(*v['cam'][:3]).T)[:, 2], ground=ground.astype(np.float32))
+        v.update(P=P, Pw=Pw, z=z, zb=ndimage.maximum_filter(zb, 3), nz=((normals(Xv) if smiling else N) @ F.rot(*v['cam'][:3]).T)[:, 2], ground=ground.astype(np.float32))
     TW, TH = TEXTURE_PX
     tex = np.zeros((TH, TW, 3), np.float32)
     alpha = np.zeros((TH, TW), np.float32)
@@ -1315,6 +1797,8 @@ def bake(rec, sheet, head):
             w = w * (1 - smooth(0.002, 0.004, th) * smooth(0.1, 0.4, sample(v['ground'][:, :, None], pw)[:, 0]))
             if v['name'] == 'front':
                 w = w * smooth(0.12, 0.45, nz)
+                if 'open_px' in v:
+                    w = w * (1 - sample(v['open_px'][:, :, None], pw)[:, 0])
             elif v['name'] == 'back':
                 w = w * smooth(0.10, 0.5, nz)
             else:
@@ -1400,12 +1884,32 @@ def bake(rec, sheet, head):
     bv = v0 + (ys + 0.5 - y0) / (y1 - y0) * (v1 - v0)
     own = srgb_to_linear(base[np.clip((bv * bh).astype(int), 0, bh - 1), np.clip((bu * bw).astype(int), 0, bw - 1)]).mean(0)
     tone = np.stack([tone, own])
+    # A smile's teeth: the strip behind the lips, and its patch of the front picture.
+    teeth = None
+    if smile is not None:
+        mouth = smile['measured']
+        if mouth['edge_off_mm'] > MOUTH_HOLDS[0] or mouth['ring_off_mm'] > MOUTH_HOLDS[1]:
+            sys.exit(f"{rec['person_id']}: the smile fitted to the front picture does not open as the picture's mouth does ({mouth})")
+        strip = teeth_strip(X + smile['delta'], head, views[0], centre)
+        if strip['shown'] < TEETH['shown']:
+            sys.exit(f"{rec['person_id']}: the front camera sees the inner mouth, not the teeth, in too much of the opening ({strip['shown']})")
+        x0, y0, x1, y1 = TEETH['px']
+        if ndimage.binary_dilation(cover, iterations=4)[y0:y1, x0:x1].any():
+            sys.exit(f"{rec['person_id']}: the teeth's corner of the sheet is not free on this body")
+        tex[y0:y1, x0:x1], at_px = teeth_patch(strip, views[0])
+        soft[y0:y1, x0:x1], stand[y0:y1, x0:x1], hairy[y0:y1, x0:x1] = 1.0, 0.0, 0.0
+        (u0, v0, u1, v1), (rx0, ry0, rx1, ry1) = RECTS[0]['uv'], RECTS[0]['px']
+        teeth = {'at': strip['at'], 'uv': np.stack([u0 + (at_px[:, 0] - rx0) / (rx1 - rx0) * (u1 - u0), v0 + (at_px[:, 1] - ry0) / (ry1 - ry0) * (v1 - v0)], 1),
+                 'shown': strip['shown'], 'behind_m': strip['behind_m']}
+        head['smiling'] = X + smile['delta']
+        head['teeth'] = teeth
     head['grown'] = X
     cams = {v['name']: {'yaw_deg': round(float(np.degrees(v['cam'][0])), 1), 'pitch_deg': round(float(np.degrees(v['cam'][1])), 1),
                         'roll_deg': round(float(np.degrees(v['cam'][2])), 1), 'px_per_m': round(float(v['cam'][3]), 1),
                         **({'miss_mm': round(v['miss_mm'], 2)} if 'miss_mm' in v else {}),
                         **({'lined_up': v['lined_up']} if 'lined_up' in v else {}), **v['left_out']} for v in views}
-    return tex, soft, tone, cams, {'stand': stand, 'hair': hairy, 'facing': facing, 'mid': mid, 'max_m': float(thick.max()), 'read': read, 'lids': lids, 'eyes': eyes, 'cells': cells}
+    return tex, soft, tone, cams, {'stand': stand, 'hair': hairy, 'facing': facing, 'mid': mid, 'max_m': float(thick.max()), 'read': read, 'lids': lids, 'eyes': eyes, 'cells': cells,
+                                 'teeth': teeth, 'smile': smile}
 
 
 def srgb_to_linear(c):
@@ -1446,9 +1950,20 @@ def compose(tex, soft, grown):
 
 
 def preview(head, tex, soft, path, turns=(0, -35, 35, -80, 80, 180), size=520):
-    """A strip of turns of the bare head under the baked skin, to look at (not the renderer)."""
+    """A strip of turns of the bare head under the baked skin, to look at (not the renderer);
+    for a face that smiles, a second strip of it smiling, its teeth behind the lips."""
     from PIL import Image
-    X, tri, uv = head.get('grown', head['X']), head['tri'], head['uv']
+    rows = [_preview_row(head, head.get('grown', head['X']), head['tri'], head['uv'], tex, soft, turns, size)]
+    if 'smiling' in head:
+        nc, nr = TEETH['grid']
+        grid = np.arange(nc * nr).reshape(nr, nc) + len(head['smiling'])
+        cells = np.stack([grid[:-1, :-1], grid[1:, :-1], grid[:-1, 1:], grid[:-1, 1:], grid[1:, :-1], grid[1:, 1:]], -1).reshape(-1, 3)
+        rows.append(_preview_row(head, np.vstack([head['smiling'], head['teeth']['at']]), np.vstack([head['tri'], cells]),
+                                 np.vstack([head['uv'], head['teeth']['uv']]), tex, soft, turns, size))
+    Image.fromarray(np.concatenate(rows, 0)).save(path, quality=90)
+
+
+def _preview_row(head, X, tri, uv, tex, soft, turns, size):
     N = vertex_normals(X, tri)
     top = head['X'][:, 1].max()
     T = tri[X[tri][:, :, 1].mean(1) > top - HEAD_DROP_M]
@@ -1476,7 +1991,7 @@ def preview(head, tex, soft, path, turns=(0, -35, 35, -80, 80, 180), size=520):
         img = np.full((size, size, 3), 0.54, np.float32)
         img[m] = col * (0.55 + 0.45 * np.clip(n @ light, 0, 1))[:, None]
         tiles.append((np.clip(img, 0, 1) * 255).astype(np.uint8))
-    Image.fromarray(np.concatenate(tiles, 1)).save(path, quality=90)
+    return np.concatenate(tiles, 1)
 
 
 def detect(rec, sheet_path, model):
@@ -1527,7 +2042,35 @@ def texture_block(person, image_path, tone, grown):
         # eye first), and the colour of the whites (sRGB).
         **({'eyes': {'px': list(EYES['px']), 'size': EYES['size'], 'white_srgb': [round(float(c), 3) for c in grown['eyes']['white']],
                      'iris_px': [round(r, 1) for r in grown['eyes']['iris_px']]}} if grown.get('eyes') else {}),
+        # A front picture whose mouth is open (T-3553): the smile fitted to it (its file, each
+        # expression unit's share on the body's left and right, how nearly the smiling face's
+        # opening is the picture's), and the teeth behind the lips: a strip of `grid` points
+        # (across, then down; rows from the top), each where it stands (metres, the body's rest
+        # frame) and where on the body's map its colour is (the patch at `px` of the sheet),
+        # carried by the bone `bone`; `shown` is the share of the opening the front camera
+        # sees the strip in.
+        **({'smile': {'file': str(smile_path(person).relative_to(ROOT)), 'sha256': sha256(smile_path(person)),
+                      'units': grown['smile']['units'], 'vertices': int(len(grown['smile']['vertices'])), 'most_m': grown['smile']['most_m'],
+                      'opening': grown['smile']['measured']},
+            'teeth': {'px': list(TEETH['px']), 'grid': list(TEETH['grid']), 'bone': 'head', 'shown': grown['teeth']['shown'],
+                      'at_m': [[round(float(c), 5) for c in q] for q in grown['teeth']['at']],
+                      'uv': [[round(float(c), 5) for c in q] for q in grown['teeth']['uv']]}} if grown.get('smile') else {}),
     }
+
+
+def smile_path(person):
+    return SMILES / f'{person}.json'
+
+
+def write_smile(person, smile):
+    """A person's smile as the renderer takes it (tools/human_variation_kit.py carries it into
+    the persons file): the kit's vertices it moves and each one's move, in the kit's delta unit."""
+    SMILES.mkdir(parents=True, exist_ok=True)
+    smile_path(person).write_text(json.dumps({
+        'format': SMILE_FORMAT, 'ticket': 'T-3553', 'person_id': person, 'generated_by': 'tools/bake_likeness_skin.py',
+        '_doc': "The smile this person's front picture shows, fitted to it as the picture was baked onto the face (fit_smile): a move of the kit's vertices from the fitted face, mouth shut, which the figure rests as. Reconstructed, like the skin sheet it belongs to: a stand-in's smile on a fitted face. A reading; bake again, never edit.",
+        'fit_values_sha256': values_sha(person), 'unit_m': SMILE_UNIT_M, 'units': smile['units'], 'opening': smile['measured'],
+        'vertices': [int(i) for i in smile['vertices']], 'delta': [int(c) for c in smile['moves'].ravel()]}, separators=(',', ':')) + '\n')
 
 
 def run(person, sheet_path, model=None, preview_path=None):
@@ -1547,6 +2090,10 @@ def run(person, sheet_path, model=None, preview_path=None):
     rec['sheet']['sha256'] = sha256(sheet_path)
     rec['cameras'] = cams
     rec['fit_values_sha256'] = values_sha(person)
+    if grown.get('smile'):
+        write_smile(person, grown['smile'])
+    elif smile_path(person).exists():
+        smile_path(person).unlink()
     rec['texture'] = texture_block(person, out, tone, grown)
     path.write_text(json.dumps(rec, indent=1) + '\n')
     if preview_path:
@@ -1589,6 +2136,30 @@ def check():
         if e is not None and (e.get('px') != list(EYES['px']) or e.get('size') != EYES['size']
                               or not (isinstance(e.get('white_srgb'), list) and len(e['white_srgb']) == 3 and all(0 < x < 1 for x in e['white_srgb']))):
             bad.append(f'{person}: the eyes are not recorded as this tool records them; bake again')
+        opens = any(v.get('mouth') == 'open' for v in rec['views'])
+        teeth, smile = t.get('teeth'), t.get('smile')
+        if opens != bool(teeth) or opens != bool(smile) or opens != smile_path(person).exists():
+            bad.append(f"{person}: a smile and its teeth are not both recorded, or are recorded for a mouth that is shut; bake again")
+        elif opens:
+            n = TEETH['grid'][0] * TEETH['grid'][1]
+            (u0, v0, u1, v1), (rx0, ry0, rx1, ry1) = RECTS[0]['uv'], RECTS[0]['px']
+            x0, y0, x1, y1 = TEETH['px']
+            box = (u0 + (x0 - rx0) / (rx1 - rx0) * (u1 - u0), v0 + (y0 - ry0) / (ry1 - ry0) * (v1 - v0),
+                   u0 + (x1 - rx0) / (rx1 - rx0) * (u1 - u0), v0 + (y1 - ry0) / (ry1 - ry0) * (v1 - v0))
+            if (teeth.get('px') != list(TEETH['px']) or teeth.get('grid') != list(TEETH['grid']) or teeth.get('bone') != 'head'
+                    or len(teeth.get('at_m') or []) != n or len(teeth.get('uv') or []) != n or not teeth.get('shown', 0) >= TEETH['shown']
+                    or not all(box[0] < u < box[2] and box[1] < w < box[3] for u, w in teeth['uv'])):
+                bad.append(f"{person}: the teeth are not recorded as this tool records them; bake again")
+            mouth = smile.get('opening') or {}
+            if not (mouth.get('edge_off_mm', 99) <= MOUTH_HOLDS[0] and mouth.get('ring_off_mm', 99) <= MOUTH_HOLDS[1]):
+                bad.append(f"{person}: the recorded smile does not open as its front picture's mouth does ({mouth})")
+            kept = json.loads(smile_path(person).read_text())
+            units = json.loads(F.AXES.read_text())['expressions']['units']
+            if (sha256(smile_path(person)) != smile.get('sha256') or kept.get('format') != SMILE_FORMAT or kept.get('unit_m') != SMILE_UNIT_M
+                    or kept.get('fit_values_sha256') != values_sha(person) or len(kept.get('delta') or []) != 3 * len(kept.get('vertices') or [1])
+                    or sorted(kept.get('units') or {}) != sorted(pathlib.PurePosixPath(u).stem for u in units)
+                    or not all(0 <= w <= SMILE_MOST + 1e-6 for pair in kept['units'].values() for w in pair)):
+                bad.append(f"{person}: {smile_path(person).relative_to(ROOT)} is not the smile this skin was baked with; bake again")
         if not rec.get('liberty') or f"### {rec['liberty']} " not in (ROOT / 'docs/LIBERTIES.md').read_text():
             bad.append(f"{person}: the record names no liberty that docs/LIBERTIES.md holds")
         if not (isinstance(t.get('tint'), list) and len(t['tint']) == 3 and all(0.2 < x < 5 for x in t['tint'])):
@@ -1604,7 +2175,8 @@ def check():
             bad.append(f"{person}: source {rec['source']} does not say its pixels are used as a texture (asset_use)")
     # The renderer moves the skin out along the same line the bake measured along, and splits it as finely.
     js = (ROOT / 'renderers/web/js/human-skin.js').read_text()
-    for needs in ('from.y = clamp( vChiSkinP.y, from.y - chiLikeAxis, from.y );', 'g.axis_m > 0 ? g.axis_m : 0', 'fineCells(g.fine, skin.size_px)'):
+    for needs in ('from.y = clamp( vChiSkinP.y, from.y - chiLikeAxis, from.y );', 'g.axis_m > 0 ? g.axis_m : 0', 'fineCells(g.fine, skin.size_px)',
+                  'teethStrip(skin.teeth)', f'MOUTH_SHADE = Object.freeze({{ u0: {MOUTH_BAG_UV[0]}, u1: {MOUTH_BAG_UV[2]}, v0: {MOUTH_BAG_UV[1]},', 'float bag = step( ${MOUTH_SHADE.u0}, vMapUv.x )'):
         if needs not in js:
             bad.append(f'renderers/web/js/human-skin.js no longer reads the record as this tool writes it: {needs}')
     for b in bad:

@@ -39,13 +39,13 @@ export function fineCells(fine, size_px) {
 const cellAt = (cells, x, y) => { const i = y * cells.cols + x; return (cells.bits[i >> 3] >> (7 - (i & 7))) & 1; };
 
 /** An attribute's own numbers: its array, how many a vertex is apart in it, and where its first is. */
-function rawView(attr) {
+export function rawView(attr) {
   return attr.isInterleavedBufferAttribute
     ? { array: attr.data.array, stride: attr.data.stride, offset: attr.offset }
     : { array: attr.array, stride: attr.itemSize, offset: 0 };
 }
-const isWhole = array => !(array instanceof Float32Array || array instanceof Float64Array);
-const fullOf = array => (array instanceof Int8Array ? 127 : array instanceof Uint8Array ? 255 : array instanceof Int16Array ? 32767 : array instanceof Uint16Array ? 65535 : 1);
+export const isWhole = array => !(array instanceof Float32Array || array instanceof Float64Array);
+export const fullOf = array => (array instanceof Int8Array ? 127 : array instanceof Uint8Array ? 255 : array instanceof Int16Array ? 32767 : array instanceof Uint16Array ? 65535 : 1);
 
 /** `attr` with a row more for each pair in `ends`: the middle of those two rows (a direction keeps its length). */
 function grown(attr, n0, ends, direction = false) {

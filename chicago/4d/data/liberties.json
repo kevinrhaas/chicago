@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1124,
+  "count": 1126,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -74227,6 +74227,40 @@
         {
           "label": "Re-opens on",
           "text": "a photograph of either Grey; the owner withdrawing the pictures; a refit of the head's shape or new pictures, after which the cameras are lined up and the sheets baked again."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-14."
+        }
+      ],
+      "work_refs": [
+        "T-3553"
+      ]
+    },
+    {
+      "id": "L-grey-smile-3553",
+      "title": "William Grey rests with his mouth shut and smiles into his front photograph's grin, with its teeth",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-14",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the owner asked that both Greys be \"photographic matched\", and for \"what is needed to the face model to make it work and eventually speak\" (2026-11-13; “The Greys wear their stand-ins' photographs as skin, hair and eyes”). That entry and “The Greys' hair measured from four photographs lined up together and fitted to their outlines, on a finer head” left out \"his open grin\". Of the four pictures of his stand-in the two from the side show the mouth shut, the one from behind shows no mouth, and the front one shows a broad grin with the upper teeth showing; the portrait on his card has the mouth shut as well. One still face cannot be both. So the face rests as it was fitted, mouth shut, and the grin is a move it makes. the likeness skin generator (fit smile) fits that move to the front picture: first as much of ten of MakeHuman's own mouth shapes (nine of its expression units and the mouth's width; CC0, pinned in the SOURCE variation data) as brings the lips' outline nearest the picture's, each shape free to pull more on one side of the face than the other; then what is left, moved within the picture's own plane, until the opening between the lips is the picture's (the two share 94 percent of their area, and their edges lie a third of a millimetre apart on average). The front picture is laid on the smiling face and the other three on the resting one. Behind the lips stands a strip of 17 by 5 points from one corner of the mouth to the other, at least 2.5 mm behind every point of the lips' inner edge, coloured from the picture's own opening, so the teeth are his stand-in's; the inside of his mouth is drawn dark, and the teeth lie in that shade while his mouth is shut (his resting lips do not quite seal) and take the light as he begins to smile. In the app (the walkthrough's human variation code, the walkthrough's human mouth code) the move is one more shape of his face beside the blink. He gives it to a visitor who stands within 3.2 m in front of him (to 60 degrees either side) and with his greeting, keeps four tenths of it while he talks, and his jaw then opens and shuts in an uneven run of syllables, with no words. His card's still keeps the resting face, beside the shut-mouthed portrait it was fitted to. Sarah Grey's pictures show her mouth shut wherever they show it (the front and both sides); she has no smile and no teeth, and is unchanged."
+        },
+        {
+          "label": "Not invented",
+          "text": "the pictures; the fitted face under the skin (“Prairie Avenue appearances”); MakeHuman's shapes; who the Greys were."
+        },
+        {
+          "label": "Liberties within it",
+          "text": "all of it is the stand-in's appearance, graded reconstructed, and no evidence of how William Grey smiled or whether he did. When he smiles, for how long, how much of it he keeps while talking and the jaw's rhythm are ours. The teeth are a curved strip with a picture of teeth on it: from the front they are the picture's, from the side a strip. The lower teeth and the tongue are not modelled. The resting lips are in part the front picture's parted lips, brought together."
+        },
+        {
+          "label": "Re-opens on",
+          "text": "a photograph of William Grey; the owner withdrawing the pictures or asking for one fixed expression; a refit of the head, after which the smile is fitted and the sheet baked again; a voice for him, which the jaw then follows (`mouth.say`)."
         },
         {
           "label": "Recorded",
