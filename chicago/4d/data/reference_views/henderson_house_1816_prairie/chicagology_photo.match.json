@@ -2,7 +2,7 @@
   "structure_id": "henderson_house_1816_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/henderson_house_1816_prairie__as_mapped_1904.glb",
-  "glb_sha256": "28d332d39faab0f5835eea7c6e00a481a7dcfdaa3ca55748f8e1d65a954a7434",
+  "glb_sha256": "118de35111a7fefa6e3d768154393cd295458a4f895dbbb3d0e6a37ed1fceced",
   "camera_sha256": "2ea53525aa34f1cd163e87bd7f44c9cc601ce935b97adcc7cf1007c41311355e",
   "photo_sha256": "6cf57cac7e3076af06121b104b57a02b9a25ac3830f01ddafe9ac2f27eb96ca8",
   "side_by_side": "docs/RESEARCH/photo-match/henderson_house_1816_prairie/chicagology_photo-side-by-side.jpg",
@@ -110,8 +110,8 @@
     },
     {
       "what": "the south flank's own window between the bay and the corner (x 365-385 px): the print draws only the upper storey's light there (y 510-645), under the crested hood, and plain brick under it to the water table; the build has a principal-storey light under it too (y 680-850) and its upper light's head about 60 px higher than the print's",
-      "status": "open",
-      "how": "T-1886 (2026-11-13): measured, not built; the light is one of the side's bays (side_bays 6.4) on both storeys, and dropping its principal-storey light is a change to how K01 lays a side's bays by storey"
+      "status": "fixed",
+      "how": "T-1886 (2026-11-14): read once as a picture's window (side_bays 6.4 as {s_m, sill_m, width_m, height_m}), its sill 6.5 m and head 9.0 m over grade measured up from the water table under it, 0.75 m wide to the print's opening about 23 px between its jambs; the principal storey's light under it gone, plain brick to the water table. Through the camera the render's opening now draws from y about 512 to 642 (the print's 507-647) and its glazing about 19 px across (the print's 20), its crested hood about 46 px across with its consoles (the print's 37, about 0.28 m). It stands about 20 px east of the print's, as the flank bay beside it does: the plan and the print's disagreement along the flank, recorded above, not the window's place"
     },
     {
       "what": "the camera at the flank bay: the bay's water table draws at y 900 px in the print and 880-885 in the render, and the water table falls from y 885 at the corner to 897 at the bay in the print where it runs level in the render",

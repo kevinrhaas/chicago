@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2973, ts: '2026-11-14T14:09:04.733Z', date: 'Nov 14, 2026, 8:09 AM CT', title: '1816 Prairie\'s south flank window, upper storey only, as photographed', kind: 'fix',
+    items: [
+      'The south flank of 1816 Prairie now has one window, on the upper storey under its carved, crested hood, with plain brick below it down to the stone base, as the Chicagology photograph shows. The build had a window on each storey there.',
+      'That window is narrower and set lower, measured off the photograph: about 0.75 m wide, from 6.5 to 9.0 m above the ground.',
+    ] },
   { v: 2972, ts: '2026-11-14T12:43:05.253Z', date: 'Nov 14, 2026, 6:43 AM CT', title: 'The Fort Dearborn monument\'s inscription is cut', kind: 'improvement',
     items: [
       'On 18th Street in 1904, the monument\'s die carries its three lines, THE FORT DEARBORN MASSACRE, AUGUST 15, 1812 and BLACK PARTRIDGE SAVING MRS. HELM, pale on the granite at the sizes and places the c. 1900 photograph shows.',
