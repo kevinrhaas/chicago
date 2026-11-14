@@ -1,8 +1,9 @@
 {
  "schema_version": 1,
- "content_version": 2,
+ "content_version": 3,
  "category": "Neighbors",
  "menu_group": "People",
+ "grade_band": "6-8",
  "menu_rank": 1,
  "plate": {
   "structure": "glessner_house",
@@ -14,7 +15,7 @@
  "id": "glessner-household-tour",
  "scene": "1904",
  "title": "The Glessner Household",
- "premise": "Spend a spring morning in 1904 round 1800 Prairie Avenue with the people who live and work there: the Glessners, their cooks and maids, the stable boy, and the old coachman come back for the morning, each at their own door.",
+ "premise": "Spend a spring morning in 1904 round 1800 Prairie Avenue with the people who live and work there: the Glessners, their cook and maids, the stable boy, and the old coachman come back for the morning, each at their own door.",
  "default_mode": "walk",
  "allowed_modes": [
   "walk",
@@ -27,7 +28,7 @@
  },
  "opening": {
   "read_s": 30,
-  "text": "JAUNT: THE GLESSNER HOUSEHOLD. A spring morning, April 1904, at 1800 Prairie Avenue. On every other walk the people are out of your way. This time they are the walk.\n\nEight stops round the outside of the house, and at each one somebody who lives or works here is waiting at their own door: John and Frances Glessner, the two cooks, the parlor maid and the house maid, the stable helper, and the old coachman, who left the Glessners in 1902 and has come back this morning to show you his stable. Each tells you what they do here and sends you on to the next.\n\nThe people and the facts are from the house's own records: John Glessner's 1923 account of the house, the museum's research into Frances Glessner's journals, and the census of 1900. The words they say are written for this walk.\n\nMr. Glessner is on his front walk. Go and say good morning."
+  "text": "JAUNT: THE GLESSNER HOUSEHOLD. A spring morning, April 1904, at 1800 Prairie Avenue. On every other walk the people are out of your way. This time they are the walk.\n\nSeven stops round the outside of the house, and at each one somebody who lives or works here is waiting at their own door: John and Frances Glessner, their cook, the parlor maid and the house maid, the stable helper, and the old coachman, who left the Glessners in 1902 and has come back this morning to show you his stable. Each tells you what they do here and sends you on to the next.\n\nThe people and the facts are from the house's own records: John Glessner's 1923 account of the house, the museum's research into Frances Glessner's journals, and the census of 1900. The words they say are written for this walk.\n\nMr. Glessner is on his front walk. Go and say good morning."
  },
  "stops": [
   {
@@ -117,18 +118,18 @@
      "local_n": -3236.37
     }
    ],
-   "text": "Hello! Mattie Williamson, the cook. I was born in Quebec, and my brother Alex runs the Glessners' farm in New Hampshire. I came to them in 1891. That winter Mrs. Glessner went through seven cooks in seven weeks, all beaten by her new gas stove, and in February 1892 she wrote in her journal, 'Mattie Williamson is going to try my cooking. I shall have her taught.' I have cooked here ever since. My kitchen is through this wall; its window faces Eighteenth Street, in the great arch Mary will show you. I send up eight-course dinners and feed the eight of us on staff besides. My bread and rolls took a prize in 1900, and I baked Miss Frances's wedding cake. In January last year the whole orchestra came to dinner, and they played Beethoven on my pots and pans! Kate Ryan is by the service stair.",
+   "text": "Hello! Mattie Williamson, the cook. This house keeps one cook: me. I was born in Quebec, and my brother Alex runs the Glessners' farm in New Hampshire; each summer I go a week ahead of the family to open the house. In the winter of 1891 Mrs. Glessner went through seven cooks in seven weeks, all beaten by her new gas stove, and in February 1892 she wrote, 'Mattie Williamson is going to try my cooking. I shall have her taught.' My kitchen is through this wall; a board of bells tells us which room is calling. I send up eight-course dinners and feed the staff besides; we eat our own dinner at three, so the kitchen is clear for the family's. In January last year the whole orchestra came to dinner and played Beethoven on my pots and pans! Christine is back from market, round at the corner.",
    "evidence": [
     "voices",
     "outing",
     "mattie-born",
     "mattie-cook",
+    "one-cook",
+    "mattie-rocks",
     "kitchen",
-    "kitchen-window",
+    "staff-dinner",
     "mattie-dinners",
-    "mattie-cake",
-    "pots-pans",
-    "own-cook"
+    "pots-pans"
    ],
    "links": [
     {
@@ -137,41 +138,8 @@
      "label": "Mattie Williamson"
     }
    ],
-   "next": "kate",
-   "read_s": 42
-  },
-  {
-   "id": "kate",
-   "destination": {
-    "kind": "anchor",
-    "id": "glessner_household_service_stair"
-   },
-   "hosts": [
-    {
-     "person": "pa1904_glessner_john_j_c1900_kate_ryan",
-     "local_e": 1352.9,
-     "local_n": -3233.0
-    }
-   ],
-   "text": "Good morning. Kate Ryan, and yes, I'm a cook too, born in Ireland in 1850. When the census man came round on 1 June 1900 the family and Mattie were away in New Hampshire for the summer, so it was me he wrote down as the cook. This stair is the staff's own way in and out: up it, and through the door at the top, is the back of the house. Inside, the corridor and kitchen walls are white glazed brick. The bells ring through to a board in the kitchen that shows which room wants us, and the iceman pushes his ice through a little half-door into the cold closet. We eat our own dinner at three, so the kitchen is clear for the family's. Christine should be coming back from market about now. Go out by the passage and round to the corner.",
-   "evidence": [
-    "voices",
-    "outing",
-    "kate",
-    "kate-away",
-    "kitchen",
-    "staff-dinner",
-    "servants-unseen"
-   ],
-   "links": [
-    {
-     "kind": "person",
-     "id": "pa1904_glessner_john_j_c1900_kate_ryan",
-     "label": "Kate Ryan"
-    }
-   ],
    "next": "christine",
-   "read_s": 41
+   "read_s": 42
   },
   {
    "id": "christine",
@@ -186,7 +154,7 @@
      "local_n": -3203.89
     }
    ],
-   "text": "Hej! Christine Nelson, the parlor maid. I came over from Sweden in 1892. The cook and the waitress feed the house and the ladies' maid looks after the ladies' clothes; the cleaning is mine, and in this city that never ends. The smoke is so thick the drawings in the hall had to go under glass, and the Morris papers and curtains are put back in the same patterns when they wear out. People walking by laugh at those narrow windows along Eighteenth Street. They only light the corridors, and those corridors are ours: every room has two doors or more, and the passages are planned so that servants rarely are in evidence. You can clean a whole floor and never cross the family. Mary keeps the rooms with me. She'll be at our door under the great arch.",
+   "text": "Hej! Christine Nelson, the parlor maid. I came over from Sweden in 1892. Mattie and the waitress feed the house and the ladies' maid looks after the ladies' clothes; the cleaning is mine, and in this city that never ends. The smoke is so thick the drawings in the hall had to go under glass. People walking by laugh at those narrow windows along Eighteenth Street. They only light the corridors, and those corridors are ours: every room has two doors or more, and the passages are planned so that servants rarely are in evidence. You can clean a whole floor and never cross the family. Even the iceman stays out: he pushes the ice through a little half-door into the cold closet. Mary keeps the rooms with me. She'll be at our door under the great arch.",
    "evidence": [
     "voices",
     "outing",
@@ -194,7 +162,8 @@
     "women-staff",
     "smoke",
     "narrow-windows",
-    "servants-unseen"
+    "servants-unseen",
+    "staff-dinner"
    ],
    "links": [
     {
@@ -323,17 +292,6 @@
   },
   {
    "from": "mattie",
-   "to": "kate",
-   "story": "The house has held receptions for more than four hundred, all fed from Mattie's kitchen.",
-   "story_evidence": [
-    "crowds"
-   ],
-   "evidence": [
-    "outing"
-   ]
-  },
-  {
-   "from": "kate",
    "to": "christine",
    "story": "Out on Prairie Avenue, the Pullman mansion stands diagonally across the corner.",
    "story_evidence": [
@@ -367,7 +325,7 @@
   "family": "Neighbors",
   "id": "glessner-household-card",
   "title": "Below Stairs at 1800 Prairie",
-  "text": "An interpretive card of the eight people met round the Glessner House on a spring morning in 1904, not a historical artifact."
+  "text": "An interpretive card of the seven people met round the Glessner House on a spring morning in 1904, not a historical artifact."
  },
  "evidence": [
   {
@@ -522,6 +480,15 @@
    "locator": "The post, quoting Frances Glessner's journal for February 1892."
   },
   {
+   "id": "one-cook",
+   "text": "The Glessners only ever had one cook at a time; Kate Ryan, whom the census of 1 June 1900 found cooking for the house, was the temporary summer cook in Chicago while Mattie Williamson was in New Hampshire with the family.",
+   "confidence": "attested",
+   "sources": [
+    "tyre_2026_glessner_one_cook"
+   ],
+   "locator": "The owner's message of 13 November 2026, relaying Bill Tyre of Glessner House."
+  },
+  {
    "id": "mattie-dinners",
    "text": "Mattie Williamson prepared eight-course dinners while feeding the live-in staff of eight, and won an award for her bread and rolls at a Women's Club competition in 1900.",
    "confidence": "attested",
@@ -583,25 +550,6 @@
     "glessner_house_blog_home_for_servants_2014"
    ],
    "locator": "The post, on George Glessner's photograph of about 1890."
-  },
-  {
-   "id": "kate",
-   "text": "On 1 June 1900 the census enumerated Kate Ryan in the house as a servant, a cook, born April 1850 in Ireland, single.",
-   "confidence": "attested",
-   "sources": [
-    "census_1900_chicago_t623_roll245"
-   ],
-   "locator": "ED 40, sheet 5B, line 55, leaf n803."
-  },
-  {
-   "id": "kate-away",
-   "text": "Kate Ryan was enumerated as the house's cook while the Glessners were away at The Rocks, with Mattie Williamson as their cook in those years.",
-   "confidence": "inferred",
-   "sources": [
-    "census_1900_chicago_t623_roll245",
-    "glessner_house_blog_mattie_williamson_2020"
-   ],
-   "reasoning": "The census of 1 June 1900 lists the staff at 1800 Prairie and not John or Frances Glessner; Mattie Williamson went to The Rocks with the family each summer (the museum's account of her). That Kate Ryan cooked for the house in Chicago while they were gone is the reading of these two, not a record of it."
   },
   {
    "id": "staff-dinner",

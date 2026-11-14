@@ -760,6 +760,8 @@ step "Every person gets their own face, height and build: no two of 400 alike, a
   node tools/test_human_variation.mjs
 step "A named resident's face fitted to a cited portrait reproduces from its marks, and the card's still is of this fit (T-3413)" \
   python3 tools/fit_portrait_face.py --check
+step "A pictured stand-in's skin, hair and eyes sheet is the bytes its record names, laid out as the app reads it, under a liberty and a source cleared for use as a texture (T-3553)" \
+  python3 tools/bake_likeness_skin.py --check
 step "Each driver's wardrobe binds to the real driver by bone name, skins where it was draped, and its spring tails lag and settle, LOD0 and LOD3 (T-3398, T-3409)" \
   node tools/test_driver_livery.mjs
 step "People are judged beside period pictures: reference sets cite their sources, the rig is 3 m and 10 m, and no verdict outlives its figure (T-3417)" \
@@ -4584,6 +4586,11 @@ step "Jaunt schema, destinations and reachable state graph (T-1253)" \
 
 step "Jaunt refusal and data-only expansion fixtures (T-1253)" \
   python3 tools/test_compile_jaunts.py
+
+# T-3590: every jaunt's school grade band is measured from its own words (the mean of five
+# grade-level formulas); a jaunt for grades K-2 or 3-5 reads inside its band, any other within one.
+step "Jaunt grade bands match the reading level of their words (T-3590)" \
+  python3 tools/jaunt_reading_level.py --check
 
 # T-2039 (of T-1271): the LIBRARY, not one story — the 25 named premises, the six
 # priority jaunts featured, 4-8 stops, quiet outings, keepsake families and ranks

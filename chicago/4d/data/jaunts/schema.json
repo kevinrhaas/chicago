@@ -50,6 +50,21 @@
       ],
       "description": "T-3584: the Jaunts menu's filter this jaunt sits under, the same seven in every year: Places (tours of buildings, streets and the river), People (the people who lived there), Architecture (styles and architects), Stories (legends and events told as a story), Errands (an everyday task in town), Work (a trade or a job of work), Build log (the project's own progress walk, listed last). Distinct from the keepsake family, which is the daybook's."
     },
+    "grade_band": {
+      "enum": [
+        "K-2",
+        "3-5",
+        "6-8",
+        "9-10",
+        "11-12"
+      ],
+      "description": "T-3590: the US school grades the jaunt's words are written for, in the Common Core bands (K-2, 3-5, 6-8, 9-10, 11-12). Measured, not guessed: tools/jaunt_reading_level.py (the mean of five grade-level formulas over every word the visitor reads) must put a jaunt for grades K-2 or 3-5 inside its band, and any other within one band."
+    },
+    "version_of": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$",
+      "description": "T-3590: this jaunt retells another of the same scene for a different grade band (the same walk in other words); the menu lists it beside the jaunt it retells."
+    },
     "menu_rank": {
       "type": "integer",
       "minimum": 1,
@@ -420,6 +435,7 @@
     "premise",
     "category",
     "menu_group",
+    "grade_band",
     "scene",
     "opening",
     "default_mode",

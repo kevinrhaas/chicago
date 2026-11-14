@@ -2,7 +2,7 @@
   "structure_id": "henderson_house_1816_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/henderson_house_1816_prairie__as_mapped_1904.glb",
-  "glb_sha256": "210d9aed7d7a343bfef9c0b77afccf009041fab95953b0aee085f73e74a53f67",
+  "glb_sha256": "28d332d39faab0f5835eea7c6e00a481a7dcfdaa3ca55748f8e1d65a954a7434",
   "camera_sha256": "2ea53525aa34f1cd163e87bd7f44c9cc601ce935b97adcc7cf1007c41311355e",
   "photo_sha256": "6cf57cac7e3076af06121b104b57a02b9a25ac3830f01ddafe9ac2f27eb96ca8",
   "side_by_side": "docs/RESEARCH/photo-match/henderson_house_1816_prairie/chicagology_photo-side-by-side.jpg",
@@ -75,13 +75,48 @@
     },
     {
       "what": "the main mansard's south dormer: in the print just east of the flank crown, at x 335-385 px with its sill on the cornice; through the corrected camera the build's (mansard.dormers[2], along_m 7.4) renders at about x 385-415 px. The bay's junction with the flank is itself about 25 px east of the print's (the plan against the print, the camera's solve), so measured from the bay the dormer stands about 15-25 px (0.3-0.5 m) too far east",
-      "status": "open",
-      "how": "T-1886 (2026-11-13): measured, not built; moving it west along the south face is a data change and a bake"
+      "status": "fixed",
+      "how": "T-1886 (2026-11-13): the dormer moved to u 6.6 from 7.4 (0.8 m west, splitting the 1.0 m the south-east corner, the camera's anchor, asks and the 0.4 m the flank bay asks) and, with the street dormers, brought down onto the cornice (face 0.05 m in from the fascia, sash on a 0.1 m sill; the print stands each one's sill on the cornice, the build's had stood about 1 m over it). Through the camera it now renders at x 355-390 px with its foot at about y 345, the print's at 335-385 on the cornice at 370"
     },
     {
       "what": "the south flank bay's windows: through the corrected camera, with the bay's water table (y 885-890) and crown eave (y 395) both on the print's, the print draws the principal storey's lights from a sill at about y 872 to a head at about 735 px and the upper storey's from about 652 (on the belt course) to 525 px, lower in their storeys and shorter than the build's (sills about 850 and 590, heads about 695 and 440 px: some 0.4-0.9 m higher sills and 0.8-1.7 m higher heads at the bay's 50 px/m); and the bay's face turned most toward the camera (x 250-300 px) carries a light about 1.0 m wide where the build has a 0.6 m cant light and the 1.05 m light in its oblique south face",
+      "status": "fixed",
+      "how": "T-1886 (2026-11-13): the bay's plan re-read (the item below) puts the wide light in the south-east cant, 0.8 m (the print's about 1.0 m: wider, its recess runs behind the house wall on so shallow a cant, within tolerance), and a 0.75 m one in the front; both storeys' lights set from the print against the bay's own water table (y 900 px) at 51 px/m: the principal storey's 2.8 m from a 0.5 m sill, the upper's 2.35 m from a 0.1 m sill on the floor line. Through the camera the cant light renders about 0.2 m narrower than the print's and each light's head and sill within about 5 px of the print's, measured from each picture's own water table (the render's stands 15-20 px over the print's at the bay, the item on the camera below)"
+    },
+    {
+      "what": "the flank bay's plan: the print draws its south-east cant 91 px wide (x 233-324) and its south face 34 px (x 199-233); the 1911 sheet's 1.085 m cant and 2.68 m front drew them about equal (76 and 75 px)",
+      "status": "within tolerance",
+      "how": "T-1886 (2026-11-13): re-planned on the sheet's 4.85 m at the wall and 1.0 m out with a 1.65 m cant and a 1.55 m front, the narrowest front on which K08 can stand the crown's dormer (it clears a crown's hips by 0.3 m at the curb); the print's widths want about 1.25 m. It renders the cant about 89 px and the front about 44: the front some 0.3 m wider than the print's and 1.1 m narrower than the sheet's, a width the sheet and the print disagree about (T-3153)"
+    },
+    {
+      "what": "the flank crown's height: its curb's top at y 205 px in the print, the 4.0 m crown's about 40 px higher",
+      "status": "fixed",
+      "how": "T-1886 (2026-11-13): the crown's lower face rises 3.25 m; its curb renders at about y 195-200 and its cresting's top within about 10 px of the print's"
+    },
+    {
+      "what": "the flank crown's curb: a moulded cornice about 0.7 m deep (y 205-245 px) under the cresting, round the crown's faces; built as K08's thin curb, the slate running up to it",
       "status": "open",
-      "how": "T-1886 (2026-11-13): measured, not built. Read at the scale the bay's own height gives (its water table to its eave, 495 px for 9.84 m), the print's lights are about 2.7 m (principal) and 2.5 m (upper) high, sills 0.36 m over the principal floor and on the belt course; read at the front bay's 53.6 px/m they move about 10% up. Which face carries the wide light (the plan's 1.475 m cant or its 2.68 m south face) needs the bay's plan re-read with them; the next piece of this ticket"
+      "how": "T-1886 (2026-11-13): measured, not built; K08 has no moulded curb on a bay's crown (a kit change)"
+    },
+    {
+      "what": "the crowns' dormers standing on the crowns' cornices (the flank one's foot at y 400 px); built about 0.6 m over them",
+      "status": "fixed",
+      "how": "T-1886 (2026-11-13): both crowns' dormers' faces 0.05 m in from the fascia and their sashes on a 0.1 m sill, as the main mansard's; the flank crown's renders with its foot at about y 385, its sash 0.5 m (the front it stands on is narrow, the plan item above)"
+    },
+    {
+      "what": "the floor band round the flank bay at the upper floor line: the print shows the upper lights' sill blocks on corbels there and plain brick between them",
+      "status": "within tolerance",
+      "how": "T-1886 (2026-11-13): K08's floor band, under 0.2 m high, lies at the sills' height across the faces whose sills the print draws there"
+    },
+    {
+      "what": "the south flank's own window between the bay and the corner (x 365-385 px): the print draws only the upper storey's light there (y 510-645), under the crested hood, and plain brick under it to the water table; the build has a principal-storey light under it too (y 680-850) and its upper light's head about 60 px higher than the print's",
+      "status": "open",
+      "how": "T-1886 (2026-11-13): measured, not built; the light is one of the side's bays (side_bays 6.4) on both storeys, and dropping its principal-storey light is a change to how K01 lays a side's bays by storey"
+    },
+    {
+      "what": "the camera at the flank bay: the bay's water table draws at y 900 px in the print and 880-885 in the render, and the water table falls from y 885 at the corner to 897 at the bay in the print where it runs level in the render",
+      "status": "within tolerance",
+      "how": "T-1886 (2026-11-13): a camera-fit residual of about 0.3 m, not a building difference; the bay's heights above are read from each picture's own water table"
     },
     {
       "what": "both crowns' lower faces slated as the main mansard, the print drawing all three alike; built in a plain grey sheet",

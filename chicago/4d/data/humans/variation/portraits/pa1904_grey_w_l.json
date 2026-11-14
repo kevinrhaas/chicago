@@ -24,14 +24,15 @@
  "basis": "No photograph of William L. Grey is known. The owner supplied this sepia cabinet-style portrait on 2026-11-12 as the likeness to use for him in 1904 (\"since we do not have photos of them you can use these likenesses\"). Who sat for it and when it was made are not recorded, so it is a stand-in: his face's proportions, hair, beard and dress follow it, and none of it is evidence of how William Grey looked.",
  "not_modelled": [
   "his own face (no photograph of him is known; this is the owner's stand-in)",
-  "the colouring (the picture is sepia; hair, beard and eye colours are readings of its tones)",
-  "the freckles",
+  "his own colouring (the figure wears the stand-in's photographs as its skin, hair, beard and eyes: the stand-in's colours, not William Grey's)",
+  "the loose curls beside the ears and on the collar (the hair is the skin stood out to the photographs' outline, kept clear of the ears and above the collar)",
+  "the open grin of the sheet's front view (the model's mouth is shut)",
   "the watch chain across the waistcoat (no jewellery is modelled on the town's figures)",
   "the cut of the sack coat (the gentleman's body keeps its own frock coat, coloured as his suit)"
  ],
  "stand_in": {
   "label": "STAND-IN, NOT WILLIAM L. GREY",
-  "card_note": "No photograph of William L. Grey is known. This is a stand-in the project's owner chose as his likeness: a sepia portrait of a broad, full-bearded man with wavy hair worn long and swept back, in a dark three-piece suit with a watch chain. Its sitter is not recorded. His face, hair and dress are the model's guide; it is not William Grey."
+  "card_note": "No photograph of William L. Grey is known. This is a stand-in the project's owner chose as his likeness: a sepia portrait of a broad, full-bearded man with wavy hair worn long and swept back, in a dark three-piece suit with a watch chain. Its sitter is not recorded. His face, hair and dress are the model's guide; it is not William Grey. The figure's skin, hair and eyes are photographs of the same stand-in, taken from the front, both sides and behind."
  },
  "axes": [
   "nose_length",
@@ -2710,7 +2711,7 @@
    "brows_full_high_1904"
   ],
   "hair_tone": "light_ash_grey",
-  "hair_tone_basis": "Re-read from the owner's turnaround sheet of the stand-in (2026-11-13), which is in colour: his hair a light ash brown going silver at the sides and temples, drawn a light ash grey; his beard and moustache a grizzled russet, warmest at the moustache and greyest at the chin; his eyes a light blue-grey. Colours of a stand-in, not a record.",
+  "hair_tone_basis": "Re-read from the owner's turnaround sheet of the stand-in (2026-11-13), which is in colour: his hair a light ash brown going silver at the sides and temples, drawn a light ash grey; his beard and moustache a grizzled russet, warmest at the moustache and greyest at the chin; his eyes a light blue-grey. Colours of a stand-in, not a record. Since 2026-11-14 the figure's hair, beard, moustache and brows are the sheet's own photographs on its skin (data/humans/variation/skins/pa1904_grey_w_l.json); the cut, colour and facial hair named here are no longer drawn on it.",
   "complexion": "ruddy",
   "dress": {
    "colours": {
