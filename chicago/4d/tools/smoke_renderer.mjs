@@ -5429,10 +5429,27 @@ for (const [label, viewport, touch] of [
       // so the exclusion is gone and the wharf decks are back in this probe: if
       // a board ever returns under a dock the band reads it as sunk half a
       // metre, and `underWharf` below names the dock it is under.
+      //
+      // A MERGED DECK IS ASKED, NOT READ AS A SLAB (T-3598). T-3553 (#2034)
+      // files every stoop, porch top and mounting block in town as ONE walker
+      // deck, `stairs:floors` (house-floors.js mergeDecks): its `pts` are the
+      // box round all of them and its `y` the lowest stoop's top, 0.78 m in
+      // 1835, and only its own `heightAt` says where a tread actually stands
+      // (null off every one). Read as a polygon at `y`, it laid a floor 0.78 m
+      // up across the whole town, and every board measured against it read as
+      // sunk 0.60 m, red on dev from 8372852a2. The walker asks it the same way
+      // (deck-surface.js deckHeightAt), and turns back at the walls deck,
+      // `stairs:walls`, which nobody stands on and no board ties into.
       const deckAt = (e, n) => {
         let y = null;
         for (const d of a.decks ?? []) {
           if (/__footway_\d+$/.test(d.id)) continue;
+          if (d.wall) continue;
+          if (typeof d.heightAt === 'function') {
+            const h = d.heightAt(e, n);
+            if (typeof h === 'number' && (y === null || h > y)) y = h;
+            continue;
+          }
           if (y !== null && d.y <= y) continue;
           let hit = false;
           const pts = d.pts;
