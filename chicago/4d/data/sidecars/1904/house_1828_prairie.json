@@ -352,7 +352,7 @@
         "downpipes": [
           {
             "wall": "k01.wall.side.south",
-            "s_m": 18.9
+            "s_m": 14.2
           },
           {
             "wall": "k01.wall.rear_service",
@@ -361,7 +361,7 @@
         ]
       },
       "confidence": "reconstructed",
-      "note": "K01's copper gutter and two downpipes; no picture shows them."
+      "note": "K01's copper gutter and two downpipes; no picture shows them. T-1887 (2026-11-14): the south flank's downpipe stands at s 14.2, behind the stone range at the front of that flank, which the automobile photograph shows with no pipe on it."
     },
     "entrance_kit": {
       "value": {
@@ -513,7 +513,7 @@
         },
         "side_gate": {
           "variant": "k11.gate.walk_gate_on_piers",
-          "pier_s_m": -1.8,
+          "pier_s_m": -2.35,
           "drawn_deg": 0
         },
         "posts": {
@@ -525,7 +525,7 @@
       "sources": [
         "chicagology_1828_shipman_automobile"
       ],
-      "note": "An iron fence on a stone curb in front of the house, with turned posts, in the automobile photograph (Chicagology, about 1897). The lot's sides are the 1904 parcel's (data/street_grid/1904.json); the gates and the side gate across the south passage are reconstructed. T-3206: the entrance pair is drawn standing open into the yard, 70 degrees, so the walk's way in reads open from the street (reconstructed: no picture shows the leaves' state; liberty L-k14-walks-1800-block-3206)."
+      "note": "An iron fence on a stone curb in front of the house, with turned posts, in the automobile photograph (Chicagology, about 1897). The lot's sides are the 1904 parcel's (data/street_grid/1904.json); the gates and the side gate across the south passage are reconstructed. T-3206: the entrance pair is drawn standing open into the yard, 70 degrees, so the walk's way in reads open from the street (reconstructed: no picture shows the leaves' state; liberty L-k14-walks-1800-block-3206). T-1887 (2026-11-14): the side passage's gate pier moved from v -1.8 to -2.35, south of the stone range at the front of the south flank; the photograph shows the fence unbroken in front of that range."
     },
     "bays": {
       "value": [
@@ -819,15 +819,47 @@
             "pitch": 0.25,
             "covering": "slate_pennsylvania"
           }
+        },
+        {
+          "id": "south_front_range",
+          "variant": "k08.projection.full_height",
+          "wall": "k01.wall.side.south",
+          "s_m": 17.1,
+          "fabric": "front_stone",
+          "plinth_m": 0.15,
+          "plan": {
+            "width_m": 4.0,
+            "proud_m": 2.25,
+            "range": true
+          },
+          "storeys": [
+            {
+              "height_m": 7.9,
+              "windows": []
+            },
+            {
+              "height_m": 4.14,
+              "windows": []
+            }
+          ],
+          "roof": {
+            "kind": "hip",
+            "pitch": 0.0,
+            "covering": "tin_flat_seam_painted"
+          },
+          "eaves": {
+            "cornice": "k10.cornice.moulded_stone"
+          }
         }
       ],
       "confidence": "inferred",
       "sources": [
         "sanborn_1911_chicago_v3_sheet_28",
         "chicagology_1828_shipman_automobile",
-        "glessner_blog_1828_shipman_partial"
+        "glessner_blog_1828_shipman_partial",
+        "rand_mcnally_1893_views_prairie_west_1816_1936"
       ],
-      "note": "Three K08 bays on the 1911 sheet's trace (s28fp-1828-b1), in the lot's frame: the street front's canted bay from v -2.7 to 1.84 (the sheet's from the south corner at -3.0; K01 keeps 0.3 m of pier), 1.25 m out from the recessed north part at u 46.3, its front 1.92 m (the sheet's v -1.59 to 0.33), carried through the basement and both storeys in the automobile photograph (Chicagology, about 1897) and the partial view (Glessner House Museum), with one window per storey in each cheek and in the front; on the south flank, a round bay at u 27.4-31.4 standing 1.6 m out on the sheet (K08's bow 1.2: within its range), and a stone-drawn canted bay at u 32.3-38.0, 0.95 m out, laid in the front's stone as the sheet draws it inside the block's blue band (T-1887). The flank bays' storeys, windows and roofs are reconstructed: no picture shows the flank. The front bay is carried up past the main cornice under its own mansard crown, as the partial view shows it (T-1887): the crown's face 4.5 m at 78 degrees, the main mansard's, slated as the house with iron cresting on its curb, and one round-headed dormer on its front face, its light 0.6 x 1.6 m in a 0.1 m surround, the widest the crown's 1.92 m front clears of its hips (the print's dormer face reads about 0.9 m across, foreshortened)."
+      "note": "Three K08 bays on the 1911 sheet's trace (s28fp-1828-b1), in the lot's frame: the street front's canted bay from v -2.7 to 1.84 (the sheet's from the south corner at -3.0; K01 keeps 0.3 m of pier), 1.25 m out from the recessed north part at u 46.3, its front 1.92 m (the sheet's v -1.59 to 0.33), carried through the basement and both storeys in the automobile photograph (Chicagology, about 1897) and the partial view (Glessner House Museum), with one window per storey in each cheek and in the front; on the south flank, a round bay at u 27.4-31.4 standing 1.6 m out on the sheet (K08's bow 1.2: within its range), and a stone-drawn canted bay at u 32.3-38.0, 0.95 m out, laid in the front's stone as the sheet draws it inside the block's blue band (T-1887). The flank bays' storeys, windows and roofs are reconstructed: no picture shows the flank. The front bay is carried up past the main cornice under its own mansard crown, as the partial view shows it (T-1887): the crown's face 4.5 m at 78 degrees, the main mansard's, slated as the house with iron cresting on its curb, and one round-headed dormer on its front face, its light 0.6 x 1.6 m in a 0.1 m surround, the widest the crown's 1.92 m front clears of its hips (the print's dormer face reads about 0.9 m across, foreshortened). T-1887 (2026-11-14): a plain stone range on the south flank at the front, u 42.0-46.0 in the lot's frame (the front corner's 0.3 m pier left clear), standing 2.25 m out to v -5.25, full height under a flat top and the front's moulded stone cornice, with no window in its street face. The automobile photograph shows that face south of the bay's cheek (x 0-145 px): light stone, coursed, windowless, its water table level with the bay's, and its south corner at about x 44 px, which through the photograph's camera is v -5.25; the Rand McNally view of 1893 draws a plain windowless strip at the south end of 1828's front, beside the bay's windows; and D. B. Shipman's permit (Chicago Tribune, 9 July 1876, transcribed on Chicagology's page) gives the house a 35 ft front, 10.67 m, against the 1911 sheet's 8.2 m: 2.47 m more, where the photograph reads 2.25. The 1911 sheet does not draw it; two pictures and the permit do, so it is built, and the departure from the sheet is L-k01-1828-shipman-1887. Its depth along the flank (4.0 m), its roof and its south face are reconstructed: no picture shows them."
     },
     "mansard": {
       "value": {
@@ -989,6 +1021,23 @@
         "colour: the print is monochrome",
         "a date",
         "the south part of the front, the flanks and the rear"
+      ]
+    },
+    {
+      "source_id": "rand_mcnally_1893_views_prairie_west_1816_1936",
+      "citation": "'Prairie Avenue (Looking North West) (Between 20th & 18th Streets).' Street-front drawing, the right-hand strip of p. 269 in Rand, McNally & Co.'s Bird's-Eye Views and Guide to Chicago (Chicago: Rand, McNally & Co., 1893); artist not named.",
+      "url": "https://archive.org/details/randmcnallycosbi00lawr/page/269/mode/1up",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the 1900 front's mansard roof, dormers, arched windows and stoop as drawn in 1893",
+        "the 1834 front's mansard top as drawn in 1893"
+      ],
+      "what_it_does_not_supply": [
+        "measurement",
+        "material or colour",
+        "the side walls and the rear"
       ]
     },
     {
