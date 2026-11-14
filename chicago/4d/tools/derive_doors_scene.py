@@ -482,6 +482,7 @@ def glessner_doors(sc: dict) -> list[dict]:
 
 
 BARRIERS = "prairie_barriers/3"   # bump when prairie_barriers.py reads a model differently
+FLOORS = "prairie_floors/5"       # bump when prairie_barriers.floor reads a model differently
 
 
 def barrier_cache(scene: str) -> dict:
@@ -494,7 +495,7 @@ def barrier_cache(scene: str) -> dict:
         return {}
     if old.get("barriers_by") != BARRIERS:
         return {}
-    return {r["structure"]: r for r in old.get("structures", []) + old.get("barriers", []) if "barrier" in r}
+    return {r["structure"]: r for r in old.get("structures", []) + old.get("barriers", []) if "barrier" in r or "floor" in r}
 
 
 def barrier_of(sc: dict, glb: Path, h: str, cache: dict, parts=None, got=None) -> dict | None:
@@ -505,6 +506,18 @@ def barrier_of(sc: dict, glb: Path, h: str, cache: dict, parts=None, got=None) -
     if got is None:
         got = pb.mask(d1812.load_triangles(glb) if parts is None else parts, sc["footprint"]["polygon"])
     plan = pb.plan_of(got)
+    return {"key": key, **plan} if plan else None
+
+
+def floor_of(sc: dict, glb: Path, h: str, cache: dict, parts=None) -> dict | None:
+    """The owner, 2026-11-14 ("Anywhere there are stairs I should be able to climb"): the tops
+    of the house's stoops and porches the visitor climbs (prairie_barriers.floor), cached like
+    its barrier."""
+    key = hashlib.sha256(json.dumps([FLOORS, h, sc["footprint"]["polygon"]], sort_keys=True).encode()).hexdigest()[:16]
+    hit = (cache.get(sc["id"]) or {}).get("floor")
+    if hit and hit.get("key") == key:
+        return hit
+    plan = pb.floor_plan(pb.floor(d1812.load_triangles(glb) if parts is None else parts, sc["footprint"]["polygon"]))
     return {"key": key, **plan} if plan else None
 
 
@@ -526,9 +539,16 @@ def barrier_rows(scene: str, rows: list, cache: dict) -> list[dict]:
         glb = ROOT / "assets" / sc["asset"]
         if not glb.exists():
             continue
-        plan = barrier_of(sc, glb, d1812.sha256(glb), cache)
-        if plan:
-            out.append({"structure": sid, "placement": d1812._placement(sc), "barrier": plan})
+        h = d1812.sha256(glb)
+        plan = barrier_of(sc, glb, h, cache)
+        fl = floor_of(sc, glb, h, cache)
+        if plan or fl:
+            row = {"structure": sid, "placement": d1812._placement(sc)}
+            if plan:
+                row["barrier"] = plan
+            if fl:
+                row["floor"] = fl
+            out.append(row)
     return out
 
 
@@ -550,12 +570,13 @@ def derive(scene: str) -> tuple[dict, list[str]]:
                 problems.append(f"{sid}: its model {sc['asset']} is not built")
                 continue
             h = d1812.sha256(glb)
-            plan = None
+            plan = floor = None
             if scene == '1904':
                 parts = d1812.load_triangles(glb)
                 got = pb.mask(parts, sc['footprint']['polygon'])
                 doors, p = prairie_doors(sc, glb, parts, got)
                 plan = barrier_of(sc, glb, h, cache, parts, got)
+                floor = floor_of(sc, glb, h, cache, parts)
             else:
                 doors, p = d1812.doors_of(sc, glb)
             problems += p
@@ -576,6 +597,9 @@ def derive(scene: str) -> tuple[dict, list[str]]:
             # T-3554: what the model builds outside its walls (stoop, area walls, railings,
             # bays), which a day's walk keeps a skirt's width off (human-days.js, human-spacing.js).
             row["barrier"] = plan
+        if sid != "glessner_house" and floor:
+            # The tops of its stoop and porches, which the visitor climbs (walker.js decks).
+            row["floor"] = floor
         rows.append(row)
     out = {
         "format": FORMAT,
@@ -592,6 +616,13 @@ def derive(scene: str) -> tuple[dict, list[str]]:
                                 "u0 + i*cell, v0 + j*cell of the model's plan (u = x, v = -z), turned into local E/N "
                                 "by the placement. `barriers` carries them for the built Prairie houses no day goes into.")
         out["barriers"] = barrier_rows(scene, rows, cache)
+        out["floors_by"] = FLOORS
+        out["floors_note"] = ("The owner, 2026-11-14 (\"Anywhere there are stairs I should be able to climb\"): a "
+                              "`floor` is the tops a house model builds outside its walls that a visitor climbs, its "
+                              "stoop's treads and landing and its porches (tools/prairie_barriers.py floor): `rects`, "
+                              "plan rectangles of one height, five integers each (i0 i1 j0 j1 half-open, then the top in "
+                              "centimetres over the model's ground), and `walls`, the same for the rails and cheeks "
+                              "beside them, standing past any step. house-floors.js lays them as walker decks.")
     stoops = stoop_rows(scene)
     if stoops:
         out["stoops_note"] = ("T-3554 (owner, 2026-11-13: \"no one should be able to\" stand in stairs): the stairs "
