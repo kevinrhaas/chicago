@@ -5089,8 +5089,11 @@ class Assembly:
         1): between the cant's top and the pavilion's wall top, everything on the corner's side
         of the plane through the eave's corner (the hip's foot, the eave overhang out from the
         walls' corner) and the return's back edge, from `rb`[0] behind the wall's face at the
-        cant's top to `rb`[1] at the wall top. Two rings, each the box round the corner cut on
-        that plane's trace at its height; both must cut it the same way, so the faces are planar."""
+        cant's top to `rb`[1] at the wall top; and on over the return to the curb, its north side
+        leaning in from the return's top edge to the side face's foot of the deck, so the slate
+        over the return is one face up to the hip. Two rings per solid, each the box round the
+        corner cut on that plane's trace at its height; both must cut it the same way, so the
+        faces are planar."""
         from . import k08_bays as K8
         D, E, o = self.p.depth_m, self.p.eave_m, self.p.eave_overhang_m
         bv = b["variant"]
@@ -5108,9 +5111,10 @@ class Assembly:
         far = side(D + 2.0, s1 + 2.0, ct)
 
         def solid(ya, yb, north):
-            box = [(D - 6.0, north), (D + 2.0, north), (D + 2.0, s1 + 2.0), (D - 6.0, s1 + 2.0)]
             rings = []
-            for y in (ya, yb):
+            for y in (ya, yb):   # `north` may lean: a callable of the height
+                nv = north(y) if callable(north) else north
+                box = [(D - 6.0, nv), (D + 2.0, nv), (D + 2.0, s1 + 2.0), (D - 6.0, s1 + 2.0)]
                 f = [side(u, v, y) * far for u, v in box]
                 ring = []
                 for i in range(4):
@@ -5126,13 +5130,33 @@ class Assembly:
                                  f"corner differently at {ya:.3f} and {yb:.3f} m")
             return k5.ring_stack(rings, ["covering"], "covering", "covering")
         # up to the wall top as deep as the light's recess, and on up over the return to the curb
-        # on the same plane, which leaves the slate there (no ceiling over the return's top)
+        # on the same plane, so no ceiling shows over the return's top
         y_curb = E + float(self.p.mansard["lower_rise_m"])
         if not ct + 0.5 <= y_wt < y_curb - 0.5:
             raise ValueError(f"{b['id']}: a return's slate set back stands between its cant's top and its "
                              f"mansard's curb")
         self.meta_return = {"plane_normal": [round(q, 4) for q in n]}
-        return [solid(ct - 0.01, y_wt, vc - reach), solid(y_wt - 0.01, y_curb - 0.05, vc - 0.02)]
+        # T-1890 (HABS photograph 1, its coursing read at full size): over the return's top the
+        # slate is ONE north-facing face, its courses parallel to the return's moulded top, rising
+        # from that top to the hip and the deck's corner hood. The cut's north side over the wall
+        # top is therefore not upright on the return's plane (which stood a slate cheek over the
+        # return and left a sliver of the front slope folded between it and the set-back face)
+        # but leans in, from the return's outer top edge to the side face's foot of the deck at
+        # the curb, so the face it leaves runs from the return's top to the hip in one plane
+        pt = math.tan(math.radians(float(self.p.mansard["lower_pitch_deg"])))
+        v_deck = s1 + o - (y_curb - E) / pt
+        if not v_deck < vc:
+            raise ValueError(f"{b['id']}: the slate over a chamfer's return leans in to the side face's foot of "
+                             f"the deck, which stands behind the return ({v_deck:.3f} of {vc:.3f})")
+        # It stops 0.05 m behind that foot at the curb, not 0.02: the side face the cut leaves
+        # between it and the front slope's trace narrows to its top, and at 0.02 that face was a
+        # 3 cm sliver whose triangles fanned to within the 1 mm weld of the trace and passed
+        # through the front slope's own (the K05 gate's crossing rule, 4 pairs); at 0.05 the
+        # face holds its width and nothing crosses, 3 cm the eye cannot take at the hood
+        v_top = v_deck - 0.05
+        lean = lambda y: vc - 0.02 + (v_top - (vc - 0.02)) * (y - y_wt) / (y_curb - y_wt)
+        self.meta_return["over_top"] = {"deck_v_m": round(v_deck, 4), "lean_top_v_m": round(v_top, 4)}
+        return [solid(ct - 0.01, y_wt, vc - reach), solid(y_wt - 0.01, y_curb - 0.05, lean)]
 
     @staticmethod
     def chamfer_top(b):
