@@ -1730,6 +1730,10 @@ export async function createFrontage({
      *  to the walker's registry. `y` is the plank top — the deck the record
      *  rides plus the walk's own rise — so the boot and the board agree. */
     walkableDecks: [],
+    /** The owner, 2026-11-14: "Anywhere there are stairs I should be able to climb". The
+     *  stoops' and mounting blocks' steps as walker decks, each at the top buildFitting lays
+     *  it (house-floors.js mergeDecks files them with the 1904 houses' stoops). */
+    stairDecks: [],
     /** The street-lining fence runs actually built (T-0069). */
     fences: [],
     census: {
@@ -2090,6 +2094,12 @@ export async function createFrontage({
         const [pe, pn] = part.at_local_enu_m;
         const hl = part.len_m / 2;
         const hd = part.depth_m / 2;
+        const corners = [[-1, -1], [1, -1], [1, 1], [-1, 1]].map(([sa, so]) => [
+          pe + fae * sa * hl + foe * so * hd, pn + fan * sa * hl + fon * so * hd]);
+        if (TREADED.has(fit.kind) && part.thick_m == null && Number.isFinite(part.top_m)) {
+          const gs = [...corners, [pe, pn]].map(([e, n]) => groundAt(terrain, e, n)).filter((g) => g !== null);
+          if (gs.length) out.stairDecks.push({ id: `${fit.id}:${part.part}`, y: Math.max(...gs) + part.top_m, pts: corners });
+        }
         out.keepOut.push({
           id: `${fit.belongs_to}__${fit.kind === 'wagon_apron' ? 'apron' : 'fitting'}`,
           pts: [[-1, -1], [1, -1], [1, 1], [-1, 1]].map(([sa, so]) => [
