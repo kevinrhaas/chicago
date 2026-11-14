@@ -1598,12 +1598,6 @@ function addRecord(buffers, record, terrain, stats, ridge = true, fades = null) 
   }
 }
 
-function hash(x, y) {
-  let h = Math.imul(x + 17, 374761393) ^ Math.imul(y + 31, 668265263);
-  h = Math.imul(h ^ (h >>> 13), 1274126177);
-  return ((h ^ (h >>> 16)) >>> 0) / 4294967295;
-}
-
 /**
  * T-1811. The one grit tile every street shares — T-1797's `gritTilePixels`,
  * 256 px over 1.6 m: R is height read as grain, G/B the OpenGL normal. It

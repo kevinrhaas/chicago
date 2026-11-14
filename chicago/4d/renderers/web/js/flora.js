@@ -52,23 +52,22 @@ import { GUST_GLSL, uGustClock } from './wind-gust.js';
 // The shrub archetype's LAYOUT, in a module that imports nothing, so
 // `tools/measure_spray_grain.mjs` can measure the grain without a browser and
 // without a second copy of the corner arithmetic. See K57.
-import { SHRUB_GRAIN, FAR_SHRUB_GRAIN, shrubLayout } from './shrub-grain.js';
+import { SHRUB_GRAIN, shrubLayout } from './shrub-grain.js';
 // T-2125: where a community's edge is asked, so the edges blend and wander.
 import { ZONE_BLEND_MAX_M } from './zone-blend.js';
 import { zoneFinder, heldGround, groundZones, waterDistance, ZONE_UNASKED } from './flora-zones.js';
 import { GROUND_WET, GROUND_FLOOR, GROUND_TRODDEN, GROUND_KEEP, GROUND_TRACK, GROUND_UNASKED, VERGE_CELL_M,
   VERGE_KEEP_SHARE, vergeBand, footprintCircles, circleGrid, onFloor, groundAnswers, trackHeld } from './flora-ground.js';
 import { vergeRecords } from './street-verge.js';
-// T-2707: the near field tile kept a strip at a time, its strips asked of the pool.
-import { FIELD_UNASKED, fieldKeeper } from './near-field.js';
 import { FIELD_TABLE_TURF, FIELD_TABLE_CEILING, slotPoint } from './jobs/zone-kernel.js';
 import { foliageAtlas, foliageFamily } from './foliage-atlas.js';
 // T-2085: which community is short turf, and the box its extent can reach.
 import { isTurfCommunity, extentBounds } from './turf-tile.js';
 import { runJob, jobsOnWorkers, holdOnWorker } from './jobs/pool.js';
-// T-2698: the near deal's field as a world-anchored tile a shader can sample.
-import { FIELD_SPEC, FIELD_FLAGS, FIELD_GLSL, fieldOrigin, buildField, sampleField }
-  from './near-field.js';
+// T-2698: the near deal's field as a world-anchored tile a shader can sample;
+// T-2707: the tile kept a strip at a time, its strips asked of the pool.
+import { FIELD_SPEC, FIELD_FLAGS, FIELD_GLSL, fieldOrigin, buildField, sampleField,
+  FIELD_UNASKED, fieldKeeper } from './near-field.js';
 // T-2706: the near deal's species and placement as GLSL, and its slot codes.
 import { NEAR_DEAL, DEAL_GLSL, dealTable } from './flora-gpu-deal.js';
 // T-2716: the near ring drawn from the shader — the lattice walk and the deal
@@ -77,7 +76,7 @@ import { LATTICE_GLSL, latticeUniforms } from './flora-gpu-lattice.js';
 import { nearPassShaders, nearSlotsMax, nearTarget, NEAR_FETCH_GLSL, NEAR_STREAM_DRAWS,
   NEAR_RING_GLSL } from './flora-gpu-near.js';
 // T-2894: the mid ring's cards on the GPU's deal, against a kept tile of its own.
-import { midPassShaders, midFieldSpec, MID_TARGET_WIDTH, MID_STREAM_DRAWS } from './flora-gpu-mid.js';
+import { midPassShaders, midFieldSpec, MID_TARGET_WIDTH } from './flora-gpu-mid.js';
 // T-2895: the forbs, rosettes and shrubs on the GPU's deal, against the mid tile.
 import { forbPassShaders } from './flora-gpu-forb.js';
 import { FAR_DEAL, FAR_UNASKED, FAR_LATTICE_PAD_M, farFieldSpec, farSlotSpec, farSlotReach, farSlotBytes,
@@ -8577,16 +8576,6 @@ function shrubGeometry(grain = SHRUB_GRAIN, name = 'flora-shrub', reach = 1, seg
     }
   }
   return finishGeo(g, name);
-}
-
-/** The furthest any corner of a shrub layout stands from its root, in plan. */
-function shrubReach(grain) {
-  const { stems, sprays } = shrubLayout(rngFrom(0x5c123b00), grain);
-  let r = 0;
-  for (const q of [...stems, ...sprays]) {
-    for (const p of q.corners) r = Math.max(r, Math.hypot(p[0], p[2]));
-  }
-  return r;
 }
 
 /**

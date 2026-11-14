@@ -1,0 +1,9 @@
+{
+  "title": "Tidier code under the town, nothing on screen changed",
+  "kind": "chore",
+  "items": [
+    "Removed leftover code the app no longer used: unused helpers, values it worked out and threw away, and imports it never read.",
+    "The yard goods now share the business signs' half-size phone picture instead of keeping a second copy of it.",
+    "Every year looks and behaves exactly as before, on phones and computers."
+  ]
+}
