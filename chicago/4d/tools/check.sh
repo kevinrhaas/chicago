@@ -474,6 +474,8 @@ step "Glessner's court and side doors, and every built 1904 front door, open and
   node tools/test_house_passages.mjs
 step "Nobody walks through a 1904 house's stoop, area wall, railing or bay: every resident's outdoor place and walk keep a skirt's width off what the house builds outside its walls (T-3554)" \
   node tools/test_house_barriers.mjs
+step "The visitor climbs every stair: each 1904 front stoop with a hung door to the door, every back stoop to its landing, a tread at a time, and rails and cheeks turn one back (owner, 2026-11-14)" \
+  node tools/test_house_floors.mjs
 step "Loaded parade ground delegates to its native owner; failed assets and sundial geometry remain required (T-3041)" \
   node tools/test_parade_presence.mjs
 step "Jaunt daybook: idempotent keepsakes, data ranks, honest recovery (T-1258)" \

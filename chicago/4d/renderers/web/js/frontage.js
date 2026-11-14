@@ -1651,10 +1651,16 @@ async function getJSONHashed(url) {
     sha256: Array.from(digest, (b) => b.toString(16).padStart(2, '0')).join('') };
 }
 
-/** One prebuilt mesh's geometry: typed-array views over the shared buffer. */
+/**
+ * One prebuilt mesh's geometry, each array COPIED out of the shared buffer (T-3595).
+ * A view would do for drawing, but one view keeps the whole buffer alive: on a phone
+ * every chunk lets go of its arrays once uploaded (upload-release.js), and the chunks
+ * still out of reach held views over all 61 MB of 1835's timber, so nothing was ever
+ * let go. With copies, the shared buffer is garbage once the layer is built.
+ */
 function prebuiltGeometry(m, bin) {
   const geo = new THREE.BufferGeometry();
-  const view = (a) => new globalThis[a.type](bin, a.offset, a.byteLength / globalThis[a.type].BYTES_PER_ELEMENT);
+  const view = (a) => new globalThis[a.type](bin.slice(a.offset, a.offset + a.byteLength));
   for (const a of m.attributes) geo.setAttribute(a.name, new THREE.BufferAttribute(view(a), a.itemSize, a.normalized));
   if (m.index) geo.setIndex(new THREE.BufferAttribute(view(m.index), 1));
   const s = m.bounding_sphere;
@@ -1730,6 +1736,10 @@ export async function createFrontage({
      *  to the walker's registry. `y` is the plank top — the deck the record
      *  rides plus the walk's own rise — so the boot and the board agree. */
     walkableDecks: [],
+    /** The owner, 2026-11-14: "Anywhere there are stairs I should be able to climb". The
+     *  stoops' and mounting blocks' steps as walker decks, each at the top buildFitting lays
+     *  it (house-floors.js mergeDecks files them with the 1904 houses' stoops). */
+    stairDecks: [],
     /** The street-lining fence runs actually built (T-0069). */
     fences: [],
     census: {
@@ -2090,6 +2100,12 @@ export async function createFrontage({
         const [pe, pn] = part.at_local_enu_m;
         const hl = part.len_m / 2;
         const hd = part.depth_m / 2;
+        const corners = [[-1, -1], [1, -1], [1, 1], [-1, 1]].map(([sa, so]) => [
+          pe + fae * sa * hl + foe * so * hd, pn + fan * sa * hl + fon * so * hd]);
+        if (TREADED.has(fit.kind) && part.thick_m == null && Number.isFinite(part.top_m)) {
+          const gs = [...corners, [pe, pn]].map(([e, n]) => groundAt(terrain, e, n)).filter((g) => g !== null);
+          if (gs.length) out.stairDecks.push({ id: `${fit.id}:${part.part}`, y: Math.max(...gs) + part.top_m, pts: corners });
+        }
         out.keepOut.push({
           id: `${fit.belongs_to}__${fit.kind === 'wagon_apron' ? 'apron' : 'fitting'}`,
           pts: [[-1, -1], [1, -1], [1, 1], [-1, 1]].map(([sa, so]) => [
@@ -2307,6 +2323,10 @@ export async function createFrontage({
   if (replay) {
     spans.splice(0, spans.length, ...replay.index.spans);
     out.prebuilt = { used: true, why: null, build: replay.index.build, bytes: replay.index.bytes };
+    // T-3595: the meshes hold copies, and the page's resolved promise (main.js) and
+    // this scope's closures must not keep the buffer or its tape alive.
+    replay.bin = null;
+    replay.index = null;
   }
   // What a prebuild writes beside the buffers (tools/prebuild_layers.mjs).
   if (record) {

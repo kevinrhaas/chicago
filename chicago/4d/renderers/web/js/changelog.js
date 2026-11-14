@@ -1,4 +1,19 @@
 export const CHANGELOG = [ // newest first
+  { v: 2966, ts: '2026-11-14T07:56:30.574Z', date: 'Nov 14, 2026, 1:56 AM CT', title: 'Climb any stoop to the door', kind: 'feature',
+    items: [
+      'On foot you can now walk up every 1904 house\'s front steps, a tread at a time, to the door, and knock to ask who is home.',
+      'Porches, landings and the back yards\' stoops are climbable too, as are 1835\'s shop stoops and mounting blocks.',
+      'Rails, cheek walls and the steps\' sides now stop you, so you climb between them rather than walking through them.',
+    ] },
+  { v: 2965, ts: '2026-11-14T07:25:43.614Z', date: 'Nov 14, 2026, 1:25 AM CT', title: '1835 on a phone holds less memory', kind: 'fix',
+    items: [
+      '1835 could close itself on a phone a little after it loaded. The plank walks and the road now let go of about 26 MB the phone kept for nothing, and more is freed as you walk.',
+    ] },
+  { v: 2964, ts: '2026-11-14T06:58:48.305Z', date: 'Nov 14, 2026, 12:58 AM CT', title: 'Field, Kellogg and Armour houses faced in red brick all round', kind: 'fix',
+    items: [
+      '1905 (Marshall Field), 1923 (Kellogg) and 1945 (Armour/Corwith) Prairie no longer show buff or salmon common brick on their sides: every wall, bay and corner is now the same pressed red as the front.',
+      'Field\'s photographs show its conservatory side in the front\'s brick; Armour\'s Twentieth Street side faces a street. The other houses keep common brick on their sides, as the photographed flanks on the street show.',
+    ] },
   { v: 2963, ts: '2026-11-14T05:11:29.978Z', date: 'Nov 13, 2026, 11:11 PM CT', title: 'The Greys wear their photographs: skin, hair, beard and eyes', kind: 'feature',
     items: [
       'William and Sarah Grey of 2010 Prairie (1904) now wear the owner\'s turnaround photographs as their own skin, on every side of the head.',
