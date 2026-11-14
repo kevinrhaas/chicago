@@ -19,11 +19,22 @@ export const sortTitle = (title = '') => String(title).replace(/^(?:a|an|the)\s+
  * group; the Build log (every building modelled so far) comes last.
  */
 const rank = (r) => (Number.isInteger(r.menu_rank) ? r.menu_rank : Infinity);
-export function jauntOrder(a, b) {
+/** T-3590: the US school grade bands a jaunt is written for (data/jaunts/schema.json grade_band). */
+export const GRADE_BANDS = ['K-2', '3-5', '6-8', '9-10', '11-12'];
+export const gradeLabel = (band) => (GRADE_BANDS.includes(band) ? `Grades ${band.replace('-', '–')}` : '');
+function placeOrder(a, b) {
   const kind = (r) => { const i = GROUPS.indexOf(groupOf(r)); return i < 0 ? GROUPS.length : i; };
   return (rank(a) === rank(b) ? 0 : rank(a) < rank(b) ? -1 : 1)
     || kind(a) - kind(b) || (b.featured === true) - (a.featured === true)
     || sortTitle(a.title).localeCompare(sortTitle(b.title)) || String(a.id).localeCompare(String(b.id));
+}
+/** T-3590: a version of a jaunt for another grade band (`version_of`) sits right after the
+ *  jaunt it retells, versions in grade order; `baseOf(row)` finds that jaunt's row. */
+export function jauntOrder(a, b, baseOf = () => null) {
+  const A = (a.version_of && baseOf(a)) || a, B = (b.version_of && baseOf(b)) || b;
+  if (A !== B) return placeOrder(A, B);
+  return (a === A ? -1 : 0) + (b === B ? 1 : 0)
+    || GRADE_BANDS.indexOf(a.grade_band) - GRADE_BANDS.indexOf(b.grade_band) || String(a.id).localeCompare(String(b.id));
 }
 /** T-3377: the light an outing is walked in, as its card says it: "Dusk · Fall". */
 export function ambienceLabel(ambience) {
@@ -34,9 +45,10 @@ export function ambienceLabel(ambience) {
 }
 export function filterJaunts(rows, query = '', group = '') {
   const words = query.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean);
+  const byId = new Map(rows.map(row => [row.id, row]));
   return rows.filter(row => (!group || groupOf(row) === group) && words.every(word =>
-    `${row.title} ${row.premise} ${row.category} ${groupOf(row)} ${row.primary_family}`.toLocaleLowerCase().includes(word)))
-    .sort(jauntOrder);
+    `${row.title} ${row.premise} ${row.category} ${groupOf(row)} ${row.primary_family} ${gradeLabel(row.grade_band)}`.toLocaleLowerCase().includes(word)))
+    .sort((a, b) => jauntOrder(a, b, row => byId.get(row.version_of)));
 }
 
 // T-2631: `plateFor(row)` gives a credited picture of the route's stops, or null; `kept(row)`
@@ -75,6 +87,9 @@ export function createJauntMenu({ root, estimate, onStart, onPreview, plateFor =
     const length = node('span', '', 'jaunt-length'); length.dataset.jauntLength = row.id;
     const meta = node('p', '', 'jaunt-tags');
     meta.append(node('span', group, 'jaunt-family'), node('span', `${row.stop_count} stops`), length);
+    // T-3590: the school grades its words are written for.
+    const grades = gradeLabel(row.grade_band);
+    if (grades) { const tag = node('span', grades, 'jaunt-grade'); tag.title = `Written for US school ${grades.toLowerCase()}`; meta.append(tag); }
     const light = ambienceLabel(row.ambience);
     if (light) { const tag = node('span', light, 'jaunt-light'); tag.title = 'The jaunt sets this time of day and season, and gives yours back at the end'; meta.append(tag); }
     // T-2631: the keepsake, once earned, on the outing's own card.
