@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2977, ts: '2026-11-14T16:04:02.931Z', date: 'Nov 14, 2026, 10:04 AM CT', title: 'People are solid: you walk round them, never into them', kind: 'fix',
+    items: [
+      'Walking into someone in any year no longer puts the camera inside their head or body. You stop at arm\'s length and slide round them, on computers and phones alike.',
+      'People walking toward you step round you instead of through you; people standing hold their ground.',
+      'Even sprinting on a slow phone you cannot pass through anyone.',
+      'If the view is ever put inside a person some other way, such as flying low through a crowd, that person is not drawn until you move out.',
+    ] },
   { v: 2976, ts: '2026-11-14T15:36:21.257Z', date: 'Nov 14, 2026, 9:36 AM CT', title: '1936 Prairie\'s balconies built as the photograph shows them', kind: 'improve',
     items: [
       'The balcony over 1936 Prairie\'s verandah now sits down on its arches as in the old photograph: a pale stone balustrade on a cornice carried by a row of small brackets, where a plain slab in the wall\'s colour had stood about two feet too high.',
