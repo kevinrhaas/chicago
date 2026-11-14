@@ -23,6 +23,7 @@ or her black afternoon dress, a cook's print and checked apron, a companion's sh
 Every colour is linear RGB, as the dressed bodies' materials are.
 """
 import hashlib
+import re
 
 TICKET = 'T-3553'
 LIBERTY = 'L-finery-3553'
@@ -90,6 +91,11 @@ def tonal(rgb, k=1.6):
 
 def dark(rgb):
     return scale(rgb, .45)
+
+
+def an(text):
+    """'a ivory dress' reads 'an ivory dress' (and 'a ecru' 'an ecru')."""
+    return re.sub(r'\ba ([aeiou])', r'an \1', text)
 
 
 def hat(pid, season, kind, base_rgb, matron=False):
@@ -249,7 +255,7 @@ def lady(pid, age):
         h, hwords = hat(pid, season, hat_kind, rgb, matron=matron and season != 'summer')
         d['hat'] = h
         d['hide'] = sorted(set(d['hide'] + LADY_HAT_HIDE))
-        d['worn'] = f'{words}; {hwords}'
+        d['worn'] = an(f'{words}; {hwords}')
         looks[season] = d
     rec = {**looks['summer'], 'seasons': {'spring': looks['mid'], 'fall': looks['mid'], 'winter': looks['winter']}}
     return rec
@@ -272,7 +278,7 @@ def maid(pid, rgb):
         words = {'stripe': 'striped', 'pinstripe': 'pin-striped', 'check': 'checked', 'dot': 'spotted', 'sprig': 'sprigged'}[kind]
         return {'colours': {'garment_upper__maid_dress_black': r3(ground), 'garment_lower__maid_skirt_black': r3(ground)},
                 'finery': {'garment_upper__maid_dress_black': f, 'garment_lower__maid_skirt_black': f},
-                'worn': f'a {gname} {words} cotton morning dress, white apron, collar, cuffs and cap'}
+                'worn': an(f'a {gname} {words} cotton morning dress, white apron, collar, cuffs and cap')}
     return None
 
 
@@ -289,7 +295,7 @@ def cook(pid, rgb):
                         'garment_outer__cook_apron_check': [.62, .6, .55]},
             'finery': {'garment_upper__cook_print_dress': f, 'garment_lower__cook_print_skirt': f,
                        'garment_outer__cook_apron_check': {'pattern': {'kind': 'check', 'rgb': r3(arw), 'repeat_m': .018, 'contrast': .9}}},
-            'worn': f'a {gname} {words} print working dress, a {aname}-and-white checked apron'}
+            'worn': an(f'a {gname} {words} print working dress, a {aname}-and-white checked apron')}
 
 
 def companion(pid, rgb):
@@ -299,7 +305,7 @@ def companion(pid, rgb):
     return {'colours': {'garment_upper__errand_shirtwaist_white': r3(srgb), 'garment_lower__errand_skirt_navy': r3(krgb)},
             'finery': {'garment_upper__errand_shirtwaist_white': {'trims': [{'kind': 'tucks', 'from': 'top', 'at_m': .12, 'width_m': .16, 'rgb': r3(srgb), 'rows': 8}]},
                        'garment_lower__errand_skirt_navy': {'trims': [{'kind': 'braid', 'from': 'hem', 'at_m': .12, 'width_m': .07, 'rgb': [.006, .006, .008]}]}},
-            'worn': f'a tucked {sname} shirtwaist, a braided {kname} walking skirt'}
+            'worn': an(f'a tucked {sname} shirtwaist, a braided {kname} walking skirt')}
 
 
 def girl(pid, role):
@@ -312,4 +318,4 @@ def girl(pid, role):
            'garment_lower__child_frock_1904': {'trims': [{'kind': 'lace' if sum(rgb) > 1 else 'ribbon', 'from': 'hem', 'at_m': .05, 'width_m': .06, 'rgb': lrgb if sum(rgb) > 1 else srgb},
                                                          {'kind': 'tucks', 'from': 'hem', 'at_m': .16, 'width_m': .08, 'rgb': r3(rgb), 'rows': 5}]}}
     return {'colours': {'garment_upper__child_frock_1904': r3(rgb), 'garment_lower__child_frock_1904': r3(rgb)},
-            'finery': fin, 'worn': f'a {name} frock with lace and tucks, a {sname} sash, and stockings'}
+            'finery': fin, 'worn': an(f'a {name} frock with lace and tucks, a {sname} sash, and stockings')}
