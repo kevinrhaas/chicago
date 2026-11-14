@@ -34,9 +34,10 @@
  * a little out from the skirt, in every state, and does not swing or take a pose.
  *
  * T-3553: a person whose face has a smile to move into gives it with the greeting and to a
- * visitor near in front of them, and moves their jaw as they talk. Their mouth's play is
- * human-mouth.js's, left on the figure by human-skin.js (`userData.chiMouth`); this layer knows
- * when the person greets and talks, and tells it each frame (`mouth`). Nobody else has one.
+ * visitor near in front of them, and moves their jaw as they talk; everyone else talks with
+ * their jaw and smiles at nobody. The mouth's play is human-mouth.js's, left on the figure by
+ * human-skin.js (`userData.chiMouth`); this layer knows when the person greets and talks, and
+ * tells it each frame (`mouth`).
  *
  * Deterministic (seeded from the person id), additive over the clip, rebuilt each frame.
  * Reconstructed motion: liberty L-human-actions-3415.

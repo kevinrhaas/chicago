@@ -378,6 +378,13 @@ def persons():
                 if sm['unit_m'] != DELTA_UNIT_M:
                     raise SystemExit(f'{smile.relative_to(ROOT)}: unit_m must be the kit delta unit')
                 rec['skin']['smile'] = {'file': str(smile.relative_to(ROOT)), 'vertices': sm['vertices'], 'delta': sm['delta']}
+            if t.get('front'):
+                # ...and its front picture as a picture, which the renderer shows from the front where
+                # the sheet took another picture (renderers/web/js/human-skin.js FRONT_VIEW).
+                front = ROOT / t['front']['file']
+                if hashlib.sha256(front.read_bytes()).hexdigest() != t['front']['sha256']:
+                    raise SystemExit(f'{front.relative_to(ROOT)} is not the front picture {skin.relative_to(ROOT)} was baked with: run tools/bake_likeness_skin.py again')
+                rec['skin']['front'] = {'map': str(front.relative_to(WEB)), **{k: t['front'][k] for k in ('size_px', 'colour_px', 'shown_px', 'kind_px', 'u', 'v', 'toward')}}
             if t.get('eyes'):
                 # ...and its own irises (two squares of the sheet) and the colour of its eyes' whites.
                 rec['skin']['eyes'] = {'px': t['eyes']['px'], 'size': t['eyes']['size'], 'white_srgb': t['eyes']['white_srgb']}

@@ -73,6 +73,19 @@ export const DRAW_M = 140;
 export const DRAW_M_BY_TIER = Object.freeze({ full: DRAW_M, balanced: DRAW_M, light: DRAW_M });
 /** T-3463: and the `light` tier gives LOD2 (its 1024 px dress sheet) way to LOD3 sooner. */
 export const LOD_BANDS_BY_TIER = Object.freeze({ light: Object.freeze([8, 20, 25]) });
+/**
+ * T-3553 (owner, 2026-11-14, walking into a man at Prairie and 18th: "you should not see
+ * inside people's heads and bodies"). A drawn figure is solid to the walker: a standing disc
+ * BODY_R_M round where they stand, BODY_TALL_M high (a top hat included), which walker.js
+ * keeps its capsule off (`bodiesNear`). And wherever the eye is put by anything else (a
+ * flight, a Follow or Find landing, a crowd pressed against a wall), a figure whose body
+ * holds the eye is not drawn that frame (`hideAtEye`): EYE_CLEAR_M round them, from a little
+ * below their feet to the top of a hat. A figure the walker is held off never comes nearer
+ * than WALK.radius + BODY_R_M (0.64 m), so on foot the second rule only ever catches a squeeze.
+ */
+export const BODY_R_M = 0.3;
+export const BODY_TALL_M = 2.05;
+export const EYE_CLEAR_M = 0.45;
 export const RECHECK_S = 0.5;
 /** T-3439: seconds a level drawn before is kept, parked, for a swap back to it. */
 export const PARK_S = 180;
@@ -889,6 +902,7 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
   let disposed = false;
   const store = assets ?? createHumanAssets({ assetBase });
   const raycaster = new THREE.Raycaster();
+  const eyeProbe = new THREE.Vector3();
   const near = new Set();
   let hovered = null;
   // T-3439: Settings › Show › People. Hidden, nobody is drawn, updated, loaded or picked,
@@ -918,6 +932,46 @@ export function createHumanLayer({ assetBase, assets = null, heightAt = () => 0,
     // External depictions remain addressable for People/Find, but their vehicle
     // alone advances, places and chooses the LOD of the seated body.
     external(personId) { return withheld.get(personId)?.externalActor ?? null; },
+
+    /**
+     * T-3553: the drawn figures about (e, n) whose bodies reach the heights y0..y1, as
+     * standing discs `{ e, n, r, id }` in local ENU. Only the layer's own, on foot or seated:
+     * a driver on his box goes with his vehicle. `reach` is a box half-width, metres.
+     */
+    bodiesNear(e, n, reach = 2.5, y0 = -Infinity, y1 = Infinity) {
+      const out = [];
+      if (!shown || disposed) return out;
+      for (const a of actors.values()) {
+        if (a.disposed || a.indoors || !a.inRange || !a.body || !kept(a)) continue;
+        const p = a.root.position, be = p.x, bn = -p.z;
+        if (Math.abs(be - e) > reach || Math.abs(bn - n) > reach) continue;
+        if (p.y > y1 || p.y + BODY_TALL_M < y0) continue;
+        out.push({ e: be, n: bn, r: BODY_R_M, id: a.id });
+      }
+      return out;
+    },
+
+    /**
+     * T-3553: not drawn this frame, any figure whose body holds the eye (a world point).
+     * Call after everything that moves figures or the camera, before the draw; each figure's
+     * own update draws it again next frame. Returns how many were hidden.
+     */
+    hideAtEye(eye) {
+      let hid = 0;
+      if (!shown || disposed || !eye) return hid;
+      for (const a of layer.actors) {
+        if (a.disposed || !a.root.visible) continue;
+        // A seated driver's root hangs on his vehicle; the layer's own stand in the scene.
+        const p = actors.has(a.id) ? a.root.position : a.root.getWorldPosition(eyeProbe);
+        const dx = eye.x - p.x, dz = eye.z - p.z;
+        if (dx * dx + dz * dz >= EYE_CLEAR_M * EYE_CLEAR_M) continue;
+        const dy = eye.y - p.y;
+        if (dy < -0.3 || dy > BODY_TALL_M) continue;
+        a.root.visible = false;
+        hid++;
+      }
+      return hid;
+    },
 
     get shown() { return shown; },
     /** T-3439: show or hide every figure, drivers on their seats included. */
