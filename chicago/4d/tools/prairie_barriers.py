@@ -16,6 +16,13 @@ four-corner ring, the shape human-days.js clearWayOf and human-spacing.js keepOu
 `clear_point` / `clear_leg` ask a set of those rings whether a body stands, or walks, a skirt's
 half-width (SKIRT_M) off all of them: prairie_people.py places a day's outdoor points with them.
 
+T-3554 (owner, 2026-11-13, of a maid standing half inside the bottom steps of a front stoop: "she
+cannot stand where there are stairs like that, no one should be able to"): the band starts at a
+riser's height (KNEE_M), not a knee's. A stoop's bottom tread (0.15-0.18 m on these models) and
+its second (0.3-0.35 m) are stairs to stand clear of as much as its rails are; the walks the models
+lay are ground one stands on: flags at grade or raised to 0.124 m (1828's, Ream's), and whatever is
+named a walk, paving or cinder (WALK_MATS).
+
 Run alone it reports, per house, how many rings and how much ground they cover.
 """
 from __future__ import annotations
@@ -31,19 +38,21 @@ sys.path.insert(0, str(ROOT / "tools"))
 import derive_doors_1812 as d1812  # noqa: E402
 
 CELL_M = 0.1      # the grid the barriers are read on
-KNEE_M = 0.25     # anything from this high over the ground ...
+KNEE_M = 0.14     # anything from a riser's height over the ground (a stoop's bottom tread, 0.15 m and
+                  # up; the highest walk is 0.124 m) ...
 HEAD_M = 1.8      # ... to a head's height is in a walker's way
 SKIRT_M = 0.35    # a skirt's half-width (derive_doors_scene.py WAY_SKIRT_M)
 LEG_M = SKIRT_M - CELL_M / 2   # what a walk keeps off a barrier, less the half cell it is read on
                                # (house-barriers.js BARRIER_SKIRT_M)
 SKIP_MATS = ("door_leaf", "door", "door_panel")       # hung by house-doors.js, swung open to pass
 GROUND_MATS = ("turf", "earth", "lawn", "grass")
+WALK_MATS = ("walk", "paving", "cinder")              # flat walks laid at grade: ground one stands on
 MIN_CELLS = 2     # a speck smaller than this is a modelling crumb, not a barrier
 
 
 def mask(parts, poly):
     """The plan's cells a walker cannot stand in: (mask, u0, v0), or None when nothing stands."""
-    tris = [t for n, t in parts if n.lower() not in SKIP_MATS and not any(g in n.lower() for g in GROUND_MATS)]
+    tris = [t for n, t in parts if n.lower() not in SKIP_MATS and not any(g in n.lower() for g in GROUND_MATS + WALK_MATS)]
     if not tris:
         return None
     T = np.concatenate(tris)
