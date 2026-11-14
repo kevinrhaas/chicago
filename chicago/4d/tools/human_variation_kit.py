@@ -39,6 +39,8 @@ PERSONS = ROOT / 'assets/humans/web/hm08_variation_persons.json'  # beside the k
 FITS = ROOT / 'data/humans/variation/fits'
 TRACES = ROOT / 'data/humans/variation/traces'   # T-3553
 LOOKS = ROOT / 'data/humans/variation/looks'   # T-3491: complexion, hair, eyes, stature
+SKINS = ROOT / 'data/humans/variation/skins'   # T-3553: a stand-in's pictures baked as the fitted face's own skin
+WEB = ROOT / 'assets/humans/web'
 DRESS = ROOT / 'data/humans/variation'   # T-3506/T-3522: dress_1812_*.json, each person's own dress, hat and hair
 RESIDENTS = {'1812': ROOT / 'data/residents_1812', '1835': ROOT / 'data/residents', '1904': ROOT / 'data/residents_1904'}
 COMMIT = 'a8bc2d54ff0ac92e78ff71431b1023eda42bf482'
@@ -326,11 +328,37 @@ def persons():
                 if t['unit_m'] != 1e-5:
                     raise SystemExit(f'{trace.relative_to(ROOT)}: unit_m must be the kit delta unit')
                 rec['face']['trace'] = {'file': str(trace.relative_to(ROOT)), 'vertices': t['vertices'], 'delta': t['delta']}
+        # T-3553: their own skin sheet (tools/bake_likeness_skin.py), on the fit it was baked on.
+        skin = SKINS / f'{pid}.json'
+        if skin.exists():
+            k = json.loads(skin.read_text())
+            t = k.get('texture')
+            if not t or 'face' not in rec:
+                raise SystemExit(f'{skin.relative_to(ROOT)}: no texture baked, or no fitted face to wear it: run tools/bake_likeness_skin.py')
+            if k['fit_values_sha256'] != hashlib.sha256(json.dumps(rec['face']['values'], sort_keys=True).encode()).hexdigest():
+                raise SystemExit(f'{skin.relative_to(ROOT)} was baked on another fit: run tools/bake_likeness_skin.py again')
+            rec['skin'] = {'map': str((ROOT / t['file']).relative_to(WEB)), 'size_px': t['size_px'],
+                           'rects': [{'uv': r['uv'], 'px': r['px']} for r in t['rects']], 'mask': t['mask'],
+                           'tint': t['tint'], 'gain': k.get('gain', 1),
+                           'grade': k['grade'], 'sources': [k['source']], 'liberty': k.get('liberty'),
+                           'record': str(skin.relative_to(ROOT))}
+            g = t.get('grow') or {}
+            if g.get('reach_m', 0) > 0:
+                # ...and how far its hair stands out from the fitted skin (the sheet's mask says where).
+                rec['skin']['grow'] = {'reach_m': g['reach_m'], 'from_m': g['from_m'], 'normal_px': g['normal_px']}
+            if (t.get('lids') or {}).get('rest', 0) > 0:
+                rec['skin']['lid'] = t['lids']['rest']   # ...and how far its lids rest shut, as its front picture's do
+            if t.get('eyes'):
+                # ...and its own irises (two squares of the sheet) and the colour of its eyes' whites.
+                rec['skin']['eyes'] = {'px': t['eyes']['px'], 'size': t['eyes']['size'], 'white_srgb': t['eyes']['white_srgb']}
         looks = LOOKS / f'{pid}.json'
         if looks.exists():
             lk = json.loads(looks.read_text())
+            # `drawn_age` (T-3553): a stand-in drawn at the age its pictures show. It was written by
+            # tools/prairie_people.py and read by human-variation.js but left out here, so the two
+            # Greys were drawn at 64 and 54, not the 50 and 45 their faces were fitted at.
             rec['looks'] = {k: lk[k] for k in ('complexion', 'hair', 'eyes', 'stature', 'height_scale', 'build', 'heritage', 'basis',
-                                               'reference', 'grade', 'liberty') if lk.get(k) is not None}
+                                               'reference', 'grade', 'liberty', 'drawn_age') if lk.get(k) is not None}
             rec['looks']['heritage'] = {'origin': lk['heritage']['origin']}
             rec['looks']['file'] = str(looks.relative_to(ROOT))
         dress = dresses().get(pid)
@@ -351,7 +379,7 @@ def persons():
         out[pid] = rec
     return (json.dumps({'format': 'chicago4d_human_variation_persons_v1', 'ticket': 'T-3412',
                         'generated_by': 'tools/human_variation_kit.py',
-                        '_doc': 'Each drawn person\'s age (from their own record: a birth date, else an age band), any face fitted to a picture of them, and any looks (complexion, hair, eyes, stature; T-3491). renderers/web/js/human-variation.js seeds everything else from the person id. Regenerate; never edit by hand.',
+                        '_doc': 'Each drawn person\'s age (from their own record: a birth date, else an age band), any face fitted to a picture of them, any skin sheet baked on that face (T-3553), and any looks (complexion, hair, eyes, stature; T-3491). renderers/web/js/human-variation.js seeds everything else from the person id. Regenerate; never edit by hand.',
                         'persons': out}, indent=1) + '\n').encode()
 
 

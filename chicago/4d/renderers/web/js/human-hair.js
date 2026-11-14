@@ -382,7 +382,7 @@ export function growHair({ hair, skin = null, root, style, lod, seed = 'person' 
   // Cards until they cover the cap `cover` times over (or the level's most): short cards at the
   // sides take more of them than the long ones on top.
   // A cut whose cap carries its own fine strands (a cleared bun hair, T-3434) grows none here.
-  const want = cut.scalp_cards === false ? 0 : CARDS.cover * cut.density * area.area;
+  const want = cut.scalp_cards === false || style.no_scalp ? 0 : CARDS.cover * cut.density * area.area;
   let laid = 0;
   const same = i => i;
   for (let c = 0; c < level.scalp && laid < want; c++) {
@@ -870,14 +870,21 @@ const built = new WeakMap();   // source geometry -> Map(person key -> geometry)
  */
 export function dressHair(root, { lod = 0, person = null, year = null, style: given = null } = {}) {
   if (!root) return null;
-  const style = given ?? hairFor(person, year);
+  let style = given ?? hairFor(person, year);
   if (!style) return null;
+  // T-3553: a figure that wears its own skin sheet (human-skin.js) has its brows, lashes,
+  // moustache and beard in the pictures on it; cards grown over them would be a second set. Where the sheet
+  // also says how far the hair stands out from the skin (`grow`), the skin itself is the hair,
+  // in the pictures' own shape: the cap, its bun and the scalp's cards are not drawn at all.
+  const like = root.userData?.chiLikenessSkin, grown = like?.grow?.reach_m > 0;
+  if (like && (grown || style.facial?.length)) style = { ...style, facial: [], ...(grown ? { no_scalp: true } : {}) };
+  if (grown) root.traverse(o => { if (o.isMesh && /^hair($|__)/.test(o.material?.name ?? '')) o.visible = false; });
   // A bald crown (T-3440): the cap, a full head of hair in its own texture, is never drawn;
   // the fringe is cards over the skin (near levels), and far off the head reads bare.
   if (HAIR_CUTS[style.cut]?.bald) root.traverse(o => { if (o.isMesh && /^hair($|__)/.test(o.material?.name ?? '')) o.visible = false; });
   // T-3553: a cut that wears the cap's own bun high on the crown (`bun_to_crown_deg`, Sarah
   // Grey's top knot) turns the bun up over the back of the head, at every level.
-  if (HAIR_CUTS[style.cut]?.bun_to_crown_deg) bunToCrown(root, HAIR_CUTS[style.cut].bun_to_crown_deg, HAIR_CUTS[style.cut].bun_knot_scale ?? 1, HAIR_CUTS[style.cut].cap_puff ?? 0);
+  if (!grown && HAIR_CUTS[style.cut]?.bun_to_crown_deg) bunToCrown(root, HAIR_CUTS[style.cut].bun_to_crown_deg, HAIR_CUTS[style.cut].bun_knot_scale ?? 1, HAIR_CUTS[style.cut].cap_puff ?? 0);
   if (!CARDS.lods[lod] || (CARDS.lods[lod].tail_only && !(style.tail_cm > 0 && HAIR_CUTS[style.cut]?.knot_cm))) return null;
   let hair = null, skin = null;
   root.traverse(o => {
@@ -890,7 +897,7 @@ export function dressHair(root, { lod = 0, person = null, year = null, style: gi
     else if (/^skin($|__)/.test(o.material?.name ?? '')) skin ??= o;
   });
   if (!hair?.skeleton || !hair.parent) return null;
-  const key = `${person ?? 'anon'}|${lod}|${style.cut}|${(style.facial ?? []).join('+')}|${style.tail_cm ?? 0}`;
+  const key = `${person ?? 'anon'}|${lod}|${style.cut}|${(style.facial ?? []).join('+')}|${style.tail_cm ?? 0}${style.no_scalp ? '|grown' : ''}`;
   let cache = built.get(hair.geometry);
   if (!cache) {
     cache = new Map();

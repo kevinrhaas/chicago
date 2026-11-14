@@ -2351,6 +2351,12 @@
       "finding": "Reproduces: a bare write run on the committed tree rewrote data/humans/variation/fits/glessner_john_j.json with identical bytes; git status stayed clean (T-3413). It does not write the card's still; tools/portrait_still.mjs does, and --check refuses a still whose sidecar names another fit.",
       "placed": "not yet \u2014 measured to reproduce. It reads the portrait records, data/sources/, axes.json, the variation kit and base.obj; tools/human_variation_kit.py reads its output (persons.json carries the fitted face), so its slot precedes that tool's, and the manifest's order is its own measured pass, so it is not appended blind (T-3413)."
     },
+    "bake_likeness_skin.py": {
+      "placement": "not_derivable",
+      "write_mode": "<person> --sheet <the owner's turnaround sheet>",
+      "measured": "2026-11-14",
+      "finding": "Cannot rebuild from this repository alone: its write mode reads the owner's turnaround sheet, which is held in kevinrhaas/chicago-evidence (evidence/grey-likenesses-2026-11-12/, commit 70d839be) and not here, so a run without --sheet stops before it writes. With each sheet supplied, a write run for pa1904_grey_mrs_w_l and pa1904_grey_w_l rewrote assets/humans/web/likeness/<person>_skin.jpg (150,516 and 160,767 bytes) and data/humans/variation/skins/<person>.json with identical bytes, and tools/human_variation_kit.py after it rewrote hm08_variation_persons.json with identical bytes (T-3553). --check holds the committed sheet to the sha256 its record names instead."
+    },
     "derive_doors_1812.py": {
       "placement": "pending",
       "write_mode": "(bare)",
