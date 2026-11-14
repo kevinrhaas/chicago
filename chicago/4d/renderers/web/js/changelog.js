@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 2972, ts: '2026-11-14T12:43:05.253Z', date: 'Nov 14, 2026, 6:43 AM CT', title: 'The Fort Dearborn monument\'s inscription is cut', kind: 'improvement',
+    items: [
+      'On 18th Street in 1904, the monument\'s die carries its three lines, THE FORT DEARBORN MASSACRE, AUGUST 15, 1812 and BLACK PARTRIDGE SAVING MRS. HELM, pale on the granite at the sizes and places the c. 1900 photograph shows.',
+      'Its bronze panels now look the way that photograph shows them, weathered pale against the darker granite instead of near-black.',
+      'Still to do: the figures\' sculpted faces, hair and drapery.',
+    ] },
   { v: 2971, ts: '2026-11-14T11:35:07.177Z', date: 'Nov 14, 2026, 5:35 AM CT', title: 'William Grey smiles with his photograph\'s own teeth', kind: 'feature',
     items: [
       'William Grey of 2010 Prairie (1904) now rests with his mouth shut, as his side photographs and his portrait show it, and breaks into the front photograph\'s grin when you stand in front of him or he greets you.',
