@@ -172,7 +172,7 @@ BOOT PAYLOAD — first visit stands in the 1835 street
 Three consecutive runs produced byte-identical totals — the measurement is a
 property of the tree, not of the run.
 
-**The boot payload budget is 44.9 MB**, consciously re-budgeted on 2026-11-10 for the early masonry maps (§ 18), after the measured retained street (§ 4m). It was re-set to 40.2 MB on 2026-11-06 by T-3425 for five days of the
+**The boot payload budget is 45.2 MB**, consciously re-budgeted on 2026-11-14 by T-3599 for four days of the owner's people and town code past § 18's room (§ 4n). It had been set at 44.9 MB on 2026-11-10 for the early masonry maps (§ 18), after the measured retained street (§ 4m). It was re-set to 40.2 MB on 2026-11-06 by T-3425 for five days of the
 owner's town past T-3300's room (§ 4l). T-3300 had set it at 39.6 MB on 2026-11-01 for two weeks of the
 owner's town landing unmeasured (§ 4k). T-2711 had set it at 36.2 MB on 2026-10-17 for the prebuilt
 yards (§ 4j). T-2710 had set it at 33.7 MB the same day for the prebuilt streets (§ 4i), and
@@ -188,9 +188,9 @@ Re-measure and check with:
 ```
 bash tools/publish.sh                      # build the mirror the visitor gets
 node tools/measure_boot_payload.mjs        # the report above
-node tools/measure_boot_payload.mjs --check  # exit 1 past the 44.9 MB budget
-node tools/measure_boot_payload.mjs --against docs/measurements/T-3425-boot-payload-entries.json
-                                           # what grew since § 4l's reading, file by file
+node tools/measure_boot_payload.mjs --check  # exit 1 past the 45.2 MB budget
+node tools/measure_boot_payload.mjs --against docs/measurements/T-3599-boot-payload-entries.json
+                                           # what grew since § 4n's reading, file by file
 ```
 
 The nightly `chicago-4d-bake.yml` enforces this with `--check` in the desktop
@@ -797,10 +797,43 @@ Under the standing measured re-budget authority, **Full with active Ghost now al
 
 The shared resolver, independent policy tests and smoke pin all use the same new Full Ghost ceiling. Ordinary Full remains3,470,000, Balanced2,675,000, Light1,190,000, the inspection allowance remains4,700,000, and all existing draw-call limits, tier reaches and Light's floor remain unchanged. Leaving Ghost or hiding its last visible grade restores the original tier policy. Negative controls reject the old ceiling, an unauthorized extra triangle/call, divergent public/stat ceilings, and applying this allowance to ordinary or lower-tier views.
 
+### 4n. Four days past § 18's room, re-measured 2026-11-14 (T-3599), and the budget is 45.2 MB
+
+The content build's desktop `1-2` leg went red on PR #2045 (run 43612125928): **BOOT PAYLOAD OVER
+BUDGET, 44.907 MB > 44.900 MB**, on a diff that only touches the 1893 monument. Re-read on dev
+`d775bba81`, published by `publish.sh` and measured by `--check`, it is **44.936 MB across 1,227
+requests**. The same tree with #2045's diff applied reads the same to the byte (`--against`:
++0.000 MB), so the breach is dev's own, and every PR's content build carries it. Measured against
+§ 18's committed per-URL reading (T-3341's `BOOT-ENTRIES.json`, 46,888,266 wire bytes, 44.716 MB,
+1,207 requests), it is **+0.220 MB and 20 requests in four days**:
+
+| | on the wire | where it came from |
+|---|---|---|
+| walk code | +0.152 MB | 20 new modules, most of them the people's (human-mouth, human-waist, human-fine, human-silver) and the visitor's (sign-in and its config and CSS, narration, the window and XR controls, visitor-store, arrival-device), with transport-crossings, block-walk, house-floors and house-barriers; and growth in human-days, human-skin, human-variation, human-hair and main.js |
+| the people's records | +0.063 MB | `data/humans/web/hm08_variation_persons.json`, 0.125 → 0.188 MB: T-3553's run of pictures on the Greys and the people round them (skins, fits, hair, teeth and smiles) |
+| everything else | +0.004 MB | the variation kit +0.004 MB and the other people's files +0.002 MB, against the sidecars −0.004 MB |
+
+**Nothing in it is a careless import or an unmetered fetch** — § 4b's test. The largest single
+arrival is `human-mouth.js` at 0.010 MB, every arrival is code or a record the 1835 street runs
+where the visitor stands, and nothing new is a texture, a mesh or a prebuilt layer. Cutting any of
+it is a choice about how the town's people look and move and how the visitor signs in, and that
+is the owner's, not a budget's. So this re-argues the number the way § 4l did, under AGENTS.md's
+standing ruling on budgets: **44.936 MB measured plus 0.264 MB of room, 45.2 MB.** This is a
+conscious re-budget, not an assertion weakened to clear a red: the check, its unit (MiB, read off
+the line above) and the measurement are unchanged.
+
+**Said plainly, what 45.2 surrenders.** At this week's pace (0.055 MB a day) the room lasts about
+five days, so this is still a rate meter, not a ceiling. Every movement since § 4l has been code
+and people's records, not the town's geometry, so the next lever is in `walk/js/` rather than
+the prebuilt layers: modules the 1835 street imports eagerly that a first visit does not run
+(sign-in, the XR controls, narration) could load on first use. That is a cut, so it is a separate
+ticket, and the reading to beat is this one:
+`node tools/measure_boot_payload.mjs --against docs/measurements/T-3599-boot-payload-entries.json`.
+
 ## 5. What the gate does now
 
 - **Refuses** over 416 MiB (T-3170; measured re-budgets in §8, §9, §11 and §13) — the repository-hygiene guard, not the visitor-cost
-  budget; the visitor-cost budget is the 44.1 MB boot payload budget in § 4,
+  budget; the visitor-cost budget is the 45.2 MB boot payload budget in § 4,
   enforced by `tools/measure_boot_payload.mjs --check`. The gate names
   `tools/site_budget.py` in the message so the next run does not have to invent
   the report again.

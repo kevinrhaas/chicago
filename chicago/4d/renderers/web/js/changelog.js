@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2980, ts: '2026-11-14T18:37:45.748Z', date: 'Nov 14, 2026, 12:37 PM CT', title: 'The boot budget re-measured after four days of the town\'s people', kind: 'fix',
+    items: [
+      'The first visit to the 1835 street now downloads 44.9 MB, 0.2 MB more than on November 10. Nearly all of it is the people\'s code and records: their mouths, faces and dress, and the new sign-in and window controls. The budget moves to 45.2 MB, with what grew written down file by file, so every pull request\'s build can go green again.',
+    ] },
   { v: 2979, ts: '2026-11-14T17:06:19.566Z', date: 'Nov 14, 2026, 11:06 AM CT', title: 'Everyone talks with teeth, and Sarah Grey smiles', kind: 'improvement',
     items: [
       'Everyone, in every year, now has teeth. When a person is talking and you stand within about 20 feet, their jaw moves and you see teeth behind their lips: the young show their upper teeth, the old their lower. These teeth are drawn, not photographed, and are recorded as a liberty.',
