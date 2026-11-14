@@ -10,14 +10,19 @@ const selected = catalog.assets.filter(a => a.runtime_enabled && a.scene_placeme
 assert.deepEqual(selected.map(a => a.id).sort(), ['horse-harness', 'wood-wagon']);
 for (const a of selected) {
   assert.equal(a.license, 'CC0-1.0');
-  assert.deepEqual(a.approved_eras, a.id === 'horse-harness' ? ['1812', '1835', '1904'] : ['1812', '1835']);
+  assert.deepEqual(a.approved_eras, ['1812', '1835', '1904']);
+  // T-3587: every year's team at its scene's own seasonal viewing dates (season.js SEASON_DAY).
+  const keys = a.scene_placement.bindings.map(b => `${b.scene}:${b.season ?? 'summer'}`).sort();
+  assert.deepEqual(keys, ['1812', '1835', '1904'].flatMap(y => ['fall', 'spring', 'summer', 'winter'].map(s => `${y}:${s}`)).sort());
   for (const b of a.scene_placement.bindings) {
-    if (b.scene === '1812' && b.season) {
-      const dates = { spring: '1812-04-15', fall: '1812-10-15', winter: '1812-02-15' };
-      assert.equal(b.scene_date, dates[b.season], 'only the existing 1812 seasonal viewing dates are added');
+    if (b.season) {
+      const day = { spring: '04-15', fall: '10-15', winter: '02-15' }[b.season];
+      assert.equal(b.scene_date, `${b.scene}-${day}`, 'only the existing seasonal viewing dates are added');
     } else assert.equal(b.scene_date, read(`data/scenes/${b.scene}.json`).target_date);
     assert.deepEqual(b.actor_ids, rows.filter(r => r.scene === b.scene).map(r => r.id));
+    if (b.gain != null) assert(b.gain > 0 && b.gain <= a.scene_placement.gain, 'a binding only ever lowers its level');
   }
+  assert(a.scene_placement.gain <= .3 && a.scene_placement.max_distance_m <= 48);
 }
 function env(year = '1835') {
   return { camera: { position: { x: 0, y: 2, z: 0 }, quaternion: { x: 0, y: 0, z: 0, w: 1 } },
@@ -33,10 +38,25 @@ function env(year = '1835') {
   }
   const unrelated = env('1812'); unrelated.time.date = '1812-08-15';
   assert.deepEqual(transportCandidates(catalog, unrelated, '1812'), [], 'no battle-day or arbitrary-date transfer');
-  assert.equal(transportCandidates(catalog, env('1904'), '1904').length, 1, 'brougham never uses wooden-wagon recording');
+  const brougham = transportCandidates(catalog, env('1904'), '1904');
+  assert.deepEqual(brougham.map(c => c.asset.id).sort(), ['horse-harness', 'wood-wagon'], 'the 1904 brougham is heard rolling (T-3587)');
+  const wheels = id => brougham.find(c => c.asset.id === id).gain;
+  const wagon1835 = transportCandidates(catalog, env('1835'), '1835').find(c => c.asset.id === 'wood-wagon');
+  assert(wheels('wood-wagon') < wagon1835.gain * .7, 'a light carriage on paving is quieter than a loaded 1835 wagon');
+  for (const date of ['1835-04-15', '1835-10-15', '1835-02-15', '1904-04-15', '1904-10-15', '1904-02-15']) {
+    const y = date.slice(0, 4), seasonal = env(y); seasonal.time.date = date;
+    assert.equal(transportCandidates(catalog, seasonal, y).length, 2, `${date}: the team is heard in every season`);
+  }
   const e = env(), near = transportCandidates(catalog, e, '1835');
+  // T-3587 levels: a team passing a few metres off is plainly louder than a robin (~.05-.12),
+  // still audible across a street and gone by its far side of the block.
+  assert(near.every(c => c.gain > .17), near.map(c => c.gain).join());
   e.camera.position.x = 20;
-  assert(transportCandidates(catalog, e, '1835')[0].gain < near[0].gain);
+  const across = transportCandidates(catalog, e, '1835');
+  assert(across[0].gain < near[0].gain && across.every(c => c.gain > .05), across.map(c => c.gain).join());
+  e.camera.position.x = 60;
+  assert.deepEqual(transportCandidates(catalog, e, '1835'), [], 'beyond 48 m the team is not heard');
+  e.camera.position.x = 20;
   e.camera.position.y = 100;
   assert.deepEqual(transportCandidates(catalog, e, '1835'), [], 'vertical distance counts');
   for (const mutate of [e => e.time.date = '1835-08-01', e => e.transport = [],

@@ -238,8 +238,8 @@
       "local_n": -3662.0
      },
      "step": {
-      "local_e": 1424.52,
-      "local_n": -3662.04
+      "local_e": 1423.97,
+      "local_n": -3662.05
      },
      "outward_deg": 269.3,
      "width_m": 1.2,
@@ -288,7 +288,7 @@
       "local_n": -3588.66
      },
      "step": {
-      "local_e": 1386.34,
+      "local_e": 1386.89,
       "local_n": -3588.63
      },
      "outward_deg": 89.4,
@@ -2340,8 +2340,8 @@
       "local_n": -3549.65
      },
      "step": {
-      "local_e": 1422.24,
-      "local_n": -3549.7
+      "local_e": 1421.69,
+      "local_n": -3549.71
      },
      "outward_deg": 269.4,
      "width_m": 1.2,
@@ -5716,16 +5716,16 @@
     {
      "id": "house_2000_prairie:front",
      "leaf": {
-      "local_e": 1378.6,
-      "local_n": -3488.71
+      "local_e": 1385.04,
+      "local_n": -3490.37
      },
      "step": {
-      "local_e": 1379.3,
-      "local_n": -3488.7
+      "local_e": 1388.93,
+      "local_n": -3490.33
      },
      "outward_deg": 89.4,
-     "width_m": 1.2,
-     "reconstructed": "No separate front leaf is modelled in this draft. A reconstructed entrance is placed at the middle of the street-facing front (the plan u axis); the survey does not attest a doorway here."
+     "width_m": 0.95,
+     "reconstructed": "The front door the frame house record hangs on its street wall (frame_house blocks), which the model builds there; the answering place is at the foot of what the model builds before it. Walking and doorstep use are reconstructed."
     }
    ],
    "asset_sha256": "8fbc56fd60d5a150b7f72dd141a234af87a314ce238debe432ef287b30dc93fb",
@@ -6318,16 +6318,16 @@
     {
      "id": "house_2010_prairie:front",
      "leaf": {
-      "local_e": 1378.94,
-      "local_n": -3513.18
+      "local_e": 1385.11,
+      "local_n": -3516.31
      },
      "step": {
-      "local_e": 1379.64,
-      "local_n": -3513.17
+      "local_e": 1389.28,
+      "local_n": -3516.27
      },
      "outward_deg": 89.4,
-     "width_m": 1.2,
-     "reconstructed": "No separate front leaf is modelled in this draft. A reconstructed entrance is placed at the middle of the street-facing front (the plan u axis); the survey does not attest a doorway here."
+     "width_m": 0.95,
+     "reconstructed": "The front door the frame house record hangs on its street wall (frame_house blocks), which the model builds there; the answering place is at the foot of what the model builds before it. Walking and doorstep use are reconstructed."
     }
    ],
    "asset_sha256": "47185a95e8531177947fe61fbd76f130423d8c10df49a39808f0a1cad9b79cd3",
@@ -6544,7 +6544,7 @@
       "local_n": -3535.76
      },
      "step": {
-      "local_e": 1422.32,
+      "local_e": 1421.82,
       "local_n": -3535.79
      },
      "outward_deg": 269.4,
@@ -6594,8 +6594,8 @@
       "local_n": -3538.7
      },
      "step": {
-      "local_e": 1386.16,
-      "local_n": -3538.66
+      "local_e": 1386.76,
+      "local_n": -3538.65
      },
      "outward_deg": 89.4,
      "width_m": 1.2,
@@ -6988,7 +6988,7 @@
       "local_n": -3622.82
      },
      "step": {
-      "local_e": 1421.16,
+      "local_e": 1420.61,
       "local_n": -3622.86
      },
      "outward_deg": 269.4,
@@ -7210,8 +7210,8 @@
       "local_n": -3678.45
      },
      "step": {
-      "local_e": 1424.73,
-      "local_n": -3678.48
+      "local_e": 1424.13,
+      "local_n": -3678.49
      },
      "outward_deg": 269.3,
      "width_m": 1.2,
@@ -9723,8 +9723,8 @@
       "local_n": -3586.76
      },
      "step": {
-      "local_e": 1420.57,
-      "local_n": -3586.79
+      "local_e": 1420.09,
+      "local_n": -3586.8
      },
      "outward_deg": 269.4,
      "width_m": 1.2,
@@ -10238,7 +10238,7 @@
       "local_n": -3652.54
      },
      "step": {
-      "local_e": 1390.44,
+      "local_e": 1390.92,
       "local_n": -3652.49
      },
      "outward_deg": 89.3,
@@ -10460,8 +10460,8 @@
       "local_n": -3695.49
      },
      "step": {
-      "local_e": 1389.09,
-      "local_n": -3695.48
+      "local_e": 1390.39,
+      "local_n": -3695.47
      },
      "outward_deg": 89.3,
      "width_m": 1.2,
@@ -10510,8 +10510,8 @@
       "local_n": -3645.37
      },
      "step": {
-      "local_e": 1420.17,
-      "local_n": -3645.45
+      "local_e": 1419.97,
+      "local_n": -3645.46
      },
      "outward_deg": 269.3,
      "width_m": 1.2,
@@ -10560,7 +10560,7 @@
       "local_n": -3659.92
      },
      "step": {
-      "local_e": 1387.44,
+      "local_e": 1387.82,
       "local_n": -3659.79
      },
      "outward_deg": 89.3,
@@ -10812,7 +10812,7 @@
       "local_n": -3075.08
      },
      "step": {
-      "local_e": 1381.11,
+      "local_e": 1381.53,
       "local_n": -3075.07
      },
      "outward_deg": 89.2,
@@ -11505,8 +11505,8 @@
       "local_n": -3731.96
      },
      "step": {
-      "local_e": 1392.63,
-      "local_n": -3731.92
+      "local_e": 1393.13,
+      "local_n": -3731.91
      },
      "outward_deg": 89.2,
      "width_m": 1.2,
@@ -11555,12 +11555,12 @@
       "local_n": -3135.03
      },
      "step": {
-      "local_e": 1385.65,
-      "local_n": -3134.99
+      "local_e": 1386.18,
+      "local_n": -3134.98
      },
      "outward_deg": 89.4,
-     "width_m": 1.2,
-     "reconstructed": "No separate front leaf is modelled in this draft. A reconstructed entrance is placed at the middle of the street-facing front (the plan u axis); the survey does not attest a doorway here."
+     "width_m": 1.1,
+     "reconstructed": "The front door the frame house record hangs on its street wall (frame_house blocks), which the model builds there; the answering place is at the foot of what the model builds before it. Walking and doorstep use are reconstructed."
     },
     {
      "id": "walker_house_1720_prairie:back",
