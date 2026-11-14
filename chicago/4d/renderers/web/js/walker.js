@@ -48,6 +48,17 @@
  * everywhere outside the notch, and the zone reaches past the notch by more than the
  * capsule's radius, so walking past a door along the façade feels nothing.
  *
+ * And people are solid (T-3553, owner 2026-11-14, walking into a man on Prairie Avenue and
+ * seeing the inside of his head: *"you should not see inside people's heads and bodies"*).
+ * The header's "no other people" predates the town's figures. A drawn person is a standing
+ * disc (`bodies`, set by main.js once the people layer is up, `setBodies`), and the capsule
+ * is held WALK.radius off it the way it is held off a wall: walk into someone and you slide
+ * round them, stand still and someone walking is stepped round you (human-spacing.js keeps
+ * walking figures clear of the visitor first). A step that would pass through a person's
+ * middle in one frame is put back on the side it came from (`clearOfBodies`), so even a
+ * slow phone sprinting cannot tunnel through anyone. Figures only ever push in the plane;
+ * a wall still wins over a person, so nobody shoves the visitor into a building.
+ *
  * And a step is a step, not a jolt (T-3442): where the floor jumps between two frames (a
  * stair tread, a threshold, a deck's edge — anything within the step-up rule) the camera
  * eases the jump out over STEP_EASE_S. `eyeY` stays the honest standing height the eye
@@ -98,6 +109,51 @@ function nearestOnBoundary(e, n, pts) {
     if (!best || d < best.d) best = { e: px, n: py, d };
   }
   return best;
+}
+
+/**
+ * T-3553: the capsule (radius `r`) at (e, n), moved there from (e0, n0), held clear of
+ * every body disc `{ e, n, r }`. Outside a disc it is untouched; inside, it is moved out
+ * along the line from the disc's centre, so walking into someone slides round them. A move
+ * that reached or passed a disc's centre in one step (a long frame at a sprint) is put back
+ * out on the side it came from, never through to the far side. A few passes, so a capsule
+ * between two people is pushed clear of both where it can be.
+ */
+export function clearOfBodies(e, n, e0, n0, bodies, r) {
+  if (!bodies || !bodies.length) return { e, n, hit: false };
+  let hit = false;
+  for (let pass = 0; pass < 3; pass++) {
+    let moved = false;
+    for (const b of bodies) {
+      const R = r + (b.r ?? 0);
+      let de = e - b.e, dn = n - b.n;
+      let d = Math.hypot(de, dn);
+      // The swept test, for a step that ended clear on the far side: did it go through the
+      // middle (not merely graze the rim, which a slide along it does)?
+      let swept = false;
+      if (d >= R) {
+        const se = e - e0, sn = n - n0, L2 = se * se + sn * sn;
+        if (pass > 0 || L2 < 1e-12) continue;
+        const t = ((b.e - e0) * se + (b.n - n0) * sn) / L2;
+        if (!(t > 0 && t < 1)) continue;
+        if (Math.hypot(e0 + se * t - b.e, n0 + sn * t - b.n) >= R * 0.6) continue;
+        swept = true;
+      }
+      // Came from the near side and is now at or past the middle: back out the near side.
+      const be = e0 - b.e, bn = n0 - b.n;
+      if (swept || d < 1e-6 || de * be + dn * bn < 0) {
+        de = be; dn = bn; d = Math.hypot(de, dn);
+        if (d < 1e-6) { de = 1; dn = 0; d = 1; }
+      }
+      e = b.e + (de / d) * R;
+      n = b.n + (dn / d) * R;
+      // From here on the step starts where it now stands.
+      e0 = e; n0 = n;
+      hit = moved = true;
+    }
+    if (!moved) break;
+  }
+  return { e, n, hit };
 }
 
 /**
@@ -280,7 +336,10 @@ export function decksFrom(registry) {
  * @param {Array<{id:string, y:number, pts:number[][]}>} o.decks
  * @param {{local_e:number, local_n:number, yaw_deg:number}} o.spawn
  */
-export function createWalker({ camera, terrain, footprints = [], decks = [], spawn = {} }) {
+export function createWalker({ camera, terrain, footprints = [], decks = [], spawn = {}, bodies = null }) {
+  /** T-3553: `(e, n, y0, y1) => [{ e, n, r }]`, the drawn people near a point whose bodies
+   *  reach the band of heights y0..y1 (the visitor's feet to eye). Null: nobody is solid. */
+  let bodiesNear = typeof bodies === 'function' ? bodies : null;
   const state = {
     e: spawn.local_e ?? 0,
     n: spawn.local_n ?? 0,
@@ -304,6 +363,8 @@ export function createWalker({ camera, terrain, footprints = [], decks = [], spa
     bob: 0,
     /** T-3442: what is left of the last floor jump, metres, eased out in apply() only. */
     stepEase: 0,
+    /** T-3553: set when the last frame held the visitor off a person. */
+    bumped: false,
   };
   const euler = new THREE.Euler(0, 0, 0, 'YXZ');
   const world = new THREE.Vector3();
@@ -413,6 +474,16 @@ export function createWalker({ camera, terrain, footprints = [], decks = [], spa
     return false;
   }
 
+  /** T-3553: held off the drawn people, coming from (e0, n0). */
+  function clearOfPeople(e, n, e0, n0) {
+    if (!bodiesNear) { state.bumped = false; return { e, n }; }
+    let list;
+    try { list = bodiesNear(e, n, state.groundY, state.groundY + WALK.eyeHeight); } catch { list = null; }
+    const out = clearOfBodies(e, n, e0, n0, list, WALK.radius);
+    state.bumped = out.hit;
+    return out;
+  }
+
   /** Slide the capsule out of any footprint it has ended up inside. */
   function pushOut(e, n) {
     for (const fp of footprints) {
@@ -465,6 +536,8 @@ export function createWalker({ camera, terrain, footprints = [], decks = [], spa
     state,
     /** The walk surface (decks included) — exposed for the route planner. */
     surfaceAt,
+    /** T-3553: who is solid — `(e, n, y0, y1) => [{ e, n, r }]`, or null for nobody. */
+    setBodies(fn) { bodiesNear = typeof fn === 'function' ? fn : null; },
     get position() { return world.clone(); },
     get enu() { return { e: state.e, n: state.n, y: state.eyeY }; },
     get bearingDeg() { return yawToBearing(state.yaw); },
@@ -642,6 +715,7 @@ export function createWalker({ camera, terrain, footprints = [], decks = [], spa
       let s = intent.strafe;
       const mag = Math.hypot(f, s);
       if (mag > 1) { f /= mag; s /= mag; }
+      const e0 = state.e, n0 = state.n;
 
       const speed = intent.sprint ? WALK.sprintSpeed : WALK.speed;
       state.speed = Math.hypot(f, s) * speed;
@@ -663,6 +737,11 @@ export function createWalker({ camera, terrain, footprints = [], decks = [], spa
         state.blocked = false;
       }
 
+      // T-3553: off the people first (a walking figure may come into a standing visitor),
+      // then the buildings, so a wall always wins and nobody shoves the visitor into one.
+      const apart = clearOfPeople(state.e, state.n, e0, n0);
+      state.e = apart.e;
+      state.n = apart.n;
       // Every frame, not only while walking: a building whose placement moves
       // under a standing visitor should push them out, not swallow them.
       const clear = pushOut(state.e, state.n);

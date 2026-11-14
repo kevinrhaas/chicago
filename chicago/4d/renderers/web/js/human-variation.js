@@ -87,7 +87,11 @@ export async function loadVariationKit(base, fetchImpl = fetch) {
 export function likenessSkin(kit, variation) {
   const skin = variation?.skin;
   if (!skin?.map || !kit?.base) return null;
-  try { return { ...skin, url: new URL(skin.map, kit.base).href }; } catch { return null; }
+  try {
+    // ...and its front picture's, where it has one (human-skin.js FRONT_VIEW).
+    const front = skin.front?.map ? { ...skin.front, url: new URL(skin.front.map, kit.base).href } : undefined;
+    return { ...skin, url: new URL(skin.map, kit.base).href, ...(front ? { front } : {}) };
+  } catch { return null; }
 }
 
 /**
@@ -693,6 +697,9 @@ export function applyVariation(scene, kit, variation, { scope = 'full' } = {}) {
   // T-3553: the skin sheet goes with the fitted face, at every level of detail (human-skin.js reads it).
   const like = likenessSkin(kit, variation);
   if (like) scene.userData.chiLikenessSkin = like;
+  // ...and who this is (a person's id, or an unnamed figure's own): human-skin.js draws an
+  // unnamed figure's teeth and the run of its talk by it, so two strangers differ.
+  if (typeof variation.key === 'string') scene.userData.chiVariationKey = variation.key;
   scene.updateMatrixWorld(true);
   const key = `${variation.key}|${scope}|${kit.header.bin_sha256.slice(0, 12)}${like?.lid > 0 ? `|lid${like.lid}` : ''}`;
   const skinned = [];
