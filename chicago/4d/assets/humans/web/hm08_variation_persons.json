@@ -70458,9 +70458,9 @@
      "scale": 0.25
     },
     "tint": [
-     0.64,
-     0.6729,
-     0.9354
+     0.6403,
+     0.6732,
+     0.9357
     ],
     "gain": 1,
     "grade": "reconstructed",
@@ -70470,7 +70470,7 @@
     "liberty": "L-grey-photograph-skin-3553",
     "record": "data/humans/variation/skins/pa1904_grey_mrs_w_l.json",
     "grow": {
-     "reach_m": 0.0368,
+     "reach_m": 0.0561,
      "from_m": [
       0.0,
       1.5396,
@@ -70479,7 +70479,13 @@
      "normal_px": [
       528,
       566
-     ]
+     ],
+     "axis_m": 0.07,
+     "fine": {
+      "cell_px": 16,
+      "edge_m": 0.008,
+      "cells": "AAP/gAAAAD//gAAAAP//gAAAA///wAAAB///wAAAD///wAAAH///wAAAP///wAAAf///wAAAf///wAAA////wAAA////wAAA////wAAA////wAAA////gAAA////AAAA////AAAA////AAAA////AAAA///gAAAA///gAAAA///wAAAA///wAAAA///wAAAA///gAAAA///AAAAA///AAAAAf/+AAAAAf/4AAAAAP/4AAAAAH/wAAAAAD/wAAAAAD/wAAAAAH/wAAAAAP/4AAAAAf/4AAAAAf/8AAAAA//+AAAAA///AAAAA///gAAAA///wAAAA///wAAAA///wAAAA///wAAAA///gAAAA////gAAA////gAAA////gAAA////gAAA////wAAA////wAAA////wAAA////wAAAf///wAAAf///wAAAP///wAAAP///wAAAH///wAAAD///wAAAB///gAAAAf//gAAAAP//gAAAAD//gAAAAAH/gAAA"
+     }
     },
     "lid": 0.138,
     "eyes": {
@@ -70702,9 +70708,9 @@
      "scale": 0.25
     },
     "tint": [
-     0.4639,
-     0.3642,
-     0.4527
+     0.4638,
+     0.3645,
+     0.4529
     ],
     "gain": 1,
     "grade": "reconstructed",
@@ -70714,7 +70720,7 @@
     "liberty": "L-grey-photograph-skin-3553",
     "record": "data/humans/variation/skins/pa1904_grey_w_l.json",
     "grow": {
-     "reach_m": 0.0484,
+     "reach_m": 0.07,
      "from_m": [
       0.0,
       1.6389,
@@ -70723,7 +70729,13 @@
      "normal_px": [
       528,
       566
-     ]
+     ],
+     "axis_m": 0.07,
+     "fine": {
+      "cell_px": 16,
+      "edge_m": 0.008,
+      "cells": "AAP/wAAAAD//wAAAAP//wAAAA///4AAAB///4AAAD///4AAAH///8AAAP///8AAAf///+AAAf///+AAA////+ABw////8APw////8APw////8APA////4AHA////4AAA////4AAA////wAAA////gAAA///jwAAA///j4AAA///j4AAA///j4AAA///D4AAA//+D/gAA//wB/wAA/+AB/wAAf+AB/4AAf+AB/4AAP+AB/4AAH+AA/4AAD+AAf4AAD+AB/4AAH+AB/4AAP+AB/4AAf+AB/4AAf+AB/4AA/+AB/wAA//4D/wAA//4D/gAA///D8AAA///n8AAA///n8AAA///n4AAA///74AAA////4AAA////4AAA////4AAA////4AAA////4AAA////4AAA////4AAA////4AAAf///4AAAf///4AAAP///4AAAP///4AAAH///4AAAD///4AAAB///4AAAAf//4AAAAP//4AAAAD//wAAAAAH/wAAA"
+     }
     },
     "lid": 0.289,
     "eyes": {

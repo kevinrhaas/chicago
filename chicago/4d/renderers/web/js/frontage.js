@@ -1651,10 +1651,16 @@ async function getJSONHashed(url) {
     sha256: Array.from(digest, (b) => b.toString(16).padStart(2, '0')).join('') };
 }
 
-/** One prebuilt mesh's geometry: typed-array views over the shared buffer. */
+/**
+ * One prebuilt mesh's geometry, each array COPIED out of the shared buffer (T-3595).
+ * A view would do for drawing, but one view keeps the whole buffer alive: on a phone
+ * every chunk lets go of its arrays once uploaded (upload-release.js), and the chunks
+ * still out of reach held views over all 61 MB of 1835's timber, so nothing was ever
+ * let go. With copies, the shared buffer is garbage once the layer is built.
+ */
 function prebuiltGeometry(m, bin) {
   const geo = new THREE.BufferGeometry();
-  const view = (a) => new globalThis[a.type](bin, a.offset, a.byteLength / globalThis[a.type].BYTES_PER_ELEMENT);
+  const view = (a) => new globalThis[a.type](bin.slice(a.offset, a.offset + a.byteLength));
   for (const a of m.attributes) geo.setAttribute(a.name, new THREE.BufferAttribute(view(a), a.itemSize, a.normalized));
   if (m.index) geo.setIndex(new THREE.BufferAttribute(view(m.index), 1));
   const s = m.bounding_sphere;
@@ -2317,6 +2323,10 @@ export async function createFrontage({
   if (replay) {
     spans.splice(0, spans.length, ...replay.index.spans);
     out.prebuilt = { used: true, why: null, build: replay.index.build, bytes: replay.index.bytes };
+    // T-3595: the meshes hold copies, and the page's resolved promise (main.js) and
+    // this scope's closures must not keep the buffer or its tape alive.
+    replay.bin = null;
+    replay.index = null;
   }
   // What a prebuild writes beside the buffers (tools/prebuild_layers.mjs).
   if (record) {
