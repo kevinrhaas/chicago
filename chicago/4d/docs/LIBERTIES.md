@@ -43760,7 +43760,7 @@ or a read bill of sale; a planting account locating the trees rather than merely
 **Ticket:** T-3551.
 **Recorded:** 2026-11-11.
 
-### L-fort-dearborn-monument-3567 — The Fort Dearborn Massacre monument in 1904: its depths, its figures' modelling, the lettering and the panels' reliefs
+### L-fort-dearborn-monument-3567 — The Fort Dearborn Massacre monument in 1904: its depths, its figures' modelling, the lettering's face and the panels' reliefs and tone
 
 **Decision:** Carl Rohl-Smith's bronze group *The Fort Dearborn Massacre* (1893) stands in the 1904
 scene on its granite pedestal at the east end of 18th Street's north walk, as
@@ -43788,8 +43788,15 @@ Taylor's 1893 view), with the group's height read through ICHi-19208's camera (2
   whole of the group's rear (no photograph used here shows it; the Inter Ocean's rear sketch of
   1892 bounds it) are not modelled to the sculpture. One bronze colour, a dark brown patina; the
   photographs are monochrome.
-- **The panels' reliefs** are flat bronze plates, and **the lettering** under the front panel
-  (THE FORT DEARBORN MASSACRE / AUGUST 15, 1812 / BLACK PARTRIDGE SAVING MRS. HELM) is not cut.
+- **The panels' reliefs** are flat plates. Since T-3589 they are drawn pale, as ICHi-19208
+  (c. 1900) shows them weathered lighter than the die, where Taylor's 1893 print has them fresh
+  and dark: the 1904 scene takes the later plate. Their faint green-grey is ours; the plate is
+  monochrome.
+- **The lettering** under the front panel (THE FORT DEARBORN MASSACRE / AUGUST 15, 1812 / BLACK
+  PARTRIDGE SAVING MRS. HELM) is cut since T-3589 at the widths, heights and places ICHi-19208
+  gives each line, pale on the granite. The letters are the town's block capitals squeezed to
+  those widths, not the cutter's seriffed roman, and they stand flat on the die rather than
+  sunk into it. The second line is about 4 px tall on the plate; its words are the record's.
 - **Its place** is set by T-3568 through cameras on the Detroit print (east and west) and ICHi-19208
   (north and south), good to about 1.5 m; the Pullman stable's draft stands about 6 m east of where
   ICHi-19208 shows its end, which is open in that view's match record.
@@ -43797,9 +43804,7 @@ Taylor's 1893 view), with the group's height read through ICHi-19208's camera (2
 The figures are period sculpture, built as the sculptor made them; the record carries
 `review_required` with its reason, and the card says how the work was received.
 
-**Covers:** `fort_dearborn_massacre_monument_1893.on_18th_street_1893.form.lettering`.
-
-**Ticket:** T-3567 (piece 1 of T-3565); the depths retired by T-3568; the poses read joint by joint by T-3582; the bodies on the people rigs by T-3588.
+**Ticket:** T-3567 (piece 1 of T-3565); the depths retired by T-3568; the poses read joint by joint by T-3582; the bodies on the people rigs by T-3588; the lettering cut and the panels' c. 1900 tone by T-3589.
 **Recorded:** 2026-11-12.
 
 ### L-glessner-rock-faces-3564 — Glessner's rock-faced granite: three face profiles shared out by rule
@@ -44063,5 +44068,15 @@ All of it is still the stand-ins' appearance, graded reconstructed, and the choi
 **Not invented:** the pictures and their outlines; the fitted faces under the skin (L-prairie-likenesses-3547); who the Greys were.
 **Left out on purpose:** curls that hang clear of his neck (the hair is the skin moved out, so they are a bank standing from the neck, and from the side less of his neck shows under the ear than his pictures show); the front of his beard seen from the side, about a centimetre short (the lips are held still); the lowest corners of his hair on the collar; his open grin, her earrings, each iris's own pattern, as before.
 **Re-opens on:** a photograph of either Grey; the owner withdrawing the pictures; a refit of the head's shape or new pictures, after which the cameras are lined up and the sheets baked again.
+**Ticket:** T-3553.
+**Recorded:** 2026-11-14.
+
+### L-grey-smile-3553 — William Grey rests with his mouth shut and smiles into his front photograph's grin, with its teeth
+
+**Decision:** the owner asked that both Greys be "photographic matched", and for "what is needed to the face model to make it work and eventually speak" (2026-11-13; L-grey-photograph-skin-3553). That entry and L-grey-hair-outline-3553 left out "his open grin". Of the four pictures of his stand-in the two from the side show the mouth shut, the one from behind shows no mouth, and the front one shows a broad grin with the upper teeth showing; the portrait on his card has the mouth shut as well. One still face cannot be both. So the face rests as it was fitted, mouth shut, and the grin is a move it makes. `tools/bake_likeness_skin.py` (`fit_smile`) fits that move to the front picture: first as much of ten of MakeHuman's own mouth shapes (nine of its expression units and the mouth's width; CC0, pinned in `SOURCE-variation.json`) as brings the lips' outline nearest the picture's while the nose stays where the picture has it, each shape free to pull more on one side of the face than the other (fitted to the lips alone, those shapes carried the base of his nose a centimetre up and outward, and the picture laid on that face showed a dark band under it); then the rest of the face, moved within the picture's own plane, onto the points a face detector finds in the picture (the cheeks, the wings of the nose and the lids: 312 points, 4.2 mm from the picture's on the resting face and 1.8 mm on the smiling one, the lids keeping their distance from the eyes); then the lips again, until the opening between them is the picture's (the two share 91 percent of their area, and their edges lie half a millimetre apart on average). The front picture is laid on the smiling face and the other three on the resting one. Behind the lips stands a strip of 17 by 5 points from one corner of the mouth to the other, at least 2.5 mm behind every point of the lips' inner edge, coloured from the picture's own opening, so the teeth are his stand-in's; the inside of his mouth is drawn dark, and the teeth lie in that shade while his mouth is shut (his resting lips do not quite seal) and take the light as he begins to smile. In the app (`renderers/web/js/human-variation.js`, `human-mouth.js`) the move is one more shape of his face beside the blink. He gives it to a visitor who stands within 3.2 m in front of him (to 60 degrees either side) and with his greeting, keeps four tenths of it while he talks, and his jaw then opens and shuts in an uneven run of syllables, with no words. His card's still keeps the resting face, beside the shut-mouthed portrait it was fitted to.
+Sarah Grey's pictures show her mouth shut wherever they show it (the front and both sides); she has no smile and no teeth, and is unchanged.
+**Not invented:** the pictures; the fitted face under the skin (L-prairie-likenesses-3547); MakeHuman's shapes; who the Greys were.
+**Liberties within it:** all of it is the stand-in's appearance, graded reconstructed, and no evidence of how William Grey smiled or whether he did. When he smiles, for how long, how much of it he keeps while talking and the jaw's rhythm are ours. The teeth are a curved strip with a picture of teeth on it: from the front they are the picture's, from the side a strip. One picture shows where the smiling cheeks, nose and lids lie across it and not how far they come forward, so they move in that picture's plane only. The lower teeth and the tongue are not modelled. The resting lips are in part the front picture's parted lips, brought together.
+**Re-opens on:** a photograph of William Grey; the owner withdrawing the pictures or asking for one fixed expression; a refit of the head, after which the smile is fitted and the sheet baked again; a voice for him, which the jaw then follows (`mouth.say`).
 **Ticket:** T-3553.
 **Recorded:** 2026-11-14.

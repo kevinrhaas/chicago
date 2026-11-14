@@ -13,7 +13,9 @@ Granite masses, read off the Barnes-Crosby view (ICHi-19208, square-on from the 
 Street walk) and J. W. Taylor's three-quarter view of 1893: the stage base, its top
 washed in; the plinth with a projecting fillet; the die, carrying a bronze panel on each
 face it is asked for; the cap, a cove out to a fillet and a wash in; then the cast bronze
-rock. One granite material and one bronze one: two draw calls.
+rock. One granite material and one bronze one, and since T-3589 a pale one for what the
+c. 1900 plate shows lighter than the granite: the weathered panels and the inscription cut
+under the front one (the record's `lettering`): three draw calls.
 
 ## The group (Rohl-Smith, 1893)
 
@@ -51,16 +53,84 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from archetypes import monument_figures  # noqa: E402
 from archetypes.monument_params import MonumentParams  # noqa: E402
 
-GENERATOR = "chicago-4d generators/archetypes/monument.py (T-3567, T-3582, T-3583)"
+GENERATOR = "chicago-4d generators/archetypes/monument.py (T-3567, T-3582, T-3583, T-3589)"
 
-M_GRANITE, M_BRONZE = 0, 1
+M_GRANITE, M_BRONZE, M_PALE = 0, 1, 2
 # Name, linear base colour, roughness. The granite is the photographs' mid grey (the
 # 1893 print shows it pale and fresh, the c. 1900 one a little darker); the bronze a dark
 # brown patina, unpolished (no metal response: nothing in this renderer reflects).
+# The pale one (T-3589) is the two things ICHi-19208 (c. 1900) draws lighter than the
+# granite round them: the die's bronze panels, their relief weathered pale (0.71 of white
+# on the plate against 0.46 for the plinth's face and about 0.3 for the die's own; the
+# render cannot reach the plate's six-to-one over the die without an albedo past one, so
+# it takes three to one), and the letters cut in the die under the front one. The plate is monochrome:
+# the panels' faint green-grey is reconstructed (L-fort-dearborn-monument-3567). Taylor's
+# 1893 print shows the same panels fresh and dark; the scene is 1904, so the c. 1900 plate
+# sets the tone. One material for both keeps the monument at three draw calls.
 MATERIALS = [
     ("monument_granite", (0.205, 0.200, 0.190, 1.0), 0.78),
     ("monument_bronze", (0.080, 0.066, 0.046, 1.0), 0.55),
+    ("monument_pale", (0.600, 0.630, 0.580, 1.0), 0.85),
 ]
+
+#: The inscription's lines as ICHi-19208 draws them under the front panel (T-3589), read
+#: on the plate's 1200 x 931 px copy against the die's front (x 406.5-782.5, y 520-700):
+#: (width, baseline, cap height), the width a fraction of the die's width and the heights
+#: fractions of its height from its foot. Line 1 x 479-712, y 667.5-679.5; line 2, much
+#: the smallest, x 575-617, y 682-686.5; line 3 x 525-664, y 689-695.5; each centred on
+#: the die (its centre x 594.5, the lines' 594.5-596). The words are the record's
+#: `lettering`, one line to each `/`; a line past these three takes the third's size
+#: one line-gap lower.
+LETTER_LINES = [(0.620, 0.114, 0.067), (0.114, 0.075, 0.025), (0.370, 0.025, 0.036)]
+#: The cutter's strokes are bolder than the town's painted boards': about 1.3 grid units
+#: wide on the plate against `prairie_draft`'s 0.9.
+LETTER_STROKE = 1.3
+
+#: Block capitals on a 4 x 6 grid, each a list of strokes (x0, y0, x1, y1), and the
+#: advance in grid units: `prairie_draft.GLYPHS` (T-2399), copied rather than imported so
+#: a change to the Prairie drafts does not re-stale this monument, with the comma added.
+GLYPHS = {
+    "A": ([(0, 0, 0, 6), (0, 6, 4, 6), (4, 6, 4, 0), (0, 3, 4, 3)], 5.6),
+    "B": ([(0, 0, 0, 6), (0, 6, 3, 6), (3, 6, 3, 3), (0, 3, 4, 3), (4, 3, 4, 0), (4, 0, 0, 0)], 5.6),
+    "C": ([(4, 6, 0, 6), (0, 6, 0, 0), (0, 0, 4, 0)], 5.6),
+    "D": ([(0, 0, 0, 6), (0, 6, 3, 6), (3, 6, 4, 5), (4, 5, 4, 1), (4, 1, 3, 0), (3, 0, 0, 0)], 5.6),
+    "E": ([(4, 6, 0, 6), (0, 6, 0, 0), (0, 0, 4, 0), (0, 3, 3, 3)], 5.6),
+    "F": ([(4, 6, 0, 6), (0, 6, 0, 0), (0, 3, 3, 3)], 5.2),
+    "G": ([(4, 6, 0, 6), (0, 6, 0, 0), (0, 0, 4, 0), (4, 0, 4, 3), (4, 3, 2, 3)], 5.6),
+    "H": ([(0, 0, 0, 6), (4, 0, 4, 6), (0, 3, 4, 3)], 5.6),
+    "I": ([(0, 0, 0, 6)], 1.6),
+    "J": ([(4, 6, 4, 0), (4, 0, 0, 0), (0, 0, 0, 2)], 5.6),
+    "K": ([(0, 0, 0, 6), (0, 3, 4, 6), (1, 3.75, 4, 0)], 5.6),
+    "L": ([(0, 0, 0, 6), (0, 0, 4, 0)], 5.2),
+    "M": ([(0, 0, 0, 6), (0, 6, 2.5, 3), (2.5, 3, 5, 6), (5, 6, 5, 0)], 6.6),
+    "N": ([(0, 0, 0, 6), (0, 6, 4, 0), (4, 0, 4, 6)], 5.6),
+    "O": ([(0, 0, 4, 0), (4, 0, 4, 6), (4, 6, 0, 6), (0, 6, 0, 0)], 5.6),
+    "P": ([(0, 0, 0, 6), (0, 6, 4, 6), (4, 6, 4, 3), (4, 3, 0, 3)], 5.6),
+    "Q": ([(0, 0, 4, 0), (4, 0, 4, 6), (4, 6, 0, 6), (0, 6, 0, 0), (2.5, 1.5, 4.5, -0.5)], 5.6),
+    "R": ([(0, 0, 0, 6), (0, 6, 4, 6), (4, 6, 4, 3), (4, 3, 0, 3), (1.5, 3, 4, 0)], 5.6),
+    "S": ([(4, 6, 0, 6), (0, 6, 0, 3), (0, 3, 4, 3), (4, 3, 4, 0), (4, 0, 0, 0)], 5.6),
+    "T": ([(0, 6, 4, 6), (2, 6, 2, 0)], 5.6),
+    "U": ([(0, 6, 0, 0), (0, 0, 4, 0), (4, 0, 4, 6)], 5.6),
+    "V": ([(0, 6, 2, 0), (2, 0, 4, 6)], 5.6),
+    "W": ([(0, 6, 1.25, 0), (1.25, 0, 2.5, 4), (2.5, 4, 3.75, 0), (3.75, 0, 5, 6)], 6.6),
+    "X": ([(0, 0, 4, 6), (0, 6, 4, 0)], 5.6),
+    "Y": ([(0, 6, 2, 3), (4, 6, 2, 3), (2, 3, 2, 0)], 5.6),
+    "Z": ([(0, 6, 4, 6), (4, 6, 0, 0), (0, 0, 4, 0)], 5.6),
+    "0": ([(0, 0, 4, 0), (4, 0, 4, 6), (4, 6, 0, 6), (0, 6, 0, 0)], 5.6),
+    "1": ([(2, 0, 2, 6), (2, 6, 0.8, 4.8), (0.8, 0, 3.2, 0)], 5.2),
+    "2": ([(0, 6, 4, 6), (4, 6, 4, 3), (4, 3, 0, 3), (0, 3, 0, 0), (0, 0, 4, 0)], 5.6),
+    "3": ([(0, 6, 4, 6), (4, 6, 4, 0), (4, 0, 0, 0), (1, 3, 4, 3)], 5.6),
+    "4": ([(0, 6, 0, 3), (0, 3, 4, 3), (3, 6, 3, 0)], 5.6),
+    "5": ([(4, 6, 0, 6), (0, 6, 0, 3), (0, 3, 4, 3), (4, 3, 4, 0), (4, 0, 0, 0)], 5.6),
+    "6": ([(4, 6, 0, 6), (0, 6, 0, 0), (0, 0, 4, 0), (4, 0, 4, 3), (4, 3, 0, 3)], 5.6),
+    "7": ([(0, 6, 4, 6), (4, 6, 1.5, 0)], 5.6),
+    "8": ([(0, 0, 4, 0), (4, 0, 4, 6), (4, 6, 0, 6), (0, 6, 0, 0), (0, 3, 4, 3)], 5.6),
+    "9": ([(4, 3, 0, 3), (0, 3, 0, 6), (0, 6, 4, 6), (4, 6, 4, 0), (4, 0, 0, 0)], 5.6),
+    ".": ([(0, 0, 0, 0.01)], 1.8),
+    "&": ([(4, 0, 0, 6), (0, 6, 2.5, 6), (2.5, 6, 2.5, 4), (2.5, 4, 0, 2), (0, 2, 0, 0), (0, 0, 3, 0)], 5.6),
+    ",": ([(0.4, 0.6, 0, -0.8)], 1.8),
+    " ": ([], 2.8),
+}
 
 LIMB_SIDES = 8
 BALL_RINGS = 5
@@ -301,6 +371,7 @@ def _pedestal(m: _Mesh, p: MonumentParams, cx: float, cy: float) -> float:
     _band(m, M_GRANITE, cove, z + h * 0.75, wash, z + h, conf, top=True)
     z += h
     _panels(m, p, cx, cy, die_z)
+    _lettering(m, p, cx, cy, die_z)
     return z
 
 
@@ -322,7 +393,46 @@ def _panels(m: _Mesh, p: MonumentParams, cx: float, cy: float, die_z: float) -> 
             w = p.die_d_m * 0.75
             x = cx + p.die_w_m / 2 if f == "e" else cx - p.die_w_m / 2
             lo = _ring(x + (t / 2 if f == "e" else -t / 2), cy, t, w)
-        _band(m, M_BRONZE, lo, z0, lo, z1, conf)
+        _band(m, M_PALE, lo, z0, lo, z1, conf)
+
+
+def _lettering(m: _Mesh, p: MonumentParams, cx: float, cy: float, die_z: float) -> None:
+    """The inscription cut in the die's front under its panel, pale on the granite as
+    ICHi-19208 shows it: each line's strokes flat on the face, 3 mm proud so they never
+    fight it for depth, each line squeezed or spread to the width the plate gives it."""
+    lines = [ln.strip() for ln in p.lettering.split("/") if ln.strip()]
+    if not lines:
+        return
+    conf = p.worst_conf("lettering", "die_w_m", "die_h_m")
+    y = cy - p.die_d_m / 2 - 0.003
+    for i, line in enumerate(lines):
+        wf, bf, hf = LETTER_LINES[min(i, len(LETTER_LINES) - 1)]
+        if i >= len(LETTER_LINES):
+            bf -= (i - len(LETTER_LINES) + 1) * (hf + 0.012)
+        h = p.die_h_m * hf
+        unit = h / (6 + LETTER_STROKE)
+        w = LETTER_STROKE * unit
+        half = LETTER_STROKE / 2
+        adv_total = 0.0
+        for c in line:   # left to right, never sum() (T-2363: bytes stable across Pythons)
+            adv_total += GLYPHS[c][1]
+        natural = (adv_total - 1.6) * unit
+        sx = p.die_w_m * wf / natural
+        x = cx - p.die_w_m * wf / 2
+        base = die_z + p.die_h_m * bf
+        for c in line:
+            strokes, adv = GLYPHS[c]
+            for (a0, b0, a1, b1) in strokes:
+                ax, az = x + (a0 * sx + half) * unit, base + (b0 + half) * unit
+                bx, bz = x + (a1 * sx + half) * unit, base + (b1 + half) * unit
+                dx, dz = bx - ax, bz - az
+                ln = math.hypot(dx, dz)
+                dx, dz = dx / ln, dz / ln
+                ax, az, bx, bz = ax - dx * w / 2, az - dz * w / 2, bx + dx * w / 2, bz + dz * w / 2
+                px, pz = -dz * w / 2, dx * w / 2
+                m.face(M_PALE, [(ax - px, y, az - pz), (bx - px, y, bz - pz),
+                                (bx + px, y, bz + pz), (ax + px, y, az + pz)], conf)
+            x += adv * unit * sx
 
 
 def _rock(m: _Mesh, p: MonumentParams, cx: float, cy: float, z0: float) -> None:

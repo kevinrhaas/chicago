@@ -33,6 +33,11 @@
  * the hand and its hold in the GLB's wardrobe extras (`carry`): that arm is held there,
  * a little out from the skirt, in every state, and does not swing or take a pose.
  *
+ * T-3553: a person whose face has a smile to move into gives it with the greeting and to a
+ * visitor near in front of them, and moves their jaw as they talk. Their mouth's play is
+ * human-mouth.js's, left on the figure by human-skin.js (`userData.chiMouth`); this layer knows
+ * when the person greets and talks, and tells it each frame (`mouth`). Nobody else has one.
+ *
  * Deterministic (seeded from the person id), additive over the clip, rebuilt each frame.
  * Reconstructed motion: liberty L-human-actions-3415.
  */
@@ -134,6 +139,7 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
   })();
   const between = (a, b) => a + (b - a) * rand();
   let bones = {}, held = {}, bound = false, root = null, body = null;
+  let mouth = null; // T-3553: the figure's mouth (its smile and talking jaw), where its face has one
   let brim = null; // the worn hat's brim where the greeting touches it, head bone's frame (hatBrim)
   // The greeting hand as it is shaped for the greeting, from its wrist in its own axes (metres
   // along the fingers, toward the palm, and across): its leading fingertip pad and the balls
@@ -601,6 +607,8 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
     /** T-3490: talking, one hand comes up before him and moves with what he says (no words: L1). */
     setTalk(on) { talking = !!on; return api; },
     get talking() { return talking; },
+    /** T-3553: the figure's mouth (human-mouth.js) or null: `mouth.say(level)` is where a voice goes. */
+    get mouth() { return mouth ?? body?.userData?.chiMouth ?? null; },
     /** Greet now with the right hand to the hat (or the brow), unless a greeting is under way. */
     // A woman in a dress (T-3423) greets with the nod alone: the touch of the brim or
     // forelock is a man's.
@@ -810,6 +818,11 @@ export function createHumanActions({ id = 'human', scene = null, greeting = 'bro
       for (const s of SIDES) shapeHand(s);
       if (greet >= 0 && brim?.touch) fingertip();
       settle();
+      // T-3553: the mouth, where this level's figure has one: it carries on from the last
+      // level's, and is told of the greeting, the talk and where the visitor stands.
+      const made = body.userData?.chiMouth ?? null;
+      if (made !== mouth) { made?.follow?.(mouth); mouth = made; }
+      mouth?.apply?.(dt, { greeting: greet >= 0, talk: talkW, viewer, root });
     },
     /** A visible generated work tool asks for two world-space hand holds AFTER
      * the ordinary arm pass. Only a loaded working actor's controller calls this.

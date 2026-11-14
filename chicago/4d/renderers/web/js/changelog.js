@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 2971, ts: '2026-11-14T11:35:07.177Z', date: 'Nov 14, 2026, 5:35 AM CT', title: 'William Grey smiles with his photograph\'s own teeth', kind: 'feature',
+    items: [
+      'William Grey of 2010 Prairie (1904) now rests with his mouth shut, as his side photographs and his portrait show it, and breaks into the front photograph\'s grin when you stand in front of him or he greets you.',
+      'Behind his lips are the photograph\'s own teeth, and the smile was fitted to the whole photograph: his lips\' opening matches it to half a millimetre, and his cheeks, nose and eyelids move with it to within two.',
+      'When he talks his jaw moves with it, the groundwork for giving him a voice later.',
+      'Sarah Grey\'s photographs show her mouth shut, so she is unchanged.',
+      'Still short of the photographs: the hair beside his face and his ears seen from the front, the lower edge of his beard, and his eyes.',
+    ] },
   { v: 2970, ts: '2026-11-14T11:17:00.360Z', date: 'Nov 14, 2026, 5:17 AM CT', title: 'The 1904 brougham turns right, and one carriage goes round clockwise', kind: 'improvement',
     items: [
       'The brougham\'s front wheels now turn up to 15°, about as far as they can before they would meet the body, so it can take a right turn at a street corner.',
