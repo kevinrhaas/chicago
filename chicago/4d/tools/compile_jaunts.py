@@ -12,6 +12,7 @@ from jsonschema import Draft202012Validator
 from compile_scene import cite
 import jaunt_names
 import jaunt_place_facts
+import jaunt_reading_level
 
 ROOT = Path(__file__).resolve().parents[1]
 # Not jaunts: the content schema, and the visitor's daybook (T-1258), which every scene's
@@ -217,6 +218,10 @@ class Compiler:
         require(doc['scene'] == self.scene_id, 'jaunt belongs to another scene')
         require(doc['default_mode'] in doc['allowed_modes'], 'default mode not allowed')
         require(not doc.get('plate') or doc['plate']['structure'] in self.refs['structure'], f"plate names an unknown structure {doc.get('plate', {}).get('structure')}")
+        # T-3590: the grade band is measured from the jaunt's own words (tools/jaunt_reading_level.py).
+        level = jaunt_reading_level.problem(doc)
+        require(not level, level)
+        require(doc.get('version_of') != doc['id'], 'a jaunt cannot be a version of itself')
         stops, ends = unique(doc['stops'], 'stop'), unique(doc['endings'], 'ending')
         require(not (set(stops) & set(ends) or {'Previous', '$end'} & (set(stops) | set(ends))), 'duplicate/reserved node id')
         claims = unique(doc['evidence'], 'evidence')
@@ -391,7 +396,8 @@ class Compiler:
                 light = opening_light(doc)
                 if light: row['ambience'] = light
                 # T-3584: the menu's group, the jaunts that lead it, and a card picture for an anchor-only route.
-                row.update(menu_group=doc['menu_group'], **{k: doc[k] for k in ('menu_rank', 'plate') if k in doc})
+                # T-3590: the school grades it is written for, and the jaunt it retells for them.
+                row.update(menu_group=doc['menu_group'], grade_band=doc['grade_band'], **{k: doc[k] for k in ('menu_rank', 'plate', 'version_of') if k in doc})
                 row.update(featured=doc.get('featured', False), stop_count=len(doc['stops']), primary_family=doc['keepsake']['family'], secondary_family=doc.get('secondary_family'),
                            timing={'opening_read_s': doc['opening']['read_s'], 'stops': [{'read_s': s['read_s'], 'action_s': s.get('action_s', 0), **leg_mode(doc, i)} for i, s in enumerate(doc['stops'])], 'endings_read_s': [e['read_s'] for e in doc['endings']]},
                            destinations=[s['destination'] for s in doc['stops']], availability='unavailable' if reasons else 'available', reason='; '.join(reasons) or None)
@@ -402,6 +408,12 @@ class Compiler:
             except (ValueError, KeyError, TypeError) as error:
                 errors.append(f'{path.name}: {error}')
         errors.extend(errors_facts)
+        # T-3590: a version retells a jaunt of this scene, never another version, in another grade band.
+        by_id = {row['id']: row for row in catalog}
+        for row in catalog:
+            base = by_id.get(row.get('version_of')) if row.get('version_of') else None
+            if row.get('version_of') and not (base and not base.get('version_of') and base['grade_band'] != row['grade_band']):
+                errors.append(f"{row['id']}.json: version_of {row['version_of']} must name another grade band's jaunt of this scene")
         files['catalog.json'] = packed({'schema_version': 1, 'scene': self.scene_id, 'jaunts': catalog})
         files['daybook.json'] = packed(self.daybook())
         return files, errors

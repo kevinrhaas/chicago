@@ -2498,6 +2498,8 @@ html[data-skin="brass"] .arrival-year.is-arrived .arrival-digit, html[data-skin=
 .jaunt-length[data-size="l"] { --g2: currentColor; --g3: currentColor; }
 .jaunt-length:empty { display: none; }
 .jaunt-light { white-space: nowrap; color: var(--accent, currentColor); }
+/* T-3590: the school grades a jaunt is written for. */
+.jaunt-grade { white-space: nowrap; border: 1px solid color-mix(in srgb, var(--ink-dim) 45%, transparent); border-radius: 999px; padding: 0 6px; }
 .jaunt-held { color: var(--ink-dim); border: 1px dashed var(--edge); border-radius: 999px; padding: 0 6px; }
 /* T-2631: a route's plate (a credited picture of its stops), its keepsake, and the outing
    in progress pinned on top with Continue. */

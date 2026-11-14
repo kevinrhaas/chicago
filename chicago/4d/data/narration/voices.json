@@ -13,6 +13,7 @@
   "max_chars_per_run": 20000,
   "jaunts": [
     "glessner-household-tour",
+    "glessner-household-tour-grades-3-5",
     "prairie-avenue-orientation"
   ],
   "narrators": {
@@ -29,7 +30,6 @@
     "glessner_john_j": "Character - Glessner, John",
     "glessner_frances_m": "Character - Glessner, Frances",
     "glessner_williamson_martha_l": "Character - Williamson, Mattie",
-    "pa1904_glessner_john_j_c1900_kate_ryan": "Character - Ryan, Kate",
     "pa1904_glessner_john_j_c1900_christine_nelson": "Character - Nelson, Christine",
     "pa1904_glessner_john_j_c1900_mary_reynolds": "Character - Reynolds, Mary",
     "pa1904_glessner_john_j_c1900_charles_nelson": "Character - Nelson, Charles",
@@ -39,7 +39,6 @@
     "glessner_john_j": "John J. Glessner",
     "glessner_frances_m": "Frances M. Glessner",
     "glessner_williamson_martha_l": "Mattie Williamson (cook)",
-    "pa1904_glessner_john_j_c1900_kate_ryan": "Kate Ryan (cook)",
     "pa1904_glessner_john_j_c1900_christine_nelson": "Christine Nelson (parlor maid)",
     "pa1904_glessner_john_j_c1900_mary_reynolds": "Mary Reynolds (house maid)",
     "pa1904_glessner_john_j_c1900_charles_nelson": "Charles Nelson (coachman)",

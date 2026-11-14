@@ -402,6 +402,13 @@ function livedWhy({ grade, census, year, lived }) {
       text: `The sources below place them in this house as a child of the family${lived.years ? `, ${String(lived.years).replace(/([\ds])-(\d|about)/g, '$1\u2013$2')}` : ''}.${then}` };
   }
   if (grade === 'inferred') {
+    // T-3590: someone the 1900 census found here who was gone by the scene (Kate Ryan, the
+    // Glessners' summer cook) is known from that census line, like the staff who stayed.
+    const gap = census && year ? year - (yearOf(census.date) ?? year) : 0;
+    if (census && gap > 0 && on === 'no') {
+      return { grade, title: 'Inferred: worked out from clues',
+        text: `The 1900 census lists them in this house on 1 June 1900, ${NUMBER[gap] ?? gap} year${gap === 1 ? '' : 's'} before this scene.${then}` };
+    }
     const later = census && census.year > (Number(year) || 0)
       ? `The ${census.year} census lists them in this house${on === 'yes' ? `; their age and the family's listings put them at home in ${when}, which no record of that year states` : ''}.`
       : 'No source prints the relationship outright; it is read from the listings below.';
