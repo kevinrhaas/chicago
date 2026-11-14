@@ -670,6 +670,12 @@ step "Driven assembly retains named drivers, vehicle ownership and exact current
   node tools/test_driven_assembly.mjs
 step "The 1812 fort wagons' rows are what their layer writes: roads, stops and hours (T-3497)" \
   node tools/lay_driven_wagons_1812.mjs --check
+step "The two more 1904 carriages' rows are what their layer writes: lanes off the street grid, counter-clockwise, their coachmen, stops and finishes (T-3555)" \
+  node tools/lay_driven_carriages_1904.mjs --check
+step "Where the 1904 carriages' roads cross one gives way and waits for the other: no overlap, no lock, everyone keeps going round (T-3555)" \
+  node tools/test_transport_crossings.mjs
+step "Each 1904 carriage its own paint, wear and marks on one program, no texture, glass and the inside clean (T-3558)" \
+  node tools/test_coachwork.mjs
 step "The 1812 crossing boats are what their layer writes: on dry banks, afloat at the stern, a path deep enough to float them over (T-3510)" \
   python3 tools/lay_crossing_boats_1812.py --check
 step "Every 1812 boat builds, rests bow up the bank, and carries a visitor across and back with no jump, and the wharf's deck sits on its crib (T-3510)" \
@@ -4578,6 +4584,11 @@ step "Jaunt schema, destinations and reachable state graph (T-1253)" \
 
 step "Jaunt refusal and data-only expansion fixtures (T-1253)" \
   python3 tools/test_compile_jaunts.py
+
+# T-3590: every jaunt's school grade band is measured from its own words (the mean of five
+# grade-level formulas); a jaunt for grades K-2 or 3-5 reads inside its band, any other within one.
+step "Jaunt grade bands match the reading level of their words (T-3590)" \
+  python3 tools/jaunt_reading_level.py --check
 
 # T-2039 (of T-1271): the LIBRARY, not one story — the 25 named premises, the six
 # priority jaunts featured, 4-8 stops, quiet outings, keepsake families and ranks

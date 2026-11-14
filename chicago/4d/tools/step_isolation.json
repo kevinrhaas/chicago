@@ -4311,6 +4311,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/jaunt_reading_level.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/k01_contract.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -4320,6 +4324,10 @@
       "wrote_ignored": []
     },
     "tools/lay_crossing_boats_1812.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/lay_driven_carriages_1904.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -5710,6 +5718,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/test_coachwork.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/test_compile_jaunts.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -6983,6 +6995,10 @@
       "wrote_ignored": []
     },
     "tools/test_transport_clearance.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_transport_crossings.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

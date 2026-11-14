@@ -400,7 +400,7 @@ function cellIndex(points, size) {
  * (a copy: `at` moved onto the person's place in its ring, `activity`/`knot`/`spots` filled in);
  * a span played as written is not in it.
  */
-export function planDay(people, date, { clear = () => true } = {}) {
+export function planDay(people, date, { clear = () => true, standClear = null } = {}) {
   const out = new Map();
   const outs = [];
   for (const { key, b } of people) {
@@ -595,7 +595,47 @@ export function planDay(people, date, { clear = () => true } = {}) {
     } else Object.assign(own, { activity: 'work', spots: job.spots.map((q) => local(q)) });
     play(x.span).round = { knot: s.knot, own };
   }
+  if (standClear) standClearOfStairs(outs, out, play, standClear);
   return out;
+}
+
+/**
+ * T-3554 (owner, 2026-11-13, of a maid standing half inside the bottom steps of a front stoop:
+ * "she cannot stand where there are stairs like that, no one should be able to"): every place a
+ * played span stands someone (its place, its job's spots, the end of its walk and the way there,
+ * its own job between gatherings) moved to the nearest place `standClear` allows, where it gives
+ * one ({e, n}; null where the place already stands clear). A ring's places and a talk's were made
+ * about a middle with no one asking what was built there; this asks once, after all of them.
+ */
+function standClearOfStairs(outs, out, play, standClear) {
+  const moved = (q) => {
+    if (!q || !Number.isFinite(q.local_e ?? q.e)) return null;
+    const r = standClear(pt(q));
+    return r ? { ...q, local_e: +r.e.toFixed(3), local_n: +r.n.toFixed(3) } : null;
+  };
+  const list = (qs) => {
+    if (!Array.isArray(qs)) return qs;
+    let changed = false;
+    const next = qs.map((q) => { const m = moved(q); if (m) changed = true; return m ?? q; });
+    return changed ? next : qs;
+  };
+  const fix = (s) => {
+    const got = {};
+    const at = moved(s.at); if (at) got.at = at;
+    const to = moved(s.to_point); if (to) got.to_point = to;
+    const spots = list(s.spots); if (spots !== s.spots) got.spots = spots;
+    const via = list(s.via); if (via !== s.via) got.via = via;
+    return got;
+  };
+  for (const x of outs) {
+    const s = out.get(x.span) ?? x.span;
+    const got = fix(s);
+    const own = s.round?.own ? fix(s.round.own) : {};
+    if (!Object.keys(got).length && !Object.keys(own).length) continue;
+    const p = play(x.span);
+    Object.assign(p, got);
+    if (Object.keys(own).length) p.round = { ...p.round, own: { ...p.round.own, ...own } };
+  }
 }
 
 /** Keep ordinary clear chores cheap; warm the route grid only for an obstructed trip. */
@@ -626,10 +666,14 @@ export function createDayRouter({ router, clear, buildWhenBlocked = false }) {
  *                                              job's way from a to b is clear (clearWayOf)
  * @param {(actor: object) => boolean} [o.followed]  T-3573: whether the visitor is following this
  *                                              figure now (an outing lasts while they are)
+ * @param {(p: {e:number, n:number}) => {e:number, n:number} | null} [o.standClear]  T-3554: the
+ *                                              nearest place clear of every stair, where p is not
+ *                                              (house-barriers.js clearOf); planDay moves to it
  */
 export function createHumanDays({ humans, three = null, hour = () => null, date = () => null, doors = null,
   interactions = null, visitor = () => null, eye = () => null, router = null, hostRouter = null, problems = [],
-  inside = null, spawn = null, despawn = null, openCard = () => {}, openResident = () => {}, clear = () => true, held = () => false, passages = null, followed = () => false } = {}) {
+  inside = null, spawn = null, despawn = null, openCard = () => {}, openResident = () => {}, clear = () => true, held = () => false, passages = null, followed = () => false,
+  standClear = null } = {}) {
   const Vec = three?.Vector3;
   let people = [];
   const workSourcePeople = new Map();
@@ -644,7 +688,7 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
     if (plan.date !== today) {
       plan = { date: today, map: planDay(people.filter((q) => !q.entry && !q.soldier && Array.isArray(q.b.day))
         .map((q) => ({ key: q.actor.personId ?? q.id, b: q.b, child: CHILD_RE.test(q.actor.instance?.appearance?.asset_id ?? '') })),
-      today, { clear }) };
+      today, { clear, standClear }) };
     }
     return plan.map.get(span) ?? span;
   };
@@ -1092,13 +1136,17 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
     const exitOf = q => homeDoor(q, q.inside ?? home(q), anchor.e, anchor.n);
     const distanceOf = q => q.actor.indoors
       ? (exitOf(q) ? dist(pt(exitOf(q).step), anchor) : Infinity) : dist(q.actor, anchor);
+    // T-3590: a talk's own company first: one of the same household whose span names the same
+    // knot at this hour is the one to talk with, wherever on the grounds they stand (the
+    // Glessners' evening walk is the two of them, not whoever happens to be nearest).
+    const mate = q => !!span.knot && currentOf(q)?.knot === span.knot && currentOf(q)?.activity === 'talk' && home(q) === where;
     const candidates = people.filter((q) => q !== p && where && compatible(q) && (!adult || !q.child)
-      && (q.actor.indoors ? ((q.inside ?? home(q)) === where
-        || (q.actor.instance?.scene === '1812' && distanceOf(q) < 30)) : distanceOf(q) < 18)
+      && (mate(q) || (q.actor.indoors ? ((q.inside ?? home(q)) === where
+        || (q.actor.instance?.scene === '1812' && distanceOf(q) < 30)) : distanceOf(q) < 18))
       && !unavailable(q) && !q.attending && !q.social && !q.called && !q.passing && !q.override
       && !currentOf(q)?.away
       && !(currentOf(q)?.duty && (q.b.duty?.kind === 'beat' || POST_RE.test(currentOf(q)?.doing ?? ''))));
-    candidates.sort((a, b) => Number(a.actor.indoors) - Number(b.actor.indoors)
+    candidates.sort((a, b) => Number(mate(b)) - Number(mate(a)) || Number(a.actor.indoors) - Number(b.actor.indoors)
       || (supervised ? p.entry.caregivers.indexOf(keyOf(a)) - p.entry.caregivers.indexOf(keyOf(b)) : 0)
       || distanceOf(a) - distanceOf(b));
     let q = candidates[0];
@@ -1115,10 +1163,12 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
       if (door) q = summon(entry, door.door);
     }
     if (!q) return { ok: false, why: supervised ? 'A household adult is not free just now' : 'Nobody is free to chat just now' };
-    const at = q.actor.indoors ? anchor : { e: q.actor.e, n: q.actor.n };
+    const at0 = q.actor.indoors ? anchor : { e: q.actor.e, n: q.actor.n };
+    // T-3554: neither of the two stands in a stair (house-barriers.js clearOf).
+    const at = standClear?.(at0) ?? at0;
     // Use a clear, nearby standing place; never put the partner through a wall.
     const next = [0, 90, 180, 270].map((h) => ({ e: at.e + Math.sin(h * Math.PI / 180) * 1.4,
-      n: at.n + Math.cos(h * Math.PI / 180) * 1.4 })).find((to) => clear(at, to));
+      n: at.n + Math.cos(h * Math.PI / 180) * 1.4 })).find((to) => clear(at, to) && !standClear?.(to));
     if (!next) return { ok: false, why: 'There is no room to chat here' };
     const session = { members: [p, q], supervised: supervised || !!q.entry?.supervised, outing: (supervised || walk) && span.activity !== 'talk' ? span : null, walk, date: date(), started: clock, chatting: null, visitorRequested,
       originals: [p, q].map((m) => spanAt(dayOn(m.b, date(), keyOf(m)), hour())) };

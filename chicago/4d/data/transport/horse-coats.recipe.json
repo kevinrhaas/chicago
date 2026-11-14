@@ -120,6 +120,8 @@
     "1835:western_hotel_driven_wagon_loop_1835": "chestnut",
     "1835:western_hotel_yard_standing_horse_01": "iron_grey",
     "1904:prairie_driven_brougham_loop_1904": "iron_grey",
+    "1904:prairie_driven_brougham_north_loop_1904": "dark_bay",
+    "1904:prairie_driven_brougham_south_loop_1904": "chestnut",
     "1904:prairie_parked_studebaker_brougham": "bay"
   },
   "individual_policy": "Palette keyed by scene/team row; blaze, four sock tops and dapple phase keyed by scene/row/individual side. Stable across reload and visibility/LOD reacquisition. No time, camera or random seed.",

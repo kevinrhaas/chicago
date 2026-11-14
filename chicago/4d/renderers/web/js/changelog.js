@@ -1,4 +1,32 @@
 export const CHANGELOG = [ // newest first
+  { v: 2960, ts: '2026-11-14T03:09:06.420Z', date: 'Nov 13, 2026, 9:09 PM CT', title: 'The Fort Dearborn monument\'s figures are bodies now', kind: 'improvement',
+    items: [
+      'On 18th Street in 1904, the five bronze figures of the Fort Dearborn Massacre monument are no longer joined from rods and balls: each is one of the walkthrough\'s own people, posed joint by joint to the two photographs of the sculpture and cast in the same bronze.',
+      'Still to do: their faces are the people\'s plain ones, not the sculpted faces, and the hair, drapery, inscription and weathered front panel are not yet modelled.',
+    ] },
+  { v: 2959, ts: '2026-11-14T02:46:28.963Z', date: 'Nov 13, 2026, 8:46 PM CT', title: 'The built-so-far walk now stops at 1824 Prairie', kind: 'change',
+    items: [
+      'The Prairie Avenue walk of finished houses gains a stop at the Pomeroy-Marsh house, 1824 Prairie, between 1812 and 1828. The house itself is unchanged. A light wall beside its bay in the automobile photograph had seemed to run at an angle to the street. Read again beside the block\'s second photograph, it is the house\'s south side wall as built, so the house now counts as matching its picture. 1828\'s front is still being worked to its photograph.',
+    ] },
+  { v: 2958, ts: '2026-11-14T02:27:55.054Z', date: 'Nov 13, 2026, 8:27 PM CT', title: 'Nobody stands inside a stoop\'s steps any more', kind: 'fix',
+    items: [
+      'In 1904, people no longer stand inside the bottom steps of a front stoop or beside its rails. Every stair counts from its first step now.',
+      'The back steps behind the Prairie Avenue houses and the 1835 shop stoops and mounting blocks are kept clear too.',
+      'Talk circles, chat partners and work spots that would have landed on a stair move to the nearest open ground.',
+      'Anyone found standing in a stair steps off it.',
+    ] },
+  { v: 2957, ts: '2026-11-14T01:39:44.553Z', date: 'Nov 13, 2026, 7:39 PM CT', title: 'The 1904 check counts 1721 Prairie\'s frame house; narration stands in', kind: 'chore',
+    items: [
+      'The automated walk-through\'s list of what stands in 1904 now includes Wirt Dexter\'s 1863 frame house behind 1721 Prairie\'s brick front, which arrived without its entry.',
+      'The automated walk-through no longer reports an error because the narration host turns away its local test address: it uses an empty index, as though no tour has been voiced yet. What you see and hear is unchanged.',
+    ] },
+  { v: 2956, ts: '2026-11-14T01:39:44.553Z', date: 'Nov 13, 2026, 7:39 PM CT', title: 'Two more carriages drive round Prairie Avenue, and give way at crossings', kind: 'feature',
+    items: [
+      'Henry Windish, the Pullmans\' coachman, drives round 16th to 18th Street, and Joseph Daniels, the Armours\', round 20th to 22nd; each pulls up at his employer\'s door.',
+      'All three loops run counter-clockwise; Hans meets each newcomer head on along 18th or 20th, and where their turns cross one team waits for the other to pass.',
+      'Each coach is its own: mostly black, with its own panels, wheel colours, trim, shine, road dust, mud and scuffs.',
+      'Each team has its own horses, and each coachman his own face, age and house colours.',
+    ] },
   { v: 2955, ts: '2026-11-14T01:15:53.623Z', date: 'Nov 13, 2026, 7:15 PM CT', title: '1936 Prairie\'s tower windows crowned as the photograph shows', kind: 'improve',
     items: [
       'The pair of windows over 1936 Prairie\'s entrance porch now wears the photograph\'s tall carved hoods: a deeper stone hood with a carved crest that rises past the floor band into the blind stage above, about a metre over the windows, where it had stopped short at half that.',

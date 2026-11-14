@@ -25,13 +25,14 @@ sidewalk, and Christine uses her recorded errand route. The hours and buildings 
     Otis Bardwell       a teamster (the seating ruling), at his wagon in the Wolf Point Tavern
                         yard by day; off the scene at night, as Mahoney.
   1904 (1 July; the household of 1800 Prairie Avenue)
-    The cooks (Mattie Williamson, Kate Ryan) and the stable helper (August Billings) in the
-    court, one talk among them (`glessner_court`); the maid (Mary Reynolds) at the north entry
+    The cook (Mattie Williamson; Kate Ryan, the 1900 census's summer cook, is not drawn since
+    T-3590) and the stable helper (August Billings) in the court, one talk among them
+    (`glessner_court`); the maid (Mary Reynolds) at the north entry
     on Eighteenth Street (`glessner_18th`); the coachman (Charles Nelson) keeps watch
     beside the reconstructed carriage team on Prairie Avenue, outside the main pedestrian
     strip. His household-tour mark remains at the stable doors. Each in the house by its servants' doors (tools/derive_doors_scene.py)
     at night and for the hours of the house's own meals.
-  All eight drawn household members now have seasonal days, including the owners and
+  All seven drawn household members now have seasonal days, including the owners and
   Christine. Office hours are off-scene, not a claim to an office location. Activities
   and times are reconstructed, not diary entries (L-t3533-household-routines).
 
@@ -99,14 +100,6 @@ DAYS = {
             OUT(9, 12, "in the court: kitchen work out of doors, the deliveries taken in", "glessner_court"),
             IN(12, 14.5, "glessner_house", "the kitchen: luncheon"),
             OUT(14.5, 17, "in the court: kitchen work out of doors", "glessner_court"),
-            IN(17, 24, "glessner_house", "the kitchen: dinner; asleep"),
-        ]),
-        "hi_pa1904_glessner_john_j_c1900_kate_ryan_1904": ("glessner_house", [
-            IN(0, 6, "glessner_house", "asleep"),
-            IN(6, 9.5, "glessner_house", "the kitchen: breakfast for the house"),
-            OUT(9.5, 12, "by the service stair in the court: the kitchen's work out of doors", "glessner_court"),
-            IN(12, 15, "glessner_house", "the kitchen: luncheon"),
-            OUT(15, 17, "by the service stair in the court", "glessner_court"),
             IN(17, 24, "glessner_house", "the kitchen: dinner; asleep"),
         ]),
         "hi_pa1904_glessner_john_j_c1900_august_billings_1904": ("glessner_house", [
