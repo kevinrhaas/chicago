@@ -34,7 +34,9 @@ USES = ('scene', 'other_scene', 'exclusion', 'research', 'unused')
 # T-3546: twelve portrait, clothing and biographical records bring the complete
 # catalogue to 274,714 raw bytes. Allow the next 8 KB increment, preserving every
 # citation and the unchanged 120,000-byte compressed first-open release limit.
-INDEX_BUDGET = 280_000
+# T-3553: eleven Costume Institute dresses and hats of 1899-1905 (the ladies' finery) bring it
+# past 280 000; 288 000, the compressed first-open limit unchanged.
+INDEX_BUDGET = 288_000
 GRADES = {'attested', 'inferred', 'reconstructed'}
 GRADE_ALIASES = {'documented': 'attested', 'conjectural': 'reconstructed',
                  'unknown': 'reconstructed', 'not_1835_resident': 'reconstructed'}

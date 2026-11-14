@@ -734,6 +734,8 @@ step "Every 1812 settler, trader, engagé and townswoman is dressed as their own
   python3 docs/RESEARCH/town-dress-1812-3522/dress.py --check
 step "No two 1812 townspeople dressed alike; each hat made for its wearer's head, above the brow, rigid on the head bone, its crown and brim the wearer's own; on their card (T-3522)" \
   node tools/test_human_town_dress.mjs
+step "Every Prairie Avenue lady her own dress, trims and hat for summer, spring/fall and winter, none alike, from the finery sources; the cook's print and check, and 1812's calico, checks and stripes, drawn at their recorded mean colour, in the one cloth program (T-3553)" \
+  node tools/test_human_finery.mjs
 step "People on foot walk heel to toe at a real pace and stride, the stance foot planted, the pelvis turning and rising over it, deterministic across LOD swaps; a child at a child's pace and stride, never on its knees, even nudged aside (T-3472, T-3520, T-3529)" \
   node tools/test_human_gait.mjs
 step "Every hanging garment (a skirt, a coat's skirts, tails, a capote, a breechcloth) swings off the legs on the walk and never parts between them, no leg through the cloth, trousers left on the leg, the rest pose exact (T-3472, T-3553)" \
