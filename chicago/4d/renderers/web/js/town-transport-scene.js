@@ -4,12 +4,14 @@ import { createTownTransport } from './town-transport.js';
 import { supportsTownTransport } from './transport-loop.js';
 import { createTransportClearance, giveRoomStand } from './transport-clearance.js';
 import { teamSupportAt, certifiedHorseSupportDomain } from './transport-support.js';
-import { registerTransportInteractions } from './transport-interactions.js';
+import { registerTransportInteractions, createTeamRide, boardStand, riderOffTeam } from './transport-interactions.js';
 
 /** Small scene binding; the first occupied GLB and whole-route reading stay lazy. */
 export async function mountTownTransport({ sceneId, dataBase, people, getPeople = null, preparePersonCard = null, humans, confidence,
   heightAt, footprints, visitor, interactions, detail, coarse = false, problems = [],
-  blockedAt = () => false, placeVisitor = null, configFile = 'transport/driven/loops.json' }) {
+  blockedAt = () => false, placeVisitor = null, configFile = 'transport/driven/loops.json',
+  visitorEye = null, groundAt = () => NaN, walkEye = () => 1.6, onBoard = () => {}, reducedMotion = () => false,
+  reinsHint = undefined }) {
   if (!supportsTownTransport(sceneId)) return null;
   sceneId = String(sceneId);
   const json = async (file, expectedSHA256 = null) => {
@@ -70,9 +72,17 @@ export async function mountTownTransport({ sceneId, dataBase, people, getPeople 
     place: (e, n) => placeVisitor(e, n),
   });
   let registration = null, town;
+  /** T-3557: the visitor aboard a team (one at a time). The team they ride is not stopped by
+   *  them; every other team still is. Get down finds a stand as Step back does. */
+  const standFor = actor => boardStand({ actor, row: rows.find(r => r.id === actor?.id), blockedAt });
+  const person = () => {
+    const v = visitor();
+    return v ? { e: v.e, n: v.n, y: v.eyeY ?? v.y, bearing: v.bearing } : null;
+  };
+  const ride = createTeamRide({ visitor: visitorEye ?? person, standFor, groundAt, walkEye, onBoard, reducedMotion });
   const clearance = (cache, row, includeVisitor) => {
     if (!cache.has(row.id)) cache.set(row.id, createTransportClearance({ footprints,
-      visitor: includeVisitor ? visitor : () => null,
+      visitor: includeVisitor ? riderOffTeam(ride, row.id, visitor) : () => null,
       envelope_local_xz_m: row.envelope_local_xz_m }));
     return cache.get(row.id);
   };
@@ -84,6 +94,8 @@ export async function mountTownTransport({ sceneId, dataBase, people, getPeople 
       return modules;
     },
     clear: (row, a, b) => clearance(live, row, true)(a, b),
+    // T-3557: the word a driven team gives for what pulled it up (team-drive.js).
+    clearWhy: row => clearance(live, row, true).lastBlocker,
     routeClear: (row, a, b) => clearance(fixed, row, false)(a, b),
     routeSupport: (row, pose) => teamSupportAt(row, pose, heightAt, supportByHorse.get(modelFor(row))),
     async makeAssembly(row) {
@@ -113,15 +125,19 @@ export async function mountTownTransport({ sceneId, dataBase, people, getPeople 
       registration?.dispose();
       registration = registerTransportInteractions(interactions, actors, actor => {
         const row = rows.find(r => r.id === actor.id);
-        return { vehicle: /brougham|carriage/i.test(`${row?.vehicle_file ?? ''} ${row?.name ?? ''}`) ? 'carriage' : 'wagon',
+        const carriage = /brougham|carriage/i.test(`${row?.vehicle_file ?? ''} ${row?.name ?? ''}`);
+        const onFoot = row?.driver_mode === 'on_foot';
+        return { vehicle: carriage ? 'carriage' : 'wagon',
+          driver: carriage ? 'coachman' : onFoot ? 'teamster' : 'driver', onFoot, ride,
+          ...(reinsHint ? { reinsHint } : {}),
           giveRoom: row && placeVisitor ? giveRoomFor(row) : null };
       });
       if (town.roots.length) group.add(...town.roots);
     },
   });
   const dispose = town.dispose;
-  return Object.assign(town, { group,
+  return Object.assign(town, { group, ride,
     refreshInteractions() { registration?.refresh(); },
-    dispose() { registration?.dispose(); registration = null; dispose(); group.removeFromParent(); },
+    dispose() { ride.release('gone'); registration?.dispose(); registration = null; dispose(); group.removeFromParent(); },
   });
 }

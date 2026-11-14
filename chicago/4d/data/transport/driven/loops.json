@@ -68,6 +68,13 @@
         1.58,
         0.65
       ],
+      "passenger_local_m": [
+        0.38,
+        1.58,
+        0.65
+      ],
+      "passenger_eye_m": 0.78,
+      "passenger_basis": "Beside Otis Bardwell on the W01 seat board (wagon-w01.glb vehicle_body_timber top 1.58 m, x ±0.59 m, z 0.50–0.80 m); he sits its centre, the visitor 0.38 m to his near (left) side. Reconstructed play (L-board-drive-3557).",
       "wheel_radii_m": [
         0.685,
         0.685,
@@ -164,6 +171,13 @@
         1.77585,
         0.76
       ],
+      "passenger_local_m": [
+        0.32,
+        1.765,
+        0.76
+      ],
+      "passenger_eye_m": 0.78,
+      "passenger_basis": "Beside the coachman on the brougham box (brougham-near.glb box cushion top 1.765 m, x ±0.54 m, z 0.565–0.955 m); he sits its centre, the visitor 0.32 m to his left. Reconstructed play (L-board-drive-3557).",
       "wheel_radii_m": [
         0.65,
         0.65,
@@ -441,6 +455,13 @@
         1.77585,
         0.76
       ],
+      "passenger_local_m": [
+        0.32,
+        1.765,
+        0.76
+      ],
+      "passenger_eye_m": 0.78,
+      "passenger_basis": "Beside the coachman on the brougham box (brougham-near.glb box cushion top 1.765 m, x ±0.54 m, z 0.565–0.955 m); he sits its centre, the visitor 0.32 m to his left. Reconstructed play (L-board-drive-3557).",
       "wheel_radii_m": [
         0.65,
         0.65,
@@ -769,6 +790,13 @@
         1.77585,
         0.76
       ],
+      "passenger_local_m": [
+        0.32,
+        1.765,
+        0.76
+      ],
+      "passenger_eye_m": 0.78,
+      "passenger_basis": "Beside the coachman on the brougham box (brougham-near.glb box cushion top 1.765 m, x ±0.54 m, z 0.565–0.955 m); he sits its centre, the visitor 0.32 m to his left. Reconstructed play (L-board-drive-3557).",
       "wheel_radii_m": [
         0.65,
         0.65,
@@ -1099,6 +1127,13 @@
         0,
         4.4
       ],
+      "passenger_local_m": [
+        0,
+        0.955,
+        0.4
+      ],
+      "passenger_eye_m": 0.78,
+      "passenger_basis": "Sitting on the farm-box bed boards (farm-box-near.glb planks top 0.955 m, x ±0.3 m, z -1.17 to 1.18 m), centre line, 0.4 m forward of the middle; the teamster walks. Reconstructed play (L-board-drive-3557).",
       "envelope_local_xz_m": [
         -1.21,
         -1.86,
@@ -1203,6 +1238,13 @@
         0,
         4.4
       ],
+      "passenger_local_m": [
+        0,
+        0.955,
+        0.4
+      ],
+      "passenger_eye_m": 0.78,
+      "passenger_basis": "Sitting on the farm-box bed boards (farm-box-near.glb planks top 0.955 m, x ±0.3 m, z -1.17 to 1.18 m), centre line, 0.4 m forward of the middle; the teamster walks. Reconstructed play (L-board-drive-3557).",
       "envelope_local_xz_m": [
         -1.21,
         -1.86,

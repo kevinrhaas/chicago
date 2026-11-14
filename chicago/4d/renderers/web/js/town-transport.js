@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 import { routeFor, createTransportLoop, preflightTransportRouteAsync, TransportSpawnObstructedError } from './transport-loop.js';
-import { createCrossings } from './transport-crossings.js';
+import { createCrossings, overlaps } from './transport-crossings.js';
+import { footprintOfPose } from './team-drive.js';
 
 const WHEELS = ['vehicle_wheel_rear_left', 'vehicle_wheel_rear_right',
   'vehicle_wheel_front_left', 'vehicle_wheel_front_right'];
@@ -238,9 +239,15 @@ export function offHours(hours, hour) {
   return from <= to ? !(hour >= from && hour < to) : !(hour >= from || hour < to);
 }
 
-/** One instance per scene. The static parked layer remains independently owned. */
+/** T-3557: a team's footprint for team-vs-team clearance (the row's whole team, pole and vehicle). */
+const envelopeOf = row => Array.isArray(row?.envelope_local_xz_m) ? row.envelope_local_xz_m
+  : Array.isArray(row?.envelope_measured_local_xz_m) ? row.envelope_measured_local_xz_m : null;
+const TEAM_MARGIN_M = .3;
+
+/** One instance per scene. The static parked layer remains independently owned.
+ * `clearWhy(row)` (optional) names what last refused `clear(row, ...)`: 'visitor' or a footprint id. */
 export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssembly = null, heightAt,
-  clear, routeClear = clear, routeSupport = null, detail = 'full',
+  clear, routeClear = clear, routeSupport = null, clearWhy = null, detail = 'full',
   reach = { full: 90, balanced: 60, light: 45 }, problems = [], onActorsChanged = () => {} }) {
   // T-3542: a tier draws the teams when its reach is above zero; since the owner's ruling
   // (2026-11-10) Light's is, so a phone keeps its horses, carriages and wagons, nearer.
@@ -263,6 +270,46 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
   let crossings = null;
   const crossingsFor = () => (crossings ??= circuits.length > 1 && circuits.every(c => Array.isArray(c.row.envelope_local_xz_m))
     ? createCrossings(circuits) : { gateFor: () => null, snapshot: () => ({}), zones: [] });
+  // T-3557: while a team is driven (or steered home) it is an obstruction to the others, and
+  // they to it. A route team pulled up only for a driven team goes on by itself once it can.
+  const heldByTeam = new Set();
+  const teamsClear = (row, self, from, to) => {
+    const mine = envelopeOf(row);
+    if (!mine) return true;
+    const driven = !!self && self.mode !== 'route';
+    let at = null, was = null;
+    for (const other of actors) {
+      if (other === self || other.id === row.id || other.disposed || (!driven && other.mode === 'route')) continue;
+      const theirs = envelopeOf(rowById.get(other.id)), pose = other.pose;
+      if (!theirs || !pose) continue;
+      const print = footprintOfPose(pose, theirs, TEAM_MARGIN_M / 2);
+      at ??= footprintOfPose(to, mine, TEAM_MARGIN_M / 2);
+      if (!overlaps(at, print)) continue;
+      // Already touching (the reins were taken there): it may only draw apart.
+      was ??= footprintOfPose(from, mine, TEAM_MARGIN_M / 2);
+      if (!overlaps(was, print) || Math.hypot(to.e - pose.e, to.n - pose.n) <= Math.hypot(from.e - pose.e, from.n - pose.n)) return false;
+    }
+    return true;
+  };
+  const liveClear = row => {
+    let self = null, word = null;
+    const check = (from, to) => {
+      word = null;
+      if (!clear(row, from, to)) {
+        let blocker = null;
+        try { blocker = clearWhy?.(row) ?? null; } catch { blocker = null; }
+        word = blocker === 'visitor' ? 'someone in the way' : 'a wall';
+        heldByTeam.delete(row.id); return false;
+      }
+      if (!teamsClear(row, self, from, to)) { word = 'another team'; heldByTeam.add(row.id); return false; }
+      heldByTeam.delete(row.id);
+      if (self && self.mode !== 'route' && routeSupport && row.horse_offset_m) {
+        try { routeSupport(row, to); } catch { word = 'rough ground'; return false; }
+      }
+      return true;
+    };
+    return { check, why: () => word, bind(actor) { self = actor; } };
+  };
   let disposed = false, tier = detail, load = null, generation = 0, loadGeneration = -1;
   let lastUpdate = null;
   const out = {
@@ -301,8 +348,10 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
             routeReadings.set(row.id, routeReading);
             assembly = await makeAssembly(liveRow);
             if (disposed || ownGeneration !== generation || !draws(tier)) { assembly.dispose(); break; }
+            const reading = liveClear(row);
             const actor = createTransportLoop({ ...liveRow, route, assembly, heightAt,
-              clear: (from, to) => clear(row, from, to), gate: crossingsFor().gateFor(row.id) });
+              clear: reading.check, why: reading.why, gate: crossingsFor().gateFor(row.id) });
+            reading.bind(actor);
             actor.updateVisual = assembly.updateVisual;
             // Consume only after this generation owns a successfully created actor.
             const approach = pendingApproaches.get(row.person_id);
@@ -359,6 +408,8 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
         // T-3497: a team with `hours` (its teamster's, as human-duties.js keeps them) is put
         // up outside them: not drawn, not moving, its place on the road kept for the morning.
         const away = hidden || offHours(rowById.get(actor.id)?.hours, hour);
+        if (heldByTeam.has(actor.id) && actor.mode === 'route' && actor.state === 'stopped'
+          && actor.reason === 'obstruction' && !away && !paused && actor.canResume()) actor.resume();
         actor.update(dt, { enabled: !away, drawn, paused, reducedMotion, elapsedFrame, motionFrame });
         // Synthetic visibility replays cannot prime the independent driver clock.
         if (!elapsedFrame || motionFrame) actor.updateVisual?.(visualDt, { paused: paused || reducedMotion || away, viewer: cameraPosition });
@@ -388,6 +439,8 @@ export function createTownTransport({ rows, sceneId, makeAssembly, prepareAssemb
       }
       return nearest;
     },
+    /** T-3557: a scene's loaded team by its row id (the seat, the reins), or null. */
+    actorById(id) { return disposed ? null : actors.find(actor => actor.id === id && !actor.disposed) ?? null; },
     driverForPerson(personId) { return actors.find(actor => actor.personId === personId) ?? null; },
     /** A Find/Go to target is available before the nearby model loads. This is a
      * route/seat reading, not a claim that a model has passed its ground reading. */
