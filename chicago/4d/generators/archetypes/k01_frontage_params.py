@@ -3238,7 +3238,11 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
         # hoods Chicagology's photograph draws crested as the front's are): the front's crest
         # (`street_front_trim.crest`, T-3270) in the same ranges, on a flat-headed stone light
         # whose lintel is its own (no voussoirs, tympanum or plinth for a head), inside its storey
-        for st in v["storeys"]:
+        # T-3370: `past_band: true` lets the crest rise past its storey's floor band into the
+        # storey over it, as K08's scrolled pediment may (1936's tower pair over the porch, whose
+        # crests the Chicagology photograph draws up into the blind stage over them); never past
+        # that storey, and (K08, at build) never onto one of its lights
+        for ks, st in enumerate(v["storeys"]):
             for w in st["windows"]:
                 cr = w.get("crest")
                 if cr is None:
@@ -3246,7 +3250,11 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                 k06 = json.loads(WINDOW_KIT.read_text())
                 v6 = next((x for x in k06["variants"] if x["id"] == w["opening"]), {})
                 keys = {"width_m", "height_m", "proud_m"}
-                if not isinstance(cr, dict) or set(cr) != keys or v6.get("head", "flat") != "flat" \
+                past = isinstance(cr, dict) and "past_band" in cr
+                if past and (cr["past_band"] is not True or ks + 1 >= len(v["storeys"])):
+                    raise ParamError(f"bays: {e['id']}'s crest.past_band is true or absent, on a storey "
+                                     f"with one over it, not {cr}")
+                if not isinstance(cr, dict) or set(cr) - {"past_band"} != keys or v6.get("head", "flat") != "flat" \
                         or any(k in w for k in ("voussoirs", "tympanum", "in_plinth", "door")) \
                         or e.get("fabric", "stone") == "frame" \
                         or not 0.4 <= float(cr["width_m"]) <= 2.0 or not 0.15 <= float(cr["height_m"]) <= 0.6 \
@@ -3255,10 +3263,13 @@ def _bays(entries, wall_len: dict, openings: list, structure_id: str, front_ston
                                      f"and proud_m (0.04-0.2 m), on a flat-headed stone light's own lintel, not {cr}")
                 lintel = float((w.get("surround") or {}).get("head_m", k06["parts"]["head_band"]["width_m"]))
                 head = float(w["sill_m"]) + float(w.get("clear_height_m", v6.get("clear_height_m", 0.0)))
-                if head + lintel + float(cr["height_m"]) > float(st["height_m"]) - 0.05:
+                room = float(st["height_m"]) + (float(v["storeys"][ks + 1]["height_m"]) if past else 0.0)
+                if head + lintel + float(cr["height_m"]) > room - 0.05:
                     raise ParamError(f"bays: {e['id']}'s crest rises to {head + lintel + float(cr['height_m']):.2f} m, "
-                                     f"past its {st['height_m']} m storey")
+                                     f"past its {st['height_m']} m storey" + (" and the storey over it" if past else ""))
                 w["crest"] = {k: float(cr[k]) for k in sorted(keys)}
+                if past:
+                    w["crest"]["past_band"] = True
         # T-1881: a round-headed bay light framed by a moulded architrave, as K01 frames the
         # front's own (`street_front_windows.windows[k].architrave`): 1729's forward block's
         # light over the portico, which the 1890 Albertype plate draws under the same moulded

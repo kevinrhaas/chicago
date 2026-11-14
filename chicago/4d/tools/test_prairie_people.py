@@ -28,6 +28,22 @@ def main():
         if p['status'] == 'alias':
             assert p['canonical'] in ids and p['canonical'] != p['person']
     doors = {d['id']: (s['structure'], d) for s in read('data/humans/doors_1904.json')['structures'] for d in s['doors']}
+    # T-3553 (the owner, 2026-11-13: Find on Mrs. Grey landed him inside 2010 Prairie): a frame
+    # house whose record hangs its front door on a block before the footprint (2000 and 2010
+    # Prairie's front blocks) is entered there, and answered at the foot of its porch steps,
+    # not on the footprint's front inside that block.
+    import math
+    for sid in ('house_2000_prairie', 'house_2010_prairie'):
+        sc = read(f'data/sidecars/1904/{sid}.json')
+        fh = sc['attributes']['frame_house']['value']
+        block, wall = next((b, w) for b in fh['blocks'] for w in b['walls'] if w['side'] == 'east' and w.get('doors'))
+        u, v = block['rect_uv'][2], block['rect_uv'][1] + wall['doors'][0]['centre_m']
+        pl, door = sc['placement'], doors[sid + ':front'][1]
+        th = math.radians(pl['rotation_deg'])
+        leaf = (pl['local_e'] + u * math.cos(th) + v * math.sin(th), pl['local_n'] - u * math.sin(th) + v * math.cos(th))
+        assert math.dist(leaf, (door['leaf']['local_e'], door['leaf']['local_n'])) < 0.05, f'{sid}: its door is on its front block'
+        porch_foot_u = u + fh['porch']['depth_m'] + 1.0
+        assert door['step']['local_e'] - pl['local_e'] > porch_foot_u, f'{sid}: answered before its porch steps'
     for p in inside:
         assert p['door'] in doors and doors[p['door']][0] == p['home']
         assert (ROOT / ('assets/humans/web/' + p['asset_id'] + '.lod0.glb')).exists(), p['asset_id']
