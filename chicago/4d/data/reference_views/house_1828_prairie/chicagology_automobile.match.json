@@ -2,7 +2,7 @@
   "structure_id": "house_1828_prairie",
   "view": "chicagology_automobile",
   "glb": "assets/gltf/house_1828_prairie__as_mapped_1904.glb",
-  "glb_sha256": "55725c008a0c5947b83b90ed195f790c3b998d226d3a4fc24e2ce6e0e8b4bf3f",
+  "glb_sha256": "ad8fd4539600fd1fce14dde4f7c4925ade12a0eaa5dc44e99ebd8960d638cb87",
   "camera_sha256": "c5db781be13c8f38279e02b2deb16a970c6995b2397cc02e886addbafc8d281e",
   "photo_sha256": "c758e387f00acae0068286d86a69065154ee0f03e3edb234ab9ad936aba2e957",
   "side_by_side": "docs/RESEARCH/photo-match/house_1828_prairie/chicagology_automobile-side-by-side.jpg",
@@ -65,9 +65,14 @@
       "how": "T-1887: the build laid 1828's flanks in buff brick; the 1911 sheet draws the three-storey block's north, east and south walls in one blue (stone) band, the range behind it pink (brick), so both flanks are laid in the front's Lemont ashlar 14.0 m back (stone_front.flanks.to_m) and the stone-drawn canted bay on the south flank in the same stone"
     },
     {
+      "what": "no opening in the print's left band (x 0-150 px): the build's two south-flank windows in front of the canted flank bay (2.8 and 5.8 m from the corner) rendered there",
+      "status": "fixed",
+      "how": "T-1887: side_bays emptied, so the flank's first 8 m stand blank in the front's stone; through T-3166's camera the 5.8 m window had rendered at x 100-116, and with the principal point 300 px further left both did (x 60-80 and 105-125)"
+    },
+    {
       "what": "the light stone face south of the bay's cheek at the print's left edge (x 0-150 px) with a pilaster at x 40-60: the print shows front wall south of the bay, where the 1911 sheet's trace starts the bay's cheek at the house's south corner",
       "status": "open",
-      "how": "built to the sheet: the cheek from 0.3 m inside the corner, rendering about 50 px left of the print's junction (x 100 against 150). T-1887 lays the three-storey block's flanks in the front's stone 14 m back, as the 1911 sheet edges them in blue, so what renders at the print's left edge is now light coursed stone (the south flank receding from its corner pier, x 100-195, and the stone-drawn flank bay behind it, x 60-100) where it was brick; but the print's face still reads frontal there (its courses level, if anything falling to the right, across x 0-150, with no window in it), where the flank recedes to the left with its two windows, and the render's x 0-55 is the brick range and the sky. Still a plan question between the sheet and this print"
+      "how": "built to the sheet: the cheek from 0.3 m inside the corner, rendering about 50 px left of the print's junction (x 100 against 150), and the flanks in the front's stone 14 m back as the 1911 sheet edges them in blue. T-1887 measured the print's face (each band of courses sheared until its edges stack sharpest): across x 8-48 the courses rise to the right, slopes 0.16-0.20 at y 30-360 (they meet the horizon near x -1200 to -2500, where 1824's light flank frieze meets it, x -1380 here and -1473 in T-3166's reading); across x 90-140 they fall to the right, 0.08-0.16 (meeting the horizon near x +2600); the lit strip at x 47-87 stands between. So the face is not frontal and not one plane: it is convex, turned away on both sides of the lit strip, as a round or many-sided stone mass would be. No level camera square to the front shows 1828's flank there: with the principal point at the print's edge the flank's courses would vanish at x 0, nearly upright at x 30; moved 300 px left (eye 4.8 m further south) the flank does fill x 0-150, but its courses fall at 0.6, the stoop's foot lands at x 800 against 750, and 900 px left it lands at 960. Neither 1834 next door (its north wall 3.9 m further south, brick over a stone basement) nor the sheet's round flank bay (14.5 m back) is in the band through either camera. Still a plan question: a convex light stone mass south of the bay's cheek that the 1911 sheet does not draw at the corner. What the print does settle is that this band has no opening in it, so T-1887 takes out the two south-flank windows in front of the canted flank bay (side_bays); through T-3166's camera the canted flank bay's own lights still render at x 100-130 (the principal point's open question), and through the camera moved 300 px left the band renders as blank coursed stone, as the print shows it."
     },
     {
       "what": "the second storey and the mansard: the frame cuts them off",

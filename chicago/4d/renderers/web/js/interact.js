@@ -151,7 +151,13 @@ export function createInteractions({ onChange = () => {} } = {}) {
       let best = null, score = Infinity;
       for (const thing of things.values()) {
         if (!thing.at) continue;
-        const de = thing.at[0] - e, dn = thing.at[1] - n;
+        // A thing may be worked from more than one place (`spots`: a door from the foot of its
+        // stoop and from every tread up to it); the nearest of them is its distance.
+        let [ae, an] = thing.at;
+        for (const q of thing.spots ?? []) {
+          if (Math.hypot(q[0] - e, q[1] - n) < Math.hypot(ae - e, an - n)) [ae, an] = q;
+        }
+        const de = ae - e, dn = an - n;
         const d = Math.hypot(de, dn);
         if (d > (thing.reach ?? 5)) continue;
         let s = d;

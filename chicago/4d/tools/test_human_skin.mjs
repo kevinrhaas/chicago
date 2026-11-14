@@ -96,7 +96,7 @@ for (const marker of ['chiSkinH = ( - chiSkin.x * pore', 'roughnessFactor = clam
 // The wrapper must follow three's own definition, and the normal step the begin step.
 assert(s.fragmentShader.indexOf('#include <lights_physical_pars_fragment>') < s.fragmentShader.indexOf('void chiSkinDirect('));
 assert(s.vertexShader.includes('vChiSkinP = ( chiSkinRest * vec4( position, 1.0 ) ).xyz;'));
-assert.deepEqual(Object.keys(s.uniforms).sort(), ['chiBrowTint', 'chiFace', 'chiFaceLook', 'chiFaceMarks', 'chiLike', 'chiLikeBack', 'chiLikeGrow', 'chiLikeHat', 'chiLikeMap', 'chiLikeMask',
+assert.deepEqual(Object.keys(s.uniforms).sort(), ['chiBrowTint', 'chiFace', 'chiFaceLook', 'chiFaceMarks', 'chiLike', 'chiLikeAxis', 'chiLikeBack', 'chiLikeGrow', 'chiLikeHat', 'chiLikeMap', 'chiLikeMask',
   'chiLikeTint', 'chiLikeUv', 'chiSkin', 'chiSkinLipTone', 'chiSkinRest', 'chiSkinSheen']);
 // T-3553 (Kevin, 2026-11-12: "when the sun is behind people their lips have a pink line too much"):
 // lips found in the map's own colour (the complexion divided out) and turned partway to the skin's
@@ -160,18 +160,27 @@ assert.equal(a.vertexShader + a.fragmentShader, b.vertexShader + b.fragmentShade
   assert.equal(lay.eyes, null);
   assert.equal(s.uniforms.chiLikeGrow.value.w, 0, 'a plain skin grows nothing');
   assert(s.uniforms.chiLikeHat.value.x > 1e5, 'and is under no hat');
-  // The hair that stands out from the skin (T-3553): the vertex step moves the skin out along
-  // the line from the head's middle by the mask's red, never past the hat's band; the fragment
-  // step lights it by the sheet's own facing and takes the pores, oil and scatter off it.
+  // The hair that stands out from the skin (T-3553): the vertex step moves the skin out, away
+  // from the head's upright middle line, by the mask's red, never past the hat's band; the
+  // fragment step lights it by the sheet's own facing and takes the pores, oil and scatter off it.
   for (const marker of ['if ( chiLikeGrow.w > 0.0 ) {', 'textureLod( chiLike, chiLikeMask.xy + st * chiLikeMask.z, 0.0 ).r * chiLikeGrow.w',
-    'stand = min( stand, mix( 1.0, chiLikeHat.y, smoothstep( chiLikeHat.x - 0.02, chiLikeHat.x, vChiSkinP.y ) ) );', 'transformed += chiLikeBack * ( away * ( stand / max( length( away ), 1e-5 ) ) );'])
+    'stand = min( stand, mix( 1.0, chiLikeHat.y, smoothstep( chiLikeHat.x - 0.02, chiLikeHat.x, vChiSkinP.y ) ) );', 'transformed += chiLikeBack * ( away * ( stand / max( length( away ), 1e-5 ) ) );',
+    'from.y = clamp( vChiSkinP.y, from.y - chiLikeAxis, from.y );', 'vec3 away = vChiSkinP - from;'])
     assert.equal(s.vertexShader.split(marker).length, 2, `grown hair spliced once: ${marker}`);
+  assert.equal(s.uniforms.chiLikeAxis.value, 0, 'a plain skin has no line to stand out from');
   for (const marker of ['chiLikeHair = a * mask.b;', 'chiLikeStand = a * mask.r * chiLikeGrow.w;', 'roughnessFactor = mix( roughnessFactor, max( roughnessFactor, 0.8 ), chiLikeHair );'])
     assert.equal(s.fragmentShader.split(marker).length, 2, `grown hair spliced once: ${marker}`);
-  const grownSheet = { ...sheet, grow: { reach_m: 0.05, from_m: [0, 1.64, 0.03], normal_px: [528, 566] },
+  // ...and the cells of the sheet the hair stands out in: the head rect's upper half (48 x 64 cells of 16).
+  const hairCells = Buffer.from(Uint8Array.from({ length: 384 }, (_, i) => (i < 192 && i % 6 < 4 ? 255 : 0))).toString('base64');
+  const grownSheet = { ...sheet, grow: { reach_m: 0.05, from_m: [0, 1.64, 0.03], normal_px: [528, 566], axis_m: 0.07, fine: { cell_px: 16, edge_m: 0.008, cells: hairCells } },
     eyes: { px: [528, 838], size: 96, white_srgb: [0.42, 0.36, 0.34] } };
   const grownLay = likenessLayout(grownSheet);
   assert.deepEqual(grownLay.grow, [0, 1.64, 0.03, 0.05]);
+  assert.equal(grownLay.axis, 0.07, 'the upright line the hair stands out from');
+  assert.deepEqual([grownLay.fine.cols, grownLay.fine.rows, grownLay.fine.edge_m], [48, 64, 0.008], 'and the cells it stands out in');
+  const oldSheet = likenessLayout({ ...sheet, grow: { reach_m: 0.05, from_m: [0, 1.64, 0.03], normal_px: [528, 566] } });
+  assert.deepEqual([oldSheet.axis, oldSheet.fine], [0, null], 'a record with neither stands out from one point, on the body\'s own triangles');
+  assert.deepEqual([lay.axis, lay.fine], [0, null]);
   assert.deepEqual(grownLay.facing, [528 / 768, 566 / 1024]);
   assert.deepEqual(grownLay.eyes, { rect: [528 / 768, 838 / 1024, 192 / 768, 96 / 1024], white: [0.42, 0.36, 0.34] });
   for (const bad of [{ reach_m: 0, from_m: [0, 1, 0], normal_px: [1, 1] }, { reach_m: 0.05, from_m: [0, 1], normal_px: [1, 1] }, { reach_m: 0.05, from_m: [0, 1, 0] }])
@@ -220,9 +229,50 @@ assert.equal(a.vertexShader + a.fragmentShader, b.vertexShader + b.fragmentShade
   const tall = body(Object.assign(new THREE.MeshStandardMaterial(), { name: 'skin' }), null), grownBody = body(tall.material, grownSheet);
   const gs = compile(grownBody.material);
   assert.deepEqual(gs.uniforms.chiLikeGrow.value.toArray(), [0, 1.64, 0.03, 0.05]);
+  assert.equal(gs.uniforms.chiLikeAxis.value, 0.07);
   assert.deepEqual(gs.uniforms.chiLikeHat.value.toArray().slice(1), [LIKENESS.under_hat_m, 528 / 768, 566 / 1024]);
   assert(gs.uniforms.chiLikeHat.value.x > 1e5, 'bareheaded until a hat is seen on it');
   assert.equal(typeof grownBody.onBeforeRender, 'function');
+  // Where the hair stands out the near levels' skin is drawn finer (human-fine.js): the person's
+  // own geometry, the body's vertices first; the far levels, a phone and everyone else keep the body's.
+  {
+    const head = () => {
+      const g = new THREE.SphereGeometry(.1, 12, 8), n = g.attributes.position.count, uv = g.attributes.uv;
+      // The ball's own texture coordinates, laid inside the sheet's head rect.
+      for (let i = 0; i < n; i++) uv.setXY(i, 0.635 + uv.getX(i) * 0.365, 0.175 + uv.getY(i) * 0.685);
+      g.setAttribute('skinIndex', new THREE.Uint16BufferAttribute(new Array(n * 4).fill(0), 4));
+      g.setAttribute('skinWeight', new THREE.Float32BufferAttribute(Array.from({ length: n * 4 }, (_, i) => (i % 4 ? 0 : 1)), 4));
+      return g;
+    };
+    const wear = (geo, name, like) => {
+      const bone = new THREE.Bone(), mesh = Object.assign(new THREE.SkinnedMesh(geo, Object.assign(new THREE.MeshStandardMaterial(), { name: 'skin' })), { name });
+      const root = new THREE.Group(); root.add(bone, mesh); root.updateMatrixWorld(true);
+      mesh.bind(new THREE.Skeleton([bone]), mesh.matrixWorld);
+      if (like) root.userData.chiLikenessSkin = like;
+      dressSkin(root); dressSkin(root);
+      return mesh;
+    };
+    const near = head(), n0 = near.attributes.position.count;
+    const one = wear(near, 'stand_in_body_0_lod0', grownSheet), two = wear(near, 'stand_in_body_0_lod0', grownSheet);
+    assert.notEqual(one.geometry, near, 'the near level\'s skin is split under the hair');
+    assert.deepEqual(one.geometry.userData.chiFine.of, n0);
+    assert(one.geometry.attributes.position.count > n0 * 2 && one.geometry.attributes.skinWeight.count === one.geometry.attributes.position.count);
+    assert.deepEqual(Array.from(one.geometry.attributes.position.array.subarray(0, n0 * 3)), Array.from(near.attributes.position.array), 'the body\'s vertices first, as they were');
+    assert.equal(two.geometry, one.geometry, 'one fine geometry for every rebuild of the person at that level');
+    assert.equal(wear(near, 'stand_in_body_0_lod1', grownSheet).geometry, one.geometry, 'the second level too');
+    assert.equal(wear(near, 'stand_in_body_0_lod2', grownSheet).geometry, near, 'a far level keeps the body\'s triangles');
+    assert.equal(wear(near, 'stand_in_body_0', grownSheet).geometry, near, 'and a mesh of no level');
+    assert.equal(wear(near, 'stand_in_body_0_lod0', sheet).geometry, near, 'a sheet with no hair standing out splits nothing');
+    assert.equal(wear(near, 'stand_in_body_0_lod0', null).geometry, near, 'nor does a plain body');
+    assert.equal(LIKENESS.fine_lods, 2);
+    // A phone (a touch screen under LIKENESS.small_px on its short side) keeps the body's own.
+    const had = { screen: Object.getOwnPropertyDescriptor(globalThis, 'screen'), navigator: Object.getOwnPropertyDescriptor(globalThis, 'navigator') };
+    Object.defineProperty(globalThis, 'screen', { value: { width: 390, height: 780 }, configurable: true });
+    Object.defineProperty(globalThis, 'navigator', { value: { maxTouchPoints: 5 }, configurable: true });
+    try { assert.equal(wear(head(), 'stand_in_body_0_lod0', grownSheet).geometry.userData.chiFine, undefined, 'a phone keeps the body\'s triangles'); }
+    finally { for (const [k, d] of Object.entries(had)) { if (d) Object.defineProperty(globalThis, k, d); else delete globalThis[k]; } }
+    assert(wear(head(), 'stand_in_body_0_lod0', grownSheet).geometry.userData.chiFine, 'and a computer does not');
+  }
   // Its own eyes (T-3553): twins of the eyes' shared materials, the iris and the pupil reading
   // the sheet, the whites in the picture's colour; the shared ones stay everyone else's.
   {
