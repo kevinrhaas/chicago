@@ -1,0 +1,7 @@
+{
+  "title": "1835 on a phone holds less memory",
+  "kind": "fix",
+  "items": [
+    "1835 could close itself on a phone a little after it loaded. The plank walks and the road now let go of about 26 MB the phone kept for nothing, and more is freed as you walk."
+  ]
+}
