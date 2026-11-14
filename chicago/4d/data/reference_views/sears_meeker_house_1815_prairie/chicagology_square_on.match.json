@@ -2,7 +2,7 @@
   "structure_id": "sears_meeker_house_1815_prairie",
   "view": "chicagology_square_on",
   "glb": "assets/gltf/sears_meeker_house_1815_prairie__as_mapped_1904.glb",
-  "glb_sha256": "7bf6166f27bb4479452504a156ea0620f989bf2182e78f7b998e92d00aeca73a",
+  "glb_sha256": "464cdaf671b0c5edfb36e58437e1df0b2ea8776ef0d5fe2a9d71084b4c2a39d4",
   "camera_sha256": "cda2578ea5c93de1ed5400ca1f83da8339ea23c273224c6ad760394f98b0fdee",
   "photo_sha256": "39fbfc1c58b51ccd19997e89b76380d1445a6665485416a31ac489acf8522929",
   "side_by_side": "docs/RESEARCH/photo-match/sears_meeker_house_1815_prairie/chicagology_square_on-side-by-side.jpg",
@@ -71,8 +71,9 @@
       "status": "open"
     },
     {
-      "what": "the narrow light over the door's south jamb (x 388-416 px, about 0.4 m wide): built at the storey's 1.1 m sash width",
-      "status": "open"
+      "what": "the narrow light over the door's south jamb (x 386-417 px, y 520-598 px: about 0.43 m across and 1.09 m high, its sill 6.19 m over grade)",
+      "status": "fixed",
+      "how": "T-3562: laid once at its own size and sill as one light under the storey's flat lintel (front_bays_by_storey takes a light read off the picture), where it stood at the storey's 1.1 m by 2.2 m sash; the render's light falls on the print's within a few pixels. The small gabled hood the print draws over it (about 0.5 m across) is under the 0.3 m bar and not built"
     },
     {
       "what": "the corner bay's south edge renders about 40 px (0.5 m) south of the print's",
