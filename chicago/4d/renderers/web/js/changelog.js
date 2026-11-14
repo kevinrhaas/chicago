@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 2987, ts: '2026-11-14T23:55:29.709Z', date: 'Nov 14, 2026, 5:55 PM CT', title: 'A Today window shows the same spot in Google Street View', kind: 'feature',
+    items: [
+      'Tap TODAY under the compass to open a small window on the same spot today, in Google Street View. It turns as you turn and follows you as you walk, in 1812, 1835 and 1904.',
+      'The window has keys to make it big, to open the view in Google Maps, and to hide it. Settings › Show › Today window does the same.',
+      'Nothing from Google loads until you open the window, so a phone that never opens it keeps all its memory for the town.',
+      'Until the site\'s Google key is added, the window names the heading and links to Street View at that spot in Google Maps.',
+    ] },
   { v: 2986, ts: '2026-11-14T23:48:02.126Z', date: 'Nov 14, 2026, 5:48 PM CT', title: 'The checks on the Settings and Navigator screens stop drawing the town', kind: 'fix',
     items: [
       'Nothing you can see changes. One part of the checks that run on every change kept running out of time on the test machines: it went through Settings, the Navigator, Jump, the Field Check and Go to, and every step also waited for the whole 3D town to be redrawn, which takes several seconds a picture there. None of those checks looks at the picture, so they now pause the drawing while they read the screens, as the People, Businesses and Evidence checks already do. The town is drawn again before any check that does look at it.',
