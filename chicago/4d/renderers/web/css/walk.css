@@ -871,6 +871,19 @@ body:is(.is-touch, .touch-first) .fly-key::before { content: ""; position: absol
   box-shadow: var(--shadow); cursor: pointer;
 }
 .vr-key[hidden] { display: none; }
+/* T-3597: the VR and Window keys, hung off the compass row's left end so the row stays the
+   fly key, the heading and the street switch: the round face is centred over that row, and
+   any key added to it walks the face in from the right edge (57 px on a 390 px phone). */
+.compass-row { position: relative; }
+.instrument-keys {
+  position: absolute; top: 0; right: calc(100% + 4px);
+  display: flex; flex-direction: row-reverse; align-items: center; gap: 4px;
+  pointer-events: none;
+}
+.instrument-keys .vr-key { position: relative; }
+/* T-3597: Window as a round icon key, the fly key's size, with the same 44 px touch floor. */
+.vr-key.icon-key { width: 28px; min-width: 28px; padding: 0; }
+body:is(.is-touch, .touch-first) .vr-key.icon-key::before { content: ""; position: absolute; inset: -8px; border-radius: 50%; }
 .vr-key[aria-pressed="true"] { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 55%, var(--edge)); }
 .vr-key:hover { border-color: color-mix(in srgb, var(--accent) 55%, var(--edge)); }
 .vr-key:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }

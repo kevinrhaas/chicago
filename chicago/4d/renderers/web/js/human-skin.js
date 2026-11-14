@@ -90,6 +90,31 @@ const VERTEX = `
 // line showed between them) and take the light as the face moves into its smile, all of it by
 // `lit_by` of the smile.
 export const MOUTH_SHADE = Object.freeze({ u0: 0.75, u1: 0.93, v0: 0.86, hand_u: 0.764, hand_v: 0.912, dark: 0.85, lit_by: 0.25 });
+// T-3553: a person's front picture, shown from the front. Their sheet gives each texel one
+// colour, and hair that stands beside a face is seen from the front and from the side: the two
+// pictures show different things there (the locks' fronts; the hair swept back over the ear),
+// so the sheet, which takes the side pictures', drew the hair beside the face pale and streaked
+// to someone in front of it. The front picture is kept as a picture too
+// (tools/bake_likeness_skin.py front_layer), with where it is to be shown beside it, and laid
+// on the skin by where each place stands. It is all of what the skin shows there for an eye
+// within `full` of the line the picture was taken along (cosines), none of it past `from`, and
+// only on what faces the picture (by `faces` of the grown surface's facing). `inset`: how far
+// in from the picture's edge it is read (a share of it), so its neighbour on the file is not:
+// two texels of the small blocks beside the picture, so one on a phone's half-size copy and
+// half of one a level of the file further down, and still inside the margin the bake leaves
+// round the head (about 0.02).
+// It is laid on by where a place stands, not by what the camera saw, so it also says what it
+// shows at each place, hair or skin, and is shown only on the same: where the two differ by
+// `kind` it starts to give way, and by `other` it is not shown (hair that stands behind an ear
+// took the ear's skin, pale scraps in the hair to someone a little to one side).
+export const FRONT_VIEW = Object.freeze({ from: 0.72, full: 0.94, faces: 0.3, inset: 0.016, kind: 0.25, other: 0.75 });
+// T-3553: hair that stands out is lit as the shape it stands in, and the underside of a beard
+// (or of hair that hangs over a collar) faces the ground: lit as a ceiling it stood as a dark
+// band under the jaw, which no picture of a beard shows (light goes into hair from its sides,
+// and the picture laid on it already carries its shade). Where the grown surface of hair faces
+// down by more than `from` (the down part of its facing), it is lit as its side is: the way
+// straight out from the head's middle line, tipped down by `down`; all of it by `full`.
+export const HAIR_UNDER = Object.freeze({ from: 0.25, full: 0.75, down: 0.2 });
 const LIKE_VERTEX_DECLARE = `
 uniform sampler2D chiLike;
 uniform vec4 chiLikeUv[ 3 ];
@@ -99,8 +124,11 @@ uniform vec4 chiLikeGrow;
 uniform vec4 chiLikeHat;
 uniform float chiLikeAxis;
 uniform mat3 chiLikeBack;
+uniform vec4 chiLikeFrontU;
+uniform vec4 chiLikeFrontV;
 varying vec3 vChiLikeX;
 varying vec3 vChiLikeY;
+varying vec2 vChiLikeFront;
 varying float vChiSmile;
 `;
 const LIKE_VERTEX = `
@@ -112,6 +140,8 @@ const LIKE_VERTEX = `
   #ifdef USE_MORPHTARGETS
     vChiSmile = morphTargetInfluences[ MORPHTARGETS_COUNT - 1 ];
   #endif
+  // Where the grown surface stands, bind pose (m): the skin's own place, moved out with the hair.
+  vec3 chiGrown = vChiSkinP;
   #ifdef USE_MAP
   if ( chiLikeGrow.w > 0.0 ) {
     vec2 st = vec2( 0.0 );
@@ -128,7 +158,9 @@ const LIKE_VERTEX = `
     vec3 from = chiLikeGrow.xyz;
     from.y = clamp( vChiSkinP.y, from.y - chiLikeAxis, from.y );
     vec3 away = vChiSkinP - from;
-    transformed += chiLikeBack * ( away * ( stand / max( length( away ), 1e-5 ) ) );
+    away *= stand / max( length( away ), 1e-5 );
+    chiGrown += away;
+    transformed += chiLikeBack * away;
     vec3 ax = chiLikeBack * vec3( 1.0, 0.0, 0.0 ), ay = chiLikeBack * vec3( 0.0, 1.0, 0.0 );
     #ifdef USE_SKINNING
       ax = ( skinMatrix * vec4( ax, 0.0 ) ).xyz;
@@ -137,7 +169,9 @@ const LIKE_VERTEX = `
     vChiLikeX = normalize( ( modelViewMatrix * vec4( ax, 0.0 ) ).xyz );
     vChiLikeY = normalize( ( modelViewMatrix * vec4( ay, 0.0 ) ).xyz );
   }
-  #endif`;
+  #endif
+  // ...and where that place lies on the person's front picture (FRONT_VIEW): across and down.
+  vChiLikeFront = vec2( dot( chiLikeFrontU.xyz, chiGrown ) + chiLikeFrontU.w, dot( chiLikeFrontV.xyz, chiGrown ) + chiLikeFrontV.w );`;
 // Hair also carries the strand's direction, skinned with the body and into view space.
 const HAIR_VERTEX_DECLARE = `
 uniform vec3 chiHairCrown;
@@ -190,6 +224,10 @@ uniform vec4 chiLikeTint;       // what the body's map is multiplied by beside t
 uniform vec4 chiLikeGrow;       // the middle of the head the hair stands out from (bind pose, m), and the most it stands (m; 0: none)
 uniform vec4 chiLikeHat;        // a worn hat's band (bind-pose height, m), the most hair stands under it, the facing block's corner on the sheet
 uniform vec4 chiLikeTeeth;      // the teeth's patch on the body's map (u0, v0, u1, v1) where the sheet's wearer has teeth to show (human-mouth.js); empty otherwise
+uniform sampler2D chiLikeFront; // the person's front picture, as a picture (FRONT_VIEW), or nothing
+uniform vec4 chiLikeFrontAt[ 3 ]; // on it: the picture's own rectangle, the one that says where it is shown, and the one that says where it shows hair (x, y, w, h as shares)
+uniform vec4 chiLikeFrontTo;    // toward where the picture was taken from (bind pose), and 1 where the person has one
+varying vec2 vChiLikeFront;     // where this place lies on that picture
 varying float vChiSmile;        // how far the face has moved into its smile
 varying vec3 vChiLikeX;
 varying vec3 vChiLikeY;
@@ -335,6 +373,21 @@ const SKIN_COLOR = `
       vec4 mask = texture2D( chiLike, chiLikeMask.xy + st * chiLikeMask.z );
       float a = on * mask.g;
       vec3 like = texture2D( chiLike, st ).rgb * chiLikeTint.w;
+      vec3 facing = texture2D( chiLike, chiLikeHat.zw + st * chiLikeMask.z ).rgb * 2.0 - 1.0;
+      // Seen from in front, the front picture itself where the sheet took another picture (the
+      // hair beside a face, the ears): FRONT_VIEW. Laid on by where each place stands, on what
+      // faces the picture, fading out as the eye leaves the line the picture was taken along.
+      if ( chiLikeFrontTo.w > 0.5 ) {
+        vec3 gx = normalize( vChiLikeX ), gy = normalize( vChiLikeY );
+        vec3 to = gx * chiLikeFrontTo.x + gy * chiLikeFrontTo.y + cross( gx, gy ) * chiLikeFrontTo.z;
+        float shown = smoothstep( ${FRONT_VIEW.from}, ${FRONT_VIEW.full}, dot( normalize( vViewPosition ), to ) )
+          * smoothstep( 0.0, ${FRONT_VIEW.faces}, dot( facing, chiLikeFrontTo.xyz ) );
+        vec2 q = clamp( vChiLikeFront, ${FRONT_VIEW.inset}, 1.0 - ${FRONT_VIEW.inset} );
+        shown *= texture2D( chiLikeFront, chiLikeFrontAt[ 1 ].xy + q * chiLikeFrontAt[ 1 ].zw ).g;
+        // ...its hair on hair and its skin on skin: hair that stands behind an ear is not the ear.
+        shown *= 1.0 - smoothstep( ${FRONT_VIEW.kind}, ${FRONT_VIEW.other}, abs( texture2D( chiLikeFront, chiLikeFrontAt[ 2 ].xy + q * chiLikeFrontAt[ 2 ].zw ).g - mask.b ) );
+        like = mix( like, texture2D( chiLikeFront, chiLikeFrontAt[ 0 ].xy + q * chiLikeFrontAt[ 0 ].zw ).rgb * chiLikeTint.w, shown );
+      }
       c = mix( c / max( diffuse, vec3( 1e-3 ) ) * chiLikeTint.rgb, like, a );
       // The inner mouth of a face with teeth to show, seen between parted lips, lies in their
       // shade (the body's map paints it a lit salmon): its island only. The teeth lie in it too
@@ -348,7 +401,7 @@ const SKIN_COLOR = `
       // stands out from the skin it is lit as the shape it stands in.
       chiLikeHair = a * mask.b;
       chiLikeStand = a * mask.r * chiLikeGrow.w;
-      chiLikeN = texture2D( chiLike, chiLikeHat.zw + st * chiLikeMask.z ).rgb * 2.0 - 1.0;
+      chiLikeN = facing;
     }
     #endif
     diffuseColor.rgb = c;
@@ -368,7 +421,11 @@ const SKIN_NORMAL = `
   normal = chiSkinPerturb( - vViewPosition, normal, vec2( dFdx( chiSkinH ), dFdy( chiSkinH ) ), faceDirection );
   if ( chiLikeStand > 0.0 ) {
     vec3 gx = normalize( vChiLikeX ), gy = normalize( vChiLikeY );
-    vec3 grown = normalize( gx * chiLikeN.x + gy * chiLikeN.y + cross( gx, gy ) * chiLikeN.z );
+    // The underside of hair is lit as its side is: HAIR_UNDER.
+    vec2 out2 = vChiSkinP.xz - chiLikeGrow.xz;
+    vec3 side = vec3( out2.x, 0.0, out2.y ) / max( length( out2 ), 1e-4 ) + vec3( 0.0, - ${HAIR_UNDER.down}, 0.0 );
+    vec3 n = mix( chiLikeN, normalize( side ), chiLikeHair * smoothstep( ${HAIR_UNDER.from}, ${HAIR_UNDER.full}, - chiLikeN.y ) );
+    vec3 grown = normalize( gx * n.x + gy * n.y + cross( gx, gy ) * n.z );
     #ifdef DOUBLE_SIDED
       grown *= faceDirection;
     #endif
@@ -508,6 +565,11 @@ function patchSkin(material, rest, look = NO_LOOK) {
     chiLikeAxis: { value: 0 },
     chiLikeTeeth: { value: new THREE.Vector4(2, 2, -1, -1) },
     chiLikeBack: { value: new THREE.Matrix3().setFromMatrix4(rest).invert() },
+    chiLikeFront: { value: null },
+    chiLikeFrontU: { value: new THREE.Vector4() },
+    chiLikeFrontV: { value: new THREE.Vector4() },
+    chiLikeFrontAt: { value: [0, 1, 2].map(() => new THREE.Vector4()) },
+    chiLikeFrontTo: { value: new THREE.Vector4() },
   };
   setLikeness(uniforms, look.like);
   chain(material, KEY.skin, uniforms, shader => {
@@ -921,7 +983,28 @@ export function likenessLayout(skin) {
     axis: grows && g.axis_m > 0 ? g.axis_m : 0, fine: grows ? fineCells(g.fine, skin.size_px) : null,
     eyes: eyed ? { rect: [e.px[0] / W, e.px[1] / H, 2 * e.size / W, e.size / H], white: e.white_srgb.slice() } : null,
     // The teeth behind an open mouth's lips (human-mouth.js): a strip of points and their places on the body's map.
-    teeth: teethStrip(skin.teeth) };
+    teeth: teethStrip(skin.teeth),
+    // The front picture as a picture (FRONT_VIEW), for a head whose hair stands out.
+    front: grows ? frontPicture(skin.front) : null };
+}
+
+/**
+ * A person's front picture, as their row's `skin.front` gives it (tools/bake_likeness_skin.py
+ * front_layer; human-variation.js adds its address): the file's size, the picture's own
+ * rectangle on it and the rectangle that says where it is shown (pixels), the picture's across
+ * and down from a place in the body's rest frame (`u`, `v`: four numbers each, metres to 0..1),
+ * and the line it was taken along (`toward`, a unit vector). Null where there is none or it
+ * does not parse.
+ */
+export function frontPicture(front) {
+  const [W, H] = front?.size_px ?? [];
+  const four = (a) => Array.isArray(a) && a.length === 4 && a.every(Number.isFinite);
+  const t = front?.toward;
+  if (!front?.url || !(W > 0) || !(H > 0) || !four(front.u) || !four(front.v) || !four(front.colour_px) || !four(front.shown_px) || !four(front.kind_px)
+    || !(Array.isArray(t) && t.length === 3 && t.every(Number.isFinite) && Math.abs(Math.hypot(...t) - 1) < 1e-3)) return null;
+  const rect = ([x0, y0, x1, y1]) => (x1 > x0 && y1 > y0 ? [x0 / W, y0 / H, (x1 - x0) / W, (y1 - y0) / H] : null);
+  const at = [rect(front.colour_px), rect(front.shown_px), rect(front.kind_px)];
+  return at.every(Boolean) ? { url: front.url, u: front.u.slice(), v: front.v.slice(), to: t.slice(), at } : null;
 }
 
 // One texture per sheet, shared by every body of that person (each level of detail, each
@@ -1026,6 +1109,13 @@ function setLikeness(uniforms, like) {
   uniforms.chiLikeAxis.value = like?.axis ?? 0;
   // No teeth: an empty rect (its far corner before its near one), which shades nothing.
   uniforms.chiLikeTeeth.value.set(...(like?.teeth?.rect ?? [2, 2, -1, -1]));
+  // No front picture: nothing to read, and the fourth of `to` says so.
+  const f = like?.front;
+  uniforms.chiLikeFront.value = f ? likenessSheet(f.url) : null;
+  uniforms.chiLikeFrontU.value.set(...(f?.u ?? [0, 0, 0, 0]));
+  uniforms.chiLikeFrontV.value.set(...(f?.v ?? [0, 0, 0, 0]));
+  for (let k = 0; k < 3; k++) uniforms.chiLikeFrontAt.value[k].set(...(f?.at[k] ?? [0, 0, 0, 0]));
+  uniforms.chiLikeFrontTo.value.set(...(f ? [...f.to, 1] : [0, 0, 1, 0]));
 }
 
 /**

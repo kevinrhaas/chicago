@@ -526,17 +526,17 @@
        "variant": "k07.entrance.panel_door_stoop",
        "front_yard_m": 7.68,
        "hood": {
-        "soffit_m": 5.2,
+        "soffit_m": 6.0,
         "width_m": 2.2,
         "out_m": 2.0,
-        "fascia_m": 0.5,
+        "fascia_m": 0.2,
         "cornice": {
-         "height_m": 0.25,
+         "height_m": 0.2,
          "proud_m": 0.2
         },
         "brackets": "k08.bay.canted_hooded",
         "railing": {
-         "height_m": 0.9,
+         "height_m": 0.65,
          "post_m": 0.3,
          "baluster_m": 0.1,
          "pitch_m": 0.22,
@@ -554,7 +554,7 @@
          "capital_m": 0.5,
          "respond_m": 0.2
         },
-        "railing_fabric": "stone",
+        "railing_fabric": "trim",
         "fabric": "stone"
        },
        "side_stoop": {
@@ -572,7 +572,7 @@
       "chicago_tribune_1869_10_30_thompson_residence",
       "chicagology_1936_prairie_exterior_photo"
      ],
-     "note": "The 1869 Tribune: the steps 'covered by a stone porch, with fluted stone Corinthian columns, and from these columns spring stone brackets, which support a Corinthian cornice of stone'; the photograph shows that porch's columns under the tower's north part and its flight running north along the front from it (x 1655-1950, y 700-960 px). K07's door under 1906's columned hood stands for it, on the tower's face (T-3367); its landing runs along the face under the hood (v 7.55-9.75) and the flight leaves its north end parallel to the front (a side stoop, T-2530's), down to the walk. The fluting and capitals are T-1902's. T-3370: the landing moves with the door and the tower, to v 9.55-11.75."
+     "note": "The 1869 Tribune: the steps 'covered by a stone porch, with fluted stone Corinthian columns, and from these columns spring stone brackets, which support a Corinthian cornice of stone'; the photograph shows that porch's columns under the tower's north part and its flight running north along the front from it (x 1655-1950, y 700-960 px). K07's door under 1906's columned hood stands for it, on the tower's face (T-3367); its landing runs along the face under the hood (v 7.55-9.75) and the flight leaves its north end parallel to the front (a side stoop, T-2530's), down to the walk. The fluting and capitals are T-1902's. T-3370: the landing moves with the door and the tower, to v 9.55-11.75. T-3370 (thirteenth pass): the porch's balcony as the photograph draws it over the columns (x 1690-1820 px): its cornice's foot at y about 693 px and its railing's top at about 650, level with the foot of the dressing room's pair over it (sill 7.08 m), where the build's hood hung its soffit at 5.2 m (y 730) under a 0.5 m fascia, so the porch stood about 0.85 m lower and squatter than the print's. The soffit rises to 6.0 m over a 0.2 m fascia and a 0.2 m cornice, the deck at 6.4 m, about the chamber floor's (6.33), and the railing 0.65 m high to 7.05 m, just under the pair's sills; its balusters and rail in the front's trim stone, pale as the print's over the porch's stone (reconstructed off the print, liberty L-k01-1936-allerton-1901)."
     },
     "corner_porch": {
      "value": {
@@ -584,7 +584,7 @@
       "thickness_m": 0.3,
       "floor_m": 1.83,
       "spring_m": 5.0,
-      "head_m": 6.33,
+      "head_m": 6.2,
       "arches": [
        {
         "face": "front",
@@ -603,11 +603,17 @@
        }
       ],
       "entablature": {
-       "height_m": 0.55,
-       "proud_m": 0.15
+       "height_m": 0.22,
+       "proud_m": 0.3,
+       "modillions": {
+        "width_m": 0.12,
+        "drop_m": 0.25,
+        "out_m": 0.15,
+        "spacing_m": 0.42
+       }
       },
       "balustrade": {
-       "height_m": 0.9,
+       "height_m": 0.8,
        "post_m": 0.3,
        "baluster_m": 0.1,
        "pitch_m": 0.22,
@@ -626,7 +632,8 @@
        "height_m": 0.8,
        "bar_m": 0.06,
        "standards": 1
-      }
+      },
+      "dressings": "trim"
      },
      "confidence": "inferred",
      "sources": [
@@ -634,7 +641,7 @@
       "sanborn_1911_chicago_v3_sheet_28",
       "chicagology_1936_prairie_exterior_photo"
      ],
-     "note": "The 1869 Tribune: the reception room's front windows 'are shaded by a verandah, with stone floor, Corinthian fluted columns, and stone cornice and roof', and the chamber over it opens 'on to the roof of verandah, which forms a balcony, with stone railing and stone balusters around it'. The 1911 sheet draws it south of the tower (s28fp-1918-b1 p2, v about 0-5.9, out to u 18.56); the photograph shows three openings and the balustrade over them (x 1380-1600 px). T-3356 stands the front's two piers between the arches as the photograph's columns (x 1487-1505 and 1555-1568 px, between the openings' 45-50 px; capitals at y 708-722 px): fluted shafts 0.32 m across at the foot on the 0.4 m piers, each on a square plinth and a torus, under a capital of two flaring tiers and a square abacus at the springing. The end piers stay solid, as the photograph shows them. The leafage is a few pixels across in the print; the tiers stand for it (liberty L-k01-1936-allerton-1901). T-3357 sets an iron rail across the three front openings: the photograph's dark bar across their feet (y 822 px, about 0.8 m over the floor on the openings' 45-50 px to their 1.2 m span) and the dark standard under it in the middle of the first two (x about 1460 and 1527 px; the third opening is in shadow), built as a 0.06 m square bar from jamb to column at 0.8 m on one 0.06 m standard an opening. Its section is a few pixels in the print and its iron is the dark tone's reading (liberty L-k01-1936-allerton-1901). T-3370 sets its place along the front on the photograph's re-solved camera (data/reference_views/house_1918_prairie/chicagology_photo.json): it runs from the house's south-east corner (the photograph's x 1421 px, under the main cornice's nearest corner) to the tower's south face (x 1643 px), about 8 m, with its two columns at x 1493 and 1557 px about 2.55 m apart: so three openings of 1.9 m on 2.3 m centres, its columns at s 2.63 and 4.93, between the kit's 0.5 m end piers (s 0-7.6, stopping 0.35 m short of the tower as before), where the 1911 sheet's porch strip gave 5.6 m and 1.2 m openings. The reception room's two front windows (s 1.8, 4.0) stay in the first two openings, where the photograph shows light through them."
+     "note": "The 1869 Tribune: the reception room's front windows 'are shaded by a verandah, with stone floor, Corinthian fluted columns, and stone cornice and roof', and the chamber over it opens 'on to the roof of verandah, which forms a balcony, with stone railing and stone balusters around it'. The 1911 sheet draws it south of the tower (s28fp-1918-b1 p2, v about 0-5.9, out to u 18.56); the photograph shows three openings and the balustrade over them (x 1380-1600 px). T-3356 stands the front's two piers between the arches as the photograph's columns (x 1487-1505 and 1555-1568 px, between the openings' 45-50 px; capitals at y 708-722 px): fluted shafts 0.32 m across at the foot on the 0.4 m piers, each on a square plinth and a torus, under a capital of two flaring tiers and a square abacus at the springing. The end piers stay solid, as the photograph shows them. The leafage is a few pixels across in the print; the tiers stand for it (liberty L-k01-1936-allerton-1901). T-3357 sets an iron rail across the three front openings: the photograph's dark bar across their feet (y 822 px, about 0.8 m over the floor on the openings' 45-50 px to their 1.2 m span) and the dark standard under it in the middle of the first two (x about 1460 and 1527 px; the third opening is in shadow), built as a 0.06 m square bar from jamb to column at 0.8 m on one 0.06 m standard an opening. Its section is a few pixels in the print and its iron is the dark tone's reading (liberty L-k01-1936-allerton-1901). T-3370 sets its place along the front on the photograph's re-solved camera (data/reference_views/house_1918_prairie/chicagology_photo.json): it runs from the house's south-east corner (the photograph's x 1421 px, under the main cornice's nearest corner) to the tower's south face (x 1643 px), about 8 m, with its two columns at x 1493 and 1557 px about 2.55 m apart: so three openings of 1.9 m on 2.3 m centres, its columns at s 2.63 and 4.93, between the kit's 0.5 m end piers (s 0-7.6, stopping 0.35 m short of the tower as before), where the 1911 sheet's porch strip gave 5.6 m and 1.2 m openings. The reception room's two front windows (s 1.8, 4.0) stay in the first two openings, where the photograph shows light through them. T-3370 (thirteenth pass): the balcony over it as the photograph draws it (x about 1420-1640 px, y 635-700): a pale moulded balustrade (y 635-670 px, about 0.8 m on the verandah's 43.5 px a metre) over a cornice (y 670-680) carried on a row of modillions, pale blocks with dark gaps about 0.4 m apart along the front (y 680-698), hanging down to the arches' crowns. Built so: the entablature's soffit lowered from 6.33 to 6.2 m, its cornice 0.22 m deep standing 0.3 m proud on modillions 0.12 m wide, 0.15 m out from the face and hanging 0.25 m to the crowns (5.95 m), at about 0.42 m centres (so the gaps between them stay open to the print's oblique view, as its dark gaps are), and the balustrade 0.8 m high, so its rail tops at 7.22 m where it had stood at 7.78, about 0.6 m over the print's; the cornice, its modillions and the balustrade laid in the front's trim stone, the dressings' own (the Tribune's 'stone cornice' and 'stone railing and stone balusters'), as the print draws them pale in the window hoods' tone over the arcade's walls. The modillions' size and spacing and the mouldings' depths are read off a few pixels of the print, so reconstructed (liberty L-k01-1936-allerton-1901)."
     },
     "bays": {
      "value": [

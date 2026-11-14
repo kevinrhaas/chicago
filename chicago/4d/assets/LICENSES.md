@@ -2601,11 +2601,13 @@ humans/web/portraits/pa1904_grey_w_l_model.json
 humans/web/portraits/pa1904_grey_w_l_portrait.jpg
 ```
 
-`pa1904_grey_w_l_skin.jpg` and `pa1904_grey_mrs_w_l_skin.jpg` (T-3553) are baked by `tools/bake_likeness_skin.py` from the head turnaround sheets the project owner supplied on 2026-11-13 of the same two stand-ins (front, both sides and behind, in colour; source records `owner_grey_likeness_william_2026`, `owner_grey_likeness_sarah_2026`; the sheets are kept in kevinrhaas/chicago-evidence, `evidence/grey-likenesses-2026-11-12/`). Each is the four views of a stand-in's head laid onto the body's skin layout as the figure's skin, hair and eyes, with the tool's own small blocks beside them (where the sheet covers, how far the hair stands out and which way it faces, and each iris drawn from the front view). They are pictures of STAND-INS, not of the Greys: who sat for them and who made them are not recorded. Cleared by the owner for this project's own use and derivation; **not openly licensed** (all rights as the owner holds them). No label can be burned on a skin: the stand-in label is on each person's card. The crops, cameras and what is left out are recorded in
+`pa1904_grey_w_l_skin.jpg` and `pa1904_grey_mrs_w_l_skin.jpg` (T-3553) are baked by `tools/bake_likeness_skin.py` from the head turnaround sheets the project owner supplied on 2026-11-13 of the same two stand-ins (front, both sides and behind, in colour; source records `owner_grey_likeness_william_2026`, `owner_grey_likeness_sarah_2026`; the sheets are kept in kevinrhaas/chicago-evidence, `evidence/grey-likenesses-2026-11-12/`). Each is the four views of a stand-in's head laid onto the body's skin layout as the figure's skin, hair and eyes, with the tool's own small blocks beside them (where the sheet covers, how far the hair stands out and which way it faces, and each iris drawn from the front view). `pa1904_grey_w_l_front.jpg` and `pa1904_grey_mrs_w_l_front.jpg` are the same tool's cut of each sheet's front view alone (the head's square of it, its white ground and the clothing filled from the head beside them, and beside it a block saying where the renderer shows it), which the figure's skin shows to someone standing in front of it. They are pictures of STAND-INS, not of the Greys: who sat for them and who made them are not recorded. Cleared by the owner for this project's own use and derivation; **not openly licensed** (all rights as the owner holds them). No label can be burned on a skin: the stand-in label is on each person's card. The crops, cameras and what is left out are recorded in
 `data/humans/variation/skins/pa1904_grey_w_l.json` and `pa1904_grey_mrs_w_l.json`.
 
 ```text
+humans/web/likeness/pa1904_grey_mrs_w_l_front.jpg
 humans/web/likeness/pa1904_grey_mrs_w_l_skin.jpg
+humans/web/likeness/pa1904_grey_w_l_front.jpg
 humans/web/likeness/pa1904_grey_w_l_skin.jpg
 ```
 

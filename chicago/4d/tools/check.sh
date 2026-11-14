@@ -706,6 +706,8 @@ step "Prairie Avenue child source recipes match their pinned bodies (T-3548)" \
   python3 tools/prairie_children_source.py --check
 step "Nobody stands in anybody else's place: a talk in a ring, people standing together talk, one alone is at a job, and every year's figures kept a body's width apart through the day, and nobody stands in a mat or bark lodge wall (T-3504, T-3520)" \
   node tools/test_human_spacing.mjs
+step "The visitor on foot never walks into a person: held off every drawn figure, sliding round them, never tunnelling at a sprint on a slow device, a wall winning over a person, and passers-by stepping round the visitor (T-3553)" \
+  node tools/test_walker_bodies.mjs
 step "People keep busy all day: a talk gathers and parts again, each of its people at a job of their own or at play between, breaks indoors at their door and asked for there, every job's places clear of the buildings, the same round on every load; 1835 and 1904 too; most children indoors or by their own door, never a crowd of them without grown-ups (T-3505, T-3516, T-3520)" \
   node tools/test_human_rounds.mjs
 step "1835's and 1904's drawn people's days are what days.py writes (T-3516)" \
@@ -1566,6 +1568,12 @@ step "a canted bay's own mansard may carry dormers on its front run (T-3283)" \
 # round head, over voussoirs, on a frame bay or past its storey; one per light, on its lintel.
 step "a bay light's lintel may carry the front's carved crest (T-1886)" \
   python3 tools/test_k08_bay_crest.py
+
+# T-3370. 1936 Prairie's balconies as Chicagology's photograph draws them: a corner porch's
+# cornice on modillions down to its arches' crowns, its entablature and balustrade (and a stone
+# hood's railing) in the front's trim stone; refused past the crowns or out past the cornice.
+step "a corner porch's cornice may stand on modillions, its balcony in the trim stone (T-3370)" \
+  python3 tools/test_k01_porch_balcony.py
 
 # T-3283. 1945 Prairie's corner block under a mansard about a storey over the rest (the Tribune's
 # 1928 photograph): a crown over a stretch of the street front with no projection under it, cut
