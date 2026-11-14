@@ -87,7 +87,11 @@ export async function loadVariationKit(base, fetchImpl = fetch) {
 export function likenessSkin(kit, variation) {
   const skin = variation?.skin;
   if (!skin?.map || !kit?.base) return null;
-  try { return { ...skin, url: new URL(skin.map, kit.base).href }; } catch { return null; }
+  try {
+    // ...and its front picture's, where it has one (human-skin.js FRONT_VIEW).
+    const front = skin.front?.map ? { ...skin.front, url: new URL(skin.front.map, kit.base).href } : undefined;
+    return { ...skin, url: new URL(skin.map, kit.base).href, ...(front ? { front } : {}) };
+  } catch { return null; }
 }
 
 /**

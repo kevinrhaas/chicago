@@ -16,7 +16,7 @@ const threeURL = new URL('renderers/web/vendor/three-0.185.1/three.module.js', h
 // file with 'three' resolved to the vendored copy, not from a data: URL.
 registerHooks({ resolve: (specifier, context, next) => (specifier === 'three' ? { url: threeURL, shortCircuit: true } : next(specifier, context)) });
 const THREE = await import(threeURL);
-const { surfaceFor, dressSkin, restMatrix, SKIN, EYES, AGE, restingLid, likenessLayout, likenessSheetsReady, LIKENESS, MOUTH_SHADE } = await import(new URL('renderers/web/js/human-skin.js', here));
+const { surfaceFor, dressSkin, restMatrix, SKIN, EYES, AGE, restingLid, likenessLayout, likenessSheetsReady, LIKENESS, MOUTH_SHADE, FRONT_VIEW, HAIR_UNDER, frontPicture } = await import(new URL('renderers/web/js/human-skin.js', here));
 
 const materialNames = async asset => {
   const bytes = await fs.readFile(new URL(`assets/humans/web/${asset}.glb`, here));
@@ -96,8 +96,8 @@ for (const marker of ['chiSkinH = ( - chiSkin.x * pore', 'roughnessFactor = clam
 // The wrapper must follow three's own definition, and the normal step the begin step.
 assert(s.fragmentShader.indexOf('#include <lights_physical_pars_fragment>') < s.fragmentShader.indexOf('void chiSkinDirect('));
 assert(s.vertexShader.includes('vChiSkinP = ( chiSkinRest * vec4( position, 1.0 ) ).xyz;'));
-assert.deepEqual(Object.keys(s.uniforms).sort(), ['chiBrowTint', 'chiFace', 'chiFaceLook', 'chiFaceMarks', 'chiLike', 'chiLikeAxis', 'chiLikeBack', 'chiLikeGrow', 'chiLikeHat', 'chiLikeMap', 'chiLikeMask',
-  'chiLikeTeeth', 'chiLikeTint', 'chiLikeUv', 'chiSkin', 'chiSkinLipTone', 'chiSkinRest', 'chiSkinSheen']);
+assert.deepEqual(Object.keys(s.uniforms).sort(), ['chiBrowTint', 'chiFace', 'chiFaceLook', 'chiFaceMarks', 'chiLike', 'chiLikeAxis', 'chiLikeBack', 'chiLikeFront', 'chiLikeFrontAt', 'chiLikeFrontTo', 'chiLikeFrontU', 'chiLikeFrontV',
+  'chiLikeGrow', 'chiLikeHat', 'chiLikeMap', 'chiLikeMask', 'chiLikeTeeth', 'chiLikeTint', 'chiLikeUv', 'chiSkin', 'chiSkinLipTone', 'chiSkinRest', 'chiSkinSheen']);
 // T-3553 (Kevin, 2026-11-12: "when the sun is behind people their lips have a pink line too much"):
 // lips found in the map's own colour (the complexion divided out) and turned partway to the skin's
 // hue; the parting shaded in the light step. Every skin, every period: one program.
@@ -165,7 +165,7 @@ assert.equal(a.vertexShader + a.fragmentShader, b.vertexShader + b.fragmentShade
   // from the head's upright middle line, by the mask's red, never past the hat's band; the
   // fragment step lights it by the sheet's own facing and takes the pores, oil and scatter off it.
   for (const marker of ['if ( chiLikeGrow.w > 0.0 ) {', 'textureLod( chiLike, chiLikeMask.xy + st * chiLikeMask.z, 0.0 ).r * chiLikeGrow.w',
-    'stand = min( stand, mix( 1.0, chiLikeHat.y, smoothstep( chiLikeHat.x - 0.02, chiLikeHat.x, vChiSkinP.y ) ) );', 'transformed += chiLikeBack * ( away * ( stand / max( length( away ), 1e-5 ) ) );',
+    'stand = min( stand, mix( 1.0, chiLikeHat.y, smoothstep( chiLikeHat.x - 0.02, chiLikeHat.x, vChiSkinP.y ) ) );', 'away *= stand / max( length( away ), 1e-5 );', 'transformed += chiLikeBack * away;',
     'from.y = clamp( vChiSkinP.y, from.y - chiLikeAxis, from.y );', 'vec3 away = vChiSkinP - from;'])
     assert.equal(s.vertexShader.split(marker).length, 2, `grown hair spliced once: ${marker}`);
   assert.equal(s.uniforms.chiLikeAxis.value, 0, 'a plain skin has no line to stand out from');
@@ -190,6 +190,42 @@ assert.equal(a.vertexShader + a.fragmentShader, b.vertexShader + b.fragmentShade
     assert.equal(likenessLayout({ ...sheet, eyes: bad }).eyes, null, 'an eyes block that does not parse is none');
   for (const bad of [null, {}, { ...sheet, url: '' }, { ...sheet, rects: [] }, { ...sheet, rects: Array(LIKENESS.rects + 1).fill(sheet.rects[0]) },
     { ...sheet, rects: [{ uv: [1, 0, 0, 1], px: [0, 0, 1, 1] }] }, { ...sheet, mask: null }]) assert.equal(likenessLayout(bad), null, 'a sheet that does not parse is no sheet');
+  // The front picture, shown from the front (T-3553, FRONT_VIEW): a picture of its own beside
+  // the sheet, laid on the grown skin by where each place stands at rest, for an eye near the
+  // line it was taken along, on what faces it, where the sheet took another picture, and only
+  // its hair on hair and its skin on skin.
+  const picture = { url: 'http://example.invalid/likeness/p_front.jpg', size_px: [640, 512], colour_px: [0, 0, 512, 512], shown_px: [512, 0, 640, 128], kind_px: [512, 128, 640, 256],
+    u: [3.5, 0.2, 0.8, 0.2], v: [0.3, -3.6, -0.6, 6.3], toward: [0, 0, 1] };
+  const shownLay = likenessLayout({ ...grownSheet, front: picture });
+  assert.deepEqual(shownLay.front, { url: picture.url, u: picture.u, v: picture.v, to: [0, 0, 1], at: [[0, 0, 0.8, 1], [0.8, 0, 0.2, 0.25], [0.8, 0.25, 0.2, 0.25]] }, 'its camera, and its three rectangles as shares of the file');
+  assert.equal(grownLay.front, null, 'a sheet with no front picture has none');
+  assert.equal(likenessLayout({ ...sheet, front: picture }).front, null, 'and a sheet whose hair does not stand out is not given one (it is laid on the grown skin)');
+  for (const bad of [{ ...picture, url: '' }, { ...picture, toward: [0, 0, 2] }, { ...picture, u: [1, 2, 3] }, { ...picture, kind_px: undefined }, { ...picture, shown_px: [640, 0, 512, 128] }, { ...picture, size_px: [0, 512] }])
+    assert.equal(frontPicture(bad), null, 'a front picture that does not parse is none');
+  assert.equal(s.uniforms.chiLikeFront.value, null, 'a plain skin reads no front picture');
+  assert.equal(s.uniforms.chiLikeFrontTo.value.w, 0, 'and is told so');
+  assert.equal(s.uniforms.chiLikeFrontAt.value.length, 3);
+  for (const marker of ['vec3 chiGrown = vChiSkinP;', 'chiGrown += away;',
+    'vChiLikeFront = vec2( dot( chiLikeFrontU.xyz, chiGrown ) + chiLikeFrontU.w, dot( chiLikeFrontV.xyz, chiGrown ) + chiLikeFrontV.w );'])
+    assert.equal(s.vertexShader.split(marker).length, 2, `the front picture's place, once: ${marker}`);
+  for (const marker of ['if ( chiLikeFrontTo.w > 0.5 ) {', `float shown = smoothstep( ${FRONT_VIEW.from}, ${FRONT_VIEW.full}, dot( normalize( vViewPosition ), to ) )`,
+    `* smoothstep( 0.0, ${FRONT_VIEW.faces}, dot( facing, chiLikeFrontTo.xyz ) );`, `vec2 q = clamp( vChiLikeFront, ${FRONT_VIEW.inset}, 1.0 - ${FRONT_VIEW.inset} );`,
+    'shown *= texture2D( chiLikeFront, chiLikeFrontAt[ 1 ].xy + q * chiLikeFrontAt[ 1 ].zw ).g;',
+    `shown *= 1.0 - smoothstep( ${FRONT_VIEW.kind}, ${FRONT_VIEW.other}, abs( texture2D( chiLikeFront, chiLikeFrontAt[ 2 ].xy + q * chiLikeFrontAt[ 2 ].zw ).g - mask.b ) );`,
+    'like = mix( like, texture2D( chiLikeFront, chiLikeFrontAt[ 0 ].xy + q * chiLikeFrontAt[ 0 ].zw ).rgb * chiLikeTint.w, shown );'])
+    assert.equal(s.fragmentShader.split(marker).length, 2, `the front picture, once: ${marker}`);
+  assert(s.fragmentShader.indexOf('like = mix( like, texture2D( chiLikeFront,') < s.fragmentShader.indexOf('c = mix( c / max( diffuse, vec3( 1e-3 ) ) * chiLikeTint.rgb, like, a );'), 'it is the sheet\'s colour before the sheet is laid on the body\'s');
+  assert(FRONT_VIEW.from > 0.5 && FRONT_VIEW.from < FRONT_VIEW.full && FRONT_VIEW.full < 1, 'all of it from in front, none of it from the side (a side picture\'s own view is past 60 degrees)');
+  assert(FRONT_VIEW.faces > 0 && FRONT_VIEW.faces < 0.5 && FRONT_VIEW.kind < FRONT_VIEW.other && FRONT_VIEW.inset > 0 && FRONT_VIEW.inset < 0.02);
+  // The small blocks stand edge to edge on the file: read two of their texels in, a filtered
+  // read at a block's rim stays the block's own on a phone's half-size copy too.
+  assert(FRONT_VIEW.inset * (picture.shown_px[2] - picture.shown_px[0]) >= 2, 'the blocks beside the picture are read at least two texels in from their rims');
+  // Hair that hangs is not lit as a ceiling (HAIR_UNDER): where hair's grown surface faces down
+  // it takes the light as its side does.
+  for (const marker of ['vec2 out2 = vChiSkinP.xz - chiLikeGrow.xz;', `vec3 side = vec3( out2.x, 0.0, out2.y ) / max( length( out2 ), 1e-4 ) + vec3( 0.0, - ${HAIR_UNDER.down}, 0.0 );`,
+    `vec3 n = mix( chiLikeN, normalize( side ), chiLikeHair * smoothstep( ${HAIR_UNDER.from}, ${HAIR_UNDER.full}, - chiLikeN.y ) );`, 'vec3 grown = normalize( gx * n.x + gy * n.y + cross( gx, gy ) * n.z );'])
+    assert.equal(s.fragmentShader.split(marker).length, 2, `the underside of hair, once: ${marker}`);
+  assert(HAIR_UNDER.from > 0 && HAIR_UNDER.from < HAIR_UNDER.full && HAIR_UNDER.full < 1 && HAIR_UNDER.down >= 0 && HAIR_UNDER.down < 0.5, 'hair that faces out or up is lit as it faces');
   // Two bodies of one export share its skin material; the second wears a sheet.
   const body = (shared, like) => {
     const bone = new THREE.Bone();

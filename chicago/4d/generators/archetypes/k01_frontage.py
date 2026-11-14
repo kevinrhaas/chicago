@@ -4251,10 +4251,11 @@ class Assembly:
         # the railing on the slab: posts at the front corners and against the wall, a rail
         # over square balusters along the front and both returns. T-2963: in iron if the
         # record says so (1816's balcony), the K01 iron every other railing wears
-        if h.get("railing_fabric") == "iron":
-            pr = self.prim("iron")
+        if h.get("railing_fabric") in ("iron", "trim"):   # T-3370: or the front's trim stone
+            rm = "iron" if h["railing_fabric"] == "iron" else "dress_stone"
+            pr = self.prim(rm)
             tri1 = len(pr.idx) // 3
-            bf, bh, be = (self.basis("iron", O, a, b, seed) for a, b in ((R, Y), (R, N), (N, Y)))
+            bf, bh, be = (self.basis(rm, O, a, b, seed) for a, b in ((R, Y), (R, N), (N, Y)))
         pm, bm = rl["post_m"], rl["baluster_m"]
         rw, rd = rl["rail_m"]
         e = 0.04                                   # the railing's line in from the slab's edge
@@ -4315,7 +4316,8 @@ class Assembly:
                 box(m[0] - bm / 2, m[0] + bm / 2, y2, yr, m[1] - bm / 2, m[1] + bm / 2, skip=("bottom", "top"))
             nb += nbd
         self.trim_triangles["k01.hood.door_bracketed"] = (
-            tri_fascia + len(pr.idx) // 3 - tri1 if h.get("railing_fabric") == "iron" else len(pr.idx) // 3 - tri0)
+            tri_fascia + len(pr.idx) // 3 - tri1 if h.get("railing_fabric") in ("iron", "trim")
+            else len(pr.idx) // 3 - tri0)
         self.seat(frame, [(s, y, 0.0) for s in (S0, S1) for y in (y0 - Dd, y3)], "k01.hood")
         self.hood_meta = {"modillions": n, "consoles": 2 - len({"left", "right"} & set(ends)), "balusters": nb,
                           "top_m": round(y3, 4),
