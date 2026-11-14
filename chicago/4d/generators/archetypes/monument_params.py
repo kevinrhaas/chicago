@@ -8,7 +8,8 @@ its photographs as a stack of granite masses, bottom to top:
     base    the stage: one wide low block whose top `base_wash_m` is washed (sloped) in
             from its outer edge to a ledge 0.12 m round the plinth
     plinth  the second step, with a moulded top edge
-    die     the block that carries a bronze panel on each face and the lettering
+    die     the block that carries a bronze panel on each face and the lettering, its
+            lines `/`-separated in `lettering`, cut under the front panel (T-3589)
     cap     the moulded cornice over the die
     rock    the cast bronze ground the group stands on
     group   the figures (built by `generators/archetypes/monument.py`, its poses there)
@@ -32,7 +33,7 @@ CONSUMED = {
     "plinth_w_m", "plinth_d_m", "plinth_h_m",
     "die_w_m", "die_d_m", "die_h_m",
     "cap_h_m", "cap_overhang_m",
-    "rock_h_m", "group_h_m", "panels",
+    "rock_h_m", "group_h_m", "panels", "lettering",
 }
 
 DEFAULTS = {
@@ -40,7 +41,7 @@ DEFAULTS = {
     "plinth_w_m": 2.8, "plinth_d_m": 2.3, "plinth_h_m": 0.5,
     "die_w_m": 2.4, "die_d_m": 1.9, "die_h_m": 1.3,
     "cap_h_m": 0.4, "cap_overhang_m": 0.12,
-    "rock_h_m": 0.3, "group_h_m": 2.75, "panels": 4,
+    "rock_h_m": 0.3, "group_h_m": 2.75, "panels": 4, "lettering": "",
 }
 
 #: docs/GLB-CONTRACT.md § The confidence channel: 0 attested, 1 reconstructed.
@@ -70,6 +71,7 @@ class MonumentParams:
     rock_h_m: float
     group_h_m: float
     panels: int
+    lettering: str = ""
     seed: int = 0
     confidence: dict = field(default_factory=dict)
 
@@ -126,6 +128,7 @@ def from_phase(phase: dict, record: dict | None = None) -> MonumentParams:
         cap_h_m=float(val("cap_h_m")), cap_overhang_m=float(val("cap_overhang_m")),
         rock_h_m=float(val("rock_h_m")), group_h_m=float(val("group_h_m")),
         panels=int(val("panels")),
+        lettering=str(val("lettering") or ""),
         seed=zlib.crc32(str((record or {}).get("id", "")).encode()),
         confidence={n: form[n].get("confidence", "reconstructed") for n in sorted(CONSUMED) if n in form},
     )
