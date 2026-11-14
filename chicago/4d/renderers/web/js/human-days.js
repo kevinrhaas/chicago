@@ -1511,6 +1511,15 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
     p.span = null;
   }
 
+  /** A door's way up its stoop (derive_doors_scene.py stoop_way, in the house's plan) in local
+   *  E/N, the walker's clockwise compass turn of the house's placement; [] for a door without one. */
+  function wayToDoor(rec, door) {
+    const pl = rec?.placement, way = door?.plan?.way;
+    if (!pl || !Array.isArray(way)) return [];
+    const th = (pl.rotation_deg ?? 0) * Math.PI / 180, c = Math.cos(th), s = Math.sin(th);
+    return way.map(([u, v]) => [pl.local_e + u * c + v * s, pl.local_n - u * s + v * c]);
+  }
+
   function makeDoors() {
     if (!interactions) return;
     const wanted = new Set();
@@ -1531,6 +1540,10 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
           id: `door:${door.id}`, kind: 'door', name: `${label}, door`, structure, door: d,
           states: ['shut'], state: 'shut',
           get at() { return humans.shown === false ? null : [door.step.local_e, door.step.local_n]; },
+          // The owner, 2026-11-14: "walk ups stairs to the door outside a house to interact and see
+          // who is home": a door up a stoop is knocked at from its treads and landing as well as
+          // from the foot of its steps.
+          spots: wayToDoor(rec, door),
           reach: DOOR_REACH_M,
           actions: {
             get shut() {
