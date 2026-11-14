@@ -16,13 +16,25 @@
  *   - Joseph Daniels, coachman to Mrs. Philip D. Armour (2115 Prairie), round Indiana–20th–
  *     Prairie–22nd: up Prairie past the Armour house, along 20th, down Indiana.
  *
- * Counter-clockwise because a team keeps to the right of the road: every corner of a
- * counter-clockwise loop is a left turn, swept wide across the crossing street, while a
- * clockwise loop's right turns hug the inside kerb, tighter than this brougham's 8° steering
- * and its 18 m corners allow on these 11-15 m carriageways. Adjacent counter-clockwise loops
- * run opposite ways along the street they share, so Hans meets each newcomer head on in the
- * other lane of 18th or 20th, and their left turns cross at Indiana and at Prairie: there one
- * gives way and waits for the other (transport-crossings.js), twice a lap for each pair.
+ * Kevin, 2026-11-14: "fix the brougham and allow it to make right turns and make one of
+ * those loops clockwise". A team keeps to the right of the road, so a clockwise loop's
+ * corners are right turns that hug the inside kerb. The brougham's authored 8° steering
+ * (an 18 m turn) could not make them; its front wheels clear the body to about 17° of lock
+ * (checked on the GLB's own wheel and body surfaces), so the coach now steers to 15° (an
+ * 8.6 m turn) and its team swings with the front axle and pole (town-transport.js). Hans
+ * and Henry Windish keep their counter-clockwise rounds (left turns, 18 m corners). Joseph
+ * Daniels now goes round the next block east CLOCKWISE: up Prairie past the Armour house,
+ * right along 20th, right down Calumet, right along 22nd and right again onto Prairie, his
+ * lanes 2 m right of the crown and his corners 11 m. A clockwise loop beside a counter-
+ * clockwise one would share a lane on the street between them; east of Prairie he shares
+ * none, and his right turn into 20th crosses Hans's left turn out of it at Prairie: there
+ * one gives way and waits for the other (transport-crossings.js). Hans meets Henry head on
+ * in the other lane of 18th, and their left turns cross at Indiana and at Prairie.
+ *
+ * Every route is walked here at quarter-metre steps: each wheel, and each hoof of the
+ * swung team, must stand on the 1904 carriageways with room to the kerb, or the tool
+ * refuses it. Each row's envelope is its measured one with the fore-carriage (team, pole,
+ * front gear) swung to the sharpest lock its own round asks for.
  *
  * Each lane is read off data/street_grid/1904.json: the carriageway's centre line, moved to
  * the right of the direction of travel by the lane offset below (Hans's own lanes measured
@@ -50,6 +62,9 @@ const TEMPLATE = 'prairie_driven_brougham_loop_1904';
 const HANS = 'pa1904_otis_f_r_c1900_hans_johnson';
 const LIBERTY = 'L-1904-more-carriages-3555';
 const CORNER_R = 18;
+const STEERING_LIMIT_DEG = 15; // the front wheels clear the body to about 17°
+const WHEEL_ROOM_M = .25, HOOF_ROOM_M = .2;
+const ENVELOPE_BASIS = 'Actual native assembled mesh vertices incl hitch instances, both driverLOD0+3, steering-8/0/+8, WALK0/.5/1.3/1.6. Add clearance15cm margin; actual world/between-sample envelope remains a qualification question.';
 
 // A four-corner carriageway's centre line: from the middle of one short end to the other.
 function centreLine(poly) {
@@ -77,10 +92,114 @@ function meet(l1, l2) {
   return [Math.round((x1 + dx1 * t) * 100) / 100, Math.round((y1 + dy1 * t) * 100) / 100];
 }
 // Corners in driving order; leg i runs from corner i to corner i + 1.
-function loopOf(grid, legs) {
+function loopOf(grid, legs, corner_radius_m = CORNER_R) {
   const lanes = legs.map(([id, heading, off]) => lane(grid, id, heading, off));
   const points = lanes.map((l, i) => meet(lanes[(i + lanes.length - 1) % lanes.length], l));
-  return { route: { kind: 'path', corner_radius_m: CORNER_R, points_enu_m: points }, sources: [...new Set(lanes.flatMap(l => l.sources))] };
+  return { route: { kind: 'path', corner_radius_m, points_enu_m: points }, sources: [...new Set(lanes.flatMap(l => l.sources))] };
+}
+
+const insidePoly = (p, poly) => {
+  let yes = false;
+  for (let i = 0, j = poly.length - 1; i < poly.length; j = i++) {
+    const a = poly[i], b = poly[j];
+    if ((a[1] > p[1]) !== (b[1] > p[1]) && p[0] < (b[0] - a[0]) * (p[1] - a[1]) / (b[1] - a[1]) + a[0]) yes = !yes;
+  }
+  return yes;
+};
+/** True when a disc of `room` (eight points round it and its centre) lies on the carriageways. */
+function onRoad(grid, p, room) {
+  const ring = [[0, 0], [room, 0], [-room, 0], [0, room], [0, -room]].concat([[1, 1], [-1, 1], [1, -1], [-1, -1]].map(([x, y]) => [x * room * Math.SQRT1_2, y * room * Math.SQRT1_2]));
+  return ring.every(([dx, dy]) => grid.carriageways.some(c => insidePoly([p[0] + dx, p[1] + dy], c.polygon_local_m)));
+}
+/**
+ * Walk a row's road at quarter-metre steps, posed as transport-loop.js poses it: each wheel,
+ * and each hoof of the team swung with the front axle, on the carriageways. Returns the
+ * sharpest lock the road asks for, in radians; throws where a wheel or hoof leaves the road.
+ */
+export function auditRoad(row, grid) {
+  const road = routeFor(row.route), L = row.wheelbase_m, ra = row.root_ahead_of_rear_axle_m, half = row.track_m / 2;
+  const toEnu = (o, x, z) => [o.e + Math.cos(o.yaw) * x + Math.sin(o.yaw) * z, o.n + Math.sin(o.yaw) * x - Math.cos(o.yaw) * z];
+  const pivot = L - ra;
+  let lock = 0;
+  for (let s = 0; s < road.length; s += .25) {
+    const rear = road.at(s), [e, n] = toEnu(rear, 0, ra), at = { ...rear, e, n };
+    const steer = Math.atan(L * rear.curvature), c = Math.cos(steer), sn = Math.sin(steer);
+    lock = Math.max(lock, Math.abs(steer));
+    const wheels = [[half, -ra], [-half, -ra], [half * c, pivot - half * sn], [-half * c, pivot + half * sn]];
+    const swing = (x, z) => [c * x + sn * (z - pivot), pivot - sn * x + c * (z - pivot)];
+    const hooves = [];
+    for (const side of [-1, 1]) for (const dz of [-.9, .9]) for (const dx of [-.2, .2]) hooves.push(swing(side * row.team_half_spacing_m + dx, row.horse_offset_m[2] + dz));
+    for (const [x, z] of wheels) if (!onRoad(grid, toEnu(at, x, z), WHEEL_ROOM_M)) throw Error(`${row.id}: a wheel leaves the carriageway ${s.toFixed(2)} m along its road`);
+    for (const [x, z] of hooves) if (!onRoad(grid, toEnu(at, x, z), HOOF_ROOM_M)) throw Error(`${row.id}: a hoof leaves the carriageway ${s.toFixed(2)} m along its road`);
+  }
+  if (lock > STEERING_LIMIT_DEG * Math.PI / 180) throw Error(`${row.id}: its road asks more lock than the brougham has`);
+  return lock;
+}
+/**
+ * Does the brougham's front gear turn to `deg` of lock without a front wheel meeting the body?
+ * Reads the GLB the rows drive: every body surface (sampled across each triangle) against
+ * each front wheel's disc (its radius and 7 cm either side of its plane), the wheels swung
+ * about vehicle_steer_front as town-transport.js swings them.
+ */
+export function frontWheelsClear(glbPath, deg) {
+  const glb = fs.readFileSync(glbPath), jsonLength = glb.readUInt32LE(12);
+  const json = JSON.parse(glb.subarray(20, 20 + jsonLength)), bin = glb.subarray(28 + jsonLength);
+  const read = index => {
+    const a = json.accessors[index], view = json.bufferViews[a.bufferView];
+    const width = { SCALAR: 1, VEC3: 3 }[a.type], Kind = { 5126: Float32Array, 5123: Uint16Array, 5125: Uint32Array }[a.componentType];
+    const size = Kind.BYTES_PER_ELEMENT, stride = view.byteStride ?? size * width, start = (view.byteOffset ?? 0) + (a.byteOffset ?? 0);
+    const out = [];
+    for (let k = 0; k < a.count; k++) {
+      const row = [];
+      for (let j = 0; j < width; j++) {
+        const at = bin.byteOffset + start + k * stride + j * size;
+        row.push(new Kind(bin.buffer.slice(at, at + size))[0]);
+      }
+      out.push(width === 1 ? row[0] : row);
+    }
+    return out;
+  };
+  const nodes = json.nodes, byName = name => nodes.find(n => n.name === name);
+  const steer = byName('vehicle_steer_front'), wheel = byName('vehicle_wheel_front_left');
+  const pivot = steer.translation, offset = Math.abs(wheel.translation[0]);
+  let radius = 0;
+  for (const c of wheel.children ?? []) if (nodes[c].mesh != null) for (const p of json.meshes[nodes[c].mesh].primitives) {
+    const a = json.accessors[p.attributes.POSITION]; radius = Math.max(radius, a.max[1], a.max[2]);
+  }
+  const points = [];
+  const walk = (index, at, gear) => {
+    const n = nodes[index], here = at.map((v, k) => v + (n.translation?.[k] ?? 0));
+    if (n.rotation && n.rotation.some((v, k) => Math.abs(v - [0, 0, 0, 1][k]) > 1e-9)) throw Error('frontWheelsClear: a rotated node; translations only expected');
+    const inGear = gear || /^vehicle_(steer_front|running_gear|wheel_|team_pole)|^hubcap$/.test(n.name ?? '');
+    if (n.mesh != null && !inGear) for (const p of json.meshes[n.mesh].primitives) {
+      const P = read(p.attributes.POSITION), I = p.indices != null ? read(p.indices) : P.map((_, k) => k);
+      for (let k = 0; k < I.length; k += 3) {
+        const [A, B, C] = [P[I[k]], P[I[k + 1]], P[I[k + 2]]];
+        for (let u = 0; u <= 6; u++) for (let w = 0; w <= 6 - u; w++) {
+          const x = u / 6, y = w / 6, z = 1 - x - y;
+          points.push([0, 1, 2].map(j => here[j] + A[j] * x + B[j] * y + C[j] * z));
+        }
+      }
+    }
+    for (const c of n.children ?? []) walk(c, here, inGear);
+  };
+  for (const i of json.scenes[0].nodes) walk(i, [0, 0, 0], false);
+  for (const a of [deg, -deg].map(d => d * Math.PI / 180)) for (const side of [1, -1]) for (const q of points) {
+    const dx = q[0] - pivot[0], dz = q[2] - pivot[2];
+    const x = Math.cos(a) * dx - Math.sin(a) * dz, z = Math.sin(a) * dx + Math.cos(a) * dz;
+    if (Math.abs(x - side * offset) < .07 && Math.hypot(q[1] - pivot[1], z) < radius + .005) return false;
+  }
+  return true;
+}
+
+/** The measured envelope, its fore-carriage (ahead of the front axle) swung to ± `lock`. */
+function sweptEnvelope([x0, z0, x1, z1], pivot, lock) {
+  const out = [x0, z0, x1, z1];
+  for (const a of [-lock, lock]) for (const [x, z] of [[x0, pivot], [x1, pivot], [x0, z1], [x1, z1]]) {
+    const X = Math.cos(a) * x + Math.sin(a) * (z - pivot), Z = pivot - Math.sin(a) * x + Math.cos(a) * (z - pivot);
+    out[0] = Math.min(out[0], X); out[2] = Math.max(out[2], X); out[1] = Math.min(out[1], Z); out[3] = Math.max(out[3], Z);
+  }
+  return out.map(v => Math.round(v * 1e4) / 1e4);
 }
 
 const CARRIAGES = [
@@ -90,10 +209,12 @@ const CARRIAGES = [
     person_id: 'pa1904_pullman_mrs_george_m_c1900_henry_windish',
     legs: [['e18th_indiana_prairie', 'east', 3], ['prairie_16_18', 'north', 2.5],
       ['e16th_indiana_prairie', 'west', 2.5], ['indiana_16_18', 'south', 3]],
-    speed_m_s: 1.25,
+    // A gentler pace than Hans's, so their rounds drift past each other and meet at the
+    // crossings every few laps rather than once in hours.
+    speed_m_s: 1.1,
     // He pulls up at his own employer's door, 1729 Prairie (the middle of its frontage).
     stops: [{ label: "the Pullman house's door", at: [1404.1, -3173.8], dwell_s: 45 }],
-    initial_distance_m: 561,
+    initial_distance_m: 372,
     livery: {
       // His own plum (his record's working clothes), dark trousers, silver buttons, brown gloves.
       garment_outer__box_coat_wool: [0.062, 0.028, 0.042],
@@ -112,10 +233,12 @@ const CARRIAGES = [
   },
   {
     id: 'prairie_driven_brougham_south_loop_1904',
-    name: 'Carriage driver on Prairie Avenue, 20th to 22nd Street',
+    name: 'Carriage driver on Prairie Avenue and Calumet, 20th to 22nd Street',
     person_id: 'pa1904_armour_mrs_philip_d_c1900_joseph_daniels',
-    legs: [['e22nd_indiana_calumet', 'east', 3], ['prairie_20_22', 'north', 2.5],
-      ['e20th_indiana_calumet', 'west', 3], ['indiana_20_22', 'south', 3]],
+    // Clockwise (Kevin, 2026-11-14): every corner a right turn, round the block east of Prairie.
+    legs: [['prairie_20_22', 'north', 2], ['e20th_indiana_calumet', 'east', 2],
+      ['calumet_20_22', 'south', 2], ['e22nd_indiana_calumet', 'west', 2]],
+    corner_radius_m: 11,
     speed_m_s: 1.35,
     stops: [{ label: "the Armour house's door", at: [1409.3, -3664.5], dwell_s: 40 }],
     initial_distance_m: 324,
@@ -131,7 +254,7 @@ const CARRIAGES = [
       quarter: [0.007, 0.007, 0.008], upholstery: [0.11, 0.065, 0.033], trim: [0.5, 0.5, 0.48], trim_metalness: 0.85,
       gloss: 0.7, dust: 0.62, scuffs: 0.55,
     },
-    note: "Joseph Daniels, coachman in Mrs. Philip D. Armour's household at 2115 Prairie Avenue in the 1900 census, drives a brougham round Prairie, 20th Street and Indiana. The census names him there four years before the scene; this coach, its colours, its team, his livery and the round are reconstructed.",
+    note: "Joseph Daniels, coachman in Mrs. Philip D. Armour's household at 2115 Prairie Avenue in the 1900 census, drives a brougham clockwise round Prairie, 20th Street, Calumet and 22nd Street. The census names him there four years before the scene; this coach, its colours, its team, his livery and the round are reconstructed.",
   },
 ];
 // Hans's own coach keeps its catalogue green and black; it gets the road on it too.
@@ -142,7 +265,7 @@ export function buildRows(config = JSON.parse(fs.readFileSync(FILE, 'utf8')), gr
   if (!template || template.person_id !== HANS) throw Error('lay_driven_carriages_1904: Hans\'s brougham row is the template');
   const { vehicle_finish: _, ...base } = template;
   const rows = CARRIAGES.map(spec => {
-    const { route, sources } = loopOf(grid, spec.legs);
+    const { route, sources } = loopOf(grid, spec.legs, spec.corner_radius_m);
     const road = routeFor(route); // refuses a road too tight for its corners
     const stops = spec.stops.map(stop => {
       const near = routeDistanceNear(road, ...stop.at);
@@ -168,7 +291,19 @@ export function buildRows(config = JSON.parse(fs.readFileSync(FILE, 'utf8')), gr
     };
   });
   for (const key of ['source_lane_intersections_enu_m']) for (const row of rows) delete row[key];
-  return { hans: { ...template, vehicle_finish: { ...HANS_FINISH, grade: 'reconstructed', liberty: LIBERTY } }, rows };
+  const hans = { ...template, vehicle_finish: { ...HANS_FINISH, grade: 'reconstructed', liberty: LIBERTY } };
+  // The brougham's lock, and each row's envelope swept to the lock its own road asks for.
+  const measured = template.envelope_measured_local_xz_m ?? template.envelope_local_xz_m;
+  const glb = path.join(ROOT, 'renderers/web', template.vehicle_file);
+  if (!frontWheelsClear(glb, STEERING_LIMIT_DEG + 1)) throw Error(`lay_driven_carriages_1904: the brougham's front wheels meet its body within ${STEERING_LIMIT_DEG + 1}° of lock`);
+  for (const row of [hans, ...rows]) {
+    row.steering_limit_deg = STEERING_LIMIT_DEG;
+    const lock = auditRoad(row, grid);
+    row.envelope_measured_local_xz_m = measured;
+    row.envelope_local_xz_m = sweptEnvelope(measured, row.wheelbase_m - row.root_ahead_of_rear_axle_m, lock);
+    row.envelope_basis = `${ENVELOPE_BASIS} Fore-carriage (team, pole, front gear) swung to ±${(lock * 180 / Math.PI).toFixed(1)}° about the front axle, this road's sharpest lock (tools/lay_driven_carriages_1904.mjs).`;
+  }
+  return { hans, rows };
 }
 
 /** loops.json with Hans's finish and the two rows straight after his; every other row untouched. */
