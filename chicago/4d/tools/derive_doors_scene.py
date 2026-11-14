@@ -44,7 +44,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 import derive_doors_1812 as d1812  # noqa: E402
 import prairie_barriers as pb  # noqa: E402
 
-FORMAT = "c4d-doors-scene/1"
+FORMAT = "c4d-doors-scene/2"   # /2 (T-3596): rows name their model by its build inputs, not its bytes
 SCENES = ("1835", "1904")
 FT = 0.3048
 STEP_M = d1812.STEP_M
@@ -484,6 +484,30 @@ def glessner_doors(sc: dict) -> list[dict]:
 BARRIERS = "prairie_barriers/3"   # bump when prairie_barriers.py reads a model differently
 FLOORS = "prairie_floors/5"       # bump when prairie_barriers.floor reads a model differently
 
+_MANIFEST: dict | None = None
+
+
+def model_id(sc: dict, glb: Path) -> tuple[str, str]:
+    """T-3596: which model a reading was taken from, as (field, hash).
+
+    Named by the hash of what BUILT it — assets/manifest.json's `inputs_sha256`, the same
+    hash the staleness gate compares (generators/mesh_inputs.py) — and not by the file's
+    bytes. The bytes are not reproducible across machines: CI's content build re-baked 59
+    unchanged 1835 models on 2026-11-14 and came out with the same geometry and a few
+    last-digit TEXCOORD floats different (bates_auction_room: 2 bytes of 63,120, all in one
+    UV view), and every such model's `asset_sha256` then said doors_1835.json was stale.
+    This tool reads positions, never UVs, so a re-bake of the same inputs reads the same
+    doors. An asset the manifest does not list keeps the old byte hash, under its old name."""
+    global _MANIFEST
+    if _MANIFEST is None:
+        try:
+            _MANIFEST = json.loads((ROOT / "assets/manifest.json").read_text()).get("assets", {})
+        except (OSError, ValueError):
+            _MANIFEST = {}
+    name = sc["asset"].split("/", 1)[1] if sc["asset"].startswith("gltf/") else sc["asset"]
+    h = (_MANIFEST.get(name) or {}).get("inputs_sha256")
+    return ("model_inputs_sha256", h) if h else ("asset_sha256", d1812.sha256(glb))
+
 
 def barrier_cache(scene: str) -> dict:
     """The walls the last run read, by structure, kept while the model, its placement and its
@@ -539,7 +563,7 @@ def barrier_rows(scene: str, rows: list, cache: dict) -> list[dict]:
         glb = ROOT / "assets" / sc["asset"]
         if not glb.exists():
             continue
-        h = d1812.sha256(glb)
+        h = model_id(sc, glb)[1]
         plan = barrier_of(sc, glb, h, cache)
         fl = floor_of(sc, glb, h, cache)
         if plan or fl:
@@ -563,13 +587,13 @@ def derive(scene: str) -> tuple[dict, list[str]]:
             continue
         sc = json.loads(f.read_text())
         if sid == "glessner_house":
-            doors, h = glessner_doors(sc), None
+            doors, (hk, h) = glessner_doors(sc), (None, None)
         else:
             glb = ROOT / "assets" / sc["asset"]
             if not glb.exists():
                 problems.append(f"{sid}: its model {sc['asset']} is not built")
                 continue
-            h = d1812.sha256(glb)
+            hk, h = model_id(sc, glb)
             plan = floor = None
             if scene == '1904':
                 parts = d1812.load_triangles(glb)
@@ -592,7 +616,7 @@ def derive(scene: str) -> tuple[dict, list[str]]:
             continue
         row = {"structure": sid, "name": sc.get("name") or sid, "placement": d1812._placement(sc), "doors": doors}
         if h:
-            row["asset_sha256"] = h
+            row[hk] = h
         if plan:
             # T-3554: what the model builds outside its walls (stoop, area walls, railings,
             # bays), which a day's walk keeps a skirt's width off (human-days.js, human-spacing.js).
