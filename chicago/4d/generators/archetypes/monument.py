@@ -33,8 +33,9 @@ tomahawk raised; Margaret Helm, staggering back in her long skirt, her arm acros
 Black Partridge behind her, his open hand raised against the blow, the musket slanting
 past his hip; the post surgeon fallen under them, one leg stretched to the west edge; the
 child kneeling at the right front, both arms out. The feathers, the tomahawk, the musket,
-the cloak and Mrs. Helm's full skirt are still the members below (`monument_figures.PROPS`).
-The sculpted faces, the dress's folds, the feathers' number and the panels' reliefs are
+and the headdresses are still the members below (`monument_figures.PROPS`); Mrs. Helm's skirt, overskirt
+and cloak are drapery lofted in folds since T-3594 (`DRAPERY`).
+The sculpted faces, the other figures' dress folds, the feathers' number and the panels' reliefs are
 not modelled (the record's liberty says so);
 the rear, which no photograph used here shows, is the same masses seen from behind.
 """
@@ -53,7 +54,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from archetypes import monument_figures  # noqa: E402
 from archetypes.monument_params import MonumentParams  # noqa: E402
 
-GENERATOR = "chicago-4d generators/archetypes/monument.py (T-3567, T-3582, T-3583, T-3589)"
+GENERATOR = "chicago-4d generators/archetypes/monument.py (T-3567, T-3582, T-3583, T-3589, T-3594)"
 
 M_GRANITE, M_BRONZE, M_PALE = 0, 1, 2
 # Name, linear base colour, roughness. The granite is the photographs' mid grey (the
@@ -531,6 +532,111 @@ def _cone(m, top, bottom, rt, rb, conf, sides=12):
     _limb(m, bottom, top, rb, rt, conf, sides)
 
 
+# Mrs. Helm's drapery (T-3594), in pose units like `FIGURES`, read on ICHi-19208 through
+# its camera (x 545-655 px, y 270-445 at the group). In the plate her dress is no cone: it
+# falls from the waist in long folds over the knee she sinks on, swept down to the left
+# and spreading on the rock (x 555-650 at the hem); an overskirt is caught up over her
+# left hip and its hem runs down across the front to below her right knee; and the cloak
+# hangs off her right forearm in a heavy fold, gathered at its foot (x 545-580, y 270-350).
+# Each piece is a surface lofted through rings: `path` the three control points of the
+# rings' centres (a quadratic Bezier, top to foot), `rx`/`ry` their half-widths across and
+# in depth at the top, middle and foot, `folds` the folds as (count, phase, weight) waves
+# round each ring, deepening from `amp[0]` at the top to `amp[1]` at the foot, `hem` the
+# foot's rise and fall round the ring (fabric lying on the rock), `cut` an overskirt's
+# slanting hem (the share of the length it reaches on the figure's right, at theta 180
+# degrees, and on her left, at 0), and `caps` whether the top and foot are closed.
+DRAPERY = {
+    "helm_skirt": {
+        "path": ((0.03, -0.72, 0.86), (-0.02, -0.80, 0.42), (-0.01, -0.70, 0.05)),
+        "rx": (0.12, 0.21, 0.33), "ry": (0.10, 0.16, 0.24),
+        "folds": ((7, 0.3, 0.55), (11, 1.7, 0.30), (4, 2.2, 0.25)),
+        "amp": (0.04, 0.26), "hem": 0.035, "caps": (False, True),
+    },
+    "helm_overskirt": {
+        "path": ((0.03, -0.72, 0.87), (0.00, -0.78, 0.62), (-0.02, -0.80, 0.30)),
+        "rx": (0.135, 0.20, 0.27), "ry": (0.115, 0.165, 0.21),
+        "folds": ((5, 1.1, 0.6), (9, 0.4, 0.35)),
+        "amp": (0.05, 0.20), "hem": 0.0, "cut": (0.95, 0.35), "caps": (False, False),
+    },
+    "helm_cloak": {
+        "path": ((-0.25, -0.60, 0.99), (-0.27, -0.62, 0.78), (-0.25, -0.59, 0.58)),
+        "rx": (0.09, 0.08, 0.055), "ry": (0.05, 0.085, 0.06),
+        "folds": ((5, 0.9, 0.7), (3, 2.0, 0.3)),
+        "amp": (0.10, 0.22), "hem": 0.015, "caps": (True, True),
+    },
+}
+DRAPE_RINGS = 14
+DRAPE_SIDES = 40
+
+
+def _bez(a, b, c, s):
+    return tuple((1 - s) ** 2 * a[i] + 2 * (1 - s) * s * b[i] + s * s * c[i] for i in range(3))
+
+
+def _quad(v, s):
+    """Through v[0] at s 0, v[1] at s 0.5 and v[2] at s 1."""
+    return v[0] * (1 - s) * (1 - 2 * s) + 4 * v[1] * s * (1 - s) + v[2] * s * (2 * s - 1)
+
+
+def _drape_point(d, s, t):
+    c = _bez(*d["path"], s)
+    wave = math.fsum(w * math.cos(n * t + ph) for n, ph, w in d["folds"])
+    a = d["amp"][0] + (d["amp"][1] - d["amp"][0]) * s ** 1.3
+    r = 1.0 + a * wave
+    z = c[2] - d["hem"] * s * s * math.cos(d["folds"][0][0] * t + d["folds"][0][1])
+    return (c[0] + r * _quad(d["rx"], s) * math.cos(t), c[1] + r * _quad(d["ry"], s) * math.sin(t), z)
+
+
+def _drape(m, d, place, conf, rings=DRAPE_RINGS, sides=DRAPE_SIDES):
+    """One piece of `DRAPERY`, lofted ring by ring, its normals off the surface itself."""
+    def reach(t):
+        if "cut" not in d:
+            return 1.0
+        right, left = d["cut"]
+        return left + (right - left) * (1 - math.cos(t)) / 2
+
+    def point(j, kk):
+        t = 2 * math.pi * kk / sides
+        return _drape_point(d, reach(t) * j / rings, t)
+
+    rows = []
+    for j in range(rings + 1):
+        row = []
+        for kk in range(sides):
+            t = 2 * math.pi * kk / sides
+            s = reach(t) * j / rings
+            p = _drape_point(d, s, t)
+            du = _sub(_drape_point(d, s, t + 1e-4), _drape_point(d, s, t - 1e-4))
+            ds = _sub(_drape_point(d, min(1.0, s + 1e-4), t), _drape_point(d, max(0.0, s - 1e-4), t))
+            n = _norm(_cross(du, ds))
+            c = _bez(*d["path"], s)
+            if math.fsum(n[i] * (p[i] - c[i]) for i in range(2)) < 0:
+                n = tuple(-x for x in n)
+            row.append(m.vert(M_BRONZE, place(p), n, conf))
+        rows.append(row)
+    for j in range(rings):
+        for kk in range(sides):
+            k2 = (kk + 1) % sides
+            a, b, cc, dd = rows[j][kk], rows[j][k2], rows[j + 1][k2], rows[j + 1][kk]
+            # theta runs anticlockwise seen from above and the rings run down, so this
+            # winding faces out
+            m.tri(M_BRONZE, a, cc, b)
+            m.tri(M_BRONZE, a, dd, cc)
+    for j, closed, sign in ((0, d["caps"][0], 1.0), (rings, d["caps"][1], -1.0)):
+        if not closed:
+            continue
+        pts = [point(j, kk) for kk in range(sides)]
+        mid = tuple(math.fsum(q[i] for q in pts) / sides for i in range(3))
+        cm = m.vert(M_BRONZE, place(mid), (0.0, 0.0, sign), conf)
+        ring = [m.vert(M_BRONZE, place(q), (0.0, 0.0, sign), conf) for q in pts]
+        for kk in range(sides):
+            k2 = (kk + 1) % sides
+            if sign > 0:
+                m.tri(M_BRONZE, cm, ring[kk], ring[k2])
+            else:
+                m.tri(M_BRONZE, cm, ring[k2], ring[kk])
+
+
 def _group(m: _Mesh, p: MonumentParams, cx: float, cy: float, z0: float) -> None:
     """The five figures: each body a people rig posed to its joints (T-3583,
     `monument_figures`), and the parts of `FIGURES` the rigs have not got (feathers,
@@ -555,6 +661,8 @@ def _group(m: _Mesh, p: MonumentParams, cx: float, cy: float, z0: float) -> None
                 _ell(m, place(part[1]), tuple(k * r for r in part[2]), conf)
             elif kind == "cone":
                 _cone(m, place(part[1]), place(part[2]), k * part[3], k * part[4], conf)
+        for piece in monument_figures.DRAPED.get(name, ()):
+            _drape(m, DRAPERY[piece], place, conf)
 
 
 def mesh(params: MonumentParams) -> _Mesh:
