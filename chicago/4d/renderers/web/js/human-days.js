@@ -1136,13 +1136,17 @@ export function createHumanDays({ humans, three = null, hour = () => null, date 
     const exitOf = q => homeDoor(q, q.inside ?? home(q), anchor.e, anchor.n);
     const distanceOf = q => q.actor.indoors
       ? (exitOf(q) ? dist(pt(exitOf(q).step), anchor) : Infinity) : dist(q.actor, anchor);
+    // T-3590: a talk's own company first: one of the same household whose span names the same
+    // knot at this hour is the one to talk with, wherever on the grounds they stand (the
+    // Glessners' evening walk is the two of them, not whoever happens to be nearest).
+    const mate = q => !!span.knot && currentOf(q)?.knot === span.knot && currentOf(q)?.activity === 'talk' && home(q) === where;
     const candidates = people.filter((q) => q !== p && where && compatible(q) && (!adult || !q.child)
-      && (q.actor.indoors ? ((q.inside ?? home(q)) === where
-        || (q.actor.instance?.scene === '1812' && distanceOf(q) < 30)) : distanceOf(q) < 18)
+      && (mate(q) || (q.actor.indoors ? ((q.inside ?? home(q)) === where
+        || (q.actor.instance?.scene === '1812' && distanceOf(q) < 30)) : distanceOf(q) < 18))
       && !unavailable(q) && !q.attending && !q.social && !q.called && !q.passing && !q.override
       && !currentOf(q)?.away
       && !(currentOf(q)?.duty && (q.b.duty?.kind === 'beat' || POST_RE.test(currentOf(q)?.doing ?? ''))));
-    candidates.sort((a, b) => Number(a.actor.indoors) - Number(b.actor.indoors)
+    candidates.sort((a, b) => Number(mate(b)) - Number(mate(a)) || Number(a.actor.indoors) - Number(b.actor.indoors)
       || (supervised ? p.entry.caregivers.indexOf(keyOf(a)) - p.entry.caregivers.indexOf(keyOf(b)) : 0)
       || distanceOf(a) - distanceOf(b));
     let q = candidates[0];

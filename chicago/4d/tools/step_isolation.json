@@ -2604,6 +2604,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/bake_likeness_skin.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/bake_ref.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -4308,6 +4312,10 @@
       "wrote_ignored": []
     },
     "tools/jaunt_built_so_far.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/jaunt_reading_level.py": {
       "wrote": [],
       "wrote_ignored": []
     },
