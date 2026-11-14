@@ -22,6 +22,9 @@ holds the kit and the record to it:
   * over the return's top the slate is one face leaning in to the deck's side (HABS
     photograph 1's coursing): no upright slate cheek stands on the return's plane between
     its top and the curb;
+  * west of the deck's street curb that face leans on in to the cross roof's south slope,
+    whose ridge is the print's white coping: no slate over the return stands out in front
+    of the cross roof's slope there, and east of the curb no slot is cut under the deck's corner;
   * a chamfer without either builds its cheek as one plain face, as before.
 
     python3 tools/test_k01_chamfer_return.py
@@ -152,6 +155,42 @@ def upright_cheek(params):
 
 
 check(upright_cheek(p) < 0.01, "over the return's top the slate leans in to the deck: no upright cheek on its plane")
+
+
+def faces(params, keep):
+    """Roof area (m2) of the triangles whose (centre (u, v, y), unit normal) `keep` takes."""
+    a = K1.build(params, SID)
+    pts, tris = a.roof_shell
+    area = 0.0
+    for t in tris:
+        P = [(pts[i][0], -pts[i][2], pts[i][1]) for i in t[:3]]          # (u, v, y)
+        c = [sum(q[k] for q in P) / 3.0 for k in range(3)]
+        e0 = [P[1][k] - P[0][k] for k in range(3)]
+        e1 = [P[2][k] - P[0][k] for k in range(3)]
+        n = (e0[1] * e1[2] - e0[2] * e1[1], e0[2] * e1[0] - e0[0] * e1[2], e0[0] * e1[1] - e0[1] * e1[0])
+        A = sum(x * x for x in n) ** 0.5
+        if A > 1e-12 and keep(c, [x / A for x in n]):
+            area += A / 2.0
+    return area
+
+
+xr = p.mansard["deck"]["cross_roof"]
+u_curb, y_curb = p.mansard["deck"]["curb"][1], p.mansard["deck"]["curb_m"]
+y_x = sum(float(q["height_m"]) for q in v["storeys"])              # the cross roof's eaves
+
+
+def cross_v(y):
+    """The cross roof's south slope's v at a height, from its eaves to its ridge."""
+    return xr["v_m"][1] + (xr["ridge_v_m"] - xr["v_m"][1]) * (y - y_x) / (xr["ridge_m"] - y_x)
+
+
+wedge = faces(p, lambda c, n: u_curb + 0.05 < c[0] < D and rt + 0.6 < c[2] < y_curb - 0.1
+              and cross_v(c[2]) + 0.05 < c[1] < s1 - along and n[1] > 0.5)
+check(wedge < 0.01, f"west of the deck's street curb no slate over the return stands out in front of the cross "
+                    f"roof's south slope ({wedge:.3f} m2)")
+slot = faces(p, lambda c, n: c[0] < u_curb - 0.05 and y_curb - 0.5 < c[2] < y_curb and n[2] < -0.9
+             and cross_v(y_curb) < c[1] < p.mansard["deck"]["curb"][3] - 0.06)
+check(slot < 0.01, f"east of the deck's street curb nothing is cut back under the deck's corner ({slot:.3f} m2)")
 s_, ph_ = phase_with(lambda ch: (ch.pop("return"), ch.pop("light")))
 check(slate_in_front(KP.from_phase(ph_, s_)) > 0, "without a return the front slate comes down there, as before")
 _, plain = bay_of(KP.from_phase(ph_, s_))

@@ -4089,11 +4089,19 @@ async function boot() {
   // never into a building, by the router's grid once something has built it.
   api.spacing = createHumanSpacing({ humans: api.humans,
     visitor: () => ({ e: walker.state.e, n: walker.state.n }),
+    // T-3553: and nobody walks into the visitor on foot; they go round.
+    // A stander steps aside only when the visitor keeps walking into them.
+    body: () => (walker.state.flying ? null : { e: walker.state.e, n: walker.state.n,
+      pressing: walker.state.bumped && walker.state.speed > 0, bearing: walker.bearingDeg }),
     blockedAt: (e, n) => !!houseBarriers?.near(e, n, BODY_R_M) || (api.router?.built ? api.router.blockedAt(e, n) : false),
     // T-3554: anyone standing in a stair steps out of it (never into a building).
     clearOf: houseBarriers ? (e, n) => houseBarriers.clearOf(e, n, BODY_R_M,
       (q) => !(api.router?.built && api.router.blockedAt(q.e, q.n))) : null,
     keepOut: lodgeWalls });
+  // T-3553 (owner, 2026-11-14: "you should not see inside people's heads and bodies"): every
+  // drawn figure is solid to the visitor on foot, who slides round them (walker.js).
+  walker.setBodies((e, n, y0, y1) => api.humans?.bodiesNear?.(e, n, 2.5, y0, y1) ?? null);
+  const eyeAtDraw = new THREE.Vector3();
   /**
    * T-3439 (owner, 2026-11-07): Settings › Show › People and › Carriages and horses. A
    * viewing choice, like Street trees: hidden, a layer is neither drawn nor advanced nor
@@ -6678,6 +6686,9 @@ async function boot() {
     api.houseDoors?.update?.(frameDt);
     // T-3504: and then nobody stands in anybody else (human-spacing.js).
     api.spacing?.update(frameDt);
+    // T-3553 (owner, 2026-11-14: "you should not see inside people's heads and bodies"):
+    // whatever put the eye where it is, nobody is drawn round it.
+    api.humans?.hideAtEye?.(camera.getWorldPosition(eyeAtDraw));
     // The day and spacing engines have finished moving the person. Hands, tool
     // and sound now share this frame's real contact, not a separate hammer timer.
     api.workActivity?.update(frameDt, { paused: visualHeld || transportReducedMotion.matches,

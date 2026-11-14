@@ -706,6 +706,8 @@ step "Prairie Avenue child source recipes match their pinned bodies (T-3548)" \
   python3 tools/prairie_children_source.py --check
 step "Nobody stands in anybody else's place: a talk in a ring, people standing together talk, one alone is at a job, and every year's figures kept a body's width apart through the day, and nobody stands in a mat or bark lodge wall (T-3504, T-3520)" \
   node tools/test_human_spacing.mjs
+step "The visitor on foot never walks into a person: held off every drawn figure, sliding round them, never tunnelling at a sprint on a slow device, a wall winning over a person, and passers-by stepping round the visitor (T-3553)" \
+  node tools/test_walker_bodies.mjs
 step "People keep busy all day: a talk gathers and parts again, each of its people at a job of their own or at play between, breaks indoors at their door and asked for there, every job's places clear of the buildings, the same round on every load; 1835 and 1904 too; most children indoors or by their own door, never a crowd of them without grown-ups (T-3505, T-3516, T-3520)" \
   node tools/test_human_rounds.mjs
 step "1835's and 1904's drawn people's days are what days.py writes (T-3516)" \
