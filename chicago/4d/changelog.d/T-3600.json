@@ -1,0 +1,7 @@
+{
+  "title": "The checks on the Settings and Navigator screens stop drawing the town",
+  "kind": "fix",
+  "items": [
+    "Nothing you can see changes. One part of the checks that run on every change kept running out of time on the test machines: it went through Settings, the Navigator, Jump, the Field Check and Go to, and every step also waited for the whole 3D town to be redrawn, which takes several seconds a picture there. None of those checks looks at the picture, so they now pause the drawing while they read the screens, as the People, Businesses and Evidence checks already do. The town is drawn again before any check that does look at it."
+  ]
+}
