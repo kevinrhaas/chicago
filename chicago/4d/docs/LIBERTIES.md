@@ -44091,7 +44091,6 @@ Three things in the sheet itself. What no photograph sees squarely (the undersid
 **Ticket:** T-3553.
 **Recorded:** 2026-11-14.
 
-
 ### L-grey-sarah-smile-3553 — Sarah Grey smiles into a photograph of her stand-in's smile, with its teeth
 
 **Decision:** L-grey-smile-3553 left Sarah Grey without a smile, because the sheet's pictures of her stand-in show the mouth shut; this entry supersedes that sentence. On 2026-11-14 the owner supplied a photograph of the same stand-in smiling, her upper teeth showing ("Here are her teeth"), and asked whether she could speak as William Grey does. `tools/bake_likeness_skin.py` now takes a picture of the smile of its own, named in the person's skin record (`smile_view`) and handed over with `--smile`. The photograph is not one of the sheet's: it was taken out of doors, close to and from a little below, with the head tilted 34 degrees. It is levelled and cut to the head, a face detector's points are found on it, and its camera is placed by the points above the nose's base (8.5 degrees round and 10.6 degrees up from straight ahead). A real photograph of a face does not lie on a face fitted to other pictures: its points stood 3.5 mm from the fitted face's on average, and fitted to it as it stood the smile came out lopsided, with a crease down one cheek. So the photograph is first laid on the fitted face at rest (`read_smile_view`): each of the 308 points more than 10 mm from the lips is moved onto the fitted face's own point, and the picture between them is carried smoothly with them (a thin-plate spline; the furthest any point of the picture is carried is 15.8 mm, at the chin, which the near lens draws low). What is then left different is the mouth, and the smile is fitted to that as William Grey's is to his sheet's front picture: the same ten MakeHuman mouth shapes, then the face within the picture's plane, then the lips. The drawn opening and the photograph's share 97 percent of their area, their edges lie 0.09 mm apart on average, and the 331 points of the cheeks, nose and lids lie 0.5 mm from the photograph's on the smiling face against 1.0 mm on the resting one. Behind her lips stands the same strip of 17 by 5 points, coloured from the photograph's opening, so the upper teeth are her stand-in's. The photograph was taken in open shade and the sheet in a warmer light, so its colour is first brought to the sheet's by the same skin in both, from 3.5 to 15 mm round the lips (red times 1.16, green 0.93, blue 0.66). The photograph is laid on no skin: her skin, at rest and smiling, is the sheet's. In the app she gives the smile as William Grey does: to a visitor within 3.2 m in front of her and with her greeting, four tenths of it while she talks, her jaw moving in the same uneven run of syllables. Her card's still keeps the resting face, and her card now says that the smile and its teeth come from a separate photograph.
@@ -44108,4 +44107,35 @@ Three things in the sheet itself. What no photograph sees squarely (the undersid
 **Liberties within it:** all of it is reconstructed, and none of it is evidence of any person's teeth. No source says who in 1812, 1835 or 1904 had lost teeth, and nobody is drawn with one missing, though many had. That the young show their upper teeth and the old their lower is common observation; the figures for it are ours, as are the colours, the eight sets, the tones, the shade of the mouth and every distance. The rows are flat strips, not teeth with thickness. There is no tongue, the lips and the cheeks do not shape themselves for speech, and there are no shapes for vowels and consonants: the jaw alone moves. When a person talks is the day's rounds' and the garrison's stations' (L-t3505-rounds, L-1812-garrison-stations-3462); this adds a moving jaw, and teeth, to the latter's "Talk is a moving hand and turned heads, never words (L1)", and still no words. The jaw's rhythm is the Greys' (L-grey-smile-3553). The Greys keep the upper teeth of their photographs and have no lower ones drawn.
 **Re-opens on:** a voice for anybody (the jaw then follows `mouth.say`, and mouth shapes for speech become worth building: the MakeHuman community publishes viseme packs as CC0, which are not vendored here, and whose licence is to be read again at the copy taken); a picture of a person's own teeth (a likeness skin with a teeth patch replaces the drawn rows for that person, as it does for the Greys); a source for a particular person's missing teeth; modelled teeth (the MakeHuman community's `teeth_base`, published as CC0 in its system assets pack and likewise not vendored here) if the flat rows read as flat.
 **Ticket:** T-3553.
+**Recorded:** 2026-11-14.
+
+### L-k01-1815-roof-iron-3562 — 1815 Prairie's roof iron: the curb's cresting, the pavilion's cross and the street dormer's finial read off the square-on print, their patterns reconstructed
+
+**Decision:** the mansard of Joseph Sears's house at 1815 Prairie (T-3562, piece 2 of T-1893) takes
+the iron the square-on photograph (`chicagology_1815_sears_two_views`, the left print) shows on its
+roof, where the build had none of it, and its street dormer is re-read to the print's height.
+**What is read, not invented.** Through T-3155's solved camera (66.7 px a metre on the mansard's
+face): along the curb a pierced iron band, its top rail a dark line at y 146-150 px with hung
+ornaments under it and its foot on a dark line at y 178 over the slates, about 0.45 m, the sky
+straight over its rail; the oblique print shows the same band on the south flank's curb. On the
+pavilion crown's apex a cross over a square block and a flared cap, y 30-93 px, about 0.9 m: the
+block about 0.14 m across, the cap about 0.4 m, the cross from 0.6 of its height, its arms near the
+top. On the street dormer's gable a finial about 0.45 m, y 93-130 px. The dormer's light y 230-347 px
+(about 1.7 m; the build's 1.35) and its gable's foot and apex at y 187 and 135 (a pitch of about 42
+degrees; the build's 50). **What is invented.** The cresting's pattern is the K10 kit's
+(`k10.cresting.iron_ridge`: posts, C-scrolls and spears) stretched to the print's height, where the
+print's are hung trefoils under a rail; it runs on the two curbs the prints show (the street's and
+the south flank's) and on neither of the two they do not, and stops 0.1 m short of the crown's
+slates where the crown stands through the curb (`k01_mansard_deck.crown_gap`). The cross's sections
+are square, its proportions this module's from the print's outline (`k01_mansard_deck.cross`). The
+dormer's finial is the dormer ornament's turned one, where the print's is a three-lobed fleur-de-lis
+of the same height and width. The dormer's light is 1.65 m and its frieze 0.05 m, 0.15 m short of
+the print's together: K01 holds a lower-face dormer's head 0.1 m under the curb, and the print's
+gable rises through the cresting.
+**Not changed here.** The curb's height: the build's stands about 0.2 m high on the square-on print
+and about 0.8 m low on the oblique, and its low deck shows dark through and over the cresting where
+the square-on print shows sky (both match records keep it open).
+**Re-opens on:** a clearer print of the roof; the curb's height solved across the two views, after
+which the cresting and the dormer are re-read on it.
+**Ticket:** T-3562.
 **Recorded:** 2026-11-14.
