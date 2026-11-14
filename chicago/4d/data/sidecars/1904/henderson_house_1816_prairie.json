@@ -145,11 +145,6 @@
             "wall": "k01.wall.side.south",
             "s_m": 6.4,
             "storey": 0
-          },
-          {
-            "wall": "k01.wall.side.south",
-            "s_m": 6.4,
-            "storey": 1
           }
         ],
         "crest": {
@@ -166,7 +161,7 @@
       "sources": [
         "chicagology_1816_henderson_photo"
       ],
-      "note": "Every street window under a stone hood on both storeys, as the photograph draws them: K09's cornice-hood lintel. T-1886: the south flank's window (side_bays 6.4) wears the same hood on both storeys (`lights`), where the brick wall had arched it in brick: the photograph draws it with the front's hood, its consoles and its crest (x 350-385 px); and every such hood carries a carved crest (`crest`, K09's T-3270 palmette between two volutes), the print's raised scrolled cresting over each hood, about 1.0 m wide and 0.35 m high through the solved camera. The crest's carving is the kit's (the print resolves only a raised scrolled block); the canted bays' K08 windows keep the bays' own lintels, crested with the same carving (bays[].storeys[].windows[].crest)."
+      "note": "Every street window under a stone hood on both storeys, as the photograph draws them: K09's cornice-hood lintel. T-1886: the south flank's window (side_bays 6.4) wears the same hood on both storeys (`lights`), where the brick wall had arched it in brick: the photograph draws it with the front's hood, its consoles and its crest (x 350-385 px); and every such hood carries a carved crest (`crest`, K09's T-3270 palmette between two volutes), the print's raised scrolled cresting over each hood, about 1.0 m wide and 0.35 m high through the solved camera. The crest's carving is the kit's (the print resolves only a raised scrolled block); the canted bays' K08 windows keep the bays' own lintels, crested with the same carving (bays[].storeys[].windows[].crest). T-1886 (2026-11-14): the flank has that one light only, on the upper storey (side_bays), so `lights` names it once; it is matched as storey 0 because K01 counts a light's storey from the floor under its sill and the print's sill stands at 6.5 m, under the 6.8 m upper floor line."
     },
     "wall_head": {
       "value": {
@@ -243,13 +238,18 @@
     },
     "side_bays": {
       "value": [
-        6.4
+        {
+          "s_m": 6.4,
+          "sill_m": 6.5,
+          "width_m": 0.75,
+          "height_m": 2.5
+        }
       ],
       "confidence": "inferred",
       "sources": [
         "chicagology_1816_henderson_photo"
       ],
-      "note": "One window a storey on the south flank between its canted bay and the front corner, next to the bay, as the photograph shows; the flank toward the front corner is blank in it."
+      "note": "One window on the south flank between its canted bay and the front corner, next to the bay, as the photograph shows; the flank toward the front corner is blank in it. T-1886 (2026-11-14): the print draws that light on the upper storey only, with plain brick under it to the water table (x 352-385 px, its opening from y 515 to 645 under the crested hood, the water table under it at about 890), where K01 had laid a light in each storey. Read once, as a picture's window, measured up from the water table under it (the principal floor, 2.0 m) at the solved camera's 53.9 px/m on the flank at s 6.4 m (46 m from the eye): its sill about 4.5 m over the water table (6.5 m over grade) and its head about 7.0 m (9.0 m), its sill-block level with the flank bay's upper sills beside it in the print once the bay's greater distance is allowed for, and its sill a little under the upper floor line the storey heights give (6.8 m): the print is read, not the storey. Its width the print's: the opening about 23 px between its jambs at the wall's face (x 361-384, the far jamb's lit reveal showing, the near one hiding part of the glass), about 0.72 m at the flank's 32 px/m there, so the contract's narrowest ordinary sash, 0.75 m, where the upper sash is 1.05 m; its hood with its consoles about 39 px across in the print."
     },
     "rear_bays": {
       "value": [
