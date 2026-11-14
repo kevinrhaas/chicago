@@ -32,17 +32,23 @@
  * Everything is a reconstructed rendering choice; no likeness of anyone's
  * skin, hair or eyes is claimed (liberty L418, its skin and hair supplement).
  *
+ * T-3553: the one texture this file does read is a person's own skin sheet, where a
+ * person has one (two stand-ins, William and Sarah Grey: tools/bake_likeness_skin.py lays
+ * the owner's pictures of each stand-in on the face fitted to them). It is fetched when
+ * that person is first drawn, never at boot, and is still a uniform: the program is shared.
+ *
  * Per-body differences are UNIFORMS, never code, so every body shares one skin
  * program and one hair program. The cache key names the chain beneath, as
  * confidence.js requires of a hook it chains beneath (and as fabric.js does).
  */
 import * as THREE from 'three';
 import { hairFor, HAIR_COLOURS } from './human-hair-styles.js';
+import { setLidRest } from './human-variation.js';
 
 /** Strengths. Pores, lines and mottle are 0..1 multipliers; scatter the glow. */
 export const SKIN = Object.freeze({ pores: 1, lines: 1, mottle: 1, scatter: 1, oil: .14, fuzz: .05, roughness: .55, lip_tone: .6 });
 export const HAIR = Object.freeze({ primary: .5, secondary: .45, shift: .12, roughness_floor: .82 });
-export const EYES = Object.freeze({ roughness: .08, sclera_value: .78, cornea_roughness: .1, cornea_sky: 2.5, cornea_radius_m: .0078, corner_shade: .45 });
+export const EYES = Object.freeze({ roughness: .08, sclera_value: .78, cornea_roughness: .1, cornea_sky: 2.5, cornea_radius_m: .0078, corner_shade: .45, like_sky: .6 });
 
 /** What a material of a portable human is, by the contract's slot names (HUMAN-ASSET-CONTRACT § 5). */
 export function surfaceFor(material) {
@@ -64,6 +70,50 @@ varying vec3 vChiSkinN;
 const VERTEX = `
   vChiSkinP = ( chiSkinRest * vec4( position, 1.0 ) ).xyz;
   vChiSkinN = normalize( mat3( chiSkinRest ) * normal );`;
+// T-3553: a person's own skin sheet also says how far their hair (and a beard) stands out from
+// the fitted skin. The skin's own vertices are moved out that far, along the line from the
+// middle of the head (the sheet's mask, red: a share of the record's reach), so the pictures'
+// hair has the pictures' outline. The bind-pose position the fragment's pores and lines are
+// placed by stays the bare skin's. The rest frame's own x and y, as they stand in view, go to
+// the fragment: the grown surface's facing is kept on the sheet in that frame.
+const LIKE_VERTEX_DECLARE = `
+uniform sampler2D chiLike;
+uniform vec4 chiLikeUv[ 3 ];
+uniform vec4 chiLikeMap[ 3 ];
+uniform vec4 chiLikeMask;
+uniform vec4 chiLikeGrow;
+uniform vec4 chiLikeHat;
+uniform mat3 chiLikeBack;
+varying vec3 vChiLikeX;
+varying vec3 vChiLikeY;
+`;
+const LIKE_VERTEX = `
+  vChiLikeX = vec3( 1.0, 0.0, 0.0 );
+  vChiLikeY = vec3( 0.0, 1.0, 0.0 );
+  #ifdef USE_MAP
+  if ( chiLikeGrow.w > 0.0 ) {
+    vec2 st = vec2( 0.0 );
+    float on = 0.0;
+    for ( int k = 0; k < 3; k++ ) {
+      vec4 r = chiLikeUv[ k ];
+      float inside = step( r.x, vMapUv.x ) * step( vMapUv.x, r.z ) * step( r.y, vMapUv.y ) * step( vMapUv.y, r.w );
+      st = mix( st, vMapUv * chiLikeMap[ k ].xy + chiLikeMap[ k ].zw, inside );
+      on = max( on, inside );
+    }
+    float stand = on * textureLod( chiLike, chiLikeMask.xy + st * chiLikeMask.z, 0.0 ).r * chiLikeGrow.w;
+    // Under a worn hat the hair lies flat: above its band, no further out than the hat allows.
+    stand = min( stand, mix( 1.0, chiLikeHat.y, smoothstep( chiLikeHat.x - 0.02, chiLikeHat.x, vChiSkinP.y ) ) );
+    vec3 away = vChiSkinP - chiLikeGrow.xyz;
+    transformed += chiLikeBack * ( away * ( stand / max( length( away ), 1e-5 ) ) );
+    vec3 ax = chiLikeBack * vec3( 1.0, 0.0, 0.0 ), ay = chiLikeBack * vec3( 0.0, 1.0, 0.0 );
+    #ifdef USE_SKINNING
+      ax = ( skinMatrix * vec4( ax, 0.0 ) ).xyz;
+      ay = ( skinMatrix * vec4( ay, 0.0 ) ).xyz;
+    #endif
+    vChiLikeX = normalize( ( modelViewMatrix * vec4( ax, 0.0 ) ).xyz );
+    vChiLikeY = normalize( ( modelViewMatrix * vec4( ay, 0.0 ) ).xyz );
+  }
+  #endif`;
 // Hair also carries the strand's direction, skinned with the body and into view space.
 const HAIR_VERTEX_DECLARE = `
 uniform vec3 chiHairCrown;
@@ -108,6 +158,18 @@ uniform mat4 chiFace;      // rest metres -> the face's frame, centimetres (T-34
 uniform vec4 chiFaceLook;  // age (0..1), brow shade, -, -
 uniform vec4 chiFaceMarks; // subnasale y, mouth y, mouth half-width, nose wing x (cm)
 uniform vec3 chiBrowTint;  // what the brow shade multiplies the skin by
+uniform sampler2D chiLike;      // a person's own skin sheet (T-3553), or nothing
+uniform vec4 chiLikeUv[ 3 ];    // the rects of the body's map the sheet covers (u0, v0, u1, v1)
+uniform vec4 chiLikeMap[ 3 ];   // each rect's place on the sheet: uv * xy + zw
+uniform vec4 chiLikeMask;       // the coverage mask's corner on the sheet (xy), its scale, and 1 where a sheet is worn
+uniform vec4 chiLikeTint;       // what the body's map is multiplied by beside the sheet; the sheet's gain
+uniform vec4 chiLikeGrow;       // the middle of the head the hair stands out from (bind pose, m), and the most it stands (m; 0: none)
+uniform vec4 chiLikeHat;        // a worn hat's band (bind-pose height, m), the most hair stands under it, the facing block's corner on the sheet
+varying vec3 vChiLikeX;
+varying vec3 vChiLikeY;
+float chiLikeHair = 0.0;        // where the sheet shows hair and not skin
+float chiLikeStand = 0.0;       // how far the hair stands out here, m
+vec3 chiLikeN = vec3( 0.0 );    // which way the grown surface faces, bind pose
 ${NOISE}
 vec3 chiSkinN0 = vec3( 0.0, 0.0, 1.0 );
 float chiSkinH = 0.0;
@@ -231,20 +293,56 @@ const SKIN_COLOR = `
         c = mix( c0, c, face );
       }
     }
+    // T-3553: a person's own skin, from pictures of them. Where the sheet's mask covers, the
+    // pictures are the colour (their own brows, lips, lines and hair roots; this face's drawn
+    // age lines and brow shade give way to them); the rest of the body takes the pictures' tone.
+    #ifdef USE_MAP
+    if ( chiLikeMask.w > 0.5 ) {
+      vec2 st = vec2( 0.0 );
+      float on = 0.0;
+      for ( int k = 0; k < 3; k++ ) {
+        vec4 r = chiLikeUv[ k ];
+        float inside = step( r.x, vMapUv.x ) * step( vMapUv.x, r.z ) * step( r.y, vMapUv.y ) * step( vMapUv.y, r.w );
+        st = mix( st, vMapUv * chiLikeMap[ k ].xy + chiLikeMap[ k ].zw, inside );
+        on = max( on, inside );
+      }
+      vec4 mask = texture2D( chiLike, chiLikeMask.xy + st * chiLikeMask.z );
+      float a = on * mask.g;
+      vec3 like = texture2D( chiLike, st ).rgb * chiLikeTint.w;
+      c = mix( c / max( diffuse, vec3( 1e-3 ) ) * chiLikeTint.rgb, like, a );
+      ageH *= 1.0 - a;
+      // Hair in the pictures is hair: no pores, no oil, no light through it, and where it
+      // stands out from the skin it is lit as the shape it stands in.
+      chiLikeHair = a * mask.b;
+      chiLikeStand = a * mask.r * chiLikeGrow.w;
+      chiLikeN = texture2D( chiLike, chiLikeHat.zw + st * chiLikeMask.z ).rgb * 2.0 - 1.0;
+    }
+    #endif
     diffuseColor.rgb = c;
     // Height, metres.
-    chiSkinH = - chiSkin.x * pore * 0.000035 - chiSkin.y * lines * 0.00002 + grain * 0.00007 + ageH;
-    chiSkinMatte = pore;
+    chiSkinH = ( - chiSkin.x * pore * 0.000035 - chiSkin.y * lines * 0.00002 + grain * 0.00007 ) * ( 1.0 - chiLikeHair ) + ageH;
+    chiSkinMatte = pore * ( 1.0 - chiLikeHair );
   }`;
 // Some places a little oilier (lower roughness); pores matte.
 const SKIN_ROUGHNESS = `
   {
     float oil = smoothstep( 0.35, 0.8, chiSkinNoise( vChiSkinP * 14.0 + 11.3 ) );
-    roughnessFactor = clamp( min( roughnessFactor, chiSkinSheen.z ) - chiSkinSheen.x * oil + chiSkinMatte * 0.1 + chiSkinLip * 0.15, 0.3, 1.0 );
+    roughnessFactor = clamp( min( roughnessFactor, chiSkinSheen.z ) - chiSkinSheen.x * oil * ( 1.0 - chiLikeHair ) + chiSkinMatte * 0.1 + chiSkinLip * 0.15, 0.3, 1.0 );
+    roughnessFactor = mix( roughnessFactor, max( roughnessFactor, 0.8 ), chiLikeHair );
   }`;
 const SKIN_NORMAL = `
   chiSkinN0 = normal;
-  normal = chiSkinPerturb( - vViewPosition, normal, vec2( dFdx( chiSkinH ), dFdy( chiSkinH ) ), faceDirection );`;
+  normal = chiSkinPerturb( - vViewPosition, normal, vec2( dFdx( chiSkinH ), dFdy( chiSkinH ) ), faceDirection );
+  if ( chiLikeStand > 0.0 ) {
+    vec3 gx = normalize( vChiLikeX ), gy = normalize( vChiLikeY );
+    vec3 grown = normalize( gx * chiLikeN.x + gy * chiLikeN.y + cross( gx, gy ) * chiLikeN.z );
+    #ifdef DOUBLE_SIDED
+      grown *= faceDirection;
+    #endif
+    float stands = smoothstep( 0.0005, 0.003, chiLikeStand );
+    normal = normalize( mix( normal, grown, stands ) );
+    chiSkinN0 = normalize( mix( chiSkinN0, grown, stands ) );
+  }`;
 // Light into skin: per channel, part of the diffuse is lit from the smooth
 // normal, and a warm glow wraps past the terminator. Specular keeps the relief.
 const SKIN_LIGHT = `
@@ -252,10 +350,10 @@ void chiSkinDirect( const in IncidentLight directLight, const in vec3 geometryPo
   RE_Direct_Physical( directLight, geometryPosition, geometryNormal, geometryViewDir, geometryClearcoatNormal, material, reflectedLight );
   float nB = dot( geometryNormal, directLight.direction );
   float nS = dot( chiSkinN0, directLight.direction );
-  vec3 soft = vec3( 0.6, 0.38, 0.25 ) * chiSkin.w;
+  vec3 soft = vec3( 0.6, 0.38, 0.25 ) * chiSkin.w * ( 1.0 - chiLikeHair );
   vec3 lit = mix( vec3( saturate( nB ) ), vec3( saturate( nS ) ), soft );
   float wrap = 0.35;
-  vec3 glow = ( saturate( ( nS + wrap ) / ( 1.0 + wrap ) ) - saturate( nS ) ) * vec3( 0.24, 0.07, 0.035 ) * chiSkin.w;
+  vec3 glow = ( saturate( ( nS + wrap ) / ( 1.0 + wrap ) ) - saturate( nS ) ) * vec3( 0.24, 0.07, 0.035 ) * chiSkin.w * ( 1.0 - chiLikeHair );
   reflectedLight.directDiffuse += directLight.color * BRDF_Lambert( material.diffuseContribution ) * ( lit - saturate( nB ) + glow );
 }
 #undef RE_Direct
@@ -367,9 +465,18 @@ function patchSkin(material, rest, look = NO_LOOK) {
     chiFaceLook: { value: new THREE.Vector4(look.age, look.brow, 0, 0) },
     chiFaceMarks: { value: new THREE.Vector4(...look.marks) },
     chiBrowTint: { value: new THREE.Vector3(...look.tint) },
+    chiLike: { value: null },
+    chiLikeUv: { value: [0, 1, 2].map(() => new THREE.Vector4()) },
+    chiLikeMap: { value: [0, 1, 2].map(() => new THREE.Vector4()) },
+    chiLikeMask: { value: new THREE.Vector4() },
+    chiLikeTint: { value: new THREE.Vector4(1, 1, 1, 1) },
+    chiLikeGrow: { value: new THREE.Vector4() },
+    chiLikeHat: { value: new THREE.Vector4(NO_HAT, LIKENESS.under_hat_m, 0, 0) },
+    chiLikeBack: { value: new THREE.Matrix3().setFromMatrix4(rest).invert() },
   };
+  setLikeness(uniforms, look.like);
   chain(material, KEY.skin, uniforms, shader => {
-    shader.vertexShader = VERTEX_DECLARE + shader.vertexShader.replace('#include <begin_vertex>', `#include <begin_vertex>${VERTEX}`);
+    shader.vertexShader = VERTEX_DECLARE + LIKE_VERTEX_DECLARE + shader.vertexShader.replace('#include <begin_vertex>', `#include <begin_vertex>${VERTEX}${LIKE_VERTEX}`);
     shader.fragmentShader = SKIN_DECLARE + shader.fragmentShader
       .replace('#include <color_fragment>', `#include <color_fragment>${SKIN_COLOR}`)
       .replace('#include <roughnessmap_fragment>', `#include <roughnessmap_fragment>${SKIN_ROUGHNESS}`)
@@ -642,6 +749,37 @@ function crownOf(mesh, rest) {
 }
 
 /**
+ * T-3553: a face that wears its own skin sheet rests its lids as its front picture shows them
+ * (`lid`, 0..1 of a blink, measured by tools/bake_likeness_skin.py). The owner, 2026-11-13,
+ * asked for both Greys "photographic matched"; the fitted faces' eyes stood about 4 mm wider
+ * open than their pictures'. So that much of the blink's own shape (shapeBlink, above) goes
+ * into the face's rest shape, less what its age already rests them (restingLid), and the
+ * face's own blink targets carry only what is left, so a full blink still shuts the eye and
+ * no further. Returns the blink targets to add, how much of each, and the morph targets for
+ * this face's geometry; null where the body has no blink (a far level) or nothing to rest.
+ */
+export function restedBlink(mesh, root, lid, age) {
+  const g = mesh.geometry, dict = mesh.morphTargetDictionary, targets = g?.morphAttributes?.position;
+  if (!(lid > 0) || !dict || !targets?.length || !g.morphTargetsRelative) return null;
+  const aged = restingLid(age), rest = Math.min(.9, (lid - aged) / (1 - aged));
+  if (!(rest > 0)) return null;
+  shapeBlink(mesh, root);
+  const ids = ['eyeBlinkLeft', 'eyeBlinkRight'].map(k => dict[k]).filter(i => targets[i]);
+  if (!ids.length) return null;
+  const less = list => list?.map((t, i) => {
+    if (!ids.includes(i) || !t) return t;
+    const a = new Float32Array(t.count * t.itemSize);
+    for (let j = 0; j < t.count; j++) for (let c = 0; c < t.itemSize; c++) a[j * t.itemSize + c] = t.getComponent(j, c) * (1 - rest);
+    const out = Object.assign(new THREE.BufferAttribute(a, t.itemSize), { name: t.name });
+    blinked.add(out);   // shaped already: these are the shaped targets, part of the way
+    return out;
+  });
+  return { rest, targets: ids.map(i => targets[i]),
+    morphAttributes: { ...g.morphAttributes, position: less(g.morphAttributes.position), ...(g.morphAttributes.normal ? { normal: less(g.morphAttributes.normal) } : {}) } };
+}
+setLidRest(restedBlink);   // human-variation.js builds each face's rest shape, and asks here for its lids'
+
+/**
  * A face's look (T-3493): how old it reads and how its brows are shaded. Kevin, 2026-11-07,
  * of Frances Glessner beside her 1892 photograph: "frances looks young to me compared to the
  * photo". The age lines start at 28 and are full at 75 (AGE); a person whose hair row grows
@@ -656,7 +794,7 @@ export function restingLid(age) {
   return AGE.lid_most * Math.min(1, Math.max(0, (age - AGE.lid_from) / (AGE.lid_full - AGE.lid_from)));
 }
 export const BROW = Object.freeze({ shade: .8, pieces: Object.freeze(['brows_fine']) });
-const NO_LOOK = Object.freeze({ age: 0, brow: 0, face: new THREE.Matrix4(), marks: [-4.5, -6.3, 2.5, 1.8], tint: [1, 1, 1], key: 'none' });
+const NO_LOOK = Object.freeze({ age: 0, brow: 0, face: new THREE.Matrix4(), marks: [-4.5, -6.3, 2.5, 1.8], tint: [1, 1, 1], like: null, key: 'none' });
 
 /** The midline's marks, in the face's frame (cm): the subnasale and the mouth's line. */
 function midlineMarks(mesh, root, f) {
@@ -683,7 +821,9 @@ function midlineMarks(mesh, root, f) {
 
 function lookOf(mesh, root, { age = null, person = null, year = null } = {}) {
   const f = headFrame(mesh, root);
-  if (!f) return NO_LOOK;
+  // T-3553: a person's own skin sheet, where human-variation.js left one on the figure.
+  const like = likenessLayout(root.userData?.chiLikenessSkin);
+  if (!f) return like ? { ...NO_LOOK, like, key: `none|like:${like.url}` } : NO_LOOK;
   const a = Number.isFinite(age) ? Math.min(1, Math.max(0, (age - AGE.from) / (AGE.full - AGE.from))) : 0;
   const style = person || year ? hairFor(person, year) : null;
   const fine = style?.facial?.some(k => BROW.pieces.includes(k));
@@ -694,9 +834,10 @@ function lookOf(mesh, root, { age = null, person = null, year = null } = {}) {
   const face = S.multiply(B).multiply(new THREE.Matrix4().makeTranslation(-f.o.x, -f.o.y, -f.o.z));
   const mid = midlineMarks(mesh, root, f) ?? NO_LOOK.marks.slice(0, 2);
   const marks = [mid[0], mid[1], 2.5, 1.8];
-  const ageStep = Math.round(a * 20) / 20, brow = hc ? BROW.shade : 0;
-  return { age: ageStep, brow, face, marks, tint,
-    key: `${ageStep}|${brow}|${tint.map(t => t.toFixed(2))}|${f.o.toArray().map(t => Math.round(t * 500)).join(',')}` };
+  // The pictures on a sheet carry the person's own brows: no shade is drawn under them.
+  const ageStep = Math.round(a * 20) / 20, brow = hc && !like ? BROW.shade : 0;
+  return { age: ageStep, brow, face, marks, tint, like,
+    key: `${ageStep}|${brow}|${tint.map(t => t.toFixed(2))}|${f.o.toArray().map(t => Math.round(t * 500)).join(',')}${like ? `|like:${like.url}` : ''}` };
 }
 
 function setLook(uniforms, look) {
@@ -704,6 +845,185 @@ function setLook(uniforms, look) {
   uniforms.chiFaceLook.value.set(look.age, look.brow, 0, 0);
   uniforms.chiFaceMarks.value.set(...look.marks);
   uniforms.chiBrowTint.value.set(...look.tint);
+}
+
+/**
+ * A person's own skin sheet (T-3553). `skin` is their row's `skin` block as
+ * tools/human_variation_kit.py writes it and human-variation.js hands it on with its address:
+ * { url, size_px, rects: [{ uv, px }], mask: { px, scale }, tint, gain }. Up to three rects.
+ * Returns what the shader needs, or null where there is no sheet or it does not parse.
+ */
+export const LIKENESS = Object.freeze({ rects: 3, small_px: 700, under_hat_m: .006 });
+const NO_HAT = 1e6;
+export function likenessLayout(skin) {
+  const [W, H] = skin?.size_px ?? [];
+  const rects = skin?.rects;
+  if (!skin?.url || !(W > 0) || !(H > 0) || !Array.isArray(rects) || !rects.length || rects.length > LIKENESS.rects) return null;
+  const uv = [], map = [];
+  for (const r of rects) {
+    const [u0, v0, u1, v1] = r.uv ?? [], [x0, y0, x1, y1] = r.px ?? [];
+    if (![u0, v0, u1, v1, x0, y0, x1, y1].every(Number.isFinite) || !(u1 > u0) || !(v1 > v0)) return null;
+    const sx = (x1 - x0) / (u1 - u0) / W, sy = (y1 - y0) / (v1 - v0) / H;
+    uv.push([u0, v0, u1, v1]);
+    map.push([sx, sy, x0 / W - u0 * sx, y0 / H - v0 * sy]);
+  }
+  const m = skin.mask;
+  if (!m || !(m.scale > 0) || !Array.isArray(m.px)) return null;
+  const tint = Array.isArray(skin.tint) && skin.tint.length === 3 && skin.tint.every(Number.isFinite) ? skin.tint : [1, 1, 1];
+  // How far the hair stands out from the skin, where the sheet keeps it (the mask's red).
+  const g = skin.grow, grows = g && g.reach_m > 0 && Array.isArray(g.from_m) && g.from_m.length === 3 && g.from_m.every(Number.isFinite)
+    && Array.isArray(g.normal_px) && g.normal_px.length === 2 && g.normal_px.every(Number.isFinite);
+  // The person's own irises (two squares side by side, the body's left eye first) and the
+  // colour of the whites, where the sheet keeps them.
+  const e = skin.eyes, eyed = e && e.size > 0 && Array.isArray(e.px) && e.px.length === 2 && e.px.every(Number.isFinite)
+    && Array.isArray(e.white_srgb) && e.white_srgb.length === 3 && e.white_srgb.every(Number.isFinite);
+  return { url: skin.url, uv, map, mask: [m.px[0] / W, m.px[1] / H, m.scale, 1], tint: [...tint, Number.isFinite(skin.gain) ? skin.gain : 1],
+    grow: grows ? [...g.from_m, g.reach_m] : [0, 0, 0, 0], facing: grows ? [g.normal_px[0] / W, g.normal_px[1] / H] : [0, 0],
+    eyes: eyed ? { rect: [e.px[0] / W, e.px[1] / H, 2 * e.size / W, e.size / H], white: e.white_srgb.slice() } : null };
+}
+
+// One texture per sheet, shared by every body of that person (each level of detail, each
+// rebuild). Fetched on first use; until it arrives the sampler reads nothing and the mask is
+// empty, so the body's own map shows in the sheet's tone.
+const sheets = new Map(), arriving = new Set();
+/** Resolves once every skin sheet asked for so far has arrived or failed: a still waits on it. */
+export function likenessSheetsReady() { return Promise.all([...arriving]).then(() => undefined); }
+function likenessSheet(url) {
+  if (typeof document === 'undefined') return null;   // no page (a unit test): the uniforms alone
+  let t = sheets.get(url);
+  if (t) return t;
+  t = new THREE.Texture();
+  t.flipY = false;                      // the sheet's rows are the body map's: v down
+  t.colorSpace = THREE.SRGBColorSpace;
+  t.wrapS = t.wrapT = THREE.ClampToEdgeWrapping;
+  t.minFilter = THREE.LinearMipmapLinearFilter;
+  t.anisotropy = 4;
+  sheets.set(url, t);
+  const arrival = new Promise((done) => {
+    new THREE.ImageLoader().load(url, (img) => {
+      // A phone keeps the sheet at half size (a quarter of the memory): its screen cannot show more.
+      const small = typeof screen !== 'undefined' && (navigator?.maxTouchPoints ?? 0) > 0 && Math.min(screen.width, screen.height) < LIKENESS.small_px;
+      if (small) {
+        const c = document.createElement('canvas');
+        c.width = img.width >> 1; c.height = img.height >> 1;
+        c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+        t.image = c;
+      } else t.image = img;
+      t.needsUpdate = true;
+      for (const part of parts.get(url)?.values() ?? []) part.needsUpdate = true;
+      done();
+    }, undefined, () => { sheets.delete(url); done(); });   // a sheet that fails is asked for again by the next body
+  });
+  arriving.add(arrival);
+  arrival.then(() => arriving.delete(arrival));
+  return t;
+}
+
+/**
+ * One rectangle of a sheet (x, y, width, height as shares of it) as a map of its own: the same
+ * picture on the card (one source, so it is uploaded once), read through its own transform.
+ */
+const parts = new Map();
+function likenessPart(url, rect) {
+  const sheet = likenessSheet(url);
+  if (!sheet) return null;
+  const own = parts.get(url) ?? new Map();
+  parts.set(url, own);
+  const key = rect.join(',');
+  let t = own.get(key);
+  if (!t) {
+    t = sheet.clone();
+    t.offset.set(rect[0], rect[1]);
+    t.repeat.set(rect[2], rect[3]);
+    if (sheet.image) t.needsUpdate = true;   // else when the sheet arrives
+    own.set(key, t);
+  }
+  return t;
+}
+
+/**
+ * T-3553: a person's own eyes. A figure that wears its own skin sheet takes its irises from
+ * the sheet too (each drawn from its front picture, tools/bake_likeness_skin.py) and the
+ * colour of its whites; the model's flat pupil takes the picture's own, and the cornea
+ * mirrors less of the sky, the picture having its own light in it. Clones of one export share
+ * their eyes' materials, so the figure takes twins of its own.
+ */
+function likenessEyes(m, mesh, root, like) {
+  const key = `eyes:${like.url}`;
+  if (m.userData?.chiLikeEyes === key) return m;
+  const own = variants.get(m) ?? new Map();
+  variants.set(m, own);
+  let twin = own.get(key);
+  if (!twin) {
+    twin = m.clone();
+    twin.userData = { ...twin.userData, chiLikeEyes: key };
+    patched.set(twin, patchEyes(twin, mesh, root));
+    const gain = like.tint[3];
+    if (/__(iris|pupil)$/.test(m.name)) {
+      // The iris is a ring and the pupil the disc in it: both read the one picture.
+      twin.map = likenessPart(like.url, like.eyes.rect);
+      twin.color.setScalar(gain);
+      twin.envMapIntensity = EYES.like_sky;
+    } else if (/__sclera$/.test(m.name)) twin.color.setRGB(...like.eyes.white, THREE.SRGBColorSpace).multiplyScalar(gain);
+    twin.needsUpdate = true;
+    own.set(key, twin);
+  }
+  return twin;
+}
+
+function setLikeness(uniforms, like) {
+  uniforms.chiLike.value = like ? likenessSheet(like.url) : null;
+  for (let k = 0; k < LIKENESS.rects; k++) {
+    // An unused rect is empty (its far corner before its near one), so nothing falls inside it.
+    uniforms.chiLikeUv.value[k].set(...(like?.uv[k] ?? [2, 2, -1, -1]));
+    uniforms.chiLikeMap.value[k].set(...(like?.map[k] ?? [0, 0, 0, 0]));
+  }
+  uniforms.chiLikeMask.value.set(...(like?.mask ?? [0, 0, 0, 0]));
+  uniforms.chiLikeTint.value.set(...(like?.tint ?? [1, 1, 1, 1]));
+  uniforms.chiLikeGrow.value.set(...(like?.grow ?? [0, 0, 0, 0]));
+  uniforms.chiLikeHat.value.set(NO_HAT, LIKENESS.under_hat_m, ...(like?.facing ?? [0, 0]));
+}
+
+/**
+ * The height (the skin's bind pose, metres from the root) of the lowest part of a hat that sits
+ * on this head, or NO_HAT. The hat is skinned with its own inverse binds (driver-livery.js), so
+ * its vertices are carried into the skin's bind pose through the head bone both share; `mid` is
+ * the middle of the head (bind pose), and only what is over the head counts (not a hanging veil).
+ */
+function hatBand(hat, mesh, root, mid) {
+  const hi = hat.skeleton?.bones.findIndex(b => b.name === 'head') ?? -1, bi = mesh.skeleton?.bones.findIndex(b => b.name === 'head') ?? -1;
+  const p = hat.geometry?.attributes?.position;
+  if (hi < 0 || bi < 0 || !p) return NO_HAT;
+  root.updateMatrixWorld(true);
+  const s = mesh.skeleton;
+  const M = new THREE.Matrix4().copy(root.matrixWorld).invert().multiply(s.bones[0].matrixWorld).multiply(s.boneInverses[0])
+    .multiply(s.boneInverses[bi].clone().invert()).multiply(hat.skeleton.boneInverses[hi]).multiply(hat.bindMatrix);
+  const v = new THREE.Vector3();
+  let low = Infinity;
+  for (let i = 0; i < p.count; i++) {
+    v.fromBufferAttribute(p, i).applyMatrix4(M);
+    const dx = v.x - mid[0], dz = v.z - mid[2];
+    if (dx * dx + dz * dz < .11 * .11 && v.y > mid[1]) low = Math.min(low, v.y);
+  }
+  return Number.isFinite(low) ? low : NO_HAT;
+}
+
+/** A figure whose hair stands out from its skin (a sheet with `grow`) keeps it under a hat it wears. */
+function watchHat(mesh, root, look) {
+  if (!(look.like?.grow?.[3] > 0) || mesh.userData.chiLikeHatWatch) return;
+  mesh.userData.chiLikeHatWatch = true;
+  const prior = mesh.onBeforeRender;
+  let frame = 0, seen;
+  mesh.onBeforeRender = function (...args) {
+    prior?.apply(this, args);
+    if (frame++ % 30) return;
+    // Only a hat that is worn: one left off (a bareheaded still) flattens nothing.
+    const hat = mesh.parent?.children.find(o => o.isSkinnedMesh && o.visible && /^headwear/.test(o.material?.name ?? '') && !/band/.test(o.material.name)) ?? null;
+    if (hat === seen) return;
+    seen = hat;
+    const u = patched.get(mesh.material);
+    if (u?.chiLikeHat) u.chiLikeHat.value.x = hat ? hatBand(hat, mesh, root, look.like.grow) : NO_HAT;
+  };
 }
 
 const pristine = new WeakMap(), looks = new WeakMap(), variants = new WeakMap();
@@ -718,6 +1038,8 @@ export function dressSkin(root, person = {}) {
   if (!root) return dressed;
   const meshes = [];
   root.traverse(node => { if (node.isMesh) meshes.push(node); });
+  // T-3553: a figure with its own skin sheet may have its own eyes on it.
+  const sheet = likenessLayout(root.userData?.chiLikenessSkin), eyesLike = sheet?.eyes ? sheet : null;
   for (const mesh of meshes) {
     for (const m of Array.isArray(mesh.material) ? mesh.material : [mesh.material]) {
       const surface = surfaceFor(m);
@@ -743,6 +1065,13 @@ export function dressSkin(root, person = {}) {
           if (!Array.isArray(mesh.material)) mesh.material = twin;
         }
         shapeBlink(mesh, root);
+        watchHat(mesh, root, look);
+        dressed[m.name] = surface;
+        continue;
+      }
+      if (surface === 'eyes' && eyesLike && /__(sclera|iris|pupil)$/.test(m.name) && !Array.isArray(mesh.material)) {
+        mesh.material = likenessEyes(m, mesh, root, eyesLike);
+        if (/__(iris|pupil)$/.test(m.name)) domeCornea(mesh, root);
         dressed[m.name] = surface;
         continue;
       }
