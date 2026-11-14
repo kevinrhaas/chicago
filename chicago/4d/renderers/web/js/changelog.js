@@ -1,4 +1,14 @@
 export const CHANGELOG = [ // newest first
+  { v: 2962, ts: '2026-11-14T04:51:35.054Z', date: 'Nov 13, 2026, 10:51 PM CT', title: '1816 Prairie\'s side bay and dormers redrawn to its photograph', kind: 'change',
+    items: [
+      '1816 Prairie\'s side bay now matches the old photograph. Its corner face, which looks toward the street, is broader and holds a wide window, and its windows sit lower and are shorter. Its little mansard is shorter, and every dormer on the roof now rests on the cornice, as the photograph shows.',
+    ] },
+  { v: 2961, ts: '2026-11-14T03:56:05.406Z', date: 'Nov 13, 2026, 9:56 PM CT', title: 'Glessner household tour for grades 3–5; jaunts tagged by grade', kind: 'feature',
+    items: [
+      'New: The Glessner Household, Grades 3–5 — the same seven people, doors and facts in plain words, listed right after the household tour.',
+      'Every jaunt card now shows the school grades it is written for (most read at grades 6–8), measured from its own words.',
+      'Kate Ryan is off the household tour and out of the 1904 town: Bill Tyre of Glessner House says she was the summer cook while Mattie was in New Hampshire, and the Glessners only ever had one cook at a time. Her best facts now sit in Mattie\'s and Christine\'s stops.',
+    ] },
   { v: 2960, ts: '2026-11-14T03:09:06.420Z', date: 'Nov 13, 2026, 9:09 PM CT', title: 'The Fort Dearborn monument\'s figures are bodies now', kind: 'improvement',
     items: [
       'On 18th Street in 1904, the five bronze figures of the Fort Dearborn Massacre monument are no longer joined from rods and balls: each is one of the walkthrough\'s own people, posed joint by joint to the two photographs of the sculpture and cast in the same bronze.',

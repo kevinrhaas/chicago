@@ -1134,9 +1134,9 @@
     "henderson_house_1816_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 7984992,
+      "bytes": 8117972,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "27ad01ea3b11f3f2fe3e8f8d33c4b0b7c11945fb4f5e8e6b99de509f6248516b",
+      "inputs_sha256": "924e54bfb3ed4c999e4e8f5bde95afa170c0ec5af1c07f2b47fdeac56601913b",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "henderson_house_1816_prairie"
