@@ -2,11 +2,11 @@
   "structure_id": "kimball_house_1801_prairie",
   "view": "habs_1965_01_southwest",
   "glb": "assets/gltf/kimball_house_1801_prairie__as_mapped_1904.glb",
-  "glb_sha256": "569b63fa6b16bc6310461a7d232ccf39d2c3de6d11e10839ba743f9e131b20aa",
+  "glb_sha256": "086a63243a56e0ceb8600f3fcdb1a68771b0d3373b30d73b59159a9dc3db6038",
   "camera_sha256": "8905b7c0c16f33ae37bc28c6b7cb7335cd2a150bcfdaf55383b4647a5828c29f",
   "photo_sha256": "be2d21b595907011c7fe29c3e3765f754486cee1acdd321fed62f683ae6e0cbf",
   "side_by_side": "docs/RESEARCH/photo-match/kimball_house_1801_prairie/habs_1965_01_southwest-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "the south wall's two tall stacks: the print's rise from the main cornice over the wall line in pale ashlar the walls' tone, the front one at about u 14.45 (shaft x 870-945 px) and the rear one at about u 3.2 (x 1122-1190); the build had one small reconstructed brick stack at u 3.0, v 10.0 (T-3107)",
@@ -196,8 +196,13 @@
     },
     {
       "what": "the left edge of the slate over the return (seen by T-1890, 2026-11-13): the print carries the north-facing face over the return on to the left, up under the white coping below the cresting (about x 640-735, y 285-330 on the 1800 px copy), its top edge falling to the right toward the corner hood; the build's leaning face meets the front slope in a flashed fold rising from the return's top near the pier (about x 687, y 367) up to the hood (about x 737, y 250), with the front slope's slate left of it",
-      "status": "open",
-      "how": "the north-facing face's top in the print is a level coping, not the deck's corner: the lean wants to reach a coping line at about the cross roof's ridge (the frontispiece's slated cheek, K08 _gable_behind), not the side face's foot of the deck, so its fold with the front slope runs along that coping rather than up to the hood"
+      "status": "fixed",
+      "how": "T-1890, 2026-11-14: the print's coping is the cross roof's ridge, not a line at the deck's foot: it meets the gable's rake about 27 px right of and 49 px under the apex, where the ridge projects 24 px right and 29 px under and a level line at the curb over the deck's foot would meet it 67 px right. West of the deck's street curb (u 17.48) the cut over the return now leans on from the return's top to the cross roof's south slope at the curb (v 8.20 at 15.11 m, 2 cm out from it), so the slate in front of that slope is gone and the cross roof shows from its eave to its ridge, one face from the gable to the hip under the ridge's coping (k01_frontage.return_setback; tools/test_k01_chamfer_return.py). The fold that rose from the return's top to the hood is gone"
+    },
+    {
+      "what": "the band under the cross roof's hood (seen by T-1890, 2026-11-14): the print shows a narrow slate band under the hood (about x 732-790) running down to the balcony; under the deck's corner the build keeps the slate at the deck's foot east of the street curb (cut back further, the deck's corner would overhang an open slot), so a short upright step stands under the hood from about 13 m to the curb, about 0.7 m across at its top and narrowing to nothing, and reads there as a V about x 700-770, y 250-345, its left edge about 30 px (about 0.4 m) left of the print's band at the hood",
+      "status": "within tolerance",
+      "how": "the same slate in the same place as the print's band, under the hood; its shape below about 13 m is the hip's single line where the print's band runs on, inside the camera's own 35-50 px residual at the curb (the Taylor record's mansard curb and deck)"
     }
   ],
   "_how": "verdict is unreviewed | differs | matches, set by whoever compared the side-by-side with the picture; each difference is {what, status: open | fixed | not shown | within tolerance | owner ruling} — open only if a street visitor would notice it (over about 1 ft, missing, mis-shaped, miscounted, wrong material or colour), else within tolerance (T-3153); owner ruling where the owner asked the build to depart from the picture (T-3236). A ticket whose ## Image gate names this building does not close while it is not \"matches\" (tools/image_gate.mjs)."
