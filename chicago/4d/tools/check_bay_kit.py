@@ -709,6 +709,9 @@ def rule_doubled(b):
 
 #: T-1890: a pier's whole budget, at either tier (a box, its floor bands, cap and plinth)
 PIER_MAX_TRIANGLES = 120
+#: T-1887: a blank projection's whole budget, at either tier (a block, its floor bands, its
+#: cornice, plinth and flat top): 1828's stone range costs 140, the kit's windowless projection 80
+BLANK_MAX_TRIANGLES = 200
 
 
 def rule_light(full, light, data, v=None):
@@ -744,6 +747,13 @@ def rule_light(full, light, data, v=None):
     # no window, curve or carving on it, so the light tier has nothing to drop: it keeps the full
     # tier's triangles, and is held instead to a box's own few
     pier = bool((v or {}).get("pier"))
+    # T-1887: and so is a BLANK projection (1828's stone range south of its front bay, plain and
+    # windowless in the automobile photograph): straight-sided, with no window in any storey, it
+    # too has nothing for the light tier to drop. Read off the bay itself, never declared, so a
+    # glazed or curved bay cannot claim it; held to a plain block's few triangles instead
+    blank = not pier and v is not None and v.get("kind") == "projection" \
+        and (v.get("plan") or {}).get("kind") == "polyline" \
+        and not any(st.get("windows") for st in v.get("storeys") or ())
 
     def box(b):
         ps = [p for r, pr in b.prims.items() if r not in K.BOARD_ROLES for p in pr.pos]
@@ -758,6 +768,10 @@ def rule_light(full, light, data, v=None):
         if tl > tf or tf > PIER_MAX_TRIANGLES:
             fails.append(f"light: a pier costs {tf} triangles at the full tier and {tl} at the light; a plain "
                          f"box keeps at most {PIER_MAX_TRIANGLES}, the light tier no more than the full")
+    elif blank:
+        if tl > tf or tf > BLANK_MAX_TRIANGLES:
+            fails.append(f"light: a blank projection costs {tf} triangles at the full tier and {tl} at the light; "
+                         f"a plain block keeps at most {BLANK_MAX_TRIANGLES}, the light tier no more than the full")
     elif tl > ratio * tf:
         fails.append(f"light: the light tier costs {tl} triangles, {tl / tf:.2f} of the full tier's {tf} "
                      f"(allowed {ratio})")
@@ -907,6 +921,11 @@ def self_test(data) -> int:
     def m_light_pier(d):   # T-1890: a bay that calls itself a pier keeps no light tier, but only as a box
         _v(d, "k08.bay.canted")["pier"] = True
 
+    def m_light_blank(d):  # T-1887: a windowless projection keeps no light tier, but only as a plain block
+        v = _v(d, "k08.projection.full_height")
+        st = v["storeys"][0]
+        v["storeys"] = [{**copy.deepcopy(st), "windows": []} for _ in range(12)]
+
     cases = [
         ("a window off the end of its run", m_pier, "k08.bay.canted", "pier:"),
         ("two windows on one run, side by side into each other", m_overlap, "k08.bay.bowed", "overlap:"),
@@ -925,6 +944,8 @@ def self_test(data) -> int:
         ("a coped gable over two lights a storey stating its own ratio", m_light_gable,
          "k08.projection.full_height", "holds no open opening"),
         ("a glazed bay calling itself a pier to keep its light tier", m_light_pier, "k08.bay.canted", "a pier costs"),
+        ("a windowless projection twelve storeys high, past a plain block's budget", m_light_blank,
+         "k08.projection.full_height", "a blank projection costs"),
     ]
     bad = 0
     for name, mut, vid, want in cases:

@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2982, ts: '2026-11-14T21:12:06.656Z', date: 'Nov 14, 2026, 3:12 PM CT', title: '1828 Prairie\'s front gains the stone range south of its bay', kind: 'feature',
+    items: [
+      '1828 Prairie (the Shipman house) now has a plain, windowless stone range at the south end of its front, beside the canted bay and full height under the cornice, as the street photograph of about 1900 shows it. The 1893 Rand McNally street view draws the same strip, and the 1876 permit\'s 35 ft front leaves room for it. The 1911 fire map does not show it, and the liberty says so.',
+    ] },
   { v: 2981, ts: '2026-11-14T20:04:36.826Z', date: 'Nov 14, 2026, 2:04 PM CT', title: '1708 Prairie weathers to its own age beside an older neighbour', kind: 'improvement',
     items: [
       '1708 Prairie, built between 1886 and 1901, now carries only three years of soot and damp, where it wore a forty-year-old house\'s grime.',
