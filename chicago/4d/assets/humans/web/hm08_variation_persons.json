@@ -63269,6 +63269,7 @@
    "scene": "1904",
    "record": "data/residents_1904/households/hh_armour_mrs_philip_d.json",
    "drawn_as": [
+    "data/transport/driven/loops.json#prairie_driven_brougham_south_loop_1904",
     "data/humans/inside_1904.json#pa1904_armour_mrs_philip_d_c1900_joseph_daniels"
    ],
    "age": {
@@ -83185,6 +83186,7 @@
    "scene": "1904",
    "record": "data/residents_1904/households/hh_pullman_mrs_george_m.json",
    "drawn_as": [
+    "data/transport/driven/loops.json#prairie_driven_brougham_north_loop_1904",
     "data/humans/inside_1904.json#pa1904_pullman_mrs_george_m_c1900_henry_windish"
    ],
    "age": {
