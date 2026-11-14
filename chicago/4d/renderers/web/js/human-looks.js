@@ -130,6 +130,22 @@ export function dressCloth(root, dress) {
   return [...made.values()].filter(Boolean).concat(own);
 }
 
+/**
+ * T-3553: a dress for the season the visitor has chosen. A record may carry `seasons`, by the
+ * Season setting's names (summer, spring, fall, winter), each a partial dress laid over the
+ * record's own: a summer lawn shirtwaist and a straw sailor, a winter velvet and a toque. A
+ * season it does not name wears the record as it stands. Returns the record itself where
+ * nothing changes, so a figure without seasons is dressed exactly as before.
+ */
+export const DRESS_SEASON_KEYS = Object.freeze(['colours', 'hide', 'pieces', 'hat', 'finery', 'worn']);
+export function dressInSeason(dress, season) {
+  const over = dress?.seasons?.[season];
+  if (!over || typeof over !== 'object') return dress;
+  const out = { ...dress };
+  for (const k of DRESS_SEASON_KEYS) if (over[k] !== undefined) out[k] = over[k];
+  return out;
+}
+
 export function disposeLooks(materials) {
   for (const m of materials ?? []) m.dispose();
 }

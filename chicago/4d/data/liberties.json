@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 1131,
+  "count": 1132,
   "names": [
     {
       "id": "agency_striker_log_house",
@@ -74451,6 +74451,36 @@
         "T-3562",
         "T-1893",
         "T-3155"
+      ]
+    },
+    {
+      "id": "L-finery-3553",
+      "title": "The women's finery of 1904 and the figured cloth of 1812",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-11-14",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "The owner asked, 2026-11-14, for finer and more varied women's clothing (\"Give the women some variation in their clothing appearance\"). Every Prairie Avenue lady of 1904 is dealt, by her id, her own summer, spring/fall and winter dress: a walking suit, a silk afternoon dress, a white lingerie dress, a shirtwaist and skirt, a velvet afternoon dress or (for women of sixty or more, mostly) half-mourning silk with jet; with lace, ribbon or velvet bands, soutache braid, tucks, flounces, embroidery or a woven figure, and a picture hat, straw sailor or toque trimmed with plumes, flowers or a bow. Maids, cooks, companions and girls are varied the same way within their roles. Every choice of dress, colour, trim, figure, hat and season for any named woman is reconstructed; no garment of any resident is claimed, and the bodies' garment shapes are unchanged. **1812 and 1835:** A garment whose record's words name a check, stripe, ticking, calico, print or sprig is drawn with that figure, its mean colour held to the record's own colour. Where the words give one colour, the figure's colour and every figure's scale are seeded reconstructions. The one drawn woman of 1835 is unchanged."
+        },
+        {
+          "label": "Basis",
+          "text": "Eleven dated Costume Institute garments and hats of 1899–1905 (the Met, open access; the met ci data, listed in the research notes on finery) with the existing lady's references (Suit, French, 1902, wool and silk: bodice, skirt and coat, Detroit Publishing Co., Easter crowds on Fifth Avenue, New York, glass…, Frances Benjamin Johnston, [Mrs. Fairbanks making address at the laying of the…). None shows Chicago or anyone drawn here; they are cross-checks for the kinds of trimming and cloth, never traced or sampled."
+        },
+        {
+          "label": "How to resolve",
+          "text": "A photograph or record of a named resident's dress replaces her reconstructed one. New garment shapes (pouched bodice, bishop sleeves, trains, coats and furs) need new canonical pieces."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-11-14."
+        }
+      ],
+      "work_refs": [
+        "T-3553"
       ]
     },
     {

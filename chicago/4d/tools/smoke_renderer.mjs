@@ -16472,7 +16472,14 @@ for (const [label, viewport, touch] of [
     check(`${label}: Back returns to the hub`,
       hub.back.hubShown && hub.back.title === 'About this destination' && hub.back.topic === null && hub.back.backHidden,
       JSON.stringify(hub.back));
-    await holdDraws(false); // T-3455: the draws come back before the drawer closes
+    // T-3600: the hold is NOT lifted here any more. Everything from here to the
+    // recorded-sound block below is Settings' own DOM too — the navigation aids,
+    // Show, the DEV pill, Display, Machine, Sound's sliders, text size 140 % across
+    // every app, the field log and Researcher — and none of it reads a pixel, a
+    // program or `renderer.info`, so the draws stay HELD until that block's
+    // `finally` lifts them before the Confidence budgets. Unheld, this stretch
+    // cost 7 m 38 s of desktop part 13 on CI (6:05 to 13:43 in content build
+    // 43614283619, whose part 13 was then killed at its 40-minute leg cap).
     // The chrome as the next block expects it: drawer closed.
     await clickChrome('#panel-close');
 
@@ -16831,6 +16838,7 @@ for (const [label, viewport, touch] of [
     // DOM/audio state only: keep simulation and browser layout live, but avoid
     // software WebGL draws blocking trusted-input acknowledgement. Restore the
     // real renderer before the Confidence budgets and graphical checks below.
+    // (T-3600: already held since the directories above; the call is idempotent.)
     await holdDraws(true);
     try {
     await openSection('settings', 'display').catch(() => {});
@@ -17307,6 +17315,19 @@ for (const [label, viewport, touch] of [
       }
     }
     // <<< T-2650
+    // T-3600: from here to the telemetry strip's reading below, every check reads the
+    // chrome's own DOM — the HUD's top row and its footprint, the Confidence legend chip,
+    // the Navigator docked, opened, by keyboard, Jump and its ring, Home's choices, a held
+    // card, the Field Check, the tour offer, Go to's chips and sorts and Free roam's tip —
+    // and none reads a pixel, a program or `renderer.info` (the overlay and Confidence
+    // budgets above are why the hold starts here and not sooner). So the draws are HELD
+    // (`holdDraws`, T-2337), and the telemetry block's own `holdDraws(false)` lifts them
+    // before QA-11's reload. Unheld, this stretch was 21:42 to the leg's kill at 39:44 of
+    // desktop part 13 on CI (content build 43614283619) and still had the Field Check to
+    // go: its waits poll every 100-250 ms, and each poll waited behind a 1280x800 frame
+    // drawn in software. The tick keeps running, and the held draw keeps the camera's
+    // matrix current (T-3489), so picks, walks and Show me behave as they do drawn.
+    await holdDraws(true);
     // >>> T-2625: the HUD's top row holds none of what left it, and each is reachable in the
     // Navigator — Start / Jaunts's three choices in Jaunts (T-2630), the Confidence view's
     // presets (T-2647), the pace in Move, light or dark in Settings. (The street readout is
@@ -18291,6 +18312,8 @@ for (const [label, viewport, touch] of [
     // at all while it is docked, the tab is hidden, or the visitor asks for reduced motion (QA-06).
     // The draws are held while it is timed (holdDraws above): on a software rasteriser a
     // frame can hold the main thread for seconds, and no timer could fire through it.
+    // (T-3600: already held since T-2625 above; the call is idempotent, and the
+    // `holdDraws(false)` after it ends that hold too.)
     await holdDraws(true);
     const strip = await page.evaluate(async () => {
       const api = window.__chicago4d, tm = api.navigator.telemetry, el = document.querySelector('#navigator .nav-telemetry');
