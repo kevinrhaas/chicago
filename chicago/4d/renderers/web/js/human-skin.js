@@ -47,6 +47,7 @@ import * as THREE from 'three';
 import { hairFor, HAIR_COLOURS } from './human-hair-styles.js';
 import { setLidRest } from './human-variation.js';
 import { fineCells, fineOf } from './human-fine.js';
+import { teethStrip, teethOf, createMouth } from './human-mouth.js';
 
 /** Strengths. Pores, lines and mottle are 0..1 multipliers; scatter the glow. */
 export const SKIN = Object.freeze({ pores: 1, lines: 1, mottle: 1, scatter: 1, oil: .14, fuzz: .05, roughness: .55, lip_tone: .6 });
@@ -81,6 +82,14 @@ const VERTEX = `
 // pictures' outline, as the bake measured it. The bind-pose position the fragment's pores and lines are
 // placed by stays the bare skin's. The rest frame's own x and y, as they stand in view, go to
 // the fragment: the grown surface's facing is kept on the sheet in that frame.
+// The shade inside a mouth that opens (T-3553). The inside of the mouth has an island of its
+// own on the body's map (hm08: every body shares the layout): the rectangle u0..u1 from v0 up,
+// less the corner the left hand's island reaches into (left of `hand_u` below `hand_v`: the tip
+// of its middle finger). It keeps `dark` of its light back. The teeth behind the lips lie in
+// the same shade while the mouth is shut (the lips of a face at rest do not seal, and a light
+// line showed between them) and take the light as the face moves into its smile, all of it by
+// `lit_by` of the smile.
+export const MOUTH_SHADE = Object.freeze({ u0: 0.75, u1: 0.93, v0: 0.86, hand_u: 0.764, hand_v: 0.912, dark: 0.85, lit_by: 0.25 });
 const LIKE_VERTEX_DECLARE = `
 uniform sampler2D chiLike;
 uniform vec4 chiLikeUv[ 3 ];
@@ -92,10 +101,17 @@ uniform float chiLikeAxis;
 uniform mat3 chiLikeBack;
 varying vec3 vChiLikeX;
 varying vec3 vChiLikeY;
+varying float vChiSmile;
 `;
 const LIKE_VERTEX = `
   vChiLikeX = vec3( 1.0, 0.0, 0.0 );
   vChiLikeY = vec3( 0.0, 1.0, 0.0 );
+  // How far a face with a smile has moved into it: human-variation.js appends the smile after
+  // the body's own shapes, so it is the last. Read only where the face has teeth to show.
+  vChiSmile = 0.0;
+  #ifdef USE_MORPHTARGETS
+    vChiSmile = morphTargetInfluences[ MORPHTARGETS_COUNT - 1 ];
+  #endif
   #ifdef USE_MAP
   if ( chiLikeGrow.w > 0.0 ) {
     vec2 st = vec2( 0.0 );
@@ -173,6 +189,8 @@ uniform vec4 chiLikeMask;       // the coverage mask's corner on the sheet (xy),
 uniform vec4 chiLikeTint;       // what the body's map is multiplied by beside the sheet; the sheet's gain
 uniform vec4 chiLikeGrow;       // the middle of the head the hair stands out from (bind pose, m), and the most it stands (m; 0: none)
 uniform vec4 chiLikeHat;        // a worn hat's band (bind-pose height, m), the most hair stands under it, the facing block's corner on the sheet
+uniform vec4 chiLikeTeeth;      // the teeth's patch on the body's map (u0, v0, u1, v1) where the sheet's wearer has teeth to show (human-mouth.js); empty otherwise
+varying float vChiSmile;        // how far the face has moved into its smile
 varying vec3 vChiLikeX;
 varying vec3 vChiLikeY;
 float chiLikeHair = 0.0;        // where the sheet shows hair and not skin
@@ -318,6 +336,13 @@ const SKIN_COLOR = `
       float a = on * mask.g;
       vec3 like = texture2D( chiLike, st ).rgb * chiLikeTint.w;
       c = mix( c / max( diffuse, vec3( 1e-3 ) ) * chiLikeTint.rgb, like, a );
+      // The inner mouth of a face with teeth to show, seen between parted lips, lies in their
+      // shade (the body's map paints it a lit salmon): its island only. The teeth lie in it too
+      // until the lips part. MOUTH_SHADE.
+      float bag = step( ${MOUTH_SHADE.u0}, vMapUv.x ) * step( vMapUv.x, ${MOUTH_SHADE.u1} ) * step( ${MOUTH_SHADE.v0}, vMapUv.y )
+        * max( step( ${MOUTH_SHADE.hand_u}, vMapUv.x ), step( ${MOUTH_SHADE.hand_v}, vMapUv.y ) );
+      float teeth = step( chiLikeTeeth.x, vMapUv.x ) * step( vMapUv.x, chiLikeTeeth.z ) * step( chiLikeTeeth.y, vMapUv.y ) * step( vMapUv.y, chiLikeTeeth.w );
+      c *= 1.0 - ${MOUTH_SHADE.dark} * step( chiLikeTeeth.x, chiLikeTeeth.z ) * max( bag, teeth * ( 1.0 - smoothstep( 0.0, ${MOUTH_SHADE.lit_by}, vChiSmile ) ) );
       ageH *= 1.0 - a;
       // Hair in the pictures is hair: no pores, no oil, no light through it, and where it
       // stands out from the skin it is lit as the shape it stands in.
@@ -481,6 +506,7 @@ function patchSkin(material, rest, look = NO_LOOK) {
     chiLikeGrow: { value: new THREE.Vector4() },
     chiLikeHat: { value: new THREE.Vector4(NO_HAT, LIKENESS.under_hat_m, 0, 0) },
     chiLikeAxis: { value: 0 },
+    chiLikeTeeth: { value: new THREE.Vector4(2, 2, -1, -1) },
     chiLikeBack: { value: new THREE.Matrix3().setFromMatrix4(rest).invert() },
   };
   setLikeness(uniforms, look.like);
@@ -893,7 +919,9 @@ export function likenessLayout(skin) {
     grow: grows ? [...g.from_m, g.reach_m] : [0, 0, 0, 0], facing: grows ? [g.normal_px[0] / W, g.normal_px[1] / H] : [0, 0],
     // The upright line the hair stands out from (its length down from `grow`), and the cells of the sheet it stands out in.
     axis: grows && g.axis_m > 0 ? g.axis_m : 0, fine: grows ? fineCells(g.fine, skin.size_px) : null,
-    eyes: eyed ? { rect: [e.px[0] / W, e.px[1] / H, 2 * e.size / W, e.size / H], white: e.white_srgb.slice() } : null };
+    eyes: eyed ? { rect: [e.px[0] / W, e.px[1] / H, 2 * e.size / W, e.size / H], white: e.white_srgb.slice() } : null,
+    // The teeth behind an open mouth's lips (human-mouth.js): a strip of points and their places on the body's map.
+    teeth: teethStrip(skin.teeth) };
 }
 
 // One texture per sheet, shared by every body of that person (each level of detail, each
@@ -996,6 +1024,8 @@ function setLikeness(uniforms, like) {
   uniforms.chiLikeGrow.value.set(...(like?.grow ?? [0, 0, 0, 0]));
   uniforms.chiLikeHat.value.set(NO_HAT, LIKENESS.under_hat_m, ...(like?.facing ?? [0, 0]));
   uniforms.chiLikeAxis.value = like?.axis ?? 0;
+  // No teeth: an empty rect (its far corner before its near one), which shades nothing.
+  uniforms.chiLikeTeeth.value.set(...(like?.teeth?.rect ?? [2, 2, -1, -1]));
 }
 
 /**
@@ -1009,6 +1039,21 @@ function fineSkin(mesh, root, like) {
   const g = fineOf(mesh.geometry, like.url, { metres: restMatrix(mesh, root), layout: like, cells: like.fine });
   if (!g || g === mesh.geometry) return false;
   // Its blink is the shaped one's, a vertex more for each edge split: not to be shaped again.
+  for (const t of g.morphAttributes.position ?? []) if (t) blinked.add(t);
+  mesh.geometry = g;
+  return true;
+}
+
+/**
+ * T-3553: a person whose mouth is open has teeth behind the lips (human-mouth.js): a strip added
+ * to the skin's own geometry at every level, carried by the head's bone.
+ */
+function teethSkin(mesh, root, like) {
+  if (!like?.teeth || Array.isArray(mesh.material)) return false;
+  const bone = mesh.skeleton?.bones.findIndex(b => b.name === like.teeth.bone) ?? -1;
+  const g = teethOf(mesh.geometry, like.url, { metres: restMatrix(mesh, root), strip: like.teeth, bone });
+  if (!g || g === mesh.geometry) return false;
+  // Its blink is the shaped one's, a row more for each of the strip's points: not to be shaped again.
   for (const t of g.morphAttributes.position ?? []) if (t) blinked.add(t);
   mesh.geometry = g;
   return true;
@@ -1096,6 +1141,7 @@ export function dressSkin(root, person = {}) {
         }
         shapeBlink(mesh, root);
         fineSkin(mesh, root, look.like);
+        teethSkin(mesh, root, look.like);
         watchHat(mesh, root, look);
         dressed[m.name] = surface;
         continue;
@@ -1115,6 +1161,12 @@ export function dressSkin(root, person = {}) {
       if (surface === 'eyes' && /__(iris|pupil)$/.test(m.name)) domeCornea(mesh, root);
       dressed[m.name] = surface;
     }
+  }
+  // T-3553: a figure whose face has a smile to move into is given its mouth's play
+  // (human-mouth.js); human-actions.js finds it here and tells it when the person greets and talks.
+  if (root.userData?.chiLikenessSkin?.smile) {
+    const mouth = root.userData.chiMouth ?? createMouth({ id: person.person ?? 'human' });
+    if (mouth.bind(root)) root.userData.chiMouth = mouth; else delete root.userData.chiMouth;
   }
   return dressed;
 }

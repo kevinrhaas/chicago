@@ -57,6 +57,9 @@ def target_files(axes):
             files += a.get(k, [])
         for o in a.get('options', []):
             files += o
+    # T-3553: the expression units a smile is fitted with (tools/bake_likeness_skin.py); pinned
+    # with the axes' targets, not built into the kit.
+    files += (axes.get('expressions') or {}).get('units', [])
     return sorted(set(files))
 
 
@@ -145,8 +148,11 @@ def local_frames(src, posed_by_source, faces):
     return frames
 
 
-def build():
-    axes = json.loads(AXES.read_text())
+def target_deltas():
+    """How a pinned target moves the kit's vertices: a function of a list of target files giving
+    their summed delta (metres, the engineering T-pose, the kit's vertex order), with the kit's
+    own positions and the prepared mesh they came from. The kit is built with it, and
+    tools/bake_likeness_skin.py reads the expression units through it (T-3553)."""
     manifest = json.loads(MANIFEST.read_text())
     pins = {r['path']: r for r in manifest['files']}
     src, faces = read_obj(MH / 'makehuman/data/3dobjs/base.obj')
@@ -177,6 +183,12 @@ def build():
         # into the T-pose, metres, over the UV-split vertices
         return S[:, None] * np.einsum('kij,kj->ki', R, total[source_of])
 
+    return delta, positions, prepared
+
+
+def build():
+    axes = json.loads(AXES.read_text())
+    delta, positions, prepared = target_deltas()
     chunks, offset = [], 0
 
     def put(arr):
@@ -351,6 +363,21 @@ def persons():
                                        **{k: g[k] for k in ('axis_m', 'fine') if g.get(k)}}
             if (t.get('lids') or {}).get('rest', 0) > 0:
                 rec['skin']['lid'] = t['lids']['rest']   # ...and how far its lids rest shut, as its front picture's do
+            if t.get('teeth'):
+                # ...and the teeth behind the lips: a strip of points, each where it stands (metres)
+                # and where on the body's map its colour is (renderers/web/js/human-mouth.js).
+                rec['skin']['teeth'] = {k: t['teeth'][k] for k in ('grid', 'bone', 'at_m', 'uv')}
+            if t.get('smile'):
+                # ...and the smile its front picture shows (tools/bake_likeness_skin.py fit_smile): the
+                # kit's vertices it moves and each one's move, in the kit's delta unit. The face rests
+                # as fitted and moves into it (renderers/web/js/human-variation.js), only as baked.
+                smile = ROOT / t['smile']['file']
+                if hashlib.sha256(smile.read_bytes()).hexdigest() != t['smile']['sha256']:
+                    raise SystemExit(f'{smile.relative_to(ROOT)} is not the smile {skin.relative_to(ROOT)} was baked with: run tools/bake_likeness_skin.py again')
+                sm = json.loads(smile.read_text())
+                if sm['unit_m'] != DELTA_UNIT_M:
+                    raise SystemExit(f'{smile.relative_to(ROOT)}: unit_m must be the kit delta unit')
+                rec['skin']['smile'] = {'file': str(smile.relative_to(ROOT)), 'vertices': sm['vertices'], 'delta': sm['delta']}
             if t.get('eyes'):
                 # ...and its own irises (two squares of the sheet) and the colour of its eyes' whites.
                 rec['skin']['eyes'] = {'px': t['eyes']['px'], 'size': t['eyes']['size'], 'white_srgb': t['eyes']['white_srgb']}

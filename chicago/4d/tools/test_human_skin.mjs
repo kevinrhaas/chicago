@@ -16,7 +16,7 @@ const threeURL = new URL('renderers/web/vendor/three-0.185.1/three.module.js', h
 // file with 'three' resolved to the vendored copy, not from a data: URL.
 registerHooks({ resolve: (specifier, context, next) => (specifier === 'three' ? { url: threeURL, shortCircuit: true } : next(specifier, context)) });
 const THREE = await import(threeURL);
-const { surfaceFor, dressSkin, restMatrix, SKIN, EYES, AGE, restingLid, likenessLayout, likenessSheetsReady, LIKENESS } = await import(new URL('renderers/web/js/human-skin.js', here));
+const { surfaceFor, dressSkin, restMatrix, SKIN, EYES, AGE, restingLid, likenessLayout, likenessSheetsReady, LIKENESS, MOUTH_SHADE } = await import(new URL('renderers/web/js/human-skin.js', here));
 
 const materialNames = async asset => {
   const bytes = await fs.readFile(new URL(`assets/humans/web/${asset}.glb`, here));
@@ -97,7 +97,7 @@ for (const marker of ['chiSkinH = ( - chiSkin.x * pore', 'roughnessFactor = clam
 assert(s.fragmentShader.indexOf('#include <lights_physical_pars_fragment>') < s.fragmentShader.indexOf('void chiSkinDirect('));
 assert(s.vertexShader.includes('vChiSkinP = ( chiSkinRest * vec4( position, 1.0 ) ).xyz;'));
 assert.deepEqual(Object.keys(s.uniforms).sort(), ['chiBrowTint', 'chiFace', 'chiFaceLook', 'chiFaceMarks', 'chiLike', 'chiLikeAxis', 'chiLikeBack', 'chiLikeGrow', 'chiLikeHat', 'chiLikeMap', 'chiLikeMask',
-  'chiLikeTint', 'chiLikeUv', 'chiSkin', 'chiSkinLipTone', 'chiSkinRest', 'chiSkinSheen']);
+  'chiLikeTeeth', 'chiLikeTint', 'chiLikeUv', 'chiSkin', 'chiSkinLipTone', 'chiSkinRest', 'chiSkinSheen']);
 // T-3553 (Kevin, 2026-11-12: "when the sun is behind people their lips have a pink line too much"):
 // lips found in the map's own colour (the complexion divided out) and turned partway to the skin's
 // hue; the parting shaded in the light step. Every skin, every period: one program.
@@ -138,6 +138,7 @@ assert.equal(a.vertexShader + a.fragmentShader, b.vertexShader + b.fragmentShade
 {
   assert.equal(s.uniforms.chiLike.value, null, 'a plain skin reads no sheet');
   assert.equal(s.uniforms.chiLikeMask.value.w, 0, 'a plain skin wears no sheet');
+  assert.deepEqual(s.uniforms.chiLikeTeeth.value.toArray(), [2, 2, -1, -1], 'and has no mouth to shade: its teeth\'s rect is empty');
   for (const r of s.uniforms.chiLikeUv.value) assert(r.x > r.z && r.y > r.w, 'a plain skin\'s rects are empty');
   for (const marker of ['if ( chiLikeMask.w > 0.5 ) {', 'c = mix( c / max( diffuse, vec3( 1e-3 ) ) * chiLikeTint.rgb, like, a );', 'ageH *= 1.0 - a;'])
     assert.equal(s.fragmentShader.split(marker).length, 2, `likeness spliced once: ${marker}`);
@@ -273,6 +274,67 @@ assert.equal(a.vertexShader + a.fragmentShader, b.vertexShader + b.fragmentShade
     finally { for (const [k, d] of Object.entries(had)) { if (d) Object.defineProperty(globalThis, k, d); else delete globalThis[k]; } }
     assert(wear(head(), 'stand_in_body_0_lod0', grownSheet).geometry.userData.chiFine, 'and a computer does not');
   }
+  // A mouth that opens (T-3553, human-mouth.js): a sheet with teeth adds their strip to the skin's
+  // own geometry at every level, after the finer head's rows, carried by the bone it names; a
+  // face with the smile is given its mouth's play, left on the figure; nobody else gets either.
+  {
+    const teeth = { grid: [3, 2], bone: 'head', at_m: [[-.01, .005, .09], [0, .005, .091], [.01, .005, .09], [-.01, -.005, .09], [0, -.005, .091], [.01, -.005, .09]],
+      uv: [[.76, .87], [.8, .87], [.84, .87], [.76, .9], [.8, .9], [.84, .9]] };
+    const toothed = { ...grownSheet, url: grownSheet.url + '?teeth', teeth, smile: { file: 'x.json', vertices: [0], delta: [0, 0, 1] } };
+    const head = () => {
+      const g = new THREE.SphereGeometry(.1, 12, 8), n = g.attributes.position.count, uv = g.attributes.uv;
+      for (let i = 0; i < n; i++) uv.setXY(i, 0.635 + uv.getX(i) * 0.365, 0.175 + uv.getY(i) * 0.685);
+      g.setAttribute('skinIndex', new THREE.Uint16BufferAttribute(new Array(n * 4).fill(0), 4));
+      g.setAttribute('skinWeight', new THREE.Float32BufferAttribute(Array.from({ length: n * 4 }, (_, i) => (i % 4 ? 0 : 1)), 4));
+      return g;
+    };
+    const wear = (geo, name, like, smiling = true) => {
+      const spine = new THREE.Bone(), skull = Object.assign(new THREE.Bone(), { name: 'head' });
+      const mesh = Object.assign(new THREE.SkinnedMesh(geo, Object.assign(new THREE.MeshStandardMaterial(), { name: 'skin' })), { name });
+      const root = new THREE.Group(); spine.add(skull); root.add(spine, mesh); root.updateMatrixWorld(true);
+      mesh.bind(new THREE.Skeleton([spine, skull]), mesh.matrixWorld);
+      // human-variation.js names the smile on a mesh whose face moves.
+      if (smiling) { mesh.morphTargetDictionary = { eyeBlinkLeft: 0, jawOpen: 1, chiSmile: 2 }; mesh.morphTargetInfluences = [0, 0, 0]; }
+      if (like) root.userData.chiLikenessSkin = like;
+      dressSkin(root, { person: 'stand_in' }); dressSkin(root, { person: 'stand_in' });
+      return { mesh, root };
+    };
+    for (const [name, fine] of [['stand_in_body_0_lod0', true], ['stand_in_body_0_lod3', false]]) {
+      const src = head(), n0 = src.attributes.position.count, { mesh, root } = wear(src, name, toothed);
+      const g = mesh.geometry, t = g.userData.chiTeeth;
+      assert(t && t.added === 6, `${name}: the strip is added`);
+      assert.equal(!!g.userData.chiFine, fine, `${name}: on the ${fine ? 'finer' : "body's own"} head`);
+      assert.equal(t.of + 6, g.attributes.position.count, 'its rows are the last');
+      assert(fine ? t.of > n0 : t.of === n0);
+      assert.deepEqual([0, 1, 2, 3].map(c => g.attributes.skinIndex.getComponent(t.of, c)), [1, 0, 0, 0], 'carried by the bone the record names');
+      assert.equal(src.attributes.position.count, n0, 'the body\'s own geometry is not touched');
+      const mouth = root.userData.chiMouth;
+      assert(mouth?.bound, `${name}: the figure is given its mouth`);
+      const first = mouth;
+      dressSkin(root, { person: 'stand_in' });
+      assert.equal(root.userData.chiMouth, first, 'the same one at every rebuild');
+      for (let k = 0; k < 90; k++) mouth.apply(1 / 30, { facing: true });
+      assert.equal(mesh.morphTargetInfluences[2], 1, 'and it plays the smile');
+    }
+    assert.equal(wear(head(), 'stand_in_body_0_lod0', toothed, false).root.userData.chiMouth, undefined, 'a level whose face does not move has no mouth to play');
+    const plainHead = head(), plain = wear(plainHead, 'stand_in_body_0_lod3', sheet);
+    assert.equal(plain.mesh.geometry, plainHead, 'a sheet with no teeth adds none');
+    assert.equal(plain.root.userData.chiMouth, undefined, 'and no mouth');
+    // The inside of the mouth is shaded for a face with teeth to show, and for nobody else; the
+    // teeth lie in the same shade until the face moves into its smile (its last shape).
+    const shadeOf = m => compile(m.material).uniforms.chiLikeTeeth.value.toArray();
+    const rect = shadeOf(wear(head(), 'stand_in_body_0_lod0', toothed).mesh);
+    assert(rect[0] < .76 && rect[2] > .84 && rect[1] < .87 && rect[3] > .9 && rect[2] - rect[0] < .081 && rect[3] - rect[1] < .031, `a sheet with teeth names their part of the map (${rect})`);
+    assert.deepEqual(shadeOf(plain.mesh), [2, 2, -1, -1], 'a sheet with none leaves the mouth as the body drew it');
+    const { u0, u1, v0, hand_u, hand_v, dark, lit_by } = MOUTH_SHADE;
+    for (const line of [`float bag = step( ${u0}, vMapUv.x ) * step( vMapUv.x, ${u1} ) * step( ${v0}, vMapUv.y )`, `* max( step( ${hand_u}, vMapUv.x ), step( ${hand_v}, vMapUv.y ) );`,
+      `c *= 1.0 - ${dark} * step( chiLikeTeeth.x, chiLikeTeeth.z ) * max( bag, teeth * ( 1.0 - smoothstep( 0.0, ${lit_by}, vChiSmile ) ) );`])
+      assert.equal(s.fragmentShader.split(line).length, 2, `the mouth's shade, once: ${line}`);
+    assert.equal(s.vertexShader.split('vChiSmile = morphTargetInfluences[ MORPHTARGETS_COUNT - 1 ];').length, 2, 'the smile is read as the last shape of a face that moves');
+    assert(s.vertexShader.indexOf('vChiSmile = 0.0;') < s.vertexShader.indexOf('#ifdef USE_MORPHTARGETS\n    vChiSmile ='), 'and is none on a face that does not');
+    assert(dark > .5 && dark < 1 && lit_by > 0 && lit_by <= .4, 'lit before the smile kept while talking is reached');
+    assert.equal(wear(head(), 'stand_in_body_0_lod3', { ...toothed, teeth: { ...teeth, bone: 'jawbone' } }).mesh.geometry.userData.chiTeeth, undefined, 'a bone the body has not, no strip');
+  }
   // Its own eyes (T-3553): twins of the eyes' shared materials, the iris and the pupil reading
   // the sheet, the whites in the picture's colour; the shared ones stay everyone else's.
   {
@@ -336,6 +398,65 @@ assert.equal(a.vertexShader + a.fragmentShader, b.vertexShader + b.fragmentShade
   assert(skinSource.includes('setLidRest(restedBlink);'), 'human-skin.js hands it in as it loads');
 }
 
+// T-3553: the shaded part of the map (MOUTH_SHADE) holds the inside of the mouth and nothing else, on
+// the real bodies that wear a sheet, at every level: a triangle that reaches into it is carried
+// by the head or the jaw (the left hand's island lies against it; a fingertip was shaded once).
+{
+  const vendor = new URL('renderers/web/vendor/three-0.185.1/', here);
+  const { GLTFLoader } = await import(new URL('addons/loaders/GLTFLoader.js', vendor));
+  const { MeshoptDecoder } = await import(new URL('addons/libs/meshopt_decoder.module.js', vendor));
+  await MeshoptDecoder.ready;
+  globalThis.self ??= globalThis;
+  const bare = bytes => {   // the export without its pictures, which node cannot decode
+    const n = bytes.readUInt32LE(12), doc = JSON.parse(bytes.subarray(20, 20 + n));
+    for (const m of doc.materials ?? []) {
+      delete m.normalTexture; delete m.occlusionTexture; delete m.emissiveTexture;
+      if (m.pbrMetallicRoughness) { delete m.pbrMetallicRoughness.baseColorTexture; delete m.pbrMetallicRoughness.metallicRoughnessTexture; }
+    }
+    const json0 = Buffer.from(JSON.stringify(doc)), json = Buffer.concat([json0, Buffer.alloc(-json0.length & 3, 32)]);
+    const bin = bytes.subarray(28 + n), out = Buffer.alloc(28 + json.length + bin.length);
+    out.writeUInt32LE(0x46546c67, 0); out.writeUInt32LE(2, 4); out.writeUInt32LE(out.length, 8);
+    out.writeUInt32LE(json.length, 12); out.writeUInt32LE(0x4e4f534a, 16); json.copy(out, 20);
+    out.writeUInt32LE(bin.length, 20 + json.length); out.writeUInt32LE(0x004e4942, 24 + json.length); bin.copy(out, 28 + json.length);
+    return out.buffer.slice(out.byteOffset, out.byteOffset + out.byteLength);
+  };
+  // The area of a triangle inside a rectangle of the map.
+  const within = (tri, [x0, y0, x1, y1]) => {
+    const cut = (poly, inside, meet) => { const out = []; for (let i = 0; i < poly.length; i++) { const a = poly[i], b = poly[(i + 1) % poly.length]; if (inside(a)) out.push(a); if (inside(a) !== inside(b)) out.push(meet(a, b)); } return out; };
+    const atX = x => (a, b) => [x, a[1] + (x - a[0]) / (b[0] - a[0]) * (b[1] - a[1])], atY = y => (a, b) => [a[0] + (y - a[1]) / (b[1] - a[1]) * (b[0] - a[0]), y];
+    let poly = cut(tri, p => p[0] >= x0, atX(x0)); poly = cut(poly, p => p[0] <= x1, atX(x1)); poly = cut(poly, p => p[1] >= y0, atY(y0)); poly = cut(poly, p => p[1] <= y1, atY(y1));
+    let area = 0; for (let i = 0; i < poly.length; i++) { const p = poly[i], q = poly[(i + 1) % poly.length]; area += p[0] * q[1] - q[0] * p[1]; }
+    return Math.abs(area) / 2;
+  };
+  const { u0, u1, v0, hand_u, hand_v } = MOUTH_SHADE, shaded = [[hand_u, v0, u1, 2], [u0, hand_v, hand_u, 2]], corner = [u0, v0, hand_u, hand_v];
+  // ...and the teeth's own part of the map (the strip's, from the record) holds nothing of the
+  // body at all: what is shaded there with the mouth shut is the strip and only the strip.
+  const persons = JSON.parse(await fs.readFile(new URL('assets/humans/web/hm08_variation_persons.json', here), 'utf8')).persons;
+  const toothRect = likenessLayout({ ...persons.pa1904_grey_w_l.skin, url: 'http://example.invalid/w_skin.jpg' })?.teeth?.rect;
+  assert(toothRect && toothRect[2] > toothRect[0] && toothRect[3] > toothRect[1], 'William Grey\'s record has teeth, and their part of the map');
+  assert.equal(likenessLayout({ ...persons.pa1904_grey_mrs_w_l.skin, url: 'http://example.invalid/s_skin.jpg' }).teeth, null, 'Sarah Grey\'s has none');
+  let cornered = 0;
+  for (const asset of ['glessner_john_j_1904', 'glessner_frances_m_1904']) for (const lod of [0, 1, 2, 3]) {
+    const gltf = await new GLTFLoader().setMeshoptDecoder(MeshoptDecoder).parseAsync(bare(await fs.readFile(new URL(`assets/humans/web/${asset}.lod${lod}.glb`, here))), '');
+    let skins = 0, inMouth = 0;
+    gltf.scene.traverse((o) => {
+      if (!o.isSkinnedMesh || surfaceFor(o.material) !== 'skin') return;
+      skins++;
+      const g = o.geometry, uv = g.attributes.uv, at = g.index, si = g.attributes.skinIndex, sw = g.attributes.skinWeight, bones = o.skeleton.bones;
+      const bone = (i) => { let b = 0, w = -1; for (let c = 0; c < 4; c++) if (sw.getComponent(i, c) > w) { w = sw.getComponent(i, c); b = si.getComponent(i, c); } return bones[b].name; };
+      for (let t = 0; t < at.count; t += 3) {
+        const v = [at.getX(t), at.getX(t + 1), at.getX(t + 2)], tri = v.map(i => [uv.getX(i), uv.getY(i)]), names = v.map(bone);
+        const head = names.every(n => n === 'head' || n === 'jaw');
+        const area = shaded.reduce((a, r) => a + within(tri, r), 0);
+        if (area > 0) { assert(head, `${asset} lod${lod}: a triangle of ${names.join(', ')} lies in the mouth's shade`); inMouth += area; }
+        if (!head && within(tri, corner) > 0) cornered++;
+        assert.equal(within(tri, toothRect), 0, `${asset} lod${lod}: a triangle of ${names.join(', ')} lies in the teeth's part of the map`);
+      }
+    });
+    assert(skins > 0 && inMouth > 0.01, `${asset} lod${lod}: the inside of the mouth is in its shade (${inMouth.toFixed(4)} of the map)`);
+  }
+  assert(cornered > 0, 'the corner left out is the one the hand reaches into');
+}
 // Every person, not only drivers: humans.js dresses each body it builds.
 const humans = await fs.readFile(new URL('renderers/web/js/humans.js', here), 'utf8');
 assert(/import \{ dressSkin(, restingLid)? \} from '\.\/human-skin\.js';/.test(humans), 'humans.js imports dressSkin');

@@ -2403,7 +2403,9 @@ from the same pinned [MakeHuman commit a8bc2d54ff0ac92e78ff71431b1023eda42bf482]
 lists are the ones `SOURCE.json` already pins, unchanged). No MakeHuman program code is copied.
 `hm08_variation_kit.bin`, `.json` and `hm08_variation_persons.json` are generated from them by `tools/human_variation_kit.py` (original,
 GPL-3.0-or-later code) and are CC0-1.0, like `prepared.json` they are carried onto. Every value a person
-draws from the kit is a reconstruction (L-human-variation-3412), not a likeness.
+draws from the kit is a reconstruction (L-human-variation-3412), not a likeness. The nine `expression/units/caucasian/mouth-*`
+targets (T-3553) are not axes of the kit: `tools/bake_likeness_skin.py` reads them to fit a person's smile
+to a picture (`data/humans/variation/smiles/`, L-grey-smile-3553).
 
 ```text
 authored/humans/makehuman_hm08/SOURCE-variation.json
@@ -2441,6 +2443,15 @@ authored/humans/makehuman_hm08/makehuman/data/targets/ears/r-ear-lobe-decr.targe
 authored/humans/makehuman_hm08/makehuman/data/targets/ears/r-ear-lobe-incr.target
 authored/humans/makehuman_hm08/makehuman/data/targets/ears/r-ear-scale-decr.target
 authored/humans/makehuman_hm08/makehuman/data/targets/ears/r-ear-scale-incr.target
+authored/humans/makehuman_hm08/makehuman/data/targets/expression/units/caucasian/mouth-corner-puller.target
+authored/humans/makehuman_hm08/makehuman/data/targets/expression/units/caucasian/mouth-depression-retraction.target
+authored/humans/makehuman_hm08/makehuman/data/targets/expression/units/caucasian/mouth-depression.target
+authored/humans/makehuman_hm08/makehuman/data/targets/expression/units/caucasian/mouth-elevation.target
+authored/humans/makehuman_hm08/makehuman/data/targets/expression/units/caucasian/mouth-eversion.target
+authored/humans/makehuman_hm08/makehuman/data/targets/expression/units/caucasian/mouth-parling.target
+authored/humans/makehuman_hm08/makehuman/data/targets/expression/units/caucasian/mouth-part-later.target
+authored/humans/makehuman_hm08/makehuman/data/targets/expression/units/caucasian/mouth-retraction.target
+authored/humans/makehuman_hm08/makehuman/data/targets/expression/units/caucasian/mouth-upward-retraction.target
 authored/humans/makehuman_hm08/makehuman/data/targets/eyebrows/eyebrows-angle-down.target
 authored/humans/makehuman_hm08/makehuman/data/targets/eyebrows/eyebrows-angle-up.target
 authored/humans/makehuman_hm08/makehuman/data/targets/eyebrows/eyebrows-trans-backward.target

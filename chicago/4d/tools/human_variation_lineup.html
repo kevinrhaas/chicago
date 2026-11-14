@@ -118,6 +118,9 @@ keys.forEach((key, i) => {
   scene.add(holder);
   const clip = own.animations.find((a) => a.name === clipName) ?? own.animations.find((a) => /idle/.test(a.name));
   if (clip) { const m = new THREE.AnimationMixer(fig); m.clipAction(clip).play(); m.setTime(Number(q.get('t') ?? 1)); mixers.push(m); }
+  // &smile=0..1 (T-3553): a dressed face that has a smile to move into, that far into it;
+  // &jaw=degrees: its jaw that far open (human-mouth.js, the mouth human-skin.js left on the figure).
+  if (q.get('smile') || q.get('jaw')) fig.userData.chiMouth?.pose({ smile: Number(q.get('smile') ?? 0), jaw: Number(q.get('jaw') ?? 0) });
   const label = document.createElement('div'); label.textContent = key; labels.appendChild(label);
 });
 const camera = new THREE.PerspectiveCamera(view === 'faces' ? 22 : 30, innerWidth / innerHeight, 0.05, 50);
