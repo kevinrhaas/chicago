@@ -111,6 +111,165 @@ def mask(parts, poly):
     return (m, u0, v0) if m.any() else None
 
 
+# --- what a visitor climbs: the tops the model builds outside its walls ----------------------
+# The owner, 2026-11-14: "Anywhere there are stairs I should be able to climb". A house model's
+# stoops, porches and terraces stand outside its footprint, and the visitor's walk (walker.js)
+# stood on the terrain under them: the ground ran on under the steps, so the steps could not be
+# climbed. `floor(parts, poly)` reads the tops one stands on: on the CELL_M grid, the highest face
+# up to FLOOR_CAP_M over the ground in each cell, the ground where that is under FLOOR_GROUND_M;
+# a cell is in the way where a face stands between FLOOR_KNEE_M and HEAD_M over its own top (a rail,
+# a cheek wall, a pier); the floor is every top a body reaches from the ground outside, a step of
+# at most FLOOR_STEP_M at a time and never through what is in the way; and every cell in the way
+# (or too high to step onto) beside that floor is a wall, FLOOR_WALL_M over the floor beside it, so
+# the walker's step rule turns one back from a rail or off a cheek as it would from a wall.
+FLOOR_GROUND_M = 0.12   # a top lower than this is the ground (derive_doors_scene.py WAY_GROUND_M)
+FLOOR_CAP_M = 2.6       # tops are read below this (a porch's floor, never its roof)
+FLOOR_BIN_M = 0.1       # the heights over a cell are filed in bins this deep
+FLOOR_KNEE_M = 0.25     # a face this far over a top, to a head's height, is in the way (derive_doors_scene.py WAY_KNEE_M)
+FLOOR_STEP_M = 0.3      # the most one step climbs (walker.js WALK.stepUp is 0.35)
+FLOOR_WALL_M = 1.0      # a wall beside the floor stands this far over it, past any step
+FLOOR_IN_M = 3.0        # how far into the footprint a doorway's reveal or a recessed porch is read
+FLOOR_MIN_TOP_M = 0.4   # a floor rises this far somewhere, or it is a coping, not a stair
+
+
+def floor(parts, poly):
+    """The tops a visitor climbs outside the footprint: (heights, walls, u0, v0) with heights a
+    float grid of the model's plan, NaN where the ground answers, and walls the cells of it that
+    are walls beside the floor (cell (i, j) centred on u0 + i*cell, v0 + j*cell), or None where
+    the model builds nothing one climbs."""
+    tris = [t for n, t in parts if n.lower() not in SKIP_MATS and not any(g in n.lower() for g in GROUND_MATS)]
+    if not tris:
+        return None
+    T = np.concatenate(tris)
+    U, V, Y = T[:, :, 0], -T[:, :, 2], T[:, :, 1]
+    keep = (Y.max(1) > FLOOR_GROUND_M) & (Y.min(1) < FLOOR_CAP_M + HEAD_M)
+    P = np.asarray(poly, float)
+    if convex(P):
+        inner = np.ones(len(U), bool)
+        for k in range(3):
+            inner &= inside_poly(U[:, k], V[:, k], P) & (edge_dist(U[:, k], V[:, k], P) > FLOOR_IN_M + 2 * CELL_M)
+        keep &= ~inner
+    U, V, Y = U[keep], V[keep], Y[keep]
+    if not len(U):
+        return None
+    u0, v0 = math.floor(U.min() / CELL_M) * CELL_M - 2 * CELL_M, math.floor(V.min() / CELL_M) * CELL_M - 2 * CELL_M
+    nu = int(math.ceil((U.max() - u0) / CELL_M)) + 3
+    nv = int(math.ceil((V.max() - v0) / CELL_M)) + 3
+    gu, gv = u0 + np.arange(nu) * CELL_M, v0 + np.arange(nv) * CELL_M
+    # Each cell's faces filed by height, in FLOOR_BIN_M bins (bit k: something between k and k+1
+    # bins up), and the highest face in each bin up to the cap: a top is one with nothing over
+    # it from FLOOR_KNEE_M to HEAD_M (a porch's floor under its roof, never the roof).
+    nb = int(round(FLOOR_CAP_M / FLOOR_BIN_M))
+    bits = np.zeros((nu, nv), np.uint64)
+    tops = np.full((nb + 1, nu, nv), -np.inf, np.float32)
+    binof = lambda y: np.clip(np.floor(np.asarray(y) / FLOOR_BIN_M), 0, 63).astype(np.int64)
+    den = (U[:, 1] - U[:, 0]) * (V[:, 2] - V[:, 0]) - (V[:, 1] - V[:, 0]) * (U[:, 2] - U[:, 0])
+    on_edge = np.abs(den) < 1e-6
+    if on_edge.any():
+        # A face standing on edge stands over the cells its edges cross, its whole height.
+        EU, EV, EY = U[on_edge], V[on_edge], Y[on_edge]
+        n = np.maximum(2, (np.hypot(np.ptp(EU, axis=1), np.ptp(EV, axis=1)) / (CELL_M / 2)).astype(int) + 2)
+        idx = np.repeat(np.arange(len(n)), n)
+        t = (np.arange(n.sum()) - np.repeat(np.cumsum(n) - n, n)) / (n[idx] - 1)
+        blo, bhi = binof(EY.min(1))[idx], binof(EY.max(1))[idx]
+        run = ((np.uint64(1) << (bhi - blo + 1).astype(np.uint64)) - np.uint64(1)) << blo.astype(np.uint64)
+        run = np.where(bhi - blo >= 63, np.uint64(0xFFFFFFFFFFFFFFFF) << blo.astype(np.uint64), run)
+        for a, b in ((0, 1), (1, 2), (2, 0)):
+            x = np.rint((EU[idx, a] + (EU[idx, b] - EU[idx, a]) * t - u0) / CELL_M).astype(int)
+            y = np.rint((EV[idx, a] + (EV[idx, b] - EV[idx, a]) * t - v0) / CELL_M).astype(int)
+            np.bitwise_or.at(bits, (x, y), run)
+    for k in np.flatnonzero(~on_edge):
+        a, b, c = (np.array([U[k, i], V[k, i]]) for i in range(3))
+        e0, e1 = b - a, c - a
+        d = e0[0] * e1[1] - e0[1] * e1[0]
+        i0, i1 = int(math.floor((U[k].min() - u0) / CELL_M)), int(math.ceil((U[k].max() - u0) / CELL_M))
+        j0, j1 = int(math.floor((V[k].min() - v0) / CELL_M)), int(math.ceil((V[k].max() - v0) / CELL_M))
+        PU, PV = np.meshgrid(gu[i0:i1 + 1], gv[j0:j1 + 1], indexing="ij")
+        du, dv = PU - a[0], PV - a[1]
+        s = (du * e1[1] - dv * e1[0]) / d
+        t = (e0[0] * dv - e0[1] * du) / d
+        inside = (s >= -1e-6) & (t >= -1e-6) & (s + t <= 1 + 1e-6)
+        if not inside.any():
+            continue
+        y = Y[k, 0] + s * (Y[k, 1] - Y[k, 0]) + t * (Y[k, 2] - Y[k, 0])
+        bk = binof(y)
+        bits[i0:i1 + 1, j0:j1 + 1] |= np.where(inside, np.uint64(1) << bk.astype(np.uint64), np.uint64(0))
+        for q in np.unique(bk[inside & (bk <= nb)]):
+            sl = tops[q, i0:i1 + 1, j0:j1 + 1]
+            np.maximum(sl, np.where(inside & (bk == q), y, -np.inf).astype(np.float32), out=sl)
+    PU, PV = np.meshgrid(gu, gv, indexing="ij")
+    # The house's own, walker.js keeps one out of; but its doorways' reveals and porches recessed
+    # into the front are climbed to (FLOOR_IN_M in from the footprint's edge).
+    out = inside_poly(PU, PV, P) & (edge_dist(PU, PV, P) > FLOOR_IN_M)
+    k0 = int(math.ceil(FLOOR_KNEE_M / FLOOR_BIN_M)) + 1          # the band over a top starts here ...
+    k1 = int(math.ceil(HEAD_M / FLOOR_BIN_M)) + 1                # ... and runs to here (bins)
+    clear_over = lambda b: (bits >> np.uint64(b + k0)) & np.uint64((1 << (k1 - k0)) - 1) == 0
+    # The highest top with a head's clearance over it; the ground where that is the ground's.
+    h = np.zeros((nu, nv))
+    has = np.zeros((nu, nv), bool)
+    ground_ok = ((bits >> np.uint64(k0)) & np.uint64((1 << (k1 - k0)) - 1)) == 0
+    for q in range(nb + 1):
+        ok = np.isfinite(tops[q]) & clear_over(q)
+        h = np.where(ok, tops[q], h)
+        has |= ok
+    ground = (~has | (h < FLOOR_GROUND_M)) & ground_ok
+    h = np.where(ground, 0.0, h)
+    # In the way: a cell where nothing is stood on clear of what is over it (a wall, a rail).
+    blocked = (~has & ~ground_ok) | out
+    # Up from the open ground outside, a step at a time.
+    from collections import deque
+    reached = ground & ~blocked
+    q = deque(zip(*np.nonzero(reached)))
+    while q:
+        i, j = q.popleft()
+        for di, dj in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+            x, y = i + di, j + dj
+            if 0 <= x < nu and 0 <= y < nv and not reached[x, y] and not blocked[x, y] and h[x, y] <= h[i, j] + FLOOR_STEP_M:
+                reached[x, y] = True
+                q.append((x, y))
+    from scipy import ndimage
+    # A top narrower than a body (a cheek wall's coping, a rail's foot) is not stood on, and a
+    # floor is a stair's or a porch's only where it rises past a step or two (FLOOR_MIN_TOP_M):
+    # a lawn's coping is the ground's business, not a stair.
+    fl = ndimage.binary_opening(reached & ~ground, structure=np.ones((3, 3), bool))
+    lab, n = ndimage.label(fl)
+    if n:
+        tops = ndimage.maximum(np.where(fl, h, 0.0), lab, range(1, n + 1))
+        fl &= np.isin(lab, 1 + np.flatnonzero(np.asarray(tops) >= FLOOR_MIN_TOP_M))
+    if not fl.any():
+        return None
+    heights = np.where(fl, h, np.nan)
+    # The walls beside it: whatever is built there and is not the floor (a rail, a cheek, a
+    # top too high or too narrow to stand on), next to a floor cell.
+    near = ndimage.maximum_filter(np.where(fl, h, -np.inf), size=3)
+    wall = ~fl & ~out & (near > -np.inf) & (blocked | ~ground)
+    heights = np.where(wall, near + FLOOR_WALL_M, heights)
+    ii, jj = np.nonzero(np.isfinite(heights))
+    a0, a1, b0, b1 = ii.min(), ii.max() + 1, jj.min(), jj.max() + 1
+    return heights[a0:a1, b0:b1], wall[a0:a1, b0:b1], u0 + a0 * CELL_M, v0 + b0 * CELL_M
+
+
+def floor_plan(got) -> dict | None:
+    """`floor`'s grid for the data file: `rects` the floor and `walls` the walls beside it, each
+    rectangles of one height, five integers apiece (i0 i1 j0 j1 half-open, then the top in
+    centimetres over the model's ground), in one string; cell (i, j) centred on u = u0 + i * cell,
+    v = v0 + j * cell of the model's plan, the grid ni by nj cells."""
+    if got is None:
+        return None
+    g, wall, u0, v0 = got
+    cm = np.where(np.isfinite(g), np.rint(g * 100), -1).astype(int)
+
+    def runs(which):
+        out = []
+        for val in sorted(set(cm[which & (cm >= 0)].ravel().tolist())):
+            out += [(a, b, c, d, val) for a, b, c, d in rectangles(which & (cm == val))]
+        return " ".join(" ".join(str(x) for x in r) for r in sorted(out)), len(out)
+    rects, n = runs(~wall)
+    walls, m = runs(wall)
+    return {"cell": CELL_M, "u0": round(float(u0), 3), "v0": round(float(v0), 3), "ni": int(g.shape[0]), "nj": int(g.shape[1]),
+            "count": n, "rects": rects, "wall_count": m, "walls": walls}
+
+
 def standing(got, r=SKIRT_M):
     """`free(u, v)`: whether a body stands at plan (u, v) at least `r` off every cell of `mask`'s
     (to within half a cell; off the grid is free)."""
