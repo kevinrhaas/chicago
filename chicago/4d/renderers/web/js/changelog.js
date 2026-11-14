@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 2969, ts: '2026-11-14T10:44:33.077Z', date: 'Nov 14, 2026, 4:44 AM CT', title: '1815 Prairie\'s narrow window over the door, at its true size', kind: 'fix',
+    items: [
+      'The small window above 1815 Prairie\'s front door is now the narrow single light its photograph shows, set over the door\'s hood, where a full-size sash stood before.',
+    ] },
   { v: 2968, ts: '2026-11-14T10:24:48.497Z', date: 'Nov 14, 2026, 4:24 AM CT', title: '1828 Prairie\'s south flank stands blank by its front corner', kind: 'improvement',
     items: [
       '1828 Prairie, the Shipman house: the two windows on its south flank between the front corner and the flank\'s canted bay are gone. The automobile photograph shows plain coursed light stone at that edge with no opening in it, and those windows fell there. The flank\'s first 8 m now stand in blank stone, as the picture shows.',
