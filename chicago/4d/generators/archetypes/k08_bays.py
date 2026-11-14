@@ -2371,6 +2371,57 @@ class Bay:
                                             "curb": [[round(c, 4) for c in q] for q in curb]}
             if mn.get("back_m") is not None or cut:   # a joined mansard's reach and its open runs
                 self.meta["roof"]["mansard"].update(back_m=round(-z0, 4), open_runs=sorted(cut))
+            if mn.get("curb_mould"):
+                if mn.get("back_m") is not None or cut:
+                    raise ValueError(f"{self.v['id']}: a moulded curb runs round a free-standing crown's curb only")
+                self._curb_mould(world, inner, z0, y_e + float(mn["rise_m"]), float(mn["rise_m"]),
+                                 float(mn["lower_pitch_deg"]), mn["curb_mould"])
+
+    def _curb_mould(self, world, inner, z0, y_c, rise, deg, cm):
+        """T-1886: a moulded cornice round a mansard crown's curb (1816 Prairie's two crowns, the
+        Chicagology photograph: a band about 0.7 m deep under the cresting, its top projecting
+        over its face). A plain FASCIA hangs `depth_m` down from the curb, its face `proud_m` out
+        from the curb line, closed underneath back to the lower face; over it a CAP `cap_m` high
+        stands `cap_proud_m` further out, its top level with the curb, where the deck begins.
+        Each tier is the curb's lines offset outward, met pairwise and at the wall plane as the
+        curb is (`_offset_corner`), so the band turns every hip on a mitre; its ends are closed
+        on the wall plane, where the crown's back is."""
+        depth, proud = float(cm["depth_m"]), float(cm["proud_m"])
+        cap, cap_out = float(cm["cap_m"]), float(cm["cap_proud_m"])
+        foot = depth / math.tan(math.radians(deg))      # the lower face's run out over the band
+        if not (0.2 <= depth <= 1.2 and depth <= rise - 0.5 and 0.05 <= cap <= depth - 0.1
+                and foot + 0.03 <= proud <= 0.6 and 0.03 <= cap_out <= 0.3):
+            raise ValueError(f"{self.v['id']}: a moulded curb hangs 0.2-1.2 m (0.5 m short of the crown's rise), "
+                             f"its fascia 0.03-0.6 m out past the lower face at its foot ({foot:.3f} m from the "
+                             f"curb), its cap 0.05 m to 0.1 m short of the band high and 0.03-0.3 m out past it")
+
+        def ring(o):   # the curb's lines `o` outward (n points inward), met as the curb is
+            ls = [((a[0] - o * n[0], a[1] - o * n[1]), n) for a, n in inner]
+            out = [self._offset_corner(None, ls[0], 0.0, z0)]
+            for i in range(len(ls) - 1):
+                out.append(self._offset_corner(ls[i], ls[i + 1], 0.0))
+            out.append(self._offset_corner(ls[-1], None, 0.0, z0))
+            return out
+
+        C, S, F, K = ring(0.0), ring(foot), ring(proud), ring(proud + cap_out)
+        y_f, y_k = y_c - depth, y_c - cap
+        D = (0.0, -1.0, 0.0)
+        for j in range(len(C) - 1):
+            (ax, az), (bx, bz) = C[j], C[j + 1]
+            out = (az - bz, 0.0, bx - ax)   # the run's outward side (the curb runs left to right)
+            q = lambda R, y, k: (R[k][0], y, R[k][1])
+            world.face("fascia", [q(F, y_f, j), q(F, y_f, j + 1), q(F, y_k, j + 1), q(F, y_k, j)], out)
+            world.face("soffit", [q(S, y_f, j), q(S, y_f, j + 1), q(F, y_f, j + 1), q(F, y_f, j)], D)
+            world.face("soffit", [q(F, y_k, j), q(F, y_k, j + 1), q(K, y_k, j + 1), q(K, y_k, j)], D)
+            world.face("fascia", [q(K, y_k, j), q(K, y_k, j + 1), q(K, y_c, j + 1), q(K, y_c, j)], out)
+            world.face("fascia", [q(C, y_c, j), q(C, y_c, j + 1), q(K, y_c, j + 1), q(K, y_c, j)], Y)
+        for k in (0, len(C) - 1):   # the ends, on the wall plane
+            q = lambda R, y: (R[k][0], y, z0)
+            world.face("fascia", [q(S, y_f), q(F, y_f), q(F, y_c), q(C, y_c)], (0.0, 0.0, -1.0))
+            world.face("fascia", [q(F, y_k), q(K, y_k), q(K, y_c), q(F, y_c)], (0.0, 0.0, -1.0))
+        self.meta["roof"]["mansard"]["curb_mould"] = {
+            "depth_m": depth, "proud_m": proud, "cap_m": cap, "cap_proud_m": cap_out,
+            "foot_m": round(y_f, 4), "reach_m": round(proud + cap_out, 4)}
 
     def _gable(self, world, y_top, y_e, ov):
         """T-2998: a coped stone gable (1801 Prairie's south pavilion, the Taylor photograph).

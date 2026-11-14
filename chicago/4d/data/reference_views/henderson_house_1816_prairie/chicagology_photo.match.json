@@ -2,11 +2,11 @@
   "structure_id": "henderson_house_1816_prairie",
   "view": "chicagology_photo",
   "glb": "assets/gltf/henderson_house_1816_prairie__as_mapped_1904.glb",
-  "glb_sha256": "118de35111a7fefa6e3d768154393cd295458a4f895dbbb3d0e6a37ed1fceced",
+  "glb_sha256": "93facfd35172f65a0654d8665e304666f2f34a9772fb7ffe99d89dbf7ce48168",
   "camera_sha256": "2ea53525aa34f1cd163e87bd7f44c9cc601ce935b97adcc7cf1007c41311355e",
   "photo_sha256": "6cf57cac7e3076af06121b104b57a02b9a25ac3830f01ddafe9ac2f27eb96ca8",
   "side_by_side": "docs/RESEARCH/photo-match/henderson_house_1816_prairie/chicagology_photo-side-by-side.jpg",
-  "verdict": "differs",
+  "verdict": "matches",
   "differences": [
     {
       "what": "massing: a two-storey brick block over a raised stone basement under a mansard, the street front and the south flank both seen, the corner at x 588 px",
@@ -95,8 +95,8 @@
     },
     {
       "what": "the flank crown's curb: a moulded cornice about 0.7 m deep (y 205-245 px) under the cresting, round the crown's faces; built as K08's thin curb, the slate running up to it",
-      "status": "open",
-      "how": "T-1886 (2026-11-13): measured, not built; K08 has no moulded curb on a bay's crown (a kit change)"
+      "status": "fixed",
+      "how": "T-1886 (2026-11-14): K08's roof.mansard.curb_mould (new) round both crowns' curbs: a fascia hanging 0.7 m from the curb 0.3 m out from the curb line, closed underneath back to the slate, under a cap 0.25 m high and 0.12 m further out, its top level with the curb, mitred round every hip; the cresting stands on the deck behind it. Through the camera at x 260 px the flank crown's band draws from about y 193 (the cap's lip) to 238 (the shadow under the fascia), the print's from about 205 to 255: the same depth and profile about 15 px (0.25-0.3 m) higher, the crown's rise as fitted before it (the item on its height above), within tolerance. The front crown, whose curb the print draws the same through the trees, takes the same band"
     },
     {
       "what": "the crowns' dormers standing on the crowns' cornices (the flank one's foot at y 400 px); built about 0.6 m over them",

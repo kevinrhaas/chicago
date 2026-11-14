@@ -70785,7 +70785,7 @@
       "subjects": [],
       "covers": [],
       "recorded": "2026-11-07",
-      "revised": "2026-11-13",
+      "revised": "2026-11-14",
       "fields": [
         {
           "label": "Decision",
@@ -70834,6 +70834,18 @@
         {
           "label": "Still not built",
           "text": "the flank crown's moulded curb, about 0.7 m deep (K08 has none); the south flank's window drawn in the print on the upper storey only (the build lights both storeys there). The 1874 Land Owner engraving is still not read. The south-east-face crown dormer listed above was a misreading (the match record)."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-11-14 (T-1886): both crowns' curbs are moulded cornices. The photograph draws the flank crown's curb as a band about 0.7 m deep (y 205-245 px) under the cresting, its top projecting over its face, and the front crown's the same through the trees; K08 had laid a bare curb with the slate running up to it. K08 gains `roof.mansard.curb_mould` (new here): a fascia hanging `depth_m` from the curb, its face `proud_m` out from the curb line and closed underneath back to the lower face, under a cap `cap_m` high and `cap_proud_m` further out, its top level with the curb, every tier mitred round the hips."
+        },
+        {
+          "label": "Read",
+          "text": "the band's depth and its projecting top."
+        },
+        {
+          "label": "Invented",
+          "text": "the profile, two plain grades (a 0.45 m fascia 0.13 m past the lower face at its foot, a 0.25 m cap 0.12 m beyond it) standing for mouldings the print does not resolve, and its paint, the eaves' own (the print is monochrome)."
         }
       ],
       "work_refs": [
