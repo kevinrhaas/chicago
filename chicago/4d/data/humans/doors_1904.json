@@ -212,9 +212,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1945:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "18ab3b7a8cb47a01c1dad572b0bf37fe9c96f16a3cdc39cc7a8781c70dc8d770",
+   "model_inputs_sha256": "a6b1445ef0b2ea0be380a63f512d4895f6def42f20d431dfc00cf56830d3585c",
    "barrier": {
-    "key": "943409d1d8dd0cdd",
+    "key": "056fe6fbf9ff0880",
     "cell": 0.1,
     "u0": -3.9,
     "v0": -0.6,
@@ -575,9 +575,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1823:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "832704351c7ab2d7264296ad13c05d067faababce82b6525a2663b4c87851bb6",
+   "model_inputs_sha256": "ce16a39de7ba1fa55bf81904a382070b99b5f86e66ed29761bbef7514196643a",
    "barrier": {
-    "key": "01853b8966af5028",
+    "key": "5020948987ffa1a6",
     "cell": 0.1,
     "u0": -6.8,
     "v0": -1.2,
@@ -747,9 +747,9 @@
      "reconstructed": "Front leaf read from the built door material; the way up to it is read off the built stoop's treads (derive_doors_scene.py stoop_way), and one answering stands at its foot. The leaf opens and shuts as they pass (house-doors.js passages, T-3554); its hinge side and swing are reconstructed."
     }
    ],
-   "model_inputs_sha256": "0657bf45e460b718f23bb6bbb46a00c46ad60ac54f7c36095b053bca3d8223a4",
+   "model_inputs_sha256": "99a1d3fc715546f7b400e5b564b2d06ef18673c2965211f3e41d96eb592651b0",
    "barrier": {
-    "key": "ee9653b13d258737",
+    "key": "8b2fc387875816bf",
     "cell": 0.1,
     "u0": -0.1,
     "v0": -1.4,
@@ -995,9 +995,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1906:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "f3da7ddcdf4108489f6194bbc921001cf24dbaf48bd8dafb3606b17a0a3f7110",
+   "model_inputs_sha256": "76c5cc6915d33e76ac44163fa6f4cb42106ed19229710ca69c608c11ed86d8e3",
    "barrier": {
-    "key": "e636d6aa000cd9ed",
+    "key": "6ca54378b6b1e0d0",
     "cell": 0.1,
     "u0": -3.1,
     "v0": -12.7,
@@ -1233,9 +1233,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1900:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "6f04e13acc284fc582c8f58560f8d43cd1ec631063bea306e70105564ae11af0",
+   "model_inputs_sha256": "c4259d04654c3e6b894fe08ab4dce4a2f58e168fffb6c6fba630e573aa4e2564",
    "barrier": {
-    "key": "1fd12311eb9df659",
+    "key": "b1e40dd737e4427c",
     "cell": 0.1,
     "u0": -2.0,
     "v0": -2.6,
@@ -1421,9 +1421,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1700:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "40baf7d691029154b8591d6623ff09e7c069eeb6003be451dc0b13debb95c530",
+   "model_inputs_sha256": "02be49eec0af87f6698cf6abd5e83bdb7b7678c28c193a8cf181a57939132a0c",
    "barrier": {
-    "key": "4abfed5ab015fad8",
+    "key": "f1bb94bc5bb2e6a0",
     "cell": 0.1,
     "u0": -8.3,
     "v0": -0.3,
@@ -1485,7 +1485,7 @@
     }
    ],
    "barrier": {
-    "key": "4abfed5ab015fad8",
+    "key": "f1bb94bc5bb2e6a0",
     "cell": 0.1,
     "u0": -8.3,
     "v0": -0.3,
@@ -1650,9 +1650,9 @@
      "reconstructed": "Front leaf read from the built door material; the way up to it is read off the built stoop's treads (derive_doors_scene.py stoop_way), and one answering stands at its foot. The leaf opens and shuts as they pass (house-doors.js passages, T-3554); its hinge side and swing are reconstructed."
     }
    ],
-   "model_inputs_sha256": "5201bdc04b122e808b00d6c61eaa4ae9feb7ba81db40d2e440f13b629222d341",
+   "model_inputs_sha256": "d6e77cd99a167daef309365393ec367d19d7e60fb8043b1871bd81558c0f3b00",
    "barrier": {
-    "key": "114c677056f94606",
+    "key": "498413308b4362a6",
     "cell": 0.1,
     "u0": -8.3,
     "v0": -0.1,
@@ -1858,9 +1858,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1612:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "252679df46d7829a1679791643402004e637990614877fbe008883bb66ea7b09",
+   "model_inputs_sha256": "28d08bbf49c8ee5b21361726df29b577ebab1b3d75307df36870ec91a99f6590",
    "barrier": {
-    "key": "8e75ee41d58897ae",
+    "key": "7b877ffafe7c60b9",
     "cell": 0.1,
     "u0": -0.4,
     "v0": -3.7,
@@ -2086,9 +2086,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1816:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "1800bc9422f062dd86ad27aba01c8c0860003066bc9ed0f88591358a4f878b2c",
+   "model_inputs_sha256": "dfd06ad64423422f3847de8169a5b5932b7b89ca3c3531e66fadf51367c74c0d",
    "barrier": {
-    "key": "7b347e2024821f15",
+    "key": "f313e5b4a30de634",
     "cell": 0.1,
     "u0": -12.0,
     "v0": -6.8,
@@ -2314,9 +2314,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1701:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "8d72c1f6933a3b477b31e597a8290d436dfdae0b37edd124821472753c0691e3",
+   "model_inputs_sha256": "28474330096434fe10b04b7bc45428498a103afdb31ce56b449cf70edff98f65",
    "barrier": {
-    "key": "459e562248d531f9",
+    "key": "47d988e3087df65e",
     "cell": 0.1,
     "u0": -17.9,
     "v0": -6.4,
@@ -2552,9 +2552,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1600:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "5064bec16aaa97e0fc8ef3da988d14dd0f95b83389dcd2bc2c7211d4245e1090",
+   "model_inputs_sha256": "e298bae7bd5fe3541fae326986af41b2c29258ef22268b3165243f53ad1c7560",
    "barrier": {
-    "key": "dd72a1408dddb19d",
+    "key": "103bc30a80507d86",
     "cell": 0.1,
     "u0": -0.4,
     "v0": -3.8,
@@ -2740,9 +2740,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1604:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "3054bf9cb29a98e7b7c7f49c85e7af4b6cce0f45ce6c9b7f6eaa261f54996482",
+   "model_inputs_sha256": "441fd8168b8071245656bc59a9ec5006f5a6ac7493356f33be055a9388d92131",
    "barrier": {
-    "key": "971e461ab8894d73",
+    "key": "df9284243d494b56",
     "cell": 0.1,
     "u0": -12.2,
     "v0": -0.6,
@@ -2928,9 +2928,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1608:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "b0204de85ec1169ecd12023fe887c0ea4a77e401101a389d8a4ad8e29e874fcc",
+   "model_inputs_sha256": "e8b8c379835acffd3cba7a1df4fec000d24d67d1ce64aa2cc9ab04f0e9289215",
    "barrier": {
-    "key": "2ad55e22f486f6de",
+    "key": "7142653a2472b490",
     "cell": 0.1,
     "u0": -0.4,
     "v0": -1.1,
@@ -3100,9 +3100,9 @@
      "reconstructed": "Front leaf read from the built door material; the way up to it is read off the built stoop's treads (derive_doors_scene.py stoop_way), and one answering stands at its foot. The leaf opens and shuts as they pass (house-doors.js passages, T-3554); its hinge side and swing are reconstructed."
     }
    ],
-   "model_inputs_sha256": "087c5fbe6f56f2dee83e5cb56002eaf03b1f0564e9215639199fbe84fd5e9560",
+   "model_inputs_sha256": "1a29c14ab45b0e46365e79e91af7b515640e099f73e33e7f78d1a58083d1d6fb",
    "barrier": {
-    "key": "609d9451cefed40f",
+    "key": "3dbdef6cebfb56ac",
     "cell": 0.1,
     "u0": -2.8,
     "v0": -2.8,
@@ -3288,9 +3288,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1619:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "70dd83d1dbe1d8ebf878a34375183e28d770898859a6f457cd5aab67d8e0b0af",
+   "model_inputs_sha256": "2b58a2907636caef06693e4e4b481f68b119ed6c89b95b247838949d892e02f2",
    "barrier": {
-    "key": "4a9a11c8df7f8d1f",
+    "key": "b4cbb2890adcafb4",
     "cell": 0.1,
     "u0": -9.1,
     "v0": -0.8,
@@ -3496,9 +3496,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1621:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "f480233413fcfc2c3bf5396789b6aabd88ae7fecbcf7bff62e4f8b4bfe6b3ba6",
+   "model_inputs_sha256": "21e0fb320e9e2ea56a11bc27d6565c704d6467e0971412b228d635564481b64d",
    "barrier": {
-    "key": "24e37ca7ea1775f5",
+    "key": "4fe371c5d8d426b7",
     "cell": 0.1,
     "u0": -6.2,
     "v0": -0.5,
@@ -3614,9 +3614,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1625:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "8c60e6f9f1742eb3cc39b9c6c3d992564f5f944ba36c8c49b5c4c3d81d9497f2",
+   "model_inputs_sha256": "7b2e4230dc365898a778b1c70deaef420e923a7759c13465e5ac29e7d11f3035",
    "barrier": {
-    "key": "f3ce8b49bfe900ed",
+    "key": "b70b5a5339293d8a",
     "cell": 0.1,
     "u0": -0.2,
     "v0": -0.3,
@@ -3802,9 +3802,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1626:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "1bccfad7b90b44567f091eda35774404dcb681c547db8287f3450d71b9e52224",
+   "model_inputs_sha256": "44955ae2829db37766d7286ff39df2953b31ea4843b6fba57e94d79a788f3866",
    "barrier": {
-    "key": "6f14343b188b1e5e",
+    "key": "36d9d86049cd2cde",
     "cell": 0.1,
     "u0": -0.4,
     "v0": -0.1,
@@ -3990,9 +3990,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1628:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "7da4d2fb2f169e05c92d6d59303b628a52ce908f4c0b9dfe1df943881a2e6b3d",
+   "model_inputs_sha256": "b5c3cf0ba015189c0fbe905ca47e1fb326c22a9ef84e9df97324fba2a0385960",
    "barrier": {
-    "key": "1a846fc115c7425c",
+    "key": "c993a1f55768c3ed",
     "cell": 0.1,
     "u0": -4.9,
     "v0": -0.9,
@@ -4178,9 +4178,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1634:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "9b7e869fa77b87202798e9a0b8e8731745eb946cd2fe97d7f79da19adc4b3e90",
+   "model_inputs_sha256": "1926b7c588cf4ec743b986474b1a52812d22fa59e860ede10ebf606cfad173f0",
    "barrier": {
-    "key": "5b1a0facb81c62bc",
+    "key": "409b07f982796b69",
     "cell": 0.1,
     "u0": -8.4,
     "v0": -0.2,
@@ -4366,9 +4366,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1636:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "bfd2f3c68d2943742e2c857395e367c7d02f7ab2547a83cc9835e9bf32ff10d6",
+   "model_inputs_sha256": "34071e445d33ff25e0c1ff28c1a5712c14d30e18f9712d824cbfc4cdf8abb258",
    "barrier": {
-    "key": "206ad882115fe25c",
+    "key": "25e7269fb7591c99",
     "cell": 0.1,
     "u0": -8.4,
     "v0": -0.3,
@@ -4544,9 +4544,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1708:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "0ae3ce91fa7e3950b100d4b48f216f0871011a4b781fc6891014d3cd2d863e4b",
+   "model_inputs_sha256": "a6469fd16489e551c50dd2550ef2bc31abf1fa4e241397d6a42c25bdaa2fed33",
    "barrier": {
-    "key": "6eb29ea9ae5a8efd",
+    "key": "da927cc4773e264e",
     "cell": 0.1,
     "u0": -16.4,
     "v0": -1.3,
@@ -4792,9 +4792,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1712:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "cb5944e79765a072838a1a8aa61a205cb3d77b46ab66120539c6a649f2fa0a15",
+   "model_inputs_sha256": "9d2321aa0a6441cd493a7ee674312955c5a76dadc24ab1abd615fef2960819c1",
    "barrier": {
-    "key": "6fefb8f720a1d677",
+    "key": "00b72fa0671a6cd2",
     "cell": 0.1,
     "u0": -9.4,
     "v0": -4.3,
@@ -5000,9 +5000,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1726:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "338b905255dc3190dccf9782b8b87f68cda9f6f730c6aa811f232ead3dab9a42",
+   "model_inputs_sha256": "d1961323dad4511a0049b4d1e780c88749824ea937d1c5112a08ea83b621b4cd",
    "barrier": {
-    "key": "2d85caeb846fcf23",
+    "key": "4ef2061e5c8543ba",
     "cell": 0.1,
     "u0": -2.0,
     "v0": -4.5,
@@ -5218,9 +5218,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1730:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "d0a96ced692bd8aaf150b298228b0f31c443312c31e72644d1e809f4babc5475",
+   "model_inputs_sha256": "3bc6f14fcce0b12644a50d07963e08cf32d8d9e6da8257541665d0fee32bafc2",
    "barrier": {
-    "key": "d7f9a9f1289a2504",
+    "key": "d8d794e41821a123",
     "cell": 0.1,
     "u0": -11.8,
     "v0": -10.1,
@@ -5446,9 +5446,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1736:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "1d9e0a029aee5fbc81c30f7d09faec747cee4bddc875780f15bb3afaa1b41123",
+   "model_inputs_sha256": "bf9bda7bd34fa822b53366d9359128d5c0ad0c25105f33b88fd9eca5e78aea28",
    "barrier": {
-    "key": "e77204d0e8a189b7",
+    "key": "d8d19393a671c7a5",
     "cell": 0.1,
     "u0": -0.1,
     "v0": -1.0,
@@ -5699,9 +5699,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1828:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "74351864f1c6a858fe55fd0d619fc7f579a2d7c41f5072667d18793edf8136fc",
+   "model_inputs_sha256": "148ec81da63b7fec827fb438df798220b764274243cca01e025894aaf35f952f",
    "barrier": {
-    "key": "5ed61881076b0a80",
+    "key": "6450c589800c9ac6",
     "cell": 0.1,
     "u0": -7.2,
     "v0": -3.8,
@@ -5733,9 +5733,9 @@
      "reconstructed": "The front door the frame house record hangs on its street wall (frame_house blocks), which the model builds there; the answering place is at the foot of what the model builds before it. Walking and doorstep use are reconstructed."
     }
    ],
-   "model_inputs_sha256": "0bfc03312f8c95bba2a04618aa8de4d19e39e6f204f8fb817a38e428f16a7b09",
+   "model_inputs_sha256": "962db412a1bfddbb574ef42e48844944785bfc1b017d3163d580450a1c41da67",
    "barrier": {
-    "key": "6bd669760b0ab6f2",
+    "key": "2b87f91c145950cc",
     "cell": 0.1,
     "u0": -1.1,
     "v0": -4.7,
@@ -5941,9 +5941,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_2001:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "84527aeba90844d94da264ef1d329795a33529dc6936c8c034158389b6853e5b",
+   "model_inputs_sha256": "1d89be4b1cf4b317b828fceb3dd6decac204ead335de4bb390c276b7a1b9bcf6",
    "barrier": {
-    "key": "623c25eef690332f",
+    "key": "9fa8933c0989fdf4",
     "cell": 0.1,
     "u0": -0.4,
     "v0": -1.1,
@@ -6113,9 +6113,9 @@
      "reconstructed": "Front leaf read from the built door material; the way up to it is read off the built stoop's treads (derive_doors_scene.py stoop_way), and one answering stands at its foot. The leaf opens and shuts as they pass (house-doors.js passages, T-3554); its hinge side and swing are reconstructed."
     }
    ],
-   "model_inputs_sha256": "2e54d7efcf8d40bd0e34e70839738dea24f50b3f0cef190d375977293cbc7384",
+   "model_inputs_sha256": "b0cb9ec5387ed17622bff1587e0b22e95833a9db0fbf12d36a55dcb5498230cb",
    "barrier": {
-    "key": "6d0a8a8a52e42b10",
+    "key": "b39e154ae2dc2fdc",
     "cell": 0.1,
     "u0": -11.7,
     "v0": -0.5,
@@ -6301,9 +6301,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_2005:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "b4754d3ae82f331371705a6e607672a68f1e185265ef194eedf783e5984d0e33",
+   "model_inputs_sha256": "4a07bea99c352ba1411e83dcaba142bb3682e597bb64546c023cb0e6a2efa7d6",
    "barrier": {
-    "key": "582baf27ada84538",
+    "key": "775ed0ff7d8884e9",
     "cell": 0.1,
     "u0": -12.8,
     "v0": -0.1,
@@ -6335,9 +6335,9 @@
      "reconstructed": "The front door the frame house record hangs on its street wall (frame_house blocks), which the model builds there; the answering place is at the foot of what the model builds before it. Walking and doorstep use are reconstructed."
     }
    ],
-   "model_inputs_sha256": "0bb4a8470e4376dde49fd0280ac840b8cbc6d816e0f151fc52acb2cefa0101a0",
+   "model_inputs_sha256": "5e6e60b0f335b79e68fd52efa034aa8e5d8e52d3ed46f313955fa6ddab0db6bc",
    "barrier": {
-    "key": "bb4c62d179d16a86",
+    "key": "52e01a1b9a0522ed",
     "cell": 0.1,
     "u0": -2.2,
     "v0": -5.5,
@@ -7502,9 +7502,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1834:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "85f3bdaed05b976eb332f21687f3c60b7fab94f79bf788b363d86ece3fde97fa",
+   "model_inputs_sha256": "859822b5d69084d2fc9b15d82729c154f87063f75b61ae2469852bdea015a12b",
    "barrier": {
-    "key": "18c08ed1ef99a79e",
+    "key": "b1690469aeb7df2f",
     "cell": 0.1,
     "u0": -0.4,
     "v0": -3.8,
@@ -7744,9 +7744,9 @@
      "reconstructed": "Front leaf read from the built door material; the way up to it is read off the built stoop's treads (derive_doors_scene.py stoop_way), and one answering stands at its foot. The leaf opens and shuts as they pass (house-doors.js passages, T-3554); its hinge side and swing are reconstructed."
     }
    ],
-   "model_inputs_sha256": "8996003ab5f54d79dd62362bf1246fd470ca0600b2e100da16e9888ebc9a5735",
+   "model_inputs_sha256": "97eae7bdf611fe3926804f680405e43f97edca4884b05274b84cf46c87c7d2a9",
    "barrier": {
-    "key": "5a15796036223567",
+    "key": "473f0d9bfa32e859",
     "cell": 0.1,
     "u0": -14.8,
     "v0": -0.2,
@@ -7962,9 +7962,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1709:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "d2ea004f87c8326c01056165d90f515cf9101bf2e4f8c4d0f300fd9b0417fa9b",
+   "model_inputs_sha256": "db21fc0ce4197def706ae5d1f2f689743dd212906f4f41f7bf479e6be39a247f",
    "barrier": {
-    "key": "44507f64ad88cfa6",
+    "key": "8c2676fa34376a77",
     "cell": 0.1,
     "u0": -13.9,
     "v0": -1.2,
@@ -8220,9 +8220,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1923:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "5425cb21b3426e2394bda4e966fed5c7e62aa9b65ca43984cc1d10fe1684e46c",
+   "model_inputs_sha256": "75fa22417cb3d938b381274db5ea8b2e59b8701cd216b97a973cd0f7822e278f",
    "barrier": {
-    "key": "cd7aa025b1746260",
+    "key": "1929d074b1e6df61",
     "cell": 0.1,
     "u0": -12.1,
     "v0": -1.2,
@@ -8402,9 +8402,9 @@
      "reconstructed": "Front leaf read from the built door material; the way up to it is read off the built stoop's treads (derive_doors_scene.py stoop_way), and one answering stands at its foot. The leaf opens and shuts as they pass (house-doors.js passages, T-3554); its hinge side and swing are reconstructed."
     }
    ],
-   "model_inputs_sha256": "c5a28e2c02da78b5b7aa6b139da9b14ad8ebd21e44775104d7f0458e5c3eaaca",
+   "model_inputs_sha256": "54f7d8d7e1edadf1294385a96957902b4b35c1a376cee3b1fbcf9b510678a54d",
    "barrier": {
-    "key": "9b92ccc512a60fc5",
+    "key": "693e50f20f2965dd",
     "cell": 0.1,
     "u0": -18.1,
     "v0": -1.5,
@@ -8650,9 +8650,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1620:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "134f15b40ee24d9d0358f8930cb4b5099dc807123bf2de55b7f0c7e75287465a",
+   "model_inputs_sha256": "a1ffc766706d7fbe4402e46ce04837f3147f35e3158bc04d7c74e031bbc2a2d6",
    "barrier": {
-    "key": "bcf646be7a200563",
+    "key": "26be26612771327f",
     "cell": 0.1,
     "u0": -25.6,
     "v0": -7.9,
@@ -8878,9 +8878,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1824:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "b33ef1fd7d4d14337fc6d1bb0eaecddd362b19190a6844b079e16ff2ecd80c38",
+   "model_inputs_sha256": "43d1f95072c7625b5b35ed6fb3f2d9882a6a5d1d82bf7942e986eed3b5f9d889",
    "barrier": {
-    "key": "2ad212d59142a8dd",
+    "key": "fbc9385821e33174",
     "cell": 0.1,
     "u0": -13.1,
     "v0": -7.6,
@@ -9090,9 +9090,9 @@
      "reconstructed": "Front leaf read from the built door material; the way up to it is read off the built stoop's treads (derive_doors_scene.py stoop_way), and one answering stands at its foot. The leaf opens and shuts as they pass (house-doors.js passages, T-3554); its hinge side and swing are reconstructed."
     }
    ],
-   "model_inputs_sha256": "04f792eb3c1693f00a5a330f42ad2a923e56e46488a60063a2f9ce8354d5397e",
+   "model_inputs_sha256": "b3380ff5bb3e36d5d480251332cb978244d11d97de2d98c8e50c0735d5eecb44",
    "barrier": {
-    "key": "c47fb1aa243f28e7",
+    "key": "4449930164df9f51",
     "cell": 0.1,
     "u0": -2.6,
     "v0": -11.3,
@@ -9282,9 +9282,9 @@
      "reconstructed": "Front leaf read from the built door material; the way up to it is read off the built stoop's treads (derive_doors_scene.py stoop_way), and one answering stands at its foot. The leaf opens and shuts as they pass (house-doors.js passages, T-3554); its hinge side and swing are reconstructed."
     }
    ],
-   "model_inputs_sha256": "a3ed038aa938f940eec9c259c762eae7bf6cea7fb7adddf05f61cd4c97bc5103",
+   "model_inputs_sha256": "e1b11461d90eacd646f820472f56d51f8eb6a3f0ede0c74b6c77e95094b5360b",
    "barrier": {
-    "key": "2ead6d02b3fb81fb",
+    "key": "81aa3c5da203a2ac",
     "cell": 0.1,
     "u0": -28.4,
     "v0": -8.0,
@@ -9494,9 +9494,9 @@
      "reconstructed": "Front leaf read from the built door material; the way up to it is read off the built stoop's treads (derive_doors_scene.py stoop_way), and one answering stands at its foot. The leaf opens and shuts as they pass (house-doors.js passages, T-3554); its hinge side and swing are reconstructed."
     }
    ],
-   "model_inputs_sha256": "69e3fad2eeaac369e03e471fed94b1c27f4b83cdba214a54afbbeabf5bde6868",
+   "model_inputs_sha256": "83f016d02aec9dede0c2d02cff065d38cac32b30381094805f81b2793085f8cb",
    "barrier": {
-    "key": "78e9a1fb3cf2a3ad",
+    "key": "d3a2baf576e52d9e",
     "cell": 0.1,
     "u0": -7.8,
     "v0": -1.5,
@@ -9712,9 +9712,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1912:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "99a1594784fc7d7435c74ac13bca112a0164f355dd64eb138c771832982cde13",
+   "model_inputs_sha256": "46a3d3998a2118fc897d03e7e5d5bea4130cc7adbb509a966c0451a603c0b875",
    "barrier": {
-    "key": "84d1414dbdbfa44a",
+    "key": "a3357c6468c9053f",
     "cell": 0.1,
     "u0": -7.6,
     "v0": -3.2,
@@ -9999,9 +9999,9 @@
      "reconstructed": "Front leaf read from the built door material; the way up to it is read off the built stoop's treads (derive_doors_scene.py stoop_way), and one answering stands at its foot. The leaf opens and shuts as they pass (house-doors.js passages, T-3554); its hinge side and swing are reconstructed."
     }
    ],
-   "model_inputs_sha256": "d685261dd3e23818e6888d8e08b926aac22cd77ab5e7a265cb16bbb86a582012",
+   "model_inputs_sha256": "ffae9462ece4ed97bb079dad36297ed16ccc83fbc381a00b457d66bb84326657",
    "barrier": {
-    "key": "c45903b74c9a07a7",
+    "key": "87a4b8e9971f70f2",
     "cell": 0.1,
     "u0": -36.6,
     "v0": -16.3,
@@ -10262,9 +10262,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1901:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "f23800007a3f8d80cc670d555ffbafefab328ac6e7d1535b593f8ae1c3ee61ef",
+   "model_inputs_sha256": "6e2d937a73181f86ed08977c8e188438ee75e8d59481517735dfe766c5139ead",
    "barrier": {
-    "key": "ae73f0a45fa32631",
+    "key": "62800416bc9ca726",
     "cell": 0.1,
     "u0": -3.3,
     "v0": -2.3,
@@ -10836,9 +10836,9 @@
      "reconstructed": "Front leaf read from the built door material; the way up to it is read off the built stoop's treads (derive_doors_scene.py stoop_way), and one answering stands at its foot. The leaf opens and shuts as they pass (house-doors.js passages, T-3554); its hinge side and swing are reconstructed."
     }
    ],
-   "model_inputs_sha256": "dd4ac5d497017d22ac45c5fc4d311723097075fb7ddc2c89d8f932e91187d5ed",
+   "model_inputs_sha256": "fd9c76a9016aaa1702671f30a8112341dfb6e0b97c6762a451a66327444b49df",
    "barrier": {
-    "key": "e65fe249b8379911",
+    "key": "403f36a5b7577a9c",
     "cell": 0.1,
     "u0": -8.1,
     "v0": -4.6,
@@ -10886,9 +10886,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1638:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "f94d53fcfbdba656acef632f369edbdd6bd49c67374681c324f2d3fc7ac62e8f",
+   "model_inputs_sha256": "8e622dc4eff1b3d00cc36ffb30c78bc7bf25d8b05ac58b8b644a621205682cb0",
    "barrier": {
-    "key": "eff5b58739a792c2",
+    "key": "9f38a6538dc97115",
     "cell": 0.1,
     "u0": -24.8,
     "v0": -4.5,
@@ -11134,9 +11134,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1637:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "40ac3083e11fd86c26196d8809d2de3a5d13c0d07f10b5592829fe0588b2377d",
+   "model_inputs_sha256": "7b8bca6aa4051de038858fa406e6bdefb287c14926d9429d2648031699603cfe",
    "barrier": {
-    "key": "3e412c0c579054df",
+    "key": "9e4a7b8fd9fc340a",
     "cell": 0.1,
     "u0": -5.8,
     "v0": -3.5,
@@ -11634,9 +11634,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1720:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "43b4d1f1df90d10ede06873c6abb14f258508eeaf862223c1b12e58a7600e39a",
+   "model_inputs_sha256": "97a789bba271522212431153765aacdb788b298d7c9095659ef3555510827ce8",
    "barrier": {
-    "key": "be6e3286c5e22d13",
+    "key": "353d8d0f4dcd93e4",
     "cell": 0.1,
     "u0": -0.2,
     "v0": -12.3,
@@ -11852,9 +11852,9 @@
      "reconstructed": "The kitchen door on the rear wall, as the back yards lay it (prairie_1812:back_door); it swings out over its landing and shuts as people pass (back-yards.js, house-doors.js passages, T-3554), and the way is the middle of its stoop."
     }
    ],
-   "model_inputs_sha256": "d89b9dc4a0086ecf9f1b123e3549604f31787b6a448473be283e2ffe215e4b30",
+   "model_inputs_sha256": "da1466760ca5c6d7291906f554c884b14fc951f6225058e384c60bd119f0d24a",
    "barrier": {
-    "key": "b2abfca7344c6505",
+    "key": "ad3eb2a699e84748",
     "cell": 0.1,
     "u0": -10.8,
     "v0": -0.7,
@@ -11922,7 +11922,7 @@
     "rotation_deg": 179.444
    },
    "barrier": {
-    "key": "7232615fb34a32a6",
+    "key": "95c09212a0cf2c7f",
     "cell": 0.1,
     "u0": -18.5,
     "v0": -1.0,
@@ -11954,7 +11954,7 @@
     "rotation_deg": -0.393
    },
    "barrier": {
-    "key": "23fd59d075d534d2",
+    "key": "f712f9dd3c897346",
     "cell": 0.1,
     "u0": -2.9,
     "v0": -7.6,
@@ -11970,7 +11970,7 @@
     "rotation_deg": 89.607
    },
    "barrier": {
-    "key": "99766f312bc05f29",
+    "key": "57216c8610658be9",
     "cell": 0.1,
     "u0": -0.2,
     "v0": -0.2,
@@ -11986,7 +11986,7 @@
     "rotation_deg": 179.449
    },
    "barrier": {
-    "key": "0ed38cf341ad7962",
+    "key": "251af907da398f98",
     "cell": 0.1,
     "u0": -4.0,
     "v0": -2.2,
@@ -12018,7 +12018,7 @@
     "rotation_deg": -0.617
    },
    "barrier": {
-    "key": "5ea8c06ce27dc1f4",
+    "key": "76a14ca63a07714e",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -20.7,
@@ -12034,7 +12034,7 @@
     "rotation_deg": -0.616
    },
    "barrier": {
-    "key": "6a0c3e03b6de9f13",
+    "key": "01d1967fad43d90e",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -7.9,
@@ -12082,7 +12082,7 @@
     "rotation_deg": -0.581
    },
    "barrier": {
-    "key": "6e2b494284aa9ffc",
+    "key": "2176baa2ffc86a6f",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -9.8,
@@ -12098,7 +12098,7 @@
     "rotation_deg": -0.578
    },
    "barrier": {
-    "key": "d913149a4417837f",
+    "key": "bd781ffa4064cc65",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -7.8,
@@ -12114,7 +12114,7 @@
     "rotation_deg": -0.621
    },
    "barrier": {
-    "key": "f49760123d6ae8ae",
+    "key": "80aa408b5c1f2d9f",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -11.3,
@@ -12162,7 +12162,7 @@
     "rotation_deg": 179.601
    },
    "barrier": {
-    "key": "1c12ecc91d5beab0",
+    "key": "1dcb0a41a2962436",
     "cell": 0.1,
     "u0": -0.2,
     "v0": -1.9,
@@ -12178,7 +12178,7 @@
     "rotation_deg": 179.605
    },
    "barrier": {
-    "key": "ee54fc25e8aec7e1",
+    "key": "af6ac12175181d88",
     "cell": 0.1,
     "u0": -0.2,
     "v0": -5.7,
@@ -12194,7 +12194,7 @@
     "rotation_deg": 179.605
    },
    "barrier": {
-    "key": "081263c6c7b3e391",
+    "key": "40b4379cccdde660",
     "cell": 0.1,
     "u0": -0.2,
     "v0": -0.2,
@@ -12210,7 +12210,7 @@
     "rotation_deg": 179.611
    },
    "barrier": {
-    "key": "2847746d8eebaaf2",
+    "key": "5d592d1f241cfe1b",
     "cell": 0.1,
     "u0": -2.6,
     "v0": -1.4,
@@ -12226,7 +12226,7 @@
     "rotation_deg": 179.611
    },
    "barrier": {
-    "key": "100a7427e07f06ee",
+    "key": "e56f6bdb965a2bf2",
     "cell": 0.1,
     "u0": -2.6,
     "v0": -0.2,
@@ -12242,7 +12242,7 @@
     "rotation_deg": -0.579
    },
    "barrier": {
-    "key": "6e67f71fc4463f3f",
+    "key": "2789b307dd77cf51",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -5.1,
@@ -12258,7 +12258,7 @@
     "rotation_deg": 179.604
    },
    "barrier": {
-    "key": "f5f82eaa5a6d869c",
+    "key": "50b8b7c2e09ab6b0",
     "cell": 0.1,
     "u0": -0.1,
     "v0": -1.3,
@@ -12274,7 +12274,7 @@
     "rotation_deg": -0.579
    },
    "barrier": {
-    "key": "2bd939baea8b3d96",
+    "key": "25419cd9112cd1ca",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -4.1,
@@ -12290,7 +12290,7 @@
     "rotation_deg": -0.579
    },
    "barrier": {
-    "key": "95f48abb1a9c8b8e",
+    "key": "3445779b1dd50f3e",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -3.7,
@@ -12306,7 +12306,7 @@
     "rotation_deg": -0.58
    },
    "barrier": {
-    "key": "2583a59e1f8638b5",
+    "key": "93bdec18e23e134c",
     "cell": 0.1,
     "u0": -0.2,
     "v0": -2.7,
@@ -12322,7 +12322,7 @@
     "rotation_deg": -0.58
    },
    "barrier": {
-    "key": "fc9e965fe9272896",
+    "key": "8f140b534fa0f6c9",
     "cell": 0.1,
     "u0": -0.2,
     "v0": -3.3,
@@ -12338,7 +12338,7 @@
     "rotation_deg": -0.581
    },
    "barrier": {
-    "key": "1e4901c5cf83631b",
+    "key": "bfaa35047f0588c2",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -6.1,
@@ -12354,7 +12354,7 @@
     "rotation_deg": -0.581
    },
    "barrier": {
-    "key": "e43f3ecc9dcec724",
+    "key": "af2dc42c1042c7d6",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -7.2,
@@ -12370,7 +12370,7 @@
     "rotation_deg": -0.582
    },
    "barrier": {
-    "key": "3a257be1d134d998",
+    "key": "df4f9102a28cf78a",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -13.4,
@@ -12386,7 +12386,7 @@
     "rotation_deg": -0.618
    },
    "barrier": {
-    "key": "11853da262069e0a",
+    "key": "7d28864312573a3a",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -4.1,
@@ -12418,7 +12418,7 @@
     "rotation_deg": -0.628
    },
    "barrier": {
-    "key": "abf8de1802f3abe0",
+    "key": "a339eb1bbbf16fbe",
     "cell": 0.1,
     "u0": -10.3,
     "v0": -26.4,
@@ -12674,7 +12674,7 @@
     "rotation_deg": -0.616
    },
    "barrier": {
-    "key": "7b97275ee70e6b3b",
+    "key": "23e64a122974a39e",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -8.3,
@@ -12690,7 +12690,7 @@
     "rotation_deg": -0.391
    },
    "barrier": {
-    "key": "882c23d03736ae78",
+    "key": "ea5136772e2d90f7",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -5.0,
@@ -12722,7 +12722,7 @@
     "rotation_deg": -0.579
    },
    "barrier": {
-    "key": "53e181236ef82435",
+    "key": "32ed217d25427bb8",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -8.3,
@@ -12770,7 +12770,7 @@
     "rotation_deg": -0.627
    },
    "barrier": {
-    "key": "de720be1dcb6d197",
+    "key": "c5c520174831236d",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -9.0,
@@ -12882,7 +12882,7 @@
     "rotation_deg": -0.815
    },
    "barrier": {
-    "key": "9dd60c6b3e77ff72",
+    "key": "758552302f464f1f",
     "cell": 0.1,
     "u0": -12.3,
     "v0": -24.6,
@@ -13058,7 +13058,7 @@
     "rotation_deg": -0.58
    },
    "barrier": {
-    "key": "40366692e9a314e0",
+    "key": "8d42215523b9fc73",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -5.7,
@@ -13074,7 +13074,7 @@
     "rotation_deg": -0.397
    },
    "barrier": {
-    "key": "ce32f85b1ce17a74",
+    "key": "9bf122d9aa64f42a",
     "cell": 0.1,
     "u0": -3.3,
     "v0": -8.9,
@@ -13154,7 +13154,7 @@
     "rotation_deg": -0.581
    },
    "barrier": {
-    "key": "104347ac0286575f",
+    "key": "dc28ad8bb1d0c156",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -15.4,
@@ -13170,7 +13170,7 @@
     "rotation_deg": -0.616
    },
    "barrier": {
-    "key": "f8726d2d6da17c80",
+    "key": "8991b3156800ced3",
     "cell": 0.1,
     "u0": -0.6,
     "v0": -4.4,

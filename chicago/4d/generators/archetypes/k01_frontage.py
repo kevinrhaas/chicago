@@ -662,7 +662,8 @@ class Assembly:
             self._k03_panel(params.service_wall_brick, [k for k in MATERIALS if self.fabric[k] == f"k03:{k03_brick.PANEL}"])
         # T-3093: the front's brick toned (1812's), its brick bays with it; T-3244: or laid in
         # its own panel (1708's red-brown over its stone basement)
-        self.front_brick = "brick_front" if params.front_brick_tone or params.front_brick_panel else "brick"
+        self.front_brick = "brick_front" if (params.front_brick_tone or params.front_brick_panel) \
+            and not params.face_brick_all_round else "brick"
         if params.front_brick_panel:
             self._k03_panel(params.front_brick_panel, ["brick_front", "bay_brick"], units=False)
         if params.front_brick_tone:
@@ -674,7 +675,8 @@ class Assembly:
         # the side and rear walls, their stacks, the area walls and K03's units toned to the
         # house's own common run. A brick front with brick heads carries its units in the front's
         # brick when both are laid in the one panel (the units are one set of slots per house)
-        if self.front_brick == "brick_front" and params.front_brick_roughness:
+        # (an all-round house's front is the walls' own "brick", toned and shifted as a side wall)
+        if (self.front_brick == "brick_front" or params.face_brick_all_round) and params.front_brick_roughness:
             for slot in ("brick_front", "bay_brick"):
                 self.spec[slot]["roughness"] = round(self.spec[slot]["roughness"] + params.front_brick_roughness, 3)
         units = [k for k in MATERIALS if k.startswith("brick_unit_")]
