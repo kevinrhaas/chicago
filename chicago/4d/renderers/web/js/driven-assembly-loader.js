@@ -106,14 +106,17 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
       root: group, horses,
       poseVehicle(pose) {
         if (teamDisposed) return;
+        // The team's group may be swung with the fore-carriage (town-transport.js): each
+        // horse heads where its own place on the turning vehicle is going, less that swing.
+        const turn = group.rotation.y, c = Math.cos(turn), s = Math.sin(turn);
         for (const horse of horses) {
-          const lead = pose.rootAhead + row.horse_offset_m[2];
-          horse.root.rotation.y = Math.atan2(pose.curvature * lead, 1 - pose.curvature * horse.x);
+          const x = group.position.x + c * horse.x, lead = pose.rootAhead + group.position.z - s * horse.x;
+          horse.root.rotation.y = Math.atan2(pose.curvature * lead, 1 - pose.curvature * x) - turn;
           group.updateWorldMatrix(true, true);
           const current = horse.root.getWorldPosition(new THREE.Vector3());
           const localYaw = horse.root.rotation.y;
           const support = fitHorseSupport({ e: current.x, n: -current.z,
-            yaw: pose.yaw + localYaw, heightAt, ...horseSupportDomain });
+            yaw: pose.yaw + turn + localYaw, heightAt, ...horseSupportDomain });
           horse.root.position.y = support.height_m - pose.height;
           const tilt = new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0),
             new THREE.Vector3().fromArray(support.normal_local_xyz));

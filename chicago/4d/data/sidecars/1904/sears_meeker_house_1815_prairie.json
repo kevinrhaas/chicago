@@ -297,7 +297,14 @@
     "front_bays_by_storey": {
       "value": {
         "1": [
-          4.22,
+          {
+            "s_m": 4.22,
+            "sill_m": 6.19,
+            "width_m": 0.43,
+            "height_m": 1.09,
+            "head": "plain",
+            "why_not_ordinary": "the narrow light over the door's south jamb, x 386-417 px and y 598-520 px on the square-on photograph (6.19-7.28 m over grade, 0.43 m across): a single light standing over the door's hood, short of the storey's sills and heads"
+          },
           6.1
         ]
       },
@@ -305,7 +312,7 @@
       "sources": [
         "chicagology_1815_sears_two_views"
       ],
-      "note": "The second storey's lights stand off the principal storey's columns on the square-on photograph (the left of the two views, Chicagology; 71.5 px/m on the front's plane, grade at y 1040 px): a narrow light over the door's south jamb (x 388-416 px, 0.4 m wide; built at the storey's sash width, open in the match record) and the window column at x 536 px."
+      "note": "The second storey's lights stand off the principal storey's columns on the square-on photograph (the left of the two views, Chicagology; 71.5 px/m on the front's plane, grade at y 1040 px): T-3562: the narrow light over the door's south jamb, x 386-417 px and y 598-520 px, 0.43 m across and 1.09 m high with its sill 6.19 m over grade (about 0.35 m over the storey's other sills and its head 0.75 m under their heads), laid once at its own size as one light under the storey's flat lintel; and the window column at x 536 px."
     },
     "sash_by_storey": {
       "value": [

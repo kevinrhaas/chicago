@@ -1843,9 +1843,9 @@
     "house_1828_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 10437580,
+      "bytes": 10381632,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "fc2be983aaf0a0c894499499915b3f0559cda6e8cf5792a36a5eb9ece508473c",
+      "inputs_sha256": "889348e8c23763680b16531ab8f02f29312a9dba31dae11eaff9157b571d77c8",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "house_1828_prairie"
@@ -9232,9 +9232,9 @@
     "sears_meeker_house_1815_prairie__as_mapped_1904.glb": {
       "archetype": "k01_frontage",
       "baked_ao": false,
-      "bytes": 5930848,
+      "bytes": 5975380,
       "generator": "generators/k01_emit.py",
-      "inputs_sha256": "9d3fbb577741d3ce454d279a9d9cda56421f80bead92b37b6eaa5f19fa232444",
+      "inputs_sha256": "0d5e984782c8552cf36a8a8cd969c53cca2b4fc07444b567bfe0b42e5ce27318",
       "kind": "generated",
       "phase_id": "as_mapped_1904",
       "structure_id": "sears_meeker_house_1815_prairie"

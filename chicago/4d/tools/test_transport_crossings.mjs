@@ -8,7 +8,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { routeFor, circleRoute, createTransportLoop } from '../renderers/web/js/transport-loop.js';
 import { createCrossings, conflictZones, footprintAt, overlaps } from '../renderers/web/js/transport-crossings.js';
-import { buildRows } from './lay_driven_carriages_1904.mjs';
+import { buildRows, frontWheelsClear } from './lay_driven_carriages_1904.mjs';
 
 const loops = JSON.parse(readFileSync(new URL('../data/transport/driven/loops.json', import.meta.url)));
 
@@ -40,23 +40,38 @@ assert.deepEqual(rows1904.map(r => r.id), ['prairie_driven_brougham_loop_1904',
   'prairie_driven_brougham_north_loop_1904', 'prairie_driven_brougham_south_loop_1904']);
 const { rows: written } = buildRows();
 assert.deepEqual(rows1904.slice(1), written, 'the two new rows are what tools/lay_driven_carriages_1904.mjs writes');
+// Hans's and Henry Windish's rounds are counter-clockwise (every corner a left turn, positive
+// curvature); Joseph Daniels's is clockwise (Kevin, 2026-11-14: every corner a right turn).
+// The team keeps right either way.
+const turns = { prairie_driven_brougham_loop_1904: 1, prairie_driven_brougham_north_loop_1904: 1, prairie_driven_brougham_south_loop_1904: -1 };
 for (const row of rows1904) {
   const route = routeFor(row.route);
-  // Counter-clockwise: every corner turns left (positive curvature), and the team keeps right.
-  for (let s = 0; s < route.length; s += 1) assert(route.at(s).curvature >= -1e-12, `${row.id} turns right at ${s} m`);
+  let turned = 0;
+  for (let s = 0; s < route.length; s += 1) {
+    const k = route.at(s).curvature;
+    assert(k * turns[row.id] >= -1e-12, `${row.id} turns the wrong way at ${s} m`);
+    if (Math.abs(k) > 1e-9) turned++;
+  }
+  assert(turned > 20, `${row.id} turns its corners`);
+  // The brougham's lock (15°) covers the sharpest corner of each round.
+  assert.equal(row.steering_limit_deg, 15);
+  assert(Math.atan(row.wheelbase_m * route.maxCurvature) <= 15 * Math.PI / 180);
 }
+assert(routeFor(rows1904[2].route).maxCurvature > Math.tan(8 * Math.PI / 180) / rows1904[2].wheelbase_m, 'the clockwise round needs more than the old 8° of lock');
+// The lock is the coach's own: its front wheels clear the body at 16°, and the check bites at 25°.
+const brougham = new URL(`../renderers/web/${rows1904[0].vehicle_file}`, import.meta.url).pathname;
+assert(frontWheelsClear(brougham, 16) && !frontWheelsClear(brougham, 25), 'front-wheel lock read off the brougham');
 const zones = conflictZones(rows1904.map(row => ({ id: row.id, row, route: routeFor(row.route) })));
-// Hans crosses each newcomer twice a lap (at Indiana and at Prairie); the newcomers never meet.
+// Hans crosses Henry twice a lap (at Indiana and at Prairie). Joseph's clockwise round, east
+// of Prairie, shares no lane and no turn with either.
 const pairs = zones.map(z => `${z.a}|${z.b}`).sort();
 assert.deepEqual(pairs, [
   'prairie_driven_brougham_loop_1904|prairie_driven_brougham_north_loop_1904',
   'prairie_driven_brougham_loop_1904|prairie_driven_brougham_north_loop_1904',
-  'prairie_driven_brougham_loop_1904|prairie_driven_brougham_south_loop_1904',
-  'prairie_driven_brougham_loop_1904|prairie_driven_brougham_south_loop_1904',
 ]);
 for (const z of zones) for (const [a, b] of Object.values(z.at)) assert(b - a > 5 && b - a < 30, `zone ${z.id} spans ${b - a} m`);
-// Opposing lanes on 18th and 20th pass clear: no zone runs along a shared street.
-console.log(`1904 conflict zones PASS: ${zones.length}, two crossings a lap between Hans and each newcomer, every loop counter-clockwise`);
+// Opposing lanes on 18th pass clear: no zone runs along a shared street.
+console.log(`1904 conflict zones PASS: ${zones.length}, two crossings a lap between Hans and Henry; two rounds counter-clockwise, one clockwise`);
 
 const TWO_HOURS = 7200;
 const run = play(rows1904, TWO_HOURS);
@@ -64,7 +79,7 @@ assert.equal(run.worstOverlap, null, `teams overlap: ${JSON.stringify(run.worstO
 assert(run.waits.length >= 3, `only ${run.waits.length} waits in two hours`);
 assert(run.waits.every(w => w.for_s <= 30), `a wait too long: ${JSON.stringify(run.waits.find(w => w.for_s > 30))}`);
 const first = run.waits[0];
-assert(first.at_s < 120 && first.for_s >= 2, `the first give-way comes soon after arrival and is seen: ${JSON.stringify(first)}`);
+assert(first.at_s < 600 && first.for_s >= 2, `the first give-way comes within ten minutes and is seen: ${JSON.stringify(first)}`);
 for (const [i, actor] of run.actors.entries()) {
   const row = rows1904[i], dwell = (row.stops ?? []).reduce((sum, s) => sum + s.dwell_s, 0);
   const lap = routeFor(row.route).length / row.speed_m_s + dwell;
