@@ -5327,17 +5327,42 @@ async function boot() {
       target.then?.();
     };
     api.townTransport?.cancelDriverApproaches();
-    const { step, outward_deg: out } = plan.door;
-    const b = (Number.isFinite(out) ? out : 0) * Math.PI / 180;
-    for (const back of [5, 7, 9, 3.5]) for (const side of [0, 2, -2]) {
-      const e = step.e + Math.sin(b) * back + Math.cos(b) * side;
-      const n = step.n + Math.cos(b) * back - Math.sin(b) * side;
-      if (router.blockedAt(e, n)) continue;
-      const face = (Math.atan2(step.e - e, step.n - n) * 180 / Math.PI + 360) % 360;
-      return travel.go({ kind: 'intersection', local_e: e, local_n: n, yaw_deg: face, label }, { onArrive: come });
-    }
+    const stand = doorStand(plan.door, plan.structure);
+    if (stand) return travel.go({ kind: 'intersection', ...stand, label }, { onArrive: come });
     // No clear stand before the door: to the house, and out they come all the same.
     return travel.go({ kind: 'structure', id: plan.structure, label }, { onArrive: come });
+  }
+  /**
+   * T-3553 (the owner, 2026-11-13, Find on Mrs. Grey at 2010 Prairie: "its a inside 3d space
+   * that you cant see what is going on so when you find someone or start to follow them you
+   * should wait until they get outside for us to land"). Where the visitor waits for someone to
+   * come out of `door` ({ step: {e, n}, outward_deg }) of `structure`: a few metres out from its
+   * step, facing it, on a stand the router calls clear, off whatever the house builds outside
+   * its walls (house-barriers.js: stoops, railings, bays, porches) and outside the house's drawn
+   * shape where any such stand is (a court door's stands are all inside its house's box, so
+   * that is a preference, not a rule). { local_e, local_n, yaw_deg } or null.
+   */
+  function doorStand(door, structure) {
+    const step = door?.step;
+    if (!step || !Number.isFinite(step.e) || !Number.isFinite(step.n)) return null;
+    const b = (Number.isFinite(door.outward_deg) ? door.outward_deg : 0) * Math.PI / 180;
+    const stands = [];
+    for (const back of [5, 7, 9, 12, 3.5]) for (const side of [0, 2, -2]) {
+      const e = step.e + Math.sin(b) * back + Math.cos(b) * side;
+      const n = step.n + Math.cos(b) * back - Math.sin(b) * side;
+      if (router.blockedAt(e, n) || api.houseBarriers?.near(e, n, BODY_R_M)) continue;
+      stands.push({ e, n, drawn: insideDrawn(structure, e, n) });
+    }
+    const at = stands.find((q) => !q.drawn) ?? stands[0];
+    if (!at) return null;
+    return { local_e: at.e, local_n: at.n, yaw_deg: (Math.atan2(step.e - at.e, step.n - at.n) * 180 / Math.PI + 360) % 360 };
+  }
+  /** Whether (e, n) is within `id`'s drawn box (its model's own frame, `margin` metres in). */
+  function insideDrawn(id, e, n, margin = 0.2) {
+    const box = id ? buildingBounds[id] : null, matrix = box ? buildings.matrixOf(id) : null;
+    if (!matrix) return false;
+    const q = new THREE.Vector3(e, 0, -n).applyMatrix4(matrix.clone().invert());
+    return q.x > box.min[0] + margin && q.x < box.max[0] - margin && q.z > box.min[2] + margin && q.z < box.max[2] - margin;
   }
   function goToTarget(target) {
     if (jauntRuntime?.state.jaunt) jauntRuntime.explore();
@@ -5382,6 +5407,16 @@ async function boot() {
     // T-3573: someone at home: to the door they will come out by, and out they come on a walk
     // round their block as the visitor arrives (then whatever the asker wanted next: Follow).
     if (findInTown && api.atHome?.(target.id)) return meetAtDoor(target);
+    // T-3553 (2026-11-13): someone in their doorway, coming out or going in, is waited for
+    // outside that door, facing it, never landed beside in the doorway (inside the house).
+    const doorway = findInTown ? api.days?.doorway?.(target.id) : null;
+    if (doorway) {
+      const stand = doorStand(doorway, doorway.structure);
+      if (stand) {
+        api.townTransport?.cancelDriverApproaches();
+        return travel.go({ kind: 'intersection', ...stand, label: target.label ?? 'Person' }, { onArrive: () => target.then?.() });
+      }
+    }
     // T-3404: a standing or walking figure in town: set down a couple of metres in front of
     // them, else beside or behind, on a stand the router calls clear, facing them.
     const figure = findInTown ? api.humans?.get?.(target.id) : null;
@@ -5898,13 +5933,17 @@ async function boot() {
   function followPerson(id) {
     if (!placedInTown(id)) { hud.say('Not in town now'); return false; }
     const name = personInTown(id)?.name ?? atHome(id)?.name ?? null;
+    // T-3553 (2026-11-13): someone at home or in their doorway is followed from when they are
+    // out of it (follow's `locate` does not see them on a door's way); until then the visitor
+    // waits outside the door, facing it, as long as a door's way can take.
+    const comingOut = !!(atHome(id) || api.days?.doorway?.(id));
     const begin = () => {
       // A carriage Find asked to wait for the visitor is let go: Follow goes with it.
       api.townTransport?.cancelDriverApproaches();
       const driver = personInTown(id)?.driver;
       // Following means going with them: a carriage stopped for the visitor goes on.
       if (driver?.state === 'stopped' && driver.canResume?.()) driver.resume();
-      return follow.start(id, { name, wait: 20 });
+      return follow.start(id, { name, wait: comingOut ? FOLLOW_OUT_WAIT_S : 20 });
     };
     // The town is what to look at now: the card that offered Follow is put away.
     popup.close(); if (handInspect) releaseInspect();
@@ -6044,12 +6083,25 @@ async function boot() {
   // T-3471 (follow.js). The key in the quick column names who and stops it; the visitor's
   // own movement stops it too.
   const followKey = document.getElementById('btn-follow');
+  /** T-3553 (2026-11-13): how long Follow waits for someone to come out of their door: a
+   *  door's way waits for the one ahead on it, then for the leaf to open (human-days PASSAGE
+   *  busy_s 25 + open_wait_s 5), and the walk out. */
+  const FOLLOW_OUT_WAIT_S = 45;
+  /** Their own body's clearance off a house's stoop, porch or bay (house-barriers.js CORE). */
+  const FOLLOW_BARRIER_R_M = 0.15;
   const follow = createFollow({
-    walker, walk: WALK, locate: personInTown,
+    walker, walk: WALK,
+    // T-3553 (the owner, 2026-11-13: "wait until they get outside for us to land"): someone on
+    // a door's way (its doorway and stoop, partly inside the house) is not there to follow yet,
+    // and someone going back in is followed to their door, not into the house.
+    locate: (id) => (api.days?.doorway?.(id) ? null : personInTown(id)),
     blockedAt: (e, n) => router.blockedAt(e, n),
     // T-3471: the stand right behind them is pulled in short of any wall in the line, by
-    // the same capsule test the walker's own steps meet (houses, enclosure walls, steps).
-    clearBetween: (ae, an, be, bn) => router.clearSegment(ae, an, be, bn),
+    // the same capsule test the walker's own steps meet (houses, enclosure walls, steps);
+    // and (T-3553, 2026-11-13) of what a 1904 house builds outside its walls, the stoops,
+    // porches and bays the router's footprints do not hold (house-barriers.js).
+    clearBetween: (ae, an, be, bn) => router.clearSegment(ae, an, be, bn)
+      && (api.houseBarriers?.clearLeg({ e: ae, n: an }, { e: be, n: bn }, FOLLOW_BARRIER_R_M) ?? true),
     busy: () => (travel?.state?.phase ?? 'idle') !== 'idle',
     onChange: (state, why, was) => {
       if (followKey) {
@@ -6061,10 +6113,12 @@ async function boot() {
           followKey.setAttribute('aria-label', `Stop following ${who}`);
         }
       }
-      if (state && why === 'start') { hud.say(`Following ${state.name ?? 'them'}`); hints.show('follow'); } // T-3445
+      if (state && why === 'start' && state.waitLeft > 0) hud.say(`Waiting for ${state.name ?? 'them'} to come out`);
+      else if (state && (why === 'start' || why === 'found')) { hud.say(`Following ${state.name ?? 'them'}`); hints.show('follow'); } // T-3445
       else if (!state && why === 'gone') {
         // T-3573: back in by their own door at the end of a walk, not lost.
-        hud.say(api.humans?.get?.(was?.personId)?.indoors ? `${was?.name ?? 'They'} went indoors` : `Lost sight of ${was?.name ?? 'them'}`);
+        const gone = api.humans?.get?.(was?.personId)?.indoors || api.days?.doorway?.(was?.personId);
+        hud.say(gone ? `${was?.name ?? 'They'} went indoors` : `Lost sight of ${was?.name ?? 'them'}`);
       }
       else if (!state && why !== 'switched') hud.say(`Stopped following ${was?.name ?? 'them'}`);
     },
