@@ -41792,6 +41792,15 @@ early autochrome, a surviving wall) replaces its pick.
 **Ticket:** T-3385; First Presbyterian's walls, T-3386.
 **Recorded:** 2026-11-05 (T-3385).
 
+### L-k03-face-brick-all-round — Field's, Kellogg's and Armour's houses faced in the front's brick on every side
+
+**Decision:** the owner, 2026-11-13, looking at 1905 (Field), 1945 (Armour/Corwith) and 1923 (Kellogg) in 1904, where a pressed red front stood over buff or salmon common flanks and a red brick bay stood out of a buff flank: *"i doubt these house would have had common brown brick like that on the side it would have had full red brick it seems, and not vary the bay part those faces would be red brick all around particularly armour and fields they would be nice and fancy and high end"*, then *"consistent brick with the front, not necessarily red brick just cause ... the fields and armour house definitiely seem need to change for consistent brick all around"*. A record's `face_brick` may now say `all_round: true`: every brick wall the house has (both flanks, the rear, a canted corner, its wings, bays and stacks) is laid in the front's face brick instead of a common run. Worn by 1905, 1923 and 1945, all pressed red.
+**Not invented:** Field's flank behind the conservatory, which the Chicagology print and the 1893 Rand McNally plate both show in the same tone as the front's brick, with no paler wall (`marshall_field_house_1905_prairie` face_brick); Armour's south flank on Twentieth Street, a street front, which the 1928 Tribune halftone prints as dark as its Prairie Avenue front. The fronts' pressed red is L-k03-face-brick-3385's.
+**Invented:** the colour of Field's far (north) flank and rear, Armour's north flank and rear and all of Kellogg's flanks, which no picture shows: they follow the front by the owner's ruling. The period's usual practice was a common brick on side and party walls (T-3385's photographs of 1637, 1812, 1816's north flank and 1834 read pale commons), so these three are the free-standing exceptions, not the rule; every other house keeps its common sides. The owner also saw a reddish common, "not high end brick", on a brick side wall at the Kimball house: common side walls were real on this street, so the ruling is held to these three houses.
+**Re-opens on:** a photograph or description of any of these flanks, or of a rear wall, showing a common brick.
+**Ticket:** none filed (the owner's thread "Use face brick on high-end Prairie sides", 2026-11-13).
+**Recorded:** 2026-11-13.
+
 ### L-k01-1700-1706-roof-3384 — 1700 and 1706 Prairie under one mansard, the party wall carried up through it
 
 **Decision:** the Glessner townhouses at 1700 and 1706 Prairie are roofed as ONE mansard run across

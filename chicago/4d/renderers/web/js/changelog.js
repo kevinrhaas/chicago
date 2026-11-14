@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 2964, ts: '2026-11-14T06:58:48.305Z', date: 'Nov 14, 2026, 12:58 AM CT', title: 'Field, Kellogg and Armour houses faced in red brick all round', kind: 'fix',
+    items: [
+      '1905 (Marshall Field), 1923 (Kellogg) and 1945 (Armour/Corwith) Prairie no longer show buff or salmon common brick on their sides: every wall, bay and corner is now the same pressed red as the front.',
+      'Field\'s photographs show its conservatory side in the front\'s brick; Armour\'s Twentieth Street side faces a street. The other houses keep common brick on their sides, as the photographed flanks on the street show.',
+    ] },
   { v: 2963, ts: '2026-11-14T05:11:29.978Z', date: 'Nov 13, 2026, 11:11 PM CT', title: 'The Greys wear their photographs: skin, hair, beard and eyes', kind: 'feature',
     items: [
       'William and Sarah Grey of 2010 Prairie (1904) now wear the owner\'s turnaround photographs as their own skin, on every side of the head.',
