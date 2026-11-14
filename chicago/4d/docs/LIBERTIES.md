@@ -44121,3 +44121,16 @@ Three things in the sheet itself. What no photograph sees squarely (the undersid
 **Ticket:** T-2365 (piece 2 of T-2361, K14).
 **Review:** `docs/RESEARCH/k14-1708-newer-2365/README.md`.
 **Recorded:** 2026-11-14 (T-2365).
+
+### L-finery-3553 — The women's finery of 1904 and the figured cloth of 1812 (T-3553, 2026-11-14)
+
+**Decision:** The owner asked, 2026-11-14, for finer and more varied women's clothing ("Give the women some variation in their clothing appearance"). Every Prairie Avenue lady of 1904 is dealt, by her id, her own summer, spring/fall and winter dress: a walking suit, a silk afternoon dress, a white lingerie dress, a shirtwaist and skirt, a velvet afternoon dress or (for women of sixty or more, mostly) half-mourning silk with jet; with lace, ribbon or velvet bands, soutache braid, tucks, flounces, embroidery or a woven figure, and a picture hat, straw sailor or toque trimmed with plumes, flowers or a bow. Maids, cooks, companions and girls are varied the same way within their roles. Every choice of dress, colour, trim, figure, hat and season for any named woman is reconstructed; no garment of any resident is claimed, and the bodies' garment shapes are unchanged.
+
+**1812 and 1835:** A garment whose record's words name a check, stripe, ticking, calico, print or sprig is drawn with that figure, its mean colour held to the record's own colour. Where the words give one colour, the figure's colour and every figure's scale are seeded reconstructions. The one drawn woman of 1835 is unchanged.
+
+**Basis:** Eleven dated Costume Institute garments and hats of 1899–1905 (the Met, open access; `data/sources/met_ci_*`, listed in `docs/RESEARCH/finery-3553/README.md`) with the existing lady's references (`met_ci_1902_black_wool_suit`, `loc_detroit_1904_easter_crowds_fifth_avenue`, `loc_johnston_1905_fairbanks_cornerstone_address`). None shows Chicago or anyone drawn here; they are cross-checks for the kinds of trimming and cloth, never traced or sampled.
+
+**How to resolve:** A photograph or record of a named resident's dress replaces her reconstructed one. New garment shapes (pouched bodice, bishop sleeves, trains, coats and furs) need new canonical pieces.
+
+**Ticket:** T-3553.
+**Recorded:** 2026-11-14.

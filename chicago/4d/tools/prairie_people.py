@@ -12,6 +12,8 @@ import json
 import math
 from pathlib import Path
 
+import finery_1904
+
 ROOT = Path(__file__).resolve().parents[1]
 LIBERTY = 'L-prairie-people-3548'
 CHILD_LIBERTY = 'L-prairie-younger-3550'
@@ -89,7 +91,25 @@ ASSETS = {'gentleman': 'glessner_john_j_1904', 'lady': 'glessner_frances_m_1904'
 CHILD_HEIGHT = {'child_boy_1904': 1.208, 'child_girl_1904': 1.205, 'child_toddler_1904': .905, 'teen_boy_1904': 1.65, 'teen_girl_1904': 1.59}
 ASSETS.update({k: k for k in CHILD_HEIGHT})
 
-def dress_for(pid, role):
+def dress_for(pid, role, age=None):
+    # T-3553: the women and girls of the houses each dressed as her own, by season, with the
+    # trimming, cloth and hats of the years (tools/finery_1904.py, liberty L-finery-3553).
+    fine = None
+    if role == 'lady':
+        fine = finery_1904.lady(pid, age)
+    elif role == 'cook':
+        fine = finery_1904.cook(pid, None)
+    elif role == 'companion':
+        fine = finery_1904.companion(pid, None)
+    elif role == 'maid':
+        fine = finery_1904.maid(pid, None)
+    elif role in ('teen_girl_1904', 'child_girl_1904'):
+        fine = finery_1904.girl(pid, role)
+    if fine:
+        rec = {'asset': ASSETS[role], **fine}
+        rec['hide'] = sorted(set(rec.get('hide', []) + (['market_basket', 'basket_cloth'] if role == 'companion' else [])))
+        rec.update(grade='reconstructed', liberty=finery_1904.LIBERTY, sources=finery_1904.SOURCES)
+        return rec
     if role in CHILD_HEIGHT:
         palette = PALETTE + [('cream', [.40, .36, .28]), ('blue', [.13, .20, .28]), ('rose', [.30, .16, .18])]
         name, rgb = choose(pid, 'cloth', palette)
@@ -308,10 +328,13 @@ def generate():
         elif status not in ('collective', 'existing', 'household_care') and (age is None or age >= 2):
             item.update(asset_id=ASSETS[role], body_presentation=sex, casting_grade='reconstructed', role=role)
             outputs[f'data/humans/variation/looks/{pid}.json'] = looks_for(p, sex, portraits.get(pid) or stand_ins.get(pid))
-            dresses[pid] = dress_for(pid, role)
+            dresses[pid] = dress_for(pid, role, age)
             if pid in stand_ins and stand_ins[pid].get('dress'):
+                # The stand-in portrait's own dress, all year: no dealt finery or season dresses
+                # over it (T-3553); her hat is still the made one.
                 own = stand_ins[pid]['dress']
-                dresses[pid] = {**dresses[pid], 'colours': {**dresses[pid]['colours'], **own['colours']}, 'worn': own['worn'],
+                dealt = {k: v for k, v in dresses[pid].items() if k not in ('finery', 'seasons')}
+                dresses[pid] = {**dealt, 'colours': {**dealt['colours'], **own['colours']}, 'worn': own['worn'],
                                 **({'collar': own['collar']} if own.get('collar') else {})}
         if status == 'ready':
             inside.append({'person': pid, 'name': p['name'], 'home': row['lives_at'], 'door': row['lives_at'] + ':front',

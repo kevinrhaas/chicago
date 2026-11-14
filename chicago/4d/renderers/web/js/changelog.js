@@ -1,4 +1,13 @@
 export const CHANGELOG = [ // newest first
+  { v: 2985, ts: '2026-11-14T23:19:18.084Z', date: 'Nov 14, 2026, 5:19 PM CT', title: 'Prairie Avenue\'s ladies dress in their own fine, seasonal clothes', kind: 'feature',
+    items: [
+      'Every lady of 1904 has her own dress: silk afternoon dresses, white lingerie dresses, walking suits, velvets and shirtwaists.',
+      'Lace yokes and cuffs, ribbon and velvet bands, braid, tucks, flounces, jet beading, stripes, dots and damask.',
+      'Picture hats, straw sailors and toques, trimmed with ostrich plumes, silk flowers and bows.',
+      'Each changes with the season: light summer silks and whites, suits for spring and fall, velvets in winter.',
+      'Maids, cooks, companions and girls are varied too; the cook\'s print dress and checked apron show their print and check.',
+      'In 1812 the calico gowns, checked kerchiefs and striped petticoats show their prints, checks and stripes.',
+    ] },
   { v: 2984, ts: '2026-11-14T22:16:08.193Z', date: 'Nov 14, 2026, 4:16 PM CT', title: 'Mr. Glessner waits at his front door when a jaunt starts', kind: 'fix',
     items: [
       'Starting the Glessner Household jaunt from the home page (either grade version) left John Glessner talking from inside the house: he stood at his mark but was never drawn.',
