@@ -148,6 +148,30 @@ const angleOff = (a, b) => Math.abs(((a - b + 540) % 360) - 180);
   assert.deepEqual(events.at(-1), [null, 'input']);
   intent.clear();
 
+  // T-3553 (the owner, 2026-11-13: "wait until they get outside for us to land"): someone
+  // still in their doorway is not seen by `locate` (main.js), so Follow waits where the
+  // visitor stands, facing the door, writes nothing, and starts once they are out.
+  let inDoorway = true;
+  const doorFollow = createFollow({ walker, walk, locate: (id) => (id === 'frances' && !inDoorway ? person : null),
+    onChange: (st, why) => events.push([st?.personId ?? null, why, st?.waitLeft ?? null]) });
+  assert.equal(doorFollow.start('frances', { wait: 45 }), true, 'waits for her to come out');
+  assert(events.at(-1)[1] === 'start' && events.at(-1)[2] > 0, 'started waiting');
+  const stood = { e: walker.state.e, n: walker.state.n, yaw: walker.state.yaw };
+  for (let i = 0; i < 90; i++) {
+    assert.equal(doorFollow.steer(dt, intent), false, 'nothing steered while she is in the doorway');
+    walker.update(dt, intent); doorFollow.afterWalk(intent);
+  }
+  assert(near(walker.state.e, stood.e) && near(walker.state.n, stood.n) && near(walker.state.yaw, stood.yaw), 'the visitor stays put outside');
+  inDoorway = false;
+  assert.equal(doorFollow.steer(dt, intent), true);
+  assert.deepEqual(events.at(-1).slice(0, 2), ['frances', 'found'], 'out: followed from here');
+  doorFollow.afterWalk(intent);
+  // Back in by her door: on its way she is gone from Follow, which stops at the door.
+  inDoorway = true;
+  doorFollow.steer(dt, intent);
+  assert.equal(doorFollow.active, false); assert.equal(events.at(-1)[1], 'gone', 'not followed into the house');
+  console.log('follow: waits outside while they are in their doorway, then follows; stops at their door going in PASS');
+
   // A person still loading is waited for; then followed; then lost.
   let loaded = false;
   const w2 = mkWalker(0, -5);
@@ -319,16 +343,24 @@ const angleOff = (a, b) => Math.abs(((a - b + 540) % 360) - 180);
       door: { id: 'ann_house:front', step: { e: 50, n: 0 }, outward_deg: 90 }, start: () => { home.started++; return { ok: true }; } };
     return home.plan;
   } };
-  const make = (blockedAt = () => false, driverAnchor = () => null) => Function('api', 'jauntRuntime', 'travel', 'router', 'hud', 'destinations', 'openBusiness', 'openBuilding',
+  // A drawn box about Ann's porch (the model's frame is the world's here: x = e, z = -n), and
+  // what her house builds outside its walls (house-barriers.js) out to e 56.
+  const box = { min: [44, 0, -3], max: [55.5, 9, 3] };
+  const THREE = { Vector3: class { constructor(x, y, z) { Object.assign(this, { x, y, z }); } applyMatrix4() { return this; } } };
+  const buildingsFake = { matrixOf: (id) => (id === 'ann_house' ? { clone: () => ({ invert: () => null }) } : null) };
+  const make = (blockedAt = () => false, driverAnchor = () => null, { barrier = () => false, bounds = {} } = {}) => Function('api', 'jauntRuntime', 'travel', 'router', 'hud', 'destinations', 'openBusiness', 'openBuilding',
     'personInTown', 'atHome', 'footprints', 'footprintCentre', 'blockLoop', 'BLOCK_WAYS', 'walkDoing', 'loaded', 'YEAR', 'sunHour',
+    'buildingBounds', 'buildings', 'THREE', 'BODY_R_M',
     body + '\nreturn goToTarget;')(
     { townTransport: { driverAnchorForPerson: driverAnchor, cancelDriverApproaches() {}, requestDriverApproach: () => ({ cancel() {} }) },
-      humans: { external: () => null, get: (id) => (id === 'mary' ? figure : null) }, days,
+      humans: { external: () => null, get: (id) => (id === 'mary' || id === 'kate' ? figure : null) }, days,
+      houseBarriers: { near: (e, n) => barrier(e, n) },
       atHome: (id) => (id === 'ann' ? { structure: 'ann_house', name: 'Ann' } : null) }, null,
     { go: (t, cb) => { visits.push([t, cb]); return t; } }, { blockedAt }, { say(x) { said.push(x); }, setPanel() {}, selectTab() {} },
     { resolve: () => stand, byId: () => null }, () => {}, () => {},
     (id) => (id === 'mary' ? figure : null), (id) => (id === 'ann' ? { structure: 'ann_house', name: 'Ann' } : null),
-    [], () => null, () => null, {}, () => 'x', { scene: { id: '1904' } }, 1904, () => 14);
+    [], () => null, () => null, {}, () => 'x', { scene: { id: '1904' } }, 1904, () => 14,
+    bounds, buildingsFake, THREE, 0.3);
   const go = make();
   const t = go({ kind: 'person', id: 'mary' });
   assert.equal(t.kind, 'intersection');
@@ -359,7 +391,23 @@ const angleOff = (a, b) => Math.abs(((a - b + 540) % 360) - 180);
   assert.equal(home.started, 1); assert.equal(then, 1, 'then Follow starts');
   assert(said.includes('Ann steps out for an errand round the block'), said.join(' | '));
   assert.equal(make(() => true)({ kind: 'person', id: 'ann', label: 'Ann' }).kind, 'structure', 'no clear stand at the door: to the house');
-  console.log('goToTarget: beside a standing figure facing them, router-guarded; card addresses go home; someone at home met at their door and brought out (T-3573) PASS');
+  // T-3553 (the owner, 2026-11-13, Find on Mrs. Grey: "its a inside 3d space that you cant see
+  // what is going on"): never a stand in what her house builds before its door, nor inside its
+  // drawn shape where a stand outside it is clear.
+  const porch = make(() => false, () => null, { barrier: (e) => e < 56.2 })({ kind: 'person', id: 'ann', label: 'Ann' });
+  assert(near(porch.local_e, 57) && near(porch.yaw_deg, 270), `off the porch the router does not know: ${porch.local_e}`);
+  const shell = make(() => false, () => null, { bounds: { ann_house: { ...box, max: [57.5, 9, 3] } } })({ kind: 'person', id: 'ann', label: 'Ann' });
+  assert(near(shell.local_e, 59) && near(shell.local_n, 0), `outside the house's drawn shape: ${shell.local_e}`);
+  const court = make(() => false, () => null, { bounds: { ann_house: { min: [0, 0, -99], max: [99, 9, 99] } } })({ kind: 'person', id: 'ann', label: 'Ann' });
+  assert(near(court.local_e, 55), 'a court door, all of it in its box: the box is a preference');
+  // Someone in their doorway (going out or in): waited for outside that door, facing it, not
+  // set down beside them in it.
+  days.doorway = (id) => (id === 'kate' ? { id: 'kate_house:front', structure: 'kate_house', step: { e: 10, n: 10 }, outward_deg: 180, dir: 'out' } : null);
+  const waitAt = go({ kind: 'person', id: 'kate', label: 'Kate', then: () => { then++; } });
+  assert(near(waitAt.local_e, 10) && near(waitAt.local_n, 5) && near(waitAt.yaw_deg, 0), `before her door, facing it: ${JSON.stringify(waitAt)}`);
+  visits.at(-1)[1].onArrive(); assert.equal(then, 2, 'then Follow (which waits for her to be out)');
+  delete days.doorway;
+  console.log('goToTarget: beside a standing figure facing them, router-guarded; card addresses go home; someone at home met at their door and brought out (T-3573); door stands off porches and outside the house, a doorway waited at PASS');
 }
 
 // ---- person-card.js offers Follow for someone in town ------------------------------------

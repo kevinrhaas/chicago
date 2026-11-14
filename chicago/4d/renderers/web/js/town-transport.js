@@ -14,7 +14,7 @@ function audioAnchors(root, vehicle, horse) {
     return { x: p.x, y: p.y, z: p.z };
   };
   // The ordinary 250ms audio read needs only mechanical anchors. Hoof bones are
-  // sampled lazily by the enabled 1812 frame path, never by unrelated door audio.
+  // sampled lazily by the enabled hoof frame path (every year since T-3587), never by unrelated door audio.
   return { harness: point(horse.root), wagon: point(vehicle),
     get hoof() { return horse.audioHoofState?.() ?? null; } };
 }

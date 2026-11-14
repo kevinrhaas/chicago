@@ -129,7 +129,8 @@ export function createDrivenAssemblyLoader({ sceneId, people, profiles = [], hum
         }
       },
       audioHoofState() {
-        if (sceneId !== '1812' || teamDisposed || !group.visible || horses.some(h => !h.support)) return null;
+        // T-3587: every year's driven team is heard hoof by hoof (was 1812 only).
+        if (teamDisposed || !group.visible || horses.some(h => !h.support)) return null;
         group.updateWorldMatrix(true, true);
         return { epoch: `${hoofAssembly}:${hoofEpoch}`, horses: horses
           .filter(h => h.root.visible && Object.values(h.hoofNodes).every(n => n?.isBone))
